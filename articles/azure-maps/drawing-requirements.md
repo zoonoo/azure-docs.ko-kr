@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791574"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242477"
 ---
 # <a name="drawing-package-requirements"></a>그리기 패키지 요구 사항
 
@@ -20,7 +21,7 @@ ms.locfileid: "84791574"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-그리기 패키지에는 DWG 형식으로 저장된 그리기가 포함되어 있으며, 이는 [Autodesk,Inc의 상표](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12)인 Autodesk AutoCAD® 소프트웨어의 기본 파일 형식입니다.
+그리기 패키지에는 Autodesk의 AutoCAD® 소프트웨어, [Autodesk, i n c](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).의 상표에 대 한 네이티브 파일 형식인 DWG 형식으로 저장 된 드로잉이 포함 되어 있습니다.
 
 그리기 패키지에서 그리기를 생성할 CAD 소프트웨어를 선택할 수 있습니다.  
 
@@ -209,11 +210,11 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 | 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
-|levelName    |string    |true |    설명이 포함된 수준 이름입니다. 다음은 그 예입니다.  1층, 로비, 장애인 주차 공간, 지하실 등입니다.|
+|levelName    |문자열    |true |    설명이 포함된 수준 이름입니다. 다음은 그 예입니다.  1층, 로비, 장애인 주차 공간, 지하실 등입니다.|
 |ordinal | integer |    true | 서수는 수준의 세로 순서를 결정하는 데 사용됩니다. 모든 시설에는 서수가 0인 수준이 있어야 합니다. |
 |heightAboveFacilityAnchor | numeric | false |    앵커의 수준 높이 (미터)입니다. |
 | verticalExtent | numeric | false | 바닥에서 천장까지의 수준 높이(두께)입니다(미터 단위). |
-|filename |    string |    true |    건물 수준에 대한 CAD 그리기의 파일 시스템 경로입니다. 건물의 zip 파일의 루트에 대한 상대 경로여야 합니다. |
+|filename |    문자열 |    true |    건물 수준에 대한 CAD 그리기의 파일 시스템 경로입니다. 건물의 zip 파일의 루트에 대한 상대 경로여야 합니다. |
 
 ### <a name="georeference"></a>georeference
 
@@ -221,7 +222,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    시설 그리기의 원점에 대한 위도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다.|
 |lon    |numeric|    true|    시설 그리기의 원점에 대한 경도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다. |
-|angle|    numeric|    true|   진북 및 그리기의 세로(Y) 축 사이의 시계 방향 각도(도)입니다.   |
+|angle|    numeric|    true|   진정한 북쪽 및 드로잉의 세로 (Y) 축 사이의 시계 방향 각도 (도)입니다.   |
 
 ### <a name="dwglayers"></a>dwgLayers
 
@@ -241,7 +242,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 | 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
-|unitName    |string    |true    |이 `unitProperty` 레코드와 연결할 단위의 이름입니다. `unitName`과 일치하는 레이블이 `unitLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다. |
+|unitName    |문자열    |true    |이 `unitProperty` 레코드와 연결할 단위의 이름입니다. `unitName`과 일치하는 레이블이 `unitLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다. |
 |categoryName|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
 |navigableBy| 문자열 배열 |    false    |단위를 트래버스할 수 있는 탐색 에이전트의 유형을 나타냅니다. 예를 들어 "보행자"입니다. 이 속성은 길찾기 기능을 알려줍니다.  허용되는 값은 `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hiredAuto`, `bus`, `railcar`, `emergency`, `ferry`, `boat` 및 `disallowed`입니다.|
 |routeThroughBehavior|    문자열|    false    |단위에 대한 경로 통과 동작입니다. 허용되는 값은 `disallowed`, `allowed` 및 `preferred`입니다. 기본값은 `allowed`입니다.|
@@ -250,7 +251,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 |nameSubtitle|    문자열    |false|    단위의 부제목입니다. |
 |addressRoomNumber|    문자열|    false|    단위의 방/단위/콘도/스위트룸 번호입니다.|
 |verticalPenetrationCategory|    문자열|    false| 이 속성을 정의하면 결과 기능이 단위가 아닌 VRT(수직 침투)가 됩니다. VRT를 사용하여 위 또는 아래 수준의 다른 VRT 기능으로 이동할 수 있습니다. 수직 침투는 [범주](https://aka.ms/pa-indoor-spacecategories) 이름입니다. 이 속성을 정의하면 categoryName 속성이 verticalPenetrationCategory로 재정의됩니다. |
-|verticalPenetrationDirection|    문자열|    false    |`verticalPenetrationCategory`가 정의되면 필요에 따라 유효한 이동 방향을 정의합니다. 허용되는 값은 `lowToHigh`, `highToLow`, `both` 및 `closed`입니다. 기본값은 `both`입니다.|
+|verticalPenetrationDirection|    문자열|    false    |`verticalPenetrationCategory`가 정의되면 필요에 따라 유효한 이동 방향을 정의합니다. 허용되는 값은 `lowToHigh`, `highToLow`, `both` 및 `closed`입니다. 기본값은 `both`여야 합니다.|
 | nonPublic | bool | false | 단위가 대중에게 공개되는지 여부를 나타냅니다. |
 | isRoutable | bool | false | `false`로 설정되면 단위를 이동하거나 탐색할 수 없습니다. 기본값은 `true`입니다. |
 | isOpenArea | bool | false | 단위에 연결 된 열을 요구 하지 않고 탐색 에이전트가 단위를 입력할 수 있습니다. 기본적으로이 값은 여가 `true` 없는 단위의 경우로 설정 되 고, 여는 단위에 대해로 설정 됩니다 `false` .  `isOpenArea`을 (를) 시작 `false` 하지 않고 단위에서 수동으로로 설정 하면 경고가 발생 합니다. 그 이유는 탐색 에이전트가 결과 단위에 연결할 수 없기 때문입니다.|
@@ -261,7 +262,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 | 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
-|zoneName        |string    |true    |`zoneProperty` 레코드와 연결할 영역의 이름입니다. `zoneName`과 일치하는 레이블이 영역의 `zoneLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다.  |
+|zoneName        |문자열    |true    |`zoneProperty` 레코드와 연결할 영역의 이름입니다. `zoneName`과 일치하는 레이블이 영역의 `zoneLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다.  |
 |categoryName|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
 |zoneNameAlt|    문자열|    false    |영역의 대체 이름입니다.  |
 |zoneNameSubtitle|    문자열 |    false    |영역의 부제목입니다. |

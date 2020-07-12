@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc19c5ea7a45f78110818bc6c8cea8fbe25981c0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70072315"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243446"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management의 정책
 
@@ -58,7 +58,7 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 </policies> 
 ```
 
-요청을 처리하는 동안 오류가 발생하는 경우 `inbound`, `backend` 또는 `outbound` 섹션에 남아 있는 모든 단계를 건너뛰고 `on-error` 섹션의 문을 바로 실행합니다. `on-error` 섹션에 정책 문을 배치하면 `context.LastError` 속성을 사용하여 오류를 검토할 수 있으며 `set-body` 정책을 사용하여 오류 응답을 검사하고 사용자 지정할 수 있습니다. 그리고 오류가 발생하면 수행할 작업을 구성할 수 있습니다. 기본 제공 단계에 대한 오류 코드와 정책 문을 처리하는 동안 발생할 수 있는 오류에 대한 오류 코드가 있습니다. 자세한 내용은 [API Management 정책에서 오류 처리](/azure/api-management/api-management-error-handling-policies)를 참조하세요.
+요청을 처리하는 동안 오류가 발생하는 경우 `inbound`, `backend` 또는 `outbound` 섹션에 남아 있는 모든 단계를 건너뛰고 `on-error` 섹션의 문을 바로 실행합니다. `on-error` 섹션에 정책 문을 배치하면 `context.LastError` 속성을 사용하여 오류를 검토할 수 있으며 `set-body` 정책을 사용하여 오류 응답을 검사하고 사용자 지정할 수 있습니다. 그리고 오류가 발생하면 수행할 작업을 구성할 수 있습니다. 기본 제공 단계에 대한 오류 코드와 정책 문을 처리하는 동안 발생할 수 있는 오류에 대한 오류 코드가 있습니다. 자세한 내용은 [API Management 정책에서 오류 처리](./api-management-error-handling-policies.md)를 참조하세요.
 
 ## <a name="how-to-configure-policies"></a><a name="scopes"> </a>정책을 구성하는 방법
 
@@ -66,13 +66,13 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 
 ## <a name="policy-reference"></a>정책 참조
 
-정책 문 및 해당 설정에 대한 전체 목록은 [정책 참조](api-management-policy-reference.md)를 참조하세요.
+정책 문 및 해당 설정에 대한 전체 목록은 [정책 참조](./api-management-policies.md)를 참조하세요.
 
 ## <a name="policy-samples"></a>정책 샘플
 
 자세한 코드 예제는 [정책 샘플](policy-samples.md)을 참조하세요.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="apply-policies-specified-at-different-scopes"></a>서로 다른 범위에서 지정된 정책 적용
 
@@ -118,17 +118,17 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 + [API 변환](transform-api.md)
-+ [정책 참조](api-management-policy-reference.md)(정책 문 및 해당 설정에 대한 전체 목록)
++ [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
 + [정책 샘플](policy-samples.md)   
 
-[Policy Reference]: api-management-policy-reference.md
+[Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md
-[Operation]: api-management-howto-add-operations.md
+[Operation]: ./mock-api-responses.md
 
-[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: ./api-management-advanced-policies.md
+[Control flow]: ./api-management-advanced-policies.md#choose
+[Set variable]: ./api-management-advanced-policies.md#set-variable
+[Policy expressions]: ./api-management-policy-expressions.md
 
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png

@@ -5,14 +5,15 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692566"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245928"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting에 대한 진단 및 성능 모니터링
-Reliable ServiceRemoting 런타임에서는 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 ServiceRemoting이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
+Reliable ServiceRemoting 런타임에서는 [성능 카운터](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1)를 내보냅니다. 이러한 정보는 ServiceRemoting이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
 
 
 ## <a name="performance-counters"></a>성능 카운터
@@ -25,7 +26,7 @@ Reliable ServiceRemoting 런타임은 다음과 같은 성능 카운터 범주�
 
 앞의 각 범주마다 하나 이상의 카운터가 있습니다.
 
-Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 애플리케이션을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)는 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
+Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) 애플리케이션을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)는 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
 
 ### <a name="performance-counter-instance-names"></a>성능 카운터 인스턴스 이름
 많은 수의 ServiceRemoting 서비스 또는 파티션이 있는 클러스터에는 성능 카운터 인스턴스 수가 많습니다. 성능 카운터 인스턴스 이름은 성능 카운터 인스턴스가 연결된 특정 파티션 및 서비스 메서드(있는 경우)를 식별하는 데 도움이 될 수 있습니다.
@@ -35,7 +36,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
+*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
 
 *ServiceReplicaOrInstanceId*는 성능 카운터 인스턴스와 연결된 Service Fabric 복제본/인스턴스 ID의 문자열 표현입니다.
 
@@ -56,7 +57,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 *ServiceRuntimeMethodId*는 내부 용도에 맞게 패브릭 서비스 런타임에 의해 생성되는 32비트 정수의 문자열 표현입니다. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
-*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
+*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
 
 *ServiceReplicaOrInstanceId*는 성능 카운터 인스턴스와 연결된 Service Fabric 복제본/인스턴스 ID의 문자열 표현입니다.
 
@@ -91,4 +92,4 @@ Reliable Service 런타임은 서비스 메서드의 실행과 관련하여 다�
 
 ## <a name="next-steps"></a>다음 단계
 * [예제 코드](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
-* [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [PerfView의 EventSource 공급자](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

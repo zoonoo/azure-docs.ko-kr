@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 84800f978790a114b80c415a5e5e3dad77eaf8da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122305"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244263"
 ---
-# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용 (미리 보기)
+# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
 
 현재 [Azure Active Directory (AZURE AD)와 AKS 간에 통합 인증](managed-aad.md)을 이미 활용할 수 있습니다. 이 통합을 사용 하도록 설정 하면 고객이 Azure AD 사용자, 그룹 또는 서비스 사용자를 Kubernetes RBAC의 제목으로 사용할 수 있습니다. 자세한 내용은 [여기](azure-ad-rbac.md)를 참조 하세요.
 이 기능을 사용 하면 Kubernetes에 대 한 사용자 id와 자격 증명을 별도로 관리할 필요가 없습니다. 그러나 Azure RBAC 및 Kubernetes RBAC를 별도로 설정 하 고 관리 해야 합니다. 인증, 권한 부여 및 RBAC에 대 한 자세한 내용은 [여기](concepts-identity.md)를 참조 하세요. AKS.
@@ -122,7 +122,7 @@ Azure AD 통합 및 Azure RBAC for Kubernetes 권한 부여를 사용 하 여 �
 AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다.
 
 
-| 역할                                | Description  |
+| 역할                                | 설명  |
 |-------------------------------------|--------------|
 | Azure Kubernetes 서비스 RBAC 뷰어  | 읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. `Secrets`비밀의 콘텐츠를 읽으면 네임 스페이스의 ServiceAccount 자격 증명에 액세스할 수 있으므로이 역할은 보기를 허용 하지 않습니다 .이는 네임 스페이스의 모든 ServiceAccount로 API 액세스를 허용 합니다 (권한 상승 형태).  |
 | Azure Kubernetes 서비스 RBAC 기록기 | 네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 `Secrets` 네임 스페이스의 ServiceAccount로 pod를 액세스 하 고 실행할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |
@@ -215,7 +215,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> 위의 단계를 수행 하려면 [Azure Kubernetes Service 클러스터 사용자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) 기본 제공 역할이 필요 합니다.
+> 위의 단계를 수행 하려면 [Azure Kubernetes Service 클러스터 사용자](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) 기본 제공 역할이 필요 합니다.
 
 이제 kubectl을 사용 하 여 클러스터의 노드를 나열할 수 있습니다. 처음 실행 하는 경우 로그인 해야 하며 후속 명령에서 해당 액세스 토큰을 사용 합니다.
 

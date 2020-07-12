@@ -13,11 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857164"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246812"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
 이 문서에서는 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 요구 사항 및 디자인 단계에서 고려해 야 하는 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -154,10 +155,10 @@ Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사�
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 스푸핑               | 인증        | [HTTPS 연결이 필요](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio)합니다. |
 | 변조              | 무결성             | SSL/TLS 인증서의 유효성을 검사 합니다. SSL/TLS를 사용 하는 응용 프로그램은 연결 하는 엔터티의 x.509 인증서를 완전히 확인 해야 합니다. Azure Key Vault 인증서를 사용 하 여 [x509 인증서를 관리](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates)합니다. |
-| 거부            | 거부 없음       | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
+| 부인            | 부인 방지       | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
 | 정보 공개 | 기밀성       | [미사용](../fundamentals/encryption-atrest.md) 및 [전송 중](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit)에 중요 한 데이터를 암호화 합니다. |
-| 서비스 거부      | 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../../virtual-network/ddos-protection-overview.md#next-steps)은 DDoS 공격에 대 한 방어를 제공 합니다.|
-| 권한 높이기 | 권한 부여         | Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)를 사용 합니다.|
+| 서비스 거부      | 사용 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../../virtual-network/ddos-protection-overview.md#next-steps)은 DDoS 공격에 대 한 방어를 제공 합니다.|
+| 권한 상승 | 권한 부여         | Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)를 사용 합니다.|
 
 ### <a name="reduce-your-attack-surface"></a>공격 노출 영역 축소
 
@@ -208,7 +209,7 @@ SDL의 확인 단계에서 [공격 노출 영역 검토를 수행](secure-develo
 
 사용자 지정 코드 대신 플랫폼에서 제공하는 인증 및 권한 부여 메커니즘을 사용합니다. 이는 사용자 지정 인증 코드를 개발 하는 데 오류가 발생할 수 있기 때문입니다. 상업적 코드 (예: Microsoft)는 광범위 하 게 보안을 검토 하는 경우가 많습니다. [Azure AD(Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md)는 ID 및 액세스 관리를 위한 Azure 솔루션입니다. 이러한 Azure AD 도구 및 서비스는 보안 개발에 도움이 됩니다.
 
-- 개발자가 사용자를 안전 하 게 로그인 하는 앱을 빌드하는 데 사용 하는 클라우드 id 서비스는 [AZURE ad id 플랫폼 (개발자 용 AZURE ad)](../../active-directory/develop/about-microsoft-identity-platform.md) 입니다. Azure AD는 다중 테 넌 트 앱을 개발 하려고 하는 단일 테 넌 트, LOB (기간 업무) 앱 및 개발자를 빌드하는 개발자를 지원 합니다. 기본 로그인 외에도, Azure AD를 사용 하 여 빌드된 앱은 Azure AD 플랫폼에서 빌드된 Microsoft Api 및 사용자 지정 Api를 호출할 수 있습니다. Azure AD id 플랫폼은 OAuth 2.0 및 Openid connect Connect와 같은 업계 표준 프로토콜을 지원 합니다.
+- [Microsoft id 플랫폼](/azure/active-directory/develop/) 은 개발자가 사용자를 안전 하 게 로그인 하는 앱을 빌드하는 데 사용 하는 구성 요소 집합입니다. 플랫폼은 다중 테 넌 트 앱을 개발 하려고 하는 단일 테 넌 트, LOB (기간 업무) 앱 및 개발자를 빌드하는 개발자를 지원 합니다. 기본 로그인 외에도 Microsoft id 플랫폼을 사용 하 여 빌드한 앱은 Microsoft Api 및 사용자 지정 Api를 호출할 수 있습니다. Microsoft id 플랫폼은 OAuth 2.0 및 Openid connect Connect와 같은 업계 표준 프로토콜을 지원 합니다.
 
 - [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) 는 응용 프로그램을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리 하는 방법을 사용자 지정 하 고 제어 하는 데 사용할 수 있는 id 관리 서비스입니다. 여기에는 iOS, Android 및 .NET 용으로 개발 된 응용 프로그램이 포함 됩니다. Azure AD B2C는 고객 id를 보호 하면서 이러한 작업을 수행할 수 있도록 합니다.
 

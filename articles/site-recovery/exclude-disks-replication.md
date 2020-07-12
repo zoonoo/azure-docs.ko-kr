@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용하여 복제에서 디스크 제외
 description: Azure Site Recovery를 사용하여 Azure로 복제할 때 디스크를 제외하는 방법.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 5a8d52bd0cc40b45f92039c537a1b3b63f0bec61
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 778bb030d9768c5fbe1cb8aeba0becfc68c00629
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135692"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245401"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>재해 복구에서 디스크 제외
 
@@ -105,29 +105,35 @@ Disk3 | G:\ | 사용자 데이터베이스 2
 1. 명령 프롬프트를 엽니다.
 2. 명령 프롬프트에서 SQL Server를 복구 모드에서 실행합니다.
 
-        Net start MSSQLSERVER /f / T3608
+    ```console
+    Net start MSSQLSERVER /f / T3608
+    ```
 
 3. 다음 sqlcmd를 실행하여 tempdb 경로를 새 경로로 바꿉니다.
 
-        sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;     
-        GO      
-        ALTER DATABASE tempdb       
-        MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO      
-        ALTER DATABASE tempdb       
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
-        GO
-
+    ```sql
+    sqlcmd -A -S SalesDB        **Use your SQL DBname**
+    USE master;     
+    GO      
+    ALTER DATABASE tempdb       
+    MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
+    GO      
+    ALTER DATABASE tempdb       
+    MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
+    GO
+    ```
 
 4. Microsoft SQL Server 서비스를 중지합니다.
 
-        Net stop MSSQLSERVER
+    ```console
+    Net stop MSSQLSERVER
+    ```
+
 5. Microsoft SQL Server 서비스를 시작합니다.
 
-        Net start MSSQLSERVER
-
-
+    ```console
+    Net start MSSQLSERVER
+    ```
 
 ### <a name="vmware-vms-disks-during-failback-to-original-location"></a>VMware VM: 원래 위치로 장애 복구 중 디스크
 

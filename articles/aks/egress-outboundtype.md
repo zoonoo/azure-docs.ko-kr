@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: d98261629f9e1612966bf74084ae0e0fa70d3605
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829258"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244449"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>사용자 정의 경로를 사용 하 여 클러스터 송신 사용자 지정
 
@@ -75,9 +75,9 @@ AKS 리소스 공급자는 SLB(표준 Load Balancer)를 배포합니다. 부하 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 네트워킹 UDR 개요](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 참조하세요.
+[Azure 네트워킹 UDR 개요](../virtual-network/virtual-networks-udr-overview.md)를 참조하세요.
 
-[경로 테이블을 만들거나 변경하거나 삭제하는 방법](https://docs.microsoft.com/azure/virtual-network/manage-route-table)을 참조하세요.
+[경로 테이블을 만들거나 변경하거나 삭제하는 방법](../virtual-network/manage-route-table.md)을 참조하세요.
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

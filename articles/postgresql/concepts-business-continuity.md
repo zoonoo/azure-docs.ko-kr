@@ -6,11 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981925"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245309"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버를 사용한 비즈니스 연속성 개요
 
@@ -22,7 +23,7 @@ Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
-| **기능** | **기본** | **일반 용도** | **메모리에 최적화** |
+| **기능** | **Basic** | **일반 용도** | **메모리 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |
@@ -51,6 +52,11 @@ Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 
 
 ## <a name="cross-region-read-replicas"></a>영역 간 읽기 복제본
 지역 간 읽기 복제본을 사용 하 여 비즈니스 연속성 및 재해 복구 계획을 향상할 수 있습니다. 읽기 복제본은 PostgreSQL의 물리적 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다. 복제본 읽기, 사용 가능한 지역 및 장애 조치 (failover) 방법에 대 한 자세한 내용은 [복제본 읽기 개념 문서](concepts-read-replicas.md)를 참조 하세요. 
+
+## <a name="faq"></a>FAQ
+### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>어디에서 고객 데이터를 저장 Azure Database for PostgreSQL?
+기본적으로 Azure Database for PostgreSQL는 배포 된 지역에서 고객 데이터를 이동 하거나 저장 하지 않습니다. 그러나 고객은 필요에 따라 지역 [중복 백업을](concepts-backup.md#backup-redundancy-options) 사용 하도록 선택 하거나 다른 지역에 데이터를 저장 하기 위해 [지역 간 읽기 복제본](concepts-read-replicas.md#cross-region-replication) 을 만들 수 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for PostgreSQL의 자동화된 백업](concepts-backup.md)에 대해 자세히 알아봅니다. 

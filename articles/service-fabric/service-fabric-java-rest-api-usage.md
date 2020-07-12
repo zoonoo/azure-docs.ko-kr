@@ -5,11 +5,12 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c093958b9a8c5a21cb6996db891705ec8c3d21ab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75451677"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246285"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
 
@@ -124,5 +125,4 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
     * 사후 비동기 프로그래밍을 사용하고 RAW REST 응답을 처리하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Service Fabric REST API](https://docs.microsoft.com/rest/api/servicefabric/)에 대해 알아봅니다.
-
+* [Service Fabric REST API](/rest/api/servicefabric/)에 대해 알아봅니다.

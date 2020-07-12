@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bbd461072a137bf32874805e5c6171d1102ef0c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84013586"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245350"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -683,12 +684,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>프로비전 에이전트가 Azure AD 테넌트와 통신할 수 있고 에이전트에 필요한 포트를 차단하는 방화벽이 없는지 확인하려면 어떻게 할까요?
 
-또한 온-프레미스 네트워크에서 [커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)를 열어 필요한 모든 포트가 열려 있는지 확인할 수 있습니다. 녹색 확인 표시가 많을수록 복원력이 더 뛰어난 것입니다.
-
-이 도구로 올바른 결과를 얻을 수 있는지 확인하려면 다음을 수행합니다.
-
-* 프로비전 에이전트를 설치한 서버의 브라우저에서 도구를 엽니다.
-* 프로비전 에이전트에 적용할 수 있는 프록시 또는 방화벽이 이 페이지에도 적용되었는지 확인합니다. 이 작업은 Internet Explorer의 **설정 -> 인터넷 옵션 -> 연결 -> LAN 설정**으로 이동하여 수행할 수 있습니다. 이 페이지에 “LAN에 사용자 프록시 서버 사용” 필드가 표시됩니다. 이 확인란을 선택하고 “주소” 필드에 프록시 주소를 입력합니다.
+[필요한 모든 포트가](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) 열려 있는지 여부도 확인할 수 있습니다.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>단일 프로비전 에이전트가 여러 AD 도메인을 프로비전하도록 구성할 수 있나요?
 

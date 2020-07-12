@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420894"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244041"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>AKS 에이전트 노드 호스트 OS에 대 한 보안 강화
 
-AKS (Azure Kubernetes Service)는 SOC, ISO, PCI DSS 및 HIPAA 표준과 호환 되는 보안 서비스입니다. 이 문서에서는 AKS 가상 컴퓨터 호스트에 적용 되는 보안 강화에 대해 설명 합니다. AKS 보안에 대 한 자세한 내용은 [AKS (Azure Kubernetes Service)의 응용 프로그램 및 클러스터에 대 한 보안 개념](https://docs.microsoft.com/azure/aks/concepts-security)을 참조 하세요.
+AKS (Azure Kubernetes Service)는 SOC, ISO, PCI DSS 및 HIPAA 표준과 호환 되는 보안 서비스입니다. 이 문서에서는 AKS 가상 컴퓨터 호스트에 적용 되는 보안 강화에 대해 설명 합니다. AKS 보안에 대 한 자세한 내용은 [AKS (Azure Kubernetes Service)의 응용 프로그램 및 클러스터에 대 한 보안 개념](./concepts-security.md)을 참조 하세요.
 
 > [!Note]
 > 이 문서는 AKS의 Linux 에이전트로만 범위가 한정 됩니다.
@@ -32,7 +32,7 @@ AKS 클러스터는 AKS에서 실행 되는 컨테이너에 활용 되는 보안
 
 * AKS은 기본적으로 보안에 최적화 된 호스트 OS를 제공 합니다. 대체 운영 체제를 선택 하는 옵션은 없습니다.
 
-* Azure는 AKS 가상 머신 호스트에 일일 패치 (보안 패치 포함)를 적용 합니다. 이러한 패치 중 일부는 다시 부팅 해야 하지만 다른 패치는 그렇지 않습니다. 필요에 따라 AKS VM 호스트 재부팅을 예약 해야 합니다. AKS 패치를 자동화 하는 방법에 대 한 지침은 [AKS 노드 패치](https://docs.microsoft.com/azure/aks/node-updates-kured)를 참조 하세요.
+* Azure는 AKS 가상 머신 호스트에 일일 패치 (보안 패치 포함)를 적용 합니다. 이러한 패치 중 일부는 다시 부팅 해야 하지만 다른 패치는 그렇지 않습니다. 필요에 따라 AKS VM 호스트 재부팅을 예약 해야 합니다. AKS 패치를 자동화 하는 방법에 대 한 지침은 [AKS 노드 패치](./node-updates-kured.md)를 참조 하세요.
 
 ## <a name="what-is-configured"></a>구성 된 항목
 
@@ -85,8 +85,8 @@ AKS 클러스터는 AKS에서 실행 되는 컨테이너에 활용 되는 보안
 
 AKS 보안에 대 한 자세한 내용은 다음 문서를 참조 하세요. 
 
-[AKS(Azure Kubernetes Service)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+[AKS(Azure Kubernetes Service)](./intro-kubernetes.md)
 
-[AKS 보안 고려 사항](https://docs.microsoft.com/azure/aks/concepts-security)
+[AKS 보안 고려 사항](./concepts-security.md)
 
-[AKS 모범 사례](https://docs.microsoft.com/azure/aks/best-practices)
+[AKS 모범 사례](./best-practices.md)

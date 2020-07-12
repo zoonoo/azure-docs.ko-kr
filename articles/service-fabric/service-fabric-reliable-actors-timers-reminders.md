@@ -3,11 +3,12 @@ title: Reliable Actors 타이머 및 미리 알림
 description: 각각의 사용 시기에 대 한 지침을 포함 하 여 Service Fabric Reliable Actors에 대 한 타이머 및 미리 알림을 소개 합니다.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a464fda3f8b0f293efd36cf0a064156bd7795d44
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996364"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245951"
 ---
 # <a name="actor-timers-and-reminders"></a>행위자 타이머 및 미리 알림
 행위자는 타이머 또는 미리 알림을 등록하여 정기적인 작업을 예약할 수 있습니다. 이 문서에서는 타이머와 미리 알림을 사용하는 방법을 보여 주고 둘 간의 차이점을 설명합니다.
@@ -129,7 +130,7 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 > [!NOTE]
 > 미리 알림의 안정성은 행위자 상태 공급자가 제공 하는 상태 안정성 보증에 연결 됩니다. 즉, 상태 지 속성이 *없음*으로 설정 된 행위자의 경우 장애 조치 (failover) 후 미리 알림이 발생 하지 않습니다.
 
-미리 알림을 등록 하려면 [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) 다음 예제와 같이 행위자가 기본 클래스에 제공 된 메서드를 호출 합니다.
+미리 알림을 등록 하려면 [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) 다음 예제와 같이 행위자가 기본 클래스에 제공 된 메서드를 호출 합니다.
 
 ```csharp
 protected override async Task OnActivateAsync()

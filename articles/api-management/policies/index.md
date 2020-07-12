@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: b8f97bb27b3eb45c731b20ad51e35fde9b6a394a
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126903"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242970"
 ---
 # <a name="api-management-policy-samples"></a>API Management 정책 샘플
 
@@ -34,7 +34,7 @@ ms.locfileid: "85126903"
 | [외부 권한 부여자를 사용하여 요청 권한 부여](./authorize-request-using-external-authorizer.md)                                                   | API 액세스를 보호하기 위해 외부 권한 부여자를 사용하는 방법을 보여줍니다.                                                                                                                                                               |
 | [Google OAuth 토큰을 사용하여 액세스 권한 부여](./use-google-as-oauth-token-provider.md)                                            | OAuth 토큰 공급자로 Google을 사용하여 엔드포인트에 대한 액세스 권한을 부여하는 방법을 보여 줍니다.                                                                                                                                    |
 | [Application Gateway 사용 시 IP 주소 필터링](./filter-ip-addresses-when-using-appgw.md) | Application Gateway를 통해 API Management 인스턴스를 액세스할 때 정책에서 IP를 필터링하는 방법을 보여줍니다.
-| [공유 액세스 서명 생성 및 Azure Storage에 요청 전달](./generate-shared-access-signature.md)                  | 식을 사용하여 [공유 액세스 서명](../../storage/storage-dotnet-shared-access-signature-part-1.md)을 생성하고 rewrite-uri 정책을 사용하여 Azure Storage로 요청을 전달하는 방법을 보여 줍니다. |
+| [공유 액세스 서명 생성 및 Azure Storage에 요청 전달](./generate-shared-access-signature.md)                  | 식을 사용하여 [공유 액세스 서명](../../storage/common/storage-sas-overview.md)을 생성하고 rewrite-uri 정책을 사용하여 Azure Storage로 요청을 전달하는 방법을 보여 줍니다. |
 | [AAD에서 OAuth2 액세스 토큰 가져오기 및 백 엔드로 전달](./use-oauth2-for-authorization.md)                             | 게이트웨이와 백 엔드 간의 권한 부여에 OAuth2를 사용하는 예를 제공합니다. AAD에서 액세스 토큰을 가져오고 백 엔드로 전달하는 방법을 보여 줍니다.                                                    |
 | [요청 보내기 정책을 사용하여 SAP 게이트웨이에서 X-CSRF 토큰 가져오기](./get-x-csrf-token-from-sap-gateway.md)                           | 대부분의 API에서 사용되는 X-CSRF 패턴을 구현하는 방법을 보여 줍니다. 이 예제는 SAP 게이트웨이에만 해당됩니다.                                                                                                                           |
 | [본문 크기에 따라 요청 라우팅](./route-requests-based-on-size.md)                                            | 본문 크기에 따라 요청을 라우팅하는 방법을 보여 줍니다.                                                                                                                                                       |

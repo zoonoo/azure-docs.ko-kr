@@ -4,11 +4,12 @@ description: Azure Service Fabric 신뢰할 수 있는 상태 관리자 및 신�
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
-ms.openlocfilehash: 5f7b3a4d43d35f0d2965dd33c8f69143f4b3a8f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7d0970918b0fc60f1208b5997d696a57e5bc698
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938919"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245112"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
 
@@ -18,7 +19,7 @@ ms.locfileid: "76938919"
 
 * **원자성**: 트랜잭션은 작업의 원자 단위여야 합니다. 즉, 모든 데이터 수정 작업이 수행되거나, 또는 하나도 수행되지 않아야 합니다.
 * **일관성**: 완료되면 트랜잭션은 모든 데이터를 일관된 상태로 유지해야 합니다. 모든 내부 데이터 구조는 트랜잭션이 끝날 때 정확해야 합니다.
-* **격리**: 동시 트랜잭션에 의한 수정은 다른 동시 트랜잭션과 격리되어야 합니다. [ITransaction](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) 내에서 작업에 사용 되는 격리 수준은 작업을 수행 하는 [IReliableState](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) 에 의해 결정 됩니다.
+* **격리**: 동시 트랜잭션에 의한 수정은 다른 동시 트랜잭션과 격리되어야 합니다. [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) 내에서 작업에 사용 되는 격리 수준은 작업을 수행 하는 [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) 에 의해 결정 됩니다.
 * **내구성**: 트랜잭션이 완료되면 그 영향은 영구적으로 시스템에 적용됩니다. 수정은 시스템에 오류가 발생한 경우에도 지속됩니다.
 
 ### <a name="isolation-levels"></a>격리 수준
@@ -48,7 +49,7 @@ ms.locfileid: "76938919"
 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐는 모두 *쓰기를 읽도록*지원 합니다.
 즉, 특정 트랜잭션 내 모든 쓰기가 동일한 트랜잭션에 속하는 다음 읽기에 표시됩니다.
 
-## <a name="locks"></a>잠금
+## <a name="locks"></a>Locks
 
 신뢰할 수 있는 컬렉션의 모든 트랜잭션은 엄격한 2단계 잠금을 구현합니다. 트랜잭션은 중단 또는 커밋으로 인해 종료되어야만 확보한 잠금을 해제합니다.
 
@@ -67,9 +68,9 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 
 잠금 호환성 매트릭스는 다음 테이블에서 확인할 수 있습니다.
 
-| 요청 \ 부여 | 없음 | 공유됨 | 업데이트 | 단독 |
+| 요청 \ 부여 | 없음 | 공유 | 업데이트 | 단독 |
 | --- |:--- |:--- |:--- |:--- |
-| 공유됨 |충돌 없음 |충돌 없음 |충돌 |충돌 |
+| 공유 |충돌 없음 |충돌 없음 |충돌 |충돌 |
 | 업데이트 |충돌 없음 |충돌 없음 |충돌 |충돌 |
 | 단독 |충돌 없음 |충돌 |충돌 |충돌 |
 
@@ -84,4 +85,4 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 * [Reliable Services 알림](service-fabric-reliable-services-notifications.md)
 * [Reliable Services 백업 및 복원(재해 복구)](service-fabric-reliable-services-backup-restore.md)
 * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
-* [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

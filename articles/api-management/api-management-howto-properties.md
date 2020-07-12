@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 28a9f37f58a6c056bf23a85fcf2641f407988891
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649204"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243480"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에서 명명된 값을 사용하는 방법
 
@@ -33,7 +34,7 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 ![명명된 값](./media/api-management-howto-properties/named-values.png)
 
-명명된 값에는 리터럴 문자열 및 [정책 식](/azure/api-management/api-management-policy-expressions)이 포함될 수 있습니다. 예를 들어 `Expression` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `Credential` 명명된 값은 비밀로 표시되므로 해당 값은 기본적으로 표시되지 않습니다.
+명명된 값에는 리터럴 문자열 및 [정책 식](./api-management-policy-expressions.md)이 포함될 수 있습니다. 예를 들어 `Expression` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `Credential` 명명된 값은 비밀로 표시되므로 해당 값은 기본적으로 표시되지 않습니다.
 
 | Name       | 값                      | 비밀 | 태그들          |
 | ---------- | -------------------------- | ------ | ------------- |
@@ -109,8 +110,8 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 -   정책 작업에 대한 자세한 정보
     -   [API Management의 정책](api-management-howto-policies.md)
-    -   [정책 참조](/azure/api-management/api-management-policies)
-    -   [정책 식](/azure/api-management/api-management-policy-expressions)
+    -   [정책 참조](./api-management-policies.md)
+    -   [정책 식](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445511"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243412"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
 
@@ -25,7 +26,7 @@ ms.locfileid: "85445511"
 > [!NOTE]
 > 이 기능은 API Management **개발자**, **기본**, **표준**및 **프리미엄** 계층에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 
@@ -145,7 +146,7 @@ API 및 개발자 콘솔을 나타내기 위해 두 개의 응용 프로그램�
 
 1. **V1** 끝점을 사용 하는 경우 **리소스**라는 body 매개 변수를 추가 합니다. 이 매개 변수 값에 대해 백 엔드 앱의 **응용 프로그램 ID** 를 사용 합니다. 
 
-1. **V2** 끝점을 사용 하는 경우 **기본 범위** 필드에서 백 엔드 앱에 대해 만든 범위를 사용 합니다. 또한 [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) `2` [응용 프로그램 매니페스트에서](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)속성의 값을로 설정 해야 합니다.
+1. **V2** 끝점을 사용 하는 경우 **기본 범위** 필드에서 백 엔드 앱에 대해 만든 범위를 사용 합니다. 또한 [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) `2` [응용 프로그램 매니페스트에서](../active-directory/develop/reference-app-manifest.md)속성의 값을로 설정 해야 합니다.
 
 1. 다음으로 클라이언트 자격 증명을 지정합니다. 이러한 자격 증명은 client-app에 대한 자격 증명입니다.
 
@@ -167,7 +168,7 @@ OAuth 2.0 권한 부여 서버를 구성했으므로 개발자 콘솔에서 Azur
 
 1. API Management 인스턴스로 이동하고 **API**로 이동합니다.
 
-1. 보호하려는 API를 선택합니다. 예: `Echo API`.
+1. 보호하려는 API를 선택합니다. 정의합니다(예: `Echo API`).
 
 1. **설정**으로 이동합니다.
 
@@ -202,7 +203,7 @@ OAuth 2.0 권한 부여 서버를 구성했으므로 개발자 콘솔에서 Azur
 
 그러나 누군가가 토큰 또는 잘못 된 토큰 없이 API를 호출 하는 경우는 어떻게 되나요? 예를 들어 헤더 없이 API를 호출 하려고 하면 `Authorization` 호출이 계속 진행 됩니다. API Management가 이 시점에는 액세스 토큰의 유효성을 검사하지 않기 때문입니다. 백 엔드 API에 `Authorization` 헤더만 전달합니다.
 
-[JWT 유효성 검사](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT) 정책을 사용 하 여 들어오는 각 요청의 액세스 토큰에 대 한 유효성을 검사 하 여 API Management에서 요청을 사전 인증 합니다. 요청에 유효한 토큰이 없으면 API Management에서 차단합니다. 예를 들어의 정책 섹션에 다음 정책을 추가 합니다 `<inbound>` `Echo API` . 액세스 토큰에서 audience 클레임을 확인하고 토큰이 유효하지 않은 경우 오류 메시지를 반환합니다. 정책을 구성하는 방법에 대한 내용은 [정책 설정 또는 편집](https://docs.microsoft.com/azure/api-management/set-edit-policies)을 참조하세요.
+[JWT 유효성 검사](./api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용 하 여 들어오는 각 요청의 액세스 토큰에 대 한 유효성을 검사 하 여 API Management에서 요청을 사전 인증 합니다. 요청에 유효한 토큰이 없으면 API Management에서 차단합니다. 예를 들어의 정책 섹션에 다음 정책을 추가 합니다 `<inbound>` `Echo API` . 액세스 토큰에서 audience 클레임을 확인하고 토큰이 유효하지 않은 경우 오류 메시지를 반환합니다. 정책을 구성하는 방법에 대한 내용은 [정책 설정 또는 편집](./set-edit-policies.md)을 참조하세요.
 
 
 ```xml
@@ -227,7 +228,7 @@ OAuth 2.0 권한 부여 서버를 구성했으므로 개발자 콘솔에서 Azur
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 및 OAuth2.0](../active-directory/develop/authentication-scenarios.md)에 대해 자세히 알아봅니다.
+- [Azure Active Directory 및 OAuth2.0](../active-directory/develop/authentication-vs-authorization.md)에 대해 자세히 알아봅니다.
 - API Management에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 를 확인합니다.
 - 백 엔드 서비스를 보호하는 다른 방법은 [상호 인증서 인증](./api-management-howto-mutual-certificates.md)을 참조하세요.
 - [API Management 서비스 인스턴스를 만듭니다](./get-started-create-service-instance.md).

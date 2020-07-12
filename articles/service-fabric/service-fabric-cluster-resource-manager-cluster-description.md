@@ -5,11 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259476"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246557"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>클러스터를 사용 하 여 Service Fabric 클러스터 설명 리소스 관리자
 Azure Service Fabric의 클러스터 리소스 관리자 기능은 클러스터를 설명 하는 몇 가지 메커니즘을 제공 합니다.
@@ -35,7 +36,7 @@ Azure 환경에서 Service Fabric는 환경에서 제공 하는 장애 도메인
 > [!WARNING]
 > Service Fabric에 제공 되는 장애 도메인 정보는 정확 해야 합니다. 예를 들어 Service Fabric 클러스터의 노드가 5 개의 실제 호스트에서 실행 되는 10 개의 가상 머신 내에서 실행 되 고 있다고 가정해 보겠습니다. 이 경우 10개의 가상 머신이 있지만 별도의 5개(최상위 수준) 장애 도메인만 있습니다. 실제 호스트에 장애가 발생 하는 경우 Vm에서 조정 된 오류가 발생 하므로 동일한 실제 호스트를 공유 하면 Vm은 동일한 루트 장애 도메인을 공유 합니다.  
 >
-> Service Fabric 노드의 장애 도메인이 변경 되지 않을 것으로 예상 합니다. [HA vm](https://technet.microsoft.com/library/cc967323.aspx)과 같이 vm의 고가용성을 보장 하는 다른 메커니즘은 Service Fabric와 충돌을 일으킬 수 있습니다. 이러한 메커니즘은 한 호스트에서 다른 호스트로 Vm의 투명 한 마이그레이션을 사용 합니다. VM 내에서 실행 중인 코드를 다시 구성 하거나 알리지 않습니다. 따라서 Service Fabric 클러스터를 실행 하는 환경으로 *지원 되지 않습니다* . 
+> Service Fabric 노드의 장애 도메인이 변경 되지 않을 것으로 예상 합니다. [HA vm](/previous-versions/system-center/virtual-machine-manager-2008-r2/cc967323(v=technet.10))과 같이 vm의 고가용성을 보장 하는 다른 메커니즘은 Service Fabric와 충돌을 일으킬 수 있습니다. 이러한 메커니즘은 한 호스트에서 다른 호스트로 Vm의 투명 한 마이그레이션을 사용 합니다. VM 내에서 실행 중인 코드를 다시 구성 하거나 알리지 않습니다. 따라서 Service Fabric 클러스터를 실행 하는 환경으로 *지원 되지 않습니다* . 
 >
 > Service Fabric은 사용되는 유일한 고가용성 기술이어야 합니다. Live VM 마이그레이션과 San과 같은 메커니즘은 필요 하지 않습니다. 이러한 메커니즘을 Service Fabric와 함께 사용 하면 응용 프로그램의 가용성과 안정성이 _줄어듭니다_ . 그 이유는 추가 복잡성을 소개 하 고, 실패의 중앙 소스를 추가 하 고, Service Fabric의 기능과 충돌 하는 안정성 및 가용성 전략을 사용 하기 때문입니다. 
 >
@@ -346,7 +347,7 @@ Azure에서 호스트 되는 Service Fabric 배포에서 장애 도메인과 업
 
 특정 워크 로드에 대 한 하드웨어를 대상으로 하는 좋은 예는 거의 모든 n 계층 아키텍처입니다. 특정 컴퓨터는 응용 프로그램의 프런트 엔드 또는 API 서비스 측 역할을 하며 클라이언트나 인터넷에 노출 됩니다. 종종 서로 다른 하드웨어 리소스를 사용하는 다양한 머신에서 컴퓨팅 또는 스토리지 계층의 작업을 처리합니다. 이러한 컴퓨터는 대개 클라이언트 또는 인터넷에 직접 노출되지 _않습니다_. 
 
-경우에 따라 특정 워크 로드를 특정 하드웨어 구성에서 실행 해야 하는 경우도 있습니다. Service Fabric 예를 들어:
+경우에 따라 특정 워크 로드를 특정 하드웨어 구성에서 실행 해야 하는 경우도 있습니다. Service Fabric 예:
 
 * 기존 n 계층 응용 프로그램이 Service Fabric 환경으로 "리프트 및 이동" 되었습니다.
 * 성능, 규모 또는 보안 격리를 위해 특정 하드웨어에서 작업을 실행 해야 합니다.
@@ -374,7 +375,7 @@ Node 속성에 지정 된 값은 문자열, 부울 또는 부호 있는 long 일
 
 * 특정 문을 만들기 위한 조건부 검사:
 
-  | 인수를 제거합니다. | Syntax |
+  | 인수를 제거합니다. | 구문 |
   | --- |:---:|
   | "같음" | "==" |
   | "다음과 같지 않음" | "!=" |
@@ -385,7 +386,7 @@ Node 속성에 지정 된 값은 문자열, 부울 또는 부호 있는 long 일
 
 * 그룹화 및 논리 연산에 대 한 부울 문:
 
-  | 인수를 제거합니다. | Syntax |
+  | 인수를 제거합니다. | 구문 |
   | --- |:---:|
   | "및" | "&&" |
   | "또는" | "&#124;&#124;" |

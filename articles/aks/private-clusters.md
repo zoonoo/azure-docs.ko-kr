@@ -4,12 +4,12 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 6/18/2020
-ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374528"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244228"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -83,7 +83,7 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>사용자 지정 DNS를 사용하는 허브 및 스포크
 
-[허브 및 스포크 아키텍처](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)는 일반적으로 Azure에서 네트워크를 배포하는 데 사용됩니다. 이러한 배포 중 상당수에서 스포크 VNet의 DNS 설정은 중앙 DNS 전달자를 참조하여 온-프레미스 및 Azure 기반 DNS 확인을 허용하도록 구성됩니다. 이러한 네트워킹 환경에 AKS 클러스터를 배포하는 경우, 고려해야 할 몇 가지 특별한 사항들이 있습니다.
+[허브 및 스포크 아키텍처](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)는 일반적으로 Azure에서 네트워크를 배포하는 데 사용됩니다. 이러한 배포 중 상당수에서 스포크 VNet의 DNS 설정은 중앙 DNS 전달자를 참조하여 온-프레미스 및 Azure 기반 DNS 확인을 허용하도록 구성됩니다. 이러한 네트워킹 환경에 AKS 클러스터를 배포하는 경우, 고려해야 할 몇 가지 특별한 사항들이 있습니다.
 
 ![프라이빗 클러스터 허브 및 스포크](media/private-clusters/aks-private-hub-spoke.png)
 
@@ -116,9 +116,9 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview#limitations
+[private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
 [availability-zones]: availability-zones.md

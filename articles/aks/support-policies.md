@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106988"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243854"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 지원 정책
 
@@ -75,7 +75,7 @@ Microsoft는 다음에 대한 기술 지원을 제공하지 않습니다.
   > Microsoft는 Helm 및 Kured와 같은 타사 오픈 소스 프로젝트에 대한 지원을 제공하도록 최상의 노력을 기울일 수 있습니다. 타사 오픈 소스 도구가 Kubernetes Azure 클라우드 공급자 또는 다른 AKS 관련 버그와 통합되는 경우 microsoft는 Microsoft 설명서의 예제 및 애플리케이션을 지원합니다.
 * 타사의 비공개 소스 소프트웨어. 이 소프트웨어에는 보안 검사 도구와 네트워킹 디바이스 또는 소프트웨어가 포함될 수 있습니다.
 * 다중 클라우드 또는 다중 공급업체 솔루션 관련 문제. 예를 들어 Microsoft는 페더레이션된 다중 퍼블릭 클라우드 공급업체 솔루션 실행과 관련된 문제를 지원하지 않습니다.
-* [AKS 설명서](https://docs.microsoft.com/azure/aks/)에 나열된 것 이외의 네트워크 사용자 지정.
+* [AKS 설명서](./index.yml)에 나열된 것 이외의 네트워크 사용자 지정.
   > [!NOTE]
   > Microsoft는 NSG(네트워크 보안 그룹)와 관련된 문제 및 버그를 지원합니다. 예를 들어 Microsoft 지원은 업데이트에 대한 NSG 실패 또는 예기치 않은 NSG 또는 부하 분산 장치 동작에 대한 질문에 대답할 수 있습니다.
 

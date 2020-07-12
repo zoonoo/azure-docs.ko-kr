@@ -5,11 +5,12 @@ author: alexwun
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fc0239dd18fc7071823a129a7dbc4f102023d66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645670"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246200"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>ImageStoreConnectionString 설정 이해
 
@@ -37,7 +38,7 @@ Service Fabric은 다양한 팀에서 내부 Microsoft 사용을 위한 플랫�
 
 또한 파일 시스템 공급자 또는 Azure Storage 공급자는 여러 클러스터 간에 Image Store를 공유하는 방법으로 사용하면 안됩니다. 그렇지 않으면 각 클러스터에서 충돌하는 데이터를 Image Store에 쓸 수 있으므로 클러스터 구성 데이터가 손상됩니다. 프로비전된 애플리케이션 패키지를 여러 클러스터 간에 공유하려면 [sfpkg][12] 파일을 사용해야 하며, 이 파일은 다운로드 URI와 함께 아무 외부 저장소에 업로드할 수 있습니다.
 
-따라서 ImageStoreConnectionString은 구성할 수 있지만 기본 설정만 사용하면 됩니다. Visual Studio를 통해 Azure에 게시할 경우 매개 변수가 적절하게 자동으로 설정됩니다. Azure에서 호스트된 클러스터에 프로그래밍 방식으로 배포하는 경우 연결 문자열은 항상 "fabric:ImageStore"입니다. 확실하지 않은 경우에도 [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 또는 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest)에서 클러스터 매니페스트를 검색하여 해당 값을 언제든지 확인할 수 있습니다. 온-프레미스 테스트 및 프로덕션 클러스터는 모두 항상 이미지 저장소 서비스 공급자를 사용하도록 구성되어야 합니다.
+따라서 ImageStoreConnectionString은 구성할 수 있지만 기본 설정만 사용하면 됩니다. Visual Studio를 통해 Azure에 게시할 경우 매개 변수가 적절하게 자동으로 설정됩니다. Azure에서 호스트된 클러스터에 프로그래밍 방식으로 배포하는 경우 연결 문자열은 항상 "fabric:ImageStore"입니다. 확실하지 않은 경우에도 [PowerShell](/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](/previous-versions/azure/reference/mt161375(v=azure.100)) 또는 [REST](/rest/api/servicefabric/get-a-cluster-manifest)에서 클러스터 매니페스트를 검색하여 해당 값을 언제든지 확인할 수 있습니다. 온-프레미스 테스트 및 프로덕션 클러스터는 모두 항상 이미지 저장소 서비스 공급자를 사용하도록 구성되어야 합니다.
 
 ### <a name="next-steps"></a>다음 단계
 [PowerShell을 사용하여 애플리케이션 배포 및 제거][10]

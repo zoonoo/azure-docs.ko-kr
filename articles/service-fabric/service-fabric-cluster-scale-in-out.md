@@ -3,12 +3,12 @@ title: Service Fabric 클러스터 확장 또는 축소
 description: 각 노드 형식/가상 머신 확장 집합에 대 한 자동 크기 조정 규칙을 설정 하 여 수요에 맞게 Service Fabric 클러스터의 크기를 조정 합니다. 서비스 패브릭 클러스터에 노드 추가 또는 제거
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c72f8eca9bc054446ceec35448c930098c5f81fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610254"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246489"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>클러스터 규모 확장 또는 규모 감축
 
@@ -24,7 +24,7 @@ ms.locfileid: "85610254"
 가상 머신 확장 집합은 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 컴퓨팅 리소스입니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 머신 확장 집합으로 설정됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. 자세한 내용은 [Service Fabric node types](service-fabric-cluster-nodetypes.md) 문서를 참조 하세요. 클러스터의 Service Fabric 노드 형식은 백 엔드에서 가상 머신 확장 집합으로 구성 되므로 각 노드 형식/가상 머신 확장 집합에 대 한 자동 크기 조정 규칙을 설정 해야 합니다.
 
 > [!NOTE]
-> 사용자의 구독에 이 클러스터를 형성할 새 VM을 추가하기에 충분한 코어가 있어야 합니다. 현재는 모델 유효성 검사가 없으므로 할당량 한도에 도달하면 배포 시간 오류가 발생합니다. 또한 단일 노드 형식은 VMSS당 100개의 노드를 초과할 수 없습니다. 대상 규모를 달성하려면 VMSS를 추가해야 할 수 있으며, 자동 크기 조정은 자동으로 VMSS를 추가할 수 없습니다. 실시간 클러스터 대신 VMSS를 추가하는 것은 어려운 작업이며, 일반적으로 이로 인해 사용자가 생성 시 프로비전된 적절한 노드 형식을 사용하여 새 클러스터를 프로비전합니다. 적절하게 [클러스터 용량을 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)합니다. 
+> 사용자의 구독에 이 클러스터를 형성할 새 VM을 추가하기에 충분한 코어가 있어야 합니다. 현재는 모델 유효성 검사가 없으므로 할당량 한도에 도달하면 배포 시간 오류가 발생합니다. 또한 단일 노드 형식은 VMSS당 100개의 노드를 초과할 수 없습니다. 대상 규모를 달성하려면 VMSS를 추가해야 할 수 있으며, 자동 크기 조정은 자동으로 VMSS를 추가할 수 없습니다. 실시간 클러스터 대신 VMSS를 추가하는 것은 어려운 작업이며, 일반적으로 이로 인해 사용자가 생성 시 프로비전된 적절한 노드 형식을 사용하여 새 클러스터를 프로비전합니다. 적절하게 [클러스터 용량을 계획](./service-fabric-cluster-capacity.md)합니다. 
 > 
 > 
 
@@ -52,7 +52,7 @@ Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale se
 [각 가상 머신 확장 집합에 대해 자동 크기 조정을 설정 하려면](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)다음 지침을 따르세요.
 
 > [!NOTE]
-> 시나리오의 규모에 따라 노드 형식에 골드 또는 실버 [내구성 수준이][durability] 없으면 적절 한 노드 이름으로 [remove-servicefabricnodestate cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) 을 호출 해야 합니다. 청동 내구성의 경우 한 번에 두 개 이상의 노드에서 크기를 조정 하지 않는 것이 좋습니다.
+> 시나리오의 규모에 따라 노드 형식에 골드 또는 실버 [내구성 수준이][durability] 없으면 적절 한 노드 이름으로 [remove-servicefabricnodestate cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate) 을 호출 해야 합니다. 청동 내구성의 경우 한 번에 두 개 이상의 노드에서 크기를 조정 하지 않는 것이 좋습니다.
 > 
 > 
 
@@ -229,7 +229,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Service Fabric Explorer에서 볼 수 있는 동작
-클러스터를 확장 하는 경우 Service Fabric Explorer에는 클러스터의 일부인 노드 수 (가상 머신 확장 집합 인스턴스)가 반영 됩니다.  그러나에서 클러스터의 크기를 조정 하는 경우 적절 한 노드 이름으로 [remove-servicefabricnodestate cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) 를 호출 하지 않는 한 제거 된 노드/v m 인스턴스가 비정상 상태로 표시 됩니다.   
+클러스터를 확장 하는 경우 Service Fabric Explorer에는 클러스터의 일부인 노드 수 (가상 머신 확장 집합 인스턴스)가 반영 됩니다.  그러나에서 클러스터의 크기를 조정 하는 경우 적절 한 노드 이름으로 [remove-servicefabricnodestate cmd](/powershell/module/servicefabric/remove-servicefabricnodestate) 를 호출 하지 않는 한 제거 된 노드/v m 인스턴스가 비정상 상태로 표시 됩니다.   
 
 다음은 이 동작에 대한 설명입니다.
 
@@ -240,7 +240,7 @@ VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵
 1. 클러스터에서 노드 형식에 대해 골드 또는 실버 내구성 수준을 선택하면 인프라 통합이 제공됩니다. 그런 다음 확장할 때 FM (시스템 서비스) 상태에서 노드를 자동으로 제거 합니다.
 [여기에서 내구성 수준에 대한 세부 정보](service-fabric-cluster-capacity.md)
 
-2. VM 인스턴스가에서 확장 된 후에는 [remove-servicefabricnodestate cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate)을 호출 해야 합니다.
+2. VM 인스턴스가에서 확장 된 후에는 [remove-servicefabricnodestate cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate)을 호출 해야 합니다.
 
 > [!NOTE]
 > 가용성을 유지하고 상태를 보존하기 위해 서비스 패브릭 클러스터에서 특정 수의 노드가 항상 작동 상태를 유지해야 하며, 이 숫자를 "유지 관리 쿼럼"이라고 합니다. 따라서 [상태 전체 백업](service-fabric-reliable-services-backup-restore.md)을 처음으로 수행하는 경우 외에는 일반적으로 클러스터의 모든 컴퓨터를 종료하는 것은 안전하지 않습니다.

@@ -4,11 +4,12 @@ description: X.509 인증서를 사용 하 여 보호 되는 Service Fabric 클�
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324745"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246710"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Service Fabric 클러스터의 인증서 관리
 
@@ -75,8 +76,8 @@ Service Fabric 클러스터의 보안 방식은 "클러스터 소유자가이를
 ![주체 일반 이름으로 선언 된 인증서 프로 비전][Image2]
 
 ### <a name="certificate-enrollment"></a> 인증서 등록
-이 항목은 Key Vault [설명서](../key-vault/create-certificate.md)에 자세히 설명 되어 있습니다. 연속성 및 간편한 참조를 위해 여기에 개요를 포함 하 고 있습니다. Azure를 컨텍스트로 계속 사용 하 고, Azure Key Vault을 비밀 관리 서비스로 사용 하 여, 권한 있는 인증서 요청자는 자격 증명 모음 소유자가 부여 하는 자격 증명 모음에 대해 적어도 인증서 관리 권한을 가져야 합니다. 그러면 요청자는 다음과 같이 인증서에 등록 합니다.
-    - 인증서의 도메인/주체, 원하는 발급자, 키 유형과 길이, 원하는 키 사용 등을 지정 하는 Azure Key Vault (AKV)에서 인증서 정책을 만듭니다. 자세한 내용은 [Azure Key Vault의 인증서를](../key-vault/certificate-scenarios.md) 참조 하세요. 
+이 항목은 Key Vault [설명서](../key-vault/certificates/create-certificate.md)에 자세히 설명 되어 있습니다. 연속성 및 간편한 참조를 위해 여기에 개요를 포함 하 고 있습니다. Azure를 컨텍스트로 계속 사용 하 고, Azure Key Vault을 비밀 관리 서비스로 사용 하 여, 권한 있는 인증서 요청자는 자격 증명 모음 소유자가 부여 하는 자격 증명 모음에 대해 적어도 인증서 관리 권한을 가져야 합니다. 그러면 요청자는 다음과 같이 인증서에 등록 합니다.
+    - 인증서의 도메인/주체, 원하는 발급자, 키 유형과 길이, 원하는 키 사용 등을 지정 하는 Azure Key Vault (AKV)에서 인증서 정책을 만듭니다. 자세한 내용은 [Azure Key Vault의 인증서를](../key-vault/certificates/certificate-scenarios.md) 참조 하세요. 
     - 위에 지정 된 정책을 사용 하 여 동일한 자격 증명 모음에 인증서를 만듭니다. 이를 통해 자격 증명 모음 개체로 키 쌍을 생성 하 고, 개인 키로 서명 된 인증서 서명 요청을 생성 하 고, 서명 하기 위해 지정 된 발급자에 게 전달 됩니다.
     - 발급자 (인증 기관)가 서명 된 인증서를 사용 하 여 회신 하면 결과가 자격 증명 모음에 병합 되 고 인증서를 다음 작업에 사용할 수 있습니다.
       - {vaultUri}/certificates/{name}: 공개 키와 메타 데이터를 포함 하는 인증서
@@ -209,7 +210,7 @@ Service Fabric의 인증서는 페더레이션 계층의 상호 인증에서 관
 
 모든 후속 인용은 concomitantly를 배포 해야 합니다. 즉, 재생 후 분석 및 설명을 위해 개별적으로 나열 됩니다.
 
-먼저 사용자 할당 id를 정의 합니다 (기본값은 예제로 포함 됨). 최신 정보는 [공식 설명서](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity) 를 참조 하세요.
+먼저 사용자 할당 id를 정의 합니다 (기본값은 예제로 포함 됨). 최신 정보는 [공식 설명서](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity) 를 참조 하세요.
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -240,7 +241,7 @@ Service Fabric의 인증서는 페더레이션 계층의 상호 인증에서 관
   ]}
 ```
 
-그런 다음 자격 증명 모음 비밀에 대 한이 id 액세스를 부여 합니다. 현재 정보는 [공식 설명서](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy) 를 참조 하세요.
+그런 다음 자격 증명 모음 비밀에 대 한이 id 액세스를 부여 합니다. 현재 정보는 [공식 설명서](/rest/api/keyvault/vaults/updateaccesspolicy) 를 참조 하세요.
 ```json
   "resources":
   [{
@@ -265,7 +266,7 @@ Service Fabric의 인증서는 페더레이션 계층의 상호 인증에서 관
 다음 단계에서는 다음 작업을 수행 합니다.
   - 사용자 할당 id를 가상 머신 확장 집합에 할당 합니다.
   - 관리 id를 만들 때와 자격 증명 모음에 대 한 액세스 권한을 부여 하는 결과에 대 한 가상 머신 확장 집합 종속성을 선언 합니다.
-  - 시작 시 관찰 된 인증서를 검색 하도록 요구 하는 KeyVault VM 확장을 선언 합니다 ([공식 설명서](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows)).
+  - 시작 시 관찰 된 인증서를 검색 하도록 요구 하는 KeyVault VM 확장을 선언 합니다 ([공식 설명서](../virtual-machines/extensions/key-vault-windows.md)).
   - KVVM 확장에 따라 Service Fabric VM 확장의 정의를 업데이트 하 고 클러스터 인증서를 일반 이름으로 변환 합니다. 즉, 동일한 리소스의 범위에 포함 되기 때문에 단일 단계에서 이러한 변경을 수행 하 게 됩니다.
 
 ```json
@@ -419,12 +420,12 @@ Service Fabric의 인증서는 페더레이션 계층의 상호 인증에서 관
 #### <a name="certificate-linking-explained"></a>인증서 연결, 설명
 KVVM 확장의 ' linkOnRenewal ' 플래그를 발견 했을 수 있으며 false로 설정 되어 있습니다. 여기서는이 플래그에 의해 제어 되는 동작과 클러스터 기능에 미치는 영향을 자세히 설명 합니다. 참고이 동작은 Windows에만 해당 됩니다.
 
-[정의](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows#extension-schema)에 따라:
+[정의](../virtual-machines/extensions/key-vault-windows.md#extension-schema)에 따라:
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
 
-TLS 연결을 설정 하는 데 사용 되는 인증서는 일반적으로 S-채널 보안 지원 공급자를 통해 [핸들로 획득](https://docs.microsoft.com/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) 됩니다. 즉, 클라이언트는 인증서 자체의 개인 키에 직접 액세스 하지 않습니다. S-채널은 인증서 확장 ([CERT_RENEWAL_PROP_ID](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)) 형식으로 자격 증명의 리디렉션 (연결)을 지원 합니다 .이 속성이 설정 된 경우 해당 값은 ' 갱신 ' 인증서의 지문을 나타내며 S-채널은 연결 된 인증서를 대신 로드 하려고 시도 합니다. 실제로는 ' 최종 ' 인증서 (갱신 표시 안 함)를 사용 하 여 종료 될 때까지이 링크 된 (및 비순환) 목록을 트래버스 합니다. 이 기능은 신중 하 게 사용 되는 경우 만료 된 인증서 (예를 들어)로 인해 발생 하는 가용성 손실에 대해 크게 완화 됩니다. 다른 경우에는 진단 및 완화 하기 어려운 중단의 원인일 수 있습니다. S 채널은 주체, 발급자 또는 클라이언트에서 결과 인증서의 유효성 검사에 참여 하는 기타 특정 특성과 관계 없이 갱신 속성의 인증서 트래버스를 실행 합니다. 실제로 결과 인증서에 연결 된 개인 키가 없거나 키가 해당 소비자로 작동 하지 않을 수 있습니다. 
+TLS 연결을 설정 하는 데 사용 되는 인증서는 일반적으로 S-채널 보안 지원 공급자를 통해 [핸들로 획득](/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) 됩니다. 즉, 클라이언트는 인증서 자체의 개인 키에 직접 액세스 하지 않습니다. S-채널은 인증서 확장 ([CERT_RENEWAL_PROP_ID](/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)) 형식으로 자격 증명의 리디렉션 (연결)을 지원 합니다 .이 속성이 설정 된 경우 해당 값은 ' 갱신 ' 인증서의 지문을 나타내며 S-채널은 연결 된 인증서를 대신 로드 하려고 시도 합니다. 실제로는 ' 최종 ' 인증서 (갱신 표시 안 함)를 사용 하 여 종료 될 때까지이 링크 된 (및 비순환) 목록을 트래버스 합니다. 이 기능은 신중 하 게 사용 되는 경우 만료 된 인증서 (예를 들어)로 인해 발생 하는 가용성 손실에 대해 크게 완화 됩니다. 다른 경우에는 진단 및 완화 하기 어려운 중단의 원인일 수 있습니다. S 채널은 주체, 발급자 또는 클라이언트에서 결과 인증서의 유효성 검사에 참여 하는 기타 특정 특성과 관계 없이 갱신 속성의 인증서 트래버스를 실행 합니다. 실제로 결과 인증서에 연결 된 개인 키가 없거나 키가 해당 소비자로 작동 하지 않을 수 있습니다. 
  
 연결을 사용 하는 경우 자격 증명 모음에서 관찰 된 인증서를 검색할 때 KeyVault VM 확장에서 일치 하는 기존 인증서를 찾아 갱신 확장 속성을 통해 연결 합니다. 일치는 SAN (주체 대체 이름)을 기반으로 하는 (독점적) 이며 아래 예시로 작동 합니다.
 다음과 같이 기존의 두 인증서를 가정 합니다. A: CN = "Alice의 액세서리", SAN = {"alice.universalexports.com"}, 갱신 = ' ' B: CN = "Bob의 bits", SAN = {"bob.universalexports.com", "bob.universalexports.net"}, 갱신 = ' '
@@ -491,4 +492,3 @@ Microsoft 내부 Pki의 경우 공인 발급자를 검색 하는 데 사용 되�
 
 [Image1]:./media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
 [Image2]:./media/security-cluster-certificate-mgmt/certificate-journey-common-name.png
-

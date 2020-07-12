@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 459360e72c2d35cafedb0291642bf081bfcad96c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 077dc0e8048da39253729d56f1e812cccc69500c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103996"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242919"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 브라우저에서 [Azure Portal](https://aka.ms/hybridmachineportal)로 이동합니다.
 
-1. **머신 - Azure Arc** 페이지의 왼쪽 위에서 **추가**를 선택하거나 가운데 창의 아래쪽에서 **머신 만들기 - Azure Arc** 옵션을 선택합니다. 
+1. **머신 - Azure Arc** 페이지의 왼쪽 위에서 **추가**를 선택하거나 가운데 창의 아래쪽에서 **머신 만들기 - Azure Arc** 옵션을 선택합니다.
 
 1. **메서드 선택** 페이지에서 **대화형 스크립트를 사용하여 머신 추가** 타일, **스크립트 생성**을 차례로 선택합니다.
 
@@ -49,8 +49,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **스크립트 생성** 페이지의 **운영 체제** 드롭다운 목록에서 스크립트를 실행할 운영 체제를 선택합니다.
 
-1. 머신에서 프록시 서버를 통해 통신하여 인터넷에 연결하는 경우 **다음: 프록시 서버**를 선택합니다. 
-1. **프록시 서버** 탭에서 머신에서 프록시 서버와 통신하는 데 사용할 프록시 서버 IP 주소 또는 이름 및 포트 번호를 지정합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다. 
+1. 머신에서 프록시 서버를 통해 통신하여 인터넷에 연결하는 경우 **다음: 프록시 서버**를 선택합니다.
+1. **프록시 서버** 탭에서 머신에서 프록시 서버와 통신하는 데 사용할 프록시 서버 IP 주소 또는 이름 및 포트 번호를 지정합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다.
 1. **검토 + 생성**을 선택합니다.
 
 1. **검토 + 생성** 탭에서 요약 정보를 검토한 다음, **다운로드**을 선택합니다. 그래도 변경해야 하는 경우 **이전**을 선택합니다.
@@ -59,17 +59,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="install-manually"></a>수동 설치
 
-*AzureConnectedMachineAgent.msi* Windows Installer 패키지를 실행하여 Connected Machine 에이전트를 수동으로 설치할 수 있습니다. Microsoft 다운로드 센터에서 최신 버전의 [Windows 에이전트 Windows Installer 패키지](https://aka.ms/AzureConnectedMachineAgent)를 다운로드할 수 있습니다. 
+*AzureConnectedMachineAgent.msi* Windows Installer 패키지를 실행하여 Connected Machine 에이전트를 수동으로 설치할 수 있습니다. Microsoft 다운로드 센터에서 최신 버전의 [Windows 에이전트 Windows Installer 패키지](https://aka.ms/AzureConnectedMachineAgent)를 다운로드할 수 있습니다.
 
-> [!NOTE]
-> * 에이전트를 설치하거나 제거하려면 *관리자* 권한이 있어야 합니다.
-> * 먼저 설치 관리자 패키지를 다운로드하여 대상 서버의 폴더 또는 공유 네트워크 폴더에 복사해야 합니다. 옵션 없이 설치 관리자 패키지를 실행하면 에이전트를 대화형으로 설치하기 위해 수행할 수 있는 설치 마법사가 시작됩니다.
+>[!NOTE]
+>* 에이전트를 설치하거나 제거하려면 *관리자* 권한이 있어야 합니다.
+>* 먼저 설치 관리자 패키지를 다운로드하여 대상 서버의 폴더 또는 공유 네트워크 폴더에 복사해야 합니다. 옵션 없이 설치 관리자 패키지를 실행하면 에이전트를 대화형으로 설치하기 위해 수행할 수 있는 설치 마법사가 시작됩니다.
 
 머신에서 프록시 서버를 통해 서비스와 통신해야 하는 경우 에이전트를 설치한 후에 이 문서의 뒷부분에서 설명하는 명령을 실행해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다.
 
 Windows Installer 패키지에 대한 명령줄 옵션에 익숙하지 않은 경우 [Msiexec 표준 명령줄](/windows/win32/msi/standard-installer-command-line-options) 및 [Msiexec 명령줄 옵션](/windows/win32/msi/command-line-options)을 검토하세요.
 
-예를 들어 `/?` 매개 변수를 사용하여 설치 프로그램을 실행하고 도움말 및 빠른 참조 옵션을 검토합니다. 
+예를 들어 `/?` 매개 변수를 사용하여 설치 프로그램을 실행하고 도움말 및 빠른 참조 옵션을 검토합니다.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
@@ -113,7 +113,7 @@ Restart-Service -Name himds
 
 에이전트가 설치되면 다음 명령을 실행하여 에이전트에서 Azure Arc 서비스와 통신하도록 구성해야 합니다.
 
-`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Linux에서 에이전트 설치 및 유효성 검사
 
@@ -124,7 +124,7 @@ Linux용 Connected Machine 에이전트는 Microsoft [패키지 리포지토리]
 
 필요에 따라 `--proxy "{proxy-url}:{proxy-port}"` 매개 변수를 포함하여 에이전트를 프록시 정보로 구성할 수 있습니다.
 
-또한 이 스크립트에는 지원되는 배포와 지원되지 않는 배포를 식별하는 논리가 포함되어 있으며 설치를 수행하는 데 필요한 권한을 확인합니다. 
+또한 이 스크립트에는 지원되는 배포와 지원되지 않는 배포를 식별하는 논리가 포함되어 있으며 설치를 수행하는 데 필요한 권한을 확인합니다.
 
 다음 예제에서는 에이전트를 다운로드하여 설치합니다.
 
@@ -132,7 +132,7 @@ Linux용 Connected Machine 에이전트는 Microsoft [패키지 리포지토리]
 # Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
+# Install the connected machine agent.
 bash ~/Install_linux_azcmagent.sh
 ```
 
@@ -150,7 +150,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 에이전트가 설치되면 다음 명령을 실행하여 Azure Arc 서비스와 통신하도록 구성합니다.
 
-`azcmagent connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Azure Arc와의 연결 확인
 

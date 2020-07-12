@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674264"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243548"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management 정책에서 오류 처리
 
@@ -50,7 +51,7 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 `on-error` 정책 섹션은 모든 범위에서 사용할 수 있습니다. API 게시자는 이벤트 허브에 오류 기록 또는 호출자에 반환할 새 응답 작성과 같은 사용자 지정 동작을 구성할 수 있습니다.
 
 > [!NOTE]
-> `on-error` 섹션은 기본적으로 정책에 나타나지 않습니다. `on-error` 섹션을 정책에 추가하려면 정책 편집기에서 원하는 정책을 찾아 추가합니다. 정책 구성에 대한 자세한 내용은 [API Management에서 정책](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/)을 참조하세요.
+> `on-error` 섹션은 기본적으로 정책에 나타나지 않습니다. `on-error` 섹션을 정책에 추가하려면 정책 편집기에서 원하는 정책을 찾아 추가합니다. 정책 구성에 대한 자세한 내용은 [API Management에서 정책](./api-management-howto-policies.md)을 참조하세요.
 >
 > `on-error` 섹션이 없는 경우 오류 조건이 발생하면 호출자는 400 또는 500 HTTP 응답 메시지를 수신하게 됩니다.
 
@@ -79,12 +80,12 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 
 오류가 발생 하 고 제어가 정책 섹션으로 이동 하는 경우 `on-error` 오류는 컨텍스트에 저장 됩니다 [. LastError](api-management-policy-expressions.md#ContextVariables) 속성은 섹션의 정책에서 액세스할 수 있습니다 `on-error` . LastError에는 다음 속성이 있습니다.
 
-| 이름       | Type   | 설명                                                                                               | 필요한 공간 |
+| 이름       | 유형   | 설명                                                                                               | 필수 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | string | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.      | 예      |
-| `Reason`   | string | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 예       |
+| `Source`   | 문자열 | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.      | 예      |
+| `Reason`   | 문자열 | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 예       |
 | `Message`  | 문자열 | 사람이 읽을 수 있는 오류 설명입니다.                                                                         | 예      |
-| `Scope`    | string | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 예       |
+| `Scope`    | 문자열 | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 예       |
 | `Section`  | 문자열 | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".      | 예       |
 | `Path`     | 문자열 | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                 | 예       |
 | `PolicyId` | 문자열 | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아니요       |
@@ -188,5 +189,5 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 
 -   [API Management의 정책](api-management-howto-policies.md)
 -   [API 변환](transform-api.md)
--   [정책 참조](api-management-policy-reference.md)(정책 문 및 해당 설정에 대한 전체 목록)
+-   [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
 -   [정책 샘플](policy-samples.md)

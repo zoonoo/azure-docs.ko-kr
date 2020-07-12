@@ -8,14 +8,17 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: d017472715e8fe924a11080fc837ac837f5bd48f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 598a8383350cae98d61b8ab74f7687161d3d33e8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982155"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245295"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 AML 기술
+
+> [!IMPORTANT] 
+> 이 기술은 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 현재 .NET SDK를 지원 하지 않습니다.
 
 **Aml** 스킬을 사용 하면 사용자 지정 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (aml) 모델을 사용 하 여 AI 보강을 확장할 수 있습니다. AML 모델을 [학습 하 고 배포한](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workflow)후 **aml** 기술은이를 AI 보강 통합 합니다.
 
@@ -26,7 +29,7 @@ ms.locfileid: "84982155"
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [AML 작업 영역](https://docs.microsoft.com/azure/machine-learning/concept-workspace)
 * [배포 된 모델](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) 을 사용 하 여이 작업 영역의 [AZURE Kubernetes 서비스 AML 계산 대상](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)
@@ -165,7 +168,7 @@ AML를 사용할 수 없거나 성공 하지 않은 상태 코드를 전송 하�
 
 AML 서비스를 사용할 수 없는 경우 또는 HTTP 오류를 반환 하는 경우에는 HTTP 오류에 대 한 모든 사용 가능한 정보에 대 한 친숙 한 오류가 인덱서 실행 기록에 추가 됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [AML 서비스 문제 해결](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment)

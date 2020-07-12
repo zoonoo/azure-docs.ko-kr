@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 0e5ba1a311bd0480c56ee40edf01fc13ec01664a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57efca87aefad346fda175b073409868d21564ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905917"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245514"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 볼륨 리소스를 가져오고 삭제합니다.
@@ -18,7 +19,7 @@ ms.locfileid: "76905917"
 
 |명령|설명|
 | --- | --- |
-| delete | 볼륨 리소스를 삭제합니다. |
+| 삭제 | 볼륨 리소스를 삭제합니다. |
 | list | 모든 볼륨 리소스를 나열합니다. |
 | 표시 | 지정된 이름의 볼륨 리소스를 가져옵니다. |
 
@@ -82,4 +83,4 @@ ms.locfileid: "76905917"
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
+- [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054392"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243684"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -22,7 +22,7 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>만들기 또는 업그레이드 동안 "할당량 초과" 오류가 발생합니다.   어떻게 해야 합니까? 
 
- [더 많은 코어를 요청합니다](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [더 많은 코어를 요청합니다](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>AKS의 노드당 최대 Pod 설정이란?
 
@@ -34,7 +34,7 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 이 오류는 리소스를 성공적으로 할당 하기 위해 클러스터에 사용 중인 서브넷의 CIDR 내에 더 이상 사용 가능한 Ip가 없음을 나타냅니다. Kubenet 클러스터의 경우 클러스터의 각 노드에 대 한 충분 한 IP 공간이 요구 사항에 해당 합니다. Azure CNI 클러스터의 경우 클러스터의 각 노드 및 pod에 대해 충분 한 IP 공간이 필요 합니다.
 [Pod에 ip를 할당 하려면 Azure CNI 디자인](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)에 대해 자세히 알아보세요.
 
-이러한 오류는 서브넷 크기 부족 등의 문제를 사전에 표시 하는 [AKS 진단](https://docs.microsoft.com/azure/aks/concepts-diagnostics) 에도 표시 됩니다.
+이러한 오류는 서브넷 크기 부족 등의 문제를 사전에 표시 하는 [AKS 진단](./concepts-diagnostics.md) 에도 표시 됩니다.
 
 다음 3 개의 사례는 서브넷 크기 오류를 초래 합니다.
 
@@ -197,14 +197,14 @@ AKS 클러스터의 송신 트래픽을 제한하는 경우 AKS에 대한 [필�
 
 Kubernetes 버전 1.10에서 Azure 디스크를 다시 탑재하면 MountVolume.WaitForAttach가 실패할 수 있습니다.
 
-Linux의 경우 잘못된 DevicePath 형식 오류가 표시될 수 있습니다. 예를 들어:
+Linux의 경우 잘못된 DevicePath 형식 오류가 표시될 수 있습니다. 예:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-Windows의 경우 잘못된 DevicePath(LUN) 번호 오류가 표시될 수 있습니다. 예를 들어:
+Windows의 경우 잘못된 DevicePath(LUN) 번호 오류가 표시될 수 있습니다. 예:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -410,7 +410,7 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 
 base64로 인코딩된 스토리지 계정 키를 사용하여 Azure 파일 비밀에서 `azurestorageaccountkey` 필드를 수동으로 업데이트하여 완화할 수 있습니다.
 
-스토리지 계정 키를 base64로 인코딩하려면 `base64`를 사용할 수 있습니다. 예를 들어:
+스토리지 계정 키를 base64로 인코딩하려면 `base64`를 사용할 수 있습니다. 예:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64

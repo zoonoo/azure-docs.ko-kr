@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 2b9f16062b02d7a1a3403d396643a7989b8976b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68ea876d9951b49a6683cc74df8b9107fd942e51
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905933"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245673"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 애플리케이션 리소스의 서비스를 나열하고 서비스 세부 정보를 가져옵니다.
@@ -67,4 +68,4 @@ ms.locfileid: "76905933"
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
+- [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

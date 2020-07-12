@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 985fb505aae96f4ebd1ba8aeb61679081f303243
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905971"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245775"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 메시 비밀 값 리소스를 가져오고 삭제합니다.
@@ -18,7 +19,7 @@ ms.locfileid: "76905971"
 
 |명령|설명|
 | --- | --- |
-| delete | 명명된 비밀 리소스의 지정된 값을 삭제합니다. |
+| 삭제 | 명명된 비밀 리소스의 지정된 값을 삭제합니다. |
 | list | 지정된 비밀 리소스의 모든 값 이름을 나열합니다. |
 | 표시 | 지정 된 비밀 리소스 값을 나열 합니다. |
 
@@ -89,4 +90,4 @@ ms.locfileid: "76905971"
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
+- [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

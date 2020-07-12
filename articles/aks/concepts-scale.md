@@ -4,12 +4,12 @@ description: Horizontal Pod Autoscaler, 클러스터 자동 크기 조정기 및
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 7c9c3cf159d67d2f4acaaab943ecf9d99263ae55
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223842"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244517"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 
@@ -26,7 +26,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 실행할 때 컴퓨�
 
 복제본(Pod) 및 노드의 크기를 수동으로 조정하면서 애플리케이션이 사용 가능한 리소스 및 상태 변화에 대응하는 방식을 테스트할 수 있습니다. 또한 리소스 크기를 수동으로 조정하여 고정 비용을 유지하기 위해 사용할 고정된 리소스 양(예: 노드 수)을 정의할 수도 있습니다. 수동으로 크기를 조정 하려면 복제본 또는 노드 수를 정의 합니다. 그런 다음 Kubernetes API는 해당 복제본 또는 노드 수에 따라 추가 pod 또는 드레이닝 노드 만들기를 예약 합니다.
 
-노드를 축소 하는 경우 Kubernetes API는 클러스터에서 사용 하는 계산 형식에 연결 된 관련 Azure 계산 API를 호출 합니다. 예를 들어 VM Scale Sets 기반으로 하는 클러스터의 경우 제거할 노드를 선택 하는 논리는 VM Scale Sets API에 의해 결정 됩니다. 규모 축소에서 노드를 제거 하기 위해 노드를 선택 하는 방법에 대 한 자세한 내용은 [Vmss FAQ](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed)를 참조 하세요.
+노드를 축소 하는 경우 Kubernetes API는 클러스터에서 사용 하는 계산 형식에 연결 된 관련 Azure 계산 API를 호출 합니다. 예를 들어 VM Scale Sets 기반으로 하는 클러스터의 경우 제거할 노드를 선택 하는 논리는 VM Scale Sets API에 의해 결정 됩니다. 규모 축소에서 노드를 제거 하기 위해 노드를 선택 하는 방법에 대 한 자세한 내용은 [Vmss FAQ](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed)를 참조 하세요.
 
 Pod 및 노드 크기를 수동으로 조정하려면 [AKS에서 애플리케이션 크기 조정][aks-scale]을 참조하세요.
 
@@ -111,7 +111,7 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-scale]: tutorial-kubernetes-scale.md
 [aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
 [aks-manually-scale-nodes]: tutorial-kubernetes-scale.md#manually-scale-aks-nodes
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-storage]: concepts-storage.md

@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: adb11f29460bd6dee7171fa97a6ebfc958cfad12
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169915"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242766"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -17,6 +17,9 @@ ms.locfileid: "86169915"
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 [host.json](functions-host-json.md) 파일과 [local.settings.json](functions-run-local.md#local-settings-file) 파일에는 다른 전역 구성 옵션이 있습니다.
+
+> [!NOTE]  
+> 응용 프로그램 설정을 사용 하 여 파일 자체에서 host.js를 변경할 필요 없이 값 설정에 대 한 host.js를 재정의할 수 있습니다. 이 기능은 특정 환경에 대 한 설정에서 특정 host.js를 구성 하거나 수정 해야 하는 경우에 유용 합니다. 이렇게 하면 프로젝트를 다시 게시 하지 않고도 설정 host.js을 변경할 수 있습니다. 자세한 내용은 [참조에서host.js문서](functions-host-json.md#override-hostjson-values)를 참조 하세요.  
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 

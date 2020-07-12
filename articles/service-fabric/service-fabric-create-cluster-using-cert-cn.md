@@ -3,11 +3,12 @@ title: 인증서 일반 이름을 사용 하 여 클러스터 만들기
 description: 템플릿의 인증서 일반 이름을 사용하여 Service Fabric 클러스터를 만드는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c852b40d35f936753d3c16420159676da239b6c6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614556"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246438"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터 배포
 두 인증서가 동일한 지문을 사용하면 안 됩니다. 이렇게 될 경우 클러스터 인증서가 롤오버되거나 관리에 어려움이 발생합니다. 그러나 여러 인증서가 동일한 일반 이름 또는 제목을 사용하는 것은 가능합니다.  인증서 일반 이름을 사용하는 클러스터는 인증서 관리가 훨씬 간단합니다. 이 문서에서는 인증서 지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터를 배포하는 방법을 설명합니다.
@@ -16,7 +17,7 @@ ms.locfileid: "75614556"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>인증서 얻기
-먼저 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)에서 인증서를 얻습니다.  인증서의 일반 이름은 도메인 등록 기관에서 구매하여 소유하고 있는 사용자 지정 도메인의 이름이어야 합니다. "azureservicefabricbestpractices.com" 등을 예로 들 수 있습니다. Microsoft 직원이 아닌 사용자는 MS 도메인용 인증서를 프로비전할 수 없으므로 인증서의 일반 이름으로 LB 또는 Traffic Manager의 DNS 이름을 사용할 수 없습니다. 그러므로 Azure에서 사용자 지정 도메인을 확인할 수 있도록 하려면 [Azure DNS 영역](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)을 프로비전해야 합니다. 또한 포털에서 클러스터에 사용자 지정 도메인 별칭을 반영하도록 하려는 경우 자신이 소유한 사용자 지정 도메인을 클러스터의 "managementEndpoint"로 선언할 수 있습니다.
+먼저 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)에서 인증서를 얻습니다.  인증서의 일반 이름은 도메인 등록 기관에서 구매하여 소유하고 있는 사용자 지정 도메인의 이름이어야 합니다. "azureservicefabricbestpractices.com" 등을 예로 들 수 있습니다. Microsoft 직원이 아닌 사용자는 MS 도메인용 인증서를 프로비전할 수 없으므로 인증서의 일반 이름으로 LB 또는 Traffic Manager의 DNS 이름을 사용할 수 없습니다. 그러므로 Azure에서 사용자 지정 도메인을 확인할 수 있도록 하려면 [Azure DNS 영역](../dns/dns-delegate-domain-azure-dns.md)을 프로비전해야 합니다. 또한 포털에서 클러스터에 사용자 지정 도메인 별칭을 반영하도록 하려는 경우 자신이 소유한 사용자 지정 도메인을 클러스터의 "managementEndpoint"로 선언할 수 있습니다.
 
 테스트를 위해 무료 또는 오픈 인증 기관에서 CA 서명 인증서를 얻을 수 있습니다.
 

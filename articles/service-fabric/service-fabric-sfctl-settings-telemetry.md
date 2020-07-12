@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 6af5fa944ef399756f9e890ddd77a7f5f32e2bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef720a14617b4131474d50875701d0ef27df4151
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76903020"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245513"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
 이 sfctl 인스턴스에 로컬인 원격 분석 설정을 구성합니다.
@@ -42,7 +43,7 @@ sfctl telemetry는 제공된 매개 변수 없이 명령 이름이나 해당 값
 | --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 원격 분석을 끕니다.
 
@@ -59,4 +60,4 @@ sfctl settings telemetry set_telemetry --on
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
+- [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

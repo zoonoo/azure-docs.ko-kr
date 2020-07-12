@@ -5,11 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75377908"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246693"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service Fabric에서 백업 복원
 
@@ -22,7 +23,7 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
 - **데이터 손실의 경우**: 서비스를 실수로 삭제 하거나 손상 합니다. 예를 들어 관리자가 실수로 서비스를 삭제합니다.
 - **데이터 손상의 경우**: 서비스의 버그로 인해 데이터가 손상 됩니다. 예를 들어 신뢰할 수 있는 컬렉션에 잘못된 데이터를 작성하는 서비스 코드가 업그레이드되는 경우 데이터 손상이 발생할 수 있습니다. 그러한 경우 코드와 데이터 모두 이전 상태로 복구해야 할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 복구를 트리거하려면 클러스터에 _FAS(Fault Analysis Service)_ 를 사용하도록 설정해야 합니다.
 - _BRS(Backup Restore Service)_ 가 백업을 생성합니다.
@@ -51,7 +52,7 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>재해 복구 시 데이터 복원.
 
-전체 Service Fabric 클러스터가 손실된 경우 Reliable Stateful 서비스 및 Reliable Actors의 파티션에 대한 데이터를 복원할 수 있습니다. [백업 스토리지 세부 정보가 포함된 GetBackupAPI](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation)를 사용하는 경우 목록에서 원하는 백업을 선택할 수 있습니다. 백업은 애플리케이션, 서비스 또는 파티션에 대해 열거할 수 있습니다.
+전체 Service Fabric 클러스터가 손실된 경우 Reliable Stateful 서비스 및 Reliable Actors의 파티션에 대한 데이터를 복원할 수 있습니다. [백업 스토리지 세부 정보가 포함된 GetBackupAPI](/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation)를 사용하는 경우 목록에서 원하는 백업을 선택할 수 있습니다. 백업은 애플리케이션, 서비스 또는 파티션에 대해 열거할 수 있습니다.
 
 다음 예제의 경우 손실된 클러스터가 [Reliable Stateful 서비스 및 Reliable Actors에 대해 정기적 백업 사용](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors)에서 참조되는 클러스터와 동일하다고 가정합니다. 이 경우 `SampleApp`이 사용하도록 설정된 백업 정책과 함께 배포되고 복구가 Azure Storage에 구성됩니다.
 
@@ -165,7 +166,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 #### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 Rest 호출
 
-다음 [복원 API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)를 사용하여 백업 클러스터 파티션에 대해 복원을 요청합니다.
+다음 [복원 API](/rest/api/servicefabric/sfclient-api-restorepartition)를 사용하여 백업 클러스터 파티션에 대해 복원을 요청합니다.
 
 ```powershell
 
@@ -305,7 +306,7 @@ $restoreResponse | Format-List
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Timeout**: 시간 _제한_ 복원 상태는 요청 시간이 초과 되었음을 나타냅니다. [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout)이 더 큰 새 복원 요청을 만듭니다. 시간 제한은 기본적으로 10분입니다. 복원을 다시 요청하기 전에 파티션이 데이터 손실 상태에서 벗어났는지 확인해야 합니다.
+    - **Timeout**: 시간 _제한_ 복원 상태는 요청 시간이 초과 되었음을 나타냅니다. [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout)이 더 큰 새 복원 요청을 만듭니다. 시간 제한은 기본적으로 10분입니다. 복원을 다시 요청하기 전에 파티션이 데이터 손실 상태에서 벗어났는지 확인해야 합니다.
      
         ```
         RestoreState  : Timeout
@@ -319,12 +320,12 @@ $restoreResponse | Format-List
 _자동 복원_을 위해 Service Fabric 클러스터의 Reliable Stateful 서비스 및 Reliable Actors 파티션을 구성할 수 있습니다. 백업 정책에서 `AutoRestore`를 _true_로 설정합니다. _자동 복원_을 사용하도록 설정하면 데이터 손실이 보고될 때 최신 파티션 백업에서 데이터가 자동으로 복원됩니다. 자세한 내용은 다음을 참조하세요.
 
 - [백업 정책에서 자동 복원을 사용하도록 설정](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
-- [RestorePartition API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-- [GetPartitionRestoreProgress API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [RestorePartition API 참조](/rest/api/servicefabric/sfclient-api-restorepartition)
+- [GetPartitionRestoreProgress API 참조](/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## <a name="next-steps"></a>다음 단계
 - [정기 백업 구성 이해](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [백업 복원 REST API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [백업 복원 REST API 참조](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
 [3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

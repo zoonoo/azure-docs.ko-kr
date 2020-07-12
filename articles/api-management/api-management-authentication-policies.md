@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557989"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243718"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -48,19 +48,19 @@ ms.locfileid: "85557989"
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필요한 공간|
+|이름|설명|필수|
 |----------|-----------------|--------------|
 |인증-기본|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필요한 공간|기본값|
+|이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |사용자 이름|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 없음|
 |password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 없음|
 
-### <a name="usage"></a>사용량
- 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
+### <a name="usage"></a>사용
+ 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound
 
@@ -75,7 +75,7 @@ ms.locfileid: "85557989"
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 이 예제에서 클라이언트 인증서는 지 문으로 식별 됩니다.
 
@@ -97,21 +97,21 @@ ms.locfileid: "85557989"
 
 ### <a name="elements"></a>요소  
   
-|이름|설명|필요한 공간|  
+|이름|설명|필수|  
 |----------|-----------------|--------------|  
 |인증-인증서|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필요한 공간|기본값|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|클라이언트 인증서에 대한 지문입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
 |인증서 id|인증서 리소스 이름입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
 |본문|클라이언트 인증서 (바이트 배열)입니다.|예|해당 없음|
 |password|클라이언트 인증서의 암호입니다.|에 지정 된 인증서 `body` 가 암호로 보호 된 경우 사용 됩니다.|해당 없음|
   
-### <a name="usage"></a>사용량  
- 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+### <a name="usage"></a>사용  
+ 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
   
@@ -174,21 +174,21 @@ ms.locfileid: "85557989"
 
 ### <a name="elements"></a>요소  
   
-|이름|설명|필요한 공간|  
+|이름|설명|필수|  
 |----------|-----------------|--------------|  
 |인증 관리-id |루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필요한 공간|기본값|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |resource|문자열입니다. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID입니다.|예|해당 없음|
 |클라이언트 id|문자열입니다. Azure Active Directory에서 사용자 할당 id의 앱 ID입니다.|아니요|시스템이 할당 한 id|
 |출력-토큰 변수-이름|문자열입니다. 토큰 값을 개체 형식으로 수신 하는 컨텍스트 변수의 이름입니다 `string` . |예|해당 없음|  
 |ignore-error|Boolean입니다. 로 설정 하면 `true` 액세스 토큰을 가져올 수 없는 경우에도 정책 파이프라인이 계속 실행 됩니다.|아니요|false|  
   
-### <a name="usage"></a>사용량  
- 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+### <a name="usage"></a>사용  
+ 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
   
@@ -199,5 +199,5 @@ ms.locfileid: "85557989"
 
 + [API Management의 정책](api-management-howto-policies.md)
 + [API 변환](transform-api.md)
-+ [정책 참조](api-management-policy-reference.md)(정책 문 및 해당 설정에 대한 전체 목록)
++ [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
 + [정책 샘플](policy-samples.md)

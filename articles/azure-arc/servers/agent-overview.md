@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38c487928f15e953a1c660c5007398bc5c2b3f7d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ed95b902c2c0768f50a0c6dadbfc617292932c2b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206623"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242953"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>서버용 Azure Arc 에이전트 개요
 
@@ -62,7 +62,7 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
     |폴더 |설명 |
     |-------|------------|
-    |C:\Program Files\AzureConnectedMachineAgent |에이전트 지원 파일이 포함되어 있는 기본 설치 경로입니다.|
+    |%ProgramFiles%\AzureConnectedMachineAgent |에이전트 지원 파일이 포함되어 있는 기본 설치 경로입니다.|
     |%ProgramData%\AzureConnectedMachineAgent |에이전트 구성 파일이 포함되어 있습니다.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |가져온 토큰이 포함되어 있습니다.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |서비스 등록 정보를 기록하는 에이전트 구성 파일 `agentconfig.json`이 포함되어 있습니다.|
@@ -99,7 +99,7 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
 * 에이전트를 제거하는 동안 다음 아티팩트가 제거되지 않습니다.
 
-    * C:\Program Files\AzureConnectedMachineAgent\Logs
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent 및 하위 디렉터리
     * %ProgramData%\GuestConfig
 
@@ -170,9 +170,9 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
-- 머신을 등록하려면 **Azure Connected Machine Onboarding** 역할의 멤버여야 합니다.
+* 머신을 등록하려면 **Azure Connected Machine Onboarding** 역할의 멤버여야 합니다.
 
-- 머신을 읽고, 수정하고, 다시 등록하고, 삭제하려면 **Azure Connected Machine Resource Administrator** 역할의 멤버여야 합니다. 
+* 머신을 읽고, 수정하고, 다시 등록하고, 삭제하려면 **Azure Connected Machine Resource Administrator** 역할의 멤버여야 합니다. 
 
 ### <a name="azure-subscription-and-service-limits"></a>Azure 구독 및 서비스 한도
 
@@ -195,14 +195,14 @@ Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 
 
 서비스 태그:
 
-- AzureActiveDirectory
-- AzureTrafficManager
+* AzureActiveDirectory
+* AzureTrafficManager
 
 URL:
 
 | 에이전트 리소스 | 설명 |
 |---------|---------|
-|`management.azure.com`|Azure 리소스 관리자|
+|`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`agentserviceapi.azure-automation.net`|게스트 구성|
@@ -218,8 +218,8 @@ URL:
 
 서버용 Azure Arc(미리 보기)는 이 서비스를 사용하기 위해 구독의 다음 Azure 리소스 공급자를 사용합니다.
 
-- **Microsoft.HybridCompute**
-- **Microsoft.GuestConfiguration**
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
 
 리소스 공급자가 등록되어 있지 않으면 다음 명령을 사용하여 등록할 수 있습니다.
 

@@ -5,15 +5,16 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692685"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246829"
 ---
 # <a name="state-management-with-service-fabric"></a>Service Fabric을 사용한 상태 관리
 
-Service Fabric은 상태 스토리지에 대한 다양한 옵션을 지원합니다. 상태 관리 패턴 및 Service Fabric의 개념적인 개요는 [Service Fabric 개념: 상태](/azure/service-fabric/service-fabric-concepts-state)를 참조하세요. 이러한 모든 동일한 개념은 Service Fabric Mesh 내부 또는 외부에서 서비스를 실행할지 여부에 관계없이 적용됩니다. 
+Service Fabric은 상태 스토리지에 대한 다양한 옵션을 지원합니다. 상태 관리 패턴 및 Service Fabric의 개념적인 개요는 [Service Fabric 개념: 상태](../service-fabric/service-fabric-concepts-state.md)를 참조하세요. 이러한 모든 동일한 개념은 Service Fabric Mesh 내부 또는 외부에서 서비스를 실행할지 여부에 관계없이 적용됩니다. 
 
 Service Fabric Mesh를 사용하면 새 애플리케이션을 쉽게 배포하고 Azure에 호스트되는 기존 데이터 저장소에 연결할 수 있습니다. 원격 데이터베이스를 사용하는 것 외에도 서비스에 로컬 또는 원격 스토리지가 필요한지 여부에 따라 다양한 데이터 저장 옵션이 있습니다. 
 

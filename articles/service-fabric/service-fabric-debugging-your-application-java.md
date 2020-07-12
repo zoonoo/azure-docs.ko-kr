@@ -5,11 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f2361bf76bd4f9d297fbe541b950840f13966cc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614488"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246404"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eclipse를 사용하여 Java Service Fabric 애플리케이션 디버그
 > [!div class="op_single_selector"]
@@ -40,5 +41,5 @@ ms.locfileid: "75614488"
 
 ### <a name="next-steps"></a>다음 단계
 
-* [Linux Azure Diagnostics를 사용하여 로그 수집](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Linux Azure Diagnostics를 사용하여 로그 수집](./service-fabric-diagnostics-event-aggregation-lad.md).
 * [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6512edd26b59dac11f046e82940db4877728943c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690322"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243595"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -52,12 +53,12 @@ ms.locfileid: "84690322"
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필요한 공간|
+|이름|설명|필수|
 |----------|-----------------|--------------|
 |cross-domain|루트 요소입니다. 자식 요소는 [Adobe 도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)을 준수해야 합니다.|예|
 
-### <a name="usage"></a>사용량
-이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
+### <a name="usage"></a>사용
+이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** inbound
 - **정책 범위:** 모든 범위
@@ -121,7 +122,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필요한 공간|기본값|
+|이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |cors|루트 요소입니다.|예|해당 없음|
 |allowed-origins|도메인 간 요청에 대해 허용되는 원본을 설명하는 `origin` 요소를 포함합니다. `allowed-origins`는 모든 원본을 허용하도록 `*`를 지정하는 단일 `origin` 요소 또는 URI를 포함하는 하나 이상의 `origin` 요소를 포함할 수 있습니다.|예|해당 없음|
@@ -134,13 +135,13 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필요한 공간|기본값|
+|이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|실행 `Access-Control-Allow-Credentials` 전 응답의 헤더는이 특성의 값으로 설정 되 고 도메인 간 요청에서 자격 증명을 제출 하는 클라이언트의 기능에 영향을 줍니다.|아니요|false|
 |preflight-result-max-age|실행 전 `Access-Control-Max-Age` 응답의 헤더는이 특성의 값으로 설정 되 고, 사전 진행 된 응답을 캐시 하는 사용자 에이전트의 기능에 영향을 줍니다.|아니요|0|
 
-### <a name="usage"></a>사용량
-이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
+### <a name="usage"></a>사용
+이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** inbound
 - **정책 범위:** 모든 범위
@@ -166,18 +167,18 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필요한 공간|
+|이름|설명|필수|
 |----------|-----------------|--------------|
 |jsonp|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필요한 공간|기본값|
+|이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|함수가 상주하는 정규화된 도메인 이름이 접두사로 지정된 도메인 간 JavaScript 함수 호출|예|해당 없음|
 
-### <a name="usage"></a>사용량
-이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
+### <a name="usage"></a>사용
+이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** outbound
 - **정책 범위:** 모든 범위
@@ -188,5 +189,5 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 + [API Management의 정책](api-management-howto-policies.md)
 + [API 변환](transform-api.md)
-+ [정책 참조](api-management-policy-reference.md)(정책 문 및 해당 설정에 대한 전체 목록)
++ [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
 + [정책 샘플](policy-samples.md)

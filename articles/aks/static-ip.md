@@ -5,11 +5,12 @@ description: 고정 IP 주소를 만들어 AKS(Azure Kubernetes Service) 부하 
 services: container-service
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3055b5d32055d0ed0e3870f16f6af95407a68cd9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80886741"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243939"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>AKS (Azure Kubernetes Service) 부하 분산 장치에 고정 공용 IP 주소 및 DNS 레이블 사용
 
@@ -62,7 +63,7 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>고정 IP 주소를 사용하여 서비스 만들기
 
-서비스를 만들기 전에 AKS 클러스터에서 사용 하는 서비스 사용자에 게 다른 리소스 그룹에 대 한 위임 된 권한이 있는지 확인 합니다. 예를 들어:
+서비스를 만들기 전에 AKS 클러스터에서 사용 하는 서비스 사용자에 게 다른 리소스 그룹에 대 한 위임 된 권한이 있는지 확인 합니다. 예:
 
 ```azurecli-interactive
 az role assignment create \
@@ -101,7 +102,7 @@ kubectl apply -f load-balancer-service.yaml
 
 서비스에서 동적 또는 고정 공용 IP 주소를 사용 하는 경우 서비스 주석을 사용 `service.beta.kubernetes.io/azure-dns-label-name` 하 여 공용 DNS 레이블을 설정할 수 있습니다. 그러면 Azure의 공용 DNS 서버 및 최상위 도메인을 사용 하 여 서비스에 대 한 정규화 된 도메인 이름이 게시 됩니다. 주석 값은 Azure 위치 내에서 고유 해야 하므로 충분히 정규화 된 레이블을 사용 하는 것이 좋습니다.   
 
-그러면 Azure에서 `<location>.cloudapp.azure.com` 사용자가 제공한 이름에 (여기서 location은 선택한 지역)와 같은 기본 서브넷을 자동으로 추가 하 여 정규화 된 DNS 이름을 만듭니다. 예를 들어:
+그러면 Azure에서 `<location>.cloudapp.azure.com` 사용자가 제공한 이름에 (여기서 location은 선택한 지역)와 같은 기본 서브넷을 자동으로 추가 하 여 정규화 된 DNS 이름을 만듭니다. 예:
 
 ```yaml
 apiVersion: v1
@@ -172,4 +173,4 @@ Events:
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[ip-sku]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md#sku
+[ip-sku]: ../virtual-network/public-ip-addresses.md#sku

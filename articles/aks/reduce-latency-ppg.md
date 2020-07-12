@@ -5,11 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
-ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444270"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244075"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>근접 배치 그룹을 사용 하 여 대기 시간 단축 (미리 보기)
 
@@ -73,7 +74,7 @@ az extension update --name aks-preview
 
 다음 예제에서는 [az group create][az-group-create] 명령을 사용 하 여 *Centralus* 지역에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다. 그런 다음 *myAKSCluster* 라는 AKS 클러스터가 [az AKS create][az-aks-create] 명령을 사용 하 여 만들어집니다. 
 
-가속화 된 네트워킹을 통해 가상 컴퓨터의 네트워킹 성능이 크게 향상 됩니다. 이상적으로는 근접 배치 그룹을 가속 네트워킹과 함께 사용 하는 것이 좋습니다. 기본적으로 AKS는 [지원 되는 가상 컴퓨터 인스턴스에서](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints)가속화 된 네트워킹을 사용 합니다. 여기에는 두 개 이상의 vcpus가 포함 된 대부분의 Azure 가상 컴퓨터가 포함 됩니다.
+가속화 된 네트워킹을 통해 가상 컴퓨터의 네트워킹 성능이 크게 향상 됩니다. 이상적으로는 근접 배치 그룹을 가속 네트워킹과 함께 사용 하는 것이 좋습니다. 기본적으로 AKS는 [지원 되는 가상 컴퓨터 인스턴스에서](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints)가속화 된 네트워킹을 사용 합니다. 여기에는 두 개 이상의 vcpus가 포함 된 대부분의 Azure 가상 컴퓨터가 포함 됩니다.
 
 근접 배치 그룹을 사용 하 여 새 AKS 클러스터를 만듭니다.
 
@@ -163,4 +164,3 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-

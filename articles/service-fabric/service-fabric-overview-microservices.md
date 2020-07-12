@@ -4,11 +4,12 @@ description: 마이크로 서비스 접근 방식을 통해 클라우드 애플�
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792871"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246023"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>응용 프로그램을 빌드하는 데 마이크로 서비스 접근 방식을 사용 하는 이유
 
@@ -130,7 +131,7 @@ DNS가 특정 URL을 특정 머신으로 확인하는 것과 동일한 방법으
 
 ## <a name="guidance-for-designing-microservices-on-azure"></a>Azure에서 마이크로 서비스를 설계 하는 방법에 대 한 지침
 
-Azure [에서 마이크로 서비스를 설계 하 고 구축 하](https://docs.microsoft.com/azure/architecture/microservices/)는 방법에 대 한 지침은 azure 아키텍처 센터를 참조 하세요.
+Azure [에서 마이크로 서비스를 설계 하 고 구축 하](/azure/architecture/microservices/)는 방법에 대 한 지침은 azure 아키텍처 센터를 참조 하세요.
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>마이크로 서비스 플랫폼으로서의 서비스 패브릭
 
@@ -190,7 +191,7 @@ Service Fabric의 목적은 마이크로 서비스 응용 프로그램 빌드에
 ## <a name="next-steps"></a>다음 단계
 
 * [마이크로 서비스: 클라우드가 지원하는 애플리케이션 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-* [Azure 아키텍처 센터: Azure에서 마이크로 서비스 구축](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Azure 아키텍처 센터: Azure에서 마이크로 서비스 구축](/azure/architecture/microservices/)
 * [Azure Service Fabric 애플리케이션 및 클러스터에 대한 모범 사례](service-fabric-best-practices-overview.md)
 * [서비스 패브릭 용어 개요](service-fabric-technical-overview.md)
 
