@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7be1e90d10a84465d6416f2c13a6e4b6855077b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76713140"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250076"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>API Management에서 클라이언트 인증서 인증을 사용하여 API를 보호하는 방법
 
 API Management에서는 클라이언트 인증서를 사용하여 API에 대한 액세스(예: API Management에 대한 클라이언트)를 보호하는 기능을 제공합니다. 정책 식을 사용 하 여 들어오는 인증서의 유효성을 검사 하 고 원하는 값에 대해 인증서 속성을 확인할 수 있습니다.
 
-클라이언트 인증서 (예: 백 엔드에 API Management)를 사용 하 여 API의 백 엔드 서비스에 대 한 액세스를 보호 하는 방법에 대 한 자세한 내용은 [클라이언트 인증서 인증을 사용 하 여 백 엔드 서비스를 보호 하는 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) 을 참조 하세요.
+클라이언트 인증서 (예: 백 엔드에 API Management)를 사용 하 여 API의 백 엔드 서비스에 대 한 액세스를 보호 하는 방법에 대 한 자세한 내용은 [클라이언트 인증서 인증을 사용 하 여 백 엔드 서비스를 보호 하는 방법](./api-management-howto-mutual-certificates.md) 을 참조 하세요.
 
 > [!IMPORTANT]
 > 개발자, 기본, 표준 또는 프리미엄 계층에서 HTTP/2를 통해 클라이언트 인증서를 수신 하 고 확인 하려면 아래와 같이 "사용자 지정 도메인" 블레이드에서 "클라이언트 인증서 협상" 설정을 켜야 합니다.
@@ -98,5 +99,5 @@ API Management에서는 클라이언트 인증서를 사용하여 API에 대한 
 
 ## <a name="next-steps"></a>다음 단계
 
--   [클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
--   [인증서 업로드 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+-   [클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법](./api-management-howto-mutual-certificates.md)
+-   [인증서 업로드 방법](./api-management-howto-mutual-certificates.md)

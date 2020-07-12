@@ -4,11 +4,12 @@ description: 데이터 직렬화 모범 사례 및 애플리케이션 업그레�
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: 7dc60c28b56982f82c1ac90db55ac752977ea2d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d502e74139c543d4183a75faa6bea1948d9f3e56
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457486"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247985"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>데이터 serialization이 애플리케이션 업그레이드에 미치는 영향
 [롤링 애플리케이션 업그레이드](service-fabric-application-upgrade.md)에서는 한번에 하나의 업그레이드 도메인에서 노드의 하위 집합에 업그레이드가 적용됩니다. 이 과정에서 일부 업그레이드 도메인은 애플리케이션의 최신 버전에, 일부 업그레이드 도메인은 애플리케이션의 이전 버전에 적용됩니다. 롤아웃 동안 최신 버전의 애플리케이션에서 이전 버전의 데이터를 읽을 수 있고 이전 버전의 애플리케이션에서 최신 버전의 데이터를 읽을 수 있어야 합니다. 데이터 서식이 최신 버전과 이전 버전에서 호환되지 않으면 업그레이드가 실패하거나 데이터가 손실되거나 손상될 수도 있습니다. 이 문서에서는 데이터 서식을 구성하는 요소에 대해 설명하며 데이터가 상위 버전 및 하위 버전과 호환되도록 하는 모범 사례를 제공합니다.
@@ -25,7 +26,7 @@ Azure 서비스 패브릭에서 유지 및 복제되는 데이터는 C# 클래�
 * 클래스 이름 또는 네임스페이스 변경
 
 ### <a name="data-contract-as-the-default-serializer"></a>기본 직렬 변환기인 데이터 계약
-직렬 변환기는 일반적으로 데이터가 이전 버전이든 *최신* 버전이든 데이터를 읽고 현재 버전으로 역직렬화하는 역할을 담당합니다. 기본 직렬 변환기는 버전 관리 규칙이 잘 정의된 [데이터 계약 직렬 변환기](https://msdn.microsoft.com/library/ms733127.aspx)입니다. 신뢰할 수 있는 컬렉션을 사용하면 직렬 변환기를 재정의할 수 있지만 Reliable Actors를 사용하면 직렬 변환기를 재정의할 수 없습니다. 데이터 직렬 변환기는 롤링 업그레이드에서 중요한 역할을 합니다. 데이터 계약 직렬 변환기는 서비스 패브릭 애플리케이션에 권장되는 직렬 변환기입니다.
+직렬 변환기는 일반적으로 데이터가 이전 버전이든 *최신* 버전이든 데이터를 읽고 현재 버전으로 역직렬화하는 역할을 담당합니다. 기본 직렬 변환기는 버전 관리 규칙이 잘 정의된 [데이터 계약 직렬 변환기](/dotnet/framework/wcf/feature-details/using-data-contracts)입니다. 신뢰할 수 있는 컬렉션을 사용하면 직렬 변환기를 재정의할 수 있지만 Reliable Actors를 사용하면 직렬 변환기를 재정의할 수 없습니다. 데이터 직렬 변환기는 롤링 업그레이드에서 중요한 역할을 합니다. 데이터 계약 직렬 변환기는 서비스 패브릭 애플리케이션에 권장되는 직렬 변환기입니다.
 
 ## <a name="how-the-data-format-affects-a-rolling-upgrade"></a>데이터 서식이 롤링 업그레이드에 미치는 영향
 롤링 업그레이드가 진행되는 동안 직렬 변환기가 이전 또는 *최신* 버전의 데이터와 만나는 두 가지 시나리오가 있습니다.
@@ -40,7 +41,7 @@ Azure 서비스 패브릭에서 유지 및 복제되는 데이터는 C# 클래�
 
 코드와 데이터 형식의 두 버전 모두 앞뒤로 호환되어야 합니다. 버전 간에 호환되지 않을 경우 롤링 업그레이드가 실패하거나 데이터가 손실될 수 있습니다. 다른 버전을 만났을 때 코드 또는 직렬 변환기에서 예외를 throw하거나 실패할 경우 롤링 업그레이드가 실패할 수 있습니다. 예를 들어 새 속성이 추가되었지만 이전 직렬 변환기가 역직렬화 과정에서 해당 속성을 삭제할 경우 데이터가 손실될 수 있습니다.
 
-데이터 계약은 데이터 호환성을 보장하기 위해 권장되는 솔루션입니다. 데이터 계약에는 필드의 추가, 제거 및 변경에 대해 잘 정의된 버전 관리 규칙이 있습니다. 또한 알 수 없는 필드를 처리하는 기능, serialization 및 역직렬화 프로세스에 연결하는 기능 및 클래스 상속을 처리하는 기능을 지원합니다. 자세한 내용은 [데이터 계약 사용](https://msdn.microsoft.com/library/ms733127.aspx)을 참조하세요.
+데이터 계약은 데이터 호환성을 보장하기 위해 권장되는 솔루션입니다. 데이터 계약에는 필드의 추가, 제거 및 변경에 대해 잘 정의된 버전 관리 규칙이 있습니다. 또한 알 수 없는 필드를 처리하는 기능, serialization 및 역직렬화 프로세스에 연결하는 기능 및 클래스 상속을 처리하는 기능을 지원합니다. 자세한 내용은 [데이터 계약 사용](/dotnet/framework/wcf/feature-details/using-data-contracts)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Visual studio를 사용 하 여 응용 프로그램을 업그레이드](service-fabric-application-upgrade-tutorial.md) 하면 visual studio를 사용 하 여 응용 프로그램을 업그레이드할 수 있습니다.
@@ -52,4 +53,3 @@ Azure 서비스 패브릭에서 유지 및 복제되는 데이터는 C# 클래�
 [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조 하 여 응용 프로그램을 업그레이드 하는 동안 고급 기능을 사용 하는 방법에 대해 알아봅니다.
 
 응용 프로그램 [업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조 하 여 응용 프로그램 업그레이드의 일반적인 문제를 해결 합니다.
-

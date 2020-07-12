@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78866804f10d12beda46f1fab9c8c78509a5a0b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79249543"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249974"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API Management의 페이지 템플릿
 Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 선택한 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
@@ -31,7 +32,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 -   [페이지를 찾을 수 없음](#PageNotFound)  
   
 > [!NOTE]
->  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
+>  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](./api-management-developer-portal-templates.md)을 참조하세요.  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -228,11 +229,11 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 |속성|형식|설명|  
 |--------------|----------|-----------------|  
-|referenceCode|string|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
-|errorCode|string|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
-|emailBody|string|내부 오류로 인해이 페이지 표시 된 경우 생성 된 본문을 전자 메일로 보냅니다.|  
-|requestedUrl|string|페이지를 찾을 수 없는 경우 요청되는 URL입니다.|  
-|referrerUrl|string|요청된 URL의 참조 페이지 URL입니다.|  
+|referenceCode|문자열|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
+|errorCode|문자열|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
+|emailBody|문자열|내부 오류로 인해이 페이지 표시 된 경우 생성 된 본문을 전자 메일로 보냅니다.|  
+|requestedUrl|문자열|페이지를 찾을 수 없는 경우 요청되는 URL입니다.|  
+|referrerUrl|문자열|요청된 URL의 참조 페이지 URL입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

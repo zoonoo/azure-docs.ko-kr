@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 1b299cf21652c23451aed735b10597adb85dc3db
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f9c3f8e1e37a59dc0010269c6b4c19e3a682c57e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982731"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247016"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Azure IoT Edge에서 인증서를 사용하는 방법 이해
 
@@ -24,6 +25,9 @@ IoT Edge 인증서는 모듈 및 다운스트림 IoT 디바이스에서 [IoT Edg
 ## <a name="iot-edge-certificates"></a>IoT Edge 인증서
 
 일반적으로 제조업체는 IoT Edge 디바이스의 최종 사용자가 아닙니다. 최종 사용자(운영자)가 제조업체에서 제조한 일반 디바이스를 구매해야 두 당사자 간의 관계가 생성되는 경우도 있습니다. 제조업체가 운영자에 대한 사용자 지정 디바이스를 빌드하는 계약에 따라 작업을 하는 경우도 있습니다. IoT Edge 인증서 디자인은 두 시나리오를 모두 고려하고자 합니다.
+
+> [!NOTE]
+> 현재 libiothsm의 제한으로 인해 2050 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다. 이러한 제한 사항은 장치 CA 인증서, 신뢰 번들의 인증서 및 x.509 프로비저닝 방법에 사용 되는 장치 ID 인증서에 적용 됩니다.
 
 다음 그림은 IoT Edge의 인증서 사용을 보여줍니다. 루트 CA 인증서와 디바이스 CA 인증서 간에는 중간 서명 인증서가 없을 수도 있고 하나 이상 있을 수도 있습니다. 아래에 한 가지 사례가 나와 있습니다.
 

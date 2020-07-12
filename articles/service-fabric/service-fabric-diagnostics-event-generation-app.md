@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1871df962a26def8c12000f8b8bc0cf31bae9a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464716"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247662"
 ---
 # <a name="application-logging"></a>애플리케이션 로깅
 
@@ -21,11 +22,11 @@ ms.locfileid: "75464716"
 
 ## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Application Insights에는 즉시 사용이 가능한 Service Fabric과의 통합이 있습니다. 사용자는 AI Service Fabric NuGet 패키지를 추가하고 Azure Portal에서 볼 수 있도록 만들어지고 수집된 데이터 및 로그를 받습니다. 또한 사용자는 해당 애플리케이션을 진단 및 디버그하고 애플리케이션에서 가장 많이 사용되는 서비스 및 부분을 추적하기 위해 고유한 원격 분석을 추가하는 것이 좋습니다. SDK에서 [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) 클래스는 애플리케이션에서 원격 분석을 추적하는 여러 방법을 제공합니다. [.NET 애플리케이션 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)에 대한 자습서에서 Application Insights를 계측하고 애플리케이션에 추가하는 방법의 예를 확인합니다.
+Application Insights에는 즉시 사용이 가능한 Service Fabric과의 통합이 있습니다. 사용자는 AI Service Fabric NuGet 패키지를 추가하고 Azure Portal에서 볼 수 있도록 만들어지고 수집된 데이터 및 로그를 받습니다. 또한 사용자는 해당 애플리케이션을 진단 및 디버그하고 애플리케이션에서 가장 많이 사용되는 서비스 및 부분을 추적하기 위해 고유한 원격 분석을 추가하는 것이 좋습니다. SDK에서 [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) 클래스는 애플리케이션에서 원격 분석을 추적하는 여러 방법을 제공합니다. [.NET 애플리케이션 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)에 대한 자습서에서 Application Insights를 계측하고 애플리케이션에 추가하는 방법의 예를 확인합니다.
 
 ## <a name="eventsource"></a>EventSource
 
-Visual Studio의 템플릿에서 Service Fabric 솔루션을 만들면 **EventSource** 파생 클래스(**ServiceEventSource** 또는 **ActorEventSource**)가 생성됩니다. 애플리케이션 또는 서비스에 대한 이벤트를 추가할 수 있는 템플릿을 만듭니다. **EventSource** 이름은 고유 **해야** 하며 기본 템플릿 문자열 MyCompany-솔루션 프로젝트에서 이름을 바꿔야 합니다 &lt; &gt; - &lt; &gt; . 동일한 이름을 사용하는 **EventSource** 정의가 여러 개 있으면 런타임에서 문제가 발생합니다. 정의된 각 이벤트에는 고유 식별자가 있어야 합니다. 식별자가 고유하지 않으면 런타임 오류가 발생합니다. 일부 조직에서는 별도의 개발 팀 간에 충돌을 피하기 위해 식별자에 대한 값의 범위가 미리 할당됩니다. 자세한 내용은 [Vance의 블로그](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) 또는 [MSDN 설명서](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx)를 참조하세요.
+Visual Studio의 템플릿에서 Service Fabric 솔루션을 만들면 **EventSource** 파생 클래스(**ServiceEventSource** 또는 **ActorEventSource**)가 생성됩니다. 애플리케이션 또는 서비스에 대한 이벤트를 추가할 수 있는 템플릿을 만듭니다. **EventSource** 이름은 고유 **해야** 하며 기본 템플릿 문자열 MyCompany-솔루션 프로젝트에서 이름을 바꿔야 합니다 &lt; &gt; - &lt; &gt; . 동일한 이름을 사용하는 **EventSource** 정의가 여러 개 있으면 런타임에서 문제가 발생합니다. 정의된 각 이벤트에는 고유 식별자가 있어야 합니다. 식별자가 고유하지 않으면 런타임 오류가 발생합니다. 일부 조직에서는 별도의 개발 팀 간에 충돌을 피하기 위해 식별자에 대한 값의 범위가 미리 할당됩니다. 자세한 내용은 [Vance의 블로그](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) 또는 [MSDN 설명서](/previous-versions/msp-n-p/dn774985(v=pandp.20))를 참조하세요.
 
 ## <a name="aspnet-core-logging"></a>ASP.NET Core 로깅
 

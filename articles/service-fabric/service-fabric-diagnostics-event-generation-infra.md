@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ce0cd0866cc6daa36d598767a486faeabac8076d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 033b4967d3da382057c2651457f7792e760d8bc3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791819"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247618"
 ---
 # <a name="monitoring-the-cluster"></a>클러스터 모니터링
 
@@ -81,7 +81,7 @@ Service Fabric을 사용할 경우 수집할 경우 수집할 성능 카운터�
 클러스터에 대한 성능 데이터 수집을 설정하는 두 가지 일반적인 방법은 다음과 같습니다.
 
 * **에이전트 사용**  
-이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. Azure Monitor에 대 한 자세한 내용은 Service Fabric의 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 에 Azure Monitor 로그를 제공 하 고 [Log Analytics](../log-analytics/log-analytics-windows-agent.md) 에이전트에 대 한 자세한 내용은 클러스터 vm 및 배포 된 컨테이너에 대 한 성능 데이터를 선택할 수 있는 모니터링 에이전트 중 하나를 참조 하세요.
+이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. Azure Monitor에 대 한 자세한 내용은 Service Fabric의 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 에 Azure Monitor 로그를 제공 하 고 [Log Analytics](../azure-monitor/platform/agent-windows.md) 에이전트에 대 한 자세한 내용은 클러스터 vm 및 배포 된 컨테이너에 대 한 성능 데이터를 선택할 수 있는 모니터링 에이전트 중 하나를 참조 하세요.
 
 * **Azure Table Storage대한 성능 카운터**  
 성능 메트릭은 이벤트와 동일한 테이블 스토리지에 보낼 수도 있습니다. 이렇게 하려면 Azure Diagnostics 구성을 변경하여 클러스터의 VM에서 적절한 성능 카운터를 선택하고, 컨테이너를 배포할 경우 Docker 통계를 선택해야 합니다. 성능 카운터 수집을 설정하려면 Service Fabric에서 [WAD의 성능 카운터](service-fabric-diagnostics-event-aggregation-wad.md)를 구성하는 방법을 참조하세요.

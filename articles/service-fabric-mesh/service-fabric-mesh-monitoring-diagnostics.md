@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e940f0cf0d1547b317cd9e7bd15ac5486d5e70b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75498153"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248410"
 ---
 # <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. Service Fabric Mesh의 모니터링 및 진단은 다음 세 가지 주요 진단 데이터 유형으로 분류됩니다.
@@ -57,7 +58,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 | RestartCount | 컨테이너 다시 시작 수 | 해당 없음 |
 
 > [!NOTE]
-> ServiceStatus 및 ServiceReplicaStatus 값은 Service Fabric의 [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) 와 동일 합니다. 
+> ServiceStatus 및 ServiceReplicaStatus 값은 Service Fabric의 [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) 와 동일 합니다. 
 
 각 메트릭은 서로 다른 수준에서 집계를 볼 수 있도록 서로 다른 차원에서 사용할 수 있습니다. 현재 차원 목록은 다음과 같습니다.
 
@@ -73,7 +74,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 ### <a name="azure-monitor-cli"></a>CLI Azure Monitor
 
-명령에 대 한 전체 목록은 [AZURE MONITOR CLI 문서](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) 에서 사용할 수 있지만 아래에 몇 가지 유용한 예가 포함 되어 있습니다. 
+명령에 대 한 전체 목록은 [AZURE MONITOR CLI 문서](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) 에서 사용할 수 있지만 아래에 몇 가지 유용한 예가 포함 되어 있습니다. 
 
 각 예제에서 리소스 ID는이 패턴을 따릅니다.
 
@@ -117,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>다음 단계
 * Service Fabric Mesh에 대한 자세한 내용은 [Service Fabric Mesh 개요](service-fabric-mesh-overview.md)를 참조하세요.
-* Azure Monitor 메트릭 명령에 대 한 자세한 내용은 [CLI 문서 Azure Monitor](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)를 참조 하세요.
+* Azure Monitor 메트릭 명령에 대 한 자세한 내용은 [CLI 문서 Azure Monitor](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)를 참조 하세요.

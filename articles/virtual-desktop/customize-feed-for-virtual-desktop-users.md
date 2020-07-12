@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99c63fd04a40b1a4e591f5ad42d8f776e8e5b67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c2ad99a59e548ff7793455dac21748dd057c5fc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208504"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248699"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Windows Virtual Desktop 사용자용 피드를 사용자 지정
 
@@ -25,7 +25,7 @@ ms.locfileid: "85208504"
 
 사용자에 게 RemoteApp 및 원격 데스크톱 리소스가 인식할 수 있는 방식으로 표시 되도록 피드를 사용자 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Windows 가상 데스크톱 PowerShell 모듈을 이미 다운로드 하 여 설치 했다고 가정 합니다. 그렇지 않은 경우 [PowerShell 모듈 설정](powershell-module.md)의 지침을 따르세요.
 
@@ -124,7 +124,7 @@ Azure Portal를 사용 하 여 이름을 설정 하 여 게시 된 원격 데스
 
 사용자에 대 한 피드를 사용자 지정 했으므로 Windows 가상 데스크톱 클라이언트에 로그인 하 여 테스트할 수 있습니다. 이렇게 하려면 Windows 가상 데스크톱 방법에 연결을 계속 진행 합니다.
 
- * [Windows 10 또는 Windows 7을 사용 하 여 연결](connect-windows-7-and-10.md)
+ * [Windows 10 또는 Windows 7을 사용 하 여 연결](connect-windows-7-10.md)
  * [웹 클라이언트를 사용하여 연결](connect-web.md)
  * [Android 클라이언트와 연결](connect-android.md)
  * [iOS 클라이언트와 연결](connect-ios.md)

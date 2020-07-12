@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fb99530923f25541316fd159a2270f7035a1916b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0c0f40144fde49d467ca7fb126a19afa6c76660a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229247"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246959"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Azure Cognitive Search의 미리 보기 기능
 
@@ -23,6 +23,7 @@ ms.locfileid: "86229247"
 
 |기능과&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
+| [**Azure Machine Learning (AML) 기술**](cognitive-search-aml-skill.md) | AI 보강| Azure Machine Learning에서 추론 끝점을 통합 하는 새 기술 유형입니다. [이 자습서](cognitive-search-tutorial-aml-custom-skill.md)를 시작합니다. | [검색 REST API 2020-06-30-미리 보기](https://docs.microsoft.com/rest/api/searchservice/) 또는 2019-05-06-미리 보기를 사용 합니다. 포털에서 기술 디자인을 사용 하 여 Cognitive Search 및 Azure ML 서비스가 동일한 구독에 배포 되는 것으로 가정 합니다. |
 | [**featuresMode 매개 변수**](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | 관련성 (점수 매기기) | 세부 정보를 포함 하는 관련성 점수 확장: 필드별 유사성 점수, 필드별 별 빈도 및 일치 하는 고유 토큰의 필드 당 수 [사용자 지정 점수 매기기 솔루션](https://github.com/Azure-Samples/search-ranking-tutorial)에서 이러한 데이터 요소를 사용할 수 있습니다. | Api-version = 2020-06 -30-Preview 또는 2019-05-06-Preview를 사용 하 여 [문서 검색 (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) 을 사용 하 여이 쿼리 매개 변수를 추가 합니다. |
 | [**관리 서비스 ID**](search-howto-managed-identities-data-sources.md) | 인덱서, 보안| Azure Active Directory를 사용 하 여 검색 서비스를 등록 한 다음 신뢰할 수 있는 서비스로 설정 하 고 Azure 데이터 원본에 대 한 RBAC 권한을 사용 하 여 인덱서에 읽기 전용 액세스를 허용 합니다. | 이 기능에 액세스 하려면 api-version = 2020-06 -30 또는 api-version = 2019-05 -06-Preview를 사용 하 여 포털을 사용 하거나 [데이터 원본 (REST)을 만듭니다](https://docs.microsoft.com/rest/api/searchservice/create-data-source) . |
 | [**디버그 세션**](cognitive-search-debug-session.md) | 포털, AI 보강 (기술) | 기술와 관련 된 문제를 조사 하 고 해결 하는 데 사용 되는 세션 내 기술 편집기입니다. 디버그 세션 중에 적용 되는 픽스는 서비스의 기술에 저장할 수 있습니다. | 개요 페이지의 중간 페이지 링크를 사용 하 여 디버그 세션을 열 수 있습니다. |

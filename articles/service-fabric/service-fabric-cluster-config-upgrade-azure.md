@@ -5,18 +5,19 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 010f2b5d6dee3a5985c421e468bcd28b18148e5a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793077"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247730"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Azure에서 클러스터의 구성 업그레이드 
 
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정을 사용자 지정하는 방법을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다.
 
 > [!NOTE]
-> 포털에서 모든 설정을 사용할 수 있는 것은 아니며 [Azure Resource Manager 템플릿을 사용하여 사용자 지정하는 것이 가장 좋은 방법](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)입니다. 포털은 Service Fabric Dev\Test 시나리오 전용입니다.
+> 포털에서 모든 설정을 사용할 수 있는 것은 아니며 [Azure Resource Manager 템플릿을 사용하여 사용자 지정하는 것이 가장 좋은 방법](./service-fabric-best-practices-infrastructure-as-code.md)입니다. 포털은 Service Fabric Dev\Test 시나리오 전용입니다.
 > 
 
 
@@ -44,11 +45,11 @@ JSON Resource Manager 템플릿을 통해 Azure 클러스터를 구성할 수 �
 
 또한 Azure Resource Manager를 사용하여 다음 방법 중 하나에서 클러스터 설정을 사용자 지정할 수 있습니다.
 
-- [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
-- [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
-- [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli)를 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
-- Azure PowerShell [AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) 및 [AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) 명령을 사용 하 여 설정을 직접 수정할 수 있습니다.
-- Azure CLI [az sf 클러스터 설정](https://docs.microsoft.com/cli/azure/sf/cluster/setting) 명령을 사용하여 설정을 직접 수정합니다.
+- [Azure Portal](../azure-resource-manager/templates/export-template-portal.md)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
+- [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
+- [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md)를 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
+- Azure PowerShell [AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) 및 [AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) 명령을 사용 하 여 설정을 직접 수정할 수 있습니다.
+- Azure CLI [az sf 클러스터 설정](/cli/azure/sf/cluster/setting) 명령을 사용하여 설정을 직접 수정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 클러스터 설정](service-fabric-cluster-fabric-settings.md)에 대해 알아봅니다.

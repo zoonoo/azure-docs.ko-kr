@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871266"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250297"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수집할 수 있는 확장성이 뛰어난 데이터 수집 서비스이므로 연결된 디바이스와 애플리케이션이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. Event Hubs는 이벤트 파이프라인에 대한 &quot;현관&quot;의 역할을 하고 데이터가 이벤트 허브에 수집되면 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환 및 저장될 수 있습니다. Event Hubs는 이러한 이벤트를 소비하는 데에서 이벤트 스트림의 프로덕션을 분리하므로 이벤트 소비자가 자신의 개인 일정에 이벤트를 액세스할 수 있습니다.
@@ -26,12 +27,12 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수집할 수 있는 �
 
 ## <a name="create-an-azure-event-hub"></a>Azure 이벤트 허브 만들기
 
-Event Hub를 만들고 Event Hub 간에 이벤트를 송신 및 수신해야 하는 연결 문자열을 가져오는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 Event Hub 만들기](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)를 참조하세요.
+Event Hub를 만들고 Event Hub 간에 이벤트를 송신 및 수신해야 하는 연결 문자열을 가져오는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 Event Hub 만들기](../event-hubs/event-hubs-create.md)를 참조하세요.
 
 ## <a name="create-an-api-management-logger"></a>API Management 로거 만들기
-이제 이벤트 허브를 만들었으므로 다음 단계는 API Management 서비스에서 [로거](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger) 를 구성하여 이벤트 허브에 이벤트를 기록할 수 있도록 하는 것입니다.
+이제 이벤트 허브를 만들었으므로 다음 단계는 API Management 서비스에서 [로거](/rest/api/apimanagement/2019-12-01/logger) 를 구성하여 이벤트 허브에 이벤트를 기록할 수 있도록 하는 것입니다.
 
-API Management 로거는 [API Management REST API](https://aka.ms/apimapi)를 사용하여 구성됩니다. 자세한 요청 예제 [는로 거를 만드는 방법](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate)을 참조 하세요.
+API Management 로거는 [API Management REST API](https://aka.ms/apimapi)를 사용하여 구성됩니다. 자세한 요청 예제 [는로 거를 만드는 방법](/rest/api/apimanagement/2019-12-01/logger/createorupdate)을 참조 하세요.
 
 ## <a name="configure-log-to-eventhub-policies"></a>로그-eventhub 정책 구성
 
@@ -68,7 +69,7 @@ API Management 로거는 [API Management REST API](https://aka.ms/apimapi)를 �
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>을 사용 하 여 Event Hubs에서 로그를 미리 봅니다 Azure Stream Analytics
 
-[Azure Stream Analytics 쿼리](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics)를 사용 하 여 Event Hubs에서 로그를 미리 볼 수 있습니다. 
+[Azure Stream Analytics 쿼리](../event-hubs/process-data-azure-stream-analytics.md)를 사용 하 여 Event Hubs에서 로그를 미리 볼 수 있습니다. 
 
 1. Azure Portal에서 로거가 이벤트를 전송 하는 이벤트 허브를 찾습니다. 
 2. **기능**에서 **데이터 처리** 탭을 선택 합니다.
@@ -78,11 +79,11 @@ API Management 로거는 [API Management REST API](https://aka.ms/apimapi)를 �
 ## <a name="next-steps"></a>다음 단계
 * Azure Event Hubs에 대해 자세히 알아보기
   * [Azure Event Hubs 시작](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)
 * API Management 및 Event Hubs 통합에 대해 자세히 알아보기
-  * [로거 엔터티 참조](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger)
-  * [log-to-eventhub 정책 참조](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [로거 엔터티 참조](/rest/api/apimanagement/2019-12-01/logger)
+  * [log-to-eventhub 정책 참조](./api-management-advanced-policies.md#log-to-eventhub)
   * [Azure API Management, Event Hubs 및 Moesif를 사용하여 API 모니터링](api-management-log-to-eventhub-sample.md)  
 * [Azure Application Insights와의 통합](api-management-howto-app-insights.md)에 대해 자세히 알아보기
 

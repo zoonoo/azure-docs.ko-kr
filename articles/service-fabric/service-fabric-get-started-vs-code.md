@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b34893b64ac3533406f33c45583a911b70ae42af
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692601"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247441"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code용 Service Fabric
 
@@ -20,14 +21,14 @@ ms.locfileid: "84692601"
 > [!IMPORTANT]
 > Service Fabric Java 애플리케이션은 Windows 컴퓨터에서 개발할 수 있지만 Azure Linux 클러스터에만 배포할 수 있습니다. Windows에서는 Java 애플리케이션을 디버그할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 구성 요소를 모든 환경에 설치해야 합니다.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.JS](https://nodejs.org/)
 * [Git](https://git-scm.com/)
-* [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* [Service Fabric SDK](./service-fabric-get-started.md)
 * Yeoman 생성기 -- 애플리케이션에 적절한 생성기 설치
 
    ```sh
@@ -49,7 +50,7 @@ Java 개발을 위해서는 다음 필수 구성 요소를 설치해야 합니�
 * [.NET Core](https://www.microsoft.com/net/learn/get-started)(버전 2.0.0 이상)
 * [Visual Studio Code용 C#(OmniSharp 제공) VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) C# 서비스 디버그에 필요합니다. VS Code의 **작업 막대**에서 확장 아이콘을 클릭하고 해당 확장을 검색하거나 VS Code Marketplace에서 설치할 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 1. VS Code를 엽니다.
 2. VS Code 왼쪽의 **작업 막대**에서 확장 아이콘을 클릭합니다. "Service Fabric"을 검색합니다. Service Fabric Reliable Services 확장에 대해 **설치**를 클릭합니다.

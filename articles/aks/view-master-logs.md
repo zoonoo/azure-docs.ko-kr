@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드에 
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 504d6a5216f3345f22a601c4ae084488aeb97c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76ded781d4eae48db04f54a4f88a80cc700d0ad9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82128963"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250739"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토
 
@@ -117,7 +117,7 @@ AzureDiagnostics
 
 ## <a name="log-roles"></a>로그 역할
 
-| 역할                     | Description |
+| 역할                     | 설명 |
 |--------------------------|-------------|
 | *aksService*             | HcpService의 제어 평면 작업에 대 한 감사 로그의 표시 이름입니다. |
 | *masterclient*           | MasterClientCertificate에 대 한 감사 로그의 표시 이름, az aks get 자격 증명에서 가져온 인증서 |
@@ -133,8 +133,8 @@ AzureDiagnostics
 <!-- LINKS - internal -->
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
-[log-analytics-overview]: ../log-analytics/log-analytics-overview.md
-[analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
+[log-analytics-overview]: ../azure-monitor/log-query/log-query-overview.md
+[analyze-log-analytics]: ../azure-monitor/log-query/get-started-portal.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

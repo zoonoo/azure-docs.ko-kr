@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/25/2020
-ms.openlocfilehash: 33e521046889733b2f0a66b839ab5dde46398318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 350c542e1b183c79707c99989b2544fd8faa43ac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412698"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248478"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -179,7 +180,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 ### <a name="authentication-limits"></a>인증 제한
 
-다음은 요청 트리거에 대한 인바운드 호출 권한을 부여하기 위해 요청 트리거로 시작하여 Azure AD OAuth([Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md))을 사용하도록 설정하는 논리 앱의 제한입니다.
+다음은 요청 트리거에 대한 인바운드 호출 권한을 부여하기 위해 요청 트리거로 시작하여 Azure AD OAuth([Azure Active Directory Open Authentication](/azure/active-directory/develop/))을 사용하도록 설정하는 논리 앱의 제한입니다.
 
 | 속성 | 제한 | 메모 |
 | ---- | ----- | ----- |
@@ -301,7 +302,8 @@ ISE의 통합 계정 제한을 초과하여 추가하는 통합 계정마다 추
 Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 논리 앱이 있는 지역에 따라 달라집니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다. **HTTP** 및 **HTTP + OpenAPI** 요청 같은 일부 [Power Automate](https://docs.microsoft.com/power-automate/getting-started) 호출은 Azure Logic Apps 서비스를 바로 통과하여 여기에 나열된 IP 주소로 들어옵니다. Power Automate에서 사용하는 IP 주소에 대한 자세한 내용은 [Power Automate의 제한 및 구성](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)을 참조하세요.
 
 > [!TIP]
-> 보안 규칙을 만들 때 지역마다 Logic Apps IP 주소를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md)를 사용하면 복잡성을 줄일 수 있으며, 자세한 방법은 이 섹션의 뒷부분에서 설명합니다. 이러한 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
+> 보안 규칙을 만들 때 지역마다 Logic Apps IP 주소를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md)를 사용하면 복잡성을 줄일 수 있으며, 자세한 방법은 이 섹션의 뒷부분에서 설명합니다.
+> 이러한 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
 >
 > * **LogicAppsManagement**: Logic Apps 서비스의 인바운드 IP 주소 접두사를 나타냅니다.
 > * **LogicApps**: Logic Apps 서비스의 아웃바운드 IP 주소 접두사를 나타냅니다.
@@ -325,7 +327,8 @@ Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 �
 이 섹션에서는 Azure Logic Apps 서비스의 인바운드 IP 주소만 나열합니다. Azure Government를 보유한 경우 [Azure Government - 인바운드 IP 주소](#azure-government-inbound)를 참조하세요.
 
 > [!TIP]
-> 보안 규칙을 만들 때 지역마다 인바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicAppsManagement**를 사용하면 복잡성을 줄일 수 있습니다. 이 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
+> 보안 규칙을 만들 때 지역마다 인바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicAppsManagement**를 사용하면 복잡성을 줄일 수 있습니다.
+> 이 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -385,7 +388,9 @@ Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 �
 이 섹션에서는 Azure Logic Apps 서비스 및 관리형 커넥터의 아웃바운드 IP 주소를 나열합니다. Azure Government를 보유한 경우 [Azure Government - 아웃바운드 IP 주소](#azure-government-outbound)를 참조하세요.
 
 > [!TIP]
-> 보안 규칙을 만들 때 지역마다 아웃바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicApps**를 사용하면 복잡성을 줄일 수 있습니다. 이 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다. 관리형 커넥터의 경우 IP 주소를 계속 사용해야 합니다.
+> 보안 규칙을 만들 때 지역마다 아웃바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicApps**를 사용하면 복잡성을 줄일 수 있습니다.
+> 이 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
+> 관리형 커넥터의 경우 IP 주소를 계속 사용해야 합니다.
 
 <a name="multi-tenant-outbound"></a>
 
@@ -440,5 +445,5 @@ Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 대해 알아봅니다.  
+* [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 대해 알아봅니다.
 * [일반적인 예제 및 시나리오](../logic-apps/logic-apps-examples-and-scenarios.md)에 대해 알아봅니다.

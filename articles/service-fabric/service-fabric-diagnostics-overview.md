@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712227"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247526"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 모니터링 및 진단
 
@@ -91,4 +92,4 @@ Service Fabric 플랫폼에는 클러스터의 엔터티 상태에 대한 확장
 * 컨테이너 모니터링에 대 한 Azure Monitor 로그를 설정 하는 방법에 대해 알아봅니다. [Azure Service Fabric에서 Windows 컨테이너에 대 한 모니터링 및 진단](service-fabric-tutorial-monitoring-wincontainers.md)입니다.
 * [일반적인 시나리오 진단](service-fabric-diagnostics-common-scenarios.md)에서 Service Fabric을 사용하여 예제 진단 문제 및 솔루션을 참조하세요.
 * [Service Fabric 진단 파트너](service-fabric-diagnostics-partners.md)에서 Service Fabric과 통합되는 기타 진단 제품을 확인하세요.
-* Azure 리소스에 대한 일반적인 모니터링 권장 사항을 알아봅니다. [모범 사례 - 모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) 
+* Azure 리소스에 대한 일반적인 모니터링 권장 사항을 알아봅니다. [모범 사례 - 모니터링 및 진단](/azure/architecture/best-practices/monitoring) 

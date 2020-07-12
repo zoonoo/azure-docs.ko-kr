@@ -1,15 +1,16 @@
 ---
 title: 레지스트리 지역 복제
-description: 레지스트리가 다중 마스터 지역 복제본을 사용하여 여러 지역에 서비스를 제공할 수 있는 지리적 복제 Azure 컨테이너 레지스트리 만들기 및 관리를 시작합니다. 지역에서 복제는 프리미엄 기능 계층의 기능입니다.
+description: 레지스트리가 다중 마스터 지역 복제본을 사용하여 여러 지역에 서비스를 제공할 수 있는 지리적 복제 Azure 컨테이너 레지스트리 만들기 및 관리를 시작합니다. 지역에서 복제는 프리미엄 서비스 계층의 기능입니다.
 author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84508797"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247135"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -18,7 +19,7 @@ ms.locfileid: "84508797"
 지리적 복제된 레지스트리는 다음과 같은 이점을 제공합니다.
 
 * 둘 이상의 지역에서 단일 레지스트리/이미지/태그 이름 사용 가능
-* 지역별 배포 환경에서 네트워크와 가까운 곳에 위치한 레지스트리에 액세스 가능
+* 지역 배포에서 네트워크와 가까운 곳에 있는 레지스트리에 액세스 가능
 * 컨테이너 호스트와 동일한 지역에 있는 복제된 로컬 레지스트리에서 이미지를 가져오므로 추가 송신 요금이 부과되지 않음
 * 둘 이상의 지역에서 레지스트리를 단일하게 관리
 
@@ -27,7 +28,7 @@ ms.locfileid: "84508797"
 >
 
 ## <a name="example-use-case"></a>사용 사례
-Contoso는 미국, 캐나다, 유럽에서 공개 웹 사이트를 운영하고 있습니다. Contoso는 미국, 캐나다, 유럽 시장에 네트워크와 가까운 곳에 위치한 로컬 콘텐츠를 제공하기 위해 미국 서부, 미국 동부, 캐나다 중부 및 서유럽에서 [Azure Kubernetes Service](/azure/aks/)(AKS) 클러스터를 실행합니다. Docker 이미지로서 배포된 웹 사이트 애플리케이션은 모든 지역에서 동일한 코드와 이미지를 사용합니다. 해당 지역의 로컬 콘텐츠는 지역별로 고유하게 프로비전된 데이터베이스에서 가져옵니다. 각 지역별 배포는 로컬 데이터베이스와 리소스에 대해 고유한 구성을 갖습니다.
+Contoso는 미국, 캐나다, 유럽에서 공개 웹 사이트를 운영하고 있습니다. Contoso는 미국, 캐나다, 유럽 시장에 네트워크와 가까운 곳에 위치한 로컬 콘텐츠를 제공하기 위해 미국 서부, 미국 동부, 캐나다 중부 및 서유럽에서 [Azure Kubernetes Service](../aks/index.yml)(AKS) 클러스터를 실행합니다. Docker 이미지로서 배포된 웹 사이트 애플리케이션은 모든 지역에서 동일한 코드와 이미지를 사용합니다. 해당 지역의 로컬 콘텐츠는 지역별로 고유하게 프로비전된 데이터베이스에서 가져옵니다. 각 지역별 배포는 로컬 데이터베이스와 리소스에 대해 고유한 구성을 갖습니다.
 
 워싱턴주 시애틀에 있는 개발팀은 미국 서부 데이터 센터를 이용합니다.
 
@@ -94,7 +95,7 @@ ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동
 * 지역 복제된 레지스트리에서 이미지를 푸시 또는 풀하면 백그라운드의 Azure Traffic Manager는 네트워크 지연 시간 측면에서 가장 가까운 지역에 있는 레지스트리로 요청을 보냅니다.
 * 가장 가까운 Azure 지역에 이미지 또는 태그 업데이트를 푸시한 후 Azure Container Registry가 매니페스트 및 레이어를 사용자가 옵트인한 나머지 Azure 지역에 복제할 때까지 어느 정도 시간이 걸립니다. 큰 이미지는 작은 이미지보다 복제 시간이 오래 걸립니다. 이미지 및 태그는 최종 일관성 모델을 사용하여 복제 지역에서 동기화됩니다.
 * 지역 복제 레지스트리에 푸시 업데이트를 사용하는 워크플로를 관리하려면 푸시 이벤트에 응답하는 [webhook](container-registry-webhook.md)를 구성하는 것이 좋습니다. 지역 복제된 Azure 지역에서 완료되는 푸시 이벤트를 추적하도록 지역 복제된 레지스트리 내부에 지역별 webhook를 설정할 수 있습니다.
-* 콘텐츠 계층을 나타내는 Blob을 제공하기 위해 Azure Container Registy는 데이터 엔드포인트를 사용합니다. 각 레지스트리의 지역 복제된 지역에서 레지스트리에 대해 [전용 데이터 엔드포인트](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints)를 사용하도록 설정할 수 있습니다. 이러한 엔드포인트를 사용하면 엄격하게 범위가 지정된 방화벽 액세스 규칙을 구성할 수 있습니다.
+* 콘텐츠 계층을 나타내는 blob을 제공 하기 위해 Azure Container Registry는 데이터 끝점을 사용 합니다. 각 레지스트리의 지역 복제된 지역에서 레지스트리에 대해 [전용 데이터 엔드포인트](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints)를 사용하도록 설정할 수 있습니다. 이러한 엔드포인트를 사용하면 엄격하게 범위가 지정된 방화벽 액세스 규칙을 구성할 수 있습니다.
 * 가상 네트워크의 프라이빗 엔드포인트를 사용하여 레지스트리에 [프라이빗 링크](container-registry-private-link.md)를 구성하는 경우 각 지역 복제된 지역에서 전용 데이터 엔드포인트가 기본적으로 사용되도록 설정됩니다. 
 
 ## <a name="delete-a-replica"></a>복제본 삭제

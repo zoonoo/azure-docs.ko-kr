@@ -3,11 +3,12 @@ title: Linux에서 Azure Service Fabric 앱 디버그
 description: 로컬 Linux 개발 컴퓨터에서 Service Fabric 서비스를 모니터링하고 진단하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f637721d24045f5ca3386ffc31775d469e88537
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80991333"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247560"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>로컬 Linux 컴퓨터 개발 설치에서 서비스 모니터링 및 진단
 
@@ -131,4 +132,4 @@ public static TextWriter Out = Console.Out;
 
 ## <a name="next-steps"></a>다음 단계
 애플리케이션에 추가된 동일한 추적 코드 역시 Azure 클러스터에서 애플리케이션의 진단과 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.
-* [Azure Diagnostics를 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-lad.md)
+* [Azure Diagnostics를 사용하여 로그를 수집하는 방법](./service-fabric-diagnostics-event-aggregation-lad.md)

@@ -2,16 +2,16 @@
 title: .NET Azure Functions에서 종속성 주입 사용
 description: .NET 함수의 서비스를 등록하고 사용할 때 종속성 주입을 사용하는 방법에 대해 알아보기
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a994111d2f7e938ecdd71236858e4cb8773b00f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9783b38185940f0e75e888c3bc69a1edcc6cbb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832868"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249260"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 

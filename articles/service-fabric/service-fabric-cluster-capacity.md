@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610543"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247781"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 
@@ -26,7 +26,7 @@ ms.locfileid: "85610543"
 
 ## <a name="initial-number-and-properties-of-cluster-node-types"></a>클러스터 노드 형식의 초기 수 및 속성
 
-*노드 유형은* 클러스터의 노드 (가상 머신) 집합에 대 한 크기, 수 및 속성을 정의 합니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 [가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 매핑됩니다.
+*노드 유형은* 클러스터의 노드 (가상 머신) 집합에 대 한 크기, 수 및 속성을 정의 합니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)에 매핑됩니다.
 
 각 노드 형식은 고유한 확장 집합 이므로 독립적으로 확장 또는 축소 하 고, 서로 다른 포트 집합을 열고, 다른 용량 메트릭을 가질 수 있습니다. 노드 형식과 virtual machine scale sets 간의 관계에 대 한 자세한 내용은 [Service Fabric 클러스터 노드 형식](service-fabric-cluster-nodetypes.md)을 참조 하세요.
 
@@ -34,11 +34,11 @@ ms.locfileid: "85610543"
 
 **주 노드가 아닌 노드 유형을** 사용 하 여 응용 프로그램 역할 (예: *프런트 엔드* 및 *백 엔드* 서비스)을 정의 하 고 클러스터 내에서 서비스를 물리적으로 격리할 수 있습니다. Service Fabric 클러스터에는 주 노드 유형이 0 개 이상 있을 수 있습니다.
 
-주 노드 유형은 `isPrimary` Azure Resource Manager 배포 템플릿의 노드 유형 정의에서 특성을 사용 하 여 구성 됩니다. 노드 형식 속성의 전체 목록은 [NodeTypeDescription 개체](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 를 참조 하세요. 예를 들어 사용 하는 경우 [Service Fabric 클러스터 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) 에서 파일 *의AzureDeploy.js* 을 열고 개체에 대 한 *페이지 검색을 찾습니다* `nodetTypes` .
+주 노드 유형은 `isPrimary` Azure Resource Manager 배포 템플릿의 노드 유형 정의에서 특성을 사용 하 여 구성 됩니다. 노드 형식 속성의 전체 목록은 [NodeTypeDescription 개체](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 를 참조 하세요. 예를 들어 사용 하는 경우 [Service Fabric 클러스터 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) 에서 파일 *의AzureDeploy.js* 을 열고 개체에 대 한 *페이지 검색을 찾습니다* `nodetTypes` .
 
 ### <a name="node-type-planning-considerations"></a>노드 유형 계획 고려 사항
 
-초기 노드 형식의 수는 클러스터의 목적과 응용 프로그램 및 서비스에서 실행 되는 서비스에 따라 달라 집니다. 다음 질문을 살펴보세요.
+초기 노드 형식의 수는 클러스터의 목적과 응용 프로그램 및 서비스에서 실행 되는 서비스에 따라 달라 집니다. 다음과 같은 질문을 고려해보세요.
 
 * ***애플리케이션이 여러 서비스를 보유하고 해당 서비스 중 일부를 공용 또는 인터넷에 연결해야 하나요?***
 
@@ -79,7 +79,7 @@ ms.locfileid: "85610543"
 > 청동 내구성이 있으면 자동 OS 이미지 업그레이드를 사용할 수 없습니다. [패치 오케스트레이션 응용 프로그램](service-fabric-patch-orchestration-application.md) (비 Azure 호스트 클러스터에만 해당)은 실버 이상의 내구성 수준에 *권장 되지* 않지만 Service Fabric 업그레이드 도메인에 대해 Windows 업데이트를 자동화 하는 유일한 옵션입니다.
 
 > [!IMPORTANT]
-> 내구성 수준에 관계 없이 가상 머신 확장 집합에 대 한 [할당](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) 취소 작업을 실행 하면 클러스터가 삭제 됩니다.
+> 내구성 수준에 관계 없이 가상 머신 확장 집합에 대 한 [할당](/rest/api/compute/virtualmachinescalesets/deallocate) 취소 작업을 실행 하면 클러스터가 삭제 됩니다.
 
 ### <a name="bronze"></a>동
 

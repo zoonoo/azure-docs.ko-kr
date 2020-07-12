@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: e059a503a29872ee6241fe00ff5c7ec94ae30308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e82c7809f5a6c79b61dc0c6731a696c672f6aa97
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888097"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247339"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 
@@ -23,7 +23,7 @@ ms.locfileid: "84888097"
 
 Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 빌드 및 실행하려면 Service Fabric 런타임, SDK, 도구를 설치합니다. 또한 SDK에 포함 된 [Windows PowerShell 스크립트의 실행을 사용 하도록 설정](#enable-powershell-script-execution) 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 
@@ -42,7 +42,7 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 �
 
 ## <a name="install-the-sdk-and-tools"></a>SDK 및 도구 설치
 
-SDK와 도구를 설치하려면 WebPI(웹 플랫폼 설치 관리자)를 사용하는 것이 좋습니다. WebPI 사용 시에 런타임 오류가 발생하는 경우 특정 Service Fabric 릴리스의 릴리스 정보에서 설치 관리자의 직접 링크를 확인할 수도 있습니다. [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)의 여러 릴리스 공지에서 릴리스 정보를 확인할 수 있습니다.
+SDK와 도구를 설치하려면 WebPI(웹 플랫폼 설치 관리자)를 사용하는 것이 좋습니다. WebPI 사용 시에 런타임 오류가 발생하는 경우 특정 Service Fabric 릴리스의 릴리스 정보에서 설치 관리자의 직접 링크를 확인할 수도 있습니다. [Service Fabric 팀 블로그](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)의 여러 릴리스 공지에서 릴리스 정보를 확인할 수 있습니다.
 
 > [!NOTE]
 > 로컬 Service Fabric 개발 클러스터 업그레이드는 지원되지 않습니다.

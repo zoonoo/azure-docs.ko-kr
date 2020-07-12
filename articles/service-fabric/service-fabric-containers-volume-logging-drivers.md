@@ -3,30 +3,31 @@ title: Service Fabric에 대 한 Azure Files 볼륨 드라이버
 description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azure Files 사용을 지원합니다.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5125dbd88a2fe236196c427244f1311d9b73b9f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750050"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247696"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Service Fabric에 대 한 Azure Files 볼륨 드라이버
 
-Azure Files 볼륨 드라이버는 Docker 컨테이너에 대 한 [Azure Files](/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공 하는 [docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/) 입니다. 이 응용 프로그램은 클러스터 내의 다른 Service Fabric 컨테이너 응용 프로그램에 대 한 볼륨을 제공 하기 위해 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 응용 프로그램으로 패키지 됩니다.
+Azure Files 볼륨 드라이버는 Docker 컨테이너에 대 한 [Azure Files](../storage/files/storage-files-introduction.md) 기반 볼륨을 제공 하는 [docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/) 입니다. 이 응용 프로그램은 클러스터 내의 다른 Service Fabric 컨테이너 응용 프로그램에 대 한 볼륨을 제공 하기 위해 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 응용 프로그램으로 패키지 됩니다.
 
 > [!NOTE]
 > Azure Files 볼륨 플러그 인의 버전 6.5.661.9590 일반 공급으로 릴리스 되었습니다.
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
-* Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다.
+## <a name="prerequisites"></a>필수 구성 요소
+* Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다.
 
 * Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.
 
 * Azure Files 볼륨 플러그 인은 Service Fabric 버전 6.2 이상에서만 작동합니다.
 
-* [Azure Files 설명서](/azure/storage/files/storage-how-to-create-file-share)의 지침을 따라 볼륨으로 사용할 Service Fabric 컨테이너 애플리케이션에 대한 파일 공유를 만듭니다.
+* [Azure Files 설명서](../storage/files/storage-how-to-create-file-share.md)의 지침을 따라 볼륨으로 사용할 Service Fabric 컨테이너 애플리케이션에 대한 파일 공유를 만듭니다.
 
-* [Service Fabric 모듈을 사용하는 Powershell](/azure/service-fabric/service-fabric-get-started) 또는 [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) 설치가 필요합니다.
+* [Service Fabric 모듈을 사용하는 Powershell](./service-fabric-get-started.md) 또는 [SFCTL](./service-fabric-cli.md) 설치가 필요합니다.
 
 * Hyper-v 컨테이너를 사용 하는 경우 Azure Resource Manager 템플릿 (Azure 클러스터)의 ClusterManifest (로컬 클러스터) 또는 fabricSettings 섹션 또는 (독립 실행형 클러스터)의 ClusterConfig.js에 다음 코드 조각을 추가 해야 합니다.
 
@@ -71,7 +72,7 @@ Linux에 대 한 Azure Resource Manager 배포 명령:
 .\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
 ```
 
-스크립트를 성공적으로 실행 한 후에는 [응용 프로그램 구성 섹션](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume) 으로 건너뛸 수 있습니다.
+스크립트를 성공적으로 실행 한 후에는 [응용 프로그램 구성 섹션](#configure-your-applications-to-use-the-volume) 으로 건너뛸 수 있습니다.
 
 
 ### <a name="manual-deployment-for-standalone-clusters"></a>독립 실행형 클러스터에 대 한 수동 배포
@@ -124,7 +125,7 @@ Linux에 대 한 Azure Resource Manager 배포 명령:
 > Windows Server 2016 Datacenter는 커넥터에 SMB 마운트를 매핑하도록 지원하지 않습니다([Windows Server 버전 1709에서만 지원됨](/virtualization/windowscontainers/manage-containers/container-storage)). 이러한 제약으로 인해 1709보다 오래된 버전에서 네트워크 볼륨 매핑 및 Azure Files 볼륨 드라이버를 사용할 수 없습니다.
 
 #### <a name="deploy-the-application-on-a-local-development-cluster"></a>로컬 개발 클러스터에서 애플리케이션 배포
-위의 1-3 단계를 수행 [합니다.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+위의 1-3 단계를 수행 [합니다.](#manual-deployment-for-standalone-clusters)
 
  Azure Files 볼륨 플러그 인 애플리케이션에 대한 기본 서비스 인스턴스 수는 -1로, 클러스터의 각 노드에 배포된 서비스의 인스턴스가 있다는 것을 의미합니다. 그러나 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 애플리케이션을 배포할 때 서비스 인스턴스 수는 1로 지정되어야 합니다. **InstanceCount** 애플리케이션 매개 변수를 통해 이를 수행할 수 있습니다. 따라서 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 응용 프로그램을 만드는 명령은 다음과 같습니다.
 
@@ -197,7 +198,7 @@ Azure Files 볼륨 플러그 인의 드라이버 이름이 **sfazurefile**입니
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>사용자 고유의 볼륨 또는 로깅 드라이버 사용
-Service Fabric은 사용자 고유의 사용자 지정 [볼륨](https://docs.docker.com/engine/extend/plugins_volume/) 또는 [로깅](https://docs.docker.com/engine/admin/logging/overview/) 드라이버 사용을 허용합니다. Docker 볼륨/로깅 드라이버가 클러스터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](/azure/service-fabric/service-fabric-application-model)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
+Service Fabric은 사용자 고유의 사용자 지정 [볼륨](https://docs.docker.com/engine/extend/plugins_volume/) 또는 [로깅](https://docs.docker.com/engine/admin/logging/overview/) 드라이버 사용을 허용합니다. Docker 볼륨/로깅 드라이버가 클러스터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](./service-fabric-application-model.md)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
 
 [Azure용 Docker 볼륨 드라이버](https://docs.docker.com/docker-for-azure/persistent-data-volumes/)를 설치하는 스크립트의 예는 다음과 같습니다.
 
@@ -240,4 +241,4 @@ Docker 로그 드라이버가 지정된 경우 클러스터의 로그를 처리�
 
 ## <a name="next-steps"></a>다음 단계
 * 볼륨 드라이버를 포함하여 컨테이너 샘플을 보려면 [Service Fabric 컨테이너 샘플](https://github.com/Azure-Samples/service-fabric-containers)을 참조하세요.
-* 컨테이너를 Service Fabric 클러스터에 배포 하려면 [Service Fabric 컨테이너 배포](service-fabric-deploy-container.md) 문서를 참조 하세요.
+* 컨테이너를 Service Fabric 클러스터에 배포 하려면 [Service Fabric 컨테이너 배포](./service-fabric-get-started-containers.md) 문서를 참조 하세요.

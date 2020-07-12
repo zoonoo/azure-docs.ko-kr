@@ -3,12 +3,12 @@ title: Azure Service Fabric 응용 프로그램 비밀 관리
 description: Service Fabric 애플리케이션에서 비밀 값을 보호하는 방법에 대해 설명합니다(플랫폼에 관계 없음).
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af82a55d41c48eebcbcbd1581ec5096a89c49bea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583242"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248121"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 암호화된 비밀 관리
 이 가이드에서는 Service Fabric 애플리케이션에서 비밀을 관리하는 단계를 안내합니다. 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
@@ -99,7 +99,7 @@ Settings.xml의 값을 재정의하려면 ApplicationManifest.xml에서 서비�
 
 이제 애플리케이션의 인스턴스를 만들 때 이 값을 *애플리케이션 매개 변수* 로 지정할 수 있습니다. 애플리케이션 인스턴스 만들기를 PowerShell로 스크립팅하거나 C#으로 작성하면 빌드 프로세스에 쉽게 통합할 수 있습니다.
 
-PowerShell을 사용하면 매개 변수가 `New-ServiceFabricApplication` 명령에 [해시 테이블](https://technet.microsoft.com/library/ee692803.aspx)로 제공됩니다.
+PowerShell을 사용하면 매개 변수가 `New-ServiceFabricApplication` 명령에 [해시 테이블](/previous-versions/windows/it-pro/windows-powershell-1.0/ee692803(v=technet.10))로 제공됩니다.
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}

@@ -4,11 +4,12 @@ description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플�
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0baad5d2596de04b629c4cf9eb86c51b37b8cdc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560659"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247407"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -16,7 +17,7 @@ ms.locfileid: "84560659"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 응용 프로그램이 포함 된 Docker 이미지를 만들고 Azure Service Fabric 클러스터에 배포 하는 과정을 안내 합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
+Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 응용 프로그램이 포함 된 Docker 이미지를 만들고 Azure Service Fabric 클러스터에 배포 하는 과정을 안내 합니다. 또한 [Azure Container Registry](../container-registry/index.yml)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 Windows 개발 환경에 적용됩니다.  Service Fabric 클러스터 런타임 및 Docker 런타임이 동일한 OS에서 실행되어야 합니다.  Windows 컨테이너는 Linux 클러스터에서 실행할 수 없습니다.
@@ -24,7 +25,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 다음을 실행하는 개발 컴퓨터
   * Visual Studio 2015 또는 Visual Studio 2019.
@@ -189,7 +190,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Visual Studio에서 컨테이너화된 서비스 만들기
 Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이너를 배포할 수 있는 서비스 템플릿을 제공합니다.
 
-1. Visual Studio를 시작합니다. **File** > **New** > **Project**를 선택합니다.
+1. Visual Studio를 시작합니다. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **Service Fabric 애플리케이션**을 선택하고 "MyFirstContainer"라는 이름을 지정하고 **확인**을 클릭합니다.
 3. **서비스 템플릿** 목록에서 **컨테이너**를 선택합니다.
 4. **이미지 이름**에서 컨테이너 리포지토리에 푸시된 이미지인 "myregistry.azurecr.io/samples/helloworldapp"을 입력합니다.
@@ -320,7 +321,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 ## <a name="deploy-the-container-application"></a>컨테이너 애플리케이션 배포
 모든 변경 내용을 저장하고 애플리케이션을 빌드합니다. 애플리케이션을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예: `containercluster.westus2.cloudapp.azure.com:19000`. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
+**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 정의합니다(예: `containercluster.westus2.cloudapp.azure.com:19000`). [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
 
 **게시**를 클릭합니다.
 
@@ -332,7 +333,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 
 ## <a name="clean-up"></a>정리
 
-클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다.
+클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](./service-fabric-tutorial-delete-cluster.md)하는 것이 좋습니다.
 
 이미지를 컨테이너 레지스트리에 푸시한 후에 개발 컴퓨터에서 로컬 이미지를 삭제할 수 있습니다.
 
@@ -343,15 +344,15 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 컨테이너 OS 및 호스트 OS 호환성
 
-Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예를 들어:
+Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예:
  
 - Windows Server 버전 1709를 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 2016을 실행하는 호스트에서 작동하지 않습니다. 
 - Windows server 2016를 사용 하 여 빌드된 windows Server 컨테이너는 Windows Server 버전 1709을 실행 하는 호스트 에서만 Hyper-v 격리 모드로 작동 합니다. 
 - Windows Server 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 2016을 실행하는 호스트에서 프로세스 격리 모드로 실행할 때 컨테이너 OS와 호스트 OS의 수정 버전이 동일한지 확인해야 할 수 있습니다.
  
-자세한 내용은 [Windows 컨테이너 버전 호환성](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
+자세한 내용은 [Windows 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
-Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 예를 들어:
+Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 예:
 
 - OS가 클러스터 노드의 OS와 호환되는 컨테이너를 배포해야 합니다.
 - 컨테이너 앱에 대해 지정된 격리 모드가 배포 중인 노드의 컨테이너 OS에 대한 지원과 일치하는지 확인합니다.

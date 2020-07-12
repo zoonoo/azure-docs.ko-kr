@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 769d82cae6b5f9039587018ba5a7cde407f74e4c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 902c48f2edcca6eb25958a9f22d6760faf1fcbc2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964246"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248716"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -110,7 +110,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ### <a name="enable-azure-active-directory-oauth"></a>Azure Active Directory OAuth 사용
 
-논리 앱이 [요청 트리거로](../connectors/connectors-native-reqres.md)시작 하는 경우 요청 트리거에 대 한 인바운드 호출에 대 한 권한 부여 정책을 만들어 [Azure Active Directory Open AUTHENTICATION](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth)을 사용 하도록 설정할 수 있습니다. 이 인증을 사용하도록 설정하기 전에 다음 사항을 검토하십시오.
+논리 앱이 [요청 트리거로](../connectors/connectors-native-reqres.md)시작 하는 경우 요청 트리거에 대 한 인바운드 호출에 대 한 권한 부여 정책을 만들어 [Azure Active Directory Open AUTHENTICATION](/azure/active-directory/develop/) (Azure AD OAuth)을 사용 하도록 설정할 수 있습니다. 이 인증을 사용하도록 설정하기 전에 다음 사항을 검토하십시오.
 
 * 논리 앱에 대한 인바운드 호출은 권한 부여 스키마를 Azure AD OAuth 또는 [SAS(공유 액세스 서명)](#sas) 중 하나만 사용할 수 있습니다. 요청 트리거에 대해서만 지원 되는 OAuth 토큰에는 [전달자 유형](../active-directory/develop/active-directory-v2-protocols.md#tokens) 인증 스키마만 지원 됩니다.
 
@@ -309,7 +309,7 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
 1. **액세스 제어 구성** > **허용된 인바운드 IP 주소**에서 **특정 IP 범위**를 선택합니다.
 
-1. **콘텐츠의 IP 범위**에서 입력 및 출력의 콘텐츠에 액세스할 수 있는 IP 주소 범위를 지정합니다. 
+1. **콘텐츠의 IP 범위**에서 입력 및 출력의 콘텐츠에 액세스할 수 있는 IP 주소 범위를 지정합니다.
 
    올바른 IP 범위는 *x.x.x.x/x* 또는 *x.x.x.x-x.x.x.x* 형식을 사용합니다.
 
@@ -462,7 +462,8 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 예를 들어 Azure AD OAuth([Azure Active Directory 공개 인증](#azure-active-directory-oauth-authentication))를 사용하여 HTTP 작업을 인증하는 경우 인증에 사용되는 클라이언트 ID와 클라이언트 암호를 수신하는 매개 변수를 정의하고 가릴 수 있습니다. 논리 앱에서 이러한 매개 변수를 정의하려면 논리 앱의 워크플로 정의에서 `parameters` 섹션을 사용하고 배포용 Resource Manager 템플릿을 사용합니다. 논리 앱을 편집하거나 실행 기록을 볼 때 나타내지 않을 매개 변수 값에 보안을 설정하려면 `securestring` 또는 `secureobject` 유형을 사용하여 매개 변수를 정의하고 필요에 따라 인코딩을 사용합니다. 이 형식의 매개 변수는 리소스 정의와 함께 반환되지 않으며, 배포 후 리소스를 볼 때 액세스할 수 없습니다. 런타임 중에 해당 매개 변수 값에 액세스하려면 워크플로 정의 내에 `@parameters('<parameter-name>')` 식을 사용합니다. 이 식은 런타임 시에만 계산되며 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에 설명되어 있습니다.
 
 > [!NOTE]
-> 요청 헤더 또는 본문에서 매개 변수를 사용하면 논리 앱의 실행 기록과 나가는 HTTP 요청을 볼 때 해당 매개 변수가 표시될 수 있습니다. 콘텐츠 액세스 정책도 적절히 설정해야 합니다. [난독 처리](#obfuscate)를 사용하여 실행 기록에서 입력 및 출력을 숨길 수도 있습니다. 권한 부여 헤더는 입력 또는 출력을 통해 볼 수 없습니다. 따라서 권한 부여 헤더에 비밀이 사용되면 해당 비밀을 검색할 수 없습니다.
+> 요청 헤더 또는 본문에서 매개 변수를 사용하면 논리 앱의 실행 기록과 나가는 HTTP 요청을 볼 때 해당 매개 변수가 표시될 수 있습니다. 콘텐츠 액세스 정책도 적절히 설정해야 합니다.
+> [난독 처리](#obfuscate)를 사용하여 실행 기록에서 입력 및 출력을 숨길 수도 있습니다. 권한 부여 헤더는 입력 또는 출력을 통해 볼 수 없습니다. 따라서 권한 부여 헤더에 비밀이 사용되면 해당 비밀을 검색할 수 없습니다.
 
 자세한 내용은 이 항목에서 다음 섹션을 참조하세요.
 
@@ -680,7 +681,7 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
   * [Active Directory OAuth 인증](#azure-active-directory-oauth-authentication)
 
   * [관리 ID 인증](#managed-identity-authentication)
-  
+
   자세한 내용은 이 항목의 뒷부분에 나오는 [아웃바운드 호출에 대한 인증 추가](#add-authentication-outbound)를 참조하세요.
 
 * 논리 앱 IP 주소의 액세스를 제한합니다.
@@ -727,7 +728,8 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다. 이러한 끝점에 대 한 아웃 바운드 호출 또는 요청을 보내는 데 사용 하는 일부 트리거 및 작업에서 인증 유형을 지정할 수 있습니다. 논리 앱 디자이너에서 인증 유형 선택을 지 원하는 트리거 및 작업에는 **authentication** 속성이 있습니다. 그러나이 속성은 기본적으로 항상 표시 되지 않을 수도 있습니다. 이러한 경우 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **인증**을 선택 합니다.
 
 > [!IMPORTANT]
-> 논리 앱이 처리 하는 중요 한 정보를 보호 하려면 보안 매개 변수를 사용 하 고 필요에 따라 데이터를 인코딩합니다. 매개 변수 사용 및 보안에 대한 자세한 내용은 [매개 변수 입력에 대한 액세스](#secure-action-parameters)를 참조하세요.
+> 논리 앱이 처리 하는 중요 한 정보를 보호 하려면 보안 매개 변수를 사용 하 고 필요에 따라 데이터를 인코딩합니다.
+> 매개 변수 사용 및 보안에 대한 자세한 내용은 [매개 변수 입력에 대한 액세스](#secure-action-parameters)를 참조하세요.
 
 다음 표에서는 사용자가 인증 유형을 선택할 수 있는 트리거와 작업에서 사용할 수 있는 인증 유형을 식별 합니다.
 
@@ -814,7 +816,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory 공개 인증
 
-요청 트리거에서 논리 앱에 [Azure AD 권한 부여 정책을 설정](#enable-oauth)한 후 들어오는 호출을 인증하는 데 Azure AD OAuth([Azure Active Directory 공개 인증](../active-directory/develop/about-microsoft-identity-platform.md))를 사용할 수 있습니다. 선택할 수 있는 **Active Directory OAuth** 인증 유형을 제공하는 다른 모든 트리거 및 작업의 경우 다음 속성 값을 지정합니다.
+요청 트리거에서 논리 앱에 [Azure AD 권한 부여 정책을 설정](#enable-oauth)한 후 들어오는 호출을 인증하는 데 Azure AD OAuth([Azure Active Directory 공개 인증](/azure/active-directory/develop/))를 사용할 수 있습니다. 선택할 수 있는 **Active Directory OAuth** 인증 유형을 제공하는 다른 모든 트리거 및 작업의 경우 다음 속성 값을 지정합니다.
 
 | 속성(디자이너) | 속성(JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|

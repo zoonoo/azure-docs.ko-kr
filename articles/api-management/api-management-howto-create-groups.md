@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16ab72a67a021338bd8e186c32015c271240d224
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430718"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250535"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
 
@@ -33,11 +34,11 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 
 이 가이드에서는 API Management 인스턴스의 관리자가 새 그룹을 추가하고 이 그룹과 새 제품 및 개발자를 연결하는 방법을 보여 줍니다.
 
-게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
+게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 문서의 작업을 완료합니다.
 
@@ -97,7 +98,7 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 ## <a name="next-steps"></a><a name="next-steps"> </a>다음 단계
 
 * 그룹에 개발자를 추가하면 개발자가 해당 그룹과 연결된 제품을 보고 구독할 수 있습니다. 자세한 내용은 [Azure API Management에서 제품을 만들고 게시하는 방법][How create and publish a product in Azure API Management]을 참조하세요.
-* 게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
+* 게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

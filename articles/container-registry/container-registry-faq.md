@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ee58f6a2058158308cab8ec49b1d79587998d39
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390366"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247033"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -32,7 +32,7 @@ ms.locfileid: "85390366"
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR에서 이미지를 검사하는 보안 취약성이 있나요?
 
-예. [Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 및 [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry) 설명서를 참조하세요.
+예. [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 및 [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry) 설명서를 참조하세요.
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Azure Container Registry를 사용하여 Kubernetes를 구성하려면 어떻게 하나요?
 
@@ -436,8 +436,8 @@ Microsoft Edge/IE 브라우저를 사용하는 경우 최대 100개의 리포지
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>허용되지 않은 작업으로 인해 풀 또는 푸시 요청이 실패하는 이유는 무엇인가요?
 
 작업이 허용될 수 없는 몇 가지 시나리오는 다음과 같습니다.
-* 클래식 레지스트리가 더 이상 지원되지 않습니다. [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) 또는 Azure Portal을 사용하여 지원되는 [서비스 계층](https://aka.ms/acr/skus)으로 업그레이드하세요.
-* 이미지 또는 리포지토리가 잠겨 있어 삭제하거나 업데이트할 수 없습니다. [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) 명령을 사용하여 현재 특성을 볼 수 있습니다.
+* 클래식 레지스트리가 더 이상 지원되지 않습니다. [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 또는 Azure Portal을 사용하여 지원되는 [서비스 계층](https://aka.ms/acr/skus)으로 업그레이드하세요.
+* 이미지 또는 리포지토리가 잠겨 있어 삭제하거나 업데이트할 수 없습니다. [az acr show repository](./container-registry-image-lock.md) 명령을 사용하여 현재 특성을 볼 수 있습니다.
 * 이미지가 격리 모드에 있는 경우 일부 작업이 허용되지 않습니다. [격리](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)에 대해 자세히 알아보세요.
 * 레지스트리가 [저장소 용량 한도](container-registry-skus.md#service-tier-features-and-limits)에 도달 했을 수 있습니다.
 

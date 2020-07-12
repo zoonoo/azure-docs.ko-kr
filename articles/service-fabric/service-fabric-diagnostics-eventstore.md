@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645738"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247645"
 ---
 # <a name="eventstore-overview"></a>EventStore 개요
 
@@ -45,7 +46,7 @@ EventStore에서 사용할 수 있는 전체 이벤트 목록은 [Service Fabric
 * 파티션 복제본: `partitionId`로 식별되는 특정 파티션 내 복제본/인스턴스의 이벤트
 * 파티션 복제본: `replicaId` 및 `partitionId`로 식별되는 특정 복제본/인스턴스의 이벤트
 
-API에 대 한 자세한 내용은 [Eventstore api 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)를 확인 하세요.
+API에 대 한 자세한 내용은 [Eventstore api 참조](/rest/api/servicefabric/sfclient-index-eventsstore)를 확인 하세요.
 
 EventStore 서비스에는 클러스터의 이벤트 간에 상관 관계를 지정하는 기능도 있습니다. EventStore 서비스는 서로 영향을 미칠 수 있는 서로 다른 엔터티에서 동시에 기록된 이벤트를 살펴보고 이러한 이벤트를 연결하여 클러스터의 작업에 대한 원인을 식별하는 데 도움을 줍니다. 예를 들어 아무런 변경 작업 없이 애플리케이션 중 하나가 비정상 상태가 되면 EventStore는 플랫폼에서 노출되는 다른 이벤트를 살펴보고 `Error` 또는 `Warning` 이벤트로 상관 관계를 지정합니다. 이렇게 하면 더 빠르게 오류를 감지하고 근본 원인을 분석할 수 있습니다.
 
@@ -125,5 +126,5 @@ Azure 클러스터가 버전 6.5 이상으로 업그레이드 되 면 EventStore
 * EventStore API 시작 - [Azure Service Fabric 클러스터에서 EventStore API를 사용](service-fabric-diagnostics-eventstore-query.md)
 * EventStore - [Service Fabric 이벤트](service-fabric-diagnostics-event-generation-operational.md)에서 제공되는 이벤트의 목록에 대해 자세히 알아봅니다.
 * Service Fabric의 모니터링 및 진단 개요 - [Service Fabric에 대한 모니터링 및 진단](service-fabric-diagnostics-overview.md)
-* API 호출의 전체 목록 보기 - [EventStore REST API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)
+* API 호출의 전체 목록 보기 - [EventStore REST API 참조](/rest/api/servicefabric/sfclient-index-eventsstore)
 * 클러스터 모니터링에 대해 자세히 알아보기 - [클러스터 및 플랫폼 모니터링](service-fabric-diagnostics-event-generation-infra.md).

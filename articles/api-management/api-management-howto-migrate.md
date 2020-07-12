@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 39803ab88e5b252ef119d22a697e135c83f87780
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0eed2328aca78402c5f4691bb9b3d07d4f36472e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205639"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250229"
 ---
 # <a name="how-to-migrate-azure-api-management-across-regions"></a>지역 간에 Azure API Management를 마이그레이션하는 방법
 한 Azure 지역에서 다른 지역으로 API Management 인스턴스를 마이그레이션하려면 [백업 및 복원](api-management-howto-disaster-recovery-backup-restore.md) 기능을 사용할 수 있습니다. 원본 및 대상 지역에서 동일한 API Management 가격 책정 계층을 선택 해야 합니다. 
 
 > [!NOTE]
-> 서로 다른 클라우드 유형 간에 마이그레이션하는 동안에는 백업 및 복원이 작동 하지 않습니다. 이를 위해서는 리소스를 [템플릿으로](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates)내보내야 합니다. 그런 다음 대상 Azure 지역에 대해 내보낸 템플릿을 조정 하 고 리소스를 다시 만듭니다. 
+> 서로 다른 클라우드 유형 간에 마이그레이션하는 동안에는 백업 및 복원이 작동 하지 않습니다. 이를 위해서는 리소스를 [템플릿으로](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)내보내야 합니다. 그런 다음 대상 Azure 지역에 대해 내보낸 템플릿을 조정 하 고 리소스를 다시 만듭니다. 
 
 ## <a name="option-1-use-a-different-api-management-instance-name"></a>옵션 1: 다른 API Management 인스턴스 이름 사용
 
@@ -47,4 +47,4 @@ ms.locfileid: "86205639"
 ## <a name="next-steps"></a><a name="next-steps"> </a>다음 단계
 * 백업 및 복원 기능에 대 한 자세한 내용은 [재해 복구를 구현 하는 방법](api-management-howto-disaster-recovery-backup-restore.md)을 참조 하세요.
 * Azure 리소스 마이그레이션에 대 한 자세한 내용은 [azure 지역 간 마이그레이션 지침](https://github.com/Azure/Azure-Migration-Guidance)을 참조 하세요.
-* [클라우드 비용을 최적화 하 고 비용을 절약](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하세요.
+* [클라우드 비용을 최적화 하 고 비용을 절약](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하세요.

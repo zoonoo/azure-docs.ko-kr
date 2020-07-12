@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 6054c595bca26dc2a0432c53369a60a61e3efde0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd7ca6bdfa7626707af9efa20d76dab633dc16fd
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841866"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249553"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -38,7 +39,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -50,7 +51,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 + API Management 서비스가 가상 네트워크에 배포 된 경우 [포트 목록이](./api-management-using-with-vnet.md#required-ports) 사용 되며이를 열어야 합니다. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>내부 가상 네트워크에서 API Management 만들기
-내부 가상 네트워크의 API Management 서비스는 [내부 부하 분산 장치 (클래식)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud)뒤에 호스팅됩니다. 이 옵션만 사용할 수 있으며 변경할 수 없습니다.
+내부 가상 네트워크의 API Management 서비스는 [내부 부하 분산 장치 (클래식)](/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud)뒤에 호스팅됩니다. 이 옵션만 사용할 수 있으며 변경할 수 없습니다.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 네트워크 연결 사용
 
@@ -143,4 +144,3 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
 [ServiceTags]: ../virtual-network/security-overview.md#service-tags
-

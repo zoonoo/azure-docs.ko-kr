@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: 7f87389016286c9f1b91abc77155be9e94005371
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 043a3d0b63dfc74f587b58b3c2ac42f1a084cc4a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335878"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250314"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Azure API Management에서 프로토콜 및 암호화 관리
 
@@ -42,5 +42,5 @@ Azure API Management는 클라이언트 및 백 엔드 쪽에서 모두 여러 T
 
 ## <a name="next-steps"></a>다음 단계
 
-* [TLS(전송 계층 보안)](https://docs.microsoft.com/dotnet/framework/network-programming/tls)에 대해 자세히 알아봅니다.
+* [TLS(전송 계층 보안)](/dotnet/framework/network-programming/tls)에 대해 자세히 알아봅니다.
 * API Management에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 를 확인합니다.

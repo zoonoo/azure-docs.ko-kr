@@ -2,13 +2,13 @@
 title: 템플릿 모범 사례
 description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방법을 설명합니다. 템플릿을 사용할 때 일반적인 문제를 방지하기 위한 제안을 제공합니다.
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/10/2020
+ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058064"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248920"
 ---
 # <a name="arm-template-best-practices"></a>ARM 템플릿 모범 사례
 
@@ -28,7 +28,7 @@ ms.locfileid: "86058064"
 
 중첩된 템플릿을 사용하여 일부 템플릿 제한을 초과할 수 있습니다. 자세한 내용은 [Azure 리소스를 배포할 때 연결된 템플릿 사용](linked-templates.md)을 참조하세요. 매개 변수, 변수 또는 출력의 수를 줄이려면 개체에 여러 값을 결합할 수 있습니다. 자세한 내용은 [매개 변수로 개체 사용](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)을 참조하세요.
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>리소스 그룹
 
 리소스 그룹에 리소스를 배포 하는 경우 리소스 그룹은 리소스에 대 한 메타 데이터를 저장 합니다. 메타 데이터는 리소스 그룹의 위치에 저장 됩니다.
 
@@ -136,7 +136,7 @@ ms.locfileid: "86058064"
 
 * 모든 위치에서 사용할 수 없는 리소스의 경우 별도 매개 변수를 사용하거나 리터럴 위치 값을 지정합니다.
 
-## <a name="variables"></a>변수
+## <a name="variables"></a>variables
 
 다음 정보는 [변수](template-variables.md)로 작업하는 경우 도움이 될 수 있습니다.
 
@@ -160,7 +160,7 @@ ms.locfileid: "86058064"
 
 설정할 [종속성](define-resource-dependency.md)을 결정하는 경우 다음 지침을 따르세요.
 
-* **reference** 함수를 사용하고 리소스 이름을 전달하여 속성을 공유해야 하는 리소스 간에 암시적 종속성을 설정합니다. 암시적 종속성을 이미 정의한 경우에는 명시적 `dependsOn` 요소를 추가하지 마세요. 이러한 방법은 불필요한 종속성이 포함될 위험을 줄여줍니다.
+* **reference** 함수를 사용하고 리소스 이름을 전달하여 속성을 공유해야 하는 리소스 간에 암시적 종속성을 설정합니다. 암시적 종속성을 이미 정의한 경우에는 명시적 `dependsOn` 요소를 추가하지 마세요. 이러한 방법은 불필요한 종속성이 포함될 위험을 줄여줍니다. 암시적 종속성을 설정 하는 예제는 [암시적 종속성](define-resource-dependency.md#reference-and-list-functions)을 참조 하세요.
 
 * 자식 리소스가 부모 리소스에 종속되도록 설정합니다.
 

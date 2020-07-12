@@ -3,11 +3,12 @@ title: 방화벽 액세스 규칙
 description: (“허용 목록 작성”) REST API 및 데이터 엔드포인트 도메인 이름 또는 서비스별 IP 주소 범위에 대한 액세스를 허용하여 방화벽 뒤에서 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙을 구성합니다.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 4774191087b3e88e657e8dc9bc6a9f9c406153e2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849991"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246982"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>방화벽 뒤에서 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙 구성
 
@@ -182,7 +183,7 @@ az acr show-endpoints --name myregistry
 
 * [네트워크 보안에 대한 Azure 모범 사례](../security/fundamentals/network-best-practices.md)에 대해 알아보기
 
-* Azure 가상 네트워크의 [보안 그룹](/azure/virtual-network/security-overview)에 대해 자세히 알아보기
+* Azure 가상 네트워크의 [보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보기
 
 * 컨테이너 레지스트리에 대한 [Private Link](container-registry-private-link.md) 설정에 대해 자세히 알아보기
 
@@ -198,4 +199,3 @@ az acr show-endpoints --name myregistry
 
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
-

@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58319b47c78a85b4f06c2c834db20f6c42cc1939
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701203"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247424"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
 > [!div class="op_single_selector"]
@@ -21,7 +22,7 @@ ms.locfileid: "84701203"
 모니터링, 감지, 진단 및 문제 해결을 통해 사용자 환경에 미치는 영향을 최소화하면서 서비스를 계속할 수 있습니다. 실제 배포된 프로덕션 환경에서 모니터링 및 진단이 매우 중요한데, 실제 사용 설정으로 이전했을 때 정상적으로 작동하도록 서비스 개발 과정에서 얼마나 유사한 모델을 채택하느냐에 따라 그 효율성이 좌우됩니다. 서비스 패브릭을 사용하면 서비스 개발자가 단일 컴퓨터 로컬 개발 설정과 실제 사용 프로덕션 클러스터 설정 양쪽에서 매끄럽게 작동하는 진단 기능을 간편하게 구현할 수 있습니다.
 
 ## <a name="event-tracing-for-windows"></a>Windows용 이벤트 추적
-[Windows용 이벤트 추적](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW)은 서비스 패브릭의 추적 메시지용으로 바람직한 기술입니다. ETW를 사용하면 다음과 같은 이점이 있습니다.
+[Windows용 이벤트 추적](/windows/win32/etw/event-tracing-portal) (ETW)은 서비스 패브릭의 추적 메시지용으로 바람직한 기술입니다. ETW를 사용하면 다음과 같은 이점이 있습니다.
 
 * **ETW는 속도가 빠릅니다.**  코드 실행 시간에 미치는 영향을 최소화하도록 설계된 추적 기술입니다.
 * **ETW 추적은 로컬 개발 환경 및 실제 사용 클러스터 설정에서도 매끄럽게 작동합니다.** 즉, 실제 클러스터에 코드를 배포할 준비가 되었을 때 추적 코드를 다시 쓸 필요가 없습니다.
@@ -55,6 +56,5 @@ ms.locfileid: "84701203"
 ## <a name="next-steps"></a>다음 단계
 위에서 로컬 진단을 위해 애플리케이션에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 애플리케이션을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.
 
-* [Azure Diagnostics를 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
+* [Azure Diagnostics를 사용하여 로그를 수집하는 방법](./service-fabric-diagnostics-event-aggregation-wad.md)
 * [EventFlow를 사용하여 이벤트 집계 및 수집](service-fabric-diagnostics-event-aggregation-eventflow.md)
-

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: d4113205b47b4c6cab8b133d89c35520aa8505c1
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 0a3aa0c26ddb515b8096cce909ca074f6f24a333
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851204"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250484"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management에서 캐싱을 추가하여 성능 향상
 
@@ -39,12 +39,12 @@ ms.locfileid: "85851204"
 > [!NOTE]
 > 내부 캐시는 Azure API Management의 **소비** 계층에서 사용할 수 없습니다. 그 대신 [외부 Azure Cache for Redis를 사용](api-management-howto-cache-external.md)할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 + [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
-+ [API 제품 가져오기 및 게시](import-and-publish.md)
++ [API 가져오기 및 게시](import-and-publish.md)
 
 ## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>캐싱 정책 추가
 
@@ -108,15 +108,15 @@ ms.locfileid: "85851204"
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
 
-[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-caching-policies.md
 
 [Create an API Management service instance]: get-started-create-service-instance.md
 

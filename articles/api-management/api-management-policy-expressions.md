@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 40ea26a2394b7ca093f1bba2456ebf5ef116cd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1713f2ca8fda0c768727ea12e682b373d644bcba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695813"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249821"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 이 문서에서는 c # 7의 정책 식 구문에 대해 설명 합니다. 각 식에서는 암시적으로 제공된 [context](api-management-policy-expressions.md#ContextVariables) 변수 및 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스할 수 있습니다.
@@ -26,7 +27,7 @@ ms.locfileid: "84695813"
 
 - 백 엔드 서비스에 컨텍스트 정보를 제공하는 방법을 참조합니다. [쿼리 문자열 매개 변수 설정](api-management-transformation-policies.md#SetQueryStringParameter) 및 [HTTP 헤더 설정](api-management-transformation-policies.md#SetHTTPheader) 정책을 사용하여 이 정보를 제공합니다.
 - [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 토큰 클레임에 따라 작업에 대한 액세스 권한을 미리 부여하는 방법을 참조합니다.
-- [API 검사기](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) 추적을 사용하여 정책을 평가하는 방법 및 평가 결과를 확인하는 방법을 참조합니다.
+- [API 검사기](./api-management-howto-api-inspector.md) 추적을 사용하여 정책을 평가하는 방법 및 평가 결과를 확인하는 방법을 참조합니다.
 - [캐시에서 가져오기](api-management-caching-policies.md#GetFromCache) 및 [캐시에 저장](api-management-caching-policies.md#StoreToCache) 정책이 있는 식을 사용하여 API Management 응답 캐싱을 구성하는 방법을 참조합니다. 백 엔드 서비스의 `Cache-Control` 지시문에 지정된 대로 백 엔드 서비스의 응답 캐싱과 일치하는 기간을 설정합니다.
 - 콘텐츠 필터링을 수행하는 방법을 참조합니다. [흐름 제어](api-management-advanced-policies.md#choose) 및 [본문 설정](api-management-transformation-policies.md#SetBody) 정책을 사용하여 백 엔드에서 받은 응답의 데이터 요소를 제거합니다.
 - 정책 문을 다운로드 하려면 [api management-샘플/정책](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub 리포지토리를 참조 하세요.
@@ -64,7 +65,7 @@ ms.locfileid: "84695813"
 }
 ```
 
-## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>보려면
+## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>사용
 정책 참조에서 다르게 지정하지 않는 한, 식은 어떤 API Management [정책](api-management-policies.md)에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다.
 
 > [!IMPORTANT]
@@ -209,7 +210,7 @@ ms.locfileid: "84695813"
 
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|
 |----------------------|-------------------------------------------------------|
-|컨텍스트|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [배포](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> [lastError](#ref-context-lasterror)<br /><br /> [연산](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [요청](#ref-context-request)<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> [응답](#ref-context-response)<br /><br /> [구독](#ref-context-subscription)<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> [사용자](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): ireadonlydictionary<string<string, object><br /><br /> void Trace(message: string)|
+|컨텍스트|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [배포](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> [lastError](#ref-context-lasterror)<br /><br /> [연산](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [요청](#ref-context-request)<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> [Response](#ref-context-response)<br /><br /> [구독](#ref-context-subscription)<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> [사용자](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): ireadonlydictionary<string<string, object><br /><br /> void Trace(message: string)|
 |<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [Iurl](#ref-iurl)<br /><br /> Version: string |
 |<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> context.LastError에 대한 자세한 내용은 [오류 처리](api-management-error-handling-policies.md)를 참조하세요.|
@@ -251,5 +252,5 @@ ms.locfileid: "84695813"
 
 + [API Management의 정책](api-management-howto-policies.md)
 + [API 변환](transform-api.md)
-+ [정책 참조](api-management-policy-reference.md)(정책 문 및 해당 설정에 대한 전체 목록)
++ [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
 + [정책 샘플](policy-samples.md)

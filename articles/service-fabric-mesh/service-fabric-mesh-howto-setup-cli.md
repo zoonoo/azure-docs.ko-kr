@@ -5,11 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ce2dbcefa63cc55a66e712664d1436ca24d3a1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707977"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248546"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI 설정
 Service Fabric Mesh CLI(명령줄 인터페이스)는 Azure Service Fabric Mesh에서 리소스를 로컬로 배포하고 관리하는 데 필요합니다. 설정 하는 방법은 다음과 같습니다.
@@ -43,7 +44,7 @@ Service Fabric Mesh CLI(명령줄 인터페이스)는 Azure Service Fabric Mesh�
 
 ## <a name="install-the-service-fabric-cli-sfctl"></a>Service Fabric CLI(sfctl) 설치 
 
-[Service Fabric CLI 설치](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)의 지침을 따르세요. **sfctl** 모듈은 로컬 머신의 Service Fabric 클러스터에 대한 리소스 모델을 기반으로 애플리케이션을 배포하는 데 사용할 수 있습니다. 
+[Service Fabric CLI 설치](../service-fabric/service-fabric-cli.md)의 지침을 따르세요. **sfctl** 모듈은 로컬 머신의 Service Fabric 클러스터에 대한 리소스 모델을 기반으로 애플리케이션을 배포하는 데 사용할 수 있습니다. 
 
 ## <a name="install-the-maven-cli"></a>Maven CLI 설치 
 

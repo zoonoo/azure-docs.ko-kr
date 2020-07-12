@@ -3,11 +3,12 @@ title: 기존 실행 파일을 Azure에 패키지 Service Fabric
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457825"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247390"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric에 배포
 Azure Service Fabric에서 Node.js, Java 또는 C++과 같은 모든 종류의 코드를 서비스로 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 게스트 실행 파일이라고 합니다.
@@ -64,8 +65,7 @@ ApplicationPackageRoot는 애플리케이션을 정의하는 ApplicationManifest
 ## <a name="next-steps"></a>다음 단계
 관련 정보 및 작업에 대해 다음 문서를 참조하세요.
 * [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)
-* [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
+* [여러 개의 게스트 실행 파일 배포](./service-fabric-deploy-existing-app.md)
 * [Visual Studio를 사용하여 처음으로 게스트 실행 가능 애플리케이션 만들기](quickstart-guest-app.md)
 * 패키징 도구 시험판의 링크를 포함하여 [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
-

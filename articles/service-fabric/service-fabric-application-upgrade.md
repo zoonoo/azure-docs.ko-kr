@@ -3,11 +3,12 @@ title: Service Fabric 애플리케이션 업그레이드
 description: 이 문서에서는 업그레이드 모드 선택 및 상태 확인 수행 등을 포함하여 Service Fabric 애플리케이션 업그레이드를 소개합니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e7a93dd3ef8a1adf6617dcd57887a0ce694c509
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710323"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248002"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 애플리케이션 업그레이드
 Azure Service Fabric 애플리케이션은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 Service Fabric은 새로운 [애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)를 이전 버전과 비교하여 애플리케이션의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.
@@ -36,7 +37,7 @@ Azure Service Fabric 애플리케이션은 서비스의 컬렉션입니다. 업�
 모니터링되지 않는 수동 모드는 업데이트 도메인에서 업그레이드가 수행될 때마다 다음 업데이트 도메인에서 업그레이드가 시작하도록 수동 작업이 필요합니다. 서비스 패브릭 상태 검사가 수행되지 않습니다. 관리자는 다음 업데이트 도메인에서 업그레이드가 시작되기 전에 상태 또는 상태 검사를 수행합니다.
 
 ## <a name="upgrade-default-services"></a>기본 서비스 업그레이드
-[애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)에 정의된 일부 기본 서비스 매개 변수는 애플리케이션 업그레이드의 일부로 업그레이드될 수도 있습니다. [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps)를 통해 변경되는 것을 지원하는 서비스 매개 변수만 업그레이드의 일환으로 변경될 수 있습니다. 애플리케이션 업그레이드 중 기본 서비스 변경의 동작은 다음과 같습니다.
+[애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)에 정의된 일부 기본 서비스 매개 변수는 애플리케이션 업그레이드의 일부로 업그레이드될 수도 있습니다. [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps)를 통해 변경되는 것을 지원하는 서비스 매개 변수만 업그레이드의 일환으로 변경될 수 있습니다. 애플리케이션 업그레이드 중 기본 서비스 변경의 동작은 다음과 같습니다.
 
 1. 클러스터에 존재하지 않는 새 애플리케이션 매니페스트의 기본 서비스가 만들어집니다.
 2. 이전 및 새 애플리케이션 매니페스트 모두에 존재하는 기본 서비스가 업데이트됩니다. 새 애플리케이션 매니페스트에 있는 기본 서비스의 매개 변수는 기존 서비스의 매개 변수를 덮어씁니다. 기본 서비스 업데이트에 실패하는 경우 애플리케이션 업그레이드가 자동으로 롤백됩니다.

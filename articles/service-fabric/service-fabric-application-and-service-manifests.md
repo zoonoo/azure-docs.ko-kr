@@ -3,11 +3,12 @@ title: Azure Service Fabric 앱 및 서비스 설명
 description: Service Fabric 애플리케이션 및 서비스를 설명하는 데 매니페스트를 사용하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 8/12/2019
-ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349970"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248223"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
 이 문서에서는 Service Fabric 애플리케이션 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [애플리케이션 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
@@ -62,7 +63,7 @@ ms.locfileid: "75349970"
 
 **EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. **SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다.  별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 프로세스가 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint**를 사용하여 다시 시작).  
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예를 들어:
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예:
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
@@ -156,7 +157,7 @@ For more information about other features supported by service manifests, refer 
 
 **인증서**(이전 예제에서 설정되지 않음)는 [HTTPS 엔드포인트 설정](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) 또는 [애플리케이션 매니페스트의 비밀 암호화](service-fabric-application-secret-management.md)에 사용되는 인증서를 선언합니다.
 
-**배치 제약 조건은** 서비스를 실행할 위치를 정의 하는 문입니다. 이러한 문은 하나 이상의 노드 속성에 대해 선택한 개별 서비스에 연결 됩니다. 자세한 내용은 [배치 제약 조건 및 노드 속성 구문](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax) 을 참조 하세요.
+**배치 제약 조건은** 서비스를 실행할 위치를 정의 하는 문입니다. 이러한 문은 하나 이상의 노드 속성에 대해 선택한 개별 서비스에 연결 됩니다. 자세한 내용은 [배치 제약 조건 및 노드 속성 구문](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-property-syntax) 을 참조 하세요.
 
 **정책** (이전 예제에서 설정 되지 않음)은 서비스에 Service Fabric 런타임에 대 한 액세스 권한이 있는지 여부를 포함 하 여 응용 프로그램 수준에서 설정 되는 로그 컬렉션, [기본 실행](service-fabric-application-runas-security.md), [상태](service-fabric-health-introduction.md#health-policies)및 [보안 액세스](service-fabric-application-runas-security.md) 정책에 대해 설명 합니다.
 
@@ -191,6 +192,3 @@ For more information about other features supported by application manifests, re
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-
-
-
