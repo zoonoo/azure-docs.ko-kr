@@ -5,11 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371650"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257516"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 재해 복구
 고가용성을 제공 하는 데 중요 한 부분은 서비스가 다른 모든 유형의 오류를 유지할 수 있도록 하는 것입니다. 이는 계획 되지 않은 및 컨트롤 외부에서 발생 하는 오류에 특히 중요 합니다. 
@@ -171,7 +172,7 @@ Azure에서 Service Fabric를 실행 하는 경우 장애 도메인 및 업그�
 >
 
 - `Repair-ServiceFabricPartition -PartitionId`또는 API를 사용 `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` 합니다. 이 API를 사용 하면 쿼럼 손실에서 이동할 파티션의 ID를 지정 하 고 잠재적으로 데이터가 손실 될 수 있습니다.
-- 클러스터에 서비스가 쿼럼 손실 상태로 전환 되 고 잠재적 _데이터 손실이 허용 되_는 경우가 자주 발생 하면 적절 한 [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) 값을 지정 하면 서비스에서 자동으로 복구 하는 데 도움이 될 수 있습니다. 복구를 수행 하기 전에 Service Fabric는 제공 된 `QuorumLossWaitDuration` 값 (기본값은 무한)을 대기 합니다. 예기치 않은 데이터 손실이 발생할 수 있으므로이 방법을 권장 *하지 않습니다* .
+- 클러스터에 서비스가 쿼럼 손실 상태로 전환 되 고 잠재적 _데이터 손실이 허용 되_는 경우가 자주 발생 하면 적절 한 [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) 값을 지정 하면 서비스에서 자동으로 복구 하는 데 도움이 될 수 있습니다. 복구를 수행 하기 전에 Service Fabric는 제공 된 `QuorumLossWaitDuration` 값 (기본값은 무한)을 대기 합니다. 예기치 않은 데이터 손실이 발생할 수 있으므로이 방법을 권장 *하지 않습니다* .
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Service Fabric 클러스터의 가용성
 일반적으로 Service Fabric 클러스터는 단일 실패 지점이 없는 매우 분산 된 환경입니다. 한 노드의 오류는 클러스터에 대 한 가용성 또는 안정성 문제를 발생 시 키 지 않습니다. 주로 Service Fabric 시스템 서비스가 이전에 제공 된 것과 동일한 지침을 따르기 때문입니다. 즉, 기본적으로 세 개 이상의 복제본을 사용 하 여 실행 되 고, 상태 비저장 시스템 서비스는 모든 노드에서 실행 됩니다. 
@@ -207,17 +208,17 @@ Azure에서 Service Fabric 리소스 공급자는 Service Fabric 클러스터 �
 - [테스트 용이성 프레임 워크](service-fabric-testability-overview.md)를 사용 하 여 다양 한 오류를 시뮬레이션 하는 방법을 알아봅니다.
 - 다른 재해 복구 및 고가용성 리소스를 참고합니다. Microsoft는 이 항목에 많은 양의 지침을 게시했습니다. 이러한 리소스 중 일부는 다른 제품에서 사용할 수 있는 특정 기술을 참조 하지만 Service Fabric 컨텍스트에서 적용할 수 있는 일반적인 모범 사례를 많이 포함 하 고 있습니다.
   - [가용성 검사 목록](/azure/architecture/checklist/resiliency-per-service)
-  - [재해 복구 훈련 수행](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [재해 복구 훈련 수행](../azure-sql/database/disaster-recovery-drills.md)
   - [Azure 애플리케이션에 대한 재해 복구 및 고가용성][dr-ha-guide]
 - [Service Fabric 지원 옵션](service-fabric-support.md)에 대해 알아봅니다.
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[repair-partition-ps]: /windows/win32/perfctrs/specifying-a-counter-path
 [azure-status-dashboard]:https://azure.microsoft.com/status/
 [azure-regions]: https://azure.microsoft.com/regions/
-[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+[dr-ha-guide]: /previous-versions/azure/dn251004(v=azure.100)
 
 
 <!-- Images -->

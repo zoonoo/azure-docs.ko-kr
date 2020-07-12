@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd309b7c3b37e338b1d8e69635247cc90511b34f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204747"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256852"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
@@ -154,7 +154,7 @@ Azure Marketplace에서 풀 만들기가 완료되면 더 많은 사용자를 �
 
 현재 지원되는 클라이언트는 다음과 같습니다.
 
-* [Windows 7 및 Windows 10용 원격 데스크톱 클라이언트](../connect-windows-7-and-10.md)
+* [Windows 7 및 Windows 10용 원격 데스크톱 클라이언트](connect-windows-7-10-2019.md)
 * [Windows Virtual Desktop 웹 클라이언트](connect-web-2019.md)
 
 ## <a name="next-steps"></a>다음 단계

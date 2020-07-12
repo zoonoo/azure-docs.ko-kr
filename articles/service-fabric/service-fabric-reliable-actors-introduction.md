@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c534ba54ccea78759628f554707271934ddc9a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645568"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258488"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 알아보기
 Reliable Actors는 [가상의 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 애플리케이션 프레임워크입니다. Reliable Actors API는 Service Fabric에서 보장하는 확장성과 안정성을 바탕으로 단일 스레드 프로그래밍 모델을 제공합니다.
@@ -136,7 +137,7 @@ Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간�
 ## <a name="next-steps"></a>다음 단계
 첫 번째 Reliable Actors 서비스를 빌드하여 시작합니다.
    * [.NET에서 Reliable Actors 시작](service-fabric-reliable-actors-get-started.md)
-   * [Java에서 Reliable Actors 시작](service-fabric-reliable-actors-get-started-java.md)
+   * [Java에서 Reliable Actors 시작](./service-fabric-create-your-first-linux-application-with-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

@@ -5,11 +5,12 @@ author: cawaMS
 ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
-ms.openlocfilehash: 11f76153726d3fc92118fb46cc61b4627ab6a1b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4d6b781d97d481793e69cf2ca97cca5b93ce432
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464085"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256096"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Visual Studio에서 서비스 패브릭 클러스터에 대한 보안 연결 구성
 액세스 제어 정책이 구성되어 있는 Azure 서비스 패브릭 클러스터에 안전하게 액세스하기 위해 Visual Studio를 사용하는 방법에 대해 알아봅니다.
@@ -34,9 +35,9 @@ Visual Studio에서 Service Fabric 프로젝트를 게시하는 경우 **Service
 3. 프로젝트의 바로 가기 메뉴에서 **게시...** 명령을 선택하여 **Azure 애플리케이션 게시** 대화 상자를 연 다음 대상 클러스터를 선택합니다. 도구가 자동으로 연결을 확인한 다음 게시 프로필에 보안 연결 매개 변수를 저장합니다.
 4. 선택 사항: 게시 프로필을 편집하여 보안 클러스터 연결을 지정할 수 있습니다.
    
-   게시 프로필 XML 파일을 수동으로 편집하여 인증서 정보를 지정하므로 인증서 저장소 이름, 저장소 위치 및 인증서 지문을 적어 두어야 합니다. 인증서 저장소 이름 및 저장소 위치에 이러한 값을 제공해야 합니다. 자세한 내용은 [방법: 인증서의 지문 검색](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx)을 참조하세요.
+   게시 프로필 XML 파일을 수동으로 편집하여 인증서 정보를 지정하므로 인증서 저장소 이름, 저장소 위치 및 인증서 지문을 적어 두어야 합니다. 인증서 저장소 이름 및 저장소 위치에 이러한 값을 제공해야 합니다. 자세한 내용은 [방법: 인증서의 지문 검색](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)을 참조하세요.
    
-   *ClusterConnectionParameters* 매개 변수를 사용하여 서비스 패브릭 클러스터에 연결할 때 사용할 PowerShell 매개 변수를 지정할 수 있습니다. 유효한 매개 변수는 Connect-ServiceFabricCluster cmdlet에서 허용하는 모든 매개 변수입니다. 사용 가능한 매개 변수 목록은 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) 를 참조하세요.
+   *ClusterConnectionParameters* 매개 변수를 사용하여 서비스 패브릭 클러스터에 연결할 때 사용할 PowerShell 매개 변수를 지정할 수 있습니다. 유효한 매개 변수는 Connect-ServiceFabricCluster cmdlet에서 허용하는 모든 매개 변수입니다. 사용 가능한 매개 변수 목록은 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) 를 참조하세요.
    
    원격 클러스터에 게시하는 경우 해당 특정 클러스터에 적절한 매개 변수를 지정해야 합니다. 다음은 비보안 클러스터에 연결하기 위한 예제입니다.
    

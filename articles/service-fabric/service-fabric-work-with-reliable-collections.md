@@ -3,12 +3,12 @@ title: 신뢰할 수 있는 컬렉션 작업
 description: Azure Service Fabric 응용 프로그램 내에서 신뢰할 수 있는 컬렉션을 사용 하기 위한 모범 사례를 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374698"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255798"
 ---
 # <a name="working-with-reliable-collections"></a>신뢰할 수 있는 컬렉션 작업
 Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용법을 살펴보고 실제로 수행 하는 작업을 확인 합니다.
@@ -219,10 +219,10 @@ public struct ItemId
 또는 일반적으로 참조되는 요소를 2단계 업그레이드로 수행할 수 있습니다. 2 단계 업그레이드를 사용 하는 경우 서비스를 V1에서 V2로 업그레이드 합니다. V2에는 새 스키마 변경을 처리 하는 방법을 알고 있지만이 코드는 실행 되지 않는 코드를 포함 합니다. V2 코드가 V1 데이터를 읽는 경우 해당 위치에서 작동하고 V1 데이터를 작성합니다. 그런 다음 모든 업그레이드 도메인에서 업그레이드가 완료되면 어떤 이유로든 실행 중인 V2 인스턴스에 업그레이드가 완료되었음을 알릴 수 있습니다. 이를 알리는 한 가지 방법은 구성 업그레이드를 배포 하는 것입니다 .이는 2 단계 업그레이드를 수행 하는 것입니다. 이제 V2 인스턴스는 V1 데이터를 읽고, V2 데이터로 변환 하 고, 작동 하 고, V2 데이터로 작성할 수 있습니다. 다른 인스턴스가 V2 데이터를 읽을 경우 변환할 필요가 없이 해당 위치에서 작동하고 V2 데이터를 작성합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이후에 호환 가능한 데이터 계약 만들기에 대해 알아보려면 [이후 호환 가능한 데이터 계약](https://msdn.microsoft.com/library/ms731083.aspx)을 참조하세요.
+이후에 호환 가능한 데이터 계약 만들기에 대해 알아보려면 [이후 호환 가능한 데이터 계약](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)을 참조하세요.
 
-데이터 계약 버전 관리에 대한 모범 사례를 알아보려면 [데이터 계약 버전 관리](https://msdn.microsoft.com/library/ms731138.aspx)를 참조하세요.
+데이터 계약 버전 관리에 대한 모범 사례를 알아보려면 [데이터 계약 버전 관리](/dotnet/framework/wcf/feature-details/data-contract-versioning)를 참조하세요.
 
-내결함성 데이터 계약의 버전을 구현하는 방법을 알아보려면 [버전 내결함성 직렬화 콜백](https://msdn.microsoft.com/library/ms733734.aspx)을 참조하세요.
+내결함성 데이터 계약의 버전을 구현하는 방법을 알아보려면 [버전 내결함성 직렬화 콜백](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)을 참조하세요.
 
-여러 버전에 상호 운용할 수 있는 데이터 구조를 제공하는 방법을 알아보려면 [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)를 참조하세요.
+여러 버전에 상호 운용할 수 있는 데이터 구조를 제공하는 방법을 알아보려면 [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)를 참조하세요.

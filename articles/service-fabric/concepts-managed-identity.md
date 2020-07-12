@@ -4,11 +4,12 @@ description: Service Fabric에서 Azure에 관리 되는 id를 사용 하는 방
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: a5c82f49195fc6d790ca4308d78b70106b6cc042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 786d9b4b577f4a686367a103542ae4f8fa5453da
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710306"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257632"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Service Fabric에서 Azure에 관리 id 사용
 
@@ -23,7 +24,7 @@ Azure *리소스에 대 한 관리 id* 는 azure 구독에 대 한 azure AD에�
 
 Azure에 대 한 관리 되는 id는 다음과 같은 몇 가지 주요 개념을 기반으로 합니다.
 
-- **클라이언트 ID** -초기 프로 비전 중에 응용 프로그램 및 서비스 주체에 연결 된 Azure AD에서 생성 되는 고유 식별자 ( [응용 프로그램 ID](/azure/active-directory/develop/developer-glossary#application-id-client-id)도 참조)
+- **클라이언트 ID** -초기 프로 비전 중에 응용 프로그램 및 서비스 주체에 연결 된 Azure AD에서 생성 되는 고유 식별자 ( [응용 프로그램 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)도 참조)
 
 - **보안 주체 id** -Azure 리소스에 대 한 역할 기반 액세스 권한을 부여 하는 데 사용 되는 관리 id의 서비스 주체 개체에 대 한 개체 id입니다.
 

@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bfdf1263ccee78b57ccf79c63efcc01d95dd13c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392253"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258098"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -20,6 +21,8 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 작동 하는 [azure digital 쌍 인스턴스가](how-to-set-up-instance.md) 있고 클라이언트 앱에 대 한 [인증](how-to-authenticate-client.md) 을 설정한 후에는 [**DigitalTwins api**](how-to-use-apis-sdks.md) 를 사용 하 여 azure digital 쌍 인스턴스에서 디지털 쌍 및 해당 관계를 생성, 수정 및 삭제할 수 있습니다. [.Net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure DIGITAL twins CLI](how-to-use-cli.md)를 사용할 수도 있습니다.
 
 이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [방법: 디지털 쌍 관리](how-to-manage-twin.md)를 참조 하세요.
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>관계 만들기
 
@@ -229,12 +232,12 @@ static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
 | 모델    | ID | Parent | 관계 이름 | 기타 데이터 |
 | --- | --- | --- | --- | --- |
 | floor    | Floor01 | | | … |
-| 객실    | Room10 | Floor01 | 포함 | … |
-| 객실    | Room11 | Floor01 | 포함 | … |
-| 객실    | Room12 | Floor01 | 포함 | … |
+| 객실    | Room10 | Floor01 | contains | … |
+| 객실    | Room11 | Floor01 | contains | … |
+| 객실    | Room12 | Floor01 | contains | … |
 | floor    | Floor02 | | | … |
-| 객실    | Room21 | Floor02 | 포함 | … |
-| 객실    | Room22 | Floor02 | 포함 | … |
+| 객실    | Room21 | Floor02 | contains | … |
+| 객실    | Room22 | Floor02 | contains | … |
 
 다음 코드는 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/overview) 를 사용 하 여 스프레드시트를 읽고 결과에서 Azure Digital twins 쌍 그래프를 구성 합니다.
 

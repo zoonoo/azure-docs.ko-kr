@@ -111,7 +111,7 @@
 - name: 샘플
   items:
     - name: 코드 샘플
-      href: 'https://docs.microsoft.com/samples/browse/'
+      href: /samples/browse/
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: Service Fabric CLI
@@ -491,7 +491,7 @@
             - name: ReliableDictionaryActorStateProvider 구성
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: ASP.NET Core 서비스 빌드
-          href: service-fabric-add-a-web-frontend.md
+          href: ./service-fabric-reliable-services-communication-aspnetcore.md
         - name: Linux에서 Apache Tomcat 서버 컨테이너 빌드
           href: service-fabric-get-started-tomcat.md
         - name: 보안 구성
@@ -628,7 +628,7 @@
         - name: 연속 통합 설정
           items:
             - name: Azure Pipelines를 사용하여 지속적인 통합 설정
-              href: service-fabric-set-up-continuous-integration.md
+              href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
             - name: Jenkins를 사용하여 Linux 애플리케이션 배포
               href: service-fabric-cicd-your-linux-applications-with-jenkins.md
     - name: 역방향 프록시 설정 및 구성
@@ -897,7 +897,7 @@
     - name: 일반적인 질문
       href: service-fabric-common-questions.md
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-service-fabric.html'
+      href: /answers/topics/azure-service-fabric.html
     - name: Azure Resource Manager 배포 가드레일
       href: service-fabric-azure-resource-manager-guardrails.md
     - name: 가격 책정

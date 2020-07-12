@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142407"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258204"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
@@ -21,11 +21,27 @@ Azure digital 쌍 솔루션에서 환경의 엔터티는 azure **digital 쌍**�
 > [!TIP]
 > "Azure Digital Twins"는 전체 Azure 서비스를 의미 합니다. "Digital 쌍" 또는 "쌍"은 서비스 인스턴스 내의 개별 쌍 노드를 나타냅니다.
 
-## <a name="creating-digital-twins"></a>디지털 트윈 만들기
+## <a name="digital-twins"></a>디지털 쌍
 
 Azure Digital Twins 인스턴스에서 디지털 쌍을 만들려면 먼저 서비스에 *모델* 을 업로드 해야 합니다. 모델은 특정 쌍에 포함 될 수 있는 속성, 원격 분석 메시지 및 관계 집합을 설명 합니다. 모델에 정의 된 정보 유형은 [개념: 사용자 지정 모델](concepts-models.md)을 참조 하세요.
 
 모델을 만들고 업로드 한 후 클라이언트 앱에서 형식의 인스턴스를 만들 수 있습니다. 디지털 쌍입니다. 예를 들어 *바닥*의 모델을 만든 후이 유형을 사용 하는 하나 또는 여러 개의 디지털 쌍을 만들 수 있습니다 (예: *GroundFloor*이라는 *Floor*쌍, *Floor2*라는 다른 유형의 쌍). 
+
+## <a name="relationships-a-graph-of-digital-twins"></a>관계: 디지털 쌍의 그래프
+
+Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 있는 관계는 해당 모델의 일부로 정의 됩니다.  
+
+예를 들어 모델 *층* 은 *대화방*형식의 쌍를 대상으로 하는 *포함* 관계를 정의할 수 있습니다. 이 정의를 사용 하 여 Azure Digital 쌍는 모든 *층* 쌍에서 *대화방* 쌍으로의 관계 ( *대화방* 하위 형식의 쌍 포함)를 만들 *수 있습니다.* 
+
+이 프로세스의 결과는 그래프의 가장자리 (해당 관계)를 통해 연결 된 노드 (디지털 쌍) 집합입니다.
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+## <a name="create-with-the-apis"></a>Api를 사용 하 여 만들기
+
+이 섹션에서는 클라이언트 응용 프로그램에서 디지털 쌍 및 관계를 만드는 방법을 보여 줍니다. [DigitalTwins api](how-to-use-apis-sdks.md)를 활용 하는 .net 코드 예제를 포함 하 여 이러한 각 개념 내에서 수행 되는 작업에 대 한 추가 컨텍스트를 제공 합니다.
+
+### <a name="create-digital-twins"></a>디지털 트윈 만들기
 
 다음은 [DigitalTwins api](how-to-use-apis-sdks.md) 를 사용 하 여 *대화방*형식의 쌍을 인스턴스화하는 클라이언트 코드의 코드 조각입니다.
 
@@ -59,11 +75,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## <a name="relationships-creating-a-graph-of-digital-twins"></a>관계: 디지털 쌍의 그래프 만들기
-
-Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 있는 관계는 해당 모델의 일부로 정의 됩니다.  
-
-예를 들어 모델 *층* 은 *대화방*형식의 쌍를 대상으로 하는 *포함* 관계를 정의할 수 있습니다. 이 정의를 사용 하 여 Azure Digital 쌍는 모든 *층* 쌍에서 *대화방* 쌍으로의 관계 ( *대화방* 하위 형식의 쌍 포함)를 만들 *수 있습니다.* 
+### <a name="create-relationships"></a>관계 만들기
 
 다음은 [DigitalTwins api](how-to-use-apis-sdks.md) 를 사용 하 여 *GroundFloor* 라는 *바닥*형식의 디지털 쌍과 *Cafe*라는 *방*형식의 디지털 쌍 간에 관계를 만드는 클라이언트 코드의 몇 가지 예입니다.
 
@@ -84,8 +96,6 @@ try
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
 }
 ```
-
-이 프로세스의 결과는 그래프의 가장자리 (해당 관계)를 통해 연결 된 노드 (디지털 쌍) 집합입니다.
 
 ## <a name="json-representations-of-graph-elements"></a>그래프 요소의 JSON 표현
 

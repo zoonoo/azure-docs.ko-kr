@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360795"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256869"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>클라우드 프로 비전 문제 해결
 
@@ -55,9 +55,7 @@ ms.locfileid: "85360795"
 
 ### <a name="verify-the-port"></a>포트 확인
 
-Azure가 포트 443에서 수신 대기 하 고 에이전트와 통신할 수 있는지 확인 하려면 다음 도구를 사용 합니다.
-
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
+Azure가 포트 443에서 수신 대기 하 고 에이전트와 통신할 수 있는지 확인 합니다. 
 
 이 테스트는 에이전트가 포트 443을 통해 Azure와 통신할 수 있는지 확인 합니다. 브라우저를 열고 에이전트가 설치 된 서버에서 이전 URL로 이동 합니다.
 

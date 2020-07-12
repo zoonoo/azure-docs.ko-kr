@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 인증서를 회�
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 715771c7a1704e0d39f790d018980c4b39ba351b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e48a05a36fdbd56fb78cd1394c512485b521e50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817441"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255356"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 인증서 회전
 
@@ -62,7 +62,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > 를 완료 하는 데 최대 30 분 정도 걸릴 수 있습니다 `az aks rotate-certs` . 완료 하기 전에 명령이 실패 하는 경우를 사용 `az aks show` 하 여 클러스터의 상태가 *인증서 회전*인지 확인 합니다. 클러스터가 실패 상태인 경우 다시 실행 하 여 인증서를 `az aks rotate-certs` 다시 회전 합니다.
 
-명령을 실행 하 여 이전 인증서가 더 이상 유효 하지 않은지 확인 `kubectl` 합니다. 에서 사용 하는 인증서를 업데이트 하지 않았으므로 `kubectl` 오류가 표시 됩니다.  예를 들어:
+명령을 실행 하 여 이전 인증서가 더 이상 유효 하지 않은지 확인 `kubectl` 합니다. 에서 사용 하는 인증서를 업데이트 하지 않았으므로 `kubectl` 오류가 표시 됩니다.  예:
 
 ```console
 $ kubectl get no
@@ -75,7 +75,7 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-명령을 실행 하 여 인증서가 업데이트 되었는지 확인 `kubectl` 합니다 .이는 이제 성공 합니다. 예를 들어:
+명령을 실행 하 여 인증서가 업데이트 되었는지 확인 `kubectl` 합니다 .이는 이제 성공 합니다. 예:
 
 ```console
 kubectl get no
@@ -94,5 +94,5 @@ kubectl get no
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
-[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces]: ../dev-spaces/index.yml
 [dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

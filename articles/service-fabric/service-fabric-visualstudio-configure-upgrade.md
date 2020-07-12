@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464070"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256053"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 Service Fabric 애플리케이션의 업그레이드 구성
 Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 클러스터에 게시하기 위한 업그레이드를 지원합니다. 테스트 및 디버그 중에 애플리케이션을 바꾸지 않고 새 버전으로 업그레이드하려는 세 가지 시나리오가 있습니다.
@@ -56,7 +57,7 @@ Visual Studio Service Fabric 도구를 사용하여 Service Fabric 애플리케�
 3. UnmonitoredManual 업그레이드 모드를 선택하는 경우 수동으로 PowerShell 콘솔을 시작하여 업그레이드 프로세스를 완료해야 합니다. 수동 업그레이드 작업 방법을 알아보려면 [Service Fabric 애플리케이션 업그레이드: 고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하세요.
 
 ## <a name="upgrade-an-application-by-using-powershell"></a>PowerShell을 사용하여 애플리케이션 업그레이드
-PowerShell cmdlet을 사용하여 서비스 패브릭 애플리케이션을 업그레이드할 수 있습니다. 자세한 내용을 보려면 [Service Fabric 애플리케이션 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md) 및 [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade)를 참조하세요.
+PowerShell cmdlet을 사용하여 서비스 패브릭 애플리케이션을 업그레이드할 수 있습니다. 자세한 내용을 보려면 [Service Fabric 애플리케이션 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md) 및 [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade)를 참조하세요.
 
 ## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>애플리케이션 매니페스트 파일에 상태 검사 정책을 지정합니다.
 Service Fabric 애플리케이션의 모든 서비스는 기본값을 재정의하는 자체 상태 정책 매개 변수를 가질 수 있습니다. 애플리케이션 매니페스트 파일에서 이러한 매개 변수 값을 제공할 수 있습니다.

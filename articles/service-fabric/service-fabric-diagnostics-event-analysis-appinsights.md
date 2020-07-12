@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a912b7a6d918a40aaae54c9b177250dc3c30c84d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701904"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256563"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -37,7 +38,7 @@ Application Insights에는 들어오는 모든 데이터를 쿼리하기 위해 
 
 ![Application Insights 요청 세부 정보](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-Application Insights 포털의 기능을 좀 더 자세히 살펴보려면 [Application Insights 포털 설명서](../azure-monitor/app/app-insights-dashboards.md)로 이동하세요.
+Application Insights 포털의 기능을 좀 더 자세히 살펴보려면 [Application Insights 포털 설명서](../azure-monitor/app/overview-dashboard.md)로 이동하세요.
 
 ### <a name="configuring-application-insights-with-eventflow"></a>EventFlow로 Application Insights 구성
 
@@ -66,11 +67,11 @@ EventFlow 및 WAD는 진단 및 모니터링에 좀 더 모듈 방식으로 접�
 
 Application Insights를 이벤트 및 로그의 출력으로 구성했으면 몇 분 내에 Application Insights 리소스에 정보가 표시되기 시작합니다. Application Insights 리소스로 이동합니다. 그러면 Application Insights 리소스 대시보드가 표시됩니다. Application Insights 작업 표시줄에서 **검색**을 클릭하여 수신한 최신 추적을 보고 필터링할 수 있습니다.
 
-*메트릭 탐색기*는 애플리케이션, 서비스 및 클러스터가 보고할 수 있는 메트릭을 기반으로 사용자 지정 대시보드를 만드는 데 유용한 도구입니다. 수집 중인 데이터를 기반으로 직접 몇 가지 차트를 설정하려면 [Application Insights에서 메트릭 탐색](../azure-monitor/app/metrics-explorer.md)을 참조하세요.
+*메트릭 탐색기*는 애플리케이션, 서비스 및 클러스터가 보고할 수 있는 메트릭을 기반으로 사용자 지정 대시보드를 만드는 데 유용한 도구입니다. 수집 중인 데이터를 기반으로 직접 몇 가지 차트를 설정하려면 [Application Insights에서 메트릭 탐색](../azure-monitor/platform/metrics-charts.md)을 참조하세요.
 
-**분석**을 클릭하면 Application Insights 분석 포털로 이동합니다. 이 포털에서는 보다 넓은 범위 및 다양한 옵션으로 이벤트 및 추적을 쿼리할 수 있습니다. 자세한 내용은 [Application Insights의 분석](../azure-monitor/app/analytics.md)을 참조하세요.
+**분석**을 클릭하면 Application Insights 분석 포털로 이동합니다. 이 포털에서는 보다 넓은 범위 및 다양한 옵션으로 이벤트 및 추적을 쿼리할 수 있습니다. 자세한 내용은 [Application Insights의 분석](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AI에 경고 설정](/azure/azure-monitor/platform/alerts-log) - 성능 또는 사용 변경에 대한 알림 받기
+* [AI에 경고 설정](../azure-monitor/platform/alerts-log.md) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 감지](../azure-monitor/app/proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 Application Insights에 전송되는 원격 분석에 대한 사전 분석 수행

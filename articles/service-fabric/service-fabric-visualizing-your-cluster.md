@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79258188"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256257"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
@@ -79,7 +80,7 @@ Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인�
 ### <a name="view-the-clusters-nodes"></a>클러스터의 노드 보기
 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
 
 예를 들어 응용 프로그램 인스턴스를 삭제 하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 **작업**  >  **응용 프로그램 삭제**를 선택 합니다.
@@ -131,7 +132,7 @@ Service Fabric Explorer는 [백업 및 복원과](./service-fabric-reliable-serv
 * 파티션의 백업을 트리거하고 추적 합니다.
 * 파티션에 대 한 복원을 트리거하고 추적 합니다.
 
-백업 및 복원 서비스에 대 한 자세한 내용은 [REST API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)를 참조 하세요.
+백업 및 복원 서비스에 대 한 자세한 내용은 [REST API 참조](/rest/api/servicefabric/sfclient-index-backuprestore)를 참조 하세요.
 ## <a name="next-steps"></a>다음 단계
 * [Visual Studio에서 Service Fabric 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 * [PowerShell을 사용하여 Service Fabric 애플리케이션 배포](service-fabric-deploy-remove-applications.md)

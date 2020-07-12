@@ -3,11 +3,12 @@ title: Azure Resource Manager를 사용 하 여 배포 및 업그레이드
 description: Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터로 애플리케이션 및 서비스를 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610253"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256512"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>애플리케이션 및 서비스를 Azure Resource Manager 리소스로 관리
 
@@ -260,13 +261,12 @@ ARM 템플릿에서 ServiceFabric/클러스터/응용 프로그램을 제거 하
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Resource Manager를 통해 기존 애플리케이션 관리
 
-클러스터가 이미 작동 중이며 Resource Manager 리소스로 관리하려는 일부 애플리케이션이 이미 클러스터에 배포된 경우, 애플리케이션을 제거한 후 다시 배포하는 대신, 동일한 API를 통해 PUT 호출을 사용하여 애플리케이션이 Resource Manager 리소스로 승인되도록 할 수 있습니다. 자세한 내용은 [Service Fabric 응용 프로그램 리소스 모델 이란?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model) 을 참조 하세요.
+클러스터가 이미 작동 중이며 Resource Manager 리소스로 관리하려는 일부 애플리케이션이 이미 클러스터에 배포된 경우, 애플리케이션을 제거한 후 다시 배포하는 대신, 동일한 API를 통해 PUT 호출을 사용하여 애플리케이션이 Resource Manager 리소스로 승인되도록 할 수 있습니다. 자세한 내용은 [Service Fabric 응용 프로그램 리소스 모델 이란?](./service-fabric-concept-resource-model.md) 을 참조 하세요.
 
 > [!NOTE]
-> 클러스터 업그레이드에서 비정상 응용 프로그램을 무시하도록 허용하려면 고객은 “upgradeDescription/healthPolicy” 섹션에서 “maxPercentUnhealthyApplications: 100”을 지정할 수 있습니다. 모든 설정에 대한 자세한 설명은 [Service Fabrics REST API 클러스터 업그레이드 정책 설명서](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)에 있습니다.
+> 클러스터 업그레이드에서 비정상 응용 프로그램을 무시하도록 허용하려면 고객은 “upgradeDescription/healthPolicy” 섹션에서 “maxPercentUnhealthyApplications: 100”을 지정할 수 있습니다. 모든 설정에 대한 자세한 설명은 [Service Fabrics REST API 클러스터 업그레이드 정책 설명서](/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Service Fabric CLI](service-fabric-cli.md) 또는 [PowerShell](service-fabric-deploy-remove-applications.md)을 사용하여 클러스터에 다른 애플리케이션을 배포합니다. 
 * [Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade.md)
-

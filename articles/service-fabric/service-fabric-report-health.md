@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e8d03f782527cd3a9a2667f3513046d7e76c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392644"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256308"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>사용자 지정 서비스 패브릭 상태 보고서 추가
 Azure Service Fabric은 특정 엔터티의 비정상 클러스터 및 애플리케이션 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 정보는 디버깅 및 조사에 소요되는 시간과 노력을 절감할 수 있습니다. 특히 서비스가 클라우드에서 대용량으로 가동 및 실행될 때 확실히 유용합니다(프라이빗 또는 Azure).
@@ -37,7 +38,7 @@ Azure Service Fabric은 특정 엔터티의 비정상 클러스터 및 애플리
 > 
 > 
 
-상태 보고 설계가 명확하면 상태 보고서를 간편하게 보낼 수 있습니다. 클러스터가 [보안](service-fabric-cluster-security.md) 상태가 아니거나 패브릭 클라이언트에 관리자 권한이 있는 경우 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient)를 사용하여 상태를 보고할 수 있습니다. 보고는 PowerShell 또는 REST를 통해 [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth)를 사용하여 API를 통해 수행할 수 있습니다. 성능 향상을 위한 구성 노브 배치 보고서가 있습니다.
+상태 보고 설계가 명확하면 상태 보고서를 간편하게 보낼 수 있습니다. 클러스터가 [보안](service-fabric-cluster-security.md) 상태가 아니거나 패브릭 클라이언트에 관리자 권한이 있는 경우 [FabricClient](/dotnet/api/system.fabric.fabricclient)를 사용하여 상태를 보고할 수 있습니다. 보고는 PowerShell 또는 REST를 통해 [FabricClient.HealthManager.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth)를 사용하여 API를 통해 수행할 수 있습니다. 성능 향상을 위한 구성 노브 배치 보고서가 있습니다.
 
 > [!NOTE]
 > 상태 보고서는 동기화되며 클라이언트 쪽의 유효성 검사 작업만 표시합니다. 상태 클라이언트나 `Partition` 또는 `CodePackageActivationContext` 개체에서 보고서를 수용한다고 해서 저장소에 적용된다는 의미는 아닙니다. 비동기적으로 전송되며 다른 보고서와 함께 일괄 처리될 수도 있습니다. 시퀀스 번호가 오래되었거나 보고서가 적용되어야 하는 엔터티가 삭제되는 등의 이유로 서버 쪽에서의 처리가 실패할 수도 있습니다.
@@ -57,7 +58,7 @@ Azure Service Fabric은 특정 엔터티의 비정상 클러스터 및 애플리
 > 
 
 클라이언트에서의 버퍼링은 보고서의 고유성을 고려합니다. 예를 들어 어떤 악성 보고자가 동일한 엔터티의 동일한 속성에 대해 초당 100개의 보고서를 보내는 경우 해당 보고서는 최신 버전으로 교체됩니다. 이러한 보고서는 기껏해야 클라이언트 큐에 하나 존재합니다. 일괄 처리가 구성 된 경우 health manager로 전송 되는 보고서의 수는 송신 간격 당 하나 뿐입니다. 이 보고서가 엔터티의 최신 상태를 반영하는 맨 마지막으로 추가된 보고서입니다.
-상태 관련 항목에 원하는 값을 포함한 [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings)를 전달하여 `FabricClient`를 만들 때 구성 매개 변수를 지정합니다.
+상태 관련 항목에 원하는 값을 포함한 [FabricClientSettings](/dotnet/api/system.fabric.fabricclientsettings)를 전달하여 `FabricClient`를 만들 때 구성 매개 변수를 지정합니다.
 
 다음 코드 예제에서는 패브릭 클라이언트를 생성하고 보고서가 추가되면 전송되도록 지정합니다. 시간이 초과되거나 재시도 가능한 오류가 발생할 경우 40초마다 재시도가 이뤄집니다.
 
@@ -71,7 +72,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-`HealthReportSendInterval`을 30초로 설정하는 기본 패브릭 클라이언트 설정을 유지하는 것이 좋습니다. 이 설정은 일괄 처리 때문에 최적 성능을 보장합니다. 가능한 즉시 내보내야 하는 중요 보고서의 경우 [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API에서 Immediate `true`와 함께 `HealthReportSendOptions`를 사용합니다. 즉시 보고서는 일괄 처리 간격을 무시합니다. 가능할 때마다 상태 클라이언트 일괄 처리의 장점을 활용하고자 하므로 이 플래그는 주의하여 사용합니다. 패브릭 클라이언트를 닫을 때(예: 프로세스에서 잘못된 상태를 확인했고 부작용을 막기 위해 종료해야 하는 경우)도 즉시 보내기가 도움이 됩니다. 누적 보고서는 최적의 보내기 작업입니다. 한 보고서에 Immediate 플래그가 추가되면 상태 클라이언트가 지난 번 전송 이후 모든 누적된 보고서를 일괄 처리합니다.
+`HealthReportSendInterval`을 30초로 설정하는 기본 패브릭 클라이언트 설정을 유지하는 것이 좋습니다. 이 설정은 일괄 처리 때문에 최적 성능을 보장합니다. 가능한 즉시 내보내야 하는 중요 보고서의 경우 [FabricClient.HealthClient.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API에서 Immediate `true`와 함께 `HealthReportSendOptions`를 사용합니다. 즉시 보고서는 일괄 처리 간격을 무시합니다. 가능할 때마다 상태 클라이언트 일괄 처리의 장점을 활용하고자 하므로 이 플래그는 주의하여 사용합니다. 패브릭 클라이언트를 닫을 때(예: 프로세스에서 잘못된 상태를 확인했고 부작용을 막기 위해 종료해야 하는 경우)도 즉시 보내기가 도움이 됩니다. 누적 보고서는 최적의 보내기 작업입니다. 한 보고서에 Immediate 플래그가 추가되면 상태 클라이언트가 지난 번 전송 이후 모든 누적된 보고서를 일괄 처리합니다.
 
 PowerShell을 통해 클러스터에 대한 연결을 생성할 때 동일한 매개 변수를 지정할 수 있습니다. 다음 예제에서는 로컬 클러스터에 대한 연결을 시작합니다.
 
@@ -113,12 +114,12 @@ REST의 경우 보고서를 내부 패브릭 클라이언트가 있는 Service F
 ## <a name="report-from-within-low-privilege-services"></a>권한이 낮은 서비스 내에서 보고
 Service Fabric 서비스에 클러스터에 대한 관리 액세스 권한이 없는 경우 `Partition` 또는 `CodePackageActivationContext`를 통해 현재 컨텍스트에서 엔터티에 대한 상태를 보고할 수 있습니다.
 
-* 상태 비저장 서비스의 경우에는 [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) 를 사용하여 현재 서비스 인스턴스에 대해 보고합니다.
-* 상태 저장 서비스의 경우에는 [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) 를 사용하여 현재 복제본에 대해 보고합니다.
-* 현재 파티션 엔터티에 대해 보고하려면 [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) 를 사용합니다.
-* 현재 애플리케이션에 대해 보고하려면 [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth)를 사용합니다.
-* 현재 노드에 배포된 현재 애플리케이션에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth)를 사용합니다.
-* 현재 노드에 배포된 애플리케이션의 서비스 패키지에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth)를 사용합니다.
+* 상태 비저장 서비스의 경우에는 [IStatelessServicePartition.ReportInstanceHealth](/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) 를 사용하여 현재 서비스 인스턴스에 대해 보고합니다.
+* 상태 저장 서비스의 경우에는 [IStatefulServicePartition.ReportReplicaHealth](/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) 를 사용하여 현재 복제본에 대해 보고합니다.
+* 현재 파티션 엔터티에 대해 보고하려면 [IServicePartition.ReportPartitionHealth](/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) 를 사용합니다.
+* 현재 애플리케이션에 대해 보고하려면 [CodePackageActivationContext.ReportApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth)를 사용합니다.
+* 현재 노드에 배포된 현재 애플리케이션에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth)를 사용합니다.
+* 현재 노드에 배포된 애플리케이션의 서비스 패키지에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedServicePackageHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth)를 사용합니다.
 
 > [!NOTE]
 > 내부적으로 `Partition` 및 `CodePackageActivationContext`는 기본 설정으로 구성된 상태 클라이언트를 포함합니다. [상태 클라이언트](service-fabric-report-health.md#health-client)에서 설명한 것처럼 보고서는 타이머에서 일괄 처리 및 전송됩니다. 보고서를 보낼 수 있게 개체는 활성 상태로 유지되어야 합니다.
@@ -289,7 +290,7 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST (영문)
-원하는 엔터티로 이동하는 POST 요청과 REST를 사용하고 본문에 상태 보고서 설명을 넣어서 상태 보고서를 보냅니다. 예를 들어, REST [클러스터 상태 보고서](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) 또는 [서비스 상태 보고서](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)를 보내는 방법을 참조하세요. 모든 엔터티가 지원됩니다.
+원하는 엔터티로 이동하는 POST 요청과 REST를 사용하고 본문에 상태 보고서 설명을 넣어서 상태 보고서를 보냅니다. 예를 들어, REST [클러스터 상태 보고서](/rest/api/servicefabric/report-the-health-of-a-cluster) 또는 [서비스 상태 보고서](/rest/api/servicefabric/report-the-health-of-a-service)를 보내는 방법을 참조하세요. 모든 엔터티가 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 상태 데이터를 기반으로 서비스 작성자 및 클러스터/애플리케이션 관리자는 정보를 소비하는 방식에 대해 생각할 수 있습니다. 예를 들어 성능 상태를 기반으로 경고를 설정하면 서비스가 중단되기 전에 심각한 문제를 포착할 수 있습니다. 또한 관리자는 자동으로 문제를 해결하는 복구 시스템을 설정할 수 있습니다.
@@ -305,4 +306,3 @@ HealthEvents          :
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [서비스 패브릭 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
-

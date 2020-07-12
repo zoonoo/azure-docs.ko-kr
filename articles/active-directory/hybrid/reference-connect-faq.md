@@ -15,11 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827151"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256682"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -256,6 +257,16 @@ Office 팀은 Office 포털 업데이트에서 현재 제품 이름을 반영하
 
 **Q: 최신 버전의 Azure AD Connect로 업그레이드할 때 어떤 위험이 있는지 확신할 수 없습니다. 업그레이드에서 도움을 받기 위해 통화할 수 있나요?**  
 최신 버전의 Azure AD Connect로 업그레이드하는 데 도움이 필요한 경우 [Office 365 고객 지원팀에 문의할 서비스 요청 만들기](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/)에서 지원 티켓을 여세요.
+
+## <a name="operational-best-practice"></a>운영 모범 사례    
+다음은 Windows Server Active Directory와 Azure Active Directory 간에 동기화 할 때 구현 해야 하는 몇 가지 모범 사례입니다.
+
+**동기화 된 모든 계정에 대 한 Multi-Factor Authentication 적용** Azure Multi-Factor Authentication는 사용자의 편의를 유지 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 인증 방법을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다. MFA에 대 한 자세한 내용은 다음을 참조 하세요.https://www.microsoft.com/security/business/identity/mfa?rtc=1
+
+**Azure AD Connect 서버 보안 지침을 따릅니다** . Azure AD Connect 서버는 중요 한 id 데이터를 포함 하며, [Active Directory 관리 계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)에 설명 된 대로 계층 0 구성 요소로 처리 되어야 합니다. 또한 [AADConnect 서버를 보호 하기 위한 지침](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server)을 참조 하세요.
+
+**누출 된 자격 증명 검색에 대해 Phs** 암호 해시 동기화를 사용 하면 하이브리드 계정에 대해 유출 되는 [자격 증명 검색](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) 도 가능 합니다. Microsoft는 진한 웹 연구원 및 법률 집행 기관과 함께 작동 하 여 공개적으로 사용 가능한 사용자 이름/암호 쌍을 찾습니다. 이러한 쌍 중 사용자와 일치 하는 쌍이 있으면 연결 된 계정이 높은 위험으로 이동 됩니다. 
+
 
 ## <a name="troubleshooting"></a>문제 해결
 **Q: Azure AD Connect에 대한 도움을 받으려면 어떻게 해야 하나요?**

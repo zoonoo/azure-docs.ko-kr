@@ -3,12 +3,12 @@ title: Azure managed disks를 사용 하도록 클러스터 노드 업그레이�
 description: 클러스터를 거의 또는 전혀 가동 중지 하지 않고 Azure managed disks를 사용 하도록 기존 Service Fabric 클러스터를 업그레이드 하는 방법은 다음과 같습니다.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611631"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255900"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Azure managed disks를 사용 하도록 클러스터 노드 업그레이드
 
@@ -16,7 +16,7 @@ ms.locfileid: "85611631"
 
 관리 디스크를 사용 하도록 Service Fabric 클러스터 노드를 업그레이드 하는 일반적인 전략은 다음과 같습니다.
 
-1. 해당 노드 형식의 중복 된 가상 머신 확장 집합을 배포 하 고, 가상 머신 확장 집합 배포 템플릿의 섹션에 [Manageddisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) 개체를 추가 합니다 `osDisk` . 새 확장 집합은 원본으로 동일한 부하 분산 장치/i d에 바인딩되어야 하므로 마이그레이션 중에 고객이 서비스 중단을 경험 하지 않습니다.
+1. 해당 노드 형식의 중복 된 가상 머신 확장 집합을 배포 하 고, 가상 머신 확장 집합 배포 템플릿의 섹션에 [Manageddisk](/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) 개체를 추가 합니다 `osDisk` . 새 확장 집합은 원본으로 동일한 부하 분산 장치/i d에 바인딩되어야 하므로 마이그레이션 중에 고객이 서비스 중단을 경험 하지 않습니다.
 
 2. 원본 및 업그레이드 된 확장 집합을 모두 나란히 실행 하는 경우에는 원래 노드 인스턴스를 한 번에 하나씩 사용 하지 않도록 설정 하 여 시스템 서비스 (또는 상태 저장 서비스의 복제본)를 새 확장 집합으로 마이그레이션합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "85611631"
 이 문서에서는 클러스터 가동 중지 시간을 방지 하는 동시에 관리 디스크를 사용 하도록 예제 클러스터의 주 노드 유형을 업그레이드 하는 단계를 안내 합니다 (아래 참고 참조). 예제 테스트 클러스터의 초기 상태는 노드 5 개로 구성 된 단일 확장 집합에 의해 지원 되는 [실버 내구성](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)의 한 노드 형식으로 구성 됩니다.
 
 > [!CAUTION]
-> 클러스터 DNS에 종속성이 있는 경우 (예: [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에 액세스할 때)에만이 절차를 중단 합니다. [프런트 엔드 서비스의 아키텍처 모범 사례](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) 는 중단 없이 노드 교환을 가능 하 게 하기 위해 노드 형식 앞에 일종의 [부하 분산 장치](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) 를 포함 하는 것입니다.
+> 클러스터 DNS에 종속성이 있는 경우 (예: [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에 액세스할 때)에만이 절차를 중단 합니다. [프런트 엔드 서비스의 아키텍처 모범 사례](/azure/architecture/microservices/design/gateway) 는 중단 없이 노드 교환을 가능 하 게 하기 위해 노드 형식 앞에 일종의 [부하 분산 장치](/azure/architecture/guide/technology-choices/load-balancing-overview) 를 포함 하는 것입니다.
 
 다음은 업그레이드 시나리오를 완료 하는 데 사용 하는 Azure Resource Manager에 대 한 [템플릿 및 cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) 입니다. 템플릿의 변경 내용은 아래 [주 노드 유형의 업그레이드 된 확장 집합 배포](#deploy-an-upgraded-scale-set-for-the-primary-node-type) 에서 설명 합니다.
 
@@ -202,7 +202,7 @@ Get-ServiceFabricClusterHealth
 }
 ```
 
-### <a name="variables"></a>변수
+### <a name="variables"></a>variables
 
 배포 템플릿 섹션에서 `variables` 새 확장 집합의 인바운드 NAT 주소 풀에 대 한 항목을 추가 합니다.
 
@@ -258,7 +258,7 @@ Get-ServiceFabricClusterHealth
 
 ### <a name="obtain-your-key-vault-references"></a>Key Vault 참조 가져오기
 
-업데이트 된 구성을 배포 하려면 먼저 Key Vault에 저장 된 클러스터 인증서에 대 한 여러 참조를 가져옵니다. 이러한 값을 찾는 가장 쉬운 방법은 Azure Portal을 통하는 것입니다. 필요한 사항:
+업데이트 된 구성을 배포 하려면 먼저 Key Vault에 저장 된 클러스터 인증서에 대 한 여러 참조를 가져옵니다. 이러한 값을 찾는 가장 쉬운 방법은 Azure Portal을 통하는 것입니다. 다음 도구가 필요합니다.
 
 * **클러스터 인증서의 Key Vault URL입니다.** Azure Portal의 Key Vault에서 **Certificates**  >  *원하는 인증서*  >  **비밀 식별자**를 선택 합니다.
 

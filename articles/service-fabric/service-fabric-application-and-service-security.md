@@ -3,12 +3,12 @@ title: Azure Service Fabric 응용 프로그램 보안에 대 한 자세한 정�
 description: Service Fabric에서 마이크로 서비스 애플리케이션을 안전하게 실행하는 방법의 개요 다른 보안 계정에서 서비스 및 시작 스크립트를 실행하고, 사용자를 인증하고 권한을 부여하고, 애플리케이션 암호를 관리하고, 서비스 통신의 보안을 유지하고, API 게이트웨이를 사용하고, 미사용 애플리케이션 데이터의 보안을 유지하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f17840f31d2a4c12a1d4618bd16e81dcc2cc8a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461432"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256580"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 애플리케이션 및 서비스 보안
 마이크로 서비스 아키텍처는 [많은 이점](service-fabric-overview-microservices.md)을 제공할 수 있습니다. 그러나 마이크로 서비스의 보안을 관리하는 일은 기존의 모놀리식 애플리케이션 보안을 관리하는 것과는 다르며 어려울 수 있습니다. 
@@ -35,7 +35,7 @@ ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-arch
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>API 게이트웨이를 사용하여 액세스 제한 및 보안 유지
 일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. [API 게이트웨이](/azure/architecture/microservices/gateway)는 클라이언트와 서비스 간에 위치하며, 애플리케이션이 제공하는 모든 서비스에 대한 진입점이 됩니다. 클라이언트에서 서비스로 요청을 라우팅하는 역방향 프록시로 사용됩니다. 또한 인증 및 권한 부여, TLS 종료 및 요율 제한과 같은 다양 한 교차 절삭 작업을 수행할 수 있습니다. 게이트웨이를 배포하지 않으면 클라이언트는 프런트 엔드 서비스로 직접 요청을 보내야 합니다.
 
-Service Fabric에서 게이트웨이는 상태 비저장 서비스(예: [ASP.NET Core 애플리케이션](service-fabric-reliable-services-communication-aspnetcore.md)) 또는 트래픽을 수신하도록 설계된 다른 서비스(예: [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure API Management](https://docs.microsoft.com/azure/api-management))일 수 있습니다.
+Service Fabric에서 게이트웨이는 상태 비저장 서비스(예: [ASP.NET Core 애플리케이션](service-fabric-reliable-services-communication-aspnetcore.md)) 또는 트래픽을 수신하도록 설계된 다른 서비스(예: [Traefik](https://docs.traefik.io/), [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml) 또는 [Azure API Management](../api-management/index.yml))일 수 있습니다.
 
 API Management는 Service Fabric과 직접 통합되므로 다양한 라우팅 규칙 집합을 사용하여 백 엔드 Service Fabric 서비스에 API를 게시할 수 있습니다.  백 엔드 서비스에 대한 액세스 보안을 유지하거나, 제한을 사용하여 DOS 공격을 방지하거나, API 키, JWT 토큰, 인증서 및 기타 자격 증명을 확인할 수 있습니다. 자세히 알아보려면 [Service Fabric 및 API Management 개요](service-fabric-api-management-overview.md)를 읽어보세요.
 
@@ -85,7 +85,7 @@ Service Fabric은 컨테이너 내부에 Windows 또는 Linux 클러스터(5.7 �
 Reliable Services 애플리케이션 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 원격 서비스([C#](service-fabric-reliable-services-secure-communication.md) 또는 [Java](service-fabric-reliable-services-secure-communication-java.md))를 사용하거나 [WCF](service-fabric-reliable-services-secure-communication-wcf.md)를 사용하는 경우 보안을 향상시키는 방법을 알아봅니다.
 
 ## <a name="encrypt-application-data-at-rest"></a>미사용 애플리케이션 데이터 암호화
-Azure에서 실행되는 Service Fabric 클러스터의 각 [노드 형식](service-fabric-cluster-nodetypes.md)은 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 통해 백업됩니다. Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 구성하는 확장 집합에 데이터 디스크를 연결할 수 있습니다.  서비스가 연결된 데이터 디스크에 데이터를 저장하는 경우 [해당 데이터 디스크를 암호화](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)하여 애플리케이션 데이터를 보호할 수 있습니다.
+Azure에서 실행되는 Service Fabric 클러스터의 각 [노드 형식](service-fabric-cluster-nodetypes.md)은 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)을 통해 백업됩니다. Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 구성하는 확장 집합에 데이터 디스크를 연결할 수 있습니다.  서비스가 연결된 데이터 디스크에 데이터를 저장하는 경우 [해당 데이터 디스크를 암호화](../virtual-machine-scale-sets/disk-encryption-powershell.md)하여 애플리케이션 데이터를 보호할 수 있습니다.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

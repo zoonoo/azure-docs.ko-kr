@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c024a812e4692208554e61c665896da6f0a5543
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0ef3135f572b00176ff2a114fd02db82c7a05bca
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209677"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258398"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Azure Data Box 및 Azure Data Box Heavy 내보내기 주문에 대 한 추적 및 이벤트 로깅
 
@@ -26,7 +26,7 @@ Data Box 또는 Data Box Heavy 내보내기 순서는 순서, 설정, 데이터 
 | Data Box 내보내기 주문 단계       | 추적 및 감사 도구                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | 주문 만들기               | [RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order) <br> [자세한 로그를 순서 대로 사용](#enable-verbose-log-in-the-order)                                                    |
-| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure Portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
+| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
 | 디바이스 설정              | 장치 자격 증명 액세스는 [활동 로그](#query-activity-logs-during-setup) 에 기록 됩니다.              |
 | 장치에서 데이터 복사        | [복사 로그 검토](#copy-log) <br> 데이터를 복사 하기 전에 [자세한 정보 표시 로그 검토](#verbose-log)            |
 | 장치에서 데이터 지우기   | 감사 로그 및 주문 기록을 포함 하 [는 관리 권의 로그의 체인 보기](#get-chain-of-custody-logs-after-data-erasure)                |
@@ -194,55 +194,55 @@ NIST SP 800-88 수정 1 지침에 따라 Data Box 디스크에서 데이터를 �
 
 다음은 Data Box의 감사 로그 샘플입니다.
 
-    ```
-    9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
-    9/10/2018 8:23:42 PM : An account was successfully logged on.
-    Subject:
-        Security ID:        S-1-5-18
-        Account Name:       WIN-DATABOXADMIN
-        Account Domain: Workgroup
-        Logon ID:       0x3E7
-    Logon Information:
-        Logon Type:     3
-        Restricted Admin Mode:  -
-        Virtual Account:        No
-        Elevated Token:     No
-    Impersonation Level:        Impersonation
-    New Logon:
-        Security ID:        S-1-5-7
-        Account Name:       ANONYMOUS LOGON
-        Account Domain: NT AUTHORITY
-        Logon ID:       0x775D5
-        Linked Logon ID:    0x0
-        Network Account Name:   -
-        Network Account Domain: -
-        Logon GUID:     {00000000-0000-0000-0000-000000000000}
-    Process Information:
-        Process ID:     0x4
-        Process Name:       
-    Network Information:
-        Workstation Name:   -
-        Source Network Address: -
-        Source Port:        -
-    Detailed Authentication Information:
-        Logon Process:      NfsSvr
-        Authentication Package:MICROSOFT_AUTHENTICATION_PACKAGE_V1_0
-        Transited Services: -
-        Package Name (NTLM only):   -
-        Key Length:     0
-    This event is generated when a logon session is created. It is generated on the computer that was accessed. 
-    The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe. 
-    The logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).
-    The New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.
-    The network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
-    The impersonation level field indicates the extent to which a process in the logon session can impersonate.
-    The authentication information fields provide detailed information about this specific logon request.
-        - Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.
-        - Transited services indicate which intermediate services have participated in this logon request.
-        - Package name indicates which sub-protocol was used among the NTLM protocols.
-        - Key length indicates the length of the generated session key. This will be 0 if no session key was requested.
-    9/10/2018 8:25:58 PM : An account was successfully logged on.
-    ```
+```output
+9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
+9/10/2018 8:23:42 PM : An account was successfully logged on.
+Subject:
+    Security ID:        S-1-5-18
+    Account Name:       WIN-DATABOXADMIN
+    Account Domain: Workgroup
+    Logon ID:       0x3E7
+Logon Information:
+    Logon Type:     3
+    Restricted Admin Mode:  -
+    Virtual Account:        No
+    Elevated Token:     No
+Impersonation Level:        Impersonation
+New Logon:
+    Security ID:        S-1-5-7
+    Account Name:       ANONYMOUS LOGON
+    Account Domain: NT AUTHORITY
+    Logon ID:       0x775D5
+    Linked Logon ID:    0x0
+    Network Account Name:   -
+    Network Account Domain: -
+    Logon GUID:     {00000000-0000-0000-0000-000000000000}
+Process Information:
+    Process ID:     0x4
+    Process Name:       
+Network Information:
+    Workstation Name:   -
+    Source Network Address: -
+    Source Port:        -
+Detailed Authentication Information:
+    Logon Process:      NfsSvr
+    Authentication Package:MICROSOFT_AUTHENTICATION_PACKAGE_V1_0
+    Transited Services: -
+    Package Name (NTLM only):   -
+    Key Length:     0
+This event is generated when a logon session is created. It is generated on the computer that was accessed. 
+The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe. 
+The logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).
+The New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.
+The network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+The impersonation level field indicates the extent to which a process in the logon session can impersonate.
+The authentication information fields provide detailed information about this specific logon request.
+    - Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.
+    - Transited services indicate which intermediate services have participated in this logon request.
+    - Package name indicates which sub-protocol was used among the NTLM protocols.
+    - Key length indicates the length of the generated session key. This will be 0 if no session key was requested.
+9/10/2018 8:25:58 PM : An account was successfully logged on.
+```
 
 ## <a name="download-order-history"></a>주문 기록 다운로드
 

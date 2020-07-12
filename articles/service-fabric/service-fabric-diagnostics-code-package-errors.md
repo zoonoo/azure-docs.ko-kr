@@ -5,11 +5,12 @@ author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983d45a7a240701fa6441d2d9edeeda16f1ed18b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463103"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256495"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Service Fabric를 사용 하 여 일반적인 코드 패키지 오류 진단
 
@@ -56,6 +57,6 @@ Service Fabric은 다양 한 이유로 코드 패키지를 종료 해야 할 수
 ## <a name="next-steps"></a>다음 단계
 
 * [다른 일반적인 시나리오를 진단](service-fabric-diagnostics-common-scenarios.md)하는 방법에 대해 자세히 알아보세요.
-* Azure Monitor 로그 및 [Azure Monitor 개요](../operations-management-suite/operations-management-suite-overview.md)를 읽어 제공 되는 내용에 대 한 자세한 개요를 확인 하세요.
-* 검색 및 진단에 도움이 되도록 [경고](../log-analytics/log-analytics-alerts.md) 를 Azure Monitor 로그에 대해 자세히 알아보세요.
-* Azure Monitor 로그의 일부로 제공 되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능에 대해 알아봅니다.
+* Azure Monitor 로그 및 [Azure Monitor 개요](../azure-monitor/overview.md)를 읽어 제공 되는 내용에 대 한 자세한 개요를 확인 하세요.
+* 검색 및 진단에 도움이 되도록 [경고](../azure-monitor/platform/alerts-overview.md) 를 Azure Monitor 로그에 대해 자세히 알아보세요.
+* Azure Monitor 로그의 일부로 제공 되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능에 대해 알아봅니다.

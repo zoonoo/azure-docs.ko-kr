@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564453"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255662"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Windows 가상 데스크톱에서 Microsoft 팀 사용
 
@@ -27,12 +27,12 @@ Windows 가상 데스크톱의 Microsoft 팀은 채팅 및 공동 작업을 지�
 
 Microsoft 팀을 위한 미디어 최적화를 사용 하는 Windows 데스크톱 클라이언트는 팀 호출 및 모임에 대해 로컬로 오디오 및 비디오를 처리 합니다. Windows 가상 데스크톱의 Microsoft 팀을 다른 클라이언트와 함께 사용할 수 있습니다. 팀 채팅 및 공동 작업 기능은 모든 플랫폼에서 지원 됩니다. 원격 세션에서 로컬 장치를 리디렉션하려면 [호스트 풀의 사용자 지정 원격 데스크톱 프로토콜 속성](#customize-remote-desktop-protocol-properties-for-a-host-pool)을 선택 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다음 작업을 수행 해야 합니다.
 
 - Microsoft 팀을 위해 [네트워크를 준비](/microsoftteams/prepare-network/) 합니다.
-- Windows [PC의 팀에 대 한 Microsoft 팀 하드웨어 요구 사항을](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)충족 하는 windows 10 또는 Windows 10 IoT Enterprise 장치에 [windows 데스크톱 클라이언트](connect-windows-7-and-10.md) 를 설치 합니다.
+- Windows [PC의 팀에 대 한 Microsoft 팀 하드웨어 요구 사항을](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)충족 하는 windows 10 또는 Windows 10 IoT Enterprise 장치에 [windows 데스크톱 클라이언트](connect-windows-7-10.md) 를 설치 합니다.
 - Windows 10 다중 세션 또는 Windows 10 Enterprise VM (가상 머신)에 연결 합니다.
 - 컴퓨터 단위 설치를 사용 하 여 호스트에 팀 데스크톱 앱을 설치 합니다. Microsoft 팀을 위한 미디어 최적화를 사용 하려면 팀 데스크톱 앱 버전 1.3.00.4461 이상이 필요 합니다.
 
@@ -47,7 +47,7 @@ Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다�
 1. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **HKEY_LOCAL_MACHINE \software\microsoft\teams**로 이동 합니다.
 2. 팀 키에 대해 다음 값을 만듭니다.
 
-| 이름             | Type   | 데이터/값  |
+| 이름             | 유형   | 데이터/값  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 

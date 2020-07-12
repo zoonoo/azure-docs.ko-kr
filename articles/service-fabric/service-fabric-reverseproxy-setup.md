@@ -4,12 +4,12 @@ description: Azure Service Fabric 응용 프로그램에 대 한 역방향 프�
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80476680"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256333"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
 역방향 프록시는 Service Fabric 클러스터에서 실행되는 마이크로 서비스를 통해 http 엔드포인트가 있는 다른 서비스를 검색하고 통신할 수 있도록 하는 선택적 Azure Service Fabric 서비스입니다. 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 이 문서에서는 클러스터에서 역방향 프록시를 설정하고 구성하는 방법에 대해 설명합니다. 
@@ -37,7 +37,7 @@ Azure에 있는 클러스터의 경우 Azure Resource Manager 템플릿을 사�
 
 GitHub의 [보안 역방향 프록시 템플릿 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample)에서 Azure 클러스터에 보안 역방향 프록시를 구성하는 데 도움이 되는 Resource Manager 템플릿 샘플을 찾을 수 있습니다. 인증서를 사용하여 보안 역방향 프록시를 구성하고 인증서 롤오버를 처리하는 데 사용할 지침과 템플릿은 추가 정보 파일의 [보안 클러스터에서 HTTPS 역방향 프록시 구성](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster)을 참조하세요.
 
-기존 클러스터의 경우 [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) 또는 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli)를 사용하여 클러스터의 리소스 그룹에 대한 Resource Manager 템플릿을 내보낼 수 있습니다.
+기존 클러스터의 경우 [Azure Portal](../azure-resource-manager/templates/export-template-portal.md), [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md) 또는 [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md)를 사용하여 클러스터의 리소스 그룹에 대한 Resource Manager 템플릿을 내보낼 수 있습니다.
 
 Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방향 프록시를 사용하도록 설정할 수 있습니다.
 
@@ -52,7 +52,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
         }
     },
     ```
-2. [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [리소스 종류 섹션](../azure-resource-manager/templates/template-syntax.md)에서 각 노드 유형 개체에 대한 포트를 지정합니다.
+2. [**Microsoft.ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) [리소스 종류 섹션](../azure-resource-manager/templates/template-syntax.md)에서 각 노드 유형 개체에 대한 포트를 지정합니다.
 
     포트는 reverseProxyEndpointPort라는 매개 변수 이름으로 식별됩니다.
 
@@ -74,7 +74,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
         ...
     }
     ```
-3. 역방향 프록시에 대 한 포트에서 TLS/SSL 인증서를 구성 하려면 **ServiceFabric/클러스터** [리소스 종류 섹션](../resource-group-authoring-templates.md)의 ***reverseProxyCertificate*** 속성에 인증서를 추가 합니다.
+3. 역방향 프록시에 대 한 포트에서 TLS/SSL 인증서를 구성 하려면 **ServiceFabric/클러스터** [리소스 종류 섹션](../azure-resource-manager/templates/template-syntax.md)의 ***reverseProxyCertificate*** 속성에 인증서를 추가 합니다.
 
     ```json
     {
@@ -98,7 +98,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>클러스터 인증서와 다른 역방향 프록시 인증서 지원
- 역방향 프록시 인증서가 클러스터를 보호하는 인증서와 다른 경우 이전에 지정한 인증서를 가상 머신에 설치하고 ACL(액세스 제어 목록)에 추가하여 Service Fabric에서 액세스할 수 있게 합니다. 이 작업은 [**Microsoft.Compute/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [리소스 종류 섹션](../resource-group-authoring-templates.md)에서 수행할 수 있습니다. 설치하려면 해당 인증서를 osProfile에 추가합니다. 템플릿의 확장 섹션은 ACL의 인증서를 업데이트할 수 있습니다.
+ 역방향 프록시 인증서가 클러스터를 보호하는 인증서와 다른 경우 이전에 지정한 인증서를 가상 머신에 설치하고 ACL(액세스 제어 목록)에 추가하여 Service Fabric에서 액세스할 수 있게 합니다. 이 작업은 [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets) [리소스 종류 섹션](../azure-resource-manager/templates/template-syntax.md)에서 수행할 수 있습니다. 설치하려면 해당 인증서를 osProfile에 추가합니다. 템플릿의 확장 섹션은 ACL의 인증서를 업데이트할 수 있습니다.
 
   ```json
   {
@@ -252,50 +252,50 @@ Azure 클러스터 외부에서 역방향 프록시를 처리하려면 역방향
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Resource Manager 템플릿을 통해 역방향 프록시 노출
 
-다음 JSON에서는 [Azure Resource Manager 템플릿을 통해 역방향 프록시 사용](#enable-reverse-proxy-via-azure-resource-manager-templates)에서 사용한 것과 동일한 템플릿을 참조합니다. Resource Manager 템플릿을 만들거나 기존 클러스터에 대한 템플릿을 내보내는 방법에 대한 자세한 내용은 이 문서의 해당 섹션을 참조하세요.  [**Microsoft.Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [리소스 종류 섹션](../resource-group-authoring-templates.md)이 변경되었습니다.
+다음 JSON에서는 [Azure Resource Manager 템플릿을 통해 역방향 프록시 사용](#enable-reverse-proxy-via-azure-resource-manager-templates)에서 사용한 것과 동일한 템플릿을 참조합니다. Resource Manager 템플릿을 만들거나 기존 클러스터에 대한 템플릿을 내보내는 방법에 대한 자세한 내용은 이 문서의 해당 섹션을 참조하세요.  [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers) [리소스 종류 섹션](../azure-resource-manager/templates/template-syntax.md)이 변경되었습니다.
 
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
+```json
+{
+    "apiVersion": "[variables('lbApiVersion')]",
+    "type": "Microsoft.Network/loadBalancers",
+    ...
+    ...
+    "loadBalancingRules": [
         ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
+        {
+            "name": "LBSFReverseProxyRule",
+            "properties": {
+                "backendAddressPool": {
+                    "id": "[variables('lbPoolID0')]"
+                },
+                "backendPort": "[parameters('SFReverseProxyPort')]",
+                "enableFloatingIP": "false",
+                "frontendIPConfiguration": {
+                    "id": "[variables('lbIPConfig0')]"
+                },
+                "frontendPort": "[parameters('SFReverseProxyPort')]",
+                "idleTimeoutInMinutes": "5",
+                "probe": {
+                    "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
+                },
+                "protocol": "tcp"
             }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
+        }
+    ],
+    "probes": [
+        ...
+        {
+            "name": "SFReverseProxyProbe",
+            "properties": {
+                "intervalInSeconds": 5,
+                "numberOfProbes": 2,
+                "port":     "[parameters('SFReverseProxyPort')]",
+                "protocol": "tcp"
+            }
+        }  
+    ]
+}
+```
 
 
 ## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>패브릭 설정을 사용하여 역방향 프록시 동작 사용자 지정

@@ -8,11 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b13944e30c339357997fbc5f0919e5eb8485a0a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308781"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257836"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>IoT Edge 장치에서 인증서 관리
 
@@ -30,7 +31,7 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 >[!NOTE]
 >이 문서 전체에서 사용 되는 "루트 CA" 라는 용어는 IoT 솔루션에 대 한 인증서 체인의 최상위 권한 공용 인증서를 나타냅니다. 게시 된 인증 기관의 인증서 루트나 조직의 인증 기관 루트를 사용할 필요는 없습니다. 대부분의 경우에는 실제로 중간 CA 공용 인증서입니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 * [Windows](how-to-install-iot-edge-windows.md) 또는 [Linux](how-to-install-iot-edge-linux.md)에서 실행 되는 IoT Edge 장치
 * 루트 CA (인증 기관) 인증서가 Baltimore, Verisign, DigiCert 또는 GlobalSign과 같은 신뢰할 수 있는 상용 인증 기관에서 구매한 CA (인증 기관) 인증서가 있어야 합니다.
@@ -46,6 +47,9 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 * 장치 CA 개인 키
 
 이 문서에서 *루트 CA* 를 참조 하는 것은 조직에 대 한 최상위 인증 기관이 아닙니다. IoT Edge 시나리오에 대 한 가장 높은 인증 기관으로, IoT Edge 허브 모듈, 사용자 모듈 및 모든 다운스트림 장치에서 서로 트러스트를 설정 하는 데 사용 합니다.
+
+> [!NOTE]
+> 현재 libiothsm의 제한으로 인해 2050 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다.
 
 이러한 인증서의 예를 보려면 예제 [및 자습서에 대 한 테스트 CA 인증서 관리](https://github.com/Azure/iotedge/tree/master/tools/CACertificates)에서 데모 인증서를 만드는 스크립트를 검토 합니다.
 
@@ -68,7 +72,7 @@ IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 �
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예를 들어:
+1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예:
 
    * Windows:
 
@@ -108,7 +112,7 @@ IoT Edge 장치에서 다양 한 인증서의 기능에 대 한 자세한 내용
 이러한 두 개의 자동으로 생성 된 인증서의 경우 구성에서 **auto_generated_ca_lifetime_days** 플래그를 설정 하 여 인증서의 수명 기간 (일)을 구성할 수 있습니다.
 
 >[!NOTE]
->IoT Edge security manager에서 만든 세 번째 자동 생성 인증서 인 **IoT Edge hub 서버 인증서**가 있습니다. 이 인증서는 항상 90 일 이지만 만료 되기 전에 자동으로 갱신 됩니다. **Auto_generated_ca_lifetime_days** 값은이 인증서에 영향을 주지 않습니다.
+>IoT Edge security manager에서 만든 세 번째 자동 생성 인증서 인 **IoT Edge hub 서버 인증서**가 있습니다. 이 인증서는 항상 90 일 수명을 갖지만 만료 되기 전에 자동으로 갱신 됩니다. **Auto_generated_ca_lifetime_days** 값은이 인증서에 영향을 주지 않습니다.
 
 인증서 만료를 기본 90 일 이외의 값으로 구성 하려면 해당 값을 구성. yaml 파일의 **certificate** 섹션에 추가 합니다.
 
@@ -119,6 +123,9 @@ certificates:
   trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
   auto_generated_ca_lifetime_days: <value>
 ```
+
+> [!NOTE]
+> 현재 libiothsm의 제한으로 인해 2050 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다.
 
 사용자 고유의 장치 CA 인증서를 제공한 경우에도이 값은 사용자가 설정 하는 수명 값이 장치 CA 인증서의 수명 보다 짧은 경우 작업 CA 인증서에 적용 됩니다.
 
