@@ -13,11 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 2e9a50553a12c57c0043c7f2924245f6a907242a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83825961"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252116"
 ---
 # <a name="authentication-vs-authorization"></a>인증 및 권한 부여
 
@@ -37,7 +38,7 @@ ms.locfileid: "83825961"
 
 Azure AD(Azure Active Directory)는 클라우드의 중앙 집중식 ID 공급자입니다. 인증 및 권한 부여를 위임하면 사용자가 특정 위치에 있어야 하는 조건부 액세스 정책, [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)(2단계 인증 또는 2FA라고도함) 사용, 사용자가 한 번 로그인한 다음, 동일한 중앙 디렉터리를 공유하는 모든 웹앱에 자동으로 로그인되도록 하는 경우와 같은 시나리오를 지원할 수 있습니다. 이 기능을 **SSO(Single Sign On)** 라고 합니다.
 
-Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect와 같은 업계 표준 프로토콜은 물론, 빠르게 코딩을 시작하는 데 유용한 다양한 플랫폼용 오픈 소스 라이브러리를 지원하면서 Identity As a Service를 제공하여 애플리케이션 개발자의 권한 부여 및 인증을 간소화합니다. 이 플랫폼을 사용하면 개발자는 모든 Microsoft ID에 로그인하고, [Microsoft Graph](https://developer.microsoft.com/graph/), 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 자세한 내용은 [Microsoft ID 플랫폼(v2.0)의 발전](about-microsoft-identity-platform.md)을 참조하세요.
+Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect와 같은 업계 표준 프로토콜은 물론, 빠르게 코딩을 시작하는 데 유용한 다양한 플랫폼용 오픈 소스 라이브러리를 지원하면서 Identity As a Service를 제공하여 애플리케이션 개발자의 권한 부여 및 인증을 간소화합니다. 이 플랫폼을 사용하면 개발자는 모든 Microsoft ID에 로그인하고, [Microsoft Graph](https://developer.microsoft.com/graph/), 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다.
 
 다음은 Microsoft ID 플랫폼에서 사용되는 다양 한 프로토콜을 간단하게 비교한 것입니다.
 

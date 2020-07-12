@@ -9,17 +9,18 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82854102"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254285"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Kubernetes에 자체 호스팅 게이트웨이 배포
 
 이 문서에서는 Kubernetes 클러스터에 Azure API Management 자체 호스팅 게이트웨이 구성 요소를 배포 하는 단계를 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - Kubernetes 클러스터를 만듭니다.
@@ -64,7 +65,7 @@ ms.locfileid: "82854102"
 ### <a name="access-token"></a>액세스 토큰
 유효한 액세스 토큰이 없으면 자체 호스팅 게이트웨이에서 연결 된 API Management 서비스의 끝점에서 구성 데이터에 액세스 하 고 해당 데이터를 다운로드할 수 없습니다. 액세스 토큰은 최대 30 일간 유효 합니다. 이를 다시 생성 해야 하며, 수동으로 또는 자동화를 통해 새 토큰으로 클러스터를 구성 해야 합니다. 
 
-토큰 새로 고침을 자동화 하는 경우 [이 관리 API 작업](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway/generatetoken) 을 사용 하 여 새 토큰을 생성 합니다. Kubernetes 암호 관리에 대 한 자세한 내용은 [Kubernetes 웹 사이트](https://kubernetes.io/docs/concepts/configuration/secret)를 참조 하세요.
+토큰 새로 고침을 자동화 하는 경우 [이 관리 API 작업](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) 을 사용 하 여 새 토큰을 생성 합니다. Kubernetes 암호 관리에 대 한 자세한 내용은 [Kubernetes 웹 사이트](https://kubernetes.io/docs/concepts/configuration/secret)를 참조 하세요.
 
 ### <a name="namespace"></a>네임스페이스
 Kubernetes [네임 스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 는 단일 클러스터를 여러 팀, 프로젝트 또는 응용 프로그램 간에 분할 하는 데 도움이 됩니다. 네임 스페이스는 리소스 및 이름에 대 한 범위를 제공 합니다. 리소스 할당량 및 액세스 제어 정책에 연결할 수 있습니다.

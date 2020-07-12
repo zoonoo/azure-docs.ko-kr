@@ -15,16 +15,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ace0ef2660a44af41d8942cfe4d225bc1a03228e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75442536"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254591"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Azure API Management, Event Hubs 및 Moesif를 사용하여 API 모니터링
 [API Management 서비스](api-management-key-concepts.md)는 HTTP API로 전송 된 HTTP 요청의 처리를 향상시키기 위해 다양한 기능을 제공합니다. 그러나 요청 및 응답의 존재는 일시적입니다. 요청이 생성되면 API Management 서비스를 통해 백 엔드 API로 전달됩니다. API는 요청을 처리하고 응답은 API 소비자를 통해 다시 전달합니다. API Management 서비스는 Azure Portal 대시보드에 표시하기 위해 API에 대한 중요한 통계를 일부 유지하지만 세부 정보는 사라집니다.
 
-API Management 서비스에서 log-to-eventhub 정책을 사용하여 요청 및 응답에서 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)에 세부 정보를 보낼 수 있습니다. API로 전송되는 HTTP 메시지에서 이벤트를 생성하려는 다양한 이유가 있습니다. 예에는 업데이트의 감사 내역, 사용량 현황 분석, 예외 경고 및 타사 통합이 포함됩니다.
+API Management 서비스에서 log-to-eventhub 정책을 사용하여 요청 및 응답에서 [Azure Event Hub](../event-hubs/event-hubs-about.md)에 세부 정보를 보낼 수 있습니다. API로 전송되는 HTTP 메시지에서 이벤트를 생성하려는 다양한 이유가 있습니다. 예에는 업데이트의 감사 내역, 사용량 현황 분석, 예외 경고 및 타사 통합이 포함됩니다.
 
 이 문서는 전체 HTTP 요청 및 응답 메시지를 캡처하고 이를 Event Hub에 보낸 다음 HTTP 로깅 및 모니터링 서비스를 제공하는 타사 서비스에 해당 메시지를 릴레이하는 방법을 보여줍니다.
 
@@ -47,7 +48,7 @@ Event Hubs에는 여러 소비자 그룹에 이벤트를 스트림하는 기능�
 
 대체 옵션은 HTTP 사양 [RFC 7230](https://tools.ietf.org/html/rfc7230)에 설명된 대로 `application/http` 미디어 형식을 사용하는 것입니다. 이 미디어 형식은 연결을 통해 실제로 HTTP 메시지를 보내는 데 사용되는 것과 동일한 형식을 사용하지만 전체 메시지는 다른 HTTP 요청의 본문에 삽입될 수 있습니다. 지금과 같은 경우에 본문을 메시지로 사용하여 Event Hubs에 보내려고 합니다. 이 형식을 구문 분석하고 네이티브 `HttpRequestMessage` 및 `HttpResponseMessage` 개체로 변환할 수 있는 [Microsoft ASP.NET Web API 2.2 클라이언트](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) 라이브러리에 존재하는 파서입니다.
 
-이 메시지를 만들 수 있게 되려면 Azure API Management에서 C# 기반 [정책 식](/azure/api-management/api-management-policy-expressions)을 활용해야 합니다. 다음은 Azure Event Hubs에 HTTP 요청 메시지를 전송하는 정책입니다.
+이 메시지를 만들 수 있게 되려면 Azure API Management에서 C# 기반 [정책 식](./api-management-policy-expressions.md)을 활용해야 합니다. 다음은 Azure Event Hubs에 HTTP 요청 메시지를 전송하는 정책입니다.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -296,7 +297,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 `MoesifHttpMessageProcessor`는 HTTP 이벤트 데이터를 해당 서비스로 쉽게 푸시할 수 있게 해주는 [Moesif용 C# API 라이브러리](https://www.moesif.com/docs/api?csharp#events)를 활용합니다. HTTP 데이터를 Moesif 수집기 API에 보내려면 계정 및 응용 프로그램 Id가 필요 합니다. [Moesif의 웹 사이트](https://www.moesif.com) 에서 계정을 만든 다음 _오른쪽 상단의 메뉴_  ->  _앱 설정_으로 이동 하 여 응용 프로그램 Id가 응용 프로그램 Id를 가져올 수 있습니다.
 
 ## <a name="complete-sample"></a>전체 샘플
-샘플의 [원본 코드](https://github.com/dgilling/ApimEventProcessor) 및 테스트는 GitHub에 있습니다. 샘플을 직접 실행하려면 [API Management 서비스](get-started-create-service-instance.md), [연결된 Event Hub](api-management-howto-log-event-hubs.md) 및 [Storage 계정](../storage/common/storage-create-storage-account.md)이 있어야 합니다.   
+샘플의 [원본 코드](https://github.com/dgilling/ApimEventProcessor) 및 테스트는 GitHub에 있습니다. 샘플을 직접 실행하려면 [API Management 서비스](get-started-create-service-instance.md), [연결된 Event Hub](api-management-howto-log-event-hubs.md) 및 [Storage 계정](../storage/common/storage-account-create.md)이 있어야 합니다.   
 
 샘플은 이벤트 허브에서 들어오는 이벤트를 수신 대기하고 Moesif `EventRequestModel` 및 `EventResponseModel` 개체로 변환한 다음, Moesif Collector API에 전달하는 간단한 콘솔 애플리케이션입니다.
 
@@ -310,9 +311,9 @@ Azure API Management 서비스는 API간을 이동하는 HTTP 트래픽을 캡�
 ## <a name="next-steps"></a>다음 단계
 * Azure Event Hubs에 대해 자세히 알아보기
   * [Azure Event Hubs 시작](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)
 * API Management 및 Event Hubs 통합에 대해 자세히 알아보기
   * [Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법](api-management-howto-log-event-hubs.md)
-  * [로거 엔터티 참조](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [log-to-eventhub 정책 참조](/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [로거 엔터티 참조](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
+  * [log-to-eventhub 정책 참조](./api-management-advanced-policies.md#log-to-eventhub)

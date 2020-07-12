@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259139"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254747"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 
 Azure API Management는 Azure Application Insights와 쉽게 통합할 수 있습니다. Azure Application Insights는 웹 개발자가 여러 플랫폼에서 애플리케이션을 구축하고 관리할 수 있는 확장 가능한 서비스입니다. 이 가이드에서는 이러한 통합의 모든 단계를 안내하고, API Management 서비스 인스턴스의 성능에 미치는 영향을 줄이기 위한 전략에 대해 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드를 수행하려면 Azure API Management 인스턴스가 있어야 합니다. 아직 없으면 먼저 [자습서](get-started-create-service-instance.md)를 완료하세요.
 
@@ -50,7 +51,7 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
     ![Application Insights 로거](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> 내부적으로 Application Insights 인스턴스의 계측 키를 포함하는 API Management 인스턴스에 [로거](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) 엔터티가 만들어집니다.
+> 내부적으로 Application Insights 인스턴스의 계측 키를 포함하는 API Management 인스턴스에 [로거](/rest/api/apimanagement/2019-12-01/logger/createorupdate) 엔터티가 만들어집니다.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>API에 대한 Application Insights 로깅 사용
 
@@ -69,11 +70,11 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
 > **본문의 첫 번째 바이트** 필드에서 기본값 **0**을 재정의하면 API의 성능이 현저히 저하될 수 있습니다.
 
 > [!NOTE]
-> 내부적으로 이름이 'applicationinsights'인 [진단](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
+> 내부적으로 이름이 'applicationinsights'인 [진단](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
 
 | 설정 이름                        | 값 유형                        | 설명                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 사용 하도록 설정                              | boolean                           | 이 API의 로깅이 사용되는지 여부를 지정합니다.                                                                                                                                                                                                                                                                                                |
+| 사용                              | boolean                           | 이 API의 로깅이 사용되는지 여부를 지정합니다.                                                                                                                                                                                                                                                                                                |
 | 대상                         | Azure Application Insights 로거 | 사용할 Azure Application Insights 로거를 지정합니다.                                                                                                                                                                                                                                                                                           |
 | 샘플링(%)                        | decimal                           | 0-100의 값(퍼센트)입니다. <br/> Azure Application Insights에 기록할 요청의 백분율을 지정합니다. 0% 샘플링은 기록되는 요청이 없음을 의미하고, 100%는 모든 요청이 기록됨을 의미합니다. <br/> 이 설정은 Azure Application Insights에 대한 로깅 요청으로 인해 성능에 미치는 영향을 줄이기 위해 사용됩니다(아래 섹션 참조). |
 | 항상 오류 로깅                   | boolean                           | 이 설정을 선택하면 **샘플링** 설정에 관계없이 모든 오류가 Azure Application Insights에 기록됩니다.                                                                                                                                                                                                                  |
@@ -125,5 +126,5 @@ Azure Application Insights에서 받는 항목은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/)에 대해 자세히 알아봅니다.
++ [Azure Application Insights](/azure/application-insights/)에 대해 자세히 알아봅니다.
 + [Azure Event Hubs에 로깅](api-management-howto-log-event-hubs.md)을 살펴봅니다.

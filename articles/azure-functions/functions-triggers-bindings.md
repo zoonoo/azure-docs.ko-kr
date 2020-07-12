@@ -2,14 +2,15 @@
 title: Azure Functions의 트리거 및 바인딩
 description: 트리거 및 바인딩을 사용 하 여 Azure 함수를 온라인 이벤트 및 클라우드 기반 서비스에 연결 하는 방법을 알아봅니다.
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687653"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252694"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -17,7 +18,7 @@ ms.locfileid: "84687653"
 
 트리거는 함수를 실행 하는 원인이 됩니다. 트리거는 함수를 호출 하는 방법을 정의 하며 함수에는 정확히 하나의 트리거를 포함 해야 합니다. 트리거에는 관련 데이터가 있으며, 일반적으로 함수의 페이로드로 제공됩니다. 
 
-함수에 바인딩하는 것은 다른 리소스를 함수에 선언적으로 연결 하는 방법입니다. 바인딩은 *입력 바인딩*, *출력 바인딩*또는 둘 다로 연결 될 수 있습니다. 바인딩의 데이터는 함수에 매개 변수로 제공됩니다.
+함수에 바인딩하는 것은 다른 리소스를 함수에 선언적으로 연결 하는 방법입니다. 바인딩은 *입력 바인딩*, *출력 바인딩*또는 둘 다로 연결 될 수 있습니다. 바인딩의 데이터가 매개 변수로 함수에 제공됩니다.
 
 필요에 맞게 다른 바인딩과 혼합하고 일치시킬 수 있습니다. 바인딩은 선택 사항이며 함수는 여러 개의 입력 및 출력 바인딩을 가질 수 있습니다.
 
@@ -28,7 +29,7 @@ ms.locfileid: "84687653"
 | 예제 시나리오 | 트리거 | 입력 바인딩 | 출력 바인딩 |
 |-------------|---------|---------------|----------------|
 | 새 큐 메시지가 도착 하면 함수를 실행 하 여 다른 큐에 기록 합니다. | 큐<sup>*</sup> | *없음* | 큐<sup>*</sup> |
-|예약 된 작업은 Blob Storage 내용을 읽고 새 Cosmos DB 문서를 만듭니다. | Timer | Blob Storage | Cosmos DB |
+|예약 된 작업은 Blob Storage 내용을 읽고 새 Cosmos DB 문서를 만듭니다. | 타이머 | Blob Storage | Cosmos DB |
 |Event Grid은 Blob Storage에서 이미지를 읽고 Cosmos DB의 문서에서 전자 메일을 보내는 데 사용 됩니다. | Event Grid | Blob Storage 및 Cosmos DB | SendGrid |
 | Microsoft Graph를 사용 하 여 Excel 시트를 업데이트 하는 webhook입니다. | HTTP | *없음* | Microsoft Graph |
 

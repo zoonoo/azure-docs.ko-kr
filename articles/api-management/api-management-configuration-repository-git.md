@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649225"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254846"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -141,7 +142,7 @@ git push
 
 로컬 변경 내용이 커밋되고 서버 리포지토리에 푸시된 후 이를 API Management 서비스 인스턴스에 배포할 수 있습니다.
 
-REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 데이터베이스에 Git 변경 내용 배포](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/tenantconfiguration)를 참조하세요.
+REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 데이터베이스에 Git 변경 내용 배포](/rest/api/apimanagement/2019-12-01/tenantconfiguration)를 참조하세요.
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>로컬 Git 리포지토리의 파일 및 폴더 구조 참조
 
@@ -171,8 +172,8 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 > [!NOTE]
 > 다음 엔터티는 Git 리포지토리에 포함되지 않으며 Git를 사용하여 구성할 수 없습니다.
 >
-> * [사용자](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
-> * [구독](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
+> * [사용자](/rest/api/apimanagement/2019-12-01/user)
+> * [구독](/rest/api/apimanagement/2019-12-01/subscription)
 > * 명명된 값
 > * 스타일 이외의 개발자 포털 엔터티
 >
@@ -221,15 +222,15 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 ### <a name="apis-folder"></a>apis 폴더
 `apis` 폴더에는 다음 항목을 포함한 서비스 인스턴스의 각 API에 대한 폴더가 포함되어 있습니다.
 
-* `apis\<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `apis\<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty)의 `description` 속성에 해당합니다.
-* `apis\<api name>\operations\` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
+* `apis\<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](/rest/api/apimanagement/2019-12-01/apis/get)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `apis\<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](/java/api/com.microsoft.azure.storage.table.entityproperty)의 `description` 속성에 해당합니다.
+* `apis\<api name>\operations\` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](/rest/api/visualstudio/operations/list#operationproperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
 
 ### <a name="groups-folder"></a>groups 폴더
 `groups` 폴더는 서비스 인스턴스에 정의된 각 그룹에 대한 폴더를 포함하고 있습니다.
 
-* `groups\<group name>\configuration.json` - 그룹에 대한 구성입니다. 이는 [특정 그룹 가져오기](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/group/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `groups\<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)의 `description` 속성에 해당합니다.
+* `groups\<group name>\configuration.json` - 그룹에 대한 구성입니다. 이는 [특정 그룹 가져오기](/rest/api/apimanagement/2019-12-01/group/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `groups\<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)의 `description` 속성에 해당합니다.
 
 ### <a name="policies-folder"></a>policies 폴더
 `policies` 폴더에는 서비스 인스턴스에 대한 정책 설명이 포함되어 있습니다.
@@ -248,8 +249,8 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 ### <a name="products-folder"></a>products 폴더
 `products` 폴더는 서비스 인스턴스에 정의된 각 제품에 대한 폴더를 포함하고 있습니다.
 
-* `products\<product name>\configuration.json` - 제품에 대한 구성입니다. 이는 [특정 제품 가져오기](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/product/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `products\<product name>\product.description.html` - 제품에 대한 설명이며 REST API에서 [제품 엔터티](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity)의 `description` 속성에 해당합니다.
+* `products\<product name>\configuration.json` - 제품에 대한 구성입니다. 이는 [특정 제품 가져오기](/rest/api/apimanagement/2019-12-01/product/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `products\<product name>\product.description.html` - 제품에 대한 설명이며 REST API에서 [제품 엔터티](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity)의 `description` 속성에 해당합니다.
 
 ### <a name="templates"></a>템플릿
 `templates` 폴더에는 서비스 인스턴스의 [전자 메일 템플릿](api-management-howto-configure-notifications.md) 에 대한 구성이 포함되어 있습니다.
@@ -261,8 +262,8 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 서비스 인스턴스를 관리하는 다른 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * 다음 PowerShell cmdlet을 사용하여 서비스 인스턴스 관리
-  * [서비스 배포 PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/module/wds)
-  * [서비스 관리 PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+  * [서비스 배포 PowerShell cmdlet 참조](/powershell/module/wds)
+  * [서비스 관리 PowerShell cmdlet 참조](/powershell/azure/servicemanagement/overview)
 * REST API를 사용하여 서비스 인스턴스 관리
   * [API Management REST API 참조](/rest/api/apimanagement/)
 
@@ -280,7 +281,3 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
-
-
-

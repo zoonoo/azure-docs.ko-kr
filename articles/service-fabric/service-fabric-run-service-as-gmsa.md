@@ -6,11 +6,12 @@ ms.topic: how-to
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.custom: sfrev
-ms.openlocfilehash: 19343d370547cb5457f6bed70a8465187ff27102
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dea63ef6a50597d9ad852cb9cdea4745532fed4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988399"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252915"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>그룹 관리 서비스 계정으로 서비스 실행
 
@@ -40,7 +41,7 @@ Windows Server 독립 실행형 클러스터에서 *RunAs* 정책을 사용 하 
     Test-AdServiceAccount svc-Test$
     ```
 
-3. 사용자 보안 주체를 구성 하 고 `RunAsPolicy` [사용자](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#runas)를 참조 하도록를 구성 합니다.
+3. 사용자 보안 주체를 구성 하 고 `RunAsPolicy` [사용자](./service-fabric-cluster-fabric-settings.md#runas)를 참조 하도록를 구성 합니다.
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

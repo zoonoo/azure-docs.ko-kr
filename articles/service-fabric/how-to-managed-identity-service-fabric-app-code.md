@@ -3,12 +3,12 @@ title: 응용 프로그램에서 관리 id 사용
 description: Azure Service Fabric 응용 프로그램 코드에서 관리 되는 id를 사용 하 여 Azure 서비스에 액세스 하는 방법입니다.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461568"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253646"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법
 
@@ -371,7 +371,7 @@ HTTP 응답 헤더의 ' 상태 코드 ' 필드는 요청의 성공 상태를 나
 | 5 | 16 초 대기 후 다시 시도 |
 
 ## <a name="resource-ids-for-azure-services"></a>Azure 서비스의 리소스 ID
-Azure AD를 지 원하는 리소스 목록 및 해당 리소스 Id에 대해 [AZURE ad 인증을 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-msi.md) 를 참조 하세요.
+Azure AD를 지 원하는 리소스 목록 및 해당 리소스 Id에 대해 [AZURE ad 인증을 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [시스템 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)

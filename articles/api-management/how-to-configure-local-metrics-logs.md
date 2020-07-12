@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: dd49680da6f52e32ddb52dbdb23ad5e8f627a91e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205067"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254506"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대 한 로컬 메트릭 및 로그 구성
 
@@ -149,7 +149,7 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 
 이제 StatsD와 프로메테우스가 모두 배포 되었으므로, Stsd를 통해 메트릭 내보내기를 시작 하도록 자체 호스팅 게이트웨이의 구성을 업데이트할 수 있습니다. `telemetry.metrics.local`추가 옵션을 사용 하 여 자체 호스팅 게이트웨이 배포의 ConfigMap에서 키를 사용 하 여이 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 다음은 사용 가능한 옵션에 대 한 분석입니다.
 
-| 필드  | 기본값 | Description |
+| 필드  | 기본값 | 설명 |
 | ------------- | ------------- | ------------- |
 | 원격 분석. 메트릭 로컬  | `none` | StatsD를 통해 로깅을 사용 하도록 설정 합니다. 값은, 일 수 있습니다 `none` `statsd` . |
 | 원격 분석. stsd. 끝점  | 해당 없음 | StatsD 끝점을 지정 합니다. |
@@ -189,7 +189,7 @@ kubectl rollout restart deployment/<deployment-name>
 
 자체 호스팅 게이트웨이를 통해 일부 API 호출을 수행 합니다. 모두 올바르게 구성 된 경우 아래 메트릭을 볼 수 있습니다.
 
-| 메트릭  | Description |
+| 메트릭  | 설명 |
 | ------------- | ------------- |
 | 요청  | 해당 기간의 API 요청 수 |
 | DurationInMS | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초) |
@@ -204,11 +204,11 @@ kubectl rollout restart deployment/<deployment-name>
 kubectl logs <pod-name>
 ```
 
-자체 호스팅 게이트웨이가 Azure Kubernetes Service에 배포 되는 경우 [컨테이너에 대해 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) 를 사용 하도록 설정 하 여 작업을 수집 하 `stdout` `stderr` 고 Log Analytics에서 로그를 볼 수 있습니다. 
+자체 호스팅 게이트웨이가 Azure Kubernetes Service에 배포 되는 경우 [컨테이너에 대해 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 를 사용 하도록 설정 하 여 작업을 수집 하 `stdout` `stderr` 고 Log Analytics에서 로그를 볼 수 있습니다. 
 
 자체 호스팅 게이트웨이는,, 등의 다양 한 프로토콜도 `localsyslog` 지원 `rfc5424` `journal` 합니다. 아래 표에는 지원 되는 모든 옵션이 요약 되어 있습니다. 
 
-| 필드  | 기본값 | Description |
+| 필드  | 기본값 | 설명 |
 | ------------- | ------------- | ------------- |
 | 원격 분석. logs.  | `text` | 표준 스트림에 로깅을 사용 하도록 설정 합니다. 값은 `none` , `text` ,`json` |
 | 원격 분석. logs. 로컬  | `none` | 로컬 로깅을 사용 합니다. 값은 `none` ,, `auto` `localsyslog` , `rfc5424` ,입니다.`journal`  |
@@ -236,4 +236,3 @@ kubectl logs <pod-name>
 
 * 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md) 를 참조 하세요.
 * [클라우드에서 로그를 구성 하 고 유지 하는](how-to-configure-local-metrics-logs.md) 방법을 알아봅니다.
-

@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
 author: palma21
-ms.openlocfilehash: 6aed6c84439e65646c15367cdad3bf13c5573256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d06852e9d3d61b3e3d368a1d1c6f4107aff1442
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831708"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251317"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -239,7 +239,7 @@ Azure 방화벽은이 구성을 간소화 하는 Azure Kubernetes Service ( `Azu
   * AKS 에이전트 노드의 요청은 AKS 클러스터가 배포된 서브넷에 배치된 UDR을 따릅니다.
   * Azure Firewall은 공용 IP 프런트 엔드의 가상 네트워크 외부로 송신합니다.
   * 공용 인터넷 또는 기타 Azure 서비스에 대한 액세스는 방화벽 프런트 엔드 IP 주소를 통해 수행됩니다.
-  * 필요에 따라 AKS 제어 평면에 대 한 액세스는 방화벽 공용 프런트 엔드 IP 주소를 포함 하는 [API Server 권한 있는 ip 범위](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)에 의해 보호 됩니다.
+  * 필요에 따라 AKS 제어 평면에 대 한 액세스는 방화벽 공용 프런트 엔드 IP 주소를 포함 하는 [API Server 권한 있는 ip 범위](./api-server-authorized-ip-ranges.md)에 의해 보호 됩니다.
 * 내부 트래픽
   * 필요에 따라 [공용 Load Balancer](load-balancer-standard.md) 대신 내부 트래픽을 위한 [내부 Load Balancer](internal-lb.md) 사용할 수 있으며,이는 자체 서브넷 에서도 격리할 수 있습니다.
 
@@ -353,7 +353,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 ```
 
 > [!NOTE]
-> [권한 있는 ip 주소 범위가](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)있는 AKS API 서버에 대 한 보안 액세스를 사용 하는 경우 방화벽 공용 ip를 권한 있는 ip 범위에 추가 해야 합니다.
+> [권한 있는 ip 주소 범위가](./api-server-authorized-ip-ranges.md)있는 AKS API 서버에 대 한 보안 액세스를 사용 하는 경우 방화벽 공용 ip를 권한 있는 ip 범위에 추가 해야 합니다.
 
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>홉을 사용하여 Azure Firewall에 대한 UDR 만들기
 
@@ -389,7 +389,7 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
-Azure Firewall 서비스에 대한 자세한 내용은 [Azure Firewall 설명서](https://docs.microsoft.com/azure/firewall/overview)를 참조하세요.
+Azure Firewall 서비스에 대한 자세한 내용은 [Azure Firewall 설명서](../firewall/overview.md)를 참조하세요.
 
 ### <a name="associate-the-route-table-to-aks"></a>AKS에 경로 테이블 연결
 
@@ -722,7 +722,7 @@ kubectl apply -f example.yaml
 ### <a name="add-a-dnat-rule-to-azure-firewall"></a>Azure Firewall에 DNAT 규칙 추가
 
 > [!IMPORTANT]
-> Azure Firewall을 사용하여 송신 트래픽을 제한하고 UDR(사용자 정의 경로)을 만들어서 모든 송신 트래픽을 강제로 적용하는 경우에는 수신 트래픽을 올바르게 허용하도록 방화벽에서 적절한 DNAT 규칙을 만들어야 합니다. UDR과 함께 Azure Firewall을 사용하면 비대칭 라우팅으로 인해 수신 설정이 손상됩니다. (AKS 서브넷에 방화벽의 개인 IP 주소로 이동하는 기본 경로가 있는데, 공용 부하 분산 장치 - 수신 또는 LoadBalancer 유형의 Kubernetes 서비스를 사용하는 경우 문제가 발생합니다.) 이 경우 들어오는 부하 분산 장치 트래픽은 해당 공용 IP 주소를 통해 수신되지만 반환 경로는 방화벽의 개인 IP 주소를 거칩니다. 방화벽은 상태를 저장하고 방화벽이 설정된 세션을 인식하지 못하므로 반환 패킷을 삭제합니다. Azure Firewall을 수신 또는 서비스 부하 분산 장치와 통합하는 방법을 알아보려면 [Azure Firewall을 Azure 표준 Load Balancer와 통합](https://docs.microsoft.com/azure/firewall/integrate-lb)을 참조하세요.
+> Azure Firewall을 사용하여 송신 트래픽을 제한하고 UDR(사용자 정의 경로)을 만들어서 모든 송신 트래픽을 강제로 적용하는 경우에는 수신 트래픽을 올바르게 허용하도록 방화벽에서 적절한 DNAT 규칙을 만들어야 합니다. UDR과 함께 Azure Firewall을 사용하면 비대칭 라우팅으로 인해 수신 설정이 손상됩니다. (AKS 서브넷에 방화벽의 개인 IP 주소로 이동하는 기본 경로가 있는데, 공용 부하 분산 장치 - 수신 또는 LoadBalancer 유형의 Kubernetes 서비스를 사용하는 경우 문제가 발생합니다.) 이 경우 들어오는 부하 분산 장치 트래픽은 해당 공용 IP 주소를 통해 수신되지만 반환 경로는 방화벽의 개인 IP 주소를 거칩니다. 방화벽은 상태를 저장하고 방화벽이 설정된 세션을 인식하지 못하므로 반환 패킷을 삭제합니다. Azure Firewall을 수신 또는 서비스 부하 분산 장치와 통합하는 방법을 알아보려면 [Azure Firewall을 Azure 표준 Load Balancer와 통합](../firewall/integrate-lb.md)을 참조하세요.
 
 
 인바운드 연결을 구성하려면 Azure Firewall에 DNAT 규칙을 작성해야 합니다. 클러스터에 대 한 연결을 테스트 하기 위해 내부 서비스에서 노출 하는 내부 IP로 라우팅하는 방화벽 프런트 엔드 공용 IP 주소에 대 한 규칙이 정의 됩니다.

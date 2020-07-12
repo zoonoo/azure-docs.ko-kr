@@ -12,11 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83004741"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252898"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
@@ -28,7 +29,7 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는의 하위 도
 > [!WARNING]
 > 인증서 고정을 사용 하 여 응용 프로그램의 보안을 강화 하려는 고객은 기본 인증서가 아니라 관리 하는 사용자 지정 도메인 이름 및 인증서를 사용 해야 합니다. 대신 기본 인증서를 고정 하는 고객은 제어 하지 않는 인증서의 속성에 대 한 하드 종속성을 차지 하므로 권장 되는 방법은 아닙니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -63,15 +64,15 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는의 하위 도
 1. 업데이트하려는 엔드포인트를 선택합니다.
 1. 오른쪽 창에서 **사용자 지정**을 클릭합니다.
 
-    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. 예: `api.contoso.com`.
+    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. 정의합니다(예: `api.contoso.com`).
     - **인증서**의 Key Vault에서 인증서를 선택 합니다. 유효한를 업로드할 수도 있습니다. 인증서가 암호로 보호 되는 경우 PFX 파일 및 **암호**를 제공 합니다.
 
     > [!NOTE]
     > 와일드 카드 도메인 이름 (예:) `*.contoso.com` 은 소비 계층을 제외한 모든 계층에서 지원 됩니다.
 
     > [!TIP]
-    > Azure Key Vault를 사용 하 여 [인증서를 관리](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) 하 고이를 autorenew로 설정 하는 것이 좋습니다.
-    > Azure Key Vault를 사용 하 여 사용자 지정 도메인 TLS/SSL 인증서를 관리 하는 경우 인증서가 _비밀이_아니라 [ _인증서_로](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)Key Vault에 삽입 되어 있는지 확인 합니다.
+    > Azure Key Vault를 사용 하 여 [인증서를 관리](../key-vault/certificates/about-certificates.md) 하 고이를 autorenew로 설정 하는 것이 좋습니다.
+    > Azure Key Vault를 사용 하 여 사용자 지정 도메인 TLS/SSL 인증서를 관리 하는 경우 인증서가 _비밀이_아니라 [ _인증서_로](/rest/api/keyvault/createcertificate/createcertificate)Key Vault에 삽입 되어 있는지 확인 합니다.
     >
     > TLS/SSL 인증서를 페치 하려면 API Management는 인증서를 포함 하는 Azure Key Vault에 대 한 목록 및 암호 가져오기 권한이 있어야 합니다. Azure Portal 사용 하는 경우 필요한 모든 구성 단계가 자동으로 완료 됩니다. 명령줄 도구 또는 관리 API를 사용 하는 경우 이러한 사용 권한을 수동으로 부여 해야 합니다. 이 작업은 다음 두 단계로 수행됩니다. 먼저 API Management 인스턴스의 관리 되는 id 페이지를 사용 하 여 관리 Id가 사용 하도록 설정 되었는지 확인 하 고 해당 페이지에 표시 된 보안 주체 id를 기록해 둡니다. 그런 다음 인증서를 포함 하는 Azure Key Vault에 대 한 사용 권한 목록을 부여 하 고이 보안 주체 id에 대 한 암호를 가져옵니다.
     >

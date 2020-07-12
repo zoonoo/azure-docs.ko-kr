@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66fc58941de206d0bff086f44852d0f2a31587f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77083510"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253085"
 ---
 # <a name="reliable-services-overview"></a>신뢰할 수 있는 서비스 개요
 
@@ -36,7 +37,7 @@ Reliable Services는 단순하고 강력한 최고 수준의 프로그래밍 모
   * 신뢰할 수 있는 [컬렉션](service-fabric-reliable-services-reliable-collections.md) 사용
   * 여러 가지 프로그래밍 언어의 최고 수준의 프로그래밍 모델에서 제공 하는 다양 한 다른 기능에 액세스 합니다.
 * 사용자 고유의 코드를 실행 하기 위한 간단한 모델입니다. 사용자의 코드에는 잘 정의된 진입점과 쉽게 관리되는 수명 주기가 있습니다.
-* 플러그형 통신 모델. [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, 사용자 지정 TCP 프로토콜 또는 다른 프로그램과 함께 HTTP와 같은 원하는 전송 프로토콜을 사용합니다. 신뢰할 수 있는 서비스는 훌륭한 기본 옵션을 제공하거나 직접 만들 수 있게 지원합니다.
+* 플러그형 통신 모델. [Web API](./service-fabric-reliable-services-communication-aspnetcore.md), WebSockets, 사용자 지정 TCP 프로토콜 또는 다른 프로그램과 함께 HTTP와 같은 원하는 전송 프로토콜을 사용합니다. 신뢰할 수 있는 서비스는 훌륭한 기본 옵션을 제공하거나 직접 만들 수 있게 지원합니다.
 * 상태 저장 서비스의 경우 Reliable Services 프로그래밍 모델을 통해 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)을 사용하여 일관되고 안정적으로 서비스 내에 상태를 바로 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 C# 컬렉션을 사용해본 적이 있는 사람에게 친숙한 고가용성인 신뢰할 수 있는 컬렉션 클래스의 간단한 집합입니다. 일반적으로 서비스는 신뢰할 수 있는 상태 관리를 위한 외부 시스템이 필요합니다. 신뢰할 수 있는 컬렉션을 사용하면 고가용성 외부 저장소에 기대하게 되는 것과 동일한 고가용성 및 안정성으로 컴퓨팅 옆에 상태를 저장할 수 있습니다. 작동하는 데 필요한 컴퓨팅 및 상태를 공동 배치하기 때문에 이 모델도 대기 시간을 개선합니다.
 
 ## <a name="what-makes-reliable-services-different"></a>Reliable Services 다른 기능
@@ -52,7 +53,7 @@ Reliable Services은 Service Fabric을 제공 하기 때문에 이전에 작성 
 
 서비스가 상태 저장 서비스이든, 상태 비저장 서비스이든, 신뢰할 수 있는 서비스는 신속하게 코드를 연결하고 시작할 수 있는 간단한 수명 주기를 제공합니다.  새 서비스를 준비 하 고 실행 하려면 두 가지 메서드를 구현 해야 합니다.
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - 이 메서드는 서비스에서 사용할 통신 스택을 정의합니다. [Web API](service-fabric-reliable-services-communication-webapi.md)와 같은 통신 스택은 수신 엔드포인트 또는 서비스(클라이언트가 서비스에 도달하는 방법)에 대한 엔드포인트를 정의합니다. 표시된 메시지가 서비스 코드의 나머지 부분과 상호 작용하는 방법도 정의합니다.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - 이 메서드는 서비스에서 사용할 통신 스택을 정의합니다. [Web API](./service-fabric-reliable-services-communication-aspnetcore.md)와 같은 통신 스택은 수신 엔드포인트 또는 서비스(클라이언트가 서비스에 도달하는 방법)에 대한 엔드포인트를 정의합니다. 표시된 메시지가 서비스 코드의 나머지 부분과 상호 작용하는 방법도 정의합니다.
 * **RunAsync** - 이 메서드는 서비스가 해당 비즈니스 논리를 실행하는 위치 및 서비스의 수명 동안 실행해야 하는 모든 백그라운드 작업을 시작하는 위치입니다. 제공되는 취소 토큰은 해당 작업이 중지되어야 하는 경우에 대한 신호입니다. 예를 들어 서비스가 신뢰할 수 있는 큐에서 메시지를 빼내 처리해야 하는 경우 이는 해당 작업이 이뤄지는 위치입니다.
 
 처음으로 Reliable Services를 알아보는 경우 계속 읽어주세요. 신뢰할 수 있는 서비스의 수명 주기에 대 한 자세한 연습은 [Reliable Services 수명 주기 개요](service-fabric-reliable-services-lifecycle.md)를 참조 하세요.
@@ -67,7 +68,7 @@ Reliable Services은 Service Fabric을 제공 하기 때문에 이전에 작성 
 
 예를 들어 메모리가 없고 모든 용어 및 수행할 작업을 한 번에 수신하는 계산기를 가정해 보겠습니다.
 
-이 경우 서비스가 수행해야 하는 백그라운드 작업 처리가 없으므로 서비스의 `RunAsync()`(C#) 또는 `runAsync()`(Java)는 비어 있을 수 있습니다. 계산기 서비스가 생성되면 일부 포트에서 수신 대기 엔드포인트를 여는 `ICommunicationListener`(C#) 또는 `CommunicationListener`(Java)(예: [Web API](service-fabric-reliable-services-communication-webapi.md))를 반환합니다. 이 수신 대기 엔드포인트는 계산기의 공용 API를 정의하는 다른 계산 메서드(예: "Add(n1, n2)")에 연결됩니다.
+이 경우 서비스가 수행해야 하는 백그라운드 작업 처리가 없으므로 서비스의 `RunAsync()`(C#) 또는 `runAsync()`(Java)는 비어 있을 수 있습니다. 계산기 서비스가 생성되면 일부 포트에서 수신 대기 엔드포인트를 여는 `ICommunicationListener`(C#) 또는 `CommunicationListener`(Java)(예: [Web API](./service-fabric-reliable-services-communication-aspnetcore.md))를 반환합니다. 이 수신 대기 엔드포인트는 계산기의 공용 API를 정의하는 다른 계산 메서드(예: "Add(n1, n2)")에 연결됩니다.
 
 클라이언트에서 호출이 수행되면 적절한 메서드가 호출되고 계산기 서비스가 제공된 데이터에 대한 작업을 수행하고 결과를 반환합니다. 상태를 저장하지 않습니다.
 

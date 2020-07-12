@@ -5,13 +5,14 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551831"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253680"
 ---
-# <a name="infrastructure-as-code"></a>코드 제공 인프라(Infrastructure as code)
+# <a name="infrastructure-as-code"></a>코드로서의 인프라
 
 프로덕션 시나리오에서 Resource Manager 템플릿을 사용하여 Azure Service Fabric 클러스터를 만듭니다. Resource Manager 템플릿은 리소스 속성을 더 효율적으로 제어하고 일관된 리소스 모델을 갖출 수 있도록 합니다.
 
@@ -43,7 +44,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Azure Service Fabric 리소스
 
-Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이션 및 서비스를 배포할 수 있습니다. 자세한 내용은 [애플리케이션 및 서비스를 Azure Resource Manager 리소스로 관리](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource)를 참조하세요. Resource Manager 템플릿 리소스에 포함할 Service Fabric 애플리케이션 특정 리소스에 대한 추천 사례는 다음과 같습니다.
+Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이션 및 서비스를 배포할 수 있습니다. 자세한 내용은 [애플리케이션 및 서비스를 Azure Resource Manager 리소스로 관리](./service-fabric-application-arm-resource.md)를 참조하세요. Resource Manager 템플릿 리소스에 포함할 Service Fabric 애플리케이션 특정 리소스에 대한 추천 사례는 다음과 같습니다.
 
 ```json
 {
@@ -72,7 +73,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
 }
 ```
 
-Azure Resource Manager를 사용하여 애플리케이션을 배포하려면 먼저 [Sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric 애플리케이션 패키지를 만들어야 합니다. sfpkg를 만드는 방법을 보여 주는 Python 스크립트의 예제는 다음과 같습니다.
+Azure Resource Manager를 사용하여 애플리케이션을 배포하려면 먼저 [Sfpkg](./service-fabric-package-apps.md#create-an-sfpkg) Service Fabric 애플리케이션 패키지를 만들어야 합니다. sfpkg를 만드는 방법을 보여 주는 Python 스크립트의 예제는 다음과 같습니다.
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -90,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Azure 가상 컴퓨터 운영 체제 자동 업그레이드 구성 
-가상 컴퓨터를 업그레이드 하는 작업은 사용자가 시작한 작업 이므로 [가상 컴퓨터 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) 을 사용 하 여 Azure Service Fabric 클러스터의 자동 운영 체제 업그레이드 호스트 패치 관리를 사용 하는 것이 좋습니다. 패치 오케스트레이션 응용 프로그램은 azure에서 호스트 되는 경우 azure에서 poa를 호스트 하는 오버 헤드로 poa를 통해 가상 컴퓨터 운영 체제 자동 업그레이드를 선호 하는 일반적인 이유를 사용 하 여 azure에서 호스트 되는 경우에 사용할 수 있는 대체 솔루션입니다. 자동 OS 업그레이드를 사용 하도록 설정 하는 계산 가상 머신 확장 집합 리소스 관리자 템플릿 속성은 다음과 같습니다.
+가상 컴퓨터를 업그레이드 하는 작업은 사용자가 시작한 작업 이므로 [가상 컴퓨터 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) 을 사용 하 여 Azure Service Fabric 클러스터의 자동 운영 체제 업그레이드 호스트 패치 관리를 사용 하는 것이 좋습니다. 패치 오케스트레이션 응용 프로그램은 azure에서 호스트 되는 경우 azure에서 poa를 호스트 하는 오버 헤드로 poa를 통해 가상 컴퓨터 운영 체제 자동 업그레이드를 선호 하는 일반적인 이유를 사용 하 여 azure에서 호스트 되는 경우에 사용할 수 있는 대체 솔루션입니다. 자동 OS 업그레이드를 사용 하도록 설정 하는 계산 가상 머신 확장 집합 리소스 관리자 템플릿 속성은 다음과 같습니다.
 
 ```json
 "upgradePolicy": {

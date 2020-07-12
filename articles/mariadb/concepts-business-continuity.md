@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076575"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252269"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 비즈니스 연속성 이해
 
@@ -23,7 +23,7 @@ Azure Database for MariaDB에는 자동화된 백업 및 사용자가 지역 복
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
-| **기능** | **기본** | **일반 용도** | **메모리에 최적화** |
+| **기능** | **Basic** | **일반 용도** | **메모리 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |
@@ -51,6 +51,10 @@ Azure Database for MariaDB에는 자동화된 백업 및 사용자가 지역 복
 ## <a name="cross-region-read-replicas"></a>영역 간 읽기 복제본
 
 지역 간 읽기 복제본을 사용 하 여 비즈니스 연속성 및 재해 복구 계획을 향상할 수 있습니다. 읽기 복제본은 MariaDB의 이진 로그 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다. 복제본 읽기, 사용 가능한 지역 및 장애 조치 (failover) 방법에 대 한 자세한 내용은 [복제본 읽기 개념 문서](concepts-read-replicas.md)를 참조 하세요. 
+
+## <a name="faq"></a>FAQ
+### <a name="where-does-azure-database-for-mariadb-store-customer-data"></a>어디에서 고객 데이터를 저장 Azure Database for MariaDB?
+기본적으로 Azure Database for MariaDB는 배포 된 지역에서 고객 데이터를 이동 하거나 저장 하지 않습니다. 그러나 고객은 필요에 따라 지역 [중복 백업을](concepts-backup.md#backup-redundancy-options) 사용 하도록 선택 하거나 다른 지역에 데이터를 저장 하기 위해 [지역 간 읽기 복제본](concepts-read-replicas.md#cross-region-replication) 을 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,11 +4,12 @@ description: 클러스터 자동 크기 조정기를 사용하여 AKS(Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730019"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252031"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -212,7 +213,7 @@ AKS는 사용자를 대신하여 클러스터 자동 크기 조정기를 관리�
 
 클러스터 자동 크기 조정기에서 Log Analytics로 로그가 푸시되도록 구성하려면 다음 단계를 수행합니다.
 
-1. 클러스터 자동 크기 조정기 로그를 Log Analytics로 푸시하도록 리소스 로그 규칙을 설정합니다. [지침은 여기에 자세히 설명](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs)되어 있습니다. "로그" 옵션을 선택할 때 `cluster-autoscaler`에 대한 확인란을 선택해야 합니다.
+1. 클러스터 자동 크기 조정기 로그를 Log Analytics로 푸시하도록 리소스 로그 규칙을 설정합니다. [지침은 여기에 자세히 설명](./view-master-logs.md#enable-resource-logs)되어 있습니다. "로그" 옵션을 선택할 때 `cluster-autoscaler`에 대한 확인란을 선택해야 합니다.
 1. Azure Portal을 통해 클러스터의 "로그" 섹션을 클릭합니다.
 1. 다음 예제 쿼리를 Log Analytics에 입력합니다.
 

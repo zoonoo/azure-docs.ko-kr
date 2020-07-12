@@ -5,11 +5,12 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba68df53f1f21b9ff360772fe1a60c93c8df74d3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609624"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252218"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>C# 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]
@@ -199,4 +200,4 @@ C# 서비스에서 서비스 원격 기능을 사용하는 경우 서비스를 �
     ```
 
 
-다음 단계는 [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)를 참조하세요.
+다음 단계는 [Reliable Services에서 OWIN을 사용하는 Web API](./service-fabric-reliable-services-communication-aspnetcore.md)를 참조하세요.

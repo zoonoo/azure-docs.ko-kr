@@ -3,11 +3,12 @@ title: 리소스 로그 수집 & 분석
 description: 인증, 이미지 푸시, 이미지 풀 등의 Azure Container Registry에 대 한 리소스 로그 이벤트를 기록 하 고 분석 합니다.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8757b8bdb67cf75b1ba800658d80b2a44311f1ba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343186"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252490"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>진단 평가 및 감사에 대 한 Azure Container Registry 로그
 
@@ -141,10 +142,9 @@ ContainerRegistryLoginEvents
 
 로그를 Log Analytics 또는 다른 방법으로 전송 하는 것 외에도 Azure Storage 계정을 로그 대상으로 선택 하는 것이 일반적인 시나리오입니다. Azure Storage에서 로그를 보관 하려면 진단 설정을 통해 보관을 사용 하도록 설정 하기 전에 저장소 계정을 만듭니다.
 
-진단 로그 이벤트를 [Azure 이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)로 스트리밍할 수도 있습니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다. 
+진단 로그 이벤트를 [Azure 이벤트 허브](../event-hubs/event-hubs-about.md)로 스트리밍할 수도 있습니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Log Analytics](../azure-monitor/log-query/get-started-portal.md) 사용 및 [로그 쿼리](../azure-monitor/log-query/get-started-queries.md)만들기에 대해 자세히 알아보세요.
 * Azure [플랫폼 로그 개요](../azure-monitor/platform/platform-logs-overview.md) 를 참조 하 여 다양 한 azure 계층에서 사용할 수 있는 플랫폼 로그에 대해 알아보세요.
-

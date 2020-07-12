@@ -7,17 +7,18 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7aa93d8ba21cafddc5511e16fa430b76942b1a6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668300"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251199"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
-AKS(Azure Kubernetes Services)에서 클러스터를 관리할 때 애플리케이션 가동 시간이 중요합니다. 기본적으로 AKS는 [VMSS (가상 머신 확장 집합)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에서 여러 노드를 사용 하 여 고가용성을 제공 합니다. 그러나 이러한 여러 노드는 지역 장애 로부터 시스템을 보호 하지 않습니다. 가동 시간을 최대화 하려면 비즈니스 연속성을 유지 하 고 재해 복구를 준비 하기 위해 미리 계획을 세워야 합니다.
+AKS(Azure Kubernetes Services)에서 클러스터를 관리할 때 애플리케이션 가동 시간이 중요합니다. 기본적으로 AKS는 [VMSS (가상 머신 확장 집합)](../virtual-machine-scale-sets/overview.md)에서 여러 노드를 사용 하 여 고가용성을 제공 합니다. 그러나 이러한 여러 노드는 지역 장애 로부터 시스템을 보호 하지 않습니다. 가동 시간을 최대화 하려면 비즈니스 연속성을 유지 하 고 재해 복구를 준비 하기 위해 미리 계획을 세워야 합니다.
 
-이 문서에서는 AKS에서 비즈니스 연속성 및 재해 복구를 계획 하는 방법에 중점을 둔 문서입니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 문서에서는 AKS에서 비즈니스 연속성 및 재해 복구를 계획 하는 방법에 중점을 둔 문서입니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 여러 지역에서 AKS 클러스터를 계획 합니다.
@@ -32,8 +33,8 @@ AKS(Azure Kubernetes Services)에서 클러스터를 관리할 때 애플리케�
 
 AKS 클러스터는 단일 Azure 지역에 배포됩니다. 지역 장애 로부터 시스템을 보호 하려면 여러 지역의 여러 AKS 클러스터에 응용 프로그램을 배포 합니다. AKS 클러스터를 배포할 위치를 계획 하는 경우 다음을 고려 하십시오.
 
-* [**AKS 지역 가용성**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): 사용자에 게 가까운 지역을 선택 합니다. AKS는 계속 해 서 새 지역으로 확장 됩니다.
-* [**Azure 쌍을 이루는 지역**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): 지리적 영역에 대해 서로 쌍을 이루는 두 지역을 선택 합니다. 쌍을 이루는 지역은 플랫폼 업데이트를 조정 하 고 필요한 경우 복구 작업의 우선 순위를 지정 합니다.
+* [**AKS 지역 가용성**](./quotas-skus-regions.md#region-availability): 사용자에 게 가까운 지역을 선택 합니다. AKS는 계속 해 서 새 지역으로 확장 됩니다.
+* [**Azure 쌍을 이루는 지역**](../best-practices-availability-paired-regions.md): 지리적 영역에 대해 서로 쌍을 이루는 두 지역을 선택 합니다. 쌍을 이루는 지역은 플랫폼 업데이트를 조정 하 고 필요한 경우 복구 작업의 우선 순위를 지정 합니다.
 * **서비스 가용성**: 페어링된 지역이 핫/핫, 핫/웜 또는 핫/콜드 이어야 하는지 여부를 결정 합니다. 두 지역을 동시에 실행 하 고 한 지역이 트래픽 처리를 시작할 *준비가 되셨습니까* ? 또는 한 지역에서 트래픽 제공을 준비 하는 데 시간을 사용 하 시겠습니까?
 
 AKS 지역 가용성 및 쌍을 이루는 지역은 공동 고려 사항입니다. 지역 재해 복구를 함께 관리하도록 설계된 쌍을 이루는 지역에 AKS 클러스터를 배포합니다. 예를 들어 AKS는 미국 동부 및 미국 서부에서 사용할 수 있습니다. 이러한 지역은 쌍을 이룹니다. AKS BC/DR 전략을 만들 때이 두 지역을 선택 합니다.
@@ -44,7 +45,7 @@ AKS 지역 가용성 및 쌍을 이루는 지역은 공동 고려 사항입니�
 
 **모범 사례**: Azure Traffic Manager는 고객에 게 가장 가까운 AKS 클러스터 및 응용 프로그램 인스턴스로 지시할 수 있습니다. 최상의 성능 및 중복성을 위해 AKS 클러스터로 이동 하기 전에 Traffic Manager를 통해 모든 응용 프로그램 트래픽을 보냅니다.
 
-서로 다른 지역에 여러 AKS 클러스터가 있는 경우 Traffic Manager를 사용 하 여 각 클러스터에서 실행 되는 응용 프로그램에 대 한 트래픽 흐름 방식을 제어 합니다. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/)는 네트워크 트래픽을 여러 Azure 지역에 분산할 수 있는 DNS 기반 트래픽 부하 분산 장치입니다. Traffic Manager를 사용 하 여 클러스터 응답 시간 또는 지리에 따라 사용자를 라우팅합니다.
+서로 다른 지역에 여러 AKS 클러스터가 있는 경우 Traffic Manager를 사용 하 여 각 클러스터에서 실행 되는 응용 프로그램에 대 한 트래픽 흐름 방식을 제어 합니다. [Azure Traffic Manager](../traffic-manager/index.yml)는 네트워크 트래픽을 여러 Azure 지역에 분산할 수 있는 DNS 기반 트래픽 부하 분산 장치입니다. Traffic Manager를 사용 하 여 클러스터 응답 시간 또는 지리에 따라 사용자를 라우팅합니다.
 
 ![Traffic Manager AKS](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
@@ -54,15 +55,15 @@ AKS 지역 가용성 및 쌍을 이루는 지역은 공동 고려 사항입니�
 
 Traffic Manager DNS 조회를 수행 하 고 사용자의 가장 적합 한 끝점을 반환 합니다. 중첩 된 프로필은 기본 위치에 우선 순위를 지정할 수 있습니다. 예를 들어 사용자는 일반적으로 가장 가까운 지역에 연결 해야 합니다. 해당 지역에 문제가 있는 경우 대신 Traffic Manager 사용자를 보조 지역으로 보냅니다. 이러한 접근 방식을 통해 고객은 가장 가까운 지리적 지역을 사용할 수 없는 경우에도 응용 프로그램 인스턴스에 연결할 수 있습니다.
 
-끝점과 라우팅을 설정 하는 방법에 대 한 자세한 내용은 [Traffic Manager를 사용 하 여 지리적 트래픽 라우팅 방법 구성](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)을 참조 하세요.
+끝점과 라우팅을 설정 하는 방법에 대 한 자세한 내용은 [Traffic Manager를 사용 하 여 지리적 트래픽 라우팅 방법 구성](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)을 참조 하세요.
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Azure Front 도어 서비스를 사용 하 여 계층 7 응용 프로그램 라우팅
 
-Traffic Manager는 DNS (계층 3)를 사용 하 여 트래픽을 셰이프 합니다. [Azure Front 도어 서비스](https://docs.microsoft.com/azure/frontdoor/front-door-overview) 는 HTTP/HTTPS (계층 7) 라우팅 옵션을 제공 합니다. Azure Front 도어 서비스의 추가 기능에는 TLS 종료, 사용자 지정 도메인, 웹 응용 프로그램 방화벽, URL 재작성 및 세션 선호도가 포함 됩니다. 애플리케이션 트래픽 요구 사항을 검토하여 어떤 솔루션이 가장 적합한지 알아보세요.
+Traffic Manager는 DNS (계층 3)를 사용 하 여 트래픽을 셰이프 합니다. [Azure Front 도어 서비스](../frontdoor/front-door-overview.md) 는 HTTP/HTTPS (계층 7) 라우팅 옵션을 제공 합니다. Azure Front 도어 서비스의 추가 기능에는 TLS 종료, 사용자 지정 도메인, 웹 응용 프로그램 방화벽, URL 재작성 및 세션 선호도가 포함 됩니다. 애플리케이션 트래픽 요구 사항을 검토하여 어떤 솔루션이 가장 적합한지 알아보세요.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>글로벌 가상 네트워크 피어 링을 사용 하 여 지역 상호 연결
 
-클러스터가 서로 통신 해야 하는 경우 가상 [네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 통해 두 가상 네트워크를 서로 연결할 수 있습니다. 이 기술은 서로 다른 지리적 지역에도 불구 하 고 Microsoft의 백본 네트워크에서 높은 대역폭을 제공 하 여 가상 네트워크를 서로 상호 연결할 수 있습니다.
+클러스터가 서로 통신 해야 하는 경우 가상 [네트워크 피어 링](../virtual-network/virtual-network-peering-overview.md)을 통해 두 가상 네트워크를 서로 연결할 수 있습니다. 이 기술은 서로 다른 지리적 지역에도 불구 하 고 Microsoft의 백본 네트워크에서 높은 대역폭을 제공 하 여 가상 네트워크를 서로 상호 연결할 수 있습니다.
 
 AKS 클러스터가 실행 되는 가상 네트워크를 피어 링 하는 필수 구성 요소는 AKS 클러스터의 표준 Load Balancer를 사용 하 여 가상 네트워크 피어 링을 통해 Kubernetes 서비스에 연결할 수 있도록 하는 것입니다.
 
@@ -82,7 +83,7 @@ Container Registry 지역에서 복제를 사용 하 여 동일한 지역에서 
 * **더 안정적**: 지역을 사용할 수 없는 경우 AKS 클러스터는 사용 가능한 컨테이너 레지스트리에서 이미지를 가져옵니다.
 * **비용**절감: 데이터 센터 간에 네트워크 송신 비용이 없습니다.
 
-지역에서 복제는 *프리미엄* SKU 컨테이너 레지스트리 기능입니다. 지역에서 복제를 구성 하는 방법에 대 한 자세한 내용은 [Container Registry 지역에서 복제](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication)를 참조 하세요.
+지역에서 복제는 *프리미엄* SKU 컨테이너 레지스트리 기능입니다. 지역에서 복제를 구성 하는 방법에 대 한 자세한 내용은 [Container Registry 지역에서 복제](../container-registry/container-registry-geo-replication.md)를 참조 하세요.
 
 ## <a name="remove-service-state-from-inside-containers"></a>컨테이너 내부에서 서비스 상태 제거
 
@@ -97,7 +98,7 @@ Container Registry 지역에서 복제를 사용 하 여 동일한 지역에서 
 이식 가능한 응용 프로그램을 빌드하려면 다음 지침을 참조 하세요.
 
 * [12 단계 앱 방법론](https://12factor.net/)
-* [여러 Azure 지역에서 웹 애플리케이션 실행](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+* [여러 Azure 지역에서 웹 애플리케이션 실행](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
 ## <a name="create-a-storage-migration-plan"></a>스토리지 마이그레이션 계획 작성
 

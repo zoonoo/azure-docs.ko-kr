@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 55fd27d473bd47fd3321bdb2e730e4ef2d35352f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106177"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251725"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -83,7 +83,7 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
 위의 그림에 표시 된 것 처럼 API 서버는 AKS webhook 서버를 호출 하 고 다음 단계를 수행 합니다.
 
-1. Azure AD 클라이언트 응용 프로그램은 kubectl에서 [OAuth 2.0 장치 권한 부여 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code)을 사용 하 여 사용자를 로그인 하는 데 사용 됩니다.
+1. Azure AD 클라이언트 응용 프로그램은 kubectl에서 [OAuth 2.0 장치 권한 부여 흐름](../active-directory/develop/v2-oauth2-device-code.md)을 사용 하 여 사용자를 로그인 하는 데 사용 됩니다.
 2. Azure AD는 access_token, id_token 및 refresh_token를 제공 합니다.
 3. 사용자가 kubeconfig의 access_token를 사용 하 여 kubectl에 대 한 요청을 만듭니다.
 4. Kubectl는 APIServer에 access_token를 보냅니다.
@@ -138,7 +138,7 @@ Azure RBAC 통합을 사용 하면 AKS는 Kubernetes 권한 부여 webhook 서�
 
 AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다. [Kubernetes 기본 제공 역할과](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) 비슷하지만 crds 지원과 같은 몇 가지 차이점이 있습니다. 각 기본 제공 역할에서 허용 하는 작업의 전체 목록을 보려면 [여기](../role-based-access-control/built-in-roles.md)를 참조 하세요.
 
-| 역할                                | Description  |
+| 역할                                | 설명  |
 |-------------------------------------|--------------|
 | Azure Kubernetes 서비스 RBAC 뷰어  | 읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. 암호의 내용을 읽으면 네임 스페이스의 자격 증명에 액세스할 수 있으므로이 역할은 보기를 허용 하지 않습니다 .이 `Secrets` `ServiceAccount` 는 네임 스페이스에서 API 액세스를 허용 합니다 `ServiceAccount` (권한 상승 형태).  |
 | Azure Kubernetes 서비스 RBAC 기록기 | 네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 `Secrets` 네임 스페이스의 ServiceAccount로 pod를 액세스 하 고 실행할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |

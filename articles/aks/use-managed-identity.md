@@ -6,18 +6,18 @@ author: mlearned
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: mlearned
-ms.openlocfilehash: 27ae1d1a2c6309bdac2410dca4b48abf27d8ea0b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 95a303a4b6a83901560b26679bca920b9de4d3f4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231984"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250908"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 되는 id 사용
 
 현재 azure Kubernetes 서비스 (AKS) 클러스터 (특히 Kubernetes 클라우드 공급자)에는 Azure에서 부하 분산 장치 및 관리 디스크와 같은 추가 리소스를 만들기 위한 id가 필요 합니다. 이 id는 *관리 되는 id* 또는 *서비스 사용자*일 수 있습니다. [서비스 주체](kubernetes-service-principal.md)를 사용 하는 경우 하나를 제공 하거나 사용자를 대신 하 여 AKS를 만들어야 합니다. 관리 id를 사용 하는 경우 자동으로 AKS에 의해 생성 됩니다. 서비스 주체를 사용 하는 클러스터는 궁극적으로 클러스터 작동을 유지 하기 위해 서비스 주체를 갱신 해야 하는 상태에 도달 합니다. 서비스 주체를 관리 하면 복잡성이 증가 하므로 관리 되는 id를 대신 사용 하는 것이 더 쉽습니다. 서비스 사용자와 관리 되는 id 모두에 대해 동일한 권한 요구 사항이 적용 됩니다.
 
-*관리 id* 는 기본적으로 서비스 사용자를 중심으로 하는 래퍼로, 관리를 단순화 합니다. MI에 대 한 자격 증명 회전은 기본값 Azure Active Directory 따라 46 일 마다 자동으로 발생 합니다. AKS는 시스템 할당 및 사용자 할당 관리 id 유형을 모두 사용 합니다. 이러한 id는 현재 변경할 수 없습니다. 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조 하세요.
+*관리 id* 는 기본적으로 서비스 사용자를 중심으로 하는 래퍼로, 관리를 단순화 합니다. MI에 대 한 자격 증명 회전은 기본값 Azure Active Directory 따라 46 일 마다 자동으로 발생 합니다. AKS는 시스템 할당 및 사용자 할당 관리 id 유형을 모두 사용 합니다. 이러한 id는 현재 변경할 수 없습니다. 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -110,4 +110,4 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 * [ARM (Azure Resource Manager) 템플릿을][aks-arm-template] 사용 하 여 관리 되는 id 사용 클러스터를 만듭니다.
 
 <!-- LINKS - external -->
-[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters
+[aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
