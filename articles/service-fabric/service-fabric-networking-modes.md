@@ -5,12 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: feeef1773ffe68f3ff88175b413cd40ba618b8d9
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e6174f35bd54b3ca0b2c5240a663369350b30ce8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207226"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241899"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -21,7 +21,7 @@ ms.locfileid: "86207226"
 컨테이너 서비스가 다시 시작되거나 클러스터의 다른 노드로 이동하면 IP 주소가 변경됩니다. 따라서 동적으로 할당된 IP 주소를 사용하여 컨테이너 서비스를 검색하는 것을 좋지 않습니다. 서비스 검색에는 Service Fabric 명명 서비스 또는 DNS 서비스 만 사용해야 합니다. 
 
 >[!WARNING]
->Azure는 가상 네트워크 당 총 65356 Ip를 허용 합니다. 노드 수와 컨테이너 서비스 인스턴스 수 (열기 모드를 사용 하는)의 합계는 가상 네트워크 내에서 65356 Ip를 초과할 수 없습니다. 고밀도 시나리오의 경우 nat 네트워킹 모드를 사용하는 것이 좋습니다. 또한 부하 분산 장치와 같은 다른 종속성에는 고려해 야 할 다른 [제한 사항이](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) 있습니다. 현재 노드당 최대 50 개의 Ip가 테스트 되 고 안정적으로 검증 되었습니다. 
+>Azure는 가상 네트워크 당 총 65356 Ip를 허용 합니다. 노드 수와 컨테이너 서비스 인스턴스 수 (열기 모드를 사용 하는)의 합계는 가상 네트워크 내에서 65356 Ip를 초과할 수 없습니다. 고밀도 시나리오의 경우 nat 네트워킹 모드를 사용하는 것이 좋습니다. 또한 부하 분산 장치와 같은 다른 종속성에는 고려해 야 할 다른 [제한 사항이](../azure-resource-manager/management/azure-subscription-service-limits.md) 있습니다. 현재 노드당 최대 50 개의 Ip가 테스트 되 고 안정적으로 검증 되었습니다. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>오픈 네트워킹 모드 설정
@@ -263,6 +263,6 @@ ms.locfileid: "86207226"
  
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 애플리케이션 모델 이해](service-fabric-application-model.md)
-* [Service Fabric 서비스 매니페스트 리소스에 대해 자세히 알아보기](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Service Fabric 서비스 매니페스트 리소스에 대해 자세히 알아보기](./service-fabric-service-manifest-resources.md)
 * [Windows Server 2016에서 Windows 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers.md)
 * [Linux에서 Docker 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers-linux.md)

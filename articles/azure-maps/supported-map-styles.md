@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db8ae98302ad6df7355ce03f5a33b5d21f1ea09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334032"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242103"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps에서 지원되는 지도 스타일
 Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타일을 지원합니다.
@@ -28,6 +28,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 * [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
+* Power BI 시각적 개체
 
 ## <a name="blank-and-blank_accessible"></a>blank 및 blank_accessible
 
@@ -48,6 +49,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 * [위성 타일](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
+* Power BI 시각적 개체
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 이 지도 스타일은 위성 및 항공 이미지 위에 겹쳐진 도로 및 레이블의 하이브리드입니다.
@@ -57,6 +59,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 **적용 가능한 API:**
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
+* Power BI 시각적 개체
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **회색조 진한** 은도로 지도 스타일의 어두운 버전입니다.
@@ -68,6 +71,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 * [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * 웹 SDK 맵 컨트롤 
 * Android 맵 컨트롤
+* Power BI 시각적 개체
 
 
 ## <a name="grayscale_light"></a>grayscale_light
@@ -78,6 +82,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 **적용 가능한 API:**
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
+* Power BI 시각적 개체
 
 
 ## <a name="night"></a>야간
@@ -88,6 +93,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 **적용 가능한 API:**
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
+* Power BI 시각적 개체
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 **도로 음영 입체**는 지구의 등고선으로 채워진 Azure Maps 주요 스타일입니다.
@@ -98,6 +104,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 * [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
+* Power BI 시각적 개체
 
 ## <a name="high_contrast_dark"></a>high_contrast_dark
 
@@ -107,6 +114,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 **적용 가능한 API:**
 * 웹 SDK 맵 컨트롤
+* Power BI 시각적 개체
 
 ## <a name="next-steps"></a>다음 단계
 

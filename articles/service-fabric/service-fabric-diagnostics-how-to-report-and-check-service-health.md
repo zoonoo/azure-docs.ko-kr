@@ -5,18 +5,19 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 751af36c630d1b0faa0c07bdd3a8b7519bd328c9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464632"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241933"
 ---
 # <a name="report-and-check-service-health"></a>서비스 상태 보고 및 확인
 서비스에 문제가 발생할 때 인시던트 및 중단에 응답하고 수정하는 능력은 문제를 빠르게 검색할 수 있는 능력과 밀접한 관련이 있습니다. 서비스 코드에서 Azure 서비스 패브릭 상태 관리자로 문제 및 오류를 보고하면 서비스 패브릭이 제공하는 표준 상태 모니터링 도구를 사용하여 상태를 확인할 수 있습니다.
 
 세 가지 방법으로 서비스에서 상태를 보고할 수 있습니다.
 
-* [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) 또는 [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) 개체를 사용합니다.  
+* [Partition](/dotnet/api/system.fabric.istatefulservicepartition) 또는 [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext) 개체를 사용합니다.  
   `Partition` 및 `CodePackageActivationContext` 개체를 사용하여 현재 컨텍스트의 일부인 요소의 상태를 보고할 수 있습니다. 예를 들어 복제본의 일부로 실행되는 코드는 해당 복제본, 복제본이 속하는 파티션 및 복제본을 포함하는 애플리케이션에 대해서만 상태를 보고할 수 있습니다.
 * 대신 `FabricClient`를   
   `FabricClient` 를 사용하면 클러스터가 [보안](service-fabric-cluster-security.md) 상태가 아니거나 서비스가 관리자 권한으로 실행되는 경우에 서비스 코드에서 상태를 보고할 수 있습니다. 대부분의 실제 시나리오에서는 보안되지 않은 클러스터를 사용하거나 관리자 권한을 제공하지 않습니다. `FabricClient`를 사용하면 클러스터의 일부인 모든 엔터티의 상태를 보고할 수 있습니다. 하지만 이상적으로 서비스 코드는 자체 상태와 관련된 보고서만 보내야 합니다.
@@ -24,7 +25,7 @@ ms.locfileid: "75464632"
 
 이 문서에서는 서비스 코드에서 상태를 보고하는 예제를 보여 줍니다. 또한 이 예제에서는 Service Fabric에서 제공하는 도구를 사용하여 상태를 확인할 수 있는 방법을 보여 줍니다. 이 문서는 서비스 패브릭의 상태 모니터링 기능을 신속하게 소개할 목적으로 작성되었습니다. 보다 자세한 내용은 이 문서의 마지막 부분에 있는 링크를 누르면 시작되는 상태에 대한 심화 문서 시리즈를 통해 알아볼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 다음이 설치되어 있어야 합니다.
 
 * Visual Studio 2015 또는 Visual Studio 2019
@@ -140,6 +141,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 
 ## <a name="next-steps"></a>다음 단계
 * [서비스 패브릭 상태 심층 분석](service-fabric-health-introduction.md)
-* [서비스 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
-* [애플리케이션 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
+* [서비스 상태를 보고하기 위한 REST API](/rest/api/servicefabric/report-the-health-of-a-service)
+* [애플리케이션 상태를 보고하기 위한 REST API](/rest/api/servicefabric/report-the-health-of-an-application)

@@ -5,12 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: b97b373936f9c485eaa96cdd34ed33c49e75ad9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201274"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242069"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 PostgreSQL 확장-단일 서버
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용 하 여 데이터베이스에서 로드 하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드 된 후 확장은 기본 제공 기능 처럼 작동 합니다.
@@ -25,7 +26,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 11이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다. 
 
 > [!div class="mx-tableFixed"]
-> | **확장명**| **확장 버전** | **설명** |
+> | **확장**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 데이터 집합 예제|
@@ -70,7 +71,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 10이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | **확장명**| **확장 버전** | **설명** |
+> | **확장**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 데이터 집합 예제|
@@ -116,7 +117,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 9.6이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | **확장명**| **확장 버전** | **설명** |
+> | **확장**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Address Standardizer US 데이터 집합 예제|
@@ -162,7 +163,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 9.5이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | **확장명**| **확장 버전** | **설명** |
+> | **확장**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Address Standardizer US 데이터 집합 예제|
@@ -211,7 +212,7 @@ pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을
 ## <a name="dblink-and-postgres_fdw"></a>ablink 및 postgres_fdw
 [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결할 수 있습니다. [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용하여 Azure Database for PostgreSQL 서버 간을 연결하는 경우 "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하여 이 작업을 수행할 수 있습니다. 확장을 사용하여 동일한 서버로 루프백하는 데도 이 작업이 필요합니다. "Azure 서비스에 대한 액세스 허용" 설정은 Postgres 서버의 Azure Portal 페이지에서 연결 보안 아래에 있습니다. "Azure 서비스에 대 한 액세스 허용"을 설정 하면 모든 Azure Ip가 허용 목록에 배치 됩니다.
 
-현재는 다른 Azure Database for PostgreSQL 서버에 대 한 연결을 제외 하 고 Azure Database for PostgreSQL의 아웃 바운드 연결이 지원 되지 않습니다.
+현재는 동일한 지역의 다른 Azure Database for PostgreSQL 서버에 대 한 연결을 제외 하 고 Azure Database for PostgreSQL의 아웃 바운드 연결이 지원 되지 않습니다.
 
 ## <a name="uuid"></a>uuid
 `uuid_generate_v4()` [Uuid-ossp 확장](https://www.postgresql.org/docs/current/uuid-ossp.html)에서를 사용 하려는 경우 `gen_random_uuid()` 성능 이점을 위해 [pgcrypto 확장](https://www.postgresql.org/docs/current/pgcrypto.html) 에서와 비교 하는 것이 좋습니다.

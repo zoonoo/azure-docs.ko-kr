@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d666f7e3e43b5429423a5356aa00e074ed020869
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615332"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241678"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop 환경
 
@@ -67,5 +67,5 @@ Windows 가상 데스크톱 테 넌 트를 설정 하는 방법을 알아보려�
 
 Windows 가상 데스크톱에 연결 하는 방법을 알아보려면 다음 문서 중 하나를 참조 하세요.
 
-- [Windows 10 또는 Windows 7에서 연결](../connect-windows-7-and-10.md)
+- [Windows 10 또는 Windows 7에서 연결](connect-windows-7-10-2019.md)
 - [웹 브라우저에서 연결](connect-web-2019.md)

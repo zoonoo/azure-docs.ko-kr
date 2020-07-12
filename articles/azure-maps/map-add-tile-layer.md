@@ -9,11 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bb3cfa7266688ac8973bd3838d0d03e9efe8d50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988603"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242307"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 계층 추가
 
@@ -36,6 +37,7 @@ ms.locfileid: "76988603"
 * `{quadkey}` - Bing Maps 타일 시스템 명명 규칙에 따라 타일 Quadkey 식별자입니다.
 * `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
 * `{subdomain}`-하위 도메인 값에 대 한 자리 표시자 (지정 된 경우) `subdomain` 가 추가 됩니다.
+* `{azMapsDomain}`-맵에 사용 되는 것과 동일한 값을 사용 하 여 도메인 및 타일 요청의 인증을 정렬 하는 자리 표시자입니다.
 
 ## <a name="add-a-tile-layer"></a>타일 계층 추가
 
