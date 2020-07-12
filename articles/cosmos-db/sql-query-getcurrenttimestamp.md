@@ -4,20 +4,21 @@ description: Azure Cosmos DB에서 SQL 시스템 함수 GetCurrentTimestamp에 �
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 07/09/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b816c63da56025fe6e9cbaece2cde5dcd01585d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c35f83ce7a9a478f706e9ed560d884d9bf5e508
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71350999"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261298"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
- 00:00:00 목요일 1 월 1 1970 일 이후 경과 된 시간 (밀리초)을 반환 합니다. 
+
+ 00:00:00 목요일 1 월 1 1970 일 이후 경과 된 시간 (밀리초)을 반환 합니다.
   
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
   
 ```sql
 GetCurrentTimestamp ()  
@@ -33,7 +34,7 @@ GetCurrentTimestamp ()
   
   반환 된 결과는 UTC (협정 세계시)입니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예에서는 GetCurrentTimestamp () 기본 제공 함수를 사용 하 여 현재 타임 스탬프를 가져오는 방법을 보여 줍니다.
   

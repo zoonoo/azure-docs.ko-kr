@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 07/10/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83868049"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277879"
 ---
 Azure 공유 디스크(미리 보기)는 여러 VM(가상 머신)에 관리 디스크를 동시에 연결할 수 있게 해주는 Azure 관리 디스크의 새로운 기능입니다. 관리 디스크를 여러 VM에 연결하면 새 클러스터된 애플리케이션을 배포하거나 기존 클러스터된 애플리케이션을 Azure로 마이그레이션할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure 공유 디스크(미리 보기)는 여러 VM(가상 머신)에 관리 디�
 
 WSFC에서 실행되는 인기 있는 일부 애플리케이션은 다음과 같습니다.
 
-- SQL Server FCI(장애 조치(failover) 클러스터 인스턴스)
+- [Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - SoFS(스케일 아웃 파일 서버)
 - 일반적으로 사용되는 파일 서버(IW 워크로드)
 - RDS UPD(원격 데스크톱 서버 사용자 프로필 디스크)
@@ -87,7 +87,12 @@ Ultra Disk는 총 두 개의 제한에 대한 추가 제한을 제공합니다. 
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Reservation Holder, Registered 및 Others에 대한 ReadOnly 또는 Read/Write 액세스를 보여 주는 테이블의 이미지":::
 
-## <a name="ultra-disk-performance-throttles"></a>Ultra Disk 성능 제한
+## <a name="performance-throttles"></a>성능 제한
+
+### <a name="premium-ssd-performance-throttles"></a>프리미엄 ssd 성능 제한
+프리미엄 ssd를 사용 하는 경우 디스크 IOPS 및 처리량은 고정 됩니다. 예를 들어 P30의 IOPS는 5000입니다. 이 값은 디스크가 2 개의 Vm 또는 5 개의 Vm에서 공유 되는지 여부를 유지 합니다. 단일 VM에서 디스크 제한에 도달 하거나 둘 이상의 Vm으로 나눌 수 있습니다. 
+
+### <a name="ultra-disk-performance-throttles"></a>Ultra Disk 성능 제한
 
 Ultra Disk는 수정 가능한 특성을 제공하고 수정할 수 있도록 하여 성능을 설정하는 고유한 기능을 제공합니다. 기본적으로 수정 가능한 특성은 두 개뿐이지만 공유 Ultra Disk에는 특성이 두 개 더 있습니다.
 
@@ -111,23 +116,23 @@ Ultra Disk는 수정 가능한 특성을 제공하고 수정할 수 있도록 �
     - 단일 디스크의 처리량 한도는 프로비저닝된 IOPS당 256KiB/s이며, 디스크당 최대 2,000MBps입니다.
     - 디스크당 보장되는 최소 처리량은 프로비저닝된 각 IOPS당 4KiB/s이고, 전체 기준은 1MBps 이상입니다.
 
-### <a name="examples"></a>예
+#### <a name="examples"></a>예
 
 공유 Ultra Disk에서 제한이 작동하는 방법을 구체적으로 보여 주는 몇 가지 시나리오의 예는 다음과 같습니다.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>클러스터 공유 볼륨을 사용하는 2노드 클러스터
+##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>클러스터 공유 볼륨을 사용하는 2노드 클러스터
 
 클러스터된 공유 볼륨을 사용하는 2노드 WSFC의 예는 다음과 같습니다. 이 구성을 사용하는 경우 두 VM이 디스크에 대한 동시 쓰기 액세스 권한을 가지며, 이로 인해 두 VM에서 ReadWrite 제한이 분할되고 ReadOnly 제한이 사용되지 않습니다.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV 2노드 울트라 예제":::
 
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>클러스터 공유 볼륨을 사용하지 않는 2노드 클러스터
+##### <a name="two-node-cluster-without-cluster-share-volumes"></a>클러스터 공유 볼륨을 사용하지 않는 2노드 클러스터
 
 다음은 클러스터된 공유 볼륨을 사용하지 않는 2노드 WSFC의 예입니다. 이 구성을 사용하면 디스크에 대한 쓰기 권한이 하나의 VM에만 있습니다. 이로 인해 ReadWrite 제한이 주 VM에 독점적으로 사용되며, ReadOnly 제한은 보조 데이터베이스에만 사용됩니다.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV 2노드에 CSV Ultra Disk가 없는 예제":::
 
-#### <a name="four-node-linux-cluster"></a>4노드 Linux 클러스터
+##### <a name="four-node-linux-cluster"></a>4노드 Linux 클러스터
 
 단일 작성기 및 3개의 스케일 아웃 판독기를 사용하는 4노드 Linux 클러스터의 예는 다음과 같습니다. 이 구성을 사용하면 디스크에 대한 쓰기 권한이 하나의 VM에만 있습니다. 이로 인해 ReadWrite 제한이 주 VM에 독점적으로 사용되며, ReadOnly 제한이 보조 VM에 분할됩니다.
 

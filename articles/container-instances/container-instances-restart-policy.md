@@ -3,12 +3,12 @@ title: 한 번 실행 태스크에 대 한 정책 다시 시작
 description: Azure Container Instances를 사용하여 빌드, 테스트 또는 이미지 렌더링 작업에서처럼 완료될 때까지 실행되는 작업을 실행하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a582036ae54a0b100b768e37bcf0d952521559d9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80131504"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261351"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
 
@@ -22,7 +22,7 @@ Azure Container Instances에서는 컨테이너를 배포하는 것이 쉽고 �
 
 Azure Container Instances에서 [컨테이너 그룹](container-instances-container-groups.md)을 만들 때 세 가지 다시 시작 정책 설정 중 하나를 지정할 수 있습니다.
 
-| 다시 시작 정책   | Description |
+| 다시 시작 정책   | 설명 |
 | ---------------- | :---------- |
 | `Always` | 컨테이너 그룹의 컨테이너가 항상 다시 시작됩니다. 컨테이너를 만들 때 다시 시작 정책이 지정되지 않은 경우 적용되는 **기본** 설정입니다. |
 | `Never` | 컨테이너 그룹의 컨테이너가 절대로 다시 시작되지 않습니다. 컨테이너가 한 번만 실행됩니다. |
@@ -90,13 +90,13 @@ az container logs --resource-group myResourceGroup --name mycontainer
  ('HAMLET', 386)]
 ```
 
-이 예제는 스크립트가 STDOUT으로 보낸 출력을 보여 줍니다. 그러나 컨테이너 작업은 나중에 검색하기 위해 출력을 영구적 스토리지에 쓸 수도 있습니다. 예를 들어 [Azure 파일 공유](container-instances-mounting-azure-files-volume.md)에 쓸 수 있습니다.
+이 예제는 스크립트가 STDOUT으로 보낸 출력을 보여 줍니다. 그러나 컨테이너 작업은 나중에 검색하기 위해 출력을 영구적 스토리지에 쓸 수도 있습니다. 예를 들어 [Azure 파일 공유](./container-instances-volume-azure-files.md)에 쓸 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 여러 컨테이너를 포함 하는 큰 데이터 집합을 일괄 처리 하는 등의 작업 기반 시나리오에서는 사용자 지정 [환경 변수](container-instances-environment-variables.md) 또는 [명령줄](container-instances-start-command.md) 을 런타임에 활용할 수 있습니다.
 
-완료될 때까지 실행되는 컨테이너 출력을 유지하는 방법에 대한 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](container-instances-mounting-azure-files-volume.md)를 참조하세요.
+완료될 때까지 실행되는 컨테이너 출력을 유지하는 방법에 대한 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](./container-instances-volume-azure-files.md)를 참조하세요.
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

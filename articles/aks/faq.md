@@ -3,11 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300929"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275719"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -136,7 +137,7 @@ AKS 에이전트 노드는 표준 Azure Virtual Machines로 청구되므로 AKS�
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Azure 테넌트 간에 클러스터를 이동/마이그레이션할 수 있나요?
 
-`az aks update-credentials` 명령을 사용하여 Azure 테넌트 간에 AKS 클러스터를 이동할 수 있습니다. [서비스 주체를 업데이트하거나 만들도록 선택](https://docs.microsoft.com/azure/aks/update-credentials)의 지침을 따른 후 [새 자격 증명으로 AKS 클러스터 업데이트](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials)의 작업을 수행합니다.
+`az aks update-credentials` 명령을 사용하여 Azure 테넌트 간에 AKS 클러스터를 이동할 수 있습니다. [서비스 주체를 업데이트하거나 만들도록 선택](./update-credentials.md)의 지침을 따른 후 [새 자격 증명으로 AKS 클러스터 업데이트](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials)의 작업을 수행합니다.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>내 클러스터를 구독 간에 이동/마이그레이션할 수 있나요?
 
@@ -144,7 +145,11 @@ AKS 에이전트 노드는 표준 Azure Virtual Machines로 청구되므로 AKS�
 
 ## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>AKS 클러스터를 현재 Azure 구독에서 다른 구독으로 이동할 수 있나요? 
 
-AKS 클러스터와 연결된 리소스를 Azure 구독 간에 이동하는 것은 지원되지 않습니다.
+Azure 구독 간에 AKS 클러스터 및 연결 된 리소스를 이동 하는 것은 지원 되지 않습니다.
+
+## <a name="can-i-move-my-aks-cluster-or-aks-infrastructure-resources-to-other-resource-groups-or-rename-them"></a>AKS 클러스터 또는 AKS 인프라 리소스를 다른 리소스 그룹으로 이동 하거나 이름을 바꿀 수 있나요?
+
+AKS 클러스터 및 관련 리소스의 이동 또는 이름 변경은 지원 되지 않습니다.
 
 ## <a name="why-is-my-cluster-delete-taking-so-long"></a>클러스터 삭제가 오래 걸리는 이유는 무엇인가요? 
 
@@ -164,11 +169,11 @@ AKS 클러스터와 연결된 리소스를 Azure 구독 간에 이동하는 것�
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>업그레이드를 실행했지만 pod이 충돌 루프에 있습니다. 준비 상태 프로브가 실패하나요?
 
-서비스 주체가 만료되지 않았는지 확인하세요.  참조 항목: [AKS 서비스 주체](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) 및 [AKS 업데이트 자격 증명](https://docs.microsoft.com/azure/aks/update-credentials).
+서비스 주체가 만료되지 않았는지 확인하세요.  참조 항목: [AKS 서비스 주체](./kubernetes-service-principal.md) 및 [AKS 업데이트 자격 증명](./update-credentials.md).
 
 ## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>클러스터가 작동하지만 갑자기 LoadBalancer를 프로비저닝하거나 PVC를 탑재할 수 없습니다. 
 
-서비스 주체가 만료되지 않았는지 확인하세요.  참조 항목: [AKS 서비스 주체](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) 및 [AKS 업데이트 자격 증명](https://docs.microsoft.com/azure/aks/update-credentials).
+서비스 주체가 만료되지 않았는지 확인하세요.  참조 항목: [AKS 서비스 주체](./kubernetes-service-principal.md) 및 [AKS 업데이트 자격 증명](./update-credentials.md).
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>가상 머신 확장 집합 API를 사용하여 수동으로 크기를 조정할 수 있나요?
 
@@ -189,9 +194,9 @@ AKS는 관리형 서비스이며 IaaS 리소스 조작은 지원되지 않습니
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
-[aks-cluster-autoscale]: ./autoscaler.md
+[aks-cluster-autoscale]: ./cluster-autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
-[aks-rbac-aad]: ./azure-ad-integration.md
+[aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create

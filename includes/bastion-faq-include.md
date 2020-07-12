@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8d30e7fe3138a26d9b64ec35d18260933df7999
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780313"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276120"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>이용 가능한 지역은 어디인가요?
 
@@ -48,6 +48,10 @@ RDP와 SSH는 모두 사용 기반 프로토콜입니다. 세션을 많이 사�
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>어떤 브라우저가 지원되나요?
 
 Windows에서 Microsoft Edge 브라우저 또는 Chrome을 사용합니다. Apple Mac의 경우 Google Chrome 브라우저를 사용하세요. Microsoft Edge Chromium도 Windows와 Mac에서 모두 지원됩니다.
+
+### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Azure 방호는 고객 데이터를 저장 하는 위치
+
+Azure 방호는 고객 데이터를 배포 된 지역 외부로 이동 하거나 저장 하지 않습니다.
 
 ### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>가상 머신에 액세스할 때 꼭 필요한 역할이 있나요?
 

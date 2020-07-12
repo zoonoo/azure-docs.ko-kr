@@ -7,11 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325136"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261380"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청 수신 및 응답
 
@@ -23,9 +24,9 @@ ms.locfileid: "84325136"
 
 * 다른 논리 앱의 HTTPS 호출을 수신하고 응답합니다.
 
-요청 트리거는 논리 앱에 대한 인바운드 호출에 권한을 부여하기 위해 Azure AD OAuth([Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md))를 지원합니다. 이 인증을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Logic Apps에서 액세스 및 데이터 보안 - Azure AD OAuth 인증 사용](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth)을 참조하세요.
+요청 트리거는 논리 앱에 대한 인바운드 호출에 권한을 부여하기 위해 Azure AD OAuth([Azure Active Directory Open Authentication](/azure/active-directory/develop/))를 지원합니다. 이 인증을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Logic Apps에서 액세스 및 데이터 보안 - Azure AD OAuth 인증 사용](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 가입](https://azure.microsoft.com/free/)할 수 있습니다.
 
@@ -156,7 +157,7 @@ ms.locfileid: "84325136"
          "account": {
             "name": "Contoso",
             "ID": "12345",
-            "address": { 
+            "address": {
                "number": "1234",
                "street": "Anywhere Street",
                "city": "AnyTown",
@@ -171,9 +172,9 @@ ms.locfileid: "84325136"
 1. 인바운드 호출에 지정 된 스키마와 일치 하는 요청 본문이 있는지 확인 하려면 다음 단계를 수행 합니다.
 
    1. 요청 트리거의 제목 표시줄에서 줄임표 단추 (**...**)를 선택 합니다.
-   
+
    1. 트리거의 설정에서 **스키마 유효성 검사**를 켜고 **완료**를 선택 합니다.
-   
+
       인바운드 호출의 요청 본문이 스키마와 일치 하지 않는 경우 트리거는 오류를 반환 합니다 `HTTP 400 Bad Request` .
 
 1. 추가 속성을 지정하려면 **새 매개 변수 추가** 목록을 열고 추가하려는 매개 변수를 선택합니다.
@@ -258,7 +259,7 @@ ms.locfileid: "84325136"
 
    이 예제에서는 편의상 요청 트리거가 축소되어 있습니다.
 
-1. 응답 메시지에 필요한 값을 추가합니다. 
+1. 응답 메시지에 필요한 값을 추가합니다.
 
    일부 필드에서 상자 내부를 클릭하면 동적 콘텐츠 목록이 열립니다. 그런 다음, 워크플로의 이전 단계에서 사용 가능한 출력을 나타내는 토큰을 선택할 수 있습니다. 이전 예제에 지정된 스키마의 속성이 이제 동적 콘텐츠 목록에 표시됩니다.
 
@@ -270,7 +271,7 @@ ms.locfileid: "84325136"
 
    ![머리글 - 텍스트 뷰로 전환](./media/connectors-native-reqres/switch-to-text-view.png)
 
-   응답 작업에서 설정할 수 있는 속성에 대한 자세한 내용은 다음을 참조하세요. 
+   응답 작업에서 설정할 수 있는 속성에 대한 자세한 내용은 다음을 참조하세요.
 
    | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
@@ -281,7 +282,7 @@ ms.locfileid: "84325136"
 
 1. 응답 본문에 대한 JSON 스키마와 같은 추가 속성을 지정하려면 **새 매개 변수 추가** 목록을 열고 추가하려는 매개 변수를 선택합니다.
 
-1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다. 
+1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

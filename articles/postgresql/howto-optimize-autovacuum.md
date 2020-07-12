@@ -5,18 +5,20 @@ author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 5/6/2019
-ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/09/2020
+ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116357"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274512"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 autovacuum 최적화
+
 이 문서에서는 Azure Database for PostgreSQL 서버에서 자동 진공을 효과적으로 최적화하는 방법을 설명합니다.
 
 ## <a name="overview-of-autovacuum"></a>자동 진공 개요
+
 PostgreSQL은 MVCC(다중 버전 동시성 제어)를 사용하여 데이터베이스 동시성을 향상합니다. 업데이트할 때마다 삽입 및 삭제가 발생하고, 삭제할 때마다 행이 삭제되도록 소프트 표시됩니다. 소프트 표시는 나중에 제거할 데드 튜플을 식별합니다. 이러한 작업을 수행하기 위해 PostgreSQL은 진공 작업을 실행합니다.
 
 진공 작업은 수동 또는 자동으로 트리거할 수 있습니다. 데이터베이스에서 많은 업데이트 또는 삭제 작업이 발생하는 경우 데드 튜플이 더 많습니다. 데이터베이스가 유휴 상태일 때 데드 튜플이 더 적습니다. 데이터베이스 부하가 많은 경우 더 자주 진공해야 하므로 ‘수동으로’ 진공 작업을 실행하는 것이 불편합니다.**
@@ -36,6 +38,7 @@ PostgreSQL은 MVCC(다중 버전 동시성 제어)를 사용하여 데이터베�
 - I/O 증가
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>자동 진공 쿼리를 사용하여 블로트 모니터링
+
 XYZ라는 테이블에 있는 데드 및 라이브 튜플 수를 식별하도록 설계된 샘플 쿼리는 다음과 같습니다.
 
 ```sql
@@ -43,22 +46,24 @@ SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRa
 ```
 
 ## <a name="autovacuum-configurations"></a>자동 진공 구성
+
 자동 진공을 제어하는 구성 매개 변수는 다음 두 가지 주요 질문에 대한 답변을 기반으로 합니다.
+
 - 언제 시작해야 하나요?
 - 시작한 후에 얼마나 정리해야 하나요?
 
 이전 질문에 따라 업데이트할 수 있는 일부 자동 진공 구성 매개 변수와 몇 가지 지침은 다음과 같습니다.
 
-매개 변수|Description|기본값
+매개 변수|설명|기본값
 ---|---|---
 autovacuum_vacuum_threshold|한 테이블에서 진공 작업을 트리거하는 데 필요한 업데이트 또는 삭제된 튜플의 최소 개수를 지정합니다. 기본값은 50개 튜플입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|50
 autovacuum_vacuum_scale_factor|진공 작업을 트리거할지 여부를 결정할 때 autovacuum_vacuum_threshold에 추가할 테이블 크기의 비율을 지정합니다. 기본값은 0.2로, 테이블 크기의 20%입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|0.2
 autovacuum_vacuum_cost_limit|자동 진공 작업에 사용되는 비용 제한 값을 지정합니다. -1(기본값)을 지정하면 기본 vacuum_cost_limit 값이 사용됩니다. 둘 이상의 작업자가 있는 경우 이 값은 실행 중인 자동 진공 작업자 간에 비례적으로 배분됩니다. 각 작업자에 대한 제한의 합계는 이 변수의 값을 초과하지 않습니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|-1
 autovacuum_vacuum_cost_delay|자동 진공 작업에 사용되는 비용 지연 값을 지정합니다. -1을 지정하면 기본 vacuum_cost_delay 값이 사용됩니다. 기본값은 20밀리초입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|20밀리초
-autovacuum_nap_time|지정된 데이터베이스에서 자동 진공 실행 사이의 최소 지연 시간을 지정합니다. 각 라운드에서 디먼은 데이터베이스를 검사하고, 해당 데이터베이스의 테이블에 필요한 대로 VACUUM 및 ANALYZE 명령을 실행합니다. 지연 시간은 초 단위로 측정되며, 기본값은 1분(1min)입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다.|15초
-autovacuum_max_workers|한 번에 실행할 수 있는 자동 진공 프로세스(자동 진공 시작 관리자 제외)의 최대 개수를 지정합니다. 기본값은 3입니다. 이 매개 변수는 서버 시작 시에만 설정합니다.|3
+autovacuum_naptime | 지정된 데이터베이스에서 자동 진공 실행 사이의 최소 지연 시간을 지정합니다. 각 라운드에서 디먼은 데이터베이스를 검사하고, 해당 데이터베이스의 테이블에 필요한 대로 VACUUM 및 ANALYZE 명령을 실행합니다. 지연은 초 단위로 측정 됩니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다.| 15초
+autovacuum_max_workers | 한 번에 실행할 수 있는 자동 진공 프로세스(자동 진공 시작 관리자 제외)의 최대 개수를 지정합니다. 기본값은 3입니다. 이 매개 변수는 서버 시작 시에만 설정합니다.|3
 
-개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다. 
+개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.
 
 ## <a name="autovacuum-cost"></a>자동 진공 비용
 
@@ -82,12 +87,14 @@ autovacuum_max_workers|한 번에 실행할 수 있는 자동 진공 프로세�
 PostgreSQL을 사용하면 이러한 매개 변수를 테이블 수준 또는 인스턴스 수준에서 설정할 수 있습니다. 현재 이러한 매개 변수는 Azure Database for PostgreSQL의 테이블 수준에서만 설정할 수 있습니다.
 
 ## <a name="estimate-the-cost-of-autovacuum"></a>자동 진공 비용 예측
+
 자동 진공을 실행하는 경우 “비용이 많이 들기” 때문에 진공 작업의 런타임을 제어하는 매개 변수가 있습니다. 진공 실행 비용을 예측하는 데 도움이 되는 매개 변수는 다음과 같습니다.
+
 - vacuum_cost_page_hit = 1
 - vacuum_cost_page_miss = 10
 - vacuum_cost_page_dirty = 20
 
-진공 프로세스는 물리적 페이지를 읽고 데드 튜플을 확인합니다. shared_buffers의 모든 페이지는 비용이 1(vacuum_cost_page_hit)인 것으로 간주됩니다. 다른 모든 페이지는 데드 튜플이 있는 경우 비용이 20(vacuum_cost_page_dirty), 데드 튜플이 없는 경우 10(vacuum_cost_page_miss)인 것으로 간주됩니다. 프로세스가 autovacuum_vacuum_cost_limit를 초과하면 진공 작업이 중지됩니다. 
+진공 프로세스는 물리적 페이지를 읽고 데드 튜플을 확인합니다. shared_buffers의 모든 페이지는 비용이 1(vacuum_cost_page_hit)인 것으로 간주됩니다. 다른 모든 페이지는 데드 튜플이 있는 경우 비용이 20(vacuum_cost_page_dirty), 데드 튜플이 없는 경우 10(vacuum_cost_page_miss)인 것으로 간주됩니다. 프로세스가 autovacuum_vacuum_cost_limit를 초과하면 진공 작업이 중지됩니다.
 
 제한에 도달하면 프로세스가 autovacuum_vacuum_cost_delay 매개 변수에 지정된 기간에 일시 중지되었다가 다시 시작됩니다. 제한에 도달하지 않으면 자동 진공이 autovacuum_nap_time 매개 변수에 지정된 값 이후에 시작됩니다.
 

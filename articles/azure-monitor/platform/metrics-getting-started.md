@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 920ff19b162843d1c2d631ad192ce1b3c4273a68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14f21b1c0bff5f4d5f77b1547c09ddd6c370ece0
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696986"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276433"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Azure 메트릭 탐색기 시작
 
@@ -38,7 +39,7 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
     > ![메트릭 선택](./media/metrics-getting-started/metric-picker.png)
 
-4. 필요에 따라 메트릭 집계를 변경할 수 있습니다. 예를 들어 메트릭에 대 한 최소값, 최대값 또는 평균 값을 차트에 표시 하려고 할 수 있습니다.
+4. 필요에 따라 [메트릭 집계를 변경할](metrics-charts.md#changing-aggregation)수 있습니다. 예를 들어 메트릭에 대 한 최소값, 최대값 또는 평균 값을 차트에 표시 하려고 할 수 있습니다.
 
 > [!NOTE]
 > 동일한 차트에 여러 메트릭을 표시하려면 **메트릭 추가** 단추를 사용하여 이 단계를 반복합니다. 한 보기의 여러 차트에 대해 맨 위에 있는 **차트 추가** 단추를 선택 합니다.

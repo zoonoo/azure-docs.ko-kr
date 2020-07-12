@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: fd83cd164415f45929049541a8731f80a4ba146d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774056"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273509"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure 시설, 구역 및 물리적 보안
 이 문서에서는 Azure 인프라를 보호하기 위해 Microsoft가 수행하는 작업에 대해 설명합니다.
@@ -29,7 +30,7 @@ Azure는 전 세계적으로 수천 개의 온라인 서비스를 지원하고 1
 
 이 인프라는 전 세계 사용자에게 애플리케이션을 더 가까이 제공하는 데 필요한 확장성을 제공하고, 데이터 상주를 유지하고, 고객에게 포괄적인 준수 및 복원력 옵션을 제공하도록 디자인되어 있습니다. Azure는 전 세계 58개 지역을 포함하며 140개 국가/지역에서 사용할 수 있습니다.
 
-지역은 대규모의 복원력 있는 네트워크를 통해 상호 연결된 데이터 센터 집합입니다. 네트워크에는 기본적으로 콘텐츠 배포, 부하 분산, 중복성 및 암호화가 포함되어 있습니다. 다른 클라우드 공급자보다 많은 글로벌 지역을 제공하는 Azure는 필요한 곳에 애플리케이션을 유연하게 배포할 수 있습니다.
+지역은 대규모의 복원력 있는 네트워크를 통해 상호 연결된 데이터 센터 집합입니다. 네트워크에는 지역 내의 모든 Azure 트래픽에 대해 기본적으로 콘텐츠 배포, 부하 분산, 중복성 및 [데이터 링크 계층 암호화가](encryption-overview.md#encryption-of-data-in-transit) 포함 되거나 지역 간에 여행 됩니다. 다른 클라우드 공급자보다 많은 글로벌 지역을 제공하는 Azure는 필요한 곳에 애플리케이션을 유연하게 배포할 수 있습니다.
 
 Azure 지역은 지리적 위치로 구성됩니다. Azure 지리적 위치는 지리적 경계 내에서 데이터 상주, 주권, 준수 및 복원력 요구 사항이 적용되도록 합니다.
 

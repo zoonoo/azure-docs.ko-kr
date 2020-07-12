@@ -10,23 +10,23 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 26569606ce2aeb9d645f82e474b728cc4044ca93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250947"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276314"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 [Azure SQL Database](sql-database-paas-overview.md) 및 [azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 대 한 감사는 데이터베이스 이벤트를 추적 하 고 azure storage 계정, Log Analytics 작업 영역 또는 Event Hubs의 감사 로그에 기록 합니다.
 
-또한
+감사를 사용하면 다음과 같은 이점도 있습니다.
 
-- 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
+- 규정 준수를 유지 관리하고, 데이터베이스 활동을 이해하고, 비즈니스 문제나 보안 침해로 의심되는 사안을 나타낼 수 있는 불일치 및 이상을 파악하는 데 도움이 됩니다.
 
-- 감사를 사용하면 규정을 완전히 준수한다고 보장할 수는 없지만 규정 표준을 보다 쉽게 준수할 수 있습니다. 표준 준수를 지 원하는 Azure 프로그램에 대 한 자세한 내용은 Azure SQL 준수 인증의 최신 목록을 찾을 수 있는 [Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 참조 하세요.
+- 감사를 사용해도 규정 준수가 보장되는 것은 아니지만 규정 준수 표준을 쉽게 준수할 수 있습니다. 표준 준수를 지 원하는 Azure 프로그램에 대 한 자세한 내용은 Azure SQL 준수 인증의 최신 목록을 찾을 수 있는 [Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 참조 하세요.
 
 > [!NOTE]
 > Azure SQL Managed Instance 감사에 대 한 자세한 내용은 [sql Managed Instance 감사 시작](../managed-instance/auditing-configure.md)문서를 참조 하세요.
@@ -35,8 +35,8 @@ ms.locfileid: "85250947"
 
 SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
-- **유지** 합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
-- **보고** 합니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
+- 선택한 이벤트의 감사 내역을 **유지** 합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
+- 데이터베이스 활동에 대 한 **보고서** 입니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
 - 보고서를 **분석** 합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드에 대해 4000 문자 데이터를 저장 합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
 다음 섹션에서는 Azure Portal을 사용하여 감사 구성을 설명합니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. **Sql database** 또는 **Sql server** 창의 보안 제목에서 **감사** 로 이동 합니다.
 3. 서버 감사 정책을 설정하는 것을 선호하면 데이터베이스 감사 페이지에서 **서버 설정 보기** 링크를 선택할 수 있습니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다. 서버 감사 정책은이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용 됩니다.
 
@@ -116,6 +116,8 @@ Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log 
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
+Azure Monitor 로그 작업 영역에 대 한 자세한 내용은 [Azure Monitor 로그 배포 디자인](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment) 을 참조 하세요.
+   
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>이벤트 허브 대상 감사
 
 > [!WARNING]
@@ -130,7 +132,7 @@ Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log 
 
 Azure Monitor 로그에 감사 로그를 기록 하도록 선택한 경우:
 
-- [Azure Portal](https://portal.azure.com)를 사용 합니다. 관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 선택 합니다.
+- [Azure Portal](https://portal.azure.com) 사용 관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 선택 합니다.
 
     ![감사 로그 보기](./media/auditing-overview/auditing-view-audit-logs.png)
 
@@ -160,7 +162,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 - 감사 로그는 설치 중에 선택한 계정에 집계됩니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구를 사용 하 여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일의 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](https://go.microsoft.com/fwlink/?linkid=829599)을 참조 하세요.
 
-- [Azure Portal](https://portal.azure.com)를 사용 합니다.  관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 클릭합니다.
+- [Azure Portal](https://portal.azure.com) 사용  관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 클릭합니다.
 
     ![탐색 창](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
@@ -255,7 +257,7 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 - [데이터베이스 *확장* 감사 정책 가져오기](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [서버 *확장* 감사 정책 가져오기](/rest/api/sql/server%20auditing%20settings/get)
 
-### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
+### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
 다음 예와 같이 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 템플릿을 사용 하 여 Azure SQL Database 감사를 관리할 수 있습니다.
 

@@ -1,14 +1,14 @@
 ---
 title: 서비스 공급자 보기 및 관리
 description: 고객은 Azure Portal의 서비스 공급자 페이지를 사용하여 서비스 공급자, 서비스 공급자 제공 및 위임된 리소스의 정보를 볼 수 있습니다.
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111629"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273781"
 ---
 # <a name="view-and-manage-service-providers"></a>서비스 공급자 보기 및 관리
 
@@ -19,7 +19,7 @@ Azure Portal의 **서비스 공급자** 페이지에 액세스하려면 고객�
 > [!NOTE]
 > **서비스 공급자** 페이지를 보려면 고객 테 넌 트의 사용자에 게 [판독기 기본 제공 역할](../../role-based-access-control/built-in-roles.md#reader) (또는 읽기 권한자 액세스를 포함 하는 다른 기본 제공 역할)이 있어야 합니다.
 >
-> 제품을 추가 하 고, 리소스를 위임 하 고, 제안을 제거 하려면 사용자에 게 구독에 대 한 [소유자 기본 제공 역할이](../../role-based-access-control/built-in-roles.md#owner) 있어야 합니다.
+> 제안을 추가 하거나 업데이트 하 고, 리소스를 위임 하 고, 제안을 제거 하려면 사용자에 게 구독에 대 한 [소유자 기본 제공 역할이](../../role-based-access-control/built-in-roles.md#owner) 있어야 합니다.
 
 **서비스 공급자** 페이지에는 Azure Lighthouse를 통해 고객의 구독 또는 리소스 그룹에 대 한 액세스 권한이 있는 서비스 공급자에 대 한 정보만 표시 됩니다. 고객이 Azure Lighthouse를 사용 하 여 고객의 리소스에 액세스 하지 않는 추가 서비스 공급자와 함께 작업 하는 경우 해당 서비스 공급자에 대 한 정보는 여기에 표시 되지 않습니다.
 
