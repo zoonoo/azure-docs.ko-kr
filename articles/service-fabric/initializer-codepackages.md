@@ -5,12 +5,12 @@ author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
-ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be079b97c2660437344f88203fdda06cc6d6740
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430631"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258968"
 ---
 # <a name="initializer-codepackages"></a>이니셜라이저 CodePackage
 
@@ -50,7 +50,7 @@ Servicemanifest.xml에서 **이니셜라이저** 특성을 **true** 로 설정 �
 > [!IMPORTANT]
 > 다음 예제에서는 [Service Fabric 및 Docker를 사용 하 여 Windows 컨테이너 응용 프로그램][containers-getting-started-link]을 만드는 방법을 알고 있다고 가정 합니다.
 >
-> 이 예제에서는 mcr.microsoft.com/windows/nanoserver:1809를 참조 합니다. Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 자세한 내용은 [Windows 컨테이너 버전 호환성](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
+> 이 예제에서는 mcr.microsoft.com/windows/nanoserver:1809를 참조 합니다. Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 자세한 내용은 [Windows 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
 다음 ServiceManifest.xml는 앞에서 설명한 Servicemanifest.xml 코드 조각을 기반으로 합니다. *InitCodePackage0*, *InitCodePackage1* 및 *WorkloadCodePackage* 는 컨테이너를 나타내는 CodePackages입니다. 활성화 되 면 *InitCodePackage0* 가 먼저 실행 됩니다. 메시지를 파일에 기록 하 고 종료 합니다. 그런 다음 *InitCodePackage1* 를 실행 하 여 메시지를 파일에 기록 하 고 종료 합니다. 마지막으로 *WorkloadCodePackage* 실행을 시작 합니다. 또한 파일에 메시지를 기록 하 고, 파일의 내용을 **stdout** 으로 출력 한 다음, 영원히 ping 합니다.
 
@@ -151,4 +151,3 @@ Hi from WorkloadCodePackage.
 [application-model-link]: service-fabric-application-model.md
 [hosting-model-link]: service-fabric-hosting-model.md
 [setup-entry-point-link]: service-fabric-run-script-at-service-startup.md
-
