@@ -6,11 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e078f81db75dd6b89a65ff2d00bb2805ea912d0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676423"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249141"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Windows 진단 확장 스키마
 Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 수집 하 고 Azure compute 리소스의 작업을 수집 하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 가상 머신과 기타 계산 리소스에서 진단 확장을 구성 하는 데 사용 되는 스키마에 대해 자세히 설명 합니다.
@@ -69,13 +70,13 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- 필요한 공간
+ 필수
 
 |특성|설명|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Azure Diagnostics로 수집된 진단 데이터의 다양한 형식에서 사용될 수 있는 로컬 디스크 공간의 최대 크기입니다. 기본 설정은 4096MB입니다.<br />
 |**useProxyServer** | IE 설정에서 설정한 대로 프록시 서버 설정을 사용하도록 Azure Diagnostics를 구성합니다.|
-|**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 싱크를 지원하는 모든 자식 요소에 대한 진단 데이터를 보낼 싱크 위치도 가리킵니다. 싱크 예제는 Application Insights 또는 Event Hubs입니다.|  
+|**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 싱크를 지원하는 모든 자식 요소에 대한 진단 데이터를 보낼 싱크 위치도 가리킵니다. 싱크 예제는 Application Insights 또는 Event Hubs입니다. 참고 Event Hubs에 업로드 된 이벤트를 리소스 ID를 갖도록 하려면 *메트릭* 요소 아래에 *resourceId* 속성을 추가 해야 합니다. |  
 
 
 <br /> <br />
@@ -86,7 +87,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 |**DiagnosticInfrastructureLogs**|Azure Diagnostics에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> - **scheduledTransferPeriod** -가장 가까운 시간 (분)으로 반올림 된 저장소에 대 한 예약 된 전송 사이의 간격입니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 |**디렉터리**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**EtwProviders**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
-|**Metrics**(메트릭)|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**메트릭**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**PerformanceCounters**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**WindowsEventLog**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|
 |**DockerSources**|이 페이지의 다른 곳에 있는 설명을 참조하세요. |
@@ -188,7 +189,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있습니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다.  
 
- **resourceId** 특성이 필요합니다.  Azure Diagnostics를 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **Browse**  ->  **리소스 그룹** 찾아보기  ->  **<\> 이름**을 선택 합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
+ **resourceId** 특성이 필요합니다.  Azure Diagnostics를 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **Browse**  ->  **리소스 그룹** 찾아보기  ->  **<\> 이름**을 선택 합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  이 resourceID 속성은 사용자 지정 메트릭을 보내고 Event Hubs에 전송 된 데이터에 resourceID 속성을 추가 하는 데 사용 됩니다. 참고 Event Hubs에 업로드 된 이벤트를 리소스 ID를 갖도록 하려면 *메트릭* 요소 아래에 *resourceId* 속성을 추가 해야 합니다.
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
@@ -207,8 +208,8 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
 |자식 요소|설명|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. 예: `\Processor(_Total)\% Processor Time`. 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다. [(Unittype.pixel) 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) 에서 값을 사용할 수 있습니다. |
-|**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. 예를 들어 Azure Monitor 또는 Event Hubs입니다.|    
+|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. 정의합니다(예: `\Processor(_Total)\% Processor Time`). 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다. [(Unittype.pixel) 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) 에서 값을 사용할 수 있습니다. |
+|**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. 예를 들어 Azure Monitor 또는 Event Hubs입니다. 참고 Event Hubs에 업로드 된 이벤트를 리소스 ID를 갖도록 하려면 *메트릭* 요소 아래에 *resourceId* 속성을 추가 해야 합니다.|    
 
 
 
@@ -222,7 +223,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
 |자식 요소|설명|  
 |-------------------|-----------------|  
-|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예를 들어:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다. |
+|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다. |
 |**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 싱크를 지원하는 모든 자식 요소에 대한 진단 데이터를 보낼 싱크 위치도 가리킵니다. 싱크 예제는 Application Insights 또는 Event Hubs입니다.|  
 
 
@@ -238,7 +239,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 |**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**scheduledTransferPeriod**|**duration**|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
-|**sinks** |**string**| 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다.|  
+|**sinks** |**string**| 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다. 참고 Event Hubs에 업로드 된 이벤트를 리소스 ID를 갖도록 하려면 *메트릭* 요소 아래에 *resourceId* 속성을 추가 해야 합니다.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -269,10 +270,10 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 |---------------|----------|-----------------|  
 |**name**|문자열|sinkname을 식별하는 문자열입니다.|  
 
-|요소|Type|Description|  
+|요소|유형|Description|  
 |-------------|----------|-----------------|  
-|**Application Insights**|string|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
-|**Channels**|string|스트림하는 각 추가 필터링에 대한|  
+|**Application Insights**|문자열|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
+|**채널**|문자열|스트림하는 각 추가 필터링에 대한|  
 
 ## <a name="channels-element"></a>Channels 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -281,9 +282,9 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  싱크를 통해 전달되는 로그 데이터의 스트림에 대한 필터를 정의합니다.  
 
-|요소|Type|설명|  
+|요소|유형|설명|  
 |-------------|----------|-----------------|  
-|**채널**|string|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**채널**|문자열|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
 ## <a name="channel-element"></a>채널 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -326,7 +327,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 *Publicconfig* 및 *privateconfig.json* 는 대부분의 JSON 사용 사례에서 서로 다른 변수로 전달 되기 때문에 구분 됩니다. 이러한 경우 리소스 관리자 템플릿, PowerShell 및 Visual Studio가 포함 됩니다.
 
 > [!NOTE]
-> 공용 구성 Azure Monitor 싱크 정의에는 *resourceId* 와 *region*이라는 두 가지 속성이 있습니다. 두 속성은 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. 이러한 속성은 다른 리소스에 사용 하면 안 됩니다.
+> 공용 구성 Azure Monitor 싱크 정의에는 *resourceId* 와 *region*이라는 두 가지 속성이 있습니다. 두 속성은 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. *Region* 속성은 다른 리소스에 사용 하면 안 됩니다. *RESOURCEID* 속성은 ARM vm에서 Event Hubs에 업로드 된 로그의 resourceid 필드를 채우는 데 사용 됩니다.
 
 ```json
 "PublicConfig" {
