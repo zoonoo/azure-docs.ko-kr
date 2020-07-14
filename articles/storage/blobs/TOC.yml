@@ -111,7 +111,7 @@
           href: storage-samples-blobs-powershell.md
         - name: Azure CLI
           href: storage-samples-blobs-cli.md
-        - name: Azure Policy 기본 제공
+        - name: Azure Policy 기본 제공 기능
           displayName: 'samples, policies, definitions'
           href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 개념
@@ -140,8 +140,6 @@
                   href: /rest/api/storageservices/authorize-with-shared-key
                 - name: SAS(공유 액세스 서명)를 사용하여 액세스 위임
                   href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Blob에 대한 익명 액세스
-                  href: storage-manage-access-to-resources.md
             - name: 관리 작업 권한 부여
               href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 변경이 불가능한 Blob
@@ -361,6 +359,14 @@
                       href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: 저장된 액세스 정책 정의
                       href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Blob 데이터에 대한 익명 읽기 권한 관리
+                  items:
+                    - name: 컨테이너 및 Blob에 대한 익명 읽기 권한 구성
+                      href: anonymous-read-access-configure.md
+                    - name: Blob 데이터에 대한 익명 읽기 액세스 방지
+                      href: anonymous-read-access-prevent.md
+                    - name: 공용 컨테이너 및 Blob에 익명으로 액세스(.NET)
+                      href: anonymous-read-access-client.md
             - name: Azure Storage 암호화 관리
               items:
                 - name: Blob이 암호화되어 있는지 확인
@@ -379,6 +385,8 @@
                           href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 요청 시 암호화 키 제공
                   href: storage-blob-customer-provided-key.md
+                - name: 스토리지 계정에 인프라 암호화 사용
+                  href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 클라이언트 쪽 암호화 구성
               items:
                 - name: .NET
@@ -393,8 +401,12 @@
                   href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 방화벽 및 가상 네트워크 구성
                   href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 전송 계층 보안 사용
-                  href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: TLS(전송 계층 보안) 구성
+                  items:
+                    - name: 스토리지 계정에 대한 최소 TLS 버전 구성
+                      href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: 클라이언트 애플리케이션에 대한 TLS 구성
+                      href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 불변성 정책 설정 및 관리
               href: storage-blob-immutability-policies-manage.md
         - name: 데이터 중복성 관리

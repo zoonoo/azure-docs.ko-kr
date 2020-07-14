@@ -56,3 +56,7 @@
               href: ./servers/manage-vm-extensions.md
             - name: 에이전트 관리
               href: ./servers/manage-agent.md
+        - name: 문제 해결
+          items:
+            - name: 에이전트 연결 문제
+              href: ./servers/troubleshoot-agent-onboard.md

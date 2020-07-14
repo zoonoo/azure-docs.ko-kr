@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 0a6a1bd5e56f94a97779a85eafd0d46473cc2d0c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262432"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028240"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -64,9 +64,11 @@ Azure Cosmos Emulator를 사용하려면 다음과 같은 하드웨어 및 소�
 
 Azure Cosmos Emulator를 시작하려면 시작 단추를 선택하거나 Windows 키를 누릅니다. **Azure Cosmos Emulator** 입력을 시작하고 애플리케이션 목록에서 에뮬레이터를 선택합니다.
 
-![시작 단추를 선택하거나 Windows 키를 누르고 **Azure Cosmos Emulator** 입력을 시작한 후 애플리케이션 목록에서 에뮬레이터를 선택합니다.](./media/local-emulator/database-local-emulator-start.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="시작 단추를 선택하거나 Windows 키를 누르고 Azure Cosmos Emulator 입력을 시작한 후 애플리케이션 목록에서 에뮬레이터를 선택합니다.":::
 
-에뮬레이터를 실행 하는 경우 Windows 작업 표시줄 알림 영역에 아이콘이 표시 됩니다. ![Azure Cosmos DB 로컬 에뮬레이터 작업 표시줄 알림](./media/local-emulator/database-local-emulator-taskbar.png)
+에뮬레이터를 실행 하는 경우 Windows 작업 표시줄 알림 영역에 아이콘이 표시 됩니다. 
+
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 작업 표시줄 알림":::
 
 기본적으로 Azure Cosmos Emulator는 포트 8081에서 수신 대기하는 로컬 머신("localhost")에서 실행됩니다.
 
@@ -222,7 +224,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 Windows 인증서 저장소와 통합되지 않는 런타임 및 언어와 함께 사용할 인증서를 가져오기 위해 Windows 인증서 관리자를 사용하여 인증서를 내보내야 합니다. certlm.msc를 실행하거나 [Azure Cosmos Emulator 인증서 내보내기](./local-emulator-export-ssl-certificates.md)의 단계별 지침을 수행하여 이 작업을 시작할 수 있습니다. 인증서 관리자가 실행되면 아래에 표시된 대로 개인 인증서를 열고 BASE-64 인코딩 X.509(.cer) 파일로 "DocumentDBEmulatorCertificate"라는 이름의 인증서를 내보냅니다.
 
-![Azure Cosmos DB 로컬 에뮬레이터 TLS/SSL 인증서](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-ssl_certificate.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 TLS/SSL 인증서":::
 
 [Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/azure/java-add-certificate-ca-store)의 지침을 따라 X.509 인증서를 Java 인증서 저장소로 가져올 수 있습니다. 인증서를 인증서 저장소에 가져오면 SQL API 및 Azure Cosmos DB의 MongoDB API용 클라이언트에서 Azure Cosmos Emulator에 연결할 수 있습니다.
 
@@ -233,7 +235,9 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 TLS 확인이 비�
 
 ### <a name="command-line-syntax"></a>명령줄 구문
 
-    Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```
 
 옵션 목록을 보려면 명령 프롬프트에 `Microsoft.Azure.Cosmos.Emulator.exe /?` 을(를) 입력합니다.
 
@@ -418,7 +422,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 
 데이터 탐색기를 열려면 브라우저에서 다음 URL로 이동합니다. 에뮬레이터 엔드포인트가 위에 표시된 응답 메시지에 제공됩니다.
 
-    https://<emulator endpoint provided in response>/_explorer/index.html
+**https\://** \<emulator endpoint provided in response> **/_explorer/index.html**
 
 Linux 도커 컨테이너에서 실행되는 .NET 클라이언트 애플리케이션이 있고 호스트 머신에서 Azure Cosmos 에뮬레이터를 실행하는 경우 Linux용 아래 섹션을 따라 Linux 도커 컨테이너로 인증서를 가져옵니다.
 
@@ -468,7 +472,7 @@ Linux에서 작업하는 경우 .NET은 OpenSSL을 사용하여 유효성 검사
    update-ca-certificates
    ```
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
 Mac에서 작업하는 경우 다음 단계를 사용합니다.
 

@@ -1,232 +1,102 @@
 ### YamlMime:Landing
 title: Microsoft ID 플랫폼 설명서
-summary: Microsoft ID 플랫폼을 사용하면 개발자는 모든 Microsoft ID에 로그인하여 Microsoft Graph 같은 Microsoft API 또는 자신이 직접 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 모든 기능을 갖춘 이 플랫폼은 OAuth 2.0 및 OpenID Connect 표준 규격 인증 서비스, 오픈 소스 라이브러리, 애플리케이션 등록 및 구성, 강력한 개념 및 참조 설명서, 빠른 시작 샘플, 코드 샘플, 자습서 및 방법 가이드로 구성되어 있습니다.
+summary: Microsoft ID 플랫폼은 인증 서비스, 오픈 소스 라이브러리 및 애플리케이션 관리 도구입니다. 빠른 시작, 자습서 및 코드 샘플을 사용하여 최신 표준 기반 인증 솔루션을 만드는 방법을 알아봅니다. 사용자 및 고객이 Microsoft ID 또는 소셜 계정을 사용하여 로그인하는 애플리케이션을 빌드하고 API 또는 Microsoft Graph와 같은 Microsoft API에 대한 액세스 권한을 부여합니다.
 metadata:
   ms.topic: landing-page
-  ms.date: 06/22/2019
+  ms.date: 07/13/2020
   author: CelesteDG
   ms.author: celested
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: d1f3958fd47f6e3e5f3971697de546b4cb738b3d
-  ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+  ms.openlocfilehash: 689fb9953f6de9c717d774e222824c5b3701527e
+  ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/17/2020
-  ms.locfileid: "84886892"
+  ms.lasthandoff: 07/10/2020
+  ms.locfileid: "86230352"
 landingContent:
 - title: Microsoft ID 플랫폼 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Microsoft ID 플랫폼(v2.0)
+    - text: Microsoft ID 플랫폼이란?
       url: v2-overview.md
-    - text: Microsoft ID 플랫폼의 발전
-      url: about-microsoft-identity-platform.md
-    - text: 앱을 MSAL로 마이그레이션
+    - text: 코드 샘플
+      url: sample-v2-code.md
+    - text: ADAL 앱을 MSAL로 마이그레이션
       url: msal-migration.md
-    - text: 개발자용 Azure Active Directory(v1.0)
-      url: ../azuread-dev/v1-overview.md
-  - linkListType: concept
+- title: 기본 개념
+  linkLists:
+  - linkListType: learn
     links:
-    - text: 인증 기본 사항
-      url: authentication-scenarios.md
+    - text: 인증의 기본 사항
+      url: authentication-vs-authorization.md
     - text: 인증 흐름 및 앱 시나리오
       url: authentication-flows-app-scenarios.md
     - text: 모범 사례 및 추천 사항
       url: identity-platform-integration-checklist.md
+- title: 동영상 학습 시리즈
+  linkLists:
   - linkListType: video
     links:
-    - text: '시리즈: 개발자를 위한 ID 플랫폼'
-      url: identity-videos.md
-- title: 단일 페이지 앱 빌드
+    - text: 개발자를 위한 ID 플랫폼
+      url: identity-videos.md#microsoft-identity-platform-for-developers
+    - text: 인증 기본 사항
+      url: identity-videos.md#authentication-fundamentals
+    - text: '한 가지 개발 질문: 플랫폼 기본 사항'
+      url: identity-videos.md#microsoft-identity-platform-basics
+- title: SPA(Single-page app)
   linkLists:
   - linkListType: get-started
     links:
-    - text: 시나리오 개요
-      url: scenario-spa-overview.md
-  - linkListType: quickstart
-    links:
-    - text: JavaScript - 인증 코드
-      url: quickstart-v2-javascript-auth-code.md
-    - text: JavaScript - 암시적
-      url: quickstart-v2-javascript.md
     - text: Angular
       url: quickstart-v2-angular.md
-  - linkListType: tutorial
-    links:
-    - text: JavaScript - 인증 코드
-      url: tutorial-v2-javascript-auth-code.md
-    - text: JavaScript - 암시적
-      url: tutorial-v2-javascript-spa.md
-  - linkListType: download
-    links:
-    - text: 샘플 - JavaScript, Angular
-      url: sample-v2-code.md#single-page-applications
-    - text: 샘플 - Azure AD B2C를 통한 SPA 인증
-      url: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
-- title: 사용자가 로그인하는 웹앱 빌드
+    - text: JavaScript - 인증 코드 흐름
+      url: quickstart-v2-javascript-auth-code.md
+    - text: JavaScript - 암시적 흐름
+      url: quickstart-v2-javascript.md
+- title: 웹앱
   linkLists:
   - linkListType: get-started
     links:
-    - text: 시나리오 개요
-      url: scenario-web-app-sign-user-overview.md
-  - linkListType: quickstart
-    links:
-    - text: ASP.NET Core
-      url: quickstart-v2-aspnet-core-webapp.md
     - text: ASP.NET
       url: quickstart-v2-aspnet-webapp.md
-    - text: Java
-      url: quickstart-v2-java-webapp.md
+    - text: ASP.NET Core
+      url: quickstart-v2-aspnet-core-webapp.md
     - text: Python
       url: quickstart-v2-python-webapp.md
-  - linkListType: tutorial
-    links:
-    - text: ASP.NET Core
-      url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2
-  - linkListType: download
-    links:
-    - text: 샘플 - ASP.NET Core, ASP.NET, Java, Python
-      url: sample-v2-code.md#web-applications
-- title: 웹 API를 호출하는 웹앱 빌드
+- title: 모바일/네이티브 앱
   linkLists:
   - linkListType: get-started
     links:
-    - text: 시나리오 개요
-      url: scenario-web-app-call-api-overview.md
-  - linkListType: quickstart
-    links:
-    - text: Java
-      url: quickstart-v2-java-webapp.md
-    - text: Python
-      url: quickstart-v2-python-webapp.md
-  - linkListType: tutorial
-    links:
-    - text: ASP.NET Core
-      url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial
-  - linkListType: download
-    links:
-    - text: 샘플 - ASP.NET Core, ASP.NET, Node.js, Ruby, Java, Python
-      url: sample-v2-code.md#web-applications
-- title: 보호된 웹 API 빌드
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: 시나리오 개요
-      url: scenario-protected-web-api-overview.md
-  - linkListType: tutorial
-    links:
-    - text: ASP.NET Core 웹 API
-      url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2
-  - linkListType: download
-    links:
-    - text: 샘플 - ASP.NET
-      url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2
-- title: 웹 API를 호출하는 Web API
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: 시나리오 개요
-      url: scenario-web-api-call-api-overview.md
-  - linkListType: tutorial
-    links:
-    - text: Microsoft Graph를 호출하는 ASP.NET Core 웹 API
-      url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph
-    - text: Microsoft Graph를 호출하는 Java 웹 API
-      url: https://github.com/Azure-Samples/ms-identity-java-webapi
-- title: 웹 API를 호출하는 데스크톱 앱 빌드
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: 시나리오 개요
-      url: scenario-desktop-overview.md
-  - linkListType: quickstart
-    links:
-    - text: 토큰 획득 및 Microsoft Graph API 호출(Windows 데스크톱 앱)
-      url: quickstart-v2-windows-desktop.md
-    - text: 토큰 획득 및 Microsoft Graph API 호출(UWP)
-      url: quickstart-v2-uwp.md
-  - linkListType: tutorial
-    links:
-    - text: Microsoft Graph API 호출(Windows 데스크톱 앱)
-      url: tutorial-v2-windows-desktop.md
-    - text: Microsoft Graph API 호출(UWP)
-      url: tutorial-v2-windows-uwp.md
-  - linkListType: download
-    links:
-    - text: 샘플 - .NET, .NET Core, Java, Python
-      url: sample-v2-code.md#desktop-and-mobile-public-client-apps
-- title: 웹 API를 호출하는 디먼 앱 빌드
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: 시나리오 개요
-      url: scenario-daemon-overview.md
-  - linkListType: quickstart
-    links:
-    - text: 토큰 획득 및 Microsoft Graph API 호출(.NET Core 콘솔)
-      url: quickstart-v2-netcore-daemon.md
-    - text: 토큰 획득 및 Microsoft Graph API 호출(ASP.NET 웹앱)
-      url: https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp
-  - linkListType: download
-    links:
-    - text: 샘플 - ASP.NET 콘솔, ASP.NET 웹, Java, Python
-      url: sample-v2-code.md#daemon-applications
-- title: 웹 API를 호출하는 모바일 앱 빌드
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: 시나리오 개요
-      url: scenario-mobile-overview.md
-  - linkListType: quickstart
-    links:
-    - text: 토큰 획득 및 Microsoft Graph API 호출(Android)
+    - text: Android
       url: quickstart-v2-android.md
-    - text: 토큰 획득 및 Microsoft Graph API 호출(iOS)
+    - text: iOS 및 macOS
       url: quickstart-v2-ios.md
-    - text: 토큰 획득 및 Microsoft Graph API 호출(Xamarin iOS 및 Android)
-      url: https://github.com/Azure-Samples/active-directory-xamarin-native-v2
-  - linkListType: tutorial
-    links:
-    - text: 사용자 로그인 및 Microsoft Graph API 호출(Android)
-      url: tutorial-v2-android.md
-    - text: 사용자 로그인 및 Microsoft Graph API 호출(iOS)
-      url: tutorial-v2-ios.md
-  - linkListType: download
-    links:
-    - text: 샘플 - Android, iOS, Xamarin
-      url: sample-v2-code.md#desktop-and-mobile-public-client-apps
-- title: Microsoft Graph API 호출
+    - text: Windows 데스크톱(WPF)
+      url: quickstart-v2-windows-desktop.md
+- title: 보안 웹 API
   linkLists:
-  - linkListType: overview
+  - linkListType: get-started
     links:
-    - text: Microsoft Graph 정보
-      url: https://docs.microsoft.com/graph/overview
-  - linkListType: quickstart
-    links:
-    - text: 3분 내 시작 및 실행
-      url: https://developer.microsoft.com/graph/get-started
-  - linkListType: learn
-    links:
-    - text: API 사용
-      url: https://docs.microsoft.com/graph/use-the-api
-    - text: Microsoft Graph REST API v1.0
-      url: https://docs.microsoft.com/graph/api/overview?toc=.%2Fref%2Ftoc.json&view=graph-rest-1.0
-    - text: Microsoft Graph REST API 베타
-      url: https://docs.microsoft.com/graph/api/overview?toc=.%2Fref%2Ftoc.json&view=graph-rest-beta
-  - linkListType: deploy
-    links:
-    - text: Graph 탐색기
-      url: https://developer.microsoft.com/graph/graph-explorer/
-- title: 소셜 및 로컬 ID로 로그인하는 고객 지향 앱 빌드
+    - text: ASP.NET
+      url: quickstart-v2-dotnet-native-aspnet.md
+    - text: ASP.NET Core
+      url: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
+- title: Microsoft Graph
   linkLists:
-  - linkListType: overview
+  - linkListType: get-started
     links:
-    - text: Azure AD B2C 정보
-      url: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
-  - linkListType: tutorial
+    - text: Microsoft Graph API 사용
+      url: microsoft-graph-intro.md
+    - text: Microsoft Graph 인증 개요
+      url: https://docs.microsoft.com/graph/auth/
+- title: SAML 2.0
+  linkLists:
+  - linkListType: get-started
     links:
-    - text: Azure AD B2C에서 앱에 ID 공급자 추가
-      url: https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers
+    - text: Azure AD에서 SAML 프로토콜을 사용하는 방법
+      url: active-directory-saml-protocol-reference.md
+    - text: Azure AD의 SAML SSO
+      url: single-sign-on-saml-protocol.md

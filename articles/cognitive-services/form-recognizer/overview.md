@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2193bd85265103957c5cafad10a243b266f7e5bc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563250"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026885"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -57,18 +57,20 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 
 빠른 시작에 따라 양식에서 데이터 추출을 시작합니다. 기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
 
-* 사용자 지정 - 양식에 모델 학습
-  * 레이블 없이 학습
-    * [빠른 시작: cURL에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출](quickstarts/curl-train-extract.md)
-    * [빠른 시작: Python에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출](quickstarts/python-train-extract.md)
-  * 레이블을 사용하여 학습
-    * [샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습](quickstarts/label-tool.md)
-    * [REST API 및 Python을 사용하여 레이블로 Form Recognizer 모델 학습](quickstarts/python-labeled-data.md)
-* 미리 작성된 영수증 - USA 판매 영수증에서 데이터 추출
-  * [빠른 시작: cURL을 사용하여 영수증 데이터 추출](quickstarts/curl-receipts.md)
-  * [빠른 시작: Python을 사용하여 영수증 데이터 추출](quickstarts/python-receipts.md)
-* 레이아웃 - 양식에서 텍스트 및 테이블 구조 추출
-  * [빠른 시작: Python을 사용하여 레이아웃 데이터 추출](quickstarts/python-layout.md)
+* [클라이언트 라이브러리 빠른 시작](./quickstarts/client-library.md)(모든 언어, 여러 시나리오)
+* 웹 UI 빠른 시작
+  * [레이블을 사용하여 학습 - 샘플 레이블 지정 도구](quickstarts/label-tool.md)
+* REST 빠른 시작
+  * 사용자 지정 모델 학습 및 양식 데이터 추출
+    * [레이블 없이 학습 - cURL](quickstarts/curl-train-extract.md)
+    * [레이블 없이 학습 - Python](quickstarts/python-train-extract.md)
+    * [레이블을 사용하여 학습 - Python](quickstarts/python-labeled-data.md)
+  * USA 판매 영수증에서 데이터 추출
+    * [영수증 데이터 추출 - cURL](quickstarts/curl-receipts.md)
+    * [영수증 데이터 추출 - Python](quickstarts/python-receipts.md)
+  * 양식에서 텍스트 및 테이블 구조 추출
+    * [레이아웃 데이터 추출 - Python](quickstarts/python-layout.md)
+
 
 ### <a name="review-the-rest-apis"></a>REST API 검토
 
@@ -81,7 +83,7 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 | **영수증 분석** |단일 영수증 문서를 분석하여 키 정보 및 다른 영수증 텍스트를 추출합니다.|
 | **레이아웃 분석** |양식의 레이아웃을 분석하여 텍스트 및 테이블 구조를 추출합니다.|
 
-자세히 알아보려면 [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
+자세히 알아보려면 [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
 
 ## <a name="input-requirements"></a>입력 요구 사항
 ### <a name="custom-model"></a>사용자 지정 모델
@@ -104,4 +106,4 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작](quickstarts/curl-train-extract.md)을 수행하여 [Form Recognizer API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)를 시작합니다.
+[빠른 시작](quickstarts/curl-train-extract.md)을 수행하여 [Form Recognizer API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)를 시작합니다.

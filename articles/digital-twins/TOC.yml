@@ -78,16 +78,22 @@
       href: reference-service-limits.md
     - name: API 및 SDK
       items:
+        - name: REST API 참조
+          href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
         - name: 제어 평면
           items:
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
             - name: .NET (C#) SDK - NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+            - name: .NET (C#) SDK - 참조
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview'
             - name: .NET (C#) SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: Java SDK
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
+            - name: Java SDK - 참조
+              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview'
             - name: Java SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
             - name: JavaScript SDK
@@ -102,14 +108,12 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins'
         - name: 데이터 평면
           items:
-            - name: REST API 참조
-              href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins'
-            - name: .NET (C#) SDK - 참조
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: .NET (C#) SDK - NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
+            - name: .NET (C#) SDK - 참조
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: .NET (C#) SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
     - name: Digital Twins CLI
@@ -126,10 +130,20 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
         - name: DTDL 파서 라이브러리 - NuGet
           href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
-        - name: DTDL 유효성 검사기 샘플
-          href: 'https://github.com/Azure-Samples/dtdl-validator'
+        - name: DTDL 유효성 검사기(샘플)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
         - name: DTMI 사양
           href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: 도구 및 샘플 프로젝트
+      items:
+        - name: 디바이스 시뮬레이터 서비스
+          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
+        - name: Azure Digital Twins 샘플
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
+        - name: Azure Digital Twins 탐색기(샘플)
+          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+        - name: DTDL 유효성 검사기(샘플)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Azure 도구
       items:
         - name: Azure Cloud Shell

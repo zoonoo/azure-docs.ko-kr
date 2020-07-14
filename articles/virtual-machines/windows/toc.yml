@@ -151,7 +151,7 @@
     - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
-        - name: 리소스 관리자 템플릿
+        - name: Resource Manager 템플릿
           href: template-description.md
     - name: 영역
       href: regions.md
@@ -434,6 +434,8 @@
                   items:
                     - name: VM에서
                       href: ../image-version-vm-powershell.md
+                    - name: VHD 또는 스냅샷에서
+                      href: ../image-version-snapshot-powershell.md
                     - name: 관리형 이미지에서 마이그레이션
                       href: ../image-version-managed-image-powershell.md
                     - name: 다른 갤러리에서 복사
@@ -454,6 +456,8 @@
                   items:
                     - name: VM에서
                       href: ../image-version-vm-cli.md
+                    - name: VHD 또는 스냅샷에서
+                      href: ../image-version-snapshot-cli.md
                     - name: 관리형 이미지에서 마이그레이션
                       href: ../image-version-managed-image-cli.md
                     - name: 다른 갤러리에서 복사
@@ -508,6 +512,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: 이미지 검색 및 사용
           href: cli-ps-findimage.md
+        - name: 구매 계획 정보
+          href: ../marketplace-images.md
         - name: VM 업로드 준비
           href: prepare-for-upload-vhd-image.md
         - name: VM을 이미지에 캡처
@@ -853,10 +859,18 @@
           href: disks-incremental-snapshots-portal.md
         - name: 관리되지 않는 디스크 백업
           href: incremental-snapshots.md
+        - name: 암호화
+          items:
+            - name: 호스트 기반 암호화 사용 - PowerShell
+              href: disks-enable-host-based-encryption-powershell.md
+            - name: 고객 관리형 키 사용 - PowerShell
+              href: disks-enable-customer-managed-keys-powershell.md
+            - name: 고객 관리형 키 사용 - 포털
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: 미사용 이중 암호화 사용
+              href: disks-enable-double-encryption-at-rest-powershell.md
         - name: 마이그레이션 및 변환
           items:
-            - name: 서버 쪽 암호화로 변환
-              href: disks-ade-sse-conversion-powershell.md
             - name: 디스크를 표준 또는 프리미엄으로 변환
               href: convert-disk-storage.md
             - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션

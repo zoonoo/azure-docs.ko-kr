@@ -1,25 +1,25 @@
 ---
-title: 자습서 - Azure Spring Cloud에서 Config 서버 인스턴스 설정
-description: 이 자습서에서는 Azure Portal에서 Azure Spring Cloud용 Spring Cloud Config 서버 인스턴스를 설정하는 방법을 알아봅니다.
+title: Azure Spring Cloud에서 Config Server 인스턴스 설정
+description: Azure Portal에서 Azure Spring Cloud용 Spring Cloud Config Server 인스턴스를 설정하는 방법을 알아봅니다.
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 4c8b2e92cd7e88dde434e42971d091db689bfbc9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: bfce1ce54da9d9e8e7feaa8e8eb5cd676866a1cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791302"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142183"
 ---
-# <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>자습서: 서비스용 Spring Cloud Config 서버 인스턴스 설정
+# <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>서비스용 Spring Cloud Config 서버 인스턴스 설정
 
 이 문서에서는 Spring Cloud Config 서버 인스턴스를 Azure Spring Cloud 서비스에 연결하는 방법을 보여 줍니다.
 
 Spring Cloud Config는 분산 시스템에서 구체화된 구성에 대한 서버 및 클라이언트 쪽 지원을 제공합니다. Config 서버 인스턴스를 사용하면 모든 환경에서 애플리케이션에 대한 외부 속성을 관리할 수 있는 중앙 위치가 있습니다. 자세한 내용은 [Spring Cloud Config 서버 참고 자료](https://spring.io/projects/spring-cloud-config)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 * 이미 프로비저닝되어 실행되는 Azure Spring Cloud 서비스. Azure Spring Cloud 서비스를 설정하고 시작하려면 [빠른 시작: Azure CLI를 사용하여 Java Spring 애플리케이션 시작](spring-cloud-quickstart-launch-app-cli.md)을 참조하세요.
 
@@ -190,7 +190,4 @@ YAML 파일의 정보가 Azure Portal에 표시됩니다. **적용**을 선택�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Spring Cloud Config 서버 인스턴스를 사용하도록 설정하고 구성하는 방법을 알아보았습니다. 애플리케이션을 관리하는 방법에 대해 자세히 알아보려면 앱을 수동으로 크기 조정하는 방법에 대한 자습서로 계속 진행하세요.
-
-> [!div class="nextstepaction"]
-> [자습서: Azure Spring Cloud에서 애플리케이션 크기 조정](spring-cloud-tutorial-scale-manual.md)
+이 문서에서는 Spring Cloud Config Server 인스턴스를 사용하도록 설정하고 구성하는 방법을 알아보았습니다. 애플리케이션을 관리하는 방법에 대한 자세한 내용은 [Azure Spring Cloud의 애플리케이션 크기 조정](spring-cloud-tutorial-scale-manual.md)을 참조하세요.

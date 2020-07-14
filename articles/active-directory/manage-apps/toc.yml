@@ -5,6 +5,8 @@
   items:
     - name: 애플리케이션 관리란?
       href: what-is-application-management.md
+    - name: SSO(Single Sign-On)란?
+      href: what-is-single-sign-on.md
 - name: 빠른 시작
   items:
     - name: 앱 보기
@@ -19,6 +21,8 @@
       href: delete-application-portal.md
 - name: 자습서
   items:
+    - name: 갤러리에 나열되지 않은 앱 추가
+      href: add-non-gallery-app.md
     - name: '통합 갤러리 앱(예: ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: 애플리케이션 프록시를 통해 온-프레미스 앱 추가
@@ -46,8 +50,6 @@
               href: developer-guidance-for-integrating-applications.md
         - name: SSO(Single sign-on)
           items:
-            - name: Single Sign-On이란?
-              href: what-is-single-sign-on.md
             - name: 다중 테넌트 애플리케이션용 SSO 사용
               href: isv-sso-content.md
             - name: 다중 테넌트 애플리케이션용 Azure 테넌트 만들기
@@ -103,10 +105,6 @@
   items:
     - name: 클라우드 앱 및 Single Sign-On
       items:
-        - name: 클라우드 앱 추가
-          items:
-            - name: 비갤러리 앱 추가
-              href: add-non-gallery-app.md
         - name: Single Sign-On 구성
           items:
             - name: SAML 기반 Single Sign-On 구성
@@ -143,6 +141,8 @@
               href: configure-admin-consent-workflow.md
             - name: 앱에 사용자 또는 그룹 할당
               href: assign-user-or-group-access-portal.md
+            - name: 앱에 부여된 사용 권한 검토
+              href: manage-application-permissions.md
             - name: 내 앱에서 컬렉션 만들기
               href: access-panel-collections.md
             - name: 셀프 서비스 앱 액세스 사용

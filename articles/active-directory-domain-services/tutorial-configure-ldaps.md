@@ -7,18 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733945"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024862"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
-LDAP(Lightweight Directory Access Protocol)는 Azure AD DS(Azure Active Directory Domain Services) 관리되는 도메인과 통신하는 데 사용됩니다. 기본적으로 LDAP 트래픽은 암호화되지 않으므로 여러 환경에서 보안 문제가 됩니다. Azure AD DS를 사용하면 LDAPS(보안 Lightweight Directory Access Protocol)를 사용하도록 관리되는 도메인을 구성할 수 있습니다. 보안 LDAP를 사용하면 트래픽이 암호화됩니다. 보안 LDAP는 SSL(Secure Sockets Layer)/TLS(Transport Layer Security)를 통한 LDAP라고도 합니다.
+LDAP(Lightweight Directory Access Protocol)는 Azure AD DS(Azure Active Directory Domain Services) 관리되는 도메인과 통신하는 데 사용됩니다. 기본적으로 LDAP 트래픽은 암호화되지 않으므로 여러 환경에서 보안 문제가 됩니다.
+
+Azure AD DS를 사용하면 LDAPS(보안 Lightweight Directory Access Protocol)를 사용하도록 관리되는 도메인을 구성할 수 있습니다. 보안 LDAP를 사용하면 트래픽이 암호화됩니다. 보안 LDAP는 SSL(Secure Sockets Layer)/TLS(Transport Layer Security)를 통한 LDAP라고도 합니다.
 
 이 자습서에서는 Azure AD DS 관리되는 도메인에 대한 LDAPS를 구성하는 방법을 보여 줍니다.
 
@@ -68,7 +70,11 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 * **키 사용** - 인증서를 *디지털 서명* 및 *키 암호화*에 맞게 구성해야 합니다.
 * **인증서 용도** - 인증서는 TLS 서버 인증에 대해 유효해야 합니다.
 
-OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet 등 자체 서명된 인증서를 만드는 데 사용할 수 있는 여러 도구가 있습니다. 이 자습서에서는 [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet을 사용하여 보안 LDAP용 자체 서명된 인증서를 만들어 보겠습니다. PowerShell 창을 **관리자** 권한으로 열고 다음 명령을 실행합니다. *$dnsName* 변수를 사용자 고유의 관리되는 도메인에서 사용하는 DNS 이름(예: *aaddscontoso.com*)으로 바꿉니다.
+OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet 등 자체 서명된 인증서를 만드는 데 사용할 수 있는 여러 도구가 있습니다.
+
+이 자습서에서는 [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet을 사용하여 보안 LDAP용 자체 서명된 인증서를 만들어 보겠습니다.
+
+PowerShell 창을 **관리자** 권한으로 열고 다음 명령을 실행합니다. *$dnsName* 변수를 사용자 고유의 관리되는 도메인에서 사용하는 DNS 이름(예: *aaddscontoso.com*)으로 바꿉니다.
 
 ```powershell
 # Define your own DNS name used by your managed domain
@@ -108,7 +114,9 @@ Thumbprint                                Subject
     * 이 퍼블릭 키는 보안 LDAP 트래픽을 *암호화*하는 데 사용됩니다. 퍼블릭 키는 클라이언트 컴퓨터에 배포할 수 있습니다.
     * 프라이빗 키가 없는 인증서는 *.CER* 파일 형식을 사용합니다.
 
-이러한 두 키(*프라이빗* 키 및 *퍼블릭* 키)는 적절한 컴퓨터만 성공적으로 상호 통신할 수 있도록 합니다. 퍼블릭 CA 또는 엔터프라이즈 CA를 사용하는 경우 프라이빗 키가 포함된 인증서가 발급되고 관리되는 도메인에 적용할 수 있습니다. 퍼블릭 키는 클라이언트 컴퓨터에서 이미 알고 있고 신뢰할 수 있어야 합니다. 이 자습서에서는 프라이빗 키를 사용하여 자체 서명된 인증서를 만들었으므로 적절한 프라이빗 및 퍼블릭 구성 요소를 내보내야 합니다.
+이러한 두 키(*프라이빗* 키 및 *퍼블릭* 키)는 적절한 컴퓨터만 성공적으로 상호 통신할 수 있도록 합니다. 퍼블릭 CA 또는 엔터프라이즈 CA를 사용하는 경우 프라이빗 키가 포함된 인증서가 발급되고 관리되는 도메인에 적용할 수 있습니다. 퍼블릭 키는 클라이언트 컴퓨터에서 이미 알고 있고 신뢰할 수 있어야 합니다.
+
+이 자습서에서는 프라이빗 키를 사용하여 자체 서명된 인증서를 만들었으므로 적절한 프라이빗 및 퍼블릭 구성 요소를 내보내야 합니다.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Azure AD DS에 대한 인증서 내보내기
 
@@ -148,7 +156,9 @@ Thumbprint                                Subject
 
 ### <a name="export-a-certificate-for-client-computers"></a>클라이언트 컴퓨터에 대한 인증서 내보내기
 
-클라이언트 컴퓨터는 LDAPS를 사용하여 관리되는 도메인에 성공적으로 연결할 수 있도록 보안 LDAP 인증서의 발급자를 신뢰해야 합니다. 클라이언트 컴퓨터에는 Azure AD DS에서 암호 해독할 데이터를 성공적으로 암호화하기 위해 인증서가 필요합니다. 퍼블릭 CA를 사용하는 경우 컴퓨터는 이러한 인증서 발급자를 자동으로 신뢰하고 해당 인증서를 갖추고 있어야 합니다. 이 자습서에서는 자체 서명된 인증서를 사용하고, 이전 단계에서 프라이빗 키가 포함된 인증서를 생성했습니다. 이제 자체 서명된 인증서를 내보낸 다음, 클라이언트 컴퓨터의 신뢰할 수 있는 인증서 저장소로 설치해 보겠습니다.
+클라이언트 컴퓨터는 LDAPS를 사용하여 관리되는 도메인에 성공적으로 연결할 수 있도록 보안 LDAP 인증서의 발급자를 신뢰해야 합니다. 클라이언트 컴퓨터에는 Azure AD DS에서 암호 해독할 데이터를 성공적으로 암호화하기 위해 인증서가 필요합니다. 퍼블릭 CA를 사용하는 경우 컴퓨터는 이러한 인증서 발급자를 자동으로 신뢰하고 해당 인증서를 갖추고 있어야 합니다.
+
+이 자습서에서는 자체 서명된 인증서를 사용하고, 이전 단계에서 프라이빗 키가 포함된 인증서를 생성했습니다. 이제 자체 서명된 인증서를 내보낸 다음, 클라이언트 컴퓨터의 신뢰할 수 있는 인증서 저장소로 설치해 보겠습니다.
 
 1. MMC의 *인증서 - 로컬 컴퓨터 > 개인 > 인증서* 저장소로 돌아갑니다. 이전 단계에서 만든 자체 서명된 인증서(예: *aaddscontoso.com*)가 표시됩니다. 마우스 오른쪽 단추로 이 인증서를 선택한 다음, **모든 작업 > 내보내기...** 를 차례로 선택합니다.
 1. **인증서 내보내기 마법사**에서 **다음**을 선택합니다.
@@ -186,7 +196,10 @@ Thumbprint                                Subject
 
 1. **보안 LDAP 인증서가 포함된 .PFX 파일** 옆에 있는 폴더 아이콘을 선택합니다. *.PFX* 파일의 경로를 찾은 다음, 이전 단계에서 만든 프라이빗 키가 포함된 인증서를 선택합니다.
 
-    인증서 요구 사항에 대한 이전 섹션에서 설명한 대로 기본 *.onmicrosoft.com* 도메인이 있는 퍼블릭 CA의 인증서는 사용할 수 없습니다. Microsoft에서 *.onmicrosoft.com* 도메인을 소유하고 있으므로 퍼블릭 CA는 인증서를 발급하지 않습니다. 인증서가 적절한 형식인지 확인합니다. 그렇지 않은 경우 보안 LDAP를 사용하도록 설정하면 Azure 플랫폼에서 인증서 유효성 검사 오류가 생성됩니다.
+    > [!IMPORTANT]
+    > 인증서 요구 사항에 대한 이전 섹션에서 설명한 대로 기본 *.onmicrosoft.com* 도메인이 있는 퍼블릭 CA의 인증서는 사용할 수 없습니다. Microsoft에서 *.onmicrosoft.com* 도메인을 소유하고 있으므로 퍼블릭 CA는 인증서를 발급하지 않습니다.
+    >
+    > 인증서가 적절한 형식인지 확인합니다. 그렇지 않은 경우 보안 LDAP를 사용하도록 설정하면 Azure 플랫폼에서 인증서 유효성 검사 오류가 생성됩니다.
 
 1. 인증서를 *.PFX* 파일로 내보낸 이전 단계에서 설정한 **.PFX 파일을 해독하기 위한 암호**를 입력합니다.
 1. **저장**을 선택하여 보안 LDAP를 사용하도록 설정합니다.
@@ -195,7 +208,9 @@ Thumbprint                                Subject
 
 관리되는 도메인에 보안 LDAP를 구성하고 있다는 알림이 표시됩니다. 이 작업이 완료될 때까지 관리되는 도메인에 대한 다른 설정은 수정할 수 없습니다.
 
-관리되는 도메인에서 보안 LDAP를 사용하도록 설정하는 데 몇 분 정도 걸립니다. 제공한 보안 LDAP 인증서가 필요한 조건과 일치하지 않으면 관리되는 도메인에서 보안 LDAP를 사용하도록 설정하는 작업이 실패합니다. 도메인 이름이 올바르지 않거나 인증서가 곧 만료되거나 이미 만료된 경우 몇 가지 일반적인 오류가 발생합니다. 유효한 매개 변수를 사용하여 인증서를 다시 만든 다음, 이 업데이트된 인증서를 사용하여 보안 LDAP를 사용하도록 설정할 수 있습니다.
+관리되는 도메인에서 보안 LDAP를 사용하도록 설정하는 데 몇 분 정도 걸립니다. 제공한 보안 LDAP 인증서가 필요한 조건과 일치하지 않으면 관리되는 도메인에서 보안 LDAP를 사용하도록 설정하는 작업이 실패합니다.
+
+도메인 이름이 올바르지 않거나 인증서가 곧 만료되거나 이미 만료된 경우 몇 가지 일반적인 오류가 발생합니다. 유효한 매개 변수를 사용하여 인증서를 다시 만든 다음, 이 업데이트된 인증서를 사용하여 보안 LDAP를 사용하도록 설정할 수 있습니다.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>인터넷을 통한 보안 LDAP 액세스 잠금
 
@@ -230,7 +245,7 @@ Thumbprint                                Subject
 
 ![Azure Portal에서 관리되는 도메인의 보안 LDAP 외부 IP 주소 보기](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-이 외부 IP 주소로 확인할 호스트 레코드(예: *ldaps*)를 만들도록 외부 DNS 공급자를 구성합니다. 먼저 머신에서 로컬로 테스트하기 위해 항목을 Windows 호스트 파일에 만들 수 있습니다. 로컬 머신의 호스트 파일을 성공적으로 편집하려면 *메모장*을 관리자 권한으로 연 다음, *C:\Windows\System32\drivers\etc* 파일을 엽니다.
+이 외부 IP 주소로 확인할 호스트 레코드(예: *ldaps*)를 만들도록 외부 DNS 공급자를 구성합니다. 먼저 머신에서 로컬로 테스트하기 위해 항목을 Windows 호스트 파일에 만들 수 있습니다. 로컬 머신의 호스트 파일을 성공적으로 편집하려면 *메모장*을 관리자 권한으로 연 다음, *C:\Windows\System32\drivers\etc\hosts* 파일을 엽니다.
 
 외부 DNS 공급자 또는 로컬 호스트 파일에 있는 다음 DNS 항목 예제에서는 *ldaps.aaddscontoso.com*의 트래픽을 *168.62.205.103*의 외부 IP 주소로 확인합니다.
 
@@ -269,7 +284,7 @@ Thumbprint                                Subject
 이 자습서의 연결을 테스트하기 위해 DNS 항목을 컴퓨터의 로컬 호스트 파일에 추가한 경우 이 항목을 제거하고 정식 레코드를 DNS 영역에 추가합니다. 로컬 호스트 파일에서 항목을 제거하려면 다음 단계를 수행합니다.
 
 1. 로컬 머신에서 *메모장*을 관리자 권한으로 엽니다.
-1. *C:\Windows\System32\drivers\etc* 파일을 찾아서 엽니다.
+1. *C:\Windows\System32\drivers\etc\hosts* 파일을 찾아서 엽니다.
 1. 추가한 레코드에 대한 줄(예: `168.62.205.103    ldaps.aaddscontoso.com`)을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계

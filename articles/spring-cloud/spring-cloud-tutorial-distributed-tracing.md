@@ -1,17 +1,17 @@
 ---
-title: 자습서 - Azure Spring Cloud에서 분산 추적 사용
-description: 이 자습서에서는 Azure Application Insights를 통해 Spring Cloud의 분산 추적을 사용하는 방법을 보여줍니다.
+title: Azure Spring Cloud에서 분산 추적 사용
+description: Azure Application Insights를 통해 Spring Cloud의 분산 추적을 사용하는 방법을 알아봅니다.
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ccaf58465c1ade0228daea2b535d06fb6168d64f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273202"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142112"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
 
@@ -25,9 +25,9 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
 > * 마이크로서비스 애플리케이션에 대한 종속성 맵 보기
 > * 다양한 필터로 추적 데이터 검색
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 완료하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. [Azure CLI를 통해 앱을 배포하는 빠른 시작](spring-cloud-quickstart-launch-app-cli.md)을 완료하면 Azure Spring Cloud 서비스를 프로비저닝하고 실행할 수 있습니다.
+다음 절차를 수행하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. [Azure CLI를 통해 앱을 배포하는 빠른 시작](spring-cloud-quickstart-launch-app-cli.md)을 완료하면 Azure Spring Cloud 서비스를 프로비저닝하고 실행할 수 있습니다.
     
 ## <a name="add-dependencies"></a>종속성 추가
 
@@ -102,7 +102,4 @@ Application Insights는 애플리케이션 맵과 검색 기능 외에도 모니
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Spring Cloud에서 분산 추적을 사용하도록 설정하고 이해하는 방법을 알아보았습니다. 애플리케이션을 Azure Cosmos DB 데이터베이스에 바인딩하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
-
-> [!div class="nextstepaction"]
-> [Azure Cosmos DB 데이터베이스에 바인딩하는 방법 알아보기](spring-cloud-tutorial-bind-cosmos.md)
+이 문서에서는 Azure Spring Cloud에서 분산 추적을 사용하도록 설정하고 이해하는 방법을 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩](spring-cloud-tutorial-bind-cosmos.md)을 참조하세요.

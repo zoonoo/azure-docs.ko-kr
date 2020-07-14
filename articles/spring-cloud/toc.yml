@@ -5,55 +5,55 @@
   items:
     - name: Azure Spring Cloud란?
       href: spring-cloud-overview.md
+    - name: 스프링 마이크로서비스 앱용 Java 및 기본 OS
+      href: spring-cloud-principles-microservice-apps.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 포털을 사용하여 Spring Cloud 앱 시작
+    - name: Spring Cloud 앱 시작 - 포털
       href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Azure CLI를 사용하여 Spring Cloud 앱 시작
+    - name: Spring Cloud 앱 시작 - Azure CLI
       href: spring-cloud-quickstart-launch-app-cli.md
-    - name: 원본에서 Spring Cloud 앱 시작
+    - name: Spring Cloud 앱 시작 - 원본
       href: spring-cloud-launch-from-source.md
-    - name: Maven을 사용하여 Spring Cloud 앱 시작
+    - name: Spring Cloud 앱 시작 - Maven
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: 자습서
   items:
-    - name: 구성 서버 설정
-      href: spring-cloud-tutorial-config-server.md
-    - name: 수동으로 애플리케이션 크기 조정
+    - name: 수동으로 앱 스케일링
       href: spring-cloud-tutorial-scale-manual.md
-    - name: 분산 추적 및 App Insights를 사용하여 애플리케이션 모니터링
-      href: spring-cloud-tutorial-distributed-tracing.md
-    - name: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스 모니터링
+    - name: 경고 및 작업 그룹
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Azure CosmosDB에 애플리케이션 바인딩
-      href: spring-cloud-tutorial-bind-cosmos.md
-    - name: Redis용 Azure Cache를 사용하여 애플리케이션 바인딩
-      href: spring-cloud-tutorial-bind-redis.md
-    - name: Azure MySQL에 애플리케이션 바인딩
-      href: spring-cloud-tutorial-bind-mysql.md
-    - name: Azure Spring Cloud를 사용하는 회로 차단기 대시보드
+    - name: IntelliJ를 사용하여 앱 배포
+      href: spring-cloud-tutorial-intellij-deploy-apps.md
+    - name: 회로 차단기 대시보드
       href: spring-cloud-tutorial-circuit-breaker.md
-    - name: Azure Spring Cloud에 사용자 지정 DNS 이름 매핑
+    - name: 사용자 지정 DNS 이름
       href: spring-cloud-tutorial-custom-domain.md
     - name: IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
       href: spring-cloud-tutorial-intellij-deploy-apps.md
+    - name: Terraform을 사용하여 Azure Spring Cloud 인스턴스를 프로비저닝
+      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
+    - name: Jenkins를 사용하는 CI/CD
+      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+    - name: 관리 ID를 사용하여 Key Vault를 Azure Spring Cloud 앱에 연결
+      href: spring-cloud-tutorial-managed-identities-key-vault.md
 - name: 샘플
   items:
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
   items:
-    - name: Azure Spring Cloud 할당량 및 제한 이해
+    - name: 할당량 및 한도 이해
       href: spring-cloud-quotas.md
-    - name: Azure Spring Cloud의 메트릭 이해
+    - name: 메트릭 이해
       href: spring-cloud-concept-metrics.md
-    - name: Azure Spring Boot Actuator를 사용하여 앱 관리 및 모니터링
+    - name: Azure Spring Boot Actuator
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Azure Spring Cloud Service의 보안 컨트롤
+    - name: 보안 컨트롤
       href: spring-cloud-concept-security-controls.md
-    - name: Azure Spring Cloud의 앱 상태 이해
+    - name: 앱 상태 이해
       href: spring-cloud-concept-app-status.md
     - name: 재해 복구 계획
       href: disaster-recovery.md
@@ -61,34 +61,48 @@
   items:
     - name: 배포용 Java Spring 앱 준비
       href: spring-cloud-tutorial-prepare-app-deployment.md
-    - name: 'Azure Spring Cloud 애플리케이션을 시작, 중지 및 삭제하는 방법'
-      href: spring-cloud-howto-start-stop-delete.md
-    - name: 스테이징 환경을 설정하는 방법
-      href: spring-cloud-howto-staging-environment.md
+    - name: 구성 서버 설정
+      href: spring-cloud-tutorial-config-server.md
     - name: 서비스 등록 사용
       href: spring-cloud-service-registration.md
-    - name: 애플리케이션 로그 및 메트릭 분석
-      href: diagnostic-services.md
-    - name: 실시간으로 Azure Spring Cloud 앱 로그 스트림
-      href: spring-cloud-howto-log-streaming.md
-    - name: Azure Spring Cloud에서 영구 스토리지 사용
+    - name: Azure CosmosDB에 앱 바인딩
+      href: spring-cloud-tutorial-bind-cosmos.md
+    - name: Azure Cache for Redis에 앱 바인딩
+      href: spring-cloud-tutorial-bind-redis.md
+    - name: Azure MySQL에 앱 바인딩
+      href: spring-cloud-tutorial-bind-mysql.md
+    - name: '앱 시작, 중지 및 삭제'
+      href: spring-cloud-howto-start-stop-delete.md
+    - name: 스테이징 환경 설정
+      href: spring-cloud-howto-staging-environment.md
+    - name: 영구 스토리지 사용
       href: spring-cloud-howto-persistent-storage.md
-    - name: Azure 부하 분산 솔루션과 Azure Spring Cloud 통합
+    - name: Azure 부하 분산 솔루션과 통합
       href: spring-cloud-howto-integrate-azure-load-balancers.md
-    - name: Azure Spring Cloud 애플리케이션에 대해 시스템에서 할당한 관리 ID 사용
+    - name: 시스템이 할당한 관리 ID 사용
       href: spring-cloud-howto-enable-system-assigned-managed-identity.md
-    - name: Azure Spring Cloud의 자체 진단 및 문제 해결
+    - name: 문제 자체 진단 및 해결
       href: spring-cloud-howto-self-diagnose-solve.md
-- name: Azure Spring Cloud에 DevOps 배포
-  items:
-    - name: Azure DevOps를 사용하는 CI/CD
-      href: spring-cloud-howto-cicd.md
-    - name: GitHub 작업을 사용하는 CI/CD
-      href: spring-cloud-howto-github-actions.md
-    - name: GitHub 작업에서 Key Vault를 사용하여 Azure Spring Cloud 인증
-      href: spring-cloud-github-actions-key-vault.md
-    - name: Jenkins를 사용하는 CI/CD
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+    - name: 모니터
+      items:
+        - name: 분산 추적 및 앱 인사이트
+          href: spring-cloud-tutorial-distributed-tracing.md
+        - name: 로그 및 메트릭 분석
+          href: diagnostic-services.md
+        - name: 실시간으로 로그 스트림
+          href: spring-cloud-howto-log-streaming.md
+    - name: DevOps 배포
+      items:
+        - name: Azure DevOps를 사용하는 CI/CD
+          href: spring-cloud-howto-cicd.md
+        - name: GitHub 작업을 사용하는 CI/CD
+          href: spring-cloud-howto-github-actions.md
+        - name: GitHub 작업에서 Key Vault를 사용한 인증
+          href: spring-cloud-github-actions-key-vault.md
+    - name: 문제 해결
+      items:
+        - name: 문제 해결 가이드
+          href: spring-cloud-troubleshoot.md
 - name: 참조
   items:
     - name: Azure CLI 플러그 인
@@ -97,7 +111,5 @@
       href: spring-cloud-resources.md
     - name: 질문과 대답
       href: spring-cloud-faq.md
-    - name: 문제 해결 가이드
-      href: spring-cloud-troubleshoot.md
     - name: REST API 참조
       href: 'https://docs.microsoft.com/rest/api/azurespringclould/'

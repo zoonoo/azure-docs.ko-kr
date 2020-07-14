@@ -1,23 +1,23 @@
 ---
-title: 자습서 - Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법
-description: 이 자습서에서는 Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법을 보여줍니다.
+title: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법
+description: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법을 알아봅니다.
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 657aa70d77fd1af9fd2121a3e98ea3aca7773642
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6f2c9a46d8b17a53d2dc43c0c8313c9357f502a1
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76277553"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142175"
 ---
-# <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>자습서: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩 
+# <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩 
 
-Azure Spring Cloud를 사용하면 Spring Boot 애플리케이션을 수동으로 구성하는 대신, 선택한 Azure 서비스를 애플리케이션에 자동으로 바인딩할 수 있습니다. 이 자습서에서는 애플리케이션을 Azure Database for MySQL 인스턴스에 바인딩하는 방법을 보여줍니다.
+Azure Spring Cloud를 사용하면 Spring Boot 애플리케이션을 수동으로 구성하는 대신, 선택한 Azure 서비스를 애플리케이션에 자동으로 바인딩할 수 있습니다. 이 문서에서는 애플리케이션을 Azure Database for MySQL 인스턴스에 바인딩하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 배포된 Azure Spring Cloud 인스턴스
 * Azure Database for MySQL 계정
@@ -61,7 +61,4 @@ Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Spring Cloud 애플리케이션을 Azure Database for MySQL 인스턴스에 바인딩하는 방법을 알아보았습니다.  Azure Spring Cloud 서비스를 관리하는 방법에 대한 자세한 내용은 서비스 검색 및 등록에 대한 문서를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [Spring Cloud 서비스 레지스트리를 사용하여 서비스 검색 및 등록을 사용하도록 설정하는 방법](spring-cloud-service-registration.md)
+이 문서에서는 Azure Spring Cloud 애플리케이션을 Azure Database for MySQL 인스턴스에 바인딩하는 방법을 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩](spring-cloud-tutorial-bind-cosmos.md)을 참조하세요.

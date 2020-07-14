@@ -257,6 +257,8 @@
           href: private-clusters.md
         - name: 디스크용 BYOK
           href: azure-disk-customer-managed-keys.md
+        - name: 호스트 기반 암호화 사용
+          href: enable-host-encryption.md
     - name: 모니터링 및 로깅
       items:
         - name: 컨테이너용 Azure Monitor
@@ -282,9 +284,9 @@
         - name: Kubernetes 대시보드 사용
           href: kubernetes-dashboard.md
         - name: Windows Server 컨테이너용 Dockerfiles 만들기
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+          href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Windows Server 컨테이너용 Dockerfiles 최적화
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
+          href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: 애플리케이션 개발 및 실행
       items:
         - name: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용(미리 보기)

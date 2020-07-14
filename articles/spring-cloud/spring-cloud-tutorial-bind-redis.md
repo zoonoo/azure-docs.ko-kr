@@ -1,23 +1,23 @@
 ---
-title: 자습서 - Azure Cache for Redis를 Azure Spring Cloud 애플리케이션에 바인딩
-description: 이 자습서에서는 Azure Cache for Redis를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법을 보여줍니다.
+title: Azure Cache for Redis를 Azure Spring Cloud 애플리케이션에 바인딩
+description: Azure Cache for Redis를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법 알아보기
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: brendm
-ms.openlocfilehash: 94f7b5a2363b7c53e0f70500e5a0a8cb6f64e611
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ddf239fc6415b3dbee6051d4199cd29e5244e4d2
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76277513"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142141"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Azure Cache for Redis를 Azure Spring Cloud 애플리케이션에 바인딩 
 
 Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring Cloud를 사용하여 선택한 Azure 서비스를 사용자 애플리케이션에 자동으로 바인딩할 수 있습니다. 이 문서에서는 Azure Cache for Redis에 애플리케이션을 바인딩하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 배포된 Azure Spring Cloud 인스턴스
 * Azure Cache for Redis 서비스 인스턴스
@@ -55,7 +55,4 @@ Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Spring Cloud 애플리케이션을 Azure Cache for Redis에 바인딩하는 방법에 대해 알아보았습니다. 애플리케이션에 서비스를 바인딩하는 방법에 대한 자세한 내용은 Azure Database for MySQL 인스턴스에 애플리케이션을 바인딩하는 자습서를 계속 진행하세요.
-
-> [!div class="nextstepaction"]
-> [Azure Database for MySQL 인스턴스에 바인딩하는 방법에 대해 알아봅니다.](spring-cloud-tutorial-bind-mysql.md)
+이 문서에서는 Azure Spring Cloud 애플리케이션을 Azure Cache for Redis에 바인딩하는 방법을 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Database for MySQL 인스턴스에 바인딩](spring-cloud-tutorial-bind-mysql.md)을 참조하세요.

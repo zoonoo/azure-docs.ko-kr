@@ -17,6 +17,8 @@
       href: integration-patterns-in-azure-farmbeats.md
     - name: 센서 파트너 통합
       href: sensor-partner-integration-in-azure-farmbeats.md
+    - name: 날씨 파트너 통합
+      href: weather-partner-integration-in-azure-farmbeats.md
     - name: 이미지 파트너 통합
       href: imagery-partner-integration-in-azure-farmbeats.md
 - name: 방법 가이드
@@ -29,6 +31,8 @@
       href: manage-farms-in-azure-farmbeats.md
     - name: 센서 데이터 가져오기
       href: get-sensor-data-from-sensor-partner.md
+    - name: 날씨 데이터 가져오기
+      href: get-weather-data-from-weather-partner.md
     - name: 맵 생성
       href: generate-maps-in-azure-farmbeats.md
     - name: 규칙 구성 및 경고 관리

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: trbye, jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 04/15/2020
+ms.date: 06/23/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: b26527321cf7fc5ca7fc4b061f11b86f8830ec29
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e5665bd5ad2baa35b497c8b4fe19b0cb93bdb2a7
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552312"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023366"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ ParallelRunStep을 사용하면 간단하게 오프라인 유추를 대규모 �
 > * ParallelRunStep을 포함하는 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 MNIST 테스트 이미지에서 일괄 처리 유추를 실행합니다. 
 > * 새로운 데이터 입력과 매개 변수를 사용하여 일괄 처리 유추 실행을 다시 전송합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -112,9 +112,6 @@ else:
 from azureml.core import Datastore
 from azureml.core import Workspace
 
-# Load workspace authorization details from config.json
-ws = Workspace.from_config()
-
 mnist_blob = Datastore.register_azure_blob_container(ws, 
                       datastore_name="mnist_datastore", 
                       container_name="sampledata", 
@@ -140,8 +137,6 @@ Azure Machine Learning 데이터 세트에 대한 자세한 내용은 [데이터
 
 ```python
 from azureml.core.dataset import Dataset
-
-mnist_ds_name = 'mnist_sample_data'
 
 path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
@@ -210,7 +205,7 @@ model = Model.register(model_path="models/",
 - `init()`: 이후 유추를 위해 비용이 많이 드는 준비 또는 일반적인 준비에 이 함수를 사용합니다. 예를 들어 모델을 글로벌 개체에 로드하는 데 사용합니다. 이 함수는 프로세스를 시작할 때 한 번만 호출됩니다.
 -  `run(mini_batch)`: 이 함수는 각 `mini_batch` 인스턴스에 대해 실행됩니다.
     -  `mini_batch`: ParallelRunStep은 run 메서드를 호출하고 목록 또는 Pandas DataFrame을 메서드에 인수로 전달합니다. 입력이 FileDataset이면 mini_batch의 각 항목이 파일 경로이고, 입력이 TabularDataset이면 Pandas 데이터 프레임입니다.
-    -  `response`: run() 메서드는 Pandas 데이터 프레임 또는 배열을 반환해야 합니다. append_row output_action의 경우 반환되는 요소가 공통 출력 파일에 추가됩니다. summary_only의 경우 요소의 내용이 무시됩니다. 모든 출력 작업의 경우 반환되는 각 출력 요소는 입력 미니 일괄 처리의 입력 요소에 대한 성공적인 실행 하나를 나타냅니다. 사용자는 입력을 실행 출력 결과에 매핑하기에 충분한 데이터가 실행에 포함되어 있는지 확인해야 합니다. 실행 출력은 출력 파일에 기록되지만 순서대로 기록된다는 보장은 없으므로, 사용자는 출력의 키를 사용하여 입력에 매핑해야 합니다.
+    -  `response`: run() 메서드는 Pandas 데이터 프레임 또는 배열을 반환해야 합니다. append_row output_action의 경우 반환되는 요소가 공통 출력 파일에 추가됩니다. summary_only의 경우 요소의 내용이 무시됩니다. 모든 출력 작업의 경우 반환되는 각 출력 요소는 입력 미니 일괄 처리의 입력 요소에 대한 성공적인 실행 하나를 나타냅니다. 입력을 실행 출력 결과에 매핑하기에 충분한 데이터가 실행 결과에 포함되어 있는지 확인합니다. 실행 출력은 출력 파일에 기록되지만 순서대로 기록된다는 보장은 없으므로, 사용자는 출력의 키를 사용하여 입력에 매핑해야 합니다.
 
 ```python
 # Snippets from a sample script.
@@ -218,6 +213,7 @@ model = Model.register(model_path="models/",
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
+%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -266,11 +262,11 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 ## <a name="build-and-run-the-pipeline-containing-parallelrunstep"></a>ParallelRunStep을 포함하는 파이프라인 빌드 및 실행
 
-필요한 데이터 입력, 모델, 출력 및 유추 스크립트가 모두 준비되었습니다. 이제 ParallelRunStep을 포함하는 일괄 처리 유추 파이프라인을 빌드하겠습니다.
+이제 필요한 데이터 입력, 모델, 출력 및 유추 스크립트가 모두 준비되었습니다. 이제 ParallelRunStep을 포함하는 일괄 처리 유추 파이프라인을 빌드하겠습니다.
 
 ### <a name="prepare-the-environment"></a>환경 준비
 
-먼저 스크립트의 종속성을 지정합니다. 그러면 pip 패키지를 설치할 수 있을 뿐 아니라 환경을 구성할 수 있습니다. 항상 **azureml-core** 및 **azureml-dataprep[pandas, fuse]** 패키지를 포함해야 합니다.
+먼저 스크립트의 종속성을 지정합니다. 이렇게 하면 pip 패키지를 설치하고 환경을 구성할 수 있습니다. 항상 **azureml-core** 및 **azureml-dataprep[pandas, fuse]** 패키지를 포함합니다.
 
 사용자 지정 docker 이미지(user_managed_dependencies=True)를 사용하는 경우에도 conda가 설치되어 있어야 합니다.
 
@@ -311,12 +307,14 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` 및 `run_max_try`를 `PipelineParameter`로 지정할 수 있습니다. 그러면 파이프라인 실행을 다시 제출할 때 매개 변수 값을 세밀하게 조정할 수 있습니다. 이 예제에서는 `mini_batch_size` 및 `Process_count_per_node`에 PipelineParameter를 사용하며, 나중에 실행을 다시 제출할 때 이 값을 변경할 것입니다. 
 
+이 예에서는 앞에서 설명한 `digit_identification.py` 스크립트를 사용한다고 가정합니다. 고유한 스크립트를 사용하는 경우 그에 따라 `source_directory` 및 `entry_script` 매개 변수를 변경합니다.
+
 ```python
 from azureml.pipeline.core import PipelineParameter
 from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
-    source_directory=scripts_folder,
+    source_directory='.',
     entry_script="digit_identification.py",
     mini_batch_size=PipelineParameter(name="batch_size_param", default_value="5"),
     error_threshold=10,
@@ -384,9 +382,8 @@ pipeline_run.wait_for_completion(show_output=True)
 `PipelineParameter`로 입력과 여러 구성을 만들었으므로, 파이프라인을 완전히 새로 만들지 않고도 다른 데이터 세트 입력을 사용하여 일괄 처리 유추 실행을 다시 제출하고 매개 변수를 미세 조정할 수 있습니다. 동일한 데이터 저장소를 사용하지만 데이터 입력으로 단일 이미지만 사용합니다.
 
 ```python
-path_on_datastore = mnist_data.path('mnist/0.png')
+path_on_datastore = mnist_blob.path('mnist/0.png')
 single_image_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
-single_image_ds._ensure_saved(ws)
 
 pipeline_run_2 = experiment.submit(pipeline, 
                                    pipeline_parameters={"mnist_param": single_image_ds, 

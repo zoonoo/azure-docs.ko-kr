@@ -7,17 +7,14 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 170901f3410c85ab53a306529053e611b36fa8ec
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298398"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027890"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Azure Digital Twins API를 사용하여 코딩
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azure Digital Twins를 사용하는 개발자는 Azure Digital Twins 서비스 인스턴스와 상호 작용하기 위한 클라이언트 애플리케이션을 작성하는 것이 일반적입니다. 이 개발자 중심 자습서에서는 [.NET(C#)용 Azure IoT Digital Twin 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)를 사용하여 Azure Digital Twins 서비스에 대한 프로그래밍을 소개합니다. C# 콘솔 클라이언트 앱을 작성하는 과정을 처음부터 단계별로 안내합니다.
 
@@ -288,6 +285,7 @@ Azure Digital Twins에 모델을 업로드했으므로 이제 이 모델 정의�
 
 ```csharp
 using System.Text.Json;
+using Azure.DigitalTwins.Core.Serialization;
 ```
 
 그런 다음 `Main` 메서드의 끝에 다음 코드를 추가하여 이 모델을 기반으로 세 개의 디지털 트윈을 만들고 초기화합니다.
@@ -318,7 +316,7 @@ for(int i=0; i<3; i++) {
 
 다음으로, 앞에서 만든 트윈 간의 **관계**를 만들어 **트윈 그래프**로 연결할 수 있습니다. [트윈 그래프](concepts-twins-graph.md)는 전체 환경을 나타내는 데 사용됩니다.
 
-관계를 만들려면 SDK에서 관계 기본 형식에 대한 `using` 문을 추가합니다.
+관계를 만들려면 SDK에서 관계 기본 형식에 대한 `using` 문을 추가합니다. 이미 추가된 경우 건너뜁니다.
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
@@ -566,5 +564,5 @@ az ad app delete --id <your-application-ID>
 > [자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기](tutorial-command-line-app.md)
 
 또한 방법 문서에서 추가 관리 작업을 학습하여 이 자습서에서 작성한 코드에 추가하거나, 개념 설명서를 검토하여 자습서에서 작업한 요소에 대한 자세한 정보를 알아볼 수 있습니다.
-* [방법: 트윈 모델 관리](how-to-manage-model.md)
+* [방법: 사용자 지정 모델 관리](how-to-manage-model.md)
 * [개념: 사용자 지정 모델](concepts-models.md)

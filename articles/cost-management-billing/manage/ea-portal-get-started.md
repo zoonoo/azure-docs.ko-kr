@@ -3,16 +3,16 @@ title: Azure Enterprise Portal 시작
 description: 이 문서에서는 Azure EA(Azure 기업계약) 고객이 Azure Enterprise Portal을 사용하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/29/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2d4fbf90afa93f3dbde12a3bc5ce02f9a60b6c5d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560354"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044960"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Azure Enterprise Portal 시작
 
@@ -372,7 +372,7 @@ Azure in Open 구독을 기업계약과 연결하면 사용하지 않은 Azure i
 
 ## <a name="view-usage-summary-and-download-reports"></a>사용 요약 정보 보기 및 보고서 다운로드
 
-엔터프라이즈 관리자는 Azure Enterprise Portal에서 사용량 데이터, 사용된 약정 금액, 추가 사용량 관련 요금에 대한 요약 정보를 볼 수 있습니다. 요금 정보는 모든 계정 및 구독에서 요약 정보로 제공됩니다.
+엔터프라이즈 관리자는 Azure Enterprise Portal에서 사용량 데이터, 사용된 Azure 선불 및 추가 사용량 관련 요금에 대한 요약 정보를 볼 수 있습니다. 요금 정보는 모든 계정 및 구독에서 요약 정보로 제공됩니다.
 
 특정 계정의 자세한 사용량을 보려면 사용량 세부 정보 보고서를 다운로드합니다.
 
@@ -390,7 +390,7 @@ Azure in Open 구독을 기업계약과 연결하면 사용하지 않은 Azure i
 
 1. Azure Enterprise Portal에 로그인합니다.
 
-1. 약정 기간을 선택합니다.
+1. 선불 기간을 선택합니다.
 
    **사용 요약**의 날짜 범위를 변경하려면 페이지의 오른쪽 위에서 **M**(월별)을 **C**(사용자 지정)로 전환하고 사용자 지정 시작 및 종료 날짜를 입력합니다.
 
@@ -455,7 +455,7 @@ Azure Enterprise Portal은 보기에서 비활성 등록을 필터링합니다. 
 - **계정**: Azure Enterprise Portal의 조직 구성 단위입니다. 구독을 관리하고 보고하는 데 사용됩니다.
 - **계정 소유자**: Azure에서 구독 및 서비스 관리자를 관리하는 사람입니다. 이 계정 및 계정과 연결된 구독의 사용량 데이터를 볼 수 있습니다.
 - **수정 구독**: 등록 수정계약에 따라 체결된 1년 또는 그와 동일한 구독입니다.
-- **약정**: Azure 서비스 요금을 선결제하는 대신 할인된 약정 금액으로 사용할 수 있는 연간 금액 약정입니다.
+- **선불**: Azure 서비스 요금을 선결제하는 대신 할인된 선불 금액으로 사용할 수 있는 연간 선불 금액입니다.
 - **부서 관리자**: 부서를 관리하고, 새 계정 및 계정 소유자를 만들고, 관리하는 부서의 사용량 세부 정보를 살펴보고, 권한이 부여되면 비용을 살펴볼 수 있는 사람입니다.
 - **등록 번호**: 기업계약과 관련된 특정 등록을 식별하기 위해 Microsoft에서 제공하는 고유 식별자입니다.
 - **엔터프라이즈 관리자**: Azure에서 부서, 부서 소유자, 계정 및 계정 소유자를 관리하는 사람입니다. 엔터프라이즈 관리자를 관리할 수 있을 뿐 아니라 엔터프라이즈 등록과 관련된 모든 계정과 구독의 사용 데이터, 청구된 수량 및 청구되지 않은 요금을 볼 수 있습니다.
@@ -478,7 +478,7 @@ Azure Enterprise Portal은 보기에서 비활성 등록을 필터링합니다. 
 
    Azure EA 등록이 기업계약 종료 날짜에 도달하기 전에 등록 관리자는 다음 옵션 중에 선택해야 합니다.
 
-  - 금액 약정을 추가하여 등록 갱신
+  - Azure 선불을 추가하여 등록 갱신
   - 새 등록으로 양도
   - MOSP(Microsoft Online Subscription 프로그램)로 마이그레이션
   - 등록과 연결된 모든 서비스의 비활성화 확인

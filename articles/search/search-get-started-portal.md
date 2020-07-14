@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488769"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083562"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ ms.locfileid: "84488769"
 
    ![검색 탐색기 명령](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. **인덱스** 드롭다운에서 *hotels-sample-index*를 선택합니다. **API 버전** 드롭다운을 클릭하여 사용할 수 있는 REST API를 확인합니다. 아래 쿼리의 경우 일반적으로 제공되는 버전(2019-05-06)을 사용합니다.
+2. **인덱스** 드롭다운에서 *hotels-sample-index*를 선택합니다. **API 버전** 드롭다운을 클릭하여 사용할 수 있는 REST API를 확인합니다. 아래 쿼리의 경우 일반적으로 제공되는 버전(2020-06-30)을 사용합니다.
 
    ![인덱스 및 API 명령](media/search-get-started-portal/search-explorer-changeindex.png)
 
@@ -275,4 +275,9 @@ Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 �
 포털 마법사를 사용하여 브라우저에서 실행되는 즉시 사용할 수 있는 웹앱을 생성합니다. 방금 만든 작은 인덱스에서 이 마법사를 사용해 보거나 기본 제공된 샘플 데이터 세트 중 하나를 사용하여 보다 다양한 검색 환경을 만들 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [포털에서 검색 앱 만들기](search-create-app-portal.md)
+> [포털에서 데모 앱 만들기](search-create-app-portal.md)
+
+클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
+
+> [!div class="nextstepaction"]
+> [Cost Management를 통한 비용 분석 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

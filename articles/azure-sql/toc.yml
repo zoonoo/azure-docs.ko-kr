@@ -50,7 +50,7 @@
               href: database/security-controls.md
             - name: Advanced Data Security
               href: database/advanced-data-security.md
-            - name: 고급 위협 보호
+            - name: Advanced Threat Protection
               href: database/threat-detection-overview.md
             - name: 데이터 검색 및 분류
               href: database/data-discovery-and-classification-overview.md
@@ -921,6 +921,8 @@
                   href: virtual-machines/windows/storage-configuration.md
                 - name: Azure Key Vault 통합
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
+                - name: 스토리지를 UltraSSD로 마이그레이션
+                  href: virtual-machines/windows/storage-migrate-to-ultradisk.md
                 - name: SQL VM RP에 등록
                   displayName: 'resource provider, registration'
                   items:

@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c922b95154f16a199660bcd5e58f792e46eade7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4fbfe9222971ccd1d28ceaddc91b137c6106e12
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360608"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146743"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>자습서: 단일 포리스트를 단일 Azure AD 테넌트와 통합
 
@@ -108,13 +108,13 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 2.  **Azure Active Directory**를 클릭합니다.
 3.  **Azure AD Connect**를 클릭합니다.
 4.  **프로비저닝 관리(미리 보기)** 
-![](media/how-to-configure/manage1.png)를 선택합니다.
+!["프로비저닝 관리(미리 보기)" 링크를 표시하는 스크린샷을 선택합니다.](media/how-to-configure/manage1.png)
 5.  **새 구성**
-![](media/tutorial-single-forest/configure1.png)을 클릭합니다.
+!["새 구성" 링크가 강조 표시된 Azure AD 프로비저닝(미리 보기) 화면의 스크린샷을 클릭합니다.](media/tutorial-single-forest/configure1.png)
 7.  구성 화면에서 **알림 이메일**을 입력하고, 선택기를 **사용**으로 이동하고, **저장**을 클릭합니다.
-![](media/tutorial-single-forest/configure2.png)
+![알림 이메일이 채워지고 사용이 선택된 구성 화면의 스크린샷](media/tutorial-single-forest/configure2.png)
 1.  이제 구성 상태는 **정상**입니다.
-![](media/how-to-configure/manage4.png)
+![정상 상태를 표시하는 Azure AD 프로비저닝(미리 보기) 화면의 스크린샷](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>사용자가 생성되고 동기화가 수행되는지 확인
 이제 온-프레미스 디렉터리에 있는 사용자가 동기화되었고 Azure AD 테넌트에 있는지 확인합니다.  이 작업을 완료하는 데 몇 시간이 걸릴 수 있습니다.  사용자가 동기화되었는지 확인하려면 다음을 수행합니다.

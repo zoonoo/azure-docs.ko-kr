@@ -136,23 +136,23 @@
               href: map-add-controls.md
             - name: 데이터 소스 만들기
               href: create-data-source-web-sdk.md
-            - name: 기호 계층 추가
+            - name: 기호 레이어 추가
               href: map-add-pin.md
             - name: 팝업 추가
               href: map-add-popup.md
-            - name: 거품형 계층 추가
+            - name: 거품형 레이어 추가
               href: map-add-bubble-layer.md
             - name: HTML 마커 추가
               href: map-add-custom-html.md
             - name: 선 계층 추가
               href: map-add-line-layer.md
-            - name: 다각형 계층 추가
+            - name: 다각형 레이어 추가
               href: map-add-shape.md
-            - name: 다각형 입체 면 계층 추가
+            - name: 다각형 입체 면 레이어 추가
               href: map-extruded-polygon.md
             - name: 열 지도 계층 추가
               href: map-add-heat-map-layer.md
-            - name: 이미지 계층 추가
+            - name: 이미지 레이어 추가
               href: map-add-image-layer.md
             - name: 타일 레이어 추가
               href: map-add-tile-layer.md
@@ -222,16 +222,34 @@
           href: how-to-use-android-map-control-library.md
         - name: 맵 스타일 변경
           href: set-android-map-styles.md
-        - name: 기호 계층 추가
+        - name: 기호 레이어 추가
           href: how-to-add-symbol-to-android-map.md
         - name: 셰이프 추가
           href: how-to-add-shapes-to-android-map.md
         - name: 기능 정보 표시
           href: display-feature-information-android.md
-        - name: 타일 계층 추가
+        - name: 타일 레이어 추가
           href: how-to-add-tile-layer-android-map.md
         - name: 트래픽 데이터 표시
           href: how-to-show-traffic-android.md
+    - name: Power BI에서 Azure Maps 사용
+      items:
+        - name: 시작
+          href: power-bi-visual-getting-started.md
+        - name: 레이어 이해
+          href: power-bi-visual-understanding-layers.md
+        - name: 거품형 레이어 추가
+          href: power-bi-visual-add-bubble-layer.md
+        - name: 가로 막대형 차트 레이어 추가
+          href: power-bi-visual-add-bar-chart-layer.md
+        - name: 참조 레이어 추가
+          href: power-bi-visual-add-reference-layer.md
+        - name: 타일 레이어 추가
+          href: power-bi-visual-add-tile-layer.md
+        - name: 실시간 트래픽 표시
+          href: power-bi-visual-show-real-time-traffic.md
+        - name: 액세스 관리
+          href: power-bi-visual-manage-access.md
     - name: 데이터 피드백 제공
       href: how-to-use-feedback-tool.md
 - name: 참조
@@ -264,7 +282,7 @@
           href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
         - name: Route Service
           href: 'https://docs.microsoft.com/rest/api/maps/route'
-        - name: Search 서비스
+        - name: Search Service
           href: 'https://docs.microsoft.com/rest/api/maps/search'
         - name: 공간 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/spatial'

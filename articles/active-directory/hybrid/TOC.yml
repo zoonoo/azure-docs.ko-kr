@@ -106,6 +106,8 @@
           href: how-to-connect-install-express.md
         - name: Azure AD Connect 페더레이션 또는 다른 사용자 지정 설정 설치
           href: how-to-connect-install-custom.md
+        - name: 구성 설정 가져오기 및 내보내기
+          href: how-to-connect-import-export-config.md
         - name: PTA(통과 인증)를 사용하여 Azure AD Connect 설치
           href: how-to-connect-pta-quick-start.md
         - name: Azure AD Connect Health 설치

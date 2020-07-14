@@ -23,7 +23,7 @@
     - name: Windows Virtual Desktop 리소스에 연결
       items:
         - name: Windows Desktop 클라이언트와 연결
-          href: connect-windows-7-and-10.md
+          href: connect-windows-7-10.md
         - name: 웹 클라이언트를 사용하여 연결
           href: connect-web.md
         - name: Android 클라이언트와 연결
@@ -38,6 +38,8 @@
       items:
         - name: PowerShell
           href: create-host-pools-powershell.md
+        - name: Windows 7 가상 머신 배포
+          href: deploy-windows-7-virtual-machine.md
         - name: GPU 기반 세션 호스트 배포
           href: configure-vm-gpu.md
         - name: 기존 호스트 풀 확장
@@ -90,6 +92,8 @@
       href: language-packs.md
 - name: 개념
   items:
+    - name: 안전 URL 목록
+      href: safe-url-list.md
     - name: Windows Virtual Desktop 환경
       href: environment-setup.md
     - name: 사용자 연결 대기 시간 확인

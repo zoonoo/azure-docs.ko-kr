@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: d274160cc2ed1102dfc8fd11df358b34e40d9923
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "84870302"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081846"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>사용자 지정 HTTP 헤더를 사용하여 감사 로그에 데이터 추가
 
@@ -36,7 +36,7 @@ Azure FHIR(전자 의료 기록 교환) API에서 사용자는 호출 시스템�
 > [!IMPORTANT]
 > 사용자 지정 헤더로 전송된 정보는 Azure Log 모니터링에서 사용할 수 있으면 30일 동안 Microsoft 내부 로깅 시스템에 저장됩니다. 사용자 지정 헤더에 추가하기 전에 모든 정보를 암호화하는 것이 좋습니다. 고객 헤더를 통해 모든 PHI 정보를 전달하면 안 됩니다.
 
-HTTP 헤더에는 다음 명명 규칙을 사용해야 합니다. X-MS-AZUREFHIR-AUDIT-AUDIT-\<name>.
+HTTP 헤더에는 다음 명명 규칙을 사용해야 합니다. X-MS-AZUREFHIR-AUDIT-\<name>.
 
 이러한 HTTP 헤더는 로그에 추가되는 속성 모음에 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
@@ -63,7 +63,7 @@ HTTP 헤더에는 다음 명명 규칙을 사용해야 합니다. X-MS-AZUREFHIR
  
 최대 10개의 고유 헤더를 추가할 수 있습니다. 다른 값을 사용하는 동일한 헤더의 반복은 하나로 계산됩니다. 한 헤더에 대한 값의 총 최대 길이는 2048자입니다.
 
-Firely C# 클라이언트 API 라이브러리를 사용하는 경우 코드는 다음과 같습니다.
+Firefly C# 클라이언트 API 라이브러리를 사용하는 경우 코드는 다음과 같습니다.
 
 ```C#
 FhirClient client;

@@ -1,16 +1,16 @@
 ---
 title: Azure 관리 개요 - Azure 거버넌스
 description: Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 애플리케이션 및 리소스 관리 영역에 대한 개요입니다.
-ms.date: 05/22/2020
+ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828150"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041917"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Azure의 관리 서비스 개요
+# <a name="what-are-the-azure-management-areas"></a>Azure Management 영역이란?
 
 Azure의 거버넌스는 Azure 관리의 측면 중 하나입니다. 이 문서에서는 Azure에서 리소스를 배포 및 유지 관리하기 위해 다양한 관리 영역을 다룹니다.
 
@@ -26,7 +26,7 @@ Azure의 거버넌스는 Azure 관리의 측면 중 하나입니다. 이 문서�
 
 ## <a name="monitor"></a>모니터
 
-모니터링은 리소스의 성능, 상태 및 가용성을 감사하기 위해 데이터를 수집 및 분석하는 작업입니다. 효과적인 모니터링 전략을 사용하면 구성 요소의 작업을 이해하고 알림을 통해 가동 시간을 늘릴 수 있습니다. [Azure 애플리케이션 및 리소스 모니터링](../monitoring/monitoring-overview.md)에 사용된 다양한 서비스를 다루는 모니터링에 대한 개요를 읽습니다.
+모니터링은 리소스의 성능, 상태 및 가용성을 감사하기 위해 데이터를 수집 및 분석하는 작업입니다. 효과적인 모니터링 전략을 사용하면 구성 요소의 작업을 이해하고 알림을 통해 가동 시간을 늘릴 수 있습니다. [Azure 애플리케이션 및 리소스 모니터링](../azure-monitor/overview.md)에 사용된 다양한 서비스를 다루는 모니터링에 대한 개요를 읽습니다.
 
 ## <a name="configure"></a>구성
 
@@ -46,9 +46,16 @@ Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다. [Azu
 
 ## <a name="protect"></a>보호
 
-보호란 사용자 제어를 벗어난 중단의 경우에도 애플리케이션 및 데이터를 계속 사용할 수 있는 것을 의미합니다. Azure의 보호는 두 가지 서비스에서 제공됩니다. [Azure Backup](../backup/backup-introduction-to-azure-backup.md)은 클라우드 또는 온-프레미스에서 데이터의 백업 및 복구를 제공합니다. [Azure Site Recovery](../site-recovery/site-recovery-overview.md)는 재해 발생 동안에도 즉각적인 복구와 비즈니스 연속성을 제공합니다.
+보호란 사용자 제어를 벗어난 중단의 경우에도 애플리케이션 및 데이터를 계속 사용할 수 있는 것을 의미합니다. Azure의 보호는 두 가지 서비스에서 제공됩니다. [Azure Backup](../backup/backup-overview.md)은 클라우드 또는 온-프레미스에서 데이터의 백업 및 복구를 제공합니다. [Azure Site Recovery](../site-recovery/site-recovery-overview.md)는 재해 발생 동안에도 즉각적인 복구와 비즈니스 연속성을 제공합니다.
 
 ## <a name="migrate"></a>마이그레이션
 
 마이그레이션이란 현재 온-프레미스에서 실행하는 워크로드를 Azure 클라우드로 전환하는 것을 가리킵니다.
-[Azure Migrate](../migrate/migrate-overview.md)는 온-프레미스 가상 머신의 Azure에 대한 마이그레이션 적합성을 평가하는 데 도움이 되는 서비스입니다. Azure Site Recovery는 [온-프레미스에서](../site-recovery/migrate-tutorial-on-premises-azure.md) 또는 [Amazon Web Services에서](../site-recovery/migrate-tutorial-aws-azure.md) 가상 머신을 마이그레이션합니다. [Azure 데이터베이스 마이그레이션](../dms/dms-overview.md)은 데이터베이스 원본을 Azure 데이터 플랫폼으로 마이그레이션하는 데 도움이 됩니다.
+[Azure Migrate](../migrate/migrate-services-overview.md)는 온-프레미스 가상 머신의 Azure에 대한 마이그레이션 적합성을 평가하는 데 도움이 되는 서비스입니다. Azure Site Recovery는 [온-프레미스에서](../site-recovery/migrate-tutorial-on-premises-azure.md) 또는 [Amazon Web Services에서](../site-recovery/migrate-tutorial-aws-azure.md) 가상 머신을 마이그레이션합니다. [Azure 데이터베이스 마이그레이션](../dms/dms-overview.md)은 데이터베이스 원본을 Azure 데이터 플랫폼으로 마이그레이션하는 데 도움이 됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+Azure Governance에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+- [Azure Governance 허브](./index.yml)를 참조하세요.
+- [Azure용 클라우드 채택 프레임워크의 거버넌스](/azure/cloud-adoption-framework/govern/)를 참조하세요.
