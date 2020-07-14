@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 81574f25e2132a7079fa0242284fb67b0132a8af
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184982"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119330"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>자습서: 배포 스크립트를 사용하여 자체 서명된 인증서 만들기(미리 보기)
 
@@ -36,11 +36,11 @@ ARM(Azure Resource Manager) 템플릿에서 배포 스크립트를 사용하는 
 > * 실패한 스크립트 디버그
 > * 리소스 정리
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* **Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/)** . [Visual Studio Code를 사용하여 ARM 템플릿 만들기](./use-vs-code-to-create-template.md)를 참조하세요.
+* **Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/)** . [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](./quickstart-create-templates-use-visual-studio-code.md)
 
 * **구독 수준에서 기여자 역할이 있는 사용자가 할당한 관리 ID**. 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. ID를 만들려면 [사용자가 할당한 관리 ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity)를 참조하세요. 이 ID는 템플릿을 배포할 때 필요합니다. ID의 형식은 다음과 같습니다.
 

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ac7af2f4500f6702dcacad546b0985e41159dc6e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 8123608cbf2c1a4cbe0dc51d81d42b288bf2a91d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734676"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024930"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Windows Server 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 조인
 
@@ -110,7 +110,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 1. 서브넷을 만드는 데 몇 초 정도 걸립니다. 서브넷이 만들어지면 *X*를 선택하여 서브넷 창을 닫습니다.
 1. **네트워킹** 창으로 돌아가서 VM을 만들고, 드롭다운 메뉴에서 만든 서브넷(예: *management*)을 선택합니다. 다시 한 번 올바른 서브넷을 선택했는지 확인하고, 관리되는 도메인과 동일한 서브넷에 VM을 배포하지 않도록 합니다.
-1. **공용 IP**의 경우, Azure Bastion을 사용하여 관리에 연결하고 공용 IP 주소를 할당할 필요가 없으므로 드롭다운 메뉴에서 *없음*을 선택합니다.
+1. **공용 IP**의 경우 드롭다운 메뉴에서 *없음*을 선택합니다. 이 자습서에서는 Azure Bastion을 사용하여 관리에 연결하므로, VM에 할당된 공용 IP 주소가 필요하지 않습니다.
 1. 다른 옵션은 해당 기본값으로 둔 다음, **관리**를 선택합니다.
 1. **부트 진단**을 *끄기*로 설정합니다. 다른 옵션은 해당 기본값으로 둔 다음, **검토 + 만들기**를 선택합니다.
 1. VM 설정을 검토한 다음, **만들기**를 선택합니다.
@@ -121,7 +121,7 @@ VM을 만드는 데 몇 분이 걸립니다. Azure Portal에서 배포 상태를
 
 ## <a name="connect-to-the-windows-server-vm"></a>Windows Server VM에 연결
 
-VM에 안전하게 연결하려면 Azure Bastion 호스트를 사용합니다. Azure Bastion을 사용하면 관리 호스트가 가상 네트워크에 배포되고, VM에 대한 웹 기반 RDP 또는 SSH 연결을 제공합니다. VM에는 공용 IP 주소가 필요하지 않으며, 외부 원격 트래픽에 대한 네트워크 보안 그룹 규칙을 열 필요가 없습니다. 웹 브라우저에서 Azure Portal을 사용하여 VM에 연결합니다.
+VM에 안전하게 연결하려면 Azure Bastion 호스트를 사용합니다. Azure Bastion을 사용하면 관리 호스트가 가상 네트워크에 배포되고, VM에 대한 웹 기반 RDP 또는 SSH 연결을 제공합니다. VM에는 공용 IP 주소가 필요하지 않으며, 외부 원격 트래픽에 대한 네트워크 보안 그룹 규칙을 열 필요가 없습니다. 웹 브라우저에서 Azure Portal을 사용하여 VM에 연결합니다. 필요한 경우 [Azure Bastion 호스트를 만듭니다][azure-bastion].
 
 Bastion 호스트를 사용하여 VM에 연결하려면 다음 단계를 완료합니다.
 
@@ -152,7 +152,9 @@ Azure Bastion을 사용하여 VM이 만들어지고 웹 기반 RDP 연결이 설
 
     ![조인할 관리되는 도메인 지정](./media/join-windows-vm/join-domain.png)
 
-1. 도메인에 조인할 도메인 자격 증명을 입력합니다. 관리되는 도메인의 일부인 사용자에 대한 자격 증명을 사용합니다. 계정은 관리되는 도메인 또는 Azure AD 테넌트의 일부여야 합니다. 즉, Azure AD 테넌트와 연결된 외부 디렉터리의 계정은 도메인 조인 프로세스 중에 올바르게 인증되지 않습니다. 계정 자격 증명은 다음 방법 중 하나로 지정할 수 있습니다.
+1. 도메인에 조인할 도메인 자격 증명을 입력합니다. 관리되는 도메인에 속하는 사용자의 자격 증명을 제공합니다. 계정은 관리되는 도메인 또는 Azure AD 테넌트의 일부여야 합니다. 즉, Azure AD 테넌트와 연결된 외부 디렉터리의 계정은 도메인 조인 프로세스 중에 올바르게 인증되지 않습니다.
+
+    계정 자격 증명은 다음 방법 중 하나로 지정할 수 있습니다.
 
     * **UPN 형식**(추천) - Azure AD에 구성된 대로 사용자 계정의 UPN(사용자 계정 이름) 접미사를 입력합니다. 예를 들어 *contosoadmin* 사용자의 UPN 접미사는 `contosoadmin@aaddscontoso.onmicrosoft.com`입니다. UPN 형식을 사용하여 *SAMAccountName* 형식이 아닌 도메인에 안정적으로 로그인할 수 있는 몇 가지 일반적인 사용 사례는 다음과 같습니다.
         * 사용자의 UPN 접두사(예: *deehasareallylongname*)가 긴 경우 *SAMAccountName*이 자동으로 생성될 수 있습니다.
@@ -180,7 +182,7 @@ Windows Server VM이 다시 시작되면 관리되는 도메인에 적용된 모
 
 다음 자습서에서는 이 Windows Server VM을 사용하여 관리되는 도메인을 관리할 수 있는 관리 도구를 설치합니다. 이 자습서 시리즈를 계속 진행하지 않으려면 다음 정리 단계를 검토하여 [VM을 삭제](#delete-the-vm)합니다. 그렇지 않으면 [다음 자습서로 계속 진행](#next-steps)합니다.
 
-### <a name="un-join-the-vm-from-the-managed-domain"></a>VM을 관리되는 도메인에 조인 해제
+### <a name="unjoin-the-vm-from-the-managed-domain"></a>관리되는 도메인에서 VM 가입 취소
 
 관리되는 도메인에서 VM을 제거하려면 단계를 다시 수행하여 [VM을 도메인에 조인](#join-the-vm-to-the-managed-domain)합니다. 관리되는 도메인에 조인하는 대신 기본 *WORKGROUP*과 같은 작업 그룹에 조인하도록 선택합니다. VM을 다시 부팅한 후에는 관리되는 도메인에서 컴퓨터 개체가 제거됩니다.
 

@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 5/6/2019
-ms.openlocfilehash: 154dc8b8569162992f4fc231caee2a43682db456
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 094222c9d6cee6c785f44111a9f9ac6a2185536c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74774723"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120538"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버에 대한 Azure CLI 샘플
 다음 테이블은 PostgreSQL용 Azure Database의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다.
 
-| |  |
+| 샘플 링크 | Description |
 |---|---|
 |**서버 만들기**||
 | [서버 및 방화벽 규칙 만들기](scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Azure Database for PostgreSQL 서버를 만들고 서버 수준 방화벽 규칙을 구성하는 Azure CLI 스크립트입니다. |

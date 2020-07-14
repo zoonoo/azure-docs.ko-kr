@@ -8,38 +8,41 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 74b1c25c8bab11c0b2a72510fd419df239e2c23a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d8d9ba6d3152435382d180fe32dd78e62e5fd63
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81603573"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087591"
 ---
-# <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Interactive Query 클러스터 만들기
+# <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: Azure HDInsight에서 ARM 템플릿을 사용하여 Interactive Query 클러스터 만들기
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure HDInsight에서 [Interactive Query](./apache-interactive-query-get-started.md) 클러스터를 만듭니다. 대화형 쿼리(Apache Hive LLAP 또는 [짧은 대기 시간 분석 처리](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type)입니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure HDInsight에서 [Interactive Query](./apache-interactive-query-get-started.md) 클러스터를 만듭니다. 대화형 쿼리(Apache Hive LLAP 또는 [짧은 대기 시간 분석 처리](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type)입니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-an-interactive-query-cluster"></a>대화형 쿼리 클러스터 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-### <a name="review-the-template"></a>템플릿 검토
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-interactive-hive/)에서 나온 것입니다.
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-interactive-hive)에서 나온 것입니다.
-
-:::code language="json" source="~/quickstart-templates/101-hdinsight-interactive-hive/azuredeploy.json" range="1-158":::
-
+:::code language="json" source="~/quickstart-templates/101-hdinsight-interactive-hive/azuredeploy.json" range="1-158" highlight="49-82":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): Azure Storage 계정을 만듭니다.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): HDInsight 클러스터를 만듭니다.
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Azure Storage 계정을 만듭니다.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): HDInsight 클러스터를 만듭니다.
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 
-1. 아래 **Azure에 배포** 단추를 선택하여 Azure에 로그인하고 Resource Manager 템플릿을 엽니다.
+1. 아래 **Azure에 배포** 단추를 선택하여 Azure에 로그인하고 ARM 템플릿을 엽니다.
 
     [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
 
@@ -76,7 +79,7 @@ Azure Portal에서 클러스터로 이동하여 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 HDInsight에서 Resource Manager 템플릿을 사용하여 Interactive Query 클러스터를 만드는 방법을 알아보았습니다. 다음 문서에서는 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
+이 빠른 시작에서는 HDInsight에서 ARM 템플릿을 사용하여 Interactive Query 클러스터를 만드는 방법을 알아보았습니다. 다음 문서에서는 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Apache Zeppelin을 사용하여 Azure HDInsight에서 Apache Hive 쿼리 실행](./hdinsight-connect-hive-zeppelin.md)

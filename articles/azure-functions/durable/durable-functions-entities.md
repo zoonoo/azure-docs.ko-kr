@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4f45ac40e7df865bdb4722d086325096c377cd59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877545"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341557"
 ---
 # <a name="entity-functions"></a>엔터티 함수
 
@@ -18,7 +18,7 @@ ms.locfileid: "80877545"
 엔터티는 각각 적당한 크기의 상태인 여러 엔터티 간에 작업을 분산하여 애플리케이션을 확장할 수 있는 방법을 제공합니다.
 
 > [!NOTE]
-> 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상에서만 사용할 수 있습니다.
+> 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상에서만 사용할 수 있습니다. 현재 .NET 및 JavaScript에서 지원됩니다.
 
 ## <a name="general-concepts"></a>일반 개념
 
@@ -406,7 +406,7 @@ public static async Task<bool> TransferFundsAsync(
 
 ## <a name="comparison-with-virtual-actors"></a>가상 행위자와 비교
 
-대부분의 지속성 엔터티 함수는 [행위자 모델](https://en.wikipedia.org/wiki/Actor_model)로부터 영향을 받습니다. 행위자에 대해 이미 익숙한 경우 이 문서에서 설명하는 여러 가지 개념을 인식할 수 있습니다. 지속성 엔터티는 특히 [Orleans 프로젝트](http://dotnet.github.io/orleans/)에서 일반화한 [가상 행위자](https://research.microsoft.com/projects/orleans/) 또는 그레인과 비슷합니다. 다음은 그 예입니다.
+대부분의 지속성 엔터티 함수는 [행위자 모델](https://en.wikipedia.org/wiki/Actor_model)로부터 영향을 받습니다. 행위자에 대해 이미 익숙한 경우 이 문서에서 설명하는 여러 가지 개념을 인식할 수 있습니다. 지속성 엔터티는 특히 [Orleans 프로젝트](http://dotnet.github.io/orleans/)에서 일반화한 [가상 행위자](https://research.microsoft.com/projects/orleans/) 또는 그레인과 비슷합니다. 예를 들면 다음과 같습니다.
 
 * 지속성 엔터티는 엔터티 ID를 통해 주소를 지정할 수 있습니다.
 * 지속성 엔터티 작업은 경합 상태를 방지하기 위해 한 번에 하나씩 순차적으로 실행됩니다.

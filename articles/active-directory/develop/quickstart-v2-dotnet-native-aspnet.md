@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 084083a704a007e6675234883c62350d1d9a0849
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 22bf7e85a48e0d138bfdbca82cf032287d982899
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536151"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339587"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼으로 보호되는 ASP.NET 웹 API 호출
 
@@ -24,13 +24,13 @@ ms.locfileid: "81536151"
 
 이 샘플에는 웹 API에 액세스하기 위해 액세스 토큰을 요청하는 방법을 보여주는 Windows 데스크톱 애플리케이션(WPF) 클라이언트도 포함되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
 * Visual Studio 2017 또는 2019  [체험용 Visual Studio](https://www.visualstudio.com/downloads/) 다운로드
 
-* [Microsoft 계정](https://www.outlook.com) 또는 [ Office 365 개발자 프로그램](/office/developer-program/office-365-developer-program)
+* [Microsoft 계정](https://www.outlook.com) 또는 [Microsoft 365 개발자 프로그램](/office/developer-program/office-365-developer-program)
 
 ## <a name="download-or-clone-this-sample"></a>이 샘플 다운로드 또는 복제
 

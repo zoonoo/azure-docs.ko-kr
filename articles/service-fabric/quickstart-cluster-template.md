@@ -7,26 +7,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1cb6dc56a5d4fa975f68c1dea08920a7c7db3904
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722459"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119500"
 ---
-# <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Service Fabric 클러스터 만들기
+# <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Service Fabric 클러스터 만들기
 
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. Service Fabric *클러스터*는 네트워크로 연결된 가상 머신 세트로, 여기에 마이크로서비스를 배포하여 관리하게 됩니다.
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. Service Fabric *클러스터*는 네트워크로 연결된 가상 머신 세트로, 여기에 마이크로서비스를 배포하여 관리하게 됩니다. 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure에 Service Fabric 테스트 클러스터를 배포하는 방법을 설명합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-이 문서에서는 Resource Manager를 사용하여 Azure에 Service Fabric 테스트 클러스터를 배포하는 방법을 설명합니다. 5개 노드로 구성된 이 Windows 클러스터는 자체 서명된 인증서로 보호되므로 프로덕션 워크로드가 아닌 교육용으로만 사용됩니다.
+5개 노드로 구성된 이 Windows 클러스터는 자체 서명된 인증서로 보호되므로 프로덕션 워크로드가 아닌 교육용으로만 사용됩니다. Azure PowerShell을 사용하여 템플릿을 배포하겠습니다. Azure PowerShell 외에도 Azure Portal, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-portal.md)를 참조하세요.
 
-Azure PowerShell을 사용하여 템플릿을 배포하겠습니다. Azure PowerShell 외에도 Azure Portal, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-portal.md)를 참조하세요.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="install-service-fabric-sdk-and-powershell-modules"></a>Service Fabric SDK 및 PowerShell 모듈 설치
 
@@ -87,11 +89,9 @@ $certUrlValue = "<Certificate URL>"
 $certThumbprint = "<Certificate Thumbprint>"
 ```
 
-## <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) 파일을 참조하세요.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) 파일을 참조하세요.
 
 템플릿에 여러 Azure 리소스가 정의되어 있습니다.
 
@@ -113,7 +113,7 @@ Azure Service Fabric에 관련된 더 많은 템플릿을 찾으려면 [Azure �
 * **adminPassword**는 기본 *GEN-PASSWORD* 토큰이 아닌 다른 값입니다.
 * **certificateThumbprint**, **sourceVaultResourceId** 및 **certificateUrlValue**는 모두 빈 문자열(`""`)입니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -144,7 +144,7 @@ Azure Service Fabric에 관련된 더 많은 템플릿을 찾으려면 [Azure �
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-Resource Manager 템플릿 및 매개 변수 파일의 경로를 변수에 저장한 다음, 템플릿을 배포합니다.
+ARM 템플릿 및 매개 변수 파일의 경로를 변수에 저장한 다음, 템플릿을 배포합니다.
 
 ```powershell
 $templateFilePath = "<full path to azuredeploy.json>"

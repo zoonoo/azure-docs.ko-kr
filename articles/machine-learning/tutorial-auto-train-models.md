@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 440c2b0f0c9e89cff03e92fb650dabe1e2c88e1f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: cf1732b88867074fe1f672e193ce404a4ef83e54
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558343"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023485"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "84558343"
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 Azure Machine Learning의 [평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 작업 영역 또는 Notebook 가상 머신이 아직 없으면 [설정 자습서](tutorial-1st-experiment-sdk-setup.md)를 완료하세요.
 * 설정 자습서를 완료한 후 동일한 Notebook 서버를 사용하여 *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* Notebook을 엽니다.
@@ -71,16 +71,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; } </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -372,16 +363,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; } </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -677,16 +659,7 @@ green_taxi_df.describe()
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; } </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -946,44 +919,46 @@ experiment = Experiment(ws, "taxi-experiment")
 local_run = experiment.submit(automl_config, show_output=True)
 ```
 
-    Running on local machine
-    Parent Run ID: AutoML_1766cdf7-56cf-4b28-a340-c4aeee15b12b
-    Current status: DatasetFeaturization. Beginning to featurize the dataset.
-    Current status: DatasetEvaluation. Gathering dataset statistics.
-    Current status: FeaturesGeneration. Generating features for the dataset.
-    Current status: DatasetFeaturizationCompleted. Completed featurizing the dataset.
-    Current status: DatasetCrossValidationSplit. Generating individually featurized CV splits.
-    Current status: ModelSelection. Beginning model selection.
+```output
+Running on local machine
+Parent Run ID: AutoML_1766cdf7-56cf-4b28-a340-c4aeee15b12b
+Current status: DatasetFeaturization. Beginning to featurize the dataset.
+Current status: DatasetEvaluation. Gathering dataset statistics.
+Current status: FeaturesGeneration. Generating features for the dataset.
+Current status: DatasetFeaturizationCompleted. Completed featurizing the dataset.
+Current status: DatasetCrossValidationSplit. Generating individually featurized CV splits.
+Current status: ModelSelection. Beginning model selection.
 
-    ****************************************************************************************************
-    ITERATION: The iteration being evaluated.
-    PIPELINE: A summary description of the pipeline being evaluated.
-    DURATION: Time taken for the current iteration.
-    METRIC: The result of computing score on the fitted pipeline.
-    BEST: The best observed score thus far.
-    ****************************************************************************************************
+****************************************************************************************************
+ITERATION: The iteration being evaluated.
+PIPELINE: A summary description of the pipeline being evaluated.
+DURATION: Time taken for the current iteration.
+METRIC: The result of computing score on the fitted pipeline.
+BEST: The best observed score thus far.
+****************************************************************************************************
 
-     ITERATION   PIPELINE                                       DURATION      METRIC      BEST
-             0   StandardScalerWrapper RandomForest             0:00:16       0.8746    0.8746
-             1   MinMaxScaler RandomForest                      0:00:15       0.9468    0.9468
-             2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.9303    0.9468
-             3   StandardScalerWrapper LightGBM                 0:00:10       0.9424    0.9468
-             4   RobustScaler DecisionTree                      0:00:09       0.9449    0.9468
-             5   StandardScalerWrapper LassoLars                0:00:09       0.9440    0.9468
-             6   StandardScalerWrapper LightGBM                 0:00:10       0.9282    0.9468
-             7   StandardScalerWrapper RandomForest             0:00:12       0.8946    0.9468
-             8   StandardScalerWrapper LassoLars                0:00:16       0.9439    0.9468
-             9   MinMaxScaler ExtremeRandomTrees                0:00:35       0.9199    0.9468
-            10   RobustScaler ExtremeRandomTrees                0:00:19       0.9411    0.9468
-            11   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9077    0.9468
-            12   StandardScalerWrapper LassoLars                0:00:15       0.9433    0.9468
-            13   MinMaxScaler ExtremeRandomTrees                0:00:14       0.9186    0.9468
-            14   RobustScaler RandomForest                      0:00:10       0.8810    0.9468
-            15   StandardScalerWrapper LassoLars                0:00:55       0.9433    0.9468
-            16   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9026    0.9468
-            17   StandardScalerWrapper RandomForest             0:00:13       0.9140    0.9468
-            18   VotingEnsemble                                 0:00:23       0.9471    0.9471
-            19   StackEnsemble                                  0:00:27       0.9463    0.9471
+ ITERATION   PIPELINE                                       DURATION      METRIC      BEST
+         0   StandardScalerWrapper RandomForest             0:00:16       0.8746    0.8746
+         1   MinMaxScaler RandomForest                      0:00:15       0.9468    0.9468
+         2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.9303    0.9468
+         3   StandardScalerWrapper LightGBM                 0:00:10       0.9424    0.9468
+         4   RobustScaler DecisionTree                      0:00:09       0.9449    0.9468
+         5   StandardScalerWrapper LassoLars                0:00:09       0.9440    0.9468
+         6   StandardScalerWrapper LightGBM                 0:00:10       0.9282    0.9468
+         7   StandardScalerWrapper RandomForest             0:00:12       0.8946    0.9468
+         8   StandardScalerWrapper LassoLars                0:00:16       0.9439    0.9468
+         9   MinMaxScaler ExtremeRandomTrees                0:00:35       0.9199    0.9468
+        10   RobustScaler ExtremeRandomTrees                0:00:19       0.9411    0.9468
+        11   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9077    0.9468
+        12   StandardScalerWrapper LassoLars                0:00:15       0.9433    0.9468
+        13   MinMaxScaler ExtremeRandomTrees                0:00:14       0.9186    0.9468
+        14   RobustScaler RandomForest                      0:00:10       0.8810    0.9468
+        15   StandardScalerWrapper LassoLars                0:00:55       0.9433    0.9468
+        16   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9026    0.9468
+        17   StandardScalerWrapper RandomForest             0:00:13       0.9140    0.9468
+        18   VotingEnsemble                                 0:00:23       0.9471    0.9471
+        19   StackEnsemble                                  0:00:27       0.9463    0.9471
+```
 
 ## <a name="explore-the-results"></a>결과 탐색
 
@@ -1048,11 +1023,13 @@ print("Model Accuracy:")
 print(1 - mean_abs_percent_error)
 ```
 
-    Model MAPE:
-    0.14353867606052823
+```output
+Model MAPE:
+0.14353867606052823
 
-    Model Accuracy:
-    0.8564613239394718
+Model Accuracy:
+0.8564613239394718
+```
 
 
 두 개의 예측 정확도 메트릭을 통해, 모델이 데이터 세트의 특징으로부터 택시 요금을 예측하는 데 상당히 우수하다는 것을 알 수 있습니다(일반적으로 +- $4.00 이내, 오류율 약 15%).

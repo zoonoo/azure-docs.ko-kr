@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: cb8d03b853e4e0f4f5f60a144e7a05ef19de1071
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251848"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085789"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Azure Portal을 통해 변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
 
@@ -166,7 +166,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.*
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다.
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다.
 

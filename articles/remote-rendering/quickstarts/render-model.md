@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: ed533f571ada4cacf053157b397cca07cd65e6f8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300575"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565517"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>빠른 시작: Unity를 사용하여 모델 렌더링
 
 이 빠른 시작에서는 ARR(Azure Remote Rendering) 서비스를 사용하여 기본 제공 모델을 원격으로 렌더링하는 Unity 샘플을 실행하는 방법을 설명합니다.
 
-ARR API 자체 또는 새 Unity 프로젝트를 설정하는 방법은 자세히 다루지 않습니다. 이에 대한 토픽은 [자습서: Unity 프로젝트를 처음부터 설정](../tutorials/unity/project-setup.md)에서 다룹니다.
+ARR API 자체 또는 새 Unity 프로젝트를 설정하는 방법은 자세히 다루지 않습니다. 이에 대한 토픽은 [자습서: 원격으로 렌더링된 모델 보기](../tutorials/unity/view-remote-models/view-remote-models.md)에서 다룹니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 > [!div class="checklist"]

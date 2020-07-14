@@ -10,18 +10,22 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 127a8550b7f4ca89b8b3a8e61880b295a806e5d0
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: b7217df7fe7ccedf2419480b1114fa1ef6c8e24a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449365"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043549"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Stream Analytics 작업 만들기
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Stream Analytics 작업 만들기
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Stream Analytics 작업을 만듭니다. 작업을 만든 후에는 배포의 유효성을 검사합니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Stream Analytics 작업을 만듭니다. 작업을 만든 후에는 배포의 유효성을 검사합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-streamanalytics-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -29,9 +33,7 @@ ms.locfileid: "84449365"
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업 만들기
-
-### <a name="review-the-template"></a>템플릿 검토
+## <a name="review-the-template"></a>템플릿 검토
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/)에서 나온 것입니다.
 
@@ -39,9 +41,9 @@ ms.locfileid: "84449365"
 
 템플릿에 정의된 Azure 리소스는 [Microsoft.StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): Azure Stream Analytics 작업 만들기입니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
-이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 Azure Stream Analytics 작업을 만듭니다.
+이 섹션에서는 ARM 템플릿을 사용하여 Azure Stream Analytics 작업을 만듭니다.
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿에서 Azure Stream Analytics 작업을 만듭니다.
 
@@ -108,7 +110,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Stream Analytics 작업을 만들고 배포의 유효성을 검사했습니다. 다음 문서로 이동하고 VS Code를 사용하는 기존 작업에 대해 Azure Resource Manager 템플릿을 내보내는 방법을 알아봅니다.
+이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Stream Analytics 작업을 만들고 배포의 유효성을 검사했습니다. 다음 문서로 이동하고 VS Code를 사용하는 기존 작업에 대해 ARM 템플릿을 내보내는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Stream Analytics 작업 Azure Resource Manager 템플릿 내보내기](resource-manager-export.md)
+> [Azure Stream Analytics 작업 ARM 템플릿 내보내기](resource-manager-export.md)

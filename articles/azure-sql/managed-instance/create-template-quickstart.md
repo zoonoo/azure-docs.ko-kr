@@ -11,43 +11,39 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/22/2020
-ms.openlocfilehash: 01c6c37d31d41f88b370face372555536724adde
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: eed333b5e6a83b140df515fc02767b8a7c7a63c7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256077"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506642"
 ---
-# <a name="quickstart-create-an-azure-sql-managed-instance-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure SQL Managed Instance 만들기
+# <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SQL Managed Instance 만들기
 
-이 빠른 시작에서는 Resource Manager 템플릿을 배포하여 Azure SQL Managed Instance 및 vNet을 만드는 프로세스에 중점을 둡니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하여 Azure SQL Managed Instance 및 vNet을 만드는 프로세스에 중점을 둡니다. [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md)는 SQL Server 데이터베이스 엔진과 거의 100% 기능 패리티를 갖춘 완전 관리형이자 확장 가능한 인텔리전트 클라우드 데이터베이스입니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sqlmi-new-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-없음
+Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-sql-managed-instance"></a>Azure SQL Managed Instance 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md)는 SQL Server 데이터베이스 엔진과 거의 100% 기능 패리티를 갖춘 완전 관리형이자 확장 가능한 인텔리전트 클라우드 데이터베이스입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)에서 나온 것입니다.
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)에서 나온 것입니다.
-
-:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json" range="001-249" highlight="113,178,188,226":::
 
 이러한 리소스는 템플릿에 정의되어 있습니다.
 
-- [**Microsoft.Sql/managedinstances**](/azure/templates/microsoft.sql/managedinstances)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.Network/virtualNetworks)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.Network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.Network/networkSecurityGroups)
-
-
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.Network/routeTables)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.Network/virtualNetworks)
+- [**Microsoft.Sql/managedinstances**](/azure/templates/microsoft.sql/managedinstances)
 
 추가 템플릿 샘플은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
@@ -73,7 +69,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 read -p "Enter a project name that is used for generating resource names:" projectName &&
@@ -86,7 +82,7 @@ echo "Press [ENTER] to continue ..." &&
 read
 ```
 
-* * *
+---
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
@@ -109,7 +105,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -117,7 +113,7 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName
 ```
 
-* * *
+---
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
-ms.openlocfilehash: ef493b6b21eb0ba0ad6d22a21e4e205a9fecacb6
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5d41f467efafa42bd73fce258ca97e4412a7cf48
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858075"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026851"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 콘솔 앱 빌드
 
@@ -36,7 +36,7 @@ ms.locfileid: "82858075"
 > * 컨테이너에 항목 추가
 > * 항목, 컨테이너 및 데이터베이스에 대한 기본 작업 수행
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 다음 리소스가 있는지 확인합니다.
 
@@ -90,7 +90,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 
    [Azure Portal](https://portal.azure.com)의 **키** 창에서 엔드포인트 및 주요 세부 정보를 찾을 수 있습니다.
 
-   ![Azure Portal에서 키 가져오기 스크린샷][keys]
+   :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Azure Portal에서 키 가져오기 스크린샷":::
 
 JavaScript SDK는 일반 용어인 *컨테이너* 및 *항목*을 사용합니다. 컨테이너는 컬렉션, 그래프 또는 테이블입니다. 항목은 문서, 에지/꼭짓점 또는 행이며, 컨테이너 내부의 콘텐츠입니다. 이전 코드 조각에서 `module.exports = config;` 코드는 *app.js* 파일 내에서 참조할 수 있도록 구성 개체를 내보내는 데 사용됩니다.
 
@@ -223,4 +223,3 @@ node app.js
 > [Azure Cosmos DB 계정 모니터링](monitor-accounts.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account
-[keys]: media/sql-api-nodejs-get-started/node-js-tutorial-keys.png

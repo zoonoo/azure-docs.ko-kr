@@ -4,18 +4,18 @@ description: 설치된 패키지 및 시작 스크립트의 특정 세트로 구
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c5f73b73b4bab99e07874c2d16d47da69f8026ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559742"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832902"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 사용자 지정 환경으로 프로젝트 만들기
 
-Azure Notebooks의 프로젝트는 특정 설정 명령을 사용하여 구성할 수 있는 환경과 함께 노트북, 데이터 파일, 설명서, 이미지 등과 같은 파일의 컬렉션입니다. 프로젝트의 환경을 정의하여 자신의 Azure Notebooks 계정에 프로젝트를 복제하는 모든 사용자는 필요한 환경을 다시 만드는 데 필요한 모든 정보를 가집니다.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks의 프로젝트는 특정 설정 명령을 사용하여 구성할 수 있는 환경과 함께 노트북, 데이터 파일, 설명서, 이미지 등과 같은 파일의 컬렉션입니다. 프로젝트의 환경을 정의하여 자신의 Azure Notebooks 계정에 프로젝트를 복제하는 모든 사용자는 필요한 환경을 다시 만드는 데 필요한 모든 정보를 가집니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
@@ -73,4 +73,4 @@ Azure Notebooks의 프로젝트는 특정 설정 명령을 사용하여 구성�
 > [Azure Notebooks에서 프로젝트 관리 및 구성](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀를 수행하는 Jupyter Notebook 만들기 및 실행](tutorial-create-run-jupyter-notebook.md)

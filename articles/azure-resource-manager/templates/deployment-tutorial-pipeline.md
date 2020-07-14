@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿을 지속적으로 빌드, 테스�
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dacbdbcbebbbd696c14745e055ed9f7bd7905b1d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731937"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118922"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -33,14 +33,14 @@ Azure DevOps는 팀이 작업을 계획하고, 협업을 통해 코드를 개발
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
 * 템플릿의 리포지토리를 만드는 데 사용할 **GitHub 계정**. 계정이 없는 경우 [체험 계정](https://github.com)을 만들 수 있습니다. GitHub 리포지토리 사용에 대한 자세한 내용은 [GitHub 리포지토리 빌드](/azure/devops/pipelines/repos/github)를 참조하세요.
 * **Git를 설치**합니다. 이 자습서의 지침에서는 *Git Bash* 또는 *Git Shell*을 사용합니다. 지침은 [Git 설치]( https://www.atlassian.com/git/tutorials/install-git)를 참조하세요.
-* **Azure DevOps 조직**. 조직이 없는 경우 무료로 만들 수 있습니다. [조직 또는 프로젝트 컬렉션 만들기]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)를 참조하세요.
-* (선택 사항)**Resource Manager 도구 확장이 포함된 Visual Studio Code**. [Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+* **Azure DevOps 조직**. 조직이 없는 경우 무료로 만들 수 있습니다. [조직 또는 프로젝트 컬렉션 만들기](/azure/devops/organizations/accounts/create-organization?view=azure-devops)를 참조하세요.
+* (선택 사항)**Resource Manager 도구 확장이 포함된 Visual Studio Code**. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 ## <a name="prepare-a-github-repository"></a>GitHub 리포지토리 준비
 
@@ -65,7 +65,7 @@ GitHub 계정이 없는 경우 [사전 요구 사항](#prerequisites)을 참조�
 
 1. Git Shell 또는 Git Bash를 엽니다.  [필수 조건](#prerequisites)을 참조하세요.
 1. 현재 폴더가 **GitHub**인지 확인합니다.
-1. 다음 명령 실행:
+1. 다음 명령을 실행합니다.
 
     ```bash
     git clone https://github.com/[YourAccountName]/[YourGitHubRepositoryName]
@@ -95,7 +95,7 @@ azuredeploy.json 파일이 로컬 리포지토리에 추가되었습니다. 다�
 1. *Git Shell* 또는 *Git Bash*가 열려 있지 않으면 지금 엽니다.
 1. 디렉터리를 로컬 리포지토리의 CreateWebApp 폴더로 변경합니다.
 1. **azuredeploy.json** 파일이 이 폴더에 있는지 확인합니다.
-1. 다음 명령 실행:
+1. 다음 명령을 실행합니다.
 
     ```bash
     git add .

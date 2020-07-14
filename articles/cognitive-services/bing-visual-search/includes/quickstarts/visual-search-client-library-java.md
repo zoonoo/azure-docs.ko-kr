@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
-ms.openlocfilehash: 40432d4bad0070f9de21ec61020d976f0014e00c
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 9a8ea8ff03c495411910c775e5161b8ab216097a
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80573307"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805586"
 ---
 이 빠른 시작의 안내에 따라 Java 클라이언트 라이브러리를 사용하여 Bing Visual Search 서비스에서 이미지 인사이트 가져오기를 시작하세요. Bing Visual Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있는 반면, 클라이언트 라이브러리를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch)에서 확인할 수 있습니다.
 
@@ -24,15 +24,15 @@ Java용 Bing Visual Search 클라이언트 라이브러리를 사용하여 다�
 
 [참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)의 현재 버전
 * [Gradle 빌드 도구](https://gradle.org/install/) 또는 다른 종속성 관리자
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-평가판 구독 또는 리소스에서 키를 가져오면 `BING_SEARCH_V7_SUBSCRIPTION_KEY`라는 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+리소스에서 키를 가져온 후 `BING_SEARCH_V7_SUBSCRIPTION_KEY`라는 키에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 ### <a name="create-a-new-gradle-project"></a>새 Gradle 프로젝트 만들기
 

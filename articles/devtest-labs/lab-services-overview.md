@@ -1,26 +1,16 @@
 ---
-title: Azure Lab Services 정보 | Microsoft 문서 도구
-description: Lab Services를 사용하면 개발자, 테스터, 교육자, 학생 및 기타 사람들이 사용할 수 있는 가상 머신으로 랩을 쉽게 만들고, 관리하고, 보안을 유지할 수 있는 방법에 대해 알아봅니다.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Lab Services 및 Azure DevTest Labs
+description: Azure DevTest Labs와 Azure Lab Services를 비교합니다.
 ms.topic: overview
-ms.date: 02/03/2020
-ms.author: spelluru
-ms.openlocfilehash: a1e42a415e99bfaec1c48204efdaacd178005705
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899373"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480085"
 ---
-# <a name="an-introduction-to-azure-lab-services"></a>Azure Lab Services 소개
+# <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Azure DevTest Labs와 Azure Lab Services 비교
 Azure에는 클라우드에서 랩 환경을 설정할 수 있는 두 가지 서비스가 있습니다. 
 
 - **Azure DevTest Labs** - 이 서비스를 통해 팀 환경(예: 클라우드의 개발 환경 또는 테스트 환경)을 신속하게 설정할 수 있습니다. 랩 소유자는 랩을 만들고, Windows 또는 Linux 가상 머신을 프로비전하고, 필요한 소프트웨어 및 도구를 설치하고, 랩 사용자가 사용할 수 있게 합니다. 랩 사용자는 랩의 VM(가상 머신)에 연결하고 일상적인 작업, 단기 프로젝트에 VM을 사용합니다. 사용자가 랩에서 리소스를 활용하기 시작하면 랩 관리자는 여러 랩의 비용 및 사용을 분석하고, 조직 또는 팀의 비용을 최적화하기 위해 포괄적인 정책을 설정할 수 있습니다.

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 9cd59fdf81e9b5d56872d20c76e8ea177b3c8577
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e4ea76a888ba51b3560139e9efc3df512c4fbadf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79470897"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120945"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작
 
@@ -28,7 +28,7 @@ ms.locfileid: "79470897"
 > * 각 마이크로서비스 배포
 > * 애플리케이션에 대한 공용 엔드포인트 할당
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 >[!Note]
 > Azure Spring Cloud는 현재 퍼블릭 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 검토하거나 [지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하여 자세히 알아보세요.
@@ -134,7 +134,13 @@ az extension add --name spring-cloud
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. `gateway` 애플리케이션을 만들고 JAR 파일을 배포합니다.
+4. `gateway` 애플리케이션을 만들고 JAR 파일을 배포합니다.  다음 단계에는 Spring Cloud 확장이 필요합니다. 필수 구성 요소를 사용하여 설치하지 않은 경우 다음 명령을 실행합니다.
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+    Spring Cloud 확장을 사용하여 앱을 만듭니다.
 
     ```azurecli
     az spring-cloud app create -n gateway

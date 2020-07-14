@@ -3,13 +3,13 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: b5bdbb76a822f8b6d5134da819828b3dee518165
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.author: trbye
+ms.openlocfilehash: 7e2960adce028450fd3ccdb9eb11190629bf7bb8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83806423"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035779"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -168,7 +168,7 @@ ms.locfileid: "83806423"
 이제 오디오 파일을 가리키는 `AudioConfig` 개체를 만들어야 합니다. `startRecognizeOnceAsyncButton.addEventListener()` 메서드(음성 구성 바로 아래)에 이 코드를 삽입합니다.
 
 ```JavaScript
-        var audioConfig  = SpeechSDK.AudioConfig.fromFile(audioFile);
+        var audioConfig  = SpeechSDK.AudioConfig.fromWavFileInput(audioFile);
 ```
 
 ## <a name="initialize-a-speechrecognizer"></a>SpeechRecognizer 초기화
@@ -212,7 +212,7 @@ recognizer.recognizeOnceAsync(
 웹 서버에 웹 페이지를 호스트하려는 경우 필요에 따라 데모 애플리케이션의 토큰 소스를 제공하면 됩니다.
 이 방식을 사용하면 사용자가 권한 부여 코드를 직접 입력하지 않고 음성 기능을 사용할 수 있으면서도 구독 키가 절대 서버를 벗어나지 않습니다.
 
-이름이 `token.php`인 새 파일을 만듭니다. 이 예제에서는 웹 서버에서 PHP 스크립팅 언어를 지원한다고 가정하겠습니다. 다음 코드를 입력합니다.
+이름이 `token.php`인 새 파일을 만듭니다. 이 예제에서는 웹 서버에서 curl이 활성화된 PHP 스크립팅 언어를 지원한다고 가정하겠습니다. 다음 코드를 입력합니다.
 
 ```php
 <?php

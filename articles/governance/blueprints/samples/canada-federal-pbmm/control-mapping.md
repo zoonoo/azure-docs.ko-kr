@@ -3,12 +3,12 @@ title: 캐나다 연방 PBMM 청사진 샘플 컨트롤
 description: 캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005706"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085636"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑
 
@@ -108,7 +108,7 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 
 - 진단 설정 감사
 - SQL Server에 대한 감사가 사용되도록 설정되어야 함
-- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 
 ## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) 감사 검토, 분석 및 보고 | 중앙 검토 및 분석
@@ -132,7 +132,7 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 - 진단 설정 감사
 - SQL Server에 대한 감사가 사용되도록 설정되어야 함
-- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL 서버에 Advanced Data Security 배포
 - SQL Server에 감사 배포
@@ -140,13 +140,13 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) 최소한의 기능 | 권한이 부여된 소프트웨어/허용 목록
 
-Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하는 자동화된 인텔리전트 엔드투엔드 애플리케이션 허용 목록 관리 솔루션입니다. 애플리케이션 제어를 사용하면 가상 머신에 사용하도록 승인인 애플리케이션 목록을 만들 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 지능적이고 자동화된 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 애플리케이션 제어를 사용하면 가상 머신에 사용하도록 승인인 애플리케이션 목록을 만들 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 사용자가 설치한 소프트웨어
 
-Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하는 자동화된 인텔리전트 엔드투엔드 애플리케이션 허용 목록 관리 솔루션입니다. 애플리케이션 제어를 사용하면 소프트웨어 제한 정책을 적용하고 규정 준수 여부를 모니터링할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 지능적이고 자동화된 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 애플리케이션 제어를 사용하면 소프트웨어 제한 정책을 적용하고 규정 준수 여부를 모니터링할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
 
@@ -198,7 +198,7 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 
 이 청사진을 사용하면 Azure Security Center에서 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 정보 시스템 취약성을 관리할 수 있습니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다. 또한 이 청사진은 SQL 서버에서 Advanced Data Security를 감사하고 적용하는 정책 정의를 할당합니다. Advanced Data Security는 배포된 리소스의 취약성을 이해할 수 있는 취약성 평가 및 고급 위협 보호 기능이 포함되어 있습니다.
 
-- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL 서버에 Advanced Data Security 배포
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
@@ -249,7 +249,7 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 
 이 청사진을 사용하면 특정 암호화 컨트롤을 적용하고 취약한 암호 설정의 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 암호화 컨트롤을 통해 저장 정보를 보호하는 정책을 적용할 수 있습니다. Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이해하면 리소스가 정보 보안 정책에 따라 구성되도록 정정 작업을 수행하는 데 도움이 될 수 있습니다. 특히 이 청사진이 할당하는 정책 정의는 데이터 레이크 스토리지 계정을 암호화하고, SQL 데이터베이스의 데이터를 투명하게 암호화하고, SQL 데이터베이스, 가상 머신 디스크 및 자동화 계정 변수에서 누락된 암호화를 감사할 것을 요구합니다.
 
-- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL 서버에 Advanced Data Security 배포
 - SQL DB 투명한 데이터 암호화 배포
@@ -293,7 +293,7 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
-- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL 서버에 Advanced Data Security 배포
 - 스토리지 계정에 Advanced Threat Protection 배포

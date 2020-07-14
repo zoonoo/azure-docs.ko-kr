@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e17bad915fd913f6e3894ed386e914e65aa46c01
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250335"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101888"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager Tools 확장이 있는 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](./use-vs-code-to-create-template.md)를 참조하세요.
+* Resource Manager Tools 확장이 있는 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](./quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 * 보안을 강화하려면 서버 관리자 계정에 대해 생성된 암호를 사용합니다. 암호를 생성하는 데 사용할 수 있는 샘플은 다음과 같습니다.
 
     ```console
@@ -112,8 +112,8 @@ ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Stor
 
     템플릿에는 다음과 같은 2개의 리소스가 정의되어 있습니다.
 
-   * `Microsoft.Sql/servers`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)를 참조하세요.
-   * `Microsoft.SQL.servers/databases`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)를 참조하세요.
+   * `Microsoft.Sql/servers`입니다. [템플릿 참조](/azure/templates/microsoft.sql/servers)를 참조하세요.
+   * `Microsoft.SQL.servers/databases`입니다. [템플릿 참조](/azure/templates/microsoft.sql/servers/databases)를 참조하세요.
 
         템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 1. **파일** > **다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 *azuredeploy.json*이라는 이름으로 저장합니다.
@@ -194,7 +194,7 @@ ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Stor
 
         ![SQL Database 확장이 있는 템플릿](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-        리소스 정의를 이해하려면 [SQL Database 확장 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions)를 확인하세요. 다음은 중요한 요소입니다.
+        리소스 정의를 이해하려면 [SQL Database 확장 참조](/azure/templates/microsoft.sql/servers/databases/extensions)를 확인하세요. 다음은 중요한 요소입니다.
 
         * **dependsOn**: 데이터베이스가 생성된 후 확장 리소스를 만들어야 합니다.
         * **storageKeyType**: 사용할 스토리지 키 형식을 지정합니다. 값은 `StorageAccessKey` 또는 `SharedAccessKey`일 수 있습니다. 이 자습서에서는 `StorageAccessKey`를 사용합니다.

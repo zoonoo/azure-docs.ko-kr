@@ -1,24 +1,22 @@
 ---
-title: Azure Firewall Manager Preview란?
+title: Azure Firewall Manager란?
 description: Azure Firewall Manager 기능에 대해 알아보기
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792163"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563752"
 ---
-# <a name="what-is-azure-firewall-manager-preview"></a>Azure Firewall Manager Preview란?
+# <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Azure Firewall Manager Preview는 클라우드 기반 보안 경계에 대한 중앙 보안 정책 및 경로 관리를 제공하는 보안 관리 서비스입니다. 
+Azure Firewall Manager는 클라우드 기반 보안 경계에 대한 중앙 보안 정책 및 경로 관리를 제공하는 보안 관리 서비스입니다. 
 
 Firewall Manager는 다음 두 가지 네트워크 아키텍처 유형에 대한 보안 관리를 제공할 수 있습니다.
 
@@ -33,9 +31,9 @@ Firewall Manager는 다음 두 가지 네트워크 아키텍처 유형에 대한
 
 ![방화벽-관리자](media/overview/trusted-security-partners.png)
 
-## <a name="azure-firewall-manager-preview-features"></a>Azure Firewall Manager Preview 기능
+## <a name="azure-firewall-manager-features"></a>Azure Firewall Manager 기능
 
-Azure Firewall Manager Preview는 다음과 같은 기능을 제공합니다.
+Azure Firewall Manager는 다음과 같은 기능을 제공합니다.
 
 ### <a name="central-azure-firewall-deployment-and-configuration"></a>중앙 Azure Firewall 배포 및 구성
 
@@ -43,7 +41,7 @@ Azure Firewall Manager Preview는 다음과 같은 기능을 제공합니다.
 
 ### <a name="hierarchical-policies-global-and-local"></a>계층 구조 정책(글로벌 및 로컬)
 
-Azure Firewall Manager Preview를 사용하여 여러 보안 가상 허브에서 Azure Firewall 정책을 중앙에서 관리할 수 있습니다. 중앙의 IT 팀은 글로벌 방화벽 정책을 작성하여 팀 간에 조직 전체 방화벽 정책을 적용할 수 있습니다. 로컬로 작성된 방화벽 정책을 사용하면 DevOps 셀프 서비스 모델을 사용하여 민첩성을 강화할 수 있습니다.
+Azure Firewall Manager를 사용하여 여러 보안 가상 허브에서 Azure Firewall 정책을 중앙에서 관리할 수 있습니다. 중앙의 IT 팀은 글로벌 방화벽 정책을 작성하여 팀 간에 조직 전체 방화벽 정책을 적용할 수 있습니다. 로컬로 작성된 방화벽 정책을 사용하면 DevOps 셀프 서비스 모델을 사용하여 민첩성을 강화할 수 있습니다.
 
 ### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>고급 보안을 위해 타사 Security-as-a-Service와 통합
 
@@ -60,7 +58,7 @@ Azure Firewall 외에도 타사의 SECaaS(Security as a Service) 공급자를 �
 
    Azure 연결 및 글로벌 배포를 활용하여 분기와 인터넷 간 시나리오에 대해 타사 필터링을 쉽게 추가할 수 있습니다.
 
-신뢰할 수 있는 보안 공급자에 대한 자세한 내용은 [Azure Firewall Manager 신뢰할 수 있는 보안 파트너(미리 보기)란?](trusted-security-partners.md)을 참조하세요.
+보안 파트너 공급자에 대한 자세한 내용은 [Azure Firewall Manager 보안 파트너 공급자란?](trusted-security-partners.md)을 참조하세요.
 
 ### <a name="centralized-route-management"></a>중앙 경로 관리
 
@@ -76,20 +74,17 @@ Azure Firewall 정책은 여러 지역에 걸쳐 사용할 수 있습니다. 예
 
 ## <a name="known-issues"></a>알려진 문제
 
-Azure Firewall Manager Preview에는 다음과 같이 알려진 문제가 있습니다.
+Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 
 |문제  |설명  |완화 방법  |
 |---------|---------|---------|
-|타사 필터링 제한 사항.|타사 공급자를 사용한 V2I 트래픽 필터링은 Azure Firewall B2V 및 V2V에서 지원되지 않습니다.|조사|
 |트래픽 분할은 현재 지원되지 않습니다.|Office 365 및 Azure 퍼블릭 PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure 퍼블릭 PaaS 및 Office 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브에서 트래픽 분할을 조사 중입니다.
 |지역당 하나의 보안 가상 허브.|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|
 |기본 정책은 로컬 정책과 동일한 지역에 있어야 합니다.|기본 정책과 동일한 지역에 모든 로컬 정책을 만듭니다. 보안 허브의 한 지역에 생성된 정책을 다른 지역에서 계속 적용할 수 있습니다.|조사|
 |보안 Virtual Hub에서 허브 간 통신이 작동하지 않음|보안 Virtual Hub 간 통신은 아직 지원되지 않습니다.|조사|
 |동일한 가상 WAN을 공유하는 모든 보안 Virtual Hubs는 동일한 리소스 그룹에 있어야 합니다.|이 동작은 현재 Virtual WAN Hubs에 맞춰 조정됩니다.|여러 Virtual WAN을 만들어 다른 리소스 그룹에서 보안 Virtual Hubs를 만들 수 있도록 합니다.|
-|Firewall Policy에서 IP 그룹이 지원되지 않습니다.|IP 그룹은 공개 미리 보기로 제공되며 현재 기존 방화벽 규칙에서만 지원됩니다.|수정이 진행중입니다.
-|CSP(클라우드 솔루션 공급자) 구독은 지원되지 않습니다.|현재 [CSP 구독](https://azure.microsoft.com/offers/ms-azr-0145p/)은 지원되지 않습니다.|조사
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Firewall Manager Preview 배포 개요](deployment-overview.md) 검토
+- [Azure Firewall Manager 배포 개요](deployment-overview.md) 검토
 - [보안 가상 허브](secured-virtual-hub.md)에 대해 알아보기

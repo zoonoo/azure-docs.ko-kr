@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: b9afd1c4ca5e4c652a03bc2ef652b8e43ea12787
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 3e5afae9421d13d986ad6c891c8e889f590f04a2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727202"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044722"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>빠른 시작: IoT 허브(Android)에 연결된 디바이스 제어
 
@@ -25,7 +25,7 @@ ms.locfileid: "83727202"
 
 이 빠른 시작에서는 직접 메서드를 사용하여 Azure IoT Hub에 연결된 시뮬레이션된 디바이스를 제어합니다. IoT Hub는 클라우드에서 IoT 디바이스를 관리하고, 스토리지 또는 처리를 위해 클라우드로 다량의 디바이스 원격 분석 데이터를 수집할 수 있는 Azure 서비스입니다. 직접 메서드를 사용하여 IoT 허브에 연결된 디바이스의 동작을 원격으로 변경할 수 있습니다. 이 빠른 시작에서는 백 엔드 서비스 애플리케이션에서 호출된 직접 메서드에 응답하는 시뮬레이션된 디바이스 애플리케이션과 Android 디바이스에서 직접 메서드를 호출하는 서비스 애플리케이션인 두 개의 애플리케이션을 사용합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
@@ -113,9 +113,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 디바이스 SDK 샘플 애플리케이션은 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행됩니다. 이 샘플은 IoT 허브의 디바이스별 엔드포인트에 연결하고, 시뮬레이션된 원격 분석 데이터를 전송하고, 허브에서 직접 메서드 호출을 수신 대기합니다. 이 빠른 시작에서 허브의 직접 메서드 호출은 디바이스에 원격 분석을 보내는 간격을 변경하도록 지시합니다. 시뮬레이션된 디바이스는 직접 메서드를 실행한 후 승인을 다시 허브로 보냅니다.
 
-1. Android Studio에서 GitHub 샘플 Android 프로젝트를 엽니다. 프로젝트는 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리의 복제된 또는 다운로드된 사본인 다음 디렉터리에 있습니다.
-
-        \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
+1. Android Studio에서 GitHub 샘플 Android 프로젝트를 엽니다. 프로젝트는 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리의 복제되거나 다운로드된 사본인 *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample* 디렉터리에 있습니다.
 
 2. Android Studio에서 샘플 프로젝트의 *gradle.properties*를 열고 **Device_Connection_String** 자리 표시자를 이전에 기록한 디바이스 연결 문자열로 바꿉니다.
 
@@ -165,9 +163,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 IoT Hub 백 엔드 서비스 애플리케이션은 일반적으로 IoT Hub의 모든 디바이스를 제어하는 민감한 연결 문자열과 관련된 위험을 완화하기 용이한 클라우드에서 실행됩니다. 이 예제에서는 데모용 Android 앱으로 실행 중입니다. 이 빠른 시작의 다른 언어 버전에서는 일반적인 백 엔드 서비스 애플리케이션과 더욱 긴밀하게 부합하는 예제를 제공합니다.
 
-1. Android Studio에서 GitHub 서비스 샘플 Android 프로젝트를 엽니다. 프로젝트는 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리의 복제된 또는 다운로드된 사본인 다음 디렉터리에 있습니다.
-
-        \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
+1. Android Studio에서 GitHub 서비스 샘플 Android 프로젝트를 엽니다. 프로젝트는 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리의 복제되거나 다운로드된 사본인 *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample* 디렉터리에 있습니다.
 
 2. Android Studio에서 샘플 프로젝트의 *gradle.properties*를 엽니다. **ConnectionString** 및 **DeviceId** 속성의 값을 앞서 본 서비스 연결 문자열 및 등록된 Android 디바이스 ID로 업데이트합니다.
 

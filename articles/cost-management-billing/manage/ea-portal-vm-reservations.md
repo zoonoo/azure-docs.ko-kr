@@ -3,16 +3,16 @@ title: Azure EA VM 예약 인스턴스
 description: 이 문서에서는 VM 예약 인스턴스에 대한 Azure 예약을 통해 엔터프라이즈 등록과 관련된 비용을 절감할 수 있는 방법을 요약합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b78abeaac3066839636918923636f4b7bdf9ee35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735424"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044858"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Azure EA VM 예약 인스턴스
 
@@ -83,9 +83,9 @@ Azure 하이브리드 혜택을 사용하여 Azure Reserved VM Instances를 구�
 
 ### <a name="reserved-instance-billing"></a>예약된 인스턴스 청구
 
-기업 고객의 경우, 금액 약정을 사용하여 Azure Reserved VM Instances를 구입할 수 있습니다. 등록에 예약 인스턴스 구매를 다루기에 충분한 금액 약정 잔액이 있는 경우 해당 금액이 금액 약정 잔액에서 공제되고 구매에 대한 송장은 제공되지 않습니다.
+기업 고객의 경우 Azure 선불을 사용하여 Azure 예약 VM 인스턴스를 구입할 수 있습니다. 등록에 예약 인스턴스 구매를 처리하기에 충분한 Azure 선불 잔액이 있는 경우 해당 금액이 Azure 선불 잔액에서 공제되고 구매에 대한 송장은 제공되지 않습니다.
 
-Azure EA 고객이 금액 약정을 모두 사용한 경우에도 예약된 인스턴스를 계속 구입할 수 있으며 그러한 구입은 다음 초과분 청구서로 요금이 청구됩니다. 예약된 인스턴스가 초과되는 경우에는 정기적인 초과 청구서에 포함됩니다.
+Azure EA 고객이 모든 Azure 선불을 사용한 경우에도 예약된 인스턴스를 계속 구입할 수 있으며 그러한 구입은 다음 초과분 청구서로 요금이 청구됩니다. 예약된 인스턴스가 초과되는 경우에는 정기적인 초과 청구서에 포함됩니다.
 
 ### <a name="reserved-instance-expiration"></a>예약된 인스턴스 만료
 

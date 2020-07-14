@@ -2,15 +2,15 @@
 title: 템플릿 배포 - Azure Portal
 description: Azure Portal을 사용하여 첫 번째 Azure Resource Manager 템플릿을 만들고 이를 배포하는 방법을 알아봅니다.
 author: mumian
-ms.date: 06/12/2019
+ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: dd3d9caa8184b8637b509fc3318851751b211405
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff6c459f2f4178bee6b6b564e177c097d72592a3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80131867"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557287"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포
 
@@ -38,7 +38,7 @@ ARM 템플릿을 처음부터 새로 만드는 작업은 쉽지 않으며 특히
     ![Azure Storage 계정 만들기](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 1. 다음 정보를 입력합니다.
 
-    |속성|값|
+    |Name|값|
     |----|----|
     |**리소스 그룹**|**새로 만들기**를 선택하고, 원하는 리소스 그룹 이름을 지정합니다. 스크린샷에서 리소스 그룹 이름은 *mystorage1016rg*입니다. 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 리소스 그룹을 사용하면 Azure 리소스를 쉽게 관리할 수 있습니다. |
     |**이름**|스토리지 계정에 고유한 이름을 지정합니다. 스토리지 계정 이름은 Azure 전체에서 고유해야 하며 소문자와 숫자만 포함해야 합니다. 이름은 3에서 24자 사이여야 합니다. "스토리지 계정 이름 'mystorage1016'이 이미 사용되었습니다."라는 오류 메시지가 표시되면 **&lt;내 이름>스토리지&lt;MMDD 형식의 오늘 날짜>** (예: **johndolestorage1016**)를 사용해 보십시오. 자세한 내용은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
@@ -57,7 +57,7 @@ ARM 템플릿을 처음부터 새로 만드는 작업은 쉽지 않으며 특히
 
     기본 창에 템플릿이 표시됩니다. 6개의 최상위 요소(`schema`, `contentVersion`, `parameters`, `variables`, `resources` 및 `output`)가 있는 JSON 파일입니다. 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](./template-syntax.md)를 참조하세요.
 
-    매개 변수 6개가 정의되어 있습니다. 그 중 하나는 **storageAccountName**입니다. 이전 스크린샷에서 강조 표시된 두 번째 부분은 템플릿에서 이 매개 변수를 참조하는 방법을 보여줍니다. 다음 섹션에서는 생성된 이름을 스토리지 계정에 사용하도록 템플릿을 편집합니다.
+    8개의 매개 변수가 정의되어 있습니다. 그 중 하나는 **storageAccountName**입니다. 이전 스크린샷에서 강조 표시된 두 번째 부분은 템플릿에서 이 매개 변수를 참조하는 방법을 보여줍니다. 다음 섹션에서는 생성된 이름을 스토리지 계정에 사용하도록 템플릿을 편집합니다.
 
     템플릿에는 Azure 리소스 하나가 정의되어 있습니다. 유형은 `Microsoft.Storage/storageAccounts`입니다. 리소스가 정의되는 방법 및 정의 구조를 살펴보세요.
 1. 화면 맨 위에서 **다운로드**를 선택하세요.
@@ -77,12 +77,10 @@ Azure Portal은 기본적인 템플릿 편집 작업에 사용할 수 있습니�
 
 Azure의 각 Azure 서비스에는 고유한 이름이 필요합니다. 이미 존재하는 스토리지 계정 이름을 입력한 경우 배포에 실패할 수 있습니다. 이 문제를 방지하기 위해 템플릿 함수 호출 `uniquestring()`을 사용하도록 템플릿을 수정하여 고유한 스토리지 계정 이름을 생성합니다.
 
-1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
-1. **Marketplace 검색**에서 **템플릿 배포**를 입력하고 **ENTER**를 누릅니다.
-1. **템플릿 배포**를 선택합니다.
+1. Azure Portal 메뉴의 검색 상자에 **배포**를 입력한 다음, **사용자 지정 템플릿 배포**를 선택합니다.
 
     ![Azure Resource Manager 템플릿 라이브러리](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
-1. **만들기**를 선택합니다.
+
 1. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
 1. **파일 로드**를 선택한 다음, 지침에 따라 이전 섹션에서 다운로드한 template.json 파일을 로드합니다.
 1. 템플릿에서 다음 세 가지를 변경합니다.
@@ -107,66 +105,75 @@ Azure의 각 Azure 서비스에는 고유한 이름이 필요합니다. 이미 �
 
      ```json
      {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
-           "location": {
-               "type": "string"
-           },
-           "accountType": {
-               "type": "string"
-           },
-           "kind": {
-               "type": "string"
-           },
-           "accessTier": {
-               "type": "string"
-           },
-           "supportsHttpsTrafficOnly": {
-               "type": "bool"
-           }
+         "location": {
+           "type": "string"
+         },
+         "accountType": {
+           "type": "string"
+         },
+         "kind": {
+           "type": "string"
+         },
+         "accessTier": {
+           "type": "string"
+         },
+         "minimumTlsVersion": {
+           "type": "string"
+         },
+         "supportsHttpsTrafficOnly": {
+          "type": "bool"
+         },
+         "allowBlobPublicAccess": {
+           "type": "bool"
+         }
        },
        "variables": {
-           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
        },
        "resources": [
-           {
-               "name": "[variables('storageAccountName')]",
-               "type": "Microsoft.Storage/storageAccounts",
-               "apiVersion": "2018-07-01",
-               "location": "[parameters('location')]",
-               "properties": {
-                   "accessTier": "[parameters('accessTier')]",
-                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-               },
-               "dependsOn": [],
-               "sku": {
-                   "name": "[parameters('accountType')]"
-               },
-               "kind": "[parameters('kind')]"
-           }
+         {
+           "name": "[variables('storageAccountName')]",
+           "type": "Microsoft.Storage/storageAccounts",
+           "apiVersion": "2019-06-01",
+           "location": "[parameters('location')]",
+           "properties": {
+             "accessTier": "[parameters('accessTier')]",
+             "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+             "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+             "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]"
+           },
+           "dependsOn": [],
+           "sku": {
+             "name": "[parameters('accountType')]"
+           },
+           "kind": "[parameters('kind')]",
+           "tags": {}
+         }
        ],
        "outputs": {}
      }
      ```
+
 1. **저장**을 선택합니다.
 1. 다음 값을 입력합니다.
 
-    |속성|값|
+    |Name|값|
     |----|----|
     |**리소스 그룹**|마지막 섹션에서 만든 리소스 그룹 이름을 선택합니다. |
+    |**지역**|리소스 그룹의 위치를 선택합니다. 예: **미국 중부** |
     |**위치**|스토리지 계정의 위치를 선택합니다. 예: **미국 중부** |
     |**계정 유형**|이 빠른 시작에서는 **Standard_LRS**를 입력합니다. |
     |**종류**|이 빠른 시작에서는 **StorageV2**를 입력합니다. |
     |**액세스 계층**|이 빠른 시작에서는 **핫**을 입력합니다. |
-    |**Https 트래픽만 사용**| 이 빠른 시작에서는 **true**를 선택합니다. |
-    |**위에 명시된 사용 약관에 동의함**|(선택)|
+    |**최소 Tls 버전**|**TLS1_0**을 입력합니다. |
+    |**Https 트래픽만 지원**| 이 빠른 시작에서는 **true**를 선택합니다. |
+    |**Blob 퍼블릭 액세스 허용**| 이 빠른 시작에서는 **false**를 선택합니다. |
 
-    샘플 배포의 스크린샷은 다음과 같습니다.
-
-    ![Azure Resource Manager 템플릿 배포](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
-
-1. **구매**를 선택합니다.
+1. **검토 + 만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
 1. 화면 위쪽에서 벨 아이콘(알림)을 선택하여 배포 상태를 확인합니다. **배포 진행 중**이 표시됩니다. 배포가 완료될 때까지 기다립니다.
 
     ![Azure Resource Manager 템플릿 배포 알림](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)

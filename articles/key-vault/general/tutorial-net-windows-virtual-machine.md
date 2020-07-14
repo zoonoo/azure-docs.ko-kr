@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 6ba78a44af7beb9b5b79aa1a87e08f5a82589cce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8db1c511ab9defb140720655588b27279a0f08be
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81425762"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085483"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>자습서: .NET에서 Windows 가상 머신에 Azure Key Vault 사용
 
 Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액세스하는 데 필요한 API 키, 데이터베이스 연결 문자열과 같은 비밀을 보호할 수 있습니다.
 
-이 자습서에서는 Azure Key Vault에서 정보를 읽는 콘솔 애플리케이션을 가져오는 방법을 알아봅니다. 이렇게 하려면 Azure 리소스의 관리 ID를 사용합니다. 
+이 자습서에서는 Azure Key Vault에서 정보를 읽는 콘솔 애플리케이션을 가져오는 방법을 알아봅니다. 애플리케이션은 가상 머신 관리 ID를 사용하여 Key Vault에 인증합니다. 
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
@@ -38,21 +38,12 @@ Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액�
 
 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Windows, Mac 및 Linux:
   * [Git](https://git-scm.com/downloads)
-  * 이 자습서에서는 Azure CLI를 로컬로 실행해야 합니다. Azure CLI 버전 2.0.4 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
-## <a name="about-managed-service-identity"></a>관리 서비스 ID 정보
-
-Azure Key Vault는 자격 증명을 안전하게 저장하므로 자격 증명이 코드에 표시되지 않습니다. 그러나 키를 검색하려면 Azure Key Vault에서 인증을 받아야 합니다. Key Vault에서 인증을 받으려면 자격 증명이 필요합니다. 이것이 바로 클래식 부트스트랩의 딜레마입니다. MSI(관리 서비스 ID)는 프로세스를 간소화하는 _부트스트랩 ID_를 제공하여 이 문제를 해결합니다.
-
-Azure 서비스(예: Azure Virtual Machines, Azure App Service 또는 Azure Functions)에 대해 MSI를 사용하도록 설정하면 Azure는 [서비스 주체](basic-concepts.md)를 만듭니다. MSI는 Azure AD(Azure Active Directory)에서 서비스의 인스턴스에 대해 이 작업을 수행하고 서비스 주체 자격 증명을 해당 인스턴스에 삽입합니다. 
-
-![MSI](../media/MSI.png)
-
-다음으로, 액세스 토큰을 가져오기 위해 코드는 Azure 리소스에 사용할 수 있는 로컬 메타데이터 서비스를 호출합니다. Azure Key Vault 서비스를 인증하기 위해 코드는 로컬 MSI 엔드포인트에서 가져오는 액세스 토큰을 사용합니다. 
+  * [.NET Core 3.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+  * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-resources-and-assign-permissions"></a>리소스 만들기 및 권한 할당
 
@@ -152,21 +143,23 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 다음 명령을 실행하여 "Hello World"를 콘솔에 출력할 수 있습니다.
 
 ```console
-dotnet new console -o helloworldapp
-cd helloworldapp
+dotnet new console -n keyvault-console-app
+cd keyvault-console-app
 dotnet run
 ```
 
-### <a name="install-the-packages"></a>패키지 설치
+### <a name="install-the-package"></a>패키지 설치
 
-콘솔 창에서 이 빠른 시작에 필요한 .NET 패키지를 설치합니다.
+콘솔 창에서 .NET용 Azure Key Vault 비밀 클라이언트 라이브러리를 설치합니다.
 
 ```console
-dotnet add package System.IO;
-dotnet add package System.Net;
-dotnet add package System.Text;
-dotnet add package Newtonsoft.Json;
-dotnet add package Newtonsoft.Json.Linq;
+dotnet add package Azure.Security.KeyVault.Secrets
+```
+
+이 빠른 시작에서는 다음 ID 패키지를 설치하여 Azure Key Vault에 인증해야 합니다.
+
+```console
+dotnet add package Azure.Identity
 ```
 
 ## <a name="edit-the-console-app"></a>콘솔 앱 편집
@@ -175,61 +168,59 @@ dotnet add package Newtonsoft.Json.Linq;
 
 ```csharp
 using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 ```
 
-다음 3단계 프로세스에 따라 클래스 파일을 편집하여 코드를 포함합니다.
-
-1. VM의 로컬 MSI 엔드포인트에서 토큰을 페치합니다. 이렇게 하면 Azure AD에서 토큰도 페치됩니다.
-2. 토큰을 Key Vault에 전달하고 비밀을 페치합니다. 
-3. 자격 증명 모음 이름 및 비밀 이름을 요청에 추가합니다.
+다음 줄을 추가하여, 키 자격 증명 모음의 `vaultUri`를 반영하도록 URI를 업데이트합니다. 아래 코드에서는 키 자격 증명 모음에 대한 인증을 위해 ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)을 사용하며, 이는 애플리케이션 관리 ID의 토큰을 사용하여 인증합니다. 또한 키 자격 증명 모음이 제한되는 경우 지수 백오프를 다시 시도에 사용합니다.
 
 ```csharp
- class Program
+  class Program
     {
         static void Main(string[] args)
         {
-            // Step 1: Get a token from the local (URI) Managed Service Identity endpoint, which in turn fetches it from Azure AD
-            var token = GetToken();
+            string secretName = "mySecret";
 
-            // Step 2: Fetch the secret value from your key vault
-            System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
-        }
-
-        static string GetToken()
-        {
-            WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net");
-            request.Headers.Add("Metadata", "true");
-            WebResponse response = request.GetResponse();
-            return ParseWebResponse(response, "access_token");
-        }
-        
-        static string FetchSecretValueFromKeyVault(string token)
-        {
-            //Step 3: Add the vault name and secret name to the request.
-            WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
-            kvRequest.Headers.Add("Authorization", "Bearer "+  token);
-            WebResponse kvResponse = kvRequest.GetResponse();
-            return ParseWebResponse(kvResponse, "value");
-        }
-
-        private static string ParseWebResponse(WebResponse response, string tokenName)
-        {
-            string token = String.Empty;
-            using (Stream stream = response.GetResponseStream())
+            var kvUri = "https://<your-key-vault-name>.vault.azure.net";
+            SecretClientOptions options = new SecretClientOptions()
             {
-                StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                String responseString = reader.ReadToEnd();
+                Retry =
+                {
+                    Delay= TimeSpan.FromSeconds(2),
+                    MaxDelay = TimeSpan.FromSeconds(16),
+                    MaxRetries = 5,
+                    Mode = RetryMode.Exponential
+                 }
+            };
 
-                JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];             
-                token = ojObject.Value.ToString();
-            }
-            return token;
+            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential(),options);
+
+            Console.Write("Input the value of your secret > ");
+            string secretValue = Console.ReadLine();
+
+            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+
+            client.SetSecret(secretName, secretValue);
+
+            Console.WriteLine(" done.");
+
+            Console.WriteLine("Forgetting your secret.");
+            secretValue = "";
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+
+            Console.WriteLine("Retrieving your secret from " + keyVaultName + ".");
+
+            KeyVaultSecret secret = client.GetSecret(secretName);
+
+            Console.WriteLine("Your secret is '" + secret.Value + "'.");
+
+            Console.Write("Deleting your secret from " + keyVaultName + " ...");
+
+            client.StartDeleteSecret(secretName);
+
+            System.Threading.Thread.Sleep(5000);
+            Console.WriteLine(" done.");
+
         }
     }
 ```

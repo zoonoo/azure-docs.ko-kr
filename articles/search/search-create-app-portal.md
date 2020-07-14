@@ -1,23 +1,25 @@
 ---
-title: Azure Portal에서 검색 앱 만들기
+title: Azure Portal에서 데모 앱 만들기
 titleSuffix: Azure Cognitive Search
-description: 앱 만들기(미리 보기) 마법사를 실행하여 운영 웹앱에 대한 HTML 페이지와 스크립트를 생성합니다. 이 페이지에는 검색 창, 결과 영역, 사이드바 및 자동 완성 지원이 포함됩니다.
+description: 데모 앱 만들기(미리 보기) 마법사를 실행하여 운영 웹앱에 대한 HTML 페이지와 스크립트를 생성합니다. 이 페이지에는 검색 창, 결과 영역, 사이드바 및 자동 완성 지원이 포함됩니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 07/01/2020
+ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488174"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955695"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>빠른 시작: 포털에서 검색 앱 만들기(Azure Cognitive Search)
+# <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>빠른 시작: 포털에서 데모 앱 만들기(Azure Cognitive Search)
 
-Azure Portal의 **검색 앱 만들기** 마법사를 사용하여 브라우저에서 실행되는 다운로드 가능한 "localhost" 스타일 웹앱을 생성합니다. 구성에 따라 생성된 앱은 처음 사용할 때 원격 인덱스에 대한 라이브 연결을 사용하여 작동합니다. 기본 앱에는 검색 창, 결과 영역, 사이드바 필터 및 자동 완성 지원이 포함될 수 있습니다.
+Azure Portal의 **데모 앱 만들기** 마법사를 사용하여 브라우저에서 실행되는 다운로드 가능한 "localhost" 스타일 웹앱을 생성합니다. 구성에 따라 생성된 앱은 처음 사용할 때 원격 인덱스에 대한 라이브 읽기 전용 연결을 사용하여 작동합니다. 기본 앱에는 검색 창, 결과 영역, 사이드바 필터 및 자동 완성 지원이 포함될 수 있습니다.
+
+데모 앱은 클라이언트 앱에서 인덱스가 작동하는 방식을 시각화하는 데 도움을 줄 수 있지만, 프로덕션 시나리오에는 적합하지 않습니다. 클라이언트 앱에는 생성된 HTML 페이지가 제공하지 않는 보안, 오류 처리 및 호스팅 논리가 포함되어야 합니다. 클라이언트 앱을 만들 준비가 되면 다음 단계는 [.NET SDK를 사용하여 첫 번째 검색 앱 만들기](tutorial-csharp-create-first-app.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -45,7 +47,7 @@ Azure Portal의 **검색 앱 만들기** 마법사를 사용하여 브라우저�
 
 1. 기존 인덱스 목록에서 *realestate-us-sample-index*를 선택합니다.
 
-1. 인덱스 페이지의 위쪽에서 **검색 앱 만들기(미리 보기)** 를 선택하여 마법사를 시작합니다.
+1. 인덱스 페이지의 위쪽에서 **데모 앱 만들기(미리 보기)** 를 선택하여 마법사를 시작합니다.
 
 1. 첫 번째 마법사 페이지에서 **CORS(원본 간 리소스 공유) 사용**을 선택하여 CORS 지원을 인덱스 정의에 추가합니다. 이 단계는 선택 사항이지만, 이를 수행하지 않으면 로컬 웹앱이 원격 인덱스에 연결되지 않습니다.
 
@@ -85,7 +87,7 @@ Azure Cognitive Search에서 패싯 탐색은 누적 필터링 환경입니다. 
 
 ## <a name="create-download-and-execute"></a>만들기, 다운로드 및 실행
 
-1. **검색 앱 만들기**를 선택하여 HTML 파일을 생성합니다.
+1. **데모 앱 만들기**를 선택하여 HTML 파일을 생성합니다.
 
 1. 메시지가 표시되면 **앱 다운로드**를 선택하여 파일을 다운로드합니다.
 

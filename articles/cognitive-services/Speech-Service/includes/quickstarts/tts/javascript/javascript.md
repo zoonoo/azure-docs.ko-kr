@@ -3,17 +3,17 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 2ac2051bd75bdad550bc93323053db2d220095a2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.author: trbye
+ms.openlocfilehash: 4e3b87055246c3060ab9a35e6a112782275633ae
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979460"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035530"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-시작하기 전에:
+시작하기 전에 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Azure Speech 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>
@@ -41,7 +41,7 @@ Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다�
 웹 서버에 웹 페이지를 호스트하려는 경우 필요에 따라 데모 애플리케이션의 토큰 소스를 제공하면 됩니다.
 이 방식을 사용하면 사용자가 권한 부여 코드를 직접 입력하지 않고 음성 기능을 사용할 수 있으면서도 구독 키가 절대 서버를 벗어나지 않습니다.
 
-이름이 `token.php`인 새 파일을 만듭니다. 이 예제에서는 웹 서버에서 PHP 스크립팅 언어를 지원한다고 가정하겠습니다. 다음 코드를 입력합니다.
+이름이 `token.php`인 새 파일을 만듭니다. 이 예제에서는 웹 서버에서 curl이 활성화된 PHP 스크립팅 언어를 지원한다고 가정하겠습니다. 다음 코드를 입력합니다.
 
 ```php
 <?php

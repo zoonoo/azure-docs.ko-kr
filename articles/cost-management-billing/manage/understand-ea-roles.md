@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678021"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045147"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Azure Enterprise 역할 관리
 
@@ -84,7 +84,7 @@ Azure EA 관리자가 부서를 만들면 Azure 엔터프라이즈 관리자는 
 
 |작업| 엔터프라이즈 관리자|엔터프라이즈 관리자(읽기 전용)|부서 관리자|부서 관리자(읽기 전용) |계정 소유자| 파트너|
 |---|---|---|---|---|---|---|
-|현금 약정 금액을 포함한 크레딧 잔액 보기|✔|✔|✘|✘|✘|✔|
+|Azure 선불을 포함한 크레딧 잔액 보기|✔|✔|✘|✘|✘|✔|
 |부서 지출 할당량 보기|✔|✔|✘|✘|✘|✔|
 |부서 지출 할당량 설정|✔|✘|✘|✘|✘|✘|
 |조직의 EA 가격표 보기|✔|✔|✘|✘|✘|✔|

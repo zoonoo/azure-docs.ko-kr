@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4f9b8f3edc475ec50eaf11080020aa9f62a0d2c1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: b02455c153c6205b87a64a388d5588c3c431e0c9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700869"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963515"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>빠른 시작: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 미리 보기 디바이스 만들기(Windows)
 
@@ -21,7 +21,7 @@ ms.locfileid: "83700869"
 
 _DCM(디바이스 기능 모델)_ 은 IoT 플러그 앤 플레이 디바이스의 기능을 설명합니다. DCM은 종종 제품 SKU와 연결됩니다. DCM에 정의된 기능은 재사용 가능한 인터페이스로 구성됩니다. DCM에서 기본 디바이스 코드를 생성할 수 있습니다. 이 빠른 시작에서는 Windows에서 VS Code를 사용하여 DCM을 사용하는 IoT 플러그 앤 플레이 디바이스를 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작을 완료하려면 로컬 머신에 다음 소프트웨어를 설치해야 합니다.
 
@@ -78,7 +78,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 1. 다음과 같이 Azure IoT C 디바이스 SDK Vcpkg를 설치합니다.
 
     ```cmd
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use-prov-client]
     ```
 
 ## <a name="author-your-model"></a>모델 작성
@@ -87,7 +87,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 1. 로컬 드라이브에 `pnp_app` 폴더를 만듭니다. 이 폴더는 디바이스 모델 파일 및 디바이스 코드 스텁에 사용됩니다.
 
-1. [디바이스 기능 모델 및 인터페이스 샘플 파일](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json) 및 [인터페이스 샘플](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json)을 다운로드하고 파일을 `pnp_app` 폴더에 저장합니다.
+1. [디바이스 기능 모델](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/SampleDevice.capabilitymodel.json) 및 [인터페이스 샘플](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensor.interface.json) 파일을 다운로드하여 `pnp_app` 폴더에 저장합니다.
 
     > [!TIP]
     > GitHub에서 파일을 다운로드하려면 파일을 탐색하고, **Raw**를 마우스 오른쪽 단추로 클릭한 다음, **다른 이름으로 링크 저장**을 선택합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 0577b61cd30ef0f8fd5fc8ef1593d210c00bb25c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300087"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040608"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -52,7 +52,7 @@ Azure에서 네트워크를 빌드할 때 다음 범용 디자인 원칙에 유�
 Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 통신합니다.
 
 - **가상 네트워크를 통해**: Azure App Service Environment, AKS(Azure Kubernetes Service), Azure Virtual Machine Scale Sets 등의 여러 다른 Azure 리소스 및 VM을 가상 네트워크에 배포할 수 있습니다. 가상 네트워크에 배포할 수 있는 Azure 리소스의 전체 목록을 보려면 [가상 네트워크 서비스 통합](virtual-network-for-azure-services.md)을 참조하세요.
-- **가상 네트워크 서비스 엔드포인트를 통해**: 직접 연결을 통해 가상 네트워크 프라이빗 주소 공간 및 가상 네트워크의 ID를 Azure Storage 계정, Azure SQL 데이터베이스 등의 Azure 서비스 리소스로 확장합니다. 서비스 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 엔드포인트 개요](virtual-network-service-endpoints-overview.md)를 참조하세요.
+- **가상 네트워크 서비스 엔드포인트를 통해**: 직접 연결을 통해 가상 네트워크 프라이빗 주소 공간 및 가상 네트워크의 ID를 Azure Storage 계정, Azure SQL Database 등의 Azure 서비스 리소스로 확장합니다. 서비스 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 엔드포인트 개요](virtual-network-service-endpoints-overview.md)를 참조하세요.
 - **VNet 피어링을 통해**: 가상 네트워크를 서로 연결하면 각 가상 네트워크의 리소스가 가상 네트워크 피어링을 사용하여 서로 통신할 수 있습니다. 연결한 가상 네트워크는 같은 Azure 지역 또는 다른 Azure 지역에 있을 수 있습니다. 자세히 알아보려면 [가상 네트워크 피어링](virtual-network-peering-overview.md)을 참조하세요.
 
 ## <a name="communicate-with-on-premises-resources"></a>온-프레미스 리소스와 통신

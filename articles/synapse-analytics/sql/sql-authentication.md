@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7295bb2e87373a80c6b105ab7284a43e6f0804da
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 280fea29b79db58d0974aaba961db9c7a7df3dad
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020775"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045793"
 ---
 # <a name="sql-authentication"></a>SQL 인증
 
@@ -45,7 +45,7 @@ AAD 권한 부여는 Azure Active Directory를 사용하여 사용자 관리를 
 - 이들은 서버에서 모든 SQL Database에 자동으로 연결할 수 있는 유일한 계정입니다. (사용자 데이터베이스에 연결하려면 다른 계정은 데이터베이스의 소유자이거나 사용자 데이터베이스에 사용자 계정이 있어야 합니다.)
 - 이러한 계정은 `dbo` 사용자로 사용자 데이터베이스에 들어가고 사용자 데이터베이스에서 모든 권한을 갖습니다. (사용자 데이터베이스의 소유자는 또한 `dbo` 사용자로 데이터베이스에 들어갑니다.)
 - `master` 데이터베이스에 `dbo` 사용자로 들어가지 마세요. 그리고 master에서는 제한된 사용 권한을 갖습니다.
-- SQL 데이터베이스에서 사용할 수 없는 표준 SQL Server `sysadmin` 고정 서버 역할의 멤버가 **아닙니다**.  
+- SQL Database에서 사용할 수 없는 표준 SQL Server `sysadmin` 고정 서버 역할의 멤버가 **아닙니다**.  
 - 데이터베이스, 로그인, master의 사용자 및 서버 수준 IP 방화벽 규칙을 만들고 변경하고 삭제할 수 있습니다.
 - `dbmanager` 및 `loginmanager` 역할에 멤버를 추가하고 제거할 수 있습니다.
 - `sys.sql_logins` 시스템 테이블을 볼 수 있습니다.

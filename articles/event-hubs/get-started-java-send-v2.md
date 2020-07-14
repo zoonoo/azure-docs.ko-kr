@@ -1,19 +1,14 @@
 ---
 title: Java(최신)를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 description: 이 문서에서는 최신 azure-messaging-eventhubs 패키지를 사용하여 Azure Event Hubs와 이벤트를 주고 받는 Java 애플리케이션을 만드는 과정을 연습할 수 있습니다.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 04/21/2020
-ms.author: spelluru
-ms.openlocfilehash: ca22f4481750abb3bd4432c8b42fbce93ede8ffd
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 06/23/2020
+ms.openlocfilehash: 3e2d22fe09de23fdf148fe36a0c97615f291f4c9
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770872"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367923"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Java를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기(azure-messaging-eventhubs)
 이 빠른 시작에서는 **azure-messaging-eventhubs** Java 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다.
@@ -22,7 +17,7 @@ ms.locfileid: "81770872"
 > 이 빠른 시작은 새로운 **azure-messaging-eventhubs** 패키지를 사용합니다. 이전 **azure-eventhubs** 및 **azure-eventhubs-eph** 패키지를 사용하는 빠른 시작은 [azure-eventhubs 및 azure-eventhubs-eph를 사용하여 이벤트 보내기 및 받기](event-hubs-java-get-started-send.md)를 참조하세요. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
@@ -138,80 +133,183 @@ public class Sender {
 프로그램을 빌드하고 오류가 없는지 확인합니다. 이 프로그램은 수신자 프로그램을 실행한 후에 실행됩니다. 
 
 ## <a name="receive-events"></a>이벤트 수신
-이 자습서의 코드는 전체 작동 중인 애플리케이션을 검사할 수 있는 [GitHub의 EventProcessorClient 샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/EventProcessorClientSample.java)을 기반으로 합니다.
+이 자습서의 코드는 전체 작동 중인 애플리케이션을 검사할 수 있는 [GitHub의 EventProcessorClient 샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorBlobCheckpointStoreSample.java)을 기반으로 합니다.
 
 > [!NOTE]
 > Azure Stack Hub에서 실행 중인 경우 해당 플랫폼은 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. 예를 들어 [Azure Stack Hub 버전 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2017-11-09를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 [GitHub에 대한 이 샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)을 참조하세요. Azure Stack Hub에서 지원되는 Azure Storage 서비스 버전에 대한 자세한 내용은 [Azure Stack Hub스토리지: 차이점 및 고려 사항](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences)을 참조하세요.
 
-### <a name="create-a-java-project"></a>Java 프로젝트 만들기
+### <a name="create-an-azure-storage-and-a-blob-container"></a>Azure Storage 및 BLOB 컨테이너 만들기
+이 빠른 시작에서는 Azure Storage(특히 Blob Storage)를 검사점 저장소로 사용합니다. 검사점은 이벤트 프로세서가 파티션 내에서 마지막으로 처리된 이벤트의 위치를 표시하거나 커밋하는 프로세스입니다. 검사점 표시는 일반적으로 이벤트를 처리하는 함수 내에서 수행됩니다. 검사점에 대한 자세한 내용은 [이벤트 프로세서](event-processor-balance-partition-load.md)를 참조하세요.
 
-Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22)의 Maven 프로젝트에 사용할 수 있으며 Maven 프로젝트 파일 내의 다음 종속성 선언을 사용하여 참조할 수 있습니다. 
+다음 단계에 따라 Azure Storage 계정을 만듭니다. 
+
+1. [Azure Storage 계정 만들기](/azure/storage/common/storage-account-create?tabs=azure-portal)
+2. [Blob 컨테이너 만들기](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+3. [스토리지 계정에 대한 연결 문자열 가져오기](../storage/common/storage-configure-connection-string.md)
+
+    **연결 문자열**과 **컨테이너 이름**을 적어 둡니다. 수신 코드에서 사용합니다. 
+
+### <a name="add-event-hubs-libraries-to-your-java-project"></a>Java 프로젝트에 Event Hubs 라이브러리 추가
+pom.xml 파일에 다음 종속성을 추가합니다. 
+
+- [azure-messaging-eventhubs](https://search.maven.org/search?q=a:azure-messaging-eventhubs)
+- [azure-messaging-eventhubs-checkpointstore-blob](https://search.maven.org/search?q=a:azure-messaging-eventhubs-checkpointstore-blob)
 
 ```xml
 <dependencies>
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-eventhubs</artifactId>
-        <version>5.0.1</version>
+        <version>5.1.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+        <version>1.1.1</version>
     </dependency>
 </dependencies>
 ```
 
-1. 다음 코드를 사용하여 `Receiver`(이)라는 클래스를 새로 만듭니다. 자리 표시자를 이벤트 허브 및 스토리지 계정을 만들 때 사용한 값으로 바꿉니다.
-   
-   ```java
-     import com.azure.messaging.eventhubs.*;
-     import com.azure.messaging.eventhubs.models.ErrorContext;
-     import com.azure.messaging.eventhubs.models.EventContext;
-     import java.util.concurrent.TimeUnit;
-     import java.util.function.Consumer;
-    
-     public class Receiver {
-    
-         final static String connectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
-         final static String eventHubName = "<EVENT HUB NAME>";
-         
-         public static void main(String[] args) throws Exception {
-    
-             // function to process events
-             Consumer<EventContext> processEvent = eventContext  -> {
-                 System.out.print("Received event: ");
-                 // print the body of the event
-                 System.out.println(eventContext.getEventData().getBodyAsString());
-                 eventContext.updateCheckpoint();
-             };
-    
-             // function to process errors
-             Consumer<ErrorContext> processError = errorContext -> {
-                 // print the error message
-                 System.out.println(errorContext.getThrowable().getMessage());
-             };
-    
-            
-             EventProcessorClient eventProcessorClient = new EventProcessorClientBuilder()
-                     .connectionString(connectionString, eventHubName)
-                     .processEvent(processEvent)
-                     .processError(processError)
-                     .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME)
-                     .checkpointStore(new SampleCheckpointStore())
-                     .buildEventProcessorClient();
-    
-             System.out.println("Starting event processor");
-             eventProcessorClient.start();
-    
-             System.out.println("Press enter to stop.");
-             System.in.read();
-    
-             System.out.println("Stopping event processor");
-             eventProcessorClient.stop();
-             System.out.println("Event processor stopped.");
-    
-             System.out.println("Exiting process");
-         }
-     }
+1. Java 파일 맨 위에 다음 **import** 문을 추가합니다. 
+
+    ```java
+    import com.azure.messaging.eventhubs.EventHubClientBuilder;
+    import com.azure.messaging.eventhubs.EventProcessorClient;
+    import com.azure.messaging.eventhubs.EventProcessorClientBuilder;
+    import com.azure.messaging.eventhubs.checkpointstore.blob.BlobCheckpointStore;
+    import com.azure.messaging.eventhubs.models.ErrorContext;
+    import com.azure.messaging.eventhubs.models.EventContext;
+    import com.azure.storage.blob.BlobContainerAsyncClient;
+    import com.azure.storage.blob.BlobContainerClientBuilder;
+    import java.util.function.Consumer;
+    import java.util.concurrent.TimeUnit;
     ```
+2. `Receiver`라는 클래스를 만들고 다음 문자열 변수를 클래스에 추가합니다. 자리 표시자를 올바른 값으로 바꿉니다. 
+    ```java
+    private static final String EH_NAMESPACE_CONNECTION_STRING = "<EVENT HUBS NAMESPACE CONNECTION STRING>";
+    private static final String eventHubName = "<EVENT HUB NAME>";
+    private static final String STORAGE_CONNECTION_STRING = "<AZURE STORAGE CONNECTION STRING>";
+    private static final String STORAGE_CONTAINER_NAME = "<AZURE STORAGE CONTAINER NAME>";
+    ```
+3. 다음 `main` 메서드를 클래스에 추가합니다. 
+
+    ```java
+    public static void main(String[] args) throws Exception {
+        // Create a blob container client that you use later to build an event processor client to receive and process events
+        BlobContainerAsyncClient blobContainerAsyncClient = new BlobContainerClientBuilder()
+            .connectionString(STORAGE_CONNECTION_STRING) 
+            .containerName(STORAGE_CONTAINER_NAME) 
+            .buildAsyncClient();
     
-2. [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/SampleCheckpointStore.java)에서 **SampleCheckpointStore.java** 파일을 다운로드하여 프로젝트에 추가합니다. 
+        // Create a builder object that you will use later to build an event processor client to receive and process events and errors.
+        EventProcessorClientBuilder eventProcessorClientBuilder = new EventProcessorClientBuilder()
+            .connectionString(EH_NAMESPACE_CONNECTION_STRING, eventHubName) 
+            .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME)
+            .processEvent(PARTITION_PROCESSOR) 
+            .processError(ERROR_HANDLER) 
+            .checkpointStore(new BlobCheckpointStore(blobContainerAsyncClient)); 
+
+        // Use the builder object to create an event processor client 
+        EventProcessorClient eventProcessorClient = eventProcessorClientBuilder.buildEventProcessorClient();
+
+        System.out.println("Starting event processor");
+        eventProcessorClient.start();
+
+        System.out.println("Press enter to stop.");
+        System.in.read();
+
+        System.out.println("Stopping event processor");
+        eventProcessorClient.stop();
+        System.out.println("Event processor stopped.");
+
+        System.out.println("Exiting process");
+    }    
+    ```
+4. 이벤트 및 오류를 처리하는 두 개의 도우미 메서드(`PARTITION_PROCESSOR` 및 `ERROR_HANDLER`)를 `Receiver` 클래스에 추가합니다. 
+
+    ```java
+    public static final Consumer<EventContext> PARTITION_PROCESSOR = eventContext -> {
+        System.out.printf("Processing event from partition %s with sequence number %d with body: %s %n", 
+                eventContext.getPartitionContext().getPartitionId(), eventContext.getEventData().getSequenceNumber(), eventContext.getEventData().getBodyAsString());
+
+        if (eventContext.getEventData().getSequenceNumber() % 10 == 0) {
+            eventContext.updateCheckpoint();
+        }
+    };
+    
+    public static final Consumer<ErrorContext> ERROR_HANDLER = errorContext -> {
+        System.out.printf("Error occurred in partition processor for partition %s, %s.%n",
+            errorContext.getPartitionContext().getPartitionId(),
+            errorContext.getThrowable());
+    };    
+    ```
+3. 전체 코드는 다음과 같아야 합니다. 
+
+    ```java
+
+    import com.azure.messaging.eventhubs.EventHubClientBuilder;
+    import com.azure.messaging.eventhubs.EventProcessorClient;
+    import com.azure.messaging.eventhubs.EventProcessorClientBuilder;
+    import com.azure.messaging.eventhubs.checkpointstore.blob.BlobCheckpointStore;
+    import com.azure.messaging.eventhubs.models.ErrorContext;
+    import com.azure.messaging.eventhubs.models.EventContext;
+    import com.azure.storage.blob.BlobContainerAsyncClient;
+    import com.azure.storage.blob.BlobContainerClientBuilder;
+    import java.util.function.Consumer;
+    import java.util.concurrent.TimeUnit;
+    
+    public class Receiver {
+        
+        private static final String EH_NAMESPACE_CONNECTION_STRING = "<EVENT HUBS NAMESPACE CONNECTION STRING>";
+        private static final String eventHubName = "<EVENT HUB NAME>";
+        private static final String STORAGE_CONNECTION_STRING = "<AZURE STORAGE CONNECTION STRING>";
+        private static final String STORAGE_CONTAINER_NAME = "<AZURE STORAGE CONTAINER NAME>";
+    
+        public static final Consumer<EventContext> PARTITION_PROCESSOR = eventContext -> {
+        System.out.printf("Processing event from partition %s with sequence number %d with body: %s %n", 
+                eventContext.getPartitionContext().getPartitionId(), eventContext.getEventData().getSequenceNumber(), eventContext.getEventData().getBodyAsString());
+
+            if (eventContext.getEventData().getSequenceNumber() % 10 == 0) {
+                eventContext.updateCheckpoint();
+            }
+        };
+        
+        public static final Consumer<ErrorContext> ERROR_HANDLER = errorContext -> {
+            System.out.printf("Error occurred in partition processor for partition %s, %s.%n",
+                errorContext.getPartitionContext().getPartitionId(),
+                errorContext.getThrowable());
+        };
+        
+        public static void main(String[] args) throws Exception {
+            BlobContainerAsyncClient blobContainerAsyncClient = new BlobContainerClientBuilder()
+                .connectionString(STORAGE_CONNECTION_STRING)
+                .containerName(STORAGE_CONTAINER_NAME)
+                .buildAsyncClient();
+    
+            EventProcessorClientBuilder eventProcessorClientBuilder = new EventProcessorClientBuilder()
+                .connectionString(EH_NAMESPACE_CONNECTION_STRING, eventHubName)
+                .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME)
+                .processEvent(PARTITION_PROCESSOR)
+                .processError(ERROR_HANDLER)
+                .checkpointStore(new BlobCheckpointStore(blobContainerAsyncClient));
+    
+            EventProcessorClient eventProcessorClient = eventProcessorClientBuilder.buildEventProcessorClient();
+
+            System.out.println("Starting event processor");
+            eventProcessorClient.start();
+        
+            System.out.println("Press enter to stop.");
+            System.in.read();
+        
+            System.out.println("Stopping event processor");
+            eventProcessorClient.stop();
+            System.out.println("Event processor stopped.");
+        
+            System.out.println("Exiting process");
+        }
+        
+    }
+    ```
 3. 프로그램을 빌드하고 오류가 없는지 확인합니다. 
 
 ## <a name="run-the-applications"></a>애플리케이션 실행
@@ -221,5 +319,8 @@ Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리�
 1. 받는 사람 애플리케이션 창에서 **ENTER** 키를 눌러 애플리케이션을 중지합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[GitHub의 Java SDK 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)을 확인합니다.
+GitHub에서 다음 샘플을 참조하세요.
+
+- [azure-messaging-eventhubs samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
+- [azure-messaging-eventhubs-checkpointstore-blob 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob).  
 

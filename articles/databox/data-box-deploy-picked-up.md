@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 03fe40cea5891e87f42f0d6a50eedee80a68f25e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: efcc5e8f629c8b6ccc903478473b54989c0e9fd6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200530"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959492"
 ---
 ::: zone target="docs"
 
@@ -35,18 +35,18 @@ ms.locfileid: "83200530"
 이 자습서에서는 다음과 같은 주제에 대해 학습합니다.
 
 > [!div class="checklist"]
-> * 사전 요구 사항
+> * 필수 구성 요소
 > * 배송 준비
 > * Microsoft에 Data Box 배송
 > * Azure에 대한 데이터 업로드 확인
 > * Data Box에서 데이터 지우기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
 - [자습서: Azure Data Box에 데이터 복사 및 확인](data-box-deploy-copy-data.md)을 완료했는지 확인합니다. 
-- 복사 작업이 완료되었습니다. 복사 작업이 진행 중이면 배송 준비를 실행할 수 없습니다.
+- 복사 작업이 완료되었으며 **연결 및 복사** 페이지에 오류가 없습니다. 복사 작업이 진행 중이거나 **연결 및 복사** 페이지에 오류가 있는 경우에는 배송 준비를 실행할 수 없습니다.
 
 ## <a name="prepare-to-ship"></a>배송 준비
 

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 4721d8dbe5973baf2ac82124ff516a89398227cb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: acb818cf2a892a3a71f2f59b0a44041767b846d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298196"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044926"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -20,7 +20,7 @@ ms.locfileid: "84298196"
 
 ## <a name="azure-marketplace-for-ea-customers"></a>EA 고객용 Azure Marketplace
 
-직접 고객의 경우 Azure Marketplace 요금은 Azure Enterprise Portal에 표시됩니다. Azure Marketplace 구매 및 소비량은 분기별 또는 월간 주기 및 미지급에 대한 약정 금액 외의 금액으로 청구됩니다.
+직접 고객의 경우 Azure Marketplace 요금은 Azure Enterprise Portal에 표시됩니다. Azure Marketplace 구매 및 소비량은 분기별 또는 월간 주기 및 미지급에 대한 Azure 선불 외의 금액으로 청구됩니다.
 
 간접 고객은 Azure Enterprise Portal의 **구독 관리** 페이지에서 Azure Marketplace 구독을 찾을 수 있지만, 가격은 숨겨집니다. 고객은 Azure Marketplace 요금에 대한 자세한 내용을 LSP(라이선스 솔루션 공급자)에 문의해야 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "84298196"
 
 매월 반복되는 기존 요금은 각 달력 월의 1일에 계속 갱신됩니다. 연간 요금은 구매 갱신 날짜에 갱신됩니다.
 
-Azure Marketplace에서 사용할 수 있는 일부 타사 재판매인 서비스는 이제 EA(기업계약) 약정 금액 잔액을 사용합니다. 이전에는 이러한 서비스가 EA 현금 약정 금액과 별도로 청구되었으며 별도의 청구서가 발송되었습니다. EA 약정 금액을 Azure Marketplace의 이러한 서비스에 사용하면 고객 구매 및 결제 관리를 간소화할 수 있습니다. 현재 약정 금액을 사용하는 서비스의 전체 목록은 [Azure 웹 사이트에서 2018년 3월 6일 업데이트](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)를 참조하세요.
+Azure Marketplace에서 사용할 수 있는 일부 타사 재판매인 서비스는 이제 EA(기업계약) Azure 선불 잔액을 사용합니다. 이전에는 이러한 서비스가 EA Azure 선불과 별도로 청구되었으며 별도의 청구서가 발송되었습니다. EA Azure 선불을 Azure Marketplace의 이러한 서비스에 사용하면 고객 구매 및 결제 관리를 간소화할 수 있습니다. Azure 선불을 사용하는 서비스의 전체 목록은 [Azure 웹 사이트에서 2018년 3월 6일 업데이트](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)를 참조하세요.
 
 ### <a name="partners"></a>파트너
 
@@ -75,41 +75,41 @@ MOSP의 월별 요율 대신 기업계약에 따른 시간당 요금이 청구�
 
 ## <a name="azure-marketplace-faq"></a>Azure Marketplace FAQ
 
-이 섹션에서는 Azure 약정 금액이 Azure Marketplace의 일부 타사 재판매인 서비스에 적용되는 방법에 대해 설명합니다.
+이 섹션에서는 Azure 선불이 Azure Marketplace의 일부 타사 재판매인 서비스에 적용되는 방법에 대해 설명합니다.
 
-### <a name="what-changed-with-azure-marketplace-services-and-ea-monetary-commitment"></a>Azure Marketplace 서비스와 EA 약정 금액으로 변경된 사항은 무엇인가요?
+### <a name="what-changed-with-azure-marketplace-services-and-azure-ea-prepayment"></a>Azure Marketplace 서비스와 Azure EA 선불로 변경된 사항은 무엇인가요?
 
-2018년 3월 1일부터 일부 타사 재판매인 서비스는 EA MC(약정 금액)를 사용합니다. 이전에는 Azure RI(예약 VM 인스턴스)를 제외한 서비스에 대한 요금이 EA 약정 금액 이외의 금액으로 청구되었으며, 청구서가 별도로 발부되었습니다.
+2018년 3월 1일부터 일부 타사 재판매인 서비스는 Azure EA 선불을 사용합니다. 이전에는 Azure RI(예약 VM 인스턴스)를 제외한 서비스에 대한 요금이 Azure EA 선불 이외의 금액으로 청구되었으며, 청구서가 별도로 발부되었습니다.
 
-타사 게시 Azure Marketplace 서비스 중 일부를 포함하도록 MC 사용을 확장했습니다. EA 약정 금액을 Azure Marketplace의 이러한 서비스에 사용하면 구매 및 결제 관리를 간소화할 수 있습니다.
+타사 게시 Azure Marketplace 서비스 중 일부를 포함하도록 Azure 선불 사용을 확장했습니다. Azure EA 선불을 Azure Marketplace의 이러한 서비스에 사용하면 구매 및 결제 관리를 간소화할 수 있습니다.
 
 ### <a name="why-did-we-make-this-change"></a>왜 이렇게 변경했나요?
 
-고객은 선불 MC 결제를 활용할 수 있는 추가적인 방법을 지속적으로 찾고 있습니다. 이 변경은 고객이 자주 요청했으며, 대부분의 Azure Marketplace 고객에게 영향을 주었습니다.
+고객은 선불 Azure 선불을 활용할 수 있는 추가적인 방법을 지속적으로 찾고 있습니다. 이 변경은 고객이 자주 요청했으며, 대부분의 Azure Marketplace 고객에게 영향을 주었습니다.
 
 ### <a name="how-do-you-benefit"></a>혜택을 받으려면 어떻게 하나요?
 
-더 간단한 청구 환경을 받을 수 있고, EA 약정 금액을 더 효율적으로 사용할 수 있습니다. 이러한 서비스는 선불 MC에 포함되어 있으므로 EA 약정 금액이 더 유용합니다.
+더 간단한 청구 환경을 받을 수 있고, Azure EA 선불을 더 효율적으로 사용할 수 있습니다. 이러한 서비스는 Azure 선불에 포함되어 있으므로 Azure EA 선불이 더 유용합니다.
 
-### <a name="what-azure-marketplace-services-use-ea-monetary-commitment-and-how-do-i-know"></a>EA 약정 금액을 사용하는 Azure Marketplace 서비스는 무엇이며, 어떻게 알 수 있나요?
+### <a name="what-azure-marketplace-services-use-azure-ea-prepayment-and-how-do-i-know"></a>Azure EA 선불을 사용하는 Azure Marketplace 서비스는 무엇이며, 어떻게 알 수 있나요?
 
-MC를 사용하는 서비스를 구입하면 Azure Marketplace에 대한 고지 사항이 표시됩니다. Red Hat, SUSE, Autodesk 및 Oracle에서 게시한 일부 서비스가 지원됩니다. 현재 다른 당사자가 게시한 비슷한 이름의 서비스는 MC에서 공제되지 않습니다. 전체 목록은 이 FAQ의 마지막 부분에 제공됩니다.
+Azure EA 선불을 사용하는 서비스를 구입하면 Azure Marketplace에 대한 고지 사항이 표시됩니다. Red Hat, SUSE, Autodesk 및 Oracle에서 게시한 일부 서비스가 지원됩니다. 현재 다른 당사자가 게시한 비슷한 이름의 서비스는 Azure 선불에서 공제되지 않습니다. 전체 목록은 이 FAQ의 마지막 부분에 제공됩니다.
 
-### <a name="what-if-my-ea-monetary-commitment-runs-out"></a>EA 약정 금액이 소진되면 어떻게 되나요?
+### <a name="what-if-my-azure-ea-prepayment-runs-out"></a>Azure EA 선불이 실행되는 경우는 어떻게 되나요?
 
-모든 MC를 소진하여 초과분으로 이동하는 경우 이러한 서비스와 관련된 요금은 다른 소비 서비스와 함께 다음 초과분 청구서에 표시됩니다. 2018년 3월 1일 변경 전에 이러한 요금은 다른 Azure Marketplace 서비스에서 청구되었습니다.
+모든 Azure 선불을 소진하여 초과분으로 이동하는 경우 이러한 서비스와 관련된 요금은 다른 소비 서비스와 함께 다음 초과분 청구서에 표시됩니다. 2018년 3월 1일 변경 전에 이러한 요금은 다른 Azure Marketplace 서비스에서 청구되었습니다.
 
-### <a name="why-dont-all-azure-marketplaces-consume-ea-monetary-commitment"></a>모든 Azure Marketplace에서 EA 약정 금액을 사용하지 않는 이유는 무엇인가요?
+### <a name="why-dont-all-azure-marketplaces-consume-azure-ea-prepayment"></a>모든 Azure Marketplace에서 Azure EA 선불을 사용하지 않는 이유는 무엇인가요?
 
-EA 약정 금액과 관련하여 최상의 고객 환경을 제공하기 위해 열심히 노력하고 있습니다. 이 변경에 따라 많은 고객과 Azure Marketplace의 총 지출 중 상당 부분이 해결되었습니다. 나중에 다른 서비스가 추가될 수 있습니다.
+Azure EA 선불과 관련하여 최상의 고객 환경을 제공하기 위해 열심히 노력하고 있습니다. 이 변경에 따라 많은 고객과 Azure Marketplace의 총 지출 중 상당 부분이 해결되었습니다. 나중에 다른 서비스가 추가될 수 있습니다.
 
 ### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>간접 등록 및 파트너에는 어떤 영향이 있을까요?
 
-간접 등록 고객 또는 파트너에게는 아무 영향을 주지 않습니다. 이러한 서비스는 다른 사용 서비스와 동일한 파트너 가격 인상 기능을 따릅니다. 요금이 다른 청구서에 표시되고 요금 지불은 고객의 EA 약정 금액에서 나온다는 것이 유일한 변경입니다.
+간접 등록 고객 또는 파트너에게는 아무 영향을 주지 않습니다. 이러한 서비스는 다른 사용 서비스와 동일한 파트너 가격 인상 기능을 따릅니다. 요금이 다른 청구서에 표시되고 요금 지불은 고객의 Azure EA 선불에서 나온다는 것이 유일한 변경입니다.
 
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-ea-monetary-commitment"></a>EA 약정 금액을 사용하는 Azure Marketplace 서비스의 목록이 있나요?
+### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-azure-ea-prepayment"></a>Azure EA 선불을 사용하는 Azure Marketplace 서비스의 목록이 있나요?
 
-특정 Azure Marketplace 제품은 약정 금액 자금을 사용할 수 있습니다. 이 프로그램에 참여하는 제품의 전체 목록은 [약정 금액을 사용하는 타사 서비스](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment)를 참조하세요.
+특정 Azure Marketplace 제품은 Azure 선불 자금을 사용할 수 있습니다. 이 프로그램에 참여하는 제품의 전체 목록은 [Azure 선불을 사용하는 타사 서비스](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

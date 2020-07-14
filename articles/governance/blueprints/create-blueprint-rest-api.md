@@ -1,20 +1,20 @@
 ---
 title: '빠른 시작: REST API를 사용하여 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 REST API를 통해 아티팩트를 만들고 정의하고 배포합니다.
-ms.date: 02/26/2020
+ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: ec84e8396ad65aa01f73414b971f27bc95396e2f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745104"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971201"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>빠른 시작: REST API로 Azure Blueprint 정의 및 할당
 
-청사진을 만들고 할당하는 방법을 알면 공통 패턴 정의를 통해 Resource Manager 템플릿, 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
+청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 - `Microsoft.Blueprint` 리소스 공급자를 등록합니다. 지침은 [리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요.
@@ -52,7 +52,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 ## <a name="create-a-blueprint"></a>청사진 만들기
 
-규정 준수를 위한 표준 패턴을 정의하는 첫 단계는 사용 가능한 리소스로 청사진을 작성하는 것입니다. 'MyBlueprint'라는 청사진을 만들어 구독의 역할 및 정책 할당을 구성하겠습니다. 그런 다음, 리소스 그룹, Resource Manager 템플릿 및 리소스 그룹에 대한 역할 할당을 추가하겠습니다.
+규정 준수를 위한 표준 패턴을 정의하는 첫 단계는 사용 가능한 리소스로 청사진을 작성하는 것입니다. 'MyBlueprint'라는 청사진을 만들어 구독의 역할 및 정책 할당을 구성하겠습니다. 그런 다음, 리소스 그룹, ARM 템플릿 및 리소스 그룹에 대한 역할 할당을 추가합니다.
 
 > [!NOTE]
 > REST API를 사용하는 경우 _청사진_ 개체가 먼저 생성됩니다. 매개 변수가 있는 추가할 _아티팩트_ 각각에 대해, 초기 _청사진_에 매개 변수를 미리 정의해야 합니다.
@@ -124,7 +124,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 역할 할당을 추가합니다. **요청 본문**은 아티팩트의 종류를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다.  아래 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
+1. 구독 시 역할 할당을 추가합니다. **요청 본문**은 아티팩트의 종류를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다. 아래 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
 
    - REST API URI
 
@@ -200,7 +200,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 리소스 그룹에서 템플릿을 추가합니다. Resource Manager 템플릿의 **요청 본문**은 템플릿의 일반 JSON 구성 요소를 포함하며, **properties.resourceGroup**을 사용하여 대상 리소스 그룹을 정의합니다. 이 템플릿은 또한 **storageAccountType**, **tagName** 및 **tagValue** 청사진 매개 변수를 각각 템플릿에 전달하는 방식으로 재사용합니다. 청사진 매개 변수는 **properties.parameters**를 정의하여 템플릿에서 사용할 수 있고 템플릿 JSON 내에 포함된 키-값 쌍은 값을 삽입하는 데 사용됩니다. 청사진과 템플릿 매개 변수 이름은 동일할 수 있지만 각 항목이 청사진에서 템플릿 아티팩트로 전달되는 방식을 설명하기 위해 서로 다른 이름이 사용되었습니다.
+1. 리소스 그룹에서 템플릿을 추가합니다. ARM 템플릿의 **요청 본문**은 템플릿의 일반 JSON 구성 요소를 포함하며, **properties.resourceGroup**을 사용하여 대상 리소스 그룹을 정의합니다. 이 템플릿은 또한 **storageAccountType**, **tagName** 및 **tagValue** 청사진 매개 변수를 각각 템플릿에 전달하는 방식으로 재사용합니다. 청사진 매개 변수는 **properties.parameters**를 정의하여 템플릿에서 사용할 수 있고 템플릿 JSON 내에 포함된 키-값 쌍은 값을 삽입하는 데 사용됩니다. 청사진과 템플릿 매개 변수 이름은 동일할 수 있지만 각 항목이 청사진에서 템플릿 아티팩트로 전달되는 방식을 설명하기 위해 서로 다른 이름이 사용되었습니다.
 
    - REST API URI
 

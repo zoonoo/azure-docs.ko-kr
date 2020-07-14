@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879125"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322290"
 ---
 # <a name="what-is-azure-front-door"></a>Azure Front Door란?
-Azure Front Door를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
+Azure Front Door를 사용하면 최적의 성능과 고가용성을 지원하는 빠른 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
 
 Front Door는 Layer 7 또는 HTTP/HTTPS 계층에서 작동하며, TCP가 분할된 애니캐스트 프로토콜과 Microsoft의 글로벌 네트워크를 사용하여 글로벌 연결을 개선합니다. 따라서 구성에서 선택한 라우팅 방법에 따라 Front Door가 클라이언트 요청을 가장 빠르고 가장 가용성이 높은 애플리케이션 백엔드로 라우팅합니다. 애플리케이션 백엔드는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다. Front Door는 다양한 애플리케이션 요구와 자동 장애 조치(failover)에 맞는 [트래픽 라우팅 방법](front-door-routing-methods.md) 및 [백엔드 상태 모니터링 옵션](front-door-health-probes.md)을 제공합니다. [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 유사한 Front Door는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 
@@ -36,7 +36,7 @@ Front Door는 분할된 TCP 기반 애니캐스트 프로토콜을 사용하여 
 
 ## <a name="increase-application-availability-with-smart-health-probes"></a>스마트 상태 프로브를 사용하여 애플리케이션 가용성 향상
 
-Front Door는 스마트 상태 프로브를 사용하고, 백 엔드의 대기 시간 및 가용성을 모니터링하고, 백 엔드가 다운될 때 즉각적인 자동 장애 조치(failover)를 제공하여 중요한 애플리케이션에 고가용성을 제공합니다. 따라서 가동 중지 시간 없이 애플리케이션에 계획된 유지 관리 작업을 실행할 수 있습니다. Front Door는 유지 관리가 진행 중인 동안 트래픽을 대체 백 엔드로 전달합니다.
+Front Door는 스마트 상태 프로브를 사용하고, 백 엔드의 대기 시간 및 가용성을 모니터링하고, 백 엔드가 다운될 때 빠른 자동 장애 조치(failover)를 제공하여 중요한 애플리케이션에 고가용성을 제공합니다. 따라서 가동 중지 시간 없이 애플리케이션에 계획된 유지 관리 작업을 실행할 수 있습니다. Front Door는 유지 관리가 진행 중인 동안 트래픽을 대체 백 엔드로 전달합니다.
 
 ## <a name="url-based-routing"></a>URL 기반 라우팅
 URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트래픽을 백 엔드 풀로 라우팅할 수 있습니다. 시나리오 중 하나는 여러 콘텐츠 형식에 대한 요청을 서로 다른 백 엔드 풀로 라우팅하는 것입니다.

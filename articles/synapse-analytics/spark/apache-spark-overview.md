@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 1f1a83bce3a8b46bb49bf78917690851390408e0
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 0a9a89b6ff3d0e2d3987d4b4281b9e4e1605475f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194691"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476787"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Apache Spark란?
 
@@ -60,7 +60,7 @@ SparkContext는 애플리케이션 전체에 리소스를 할당하는 클러스
 
 SparkContext는 사용자의 main 함수를 실행하고 노드에서 다양한 병렬 작업을 실행합니다. 그런 다음, SparkContext는 작업 결과를 수집합니다. 노드는 파일 시스템에서 데이터를 읽고 씁니다. 또한 노드는 변환된 데이터를 RDD(Resilient Distributed Datasets)로 메모리 내에 캐시합니다.
 
-SparkContext는 Spark 풀에 연결되며 애플리케이션을 방향성 그래프(DAG)로 변환하는 작업을 담당합니다. 그래프는 노드의 실행기 프로세스 내에서 실행되는 개별 작업으로 구성됩니다. 각 애플리케이션은 전체 애플리케이션의 기간에 대해 유지하고 여러 스레드에서 작업을 실행하는 자체 실행기 프로세스를 가져옵니다.
+SparkContext는 Spark 풀에 연결되며 애플리케이션을 DAG(방향성 비순환 그래프)로 변환하는 작업을 담당합니다. 그래프는 노드의 실행기 프로세스 내에서 실행되는 개별 작업으로 구성됩니다. 각 애플리케이션은 전체 애플리케이션의 기간에 대해 유지하고 여러 스레드에서 작업을 실행하는 자체 실행기 프로세스를 가져옵니다.
 
 ## <a name="apache-spark-in-synapse-analytics-use-cases"></a>Synapse Analytics의 Apache Spark 사용 사례
 

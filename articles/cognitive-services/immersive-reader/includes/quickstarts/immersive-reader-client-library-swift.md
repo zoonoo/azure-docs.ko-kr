@@ -1,7 +1,7 @@
 ---
 title: 몰입형 리더 Swift 클라이언트 라이브러리 빠른 시작
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 리더 API 기능을 추가합니다.
+description: 이 빠른 시작에서는 iOS 앱을 처음부터 빌드하고 몰입형 리더 API 기능을 추가합니다.
 services: cognitive-services
 author: pasta
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 191d802064d477babd8aa1f782ad15876b821d11
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3d0a8444312f37b1f59817d50bdc50d3aff22164
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268699"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038367"
 ---
 [몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
 
@@ -573,4 +573,4 @@ Xcode에서 **Ctrl+R**을 누르거나 재생 단추를 클릭하여 프로젝�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [몰입형 리더 SDK 참조](../../reference.md) 살펴보기
+* [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](../../reference.md) 살펴보기

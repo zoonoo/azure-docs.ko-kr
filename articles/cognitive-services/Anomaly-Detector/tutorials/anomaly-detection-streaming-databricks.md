@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b8263e0445f7997469ba9165decbaccfa9ed2d6e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918940"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027850"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
 
@@ -41,11 +41,11 @@ ms.locfileid: "85918940"
 
 > [!Note]
 > * 이 자습서에서는 Anomaly Detector API에 추천되는 [솔루션 아키텍처](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/)를 구현하는 방법을 소개합니다.
-> * 이 자습서는 Anomaly Detector API 또는Azure Databricks의 평가판을 사용하여 수행할 수 없습니다. 
+> * 이 자습서는 Anomaly Detector API 또는Azure Databricks의 무료 계층(`F0`) 구독을 사용하여 수행할 수 없습니다. 
 
 Azure 구독이 없는 경우 [Azure 구독](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Event Hubs 네임스페이스](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) 및 이벤트 허브
 
@@ -163,7 +163,7 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
     |값 |Description  |
     |---------|---------|
-    |속성     | Anomaly Detector 리소스의 이름입니다.        |
+    |Name     | Anomaly Detector 리소스의 이름입니다.        |
     |Subscription     | 리소스가 연결되는 Azure 구독입니다.        |
     |위치     | Azure 위치입니다.        |
     |가격 책정 계층     | 서비스에 대한 가격 책정 계층입니다. Anomaly Detector 가격 책정에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)를 참조하세요.        |

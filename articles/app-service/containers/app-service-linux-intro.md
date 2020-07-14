@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 27f085543869b1a77db9c97ca2e7ae7d3d3b7b88
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 891e0c18b3f95dca905fbc14b957af773135eeec
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80046410"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557900"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -54,7 +54,7 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 
 Azure Portal에는 현재 Web App for Containers에 대해 작동하는 기능만 표시됩니다. 더 많은 기능이 사용 가능해지면 포털에 표시됩니다.
 
-Linux의 App Service는 [무료, 기본, 표준 및 프리미엄](https://azure.microsoft.com/pricing/details/app-service/plans/) App Service 계획에서만 지원되며 [공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 이미 비 Linux Web Apps를 호스팅하는 App Service 계획에서는 Linux Web App을 만들 수 없습니다.  
+Linux의 App Service는 [무료, 기본, 표준, 프리미엄 및 격리](https://azure.microsoft.com/pricing/details/app-service/plans/) 앱 서비스 계획에서만 지원되며 [공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 이미 비 Linux Web Apps를 호스팅하는 App Service 계획에서는 Linux Web App을 만들 수 없습니다.  
 
 현재 제한 사항에 따라 동일한 리소스 그룹에 대해 동일한 지역에서 Windows 및 Linux 앱을 혼합할 수 없습니다.
 

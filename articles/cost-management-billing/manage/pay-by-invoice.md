@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 8552b6732736d1d10711479639fa45114f8b039b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 5fb8a9cd5e00bf3a6ebeddaf44a09ac48b94fe7c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849090"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
 
@@ -42,28 +42,28 @@ ms.locfileid: "85298007"
 
 5. **세부 정보** 상자에 다음 정보를 입력하고 **다음**을 선택합니다.
 
-         New or existing customer:
-         If existing, current payment method:
-         Order ID (requesting for invoice option):
-         Account Admins Live ID (or Org ID) (should be company domain):
-         Commerce Account ID:
-         Company Name (as registered under VAT or Government Website):
-         Company Address (as registered under VAT or Government Website):
-         Company Website:
-         Country:
-         TAX ID/ VAT ID:
-         Company Established on (Year):
-         Any prior business with Microsoft:
-         Contact Name:
-         Contact Phone:
-         Contact Email:
-         Justification on why you prefer Invoice option over credit card:
+     신규 또는 기존 고객:<br>
+     기존 고객인 경우 현재 결제 방법:<br>
+     주문 ID(청구서 옵션에 대한 요청):<br>
+     계정 관리자 Live ID(또는 Org ID)(회사 도메인이어야 함):<br>
+     상거래 계정 ID:<br>
+     회사 이름(VAT 또는 정부 웹 사이트에 따라 등록된 이름):<br>
+     회사 주소(VAT 또는 정부 웹 사이트에 따라 등록된 주소):<br>
+     회사 웹 사이트:<br>
+     국가:<br>
+     세금 ID/VAT ID:<br>
+     회사 설립(연도):<br>
+     Microsoft와의 이전 비즈니스:<br>
+     담당자 이름:<br>
+     담당자 전화 번호:<br>
+     담당자 이메일:<br>
+     신용 카드보다 청구서 옵션을 선호하는 합리적인 이유:<br>
 
-         For cores increase, provide the following additional information:
+     코어 증가에 대해 다음과 같은 추가 정보를 제공합니다.<br>
 
-         (Old quota) Existing Cores:
-         (New quota) Requested cores:
-         Specific region & series of Subscription:
+     (이전 할당량) 기존 코어:<br>
+     (새 할당량) 요청된 코어:<br>
+     특정 지역 및 일련의 구독:<br>
 
     - **회사 이름**과 **회사 주소**는 Azure 계정에 대해 제공한 정보와 일치해야 합니다. 정보를 보거나 업데이트하려면 [Azure 계정 프로필 정보 변경](change-azure-account-profile.md)을 참조하세요.
     - Azure Portal에서 청구 연락처 정보를 추가해야 크레딧 한도를 승인받을 수 있습니다. 연락처 세부 정보는 회사의 지급 계정 또는 재무 부서와 관련되어 있어야 합니다. 청구 연락처 정보를 업데이트하려면 [Azure 계정 센터](https://account.azure.com/Profile)로 이동합니다.

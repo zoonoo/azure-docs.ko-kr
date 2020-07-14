@@ -1,35 +1,35 @@
 ---
-title: 빠른 시작 - 지역 복제된 레지스트리 만들기 - Resource Manager 템플릿
+title: 빠른 시작 - 컨테이너 인스턴스 만들기 - Azure Resource Manager 템플릿
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
-ms.openlocfilehash: 17f71d1c383c72fab748a9bdb789158095616f2d
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 64f86611e8a60cd3d1463cd2845c034551277bb2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779864"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118463"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure에서 컨테이너 인스턴스 배포
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
-Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테이너를 간단하고 빠르게 실행합니다. Azure Kubernetes Service와 같은 풀 컨테이너 오케스트레이션 플랫폼이 필요하지 않을 경우 애플리케이션을 요청 시 컨테이너 인스턴스에 배포합니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 격리된 Docker 컨테이너를 배포하고 해당 웹 애플리케이션을 공용 IP 주소로 사용 가능하게 합니다.
+Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테이너를 간단하고 빠르게 실행합니다. Azure Kubernetes Service와 같은 풀 컨테이너 오케스트레이션 플랫폼이 필요하지 않을 경우 애플리케이션을 요청 시 컨테이너 인스턴스에 배포합니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 격리된 Docker 컨테이너를 배포하고 해당 웹 애플리케이션을 공용 IP 주소로 사용 가능하게 합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aci-linuxcontainer-public-ip%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="review-the-template"></a>템플릿 검토
 
-없음
-
-## <a name="create-a-container-instance"></a>컨테이너 인스턴스 만들기
-
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json" range="1-107" highlight="61-100":::
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 더 많은 Azure Container Instances 템플릿 샘플은 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
  1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 다른 위치에 레지스트리와 복제본을 만듭니다.
 
@@ -101,4 +101,4 @@ Azure Portal 또는 [Azure CLI](container-instances-quickstart.md)와 같은 도
 템플릿을 만드는 과정을 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: 첫 번째 Azure Resource Manager 템플릿을 만들고 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

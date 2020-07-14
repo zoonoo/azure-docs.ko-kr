@@ -3,12 +3,12 @@ title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864507"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970929"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -18,20 +18,20 @@ ms.locfileid: "82864507"
 
 - 역할 할당
 - 정책 할당
-- Azure 리소스 관리자 템플릿
+- ARM 템플릿(Azure Resource Manager 템플릿)
 - 리소스 그룹
 
 Azure Blueprints 서비스는 전역적으로 분산된 [Azure Cosmos DB](../../cosmos-db/introduction.md)를 통해 백업됩니다. 청사진 개체는 여러 Azure 지역에 복제됩니다. 이렇게 복제하면 Azure Blueprints가 리소스를 배포하는 Azure 지역에 관계없이 대기 시간이 짧아지고, 가용성이 향상되고, 청사진 개체에 일관적으로 액세스할 수 있습니다.
 
-## <a name="how-its-different-from-resource-manager-templates"></a>Resource Manager 템플릿과 Blueprints의 차이점
+## <a name="how-its-different-from-arm-templates"></a>ARM 템플릿과의 차이점
 
-이 서비스는 _환경 설정_에 도움이 되도록 설계되었습니다. 이 설정은 리소스 그룹, 정책, 역할 할당 및 Resource Manager 템플릿 배포 집합으로 구성되는 경우가 많습니다. 청사진은 이러한 각 _아티팩트_ 형식을 모두 결합하는 패키지이며, CI/CD 파이프라인 사용을 포함하여 해당 패키지를 구성하고 버전을 지정할 수 있습니다. 최종적으로 각 청사진은 감사 및 추적이 가능한 한 번의 작업을 통해 구독에 할당됩니다.
+이 서비스는 _환경 설정_에 도움이 되도록 설계되었습니다. 이 설정은 리소스 그룹, 정책, 역할 할당 및 ARM 템플릿 배포 세트로 구성되는 경우가 많습니다. 청사진은 이러한 각 _아티팩트_ 형식을 모두 결합하는 패키지이며, CI/CD 파이프라인 사용을 포함하여 해당 패키지를 구성하고 버전을 지정할 수 있습니다. 최종적으로 각 청사진은 감사 및 추적이 가능한 한 번의 작업을 통해 구독에 할당됩니다.
 
-Azure Blueprints에서 배포에 포함하고자 하는 거의 모든 항목은 Resource Manager 템플릿을 통해서도 생성할 수 있습니다. 하지만 Resource Manager 템플릿은 Azure에서 기본적으로 제공되지 않는 문서이며 로컬이나 소스 제어에 저장됩니다. 템플릿은 Azure 리소스 하나 이상의 배포에 사용되기는 하지만, 해당 리소스가 배포되고 나면 해당 템플릿에 대한 활성 연결과 관계는 손실됩니다.
+Azure Blueprints에 배포하기 위해 포함하려는 거의 모든 항목은 ARM 템플릿으로 수행할 수 있습니다. 하지만 ARM 템플릿은 Azure에서 기본적으로 제공되지 않는 문서이며 로컬이나 소스 제어에 저장됩니다. 템플릿은 Azure 리소스 하나 이상의 배포에 사용되기는 하지만, 해당 리소스가 배포되고 나면 해당 템플릿에 대한 활성 연결과 관계는 손실됩니다.
 
 반면 Azure Blueprints를 사용하는 경우에는 청사진 정의(_배포해야 하는 항목_)와 청사진 할당(_배포된 항목_) 간의 관계가 유지됩니다. 이 연결은 배포에 대한 향상된 추적 및 감사를 지원합니다. Azure Blueprints는 동일한 청사진에서 관리하는 여러 구독을 한 번에 업그레이드할 수도 있습니다.
 
-Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습니다. 각 청사진은 Resource Manager 템플릿 _아티팩트_를 포함하지 않을 수도 있고 하나 이상 포함할 수도 있습니다. 즉, 이전에 개발 및 유지 관리해 왔던 Resource Manager 템플릿 라이브러리를 Azure Blueprints에서 재사용할 수 있습니다.
+ARM 템플릿과 청사진 중 하나만 선택할 필요는 없습니다. 각 청사진은 ARM 템플릿 _아티팩트_를 포함하지 않을 수도 있고 하나 이상 포함할 수도 있습니다. 즉, 이전에 개발 및 유지 관리해 왔던 ARM 템플릿 라이브러리를 Azure Blueprints에서 재사용할 수 있습니다.
 
 ## <a name="how-its-different-from-azure-policy"></a>Azure Policy와 Blueprints의 차이점
 
@@ -49,8 +49,8 @@ Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습
 
 |리소스  | 계층 구조 옵션| Description  |
 |---------|---------|---------|
-|리소스 그룹 | Subscription | 청사진 내의 다른 아티팩트에 사용할 새 리소스 그룹을 만듭니다.  이러한 자리 표시자 리소스 그룹을 사용하면 정확히 원하는 구조로 리소스를 구성할 수 있으며, 포함된 정책 및 역할 할당 아티팩트와 Azure Resource Manager 템플릿의 범위도 제한할 수 있습니다. |
-|Azure Resource Manager 템플릿 | 구독, 리소스 그룹 | 중첩된 템플릿과 연결된 템플릿을 포함하는 템플릿은 복잡한 환경을 구성하는 데 사용됩니다. SharePoint 팜, Azure Automation State Configuration 또는 Log Analytics 작업 영역과 같은 환경을 예로 들 수 있습니다. |
+|리소스 그룹 | Subscription | 청사진 내의 다른 아티팩트에 사용할 새 리소스 그룹을 만듭니다.  이러한 자리 표시자 리소스 그룹을 사용하면 정확히 원하는 구조로 리소스를 구성할 수 있으며, 포함된 정책 및 역할 할당 아티팩트와 ARM 템플릿의 범위도 제한할 수 있습니다. |
+|ARM 템플릿 | 구독, 리소스 그룹 | 중첩된 템플릿과 연결된 템플릿을 포함하는 템플릿은 복잡한 환경을 구성하는 데 사용됩니다. SharePoint 팜, Azure Automation State Configuration 또는 Log Analytics 작업 영역과 같은 환경을 예로 들 수 있습니다. |
 |정책 할당 | 구독, 리소스 그룹 | 청사진이 할당된 구독에 정책 또는 이니셔티브를 할당할 수 있습니다. 정책이나 이니셔티브는 청사진 정의 위치 범위 내에 있어야 합니다. 정책 또는 이니셔티브에 매개 변수가 있는 경우 청사진 생성 시나 할당 중에 이러한 매개 변수를 할당할 수 있습니다. |
 |역할 할당 | 구독, 리소스 그룹 | 적절한 사용자가 리소스에 대한 적절한 액세스 권한을 항상 소유하도록 기존 사용자나 그룹을 기본 제공 역할에 추가합니다. 역할 할당은 전체 구독에 대해 정의할 수도 있고 청사진에 포함된 특정 리소스 그룹에 중첩할 수도 있습니다. |
 
@@ -60,9 +60,7 @@ Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습
 
 ### <a name="blueprint-parameters"></a>청사진 매개 변수
 
-Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플릿에 매개 변수를 전달할 수 있습니다.
-이 두 _아티팩트_ 중 하나를 청사진에 추가하면 다른 아티팩트가 각 청사진 할당에 대해 정의된 값을 제공할지, 아니면 각 청사진 할당이 할당 시에 값을 제공하도록 허용할지를 결정합니다.
-이처럼 유동적인 방식이 사용되므로 청사진을 사용할 때마다 미리 정의된 값을 정의할 수도 있고, 할당 시에 해당 값을 결정하도록 설정할 수도 있습니다.
+Blueprints에서는 정책/이니셔티브 또는 ARM 템플릿에 매개 변수를 전달할 수 있습니다. 이 두 _아티팩트_ 중 하나를 청사진에 추가하면 다른 아티팩트가 각 청사진 할당에 대해 정의된 값을 제공할지, 아니면 각 청사진 할당이 할당 시에 값을 제공하도록 허용할지를 결정합니다. 이처럼 유동적인 방식이 사용되므로 청사진을 사용할 때마다 미리 정의된 값을 정의할 수도 있고, 할당 시에 해당 값을 결정하도록 설정할 수도 있습니다.
 
 > [!NOTE]
 > 청사진은 자체 매개 변수를 포함할 수 있지만 현재는 Portal이 아닌 REST API에서 청사진을 생성하는 경우에만 이러한 매개 변수를 만들 수 있습니다.
@@ -123,10 +121,10 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 
 |Object|필드|허용되는 문자|최대 길이|
 |-|-|-|-|
-|청사진|속성|문자, 숫자, 하이픈 및 마침표|48|
+|청사진|Name|문자, 숫자, 하이픈 및 마침표|48|
 |청사진|버전|문자, 숫자, 하이픈 및 마침표|20|
-|청사진 할당|속성|문자, 숫자, 하이픈 및 마침표|90|
-|청사진 아티팩트|속성|문자, 숫자, 하이픈 및 마침표|48|
+|청사진 할당|Name|문자, 숫자, 하이픈 및 마침표|90|
+|청사진 아티팩트|Name|문자, 숫자, 하이픈 및 마침표|48|
 
 ## <a name="video-overview"></a>비디오 개요
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3e1c67ee91298b9e8d0c3c427988c9966771aeaa
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920561"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -48,9 +48,9 @@ Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할
 |**[썸네일 생성](concept-generating-thumbnails.md)**|이미지의 콘텐츠를 분석하여 해당 이미지에 대한 적절한 썸네일을 생성합니다. Computer Vision은 먼저 고품질 썸네일을 생성한 다음, 이미지 내의 개체를 분석하여 ‘관심 영역’을 결정합니다. 그런 다음, Computer Vision은 관심 영역의 요구 사항에 맞게 이미지를 자릅니다. 생성된 썸네일은 필요에 따라 원래 이미지의 가로 세로 비율과 다른 가로 세로 비율을 사용하여 표시할 수 있습니다.|
 |**[관심 영역 가져오기](concept-generating-thumbnails.md#area-of-interest)**|이미지의 콘텐츠를 분석하여 ‘관심 영역’의 좌표를 반환합니다. 이미지를 자르고 썸네일을 생성하는 대신 Computer Vision은 영역의 경계 상자 좌표를 반환하므로 호출 애플리케이션이 원하는 대로 원본 이미지를 수정할 수 있습니다.|
 
-## <a name="detect-text-from-images"></a>이미지에서 텍스트 감지
+## <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
-Computer Vision [텍스트 감지 API](concept-recognizing-text.md)를 사용하여 이미지의 인쇄 텍스트 및 필기 텍스트를 머신이 읽을 수 있는 문자 스트림으로 추출할 수 있습니다. Read API는 최신 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 텍스트(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 두 텍스트 검색 API는 인쇄된 텍스트를 [여러 언어로](./language-support.md) 추출하는 기능을 지원합니다.
+Computer Vision에는 [OCR(광학 문자 인식)](concept-recognizing-text.md) 기능이 포함되어 있습니다. 새 Read API를 사용하여 이미지 및 문서에서 인쇄 및 필기 텍스트를 추출할 수 있습니다. 최신 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다. 여기에는 영수증, 포스터, 명함, 문자 및 화이트보드가 포함됩니다. 두 OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다.
 
 ## <a name="moderate-content-in-images"></a>이미지 콘텐츠 조정
 

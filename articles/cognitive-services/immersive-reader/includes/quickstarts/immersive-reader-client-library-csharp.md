@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 2b6f4bb707d6c5c07dd6a1205ce7be542a220f17
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268695"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038356"
 ---
 [몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
 
@@ -305,7 +305,8 @@ _Views\Home\Index.cshtml_의 맨 아래에 다음 코드를 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Node.js를 사용하여 몰입형 리더 클라이언트 라이브러리를 통해 수행할 수 있는 다른 작업을 확인하려면 [Node.js 빠른 시작](../../quickstart-nodejs.md)을 살펴보세요.
+* Node.js를 사용하여 몰입형 리더 클라이언트 라이브러리를 통해 수행할 수 있는 다른 작업을 확인하려면 [Node.js 빠른 시작](../../tutorial-nodejs.md)을 살펴보세요.
+* [Android 자습서](../../tutorial-android.md)를 보고 Java 또는 Android용 Kotlin을 사용하여 몰입형 리더 SDK를 통해 수행할 수 있는 다른 작업을 확인합니다.
+* [iOS 자습서](../../tutorial-ios.md)를 보고 iOS용 Swift를 사용하여 몰입형 리더 SDK를 통해 수행할 수 있는 다른 작업을 확인합니다.
 * Python을 사용하여 몰입형 리더 클라이언트 라이브러리를 통해 수행할 수 있는 다른 작업을 확인하려면 [Python 자습서](../../tutorial-python.md)를 살펴보세요.
-* Swift를 사용하여 몰입형 리더 클라이언트 라이브러리를 통해 수행할 수 있는 다른 작업을 확인하려면 [iOS 자습서](../../tutorial-ios-picture-immersive-reader.md)를 살펴보세요.
 * [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](../../reference.md) 살펴보기

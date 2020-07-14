@@ -4,14 +4,14 @@ description: 몇 가지 일반적인 App Service 시나리오에 대한 Azure CL
 tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: ce10c0e95d77103f386174c7bd0ffd56adff871b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254500"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054545"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Azure App Service에 대한 CLI 샘플
 
@@ -25,7 +25,8 @@ ms.locfileid: "85254500"
 | [GitHub의 지속적인 배포를 사용하여 앱 만들기](./scripts/cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| 사용자가 소유한 GitHub 리포지토리에서 연속 게시를 통해 App Service 앱을 만듭니다. |
 | [앱 만들기 및 로컬 Git 리포지토리의 코드 배포](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱을 만들고 로컬 Git 리포지토리의 코드 푸시를 구성합니다. |
 | [앱 만들기 및 스테이징 환경에 코드 배포](./scripts/cli-deploy-staging-environment.md?toc=%2fcli%2fazure%2ftoc.json) | 코드 변경 내용을 준비하기 위해 배포 슬롯을 사용하여 App Service 앱을 만듭니다. |
-| [Docker 컨테이너에서 ASP.NET Core 앱 만들기](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Linux에서 App Service 앱을 만들고 Docker Hub의 Docker 이미지를 로드합니다. |
+| [Docker 컨테이너에서 ASP.NET Core 앱 만들기](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json) | Linux에서 App Service 앱을 만들고 Docker Hub의 Docker 이미지를 로드합니다. |
+| [프라이빗 엔드포인트를 사용하여 앱 만들기 및 노출](./scripts/cli-deploy-privateendpoint.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱 및 프라이빗 엔드포인트 만들기 |
 |**앱 구성**||
 | [사용자 지정 도메인을 앱에 매핑](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱을 만들고 여기에 사용자 지정 도메인 이름을 매핑합니다. |
 | [앱에 사용자 지정 TLS/SSL 인증서 바인딩](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱을 만들고 여기에 사용자 지정 도메인 이름의 TLS/SSL 인증서를 바인딩합니다. |

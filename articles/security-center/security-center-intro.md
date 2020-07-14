@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: f437205ae76feb36596b05ee0e320aaed0a37184
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e9ed36971e157e67ede6573b9fdf9ff1fc6e05a0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846668"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044280"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -47,7 +47,7 @@ Azure Security Center는 다음 세 가지의 가장 긴급한 보안 문제를 
 
 ## <a name="architecture"></a>Architecture
 
-Security Center는 기본적으로 Azure의 일부이므로 배포하지 않고도 Security Center에서 Service Fabric, SQL 데이터베이스 및 스토리지 계정을 비롯한 Azure의 PaaS 서비스를 모니터링하고 보호합니다.
+Security Center는 기본적으로 Azure의 일부이므로 배포하지 않고도 Security Center에서 Service Fabric, SQL Database, SQL Managed Instance 및 스토리지 계정을 비롯한 Azure의 PaaS 서비스를 모니터링하고 보호합니다.
 
 또한 Security Center는 Log Analytics 에이전트를 설치하여 Windows 및 Linux 서버 둘 다에서 클라우드 또는 온-프레미스의 비 Azure 서버 및 가상 머신을 보호합니다. Azure 가상 머신은 Security Center에서 자동 프로비전됩니다.
 
@@ -111,7 +111,7 @@ Security Center의 위협 방지에는 사이버 적극 대처(kill-chain) 분�
 
 Security Center는 Microsoft Defender Advanced Threat Protection과 자동, 네이티브 통합을 포함합니다. 따라서 별도 구성 없이도 Windows 및 Linux 머신이 Security Center의 권장 사항 및 평가와 완전히 통합됩니다.
 
-또한 Security Center를 사용하면 서버 환경에서 애플리케이션 제어 정책을 자동화할 수 있습니다. Security Center의 적응형 애플리케이션 제어를 통해 Windows 서버 전체의 엔드투엔드 앱 허용 목록을 작성할 수 있습니다. 규칙을 만들고 위반을 확인할 필요가 없으며, 모든 작업이 자동으로 수행됩니다.
+또한 Security Center를 사용하면 서버 환경에서 애플리케이션 제어 정책을 자동화할 수 있습니다. Security Center의 적응형 애플리케이션 제어를 통해 Windows 서버 전체의 엔드투엔드 앱 승인 목록을 만들 수 있습니다. 규칙을 만들고 위반을 확인할 필요가 없으며, 모든 작업이 자동으로 수행됩니다.
 
 ### <a name="protect-paas"></a>PaaS 보호
 

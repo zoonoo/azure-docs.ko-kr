@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708895"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086690"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>빠른 시작: SQL Managed Instance의 관리형 인스턴스 만들기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. 목록에 **Azure SQL**이 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 **Azure SQL**을 입력합니다.
-1. **+추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **SQL Managed Instance** 타일에서 **세부 정보 표시**를 선택하면 Azure SQL Managed Instance에 대한 추가 정보를 볼 수 있습니다.
+1. **+추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **SQL 관리형 인스턴스** 타일에서 **세부 정보 표시**를 선택하면 Azure SQL Managed Instance에 대한 추가 정보를 볼 수 있습니다.
 1. **만들기**를 선택합니다.
 
    ![관리되는 인스턴스 만들기](./media/instance-create-quickstart/create-managed-instance.png)

@@ -4,14 +4,14 @@ description: 몇 가지 일반적인 App Service 시나리오에 대한 Azure Po
 tags: azure-service-management
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
-ms.date: 03/08/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 51693ad4d233ea180607bc7358a0847e23688099
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254483"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057911"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Azure App Service에 대한 PowerShell 샘플
 
@@ -25,6 +25,7 @@ ms.locfileid: "85254483"
 | [FTP를 사용하여 앱 만들기 및 코드 배포](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | FTP를 사용하여 로컬 디렉터리에서 App Service 앱을 만들고 파일을 업로드합니다. |
 | [앱 만들기 및 로컬 Git 리포지토리의 코드 배포](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | App Service 앱을 만들고 로컬 Git 리포지토리의 코드 푸시를 구성합니다. |
 | [앱 만들기 및 스테이징 환경에 코드 배포](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 코드 변경 내용을 준비하기 위해 배포 슬롯을 사용하여 App Service 앱을 만듭니다. |
+|  [프라이빗 엔드포인트를 사용하여 앱 만들기 및 앱 노출](./scripts/powershell-deploy-private-endpoint.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 프라이빗 엔드포인트를 사용하여 App Service 앱을 만듭니다. |
 |**앱 구성**||
 | [사용자 지정 도메인을 앱에 매핑](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| App Service 앱을 만들고 여기에 사용자 지정 도메인 이름을 매핑합니다. |
 | [앱에 사용자 지정 TLS/SSL 인증서 바인딩](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| App Service 앱을 만들고 여기에 사용자 지정 도메인 이름의 TLS/SSL 인증서를 바인딩합니다. |

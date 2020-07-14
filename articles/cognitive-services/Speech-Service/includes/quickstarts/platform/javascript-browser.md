@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: fa8bf79c047911ca283bf60261bba0cbdd6816a7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 53cabaec21daafb910b958bb4b573dd033ca6283
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980166"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035897"
 ---
 이 가이드에서는 웹 페이지와 함께 사용할 JavaScript용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여줍니다.
 
@@ -27,11 +27,12 @@ ms.locfileid: "82980166"
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>JavaScript용 Speech SDK를 해당 폴더에 압축 해제합니다.
 
-Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다운로드하여 새로 만든 폴더에 압축 해체합니다. 이로 인해 네 개의 파일이 압축 해제됩니다.
+Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다운로드하여 새로 만든 폴더에 압축 해체합니다. 이로 인해 다섯 개의 파일이 압축 해제됩니다.
 * `microsoft.cognitiveservices.speech.sdk.bundle.js` 사람이 읽을 수 있는 Speech SDK 버전입니다.
 * `microsoft.cognitiveservices.speech.sdk.bundle.js.map` SDK 코드를 디버깅하는 데 사용되는 맵 파일입니다.
 * `microsoft.cognitiveservices.speech.sdk.bundle.d.ts` TypeScript와 함께 사용할 개체 정의
 * `microsoft.cognitiveservices.speech.sdk.bundle-min.js` Speech SDK의 축소 버전입니다.
+* `speech-processor.js` 일부 브라우저에서 성능을 개선하는 코드합니다.
 
 ## <a name="create-an-indexhtml-page"></a>Index.html 페이지 만들기
 

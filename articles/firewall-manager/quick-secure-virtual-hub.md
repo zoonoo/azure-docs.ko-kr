@@ -1,27 +1,27 @@
 ---
-title: '빠른 시작: Azure Firewall Manager 미리 보기를 사용하여 가상 허브 보호 - Resource Manager 템플릿'
-description: Azure Firewall Manager 미리 보기를 사용하여 가상 허브를 보호하는 방법을 알아봅니다.
+title: '빠른 시작: Azure Firewall Manager를 사용하여 가상 허브 보호 - Resource Manager 템플릿'
+description: Azure Firewall Manager를 사용하여 가상 허브를 보호하는 방법을 알아봅니다.
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167199"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563697"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>빠른 시작: Azure Firewall Manager를 사용하여 가상 허브 보호 - Resource Manager 템플릿
 
-이 빠른 시작에서는 Azure Firewall Manager 미리 보기를 사용하여 가상 허브를 보호하기 위해 Resource Manager 템플릿을 사용합니다. 배포된 방화벽에는 `www.microsoft.com`에 대한 연결을 허용하는 애플리케이션 규칙이 있습니다. 방화벽을 테스트하기 위해 두 개의 Windows Server 2019 가상 머신이 배포됩니다. 단일 점프 서버를 사용하여 작업 서버에 연결합니다. 작업 서버에서 `www.microsoft.com`에만 연결할 수 있습니다.
+이 빠른 시작에서는 Azure Firewall Manager를 통해 Resource Manager 템플릿을 사용하여 가상 허브를 보호합니다. 배포된 방화벽에는 `www.microsoft.com`에 대한 연결을 허용하는 애플리케이션 규칙이 있습니다. 방화벽을 테스트하기 위해 두 개의 Windows Server 2019 가상 머신이 배포됩니다. 단일 점프 서버를 사용하여 작업 서버에 연결합니다. 작업 서버에서 `www.microsoft.com`에만 연결할 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Azure Firewall Manager 미리 보기에 대한 자세한 내용은 [Azure Firewall Manager 미리 보기란?](overview.md)을 참조하세요.
+Azure Firewall Manager에 대한 자세한 내용은 [Azure Firewall Manager란?](overview.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -29,7 +29,7 @@ Azure Firewall Manager 미리 보기에 대한 자세한 내용은 [Azure Firewa
 
 ## <a name="create-a-secured-virtual-hub"></a>보안 가상 허브 만들기
 
-이 템플릿은 시나리오를 지원하는 데 필요한 리소스와 함께 Azure Firewall Manager 미리 보기를 사용하여 보안 가상 허브를 만듭니다.
+이 템플릿은 시나리오를 지원하는 데 필요한 리소스와 함께 Azure Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
 
 ### <a name="review-the-template"></a>템플릿 검토
 
@@ -101,4 +101,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [신뢰할 수 있는 보안 파트너에 대해 알아보기](trusted-security-partners.md)
+> [보안 파트너 공급자에 대해 알아보기](trusted-security-partners.md)

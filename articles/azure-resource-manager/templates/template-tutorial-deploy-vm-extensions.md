@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 06d948b44064f029e00a2ef089077e9b55246545
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fb99babfd53b26874bed62183871d13ae0ae4baf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184965"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120129"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포
 
@@ -26,11 +26,11 @@ ms.locfileid: "82184965"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)
 * 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
 
     ```console
@@ -102,7 +102,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 }
 ```
 
-이 리소스 정의에 대한 자세한 내용은 [확장 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions)를 참조하세요. 다음은 중요한 요소입니다.
+이 리소스 정의에 대한 자세한 내용은 [확장 참조](/azure/templates/microsoft.compute/virtualmachines/extensions)를 참조하세요. 다음은 중요한 요소입니다.
 
 * **name**: 확장 리소스는 가상 머신 개체의 자식 리소스이므로 이름에 가상 머신 이름 접두사가 있어야 합니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요.
 * **dependsOn**: 가상 머신을 만든 후 확장 리소스를 만듭니다.

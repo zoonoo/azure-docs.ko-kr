@@ -3,12 +3,12 @@ title: '자습서: 기계 학습 엔터티를 사용하여 정형 데이터 추�
 description: 기계 학습 엔터티를 사용하여 발화에서 정형 데이터를 추출합니다. 추출 정확도를 높이려면 기능을 포함하는 하위 엔터티를 추가합니다.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611019"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045606"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>자습서: LUIS(Language Understanding)에서 기계 학습 엔터티를 사용하여 사용자 발화에서 정형 데이터 추출
 
@@ -108,7 +108,7 @@ ms.locfileid: "85611019"
 
 1. 왼쪽 메뉴에서 **엔터티**를 선택한 다음, **+ 만들기**를 선택합니다.
 
-1. 이전 섹션에서 만든 `SizePhraselist`와 비교할 때 쉽게 구분할 수 있도록 엔터티 이름을 `SizeListentity`로 설정합니다.
+1. 이전 섹션에서 만든 `SizePhraselist`와 비교할 때 쉽게 구분할 수 있도록 엔터티 이름을 `SizeListentity`로 유형은 **목록**으로 설정합니다.
 
 1. 클라이언트 애플리케이션에 필요한 크기 `Small`, `Medium`, `Large` 및 `XLarge`를 추가한 다음, 각 크기의 동의어를 추가합니다. 동의어는 사용자가 챗봇에 입력하는 용어여야 합니다. 엔터티가 정규화된 값 또는 동의어와 정확히 일치하면 목록 엔터티를 사용하여 엔터티가 추출됩니다.
 

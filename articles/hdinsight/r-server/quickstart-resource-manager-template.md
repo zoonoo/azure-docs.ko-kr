@@ -8,38 +8,41 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: cde8d6932400966ae22720b1e86f3c5164f25b30
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: fd3e541624c2375ed71fb9768bb0c42ec101f47b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81603438"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087710"
 ---
-# <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사용하여 ML Services 클러스터 만들기
+# <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: Azure HDInsight에서 ARM 템플릿을 사용하여 ML Services 클러스터 만들기
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure HDInsight에서 [ML Services](./r-server-overview.md) 클러스터를 만듭니다. Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 ML Services라고 합니다. 이 기능은 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure HDInsight에서 [ML Services](./r-server-overview.md) 클러스터를 만듭니다. Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 ML Services라고 합니다. 이 기능은 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-rserver%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-an-ml-services-cluster"></a>ML Services 클러스터 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-### <a name="review-the-template"></a>템플릿 검토
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/)에서 나온 것입니다.
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-rserver)에서 나온 것입니다.
-
-:::code language="json" source="~/quickstart-templates/101-hdinsight-rserver/azuredeploy.json" range="1-171":::
-
+:::code language="json" source="~/quickstart-templates/101-hdinsight-rserver/azuredeploy.json" range="1-171" highlight="49-85":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): Azure Storage 계정을 만듭니다.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): HDInsight 클러스터를 만듭니다.
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Azure Storage 계정을 만듭니다.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): HDInsight 클러스터를 만듭니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 아래 **Azure에 배포** 단추를 선택하여 Azure에 로그인하고 Resource Manager 템플릿을 엽니다.
+1. 아래 **Azure에 배포** 단추를 선택하여 Azure에 로그인하고 ARM 템플릿을 엽니다.
 
     [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-rserver%2Fazuredeploy.json)
 
@@ -76,7 +79,7 @@ Azure Portal에서 클러스터로 이동하여 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 HDInsight에서 Resource Manager 템플릿을 사용하여 ML Services 클러스터를 만드는 방법을 알아보았습니다. 다음 문서에서는 분산 R 계산에 Spark를 사용하는 방법을 보여 주는 RStudio Server를 통해 R 스크립트를 실행하는 방법을 알아봅니다.
+이 빠른 시작에서는 HDInsight에서 ARM 템플릿을 사용하여 ML Services 클러스터를 만드는 방법을 알아보았습니다. 다음 문서에서는 분산 R 계산에 Spark를 사용하는 방법을 보여 주는 RStudio Server를 통해 R 스크립트를 실행하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행](./machine-learning-services-quickstart-job-rstudio.md)

@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: ea01fcd259075caee1e21eb091b8df1b326c553f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996468"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964382"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역용 사용자 지정 모델 빌드, 배포 및 사용
 
 이 문서에서는 Custom Translator를 사용하여 번역 시스템을 구축하는 단계별 지침을 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. [Custom Translator](https://portal.customtranslator.azure.ai) 포털을 사용하려면 [Microsoft 계정](https://signup.live.com) 또는 [Azure AD 계정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)(Azure에 호스트되는 조직 계정)으로 로그인해야 합니다.
 
@@ -83,7 +83,7 @@ Custom Translator 포털 방문 페이지에서 [새 프로젝트]를 클릭합�
 
 ## <a name="use-a-deployed-model"></a>배포된 모델 사용
 
-배포된 모델은 [CategoryID를 검사하여 Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 통해 액세스할 수 있습니다. Translator에 대한 자세한 내용은 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 확인할 수 있습니다.
+배포된 모델은 CategoryID(https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) )를 지정하여 Translator를 통해 액세스할 수 있습니다. Translator에 대한 자세한 내용은 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

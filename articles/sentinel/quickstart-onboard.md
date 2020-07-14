@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Sentinel에서 온보딩'
-description: 이 빠른 시작 문서에 따라 Azure Sentinel에서 데이터를 수집하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 먼저 Sentinel을 활성화한 다음, 데이터 원본을 연결하여 Azure Sentinel을 온보딩하는 방법을 알아봅니다.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: d895ff3a16f8e21f73845c03d8bec83ded9bcd43
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771175"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564549"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
 이 빠른 시작에서는 Azure Sentinel을 온보딩하는 방법을 알아봅니다. 
 
-Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 설정한 후 데이터 원본을 연결해야 합니다. Azure Sentinel에는 즉시 사용 가능하고 실시간 통합을 제공하는 Microsoft 솔루션(Microsoft Threat Protection 솔루션 포함) 및 Microsoft 365 원본(Office 365, Azure AD, Azure ATP 및 Microsoft Cloud App Security 등)에 대한 다양한 커넥터가 포함되어 있습니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. 일반적인 이벤트 형식, Syslog 또는 REST API를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수도 있습니다.  
+Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 설정한 후 데이터 원본을 연결해야 합니다. Azure Sentinel에는 즉시 사용 가능하고 실시간 통합을 제공하는 Microsoft 솔루션(Microsoft Threat Protection 솔루션, Microsoft 365 원본(Office 365 포함), Azure AD, Azure ATP, Microsoft Cloud App Security 등을 포함)에 대한 다양한 커넥터가 포함되어 있습니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. CEF(Common Event Format), Syslog 또는 REST API를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수도 있습니다.  
 
 데이터 원본을 연결한 후 데이터에 따른 인사이트를 제공하는 전문가가 만든 통합 문서 갤러리 중에서 선택합니다. 이러한 통합 문서는 사용자의 요구에 맞게 쉽게 사용자 지정할 수 있습니다.
 

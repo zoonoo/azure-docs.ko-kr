@@ -4,16 +4,16 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 20397339c1675686f2a670dc60899bfd4bd4c3ba
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76989090"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050387"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 
-이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅된 통합 런타임은 머신의 SQL Server에서 Azure SQL 데이터베이스로 데이터를 복사하는 구성 요소입니다. 
+이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅 통합 런타임은 머신의 SQL Server에서 Azure SQL Database로 데이터를 복사하는 구성 요소입니다. 
 
 1. 통합 런타임의 이름에 대한 변수를 만듭니다. 고유한 이름을 사용하고 기록해 둡니다. 이 자습서의 뒷부분에서 사용합니다. 
 

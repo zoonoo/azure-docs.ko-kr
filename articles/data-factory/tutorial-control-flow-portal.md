@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253667"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077657"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Azure Portal을 사용한 Azure Data Factory 파이프라인 분기 및 연결 작업
 
@@ -139,7 +139,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
    Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.*
+
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다.
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다.
 
@@ -202,10 +203,11 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
    ![새 Azure Storage 연결된 서비스](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. 폴더에는 `@pipeline().parameters.sourceBlobContainer`를 입력하고, 파일 이름에는 `emp.txt`를 입력합니다. sourceBlobContainer 파이프라인 매개 변수를 사용하여 데이터 세트의 폴더 경로를 설정합니다.
 
-   ![원본 데이터 세트 설정](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-13. **파이프라인** 탭으로 전환하거나 트리 뷰에서 파이프라인을 클릭합니다. **Source Dataset**에 대해 **SourceBlobDataset**가 선택되어 있는지 확인합니다.
+    ![원본 데이터 세트 설정](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-    ![원본 데이터 세트](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+13. **파이프라인** 탭으로 전환하거나 트리 뷰에서 파이프라인을 클릭합니다. **Source Dataset**에 대해 **SourceBlobDataset**가 선택되어 있는지 확인합니다.
+      
+   ![원본 데이터 세트](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
 13. 속성 창에서 **싱크** 탭으로 전환하고, **싱크 데이터 세트**에 대해 **+ 새로 만들기**를 클릭합니다. 이 단계에서는 원본 데이터 세트를 만드는 것과 비슷한 방식으로 복사 활동에 대한 싱크 데이터 세트를 만듭니다.
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733673"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024675"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>자습서: Azure Active Directory Domain Services에서 온-프레미스 도메인에 대한 아웃바운드 포리스트 트러스트 만들기(미리 보기)
 
@@ -45,7 +45,9 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     * 필요한 경우 [Azure Active Directory Domain Services 관리형 도메인을 만들고 구성][create-azure-ad-ds-instance-advanced]합니다.
     
     > [!IMPORTANT]
-    > *리소스* 포리스트를 사용하여 관리되는 도메인을 만들어야 합니다. 기본 옵션은 *사용자* 포리스트를 만듭니다. 리소스 포리스트만 온-프레미스 AD DS 환경에 대한 트러스트를 만들 수 있습니다. 또한 관리되는 도메인에 대해 적어도 *Enterprise* SKU를 사용해야 합니다. 필요한 경우 [관리되는 도메인의 SKU를 변경][howto-change-sku]하세요.
+    > *리소스* 포리스트를 사용하여 관리되는 도메인을 만들어야 합니다. 기본 옵션은 *사용자* 포리스트를 만듭니다. 리소스 포리스트만 온-프레미스 AD DS 환경에 대한 트러스트를 만들 수 있습니다.
+    >
+    > 또한 관리되는 도메인에 대해 적어도 *Enterprise* SKU를 사용해야 합니다. 필요한 경우 [관리되는 도메인의 SKU를 변경][howto-change-sku]하세요.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -72,7 +74,7 @@ Azure AD DS에서 포리스트 트러스트를 구성하려면 먼저 Azure와 �
 온-프레미스 환경에서 관리되는 도메인을 올바르게 확인하려면 전달자를 기존 DNS 서버에 추가해야 할 수 있습니다. 관리되는 도메인과 통신하도록 온-프레미스 환경을 구성하지 않은 경우 온-프레미스 AD DS 도메인의 관리 워크스테이션에서 다음 단계를 완료합니다.
 
 1. **시작 | 관리 도구 | DNS**를 차례로 선택합니다.
-1. 마우스 오른쪽 단추로 DNS 서버(예: *myAD01*)를 선택하고, **속성**을 선택합니다.
+1. 마우스 오른쪽 단추로 DNS 서버(예: *myAD01*)를 선택한 다음, **속성**을 선택합니다.
 1. **전달자**를 선택한 다음, **편집**을 선택하여 추가 전달자를 추가합니다.
 1. 관리되는 도메인의 IP 주소(예: *10.0.2.4* 및 *10.0.2.5*)를 추가합니다.
 
@@ -83,9 +85,9 @@ Azure AD DS에서 포리스트 트러스트를 구성하려면 먼저 Azure와 �
 온-프레미스 AD DS 도메인에서 인바운드 트러스트를 구성하려면 온-프레미스 AD DS 도메인의 관리 워크스테이션에서 다음 단계를 완료합니다.
 
 1. **시작 | 관리 도구 | Active Directory 도메인 및 트러스트**를 차례로 선택합니다.
-1. 마우스 오른쪽 단추로 도메인(예: *onprem.contoso.com*)을 선택하고, **속성**을 선택합니다.
+1. 마우스 오른쪽 단추로 도메인(예: *onprem.contoso.com*)을 선택한 다음, **속성**을 선택합니다.
 1. **트러스트** 탭, **새 트러스트**를 차례로 선택합니다.
-1. Azure AD DS 도메인 이름에서 이름(예: *aaddscontoso.com*)을 입력하고, **다음**을 선택합니다.
+1. Azure AD DS 도메인 이름에 이름(예: *aaddscontoso.com*)을 입력하고, **다음**을 선택합니다.
 1. **포리스트 트러스트**를 만드는 옵션, **단방향: 들어오는 트러스트**를 만드는 옵션을 차례로 선택합니다.
 1. **이 도메인만**에 대한 트러스트를 만들도록 선택합니다. 다음 단계에서는 Azure Portal에서 관리되는 도메인에 대한 트러스트를 만듭니다.
 1. **전체 포리스트 인증**을 사용하도록 선택한 다음, 트러스트 암호를 입력하고 확인합니다. 다음 섹션의 Azure Portal에서도 동일한 암호가 입력됩니다.
@@ -124,7 +126,7 @@ Azure Portal에서 관리되는 도메인에 대한 아웃바운드 트러스트
 
 ### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>Azure AD DS 리소스 포리스트의 온-프레미스 사용자 인증
 
-Azure AD DS 리소스 도메인에 조인된 Windows Server 가상 머신이 있어야 합니다. 이 가상 머신을 사용하여 온-프레미스 사용자가 가상 머신에서 인증할 수 있는지 테스트합니다.
+Windows Server 가상 머신이 관리되는 도메인에 가입되어 있어야 합니다. 이 가상 머신을 사용하여 온-프레미스 사용자가 가상 머신에서 인증할 수 있는지 테스트합니다. 필요한 경우 [Windows VM을 만들어서 관리되는 도메인에 가입][join-windows-vm]합니다.
 
 1. [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) 및 Azure AD DS 관리자 자격 증명을 사용하여 Azure AD DS 리소스 포리스트에 조인된 Windows Server VM에 연결합니다.
 1. 명령 프롬프트를 열고, `whoami` 명령을 사용하여 현재 인증된 사용자의 고유 이름을 표시합니다.
@@ -167,7 +169,7 @@ Azure AD DS 리소스 포리스트에 조인된 Windows Server VM을 사용하�
 1. **선택할 개체 이름 입력** 상자에서 *도메인 사용자*를 입력합니다. **이름 확인**을 선택하고, 온-프레미스 Active Directory에 대한 자격 증명을 제공한 다음, **확인**을 선택합니다.
 
     > [!NOTE]
-    > 단방향 트러스트 관계이므로 자격 증명을 제공해야 합니다. 즉, Azure AD DS의 사용자가 리소스에 액세스할 수 없거나 트러스트된 도메인(온-프레미스)에서 사용자 또는 그룹을 검색할 수 없습니다.
+    > 단방향 트러스트 관계이므로 자격 증명을 제공해야 합니다. 즉, Azure AD DS 관리형 도메인의 사용자가 신뢰할 수 있는(온-프레미스) 도메인에서 리소스에 액세스하거나 사용자 또는 그룹을 검색할 수 없습니다.
 
 1. 온-프레미스 Active Directory의 **도메인 사용자** 그룹은 **FileServerAccess** 그룹의 멤버여야 합니다. **확인**을 선택하여 해당 그룹을 저장하고 창을 닫습니다.
 
@@ -216,3 +218,4 @@ Azure AD DS의 포리스트 유형에 대한 자세한 개념 정보는 [리소�
 [howto-change-sku]: change-sku.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [expressroute]: ../expressroute/expressroute-introduction.md
+[join-windows-vm]: join-windows-vm.md

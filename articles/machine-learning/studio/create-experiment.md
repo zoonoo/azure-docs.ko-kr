@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: a8ad945e20e1274025595620e08f264863297892
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117365"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965147"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>빠른 시작: Azure Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
 
@@ -136,7 +136,7 @@ ms.locfileid: "84117365"
 
 데이터 세트에서 기능 하위 집합을 사용하는 모델을 빌드하겠습니다. 다시 돌아와서 다양한 특성을 선택하고 실험을 다시 실행하여 더 나은 결과가 나오는지 확인할 수 있습니다. 하지만 시작하려면 다음과 같은 기능을 시도해 보겠습니다.
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+> 만들기, 본문 스타일, 휠 기반, 엔진 크기, 마력, 최대 rpm, 고속도로-mpg, 가격
 
 1. 다른 [데이터 세트에서 열 선택][select-columns] 모듈을 실험 캔버스에 끌어다 놓습니다. [누락된 데이터 정리][clean-missing-data] 모듈의 왼쪽 출력 포트를 [데이터 세트에서 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
 
@@ -223,7 +223,7 @@ ms.locfileid: "84117365"
 
 모델에 대한 다음 통계가 표시됩니다.
 
-- MAE(**절대 평균 오차**): 절대 평균 오차입니다(‘오차’는 예측 값과 실제 값 사이의 차이임). 
+- MAE(**절대 평균 오차**): 절대 평균 오차입니다(‘오차’는 예측 값과 실제 값 사이의 차이임).
 - RMSE(**제곱 평균 오차**): 테스트 데이터 세트에 대해 예측한 제곱 평균 오차의 제곱근입니다.
 - **상대 절대 오차**: 실제 값과 모든 실제 값 평균 사이의 절대값 차에 대해 상대적인 절대 평균 오차입니다.
 - **상대 제곱 오차**: 실제 값과 모든 실제 값 평균 사이의 제곱 차에 대해 상대적인 제곱 평균 오차입니다.

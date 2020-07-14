@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 854bf2d1ed2155290c2ecebd17695049fdd0c8bb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314280"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079652"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -101,7 +101,7 @@ NVA(네트워크 가상 어플라이언스)는 라우팅 및 방화벽 최적화
 
         | 설정 | 값 |
         | ------- | ----- |
-        | 속성 | *mynvastorageaccount* |
+        | Name | *mynvastorageaccount* |
         | 계정 종류 | **스토리지(범용 v1)** |
         | 성능 | **Standard** |
         | 복제 | **LRS(로컬 중복 스토리지)** |
@@ -128,7 +128,7 @@ NVA(네트워크 가상 어플라이언스)는 라우팅 및 방화벽 최적화
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *myRouteTablePublic* |
+    | Name | *myRouteTablePublic* |
     | Subscription | 사용자의 구독 |
     | Resource group | **myResourceGroup** |
     | 위치 | **(미국) 미국 동부** |
@@ -359,3 +359,6 @@ Azure를 사용하여 VM의 네트워크 인터페이스에 대한 [IP 전달을
 
 > [!div class="nextstepaction"]
 > [PaaS 리소스에 대한 네트워크 액세스 제한](tutorial-restrict-network-access-to-resources.md)
+
+> [!NOTE] 
+> Azure 서비스에는 비용이 듭니다. Azure Cost Management는 예산을 설정하고 경고를 구성하여 지출을 통제하는 데 유용합니다. Cost Management를 사용하여 Azure 비용을 분석하고 관리하고 최적화하세요. 자세한 내용은 [비용 분석을 위한 빠른 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.

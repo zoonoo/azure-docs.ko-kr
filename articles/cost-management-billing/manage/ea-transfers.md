@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: a0846a07fd8107a87483753c8dbff1301fda4a0c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: ff10d9ec9b92b85d057e556a21c144b9e8f155cf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299913"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043277"
 ---
 # <a name="azure-enterprise-transfers"></a>Azure Enterprise 전송
 
@@ -29,7 +29,7 @@ ms.locfileid: "84299913"
 - 요청에 지정된 계정만 양도됩니다. 모든 계정이 선택되면 모두 양도됩니다.
 - 원본 등록계약은 활성 또는 연장됨 상태로 유지됩니다. 등록이 만료될 때까지 계속 사용할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 계정 양도를 요청할 때 다음 정보를 입력하세요.
 
@@ -49,7 +49,7 @@ ms.locfileid: "84299913"
 
 등록계약 양도는 다음과 같은 경우 고려할 수 있습니다.
 
-- 현재 등록계약의 약정 기간이 끝났습니다.
+- 현재 등록의 선불 결제 기간이 끝났습니다.
 - 등록계약이 만료된/연장된 상태이며 새로운 계약이 협상되었습니다.
 - 여러 등록계약이 있지만 모든 계정과 청구 정보를 단일 등록계약으로 결합하려고 합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "84299913"
 - 모든 EA 부서 관리자를 포함하여 모든 Azure 서비스, 구독, 계정, 부서 및 전체 등록계약 구조가 새 대상 등록계약으로 양도됩니다.
 - 등록 상태가 _전송됨_으로 설정됩니다. 양도된 등록은 이전 사용량 보고 용도로만 사용할 수 있습니다.
 - 양도된 등록에 역할 또는 구독을 추가할 수 없습니다. 양도됨 상태에서는 등록에 사용량을 추가할 수 없습니다.
-- 이후 조건을 포함하여 계약의 남은 현금 약정 잔액은 모두 소멸됩니다.
+- 이후 조건을 포함하여 계약의 남아 있는 Azure 선불 잔액은 모두 소멸됩니다.
 -    RI 구매가 양도하는 등록계약에 있는 경우 RI 구매 요금은 원본 등록계약에 그대로 유지되지만, 모든 RI 혜택은 새 등록계약에서 활용할 수 있도록 양도됩니다.
 -    이전 등록에서 이미 발생한 마켓플레이스 일회성 구매 요금 및 월간 고정 요금은 새 등록으로 양도되지 않습니다. 소비 기반 마켓플레이스 요금은 양도됩니다.
 
@@ -68,9 +68,9 @@ ms.locfileid: "84299913"
 
 발효 양도 날짜는 대상 등록계약의 시작 날짜 또는 이후일 수 있습니다.
 
-원본 등록 사용량에 대한 요금은 현금 약정 금액 또는 초과분으로 청구됩니다. 발효 양도 날짜 이후에 발생하는 사용량은 새 등록으로 전송되고 그에 따라 요금이 청구됩니다.
+원본 등록 사용량에 대한 요금은 Azure 선불 또는 초과분으로 청구됩니다. 발효 양도 날짜 이후에 발생하는 사용량은 새 등록으로 전송되고 그에 따라 요금이 청구됩니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 등록 양도를 요청할 때 다음 정보를 입력하세요.
 
@@ -84,9 +84,9 @@ ms.locfileid: "84299913"
 - 등록을 양도해도 요구 사항이 충족되지 않는 경우 계정 양도를 고려해 보세요.
 - 원본 등록계약 상태는 양도된 것으로 업데이트되며, 이전 사용량 보고 용도로만 사용할 수 있습니다.
 
-### <a name="monetary-commitment"></a>금액 약정
+### <a name="azure-prepayment"></a>Azure 선불
 
-현금 약정 금액은 등록 간에 양도할 수 없습니다. 현금 약정 잔액은 주문된 등록과 계약으로 연결됩니다. 현금 약정 금액은 계정 또는 등록 양도 프로세스의 일부로 양도되지 않습니다.
+Azure 선불은 등록 간에 양도할 수 없습니다. Azure 선불 잔액은 주문된 등록과 계약으로 연결됩니다. Azure 선불은 계정 또는 등록 양도 프로세스의 일부로 양도되지 않습니다.
 
 ### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>계정 및 등록계약 양도에 영향을 받는 서비스가 없음
 

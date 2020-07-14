@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c57187ae15e5f15a601edbc74921b3c879abe715
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: b0f70fccf3f7f4a6856ae64d0946c2c473fed93c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800689"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050468"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -27,6 +27,10 @@ Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 3. 다운로드에서 추출한 루트 디렉터리 `spx-zips`로 이동하여 필요한 하위 디렉터리(.NET Framework 4.7에 대해 `spx-net471` 또는 x64 CPU에서 .NET Core 3.0에 대해 `spx-netcore-win-x64`)를 추출합니다.
 
 명령 프롬프트에서 디렉터리를 이 위치로 변경한 다음, `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
+
+> [!NOTE]
+> Powershell은 명령을 찾을 때 로컬 디렉터리를 확인하지 않습니다. Powershell에서 디렉터리를 `spx` 위치로 변경하고 `.\spx`를 입력하여 도구를 호출합니다.
+> 경로에 이 디렉터리를 추가하면 Powershell 및 Windows 명령 프롬프트가 `.\` 접두사를 포함하지 않고 모든 디렉터리에서 `spx`를 찾습니다.
 
 #### <a name="linux-install"></a>[Linux 설치](#tab/linuxinstall)
 

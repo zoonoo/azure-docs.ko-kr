@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Sentinel 시작'
-description: Azure Sentinel 빠른 시작 - Azure Sentinel 미리 보기 시작
+description: 이 빠른 시작을 통해 Azure Sentinel을 사용하여 사용자 환경에서 발생하는 상황을 빠르게 보고 모니터링하는 방법에 대해 알아봅니다. 
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798666"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564611"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>빠른 시작: Azure Sentinel 시작
 

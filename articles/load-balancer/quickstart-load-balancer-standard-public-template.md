@@ -15,30 +15,34 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 175c5a36c873d16d50d5192a489133a01018e335
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ebf2f926f5be86ffee5f3a3e30277962a6060762
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80474607"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479763"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 VM 부하를 분산하는 Load Balancer 만들기
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 VM 부하를 분산하는 Load Balancer 만들기
 
-부하를 분산하면 들어오는 요청이 여러 VM(가상 머신)에 분산되어 가용성 및 확장성이 향상됩니다. 이 빠른 시작에서는 VM 부하를 분산하는 표준 Load Balancer를 만드는 Azure Resource Manager 템플릿을 배포하는 방법을 보여 줍니다. Resource Manager 템플릿을 사용하면 다른 배포 방법과 비교하여 단계가 줄어듭니다.
+부하를 분산하면 들어오는 요청이 여러 VM(가상 머신)에 분산되어 가용성 및 확장성이 향상됩니다. 이 빠른 시작에서는 VM 부하를 분산하는 표준 부하 분산 장치를 만드는 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 방법을 보여 줍니다. ARM 템플릿을 사용하면 다른 배포 방법과 비교하여 단계가 줄어듭니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-load-balancer-standard-create%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-load-balancer"></a>Load Balancer 만들기
+## <a name="review-the-template"></a>템플릿 검토
+
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-load-balancer-standard-create/)에서 나온 것입니다.
 
 Load Balancer와 공용 IP SKU는 일치해야 합니다. 표준 Load Balancer를 만들 때 표준 부하 분산 장치의 프런트 엔드로 구성된 새 표준 공용 IP 주소도 만들어야 합니다. 기본 Load Balancer를 만들려는 경우 [이 템플릿](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/)을 사용합니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 사용할 것을 권장합니다.
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json)에서 나온 것입니다.
-
-:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json" range="1-324" highlight="58-122":::
+:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json" range="1-324" highlight="57-122":::
 
 템플릿에 여러 Azure 리소스가 정의되어 있습니다.
 
@@ -46,13 +50,13 @@ Load Balancer와 공용 IP SKU는 일치해야 합니다. 표준 Load Balancer�
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)(부하 분산 장치 및 세 개의 가상 머신 각각에 대해)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)(이러한 요소 중 3개에 대해)
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)(이러한 요소 중 3개에 대해)
-- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions)(이러한 요소 중 3개에 대해): IIS 및 웹 페이지를 구성하는 데 사용
+- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)(이러한 요소 중 3개에 대해).
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)(이러한 요소 중 3개에 대해).
+- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions)(이러한 요소 중 3개에 대해): IIS 및 웹 페이지를 구성하는 데 사용합니다.
 
 Azure Load Balancer에 관련된 더 많은 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular)을 참조하세요.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 1. 다음 코드 블록에서 **사용해 보기**를 선택하여 Azure Cloud Shell을 열고 지침에 따라 Azure에 로그인합니다.
 
@@ -89,7 +93,7 @@ Azure Load Balancer에 관련된 더 많은 템플릿을 찾으려면 [Azure 빠
 
 Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerShell 외에도 Azure Portal, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-portal.md)를 참조하세요.
 
-## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
+## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

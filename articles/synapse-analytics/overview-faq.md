@@ -5,16 +5,16 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2c470483cee8b621475fa70dd09c80aa126173be
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 43f0dfa5fd413d201eb8c63aa752a6fd8db68f6c
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609151"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807879"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics(작업 영역 미리 보기) 질문과 대답
 
@@ -48,6 +48,10 @@ A: Azure Synapse의 기능은 다음과 같습니다.
 A: Azure Synapse Analytics는 Azure SQL Data Warehouse를 SQL 풀이 데이터 웨어하우스 솔루션으로 포함된 분석 플랫폼으로 발전시킨 것입니다. 이 플랫폼은 데이터 검색, 수집, 변환, 준비 및 서비스 분석 계층을 결합합니다.
 
 ## <a name="use-cases"></a>사용 사례
+
+### <a name="q-how-do-i-rename-a-published-artifact-dataset-notebook-sql-script-and-so-on-in-azure-synapse"></a>Q: Azure Synapse에서 게시된 아티팩트(데이터 세트, Notebook, sql 스크립트 등)의 이름을 어떻게 변경하나요?
+
+A: 게시된 아티팩트 파일의 이름을 변경하려면 먼저 파일을 복제하고 새 파일의 이름을 원하는 이름으로 변경합니다. 아티팩트의 모든 참조를 수동으로 새 파일 이름으로 업데이트하고 이전 파일 이름을 삭제해야 합니다.
 
 ### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>Q: Synapse SQL 풀에 적합한 사용 사례는 무엇인가요?
 

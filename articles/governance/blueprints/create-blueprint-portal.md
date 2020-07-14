@@ -3,18 +3,18 @@ title: '빠른 시작: 포털에서 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure Portal을 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381899"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045215"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>빠른 시작: 포털에서 청사진 정의 및 할당
 
-청사진을 만들고 할당하는 방법을 알면 공통 패턴 정의를 통해 Azure Resource Manager 템플릿, 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 정의할 수 있습니다. 이 자습서에서는 Azure Blueprints를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 일반적인 작업을 수행하는 방법을 알아봅니다. 이러한 태스크는 다음과 같습니다.
+청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 정의할 수 있습니다. 이 자습서에서는 Azure Blueprints를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 일반적인 작업을 수행하는 방법을 알아봅니다. 이러한 태스크는 다음과 같습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -85,8 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    1. **아티팩트 형식**으로 **Azure Resource Manager 템플릿**을 선택하고, **아티팩트 표시 이름**을 **StorageAccount**로 설정하고, **설명**은 비워 둡니다.
 
-   1. **템플릿** 탭의 편집기 상자에 다음 Resource Manager 템플릿을 붙여넣습니다.
-      템플릿을 붙여넣은 후, **매개 변수** 탭을 선택하면 템플릿 매개 변수 **storageAccountType** 및 **location**이 검색됩니다. 각 매개 변수는 자동으로 검색되고 채워지지만 동적 매개 변수로 구성됩니다.
+   1. 편집기 상자의 **템플릿** 탭에 다음 ARM 템플릿을 붙여넣습니다. 템플릿을 붙여넣은 후, **매개 변수** 탭을 선택하면 템플릿 매개 변수 **storageAccountType** 및 **location**이 검색됩니다. 각 매개 변수는 자동으로 검색되고 채워지지만 동적 매개 변수로 구성됩니다.
 
       > [!IMPORTANT]
       > 템플릿을 가져오는 경우에는 파일이 JSON으로만 되어 있으며 HTML은 포함하지 않는지 확인하세요. Github의 URL을 가리키는 경우에는 **RAW**를 선택하여 GitHub에 표시하기 위해 HTML로 래핑된 파일이 아니라 순수 JSON 파일을 가져왔는지 확인해야 합니다. 가져온 템플릿이 순수 JSON이 아니면 오류가 발생합니다.
@@ -140,7 +139,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
       }
       ```
 
-   1. **storageAccountType** 확인란의 선택을 취소하면 드롭다운 목록에는 **allowedValues** 아래의 Resource Manager 템플릿에 포함된 값만 들어 있습니다. 확인란을 선택하면 해당 항목이 다시 동적 매개 변수로 설정됩니다.
+   1. **storageAccountType** 확인란의 선택을 취소하면 드롭다운 목록에는 **allowedValues** 아래의 ARM 템플릿에 포함된 값만 들어 있습니다. 확인란을 선택하면 해당 항목이 다시 동적 매개 변수로 설정됩니다.
 
    1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
@@ -207,7 +206,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **청사진 할당** 페이지의 **구독** 드롭다운 목록에서 이 청사진을 배포하려는 구독을 선택합니다.
 
-   [Azure 청구](../../billing/index.md)에서 사용할 수 있는 지원되는 엔터프라이즈 제품이 있는 경우 **새로 만들기** 링크가 **구독** 상자에서 활성화됩니다. 다음 단계를 수행하세요.
+   [Azure 청구](../../cost-management-billing/index.yml)에서 사용할 수 있는 지원되는 엔터프라이즈 제품이 있는 경우 **새로 만들기** 링크가 **구독** 상자에서 활성화됩니다. 다음 단계를 수행하세요.
 
    1. 기존 청사진을 선택하는 대신 새 구독을 만들려면 **새로 만들기** 링크를 선택합니다.
 
@@ -249,7 +248,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    > 청사진 정의 중에 리소스 그룹 아래에 추가한 각 아티팩트는 함께 배포할 리소스 그룹이나 개체에 맞게 들여씁니다.
    > 매개 변수를 사용하지 않거나 할당에서 정의할 매개 변수가 없는 아티팩트는 상황 정보 제공용으로만 나열됩니다.
 
-1. Azure Resource Manager 템플릿 **StorageAccount**에서 **storageAccountType** 매개 변수에 대해 **Standard_GRS**를 선택합니다.
+1. ARM 템플릿 **StorageAccount**에서 **storageAccountType** 매개 변수에 대해 **Standard_GRS**를 선택합니다.
 
 1. 페이지 아래쪽의 정보 상자 내용을 확인한 다음, **할당**을 선택합니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c25d5ee7ed730747317ea52286174968eb0e2fd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82024441"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103707"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
@@ -45,7 +45,7 @@ Azure AD에서 디바이스를 가져올 수 있는 여러 가지 옵션이 있�
 - **Azure AD 조인**
    - Azure AD 조인 디바이스는 조직이 소유하며 조직에 속한 Azure AD 계정으로 로그인됩니다. 이 디바이스는 클라우드에만 존재합니다.
       - 윈도우 10 
-      - Windows Server 2019(서버 코어는 지원되지 않음)
+      - [Azure에서 실행되는 Windows Server 2019 Virtual Machines](./howto-vm-sign-in-azure-ad-windows.md)(서버 코어는 지원되지 않음)
 - **하이브리드 Azure AD 조인**
    - 하이브리드 Azure AD 조인 디바이스는 조직이 소유하며 조직에 속한 Azure AD 계정으로 로그인됩니다. 이 디바이스는 클라우드와 온-프레미스에 존재합니다.
       - Windows 7, 8.1 또는 10

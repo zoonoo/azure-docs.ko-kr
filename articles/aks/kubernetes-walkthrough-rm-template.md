@@ -5,16 +5,16 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: bbe5d9ac21ae9e03d629a1667567a915c8653a8a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 447af1580f601c1f55690434b371aeeed2d335a0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81602641"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106359"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
-AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포합니다. 웹 프런트 엔드 및 Redis 인스턴스를 포함하는 다중 컨테이너 애플리케이션이 클러스터에서 실행됩니다.
+AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 AKS 클러스터를 배포합니다. 웹 프런트 엔드 및 Redis 인스턴스를 포함하는 다중 컨테이너 애플리케이션이 클러스터에서 실행됩니다.
 
 ![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -22,15 +22,19 @@ AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리�
 
 이 빠른 시작에서는 Kubernetes 기본 개념을 이해하고 있다고 가정합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 CLI를 로컬에 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.61 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-Resource Manager 템플릿을 사용하여 AKS 클러스터를 만들려면 SSH 공개 키와 Azure Active Directory 서비스 주체를 제공합니다.  또는 사용 권한에 대해 서비스 주체 대신 [관리 ID](use-managed-identity.md)를 사용할 수 있습니다. 이러한 리소스가 필요한 경우 다음 섹션을 참조하세요. 그렇지 않으면 [AKS 클러스터 만들기](#create-an-aks-cluster) 섹션으로 건너뜁니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+Resource Manager 템플릿을 사용하여 AKS 클러스터를 만들려면 SSH 공개 키와 Azure Active Directory 서비스 주체를 제공합니다. 또는 사용 권한에 대해 서비스 주체 대신 [관리 ID](use-managed-identity.md)를 사용할 수 있습니다. 이러한 리소스 중 하나가 필요한 경우 다음 섹션을 참조하세요. 그렇지 않으면 [템플릿 검토](#review-the-template) 섹션으로 건너뜁니다.
 
 ### <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 
@@ -68,9 +72,7 @@ az ad sp create-for-rbac --skip-assignment
 
 *appId* 및 *암호*를 기록해 둡니다. 다음 단계에서 이러한 값을 사용합니다.
 
-## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
-
-### <a name="review-the-template"></a>템플릿 검토
+## <a name="review-the-template"></a>템플릿 검토
 
 이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-aks/)에서 나온 것입니다.
 
@@ -78,7 +80,7 @@ az ad sp create-for-rbac --skip-assignment
 
 AKS 샘플을 더 보려면 [AKS 빠른 시작 템플릿][aks-quickstart-templates] 사이트를 참조하세요.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다.
 

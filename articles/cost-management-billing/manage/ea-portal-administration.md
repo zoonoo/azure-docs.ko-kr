@@ -3,16 +3,16 @@ title: Azure EA Portal 관리
 description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는 일반적인 작업에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: eefd4a9ddf2150728578a4e058686a3204e34930
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 6169a18148b251540d66bce6e34374a16f697015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456558"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044892"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "84456558"
 
 ## <a name="department-spending-quotas"></a>부서 지출 할당액
 
-EA 고객은 등록계약에 따라 각 부서의 지출 할당액을 설정하거나 변경할 수 있습니다. 지출 할당 금액은 현재 약정 기간에 대해 설정됩니다. 현재 약정 기간이 종료되면 값이 업데이트되지 않는 한 시스템에서 기존 지출 할당액을 다음 약정 기간으로 연장합니다.
+EA 고객은 등록계약에 따라 각 부서의 지출 할당액을 설정하거나 변경할 수 있습니다. 지출 할당 금액은 현재 선불 기간에 대해 설정됩니다. 현재 선불 기간이 종료되면 값이 업데이트되지 않는 한 시스템에서 기존 지출 할당액을 다음 선불 기간으로 연장합니다.
 
 부서 관리자는 지출 할당액을 볼 수 있으며, 엔터프라이즈 관리자만 할당액을 업데이트할 수 있습니다. 할당액이 50%, 75%, 90%, 100%에 도달하면 엔터프라이즈 관리자와 부서 관리자는 알림을 받게 됩니다.
 
@@ -48,9 +48,9 @@ EA 고객은 등록계약에 따라 각 부서의 지출 할당액을 설정하�
     - 이 시점에서 부서 이름과 비용 센터도 편집할 수 있습니다.
  1. **저장**을 선택합니다.
 
-이제 부서 지출 할당액이 [부서] 탭 아래의 [부서 목록] 보기에 표시됩니다. 현재 약정이 종료되면 Azure EA Portal은 다음 약정 기간에 대한 지출 할당액을 유지합니다.
+이제 부서 지출 할당액이 [부서] 탭 아래의 [부서 목록] 보기에 표시됩니다. 현재 선불이 종료되면 Azure EA Portal은 다음 선불 기간에 대한 지출 할당액을 유지합니다.
 
-부서 할당 금액은 현재 금액 약정과 독립적이며, 할당 금액과 경고는 자사의 사용에만 적용됩니다. 부서 지출 할당액은 정보 제공용으로만 제공되며 지출 한도를 적용하지 않습니다.
+부서 할당 금액은 현재 Azure 선불과 독립적이며, 할당 금액과 경고는 자사의 사용에만 적용됩니다. 부서 지출 할당액은 정보 제공용으로만 제공되며 지출 한도를 적용하지 않습니다.
 
 ### <a name="department-administrator-to-view-the-quota"></a>부서 관리자가 할당액을 보려면,
 
@@ -174,7 +174,7 @@ Azure 엔터프라이즈 사용자는 Microsoft 계정(MSA 또는 Live ID)에서
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>구독당 Azure 계정 소유자의 수는 어떻게 되나요?
 
-구독당 하나의 계정 소유자만 허용됩니다.  [portal.azure.com](https://portal.azure.com) 페이지의 왼쪽 위 모서리에 있는 구독 탭에서 [역할 기반 액세스] 또는 [액세스 제어(IAM)]를 사용하여 추가 역할을 추가할 수 있습니다.
+구독당 하나의 계정 소유자만 허용됩니다.  [Azure Portal](https://portal.azure.com) 페이지의 왼쪽 위 모서리에 있는 구독 탭에서 [역할 기반 액세스] 또는 [액세스 제어(IAM)]를 사용하여 추가 역할을 추가할 수 있습니다.
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>한 Azure 계정 소유자가 둘 이상의 부서에 나열될 수 있나요?
 

@@ -4,12 +4,12 @@ description: 로컬 컴퓨터에서 Azure Resource Manager 템플릿을 배포�
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3112c3940f9d2668f4825de3c2e57a63af009d92
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714069"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118905"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>자습서: 로컬 Azure Resource Manager 템플릿 배포
 
@@ -33,7 +33,7 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
 
 ### <a name="editor-optional"></a>편집기(선택 사항)
 
-템플릿은 JSON 파일입니다. 템플릿을 검토/편집하려면 적합한 JSON 편집기가 필요합니다. Resource Manager 도구 확장이 있는 Visual Studio Code를 사용하는 것이 좋습니다. 이러한 도구를 설치해야 하는 경우 [Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+템플릿은 JSON 파일입니다. 템플릿을 검토/편집하려면 적합한 JSON 편집기가 필요합니다. Resource Manager 도구 확장이 있는 Visual Studio Code를 사용하는 것이 좋습니다. 이러한 도구를 설치해야 하는 경우 [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 ## <a name="review-template"></a>템플릿 검토
 

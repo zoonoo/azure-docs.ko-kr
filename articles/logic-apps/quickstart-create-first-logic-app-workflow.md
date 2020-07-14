@@ -3,16 +3,16 @@ title: 첫 번째 자동화 워크플로 만들기
 description: 빠른 시작 - 시스템 통합 및 EAI(엔터프라이즈 애플리케이션 통합) 솔루션에 대한 Azure Logic Apps를 사용하여 첫 번째 자동화된 워크플로 빌드
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807864"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321590"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 워크플로 만들기 - Azure Portal
 
@@ -74,13 +74,13 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    !["피드 항목이 게시되는 경우" 트리거 선택](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. 다음에 나온 설명과 같이 트리거에 대한 이 정보를 제공합니다.
+1. 표에 설명된 대로 트리거에 대한 정보를 제공합니다.
 
    ![RSS 피드, 빈도 및 간격을 사용하여 트리거 설정](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | 속성 | 값 | Description |
    |----------|-------|-------------|
-   | **RSS 피드 URL** | `http://feeds.reuters.com/reuters/topNews` | 모니터링하려는 RSS 피드에 대한 링크 |
+   | **RSS 피드 URL** | <*RSS-feed-URL*> | 모니터링하려는 RSS 피드에 대한 링크입니다. 이 예에서는 `http://feeds.reuters.com/reuters/topNews`를 사용합니다. |
    | **간격** | 1 | 검사 간에 대기하는 간격의 수 |
    | **빈도** | Minute | 검사 간 간격의 시간 단위  |
    ||||

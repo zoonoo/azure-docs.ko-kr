@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf876d3c7c100f001ba81082d792e81a777c7315
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3ed653c511dbd775d124e1abd6f4bb02923edb25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82193040"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102075"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기
 
@@ -29,11 +29,11 @@ ARM(Azure Resource Manager 템플릿)을 만들어 여러 리소스를 배포하
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 * 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
 
     ```console

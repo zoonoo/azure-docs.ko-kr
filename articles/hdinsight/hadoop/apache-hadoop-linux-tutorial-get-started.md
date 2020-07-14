@@ -8,42 +8,45 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: ae0f29b8085bd9637f527f2a58229dd89ce6933b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: add16e587540b62c66ec6a764b872acfcb17fb07
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064667"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079788"
 ---
-# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Hadoop 클러스터 만들기
+# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure HDInsight에서 [Apache Hadoop](./apache-hadoop-introduction.md) 클러스터를 만듭니다. Hadoop은 클러스터에서 빅 데이터 세트를 분산 처리하고 분석하기 위한 원래의 오픈 소스 프레임워크였습니다. Hadoop 에코시스템에는 Apache Hive, Apache HBase, Spark, Kafka 등 관련 소프트웨어 및 유틸리티가 포함되어 있습니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure HDInsight에서 [Apache Hadoop](./apache-hadoop-introduction.md) 클러스터를 만듭니다. Hadoop은 클러스터에서 빅 데이터 세트를 분산 처리하고 분석하기 위한 원래의 오픈 소스 프레임워크였습니다. Hadoop 에코시스템에는 Apache Hive, Apache HBase, Spark, Kafka 등 관련 소프트웨어 및 유틸리티가 포함되어 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
   
 현재 HDInsight는 [일곱 가지 클러스터 형식](../hdinsight-overview.md#cluster-types-in-hdinsight)으로 제공됩니다. 각 클러스터 유형은 서로 다른 구성 요소 집합을 지원합니다. 모든 클러스터 형식은 Hive를 지원합니다. HDInsight에서 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](../hdinsight-component-versioning.md)을 확인합니다.  
 
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-an-apache-hadoop-cluster"></a>Apache Hadoop 클러스터 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-### <a name="review-the-template"></a>템플릿 검토
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)에서 나온 것입니다.
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)에서 나온 것입니다.
-
-:::code language="json" source="~/quickstart-templates/101-hdinsight-linux-ssh-password/azuredeploy.json" range="1-148":::
-
+:::code language="json" source="~/quickstart-templates/101-hdinsight-linux-ssh-password/azuredeploy.json" range="1-182" highlight="96-128":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): Azure Storage 계정을 만듭니다.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): HDInsight 클러스터를 만듭니다.
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Azure Storage 계정을 만듭니다.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): HDInsight 클러스터를 만듭니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 아래 **Azure에 배포** 단추를 선택하여 Azure에 로그인하고 Resource Manager 템플릿을 엽니다.
+1. 아래 **Azure에 배포** 단추를 선택하여 Azure에 로그인하고 ARM 템플릿을 엽니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+    [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json)
 
 1. 다음 값을 입력하거나 선택합니다.
 
@@ -90,7 +93,7 @@ Azure Portal에서 클러스터로 이동하여 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Hadoop 클러스터를 만드는 방법을 알아보았습니다. 다음 문서에서는 HDInsight의 Hadoop을 사용하여 ETL(추출, 변환 및 로드) 작업을 수행하는 방법을 알아봅니다.
+이 빠른 시작에서는 HDInsight에서 ARM 템플릿을 사용하여 Apache Hadoop 클러스터를 만드는 방법을 알아보았습니다. 다음 문서에서는 HDInsight의 Hadoop을 사용하여 ETL(추출, 변환 및 로드) 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

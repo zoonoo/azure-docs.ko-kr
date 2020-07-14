@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 8b340bdbd4bea4fcd865d6c27d688e5dbed86bb8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6a449c078b18b5bc9e005a873c51d92ad29417f6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052345"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084990"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 서버 수준 방화벽 규칙 만들기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,12 +33,12 @@ ms.locfileid: "84052345"
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>서버 수준 IP 방화벽 규칙 만들기
 
- SQL Database는 단일 및 풀링된 데이터베이스에 대한 서버 수준에서 방화벽을 만듭니다. 방화벽을 여는 IP 방화벽 규칙을 만들지 않는 한 이 방화벽은 클라이언트 애플리케이션에서 서버 또는 단일/풀링된 데이터베이스에 연결하지 못하도록 차단합니다. Azure 외부의 IP 주소에서 연결하려면 연결하려는 특정 IP 주소 또는 주소 범위에 대한 방화벽 규칙을 만듭니다. 서버 수준 및 데이터베이스 수준 IP 방화벽 규칙에 대한 자세한 내용은 [서버 수준 및 데이터베이스 수준 IP 방화벽 규칙](firewall-configure.md)을 참조하세요.
+ SQL Database는 단일 및 풀링된 데이터베이스에 대한 서버 수준에서 방화벽을 만듭니다. 방화벽을 여는 IP 방화벽 규칙을 만들지 않는 한 이 방화벽은 클라이언트 애플리케이션에서 서버 또는 데이터베이스에 연결하지 못하도록 차단합니다. Azure 외부의 IP 주소에서 연결하려면 연결하려는 특정 IP 주소 또는 주소 범위에 대한 방화벽 규칙을 만듭니다. 서버 수준 및 데이터베이스 수준 IP 방화벽 규칙에 대한 자세한 내용은 [서버 수준 및 데이터베이스 수준 IP 방화벽 규칙](firewall-configure.md)을 참조하세요.
 
 > [!NOTE]
 > Azure SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 서버에 연결할 수 없습니다.
 > [!IMPORTANT]
-> 0\.0.0.0의 방화벽 규칙은 모든 Azure 서비스가 서버 수준 방화벽 규칙을 통과한 후 서버를 통해 단일 또는 풀링된 데이터베이스에 연결을 시도할 수 있게 해줍니다.
+> 0\.0.0.0의 방화벽 규칙은 모든 Azure 서비스가 서버 수준 방화벽 규칙을 통과한 후 서버를 통해 데이터베이스에 연결을 시도할 수 있게 해줍니다.
 
 다음 단계에 따라 클라이언트의 IP 주소에 대한 서버 수준 IP 방화벽 규칙을 만들고, IP 주소에 대해서만 Azure SQL Database 방화벽을 통해 외부 연결을 사용하도록 설정합니다.
 

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b62cca48323d4e12a92c89d64ab67bf5b783c36f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0a6f9e723fb6374f5ac72241501f49a94c2c2fe2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82183837"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101956"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 여러 리소스 인스턴스 만들기
 
@@ -27,11 +27,11 @@ ARM(Azure Resource Manager) 템플릿을 반복하여 Azure 리소스의 여러 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. **열기**를 선택하여 파일을 엽니다.
-4. 템플릿에 'Microsoft.Storage/storageAccounts' 리소스가 정의되어 있습니다. 이 템플릿을 [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)와 비교합니다. 템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
+4. 템플릿에 'Microsoft.Storage/storageAccounts' 리소스가 정의되어 있습니다. 이 템플릿을 [템플릿 참조](/azure/templates/Microsoft.Storage/storageAccounts)와 비교합니다. 템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 5. **파일**>**이름으로 저장**을 차례로 선택하여 파일을 **azuredeploy.json**으로 저장합니다.
 
 ## <a name="edit-the-template"></a>템플릿 편집

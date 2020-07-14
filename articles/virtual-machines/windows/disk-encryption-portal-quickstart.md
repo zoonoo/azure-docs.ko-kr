@@ -7,16 +7,16 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 2d1600a688af09515b069a3161d724bb8882596a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1327a2c621eca1cfadcf776ecd62f0899651f0bc
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791173"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807930"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Windows 가상 머신 만들기 및 암호화
 
-Azure Portal을 통해 Azure VM(가상 머신)을 만들 수 있습니다. Azure Portal은 VM 및 관련 리소스를 만드는 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Ubuntu 18.04 LTS를 실행하는 Windows VM(가상 머신)을 배포하고, 암호화 키 스토리지용 키 자격 증명 모음을 만든 다음, VM을 암호화합니다.
+Azure Portal을 통해 Azure VM(가상 머신)을 만들 수 있습니다. Azure Portal은 VM 및 관련 리소스를 만드는 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Windows 가상 머신을 배포하고, 암호화 키 스토리지용 키 자격 증명 모음을 만들고, VM을 암호화합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

@@ -8,23 +8,23 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014913"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045300"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>자습서: Azure HDInsight를 사용하여 데이터 추출, 변환 및 로드
 
-이 자습서에서는 데이터 ETL(추출, 변환 및 로드) 작업을 수행합니다. 원시 CSV 데이터 파일을 추출하여 Azure HDInsight 클러스터로 가져오고, Apache Hive를 사용하여 변환하고, Apache Sqoop을 사용하여 Azure SQL 데이터베이스에 로드합니다.
+이 자습서에서는 데이터 ETL(추출, 변환 및 로드) 작업을 수행합니다. 원시 CSV 데이터 파일을 추출하여 Azure HDInsight 클러스터로 가져오고, Apache Hive를 사용하여 변환하고, Apache Sqoop을 사용하여 Azure SQL Database에 로드합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 데이터를 추출하여 HDInsight 클러스터에 로드합니다.
 > * Apache Hive를 사용하여 데이터를 변환합니다.
-> * Sqoop을 사용하여 Azure SQL 데이터베이스를 로드합니다.
+> * Sqoop을 사용하여 Azure SQL Database에 데이터를 로드합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     [빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)을 참조하세요.
 
-* **Azure SQL Database**: Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [Azure Portal에서 Azure SQL 데이터베이스 만들기](../../sql-database/sql-database-get-started.md)를 참조하세요.
+* **Azure SQL Database**: Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database에 데이터베이스가 없는 경우 [Azure Portal의 Azure SQL Database에서 데이터베이스 만들기](../../sql-database/sql-database-get-started.md)를 참조하세요.
 
 * **Azure CLI**: 아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
@@ -224,7 +224,7 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
 
 ## <a name="create-a-sql-database-table"></a>SQL Database 테이블 만들기
 
-이 작업에 사용되는 SQL 데이터베이스의 서버 이름이 필요합니다. 다음 단계를 완료하여 서버 이름을 찾습니다.
+이 작업을 수행하려면 SQL Database의 서버 이름이 필요합니다. 다음 단계를 완료하여 서버 이름을 찾습니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
@@ -300,7 +300,7 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
 
 ## <a name="export-and-load-the-data"></a>데이터 내보내기 및 로드
 
-이전 섹션에서는 `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` 위치에서 변환된 데이터를 복사했습니다. 이 섹션에서는 Sqoop을 사용하여 `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`에서 Azure SQL 데이터베이스에 만든 테이블로 데이터를 내보냅니다.
+이전 섹션에서는 `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` 위치에서 변환된 데이터를 복사했습니다. 이 섹션에서는 Sqoop을 사용하여 `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`의 데이터를 Azure SQL Database에 만든 테이블로 내보냅니다.
 
 1. 다음 명령을 사용하여 Sqoop이 SQL Database를 볼 수 있는지 확인합니다.
 

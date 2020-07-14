@@ -3,16 +3,16 @@ title: 엔터프라이즈 통합을 위한 작업 자동화
 description: Azure Logic Apps를 사용하여 엔터프라이즈 통합을 위한 최소한의 코드로 앱, 데이터, 서비스 및 시스템을 통합하는 워크플로를 자동화하는 방법을 알아봅니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 08b3863ac9a03cda2659cf4934b781eeb9330e17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659604"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563815"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>개요 - Azure Logic Apps란?
 
@@ -32,7 +32,7 @@ Azure Logic Apps을 사용하여 엔터프라이즈 통합 솔루션을 빌드�
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-## <a name="how-does-logic-apps-work"></a>Logic Apps의 작동 원리 
+## <a name="how-do-logic-apps-work"></a>논리 앱은 어떻게 작동하나요? 
 
 모든 논리 앱 워크플로는 특정 이벤트가 발생하거나 사용 가능한 새 데이터가 특정 기준을 충족할 때 실행되는 트리거를 통해 시작됩니다. Logic Apps의 커넥터에서 제공되는 많은 트리거에는 워크로드가 주기적으로 실행되는 빈도를 사용자가 지정할 수 있는 기본적인 일정 예약 기능이 포함됩니다. 더 복잡한 일정 예약 또는 고급 되풀이의 경우 되풀이 트리거를 모든 워크플로에서 첫 번째 단계로 사용할 수 있습니다. [일정 기반 워크플로](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)에 대해 자세히 알아보세요.
 
@@ -42,7 +42,7 @@ Azure Logic Apps을 사용하여 엔터프라이즈 통합 솔루션을 빌드�
 
 브라우저를 통해 Azure Portal 에서 또는 Visual Studio에서 사용할 수 있는 Logic Apps 디자이너를 사용하여 논리 앱을 시각적으로 빌드할 수 있습니다. 더 많은 사용자 지정 논리 앱을 원하는 경우 "코드 보기" 편집기에서 작업하여 JSON(JavaScript Object Notation)에서 논리 앱 정의를 만들거나 편집하면 됩니다. 선별된 작업에 Azure PowerShell 명령 및 Azure Resource Manager 템플릿을 사용할 수도 있습니다. 논리 앱은 Azure의 클라우드에 배포되어 실행됩니다. 자세한 소개는 [Azure Enterprise Integration Services를 사용하여 규모에 맞는 클라우드 애플리케이션 실행](https://channel9.msdn.com/Events/Connect/2017/T119/) 비디오를 시청하세요.
 
-## <a name="why-use-logic-apps"></a>Logic Apps를 사용하는 이유
+## <a name="why-use-logic-apps"></a>논리 앱을 사용하는 이유
 
 기업이 점차 디지털로 전환하는 요즘, 미리 빌드된 API를 Microsoft 관리 커넥터로 제공하는 논리 앱을 사용하면 기존 시스템과 현대식 첨단 시스템을 보다 간편하고 신속하게 연결할 수 있습니다. 사용자는 앱의 비즈니스 논리 및 기능에 집중할 수 있습니다. 앱의 빌드, 호스팅, 크기 조정, 관리, 유지 관리 및 모니터링에 대해 걱정할 필요가 없습니다. Logic Apps가 사용자 대신 이러한 문제를 처리합니다. 뿐만 아니라, 사용량 [가격 책정 모델](../logic-apps/logic-apps-pricing.md)에 따라 사용한 만큼만 요금을 지불하면 됩니다.
 

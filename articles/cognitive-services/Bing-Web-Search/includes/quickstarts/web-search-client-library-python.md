@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: b6ab34019207ccbeec5448b848e501e063707d16
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85940415"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Python 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 
 지금 코드를 보시겠나요? [Python용 Bing Search 클라이언트 라이브러리](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) 샘플은 GitHub에서 사용할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Bing Web Search SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다. 이 빠른 시작에서는 가상 환경을 사용하는 것이 좋습니다.
 
 * Python 2.7, 3.3, 3.4, 3.5 또는 3.6
@@ -167,7 +167,7 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 1. `SUBSCRIPTION_KEY`를 유효한 구독 키로 바꿉니다.
 
-1. 포털에서 `YOUR_ENDPOINT`를 엔드포인트 url로 바꿉니다.
+1. `YOUR_ENDPOINT`를 포털의 엔드포인트 URL로 바꾸고 엔드포인트에서 "bing/v7.0" 섹션을 제거합니다.
 
 1. 프로그램을 실행합니다. 예: `python your_program.py`
 

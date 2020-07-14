@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f96ec80b529c594a383be8d668fd28b77372cd80
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900926"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413726"
 ---
 # <a name="about-azure-key-vault-keys"></a>Azure Key Vault 키 정보
 
@@ -30,10 +30,10 @@ Key Vault의 암호화 키는 JWK[JSON 웹 키] 개체로 표현됩니다. JSON(
 
 또한 기본 JWK/JWA 사양을 확장하여 Key Vault 구현에 고유한 키 유형을 지원할 수 있습니다. 예를 들어 HSM 공급업체별 패키징을 사용하여 키를 가져오면 Key Vault HSM에서만 사용할 수 있는 키를 안전하게 전송할 수 있습니다. 
 
-Azure Key Vault는 소프트 키와 하드 키를 모두 지원합니다.
+Azure Key Vault는 소프트웨어 보호 및 HSM 보호 키를 모두 지원합니다.
 
-- **“소프트” 키**: 소프트웨어에서 Key Vault를 통해 처리되지만, 사용되지 않을 때에는 HSM에 있는 시스템 키를 사용하여 암호화되는 키입니다. 클라이언트는 기존 RSA 또는 EC(타원 곡선) 키를 가져오거나 Key Vault에서 생성하도록 요청할 수 있습니다.
-- **“하드” 키**: HSM(하드웨어 보안 모듈)에서 처리되는 키입니다. 이러한 키는 Key Vault HSM 보안 권역 중 하나에서 보호됩니다(격리를 유지하기 위해 지역별로 보안 권역이 하나씩 있음). 클라이언트는 소프트 형식으로 또는 호환되는 HSM 디바이스에서 내보내는 방식으로 RSA 또는 EC 키를 가져올 수 있습니다. 클라이언트는 Key Vault에 키를 생성하라고 요청할 수도 있습니다. 이 키 유형은 HSM 키 자료를 전송하기 위해 가져오는 JWK에 key_hsm 특성을 추가합니다.
+- **소프트웨어 보호 키**: 소프트웨어에서 Key Vault를 통해 처리되지만, 사용되지 않을 때에는 HSM에 있는 시스템 키를 사용하여 암호화되는 키입니다. 클라이언트는 기존 RSA 또는 EC(타원 곡선) 키를 가져오거나 Key Vault에서 생성하도록 요청할 수 있습니다.
+- **HSM 보호 키**: HSM(하드웨어 보안 모듈)에서 처리되는 키입니다. 이러한 키는 Key Vault HSM 보안 권역 중 하나에서 보호됩니다(격리를 유지하기 위해 지역별로 보안 권역이 하나씩 있음). 클라이언트는 소프트웨어 보호 형식으로 또는 호환되는 HSM 디바이스에서 내보내는 방식으로 RSA 또는 EC 키를 가져올 수 있습니다. 클라이언트는 Key Vault에 키를 생성하라고 요청할 수도 있습니다. 이 키 유형은 HSM 키 자료를 전송하기 위해 가져오는 JWK에 key_hsm 특성을 추가합니다.
 
 지리적 경계에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/privacy/)를 참조하세요.  
 
@@ -41,9 +41,9 @@ Azure Key Vault는 소프트 키와 하드 키를 모두 지원합니다.
 
 Key Vault는 RSA 및 타원 곡선 키만 지원합니다. 
 
--   **EC**: “소프트” 타원 곡선 키입니다.
+-   **EC**: 소프트웨어 보호 타원 곡선 키입니다.
 -   **EC-HSM**: “하드” 타원 곡선 키입니다.
--   **RSA**: “소프트” RSA 키입니다.
+-   **RSA**: 소프트웨어 보호 RSA 키입니다.
 -   **RSA-HSM**: “하드” RSA 키입니다.
 
 Key Vault는 크기가 2048, 3072, 4096인 RSA 키를 지원합니다. Key Vault는 타원 곡선 키 유형 p-256, p-384, p-521 및 P-256K(SECP256K1)를 지원합니다.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
-ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707415"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082440"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure 포털을 사용하여 가상 네트워크 만들기
 
@@ -223,3 +223,6 @@ ms.locfileid: "84707415"
 가상 네트워크 설정에 대한 자세한 내용은 [가상 네트워크 만들기, 변경 또는 삭제](manage-virtual-network.md)를 참조하세요.
 
 기본적으로 Azure는 VM 간에 보안 통신을 허용합니다. Azure는 인터넷에서 Windows VM으로의 인바운드 원격 데스크톱 연결만 허용합니다. VM 네트워크 통신의 유형에 대한 자세한 내용은 [네트워크 트래픽 필터링](tutorial-filter-network-traffic.md)을 참조하세요.
+
+> [!NOTE] 
+> Azure 서비스는 비용이 듭니다. Azure Cost Management를 사용하면 예산을 설정하고 제어 상태를 유지하도록 경고를 구성할 수 있습니다. Cost Management를 사용하여 Azure 비용을 분석, 관리 및 최적화합니다. 자세한 내용은 [비용 분석에 대한 빠른 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.

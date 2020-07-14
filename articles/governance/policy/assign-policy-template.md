@@ -1,24 +1,24 @@
 ---
 title: '빠른 시작: 템플릿을 사용하여 새 정책 할당'
-description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
+description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
 ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 7b9e372e8b86e1ac5b0a99d0aba77982896b4d11
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: c3a37e9086744fb45c8d1e4ebe3bd16da7a83770
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757452"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971150"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
 Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다.
 이 빠른 시작에서는 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만들고 할당하는 과정을 단계별로 안내합니다. 이 과정이 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당을 _비준수_합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -43,14 +43,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
 
-   [![Azure에 Policy 템플릿 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. 다음 값을 선택하거나 입력합니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    |------|-------|
    | Subscription | Azure 구독을 선택합니다. |
-   | Resource group | **새로 만들기**를 선택하고 이름을 지정한 다음, **확인**을 선택합니다. 스크린샷에서 리소스 그룹 이름은 _mypolicyquickstart\<MMDD 날짜\>rg_입니다. |
+   | Resource group | **새로 만들기**를 선택하고 이름을 지정한 다음, **확인**을 선택합니다. 스크린샷에서 리소스 그룹 이름은 _mypolicyquickstart\<Date in MMDD\>rg_입니다. |
    | 위치 | 지역을 선택합니다. 예: **미국 중부** |
    | 정책 할당 이름 | 정책 할당 이름을 지정합니다. 원하는 경우 정책 정의 표시 이름을 사용할 수 있습니다. 예: **관리 디스크를 사용하지 않는 VM 감사**. |
    | Rg 이름 | 정책을 할당할 리소스 그룹 이름을 지정합니다. 이 빠른 시작에서는 기본값인 **[resourceGroup().name]** 을 사용합니다. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** 은 리소스 그룹을 검색하는 템플릿 함수입니다. |
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - 더 많은 샘플 템플릿을 찾으려면, [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)을 참조하세요.
 - 템플릿 참조를 보려면 [Azure 템플릿 참조](/azure/templates/microsoft.authorization/allversions)를 참조하세요.
-- Resource Manager 템플릿을 개발하는 방법을 알아보려면 [Azure Resource Manager 설명서](../../azure-resource-manager/management/overview.md)를 참조하세요.
+- Resource Manager 템플릿(ARM 템플릿)을 개발하는 방법을 알아보려면 [Resource Manager 설명서](../../azure-resource-manager/management/overview.md)를 참조하세요.
 - 구독 수준 배포에 대해 알아보려면 [구독 수준에서 리소스 그룹 및 리소스 만들기](../../azure-resource-manager/templates/deploy-to-subscription.md)를 참조하세요.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사

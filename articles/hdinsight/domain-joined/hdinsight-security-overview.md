@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 65df89aff0232d7bf9809cdffc4262d1a640a5a1
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771124"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367107"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
@@ -81,6 +81,7 @@ Azure 규정 준수 제품은 공식 인증을 비롯한 다양한 유형의 보
 |  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | Customer |
 |  | 전송 중인 데이터에 [TLS 암호화](../../storage/common/storage-security-tls.md)를 사용하도록 설정 | Customer |
 |  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | Customer |
+|  | [고객 잠금 장치](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)를 사용하여 Azure 지원을 통해 데이터에 대한 액세스 제어 | Customer |
 | 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | Customer |
 |  | Apache [Ranger 권한 부여](apache-domain-joined-run-hive.md) 정책 구성 | Customer |
 |  | [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 사용 | Customer |

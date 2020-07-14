@@ -2,13 +2,13 @@
 title: '자습서: 패턴 - LUIS'
 description: 이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측 정확도를 높이고 발화 예제를 줄입니다. 패턴은 템플릿 발화 예제로 제공되며, 여기에는 엔터티 및 무시해도 되는 텍스트를 식별하는 구문이 포함됩니다.
 ms.topic: tutorial
-ms.date: 05/07/2020
-ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 07/06/2020
+ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592919"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039503"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>자습서: 예측을 개선하기 위해 일반적인 패턴 템플릿 발화 서식 추가
 
@@ -39,12 +39,10 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
 
 다음 단계를 사용합니다.
 
-1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true)을 다운로드하고 저장합니다.
 
 1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
-1. JSON을 [LUIS 포털](https://www.luis.ai)에 있는 새 앱으로 가져옵니다. **내 앱** 페이지에서 **+ 대화용 새 앱**을 선택한 다음, **JSON으로 가져오기**를 선택합니다. 이전 단계에서 다운로드한 파일을 선택합니다.
-
-1. **관리** 섹션의 **버전** 탭에서 활성 버전을 선택한 다음, **복제**를 선택합니다. 복제된 버전 `patterns`의 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
+1. JSON을 [LUIS 포털](https://www.luis.ai)에 있는 새 앱으로 가져옵니다. **내 앱** 페이지에서 **+ 대화용 새 앱**을 선택한 다음, **JSON으로 가져오기**를 선택합니다. 이전 단계에서 다운로드한 파일을 선택하고 앱 이름을 `Patterns tutorial`이라고 지정합니다.
 
 ## <a name="create-new-intents-and-their-utterances"></a>새 의도 및 해당 발언 만들기
 
@@ -67,8 +65,6 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
     |`Who is John W. Smith's manager?`|
     |`Who does Jill Jones directly report to?`|
     |`Who is Jill Jones supervisor?`|
-
-    의도의 발언에서 Employee 엔터티 대신 keyPhrase 엔터티가 레이블로 지정되더라도 걱정하지 마세요. 두 엔터티 모두 테스트 창 및 엔드포인트에서 올바르게 예측됩니다.
 
 1. 왼쪽 탐색 영역에서 **의도**를 선택합니다.
 
@@ -109,50 +105,50 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.313054234
+                    "score": 0.326605469
                 },
                 "OrgChart-Reports": {
-                    "score": 0.2462688
+                    "score": 0.127583548
                 },
                 "EmployeeFeedback": {
-                    "score": 0.0488328524
-                },
-                "GetJobInformation": {
-                    "score": 0.0156933
+                    "score": 0.0299124215
                 },
                 "MoveEmployee": {
-                    "score": 0.011265873
+                    "score": 0.01159851
                 },
-                "Utilities.StartOver": {
-                    "score": 0.003065792
-                },
-                "Utilities.Stop": {
-                    "score": 0.00300148362
-                },
-                "Utilities.Cancel": {
-                    "score": 0.00271081156
-                },
-                "None": {
-                    "score": 0.00212835032
+                "GetJobInformation": {
+                    "score": 0.0104600191
                 },
                 "ApplyForJob": {
-                    "score": 0.0020669254
+                    "score": 0.007508645
                 },
-                "Utilities.Confirm": {
-                    "score": 0.00200891262
+                "Utilities.StartOver": {
+                    "score": 0.00359402061
+                },
+                "Utilities.Stop": {
+                    "score": 0.00336530479
                 },
                 "FindForm": {
-                    "score": 0.00194145238
+                    "score": 0.002653719
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00263288687
+                },
+                "None": {
+                    "score": 0.00238638581
                 },
                 "Utilities.Help": {
-                    "score": 0.00182301877
+                    "score": 0.00226386427
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00211663754
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -171,9 +167,9 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -190,32 +186,28 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
     }
     ```
 
-두 상위 의도의 점수는 비슷하지만, 가장 높은 의도의 점수가 크게 높지는 않으며(60% 초과) 다음 의도의 점수를 넘을 만큼 높지는 않습니다.
+최상위 의도인 `OrgChart-Manager`가 제대로 예측되었지만, 점수가 70% 를 초과하지 않아서 다음으로 높은 의도보다 충분히 높지 않습니다. 패턴을 사용하면 올바른 의도 점수가 훨씬 높은 백분율 값을 가지고 다음으로 가장 높은 점수보다 훨씬 높게 만들 수 있습니다.
 
-LUIS 학습이 매번 정확히 같은 것은 아니고 약간의 편차가 있으므로 이러한 상위 두 점수는 다음 학습 주기에서 반전될 수 있습니다. 그 결과 잘못된 의도가 반환될 수 있습니다.
-
-패턴을 사용하면 올바른 의도 점수가 훨씬 높은 백분율 값을 가지고 다음으로 가장 높은 점수보다 훨씬 높게 만들 수 있습니다.
-
-두 번째 브라우저 창을 열어 둡니다. 자습서에서 나중에 다시 사용합니다.
+두 번째 브라우저 창을 열어 둡니다. 자습서에서 나중에 다시 사용할 예정입니다.
 
 ## <a name="template-utterances"></a>템플릿 발언
-Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 다음은 그 예입니다.
+Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 예를 들면 다음과 같습니다.
 
 |발언|
 |--|
 |`Who does Jill Jones report to?`|
 |`Who reports to Jill Jones?`|
 
-이러한 발화가 너무 가까워서 많은 발화 예제를 제공하지 않고는 각각의 컨텍스트 고유성을 확인하기가 어렵습니다. 의도 패턴을 추가하면 LUIS는 많은 발화 예제를 제공하지 않고도 의도의 일반적인 발화 패턴을 학습합니다.
+이러한 발언이 너무 가까워서 많은 발언 예제를 제공하지 않고는 각각의 컨텍스트 고유성을 확인하기가 어렵습니다. 의도에 대한 패턴을 추가하면 발언 예제를 더 많이 제공하지 않아도 LUIS가 의도에 대한 일반적인 발언 패턴을 학습합니다.
 
 이 의도에 대한 템플릿 발화 예제는 다음과 같습니다.
 
 |템플릿 발화 예제|구문 의미|
 |--|--|
-|`Who does {Employee} report to[?]`|서로 교환 가능한 `{Employee}`<br>`[?]` 무시|
-|`Who reports to {Employee}[?]`|서로 교환 가능한 `{Employee}`<br>`[?]` 무시|
+|`Who does {EmployeeListEntity} report to[?]`|서로 교환 가능한 `{EmployeeListEntity}`<br>`[?]` 무시|
+|`Who reports to {EmployeeListEntity}[?]`|서로 교환 가능한 `{EmployeeListEntity}`<br>`[?]` 무시|
 
-`{Employee}` 구문은 템플릿 발화 내의 엔터티 위치 및 엔터티 형식을 표시합니다. 선택적 구문인 `[?]`는 선택적인 단어 또는 [문장 부호](luis-reference-application-settings.md#punctuation-normalization)를 표시합니다. LUIS는 대괄호로 묶인 선택적 텍스트는 무시하고 발언을 일치시킵니다.
+`{EmployeeListEntity}` 구문은 템플릿 발화 내의 엔터티 위치 및 엔터티 형식을 표시합니다. 선택적 구문인 `[?]`는 선택적인 단어 또는 [문장 부호](luis-reference-application-settings.md#punctuation-normalization)를 표시합니다. LUIS는 대괄호로 묶인 선택적 텍스트는 무시하고 발언을 일치시킵니다.
 
 구문은 정규식처럼 보이지만 정규식이 아닙니다. 중괄호(`{}`) 및 대괄호(`[]`) 구문만 지원됩니다. 최대 두 수준까지 중첩될 수 있습니다.
 
@@ -233,25 +225,25 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
     |템플릿 발언|
     |:--|
-    |`Who is {Employee} the subordinate of[?]`|
-    |`Who does {Employee} report to[?]`|
-    |`Who is {Employee}['s] manager[?]`|
-    |`Who does {Employee} directly report to[?]`|
-    |`Who is {Employee}['s] supervisor[?]`|
-    |`Who is the boss of {Employee}[?]`|
+    |`Who is {EmployeeListEntity} the subordinate of[?]`|
+    |`Who does {EmployeeListEntity} report to[?]`|
+    |`Who is {EmployeeListEntity}['s] manager[?]`|
+    |`Who does {EmployeeListEntity} directly report to[?]`|
+    |`Who is {EmployeeListEntity}['s] supervisor[?]`|
+    |`Who is the boss of {EmployeeListEntity}[?]`|
 
-    이러한 템플릿 발화에는 중괄호 표기법을 사용하는 **Employee** 엔터티가 포함됩니다.
+    이러한 템플릿 발언에는 중괄호 표기법을 사용하는 **EmployeeListEntity** 엔터티가 포함됩니다.
 
 1. 패턴 페이지를 나가지 않은 상태에서 **OrgChart-Reports** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
 
     |템플릿 발언|
     |:--|
-    |`Who are {Employee}['s] subordinates[?]`|
-    |`Who reports to {Employee}[?]`|
-    |`Who does {Employee} manage[?]`|
-    |`Who are {Employee} direct reports[?]`|
-    |`Who does {Employee} supervise[?]`|
-    |`Who does {Employee} boss[?]`|
+    |`Who are {EmployeeListEntity}['s] subordinates[?]`|
+    |`Who reports to {EmployeeListEntity}[?]`|
+    |`Who does {EmployeeListEntity} manage[?]`|
+    |`Who are {EmployeeListEntity} direct reports[?]`|
+    |`Who does {EmployeeListEntity} supervise[?]`|
+    |`Who does {EmployeeListEntity} boss[?]`|
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>패턴이 사용될 때의 엔드포인트 쿼리
 
@@ -261,7 +253,7 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
 1. 게시가 완료되면 브라우저 탭을 다시 엔드포인트 URL 탭으로 전환합니다.
 
-1. 주소 표시줄의 URL 끝으로 이동하여 _YOUR_QUERY_HERE_를 `Who is the boss of Jill Jones?`로 바꿉니다.
+1. 주소 표시줄에서 URL 끝으로 이동하여 쿼리가 아직 `Who is the boss of Jill Jones?`인지 확인한 다음, 새 예측을 위한 URL을 제출합니다.
 
     ```json
     {
@@ -270,50 +262,50 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.999997854
+                    "score": 0.999999046
                 },
                 "OrgChart-Reports": {
-                    "score": 6.13748343E-05
+                    "score": 3.237443E-05
                 },
                 "EmployeeFeedback": {
-                    "score": 8.052567E-06
+                    "score": 4.364242E-06
                 },
                 "GetJobInformation": {
-                    "score": 1.18197136E-06
+                    "score": 1.616159E-06
                 },
                 "MoveEmployee": {
-                    "score": 7.65549657E-07
-                },
-                "None": {
-                    "score": 3.975E-09
-                },
-                "Utilities.StartOver": {
-                    "score": 1.53E-09
-                },
-                "Utilities.Confirm": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Help": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Stop": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Cancel": {
-                    "score": 1.25833333E-09
-                },
-                "FindForm": {
-                    "score": 1.15384613E-09
+                    "score": 7.575752E-07
                 },
                 "ApplyForJob": {
-                    "score": 5.26923061E-10
+                    "score": 5.234157E-07
+                },
+                "None": {
+                    "score": 3.3E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.26E-09
+                },
+                "FindForm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.13636367E-09
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -332,9 +324,9 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -351,7 +343,7 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
     }
     ```
 
-이제 의도 예측의 신뢰도가 대폭 높아졌으며 그 다음으로 높은 의도의 점수는 훨씬 낮습니다. 이러한 두 의도는 학습 시 전환되지 않습니다.
+이제 의도 예측에 대한 확신이 훨씬 더 높고, 다음으로 높은 의도의 점수가 매우 낮습니다. 이러한 두 의도는 학습 시 전환되지 않습니다.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>선택적 텍스트 및 미리 작성된 엔터티 사용
 
@@ -372,8 +364,8 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
 |Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 
 대괄호 `[]`의 선택적 구문을 사용하면 템플릿 발언에 선택적 텍스트를 쉽게 추가할 수 있고 두 번째 수준 `[[]]`까지 중첩할 수 있으며 엔터티 또는 텍스트를 포함할 수 있습니다.
@@ -383,9 +375,10 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
 **질문: March 3이 예측된 경우 템플릿 발화의 미리 작성된 번호 부분이 숫자 `3`과 날짜 `March 3` 모두로 예측되지 않는 이유가 무엇인가요?** 템플릿 발언은 날짜를 컨텍스트에 따라 문자 그대로 `March 3`으로 사용하거나 `in a month`로 추상화하여 사용합니다. 날짜에는 숫자가 포함될 수 있지만 숫자가 반드시 날짜로 보이지는 아닙니다. 예측 JSON 결과로 반환하려는 유형을 가장 잘 나타내는 엔터티를 항상 사용하십시오.
 
-**질문: `Who will {Employee}['s] manager be on March 3?`와 같이 표현이 부족한 발화의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다. 동사 시제에 대해 [Group 및 OR](#use-the-or-operator-and-groups)을 수행하여 이러한 발화를 결합할 수 있습니다.
+**질문: `Who will {EmployeeListEntity}['s] manager be on March 3?`와 같이 표현이 부족한 발화의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다. 동사 시제에 대해 [Group 및 OR](#use-the-or-operator-and-groups)을 수행하여 이러한 발화를 결합할 수 있습니다.
 
-**기억해야 할 사항: 엔터티를 먼저 찾은 다음, 패턴을 일치시킵니다.**
+> [!CAUTION]
+> **기억해야 할 사항: 엔터티를 먼저 찾은 다음, 패턴을 일치시킵니다.**
 
 ### <a name="add-new-pattern-template-utterances"></a>새 패턴 템플릿 발언 추가
 
@@ -393,9 +386,9 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
     |Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
     |--|--|
-    |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 2. 탐색 모음에서 **학습**을 선택하여 앱을 학습시킵니다.
 
@@ -403,7 +396,7 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
 4. 몇 가지 테스트 발언을 입력하여 패턴이 일치하는지 의도 점수가 상당히 높은지 확인합니다.
 
-    첫 번째 발언을 입력한 다음, 모든 예측 결과를 볼 수 있도록 결과 아래에서 **검사**를 선택합니다. 각 발화에는 **OrgChart-Manager** 의도가 있어야 하고 Employee 및 datetimeV2의 엔터티 값을 추출해야 합니다.
+    첫 번째 발언을 입력한 다음, 모든 예측 결과를 볼 수 있도록 결과 아래에서 **검사**를 선택합니다. 각 발언에는 **OrgChart-Manager** 의도가 있어야 하고 `EmployeeListEntity` 및 `datetimeV2` 엔터티 값을 추출해야 합니다.
 
     |발화|
     |--|
@@ -429,14 +422,17 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
 |Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |--|--|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 새 템플릿 발화는 다음과 같습니다.
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`입니다.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`입니다.
 
 여기서는 필수 동사 시제를 **group**으로 묶고, 선택적 `in` 및 `on`과 **or** 파이프를 사이에 사용합니다.
+
+> [!NOTE]
+> _OR_ 기호인 `|`(파이프)를 사용하는 경우, 예제 템플릿에서 파이프 기호 앞뒤에 공백을 두어 구분해야 합니다.
 
 1. **패턴** 페이지에서 **OrgChart-Manager** 필터를 선택합니다. `manager`를 검색하여 목록의 범위를 좁힙니다.
 
@@ -444,7 +440,7 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
 1. 템플릿 발화를 다음으로 변경합니다.
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
+    `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`
 
 2. 탐색 모음에서 **학습**을 선택하여 앱을 학습시킵니다.
 

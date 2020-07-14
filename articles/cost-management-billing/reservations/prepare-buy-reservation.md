@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 718365119b8cdf9279dcabc5f8c54deb386e8500
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019044"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807784"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -85,7 +85,7 @@ Azure Portal, API, PowerShell, CLI에서 예약을 구매할 수 있습니다. �
 
 MCA(Microsoft 고객 계약)를 통해 예약을 구매한 경우 월별 결제 금액은 현지 통화에 대한 이번 달 시장 환율에 따라 달라질 수 있습니다.
 
-월별 결제는 다음에 사용할 수 없습니다. Databricks, SUSE Linux 예약, Red Hat 플랜 및 Azure Red Hat OpenShift Compute.
+월별 결제는 다음에 사용할 수 없습니다. Databricks, SUSE Linux 예약, Red Hat 플랜 및 Azure Red Hat OpenShift 라이선스.
 
 ### <a name="view-payments-made"></a>결제 내역 보기
 
@@ -111,7 +111,7 @@ Azure 구독 요금을 결제하는 방법에 따라 조직의 다음 사용자�
 
 - Purchase
 - 곧 만료되는 예약
-- Expiry
+- 만료
 - 갱신
 - 취소
 - 범위 변경

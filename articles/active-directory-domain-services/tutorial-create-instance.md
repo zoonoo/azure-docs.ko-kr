@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2333ace1b1e9116acf85964fb180f44e0f66e6e7
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 28c56b7ece51e39d72c4ddff39d681eeb57d2252
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733493"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024726"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리형 도메인 만들기 및 구성
 
@@ -87,16 +87,19 @@ Azure AD DS에는 필요하지 않지만 Azure AD 테넌트에 대해 [SSPR(셀�
 Azure Portal의 *기본* 창에 있는 필드를 완료하여 관리되는 도메인을 만듭니다.
 
 1. 이전 사항을 고려하여 관리되는 도메인의 **DNS 도메인 이름**을 입력합니다.
-1. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다. 가용성 영역을 지원하는 지역을 선택하면 Azure AD DS 리소스가 추가 중복성을 위해 여러 영역에 배포됩니다.
+1. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다. Azure 가용성 영역을 지원하는 지역을 선택하면 Azure AD DS 리소스가 추가 중복성을 위해 여러 영역에 분산됩니다.
 
-    가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다.
-
-    Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없습니다. Azure 플랫폼은 리소스의 영역 배포를 자동으로 처리합니다. 자세한 내용을 보고 지역 가용성을 확인하려면 [Azure에서 가용성 영역이란?][availability-zones]을 참조하세요.
+    > [!TIP]
+    > 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다.
+    >
+    > Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없습니다. Azure 플랫폼은 리소스의 영역 배포를 자동으로 처리합니다. 자세한 내용을 보고 지역 가용성을 확인하려면 [Azure에서 가용성 영역이란?][availability-zones]을 참조하세요.
 
 1. **SKU**는 만들 수 있는 성능, 백업 빈도 및 최대 포리스트 트러스트 수를 결정합니다. 비즈니스 요구나 요구 사항이 변경되면 관리되는 도메인이 만들어진 후 SKU를 변경할 수 있습니다. 자세한 내용은 [Azure AD DS SKU 개념][concepts-sku]을 참조하세요.
 
     이 자습서에서는 *표준* SKU를 선택합니다.
-1. *포리스트*는 Active Directory Domain Services에서 하나 이상의 도메인을 그룹화하는 데 사용되는 논리적 구문입니다. 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 리소스 포리스트는 현재 미리 보기로 제공됩니다. 온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.
+1. *포리스트*는 Active Directory Domain Services에서 하나 이상의 도메인을 그룹화하는 데 사용되는 논리적 구문입니다. 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다.
+
+    *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 리소스 포리스트는 현재 미리 보기로 제공됩니다. 온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.
 
     이 자습서에서는 *사용자* 포리스트를 만들도록 선택합니다.
 
@@ -112,7 +115,7 @@ Azure Portal의 *기본* 창에 있는 필드를 완료하여 관리되는 도�
 
 ## <a name="deploy-the-managed-domain"></a>관리되는 도메인을 배포합니다.
 
-마법사의 **요약** 페이지에서 관리되는 도메인에 대한 구성 설정을 검토합니다. 임의의 마법사 단계로 돌아가서 변경할 수 있습니다. 이러한 구성 옵션을 사용하여 일관적인 방식으로 관리되는 도메인을 다른 Azure AD 테넌트에 재배포하려면 **자동화를 위한 템플릿을 다운로드**해도 됩니다.
+마법사의 **요약** 페이지에서 관리되는 도메인의 구성 설정을 검토합니다. 임의의 마법사 단계로 돌아가서 변경할 수 있습니다. 이러한 구성 옵션을 사용하여 일관적인 방식으로 관리되는 도메인을 다른 Azure AD 테넌트에 재배포하려면 **자동화를 위한 템플릿을 다운로드**해도 됩니다.
 
 1. 관리형 도메인을 만들려면 **만들기**를 선택합니다. Azure AD DS 관리형 도메인을 만들고 나면 DNS 이름 또는 가상 네트워크와 같은 특정 구성 옵션을 변경할 수 없다는 주의 사항이 표시됩니다. 계속하려면 **확인**을 선택합니다.
 1. 관리되는 도메인을 프로비전하는 프로세스는 최대 한 시간 정도 걸릴 수 있습니다. 포털에 Azure AD DS 배포의 진행 상황을 보여 주는 알림이 표시됩니다. 알림을 선택하여 자세한 배포 진행 상황을 확인합니다.
@@ -128,11 +131,12 @@ Azure Portal의 *기본* 창에 있는 필드를 완료하여 관리되는 도�
 
     ![성공적으로 프로비저닝된 Domain Services 상태](./media/tutorial-create-instance/successfully-provisioned.png)
 
-관리되는 도메인이 Auzre AD 테넌트와 연결되어 있습니다. 프로비저닝 프로세스 중에 Azure AD DS는 *도메인 컨트롤러 서비스* 및 *AzureActiveDirectoryDomainControllerServices*라는 두 개의 엔터프라이즈 애플리케이션을 Azure AD 테넌트에 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다. 이러한 애플리케이션을 삭제하지 마세요.
+> [!IMPORTANT]
+> 관리되는 도메인이 Auzre AD 테넌트와 연결되어 있습니다. 프로비저닝 프로세스 중에 Azure AD DS는 *도메인 컨트롤러 서비스* 및 *AzureActiveDirectoryDomainControllerServices*라는 두 개의 엔터프라이즈 애플리케이션을 Azure AD 테넌트에 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다. 이러한 애플리케이션을 삭제하지 마세요.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Azure 가상 네트워크에 대한 DNS 설정 업데이트
 
-Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플리케이션에서 관리되는 도메인을 사용할 수 있도록 가상 네트워크를 구성합니다. 이 연결을 제공하려면 Azure AD DS가 배포된 두 개의 IP 주소를 가리키도록 가상 네트워크의 DNS 서버 설정을 업데이트합니다.
+Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플리케이션에서 관리되는 도메인을 사용할 수 있도록 가상 네트워크를 구성합니다. 이 연결을 제공하려면 관리되는 도메인이 배포된 두 개의 IP 주소를 가리키도록 가상 네트워크의 DNS 서버 설정을 업데이트합니다.
 
 1. 관리되는 도메인에 대한 **개요** 탭에는 몇 가지 **필수 구성 단계**가 표시됩니다. 첫 번째 구성 단계는 가상 네트워크에 대한 DNS 서버 설정을 업데이트하는 것입니다. DNS 설정이 올바르게 구성되면 이 단계가 더 이상 표시되지 않습니다.
 
@@ -150,9 +154,17 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 관리되는 도메인에서 사용자를 인증하려면 Azure AD DS에 NTLM(NT LAN Manager) 및 Kerberos 인증에 적합한 형식의 암호 해시가 필요합니다. Azure AD DS를 테넌트에서 사용하도록 설정할 때까지 Azure AD는 NTLM 또는 Kerberos 인증에 필요한 형식의 암호 해시를 생성하거나 저장하지 않습니다. 또한 보안상의 이유로 Azure AD는 암호 자격 증명을 일반 텍스트 형식으로 저장하지 않습니다. 따라서 Azure AD는 사용자의 기존 자격 증명에 따라 이러한 NTLM 또는 Kerberos 암호 해시를 자동으로 생성할 수 없습니다.
 
 > [!NOTE]
-> 적절히 구성되면 사용 가능한 암호 해시가 관리되는 도메인에 저장됩니다. 관리되는 도메인을 삭제하면 해당 지점에 저장된 암호 해시도 모두 삭제됩니다. 나중에 관리되는 도메인을 만드는 경우 Azure AD에서 동기화된 자격 증명 정보는 다시 사용할 수 없습니다. 암호 해시를 다시 저장하도록 암호 해시 동기화를 다시 구성해야 합니다. 이전에는 도메인 조인 VM 또는 사용자가 즉시 인증할 수 없었으므로 Azure AD에서 암호 해시를 새 관리되는 도메인에 생성하고 저장해야 합니다. 자세한 내용은 [Azure AD DS 및 Azure AD Connect에 대한 암호 해시 동기화 프로세스][password-hash-sync-process]를 참조하세요.
+> 적절히 구성되면 사용 가능한 암호 해시가 관리되는 도메인에 저장됩니다. 관리되는 도메인을 삭제하면 해당 지점에 저장된 암호 해시도 모두 삭제됩니다.
+>
+> 나중에 관리되는 도메인을 만드는 경우 Azure AD에서 동기화된 자격 증명 정보는 다시 사용할 수 없습니다. 암호 해시를 다시 저장하도록 암호 해시 동기화를 다시 구성해야 합니다. 이전에는 도메인 조인 VM 또는 사용자가 즉시 인증할 수 없었으므로 Azure AD에서 암호 해시를 새 관리되는 도메인에 생성하고 저장해야 합니다.
+>
+> 자세한 내용은 [Azure AD DS 및 Azure AD Connect에 대한 암호 해시 동기화 프로세스][password-hash-sync-process]를 참조하세요.
 
-이러한 암호 해시를 생성하고 저장하는 단계는 Azure AD에서 만든 클라우드 전용 사용자 계정과 Azure AD Connect를 사용하여 온-프레미스 디렉터리에서 동기화된 사용자 계정에 대해 서로 다릅니다. 클라우드 전용 사용자 계정은 Azure Portal 또는 Azure AD PowerShell cmdlet을 사용하여 Azure AD 디렉터리에 만든 계정입니다. 이러한 사용자 계정은 온-프레미스 디렉터리에서 동기화되지 않습니다. 이 자습서에서는 기본 클라우드 전용 사용자 계정을 사용하겠습니다. Azure AD Connect를 사용하는 데 필요한 추가 단계에 대한 자세한 내용은 [온-프레미스 AD에서 관리되는 도메인으로 동기화된 사용자 계정에 대한 암호 해시 동기화][on-prem-sync]를 참조하세요.
+이러한 암호 해시를 생성하고 저장하는 단계는 Azure AD에서 만든 클라우드 전용 사용자 계정과 Azure AD Connect를 사용하여 온-프레미스 디렉터리에서 동기화된 사용자 계정에 대해 서로 다릅니다.
+
+클라우드 전용 사용자 계정은 Azure Portal 또는 Azure AD PowerShell cmdlet을 사용하여 Azure AD 디렉터리에 만든 계정입니다. 이러한 사용자 계정은 온-프레미스 디렉터리에서 동기화되지 않습니다.
+
+> 이 자습서에서는 기본 클라우드 전용 사용자 계정을 사용하겠습니다. Azure AD Connect를 사용하는 데 필요한 추가 단계에 대한 자세한 내용은 [온-프레미스 AD에서 관리되는 도메인으로 동기화된 사용자 계정에 대한 암호 해시 동기화][on-prem-sync]를 참조하세요.
 
 > [!TIP]
 > 클라우드 전용 사용자와 온-프레미스 AD의 사용자가 Azure AD 테넌트에 있는 경우 두 단계를 모두 수행해야 합니다.
@@ -197,7 +209,7 @@ VM을 도메인에 가입하고 관리되는 도메인을 사용하는 애플리
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
-[configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
+[configure-sspr]: ../active-directory/authentication/tutorial-enable-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [skus]: overview.md

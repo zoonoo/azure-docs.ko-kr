@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 4175214219350620ae44d0249243e23b1a25144a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 69265b17d5030d30bbb4d4be3e68c3d98fc90af0
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196601"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321093"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -142,6 +142,6 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. [지
 
 | 자습서 | Description |
 | --- | --- |
-| [두 클라우드 데이터 저장소 간의 데이터 이동](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Blob Storage에서 SQL 데이터베이스로 데이터를 이동하는 파이프라인을 포함한 데이터 팩터리를 만듭니다. |
+| [두 클라우드 데이터 저장소 간의 데이터 이동](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Blob 스토리지에서 SQL Database로 데이터를 이동하는 파이프라인을 포함한 데이터 팩터리를 만듭니다. |
 | [Hadoop 클러스터를 사용하여 데이터 변환](data-factory-build-your-first-pipeline.md) |Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데이터 파이프라인으로 첫 번째 Azure 데이터 팩터리를 구축합니다. |
 | [데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) |SQL Server 데이터베이스에서 Azure Blob으로 데이터를 이동하는 파이프라인이 포함된 데이터 팩터리를 빌드합니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다. |

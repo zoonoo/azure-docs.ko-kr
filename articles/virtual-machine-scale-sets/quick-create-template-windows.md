@@ -8,31 +8,31 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: windows
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 8bf75dc08a033c254152cb6e5b6f3af6389d8380
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: mimckitt, subject-armqs
+ms.openlocfilehash: a4cd39186eb55cb03bd97994baa1898e196fb3c2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198212"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082814"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>빠른 시작: Azure 템플릿을 사용하여 Windows 가상 머신 확장 집합 만들기
+# <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Windows 가상 머신 확장 집합 만들기
 
-가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 집합을 만들고, 샘플 애플리케이션을 배포합니다.
+가상 머신 확장 집합을 사용하면 자동 크기 조정 가상 머신 세트를 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 가상 머신 확장 집합을 만들고, 샘플 애플리케이션을 배포합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+ARM 템플릿을 사용하면 관련 리소스 그룹을 배포할 수 있습니다. 단일 템플릿에서 가상 머신 확장 집합을 만들고, 애플리케이션을 설치하고, 자동 크기 조정 규칙을 구성할 수 있습니다. 변수와 매개 변수를 사용하면 이 템플릿을 다시 사용하여 기존의 확장 집합을 업데이트하거나 추가 확장 집합을 만들 수 있습니다. Azure Portal, Azure CLI, Azure PowerShell을 통하거나 CI/CD(지속적인 통합/지속적인 업데이트) 파이프라인에서 템플릿을 배포할 수 있습니다.
+
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-windows-webapp-dsc-autoscale%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-없음
-
-## <a name="create-a-scale-set"></a>확장 집합 만들기
-
-Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배포할 수 있습니다. 단일 템플릿에서 가상 머신 확장 집합을 만들고, 애플리케이션을 설치하고, 자동 크기 조정 규칙을 구성할 수 있습니다. 변수와 매개 변수를 사용하면 이 템플릿을 다시 사용하여 기존의 확장 집합을 업데이트하거나 추가 확장 집합을 만들 수 있습니다. Azure Portal, Azure CLI, Azure PowerShell을 통하거나 CI/CD(지속적인 통합/지속적인 업데이트) 파이프라인에서 템플릿을 배포할 수 있습니다.
-
-### <a name="review-the-template"></a>템플릿 검토
+## <a name="review-the-template"></a>템플릿 검토
 
 이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vmss-windows-webapp-dsc-autoscale/)에서 나온 것입니다.
 
@@ -46,7 +46,7 @@ Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배�
 - [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets)
 - [**Microsoft.Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
 
-#### <a name="define-a-scale-set"></a>확장 집합 정의
+### <a name="define-a-scale-set"></a>확장 집합 정의
 
 강조 표시된 부분은 확장 집합 리소스 정의입니다. 템플릿을 사용하여 확장 집합을 만들려면 적절한 리소스를 정의합니다. 가상 머신 확장 집합 리소스 종류의 주요 부분은 다음과 같습니다.
 
@@ -65,7 +65,7 @@ Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배�
 
 확장 집합 템플릿을 사용자 지정하려면 VM 크기 또는 초기 용량을 변경하면 됩니다. 다른 옵션은 다른 플랫폼 또는 사용자 지정 이미지를 사용하는 것입니다.
 
-#### <a name="add-a-sample-application"></a>샘플 애플리케이션 추가
+### <a name="add-a-sample-application"></a>샘플 애플리케이션 추가
 
 확장 집합을 테스트하려면 기본 웹 애플리케이션을 설치합니다. 확장 집합을 배포하는 경우 VM 확장에서 배포 후 구성 및 자동화 작업(예: 응용 프로그램 설치)을 제공할 수 있습니다. 스크립트는 Azure Storage 또는 GitHub에서 다운로드하거나 확장 런타임에서 Azure Portal에 제공할 수 있습니다. 확장 집합에 확장을 적용하려면 앞의 리소스 예제에 *extensionProfile* 섹션을 추가합니다. 확장 프로필은 일반적으로 다음 속성을 정의합니다.
 
@@ -83,7 +83,7 @@ Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배�
 
 **Azure에 배포** 단추를 선택하여 템플릿을 배포할 수 있습니다. 이 단추는 Azure Portal을 열고, 전체 템플릿을 로드하고, 몇 가지 매개 변수(예: 확장 집합 이름, 인스턴스 수 및 관리자 자격 증명)를 요구하는 메시지를 표시합니다.
 
-[![Azure에 템플릿 배포](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-windows-webapp-dsc-autoscale%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-windows-webapp-dsc-autoscale%2Fazuredeploy.json)
 
 Azure PowerShell을 사용하여 Resource Manager 템플릿을 배포할 수도 있습니다.
 
@@ -105,7 +105,7 @@ Update-AzVmss `
 
 프롬프트에 응답하여 VM 인스턴스에 대한 확장 집합 이름 및 관리자 자격 증명을 제공합니다. 확장 집합을 만들고 앱을 구성하기 위해 확장을 적용하는 데 10-15분 정도 걸릴 수 있습니다.
 
-## <a name="test-the-deployment"></a>배포 테스트
+## <a name="validate-the-deployment"></a>배포 유효성 검사
 
 작동 중인 확장 집합을 확인하려면 웹 브라우저에서 샘플 웹 애플리케이션에 액세스합니다. 다음과 같이 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다.
 
@@ -127,7 +127,7 @@ Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure 템플릿을 사용하여 Windows 확장 집합을 만들고, PowerShell DSC 확장을 사용하여 VM 인스턴스에 기본 ASP.NET 앱을 설치했습니다. 더 자세히 알아보려면 Azure 가상 머신 확장 집합을 만들고 관리하는 방법에 대한 자습서로 계속 진행하세요.
+이 빠른 시작에서는 ARM 템플릿을 사용하여 Windows 확장 집합을 만들고, PowerShell DSC 확장을 사용하여 VM 인스턴스에 기본 ASP.NET 앱을 설치했습니다. 더 자세히 알아보려면 Azure 가상 머신 확장 집합을 만들고 관리하는 방법에 대한 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure 가상 머신 확장 집합 만들기 및 관리](tutorial-create-and-manage-powershell.md)

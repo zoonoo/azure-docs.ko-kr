@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
-ms.date: 06/28/2019
-ms.openlocfilehash: 02e0947de3e7e5c6ce5110740127571ea393b168
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/24/2020
+ms.openlocfilehash: 2975b98306b7019022799d5ba69b9d7af5797a2b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343866"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368042"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 
@@ -24,39 +24,32 @@ ms.locfileid: "84343866"
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 [Azure에 배포] 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-없음
+Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="create-a-single-database"></a>단일 데이터베이스 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
 단일 데이터베이스는 두 [구매 모델](purchasing-models.md) 중 하나를 사용하여 컴퓨팅, 메모리, IO 및 스토리지 리소스 세트가 정의됩니다. 단일 데이터베이스를 만들 때 지정된 지역의 [Azure 리소스 그룹](../../active-directory-b2c/overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [서버](logical-servers.md)도 정의합니다.
 
-### <a name="review-the-template"></a>템플릿 검토
-
 이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-sql-logical-server/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-sql-logical-server/azuredeploy.json" range="1-163" highlight="63-132":::
+:::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
 
 이러한 리소스는 템플릿에 정의되어 있습니다.
 
 - [**Microsoft.Sql/servers**](/azure/templates/microsoft.sql/servers)
-- [**Microsoft.Sql/servers/firewallRules**](/azure/templates/microsoft.sql/servers/firewallrules)
-- [**Microsoft.Sql/servers/securityAlertPolicies**](/azure/templates/microsoft.sql/servers/securityalertpolicies)
-- [**Microsoft.Sql/servers/vulnerabilityAssessments**](/azure/templates/microsoft.sql/servers/vulnerabilityassessments)
-- [**Microsoft.Sql/servers/connectionPolicies**](/azure/templates/microsoft.sql/servers/connectionpolicies)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
-- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignments)
+- [**Microsoft.Sql/servers/databases**](/azure/templates/microsoft.sql/servers/databases)
 
 추가 Azure SQL Database 템플릿 샘플은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 다음 PowerShell 코드 블록에서 **사용해 보세요**를 선택하여 Azure Cloud Shell을 엽니다.
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -67,32 +60,10 @@ $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password"
 $resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sql-logical-server/azuredeploy.json" -administratorLogin $adminUser -administratorLoginPassword $adminPassword
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sql-database/azuredeploy.json" -administratorLogin $adminUser -administratorLoginPassword $adminPassword
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
-
-# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-$location = Read-Host -Prompt "Enter an Azure location (i.e. centralus)"
-$adminUser = Read-Host -Prompt "Enter the SQL server administrator username"
-$adminPassword = Read-Host -Prompt "Enter the SQl server administrator password" -AsSecureString
-
-$resourceGroupName = "${projectName}rg"
-
-az group create --location $location --name $resourceGroupName
-
-az group deployment create -g $resourceGroupName --template-uri "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" `
-    --parameters 'projectName=' + $projectName \
-                 'administratorLogin=' + $adminUser \
-                 'administratorLoginPassword=' + $adminPassword
-
-Read-Host -Prompt "Press [ENTER] to continue ..."
-```
-
-* * *
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
@@ -104,22 +75,10 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 리소스 그룹을 삭제하려면 다음을 수행합니다.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
-
-# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName
-```
-
-* * *
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -130,4 +89,3 @@ az group delete --name $resourceGroupName
 - Azure CLI를 사용하여 단일 데이터베이스를 만들려면 [Azure CLI 샘플](az-cli-script-samples-content-guide.md)을 참조하세요.
 - Azure PowerShell을 사용하여 단일 데이터베이스를 만들려면 [Azure PowerShell 샘플](powershell-script-content-guide.md)을 참조하세요.
 - Resource Manager 템플릿을 만드는 방법을 알아보려면 [첫 번째 템플릿 만들기](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)를 참조하세요.
- 

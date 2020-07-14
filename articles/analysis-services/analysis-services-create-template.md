@@ -8,35 +8,37 @@ ms.service: analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 6f0d5f084c5cd48abf399e351c627d64951ce719
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4dd7906ed32faa630ba074cb29e7987a64205cb5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697436"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042104"
 ---
-# <a name="quickstart-create-a-server---azure-resource-manager-template"></a>빠른 시작: 서버 만들기 - Azure Resource Manager 템플릿
+# <a name="quickstart-create-a-server---arm-template"></a>빠른 시작: 서버 만들기 - ARM 템플릿
 
-이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 Azure 구독에 Analysis Services 서버 리소스를 만드는 방법을 설명합니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure 구독에 Analysis Services 서버 리소스를 만드는 방법을 설명합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**: [Azure 평가판](https://azure.microsoft.com/offers/ms-azr-0044p/)으로 이동하여 계정을 만들 수 있습니다.
 * **Azure Active Directory**: 구독이 Azure Active Directory 테넌트와 연결되어야 합니다. 또한 해당 Azure Active Directory의 계정으로 Azure에 로그인해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
 
-## <a name="create-a-server"></a>서버 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-analysis-services-create/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-analysis-services-create/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
 
-방화벽 규칙을 사용하는 단일 [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/2017-08-01/servers) 리소스가 템플릿에 정의되어 있습니다. 
+방화벽 규칙을 사용하는 단일 [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysisservices/servers) 리소스가 템플릿에 정의되어 있습니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 1. 다음 [Azure에 배포] 링크를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 이 템플릿은 Analysis Services 서버 리소스를 만들고 필수 속성 및 선택적 속성을 지정하는 데 사용됩니다.
 
@@ -60,7 +62,7 @@ ms.locfileid: "83697436"
 
 3. **구매**를 선택합니다. 서버가 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
 
-   ![Resource Manager 템플릿, 배포 포털 알림](./media/analysis-services-create-template/notification.png)
+   ![ARM 템플릿, 배포 포털 알림](./media/analysis-services-create-template/notification.png)
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
@@ -101,7 +103,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 새 리소스 그룹 및 Azure Analysis Services 서버 리소스를 만들었습니다. 템플릿을 사용하여 서버 리소스를 만든 후에는 다음 항목을 진행해 보세요.
+이 빠른 시작에서는 ARM 템플릿을 사용하여 새 리소스 그룹 및 Azure Analysis Services 서버 리소스를 만들었습니다. 템플릿을 사용하여 서버 리소스를 만든 후 다음 항목을 진행해 보세요.
+
 - [빠른 시작: 서버 만들기 - PowerShell](analysis-services-create-powershell.md)
 - [포털에서 샘플 모델 추가](analysis-services-create-sample-model.md)
 - [서버 관리자 및 사용자 역할 구성](tutorials/analysis-services-tutorial-roles.md)

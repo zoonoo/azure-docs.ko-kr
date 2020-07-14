@@ -3,16 +3,16 @@ title: '빠른 시작: Azure CLI를 사용하여 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure CLI를 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 06/02/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7d144edca0794679e67358ff820e1508736ba723
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613352"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969671"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>빠른 시작: Azure CLI로 Azure Blueprint 정의 및 할당
 
-청사진을 만들고 할당하는 방법을 알면 공통 패턴 정의를 통해 Resource Manager 템플릿, 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
+청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -46,7 +46,7 @@ Azure CLI를 사용하여 청사진 정의 및 할당을 관리하려면 확장�
 
 ## <a name="create-a-blueprint"></a>청사진 만들기
 
-규정 준수를 위한 표준 패턴을 정의하는 첫 단계는 사용 가능한 리소스로 청사진을 작성하는 것입니다. 'MyBlueprint'라는 청사진을 만들어 구독의 역할 및 정책 할당을 구성하겠습니다. 그런 다음, 리소스 그룹, Resource Manager 템플릿 및 리소스 그룹에 대한 역할 할당을 추가하겠습니다.
+규정 준수를 위한 표준 패턴을 정의하는 첫 단계는 사용 가능한 리소스로 청사진을 작성하는 것입니다. 'MyBlueprint'라는 청사진을 만들어 구독의 역할 및 정책 할당을 구성하겠습니다. 그런 다음, 리소스 그룹, ARM 템플릿 및 리소스 그룹에 대한 역할 할당을 추가합니다.
 
 > [!NOTE]
 > Azure CLI을 사용하는 경우 _청사진_ 개체가 먼저 생성됩니다. 매개 변수가 있는 추가할 _아티팩트_ 각각에 대해, 초기 _청사진_에 매개 변수를 미리 정의해야 합니다.
@@ -193,9 +193,9 @@ Azure CLI를 사용하여 청사진 정의 및 할당을 관리하려면 확장�
         --parameters artifacts\policyStorageTags.json
      ```
 
-1. 리소스 그룹에서 템플릿을 추가합니다. Resource Manager 템플릿의 **템플릿** 매개 변수에는 템플릿의 일반 JSON 구성 요소가 포함됩니다. 이 템플릿은 또한 **storageAccountType**, **tagName** 및 **tagValue** 청사진 매개 변수를 각각 템플릿에 전달하는 방식으로 재사용합니다. 청사진 매개 변수는 매개 변수 **매개 변수**를 사용하여 템플릿에서 사용할 수 있으며, 템플릿 JSON 내에 포함된 키-값 쌍은 값을 삽입하는 데 사용됩니다. 청사진 및 템플릿 매개 변수 이름은 같을 수 있습니다.
+1. 리소스 그룹에서 템플릿을 추가합니다. ARM 템플릿의 **템플릿** 매개 변수에는 템플릿의 일반 JSON 구성 요소가 포함됩니다. 이 템플릿은 또한 **storageAccountType**, **tagName** 및 **tagValue** 청사진 매개 변수를 각각 템플릿에 전달하는 방식으로 재사용합니다. 청사진 매개 변수는 매개 변수 **매개 변수**를 사용하여 템플릿에서 사용할 수 있으며, 템플릿 JSON 내에 포함된 키-값 쌍은 값을 삽입하는 데 사용됩니다. 청사진 및 템플릿 매개 변수 이름은 같을 수 있습니다.
 
-   - JSON Azure Resource Manager 템플릿 파일 - artifacts\templateStorage.json
+   - JSON ARM 템플릿 파일 - artifacts\templateStorage.json
 
      ```json
      {
@@ -249,7 +249,7 @@ Azure CLI를 사용하여 청사진 정의 및 할당을 관리하려면 확장�
      }
      ```
 
-   - JSON Azure Resource Manager 템플릿 매개 변수 파일 - artifacts\templateStorageParams.json
+   - JSON ARM 템플릿 매개 변수 파일 - artifacts\templateStorageParams.json
 
      ```json
      {

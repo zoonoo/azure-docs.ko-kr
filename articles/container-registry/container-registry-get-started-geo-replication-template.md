@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - 지역 복제된 레지스트리 만들기 - Resource Manager 템플릿
+title: 빠른 시작 - 지역 복제 레지스트리 만들기 - Azure Resource Manager 템플릿
 description: Azure Resource Manager 템플릿을 사용하여 지역 복제 Azure Container Registry를 만드는 방법을 알아봅니다.
 services: azure-resource-manager
 author: dlepow
@@ -8,28 +8,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: c94cd3b4b455691e85e7525007fcdf7a056a2b28
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3ed160780e15cc36648f7e2ad77e726901ee86c3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558074"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119857"
 ---
-# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 지역 복제 컨테이너 레지스트리 만들기
+# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 지역 복제 컨테이너 레지스트리 만들기
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Container Registry 인스턴스를 만드는 방법을 보여 줍니다. 이 템플릿은 여러 Azure 지역의 레지스트리 콘텐츠를 자동으로 동기화하는 [지역 복제](container-registry-geo-replication.md) 레지스트리를 설정합니다. 지역 복제는 단일 관리 환경을 제공하는 동시에 지역 배포의 이미지에 대한 네트워크 방식의 액세스를 지원합니다. [프리미엄](container-registry-skus.md) 레지스트리 서비스 계층의 기능입니다. 
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Container Registry 인스턴스를 만드는 방법을 보여 줍니다. 이 템플릿은 여러 Azure 지역의 레지스트리 콘텐츠를 자동으로 동기화하는 [지역 복제](container-registry-geo-replication.md) 레지스트리를 설정합니다. 지역 복제는 단일 관리 환경을 제공하는 동시에 지역 배포의 이미지에 대한 네트워크 방식의 액세스를 지원합니다. [프리미엄](container-registry-skus.md) 레지스트리 서비스 계층의 기능입니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-없음
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="create-a-geo-replicated-registry"></a>지역 복제 레지스트리 만들기
-
-### <a name="review-the-template"></a>템플릿 검토
+## <a name="review-the-template"></a>템플릿 검토
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/)에서 나온 것입니다. 템플릿은 레지스트리 및 추가 지역 복제본을 설정합니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerregistry&pageNumber=1&sort=Popular)에서 더 많은 Azure Container Registry 템플릿 샘플을 찾을 수 있습니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
  1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다.
 
@@ -86,7 +86,7 @@ Azure Portal 또는 Azure CLI와 같은 도구를 사용하여 컨테이너 레�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 Azure Container Registry를 만들고 다른 위치에 레지스트리 복제본을 구성했습니다. Azure Container Registry 자습서를 계속 진행하여 ACR에 대해 자세히 알아보세요.
+이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Container Registry를 만들고 다른 위치에 레지스트리 복제본을 구성했습니다. Azure Container Registry 자습서를 계속 진행하여 ACR에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry 자습서](container-registry-tutorial-prepare-registry.md)
@@ -94,4 +94,4 @@ Azure Portal 또는 Azure CLI와 같은 도구를 사용하여 컨테이너 레�
 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: 첫 번째 Azure Resource Manager 템플릿을 만들고 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

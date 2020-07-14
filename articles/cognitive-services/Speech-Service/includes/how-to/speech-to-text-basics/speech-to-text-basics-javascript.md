@@ -4,20 +4,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: 2d6e53f8a69a3e214d7d4621e899fd2e5394c7f2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a46efdc1ca1391e5a8002bacca6a86b4d82eae96
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82132133"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035939"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../get-started.md).
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
-작업을 수행하려면 먼저 <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">JavaScript Speech SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 설치해야 합니다. 사용하는 플랫폼에 따라 다음 중 적절한 지침을 따릅니다.
+작업을 수행하려면 먼저 <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">JavaScript용 Speech SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 설치해야 합니다. 사용하는 플랫폼에 따라 다음 중 적절한 지침을 따릅니다.
 
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
@@ -52,10 +52,10 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 # <a name="script"></a>[스크립트](#tab/script)
 
-<a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">JavaScript Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.bundle.js* 파일을 다운로드하여 압축을 풀고 HTML 파일에 액세스할 수 있는 폴더에 저장합니다.
+<a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">JavaScript용 Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.sdk.bundle.js* 파일을 다운로드하여 압축을 풀고 HTML 파일에 액세스할 수 있는 폴더에 저장합니다.
 
 ```html
-<script src="microsoft.cognitiveservices.speech.bundle.js"></script>;
+<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
 ```
 
 > [!TIP]
@@ -114,7 +114,7 @@ const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
 ## <a name="recognize-speech"></a>음성 인식
 
-C#용 음성 SDK의 [인식기 클래스](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)는 음성 인식에 사용할 수 있는 몇 가지 메서드를 공개합니다.
+JavaScript용 Speech SDK의 [인식기 클래스](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)는 음성 인식에 사용할 수 있는 몇 가지 메서드를 공개합니다.
 
 * 단일 샷 인식(비동기) - 비차단(비동기) 모드에서 인식을 수행합니다. 단일 발화를 인식합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
 * 연속 인식(비동기) - 연속 인식 작업을 비동기적으로 시작합니다. 사용자는 이벤트에 등록하고 다양한 애플리케이션 상태를 처리합니다. 비동기 연속 인식을 중지하려면 [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#stopcontinuousrecognitionasync)를 호출합니다.
@@ -158,7 +158,6 @@ switch (result.reason) {
         }
         break;
     }
-}
 ```
 
 ### <a name="continuous-recognition"></a>연속 인식
@@ -210,7 +209,7 @@ recognizer.sessionStopped = (s, e) => {
 };
 ```
 
-모든 설정이 끝났으면 [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#stopcontinuousrecognitionasync)를 호출할 수 있습니다.
+모든 설정이 끝났으면 [`startContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#startcontinuousrecognitionasync)를 호출할 수 있습니다.
 
 ```javascript
 // Starts continuous recognition. Uses stopContinuousRecognitionAsync() to stop recognition.

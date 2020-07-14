@@ -1,24 +1,22 @@
 ---
-title: Azure Firewall Manager Preview 배포 개요
-description: Azure Firewall Manager Preview에 필요한 상위 수준 배포 단계에 대해 알아봅니다.
+title: Azure Firewall Manager 배포 개요
+description: Azure Firewall Manager에 필요한 상위 수준 배포 단계에 대해 알아봅니다.
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77443128"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565806"
 ---
-# <a name="azure-firewall-manager-preview-deployment-overview"></a>Azure Firewall Manager Preview 배포 개요
+# <a name="azure-firewall-manager-deployment-overview"></a>Azure Firewall Manager 배포 개요
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Azure Firewall Manager Preview를 배포하는 방법은 여러 가지지만 다음과 같은 일반적인 프로세스가 권장됩니다.
+Azure Firewall Manager를 배포하는 방법은 여러 가지가 있지만 다음과 같은 일반적인 프로세스가 권장됩니다.
 
 ## <a name="general-deployment-process"></a>일반 배포 프로세스
 
@@ -70,4 +68,4 @@ Azure Firewall Manager Preview를 배포하는 방법은 여러 가지지만 다
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure Portal을 사용하여 Azure Firewall Manager Preview로 클라우드 네트워크 보호](secure-cloud-network.md)
+- [자습서: Azure Portal을 통해 Azure Firewall Manager를 사용하여 클라우드 네트워크 보호](secure-cloud-network.md)

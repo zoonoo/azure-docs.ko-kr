@@ -3,23 +3,25 @@ title: 파트너용 Azure Cost Management 시작
 description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 07/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 08037cbd3723604720a273722bd5dbee3fb79b8e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554568"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849868"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
-Azure Cost Management는 고객을 Microsoft 고객 계약에 온보딩하고 [Azure 플랜을 구매](/partner-center/purchase-azure-plan)한 직접 파트너에게 기본적으로 제공됩니다. 이 문서에서는 파트너가 [Azure Cost Management](../index.yml) 기능을 사용하여 Azure 플랜의 구독에 대한 비용을 보는 방법을 설명합니다. 파트너가 고객의 Cost Management 액세스가 가능하도록 설정하는 방법에 대해서도 설명합니다.
+Azure Cost Management는 고객을 Microsoft 고객 계약에 온보딩하고 [Azure 플랜을 구매](/partner-center/purchase-azure-plan)한 직접 파트너에게 기본적으로 제공됩니다. 이 문서에서는 파트너가 [Azure Cost Management](../index.yml) 기능을 사용하여 Azure 플랜의 구독에 대한 비용을 보는 방법을 설명합니다. 파트너가 고객을 위해 소매 요금으로 Cost Management 액세스가 가능하도록 설정하는 방법에 대해서도 설명합니다.
 
-직접 파트너 및 간접 공급자의 경우 간접 공급자의 글로벌 관리자 및 관리자 에이전트는 파트너 테넌트의 Cost Management에 액세스할 수 있습니다. 재판매인 및 고객은 고객 테넌트의 Cost Management에 액세스하여 비용을 계산하고 소매 요금으로 표시하는 구독 비용을 볼 수 있습니다. 그러나 비용을 보려면 고객 테넌트의 구독에 대한 RBAC 액세스 권한이 있어야 합니다. 비용 표시 정책은 고객 테넌트에 대해 공급자가 사용하도록 설정해야 합니다.
+직접 파트너 및 간접 공급자의 경우 전역 관리자 및 관리자 에이전트는 파트너 테넌트의 Cost Management에 액세스하고 송장이 발부된 가격으로 비용을 관리할 수 있습니다.
+
+재판매인 및 고객은 고객 테넌트의 Cost Management에 액세스하여 비용을 계산하고 소매 요금으로 표시하는 구독 비용을 볼 수 있습니다. 그러나 비용을 보려면 고객 테넌트의 구독에 대한 RBAC 액세스 권한이 있어야 합니다. 비용 표시 정책은 고객 테넌트에 대해 공급자가 사용하도록 설정해야 합니다.
 
 고객은 CSP 파트너가 사용하도록 설정한 경우 Cost Management 기능을 사용할 수 있습니다.
 
@@ -33,10 +35,12 @@ CSP 파트너는 Cost Management를 사용하여:
 - 종량제 구독이 있는 스토리지 Blob으로 비용 및 사용 현황 데이터를 내보냅니다.
 
 다음은 모든 고객의 비용을 보여주는 예입니다.
-![모든 고객의 비용을 보여주는 예](./media/get-started-partners/customer-costs1.png)
+
+[![모든 고객의 비용을 보여주는 예](./media/get-started-partners/customer-costs1.png)](./media/get-started-partners/customer-costs1.png#lightbox)
 
 다음은 단일 고객의 비용을 보여주는 예입니다.
-![단일 고객의 비용을 보여주는 예](./media/get-started-partners/customer-costs2.png)
+
+[![단일 고객의 비용을 보여주는 예](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
 
 Azure Cost Management에서 사용 가능한 모든 기능은 REST API로도 사용할 수 있습니다. API를 사용하여 비용 관리 작업을 자동화할 수 있습니다.
 
@@ -50,8 +54,7 @@ Azure Cost Management에는 청구 계정이나 구독에 대한 읽기 권한�
 
 청구 계정에 대해 Azure Cost Management에 대한 액세스를 설정하고 할당하는 방법에 대한 자세한 내용은 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요. **글로벌 관리자**와 **관리 에이전트** 역할은 청구 계정의 비용을 관리할 수 있습니다.
 
-구독 범위에서 Azure Cost Management에 액세스하기 위해 구독에 대한 RBAC 액세스 권한이 있는 사용자는 소매(종량제) 요금으로 비용을 볼 수 있습니다. 단, 고객 테넌트에 대한 비용 표시 여부 정책을 사용하도록 설정해야 합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요.
-
+구독 범위에서 Azure Cost Management에 액세스하기 위해 구독에 대한 RBAC 액세스 권한이 있는 사용자는 소매(종량제) 요금으로 비용을 볼 수 있습니다. 단, [고객 테넌트에 대한 비용 표시 여부 정책](#enable-the-policy-to-view-azure-usage-charges)을 사용하도록 설정해야 합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요.
 
 ## <a name="how-cost-management-uses-scopes"></a>Cost Management에서 범위를 사용하는 방법
 
@@ -110,13 +113,13 @@ Microsoft 고객 계약에 고객을 온보딩한 후에는 Microsoft 고객 계
 
 **글로벌 관리자**와 **관리 에이전트** 역할이 있는 사용자만 파트너의 Azure 테넌트에서 직접 청구 계정, 청구 프로필 및 고객에 대한 비용을 관리하고 볼 수 있습니다. 파트너 센터 역할에 대한 자세한 내용 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요.
 
-## <a name="enable-cost-management-in-the-customer-tenant"></a>고객 테넌트에서 비용 관리 사용
+## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>고객 테넌트 구독에 대한 비용 관리 사용
 
-고객이 Microsoft 고객 계약에 온보딩된 후에 파트너가 Cost Management에 대한 액세스가 가능하도록 설정할 수 있습니다. 그런 다음, 파트너는 고객이 종량제 소매가로 계산된 자신의 비용을 볼 수 있는 정책을 사용하도록 설정할 수 있습니다. RBAC 구독 및 리소스 그룹 범위에서 소비된 사용량에 대한 비용이 고객의 청구 통화로 표시됩니다.
+고객이 Microsoft 고객 계약에 온보딩된 후에 파트너가 Cost Management에 대한 액세스가 가능하도록 설정할 수 있습니다. 그런 다음, 파트너는 고객이 종량제 소매 요금으로 계산된 Azure 사용 서비스에 대한 비용을 볼 수 있는 정책을 사용하도록 설정할 수 있습니다. RBAC 구독 및 리소스 그룹 범위에서 소비된 사용량에 대한 비용이 고객의 청구 통화로 표시됩니다.
 
 파트너가 비용 표시 여부에 대한 정책을 사용하도록 설정하면, 구독에 대해 Azure Resource Manager 액세스 권한이 있는 사용자가 종량제 요금으로 비용을 관리하고 분석할 수 있습니다. 사실상, Azure 구독에 대해 적절한 RBAC 액세스 권한이 있는 재판매인과 고객은 비용을 볼 수 있습니다.
 
-정책에 관계없이 파트너가 구독 및 리소스 그룹에 액세스할 수 있으면 비용을 볼 수도 있습니다.
+정책에 관계없이 공급자의 전역 관리자와 관리자 에이전트는 구독 및 리소스 그룹에 대한 액세스 권한이 있는 경우 구독 비용을 볼 수 있습니다.
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Azure 사용량 요금을 보는 정책 사용
 
@@ -126,7 +129,7 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 고객 목록에서 비용을 보도록 허용할 고객을 선택합니다.
 
-![Cost Management에서 고객 선택](./media/get-started-partners/customer-list.png)
+[![Cost Management에서 고객 선택](./media/get-started-partners/customer-list.png)](./media/get-started-partners/customer-list.png#lightbox)
 
 **설정**에서 **정책**을 선택합니다.
 
@@ -139,16 +142,17 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 비용 표시 여부 정책을 사용하도록 설정하면, 구독 사용량이 있는 모든 서비스는 종량제 요금으로 비용을 표시합니다. 예약 사용은 실제 및 분할상환 비용에 대한 요금이 0으로 표시됩니다. 구매 및 자격은 특정 구독에 연결되지 않습니다. 따라서 구매는 구독 범위에 표시되지 않습니다.
 
+### <a name="view-subscription-costs-in-the-customer-tenant"></a>고객 테넌트의 구독 비용 보기
 
-### <a name="view-customer-costs"></a>고객 비용 보기
+구독에 대한 비용을 보려면 고객의 Azure 테넌트에서 **Cost Management + 청구**를 엽니다. 필요한 구독 **비용 분석**을 선택하여 비용 검토를 시작합니다. 고객 테넌트에서 각 구독에 대한 소비 비용을 개별적으로 볼 수 있습니다.
 
-고객 테넌트에 대한 비용을 보려면 **Cost Management + 청구**를 엽니다. **비용 분석**을 선택한 다음, 범위를 고객 테넌트 구독으로 변경하여 비용 검토를 시작합니다.
-
-![고객으로 비용 분석 보기 ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+[![고객으로 비용 분석 보기](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
 비용 분석, 예산 및 경고는 종량제 요금 기반 비용으로 구독 및 리소스 그룹 RBAC 범위에 대해 사용할 수 있습니다.
 
 RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 실제 비용은 요금이 0으로 표시됩니다. 예약된 인스턴스 비용은 구매가 완료된 청구 범위에만 표시됩니다.
+
+보기에 표시되는 비용을 계산하는 데 사용되는 소매 요금은 모든 고객에 대해 Azure 가격 책정 계산기에 표시된 가격과 동일합니다. 표시된 비용에는 파트너 적립 크레딧, 계층 할인 및 글로벌 서비스 할인과 같은 파트너가 가질 수 있는 할인이나 크레딧이 포함되지 않습니다.
 
 ## <a name="analyze-costs-in-cost-analysis"></a>비용 분석에서 비용 분석
 

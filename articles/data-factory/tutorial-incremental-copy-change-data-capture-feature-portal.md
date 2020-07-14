@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249486"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085721"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>CDC(변경 데이터 캡처)를 사용하여 Azure SQL Managed Instance에서 Azure Storage로 데이터 증분 로드
 
@@ -113,7 +113,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+    *데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.*
 3. **버전**에 대해 **V2**를 선택합니다.
 4. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다.
 5. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다.
@@ -278,12 +278,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    2. **쿼리 사용**에 대해 **쿼리**를 선택합니다.
    3. **쿼리**에 다음을 입력합니다.
 
-    ```sql
-    DECLARE @from_lsn binary(10), @to_lsn binary(10); 
-    SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
-    SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
-    ```
+      ```sql
+      DECLARE @from_lsn binary(10), @to_lsn binary(10); 
+      SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
+      SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
+      SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+      ```
 
    ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-settings.png)
 

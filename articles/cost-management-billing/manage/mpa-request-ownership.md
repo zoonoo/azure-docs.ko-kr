@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 379f7a0ef60020566de9edfcafb0809d1955cac8
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752129"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601414"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
@@ -39,9 +39,9 @@ ms.locfileid: "84752129"
     [![고객 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. 왼쪽 아래에서 **전송 요청**을 선택한 다음, **새 요청 추가**를 선택합니다.  
     [![전송 요청 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. 고객 조직에서 전송 요청을 수락하는 사용자의 이메일 주소를 입력합니다. 사용자는 기업계약의 계정 소유자여야 합니다. **요청 보내기**를 선택합니다.  
-    [![전송 요청 전송을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
-1. 사용자는 전송 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
+1. 고객 조직에서 전송 요청을 수락하는 사용자의 이메일 주소를 입력합니다. 사용자는 기업계약의 계정 소유자여야 합니다. **이전 요청 보내기**를 선택합니다.  
+    [![전송 요청 전송을 보여주는 스크린샷](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
+1. 사용자는 이전 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
     ![전송 요청 이메일 검토를 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다.  
     [![검토 전송 요청을 보여 주는 스크린샷](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) 사용자가 Azure 제품을 전송하려는 청구 계정을 선택할 수 있습니다. 이를 선택하면 전송할 수 있는 적격 제품이 표시됩니다. **참고:** 사용하지 않도록 설정된 구독은 전송할 수 없으며, 해당하는 경우 "이전할 수 없는 Azure 제품" 목록에 표시됩니다. 전송될 Azure 제품이 선택되면 **유효성 검사**를 선택합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "84752129"
 1. 왼쪽에서 **고객**을 선택합니다.  
     [![고객 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. 목록에서 전송 요청을 보낸 고객을 선택합니다.
-1. 왼쪽 아래에서 **전송 요청**을 선택합니다. 전송 요청 페이지에는 다음 정보가 표시됩니다. [![전송 요청 목록을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png#lightbox)
+1. 왼쪽 아래에서 **전송 요청**을 선택합니다. 전송 요청 페이지에는 다음 정보가 표시됩니다. [![전송 요청 목록을 보여주는 스크린샷](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png#lightbox)
 
    |열|정의|
    |---------|---------|
@@ -80,7 +80,7 @@ ms.locfileid: "84752129"
    |취소됨|전송 요청에 대한 액세스 권한이 있는 다른 사용자가 요청을 취소했습니다.|
    |거부함|사용자가 전송 요청을 거부했습니다.|
 
-1. 세부 정보를 볼 전송 요청을 선택합니다. 전송 세부 정보 페이지에는 다음 정보가 표시됩니다. [![전송된 구독 목록을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-transfer-completed.png)](./media/mpa-request-ownership/mpa-transfer-completed.png#lightbox)
+1. 세부 정보를 볼 전송 요청을 선택합니다. 전송 세부 정보 페이지에는 다음 정보가 표시됩니다. [![전송된 구독 목록을 보여주는 스크린샷](./media/mpa-request-ownership/mpa-transfer-completed.png)](./media/mpa-request-ownership/mpa-transfer-completed.png#lightbox)
 
    |열  |정의|
    |---------|---------|

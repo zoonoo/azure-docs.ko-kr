@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 03/18/2020
+ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f28b660a2afc97cf9faf0f601e247a97e99098cd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 0d05e85a06ae1e893d5d7faa7e5389da78ad6389
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853355"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85559535"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob Storage 소개
 
@@ -55,7 +55,7 @@ http://mystorageaccount.blob.core.windows.net
 
 Azure Storage는 다음 세 가지 유형의 Blob을 지원합니다.
 
-- **블록 Blob**은 최대 4.7TB 정도의 텍스트 및 이진 데이터를 저장합니다. 블록 Blob은 개별적으로 관리할 수 있는 데이터 블록으로 구성됩니다.
+- **블록 Blob**은 텍스트 및 이진 데이터를 저장합니다. 블록 Blob은 개별적으로 관리할 수 있는 데이터 블록으로 구성됩니다. 블록 Blob은 최대 4.75TiB의 데이터를 저장합니다. 더 큰 블록 Blob는 미리 보기에서 최대 190.7TiB까지 사용할 수 있습니다.
 - **추가 Blob**은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 추가 Blob은 가상 머신의 데이터 로깅 같은 시나리오에 적합합니다.
 - **페이지 Blob**은 최대 8TB 크기의 임의 액세스 파일을 저장합니다. 페이지 Blob은 VHD(가상 하드 드라이브) 파일을 저장하고 Azure Virtual Machines의 디스크로 사용됩니다. 페이지 Blob에 대한 자세한 내용은 [Azure 페이지 Blob 개요](storage-blob-pageblob-overview.md)를 참조하세요.
 

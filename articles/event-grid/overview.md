@@ -1,20 +1,14 @@
 ---
 title: Azure Event Grid란?
 description: Azure Event Grid를 사용하여 원본에서 처리기로 이벤트 데이터를 보냅니다. 이벤트 기반 애플리케이션을 빌드하고 Azure 서비스와 통합합니다.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: overview
-ms.date: 02/20/2020
-ms.author: femila
-ms.custom: seodec18
-ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 07/07/2020
+ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560300"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116134"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -103,7 +97,7 @@ Event Grid는 데이터 원본과 이벤트 처리기를 연결합니다. 예를
 
 ![작업 자동화](./media/overview/Ops_automation.png)
 
-Event Grid를 통해 자동화를 가속화하고 정책 적용을 간소화할 수 있습니다. 예를 들어 Event Grid를 사용하여 가상 머신 또는 SQL 데이터베이스가 생성될 때 Azure Automation에 알립니다. 이벤트를 사용하여 서비스 구성이 규정을 준수하는지 자동으로 확인하거나, 메타데이터를 작업 도구에 배치하거나, 가상 머신에 태그를 지정하거나, 작업 항목을 제출할 수 있습니다.
+Event Grid를 통해 자동화를 가속화하고 정책 적용을 간소화할 수 있습니다. 예를 들어 Event Grid를 사용하여 가상 머신 또는 Azure SQL의 데이터베이스가 생성될 때 Azure Automation에 알립니다. 이벤트를 사용하여 서비스 구성이 규정을 준수하는지 자동으로 확인하거나, 메타데이터를 작업 도구에 배치하거나, 가상 머신에 태그를 지정하거나, 작업 항목을 제출할 수 있습니다.
 
 ### <a name="application-integration"></a>애플리케이션 통합
 

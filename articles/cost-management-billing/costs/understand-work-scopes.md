@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873424"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077161"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -67,7 +67,7 @@ Cost Management는 아래의 각 범위에서 다음과 같은 기본 제공 역
 
 최소 권한 역할로 Cost Management 기여자를 사용할 것을 권장합니다. 이 역할은 사람들이 비용을 보다 효과적으로 모니터링하고 보고할 수 있도록 예산 및 내보내기를 만들고 관리하는 액세스 권한을 부여합니다. Cost Management 기여자는 엔드투엔드 비용 관리 시나리오를 지원하기 위해 추가 역할이 필요할 수도 있습니다. 다음과 같은 시나리오를 고려해 보세요.
 
-- **리소스 사용량에 대한 보고** - Azure Cost Management는 Azure Portal에 비용을 표시하고 전체 사용량 및 요금 API 및 다운로드의 비용과 관련된 사용량을 포함하고 있지만 Azure Monitor의 자세한 사용 현황 메트릭을 자세히 살펴보고 보다 심층적으로 이해할 수 있습니다. 자세한 사용 현황 메트릭에 대해서도 보고해야 하는 모든 범위에 대해 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader)를 부여하는 것이 좋습니다.
+- **리소스 사용량 보고** - Azure Cost Management는 전체 사용 패턴의 비용과 관련된 사용량을 포함하는 Azure Portal 비용을 보여줍니다. 이 보고서에는 API와 다운로드 요금이 표시될 수도 있지만, Azure Monitor의 자세한 사용 메트릭을 자세히 파악하여 더 심층적으로 이해할 수 있습니다. 자세한 사용 현황 메트릭에 대해서도 보고해야 하는 모든 범위에 대해 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader)를 부여하는 것이 좋습니다.
 - **예산 초과 시 조치** – Cost Management 기여자는 초과분에 자동으로 대응할 수 있도록 작업 그룹을 만들고/만들거나 관리하기 위한 액세스 권한도 필요합니다. 예산 임계값을 초과할 때 사용할 작업 그룹을 포함하고 있는 리소스 그룹에 [모니터링 기여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor)를 부여하는 방안을 고려해 보세요. 특정 작업을 자동화하려면 Automation 및 Azure Functions처럼 사용되는 특정 서비스에 대한 추가 역할이 필요합니다.
 - **비용 데이터 내보내기 예약** Cost Management 기여자는 데이터를 스토리지 계정에 복사하는 내보내기를 예약할 수 있도록 스토리지 계정을 관리하기 위한 액세스 권한도 필요합니다. 비용 데이터를 내보내는 스토리지 계정을 포함하고 있는 리소스 그룹에 [스토리지 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)를 부여하는 방안을 고려해 보세요.
 - **비용 절감 추천 보기** – Cost Management 읽기 권한자 및 Cost Management 기여자는 기본적으로 비용 추천을 *볼 수 있습니다*. 그러나 비용 추천에 따라 조치를 취하려면 개별 리소스에 대한 액세스 권한이 필요합니다. 비용 기반 추천에 따라 조치를 취하려면 [서비스별 역할](../../role-based-access-control/built-in-roles.md#all)을 부여하는 방안을 고려해 보세요.

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: bf014c7188232f07a399cc3e438d1d894c96a233
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7c795e6077bc5a7b755a388a6f50848ad6094d48
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921806"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -96,13 +96,17 @@ data_source_name
 데이터 원본에 대한 사용자 정의 이름을 지정합니다. 이름은 반드시 데이터베이스 내에서 고유해야 합니다.
 
 #### <a name="location"></a>위치
-LOCATION = `'<prefix>://<path>'` - 외부 데이터 원본에 대한 연결 프로토콜 및 경로를 제공합니다. 경로에는 `'<prefix>://<path>/container'` 형식의 컨테이너와 `'<prefix>://<path>/container/folder'` 형식의 폴더가 포함될 수 있습니다.
+LOCATION = `'<prefix>://<path>'` - 외부 데이터 원본에 대한 연결 프로토콜 및 경로를 제공합니다. 위치에서 다음과 같은 패턴을 사용할 수 있습니다.
 
 | 외부 데이터 원본        | 위치 접두사 | 위치 경로                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
 | Azure Blob Storage          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
+|                             | `https`         | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
 | Azure Data Lake Store Gen 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
 | Azure Data Lake Store Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
+|                             | `https`         | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
+
+`https:` 접두사를 통해 경로에 하위 폴더를 사용할 수 있습니다.
 
 #### <a name="credential"></a>자격 증명
 CREDENTIAL = `<database scoped credential>`은 Azure Storage에서 인증을 수행하기 위해 사용되는 선택적인 자격 증명입니다. 자격 증명이 없는 외부 데이터 원본은 공용 스토리지 계정에 액세스할 수 있습니다. 
@@ -124,7 +128,7 @@ TYPE = `HADOOP`는 SQL 풀에서 필수 옵션이며, 기본 파일 액세스를
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
-  ( LOCATION = 'abfss://newyorktaxidataset.azuredatalakestore.net' ,
+  ( LOCATION = 'abfss://data@newyorktaxidataset.dfs.core.windows.net' ,
     CREDENTIAL = ADLS_credential ,
     TYPE = HADOOP
   ) ;
@@ -342,7 +346,7 @@ SELECT TOP 1 * FROM census_external_table
 
 이제 Data Lake 검색 기능을 사용하면 마우스 오른쪽 단추로 파일을 간단히 클릭하여 SQL 풀 또는 SQL 주문형에서 외부 테이블을 만들고 쿼리할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 작업 영역에 대한 액세스 권한(ADLS Gen2 계정에 대한 Storage Blob 데이터 기여자 ARM 액세스 역할 이상)이 있어야 합니다.
 

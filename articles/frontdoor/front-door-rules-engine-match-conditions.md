@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: 이 문서는 Azure Front Door의 개요를 제공합니다. 애플리케이션에 대한 사용자 트래픽을 부하 분산하기에 적합한 선택인지 알아보세요.
+title: Azure Front Door
+description: 이 문서에서는 Azure Front Door 규칙 엔진과 함께 사용할 수 있는 다양한 일치 조건 목록을 제공합니다.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 77c0d68f507e09b315c912d1d91fdf9cf63db6fa
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515768"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321992"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Azure Front Door 규칙 엔진 일치 조건
 
-[AFD 규칙 엔진](front-door-rules-engine.md)에서 규칙은 0개 이상의 일치 조건과 작업으로 구성됩니다. 이 문서에서는 AFD 규칙 엔진에서 사용할 수 있는 일치 조건에 대해 자세히 설명합니다. 
+[AFD 규칙 엔진](front-door-rules-engine.md)에서 규칙은 0개 이상의 일치 조건과 작업으로 구성됩니다. 이 문서에서는 AFD 규칙 엔진에서 사용할 수 있는 일치 조건에 대해 자세히 설명합니다.
 
-규칙의 첫 번째 파트는 일치 조건 또는 일치 조건 세트입니다. 최대 10개의 일치 조건으로 규칙을 구성할 수 있습니다. 일치 조건은 정의된 작업을 수행할 특정 유형의 요청을 식별합니다. 여러 일치 조건을 사용하면 AND 논리를 사용하여 일치 조건이 그룹화됩니다. 여러 값을 지원하는 모든 일치 조건(아래의 "공백으로 구분됨")에서는 "OR" 연산자를 가정합니다. 
+규칙의 첫 번째 파트는 일치 조건 또는 일치 조건 세트입니다. 최대 10개의 일치 조건으로 규칙을 구성할 수 있습니다. 일치 조건은 정의된 작업을 수행할 특정 유형의 요청을 식별합니다. 여러 일치 조건을 사용하면 AND 논리를 사용하여 일치 조건이 그룹화됩니다. 여러 값을 지원하는 모든 일치 조건(아래의 "공백으로 구분됨")에서는 "OR" 연산자를 가정합니다.
 
 예를 들어 다음을 수행하는 데 일치 조건을 사용할 수 있습니다.
 
@@ -82,7 +82,7 @@ IP가 일치하지 않음 | IP 주소(공백으로 구분됨)
 - 여러 IP 주소와 IP 주소 블록을 지정하려면 값 사이에 공백 하나를 사용합니다.
   - **IPv4 예제**: *1.2.3.4 10.20.30.40*은 1.2.3.4 또는 10.20.30.40 주소에서 도착하는 요청과 일치합니다.
   - **IPv6 예제**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80*은 1:2:3:4:5:6:7:8 또는 10:20:30:40:50:60:70:80 주소에서 도착하는 요청과 일치합니다.
-- IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 다음은 그 예입니다. 
+- IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 예를 들면 다음과 같습니다.
   - **IPv4 예제**: *5.5.5.64/26*은 5.5.5.64~5.5.5.127 주소에서 도착하는 요청과 일치합니다.
   - **IPv6 예제**: *1:2:3:/48*은 1:2:3:0:0:0:0:0~1:2:3:ffff:ffff:ffff:ffff:ffff 주소에서 도착하는 요청과 일치합니다.
 
@@ -142,7 +142,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 #### <a name="key-information"></a>주요 정보
 
-- 이 규칙 조건을 사용하는 경우 프로토콜 정보를 포함해야 합니다. 예를 들어 *https://www.\<yourdomain\>.com* 으로 해야 합니다.
+- 이 규칙 조건을 사용하는 경우 프로토콜 정보를 포함해야 합니다. 예: *https://www.\<yourdomain\>.com*.
 
 ## <a name="request-file-extension"></a>요청 파일 확장명
 
@@ -164,7 +164,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 #### <a name="required-fields"></a>Required fields
 
-연산자 | 파일 이름  | 대/소문자 변환
+연산자 | 파일 이름 | 대/소문자 변환
 ---------|-----------|---------------
 [표준 연산자 목록](#standard-operator-list) | 문자열, Int | 소문자, 대문자, 자르기, 공백 제거, URL 인코딩, URL 디코딩
 

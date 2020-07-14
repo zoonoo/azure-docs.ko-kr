@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7ba8d201c29b5e3835fec52d8c479a388ca07f71
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313002"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557177"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>빠른 시작: 렌더링을 위해 모델 변환
 
@@ -24,7 +24,7 @@ ms.locfileid: "81313002"
 > * Azure Remote Rendering에서 사용할 3D 모델 업로드 및 변환
 > * 렌더링을 위해 애플리케이션에 변환된 3D 모델 포함
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md) 완료
 * Azure PowerShell 설치[(설명서)](https://docs.microsoft.com/powershell/azure/)
@@ -70,7 +70,7 @@ Blob 스토리지를 만들려면 먼저 스토리지 계정이 필요합니다.
 다음과 같은 방법으로 양식을 작성합니다.
 
 * 드롭다운 상자 아래의 링크에서 새 리소스 그룹을 만들고, **ARR_Tutorial**이라는 이름으로 지정합니다.
-* **스토리지 계정 이름**에는 고유한 이름을 입력합니다. **이 이름은 전역적으로 고유해야 합니다.** 그렇지 않으면 이름이 지정될 준비가 되었다고 알리는 메시지가 표시됩니다. 이 빠른 시작의 범위에서는 **arrtutorialstorage**라는 이름으로 지정되었습니다. 이에 따라 이 빠른 시작에서 수행되는 모든 작업을 위해 사용자 이름으로 바꿔야 합니다.
+* **스토리지 계정 이름**에는 고유한 이름을 입력합니다. **이 이름은 전역적으로 고유해야 합니다.** 그렇지 않으면 이름이 이미 사용되었음을 알리는 메시지가 표시됩니다. 이 빠른 시작의 범위에서는 **arrtutorialstorage**라는 이름으로 지정되었습니다. 이에 따라 이 빠른 시작에서 수행되는 모든 작업을 위해 사용자 이름으로 바꿔야 합니다.
 * 가까운 **위치**를 선택합니다. 다른 빠른 시작에서 렌더링을 설정하는 데 사용한 것과 동일한 위치를 사용하는 것이 좋습니다.
 * **성능**을 '표준'으로 설정
 * **계정 종류**를 'StorageV2(범용 v2)'로 설정
@@ -157,7 +157,7 @@ Blob 스토리지를 만들려면 먼저 스토리지 계정이 필요합니다.
 
 모델이 변환되면 **blobOutputContainerName**에 지정된 스토리지 컨테이너에 다시 씁니다. 하위 경로는 선택적인 **outputFolderPath**를 제공하여 지정할 수 있습니다. 위의 예제에서 결과 "robot.arrAsset"은 "converted/robot" 아래의 출력 Blob 컨테이너에 복사됩니다.
 
-**outputAssetFileName** 구성 설정에 따라 변환된 자산의 이름이 결정됩니다. 매개 변수는 선택적이며, 출력 파일 이름은 입력 파일 이름에서 추론됩니다. 
+**outputAssetFileName** 구성 설정에 따라 변환된 자산의 이름이 결정됩니다. 매개 변수는 선택적이며, 출력 파일 이름은 입력 파일 이름에서 추론됩니다.
 
 PowerShell을 열고, [사전 요구 사항](#prerequisites)에서 설명한 대로 *Azure PowerShell*을 설치했는지 확인합니다. 그런 다음, 다음 명령을 사용하여 구독에 로그인하고, 화면의 지시를 따릅니다.
 
@@ -175,6 +175,8 @@ Connect-AzAccount
 ```
 
 다음과 유사한 결과가 표시됩니다. ![Conversion.ps1](./media/successful-conversion.png)
+
+## <a name="insert-new-model-into-quickstart-sample-app"></a>빠른 시작 샘플 앱에 새 모델 삽입
 
 변환 스크립트는 변환된 모델에 대한 *SAS(공유 액세스 서명)* URI를 생성합니다. 이제 이 URI를 **Model Name(모델 이름)** 으로 빠른 시작 샘플 앱에 복사할 수 있습니다([빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md) 참조).
 
@@ -198,4 +200,4 @@ Connect-AzAccount
 모델 변환에 대한 자세한 내용을 알아보려면 [모델 변환 REST API](../how-tos/conversion/conversion-rest-api.md)를 확인하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Unity 프로젝트를 처음부터 설정](../tutorials/unity/project-setup.md)
+> [자습서: 원격으로 렌더링된 모델 보기](../tutorials/unity/view-remote-models/view-remote-models.md)

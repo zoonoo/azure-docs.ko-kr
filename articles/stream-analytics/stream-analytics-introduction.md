@@ -7,17 +7,17 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/21/2019
-ms.openlocfilehash: f435a33befdde96a92c900663a2ddcca1d319260
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/6/2020
+ms.openlocfilehash: d62fd0a23a5f5553f27c7a399eb17d06d427a6f3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201196"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108790"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Stream Analytics란?
 
-Azure Stream Analytics는 여러 원본에서 대량의 빠른 스트리밍 데이터를 동시에 분석 및 처리하도록 설계된 실시간 분석 및 복잡한 이벤트 처리 엔진입니다. 패턴과 관계는 디바이스, 센서, 클릭스트림, 소셜 미디어 피드 및 애플리케이션을 포함한 여러 입력 원본에서 추출한 정보에서 식별할 수 있습니다. 이러한 패턴을 사용하여 경고를 만들거나, 보고 도구에 정보를 공급하거나, 나중에 사용할 수 있도록 변환된 데이터를 저장하는 등의 작업을 트리거하고 워크플로를 시작할 수 있습니다. 또한 Stream Analytics는 Azure IoT Edge 런타임에서 사용할 수 있으며, 정확히 동일한 언어 또는 구문을 클라우드로 지원합니다. 
+Azure Stream Analytics는 여러 원본에서 대량의 빠른 스트리밍 데이터를 동시에 분석 및 처리하도록 설계된 실시간 분석 및 복잡한 이벤트 처리 엔진입니다. 패턴과 관계는 디바이스, 센서, 클릭스트림, 소셜 미디어 피드 및 애플리케이션을 포함한 여러 입력 원본에서 추출한 정보에서 식별할 수 있습니다. 이러한 패턴을 사용하여 경고를 만들거나, 보고 도구에 정보를 공급하거나, 나중에 사용할 수 있도록 변환된 데이터를 저장하는 등의 작업을 트리거하고 워크플로를 시작할 수 있습니다. 또한 Stream Analytics는 Azure IoT Edge 런타임에서 사용할 수 있으며, IoT 디바이스에서 데이터를 처리할 수 있습니다. 
 
 다음 시나리오는 Azure Stream Analytics를 사용할 수 있는 경우의 예입니다.
 
@@ -29,13 +29,13 @@ Azure Stream Analytics는 여러 원본에서 대량의 빠른 스트리밍 데�
 
 ## <a name="how-does-stream-analytics-work"></a>Stream Analytics는 어떻게 작동합니까?
 
-Azure Stream Analytics 작업은 입력, 쿼리 및 출력으로 구성됩니다. Stream Analytics는 Azure Event Hubs, Azure IoT Hub 또는 Azure Blob Storage에서 데이터를 수집합니다. SQL 쿼리 언어를 기반으로 하는 쿼리는 일정 기간 동안 스트리밍 데이터를 쉽게 필터링, 정렬, 집계 및 조인하는 데 사용될 수 있습니다. 또한 JavaScript 및 C# UDF(사용자 정의 기능)를 사용하여 이 SQL 언어를 확장할 수 있습니다. 간단한 언어 구성 및/또는 구성을 통해 집계 작업을 수행할 때 이벤트 순서 지정 옵션 및 시간 범위 기간을 손쉽게 조정할 수 있습니다.
+Azure Stream Analytics 작업은 입력, 쿼리 및 출력으로 구성됩니다. Stream Analytics는 Azure Event Hubs(Apache Kafka의 Azure Event Hubs 포함), Azure IoT Hub 또는 Azure Blob Storage에서 데이터를 수집합니다. SQL 쿼리 언어를 기반으로 하는 쿼리는 일정 기간 동안 스트리밍 데이터를 쉽게 필터링, 정렬, 집계 및 조인하는 데 사용될 수 있습니다. 또한 JavaScript 및 C# UDF(사용자 정의 기능)를 사용하여 이 SQL 언어를 확장할 수 있습니다. 간단한 언어 구성 및/또는 구성을 통해 집계 작업을 수행할 때 이벤트 순서 지정 옵션 및 시간 범위 기간을 손쉽게 조정할 수 있습니다.
 
-각 작업에는 변환된 데이터에 대한 출력이 있으며, 분석한 정보에 대한 응답으로 수행되는 작업을 제어 할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
+각 작업에는 변환된 데이터에 대한 하나 또는 여러 개의 출력이 있으며, 분석한 정보에 대한 응답으로 수행되는 작업을 제어 할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
 
 * Azure Functions, Service Bus 항목 또는 큐와 같은 서비스에 데이터를 보내 통신을 트리거하거나 워크플로 다운스트림을 사용자 지정합니다.
 * 실시간 대시보드를 위해 Power BI 대시보드로 데이터를 전송합니다.
-* 기록 데이터를 기반으로 하여 기계 학습 모델을 학습시키거나 일괄 처리 분석을 수행할 수 있도록 데이터를 다른 Azure 스토리지 서비스에 저장합니다.
+* 기록 데이터를 기반으로 하여 기계 학습 모델을 학습시키거나 일괄 처리 분석을 수행할 수 있도록 데이터를 다른 Azure 스토리지 서비스(예: Azure Data Lake, Azure Synapse Analytics 등)에 저장합니다.
 
 다음 이미지에서는 데이터를 Stream Analytics에 보내고, 스토리지 또는 프레젠테이션과 같은 다른 작업을 위해 분석하고 보내는 방법을 보여 줍니다.
 
@@ -59,21 +59,21 @@ Stream Analytics 출력의 전체 목록은 [Azure Stream Analytics의 출력 �
 
 Azure Stream Analytics는 강력한 임시 제약 조건으로 강화된 간단한 SQL 기반 쿼리 언어를 사용하여 이동 중인 데이터를 분석합니다. 작업 변환을 정의하려면 간단한 SQL 구문을 사용하여 복잡한 임시 쿼리 및 분석을 작성하도록 하는 간단하고 선언적인 [Stream Analytics 쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)를 사용합니다. Stream Analytics 쿼리 언어는 SQL 언어와 일치하므로 SQL에 익숙하면 작업 만들기를 시작하는 데도 충분히 익숙합니다. 또한 작업은 Azure PowerShell, [Stream Analytics Visual Studio 도구](stream-analytics-tools-for-visual-studio-install.md), [Stream Analytics Visual Studio Code 확장](quick-create-vs-code.md) 또는 Azure Resource Manager 템플릿과 같은 개발자 도구를 사용하여 만들 수 있습니다. 개발자 도구를 사용하면 변환 쿼리를 오프라인에서 개발하고 [CI/CD 파이프라인](stream-analytics-tools-for-visual-studio-cicd.md)을 사용하여 Azure에 작업을 제출할 수 있습니다.
 
-Stream Analytics 쿼리 언어는 스트리밍 데이터를 분석하고 처리하기 위한 다양한 배열의 함수를 제공합니다. 이 쿼리 언어는 간단한 데이터 조작, 집계 함수 및 복잡한 지리 공간적 함수를 지원합니다. 포털에서 쿼리를 편집하고 라이브 스트림에서 추출된 샘플 데이터를 사용하여 테스트할 수 있습니다.
+Stream Analytics 쿼리 언어는 스트리밍 데이터를 분석하고 처리하기 위한 다양한 배열의 함수를 제공합니다. 이 쿼리 언어는 간단한 데이터 조작, 집계 및 분석 함수, [지리 공간적 함수](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-geospatial-functions), [패턴 일치](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) 및 [변칙 검색](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)을 지원합니다. 포털에서 쿼리를 편집하고 라이브 스트림에서 추출된 샘플 데이터를 사용하여 테스트할 수 있습니다.
 
 추가 함수를 정의하고 호출하여 쿼리 언어의 기능을 확장할 수 있습니다. Azure Machine Learning에서 함수 호출을 정의하여 Azure Machine Learning 솔루션을 활용하고, JavaScript/C# UDF(사용자 정의 함수) 또는 사용자 정의 집계를 통합하여 Stream Analytics 쿼리의 일환으로 복잡한 계산을 수행할 수 있습니다.
 
 ## <a name="fully-managed"></a>완전히 관리
 
-Azure Stream Analytics는 Azure에서 완벽하게 관리되는 서버가 없는(PaaS) 제품입니다. 하드웨어를 프로비저닝하거나 작업을 실행하는 클러스터를 관리할 필요가 없습니다. Azure Stream Analytics는 클라우드에서 복잡한 컴퓨팅 클러스터를 설정하고 작업을 실행하는 데 필요한 성능 튜닝을 처리하여 작업을 완벽하게 관리합니다. Azure Event Hubs 및 Azure IoT Hub와 통합하면 작업에서 연결된 디바이스, 클릭 스트림 및 로그 파일을 포함하여 여러 원본에서 나오는 초당 수백만 개의 이벤트를 수집할 수 있습니다. Event Hubs의 분할 기능을 사용하면 계산을 논리 단계로 분할할 수 있고, 각각의 단계를 더 자세히 분할하여 확장성을 높일 수 있습니다.
+Azure Stream Analytics는 Azure에서 완벽하게 관리되는 서버가 없는(PaaS) 제품입니다. 하드웨어를 프로비저닝하거나, 작업을 실행하는 클러스터를 관리하거나, OS 또는 소프트웨어를 업데이트할 필요가 없습니다. Azure Stream Analytics는 작업을 완벽하게 관리하므로 인프라가 아닌 비즈니스 논리에 집중할 수 있습니다.
 
 ## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>클라우드 또는 인텔리전트 에지에서 실행
 
-Azure Stream Analytics는 대규모 분석을 위해 클라우드에서 실행하거나, 대기 시간이 매우 짧은 분석을 위해 IoT Edge에서 실행할 수 있습니다. Azure Stream Analytics는 클라우드와 에지 모두에서 동일한 쿼리 언어를 사용하므로 개발자가 스트림 처리를 위한 진정한 하이브리드 아키텍처를 구축할 수 있습니다. 
+Azure Stream Analytics는 대규모 분석을 위해 클라우드에서 실행하거나, 대기 시간이 매우 짧은 분석을 위해 IoT Edge에서 실행할 수 있습니다. Azure Stream Analytics는 클라우드와 에지 모두에서 동일한 도구와 쿼리 언어를 사용하므로 개발자가 스트림 처리를 위한 진정한 하이브리드 아키텍처를 구축할 수 있습니다. 
 
 ## <a name="low-total-cost-of-ownership"></a>낮은 총 소유 비용
 
-클라우드 서비스인 Stream Analytics는 비용에 최적화되어 있습니다. 선불 비용이 없습니다. [사용하는 스트리밍 단위](stream-analytics-streaming-unit-consumption.md) 및 처리된 데이터의 양에 대해서만 지불하면 됩니다. 약정 또는 클러스터 프로비저닝이 필요하지 않으며 비즈니스 요구 사항에 따라 작업을 강화하거나 규모 축소할 수 있습니다.
+클라우드 서비스인 Stream Analytics는 비용에 최적화되어 있습니다. 선불 비용은 없습니다. [사용하는 스트리밍 단위](stream-analytics-streaming-unit-consumption.md)에 대해서만 지불하면 됩니다. 약정 또는 클러스터 프로비저닝이 필요하지 않으며 비즈니스 요구 사항에 따라 작업을 강화하거나 규모 축소할 수 있습니다.
 
 ## <a name="mission-critical-ready"></a>중요 업무에 적합
 

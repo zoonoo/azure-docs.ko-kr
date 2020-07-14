@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 70baddf86207c490d3b85e0f584525592f8a7ad7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 64b4b0bd8c1e387229144e02293b573062ab196c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735816"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087829"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할
 
@@ -120,7 +120,7 @@ Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 역할 목�
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>Azure 역할과 Azure AD 역할이 겹치나요?
 
-기본적으로 Azure 역할과 Azure AD 역할은 Azure 및 Azure AD를 다루지 않습니다. 그러나 글로벌 관리자가 Azure Portal에서 **글로벌 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다.** 스위치를 선택하여 액세스 권한을 높이면 글로벌 관리자에게 특정 테넌트의 모든 구독에 대한 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할(Azure 역할)이 부여됩니다. 사용자 액세스 관리자 역할은 사용자가 다른 사용자에게 Azure 리소스에 대한 액세스 권한을 부여할 수 있게 해줍니다. 이 스위치는 구독에 대한 액세스 권한을 다시 얻고자 할 때 유용하게 사용할 수 있습니다. 자세한 내용은 [모든 Azure 구독 및 관리 그룹을 관리할 수 있도록 액세스 권한 상승](elevate-access-global-admin.md)을 참조하세요.
+기본적으로 Azure 역할과 Azure AD 역할은 Azure 및 Azure AD를 다루지 않습니다. 그러나 전역 관리자가 Azure Portal에서 **Azure 리소스에 대한 액세스 관리** 스위치를 선택하여 액세스 권한을 높이면 전역 관리자에게 특정 테넌트의 모든 구독에 대한 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할(Azure 역할)이 부여됩니다. 사용자 액세스 관리자 역할은 사용자가 다른 사용자에게 Azure 리소스에 대한 액세스 권한을 부여할 수 있게 해줍니다. 이 스위치는 구독에 대한 액세스 권한을 다시 얻고자 할 때 유용하게 사용할 수 있습니다. 자세한 내용은 [모든 Azure 구독 및 관리 그룹을 관리할 수 있도록 액세스 권한 상승](elevate-access-global-admin.md)을 참조하세요.
 
 여러 Azure AD 역할은 글로벌 관리자 및 사용자 관리자 역할 같은 Azure AD 및 Microsoft Office 365를 포괄합니다. 예를 들어 전역 관리자 역할의 구성원은 Azure AD 및 Office 365에서 Microsoft Exchange와 Microsoft SharePoint를 변경하는 등의 전역 관리자 기능을 사용할 수 있습니다. 그러나 기본적으로 전역 관리자는 Azure 리소스에 액세스할 수 없습니다.
 

@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 1ae3159365e63159b8ed62c09bc20441ba65d8aa
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343849"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081590"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>빠른 시작: Azure SQL Database 단일 데이터베이스 만들기
 
@@ -100,4 +100,8 @@ Remove-AzResourceGroup -Name <your resource group>
 > [SQL Server Management Studio를 사용하여 연결 및 쿼리](connect-query-ssms.md)
 >
 > [Azure Data Studio를 사용하여 연결 및 쿼리](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
- 
+
+클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
+
+> [!div class="nextstepaction"]
+> [Cost Management를 통한 비용 분석 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

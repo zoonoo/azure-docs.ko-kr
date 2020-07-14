@@ -5,12 +5,12 @@ author: mumian
 ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 1e286a3b59279ed9658a373210f1425ece05eff4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676151"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102088"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>자습서: 첫 번째 ARM 템플릿 만들기 및 배포
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="editor"></a>편집기
 
-템플릿은 JSON 파일입니다. 템플릿을 만들려면 적절한 JSON 편집기가 필요합니다. Resource Manager 도구 확장이 있는 Visual Studio Code를 사용하는 것이 좋습니다. 이러한 도구를 설치해야 하는 경우 [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+템플릿은 JSON 파일입니다. 템플릿을 만들려면 적절한 JSON 편집기가 필요합니다. Resource Manager 도구 확장이 있는 Visual Studio Code를 사용하는 것이 좋습니다. 이러한 도구를 설치해야 하는 경우 [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 ### <a name="command-line-deployment"></a>명령줄 배포
 

@@ -7,19 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: 7075753049e6ba6f4804d23aa31796cbd5bc9141
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/30/2020
+ms.openlocfilehash: 9d081dea8e4a59a7b872bde8626cbb8674eebd7e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263231"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554321"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Azure Cognitive Search란?
 
-Azure Cognitive Search([이전의 "Azure Search"](whats-new.md#new-service-name))는 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가할 수 있는 API 및 도구를 개발자에게 제공하는 search-as-a-service(서비스 제공 검색) 클라우드 솔루션입니다. 코드 또는 도구에서 데이터 수집(인덱싱)을 호출하여 인덱스를 만들고 로드합니다. 필요에 따라 인덱싱 중에 AI 프로세스를 적용하는 인지 기술을 추가할 수 있습니다. 이렇게 하면 검색 및 기타 시나리오에 유용한 새 정보와 구조를 추가할 수 있습니다.
+Azure Cognitive Search([이전의 "Azure Search"](whats-new.md#new-service-name))는 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가할 수 있는 API 및 도구를 개발자에게 제공하는 search-as-a-service(서비스 제공 검색) 클라우드 솔루션입니다. 
 
-서비스의 다른 측면에서 애플리케이션 코드는 쿼리 요청을 실행하고 응답을 처리합니다. 검색 환경은 Azure Cognitive Search의 기능을 사용하여 클라이언트에 정의되며, 서비스에서 만들고, 소유하고, 저장하는 지속형 인덱스에 대한 쿼리를 실행합니다.
+사용자 지정 솔루션에서 검색 서비스는 두 가지 주요 워크로드인 콘텐츠 수집과 쿼리 사이에 있습니다. 코드 또는 도구는 스키마를 정의하고 데이터 수집(인덱싱)을 호출하여 인덱스를 Azure Cognitive Search에 로드합니다. 필요에 따라 인덱싱 중에 AI 프로세스를 적용하는 인지 기술을 추가할 수 있습니다. 이렇게 하면 검색 및 지식 마이닝 시나리오에 유용한 새 정보와 구조를 만들 수 있습니다.
+
+인덱스가 있으면 애플리케이션 코드는 검색 서비스에 쿼리 요청을 실행하고 응답을 처리합니다. 검색 환경은 Azure Cognitive Search의 기능을 사용하여 클라이언트에 정의되며, 서비스에서 만들고, 소유하고, 저장하는 지속형 인덱스에 대한 쿼리를 실행합니다.
 
 ![Azure Cognitive Search 아키텍처](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search 아키텍처")
 
@@ -31,7 +33,7 @@ Azure Cognitive Search가 적합한 애플리케이션 시나리오는 다음과
 
 + 다른 유형의 콘텐츠 형식을 검색 가능한 프라이빗 단일 인덱스로 통합합니다. 쿼리는 항상 문서를 사용하여 만들고 로드하는 인덱스를 통해 수행되며, 인덱스는 항상 Azure Cognitive Search 서비스의 클라우드에 있습니다. 모든 원본 또는 플랫폼에서 JSON 문서 스트림을 통해 인덱스를 채울 수 있습니다. 또는 Azure에서 원본으로 사용하는 콘텐츠의 경우 *인덱서*를 사용하여 데이터를 인덱스로 가져올 수 있습니다. 인덱스 정의 및 관리/소유권은 Azure Cognitive Search를 사용하는 주요 이유입니다.
 
-+ 원시 콘텐츠는 Azure 데이터 원본(예: Azure Blob 스토리지 또는 Cosmos DB)의 Office 콘텐츠 형식과 같은 크고 구분되지 않는 텍스트, 이미지 파일 또는 애플리케이션 파일입니다. 인덱싱 중에 동안 인지 기술을 적용하여 구조를 추가하거나 이미지와 애플리케이션 파일에서 의미를 추출할 수 있습니다.
++ 원시 콘텐츠는 Azure 데이터 원본(예: Azure Blob 스토리지 또는 Cosmos DB)의 Office 콘텐츠 형식과 같은 크고 구분되지 않는 텍스트, 이미지 파일 또는 애플리케이션 파일입니다. 인덱싱 중에 동안 인지 기술을 적용하여 구조를 추가하거나 이미지와 애플리케이션 파일에서 검색 가능한 텍스트를 추출할 수 있습니다.
 
 + 검색 관련 기능을 쉽게 구현합니다. Azure Cognitive Search API는 쿼리 생성, 패싯 탐색, 필터(지리 공간적 검색 포함), 동의어 매핑, 자동 완성 쿼리 및 관련성 튜닝을 간소화합니다. 기본 제공 기능을 사용하면 상용 웹 검색 엔진과 비슷한 검색 환경에 대한 최종 사용자의 기대를 충족시킬 수 있습니다.
 
@@ -53,8 +55,8 @@ Azure Cognitive Search가 적합한 애플리케이션 시나리오는 다음과
 
 | AI&nbsp;보강&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | 기능 |
 |-------------------|----------|
-|인덱싱 중 AI 처리 | 이미지 및 텍스트 분석을 위한 [**AI 보강**](cognitive-search-concept-intro.md)은 인덱싱 파이프라인에 적용하여 원시 콘텐츠에서 텍스트 정보를 추출할 수 있습니다. [기본 제공 기술](cognitive-search-predefined-skills.md)의 몇 가지 예제에는 광학 문자 인식(스캔된 JPEG를 검색 가능하게 만듬), 엔터티 인식(조직, 이름 또는 위치 식별) 및 키 구문 인식이 포함됩니다. [사용자 정의 기술을 코딩](cognitive-search-create-custom-skill-example.md)하여 파이프라인에 연결수도 있습니다. |
-| 비검색 시나리오에서 분석하고 사용할 수 있도록 보강된 콘텐츠 저장 | [**지식 저장소(미리 보기)** ](knowledge-store-concept-intro.md)는 AI 기반 인덱싱의 확장입니다. Azure 스토리지를 백 엔드로 사용하면 인덱싱 중에 만들어진 보강 내용을 저장할 수 있습니다. 이러한 아티팩트를 사용하면 보다 나은 기술을 디자인하거나, 확실하지 않은 또는 모호한 데이터로 도형 또는 구조체를 만들 수 있습니다. 특정 워크로드 또는 사용자를 대상으로 하는 이러한 구조체의 프로젝션을 만들 수 있습니다. 추출된 데이터를 직접 분석하거나 다른 앱에 로드할 수도 있습니다.<br/><br/> |
+|인덱싱 중 AI 처리 | 이미지 및 텍스트 분석을 위한 [**AI 보강**](cognitive-search-concept-intro.md)은 인덱싱 파이프라인에 적용하여 원시 콘텐츠에서 텍스트 정보를 추출할 수 있습니다. [기본 제공 기술](cognitive-search-predefined-skills.md)의 몇 가지 예제에는 광학 문자 인식(스캔된 JPEG를 검색 가능하게 만듬), 엔터티 인식(조직, 이름 또는 위치 식별) 및 키 구문 인식이 포함됩니다. [사용자 정의 기술을 코딩](cognitive-search-create-custom-skill-example.md)하여 파이프라인에 연결수도 있습니다. [Azure Machine Learning 제작 기술을 통합](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-aml-custom-skill)할 수도 있습니다. |
+| 비검색 시나리오에서 분석하고 사용할 수 있도록 보강된 콘텐츠 저장 | [**지식 저장소**](knowledge-store-concept-intro.md)는 AI 기반 인덱싱의 확장입니다. Azure Storage를 백 엔드로 사용하면 인덱싱 중에 만들어진 보강 내용을 저장할 수 있습니다. 이러한 아티팩트를 사용하면 보다 나은 기술을 디자인하거나, 확실하지 않은 또는 모호한 데이터로 도형 또는 구조체를 만들 수 있습니다. 특정 워크로드 또는 사용자를 대상으로 하는 이러한 구조체의 프로젝션을 만들 수 있습니다. 추출된 데이터를 직접 분석하거나 다른 앱에 로드할 수도 있습니다.<br/><br/> |
 | 캐시된 콘텐츠 | [**증분 보강(미리 보기)** ](cognitive-search-incremental-indexing-conceptual.md)은 캐시된 콘텐츠를 변경되지 않는 파이프라인 부분에 사용하여 특정 편집으로 변경되는 문서로만 처리하도록 제한합니다. |
 
 | 데이터&nbsp;가져오기/인덱싱 | 기능 |
@@ -129,7 +131,7 @@ Azure Cognitive Search에서 가장 광범위한 기능을 활용할 수 있는 
 
 |플랫폼 |Description |
 |-----|------------|
-|[REST (영문)](/rest/api/searchservice/) | 모든 프로그래밍 플랫폼 및 언어(Xamarin, Java 및 JavaScript 포함)에서 지원하는 HTTP 명령|
+|[REST (영문)](/rest/api/searchservice/) | Java, Python 및 JavaScript를 포함한 모든 프로그래밍 플랫폼 및 언어에서 지원하는 HTTP 명령|
 |[.NET SDK](search-howto-dotnet-sdk.md) | REST API에 대한 .NET 래퍼는 C# 및 .NET Framework를 대상으로 하는 다른 관리되는 코드 언어로 효율적인 코딩 제공 |
 
 ## <a name="free-trial"></a>평가판

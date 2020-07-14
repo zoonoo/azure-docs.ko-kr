@@ -1,6 +1,6 @@
 ---
 title: Azure Sentinel이란? | Microsoft Docs
-description: Azure Sentinel, 주요 기능 및 작동 방법에 대해 알아봅니다.
+description: 확장 가능한 클라우드 네이티브 SIEM(보안 정보 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션인 Azure Sentinel에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 517bdc0846ae56e0db41631f1dc5411471c6c2bd
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ebc9756afc43648f2b44ca317abe3373807f4efa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800136"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564621"
 ---
 # <a name="what-is-azure-sentinel"></a>Azure Sentinel이란?
 

@@ -1,16 +1,16 @@
 ---
 title: 관리 그룹으로 리소스 구성 - Azure Governance
 description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대해 알아봅니다.
-ms.date: 04/15/2020
+ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773154"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963685"
 ---
-# <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
+# <a name="what-are-azure-management-groups"></a>Azure 관리 그룹이란?
 
 조직에 구독이 많으면 구독에 대한 액세스, 정책 및 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. Azure 관리 그룹은 구독 상위 수준의 범위를 제공합니다. "관리 그룹"이라는 컨테이너에 구독을 구성하고 거버넌스 조건을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다. 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.
 단일 관리 그룹 내의 모든 구독은 동일한 Azure Active Directory 테넌트를 신뢰해야 합니다.
@@ -199,6 +199,4 @@ Azure Portal 외부에서 관리 그룹의 쿼리를 살펴보면 관리 그룹�
 
 - [관리 그룹을 만들어 Azure 리소스 구성](./create.md)
 - [관리 그룹을 변경, 삭제 또는 관리하는 방법](./manage.md)
-- [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](/powershell/module/az.resources#resources)
-- [REST API에서 관리 그룹 검토](/rest/api/resources/managementgroups)
-- [Azure CLI에서 관리 그룹 검토](/cli/azure/account/management-group)
+- [리소스 계층 구조를 보호하는 방법](./how-to/protect-resource-hierarchy.md)에 대한 옵션을 참조하세요.

@@ -8,20 +8,22 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: e626f6e5b65e369c3c77900cd46f2b86cd6f9d52
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118001"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483298"
 ---
-# <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 컨테이너 만들기
+# <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Cosmos DB 및 컨테이너 만들기
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB를 사용하여 키/값 데이터베이스, 문서 데이터베이스 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 이 빠른 시작에서는 Resource Manager 템플릿을 배포하여 Azure Cosmos 데이터베이스와 해당 데이터베이스 내에 컨테이너를 만드는 프로세스에 대해 중점적으로 설명합니다. 데이터는 나중에 이 컨테이너에 저장할 수 있습니다.
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB를 사용하여 키/값 데이터베이스, 문서 데이터베이스 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하여 Azure Cosmos 데이터베이스와 해당 데이터베이스 내에 컨테이너를 만드는 프로세스에 대해 중점적으로 설명합니다. 데이터는 나중에 이 컨테이너에 저장할 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -31,11 +33,9 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="create-an-azure-cosmos-account-database-container"></a>Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
@@ -49,7 +49,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 더 많은 Azure Cosmos DB 템플릿 샘플은 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb)에서 찾을 수 있습니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 이 템플릿은 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 만듭니다.
 
@@ -57,7 +57,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 2. 다음 값을 선택하거나 입력합니다.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Resource Manager 템플릿, Azure Cosmos DB 통합, 배포 포털":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="ARM 템플릿, Azure Cosmos DB 통합, 배포 포털":::
 
     지정되지 않은 경우 기본값을 사용하여 Azure Cosmos 리소스를 만듭니다.
 
@@ -78,7 +78,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 3. **구매**를 선택합니다. Azure Cosmos 계정이 성공적으로 배포되면 알림을 받게 됩니다.
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Resource Manager 템플릿, Cosmos DB 통합, 배포 포털 알림":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="ARM 템플릿, Cosmos DB 통합, 배포 포털 알림":::
 
 Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 
@@ -132,7 +132,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 만들고 배포의 유효성을 검사했습니다. Azure Cosmos DB 및 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
+이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 만들고 배포의 유효성을 검사했습니다. Azure Cosmos DB 및 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Cosmos DB 개요](introduction.md) 참조
 - [Azure Resource Manager](../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기

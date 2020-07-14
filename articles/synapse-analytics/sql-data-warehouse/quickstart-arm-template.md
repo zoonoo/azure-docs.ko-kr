@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 766a41b61f32804c7d7f59c946530f8e1a7b869a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 3f84cd92a4c4f96831d39cac783df6710c5ea5f4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296273"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513423"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse Analytics SQL 풀 만들기
 
-이 템플릿은 투명한 데이터 암호화가 활성화된 Azure Synapse Analytics SQL 풀을 만듭니다. Synapse SQL 풀은 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 나타냅니다.
+이 ARM 템플릿(Azure Resource Manager 템플릿)은 투명한 데이터 암호화가 활성화된 Azure Synapse Analytics SQL 풀을 만듭니다. Synapse SQL 풀은 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 나타냅니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -107,8 +107,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Synapse Analytics 풀을 만들고 배포의 유효성을 검사했습니다. Azure Synapse Analytics 및 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
+이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Synapse Analytics SQL 풀을 만들고 배포의 유효성을 검사했습니다. Azure Synapse Analytics 및 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Synapse Analytics 개요](sql-data-warehouse-overview-what-is.md) 읽기
 - [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기
-- [첫 번째 Azure Resource Manager 템플릿을 만들고 배포](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [첫 번째 ARM 템플릿 만들기 및 배포](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

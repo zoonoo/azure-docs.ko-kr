@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: 이 문서는 Azure Front Door의 개요를 제공합니다. 애플리케이션에 대한 사용자 트래픽을 부하 분산하기에 적합한 선택인지 알아보세요.
+title: Azure Front Door
+description: 이 문서에서는 Azure Front Door 규칙 엔진으로 수행할 수 있는 다양한 작업 목록을 제공합니다.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 3e7c9606a17736ea45b09a4d6981b4d55fa6dee6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e11555e883a323bcb5b0be1c62b2825bce77524e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515808"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313993"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Azure Front Door 규칙 엔진 작업
 
 [AFD 규칙 엔진](front-door-rules-engine.md)에서 규칙은 0개 이상의 일치 조건 및 작업으로 구성됩니다. 이 문서에서는 AFD 규칙 엔진에서 사용할 수 있는 작업에 대해 자세히 설명합니다.
 
-작업은 일치 조건 또는 일치 조건 세트에서 식별하는 요청 유형에 적용되는 동작을 정의합니다. AFD 규칙 엔진에서 규칙은 최대 5개의 작업을 포함할 수 있으며, 이 중 하나만 경로 구성 재정의 작업(전달 또는 리디렉션)일 수 있습니다. 
+작업은 일치 조건 또는 일치 조건 세트에서 식별하는 요청 유형에 적용되는 동작을 정의합니다. AFD 규칙 엔진에서 규칙은 최대 5개의 작업을 포함할 수 있으며, 이 중 하나만 경로 구성 재정의 작업(전달 또는 리디렉션)일 수 있습니다.
 
 다음은 Azure Front Door 규칙 엔진에서 사용할 수 있는 작업입니다.  
 

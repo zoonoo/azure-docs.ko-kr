@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 383b59d10fa1de1b2ee0ea8b505c164577487255
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 7052e9203532320a7de5197e983d40cb0a34b50d
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974384"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374783"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -73,6 +73,8 @@ Windows Virtual Desktop에 대한 Microsoft Teams에 몇 가지 개선 사항이
 자세한 내용은 [블로그 게시물](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
+[Microsoft 365 Windows Virtual Desktop 로드맵](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop)에서 향후 계획에 대해 알아봅니다.
 
 다음 문서를 확인하여 Windows Virtual Desktop 및 원격 데스크톱 서비스의 클라이언트에 대한 업데이트를 알아봅니다.
 

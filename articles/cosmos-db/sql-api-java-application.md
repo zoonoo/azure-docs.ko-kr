@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: d29f97bf421804fb234ce8d86c66c12b01854681
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 6dcfdc63946bcc2a9ffe4c5c767e81ca3b32107b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85113803"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025287"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>자습서: Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 
@@ -90,7 +90,7 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 1. 2단계에서 대상 런타임을 설정했으면 **프로젝트**, **실행**을 차례로 클릭하여 JSP 애플리케이션을 로컬로 실행할 수 있습니다.
 
-  ![Hello World - Java 애플리케이션 자습서](./media/sql-api-java-application/image12.png)
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hello World – Java 애플리케이션 자습서":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>SQL Java SDK 설치
 

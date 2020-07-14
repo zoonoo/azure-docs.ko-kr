@@ -6,20 +6,23 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/24/2019
 ms.author: banders
-ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e238a409adda674e1182c0ffd40a4f666d362731
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199690"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361509"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Microsoft 고객 계약 Azure 크레딧 잔액 추적
 
 Azure Portal에서 또는 REST API를 통해 Microsoft 고객 계약에 대한 청구 계정의 Azure 크레딧 잔액을 확인할 수 있습니다.
 
 Microsoft 고객 계약에 대한 청구 계정에서 크레딧이 청구 프로필에 할당됩니다. 각 청구 프로필에는 청구서의 요금에 자동으로 적용되는 자체 크레딧이 있습니다. 청구 프로필에 대한 Azure 크레딧 잔액을 확인하려면 청구 프로필에 대한 소유자, 기여자, 읽기 권한자 또는 청구서 관리자 역할이 있거나 청구 계정에 대한 소유자, 기여자 또는 읽기 권한자 역할이 있어야 합니다. 역할에 대해 자세히 알아보려면 [Azure의 Microsoft 고객 계약 관리자 역할 이해](understand-mca-roles.md)를 참조하세요.
+
+> [!NOTE]
+> 새 크레딧이 Azure Portal에 표시되는 데 최대 24시간이 걸릴 수 있습니다. 새 크레딧을 받고 포털에서 볼 수 없는 경우 24시간 동안 표시됩니다.
 
 이 문서는 Microsoft 고객 계약에 대한 청구 계정에 적용됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-access-to-a-microsoft-customer-agreement).
 

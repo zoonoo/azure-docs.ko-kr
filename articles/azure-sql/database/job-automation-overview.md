@@ -2,7 +2,8 @@
 title: 작업 자동화
 description: 작업 자동화를 사용하여 하나 이상의 데이터베이스 세트에서 T-SQL(Transact-SQL) 스크립트 실행
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
@@ -10,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b27eac1a8b5989734d3451bf21c5b13dd5cc0af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220559"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984662"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +55,8 @@ SQL 에이전트(온-프레미스 및 SQL Managed Instance의 일부로 사용 �
 
 | |탄력적 작업 |SQL 에이전트 |
 |---------|---------|---------|
-|범위 | 작업 에이전트와 동일한 Azure 클라우드에 있는 많은 Azure SQL Database 데이터베이스 및/또는 데이터 웨어하우스입니다. 대상은 다른 서버, 구독 및/또는 지역에 있을 수 있습니다. <br><br>대상 그룹은 개별 데이터베이스나 데이터 웨어하우스 또는 서버, 풀 또는 shardmap(작업 런타임 시 동적으로 열거되는)의 모든 데이터베이스로 구성됩니다. | SQL 에이전트와 동일한 인스턴스의 모든 개별 데이터베이스입니다. |
-|지원되는 API 및 도구 | 포털, PowerShell, T-SQL, Azure Resource Manager | T-SQL 및 SSMS(SQL Server Management Studio) |
+|**범위** | 작업 에이전트와 동일한 Azure 클라우드에 있는 많은 Azure SQL Database 데이터베이스 및/또는 데이터 웨어하우스입니다. 대상은 다른 서버, 구독 및/또는 지역에 있을 수 있습니다. <br><br>대상 그룹은 개별 데이터베이스나 데이터 웨어하우스 또는 서버, 풀 또는 shardmap(작업 런타임 시 동적으로 열거되는)의 모든 데이터베이스로 구성됩니다. | SQL 에이전트와 동일한 인스턴스의 모든 개별 데이터베이스입니다. |
+|**지원되는 API 및 도구** | 포털, PowerShell, T-SQL, Azure Resource Manager | T-SQL 및 SSMS(SQL Server Management Studio) |
 
 ## <a name="sql-agent-jobs"></a>SQL 에이전트 작업
 

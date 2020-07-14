@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184999"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119347"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>자습서: ARM 템플릿 배포 문제 해결
 
@@ -33,11 +33,11 @@ ARM (Azure Resource Manager) 템플릿 배포 오류 문제를 해결하는 방�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-- Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+- Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)
 
 ## <a name="create-a-problematic-template"></a>문제가 있는 템플릿 만들기
 

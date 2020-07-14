@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: 7cdb58b45727c1a71b5c412046e07658ae8de314
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 18f72ff32b29ff5832c363601ed63280339079df
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559733"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083069"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Azure Portal을 통해 Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 
@@ -83,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
  
    Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameMyAzureSsisDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+    *데이터 팩터리 이름 “MyAzureSsisDataFactory”를 사용할 수 없습니다.*
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다.
      

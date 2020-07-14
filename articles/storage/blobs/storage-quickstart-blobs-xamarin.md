@@ -7,12 +7,12 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: e0845e7cdc2ce6dc57ed5a18d263f117f0c2005c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c66766b39ae104cf4a031c3fd73c173e81d47fb8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006389"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563489"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>빠른 시작: Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -30,7 +30,7 @@ Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -151,7 +151,7 @@ protected async override void OnAppearing()
 다음 코드 조각을 실행합니다.
 
 1. `MemoryStream` 텍스트를 만듭니다.
-1. [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) 클래스의 [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) 함수를 호출하여 이 텍스트를 Blob에 업로드하고, 클래스 수준 변수에 정의된 파일 이름과 `MemoryStream` 텍스트를 모두 전달합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
+1. [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) 클래스의 [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) 함수를 호출하여 파일 이름과 `MemoryStream` 텍스트 모두에 전달하여 텍스트를 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
 
 *MainPage.xaml.cs* 파일에 다음 코드를 추가합니다.
 

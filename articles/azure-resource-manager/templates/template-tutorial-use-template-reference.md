@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185050"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118514"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>자습서: Resource Manager 템플릿 참조 활용
 
@@ -32,11 +32,11 @@ ms.locfileid: "82185050"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
@@ -75,7 +75,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="find-the-template-reference"></a>템플릿 참조 찾기
 
-1. [Azure 템플릿 참조](https://docs.microsoft.com/azure/templates/)로 이동합니다.
+1. [Azure 템플릿 참조](/azure/templates/)로 이동합니다.
 1. **제목별 필터링** 상자에 **스토리지 계정**을 입력하고 **참조 > 스토리지**에서 첫 번째 **스토리지 계정**을 선택합니다.
 
     ![Resource Manager 템플릿 참조 스토리지 계정](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)

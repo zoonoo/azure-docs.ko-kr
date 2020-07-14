@@ -8,28 +8,28 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 6ef929a2934d8480ce6d1eca8bb7ba3b70580110
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d74994609799c155453f0c7cac887f2e033ea90b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84551988"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087285"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Windows 가상 머신 만들기
+# <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 플랫폼을 사용하여 Windows 가상 머신 만들기
 
-이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 Azure에서 Windows VM(가상 머신)을 배포하는 방법을 보여줍니다. 
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure에서 Windows VM(가상 머신)을 배포하는 방법을 보여줍니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-없음
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-windows-virtual-machine"></a>Windows 가상 머신 만들기
-
-### <a name="review-the-template"></a>템플릿 검토
+## <a name="review-the-template"></a>템플릿 검토
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)에서 나온 것입니다.
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿에서 키 자격 증명 모음 및 비밀이 생성됩니다.
 
@@ -86,7 +86,7 @@ Azure Portal을 사용하여 만든 VM 및 기타 리소스를 확인할 수 있
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 간단한 가상 머신을 배포했습니다. Azure 가상 머신에 대한 자세한 내용을 알아보려면 Linux VM의 자습서를 계속 진행합니다.
+이 빠른 시작에서는 ARM 템플릿을 사용하여 간단한 가상 머신을 배포했습니다. Azure 가상 머신에 대한 자세한 내용을 알아보려면 Linux VM의 자습서를 계속 진행합니다.
 
 
 > [!div class="nextstepaction"]

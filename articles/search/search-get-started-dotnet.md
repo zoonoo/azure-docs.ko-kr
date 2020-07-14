@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7172fe1f7eb81bbd00e7efa611111e04cc96abd3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079390"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083579"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>빠른 시작: .NET에서 검색 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -567,3 +567,8 @@ C# 빠른 시작에서는 인덱스를 만들어서 문서와 함께 로드하�
 
 > [!div class="nextstepaction"]
 > [.NET으로 개발하는 방법](search-howto-dotnet-sdk.md)
+
+클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
+
+> [!div class="nextstepaction"]
+> [Cost Management를 통한 비용 분석 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

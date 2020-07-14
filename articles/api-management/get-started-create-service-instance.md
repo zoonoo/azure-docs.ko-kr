@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: acfa10ea506e063bf6b230386ca0722f1c959d18
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 63415b221b3980f3b6e3abc7d197cf9f61844f3f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75442571"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077493"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>새 Azure API Management 서비스 인스턴스 만들기
 
@@ -86,3 +86,8 @@ Azure APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내�
 
 > [!div class="nextstepaction"]
 > [첫 번째 API 가져오기 및 게시](import-and-publish.md)
+
+클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
+
+> [!div class="nextstepaction"]
+> [Cost Management를 통한 비용 분석 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

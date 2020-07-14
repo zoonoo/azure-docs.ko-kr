@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9006a70ae941abb700412a7c596627939c994028
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c45aae35c7c1cf2fbde436303a2ac000dfdd5ec
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587513"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339607"
 ---
 # <a name="compare-solutions-for-external-identities-in-azure-active-directory"></a>Azure Active Directory의 외부 ID에 대한 솔루션 비교
 
@@ -36,11 +36,11 @@ Azure AD 외부 ID는 조직과 사용자의 관계 및 개인이 앱과 리소�
 
 | 다중 테넌트 애플리케이션  | 외부 사용자 협업(B2B) | 소비자 또는 고객용 앱(B2C)  |
 | ---- | --- | --- |
-| 주요 시나리오: 엔터프라이즈 SaaS(Software-as-a-Service) | 주요 시나리오: Microsoft 애플리케이션(Office 365, Teams 등) 또는 자신의 협업 소프트웨어를 사용한 협업  | 주요 시나리오: 사용자 지정 개발 애플리케이션을 사용하는 트랜잭션 애플리케이션   |
+| 주요 시나리오: 엔터프라이즈 SaaS(Software-as-a-Service) | 주요 시나리오: Microsoft 애플리케이션(Microsoft 365, Teams 등) 또는 자체 협업 소프트웨어를 사용하는 협업입니다.  | 주요 시나리오: 사용자 지정 개발 애플리케이션을 사용하는 트랜잭션 애플리케이션   |
 | 대상: 여러 기업 고객에게 소프트웨어를 제공하려는 조직    | 대상: ID 공급자에 관계 없이 파트너 조직의 사용자를 인증할 수 있기를 원하는 조직    | 대상: 개인이든, 기관이든, 조직이든 상관없이 모바일 및 웹앱 고객을 조직의 자체 디렉터리와 구분된 Azure AD 디렉터리에 초대하려는 사용자 |
 | 지원되는 ID: Azure AD 계정이 있는 직원 | 지원되는 ID: 회사 또는 학교 계정이 있는 직원, 회사 또는 학교 계정이 있는 파트너 또는 모든 이메일 주소입니다. 직접 페더레이션 기능을 곧 지원합니다.      | 지원되는 ID: 로컬 애플리케이션 계정(모든 이메일 주소 또는 사용자 이름)이 있는 소비자 사용자 또는 직접 페더레이션이 포함된 지원되는 소셜 ID입니다.       |
 | 외부 사용자는 애플리케이션이 등록된 디렉터리와 격리된 자체 디렉터리에서 관리됩니다.    | 외부 사용자는 직원과 같은 디렉터리에서 관리되지만 특별 주석이 추가됩니다. 이들은 직원과 같은 방식으로 관리하고 동일한 그룹에 추가할 수 있습니다.    | 외부 사용자는 애플리케이션 디렉터리에서 관리됩니다. 이들은 조직의 직원 및 파트너 디렉터리(있는 경우)와 별도로 관리됩니다.  |
-| Single Sign-On: 모든 Azure AD 연결 앱에 대한 SSO가 지원됩니다.          | Single Sign-On: 모든 Azure AD 연결 앱에 대한 SSO가 지원됩니다. 예를 들어 Office 365 또는 온-프레미스 앱 및 다른 SaaS 앱(예: Salesforce 또는 Workday)에 대한 액세스를 제공할 수 있습니다.    | Single Sign-On: Azure AD B2C 테넌트 내의 고객 소유 앱에 대한 SSO가 지원됩니다. Office 365 또는 다른 Microsoft SaaS 앱에 대한 SSO가 지원되지 않습니다.    |
+| Single Sign-On: 모든 Azure AD 연결 앱에 대한 SSO가 지원됩니다.          | Single Sign-On: 모든 Azure AD 연결 앱에 대한 SSO가 지원됩니다. 예를 들어 Microsoft 365 또는 온-프레미스 앱 및 다른 SaaS 앱(예: Salesforce 또는 Workday)에 대한 액세스를 제공할 수 있습니다.    | Single Sign-On: Azure AD B2C 테넌트 내의 고객 소유 앱에 대한 SSO가 지원됩니다. Microsoft 365 또는 다른 Microsoft SaaS 앱에 대한 SSO가 지원되지 않습니다.    |
 | 고객 수명 주기: 사용자의 홈 조직에서 관리합니다.      | 파트너 수명 주기: 호스트/초대한 조직에 의해 관리됩니다.    | 고객 수명 주기: 셀프 서비스 또는 애플리케이션에 의해 관리됩니다.      |
 | 보안 정책 및 규정 준수: 호스트/초대한 조직에 의해 관리됩니다(예: [조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access) 사용).           | 보안 정책 및 규정 준수: 호스트/초대한 조직에 의해 관리됩니다(예: [조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access) 사용). | 보안 정책 및 규정 준수: 애플리케이션에 의해 관리됩니다.        |
 | 브랜딩: 호스트/초대한 조직의 브랜드가 사용됩니다.   | 브랜딩: 호스트/초대한 조직의 브랜드가 사용됩니다.    | 브랜딩: 애플리케이션에 의해 관리됩니다. 일반적으로 조직의 존재가 희미해지고 제품 브랜드가 되는 경향이 있습니다.   |

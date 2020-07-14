@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 83b723c815825a255727e9a48d415fedd405c942
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/24/2020
+ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488225"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562532"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 
@@ -24,6 +24,14 @@ Azure Cognitive Search는 검색 환경을 사용자 지정 앱에 연결하는 
 [![애니메이션 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 [PowerShell로 Azure Cognitive Search 관리](search-manage-powershell.md)를 참조하세요.
+
+## <a name="before-you-start"></a>시작하기 전에
+
+다음 서비스 속성은 서비스의 수명 동안 고정되어 있으며, 이를 변경하려면 새로운 서비스가 필요합니다. 서비스를 만들 때 사용 방법을 고려합니다.
+
+* 이름(서비스 이름에 대해 [이러한 제안 사항](#name-the-service) 검토)
+* 계층(무료, 기본, 표준 [청구에 영향](search-sku-tier.md)을 주고 용량의 상향 제한을 설정)
+* 지역(관련 서비스가 있는 위치를 선택합니다. Cognitive Services 또는 Azure Machine Learning과의 통합을 위해서는 동일한 지역에 서비스를 공동 배치하는 것이 필요합니다.)
 
 ## <a name="subscribe-free-or-paid"></a>구독(무료 또는 유료)
 

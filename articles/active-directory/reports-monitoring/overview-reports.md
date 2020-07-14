@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b655fa2f12eac894e97c61cc931983aa58fff7a9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74007918"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481394"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Azure Active Directory 보고서란?
 
@@ -81,7 +81,7 @@ Azure AD(Azure Active Directory) 보고서는 환경에서 작업의 포괄적�
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>감사 로그 보고서에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?  
 
-감사 로그 보고서는 라이선스가 있는 기능에 대해 사용할 수 있습니다. 특정 기능에 대한 라이선스가 있으면 해당 기능에 대한 감사 로그 정보에 액세스할 수도 있습니다. 자세한 내용은 [Azure Active Directory 기능 및 특성](https://www.microsoft.com/cloud-platform/azure-active-directory-features)을 참조하세요.   
+감사 로그 보고서는 라이선스가 있는 기능에 대해 사용할 수 있습니다. 특정 기능에 대한 라이선스가 있으면 해당 기능에 대한 감사 로그 정보에 액세스할 수도 있습니다. [다양한 유형의 라이선스](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses)에 따른 자세한 기능 비교는 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다. 자세한 내용은 [Azure Active Directory 기능 및 특성](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad)을 참조하세요.
 
 ### <a name="sign-ins-report"></a>로그인 보고서
 

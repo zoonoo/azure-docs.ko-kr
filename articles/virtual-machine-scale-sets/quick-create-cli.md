@@ -9,15 +9,15 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: af69b4d80ef6f7216bdf13a7e7314e8b0616f376
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 5c7621915d9393adce373f68363f6c57b70d9907
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197707"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027276"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 가상 머신 확장 집합 만들기
-가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure CLI로 가상 머신 확장 집합을 만들고, 샘플 애플리케이션을 배포합니다.
+가상 머신 확장 집합을 사용하면 자동 크기 조정 가상 머신 세트를 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure CLI로 가상 머신 확장 집합을 만들고, 샘플 애플리케이션을 배포합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

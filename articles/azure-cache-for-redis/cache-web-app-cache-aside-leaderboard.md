@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195586"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082780"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
@@ -680,8 +680,8 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
     | 자리 표시자 | 제안 값 |
     | --- | --- |
-    | *{your_username}* | 방금 만든 데이터베이스 서버에 대한 **서버 관리자 로그인**을 사용합니다. |
-    | *{your_password}* | 방금 만든 데이터베이스 서버에 대한 암호를 사용합니다. |
+    | *{your_username}* | 방금 만든 서버에 대한 **서버 관리자 로그인**을 사용합니다. |
+    | *{your_password}* | 방금 만든 서버에 대한 암호를 사용합니다. |
 
     애플리케이션 설정으로 사용자 이름 및 암호를 추가하면 사용자 이름 및 암호가 코드에 포함되지 않습니다. 이 방법은 해당 자격 증명을 보호하는 데 유용합니다.
 

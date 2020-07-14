@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983913"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830862"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 
@@ -95,35 +95,39 @@ Azure Storage로 이동하는 트래픽을 제외하고 ASE에서 모든 아웃�
 
 3. App Service Environment에서 인터넷으로의 모든 아웃바운드 트래픽에 사용될 주소를 가져옵니다. 온-프레미스에서 트래픽을 라우팅하는 경우 이러한 주소는 NAT 또는 게이트웨이 IP입니다. App Service Environment 아웃바운드 트래픽을 NVA를 통해 라우팅하려면 송신 주소는 NVA의 공용 IP입니다.
 
-4. _기존 App Service Environment에서 송신 주소를 설정하려면_ resource.azure.com으로 이동한 다음, Subscription/\<구독 ID>/resourceGroups/\<ASE 리소스 그룹>/providers/Microsoft.Web/hostingEnvironments/\<ASE 이름>으로 이동합니다. 그러면 App Service Environment를 설명하는 JSON을 볼 수 있습니다. 상단에 **읽기/쓰기**가 표시되는지 확인합니다. **편집**을 선택합니다. 아래로 스크롤하십시오. **userWhitelistedIpRanges** 값을 **null**에서 다음과 같은 값으로 변경합니다. 송신 주소 범위로 설정할 주소를 사용합니다. 
+4. _기존 App Service Environment에서 송신 주소를 설정하려면_ resources.azure.com으로 이동하여 Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>로 이동합니다. 그러면 App Service Environment를 설명하는 JSON을 볼 수 있습니다. 상단에 **읽기/쓰기**가 표시되는지 확인합니다. **편집**을 선택합니다. 아래로 스크롤하십시오. **userWhitelistedIpRanges** 값을 **null**에서 다음과 같은 값으로 변경합니다. 송신 주소 범위로 설정할 주소를 사용합니다. 
 
-        "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
+    ```json
+    "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
+    ```
 
    맨 위에서 **PUT**을 선택합니다. 이 옵션은 App Service Environment에서 크기 조정 작업을 트리거하고 방화벽을 조정합니다.
 
 _송신 주소를 사용하여 ASE를 만들려면_ [템플릿을 사용하여 App Service Environment 만들기][template]의 지침을 따르고 적절한 템플릿을 풀다운합니다.  "속성" 블록이 아니라 azuredeploy.json 파일에서 “리소스” 섹션을 편집하고 해당 값을 지닌 **userWhitelistedIpRanges**에 대해 선을 포함합니다.
 
-    "resources": [
-      {
+```json
+"resources": [
+    {
         "apiVersion": "2015-08-01",
         "type": "Microsoft.Web/hostingEnvironments",
         "name": "[parameters('aseName')]",
         "kind": "ASEV2",
         "location": "[parameters('aseLocation')]",
         "properties": {
-          "name": "[parameters('aseName')]",
-          "location": "[parameters('aseLocation')]",
-          "ipSslAddressCount": 0,
-          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
-          "dnsSuffix" : "[parameters('dnsSuffix')]",
-          "virtualNetwork": {
-            "Id": "[parameters('existingVnetResourceId')]",
-            "Subnet": "[parameters('subnetName')]"
-          },
-        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+            "name": "[parameters('aseName')]",
+            "location": "[parameters('aseLocation')]",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+            "dnsSuffix" : "[parameters('dnsSuffix')]",
+            "virtualNetwork": {
+                "Id": "[parameters('existingVnetResourceId')]",
+                "Subnet": "[parameters('subnetName')]"
+            },
+            "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
         }
-      }
-    ]
+    }
+]
+```
 
 이러한 변경은 ASE에서 직접 Azure Storage에 트래픽을 전송하며 ASE의 VIP 이외의 추가 주소에서 Azure SQL에 액세스를 허용합니다.
 

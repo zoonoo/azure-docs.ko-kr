@@ -7,18 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 1e3b94208c3ead6e7ed4e15dac7c32b50025064a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733809"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024777"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 가상 네트워킹 구성
 
-사용자 및 애플리케이션에 연결하기 위해 Azure AD DS(Active Directory Domain Services) 관리형 도메인이 Azure 가상 네트워크 서브넷에 배포됩니다. 이 가상 네트워크 서브넷은 Azure 플랫폼에서 제공하는 관리되는 도메인 리소스에만 사용해야 합니다. 사용자 고유의 VM 및 애플리케이션을 만드는 경우 동일한 가상 네트워크 서브넷에 배포하지 않아야 합니다. 대신 애플리케이션을 만들어 별도의 가상 네트워크 서브넷 또는 Azure AD DS 가상 네트워크에 피어링되는 별도의 가상 네트워크에 배포해야 합니다.
+사용자 및 애플리케이션에 연결하기 위해 Azure AD DS(Active Directory Domain Services) 관리형 도메인이 Azure 가상 네트워크 서브넷에 배포됩니다. 이 가상 네트워크 서브넷은 Azure 플랫폼에서 제공하는 관리되는 도메인 리소스에만 사용해야 합니다.
+
+자체 VM 및 애플리케이션을 만드는 경우 동일한 가상 네트워크 서브넷에 배포해서는 안 됩니다. 대신 애플리케이션을 만들어 별도의 가상 네트워크 서브넷 또는 Azure AD DS 가상 네트워크에 피어링되는 별도의 가상 네트워크에 배포해야 합니다.
 
 이 자습서에서는 전용 가상 네트워크 서브넷을 만들고 구성하는 방법 또는 다른 네트워크를 Azure AD DS 관리형 도메인의 가상 네트워크에 피어링하는 방법을 보여 줍니다.
 
@@ -39,7 +41,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
-* Azure AD DS를 사용하도록 설정하려면 Azure AD 테넌트에 *글로벌 관리자* 권한이 필요합니다.
+* Azure AD DS를 구성하려면 Azure AD 테넌트에 *전역 관리자* 권한이 필요합니다.
 * 필요한 Azure AD DS 리소스를 만들려면 Azure 구독에 *기여자* 권한이 필요합니다.
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 첫 번째 자습서에서 [Azure Active Directory Domain Services 관리되는 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
@@ -54,16 +56,20 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 관리되는 도메인을 사용해야 하는 VM을 만들고 실행할 때 네트워크 연결이 제공되어야 합니다. 이 네트워크 연결은 다음 방법 중 하나로 제공할 수 있습니다.
 
-* 추가 가상 네트워크 서브넷을 기본 관리되는 도메인의 가상 네트워크에 만듭니다. 이 추가 서브넷은 VM을 만들고 연결합니다.
+* 관리되는 도메인의 가상 네트워크에 가상 네트워크 서브넷을 추가로 만듭니다. 이 추가 서브넷은 VM을 만들고 연결합니다.
     * VM이 동일한 가상 네트워크에 속해 있으므로 자동으로 이름 확인을 수행하고 Azure AD DS 도메인 컨트롤러와 통신할 수 있습니다.
 * 관리되는 도메인의 가상 네트워크에서 하나 이상의 개별 가상 네트워크로의 Azure 가상 네트워크 피어링을 구성합니다. 이러한 개별 가상 네트워크는 VM을 만들고 연결합니다.
     * 가상 네트워크 피어링을 구성하는 경우 이름 확인을 Azure AD DS 도메인 컨트롤러에 다시 사용하도록 DNS 설정도 구성해야 합니다.
 
-일반적으로 이러한 네트워크 연결 옵션 중 하나만 사용합니다. 이 옵션 선택은 Azure 리소스를 분리하여 관리하는 방법에 따라 결정되는 경우가 많습니다. Azure AD DS 및 연결된 VM을 하나의 리소스 그룹으로 관리하려면 VM에 대한 추가 가상 네트워크 서브넷을 만들 수 있습니다. Azure AD DS와 연결된 VM을 분리하여 관리하려면 가상 네트워크 피어링을 사용할 수 있습니다. 또한 가상 네트워크 피어링을 사용하여 기존 가상 네트워크에 연결된 Azure 환경의 기존 VM에 대한 연결을 제공하도록 선택할 수도 있습니다.
+일반적으로 이러한 네트워크 연결 옵션 중 하나만 사용합니다. 이 옵션 선택은 Azure 리소스를 분리하여 관리하는 방법에 따라 결정되는 경우가 많습니다.
+
+* Azure AD DS 및 연결된 VM을 하나의 리소스 그룹으로 관리하려면 VM에 대한 추가 가상 네트워크 서브넷을 만들 수 있습니다.
+* Azure AD DS와 연결된 VM을 분리하여 관리하려면 가상 네트워크 피어링을 사용할 수 있습니다.
+    * 또한 가상 네트워크 피어링을 사용하여 기존 가상 네트워크에 연결된 Azure 환경의 기존 VM에 대한 연결을 제공하도록 선택할 수도 있습니다.
 
 이 자습서에서는 이러한 가상 네트워크 연결 옵션 중 하나만 구성하면 됩니다.
 
-가상 네트워크를 계획하고 구성하는 방법에 대한 자세한 내용은 [Azure Active Directory Domain Services에 대한 네트워킹 고려 사항][network-considerations]를 참조하세요.
+가상 네트워크를 계획하고 구성하는 방법에 대한 자세한 내용은 [Azure Active Directory Domain Services에 대한 네트워킹 고려 사항][network-considerations]을 참조하세요.
 
 ## <a name="create-a-virtual-network-subnet"></a>가상 네트워크 서브넷 만들기
 
@@ -95,7 +101,9 @@ VM 및 애플리케이션 워크로드에 대한 가상 네트워크 서브넷�
 
 VM에 대한 기존 Azure 가상 네트워크가 있거나 관리되는 도메인 가상 네트워크를 별도로 유지하려고 할 수 있습니다. 관리되는 도메인을 사용하려면 다른 가상 네트워크의 VM에서 Azure AD DS 도메인 컨트롤러와 통신하는 방법이 필요합니다. 이 연결은 Azure 가상 네트워크 피어링을 사용하여 제공할 수 있습니다.
 
-Azure 가상 네트워크 피어링을 사용하면 VPN(가상 사설망) 디바이스가 없어도 두 가상 네트워크가 서로 연결됩니다. 네트워크 피어링을 사용하면 가상 네트워크를 빠르게 연결하고 Azure 환경 전체의 트래픽 흐름을 정의할 수 있습니다. 피어링에 대한 자세한 내용은 [Azure 가상 네트워크 피어링 개요][peering-overview]를 참조하세요.
+Azure 가상 네트워크 피어링을 사용하면 VPN(가상 사설망) 디바이스가 없어도 두 가상 네트워크가 서로 연결됩니다. 네트워크 피어링을 사용하면 가상 네트워크를 빠르게 연결하고 Azure 환경 전체의 트래픽 흐름을 정의할 수 있습니다.
+
+피어링에 대한 자세한 내용은 [Azure 가상 네트워크 피어링 개요][peering-overview]를 참조하세요.
 
 가상 네트워크를 관리되는 도메인 가상 네트워크에 피어링하려면 다음 단계를 완료합니다.
 
@@ -159,3 +167,4 @@ Azure 가상 네트워크 피어링을 사용하면 VPN(가상 사설망) 디바
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [peering-overview]: ../virtual-network/virtual-network-peering-overview.md
+[network-considerations]: network-considerations.md

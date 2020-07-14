@@ -3,12 +3,12 @@ title: '빠른 시작: 첫 번째 포털 쿼리'
 description: 이 빠른 시작에서는 Azure Resource Graph Explorer를 사용하여 Azure Portal에서 첫 번째 쿼리를 실행하는 단계를 따릅니다.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 1e506ee1b1c610381f300323f80c38eb6bf67caa
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148041"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958810"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -16,7 +16,7 @@ Azure Resource Graph의 강력한 기능은 Azure Resource Graph Explorer를 통
 
 이 빠른 시작의 끝부분에서는 Azure Portal 및 Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리를 실행하고 결과를 대시보드에 고정했습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -90,11 +90,11 @@ Resource Graph 쿼리 예제와 Resource Graph Explorer를 사용하여 Azure Po
 
 - [Resource Graph Explorer - 샘플 대시보드 #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![샘플 대시보드 #1의 이미지 예제](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="샘플 대시보드 #1의 이미지 예제" lightbox="./media/arge-sample1-large.png":::
 
 - [Resource Graph Explorer - 샘플 대시보드 #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![샘플 대시보드 #2의 이미지 예제](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="샘플 대시보드 #2의 이미지 예제" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > 위의 대시보드 예제 스크린샷의 개수 및 차트는 Azure 환경에 따라 달라집니다.

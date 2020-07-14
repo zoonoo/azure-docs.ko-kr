@@ -3,16 +3,16 @@ title: Azure Enterprise Portal 시작
 description: 이 문서에서는 Azure EA(Azure 기업계약) 고객이 Azure Enterprise Portal을 사용하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7983afa32ff8104d181fbcdc75a50d12e2240128
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298111"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560354"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Azure Enterprise Portal 시작
 
@@ -471,6 +471,7 @@ Azure Enterprise Portal은 보기에서 비활성 등록을 필터링합니다. 
 
 ### <a name="enrollment-statuses"></a>등록 상태
 
+- **새로 만들기**: 이 상태는 24시간 이내에 만들어진 등록에 할당되며 24시간 이내에 보류 중 상태로 업데이트됩니다.
 - **Pending**: 등록 관리자가 Azure Enterprise Portal에 로그인해야 합니다. 로그인하면 등록이 활성 상태로 전환됩니다.
 - **활성**: 등록이 활성 상태이면 Azure Enterprise Portal에서 계정 및 구독을 만들 수 있습니다. 등록은 기업계약 종료 날짜가 될 때까지 활성 상태로 유지됩니다.
 - **무한정 확장된 기간**: 무한정 확장된 기간은 기업계약 종료 날짜 후에도 발생합니다. 확장된 기간에 옵트인한 Azure EA 고객은 기업계약이 종료된 후에도 무기한으로 Azure 서비스를 계속 사용할 수 있습니다.

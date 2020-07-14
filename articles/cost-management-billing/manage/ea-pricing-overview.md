@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 5ad92fe9f243cf9884f29536cf6ebb66202338d5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d205f3ccc0adef7e2390274bb7f4511c6f994027
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299964"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038007"
 ---
 # <a name="azure-ea-pricing"></a>Azure EA 가격 책정
 
@@ -24,7 +24,7 @@ ms.locfileid: "84299964"
 
 ### <a name="price-protection"></a>가격 보호
 
-고객 또는 채널 파트너는 CPS(고객 가격표)에 표시된 가격 이하의 가격 또는 Azure 구매 개시 날짜에 적용되는 가격을 받을 수 있습니다. 이 가격을 기준 가격이라고 합니다. Azure 구매 후에 도입된 서비스의 경우 서비스가 처음 도입될 때 적용되는 할인 수준으로 적용되는 가격이 청구됩니다. 이 가격 보호는 기업계약에 따라 1년 또는 3년의 약정 기간 동안 적용됩니다.
+고객 또는 채널 파트너는 CPS(고객 가격표)에 표시된 가격 이하의 가격 또는 Azure 구매 개시 날짜에 적용되는 가격을 받을 수 있습니다. 이 가격을 기준 가격이라고 합니다. Azure 구매 후에 도입된 서비스의 경우 서비스가 처음 도입될 때 적용되는 할인 수준으로 적용되는 가격이 청구됩니다. 이 가격 보호는 기업계약에 따라 1년 또는 3년의 선불 기간 동안 적용됩니다.
 
 ### <a name="price-changes"></a>가격 변경
 

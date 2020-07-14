@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f0b6e66a0d3a78a62fe105a175a7a519d0b37ccd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: afeac24a5d3c21fce120512813d68c49a505c6c1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733418"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024607"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 Azure Active Directory Domain Services 관리되는 도메인 구성 및 관리
 
 Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Directory와 완전히 호환되는 도메인 조인, 그룹 정책, LDAP 및 Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다. 이 관리되는 도메인은 온-프레미스 Active Directory Domain Services 도메인과 동일한 RSAT(원격 서버 관리 도구)를 사용하여 관리됩니다. Azure AD DS는 관리형 서비스이므로 RDP(원격 데스크톱 프로토콜)를 사용하여 도메인 컨트롤러에 연결하는 것과 같이 수행할 수 없는 몇 가지 관리 작업이 있습니다.
 
-이 자습서에서는 Azure에서 Windows Server VM을 만들고, Azure AD DS 관리되는 도메인을 관리하는 데 필요한 도구를 설치하는 방법을 보여 줍니다.
+이 자습서에서는 Azure에서 Windows Server VM을 구성하고, Azure AD DS 관리형 도메인을 관리하는 데 필요한 도구를 설치하는 방법을 보여줍니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -75,7 +75,7 @@ Azure AD DS는 사용자, 애플리케이션 및 서비스에서 사용할 관�
 
 ## <a name="sign-in-to-the-windows-server-vm"></a>Windows Server VM에 로그인
 
-이전 자습서에서는 Windows Server VM을 만들어 관리되는 도메인에 조인했습니다. 이 VM을 사용하여 관리 도구를 설치해 보겠습니다. 필요한 경우 [자습서의 단계에 따라 Windows Server VM을 만들고 관리되는 도메인에 조인합니다][create-join-windows-vm].
+이전 자습서에서는 Windows Server VM을 만들어 관리되는 도메인에 조인했습니다. 이 VM을 사용하여 관리 도구를 설치합니다. 필요한 경우 [자습서의 단계에 따라 Windows Server VM을 만들고 관리되는 도메인에 조인합니다][create-join-windows-vm].
 
 > [!NOTE]
 > 이 자습서에서는 관리되는 도메인에 조인된 Windows Server VM을 사용합니다. 또한 관리되는 도메인에 조인된 Windows 10과 같은 Windows 클라이언트를 사용할 수도 있습니다.
@@ -97,7 +97,7 @@ Azure AD DS는 사용자, 애플리케이션 및 서비스에서 사용할 관�
 
 ## <a name="install-active-directory-administrative-tools"></a>Active Directory 관리 도구 설치
 
-관리되는 도메인은 온-프레미스 AD DS 환경과 동일한 관리 도구(예: ADAC(Active Directory 관리 센터) 또는 AD PowerShell)를 사용하여 관리됩니다. 이러한 도구는 RSAT(원격 서버 관리 도구) 기능의 일부로 Windows Server 및 클라이언트 컴퓨터에 설치할 수 있습니다. 그러면 *AAD DC Administrators* 그룹의 멤버가 관리되는 도메인에 조인된 컴퓨터에서 이러한 AD 관리 도구를 사용하여 관리되는 도메인을 원격으로 관리할 수 있습니다.
+관리되는 도메인에서 온-프레미스 AD DS 환경과 동일한 관리 도구를 사용합니다(예: ADAC(Active Directory 관리 센터) 또는 AD PowerShell). 이러한 도구는 RSAT(원격 서버 관리 도구) 기능의 일부로 Windows Server 및 클라이언트 컴퓨터에 설치할 수 있습니다. 그러면 *AAD DC Administrators* 그룹의 멤버가 관리되는 도메인에 조인된 컴퓨터에서 이러한 AD 관리 도구를 사용하여 관리되는 도메인을 원격으로 관리할 수 있습니다.
 
 Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 단계를 수행합니다.
 
@@ -125,7 +125,7 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
     ![서버에 설치된 관리 도구 목록](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. **Active Directory 관리 센터**를 선택합니다.
-1. 관리되는 도메인을 검색하려면 왼쪽 창에서 도메인 이름(예: *aaddscontoso.com*)을 선택합니다. *AADDC Computers* 및 *AADDC Users*라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
+1. 관리되는 도메인을 검색하려면 왼쪽 창에서 도메인 이름(예: *aaddscontoso*)을 선택합니다. *AADDC Computers* 및 *AADDC Users*라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
 
     ![관리되는 도메인의 사용 가능한 컨테이너 부분 나열](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
@@ -135,7 +135,7 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
 
     ![Active Directory 관리 센터에서 Azure AD DS 도메인 사용자 목록 보기](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
-1. 관리되는 도메인에 조인된 컴퓨터를 확인하려면 **AADDC Computers** 컨테이너를 선택합니다. 현재 가상 머신에 대한 항목(예: *myVM*)이 나열됩니다. 관리되는 도메인에 조인된 모든 컴퓨터의 컴퓨터 계정은 이 *AADDC Computers* 컨테이너에 저장됩니다.
+1. 관리되는 도메인에 조인된 컴퓨터를 확인하려면 **AADDC Computers** 컨테이너를 선택합니다. 현재 가상 머신에 대한 항목(예: *myVM*)이 나열됩니다. 관리되는 도메인에 조인된 모든 디바이스의 컴퓨터 계정은 이 *AADDC Computers* 컨테이너에 저장됩니다.
 
 사용자 계정 암호 재설정 또는 그룹 멤버 자격 관리와 같은 일반적인 Active Directory 관리 센터 작업을 사용할 수 있습니다. 이러한 작업은 관리되는 도메인에서 직접 만든 사용자 및 그룹에 대해서만 작동합니다. ID 정보는 Azure AD*에서* Azure AD DS로만 동기화됩니다. Azure AD DS에서 Azure AD로 다시 쓸 수는 없습니다. Azure AD에서 동기화된 사용자의 암호 또는 관리 그룹 멤버 자격을 변경하고 해당 변경 내용을 다시 동기화할 수 없습니다.
 
@@ -150,7 +150,7 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
 > * Windows Server VM에 Active Directory 관리 도구 설치
 > * Active Directory 관리 센터를 사용하여 일반 작업 수행
 
-관리되는 도메인과 안전하게 상호 작용하려면 LDAPS(보안 Lightweight Directory Access Protocol)를 사용하도록 설정합니다.
+다른 애플리케이션에서 관리되는 도메인과 안전하게 상호 작용하려면 보안 LDAPS(Lightweight Directory Access Protocol)를 사용하도록 설정합니다.
 
 > [!div class="nextstepaction"]
 > [관리되는 도메인에 대한 보안 LDAP 구성](tutorial-configure-ldaps.md)

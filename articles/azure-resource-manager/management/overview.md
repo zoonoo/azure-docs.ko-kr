@@ -1,14 +1,14 @@
 ---
-title: 개요
+title: Azure Resource Manager 개요
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 ms.topic: overview
 ms.date: 04/21/2020
-ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81870484"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087030"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
@@ -68,7 +68,7 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 
 리소스 그룹을 정의할 때 고려해야 할 몇 가지 중요한 요인이 있습니다.
 
-* 그룹에서 모든 리소스는 동일한 수명 주기를 공유해야 합니다. 리소스를 함께 배포, 업데이트, 삭제합니다. 데이터베이스 서버와 같은 하나의 리소스에 다양한 배포 주기가 존재하는 경우 다른 리소스 그룹에 있어야 합니다.
+* 그룹에서 모든 리소스는 동일한 수명 주기를 공유해야 합니다. 리소스를 함께 배포, 업데이트, 삭제합니다. 서버와 같은 하나의 리소스에 다양한 배포 주기가 존재하는 경우 다른 리소스 그룹에 있어야 합니다.
 
 * 각 리소스는 하나의 리소스 그룹에만 있을 수 있습니다.
 

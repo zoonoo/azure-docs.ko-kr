@@ -4,12 +4,12 @@ description: Azure Migrate 서비스의 새로운 기능 및 최신 업데이트
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: be617590ce0c96c3ec8ea705732534c8395ac0ce
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052331"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556923"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
@@ -17,6 +17,7 @@ ms.locfileid: "85052331"
 
 ## <a name="update-june-2020"></a>업데이트(2020년 6월)
 
+- 이제 온-프레미스 VMware VM을 [AVS(Azure VMware 솔루션)](https://go.microsoft.com/fwlink/?linkid=2132637)로 마이그레이션하기 위한 평가가 지원됩니다. [자세히 알아보기](how-to-create-azure-vmware-solution-assessment.md)
 - 물리적 서버 검색에 대한 어플라이언스의 여러 자격 증명을 지원합니다.
 - 테넌트 제한이 구성된 테넌트에 대해 어플라이언스에서 Azure 로그인을 허용하도록 지원합니다.
 - 새 Azure Migrate 어플라이언스 버전이 아래에 나열되어 있습니다.
