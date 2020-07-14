@@ -7,19 +7,19 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 06/18/2020
-ms.openlocfilehash: 56af098050315e1b2cb0bdde531cc38452db4738
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.date: 06/25/2020
+ms.openlocfilehash: cd4128328ac0c3e9f03ecc80abb6e7b17537b2ee
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079378"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483060"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
-> 이 자습서에서는 RHEL 7.6에서 SQL Server 2017을 사용하지만, RHEL 7 또는 RHEL 8에서 SQL Server 2019를 사용하여 고가용성을 구성할 수 있습니다. 가용성 그룹 리소스를 구성하는 명령은 RHEL 8에서 변경되었습니다. 올바른 명령에 대한 자세한 내용은 [가용성 그룹 리소스](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) 및 RHEL 8 리소스 만들기 문서를 참조하세요.
+> 이 자습서에서는 RHEL 7.6에서 SQL Server 2017을 사용하지만, RHEL 7 또는 RHEL 8에서 SQL Server 2019를 사용하여 고가용성을 구성할 수 있습니다. RHEL 8에서 pacemake 클러스터 및 가용성 그룹 리소스를 구성하는 명령이 변경되었습니다. 올바른 명령에 대한 자세한 내용은 문서 [가용성 그룹 리소스 만들기](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) 및 RHEL 8 리소스를 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -103,32 +103,118 @@ az vm availability-set create \
 
     ```output
     [
-            {
-              "offer": "RHEL-HA",
-              "publisher": "RedHat",
-              "sku": "7.4",
-              "urn": "RedHat:RHEL-HA:7.4:7.4.2019062021",
-              "version": "7.4.2019062021"
-            },
-            {
-              "offer": "RHEL-HA",
-              "publisher": "RedHat",
-              "sku": "7.5",
-              "urn": "RedHat:RHEL-HA:7.5:7.5.2019062021",
-              "version": "7.5.2019062021"
-            },
-            {
-              "offer": "RHEL-HA",
-              "publisher": "RedHat",
-              "sku": "7.6",
-              "urn": "RedHat:RHEL-HA:7.6:7.6.2019062019",
-              "version": "7.6.2019062019"
-            }
+      {
+    "offer": "RHEL-HA",
+    "publisher": "RedHat",
+    "sku": "7.4",
+    "urn": "RedHat:RHEL-HA:7.4:7.4.2019062021",
+    "version": "7.4.2019062021"
+       },
+       {
+    "offer": "RHEL-HA",
+    "publisher": "RedHat",
+    "sku": "7.5",
+    "urn": "RedHat:RHEL-HA:7.5:7.5.2019062021",
+    "version": "7.5.2019062021"
+        },
+        {
+    "offer": "RHEL-HA",
+    "publisher": "RedHat",
+    "sku": "7.6",
+    "urn": "RedHat:RHEL-HA:7.6:7.6.2019062019",
+    "version": "7.6.2019062019"
+         },
+         {
+    "offer": "RHEL-HA",
+    "publisher": "RedHat",
+    "sku": "8.0",
+    "urn": "RedHat:RHEL-HA:8.0:8.0.2020021914",
+    "version": "8.0.2020021914"
+         },
+         {
+    "offer": "RHEL-HA",
+    "publisher": "RedHat",
+    "sku": "8.1",
+    "urn": "RedHat:RHEL-HA:8.1:8.1.2020021914",
+    "version": "8.1.2020021914"
+          },
+          {
+    "offer": "RHEL-HA",
+    "publisher": "RedHat",
+    "sku": "80-gen2",
+    "urn": "RedHat:RHEL-HA:80-gen2:8.0.2020021915",
+    "version": "8.0.2020021915"
+           },
+           {
+    "offer": "RHEL-HA",
+    "publisher": "RedHat",
+    "sku": "81_gen2",
+    "urn": "RedHat:RHEL-HA:81_gen2:8.1.2020021915",
+    "version": "8.1.2020021915"
+           }
     ]
     ```
 
-    이 자습서에서는 `RedHat:RHEL-HA:7.6:7.6.2019062019` 이미지를 선택합니다.
+    이 자습서에서는 RHEL 7 예제에 대해 이미지 `RedHat:RHEL-HA:7.6:7.6.2019062019`를 선택하고 RHEL 8 예제에 대해 `RedHat:RHEL-HA:8.1:8.1.2020021914`를 선택합니다.
+    
+    RHEL8-HA 이미지에 미리 설치된 SQL Server 2019를 선택할 수도 있습니다. 이러한 이미지 목록을 가져오려면 다음 명령을 실행합니다.  
+    
+    ```azurecli-interactive
+    az vm image list --all --offer "sql2019-rhel8"
+    ```
 
+    다음 결과가 보일 것입니다.
+
+    ```output
+    [
+      {
+    "offer": "sql2019-rhel8",
+    "publisher": "MicrosoftSQLServer",
+    "sku": "enterprise",
+    "urn": "MicrosoftSQLServer:sql2019-rhel8:enterprise:15.0.200317",
+    "version": "15.0.200317"
+       },
+       }
+    "offer": "sql2019-rhel8",
+    "publisher": "MicrosoftSQLServer",
+    "sku": "enterprise",
+    "urn": "MicrosoftSQLServer:sql2019-rhel8:enterprise:15.0.200512",
+    "version": "15.0.200512"
+       },
+       {
+    "offer": "sql2019-rhel8",
+    "publisher": "MicrosoftSQLServer",
+    "sku": "sqldev",
+    "urn": "MicrosoftSQLServer:sql2019-rhel8:sqldev:15.0.200317",
+    "version": "15.0.200317"
+       },
+       {
+    "offer": "sql2019-rhel8",
+    "publisher": "MicrosoftSQLServer",
+    "sku": "sqldev",
+    "urn": "MicrosoftSQLServer:sql2019-rhel8:sqldev:15.0.200512",
+    "version": "15.0.200512"
+       },
+       {
+    "offer": "sql2019-rhel8",
+    "publisher": "MicrosoftSQLServer",
+    "sku": "standard",
+    "urn": "MicrosoftSQLServer:sql2019-rhel8:standard:15.0.200317",
+    "version": "15.0.200317"
+       },
+       {
+    "offer": "sql2019-rhel8",
+    "publisher": "MicrosoftSQLServer",
+    "sku": "standard",
+    "urn": "MicrosoftSQLServer:sql2019-rhel8:standard:15.0.200512",
+    "version": "15.0.200512"
+       }
+    ]
+    ```
+
+    위의 이미지 중 하나를 사용하여 가상 머신을 만드는 경우 SQL Server 2019가 미리 설치되어 있습니다. 이 문서에 설명된 대로 [SQL Server 및 mssql-tools 설치](#install-sql-server-and-mssql-tools) 섹션을 건너뜁니다.
+    
+    
     > [!IMPORTANT]
     > 가용성 그룹을 설정하려면 머신 이름이 15자 미만이어야 합니다. 사용자 이름은 대문자를 포함할 수 없으며, 암호는 13자 이상이어야 합니다.
 
@@ -276,9 +362,22 @@ ssh <username>@publicipaddress
 
     - `pcs cluster auth` 명령을 실행하여 클러스터 노드를 인증하는 경우 암호를 입력하라는 메시지가 표시됩니다. 이전에 만든 **hacluster** 사용자의 암호를 입력합니다.
 
+    **RHEL7**
+
     ```bash
     sudo pcs cluster auth <VM1> <VM2> <VM3> -u hacluster
     sudo pcs cluster setup --name az-hacluster <VM1> <VM2> <VM3> --token 30000
+    sudo pcs cluster start --all
+    sudo pcs cluster enable --all
+    ```
+
+    **RHEL8**
+
+    RHEL 8의 경우 노드를 별도로 인증해야 합니다. 메시지가 표시되면 **hacluster**의 사용자 이름 및 암호를 수동으로 입력합니다.
+
+    ```bash
+    sudo pcs host auth <node1> <node2> <node3>
+    sudo pcs cluster setup <clusterName> <node1> <node2> <node3>
     sudo pcs cluster start --all
     sudo pcs cluster enable --all
     ```
@@ -289,6 +388,8 @@ ssh <username>@publicipaddress
     sudo pcs status
     ```
 
+   **RHEL 7** 
+   
     모든 노드가 온라인 상태이면 다음과 비슷한 출력이 표시됩니다.
 
     ```output
@@ -315,7 +416,36 @@ ssh <username>@publicipaddress
           pacemaker: active/enabled
           pcsd: active/enabled
     ```
-
+   
+   **RHEL 8** 
+   
+    ```output
+    Cluster name: az-hacluster
+     
+    WARNINGS:
+    No stonith devices and stonith-enabled is not false
+     
+    Cluster Summary:
+    * Stack: corosync
+    * Current DC: <VM2> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
+    * Last updated: Fri Aug 23 18:27:57 2019
+    * Last change: Fri Aug 23 18:27:56 2019 by hacluster via crmd on <VM2>
+    * 3 nodes configured
+    * 0 resource instances configured
+     
+   Node List:
+    * Online: [ <VM1> <VM2> <VM3> ]
+   
+   Full List of Resources:
+   * No resources
+     
+   Daemon Status:
+          corosync: active/enabled
+          pacemaker: active/enabled
+          pcsd: active/enabled
+    
+    ```
+    
 1. 라이브 클러스터에서 예상 투표를 3으로 설정합니다. 이 명령은 라이브 클러스터에만 영향을 주며 구성 파일을 변경하지 않습니다.
 
     모든 노드에서 다음 명령을 사용하여 예상 투표를 설정합니다.
@@ -469,12 +599,18 @@ sudo firewall-cmd --reload
 ```
 
 ## <a name="install-sql-server-and-mssql-tools"></a>SQL Server 및 mssql-tools 설치
- 
-아래 섹션을 사용하여 SQL Server 및 mssql-tools를 VM에 설치합니다. 모든 노드에서 이러한 각 작업을 수행합니다. 자세한 내용은 [Red Hat VM에 SQL Server 설치](/sql/linux/quickstart-install-connect-red-hat)를 참조하세요.
+
+> [!NOTE]
+> RHEL8-HA에 사전 설치된 SQL Server 2019를 사용하여 VM을 만든 경우에는 아래 단계를 건너뛰어 SQL Server 및 mssql-tools를 설치하고 모든 VM에서 `sudo /opt/mssql/bin/mssql-conf set-sa-password` 명령을 실행하여 모든 VM에 대한 sa 암호를 설정한 후 **가용성 그룹 구성** 섹션을 시작할 수 있습니다.
+
+아래 섹션을 사용하여 SQL Server 및 mssql-tools를 VM에 설치합니다. 아래 샘플 중 하나를 선택하여 RHEL 7에 SQL Server 2017을 설치하거나 RHEL 8에 SQL Server 2019를 설치할 수 있습니다. 모든 노드에서 이러한 각 작업을 수행합니다. 자세한 내용은 [Red Hat VM에 SQL Server 설치](/sql/linux/quickstart-install-connect-red-hat)를 참조하세요.
+
 
 ### <a name="installing-sql-server-on-the-vms"></a>VM에 SQL Server 설치
 
 다음 명령을 사용하여 SQL Server를 설치합니다.
+
+**SQL Server 2017이 포함된 RHEL 7** 
 
 ```bash
 sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
@@ -483,6 +619,14 @@ sudo /opt/mssql/bin/mssql-conf setup
 sudo yum install mssql-server-ha
 ```
 
+**SQL Server 2019가 포함된 RHEL 8** 
+
+```bash
+sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/8/mssql-server-2019.repo
+sudo yum install -y mssql-server
+sudo /opt/mssql/bin/mssql-conf setup
+sudo yum install mssql-server-ha
+```
 ### <a name="open-firewall-port-1433-for-remote-connections"></a>원격 연결에 대한 1433 방화벽 포트 열기
 
 원격으로 연결하려면 VM에서 1433 포트를 열어야 합니다. 다음 명령을 사용하여 각 VM의 방화벽에서 1433 포트를 엽니다.
@@ -496,8 +640,17 @@ sudo firewall-cmd --reload
 
 다음 명령을 사용하여 SQL Server 명령줄 도구를 설치합니다. 자세한 내용은 [SQL Server 명령줄 도구 설치](/sql/linux/quickstart-install-connect-red-hat#tools)를 참조하세요.
 
+**RHEL 7** 
+
 ```bash
 sudo curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/7/prod.repo
+sudo yum install -y mssql-tools unixODBC-devel
+```
+
+**RHEL 8** 
+
+```bash
+sudo curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/8/prod.repo
 sudo yum install -y mssql-tools unixODBC-devel
 ```
  
@@ -796,26 +949,47 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
 
 ### <a name="create-the-ag-cluster-resource"></a>AG 클러스터 리소스 만들기
 
-1. 다음 명령을 사용하여 가용성 그룹 `ag1`에서 `ag_cluster` 리소스를 만듭니다.
+1. 이전에 선택한 환경에 따라 다음 명령 중 하나를 사용하여 가용성 그룹 `ag1`에서 `ag_cluster` 리소스를 만듭니다.
 
-    ```bash
-    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-    ```
+      **RHEL 7** 
+  
+        ```bash
+        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+        ```
 
-1. 다음 명령을 사용하기 전에 리소스를 확인하고 해당 리소스가 온라인 상태인지 확인합니다.
+      **RHEL 8** 
+  
+        ```bash
+        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+        ```
+
+2. 다음 명령을 사용하기 전에 리소스를 확인하고 해당 리소스가 온라인 상태인지 확인합니다.
 
     ```bash
     sudo pcs resource
     ```
 
     다음 출력이 표시됩니다.
-
+    
+    **RHEL 7** 
+    
     ```output
     [<username>@VM1 ~]$ sudo pcs resource
     Master/Slave Set: ag_cluster-master [ag_cluster]
     Masters: [ <VM1> ]
     Slaves: [ <VM2> <VM3> ]
     ```
+    
+    **RHEL 8** 
+    
+    ```output
+    [<username>@VM1 ~]$ sudo pcs resource
+    * Clone Set: ag_cluster-clone [ag_cluster] (promotable):
+    * ag_cluster             (ocf::mssql:ag) :            Slave VMrhel3 (Monitoring) 
+    * ag_cluster             (ocf::mssql:ag) :            Master VMrhel1 (Monitoring)
+    * ag_cluster             (ocf::mssql:ag) :            Slave VMrhel2 (Monitoring)
+    ```
+
 
 ### <a name="create-a-virtual-ip-resource"></a>가상 IP 리소스 만들기
 
@@ -827,13 +1001,13 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
     # The above will scan for all IP addresses that are already occupied in the 10.0.0.x space.
     ```
 
-1. **stonith-enabled** 속성을 false로 설정합니다.
+2. **stonith-enabled** 속성을 false로 설정합니다.
 
     ```bash
     sudo pcs property set stonith-enabled=false
     ```
 
-1. 다음 명령을 사용하여 가상 IP 리소스를 만듭니다.
+3. 다음 명령을 사용하여 가상 IP 리소스를 만듭니다.
 
     - 아래 `<availableIP>` 값을 사용하지 않는 IP 주소로 바꿉니다.
 
@@ -845,23 +1019,41 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
 
 1. IP 주소와 AG 리소스가 동일한 노드에서 실행되고 있는지 확인하려면 공동 배치 제약 조건을 구성해야 합니다. 다음 명령을 실행합니다.
 
+   **RHEL 7**
+  
     ```bash
     sudo pcs constraint colocation add virtualip ag_cluster-master INFINITY with-rsc-role=Master
     ```
 
-1. AG 리소스가 IP 주소보다 먼저 가동 상태가 되도록 하려면 정렬 제약 조건을 만듭니다. 공동 배치 제약 조건은 정렬 제약 조건을 암시하지만 정렬 제약 조건이 적용됩니다.
+   **RHEL 8**
+   
+    ```bash
+     sudo pcs constraint colocation add virtualip with master ag_cluster-clone INFINITY with-rsc-role=Master
+    ```
+  
+2. AG 리소스가 IP 주소보다 먼저 가동 상태가 되도록 하려면 정렬 제약 조건을 만듭니다. 공동 배치 제약 조건은 정렬 제약 조건을 암시하지만 정렬 제약 조건이 적용됩니다.
 
+   **RHEL 7**
+   
     ```bash
     sudo pcs constraint order promote ag_cluster-master then start virtualip
     ```
 
-1. 제약 조건을 확인하려면 다음 명령을 실행합니다.
+   **RHEL 8**
+   
+    ```bash
+    sudo pcs constraint order promote ag_cluster-clone then start virtualip
+    ```
+  
+3. 제약 조건을 확인하려면 다음 명령을 실행합니다.
 
     ```bash
     sudo pcs constraint list --full
     ```
 
     다음 출력이 표시됩니다.
+    
+    **RHEL 7**
 
     ```
     Location Constraints:
@@ -869,6 +1061,17 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
           promote ag_cluster-master then start virtualip (kind:Mandatory) (id:order-ag_cluster-master-virtualip-mandatory)
     Colocation Constraints:
           virtualip with ag_cluster-master (score:INFINITY) (with-rsc-role:Master) (id:colocation-virtualip-ag_cluster-master-INFINITY)
+    Ticket Constraints:
+    ```
+    
+    **RHEL 8**
+    
+    ```output
+    Location Constraints:
+    Ordering Constraints:
+            promote ag_cluster-clone then start virtualip (kind:Mandatory) (id:order-ag_cluster-clone-virtualip-mandatory)
+    Colocation Constraints:
+            virtualip with ag_cluster-clone (score:INFINITY) (with-rsc-role:Master) (id:colocation-virtualip-ag_cluster-clone-INFINITY)
     Ticket Constraints:
     ```
 
@@ -917,12 +1120,22 @@ Daemon Status:
 
 1. 다음 명령을 실행하여 주 복제본을 `<VM2>`로 수동으로 장애 조치합니다. `<VM2>`를 서버 이름의 값으로 바꿉니다.
 
+   **RHEL 7**
+   
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
     ```
 
-1. 제약 조건을 다시 확인하면 수동 장애 조치로 인해 다른 제약 조건이 추가되었음을 알 수 있습니다.
+   **RHEL 8**
+   
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master
+    ```
 
+2. 제약 조건을 다시 확인하면 수동 장애 조치로 인해 다른 제약 조건이 추가되었음을 알 수 있습니다.
+    
+    **RHEL 7**
+    
     ```output
     [<username>@VM1 ~]$ sudo pcs constraint list --full
     Location Constraints:
@@ -935,10 +1148,32 @@ Daemon Status:
     Ticket Constraints:
     ```
 
-1. 다음 명령을 사용하여 ID가 `cli-prefer-ag_cluster-master`인 제약 조건을 제거합니다.
+    **RHEL 8**
+    
+    ```output
+    [<username>@VM1 ~]$ sudo pcs constraint list --full
+    Location Constraints:
+          Resource: ag_cluster-master
+            Enabled on: VM2 (score:INFINITY) (role: Master) (id:cli-prefer-ag_cluster-clone)
+    Ordering Constraints:
+            promote ag_cluster-clone then start virtualip (kind:Mandatory) (id:order-ag_cluster-clone-virtualip-mandatory)
+    Colocation Constraints:
+            virtualip with ag_cluster-clone (score:INFINITY) (with-rsc-role:Master) (id:colocation-virtualip-ag_cluster-clone-INFINITY)
+    Ticket Constraints:
+    ```
+    
+3. 다음 명령을 사용하여 ID가 `cli-prefer-ag_cluster-master`인 제약 조건을 제거합니다.
 
+    **RHEL 7**
+    
     ```bash
     sudo pcs constraint remove cli-prefer-ag_cluster-master
+    ```
+
+    **RHEL 8**
+    
+    ```bash
+    sudo pcs constraint remove cli-prefer-ag_cluster-clone
     ```
 
 1. `sudo pcs resource` 명령을 사용하여 클러스터 리소스를 확인합니다. 그러면 이제 주 인스턴스가 `<VM2>`임을 알 수 있습니다.

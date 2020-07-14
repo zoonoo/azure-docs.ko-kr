@@ -8,24 +8,24 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 1ff29be9cde4a2bd53f0edbe57f3eab603c1796f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739497"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513806"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>자습서: Azure Machine Learning을 사용하여 사용자 지정 기술 빌드 및 배포 
 
-이 자습서에서는 [호텔 리뷰 데이터 세트](https://www.kaggle.com/datafiniti/hotel-reviews)(Creative Commons 라이선스 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)에 따라 배포됨)를 사용하여 Azure Machine Learning을 통해 리뷰에서 양상 기반 감정을 추출하는 [사용자 지정 기술](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)을 만듭니다. 이렇게 하면 동일한 리뷰 내에서 긍정적인 감정과 부정적인 감정을 직원, 객실, 로비, 수영장 등의 확인된 엔터티에 올바르게 할당할 수 있습니다.
+이 자습서에서는 [호텔 리뷰 데이터 세트](https://www.kaggle.com/datafiniti/hotel-reviews)(Creative Commons 라이선스 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)에 따라 배포됨)를 사용하여 Azure Machine Learning을 통해 리뷰에서 양상 기반 감정을 추출하는 [사용자 지정 기술](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill)을 만듭니다. 이렇게 하면 동일한 리뷰 내에서 긍정적인 감정과 부정적인 감정을 직원, 객실, 로비, 수영장 등의 확인된 엔터티에 올바르게 할당할 수 있습니다.
 
-양상 기반 감정 모델을 학습시키기 위해, [nlp 레시피 리포지토리](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa)를 사용하겠습니다. 그러면 모델이 Azure Kubernetes 클러스터에 엔드포인트로 배포됩니다. 배포된 모델은 Cognitive Search 서비스에서 사용할 수 있도록 보강 파이프라인에 사용자 지정 기술로 추가됩니다.
+Azure Machine Learning에서 양상 기반 감정 모델을 학습하기 위해 [nlp 레시피 리포지토리](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa)를 사용합니다. 그러면 모델이 Azure Kubernetes 클러스터에 엔드포인트로 배포됩니다. 배포되면 엔드포인트가 Cognitive Search 서비스에서 사용할 수 있도록 AML 기술로 보강 파이프라인에 추가됩니다.
 
 두 가지 데이터 세트가 제공됩니다. 모델을 직접 학습시키려면 hotel_reviews_1000.csv 파일이 필요합니다. 학습 단계를 건너뛰려면 hotel_reviews_100.csv 파일을 다운로드합니다.
 
 > [!div class="checklist"]
 > * Azure Cognitive Search 인스턴스 만들기
-> * Azure Machine Learning 작업 영역 만들기
+> * Azure Machine Learning 작업 영역 만들기(검색 서비스 및 작업 영역은 동일한 구독에 있어야 함)
 > * 모델을 학습시키고 Azure Kubernetes 클러스터에 배포
 > * AI 보강 파이프라인을 배포된 모델에 연결
 > * 배포된 모델의 출력을 사용자 지정 기술로 수집

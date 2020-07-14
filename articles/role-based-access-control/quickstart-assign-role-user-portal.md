@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: e70a3a1eedbc56754ad46fd99dddc0c7a3a6cf2f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735847"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362020"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -72,7 +72,9 @@ Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭
 
    역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-   ![추가 메뉴](./media/role-assignments-portal/add-menu.png)
+   ![역할 할당 추가 메뉴](./media/shared/add-role-assignment-menu.png)
+
+    역할 할당 추가 창이 열립니다.
 
    ![역할 할당 추가 창](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 

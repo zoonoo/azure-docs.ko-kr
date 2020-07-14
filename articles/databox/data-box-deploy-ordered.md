@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: bc21ba73ef7e8f5879af2b15787449315f36a3f8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cfb95f2fb02544197f9b2796a705844e33eca201
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745313"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392485"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -30,20 +30,173 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
+# <a name="portal"></a>[포털](#tab/portal)
+
 디바이스를 배포하기 전에 Data Box 서비스 및 디바이스에 대해 다음 필수 구성 요소를 완료합니다.
 
-### <a name="for-service"></a>서비스의 경우
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="for-device"></a>디바이스의 경우
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-시작하기 전에 다음 사항을 확인합니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-* 호스트 컴퓨터를 데이터 센터 네트워크에 연결해야 합니다. Data Box는 이 컴퓨터에서 데이터를 복사합니다. [Azure Data Box 시스템 요구 사항](data-box-system-requirements.md)에 설명된 대로 호스트 컴퓨터는 지원되는 운영 체제를 실행해야 합니다.
-* 데이터 센터에는 고속 네트워크가 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다.
+Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실행할 수 있습니다.
+
+* CLI를 설치하고 로컬로 CLI를 실행합니다.
+* Azure Portal 내에서 Azure Cloud Shell을 사용하여 CLI 명령을 실행합니다.
+
+이 자습서에서는 Windows PowerShell을 통해 Azure CLI를 사용하지만, 어떤 옵션을 선택해도 됩니다.
+
+### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
+
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 버전 2.0.67 이상을 설치합니다. 또는 [MSI를 사용하여 설치](https://aka.ms/installazurecliwindows)해도 됩니다.
+
+#### <a name="sign-in-to-azure"></a>Azure에 로그인
+
+Windows PowerShell 명령 창을 열고 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
+
+```azurecli
+PS C:\Windows> az login
+```
+
+다음은 성공적인 로그인의 출력입니다.
+
+```output
+You have logged in. Now let us find all the subscriptions to which you have access.
+[
+   {
+      "cloudName": "AzureCloud",
+      "homeTenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "isDefault": true,
+      "managedByTenants": [],
+      "name": "My Subscription",
+      "state": "Enabled",
+      "tenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "user": {
+          "name": "gusp@contoso.com",
+          "type": "user"
+      }
+   }
+]
+```
+
+#### <a name="install-the-azure-data-box-cli-extension"></a>Azure Data Box CLI 확장 설치
+
+Azure Data Box CLI 명령을 사용하려면 먼저 확장을 설치해야 합니다. Azure CLI 확장은 아직 핵심 CLI의 일부로 제공되지 않는 실험적 명령과 시험판 명령에 대한 액세스를 제공합니다. 확장에 대한 자세한 내용은 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
+
+Azure Data Box 확장을 설치하려면 `az extension add --name databox` 명령을 실행합니다.
+
+```azurecli
+
+    PS C:\Windows> az extension add --name databox
+```
+
+확장이 성공적으로 설치되면 다음 출력이 표시됩니다.
+
+```output
+    The installed extension 'databox' is experimental and not covered by customer support. Please use with discretion.
+    PS C:\Windows>
+
+    # az databox help
+
+    PS C:\Windows> az databox -h
+
+    Group
+        az databox
+
+    Subgroups:
+        job [Experimental] : Commands to manage databox job.
+
+    For more specific examples, use: az find "az databox"
+
+        Please let us know how we are doing: https://aka.ms/clihats
+```
+
+### <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
+
+브라우저를 통해 Azure 호스팅 대화형 셸 환경인 [Azure Cloud Shell](https://shell.azure.com/)을 사용하여 CLI 명령을 실행할 수 있습니다. Azure Cloud Shell은 Azure 서비스에서 Bash 또는 Windows PowerShell을 지원합니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성됩니다. Azure Portal의 오른쪽 위 섹션에 있는 메뉴에서 Cloud Shell 단추를 클릭합니다.
+
+![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+
+이 단추는 이 방법 문서에 설명된 단계를 실행하는 데 사용할 수 있는 대화형 셸을 시작합니다.
+
+<!-- To start Azure Cloud Shell:
+
+| Option | Example/Link |
+|-----------------------------------------------|---|
+| Select **Try It** in the upper-right corner of a code block. Selecting **Try It** doesn't automatically copy the code to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Go to [https://shell.azure.com](https://shell.azure.com), or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](../../includes/media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+
+To run the code in this article in Azure Cloud Shell:
+
+1. Start Cloud Shell.
+
+2. Select the **Copy** button on a code block to copy the code.
+
+3. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
+
+4. Select **Enter** to run the code.
+
+For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands. -->
+
+<!-- This goes away, we'll show this later when we show how to order a Data Box. -->
+<!-- ## Change the output format type
+
+All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`. -->
+
+<!-- ```azurecli
+
+az databox job <command> --output <output-format>
+
+```
+
+Azure Data Box CLI commands support the following output formats:
+
+* json (default setting)
+* jsonc
+* table
+* tsv
+* yaml
+* yamlc
+* none
+
+You can use the parameter `--output` with all Azure Data Box CLI commands. -->
+
+<!-- To set the output format to yaml: -->
+
+<!-- ```azurecli
+PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
+
+``` -->
+<!-- 
+To set the out format to tabular form (easier to read):
+
+```azurecli
+PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "table"
+
+``` -->
+
+<!-- Here's the example output of `az databox job show` after changing the output format to table:
+
+```azurecli
+PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
+Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+
+DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+--------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+
+``` -->
+
+---
 
 ## <a name="order-data-box"></a>Data Box 주문
+
+# <a name="portal"></a>[포털](#tab/portal)
 
 디바이스를 주문하려면 Azure Portal에서 다음 단계를 수행합니다.
 
@@ -80,7 +233,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 
     ![스토리지 계정에 대한 Data Box 주문](media/data-box-deploy-ordered/order-storage-account.png)
 
-    Data Box를 사용하여 온-프레미스 VHD에서 관리형 디스크를 만드는 경우에도 다음 정보를 제공해야 합니다.
+    Data Box를 사용하여 온-프레미스 VHD(가상 하드 디스크)에서 관리 디스크를 만드는 경우에도 다음 정보를 제공해야 합니다.
 
     |설정  |값  |
     |---------|---------|
@@ -92,7 +245,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 
 7. **배송 주소**에 사용자의 성과 이름, 회사의 이름과 우편 주소 및 유효한 전화 번호를 입력합니다. **주소 확인**을 클릭합니다. 서비스에서 서비스 가용성을 위해 배송 주소의 유효성을 검사합니다. 지정한 배송 주소에 대해 서비스를 사용할 수 있으면 해당 알림을 받게 됩니다.
 
-   주문이 성공적으로 배치된 후 자체 관리형 배송을 선택하면 이메일 알림을 받게 됩니다. 자체 관리형 배송에 대한 자세한 내용은 [자체 관리형 배송 사용](data-box-portal-customer-managed-shipping.md)을 참조하세요.
+   주문이 성공적으로 발주된 후 자체 관리형 배송을 선택하면 이메일 알림을 받게 됩니다. 자체 관리형 배송에 대한 자세한 내용은 [자체 관리형 배송 사용](data-box-portal-customer-managed-shipping.md)을 참조하세요.
 
 8. 배송 정보가 성공적으로 확인되면 **다음**을 클릭합니다.
 
@@ -104,7 +257,124 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 
 11. **주문**을 클릭합니다. 주문을 만드는 데 몇 분 정도 걸립니다.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+디바이스를 주문하려면 Azure CLI를 사용하여 다음 단계를 수행합니다.
+
+1. Data Box 주문에 대한 설정을 적습니다. 이러한 설정에는 개인/회사 정보, 구독 이름, 디바이스 정보 및 배송 정보가 포함됩니다. CLI 명령을 실행하여 Data Box 주문을 작성할 때 이러한 설정을 매개 변수로 사용해야 합니다. 다음 표에서는 `az databox job create`에 사용되는 매개 변수 설정을 보여줍니다.
+
+   | 설정(매개 변수) | Description |  샘플 값 |
+   |---|---|---|
+   |resource-group| 기존 그룹을 사용하거나 새 그룹을 만듭니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
+   |name| 작성하는 주문의 이름입니다. | "mydataboxorder"|
+   |contact-name| 배송 주소와 연결된 이름입니다. | "Gus Poland"|
+   |phone| 주문한 제품을 받을 사람 또는 회사의 전화 번호입니다.| "14255551234"
+   |위치| 디바이스를 배송할 가장 가까운 Azure 지역입니다.| "미국 서부"|
+   |sku| 주문하는 특정 Data Box 디바이스입니다. 유효한 값은 다음과 같습니다. "DataBox", "DataBoxDisk" 및 "DataBoxHeavy"| "DataBox" |
+   |email-list| 주문과 연결된 이메일 주소입니다.| "gusp@contoso.com" |
+   |street-address1| 주문한 제품이 배송되는 주소입니다. | "15700 NE 39th St" |
+   |street-address2| 아파트 번호 또는 건물 번호와 같은 보조 주소 정보입니다. | "Bld 123" |
+   |city| 디바이스가 배송될 도시입니다. | "Redmond" |
+   |state-or-province| 디바이스가 배송될 시/도입니다.| "WA" |
+   |country| 디바이스가 배송될 국가입니다. | "미국" |
+   |postal-code| 배송 주소와 연결된 우편 번호입니다.| "98052"|
+   |company-name| 근무하는 회사의 이름입니다.| "Contoso, LTD" |
+   |스토리지 계정 만들기| 데이터를 가져올 Azure Storage 계정입니다.| "mystorageaccount"|
+   |debug| 자세한 정보 로깅을 위한 디버깅 정보를 포함합니다.  | --debug |
+   |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
+   |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
+   |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
+
+2. 원하는 터미널의 명령 프롬프트에서 [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create)를 사용하여 Azure Data Box 주문을 작성합니다.
+
+   ```azurecli
+   az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
+   ```
+
+   다음은 명령 사용의 예입니다.
+
+   ```azurecli
+   az databox job create --resource-group "myresourcegroup" \
+                         --name "mydataboxtest3" \
+                         --location "westus" \
+                         --sku "DataBox" \
+                         --contact-name "Gus Poland" \
+                         --phone "14255551234" \
+                         --email-list "gusp@contoso.com" \
+                         --street-address1 "15700 NE 39th St" \
+                         --street-address2 "Bld 25" \
+                         --city "Redmond" \
+                         --state-or-province "WA" \
+                         --country "US" \
+                         --postal-code "98052" \
+                         --company-name "Contoso" \
+                         --storage-account mystorageaccount
+   ```
+
+   다음은 명령 실행의 출력입니다.
+
+   ```output
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   {
+     "cancellationReason": null,
+     "deliveryInfo": {
+        "scheduledDateTime": "0001-01-01T00:00:00+00:00"
+   },
+   "deliveryType": "NonScheduled",
+   "details": null,
+   "error": null,
+   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxtest3",
+   "identity": {
+     "type": "None"
+   },
+   "isCancellable": true,
+   "isCancellableWithoutFee": true,
+   "isDeletable": false,
+   "isShippingAddressEditable": true,
+   "location": "westus",
+   "name": "mydataboxtest3",
+   "resourceGroup": "myresourcegroup",
+   "sku": {
+     "displayName": null,
+     "family": null,
+     "name": "DataBox"
+   },
+   "startTime": "2020-06-10T23:28:27.354241+00:00",
+   "status": "DeviceOrdered",
+   "tags": {},
+   "type": "Microsoft.DataBox/jobs"
+
+   }
+   PS C:\Windows>
+
+   ```
+
+3. 모든 Azure CLI 명령은 사용자가 변경하지 않는 한 기본적으로 json을 출력 형식으로 사용합니다. 글로벌 매개 변수 `--output <output-format>`을 사용하여 출력 형식을 변경할 수 있습니다. 형식을 "table"로 변경하면 출력 가독성이 향상됩니다.
+
+   다음은 방금 실행한 명령을 약간 조정하여 형식을 변경하는 명령입니다.
+
+    ```azurecli
+    az databox job create --resource-group "myresourcegroup" --name "mydataboxtest4" --location "westus" --sku "DataBox" --contact-name "Gus Poland" --phone "14255551234" --email-list "gusp@contoso.com" --street-address1 "15700 NE 39th St" --street-address2 "Bld 25" --city "Redmond" --state-or-province "WA" --country "US" --postal-code "98052" --company-name "Contoso" --storage-account mystorageaccount --output "table"
+   ```
+
+   다음은 명령 실행의 출력입니다.
+
+   ```output
+
+    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+    DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+    --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+    NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+
+    ```
+
+---
+
 ## <a name="track-the-order"></a>주문 추적
+
+# <a name="portal"></a>[포털](#tab/portal)
 
 주문이 완료되면 Azure Portal에서 주문 상태를 추적할 수 있습니다. Data Box 주문, **개요**로 차례로 이동하여 상태를 확인합니다. 포털에서는 해당 주문을 **주문됨** 상태로 표시합니다.
 
@@ -123,17 +393,183 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 
 ![Data Box 주문 발송됨](media/data-box-overview/data-box-order-status-dispatched.png)
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="track-a-single-order"></a>단일 주문 추적
+
+단일 기존 Azure Data Box 주문에 대한 추적 정보를 가져오려면 [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show)를 실행합니다. 이 명령은 이름, 리소스 그룹, 추적 정보, 구독 ID, 연락처 정보, 배송 유형, 디바이스 sku 등의 주문 정보를 표시합니다.
+
+   ```azurecli
+   az databox job show --resource-group <resource-group> --name <order-name>
+   ```
+
+   다음 표에서는 `az databox job show`에 대한 매개 변수 정보를 보여줍니다.
+
+   | 매개 변수 | Description |  샘플 값 |
+   |---|---|---|
+   |resource-group [필수]| 주문과 연결된 리소스 그룹의 이름입니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
+   |name [필수]| 표시할 주문의 이름입니다. | "mydataboxorder"|
+   |debug| 자세한 정보 로깅을 위한 디버깅 정보를 포함합니다. | --debug |
+   |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
+   |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
+   |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
+
+   다음은 출력 형식이 "table"로 설정된 명령의 예입니다.
+
+   ```azurecli
+    PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" \
+                                                --name "mydataboxtest4" \
+                                                --output "table"
+   ```
+
+   다음은 명령 실행의 출력입니다.
+
+   ```output
+    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+    DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+    --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+    NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+   ```
+
+> [!NOTE]
+> 주문 나열은 구독 수준에서 지원할 수 있으며, 따라서 리소스 그룹은 필수 매개 변수가 아닌 선택적 매개 변수입니다.
+
+### <a name="list-all-orders"></a>모든 주문 나열
+
+여러 디바이스를 주문한 경우 [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list)를 실행하여 모든 Azure Data Box 주문을 볼 수 있습니다. 이 명령은 특정 리소스 그룹에 속한 모든 주문을 나열합니다. 또한 주문 이름, 배송 상태, Azure 지역, 배달 유형, 주문 상태가 출력에 표시됩니다. 취소된 주문도 목록에 포함됩니다.
+뿐만 아니라 이 명령은 각 주문의 타임스탬프를 표시합니다.
+
+```azurecli
+az databox job list --resource-group <resource-group>
+```
+
+다음 표에서는 `az databox job list`에 대한 매개 변수 정보를 보여줍니다.
+
+   | 매개 변수 | Description |  샘플 값 |
+   |---|---|---|
+   |resource-group [필수]| 주문을 포함하는 리소스 그룹의 이름입니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
+   |debug| 자세한 정보 로깅을 위한 디버깅 정보를 포함합니다. | --debug |
+   |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
+   |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
+   |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
+
+   다음은 출력 형식이 "table"로 설정된 명령의 예입니다.
+
+   ```azurecli
+    PS C:\WINDOWS\system32> az databox job list --resource-group "GDPTest" --output "table"
+   ```
+
+   다음은 명령 실행의 출력입니다.
+
+   ```output
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   CancellationReason                                               DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name                 ResourceGroup    StartTime                         Status
+   ---------------------- ----------------------------------------  --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  -------------------  ---------------  --------------------------------  -------------
+   OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        GDPTest          2020-05-26T23:20:57.464075+00:00  Cancelled
+   NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  GDPTest          2020-05-27T00:04:16.640397+00:00  Cancelled
+   IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       GDPTest          2020-06-10T16:54:23.509181+00:00  Cancelled
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest3       GDPTest          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest4       GDPTest          2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+   PS C:\WINDOWS\system32>
+   ```
+
+---
+
 ## <a name="cancel-the-order"></a>주문 취소
 
-이 주문을 취소하려면 Azure Portal에서 **개요**로 이동하고, 명령 모음에서 **취소**를 클릭합니다.
+# <a name="portal"></a>[포털](#tab/portal)
+
+이 주문을 취소하려면 Azure Portal에서 **개요**로 이동하고, 명령 모음에서 **취소**를 선택합니다.
 
 주문이 완료되면 주문 상태가 처리됨으로 표시되기 전까지는 취소할 수 있습니다.
 
-취소된 주문을 삭제하려면 **개요**로 이동하고, 명령 모음에서 **삭제**를 클릭합니다.
+취소된 주문을 삭제하려면 **개요**로 이동하고, 명령 모음에서 **삭제**를 선택합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="cancel-an-order"></a>주문 취소
+
+Azure Data Box 주문을 취소하려면 [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel) 명령을 실행합니다. 주문을 취소하는 이유를 지정해야 합니다.
+
+   ```azurecli
+   az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
+   ```
+
+   다음 표에서는 `az databox job cancel`에 대한 매개 변수 정보를 보여줍니다.
+
+   | 매개 변수 | Description |  샘플 값 |
+   |---|---|---|
+   |resource-group [필수]| 삭제할 주문과 연결된 리소스 그룹의 이름입니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
+   |name [필수]| 삭제할 주문의 이름입니다. | "mydataboxorder"|
+   |reason [필수]| 주문을 취소하는 이유입니다. | "잘못된 정보를 입력하여 주문을 취소해야 합니다." |
+   |예| 확인을 묻는 메시지를 표시하지 마세요. | --yes (-y)| --yes -y |
+   |debug| 자세한 정보 로깅을 위한 디버깅 정보를 포함합니다. | --debug |
+   |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
+   |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
+   |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
+
+   다음은 출력이 있는 명령의 예입니다.
+
+   ```azurecli
+   PS C:\Windows> az databox job cancel --resource-group "myresourcegroup" --name "mydataboxtest3" --reason "Our budget was slashed due to **redacted** and we can no longer afford this device."
+   ```
+
+   다음은 명령 실행의 출력입니다.
+
+   ```output
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   Are you sure you want to perform this operation? (y/n): y
+   PS C:\Windows>
+   ```
+
+### <a name="delete-an-order"></a>주문 삭제
+
+Azure Data Box 주문을 취소한 경우 [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete)를 실행하여 주문을 삭제할 수 있습니다.
+
+   ```azurecli
+   az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
+   ```
+
+   다음 표에서는 `az databox job delete`에 대한 매개 변수 정보를 보여줍니다.
+
+   | 매개 변수 | Description |  샘플 값 |
+   |---|---|---|
+   |resource-group [필수]| 삭제할 주문과 연결된 리소스 그룹의 이름입니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
+   |name [필수]| 삭제할 주문의 이름입니다. | "mydataboxorder"|
+   |subscription| Azure 구독의 이름 또는 ID(GUID)입니다. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
+   |예| 확인을 묻는 메시지를 표시하지 마세요. | --yes (-y)| --yes -y |
+   |debug| 자세한 정보 로깅을 위한 디버깅 정보를 포함합니다. | --debug |
+   |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
+   |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
+   |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
+
+다음은 출력이 있는 명령의 예입니다.
+
+   ```azurecli
+   PS C:\Windows> az databox job delete --resource-group "myresourcegroup" --name "mydataboxtest3" --yes --verbose
+   ```
+
+   다음은 명령 실행의 출력입니다.
+
+   ```output
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   command ran in 1.142 seconds.
+   PS C:\Windows>
+   ```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
+이 자습서에서는 Azure Data Box 문서의 다음 내용을 알아보았습니다.
 
 > [!div class="checklist"]
 >

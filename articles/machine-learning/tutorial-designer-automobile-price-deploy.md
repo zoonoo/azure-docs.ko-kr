@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e10e5050912788732128a8b765716c22fe9e576e
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656529"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517472"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 Machine Learning 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "83656529"
 > * 실시간 엔드포인트를 배포합니다.
 > * 실시간 엔드포인트를 테스트합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [이 자습서의 1부](tutorial-designer-automobile-price-train-score.md)를 완료하여 디자이너에서 Machine Learning 모델을 학습하고 채점하는 방법을 알아보세요.
 
@@ -40,7 +40,7 @@ ms.locfileid: "83656529"
 
 1. 파이프라인 캔버스의 위쪽에서 **유추 파이프라인 만들기** > **실시간 유추 파이프라인**을 차례로 선택합니다.
 
-    ![파이프라인 만들기 단추를 찾을 수 있는 위치를 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="파이프라인 만들기 단추를 찾을 수 있는 위치를 보여주는 스크린샷":::
 
     이제 파이프라인이 다음과 비슷할 것입니다. 
 
@@ -72,7 +72,7 @@ ms.locfileid: "83656529"
 1. 탐색 리본에서 **유추 클러스터** >  **+ 새로 만들기**를 선택합니다.
 
     ![새 유추 클러스터 창으로 이동하는 방법을 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
-
+   
 1. 유추 클러스터 창에서 새 Kubernetes 서비스를 구성합니다.
 
 1. **컴퓨팅 이름**에 *aks-compute*를 입력합니다.
@@ -96,8 +96,8 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 1. 만든 AKS 클러스터를 선택합니다.
 
 1. **배포**를 선택합니다.
-
-    ![새 실시간 엔드포인트를 설정하는 방법을 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="새 실시간 엔드포인트를 설정하는 방법을 보여주는 스크린샷":::
 
     배포가 완료된 후 캔버스 위의 성공 알림이 나타납니다. 몇 분 정도 걸릴 수 있습니다.
 

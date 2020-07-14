@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100852"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362937"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
@@ -67,20 +67,23 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
    
    선택한 지역과 연결된 Azure 지역은 이 호스트 풀 및 관련 개체에 대한 메타데이터가 저장되는 위치입니다. 서비스 메타데이터를 저장하려는 지리적 위치 내의 지역을 선택해야 합니다.
 
-     ![미국 동부 위치가 선택된 위치 필드를 보여주는 Azure Portal의 스크린샷 필드 옆에는 "메타데이터가 미국 동부에 저장됩니다."라는 텍스트가 있습니다.](media/portal-location-field.png)
+     > [!div class="mx-imgBorder"]
+     > ![미국 동부 위치가 선택된 위치 필드를 보여주는 Azure Portal의 스크린샷. 필드 옆에는 "메타데이터가 미국 동부에 저장됩니다."라는 텍스트가 있습니다.](media/portal-location-field.png)
 
 8. [호스트 풀 유형] 아래에서 호스트 풀이 **개인** 또는 **풀링됨**인지를 선택합니다.
 
     - **개인**을 선택하는 경우 [할당 유형] 필드에서 **자동** 또는 **직접**을 선택합니다.
 
-      ![할당 유형 필드 드롭다운 메뉴의 스크린샷. 사용자가 자동을 선택했습니다.](media/assignment-type-field.png)
+      > [!div class="mx-imgBorder"]
+      > ![할당 유형 필드 드롭다운 메뉴의 스크린샷. 사용자가 자동을 선택했습니다.](media/assignment-type-field.png)
 
 9. **풀링됨**을 선택하는 경우 다음 정보를 입력합니다.
 
      - **최대 세션 제한**에 대해 단일 세션 호스트로 부하가 분산되도록 하려는 최대 사용자 수를 입력합니다.
      - **부하 분산 알고리즘**에 대해 사용 패턴에 따라 [너비 우선] 또는 [깊이 우선] 중 하나를 선택합니다.
 
-       !["풀링됨"이 선택된 할당 유형 필드의 스크린샷. 사용자가 부하 분산 드롭다운 메뉴에서 커서로 너비 우선 위를 가리키고 있습니다.](media/pooled-assignment-type.png)
+       > [!div class="mx-imgBorder"]
+       > !["풀링됨"이 선택된 할당 유형 필드의 스크린샷. 사용자가 부하 분산 드롭다운 메뉴에서 커서로 너비 우선 위를 가리키고 있습니다.](media/pooled-assignment-type.png)
 
 10. 완료되면 **다음: VM 세부 정보**를 선택합니다.
 
@@ -117,11 +120,13 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
      원하는 이미지가 표시되지 않으면 **모든 이미지 및 디스크 찾아보기**를 선택합니다. 그러면 갤러리의 다른 이미지 또는 Microsoft 및 다른 게시자가 제공한 이미지를 선택할 수 있습니다.
 
-     ![Microsoft의 이미지 목록이 표시된 Marketplace의 스크린샷](media/marketplace-images.png)
+     > [!div class="mx-imgBorder"]
+     > ![Microsoft의 이미지 목록이 표시된 Marketplace의 스크린샷.](media/marketplace-images.png)
 
      **내 항목**으로 이동하여 이미 업로드한 사용자 지정 이미지를 선택할 수도 있습니다.
 
-     ![내 항목 탭의 스크린샷](media/my-items.png)
+     > [!div class="mx-imgBorder"]
+     > ![내 항목 탭의 스크린샷.](media/my-items.png)
 
     - **스토리지 Blob**을 선택하는 경우 Hyper-V 또는 Azure VM을 통해 고유한 이미지 빌드를 활용할 수 있습니다. 스토리지 Blob에 있는 이미지의 위치를 URI로 입력하면 됩니다.
 
@@ -136,7 +141,8 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
     >[!NOTE]
     >보안을 강화하려면 퍼블릭 인바운드 포트를 열지 않는 것이 좋습니다.
 
-    ![드롭다운 메뉴의 사용 가능한 포트 목록을 보여주는 보안 그룹 페이지의 스크린샷](media/available-ports.png)
+    > [!div class="mx-imgBorder"]
+    > ![드롭다운 메뉴의 사용 가능한 포트 목록을 보여주는 보안 그룹 페이지의 스크린샷.](media/available-ports.png)
     
     **고급**을 선택하는 경우 이미 구성한 기존 네트워크 보안 그룹을 선택합니다.
 

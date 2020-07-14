@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310023893d25a484cf05dac00628c632a4421edb
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: d8f65236fee57b4dc3e2bb012d8cdd222f431ec0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84719953"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482618"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartkargo"></a>자습서: SmartKargo와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -83,22 +83,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<CUSTOMER_NAME>.smartkargo.com/` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그인 URL** 텍스트 상자에서 `https://<CUSTOMER_NAME>.smartkargo.com/` 패턴을 사용하여 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<CUSTOMER_NAME>.smartkargo.com/` 패턴을 사용하는 URL을 입력합니다.
 
     다. **회신 URL** 텍스트 상자에서 `https://<CUSTOMER_NAME>.smartkargo.com/SamlResponse.aspx` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [SmartKargo 클라이언트 지원 팀](https://www.smartkargo.com/company/contact-2/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 값을 업데이트하세요. 이러한 값을 얻으려면 [SmartKargo 클라이언트 지원 팀](https://www.smartkargo.com/company/contact-2/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML 서명 인증서** 섹션에서 **편집** 단추를 클릭하여 **SAML 서명 인증서** 대화 상자를 엽니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
-    ![SAML 서명 인증서 편집](common/edit-certificate.png)
-
-1. **SAML 서명 인증서** 섹션에서 **지문 값**을 복사하여 컴퓨터에 저장합니다.
-
-    ![지문 값 복사](common/copy-thumbprint.png)
+    ![인증서 다운로드 링크](common/metadataxml.png)
 
 1. **SmartKargo 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
@@ -136,7 +132,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-smartkargo-sso"></a>SmartKargo SSO 구성
 
-**SmartKargo** 쪽에서 Single Sign-On을 구성하려면 **지문 값**과 Azure Portal에서 복사한 해당 URL을 [SmartKargo 플랫폼 지원 팀](https://www.smartkargo.com/company/contact-2/)으로 전송해야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**SmartKargo** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 Azure Portal에서 [SmartKargo 플랫폼 지원 팀](https://www.smartkargo.com/company/contact-2/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-smartkargo-test-user"></a>SmartKargo 테스트 사용자 만들기
 

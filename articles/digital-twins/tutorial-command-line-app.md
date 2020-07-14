@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 67b476b2ec6ec0c841639f7aa1d94a0d9d3d3304
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262350"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391828"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 이 자습서에서는 Azure Digital Twins 인스턴스와 상호 작용을 위해 명령줄 클라이언트 애플리케이션을 구현하는 샘플 애플리케이션을 소개합니다. 클라이언트 앱은 [자습서: 클라이언트 앱 코딩](tutorial-code.md)에서 작성한 앱과 비슷합니다.
 
@@ -132,6 +129,7 @@ CreateModels Room
 ```
 
 모델을 덮어쓸 수 없으므로 이제 서비스 오류가 반환됩니다.
+기존 모델을 삭제하는 방법에 대한 자세한 내용은 [방법: 사용자 지정 모델 관리](how-to-manage-model.md)를 참조하세요.
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -297,7 +295,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
 
-Azure Cloud Shell을 열고 다음 명령을 실행하여 리소스 그룹과 해당 그룹에 포함된 모든 항목을 삭제합니다.
+Azure Cloud Shell을 열고 다음 명령을 실행하여 리소스 그룹과 그 안에 포함된 모든 항목을 삭제합니다.
 
 ```azurecli-interactive
 az group delete --name <your-resource-group>

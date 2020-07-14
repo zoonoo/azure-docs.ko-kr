@@ -8,26 +8,24 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886713"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510983"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>자습서: 기술 세트에 대한 변경 내용 진단, 수정 및 적용
 
 이 문서에서는 Azure Portal을 사용하여 제공된 기술 세트와 관련된 문제를 복구하기 위해 디버그 세션에 액세스합니다. 기술 세트에는 해결해야 하는 몇 가지 오류가 있습니다. 이 자습서에서는 기술 입력 및 출력과 관련된 문제를 식별하고 해결하는 디버그 세션을 안내합니다.
 
 > [!Important]
-> Azure Cognitive Search에 대한 디버그 세션 지원은 [요청에 따라](https://aka.ms/DebugSessions) 제한된 액세스 미리 보기로 사용할 수 있습니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 추천되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 디버그 세션은 서비스 수준 계약 없이 제공되는 미리 보기 기능으로, 프로덕션 워크로드에는 권장되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 >
-> 미리 보기에 대한 액세스 권한이 부여되면 Azure Portal을 사용하여 서비스에 대한 디버그 세션에 액세스하고 사용할 수 있습니다.
->   
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!div class="checklist"]
 > * Azure 구독 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들거나 현재 구독을 사용합니다.

@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790537"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517640"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -107,8 +107,8 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 1. 캔버스 오른쪽에 있는 모듈 세부 정보 창에서 **출력 + 로그**를 선택합니다.
 
 1. 그래프 아이콘을 선택하여 데이터를 시각화합니다.
-
-    ![데이터 시각화](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="여기에서 텍스트를 대체합니다.":::
 
 1. 데이터 창에서 다른 열을 선택하여 각 열에 대한 정보를 확인합니다.
 
@@ -180,8 +180,8 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 1. 캔버스 오른쪽의 모듈 세부 정보 창에서 **주석** 상자를 선택하고 누락된 값 행 제거(*Remove missing value rows*)를 입력합니다. 
 
     파이프라인이 이제 다음과 같이 표시됩니다.
-    
-    ![Select-column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-column":::
 
 ## <a name="train-a-machine-learning-model"></a>기계 학습 모델 학습
 
@@ -229,7 +229,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
     > [!IMPORTANT]
     > **데이터 분할**의 왼쪽 출력 포트가 **학습 모델**에 연결되어 있는지 확인합니다. 왼쪽 포트는 학습 집합을 포함합니다. 오른쪽 포트는 테스트 집합을 포함합니다.
 
-    ![모델 학습 모듈의 올바른 구성을 보여주는 스크린샷 선형 회귀 모듈은 모델 학습 모듈의 왼쪽 포트에 연결되며 데이터 분할 모듈은 모델 학습의 오른쪽 포트에 연결됩니다.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="모델 학습 모듈의 올바른 구성을 보여주는 스크린샷. 선형 회귀 모듈은 모델 학습 모듈의 왼쪽 포트에 연결되며 데이터 분할 모듈은 모델 학습의 오른쪽 포트에 연결됩니다.":::
 
 1. **모델 학습** 모듈을 선택합니다.
 
@@ -244,7 +244,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
     파이프라인은 다음과 같습니다.
 
-    ![모델 학습 모듈을 추가한 후에 파이프라인의 올바른 구성을 보여 주는 스크린샷](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="모델 학습 모듈을 추가한 후에 파이프라인의 올바른 구성을 보여주는 스크린샷.":::
 
 ### <a name="add-the-score-model-module"></a>모델 점수 매기기 모듈 추가
 
@@ -264,7 +264,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
     최종 파이프라인은 다음과 같습니다.
 
-    ![파이프라인의 올바른 구성을 보여 주는 스크린샷](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="파이프라인의 올바른 구성을 보여주는 스크린샷.":::
 
 ## <a name="submit-the-pipeline"></a>파이프라인 제출
 
@@ -295,7 +295,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
     여기서는 테스트 데이터에서 예측된 가격과 실제 가격을 확인할 수 있습니다.
 
-    ![점수를 매긴 레이블 열이 강조 표시된 출력 시각화의 스크린샷](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="점수를 매긴 레이블 열이 강조 표시된 출력 시각화의 스크린샷":::
 
 ### <a name="evaluate-models"></a>모델 평가
 

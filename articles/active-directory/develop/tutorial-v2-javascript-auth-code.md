@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: e02f6946ff6f520fec63ead7e14e94f33182357f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3e6f94c3b44cd3316a25c356dc5e33835f8c9337
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682378"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553803"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 JavaScript SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 
@@ -42,10 +42,7 @@ MSAL.js 2.0은 암시적 권한 부여 흐름 대신 브라우저의 권한 부�
 
 이 자습서에서는 다음 라이브러리를 사용합니다.
 
-| | |
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)|JavaScript용 Microsoft 인증 라이브러리 v2.0 브라우저 패키지|
-| | |
+[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) JavaScript용 Microsoft 인증 라이브러리 v2.0 브라우저 패키지
 
 ## <a name="get-the-completed-code-sample"></a>완성된 코드 샘플 가져오기
 
@@ -57,7 +54,7 @@ MSAL.js 2.0은 암시적 권한 부여 흐름 대신 브라우저의 권한 부�
 
 자습서를 계속 진행하여 애플리케이션을 직접 빌드하려면 다음 [사전 요구 사항](#prerequisites) 섹션으로 이동합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Node.js](https://nodejs.org/en/download/)(로컬 웹 서버 실행용)
 * [Visual Studio Code](https://code.visualstudio.com/download) 또는 다른 코드 편집기
@@ -335,7 +332,7 @@ const tokenRequest = {
   - 기본(또는 *글로벌*) Azure 클라우드의 경우 `https://login.microsoftonline.com`을 입력합니다.
   - **국가별** 클라우드(예: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)에서 적절한 값을 찾을 수 있습니다.
 - `Enter_the_Tenant_info_here`는 다음 중 하나여야 합니다.
-  - 애플리케이션에서 *이 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**으로 바꿉니다. `contoso.microsoft.com`)을 입력합니다.
+  - 애플리케이션에서 *이 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**으로 바꿉니다. 예들 들어 `contoso.microsoft.com`입니다.
   - 애플리케이션에서 *모든 조직 디렉터리의 계정*을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
   - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정*을 지원하는 경우 이 값을 `common`으로 바꿉니다.
   - *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 `consumers`로 바꿉니다.
@@ -524,7 +521,7 @@ ID 토큰에는 사용자에 대한 기본 정보(예: 표시 이름)가 포함�
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-처음 로그인한 후에 보호된 리소스에 액세스해야 할 때마다(즉, 토큰을 요청하기 위해) 사용자에게 재인증하도록 요청하지 않아야 합니다. 이러한 재인증 요청을 방지하려면 `acquireTokenSilent`를 호출합니다. 그러나 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용하도록 강제로 적용해야 하는 경우도 있습니다. 다음은 그 예입니다.
+처음 로그인한 후에 보호된 리소스에 액세스해야 할 때마다(즉, 토큰을 요청하기 위해) 사용자에게 재인증하도록 요청하지 않아야 합니다. 이러한 재인증 요청을 방지하려면 `acquireTokenSilent`를 호출합니다. 그러나 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용하도록 강제로 적용해야 하는 경우도 있습니다. 예를 들면 다음과 같습니다.
 
 - 암호가 만료되어 사용자가 해당 자격 증명을 다시 입력해야 합니다.
 - 애플리케이션에서 리소스에 액세스하도록 요청하고 있으며 사용자의 동의가 필요합니다.

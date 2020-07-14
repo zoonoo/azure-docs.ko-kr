@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: c0a8185d81966932c17fd3b0590b5f8ef2f7b6df
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099663"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479796"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>자습서: IBM Digital Business Automation on Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -93,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다.
 
     > [!Note]
-    > 고객은 [DBAoC DevOps 팀](mailto:supportbpmoncloud@us.ibm.com)에서 클라우드 구독에 대한 메타데이터 파일을 얻을 수 있습니다.
+    > 고객은 [클라우드의 IBM Digital Business Automation 클라이언트 지원 팀](mailto:supportbpmoncloud@us.ibm.com)에서 클라우드 구독에 대한 메타데이터 파일을 가져올 수 있습니다.
 
 1. **서비스 공급자 메타데이터 파일**이 없는 경우 **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 

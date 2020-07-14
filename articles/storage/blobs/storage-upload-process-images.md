@@ -5,27 +5,27 @@ author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: 37e751d78bddd76847a4859b6f24e37bec5c9acb
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e8caf6af0b30809857fd59d88fd57e5e43010ae2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730496"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368348"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
-이 자습서는 시리즈의 1부입니다. 이 자습서에서는 Azure Blob 스토리지 클라이언트 라이브러리를 사용하여 이미지를 스토리지 계정에 업로드하는 웹앱을 배포하는 방법에 대해 알아봅니다. 완료되면 Azure Storage에서 이미지를 저장 및 표시하는 웹앱이 갖추어집니다.
+이 자습서는 시리즈의 1부입니다. 이 자습서에서는 웹앱을 배포하는 방법을 알아봅니다. 웹앱은 Azure Blob 스토리지 클라이언트 라이브러리를 사용하여 이미지를 스토리지 계정에 업로드합니다. 완료되면 Azure Storage에서 이미지를 저장 및 표시하는 웹앱이 갖추어집니다.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-![.NET 이미지 크기 조정 앱](media/storage-upload-process-images/figure2.png)
+![.NET의 이미지 크기 조정 앱](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-![Node.js V10 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![JavaScript의 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -46,7 +46,7 @@ ms.locfileid: "84730496"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하려면 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 2.0.4 이상을 실행합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -97,28 +97,26 @@ az storage account create --name $blobStorageAccount --location southeastasia `
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
-az storage container create -n images --account-name $blobStorageAccount \
+az storage container create --name images \
+  --account-name $blobStorageAccount \
   --account-key $blobStorageAccountKey
 
-az storage container create -n thumbnails --account-name $blobStorageAccount \
+az storage container create --name thumbnails \
+  --account-name $blobStorageAccount \
   --account-key $blobStorageAccountKey --public-access container
-
-echo "Make a note of your Blob storage account key..."
-echo $blobStorageAccountKey
 ```
 
 ```powershell
 $blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
-az storage container create -n images --account-name $blobStorageAccount `
+az storage container create --name images `
+  --account-name $blobStorageAccount `
   --account-key $blobStorageAccountKey
 
-az storage container create -n thumbnails --account-name $blobStorageAccount `
+az storage container create --name thumbnails `
+  --account-name $blobStorageAccount `
   --account-key $blobStorageAccountKey --public-access container
-
-echo "Make a note of your Blob storage account key..."
-echo $blobStorageAccountKey
 ```
 
 Blob 스토리지 계정 이름과 키를 적어 두세요. 샘플 앱에서 이러한 설정을 통해 스토리지 계정에 연결하여 이미지를 업로드합니다. 
@@ -177,20 +175,20 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.
+App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.
 
 ```bash
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+  --repo-url https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs
 ```
 
 ```powershell
 az webapp deployment source config --name $webapp --resource-group myResourceGroup `
   --branch master --manual-integration `
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+  --repo-url https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs
 ```
 
 ---
@@ -217,9 +215,9 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-샘플 웹앱은 [Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-js)를 사용하여 이미지 업로드에 사용되는 액세스 토큰을 요청합니다. Storage SDK에서 사용되는 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
+샘플 웹앱은 [JavaScript용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)를 사용하여 이미지를 업로드합니다. 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에서 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
 ```bash
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -243,7 +241,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-**사진 업로드** 지역을 선택하여 파일을 지정 및 업로드하거나 파일을 해당 지역으로 끌어갑니다. 성공적으로 업로드되면 이미지가 사라집니다. **생성된 썸네일** 섹션은 이 항목의 뒷부분에서 테스트할 때까지 비어 있습니다.
+**사진 업로드** 지역을 선택하여 파일을 지정 및 업로드하거나 파일을 해당 지역으로 끌어갑니다. 성공적으로 업로드되면 이미지가 사라집니다. **생성된 썸네일** 섹션은 이 자습서의 뒷부분에서 테스트할 때까지 비어 있습니다.
 
 ![.NET 사진 업로드](media/storage-upload-process-images/figure1.png)
 
@@ -283,16 +281,16 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [StorageSharedKeyCredential(String, String) constructor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-**파일 선택**을 선택하여 파일을 선택한 다음, **이미지 업로드**를 클릭합니다. **생성된 썸네일** 섹션은 이 항목의 뒷부분에서 테스트할 때까지 비어 있습니다. 
+**파일 선택**을 선택하여 파일을 선택한 다음, **이미지 업로드**를 클릭합니다. **생성된 썸네일** 섹션은 이 자습서의 뒷부분에서 테스트할 때까지 비어 있습니다.
 
-![Node.js V10 사진 업로드](media/storage-upload-process-images/upload-app-nodejs.png)
+![Node.js에서 사진 업로드](media/storage-upload-process-images/upload-app-nodejs.png)
 
 샘플 코드에서 `post` 경로는 이미지를 BLOB 컨테이너에 업로드하는 일을 담당합니다. 이 경로는 모듈을 사용하여 업로드를 처리하는 데 유용합니다.
 
 - [multer](https://github.com/expressjs/multer)는 경로 처리기에 대한 업로드 전략을 구현합니다.
-- [into-stream](https://github.com/sindresorhus/into-stream)은 [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)에서 요구하는 대로 버퍼를 스트림으로 변환합니다.
+- [into-stream](https://github.com/sindresorhus/into-stream)은 [uploadStream](/javascript/api/%40azure/storage-blob/blockblobclient#uploadstream-readable--number--number--blockblobuploadstreamoptions-)에서 요구하는 대로 버퍼를 스트림으로 변환합니다.
 
 파일이 경로로 전송되면 파일이 Blob 컨테이너에 업로드될 때까지 파일의 내용이 메모리에 유지됩니다.
 
@@ -300,34 +298,33 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 > 큰 파일을 메모리에 로드하면 웹앱의 성능에 부정적인 영향을 미칠 수 있습니다. 사용자가 큰 파일을 게시한다고 예상되는 경우 웹 서버 파일 시스템에서 파일을 준비한 다음, Blob 스토리지에 업로드하도록 예약하는 것이 좋습니다. 파일이 Blob 스토리지에 있으면 서버 파일 시스템에서 해당 파일을 제거할 수 있습니다.
 
 ```javascript
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const {
-  Aborter,
-  BlobURL,
-  BlockBlobURL,
-  ContainerURL,
-  ServiceURL,
-  StorageURL,
-  SharedKeyCredential,
-  uploadStreamToBlockBlob
+  BlobServiceClient,
+  StorageSharedKeyCredential,
+  newPipeline
 } = require('@azure/storage-blob');
 
 const express = require('express');
 const router = express.Router();
+const containerName1 = 'thumbnails';
 const multer = require('multer');
 const inMemoryStorage = multer.memoryStorage();
 const uploadStrategy = multer({ storage: inMemoryStorage }).single('image');
 const getStream = require('into-stream');
-const containerName = 'images';
+const containerName2 = 'images';
 const ONE_MEGABYTE = 1024 * 1024;
 const uploadOptions = { bufferSize: 4 * ONE_MEGABYTE, maxBuffers: 20 };
-const ONE_MINUTE = 60 * 1000;
-const aborter = Aborter.timeout(30 * ONE_MINUTE);
 
-const sharedKeyCredential = new SharedKeyCredential(
+const sharedKeyCredential = new StorageSharedKeyCredential(
   process.env.AZURE_STORAGE_ACCOUNT_NAME,
   process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY);
-const pipeline = StorageURL.newPipeline(sharedKeyCredential);
-const serviceURL = new ServiceURL(
+const pipeline = newPipeline(sharedKeyCredential);
+
+const blobServiceClient = new BlobServiceClient(
   `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net`,
   pipeline
 );
@@ -335,31 +332,62 @@ const serviceURL = new ServiceURL(
 const getBlobName = originalName => {
   // Use a random number to generate a unique file name, 
   // removing "0." from the start of the string.
-  const identifier = Math.random().toString().replace(/0\./, ''); 
+  const identifier = Math.random().toString().replace(/0\./, '');
   return `${identifier}-${originalName}`;
 };
 
-router.post('/', uploadStrategy, async (req, res) => {
+router.get('/', async (req, res, next) => {
 
-    const blobName = getBlobName(req.file.originalname);
-    const stream = getStream(req.file.buffer);
-    const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
-    const blobURL = BlobURL.fromContainerURL(containerURL, blobName);
-    const blockBlobURL = BlockBlobURL.fromBlobURL(blobURL);
+  let viewData;
 
-    try {
+  try {
+    const containerClient = blobServiceClient.getContainerClient(containerName1);
+    const listBlobsResponse = await containerClient.listBlobFlatSegment();
 
-      await uploadStreamToBlockBlob(aborter, stream,
-        blockBlobURL, uploadOptions.bufferSize, uploadOptions.maxBuffers);
-
-      res.render('success', { message: 'File uploaded to Azure Blob storage.' });   
-
-    } catch (err) {
-
-      res.render('error', { message: 'Something went wrong.' });
-
+    for await (const blob of listBlobsResponse.segment.blobItems) {
+      console.log(`Blob: ${blob.name}`);
     }
+
+    viewData = {
+      title: 'Home',
+      viewName: 'index',
+      accountName: process.env.AZURE_STORAGE_ACCOUNT_NAME,
+      containerName: containerName1
+    };
+
+    if (listBlobsResponse.segment.blobItems.length) {
+      viewData.thumbnails = listBlobsResponse.segment.blobItems;
+    }
+  } catch (err) {
+    viewData = {
+      title: 'Error',
+      viewName: 'error',
+      message: 'There was an error contacting the blob storage container.',
+      error: err
+    };
+    res.status(500);
+  } finally {
+    res.render(viewData.viewName, viewData);
+  }
 });
+
+router.post('/', uploadStrategy, async (req, res) => {
+  const blobName = getBlobName(req.file.originalname);
+  const stream = getStream(req.file.buffer);
+  const containerClient = blobServiceClient.getContainerClient(containerName2);;
+  const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+
+  try {
+    await blockBlobClient.uploadStream(stream,
+      uploadOptions.bufferSize, uploadOptions.maxBuffers,
+      { blobHTTPHeaders: { blobContentType: "image/jpeg" } });
+    res.render('success', { message: 'File uploaded to Azure Blob storage.' });
+  } catch (err) {
+    res.render('error', { message: err.message });
+  }
+});
+
+module.exports = router;
 ```
 
 ---
@@ -386,15 +414,15 @@ router.post('/', uploadStrategy, async (req, res) => {
 
 ![새 이미지가 표시된 .NET 이미지 크기 조정 앱](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-![새 이미지가 표시된 Node.js V10 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![새 이미지가 표시된 Node.js 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
-시리즈의 2부에서는 썸네일 이미지를 자동으로 만들므로 이 이미지가 필요하지 않습니다. Azure Portal의 **썸네일** 컨테이너에서 업로드한 이미지를 선택하고 **삭제**를 선택하여 이미지를 삭제합니다. 
+시리즈의 2부에서는 썸네일 이미지를 자동으로 만들므로 이 이미지가 필요하지 않습니다. **썸네일** 컨테이너에서 업로드한 이미지를 선택하고 **삭제**를 선택하여 이미지를 제거합니다.
 
-CDN(Content Delivery Network)을 사용하도록 설정하여 Azure 스토리지 계정의 콘텐츠를 캐시할 수 있습니다. Azure 스토리지 계정으로 CDN을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure CDN과 Azure 스토리지 계정 통합](../../cdn/cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
+CDN(Content Delivery Network)을 사용하도록 설정하여 Azure 스토리지 계정의 콘텐츠를 캐시할 수 있습니다. 자세한 내용은 [Azure CDN과 Azure Storage 계정 통합](../../cdn/cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,17 +10,17 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684740"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483383"
 ---
-# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>자습서: R을 사용하여 기계 학습 모델 만들기
+# <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>자습서: R을 사용하여 기계 학습 모델 만들기(미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 자습서에서는 Azure Machine Learning R SDK를 사용하여 자동차 사고로 인한 사망 확률을 예측하는 로지스틱 회귀 모델을 만듭니다. Azure Machine Learning 클라우드 리소스가 R과 함께 작동하여 모델 교육 및 배포를 위한 확장 가능한 환경을 제공하는 방법을 살펴봅니다.  
+이 자습서에서는 Azure Machine Learning R SDK(미리 보기)를 사용하여 자동차 사고로 인한 사망 확률을 예측하는 로지스틱 회귀 모델을 만듭니다. Azure Machine Learning 클라우드 리소스가 R과 함께 작동하여 모델 교육 및 배포를 위한 확장 가능한 환경을 제공하는 방법을 살펴봅니다.  
 
 이 자습서에서는 다음 작업을 수행합니다.
 > [!div class="checklist"]
@@ -73,7 +73,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. 작업 영역에 액세스하는 각 사용자를 표시하는 폴더 목록이 표시됩니다.  **vignettes** 폴더를 복제할 폴더를 선택합니다.
 
-## <a name="a-nameopenopen-rstudio"></a><a name="open">RStudio 열기
+## <a name="open-rstudio"></a><a name="open"></a>RStudio 열기
 
 컴퓨팅 인스턴스 또는 Notebook VM에서 RStudio를 사용하여 이 자습서를 실행합니다.  
 

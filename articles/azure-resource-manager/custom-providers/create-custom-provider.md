@@ -3,26 +3,38 @@ title: 리소스 공급자 만들기
 description: 리소스 공급 기업을 만들고 사용자 지정 리소스 유형을 배포하는 방법을 설명합니다.
 author: MSEvanhi
 ms.topic: tutorial
-ms.date: 06/19/2020
+ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: ce547c010d3cc814d4e6f6182c19572248228fc3
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125014"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368110"
 ---
-# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>빠른 시작: 사용자 지정 공급 기업 만들기 및 사용자 지정 리소스 배포
+# <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>빠른 시작: 사용자 지정 공급자 만들기 및 사용자 지정 리소스 배포
 
 이 빠른 시작에서는 사용자의 고유한 리소스 공급 기업을 만들고 해당 리소스 공급 기업을 위한 사용자 지정 리소스 형식을 배포합니다. 사용자 지정 공급 기업에 대한 자세한 내용은 [Azure 사용자 지정 공급 기업 미리 보기 개요](overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 빠른 시작의 단계를 완료하려면 `REST` 작업을 호출해야 합니다. [REST 요청을 전송하는 여러 가지 방법](/rest/api/azure/)이 있습니다.
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- 이 빠른 시작의 단계를 완료하려면 `REST` 작업을 호출해야 합니다. [REST 요청을 전송하는 여러 가지 방법](/rest/api/azure/)이 있습니다.
 
-Azure CLI 명령을 실행하려면 [Azure Cloud Shell의 Bash](/azure/cloud-shell/quickstart)를 사용합니다. [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) 명령에는 확장이 필요합니다. 자세한 내용은 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-PowerShell 명령을 로컬로 실행하려면 PowerShell 7 이상 및 Azure PowerShell 모듈을 사용합니다. 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. `REST` 작업을 위한 도구가 아직 없는 경우 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다. 이는 Azure Resource Manager API를 호출하여 간소화하는 오픈 소스 명령줄 도구입니다.
+- [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) 명령에는 확장이 필요합니다. 자세한 내용은 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
+- Azure CLI 예제에서는 `REST` 요청에 대해 `az rest`를 사용합니다. 자세한 내용은 [az rest](/cli/azure/reference-index#az-rest)를 참조하세요.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+- PowerShell 명령은 PowerShell 7 이상 및 Azure PowerShell 모듈을 사용하여 로컬로 실행됩니다. 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
+- `REST` 작업을 위한 도구가 아직 없는 경우 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다. 이는 Azure Resource Manager API를 호출하여 간소화하는 오픈 소스 명령줄 도구입니다.
+- **ARMClient**를 설치한 후 `armclient.exe`를 입력하여 PowerShell 명령 프롬프트에서 사용 정보를 표시할 수 있습니다. 또는 [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki)로 이동합니다.
+
+---
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>사용자 지정 공급 기업 배포
 
@@ -30,14 +42,16 @@ PowerShell 명령을 로컬로 실행하려면 PowerShell 7 이상 및 Azure Pow
 
 템플릿을 배포한 후 사용자 구독에는 다음 리소스가 표시됩니다.
 
-* 리소스 및 동작에 대한 작업을 사용하는 함수 앱.
-* 사용자 지정 공급 기업을 통해 생성된 사용자를 저장하기 위한 스토리지 계정.
-* 사용자 지정 리소스 형식 및 동작을 정의하는 사용자 지정 공급 기업. 요청을 보내기 위한 함수 앱 엔드포인트를 사용합니다.
-* 사용자 지정 공급 기업의 사용자 지정 리소스.
+- 리소스 및 동작에 대한 작업을 사용하는 함수 앱.
+- 사용자 지정 공급 기업을 통해 생성된 사용자를 저장하기 위한 스토리지 계정.
+- 사용자 지정 리소스 형식 및 동작을 정의하는 사용자 지정 공급 기업. 요청을 보내기 위한 함수 앱 엔드포인트를 사용합니다.
+- 사용자 지정 공급 기업의 사용자 지정 리소스.
 
-사용자 지정 공급자를 배포하려면 Azure CLI 또는 PowerShell을 사용합니다.
+사용자 지정 공급자를 배포하려면 Azure CLI, PowerShell 또는 Azure Portal을 사용합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+이 예제에서는 리소스 그룹, 위치 및 공급자의 함수 앱 이름을 입력하라는 메시지를 표시합니다. 이름은 다른 명령에 사용되는 변수에 저장됩니다. [az group create](/cli/azure/group#az-group-create) 및 [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) 명령을 통해 리소스를 배포합니다.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&
@@ -52,6 +66,8 @@ read
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
+이 예제에서는 리소스 그룹, 위치 및 공급자의 함수 앱 이름을 입력하라는 메시지를 표시합니다. 이름은 다른 명령에 사용되는 변수에 저장됩니다. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 및 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 명령을 통해 리소스를 배포합니다.
+
 ```powershell
 $rgName = Read-Host -Prompt "Enter a resource group name"
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
@@ -64,7 +80,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ---
 
-또는 다음 단추를 사용하여 Azure Portal에서 솔루션을 배포할 수 있습니다.
+Azure Portal에서 솔루션을 배포할 수도 있습니다. **Azure에 배포** 단추를 선택하여 Azure Portal에서 템플릿을 엽니다.
 
 [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
 
@@ -252,7 +268,7 @@ armclient PUT $addURI $requestBody
 
 ### <a name="list-custom-resource-providers"></a>사용자 지정 리소스 공급자 나열
 
-구독의 모든 사용자 지정 리소스 공급자를 나열합니다. 기본값은 현재 구독에 대한 사용자 지정 리소스 공급자를 나열하거나 `--subscription` 매개 변수를 지정할 수 있습니다. 리소스 그룹을 나열하려면 `--resource-group` 매개 변수를 사용합니다.
+`list` 명령을 사용하여 구독에 있는 모든 사용자 지정 리소스 공급자를 표시합니다. 기본값은 현재 구독의 사용자 지정 리소스 공급자를 나열하거나 `--subscription` 매개 변수를 지정할 수 있습니다. 리소스 그룹을 나열하려면 `--resource-group` 매개 변수를 사용합니다.
 
 ```azurecli-interactive
 az custom-providers resource-provider list --subscription $subID
@@ -289,7 +305,7 @@ az custom-providers resource-provider list --subscription $subID
 
 ### <a name="show-the-properties"></a>속성 표시
 
-사용자 지정 리소스 공급자의 속성을 표시합니다. 출력 형식은 `list` 출력과 비슷합니다.
+`show` 명령을 사용하여 사용자 지정 리소스 공급자의 속성을 표시합니다. 출력 형식은 `list` 출력과 비슷합니다.
 
 ```azurecli-interactive
 az custom-providers resource-provider show --resource-group $rgName --name $funcName
