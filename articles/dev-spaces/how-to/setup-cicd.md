@@ -8,11 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Azure Dev Spaces에서 Azure DevOps를 사용 하 여 연속 통합/연속 배포를 설정 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81685628"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229332"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure Dev Spaces로 CI/CD 사용
 
@@ -25,7 +26,7 @@ ms.locfileid: "81685628"
 ## <a name="prerequisites"></a>사전 요구 사항
 * [Azure Dev Spaces가 설정된 AKS(Azure Kubernetes Service) 클러스터](../get-started-netcore.md)
 * [Azure Dev Spaces CLI 설치](upgrade-tools.md)
-* [프로젝트가 있는 Azure DevOps 조직](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [프로젝트가 있는 Azure DevOps 조직](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [ACR(Azure Container Registry)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Azure Container Registry [관리자 계정](../../container-registry/container-registry-authentication.md#admin-account) 세부 정보
 * [AKS 클러스터가 Azure Container Registry에서 끌어오도록 허가](../../aks/cluster-container-registry-integration.md)
@@ -67,7 +68,7 @@ _dev_ 공간은 항상 리포지토리의 최신 상태인 기준선을 포함�
 > [!Note]
 > Azure DevOps _새 YAML 파이프라인 생성 환경_ 미리 보기 기능은 현재, 미리 정의된 빌드 파이프라인 만들기와 충돌합니다. 현재는 미리 정의된 빌드 파이프라인을 배포하려면 이 옵션을 사용하지 않도록 설정해야 합니다.
 
-_azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계를 정의하는 간단한 [Azure 파이프라인 YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema)을 포함했습니다.
+_azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계를 정의하는 간단한 [Azure 파이프라인 YAML](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema)을 포함했습니다.
 
 선택한 언어에 따라, 파이프라인 YAML은 `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`과 유사한 경로에서 체크 아웃되었습니다.
 

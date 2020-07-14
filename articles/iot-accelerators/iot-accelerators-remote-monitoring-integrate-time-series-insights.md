@@ -8,11 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564647"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232069"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
 
@@ -243,7 +244,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 위의 업데이트된 마이크로서비스에 대한 `standard` 배포 환경을 구성합니다.
 
-1. 명령줄에서 `kubectl proxy`를 실행합니다. 자세한 내용은 [Kubernetes API 액세스](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server)를 참조하세요.
+1. 명령줄에서 `kubectl proxy`를 실행합니다. 자세한 내용은 [Kubernetes API 액세스](https://kubernetes.io/docs/reference/access-authn-authz/)를 참조하세요.
 
 1. Kubernetes 관리 콘솔을 엽니다.
 

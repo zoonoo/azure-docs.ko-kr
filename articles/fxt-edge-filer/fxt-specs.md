@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846714"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231302"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Azure FXT Edge Filer 사양
 
@@ -34,7 +34,7 @@ ms.locfileid: "85846714"
 
 ![드라이브 번호 및 용량 레이블을 보여 주는 FXT 섀시에 있는 한 하드 드라이브 베이의 사진](media/fxt-drives-photo.png)
 
-| 드라이브 번호    |  Windows Server Update Services와 함께   |  사양 |
+| 드라이브 번호    |  용도   |  사양 |
 |------------------|--------|-----------------|
 | 0, 1             | OS     | 480GB SATA SSD |
 | 2, 3, 4, 5, 6, 7, 8, 9 | 데이터   | FXT 6600:3.2 TB NVMe SSD <br> FXT 6400:1.6 TB NVMe SSD |
@@ -46,7 +46,7 @@ Azure FXT Edge Filer는 표준 19인치 장비 랙에 설치되도록 설계되�
 
 <!-- 10x2.5 inches version -->
 
-| Filer 크기           |                          |
+| Filer 크기            | 값                    |
 |-----------------------------|--------------------------|
 | 높이                      | 42.8mm(1.68인치)    |
 | 너비(랙 가장자리 포함) | 482.0mm(18.97인치)  |
@@ -56,7 +56,7 @@ Azure FXT Edge Filer는 표준 19인치 장비 랙에 설치되도록 설계되�
 | 깊이 - 베젤을 제외한 최대 전면 돌출부까지 랙 가장자리 | 22.0mm(0.87인치)  |
 | 깊이 - 베젤을 포함한 최대 전면 돌출부까지 랙 가장자리    | 35.84mm(1.41인치) |
 
-| 무게 | |
+| 무게 | 값 |
 |-----------------|----------------------|
 | 노드 가중치(패키징 포함, 액세서리 제외) | 40lb(18.1kg) |
 | 순 중량(패키징 제외, 액세서리 포함) | 51lb(23.1kg)|

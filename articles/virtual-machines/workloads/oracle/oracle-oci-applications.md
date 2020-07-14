@@ -3,21 +3,22 @@ title: Azure Virtual Machines에 Oracle 앱을 배포 하는 아키텍처 Micros
 description: Azure 또는 Oracle 클라우드 인프라 (OCI)에서 데이터베이스를 사용 하 여 Microsoft Azure 가상 머신에서 E-비즈니스 제품군, JD Edwards EnterpriseOne 및 PeopleSoft를 포함 하는 Oracle 앱을 배포 하는 응용 프로그램 아키텍처입니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: f36dfe0092e3447053871ee0e5b4d659bb443779
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe6886f368d053af919b326fabf1ad4c3066717
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687476"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224539"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Azure에서 Oracle 응용 프로그램을 배포 하는 아키텍처
 

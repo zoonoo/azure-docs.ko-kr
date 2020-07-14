@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: d4b36f00bad8c06c2f62794fa03a85120af79965
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3957884a8c559194c436487050f0dbc09acf0441
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557386"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232511"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱
 
@@ -109,7 +109,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 캐시의 목적은 불필요 한 처리를 방지 하는 것 이지만 인덱서가 검색 하지 않는 기술 (예: 사용자 지정 기술 등의 외부 코드를 변경 하는 경우)을 변경 한다고 가정 합니다.
 
-이 경우 해당 기술 출력에 대 한 종속성이 있는 다운스트림 기술을 비롯 하 여 특정 기술에 대 한 다시 처리를 적용 하는 데 [다시 설정 기술을](https://docs.microsoft.com/rest/api/searchservice/reset-skills) 사용할 수 있습니다. 이 API는 무효화 되 고 다시 처리 하도록 표시 되어야 하는 기술 목록과 함께 POST 요청을 수락 합니다. 스킬을 다시 설정한 후 인덱서를 실행 하 여 파이프라인을 호출 합니다.
+이 경우 해당 기술 출력에 대 한 종속성이 있는 다운스트림 기술을 비롯 하 여 특정 기술에 대 한 다시 처리를 적용 하는 데 [다시 설정 기술을](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) 사용할 수 있습니다. 이 API는 무효화 되 고 다시 처리 하도록 표시 되어야 하는 기술 목록과 함께 POST 요청을 수락 합니다. 스킬을 다시 설정한 후 인덱서를 실행 하 여 파이프라인을 호출 합니다.
 
 ## <a name="change-detection"></a>변경 내용 검색
 
@@ -152,13 +152,13 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 REST API 버전 `2020-06-30-Preview` 에서는 인덱서의 추가 속성을 통해 증분 보강 제공 합니다. 기술력과 및 데이터 원본은 일반적으로 사용 가능한 버전을 사용할 수 있습니다. Api를 호출 하는 방법에 대 한 자세한 내용은 참조 설명서 외에도 [증분 보강에 대 한 캐싱 구성](search-howto-incremental-index.md) 을 참조 하세요.
 
-+ [Create 인덱서 (api-version = 2020-06 -30-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
++ [Create 인덱서 (api-version = 2020-06 -30-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 
 
-+ [Update 인덱서 (api-version = 2020-06 -30-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
++ [Update 인덱서 (api-version = 2020-06 -30-Preview)](https://docs.microsoft.com/rest/api/searchservice/update-indexer) 
 
 + [Update 기술 (api-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset) (요청의 새 URI 매개 변수)
 
-+ [기술 재설정 (api-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/reset-skills)
++ [기술 재설정 (api-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills)
 
 + 데이터베이스 인덱서 (Azure SQL, Cosmos DB). 일부 인덱서는 쿼리를 통해 데이터를 검색 합니다. 데이터를 검색 하는 쿼리의 경우 [업데이트 데이터 원본은](https://docs.microsoft.com/rest/api/searchservice/update-data-source) 요청에 대 한 새 매개 변수를 지원 합니다 .이 **요구 사항은** `true` 업데이트 작업에서 캐시를 무효화 하지 않아야 하는 경우로 설정 되어야 합니다. 
 

@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450587"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229536"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>JavaScript 웹 앱에 대 한 SDK 로드 오류 문제 해결
 
@@ -75,11 +76,11 @@ NPM 패키지 솔루션을 통해 SDK를 사용 하는 경우에도 마찬가지
 코드 조각과 해당 구성이 생성 된 각 페이지의 일부로 응용 프로그램에 의해 반환 되 면 코드 조각 구성을 변경 하 여 `src` SDK에 대해 다른 URL을 사용할 수 있습니다. 이 접근 방식을 사용 하면 새 URL을 차단 하지 않기 때문에 CDN 차단 문제를 무시할 수 있습니다.
 
 현재 Application Insights JavaScript SDK CDN 끝점
-- https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js
-- https://js.monitor.azure.com/scripts/b/ai.2.min.js
+- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
+- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
 
 > [!NOTE]
-> https://js.monitor.azure.com/끝점은 구성을 변경할 필요 없이 약 5 분 이내에 CDN 공급자 간을 전환할 수 있도록 하는 별칭입니다. 이는 CDN 공급자에 게 모든 사람이 설정을 조정할 필요 없이 지역 또는 글로벌 문제가 있는 경우 검색 된 CDN 관련 문제를 더 신속 하 게 수정할 수 있도록 하기 위한 것입니다.
+> `https://js.monitor.azure.com/`끝점은 구성을 변경할 필요 없이 약 5 분 이내에 CDN 공급자 간을 전환할 수 있도록 하는 별칭입니다. 이는 CDN 공급자에 게 모든 사람이 설정을 조정할 필요 없이 지역 또는 글로벌 문제가 있는 경우 검색 된 CDN 관련 문제를 더 신속 하 게 수정할 수 있도록 하기 위한 것입니다.
 
 ## <a name="sdk-failed-to-initialize-after-loading-the-script"></a>스크립트를 로드 한 후 SDK를 초기화 하지 못했습니다.
 

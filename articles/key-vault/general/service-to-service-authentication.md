@@ -9,12 +9,12 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 7ad3af46be26816231a15156d13fbec3275a5559
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 132663ed26eab41747f6fce25bdb2beabe286322
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855079"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232613"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -226,17 +226,20 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
 
 ## <a name="connection-string-support"></a>연결 문자열 지원
 
-기본적으로 `AzureServiceTokenProvider`는 여러 메서드를 사용하여 토큰을 검색합니다.
+기본적으로는 `AzureServiceTokenProvider` 토큰을 검색 하기 위해 다음 인증 방법을 순서 대로 시도 합니다.
 
-프로세스를 제어하려면 `AzureServiceTokenProvider` 생성자에 전달되거나 *AzureServicesAuthConnectionString* 환경 변수에 지정된 연결 문자열을 사용합니다.
+- [Azure 리소스에 대 한 관리 id](../..//active-directory/managed-identities-azure-resources/overview.md)
+- Visual Studio 인증
+- [Azure CLI 인증](/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Windows 통합 인증](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
-다음과 같은 옵션이 지원됩니다.
+프로세스를 제어하려면 `AzureServiceTokenProvider` 생성자에 전달되거나 *AzureServicesAuthConnectionString* 환경 변수에 지정된 연결 문자열을 사용합니다.  다음과 같은 옵션이 지원됩니다.
 
 | 연결 문자열 옵션 | 시나리오 | 의견|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | 로컬 개발 | `AzureServiceTokenProvider`는 AzureCli를 사용 하 여 토큰을 가져옵니다. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 로컬 개발 | `AzureServiceTokenProvider`Visual Studio를 사용 하 여 토큰을 가져옵니다. |
-| `RunAs=CurrentUser` | 로컬 개발 | `AzureServiceTokenProvider`Azure AD 통합 인증을 사용 하 여 토큰을 가져옵니다. |
+| `RunAs=CurrentUser` | 로컬 개발 | .NET Core에서는 지원 되지 않습니다. `AzureServiceTokenProvider`Azure AD 통합 인증을 사용 하 여 토큰을 가져옵니다. |
 | `RunAs=App` | [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider`관리 id를 사용 하 여 토큰을 가져옵니다. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [Azure 리소스에 대 한 사용자 할당 id](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider`사용자 할당 id를 사용 하 여 토큰을 가져옵니다. |
 | `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | 사용자 지정 서비스 인증 | `KeyVaultCertificateSecretIdentifier`인증서의 암호 식별자입니다. |

@@ -3,19 +3,19 @@ title: Azure IoT Central에서 디바이스 연결 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central의 디바이스 연결과 관련된 주요 개념을 소개합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710442"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224766"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -72,27 +72,48 @@ IoT Central 응용 프로그램으로 많은 수의 장치를 등록 하려면 C
 
 프로덕션 환경에서 x.509 인증서를 사용 하는 것이 IoT Central에 권장 되는 장치 인증 메커니즘입니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 디바이스 인증](../../iot-hub/iot-hub-x509ca-overview.md)을 참조하세요.
 
-X.509 인증서를 사용 하 여 장치를 연결 하기 전에 응용 프로그램에서 중간 또는 루트 x.509 인증서를 추가 하 고 확인 합니다. 장치는 루트 또는 중간 인증서에서 생성 된 리프 x.509 인증서를 사용 해야 합니다.
+X.509 인증서가 있는 장치를 응용 프로그램에 연결 하려면 다음을 수행 합니다.
 
-### <a name="add-and-verify-a-root-or-intermediate-certificate"></a>루트 또는 중간 인증서 추가 및 확인
+1. **인증서 (x.509)** 증명 유형을 사용 하는 *등록 그룹* 을 만듭니다.
+2. 등록 그룹에서 중간 또는 루트 x.509 인증서를 추가 하 고 확인 합니다.
+3. 등록 그룹의 루트 또는 중간 인증서에서 생성 된 리프 x.509 인증서를 사용 하는 장치를 등록 하 고 연결 합니다.
 
-**관리 > 장치 연결 > 기본 인증서 관리** 로 이동 하 여 장치 인증서를 생성 하는 데 사용 하는 x.509 루트 또는 중간 인증서를 추가 합니다.
+### <a name="create-an-enrollment-group"></a>등록 그룹 만들기
 
-![연결 설정](media/concepts-get-connected/manage-x509-certificate.png)
+[등록 그룹](../../iot-dps/concepts-service.md#enrollment) 은 동일한 증명 유형을 공유 하는 장치 그룹입니다. 지원 되는 두 가지 증명 유형은 x.509 certificate 및 SAS입니다.
 
-인증서 소유권을 확인 하면 인증서를 업로드 하는 사용자에 게 인증서의 개인 키가 포함 됩니다. 인증서를 확인 하려면:
+- X.509 등록 그룹에서 IoT Central에 연결 하는 모든 장치는 등록 그룹의 루트 또는 중간 인증서에서 생성 된 리프 X. x.509 인증서를 사용 합니다.
+- SAS 등록 그룹에서 IoT Central에 연결 하는 모든 장치는 등록 그룹의 SAS 토큰에서 생성 된 SAS 토큰을 사용 합니다.
 
-  1. **확인 코드** 옆의 단추를 선택 하 여 코드를 생성 합니다.
-  1. 이전 단계에서 생성 한 확인 코드를 사용 하 여 x.509 확인 인증서를 만듭니다. 인증서를 .cer 파일로 저장 합니다.
-  1. 서명 된 확인 인증서를 업로드 하 고 **확인**을 선택 합니다. 확인에 성공 하면 인증서가 **확인** 됨으로 표시 됩니다.
+모든 IoT Central 응용 프로그램에서 두 개의 기본 등록 그룹은 SAS 등록 그룹입니다. 하나는 IoT 장치이 고 하나는 Azure IoT Edge 장치입니다. X.509 등록 그룹을 만들려면 **장치 연결** 페이지로 이동 하 고 **+ 등록 그룹 추가**를 선택 합니다.
+
+:::image type="content" source="media/concepts-get-connected/add-enrollment-group.png" alt-text="X.509 등록 그룹 스크린샷 추가":::
+
+### <a name="add-and-verify-a-root-or-intermediate-x509-certificate"></a>루트 또는 중간 x.509 인증서 추가 및 확인
+
+등록 그룹에 루트 또는 중간 인증서를 추가 하 고 확인 하려면 다음을 수행 합니다.
+
+1. 방금 만든 x.509 등록 그룹으로 이동 합니다. 기본 및 보조 x.509 인증서를 추가 하는 옵션이 있습니다. **+ 기본 관리**를 선택 합니다.
+
+1. **기본 인증서 페이지**에서 기본 x.509 인증서를 업로드 합니다. 루트 또는 중간 인증서는 다음과 같습니다.
+
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="기본 인증서 스크린샷":::
+
+1. **확인 코드** 를 사용 하 여 사용 중인 도구에서 확인 코드를 생성 합니다. 그런 다음 **확인** 을 선택 하 여 확인 인증서를 업로드 합니다.
+
+1. 확인에 성공 하면 다음과 같은 확인 메시지가 표시 됩니다.
+
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="확인 된 기본 인증서 스크린샷":::
+
+인증서 소유권을 확인 하면 인증서를 업로드 하는 사용자에 게 인증서의 개인 키가 포함 됩니다.
 
 보안 위반이 발생 하거나 기본 인증서가 만료 되도록 설정 된 경우 보조 인증서를 사용 하 여 가동 중지 시간을 줄입니다. 주 인증서를 업데이트 하는 동안 보조 인증서를 사용 하 여 장치를 계속 프로 비전 할 수 있습니다.
 
 ### <a name="register-and-connect-devices"></a>장치 등록 및 연결
 
-X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV 파일을 사용 하 여 [장치 id 및 장치 이름을 가져와](howto-manage-devices.md#import-devices)응용 프로그램에 장치를 등록 합니다. 장치 Id는 모두 소문자 여야 합니다.
+X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV 파일을 사용 하 여 응용 프로그램에 장치를 등록 하 여 [장치 id 및 장치 이름을 가져옵니다](howto-manage-devices.md#import-devices). 장치 Id는 모두 소문자 여야 합니다.
 
-업로드 된 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 x.509 리프 인증서를 생성 합니다. 리프 인증서의 값으로 **장치 ID** 를 사용 `CNAME` 합니다. 장치 코드에는 응용 프로그램에 대 한 **id 범위** 값, **장치 id**및 해당 장치 인증서가 필요 합니다.
+X.509 등록 그룹에 업로드 한 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 x.509 리프 인증서를 생성 합니다. 리프 인증서의 값으로 **장치 ID** 를 사용 `CNAME` 합니다. 장치 코드에는 응용 프로그램에 대 한 **id 범위** 값, **장치 id**및 해당 장치 인증서가 필요 합니다.
 
 #### <a name="sample-device-code"></a>샘플 장치 코드
 
@@ -122,9 +143,9 @@ X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV �
 
 ### <a name="connect-devices-that-use-sas-tokens-without-registering"></a>등록 하지 않고 SAS 토큰을 사용 하는 장치 연결
 
-1. IoT Central 응용 프로그램의 그룹 기본 키를 복사 합니다.
+1. **SAS-IoT-장치** 등록 그룹에서 그룹 기본 키를 복사 합니다.
 
-    ![응용 프로그램 그룹 기본 SAS 키](media/concepts-get-connected/group-sas-keys.png)
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="SAS의 그룹 기본 키-IoT-장치 등록 그룹":::
 
 1. [Dps-ssh-keygen](https://www.npmjs.com/package/dps-keygen) 도구를 사용 하 여 장치 SAS 키를 생성 합니다. 이전 단계의 그룹 기본 키를 사용 합니다. 장치 Id는 소문자 여야 합니다.
 
@@ -145,7 +166,7 @@ X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV �
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>등록 하지 않고 x.509 인증서를 사용 하는 장치 연결
 
-1. IoT Central 응용 프로그램에 [루트 또는 중간 X. x.509 인증서를 추가 하 고 확인](#connect-devices-using-x509-certificates) 합니다.
+1. [등록 그룹을 만든](#create-an-enrollment-group) 다음 [루트 또는 중간 x.509 인증서](#add-and-verify-a-root-or-intermediate-x509-certificate) 를 IoT Central 응용 프로그램에 추가 하 고 확인 합니다.
 
 1. IoT Central 응용 프로그램에 추가한 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 리프 인증서를 생성 합니다. 리프 인증서에서로 소문자 장치 Id를 사용 `CNAME` 합니다.
 
