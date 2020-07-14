@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 515fd9bfedc5bc5d3cefda2a357c351f515fb5f5
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ebf948fdb1df76cb7bcb03ee5d85f581d856524f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194674"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918731"
 ---
 # <a name="introduction"></a>소개
 
@@ -30,7 +30,7 @@ Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 �
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 인증
 
-시스템 간 인증은 Azure Synapse Analytics에서 원활하게 수행됩니다. 스토리지 계정 또는 데이터 웨어하우스 서버에 액세스할 때 사용할 보안 토큰을 얻기 위해 Azure Active Directory와 연결하는 토큰 서비스가 있습니다. 
+시스템 간 인증은 Azure Synapse Analytics에서 원활하게 수행됩니다. 스토리지 계정 또는 데이터 웨어하우스 서버에 액세스할 때 사용할 보안 토큰을 얻기 위해 Azure Active Directory와 연결하는 토큰 서비스가 있습니다.
 
 따라서 스토리지 계정 및 데이터 웨어하우스 서버에서 AAD 인증을 구성하면 자격 증명을 만들거나 커넥터 API에서 자격 증명을 지정할 필요가 없습니다. AAD 인증을 구성하지 않는 경우 SQL 인증을 지정할 수 있습니다. 자세한 내용은 [사용](#usage) 섹션에서 확인할 수 있습니다.
 
@@ -40,19 +40,27 @@ Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 데이터를 주고 받을 데이터베이스/SQL 풀에서 **db_exporter** 역할이 있어야 합니다.
+- 데이터를 주고 받을 데이터베이스/SQL 풀에서 **db_exporter** 역할의 멤버여야 합니다.
+- 기본 스토리지 계정의 Storage Blob 데이터 기여자 역할 멤버여야 합니다.
 
-사용자를 만들려면 데이터베이스에 연결하고 다음 예제를 따릅니다.
+사용자를 만들려면 SQL 풀 데이터베이스에 연결하고 다음 예제를 따릅니다.
 
 ```sql
+--SQL User
 CREATE USER Mary FROM LOGIN Mary;
+
+--Azure Active Directory User
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 역할을 할당하는 방법은 다음과 같습니다.
 
 ```sql
+--SQL User
 EXEC sp_addrolemember 'db_exporter', 'Mary';
+
+--Azure Active Directory User
+EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 ```
 
 ## <a name="usage"></a>사용
@@ -72,7 +80,7 @@ import 문은 필요하지 않습니다. Notebook 환경용으로 미리 가져�
 #### <a name="read-api"></a>읽기 API
 
 ```scala
-val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
+val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
 위의 API는 SQL 풀의 내부(관리형)뿐 아니라 외부 테이블에 대해서도 작동합니다.
@@ -80,17 +88,51 @@ val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
 #### <a name="write-api"></a>쓰기 API
 
 ```scala
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-TableType은 Constants.INTERNAL 또는 Constants.EXTERNAL입니다.
+쓰기 API는 SQL 풀에 테이블을 만든 다음, Polybase를 호출하여 데이터를 로드합니다.  테이블이 SQL 풀에 존재하지 않아야 합니다. 그렇지 않으면 "같은 이름의 개체가 이미 있습니다"라는 내용의 오류가 반환됩니다.
+
+TableType 값
+
+- Constants.INTERNAL - SQL 풀의 관리형 테이블
+- Constants.EXTERNAL - SQL 풀의 외부 테이블
+
+SQL 풀 관리형 테이블
 
 ```scala
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.INTERNAL)
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
+df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 ```
 
-Storage 및 SQL Server에 대한 인증이 수행됩니다.
+SQL 풀 외부 테이블
+
+SQL 풀 외부 테이블에 쓰려면 SQL 풀에 EXTERNAL DATA SOURCE 및 EXTERNAL FILE FORMAT이 있어야 합니다.  자세한 내용은 SQL 풀의 [외부 데이터 원본 만들기](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [외부 파일 형식](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.  아래는 SQL 풀의 외부 데이터 원본 만들기 및 외부 파일 형식에 대한 예제입니다.
+
+```sql
+--For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+CREATE EXTERNAL DATA SOURCE <DataSourceName>
+WITH
+  ( LOCATION = 'abfss://...' ,
+    TYPE = HADOOP
+  ) ;
+
+CREATE EXTERNAL FILE FORMAT <FileFormatName>
+WITH (  
+    FORMAT_TYPE = PARQUET,  
+    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'  
+);
+```
+
+스토리지 계정에 Azure Active Directory 통과 인증을 사용하는 경우에는 EXTERNAL CREDENTIAL 개체가 필요 없습니다.  스토리지 계정의 "Storage Blob 데이터 기여자" 역할 멤버여야 합니다.
+
+```scala
+
+df.write.
+    option(Constants.DATA_SOURCE, <DataSourceName>).
+    option(Constants.FILE_FORMAT, <FileFormatName>).
+    sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
+
+```
 
 ### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>작업 영역 외부의 SQL 풀 또는 데이터베이스와 데이터를 주고 받는 경우
 
@@ -114,8 +156,8 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 ```scala
 df.write.
-option(Constants.SERVER, "[samplews].[database.windows.net]").
-sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+option(Constants.SERVER, "samplews.database.windows.net").
+sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="using-sql-auth-instead-of-aad"></a>AAD 대신 SQL 인증 사용
@@ -127,8 +169,8 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 ```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
-option(Constants.USER, [SQLServer Login UserName]).
-option(Constants.PASSWORD, [SQLServer Login Password]).
+option(Constants.USER, <SQLServer Login UserName>).
+option(Constants.PASSWORD, <SQLServer Login Password>).
 sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
@@ -136,10 +178,10 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 ```scala
 df.write.
-option(Constants.SERVER, "[samplews].[database.windows.net]").
-option(Constants.USER, [SQLServer Login UserName]).
-option(Constants.PASSWORD, [SQLServer Login Password]).
-sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+option(Constants.SERVER, "samplews.database.windows.net").
+option(Constants.USER, <SQLServer Login UserName>).
+option(Constants.PASSWORD, <SQLServer Login Password>).
+sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="using-the-pyspark-connector"></a>PySpark 커넥터 사용
@@ -166,7 +208,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 마찬가지로 읽기 시나리오에서는 Scala를 사용하여 데이터를 읽고 임시 테이블에 쓰고, PySpark에서 Spark SQL을 사용하여 임시 테이블을 데이터 프레임으로 쿼리합니다.
 
-## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>다른 사용자가 작업 영역에서 DW 커넥터를 사용할 수 있도록 허용
+## <a name="allowing-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>다른 사용자가 작업 영역에서 Synapse SQL 커넥터에 Azure Synapse Apache Spark를 사용할 수 있도록 허용
 
 다른 사용자에 대한 누락된 사용 권한을 변경하려면 작업 영역에 연결된 ADLS Gen2 스토리지 계정에서 Storage Blob 데이터 소유자여야 합니다. 사용자에게 작업 영역에 대한 액세스 권한과 Notebook을 실행할 수 있는 권한이 있는지 확인합니다.
 
@@ -178,7 +220,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 - 폴더 구조에서 다음 ACL을 지정합니다.
 
-| 폴더 | / | synapse | workspaces  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
+| 폴더 | / | synapse | workspaces  | \<workspacename> | sparkpools | \<sparkpoolname>  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
 | 액세스 권한 | --X | --X | --X | --X | --X | --X | -WX |
 | 기본 사용 권한 | ---| ---| ---| ---| ---| ---| ---|

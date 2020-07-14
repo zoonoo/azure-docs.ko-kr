@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9135873b61abf5a5ebd0d9c4d7f52ae314ee12
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84675380"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026834"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>자습서: Akamai와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -79,7 +79,7 @@ Akamai EAA 애플리케이션은 Azure AD 포털에서 개별적으로 설정합
 
 • 개별 CA 정책을 정의할 수 있습니다.
 
-• 모든 앱이 0365 Waffle 및 myApps.microsoft.com 패널에 표시됩니다.
+• 모든 앱이 O365 Waffle 및 myApps.microsoft.com 패널에 표시됩니다.
 
 **단점**:
 
