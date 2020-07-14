@@ -1,6 +1,6 @@
 ---
 title: '자습서: 대화형 쿼리를 사용한 ETL 작업 - Azure HDInsight'
-description: 자습서 - 원시 CSV 데이터 세트에서 데이터를 추출하는 방법을 알아봅니다. HDInsight에서 대화형 쿼리를 사용하여 변환합니다. 그런 다음, Apache Sqoop을 사용하여 변환된 데이터를 Azure SQL 데이터베이스에 로드합니다.
+description: 자습서 - 원시 CSV 데이터 세트에서 데이터를 추출하는 방법을 알아봅니다. HDInsight에서 대화형 쿼리를 사용하여 변환합니다. 그런 다음, Apache Sqoop을 사용하여 변환된 데이터를 Azure SQL Database에 로드합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021741"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319194"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드
 
-이 자습서에서는 공개적으로 사용 가능한 비행 데이터의 원시 CSV 데이터 파일을 다운로드합니다. HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight의 대화형 쿼리를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 [Apache Sqoop](https://sqoop.apache.org/)을 사용하여 Azure SQL 데이터베이스로 해당 데이터를 로드합니다.
+이 자습서에서는 공개적으로 사용 가능한 비행 데이터의 원시 CSV 데이터 파일을 다운로드합니다. HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight의 대화형 쿼리를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 [Apache Sqoop](https://sqoop.apache.org/)을 사용하여 Azure SQL Database의 데이터베이스로 해당 데이터를 로드합니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -25,14 +25,14 @@ ms.locfileid: "84021741"
 > * 샘플 비행 데이터 다운로드
 > * HDInsight 클러스터에 데이터 업로드
 > * 대화형 쿼리를 사용하여 데이터 변환
-> * Azure SQL 데이터베이스에 테이블 만들기
-> * Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터 내보내기
+> * Azure SQL Database의 데이터베이스에서 테이블 만들기
+> * Sqoop을 사용하여 Azure SQL Database의 데이터베이스에 데이터 내보내기
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 대화형 쿼리 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 대한 **대화형 쿼리**를 선택합니다.
 
-* Azure SQL Database. Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [Azure Portal에서 Azure SQL 데이터베이스 만들기](/azure/sql-database/sql-database-single-database-get-started)를 참조하세요.
+* Azure SQL Database의 데이터베이스입니다. 데이터베이스를 대상 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 [Azure Portal의 Azure SQL Database에서 데이터베이스 만들기](/azure/sql-database/sql-database-single-database-get-started)를 참조하세요.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -252,7 +252,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
 
 ## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Apache Sqoop을 사용하여 SQL Database로 데이터 내보내기
 
-이전 섹션에서는 `/tutorials/flightdelays/output`에서 변환된 데이터를 복사했습니다. 이 섹션에서는 Sqoop을 사용하여 `/tutorials/flightdelays/output`에서 Azure SQL 데이터베이스에서 만든 테이블로 데이터를 내보냅니다.
+이전 섹션에서는 `/tutorials/flightdelays/output`에서 변환된 데이터를 복사했습니다. 이 섹션에서는 Sqoop을 사용하여 `/tutorials/flightdelays/output`의 데이터를 Azure SQL Database에서 만든 테이블로 내보냅니다.
 
 1. 아래 명령을 입력하여 Sqoop이 SQL Database를 볼 수 있는지 확인합니다.
 

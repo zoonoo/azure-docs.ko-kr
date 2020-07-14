@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure DevOps 스타터를 사용 하 여 Azure Functions에 ASP.NET apps 배포'
-description: Azure DevOps 스타터를 사용 하면 Azure에서 쉽게 시작할 수 있습니다. DevOps 스타터를 사용 하면 몇 가지 빠른 단계를 통해 Azure Functions에 ASP.NET 앱을 배포할 수 있습니다.
+title: '자습서: Azure DevOps Starter를 사용하여 Azure Functions에 ASP.NET 앱 배포'
+description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Starter를 사용하면 몇 가지 빠른 단계로 ASP.NET 앱을 Azure Functions로 쉽게 배포할 수 있습니다.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233176"
 ---
-# <a name="deploy-to-azure-functions-with-devops-starter"></a>DevOps 스타터를 사용 하 여 Azure Functions에 배포
+# <a name="deploy-to-azure-functions-with-devops-starter"></a>DevOps Starter를 사용하여 Azure Functions에 배포
 
-Azure DevOps 스타터는 기존 코드 및 Git 리포지토리를 가져오거나 Azure에 대 한 CI (지속적인 통합) 및 CD (지속적인 업데이트) 파이프라인을 만들 수 있는 샘플 응용 프로그램을 선택할 수 있는 간소화 된 환경을 제공 합니다.
+Azure DevOps Starter는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션을 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다.
 
-DevOps 스타터도:
+DevOps Starter는 다음 작업도 수행합니다.
 
 * Azure Functions와 같은 Azure 리소스를 자동으로 만들기
 
@@ -28,7 +28,7 @@ DevOps 스타터도:
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
->* DevOps 스타터를 사용 하 여 Azure Function에 ASP.NET 앱 배포
+>* DevOps Starter를 사용하여 Azure 함수에 ASP.NET 앱 배포
 >* Azure DevOps 및 Azure 구독 구성
 >* Azure Function 검토
 >* CI 파이프라인 검토
@@ -38,19 +38,19 @@ DevOps 스타터도:
 
 현재 함수에 대해 지원되는 런타임은 **.NET** 및 **Node.js**입니다. 이 자습서에서는 NET 런타임을 사용하여 Azure Functions에 배포합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)를 통해 체험 구독을 얻을 수 있습니다.
 
-## <a name="use-devops-starter-to-deploy-an-aspnet-app-to-azure-functions"></a>DevOps 스타터를 사용 하 여 Azure Functions에 ASP.NET 앱 배포
+## <a name="use-devops-starter-to-deploy-an-aspnet-app-to-azure-functions"></a>DevOps Starter를 사용하여 Azure Functions에 ASP.NET 앱 배포
 
-DevOps 스타터는 Azure Pipelines에서 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Projects는 선택한 Azure 구독에서 IoTHub와 같은 Azure 리소스를 만듭니다.
+DevOps Starter는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Projects는 선택한 Azure 구독에서 IoTHub와 같은 Azure 리소스를 만듭니다.
 
 1. [Azure 포털](https://portal.azure.com)
 
-1. 검색 상자에 **Devops 스타터**를 입력 한 다음를 선택 합니다. 새 항목을 만들려면 **추가** 를 클릭 합니다.
+1. 검색 상자에 **DevOps Starter**를 입력한 다음, 선택합니다. **추가**를 클릭하여 새 항목을 만듭니다.
 
-    ![DevOps 스타터 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![DevOps Starter 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. **.NET**을 선택하고 **다음**을 선택합니다. **애플리케이션 프레임워크 선택**에서 **ASP.NET**을 선택하고 **다음**을 클릭합니다.
 
@@ -64,21 +64,21 @@ DevOps 스타터는 Azure Pipelines에서 CI/CD 파이프라인을 만듭니다.
 
 1. Azure 구독을 선택합니다.
 
-1. 추가 Azure 구성 설정을 확인 하 고 가격 책정 계층 및 위치를 확인 하려면 **추가 설정**을 클릭 합니다. 이 창에는 Azure 서비스의 가격 책정 계층 및 위치를 구성하기 위한 다양한 옵션이 표시됩니다.
+1. 추가 Azure 구성 설정을 검토하고 가격 책정 계층 및 위치를 확인하려면 **추가 설정**을 클릭합니다. 이 창에는 Azure 서비스의 가격 책정 계층 및 위치를 구성하기 위한 다양한 옵션이 표시됩니다.
 
 1. Azure 구성 영역을 종료하고 **완료**를 선택합니다.
 
-1. 몇 분 후에 프로세스가 완료 됩니다. 샘플 ASP.NET 앱이 Azure DevOps 조직의 Git 리포지토리에서 설정되고, 함수 앱 및 Application Insights가 만들어지고, CI/CD 파이프라인이 실행되고, 앱이 Azure에 배포됩니다.
+1. 몇 분 후에 프로세스가 완료됩니다. 샘플 ASP.NET 앱이 Azure DevOps 조직의 Git 리포지토리에서 설정되고, 함수 앱 및 Application Insights가 만들어지고, CI/CD 파이프라인이 실행되고, 앱이 Azure에 배포됩니다.
 
-   이 작업이 완료 되 면 Azure DevOps 스타터 대시보드가 Azure Portal 표시 됩니다. Azure Portal의 **모든 리소스** 에서 직접 Devops 스타터 대시보드로 이동할 수도 있습니다.
+   모든 작업이 완료된 후 Azure DevOps Starter 대시보드가 Azure Portal에 표시됩니다. Azure Portal의 **모든 리소스**에서 직접 DevOps Starter 대시보드로 이동할 수도 있습니다.
 
    이 대시보드에서는 Azure DevOps 코드 리포지토리, CI/CD 파이프라인 및 Azure Function에 가시성을 제공합니다. Azure DevOps 파이프라인에서 추가 CI/CD 옵션을 구성할 수 있습니다. 오른쪽에서 확인할 **함수 앱**을 선택합니다.
 
 ## <a name="examine-the-function-app"></a>함수 앱 검토
 
-DevOps 스타터는 사용자가 탐색 하 고 사용자 지정할 수 있는 함수 앱을 자동으로 구성 합니다. 함수 앱을 살펴보려면 다음을 수행합니다.
+DevOps Starter는 함수 앱을 자동으로 구성합니다. 그러면 사용자는 이 함수 앱을 살펴보고 사용자 지정할 수 있습니다. 함수 앱을 살펴보려면 다음을 수행합니다.
 
-1. DevOps 스타터 대시보드로 이동 합니다.
+1. DevOps Starter 대시보드로 이동합니다.
 
     ![DevOps Projects 대시보드](_img/azure-devops-project-functions/fapp-dashboard.png)
 
@@ -88,9 +88,9 @@ DevOps 스타터는 사용자가 탐색 하 고 사용자 지정할 수 있는 �
 
 ## <a name="examine-the-ci-pipeline"></a>CI 파이프라인 검토
 
-DevOps 스타터는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으로 구성 합니다. 파이프라인을 탐색하고 사용자 지정할 수 있습니다. 이 작업에 익숙해지려면 다음을 수행합니다.
+DevOps Starter는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으로 구성합니다. 파이프라인을 탐색하고 사용자 지정할 수 있습니다. 이 작업에 익숙해지려면 다음을 수행합니다.
 
-1. DevOps 스타터 대시보드로 이동 합니다.
+1. DevOps Starter 대시보드로 이동합니다.
 
 1. **빌드** 아래의 하이퍼링크를 클릭합니다. 브라우저 탭에 새 프로젝트에 대한 빌드 파이프라인이 표시됩니다.
 
@@ -98,7 +98,7 @@ DevOps 스타터는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으
 
 1. **편집**을 선택합니다. 이 창에서 빌드 파이프라인의 다양한 작업을 검사할 수 있습니다. 빌드는 Git 리포지토리에서 소스 코드 가져오기, 애플리케이션 빌드, 단위 테스트 실행 및 배포에 사용된 출력 게시 등 다양한 작업을 수행합니다.
 
-1. **트리거**를 선택합니다. DevOps 스타터는 CI 트리거를 자동으로 만들며 리포지토리에 대 한 모든 커밋을 새 빌드를 시작 합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+1. **트리거**를 선택합니다. DevOps Starter는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 
@@ -110,7 +110,7 @@ DevOps 스타터는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으
 
 ## <a name="examine-the-cd-release-pipeline"></a>CD 릴리스 파이프라인 검토
 
-DevOps 스타터는 Azure DevOps 조직에서 Azure 구독으로 배포 하는 데 필요한 단계를 자동으로 만들고 구성 합니다. 이러한 단계에는 Azure 구독에 Azure DevOps를 인증하기 위한 Azure 서비스 연결 구성이 포함됩니다. 또한 자동화 기능은 Azure에 CD를 제공하는 릴리스 파이프라인도 만듭니다. 릴리스 파이프라인에 대한 자세한 내용을 보려면 다음을 수행하세요.
+DevOps Starter는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 필요한 단계를 자동으로 만들고 구성합니다. 이러한 단계에는 Azure 구독에 Azure DevOps를 인증하기 위한 Azure 서비스 연결 구성이 포함됩니다. 또한 자동화 기능은 Azure에 CD를 제공하는 릴리스 파이프라인도 만듭니다. 릴리스 파이프라인에 대한 자세한 내용을 보려면 다음을 수행하세요.
 
 1. **파이프라인 | 릴리스**로 이동합니다.
 
@@ -139,26 +139,26 @@ DevOps 스타터는 Azure DevOps 조직에서 Azure 구독으로 배포 하는 �
 
 1. 리포지토리에는 사용자가 생성 프로세스에서 선택한 애플리케이션 언어를 기반으로 하는 **SampleFunctionApp**이라는 코드가 이미 포함되어 있습니다. **Application/SampleFunctionApp/Function1.cs** 파일을 엽니다.
 
-1. **편집**을 선택한 다음, **줄 번호 31**을 변경합니다. 예를 들어 여기에서 Hello로 업데이트할 수 있습니다 **. DevOps 스타터를 사용 하 여 Azure Functions 시작**
+1. **편집**을 선택한 다음, **줄 번호 31**을 변경합니다. 예를 들어 **Hello there! Welcome to Azure Functions using DevOps Starter**로 업데이트할 수 있습니다.
 
 1. 오른쪽 위에 있는 **커밋**을 선택한 후 **커밋**을 다시 선택하여 변경 내용을 적용합니다.
 
 1. **Application/SampleFunctionApp.Test/Function1TestRunner.cs** 파일을 엽니다. 
 
-1. **편집**을 선택한 다음, **줄 번호 21**을 변경합니다. 예를 들어 여기에서 Hello로 업데이트할 수 있습니다 **. Azure DevOps 스타터를 사용 하 여 Azure Functions를 시작**합니다.
+1. **편집**을 선택한 다음, **줄 번호 21**을 변경합니다. 예를 들어 **Hello there! Welcome to Azure Functions using Azure DevOps Starter**로 업데이트할 수 있습니다.
 
-     곧 Azure DevOps에서 빌드가 시작된 다음, 변경 내용을 배포하기 위해 릴리스가 실행됩니다. DevOps 스타터 대시보드 또는 브라우저에서 Azure DevOps 조직의 빌드 상태를 모니터링 합니다.
+     곧 Azure DevOps에서 빌드가 시작된 다음, 변경 내용을 배포하기 위해 릴리스가 실행됩니다. Azure DevOps 조직이 있는 브라우저에서 또는 DevOps Starter 대시보드를 사용하여 빌드 상태를 모니터링합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 만든 관련 리소스를 삭제할 수 있습니다. DevOps 스타터 대시보드에서 **삭제** 기능을 사용 합니다.
+더 이상 필요하지 않은 경우 만든 관련 리소스를 삭제할 수 있습니다. DevOps Starter 대시보드의 **삭제** 기능을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 팀의 요구를 충족하려면 필요에 따라 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * DevOps 스타터를 사용 하 여 Azure Function에 ASP.NET Core 앱 배포
+> * DevOps Starter를 사용하여 Azure 함수에 ASP.NET Core 앱 배포
 > * Azure DevOps 및 Azure 구독 구성 
 > * Azure Function 검토
 > * CI 파이프라인 검토

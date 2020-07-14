@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d631143b839e052316490d3b3b89ca10469cb1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 2f3ea5f1810b5ca80e096b19e1dcf230e21eabcc
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778827"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317632"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -42,7 +42,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 > * 가입 디바이스 확인
 > * 문제 해결
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)(1.1.819.0 이상)
 - Azure AD 테넌트에 대한 글로벌 관리자의 자격 증명
@@ -70,9 +70,9 @@ Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 될 디
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`(Seamless SSO를 사용하거나 사용할 계획이 있는 경우)
 
-조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 디바이스를 Azure AD에 등록할 수 있도록 [WPAD(웹 프록시 자동 검색)를 구현](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))하는 것이 좋습니다. WPAD 구성 및 관리 문제를 해결하려면 [자동 검색 문제 해결](/previous-versions/tn-archive/cc302643(v=technet.10))을 참조하세요.
+조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 [WPAD(웹 프록시 자동 검색)를 구현](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))을 사용하여 Windows 10 컴퓨터에서 Azure AD로 디바이스를 등록할 수 있습니다. WPAD 구성 및 관리 문제를 해결하려면 [자동 검색 문제 해결](/previous-versions/tn-archive/cc302643(v=technet.10))을 참조하세요. 1709 업데이트 이전의 Windows 10 디바이스에서 WPAD는 하이브리드 Azure AD 조인과 함께 작동하도록 프록시를 구성하는 데 사용할 수 있는 유일한 옵션입니다. 
 
-WPAD를 사용하지 않는 경우 Windows 10 1709부터 컴퓨터에서 프록시 설정을 구성할 수 있습니다. 자세한 내용은 [GPO를 통해 배포되는 WinHTTP 프록시 설정](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/) 을 참조하세요.
+WPAD를 사용하지 않는 경우 Windows 10 1709부터 컴퓨터에서 WinHTTP 프록시 설정을 구성할 수 있습니다. 자세한 내용은 [GPO를 통해 배포되는 WinHTTP 프록시 설정](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/) 을 참조하세요.
 
 > [!NOTE]
 > WinHTTP 설정을 사용하여 컴퓨터에서 프록시 설정을 구성하는 경우 구성된 프록시에 연결할 수 없는 모든 컴퓨터는 인터넷에 연결할 수 없습니다.
