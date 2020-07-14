@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 1e725fb483afed0f126248737c2e9121ce823a45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdef11fec93d4ba6254957ad14e0612e2fd05580
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734693"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221360"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure Active Directory Domain Services 관리 되는 도메인에 Windows Server 가상 머신 연결
 
@@ -86,8 +86,8 @@ Windows Server VM을 만들려면 관리 되는 도메인에 가입 하 고 다�
 
     | Setting                   | 값 |
     |---------------------------|-------|
-    | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
-    | Resource group            | VM에 대 한 리소스 그룹을 선택 합니다. |
+    | 구독              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
+    | 리소스 그룹            | VM에 대 한 리소스 그룹을 선택 합니다. |
     | 위치                  | VM의 위치를 선택 합니다. |
     | 기존 VNET 이름        | VM을 연결할 기존 가상 네트워크의 이름 (예: *Myvnet*)입니다. |
     | 기존 서브넷 이름      | *작업 부하*와 같은 기존 가상 네트워크 서브넷의 이름입니다. |
@@ -119,8 +119,8 @@ Windows Server VM을 만들려면 관리 되는 도메인에 가입 하 고 다�
 
     | Setting                   | 값 |
     |---------------------------|-------|
-    | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
-    | Resource group            | 기존 VM을 사용 하 여 리소스 그룹을 선택 합니다. |
+    | 구독              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
+    | 리소스 그룹            | 기존 VM을 사용 하 여 리소스 그룹을 선택 합니다. |
     | 위치                  | 기존 VM의 위치를 선택 합니다. |
     | VM 목록                   | *MyVM1, myVM2*와 같이 관리 되는 도메인에 조인할 기존 VM의 쉼표로 구분 된 목록을 입력 합니다. |
     | 도메인 가입 사용자 이름     | 관리 되는 도메인에서 VM을 관리 되는 도메인에 연결 하는 데 사용 해야 하는 사용자 계정입니다 (예:) `contosoadmin@aaddscontoso.com` . 이 계정은 관리 되는 도메인의 일부 여야 합니다. |

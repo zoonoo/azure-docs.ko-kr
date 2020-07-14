@@ -6,11 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ab6ee597cfdc5d169bd33b77a061880b19e134b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7be1c350af6c9bb84669b45a9bc8a1d9dd808133
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302295"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165637"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고 문제 해결  
 
@@ -182,9 +183,10 @@ Azure 활동 로그의 다음 샘플 이벤트는 지속적으로 실패 하 여
 - 분석 플랫폼에 대 한 데이터 흐름이 없습니다. 제공 된 쿼리에 대 한 데이터가 없기 때문에 [쿼리 실행 시 오류가](https://dev.loganalytics.io/documentation/Using-the-API/Errors) 발생 합니다.
 - [쿼리 언어](https://docs.microsoft.com/azure/kusto/query/) 의 변경 내용에는 명령 및 함수에 대 한 수정 된 형식이 포함 됩니다. 따라서 경고 규칙에서 이전에 제공 된 쿼리가 더 이상 유효 하지 않습니다.
 
-이 동작에 대 한 경고를 [Azure Advisor](../../advisor/advisor-overview.md) 합니다. Azure Advisor에 대 한 특정 로그 경고 규칙에 대 한 권장 사항은 중간에 영향을 주는 고가용성의 범주 아래에 추가 되 고 "모니터링을 보장 하기 위해 로그 경고 규칙 복구"에 대 한 설명이 추가 됩니다. Azure Advisor에서 7 일에 대 한 권장 사항을 제공한 후 로그 경고 규칙의 경고 쿼리가 수정 되지 않는 경우, Azure Monitor는 로그 경고를 사용 하지 않도록 설정 하 고, 규칙을 계속 해 서 (예: 주간)에 대해 계속 실행할 수 없을 때 불필요 하 게 청구 되지 않도록 합니다.
+이 동작에 대 한 경고를 [Azure Advisor](../../advisor/advisor-overview.md) 합니다. Azure Advisor에 대 한 특정 로그 경고 규칙에 대 한 권장 사항은 중간에 영향을 주는 고가용성의 범주 아래에 추가 되 고 "모니터링을 보장 하기 위해 로그 경고 규칙 복구"에 대 한 설명이 추가 됩니다.
 
-[Azure 활동 로그](../../azure-resource-manager/management/view-activity-logs.md)에서 이벤트를 검색 하 여 Azure Monitor 로그 경고 규칙을 사용 하지 않도록 설정 하는 정확한 시간을 찾을 수 있습니다.
+> [!NOTE]
+> Azure Advisor에서 7 일에 대 한 권장 사항을 제공한 후 로그 경고 규칙의 경고 쿼리가 수정 되지 않는 경우, Azure Monitor는 로그 경고를 사용 하지 않도록 설정 하 고, 규칙을 계속 해 서 실행 하지 못할 경우 (7 일)에는 불필요 하 게 청구 되지 않도록 합니다. [Azure 활동 로그](../../azure-resource-manager/management/view-activity-logs.md)에서 이벤트를 검색 하 여 Azure Monitor 로그 경고 규칙을 사용 하지 않도록 설정 하는 정확한 시간을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

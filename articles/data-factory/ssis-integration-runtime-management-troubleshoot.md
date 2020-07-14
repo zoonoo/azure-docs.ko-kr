@@ -11,11 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118827"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86172029"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 관리 문제 해결
 
@@ -114,7 +115,7 @@ IR이 실행 중인 경우 IR을 중지하고 새 사용자 지정 설정 컨테
 ## <a name="virtual-network-configuration"></a>가상 네트워크 구성
 
 SSIS IR을 Azure Virtual Network에 조인할 때 SSIS IR은 사용자 구독에 속한 가상 네트워크를 사용합니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요.
-
+SSIS IR이 성공적으로 시작 된 후 네트워크 연결 문제가 발생 하는 경우 [연결 진단 도구](ssis-integration-runtime-diagnose-connectivity-faq.md) 를 사용 하 여 문제를 직접 진단할 수 있습니다.
 Virtual Network 관련 이슈가 있는 경우 다음 오류 중 하나가 표시됩니다.
 
 ### <a name="invalidvnetconfiguration"></a>InvalidVnetConfiguration

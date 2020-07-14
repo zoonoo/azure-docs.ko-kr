@@ -7,13 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 35f92afea9f9e8da3cf1eeefa81cac0cb712843a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2802445bbb80a4412787362a3ee9aaee4adcd40
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734625"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223502"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 리소스 관리자으로 Azure Active Directory Domain Services 마이그레이션
 
@@ -45,7 +46,7 @@ Azure Active Directory Domain Services (Azure AD DS)는 현재 클래식 가상 
 관리 되는 도메인 마이그레이션의 몇 가지 일반적인 시나리오에는 다음 예제가 포함 됩니다.
 
 > [!NOTE]
-> 성공적인 마이그레이션을 확인할 때까지 클래식 가상 네트워크를 변환 하지 마십시오. 가상 네트워크를 변환 하면 마이그레이션 및 확인 단계 중에 문제가 발생 하는 경우 관리 되는 도메인을 롤백하거나 복원 하는 옵션이 제거 됩니다.
+> 성공적인 마이그레이션을 확인 하기 전 까지는 클래식 가상 네트워크를 변환 하지 마세요. 가상 네트워크를 변환 하면 마이그레이션 및 확인 단계 중에 문제가 발생 하는 경우 관리 되는 도메인을 롤백하거나 복원 하는 옵션이 제거 됩니다.
 
 ### <a name="migrate-azure-ad-ds-to-an-existing-resource-manager-virtual-network-recommended"></a>Azure AD DS을 기존 리소스 관리자 virtual network로 마이그레이션 (권장)
 
@@ -97,13 +98,15 @@ Azure Active Directory Domain Services (Azure AD DS)는 현재 클래식 가상 
 
 마이그레이션 후에 관리 되는 도메인에 대 한 도메인 컨트롤러 IP 주소를 변경 합니다. 이 변경에는 보안 LDAP 끝점에 대 한 공용 IP 주소가 포함 됩니다. 새 IP 주소는 리소스 관리자 가상 네트워크의 새 서브넷에 대 한 주소 범위 내에 있습니다.
 
-롤백하는 경우 IP 주소는 롤백된 후 변경 될 수 있습니다.
+롤백해야 하는 경우 IP 주소는 롤백된 후 변경 될 수 있습니다.
 
 Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가능한 IP 주소를 사용 하지만이는 보장 되지 않습니다. 현재 마이그레이션 후에 사용할 IP 주소를 지정할 수 없습니다.
 
 ### <a name="downtime"></a>가동 중지 시간
 
-마이그레이션 프로세스에는 도메인 컨트롤러가 일정 기간 동안 오프 라인 상태로 유지 됩니다. Azure AD DS는 리소스 관리자 배포 모델 및 가상 네트워크로 마이그레이션되면 도메인 컨트롤러에 액세스할 수 없습니다. 평균적으로 가동 중지 시간은 약 1 ~ 3 시간입니다. 이 기간은 도메인 컨트롤러를 오프 라인 상태로 전환 하는 순간부터 첫 번째 도메인 컨트롤러가 다시 온라인 상태가 되는 시간입니다. 이 평균은 두 번째 도메인 컨트롤러를 복제 하는 데 소요 되는 시간이 나 추가 리소스를 리소스 관리자 배포 모델로 마이그레이션하는 데 소요 되는 시간을 포함 하지 않습니다.
+마이그레이션 프로세스에는 도메인 컨트롤러가 일정 기간 동안 오프 라인 상태로 유지 됩니다. Azure AD DS는 리소스 관리자 배포 모델 및 가상 네트워크로 마이그레이션되면 도메인 컨트롤러에 액세스할 수 없습니다.
+
+평균적으로 가동 중지 시간은 약 1 ~ 3 시간입니다. 이 기간은 도메인 컨트롤러를 오프 라인 상태로 전환 하는 순간부터 첫 번째 도메인 컨트롤러가 다시 온라인 상태가 되는 시간입니다. 이 평균은 두 번째 도메인 컨트롤러를 복제 하는 데 소요 되는 시간이 나 추가 리소스를 리소스 관리자 배포 모델로 마이그레이션하는 데 소요 되는 시간을 포함 하지 않습니다.
 
 ### <a name="account-lockout"></a>계정 잠금
 
@@ -142,7 +145,7 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
 | 단계    | 수행한  | 예상 시간  | 가동 중지 시간  | 롤백/복원 할까요? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
+| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure Portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
 | [2 단계-마이그레이션에 대 한 관리 되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 15 ~ 30 분 (평균) | 이 명령이 완료 된 후 Azure AD DS의 가동 중지 시간이 시작 됩니다. | 롤백 및 복원 사용 가능. |
 | [3 단계-관리 되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 1 ~ 3 시간 (평균) | 이 명령이 완료 되 면 하나의 도메인 컨트롤러를 사용할 수 있으며 가동 중지 시간이 종료 됩니다. | 오류가 발생 하면 롤백 (셀프 서비스) 및 복원을 모두 사용할 수 있습니다. |
 | [4 단계-복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1 시간 이상 | 두 도메인 컨트롤러를 모두 사용할 수 있으며 정상적으로 작동 해야 합니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원에 대 한 옵션이 없습니다. |
@@ -206,7 +209,7 @@ Azure PowerShell는 마이그레이션에 대 한 관리 되는 도메인을 준
 
 ## <a name="migrate-the-managed-domain"></a>관리 되는 도메인 마이그레이션
 
-관리 되는 도메인을 준비 하 고 백업한 후에는 도메인을 마이그레이션할 수 있습니다. 이 단계에서는 리소스 관리자 배포 모델을 사용 하 여 Azure AD Domain Services 도메인 컨트롤러 Vm을 다시 만듭니다. 이 단계를 완료 하는 데 1 ~ 3 시간이 걸릴 수 있습니다.
+관리 되는 도메인을 준비 하 고 백업한 후에는 도메인을 마이그레이션할 수 있습니다. 이 단계에서는 리소스 관리자 배포 모델을 사용 하 여 Azure AD DS 도메인 컨트롤러 Vm을 다시 만듭니다. 이 단계를 완료 하는 데 1 ~ 3 시간이 걸릴 수 있습니다.
 
 `Migrate-Aadds` *-Commit* 매개 변수를 사용 하 여 cmdlet을 실행 합니다. 이전 섹션에서 준비 된 자체 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* (예: *aaddscontoso.com*)을 제공 합니다.
 
@@ -247,7 +250,9 @@ PowerShell 스크립트를 닫는 경우에도 마이그레이션 프로세스�
 
 하나 이상의 도메인 컨트롤러를 사용할 수 있는 경우 Vm과 네트워크 연결에 대 한 다음 구성 단계를 완료 합니다.
 
-* **DNS 서버 설정 업데이트** 리소스 관리자 가상 네트워크에서 다른 리소스를 확인 하 고 관리 되는 도메인을 사용할 수 있도록 하려면 새 도메인 컨트롤러의 IP 주소로 DNS 설정을 업데이트 합니다. Azure Portal에서 자동으로 이러한 설정을 구성할 수 있습니다. 리소스 관리자 가상 네트워크를 구성 하는 방법에 대 한 자세한 내용은 [Azure virtual network에 대 한 DNS 설정 업데이트][update-dns]를 참조 하세요.
+* **DNS 서버 설정 업데이트** 리소스 관리자 가상 네트워크에서 다른 리소스를 확인 하 고 관리 되는 도메인을 사용할 수 있도록 하려면 새 도메인 컨트롤러의 IP 주소로 DNS 설정을 업데이트 합니다. Azure Portal에서 자동으로 이러한 설정을 구성할 수 있습니다.
+
+    리소스 관리자 가상 네트워크를 구성 하는 방법에 대 한 자세한 내용은 [Azure virtual network에 대 한 DNS 설정 업데이트][update-dns]를 참조 하세요.
 * **도메인에 가입 된 Vm 다시 시작** -Azure AD DS 도메인 컨트롤러에 대 한 DNS 서버 IP 주소가 변경 되 면 도메인에 가입 된 vm을 다시 시작 하 여 새 dns 서버 설정을 사용 합니다. 응용 프로그램 또는 Vm에서 수동으로 DNS 설정을 구성한 경우 Azure Portal에 표시 된 도메인 컨트롤러의 새 DNS 서버 IP 주소를 사용 하 여 수동으로 업데이트 합니다.
 
 이제 가상 네트워크 연결 및 이름 확인을 테스트 합니다. 리소스 관리자 가상 네트워크에 연결 된 VM 또는 피어 링 VM에서 다음 네트워크 통신 테스트를 시도 합니다.
@@ -269,7 +274,7 @@ Azure AD DS는 도메인 컨트롤러에서 문제를 해결 하 고 이벤트�
 
 템플릿을 사용 하 여 로그에 노출 되는 중요 한 정보를 모니터링할 수 있습니다. 예를 들어 감사 로그 통합 문서 템플릿은 관리 되는 도메인에서 가능한 계정 잠금을 모니터링할 수 있습니다.
 
-### <a name="configure-azure-ad-domain-services-email-notifications"></a>전자 메일 알림 Azure AD Domain Services 구성
+### <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
 관리 되는 도메인에서 문제가 검색 되 면 알림을 받으려면 Azure Portal에서 전자 메일 알림 설정을 업데이트 합니다. 자세한 내용은 [알림 설정 구성][notifications]을 참조 하세요.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655923"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156723"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리의 사용자
 
@@ -194,7 +194,7 @@ ms.locfileid: "80655923"
 
 1. **남은 승인자 (일 수) 후의 대체 승인자** 에서 요청을 승인 하거나 거부 해야 하는 일 수를 입력 합니다. 요청 기간 전에 요청을 승인 하거나 거부 한 승인자가 없는 경우 요청은 만료 됩니다 (시간 제한). 사용자는 액세스 패키지에 대 한 다른 요청을 제출 해야 합니다. 
 
-    요청 기간이 반기에 도달 하면 하루 종일 요청을 대체 승인자에 게 전달할 수 있습니다. 이 예제에서 요청 기간은 14 일입니다. 따라서 요청 기간은 7 일에 반기에 도달 합니다. 따라서 요청을 8 일 이전에 전달할 수 없습니다. 또한 요청 기간의 마지막 날에 요청을 전달할 수 없습니다. 따라서이 예제에서는 최신 요청을 전달할 수 있습니다.
+    요청 기간이 반기에 도달 하 고 주 승인자의 결정이 최소 4 일 후에 제한 시간을 초과 하는 경우에만 요청을 대체 승인자에 게 전달할 수 있습니다. 요청 제한 시간이 3 보다 작거나 같으면 요청을 대체 승인자에 게 전달할 시간이 충분 하지 않습니다. 이 예제에서 요청 기간은 14 일입니다. 따라서 요청 기간은 7 일에 반기에 도달 합니다. 따라서 요청을 8 일 이전에 전달할 수 없습니다. 또한 요청 기간의 마지막 날에 요청을 전달할 수 없습니다. 따라서이 예제에서는 최신 요청을 전달할 수 있습니다.
 
 ## <a name="enable-requests"></a>요청 사용
 

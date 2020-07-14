@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9448b7df8855f7cf2883f6cf8bd7f2ce465038cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e1efb1f93910f311ad5df898152d71158003244
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563554"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146842"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 
@@ -149,6 +149,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 서비스 이름, 관리자 키, 저장소 계정 및 계정 키 자리 표시자에 대 한 유효한 값을 대체 합니다.
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -159,6 +160,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
+```
 
 ### <a name="3---create-a-target-search-index"></a>3-대상 검색 인덱스 만들기 
 
@@ -168,6 +170,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 다음 예제는 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 요청을 보여 줍니다. 인덱스에는 blob에서 추출된 텍스트를 저장하기 위한 검색 가능한`content` 필드가 표시됩니다.   
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -179,12 +182,14 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-인덱서 구성 및 실행
 
 인덱스 및 데이터 원본과 마찬가지로 인덱서는 Azure Cognitive Search 서비스에서 만들고 다시 사용 하는 명명 된 개체 이기도 합니다. 인덱서를 만들도록 완전히 지정 된 요청은 다음과 같을 수 있습니다.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -196,6 +201,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
+```
 
 인덱서 구성이 요청의 본문에 있습니다. Azure Cognitive Search에 이미 존재 하는 데이터 원본 및 빈 대상 인덱스가 필요 합니다. 
 
@@ -212,6 +218,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 모든 인덱서에는 기존 데이터에 연결 정보를 제공 하는 데이터 원본 개체가 필요 합니다. 
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -222,12 +229,13 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }  
-
+```
 
 ### <a name="index-request"></a>인덱스 요청
 
 모든 인덱서에는 데이터를 받는 대상 인덱스가 필요 합니다. 요청 본문은 검색 가능한 인덱스에서 원하는 동작을 지원 하기 위해 특성으로 구성 된 인덱스 스키마를 정의 합니다. 인덱서를 실행할 때이 인덱스는 비어 있어야 합니다. 
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -239,7 +247,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
-
+```
 
 ### <a name="indexer-request"></a>인덱서 요청
 
@@ -247,6 +255,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 데이터 가져오기를 트리거하는 Azure Cognitive Search에서 인덱서를 만듭니다. 이 메서드는 즉시 실행 되며 이후에 일정에 따라 실행 됩니다.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -263,7 +272,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
         ]
     }
-
+```
 
 <a name="json-indexer-dotnet"></a>
 
@@ -284,7 +293,7 @@ JSON blob은 여러 폼을 가정할 수 있습니다. Json 인덱서의 **parsi
 
 | parsingMode | 설명 |
 |-------------|-------------|
-| `json`  | 각 blob을 단일 문서로 인덱싱합니다. 기본값입니다. |
+| `json`  | 각 blob을 단일 문서로 인덱싱합니다. 이것이 기본값입니다. |
 | `jsonArray` | Blob이 JSON 배열로 구성 된 경우이 모드를 선택 하 고, 배열의 각 요소가 Azure Cognitive Search의 개별 문서가 되도록 해야 합니다. |
 |`jsonLines` | Blob이 새 줄로 구분 된 여러 JSON 엔터티로 구성 된 경우이 모드를 선택 하 고 각 엔터티가 Azure Cognitive Search의 개별 문서가 되도록 해야 합니다. |
 
@@ -302,6 +311,7 @@ JSON blob은 여러 폼을 가정할 수 있습니다. Json 인덱서의 **parsi
 
 기본적으로 [Azure Cognitive Search blob 인덱서](search-howto-indexing-azure-blob-storage.md) 는 JSON blob을 텍스트의 단일 청크로 구문 분석 합니다. JSON 문서의 구조를 유지하려는 경우가 많습니다. 예를 들어 Azure Blob Storage에 다음 JSON 문서가 있다고 가정합니다.
 
+```http
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -309,6 +319,7 @@ JSON blob은 여러 폼을 가정할 수 있습니다. Json 인덱서의 **parsi
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
+```
 
 Blob 인덱서는 JSON 문서를 단일 Azure Cognitive Search 문서로 구문 분석 합니다. 인덱서는 동일하게 명명되고 형식이 지정된 대상 인덱스 필드에 대해 원본의 "text", "datePublished" 및 "tags"를 일치시켜 인덱스를 로드합니다.
 
@@ -320,14 +331,17 @@ Blob 인덱서는 JSON 문서를 단일 Azure Cognitive Search 문서로 구문 
 
 또는 JSON 배열 옵션을 사용할 수 있습니다. 이 옵션은 blob이 *올바른 형식의 JSON 개체 배열을*포함 하 고 각 요소가 별도의 Azure Cognitive Search 문서가 되도록 하려는 경우에 유용 합니다. 예를 들어 다음 JSON blob을 사용 하 여 Azure Cognitive Search 인덱스를 각각 "id" 및 "text" 필드가 있는 별도의 3 개 문서로 채울 수 있습니다.  
 
+```text
     [
         { "id" : "1", "text" : "example 1" },
         { "id" : "2", "text" : "example 2" },
         { "id" : "3", "text" : "example 3" }
     ]
+```
 
 JSON 배열의 경우 인덱서 정의는 다음 예제와 비슷해야 합니다. parsingMode 매개 변수는 `jsonArray` 파서를 지정합니다. JSON blob을 인덱싱하는 데 적합 한 두 가지 배열 관련 요구 사항은 올바른 파서를 지정 하 고 올바른 데이터 입력을 지정 하는 것입니다.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -339,6 +353,7 @@ JSON 배열의 경우 인덱서 정의는 다음 예제와 비슷해야 합니�
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
     }
+```
 
 다시 말하지만 필드 매핑은 생략할 수 있습니다. 동일하게 명명된 "id" 및 "text" 필드를 포함하는 인덱스가 있는 경우 Blob 인덱서는 명시적인 필드 매핑 목록 없이 올바른 매핑을 유추할 수 있습니다.
 
@@ -347,6 +362,7 @@ JSON 배열의 경우 인덱서 정의는 다음 예제와 비슷해야 합니�
 ## <a name="parse-nested-arrays"></a>중첩 배열 구문 분석
 중첩 된 요소가 있는 JSON 배열의 경우를 지정 하 여 `documentRoot` 다중 수준 구조를 나타낼 수 있습니다. 예를 들어 blob은 다음과 같습니다.
 
+```http
     {
         "level1" : {
             "level2" : [
@@ -356,25 +372,31 @@ JSON 배열의 경우 인덱서 정의는 다음 예제와 비슷해야 합니�
             ]
         }
     }
+```
 
 다음 구성을 사용하여 `level2` 속성에 포함된 배열을 인덱싱합니다.
 
+```http
     {
         "name" : "my-json-array-indexer",
         ... other indexer properties
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
+```
 
 ## <a name="parse-blobs-separated-by-newlines"></a>줄바꿈로 구분 된 blob 구문 분석
 
 Blob에 줄 바꿈으로 구분 된 여러 JSON 엔터티가 포함 되 고 각 요소가 별도의 Azure Cognitive Search 문서가 되도록 하려면 JSON 줄 옵션을 선택할 수 있습니다. 예를 들어, 다음 blob (3 개의 서로 다른 JSON 엔터티)이 있을 경우 Azure Cognitive Search 인덱스를 각각 "id" 및 "text" 필드가 있는 별도의 3 개 문서로 채울 수 있습니다.
 
-    { "id" : "1", "text" : "example 1" }
-    { "id" : "2", "text" : "example 2" }
-    { "id" : "3", "text" : "example 3" }
+```text
+{ "id" : "1", "text" : "example 1" }
+{ "id" : "2", "text" : "example 2" }
+{ "id" : "3", "text" : "example 3" }
+```
 
 JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 됩니다. parsingMode 매개 변수는 `jsonLines` 파서를 지정합니다. 
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -386,6 +408,7 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
+```
 
 다시 말하지만, 필드 매핑은 구문 분석 모드와 유사 하 게 생략할 수 있습니다 `jsonArray` .
 
@@ -397,6 +420,7 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
 
 예제 JSON 문서 다시 방문:
 
+```http
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -404,27 +428,32 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
+```
 
 `Edm.String` 형식의 `text`, `Edm.DateTimeOffset` 형식의 `date` 및 `Collection(Edm.String)` 형식의 `tags` 필드를 포함하는 검색 인덱스가 있다고 가정해 봅니다. 원본의 "datePublished"와 인덱스의 `date` 필드 간에 불일치를 확인합니다. JSON을 원하는 모양으로 매핑하려면 다음 필드 매핑을 사용합니다.
 
+```http
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
         { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
+```
 
 매핑의 원본 필드 이름은 [JSON 포인터](https://tools.ietf.org/html/rfc6901) 표기법을 사용하여 지정됩니다. JSON 문서의 루트를 참조하도록 슬래시로 시작한 다음 슬래시로 구분된 경로를 사용하여 (임의의 중첩 수준에서) 원하는 속성을 선택합니다.
 
 또한 0부터 시작하는 인덱스를 사용하여 개별 배열 요소를 참조할 수 있습니다. 예를 들어 위의 예제에서 "tags" 배열의 첫 번째 요소를 선택하려면 다음과 같은 필드 매핑을 사용합니다.
 
+```http
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
+```
 
 > [!NOTE]
 > 필드 매핑 경로의 원본 필드 이름이 JSON에 없는 속성을 참조하는 경우 해당 매핑은 오류 없이 건너뜁니다. 다른 스키마를 사용하여 문서를 지원할 수 있도록 이 작업을 수행합니다(일반적인 사용 사례). 유효성을 검사하지 않기 때문에 필드 매핑 사양에 오타가 발생하지 않도록 주의해야 합니다.
 >
 >
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 + [Azure Cognitive Search를 사용 하 여 Azure Blob Storage 인덱싱](search-howto-index-json-blobs.md)

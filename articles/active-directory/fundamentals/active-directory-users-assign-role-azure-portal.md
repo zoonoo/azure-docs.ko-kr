@@ -1,5 +1,5 @@
 ---
-title: 사용자에게 디렉터리 역할 할당 - Azure Active Directory | Microsoft Docs
+title: 사용자에 게 Azure AD 역할 할당-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할을 할당하는 방법에 대한 지침입니다.
 services: active-directory
 author: msaburnley
@@ -8,37 +8,42 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 06/15/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87b063a4d51d5d5d1e3d7949be3754ccbe74acca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5dc42d8308b8e20a647f5f64867fd78a1a09c96
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604117"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224025"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당
-조직의 사용자에게 Azure AD(Azure Active Directory) 리소스를 관리할 권한이 필요한 경우 사용자가 해당 권한으로 수행할 작업에 따라 Azure AD에서 사용자에게 적절한 역할을 할당해야 합니다.
 
-사용 가능한 역할에 대 한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요. 사용자를 추가하는 방법에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](add-users-azure-active-directory.md)를 참조하세요.
+Azure AD (Azure Active Directory)에서 사용자 중 한 명에 게 Azure AD 리소스를 관리할 수 있는 권한이 필요한 경우 필요한 권한을 제공 하는 역할에 할당 해야 합니다. Azure 리소스를 관리 하는 역할과 Azure AD 리소스를 관리 하는 역할에 대 한 정보는 [클래식 구독 관리자 역할, azure 역할 및 AZURE ad 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조 하세요.
+
+사용 가능한 Azure AD 역할에 대 한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요. 사용자를 추가 하려면 [Azure Active Directory에 새 사용자 추가](add-users-azure-active-directory.md)를 참조 하세요.
 
 ## <a name="assign-roles"></a>역할 할당
-Azure AD 역할을 사용자에게 할당하는 일반적인 방법은 사용자의 **디렉터리 역할** 페이지에 있습니다.
 
-PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 있습니다. PIM을 사용하는 방법에 대한 자세한 내용은 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)를 참조하세요.
+사용자에 게 Azure AD 역할을 할당 하는 일반적인 방법은 사용자에 **게 할당 된 역할** 페이지를 사용 하는 것입니다. Privileged Identity Management (PIM)를 사용 하 여 역할에 대 한 자격을 적시에 승격 시킬 수도 있습니다. PIM을 사용 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)를 참조 하세요.
 
-### <a name="to-assign-a-role-to-a-user"></a>사용자에게 역할을 할당하려면
-1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 디렉터리에 대 한 전역 관리자 계정을 사용 하 여 로그인 합니다. 
+> [!Note]
+> Azure AD Premium P2 라이선스 계획이 있고 PIM을 이미 사용 하는 경우 모든 역할 관리 작업은 [Privileged Identity Management 환경](../users-groups-roles/directory-manage-roles-portal.md)에서 수행 됩니다.
+>
+> ![이미 PIM을 사용 하 고 프리미엄 P2 라이선스가 있는 사용자를 위해 PIM에서 관리 되는 Azure AD 역할](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
+
+## <a name="assign-a-role-to-a-user"></a>사용자에 역할 할당
+
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 디렉터리에 대 한 전역 관리자 계정을 사용 하 여 로그인 합니다.
 
 2. **Azure Active Directory**를 검색하고 선택합니다.
 
       ![Azure Active Directory에 대한 Azure Portal 검색](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
 
-
-3. **사용자**를 선택 합니다.
+3. **사용자**를 선택합니다.
 
 4. 역할 할당을 가져올 사용자를 검색 하 고 선택 합니다. 예를 들어 _Alain Charon_입니다.
 
@@ -46,16 +51,17 @@ PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 �
 
 5. **Alain Charon 프로필** 페이지에서 **할당 된 역할**을 선택 합니다.
 
-    **Alain Charon - 디렉터리 역할** 페이지가 표시됩니다.
+    **Alain Charon-관리 역할** 페이지가 나타납니다.
 
 6. **할당 추가**를 선택 하 고, alain (예: _응용 프로그램 관리자_)에 할당할 역할을 선택한 후 **선택**을 선택 합니다.
 
     ![할당 된 역할 페이지-선택한 역할을 표시 합니다.](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
-    애플리케이션 관리자 역할이 Alain Charon에 할당되고 **Alain Charon - 디렉터리 역할** 페이지에 표시됩니다.
+    응용 프로그램 관리자 역할은 Alain Charon에 할당 되 고 **Alain charon-관리 역할** 페이지에 표시 됩니다.
 
 ## <a name="remove-a-role-assignment"></a>역할 할당 제거
-사용자에서 역할 할당을 제거해야 할 경우 **Alain Charon - 디렉터리 역할** 페이지에서 제거할 수도 있습니다.
+
+사용자의 역할 할당을 제거 해야 하는 경우에는 **Alain Charon-관리 역할** 페이지에서 수행할 수도 있습니다.
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>사용자에서 역할 할당을 제거하려면
 
@@ -65,15 +71,14 @@ PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 �
 
     ![할당 된 역할 페이지, 선택한 역할 및 제거 옵션 표시](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
-    애플리케이션 관리자 역할이 Alain Charon에서 제거되고 **Alain Charon - 디렉터리 역할** 페이지에 더 이상 표시되지 않습니다.
+    응용 프로그램 관리자 역할은 Alain Charon에서 제거 되 고 **Alain charon-관리 역할** 페이지에 더 이상 표시 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - [사용자 추가 또는 삭제](add-users-azure-active-directory.md)
 
 - [프로필 정보 추가 또는 변경](active-directory-users-profile-azure-portal.md)
 
 - [다른 디렉터리에서 게스트 사용자 추가](../b2b/what-is-b2b.md)
 
-또는 위임 할당, 정책 사용 및 사용자 계정 공유와 같은 다른 사용자 관리 작업을 수행할 수 있습니다. 사용 가능한 다른 작업에 대한 자세한 내용은 [Azure Active Directory 사용자 관리 설명서](../users-groups-roles/index.yml)를 참조하세요.
-
-
+체크 아웃할 수 있는 다른 사용자 관리 작업은 [Azure Active Directory 사용자 관리 설명서](../users-groups-roles/index.yml)에서 제공 됩니다.

@@ -62,7 +62,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -103,6 +103,8 @@
       href: howto-import-export-data.md
     - name: 이벤트를 사용자 지정 엔드포인트에 라우팅
       href: howto-app-configuration-event.md
+    - name: 자동으로 구성 저장소 백업
+      href: howto-backup-config-store.md
     - name: 모범 사례
       href: howto-best-practices.md
 - name: 참조

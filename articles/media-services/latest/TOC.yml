@@ -159,6 +159,8 @@
           href: streaming-policy-concept.md
         - name: 콘텐츠 키 정책
           href: content-key-policy-concept.md
+        - name: Azure AD를 통해 콘텐츠 보호
+          href: azure-ad-content-protection.md
     - name: 모니터링
       items:
         - name: Event Grid를 사용하는 이벤트

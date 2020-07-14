@@ -100,6 +100,8 @@
           href: event-grid-logicapps.md
         - name: Azure Event Grid 및 Azure Automation을 통해 알림 받기
           href: event-grid-tutorial.md
+        - name: 개별 Key Vault 개체 백업
+          href: backup.md
     - name: 보안
       items:
         - name: Azure Private Link Service와 통합

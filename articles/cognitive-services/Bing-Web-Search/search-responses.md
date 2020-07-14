@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800531"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202239"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 
@@ -296,7 +296,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 |-|빼기|
 |/|사업부|
 |*|곱하기|
-|^|고급|
+|^|전원|
 |!|계승값|
 |.|Decimal|
 |()|우선 순위 그룹화|
@@ -435,7 +435,7 @@ Bing이 판단하기에 사용자가 다른 것을 검색하고자 하는 경우
 
 Bing Web Search API의 응답에 다음 헤더가 포함될 수 있습니다.
 
-|||
+| 헤더 | 설명 |
 |-|-|
 |`X-MSEdge-ClientID`|Bing에서 사용자에게 할당한 고유한 ID|
 |`BingAPIs-Market`|요청을 이행하는 데 사용된 지역/국가|

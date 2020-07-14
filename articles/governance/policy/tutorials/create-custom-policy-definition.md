@@ -3,12 +3,12 @@ title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: f8702e84923762b2f417eee882a473228d6bafb8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888149"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044620"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니다. 이 자습서에는 각 방법을 살펴보도록 하겠습니다.
 
 - VS Code용 Azure Policy 확장
-- 리소스 관리자 템플릿
+- ARM 템플릿(Azure Resource Manager 템플릿)
   - 기존 리소스 내보내기
   - 환경 만들기
   - 빠른 시작 템플릿(GitHub)
@@ -64,9 +64,9 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 
 [VS Code 확장](../how-to/extension-for-vscode.md#search-for-and-view-resources)을 사용하여 사용자 환경에서 리소스를 찾고 각 리소스에 대한 Resource Manager 속성을 볼 수 있습니다.
 
-### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
+### <a name="arm-templates"></a>ARM 템플릿
 
-관리하려는 속성을 포함하고 있는 [Resource Manager 템플릿](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md)을 찾는 여러 가지 방법이 있습니다.
+관리하려는 속성을 포함하고 있는 [Resource Manager 템플릿](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md)을 찾는 여러 가지 방법이 있습니다.
 
 #### <a name="existing-resource-in-the-portal"></a>포털의 기존 리소스
 
@@ -144,12 +144,11 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 
 #### <a name="quickstart-templates-on-github"></a>GitHub의 빠른 시작 템플릿
 
-GitHub의 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에는 다양한 리소스를 위해 빌드된 수백 개의 Resource Manager 템플릿이 있습니다. 이러한 템플릿을 통해 원하는 리소스 속성을 찾을 수 있습니다. 일부 속성은 우리가 찾는 속성처럼 보이지만, 제어 대상이 다릅니다.
+GitHub의 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에는 다양한 리소스를 위해 빌드된 수백 개의 ARM 템플릿이 있습니다. 이러한 템플릿을 통해 원하는 리소스 속성을 찾을 수 있습니다. 일부 속성은 우리가 찾는 속성처럼 보이지만, 제어 대상이 다릅니다.
 
 #### <a name="resource-reference-docs"></a>리소스 참조 문서
 
-**supportsHttpsTrafficOnly**가 올바른 속성인지 확인하려면 스토리지 공급자의 [스토리지 계정 리소스](/azure/templates/microsoft.storage/2018-07-01/storageaccounts)에 대한 Resource Manager 템플릿 참조를 확인하세요.
-속성 개체는 유효한 매개 변수 목록을 갖고 있습니다. [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 링크를 선택하면 허용되는 속성 표가 표시됩니다. **supportsHttpsTrafficOnly**가 있으며 해당 설명을 보면 우리가 비즈니스 요구 사항을 충족하기 위해 찾고 있는 속성과 일치합니다.
+**supportsHttpsTrafficOnly**가 올바른 속성인지 확인하려면 스토리지 공급자의 [스토리지 계정 리소스](/azure/templates/microsoft.storage/2018-07-01/storageaccounts)에 대한 ARM 템플릿 참조를 확인하세요. 속성 개체는 유효한 매개 변수 목록을 갖고 있습니다. [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 링크를 선택하면 허용되는 속성 표가 표시됩니다. **supportsHttpsTrafficOnly**가 있으며 해당 설명을 보면 우리가 비즈니스 요구 사항을 충족하기 위해 찾고 있는 속성과 일치합니다.
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
@@ -219,7 +218,7 @@ az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' |
 Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resource Manager 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 _aliases_ 배열을 _프로젝션_하여 Azure Resource Graph 결과에 [별칭](../concepts/definition-structure.md#aliases) 세부 정보를 포함할 수도 있습니다.
+ARM 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 _aliases_ 배열을 _프로젝션_하여 Azure Resource Graph 결과에 [별칭](../concepts/definition-structure.md#aliases) 세부 정보를 포함할 수도 있습니다.
 
 ```kusto
 Resources

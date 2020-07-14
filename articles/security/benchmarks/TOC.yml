@@ -39,12 +39,34 @@
       href: ../../application-gateway/security-baseline.md
     - name: Automation 보안 기준
       href: ../../automation/security-baseline.md
+    - name: Azure Backup 보안 기준
+      href: ../../backup/security-baseline.md
     - name: Azure Cache for Redis 보안 기준
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Azure Data Box 보안 기준
+      href: ../../databox/security-baseline.md
+    - name: Azure Data Explorer 보안 기준
+      href: /azure/data-explorer/security-baseline
+    - name: Azure Data Factory 보안 기준
+      href: ../../data-factory/security-baseline.md
+    - name: Azure Database for MySQL 보안 기준
+      href: ../../mysql/security-baseline.md
+    - name: Azure Database for MariaDB 보안 기준
+      href: ../../mariadb/security-baseline.md
+    - name: Azure Database for PostgreSQL 보안 기준
+      href: ../../postgresql/security-baseline.md
+    - name: Azure Databricks 보안 기준
+      href: ../../azure-databricks/security-baseline.md
+    - name: Azure Functions 보안 기준
+      href: ../../azure-functions/security-baseline.md
     - name: Azure Policy 보안 기준
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
-    - name: Backup 보안 기준
-      href: ../../backup/security-baseline.md
+    - name: Azure Resource Graph 보안 기준
+      href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+    - name: Azure SQL Database 보안 기준
+      href: ../../sql-database/security-baseline.md
+    - name: Azure Storage 보안 기준
+      href: ../../storage/common/security-baseline.md
     - name: Batch 보안 기준
       href: ../../batch/security-baseline.md
     - name: Cognitive Services 보안 기준
@@ -57,39 +79,19 @@
       href: ../../cosmos-db/security-baseline.md
     - name: 고객 Lockbox 보안 기준
       href: ../fundamentals/customer-lockbox-security-baseline.md
-    - name: Data Box 보안 기준
-      href: ../../databox/security-baseline.md
-    - name: Data Explorer 보안 기준
-      href: /azure/data-explorer/security-baseline
-    - name: Data Factory 보안 기준
-      href: ../../data-factory/security-baseline.md
-    - name: Databricks 보안 기준
-      href: ../../azure-databricks/security-baseline.md
     - name: Event Hubs 보안 기준
       href: ../../event-hubs/security-baseline.md
     - name: ExpressRoute 보안 기준
       href: ../../expressroute/security-baseline.md
-    - name: Functions 보안 기준
-      href: ../../azure-functions/security-baseline.md
     - name: HDInsight 보안 기준
       href: ../../hdinsight/security-baseline.md
     - name: Key Vault 보안 기준
       href: ../../key-vault/security-baseline.md
     - name: Logic Apps 보안 기준
       href: ../../logic-apps/security-baseline.md
-    - name: MariaDB 보안 기준
-      href: ../../mariadb/security-baseline.md
-    - name: MySQL 보안 기준
-      href: ../../mysql/security-baseline.md
     - name: Network Watcher 보안 기준
       href: ../../network-watcher/security-baseline.md
-    - name: PostgreSQL 보안 기준
-      href: ../../postgresql/security-baseline.md
-    - name: SQL Database 보안 기준
-      href: ../../sql-database/security-baseline.md
     - name: Stream Analytics 기준
       href: ../../stream-analytics/security-baseline.md
-    - name: Storage 보안 기준
-      href: ../../storage/common/security-baseline.md
     - name: Synapse Analytics 보안 기준
       href: ../../synapse-analytics/security-baseline.md

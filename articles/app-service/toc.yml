@@ -61,7 +61,7 @@
       href: samples-cli.md
     - name: Azure PowerShell
       href: samples-powershell.md
-    - name: Resource Manager 템플릿
+    - name: 리소스 관리자 템플릿
       href: samples-resource-manager-templates.md
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
@@ -176,6 +176,8 @@
               href: configure-authentication-provider-microsoft.md
             - name: Twitter를 사용하여 인증
               href: configure-authentication-provider-twitter.md
+            - name: OpenID Connect 공급자를 사용하여 인증(미리 보기)
+              href: configure-authentication-provider-openid-connect.md
         - name: 고급 인증
           href: app-service-authentication-how-to.md
         - name: 액세스 제한

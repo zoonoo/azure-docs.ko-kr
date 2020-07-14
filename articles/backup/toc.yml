@@ -369,8 +369,10 @@
           href: backup-azure-security-feature.md
         - name: 프라이빗 엔드포인트
           href: private-endpoints.md
-        - name: 암호화
+        - name: Azure Backup에서 암호화
           href: backup-encryption.md
+        - name: 고객 관리형 키를 사용하여 암호화
+          href: encryption-at-rest-with-cmk.md
         - name: 기본 제공 보안 컨트롤
           href: backup-security-controls.md
         - name: 보안 기준

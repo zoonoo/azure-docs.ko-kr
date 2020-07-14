@@ -3,8 +3,8 @@ title: Azure Linux VM에서 Oracle Golden Gate 구현 | Microsoft Docs
 description: Oracle Golden Gate를 Azure 환경에서 빠르게 시작하고 실행합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
-ms.openlocfilehash: ae6bfb0ab0208d0f778476c9f0959b0c0f1d6471
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: 60d06fa4cf6d116f9c802cda544a356e469755b5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683727"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223077"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
@@ -443,7 +443,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
    ![설치 관리자 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. 계속하려면 **다음**을 선택합니다.
+3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. **다음**을 선택하여 계속합니다.
 
    ![설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_02.png)
 

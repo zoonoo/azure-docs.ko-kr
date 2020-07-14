@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d3300151dc5fdfde0b34aa3f76c3ed9494d34fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734064"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86222975"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services 일반적인 경고 및 해결 방법
 
@@ -33,7 +34,7 @@ ms.locfileid: "84734064"
 
 이 오류는 일반적으로 Azure 구독을 새 Azure AD 디렉터리로 이동 하 고 Azure AD DS와 연결 된 이전 Azure AD 디렉터리를 삭제 한 경우에 발생 합니다.
 
-이 오류는 복구할 수 없습니다. 이 경고를 해결 하려면 [기존 Azure AD DS 관리 되는 도메인을 삭제](delete-aadds.md) 하 고 새 디렉터리에서 다시 만듭니다. 관리 되는 도메인을 삭제 하는 데 문제가 있으면 추가 문제 해결 지원을 위해 [Azure 지원 요청을 여세요][azure-support] .
+이 오류는 복구할 수 없습니다. 이 경고를 해결 하려면 [기존 관리 되는 도메인을 삭제](delete-aadds.md) 하 고 새 디렉터리에서 다시 만듭니다. 관리 되는 도메인을 삭제 하는 데 문제가 있으면 추가 문제 해결 지원을 위해 [Azure 지원 요청을 여세요][azure-support] .
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C가 이 디렉터리에서 실행 중임
 
@@ -66,7 +67,7 @@ Azure AD DS을 사용 하려면 다음 단계를 사용 하 여 Azure AD B2C 없
 가상 네트워크 내에서 Vm은 서브넷에 대해 구성 된 것과 동일한 IP 주소 범위에서 Azure 리소스에 대 한 요청을 수행할 수 있습니다. 서브넷에 대 한 공용 IP 주소 범위를 구성 하는 경우 가상 네트워크 내에서 라우팅되는 요청이 의도 한 웹 리소스에 도달 하지 못할 수 있습니다. 이 구성을 사용 하면 Azure AD DS에서 예기치 않은 오류가 발생할 수 있습니다.
 
 > [!NOTE]
-> 가상 네트워크에서 구성된 인터넷의 IP 주소 범위가 있는 경우 이 경고는 무시될 수 있습니다. 그러나이 구성을 사용 하면 예기치 않은 오류가 발생할 수 있으므로 [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)에 Azure AD Domain Services을 커밋할 수 없습니다.
+> 가상 네트워크에서 구성된 인터넷의 IP 주소 범위가 있는 경우 이 경고는 무시될 수 있습니다. 그러나 Azure AD Domain Services 예기치 않은 오류가 발생할 수 있으므로이 구성으로 [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) 에 커밋할 수 없습니다.
 
 이 경고를 해결 하려면 기존 관리 되는 도메인을 삭제 하 고 개인 IP 주소 범위를 사용 하는 가상 네트워크에서 다시 만듭니다. 이 프로세스는 관리 되는 도메인을 사용할 수 없고 Ou 또는 서비스 계정 처럼 만든 사용자 지정 리소스가 손실 됨에 따라 중단 됩니다.
 
@@ -147,7 +148,7 @@ Azure AD DS는 공용 IP 주소, 가상 네트워크 인터페이스, 부하 분
 
 ### <a name="resolution"></a>해결 방법
 
-Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리소스에 대 한 IP 주소가 충분 해야 합니다. 이 IP 주소 공간에는 유지 관리 이벤트가 있는 경우 대체 리소스를 만들어야 하는 필요성이 포함 됩니다. 사용 가능한 IP 주소가 부족 하 게 되는 위험을 최소화 하려면 Azure AD DS와 동일한 가상 네트워크 서브넷에 자체 Vm과 같은 추가 리소스를 배포 하지 마세요.
+Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리소스에 대 한 IP 주소가 충분 해야 합니다. 이 IP 주소 공간에는 유지 관리 이벤트가 있는 경우 대체 리소스를 만들어야 하는 필요성이 포함 됩니다. 사용 가능한 IP 주소가 부족 하 게 되는 위험을 최소화 하려면 자체 Vm과 같은 추가 리소스를 관리 되는 도메인과 동일한 가상 네트워크 서브넷에 배포 하지 마세요.
 
 이 오류는 복구할 수 없습니다. 이 경고를 해결 하려면 [기존 관리 되는 도메인을 삭제](delete-aadds.md) 하 고 다시 만듭니다. 관리 되는 도메인을 삭제 하는 데 문제가 있으면 추가 문제 해결 지원을 위해 [Azure 지원 요청을 여세요][azure-support] .
 
@@ -172,14 +173,14 @@ Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리�
 
 ### <a name="resolution"></a>해결 방법
 
-Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리소스에 대 한 충분 한 IP 주소가 필요 합니다. 이 IP 주소 공간에는 유지 관리 이벤트가 있는 경우 대체 리소스를 만들어야 하는 필요성이 포함 됩니다. 사용 가능한 IP 주소가 부족 하 게 되는 위험을 최소화 하려면 Azure AD DS와 동일한 가상 네트워크 서브넷에 자체 Vm과 같은 추가 리소스를 배포 하지 마세요.
+Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리소스에 대 한 충분 한 IP 주소가 필요 합니다. 이 IP 주소 공간에는 유지 관리 이벤트가 있는 경우 대체 리소스를 만들어야 하는 필요성이 포함 됩니다. 사용 가능한 IP 주소가 부족 하 게 되는 위험을 최소화 하려면 자체 Vm과 같은 추가 리소스를 관리 되는 도메인과 동일한 가상 네트워크 서브넷에 배포 하지 마세요.
 
 이 경고를 해결 하려면 기존 관리 되는 도메인을 삭제 하 고 충분 한 IP 주소 범위를 가진 가상 네트워크에서 다시 만듭니다. 이 프로세스는 관리 되는 도메인을 사용할 수 없고 Ou 또는 서비스 계정 처럼 만든 사용자 지정 리소스가 손실 됨에 따라 중단 됩니다.
 
 1. 디렉터리에서 [관리 되는 도메인을 삭제](delete-aadds.md) 합니다.
-1. 가상 네트워크 IP 주소 범위를 업데이트 하려면 Azure Portal에서 *가상 네트워크* 를 검색 하 고 선택 합니다. IP 주소 범위가 작은 Azure AD DS의 가상 네트워크를 선택 합니다.
+1. 가상 네트워크 IP 주소 범위를 업데이트 하려면 Azure Portal에서 *가상 네트워크* 를 검색 하 고 선택 합니다. IP 주소 범위가 작은 관리 되는 도메인에 대 한 가상 네트워크를 선택 합니다.
 1. **설정**아래에서 *주소 공간*을 선택 합니다.
-1. 기존 주소 범위를 선택 하 고 편집 하거나 추가 주소 범위를 추가 하 여 주소 범위를 업데이트 합니다. 새 IP 주소 범위가 Azure AD DS 서브넷 범위에 대해 충분히 큰지 확인 합니다. 준비가 되 면 변경 내용을 **저장** 합니다.
+1. 기존 주소 범위를 선택 하 고 편집 하거나 추가 주소 범위를 추가 하 여 주소 범위를 업데이트 합니다. 새 IP 주소 범위가 관리 되는 도메인의 서브넷 범위에 대해 충분히 큰지 확인 합니다. 준비가 되 면 변경 내용을 **저장** 합니다.
 1. 왼쪽 탐색 영역에서 **서브넷** 을 선택 합니다.
 1. 편집 하려는 서브넷을 선택 하거나 추가 서브넷을 만듭니다.
 1. 충분 한 IP 주소 범위를 업데이트 하거나 지정 하 고 변경 내용을 **저장** 합니다.
@@ -219,7 +220,7 @@ Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리�
 
 Azure AD DS 구성 요소에 대 한 리소스 잠금을 확인 하 고 제거 하려면 다음 단계를 완료 합니다.
 
-1. 리소스 그룹의 각 Azure AD DS 네트워크 구성 요소 (예: 가상 네트워크, 네트워크 인터페이스 또는 공용 IP 주소)에 대해 Azure Portal에서 작업 로그를 확인 합니다. 이러한 작업 로그에는 작업이 실패 하 고 리소스 잠금이 적용 되는 이유가 표시 됩니다.
+1. 리소스 그룹에서 가상 네트워크, 네트워크 인터페이스, 공용 IP 주소와 같은 각 관리 되는 도메인의 네트워크 구성 요소에 대해 Azure Portal의 작업 로그를 확인 합니다. 이러한 작업 로그에는 작업이 실패 하 고 리소스 잠금이 적용 되는 이유가 표시 됩니다.
 1. 잠금이 적용 되는 리소스를 선택 하 고 **잠금 아래에서**잠금을 선택 하 고 제거 합니다.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: 리소스를 사용할 수 없음
@@ -234,7 +235,7 @@ Azure AD DS 구성 요소에 대 한 리소스 잠금을 확인 하 고 제거 �
 
 Azure AD DS 구성 요소에서 적용 된 정책을 확인 하 고 업데이트 하려면 다음 단계를 완료 합니다.
 
-1. 리소스 그룹의 각 Azure AD DS 네트워크 구성 요소 (예: 가상 네트워크, NIC 또는 공용 IP 주소)에 대해 Azure Portal에서 작업 로그를 확인 합니다. 이러한 작업 로그에는 작업이 실패 하 고 제한 된 정책이 적용 되는 이유가 표시 됩니다.
+1. 리소스 그룹에서 가상 네트워크, NIC 또는 공용 IP 주소와 같은 관리 되는 도메인의 각 네트워크 구성 요소에 대해 Azure Portal의 작업 로그를 확인 합니다. 이러한 작업 로그에는 작업이 실패 하 고 제한 된 정책이 적용 되는 이유가 표시 됩니다.
 1. 정책이 적용 되는 리소스를 선택한 다음 **정책에서 정책을**선택 하 고 편집 하 여 덜 제한적입니다.
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: 잠시 후에 동기화가 완료되지 않았습니다.
@@ -249,7 +250,7 @@ Azure AD DS 구성 요소에서 적용 된 정책을 확인 하 고 업데이트
 
 다음과 같은 일반적인 이유 때문에 관리 되는 도메인에서 동기화가 중지 됩니다.
 
-* 필요한 네트워크 연결이 차단 되었습니다. Azure virtual network에 문제가 있는지 확인 하 고 필요한 사항을 확인 하는 방법에 대 한 자세한 내용은 [네트워크 보안 그룹 문제 해결](alert-nsg.md) 및 [Azure AD Domain Services에 대 한 네트워크 요구 사항](network-considerations.md)을 참조 하세요.
+* 필요한 네트워크 연결이 차단 되었습니다. Azure virtual network에 문제가 있는지 확인 하 고 필요한 사항을 확인 하는 방법에 대 한 자세한 내용은 [네트워크 보안 그룹 문제 해결](alert-nsg.md) 및 [azure AD DS에 대 한 네트워크 요구 사항](network-considerations.md)을 참조 하세요.
 *  관리 되는 도메인이 배포 될 때 암호 동기화가 설정 되지 않았거나 완료 되었습니다. [온-프레미스에서](tutorial-configure-password-hash-sync.md) [클라우드 전용 사용자](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) 또는 하이브리드 사용자에 대 한 암호 동기화를 설정할 수 있습니다.
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: 잠시 후에 백업이 수행되지 않았습니다.

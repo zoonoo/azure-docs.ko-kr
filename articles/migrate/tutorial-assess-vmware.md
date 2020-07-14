@@ -4,12 +4,12 @@ description: Azure Migrate Server Assessment를 사용하여 Azure로 마이그�
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 6c395d7e2be151e97808fa9601ff6001801d243b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771311"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110354"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>서버 평가를 사용하여 VMware VM 평가
 
@@ -42,25 +42,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 새 Azure Migrate 프로젝트를 설정하는 방법은 다음과 같습니다.
 
 1. Azure Portal > **모든 서비스**에서 **Azure Migrate**를 검색합니다.
-1. **서비스** 아래에서 **Azure Migrate**를 선택합니다.
-1. **개요**의 **서버 검색, 평가 및 마이그레이션** 아래에서 **서버 평가 및 마이그레이션**을 선택합니다.
+2. **서비스** 아래에서 **Azure Migrate**를 선택합니다.
+3. **개요**의 **서버 검색, 평가 및 마이그레이션** 아래에서 **서버 평가 및 마이그레이션**을 선택합니다.
 
    ![서버 평가 및 마이그레이션 단추](./media/tutorial-assess-vmware/assess-migrate.png)
 
-1. **시작**에서**도구 추가**를 선택합니다.
-1. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.     
-1. **프로젝트 세부 정보**에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
+4. **시작**에서**도구 추가**를 선택합니다.
+5. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.     
+6. **프로젝트 세부 정보**에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
    ![프로젝트 이름 및 지역 상자](./media/tutorial-assess-vmware/migrate-project.png)
 
-1. **다음**을 선택합니다.
-1. **평가 도구 선택**에서 **Azure Migrate: 서버 평가** > **다음**을 차례로 선택합니다.
+7. **다음**을 선택합니다.
+8. **평가 도구 선택**에서 **Azure Migrate: 서버 평가** > **다음**을 차례로 선택합니다.
 
    ![서버 평가 도구 선택](./media/tutorial-assess-vmware/assessment-tool.png)
 
-1. **마이그레이션 도구 선택**에서 **마이그레이션 도구 추가 건너뛰기** > **다음**을 차례로 선택합니다.
-1. **검토 + 도구 추가**에서 설정을 검토하고, **도구 추가**를 선택합니다.
-1. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다. 프로젝트 페이지로 이동합니다. 프로젝트가 표시되지 않으면 Azure Migrate 대시보드의 **서버**에서 액세스할 수 있습니다.
+9. **마이그레이션 도구 선택**에서 **마이그레이션 도구 추가 건너뛰기** > **다음**을 차례로 선택합니다.
+10. **검토 + 도구 추가**에서 설정을 검토하고, **도구 추가**를 선택합니다.
+11. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다. 프로젝트 페이지로 이동합니다. 프로젝트가 표시되지 않으면 Azure Migrate 대시보드의 **서버**에서 액세스할 수 있습니다.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
 
@@ -75,8 +75,8 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 ### <a name="download-the-ova-template"></a>OVA 템플릿 다운로드
 
 1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 선택합니다.
-1. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMWare vSphere 하이퍼바이저 사용**을 선택합니다.
-1. **다운로드**를 선택하여 OVA 템플릿 파일을 다운로드합니다.
+2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMWare vSphere 하이퍼바이저 사용**을 선택합니다.
+3. **다운로드**를 선택하여 OVA 템플릿 파일을 다운로드합니다.
 
    ![OVA 파일 다운로드 선택](./media/tutorial-assess-vmware/download-ova.png)
 
@@ -114,13 +114,13 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 
    ![OVF 템플릿을 배포하는 메뉴 명령](./media/tutorial-assess-vmware/deploy-ovf.png)
 
-1. OVF 템플릿 배포 마법사 > **원본**에서 OVA 파일의 위치를 지정합니다.
-1. **이름** 및 **위치**에서 친숙한 VM 이름을 지정합니다. VM을 호스팅할 인벤토리 개체를 선택합니다.
-1. **호스트/클러스터**에서 VM이 실행될 호스트 또는 클러스터를 지정합니다.
-1. **스토리지**에서 VM에 대한 스토리지 대상을 지정합니다.
-1. **디스크 형식**에서 디스크 유형 및 크기를 지정합니다.
-1. **네트워크 매핑**에서 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure Migrate 서버 평가에 보내려면 네트워크에 인터넷 연결이 필요합니다.
-1. 설정을 검토하고 확인한 다음 **마침**을 선택합니다.
+2. OVF 템플릿 배포 마법사 > **원본**에서 OVA 파일의 위치를 지정합니다.
+3. **이름** 및 **위치**에서 친숙한 VM 이름을 지정합니다. VM을 호스팅할 인벤토리 개체를 선택합니다.
+4. **호스트/클러스터**에서 VM이 실행될 호스트 또는 클러스터를 지정합니다.
+5. **스토리지**에서 VM에 대한 스토리지 대상을 지정합니다.
+6. **디스크 형식**에서 디스크 유형 및 크기를 지정합니다.
+7. **네트워크 매핑**에서 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure Migrate 서버 평가에 보내려면 네트워크에 인터넷 연결이 필요합니다.
+8. 설정을 검토하고 확인한 다음 **마침**을 선택합니다.
 
 ## <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
@@ -134,8 +134,8 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 > 다운로드한 OVA 대신 [PowerShell 스크립트](deploy-appliance-script.md)를 사용하여 어플라이언스를 설정하는 경우 이 절차의 처음 두 단계는 관련이 없습니다.
 
 1. vSphere Client 콘솔에서 마우스 오른쪽 단추로 VM을 클릭한 다음, **콘솔 열기**를 선택합니다.
-1. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.
-1. VM에 연결할 수 있는 모든 머신에서 브라우저를 열고, 어플라이언스 웹앱의 URL(**https://*어플라이언스 이름 또는 IP 주소*: 44368**)을 엽니다.
+2. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.
+3. VM에 연결할 수 있는 모든 머신에서 브라우저를 열고, 어플라이언스 웹앱의 URL(**https://*어플라이언스 이름 또는 IP 주소*: 44368**)을 엽니다.
 
    또는 앱 바로 가기를 선택하여 어플라이언스 데스크톱에서 앱을 열 수 있습니다.
 1. 웹앱 > **필수 구성 요소 설정**에서 다음을 수행합니다.
@@ -153,13 +153,13 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
 1. **로그인**을 선택합니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-1. 새 탭에서 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
+2. 새 탭에서 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
    
    PIN을 사용한 로그인은 지원되지 않습니다.
-1. 성공적으로 로그인하면 웹앱으로 돌아갑니다.
-1. Azure Migrate 프로젝트가 만들어진 구독을 선택한 다음, 해당 프로젝트를 선택합니다.
-1. 어플라이언스의 이름을 지정합니다. 이름은 14자 이하의 영숫자여야 합니다.
-1. **등록**을 선택합니다.
+3. 성공적으로 로그인하면 웹앱으로 돌아갑니다.
+4. Azure Migrate 프로젝트가 만들어진 구독을 선택한 다음, 해당 프로젝트를 선택합니다.
+5. 어플라이언스의 이름을 지정합니다. 이름은 14자 이하의 영숫자여야 합니다.
+6. **등록**을 선택합니다.
 
 
 ## <a name="start-continuous-discovery"></a>연속 검색 시작
@@ -191,39 +191,53 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 검색되면 Azure Portal에서 해당 VM이 표시되는지 확인할 수 있습니다.
 
 1. Azure Migrate 대시보드를 엽니다.
-1. **Azure Migrate - 서버** > **Azure Migrate: 서버 평가**에서 **검색된 서버**의 수를 표시하는 아이콘을 선택합니다.
+2. **Azure Migrate - 서버** > **Azure Migrate: 서버 평가**에서 **검색된 서버**의 수를 표시하는 아이콘을 선택합니다.
 
 ## <a name="set-up-an-assessment"></a>평가 설정
 
 Azure Migrate 서버 평가를 사용하여 두 가지 유형의 평가를 만들 수 있습니다.
 
-**평가** | **세부 정보** | **Data**
+**평가 유형** | **세부 정보**
+--- | --- 
+**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md), [Hyper-V VM](how-to-set-up-appliance-hyper-v.md) 및 [ 물리적 서버](how-to-set-up-appliance-physical.md)를 평가할 수 있습니다. [자세히 알아보기](concepts-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 AVS(Azure VMware 솔루션)로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md)을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+
+서버 평가는 다음과 같은 두 가지 크기 조정 기준 옵션을 제공합니다.
+
+**크기 조정 기준** | **세부 정보** | **Data**
 --- | --- | ---
-**성능 기반** | 수집된 성능 데이터를 기반으로 하는 평가 | **추천 VM 크기**: CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> **추천 디스크 유형(표준 또는 프리미엄 관리 디스크)** : 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.
-**온-프레미스로** | 온-프레미스 크기 조정에 기반한 평가 | **추천 VM 크기**: 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> **추천 디스크 유형**: 평가를 위해 선택한 스토리지 유형 설정을 기반으로 합니다.
+**성능 기반** | 수집된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | **Azure VM 평가**: VM 크기 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항(표준 HDD/SSD 또는 프리미엄 관리 디스크)은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.<br/><br/> **AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.
+**온-프레미스인 경우** | 권장 사항을 적용하기 위해 성능 데이터를 사용하지 않는 평가. | **Azure VM 평가**: VM 크기 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 디스크 유형은 평가를 위해 스토리지 유형 설정에서 선택한 항목을 기반으로 합니다.<br/><br/> **AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.
 
 ## <a name="run-an-assessment"></a>평가 실행
 
-다음과 같이 평가를 실행합니다.
+다음과 같이 *Azure VM 평가*를 실행합니다.
 
 1. 평가를 만드는 방법에 대한 [모범 사례](best-practices-assessment.md)를 검토합니다.
-1. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **평가**를 선택합니다.
+2. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **평가**를 선택합니다.
 
    ![평가 단추의 위치](./media/tutorial-assess-vmware/assess.png)
 
-1. **서버 평가**에서 평가 이름을 지정합니다.
-1. **모두 보기**를 선택한 다음, 평가 속성을 검토합니다.
+3. **서버 평가**에서 평가 유형을 "Azure VM"으로 선택하고, 검색 원본을 선택하고, 평가 이름을 지정합니다.
+
+    ![평가 기본 사항](./media/tutorial-assess-vmware/assess-servers-azurevm.png)
+ 
+4. **모두 보기**를 선택한 다음, 평가 속성을 검토합니다.
 
    ![평가 속성](./media/tutorial-assess-vmware/view-all.png)
 
-1. **그룹 선택 또는 만들기**에서 **새로 만들기**를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
-1. **그룹에 머신 추가**에서 그룹에 추가할 VM을 선택합니다.
-1. **평가 만들기**를 선택하여 그룹을 만들고, 평가를 실행합니다.
+5. **다음**을 클릭하여 **평가할 머신을 선택**합니다. **그룹 선택 또는 만들기**에서 **새로 만들기**를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
+6. **그룹에 머신 추가**에서 그룹에 추가할 VM을 선택합니다.
+7. **다음**에서 **검토 + 평가 만들기**를 클릭하여 평가 세부 정보를 검토합니다.
+8. **평가 만들기**를 선택하여 그룹을 만들고, 평가를 실행합니다.
 
    ![서버 평가](./media/tutorial-assess-vmware/assessment-create.png)
 
-1. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가**에서 해당 평가를 확인합니다.
-1. **평가 내보내기**를 선택하여 Excel 파일로 다운로드합니다.
+8. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가**에서 해당 평가를 확인합니다.
+9. **평가 내보내기**를 선택하여 Excel 파일로 다운로드합니다.
+
+**AVS(Azure VMware 솔루션) 평가**를 실행하려면 [여기](how-to-create-azure-vmware-solution-assessment.md)에서 설명된 단계를 수행합니다.
+
 
 ## <a name="review-an-assessment"></a>평가 검토
 
@@ -236,20 +250,20 @@ Azure Migrate 서버 평가를 사용하여 두 가지 유형의 평가를 만�
 평가를 보려면 다음을 수행합니다.
 
 1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
-1. **평가**에서 평가를 선택하여 엽니다.
+2. **평가**에서 평가를 선택하여 엽니다.
 
    ![평가 요약](./media/tutorial-assess-vmware/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Azure 준비 상태 검토
 
 1. **Azure 준비 상태**에서 VM이 Azure로 마이그레이션할 준비가 되었는지 확인합니다.
-1. VM 상태를 검토합니다.
+2. VM 상태를 검토합니다.
     - **Azure 준비 완료**: Azure Migrate가 평가에서 VM의 크기 및 예상 비용을 추천할 때 사용됩니다.
     - **조건과 함께 준비 완료**: 문제 및 제안된 수정 사항을 보여 줍니다.
     - **Azure를 사용할 준비 안 됨**: 문제 및 제안된 수정 사항을 보여 줍니다.
     - **알 수 없는 준비**: 데이터 가용성 문제로 인해 Azure Migrate에서 준비 상태를 평가할 수 없을 때 사용됩니다.
 
-1. **Azure 준비 상태** 상태를 선택합니다. VM 준비 상태 세부 정보를 볼 수 있습니다. 드릴다운하여 컴퓨팅, 스토리지 및 네트워크 설정을 포함한 VM 세부 정보를 확인할 수도 있습니다.
+3. **Azure 준비 상태** 상태를 선택합니다. VM 준비 상태 세부 정보를 볼 수 있습니다. 드릴다운하여 컴퓨팅, 스토리지 및 네트워크 설정을 포함한 VM 세부 정보를 확인할 수도 있습니다.
 
 ### <a name="review-cost-details"></a>비용 세부 정보 검토
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.openlocfilehash: 347f37fb999656a1c4951f01a75a392887b5b882
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/09/2020
+ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045674"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220306"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 눈송이 간 데이터 복사
 
@@ -36,7 +36,7 @@ ms.locfileid: "86045674"
 - 눈송이의 [copy를 [location] 명령으로](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) 활용 하는 눈송이의 데이터를 최상의 성능을 얻기 위해 복사 합니다.
 - 눈송이의 [copy to [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) 명령을 사용 하 여 최상의 성능을 얻기 위해 데이터를 눈송이로 복사 합니다. Azure의 눈송이를 지원 합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -60,7 +60,7 @@ ms.locfileid: "86045674"
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>(optional)"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ ms.locfileid: "86045674"
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>(optional)",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -156,15 +156,20 @@ ms.locfileid: "86045674"
 
 - **싱크 연결 된 서비스** 는 **공유 액세스 서명** 인증을 사용 하는 [**Azure Blob storage**](connector-azure-blob-storage.md) 입니다.
 
-- **싱크 데이터 형식은** 다음 구성을 포함 하는 **Parquet** 또는 **구분 된 텍스트**입니다.
+- **싱크 데이터 형식은** 다음과 같은 구성 **으로 Parquet**, **구분 된 텍스트**또는 **JSON** 입니다.
 
-   - **Parquet** 형식의 경우 압축 코덱은 **None**, **Snappy**또는 **Lzo**입니다.
-   - **구분 기호로 분리 된 텍스트** 형식:
-     - `rowDelimiter`는 **\r\n**또는 모든 단일 문자입니다.
-     - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
-     - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
-     - `quoteChar`는 **큰따옴표**, **작은따옴표**또는 **빈 문자열** (따옴표 문자 없음)입니다.
-- 복사 작업 원본에서 `additionalColumns` 가 지정 되지 않은 경우
+    - **Parquet** 형식의 경우 압축 코덱은 **None**, **Snappy**또는 **Lzo**입니다.
+    - **구분 기호로 분리 된 텍스트** 형식:
+        - `rowDelimiter`는 **\r\n**또는 모든 단일 문자입니다.
+        - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
+        - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
+        - `quoteChar`**큰따옴표**, **작은따옴표** 또는 **빈 문자열** (따옴표 문자 없음)입니다.
+    - **JSON** 형식의 경우 직접 복사는 원본 눈송이 테이블 또는 쿼리 결과도 단일 열을 가지 며이 열의 데이터 형식은 **VARIANT**, **OBJECT**또는 **배열인**경우에만 지원 합니다.
+        - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
+        - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
+        - `filePattern`복사 활동 싱크에서 기본값 또는 **Setofobjects**로 설정 됩니다.
+
+- 복사 활동 원본에서 `additionalColumns` 가 지정 되지 않았습니다.
 - 열 매핑이 지정 되지 않았습니다.
 
 **예제:**
@@ -282,15 +287,19 @@ ms.locfileid: "86045674"
 
 - **원본 연결 된 서비스** 는 **공유 액세스 서명** 인증을 사용 하는 [**Azure Blob storage**](connector-azure-blob-storage.md) 입니다.
 
-- **원본 데이터 형식은** 다음 구성을 사용 하 여 **Parquet** 또는 **구분 된 텍스트**입니다.
+- **원본 데이터 형식은** 다음과 같은 구성을 사용 하는 **Parquet**, **구분 된 텍스트**또는 **JSON** 입니다.
 
-   - **Parquet** 형식의 경우 압축 코덱은 **None** 또는 **Snappy**입니다.
+    - **Parquet** 형식의 경우 압축 코덱은 **None**또는 **Snappy**입니다.
 
-   - **구분 기호로 분리 된 텍스트** 형식:
-     - `rowDelimiter`는 **\r\n**또는 모든 단일 문자입니다. 행 구분 기호가 "\r\n"이 아닌 경우 `firstRowAsHeader` **false**여야 하 고 `skipLineCount` 가 지정 되지 않습니다.
-     - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
-     - `encodingName`기본값은 "UTF-8", "UTF-16", "UTF-16", "32 UTF-8", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "로 설정 됩니다. ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "iso-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-     - `quoteChar`는 **큰따옴표**, **작은따옴표**또는 **빈 문자열** (따옴표 문자 없음)입니다.
+    - **구분 기호로 분리 된 텍스트** 형식:
+        - `rowDelimiter`는 **\r\n**또는 모든 단일 문자입니다. 행 구분 기호가 "\r\n"이 아닌 경우 `firstRowAsHeader` **false**여야 하 고 `skipLineCount` 가 지정 되지 않습니다.
+        - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
+        - `encodingName`기본값은 "UTF-8", "UTF-16", "UTF-16", "32 UTF-8", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "로 설정 됩니다. ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "iso-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar`**큰따옴표**, **작은따옴표** 또는 **빈 문자열** (따옴표 문자 없음)입니다.
+    - **JSON** 형식의 경우 직접 복사는 싱크 눈송이 테이블에 단일 열만 있고이 열의 데이터 형식이 **VARIANT**, **OBJECT**또는 **배열인**경우에만 지원 합니다.
+        - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
+        - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
+        - 열 매핑이 지정 되지 않았습니다.
 
 - 복사 작업 원본에서: 
 

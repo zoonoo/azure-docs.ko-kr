@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 07/07/2020
-  ms.openlocfilehash: f36190edbdbfe4840f9f03d612d6fe2353ad5f5b
-  ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+  ms.openlocfilehash: 0cf2dbdf69ec2cd7af7cf23816db5fb03dacd76e
+  ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86134079"
+  ms.locfileid: "86143725"
 conceptualContent:
   title: 규정 준수 제안
   items:
@@ -375,13 +375,15 @@ additionalContent:
     - title: 국가/지역 개인 정보 및 규정 준수 가이드
       links:
       - text: 오스트레일리아 보안 및 개인 정보 요구 사항
-        url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-0c790495
+        url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-australian-security-and-privacy-requirements/
       - text: 싱가포르 보안 및 개인 정보 요구 사항
-        url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-ced8dbf9
+        url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-singapore/
+      - text: 일본 보안 및 개인 정보 요구 사항
+        url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-the-japan-security-and-privacy-requirements/
       - text: 말레이시아 보안 및 개인 정보 요구 사항
         url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-8b936d6a
       - text: 뉴질랜드 보안 및 개인 정보 요구 사항
-        url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-f19e44c2
+        url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-new-zealand/
       - text: 유럽에서 클라우드로 이동
         url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
       - text: 아시아에서 클라우드로 이동
@@ -434,7 +436,7 @@ additionalContent:
         url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers
       - text: 데이터 보존 및 데이터 보호 사용
         url: https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/
-      - text: 데이터 보존 및 보안
+      - text: 데이터 상주 및 보안
         url: https://azure.microsoft.com/resources/azure-for-secure-worldwide-public-sector-cloud-adoption
       - text: 보안 및 규정 준수에 대한 Azure RFI
         url: https://azure.microsoft.com/resources/azure-standard-response-to-rfi-on-security-privacy-and-compliance/

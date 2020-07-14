@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 게이트웨이 구성 요소
+title: Application Gateway 구성 요소
 description: 이 문서에서는 응용 프로그램 게이트웨이의 다양 한 구성 요소에 대 한 정보를 제공 합니다.
 services: application-gateway
 author: abshamsft
@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254330"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186761"
 ---
-# <a name="application-gateway-components"></a>응용 프로그램 게이트웨이 구성 요소
+# <a name="application-gateway-components"></a>Application Gateway 구성 요소
 
  응용 프로그램 게이트웨이는 클라이언트의 단일 연락 지점으로 사용 됩니다. 들어오는 응용 프로그램 트래픽을 Azure Vm, 가상 머신 확장 집합, Azure App Service 및 온-프레미스/외부 서버를 포함 하는 여러 백 엔드 풀에 분산 합니다. 트래픽을 분산 하기 위해 application gateway는이 문서에 설명 된 여러 구성 요소를 사용 합니다.
 
@@ -59,7 +59,7 @@ TLS 종료에 HTTPS 수신기를 사용 합니다. HTTPS 수신기는 암호화 
 
 ### <a name="custom-error-pages"></a>사용자 지정 오류 페이지
 
-Application Gateway를 사용 하면 기본 오류 페이지를 표시 하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다. Application Gateway 요청에서 백 엔드에 연결할 수 없는 경우 사용자 지정 오류 페이지가 표시 됩니다.
+Application Gateway를 사용 하면 기본 오류 페이지를 표시 하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 사용자 고유의 브랜딩과 레이아웃을 사용할 수 있습니다. Application Gateway 요청에서 백 엔드에 연결할 수 없는 경우 사용자 지정 오류 페이지가 표시 됩니다.
 
 자세한 내용은 [application gateway에 대 한 사용자 지정 오류 페이지](custom-error.md)를 참조 하세요.
 
@@ -126,7 +126,7 @@ HTTP 설정에 사용 되는 포트 및 프로토콜에 따라 응용 프로그�
 백 엔드 풀은 요청을 처리 하는 백 엔드 서버에 요청을 라우팅합니다. 백 엔드 풀에는 다음이 포함 될 수 있습니다.
 
 - NIC
-- 가상 머신 크기 집합
+- 가상 머신 확장 집합
 - 공용 IP 주소
 - 내부 IP 주소
 - FQDN
@@ -144,7 +144,7 @@ Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결 되지 �
 
 기본적으로 응용 프로그램 게이트웨이는 백 엔드 풀의 모든 리소스 상태를 모니터링 하 고 비정상 상태를 자동으로 제거 합니다. 그런 다음 비정상 인스턴스를 모니터링 하 고 사용할 수 있게 되 고 상태 프로브에 응답할 때 정상 백 엔드 풀에 다시 추가 합니다.
 
-기본 상태 프로브 모니터링 사용 외에도 애플리케이션 프로그의 요구 사항에 맞게 상태 프로브를 사용자 지정할 수도 있습니다. 사용자 지정 프로브를 통해 상태 모니터링을 보다 세부적으로 제어할 수 있습니다. 사용자 지정 프로브를 사용 하는 경우 프로브 간격, 테스트할 URL 및 경로, 백 엔드 풀 인스턴스를 비정상으로 표시 하기 전에 허용할 실패 응답 횟수를 구성할 수 있습니다. 각 백 엔드 풀의 상태를 모니터링 하도록 사용자 지정 프로브를 구성 하는 것이 좋습니다.
+기본 상태 프로브 모니터링 사용 외에도 애플리케이션 프로그의 요구 사항에 맞게 상태 프로브를 사용자 지정할 수도 있습니다. 사용자 지정 프로브를 통해 상태 모니터링을 보다 세부적으로 제어할 수 있습니다. 사용자 지정 프로브를 사용 하는 경우 백 엔드 풀 인스턴스를 비정상, 사용자 지정 상태 코드 및 응답 본문 일치 항목으로 표시 하기 전에 사용자 지정 호스트 이름, URL 경로, 프로브 간격 및 허용할 실패 응답 횟수를 구성할 수 있습니다. 각 백 엔드 풀의 상태를 모니터링 하도록 사용자 지정 프로브를 구성 하는 것이 좋습니다.
 
 자세한 내용은 [application gateway의 상태 모니터링](../application-gateway/application-gateway-probe-overview.md)을 참조 하세요.
 

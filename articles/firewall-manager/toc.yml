@@ -44,12 +44,14 @@
       href: migrate-to-policy.md
     - name: DNS 설정
       href: dns-settings.md
+    - name: 여러 공용 IP 배포
+      href: multiple-public-ip-powershell.md
 - name: 참조
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/azure-firewall/network/firewall
+      href: /cli/azure/ext/azure-firewall/network/firewall/policy
     - name: Azure PowerShell
-      href: /powershell/module/az.network/new-azfirewall
+      href: /powershell/module/az.network/new-azfirewallpolicy
     - name: .NET
       href: /dotnet/api
     - name: Java
@@ -59,7 +61,7 @@
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST (영문)
-      href: /rest/api/firewall
+      href: /rest/api/virtualnetwork/firewallpolicies
     - name: Azure 리소스 관리자
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스

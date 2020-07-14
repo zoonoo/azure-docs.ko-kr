@@ -1,14 +1,14 @@
 ---
 title: DoD 영향 수준 4 청사진 샘플
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 DoD 영향 수분 4 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 03/06/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: c92e24327bc1879b8fea89cf85a50f845e473810
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb2599399284b2be5a9a7f88ef1d0244812ec4b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79415311"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044977"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플 배포
 
@@ -93,32 +93,30 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 |아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|VM을 구성해야 하는 Log Analytics 작업 영역 ID|VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다.|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다.|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|Windows VM 관리자 그룹에서 제외해야 하는 사용자 목록|관리자 로컬 그룹에서 제외해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|Windows VM 관리자 그룹에 포함해야 하는 사용자 목록|관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
-|\[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|Linux VMSS(VM Scale Sets)용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
-|\[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
-|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포|정책 할당|Linux VM용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
-|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
-|\[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|Windows VMSS(VM Scale Sets)용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
-|\[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
-|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|Windows VM용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
-|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
-|스토리지 계정에 Advanced Threat Protection 배포|정책 할당|영향|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
+|허용되는 위치|정책 할당|허용되는 위치|이 정책을 사용하면 조직에서 리소스를 배포할 때 지정할 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다.|
+|리소스 그룹에 허용되는 위치|정책 할당 |허용되는 위치|이 정책을 통해 조직에서 리소스 그룹을 만들 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다.|
 |SQL Server에 감사 배포|정책 할당|보존 기간 값(일)(0은 보존 기간에 제한이 없음을 표시)|보존 일 수(선택 사항, 지정하지 않는 경우 180일)|
 |SQL Server에 감사 배포|정책 할당|SQL 서버 감사를 위한 스토리지 계정의 리소스 그룹 이름|감사에서는 데이터베이스 이벤트를 Azure Storage 계정의 감사 로그에 씁니다(스토리지 계정은 한 지역의 모든 서버에서 공유할 수 있는 SQL Server가 만들어진 각 지역에 만들어짐). 중요 - 적절한 감사 작업을 위해 리소스 그룹 또는 스토리지 계정을 삭제하거나 이름을 바꾸지 마세요.|
 |네트워크 보안 그룹에 대한 진단 설정 배포|정책 할당|네트워크 보안 그룹 진단을 위한 스토리지 계정 접두사|이 접두사와 네트워크 보안 그룹 위치가 결합되어 스토리지 계정 이름이 구성됩니다.|
 |네트워크 보안 그룹에 대한 진단 설정 배포|정책 할당|네트워크 보안 그룹 진단을 위한 스토리지 계정의 리소스 그룹 이름(있어야 함)|스토리지 계정이 생성될 리소스 그룹. 이 리소스 그룹은 이미 있어야 합니다.|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|리소스 및 리소스 그룹에 허용된 위치|리소스를 배포할 때 조직에서 지정할 수 있는 Azure 위치 목록. 이 제공된 값은 정책 이니셔티브 내에서 ‘허용된 위치’ 정책에도 사용됩니다.|
+|Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|Linux VMSS(VM Scale Sets)용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
+|Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
+|Linux VM용 Log Analytics 에이전트 배포|정책 할당|Linux VM용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
+|Linux VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
+|Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|Windows VMSS(VM Scale Sets)용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
+|Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
+|Windows VM용 Log Analytics 에이전트 배포|정책 할당|Windows VM용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
+|Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
+|\[미리 보기\]: DoD 영향 수준 4|정책 할당|Administrators 로컬 그룹에 포함할 멤버|관리자 로컬 그룹에서 제외해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
+|\[미리 보기\]: DoD 영향 수준 4|정책 할당|Administrators 로컬 그룹에서 제외해야 하는 멤버|관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
+|\[미리 보기\]: DoD 영향 수준 4|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다.|
+|\[미리 보기\]: DoD 영향 수준 4|정책 할당|VM을 구성해야 하는 Log Analytics 작업 영역 ID|VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다.|
+|\[미리 보기\]: DoD 영향 수준 4|정책 할당|Azure SQL Database에 대해 장기 지역 중복 백업을 사용하도록 설정해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|Storage 계정에 대해 지역 중복 스토리지를 사용하도록 설정해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|Azure Database for MariaDB에 대해 지역 중복 백업을 사용하도록 설정해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|Azure Database for MySQL에 대해 지역 중복 백업을 사용하도록 설정해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|Azure Database for PostgreSQL에 대해 지역 중복 백업을 사용하도록 설정해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|웹 애플리케이션에 HTTPS를 통해서만 액세스 가능|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|함수 앱에 HTTPS를 통해서만 액세스 가능|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
@@ -131,9 +129,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|Azure SQL Database에 대해 장기 지역 중복 백업을 사용하도록 설정해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
-|허용되는 위치|정책 할당|허용되는 위치|이 정책을 사용하면 조직에서 리소스를 배포할 때 지정할 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다.|
-|리소스 그룹에 허용되는 위치|정책 할당 |허용되는 위치|이 정책을 통해 조직에서 리소스 그룹을 만들 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

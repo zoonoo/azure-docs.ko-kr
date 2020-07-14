@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d0d0d19b9b84649867085a05efa656131e48c5a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535709"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220723"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -18,7 +18,7 @@ App Service 도메인은 Azure에서 직접 관리 되는 최상위 도메인입
 
 Azure VM 또는 Azure Storage의 경우 [Azure VM 또는 Azure Storage에 App Service 도메인 할당](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage)을 참조하세요. Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -78,11 +78,11 @@ Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Se
 ### <a name="launch-buy-domains"></a>도메인 구입 시작
 **App Services** 탭에서 앱의 이름을 클릭하고, **설정**을 선택한 다음, **사용자 지정 도메인**을 선택합니다.
    
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![강조 표시 된 사용자 지정 도메인을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 **사용자 지정 도메인** 페이지에서 **도메인 구입**을 클릭합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
+![구매 도메인이 강조 표시 된 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
 > [!NOTE]
 > **App Service 도메인** 섹션이 표시되지 않으면 Azure 계정에 대한 지출 한도를 제거해야 합니다([필수 구성 요소](#prerequisites) 참조).
@@ -93,7 +93,7 @@ Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Se
 
 **App Service 도메인** 페이지의 **도메인 검색** 상자에 구입할 도메인 이름을 입력하고 `Enter`를 입력합니다. 사용 가능한 도메인이 텍스트 상자 아래에 나타납니다. 구입하려는 도메인을 하나 이상 선택합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+![도메인 검색 검색 상자를 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
 > App Service 도메인에서 지원되는 [최상위 도메인](https://wikipedia.org/wiki/Top-level_domain)은 _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ 및 _co.in_입니다.
@@ -108,7 +108,7 @@ Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Se
 
 | 설정 | 제안 값 | Description |
 |-|-|-|
-|개인 정보 보호 | 사용 하도록 설정 | _체험_ 구매 가격에 포함된 "개인 정보 보호"를 선택합니다. 일부 최상위 도메인은 개인 정보 보호를 지원하지 않는 등록 기관에서 관리하며 **개인 정보 보호** 페이지에 나열됩니다. |
+|개인 정보 보호 | 사용 | _체험_ 구매 가격에 포함된 "개인 정보 보호"를 선택합니다. 일부 최상위 도메인은 개인 정보 보호를 지원하지 않는 등록 기관에서 관리하며 **개인 정보 보호** 페이지에 나열됩니다. |
 | 기본 호스트 이름 할당 | **www** 및 **\@** | 필요한 경우 원하는 호스트 이름 바인딩을 선택합니다. 도메인 구매 작업이 완료되면 선택한 호스트 이름에서 앱에 액세스할 수 있습니다. 앱이 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) 뒤에 있는 경우 Traffic Manager는 A 레코드를 지원하지 않으므로 루트 도메인을 할당하는 옵션이 표시되지 않습니다. 도메인 구매가 완료된 후 호스트 이름 할당을 변경할 수 있습니다. |
 
 ### <a name="accept-terms-and-purchase"></a>조건에 동의하고 구매
@@ -122,19 +122,19 @@ Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Se
 
 **App Service 도메인** 페이지로 돌아가서 **확인**을 클릭합니다. 작업이 진행되는 동안 다음과 같은 알림이 표시됩니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
+![유효성 검사 진행 중 메시지를 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
+![구매가 성공 했다는 알림을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
 
 ### <a name="test-the-hostnames"></a>호스트 이름 테스트
 
 앱에 기본 호스트 이름을 할당한 경우 선택한 각 호스트 이름에 대해 성공 알림도 표시됩니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![선택한 각 호스트 이름에 대 한 성공 알림을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 또한 선택한 호스트 이름도 **사용자 지정 도메인** 페이지의 **사용자 지정 호스트 이름** 섹션에서 표시됩니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+![사용자 지정 도메인 페이지의 사용자 지정 호스트 이름 섹션에서 선택한 호스트 이름을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
 > 사용자 지정 도메인에 대 한 **보안 되지 않은** 레이블은 아직 TLS/SSL 인증서에 바인딩되어 있지 않음을 의미 하 고 브라우저에서 사용자 지정 도메인으로의 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받게 됩니다. TLS 바인딩을 구성 하려면 [Azure App Service에서 tls/SSL 바인딩을 사용 하 여 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조 하세요.
@@ -154,11 +154,11 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 ### <a name="launch-add-hostname"></a>호스트 이름 추가 시작
 **App Services** 페이지에서 호스트 이름을 할당할 앱 이름을 선택하고 **설정**, **사용자 지정 도메인**을 차례로 선택합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![강조 표시 된 사용자 지정 도메인을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 구매한 도메인이 **App Service 도메인** 섹션에 나열되는지 확인하되, 선택하지는 마세요. 
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![App Service 도메인 섹션에 구매한 도메인을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 > [!NOTE]
 > 같은 구독에 있는 모든 App Service 도메인은 앱의 **사용자 지정 도메인** 페이지에 표시됩니다. 도메인이 앱의 구독에 있지만 앱의 **사용자 지정 도메인** 페이지에서 볼 수 없는 경우 **사용자 지정 도메인** 페이지를 다시 열거나 웹 페이지를 새로 고칩니다. 또한 Azure Portal의 맨 위에서 진행 상황 또는 생성 실패에 대한 알림 벨을 확인합니다.
@@ -168,7 +168,7 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 **호스트 이름 추가**를 선택합니다.
 
 ### <a name="configure-hostname"></a>호스트 이름 구성
-**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예:
+**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예들 들어 다음과 같습니다.
 
 - kontoso.net
 - www \. kontoso.net
@@ -180,14 +180,14 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 
 작업이 완료되면 할당된 호스트 이름에 대해 성공 알림이 표시됩니다.  
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![할당 된 호스트 이름에 대 한 성공 알림을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 ### <a name="close-add-hostname"></a>호스트 이름 추가 닫기
 **호스트 이름 추가** 페이지에서 원하는 대로, 앱에 다른 호스트 이름을 할당합니다. 완료되면 **호스트 이름 추가** 페이지를 닫습니다.
 
 이제 **사용자 지정 도메인** 페이지에 새로 할당된 호스트 이름이 표시됩니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
+![앱의 사용자 지정 도메인 페이지에 새로 할당 된 호스트 이름을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
 
 ### <a name="test-the-hostnames"></a>호스트 이름 테스트
 
@@ -201,15 +201,15 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 
 **App Services** 탭에서 앱 이름을 클릭 하 고 **설정**을 선택한 다음 **사용자 지정 도메인**을 선택 합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![강조 표시 된 사용자 지정 도메인을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 **App Service 도메인** 섹션에서 구성하려는 도메인을 선택합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![App Service 도메인 섹션에 구매한 도메인을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 도메인의 왼쪽 탐색 영역에서 **도메인 갱신**을 선택합니다. 도메인에 대한 자동 갱신을 중지하려면 **끄기**를 선택한 다음 **저장**을 선택합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+![도메인을 자동으로 갱신 하는 옵션을 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
 도메인을 수동으로 갱신하려면 **도메인 갱신**을 선택합니다. 그러나이 단추는 [도메인 만료가 90 일 전에](#when-domain-expires)는 활성화 되지 않습니다.
 
@@ -237,7 +237,7 @@ Azure에서 App Service 도메인에 대한 DNS 레코드는 [Azure DNS](https:/
 
 Azure Portal의 왼쪽 메뉴에서 **모든 서비스**  >  **App Service 도메인**을 선택 합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![App Service 도메인에 액세스할 수 있는 위치를 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 관리할 도메인을 선택합니다. 
 
@@ -245,7 +245,7 @@ Azure Portal의 왼쪽 메뉴에서 **모든 서비스**  >  **App Service 도�
 
 도메인의 왼쪽 메뉴에서 **DNS 영역**을 선택합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
+![DNS 영역을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
 
 이 작업으로 Azure DNS에서 App Service 도메인의 [DNS 영역](../dns/dns-zones-records.md) 페이지가 열립니다. DNS 레코드를 편집하는 방법에 대한 자세한 내용은 [Azure Portal에서 DNS 영역을 관리하는 방법](../dns/dns-operations-dnszones-portal.md)을 참조하세요.
 
@@ -257,7 +257,7 @@ App Service 도메인을 구매한 후 5일 이내에 구매를 취소하고 전
 
 Azure Portal의 왼쪽 메뉴에서 **모든 서비스**  >  **App Service 도메인**을 선택 합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![App Service 도메인에 액세스할 수 있는 위치를 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 취소 또는 삭제할 도메인을 선택합니다. 
 
@@ -265,13 +265,13 @@ Azure Portal의 왼쪽 메뉴에서 **모든 서비스**  >  **App Service 도�
 
 도메인의 왼쪽 메뉴에서 **호스트 이름 바인딩**을 선택합니다. 모든 Azure 서비스의 호스트 이름 바인딩이 여기에 나열됩니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+![호스트 이름 바인딩 페이지를 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
 
 모든 호스트 이름 바인딩이 삭제되어야 App Service 도메인을 삭제할 수 있습니다.
 
 **...를 선택**  >  하 여 각 호스트 이름 바인딩을 삭제 합니다. **삭제**. 모든 바인딩을 삭제한 후 **저장**을 선택합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
+![호스트 이름 바인딩을 삭제할 위치를 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
 ### <a name="cancel-or-delete"></a>취소 또는 삭제
 
@@ -279,7 +279,7 @@ Azure Portal의 왼쪽 메뉴에서 **모든 서비스**  >  **App Service 도�
 
 구매한 도메인에 대한 취소 기간이 경과되지 않은 경우 **구매 취소**를 선택합니다. 그렇지 않으면 **삭제** 단추가 대신 표시됩니다. 환불하지 않고 도메인을 삭제하려면 **삭제**를 선택합니다.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
+![구매한 도메인을 삭제 하거나 취소할 위치를 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
 작업을 확인하려면 **예**를 선택합니다.
 

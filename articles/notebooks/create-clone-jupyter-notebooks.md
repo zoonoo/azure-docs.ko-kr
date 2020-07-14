@@ -3,12 +3,12 @@ title: Jupyter 노트북 만들기 및 복제-Azure Notebooks 미리 보기
 description: Azure Notebooks 미리 보기 프로젝트는 다른 원본에서 새로 만들거나 복제할 수 있는 노트북 및 관련 파일의 컬렉션을 관리 합니다.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831287"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181502"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 프로젝트 만들기 및 복제
 
@@ -61,20 +61,40 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 | --- | --- |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. 예를 들어 "내 전자 필기장 프로젝트"입니다. |
 | 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다(형식은 `https://notebooks.azure.com/<user_id>/projects/<project_id>`). 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며, 30 자로 제한 되며, [예약 된 프로젝트 id](#reserved-project-ids)가 될 수 없습니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
-| 공용 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
+| 공개 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
 | README를 사용하여 이 프로젝트를 초기화 | 이 옵션을 설정하면 프로젝트에 기본 *README.md* 파일이 생성됩니다. 원한다면 *README.md* 파일에 프로젝트에 대한 설명서를 제공할 수 있습니다. |
 
 ### <a name="reserved-project-ids"></a>예약 된 프로젝트 Id
 
 다음 예약어는 프로젝트 Id로 단독으로 사용할 수 없습니다. 그러나 이러한 예약어는 긴 프로젝트 Id의 일부로 사용할 수 있습니다.
 
-| | | | | | |
-| --- | --- | --- | --- | --- | --- |
-| 정보 | account | 관리 | api | 블로그 | 교실 |
-| 콘텐츠 | dashboard | 탐험 | 자주 묻는 질문(FAQ) | 도움말 | html |
-| home | import | 도서관 | 관리 | new | Notebook |
-| notebooks | pdf | 미리 보기 | 가격 책정 | profile | 검색 |
-| 상태 | support | test | | | |
+- 정보
+- account
+- 관리
+- api
+- 블로그
+- 교실
+- 콘텐츠
+- dashboard
+- 탐험
+- 자주 묻는 질문(FAQ)
+- help
+- html
+- home
+- import
+- 도서관
+- 관리
+- new
+- Notebook
+- notebooks
+- pdf
+- 미리 보기
+- 가격 책정
+- profile
+- 검색
+- 상태
+- support
+- test
 
 이러한 단어 중 하나를 프로젝트 ID로 사용 하려는 경우 **새 프로젝트** 및 **프로젝트 설정** 만들기 팝업은 "라이브러리 ID는 예약 된 식별자입니다."를 표시 합니다.
 
@@ -90,7 +110,7 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 | 재귀적으로 복제 | GitHub 리포지토리는 여러 자식 리포지토리를 포함할 수 있습니다. 부모 리포지토리와 자식을 모두 복제하려면 이 옵션을 설정합니다. 한 리포지토리가 여러 자식을 가질 수 있으므로 꼭 필요한 경우 외에는 이 옵션을 선택하지 마세요. |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. |
 | 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다(형식은 `https://notebooks.azure.com/<user_id>/projects/<project_id>`). 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며, 30 자로 제한 되며, [예약 된 프로젝트 id](#reserved-project-ids)가 될 수 없습니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
-| 공용 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
+| 공개 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
 
 GitHub에서 리포지토리를 가져오면 해당 기록도 함께 가져옵니다. 터미널에서 표준 Git 명령을 사용하여 새로운 변경 내용을 커밋하고, GitHub에서 변경 내용을 끌어오는 등의 작업을 할 수 있습니다.
 

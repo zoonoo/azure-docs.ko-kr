@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81253716"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201796"
 ---
 # <a name="how-caching-works"></a>캐싱 작동 방식
 
@@ -111,11 +112,11 @@ Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTT
 
 모든 리소스를 캐시할 수 있는 것은 아닙니다. 다음 테이블은 HTTP 응답 유형을 기반으로 어떤 리소스를 캐시할 수 있는지 보여줍니다. 이러한 조건을 모두 충족하지 않는 HTTP 응답과 함께 전송되는 리소스는 캐시할 수 없습니다. **Verizon의 Azure CDN 프리미엄**의 경우에만 규칙 엔진을 사용하여 이러한 조건 중 일부를 사용자 지정할 수 있습니다.
 
-|                   | Microsoft의 Azure CDN          | Verizon의 Azure CDN | Akamai의 Azure CDN        |
-|-------------------|-----------------------------------|------------------------|------------------------------|
-| HTTP 상태 코드 | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
-| HTTP 메서드      | GET, HEAD                         | GET                    | GET                          |
-| 파일 크기 제한  | 300GB                            | 300GB                 | - 일반 웹 배달 최적화: 1.8GB<br />- 미디어 스트리밍 최적화: 1.8GB<br />- 대용량 파일 최적화: 150GB |
+|                       | Microsoft의 Azure CDN          | Verizon의 Azure CDN | Akamai의 Azure CDN        |
+|-----------------------|-----------------------------------|------------------------|------------------------------|
+| **HTTP 상태 코드** | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| **HTTP 메서드**      | GET, HEAD                         | GET                    | GET                          |
+| **파일 크기 제한**  | 300GB                            | 300GB                 | - 일반 웹 배달 최적화: 1.8GB<br />- 미디어 스트리밍 최적화: 1.8GB<br />- 대용량 파일 최적화: 150GB |
 
 **Microsoft의 Azure CDN 표준** 캐싱이 리소스에 작동하려면 원본 서버가 모든 HEAD 및 GET HTTP 요청을 지원해야 하고, content-length 값이 자산에 대한 모든 HEAD 및 GET HTTP 응답에 대해 동일해야 합니다. HEAD 요청의 경우, 원본 서버는 HEAD 요청에서 지원해야 하고, GET 요청을 수신한 경우처럼 동일한 헤더로 응답해야 합니다.
 

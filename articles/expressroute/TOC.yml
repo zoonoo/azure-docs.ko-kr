@@ -40,6 +40,8 @@
       items:
         - name: 회로 및 피어링 정보
           href: expressroute-circuit-peerings.md
+        - name: 회로 대역폭 업그레이드 정보
+          href: about-upgrade-circuit-bandwidth.md
         - name: 클래식에서 Resource Manager로 서킷 이동
           href: expressroute-move.md
     - name: ExpressRoute를 통한 BFD

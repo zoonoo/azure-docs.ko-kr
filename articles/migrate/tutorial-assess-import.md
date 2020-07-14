@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 98675b0f986ecb78ff122ed052a01d521aac1f6f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342649"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114213"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>가져온 데이터를 사용하여 서버 평가
 
@@ -179,10 +179,21 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 
 서버 평가를 사용하여 두 가지 유형의 평가를 만들 수 있습니다.
 
-**평가 유형** | **세부 정보** | **Data**
+
+**평가 유형** | **세부 정보**
+--- | --- 
+**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md), [Hyper-V VM](how-to-set-up-appliance-hyper-v.md) 및 [물리적 서버](how-to-set-up-appliance-physical.md)를 평가할 수 있습니다. (concepts-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 AVS(Azure VMware 솔루션)로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md)을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+
+### <a name="sizing-criteria"></a>크기 조정 기준
+
+서버 평가는 다음과 같은 두 가지 크기 조정 기준 옵션을 제공합니다.
+
+**크기 조정 기준** | **세부 정보** | **Data**
 --- | --- | ---
-**성능 기반** | 지정된 성능 데이터 값을 기반으로 하는 평가 | **추천 VM 크기**: CPU 및 메모리 사용량 데이터를 기반으로 합니다.<br/><br/> **추천 디스크 유형(표준 또는 프리미엄 관리 디스크)** : 온-프레미스 디스크의 IOPS(초당 입/출력) 및 처리량을 기반으로 합니다.
-**온-프레미스로** | 온-프레미스 크기 조정을 기반으로 하는 평가 | **추천 VM 크기**: 지정된 서버 크기를 기반으로 합니다.<br/><br> **추천 디스크 유형**: 평가를 위해 선택한 스토리지 유형 설정을 기반으로 합니다.
+**성능 기반** | 수집된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | **Azure VM 평가**: VM 크기 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항(표준 HDD/SSD 또는 프리미엄 관리 디스크)은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.<br/><br/> **AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.
+**온-프레미스인 경우** | 권장 사항을 적용하기 위해 성능 데이터를 사용하지 않는 평가. | **Azure VM 평가**: VM 크기 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 디스크 유형은 평가를 위해 스토리지 유형 설정에서 선택한 항목을 기반으로 합니다.<br/><br/> **AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.
+
 
 평가를 실행하려면 다음을 수행합니다.
 
@@ -191,24 +202,31 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 
     ![평가](./media/tutorial-assess-physical/assess.png)
 
-3. **서버 평가**에서 평가 이름을 지정합니다.
+3. **평가 서버**에서 평가 이름을 지정하고 *Azure VM*(Azure VM 평가를 수행하려는 경우) 또는 *AVS(Azure VMware 솔루션)* (AVS 평가를 수행하려는 경우)로 **평가** 유형을 선택합니다.
+
+    ![평가 기본 사항](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
 4. **검색 원본**에서 **Azure Migrate로 가져오기를 통해 추가된 머신**을 선택합니다.
+
 5. **모두 보기**를 선택하여 평가 속성을 검토합니다.
 
     ![평가 속성](./media/tutorial-assess-physical/view-all.png)
 
-6. **그룹 선택 또는 만들기**에서 **새로 만들기**를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
+6. **다음**을 클릭하여 **평가할 머신을 선택**합니다. **그룹 선택 또는 만들기**에서 **새로 만들기**를 선택하고 그룹 이름을 지정합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
 7. **그룹에 머신 추가**에서 그룹에 추가할 서버를 선택합니다.
-8. **평가 만들기**를 선택하여 그룹을 만든 다음, 평가를 실행합니다.
+8. **다음**에서 **검토 + 평가 만들기**를 클릭하여 평가 세부 정보를 검토합니다.
+9. **평가 만들기**를 클릭하여 그룹을 만든 다음, 평가를 실행합니다.
 
     ![평가 만들기](./media/tutorial-assess-physical/assessment-create.png)
 
 9. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가**에서 해당 평가를 확인합니다.
 10. **평가 내보내기**를 선택하여 Microsoft Excel 파일로 다운로드합니다.
 
-## <a name="review-an-assessment"></a>평가 검토
+**AVS(Azure VMware 솔루션)** 평가에 대한 자세한 내용은 [여기](how-to-create-azure-vmware-solution-assessment.md)를 참조하세요. 
 
-평가에서 설명하는 항목은 다음과 같습니다.
+## <a name="review-an-azure-vm-assessment"></a>Azure VM 평가 검토
+
+Azure VM 평가는 다음을 설명합니다.
 
 - **Azure 준비 상태**: 서버가 Azure로 마이그레이션하는 데 적합한지 여부입니다.
 - **월간 예상 비용**: Azure에서 서버를 실행하는 데 들어가는 월별 예상 컴퓨팅 및 스토리지 비용입니다.

@@ -14,30 +14,52 @@
               href: data-box-quickstart-portal.md
         - name: 자습서
           items:
-            - name: 1 - 주문
-              href: data-box-deploy-ordered.md
-            - name: 2 - 설정
-              href: data-box-deploy-set-up.md
-            - name: 3 - 연결 및 복사
+            - name: Azure로 데이터 가져오기
               items:
-                - name: SMB를 통해
-                  href: data-box-deploy-copy-data.md
-                - name: NFS를 통해
-                  href: data-box-deploy-copy-data-via-nfs.md
-                - name: REST를 통해
-                  href: data-box-deploy-copy-data-via-rest.md
-                - name: 데이터 복사 서비스를 통해
-                  href: data-box-deploy-copy-data-via-copy-service.md
-                - name: 관리형 디스크로
-                  href: data-box-deploy-copy-data-from-vhds.md
-            - name: '4 - 반환, 업로드, 확인'
-              href: data-box-deploy-picked-up.md
+                - name: 1 - 주문
+                  href: data-box-deploy-ordered.md
+                - name: 2 - 설정
+                  href: data-box-deploy-set-up.md
+                - name: 3 - 연결 및 복사
+                  items:
+                    - name: SMB를 통해
+                      href: data-box-deploy-copy-data.md
+                    - name: NFS를 통해
+                      href: data-box-deploy-copy-data-via-nfs.md
+                    - name: REST를 통해
+                      href: data-box-deploy-copy-data-via-rest.md
+                    - name: 데이터 복사 서비스를 통해
+                      href: data-box-deploy-copy-data-via-copy-service.md
+                    - name: 관리형 디스크로
+                      href: data-box-deploy-copy-data-from-vhds.md
+                - name: '4 - 반환, 업로드, 확인'
+                  href: data-box-deploy-picked-up.md
+            - name: Azure에서 데이터 가져오기
+              items:
+                - name: 1 - 주문
+                  href: data-box-deploy-export-ordered.md
+                - name: 2 - 설정
+                  href: data-box-deploy-set-up.md
+                - name: 3 - 연결 및 복사
+                  items:
+                    - name: SMB를 통해
+                      href: data-box-deploy-export-copy-data.md
+                    - name: NFS를 통해
+                      href: data-box-deploy-export-copy-data-via-nfs.md
+                - name: 4 - 반환
+                  href: data-box-deploy-export-picked-up.md
         - name: 개념
           items:
             - name: 보안 지침 읽기
               href: data-box-safety.md
             - name: 추적 및 로깅 검토
-              href: data-box-logs.md
+              items:
+                - name: 가져오기 주문의 경우
+                  href: data-box-logs.md
+                - name: 내보내기 주문의 경우
+                  href: data-box-export-logs.md
+            - name: 감사 로그 보기
+              href: data-box-audit-logs.md
             - name: 요구 사항 검토
               items:
                 - name: Data Box
@@ -64,6 +86,8 @@
               href: data-box-portal-customer-managed-shipping.md
             - name: 고객 관리형 키 사용
               href: data-box-customer-managed-encryption-key-portal.md
+            - name: 고객 Lockbox 사용
+              href: data-box-customer-lockbox.md
             - name: Blob 계층으로 데이터 이동
               href: data-box-how-to-set-data-tier.md
             - name: 디바이스에 케이블 연결

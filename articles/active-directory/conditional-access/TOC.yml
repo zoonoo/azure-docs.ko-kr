@@ -104,6 +104,18 @@
           href: troubleshoot-conditional-access-what-if.md
         - name: FAQ
           href: faqs.md
+- name: 참조
+  items:
+    - name: 베타 Graph API
+      items:
+        - name: conditionalAccessPolicy API
+          href: /graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta
+        - name: namedLocation API
+          href: /graph/api/resources/namedlocation?view=graph-rest-beta
+        - name: countryNamedLocation API
+          href: /graph/api/resources/countrynamedlocation?view=graph-rest-beta
+        - name: ipNamedLocation API
+          href: /graph/api/resources/ipnamedlocation?view=graph-rest-beta
 - name: 리소스
   items:
     - name: Azure 피드백 포럼
