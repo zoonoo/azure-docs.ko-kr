@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687925"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562999"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "84687925"
 > * 허브에 VPN 사이트 연결
 > * 허브에 VNet 연결
 > * 구성 파일 다운로드
-> * 가상 WAN 보기
+> * VPN 게이트웨이 구성
 
 > [!NOTE]
 > 사이트가 많은 경우 일반적으로 [가상 WAN 파트너](https://aka.ms/virtualwan)를 사용하여 이러한 구성을 만듭니다. 하지만 네트워킹에 익숙하고 자신의 VPN 디바이스를 구성하는 데 능숙한 경우에는 구성을 직접 만들 수 있습니다.
@@ -75,7 +75,7 @@ ms.locfileid: "84687925"
 
 ## <a name="create-a-site"></a><a name="site"></a>사이트 만들기
 
-이제 실제 위치에 해당하는 사이트를 만들 준비가 되었습니다. 물리적 위치에 해당하는 사이트를 필요한 만큼 만듭니다. 예를 들어 NY에 지사가 있고, 런던에 지사가 있고, LA에 지사가 있는 경우 3개의 사이트를 별도로 만들 수 있습니다. 이 사이트에는 온-프레미스 VPN 디바이스 엔드포인트가 포함됩니다. 가상 WAN에서 가상 허브당 최대 1,000개의 사이트를 만들 수 있습니다. 허브가 여러 개 있는 경우 해당 허브당 1,000개의 사이트를 만들 수 있습니다. 가상 WAN 파트너(링크 삽입) CPE 디바이스가 있는 경우 Azure에 대한 Automation 상황을 확인하세요. 일반적으로 자동화는 대규모 분기 정보를 Azure로 내보내고 CPE에서 Azure 가상 WAN VPN 게이트웨이로의 연결을 설정하는 간단한 클릭 환경을 의미합니다. 자세한 내용은 [Azure에서 CPE 파트너로의 Automation 지침](virtual-wan-configure-automation-providers.md)을 참조하세요.
+이제 실제 위치에 해당하는 사이트를 만들 준비가 되었습니다. 물리적 위치에 해당하는 사이트를 필요한 만큼 만듭니다. 예를 들어 NY에 지사가 있고, 런던에 지사가 있고, LA에 지사가 있는 경우 3개의 사이트를 별도로 만들 수 있습니다. 이 사이트에는 온-프레미스 VPN 디바이스 엔드포인트가 포함됩니다. 가상 WAN에서 가상 허브당 최대 1,000개의 사이트를 만들 수 있습니다. 허브가 여러 개 있는 경우 해당 허브당 1,000개의 사이트를 만들 수 있습니다. 가상 WAN 파트너(링크 삽입) CPE 디바이스가 있는 경우 Azure에 대한 Automation 상황을 확인하세요. 일반적으로 자동화는 대규모 분기 정보를 Azure로 내보내고 CPE에서 Azure Virtual WAN VPN 게이트웨이로의 연결을 설정하는 간단한 클릭 환경을 의미합니다. 자세한 내용은 [Azure에서 CPE 파트너로의 Automation 지침](virtual-wan-configure-automation-providers.md)을 참조하세요.
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -251,11 +251,20 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 * 새 가상 WAN은 IKEv1 및 IKEv2를 모두 지원할 수 있습니다.
 * 가상 WAN은 정책 기반 및 경로 기반 VPN 디바이스와 디바이스 지침을 모두 사용할 수 있습니다.
 
-## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>가상 WAN 보기
+## <a name="configure-your-vpn-gateway"></a><a name="gateway-config"></a>VPN 게이트웨이 구성
 
-1. 가상 WAN 탭으로 이동합니다.
-2. **개요** 페이지의 맵에 있는 각 점은 허브를 나타냅니다. 점 위로 마우스를 가져가면 허브 상태 요약, 연결 상태 및 송수신 바이트 수를 볼 수 있습니다.
-3. 허브 및 연결 섹션에서 허브 상태, VPN 사이트 등을 볼 수 있습니다. 특정 허브 이름을 클릭하고 VPN 사이트로 이동하여 자세한 내용을 확인할 수 있습니다.
+언제든지 **보기/구성**을 선택하여 VPN 게이트웨이 설정을 보고 구성할 수 있습니다.
+
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="구성 보기" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+
+**VPN Gateway 편집** 페이지에서 다음 설정을 확인할 수 있습니다.
+
+* VPN Gateway 공용 IP 주소(Azure에서 할당)
+* VPN Gateway 개인 IP 주소(Azure에서 할당)
+* VPN Gateway 기본 BGP IP 주소(Azure에서 할당)
+* 사용자 지정 BGP IP 주소에 대한 구성 옵션: 이 필드는 APIPA(자동 개인 IP 주소 지정)용으로 예약되어 있습니다. Azure는 169.254.21.* 및 169.254.22.* 범위에서 BGP IP를 지원합니다.
+
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="구성 보기" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

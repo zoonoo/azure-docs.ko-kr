@@ -2,16 +2,16 @@
 title: 자습서 - 지역 복제 레지스트리 만들기
 description: Azure Container Registry를 만들고 지리적 복제를 구성하고 Docker 이미지를 준비한 다음 레지스트리에 배포합니다. 3부로 구성된 시리즈 중 제1부입니다.
 ms.topic: tutorial
-ms.date: 04/30/2017
+ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 159426b7258d83fc28fc7d126c064167bbe00975
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693231"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799473"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지역 복제 Azure Container Registry 준비
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
 
 Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 있는 Azure에 배포된 프라이빗 Docker 레지스트리입니다. 3부로 구성된 이 자습서에서는 지리적 복제를 사용하여 Linux 컨테이너에서 실행되는 ASP.NET Core 웹 애플리케이션을 두 개의 [Web Apps for Containers](../app-service/containers/index.yml) 인스턴스에 배포하는 방법을 알아봅니다. Azure에서 가장 가까운 지리적 복제 리포지토리의 각 웹앱 인스턴스에 이미지를 자동으로 배포하는 방법을 확인할 수 있습니다.
 
@@ -37,29 +37,32 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
+이 자습서에서는 프리미엄 서비스 계층에 Azure 컨테이너 레지스트리가 필요합니다. 새 Azure 컨테이너 레지스트리를 만들려면 이 섹션의 단계를 수행합니다.
+
+> [!TIP]
+> 이전에 레지스트리를 만들었고 업그레이드해야 하는 경우 [계층 변경](container-registry-skus.md#changing-tiers)을 참조하세요. 
+
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 **리소스 만들기** > **컨테이너** > **Azure Container Registry**를 선택합니다.
 
-![Azure Portal에서 컨테이너 레지스트리 만들기][tut-portal-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-01.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
-새 레지스트리를 다음 설정으로 구성합니다.
+새 레지스트리를 다음 설정으로 구성합니다. **기본 사항** 탭에서 다음을 수행합니다.
 
-* **레지스트리 이름**: Azure 내에서 전역적으로 고유하며 5~50개의 영숫자가 포함된 레지스트리 이름을 만듭니다.
+* **레지스트리 이름**: Azure 내에서 글로벌로 고유하며, 5~50자의 영숫자가 포함된 레지스트리 이름을 만듭니다.
 * **리소스 그룹**: **새로 만들기** > `myResourceGroup`
 * **위치**: `West US`
-* **관리 사용자**: `Enable`(Web App for Containers에서 이미지를 끌어오는 데 필요)
 * **SKU**: `Premium` (지역에서 복제에 필요)
 
-**만들기**를 선택하여 ACR 인스턴스를 배포합니다.
+**검토 + 만들기**를 선택한 다음, **만들기**를 선택하여 레지스트리 인스턴스를 만듭니다.
 
-![Azure Portal에서 컨테이너 레지스트리 만들기][tut-portal-02]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Azure Portal에서 컨테이너 레지스트리 구성":::
 
 이 자습서의 나머지 부분에서는 선택한 컨테이너 **레지스트리 이름**의 자리 표시자로 `<acrName>`을 사용합니다.
 
 > [!TIP]
 > Azure Container Registry는 일반적으로 여러 컨테이너 호스트에서 사용되는 수명이 긴 리소스이기 때문에 자체 리소스 그룹에 레지스트리를 만드는 것이 좋습니다. 지리적 복제 레지스트리와 webhook를 구성할 때 이러한 추가 리소스는 동일한 리소스 그룹에 배치됩니다.
->
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 
@@ -67,23 +70,33 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스** 아래에서 **복제**를 선택합니다.
 
-![Azure Portal 컨테이너 레지스트리 UI의 복제를 선택합니다.][tut-portal-03]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Azure Portal 컨테이너 레지스트리 UI의 복제":::
 
 지역에서 복제에 사용할 수 있는 Azure 영역을 나타내는 녹색 육각형이 지도에 표시됩니다.
 
- ![Azure Portal의 지역 지도][tut-map-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Azure Portal의 지역 지도":::
 
 녹색 육각형을 선택하여 미국 동부 지역에 레지스트리를 복제한 다음 **복제 만들기**에서 **만들기**를 선택합니다.
 
- ![Azure Portal에서 복제 UI 만들기][tut-portal-04]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Azure Portal에서 복제 UI 만들기":::
 
 복제가 완료되면 포털에서 두 영역 모두에 *준비*가 반영됩니다. **새로 고침** 단추를 사용하여 복제 상태를 새로 고치세요. 복제본을 만들고 동기화하는 데 1~2분 정도 걸릴 수 있습니다.
 
-![Azure Portal의 복제 상태 UI][tut-portal-05]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Azure Portal의 복제 상태 UI":::
+
+
+## <a name="enable-admin-account"></a>관리자 계정 사용
+
+후속 자습서에서는 레지스트리의 컨테이너 이미지를 Web App for Containers에 직접 배포합니다. 이 기능을 사용하도록 설정하려면 레지스트리의 [관리자 계정](container-registry-authentication.md#admin-account)도 사용하도록 설정해야 합니다.
+
+Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **설정** 아래에서 **액세스 키**를 선택합니다. **관리 사용자**에서 **사용**을 선택합니다.
+
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Azure Portal에서 관리자 계정 사용":::
+
 
 ## <a name="container-registry-login"></a>컨테이너 레지스트리 로그인
 
-지역에서 복제를 구성했으니 이제 컨테이너 이미지를 작성한 다음 레지스트리로 푸시합니다. 이미지를 푸시하기 전에 우선 ACR 인스턴스에 로그인해야 합니다.
+지역에서 복제를 구성했으니 이제 컨테이너 이미지를 작성한 다음 레지스트리로 푸시합니다. 이미지를 푸시하기 전에 먼저 레지스트리에 로그인해야 합니다.
 
 [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) 명령을 사용하여 인증하고 레지스트리에 대한 자격 증명을 캐시합니다. `<acrName>`을 앞에서 만든 레지스트리 이름으로 바꿉니다.
 
@@ -97,7 +110,7 @@ az acr login --name <acrName>
 
 이 자습서의 샘플에는 [ASP.NET Core][aspnet-core]로 작성한 작은 웹 애플리케이션이 포함되어 있습니다. 이 응용 프로그램은 Azure Container Registry에서 이미지가 배포된 지역을 표시하는 HTML 페이지를 제공합니다.
 
-![브라우저에 표시된 자습서 앱][tut-app-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="브라우저에 표시된 자습서 앱":::
 
 Git을 사용하여 샘플을 로컬 디렉터리에 다운로드하고 `cd`를 디렉터리에 다운로드합니다.
 
@@ -228,15 +241,6 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry에서 웹앱 배포](container-registry-tutorial-deploy-app.md)
-
-<!-- IMAGES -->
-[tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png
-[tut-portal-02]: ./media/container-registry-tutorial-prepare-registry/tut-portal-02.png
-[tut-portal-03]: ./media/container-registry-tutorial-prepare-registry/tut-portal-03.png
-[tut-portal-04]: ./media/container-registry-tutorial-prepare-registry/tut-portal-04.png
-[tut-portal-05]: ./media/container-registry-tutorial-prepare-registry/tut-portal-05.png
-[tut-app-01]: ./media/container-registry-tutorial-prepare-registry/tut-app-01.png
-[tut-map-01]: ./media/container-registry-tutorial-prepare-registry/tut-map-01.png
 
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip

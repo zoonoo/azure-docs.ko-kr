@@ -1,24 +1,21 @@
 ---
-title: REST를 사용하여 지식 저장소(미리 보기) 만들기
+title: REST를 사용하여 지식 저장소 만들기
 titleSuffix: Azure Cognitive Search
-description: REST API 및 Postman을 사용하여 AI 보강 파이프라인의 보강을 유지하기 위한 Azure Cognitive Search 지식 저장소를 만듭니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
+description: REST API 및 Postman을 사용하여 AI 보강 파이프라인의 보강을 유지하기 위한 Azure Cognitive Search 지식 저장소를 만듭니다.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: f030fc81ab33ecd0531040662346e1ed44f5d17c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/30/2020
+ms.openlocfilehash: f496413cf1a5175cee65bce46a2f7f6260d5451d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263027"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565220"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>REST 및 Postman을 사용하여 지식 저장소 만들기
-
-> [!IMPORTANT] 
-> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
 지식 저장소에는 추후 분석 또는 기타 다운스트림 처리를 위해 Azure Cognitive Search 보강 파이프라인의 출력이 포함됩니다. AI 보강 파이프라인은 이미지 파일 또는 비정형 텍스트 파일을 수락하고, Azure Cognitive Search를 사용하여 인덱싱하고, Cognitive Services의 AI 보강(예: 이미지 분석 및 자연어 처리)을 적용한 다음, 결과를 Azure Storage의 지식 저장소에 저장합니다. Azure Portal에서 Power BI 또는 Storage Explorer와 같은 도구를 사용하여 지식 저장소를 검색할 수 있습니다.
 
@@ -81,7 +78,7 @@ Postman을 설치하고 설정합니다.
 | 변수    | 가져올 수 있는 위치 |
 |-------------|-----------------|
 | `admin-key` | Azure Cognitive Search 서비스의 **키** 페이지.  |
-| `api-version` | **2019-05-06-Preview**로 유지 |
+| `api-version` | **2020-06-30**으로 둡니다. |
 | `datasource-name` | **hotel-reviews-ds**로 유지 | 
 | `indexer-name` | **hotel-reviews-ixr**로 유지 | 
 | `index-name` | **hotel-reviews-ix**로 유지 | 

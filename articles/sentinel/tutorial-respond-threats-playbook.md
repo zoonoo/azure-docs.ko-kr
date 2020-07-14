@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Sentinel에서 플레이북 실행'
-description: '자습서: 이 문서에서는 Azure Sentinel에서 플레이북을 실행하는 방법을 설명합니다.'
+description: 이 자습서를 통해 Azure Sentinel에서 보안 플레이북을 사용하여 보안 관련 문제에 대한 자동화된 위협 응답을 설정할 수 있습니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5bc6ca30b9dff3686b16fe5237f815f16f849e9e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77585087"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85558478"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화된 위협 응답 설정
 

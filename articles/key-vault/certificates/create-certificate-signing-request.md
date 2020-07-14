@@ -10,16 +10,16 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 9772ea320ff28325ffdc8cdcb6e35947b182d1b3
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85095519"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849487"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Key Vault에서 CSR 만들기 및 병합
 
-Azure Key Vault는 프라이빗-공개 키 쌍을 사용하여 인증서 서명 요청을 만들고, 원하는 인증 기관을 통해 서명하는 것을 지원합니다. 서명 기관은 내부 엔터프라이즈 CA일 수도 있고 외부 퍼블릭 CA일 수도 있습니다. 인증서 서명 요청(CSR 또는 인증 요청이라고도 함)은 사용자가 디지털 인증서 발급을 요청하기 위해 CA(인증 기관)로 보내는 메시지입니다.
+Azure Key Vault는 사용자가 선택한 모든 인증 기관에서 발급한 디지털 인증서를 키 자격 증명 모음에 저장하도록 지원합니다. 선택한 인증 기관에서 서명할 수 있는 프라이빗-퍼블릭 키 쌍으로 인증서 서명 요청 생성을 지원합니다. 서명 기관은 내부 엔터프라이즈 CA일 수도 있고 외부 퍼블릭 CA일 수도 있습니다. 인증서 서명 요청(CSR 또는 인증 요청이라고도 함)은 사용자가 디지털 인증서 발급을 요청하기 위해 CA(인증 기관)로 보내는 메시지입니다.
 
 인증서에 대한 일반적인 내용은 [Azure Key Vault 인증서](/azure/key-vault/certificates/about-certificates)를 참조하세요.
 

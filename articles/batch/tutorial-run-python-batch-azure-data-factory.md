@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: c60f9df87930519684c6c29b1194624342b11528
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a8f6fe49faf0624f6ef6d4fa8a346e22c69da599
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851739"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>자습서: Azure Batch를 사용하여 Azure Data Factory를 통해 Python 스크립트 실행
 
@@ -30,7 +30,7 @@ ms.locfileid: "84555046"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 로컬 테스트를 위해 설치된 [Python](https://www.python.org/downloads/) 배포
 * [Azure](https://pypi.org/project/azure/) `pip` 패키지
@@ -116,27 +116,27 @@ python main.py
 1. **팩터리 리소스** 상자에서 더하기(+) 단추, **파이프라인**을 차례로 선택합니다.
 1. **일반** 탭에서 파이프라인 이름을 "Python 실행"으로 설정합니다.
 
-    ![](./media/run-python-batch-azure-data-factory/create-pipeline.png)
+    ![일반 탭에서 파이프라인 이름을 "Python 실행"으로 설정합니다.](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
 1. **활동** 상자에서 **Batch 서비스**를 펼칩니다. 사용자 지정 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다.
 1. **일반** 탭에서 [이름]에 대해 **testPipeline**을 지정합니다.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task.png)
+    ![일반 탭에서 [이름]에 대해 testPipeline을 지정합니다.](./media/run-python-batch-azure-data-factory/create-custom-task.png)
 1. **Azure Batch** 탭에서 이전 단계에서 만든 **Batch 계정**과 **연결 테스트**를 추가하여 성공적으로 연결되었는지 확인합니다.
 
-    ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
+    ![Azure Batch 탭에서 이전 단계에서 만든 Batch 계정을 추가한 다음, 연결을 테스트합니다.](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
 1. **설정** 탭에서 `python main.py` 명령을 입력합니다.
 1. **리소스 연결된 서비스**에 대해 이전 단계에서 만든 스토리지 계정을 추가합니다. 연결을 테스트하여 성공적으로 연결되었는지 확인합니다.
 1. **폴더 경로**에서 Python 스크립트와 관련 입력이 포함된 **Azure Blob Storage** 컨테이너의 이름을 선택합니다. 그러면 Python 스크립트를 실행하기 전에 선택한 파일이 컨테이너에서 풀 노드 인스턴스로 다운로드됩니다.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
+    ![폴더 경로에서 Azure Blob 스토리지 컨테이너의 이름을 선택합니다.](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. 캔버스 위에 있는 파이프라인 도구 모음에서 **유효성 검사**를 클릭하여 파이프라인 설정의 유효성을 검사합니다. 파이프라인에 대한 유효성이 성공적으로 검사되었는지 확인합니다. 유효성 검사 출력을 닫으려면 &gt;&gt;(오른쪽 화살표) 단추를 선택합니다.
 1. **디버그**를 클릭하여 파이프라인을 테스트하고 파이프라인이 정확하게 작동하는지 확인합니다.
 1. **게시**를 클릭하여 파이프라인을 게시합니다.
 1. **트리거**를 클릭하여 Python 스크립트를 일괄 처리 프로세스의 일부로 실행합니다.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
+    ![트리거를 클릭하여 Python 스크립트를 일괄 처리 프로세스의 일부로 실행합니다.](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
 
 ### <a name="monitor-the-log-files"></a>로그 파일 모니터링
 

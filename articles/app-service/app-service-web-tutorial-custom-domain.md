@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 46c27f18f8f16f783248790f03364654d0b3c2fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559905"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986832"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -29,7 +29,7 @@ ms.locfileid: "82559905"
 > * 사용자 지정 디렉터리로 기본 URL 리디렉션
 > * 스크립트로 도메인 매핑 자동화
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -95,9 +95,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 
 ## <a name="get-domain-verification-id"></a>도메인 확인 ID 가져오기
 
-앱에 사용자 지정 도메인을 추가하려면 도메인 공급자를 사용하여 확인 ID를 TXT 레코드로 추가하여 도메인 소유권을 확인해야 합니다. 앱 페이지의 왼쪽 탐색 영역에서 **개발 도구** 아래의 **리소스 탐색기**를 클릭한 다음, **이동**을 클릭합니다.
-
-앱 속성의 JSON 뷰에서 `customDomainVerificationId`를 검색하고 큰따옴표 안에 해당 값을 복사합니다. 다음 단계에는 이 확인 ID가 필요합니다.
+앱에 사용자 지정 도메인을 추가하려면 도메인 공급자를 사용하여 확인 ID를 TXT 레코드로 추가하여 도메인 소유권을 확인해야 합니다. 앱 블레이드의 왼쪽 탐색 영역에서 **설정** 아래에 **사용자 지정 도메인**을 클릭합니다. 여기에서 사용자 지정 도메인 확인 ID의 값을 복사합니다. 다음 단계에는 이 확인 ID가 필요합니다.
 
 ## <a name="map-your-domain"></a>도메인 매핑
 
@@ -113,6 +111,8 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 ### <a name="map-a-cname-record"></a>CNAME 레코드 매핑
 
 자습서 예제에서는 `www` 하위 도메인(예: `www.contoso.com`)에 대한 CNAME 레코드를 추가합니다.
+
+`www` 이외의 하위 도메인이 있는 경우 `www`를 하위 도메인으로 바꿉니다(예: 사용자 지정 도메인이 `sub.constoso.com`인 경우 `sub`).
 
 #### <a name="access-dns-records-with-domain-provider"></a>도메인 공급자로 DNS 레코드 액세스
 

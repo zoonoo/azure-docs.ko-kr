@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/16/2020
+ms.date: 06/29/2020
 ms.author: alzam
-ms.openlocfilehash: 11007bc39cb1112799c89afaf0ca670aa6760de6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 9c93ad0357011008c45b2898260a655509b02dc2
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482124"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560719"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사용자 VPN 연결 만들기
 
@@ -22,12 +22,10 @@ ms.locfileid: "81482124"
 
 > [!div class="checklist"]
 > * WAN 만들기
-> * 허브 만들기
 > * P2S 구성 만들기
+> * 허브 만들기
+> * DNS 서버 지정
 > * VPN 클라이언트 프로필 다운로드
-> * P2S 구성을 허브에 적용
-> * 허브에 VNet 연결
-> * VPN 클라이언트 구성 다운로드 및 적용
 > * 가상 WAN 보기
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwanp2s.png)
@@ -48,9 +46,9 @@ ms.locfileid: "81482124"
 
 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
-1. Virtual WAN 페이지로 이동합니다. 포털에서 **+리소스 만들기**를 클릭합니다. 검색 상자에 **Virtual WAN**을 입력하고 Enter를 선택합니다.
-2. 결과에서 **Virtual WAN**을 선택합니다. Virtual WAN 페이지에서 **만들기**를 클릭하여 WAN 만들기 페이지를 엽니다.
-3. **WAN 만들기** 페이지의 **기본 사항** 탭에서 다음 필드를 입력합니다.
+1. Virtual WAN 페이지로 이동합니다. 포털에서 **+리소스 만들기**를 선택합니다. 검색 상자에 **Virtual WAN**을 입력하고 **Enter**를 선택합니다.
+1. 결과에서 **Virtual WAN**을 선택합니다. Virtual WAN 페이지에서 **만들기**를 선택하여 WAN 만들기 페이지를 엽니다.
+1. **WAN 만들기** 페이지의 **기본 사항** 탭에서 다음 필드를 입력합니다.
 
    ![가상 WAN](./media/virtual-wan-point-to-site-portal/vwan.png)
 
@@ -59,124 +57,100 @@ ms.locfileid: "81482124"
    * **리소스 그룹 위치** - 드롭다운에서 리소스 위치를 선택합니다. WAN은 전역 리소스이며 특정 지역에 상주하지 않습니다. 하지만 만든 WAN 리소스를 보다 쉽게 관리하고 찾으려면 지역을 선택해야 합니다.
    * **이름** - WAN을 호출할 이름을 입력합니다.
    * **유형:** 표준입니다. 기본 WAN을 만드는 경우 기본 허브만 만들 수 있습니다. 기본 허브는 VPN 사이트 간 연결만 가능합니다.
-4. 필드 작성을 완료한 후 **검토 + 만들기**를 선택합니다.
-5. 유효성 검사를 통과하면 **만들기**를 선택하여 Virtual WAN을 만듭니다.
-
-## <a name="create-an-empty-virtual-hub"></a><a name="hub"></a>빈 가상 허브 만들기
-
-1. 가상 WAN 아래에서 허브를 선택하고 **+새 허브**를 클릭합니다.
-
-   ![새 사이트](media/virtual-wan-point-to-site-portal/hub1.jpg)
-2. [가상 허브 만들기] 페이지에서 다음 필드를 채웁니다.
-
-   **영역** - 가상 허브를 배포할 영역을 선택합니다.
-
-   **이름** - 가상 허브를 호출할 이름을 입력합니다.
-
-   **허브 프라이빗 주소 공간** - CIDR 표기법으로 된 허브의 주소 범위입니다.
-
-   ![새 사이트](media/virtual-wan-point-to-site-portal/hub2.jpg)  
-3. **검토 + 만들기**를 클릭합니다.
-4. **유효성 검사 통과** 페이지에서 **만들기**를 클릭합니다.
+1. 필드 작성을 완료한 후 **검토 + 만들기**를 선택합니다.
+1. 유효성 검사를 통과하면 **만들기**를 선택하여 Virtual WAN을 만듭니다.
 
 ## <a name="create-a-p2s-configuration"></a><a name="p2sconfig"></a>P2S 구성 만들기
 
 P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합니다.
 
 1. **모든 리소스**로 이동합니다.
-2. 만든 가상 WAN을 클릭합니다.
-3. 페이지 맨 위에서 **+사용자 VPN 구성 만들기**를 클릭하여 **새 사용자 VPN 구성 만들기** 페이지를 엽니다.
+1. 생성한 Virtual WAN을 선택합니다.
+1. 페이지 맨 위에서 **+사용자 VPN 구성 만들기**를 선택하여 **새 사용자 VPN 구성 만들기** 페이지를 엽니다.
 
-   ![새 사이트](media/virtual-wan-point-to-site-portal/p2s1.jpg)
-4. **새 사용자 VPN 구성 만들기** 페이지에서 다음 필드를 채웁니다.
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/p2s1.jpg" alt-text="사용자 VPN 구성":::
 
-   **구성 이름** - 구성을 참조하는 데 사용하려는 이름입니다.
+1. **새 사용자 VPN 구성 만들기** 페이지에서 다음 필드를 채웁니다.
 
-   **터널 종류** - 터널에 대해 사용할 프로토콜입니다.
-
-   **루트 인증서 이름** - 인증서에 대한 설명이 포함된 이름입니다.
-
-   **공용 인증서 데이터** - Base-64로 인코딩된 X.509 인증서 데이터입니다.
+   * **구성 이름** - 구성을 참조하는 데 사용하려는 이름입니다.
+   * **터널 종류** - 터널에 대해 사용할 프로토콜입니다.
+   * **루트 인증서 이름** - 인증서에 대한 설명이 포함된 이름입니다.
+   * **공용 인증서 데이터** - Base-64로 인코딩된 X.509 인증서 데이터입니다.
   
-5. **만들기**를 클릭하여 구성을 만듭니다.
+1. **만들기**를 선택하여 구성을 만듭니다.
 
-## <a name="edit-hub-assignment"></a><a name="edit"></a>허브 할당 편집
+## <a name="create-hub-with-point-to-site-gateway"></a><a name="hub"></a>지점 및 사이트 간 게이트웨이를 사용하여 허브 만들기
 
-1. 가상 WAN 아래의 **허브** 블레이드로 이동합니다.
-2. vpn 서버 구성을 연결할 허브를 선택하고 **...** 를 클릭합니다.
+1. 가상 WAN 아래에서 허브를 선택하고, **+새 허브**를 선택합니다.
 
-   ![새 사이트](media/virtual-wan-point-to-site-portal/p2s4.jpg)
-3. **가상 허브 편집**을 클릭합니다.
-4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위**를 선택합니다.
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/hub1.jpg" alt-text="새 허브":::
 
-   ![새 사이트](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+1. [가상 허브 만들기] 페이지에서 다음 필드를 채웁니다.
 
-아래 표에서는 사용 가능한 **배율 단위**에 대한 세부 정보를 보여줍니다.
+   * **영역** - 가상 허브를 배포할 영역을 선택합니다.
+   * **이름** - 가상 허브를 호출할 이름을 입력합니다.
+   * **허브 프라이빗 주소 공간** - CIDR 표기법으로 된 허브의 주소 범위입니다.
 
-| **배율 단위** | **처리량** | **P2S 연결** |
-| --- | --- | --- |
-| 1| 500Mbps | 500 |
-| 2| 1Gbps | 500 |
-| 3| 1.5Gbps | 500 |
-| 4| 2Gbps | 1000 |
-| 5| 2.5Gbps | 1000 |
-| 6| 3Gbps | 1000 |
-| 7| 3.5Gbps | 5,000 |
-| 8| 4Gbps | 5,000 |
-| 9| 4.5Gbps | 5,000 |
-| 10| 5Gbps | 5,000 |
-| 11| 5.5Gbps | 5,000 |
-| 12| 6Gbps | 5,000 |
-| 13| 6.5Gbps | 10000 |
-| 14| 7Gbps | 10000 |
-| 15| 7.5Gbps | 10000 |
-| 16| 8Gbps | 10000 |
-| 17| 8.5Gbps | 10000 |
-| 18| 9Gbps | 10000 |
-| 19| 9.5Gbps | 10000 |
-| 20| 10Gbps | 10000 |
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/hub2.jpg" alt-text="가상 허브 만들기":::
 
-5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀**를 입력합니다.
-6. **확인**을 클릭합니다.
-7. 작업이 완료될 때까지 최대 30분이 걸릴 수 있습니다.
+1. 지점 및 사이트 간 탭에서 다음 필드를 완료합니다.
+
+   * **게이트웨이 배율 단위** - 사용자 VPN 게이트웨이의 집계 용량을 나타냅니다.
+   * **지점 및 사이트 간 구성** - 이전 단계에서 만든 것입니다.
+   * **클라이언트 주소 풀** - 원격 사용자용입니다.
+   * **사용자 지정 DNS 서버 IP**
+
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/hub-with-p2s.png" alt-text="지점 및 사이트 간 허브":::
+
+1. **검토 + 만들기**를 선택합니다.
+1. **유효성 검사 통과** 페이지에서 **만들기**를 선택합니다.
+
+## <a name="specify-dns-server"></a><a name="dns"></a>DNS 서버 지정
+
+Virtual WAN 사용자 VPN 게이트웨이를 사용하여 최대 5대의 DNS 서버를 지정할 수 있습니다. 허브를 만드는 동안 이 작업을 구성하거나 나중에 수정할 수 있습니다. 이렇게 하려면 먼저 가상 허브를 찾습니다. **사용자 VPN(지점 및 사이트 간)** 에서 구성을 클릭하고 DNS 서버 IP 주소를 **사용자 지정 DNS 서버** 텍스트 상자에 입력합니다.
+
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="사용자 지정 DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
 ## <a name="download-vpn-profile"></a><a name="download"></a>VPN 프로필 다운로드
 
 VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
-1. 가상 WAN에 대한 페이지에서 **사용자 VPN 구성**을 클릭합니다.
-2. 페이지 맨 위에서 **사용자 VPN 구성 다운로드**를 클릭합니다.
-3. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
-4. 프로필 파일을 사용하여 VPN 클라이언트를 구성합니다.
+1. Virtual WAN에 대한 페이지에서 **사용자 VPN 구성**을 선택합니다.
+2. 페이지 맨 위에서 **사용자 VPN 구성 다운로드**를 선택합니다. WAN 수준 구성을 다운로드하면 기본 제공 Traffic Manager 기반 사용자 VPN 프로필이 제공됩니다. 글로벌 프로필 또는 허브 기반 프로필에 대한 자세한 내용은 이 [허브 프로필](https://docs.microsoft.com/azure/virtual-wan/global-hub-profile)을 참조하세요.   장애 조치 시나리오는 글로벌 프로필을 사용하여 간소화됩니다.
+
+   어떤 이유로든 허브를 사용할 수 없는 경우 서비스에서 제공하는 기본 제공 트래픽 관리를 사용하면 지점 및 사이트 간 사용자를 위해 다른 허브를 통해 Azure 리소스에 연결할 수 있습니다. 언제든지 특정 허브로 이동하여 허브별 VPN 구성을 다운로드할 수 있습니다. **사용자 VPN(지점 및 사이트 간)** 에서 가상 허브 **사용자 VPN** 프로필을 다운로드합니다.
+
+1. 파일 만들기가 끝나면 링크를 선택하여 다운로드할 수 있습니다.
+1. 프로필 파일을 사용하여 VPN 클라이언트를 구성합니다.
 
 ### <a name="configure-user-vpn-clients"></a>사용자 VPN 클라이언트 구성
+
 다운로드한 프로필을 사용하여 원격 액세스 클라이언트를 구성합니다. 각 운영 체제에 대한 프로시저가 다릅니다. 아래의 올바른 지침을 따르세요.
 
 #### <a name="microsoft-windows"></a>Microsoft Windows
 ##### <a name="openvpn"></a>OpenVPN
 
 1. 공식 웹 사이트에서 OpenVPN 클라이언트를 다운로드하고 설치합니다.
-2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 사용자 VPN 구성 탭 또는 PowerShell의 New-AzureRmVpnClientConfiguration에서 이 작업을 수행할 수 있습니다.
-3. 프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
-4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 단계는 [인증서를 내보내 인코딩된 공개 키를 가져오는 방법](certificates-point-to-site.md)을 참조하세요.
-5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 단계는 [프라이빗 키를 추출하는 방법](howto-openvpn-clients.md#windows)을 참조하세요.
-6. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
-7. vpnconfig.ovpn 파일을 C:\Program Files\OpenVPN\config 폴더에 복사합니다.
-8. 시스템 트레이에서 OpenVPN 아이콘을 마우스 오른쪽 단추로 클릭하고 연결을 클릭합니다.
+1. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 사용자 VPN 구성 탭 또는 PowerShell의 New-AzureRmVpnClientConfiguration에서 이 작업을 수행할 수 있습니다.
+1. 프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
+1. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 단계는 [인증서를 내보내 인코딩된 공개 키를 가져오는 방법](certificates-point-to-site.md)을 참조하세요.
+1. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 단계는 [프라이빗 키를 추출하는 방법](howto-openvpn-clients.md#windows)을 참조하세요.
+1. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
+1. vpnconfig.ovpn 파일을 C:\Program Files\OpenVPN\config 폴더에 복사합니다.
+1. 시스템 트레이에서 OpenVPN 아이콘을 마우스 오른쪽 단추로 클릭하고 **연결**을 선택합니다.
 
 ##### <a name="ikev2"></a>IKEv2
 
 1. Windows 컴퓨터의 아키텍처에 해당하는 VPN 클라이언트 구성 파일을 선택합니다. 64비트 프로세서 아키텍처의 경우 'VpnClientSetupAmd64' 설치 관리자 패키지를 선택합니다. 32비트 프로세서 아키텍처의 경우 'VpnClientSetupX86' 설치 관리자 패키지를 선택합니다.
-2. 해당 패키지를 두 번 클릭하여 설치합니다. SmartScreen 팝업이 표시되면 자세한 정보, 실행을 차례로 클릭합니다.
-3. 클라이언트 컴퓨터에서 네트워크 설정으로 이동하고 VPN을 클릭합니다. VPN 연결에서 연결되는 가상 네트워크의 이름을 표시합니다.
-4. 연결을 시도하기 전에 먼저 클라이언트 컴퓨터에 클라이언트 인증서가 설치되어 있어야 합니다. Azure 기본 인증서 인증 유형을 사용할 때 인증을 위해 클라이언트 인증서가 필요합니다. 인증서 생성에 대한 자세한 내용은 [인증서 생성](certificates-point-to-site.md)을 참조하세요. 클라이언트 인증서를 설치하는 방법은 [클라이언트 인증서 설치](../vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md)를 참조하세요.
+1. 해당 패키지를 두 번 클릭하여 설치합니다. SmartScreen 팝업이 표시되면 **추가 정보**를 선택한 다음, **실행**을 선택합니다.
+1. 클라이언트 컴퓨터에서 **네트워크 설정**으로 이동하고 **VPN**을 선택합니다. VPN 연결에서 연결되는 가상 네트워크의 이름을 표시합니다.
+1. 연결을 시도하기 전에 먼저 클라이언트 컴퓨터에 클라이언트 인증서가 설치되어 있어야 합니다. Azure 기본 인증서 인증 유형을 사용할 때 인증을 위해 클라이언트 인증서가 필요합니다. 인증서 생성에 대한 자세한 내용은 [인증서 생성](certificates-point-to-site.md)을 참조하세요. 클라이언트 인증서를 설치하는 방법은 [클라이언트 인증서 설치](../vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md)를 참조하세요.
 
 ## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>가상 WAN 보기
 
 1. 가상 WAN 탭으로 이동합니다.
-2. 개요 페이지의 맵에 있는 각 점은 허브를 나타냅니다.
-3. 허브 및 연결 섹션에서 허브 상태, 사이트, 지역, VPN 연결 상태 및 입/출력 바이트를 볼 수 있습니다.
-
+1. **개요** 페이지의 맵에 있는 각 점은 허브를 나타냅니다.
+1. **허브 및 연결** 섹션에서 허브 상태, 사이트, 지역, VPN 연결 상태 및 입/출력 바이트를 볼 수 있습니다.
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>리소스 정리
 

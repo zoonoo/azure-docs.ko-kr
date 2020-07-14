@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115281"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961101"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>자습서: Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기
 
@@ -235,7 +235,7 @@ df_cosmos.head(10)
 
    출력에 여러 색을 사용한 세계 지도가 표시됩니다. 색이 짙을수록 더 높은 수익의 국가/지역을 나타냅니다.
 
-   ![국가/지역별 수익 지도 시각화](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="국가/지역별 수익 지도 시각화":::
 
 1. 데이터 시각화의 또 다른 사례를 살펴보겠습니다. WebsiteData 컨테이너에는 항목을 보고, 카트에 추가하고, 해당 항목을 구매한 사용자의 레코드가 있습니다. 구매한 항목의 전환율을 그려보겠습니다. 새 셀에서 다음 코드를 실행하여 각 항목의 전환율을 시각화합니다.
 

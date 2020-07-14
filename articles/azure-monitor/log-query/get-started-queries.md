@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: f56abe2bf6ccea1f55f9b3fe94b75016d449b46b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670182"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801430"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 시작
 
 > [!NOTE]
-> 하나 이상의 가상 머신에서 데이터를 수집하는 경우 사용자 환경에서 이 연습을 수행할 수 있습니다. 그렇지 않은 경우 다양한 샘플 데이터를 포함하는 [데모 환경](https://portal.loganalytics.io/demo)을 사용합니다.
+> 하나 이상의 가상 머신에서 데이터를 수집하는 경우 사용자 환경에서 이 연습을 수행할 수 있습니다. 그렇지 않은 경우 다양한 샘플 데이터를 포함하는 [데모 환경](https://portal.loganalytics.io/demo)을 사용합니다.  KQL에서 쿼리하는 방법을 이미 알고 있지만 리소스 유형에 따라 유용한 쿼리를 신속하게 만들어야 하는 경우 [저장된 예제 쿼리 창](saved-queries.md)을 참조하세요.
 
 이 자습서에서는 Azure Monitor에서 로그 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
@@ -36,12 +36,14 @@ Azure Monitor에서 로그 쿼리에 대한 자세한 내용은 [Azure Monitor�
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>새 쿼리 작성
+
 쿼리는 테이블 이름 또는 *search* 명령을 사용하여 시작할 수 있습니다. 쿼리에 대한 명확한 범위를 정의하고 쿼리 성능 및 결과의 관련성을 개선하므로 테이블 이름을 사용하여 시작해야 합니다.
 
 > [!NOTE]
 > Azure Monitor에서 사용되는 Kusto 쿼리 언어는 대/소문자를 구분합니다. 언어 키워드는 일반적으로 소문자로 작성됩니다. 쿼리에서 테이블 또는 열 이름을 사용하는 경우 스키마 창에 표시된 대로 정확한 대/소문자를 사용해야 합니다.
 
 ### <a name="table-based-queries"></a>테이블 기반 쿼리
+
 Azure Monitor는 테이블에 각각 여러 열로 구성된 로그 데이터를 구성합니다. 모든 테이블 및 열은 Analytics 포털에서 Log Analytics의 스키마 창에 표시됩니다. 관심 있는 테이블을 식별한 다음, 일부 데이터를 살펴봅니다.
 
 ```Kusto
@@ -58,6 +60,7 @@ SecurityEvent
 `| take 10`을 추가하지 않고도 실제로 쿼리를 실행할 수 있습니다. 이는 여전히 유효할 수 있지만 최대 10,000개의 결과를 반환할 수 있습니다.
 
 ### <a name="search-queries"></a>검색 쿼리
+
 검색 쿼리는 덜 구조적이며, 일반적으로 해당 열에 있는 특정 값을 포함하는 레코드를 찾기에 더 적합합니다.
 
 ```Kusto
@@ -132,12 +135,14 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>시간 범위 지정
 
 ### <a name="time-picker"></a>시간 선택기
+
 시간 선택기는 실행 단추 옆에 있고 지난 24시간의 레코드만을 쿼리하는 것을 나타냅니다. 이는 모든 쿼리에 적용되는 기본 시간 범위입니다. 지난 1시간의 레코드만을 가져오려면 _지난 1시간_을 선택하고 쿼리를 다시 실행합니다.
 
 ![시간 선택](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>쿼리에서 시간 필터
+
 쿼리에 시간 필터를 추가하여 고유한 시간 범위를 정의할 수도 있습니다. 시간 필터를 테이블 이름 바로 뒤에 배치하는 것이 좋습니다. 
 
 ```Kusto
@@ -150,6 +155,7 @@ SecurityEvent
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project 및 Extend: 열 선택 및 컴퓨팅
+
 **project**를 사용하여 결과에 포함할 특정 열을 선택합니다.
 
 ```Kusto

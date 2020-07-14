@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 �
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788827"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611648"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -33,7 +33,7 @@ ms.locfileid: "82788827"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
@@ -833,13 +833,12 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>노드 리소스 증가 
-Service Fabric 클러스터가 만들어지면 클러스터 노드 유형을 수직으로 확장하거나(노드의 리소스 변경) 노드 유형 VM의 운영 체제를 업그레이드할 수 있습니다.  
+Service Fabric 클러스터를 생성한 후 원래 노드 유형을 새 노드 유형(업데이트된 VM SKU 또는 OS 이미지)으로 바꾸어 클러스터 노드 유형을 수직으로 확장(노드의 리소스 변경)하거나 노드 유형 VM의 운영 체제를 업그레이드할 수 있습니다. 자세한 내용은 [Azure Service Fabric 노드 형식 스케일 업](service-fabric-scale-up-node-type.md)을 참조하세요.
 
-> [!WARNING]
-> Silver 이상 내구성에서 실행되지 않으면 확장 집합/노드 유형의 VM SKU를 변경하지 않는 것이 좋습니다. VM SKU의 크기를 변경하는 것은 데이터를 파괴하는 내부 인프라 작업입니다. 이러한 변경을 지연하거나 모니터링하는 기능이 없으면 이러한 작업으로 인해 상태 저장 서비스에 대해 데이터 손실이 발생하거나 상태 비저장 워크로드의 경우에도 예기치 못한 다른 작동 문제가 발생할 수 있습니다.
+> [!IMPORTANT]
+> 위험한 작업이며 지원되지 않는 VM SKU 또는 OS 이미지의 내부 변경을 시도하지 마세요.
 
-> [!WARNING]
-> 위험하고 지원되지 않는 주 노드 유형의 VM SKU는 변경하지 않는 것이 좋습니다.  더 큰 클러스터 용량이 필요한 경우 더 많은 VM 인스턴스 또는 추가 노드 유형을 추가할 수 있습니다.  가능하지 않은 경우 새 클러스터를 만들고 이전 클러스터에서 [애플리케이션 상태를 복원](service-fabric-reliable-services-backup-restore.md)할 수 있습니다(해당하는 경우).  가능하지 않은 경우 [주 노드 유형의 VM SKU를 변경](service-fabric-scale-up-node-type.md)할 수 있습니다.
+이것이 불가능한 경우 새 클러스터를 만들고 구 클러스터에서 [애플리케이션 상태를 복원](service-fabric-reliable-services-backup-restore.md)할 수 있습니다(해당하는 경우). 시스템 서비스 상태를 복원할 필요는 없습니다. 애플리케이션을 새 클러스터에 배포하면 다시 만들어집니다. 클러스터에서 상태 비저장 애플리케이션을 실행한 경우에만 애플리케이션을 새 클러스터에 배포하기만 하면 되며 복원은 필요하지 않습니다.
 
 ### <a name="update-the-template"></a>템플릿 업데이트
 
@@ -873,19 +872,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 > [!div class="nextstepaction"]
 > [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-
-> * 노드 유형 추가 및 제거(규모 확장 및 규모 감축)
-> * 노드 리소스 증가(강화)
-
-이제 다음 자습서로 넘어가서 클러스터 런타임을 업그레이드하는 방법을 알아보겠습니다.
-> [!div class="nextstepaction"]
-> [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

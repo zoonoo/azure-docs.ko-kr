@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201995"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983152"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>자습서: 사용자가 Azure Active Directory 셀프 서비스 암호 재설정을 사용하여 계정의 잠금을 해제하거나 암호를 다시 설정할 수 있도록 설정
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 > * 인증 방법 및 등록 옵션 구성
 > * 사용자 권한으로 SSPR 프로세스 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -47,7 +47,11 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 
 ## <a name="enable-self-service-password-reset"></a>셀프 서비스 암호 재설정 사용
 
-Azure AD를 사용하면 SSPR을 *없음*, *선택된* 사용자 또는 *모든* 사용자에 사용하도록 설정할 수 있습니다. 이 세분화된 기능을 통해 사용자 하위 세트를 선택하여 SSPR 등록 프로세스 및 워크플로를 테스트할 수 있습니다. 프로세스에 익숙해지고 요구 사항을 더 광범위한 사용자 세트에 전달할 수 있는 경우 SSPR을 사용하도록 설정할 사용자 그룹을 추가로 선택할 수 있습니다. 또는 Azure AD 테넌트의 모든 사용자에 대해 SSPR을 사용하도록 설정할 수 있습니다.
+Azure AD를 사용하면 SSPR을 *없음*, *선택된* 사용자 또는 *모든* 사용자에 사용하도록 설정할 수 있습니다. 이 세분화된 기능을 통해 사용자 하위 세트를 선택하여 SSPR 등록 프로세스 및 워크플로를 테스트할 수 있습니다. 프로세스에 익숙해지고 요구 사항을 더 광범위한 사용자 세트에 전달할 수 있는 경우 SSPR을 사용하도록 설정할 사용자 그룹을 선택할 수 있습니다. 또는 Azure AD 테넌트의 모든 사용자에 대해 SSPR을 사용하도록 설정할 수 있습니다.
+
+> [!NOTE]
+>
+> 현재 Azure Portal을 사용하여 SSPR에 대해 하나의 Azure AD 그룹만 사용하도록 설정할 수 있습니다. 더 광범위한 SSPR 배포의 일부로 중첩된 그룹이 지원됩니다. 선택한 그룹의 사용자에게 적절한 라이선스가 할당되어 있는지 확인합니다. 현재 이러한 라이선스 요구 사항에 대한 유효성 검사 프로세스가 없습니다.
 
 이 자습서에서는 테스트 그룹의 사용자 세트에 대해 SSPR을 구성합니다. 다음 예제에서는 *SSPR-Test-Group* 그룹이 사용됩니다. 필요에 따라 사용자 고유의 Azure AD 그룹을 제공합니다.
 
@@ -57,8 +61,6 @@ Azure AD를 사용하면 SSPR을 *없음*, *선택된* 사용자 또는 *모든*
 1. Azure AD 그룹(예: *SSPR-Test-Group*)을 찾아서 선택한 다음, *선택*을 선택합니다.
 
     [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
-
-    더 광범위한 SSPR 배포의 일부로 중첩된 그룹이 지원됩니다. 선택한 그룹의 사용자에게 적절한 라이선스가 할당되어 있는지 확인합니다. 현재 이러한 라이선스 요구 사항에 대한 유효성 검사 프로세스가 없습니다.
 
 1. 선택한 사용자에 대해 SSPR을 사용하도록 설정하려면 **저장**을 선택합니다.
 
@@ -77,6 +79,7 @@ Azure AD를 사용하면 SSPR을 *없음*, *선택된* 사용자 또는 *모든*
     * *Email*
     * *휴대폰*
     * *사무실 전화*
+    * *본인 확인 질문*
 
 1. 인증 방법을 적용하려면 **저장**을 선택합니다.
 

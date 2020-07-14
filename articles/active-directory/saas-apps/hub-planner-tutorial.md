@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1cc89beb1e704428fdb4e10868e72e837804d3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 0b5a52d0a54a9671052b9b7d46810cc65c22951f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765261"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799900"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hub-planner"></a>자습서: Hub Planner와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -85,9 +85,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.hubplanner.com` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 `https://<SUBDOMAIN>.hubplanner.com/sso/metadata` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://app.hubplanner.com/sso/metadata` 패턴을 사용하는 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.hubplanner.com/sso/callback` 패턴을 사용하여 URL을 입력합니다.
+    다. **회신 URL** 텍스트 상자에서 `https://app.hubplanner.com/sso/callback` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Hub Planner 클라이언트 지원 팀](mailto:hello@hubplanner.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -133,9 +133,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 **Hub Planner** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Hub Planner 지원 팀](mailto:hello@hubplanner.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
+### <a name="install-the-extension-in-hub-planner"></a>Hub Planner에 확장 설치
+
+SSO 기능을 사용하도록 설정하려면 먼저 확장을 사용하도록 설정해야 합니다. 계정 소유자 또는 동등한 권한으로 다음 단계를 완료합니다.
+
+1. **설정**으로 이동합니다.
+1. 측면 메뉴에서 **확장 관리** > **확장 추가/제거**를 선택합니다.
+1. Single Sign-on에 대한 확장을 찾고 무료로 추가하거나 사용해 보세요.
+1. 메시지가 표시되면 사용 약관에 동의한 다음, **지금 추가**를 선택합니다.
+
+### <a name="enable-sso"></a>SSO 사용
+
+확장을 사용하도록 설정한 후 계정에 SSO를 사용하도록 설정해야 합니다. 
+
+1. **설정**으로 이동합니다.
+1. 측면 메뉴에서 **인증**을 선택합니다.
+1. **SSO(Single Sign-on)** 를 선택합니다.
+1. 다음 이미지와 같이 추가 인증 정보를 입력한 다음, **저장**을 선택합니다.
+
+![SSO 설정의 스크린샷](media/hub-planner-tutorial/sso-settings.png)
+
 ### <a name="create-hub-planner-test-user"></a>Hub Planner 테스트 사용자 만들기
 
-이 섹션에서는 Hub Planner에서 Britta Simon이라는 사용자를 만듭니다. Hub Planner 플랫폼에서 사용자를 추가하려면  [Hub Planner 지원 팀](mailto:hello@hubplanner.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+다른 사용자를 추가하려는 경우 **설정** > **리소스 관리**로 이동하여 여기에서 사용자를 추가합니다. 이메일 주소를 추가하고 초대해야 합니다. 초대되면 이메일을 받고 SSO를 통해 입력할 수 있습니다. 
 
 ## <a name="test-sso"></a>SSO 테스트 
 

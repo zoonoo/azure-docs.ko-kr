@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6c600c4cfe96b849786664aa878ec1f84407da5b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494367"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963532"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -32,7 +32,7 @@ ms.locfileid: "73494367"
 > * 토폴로지 중지
 > * 리소스 정리
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Kafka 토픽 생성 방법 이해. 자세한 내용은 [HDInsight의 Kafka 빠른 시작](./kafka/apache-kafka-get-started.md) 문서를 참조하세요.
 
@@ -500,7 +500,9 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
     반환되는 값은 다음 텍스트와 유사합니다.
 
-        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```output
+    zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```
 
     > [!IMPORTANT]  
     > 두 개 이상의 Zookeeper 노드가 있습니다. 클라이언트에 대한 모든 호스트의 전체 목록을 제공할 필요는 없습니다. 하나 또는 두 개로도 충분합니다.
@@ -509,9 +511,11 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
 3. 프로젝트의 루트에서 `dev.properties` 파일을 편집합니다. 이 파일에서 일치하는 줄에 __Kafka__ 클러스터에 대한 Broker 및 Zookeeper 호스트 정보를 추가합니다. 다음 예제는 이전 단계의 예제 값을 사용하여 구성됩니다.
 
-        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
-        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
-        kafka.topic: stormtopic
+    ```bash
+    kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+    kafka.topic: stormtopic
+    ```
 
     > [!IMPORTANT]  
     > `hdfs.url` 항목은 Azure Storage 계정을 사용하는 클러스터에 대해 구성됩니다. Data Lake Storage를 사용하는 Storm 클러스터에서 이 토폴로지를 사용하려면 이 값을 `wasb`에서 `adl`로 변경합니다.
@@ -590,11 +594,13 @@ Kafka에서는 데이터를 _토픽_에 저장합니다. Storm 토폴로지를 �
 
     다음 텍스트와 유사하게 출력됩니다.
 
-        Found 173 items
-        -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
-        -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
-        -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
-        ...
+    ```output
+    Found 173 items
+      -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
+      -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
+      -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
+      ...
+    ```
 
 3. 파일의 내용을 보려면 다음 명령을 사용합니다. `filename.txt`를 파일의 이름으로 바꿉니다.
 
@@ -604,13 +610,19 @@ Kafka에서는 데이터를 _토픽_에 저장합니다. Storm 토폴로지를 �
 
     다음 텍스트는 파일 내용의 예입니다.
 
-        four score and seven years ago
-        snow white and the seven dwarfs
-        i am at two with nature
-        snow white and the seven dwarfs
-        i am at two with nature
-        four score and seven years ago
-        an apple a day keeps the doctor away
+    > 네 가지 점수와 7년 전
+    >
+    > 백설 공주와 일곱 난쟁이
+    >
+    > 두 가지 특성을 사용합니다.
+    >
+    > 백설 공주와 일곱 난쟁이
+    >
+    > 두 가지 특성을 사용합니다.
+    >
+    > 네 가지 점수와 7년 전
+    >
+    > 하루에 사과 하나면 의사가 필요 없습니다.
 
 ## <a name="stop-the-topologies"></a>토폴로지 중지
 

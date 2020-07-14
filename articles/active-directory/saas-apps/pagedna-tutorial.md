@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 34e496ea9d2a89894951856a19854bff18f20a8b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68227474"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>자습서: PageDNA와 Azure Active Directory 통합
 
@@ -35,7 +35,7 @@ PageDNA를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 PageDNA와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -110,21 +110,19 @@ PageDNA에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
 
     1. **로그온 URL** 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>` |
-        | `https://<your domain>` |
-        | `https://<your domain>/<your site>` |
-        | `https://www.nationsprint.com/<your site>` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>
+        https://<your domain>
+        https://<your domain>/<your site>
+        https://www.nationsprint.com/<your site>
+        ```
 
     1. **식별자(엔터티 ID)** 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
-        | `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>/saml2ep.cgi
+        https://www.nationsprint.com/<your site>/saml2ep.cgi
+        ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [PageDNA 지원 팀](mailto:success@pagedna.com)에 문의합니다. Azure Portal의 **기본 SAML 구성** 창에 표시된 패턴을 참조할 수도 있습니다.
@@ -163,7 +161,7 @@ PageDNA 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로
 
     1. **이름** 상자에 **BrittaSimon**을 입력합니다.
   
-    1. **사용자 이름** 상자에서 **BrittaSimon\@\<yourcompanydomain>.\<extension>** 을 입력합니다. 예를 들어 **BrittaSimon\@contoso.com**입니다.
+    1. **사용자 이름** 상자에 **BrittaSimon\@\<yourcompanydomain>.\<extension>** 을 입력합니다. 예를 들어 **BrittaSimon\@contoso.com**입니다.
 
     1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
 

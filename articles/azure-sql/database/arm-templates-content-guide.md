@@ -1,9 +1,8 @@
 ---
-title: Azure 리소스 관리자 템플릿
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Azure Resource Manager 템플릿 - Azure SQL Database 및 SQL Managed Instance
 description: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database 및 Azure SQL Managed Instance를 만들고 구성합니다.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
@@ -12,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 76b9b1301a0aeee24b698b15a3871754de8ca0b9
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718804"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983642"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance용 Azure Resource Manager 템플릿
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +27,7 @@ Azure Resource Manager 템플릿을 사용하여 인프라를 코드로 정의�
 
 다음 표에는 Azure SQL Database용 Azure Resource Manager 템플릿 링크가 포함되어 있습니다.
 
-| |  |
+|링크 |Description|
 |---|---|
 | [SQL 데이터베이스](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | 이 Azure Resource Manager 템플릿은 Azure SQL Database에 단일 데이터베이스를 만들고 서버 수준 IP 방화벽 규칙을 구성합니다. |
 | [Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | 이 Azure Resource Manager 템플릿은 Azure SQL Database에 대한 서버를 만듭니다. |
@@ -47,7 +46,7 @@ Azure Resource Manager 템플릿을 사용하여 인프라를 코드로 정의�
 
 다음 표에는 Azure SQL Managed Instance에 대한 Azure Resource Manager 템플릿 링크가 포함되어 있습니다.
 
-| |  |
+|링크|Description|
 |---|---|
 | [새 VNet의 SQL Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | 이 Azure Resource Manager 템플릿은 가상 네트워크에 새로 구성된 Azure 가상 네트워크 및 관리형 인스턴스를 만듭니다. |
 | [SQL Managed Instance에 대한 네트워크 환경](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | 이 배포는 두 개의 서브넷이 있는 구성된 Azure 가상 네트워크를 만듭니다. 두 서브넷 중 하나는 관리형 인스턴스 전용이고, 다른 하나는 기타 리소스(예: VM, App Service 환경 등)를 배치할 수 있습니다. 이 템플릿은 관리형 인스턴스를 배포할 수 있도록 올바르게 구성된 네트워킹 환경을 만듭니다. |

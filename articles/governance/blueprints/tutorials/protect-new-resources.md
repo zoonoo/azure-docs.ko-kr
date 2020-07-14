@@ -3,16 +3,16 @@ title: '자습서: 잠금을 사용하여 새 리소스 보호'
 description: 이 자습서에서는 Azure Blueprints 리소스 잠금 옵션 읽기 전용 및 삭제 안 함을 사용하여 새로 배포한 리소스를 보호합니다.
 ms.date: 05/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: 90ffb0f5b8c1b6d3919b05abf778c5082bfee0dc
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864167"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969644"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>자습서: Azure Blueprints 리소스 잠금으로 새 리소스 보호
 
-Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용하면 새로 배포한 리소스를 _소유자_ 역할 계정으로도 변조할 수 없게 보호할 수 있습니다. 이 보호를 Resource Manager 템플릿 아티팩트로 만든 리소스의 청사진 정의에 추가할 수 있습니다.
+Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용하면 새로 배포한 리소스를 _소유자_ 역할 계정으로도 변조할 수 없게 보호할 수 있습니다. 이 보호를 ARM 템플릿(Azure Resource Manager 템플릿) 아티팩트로 만든 리소스의 청사진 정의에 추가할 수 있습니다.
 
 이 자습서에서는 다음 단계를 완료합니다.
 
@@ -23,7 +23,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 > - 새 리소스 그룹 조사
 > - 청사진을 할당 취소하여 잠금 제거
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -55,8 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 리소스 그룹 아래에 템플릿 추가:
    1. **RGtoLock** 항목 아래의 **아티팩트 추가** 행을 선택합니다.
    1. **아티팩트 형식** 아래의 **Azure Resource Manager 템플릿**을 선택하고, **아티팩트 표시 이름**을 **StorageAccount**로 설정하고, **설명**은 비워 둡니다.
-   1. **템플릿** 탭의 편집기 상자에 다음 Resource Manager 템플릿을 붙여넣습니다.
-      템플릿을 붙여넣은 후 **추가**를 선택하여 아티팩트를 청사진에 추가합니다.
+   1. **템플릿** 탭의 편집기 상자에 다음 ARM 템플릿을 붙여넣습니다. 템플릿을 붙여넣은 후 **추가**를 선택하여 아티팩트를 청사진에 추가합니다.
 
    ```json
    {
@@ -154,7 +153,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
      |아티팩트 이름|아티팩트 형식|매개 변수 이름|값|Description|
      |-|-|-|-|-|
-     |RGtoLock 리소스 그룹|Resource group|속성|TestingBPLocks|청사진 잠금을 적용할 새 리소스 그룹의 이름을 정의합니다.|
+     |RGtoLock 리소스 그룹|Resource group|Name|TestingBPLocks|청사진 잠금을 적용할 새 리소스 그룹의 이름을 정의합니다.|
      |RGtoLock 리소스 그룹|Resource group|위치|미국 서부 2|청사진 잠금을 적용할 새 리소스 그룹의 위치를 정의합니다.|
      |StorageAccount|Resource Manager 템플릿|storageAccountType(StorageAccount)|Standard_GRS|스토리지 SKU 기본값은 _Standard_LRS_입니다.|
 
@@ -166,7 +165,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="inspect-resources-deployed-by-the-assignment"></a>할당에서 배포한 리소스 검사
 
-할당이 리소스 그룹 _TestingBPLocks_를 만들었으며 Resource Manager 템플릿 아티팩트를 통해 스토리지 계정이 배포되었습니다. 새 리소스 그룹 및 선택한 잠금 상태가 할당 세부 정보 페이지에 표시됩니다.
+할당이 리소스 그룹 _TestingBPLocks_를 만들었으며 ARM 템플릿 아티팩트를 통해 스토리지 계정이 배포되었습니다. 새 리소스 그룹 및 선택한 잠금 상태가 할당 세부 정보 페이지에 표시됩니다.
 
 1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 

@@ -1,26 +1,24 @@
 ---
-title: '자습서: Azure Firewall Manager 미리 보기를 사용하여 허브 가상 네트워크 보호'
+title: '자습서: Azure Firewall Manager를 사용하여 허브 가상 네트워크 보호'
 description: 이 자습서에서는 Azure Portal에서 Azure Firewall Manager를 사용하여 가상 네트워크를 보호하는 방법을 알아봅니다.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: cdd416bdb833e4784334a6847d724a7375e2ef8d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77459956"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563641"
 ---
-# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>자습서: Azure Firewall Manager 미리 보기를 사용하여 허브 가상 네트워크 보호 
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>자습서: Azure Firewall Manager를 사용하여 허브 가상 네트워크 보호
 
 온-프레미스 네트워크를 Azure Virtual Network에 연결하여 하이브리드 네트워크를 만들 경우 Azure 네트워크 리소스에 대한 액세스를 제어하는 기능은 전체 보안 계획의 중요한 부분입니다.
 
-Azure Firewall Manager 미리 보기를 사용하면 개인 IP 주소, Azure PaaS 및 인터넷으로 향하는 하이브리드 네트워크 트래픽을 보호하는 허브 가상 네트워크를 만들 수 있습니다. Azure Firewall Manager를 사용하여 허용되거나 거부되는 네트워크 트래픽을 정의하는 정책을 사용하여 하이브리드 네트워크에서 네트워크 액세스를 제어할 수 있습니다.
+Azure Firewall Manager를 사용하면 개인 IP 주소, Azure PaaS 및 인터넷으로 향하는 하이브리드 네트워크 트래픽을 보호하는 허브 가상 네트워크를 만들 수 있습니다. Azure Firewall Manager를 사용하여 허용되거나 거부되는 네트워크 트래픽을 정의하는 정책을 사용하여 하이브리드 네트워크에서 네트워크 액세스를 제어할 수 있습니다.
 
 또한 Firewall Manager는 보안 가상 허브 네트워크 아키텍처를 지원합니다. 보안 가상 허브 및 허브 가상 네트워크 아키텍처 유형을 비교하려면 [Azure Firewall Manager 아키텍처 옵션이란?](vhubs-and-vnets.md)을 참조하세요.
 
@@ -45,7 +43,7 @@ Azure Firewall Manager 미리 보기를 사용하면 개인 IP 주소, Azure Paa
 > * 방화벽 테스트
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 하이브리드 네트워크는 허브 및 스포크 아키텍처 모델을 사용하여 Azure VNet과 온-프레미스 네트워크 간에 트래픽을 라우팅합니다. 허브 및 스포크 아키텍처에는 다음과 같은 요구 사항이 있습니다.
 
@@ -413,7 +411,7 @@ SpoketoHub 피어링에서 **전달된 트래픽 허용**을 사용하도록 설
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. **VM-Onprem**에서 웹 브라우저를 열고 http://\<VM-spoke-01 프라이빗 IP\>로 이동합니다.
+3. **VM-Onprem**에서 웹 브라우저를 열고 http://\<VM-spoke-01 private IP\>로 이동합니다.
 
    **VM-spoke-01** 웹 페이지가 표시됩니다. ![VM-spoke-01 웹 페이지](media/secure-hybrid-network/vm-spoke-01-web.png)
 
@@ -444,4 +442,4 @@ SpoketoHub 피어링에서 **전달된 트래픽 허용**을 사용하도록 설
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Firewall Manager 미리 보기를 사용하여 가상 WAN 보호](secure-cloud-network.md)
+> [자습서: Azure Firewall Manager를 사용하여 가상 WAN 보호](secure-cloud-network.md)

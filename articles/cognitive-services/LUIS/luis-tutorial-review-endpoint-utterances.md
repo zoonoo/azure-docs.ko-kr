@@ -3,13 +3,13 @@ title: '자습서: 엔드포인트 발화 검토 - LUIS'
 description: 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTP 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: c2df8cdba3422c522aa4ccf1fe4138a510355d12
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 07/02/2020
+ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445930"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959042"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTPS 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 예약된 LUIS 유지 관리의 일반적인 부분으로 엔드포인트 발화를 검토해야 합니다.
@@ -35,11 +35,16 @@ ms.locfileid: "85445930"
 
 ## <a name="download-json-file-for-app"></a>앱에 대한 JSON 파일 다운로드
 
-[앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true)을 다운로드하고 저장합니다.
+[앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true)을 다운로드하고 저장합니다.
 
 ## <a name="import-json-file-for-app"></a>앱에 대한 JSON 파일 가져오기
 
-[!INCLUDE [Import app steps](includes/import-app-steps.md)]
+
+1. [LUIS 포털](https://www.luis.ai)의 **내 앱** 페이지에서 **+ 대화용 새 앱**을 선택한 다음, **JSON으로 가져오기**를 선택합니다. 이전 단계에서 저장한 JSON 파일을 찾습니다. 앱 이름은 변경할 필요가 없습니다. **완료**를 선택합니다.
+
+1. **빌드**, **의도**를 차례로 선택하여 LUIS 앱의 기본 구성 요소인 의도를 확인합니다.
+
+    :::image type="content" source="media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png" alt-text="[버전] 페이지에서 [의도] 페이지로 변경합니다.":::
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>엔터티 변경 내용을 앱에 적용하도록 앱 학습
 
@@ -77,15 +82,11 @@ ms.locfileid: "85445930"
 
 1. 포털에 있는 **빌드** 섹션의 왼쪽 탐색 영역에서 **엔드포인트 발화 검토**를 선택합니다. 목록은 **ApplyForJob** 의도에 대해 필터링됩니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![왼쪽 탐색 영역에 있는 엔드포인트 발화 검토 단추의 스크린샷](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="왼쪽 탐색 영역에 있는 엔드포인트 발화 검토 단추의 스크린샷.":::
 
-    이 발화(`I'm looking for a job with Natural Language Processing`)는 올바른 의도에 있지 않습니다.
+    이 발화(`I'm looking for a job with Natural Language Processing`)는 올바른 의도(_GetJobInformation_)에 있지 않습니다. 이는 두 가지 의도에서 작업 이름과 동사의 유사성 때문에 _ApplyForJob_으로 잘못 예측되었습니다.
 
-1.  이 발화를 정렬하려면 발화 행에서 `GetJobInformation`의 올바르게 **정렬된 의도**를 선택합니다. 확인 표시를 선택하여 변경된 발화를 앱에 추가합니다.
-
-    > [!div class="mx-imgBorder"]
-    > ![왼쪽 탐색 영역에 있는 엔드포인트 발화 검토 단추의 스크린샷](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
+1.  이 발화를 정렬하려면 `GetJobInformation`의 올바르게 **정렬된 의도**를 선택합니다. 확인 표시를 선택하여 변경된 발화를 앱에 추가합니다.
 
     이 의도의 나머지 발화를 검토하여 필요에 따라 정렬된 의도를 수정합니다. 이 자습서의 초기 발화 표를 사용하여 정렬된 의도를 살펴보세요.
 
@@ -110,37 +111,37 @@ ms.locfileid: "85445930"
             "topIntent": "GetJobInformation",
             "intents": {
                 "GetJobInformation": {
-                    "score": 0.903607249
-                },
-                "EmployeeFeedback": {
-                    "score": 0.0312187821
+                    "score": 0.901367366
                 },
                 "ApplyForJob": {
-                    "score": 0.0230276529
+                    "score": 0.0307973567
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0296942145
                 },
                 "MoveEmployee": {
-                    "score": 0.008322801
-                },
-                "Utilities.Stop": {
-                    "score": 0.004480808
+                    "score": 0.00739785144
                 },
                 "FindForm": {
-                    "score": 0.00425248267
+                    "score": 0.00449316856
+                },
+                "Utilities.Stop": {
+                    "score": 0.00417657848
                 },
                 "Utilities.StartOver": {
-                    "score": 0.004224336
+                    "score": 0.00407167152
                 },
                 "Utilities.Help": {
-                    "score": 0.00373591436
+                    "score": 0.003662492
                 },
                 "None": {
-                    "score": 0.0034621188
+                    "score": 0.00335733569
                 },
                 "Utilities.Cancel": {
-                    "score": 0.00230977475
+                    "score": 0.002225436
                 },
                 "Utilities.Confirm": {
-                    "score": 0.00112078607
+                    "score": 0.00107437756
                 }
             },
             "entities": {
@@ -156,7 +157,7 @@ ms.locfileid: "85445930"
                                 "timex": "PRESENT_REF",
                                 "resolution": [
                                     {
-                                        "value": "2019-12-05 23:23:53"
+                                        "value": "2020-07-02 21:45:50"
                                     }
                                 ]
                             }

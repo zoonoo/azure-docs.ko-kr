@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5aac12f4da6304e8e14f0b4f1e33ef6257f50c11
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9721a00ef1f0df056b3300ababfee0d0d29bbddc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85602791"
+ms.locfileid: "85801277"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
 
@@ -409,15 +409,18 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 
 자습서 앱이 클라이언트 ID 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 창에서 다음 명령을 실행합니다.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 변경합니다.
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 다음 항목으로 변경합니다.
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 자습서 앱을 사용하는 동안에는 명령 창을 열어 두세요. 창을 닫으면 프록시가 중지됩니다. 검색 결과 아래의 확장 가능한 HTTP 헤더 섹션에서 여러 `X-MSEdge-ClientID` 헤더를 볼 수 있으며 요청마다 동일한지 확인합니다.
 

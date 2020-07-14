@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 33fd0b6a3a07fa4fbc5448a97ca93c75a3e239d5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d629aca791794de6c3e065fdc9f4a9e7f6d8a5df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684225"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833184"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 애플리케이션 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
@@ -89,9 +89,11 @@ Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [
 ![웹사이트 번역][WebsiteTranslations]
 
 ## <a name="securing-traffic-to-app-service-environment-using-network-security-groups-nsg"></a>NSG(네트워크 보안 그룹)을 사용하여 App Service Environment에 대한 트래픽 보안
-클라우드 서비스의 VIP 주소만 사용하여 WAF에서 App Service Environment로 들어오는 트래픽을 제한하는 방법에 대한 자세한 내용은 [인바운드 트래픽 제어 설명서](app-service-app-service-environment-control-inbound-traffic.md) 를 참조하세요. TCP 포트 80에 대한 작업을 수행 하기 위한 샘플 Powershell 명령은 다음과 같습니다.
+클라우드 서비스의 VIP 주소만 사용하여 WAF에서 App Service Environment로 들어오는 트래픽을 제한하는 방법에 대한 자세한 내용은 [인바운드 트래픽 제어 설명서](app-service-app-service-environment-control-inbound-traffic.md) 를 참조하세요. TCP 포트 80에 대한 작업을 수행 하기 위한 샘플 PowerShell 명령은 다음과 같습니다.
 
-    Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
+```azurepowershell-interactive
+Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
+```
 
 프로그램 WAF 클라우드 서비스의 가상 IP 주소 (VIP)는 SourceAddres Prefix를 바꿉니다.
 

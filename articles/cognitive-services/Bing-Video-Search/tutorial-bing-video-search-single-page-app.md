@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: c6e36bdbb3d58878e6afa28610ab2b214f47de20
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76988263"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800728"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>자습서: 단일 페이지 Video Search 앱
 Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 비디오 결과를 가져올 수 있습니다. 이 자습서에서는 Bing Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 애플리케이션을 빌드합니다. 애플리케이션에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
@@ -319,7 +319,7 @@ Bing News Search API는 최대 4가지 종류의 관련 검색을 각각 고유�
 
 ## <a name="rendering-result-items"></a>결과 항목 렌더링
 
-JavaScript 코드에서 `searchItemRenderers` 개체는 각 종류의 검색 결과에 대해 HTML을 생성하는 렌더러  함수를 포함할 수 있습니다. 비디오 검색 페이지는 `videos`만 사용합니다. 다양한 렌더러 유형에 대해서는 다른 자습서를 참조하세요.
+JavaScript 코드에서 `searchItemRenderers` 개체는 각 종류의 검색 결과에 대해 HTML을 생성하는 렌더러 함수를 포함할 수 있습니다. 비디오 검색 페이지는 `videos`만 사용합니다. 다양한 렌더러 유형에 대해서는 다른 자습서를 참조하세요.
 
 ```javascript
 searchItemRenderers = {
@@ -393,15 +393,18 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 
 자습서 앱이 클라이언트 ID 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 창에서 다음 명령을 실행합니다.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 변경합니다.
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 다음 항목으로 변경합니다.
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 자습서 앱을 사용하는 동안에는 명령 창을 열어 두세요. 창을 닫으면 프록시가 중지됩니다. 검색 결과 아래의 확장 가능한 HTTP 헤더 섹션에서 여러 `X-MSEdge-ClientID` 헤더를 볼 수 있으며 요청마다 동일한지 확인합니다.
 

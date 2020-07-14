@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d6cb8d386efbcdaf053f0740d955b249c0e636b4
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 7627625a917a8f652da62d4197368f023ad8c110
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84907830"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964501"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>DigiCert 인증 기관과 Key Vault 통합
 
@@ -57,7 +57,7 @@ DigiCert CertCentral 계정에서 위의 정보를 수집한 후에는 이제 �
  ![인증서 속성](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  **인증서 기관 만들기** 화면에서 다음 값을 선택합니다.
     -   **Name**: 식별 가능한 발급자 이름을 추가합니다. 예제 DigicertCA
-    -   **제공**: 메뉴에서 DigiCert를 선택합니다.
+    -   **공급자**: 메뉴에서 DigiCert를 선택합니다.
     -   **계정 ID**: DigiCert CertCentral 계정 ID를 입력합니다.
     -   **계정 암호**: DigiCert CertCentral 계정에서 생성한 API 키를 입력합니다.
     -   **조직 ID**: DigiCert CertCentral 계정에서 수집된 OrgID 입력 

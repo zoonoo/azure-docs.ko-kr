@@ -1,6 +1,6 @@
 ---
-title: 단일 사용자/단일 암호 순환 자습서
-description: 이 자습서를 사용하여 단일 사용자/단일 암호 인증을 사용하는 리소스의 비밀을 자동으로 순환하는 방법을 알아봅니다.
+title: 단일 인증 자격 증명 세트가 있는 리소스에 대한 회전 자습서
+description: 이 자습서를 사용하여 단일 인증 자격 증명 세트를 사용하는 리소스의 비밀을 자동으로 순환하는 방법을 알아봅니다.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bff8c040f4cfed612278dd83ebb354b31a3a1f3
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183214"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801447"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>단일 사용자/단일 암호 인증을 사용하는 리소스의 비밀 순환 자동화
+# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>단일 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
 Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/managed-identity.md)를 사용하는 것이지만, 이 방법을 사용할 수 없는 시나리오도 있습니다. 이러한 경우 액세스 키 또는 비밀이 사용됩니다. 액세스 키 또는 비밀은 정기적으로 순환해야 합니다.
 
-이 자습서에서는 단일 사용자/단일 암호 인증을 사용하는 데이터베이스 및 서비스의 비밀을 정기적으로 자동 순환하는 방법을 보여줍니다. 특히 이 자습서에서는 Azure Event Grid 알림에 의해 트리거되는 함수를 사용하여 Azure Key Vault에 저장된 SQL 서버 암호를 순환합니다.
+이 자습서에서는 단일 인증 자격 증명 세트를 사용하는 데이터베이스 및 서비스의 비밀을 정기적으로 자동 순환하는 방법을 보여줍니다. 특히 이 자습서에서는 Azure Event Grid 알림에 의해 트리거되는 함수를 사용하여 Azure Key Vault에 저장된 SQL 서버 암호를 순환합니다.
 
 ![순환 솔루션 다이어그램](../media/rotate1.png)
 

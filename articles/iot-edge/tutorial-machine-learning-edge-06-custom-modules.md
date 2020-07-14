@@ -4,23 +4,23 @@ description: 이 자습서에서는 기계 학습 모델을 통해 리프 디바
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0726edae7c5f44fae7f573559d561e7ef5773e71
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75772366"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801301"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
 
 > [!NOTE]
 > 이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 이 문서로 바로 이동한 경우에는 학습 효과를 극대화할 수 있도록 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)부터 시작하는 것이 좋습니다.
 
-이 문서에서는 리프 디바이스로부터 메시지를 받고, 기계 학습 모델을 통해 데이터를 실행한 다음, 인사이트를 IoT Hub에 전달하는 세 개의 IoT Edge 모듈을 만듭니다.
+이 문서에서는 리프 IoT 디바이스로부터 메시지를 받고, 기계 학습 모델을 통해 데이터를 실행한 다음, 인사이트를 IoT Hub에 전달하는 세 개의 IoT Edge 모듈을 만듭니다.
 
 IoT Edge 허브는 모듈 간 통신을 용이하게 합니다. IoT Edge 허브를 메시지 broker로 사용하면 모듈이 서로 독립적으로 유지됩니다. 모듈은 메시지를 수락하는 입력과 메시지를 쓰는 출력을 지정하기만 하면 됩니다.
 
@@ -28,8 +28,8 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 
 * 리프 디바이스로부터 데이터 받기
 * 데이터를 보낸 디바이스의 RUL(잔여 유효 수명) 예측
-* 디바이스에 대한 RUL만 사용하여 IoT Hub에 메시지 보내기(이 함수는 RUL이 일부 수준 이하로 떨어지는 경우에만 데이터를 보내도록 수정할 수 있음)
-* IoT Edge 디바이스의 로컬 파일에 리프 디바이스 데이터 저장. 이 데이터 파일은 파일 업로드를 통해 정기적으로 IoT Hub에 업로드되어 기계 학습 모델 학습을 구체화합니다. 지속적인 메시지 스트리밍 대신 파일 업로드를 사용하는 것이 더 비용 효율적입니다.
+* 디바이스의 RUL이 포함된 메시지를 IoT Hub로 전송. RUL이 지정된 수준 아래로 떨어질 때만 데이터를 보내도록 이 함수를 수정할 수 있습니다.
+* IoT Edge 디바이스의 로컬 파일에 리프 디바이스 데이터 저장. 이 데이터 파일은 정기적으로 IoT Hub에 업로드되어 기계 학습 모델 학습을 구체화합니다. 지속적인 메시지 스트리밍 대신 파일 업로드를 사용하는 것이 더 비용 효율적입니다.
 
 이러한 작업을 수행하기 위해 사용하는 세 가지 사용자 지정 모듈은 다음과 같습니다.
 
@@ -48,7 +48,7 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
     * **writeAvro:** "avroModuleInput"에 메시지를 보냅니다.
     * **toIotHub:** 메시지를 $upstream에 보내고 해당 메시지를 연결된 IoT Hub에 전달합니다.
 
-아래 다이어그램에서는 전체 솔루션에 대한 모듈, 입력, 출력 및 IoT Edge Hub 경로를 보여 줍니다.
+다음 다이어그램에서는 전체 솔루션에 대한 모듈, 입력, 출력 및 IoT Edge Hub 경로를 보여줍니다.
 
 ![IoT Edge 3개 모듈 아키텍처의 다이어그램](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
@@ -56,31 +56,33 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 
 ## <a name="create-a-new-iot-edge-solution"></a>새 IoT Edge 솔루션 만들기
 
-두 개의 Azure Notebook 중 두 번째 Notebook을 실행하는 동안에 RUL 모델이 포함된 컨테이너 이미지를 만들고 게시했습니다. 이미지 만들기 프로세스의 일환으로, Azure Machine Learning은 이미지를 Azure IoT Edge 모듈로 배포할 수 있도록 해당 모델을 패키징했습니다. 이 단계에서는 "Azure Machine Learning" 모듈을 사용하여 Azure IoT Edge 솔루션을 만들고, Azure Notebooks를 사용하여 게시한 이미지를 모듈로 가리킵니다.
+두 개의 Azure Notebook 중 두 번째 Notebook을 실행하는 동안에 RUL 모델이 포함된 컨테이너 이미지를 만들고 게시했습니다. 이미지 만들기 프로세스의 일환으로, Azure Machine Learning은 이미지를 Azure IoT Edge 모듈로 배포할 수 있도록 해당 모델을 패키징했습니다.
 
-1. 개발 머신에서 원격 데스크톱 세션을 엽니다.
+이 단계에서는 "Azure Machine Learning" 모듈을 사용하여 Azure IoT Edge 솔루션을 만들고, Azure Notebooks를 사용하여 게시한 이미지를 모듈로 가리킵니다.
 
-2. Visual Studio Code에서 **C:\\source\\IoTEdgeAndMlSample** 폴더를 엽니다.
+1. 개발 VM에서 원격 데스크톱 세션을 엽니다.
 
-3. 마우스 오른쪽 단추로 탐색기 패널의 빈 공간을 클릭하고 **새 IoT Edge 솔루션**을 선택합니다.
+1. Visual Studio Code에서 **C:\\source\\IoTEdgeAndMlSample** 폴더를 엽니다.
+
+1. 마우스 오른쪽 단추로 탐색기 패널의 빈 공간을 클릭하고 **새 IoT Edge 솔루션**을 선택합니다.
 
     ![새 IoT Edge 솔루션 만들기](media/tutorial-machine-learning-edge-06-custom-modules/new-edge-solution-command.png)
 
-4. **EdgeSolution**이라는 기본 솔루션 이름을 적용합니다.
+1. **EdgeSolution**이라는 기본 솔루션 이름을 적용합니다.
 
-5. 모듈 템플릿으로 **Azure Machine Learning**을 선택합니다.
+1. 모듈 템플릿으로 **Azure Machine Learning**을 선택합니다.
 
-6. 모듈 이름을 **turbofanRulClassifier**로 지정합니다.
+1. 모듈 이름을 **turbofanRulClassifier**로 지정합니다.
 
-7. 기계 학습 작업 영역을 선택합니다.
+1. 기계 학습 작업 영역을 선택합니다. 이 작업 영역은 **turboFanDemo** 작업 영역으로 [자습서: Azure Machine Learning 모델 학습 및 배포](tutorial-machine-learning-edge-04-train-model.md)에서 만들었습니다.
 
-8. Azure Notebook을 실행하는 동안에 만든 이미지를 선택합니다.
+1. Azure Notebook을 실행하는 동안에 만든 이미지를 선택합니다.
 
-9. 솔루션을 살펴보고 만든 파일을 확인합니다.
+1. 솔루션을 살펴보고 만든 파일을 확인합니다.
 
    * **deployment.template.json:** 이 파일에는 솔루션의 각 모듈에 대한 정의가 포함되어 있습니다. 이 파일에는 다음 세 가지 섹션이 있습니다.
 
-     * **레지스트리 자격 증명:** 솔루션에서 사용하는 사용자 지정 컨테이너 레지스트리 집합을 정의합니다. 현재 Azure Machine Learning 이미지가 저장되어 있는 기계 학습 작업 영역의 레지스트리가 있어야 합니다. 원하는 수의 컨테이너 레지스트리를 갖출 수 있지만, 간단히 하기 위해 모든 모듈에 대해 이 레지스트리 하나만 사용합니다.
+     * **레지스트리 자격 증명:** 솔루션에서 사용하는 사용자 지정 컨테이너 레지스트리 집합을 정의합니다. 현재 Azure Machine Learning 이미지가 저장되어 있는 기계 학습 작업 영역의 레지스트리가 있어야 합니다. 컨테이너 레지스트리를 원하는 만큼 만들 수 있지만, 간단히 연습을 위해 모든 모듈에 이 레지스트리 하나만 사용합니다.
 
        ```json
        "registryCredentials": {
@@ -92,51 +94,40 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
        }
        ```
 
-     * **모듈:** 이 섹션에는 이 솔루션과 함께 제공되는 사용자 정의 모듈 집합이 포함됩니다. 이 섹션에는 현재 다음 두 가지 모듈이 포함되어 있습니다. SimulatedTemperatureSensor 및 turbofanRulClassifier SimulatedTemperatureSensor는 Visual Studio Code 템플릿으로 설치되었지만 이 솔루션에는 필요하지 않습니다. 모듈 섹션에서 SimulatedTemperatureSensor 모듈 정의를 삭제할 수 있습니다. turbofanRulClassifier 모듈 정의는 컨테이너 레지스트리의 이미지를 가리키고 있습니다. 솔루션에 더 많은 모듈을 추가함에 따라 해당 모듈이 이 섹션에 표시됩니다.
+     * **모듈:** 이 섹션에는 이 솔루션과 함께 제공되는 사용자 정의 모듈 집합이 포함됩니다. turbofanRulClassifier 모듈 정의는 컨테이너 레지스트리의 이미지를 가리키고 있습니다. 솔루션에 더 많은 모듈을 추가함에 따라 해당 모듈이 이 섹션에 표시됩니다.
 
        ```json
-       "modules": {
-         "SimulatedTemperatureSensor": {
-           "version": "1.0",
-           "type": "docker",
-           "status": "running",
-           "restartPolicy": "always",
-           "settings": {
-             "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-             "createOptions": {}
-           }
-         },
-         "turbofanRulClassifier": {
-           "version": "1.0",
-           "type": "docker",
-           "status": "running",
-           "restartPolicy": "always",
-           "settings": {
-             "image": "<your registry>.azurecr.io/edgemlsample:1",
-             "createOptions": {}
-           }
-         }
-       }
+        "modules": {
+          "turbofanRulClassifier": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "turbofandemo2cd74296.azurecr.io/edgemlsample:1",
+              "createOptions": {}
+            }
+          }
+        }
        ```
 
-     * **경로:** 이 자습서에서는 경로 관련 작업을 상당히 많이 수행합니다. 경로는 모듈 간에 서로 통신하는 방법을 정의합니다. 템플릿에 정의된 두 개의 경로가 필요한 라우팅과 일치하지 않습니다. 첫 번째 경로는 모든 데이터를 분류자 출력에서 IoT Hub($upstream)로 보냅니다. 다른 경로는 방금 삭제한 SimulatedTemperatureSensor의 경로입니다. 두 개의 기본 경로를 삭제합니다.
+     * **경로:** 이 자습서에서는 경로 관련 작업을 상당히 많이 수행합니다. 경로는 모듈 간에 서로 통신하는 방법을 정의합니다. 템플릿에 정의된 기존 경로가 필요한 라우팅과 일치하지 않습니다. `turbofanRulClassifierToIoTHub` 경로를 삭제하세요.
 
        ```json
-       "$edgeHub": {
-         "properties.desired": {
-           "schemaVersion": "1.0",
-           "routes": {
-             "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/\* INTO $upstream",
-             "sensorToturbofanRulClassifier": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
-           },
-           "storeAndForwardConfiguration": {
-             "timeToLiveSecs": 7200
-           }
-         }
-       }
+        "$edgeHub": {
+          "properties.desired": {
+            "schemaVersion": "1.0",
+            "routes": {
+              "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/* INTO $upstream"
+            },
+            "storeAndForwardConfiguration": {
+              "timeToLiveSecs": 7200
+            }
+          }
+        }
        ```
 
-   * **deployment.debug.template.json:** 이 파일은 deploy.template.json의 디버그 버전입니다. deployment.template.json의 모든 변경 내용을 이 파일에 반영해야 합니다.
+   * **deployment.debug.template.json:** 이 파일은 deploy.template.json의 디버그 버전입니다. 일반적으로 이 파일은 deployment.template.json 파일과 동기화 상태를 유지해야 하지만, 이 자습서에서 그럴 필요가 없습니다.
 
    * **.env:** 이 파일은 레지스트리에 액세스하기 위한 사용자 이름과 암호를 제공해야 하는 위치입니다.
 
@@ -145,9 +136,9 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
       CONTAINER_REGISTRY_PASSWORD_<your registry name>=<ACR password>
       ```
 
-10. Visual Studio Code 탐색기에서 마우스 오른쪽 단추로 deploy.template.json 파일을 클릭하고, **IoT Edge 솔루션 빌드**를 선택합니다.
+1. Visual Studio Code 탐색기에서 마우스 오른쪽 단추로 deploy.template.json 파일을 클릭하고, **IoT Edge 솔루션 빌드**를 선택합니다.
 
-11. 이 명령은 deploy.amd64.json 파일이 포함된 구성 폴더를 만듭니다. 이 파일은 솔루션의 구체적인 배포 템플릿입니다.
+1. 이 명령은 deploy.amd64.json 파일이 포함된 구성 폴더를 만듭니다. 이 파일은 솔루션의 구체적인 배포 템플릿입니다.
 
 ## <a name="add-router-module"></a>라우터 모듈 추가
 
@@ -158,44 +149,41 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 * **IoT Hub에 RUL 메시지 보내기:** 라우터에서 분류자로부터 메시지를 받으면 필수 정보, 디바이스 ID 및 RUL만 포함하도록 메시지를 변환하고 약어 메시지를 IoT Hub에 보냅니다. RUL 예측이 임계값 아래로 떨어지는 경우(예: RUL이 100개 주기 미만인 경우)에만 여기서는 수행하지 않는 세부적인 구체화를 통해 메시지를 IoT Hub에 보냅니다. 이 방식으로 필터링하면 메시지의 양이 줄고 IoT Hub의 비용이 절감됩니다.
 * **Avro 기록기 모듈에 메시지 보내기:** 다운스트림 디바이스에서 보낸 모든 데이터를 유지하기 위해 라우터 모듈은 분류자로부터 받은 전체 메시지를 Avro 기록기 모듈에 보냅니다. 이 모듈은 IoT Hub 파일 업로드를 사용하여 데이터를 유지하고 업로드합니다.
 
-> [!NOTE]
-> 모듈 임무에 대한 설명은 처리를 순차적으로 보이게 할 수 있지만, 이는 메시지/이벤트에 기반한 흐름입니다. 이로 인해 라우터 모듈과 같은 오케스트레이션 모듈이 필요합니다.
+라우터 모듈은 메시지가 올바른 순서로 처리되도록 보장하는 솔루션의 중요한 부분입니다.
 
-### <a name="create-module-and-copy-files"></a>모듈 만들기 및 파일 복사
+### <a name="create-the-module-and-copy-files"></a>모듈 만들기 및 파일 복사
 
 1. Visual Studio Code에서 마우스 오른쪽 단추로 모듈 폴더를 클릭하고 **IoT Edge 모듈 추가**를 선택합니다.
 
-2. **C# 모듈**을 선택합니다.
+1. **C# 모듈**을 모듈 템플릿으로 선택합니다.
 
-3. 모듈 이름을 **turbofanRouter**로 지정합니다.
+1. 모듈 이름을 **turbofanRouter**로 지정합니다.
 
-4. Docker 이미지 리포지토리를 묻는 메시지가 표시되면 기계 학습 작업 영역의 레지스트리를 사용합니다(*deployment.template.json* 파일의 registryCredentials 노드에서 레지스트리를 찾을 수 있음). 이 값은 **\<your registry\>.azurecr.io/turbofanrouter**와 같은 레지스트리의 정규화된 주소입니다.
+1. Docker 이미지 리포지토리를 묻는 메시지가 표시되면 기계 학습 작업 영역의 레지스트리를 사용합니다(*deployment.template.json* 파일의 registryCredentials 노드에서 레지스트리를 찾을 수 있음). 이 값은 **\<your registry\>.azurecr.io/turbofanrouter**처럼 레지스트리의 정규화된 주소입니다.
 
     > [!NOTE]
-    > 이 문서에서는 분류자를 학습시키고 배포하는 데 사용한 Azure Machine Learning 작업 영역에서 만든 Azure Container Registry를 사용합니다. 이는 순전히 편의를 위한 것입니다. 새 컨테이너 레지스트리를 만들어 여기에 모듈을 게시할 수 있었습니다.
+    > 이 문서에서는 Azure Machine Learning 작업 영역에서 만든 Azure Container Registry를 사용합니다. 이는 순전히 편의를 위한 것입니다. 새 컨테이너 레지스트리를 만들어 여기에 모듈을 게시할 수 있었습니다.
 
-5. Visual Studio Code(**보기** > **터미널**)에서 새 터미널 창을 열고, 모듈 디렉터리에서 파일을 복사합니다.
+1. 명령 프롬프트 셸을 사용하는 터미널에서 샘플 모듈의 파일을 솔루션에 복사합니다.
 
     ```cmd
     copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\modules\turbofanRouter\
     ```
 
-6. program.cs를 덮어쓸지를 묻는 메시지가 표시되면 `y`를 누른 다음, `Enter`를 누릅니다.
+1. program.cs 파일을 덮어쓸지 묻는 메시지를 수락합니다.
 
 ### <a name="build-router-module"></a>라우터 모듈 빌드
 
 1. Visual Studio Code에서 **터미널** > **기본 빌드 작업 구성**을 선택합니다.
 
-2. **템플릿에서 tasks.json 파일 만들기**를 클릭합니다.
+1. **템플릿에서 tasks.json 파일 만들기**를 선택합니다.
 
-3. **.NET Core**를 클릭합니다.
+1. **.NET Core**를 선택합니다.
 
-4. tasks.json이 열리면 내용을 다음으로 바꿉니다.
+1. tasks.json 파일의 내용을 다음 코드로 바꿉니다.
 
     ```json
     {
-      // See https://go.microsoft.com/fwlink/?LinkId=733558
-      // for the documentation about the tasks.json format
       "version": "2.0.0",
       "tasks": [
         {
@@ -219,9 +207,9 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
     }
     ```
 
-5. tasks.json을 저장하고 닫습니다.
+1. tasks.json을 저장하고 닫습니다.
 
-6. `Ctrl + Shift + B` 또는 **터미널** > **빌드 작업 실행**을 사용하여 빌드를 실행합니다.
+1. `Ctrl + Shift + B` 또는 **터미널** > **빌드 작업 실행**을 사용하여 빌드를 실행합니다.
 
 ### <a name="set-up-module-routes"></a>모듈 경로 설정
 
@@ -297,12 +285,8 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 }
 ```
 
-> [!NOTE]
-> turbofanRouter 모듈을 추가하면 `turbofanRouterToIoTHub": "FROM /messages/modules/turbofanRouter/outputs/* INTO $upstream` 경로가 추가로 만들어집니다. deploy.template.json 파일에서 위에 나열된 경로만 남겨두고 이 경로는 제거하세요.
-
-#### <a name="copy-routes-to-deploymentdebugtemplatejson"></a>deploy.debug.template.json에 경로 복사
-
-마지막 단계로, 파일을 동기화 상태로 유지하기 위해 deploy.template.json의 변경 내용을 deploy.debug.template.json에 반영합니다.
+  > [!NOTE]
+  > turbofanRouter 모듈을 추가하면 `turbofanRouterToIoTHub": "FROM /messages/modules/turbofanRouter/outputs/* INTO $upstream` 경로가 추가로 만들어집니다. deploy.template.json 파일에서 위에 나열된 경로만 남겨두고 이 경로는 제거하세요.
 
 ## <a name="add-avro-writer-module"></a>Avro 기록기 모듈 추가
 
@@ -314,21 +298,15 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
 
 ### <a name="create-module-and-copy-files"></a>모듈 만들기 및 파일 복사
 
-1. 명령 팔레트에서 **Python: 인터프리터 선택**을 입력합니다.
+1. Visual Studio Code에서 **보기** > **명령 팔레트**를 선택한 다음, **Python: 인터프리터 선택**을 검색하여 선택합니다.
 
-1. C:\\Python37에 있는 인터프리터를 선택합니다.
-
-1. 명령 팔레트를 다시 연 다음, **터미널: 기본 셸 선택**을 검색하고 선택합니다.
-
-1. 메시지가 표시되면 **명령 프롬프트**를 선택합니다.
-
-1. 새 터미널 셸(**터미널** > **새 터미널**)을 엽니다.
+1. 설치된 Python 버전 3.7 이상을 선택합니다.
 
 1. Visual Studio Code에서 마우스 오른쪽 단추로 모듈 폴더를 클릭하고 **IoT Edge 모듈 추가**를 선택합니다.
 
 1. **Python 모듈**을 선택합니다.
 
-1. 모듈 이름을 "avroFileWriter"로 지정합니다.
+1. 모듈 이름을 `avroFileWriter`로 지정합니다.
 
 1. Docker 이미지 리포지토리를 묻는 메시지가 표시되면 라우터 모듈을 추가할 때 사용한 것과 동일한 레지스트리를 사용합니다.
 
@@ -338,7 +316,7 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
    copy C:\source\IoTEdgeAndMlSample\EdgeModules\modules\avroFileWriter\*.py C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avroFileWriter\
    ```
 
-1. main.py를 덮어쓸지를 묻는 메시지가 표시되면 `y`를 입력한 다음, `Enter`를 누릅니다.
+1. main.py 덮어쓰기를 수락합니다.
 
 1. filemanager.py 및 schema.py가 솔루션에 추가되고 main.py가 업데이트되었습니다.
 
@@ -347,29 +325,29 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
 
 ### <a name="bind-mount-for-data-files"></a>데이터 파일에 대한 바인딩 탑재
 
-소개 부분에서 설명한 대로 기록기 모듈은 Avro 파일을 디바이스의 파일 시스템에 쓰기 위해 바인딩 탑재를 사용합니다.
+앞에서 언급했듯이, 기록기 모듈은 Avro 파일을 디바이스의 파일 시스템에 쓰기 위해 바인딩 탑재를 사용합니다.
 
 #### <a name="add-directory-to-device"></a>디바이스에 디렉터리 추가
 
-1. SSH를 사용하여 IoT Edge 디바이스 VM에 연결합니다.
+1. IoT Edge 디바이스 VM이 실행되고 있지 않으면 Azure Portal에서 이 VM을 시작합니다. SSH를 사용하여 이 VM에 연결합니다. 연결하려면 Azure Portal에서 VM에 대한 개요 페이지를 통해 복사할 수 있는 DNS 이름이 필요합니다.
 
-   ```bash
-   ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
+   ```cmd
+   ssh -l <user>@<vm name>.<region>.cloudapp.azure.com
    ```
 
-2. 저장된 리프 디바이스 메시지를 유지할 디렉터리를 만듭니다.
+1. 로그인한 후, 저장된 리프 디바이스 메시지를 보관할 디렉터리를 만듭니다.
 
    ```bash
    sudo mkdir -p /data/avrofiles
    ```
 
-3. 컨테이너에서 쓸 수 있도록 디렉터리 권한을 업데이트합니다.
+1. 컨테이너에서 쓸 수 있도록 디렉터리 권한을 업데이트합니다.
 
    ```bash
    sudo chmod ugo+rw /data/avrofiles
    ```
 
-4. 이제 사용자, 그룹 및 소유자에 대한 쓰기(w) 권한이 디렉터리에 있는지에 대한 유효성을 검사합니다.
+1. 이제 사용자, 그룹 및 소유자에 대한 쓰기(w) 권한이 디렉터리에 있는지에 대한 유효성을 검사합니다.
 
    ```bash
    ls -la /data
@@ -381,9 +359,9 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
 
 디렉터리를 모듈의 컨테이너에 추가하려면 avroFileWriter 모듈과 연결된 Dockerfile을 수정합니다. 모듈과 연결된 3개의 Dockerfile, 즉 Dockerfile.amd64, Dockerfile.amd64.debug 및 Dockerfile.arm32v7이 있습니다. 디버그하거나 arm32 디바이스에 배포하려는 경우 이러한 파일은 동기화 상태로 유지해야 합니다. 이 문서에서는 Dockerfile.amd64에만 집중합니다.
 
-1. 개발 머신에서 **Dockerfile.amd64** 파일을 엽니다.
+1. 개발 VM에서 **C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avoFileWriter\Dockerfile.amd64** 파일을 엽니다.
 
-2. 파일을 다음 예제와 같이 수정합니다.
+1. 파일을 다음 예제와 같이 수정합니다.
 
    ```dockerfile
    FROM ubuntu:xenial
@@ -408,9 +386,9 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
 
    `mkdir` 및 `chown` 명령은 /avrofiles라는 최상위 디렉터리를 이미지에 만든 다음, moduleuser를 해당 디렉터리의 소유자로 만들도록 Docker 빌드 프로세스에 지시합니다. 이러한 명령은 `useradd` 명령을 사용하여 모듈 사용자를 이미지에 추가한 후 컨텍스트가 moduleuser(USER moduleuser)로 전환되기 전에 삽입해야 합니다.
 
-3. 해당 변경 내용을 Dockerfile.amd64.debug 및 Dockerfile.arm32v7에 적용합니다.
+1. 필요한 경우 해당 변경 내용을 Dockerfile.amd64.debug 및 Dockerfile.arm32v7에 적용합니다.
 
-#### <a name="update-the-module-configuration"></a>모듈 구성 업데이트
+#### <a name="add-bind-configuration-to-the-avrofilewriter"></a>avroFileWriter에 바인딩 구성 추가
 
 바인딩을 만드는 마지막 단계는 바인딩 정보를 사용하여 deploy.template.json(및 deploy.debug.template.json) 파일을 업데이트하는 것입니다.
 
@@ -437,8 +415,6 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
    }
    ```
 
-3. 해당 변경 내용을 deploy.debug.template.json에 적용합니다.
-
 ### <a name="bind-mount-for-access-to-configyaml"></a>config.yaml에 액세스하기 위한 바인딩 탑재
 
 기록기 모듈에 대한 바인딩 하나를 더 추가해야 합니다. 이 바인딩을 통해 모듈에서 IoT Edge 디바이스의 /etc/iotedge/config.yaml 파일에서 연결 문자열을 읽을 수 있습니다. upload\_blob\_async 메서드를 호출하여 파일을 IoT Hub에 업로드할 수 있도록 IoTHubClient를 만들려면 연결 문자열이 필요합니다. 이 바인딩을 추가하는 단계는 이전 섹션의 단계와 비슷합니다.
@@ -451,25 +427,25 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
    ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
    ```
 
-2. 읽기 권한을 config.yaml 파일에 추가합니다.
+1. 읽기 권한을 config.yaml 파일에 추가합니다.
 
    ```bash
    sudo chmod +r /etc/iotedge/config.yaml
    ```
 
-3. 권한이 올바르게 설정되었는지에 대한 유효성을 검사합니다.
+1. 권한이 올바르게 설정되었는지에 대한 유효성을 검사합니다.
 
    ```bash
    ls -la /etc/iotedge/
    ```
 
-4. config.yaml에 대한 권한이 **-r--r--r--** 인지 확인합니다.
+1. config.yaml에 대한 권한이 **-r--r--r--** 인지 확인합니다.
 
 #### <a name="add-directory-to-module"></a>모듈에 디렉터리 추가
 
 1. 개발 머신에서 **Dockerfile.amd64** 파일을 엽니다.
 
-2. `mkdir` 및 `chown` 명령의 추가 세트를 파일에 추가합니다. 그러면 다음과 같습니다.
+1. `mkdir` 및 `chown` 명령의 추가 세트를 파일에 추가합니다. 그러면 다음과 같습니다.
 
    ```dockerfile
    FROM ubuntu:xenial
@@ -494,13 +470,13 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
    CMD "python3", "-u", "./main.py"]
    ```
 
-3. 해당 변경 내용을 Dockerfile.amd64.debug 및 Dockerfile.arm32v7에 적용합니다.
+1. 해당 변경 내용을 Dockerfile.amd64.debug 및 Dockerfile.arm32v7에 적용합니다.
 
 #### <a name="update-the-module-configuration"></a>모듈 구성 업데이트
 
 1. **deployment.template.json** 파일을 엽니다.
 
-2. 컨테이너 디렉터리(/app/iotconfig)를 가리키는 `Binds` 매개 변수의 두 번째 줄을 디바이스의 로컬 디렉터리(/etc/iotedge)에 추가하여 avroFileWriter에 대한 모듈 정의를 수정합니다.
+1. 컨테이너 디렉터리(/app/iotconfig)를 가리키는 `Binds` 매개 변수의 두 번째 줄을 디바이스의 로컬 디렉터리(/etc/iotedge)에 추가하여 avroFileWriter에 대한 모듈 정의를 수정합니다.
 
    ```json
    "avroFileWriter": {
@@ -522,7 +498,7 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
    }
    ```
 
-3. 해당 변경 내용을 deploy.debug.template.json에 적용합니다.
+1. 해당 변경 내용을 deploy.debug.template.json에 적용합니다.
 
 ## <a name="install-dependencies"></a>종속성 설치
 
@@ -530,14 +506,14 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
 
 ### <a name="pyyaml"></a>PyYAML
 
-1. 개발 머신에서 **requirements.txt** 파일을 열고, pyyaml을 추가합니다.
+1. 개발 머신에서 `C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avoFileWriter\requirements.txt` 파일을 열고, 파일의 새 줄에서 "pyyaml"을 추가합니다.
 
    ```txt
    azure-iothub-device-client~=1.4.3
    pyyaml
    ```
 
-2. **Dockerfile.amd64** 파일을 열고, `pip install` 명령을 추가하여 setuptools를 업그레이드합니다.
+1. **Dockerfile.amd64** 파일을 열고, `pip install` 명령을 추가하여 setuptools를 업그레이드합니다.
 
    ```dockerfile
    FROM ubuntu:xenial
@@ -563,9 +539,7 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
    CMD [ "python3", "-u", "./main.py" ]
    ```
 
-3. 해당 변경 내용을 Dockerfile.amd64.debug에 적용합니다. <!--may not be necessary. Add 'if needed'?-->
-
-4. Visual Studio Code에서 터미널을 열고 pyyaml을 입력하여 이를 로컬로 설치합니다.
+1. 명령 프롬프트에서 개발 머신에 pyyaml을 설치합니다.
 
    ```cmd
    pip install pyyaml
@@ -581,7 +555,7 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
    fastavro
    ```
 
-2. Visual Studio Code 터미널을 사용하여 fastavro를 개발 머신에 설치합니다.
+1. 개발 머신에 fastavro를 설치합니다.
 
    ```cmd
    pip install fastavro
@@ -602,31 +576,31 @@ IoT Edge 디바이스와 모듈을 시스템에 도입함으로써 허브에 보
 
 1. Azure Portal에서 IoT Hub로 이동합니다.
 
-2. 왼쪽 탐색 영역에서 **메시지 라우팅**을 선택합니다.
+1. 왼쪽 창 메뉴의 **메시지** 아래에서 **메시지 라우팅**을 선택합니다.
 
-3. **추가**를 선택합니다.
+1. **경로** 탭에서 **추가**를 선택합니다.
 
-4. 경로 이름을 **RulMessageRoute**로 지정합니다.
+1. 경로 이름을 **RulMessageRoute**로 지정합니다.
 
-5. **엔드포인트** 선택기 옆에 있는 **추가**를 선택하고, **Blob 스토리지**를 선택합니다.
+1. **엔드포인트** 선택기 옆에서 **엔드포인트 추가**를 선택하고 **스토리지**를 선택합니다.
 
-6. **스토리지 엔드포인트 추가** 양식에서 엔드포인트 이름을 **ruldata**로 지정합니다.
+1. **스토리지 엔드포인트 추가** 페이지에서 엔드포인트 이름을 **ruldata**로 지정합니다.
 
-7. **컨테이너 선택**을 선택합니다.
+1. **컨테이너 선택**을 선택합니다.
 
-8. **iotedgeandml\<고유 접미사\>** 와 같이 이 자습서 전체에서 사용되는 스토리지 계정을 선택합니다.
+1. **스토리지 계정** 페이지에서 이 자습서 전체에 사용되는 스토리지 계정(예: **iotedgeandml\<unique suffix\>** )을 찾습니다.
 
-9. **ruldata** 컨테이너를 선택하고, **선택**을 클릭합니다.
+1. **ruldata** 컨테이너를 선택하고, **선택**을 클릭합니다.
 
-10. **만들기**를 클릭하여 스토리지 엔드포인트를 만듭니다.
+1. **스토리지 엔드포인트 추가** 페이지로 돌아가서 **만들기**를 선택하여 스토리지 엔드포인트를 만듭니다.
 
-11. **라우팅 쿼리**에 대해 다음 쿼리를 입력합니다.
+1. **경로 추가** 페이지로 돌아가서, **라우팅 쿼리**에서 `true`를 다음 쿼리로 바꿉니다.
 
     ```sql
     IS_DEFINED($body.PredictedRul) AND NOT IS_DEFINED($body.OperationalSetting1)
     ```
 
-12. **테스트** 섹션, **메시지 본문** 섹션을 차례로 펼칩니다. 메시지를 다음 예제의 예상 메시지로 바꿉니다.
+1. **테스트** 섹션, **메시지 본문** 섹션을 차례로 펼칩니다. 메시지 본문을 다음 예제의 예상 메시지로 바꿉니다.
 
     ```json
     {
@@ -637,25 +611,25 @@ IoT Edge 디바이스와 모듈을 시스템에 도입함으로써 허브에 보
     }
     ```
 
-13. **경로 테스트**를 선택합니다. 테스트에 성공하면 "메시지가 쿼리와 일치합니다."라는 메시지가 표시됩니다.
+1. **경로 테스트**를 선택합니다. 테스트에 성공하면 "메시지가 쿼리와 일치합니다."라는 메시지가 표시됩니다.
 
-14. **저장**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
-#### <a name="update-turbofandevicetostorage-route"></a>turbofanDeviceToStorage 경로 업데이트
+#### <a name="update-turbofandevicedatatostorage-route"></a>turbofanDeviceDataToStorage 경로 업데이트
 
 새 예측 데이터를 이전 스토리지 위치로 라우팅하지 않으려고 하므로 라우팅하지 못하도록 경로를 업데이트합니다.
 
 1. IoT Hub **메시지 라우팅** 페이지에서 **경로** 탭을 선택합니다.
 
-2. **turbofanDeviceDataToStorage**를 선택하거나 초기 디바이스 데이터 경로에 지정한 이름을 선택합니다.
+1. **turbofanDeviceDataToStorage**를 선택하거나 초기 디바이스 데이터 경로에 지정한 이름을 선택합니다.
 
-3. 라우팅 쿼리를 다음으로 업데이트합니다.
+1. 라우팅 쿼리를 다음으로 업데이트합니다.
 
    ```sql
    IS_DEFINED($body.OperationalSetting1)
    ```
 
-4. **테스트** 섹션, **메시지 본문** 섹션을 차례로 펼칩니다. 메시지를 다음 예제의 예상 메시지로 바꿉니다.
+1. **테스트** 섹션, **메시지 본문** 섹션을 차례로 펼칩니다. 메시지를 다음 예제의 예상 메시지로 바꿉니다.
 
    ```json
    {
@@ -689,23 +663,23 @@ IoT Edge 디바이스와 모듈을 시스템에 도입함으로써 허브에 보
    }
    ```
 
-5. **경로 테스트**를 선택합니다. 테스트에 성공하면 "메시지가 쿼리와 일치합니다."라는 메시지가 표시됩니다.
+1. **경로 테스트**를 선택합니다. 테스트에 성공하면 "메시지가 쿼리와 일치합니다."라는 메시지가 표시됩니다.
 
-6. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 ### <a name="configure-file-upload"></a>파일 업로드 구성
 
 파일 기록기 모듈에서 파일을 스토리지에 업로드할 수 있도록 IoT Hub 파일 업로드 기능을 구성합니다.
 
-1. IoT Hub의 왼쪽 탐색기에서 **파일 업로드**를 선택합니다.
+1. IoT Hub의 왼쪽 창 메뉴에 있는 **메시지** 아래에서 **파일 업로드**를 선택합니다.
 
-2. **Azure Storage 컨테이너**를 선택합니다.
+1. **Azure Storage 컨테이너**를 선택합니다.
 
-3. 목록에서 스토리지 계정을 선택합니다.
+1. 목록에서 스토리지 계정을 선택합니다.
 
-4. **uploadturbofanfiles** 컨테이너를 선택하고, **선택**을 클릭합니다.
+1. guid가 포함된 **azureml-blobstore**로 시작하는 컨테이너를 선택하고, **선택**을 클릭합니다.
 
-5. **저장**을 선택합니다. 저장이 완료되면 포털에서 사용자에게 알려줍니다.
+1. **저장**을 선택합니다. 저장이 완료되면 포털에서 사용자에게 알려줍니다.
 
 > [!Note]
 > 이 자습서에서는 업로드 알림을 설정하지 않지만 파일 업로드 알림을 처리하는 방법에 대한 자세한 내용은 [파일 업로드 알림 받기](../iot-hub/iot-hub-java-java-file-upload.md#receive-a-file-upload-notification)를 참조하세요.
@@ -740,7 +714,11 @@ IoT Edge 디바이스와 모듈을 시스템에 도입함으로써 허브에 보
 
 ### <a name="build-and-publish"></a>빌드 및 게시
 
-1. 개발 VM의 Visual Studio Code에서 Visual Studio Code 터미널 창을 열고, 컨테이너 레지스트리에 로그인합니다.
+1. 개발 VM에서 Docker가 실행되고 있지 않으면 지금 시작합니다.
+
+1. Visual Studio Code에서 명령 프롬프트를 사용하여 새 터미널을 시작하고 ACR(Azure Container Registry)에 로그인합니다.
+
+  Azure Portal에서 필요한 사용자 이름, 암호 및 로그인 서버 값을 찾을 수 있습니다. 컨테이너 레지스트리 이름은 "turbofandemo\<unique id\>" 형식입니다. 왼쪽 창 메뉴의 **설정**에서 **액세스 키**를 선택하여 살펴봅니다.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -752,15 +730,13 @@ IoT Edge 디바이스와 모듈을 시스템에 도입함으로써 허브에 보
 
 빌드가 성공적으로 완료되면 Azure Portal을 사용하여 게시된 모듈을 검토할 수 있습니다.
 
-1. Azure Portal에서 Azure Machine Learning 작업 영역으로 이동하여 **레지스트리**에 대한 하이퍼링크를 클릭합니다.
+1. 이 자습서에서는 Azure Container Registry를 엽니다. 컨테이너 레지스트리 이름은 "turbofandemo\<unique id\>" 형식입니다. 
 
-    ![기계 학습 서비스 작업 영역에서 레지스트리로 이동](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
+1. 왼쪽 창 메뉴의 **서비스**에서 **리포지토리**를 선택합니다.
 
-2. 레지스트리 쪽 탐색기에서 **리포지토리**를 선택합니다.
+1. 만든 모듈인 **avrofilewriter** 및 **turbofanrouter**가 모두 리포지토리로 표시됩니다.
 
-3. 만든 모듈인 **avrofilewriter** 및 **turbofanrouter**가 모두 리포지토리로 표시됩니다.
-
-4. **turbofanrouter**를 선택하고, 0.0.1-amd64라는 태그가 지정된 하나의 이미지가 게시되어 있는지 확인합니다.
+1. **turbofanrouter**를 선택하고, 0.0.1-amd64라는 태그가 지정된 하나의 이미지가 게시되어 있는지 확인합니다.
 
    ![태그가 지정된 첫 번째 버전의 turbofanrouter 보기](media/tutorial-machine-learning-edge-06-custom-modules/tagged-image-turbofanrouter-repo.png)
 
@@ -770,13 +746,13 @@ IoT Edge 디바이스와 모듈을 시스템에 도입함으로써 허브에 보
 
 1. Visual Studio Code의 구성 폴더에서 마우스 오른쪽 단추로 **deployment.amd64.json** 파일을 클릭합니다.
 
-2. **단일 디바이스용 배포 만들기**를 선택합니다.
+1. **단일 디바이스용 배포 만들기**를 선택합니다.
 
-3. **aaTurboFanEdgeDevice** IoT Edge 디바이스를 선택합니다.
+1. **aaTurboFanEdgeDevice** IoT Edge 디바이스를 선택합니다.
 
-4. Visual Studio Code 탐색기에서 Azure IoT Hub 디바이스 패널을 새로 고칩니다. 세 개의 새 모듈이 배포되었지만 아직 실행되지 않았다고 표시됩니다.
+1. Visual Studio Code 탐색기에서 Azure IoT Hub 디바이스 패널을 새로 고칩니다. 세 개의 새 모듈이 배포되었지만 아직 실행되지 않았다고 표시됩니다.
 
-5. 몇 분 후에 다시 새로 고치면 모듈이 실행되고 있음을 알 수 있습니다.
+1. 몇 분 후에 다시 새로 고치면 모듈이 실행되고 있음을 알 수 있습니다.
 
    ![Visual Studio Code에서 실행 중인 모듈 보기](media/tutorial-machine-learning-edge-06-custom-modules/view-running-modules-list.png)
 
@@ -795,7 +771,13 @@ IoT Edge 디바이스와 모듈을 시스템에 도입함으로써 허브에 보
 
 ### <a name="diagnosing-from-the-device"></a>디바이스에서 진단
 
-IoT Edge 디바이스에 로그인하면 많은 양의 모듈 상태 정보에 대한 액세스 권한을 얻을 수 있습니다. 사용하는 기본 메커니즘은 디바이스의 컨테이너와 이미지를 검사할 수 있는 Docker 명령입니다.
+IoT Edge 디바이스(여기서는 Linux VM)에 로그인하면 모듈 상태에 수많은 정보에 액세스할 수 있습니다. 사용하는 기본 메커니즘은 디바이스의 컨테이너와 이미지를 검사할 수 있는 Docker 명령입니다.
+
+1. 다음과 같이 IoT Edge 디바이스에 연결합니다.
+
+   ```bash
+   ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
+   ```
 
 1. 실행 중인 모든 컨테이너를 나열합니다. 각 모듈에서 해당 모듈과 일치하는 이름의 컨테이너가 표시될 것이라고 예상합니다. 또한 이 명령은 버전을 포함하여 컨테이너에 대한 정확한 이미지를 나열하므로 예상과 일치할 수 있습니다. 명령에서 "image"를 "container"로 바꿔 이미지를 나열할 수도 있습니다.
 
@@ -803,19 +785,19 @@ IoT Edge 디바이스에 로그인하면 많은 양의 모듈 상태 정보에 �
    sudo docker container ls
    ```
 
-2. 컨테이너에 대한 로그를 가져옵니다. 이 명령은 컨테이너의 StdErr 및 StdOut에 기록된 내용을 출력합니다. 이 명령은 시작한 후 어떤 이유로 종료된 컨테이너에서 작동합니다. 또한 edgeAgent 또는 edgeHub 컨테이너에서 발생한 상황을 이해하는 데도 유용합니다.
+1. 컨테이너에 대한 로그를 가져옵니다. 이 명령은 컨테이너의 StdErr 및 StdOut에 기록된 내용을 출력합니다. 이 명령은 시작한 후 어떤 이유로 종료된 컨테이너에서 작동합니다. 또한 edgeAgent 또는 edgeHub 컨테이너에서 발생한 상황을 이해하는 데도 유용합니다.
 
    ```bash
-   sudo docker container logs <container name>
+   sudo docker container logs <container id>
    ```
 
-3. 컨테이너를 검사합니다. 이 명령은 이미지에 대한 많은 정보를 제공합니다. 데이터는 원하는 항목에 따라 필터링할 수 있습니다. 예를 들어 avroFileWriter의 바인딩이 올바른지 확인하려면 다음 명령을 사용할 수 있습니다.
+1. 컨테이너를 검사합니다. 이 명령은 이미지에 대한 많은 정보를 제공합니다. 데이터는 원하는 항목에 따라 필터링할 수 있습니다. 예를 들어 avroFileWriter의 바인딩이 올바른지 확인하려면 다음 명령을 사용할 수 있습니다.
 
    ```bash
    sudo docker container inspect -f "{{ json .Mounts }}" avroFileWriter | python -m json.tool
    ```
 
-4. 실행 중인 컨테이너에 연결합니다. 이 명령은 컨테이너가 실행되는 동안 컨테이너를 검사하려는 경우에 유용할 수 있습니다.
+1. 실행 중인 컨테이너에 연결합니다. 이 명령은 컨테이너가 실행되는 동안 컨테이너를 검사하려는 경우에 유용할 수 있습니다.
 
    ```bash
    sudo docker exec -it avroFileWriter bash
@@ -823,9 +805,11 @@ IoT Edge 디바이스에 로그인하면 많은 양의 모듈 상태 정보에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Visual Studio Code에서 분류자, 라우터, 파일 기록기/업로더의 세 가지 모듈을 사용하여 IoT Edge 솔루션을 만들었습니다. 모듈이 에지 디바이스에서 서로 통신할 수 있도록 경로를 설정하고, 에지 디바이스의 구성을 수정하고, Dockerfile을 업데이트하여 종속성을 설치하고 바인딩 탑재를 모듈의 컨테이너에 추가했습니다. 다음으로, 형식에 따라 메시지를 라우팅하고 파일 업로드를 처리하도록 IoT Hub 구성을 업데이트했습니다. 모든 것이 제대로 준비되면 모듈을 IoT Edge 디바이스에 배포하고 올바르게 실행되는지 확인했습니다.
+이 문서에서는 Visual Studio Code에서 분류자, 라우터, 파일 기록기/업로더의 세 가지 모듈을 사용하여 IoT Edge 솔루션을 만들었습니다. 모듈이 에지 디바이스에서 서로 통신할 수 있도록 경로를 설정했습니다. 에지 디바이스의 구성을 수정하고, Dockerfile을 업데이트하여 종속성을 설치하고 모듈의 컨테이너에 바인딩 탑재를 추가했습니다. 
 
-자세한 내용은 다음 페이지에서 확인할 수 있습니다.
+다음으로, 형식에 따라 메시지를 라우팅하고 파일 업로드를 처리하도록 IoT Hub 구성을 업데이트했습니다. 모든 것이 제대로 준비되면 모듈을 IoT Edge 디바이스에 배포하고 올바르게 실행되는지 확인했습니다.
+
+자세한 지침은 다음 문서를 참조하세요.
 
 * [IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)
 * [IoT Hub 메시지 라우팅 쿼리 구문](../iot-hub/iot-hub-devguide-routing-query-syntax.md)

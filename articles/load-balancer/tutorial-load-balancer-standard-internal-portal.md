@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 918a7700df6b5be3ebca7949875127e42f8d3a91
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b8fcef13fbe41ac26b2a31d6871896428649eaa1
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75780698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920852"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>자습서: Azure Portal에서 표준 부하 분산 장치로 내부 트래픽 부하 분산
 
@@ -96,7 +96,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
-    | 속성                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | 지역         | **미국 동부 2**를 선택합니다.                                        |
     | Type          | **내부**를 선택합니다.                                        |
     | SKU           | **표준**을 선택합니다.                          |
@@ -180,6 +180,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - **백 엔드 풀**: **MyBackendPool**을 선택합니다.
    - **상태 프로브**: **MyHealthProbe**를 선택합니다. 
    
+Azure Portal을 사용하여 [고가용성 포트](load-balancer-ha-ports-overview.md)를 구성하려면 **HA 포트** 확인란을 선택합니다. 이 옵션을 선택하면 관련 포트 및 프로토콜 구성이 자동으로 채워집니다. 
+
 1. **확인**을 선택합니다.
    
    ![부하 분산 장치 규칙 추가](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)

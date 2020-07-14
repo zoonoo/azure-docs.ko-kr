@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f8b34f1678d39471a1d0b91756ac93a01cbfedba
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800174"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985691"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -26,7 +26,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ### <a name="verify-your-permissions"></a>권한 확인
 
-Azure Red Hat OpenShift 클러스터를 만들려면 Azure 계정 및 사용자에 대한 다음 권한을 확인합니다.
+Azure Red Hat OpenShift 클러스터를 만들려면 Azure 구독, Azure Active Directory 사용자 또는 서비스 주체에 대한 다음 권한을 확인합니다.
 
 |사용 권한|VNet을 포함하는 리소스 그룹|`az aro create`를 실행하는 사용자|`–client-id`로 전달된 서비스 주체|
 |----|:----:|:----:|:----:|
@@ -189,7 +189,7 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
 
 ## <a name="create-the-cluster"></a>클러스터 만들기
 
-다음 명령을 실행하여 클러스터를 만듭니다. 선택 사항으로 [Red Hat 풀 비밀을 전달](#get-a-red-hat-pull-secret-optional)할 수 있습니다. 그러면 클러스터에서 추가 콘텐츠와 함께 Red Hat 컨테이너 레지스트리에 액세스할 수 있습니다.
+다음 명령을 실행하여 클러스터를 만듭니다. 필요에 따라 [Red Hat 풀 비밀을 전달](#get-a-red-hat-pull-secret-optional)할 수 있습니다. 그러면 클러스터에서 추가 콘텐츠와 함께 Red Hat 컨테이너 레지스트리에 액세스할 수 있습니다.
 
 >[!NOTE]
 > 복사/붙여넣기 명령 및 선택적 매개 변수 중 하나를 사용하는 경우 초기 해시 태그 및 후행 주석 텍스트를 삭제해야 합니다. 또한 뒤에 오는 백슬래시를 사용하여 명령의 이전 줄에서 인수를 닫습니다.
@@ -205,7 +205,7 @@ az aro create \
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
-`az aro create` 명령을 실행한 후 클러스터를 만드는 데 보통 35분 정도 걸립니다.
+`az aro create` 명령을 실행한 후 클러스터를 만드는 데 일반적으로 약 35분이 소요됩니다.
 
 >[!IMPORTANT]
 > 사용자 지정 도메인(예: **foo.example.com**)을 지정하도록 선택하면 기본 제공 도메인 `https://console-openshift-console.apps.<random>.<location>.aroapp.io` 대신 `https://console-openshift-console.apps.foo.example.com` 같은 URL에서 OpenShift 콘솔을 사용할 수 있습니다.

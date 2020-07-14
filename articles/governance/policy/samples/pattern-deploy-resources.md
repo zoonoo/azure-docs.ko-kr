@@ -3,20 +3,20 @@ title: 패턴 정책 정의를 사용하여 리소스 배포
 description: 이 Azure Policy 패턴은 정책 정의에서 리소스를 배포하는 방법에 대한 예제를 제공합니다.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7ce93f4895a86905cd31889e853f95a3de640b13
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77169991"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970861"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Azure Policy 패턴: 리소스 배포
 
-[deployIfNotExists](../concepts/effects.md#deployifnotexists) 효과를 사용하면 호환되지 않는 리소스를 만들거나 업데이트할 때 [Azure Resource Manager 템플릿](../../../azure-resource-manager/templates/overview.md)을 배포할 수 있습니다. 이 방식은 리소스가 계속 생성될 수 있도록 허용하면서도 규정 준수를 위한 변경을 보장하므로 [deny](../concepts/effects.md#deny) 효과를 사용하는 것보다 나을 수 있습니다.
+[deployIfNotExists](../concepts/effects.md#deployifnotexists) 효과를 사용하면 호환되지 않는 리소스를 만들거나 업데이트할 때 [Azure Resource Manager 템플릿](../../../azure-resource-manager/templates/overview.md)(ARM 템플릿)을 배포할 수 있습니다. 이 방식은 리소스가 계속 생성될 수 있도록 허용하면서도 규정 준수를 위한 변경을 보장하므로 [deny](../concepts/effects.md#deny) 효과를 사용하는 것보다 나을 수 있습니다.
 
 ## <a name="sample-policy-definition"></a>샘플 정책 정의
 
-이 정책 정의는 **field** 연산자를 사용하여 생성 또는 업데이트된 리소스의 `type`을 평가합니다. 해당 리소스가 _Microsoft.Network/virtualNetworks_인 경우 정책은 새 리소스 또는 업데이트된 리소스의 위치에서 네트워크 감시자를 찾습니다. 일치하는 네트워크 감시자를 찾지 못하면 Resource Manager 템플릿이 배포되어 누락된 리소스를 만듭니다.
+이 정책 정의는 **field** 연산자를 사용하여 생성 또는 업데이트된 리소스의 `type`을 평가합니다. 해당 리소스가 _Microsoft.Network/virtualNetworks_인 경우 정책은 새 리소스 또는 업데이트된 리소스의 위치에서 네트워크 감시자를 찾습니다. 일치하는 네트워크 감시자를 찾지 못하면 ARM 템플릿이 배포되어 누락된 리소스를 만듭니다.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 

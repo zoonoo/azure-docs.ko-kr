@@ -3,12 +3,12 @@ title: '자습서: 의도 예측 - LUIS'
 description: 이 자습서의 발화(텍스트)를 기반으로 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다.
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588956"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959862"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
 
@@ -113,9 +113,8 @@ ms.locfileid: "83588956"
 
     `get a medium vegetarian pizza for delivery`
 
-    예제 발화와 완전히 똑같지는 않으므로, LUIS가 이 의도에서 예측해야 하는 내용을 배울 수 있는지 여부를 확인하는 좋은 테스트입니다.
-
-    마지막 쿼리 문자열 매개 변수는 `query`로 발화 **쿼리**입니다. 이 발화는 예제 발화 중 하나와 같지 않습니다. 좋은 테스트이며, 상위 채점 의도로 `OrderPizza`을 반환해야 합니다.
+  
+    쿼리 문자열 매개 변수는 `query`이며, 발화 **쿼리**는 URI에서 전달됩니다. 이 발화는 예제 발화 중 하나와 같지 않습니다. 이는 LUIS가 `OrderPizza` 의도를 최고 채점 의도로 학습하고 예측하는지 확인하기 위한 좋은 테스트여야 합니다.
 
     ```JSON
     {

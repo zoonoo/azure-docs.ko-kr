@@ -1,24 +1,22 @@
 ---
-title: '자습서: Azure Firewall Manager 미리 보기를 사용하여 가상 WAN 보호'
-description: 이 자습서에서는 Azure Portal을 통해 Azure Firewall Manager를 사용하여 가상 WAN을 보호하는 방법을 알아봅니다.
+title: '자습서: Azure Firewall Manager를 사용하여 가상 허브 보호'
+description: 이 자습서에서는 Azure Portal을 통해 Azure Firewall Manager를 사용하여 가상 허브를 보호하는 방법을 알아봅니다.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c44daa67b4029c73c57ca82d72ee0a9759dd4c2d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691032"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563652"
 ---
-# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>자습서: Azure Firewall Manager 미리 보기를 사용하여 가상 WAN 보호 
+# <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>자습서: Azure Firewall Manager를 사용하여 가상 허브 보호
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Azure Firewall Manager Preview를 사용하여 개인 IP 주소, Azure PaaS 및 인터넷으로 향하는 클라우드 네트워크 트래픽을 보호하는 보안 가상 허브를 만들 수 있습니다. 방화벽에 대한 트래픽 라우팅이 자동화되므로 UDR(사용자 정의 경로)을 만들 필요가 없습니다.
+Azure Firewall Manager를 사용하여 개인 IP 주소, Azure PaaS 및 인터넷으로 향하는 클라우드 네트워크 트래픽을 보호하는 보안 가상 허브를 만들 수 있습니다. 방화벽에 대한 트래픽 라우팅이 자동화되므로 UDR(사용자 정의 경로)을 만들 필요가 없습니다.
 
 ![클라우드 네트워크 보안](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -95,7 +93,7 @@ Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
 5. **허브**에 대해 **Hub-01**을 선택합니다.
 6. **리소스 그룹**에 대해 **FW-Manager**를 선택합니다.
 7. **가상 네트워크**에 대해 **Spoke-01**을 선택합니다.
-8. **확인**을 선택합니다.
+8. **만들기**를 선택합니다.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>방화벽 정책 만들기 및 허브 보안 설정
 
@@ -111,16 +109,18 @@ Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
 8. **우선 순위**에 대해 **100**을 입력합니다.
 9. **규칙 컬렉션 작업**이 **허용**인지 확인합니다.
 10. 규칙 **이름**에 **Allow-msft**를 입력합니다.
-11. **원본 주소**에 **\*** 를 입력합니다.
-12. **프로토콜**에 **http,https**를 입력합니다.
-13. ** 대상 유형이 **FQDN**인지 확인합니다.
-14. **대상**에 **\*microsoft.com**을 입력합니다.
-15. **추가**를 선택합니다.
-16. 완료되면 **다음: 허브**를 선택합니다.
-17. **허브** 탭에서 **가상 허브 연결**을 선택합니다.
-18. **Hub-01**을 선택한 다음, **추가**를 선택합니다.
-1. **검토 + 만들기**를 선택합니다.
-2. **만들기**를 선택합니다.
+11. **원본 유형**에 대해 **IP 주소**를 선택합니다.
+12. **원본**에 대해 **\*** 를 선택합니다.
+13. **프로토콜**에 **http,https**를 입력합니다.
+14. **대상 유형**이 **FQDN**인지 확인합니다.
+15. **대상**에 **\*microsoft.com**을 입력합니다.
+16. **추가**를 선택합니다.
+17. **다음: 위협 인텔리전스**를 선택합니다.
+18. 완료되면 **다음: 허브**를 선택합니다.
+19. **허브** 탭에서 **가상 허브 연결**을 선택합니다.
+20. **Hub-01**을 선택한 다음, **추가**를 선택합니다.
+21. **검토 + 만들기**를 선택합니다.
+22. **만들기**를 선택합니다.
 
 이 작업을 완료하는 데 5분 정도 걸릴 수 있습니다.
 
@@ -130,13 +130,11 @@ Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
 
 1. Firewall Manager에서 **보안 가상 허브**를 선택합니다.
 2. **Hub-01**을 선택합니다.
-3. **설정**에서 **경로 설정**을 선택합니다.
-4. **인터넷 트래픽**, **가상 네트워크의 트래픽**에서 **Azure Firewall을 통해 보내기**를 선택합니다.
-5. **Azure 프라이빗 트래픽**, **가상 네트워크에 대한 트래픽**에서 **Azure Firewall을 통해 보내기**를 선택합니다.
-6. **IP 주소 접두사 편집**을 선택합니다.
-8. 워크로드 서브넷의 주소로 **10.0.1.0/24**를 입력하고 **저장**을 선택합니다.
-9. **설정**에서 **연결**을 선택합니다.
+3. **설정**에서 **보안 구성**을 선택합니다.
+4. **인터넷 트래픽**에서 **Azure Firewall**을 선택합니다.
+5. **프라이빗 트래픽**에서 **Azure Firewall을 통해 전송**을 선택합니다.
 10. **허브-스포크** 연결이 **인터넷 트래픽**을 **보안**으로 표시하는지 확인합니다.
+11. **저장**을 선택합니다.
 
 
 ## <a name="test-your-firewall"></a>방화벽 테스트
