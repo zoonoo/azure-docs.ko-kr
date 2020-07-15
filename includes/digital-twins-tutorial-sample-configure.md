@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 3a7c9f61af0124c656f98b64ba9295bc659c572a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 6edc6facc884fc6469b75b63216d6e5036321ea8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262352"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277784"
 ---
 ## <a name="configure-the-sample-project"></a>샘플 프로젝트 구성
 
@@ -36,7 +36,7 @@ Visual Studio에서 *솔루션 탐색기* 창을 사용하여 _SampleClientApp >
 
 다음으로, *serviceConfig.json* 파일을 구성하여 *SampleClientApp*을 빌드할 때 출력 디렉터리로 복사되도록 합니다. 이렇게 하려면 *serviceConfig.json* 파일을 마우스 오른쪽 단추로 선택하고 *속성*을 선택합니다. *속성* 검사기에서 *출력 디렉터리로 복사* 속성의 값을 *변경된 내용만 복사*로 변경합니다.
 
-:::image type="content" source="../articles/digital-twins/media/include-tutorial/copy-config.png" alt-text="솔루션 탐색기 창에서 serviceConfig.json이 강조 표시되고 속성 창의 '출력 디렉터리로 복사' 속성이 '변경된 내용만 복사'로 설정된 Visual Studio 창" border="false":::
+:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="솔루션 탐색기 창에서 serviceConfig.json이 강조 표시되고 속성 창의 '출력 디렉터리로 복사' 속성이 '변경된 내용만 복사'로 설정된 Visual Studio 창" border="false":::
 
 _**AdtE2ESample**_ 프로젝트를 자습서에서 계속 사용해야 하므로 Visual Studio에서 열어 둡니다.
 

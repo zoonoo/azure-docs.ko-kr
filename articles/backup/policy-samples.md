@@ -1,15 +1,15 @@
 ---
 title: Azure Backup에 대한 기본 제공 정책 정의
 description: Azure Backup에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 9057585896f6fc06d7db48af27a432f0430e4672
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 71a4352b493b6d67d1665ca334508b1cd1fe54da
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322774"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276154"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-backup"></a>Azure Backup에 대한 Azure Policy 기본 제공 정의
 

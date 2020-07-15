@@ -1,18 +1,18 @@
 ---
 title: Azure RBAC에 대한 기본 제공 정책 정의
 description: Azure RBAC에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 448f382bcaba1ba37b64a6aa5722d98c0d1648ee
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 34dd945b539926a0c35d3f9e3642b8882b24db6f
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317242"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274387"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-rbac"></a>Azure RBAC에 대한 Azure Policy 기본 제공 정의
 

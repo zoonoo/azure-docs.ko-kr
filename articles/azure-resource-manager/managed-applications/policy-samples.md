@@ -1,17 +1,17 @@
 ---
 title: Azure Managed Applications에 대한 기본 제공 정책 정의
 description: Azure Managed Applications에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 4244da2ae34990da00d48448bc039fdfbe83c252
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2aff077f5717d3ac67e5989a6afe782b6f27e283
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319052"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276290"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-managed-applications"></a>Azure Managed Applications에 대한 Azure Policy 기본 제공 정의
 
