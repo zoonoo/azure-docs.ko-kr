@@ -3,16 +3,16 @@ title: Azure Service Fabric에 컨테이너의 .NET 앱 배포
 description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 애플리케이션을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 애플리케이션은 Azure SQL DB를 사용하여 데이터를 유지합니다.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: aa99897da99ff1a1443e548e98ae415b6a8d49f5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234229"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258872"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
-이 자습서에서는 기존 ASP.NET 애플리케이션을 컨테이너화하고 Service Fabric 애플리케이션으로 패키지하는 방법을 설명합니다.  Service Fabric 개발 클러스터에서 로컬로 컨테이너를 실행한 다음, Azure에 애플리케이션을 배포합니다.  애플리케이션은 [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)에 데이터를 유지합니다.
+이 자습서에서는 기존 ASP.NET 애플리케이션을 컨테이너화하고 Service Fabric 애플리케이션으로 패키지하는 방법을 설명합니다.  Service Fabric 개발 클러스터에서 로컬로 컨테이너를 실행한 다음, Azure에 애플리케이션을 배포합니다.  애플리케이션은 [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)에 데이터를 유지합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "84234229"
 
 Fabrikam Fiber CallCenter 애플리케이션을 프로덕션 환경에서 실행하는 경우 데이터는 데이터베이스에 유지돼야 합니다. 현재는 컨테이너에 데이터를 유지할 수 있는 방법이 없으므로 프로덕션 데이터를 컨테이너로 SQL Server에 저장할 수 없습니다.
 
-[Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)를 권장합니다. Azure에서 SQL Server DB를 설정하고 실행하려면 다음 스크립트를 실행합니다.  필요에 따라 스크립트 변수를 수정합니다. *clientIP*는 개발 컴퓨터의 IP 주소입니다. 스크립트에서 출력되는 서버의 이름을 적어 두세요.
+[Azure SQL Database](../azure-sql/database/powershell-script-content-guide.md)를 권장합니다. Azure에서 SQL Server DB를 설정하고 실행하려면 다음 스크립트를 실행합니다.  필요에 따라 스크립트 변수를 수정합니다. *clientIP*는 개발 컴퓨터의 IP 주소입니다. 스크립트에서 출력되는 서버의 이름을 적어 두세요.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -126,7 +126,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-애플리케이션이 로컬로 실행되므로 Azure에 배포할 준비를 시작합니다.  컨테이너 이미지는 컨테이너 레지스트리에 저장되어야 합니다.  다음 스크립트를 사용하여 [Azure Container Registry](/azure/container-registry/container-registry-intro)를 만듭니다. 컨테이너 레지스트리 이름은 다른 Azure 구독을 통해 표시되므로 고유해야 합니다.
+애플리케이션이 로컬로 실행되므로 Azure에 배포할 준비를 시작합니다.  컨테이너 이미지는 컨테이너 레지스트리에 저장되어야 합니다.  다음 스크립트를 사용하여 [Azure Container Registry](../container-registry/container-registry-intro.md)를 만듭니다. 컨테이너 레지스트리 이름은 다른 Azure 구독을 통해 표시되므로 고유해야 합니다.
 Azure에 애플리케이션을 배포하기 전에 이 레지스트리에 컨테이너 이미지를 푸시합니다.  애플리케이션이 Azure에서 클러스터에 배포되면 컨테이너 이미지는 이 레지스트리에서 가져옵니다.
 
 ```powershell
@@ -179,7 +179,7 @@ Service Fabric 애플리케이션은 네트워크에 연결된 가상 머신 또
 
 ## <a name="allow-your-application-running-in-azure-to-access-sql-database"></a>Azure에서 실행 중인 애플리케이션이 SQL Database에 액세스할 수 있도록 허용
 
-이전에 로컬로 실행 중인 애플리케이션에 액세스 권한을 부여하기 위해 SQL 방화벽 규칙을 만들었습니다.  다음으로 Azure에서 실행 중인 애플리케이션이 SQL DB에 액세스할 수 있도록 설정해야 합니다.  Service Fabric 클러스터에 대한 [가상 네트워크 서비스 엔드포인트](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)를 만든 다음, 해당 엔트포인트가 SQL DB에 액세스할 수 있는 규칙을 만듭니다. 클러스터를 만들 때 적어 둔 클러스터 리소스 그룹 변수를 지정합니다.
+이전에 로컬로 실행 중인 애플리케이션에 액세스 권한을 부여하기 위해 SQL 방화벽 규칙을 만들었습니다.  다음으로 Azure에서 실행 중인 애플리케이션이 SQL DB에 액세스할 수 있도록 설정해야 합니다.  Service Fabric 클러스터에 대한 [가상 네트워크 서비스 엔드포인트](../azure-sql/database/vnet-service-endpoint-rule-overview.md)를 만든 다음, 해당 엔트포인트가 SQL DB에 액세스할 수 있는 규칙을 만듭니다. 클러스터를 만들 때 적어 둔 클러스터 리소스 그룹 변수를 지정합니다.
 
 ```powershell
 # Create a virtual network service endpoint

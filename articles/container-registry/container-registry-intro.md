@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: fbb5117d0650c5a3768cab4057303f8b73a0685b
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 6951dfe3eecc8764dda9788393a7348e9267cef8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657657"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248869"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 프라이빗 Docker 컨테이너 레지스트리 소개
 
@@ -26,7 +26,7 @@ Docker 및 레지스트리 개념에 대한 자세한 내용은 [Docker 개요](
 Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오기:
 
 * **확장성 있는 오케스트레이션 시스템**: [Kubernetes](https://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/) 및 [Docker Swarm](https://docs.docker.com/get-started/swarm-deploy/)을 포함하는 호스트 클러스터에서 컨테이너화된 애플리케이션을 관리합니다.
-* **Azure 서비스**: [AKS(Azure Kubernetes Service)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) 및 기타 서비스를 포함한 애플리케이션을 대규모로 빌드하고 실행할 수 있도록 지원합니다.
+* **Azure 서비스**: [AKS(Azure Kubernetes Service)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml) 및 기타 서비스를 포함한 애플리케이션을 대규모로 빌드하고 실행할 수 있도록 지원합니다.
 
 개발자는 컨테이너 개발 워크플로의 일환으로 컨테이너 레지스트리에 밀어넣을 수도 있습니다. 예를 들어 [Azure Pipelines](/azure/devops/pipelines/ecosystems/containers/acr-template) 또는 [Jenkins](https://jenkins.io/)와 같은 전달 도구 및 연속 통합의 컨테이너 레지스트리를 대상으로 합니다.
 

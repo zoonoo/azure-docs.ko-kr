@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c91d42f3445bb2ffc02366e6cb9ae49ec2db1be4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a4655b20fabcc72e02037de05dd0ef7c4671e52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75442744"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254914"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행
-개발자들이 API를 사용할 수 있도록 모든 준비가 완료되면, API 호출자의 작업을 중단하지 않으면서 해당 API를 변경해야 합니다. 이렇게 하면 개발자에게 변경 내용을 알릴 때도 유용합니다. Azure API Management에서 **수정 버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) 및 [Azure API Management를 사용한 API 버전 관리](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/)를 참조하세요.
+개발자들이 API를 사용할 수 있도록 모든 준비가 완료되면, API 호출자의 작업을 중단하지 않으면서 해당 API를 변경해야 합니다. 이렇게 하면 개발자에게 변경 내용을 알릴 때도 유용합니다. Azure API Management에서 **수정 버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://azure.microsoft.com/blog/versions-revisions/) 및 [Azure API Management를 사용한 API 버전 관리](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/)를 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

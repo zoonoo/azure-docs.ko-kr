@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308492"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256699"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테넌트 설정
 
@@ -34,7 +34,7 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 * 회사 및 학교(Azure AD 계정) 또는 Microsoft 계정(예: outlook.com 및 live.com)
 * 소셜 및 로컬 계정(Azure AD B2C)
 
-빠른 시작은 빌드하려는 앱의 유형에 따라 두 가지 시나리오로 나뉩니다. ID 형식 대상 지정에 도움이 더 필요한 경우 [Microsoft ID 플랫폼 정보](about-microsoft-identity-platform.md)를 살펴보세요.
+빠른 시작은 빌드하려는 앱의 유형에 따라 두 가지 시나리오로 나뉩니다.
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>회사 및 학교 계정 또는 개인 Microsoft 계정
 

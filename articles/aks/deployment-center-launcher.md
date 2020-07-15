@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: b0a9597e370648faab3787218c7d038798dbd455
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048121"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251776"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Azure Kubernetes 배포 센터
 
@@ -34,7 +34,7 @@ Azure DevOps의 배포 센터는 애플리케이션에 대한 강력한 Azure De
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. Azure Portal의 메뉴 모음 오른쪽에서 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 옵션을 선택합니다.
+1. Azure Portal의 메뉴 모음 오른쪽에서 [Cloud Shell](../cloud-shell/overview.md) 옵션을 선택합니다.
 
 1. AKS 클러스터를 만들려면 다음 명령을 실행합니다.
 
@@ -56,7 +56,7 @@ Azure DevOps의 배포 센터는 애플리케이션에 대한 강력한 Azure De
 
    ![설정](media/deployment-center-launcher/settings.png)
 
-1. 코드의 위치를 선택하고, **다음**을 선택합니다. 그런 다음, 현재 지원되는 **[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** 또는 **GitHub** 리포지토리 중 하나를 선택합니다.
+1. 코드의 위치를 선택하고, **다음**을 선택합니다. 그런 다음, 현재 지원되는 **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** 또는 **GitHub** 리포지토리 중 하나를 선택합니다.
 
     Azure Repos는 코드를 관리하는 데 도움이 되는 버전 제어 도구 세트입니다. 소프트웨어 프로젝트의 크기에 관계없이 가능한 한 빨리 버전 제어를 사용하는 것이 좋습니다.
 
@@ -77,7 +77,7 @@ Azure DevOps의 배포 센터는 애플리케이션에 대한 강력한 Azure De
 
     ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
 
-1. 기존 컨테이너 레지스트리를 선택하거나 새로 만든 다음, **마침**을 선택합니다. 파이프라인이 자동으로 만들어지고, [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops)에서 빌드를 큐에 넣습니다.
+1. 기존 컨테이너 레지스트리를 선택하거나 새로 만든 다음, **마침**을 선택합니다. 파이프라인이 자동으로 만들어지고, [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops)에서 빌드를 큐에 넣습니다.
 
     Azure Pipelines는 코드 프로젝트를 자동으로 빌드 및 테스트하여 다른 사용자가 사용할 수 있도록 하는 데 사용할 수 있는 클라우드 서비스입니다. Azure Pipelines는 지속적인 통합과 지속적인 업데이트를 결합하여 코드를 지속적이고 일관되게 테스트 및 빌드하고 모든 대상에 제공합니다.
 

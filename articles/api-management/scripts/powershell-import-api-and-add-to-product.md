@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cb24f5efe70af7a1a358a1e9acc90204a1e33564
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10c53af14df7689e1a4b3ae0f092543a6476b02c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70071936"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249481"
 ---
 # <a name="import-an-api"></a>API 가져오기
 
@@ -43,6 +43,6 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/overview)를 참조하세요.
+Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 Azure API Management에 대한 추가 Azure PowerShell 샘플은 [PowerShell 샘플](../powershell-samples.md)에서 찾을 수 있습니다.

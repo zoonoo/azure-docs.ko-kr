@@ -4,12 +4,12 @@ description: Azure Container Registry를 만들고 지리적 복제를 구성하
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 159426b7258d83fc28fc7d126c064167bbe00975
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799473"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259518"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
 
@@ -98,7 +98,7 @@ Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **설정** �
 
 지역에서 복제를 구성했으니 이제 컨테이너 이미지를 작성한 다음 레지스트리로 푸시합니다. 이미지를 푸시하기 전에 먼저 레지스트리에 로그인해야 합니다.
 
-[az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) 명령을 사용하여 인증하고 레지스트리에 대한 자격 증명을 캐시합니다. `<acrName>`을 앞에서 만든 레지스트리 이름으로 바꿉니다.
+[az acr login](/cli/azure/acr#az-acr-login) 명령을 사용하여 인증하고 레지스트리에 대한 자격 증명을 캐시합니다. `<acrName>`을 앞에서 만든 레지스트리 이름으로 바꿉니다.
 
 ```azurecli
 az acr login --name <acrName>

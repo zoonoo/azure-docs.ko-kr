@@ -11,12 +11,12 @@ ms.date: 09/04/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f68635820125161ed4f5777e27a20de9e6fbe8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 43b69deb242fd1ad80d9cdc4667070d2dbfefcd5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80049389"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255611"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Azure AD Connect 관리 에이전트란? 
 Azure AD Connect 관리 에이전트는 Azure Active Directory Connect 서버에 설치할 수 있는 Azure Active Directory Connect의 새로운 구성 요소입니다. 지원 사례를 열 때 Microsoft 지원 엔지니어가 Active Directory 환경에서 문제 해결에 도움이 되는 데이터를 수집하는 데 사용됩니다. 
@@ -56,8 +56,8 @@ Microsoft 지원 엔지니어는 시스템의 데이터를 변경할 수 없으�
 ## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>Microsoft 지원 엔지니어가 내 데이터에 액세스하는 것을 원하지 않는 경우 어떻게 하나요? 
 에이전트가 설치되었고 Microsoft 서비스 엔지니어가 지원 전화를 위해 내 데이터에 액세스하는 것을 원하지 않는 경우 아래에 설명된 대로 서비스 구성 파일을 수정하여 해당 기능을 사용하지 않도록 설정할 수 있습니다. 
 
-1.    메모장에서 **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** 파일을 엽니다.
-2.    아래와 같이 **UserDataEnabled** 설정을 사용하지 않도록 설정합니다. **UserDataEnabled** 설정이 있고 true로 설정되어 있다면 false로 설정합니다. 이 설정이 없으면 아래와 같이 설정을 추가합니다.    
+1. 메모장에서 **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** 파일을 엽니다.
+2. 아래와 같이 **UserDataEnabled** 설정을 사용하지 않도록 설정합니다. **UserDataEnabled** 설정이 있고 true로 설정되어 있다면 false로 설정합니다. 이 설정이 없으면 아래와 같이 설정을 추가합니다.    
 
     ```xml
     <appSettings>
@@ -66,8 +66,8 @@ Microsoft 지원 엔지니어는 시스템의 데이터를 변경할 수 없으�
     </appSettings>
     ```
 
-3.    구성 파일을 저장합니다.
-4.    아래에 표시된 것처럼 Azure AD Connect 관리 에이전트 서비스를 다시 시작합니다.
+3. 구성 파일을 저장합니다.
+4. 아래에 표시된 것처럼 Azure AD Connect 관리 에이전트 서비스를 다시 시작합니다.
 
 ![관리 에이전트](media/whatis-aadc-admin-agent/adminagent2.png)
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 586641d721d0c29bcd6d7b42fc8ca9141df96c66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75494952"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261302"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>자습서: 로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 애플리케이션 디버그
 
@@ -77,7 +77,7 @@ Docker 이미지는 프로젝트가 로드되는 즉시 자동으로 빌드되�
 
 **Service Fabric 로컬 클러스터가 실행되지 않습니다.** 라는 오류가 표시되면 Service Fabric LCM(Local Custer Manager)가 실행되고 있는지 확인하고 작업 표시줄에서 LCM 아이콘을 마우스 오른쪽 단추로 클릭한 다음, **로컬 클러스터 시작**을 클릭합니다. 작업이 시작되면 Visual Studio로 돌아가서 **F5** 키를 누릅니다.
 
-앱이 시작될 때 **404** 오류가 발생하는 경우 **service.yaml**의 환경 변수가 올바르지 않은 것이 원인일 수 있습니다. `ApiHostPort` 및 `ToDoServiceName`이 [환경 변수 만들기](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables)의 지침에 따라 올바르게 설정되어야 합니다.
+앱이 시작될 때 **404** 오류가 발생하는 경우 **service.yaml**의 환경 변수가 올바르지 않은 것이 원인일 수 있습니다. `ApiHostPort` 및 `ToDoServiceName`이 [환경 변수 만들기](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables)의 지침에 따라 올바르게 설정되어야 합니다.
 
 **service.yaml**에서 빌드 오류가 발생하면 탭이 아닌 공백을 사용하여 줄을 들여써야 합니다. 또한 이제 영어 로캘을 사용하여 앱을 빌드해야 합니다.
 

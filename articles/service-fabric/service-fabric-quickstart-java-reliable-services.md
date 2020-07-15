@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: fc615149b092aebfdde767fb3b716fb897bfd551
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 833b8fff65de7e7fdfc36565e91d18a1644723d1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77121499"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254319"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>빠른 시작:  Linux에서 Azure Service Fabric에 Java 앱 배포
 
@@ -21,9 +21,9 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Java 환경](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) 및 [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-- [Eclipse Neon(4.6)+](https://www.eclipse.org/downloads/packages/) 및 [Service Fabric용 Eclipse 플러그 인](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
-- [Service Fabric SDK 및 CLI(명령줄 인터페이스)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Java 환경](./service-fabric-get-started-linux.md#set-up-java-development) 및 [Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Eclipse Neon(4.6)+](https://www.eclipse.org/downloads/packages/) 및 [Service Fabric용 Eclipse 플러그 인](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
+- [Service Fabric SDK 및 CLI(명령줄 인터페이스)](./service-fabric-get-started-linux.md#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>샘플 다운로드

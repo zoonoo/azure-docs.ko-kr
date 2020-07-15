@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b683910180e597cb8cbfa642bb2d9ac3200b42ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73176825"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255033"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>여러 버전의 API 게시 
 
-모든 API 호출자가 정확히 같은 버전을 사용하기가 어려운 경우가 있습니다. 최신 버전으로 업그레이드하려는 호출자는 이해하기 쉬운 방식을 사용하여 업그레이드를 수행하기를 원할 것입니다. Azure API Management에서 **버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)을 참조하세요.
+모든 API 호출자가 정확히 같은 버전을 사용하기가 어려운 경우가 있습니다. 최신 버전으로 업그레이드하려는 호출자는 이해하기 쉬운 방식을 사용하여 업그레이드를 수행하기를 원할 것입니다. Azure API Management에서 **버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://azure.microsoft.com/blog/versions-revisions/)을 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

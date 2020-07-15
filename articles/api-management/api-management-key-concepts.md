@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690203"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254659"
 ---
 # <a name="about-api-management"></a>API Management 정보
 
@@ -102,7 +102,7 @@ API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개�
 ## <a name="policies"></a><a name="policies"> </a> 정책
 정책은 Azure Portal이 구성을 통해 API의 동작을 변경할 수 있게 하는 API Management의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출 수를 제한하는 호출 속도 한도 등이 포함되며 다양한 다른 정책도 사용할 수 있습니다.
 
-정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](/azure/api-management/api-management-advanced-policies#choose) 및 [변수 설정](/azure/api-management/api-management-advanced-policies#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) 및 [정책 식](/azure/api-management/api-management-policy-expressions)을 참조하세요.
+정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](./api-management-advanced-policies.md#choose) 및 [변수 설정](./api-management-advanced-policies.md#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](./api-management-advanced-policies.md#AdvancedPolicies) 및 [정책 식](./api-management-policy-expressions.md)을 참조하세요.
 
 
 API Management 정책의 전체 목록을 보려면 [정책 참조][Policy reference](영문)를 참조하세요. 정책 사용 및 구성에 대한 자세한 내용은 [API Management 정책][API Management policies](영문)을 참조하세요. 속도 제한 및 할당량 정책을 사용하여 제품을 만드는 방법에 대한 자습서는 [고급 제품 설정을 만들고 구성하는 방법][How create and configure advanced product settings]을 참조하세요.
@@ -135,17 +135,13 @@ API Management에 대해 자세히 알아보려면 Microsoft Ignite 2017 confere
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: api-management-howto-create-apis.md
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create APIs]: ./import-and-publish.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 [How create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
-[Policy reference]: api-management-policy-reference.md
+[Policy reference]: ./api-management-policies.md
 [API Management policies]: api-management-howto-policies.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-
-
-
-

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: e3d984fee75dcdb8d4e14e7b454e74a3f7c629f2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b88dfedd5454d708386afa6912a26dac41c6d6b4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75730146"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258575"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 .NET 안정적인 서비스 애플리케이션 배포
 
@@ -52,7 +52,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 > 이 특별한 빠른 시작에는 불필요하지만 클러스터를 만들 때 Docker를 실행하도록 하는 지침이 모범 사례로 포함됩니다.
 > 터미널 창을 열고 오류가 발생하는지를 확인하는 `docker ps`를 실행하여 Docker가 실행되는지 테스트합니다. 응답이 오류를 나타내지 않는 경우 Docker가 실행되고 클러스터를 빌드할 준비가 되었습니다.
 >
-> [컨테이너에 대한 Windows 10 또는 Windows Server 설정](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
+> [컨테이너에 대한 Windows 10 또는 Windows Server 설정](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. 관리자 권한으로 새롭게 상승된 PowerShell 창을 엽니다.
 2. 다음 PowerShell 명령을 실행하여 개발 클러스터를 만듭니다.

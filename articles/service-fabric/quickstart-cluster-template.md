@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 1cb6dc56a5d4fa975f68c1dea08920a7c7db3904
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 70b5387e5e58bd30aa61feefc1bf4e5e98af9b1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119500"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259349"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Service Fabric 클러스터 만들기
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 설치합니다.
+* [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
 
 ### <a name="download-the-sample-template-and-certificate-helper-script"></a>샘플 템플릿과 인증서 도우미 스크립트 다운로드
 

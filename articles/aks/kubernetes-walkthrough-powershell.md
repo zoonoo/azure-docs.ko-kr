@@ -4,12 +4,12 @@ description: PowerShell을 사용하여 Kubernetes 클러스터를 빠르게 만
 services: container-service
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 74a71bdc4c9aef9a6964f0c9120a902262a50526
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e786b64554b5fbaf5bb7051e09daca8fb1eaf049
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207144"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251481"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Kubernetes Service 클러스터 배포
 
@@ -37,7 +37,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [New-AzResourceGroup][new-azresourcegroup] cmdlet을 사용하여 리소스 그룹을 만듭니다.
+[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [New-AzResourceGroup][new-azresourcegroup] cmdlet을 사용하여 리소스 그룹을 만듭니다.
 
 다음 예제에서는 **미국 동부** 지역에 **myResourceGroup**이라는 리소스 그룹을 만듭니다.
 
@@ -57,12 +57,12 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-`ssh-keygen` 명령줄 유틸리티를 사용하여 SSH 키 쌍을 생성합니다. 자세한 내용은 [빠른 단계: Azure에서 Linux VM용 SSH 퍼블릭-프라이빗 키 쌍 만들기 및 사용](/azure/virtual-machines/linux/mac-create-ssh-keys)을 참조하세요.
+`ssh-keygen` 명령줄 유틸리티를 사용하여 SSH 키 쌍을 생성합니다. 자세한 내용은 [빠른 단계: Azure에서 Linux VM용 SSH 퍼블릭-프라이빗 키 쌍 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
 [New-AzAks][new-azaks] cmdlet을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 **myAKSCluster**라는 클러스터를 만듭니다. 컨테이너용 Azure Monitor는 기본적으로 사용하도록 설정되어 있습니다. 이 작업을 완료하는 데 몇 분 정도 걸립니다.
 
 > [!NOTE]
-> AKS 클러스터를 만들 때 AKS 리소스를 저장하기 위해 두 번째 리소스 그룹이 자동으로 만들어집니다. 자세한 내용은 [AKS를 통해 두 개의 리소스 그룹이 생성되는 이유는 무엇인가요?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)를 참조하세요.
+> AKS 클러스터를 만들 때 AKS 리소스를 저장하기 위해 두 번째 리소스 그룹이 자동으로 만들어집니다. 자세한 내용은 [AKS를 통해 두 개의 리소스 그룹이 생성되는 이유는 무엇인가요?](./faq.md#why-are-two-resource-groups-created-with-aks)를 참조하세요.
 
 ```azurepowershell-interactive
 New-AzAks -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
@@ -266,7 +266,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 

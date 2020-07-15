@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75466275"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260508"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 
@@ -148,7 +148,7 @@ Thumbprint                                Subject
 
 ## <a name="clean-up"></a>정리
 
-클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다.
+클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](./service-fabric-tutorial-delete-cluster.md)하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

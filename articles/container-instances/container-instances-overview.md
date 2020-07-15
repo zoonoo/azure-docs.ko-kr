@@ -4,12 +4,12 @@ description: Azure Container Instances 서비스는 가상 머신을 관리하�
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695287"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259509"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -43,7 +43,7 @@ Machine Learning과 같은 컴퓨팅 집약적인 작업의 경우 Azure Contain
 
 ## <a name="persistent-storage"></a>영구 스토리지
 
-Azure Container Instances를 통해 상태를 검색하고 유지하기 위해 Azure Storage가 지원하는 [Azure Files 공유 탑재](container-instances-mounting-azure-files-volume.md)를 직접 제공합니다.
+Azure Container Instances를 통해 상태를 검색하고 유지하기 위해 Azure Storage가 지원하는 [Azure Files 공유 탑재](./container-instances-volume-azure-files.md)를 직접 제공합니다.
 
 ## <a name="linux-and-windows-containers"></a>Linux 및 Windows 컨테이너
 

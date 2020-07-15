@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 �
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611648"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257107"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -38,7 +38,7 @@ ms.locfileid: "85611648"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure PowerShell](/powershell/azure/install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
 
 ## <a name="important-considerations-and-guidelines"></a>중요 고려 사항 및 지침
@@ -64,7 +64,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 
 ## <a name="export-the-template-for-the-resource-group"></a>리소스 그룹에 대한 템플릿 내보내기
 
-보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)가 만들어지고 리소스 그룹이 설정되면 리소스 그룹에 대한 Resource Manager 템플릿을 내보냅니다. 템플릿을 내보내면 템플릿에 전체 인프라가 모두 포함되어 있으므로 클러스터와 해당 리소스의 향후 배포를 자동화할 수 있습니다.  템플릿 내보내기에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Resource Manager 리소스 그룹 관리](/azure/azure-resource-manager/manage-resource-groups-portal)를 참조하세요.
+보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)가 만들어지고 리소스 그룹이 설정되면 리소스 그룹에 대한 Resource Manager 템플릿을 내보냅니다. 템플릿을 내보내면 템플릿에 전체 인프라가 모두 포함되어 있으므로 클러스터와 해당 리소스의 향후 배포를 자동화할 수 있습니다.  템플릿 내보내기에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Resource Manager 리소스 그룹 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에서 클러스터가 포함된 리소스 그룹(이 자습서를 따르는 경우 **sfclustertutorialgroup**)으로 이동합니다. 
 

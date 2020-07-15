@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: e6195409a08498527ec40a2ddd2f909a092c9d19
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 28b055cb343b7f894a28eee5fbe452d037fd6b0e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202828"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249493"
 ---
 # <a name="import-an-api-app-as-an-api"></a>API로 API 앱 가져오기
 
@@ -33,7 +33,7 @@ ms.locfileid: "82202828"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 + 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
-+ 구독에 API 앱이 있는지 확인합니다. 자세한 내용은 [App Service 설명서](https://docs.microsoft.com/azure/app-service/)를 참조하세요.
++ 구독에 API 앱이 있는지 확인합니다. 자세한 내용은 [App Service 설명서](../app-service/index.yml)를 참조하세요.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

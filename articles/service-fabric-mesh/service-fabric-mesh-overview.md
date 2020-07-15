@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: d6522d417556104a1ece703c725f3fbeab49d683
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75458976"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257802"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Service Fabric Mesh란?
 
@@ -42,7 +42,7 @@ Service Fabric Mesh를 사용하여 다음을 수행할 수 있습니다.
 
 - 인프라를 명시적으로 프로비전하고 관리할 필요 없이 애플리케이션을 배포하고 관리합니다.  Service Fabric Mesh는 기본 인프라를 프로비전하고, 업그레이드하고, 패치하고, 유지 관리합니다.
 - 통합된 도구를 사용하는 연속 통합을 설정하여 애플리케이션을 쉽게 패키지하고 배포합니다.
-- Azure Resource Manager 리소스의 모든 기능을 활용합니다. 이러한 기능의 예로는 감사 내역과 [역할 기반 액세스 제어](/azure/role-based-access-control/overview)가 있습니다. Azure의 Service Fabric Mesh 서비스에 배포하는 모든 리소스는 Azure Resource Manager 리소스입니다. 이러한 리소스에는 애플리케이션, 서비스, 비밀 등이 포함됩니다.
+- Azure Resource Manager 리소스의 모든 기능을 활용합니다. 이러한 기능의 예로는 감사 내역과 [역할 기반 액세스 제어](../role-based-access-control/overview.md)가 있습니다. Azure의 Service Fabric Mesh 서비스에 배포하는 모든 리소스는 Azure Resource Manager 리소스입니다. 이러한 리소스에는 애플리케이션, 서비스, 비밀 등이 포함됩니다.
 - [Azure Portal](https://portal.azure.com), Resource Manager 템플릿 또는 Azure CLI/PowerShell 라이브러리를 사용하여 리소스를 배포하고 관리합니다.
 - [Application Insights](/azure/application-insights/)(또는 원하는 도구)를 사용하는 작업 모니터링 및 경고를 설정하여 플랫폼에서 운영 및 진단 추적을 캡처합니다.
 - [Application Insights](/azure/application-insights/) 또는 원하는 도구를 사용하여 애플리케이션 모델에서 내보낸 애플리케이션 진단 정보에 액세스합니다.
@@ -50,14 +50,14 @@ Service Fabric Mesh를 사용하여 다음을 수행할 수 있습니다.
 
 ## <a name="mission-critical-platform-capabilities"></a>중요 업무용 플랫폼 기능
 
-Service Fabric Mesh는 [Azure 가용성 영역](/azure/availability-zones/az-overview) 및/또는 지정학정 지역 경계에 걸친 클러스터의 컬렉션을 만듭니다. Service Fabric Mesh는 규모 조정, 하드웨어 요구 사항, 내구성 요구 사항 및 보안 정책과 같은 일련의 의도로 애플리케이션을 설명합니다.  애플리케이션을 배포할 때 Service Fabric Mesh는 실행할 최적의 위치를 찾습니다.
+Service Fabric Mesh는 [Azure 가용성 영역](../availability-zones/az-overview.md) 및/또는 지정학정 지역 경계에 걸친 클러스터의 컬렉션을 만듭니다. Service Fabric Mesh는 규모 조정, 하드웨어 요구 사항, 내구성 요구 사항 및 보안 정책과 같은 일련의 의도로 애플리케이션을 설명합니다.  애플리케이션을 배포할 때 Service Fabric Mesh는 실행할 최적의 위치를 찾습니다.
 
 Service Fabric Mesh를 사용하여 다음을 수행할 수 있습니다.
 
 - 높은 가용성, 감축/확장, 검색, 오케스트레이션, 메시지 라우팅, 신뢰할 수 있는 메시징, 무중단 업그레이드, 보안/비밀 관리, 재해 복구, 상태 관리, 구성 관리 및 분산된 트랜잭션을 활용합니다.
 - 애플리케이션을 만들 때 여러 애플리케이션 모델 중에서 선택합니다.
 - Swagger를 사용하여 생성된 언어별 바인딩을 사용하여 REST 엔드포인트를 통해 노출된 플랫폼 기능을 사용합니다.
-- 지역 안정성을 위해 [가용성 영역](/azure/availability-zones/az-overview) 및 여러 지역에 애플리케이션을 배포합니다.
+- 지역 안정성을 위해 [가용성 영역](../availability-zones/az-overview.md) 및 여러 지역에 애플리케이션을 배포합니다.
 - Azure에서 제공하는 모든 보안 및 규정 준수 기능을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계

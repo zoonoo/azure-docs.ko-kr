@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure Pipelines를 사용하여 Service Fabr
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 992d720d86fc2e7fedd8e7fd4b559220ff3c0512
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614148"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260353"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 애플리케이션 배포
 
@@ -39,7 +39,7 @@ ms.locfileid: "75614148"
 * [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 * 예를 들어 [이 자습서를 따라](service-fabric-tutorial-create-vnet-and-windows-cluster.md) Windows Service Fabric 클러스터를 Azure에 만듭니다.
-* [Azure DevOps 조직](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)을 만듭니다. 이렇게 하면 Azure DevOps에서 프로젝트를 만들고 Azure Pipelines를 사용할 수 있습니다.
+* [Azure DevOps 조직](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)을 만듭니다. 이렇게 하면 Azure DevOps에서 프로젝트를 만들고 Azure Pipelines를 사용할 수 있습니다.
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 예제 다운로드
 

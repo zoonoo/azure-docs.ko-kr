@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 29e1bb33b98b1fbc8fcfcd541d0014ca1bc75d8d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f2eead8dfd1f4d88d28de1f70134dcfcad8471d3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84114130"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259763"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>자습서: 서비스 경고 설정
 
@@ -61,4 +61,4 @@ Azure Service Health에 대한 자세한 내용은 [Azure Health 설명서](http
 이 자습서에서는 Azure Service Health를 설정하고 사용하여 Windows Virtual Desktop에 대한 서비스 문제 및 상태 권고를 모니터링하는 방법을 알아보았습니다. Windows Virtual Desktop에 로그인하는 방법을 알아보려면 Windows Virtual Desktop에 연결하는 방법에 관한 다음 페이지를 참고하세요.
 
 > [!div class="nextstepaction"]
-> [Windows 7 및 Windows 10에서 원격 데스크톱 클라이언트에 연결](../connect-windows-7-and-10.md)
+> [Windows 7 및 Windows 10에서 원격 데스크톱 클라이언트에 연결](connect-windows-7-10-2019.md)
