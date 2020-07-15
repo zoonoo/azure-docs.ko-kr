@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Portal을 사용하여 Synapse SQL 풀(미리 보기) 만들기
+title: '빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀(미리 보기) 만들기'
 description: 이 가이드의 단계에 따라 Azure Portal을 사용하여 새 Synapse SQL 풀을 만듭니다.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 966ca099c44ba8b0f2d3241c391f4d7a101afb26
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 768b559ddaf7364726cb26a34d12f357d4126426
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955100"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274257"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀(미리 보기) 만들기
 
@@ -24,7 +24,7 @@ Azure Synapse Analytics는 데이터를 수집, 변환, 모델링 및 분석하�
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse 작업 영역](./quickstart-create-workspace.md)

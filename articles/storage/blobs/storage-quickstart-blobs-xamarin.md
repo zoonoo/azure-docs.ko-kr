@@ -7,12 +7,12 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c66766b39ae104cf4a031c3fd73c173e81d47fb8
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b6dc5ba59aa563da6e7c19e6c821f4a9b697832f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563489"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206538"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>빠른 시작: Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -26,7 +26,12 @@ Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 * 디바이스에 BLOB 다운로드
 * 컨테이너 삭제
 
-[API 참조 설명서](/dotnet/api/azure.storage.blobs) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [샘플](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+참조 링크:
+
+* [API 참조 설명서](/dotnet/api/azure.storage.blobs)
+* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+* [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [샘플](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

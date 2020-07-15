@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: e855bb669d86db246d57709607f62e77385e8c42
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b02345ded6f519981db03795678802107f9cfb1f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199153"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206681"
 ---
 ::: zone target = "docs"
 
@@ -50,7 +50,7 @@ SMB, NFS, REST, 데이터 복사 서비스 또는 관리 디스크를 통해 원
 
 ::: zone target = "docs"
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -80,7 +80,7 @@ Azure Files에 대한 공유 아래:
 
 다음 표는 데이터가 업로드되는 Data Box Heavy 및 Azure Storage 경로 URL의 공유에 대한 UNC 경로를 보여줍니다. 최종 Azure Storage 경로 URL은 UNC 공유 경로에서 파생될 수 있습니다.
  
-|                   |                                                            |
+| 스토리지           | UNC 경로                                                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Azure 블록 Blob | <li>공유 UNC 경로: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure 페이지 Blob  | <li>공유 UNC 경로: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  

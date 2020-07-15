@@ -1,5 +1,5 @@
 ---
-title: SQL 주문형(미리 보기) 사용
+title: '빠른 시작: SQL 주문형 사용'
 description: 이 빠른 시작에서는 SQL 주문형(미리 보기)을 사용하여 다양한 형식의 파일을 얼마나 쉽게 쿼리할 수 있는지 알아봅니다.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: cbc13695610e8fe190793a7dc925a414f5da2e53
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207433"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274172"
 ---
 # <a name="quickstart-use-sql-on-demand"></a>빠른 시작: SQL 주문형 사용
 

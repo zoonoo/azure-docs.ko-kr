@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Synapse Studio를 사용하여 Apache Spark 풀(미리 보기) 만들기
+title: '빠른 시작: Synapse Studio를 사용하여 Apache Spark 풀(미리 보기) 만들기'
 description: 이 가이드의 단계에 따라 Synapse Studio를 사용하여 새 Apache Spark 풀을 만듭니다.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c945e56aa0b6f851f54cf7679276558190b4bc10
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 87fcbef5a3cedab3142fe9ad47c68752515fdd2e
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194967"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274342"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 Apache Spark 풀(미리 보기) 만들기
 
@@ -27,7 +27,7 @@ Azure Synapse Analytics는 데이터를 수집, 변환, 모델링, 분석 및 �
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse 작업 영역](./quickstart-create-workspace.md)

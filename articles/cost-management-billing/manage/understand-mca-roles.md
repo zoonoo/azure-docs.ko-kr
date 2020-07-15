@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84702604"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207208"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Azure의 Microsoft 고객 계약 관리자 역할 이해
 
@@ -141,12 +141,12 @@ Microsoft 고객 계약의 청구 계정을 관리하려면 다음 섹션에서 
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>청구서 섹션 권한 및 속성 관리
 
-|작업|청구서 섹션 소유자|청구서 섹션 기여자|청구서 섹션 읽기 권한자|Azure 구독 작성자|청구 계정 소유자|청구 계정 기여자|청구 계정 읽기 권한자 | |
-|---|---|---|---|---|---|---|---|---|
-|청구서 섹션의 모든 권한 보기|✔|✔|✔|✔|✔|✔|✔| |
-|다른 사용자에게 청구서 섹션을 보고 관리할 수 있는 권한 부여|✔|✘|✘|✘|✘|✘|✘| |
-|청구서 섹션 속성 보기|✔|✔|✔|✔|✔|✔|✔| |
-|청구서 섹션 속성 업데이트|✔|✔|✘|✘|✘|✘|✘|✘|
+|작업|청구서 섹션 소유자|청구서 섹션 기여자|청구서 섹션 읽기 권한자|Azure 구독 작성자|청구 계정 소유자|청구 계정 기여자|청구 계정 읽기 권한자 |
+|---|---|---|---|---|---|---|---|
+|청구서 섹션의 모든 권한 보기|✔|✔|✔|✔|✔|✔|✔|
+|다른 사용자에게 청구서 섹션을 보고 관리할 수 있는 권한 부여|✔|✘|✘|✘|✘|✘|✘|
+|청구서 섹션 속성 보기|✔|✔|✔|✔|✔|✔|✔|
+|청구서 섹션 속성 업데이트|✔|✔|✘|✘|✘|✘|✘|
 
 ### <a name="manage-products-for-invoice-section"></a>청구서에 대한 제품 관리
 

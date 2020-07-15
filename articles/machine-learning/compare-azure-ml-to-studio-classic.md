@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 1d4896a2dd2115e5654baffe394618b30a294d5b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210374"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231746"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning 및 Machine Learning Studio(클래식)
 
@@ -27,7 +27,7 @@ Azure Machine Learning은 Python, R SDK **및** "끌어서 놓기" 디자이너�
 
 다음 표에는 Azure Machine Learning과 Studio(클래식)의 주요 차이점이 요약되어 있습니다.
 
-| | Machine Learning Studio(클래식) | Azure Machine Learning |
+| 기능 | Machine Learning Studio(클래식) | Azure Machine Learning |
 |---| --- | --- |
 | 끌어서 놓기 인터페이스 | 지원됨 | 지원됨 - [Azure Machine Learning 디자이너(미리 보기)](concept-designer.md) <br/>(엔터프라이즈 작업 영역 필요) | 
 | 실험 | 크기 조정 가능(10GB 학습 데이터 제한) | 컴퓨팅 대상으로 크기 조정 |
