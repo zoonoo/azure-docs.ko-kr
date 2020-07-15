@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74091355"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134444"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 복구(failback)
 
@@ -28,7 +28,7 @@ ms.locfileid: "74091355"
 > 
 > [!NOTE]
 > 
-> 이 자습서에서는 최소한의 사용자 지정 작업을 통해 VM 몇 개를 대상 지역으로 장애 조치(failover)한 후 다시 원본 지역으로 장애 조치(failover)하는 방법을 안내합니다. 자세한 지침은 [Azure VM에 대한 방법 가이드](https://docs.microsoft.com/azure/virtual-machines/windows/)를 검토하세요.
+> 이 자습서에서는 최소한의 사용자 지정 작업을 통해 VM 몇 개를 대상 지역으로 장애 조치(failover)한 후 다시 원본 지역으로 장애 조치(failover)하는 방법을 안내합니다. 자세한 지침은 [Azure VM에 대한 방법 가이드](../virtual-machines/windows/index.yml)를 검토하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 

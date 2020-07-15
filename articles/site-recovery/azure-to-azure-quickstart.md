@@ -4,12 +4,12 @@ description: Azure Site Recovery 서비스를 사용하여 Azure VM에 대한 �
 ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
-ms.openlocfilehash: e26c2a1f24a88dc979f4ec68de65afc618740c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371908"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135705"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>빠른 시작: 보조 Azure 지역에 Azure VM의 재해 복구 설정
 
@@ -22,7 +22,7 @@ ms.locfileid: "80371908"
 이 자습서를 완료하려면 Azure 구독과 VM이 필요합니다.
 
 - 활성 구독이 있는 Azure 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
-- 최소 1GB의 RAM이 있는 VM을 사용하는 것이 좋습니다. VM을 만드는 방법에 대해 [자세히 알아봅니다](/azure/virtual-machines/windows/quick-create-portal).
+- 최소 1GB의 RAM이 있는 VM을 사용하는 것이 좋습니다. VM을 만드는 방법에 대해 [자세히 알아봅니다](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

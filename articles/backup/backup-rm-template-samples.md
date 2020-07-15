@@ -4,18 +4,18 @@ description: Recovery Services 자격 증명 모음 및 Azure Backup 기능과 �
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 3c05f345c6c5df5d0350c75e52381c24b0609501
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09962a37f36621950189e9446099c349de9430bb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74172174"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170992"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Backup용 Azure Resource Manager 템플릿
 
 다음 표에는 Recovery Services 자격 증명 모음 및 Azure Backup 기능과 함께 사용할 수 있는 Azure Resource Manager 템플릿에 대한 링크가 포함되어 있습니다. JSON 구문 및 속성에 대한 자세한 내용은 [Microsoft.RecoveryServices 리소스 종류](/azure/templates/microsoft.recoveryservices/allversions)를 참조하세요.
 
-|   |   |
+| 템플릿 | Description |
 |---|---|
 |**Recovery Services 자격 증명 모음** | |
 | [Recovery Services 자격 증명 모음 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vault-create)| Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음은 Azure Backup 및 Azure Site Recovery에 사용할 수 있습니다. |

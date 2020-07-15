@@ -12,18 +12,18 @@ ms.date: 05/26/2020
 ms.author: erhopf
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: e4ee37c00778d239c8481392ce9231b2dda7c6e3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 363da0f528444ab45784beb43d3590b50c0cb71f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606531"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144317"
 ---
 # <a name="quickstart-use-the-translator-to-translate-text"></a>빠른 시작: Translator를 사용하여 텍스트 번역
 
 이 빠른 시작에서는 Translator REST API를 사용하여 텍스트 문자열을 영어에서 독일어, 이탈리아어, 일본어 및 태국어로 번역하는 방법을 알아봅니다.
 
-이 빠른 시작에는Translator 리소스가 있는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
+이 빠른 시작에는Translator 리소스가 있는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/translate-csharp.md)]

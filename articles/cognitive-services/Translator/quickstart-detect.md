@@ -12,18 +12,18 @@ ms.date: 05/26/2020
 ms.author: erhopf
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 4e11a26d75877dcaf244e754763f7c9b80c1de61
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2ab484f1662d365bc23aefe1bc3d9eb4aed98185
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608318"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146989"
 ---
 # <a name="quickstart-use-the-translator-to-detect-text-language"></a>빠른 시작: Translator를 사용하여 텍스트 언어 검색
 
 이 빠른 시작에서는 Translator REST API를 사용하여 제공된 텍스트의 언어를 검색하는 방법을 알아봅니다.
 
-이 빠른 시작에는Translator 리소스가 있는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
+이 빠른 시작에는Translator 리소스가 있는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/detect-csharp.md)]

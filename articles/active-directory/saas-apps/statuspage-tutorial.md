@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: d947f610e6a753ce2ed349917640b07a55bbb735
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c1ad9d7afd215371b92c83445cfd1c8778bc0642
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67089867"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170533"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>자습서: StatusPage와 Azure Active Directory 통합
 
@@ -106,18 +106,14 @@ StatusPage에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     ![StatusPage 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
-    
-    | |
-    |--|
-    | `https://<subdomain>.statuspagestaging.com/`|
-    | `https://<subdomain>.statuspage.io/`|
+
+    - `https://<subdomain>.statuspagestaging.com/`
+    - `https://<subdomain>.statuspage.io/`
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
-    
-    | |
-    |--|
-    | `https://<subdomain>.statuspagestaging.com/sso/saml/consume`|
-    | `https://<subdomain>.statuspage.io/sso/saml/consume`|
+
+    - `https://<subdomain>.statuspagestaging.com/sso/saml/consume`
+    - `https://<subdomain>.statuspage.io/sso/saml/consume`
 
     > [!NOTE]
     > [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)에서 StatusPage 지원 팀에 문의하여 Single Sign-On을 구성하는 데 필요한 메타데이터를 요청합니다. 

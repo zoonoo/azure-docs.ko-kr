@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498165"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132459"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 장애 조치(failover)
 
@@ -27,8 +27,8 @@ ms.locfileid: "75498165"
 이 자습서는 시리즈의 다섯 번째 자습서입니다. 여기에서는 이전 자습서의 작업을 이미 완료했다고 가정합니다.    
 
 1. [Azure 준비](tutorial-prepare-azure.md)
-2. [온-프레미스 Hyper-V 준비](tutorial-prepare-on-premises-hyper-v.md)
-3. [Hyper-V VM](tutorial-hyper-v-to-azure.md) 또는 [System Center VMM 클라우드에서 관리되는 Hyper-V VM](tutorial-hyper-v-vmm-to-azure.md)용 재해 복구 설정
+2. [온-프레미스 Hyper-V 준비](./hyper-v-prepare-on-premises-tutorial.md)
+3. [Hyper-V VM](./hyper-v-azure-tutorial.md) 또는 [System Center VMM 클라우드에서 관리되는 Hyper-V VM](./hyper-v-vmm-azure-tutorial.md)용 재해 복구 설정
 4. [재해 복구 훈련 실행](tutorial-dr-drill-azure.md)
 
 다양한 유형의 장애 조치(failover)에 [대해 알아봅니다](failover-failback-overview.md#types-of-failover). 복구 계획에서 여러 VM을 장애 조치(failover)하려는 경우 [이 문서](site-recovery-failover.md)를 검토하세요.

@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: db2e583515d948f455e1d2129684f97347a07403
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 2a2db9f7342b984a8c539a345f8e5038caf5ff85
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594936"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170278"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 푸시 알림 보내기
 
@@ -84,8 +84,11 @@ ms.locfileid: "82594936"
     ![Visual Studio - NuGet 패키지 관리자][20]
 4. App.xaml.cs 파일을 열고 다음 `using` 문을 추가합니다.
 
-        using Microsoft.Phone.Notification;
-        using Microsoft.WindowsAzure.Messaging;
+    ```csharp
+    using Microsoft.Phone.Notification;
+    using Microsoft.WindowsAzure.Messaging;
+    ```
+
 5. `App.xaml.cs`에서 `Application_Launching` 메서드 맨 위에 다음 코드를 추가합니다.
 
     ```csharp

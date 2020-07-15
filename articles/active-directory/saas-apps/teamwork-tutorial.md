@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b407f29e4dda532ef12019f8d0a2a273832987
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a62bdc0f23f6769dca9914381a81674e470e695d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67595248"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>자습서: Teamwork.com과 Azure Active Directory 통합
 
@@ -110,10 +110,8 @@ Teamwork.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 URL을 입력합니다.
 
-    | | |
-    |-|-|
-    | `https://teamwork.com/saml`|
-    | `https://eu.teamwork.com/saml`|
+    - `https://teamwork.com/saml`
+    - `https://eu.teamwork.com/saml`
 
     > [!NOTE]
     > 이 Sign-On URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 가져오려면 [Teamwork.com 지원 팀](mailto:support@teamwork.com)에 문의합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

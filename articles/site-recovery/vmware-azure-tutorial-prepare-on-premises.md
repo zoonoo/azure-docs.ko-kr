@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b8fd34c8f1e3a32a8252074941a49d61aa540207
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704253"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134905"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 
@@ -103,7 +103,7 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 - 장애 조치 전에 온-프레미스 컴퓨터에서 시스템 부팅 시 SSH(Secure Shell) 서비스가 자동으로 시작되도록 설정되어 있는지 확인합니다.
 - 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.
 - 장애 조치 후 Azure VM에서 장애 조치된 VM의 네트워크 보안 그룹 규칙 및 연결되어 있는 Azure 서브넷에 대한 SSH 포트로 들어오는 연결을 허용합니다.
-- VM에 대한 [공용 IP 주소를 추가](site-recovery-monitoring-and-troubleshooting.md)합니다.
+- VM에 대한 [공용 IP 주소를 추가](./site-recovery-monitor-and-troubleshoot.md)합니다.
 - **부트 진단**을 확인하여 VM에 대한 스크린샷을 볼 수 있습니다.
 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: cb9a6a79aa75f646370d05a6a55ec75533d42038
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2fd26acfd857ab868c003d0de901f6d168d63078
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67088714"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>자습서: Tidemark와 Azure Active Directory 통합
 
@@ -107,19 +107,14 @@ Tidemark에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://<subdomain>.tidemark.com/login` |
-    | `https://<subdomain>.tidemark.net/login` |
-    | |
+    - `https://<subdomain>.tidemark.com/login`
+    - `https://<subdomain>.tidemark.net/login`
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://<subdomain>.tidemark.com/saml` |
-    | `https://<subdomain>.tidemark.net/saml` |
-    | |
+
+    - `https://<subdomain>.tidemark.com/saml`
+    - `https://<subdomain>.tidemark.net/saml`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Tidemark 클라이언트 지원 팀](http://www.tidemark.com/contact-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

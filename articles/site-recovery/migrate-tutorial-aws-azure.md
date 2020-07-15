@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 1070230d968a6239a5a4aab5ac412280393d17da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388970"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133170"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -133,7 +133,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 **원본 준비** 페이지에서 **+ 구성 서버**를 선택합니다.
 
 1. Windows Server 2012 R2가 실행되는 EC2 인스턴스를 사용하여 구성 서버를 만들고 복구 자격 증명 모음에 등록합니다.
-2. 구성 서버로 사용하는 EC2 인스턴스 VM에서 [서비스 URL](site-recovery-support-matrix-to-azure.md)에 액세스할 수 있도록 프록시를 구성합니다.
+2. 구성 서버로 사용하는 EC2 인스턴스 VM에서 [서비스 URL](./vmware-physical-azure-support-matrix.md)에 액세스할 수 있도록 프록시를 구성합니다.
 3. [Microsoft Azure Site Recovery 통합 설치](https://aka.ms/unifiedinstaller_wus)를 다운로드합니다. 로컬 컴퓨터에 다운로드한 후에 구성 서버로 사용할 VM에 복사해도 됩니다.
 4. **다운로드** 단추를 선택하여 자격 증명 모음 등록 키를 다운로드합니다. 다운로드한 파일을 구성 서버로 사용할 VM에 복사합니다.
 5. VM에서 Microsoft Azure Site Recovery 통합 설치용으로 다운로드한 설치 프로그램을 마우스 오른쪽 단추로 클릭한 후 **관리자 권한으로 실행**을 선택합니다.

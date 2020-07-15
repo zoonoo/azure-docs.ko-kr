@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 663d6659acf5c1e5abc8be56156af84167c51797
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984014"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146940"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: REST 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -451,7 +451,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. **GET** 및 다음 URL을 사용하여 YOUR-SERVICE-NAME을 서비스의 실제 이름으로 바꾸고, 용어 또는 구의 인스턴스를 검색하고, `content` 필드 및 일치하는 문서의 수를 반환합니다.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=content&api-version=2020-06-30
    ```
    
    이 쿼리의 결과는 문서 콘텐츠를 반환하며, 인지 검색 파이프라인 없이 Blob 인덱서를 사용한 경우에 반환하는 결과와 동일합니다. 이 필드는 검색 가능하지만 패싯, 필터 또는 자동 완성을 사용하려는 경우에는 작동하지 않습니다.
@@ -461,7 +461,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. 두 번째 쿼리의 경우 파이프라인에서 만든 새 필드(persons, organizations, locations, languageCode) 중 일부를 반환합니다. 간단히 하기 위해 keyPhrases는 생략하고 있지만, 해당 값을 확인하려면 이를 포함시켜야 합니다.
 
    ```http
-   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
    ```
    $Select 문의 필드에는 Cognitive Services의 자연어 처리 기능에서 만든 새 정보가 포함됩니다. 예상할 수 있듯이 문서 전체의 결과 및 변형에 약간의 노이즈가 있지만, 대부분의 경우 분석 모델에서 정확한 결과를 생성합니다.
 
@@ -483,7 +483,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. 다음 마지막 예제에서는 필터를 organizations 컬렉션에 적용하고, NASDAQ에 기반한 필터 조건에 대해 두 개의 일치 항목을 반환합니다.
 
    ```http
-   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
 이러한 쿼리는 인식 검색을 통해 생성되는 새 필드에 대해 쿼리 구문과 필터를 사용할 수 있는 몇 가지 방법을 보여 줍니다. 자세한 쿼리 예제는 [문서 검색 REST API 예제](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [단순 구문 쿼리 예제](search-query-simple-examples.md) 및 [전체 Lucene 쿼리 예제](search-query-lucene-examples.md)를 참조하세요.

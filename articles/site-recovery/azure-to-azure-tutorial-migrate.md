@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09a00d2c6a889f396e5c18da29530c94a624568b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303939"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134439"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -37,7 +37,7 @@ ms.locfileid: "78303939"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 이동하려는 Azure 지역에 Azure VM이 있는지 확인합니다.
-- 원하는 [원본 지역 - Azure 지역 조합이 지원되는지](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) 확인하여 충분한 정보를 바탕으로 Azure 지역을 결정합니다.
+- 원하는 [원본 지역 - Azure 지역 조합이 지원되는지](./azure-to-azure-support-matrix.md#region-support) 확인하여 충분한 정보를 바탕으로 Azure 지역을 결정합니다.
 - [시나리오 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해해야 합니다.
 - [제한 사항 및 요구 사항 지원](azure-to-azure-support-matrix.md)을 검토합니다.
 - 계정 권한을 확인합니다. Azure 체험 계정을 만든 경우 자신이 구독에 대한 관리자입니다. 구독 관리자가 아닌 경우에는 관리자와 협력하여 필요한 권한을 할당받습니다. VM 복제를 사용하도록 설정하고 기본적으로 Azure Site Recovery를 사용하여 데이터를 복사하려면 다음 권한이 필요합니다.
@@ -70,10 +70,10 @@ ms.locfileid: "78303939"
      > 사용자가 원본 VM에 대해 복제를 사용하도록 설정하면 Azure Site Recovery는 가상 네트워크를 자동으로 검색하고 만듭니다. 또한 네트워크를 미리 만들고 복제 사용을 위해 사용자 흐름에서 VM에 할당할 수도 있습니다. 뒷부분에 설명된 것처럼 대상 지역에 다른 리소스를 수동으로 만들어야 합니다.
 
     원본 VM 구성에 따라 관련성이 있는 가장 일반적으로 사용되는 네트워크 리소스를 만들려면 다음 문서를 참조하세요.
-    - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer)
+    - [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)
+    - [부하 분산 장치](../load-balancer/index.yml)
     -  [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
-    - 그 외의 네트워킹 구성 요소는 [네트워킹 설명서](https://docs.microsoft.com/azure/?pivot=products&panel=network)를 참조하세요.
+    - 그 외의 네트워킹 구성 요소는 [네트워킹 설명서](../index.yml?pivot=products&panel=network)를 참조하세요.
 
 
 
@@ -146,4 +146,3 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
 > [!div class="nextstepaction"]
 > [마이그레이션 후 재해 복구 설정](azure-to-azure-quickstart.md)
-

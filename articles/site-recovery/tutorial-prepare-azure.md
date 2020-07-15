@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ba5ecc29edbcd69324500e87add846e4395ce0a3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067560"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130920"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Azure에 대한 온-프레미스 재해 복구를 위한 Azure 준비
 
@@ -90,8 +90,8 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 ## <a name="next-steps"></a>다음 단계
 
-- VMware 재해 복구의 경우 [온-프레미스 VMware 인프라를 준비](tutorial-prepare-on-premises-vmware.md)합니다.
+- VMware 재해 복구의 경우 [온-프레미스 VMware 인프라를 준비](./vmware-azure-tutorial-prepare-on-premises.md)합니다.
 - Hyper-V 재해 복구의 경우 [온-프레미스 Hyper-V 서버를 준비](hyper-v-prepare-on-premises-tutorial.md)합니다.
 - 물리적 서버 재해 복구의 경우 [구성 서버 및 원본 환경을 설정](physical-azure-disaster-recovery.md)합니다.
-- Azure 네트워크에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
-- Managed Disks에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
+- Azure 네트워크에 대해 [자세히 알아보기](../virtual-network/virtual-networks-overview.md).
+- Managed Disks에 대해 [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md)

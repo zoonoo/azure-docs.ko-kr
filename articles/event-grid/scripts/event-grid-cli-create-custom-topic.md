@@ -1,22 +1,15 @@
 ---
 title: Azure CLI 스크립트 샘플 - 사용자 지정 항목 만들기 | Microsoft Docs
 description: 이 문서에서는 Azure Event Grid 사용자 지정 항목을 만드는 방법을 보여주는 샘플 Azure CLI 스크립트를 제공합니다.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 2c6e027d234104d5e45c632dd73e79d8f069deb5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/08/2020
+ms.openlocfilehash: 951008a2bf3919f69429ca15382334a9618b912f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76720846"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171315"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Azure CLI를 사용하여 Event Grid 사용자 지정 항목 만들기
 

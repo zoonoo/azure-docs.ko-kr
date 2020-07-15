@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d99a5feb344f970b10925b596726520b9dba9464
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78298533"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134031"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Azure Government와 공용 Azure 지역 간에 Azure VM 이동 
 
@@ -32,7 +32,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 > * 원본 Azure 지역의 리소스 삭제
 
 > [!IMPORTANT]
-> 이 자습서에서는 Azure Government와 공용 Azure 지역 간에, 또는 일반적인 Azure VM용 재해 복구 솔루션에서 지원되지 않는 Azure 지역 쌍 간에 Azure VM을 이동하는 방법을 보여줍니다. 경우에 따라 원본 및 대상 Azure 지역 쌍이 [지원됩니다](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). 이동에 대해서는 이 [문서](azure-to-azure-tutorial-migrate.md)를 참조하세요. 가용성 세트를 다른 Azure 지역의 영역 고정 VM으로 이동하여 가용성을 개선해야 하는 요구 사항이 있는 경우 [여기](move-azure-VMs-AVset-Azone.md) 자습서를 참조하세요.
+> 이 자습서에서는 Azure Government와 공용 Azure 지역 간에, 또는 일반적인 Azure VM용 재해 복구 솔루션에서 지원되지 않는 Azure 지역 쌍 간에 Azure VM을 이동하는 방법을 보여줍니다. 경우에 따라 원본 및 대상 Azure 지역 쌍이 [지원됩니다](./azure-to-azure-support-matrix.md#region-support). 이동에 대해서는 이 [문서](azure-to-azure-tutorial-migrate.md)를 참조하세요. 가용성 세트를 다른 Azure 지역의 영역 고정 VM으로 이동하여 가용성을 개선해야 하는 요구 사항이 있는 경우 [여기](move-azure-VMs-AVset-Azone.md) 자습서를 참조하세요.
 
 > [!IMPORTANT]
 > DR 시나리오의 경우 데이터 대기 시간을 염두에 두고 Azure 지역 쌍을 정의하는 것이 중요하므로, 지원되지 않는 Azure 지역 쌍 간에 이 방법을 사용하여 DR을 구성하는 것은 바람직스럽지 않습니다.
@@ -96,13 +96,13 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
      다음 문서를 참조하여 원본 VM 구성에 따라 가장 일반적으로 사용되는 네트워크 리소스를 만드세요.
 
-    - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer)
+    - [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)
+    - [부하 분산 장치](../load-balancer/index.yml)
     - [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
     
-    그 외의 네트워킹 구성 요소는 네트워킹 [설명서](https://docs.microsoft.com/azure/?pivot=products&panel=network)를 참조하세요.
+    그 외의 네트워킹 구성 요소는 네트워킹 [설명서](../index.yml?pivot=products&panel=network)를 참조하세요.
 
-4. 대상 Azure 지역으로 최종 전환하기 전에 구성을 테스트하려면 수동으로 대상 Azure 지역에 [비-프로덕션 네트워크를 만듭니다](https://docs.microsoft.com/azure/virtual-network/quick-create-portal). 이렇게 하면 프로덕션과의 간섭을 최소화할 수 있으므로 권장하는 방법입니다.
+4. 대상 Azure 지역으로 최종 전환하기 전에 구성을 테스트하려면 수동으로 대상 Azure 지역에 [비-프로덕션 네트워크를 만듭니다](../virtual-network/quick-create-portal.md). 이렇게 하면 프로덕션과의 간섭을 최소화할 수 있으므로 권장하는 방법입니다.
 
 ## <a name="copy-data-to-the-target-region"></a>대상 Azure 지역에 데이터 복사
 아래 단계는 Azure Site Recovery를 사용하여 대상 Azure 지역에 데이터를 복사하는 방법을 안내합니다.
@@ -136,7 +136,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 시작하기 전에 다음을 수행하세요. 
 
 #### <a name="verify-time-accuracy"></a>시간 정확도 확인
-구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화되었는지 확인합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
+구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](/windows-server/networking/windows-time-service/windows-time-service-top)와 동기화되었는지 확인합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
 
 #### <a name="verify-connectivity"></a>연결 확인
 컴퓨터에서 사용자 환경을 기반으로 다음 URL에 액세스할 수 있는지 확인합니다. 

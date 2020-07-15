@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498053"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130627"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>다른 Azure 지역으로 Azure VM 이동
 
@@ -51,11 +51,11 @@ VM을 이동하려면 다음 단계를 수행해야 합니다.
 
      ![여러 계층에 단일 인스턴스 VM 배포](media/move-vm-overview/regular-deployment.png)
 
-* **가용성 집합에 배포되는 각 계층의 VM**: 계층의 각 VM은 가용성 집합으로 구성됩니다. [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)을 사용하면 Azure에 배포한 VM이 클러스터의 격리된 여러 하드웨어 노드에 분산되도록 할 수 있습니다. 이렇게 하면 Azure 내의 하드웨어 또는 소프트웨어에 장애가 발생해도 VM의 하위 세트만 영향을 받고 전반적인 솔루션은 사용 가능한 작동 상태를 유지할 수 있습니다.
+* **가용성 집합에 배포되는 각 계층의 VM**: 계층의 각 VM은 가용성 집합으로 구성됩니다. [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)을 사용하면 Azure에 배포한 VM이 클러스터의 격리된 여러 하드웨어 노드에 분산되도록 할 수 있습니다. 이렇게 하면 Azure 내의 하드웨어 또는 소프트웨어에 장애가 발생해도 VM의 하위 세트만 영향을 받고 전반적인 솔루션은 사용 가능한 작동 상태를 유지할 수 있습니다.
 
      ![가용성 집합 전반에 VM 배포](media/move-vm-overview/avset.png)
 
-* **가용성 영역 전반에 배포되는 각 계층의 VM**: 계층의 각 VM은 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에서 구성됩니다. Azure 지역의 가용성 영역은 장애 도메인과 업데이트 도메인의 조합입니다. 예를 들어 Azure 지역의 3개 영역에 VM을 3개 이상 만들면 장애 도메인 3개와 업데이트 도메인 3개에 VM이 효과적으로 분산됩니다. Azure 플랫폼은 업데이트 도메인에 분산된 VM을 인식하여 다른 영역에 있는 VM이 동시에 업데이트되지 않게 합니다.
+* **가용성 영역 전반에 배포되는 각 계층의 VM**: 계층의 각 VM은 [가용성 영역](../availability-zones/az-overview.md)에서 구성됩니다. Azure 지역의 가용성 영역은 장애 도메인과 업데이트 도메인의 조합입니다. 예를 들어 Azure 지역의 3개 영역에 VM을 3개 이상 만들면 장애 도메인 3개와 업데이트 도메인 3개에 VM이 효과적으로 분산됩니다. Azure 플랫폼은 업데이트 도메인에 분산된 VM을 인식하여 다른 영역에 있는 VM이 동시에 업데이트되지 않게 합니다.
 
      ![가용성 영역 배포](media/move-vm-overview/zone.png)
 

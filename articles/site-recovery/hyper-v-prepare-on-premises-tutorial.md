@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691104"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135663"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Azure로의 재해 복구용으로 온-프레미스 Hyper-V 서버 준비
 
@@ -56,12 +56,12 @@ VMM에서 Hyper-V 호스트를 관리하는 경우 온-프레미스 VMM 서버�
 
 ### <a name="prepare-vmm-for-network-mapping"></a>네트워크 매핑용 VMM 준비
 
-VMM을 사용하는 경우 [네트워크 매핑](site-recovery-network-mapping.md)은 온-프레미스 VMM VM 네트워크와 Azure 가상 네트워크 간을 매핑합니다. 매핑은 장애 조치(failover) 후에 만들어지는 Azure VM이 올바른 네트워크에 연결되도록 합니다.
+VMM을 사용하는 경우 [네트워크 매핑](./hyper-v-vmm-network-mapping.md)은 온-프레미스 VMM VM 네트워크와 Azure 가상 네트워크 간을 매핑합니다. 매핑은 장애 조치(failover) 후에 만들어지는 Azure VM이 올바른 네트워크에 연결되도록 합니다.
 
 다음과 같이 네트워크 매핑용 VMM을 준비합니다.
 
-1. Hyper-V 호스트가 있는 클라우드와 연결된 [VMM 논리 네트워크](https://docs.microsoft.com/system-center/vmm/network-logical)를 준비합니다.
-2. [VM 네트워크](https://docs.microsoft.com/system-center/vmm/network-virtual)를 논리 네트워크에 연결합니다.
+1. Hyper-V 호스트가 있는 클라우드와 연결된 [VMM 논리 네트워크](/system-center/vmm/network-logical)를 준비합니다.
+2. [VM 네트워크](/system-center/vmm/network-virtual)를 논리 네트워크에 연결합니다.
 3. VMM에서 VM을 VM 네트워크에 연결합니다.
 
 ## <a name="verify-internet-access"></a>인터넷 액세스 확인
@@ -94,5 +94,5 @@ VMM을 사용하는 경우 [네트워크 매핑](site-recovery-network-mapping.m
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Hyper-V VM에 대해 Azure로의 재해 복구 설정](tutorial-hyper-v-to-azure.md)
-> [VMM 클라우드의 Hyper-V VM에 대해 Azure로의 재해 복구 설정](tutorial-hyper-v-vmm-to-azure.md)
+> [Hyper-V VM에 대해 Azure로의 재해 복구 설정](./hyper-v-azure-tutorial.md)
+> [VMM 클라우드의 Hyper-V VM에 대해 Azure로의 재해 복구 설정](./hyper-v-vmm-azure-tutorial.md)

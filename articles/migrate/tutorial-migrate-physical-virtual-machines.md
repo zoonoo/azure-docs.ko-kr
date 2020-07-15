@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 물리적 머신�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: dbb7737d59f48cadc645be990634bb5cb0cda251
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116100"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165399"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -69,9 +69,9 @@ Server Migration을 사용하여 마이그레이션할 Azure를 준비합니다.
 
 Azure 계정에 Virtual Machine 기여자 역할을 할당합니다. 다음 항목에 대한 사용 권한을 제공합니다.
 
-    - 선택한 리소스 그룹에 VM 만들기
-    - 선택한 가상 네트워크에 VM 만들기
-    - Azure 관리 디스크에 씁니다. 
+- 선택한 리소스 그룹에 VM 만들기
+- 선택한 가상 네트워크에 VM 만들기
+- Azure 관리 디스크에 씁니다. 
 
 ### <a name="create-an-azure-network"></a>Azure 네트워크 만들기
 

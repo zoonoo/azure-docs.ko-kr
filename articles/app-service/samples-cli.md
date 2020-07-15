@@ -6,18 +6,18 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: ce10c0e95d77103f386174c7bd0ffd56adff871b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054545"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169445"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Azure App Service에 대한 CLI 샘플
 
 다음 테이블은 Azure CLI를 사용하여 빌드된 bash 셸에 대한 링크를 포함합니다.
 
-| | |
+| 스크립트 | Description |
 |-|-|
 |**앱 만들기**||
 | [앱 만들기 및 FTP를 사용하여 파일 배포](./scripts/cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱을 만들고 FTP를 사용하여 파일을 배포합니다. |

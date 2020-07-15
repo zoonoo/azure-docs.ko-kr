@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74084184"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130979"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Hyper-V 재해 복구를 위한 Azure 리소스 준비
 
@@ -98,8 +98,8 @@ Azure 체험 계정을 방금 만든 경우 본인이 해당 구독의 관리자
 ## <a name="useful-links"></a>유용한 링크
 
 자세한 정보:
-- [Azure 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [관리되는 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
+- [Azure 네트워크](../virtual-network/virtual-networks-overview.md)
+- [관리되는 디스크](../virtual-machines/windows/managed-disks-overview.md)
 
 
 

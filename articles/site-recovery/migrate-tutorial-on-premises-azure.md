@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: b978190776aee3c89d3beadde76d20c4327b012f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: ccf83bacedb667e52e9865b6d451641faa0ac414
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388919"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131192"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -132,21 +132,21 @@ Hyper-V | [복제 활성화](hyper-v-azure-tutorial.md#enable-replication)<br/><
 
 - 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다. 
 - 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
-- [Azure VM 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)는 Azure Fabric Controller와 VM 간 상호 작용을 관리합니다. 이는 Azure Backup, Site Recovery, Azure Security 같은 일부 Azure 서비스에 필요합니다.
+- [Azure VM 에이전트](../virtual-machines/extensions/agent-windows.md)는 Azure Fabric Controller와 VM 간 상호 작용을 관리합니다. 이는 Azure Backup, Site Recovery, Azure Security 같은 일부 Azure 서비스에 필요합니다.
     - VMware 머신과 물리적 서버를 마이그레이션하는 경우 모바일 서비스 설치 관리자는 Windows 머신에 사용 가능한 Azure VM 에이전트를 설치합니다. Linux VM에서는 장애 조치(failover) 후 에이전트를 설치하는 것이 좋습니다.
     - Azure VM을 보조 지역으로 마이그레이션하는 경우 마이그레이션 전에 VM에서 Azure VM 에이전트를 프로비저닝해야 합니다.
     - Hyper-V VM을 Azure로 마이그레이션하는 경우 마이그레이션 후에 Azure VM에 Azure VM 에이전트를 설치합니다.
 - VM에서 Site Recovery 공급자/에이전트를 수동으로 제거합니다. VMware VM 또는 물리적 서버를 마이그레이션하는 경우 VM에서 모바일 서비스를 제거합니다.
 - 복원력 개선:
-    - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기](../backup/quick-backup-vm-portal.md).
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](azure-to-azure-quickstart.md).
 - 보안 강화:
-    - Azure Security Center [Just-In-Time 관리]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 통해 인바운드 트래픽 액세스를 잠그고 제한합니다.
-    - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
-    - [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
+    - Azure Security Center [Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 통해 인바운드 트래픽 액세스를 잠그고 제한합니다.
+    - [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
+    - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ )에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/ )를 방문하세요.
 - 모니터링 및 관리 앱:
-    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview)를 배포하는 것이 좋습니다.
+    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../cost-management-billing/cloudyn/overview.md)를 배포하는 것이 좋습니다.
 
 ### <a name="post-migration-steps-on-premises"></a>온-프레미스의 마이그레이션 후 단계
 

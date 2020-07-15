@@ -4,12 +4,12 @@ description: Azure Site Recovery 서비스의 개요를 제공하고 재해 복�
 ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: ee387682e935522b37a5b4f9f32e53712bfb9150
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067549"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135238"
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
@@ -20,7 +20,7 @@ Azure Site Recovery 서비스를 시작합니다. 이 문서에서는 빠른 서
 Azure Recovery Services는 BCDR 전략에 기여합니다.
 
 - **Site Recovery 서비스**: Site Recovery는 중단 기간 동안에도 비즈니스 앱과 워크로드를 유지하여 비즈니스 연속성을 보장합니다. Site Recovery는 물리적 컴퓨터와 VM(가상 머신)에서 실행되는 워크로드를 기본 사이트에서 보조 위치로 복제합니다. 기본 사이트에서 중단이 발생하면 보조 위치로 장애 조치(failover)하고 여기에서 앱에 액세스합니다. 기본 위치가 다시 실행되면 장애 복구(failback)할 수 있습니다.
-- **Backup 서비스**: [Azure Backup](/azure/backup/) 서비스를 사용하여 데이터를 안전하고 복구 가능하게 유지합니다.
+- **Backup 서비스**: [Azure Backup](../backup/index.yml) 서비스를 사용하여 데이터를 안전하고 복구 가능하게 유지합니다.
 
 Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 

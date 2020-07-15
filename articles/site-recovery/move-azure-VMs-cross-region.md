@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc37cb6fa05a2be56de7bf5536d7274190257d85
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 463bd290c304d9436316c9e08778f37ce8bd0b55
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303922"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135435"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>다른 Azure 지역으로 Azure VM 이동
 
@@ -35,7 +35,7 @@ ms.locfileid: "78303922"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - VM 이동을 시작하려는 *원본* Azure 지역에 Azure VM이 있는지 확인합니다.
-- 선택한 [원본 지역 - 대상 Azure 지역 조합이 지원되는지](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) 확인하여 대상 지역을 신중하게 결정합니다.
+- 선택한 [원본 지역 - 대상 Azure 지역 조합이 지원되는지](./azure-to-azure-support-matrix.md#region-support) 확인하여 대상 지역을 신중하게 결정합니다.
 - [시나리오 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해해야 합니다.
 - [제한 사항 및 요구 사항 지원](azure-to-azure-support-matrix.md)을 검토합니다.
 - 계정 권한을 확인합니다. Azure 체험 계정을 방금 만든 경우 *자신*이 구독에 대한 관리자입니다. 관리자가 아닌 경우에는 다음을 포함하는 필요한 권한을 부여해 줄 것을 관리자에게 요청합니다.
@@ -66,13 +66,13 @@ ms.locfileid: "78303922"
 
    사용자가 원본 VM에 대해 복제를 사용하도록 설정하면 Azure Site Recovery는 가상 네트워크 및 스토리지 계정을 자동으로 검색하고 만듭니다. 이러한 리소스를 미리 만든 후 복제 사용 설정 단계의 일환으로 VM에 할당할 수도 있습니다. 하지만 대상 지역에서 다른 리소스는 수동으로 만들어야 합니다. 다음 문서를 참조하여 원본 VM 구성에 따라 가장 일반적으로 사용되는 네트워크 리소스를 만드세요.
 
-   - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer)
+   - [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)
+   - [부하 분산 장치](../load-balancer/index.yml)
    - [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
     
-   그 외의 네트워킹 구성 요소는 [Azure 네트워킹 설명서](https://docs.microsoft.com/azure/?pivot=products&panel=network)를 참조하세요. 
+   그 외의 네트워킹 구성 요소는 [Azure 네트워킹 설명서](../index.yml?pivot=products&panel=network)를 참조하세요. 
 
-4. 이동하기 전에 구성을 테스트하려면 대상 지역에서 수동으로 [비프로덕션 네트워크를 만듭니다](https://docs.microsoft.com/azure/virtual-network/quick-create-portal). 설정을 테스트해도 프로덕션 환경을 최소로만 중단하므로 테스트 과정을 진행하는 것이 좋습니다.
+4. 이동하기 전에 구성을 테스트하려면 대상 지역에서 수동으로 [비프로덕션 네트워크를 만듭니다](../virtual-network/quick-create-portal.md). 설정을 테스트해도 프로덕션 환경을 최소로만 중단하므로 테스트 과정을 진행하는 것이 좋습니다.
     
 ## <a name="copy-data-to-the-target-region"></a>대상 Azure 지역에 데이터 복사
 다음 단계에서는 Azure Site Recovery를 사용하여 대상 Azure 지역에 데이터를 복사합니다.
@@ -149,4 +149,3 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
 > [!div class="nextstepaction"]
 > [마이그레이션 후 재해 복구 설정](azure-to-azure-quickstart.md)
-

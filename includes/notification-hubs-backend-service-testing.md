@@ -4,12 +4,12 @@ ms.author: miparker
 ms.date: 06/02/2020
 ms.service: notification-hubs
 ms.topic: include
-ms.openlocfilehash: 72e4318bea7245e440db4c7d95bf7f1f38bbe268
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 5e75c5d5510f596eb7911cae0310e60b6bef67bf
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85095474"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146457"
 ---
 ### <a name="send-a-test-notification"></a>테스트 알림 보내기
 
@@ -26,9 +26,6 @@ ms.locfileid: "85095474"
    | 키                            | 값                          |
    | ------------------------------ | ------------------------------ |
    | apikey                         | <your_api_key>                 |
-
-   > [!NOTE]
-   > **PushDemo** 프로젝트의 **Config.local_secrets.cs**에서 찾을 수 있습니다.
 
 1. **본문**에 대해 **raw(원시)** 옵션을 선택하고, 형식 옵션 목록에서 **JSON**을 선택한 다음, 자리 표시자 **JSON** 콘텐츠를 포함시킵니다.
 

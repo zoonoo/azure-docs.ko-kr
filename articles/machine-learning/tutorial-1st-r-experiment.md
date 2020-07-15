@@ -1,5 +1,5 @@
 ---
-title: '자습서: R을 사용하여 기계 학습 모델 만들기'
+title: '자습서: R을 사용하여 기계 학습 모델 만들기(미리 보기)'
 titleSuffix: Azure Machine Learning
 description: 이 자습서에서는 Azure Machine Learning R SDK를 사용하여 자동차 사고로 인한 사망 확률을 예측하는 로지스틱 회귀 모델을 만듭니다.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: cb4afac3b1e73a95fa3fe703fc5bd9d3f621f23a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483383"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134684"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>자습서: R을 사용하여 기계 학습 모델 만들기(미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 AWS VM을 Azure�
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5d697c2146144ca7f4b9a8739b6863ba31845f4e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102806"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165433"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 
@@ -77,9 +77,9 @@ Azure로 마이그레이션하기 전에 VM 검색 및 마이그레이션 평가
 
 Azure 계정에 Virtual Machine 기여자 역할을 할당합니다. 다음 항목에 대한 사용 권한을 제공합니다.
 
-    - 선택한 리소스 그룹에 VM 만들기
-    - 선택한 가상 네트워크에 VM 만들기
-    - Azure 관리 디스크에 씁니다. 
+- 선택한 리소스 그룹에 VM 만들기
+- 선택한 가상 네트워크에 VM 만들기
+- Azure 관리 디스크에 씁니다. 
 
 ### <a name="create-an-azure-network"></a>Azure 네트워크 만들기
 

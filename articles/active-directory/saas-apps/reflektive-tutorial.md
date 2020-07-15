@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 76ded60421c1f6d39328ec88e964876e3eb64d78
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68383228"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>자습서: Reflektive와 Azure Active Directory 통합
 
@@ -107,11 +107,8 @@ Reflektive에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수
 
     **식별자** 텍스트에서 Reflektive 지원 팀의 확인에 따라 아래 URL 중 하나를 사용합니다.
 
-    | |
-    |--|
-    | `reflektive.com` |
-    | `https://www.reflektive.com/saml/metadata` |
-    | |
+    - `reflektive.com`
+    - `https://www.reflektive.com/saml/metadata`
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 

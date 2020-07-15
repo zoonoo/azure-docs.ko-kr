@@ -1,22 +1,22 @@
 ---
-title: 자습서 - IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
+title: '자습서: IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포'
 description: IntelliJ를 사용하여 Azure Spring Cloud에 애플리케이션을 배포합니다.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 8e473a5692c3fa2be3b0f2d823d2a36ba768d661
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: ec78b62f15851c41a3b9759f32d9c35c189f72c4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731368"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142035"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
 Azure Spring Cloud용 IntelliJ 플러그 인은 IntelliJ IDEA의 애플리케이션 배포를 지원합니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA, Community/Ultimate Edition, 버전 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
