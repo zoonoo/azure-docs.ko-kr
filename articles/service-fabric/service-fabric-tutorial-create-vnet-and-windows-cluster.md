@@ -4,16 +4,16 @@ description: 이 자습서에서는 PowerShell을 사용하여 Windows Service F
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611665"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245044"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Windows를 실행하는 Service Fabric 클러스터 배포
 
-이 자습서는 시리즈의 1부입니다. PowerShell 및 템플릿을 사용하여 Windows를 실행하는 Azure Service Fabric 클러스터를 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 및 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 배포하는 방법에 대해 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는 클라우드에서 클러스터가 실행됩니다. Azure CLI를 사용하는 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
+이 자습서는 시리즈의 1부입니다. PowerShell 및 템플릿을 사용하여 Windows를 실행하는 Azure Service Fabric 클러스터를 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 및 [네트워크 보안 그룹](../virtual-network/virtual-network-vnet-plan-design-arm.md)에 배포하는 방법에 대해 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는 클라우드에서 클러스터가 실행됩니다. Azure CLI를 사용하는 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
 이 자습서는 프로덕션 시나리오를 설명합니다. 테스트를 위해 더 작은 클러스터를 만들려면 [테스트 클러스터 만들기](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)를 참조하세요.
 
@@ -48,7 +48,7 @@ ms.locfileid: "85611665"
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 설치합니다.
+* [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
 * [Azure 클러스터](service-fabric-azure-clusters-overview.md)에 대한 주요 개념을 검토합니다.
 * 프로덕션 클러스터 배포를 [계획 및 준비](service-fabric-cluster-azure-deployment-preparation.md)합니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "85611665"
 다른 애플리케이션 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
 
 ### <a name="windows-defender"></a>Windows Defender
-[Windows Defender 바이러스 백신 프로그램](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)은 기본적으로 Windows Server 2016에 설치되어 작동합니다. 사용자 인터페이스는 기본적으로 일부 SKU에 설치되지만 필요하지는 않습니다. 템플릿에 선언된 각 노드 유형/VM 확장 집합에 대해 [Azure VM 맬웨어 방지 확장](/azure/virtual-machines/extensions/iaas-antimalware-windows)을 사용하여 Service Fabric 디렉터리 및 프로세스를 제외합니다.
+[Windows Defender 바이러스 백신 프로그램](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)은 기본적으로 Windows Server 2016에 설치되어 작동합니다. 사용자 인터페이스는 기본적으로 일부 SKU에 설치되지만 필요하지는 않습니다. 템플릿에 선언된 각 노드 유형/VM 확장 집합에 대해 [Azure VM 맬웨어 방지 확장](../virtual-machines/extensions/iaas-antimalware-windows.md)을 사용하여 Service Fabric 디렉터리 및 프로세스를 제외합니다.
 
 ```json
 {
@@ -145,8 +145,8 @@ ms.locfileid: "85611665"
 
 **매개 변수** | **예제 값** | **참고 사항** 
 |---|---|---|
-|adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. [VM에 대한 사용자 이름 요구 사항](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
-|adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다. [VM에 대한 암호 요구 사항](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. [VM에 대한 사용자 이름 요구 사항](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다. [VM에 대한 암호 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)|
 |clusterName|mysfcluster123| 클러스터의 이름입니다. 문자와 숫자만 포함할 수 있습니다. 길이는 3자에서 23자 사이일 수 있습니다.|
 |위치|southcentralus| 클러스터의 위치입니다. |
 |certificateThumbprint|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 SHA1 지문 값을 입력합니다. 예를 들면 "6190390162C988701DB5676EB81083EA608DCCF3"과 같습니다.</p> |
@@ -703,7 +703,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-방금 만든 클러스터는 이 자습서 시리즈의 다른 문서에서 사용합니다. 다음 문서로 바로 이동하지 않는 경우 요금이 발생하지 않도록 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다.
+방금 만든 클러스터는 이 자습서 시리즈의 다른 문서에서 사용합니다. 다음 문서로 바로 이동하지 않는 경우 요금이 발생하지 않도록 [클러스터를 삭제](./service-fabric-tutorial-delete-cluster.md)하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

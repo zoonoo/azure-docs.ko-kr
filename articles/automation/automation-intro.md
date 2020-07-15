@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, 업데이트 �
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: e02cfdaac602adfe455c26d9e87939586fd9738a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835277"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186183"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
@@ -53,14 +53,14 @@ Azure Automation은 다양한 공유 기능을 제공하며, 여기에는 공유
 
 Azure Automation은 대규모 환경을 더 쉽게 자동화하고 구성할 수 있게 하는 일단의 공유 리소스로 구성됩니다.
 
-* **[일정](automation-schedules.md)** - 미리 정의한 시간에 자동화 작업을 트리거합니다.
-* **[모듈](automation-integration-modules.md)** - Azure 및 기타 시스템을 관리합니다. Microsoft, 타사, 커뮤니티, 사용자 정의 cmdlet 및 DSC 리소스에 대한 Automation 계정으로 모듈을 가져올 수 있습니다.
+* **[일정](./shared-resources/schedules.md)** - 미리 정의한 시간에 자동화 작업을 트리거합니다.
+* **[모듈](./shared-resources/modules.md)** - Azure 및 기타 시스템을 관리합니다. Microsoft, 타사, 커뮤니티, 사용자 정의 cmdlet 및 DSC 리소스에 대한 Automation 계정으로 모듈을 가져올 수 있습니다.
 * **[모듈 갤러리](automation-runbook-gallery.md)** - PowerShell 갤러리와 네이티브 통합을 지원하기 때문에 Runbook을 볼 수 있고 Automation 계정으로 가져올 수 있습니다. 갤러리를 사용하면 PowerShell 갤러리 및 Microsoft 스크립트 센터에서 프로세스를 빠르게 통합하고 제작할 수 있습니다.
 * **[Python 2 패키지](python-packages.md)** - Automation 계정에 대해 Python 2 Runbook을 지원합니다.
-* **[자격 증명](automation-credentials.md)** - Runbook 및 구성이 런타임 시 사용할 수 있는 중요한 정보를 안전하게 저장합니다.
+* **[자격 증명](./shared-resources/credentials.md)** - Runbook 및 구성이 런타임 시 사용할 수 있는 중요한 정보를 안전하게 저장합니다.
 * **[연결](automation-connections.md)** - 시스템 연결을 위한 공통 정보의 이름 값 쌍을 저장합니다. 런타임 시 사용할 Runbook 및 구성의 연결은 모듈 작성자가 정의합니다.
-* **[인증서](automation-certificates.md)** - 런타임 시 Runbook 또는 DSC 구성이 액세스하는 경우 배포된 리소스을 보호하고 인증하는 데 사용되는 정보를 정의합니다. 
-* **[변수](automation-variables.md)** - Runbook 및 구성 전체에서 사용할 수 있는 콘텐츠를 보관합니다. Runbook과 이를 참조하는 구성을 수정하지 않고도 변수 값을 변경할 수 있습니다.
+* **[인증서](./shared-resources/certificates.md)** - 런타임 시 Runbook 또는 DSC 구성이 액세스하는 경우 배포된 리소스을 보호하고 인증하는 데 사용되는 정보를 정의합니다. 
+* **[변수](./shared-resources/variables.md)** - Runbook 및 구성 전체에서 사용할 수 있는 콘텐츠를 보관합니다. Runbook과 이를 참조하는 구성을 수정하지 않고도 변수 값을 변경할 수 있습니다.
 
 ### <a name="role-based-access-control"></a>역할 기반 액세스 제어
 

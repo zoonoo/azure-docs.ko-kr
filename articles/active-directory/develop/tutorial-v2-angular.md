@@ -3,7 +3,7 @@ title: Angular 단일 페이지 앱 자습서 - Azure
 titleSuffix: Microsoft identity platform
 description: Angular SPA 애플리케이션에서 Microsoft ID 플랫폼 엔드포인트의 액세스 토큰이 필요한 API를 호출하는 방법을 알아봅니다.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6d869243f7f125ef7a795d6049d0b4f70fc51361
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 7cd2d5d8728e2a0539d5f106ab39c563e6e7c382
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322773"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231695"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>자습서: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -138,7 +138,7 @@ ng generate component page-name                  # To add a new page (such as a 
 3. 다음 import 문을 `src/app/app.component.ts` 맨 위에 추가합니다.
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## <a name="sign-in-a-user"></a>사용자 로그인
@@ -148,6 +148,8 @@ ng generate component page-name                  # To add a new page (such as a 
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+    
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -269,7 +271,7 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우가 가끔 있습니다. 다음은 그 예입니다.
+사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우가 가끔 있습니다. 예를 들면 다음과 같습니다.
 
 * 암호가 만료되었으므로 사용자가 자격 증명을 다시 입력해야 할 수도 있습니다.
 * 애플리케이션이 사용자 동의가 필요한 추가 리소스 범위에 대한 액세스를 요청하고 있습니다.

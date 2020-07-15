@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: d4acecbc6d1a1d7f617b0da95da1b97dc5a3dd75
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cad92ef376a14805049772cd0bfdbac04309f6c4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743677"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185826"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>VM에 설치된 소프트웨어 검색
 
@@ -32,7 +32,7 @@ ms.locfileid: "83743677"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure 구독 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* 감시자, 작업 Runbook 및 Watcher 태스크를 보관할 [Automation 계정](automation-offering-get-started.md)
+* 감시자, 작업 Runbook 및 Watcher 태스크를 보관할 [Automation 계정](./index.yml)
 * 기능에 사용할 수 있는 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
@@ -48,7 +48,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 1. Automation 계정으로 이동하고, **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
-2. [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역을 선택합니다. 이 작업 영역은 변경 내용 추적 및 인벤토리 같은 기능에 의해 생성된 데이터를 수집합니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
+2. [Log Analytics](../azure-monitor/log-query/log-query-overview.md) 작업 영역을 선택합니다. 이 작업 영역은 변경 내용 추적 및 인벤토리 같은 기능에 의해 생성된 데이터를 수집합니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

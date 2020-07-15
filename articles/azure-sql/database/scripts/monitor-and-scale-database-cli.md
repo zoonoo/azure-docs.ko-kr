@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: e6fc57a1e0d8988666dd4fe1391e157a2a15f682
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: bd2f8005300aeb77a88be2609246f2d760154e36
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196825"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232010"
 ---
 # <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Azure CLI를 사용하여 Azure SQL Database의 단일 데이터베이스 모니터링 및 크기 조정
 
@@ -57,7 +57,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| | |
+| 스크립트 | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | 서버 명령입니다. |
 | [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | 데이터베이스의 크기 사용량 정보가 표시됩니다. |

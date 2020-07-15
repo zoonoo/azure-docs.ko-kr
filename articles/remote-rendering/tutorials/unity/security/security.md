@@ -1,16 +1,16 @@
 ---
 title: Azure Remote Rendering 및 모델 스토리지 보안
 description: 콘텐츠 보안을 위한 Remote Rendering 애플리케이션 강화
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: fa9bc317203a28d8c4302c89ddf536507d747e82
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85566680"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207805"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>자습서: Azure Remote Rendering 및 모델 스토리지 보안
 

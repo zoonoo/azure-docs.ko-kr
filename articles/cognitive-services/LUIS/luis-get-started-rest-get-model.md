@@ -3,20 +3,20 @@ title: '빠른 시작: REST API를 사용하여 모델 가져오기 - LUIS'
 titleSuffix: Azure Cognitive Services
 description: 이 REST API 빠른 시작에서는 cURL을 사용하여 발화를 추가하고 모델을 학습시킵니다.
 services: cognitive-services
-author: roy-har
+author: nitinme
 manager: diberry
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
-ms.author: v-royha
-ms.openlocfilehash: 00bc71f76b15455dd8e4f8242c5379e9e97a53f2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.author: nitinme
+ms.openlocfilehash: e5cf3160e6592a48e3a81480480ad8f01cc6af3a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119572"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206259"
 ---
 # <a name="quickstart-use-curl-and-rest-to-change-model"></a>빠른 시작: cURL 및 REST를 사용하여 모델 변경
 

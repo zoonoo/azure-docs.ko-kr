@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 6a88ca1f028efcb3b9614df532b6d2dcc9dcfac8
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 3d4ccc6ecf18eb2eecc3ccc69ed97bf1094b2035
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800907"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206464"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>자습서: Bing Image Search API를 사용하여 단일 페이지 앱 만들기
 
@@ -118,7 +118,7 @@ bingSearchOptions(this), getSubscriptionKey())">
 
 Bing Image Search API는 검색 범위를 좁히고 검색 결과를 필터링하기 위한 여러 [필터 쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters)를 제공합니다. 이 애플리케이션의 HTML 양식은 다음 매개 변수 옵션을 사용하고 표시합니다.
 
-|              |                                                                                                                                                                                    |
+| 옵션 | Description |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `where`      | 검색에 사용되는 지역/국가(위치 및 언어)를 선택하기 위한 드롭다운 메뉴입니다.                                                                                             |
 | `query`      | 검색어를 입력할 텍스트 필드입니다.                                                                                                                                 |

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 7193a186359de2e19f1e1c56a7c2ee3ac2695e1d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 03041f7c0172312828487d934ab540972dc5e2c9
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707568"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232103"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>가상 네트워크에 대한 Azure CLI 샘플
 
 다음 표에는 Azure CLI 명령을 사용하는 bash 스크립트에 대한 링크가 포함됩니다.
 
-| | |
+| 스크립트 | Description |
 |----|----|
 | [다중 계층 애플리케이션을 위한 가상 네트워크 만들기](./scripts/virtual-network-cli-sample-multi-tier-application.md) | 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 프런트 엔드 서브넷에 대한 트래픽은 HTTP 및 SSH로 제한되며, 백 엔드 서브넷에 대한 트래픽은 MySQL(3306 포트)로 제한됩니다. |
 | [2개 가상 네트워크 피어링](./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md) | 동일한 지역에 2개 가상 네트워크를 만들고 연결합니다. |

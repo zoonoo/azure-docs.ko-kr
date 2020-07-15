@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 43223db298e4ad170ea6d0687a342b3aee35500e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80130762"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231355"
 ---
 # <a name="tutorial-mount-the-cluster"></a>자습서: 클러스터 탑재
 
@@ -93,14 +93,14 @@ IP 주소와 네임스페이스 경로를 결합하여 탑재 명령의 클러�
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| 필수 설정 | |
+| 필수 설정 | Description |
 --- | ---
 ``hard`` | Azure FXT Edge Filer 클러스터에 대한 소프트 탑재는 애플리케이션 오류 및 가능한 데이터 손실과 관련이 있습니다.
 ``proto=netid`` | NFS 네트워크 오류를 적절하게 처리하도록 지원합니다.
 ``mountproto=netid`` | 탑재 작업에 대한 네트워크 오류를 적절하게 처리하도록 지원합니다.
 ``retry=n`` | 일시적인 탑재 오류를 방지하려면 ``retry=30``을 설정합니다. (포그라운드 탑재에는 다른 값이 권장됩니다.)
 
-| 기본 설정  | |
+| 기본 설정  | Description |
 --- | ---
 ``nointr``            | 클라이언트가 이 옵션을 지원하는 이전 버전의 OS 커널(2008년 4월 이전)을 사용하는 경우에는 해당 옵션을 사용하세요. "intr" 옵션이 기본값입니다.
 

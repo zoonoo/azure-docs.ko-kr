@@ -7,12 +7,12 @@ keywords: 변경 내용, 추적, 변경 내용 추적, 인벤토리, 자동화
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 211b34b4424fa5bc9b82dc1cc2a2da574ffc5d96
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743684"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185809"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Azure VM의 변경 내용 문제 해결
 
@@ -35,7 +35,7 @@ ms.locfileid: "83743684"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure 구독 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* 감시자, 작업 Runbook 및 Watcher 태스크를 보관할 [Automation 계정](automation-offering-get-started.md)
+* 감시자, 작업 Runbook 및 Watcher 태스크를 보관할 [Automation 계정](./index.yml)
 * 기능에 사용할 수 있는 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -54,7 +54,7 @@ ms.locfileid: "83743684"
 
     ![변경 사용](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역을 선택합니다. 이 작업 영역은 변경 내용 추적 및 인벤토리 같은 기능에 의해 생성된 데이터를 수집합니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
+3. [Log Analytics](../azure-monitor/log-query/log-query-overview.md) 작업 영역을 선택합니다. 이 작업 영역은 변경 내용 추적 및 인벤토리 같은 기능에 의해 생성된 데이터를 수집합니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -238,4 +238,4 @@ Azure Portal에서 변경 내용을 보는 기능도 유용하지만, 중지된 
 자세히 알아보려면 변경 내용 추적 및 인벤토리 기능에 대한 개요로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [변경 내용 추적 및 인벤토리 개요](automation-change-tracking.md)
+> [변경 내용 추적 및 인벤토리 개요](./change-tracking.md)

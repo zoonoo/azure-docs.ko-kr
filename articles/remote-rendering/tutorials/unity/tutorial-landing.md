@@ -1,16 +1,16 @@
 ---
 title: Azure Remote Rendering 자습서 방문 페이지
 description: ARR 자습서 개요 및 탐색
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6501508940672f5506d84ee32821730f7c28d5fb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e9bcabc05f0a967c788c5811dce0d99dc5cf38c9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85566926"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207693"
 ---
 # <a name="azure-remote-rendering-tutorials"></a>Azure Remote Rendering 자습서
 

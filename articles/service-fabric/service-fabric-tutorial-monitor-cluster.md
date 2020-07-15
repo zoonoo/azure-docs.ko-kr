@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 048161ec13edbd0cf474fb6598fdd9ff981077ae
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 5cde4967e85dbdab0b2d7177f9c09836a2082db2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611682"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244967"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 모니터링
 
@@ -41,7 +41,7 @@ ms.locfileid: "85611682"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure PowerShell](/powershell/azure/install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 만듭니다. 
 * 클러스터에 대해 [진단 수집](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor)을 설정합니다.
 * 클러스터에서 [EventStore 서비스](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor)를 사용하도록 설정합니다.

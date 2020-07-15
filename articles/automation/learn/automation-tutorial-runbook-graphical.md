@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 3cd5db3736d5eda88e7cad7bda1966efb2b00977
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 53031efa831f788fe0fe58146496b427f4cfb4db
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744749"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185537"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>자습서: 그래픽 Runbook 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "83744749"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* [Automation 계정](../automation-offering-get-started.md) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
+* [Automation 계정](../index.yml) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 머신. 이 머신을 중지하고 시작하므로 프로덕션 VM이 아니어야 합니다.
 
 ## <a name="step-1---create-runbook"></a>1단계 - Runbook 만들기
@@ -146,7 +146,7 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 ## <a name="step-6---add-authentication"></a>6단계 - 인증 추가
 
-이제 구독 ID를 보유할 변수가 있으므로 구독에 대한 실행 자격 증명을 사용하여 인증하도록 Runbook을 구성할 수 있습니다. 이렇게 하려면 Azure 실행 연결을 자산으로 추가합니다. 또한 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) cmdlet 및 [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) cmdlet을 캔버스에 추가해야 합니다.
+이제 구독 ID를 보유할 변수가 있으므로 구독에 대한 실행 자격 증명을 사용하여 인증하도록 Runbook을 구성할 수 있습니다. 이렇게 하려면 Azure 실행 연결을 자산으로 추가합니다. 또한 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) cmdlet 및 [Set-AzContext](/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) cmdlet을 캔버스에 추가해야 합니다.
 
 >[!NOTE]
 >PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 `Connect-AzAccount`에 대한 별칭입니다. 이러한 별칭은 그래픽 Runbook에서 사용할 수 없습니다. `Connect-AzAccount` 자체만 그래픽 Runbook에서 사용할 수 있습니다.
@@ -213,7 +213,7 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>7 단계 - 가상 머신을 시작하는 활동 추가
 
-이제 가상 머신을 시작하는 `Start-AzVM` 활동을 추가해야 합니다. Azure 구독에서 VM을 선택할 수 있지만, 지금은 해당 이름을 [Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-3.5.0) cmdlet에 하드 코딩합니다.
+이제 가상 머신을 시작하는 `Start-AzVM` 활동을 추가해야 합니다. Azure 구독에서 VM을 선택할 수 있지만, 지금은 해당 이름을 [Start-AzVM](/powershell/module/az.compute/start-azvm?view=azps-3.5.0) cmdlet에 하드 코딩합니다.
 
 1. [라이브러리] 컨트롤의 검색 필드에서 `Start-Az`를 입력합니다.
 
@@ -270,7 +270,7 @@ Runbook은 현재 `Start-AzVM` cmdlet에 지정한 리소스 그룹의 VM을 시
 
 ## <a name="step-9---create-a-conditional-link"></a>9 단계 - 조건부 링크 만들기
 
-이제 아직 시작되지 않은 VM만 시작하도록 Runbook을 수정할 수 있습니다. 이렇게 하려면 VM의 인스턴스 수준 상태를 검색하는 [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) cmdlet을 추가합니다. 그런 다음, VM 상태가 실행 중인지 또는 중지되었는지 여부를 확인하는 PowerShell 코드 조각이 있는 `Get Status`라는 PowerShell 워크플로 코드 모듈을 추가할 수 있습니다. 현재 실행 중인 상태가 중지되는 경우에만 `Get Status` 모듈의 조건부 링크에서 `Start-AzVM`을 실행합니다. 이 절차가 완료되면 Runbook에서 `Write-Output` cmdlet을 사용하여 VM이 성공적으로 시작되었는지 알려주는 메시지를 출력합니다.
+이제 아직 시작되지 않은 VM만 시작하도록 Runbook을 수정할 수 있습니다. 이렇게 하려면 VM의 인스턴스 수준 상태를 검색하는 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) cmdlet을 추가합니다. 그런 다음, VM 상태가 실행 중인지 또는 중지되었는지 여부를 확인하는 PowerShell 코드 조각이 있는 `Get Status`라는 PowerShell 워크플로 코드 모듈을 추가할 수 있습니다. 현재 실행 중인 상태가 중지되는 경우에만 `Get Status` 모듈의 조건부 링크에서 `Start-AzVM`을 실행합니다. 이 절차가 완료되면 Runbook에서 `Write-Output` cmdlet을 사용하여 VM이 성공적으로 시작되었는지 알려주는 메시지를 출력합니다.
 
 1. 그래픽 편집기에서 **MyFirstRunbook-Graphical**을 엽니다.
 
@@ -354,5 +354,4 @@ Runbook은 현재 `Start-AzVM` cmdlet에 지정한 리소스 그룹의 VM을 시
 * 그래픽 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 Runbook 작성](../automation-graphical-authoring-intro.md)을 참조하세요.
 * PowerShell Runbook을 시작하려면 [PowerShell Runbook 만들기](automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)를 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-)을 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.

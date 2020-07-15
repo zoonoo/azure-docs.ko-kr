@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: bf06515f98b21c24f5222b51e1b1c97b702c12d4
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e7c73bf45adba0638074b9d2ab1bab28970ed9b8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714494"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185435"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>자습서: PowerShell Runbook 만들기
 
@@ -43,7 +43,7 @@ PowerShell Runbook에는 PowerShell 워크플로 Runbook과 동일한 수명 주
 | 명령 실행 | 직렬 실행만 지원합니다. | 직렬 및 병렬 실행을 모두 지원합니다.|
 | Runspace | 단일 runspace에서 스크립트의 모든 항목을 실행합니다. | 별도의 runspace를 활동, 명령 또는 스크립트 블록에 사용할 수 있습니다. |
 
-PowerShell Runbook에는 이러한 차이점 외에도 PowerShell 워크플로 Runbook과 다른 몇 가지 [구문상의 차이점](https://technet.microsoft.com/magazine/dn151046.aspx)이 있습니다.
+PowerShell Runbook에는 이러한 차이점 외에도 PowerShell 워크플로 Runbook과 다른 몇 가지 [구문상의 차이점](/previous-versions/technet-magazine/dn151046(v=msdn.10))이 있습니다.
 
 ## <a name="step-1---create-runbook"></a>1단계 - Runbook 만들기
 
@@ -131,7 +131,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 지금까지 Runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하려고 합니다. 이렇게 하려면 Runbook에서 Automation 계정을 만들 때 자동으로 만들어진 실행 계정을 사용하여 인증할 수 있어야 합니다.
 
-아래 예제에서와 같이 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet을 사용하여 실행 연결이 설정됩니다. 여러 구독에서 리소스를 관리하는 경우 [Get-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0)에서 `AzContext` 매개 변수를 사용해야 합니다.
+아래 예제에서와 같이 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet을 사용하여 실행 연결이 설정됩니다. 여러 구독에서 리소스를 관리하는 경우 [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0)에서 `AzContext` 매개 변수를 사용해야 합니다.
 
 > [!NOTE]
 > PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 `Connect-AzAccount`에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](../automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
@@ -198,7 +198,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 이제 Runbook에서 Azure 구독을 인증하므로 리소스를 관리할 수 있습니다. 가상 머신을 시작하는 명령을 추가해 보겠습니다. Azure 구독에서 가상 머신을 선택할 수 있지만, 지금은 해당 이름을 Runbook에 하드 코딩하면 됩니다.
 
-1. [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet을 Runbook 스크립트에 추가하여 가상 머신을 시작합니다. 아래와 같이 cmdlet에서 이름이 `VMName`이고 리소스 그룹 이름이 `ResourceGroupName`인 가상 머신을 시작합니다.
+1. [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet을 Runbook 스크립트에 추가하여 가상 머신을 시작합니다. 아래와 같이 cmdlet에서 이름이 `VMName`이고 리소스 그룹 이름이 `ResourceGroupName`인 가상 머신을 시작합니다.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -274,9 +274,9 @@ Runbook에서 현재 Runbook에 하드 코딩된 가상 머신을 시작합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [PowerShell 문서](/powershell/scripting/overview)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
-* [그래픽 Runbook 만들기](automation-tutorial-runbook-graphical.md)
-* [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)
-* [Azure Automation Runbook 형식](../automation-runbook-types.md)
-* [Azure Automation의 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* 언어 참조 및 학습 모듈을 포함하여 PowerShell에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/overview)를 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+* 그래픽 Runbook을 시작하려면 [그래픽 Runbook 만들기](automation-tutorial-runbook-graphical.md)를 참조하세요.
+* PowerShell 워크플로 Runbook을 시작하려면 [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)를 참조하세요.
+* Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](../automation-runbook-types.md)을 참조하세요.
+* PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure Automation에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.

@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: a376c5d223121774b6c707b3bdc8edce42649e42
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 53731540c4a2861c77c02b1a4b25b60fd0e23872
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800060"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184143"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
 Bing Entity Search API를 사용하면 *엔터티* 및 *장소*에 대한 정보를 웹에서 검색할 수 있습니다. 지정된 쿼리에서 두 종류의 결과 중 하나 또는 둘 다를 요청할 수 있습니다. 아래에는 장소 및 엔터티에 대한 정의가 나와 있습니다.
 
-|||
+| 결과 | Description |
 |-|-|
 |엔터티|이름으로 찾을 수 있는 잘 알려진 사람, 장소 및 사물|
 |장소|이름  *또는* 유형으로 찾을 수 있는 식당, 호텔, 기타 현지 기업|
@@ -141,7 +141,7 @@ HTML `<body>` 태그에는 페이지 로드가 완료될 때 `getSearchSubscript
 
 HTML 양식에는 다음과 같은 컨트롤이 포함됩니다.
 
-| | |
+| 제어 | Description |
 |-|-|
 |`where`|검색에 사용되는 지역/국가(위치 및 언어)를 선택하기 위한 드롭다운 메뉴입니다.|
 |`query`|검색어를 입력할 텍스트 필드입니다.|
@@ -411,7 +411,7 @@ Bing Entity Search API[에서는 지정된 순서로 결과를 표시해야 합�
 
 `rankingResponse` 컬렉션의 각 항목은 서로 다르지만 동등한 두 가지 방식으로 실제 검색 결과 항목을 나타냅니다.
 
-| | |
+| 항목 | Description |
 |-|-|
 |`id`|`id`는 URL처럼 보이지만 링크에 사용하면 안 됩니다. 순위 결과의 `id` 형식은 답변 컬렉션의 검색 결과 항목 또는 전체 답변 컬렉션(예: `Entities`)의 `id`와 일치합니다.
 |`answerType`<br>`resultIndex`|`answerType`은 결과가 포함된 최상위 답변 컬렉션(예: `Entities`)을 나타냅니다. `resultIndex`는 해당 컬렉션 내의 결과 인덱스를 나타냅니다. `resultIndex`가 생략된 경우 순위 결과는 전체 컬렉션을 나타냅니다.
@@ -452,7 +452,7 @@ searchItemRenderers = {
 
 렌더러 함수는 다음 매개 변수를 사용할 수 있습니다.
 
-| | |
+| 매개 변수 | Description |
 |-|-|
 |`item`|URL 및 해당 설명과 같은 항목의 속성을 포함하는 JavaScript 개체입니다.|
 |`index`|해당 컬렉션 내에서 결과 항목의 인덱스입니다.|

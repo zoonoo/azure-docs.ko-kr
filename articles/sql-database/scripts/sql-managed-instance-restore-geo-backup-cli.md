@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: c6ae8d79ee40729f47a906561d6c8ae586765f5d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5468cfc733b037f6287e8536c8c85994f0840161
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019846"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231257"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>CLI를 사용하여 다른 지역으로 Managed Instance 데이터베이스 복원
 
@@ -56,7 +56,7 @@ az sql midb restore -g $resource --mi $instance -n $managedDatabase --dest-name 
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| | |
+| 스크립트 | Description |
 |---|---|
 | [az sql midb](/cli/azure/sql/midb) | Managed Instance Database 명령입니다. |
 

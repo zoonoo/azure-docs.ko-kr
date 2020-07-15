@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614063"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244806"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>자습서: Azure Monitor 로그를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
@@ -37,7 +37,7 @@ ms.locfileid: "75614063"
 이 자습서의 1부에서 [제공된 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure)을 사용한 경우 제네릭 Service Fabric Azure Resource Manager 템플릿에 다음 내용을 추가해야 합니다. Azure Monitor 로그를 사용하여 컨테이너를 모니터링하도록 설정하려는 고유한 클러스터가 있는 경우 다음을 수행합니다.
 
 * Resource Manager 템플릿을 다음과 같이 변경합니다.
-* PowerShell을 통해 배포하여 [템플릿 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)를 통해 클러스터를 업그레이드합니다. Azure Resource Manager는 리소스가 있음을 인식하므로 업그레이드로 배포됩니다.
+* PowerShell을 통해 배포하여 [템플릿 배포](./service-fabric-cluster-creation-via-arm.md)를 통해 클러스터를 업그레이드합니다. Azure Resource Manager는 리소스가 있음을 인식하므로 업그레이드로 배포됩니다.
 
 ### <a name="adding-azure-monitor-logs-to-your-cluster-template"></a>클러스터 템플릿에 Azure Monitor 로그 추가
 
@@ -233,6 +233,6 @@ Log Analytics 작업 영역으로 이동되며, 여기서 솔루션을 보고, �
 이제 컨테이너화된 애플리케이션에 대한 모니터링을 설정했으므로 다음을 시도해 보세요.
 
 * 위와 유사한 단계에 따라 Linux 클러스터에 대해 Azure Monitor 로그를 설정합니다. [이 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS)을 참조하여 Resource Manager 템플릿 내용을 변경합니다.
-* 검색 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md)를 설정하도록 Azure Monitor 로그를 구성합니다.
+* 검색 및 진단에 도움이 되는 [자동 경고](../azure-monitor/platform/alerts-overview.md)를 설정하도록 Azure Monitor 로그를 구성합니다.
 * 클러스터에 대해 구성할 Service Fabric의 [권장 성능 카운터](service-fabric-diagnostics-event-generation-perf.md) 목록을 탐색합니다.
-* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능을 알아봅니다.
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.

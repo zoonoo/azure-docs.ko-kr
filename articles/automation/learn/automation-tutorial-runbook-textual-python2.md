@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: 1203feaf6b400e91e6ab5381df0af245db0a2973
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9c587ad9b791d953dce66df2337cf0e7dca52324
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559551"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185367"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>자습서: Python Runbook 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "84559551"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-- [Automation 계정](../automation-offering-get-started.md) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
+- [Automation 계정](../index.yml) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 - Azure 가상 머신. 프로덕션 VM이 되지 않도록 이 가상 머신을 중지하고 시작합니다.
 
 ## <a name="create-a-new-runbook"></a>새 Runbook 만들기
@@ -161,7 +161,7 @@ print("Hello World!")
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Python 컴퓨팅 클라이언트를 만들고 VM을 시작하는 코드 추가
 
-Azure VM을 사용하려면 [Python용 Azure 컴퓨팅 클라이언트](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient)의 인스턴스를 만듭니다.
+Azure VM을 사용하려면 [Python용 Azure 컴퓨팅 클라이언트](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient)의 인스턴스를 만듭니다.
 
 컴퓨팅 클라이언트를 사용하여 VM을 시작합니다. 이렇게 하려면 Runbook에 다음 코드를 추가합니다.
 

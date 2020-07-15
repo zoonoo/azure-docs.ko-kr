@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982053"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243242"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -43,7 +43,7 @@ Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시
 
 ## <a name="view-metrics-of-your-apis"></a>API의 메트릭 보기
 
-API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으로 API의 상태를 확인할 수 있도록 합니다. 가장 자주 사용되는 두 메트릭은 다음과 같습니다. 사용 가능한 모든 메트릭 목록은 [지원되는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice)을 참조하세요.
+API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으로 API의 상태를 확인할 수 있도록 합니다. 가장 자주 사용되는 두 메트릭은 다음과 같습니다. 사용 가능한 모든 메트릭 목록은 [지원되는 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)을 참조하세요.
 
 * 용량: APIM 서비스를 업그레이드/다운그레이드할지 결정하는 데 도움이 됩니다. 메트릭은 1분 간격으로 내보내지며 보고 시점의 게이트웨이 용량을 반영합니다. 메트릭의 범위는 0-100이고, CPU 및 메모리 사용률 등의 게이트웨이 리소스를 기반으로 계산됩니다.
 * 요청: APIM 서비스를 통과하는 API 트래픽을 분석하는 데 도움이 됩니다. 메트릭은 분당 내보내고 응답 코드, 위치, 호스트 이름 및 오류를 포함한 차원으로 게이트웨이 요청 수를 보고합니다. 

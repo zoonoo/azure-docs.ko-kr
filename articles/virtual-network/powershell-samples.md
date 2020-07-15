@@ -15,18 +15,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: f4ba3754467efda852573989aa89bc8a4a99c469
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1e1bac855ef943bdddcc82966ff3b824bcbe2ad0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84688267"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232222"
 ---
 # <a name="azure-powershell-samples-for-virtual-network"></a>가상 네트워크에 대한 Azure PowerShell 샘플
 
 다음 표에는 Azure PowerShell 스크립트에 대한 링크가 포함됩니다.
 
-| | |
+| 스크립트 | Description |
 |----|----|
 | [다중 계층 애플리케이션을 위한 가상 네트워크 만들기](./scripts/virtual-network-powershell-sample-multi-tier-application.md) | 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 프런트 엔드 서브넷에 대한 트래픽은 HTTP로 제한되며, 백 엔드 서브넷에 대한 트래픽은 SQL, 포트 1433으로 제한됩니다. |
 | [2개 가상 네트워크 피어링](./scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md) | 동일한 지역에 2개 가상 네트워크를 만들고 연결합니다. |

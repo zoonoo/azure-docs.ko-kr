@@ -7,12 +7,12 @@ keywords: DSC, 구성, 자동화
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e7fec2bee61844ac294e5463bd5bc88ec3fb5e98
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836722"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186081"
 ---
 # <a name="configure-a-vm-with-desired-state-configuration"></a>Desired State Configuration을 사용하여 VM 구성
 
@@ -23,7 +23,7 @@ Azure Automation State Configuration을 사용하도록 설정하면 DSC(Desired
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
-* Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 참조하세요.
+* Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](./manage-runas-account.md)을 참조하세요.
 * Red Hat Enterprise Linux, CentOS 또는 Oracle Linux를 실행하는 Azure Resource Manager VM(클래식이 아님). VM 만들기에 대한 지침은 [Azure Portal에서 Linux 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md)를 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -31,7 +31,7 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 
 ## <a name="enable-a-virtual-machine"></a>가상 머신 사용
 
-State Configuration 기능을 위해 머신을 활성화하는 방법에는 여러 가지가 있습니다. 이 빠른 시작에서는 Automation 계정을 사용하여 VM의 기능을 활성화하는 방법을 설명합니다. [Azure Automation State Configuration을 통해 관리할 머신 사용](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)을 읽어 State Configuration을 위해 머신을 사용하도록 설정하는 다양한 방법에 대해 자세히 알아봅니다.
+State Configuration 기능을 위해 머신을 활성화하는 방법에는 여러 가지가 있습니다. 이 빠른 시작에서는 Automation 계정을 사용하여 VM의 기능을 활성화하는 방법을 설명합니다. [Azure Automation State Configuration을 통해 관리할 머신 사용](./automation-dsc-onboarding.md)을 읽어 State Configuration을 위해 머신을 사용하도록 설정하는 다양한 방법에 대해 자세히 알아봅니다.
 
 1. Azure Portal의 왼쪽 창에서 **Automation 계정**을 선택합니다. 왼쪽 창에 표시되지 않으면 **모든 서비스**를 클릭하고 결과 보기에서 검색합니다.
 1. 목록에서 Automation 계정을 선택합니다.
@@ -39,7 +39,7 @@ State Configuration 기능을 위해 머신을 활성화하는 방법에는 여�
 2. **추가**를 클릭하여 [VM 선택] 페이지를 엽니다.
 3. DSC를 사용하도록 설정할 가상 머신을 찾습니다. 검색 필드와 필터 옵션을 사용하여 특정 가상 머신을 찾을 수 있습니다.
 4. 가상 머신을 클릭한 다음, **연결**을 클릭합니다.
-5. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 `Node Configuration Name`으로 지정할 수 있습니다. [구성 모드](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
+5. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 `Node Configuration Name`으로 지정할 수 있습니다. [구성 모드](/powershell/scripting/dsc/managing-nodes/metaConfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
 6. **확인**을 클릭합니다. DSC 확장이 가상 머신에 배포되는 동안 상태는 `Connecting`으로 표시됩니다.
 
 ![DSC용 Azure VM 사용](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -57,7 +57,7 @@ State Configuration 기능을 위해 머신을 활성화하는 방법에는 여�
 
 ## <a name="import-the-configuration"></a>구성 가져오기
 
-이 빠른 시작에서는 컴퓨터에서 Apache HTTP Server, MySQL 및 PHP를 구성하는 DSC 구성을 사용합니다. [DSC 구성](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations)을 참조하세요.
+이 빠른 시작에서는 컴퓨터에서 Apache HTTP Server, MySQL 및 PHP를 구성하는 DSC 구성을 사용합니다. [DSC 구성](/powershell/scripting/dsc/configurations/configurations)을 참조하세요.
 
 텍스트 편집기에서 다음을 입력하고 로컬에서 **AMPServer.ps1**로 저장합니다.
 

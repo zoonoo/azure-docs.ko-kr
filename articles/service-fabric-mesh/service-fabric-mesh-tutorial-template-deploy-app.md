@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f7cb3f75dcaaeb6e0304784941dfcfc81ae6d68f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75494929"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248393"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포
 
@@ -171,7 +171,7 @@ Result
 ## <a name="retrieve-credentials-for-the-registry"></a>레지스트리의 자격 증명 검색
 
 > [!IMPORTANT]
-> 프로덕션 시나리오에서는 ACR 인스턴스에서 관리 사용자를 활성화하지 않는 것이 좋습니다. 이 예제에서는 편의상 관리 사용자를 활성화하는 것입니다. 프로덕션 시나리오에서는 사용자 및 시스템 인증에 모두 [서비스 주체](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal)를 사용해야 합니다.
+> 프로덕션 시나리오에서는 ACR 인스턴스에서 관리 사용자를 활성화하지 않는 것이 좋습니다. 이 예제에서는 편의상 관리 사용자를 활성화하는 것입니다. 프로덕션 시나리오에서는 사용자 및 시스템 인증에 모두 [서비스 주체](../container-registry/container-registry-auth-service-principal.md)를 사용해야 합니다.
 
 템플릿을 사용하여 만든 레지스트리에서 컨테이너 인스턴스를 배포하려면 배포 중에 레지스트리 자격 증명을 제공해야 합니다. 먼저 다음 명령을 사용하여 레지스트리에서 관리 사용자를 활성화합니다.
 
@@ -191,7 +191,7 @@ az acr credential show --name myContainerRegistry --query "passwords[0].value"
 
 ## <a name="download-and-explore-the-template-and-parameters-files"></a>템플릿 및 parameters 파일 다운로드/탐색
 
-Service Fabric Mesh 애플리케이션은 Azure RM(Resource Manager) 템플릿을 사용하여 배포하고 관리할 수 있는 Azure 리소스입니다. Azure 솔루션 배포 및 관리와 관련된 개념이 익숙하지 않은 경우 [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview) 및 [RM 템플릿의 구조와 구문 이해](/azure/azure-resource-manager/resource-group-authoring-templates)를 참조하세요.
+Service Fabric Mesh 애플리케이션은 Azure RM(Resource Manager) 템플릿을 사용하여 배포하고 관리할 수 있는 Azure 리소스입니다. Azure 솔루션 배포 및 관리와 관련된 개념이 익숙하지 않은 경우 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md) 및 [RM 템플릿의 구조와 구문 이해](../azure-resource-manager/templates/template-syntax.md)를 참조하세요.
 
 이 자습서에서는 To Do List 샘플을 예제로 사용합니다.  새 템플릿 및 parameters 파일을 작성하는 대신 [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) and [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 다운로드하세요.
 

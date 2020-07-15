@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8dd47d27f928cb33e5a2bbc3ba9a6ab2bc044852
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75613961"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245384"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>자습서: Service Fabric 독립 실행형 클러스터에 애플리케이션 배포
 
@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 4. 솔루션 탐색기에서 `Voting` 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택
 
-5. **연결 엔드포인트**에 대한 드롭다운을 선택하고 클러스터에서 노드 중 하나의 공용 DNS 이름을 입력합니다.  `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`)을 입력합니다. Azure에서는 FQDN(정규화된 도메인 이름)이 자동으로 제공되지 않지만 [VM 개요 페이지에서 쉽게 설정](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)할 수 있습니다.
+5. **연결 엔드포인트**에 대한 드롭다운을 선택하고 클러스터에서 노드 중 하나의 공용 DNS 이름을 입력합니다.  `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`)을 입력합니다. Azure에서는 FQDN(정규화된 도메인 이름)이 자동으로 제공되지 않지만 [VM 개요 페이지에서 쉽게 설정](../virtual-machines/linux/portal-create-fqdn.md)할 수 있습니다.
 
 6. 기본 설정 브라우저 및 유형을 클러스터 주소(이 앱이 포트 8080에 배포하는 연결 엔드포인트 - 예를 들어 ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080)를 엽니다.
 

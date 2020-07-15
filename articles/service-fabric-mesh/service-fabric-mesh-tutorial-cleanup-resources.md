@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b8ce3c795bc9ad212331ce1c1f413fe7fd6da909
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75351868"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246755"
 ---
 # <a name="tutorial-remove-azure-resources"></a>자습서: Azure 리소스 제거
 
@@ -62,4 +62,4 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 * 서비스 간 통신의 다른 예제를 보려면 [투표 앱 샘플](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp)을 탐색하세요.
 * Service Fabric 리소스 모델에 대한 자세한 내용은 [Service Fabric Mesh 리소스 모델](service-fabric-mesh-service-fabric-resources.md)을 참조하세요.
 * Service Fabric Mesh에 대한 자세한 내용은 [Service Fabric Mesh 개요](service-fabric-mesh-overview.md)를 참조하세요.
-* [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에 대해 알아봅니다.
+* [Cloud Shell](../cloud-shell/overview.md)에 대해 알아봅니다.

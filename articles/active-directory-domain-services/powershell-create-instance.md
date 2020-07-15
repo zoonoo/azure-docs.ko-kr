@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 09/05/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 9dbb8a6011b4f2aebc73df7d37e6f43e7f27b747
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 2d291af3cc6175b371f71fb63402ecb45afcba34
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734523"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223468"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 
@@ -64,7 +64,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 *AAD DC Administrators* 그룹을 만든 상태에서 [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet을 사용하여 그룹에 사용자를 추가합니다. 먼저 [Get-AzureADGroup][Get-AzureADGroup] cmdlet을 사용하여 *AAD DC Administrators* 그룹을 가져온 다음, [Get-AzureADUser][Get-AzureADUser] cmdlet을 사용하여 원하는 사용자의 개체 ID를 가져옵니다.
 
-다음 예에서 사용자 개체 ID는 UPN이 `admin@aaddscontoso.onmicrosoft.com`인 계정입니다. 이 사용자 계정을 *AAD DC Administrators* 그룹에 추가하려는 사용자의 UPN으로 바꿉니다.
+다음 예에서 사용자 개체 ID는 UPN이 `admin@contoso.onmicrosoft.com`인 계정입니다. 이 사용자 계정을 *AAD DC Administrators* 그룹에 추가하려는 사용자의 UPN으로 바꿉니다.
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -74,7 +74,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -167,7 +167,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@aaddscontoso.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"

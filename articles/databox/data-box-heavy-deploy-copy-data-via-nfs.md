@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 047c4649da298e1dcb74ec1910a49353d8be534a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711258"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206647"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>자습서: NFS를 통해 Azure Data Box Heavy에 데이터 복사
 
@@ -22,11 +22,11 @@ ms.locfileid: "84711258"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 사전 요구 사항
+> * 필수 구성 요소
 > * Data Box Heavy에 연결
 > * Data Box Heavy에 데이터 복사
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -55,7 +55,7 @@ Azure Files에 대한 공유 아래:
 
 다음 표는 데이터가 업로드되는 Data Box Heavy 및 Azure Storage 경로 URL의 공유에 대한 UNC 경로를 보여줍니다. 최종 Azure Storage 경로 URL은 UNC 공유 경로에서 파생될 수 있습니다.
  
-|                   |                                                            |
+| 스토리지           | UNC 경로                                                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Azure 블록 Blob | <li>공유 UNC 경로: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure 페이지 Blob  | <li>공유 UNC 경로: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -156,7 +156,7 @@ Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 �
 이 자습서에서는 Azure Data Box Heavy 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 사전 요구 사항
+> * 필수 구성 요소
 > * Data Box Heavy에 연결
 > * Data Box Heavy에 데이터 복사
 

@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 013281db2821c99f6942edd1322f4978e100c144
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4c873e7ec1867b6ce53cd9f4c3d5c54242a6f16
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81729845"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232341"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -167,7 +167,7 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 * [연결 문자열 가져오기](#get-the-connection-string)
 * [큐 만들기](#create-a-queue)
 * [큐에 메시지 추가](#add-messages-to-a-queue)
-* [큐의 메시지 피킹(Peeking)](#peek-at-messages -in-a-queue)
+* [큐의 메시지 피킹(Peeking)](#peek-at-messages-in-a-queue)
 * [큐의 메시지 업데이트](#update-a-message-in-a-queue)
 * [큐에서 메시지 수신 및 삭제](#receive-and-delete-messages-from-a-queue)
 * [큐 삭제](#delete-a-queue)
