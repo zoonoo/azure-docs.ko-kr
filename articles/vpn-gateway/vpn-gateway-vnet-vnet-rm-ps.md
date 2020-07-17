@@ -1,18 +1,18 @@
 ---
-title: 'VNet-VNet 연결을 사용하여 Azure 가상 네트워크를 다른 VNet에 연결: PowerShell | Microsoft Docs'
+title: 'Azure VPN Gateway vnet 간 연결을 사용 하 여 VNet을 다른 VNet에 연결: PowerShell'
 description: VNet-VNet 연결 및 PowerShell을 사용하여 가상 네트워크를 서로 연결합니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ea919a4c9554584e0da79739d3465586ae43227
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5477eea12ee41bae42365555e38aa95ca0faeb3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987105"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
@@ -24,11 +24,11 @@ ms.locfileid: "60456354"
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure Portal (클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [다양한 배포 모델 간 연결 - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [다양한 배포 모델 간 연결 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 
-## <a name="about"></a>VNet 연결 정보
+## <a name="about-connecting-vnets"></a><a name="about"></a>VNet 연결 정보
 
 VNet에 연결하는 방법은 여러 가지가 있습니다. 아래 섹션에서는 가상 네트워크를 연결하는 다양한 방법을 설명합니다.
 
@@ -44,7 +44,7 @@ VNet-VNet 연결 구성은 VNet에 쉽게 연결하기 좋은 방법입니다. V
 
 VNet 피어링을 사용하여 VNet을 연결하는 것이 좋습니다. VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 다른 제약 조건이 있습니다. 또한 [VNet 피어링 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)은 [VNet-VNet VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)과 다르게 계산됩니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
-## <a name="why"></a>VNet-VNet 연결을 만드는 이유
+## <a name="why-create-a-vnet-to-vnet-connection"></a><a name="why"></a>VNet-VNet 연결을 만드는 이유
 
 VNet-VNet 연결을 사용하여 가상 네트워크에 연결하면 좋은 이유는 다음과 같습니다.
 
@@ -58,22 +58,22 @@ VNet-VNet 연결을 사용하여 가상 네트워크에 연결하면 좋은 이�
 
 VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 하면 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
-## <a name="steps"></a>어떤 VNet-VNet 단계를 사용해야 하나요?
+## <a name="which-vnet-to-vnet-steps-should-i-use"></a><a name="steps"></a>어떤 VNet-VNet 단계를 사용해야 하나요?
 
 이 문서에서는 서로 다른 두 집합의 단계를 볼 수 있습니다. 한 단계 집합은 [동일한 구독에 상주하는 VNet](#samesub)과 관련이 있고 다른 단계 집합은 [서로 다른 구독에 상주하는 VNet](#difsub)과 관련이 있습니다.
 두 단계 집합의 결정적인 차이점은 서로 다른 구독에 상주하는 VNet에 대한 연결을 구성할 때 별도의 PowerShell 세션을 사용해야 한다는 것입니다. 
 
 이 연습에서는 구성을 결합해도 좋고, 사용할 구성만 선택해도 좋습니다. 모든 구성은 VNet-VNet 연결 형식을 사용합니다. 네트워크 트래픽은 서로 직접 연결된 VNet 사이를 흐릅니다. 이 연습에서는 TestVNet4의 트래픽이 TestVNet5로 라우팅되지 않습니다.
 
-* [동일한 구독에 있는 VNet](#samesub): 이 구성에 대한 단계는 TestVNet1 및 TestVNet4를 사용합니다.
+* [동일한 구독에 상주하는 VNet](#samesub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet4를 사용합니다.
 
   ![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [다른 구독에 있는 VNet](#difsub): 이 구성에 대한 단계는 TestVNet1 및 TestVNet5를 사용합니다.
+* [서로 다른 구독에 상주하는 VNet](#difsub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet5를 사용합니다.
 
   ![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-## <a name="samesub"></a>같은 구독에 있는 VNet을 연결하는 방법
+## <a name="how-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>같은 구독에 있는 VNet을 연결하는 방법
 
 ### <a name="before-you-begin"></a>시작하기 전에
 
@@ -83,32 +83,32 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 * 최신 버전의 Azure PowerShell 모듈을 로컬로 설치하려면 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
-### <a name="Step1"></a>1단계 - IP 주소 범위 계획
+### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>1단계 - IP 주소 범위 계획
 
 다음 단계에서는 두 개의 가상 네트워크와 해당 게이트웨이 서브넷 및 구성을 만듭니다. 그런 다음 두 VNet 간의 VPN 연결을 만듭니다. 네트워크 구성에 대한 IP 주소 범위를 계획하는 것이 중요합니다. 따라서 VNet 범위 또는 로컬 네트워크 범위가 겹치지 않는지 확인해야 합니다. 이 예에서는 DNS 서버를 포함하지 않습니다. 가상 네트워크의 이름 확인을 원하는 경우 [이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 예제에서 다음 값을 사용합니다.
 
-**TestVNet1에 대한 값:**
+**TestVNet1에 대 한 값:**
 
 * VNet 이름: TestVNet1
 * 리소스 그룹: TestRG1
 * 위치: 미국 동부
-* TestVNet1: 10.11.0.0/16 및 10.12.0.0/16
+* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * 프런트 엔드: 10.11.0.0/24
 * 백 엔드: 10.12.0.0/24
-* 게이트웨이 서브넷: 10.12.255.0/27
+* 게이트웨이 서브넷 = 10.12.255.0/27
 * 게이트웨이 이름: VNet1GW
 * 공용 IP: VNet1GWIP
-* VPNType: 경로 기반
+* VpnType: 경로 기반
 * 연결(1 대 4): VNet1 대 VNet4
 * 연결(1 대 5): VNet1 대 VNet5(예: 다른 구독의 VNet)
-* ConnectionType: VNet2VNet
+* 연결 유형: VNet 간
 
-**TestVNet4에 대한 값:**
+**TestVNet4에 대 한 값:**
 
 * VNet 이름: TestVNet4
-* TestVNet2: 10.41.0.0/16 및 10.42.0.0/16
+* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 * 프런트 엔드: 10.41.0.0/24
 * 백 엔드: 10.42.0.0/24
 * 게이트웨이 서브넷: 10.42.255.0/27
@@ -116,12 +116,12 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * 위치: 미국 서부
 * 게이트웨이 이름: VNet4GW
 * 공용 IP: VNet4GWIP
-* VPNType: 경로 기반
+* VpnType: 경로 기반
 * 연결: VNet4 대 VNet1
-* ConnectionType: VNet2VNet
+* 연결 유형: VNet 간
 
 
-### <a name="Step2"></a>2단계 - TestVNet1 만들기 및 구성
+### <a name="step-2---create-and-configure-testvnet1"></a><a name="Step2"></a>2단계 - TestVNet1 만들기 및 구성
 
 1. 구독 설정을 확인합니다.
 
@@ -150,7 +150,6 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    $VNetName1 = "TestVNet1"
    $FESubName1 = "FrontEnd"
    $BESubName1 = "Backend"
-   $GWSubName1 = "GatewaySubnet"
    $VNetPrefix11 = "10.11.0.0/16"
    $VNetPrefix12 = "10.12.0.0/16"
    $FESubPrefix1 = "10.11.0.0/24"
@@ -167,14 +166,14 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. TestVNet1에 대한 서브넷 구성 만들기. 이 예제에서는 TestVNet1이라는 가상 네트워크와 GatewaySubnet, FrontEnd 및 Backend라는 세 개의 서브넷을 만듭니다. 값을 대체할 때 언제나 게이트웨이 서브넷 이름을 GatewaySubnet라고 명시적으로 지정해야 합니다. 다른 이름을 지정하는 경우 게이트웨이 만들기가 실패합니다.
+4. TestVNet1에 대한 서브넷 구성 만들기. 이 예제에서는 TestVNet1이라는 가상 네트워크와 GatewaySubnet, FrontEnd 및 Backend라는 세 개의 서브넷을 만듭니다. 값을 대체할 때 언제나 게이트웨이 서브넷 이름을 GatewaySubnet라고 명시적으로 지정해야 합니다. 다른 이름을 지정하는 경우 게이트웨이 만들기가 실패합니다. 따라서 아래 변수를 통해 할당 되지 않습니다.
 
    다음 예제에서는 앞에서 설정한 변수를 사용합니다. 이 예제에서 게이트웨이 서브넷은 /27을 사용합니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 적어도 /28 또는 /27을 선택하여 더 많은 주소를 포함하는 큰 서브넷을 만드는 것이 좋습니다. 이렇게 하면 나중에 필요할 수도 있는 추가 구성에 맞게 충분히 주소를 사용할 수 있습니다.
 
    ```azurepowershell-interactive
    $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
    $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix1
    ```
 5. TestVNet1 만들기.
 
@@ -218,7 +217,6 @@ TestVNet1 구성이 끝나면 TestVNet4를 만듭니다. 아래 단계에 따라
    $VnetName4 = "TestVNet4"
    $FESubName4 = "FrontEnd"
    $BESubName4 = "Backend"
-   $GWSubName4 = "GatewaySubnet"
    $VnetPrefix41 = "10.41.0.0/16"
    $VnetPrefix42 = "10.42.0.0/16"
    $FESubPrefix4 = "10.41.0.0/24"
@@ -239,7 +237,7 @@ TestVNet1 구성이 끝나면 TestVNet4를 만듭니다. 아래 단계에 따라
    ```azurepowershell-interactive
    $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
    $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix4
    ```
 4. TestVNet4 만들기.
 
@@ -294,7 +292,7 @@ TestVNet1 구성이 끝나면 TestVNet4를 만듭니다. 아래 단계에 따라
    ```
 4. 연결을 확인합니다. [연결을 확인하는 방법](#verify)섹션을 참조하세요.
 
-## <a name="difsub"></a>다른 구독에 있는 VNet을 연결하는 방법
+## <a name="how-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>다른 구독에 있는 VNet을 연결하는 방법
 
 이 시나리오에서는 TestVNet1과 TestVNet5를 연결합니다. TestVNet1 및 TestVNet5는 서로 다른 구독에 상주합니다. 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다.
 
@@ -315,15 +313,15 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
 * VNet 이름: TestVNet5
 * 리소스 그룹: TestRG5
 * 위치: 일본 동부
-* TestVNet5: 10.51.0.0/16 및 10.52.0.0/16
+* TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * 프런트 엔드: 10.51.0.0/24
 * 백 엔드: 10.52.0.0/24
 * 게이트웨이 서브넷: 10.52.255.0.0/27
 * 게이트웨이 이름: VNet5GW
 * 공용 IP: VNet5GWIP
-* VPNType: 경로 기반
+* VpnType: 경로 기반
 * 연결: VNet5 대 VNet1
-* ConnectionType: VNet2VNet
+* 연결 유형: VNet 간
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>7단계 - TestVNet5 만들기 및 구성
 
@@ -461,7 +459,7 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
    $Connection15 = "VNet1toVNet5"
    New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
-4. **[구독 5]** TestVNet5에서 TestVNet1에 연결 만들기. 이 단계는 TestVNet5에서 TestVNet1까지 연결을 만드는 점을 제외하면 위의 비슷합니다. 구독 1에서 가져온 값을 기반으로 PowerShell 개체를 만드는 동일한 과정이 여기에도 적용됩니다. 이 단계에서는 공유된 키가 일치해야 합니다.
+4. **[구독 5]** TestVNet5 to TestVNet1 연결을 만듭니다. 이 단계는 TestVNet5에서 TestVNet1까지 연결을 만드는 점을 제외하면 위의 비슷합니다. 구독 1에서 가져온 값을 기반으로 PowerShell 개체를 만드는 동일한 과정이 여기에도 적용됩니다. 이 단계에서는 공유된 키가 일치해야 합니다.
 
    다음 예제를 실행하기 전에 구독 5에 연결합니다.
 
@@ -473,17 +471,17 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
    New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
 
-## <a name="verify"></a>연결을 확인하는 방법
+## <a name="how-to-verify-a-connection"></a><a name="verify"></a>연결을 확인하는 방법
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="faq"></a>VNet 간 FAQ
+## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>VNet 간 FAQ
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/) 설명서를 참조하세요.
+* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines 설명서](https://docs.microsoft.com/azure/) 를 참조 하세요.
 * BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.

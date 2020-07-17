@@ -1,20 +1,13 @@
 ---
 title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
-services: functions
-documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: glenga
-ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80656778"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -36,7 +29,7 @@ IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오
 3. **플랫폼 기능**을 선택합니다.
 4. **속성**을 선택합니다. 그러면 **가상 IP 주소** 아래에 인바운드 IP 주소가 표시됩니다.
 
-## <a name="find-outbound-ip-addresses"></a>함수 앱 아웃바운드 IP 주소
+## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>함수 앱 아웃바운드 IP 주소
 
 각 함수 앱에는 사용 가능한 아웃바운드 IP 주소 집합이 있습니다. 백 엔드 데이터베이스와 같이 함수의 아웃바운드 연결은 사용 가능한 아웃바운드 IP 주소 중 하나를 원본 IP 주소로 사용합니다. 지정된 연결에서 사용할 IP 주소는 미리 알 수 없습니다. 따라서 백 엔드 서비스에서 모든 함수 앱의 아웃바운드 IP 주소에 대해 방화벽을 열어야 합니다.
 
@@ -86,15 +79,15 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
  이 파일이 업데이트되는 시기와 IP 주소가 변경되는 시기에 대한 내용은 [다운로드 센터 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=56519)의 **세부 정보** 섹션을 펼쳐보세요.
 
-## <a name="inbound-ip-address-changes"></a>인바운드 IP 주소 변경
+## <a name="inbound-ip-address-changes"></a><a name="inbound-ip-address-changes"></a>인바운드 IP 주소 변경
 
 인바운드 IP 주소가 **변경될 수 있는 경우**는 다음과 같습니다.
 
 - 함수 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다.
 - 리소스 그룹 및 지역 조합에서 마지막 함수 앱을 삭제하고 다시 만듭니다.
-- [인증서 갱신](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates) 중인 경우와 같이 SSL 바인딩을 삭제합니다.
+- [인증서 갱신](../app-service/configure-ssl-certificate.md#renew-certificate)중과 같은 TLS 바인딩을 삭제 합니다.
 
-함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행되는 경우 인바운드 IP 주소는 위에서 나열한 것과 같은 작업을 수행하지 않은 경우에도 변경될 수 있습니다.
+함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 인바운드 IP 주소가 변경 될 수도 있습니다.
 
 ## <a name="outbound-ip-address-changes"></a>아웃바운드 IP 주소 변경
 
@@ -103,7 +96,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 * 인바운드 IP 주소를 변경할 수 있는 작업을 수행합니다.
 * App Service 계획의 가격 책정 계층을 변경합니다. 모든 가격 책정 계층에 대해 앱에서 사용할 수 있는 모든 가능한 아웃바운드 IP 주소 목록은 `possibleOutboundIPAddresses` 속성에 있습니다. [아웃바운드 IP 찾기](#find-outbound-ip-addresses)를 참조하세요.
 
-함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행되는 경우 아웃바운드 IP 주소는 위에서 나열한 것과 같은 작업을 수행하지 않은 경우에도 변경될 수 있습니다.
+함수 앱이 [소비 계획](functions-scale.md#consumption-plan)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 아웃 바운드 IP 주소가 변경 될 수도 있습니다.
 
 의도적으로 아웃바운드 IP 주소를 강제로 변경하려면 다음을 수행합니다.
 

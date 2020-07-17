@@ -1,27 +1,19 @@
 ---
-title: 빠른 시작 - Azure PowerShell을 사용하여 Windows VM 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure PowerShell을 사용하여 Windows VM 만들기
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Windows 가상 머신을 만드는 방법을 배웁니다.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 01/22/2019
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 44da9bc528883b2686adca6f4310212d785847d8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 45160e8bc406318f3b3924142899e33640ee6b73
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981488"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82097951"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Windows 가상 머신 만들기
 
@@ -92,7 +84,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 여기까지 마쳤으면 VM에 대한 RDP 연결을 닫습니다.
 
-## <a name="view-the-web-server-in-action"></a>작업에서 웹 서버 보기
+## <a name="view-the-web-server-in-action"></a>실제로 작동 중인 웹 서버 보기
 
 IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 IIS 시작 페이지를 봅니다. 이전 단계에서 가져온 VM의 공용 IP 주소를 사용합니다. 다음 예제는 기본 IIS 웹 사이트를 보여줍니다.
 

@@ -1,24 +1,25 @@
-- name: CDN 설명서
+- name: Content Delivery Network 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Azure CDN이란?
+    - name: Azure CDN(Content Delivery Network)이란?
       href: cdn-overview.md
     - name: 제품 기능 비교
       href: cdn-features.md
 - name: 빠른 시작
   items:
+    - name: 스토리지 계정 통합
+      href: cdn-create-a-storage-account-with-cdn.md
     - name: 프로필 및 엔드포인트 만들기
       href: cdn-create-new-endpoint.md
-    - name: 저장소 계정 통합
-      href: cdn-create-a-storage-account-with-cdn.md
-    - name: Azure Resource Manager 템플릿을 사용하여 프로필 만들기
-      href: create-profile-resource-manager-template.md
+    - name: 프로필 및 엔드포인트 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: create-profile-endpoint-template.md
 - name: 자습서
   items:
     - name: Azure CDN을 웹앱에 추가
       href: cdn-add-to-web-app.md
-    - name: HTTPS를 통해 사용자 지정 도메인을 사용하여 BLOB 액세스
+    - name: HTTPS를 통해 사용자 지정 도메인을 사용하여 BLOB에 액세스
       href: cdn-storage-custom-domain-https.md
     - name: 사용자 지정 도메인 추가
       href: cdn-map-content-to-custom-domain.md
@@ -26,6 +27,8 @@
       href: cdn-custom-ssl.md
     - name: 캐싱 규칙 설정
       href: cdn-caching-rules-tutorial.md
+    - name: 표준 규칙 엔진을 사용하여 HTTPS 적용
+      href: cdn-standard-rules-engine.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -38,11 +41,11 @@
       href: cdn-china-delivery.md
     - name: HTTP/2 지원
       href: cdn-http2.md
-    - name: Verizon POP 목록 검색
+    - name: POP IP 검색
       href: cdn-pop-list-api.md
     - name: Standard Verizon에서 Premium Verizon으로 마이그레이션
       href: cdn-migrate.md
-    - name: DDoS Protection
+    - name: DDoS 보호
       href: cdn-ddos.md
 - name: 방법 가이드
   items:
@@ -59,9 +62,9 @@
       items:
         - name: 엔드포인트 만들기
           href: cdn-create-endpoint-how-to.md
-        - name: Azure PowerShell로 관리
+        - name: Azure PowerShell을 사용하여 관리
           href: cdn-manage-powershell.md
-        - name: 국가/지역별 액세스 제한
+        - name: 국가 또는 지역별 액세스 제한
           href: cdn-restrict-access-by-country.md
         - name: 파일을 압축하여 성능 향상
           href: cdn-improve-performance.md
@@ -83,23 +86,25 @@
           items:
             - name: Azure 웹 콘텐츠
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.
+            - name: Azure Blob 스토리지
               href: cdn-manage-expiration-of-blob-content.md
         - name: 토큰 인증
           href: cdn-token-auth.md
-        - name: SAS 저장소 지원
+        - name: 공유 액세스 서명 스토리지 지원
           href: cdn-sas-storage-support.md
         - name: 크로스-원본 자원 공유
           href: cdn-cors.md
         - name: 리소스 모니터링
           href: cdn-resource-health.md
         - name: 규칙을 사용하여 동작 재정의
-          href: cdn-rules-engine.md
+          href: cdn-verizon-premium-rules-engine.md
         - name: Traffic Manager 사용
           href: cdn-traffic-manager.md
     - name: 분석
       href: cdn-log-analysis.md
       items:
+        - name: HTTP 원시 로그
+          href: enable-raw-logs.md
         - name: Azure 진단 로그
           href: cdn-azure-diagnostic-logs.md
         - name: Verizon의 Azure CDN에 대한 분석 도구
@@ -108,7 +113,7 @@
               href: cdn-analyze-usage-patterns.md
             - name: Verizon의 사용자 지정 보고서
               href: cdn-verizon-custom-reports.md
-        - name: Verizon의 Azure CDN Premium에 대한 분석 도구
+        - name: Verizon의 프리미엄 Azure CDN에 대한 분석 도구
           items:
             - name: 고급 HTTP 보고서 생성
               href: cdn-advanced-http-reports.md
@@ -132,17 +137,24 @@
           href: cdn-troubleshoot-compression.md
         - name: 허용된 인증 기관
           href: cdn-troubleshoot-allowed-ca.md
-- name: 참고 자료
+- name: 참조
   items:
-    - name: 규칙 엔진 참조
-      href: cdn-rules-engine-reference.md
+    - name: 표준 규칙 엔진 참조
+      href: cdn-standard-rules-engine-reference.md
+      items:
+        - name: 표준 규칙 엔진 일치 조건
+          href: cdn-standard-rules-engine-match-conditions.md
+        - name: 표준 규칙 엔진 작업
+          href: cdn-standard-rules-engine-actions.md
+    - name: Verizon Premium 규칙 엔진 참조
+      href: cdn-verizon-premium-rules-engine-reference.md
       items:
         - name: 규칙 엔진 조건식
-          href: cdn-rules-engine-reference-conditional-expressions.md
+          href: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
         - name: 규칙 엔진 일치 조건
-          href: cdn-rules-engine-reference-match-conditions.md
+          href: cdn-verizon-premium-rules-engine-reference-match-conditions.md
         - name: 규칙 엔진 기능
-          href: cdn-rules-engine-reference-features.md
+          href: cdn-verizon-premium-rules-engine-reference-features.md
         - name: HTTP 변수
           href: cdn-http-variables.md
     - name: Verizon별 HTTP 헤더
@@ -150,16 +162,16 @@
       items:
         - name: X-EC-Debug 헤더
           href: cdn-http-debug-headers.md
+    - name: Microsoft 특정 HTTP 헤더
+      href: cdn-msft-http-debug-headers.md
     - name: Azure PowerShell
       href: /powershell/module/az.cdn
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.cdn
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.cdn
     - name: REST (영문)
       href: /rest/api/cdn/
-    - name: Resource Manager 템플릿
-      href: /azure/templates/microsoft.cdn/allversions
 - name: 리소스
   items:
     - name: Azure CDN POP 위치
@@ -168,19 +180,19 @@
           href: cdn-pop-locations.md
         - name: 약어별 POP 위치
           href: cdn-pop-abbreviations.md
-    - name: Azure CDN 청구 이해
+    - name: Azure Content Delivery Network 청구
       href: cdn-billing.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
-    - name: 가격
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-cdn.html'
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=cdn'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-cdn'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=cdn'

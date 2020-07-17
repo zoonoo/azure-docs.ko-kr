@@ -1,18 +1,17 @@
 ---
-title: '경로 기반 Azure VPN Gateway 만들기: CLI | Microsoft Docs'
+title: '경로 기반 Azure VPN Gateway 만들기: CLI'
 description: CLI를 사용하여 VPN 게이트웨이를 만드는 방법을 신속하게 알아보기
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: f5f62a6bfa1baa205e0496dd901f1f1eef660079
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 0cb03f827c8174932f235ec8ea327225da76ef4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987703"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>CLI를 사용하여 경로 기반 VPN 게이트웨이 만들기
 
@@ -29,15 +28,15 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="vnet"></a>가상 네트워크 만들기
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>가상 네트워크 만들기
 
 [az network vnet create](/cli/azure/network/vnet) 명령을 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 **EastUS** 위치에 **VNet1**이라는 가상 네트워크를 만듭니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az network vnet create \
   -n VNet1 \
   -g TestRG1 \
@@ -47,11 +46,11 @@ az network vnet create \
   --subnet-prefix 10.1.0.0/24
 ```
 
-## <a name="gwsubnet"></a>게이트웨이 서브넷 추가
+## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>게이트웨이 서브넷 추가
 
 게이트웨이 서브넷은 가상 네트워크 게이트웨이 서비스가 사용하는 예약된 IP 주소를 포함합니다. 다음 예제를 사용하여 게이트웨이 서브넷을 추가합니다.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
@@ -59,7 +58,7 @@ az network vnet subnet create \
   --address-prefix 10.1.255.0/27 
 ```
 
-## <a name="PublicIP"></a>공용 IP 주소 요청
+## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>공용 IP 주소 요청
 
 VPN 게이트웨이에는 동적으로 할당된 공용 IP 주소가 있어야 합니다. 공용 IP 주소는 가상 네트워크용으로 만들 VPN Gateway에 할당됩니다. 다음 예제를 사용하여 공용 IP 주소를 요청합니다.
 
@@ -70,7 +69,7 @@ az network public-ip create \
   --allocation-method Dynamic 
 ```
 
-## <a name="CreateGateway"></a>VPN 게이트웨이 만들기
+## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>VPN 게이트웨이 만들기
 
 [az network vnet-gateway create](/cli/azure/group) 명령을 사용하여 VPN Gateway를 만듭니다.
 
@@ -91,7 +90,7 @@ az network vnet-gateway create \
 
 VPN 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다.
 
-## <a name="viewgw"></a>VPN 게이트웨이 보기
+## <a name="view-the-vpn-gateway"></a><a name="viewgw"></a>VPN 게이트웨이 보기
 
 ```azurecli-interactive
 az network vnet-gateway show \
@@ -101,7 +100,7 @@ az network vnet-gateway show \
 
 응답은 다음과 유사합니다.
 
-```
+```output
 {
   "activeActive": false,
   "bgpSettings": null,
@@ -159,7 +158,7 @@ az network public-ip show \
 
 예제 응답:
 
-```
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"a12d4d03-b27a-46cc-b222-8d9364b8166a\"",
@@ -170,6 +169,7 @@ az network public-ip show \
     "etag": null,
     "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
 ```
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 만든 리소스가 더 이상 필요하지 않으면 [az group delete](/cli/azure/group) 명령을 사용하여 리소스 그룹을 삭제합니다. 그러면 리소스 그룹 및 포함된 모든 리소스가 삭제됩니다.

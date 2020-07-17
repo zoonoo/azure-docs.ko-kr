@@ -1,19 +1,17 @@
 ---
-title: Azure VPN Gateway에 Cisco ASA 디바이스를 연결하는 샘플 구성 | Microsoft Docs
+title: Azure VPN gateway에 Cisco GLOBAL.ASA 장치를 연결 하기 위한 샘플 구성
 description: 이 문서에서는 Azure VPN Gateway에 Cisco ASA 디바이스를 연결하는 샘플 구성을 제공합니다.
 services: vpn-gateway
-author: WenJason
+author: yushwang
 ms.service: vpn-gateway
-ms.topic: article
-origin.date: 10/19/2018
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: how-to
+ms.date: 10/19/2018
+ms.author: yushwang
+ms.openlocfilehash: ec370ca3aa8d89111dcb4737701c7ea58cd48195
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84986099"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 디바이스(IKEv2/BGP 아님)
 이 문서에서는 Azure VPN Gateway에 Cisco ASA(적응 보안 어플라이언스) 디바이스를 연결하는 샘플 구성을 제공합니다. 이 예제는 BGP(경계 게이트웨이 프로토콜) 없이 IKEv2를 실행하는 Cisco ASA 디바이스에 적용됩니다. 
@@ -28,7 +26,7 @@ ms.locfileid: "60648762"
 | 테스트 모델           | ASA 5505                          |
 | 테스트 버전         | 9.2                               |
 | IKE 버전            | IKEv2                             |
-| BGP                    | 아닙니다.                                |
+| BGP                    | 아니요                                |
 | Azure VPN 게이트웨이 유형 | 경로 기반 VPN Gateway           |
 |                        |                                   |
 
@@ -112,13 +110,13 @@ Azure 구성을 빌드하는 단계별 지침은 [단일 VPN 터널 설정](vpn-
 * 디바이스에서 모든 이름 및 정책 번호가 고유한지 확인합니다.
 * 디바이스에서 암호화 알고리즘이 지원되는지 확인합니다.
 * 다음 **자리 표시자 값**을 구성에 대한 실제 값으로 바꿉니다.
-  - 외부 인터페이스 이름: **outside**
+  - 외부 인터페이스 이름: **외부**
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**
   - IKE: **Pre_Shared_Key**
   - 가상 네트워크 및 로컬 네트워크 게이트웨이 이름: **VNetName** 및 **LNGName**
   - 가상 네트워크 및 온-프레미스 네트워크 주소 **접두사**
-  - 적절한 **네트워크 마스크**
+  - 적절 한 **네트워크 마스크**
 
 #### <a name="sample-script"></a>샘플 스크립트
 
@@ -303,4 +301,3 @@ sysopt connection tcpmss 1350
 
 ## <a name="next-steps"></a>다음 단계
 활성-활성 크로스-프레미스 및 VNet 간 연결을 구성하려면 [활성-활성 VPN Gateway 구성](vpn-gateway-activeactive-rm-powershell.md)을 참조하세요.
-<!--Update_Description: wording update -->

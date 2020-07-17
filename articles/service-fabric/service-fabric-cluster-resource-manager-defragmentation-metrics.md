@@ -1,25 +1,15 @@
 ---
-title: Azure Service Fabric에서 메트릭의 조각 모음 | Microsoft Docs
-description: 서비스 패브릭에서 메트릭에 대한 전략으로써 조각 모음 또는 압축 사용의 개요
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric의 메트릭 조각 모음
+description: Service Fabric의 메트릭에 대 한 전략으로 조각 모음 또는 압축을 사용 하는 방법에 대해 알아봅니다. 이 기술은 매우 큰 서비스에 유용 합니다.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75563363"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>서비스 패브릭에서 부하 및 메트릭의 조각 모음
 클러스터의 부하 메트릭을 관리하기 위한 Service Fabric Cluster Resource Manager의 기본 전략은 부하를 분산하는 것입니다. 노드가 균등하게 사용되도록 하면 핫스폿 및 콜드스폿이 방지되어 경합 및 리소스 낭비를 야기하지 않습니다. 클러스터에서 워크로드를 분산하는 것은 오류가 지정된 워크로드의 많은 부분을 사용하지 않도록 하기 때문에 오류를 극복하는 측면에서 가장 안전한 방법입니다. 
@@ -42,7 +32,7 @@ Service Fabric Cluster Resource Manager는 조각 모음이라는 다른 로드 
 
 <center>
 
-![분산 및 조각 모음 클러스터 비교][Image1]
+![분산 된 클러스터 및 조각 모음 클러스터 비교][Image1]
 </center>
 
 분산된 경우에 가장 큰 서비스 개체 중 하나를 배치하는 데 필요한 이동 수를 고려합니다. 조각 모음된 클러스터에서는 다른 서비스가 이동할 때까지 기다릴 필요 없이 대량의 워크로드를 4개 또는 5개의 노드에 배치할 수 있습니다.
@@ -98,7 +88,7 @@ ClusterManifest.xml:
 
 
 ## <a name="next-steps"></a>다음 단계
-- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 확인하세요.
-- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
+- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대 한 자세한 내용은 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md) 문서를 참조 하세요.
+- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭에 대 한 자세한 내용 및 구성 방법에 대 한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md) 를 확인 하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png

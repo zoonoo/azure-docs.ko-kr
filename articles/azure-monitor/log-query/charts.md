@@ -1,24 +1,16 @@
 ---
 title: Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기 | Microsoft Docs
 description: 로그 데이터를 여러 다른 방법으로 표시하기 위한 Azure Monitor의 다양한 시각화에 대해 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 07d0866bd697587da170a00e8077a57035989d32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 08/16/2018
+ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594082"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77670324"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기
 
@@ -57,7 +49,7 @@ Perf
 | summarize avg(CounterValue), percentiles(CounterValue, 50, 95)  by bin(TimeGenerated, 1h)
 ```
 
-**꺾은선형** 차트 표시 옵션을 선택합니다.
+**꺾은선형** 차트 표시 옵션을 선택 합니다.
 
 ![꺾은선형 차트](media/charts/charts-and-diagrams-multiSeries.png)
 

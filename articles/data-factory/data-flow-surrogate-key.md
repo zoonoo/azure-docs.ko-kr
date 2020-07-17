@@ -1,55 +1,85 @@
 ---
-title: Azure Data Factory Mapping Data Flow 서로게이트 키 변환
-description: 변환을 사용 하 여 Azure Data Factory의 매핑 데이터 흐름 서로게이트 키 순차 키 값을 생성 하는 방법
+title: 매핑 데이터 흐름의 서로게이트 키 변환
+description: Azure Data Factory의 데이터 흐름의 매핑 서로게이트 키 변환을 사용 하 여 순차적 키 값을 생성 하는 방법
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/12/2019
-ms.openlocfilehash: eaa1c577f7e208400d3430222b006e0dbbd7956a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom: seo-lt-2019
+ms.date: 04/08/2020
+ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61350626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81606289"
 ---
-# <a name="mapping-data-flow-surrogate-key-transformation"></a>데이터 흐름 서로게이트 키 변환 매핑
+# <a name="surrogate-key-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 서로게이트 키 변환 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-서로게이트 키 변환을 사용하여 증가하는 비업무용 임의 키 값을 데이터 흐름 행 집합에 추가합니다. 이는 차원 테이블의 각 구성원이 Kimball DW 방법론의 일부인 비업무용 키인 고유 키를 가져야 하는 별모양 스키마 분석 데이터 모델에서 차원 테이블을 디자인할 때 유용합니다.
+서로게이트 키 변환을 사용 하 여 데이터의 각 행에 증분 키 값을 추가 합니다. 이 기능은 별모양 스키마 분석 데이터 모델에서 차원 테이블을 디자인할 때 유용 합니다. 별모양 스키마에서 차원 테이블의 각 멤버에는 비 비즈니스 키인 고유 키가 필요 합니다.
+
+## <a name="configuration"></a>Configuration
 
 ![서로게이트 키 변환](media/data-flow/surrogate.png "서로게이트 키 변환")
 
-"키 열"은 새로운 서로게이트 키 열에 제공할 이름입니다.
+**키 열:** 생성 된 서로게이트 키 열의 이름입니다.
 
-"시작 값"은 증분 값의 시작점입니다.
+**시작 값:** 가장 작은 키 값이 생성 됩니다.
 
-## <a name="increment-keys-from-existing-sources"></a>기존 원본에서 키를 증가
+## <a name="increment-keys-from-existing-sources"></a>기존 원본에서 키 증가
 
-원본에 존재 하는 값에서 시퀀스를 시작 하려는 경우에 서로게이트 키 변환 바로 다음 파생 열 변환을 사용 하 여 수 있으며 두 값을 함께 추가:
+원본에 있는 값에서 시퀀스를 시작 하려면 서로게이트 키 변환 뒤의 파생 열 변환을 사용 하 여 두 값을 함께 추가 합니다.
 
-![SK 추가 최대](media/data-flow/sk006.png "서로게이트 키 변환 추가 최대")
+![최대 추가](media/data-flow/sk006.png "서로게이트 키 변환 최대값 추가")
 
-이전 max 사용 하 여 키 값을 시드를 사용할 수 있는 두 가지 기술 가지 있습니다.
+### <a name="increment-from-existing-maximum-value"></a>기존 최 댓 값에서 증가
 
-### <a name="database-sources"></a>데이터베이스 원본
+키 값을 이전 max로 초기값으로 설정 하려면 원본 데이터가 있는 위치에 따라 두 가지 방법을 사용할 수 있습니다.
 
-원본 변환을 사용 하 여 원본에서 max ()를 선택 하려면 "Query" 옵션을 사용 합니다.
+#### <a name="database-sources"></a>데이터베이스 원본
 
-![중요 한 쿼리를 서로게이트](media/data-flow/sk002.png "서로게이트 키 변환 쿼리")
+SQL 쿼리 옵션을 사용 하 여 원본에서 MAX ()를 선택 합니다. 예를 들어`Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
-### <a name="file-sources"></a>파일 원본
+![서로게이트 키 쿼리](media/data-flow/sk002.png "서로게이트 키 변환 쿼리")
 
-파일에 이전 최대 값이 있는 경우에 집계 변환 함께 소스 변환에 사용 하 고 max () 식 함수를 사용 하 여 이전 최대 값을 검색할 수 있습니다.
+#### <a name="file-sources"></a>파일 원본
 
-![키 파일을 서로게이트](media/data-flow/sk008.png "서로게이트 키 파일")
+이전 max 값이 파일에 있으면 `max()` 집계 변환에서 함수를 사용 하 여 이전 최대값을 가져옵니다.
 
-두 경우 모두 이전 최대 값이 포함 된 소스와 함께 들어오는 새 데이터를 조인 해야 합니다.
+![서로게이트 키 파일](media/data-flow/sk008.png "서로게이트 키 파일")
 
-![서로게이트 키 조인의](media/data-flow/sk004.png "서로게이트 키 조인")
+두 경우 모두 들어오는 새 데이터를 이전 max 값을 포함 하는 원본과 함께 조인 해야 합니다.
+
+![서로게이트 키 조인](media/data-flow/sk004.png "서로게이트 키 조인")
+
+## <a name="data-flow-script"></a>데이터 흐름 스크립트
+
+### <a name="syntax"></a>구문
+
+```
+<incomingStream> 
+    keyGenerate(
+        output(<surrogateColumnName> as long),
+        startAt: <number>L
+    ) ~> <surrogateKeyTransformationName>
+```
+
+### <a name="example"></a>예제
+
+![서로게이트 키 변환](media/data-flow/surrogate.png "서로게이트 키 변환")
+
+위의 서로게이트 키 구성에 대 한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
+
+```
+AggregateDayStats
+    keyGenerate(
+        output(key as long),
+        startAt: 1L
+    ) ~> SurrogateKey1
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 예에서 사용 된 [조인](data-flow-join.md) 및 [파생 열](data-flow-derived-column.md) 변환 합니다.
+이 예에서는 [조인](data-flow-join.md) 및 [파생 열](data-flow-derived-column.md) 변환을 사용 합니다.

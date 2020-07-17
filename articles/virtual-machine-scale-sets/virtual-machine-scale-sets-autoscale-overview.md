@@ -1,38 +1,31 @@
 ---
-title: Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요 | Microsoft Docs
+title: Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 description: 성능이나 확정된 일정에 따라 Azure 가상 머신 확장 집합의 크기를 자동으로 조정할 수 있는 다양한 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
+author: avirishuv
+ms.author: avverma
+ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.subservice: autoscale
+ms.date: 06/30/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 11207dceb29c779c081c140ee8cd362d8a217acf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856750"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 Azure 가상 머신 확장 집합은 애플리케이션을 실행하는 VM 인스턴스의 수를 자동으로 늘리거나 줄입니다. 자동화되고 탄력적인 이 동작은 관리 오버헤드를 줄여 애플리케이션의 성능을 모니터링하고 최적화합니다. 긍정적인 고객 만족을 위해 허용되는 성능을 정의하는 규칙을 만듭니다. 정의된 임계값이 충족되면 자동 크기 조정 규칙에 따라 확장 집합의 용량을 조정하는 작업을 수행합니다. 확정된 시간에 확장 집합의 용량을 자동으로 늘리거나 줄이도록 이벤트를 예약할 수도 있습니다. 이 문서에서는 사용 가능한 성능 메트릭과 자동 크기 조정에서 수행할 수 있는 작업에 대해 간략히 설명합니다.
 
 
 ## <a name="benefits-of-autoscale"></a>자동 크기 조정의 이점
-애플리케이션에 대한 요구가 증가하면 확장 집합의 VM 인스턴스에 대한 로드도 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다.
+애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다.
 
-이러한 VM 인스턴스가 만들어지고 애플리케이션이 배포되면 확장 집합에서 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 메모리), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간 및 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
+이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 메모리), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간 및 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
 
-저녁이나 주말에는 애플리케이션에 대한 요구가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 요구를 충족하는 데 필요한 인스턴스 수만 실행하므로 확장 집합을 실행하는 데 드는 비용을 줄여줍니다.
+저녁이나 주말에는 애플리케이션 수요가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 수요를 충족하는 데 필요한 수의 인스턴스만 실행하므로 확장 집합의 실행 비용을 줄입니다.
 
 
 ## <a name="use-host-based-metrics"></a>호스트 기반 메트릭 사용
@@ -55,7 +48,7 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 | 메트릭 원본        | 사용 사례                                                                                                                     |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | 현재 확장 집합    | 추가 에이전트를 설치하거나 구성할 필요가 없는 호스트 기반 메트릭의 경우                                  |
-| Storage 계정      | Azure 진단 확장에서 Azure 저장소에 성능 메트릭을 기록한 다음 자동 크기 조정 규칙을 트리거하는 데 이 메트릭을 사용합니다. |
+| 스토리지 계정      | Azure 진단 확장에서 Azure Storage에 성능 메트릭을 기록한 다음 자동 크기 조정 규칙을 트리거하는 데 이 메트릭을 사용합니다. |
 | Service Bus 큐    | 애플리케이션 또는 다른 구성 요소에서 Azure Service Bus 큐에 있는 메시지를 전송하여 규칙을 트리거 할 수 있습니다.                   |
 | Application Insights | 애플리케이션에 설치되어 앱에서 메트릭을 직접 스트림하는 계측 패키지입니다.                         |
 
@@ -84,18 +77,18 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 | 최대          |
 | 합계            |
 | 마지막             |
-| 카운트            |
+| 개수            |
 
 다음 연산자 중 하나를 사용하여 메트릭과 정의된 임계값을 비교하면 자동 크기 조정 규칙이 트리거됩니다.
 
 | 연산자                 |
 |--------------------------|
 | 초과             |
-| 다음보다 크거나 같음 |
-| 다음보다 적음                |
-| 다음보다 작거나 같음    |
-| 다음과 같음                 |
-| 다음과 같지 않음             |
+| 크거나 같음 |
+| 보다 작음                |
+| 작거나 같음    |
+| 같음                 |
+| 같지 않음             |
 
 
 ### <a name="actions-when-rules-trigger"></a>규칙 트리거 시 작업
@@ -112,7 +105,7 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 
 
 ## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>Azure 진단 확장이 있는 게스트 내 VM 메트릭
-Azure 진단 확장은 VM 인스턴스 내부에서 실행되는 에이전트입니다. 에이전트는 성능 메트릭을 모니터링하고 Azure 저장소에 저장합니다. 이러한 성능 메트릭에는 디스크에 대한 *AverageReadTime* 또는 CPU에 대한 *PercentIdleTime*과 같은 VM 상태에 대한 자세한 정보가 포함됩니다. CPU 사용률이나 메모리 사용량 외에도 VM 성능에 대한 자세한 인식에 따라 자동 크기 조정 규칙을 만들 수 있습니다.
+Azure 진단 확장은 VM 인스턴스 내부에서 실행되는 에이전트입니다. 에이전트는 성능 메트릭을 모니터링하고 Azure Storage에 저장합니다. 이러한 성능 메트릭에는 디스크에 대한 *AverageReadTime* 또는 CPU에 대한 *PercentIdleTime*과 같은 VM 상태에 대한 자세한 정보가 포함됩니다. CPU 사용률이나 메모리 사용량 외에도 VM 성능에 대한 자세한 인식에 따라 자동 크기 조정 규칙을 만들 수 있습니다.
 
 Azure 진단 확장을 사용하려면 VM 인스턴스에 대한 Azure 스토리지 계정을 만들고, Azure 진단 에이전트를 설치한 다음, 특정 성능 카운터를 스토리지 계정에 스트림하도록 VM을 구성해야 합니다.
 

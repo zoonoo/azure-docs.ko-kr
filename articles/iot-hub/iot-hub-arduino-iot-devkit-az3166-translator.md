@@ -1,20 +1,18 @@
 ---
-title: Azure Functions 및 Cognitive Services를 사용하는 IoT DevKit 번역기 만들기 | Microsoft Docs
+title: Azure Functions, Cognitive Services, IoT DevKit를 사용 하 여 변환기 만들기
 description: IoT DevKit에서 마이크를 사용하여 음성 메시지를 수신한 다음, 영어로 번역된 텍스트로 처리하기 위해 Azure Cognitive Services를 사용합니다.
 author: liydu
-manager: jeffya
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: df7e7b426a8c85c8051d7f588c706a6f8811e183
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8e840a1ae7161ea3e7b370889a1f0fb648ca120e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "73953348"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Azure Functions 및 Cognitive Services에서 IoT DevKit AZ3166을 사용하여 언어 번역기 만들기
 
@@ -47,14 +45,14 @@ ms.locfileid: "60518953"
 
 ## <a name="use-speech-service-with-azure-functions"></a>Azure Functions에서 Speech Service 사용
 
-1. VS Code에서 `F1` 키를 클릭한 다음, **Azure IoT Device Workbench: Provision Azure Services...**(Azure 서비스 프로비전...)을 입력하고 선택합니다. ![Azure 서비스 프로비전](media/iot-hub-arduino-iot-devkit-az3166-translator/provision.png)
+1. VS Code에서를 클릭 하 `F1` 고 **Azure IoT 장치 워크 벤치: Azure 서비스** ![ 프로 비전 ...을 입력 하 고 선택 합니다. Azure 서비스 프로 비전](media/iot-hub-arduino-iot-devkit-az3166-translator/provision.png)
 
 1. 다음 단계에 따라 Azure IoT Hub 및 Azure Functions의 프로비전을 완료합니다.
    ![단계 프로비전](media/iot-hub-arduino-iot-devkit-az3166-translator/provision-steps.png)
 
    만든 Azure IoT Hub 디바이스 이름을 적어 둡니다.
 
-1. 열기 `Functions\DevKitTranslatorFunction.cs` 장치 이름과 적어둔 음성 서비스 키를 사용 하 여 코드의 다음 줄을 업데이트 합니다.
+1. 에서 적어 `Functions\DevKitTranslatorFunction.cs` 둔 장치 이름 및 음성 서비스 키를 사용 하 여 다음 코드 줄을 열고 업데이트 합니다.
    ```csharp
    // Subscription Key of Speech Service
    const string speechSubscriptionKey = "";
@@ -66,7 +64,7 @@ ms.locfileid: "60518953"
    const string deviceName = "";
    ```
 
-1. `F1` 키를 클릭한 다음, **Azure IoT Device Workbench: Deploy to Azure...**(Azure에 배포...)를 입력하고 선택합니다. VS Code에서 다시 배포를 위한 확인을 요청하는 경우 **예**를 클릭합니다.
+1. `F1`을 클릭 하 고 **Azure IoT 장치 워크 벤치: Azure에 배포**...를 입력 하 고 선택 합니다. 다시 배포 확인을 묻는 메시지가 표시 되 VS Code 면 **예**를 클릭 합니다.
    ![배포 경고](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-warning.png)
 
 1. 배포에 성공했는지 확인합니다.
@@ -91,13 +89,13 @@ ms.locfileid: "60518953"
 
    ![DevKit 구성 모드](media/iot-hub-arduino-iot-devkit-az3166-translator/devkit-configuration-mode.png)
 
-1. `F1` 키를 클릭한 다음, **Azure IoT Device Workbench: Configure Device Settings... > Config Device Connection String**(디바이스 설정 구성... > 디바이스 연결 문자열 구성)을 입력하고 선택합니다. **Select IoT Hub Device Connection String**(IoT Hub 디바이스 연결 문자열 선택)을 선택하여 DevKit로 구성합니다.
+1. `F1`을 클릭 하 고 **Azure IoT 장치 워크 벤치: 장치 설정 구성 ... > 구성 장치 연결 문자열**을 입력 하 고 선택 합니다. **Select IoT Hub Device Connection String**(IoT Hub 디바이스 연결 문자열 선택)을 선택하여 DevKit로 구성합니다.
    ![연결 문자열 구성](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string.png)
 
 1. 완료되면 알림이 표시됩니다.
    ![연결 문자열 구성 성공](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string-success.png)
 
-1. `F1` 키를 다시 클릭한 다음, **Azure IoT Device Workbench: 디바이스 코드 업로드**를 입력하고 선택합니다. 컴파일을 시작하고 코드를 DevKit로 업로드합니다.
+1. `F1` 키를 다시 클릭하고, **Azure IoT Device Workbench: 디바이스 코드 업로드**를 입력하고 선택합니다. 컴파일을 시작하고 코드를 DevKit로 업로드합니다.
    ![디바이스 업로드](media/iot-hub-arduino-iot-devkit-az3166-translator/device-upload.png)
 
 ## <a name="test-the-project"></a>프로젝트 테스트

@@ -1,26 +1,17 @@
 ---
-title: Azure Service Fabric 리소스 모델 소개 | Microsoft Docs
+title: Azure Service Fabric 리소스 모델 소개
 description: Service Fabric Mesh 애플리케이션을 정의하는 간단한 방법인 Service Fabric 리소스 모델에 대해 알아봅니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: vturecek
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847009"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Service Fabric 리소스 모델 소개
 
@@ -84,7 +75,7 @@ Mesh 애플리케이션이 둘 이상의 서비스로 구성되면 동일한 노
 
 ## <a name="packaging-and-deployment"></a>패키징 및 배포
 
-리소스 모델을 기반으로 하는 Service Fabric Mesh 애플리케이션은 Docker 컨테이너로 패키징됩니다.  Service Fabric Mesh는 공유되는 다중 테넌트 환경이며 컨테이너는 높은 수준의 격리를 제공합니다.  이러한 애플리케이션은 JSON 형식 또는 YAML 형식(이후 JSON으로 변환됨)을 사용하여 설명됩니다. Azure Service Fabric 메시 망상 조직 응용 프로그램을 배포 하는 경우 응용 프로그램에 설명 하는 데 JSON은는 Azure Resource Manager 템플릿입니다. 리소스는 Azure 리소스에 매핑됩니다.  망상 조직 응용 프로그램을 Service Fabric 클러스터를 배포 하는 경우 (독립 실행형 또는 Azure 호스팅), 응용 프로그램에 설명 하는 데 JSON은 Azure Resource Manager 템플릿과 유사 합니다.  배포가 완료되면 Mesh 애플리케이션은 HTTP 인터페이스 또는 Azure CLI를 통해 관리할 수 있습니다. 
+리소스 모델을 기반으로 하는 Service Fabric Mesh 애플리케이션은 Docker 컨테이너로 패키징됩니다.  Service Fabric Mesh는 공유되는 다중 테넌트 환경이며 컨테이너는 높은 수준의 격리를 제공합니다.  이러한 애플리케이션은 JSON 형식 또는 YAML 형식(이후 JSON으로 변환됨)을 사용하여 설명됩니다. Azure Service Fabric 메시에 메시 응용 프로그램을 배포 하는 경우 응용 프로그램을 설명 하는 데 사용 되는 JSON은 Azure Resource Manager 템플릿입니다. 리소스는 Azure 리소스에 매핑됩니다.  Service Fabric 클러스터 (독립 실행형 또는 Azure 호스팅)에 메시 응용 프로그램을 배포 하는 경우 응용 프로그램을 설명 하는 데 사용 되는 JSON은 Azure Resource Manager 템플릿과 비슷한 형식입니다.  배포가 완료되면 Mesh 애플리케이션은 HTTP 인터페이스 또는 Azure CLI를 통해 관리할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계 

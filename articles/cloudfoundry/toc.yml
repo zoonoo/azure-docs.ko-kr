@@ -1,5 +1,5 @@
 - name: Cloud Foundry 설명서
-  href: index.md
+  href: index.yml
 - name: 빠른 시작
   expanded: true
   items:
@@ -10,11 +10,9 @@
     - name: Azure에서 CF 만들기
       href: /azure/cloudfoundry/create-cloud-foundry-on-azure
     - name: Azure에 CF 앱 배포
-      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
-    - name: PCF에 애플리케이션과 함께 OSBA 사용
-      href: /azure/cloudfoundry/use-osba-pcf-app
+      href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
     - name: Azure의 CloudFoundry
-      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+      href: /azure/cloudfoundry/cloudfoundry-get-started
     - name: CF OMS 노즐 배포
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
     - name: Azure와 Cloud Foundry 통합

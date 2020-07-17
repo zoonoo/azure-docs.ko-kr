@@ -1,0 +1,112 @@
+### YamlMime:Landing
+title: Azure Durable Functions 설명서
+summary: Durable Functions는 서버리스 컴퓨팅 환경에서 상태 저장 함수를 작성할 수 있는 Azure Functions의 확장입니다.
+metadata:
+  title: Azure Durable Functions 설명서
+  description: Durable Functions는 서버리스 컴퓨팅 환경에서 상태 저장 함수를 작성할 수 있는 Azure Functions의 확장입니다.
+  ms.service: azure-functions
+  ms.topic: landing-page
+  author: ggailey777
+  ms.author: azfundocs
+  ms.date: 10/04/2019
+  ms.openlocfilehash: 1feb34dd87f61dc04365afeeca0eec7b8b511480
+  ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/22/2020
+  ms.locfileid: "85193246"
+landingContent:
+- title: 지속성 함수 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Durable Functions란?
+      url: durable-functions-overview.md
+    - text: 서버리스 옵션 비교
+      url: ../functions-compare-logic-apps-ms-flow-webjobs.md
+  - linkListType: concept
+    links:
+    - text: 지속성 함수 형식
+      url: durable-functions-types-features-overview.md
+  - linkListType: video
+    links:
+    - text: 서버리스 장벽 중단
+      url: https://azure.microsoft.com/resources/videos/break-through-the-serverless-barriers-with-durable-functions/
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 지속성 함수 만들기(C#)
+      url: durable-functions-create-first-csharp.md
+    - text: 첫 번째 함수 만들기(JavaScript)
+      url: quickstart-js-vscode.md
+    - text: 첫 번째 함수 만들기(Python)
+      url: quickstart-python-vscode.md
+  - linkListType: learn
+    links:
+    - text: 장기 실행 서버리스 워크플로 만들기
+      url: /learn/modules/create-long-running-serverless-workflow-with-durable-functions/
+  - linkListType: video
+    links:
+    - text: 시작하는 방법 보기
+      url: https://azure.microsoft.com/resources/videos/azure-friday-durable-functions-in-azure-functions/
+- title: 주요 개념
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 오케스트레이션
+      url: durable-functions-orchestrations.md
+    - text: 상태 저장 엔터티
+      url: durable-functions-entities.md
+    - text: HTTP 기능
+      url: durable-functions-http-features.md
+    - text: 작업 허브
+      url: durable-functions-task-hubs.md
+    - text: 버전 관리
+      url: durable-functions-versioning.md
+  - linkListType: video
+    links:
+    - text: 서버리스 엔터티, 오케스트레이션 및 상태 저장 함수
+      url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B206
+- title: 애플리케이션 패턴
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 함수 체이닝
+      url: durable-functions-sequence.md
+    - text: 비동기 HTTP API
+      url: durable-functions-create-first-csharp.md
+    - text: 팬아웃/팬인
+      url: durable-functions-cloud-backup.md
+    - text: 모니터
+      url: durable-functions-monitor.md
+    - text: 사용자 개입
+      url: durable-functions-phone-verification.md
+    - text: 집계
+      url: durable-functions-entities.md
+- title: 성능 및 모니터링
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 진단
+      url: durable-functions-diagnostics.md
+  - linkListType: concept
+    links:
+    - text: 모니터 함수
+      url: ../functions-monitoring.md
+    - text: 네트워킹 고려 사항
+      url: ../functions-networking-options.md
+- title: 샘플
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Durable Functions 샘플
+      url: /samples/browse/?products=azure-functions&term=durable
+    - text: Azure Serverless Community Library
+      url: https://www.serverlesslibrary.net/
+    - text: Azure 리소스 관리자 템플릿
+      url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
+  - linkListType: how-to-guide
+    links:
+    - text: Azure CLI 샘플
+      url: ../functions-cli-samples.md

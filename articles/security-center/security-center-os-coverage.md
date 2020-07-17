@@ -1,140 +1,64 @@
 ---
-title: Azure Security Center에서 지원하는 기능 및 플랫폼 | Microsoft Docs
-description: 이 문서에서는 Azure Security Center에서 지원하는 기능 및 플랫폼 목록을 제공합니다.
+title: Azure Security Center에서 지 원하는 플랫폼 | Microsoft Docs
+description: 이 문서에서는 Azure Security Center에서 지 원하는 플랫폼의 목록을 제공 합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.date: 03/31/2020
+ms.author: memildin
+ms.openlocfilehash: 3c8bf69b745f5dba8c08556908df4d4ae5b5769f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233607"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80521910"
 ---
-# <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
+# <a name="supported-platforms"></a>지원되는 플랫폼 
 
-클래식 및 Resource Manager 배포 모델을 둘 다 사용하여 생성된 VM(가상 머신) 및 컴퓨터에 대해 보안 상태 모니터링과 권장 사항이 제공됩니다.
+이 페이지에서는 Azure Security Center에서 지 원하는 플랫폼 및 환경을 보여 줍니다.
 
-> [!NOTE]
-> Azure 리소스의 [클래식 및 리소스 관리자 배포 모델](../azure-classic-rm.md) 에 대해 자세히 알아봅니다.
->
->
+## <a name="combinations-of-environments"></a>환경 조합<a name="vm-server"></a>
 
-## <a name="platforms-that-support-the-data-collection-agent"></a>데이터 수집 에이전트를 지원하는 플랫폼 
+Azure Security Center는 여러 유형의 하이브리드 환경에서 가상 머신 및 서버를 지원 합니다.
 
-이 섹션에서는 Azure Security Center 에이전트를 실행하고 데이터를 수집할 수 있는 플랫폼을 나열합니다.
+* Azure만
+* Azure 및 온-프레미스
+* Azure 및 기타 클라우드
+* Azure, 다른 클라우드 및 온-프레미스
 
-### <a name="supported-platforms-for-windows-computers-and-vms"></a>Windows 컴퓨터 및 VM에 대해 지원되는 플랫폼
-다음 Windows 운영 체제가 지원됩니다.
+Azure 구독에서 활성화 된 Azure 환경의 경우 Azure Security Center는 구독 내에 배포 되는 IaaS 리소스를 자동으로 검색 합니다.
 
-* Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
+## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-> [!NOTE]
-> Windows Defender ATP와의 통합은 Windows Server 2012 R2 및 Windows Server 2016만 지원합니다.
->
->
+Security Center [Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#log-analytics-agent)에 따라 달라 집니다. 다음 페이지에 설명 된 대로 컴퓨터에서이 에이전트에 대해 지원 되는 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
-### <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux 컴퓨터 및 VM에 대해 지원되는 플랫폼
-다음 Linux 운영 체제가 지원됩니다.
+* [Windows에서 지원 되는 운영 체제에 대 한 Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+* [Linux 지원 운영 체제에 대 한 Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
 
-* Ubuntu 버전 12.04 LTS, 14.04 LTS 및 16.04 LTS
-* Debian 버전 6, 7, 8 및 9
-* CentOS 버전 5, 6 및 7
-* RHEL(Red Hat Enterprise Linux) 버전 5, 6 및 7
-* SLES(SUSE Linux Enterprise Server) 버전 11 및 12
-* Oracle Linux 버전 5, 6 및 7
-* Amazon Linux 2012.09~2017
-* OpenSSL 1.1.0은 x86_64 플랫폼, 64비트에서만 지원
+또한 Log Analytics 에이전트가 [데이터를 전송 하도록 제대로 구성](security-center-enable-data-collection.md#manual-agent) 되어 있는지 확인 Security Center
 
-## <a name="vms-and-cloud-services"></a>VM 및 Cloud Services
-클라우드 서비스에서 실행되는 VM도 지원됩니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다. 클라우드 서비스에 대한 자세한 내용은 [Azure Cloud Services 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요.
+> [!TIP]
+> Windows 및 Linux에서 사용할 수 있는 특정 Security Center 기능에 대 한 자세한 내용은 [컴퓨터의 기능 적용](security-center-services.md)을 참조 하세요.
 
+## <a name="managed-virtual-machine-services"></a>관리 되는 가상 컴퓨터 서비스<a name="virtual-machine"></a>
 
-## <a name="supported-iaas-features"></a>지원되는 IaaS 기능
+Azure Kubernetes (AKS), Azure Databricks 등의 일부 Azure 관리 서비스의 일부로도 고객 구독에서 가상 컴퓨터를 만들 수 있습니다. Security Center는 이러한 가상 컴퓨터를 검색 하 고, 지원 되는 OS를 사용할 수 있는 경우 Log Analytics 에이전트를 설치 및 구성할 수 있습니다.
 
-> [!div class="mx-tableFixed"]
-> 
+## <a name="cloud-services"></a>Cloud Services<a name="cloud-services"></a>
 
-|서버|Windows||Linux||
-|----|----|----|----|----|
-|Environment|Azure|비 Azure|Azure|비 Azure|
-|VMBA 위협 검색 경고|✔|✔|✔(지원되는 버전에서만)|✔|
-|네트워크 기반 위협 탐지 경고|✔|X|✔|X|
-|Windows Defender ATP 통합|✔(지원되는 버전에서만)|✔|X|X|
-|누락된 패치|✔|✔|✔|✔|
-|보안 구성|✔|✔|✔|✔|
-|엔드포인트 보호|✔|✔|X|X|
-|JIT VM 액세스|✔|X|✔|X|
-|적응형 애플리케이션 제어|✔|✔|✔|✔|
-|FIM|✔|✔|✔|✔|
-|디스크 암호화|✔|X|✔|X|
-|타사 배포|✔|X|✔|X|
-|NSG|✔|X|✔|X|
-|Fileless 위협 탐지|✔|✔|X|X|
-|네트워크 맵|✔|X|✔|X|
-|적응형 네트워크 제어|✔|X|✔|X|
+클라우드 서비스에서 실행 되는 가상 컴퓨터도 지원 됩니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다. 클라우드 서비스에 대한 자세한 내용은 [Azure Cloud Services 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요.
 
-
-### <a name="supported-endpoint-protection-solutions"></a>지원되는 Endpoint Protection 솔루션
-
-아래 표에는 다음 정보의 행렬이 나와 있습니다.
- - Azure Security Center를 사용하여 각 솔루션을 자동으로 설치할 수 있는지 여부
- - Security Center에서 검색할 수 있는 Endpoint Protection 솔루션. 이러한 Endpoint Protection 솔루션 중 하나가 검색되더라도 Security Center에 솔루션을 설치하는 것이 좋다는 메시지가 표시되지는 않습니다.
-
-| Endpoint Protection| 플랫폼 | Security Center 설치 | Security Center 검색 |
-|------|------|-----|-----|
-| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
-| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
-| Trend Micro - 모든 버전 | Windows Server 제품군  | 아닙니다. | 예. |
-| Symantec v12.1.1100+| Windows Server 제품군  | 아닙니다. | 예. |
-| McAfee v10+ | Windows Server 제품군  | 아닙니다. | 예. |
-| Kaspersky| Windows Server 제품군  | 아닙니다. | 아닙니다.  |
-| Sophos| Windows Server 제품군  | 아닙니다. | 아닙니다.  |
-
-> [!NOTE]
-> - Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell 3.0(또는 상위 버전)이 설치된 후 SCEP가 설치되어야 합니다.
->
->
-
-## <a name="supported-paas-features"></a>지원되는 PaaS 기능 
-
-
-|서비스|권장 사항|위협 감지|
-|----|----|----|
-|SQL|✔| ✔|
-|PostGreSQL*|✔| ✔|
-|MySQL*|✔| ✔|
-|Azure Blob Storage 계정*|✔| ✔|
-|앱 서비스|✔| ✔|
-|Cloud Services|✔| X|
-|VNet|✔| 해당 없음|
-|서브넷|✔| 해당 없음|
-|NIC|✔| ✔|
-|NSG|✔| 해당 없음|
-|구독|✔| ✔|
-
-\* 이러한 기능은 현재 공개 미리 보기로 지원됩니다. 
-
-
+Azure Stack에 있는 Vm에 대 한 보호도 지원 됩니다. Azure Stack와 Security Center의 통합에 대 한 자세한 내용은 [Security Center에 Azure Stack virtual machines](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack)등록을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택](security-center-planning-and-operations-guide.md)하는 방법을 알아봅니다.
-- [Security Center에서 가상 머신 동작 분석 및 크래시 덤프 메모리 분석](security-center-alerts-type.md#virtual-machine-behavioral-analysis)에 대해 자세히 알아봅니다.
-- [Azure Security Center 사용에 관한 질문과 대답](security-center-faq.md)을 찾아봅니다.
-- [Azure 보안 및 규정 준수에 관한 블로그 게시물](https://blogs.msdn.com/b/azuresecurity/)을 찾아봅니다.
+- [Security Center Log Analytics 에이전트를 사용 하 여 데이터를 수집](security-center-enable-data-collection.md)하는 방법을 알아봅니다.
+- [Security Center에서 데이터를 관리 하 고 보호](security-center-data-security.md)하는 방법을 알아봅니다.
+- [Azure Security Center를 채택 하기 위한 디자인 고려 사항을 계획 하 고 이해](security-center-planning-and-operations-guide.md)하는 방법을 알아봅니다.

@@ -1,19 +1,19 @@
 ---
 title: psql을 사용하여 Apache Phoenix로 대량 로드 - Azure HDInsight
-description: psql 도구를 사용하여 Phoenix 테이블에 데이터를 대량으로 로드합니다.
+description: Psql 도구를 사용 하 여 Azure HDInsight에서 대량 로드 데이터를 Apache Phoenix 테이블로 로드
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/10/2017
-ms.author: ashishth
-ms.openlocfilehash: fe6705dc3dedd521357f924dd433c7eacf88ba84
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 12/17/2019
+ms.openlocfilehash: c46b15c6744ba9d3f83260ffaac24c4ee1cdd776
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718633"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079482"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>psql을 사용하여 Apache Phoenix로 데이터 대량 로드
 
@@ -27,13 +27,13 @@ ms.locfileid: "64718633"
 
 MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 시나리오에서 훨씬 많은 양의 데이터를 대량으로 로드하는 데 사용됩니다.
 
-데이터 로드를 시작하기 전에, Phoenix가 사용되도록 설정되어 있는지와 쿼리 제한 시간 설정이 예상대로 지정되어 있는지 확인합니다.  HDInsight 클러스터 [Apache Ambari](https://ambari.apache.org/) 대시보드에 액세스하고, HBase를 선택한 후 구성 탭을 선택합니다.  아래로 스크롤하여 Apache Phoenix가 표시된 것처럼 `enabled`로 설정되어 있는지 확인합니다.
+데이터 로드를 시작하기 전에, Phoenix가 사용되도록 설정되어 있는지와 쿼리 제한 시간 설정이 예상대로 지정되어 있는지 확인합니다.  HDInsight 클러스터 [Apache Ambari](https://ambari.apache.org/) 대시보드에 액세스 하 여 HBase를 선택 하 고 구성 탭을 선택 합니다.  아래로 스크롤하여 Apache Phoenix이 다음과 같이로 설정 되었는지 확인 합니다 `enabled` .
 
-![Apache Phoenix HDInsight 클러스터 설정](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
+![Apache Phoenix HDInsight 클러스터 설정](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
 ### <a name="use-psql-to-bulk-load-tables"></a>`psql`을 사용하여 테이블 대량 로드
 
-1. 새 테이블을 만든 다음, 파일 이름 `createCustomersTable.sql`을 사용해서 쿼리를 저장합니다.
+1. 이라는 파일을 만들고 `createCustomersTable.sql` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
 
     ```sql
     CREATE TABLE Customers (
@@ -44,77 +44,118 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
         Country varchar);
     ```
 
-2. CSV 파일(표시된 예제 내용 참조)을 새로 만든 테이블에 로드하기 위해 `customers.csv` 이름으로 `/tmp/` 디렉터리에 복사합니다.  `hdfs` 명령을 사용하여 CSV 파일을 원하는 원본 위치에 복사합니다.
+1. 이라는 파일을 만들고 `listCustomers.sql` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
 
+    ```sql
+    SELECT * from Customers;
     ```
+
+1. 이라는 파일을 만들고 `customers.csv` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+
+    ```txt
     1,Samantha,260000.0,18,US
     2,Sam,10000.5,56,US
-    3,Anton,550150.0,Norway
-    ... 4997 more rows 
+    3,Anton,550150.0,42,Norway
     ```
 
-    ```bash
-    hdfs dfs -copyToLocal /example/data/customers.csv /tmp/
+1. 이라는 파일을 만들고 `customers2.csv` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+
+    ```txt
+    4,Nicolle,180000.0,22,US
+    5,Kate,210000.5,24,Canada
+    6,Ben,45000.0,32,Poland
     ```
 
-3. 입력 데이터가 올바르게 로드되었는지 확인하는 SQL SELECT 쿼리를 만든 다음, 파일 이름 `listCustomers.sql`을 사용하여 쿼리를 저장합니다. 어떤 SQL 쿼리도 사용할 수 있습니다.
-     ```sql
-    SELECT Name, Income from Customers group by Country;
+1. 명령 프롬프트를 열고 디렉터리를 새로 만든 파일의 위치로 변경 합니다. 아래의 CLUSTERNAME을 HBase 클러스터의 실제 이름으로 바꿉니다. 그런 다음 코드를 실행 하 여 클러스터의 헤드 노드에 파일을 업로드 합니다.
+
+    ```cmd
+    scp customers.csv customers2.csv createCustomersTable.sql listCustomers.sql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/tmp
     ```
 
-4. *새* Hadoop 명령 창을 열어 데이터를 대량으로 로드합니다. 먼저 `cd` 명령을 사용하여 실행 디렉터리 위치로 변경한 후 `psql` 도구(Python `psql.py` 명령)를 사용합니다. 
+1. [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
-    다음 예제에서는 위의 2단계와 같이 `hdfs`를 사용하여 저장소 계정의 `customers.csv` 파일을 로컬 임시 디렉터리에 복사했을 것으로 예상합니다.
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. Ssh 세션에서 **psql** 도구의 위치로 디렉터리를 변경 합니다. 아래 명령을 실행 합니다.
 
     ```bash
     cd /usr/hdp/current/phoenix-client/bin
-
-    python psql.py ZookeeperQuorum createCustomersTable.sql /tmp/customers.csv listCustomers.sql
     ```
 
-    > [!NOTE]   
-    > `ZookeeperQuorum` 이름을 확인하려면 속성 이름으로 `hbase.zookeeper.quorum`을 사용하여 `/etc/hbase/conf/hbase-site.xml` 파일에서 [Apache ZooKeeper](https://zookeeper.apache.org/) 쿼럼 문자열을 찾습니다.
+1. 데이터를 대량 로드 합니다. 아래 코드에서는 **Customers** 테이블을 만들고 데이터를 업로드 합니다.
 
-5. `psql` 작업이 완료된 후에 명령 창에 메시지가 표시됩니다.
-
+    ```bash
+    python psql.py /tmp/createCustomersTable.sql /tmp/customers.csv
     ```
-    CSV Upsert complete. 5000 rows upserted
-    Time: 4.548 sec(s)
+
+    `psql`작업이 완료 되 면 다음과 유사한 메시지가 표시 됩니다.
+
+    ```output
+    csv columns from database.
+    CSV Upsert complete. 3 rows upserted
+    Time: 0.081 sec(s)
+    ```
+
+1. 계속 사용 하 여 `psql` Customers 테이블의 내용을 볼 수 있습니다. 아래 코드를 실행합니다.
+
+    ```bash
+    python psql.py /tmp/listCustomers.sql
+    ```
+
+    또는 [HBase shell](./query-hbase-with-hbase-shell.md)또는 [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md) 를 사용 하 여 데이터를 쿼리할 수 있습니다.
+
+1. 추가 데이터를 업로드 합니다. 이제 테이블이 이미 있으므로 명령은 테이블을 지정 합니다. 아래 명령을 실행 합니다.
+
+    ```bash
+    python psql.py -t CUSTOMERS /tmp/customers2.csv
     ```
 
 ## <a name="use-mapreduce-to-bulk-load-tables"></a>MapReduce를 사용하여 테이블 대량 로드
 
 더 높은 처리량의 부하가 클러스터에 분산되도록 하려면 MapReduce 로드 도구를 사용합니다. 이 로더는 먼저 모든 데이터를 HFiles로 변환하고 만든 HFiles를 HBase에 제공합니다.
 
+1. 이 섹션에서는 ssh 세션과 이전에 만든 개체를 계속 사용 합니다. 위의 단계를 사용 하 여 필요에 따라 **Customers** 테이블 및 **customers.csv** 파일을 만듭니다. 필요한 경우 ssh 연결을 다시 설정 합니다.
+
+1. **Customers** 테이블의 내용을 자릅니다. 열려 있는 ssh 세션에서 아래 명령을 실행 합니다.
+
+    ```bash
+    hbase shell
+    truncate 'CUSTOMERS'
+    exit
+    ```
+
+1. `customers.csv`헤드 노드에서 Azure Storage으로 파일을 복사 합니다.
+
+    ```bash
+    hdfs dfs -put /tmp/customers.csv wasbs:///tmp/customers.csv
+    ```
+
+1. MapReduce 대량 로드 명령에 대한 실행 디렉터리로 변경합니다.
+
+    ```bash
+    cd /usr/hdp/current/phoenix-client
+    ```
+
 1. Phoenix 클라이언트 jar에 `hadoop` 명령을 사용하여 CSV MapReduce 로더를 시작합니다.
 
     ```bash
-    hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table CUSTOMERS --input /data/customers.csv
+    HADOOP_CLASSPATH=/usr/hdp/current/hbase-client/lib/hbase-protocol.jar:/etc/hbase/conf hadoop jar phoenix-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /tmp/customers.csv
     ```
 
-2. 앞에 나온 1단계의 `CreateCustomersTable.sql`와 마찬가지로 SQL 문을 사용하여 새 테이블을 만듭니다.
+    업로드가 완료 되 면 다음과 유사한 메시지가 표시 됩니다.
 
-3. 테이블의 스키마를 확인하려면 `!describe inputTable`을 실행합니다.
-
-4. 입력 데이터에 대한 위치 경로를 확인합니다(예: 예제 `customers.csv` 파일). 입력 파일은 WASB/ADLS 저장소 계정에 있을 수 있습니다. 이 예제 시나리오에서 입력 파일은 `<storage account parent>/inputFolderBulkLoad` 디렉터리에 있습니다.
-
-5. MapReduce 대량 로드 명령에 대한 실행 디렉터리로 변경합니다.
-
-    ```bash
-    cd /usr/hdp/current/phoenix-client/bin
+    ```output
+    19/12/18 18:30:57 INFO client.ConnectionManager$HConnectionImplementation: Closing master protocol: MasterService
+    19/12/18 18:30:57 INFO client.ConnectionManager$HConnectionImplementation: Closing zookeeper sessionid=0x26f15dcceff02c3
+    19/12/18 18:30:57 INFO zookeeper.ZooKeeper: Session: 0x26f15dcceff02c3 closed
+    19/12/18 18:30:57 INFO zookeeper.ClientCnxn: EventThread shut down
+    19/12/18 18:30:57 INFO mapreduce.AbstractBulkLoadTool: Incremental load complete for table=CUSTOMERS
+    19/12/18 18:30:57 INFO mapreduce.AbstractBulkLoadTool: Removing output directory /tmp/50254426-aba6-400e-88eb-8086d3dddb6
     ```
 
-6. 속성 이름 `hbase.zookeeper.quorum`을 사용하여 `/etc/hbase/conf/hbase-site.xml`에서 `ZookeeperQuorum` 값을 찾습니다.
-
-7. 클래스 경로를 설정하고 `CsvBulkLoadTool` 도구 명령을 실행합니다.
-
-    ```bash
-    /usr/hdp/current/phoenix-client$ HADOOP_CLASSPATH=/usr/hdp/current/hbase-client/lib/hbase-protocol.jar:/etc/hbase/conf hadoop jar /usr/hdp/2.4.2.0-258/phoenix/phoenix-4.4.0.2.4.2.0-258-client.jar
-
-    org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /inputFolderBulkLoad/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure
-    ```
-
-8. Azure Data Lake Storage에서 MapReduce를 사용하려면 Data Lake Storage 루트 디렉터리(`hbase-site.xml`의 `hbase.rootdir` 값)를 찾습니다. 다음 명령에서 Data Lake Storage 루트 디렉터리는 `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`입니다. 이 명령에서 다음과 같이 Data Lake Storage 입력 및 출력 폴더를 매개 변수로 지정합니다.
+1. Azure Data Lake Storage에서 MapReduce를 사용하려면 Data Lake Storage 루트 디렉터리(`hbase-site.xml`의 `hbase.rootdir` 값)를 찾습니다. 다음 명령에서 Data Lake Storage 루트 디렉터리는 `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`입니다. 이 명령에서 다음과 같이 Data Lake Storage 입력 및 출력 폴더를 매개 변수로 지정합니다.
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -123,6 +164,8 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
 
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/temp/input/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure --output  adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/output1
     ```
+
+1. 데이터를 쿼리하고 보려면 앞에서 설명한 대로 **psql** 을 사용할 수 있습니다. [HBase shell](./query-hbase-with-hbase-shell.md)또는 [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md)을 사용할 수도 있습니다.
 
 ## <a name="recommendations"></a>권장 사항
 
@@ -134,13 +177,13 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
 
 * 더 큰 크기의 작업자 노드를 사용합니다. MapReduce 대량 복사의 매핑 프로세스는 사용 가능한 비 DFS 공간을 채우는 대량의 임시 출력을 생성합니다. 많은 양의 데이터에 대한 대량 로드를 위해 더 큰 작업자 노드를 더 많이 사용합니다. 클러스터에 직접 할당하는 작업자 노드 수는 처리 속도를 영향을 줍니다.
 
-* 입력 파일을 ~10GB 청크로 분할합니다. 대량 로드는 저장소 집약적 작업이므로, 입력 파일을 여러 개의 청크로 분할하면 성능이 더 좋아집니다.
+* 입력 파일을 ~10GB 청크로 분할합니다. 대량 로드는 스토리지 집약적 작업이므로, 입력 파일을 여러 개의 청크로 분할하면 성능이 더 좋아집니다.
 
 * 지역 서버 핫스폿을 방지합니다. 행 키가 단조롭게 증가하는 경우 HBase 순차 쓰기로 인해 지역 서버 핫스폿이 발생할 수 있습니다. 행 키를 *솔트*하면 순차 쓰기가 줄어듭니다. Phoenix는 아래에 참조된 것처럼, 특정 테이블에 대해 솔트 바이트로 행 키를 투명하게 솔트하는 방법을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache Phoenix로 데이터 대량 로드](https://phoenix.apache.org/bulk_dataload.html)
-* [HDInsight에서 Linux 기반 Apache HBase 클러스터와 함께 Apache Phoenix 사용](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [HDInsight에서 Linux 기반 Apache HBase 클러스터와 함께 Apache Phoenix 사용](../hbase/apache-hbase-query-with-phoenix.md)
 * [솔트된 테이블](https://phoenix.apache.org/salted.html)
 * [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html)

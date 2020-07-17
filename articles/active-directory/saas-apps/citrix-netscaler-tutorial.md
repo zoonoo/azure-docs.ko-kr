@@ -1,6 +1,6 @@
 ---
-title: '자습서: Citrix Netscaler와 Azure Active Directory 연결 | Microsoft Docs'
-description: Azure Active Directory 및 Citrix Netscaler 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
+title: '자습서: Citrix NetScaler와 Azure Active Directory Single Sign-On 통합(Kerberos 기반 인증) | Microsoft Docs'
+description: Kerberos 기반 인증을 사용하여 Azure Active Directory 및 Citrix NetScaler 간에 SSO(Single Sign-On)를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,381 +11,460 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6771060f05a03c82879738dc5e8caccb67e55abc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281678"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477993"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>자습서: Citrix Netscaler와 Azure Active Directory 연결
+# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>자습서: Citrix NetScaler와 Azure Active Directory Single Sign-On 통합(Kerberos 기반 인증)
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Citrix Netscaler를 연결하는 방법에 대해 알아봅니다.
-Citrix Netscaler를 Azure AD와 연결하면 다음과 같은 이점을 누릴 수 있습니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 Citrix NetScaler를 통합하는 방법에 대해 알아봅니다. Azure AD와 Citrix NetScaler를 통합하면 다음을 수행할 수 있습니다.
 
-* Azure AD에서 Citrix Netscaler에 액세스할 수 있는 사용자를 제어할 수 있습니다.
-* 사용자가 Azure AD 계정으로 Citrix Netscaler에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
+* Citrix NetScaler에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
+* 사용자가 자신의 Azure AD 계정으로 Citrix NetScaler에 자동으로 로그인되도록 설정합니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Citrix Netscaler와 Azure AD의 연결을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* Citrix Netscaler Single Sign-On을 사용하도록 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Citrix NetScaler SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. 이 자습서에 포함된 시나리오는 다음과 같습니다.
 
-* Citrix Netscaler에서 **SP** 시작 SSO를 지원합니다.
+* Citrix NetScaler에 대한 **SP 시작** SSO
 
-* Citrix Netscaler에서 **Just-In-Time** 사용자 프로비전을 지원합니다.
+* Citrix NetScaler에 대한 **Just-In-Time** 사용자 프로비저닝
 
-## <a name="adding-citrix-netscaler-from-the-gallery"></a>갤러리에서 Citrix Netscaler 추가
+* [Citrix NetScaler에 대한 Kerberos 기반 인증](#publish-the-web-server)
 
-Citrix Netscaler가 Azure AD에 연결되도록 구성하려면 갤러리의 Citrix Netscaler를 관리형 SaaS 앱 목록에 추가해야 합니다.
+* [Citrix NetScaler에 대한 헤더 기반 인증](header-citrix-netscaler-tutorial.md#publish-the-web-server)
 
-**갤러리에서 Citrix Netscaler를 추가하려면 다음 단계를 수행합니다.**
+* Citrix NetScaler를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
+## <a name="add-citrix-netscaler-from-the-gallery"></a>갤러리에서 Citrix NetScaler 추가
 
-    ![Azure Active Directory 단추](common/select-azuread.png)
+Citrix NetScaler를 Azure AD와 통합하려면 먼저 Citrix NetScaler를 갤러리에서 관리형 SaaS 앱 목록에 추가합니다.
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+1. 왼쪽 메뉴에서 **Azure Active Directory**를 선택합니다.
 
-3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 
-    ![새 애플리케이션 단추](common/add-new-app.png)
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 
-4. 검색 상자에서 **Citrix Netscaler**를 입력하고, 결과 패널에서 **Citrix Netscaler**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에서 **Citrix NetScaler**를 입력합니다.
 
-     ![결과 목록의 Citrix Netscaler](common/search-new-app.png)
+1. 결과에서 **Citrix NetScaler**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on-for-citrix-netscaler"></a>Citrix NetScaler에 대한 Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 하여 Citrix Netscaler에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On이 작동하려면 Azure AD 사용자와 Citrix Netscaler의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B.Simon**이라는 테스트 사용자를 사용하여 Citrix NetScaler에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Citrix NetScaler의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Citrix Netscaler에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+Citrix NetScaler에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
-1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Citrix Netscaler Single Sign-On 구성](#configure-citrix-netscaler-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Citrix Netscaler 테스트 사용자 만들기](#create-citrix-netscaler-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Citrix Netscaler에 만듭니다.
-6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. [Azure AD SSO 구성](#configure-azure-ad-sso) - 사용자가 이 기능을 사용할 수 있도록 설정합니다.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+    1. [Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user) - B.Simon을 사용하여 Azure AD SSO를 테스트합니다.
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
+    1. [Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user) - B.Simon이 Azure AD SSO를 사용할 수 있도록 설정합니다.
 
-Citrix Netscaler에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+1. [Citrix NetScaler SSO 구성](#configure-citrix-netscaler-sso) - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Citrix Netscaler** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+    * [Citrix NetScaler 테스트 사용자 만들기](#create-a-citrix-netscaler-test-user) - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Citrix NetScaler에 만듭니다.
 
-    ![Single Sign-On 구성 링크](common/select-sso.png)
+1. [SSO 테스트](#test-sso) - 구성이 작동하는지 여부를 확인합니다.
 
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
-    ![Single Sign-On 선택 모드](common/select-saml-option.png)
+Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
+1. [Azure Portal](https://portal.azure.com/)에 있는 **Citrix NetScaler** 애플리케이션 통합 페이지의 **관리** 아래에서 **Single Sign-On**을 선택합니다.
 
-    ![기본 SAML 구성 편집](common/edit-urls.png)
+1. **Single Sign-On 방법 선택** 창에서 **SAML**을 선택합니다.
 
-4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **SAML로 Single Sign-On 설정** 창에서 **기본 SAML 구성**에 대한 펜 모양 **편집** 아이콘을 선택하여 설정을 편집합니다.
 
-    ![Citrix Netscaler 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
+   ![기본 SAML 구성 편집](common/edit-urls.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx` 패턴을 사용하는 URL을 입력합니다.
-    
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<<Your FQDN>>` 패턴을 사용하는 URL을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 애플리케이션을 **IDP 시작** 모드로 구성합니다.
 
-    다. **Reply URL(Assertion Consumer Service URL)** 텍스트 상자에서 `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx` 패턴을 사용하는 URL을 입력합니다.
-    
-    > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Citrix Netscaler 클라이언트 지원 팀](https://www.citrix.com/contact/technical-support.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    1. **식별자** 텍스트 상자에서 `https://<Your FQDN>` 패턴의 URL을 입력합니다.
+
+    1. **회신 URL** 텍스트 상자에 `http(s)://<Your FQDN>.of.vserver/cgi/samlauth` 패턴의 URL을 입력합니다.
+
+1. **SP 시작** 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 선택하고, 다음 단계를 수행합니다.
+
+    * **로그온 URL** 텍스트 상자에서 `https://<Your FQDN>/CitrixAuthService/AuthService.asmx` 패턴의 URL을 입력합니다.
 
     > [!NOTE]
-    > SSO를 작동하려면 공용 사이트에서 이러한 URL에 액세스할 수 있어야 합니다. Azure AD에서 토큰을 구성된 ACS URL에 게시할 수 있도록 하려면 Netscaler 쪽에서 방화벽 또는 다른 보안 설정을 사용하도록 설정해야 합니다.
+    > * 이 섹션에서 사용되는 URL은 실제 값이 아닙니다. 이러한 값을 식별자, 회신 URL 및 로그온 URL에 대한 실제 값으로 업데이트합니다. 이러한 값을 얻으려면 [Citrix NetScaler 클라이언트 지원 팀](https://www.citrix.com/contact/technical-support.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > * SSO를 설정하려면 공용 웹 사이트에서 URL에 액세스할 수 있어야 합니다. Azure AD에서 토큰을 구성된 URL에 게시할 수 있도록 하려면 Citrix NetScaler 쪽에서 방화벽 또는 다른 보안 설정을 사용하도록 설정해야 합니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **앱 페더레이션 메타데이터 URL**에 대한 URL을 복사하여 메모장에 저장합니다.
 
-    ![인증서 다운로드 링크](common/metadataxml.png)
+    ![인증서 다운로드 링크](common/certificatebase64.png)
 
-6. **Citrix Netscaler 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+1. **Citrix NetScaler 설정** 섹션에서 요구 사항에 따라 관련 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-    a. 로그인 URL
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
-    b. Azure AD 식별자
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-    다. 로그아웃 URL
+1. Azure Portal의 왼쪽 메뉴에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
 
-### <a name="configure-citrix-netscaler-single-sign-on"></a>Citrix Netscaler Single Sign-On 구성
+1. 창 위쪽에서 **새 사용자**를 선택합니다.
 
-1. 다른 웹 브라우저 창에서 Citrix Netscaler 테넌트에 관리자 권한으로 로그인합니다.
+1. **사용자** 속성에서 다음 단계를 완료합니다.
 
-2. **NetScaler 펌웨어 버전 = NS12.1: 빌드 48.13.nc**인지 확인합니다.
+   1. **이름**에 `B.Simon`를 입력합니다.  
 
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure01.png)
+   1. **사용자 이름**에 대해 _username@companydomain.extension_ 을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
 
-3. **VPN Virtual Server**(VPN 가상 서버) 페이지에서 다음 단계를 수행합니다.
+   1. **암호 표시** 확인란을 선택한 다음, **암호**에 표시된 값을 적어두거나 복사합니다.
 
-     ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure02.png)
-
-    a. **ICA Only**(ICA만) 게이트웨이 설정을 **true**로 설정합니다.
-    
-    b. **Enable Authentication**(인증 사용)을 **true**로 설정합니다.
-    
-    다. **DTLS**는 선택 사항입니다.
-    
-    d. **SSLv3**이 **Disabled**(사용 안 함)인지 확인합니다.
-
-4. https://www.ssllabs.com에서 A+를 얻을 수 있도록 아래와 같이 사용자 지정된 **SSL Ciphers**(SSL 암호) 그룹이 만들어집니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure03.png)
-
-5. **Configure Authentication SAML Server**(인증 SAML 서버 구성) 대화 상자에서 다음 단계를 수행합니다.
-
-      ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure04.png)
-
-    a. **Name**(이름) 텍스트 상자에서 서버의 이름을 입력합니다.
-
-    b. Azure Portal에서 복사한 **로그인 URL** 값을 **Redirect URL**(리디렉션 URL) 텍스트 상자에 붙여넣습니다.
-
-    다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **Single Logout URL**(단일 로그아웃 URL) 텍스트 상자에 붙여넣습니다.
-
-    d. **IDP Certificate Name**(IDP 인증서 이름)에서 **"+"** 기호를 클릭하여 Azure Portal에서 다운로드한 인증서를 추가합니다. 업로드가 완료되면 드롭다운에서 해당 인증서를 선택합니다.
-
-    e. 다음 페이지에서 더 많은 필드를 설정해야 합니다.
-
-      ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure24.png)
-
-    f. **Requested Authentication Context**(요청된 인증 컨텍스트)를 **Exact**(정확하게 일치)로 선택합니다.
-
-    g. **Signature Algorithm**(서명 알고리즘)을 **RSA-SHA256**으로 선택합니다.
-
-    h. **Digest Method**(다이제스트 방법)를 **SHA256**으로 선택합니다.
-
-    i. **Enforce Username**(사용자 적용)을 선택합니다.
-
-    j. **확인**
-
-6. **세션 프로필**을 구성하려면 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure06.png)
-
-    a. **이름**(Name) 텍스트 상자에서 세션 프로필의 이름을 입력합니다.
-
-    b. **Client Experience**(클라이언트 환경) 탭에서 아래 스크린샷과 같이 변경합니다.
-
-    다. 아래와 같이 **General(일반) 탭**에서 계속 변경하고 **확인**을 클릭합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure07.png)
-
-    d. **Published Applications**(게시된 애플리케이션) 탭에서 아래 스크린샷에 표시된 대로 변경하고 **확인**을 클릭합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure08.png)
-
-    e. **Security**(보안) 탭에서 아래 스크린샷과 같이 변경하고 **확인**을 클릭합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure09.png)
-
-7. 아래 스크린샷과 같이 ICA Connections(ICA 연결)를 **2598** 세션 안정성 포트에 연결합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure10.png)
-
-8. 아래 스크린샷과 같이 **SAML** 섹션에서 **Servers**(서버)를 추가합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure11.png)
-
-9. 아래 스크린샷과 같이 **SAML** 섹션에서 **Policies**(정책)를 추가합니다.
-
-     ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure12.png)
-
-10. **Global Settings**(글로벌 설정) 페이지에서 **Clientless Access**(클라이언트리스 액세스) 섹션으로 이동합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure13.png)
-
-11. **Configuration**(구성) 탭에서 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure14.png)
-
-    a. **Allow Domains**(도메인 허용)를 선택합니다.
-
-    b. **Domain Name**(도메인 이름) 텍스트 상자에서 도메인을 선택합니다.
-
-    다. **확인**을 클릭합니다.
-
-12. 아래 스크린샷과 같이 **Receiver for Web Sites**(웹 사이트용 수신기)에서 **StoreFront**를 설정합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure15.png)
-
-13. **Manage Authentication Methods - Corp**(인증 방법 관리 - 회사) 팝업에서 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure16.png)
-
-    a. **사용자 이름 및 암호**를 선택합니다.
-
-    b. **Pass-through from NetScaler Gateway**(NetScaler Gateway에서 통과)를 선택합니다.
-
-    다. **확인**을 클릭합니다.
-
-14. **Configure Trusted Domains**(신뢰할 수 있는 도메인 구성) 팝업에서 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure17.png)
-
-    a. **Trusted domains only**(신뢰할 수 있는 도메인만)를 선택합니다.
-
-    b. **Add**(추가)를 클릭하여 **Trusted domains**(신뢰할 수 있는 도메인) 텍스트 상자에서 도메인을 추가합니다.
-
-    다. **Default domain**(기본 도메인) 목록에서 기본 도메인을 선택합니다.
-
-    d. **Show domains list in logon page**(로그온 페이지에서 도메인 목록 표시)를 선택합니다.
-
-    e. **확인**을 클릭합니다.
-
-15. **Manage NetScaler Gateways**(NetScaler 게이트웨이 관리) 팝업에서 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure18.png)
-
-    a. **Add**(추가)를 클릭하여 **NetScaler Gateways**(NetScaler 게이트웨이) 텍스트 상자에서 NetScaler 게이트웨이를 추가합니다.
-
-    b. **닫기**를 클릭합니다.
-
-16. **StoreFront General Settings**(StoreFront 일반 설정) 탭에서 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure19.png)
-
-    a. **Display name**(표시 이름) 텍스트 상자에서 NetScaler 게이트웨이 이름을 입력합니다.
-
-    b. **NetScaler Gateway URL**(NetScaler 게이트웨이 URL) 텍스트 상자에서 NetScaler 게이트웨이 URL을 입력합니다.
-
-    다. **Usage or role**(사용량 또는 역할)을 **Authentication and HDX routing**(인증 및 HDX 라우팅)으로 선택합니다.
-
-    d. **확인**을 클릭합니다.
-
-17. **StoreFront Secure Ticket Authority**(StoreFront 보안 티켓 인증 기관) 탭에서 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure20.png)
-
-    a. **Add**(추가) 단추를 클릭하여 텍스트 상자에 **Secure Ticket Authority URL's**(보안 티켓 인증 기관 URL)를 추가합니다.
-
-    b. **Enable session reliability**(세션 안정성 사용)를 선택합니다.
-
-    다. **확인**을 클릭합니다.
-
-18. **StoreFront Authentication Settings**(StoreFront 인증 설정) 탭에서 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure21.png)
-
-    a. **Version**(버전)을 선택합니다.
-
-    b. **Logon type**(로그온 유형)을 **Domain**(도메인)으로 선택합니다.
-
-    다. **Callback URL**(콜백 URL)을 입력합니다.
-
-    d. **확인**을 클릭합니다.
-
-19. **StoreFront Deploy Citrix Receiver**(StoreFront 배포 Citrix 수신기) 탭에서 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure22.png)
-
-    a. **배포 옵션**을 **Use Receiver for HTML5 if local Receiver is unavailable**(로컬 수신기를 사용할 수 없는 경우 HTML5용 수신기 사용)로 선택합니다.
-
-    b. **확인**을 클릭합니다.
-
-20. **Manage Beacons**(탐지 장치 관리) 팝업에서 다음 단계를 수행합니다.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure23.png)
-
-    a. **Internal beacon**(내부 탐지 장치)을 **Use the service URL**(서비스 URL 사용)로 선택합니다.
-
-    b. **Add**(추가)를 클릭하여 **External beacons**(외부 탐지 장치) 텍스트 상자에서 URL을 추가합니다.
-
-    다. **확인**을 클릭합니다.
-
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
-
-이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
-
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
-
-    !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
-
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
-
-    ![새 사용자 단추](common/new-user.png)
-
-3. 사용자 속성에서 다음 단계를 수행합니다.
-
-    ![사용자 대화 상자](common/user-properties.png)
-
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
-  
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
-
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
-
-    d. **만들기**를 클릭합니다.
+   1. **만들기**를 선택합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Citrix Netscaler에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure SSO를 사용할 수 있도록 B.Simon 사용자에게 Citrix NetScaler에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Citrix Netscaler**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+1. 애플리케이션 목록에서 **Citrix NetScaler**를 선택합니다.
 
-2. 애플리케이션 목록에서 **Citrix Netscaler**를 선택합니다.
+1. 앱 개요의 **관리** 아래에서 **사용자 및 그룹**을 선택합니다.
 
-    ![애플리케이션 목록의 Citrix Netscaler 링크](common/all-applications.png)
+   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가**를 선택합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
+    ![사용자 추가 링크](common/add-assign-user.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **B.Simon**을 선택합니다. **선택**을 선택합니다.
 
-    ![할당 추가 창](common/add-assign-user.png)
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자에 있는 목록에서 사용자에 대한 관련 역할을 선택한 다음, **선택**을 선택합니다.
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
 
-6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
+## <a name="configure-citrix-netscaler-sso"></a>Citrix NetScaler SSO 구성
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+구성하려는 인증 종류에 대한 단계 링크를 선택합니다.
 
-### <a name="create-citrix-netscaler-test-user"></a>Citrix Netscaler 테스트 사용자 만들기
+- [Kerberos 기반 인증을 위한 Citrix NetScaler SSO 구성](#publish-the-web-server)
 
-이 섹션에서는 Citrix Netscaler에서 Britta Simon이라는 사용자를 만듭니다. Citrix Netscaler는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비전을 지원합니다. 이 섹션에 작업 항목이 없습니다. Citrix Netscaler에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+- [헤더 기반 인증을 위한 Citrix NetScaler SSO 구성](header-citrix-netscaler-tutorial.md#publish-the-web-server)
 
->[!NOTE]
->사용자를 수동으로 만들어야 하는 경우 [Citrix Netscaler 클라이언트 지원 팀](https://www.citrix.com/contact/technical-support.html)에 문의해야 합니다.
+### <a name="publish-the-web-server"></a>웹 서버 게시 
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
+가상 서버를 만들려면 다음을 수행합니다.
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+1. **트래픽 관리** > **부하 분산** > **서비스**를 차례로 선택합니다.
+    
+1. **추가**를 선택합니다.
 
-액세스 패널에서 Citrix Netscaler 타일을 클릭하면 SSO를 설정한 Citrix Netscaler에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+    ![Citrix NetScaler 구성 - Services 창](./media/citrix-netscaler-tutorial/web01.png)
+
+1. 애플리케이션을 실행하는 웹 서버에 대해 다음 값을 설정합니다.
+
+   * **서비스 이름**
+   * **서버 IP/기존 서버**
+   * **프로토콜**
+   * **포트**
+
+### <a name="configure-the-load-balancer"></a>부하 분산 장치 구성
+
+부하 분산 장치를 구성하려면 다음을 수행합니다.
+
+1. **트래픽 관리** > **부하 분산** > **가상 서버**로 차례로 이동합니다.
+
+1. **추가**를 선택합니다.
+
+1. 다음 스크린샷에서 설명한 대로 다음 값을 설정합니다.
+
+    * **이름**
+    * **프로토콜**
+    * **IP 주소**
+    * **포트**
+
+1. **확인**을 선택합니다.
+
+    ![Citrix NetScaler 구성 - 기본 설정 창](./media/citrix-netscaler-tutorial/load01.png)
+
+### <a name="bind-the-virtual-server"></a>가상 서버 바인딩
+
+부하 분산 장치를 가상 서버에 바인딩하려면 다음을 수행합니다.
+
+1. **Services and Service Groups(서비스 및 서비스 그룹)** 창에서 **No Load Balancing Virtual Server Service Binding(부하 분산 가상 서버 서비스 바인딩 없음)** 을 선택합니다.
+
+   ![Citrix NetScaler 구성 - 부하 분산 가상 서버 서비스 바인딩 창](./media/citrix-netscaler-tutorial/bind01.png)
+
+1. 다음 스크린샷과 같이 설정을 확인한 다음, **닫기**를 선택합니다.
+
+   ![Citrix NetScaler 구성 - 가상 서버 서비스 바인딩 확인](./media/citrix-netscaler-tutorial/bind02.png)
+
+### <a name="bind-the-certificate"></a>인증서 바인딩
+
+이 서비스를 TLS로 게시하려면 서버 인증서를 바인딩한 다음, 애플리케이션을 테스트합니다.
+
+1. **인증서** 아래에서 **서버 인증서 없음**을 선택합니다.
+
+   ![Citrix NetScaler 구성 - 서버 인증서 창](./media/citrix-netscaler-tutorial/bind03.png)
+
+1. 다음 스크린샷과 같이 설정을 확인한 다음, **닫기**를 선택합니다.
+
+   ![Citrix NetScaler 구성 - 인증서 확인](./media/citrix-netscaler-tutorial/bind04.png)
+
+## <a name="citrix-adc-saml-profile"></a>Citrix ADC SAML 프로필
+
+Citrix ADC SAML 프로필을 구성하려면 다음 섹션을 완료합니다.
+
+### <a name="create-an-authentication-policy"></a>인증 정책 만들기
+
+인증 정책을 만들려면 다음을 수행합니다.
+
+1. **Security(보안)**  > **AAA – Application Traffic(애플리케이션 트래픽)**  > **Policies(정책)**  > **Authentication(인증)**  > **Authentication Policies(인증 정책)** 로 차례로 이동합니다.
+
+1. **추가**를 선택합니다.
+
+1. **인증 정책 만들기** 창에서 다음 값을 입력하거나 선택합니다.
+
+    * **Name**: 인증 정책의 이름을 입력합니다.
+    * **작업**: **SAML**을 입력한 다음, **추가**를 선택합니다.
+    * **식**:  **true**를 입력합니다.     
+    
+    ![Citrix NetScaler 구성 - 인증 정책 만들기 창](./media/citrix-netscaler-tutorial/policy01.png)
+
+1. **만들기**를 선택합니다.
+
+### <a name="create-an-authentication-saml-server"></a>인증 SAML 서버 만들기
+
+인증 SAML 서버를 만들려면 **인증 SAML 서버 만들기** 창으로 이동한 다음, 다음 단계를 완료합니다.
+
+1. **이름**에 인증 SAML 서버에 사용할 이름을 입력합니다.
+
+1. **SAML 메타데이터 내보내기** 아래에서 다음을 수행합니다.
+
+   1. **메타데이터 가져오기** 확인란을 선택합니다.
+
+   1. Azure SAML UI에서 이전에 복사한 페더레이션 메타데이터 URL을 입력합니다.
+    
+1. **발급자 이름**에 대해 관련 URL을 입력합니다.
+
+1. **만들기**를 선택합니다.
+
+![Citrix NetScaler 구성 - 인증 SAML 서버 만들기 창](./media/citrix-netscaler-tutorial/server01.png)
+
+### <a name="create-an-authentication-virtual-server"></a>인증 가상 서버 만들기
+
+인증 가상 서버를 만들려면 다음을 수행합니다.
+
+1.  **보안** > **AAA – 애플리케이션 트래픽** > **정책** > **인증** > **인증 가상 서버**로 이동합니다.
+
+1.  **추가**를 선택한 다음, 다음 단계를 완료합니다.
+
+    1. **이름**에 인증 가상 서버에 사용할 이름을 입력합니다.
+
+    1. **주소 지정 안 함** 확인란을 선택합니다.
+
+    1. **프로토콜**에 대해 **SSL**을 선택합니다.
+
+    1. **확인**을 선택합니다.
+    
+1. **계속**을 선택합니다.
+
+### <a name="configure-the-authentication-virtual-server-to-use-azure-ad"></a>Azure AD를 사용하도록 인증 가상 서버 구성
+
+인증 가상 서버에 대한 두 개의 섹션을 수정합니다.
+
+1.  **고급 인증 정책** 창에서 **인증 정책 없음**을 선택합니다.
+
+    ![Citrix NetScaler 구성 - 고급 인증 정책 창](./media/citrix-netscaler-tutorial/virtual01.png)
+
+1. **정책 바인딩** 창에서 인증 정책을 선택한 다음, **바인딩**를 선택합니다.
+
+    ![Citrix NetScaler 구성 - 정책 바인딩 창](./media/citrix-netscaler-tutorial/virtual02.png)
+
+1. **양식 기반 가상 서버** 창에서 **부하 분산 가상 서버 없음**을 선택합니다.
+
+    ![Citrix NetScaler 구성 - 양식 기반 가상 서버 창](./media/citrix-netscaler-tutorial/virtual03.png)
+
+1. **인증 FQDN**에 대해 FQDN(정규화된 도메인 이름)을 입력합니다(필수).
+
+1. Azure AD 인증을 사용하여 보호하려는 부하 분산 가상 서버를 선택합니다.
+
+1. **바인딩**을 선택합니다.
+
+    ![Citrix NetScaler 구성 - 부하 분산 가상 서버 바인딩 창](./media/citrix-netscaler-tutorial/virtual04.png)
+
+    > [!NOTE]
+    > **인증 가상 서버 구성** 창에서 **완료**를 선택해야 합니다.
+
+1. 변경 내용을 확인하려면 브라우저에서 애플리케이션 URL로 이동합니다. 이전에 확인한 인증되지 않은 액세스 대신 테넌트 로그인 페이지가 표시됩니다.
+
+    ![Citrix NetScaler 구성 - 웹 브라우저의 로그인 페이지](./media/citrix-netscaler-tutorial/virtual05.png)
+
+## <a name="configure-citrix-netscaler-sso-for-kerberos-based-authentication"></a>Kerberos 기반 인증을 위한 Citrix NetScaler SSO 구성
+
+### <a name="create-a-kerberos-delegation-account-for-citrix-adc"></a>Citrix ADC에 대한 Kerberos 위임 계정 만들기
+
+1. 사용자 계정을 만듭니다(이 예제의 경우, _AppDelegation_ 사용).
+
+    ![Citrix NetScaler 구성 - 속성 창](./media/citrix-netscaler-tutorial/kerberos01.png)
+
+1. 이 계정에 대한 HOST SPN을 설정합니다. 
+
+    예: `setspn -S HOST/AppDelegation.IDENTT.WORK identt\appdelegation`
+    
+    이 예제에서:
+
+    * `IDENTT.WORK`는 도메인 FQDN입니다.
+    * `identt`는 도메인 NetBIOS 이름입니다.
+    * `appdelegation`은 위임 사용자 계정 이름입니다.
+
+1. 다음 스크린샷에 표시된 것처럼 웹 서버에 대한 위임을 구성합니다.
+ 
+    ![Citrix NetScaler 구성 - 속성 창의 위임](./media/citrix-netscaler-tutorial/kerberos02.png)
+
+    > [!NOTE]
+    > 스크린샷 예제에서 WIA(Windows 통합 인증) 사이트를 실행하는 내부 웹 서버 이름은 _CWEB2_입니다.
+
+### <a name="citrix-netscaler-aaa-kcd-kerberos-delegation-accounts"></a>Citrix NetScaler AAA KCD(Kerberos 위임 계정)
+
+Citrix NetScaler AAA KCD 계정을 구성하려면 다음을 수행합니다.
+
+1.  **Citrix 게이트웨이** > **AAA KCD(Kerberos 제한된 위임) 계정**으로 이동합니다.
+
+1.  **추가**를 선택한 다음, 다음 값을 입력하거나 선택합니다.
+
+    * **Name**: KCD 계정의 이름을 입력합니다.
+
+    * **Realm**: 대문자로 도메인 및 확장을 입력합니다.
+
+    * **서비스 SPN**: `http/<host/fqdn>@<DOMAIN.COM>`.
+    
+        > [!NOTE]
+        > `@DOMAIN.COM`은 필수이며 대문자여야 합니다. 예: `http/cweb2@IDENTT.WORK`.
+
+    * **위임된 사용자**: 위임된 사용자 이름을 입력합니다.
+
+    * **위임된 사용자에 대한 암호** 확인란을 선택하고 암호를 입력하고 확인합니다.
+
+1. **확인**을 선택합니다.
+ 
+    ![Citrix NetScaler 구성-KCD 계정 구성 창](./media/citrix-netscaler-tutorial/kerberos03.png)
+
+### <a name="citrix-traffic-policy-and-traffic-profile"></a>Citrix 트래픽 정책 및 트래픽 프로필
+
+Citrix 트래픽 정책 및 트래픽 프로필을 구성하려면 다음을 수행합니다.
+
+1.  **보안** > **AAA - 애플리케이션 트래픽** > **정책** > **트래픽 정책, 프로필 및 양식 SSO 프로필 트래픽 정책**으로 이동합니다.
+
+1.  **트래픽 프로필**을 선택합니다.
+
+1.  **추가**를 선택합니다.
+
+1.  트래픽 프로필을 구성하려면 다음 값을 입력하거나 선택합니다.
+
+    * **Name**: 트래픽 프로필의 이름을 입력합니다.
+
+    * **Single Sign-On**: **켜기**를 선택합니다.
+
+    * **KCD 계정**: 이전 섹션에서 만든 KCD 계정을 선택합니다.
+
+1. **확인**을 선택합니다.
+
+    ![Citrix NetScaler 구성 - 트래픽 프로필 구성 창](./media/citrix-netscaler-tutorial/kerberos04.png)
+ 
+1.  **트래픽 정책**을 선택합니다.
+
+1.  **추가**를 선택합니다.
+
+1.  트래픽 정책을 구성하려면 다음 값을 입력하거나 선택합니다.
+
+    * **Name**: 트래픽 정책의 이름을 입력합니다.
+
+    * **프로필**: 이전 섹션에서 만든 트래픽 프로필을 선택합니다.
+
+    * **식**: **true**를 입력합니다.
+
+1. **확인**을 선택합니다.
+
+    ![Citrix NetScaler 구성 - 트래픽 정책 구성 창](./media/citrix-netscaler-tutorial/kerberos05.png)
+
+### <a name="bind-a-traffic-policy-to-a-virtual-server-in-citrix"></a>Citrix에서 가상 서버에 트래픽 정책 바인딩
+
+GUI를 사용하여 가상 서버에 트래픽 정책을 바인딩하려면 다음을 수행합니다.
+
+1. **트래픽 관리** > **부하 분산** > **가상 서버**로 이동합니다.
+
+1. 가상 서버 목록에서 다시 쓰기 정책을 바인딩하려는 가상 서버를 선택한 다음, **열기**를 선택합니다.
+
+1. **부하 분산 가상 서버** 창의 **고급 설정** 아래에서 **정책**을 선택합니다. NetScaler 인스턴스에 대해 구성된 모든 정책이 목록에 표시됩니다.
+ 
+    ![Citrix NetScaler 구성 - 부하 분산 가상 서버 창](./media/citrix-netscaler-tutorial/kerberos06.png)
+
+    ![Citrix NetScaler 구성 - 정책 대화 상자](./media/citrix-netscaler-tutorial/kerberos07.png)
+
+1.  이 가상 서버에 바인딩할 정책 이름 옆의 확인란을 선택합니다.
+ 
+    ![Citrix NetScaler 구성 - 부하 분산 가상 서버 트래픽 정책 바인딩 창](./media/citrix-netscaler-tutorial/kerberos09.png)
+
+1. **형식 선택** 대화 상자에서
+
+    1. **정책 선택**에 대해 **트래픽**을 선택합니다.
+
+    1. **형식 선택**에 대해 **요청**을 선택합니다.
+
+    ![Citrix NetScaler 구성 - 형식 선택 창](./media/citrix-netscaler-tutorial/kerberos08.png)
+
+1. 정책이 바인딩되면 **완료**를 선택합니다.
+ 
+    ![Citrix NetScaler 구성 - 정책 창](./media/citrix-netscaler-tutorial/kerberos10.png)
+
+1. WIA 웹 사이트를 사용하여 바인딩을 테스트합니다.
+
+    ![Citrix NetScaler 구성 - 웹 브라우저의 테스트 페이지](./media/citrix-netscaler-tutorial/kerberos11.png)    
+
+### <a name="create-a-citrix-netscaler-test-user"></a>Citrix NetScaler 테스트 사용자 만들기
+
+이 섹션에서는 B.Simon이라는 사용자가 Citrix NetScaler에서 생성됩니다. Citrix NetScaler는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에서 수행할 작업이 없습니다. Citrix NetScaler에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+
+> [!NOTE]
+> 사용자를 수동으로 만들어야 하는 경우 [Citrix NetScaler 클라이언트 지원 팀](https://www.citrix.com/contact/technical-support.html)에 문의하세요.
+
+## <a name="test-sso"></a>SSO 테스트 
+
+이 섹션에서는 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다.
+
+액세스 패널에서 Citrix NetScaler 타일을 선택하면 SSO를 설정한 Citrix NetScaler에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Azure AD를 통해 Citrix NetScaler 사용해보기](https://aad.portal.azure.com/)
+
+- [헤더 기반 인증을 위한 Citrix NetScaler Single Sign-On 구성](header-citrix-netscaler-tutorial.md)
+
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [고급 표시 유형 및 컨트롤을 사용하여 Citrix NetScaler를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

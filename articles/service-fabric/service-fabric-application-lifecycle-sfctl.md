@@ -1,26 +1,21 @@
 ---
-title: Azure Service Fabric CLI(sfctl)를 사용하여 Azure Service Fabric 애플리케이션 관리
+title: Sfctl을 사용 하 여 Azure Service Fabric 응용 프로그램 관리
 description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에서 애플리케이션을 배포하고 제거하는 방법을 알아봅니다.
-services: service-fabric
-author: rockboyfor
-manager: digimobile
-ms.service: service-fabric
+author: Christina-Kang
 ms.topic: conceptual
-origin.date: 07/31/2018
-ms.date: 09/10/2018
-ms.author: v-yeche
-ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 07/31/2018
+ms.author: bikang
+ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711037"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI(sfctl)를 사용하여 Azure Service Fabric 애플리케이션 관리
 
 Azure Service Fabric 클러스터에서 실행 중인 애플리케이션을 만들고 삭제하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Service Fabric CLI를 설치합니다. 그런 다음, Service Fabric 클러스터를 선택합니다. 자세한 내용은 [Service Fabric CLI 시작](service-fabric-cli.md)을 참조하세요.
 
@@ -51,7 +46,7 @@ Azure Service Fabric 클러스터에서 실행 중인 애플리케이션을 만�
 
 예를 들어, 애플리케이션 패키지가 `app_package_dir` 디렉터리에 있는 경우 다음 명령을 사용하여 디렉터리를 업로드합니다.
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir
 ```
 
@@ -61,7 +56,7 @@ sfctl application upload --path ~/app_package_dir
 
 업로드가 완료되면 애플리케이션을 프로비전합니다. 애플리케이션을 프로비전하려면 다음 명령을 사용합니다.
 
-```azurecli
+```shell
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
@@ -73,7 +68,7 @@ sfctl application provision --application-type-build-path app_package_dir
 
 이미지 저장소에서 애플리케이션 패키지를 삭제하려면 다음 명령을 사용합니다.
 
-```azurecli
+```shell
 sfctl store delete --content-path app_package_dir
 ```
 
@@ -83,7 +78,7 @@ sfctl store delete --content-path app_package_dir
 
 애플리케이션을 프로비전한 후에는 다음 명령을 사용하여 애플리케이션 이름을 지정하고 만듭니다.
 
-```azurecli
+```shell
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
@@ -95,7 +90,7 @@ sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app
 
 애플리케이션이 만들어진 후에는 애플리케이션에서 서비스를 만듭니다. 다음 예의 경우, 애플리케이션에서 새 상태 비저장 서비스를 만듭니다. 애플리케이션에서 만들 수 있는 서비스는 이전에 프로비전된 애플리케이션 패키지 내의 서비스 매니페스트에 정의됩니다.
 
-```azurecli
+```shell
 sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
@@ -104,14 +99,14 @@ sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-t
 
 모든 것이 정상 상태인지 확인하려면 다음 상태 명령을 사용합니다.
 
-```azurecli
+```shell
 sfctl application list
 sfctl service list --application-id TestApp
 ```
 
 서비스가 정상 상태인지 확인하려면 유사한 명령을 사용하여 서비스와 애플리케이션의 상태를 검색합니다.
 
-```azurecli
+```shell
 sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
@@ -126,7 +121,7 @@ sfctl service health --service-id TestApp/TestSvc
 
 애플리케이션을 삭제하려면 다음 명령을 사용합니다.
 
-```azurecli
+```shell
 sfctl application delete --application-id TestEdApp
 ```
 
@@ -134,7 +129,7 @@ sfctl application delete --application-id TestEdApp
 
 애플리케이션을 삭제한 후에는 더 이상 필요 없는 경우 애플리케이션 유형의 프로비전을 해제할 수 있습니다. 애플리케이션 유형을 프로비전 해제하려면 다음 명령을 사용합니다.
 
-```azurecli
+```shell
 sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
@@ -146,7 +141,7 @@ sfctl application unprovision --application-type-name TestAppType --application-
 
 업그레이드를 수행하려면 먼저 이전과 동일한 명령을 사용하여 애플리케이션의 다음 버전을 프로비전합니다.
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
 sfctl store delete --content-path app_package_dir_2
@@ -154,7 +149,7 @@ sfctl store delete --content-path app_package_dir_2
 
 모니터링되는 자동 업그레이드를 수행하고 다음 명령을 실행하여 업그레이드를 시작하는 것이 좋습니다.
 
-```azurecli
+```shell
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 
@@ -171,5 +166,3 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 * [Service Fabric CLI 기본 사항](service-fabric-cli.md)
 * [Linux에서 Service Fabric 시작](service-fabric-get-started-linux.md)
 * [Service Fabric 애플리케이션 업그레이드 시작](service-fabric-application-upgrade.md)
-
-<!--Update_Description: update meta properties -->

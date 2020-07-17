@@ -4,8 +4,6 @@ description: Azure CLI 스크립트 샘플 - 애플리케이션 게이트웨이 
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
-editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: sample
@@ -14,16 +12,16 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 99d0939b30d04fbd5c0eb7a287105bb4cf27e9f4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6251ab1484c7243bf0b22c7c4faf8b560ef0abb6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116765"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81457810"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Azure CLI를 사용하여 웹 트래픽 관리
 
-이 스크립트는 백 엔드 서버에 가상 머신 확장 집합을 사용하는 애플리케이션 게이트웨이를 만듭니다. 그런 다음, 웹 트래픽을 관리하도록 애플리케이션 게이트웨이를 구성할 수 있습니다. 스크립트를 실행한 후에는 공용 IP 주소를 사용하여 응용 프로그램 게이트웨이를 테스트할 수 있습니다.
+이 스크립트는 백 엔드 서버에 가상 머신 확장 집합을 사용하는 애플리케이션 게이트웨이를 만듭니다. 그런 다음, 웹 트래픽을 관리하도록 애플리케이션 게이트웨이를 구성할 수 있습니다. 스크립트를 실행한 후에는 공용 IP 주소를 사용하여 애플리케이션 게이트웨이를 테스트할 수 있습니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -35,7 +33,7 @@ ms.locfileid: "56116765"
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
-다음 명령을 실행하여 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
+다음 명령을 실행하여 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG --yes

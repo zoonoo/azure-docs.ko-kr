@@ -1,25 +1,25 @@
 ---
-title: 플랜 및 청구 방식 - Azure Scheduler
+title: 요금제 및 청구
 description: Azure Scheduler의 플랜 및 청구 방식에 대해 알아봅니다.
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344311"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78898468"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Azure Scheduler의 플랜 및 청구 방식
 
 > [!IMPORTANT]
-> Azure Scheduler는 사용이 중지되며 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)가 대신 제공됩니다. 작업을 예약하려는 경우 [Azure Logic Apps를 대신 사용해 보세요](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Scheduler](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)는 조만간 사용 중지되고 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 대체됩니다. 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
+>
+> Scheduler는 더 이상 Azure Portal에서 사용할 수 없지만 [REST API](/rest/api/scheduler) 및 [Azure Scheduler PowerShell cmdlet](scheduler-powershell-reference.md)은 현재 사용 가능하므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 
 ## <a name="job-collection-plans"></a>작업 컬렉션 플랜
 
@@ -32,7 +32,7 @@ Azure Scheduler에서 작업 컬렉션에는 특정 수의 작업이 포함됩�
 | **P20 Premium** | 컬렉션당 작업 1,000개 | 분당 1회. 작업을 1분에 2개 이상 실행할 수는 없습니다. | 각 Azure 구독은 P20 프리미엄 작업 컬렉션을 5,000개까지 포함할 수 있습니다. 컬렉션을 더 많이 사용하려는 경우 <a href="mailto:wapteams@microsoft.com">Microsoft에 문의</a>하세요. | Scheduler 전체 기능 집합 액세스 |
 |||||| 
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 가격 세부 정보는 [Scheduler 가격 책정](https://azure.microsoft.com/pricing/details/scheduler/)을 참조하세요.
 
@@ -80,8 +80,7 @@ P20 프리미엄 작업 컬렉션은 P10 프리미엄 작업 컬렉션과 같은
 
   Scheduler 서비스는 활성 작업 컬렉션(표준 또는 프리미엄)의 수에 따라 요금을 청구합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
-* [Azure Scheduler란?](scheduler-intro.md)
 * [Azure Scheduler 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 * [Azure Scheduler 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)

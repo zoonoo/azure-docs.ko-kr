@@ -1,25 +1,13 @@
 ---
-title: Azure Service Fabric 클러스터 노드에 원격 연결 | Microsoft Docs
+title: Azure Service Fabric 클러스터 노드에 원격 연결
 description: 확장 집합 인스턴스(Service Fabric 클러스터 노드)에 원격으로 연결하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
-ms.author: aljo
-ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110926"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75458325"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 머신 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
 Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러스터 노드 형식은 [가상 머신별 규모를 설정](service-fabric-cluster-nodetypes.md)합니다.  특정 확장 집합 인스턴스(클러스터 노드)에 원격 연결할 수 있습니다.  단일 인스턴스 VM과 달리 확장 집합 인스턴스는 고유한 가상 IP 주소가 없습니다. 따라서 특정 인스턴스에 원격으로 연결하는 데 사용할 수 있는 IP 주소 및 포트를 찾는 것이 어려울 수 있습니다.
@@ -28,9 +16,9 @@ Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러�
 
 1. RDP(원격 데스크톱 프로토콜)에 대한 인바운드 NAT 규칙을 가져옵니다.
 
-    일반적으로 클러스터에 정의된 각 노드 형식에는 자체 가상 IP 주소와 전용 부하 분산 장치가 있습니다. 기본적으로 노드 유형에 대 한 부하 분산 장치는 다음 형식으로 이름이 지정 됩니다. *LB-{클러스터-이름}-{노드 형식}*; 예를 들어 *프런트 엔드 mycluster-LB-* 합니다. 
+    일반적으로 클러스터에 정의된 각 노드 형식에는 자체 가상 IP 주소와 전용 부하 분산 장치가 있습니다. 기본적으로 노드 형식에 대한 부하 분산 장치는 *LB-{cluster-name}-{node-type}* 형식으로 이름이 지정됩니다(예: *LB-mycluster-FrontEnd*). 
     
-    Azure Portal의 부하 분산 장치 페이지에서 **설정** > **인바운드 NAT 규칙**을 선택합니다. 
+    Azure Portal에서 부하 분산 장치에 대 한 페이지에서 **설정**  >  **인바운드 NAT 규칙**을 선택 합니다. 
 
     ![부하 분산 장치 인바운드 NAT 규칙](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
@@ -63,7 +51,7 @@ Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러�
 
 다음 단계는 아래 문서를 참조하세요.
 * ["어디에나 배포" 기능의 개요 및 Azure 관리된 클러스터와 비교](service-fabric-deploy-anywhere.md)를 참조하세요.
-* [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아보기
+* [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아봅니다.
 * 배포 후에 클러스터 VM에서 [RDP 포트 범위 값 업데이트](./scripts/service-fabric-powershell-change-rdp-port-range.md)
 * 클러스터 VM에 대한 [관리자 사용자 이름 및 암호 변경](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md)
 

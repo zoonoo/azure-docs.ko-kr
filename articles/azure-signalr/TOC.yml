@@ -7,14 +7,18 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 'ASP.NET Core - C#'
+    - name: ASP.NET Core - C#
       href: signalr-quickstart-dotnet-core.md
+    - name: ASP.NET - C#
+      href: signalr-quickstart-dotnet.md
     - name: Azure Functions - JavaScript
       href: signalr-quickstart-azure-functions-javascript.md
-    - name: 'Azure Functions - C#'
+    - name: Azure Functions - C#
       href: signalr-quickstart-azure-functions-csharp.md
     - name: Azure Functions - Java
       href: signalr-quickstart-azure-functions-java.md
+    - name: Azure Functions - Python
+      href: signalr-quickstart-azure-functions-python.md
     - name: REST API
       href: signalr-quickstart-rest-api.md
 - name: 자습서
@@ -27,6 +31,8 @@
       href: 'https://github.com/aspnet/AzureSignalR-samples'
     - name: Azure CLI
       href: signalr-reference-cli.md
+    - name: Azure Policy 기본 제공
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: Azure SignalR Service 내부 기능
@@ -41,6 +47,8 @@
           href: signalr-concept-serverless-development-config.md
         - name: Azure Functions의 SignalR Service 바인딩 참조
           href: ../azure-functions/functions-bindings-signalr-service.md
+        - name: 업스트림 설정
+          href: concept-upstream.md
     - name: 고가용성
       items:
         - name: 복원력 및 재해 복구
@@ -49,22 +57,42 @@
       href: signalr-concept-messages-and-connections.md
     - name: 성능 고려 사항
       href: signalr-concept-performance.md
-    - name: Authentication
+    - name: 인증
       href: signalr-concept-authenticate-oauth.md
+    - name: 이벤트 처리
+      href: signalr-concept-event-grid-integration.md
 - name: 방법 가이드
   items:
     - name: 확장
       items:
+        - name: 단일 인스턴스
+          href: signalr-howto-scale-signalr.md
         - name: 여러 인스턴스
           href: signalr-howto-scale-multi-instances.md
     - name: 보안
       items:
         - name: 액세스 키 회전
           href: signalr-howto-key-rotation.md
+        - name: Azure Service 태그 사용
+          href: howto-service-tags.md
+        - name: Azure 프라이빗 엔드포인트 사용
+          href: howto-private-endpoints.md
+        - name: 네트워크 액세스 제어 관리
+          href: howto-network-access-control.md
+        - name: 관리 ID 사용
+          href: howto-use-managed-identity.md
     - name: 통합
       items:
         - name: Azure Functions 바인딩
           href: signalr-concept-azure-functions.md
+        - name: Event Grid 통합
+          href: signalr-howto-event-grid-integration.md
+    - name: 모니터
+      items:
+        - name: 진단 로그를 사용하여 SignalR Service 모니터링
+          href: signalr-howto-diagnostic-logs.md
+        - name: Azure Policy를 사용하여 규정 준수 감사
+          href: signalr-howto-azure-policy.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -90,8 +118,8 @@
     - name: FAQ
       href: signalr-resource-faq.md
     - name: SignalR Service 구독 수준 제한
-      href: 'https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits'
-    - name: 가격
+      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: 동영상
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'

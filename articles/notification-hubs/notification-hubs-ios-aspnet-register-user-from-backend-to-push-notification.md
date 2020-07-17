@@ -3,23 +3,23 @@ title: Web API를 사용하여 푸시 알림에 현재 사용자 등록 | Micros
 description: ASP.NET Web API로 등록을 수행할 때 Azure Notification Hubs를 사용하여 iOS 앱에서 푸시 알림 등록을 요청하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
-ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
+author: sethmanheim
+manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: ff77a955c34941d87a1f653726ab3f19e84aa440
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 0819f5196fffca25a840dc16d1df04cdd0a55029
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458351"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223315"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 
@@ -44,11 +44,11 @@ ms.locfileid: "61458351"
 
      이때 스토리보드가 다음과 같이 표시됩니다.
 
-     ![][0]
+     ![구성 요소가 추가 된 MainStoryboard_iPhone storyboard 앱의 스크린샷][0]
 
 2. 단말기 편집기에서 모든 전환된 컨트롤에 대한 콘센트를 만든 다음 호출하고, 텍스트 필드를 뷰 컨트롤러(대리자)에 연결하고, **로그인** 단추에 대한 **동작**을 만듭니다.
 
-    ![][1]
+    ![MainStoryboard_iPhone storyboard 응용 프로그램의 길잡이 편집기 스크린샷][1]
 
     이제 BreakingNewsViewController.h 파일에 다음 코드가 포함되어 있습니다.
 
@@ -122,7 +122,7 @@ ms.locfileid: "61458351"
     이 코드는 요청에 대한 디바이스 토큰을 설정합니다.
 
    > [!NOTE]
-   > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. [Notification Hubs 시작](notification-hubs-ios-apple-push-notification-apns-get-started.md) 자습서를 완료할 때 추가된 `registerNativeWithDeviceToken` 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
+   > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. `registerNativeWithDeviceToken` [Azure Notification Hubs를 사용 하 여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md) 자습서를 완료할 때 추가 된 메서드에 대 한 호출이 이미 있는 경우 해당 호출을 주석으로 처리 하거나 제거 해야 합니다.
 
 8. `PushToUserAppDelegate.m` 파일에서 다음 처리기 메서드를 추가합니다.
 
@@ -256,4 +256,4 @@ ms.locfileid: "61458351"
 
 <!-- URLs. -->
 [Notification Hubs를 통해 사용자에게 알림]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Notification Hubs 시작]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Notification Hubs 시작]: ios-sdk-get-started.md

@@ -1,24 +1,16 @@
 ---
 title: Azure Monitor의 IIS 로그 | Microsoft Docs
 description: IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  이 문서에서는 IIS 로그 수집을 구성하는 방법을 설명하고, Azure Monitor에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.date: 11/28/2018
+ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77670579"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Azure Monitor에서 IIS 로그 수집
 IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있고 [로그 데이터](data-platform.md)로 저장되는 로그 파일에 사용자 활동을 저장합니다.
@@ -34,13 +26,13 @@ Azure Monitor는 W3C 형식으로 저장된 IIS 로그 파일만 지원하며 �
 
 
 ## <a name="data-collection"></a>데이터 수집
-Azure Monitor는 로그가 닫히고 새 로그가 만들어질 때마다 각 에이전트에서 IIS 로그 항목을 수집합니다. 이 빈도는 기본적으로 하루에 한 번인 IIS 사이트에 대한 **로그 파일 롤오버 일정** 설정에 의해 컨트롤됩니다. 예를 들어 설정이 **시간별**인 경우 Azure Monitor는 매시간 로그를 수집합니다.  설정이 **일별**인 경우 Azure Monitor는 24시간마다 로그를 수집합니다.
+Azure Monitor는 로그 타임 스탬프가 변경 될 때마다 각 에이전트에서 IIS 로그 항목을 수집 합니다. **5 분**마다 로그를 읽습니다. 어떤 이유로 든 새 파일이 생성 될 때 IIS가 롤오버 시간 전에 타임 스탬프를 업데이트 하지 않으면 새 파일 생성 후에 항목이 수집 됩니다. 새 파일 생성 빈도는 IIS 사이트에 대 한 **로그 파일 롤오버 일정** 설정에 의해 제어 되며, 기본적으로 하루에 한 번입니다. 설정이 **매시간**인 경우 Azure Monitor는 매시간 로그를 수집 합니다. 설정이 **매일**이면 Azure Monitor 24 시간 마다 로그를 수집 합니다.
 
 
 ## <a name="iis-log-record-properties"></a>IIS 로그 레코드 속성
 IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있습니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터의 이름입니다. |
 | cIP |클라이언트의 IP 주소입니다. |
@@ -50,8 +42,8 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 | csUserName |서버에 액세스한 인증된 사용자의 이름입니다. 익명 사용자는 하이픈으로 표시됩니다. |
 | csUriStem |웹 페이지와 같은 요청의 대상입니다. |
 | csUriQuery |클라이언트가 수행하려고 한 쿼리입니다(있는 경우). |
-| ManagementGroupName |Operations Manager 에이전트의 관리 그룹 이름.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
-| RemoteIPCountry |클라이언트 IP 주소의 국가/지역입니다. |
+| ManagementGroupName |Operations Manager 에이전트의 관리 그룹 이름.  다른 에이전트의 경우 AOI-\<workspace ID\>입니다. |
+| RemoteIPCountry |클라이언트의 IP 주소에 대 한 국가/지역입니다. |
 | RemoteIPLatitude |클라이언트 IP 주소의 위도입니다. |
 | RemoteIPLongitude |클라이언트 IP 주소의 경도입니다. |
 | scStatus |HTTP 상태 코드입니다. |
@@ -67,12 +59,12 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 ## <a name="log-queries-with-iis-logs"></a>IIS 로그를 사용한 로그 쿼리
 다음 표에는 IIS 로그 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:--- |:--- |
 | W3CIISLog |모든 IIS 로그 레코드 |
 | W3CIISLog &#124; where scStatus==500 |반환 상태가 500인 모든 IIS 로그 레코드입니다. |
 | W3CIISLog &#124; summarize count() by cIP |클라이언트 IP 주소별 IIS 로그 항목 수 |
-| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Count의 별 IIS 로그 항목 URL 호스트 www\.contoso.com입니다. |
+| W3CIISLog &#124; where csHost = = "www \. contoso.com" &#124; count () By csUriStem를 요약 합니다. |호스트 www contoso.com에 대 한 URL 별 IIS 로그 항목 수입니다 \. . |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |각 IIS 컴퓨터에서 받은 총 바이트 수 |
 
 ## <a name="next-steps"></a>다음 단계

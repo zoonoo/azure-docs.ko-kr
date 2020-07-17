@@ -4,17 +4,17 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 346f63109e673692d425ede6bdbcb6f633af80bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804617"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "68857445"
 ---
 **.NET 백 엔드(C#)**:
   
 1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭한 후 `Microsoft.Azure.NotificationHubs`를 검색한 다음 **설치**를 클릭합니다. 백 엔드에서 알림을 보내기 위한 Notification Hubs 라이브러리를 설치합니다.
-2. 백 엔드의 Visual Studio 프로젝트에서 **컨트롤러** > **TodoItemController.cs**를 엽니다. 파일 맨 위에 다음 `using` 문을 추가합니다.
+2. 백 엔드의 Visual Studio 프로젝트에서 **컨트롤러를** > **TodoItemController.cs.** 파일 맨 위에 다음 `using` 문을 추가합니다.
 
     ```csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -65,9 +65,9 @@ ms.locfileid: "59804617"
 
 4. 서버 프로젝트를 다시 게시합니다.
 
-**Node.js 백 엔드**:
+**Node.js 백엔드**:
 
-1. 아직 수행하지 않은 경우 [빠른 시작 프로젝트를 다운로드](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure 포털에서 온라인 편집기](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.    
+1. 백 엔드 프로젝트를 설정합니다.    
 
 2. todoitem.js 테이블 스크립트를 다음 코드로 바꿉니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: redis-cache
 author: wesmc7777
@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182773"
 ---
 캐시를 대시보드에 고정하지 않은 경우 **모든 서비스**를 사용하여 [Azure Portal](https://portal.azure.com)에서 캐시를 찾습니다.
 

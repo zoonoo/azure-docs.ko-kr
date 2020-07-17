@@ -11,6 +11,9 @@
   items:
     - name: 다른 지역에 Azure VM 복제
       href: azure-to-azure-quickstart.md
+    - name: 자격 증명 모음 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: quickstart-create-vault-template.md
 - name: 자습서
   items:
     - name: Azure로 Azure VM 재해 복구
@@ -23,7 +26,7 @@
           href: azure-to-azure-tutorial-failover-failback.md
         - name: 장애 복구(failback) 실행
           href: azure-to-azure-tutorial-failback.md
-    - name: Azure VM 이동
+    - name: 이동
       items:
         - name: 다른 지역으로 Azure VM 이동
           href: azure-to-azure-tutorial-migrate.md
@@ -31,6 +34,8 @@
           href: move-Azure-VMs-AVset-Azone.md
         - name: 정부 지역과 공용 지역 간에 Azure VM 이동
           href: region-move-cross-geos.md
+        - name: 다른 영역으로 자격 증명 모음 이동
+          href: move-vaults-across-regions.md
     - name: Azure로 VMware VM 재해 복구
       items:
         - name: Azure 준비
@@ -41,7 +46,7 @@
           href: vmware-azure-tutorial.md
         - name: 재해 복구 훈련 실행
           href: tutorial-dr-drill-azure.md
-        - name: 장애 조치(failover) 및 장애 복구(failback) 실행
+        - name: Azure로 장애 조치(failover)
           href: vmware-azure-tutorial-failover-failback.md
     - name: Azure로 Hyper-V VM 재해 복구
       items:
@@ -55,7 +60,7 @@
           href: hyper-v-vmm-azure-tutorial.md
         - name: 재해 복구 훈련 실행
           href: tutorial-dr-drill-azure.md
-        - name: 장애 조치(failover) 및 장애 복구(failback) 실행
+        - name: Azure로 장애 조치(failover)
           href: hyper-v-azure-failover-failback-tutorial.md
     - name: Azure로 마이그레이션
       items:
@@ -71,7 +76,7 @@
   items:
     - name: Site Recovery에 대한 일반적인 질문
       href: site-recovery-faq.md
-    - name: Azure VM에 대한 재해 복구 정보
+    - name: Azure VM 재해 복구 정보
       items:
         - name: Azure에서 Azure로 아키텍처
           href: azure-to-azure-architecture.md
@@ -85,9 +90,9 @@
           href: azure-vm-disaster-recovery-with-accelerated-networking.md
         - name: Azure VM 재해 복구로 ExpressRoute
           href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Azure VM 이동 정보
+    - name: 다른 지역으로 Azure VM 이동 정보
       href: azure-to-azure-move-overview.md
-    - name: Azure로 VMware VM 재해 복구 정보
+    - name: VMware VM 재해 복구 정보
       items:
         - name: VMware 재해 복구 개요
           href: vmware-azure-about-disaster-recovery.md
@@ -101,11 +106,13 @@
           href: vmware-azure-configuration-server-requirements.md
         - name: VMware에서 Azure로 아키텍처
           href: vmware-azure-architecture.md
+        - name: 복제에서 디스크를 제외하는 방법 정보
+          href: exclude-disks-replication.md
         - name: Azure에서 VMware로 장애 복구(failback) 위치 옵션
           href: concepts-types-of-failback.md
         - name: VMware 재해 복구를 위한 다중 테넌트 지원
           href: vmware-azure-multi-tenant-overview.md
-    - name: Azure로 Hyper-V VM 재해 복구 정보
+    - name: Hyper-V VM 재해 복구 정보
       items:
         - name: 일반적인 질문
           href: hyper-v-azure-common-questions.md
@@ -113,13 +120,17 @@
           href: hyper-v-azure-support-matrix.md
         - name: Hyper-V에서 Azure로 아키텍처
           href: hyper-v-azure-architecture.md
-    - name: Azure로 물리적 서버 재해 복구 정보
+        - name: 복제에서 디스크를 제외하는 방법 정보
+          href: exclude-disks-replication.md
+    - name: 물리적 서버 재해 복구 정보
       items:
         - name: VMware/물리적 서버에서 Azure로 지원 매트릭스
           href: vmware-physical-azure-support-matrix.md
         - name: 물리적 서버에서 Azure로 아키텍처
           href: physical-azure-architecture.md
-    - name: Azure로 재해 복구를 위한 네트워킹 정보
+        - name: 복제에서 디스크를 제외하는 방법 정보
+          href: exclude-disks-replication.md
+    - name: 재해 복구를 위한 네트워킹 정보
       items:
         - name: Site Recovery를 사용하는 Azure Traffic Manager
           href: concepts-traffic-manager-with-site-recovery.md
@@ -129,7 +140,9 @@
           href: concepts-network-security-group-with-site-recovery.md
         - name: Site Recovery를 통해 공용 IP 주소 사용
           href: concepts-public-ip-address-with-site-recovery.md
-    - name: 장애 조치(failover) 및 복구 계획 정보
+    - name: 장애 조치(failover) 및 장애 복구(failback) 정보
+      href: failover-failback-overview.md
+    - name: 복구 계획 정보
       href: recovery-plan-overview.md
     - name: Azure로 마이그레이션 정보
       href: migrate-overview.md
@@ -153,6 +166,8 @@
           items:
             - name: Azure VM 재해 복구를 위한 네트워킹 준비
               href: azure-to-azure-about-networking.md
+            - name: 대상 Azure VM의 네트워킹 구성 사용자 지정
+              href: azure-to-azure-customize-networking.md
             - name: 네트워크 매핑 설정 및 장애 조치(failover) 후 IP 주소 유지
               href: azure-to-azure-network-mapping.md
             - name: 장애 조치(failover) 후 IP 주소 유지에 대한 예제
@@ -165,6 +180,8 @@
               href: azure-to-azure-how-to-enable-replication.md
             - name: 암호화된 VM에 대한 Azure간 복제 활성화
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
+            - name: CMK 지원 디스크가 있는 VM에 대한 Azure 간 복제 활성화
+              href: azure-to-azure-how-to-enable-replication-cmk-disks.md
             - name: S2D VM에 대한 Azure간 복제 활성화
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
             - name: 추가된 디스크에 대한 복제 활성화
@@ -175,11 +192,13 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정
               href: azure-to-azure-replicate-after-migration.md
+            - name: 영역 간 재해 복구 사용
+              href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: 관리
           items:
             - name: Azure VM에 대한 모바일 서비스 업데이트
               href: azure-to-azure-autoupdate.md
-            - name: Azure Site Recovery에 대한 업데이트
+            - name: Site Recovery 업데이트 관리
               href: service-updates-how-to.md
             - name: 서버 제거 및 보호 사용 안 함
               href: site-recovery-manage-registration-and-protection.md
@@ -227,13 +246,13 @@
               items:
                 - name: 모바일 서비스 개요 및 설치
                   href: vmware-physical-mobility-service-overview.md
-                - name: 모바일 서비스의 푸시 설치 준비
+                - name: 강제 설치 준비
                   href: vmware-azure-install-mobility-service.md
-                - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
+                - name: 모바일 서비스 배포 자동화
                   href: vmware-azure-mobility-install-configuration-mgr.md
             - name: VMware VM에 대한 복제 사용하도록 설정
               href: vmware-azure-enable-replication.md
-            - name: 디스크 제외
+            - name: 복제에서 디스크 제외
               href: vmware-azure-exclude-disk.md
             - name: 연습 - 다중 테넌트 및 CSP를 사용하여 VMWare VM에 대한 복제 설정
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
@@ -245,17 +264,19 @@
               href: site-recovery-test-failover-to-azure.md
             - name: Azure에 대한 장애 조치(Failover) 실행
               href: site-recovery-failover.md
-            - name: Azure에서 온-프레미스 VMware로 다시 보호
+            - name: 다시 보호/장애 복구(failback) 준비
+              href: vmware-azure-prepare-failback.md
+            - name: Azure에서 온-프레미스로 다시 보호
               href: vmware-azure-reprotect.md
-            - name: Azure에서 VMware로 장애 복구(failback)
+            - name: Azure에서 온-프레미스로 장애 복구(failback)
               href: vmware-azure-failback.md
-            - name: Azure의 장애 복구(failback) 프로세스 서버 설정 및 관리
+            - name: Azure의 장애 복구(failback) 프로세스 서버 설정
               href: vmware-azure-set-up-process-server-azure.md
             - name: 장애 복구(failback)를 위해 Linux 마스터 대상 서버 설정
               href: vmware-azure-install-linux-master-target.md
         - name: 관리
           items:
-            - name: VMware용 모바일 에이전트 관리
+            - name: 모바일 에이전트 관리
               href: vmware-physical-manage-mobility-service.md
             - name: VMware에 대한 구성 서버 관리
               href: vmware-azure-manage-configuration-server.md
@@ -263,7 +284,7 @@
               href: vmware-azure-manage-process-server.md
             - name: vCenter 서버 관리
               href: vmware-azure-manage-vcenter.md
-            - name: Azure Site Recovery에 대한 업데이트
+            - name: Site Recovery 업데이트 관리
               href: service-updates-how-to.md
             - name: 서버 제거 및 보호 사용 안 함
               href: site-recovery-manage-registration-and-protection.md
@@ -281,6 +302,8 @@
               href: concepts-on-premises-to-azure-networking.md
         - name: 재해 복구 설정
           items:
+            - name: 연습 - 재해 복구 설정
+              href: physical-azure-disaster-recovery.md
             - name: 원본 환경 설정
               href: physical-azure-set-up-source.md
             - name: 대상 환경 설정
@@ -291,23 +314,21 @@
                   href: vmware-physical-mobility-service-overview.md
                 - name: 모바일 서비스의 푸시 설치 준비
                   href: vmware-azure-install-mobility-service.md
-                - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
+                - name: Configuration Manager를 사용하여 Mobility Service 배포
                   href: vmware-azure-mobility-install-configuration-mgr.md
-                - name: 연습 - 재해 복구 설정
-                  href: physical-azure-disaster-recovery.md
         - name: 장애 조치(failover) 및 장애 복구(failback) 실행
           href: physical-to-azure-failover-failback.md
         - name: 관리
           items:
-            - name: 물리적 서버용 모바일 에이전트 관리
+            - name: Mobility Service 업데이트
               href: vmware-physical-manage-mobility-service.md
-            - name: 물리적 서버 복제를 위한 구성 서버 관리
+            - name: 구성 서버 관리
               href: physical-manage-configuration-server.md
             - name: 프로세스 서버 관리
               href: vmware-azure-manage-process-server.md
             - name: 서버 제거 및 보호 사용 안 함
               href: site-recovery-manage-registration-and-protection.md
-            - name: Azure Site Recovery에 대한 업데이트
+            - name: Site Recovery 업데이트 관리
               href: service-updates-how-to.md
             - name: 자격 증명 모음 삭제
               href: delete-vault.md
@@ -341,7 +362,7 @@
           items:
             - name: Hyper-V VM 재해 복구에 네트워크 매핑 준비
               href: hyper-v-vmm-network-mapping.md
-            - name: Hyper-V-Azure의 복제에서 디스크를 제외
+            - name: 복제에서 디스크 제외
               href: hyper-v-exclude-disk.md
         - name: 장애 조치(failover) 및 장애 복구(failback) 실행
           items:
@@ -357,17 +378,21 @@
               href: hyper-v-azure-failback.md
         - name: 관리
           items:
+            - name: Site Recovery 데이터 암호화 사용 중단
+              href: encryption-feature-deprecation.md
             - name: Site Recovery를 사용하여 구성된 Windows 서버 업그레이드
               href: upgrade-2012R2-to-2016.md
             - name: 서버 제거 및 보호 사용 안 함
               href: site-recovery-manage-registration-and-protection.md
-            - name: Azure Site Recovery에 대한 업데이트
+            - name: Site Recovery 업데이트 관리
               href: service-updates-how-to.md
             - name: 자격 증명 모음 삭제
               href: delete-vault.md
+    - name: 근접 배치 그룹에 대한 Site Recovery
+      href: how-to-enable-replication-proximity-placement-groups.md
     - name: 앱에 대한 재해 복구
       items:
-        - name: Azure로 온-프레미스 앱에 대한 재해 복구 설정
+        - name: 온-프레미스 앱에 대한 재해 복구 정보
           href: site-recovery-workload.md
         - name: Active Directory 및 DNS
           href: site-recovery-active-directory.md
@@ -378,9 +403,9 @@
         - name: Dynamics AX
           href: site-recovery-dynamicsax.md
         - name: RDS
-          href: 'site-recovery-workload.md#protect-rds'
+          href: site-recovery-workload.md#protect-remote-desktop-services
         - name: Exchange
-          href: 'site-recovery-workload.md#protect-exchange'
+          href: site-recovery-workload.md#protect-exchange
         - name: SAP
           href: site-recovery-sap.md
         - name: 파일 서버
@@ -390,7 +415,7 @@
         - name: Citrix XenApp 및 XenDesktop
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: 기타 작업
-          href: 'site-recovery-workload.md#workload-summary'
+          href: site-recovery-workload.md#workload-summary
     - name: 보조 사이트로 재해 복구
       items:
         - name: VMware VM/물리적 서버
@@ -399,6 +424,8 @@
               href: vmware-physical-secondary-disaster-recovery.md
         - name: Hyper-V VM
           items:
+            - name: Hyper-V VM에 대한 사이트 간 시나리오 사용 중단
+              href: site-to-site-deprecation.md
             - name: 연습 - 보조 사이트로 VMM 클라우드의 Hyper-V VM 재해 복구
               href: hyper-v-vmm-disaster-recovery.md
             - name: Hyper-V VM을 보조 사이트로 복구하는 재해 복구 훈련 실행
@@ -419,71 +446,81 @@
       href: vmware-azure-disaster-recovery-powershell.md
     - name: PowerShell을 사용하여 Azure로 Hyper-V VM의 재해 복구 설정
       href: hyper-v-azure-powershell-resource-manager.md
-    - name: PowerShell을 사용하여 Azure로 Hyper-V VM(VMM 포함)의 재해 복구 설정
+    - name: PowerShell을 사용하여 Hyper-V VM(VMM 포함)의 재해 복구 설정
       href: hyper-v-vmm-powershell-resource-manager.md
-    - name: 장애 조치(failover)를 오케스트레이션하려면 복구 계획에 Azure Automation Runbook 추가
+    - name: 복구 계획에 Azure Automation Runbook 추가
       href: site-recovery-runbook-automation.md
-- name: 모니터링 및 문제 해결
+- name: 모니터링
   items:
-    - name: Azure Site Recovery 모니터링
+    - name: 모니터링에 대한 일반적인 질문
+      href: monitoring-common-questions.md
+    - name: Site Recovery 모니터링
       href: site-recovery-monitor-and-troubleshoot.md
-    - name: Azure VM
+    - name: Azure Monitor 로그를 사용하여 Site Recovery 모니터링
+      href: monitor-log-analytics.md
+    - name: 프로세스 서버 모니터링
+      href: vmware-physical-azure-monitor-process-server.md
+- name: 문제 해결
+  items:
+    - name: Azure VM 문제 해결
       items:
-        - name: Azure VM에 대한 복제 오류 문제 해결
+        - name: Azure VM 복제 문제 해결
           href: azure-to-azure-troubleshoot-errors.md
-        - name: Azure VM에 대해 진행 중인 복제 문제 해결
+        - name: Azure VM 연결 문제 해결
+          href: azure-to-azure-troubleshoot-network-connectivity.md
+        - name: 진행 중인 복제 문제 해결
           href: azure-to-azure-troubleshoot-replication.md
-        - name: Azure VM에 대한 모바일 서비스 문제 해결
+        - name: Mobility Service 문제 해결
           href: site-recovery-extension-troubleshoot.md
-    - name: VMware/물리적 서버
+    - name: VMware VM/물리적 서버 문제 해결
       items:
-        - name: 프로세스 서버 모니터링
-          href: vmware-physical-azure-monitor-process-server.md
-        - name: VMware에서 Azure로 복제 문제 해결
+        - name: VMware VM/물리적 서버 복제 문제 해결
           href: vmware-azure-troubleshoot-replication.md
         - name: 구성 서버 문제 해결
           href: vmware-azure-troubleshoot-configuration-server.md
         - name: 프로세스 서버 문제 해결
           href: vmware-physical-azure-troubleshoot-process-server.md
-        - name: VMware VM/물리적 서버에 대한 모바일 서비스 푸시 설치 문제 해결
+        - name: Mobility Service의 강제 설치 문제 해결
           href: vmware-azure-troubleshoot-push-install.md
         - name: Azure에 대한 장애 조치(failover) 문제 해결
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: VMware VM의 장애 복구 및 다시 보호 문제 해결
           href: vmware-azure-troubleshoot-failback-reprotect.md
-        - name: Microsoft Azure Site Recovery 공급 기업 업그레이드 오류 문제 해결
+        - name: 공급자 업그레이드 실패 문제 해결
           href: vmware-azure-troubleshoot-upgrade-failures.md
         - name: vCenter 검색 실패 문제 해결
           href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
-    - name: Hyper-V
+    - name: Hyper-V 문제 해결
       items:
         - name: Hyper-V 복제 문제 해결
           href: hyper-v-azure-troubleshoot.md
         - name: Azure에 대한 장애 조치(failover) 문제 해결
           href: site-recovery-failover-to-azure-troubleshoot.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
-    - name: Azure PowerShell 클래식
-      href: /powershell/module/azure/?view=azuresmps-3.7.0
+    - name: AzureRM PowerShell
+      href: /powershell/module/AzureRM.RecoveryServices
+    - name: Resource Manager 템플릿
+      href: /azure/templates/microsoft.recoveryservices/allversions
     - name: REST (영문)
-      href: 'https://msdn.microsoft.com/library/mt750497'
+      href: /rest/api/site-recovery
 - name: 관련 항목
   items:
     - name: Azure Automation
-      href: /azure/automation/
+      href: ../automation/index.yml
 - name: 리소스
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
-    - name: 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Microsoft Q&A 질문 페이지
+      href: /answers/topics/azure-site-recovery.html
     - name: 학습 경로
-      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
-    - name: 가격
+      href: /learn/azure/
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

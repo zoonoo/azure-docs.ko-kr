@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 7371734cedc3b9f0da7f2774798efcc9ddb4bad0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119516"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "67182886"
 ---
 > [!div class="op_single_selector"]
 > * [.NET 백 엔드](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)

@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션의 시뮬레이션된 디바이스 동작 - Azure | Microsoft Docs
+title: 원격 모니터링 솔루션의 시뮬레이션 된 장치-Azure | Microsoft Docs
 description: 이 문서에서는 JavaScript를 사용하여 원격 모니터링 솔루션의 시뮬레이션된 디바이스 동작을 정의하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,11 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 04d2ad2f0e86ee977600af86a2ffd1e9d7680375
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "73890855"
 ---
 # <a name="implement-the-device-model-behavior"></a>디바이스 모델 동작 구현
 
@@ -156,7 +155,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-GitHub에서 전체 [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js)를 볼 수 있습니다.
+GitHub에서 [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) 전체를 볼 수 있습니다.
 
 ## <a name="method-behavior"></a>메서드 동작
 
@@ -210,7 +209,7 @@ function main(context, previousState, previousProperties) {
 메서드의 동작을 구현하는 데 사용할 수 있는 세 가지 전역 함수가 있습니다.
 
 - `updateState` - 시뮬레이션 서비스에 보유된 상태를 업데이트합니다.
-- `updateProperty` - 단일 장치 속성을 업데이트합니다.
+- `updateProperty` - 단일 디바이스 속성을 업데이트합니다.
 - `sleep` - 장기 실행 작업을 시뮬레이트하기 위해 실행을 일시 중지합니다.
 
 다음 예제에서는 시뮬레이션된 냉각기 디바이스가 사용하는 **IncreasePressure-method.js** 스크립트의 축약된 버전을 보여줍니다.

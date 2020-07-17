@@ -7,18 +7,26 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: .NET
-      href: create-sql-api-dotnet.md
-    - name: .NET 미리 보기
-      href: create-sql-api-dotnet-preview.md
-    - name: 자바
-      href: create-sql-api-java.md
-    - name: Node.js
-      href: create-sql-api-nodejs.md
-    - name: Python
-      href: create-sql-api-python.md
-    - name: Xamarin
-      href: create-sql-api-xamarin-dotnet.md
+    - name: Cosmos DB 리소스 만들기
+      expanded: true
+      items:
+        - name: Azure portal
+          href: create-cosmosdb-resources-portal.md
+        - name: ARM 템플릿
+          displayName: Resource Manager
+          href: quick-create-template.md
+        - name: .NET 앱 - V4 SDK
+          href: create-sql-api-dotnet-v4.md
+        - name: .NET 앱 - V3 SDK
+          href: create-sql-api-dotnet.md
+        - name: Java 앱
+          href: create-sql-api-java.md
+        - name: Node.js 앱
+          href: create-sql-api-nodejs.md
+        - name: Python 앱
+          href: create-sql-api-python.md
+        - name: Xamarin 앱
+          href: create-sql-api-xamarin-dotnet.md
 - name: 자습서
   items:
     - name: 1 - 데이터 만들기 및 관리
@@ -27,13 +35,7 @@
           items:
             - name: .NET
               href: sql-api-get-started.md
-            - name: .NET 미리 보기
-              href: sql-api-dotnet-get-started-preview.md
-            - name: .NET Core
-              href: sql-api-dotnetcore-get-started.md
-            - name: .NET Core 미리 보기
-              href: sql-api-dotnet-core-get-started-preview.md
-            - name: 자바
+            - name: Java
               href: sql-api-java-get-started.md
             - name: 비동기 Java
               href: sql-api-async-java-get-started.md
@@ -43,44 +45,54 @@
           items:
             - name: .NET
               href: sql-api-dotnet-application.md
-            - name: .NET 미리 보기
-              href: sql-api-dotnet-application-preview.md
-            - name: 자바
+            - name: Java
               href: sql-api-java-application.md
             - name: Node.js
               href: sql-api-nodejs-application.md
+        - name: 모바일 앱 빌드
+          items:
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
     - name: 2 - 데이터 마이그레이션
-      displayName: import
-      href: import-data.md
+      items:
+        - name: 데이터 마이그레이션 도구 사용
+          href: import-data.md
+        - name: .NET 대량 지원 사용
+          href: tutorial-sql-api-dotnet-bulk-import.md
     - name: 3 - 데이터 쿼리
       href: tutorial-query-sql-api.md
-    - name: 4 - 전세계로 데이터 배포
+    - name: 4 - Notebook 만들기
+      href: create-notebook-visualize-data.md
+    - name: 5 - 전역적으로 데이터 배포
       href: tutorial-global-distribution-sql-api.md
 - name: 샘플
   items:
-    - name: .NET 샘플
+    - name: .NET V2 SDK 샘플
       href: sql-api-dotnet-samples.md
-    - name: Java 샘플
-      href: sql-api-java-samples.md
-    - name: 모든 Java 샘플
-      href: sql-api-async-java-samples.md
+    - name: .NET V3 SDK 샘플
+      href: sql-api-dotnet-v3sdk-samples.md
+    - name: Java SDK v4 샘플
+      href: sql-api-java-sdk-samples.md
     - name: Node.js 샘플
       href: sql-api-nodejs-samples.md
     - name: Python 샘플
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples.md
+      href: powershell-samples-sql.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure 리소스 관리자
       href: resource-manager-samples.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
+    - name: NoSQL 및 관계형 데이터베이스
+      href: relational-nosql.md
     - name: 글로벌 분포
       items:
-        - name: 개요
+        - name: 글로벌 배포 개요
           displayName: 'replication, replicate, geo distribution'
           href: distribute-data-globally.md
         - name: 일관성 수준
@@ -99,7 +111,7 @@
           displayName: 'request units, RUs, RU'
           href: scaling-throughput.md
         - name: 충돌 유형 및 해결 정책
-          displayName: 'last write wins, custom'
+          displayName: 'last write wins, custom, multi master, multi-master'
           href: conflict-resolution-policies.md
         - name: 글로벌 배포 - 내부 살펴보기
           href: global-dist-under-the-hood.md
@@ -107,20 +119,351 @@
           href: regional-presence.md
     - name: 분할
       items:
-        - name: 개요
+        - name: 분할 개요
           href: partitioning-overview.md
         - name: 분할 및 수평 확장
           href: partition-data.md
-        - name: 가상 파티션 키 만들기
+        - name: 가상 파티션 키
           href: synthetic-partition-keys.md
     - name: 프로비전된 처리량
       items:
         - name: 요청 단위
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: 컨테이너 및 데이터베이스에 대한 처리량 프로비전
+        - name: 프로비저닝된 처리량 소개
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+        - name: 처리량 프로비저닝 자동 크기 조정
+          href: provision-throughput-autoscale.md
+        - name: 처리량 자동 크기 조정과 표준(수동) 처리량 중에 선택
+          href: how-to-choose-offer.md
+        - name: 자동 스케일링 FAQ
+          href: autoscale-faq.md
+    - name: SQL 쿼리(SQL query)
+      items:
+        - name: 시작
+          displayName: 'sql query, query basics'
+          href: sql-query-getting-started.md
+        - name: 절
+          items:
+            - name: SELECT
+              displayName: 'select, select clause'
+              href: sql-query-select.md
+            - name: FROM
+              displayName: 'from, from clause'
+              href: sql-query-from.md
+            - name: WHERE
+              displayName: 'where, where clause'
+              href: sql-query-where.md
+            - name: ORDER BY
+              displayName: 'order by, order by clause'
+              href: sql-query-order-by.md
+            - name: GROUP BY
+              displayName: group by clause
+              href: sql-query-group-by.md
+            - name: OFFSET LIMIT
+              displayName: offset limit
+              href: sql-query-offset-limit.md
+        - name: JSON 작업
+          displayName: 'alias, JSON, projection'
+          href: sql-query-working-with-json.md
+        - name: 하위 쿼리
+          displayName: 'subquery, exists'
+          href: sql-query-subquery.md
+        - name: 조인
+          displayName: join
+          href: sql-query-join.md
+        - name: 배열 및 개체
+          displayName: 'object and array creation, object and array'
+          href: sql-query-object-array.md
+        - name: 키워드
+          displayName: 'keywords, distinct, between, in, top'
+          href: sql-query-keywords.md
+        - name: 상수
+          displayName: 'object, number,array'
+          href: sql-query-constants.md
+        - name: 연산자
+          displayName: 'operators, operator, logical operators, equality, comparison'
+          href: sql-query-operators.md
+        - name: 스칼라 식
+          displayName: 'scalar expressions, scalar'
+          href: sql-query-scalar-expressions.md
+        - name: Functions
+          items:
+            - name: 사용자 정의 함수
+              displayName: 'functions, udf'
+              href: sql-query-udfs.md
+            - name: 집계
+              displayName: 'functions, aggregate, count, sum, min, minimum, max, maximum, avg, average'
+              href: sql-query-aggregates.md
+            - name: 시스템 함수
+              items:
+                - name: 시스템 함수
+                  displayName: 'functions, system functions, built-in functions'
+                  href: sql-query-system-functions.md
+                - name: 배열 함수
+                  items:
+                    - name: 배열 함수
+                      displayName: 'array functions, array, system functions, built-in functions'
+                      href: sql-query-array-functions.md
+                    - name: ARRAY_CONCAT
+                      displayName: 'ARRAY_CONCAT, array concat, array functions'
+                      href: sql-query-array-concat.md
+                    - name: ARRAY_CONTAINS
+                      displayName: 'ARRAY_CONTAINS, array contains, array functions'
+                      href: sql-query-array-contains.md
+                    - name: ARRAY_LENGTH
+                      displayName: 'ARRAY_LENGTH, array length, array functions'
+                      href: sql-query-array-length.md
+                    - name: ARRAY_SLICE
+                      displayName: 'ARRAY_SLICE, array slice, array functions'
+                      href: sql-query-array-slice.md
+                - name: 날짜 및 시간 함수
+                  items:
+                    - name: 날짜 및 시간 함수
+                      displayName: 'date and time functions, date and time, datetime, system functions, built-in functions'
+                      href: sql-query-date-time-functions.md
+                    - name: GetCurrentDateTime
+                      displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
+                      href: sql-query-getcurrentdatetime.md
+                    - name: GetCurrentTimestamp
+                      displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
+                      href: sql-query-getcurrenttimestamp.md
+                    - name: DateTimeFromParts
+                      displayName: 'DateTimeFromParts, date time from parts, date and time functions, datetime'
+                      href: sql-query-datetimefromparts.md
+                    - name: DateTimeAdd
+                      displayName: 'DateTimeAdd, date time add, timestamp, date and time functions, datetime'
+                      href: sql-query-datetimeadd.md
+                    - name: DateTimeDiff
+                      displayName: 'DateTimeDiff, date time diff, date and time functions, datetime'
+                      href: sql-query-datetimediff.md
+                - name: 수치 연산 함수
+                  items:
+                    - name: 수치 연산 함수
+                      displayName: 'mathematical, mathematical functions, system functions, built-in functions'
+                      href: sql-query-mathematical-functions.md
+                    - name: ABS
+                      displayName: 'ABS, absolute value, built-in functions'
+                      href: sql-query-abs.md
+                    - name: ACOS
+                      displayName: 'ACOS, arccosine, built-in functions'
+                      href: sql-query-acos.md
+                    - name: ASIN
+                      displayName: 'ASIN, asine, built-in functions'
+                      href: sql-query-asin.md
+                    - name: ATAN
+                      displayName: 'ATAN, arctangent, built-in functions'
+                      href: sql-query-atan.md
+                    - name: ATN2
+                      displayName: 'ATN2, built-in functions'
+                      href: sql-query-atn2.md
+                    - name: CEILING
+                      displayName: 'CEILING, built-in functions'
+                      href: sql-query-ceiling.md
+                    - name: COS
+                      displayName: 'COS, cosine, built-in functions'
+                      href: sql-query-cos.md
+                    - name: COT
+                      displayName: 'COT, cotangent, built-in functions'
+                      href: sql-query-cot.md
+                    - name: DEGREES
+                      displayName: 'DEGREES, built-in functions'
+                      href: sql-query-degrees.md
+                    - name: EXP
+                      displayName: 'EXP, exponential value, built-in functions'
+                      href: sql-query-exp.md
+                    - name: FLOOR
+                      displayName: 'FLOOR, built-in functions'
+                      href: sql-query-floor.md
+                    - name: LOG
+                      displayName: 'LOG, logarithm, built-in functions'
+                      href: sql-query-log.md
+                    - name: LOG10
+                      displayName: 'LOG10, log base 10, built-in functions'
+                      href: sql-query-log10.md
+                    - name: PI
+                      displayName: 'PI, built-in functions'
+                      href: sql-query-pi.md
+                    - name: POWER
+                      displayName: 'POWER, exponent, built-in functions'
+                      href: sql-query-power.md
+                    - name: RADIANS
+                      displayName: 'RADIANS, built-in functions'
+                      href: sql-query-radians.md
+                    - name: RAND
+                      displayName: 'RAND, random, built-in functions'
+                      href: sql-query-rand.md
+                    - name: ROUND
+                      displayName: 'ROUND, built-in functions'
+                      href: sql-query-round.md
+                    - name: SIGN
+                      displayName: 'SIGN, built-in functions'
+                      href: sql-query-sign.md
+                    - name: SIN
+                      displayName: 'SIN, sine, built-in functions'
+                      href: sql-query-sin.md
+                    - name: SQRT
+                      displayName: 'SQRT, square root, built-in functions'
+                      href: sql-query-sqrt.md
+                    - name: SQUARE
+                      displayName: 'SQUARE, built-in functions'
+                      href: sql-query-square.md
+                    - name: TAN
+                      displayName: 'TAN, built-in functions'
+                      href: sql-query-tan.md
+                    - name: TRUNC
+                      displayName: 'TRUNC, truncate, built-in functions'
+                      href: sql-query-trunc.md
+                - name: 공간 함수
+                  items:
+                    - name: 공간 함수
+                      displayName: 'spatial functions, spatial, system functions, built-in functions'
+                      href: sql-query-spatial-functions.md
+                    - name: ST_DISTANCE
+                      displayName: 'ST_DISTANCE, st distance, distance, built-in functions'
+                      href: sql-query-st-distance.md
+                    - name: ST_WITHIN
+                      displayName: 'ST_WITHIN, st within, within, built-in functions'
+                      href: sql-query-st-within.md
+                    - name: ST_INTERSECTS
+                      displayName: 'ST_INTERSECTS, st intersects, intersects, built-in functions'
+                      href: sql-query-st-intersects.md
+                    - name: ST_ISVALID
+                      displayName: 'ST_ISVALID, st isvalid, is valid, built-in functions'
+                      href: sql-query-st-isvalid.md
+                    - name: ST_ISVALIDDETAILED
+                      displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
+                      href: sql-query-st-isvaliddetailed.md
+                - name: 문자열 함수
+                  items:
+                    - name: 문자열 함수
+                      displayName: 'string functions, string, system functions, built-in functions'
+                      href: sql-query-string-functions.md
+                    - name: CONCAT
+                      displayName: 'CONCAT, concatenate, built-in functions'
+                      href: sql-query-concat.md
+                    - name: CONTAINS
+                      displayName: 'CONTAINS, built-in functions'
+                      href: sql-query-contains.md
+                    - name: ENDSWITH
+                      displayName: 'ENDSWITH, built-in functions'
+                      href: sql-query-endswith.md
+                    - name: INDEX_OF
+                      displayName: 'INDEX_OF, index of, built-in functions'
+                      href: sql-query-index-of.md
+                    - name: LEFT
+                      displayName: 'LEFT, built-in functions'
+                      href: sql-query-left.md
+                    - name: LENGTH
+                      displayName: 'LENGTH, built-in functions'
+                      href: sql-query-length.md
+                    - name: LOWER
+                      displayName: 'LOWER, built-in functions'
+                      href: sql-query-lower.md
+                    - name: LTRIM
+                      displayName: 'LTRIM, left trim, built-in functions'
+                      href: sql-query-ltrim.md
+                    - name: REPLACE
+                      displayName: 'REPLACE, built-in functions'
+                      href: sql-query-replace.md
+                    - name: REPLICATE
+                      displayName: 'REPLICATE, built-in functions'
+                      href: sql-query-replicate.md
+                    - name: REVERSE
+                      displayName: 'REVERSE, built-in functions'
+                      href: sql-query-reverse.md
+                    - name: RIGHT
+                      displayName: 'RIGHT, built-in functions'
+                      href: sql-query-right.md
+                    - name: RTRIM
+                      displayName: 'RTRIM, right trim, built-in functions'
+                      href: sql-query-rtrim.md
+                    - name: STARTSWITH
+                      displayName: 'STARTSWITH, starts with, built-in functions'
+                      href: sql-query-startswith.md
+                    - name: STRINGEQUALS
+                      displayName: 'STRINGEQUALS, equals, case-insensitive'
+                      href: sql-query-stringequals.md
+                    - name: StringToArray
+                      displayName: 'StringToArray, string to array, built-in functions'
+                      href: sql-query-stringtoarray.md
+                    - name: StringToBoolean
+                      displayName: 'StringToBoolean, string to boolean, built-in functions'
+                      href: sql-query-stringtoboolean.md
+                    - name: StringToNull
+                      displayName: 'StringToNull, string to null, built-in functions'
+                      href: sql-query-stringtonull.md
+                    - name: StringToNumber
+                      displayName: 'StringToNumber, string to number, built-in functions'
+                      href: sql-query-stringtonumber.md
+                    - name: StringToObject
+                      displayName: 'StringToObject, string to object, built-in functions'
+                      href: sql-query-stringtoobject.md
+                    - name: SUBSTRING
+                      displayName: 'SUBSTRING, built-in functions'
+                      href: sql-query-substring.md
+                    - name: ToString
+                      displayName: 'ToString, to sting, built-in functions'
+                      href: sql-query-tostring.md
+                    - name: TRIM
+                      displayName: 'TRIM, built-in functions'
+                      href: sql-query-trim.md
+                    - name: UPPER
+                      displayName: 'UPPER, built-in functions'
+                      href: sql-query-upper.md
+                - name: 형식 검사 함수
+                  items:
+                    - name: 형식 검사 함수
+                      displayName: 'type checking functions, type checking, type, system functions, built-in functions'
+                      href: sql-query-type-checking-functions.md
+                    - name: IS_ARRAY
+                      displayName: 'IS_ARRAY, is array, built-in functions'
+                      href: sql-query-is-array.md
+                    - name: IS_BOOL
+                      displayName: 'IS_BOOL, IsBool, is bool, built-in functions'
+                      href: sql-query-is-bool.md
+                    - name: IS_DEFINED
+                      displayName: 'IS_DEFINED, IsDefined, is defined, built-in functions'
+                      href: sql-query-is-defined.md
+                    - name: IS_NULL
+                      displayName: 'IS_NULL, IsNull, is null, built-in functions'
+                      href: sql-query-is-null.md
+                    - name: IS_NUMBER
+                      displayName: 'IS_NUMBER, IsNumber, is number, built-in functions'
+                      href: sql-query-is-number.md
+                    - name: IS_OBJECT
+                      displayName: 'IS_OBJECT, IsObject, is object, built-in functions'
+                      href: sql-query-is-object.md
+                    - name: IS_PRIMITIVE
+                      displayName: 'IS_PRIMITIVE, IsPrimitive, is primitive, built-in functions'
+                      href: sql-query-is-primitive.md
+                    - name: IS_STRING
+                      displayName: 'IS_STRING, IsString, is string, built-in functions'
+                      href: sql-query-is-string.md
+        - name: 지리 공간적 데이터
+          items:
+            - name: 지리 공간적 개요
+              displayName: 'geospatial, spatial'
+              href: sql-query-geospatial-intro.md
+            - name: 지리 공간적 데이터 쿼리
+              displayName: 'geospatial, spatial, query'
+              href: sql-query-geospatial-query.md
+            - name: 지리 공간적 데이터 인덱스
+              displayName: 'geospatial, spatial, index'
+              href: sql-query-geospatial-index.md
+        - name: DateTime
+          displayName: 'datetime, date, time'
+          href: working-with-dates.md
+        - name: 매개 변수가 있는 쿼리
+          displayName: 'parameterized query, parameterized, parameter, parameters'
+          href: sql-query-parameterized-queries.md
+        - name: LINQ to SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
+        - name: SQL 쿼리 실행
+          displayName: 'query performance, query execution'
+          href: sql-query-execution.md
     - name: Azure Cosmos 계정 작업
       href: account-overview.md
     - name: 컨테이너 및 항목
@@ -128,18 +471,12 @@
         - name: '데이터베이스, 컨테이너 및 항목 작업'
           displayName: 'collection, document'
           href: databases-containers-items.md
-        - name: SQL 언어 참조
-          displayName: 'collection, document'
-          href: sql-api-query-reference.md
-        - name: SQL 쿼리 예제
-          displayName: 'collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains'
-          href: how-to-sql-query.md
         - name: 모델 문서 데이터
           displayName: document
           href: modeling-data.md
         - name: 인덱싱
           items:
-            - name: 개요
+            - name: 인덱싱 개요
               displayName: 'range, spatial'
               href: index-overview.md
             - name: 인덱싱 정책
@@ -154,8 +491,10 @@
           href: database-transactions-optimistic-concurrency.md
     - name: 변경 피드
       items:
-        - name: 개요
+        - name: 변경 피드 개요
           href: change-feed.md
+        - name: 변경 피드 디자인 패턴
+          href: change-feed-design-patterns.md
         - name: 변경 피드 읽기
           href: read-change-feed.md
         - name: 변경 피드 프로세서
@@ -163,8 +502,24 @@
         - name: Azure Functions 트리거
           displayName: change feed
           href: change-feed-functions.md
-    - name: Apache Spark를 사용한 기본 제공 분석
-      href: spark-api-introduction.md
+        - name: 변경 피드 풀 모델
+          href: change-feed-pull-model.md
+    - name: Azure Synapse Link를 사용하는 분석
+      items:
+        - name: Cosmos DB용 Azure Synapse Link
+          href: synapse-link.md
+        - name: 분석 저장소 - 개요
+          href: analytical-store-introduction.md
+        - name: Synapse Link 지원 기능
+          href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Synapse Link 사용 사례
+          href: synapse-link-use-cases.md
+        - name: Synapse Link FAQ
+          href: synapse-link-frequently-asked-questions.md
+    - name: 기본 제공 Jupyter Notebook
+      items:
+        - name: Jupyter Notebook 개요
+          href: cosmosdb-jupyter-notebooks.md
     - name: 서버 쪽 프로그래밍
       items:
         - name: '저장 프로시저, 트리거 및 UDF'
@@ -173,11 +528,14 @@
           href: javascript-query-api.md
     - name: Azure Cosmos DB 비용 최적화
       items:
+        - name: 비용 계획 및 관리
+          href: plan-manage-costs.md
         - name: 가격 책정 모델
           href: how-pricing-works.md
         - name: TCO(총 소유 비용)
           href: total-cost-ownership.md
         - name: 요금 청구 방식
+          displayName: free tier
           href: understand-your-bill.md
         - name: 프로비전된 처리량 비용 최적화
           displayName: 'request units, RUs, RU'
@@ -191,12 +549,13 @@
         - name: 다중 지역 비용 최적화
           href: optimize-cost-regions.md
         - name: 개발/테스트 비용 최적화
+          displayName: free tier
           href: optimize-dev-test.md
         - name: 예약 용량으로 비용 최적화
           href: cosmos-db-reserved-capacity.md
     - name: 보안
       items:
-        - name: 개요
+        - name: 보안 개요
           href: database-security.md
         - name: 데이터 암호화.
           href: database-encryption-at-rest.md
@@ -206,33 +565,48 @@
         - name: IP 방화벽
           href: firewall-support.md
         - name: 가상 네트워크에서 액세스
+          displayName: service endpoint
           href: vnet-service-endpoint.md
+        - name: 서비스 태그
+          href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: 역할 기반 액세스 제어
           displayName: rbac
           href: role-based-access-control.md
+        - href: cosmos-db-advanced-threat-protection.md
+          name: Advanced Threat Protection
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 엔터프라이즈 준비
       items:
         - name: 온라인 백업 및 주문형 복원
           href: online-backup-and-restore.md
         - name: 규정 준수
           href: compliance.md
-    - name: 제한
+        - name: Azure Policy 지원
+          href: policy.md
+    - name: 서비스 할당량
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB 및 기타 API'
   expanded: true
   items:
     - name: Cassandra API
       items:
-        - name: 소개
-          href: cassandra-introduction.md
-        - name: 유선 프로토콜 지원
-          href: cassandra-support.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 Cassandra API란?
+              href: cassandra-introduction.md
+            - name: 유선 프로토콜 지원
+              href: cassandra-support.md
         - name: 빠른 시작
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
-            - name: 자바
+            - name: .NET Core
+              href: create-cassandra-dotnet-core.md
+            - name: Java v3
               href: create-cassandra-java.md
+            - name: Java v4
+              href: create-cassandra-java-v4.md
             - name: Node.js
               href: create-cassandra-nodejs.md
             - name: Python
@@ -248,11 +622,22 @@
             - name: 4 - 데이터 마이그레이션
               displayName: import
               href: cassandra-import-data.md
+        - name: 개념
+          items:
+            - name: FAQ
+              href: cassandra-faq.md
+            - name: 탄력적 확장
+              href: manage-scale-cassandra.md
+            - name: 분할
+              href: cassandra-partitioning.md
+            - name: 보조 인덱스
+              href: cassandra-secondary-index.md
         - name: 방법 가이드
           items:
+            - name: 변경 피드
+              href: cassandra-change-feed.md
             - name: Spring 데이터 저장 및 관리
-              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
-              maintainContext: true
+              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra 및 Spark
               items:
                 - name: 소개
@@ -277,17 +662,22 @@
                   href: cassandra-spark-table-copy-ops.md
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-cassandra-with-resource-manager.md
+              displayName: ARM
+            - name: Powershell을 사용하여 관리
+              href: powershell-samples-cassandra.md
+            - name: Azure CLI를 사용하여 관리
+              href: cli-samples-cassandra.md
     - name: MongoDB API
       items:
-        - name: 소개
-          href: mongodb-introduction.md
-        - name: 유선 프로토콜 지원
-          href: mongodb-feature-support.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 MongoDB API란?
+              href: mongodb-introduction.md
         - name: 빠른 시작
           items:
             - name: .NET
               href: create-mongodb-dotnet.md
-            - name: 자바
+            - name: Java
               href: create-mongodb-java.md
             - name: Node.js
               href: create-mongodb-nodejs.md
@@ -296,7 +686,7 @@
             - name: Xamarin
               href: create-mongodb-xamarin.md
             - name: Golang
-              href: create-mongodb-golang.md
+              href: create-mongodb-go.md
         - name: 자습서
           items:
             - name: 1 - 데이터 만들기 및 관리
@@ -321,12 +711,19 @@
                   href: tutorial-develop-mongodb-react.md
             - name: 2 - 데이터 마이그레이션
               displayName: import
-              href: /azure/dms/tutorial-mongodb-cosmos-db
-              maintainContext: true
+              href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: 3 - 데이터 쿼리
               href: tutorial-query-mongodb.md
             - name: 4 - 전세계로 데이터 배포
               href: tutorial-global-distribution-mongodb.md
+        - name: 개념
+          items:
+            - name: 유선 프로토콜 지원(3.6)
+              href: mongodb-feature-support-36.md
+            - name: 유선 프로토콜 지원(3.2)
+              href: mongodb-feature-support.md
+            - name: FAQ
+              href: mongodb-api-faq.md
         - name: 방법 가이드
           items:
             - name: 사전 마이그레이션 가이드
@@ -337,7 +734,9 @@
               href: connect-mongodb-account.md
             - name: Studio 3T를 사용하여 연결
               href: mongodb-mongochef.md
-            - name: Robomongo를 사용하여 연결
+            - name: Compass를 사용하여 연결
+              href: mongodb-compass.md
+            - name: Robo 3T를 사용하여 연결
               href: mongodb-robomongo.md
             - name: Mongoose를 사용하여 연결
               href: mongodb-mongoose.md
@@ -346,30 +745,40 @@
               href: mongodb-readpreference.md
             - name: TTL(Time To Live) - MongoDB
               href: mongodb-time-to-live.md
+            - name: 스트림 변경
+              href: mongodb-change-streams.md
             - name: 데이터 인덱싱 관리
               href: mongodb-indexing.md
             - name: Spring 데이터 저장 및 관리
-              href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
-              maintainContext: true
+              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: MongoDB 확장 명령
               href: mongodb-custom-commands.md
               displayName: custom commands
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-mongodb-with-resource-manager.md
+              displayName: ARM
+            - name: Powershell을 사용하여 관리
+              href: powershell-samples-mongodb.md
+            - name: Azure CLI를 사용하여 관리
+              href: cli-samples-mongodb.md
+            - name: 일반적인 문제 해결
+              href: mongodb-troubleshoot.md
     - name: Gremlin API
       displayName: 'graph, graph database'
       items:
-        - name: 소개
-          href: graph-introduction.md
-        - name: 유선 프로토콜 지원
-          href: gremlin-support.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 Gremlin API란?
+              href: graph-introduction.md
+            - name: 유선 프로토콜 지원
+              href: gremlin-support.md
         - name: 빠른 시작
           items:
             - name: Gremlin 콘솔
               href: create-graph-gremlin-console.md
             - name: .NET
               href: create-graph-dotnet.md
-            - name: 자바
+            - name: Java
               href: create-graph-java.md
             - name: Node.js
               href: create-graph-nodejs.md
@@ -381,28 +790,56 @@
           items:
             - name: 1 - 데이터 쿼리
               href: tutorial-query-graph.md
+        - name: 개념
+          items:
+            - name: FAQ
+              href: gremlin-api-faq.md
         - name: 방법 가이드
           items:
-            - name: 그래프 데이터 가져오기
-              href: bulk-executor-graph-dotnet.md
+            - name: 그래프 데이터 모델링
+              href: graph-modeling.md
             - name: 그래프 데이터 분할
               href: graph-partitioning.md
+            - name: 그래프 데이터 가져오기
+              href: bulk-executor-graph-dotnet.md
             - name: Gremlin 쿼리 최적화
               href: graph-execution-profile.md
+            - name: 리소스 토큰 사용
+              href: how-to-use-resource-tokens-gremlin.md
+            - name: 지역별 엔드포인트 사용
+              href: how-to-use-regional-gremlin.md
+            - name: 시스템 문서 속성 액세스
+              href: how-to-access-system-properties-gremlin.md
+            - name: 그래프 데이터 시각화
+              href: graph-visualization.md
             - name: Spring 데이터 저장 및 관리
-              href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
-              maintainContext: true
+              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-gremlin-with-resource-manager.md
+              displayName: ARM
+            - name: Powershell을 사용하여 관리
+              href: powershell-samples-gremlin.md
+            - name: Azure CLI를 사용하여 관리
+              href: cli-samples-gremlin.md
+        - name: 참조
+          items:
+            - name: 응답 헤더
+              href: gremlin-headers.md
+            - name: 제한
+              href: gremlin-limits.md
+            - name: 호환성
+              href: gremlin-compatibility.md
     - name: 테이블 API
       items:
-        - name: 소개
-          href: table-introduction.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 Table API란?
+              href: table-introduction.md
         - name: 빠른 시작
           items:
             - name: .NET
               href: create-table-dotnet.md
-            - name: 자바
+            - name: Java
               href: create-table-java.md
             - name: Node.js
               href: create-table-nodejs.md
@@ -423,7 +860,7 @@
           items:
             - name: .NET
               href: table-storage-how-to-use-dotnet.md
-            - name: 자바
+            - name: Java
               href: table-storage-how-to-use-java.md
             - name: Node.js
               href: table-storage-how-to-use-nodejs.md
@@ -435,9 +872,13 @@
               href: table-storage-how-to-use-c-plus.md
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
-            - name: 'F#'
+            - name: F#
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
+        - name: 개념
+          items:
+            - name: FAQ
+              href: table-api-faq.md
         - name: 방법 가이드
           items:
             - name: Table API를 사용하여 앱 빌드
@@ -446,30 +887,48 @@
               href: table-storage-design-guide.md
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-table-with-resource-manager.md
-        - name: 참고 자료
+              displayName: ARM
+            - name: Powershell을 사용하여 관리
+              href: powershell-samples-table.md
+            - name: Azure CLI를 사용하여 관리
+              href: cli-samples-table.md
+        - name: 참조
           items:
             - name: .NET
               href: table-sdk-dotnet.md
             - name: .NET Standard
               href: table-sdk-dotnet-standard.md
-            - name: 자바
+            - name: Java
               href: table-sdk-java.md
             - name: Node.js
               href: table-sdk-nodejs.md
             - name: Python
               href: table-sdk-python.md
             - name: Table Storage REST API
-              href: /rest/api/storageservices/Table-Service-Concepts
+              href: /rest/api/storageservices/table-service-rest-api
     - name: Etcd API
       items:
-        - name: 소개
-          href: etcd-api-introduction.md
-        - name: Azure Cosmos DB를 사용한 Azure Kubernetes
-          href: bootstrap-kubernetes-cluster.md
+        - name: 개요
+          items:
+            - name: Cosmos DB의 Etcd API란?
+              href: etcd-api-introduction.md
+        - name: 방법 가이드
+          items:
+            - name: Azure Cosmos DB를 사용한 Azure Kubernetes
+              href: bootstrap-kubernetes-cluster.md
 - name: 방법 가이드
   items:
-    - name: Azure Cosmos 계정 관리
+    - name: Azure Cosmos 계정 작업
       href: how-to-manage-database-account.md
+    - name: Azure Cosmos DB 리소스 작업
+      items:
+        - name: PowerShell 사용
+          href: manage-with-powershell.md
+        - name: Azure CLI 사용
+          href: manage-with-cli.md
+        - name: Resource Manager 템플릿 사용
+          href: manage-sql-with-resource-manager.md
+          displayName: ARM
     - name: 글로벌 분포
       items:
         - name: 다중 마스터 구성
@@ -477,23 +936,38 @@
         - name: 일관성 수준 관리
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: how-to-manage-consistency.md
-        - name: 사용자 지정 동기화 구현
-          href: how-to-custom-synchronization.md
         - name: 충돌 해결 정책 구성
           href: how-to-manage-conflicts.md
+        - name: 세션 토큰 형식 변환
+          href: how-to-convert-session-token.md
     - name: 프로비전된 처리량
       items:
-        - name: 컨테이너에서 처리량 프로비전
+        - name: 컨테이너에 표준(수동) 처리량 프로비저닝
           displayName: 'request units, RUs, RU, collection level'
           href: how-to-provision-container-throughput.md
-        - name: 데이터베이스에서 처리량 프로비전
+        - name: 데이터베이스에 표준(수동) 처리량 프로비저닝
           displayName: 'request units, RUs, RU, shared throughput, database level'
           href: how-to-provision-database-throughput.md
+        - name: 데이터베이스 또는 컨테이너에서 처리량 프로비저닝 자동 크기 조정
+          displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+          href: how-to-provision-autoscale-throughput.md
+        - name: Cosmos Capacity Planner를 사용하여 RU/s 예측
+          displayName: 'request units, RUs, RU, capacity'
+          href: estimate-ru-with-capacity-planner.md
         - name: 요청 단위 요금 찾기
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
+        - name: Azure Functions 타이머를 사용하여 크기 조정
+          displayName: 'request units, RUs, RU, timer'
+          href: scale-on-schedule.md
     - name: 컨테이너 및 항목 작업
       items:
+        - name: Cosmos DB 데이터 작업
+          items:
+            - name: Azure Storage Explorer 를 사용하여 데이터 작업
+              href: storage-explorer.md
+            - name: Azure Cosmos 탐색기를 사용하여 데이터 작업
+              href: data-explorer.md
         - name: 컨테이너 만들기
           href: how-to-create-container.md
         - name: 큰 파티션 키로 컨테이너 만들기
@@ -508,25 +982,90 @@
         - name: TTL(Time to Live) 구성
           displayName: 'delete, delete data, ttl'
           href: how-to-time-to-live.md
-        - name: Azure Storage 탐색기를 사용하여 데이터 작업
-          href: storage-explorer.md
-        - name: Azure Cosmos 탐색기를 사용하여 데이터 작업
-          href: data-explorer.md
         - name: 인덱싱 정책 관리
           href: how-to-manage-indexing-policy.md
         - name: 고유 키 정의
           href: how-to-define-unique-keys.md
-        - name: SQL 하위 쿼리 예제
-          displayName: 'subquery, exists'
-          href: how-to-sql-subquery.md
-    - name: 피드 변경
+    - name: 성능 및 문제 해결
+      items:
+        - name: 쿼리
+          items:
+            - name: 쿼리 실행 메트릭 가져오기
+              href: profile-sql-api-query.md
+            - name: 쿼리 성능 조정
+              href: sql-api-query-metrics.md
+            - name: 쿼리 성능 문제 해결
+              href: troubleshoot-query-performance.md
+        - name: .NET
+          items:
+            - name: .NET SDK v3용 성능 팁
+              href: performance-tips-dotnet-sdk-v3-sql.md
+            - name: .NET SDK v2용 성능 팁
+              href: performance-tips.md
+            - name: .NET SDK 문제 해결
+              href: troubleshoot-dot-net-sdk.md
+        - name: Java
+          items:
+            - name: Java SDK v4용 성능 팁
+              href: performance-tips-java-sdk-v4-sql.md
+            - name: Java SDK v4 문제 해결
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: 비동기 Java SDK v2
+              href: performance-tips-async-java.md
+            - name: 동기 Java SDK v2
+              href: performance-tips-java.md
+            - name: 문제 해결 - Async Java SDK v2
+              href: troubleshoot-java-async-sdk.md
+        - name: 성능 테스트 - 샘플 앱
+          href: performance-testing.md
+        - name: 비용 효율적인 읽기 및 쓰기
+          href: key-value-store-cost.md
+    - name: 최신 SDK로 마이그레이션
+      items:
+        - name: Java V4 SDK로 마이그레이션
+          href: migrate-java-v4-sdk.md
+    - name: 변경 피드
       items:
         - name: Azure Cosmos DB 트리거 로그
           href: how-to-configure-cosmos-db-trigger-logs.md
+        - name: Azure Cosmos DB 트리거 연결 정책
+          href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: 여러 Azure Cosmos DB 트리거
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Azure Cosmos DB 트리거 문제 해결
           href: troubleshoot-changefeed-functions.md
+        - name: 변경 피드 프로세서 시작 시간
+          href: how-to-configure-change-feed-start-time.md
+        - name: 변경 피드 평가기 사용
+          href: how-to-use-change-feed-estimator.md
+        - name: 변경 피드 프로세서 라이브러리에서 마이그레이션
+          href: how-to-migrate-from-change-feed-library.md
+        - name: 변경 피드 - 비동기 Java 샘플
+          href: create-sql-api-java-changefeed.md
+    - name: Azure Synapse Link를 사용하는 분석
+      items:
+        - name: Azure Synapse Link 구성
+          href: configure-synapse-link.md
+        - name: Azure Synapse Link에 연결
+          href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Synapse Spark를 사용하여 쿼리
+          href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: Apache Spark를 사용한 기본 제공 분석
+      items:
+        - name: Azure Databricks Spark 커넥터
+          href: spark-connector.md
+        - name: Apache Kafka 및 Cosmos DB를 사용하는 스트리밍
+          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: 기본 제공 Jupyter Notebook
+      items:
+        - name: Notebook 사용
+          href: enable-notebooks.md
+        - name: GitHub에서 Notebook 가져오기
+          href: import-github-notebooks.md
+        - name: 기본 제공 Python Notebook 명령 사용
+          href: use-python-notebook-features-and-commands.md
+        - name: 기본 제공 C# Notebook 명령 사용
+          href: use-csharp-notebook-features-and-commands.md
     - name: 서버 쪽 프로그래밍
       items:
         - name: '저장 프로시저, 트리거 및 UDF 작성'
@@ -540,36 +1079,55 @@
         - name: IP 방화벽 구성
           href: how-to-configure-firewall.md
         - name: 가상 네트워크에서 액세스 구성
+          displayName: service endpoints
           href: how-to-configure-vnet-service-endpoint.md
+        - name: 프라이빗 엔드포인트에서 액세스 구성
+          href: how-to-configure-private-endpoints.md
+        - name: Cosmos DB 계정에 비공개로 연결
+          href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: CORS(원본 간 리소스 공유) 구성
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Key Vault를 사용하여 Azure Cosmos 키 보호
+        - name: 관리 ID를 사용하여 데이터 액세스
+          href: managed-identity-based-authentication.md
+          displayName: 'msi, managed service identity, aad, azure active directory, identity'
+        - name: 인증서를 사용하여 데이터 액세스
+          href: certificate-based-authentication.md
+        - name: Azure Key Vault를 사용하여 데이터 액세스
           href: access-secrets-from-keyvault.md
+        - name: 데이터 작업에 대해서만 사용자 액세스 제한
+          href: how-to-restrict-user-data.md
+        - name: 고객 관리형 키 구성
+          href: how-to-setup-cmk.md
     - name: 엔터프라이즈 준비
       items:
         - name: 백업에서 데이터 복원
           href: how-to-backup-and-restore.md
-    - name: Azure Cosmos DB 리소스 관리
-      items:
-        - name: Powershell을 사용하여 관리
-          href: manage-with-powershell.md
-        - name: Azure CLI를 사용하여 관리
-          href: manage-with-cli.md
-        - name: Resource Manager 템플릿을 사용하여 관리
-          href: manage-sql-with-resource-manager.md
-    - name: 로깅
-      items:
-        - name: 진단 로깅
-          href: logging.md
-        - name: Logic Apps를 통한 애플리케이션 로깅
-          href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
-          maintainContext: true
     - name: 모니터
       items:
-        - name: 메트릭으로 모니터링
+        - name: Cosmos DB 모니터링
+          href: monitor-cosmos-db.md
+        - name: Azure Monitor 메트릭 사용
+          items:
+            - name: Cosmos용 Azure Monitor(미리 보기)
+              href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: 서버 쪽 대기 시간 모니터링
+              href: monitor-server-side-latency.md
+            - name: 요청 단위 사용량 모니터링
+              href: monitor-request-unit-usage.md
+            - name: 정규화된 요청 단위 사용량 모니터링
+              href: monitor-normalized-request-units.md
+        - name: Azure Monitor 로그 사용
+          items:
+            - name: 진단 로그 모니터링
+              href: cosmosdb-monitor-resource-logs.md
+            - name: 컨트롤 플레인 로그 감사
+              href: audit-control-plane-logs.md
+        - name: Cosmos DB 계정에서 메트릭 보기
           href: use-metrics.md
-        - name: 모니터 SLA
-          href: monitor-accounts.md
+        - name: 데이터 참조 모니터링
+          href: monitor-cosmos-db-reference.md
+        - name: Logic Apps를 통한 애플리케이션 로깅
+          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: 로컬에서 개발
       items:
         - name: 에뮬레이터 사용
@@ -580,32 +1138,12 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
     - name: Azure DevOps CI/CD 파이프라인 설정
       href: tutorial-setup-ci-cd.md
-    - name: 데이터 형식
-      items:
-        - name: DateTime
-          href: working-with-dates.md
-        - name: 지리 공간적
-          href: geospatial.md
-    - name: 모범 사례
-      items:
-        - name: 성능 팁
-          items:
-            - name: 쿼리 성능 조정
-              href: sql-api-query-metrics.md
-            - name: .NET SDK용 성능 팁
-              href: performance-tips.md
-            - name: Java SDK용 성능 팁
-              href: performance-tips-java.md
-            - name: 비동기 Java SDK용 성능 팁
-              href: performance-tips-async-java.md
-            - name: 성능 테스트 - 샘플 앱
-              href: performance-testing.md
-        - name: 비용 효율적인 읽기 및 쓰기
-          href: key-value-store-cost.md
     - name: Cosmos DB 데이터 시각화
       items:
         - name: Power BI 사용
           href: powerbi-visualize.md
+        - name: 라이브 날씨 대시보드 만들기
+          href: create-real-time-weather-dashboard-powerbi.md
         - name: Qlik Sense 사용
           href: visualize-qlik-sense.md
     - name: 다른 Azure 서비스와 통합
@@ -614,68 +1152,82 @@
           href: changefeed-ecommerce-solution.md
         - name: Azure App Service
           href: create-website.md
-        - name: Azure Search 인덱서
-          href: /azure/search/search-howto-index-cosmosdb
-          maintainContext: true
+        - name: Azure Cognitive Search 인덱서
+          href: ../search/search-howto-index-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure 기능
           items:
             - name: 서버리스 컴퓨팅
               href: serverless-computing-database.md
             - name: Azure 함수 바인딩
-              href: /azure/azure-functions/functions-bindings-cosmosdb
-              maintainContext: true
+              href: ../azure-functions/functions-bindings-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure 데이터 팩터리
-          href: /azure/data-factory/connector-azure-cosmos-db
-          maintainContext: true
+          href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure Stream Analytics
-          href: '/azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
-          maintainContext: true
-        - name: Logic Apps 및 Service Bus
-          href: change-feed-hl7-fhir-logic-apps.md
+          href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Data Explorer
+          href: 'https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration'
         - name: Azure Event Hubs 및 Azure Storage
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Spring Boot Starter 사용
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
-          maintainContext: true
-        - name: 람다 아키텍처
-          href: lambda-architecture.md
-        - name: Azure Databricks(Spark 커넥터)
-          href: spark-connector.md
-        - name: Spark 및 Kafka
-          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
-          maintainContext: true
+          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
+        - name: Spring Data 개발자 가이드
+          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context'
         - name: ODBC 드라이버
           href: odbc-driver.md
+    - name: Cosmos DB로 데이터 마이그레이션
+      items:
+        - name: 데이터를 Cosmos DB로 마이그레이션하는 옵션
+          href: cosmosdb-migrationchoices.md
+        - name: Striim을 사용하여 SQL API로 마이그레이션
+          href: cosmosdb-sql-api-migrate-data-striim.md
+        - name: Striim을 사용하여 Cassandra API로 마이그레이션
+          href: cosmosdb-cassandra-api-migrate-data-striim.md
+        - name: Blitzz를 사용하여 Oracle DB에서 Cassandra API로 마이그레이션
+          href: oracle-migrate-cosmos-db-blitzz.md
+        - name: Blitzz를 사용하여 Apache Cassandra에서 Cassandra API로 마이그레이션
+          href: cassandra-migrate-cosmos-db-blitzz.md
+        - name: 수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션
+          href: migrate-cosmosdb-data.md
+        - name: 일 대 다(one-to-few) 관계형 데이터 마이그레이션
+          href: migrate-relational-to-cosmos-db-sql-api.md
+        - name: Couchbase에서 SQL API로 마이그레이션
+          href: couchbase-cosmos-migration.md
+        - name: DynamoDB를 SQL API로 마이그레이션
+          href: dynamo-to-cosmos.md
     - name: Bulk Executor 라이브러리
       items:
         - name: Bulk Executor 라이브러리 정보
           href: bulk-executor-overview.md
         - name: Bulk Executor - .NET 라이브러리
           href: bulk-executor-dot-net.md
+        - name: bulk executor에서 .NET SDK로 마이그레이션
+          href: how-to-migrate-from-bulk-executor-library.md
         - name: Bulk Executor - Java 라이브러리
           href: bulk-executor-java.md
-    - name: 문제 해결
-      items:
-        - name: Java Async SDK 문제 해결
-          href: troubleshoot-java-async-sdk.md
-        - name: .NET SDK 문제 해결
-          href: troubleshoot-dot-net-sdk.md
-- name: 참고 자료
+- name: SQL API SDK에 대한 참조
   items:
-    - name: .NET
-      href: sql-api-sdk-dotnet.md
-    - name: .NET Core
-      href: sql-api-sdk-dotnet-core.md
-    - name: .NET 변경 피드 라이브러리
-      href: sql-api-sdk-dotnet-changefeed.md
-    - name: .NET Bulk Executor 라이브러리
-      href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: 자바
-      href: sql-api-sdk-java.md
-    - name: Java Bulk Executor 라이브러리
-      href: sql-api-sdk-bulk-executor-java.md
-    - name: 비동기 Java
-      href: sql-api-sdk-async-java.md
+    - name: .NET SDK
+      items:
+        - name: .NET SDK v3
+          href: sql-api-sdk-dotnet-standard.md
+        - name: .NET SDK v2
+          href: sql-api-sdk-dotnet.md
+        - name: .NET Core SDK v2
+          href: sql-api-sdk-dotnet-core.md
+        - name: .NET 변경 피드 라이브러리 v2
+          href: sql-api-sdk-dotnet-changefeed.md
+        - name: .NET 대량 실행기 라이브러리 v2
+          href: sql-api-sdk-bulk-executor-dot-net.md
+    - name: Java SDK
+      items:
+        - name: Java SDK v4
+          href: sql-api-sdk-java-v4.md
+        - name: 비동기 Java SDK v2
+          href: sql-api-sdk-async-java.md
+        - name: 동기 Java SDK v2
+          href: sql-api-sdk-java.md
+        - name: Java 대량 실행기 라이브러리 v2
+          href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python
@@ -685,7 +1237,10 @@
     - name: REST 리소스 공급자
       href: /rest/api/cosmos-db-resource-provider/
     - name: Resource Manager 템플릿
-      href: /templates/microsoft.documentdb/allversions
+      href: /azure/templates/microsoft.documentdb/allversions
+      displayName: ARM
+    - name: 에뮬레이터 릴리스 정보
+      href: local-emulator-release-notes.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기
@@ -693,21 +1248,25 @@
     - name: 쿼리 참고 자료
       href: query-cheat-sheet.md
     - name: SQL 실습
-      href: 'https://aka.ms/cosmos-db-playground'
+      href: 'https://www.documentdb.com/sql/demo'
     - name: FAQ
       href: faq.md
     - name: 백서
       href: whitepapers.md
     - name: 파트너
       href: partners-migration-cosmosdb.md
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-cosmos-db.html'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 무료로 Azure Cosmos DB 사용해 보기
       href: 'https://azure.microsoft.com/try/cosmosdb/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
+    - name: 성능 수준
+      href: performance-levels.md
     - name: 사용 사례
       items:
         - name: 일반 사용 예

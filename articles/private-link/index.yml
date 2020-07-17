@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Private Link 설명서
+summary: 'Azure Private Link를 사용하면 가상 네트워크의 Private Endpoint를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.  가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. 가상 네트워크에서 자체 Private Link Service를 만들어 고객에게 개인적으로 제공할 수도 있습니다.'
+metadata:
+  title: Private Link 설명서 - 빠른 시작, 방법 가이드 및 API 참조
+  description: Azure Private Link 서비스 사용 방법에 대해 알아봅니다. 빠른 시작, 자습서는 Private Link 서비스를 배포하는 방법을 보여줍니다.
+  ms.service: private-link
+  ms.topic: landing-page
+  ms.collection: collection
+  author: malopMSFT
+  ms.author: allensu
+  ms.date: 09/16/2019
+  ms.openlocfilehash: c062c0aa38037485e6bd892b3dbce67160f64995
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82127613"
+landingContent:
+- title: Azure Private Link 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Private Link란?
+      url: private-link-overview.md
+- title: Azure 서비스에 연결
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Private Endpoint란?
+      url: private-endpoint-overview.md
+    - text: 프라이빗 엔드포인트 DNS 통합
+      url: private-endpoint-dns.md
+  - linkListType: quickstart
+    links:
+    - text: Private Endpoint 만들기
+      url: create-private-endpoint-portal.md
+- title: 사용자 고유의 Private Link 서비스 빌드
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Private Link 서비스란?
+      url: private-link-service-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Private Link 서비스 만들기
+      url: create-private-link-service-powershell.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network
+    - text: REST (영문)
+      url: /rest/api/virtualnetwork/privatelinkservices

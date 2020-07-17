@@ -1,23 +1,17 @@
 ---
 title: Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링 | Microsoft Docs
 description: Application Insights Profiler를 사용하는 방법에 대한 개념 개요 및 단계별 자습서입니다.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.reviewer: mbullwin
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/23/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/23/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: b91abe282c25b161db72616d7123d7a2bf5dbc9f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306537"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111068"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -29,7 +23,7 @@ ms.locfileid: "60306537"
 
 ![Profiler 추적](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 다음 지침은 모든 Windows, Linux 및 Mac 개발 환경에 적용됩니다.
 
 * [.NET Core SDK 2.1.2 이상](https://dotnet.microsoft.com/download/archives)을 설치합니다.
@@ -41,19 +35,19 @@ ms.locfileid: "60306537"
 
 1. ASP.NET Core MVC 웹 애플리케이션을 만듭니다.
 
-    ```
-    dotnet new mvc -n LinuxProfilerTest
-    ```
+   ```console
+   dotnet new mvc -n LinuxProfilerTest
+   ```
 
 1. 작업 디렉터리를 프로젝트에 대한 루트 폴더로 변경합니다.
 
 1. 프로파일러 추적을 수집하도록 NuGet 패키지를 추가합니다.
 
-    ```shell
-    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
-    ```
+   ```console
+   dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
+   ```
 
-1. Program.cs에서 Application Insights를 사용 합니다.
+1. Program.cs에서 Application Insights를 사용 하도록 설정 합니다.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -61,7 +55,7 @@ ms.locfileid: "60306537"
             .UseApplicationInsights() // Add this line of code to Enable Application Insights
             .UseStartup<Startup>();
     ```
-    
+
 1. Startup.cs에서 Profiler를 사용 하도록 설정 합니다.
 
     ```csharp
@@ -75,24 +69,24 @@ ms.locfileid: "60306537"
 1. **HomeController.cs** 섹션에서 몇 초 동안 임의로 지연하는 코드 줄을 추가합니다.
 
     ```csharp
-        using System.Threading;
-        ...
+    using System.Threading;
+    ...
 
-        public IActionResult About()
-            {
-                Random r = new Random();
-                int delay = r.Next(5000, 10000);
-                Thread.Sleep(delay);
-                return View();
-            }
+    public IActionResult About()
+        {
+            Random r = new Random();
+            int delay = r.Next(5000, 10000);
+            Thread.Sleep(delay);
+            return View();
+        }
     ```
 
 1. 변경 내용을 로컬 리포지토리에 저장하고 커밋합니다.
 
-    ```
-        git init
-        git add .
-        git commit -m "first commit"
+    ```console
+    git init
+    git add .
+    git commit -m "first commit"
     ```
 
 ## <a name="create-the-linux-web-app-to-host-your-project"></a>프로젝트를 호스팅하는 Linux 웹앱 만들기
@@ -118,7 +112,7 @@ ms.locfileid: "60306537"
 
 1. 명령 프롬프트 창에서 프로젝트에 대한 루트 폴더로 이동합니다. App Service에서 리포지토리를 가리키도록 Git 원격 리포지토리를 추가합니다.
 
-    ```
+    ```console
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
 
@@ -127,13 +121,13 @@ ms.locfileid: "60306537"
 
 2. 변경 내용을 Azure로 푸시하여 프로젝트를 배포합니다.
 
-    ```
+    ```console
     git push azure master
     ```
 
-다음 예제와 비슷한 결과가 나타납니다.
+    다음 예제와 비슷한 내용이 출력됩니다.
 
-    ```
+    ```output
     Counting objects: 9, done.
     Delta compression using up to 8 threads.
     Compressing objects: 100% (8/8), done.
@@ -150,8 +144,7 @@ ms.locfileid: "60306537"
     remote: .
     remote:   Installing Newtonsoft.Json 10.0.3.
     remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
-    …
-
+    ...
     ```
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>웹앱을 모니터링하는 Application Insights 추가
@@ -160,9 +153,7 @@ ms.locfileid: "60306537"
 
 2. Application Insights 리소스의 **iKey** 값을 복사하고 웹앱에서 다음 설정을 지정합니다.
 
-    ```
-    APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ```
+    `APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]`
 
     앱 설정이 변경되면 사이트가 자동으로 다시 시작합니다. 새 설정이 적용된 후 프로파일러는 2분 동안 즉시 실행됩니다. 그런 다음, 프로파일러는 1시간마다 2분 동안 실행됩니다.
 
@@ -174,10 +165,6 @@ ms.locfileid: "60306537"
 
     ![프로파일러 추적 보기](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="known-issues"></a>알려진 문제
-
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Linux Profiler에 대 한 프로필 지금은 단추가 작동 하지 않습니다.
-프로 파일링 이제 프로필을 사용 하 여 단추 주문형 App Insights profiler Linux 버전이 아직 지원 하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

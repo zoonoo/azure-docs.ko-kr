@@ -1,22 +1,22 @@
 ---
-title: 빠른 시작 - Azure Active Directory 조건부 액세스로 보호되는 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구 | Microsoft Docs
+title: 조건부 액세스 권한에는 사용 약관이 필요 - Azure Active Directory
 description: 이 빠른 시작에서는 Azure Active Directory 조건부 액세스로 선택한 클라우드 앱에 대한 액세스 권한을 부여하기 전에 사용 약관에 동의하도록 요구하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
-ms.date: 12/14/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894254"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039826"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구
 
@@ -31,7 +31,7 @@ ms.locfileid: "58894254"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작의 시나리오를 완료하려면 다음이 필요합니다.
 
@@ -54,11 +54,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **사용 약관을 만들려면:**
 
 1. Microsoft Word에서 새 문서를 만듭니다.
-
 1. **내 사용 약관**을 입력한 다음, 컴퓨터에서 문서를 **mytou.pdf**로 저장합니다.
-
 1. [Azure Portal](https://portal.azure.com)에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
-
 1. Azure Portal의 왼쪽 탐색 모음에서 **Azure Active Directory**를 클릭합니다.
 
    ![Azure Active Directory](./media/require-tou/02.png)
@@ -80,17 +77,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![사용 약관](./media/require-tou/112.png)
 
    1. **이름** 텍스트 상자에서 **내 TOU**를 입력합니다.
-
    1. **표시 이름** 텍스트 상자에서 **내 TOU**를 입력합니다.
-
    1. 사용 약관 PDF 파일을 업로드합니다.
-
    1. **언어**로 **영어**를 선택합니다.
-
    1. **사용자가 사용 약관을 확장해야 함**으로 **켜기**를 선택합니다.
-
    1. **조건부 액세스 정책 템플릿으로 적용**으로 **사용자 지정 정책**을 선택합니다.
-
    1. **만들기**를 클릭합니다.
 
 ## <a name="create-your-conditional-access-policy"></a>조건부 액세스 정책 만들기
@@ -125,13 +116,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![개요](./media/require-tou/24.png)
 
    1. **사용자 및 그룹 선택**을 클릭한 다음, **사용자 및 그룹**을 선택합니다.
-
    1. **선택**을 클릭합니다.
-
    1. **선택** 페이지에서 **Isabella Simonsen**을 선택한 다음, **선택**을 클릭합니다.
-
    1. **사용자 및 그룹** 페이지에서 **완료**를 클릭합니다.
-
 1. **클라우드 앱**을 클릭합니다.
 
    ![클라우드 앱](./media/require-tou/08.png)
@@ -141,13 +128,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![클라우드 앱 선택](./media/require-tou/26.png)
 
    1. **앱 선택**을 클릭합니다.
-
    1. **선택**을 클릭합니다.
-
    1. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 다음, **선택**을 클릭합니다.
-
    1. **클라우드 앱** 페이지에서 **완료**를 클릭합니다.
-
 1. **액세스 제어** 섹션에서 **허용**을 클릭합니다.
 
    ![액세스 제어](./media/require-tou/10.png)
@@ -157,11 +140,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![허용](./media/require-tou/111.png)
 
    1. **액세스 권한 부여**를 선택합니다.
-
    1. **내 TOU**를 선택합니다.
-
    1. **선택**을 클릭합니다.
-
 1. **정책 사용** 섹션에서 **켬**을 클릭합니다.
 
    ![정책 설정](./media/require-tou/18.png)
@@ -172,7 +152,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 조건부 액세스 정책을 구성했으니, 예상대로 작동하는지 확인해야 합니다. 첫 번째 단계로, 조건부 액세스 what if 정책 도구를 사용하여 테스트 사용자 로그인을 시뮬레이션합니다. 이 시뮬레이션은 이 로그인이 정책에 미치는 영향을 평가하고, 시뮬레이션 보고서를 생성합니다.  
 
-what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
+**What If** 정책 평가 도구를 초기화하려면 다음을 설정합니다.
 
 - 사용자로 **Isabella Simonsen**
 - 클라우드 앱으로 **Microsoft Azure 관리**
@@ -199,15 +179,10 @@ what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
    ![클라우드 앱](./media/require-tou/16.png)
 
    1. **클라우드 앱**을 클릭합니다.
-
    1. **클라우드 앱** 페이지에서 **앱 선택**을 클릭합니다.
-
    1. **선택**을 클릭합니다.
-
    1. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 다음, **선택**을 클릭합니다.
-
    1. 클라우드 앱 페이지에서 **완료**를 클릭합니다.
-
 1. **What If**를 클릭합니다.
 
 ## <a name="test-your-conditional-access-policy"></a>조건부 액세스 정책 테스트
@@ -223,7 +198,6 @@ what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
 테스트 사용자 및 조건부 액세스 정책이 더 이상 필요 없으면 삭제합니다.
 
 - Azure AD 사용자를 삭제하는 방법을 모르겠으면 [Azure AD에서 사용자 삭제](../fundamentals/add-users-azure-active-directory.md#delete-a-user)를 참조하세요.
-
 - 정책을 삭제하려면 정책을 선택하고, 빠른 실행 도구 모음에서 **삭제**를 클릭합니다.
 
     ![Multi-Factor Authentication](./media/require-tou/33.png)
@@ -235,5 +209,4 @@ what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [특정 앱에 MFA 요구](app-based-mfa.md)
-> [세션 위험이 감지되면 액세스 차단](app-sign-in-risk.md)
+> [특정 앱에 대해 MFA 요구](app-based-mfa.md)

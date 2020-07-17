@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514639"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
@@ -33,7 +32,7 @@ ms.locfileid: "59785387"
 
 RBAC는 역할을 기반으로 할당할 수 있습니다. 이 역할은 환경에서 사용할 수 있는 리소스를 기준으로 특정 권한 수준을 보장합니다. StorSimple 사용자는 기본 제공 또는 사용자 지정의 두 가지 유형 중에서 역할을 선택할 수 있습니다.
 
-* **기본 제공 역할** - 기본 제공 역할은 owner, contributor, reader 또는 사용자 액세스 관리자가 있습니다. 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
+* **기본 제공 역할** - 기본 제공 역할은 owner, contributor, reader 또는 사용자 액세스 관리자가 있습니다. 자세한 내용은 [Azure 역할 기반 Access Control의 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 * **사용자 지정 역할** - 기본 제공 역할이 요구 사항에 맞지 않을 경우 StorSimple에 대해 사용자 지정 RBAC 역할을 만들 수 있습니다. 사용자 지정 RBAC 역할을 만들려면 기본 제공 역할을 시작하고 편집한 다음 환경에서 다시 가져옵니다. 역할의 다운로드 및 업로드는 Azure PowerShell 또는 Azure CLI를 사용하여 관리합니다. 자세한 내용은 [역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 
@@ -42,7 +41,7 @@ Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있
 
 ## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>StorSimple 인프라 관리자에 대한 사용자 지정 역할 만들기
 
-다음 예제에서는 사용자가 모든 리소스 범위를 볼 수 있지만 편집하거나 새 리소스 범위를 만들 수 없는 기본 제공 역할인 **Reader**부터 시작합니다. 그런 다음 이 역할을 확장해 새로운 사용자 지정 역할인 StorSimple 인프라 관리자를 만듭니다. 이 역할은 StorSimple 디바이스의 인프라를 관리할 수 있는 사용자에게 할당됩니다.
+다음 예제에서는 사용자가 모든 리소스 범위를 볼 수 있지만 편집하거나 새 리소스 범위를 만들 수 없는 기본 제공 역할인 **Reader**부터 시작합니다. 그런 다음이 역할을 확장 하 여 새 사용자 지정 역할 StorSimple 인프라 관리자를 만듭니다. 이 역할은 StorSimple 장치에 대 한 인프라를 관리할 수 있는 사용자에 게 할당 됩니다.
 
 1. 관리자 권한으로 Windows PowerShell을 실행합니다.
 
@@ -165,7 +164,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다. 액세스 권한을 제공할 때에는 부모 노드에서 부여한 액세스 권한이 자식에게 상속된다는 점을 기억하세요. 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
 
-1. **액세스 제어(IAM)** 로 이동합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
+1. **액세스 제어 (IAM)** 로 이동 합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
 
     ![RBAC 역할에 액세스 권한 추가](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
@@ -183,7 +182,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 이 역할을 만들면 Azure Portal에서 이 역할과 연결된 사용 권한을 볼 수 있습니다.
 
-1. 이 역할과 관련된 사용 권한을 보려면 **액세스 제어(IAM) > 역할 > StorSimple 인프라 관리자**로 이동합니다. 이 역할의 사용자 목록이 표시됩니다.
+1. 이 역할과 연결 된 사용 권한을 보려면 **액세스 제어 (IAM) > 역할 > StorSimple Infrastructure Admin**으로 이동 합니다. 이 역할의 사용자 목록이 표시 됩니다.
 
 2. StorSimple 인프라 관리자를 선택하고 **사용 권한**을 클릭합니다.
 

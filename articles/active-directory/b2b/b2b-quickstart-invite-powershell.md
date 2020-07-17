@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 게스트 사용자 추가 빠른 시작 - Azure Active Directory | Microsoft Docs
+title: '빠른 시작: PowerShell을 사용하여 게스트 사용자 추가 - Azure AD'
 description: 이 빠른 시작에서는 PowerShell을 사용하여 외부 Azure AD B2B 협업 사용자에게 초대를 보내는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
@@ -8,23 +8,24 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b9274652b7164a4aef71499912cb8b38ace29ff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854452"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690951"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>빠른 시작: PowerShell을 사용하여 게스트 사용자 추가
 
 Azure Active Directory B2B 협업을 사용하여 앱 및 서비스에 외부 파트너를 초대할 수 있는 다양한 방법이 있습니다. 이전 빠른 시작에서는 Azure Active Directory 관리 포털에서 게스트 사용자를 직접 추가하는 방법을 살펴보았습니다. PowerShell을 사용하여 게스트 사용자를 한 번에 한 명씩 또는 일괄로 추가할 수 있습니다. 이 빠른 시작에서는 New-AzureADMSInvitation 명령을 사용하여 게스트 사용자 한 명을 Azure 테넌트에 추가합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="install-the-latest-azureadpreview-module"></a>최신 AzureADPreview 모듈 설치
 Graph 모듈에 대한 Azure AD PowerShell의 최신 버전(AzureADPreview)을 설치해야 합니다. 
@@ -68,16 +69,16 @@ Get-Module -ListAvailable AzureAD*
 ```powershell
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
-예: `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`
+`Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`)을 입력합니다.
 
 메시지가 표시되면 자격 증명을 입력합니다.
 
 ## <a name="send-an-invitation"></a>초대 보내기
 
-1. 테스트 메일 계정에 초대를 보내려면 다음 PowerShell 명령을 실행합니다(**“Sanda”** 및 **sanda\@fabrikam.com**을 테스트 메일 계정 이름 및 메일 주소로 바꾸기). 
+1. 테스트 메일 계정에 초대를 보내려면 다음 PowerShell 명령을 실행합니다( **“Sanda”** 및 **sanda\@fabrikam.com**을 테스트 메일 계정 이름 및 메일 주소로 바꾸기). 
 
    ```powershell
-   New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
+   New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.microsoft.com -SendInvitationMessage $true
    ```
 2. 이 명령은 지정된 메일 주소에 초대를 보냅니다. 다음과 같이 표시되어야 하는 출력을 확인합니다.
 

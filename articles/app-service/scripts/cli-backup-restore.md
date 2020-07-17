@@ -1,25 +1,20 @@
 ---
-title: Azure CLI 스크립트 샘플 - 백업에서 웹앱 복원 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 백업에서 웹앱 복원
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: 백업으로 앱 복원'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 백업에서 앱을 복원하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
-ms.service: app-service-web
-ms.workload: web
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/07/2017
-ms.author: msangapu;cephalin
-ms.custom: seodec18
-ms.openlocfilehash: affdf22a3c4cb496983da557b415773f4274db48
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.author: msangapu
+ms.reviewer: cephalin
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 8c3c0f4f57d21e5c07867a2c43ce3c3114f79a9b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586777"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058865"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>CLI를 사용하여 백업에서 웹앱 복원
 

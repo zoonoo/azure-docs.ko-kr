@@ -2,74 +2,69 @@
   href: index.yml
   items: null
 - name: 개요
+  expanded: true
   items:
-    - name: 데이터 과학 VM은 무엇입니까?
+    - name: DSVM(Data Science Virtual Machine)이란?
       href: overview.md
-    - name: 심층 학습 VM은 무엇입니까?
-      href: deep-learning-dsvm-overview.md
-    - name: Geo AI 데이터 과학 VM은 무엇입니까?
-      href: geo-ai-dsvm-overview.md
+    - name: Data Science Virtual Machine에 포함된 도구
+      href: tools-included.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Windows 데이터 과학 VM 만들기
+    - name: Windows Data Science Virtual Machine 만들기
       href: provision-vm.md
-    - name: Ubuntu 데이터 과학 VM 만들기
+    - name: Ubuntu Data Science Virtual Machine 만들기
       href: dsvm-ubuntu-intro.md
-    - name: CentOS 데이터 과학 VM 만들기
-      href: linux-dsvm-intro.md
-    - name: 심층 학습 VM 만들기
-      href: provision-deep-learning-dsvm.md
-    - name: Geo AI 데이터 과학 VM 만들기
-      href: provision-geo-ai-dsvm.md
+    - name: ARM 템플릿을 사용하여 DSVM 만들기
+      displayName: Resource Manager
+      href: dsvm-tutorial-resource-manager.md
 - name: 개념
   items:
-    - name: DSVM 검색
-      href: dsvm-tools-overview.md
     - name: 심층 학습 및 AI 프레임워크
-      href: dsvm-deep-learning-ai-frameworks.md
-    - name: ML 및 데이터 과학 도구
-      href: dsvm-ml-data-science-tools.md
-    - name: Languages
-      href: dsvm-languages.md
+      href: dsvm-tools-deep-learning-frameworks.md
+    - name: 프로그래밍 언어
+      href: dsvm-tools-languages.md
     - name: 개발 도구
       href: dsvm-tools-development.md
+    - name: ML 및 데이터 과학 도구
+      href: dsvm-tools-data-science.md
+    - name: 데이터 플랫폼
+      href: dsvm-tools-data-platforms.md
     - name: 데이터 수집 도구
       href: dsvm-tools-ingestion.md
-    - name: 데이터 탐색 및 시각화 도구
-      href: dsvm-tools-explore-and-visualize.md
-    - name: 데이터 플랫폼
-      href: dsvm-data-platforms.md
-    - name: 샘플 및 연습
-      href: dsvm-samples-and-walkthroughs.md
+    - name: 생산성 도구
+      href: dsvm-tools-productivity.md
+    - name: 엔터프라이즈 보안 및 지침
+      href: dsvm-enterprise-overview.md
+- name: 샘플
+  href: dsvm-samples-and-walkthroughs.md
 - name: 방법 가이드
   items:
-    - name: Windows 데이터 과학 VM 사용
+    - name: Windows Data Science Virtual Machine 사용
       href: vm-do-ten-things.md
-    - name: Linux 데이터 과학 VM 사용
+    - name: Linux Data Science Virtual Machine 사용
       href: linux-dsvm-walkthrough.md
-    - name: 심층 학습 VM 사용
-      href: use-deep-learning-dsvm.md
-    - name: Geo AI 데이터 과학 VM 사용
-      href: use-geo-ai-dsvm.md
-    - name: 엔터프라이즈 지침
-      items:
-        - name: 개요
-          href: dsvm-enterprise-overview.md
-        - name: 확장
-          href: dsvm-pools.md
-        - name: Active Directory 통합
-          href: dsvm-common-identity.md
-        - name: 안전한 리소스 액세스 자격 증명
-          href: dsvm-secure-access-keys.md
+    - name: 자동 크기 조정된 Data Science Virtual Machine 풀 만들기
+      href: dsvm-pools.md
+    - name: Active Directory와 통합할 수 있습니다.
+      href: dsvm-common-identity.md
+    - name: 안전한 리소스 액세스 자격 증명
+      href: dsvm-secure-access-keys.md
 - name: 리소스
   items:
-    - name: R 개발자 가이드
-      href: /azure/architecture/data-guide/technology-choices/r-developers-guide
-      maintainContext: true
-    - name: 블로그
-      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
-    - name: MSDN 포럼
-      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
-    - name: 스택 오버플로
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-science-vm.html'
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=dsvm'
+    - name: R 개발자 가이드
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
+- name: 참조
+  items:
+    - name: Ubuntu Data Science Virtual Machine
+      href: reference-ubuntu-vm.md
+    - name: 릴리스 정보
+      href: release-notes.md
+    - name: 알려진 문제
+      href: reference-known-issues.md
+    - name: 사용 중단 알림
+      href: reference-deprecation.md

@@ -1,24 +1,24 @@
 ---
-title: Azure Maps를 사용하여 매장 로케이터 만들기 | Microsoft Docs
-description: Azure Maps를 사용하여 매장 로케이터를 만듭니다.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 11/15/2018
+title: '자습서: Azure Maps를 사용하여 매장 로케이터 애플리케이션 만들기 | Microsoft Azure Maps'
+description: 이 자습서에서는 Microsoft Azure Maps 웹 SDK를 사용하여 매장 로케이터 웹 애플리케이션을 만드는 방법에 대해 알아봅니다.
+author: philmea
+ms.author: philmea
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545300"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746053"
 ---
-# <a name="create-a-store-locator-by-using-azure-maps"></a>Azure Maps를 사용하여 매장 로케이터 만들기
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
-이 자습서에서는 Azure Maps를 사용하여 간단한 매장 로케이터를 만드는 과정을 안내합니다. 매장 로케이터는 일반적인 프로그램입니다. 이 유형의 애플리케이션에서 사용되는 개념 대부분이 다른 많은 애플리케이션에도 적용됩니다. 고객에게 매장 로케이터를 제공하는 일은 소비자에게 직접 제품을 판매하는 대부분의 기업에게 있어서 반드시 필요한 작업입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Maps를 사용하여 간단한 매장 로케이터를 만드는 과정을 안내합니다. 매장 로케이터는 일반적인 프로그램입니다. 이 유형의 애플리케이션에서 사용되는 개념 대부분이 다른 많은 애플리케이션에도 적용됩니다. 고객에게 매장 로케이터를 제공하는 일은 소비자에게 직접 제품을 판매하는 대부분의 기업에게 있어서 반드시 필요한 작업입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
     
 > [!div class="checklist"]
 > * Azure Map Control API를 사용하여 새 웹 페이지를 만듭니다.
@@ -33,27 +33,25 @@ ms.locfileid: "59545300"
 
 [라이브 매장 로케이터 예제](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) 또는 [소스 코드](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)로 이동합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서의 단계를 완료하려면 먼저 [Azure Maps 계정을 만들고](./tutorial-search-location.md#createaccount), [계정에 대한 구독 키 가져와야](./tutorial-search-location.md#getkey) 합니다.
+이 자습서의 단계를 완료하려면 먼저 Azure Maps 계정을 만들고 기본 키(구독 키)를 가져와야 합니다. [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 단계를 수행하여 계정의 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="design"></a>디자인
 
 코드로 이동하기 전에 디자인부터 시작하는 것이 좋습니다. 매장 로케이터를 원하는 만큼 단순하거나 복잡하게 구성할 수 있습니다. 이 자습서에서는 간단한 매장 로케이터를 만듭니다. 원할 경우 일부 기능을 확장하는 데 도움이 되도록 몇 가지 팁을 전체적으로 포함할 것입니다. Contoso Coffee라는 가상의 회사를 위한 매장 로케이터를 만듭니다. 다음 그림에서는 이 자습서에서 구축하는 매장 로케이터의 일반 레이아웃 와이어프레임을 보여 줍니다.
 
-<br/>
 <center>
 
-![Contoso Coffee 커피숍 위치에 대한 매장 로케이터 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Contoso 커피숍 위치에 대한 매장 로케이터 애플리케이션의 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 이 매장 로케이터의 유용성을 최대화하기 위해 사용자의 화면 너비가 700픽셀보다 작은 경우 조정되는 반응형 레이아웃을 포함합니다. 반응형 레이아웃이 있으면 모바일 디바이스와 같은 작은 화면에서 매장 로케이터를 쉽게 사용할 수 있습니다. 소형 화면 레이아웃의 와이어프레임은 다음과 같습니다.  
 
-<br/>
 <center>
 
-![모바일 디바이스의 Contoso Coffee 매장 로케이터 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![모바일 디바이스의 Contoso Coffee 매장 로케이터 애플리케이션 와이어프레임](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
-이 와이어프레임은 매우 간단한 애플리케이션을 보여 줍니다. 이 애플리케이션에는 검색 상자, 근처 매장 목록, 일부 표식(기호)이 있는 지도, 사용자가 표식을 선택할 때 추가 정보를 표시하는 팝업 창이 있습니다. 이 자습서에서 이 매장 로케이터에 구축하는 기능을 좀 더 자세히 살펴보면 다음과 같습니다.
+이 와이어프레임은 매우 간단한 애플리케이션을 보여 줍니다. 애플리케이션에는 검색 상자, 인근 상점 목록, 기호 등 일부 마커가 있는 지도가 있습니다. 또한 사용자가 마커를 선택할 때 추가 정보를 표시하는 팝업 창이 있습니다. 이 자습서에서 이 매장 로케이터에 구축하는 기능을 좀 더 자세히 살펴보면 다음과 같습니다.
 
 * 가져온 탭으로 구분된 데이터 파일의 모든 위치가 지도에 로드됩니다.
 * 사용자는 지도를 이동 및 확대/축소하고, 검색하고, 내 위치 GPS 단추를 선택할 수 있습니다.
@@ -71,9 +69,8 @@ ms.locfileid: "59545300"
 
 ## <a name="create-the-store-location-dataset"></a>매장 위치 데이터 세트 만들기
 
-매장 로케이터 애플리케이션을 개발하기 전에 지도에 표시하려는 매장의 데이터 세트를 만들어야 합니다. 이 자습서에서는 Contoso Coffee라는 가상의 커피숍에 대한 데이터 세트를 사용합니다. 이 간단한 매장 로케이터의 데이터 세트는 Excel 통합 문서에서 관리됩니다. 이 데이터 세트에는 9개 국가, 미국, 캐나다, 영국, 프랑스, 독일, 이탈리아, 네덜란드, 덴마크 및 스페인에 분산되어 있는 10,213개의 Contoso Coffee 커피숍 위치가 포함됩니다. 다음은 이러한 데이터를 보여 주는 스크린샷입니다.
+매장 로케이터 애플리케이션을 개발하기 전에 지도에 표시하려는 매장의 데이터 세트를 만들어야 합니다. 이 자습서에서는 Contoso Coffee라는 가상의 커피숍에 대한 데이터 세트를 사용합니다. 이 간단한 매장 로케이터의 데이터 세트는 Excel 통합 문서에서 관리됩니다. 데이터 세트에는 미국, 캐나다, 영국, 프랑스, 독일, 이탈리아, 네덜란드, 덴마크 및 스페인의 9개 국가/지역에 분산되어 있는 10,213개의 Contoso Coffee 커피숍 위치가 포함되어 있습니다. 다음은 이러한 데이터를 보여 주는 스크린샷입니다.
 
-<br/>
 <center>
 
 ![Excel 통합 문서에 있는 매장 로케이터 데이터의 스크린샷](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
@@ -84,25 +81,23 @@ ms.locfileid: "59545300"
     
 * 위치 정보는 **AddressLine**, **City**, **Municipality**(준주), **AdminDivision**(시/도), **PostCode**(우편 번호) 및 **Country** 열을 사용하여 저장합니다.  
 * **Latitude** 및 **Longitude** 열에는 각 Contoso Coffee 커피숍 위치의 좌표가 포함됩니다. 좌표 정보가 없으면 Azure Maps의 Search Service를 사용하여 위치 좌표를 확인할 수 있습니다.
-* 몇 개의 추가 열에 커피숍에 관련된 메타데이터, 즉 전화 번호, Wi-Fi 핫스폿 및 휠체어 이용 가능성, 매장 개장 및 마감 시간(24시간 형식)이 포함됩니다. 위치 데이터와 관련성이 좀 더 깊은 메타데이터를 포함하는 고유한 열을 만들 수 있습니다.
+* 몇 개의 추가 열에 커피숍에 관련된 메타데이터, 즉 전화 번호, 부울 열 및 매장 개장 및 마감 시간(24시간 형식)이 포함됩니다. 부울 열은 Wi-Fi 핫스폿 및 휠체어 이용 가능성을 위한 것입니다. 위치 데이터와 관련성이 좀 더 깊은 메타데이터를 포함하는 고유한 열을 만들 수 있습니다.
 
 > [!Note]
 > Azure Maps는 구형 Mercator 프로젝션 "EPSG:3857"의 데이터를 렌더링하되, WGS84 데이터를 사용하는 "EPSG:4325"의 데이터를 읽습니다. 
 
-애플리케이션에 데이터 세트를 노출하는 방법은 다양합니다. 한 가지 방법은 데이터베이스에 데이터를 로드하고, 데이터를 쿼리한 후 결과를 사용자 브라우저로 보내는 웹 서비스를 노출하는 것입니다. 이 옵션은 대형 데이터 세트 또는 자주 업데이트되는 데이터 세트에 이상적입니다. 그러나 이 옵션을 제공하려면 훨씬 더 많은 개발 작업이 필요하며 비용도 많이 듭니다. 
+애플리케이션에 데이터 세트를 노출하는 방법은 다양합니다. 한 가지 방법은 데이터베이스에 데이터를 로드하고, 데이터를 쿼리하는 웹 서비스를 노출하는 것입니다. 그런 다음, 결과를 사용자의 브라우저로 보낼 수 있습니다. 이 옵션은 대형 데이터 세트 또는 자주 업데이트되는 데이터 세트에 이상적입니다. 그러나 이 옵션을 제공하려면 더 많은 개발 작업이 필요하며 비용도 많이 듭니다. 
 
 다른 방법은 이 데이터 세트를 브라우저가 쉽게 구문 분석할 수 있는 일반 텍스트 파일로 변환하는 것입니다. 파일 자체는 애플리케이션의 나머지와 함께 유지될 수 있습니다. 이 옵션을 사용하면 데이터를 보다 간단히 유지할 수 있지만, 사용자가 모든 데이터를 다운로드하게 되므로 데이터 세트 크기가 작을 때만 적절합니다. 이 데이터 세트의 경우 데이터 파일 크기가 1MB 미만이기 때문에 일반 텍스트 파일을 사용합니다.  
 
 통합 문서를 일반 텍스트 파일로 변환하려면 통합 문서를 탭으로 구분된 파일로 저장합니다. 각 열은 탭 문자로 구분되므로 코드에서 열을 쉽게 구문 분석할 수 있습니다. CSV(쉼표로 구분된 값) 형식을 사용할 수 있지만 이 옵션을 사용하려면 더 많은 구문 분석 논리가 필요합니다. 주변에 쉼표가 있는 모든 필드는 따옴표로 묶어야 합니다. 이 데이터를 Excel에 탭으로 구분된 파일로 내보내려면 **다른 이름으로 저장**을 선택합니다. **저장 형식** 드롭다운 목록에서 **텍스트(탭 구분)(*.txt)** 를 선택합니다. 파일 이름을 *ContosoCoffee.txt*로 지정합니다. 
 
-<br/>
 <center>
 
 ![저장 형식 대화 상자 스크린샷](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 텍스트 파일을 메모장에서 열면 다음 그림과 유사하게 나타납니다.
 
-<br/>
 <center>
 
 ![탭으로 구분된 데이터 세트를 보여 주는 메모장 파일 스크린샷](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
@@ -110,9 +105,8 @@ ms.locfileid: "59545300"
 
 ## <a name="set-up-the-project"></a>프로젝트 설정
 
-프로젝트를 만들려면 [Visual Studio](https://visualstudio.microsoft.com) 또는 원하는 코드 편집기를 사용할 수 있습니다. 프로젝트 폴더에서 세 개의 파일 *index.html*, *index.css*, 및 *index.js*를 만듭니다. 이러한 파일은 애플리케이션에 대한 레이아웃, 스타일 및 논리를 정의합니다. *data*라는 폴더를 만들고 이 폴더에 *ContosoCoffee.txt*를 추가합니다. *images*라는 다른 폴더를 만듭니다. 이 애플리케이션에서는 지도의 아이콘, 단추 및 표식에 10개의 이미지를 사용합니다. [이러한 이미지를 다운로드](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)할 수 있습니다. 이제 프로젝트 폴더는 다음 그림과 같이 표시됩니다.
+프로젝트를 만들려면 [Visual Studio](https://visualstudio.microsoft.com) 또는 원하는 코드 편집기를 사용할 수 있습니다. 프로젝트 폴더에서 세 개의 파일 *index.html*, *index.css*, 및 *index.js*를 만듭니다. 이러한 파일은 애플리케이션에 대한 레이아웃, 스타일 및 논리를 정의합니다. *data*라는 폴더를 만들고 이 폴더에 *ContosoCoffee.txt*를 추가합니다. *images*라는 다른 폴더를 만듭니다. 이 애플리케이션에서는 지도의 아이콘, 단추 및 마커에 10개의 이미지를 사용합니다. [이러한 이미지를 다운로드](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)할 수 있습니다. 이제 프로젝트 폴더는 다음 그림과 같이 표시됩니다.
 
-<br/>
 <center>
 
 ![간단한 매장 로케이터 프로젝트 폴더 스크린샷](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
@@ -121,7 +115,7 @@ ms.locfileid: "59545300"
 
 사용자 인터페이스를 만들려면 *index.html*에 코드를 추가합니다.
 
-1. 다음 `meta` 태그를 *index.html*의 `head`에 추가합니다. 태그는 문자 세트(UTF-8)를 정의하고, Internet Explorer 및 Microsoft Edge에 최신 브라우저 버전을 사용하도록 지시하고, 반응형 레이아웃에 잘 작동하는 뷰포트를 지정합니다.
+1. 다음 `meta` 태그를 *index.html*의 `head`에 추가합니다. `charset` 태그는 문자 집합(UTF-8)을 정의합니다. `http-equiv` 값은 Internet Explorer 및 Microsoft Edge에서 최신 브라우저 버전을 사용하고 있음을 뜻합니다. 마지막 `meta` 태그는 반응형 레이아웃에 적합한 뷰포트를 지정합니다.
 
     ```HTML
     <meta charset="utf-8">
@@ -139,7 +133,7 @@ ms.locfileid: "59545300"
 1. Azure Maps 서비스 모듈에 대한 참조를 추가합니다. 이 모듈은 Azure Maps REST 서비스를 래핑하고 JavaScript에서 쉽게 사용할 수 있도록 하는 JavaScript 라이브러리입니다. 이 모듈은 검색 기능을 강화하는 데 유용합니다.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
 1. *index.js* 및 *index.css*에 대한 참조를 추가합니다.
@@ -381,13 +375,13 @@ ms.locfileid: "59545300"
     }
    ```
 
-이제 애플리케이션을 실행하는 경우 헤더, 검색 상자 및 검색 단추는 표시되지만, 지도는 아직 로드되지 않았으므로 표시되지 않습니다. 검색을 수행하려는 경우 아무 작업도 발생하지 않습니다. 다음 섹션에 설명된 JavaScript 논리를 매장 로케이터의 모든 기능에 액세스하도록 설정해야 합니다.
+지금 애플리케이션을 실행하면 헤더, 검색 상자 및 검색 단추가 나타납니다. 하지만, 맵이 아직 로드되지 않았으므로 표시되지 않습니다. 검색을 수행하려는 경우 아무 작업도 발생하지 않습니다. 다음 섹션에서 설명하는 JavaScript 논리를 설정해야 합니다. 이 논리는 저장 로케이터의 모든 기능에 액세스합니다.
 
 ## <a name="wire-the-application-with-javascript"></a>애플리케이션을 JavaScript에 연결
 
-이때 모든 항목이 사용자 인터페이스에서 설정됩니다. 이제 JavaScript를 추가하여 데이터를 로드 및 구문 분석하고, 지도에서 데이터를 렌더링해야 합니다. 시작하려면 *index.js*를 열고 다음 단계에 설명된 대로 코드를 추가합니다.
+이제 모든 항목이 사용자 인터페이스에서 설정됩니다. JavaScript를 추가하여 데이터를 로드 및 구문 분석한 다음, 지도에서 데이터를 렌더링해야 합니다. 시작하려면 *index.js*를 열고 다음 단계에 설명된 대로 코드를 추가합니다.
 
-1. 설정을 보다 쉽게 업데이트할 수 있도록 하는 전역 옵션을 추가합니다. 또한 지도, 팝업 창, 데이터 원본, 아이콘 계층, 검색 영역 중앙에 표시되는 HTML 표식, Azure Maps 검색 서비스 클라이언트의 인스턴스에 대한 변수를 정의합니다.
+1. 설정을 보다 쉽게 업데이트할 수 있도록 하는 전역 옵션을 추가합니다. 지도, 팝업 창, 데이터 원본, 아이콘 계층 및 HTML 표식에 대한 변수를 정의합니다. 검색 영역의 중심을 나타내도록 HTML 표식을 설정합니다. 그리고 Azure Maps 검색 서비스 클라이언트의 인스턴스를 정의합니다.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -401,11 +395,11 @@ ms.locfileid: "59545300"
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. *index.js*에 코드를 추가합니다. 다음 코드는 지도를 초기화하고, 페이지 로드가 완료될 때까지 기다리는 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 추가하고, 이벤트를 연결하여 지도 로드를 모니터링하고, 검색 단추 및 내 위치 단추를 작동합니다.
+1. *index.js*에 코드를 추가합니다. 다음 코드는 맵을 초기화합니다. 페이지 로드가 완료될 때까지 대기하도록 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 추가했습니다. 그런 다음, 이벤트를 연결하여 지도의 로드를 모니터링하고 검색 단추와 내 위치 단추에 기능을 제공합니다.
 
-   사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 후 Enter 키를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가로 제한할 수 있습니다. 검색할 국가를 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
+   사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 다음, Enter를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가/지역 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가/지역으로 제한할 수 있습니다. 검색할 국가/지역을 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
   
-   검색이 완료되면 첫 번째 결과를 사용한 후 해당 영역 위에 지도 카메라를 설정합니다. 사용자가 내 위치 단추를 선택하는 경우, 브라우저에 기본 제공된 HTML5 Geolocation API를 사용하여 사용자의 위치를 검색하고 지도 중심을 해당 위치로 이동합니다.  
+   검색이 완료되면 첫 번째 결과를 가져와 해당 영역 위에 지도 카메라를 설정합니다. 사용자가 내 위치 단추를 선택하면 HTML5 지리적 위치 API를 사용하여 사용자의 위치를 검색합니다. 이 API는 브라우저에 기본 제공됩니다. 그런 다음, 지도의 위치를 가운데에 맞춥니다.  
 
    > [!Tip]
    > 팝업 창을 사용할 경우 단일 `Popup` 인스턴스를 만든 후 해당 콘텐츠 및 위치를 업데이트하여 인스턴스를 다시 사용하는 것이 좋습니다. 코드에 추가하는 모든 `Popup` 인스턴스에 대해 페이지에 여러 DOM 요소가 추가됩니다. 페이지에 더 많은 DOM 요소가 있을수록 브라우저가 추적할 내용이 더 많아집니다. 너무 많은 항목이 있는 경우 브라우저가 느려질 수 있습니다.
@@ -417,7 +411,7 @@ ms.locfileid: "59545300"
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps subscription key to the map SDK.
+            //Add your Azure Maps primary subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'
@@ -432,7 +426,7 @@ ms.locfileid: "59545300"
 
         //Use subscriptionKeyCredential to create a pipeline
         const pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
-            retryOptions: { maxTries: 4 }, // Retry options
+            retryOptions: { maxTries: 4 } // Retry options
         });
 
         //Create an instance of the SearchURL client.
@@ -459,7 +453,7 @@ ms.locfileid: "59545300"
         });
     }
 
-    //Create an array of country ISO 2 values to limit searches to. 
+    //Create an array of country/region ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];
 
     function performSearch() {
@@ -467,7 +461,7 @@ ms.locfileid: "59545300"
 
         //Perform a fuzzy search on the users query.
         searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country ISO2 for which we want to limit the search to.
+            //Pass in the array of country/region ISO2 for which we want to limit the search to.
             countrySet: countrySet
         }).then(results => {
             //Parse the response into GeoJSON so that the map can understand.
@@ -533,7 +527,7 @@ ms.locfileid: "59545300"
     map.markers.add(centerMarker);
     ```
 
-1. 지도의 `ready` 이벤트 수신기에서 데이터 원본을 추가합니다. 그런 후 데이터 세트를 로드한 후 구문 분석하기 위한 호출을 수행합니다. 데이터 원본에서 클러스터링을 사용하도록 설정합니다. 데이터 원본에 대해 클러스터링을 지정하면 겹치는 지점이 하나의 클러스터로 그룹화됩니다. 이러한 클러스터는 사용자가 확대하면 개별 점으로 분리됩니다. 이 기능은 보다 유연한 사용자 환경을 만들고 성능을 향상시킵니다.
+1. 지도의 `ready` 이벤트 수신기에서 데이터 원본을 추가합니다. 그런 후 데이터 세트를 로드한 후 구문 분석하기 위한 호출을 수행합니다. 데이터 원본에서 클러스터링을 사용하도록 설정합니다. 데이터 원본에 대해 클러스터링을 지정하면 겹치는 지점이 하나의 클러스터로 그룹화됩니다. 이러한 클러스터는 사용자가 확대하면 개별 점으로 분리됩니다. 이 동작은 더 나은 사용자 환경을 제공하고 성능을 향상시킵니다.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -550,7 +544,7 @@ ms.locfileid: "59545300"
 
 1. 지도의 `ready` 이벤트 수신기에 데이터 세트를 로드한후 에 데이터를 렌더링하기 위한 계층 세트를 정의합니다. 클러스터형 데이터 요소를 렌더링하는 데는 풍선 계층이 사용됩니다. 각 클러스터의 요소 수를 풍선 계층 위에 렌더링하는 데 기호 계층이 사용됩니다. 두 번째 기호 계층은 지도의 개별 위치에 대한 사용자 지정 아이콘을 렌더링합니다.
 
-   풍선 및 아이콘 계층에 `mouseover` 및 `mouseout` 이벤트를 추가하여 사용자가 지도에서 클러스터 또는 아이콘 위로 마우스를 가져갈 때 마우스 커서가 변경되도록 합니다. 클러스터 풍선 계층에 `click` 이벤트를 추가합니다. 이 `click` 이벤트는 두 수준으로 지도를 확대하고 사용자가 클러스터를 하나 선택하면 지도 중심을 해당 클러스터로 이동합니다. 아이콘 계층에 `click` 이벤트를 추가합니다. 이 `click` 이벤트는 사용자가 개별 위치 아이콘을 선택할 때 커피숍 세부 정보를 표시하는 팝업 창을 표시합니다. 지도 이동이 완료되면 모니터링할 지도에 이벤트를 추가합니다. 이 이벤트가 발생하면 목록 패널에서 항목이 업데이트됩니다.  
+   풍선 및 아이콘 계층에 `mouseover` 및 `mouseout` 이벤트를 추가하여 사용자가 지도에서 클러스터 또는 아이콘 위로 마우스를 가져갈 때 마우스 커서가 변경되도록 합니다. 클러스터 풍선 계층에 `click` 이벤트를 추가합니다. 이 `click` 이벤트는 두 수준으로 지도를 확대하고 사용자가 클러스터를 선택하면 지도 중심을 해당 클러스터로 이동합니다. 아이콘 계층에 `click` 이벤트를 추가합니다. 이 `click` 이벤트는 사용자가 개별 위치 아이콘을 선택할 때 커피숍 세부 정보를 표시하는 팝업 창을 표시합니다. 지도 이동이 완료되면 모니터링할 지도에 이벤트를 추가합니다. 이 이벤트가 발생하면 목록 패널에서 항목이 업데이트됩니다.  
 
     ```JavaScript
     //Create a bubble layer to render clustered data points.
@@ -692,7 +686,7 @@ ms.locfileid: "59545300"
     }
     ```
 
-1. 목록 패널이 업데이트되면 지도 중심으로부터 현재 지도 보기의 모든 지점 피쳐까지의 거리가 계산됩니다. 그런 후 피쳐가 거리별로 정렬됩니다. 목록 패널에 각 위치를 표시하기 위해 HTML이 생성됩니다.
+1. 목록 패널이 업데이트되면 거리가 계산됩니다. 이 거리는 지도의 중심에서 현재 지도 보기의 모든 지점 기능까지 이르는 거리입니다. 그런 후 피쳐가 거리별로 정렬됩니다. 목록 패널에 각 위치를 표시하기 위해 HTML이 생성됩니다.
 
     ```JavaScript
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>';
@@ -706,21 +700,6 @@ ms.locfileid: "59545300"
         //Get the current camera and view information for the map.
         var camera = map.getCamera();
         var listPanel = document.getElementById('listPanel');
-
-        //Get all the shapes that have been rendered in the bubble layer.
-        var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
-
-        data.forEach(function(shape) {
-            if (shape instanceof atlas.Shape) {
-                //Calculate the distance from the center of the map to each shape, and then store the data in a distance property.  
-                shape.distance = atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles');
-            }
-        });
-
-        //Sort the data by distance.
-        data.sort(function(x, y) {
-            return x.distance - y.distance;
-        });
 
         //Check to see whether the user is zoomed out a substantial distance. If they are, tell the user to zoom in and to perform a search or select the My Location button.
         if (camera.zoom < maxClusterZoomLevel) {
@@ -747,6 +726,25 @@ ms.locfileid: "59545300"
             </div>
             */
 
+            //Get all the shapes that have been rendered in the bubble layer. 
+            var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
+
+            //Create an index of the distances of each shape.
+            var distances = {};
+
+            data.forEach(function (shape) {
+                if (shape instanceof atlas.Shape) {
+
+                    //Calculate the distance from the center of the map to each shape and store in the index. Round to 2 decimals.
+                    distances[shape.getId()] = Math.round(atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles') * 100) / 100;
+                }
+            });
+
+            //Sort the data by distance.
+            data.sort(function (x, y) {
+                return distances[x.getId()] - distances[y.getId()];
+            });
+
             data.forEach(function(shape) {
                 properties = shape.getProperties();
                 html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">',
@@ -760,8 +758,8 @@ ms.locfileid: "59545300"
                 getOpenTillTime(properties),
                 '<br />',
 
-                //Route the distance to two decimal places.  
-                (Math.round(shape.distance * 100) / 100),
+                //Get the distance of the shape.
+                distances[shape.getId()],
                 ' miles away</div>');
             });
 
@@ -872,6 +870,9 @@ ms.locfileid: "59545300"
             </div>
         */
 
+         //Calculate the distance from the center of the map to the shape in miles, round to 2 decimals.
+        var distance = Math.round(atlas.math.getDistanceTo(map.getCamera().center, shape.getCoordinates(), 'miles') * 100)/100;
+
         var html = ['<div class="storePopup">'];
         html.push('<div class="popupTitle">',
             properties['AddressLine'],
@@ -882,8 +883,8 @@ ms.locfileid: "59545300"
             //Convert the closing time to a format that's easier to read.
             getOpenTillTime(properties),
 
-            //Route the distance to two decimal places.  
-            '<br/>', (Math.round(shape.distance * 100) / 100),
+            //Add the distance information.  
+            '<br/>', distance,
             ' miles away',
             '<br /><img src="images/PhoneIcon.png" title="Phone Icon"/><a href="tel:',
             properties['Phone'],
@@ -896,11 +897,11 @@ ms.locfileid: "59545300"
             html.push('<br/>Amenities: ');
 
             if (properties['IsWiFiHotSpot']) {
-                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>')
+                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>');
             }
 
             if (properties['IsWheelchairAccessible']) {
-                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>')
+                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>');
             }
         }
 
@@ -923,21 +924,18 @@ ms.locfileid: "59545300"
 
 사용자가 내 위치 단추를 처음 선택하면 브라우저에 사용자 위치에 액세스하기 위한 권한을 요구하는 보안 경고가 표시됩니다. 사용자가 해당 위치를 공유하는 데 동의하면 지도가 사용자 위치에서 확대되고 근처의 커피숍이 표시됩니다. 
 
-<br/>
 <center>
 
 ![사용자의 위치에 액세스하기 위한 브라우저 요청 스크린샷](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-커피숍 위치가 포함된 영역에서 충분히 가깝게 확대하면 클러스터가 개별 위치로 분리됩니다. 지도에서 아이콘 중 하나를 선택하거나 측면 패널에서 항목을 선택하여 해당 위치에 대한 정보를 표시하는 팝업 창을 표시합니다.
+커피숍 위치가 포함된 영역에서 충분히 가깝게 확대하면 클러스터가 개별 위치로 분리됩니다. 지도에서 아이콘 중 하나를 선택하거나 측면 패널에서 항목을 선택하여 팝업 창을 표시합니다. 선택한 위치에 대한 정보가 팝업에 표시됩니다.
 
-<br/>
 <center>
 
 ![완료된 매장 로케이터 스크린샷](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 브라우저 창 너비를 700픽셀보다 작게 조정하거나 모바일 디바이스에서 애플리케이션을 열 경우 작은 화면에 더 잘 맞게 레이아웃이 변경됩니다. 
 
-<br/>
 <center>
 
 ![작은 화면 버전의 매장 로케이터 스크린샷](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>

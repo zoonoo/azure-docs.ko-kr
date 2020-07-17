@@ -1,24 +1,23 @@
 ---
-title: Azure Network Watcher로 연결 문제 해결 - Azure Portal | Microsoft Docs
+title: 연결 문제 해결-Azure Portal
+titleSuffix: Azure Network Watcher
 description: Azure Portal을 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
-ms.author: kumud
-ms.openlocfilehash: 783bcd0cdc97328f16c4a0defa18daa46a065842
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: damendo
+ms.openlocfilehash: a16e99df57da66d2633947f8aecdf1d2cef9ab15
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737413"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher로 연결 문제 해결
 
@@ -52,7 +51,7 @@ Network Watcher로 이동하여 **연결 문제 해결**을 클릭합니다. 가
 
 ## <a name="check-remote-endpoint-connectivity"></a>원격 엔드포인트 연결 확인
 
-원격 엔드포인트에 대한 연결 및 대기 시간을 확인하려면 **대상** 섹션에서 **수동으로 지정** 라디오 단추를 선택하고 URL 및 포트를 입력한 다음 **확인**을 클릭합니다.  이 방법은 웹 사이트 및 저장소 엔드포인트와 같은 원격 엔드포인트에 사용됩니다.
+원격 엔드포인트에 대한 연결 및 대기 시간을 확인하려면 **대상** 섹션에서 **수동으로 지정** 라디오 단추를 선택하고 URL 및 포트를 입력한 다음 **확인**을 클릭합니다.  이 방법은 웹 사이트 및 스토리지 엔드포인트와 같은 원격 엔드포인트에 사용됩니다.
 
 ![웹 사이트에 대한 연결 확인 결과][2]
 
@@ -60,7 +59,7 @@ Network Watcher로 이동하여 **연결 문제 해결**을 클릭합니다. 가
 
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
-[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
+[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md) 을 방문 하 여 VM에서 또는 VM에서 특정 트래픽이 허용 되는지 확인 합니다.
 
 [1]: ./media/network-watcher-connectivity-portal/figure1.png
 [2]: ./media/network-watcher-connectivity-portal/figure2.png

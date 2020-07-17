@@ -1,24 +1,16 @@
 ---
-title: Azure Application Insights의 사용자, 세션 및 이벤트 분석 | Microsoft Docs
+title: Azure Application Insights의 사용자, 세션 및 이벤트 분석
 description: 웹앱의 사용자 인구 통계 분석입니다.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 7d378c2f72035c3584e1f5cd3c1f0fb9a5d5c2ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 10ea3c68695e7e4fb4950fbcc4a190e9f1d83f49
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372291"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797711"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights의 사용자, 세션 및 이벤트 분석
 
@@ -69,5 +61,5 @@ Application Insights 포털에 사용자, 세션 또는 이벤트 블레이드�
     - [깔때기](usage-funnels.md)
     - [보존](usage-retention.md)
     - [사용자 흐름](usage-flows.md)
-    - [통합 문서](../../azure-monitor/app/usage-workbooks.md)
+    - [통합 문서](../../azure-monitor/platform/workbooks-overview.md)
     - [사용자 컨텍스트 추가](usage-send-user-context.md)

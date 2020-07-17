@@ -1,20 +1,18 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/07/2019
-ms.openlocfilehash: 4d2cfb8a39defec9d0d429bc80bfa6abf4f62164
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 09aa5affefc576606984ea7116b3d9bda4ba83d5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65031785"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "67704170"
 ---
-### <a name="running-multiple-containers-on-the-same-host"></a>동일한 호스트에서 실행 중인 여러 컨테이너
+### <a name="run-multiple-containers-on-the-same-host"></a>동일한 호스트에서 여러 컨테이너 실행
 
-노출된 포트를 사용하여 여러 컨테이너를 실행하려는 경우, 다른 노출된 포트를 사용하여 각 컨테이너를 실행해야 합니다. 예를 들어 포트 5000에 첫 번째 컨테이너, 포트 5001에 두 번째 컨테이너를 실행 합니다.
+노출된 포트로 여러 컨테이너를 실행하려는 경우, 각 컨테이너를 다른 노출된 포트로 실행해야 합니다. 예를 들어 첫 번째 컨테이너는 포트 5000에서 실행하고 두 번째 컨테이너는 포트 5001에서 실행합니다.
 
-이 컨테이너와 다른 Cognitive 서비스 컨테이너가 해당 호스트에서 함께 실행될 수 있거나 동일한 Cognitive 서비스 컨테이너의 여러 컨테이너가 실행될 수 있습니다.
-
-
+이 컨테이너와 다른 Azure Cognitive Services 컨테이너를 HOST에서 함께 실행할 수 있습니다. 또한 동일한 Cognitive Services 컨테이너의 여러 컨테이너를 실행할 수 있습니다.

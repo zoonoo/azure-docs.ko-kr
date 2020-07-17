@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 저장소 계정의 VHD 파일에서 관리 디스크 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 저장소 계정의 VHD 파일에서 관리 디스크 만들기
+title: 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기 - CLI 샘플
+description: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -16,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 3f68c4ccbcaad682303c9d67c95f8bf8a2d3041b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b0ce935e03a6202ac444987cbecf853ee6717d3b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249755"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459525"
 ---
-# <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>CLI를 사용하여 동일한 구독에 있는 저장소 계정의 VHD 파일에서 관리 디스크 만들기
+# <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>CLI를 사용하여 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 
-이 스크립트는 동일한 구독에 있는 저장소 계정의 VHD 파일에서 관리 디스크를 만듭니다. 이 스크립트를 사용하여 관리 OS 디스크에 특수화된(일반화/sysprep되지 않음) VHD를 가져와 가상 머신을 만듭니다 또는 데이터 VHD를 관리되는 데이터 디스크로 가져오는 데 사용합니다.
+이 스크립트는 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크를 만듭니다. 이 스크립트를 사용하여 관리 OS 디스크에 특수화된(일반화/sysprep되지 않음) VHD를 가져와 가상 머신을 만듭니다 또는 데이터 VHD를 관리되는 데이터 디스크로 가져오는 데 사용합니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -41,7 +40,7 @@ ms.locfileid: "57249755"
 
 | 명령 | 메모 |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 동일한 구독에 있는 저장소 계정의 VHD URI를 사용하여 관리 디스크 만들기 |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 동일한 구독에 있는 스토리지 계정의 VHD URI를 사용하여 관리 디스크 만들기 |
 
 ## <a name="next-steps"></a>다음 단계
 

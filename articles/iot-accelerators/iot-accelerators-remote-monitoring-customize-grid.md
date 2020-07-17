@@ -3,18 +3,17 @@ title: 원격 모니터링 솔루션 UI에 그리드 추가 - Azure | Microsoft 
 description: 이 문서에서는 원격 모니터링 솔루션 가속기 웹 UI의 페이지에 새 그리드를 추가하는 방법을 보여줍니다.
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/04/2018
-ms.date: 11/26/2018
+ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61447100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82186291"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 그리드 추가
 
@@ -25,7 +24,7 @@ ms.locfileid: "61447100"
 
 이 문서의 예제 그리드는 [원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 서비스 추가](iot-accelerators-remote-monitoring-customize-service.md) 방법 문서에서 추가 방법을 보여주는 서비스의 데이터를 표시합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
@@ -49,11 +48,11 @@ ms.locfileid: "61447100"
 
 **exampleGrid.js**
 
-
+[!code-javascript[Example grid](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGrid.js?name=grid "Example grid")]
 
 **exampleGridConfig.js**
 
-
+[!code-javascript[Example grid configuration](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGridConfig.js?name=gridconfig "Example grid configuration")]
 
 **src/walkthrough/components/pages/pageWithGrid/exampleGrid** 폴더를 **src/components/pages/example** 폴더에 복사합니다.
 
@@ -183,7 +182,7 @@ describe('BasicPage Component', () => {
 npm start
 ```
 
-이전 명령은 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)에서 UI를 로컬로 실행합니다. **예제** 페이지로 이동하여 서비스에서 그리드 표시 데이터를 확인합니다.
+이전 명령은 `http://localhost:3000/dashboard`에서 UI를 로컬로 실행합니다. **예제** 페이지로 이동하여 서비스에서 그리드 표시 데이터를 확인합니다.
 
 ## <a name="select-rows"></a>행 선택
 
@@ -240,7 +239,7 @@ npm start
     ```js
     doSomething = () => {
       //Just for demo purposes. Don't console log in a real grid.
-      console.log('hard selected rows', this.gridApi.getSelectedRows());
+      console.log('Hard selected rows', this.gridApi.getSelectedRows());
     };
     ```
 
@@ -264,16 +263,16 @@ npm start
 1. 소프트 선택 링크를 클릭하면 **onSoftSelectChange** 이벤트가 트리거됩니다. 세부 정보 플라이아웃 열기와 같이 해당 행에 대해 필요한 모든 작업을 수행합니다. 이 예제에서는 간단히 콘솔에 작성합니다.
 
     ```js
-    onSoftSelectChange = (rowId, rowEvent) => {
+    onSoftSelectChange = (rowId, rowData) => {
+      //Note: only the Id is reliable, rowData may be out of date
       const { onSoftSelectChange } = this.props;
-      const obj = (this.gridApi.getDisplayedRowAtIndex(rowId) || {}).data;
-      if (obj) {
+      if (rowId) {
         //Just for demo purposes. Don't console log a real grid.
-        console.log('Soft selected', obj);
-        this.setState({ softSelectedObj: obj });
+        console.log('Soft selected', rowId);
+        this.setState({ softSelectedId: rowId });
       }
       if (isFunc(onSoftSelectChange)) {
-        onSoftSelectChange(obj, rowEvent);
+        onSoftSelectChange(rowId, rowData);
       }
     }
     ```
@@ -284,4 +283,4 @@ npm start
 
 그리드를 정의했으니, 그 다음 단계는 예제 페이지에 표시되는 [사용자 지정 플라이아웃을 원격 모니터링 솔루션 가속기 웹 UI에 추가](iot-accelerators-remote-monitoring-customize-flyout.md)하는 것입니다.
 
-원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조하세요.
+원격 모니터링 솔루션 가속기에 대 한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조 하세요.

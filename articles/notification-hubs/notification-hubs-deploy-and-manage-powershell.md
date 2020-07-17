@@ -3,9 +3,9 @@ title: PowerShell을 사용하여 Notification Hubs 배포 및 관리
 description: Automation을 위한 PowerShell을 사용하여 Notification Hubs를 만들고 관리하는 방법
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457841"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891190"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell을 사용하여 Notification Hubs 배포 및 관리
 
@@ -30,13 +31,13 @@ ms.locfileid: "61457841"
 - 알림 허브 만들기
 - 자격 증명 설정
 
-알림 허브용 새 서비스 버스 네임스페이스를 만드는 경우 [PowerShell로 Service Bus 관리](../service-bus-messaging/service-bus-powershell-how-to-provision.md)를 참조하세요.
+알림 허브용 새 Service Bus 네임 스페이스를 만드는 경우 [PowerShell로 Service Bus 관리](../service-bus-messaging/service-bus-powershell-how-to-provision.md)를 참조하십시오.
 
 알림 허브 관리는 Azure PowerShell에 포함된 cmdlet에서 직접 지원하지 않습니다. PowerShell에서 Microsoft.Azure.NotificationHubs.dll 어셈블리를 참조하는 것이 최선의 방법입니다. 어셈블리는 [Microsoft Azure Notification Hubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)와 함께 배포됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션], [구성원 제안] 또는 [평가판]을 참조하세요.
+- Azure 구독 Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션], [구성원 제안] 또는 [평가판]을 참조하세요.
 - Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성]을 참조하세요.
 - PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
@@ -74,7 +75,7 @@ catch [System.Exception]
 
 ## <a name="create-the-namespacemanager-class"></a>`NamespaceManager` 클래스 만들기
 
-Notification Hubs를 프로비전하려면 SDK에서 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) 클래스의 인스턴스를 만듭니다.
+Notification Hubs를 프로비전하려면 SDK에서 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) 클래스의 인스턴스를 만듭니다.
 
 Azure PowerShell을 포함하는 [Get-AzureSBAuthorizationRule] cmdlet을 사용하면 연결 문자열을 제공하는 데 사용되는 권한 부여 규칙을 검색할 수 있습니다. `NamespaceManager` 인스턴스에 대한 참조는 `$NamespaceManager` 변수에 저장됩니다. `$NamespaceManager`를 사용하여 알림 허브를 프로비전합니다.
 
@@ -147,8 +148,8 @@ else
 ## <a name="additional-resources"></a>추가 리소스
 
 - [PowerShell을 사용하여 Service Bus 관리](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [PowerShell 스크립트를 사용하여 Service Bus 큐, 토픽 및 구독을 만드는 방법](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [PowerShell 스크립트를 사용하여 Service Bus 네임스페이스 및 Event Hub를 만드는 방법](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+- [PowerShell 스크립트를 사용하여 Service Bus 큐, 토픽 및 구독을 만드는 방법](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [PowerShell 스크립트를 사용하여 Service Bus 네임스페이스 및 Event Hub를 만드는 방법](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 즉시 사용 가능한 스크립트도 다운로드 가능합니다.
 

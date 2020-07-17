@@ -1,36 +1,38 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: iot-dps
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 65c89730e7d3d492b91daa8aba50e5606ca700a1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bbe928084a758335e5fa3b0531726c77a6d599b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838715"
 ---
-다음 표에서 Azure IoT Hub Device Provisioning Service 리소스에 적용 되는 제한을 나열 합니다.
+다음 표에는 Azure IoT Hub Device Provisioning Service 리소스에 적용되는 제한이 나열되어 있습니다.
 
 | 리소스 | 제한 |
 | --- | --- |
-| Azure 구독 당 서비스를 프로 비전 하는 최대 장치 | 10 |
+| Azure 구독당 최대 디바이스 프로비저닝 서비스 | 10 |
 | 최대 등록(enrollment) 수 | 1,000,000 |
 | 최대 등록 수 | 1,000,000 |
 | 최대 등록(enrollment) 그룹 수 | 100 |
 | 최대 CA 수 | 25 |
+| 연결된 최대 IoT 허브 수 | 50 |
+| 최대 메시지 크기 | 96KB|
 
 > [!NOTE]
-> 구독에는 인스턴스 수를 늘리려면에 문의 [Microsoft 지원](https://azure.microsoft.com/support/options/)합니다.
+> 프로비저닝 서비스의 등록 수를 늘리려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 > [!NOTE]
-> 등록 및 프로 비전 서비스에서 등록 수를 늘리려면에 문의 [Microsoft 지원](https://azure.microsoft.com/support/options/)합니다.
+> 최대 CA 수는 늘릴 수 없습니다.
 
-다음 할당량이 초과 되 면 Device Provisioning Service가 요청을 제한 합니다.
+다음 할당량이 초과되면 디바이스 프로비저닝 서비스 요청을 제한합니다.
 
 | 제한 | 단위당 값 |
 | --- | --- |
 | 작업 | 200/분/서비스 |
 | 디바이스 등록 | 200/분/서비스 |
-| 디바이스 폴링 작업 | 5/10 초/장치 |
+| 디바이스 폴링 작업 | 5/10초/디바이스 |

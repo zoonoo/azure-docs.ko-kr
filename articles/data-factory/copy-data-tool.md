@@ -1,25 +1,27 @@
 ---
-title: Azure Data Factory 데이터 복사 도구 | Microsoft Docs
+title: Azure Data Factory의 데이터 복사 도구
 description: Azure Data Factory UI의 데이터 복사 도구에 대한 정보를 제공합니다.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 06/17/2020
 ms.author: yexu
-ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a10f7c3dda4d16a264cf52f9fddcf2bf0ed93348
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907513"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구
-Azure Data Factory 데이터 복사 도구는 일반적으로 종단 간 데이터 통합 시나리오의 첫 번째 단계인 Data Lake로의 데이터 수집 프로세스를 용이하게 하며 최적화합니다.  이 도구는 시간을 절감합니다. 특히, Azure Data Factory를 사용하여 처음으로 데이터 원본에서 데이터를 수집할 때 시간 절감 효과를 얻을 수 있습니다. 이 도구를 사용할 경우 몇 가지 이점은 다음과 같습니다.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 데이터 통합 시나리오의 첫 번째 단계인 Data Lake로의 데이터 수집 프로세스를 용이하게 하며 최적화합니다.  이 도구는 시간을 절감합니다. 특히, Azure Data Factory를 사용하여 처음으로 데이터 원본에서 데이터를 수집할 때 시간 절감 효과를 얻을 수 있습니다. 이 도구를 사용할 경우 몇 가지 이점은 다음과 같습니다.
 
 - Azure Data Factory 데이터 복사 도구를 사용할 때는 연결된 서비스, 데이터 세트, 파이프라인, 작업 및 트리거에 대한 Data Factory 정의를 이해할 필요가 없습니다. 
 - 데이터 복사 도구의 흐름을 보면 Data Lake에 데이터를 로드하는 과정을 쉽게 이해할 수 있습니다. 이 도구는 선택한 원본 데이터 저장소에서 선택한 대상/싱크 데이터 저장소로 데이터를 복사하는 데 필요한 모든 Data Factory 리소스를 자동으로 만듭니다. 
@@ -35,7 +37,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 종단 간 데이�
 
 데이터 복사 도구를 시작하려면 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
 
-![시작 페이지 - 데이터 복사 도구 링크](./media/copy-data-tool/get-started-page.png)
+![시작 페이지 - 데이터 복사 도구 링크](./media/doc-common-process/get-started-page.png)
 
 
 ## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Data Lake에 데이터를 로드하기 위한 직관적인 흐름
@@ -78,7 +80,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 종단 간 데이�
 ![데이터베이스의 데이터 필터링](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
-폴더 경로의 변수를 사용하여 폴더에서 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}** 및 **{minute}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다. 
+폴더 경로의 변수를 사용하여 폴더에서 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}** , **{month}** , **{day}** , **{hour}** 및 **{minute}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다. 
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다. 
 
@@ -95,7 +97,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 종단 간 데이�
 
 ![파일 또는 폴더 필터링](./media/copy-data-tool/filter-file-or-folder.png)
 
-데이터 복사 도구는 파이프라인을 만들 때 {year}, {month}, {day}, {hour} 및 {minute}를 나타내는 데 사용할 수 있는 식, 함수 및 시스템 변수로 매개 변수를 생성합니다. 자세한 내용은 [분할된 데이터를 읽거나 쓰는 방법](how-to-read-write-partitioned-data.md) 문서를 참조하세요.
+데이터 복사 도구는 파이프라인을 만들 때 {year}, {month}, {day}, {hour} 및 {minute}를 나타내는 데 사용할 수 있는 식, 함수 및 시스템 변수로 매개 변수를 생성합니다.
 
 ## <a name="scheduling-options"></a>일정 옵션
 복사 작업을 한 번만 또는 일정에 따라(시간별, 일별, 등) 실행할 수 있습니다. 이러한 옵션은 온-프레미스, 클라우드 및 로컬 데스크톱을 포함한 다양한 환경의 커넥터에 사용할 수 있습니다. 

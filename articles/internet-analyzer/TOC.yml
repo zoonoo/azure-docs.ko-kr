@@ -1,0 +1,38 @@
+- name: 인터넷 분석기 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Internet Analyzer 정보
+      href: internet-analyzer-overview.md
+- name: 자습서
+  items:
+    - name: 포털을 사용하여 인터넷 분석기 테스트 만들기
+      href: internet-analyzer-create-test-portal.md
+    - name: CLI를 사용하여 인터넷 분석기 테스트 만들기
+      href: internet-analyzer-cli.md
+- name: 방법 가이드
+  items:
+    - name: 클라이언트 포함
+      href: internet-analyzer-embed-client.md
+    - name: 사용자 지정 엔드포인트 구성
+      href: internet-analyzer-custom-endpoint.md
+    - name: 성과 기록표 해석
+      href: internet-analyzer-scorecard.md
+- name: 리소스
+  items:
+    - name: Internet Analyzer FAQ
+      href: internet-analyzer-faq.md
+    - name: Internet Analyzer 문제 해결
+      href: troubleshoot.md
+    - name: Internet Analyzer CLI 참조
+      href: 'https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: 블로그
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+    - name: SLA 미리 보기
+      href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla'

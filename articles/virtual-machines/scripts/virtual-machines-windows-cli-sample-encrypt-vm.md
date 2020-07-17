@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - Windows VM 암호화 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - Windows VM 암호화
 description: Azure CLI 스크립트 샘플 - Windows VM 암호화
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: bfa6eb8264bf64ad63542640b71d5abe13c7bfb5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 857bddaad32ea98635f5fbd2f8202975fb033b70
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732603"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459443"
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>Azure에서 Windows 가상 컴퓨터 암호화
 

@@ -1,24 +1,20 @@
 ---
-title: 청사진 샘플을 사용하여 환경 만들기
-description: 청사진 샘플을 사용하여 두 개의 리소스 그룹을 설정하고 각각의 역할 할당을 구성하는 청사진 정의를 만듭니다.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/05/2019
+title: '자습서: 새 환경에 대한 청사진 샘플'
+description: 이 자습서에서는 청사진 샘플을 사용하여 두 개의 리소스 그룹을 설정하고 각각의 역할 할당을 구성하는 청사진 정의를 만듭니다.
+ms.date: 03/25/2020
 ms.topic: tutorial
-ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785975"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677085"
 ---
-# <a name="create-an-environment-from-a-blueprint-sample"></a>청사진 샘플을 사용하여 환경 만들기
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>자습서: 청사진 샘플을 사용하여 환경 만들기
 
 샘플 청사진은 Azure Blueprints를 사용하여 수행할 수 있는 작업 예제를 제공합니다. 각각은 특정 의도나 용도가 있는 샘플이지만 단독으로 완벽한 환경을 만들지는 못합니다. 각각은 포함된 아티팩트, 디자인 및 매개 변수의 다양한 조합으로 Azure Blueprints를 사용할 수 있는 시작점으로 사용됩니다.
 
-다음 자습서는 **RBAC가 포함된 리소스 그룹** 청사진 샘플을 사용하여 Blueprints 서비스의 다양한 측면을 보여 줍니다. 다음 단계가 설명됩니다.
+다음 자습서는 **RBAC가 포함된 리소스 그룹** 청사진 샘플을 사용하여 Azure Blueprints 서비스의 다양한 측면을 보여 줍니다. 다음 단계가 설명됩니다.
 
 > [!div class="checklist"]
 > - 샘플에서 새 청사진 정의 만들기
@@ -27,7 +23,7 @@ ms.locfileid: "59785975"
 > - 할당에 대해 배포한 리소스 검사
 > - 청사진을 할당 취소하여 잠금 제거
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -39,7 +35,7 @@ ms.locfileid: "59785975"
 
 1. **시작** 페이지 왼쪽에서 _청사진 만들기_ 아래의 **만들기** 단추를 선택합니다.
 
-1. _다른 샘플_에서 **RBAC가 포함된 리소스 그룹** 청사진 샘플을 찾은 후 **이 샘플 사용**을 선택합니다.
+1. _기타 샘플_에서 **RBAC가 포함된 리소스 그룹** 청사진 샘플을 찾아 선택합니다.
 
 1. 청사진 샘플의 _기본 사항_을 입력합니다.
 
@@ -102,13 +98,13 @@ ms.locfileid: "59785975"
 
      이 섹션에 정의된 매개 변수는 정의된 아티팩트에 적용됩니다. 이러한 매개 변수는 청사진 할당 중에 정의되므로 [동적 매개 변수](../concepts/parameters.md#dynamic-parameters)입니다. 각 아티팩트에 대해 매개 변수 값을 **값** 열에 정의된 값으로 설정합니다. `{Your ID}`로 Azure 사용자 계정을 선택합니다.
 
-     |아티팩트 이름|아티팩트 형식|매개 변수 이름|값|설명|
+     |아티팩트 이름|아티팩트 형식|매개 변수 이름|값|Description|
      |-|-|-|-|-|
-     |ProdRG 리소스 그룹|리소스 그룹|Name|ProductionRG|첫 번째 리소스 그룹의 이름을 정의합니다.|
-     |ProdRG 리소스 그룹|리소스 그룹|위치|미국 서부 2|첫 번째 리소스 그룹의 위치를 설정합니다.|
+     |ProdRG 리소스 그룹|Resource group|속성|ProductionRG|첫 번째 리소스 그룹의 이름을 정의합니다.|
+     |ProdRG 리소스 그룹|Resource group|위치|미국 서부 2|첫 번째 리소스 그룹의 위치를 설정합니다.|
      |참가자|역할 할당|사용자 또는 그룹|{Your ID}|첫 번째 리소스 그룹 내에서 _참가자_ 역할 할당을 부여할 사용자 또는 그룹을 정의합니다.|
-     |PreProdRG 리소스 그룹|리소스 그룹|Name|PreProductionRG|두 번째 리소스 그룹의 이름을 정의합니다.|
-     |PreProdRG 리소스 그룹|리소스 그룹|위치|미국 서부|두 번째 리소스 그룹의 위치를 설정합니다.|
+     |PreProdRG 리소스 그룹|Resource group|속성|PreProductionRG|두 번째 리소스 그룹의 이름을 정의합니다.|
+     |PreProdRG 리소스 그룹|Resource group|위치|미국 서부|두 번째 리소스 그룹의 위치를 설정합니다.|
      |소유자|역할 할당|사용자 또는 그룹|{Your ID}|두 번째 리소스 그룹 내에서 _소유자_ 역할 할당을 부여할 사용자 또는 그룹을 정의합니다.|
      |읽기 권한자|역할 할당|사용자 또는 그룹|{Your ID}|두 번째 리소스 그룹 내에서 _읽기 권한자_ 역할 할당을 부여할 사용자 또는 그룹을 정의합니다.|
 
@@ -187,9 +183,7 @@ ms.locfileid: "59785975"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아보기
-- [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
-- [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기
-- [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
-- [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방법 알아보기
-- [일반 문제 해결 방법](../troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결
+이 자습서에서는 샘플 정의에서 새 청사진을 만드는 방법을 알아보았습니다. Azure Blueprints에 대해 자세히 알아보려면 청사진 수명 주기 문서를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [청사진 수명 주기에 대해 알아보기](../concepts/lifecycle.md)

@@ -1,27 +1,20 @@
 ---
-title: 자습서 - Azure 가상 머신 확장 집합 만들기 및 관리 | Microsoft Docs
+title: 자습서 - Azure 가상 머신 확장 집합 만들기 및 관리
 description: Azure PowerShell을 사용하여 인스턴스를 시작하고 중지하는 방법, 확장 집합 용량을 변경하는 방법 등의 몇 가지 일반적인 관리 작업과 함께 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 05/18/2018
-ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 0eb5a33b91925260c89e0b1c23800614ed637bdb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 43816c815c206da7e3fec197e54e9e7889c6de47
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990634"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735356"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기 및 관리
 
@@ -34,11 +27,11 @@ ms.locfileid: "57990634"
 > * 수동으로 확장 집합 크기 조정
 > * 일반적인 확장 집합 관리 작업 수행
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 
@@ -156,7 +149,7 @@ Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 �
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-지정된 게시자에 대한 이미지 목록을 보려면 [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku)를 사용합니다. 이미지 목록은 `-PublisherName` 또는 `–Offer`로 필터링할 수도 있습니다. 다음 예제에서는 게시자 이름이 *MicrosoftWindowsServer*이고 *WindowsServer*와 일치하는 제품이 있는 모든 이미지에 대한 목록이 필터링됩니다.
+지정된 게시자에 대한 이미지 목록을 보려면 [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku)를 사용합니다. 이미지 목록은 `-PublisherName` 또는 `-Offer`로 필터링할 수도 있습니다. 다음 예제에서는 게시자 이름이 *MicrosoftWindowsServer*이고 *WindowsServer*와 일치하는 제품이 있는 모든 이미지에 대한 목록이 필터링됩니다.
 
 ```azurepowershell-interactive
 Get-AzVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -198,17 +191,19 @@ New-AzVmss `
   -Credential $cred
 ```
 
+> [!IMPORTANT]
+> *최신* 이미지 버전을 사용하는 것이 좋습니다. 배포 시 사용할 수 있는 최신 버전의 이미지를 사용하려면 '최신'을 지정합니다. '최신'을 사용하더라도 배포 시간이 지나면 새 버전을 사용할 수 있게 되는 경우에도 VM 이미지가 자동으로 업데이트되지 않습니다.
 
 ## <a name="understand-vm-instance-sizes"></a>VM 인스턴스 크기 이해
-VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 있는 계산 리소스(예: CPU, GPU, 메모리)의 양이 결정됩니다. 확장 집합의 VM 인스턴스 크기는 예상 작업에 맞게 적절히 조정되어야 합니다.
+VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 있는 컴퓨팅 리소스(예: CPU, GPU, 메모리)의 양이 결정됩니다. 확장 집합의 VM 인스턴스 크기는 예상 작업에 맞게 적절히 조정되어야 합니다.
 
 ### <a name="vm-instance-sizes"></a>VM 인스턴스 크기
 다음 표에서는 일반적인 VM 크기를 사용 사례로 분류하고 있습니다.
 
-| Type                     | 일반적인 크기           |    설명       |
+| Type                     | 일반적인 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
-| [Compute에 최적화](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
+| [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
 | [메모리에 최적화](../virtual-machines/windows/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 | [Storage에 최적화](../virtual-machines/windows/sizes-storage.md)      | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
 | [GPU](../virtual-machines/windows/sizes-gpu.md)          | NV, NC            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
@@ -296,7 +291,7 @@ Sku        :
 Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
-기본적으로 중지된 VM은 할당을 취소하고 계산 요금을 부과하지 않습니다. VM이 중지될 때 프로비전된 상태로 유지하려는 경우 `-StayProvisioned` 매개 변수를 위의 명령에 추가합니다. 프로비전된 상태로 유지하는 중지된 VM은 기본 계산 요금을 부과합니다.
+기본적으로 중지된 VM은 할당을 취소하고 컴퓨팅 요금을 부과하지 않습니다. VM이 중지될 때 프로비전된 상태로 유지하려는 경우 `-StayProvisioned` 매개 변수를 위의 명령에 추가합니다. 프로비전된 상태로 유지하는 중지된 VM은 기본 컴퓨팅 요금을 부과합니다.
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>확장 집합에서 VM 인스턴스 시작
 확장 집합에서 하나 이상의 VM을 시작하려면 [Start-AzVmss](/powershell/module/az.compute/start-azvmss)를 사용합니다. `-InstanceId` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 시작하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 시작됩니다. 다음 예제에서는 *1* 인스턴스를 시작합니다.

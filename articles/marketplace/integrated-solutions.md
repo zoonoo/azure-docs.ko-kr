@@ -1,35 +1,51 @@
 ---
-title: 통합 솔루션 | Azure
-description: Azure Marketplace 및 AppSource에서 통합 된 솔루션
-services: Azure, Marketplace, Compute, Storage, Networking
-author: qianw211
+title: 통합 솔루션 - Microsoft 상업용 마켓플레이스
+description: 상업용 마켓플레이스에서 통합 솔루션을 제공하기 위한 장점, 리소스 및 다음 단계에 대해 알아봅니다.
 ms.service: marketplace
-ms.topic: article
-ms.date: 02/27/2019
-ms.author: ellacroi
-ms.openlocfilehash: 4cbc0b399bddbaebd4cb951dcd116e090c2e0c09
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
+ms.date: 04/15/2020
+ms.openlocfilehash: 8e029d888b963fd10e7198486a973766755c9812
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938020"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119517"
 ---
-# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource에서 통합 된 솔루션
+# <a name="integrated-solutions-in-the-commercial-marketplace"></a>상업용 마켓플레이스의 통합 솔루션
+통합 솔루션은 전문가 서비스 파트너에서 제공하는 컨설팅, 배포 및 지원과 함께 Microsoft 파트너의 동종 최고의 기술을 제공합니다.
 
-통합 솔루션을 종합의 최고 기술 컨설팅, 배포 및 지원 전문가 시스템 통합 업체 (SI)를 제공한와 함께 Microsoft 파트너가.
+둘 이상의 Microsoft 파트너가 기술과 서비스를 통합하여 원활하고 반복 가능한 통합 배포 환경을 만들고, 이를 통해 고객이 신속하게 실행할 수 있도록 지원합니다.  솔루션의 리드 파트너(일반적으로 서비스 파트너)는 고객에게 단일 연락 지점을 제공하여 솔루션을 중심으로 관련 사용자 지정, 컨설팅 및 지원을 제공합니다.
 
-이러한 솔루션은 특정 고객을 해야 하는 주소 또는 업계 과제 또는 문제를 해결 지점 이해로 시작 하는 시나리오에 빌드됩니다. 다음 두 개 이상의의 최고 기술 고객을 시작 하 고 신속 하 게 실행에 대 한 통합 되 고 반복 가능한 배포 환경을 만들 수는 SI 통합 됩니다. 통합자 단일 지점을 제공 하는 시스템 관련 사용자 지정을 제공 하 고 컨설팅, 고객에 게 문의 지원과 솔루션 관련 있습니다.  결과 기술과 서비스를 포함 하 여 솔루션을 통합된 합니다.
+다른 시나리오에서는 파트너가 함께 솔루션을 공동 판매 또는 공동 마케팅하는 반면, 통합 솔루션은 파트너 간에 기술과 서비스를 통합하는 공동 빌드된 새 솔루션입니다.
 
 ## <a name="advantages"></a>장점
 
-통합된 접근 방식의 이점은 다음과 같습니다.
+통합된 방법의 장점은 다음과 같습니다.
 
-* *업계 전문*: 산업별 솔루션 및 정보를 제공 하는 시스템 통합 업체
-* *가치 창출 시간을*: 통합 된 배포 방법은 즉각적인 혜택을 누릴 수
-* *최고의 솔루션*: 통합된 된 구매 및 구현 환경 간편 하 게를 검색 합니다.
+* *업계 전문성*: 업계 고유의 솔루션과 지식을 제공하는 서비스 파트너
+* *가치 창출 시간*: 즉각적인 이점을 실현하는 데 도움이 되는 통합 배포 방법
+* *동종 최고의 솔루션*: 통합 구매 및 구현 환경의 용이성 살펴보기
+
+자세한 내용은 [통합 솔루션 게시](./integrated-solutions-for-publishers.md)를 참조하세요.
+
+## <a name="submit-a-nomination"></a>추천 제출
+
+프로그램에 참여하려는 파트너는 작업하려는 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 양식](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx)을 완료해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 10일 이내에 수행합니다. 팀에서는 승인 및 다음 단계를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-통합 된 솔루션을를 검색 하 고 이러한 값 가진된 파트너의 컨설팅 서비스 섹션을 방문 하 여 연결할 수 있습니다 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services)합니다.
+통합 솔루션을 검색하고 다음과 같은 목록을 방문하여 이러한 가치 있는 파트너와 연결할 수 있습니다.
 
----
+* [Zero2Hero에서 제공하는 고객 360](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [신속한 상거래](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [대출 포트폴리오 분석](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [의료 클라우드 보안 스택](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [DevOps 가속 엔진](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Windows Server 지원 종료](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+* [신속한 데이터 센터 통합 빠른 시작](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rivermeadowsoftwareinc.rapid-datacenter-consolidation-jumpstart?flightCodes=100discovermigrate)
+* [연결된 필드 서비스에 대한 DeviceTone IoT](https://azuremarketplace.microsoft.com/marketplace/apps/marketplaceprodware.devicetone_iot_for_connected_field_service?tab=Overview)
+* [Unison: 통합 마케팅 관리 솔루션](https://appsource.microsoft.com/marketplace/consulting-services/barhead_solutions.unison_p2p?pub_source=email&pub_status=success)
+* [Intelligent M&A 실사](https://azuremarketplace.microsoft.com/marketplace/consulting-services/avanadeinc.intelligent_ma_due_diligence)

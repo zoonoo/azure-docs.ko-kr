@@ -1,24 +1,21 @@
 ---
-title: Azure AD에 연결할 때의 WebAPI 프로젝트 변경 내용
-description: Visual Studio를 사용하여 Azure AD에 연결할 때 프로젝트 WebAPI에서 변경되는 사항에 대해 설명합니다.
-services: active-directory
+title: Azure AD에 연결할 때 WebAPI 프로젝트에 대 한 변경 내용
+description: Visual Studio를 사용 하 여 Azure AD에 연결할 때 WebAPI 프로젝트의 상황을 설명 합니다.
 author: ghogen
-manager: douge
-ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
+manager: jillfra
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.prod: visual-studio-windows
+ms.technology: vs-azure
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7075fbd098736bb297f4a2e3a93aecca5b9182a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478861"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>내 WebAPI 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용
 
@@ -131,4 +128,4 @@ Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
-- [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v1-aspnet-webapp.md)
+- [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v2-aspnet-webapp.md)

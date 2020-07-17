@@ -1,44 +1,35 @@
 ---
-title: Azure Service Fabric에 행위자 기반 서비스 만들기 | Microsoft Docs
+title: Azure Service Fabric에서 행위자 기반 서비스 만들기
 description: Service Fabric Reliable Actors를 사용하여 C#에 행위자 기반 서비스를 처음 생성, 디버그 및 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2ee5df9f0b09e30212f61e804e24086874f07f5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726392"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256274"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
-> * [Linux에서 Java](service-fabric-reliable-actors-get-started-java.md)
+> * [Windows의 c #](service-fabric-reliable-actors-get-started.md)
+> * [Linux에서 Java](./service-fabric-create-your-first-linux-application-with-java.md)
 
 이 문서에서는 Visual Studio에서 간단한 Reliable Actor 애플리케이션을 만들고 디버그하는 과정을 안내합니다. Reliable Actors에 대한 자세한 내용은 [Service Fabric Reliable Actors 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 컴퓨터에 Visual Studio를 비롯한 Service Fabric 개발 환경이 설정되어 있는지 확인합니다. 자세한 내용은 [개발 환경 설정 방법](service-fabric-get-started.md)을 참조하세요.
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Visual Studio에서 새 프로젝트 만들기
 
-관리자 권한으로 Visual Studio 2015 이상을 시작하고 새로운 **Service Fabric 애플리케이션** 프로젝트를 만듭니다.
+관리자 권한으로 Visual Studio 2019 이상을 시작한 후 새 **Service Fabric 응용 프로그램** 프로젝트를 만듭니다.
 
 ![Visual Studio용 서비스 패브릭 도구 - 새 프로젝트][1]
 
-다음 대화 상자에서 선택 **행위자 서비스** 아래에서 **.NET Core 2.0** 서비스에 대 한 이름을 입력 합니다.
+다음 대화 상자에서 **.Net Core 2.0** 아래에 있는 **행위자 서비스** 를 선택 하 고 서비스의 이름을 입력 합니다.
 
 ![서비스 패브릭 프로젝트 템플릿][5]
 
@@ -95,7 +86,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
 행위자 서비스를 호출하는 간단한 콘솔 애플리케이션을 만듭니다.
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트...** 를 클릭합니다.
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 > **Add**  >  **새 프로젝트**추가 ...를 클릭 합니다.
 
 2. **.NET Core** 프로젝트 형식에서 **콘솔 응용 프로그램(.NET Core)** 을 선택합니다.  프로젝트 이름을 *ActorClient*로 지정합니다.
     
@@ -108,7 +99,7 @@ internal class HelloWorld : Actor, IHelloWorld
     
     ![빌드 속성][8]
 
-4. 클라이언트 프로젝트에는 Reliable Actors NuGet 패키지가 필요합니다.  **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭합니다.  패키지 관리자 콘솔에서 다음 명령을 입력합니다.
+4. 클라이언트 프로젝트에는 Reliable Actors NuGet 패키지가 필요합니다.  **도구**  >  **NuGet 패키지 관리자**  >  **패키지 관리자 콘솔**을 클릭 합니다.  패키지 관리자 콘솔에서 다음 명령을 입력합니다.
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient
@@ -116,7 +107,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
     NuGet 패키지 및 모든 해당 종속성이 ActorClient 프로젝트에 설치됩니다.
 
-5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 마우스 오른쪽 단추로 **종속성**을 클릭한 다음 **참조 추가...** 를 클릭합니다.  **프로젝트 > 솔루션**(아직 선택하지 않은 경우)을 선택하고 **HelloWorld.Interfaces** 옆의 확인란을 선택합니다.  **확인**을 클릭합니다.
+5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 **종속성** 을 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가**...를 클릭 합니다.  **프로젝트 > 솔루션** (아직 선택 하지 않은 경우)을 선택한 다음 **HelloWorld. 인터페이스**옆의 확인란을 선택 합니다.  **확인**을 클릭합니다.
     
     ![참조 추가 대화 상자][7]
 

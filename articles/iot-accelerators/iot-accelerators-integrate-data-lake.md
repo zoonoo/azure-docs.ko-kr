@@ -1,5 +1,5 @@
 ---
-title: Data Lake Store에 원격 모니터링 솔루션 통합 - Azure | Microsoft Docs
+title: 원격 모니터링에서 Data Lake Store로 데이터 스트림-Azure | Microsoft Docs
 description: Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션을 Azure Data Lake Store와 통합하는 방법을 알아봅니다.
 author: philmea
 manager: timlt
@@ -8,12 +8,11 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61449503"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "73889245"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
 
@@ -21,7 +20,7 @@ ms.locfileid: "61449503"
 
 이 방법에서는 Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션의 IoT 허브에서 Azure Data Lake Store로 데이터를 스트리밍합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법을 완료하려면 다음이 필요합니다.
 
@@ -38,7 +37,7 @@ ms.locfileid: "61449503"
 > [!NOTE]
 > 소비자 그룹은 애플리케이션에서 Azure IoT Hub의 데이터를 끌어오는 데 사용됩니다. 출력 소비자 5명마다 새로운 소비자 그룹을 만들어야 합니다. 최대 32개의 소비자 그룹까지 만들 수 있습니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 
 1. Azure Portal에서 **Cloud Shell** 단추를 클릭합니다.
 
@@ -65,7 +64,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
 
 1. Data Lake Store와 가까운 또는 동일한 지역에서 위치를 선택합니다. 여기 우리는 미국 동부를 사용합니다.
 
-1. 호스팅 환경을 기본 **클라우드**로 유지하도록 해야 합니다.
+1. 호스팅 환경을 기본 ** 클라우드 **로 유지하도록 해야 합니다.
 
 1. **만들기**를 클릭합니다.
 
@@ -122,7 +121,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
 
 ## <a name="edit-the-stream-analytics-query"></a>Stream Analytics 쿼리 편집
 
-Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이터를 스트리밍하고, 원하는대로 데이터를 변환하고, 다양한 저장소 또는 처리 대상에 출력하는 입력 소스를 지정합니다.
+Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이터를 스트리밍하고, 원하는대로 데이터를 변환하고, 다양한 스토리지 또는 처리 대상에 출력하는 입력 소스를 지정합니다.
 
 1. 개요 탭에서 **쿼리 편집**을 클릭합니다.
 

@@ -1,26 +1,16 @@
 ---
-title: Azure의 Service Fabric에서 Linux 컨테이너 앱 만들기 | Microsoft Docs
+title: Azure의 Service Fabric에서 Linux 컨테이너 앱 만들기
 description: 이 빠른 시작에서 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 클러스터에 컨테이너를 배포합니다.
-services: service-fabric
-documentationcenter: linux
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/30/2019
-ms.author: aljo,suhuruli
+ms.date: 07/22/2019
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 183f27d752b99c04a711d8141db512c77b9848f9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664882"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "75372689"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>빠른 시작: Linux 컨테이너를 Service Fabric에 배포
 
@@ -30,7 +20,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 
 ![Voting 앱 웹 페이지][quickstartpic]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -179,7 +169,7 @@ Service Fabric 서비스는 해당 서비스에 대한 부하를 수용하도록
 
 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
 
-Azure에 로그인하고 클러스터를 제거할 구독 ID를 선택합니다. Azure Portal에 로그인하여 구독 ID를 찾을 수 있습니다. [az group delete 명령](/cli/azure/group?view=azure-cli-latest)을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
+Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다. Azure Portal에 로그인하여 구독 ID를 찾을 수 있습니다. [az group delete 명령](/cli/azure/group?view=azure-cli-latest)을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
 
 ```azurecli
 az login
@@ -188,10 +178,10 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예: 
-- Windows에서: [인증서 MMC 스냅인](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)을 사용합니다. 스냅인을 추가할 때 반드시 **내 사용자 계정**을 선택합니다. `Certificates - Current User\Personal\Certificates`로 이동하여 인증서를 제거합니다.
-- Mac에서: 키 집합 앱을 사용합니다.
-- Ubuntu에서: 인증서를 보는 데 사용한 단계를 수행하여 인증서를 제거합니다.
+클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 다음은 그 예입니다.
+- Windows: [인증서 MMC 스냅인](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)을 사용합니다. 스냅인을 추가할 때 반드시 **내 사용자 계정**을 선택합니다. `Certificates - Current User\Personal\Certificates`로 이동하여 인증서를 제거합니다.
+- Mac: 키 집합 앱을 사용합니다.
+- Ubuntu: 인증서를 보는 데 사용한 단계를 수행하여 인증서를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,24 +1,23 @@
 ---
 title: Azure 대시보드의 구조 | Microsoft Docs
-description: 이 문서는 Azure 대시보드의 JSON 구조를 설명합니다.
+description: 예제 대시보드를 사용 하 여 Azure 대시보드의 JSON 구조를 안내 합니다. 리소스 속성에 대 한 참조를 포함 합니다.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
-editor: tysonn
+manager: mtillman
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/20/2019
+ms.author: mblythe
+ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81459222"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 대시보드의 구조
 이 문서는 다음 대시보드 예제를 사용하여 Azure 대시보드 구조를 안내합니다.
@@ -295,10 +294,10 @@ JSON의 관련 섹션을 분석해 보겠습니다.  최상위 속성, __id__, _
 
 ### <a name="the-id-property"></a>ID 속성
 
-[Azure 리소스의 명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)이 적용되는 Azure 리소스 ID입니다. 포털에서 대시보드를 만들 때는 일반적으로 GUID 형식의 ID를 선택하지만 프로그래밍 방식으로 만들 때 유효한 이름을 자유롭게 사용할 수 있습니다. 
+Azure 리소스 [의 명명 규칙](/azure/architecture/best-practices/resource-naming)에 따라 AZURE 리소스 ID입니다. 포털에서 대시보드를 만들 때 일반적으로 guid 형식의 ID를 선택 하지만 프로그래밍 방식으로 만들 때 유효한 이름을 자유롭게 사용할 수 있습니다. 
 
 ### <a name="the-name-property"></a>name 속성
-이름은 구독, 리소스 종류 또는 리소스 그룹 정보를 포함하지 않는 리소스 ID의 세그먼트입니다. 기본적으로, 리소스 ID의 마지막 세그먼트입니다.
+이름은 구독, 리소스 종류 또는 리소스 그룹 정보를 포함 하지 않는 리소스 ID의 세그먼트입니다. 기본적으로 리소스 ID의 마지막 세그먼트입니다.
 
 ### <a name="the-type-property"></a>type 속성
 모든 대시보드는 __Microsoft.Portal/dashboards__ 형식입니다.
@@ -312,13 +311,13 @@ JSON의 관련 섹션을 분석해 보겠습니다.  최상위 속성, __id__, _
 `"tags": { "hidden-title": "Created via API" }`
 
 ### <a name="the-properties-object"></a>properties 개체
-properties 개체는 __lenses__ 및 __metadata__라는 두 속성을 포함합니다. __lenses__ 속성에는 대시보드에서 타일(즉, 파트)에 대한 정보가 포함됩니다.  __metadata__ 속성은 잠재적인 향후 기능을 위한 속성입니다.
+properties 개체는 __lenses__ 및 __metadata__라는 두 속성을 포함합니다. __Lenses__ 속성은 대시보드의 타일에 대 한 정보를 포함 합니다.  __metadata__ 속성은 잠재적인 향후 기능을 위한 속성입니다.
 
 ### <a name="the-lenses-property"></a>lenses 속성
 __lenses__ 속성은 대시보드를 포함합니다. 이 예제의 lenses 개체는 “0”이라는 단일 속성을 포함합니다. 렌즈는 대시보드에서 현재 구현되지 않는 그룹화 개념입니다. 현재는 모든 대시보드에서 다시 “0”이라는 렌즈 개체에 대한 단일 속성을 포함합니다.
 
 ### <a name="the-lens-object"></a>lens 개체
-“0” 아래의 개체에는 __order__ 및 __parts__라는 두 개의 속성이 있습니다.  대시보드의 현재 버전에서__order__는 항상 0입니다. __parts__ 속성은 대시보드에 대한 개별 파트(즉, 타일)를 정의하는 개체를 포함합니다.
+“0” 아래의 개체에는 __order__ 및 __parts__라는 두 개의 속성이 있습니다.  대시보드의 현재 버전에서__order__는 항상 0입니다. __Parts__ 속성은 대시보드의 개별 파트 (타일)를 정의 하는 개체를 포함 합니다.
 
 __parts__ 개체는 각 파트에 대한 속성을 포함합니다. 여기서 속성 이름은 숫자입니다. 이 숫자는 중요하지 않습니다. 
 
@@ -344,7 +343,7 @@ __position__ 속성에는 __x__, __y__, __rowSpan__ 및 __colSpan__으로 표현
 각 파트 유형에는 고유한 구성이 있습니다. 가능한 구성 속성을 __inputs__, __settings__ 및 __asset__이라고 합니다. 
 
 ### <a name="the-inputs-object"></a>inputs 개체
-일반적으로 inputs 개체는 타일을 리소스 인스턴스로 바인딩하는 정보를 포함합니다.  샘플 대시보드의 가상 머신 파트는 바인딩을 표현하는 데 Azure 리소스 ID를 사용하는 단일 입력을 포함합니다.  이 리소스 ID 형식은 모든 Azure 리소스 간에 일관됩니다.
+일반적으로 inputs 개체는 타일을 리소스 인스턴스로 바인딩하는 정보를 포함합니다.  샘플 대시보드의 가상 머신 부분은 Azure 리소스 ID를 사용 하 여 바인딩을 표현 하는 단일 입력을 포함 합니다.  이 리소스 ID 형식은 모든 Azure 리소스에서 일치 합니다.
 
 ```json
 "inputs":
@@ -429,6 +428,6 @@ settings 개체는 파트의 구성 가능한 요소를 포함합니다.  샘플
 ```
 
 ### <a name="the-asset-object"></a>asset 개체
-최고 수준의 관리 가능한 포털 개체(자산이라고 함)에 바인딩되는 타일에는 자산 개체를 통해 표현되는 관계를 포함합니다.  예제 대시보드에서 가상 머신 타일은 이 자산 설명을 포함합니다.  __idInputName__ 속성은 ID 입력이 자산에 대한 고유한 식별자(이 경우 리소스 ID)를 포함함을 포털에 알립니다. 대부분의 Azure 리소스 종류에는 포털에 정의된 자산이 있습니다.
+최고 수준의 관리 가능한 포털 개체(자산이라고 함)에 바인딩되는 타일에는 자산 개체를 통해 표현되는 관계를 포함합니다.  예제 대시보드에서 가상 머신 타일은 이 자산 설명을 포함합니다.  __Idinputname__ 속성은 id 입력에 자산의 고유 식별자 (이 경우 리소스 ID)가 포함 되어 있음을 포털에 알려 줍니다. 대부분의 Azure 리소스 종류에는 포털에 정의된 자산이 있습니다.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

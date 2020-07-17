@@ -1,38 +1,31 @@
 ---
-title: PowerShell Azure Functions를 로컬로 디버그
-description: PowerShell을 사용 하 여 functions를 개발 하는 방법을 알아봅니다.
-services: functions
-documentationcenter: na
+title: 로컬로 PowerShell Azure Functions 디버그
+description: PowerShell을 사용 하 여 함수를 개발 하는 방법을 이해 합니다.
 author: tylerleonhardt
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230082"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78163763"
 ---
-# <a name="debug-powershell-azure-functions-locally"></a>PowerShell Azure Functions를 로컬로 디버그
+# <a name="debug-powershell-azure-functions-locally"></a>로컬로 PowerShell Azure Functions 디버그
 
-Azure Functions를 사용 하면 PowerShell 스크립트와 함수를 개발할 수 있습니다.
+Azure Functions를 통해 PowerShell 스크립트로 함수를 개발할 수 있습니다.
 
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
+다음 표준 개발 도구를 사용 하 여 PowerShell 스크립트와 마찬가지로 PowerShell 함수를 로컬로 디버그할 수 있습니다.
 
-다음 표준 개발 도구를 사용 하 여 모든 PowerShell 스크립트와 마찬가지로 PowerShell 함수를 로컬로 디버깅할 수 있습니다.
+* [Visual Studio Code](https://code.visualstudio.com/): 전체 powershell 개발 환경을 제공 하는 powershell 확장이 포함 된 Microsoft의 무료, 경량 및 오픈 소스 텍스트 편집기입니다.
+* PowerShell 콘솔: 다른 PowerShell 프로세스를 디버깅 하는 데 사용 하는 것과 동일한 명령을 사용 하 여 디버그 합니다.
 
-* [Visual Studio Code](https://code.visualstudio.com/): 전체 PowerShell 개발 환경을 제공 하는 PowerShell 확장을 사용 하 여 Microsoft의 무료 및 오픈 소스 텍스트 편집기입니다.
-* PowerShell 콘솔: 다른 PowerShell 프로세스를 디버깅 하는 데 사용 하는 동일한 명령을 사용 하 여 디버그 합니다.
+[Azure Functions Core Tools](functions-run-local.md) 은 PowerShell 함수를 비롯 한 Azure Functions의 로컬 디버깅을 지원 합니다.
 
-[Azure Functions 핵심 도구](functions-run-local.md) PowerShell 함수를 포함 하 여 Azure Functions의 로컬 디버깅을 지원 합니다.
+## <a name="example-function-app"></a>예제 함수 앱
 
-## <a name="example-function-app"></a>함수 앱의 예
-
-이 문서에 사용 되는 함수 앱에는 단일 HTTP에서 트리거한 함수가 있고 다음 파일:
+이 문서에 사용 된 함수 앱에는 단일 HTTP 트리거 함수가 있으며 다음 파일이 있습니다.
 
 ```
 PSFunctionApp
@@ -44,9 +37,9 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-이 함수 앱을 완료 하면 비슷합니다는 [PowerShell 빠른 시작](functions-create-first-function-powershell.md)합니다.
+이 함수 앱은 [PowerShell 빠른](functions-create-first-function-powershell.md)시작을 완료할 때 표시 되는 것과 비슷합니다.
 
-함수 코드에서 `run.ps1` 다음 스크립트는 같습니다.
+의 함수 코드는 `run.ps1` 다음 스크립트와 같습니다.
 
 ```powershell
 param($Request)
@@ -70,9 +63,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ## <a name="set-the-attach-point"></a>연결 지점 설정
 
-모든 PowerShell 함수를 디버그 하려면 함수를 연결할 디버거에 대 한 중지 해야 합니다. `Wait-Debugger` cmdlet 실행을 중지 하 고 디버거를 기다립니다.
+PowerShell 함수를 디버깅 하려면 디버거를 연결 하기 위해 함수를 중지 해야 합니다. `Wait-Debugger`Cmdlet은 실행을 중지 하 고 디버거를 대기 합니다.
 
-호출을 추가 하기만 하면 되는 `Wait-Debugger` cmdlet 바로 위에 `if` 문은 다음과 같이:
+다음과 `Wait-Debugger` 같이 문 바로 위에 cmdlet에 대 한 호출을 추가 하기만 하면 됩니다 `if` .
 
 ```powershell
 param($Request)
@@ -89,41 +82,57 @@ if($name) {
 # ...
 ```
 
-부터 디버깅을 `if` 문입니다. 
+디버깅은 문에서 시작 `if` 합니다. 
 
-사용 하 여 `Wait-Debugger` 곳에서 디버깅할 수 있습니다 이제 Visual Studio Code 또는 PowerShell 콘솔을 사용 하는 함수입니다.
+이제를 사용 하 여 `Wait-Debugger` Visual Studio Code 또는 PowerShell 콘솔을 사용 하 여 함수를 디버그할 수 있습니다.
 
-## <a name="debug-in-visual-studio-code"></a>Visual Studio Code에서 디버깅
+## <a name="debug-in-visual-studio-code"></a>Visual Studio Code에서 디버그
 
-Visual Studio Code에서 PowerShell 함수를 디버깅 하려면 Visual Studio Code에 대 한 다음 확장 해야 합니다.
+Visual Studio Code에서 PowerShell 함수를 디버깅 하려면 다음이 설치 되어 있어야 합니다.
 
-* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions](functions-create-first-function-vs-code.md)
+* [Visual Studio Code에 대 한 PowerShell 확장](/powershell/scripting/components/vscode/using-vscode)
+* [Visual Studio Code Azure Functions 확장](functions-create-first-function-vs-code.md)
+* [PowerShell Core 6.2 이상](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-PowerShell 및 Azure Functions 확장을 설치한 후 기존 함수 앱 프로젝트를 로드 합니다. 할 수도 있습니다 [Functions 프로젝트 만들기](functions-create-first-function-vs-code.md)합니다.
+이러한 종속성을 설치한 후 기존 PowerShell 함수 프로젝트를 로드 하거나 [첫 번째 Powershell 함수 프로젝트를 만듭니다](functions-create-first-function-powershell.md).
 
 >[!NOTE]
-> 프로젝트가 없어야 필요한 구성 파일을 추가할 표시 됩니다.
+> 프로젝트에 필요한 구성 파일이 없는 경우 추가 하 라는 메시지가 표시 됩니다.
+
+### <a name="set-the-powershell-version"></a>PowerShell 버전 설정
+
+PowerShell Core는 Windows PowerShell과 나란히 설치 됩니다. Powershell Core를 Visual Studio Code PowerShell 확장과 함께 사용할 PowerShell 버전으로 설정 합니다.
+
+1. F1 키를 눌러 명령 팔레트를 표시 한 다음를 검색 `Session` 합니다.
+
+1. **PowerShell: 세션 표시 메뉴**를 선택 합니다.
+
+1. **현재 세션이** **powershell core 6**이 아닌 경우 **전환: powershell core 6**을 선택 합니다.
+
+PowerShell 파일이 열려 있으면 창의 오른쪽 아래에 녹색으로 표시 된 버전이 표시 됩니다. 이 텍스트를 선택 하면 세션 메뉴도 표시 됩니다. 자세히 알아보려면 [확장에 사용할 PowerShell 버전 선택](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension)을 참조 하세요.
 
 ### <a name="start-the-function-app"></a>함수 앱 시작
 
-확인 `Wait-Debugger` 디버거를 연결 하려는 함수에 설정 됩니다.  사용 하 여 `Wait-Debugger` 추가 Visual Studio Code를 사용 하 여 함수 앱을 디버그할 수 있습니다.
+디버거를 `Wait-Debugger` 연결 하려는 함수에이 설정 되어 있는지 확인 합니다.  `Wait-Debugger`을 추가 하면 Visual Studio Code를 사용 하 여 함수 앱을 디버그할 수 있습니다.
 
-선택 된 **디버그** 창 차례로 **PowerShell 함수를 연결할**합니다.
+**디버그** 창을 선택한 다음 **PowerShell 함수에 연결**합니다.
 
 ![디버거](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
 
-또한 디버깅을 시작 하려면 F5 키를 눌러 수 있습니다.
+F5 키를 눌러 디버깅을 시작할 수도 있습니다.
 
-다음 작업을 수행 하는 작업을 디버깅을 시작 합니다.
+디버깅 시작 작업은 다음 작업을 수행 합니다.
 
-* 실행 `func extensions install` 함수 앱에 필요한 모든 Azure Functions 확장을 설치 하려면 터미널에서.
-* 실행 `func host start` Functions 호스트의 함수 앱을 시작 하려면 터미널에서.
-* 함수 런타임 내에서 PowerShell runspace에 PowerShell 디버거를 연결 합니다.
+* `func extensions install`는 터미널에서를 실행 하 여 함수 앱에 필요한 Azure Functions 확장을 설치 합니다.
+* `func host start`터미널에서를 실행 하 여 함수 호스트에서 함수 앱을 시작 합니다.
+* Powershell 디버거를 함수 런타임 내의 PowerShell runspace에 연결 합니다.
 
-실행 중인 함수 앱을 사용 하 여 HTTP 트리거 함수를 호출 하는 별도 PowerShell 콘솔을 해야 합니다.
+>[!NOTE]
+> Visual Studio Code에서 올바른 디버깅 환경을 보장 하려면 PSWorkerInProcConcurrencyUpperBound가 1로 설정 되어 있는지 확인 해야 합니다. 기본값입니다.
 
-이 경우 PowerShell 콘솔은 클라이언트. `Invoke-RestMethod` 함수를 트리거하는 합니다.
+함수 앱을 실행 하는 경우 HTTP 트리거된 함수를 호출 하는 별도의 PowerShell 콘솔이 필요 합니다.
+
+이 경우 PowerShell 콘솔은 클라이언트입니다. 는 `Invoke-RestMethod` 함수를 트리거하는 데 사용 됩니다.
 
 PowerShell 콘솔에서 다음 명령을 실행 합니다.
 
@@ -131,37 +140,37 @@ PowerShell 콘솔에서 다음 명령을 실행 합니다.
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-보면 응답을 즉시 반환 되지 않습니다. 있기 때문입니다 `Wait-Debugger` 디버거 및 PowerShell에 연결 수 있으므로 즉시 실행을 중단 모드로 발생 합니다. 때문에 이것이 합니다 [BreakAll 개념](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), 나중에 설명 되어 있는 합니다. 키를 누르면 합니다 `continue` 단추를 디버거에서 이제 줄에서 중단 한 후 오른쪽 `Wait-Debugger`.
+응답이 즉시 반환 되지 않는다는 것을 알 수 있습니다. `Wait-Debugger`이는가 디버거를 연결 했 고 PowerShell 실행이 중단 모드로 전환 되었기 때문입니다. 이는 나중에 설명 하는 [모든 개념 개념](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place)으로 인해 발생 합니다. 단추를 누르면 `continue` 디버거가 바로 다음 줄에서 중단 `Wait-Debugger` 됩니다.
 
-이 시점에서 디버거가 연결 되어 있고 모든 일반 디버거 작업을 수행할 수 있습니다. Visual Studio Code에서 디버거 사용에 대 한 자세한 내용은 참조 하세요. [공식 설명서](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions)합니다.
+이 시점에서 디버거가 연결 되 고 모든 일반 디버거 작업을 수행할 수 있습니다. Visual Studio Code에서 디버거를 사용 하는 방법에 대 한 자세한 내용은 [공식 설명서](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions)를 참조 하세요.
 
-계속 하 고 스크립트를 완벽 하 게 호출 후 알려줍니다.
+계속 해 서 스크립트를 완전히 호출 하면 다음을 확인할 수 있습니다.
 
-* PowerShell 콘솔을 수행 하는 `Invoke-RestMethod` 결과 반환 했습니다
-* Visual Studio Code에서 PowerShell 통합 콘솔을 실행 하는 스크립트를 기다리는 중입니다.
+* 에서 수행한 PowerShell 콘솔에서 `Invoke-RestMethod` 결과를 반환 했습니다.
+* Visual Studio Code의 PowerShell 통합 콘솔이 스크립트 실행을 기다리는 중입니다.
 
-동일한 기능을 확장 한 후 오른쪽 중단 하는 PowerShell에서 디버거를 호출 하는 경우 이후 시간을 `Wait-Debugger`입니다.
+나중에 동일한 함수를 호출 하면 PowerShell 확장의 디버거가 바로 뒤에서 중단 `Wait-Debugger` 됩니다.
 
 ## <a name="debugging-in-a-powershell-console"></a>PowerShell 콘솔에서 디버깅
 
 >[!NOTE]
-> 이 섹션에서는 읽었다고 가정 합니다 [Azure Functions 핵심 도구 docs](functions-run-local.md) 사용 하는 방법을 배우고는 `func host start` 함수 앱을 시작 하는 명령을 합니다.
+> 이 섹션에서는 [Azure Functions Core Tools 문서](functions-run-local.md) 를 읽고 명령을 사용 하 여 함수 앱을 시작 하는 방법을 알고 있다고 가정 합니다 `func host start` .
 
-콘솔을 열고 `cd` 다음 명령 실행 하 고 함수 앱의 디렉터리에 있습니다.
+콘솔을 열고 `cd` 함수 앱의 디렉터리에 다음 명령을 실행 합니다.
 
 ```sh
 func host start
 ```
 
-실행 중인 함수 앱을 사용 하 여 및 `Wait-Debugger` 준비에서 프로세스에 연결할 수 있습니다. 두 개의 자세한 PowerShell 콘솔을 수행 해야 합니다.
+함수 앱이 실행 중이 고 `Wait-Debugger` 현재 위치가 인 경우 프로세스에 연결할 수 있습니다. 두 개 이상의 PowerShell 콘솔이 필요 합니다.
 
-콘솔 중 클라이언트 처럼 작동합니다. 호출에서이 `Invoke-RestMethod` 함수를 트리거할 수 있습니다. 예를 들어, 다음 명령을 실행할 수 있습니다.
+콘솔 중 하나가 클라이언트 역할을 합니다. 이에서를 호출 `Invoke-RestMethod` 하 여 함수를 트리거합니다. 예를 들어 다음 명령을 실행할 수 있습니다.
 
 ```powershell
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-결과 응답을 반환 하지 않기를 보면의 `Wait-Debugger`합니다. PowerShell runspace 이제 기다리고 디버거를 연결할 수 있습니다. 연결을 살펴보겠습니다.
+의 결과인 응답이 반환 되지 않는다는 것을 알 수 있습니다 `Wait-Debugger` . 이제 PowerShell runspace는 디버거가 연결 될 때까지 대기 중입니다. 이를 연결 해 보겠습니다.
 
 다른 PowerShell 콘솔에서 다음 명령을 실행 합니다.
 
@@ -184,9 +193,9 @@ pwsh            32071 None
 pwsh            88785 None
 ```
 
-기록해는 `ProcessId` 표에 항목에 대 한는 `ProcessName` 으로 `dotnet`입니다. 이 프로세스는 함수 앱.
+`ProcessId`테이블에서를로 하는 항목에 대 한를 적어 `ProcessName` 둡니다 `dotnet` . 이 프로세스는 함수 앱입니다.
 
-다음 코드 조각을 실행 합니다.
+다음으로 다음 코드 조각을 실행 합니다.
 
 ```powershell
 # This enters into the Azure Functions PowerShell process.
@@ -197,7 +206,7 @@ Enter-PSHostProcess -Id $ProcessId
 Debug-Runspace 1
 ```
 
-시작 되 면 디버거가 중단 하 고 다음 출력과 같이 보여 줍니다.
+서비스가 시작 되 면 디버거가 중단 되 고 다음과 같은 출력이 표시 됩니다.
 
 ```
 Debugging Runspace: Runspace1
@@ -210,29 +219,29 @@ At /Path/To/PSFunctionApp/HttpTriggerFunction/run.ps1:13 char:1
 [DBG]: [Process:49988]: [Runspace1]: PS /Path/To/PSFunctionApp>>
 ```
 
-이 시점에서 중단점에서 중지 하는 [PowerShell 디버거](/powershell/module/microsoft.powershell.core/about/about_debuggers)합니다. 여기에서 있습니다 수 일반적인 디버깅 작업의 모든 작업을 수행, 프로시저 단위로 실행, 한 단계씩 코드 실행, 계속, 종료, 등입니다. 콘솔에서 사용할 수 있는 디버그 명령의 전체 집합을 실행 합니다 `h` 또는 `?` 명령입니다.
+이 시점에서 [PowerShell 디버거의](/powershell/module/microsoft.powershell.core/about/about_debuggers)중단점에서 중지 됩니다. 여기에서 일반적인 디버그 작업, 프로시저 단위 실행, 한 단계씩 코드 실행, 계속, 종료 및 기타 작업을 수행할 수 있습니다. 콘솔에서 사용할 수 있는 디버그 명령의 전체 집합을 확인 하려면 `h` 또는 `?` 명령을 실행 합니다.
 
-사용 하 여이 수준에서 중단점을 설정할 수도 있습니다는 `Set-PSBreakpoint` cmdlet.
+Cmdlet을 사용 하 여이 수준에서 중단점을 설정할 수도 있습니다 `Set-PSBreakpoint` .
 
-계속 하 고 스크립트를 완벽 하 게 호출 되 면 알려줍니다.
+계속 해 서 스크립트를 완전히 호출 하면 다음을 확인할 수 있습니다.
 
-* PowerShell 콘솔을 실행 하는 위치 `Invoke-RestMethod` 이제 결과 반환 했습니다.
-* PowerShell 콘솔을 실행 하는 위치 `Debug-Runspace` 실행할 스크립트를 기다리는 중입니다.
+* 이제 실행 한 PowerShell 콘솔에서 `Invoke-RestMethod` 결과가 반환 되었습니다.
+* 실행 한 PowerShell 콘솔에서 `Debug-Runspace` 스크립트가 실행 될 때까지 기다리고 있습니다.
 
-동일한 함수를 다시 호출할 수 있습니다 (사용 하 여 `Invoke-RestMethod` 예를 들어) 직후에 디버거가 중단을 `Wait-Debugger` 명령입니다.
+예를 들어를 사용 하 여 동일한 함수를 다시 호출할 수 `Invoke-RestMethod` 있으며 디버거가 명령 바로 뒤에서 중단 `Wait-Debugger` 됩니다.
 
-## <a name="considerations-for-debugging"></a>디버깅에 대 한 고려 사항
+## <a name="considerations-for-debugging"></a>디버깅 고려 사항
 
-다음과 같은 문제가 때 염두 함수 코드를 디버깅 합니다.
+함수 코드를 디버그할 때는 다음 문제를 염두에 두어야 합니다.
 
-### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll` 예기치 않은 위치에서 중단 되도록 디버거를 발생할 수 있습니다.
+### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll`디버거가 예기치 않은 장소에서 중단 될 수 있습니다.
 
-PowerShell 확장 사용 `Debug-Runspace`에 PowerShell의 요소에 의존 하는데 `BreakAll` 기능입니다. 이 기능은 PowerShell에서 실행 되는 첫 번째 명령은 중지 하도록 지시 합니다. 이 동작은 디버깅된 runspace 내에서 중단점을 설정할 수 있는 기회를 제공 합니다.
+PowerShell 확장은를 사용 하며 `Debug-Runspace` ,이는 powershell의 기능을 사용 `BreakAll` 합니다. 이 기능은 실행 되는 첫 번째 명령에서 PowerShell을 중지 하도록 지시 합니다. 이 동작은 디버깅 된 runspace 내에서 중단점을 설정할 수 있는 기회를 제공 합니다.
 
-Azure Functions 런타임은 실제로 호출 하기 전에 몇 가지 명령을 실행 하 `run.ps1` 디버거 내에서 주요 끝나고 있으므로 스크립트를 `Microsoft.Azure.Functions.PowerShellWorker.psm1` 또는 `Microsoft.Azure.Functions.PowerShellWorker.psd1`합니다.
+Azure Functions 런타임은 실제로 스크립트를 호출 하기 전에 몇 가지 명령을 실행 `run.ps1` 하므로 또는 내에서 디버거가 중단 될 수 있습니다 `Microsoft.Azure.Functions.PowerShellWorker.psm1` `Microsoft.Azure.Functions.PowerShellWorker.psd1` .
 
-실행이 중단 발생 해야 합니다 `continue` 또는 `c` 명령을이 중단점을 건너뜁니다. 그런 다음 예상된 중단점에서 중지 합니다.
+이러한 중단이 발생 하면 `continue` 또는 `c` 명령을 실행 하 여이 중단점을 건너뜁니다. 그런 다음 예상 중단점에서 중지 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-PowerShell을 사용 하 여 함수를 개발 하는 방법에 대 한 자세한 내용은 참조 하세요 [Azure Functions PowerShell 개발자 가이드](functions-reference-powershell.md)합니다.
+PowerShell을 사용 하 여 함수를 개발 하는 방법에 대해 자세히 알아보려면 [Azure Functions powershell 개발자 가이드](functions-reference-powershell.md)를 참조 하세요.

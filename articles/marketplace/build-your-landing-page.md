@@ -1,19 +1,18 @@
 ---
 title: Azure Marketplace에서 방문 페이지 빌드 | Azure
 description: Azure Marketplace 및 Microsoft AppSource에서 앱 및 서비스 게시자에 대한 방문 페이지를 만드는 방법입니다.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 06/04/2018
-ms.author: ellacroi
-ms.openlocfilehash: 1b3f987ff54a4b5eeeb1034d1e99302d0d6d43d6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: b7f80910e19348dfa3540f141424205a7531f5e7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935596"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102823"
 ---
 # <a name="build-your-landing-page"></a>방문 페이지 빌드
 
@@ -46,7 +45,7 @@ ms.locfileid: "64935596"
 | **판촉 내용을 헤더 또는 명확히 구분된 섹션에 포함** | 텍스트 단락의 Marketplace 목록에 링크 포함 |
 | **최적의 키워드를 조사하고 검색을 위해 페이지 최적화** | 제품 이름을 사용하는 것이 더 높은 검색 순위에 오르도록 한다고 가정 |
 | **광고 캠페인의 키워드 사용** | 웹 속성에서 여러 다양한 키워드를 사용하여 광고 투자를 희석시키는 부작용 생성 |
-| **관련 제품 이름과 키워드를 '기본 화면'에 표시** | 사용자가 제품이나 솔루션을 보려면 스크롤해야 함 |
+| **관련 제품 이름 및 키워드를 "접기 위에 배치"** | 사용자가 제품이나 솔루션을 보려면 스크롤해야 함 |
 | **브랜드 이미지를 사용하여 솔루션의 유효성을 검사하고 Microsoft 브랜딩 지침 준수(예: Azure Certified)** | 승인되지 않은 Microsoft 브랜드 이미지를 사용 |
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,27 +1,27 @@
 ---
 title: '자습서: Bing Entity Search 단일 페이지 웹앱'
-titlesuffix: Azure Cognitive Services
-description: 단일 페이지 웹 애플리케이션에서 Bing Entity Search API를 사용하는 방법을 보여줍니다.
+titleSuffix: Azure Cognitive Services
+description: 이 자습서에서는 단일 페이지 웹 애플리케이션에서 Bing Entity Search API를 사용하는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1b8cf36c631755458bc0c531773a6b2aba7f1038
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 53731540c4a2861c77c02b1a4b25b60fd0e23872
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406369"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184143"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
 Bing Entity Search API를 사용하면 *엔터티* 및 *장소*에 대한 정보를 웹에서 검색할 수 있습니다. 지정된 쿼리에서 두 종류의 결과 중 하나 또는 둘 다를 요청할 수 있습니다. 아래에는 장소 및 엔터티에 대한 정의가 나와 있습니다.
 
-|||
+| 결과 | Description |
 |-|-|
 |엔터티|이름으로 찾을 수 있는 잘 알려진 사람, 장소 및 사물|
 |장소|이름  *또는* 유형으로 찾을 수 있는 식당, 호텔, 기타 현지 기업|
@@ -56,6 +56,15 @@ API를 통해 위치별로 결과의 우선 순위를 지정할 수 있습니다
 > [!NOTE]
 > 이 자습서는 [단일 페이지 Bing Web Search 앱 자습서](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)와 대체로 비슷하지만, 엔터티 검색 결과만 처리합니다.
 
+## <a name="prerequisites"></a>필수 구성 요소
+
+자습서를 따르려면 Bing Search API 및 Bing Maps API에 대한 구독 키가 필요합니다. 
+
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 만든 후에는 다음을 수행합니다.
+  * Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+  * Azure Portal에서 <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+
 ## <a name="app-components"></a>앱 구성 요소
 
 단일 페이지 웹앱과 마찬가지로, 자습서 애플리케이션은 다음 세 부분으로 구성되어 있습니다.
@@ -82,11 +91,11 @@ HTML에는 사용자가 쿼리를 입력하고 검색 옵션을 선택하는 검
 ## <a name="managing-subscription-keys"></a>구독 키 관리
 
 > [!NOTE]
-> 이 앱을 사용하려면 Bing Search API와 Bing Maps API 둘 다의 구독 키가 필요합니다. [평가판 Bing Search 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 및 [기본 Bing 지도 키](https://www.microsoft.com/maps/create-a-bing-maps-key)를 사용할 수 있습니다.
+> 이 앱을 사용하려면 Bing Search API와 Bing Maps API 둘 다의 구독 키가 필요합니다.
 
-Bing Search 및 Bing 지도 API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 저장소를 사용하여 키를 저장합니다. 키가 저장되지 않은 경우 확인 메시지를 표시하고, 나중에 사용할 수 있도록 저장합니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로, 사용자가 다음에 검색할 때 키가 요청됩니다.
+Bing Search 및 Bing 지도 API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 스토리지를 사용하여 키를 저장합니다. 키가 저장되지 않은 경우 확인 메시지를 표시하고, 나중에 사용할 수 있도록 저장합니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로, 사용자가 다음에 검색할 때 키가 요청됩니다.
 
-`localStorage` 개체(브라우저가 지원하는 경우) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다.
+`localStorage` 개체(브라우저가 지원하는 경우) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
 ```javascript
 // cookie names for data we store
@@ -132,7 +141,7 @@ HTML `<body>` 태그에는 페이지 로드가 완료될 때 `getSearchSubscript
 
 HTML 양식에는 다음과 같은 컨트롤이 포함됩니다.
 
-| | |
+| 제어 | Description |
 |-|-|
 |`where`|검색에 사용되는 지역/국가(위치 및 언어)를 선택하기 위한 드롭다운 메뉴입니다.|
 |`query`|검색어를 입력할 텍스트 필드입니다.|
@@ -402,7 +411,7 @@ Bing Entity Search API[에서는 지정된 순서로 결과를 표시해야 합�
 
 `rankingResponse` 컬렉션의 각 항목은 서로 다르지만 동등한 두 가지 방식으로 실제 검색 결과 항목을 나타냅니다.
 
-| | |
+| 항목 | Description |
 |-|-|
 |`id`|`id`는 URL처럼 보이지만 링크에 사용하면 안 됩니다. 순위 결과의 `id` 형식은 답변 컬렉션의 검색 결과 항목 또는 전체 답변 컬렉션(예: `Entities`)의 `id`와 일치합니다.
 |`answerType`<br>`resultIndex`|`answerType`은 결과가 포함된 최상위 답변 컬렉션(예: `Entities`)을 나타냅니다. `resultIndex`는 해당 컬렉션 내의 결과 인덱스를 나타냅니다. `resultIndex`가 생략된 경우 순위 결과는 전체 컬렉션을 나타냅니다.
@@ -443,7 +452,7 @@ searchItemRenderers = {
 
 렌더러 함수는 다음 매개 변수를 사용할 수 있습니다.
 
-| | |
+| 매개 변수 | Description |
 |-|-|
 |`item`|URL 및 해당 설명과 같은 항목의 속성을 포함하는 JavaScript 개체입니다.|
 |`index`|해당 컬렉션 내에서 결과 항목의 인덱스입니다.|
@@ -525,21 +534,24 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 브라우저 보안 정책(CORS) 때문에 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용하지 못할 수 있습니다. 이러한 제한은 검색 응답의 원본이 해당 응답을 요청한 페이지와 다른 경우에 발생합니다. 프로덕션 환경에서는 웹 페이지와 동일한 도메인에 대해 API 호출을 수행하는 서버 쪽 스크립트를 호스트하여 이 정책 문제를 해결해야 합니다. 스크립트의 원본은 웹 페이지와 동일하므로 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용할 수 있습니다.
 
 > [!NOTE]
-> 그래도 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 서버 쪽에서 수행하지 않을 경우 소스를 보는 누구나 사용할 수 있는 웹 페이지에 Bing Search API 키를 포함해야 합니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
+> 그래도 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
-개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
+개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 나열하고 JavaScript에 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 자습서 앱이 클라이언트 ID 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 창에서 다음 명령을 실행합니다.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 변경합니다.
-
-    https://localhost:9090/httpss://api.cognitive.microsoft.com/bing/v7.0/search
+다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 다음 항목으로 변경합니다.
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 자습서 앱을 사용하는 동안에는 명령 창을 열어 두세요. 창을 닫으면 프록시가 중지됩니다. 검색 결과 아래의 확장 가능한 HTTP 헤더 섹션에서 여러 `X-MSEdge-ClientID` 헤더를 볼 수 있으며 요청마다 동일한지 확인합니다.
 

@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - Linux VM 암호화 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - Linux VM 암호화
 description: Azure CLI 스크립트 샘플 - Linux VM 암호화
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -16,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8f3e032d6723faf149faad039e3c3faff3e6d83a
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 585096f7b45a1d5396e7d59f9d54de90486a103a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731498"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459919"
 ---
 # <a name="encrypt-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 머신 암호화
 

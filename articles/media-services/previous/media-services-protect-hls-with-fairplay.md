@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c30a32466cbac795ef037a3295816e87995ad749
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3ad06d0e37b7cf464c311e28e546e1b7f1ebd183
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868399"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058251"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > Media Services v2 없는 새로운 특징 또는 기능은 추가 됩니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 >
 
 Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다.  
 
 * **AES-128 비트 봉투 암호화되지 않은 키**
 
-    전체 청크는 **AES-128 CBC** 모드를 사용하여 암호화됩니다. 스트림의 암호 해독은 iOS 및 OS X 플레이어에서 고유하게 지원됩니다. 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)을 참조하세요.
+    전체 청크는 **AES-128 CBC** 모드를 사용하여 암호화됩니다. 스트림의 암호 해독은 iOS 및 OS X 플레이어에서 고유하게 지원됩니다. 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)을 참조 하세요.
 * **Apple FairPlay**
 
     개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용하여 암호화됩니다. **FairPlay 스트리밍** (FPS)은 디바이스 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 사용하여 FPS를 지원합니다.
@@ -51,7 +51,7 @@ Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라�
 
 Media Services를 사용하여 FairPlay로 암호화된 HLS를 배달하고 FairPlay 라이선스를 배달할 때 다음이 필요합니다.
 
-  * Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
+  * Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)을 참조 하세요.
   * Media Services 계정. 계정을 만들려면 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
   * [Apple Development Program](https://developer.apple.com/)에 등록합니다.
   * Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. 이미 Media Services로 KSM(키 보안 모듈)을 구현했고 최종 FPS 패키지를 요청하고 있음을 명시합니다. 최종 FPS 패키지에는 인증을 생성하고 ASK(애플리케이션 비밀 키)를 얻기 위한 지침이 있습니다. ASK를 사용하여 FairPlay를 구성합니다.
@@ -59,7 +59,7 @@ Media Services를 사용하여 FairPlay로 암호화된 HLS를 배달하고 Fair
 
 Media Services 키 배달 쪽에서 다음 항목을 설정해야 합니다.
 
-  * **AC(앱 인증서)**: 개인 키가 포함된 .pfx 파일입니다. 이 파일을 만들고 암호로 암호화합니다.
+  * **AC(앱 인증서)**: 프라이빗 키가 포함된 .pfx 파일입니다. 이 파일을 만들고 암호로 암호화합니다.
 
        키 배달 정책을 구성할 때 해당 암호와 Base64 형식의 .pfx 파일을 제공해야 합니다.
 
@@ -71,7 +71,7 @@ Media Services 키 배달 쪽에서 다음 항목을 설정해야 합니다.
     2. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .cer 파일이 .pem 파일로 변환됩니다.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
-    3. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .pem 파일이 개인 키가 있는 .pfx 파일로 변환됩니다. OpenSSL에서 .pfx 파일에 대한 암호를 묻습니다.
+    3. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .pem 파일이 프라이빗 키가 있는 .pfx 파일로 변환됩니다. OpenSSL에서 .pfx 파일에 대한 암호를 묻습니다.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **앱 인증서 암호**: .pfx 파일을 만들기 위한 암호입니다.
@@ -82,7 +82,7 @@ Media Services 키 배달 쪽에서 다음 항목을 설정해야 합니다.
 
 FPS 클라이언트 쪽에서 다음을 설정해야 합니다.
 
-  * **AC(앱 인증서)**: 운영 체제에서 일부 페이로드를 암호화하는 데 사용하는 공개 키가 포함된 .cer/.der 파일입니다. 플레이어에 필요하기 때문에 Media Services에서 이에 대해 알고 있어야 합니다. 키 배달 서비스는 해당 개인 키를 사용하여 암호를 해독합니다.
+  * **AC(앱 인증서)**: 운영 체제에서 일부 페이로드를 암호화하는 데 사용하는 공개 키가 포함된 .cer/.der 파일입니다. 플레이어에 필요하기 때문에 Media Services에서 이에 대해 알고 있어야 합니다. 키 배달 서비스는 해당 프라이빗 키를 사용하여 암호를 해독합니다.
 
 FairPlay 암호화된 스트림을 재생하려면 먼저 실제 ASK를 받은 다음 실제 인증서를 생성합니다. 이 프로세스에서는 다음 세 가지 요소를 모두 만듭니다.
 
@@ -90,7 +90,7 @@ FairPlay 암호화된 스트림을 재생하려면 먼저 실제 ASK를 받은 �
   * .pfx 파일
   * .pfx에 대한 암호
 
-다음 클라이언트는 **AES-128 CBC** 암호화로 HLS를 지원합니다. OS X, Apple TV, iOS의 Safari.
+OS X, Apple TV, iOS의 Safari 클라이언트는 **AES-128 CBC** 암호화로 HLS를 지원합니다.
 
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>FairPlay 동적 암호화 및 라이선스 배달 서비스 구성
 다음은 Media Services 라이선스 배달 서비스를 사용하고 동적 암호화도 사용하여 FairPlay로 자산을 보호하는 일반적인 단계입니다.
@@ -127,7 +127,7 @@ FairPlay 암호화된 스트림을 재생하려면 먼저 실제 ASK를 받은 �
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>플레이어 앱별 FairPlay 키 배달 사용
 iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay 콘텐츠를 재생하려면 라이선스 교환 프로토콜을 구현해야 합니다. Apple에서는 이 프로토콜을 지정하지 않습니다. 키 배달 요청을 전송하는 방법은 앱마다 다릅니다. Media Services FairPlay 키 배달 서비스에서는 SPC가 다음 형식의 www-form-url 인코딩된 게시 메시지로 도착해야 합니다.
 
-    spc=<Base64 encoded SPC>
+`spc=<Base64 encoded SPC>`
 
 > [!NOTE]
 > Azure Media Player는 FairPlay 재생을 지원합니다. 자세한 정보는 [Azure Media Player 설명서](https://amp.azure.net/libs/amp/latest/docs/index.html)를 참조하세요.
@@ -143,13 +143,13 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
 * 하나의 암호화만 자산에 적용되었으면 URL에 암호화 형식을 지정할 필요가 없습니다.
 * 암호화 형식은 대/소문자를 구분하지 않습니다.
 * 다음과 같은 암호화 형식을 지정할 수 있습니다.  
-  * **cenc**:  일반 암호화(PlayReady 또는 Widevine)
+  * **cenc**: 일반 암호화 (PlayReady 또는 widevto)
   * **cbcs-aapl**: FairPlay
   * **cbc**: AES 봉투 암호화
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+1. 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
 
     ```xml
@@ -157,7 +157,7 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
     <add key="Audience" value="urn:test"/>
     ```
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음 샘플에서는 Media Services를 사용하여 FairPlay로 암호화된 콘텐츠를 배달하는 기능을 보여 줍니다. 이 기능은 .NET 버전 3.6.0용 Azure Media Services SDK에서 도입되었습니다. 
 
@@ -513,7 +513,7 @@ namespace DynamicEncryptionWithFairPlay
             // Get a reference to the streaming manifest file from the  
             // collection of files in the asset.
 
-            var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+            var assetFile = asset.AssetFiles.LoList().Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 
@@ -554,6 +554,10 @@ namespace DynamicEncryptionWithFairPlay
     }
 }
 ```
+
+## <a name="additional-notes"></a>추가적인 참고 사항
+
+* Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
 ## <a name="next-steps-media-services-learning-paths"></a>다음 단계: Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

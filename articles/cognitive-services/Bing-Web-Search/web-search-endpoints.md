@@ -1,21 +1,21 @@
 ---
 title: Web Search 엔드포인트
 titleSuffix: Azure Cognitive Services
-description: News Search API 엔드포인트에 대한 요약 정보입니다.
+description: 웹 검색 결과를 가져오려면 다음 끝점에 `GET` 요청을 보냅니다. 헤더 및 URL 매개 변수는 추가 사양을 정의합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
-ms.openlocfilehash: e91f798e6bfae33f8f4c8b5aa2d0f6ddc0047389
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2edc6a4cf4d4fb174c1b2067d8b3fb3b6f31859f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798257"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74111342"
 ---
 # <a name="web-search-endpoint"></a>Web Search 엔드포인트
 
@@ -31,7 +31,7 @@ Bing API를 사용하여 웹 검색 결과를 가져오려면 `GET` 요청을 �
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-엔드포인트: 헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Web API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 참조에서 확인할 수 있습니다.
+엔드포인트: 헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Web API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) 참조에서 확인할 수 있습니다.
 
 ## <a name="response-json"></a>응답 JSON
 
@@ -39,7 +39,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/search
 
 ## <a name="next-steps"></a>다음 단계
 
-**Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다. 모든 검색 엔드포인트는 결과를 JSON 응답 개체로 반환합니다.  모든 엔드포인트는 경도, 위도 및 검색 반경으로 특정 언어 및 위치를 반환하는 쿼리를 지원합니다.
+**Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다.모든 검색 엔드포인트는 결과를 JSON 응답 개체로 반환합니다. 모든 엔드포인트는 경도, 위도 및 검색 반경으로 특정 언어 및 위치를 반환하는 쿼리를 지원합니다.
 
 각 엔드포인트에서 지원하는 매개 변수에 대한 자세한 내용은 각 유형에 대한 참조 페이지를 참조하세요.
 Web Search API를 사용하는 기본 요청의 예는 [웹 검색 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web)을 참조하세요.

@@ -1,42 +1,38 @@
 ---
-title: 옵션 (Microsoft Authentication Library for.NET)를 사용 하 여 공용 클라이언트 앱을 인스턴스화하고 | Azure
-description: .NET (MSAL.NET)에 대 한 Microsoft 인증 라이브러리를 사용 하 여 구성 옵션을 사용 하 여 공용 클라이언트 응용 프로그램을 인스턴스화하는 방법에 알아봅니다.
+title: 공용 클라이언트 앱 인스턴스화 (MSAL.NET) | Microsoft
+titleSuffix: Microsoft identity platform
+description: .NET 용 Microsoft 인증 라이브러리 (MSAL.NET)를 사용 하 여 구성 옵션으로 공용 클라이언트 응용 프로그램을 인스턴스화하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
-author: rwike77
+author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: ryanwi
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 125bbf9aed54fb00f039aeffddd5cc1aad3360a6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 171b4ddf9a6f3cb5868f2300ea892ad785cbaf22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477433"
 ---
-# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET을 사용 하 여 구성 옵션을 사용 하 여 공용 클라이언트 응용 프로그램 인스턴스화
+# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET를 사용 하 여 구성 옵션을 사용 하 여 공용 클라이언트 응용 프로그램 인스턴스화
 
-이 문서를 인스턴스화하는 방법을 설명 합니다는 [공용 클라이언트 응용 프로그램](msal-client-applications.md) .NET (MSAL.NET)에 대 한 Microsoft 인증 라이브러리를 사용 하 여 합니다.  응용 프로그램 설정 파일에 정의 된 구성 옵션을 사용 하 여 인스턴스화됩니다.
+이 문서에서는 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하 여 [공용 클라이언트 응용 프로그램](msal-client-applications.md) 을 인스턴스화하는 방법을 설명 합니다.  응용 프로그램은 설정 파일에 정의 된 구성 옵션을 사용 하 여 인스턴스화됩니다.
 
-응용 프로그램을 초기화 하기 전에 먼저 [등록](quickstart-register-app.md) 해당 Microsoft id 플랫폼을 사용 하 여 앱을 통합 될 수 있도록 합니다. 등록이 완료 되 면 다음 정보를 (Azure portal에서 찾을 수 있습니다) 해야 합니다.
+응용 프로그램을 초기화 하려면 먼저 앱이 Microsoft id 플랫폼과 통합 될 수 있도록 해당 응용 프로그램을 [등록](quickstart-register-app.md) 해야 합니다. 등록 후에는 다음 정보가 필요할 수 있습니다 (Azure Portal 참조).
 
 - 클라이언트 ID (GUID를 나타내는 문자열)
-- Id 공급자 URL (명명 된 인스턴스) 및 응용 프로그램에 대 한 로그인 대상 그룹입니다. 이 두 매개 변수를 기관으로 통칭 합니다.
-- 조직 (또한 명명 된 단일 테 넌 트 응용 프로그램)에 대해 전적으로 비즈니스 응용 프로그램을 작성 하는 경우에 테 넌 트 ID입니다.
-- 웹 앱 및 경우에 따라 공용 클라이언트 앱 (특히 앱은 broker 사용 해야 하는 경우)에 대 한 것도 설정한 redirectUri는 id 공급자 백 연락을 보안 토큰을 사용 하 여 응용 프로그램.
+- 응용 프로그램에 대 한 id 공급자 URL (인스턴스 이름) 및 로그인 대상이 됩니다. 이러한 두 매개 변수를 통칭 하 여 기관 이라고 합니다.
+- 조직 전용 lob (단일 테 넌 트 응용 프로그램) 응용 프로그램을 작성 하는 경우 테 넌 트 ID입니다.
+- 웹 앱 및 공용 클라이언트 앱의 경우 (특히 앱에서 broker를 사용 해야 하는 경우) id 공급자가 응용 프로그램에 보안 토큰을 다시 연결 하는 redirectUri도 설정 해야 합니다.
 
 
-.NET Core 콘솔 응용 프로그램에는 다음 있을 수 있습니다 *appsettings.json* 구성 파일:
+.NET Core 콘솔 응용 프로그램의 구성 파일에는 다음 *appsettings.js* 있을 수 있습니다.
 
 ```json
 {
@@ -52,7 +48,7 @@ ms.locfileid: "65544394"
 }
 ```
 
-다음 코드는.NET 구성 프레임 워크를 사용 하 여이 파일을 읽습니다.
+다음 코드는 .NET 구성 프레임 워크를 사용 하 여이 파일을 읽습니다.
 
 ```csharp
 public class SampleConfiguration
@@ -94,7 +90,7 @@ public class SampleConfiguration
 }
 ```
 
-다음 코드는 구성 설정 파일에서 사용 하 여 응용 프로그램을 만듭니다.
+다음 코드는 설정 파일의 구성을 사용 하 여 응용 프로그램을 만듭니다.
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");

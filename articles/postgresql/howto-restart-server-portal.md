@@ -1,26 +1,26 @@
 ---
-title: Azure Database for PostgreSQL-Azure portal을 사용 하 여 단일 서버 다시 시작
-description: 이 문서에서는 PostgreSQL-Azure portal을 사용 하 여 단일 서버에 대 한 Azure Database를 다시 시작할 수는 방법을 설명 합니다.
+title: 서버 다시 시작-Azure Portal-Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버를 다시 시작 하는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4bd5b2d3715376aaca689c4589c3aab41a78f514
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65066832"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120911"
 ---
-# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Database for PostgreSQL-Azure portal을 사용 하 여 단일 서버 다시 시작
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버 다시 시작
 이 항목에서는 Azure Database for PostgreSQL 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
 
 서비스가 다른 작업 중이면 서버가 다시 시작되지 않습니다. 예를 들어, 서비스가 vCore 크기를 조정하는 것과 같이 이전에 요청된 작업을 처리할 수 있습니다.
  
 다시 시작을 완료하는 데 필요한 시간은 PostgreSQL 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [PostgreSQL용 Azure Database 서버](quickstart-create-server-database-portal.md)
 
@@ -28,7 +28,7 @@ ms.locfileid: "65066832"
 
 다음 단계에서는 PostgreSQL 서버를 다시 시작합니다.
 
-1. 에 [Azure portal](https://portal.azure.com/), Azure Database for PostgreSQL 서버를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 Azure Database for PostgreSQL 서버를 선택 합니다.
 
 2. 서버 **개요** 페이지의 도구 모음에서 **다시 시작**을 클릭합니다.
 
@@ -48,4 +48,4 @@ ms.locfileid: "65066832"
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 자세한 [PostgreSQL 용 Azure Database에서 매개 변수를 설정 하는 방법](howto-configure-server-parameters-using-portal.md)
+[Azure Database for PostgreSQL에서 매개 변수를 설정 하는 방법](howto-configure-server-parameters-using-portal.md) 에 대해 알아봅니다.

@@ -1,27 +1,19 @@
 ---
-title: Service Bus 토픽을 사용하는 방법(Ruby) | Microsoft Docs
-description: Azure에서 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby 애플리케이션용으로 작성되었습니다.
+title: '빠른 시작: Service Bus 토픽을 사용하는 방법(Ruby)'
+description: '빠른 시작: Azure에서 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby 애플리케이션용으로 작성되었습니다.'
 services: service-bus-messaging
 documentationcenter: ruby
-author: axisc
-manager: timlt
-editor: ''
-ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/15/2019
-ms.author: aschhab
-ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 06/23/2020
+ms.openlocfilehash: ef4bb8ba724a8ae1f708ab80a770a521f7879685
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472338"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336736"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Ruby에서 Service Bus 토픽 및 구독을 사용하는 방법
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>빠른 시작: Ruby에서 Service Bus 토픽 및 구독을 사용하는 방법
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -34,12 +26,12 @@ ms.locfileid: "61472338"
 - 토픽 및 구독 삭제
 
 
-## <a name="prerequisites"></a>필수 조건
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 하거나 등록을 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
-2. 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다. 
+## <a name="prerequisites"></a>사전 요구 사항
+1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+2. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus **네임스페이스**를 만들고 **연결 문자열**을 가져옵니다. 
 
     > [!NOTE]
-    > 만들려는 **항목** 및 **구독** 사용 하 여 토픽에 **Ruby** 이 빠른 시작 합니다. 
+    > 이 빠른 시작에서는 **Ruby**를 사용하여 **토픽** 및 해당 토픽에 대한 **구독**을 만들 것입니다. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -68,7 +60,9 @@ topic = azure_service_bus_service.create_topic(topic)
 ## <a name="create-subscriptions"></a>구독 만들기
 토픽 구독은 **Azure::ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
-구독은 영구 보존됩니다. 즉, 구독 자체나 구독이 연결된 토픽이 삭제될 때까지는 계속 유지됩니다. 애플리케이션에 구독을 만들기 위한 논리가 포함된 경우, getSubscription 메서드를 사용하여 구독이 이미 존재하는지를 먼저 확인해야 합니다.
+기본적으로 구독은 영구 보존됩니다. 즉, 구독 자체나 구독이 연결된 토픽이 삭제될 때까지는 계속 유지됩니다. 애플리케이션에 구독을 만들기 위한 논리가 포함된 경우, getSubscription 메서드를 사용하여 구독이 이미 존재하는지를 먼저 확인해야 합니다.
+
+[AutoDeleteOnIdle 속성](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)을 설정하여 구독을 자동으로 삭제할 수 있습니다.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 새 구독을 만들 때 필터를 지정하지 않은 경우 **MatchAll** 필터(기본값)가 사용됩니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 "all-messages"라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
@@ -117,7 +111,7 @@ rule = azure_service_bus_service.create_rule(rule)
 이제 `test-topic`으로 메시지를 보내는 경우 `all-messages` 토픽 구독을 구독하는 수신자에게는 항상 배달되고, `high-messages` 및 `low-messages` 토픽 구독을 구독하는 수신자에게는 메시지 내용에 따라 선택적으로 배달됩니다.
 
 ## <a name="send-messages-to-a-topic"></a>토픽에 메시지 보내기
-Service Bus 토픽에 메시지를 보내려면 애플리케이션에서 **Azure::ServiceBusService** 개체의 `send_topic_message()` 메서드를 사용해야 합니다. Service Bus 토픽으로 전송되는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체의 인스턴스입니다. **Azure::ServiceBus::BrokeredMessage** 개체에는 표준 속성 세트(예: `label` 및 `time_to_live`), 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 문자열 데이터의 본문이 있습니다. 응용 프로그램은 문자열 값을 `send_topic_message()` 메서드에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
+Service Bus 토픽에 메시지를 보내려면 애플리케이션에서 **Azure::ServiceBusService** 개체의 `send_topic_message()` 메서드를 사용해야 합니다. Service Bus 토픽으로 전송되는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체의 인스턴스입니다. **Azure::ServiceBus::BrokeredMessage** 개체에는 표준 속성 세트(예: `label` 및 `time_to_live`), 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 문자열 데이터의 본문이 있습니다. 애플리케이션은 문자열 값을 `send_topic_message()` 메서드에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
 
 다음 예제에서는 5개의 테스트 메시지를 `test-topic`에 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 `message_number` 사용자 지정 속성 값이 달라집니다. 이 값에 따라 메시지를 수신하는 구독이 결정됩니다.
 
@@ -149,14 +143,14 @@ azure_service_bus_service.delete_subscription_message(message)
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>애플리케이션 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
-Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 애플리케이션이 메시지를 처리할 수 없는 경우 **Azure::ServiceBusService** 개체의 `unlock_subscription_message()` 메서드를 호출할 수 있습니다. 그러면 Service Bus에서 구독 내 메시지의 잠금을 해제하고 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
+Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 애플리케이션이 메시지를 처리할 수 없는 경우 **Azure::ServiceBusService** 개체의 `unlock_subscription_message()` 메서드를 호출할 수 있습니다. 그러면 Service Bus에서 구독 내 메시지의 잠금을 해제하고 동일한 소비 애플리케이션이나 다른 소비 애플리케이션에서 메시지를 다시 받을 수 있습니다.
 
-구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램 작동이 중단되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
+구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 애플리케이션에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 애플리케이션 작동이 중단되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
 애플리케이션이 메시지를 처리한 후 `delete_subscription_message()` 메서드가 호출되기 전에 충돌하는 경우, 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이 논리는 배달 시도 간에 일정하게 유지되는 메시지의 `message_id` 속성을 사용하여 추가하는 경우가 많습니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
-토픽과 구독은 영구적이므로, [Azure Portal][Azure portal] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 다음 예제는 `test-topic` 토픽을 삭제하는 방법을 보여 줍니다.
+토픽 및 구독은 [AutoDeleteOnIdle 속성](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)이 설정되지 않는 한 영구적으로 유지됩니다. 토픽 및 구독은 [Azure Portal][Azure portal]을 통해 또는 프로그래밍 방식으로 삭제할 수 있습니다. 다음 예제는 `test-topic` 토픽을 삭제하는 방법을 보여 줍니다.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")
@@ -167,6 +161,9 @@ azure_service_bus_service.delete_topic("test-topic")
 ```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
+
+> [!NOTE]
+> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이제 Service Bus 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.

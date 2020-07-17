@@ -1,26 +1,20 @@
 ---
-title: Logic Apps를 사용하여 Azure Application Insights 프로세스를 자동화합니다.
+title: Logic Apps를 사용 하 여 Azure 애플리케이션 Insights 프로세스 자동화
 description: 논리 앱에 Application Insights 커넥터를 추가하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: mbullwin
-ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79473169"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Logic Apps를 사용하여 Application Insights 프로세스 자동화
 
-서비스가 제대로 작동하는지 확인하기 위해 원격 분석 데이터에 대해 같은 쿼리를 반복적으로 실행하고 있나요? 추세와 비정상을 찾기 위해 이러한 쿼리를 자동화하고 여기에 관련된 고유한 워크플로를 빌드하기를 원하나요? Azure Application Insights 커넥터로 논리 앱에 대 한 적합 한 도구를이 목적입니다.
+서비스가 제대로 작동하는지 확인하기 위해 원격 분석 데이터에 대해 같은 쿼리를 반복적으로 실행하고 있나요? 추세와 비정상을 찾기 위해 이러한 쿼리를 자동화하고 여기에 관련된 고유한 워크플로를 빌드하기를 원하나요? Logic Apps에 대 한 Azure 애플리케이션 Insights 커넥터는이 목적을 위한 적절 한 도구입니다.
+
+> [!NOTE]
+> Azure 애플리케이션 Insights 커넥터는 API 키를 요구 하는 대신 Azure Active Directory와 통합 된 [Azure Monitor 커넥터로](../platform/logicapp-flow-connector.md) 대체 되었으며 Log Analytics 작업 영역에서 데이터를 검색할 수도 있습니다.
 
 이 통합 덕분에 코드를 전혀 작성하지 않고도 수많은 프로세스를 자동화할 수 있습니다. Application Insights 커넥터로 논리 앱을 만들어 Application Insights 프로세스를 신속하게 자동화할 수 있습니다. 
 
@@ -41,16 +35,16 @@ ms.locfileid: "60904833"
 
     ![논리 앱 디자이너 창](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. 에 **간격** 상자에 입력 **1** 한 다음**빈도** 상자에서 **일**합니다.
+1. **간격** 상자에 **1** 을 입력 하 고**빈도** 상자에서 **일**을 선택 합니다.
 
     ![논리 앱 디자이너 "되풀이" 창](./media/automate-with-logic-apps/3recurrence.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>3단계: Application Insights 작업 추가
-1. 클릭 **새 단계**합니다.
+1. **새 단계**를 클릭 합니다.
 
 1. **작업 선택** 검색 상자에서 **Azure Application Insights**를 입력합니다.
 
-1. 아래 **동작**, 클릭 **Azure Application Insights-분석 시각화 쿼리**합니다.
+1. **작업**에서 **Azure 애플리케이션 Insights-분석 쿼리 시각화**를 클릭 합니다.
 
     ![논리 앱 디자이너 "작업 선택" 창](./media/automate-with-logic-apps/4visualize.png)
 
@@ -88,13 +82,13 @@ ms.locfileid: "60904833"
 
     ![Analytics 쿼리 구성 창](./media/automate-with-logic-apps/8query.png)
 
-### <a name="step-6-configure-the-logic-app-to-send-email"></a>6단계: 이메일을 보내도록 논리 앱 구성
+### <a name="step-6-configure-the-logic-app-to-send-email"></a>6단계: 논리 앱이 이메일을 보내도록 구성
 
-1. 클릭 **새 단계**합니다.
+1. **새 단계**를 클릭 합니다.
 
 1. 검색 상자에 **Office 365 Outlook**을 입력합니다.
 
-1. **Office 365 Outlook - 이메일 보내기**를 클릭합니다.
+1. **Office 365 Outlook-전자 메일 보내기**를 클릭 합니다.
 
     ![Office 365 Outlook 선택](./media/automate-with-logic-apps/9sendemail.png)
 
@@ -106,7 +100,7 @@ ms.locfileid: "60904833"
 
    다. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
     
-   d. 클릭 합니다 **새 매개 변수 추가** 드롭다운 및 첨부 파일 및 HTML은 선택 합니다.
+   d. **새 매개 변수 추가** 드롭다운을 클릭 하 고 첨부 파일 및 HTML을 선택 합니다.
 
       ![Office 365 Outlook 구성](./media/automate-with-logic-apps/10emailbody.png)
 

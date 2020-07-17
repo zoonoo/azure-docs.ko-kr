@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/15/2019
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d76af4901103b0eed8cd1cffac744f8fb41d9689
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483502"
 ---
 # <a name="set-up-a-capacity-pool"></a>용량 풀 설정
 
@@ -41,15 +41,15 @@ NetApp 계정을 만들어야 합니다.
     새 용량 풀 창이 나타납니다.
 
 3. 새 용량 풀에 대한 다음과 같은 정보를 제공합니다.  
-   * **Name**  
+   * **이름**  
      용량 풀의 이름을 지정합니다.  
      용량 풀 이름은 각 NetApp 계정에 대해 고유해야 합니다.
 
    * **서비스 수준**   
      이 필드는 용량 풀에 대한 대상 성능을 보여줍니다.  
-     용량 풀의 서비스 수준을 [**프리미엄**](azure-netapp-files-service-levels.md#Premium) 또는 [**표준**](azure-netapp-files-service-levels.md#Standard)으로 지정합니다.
+     용량 풀의 서비스 수준 ( [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium)또는 [**Standard**](azure-netapp-files-service-levels.md#Standard))을 지정 합니다.
 
-   * **크기**     
+   * **크기가**     
      구입하려는 용량 풀의 크기를 지정합니다.        
      최소 용량 풀 크기는 4TiB입니다. 4TiB의 배수인 크기로 풀을 만들 수 있습니다.   
       

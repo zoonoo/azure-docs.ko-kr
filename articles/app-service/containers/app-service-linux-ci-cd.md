@@ -1,31 +1,22 @@
 ---
-title: Web App for Containers를 사용한 지속적인 배포 - Azure App Service | Microsoft Docs
-description: Web App for Containers에서 지속적인 배포를 설정하는 방법
+title: 사용자 지정 Linux 컨테이너에 대 한 CI/CD
+description: Azure App Service에서 사용자 지정 Linux 컨테이너에 대 한 연속 배포를 설정 하는 방법을 알아봅니다. 연속 배포는 Docker 허브 및 ACR에 대해 지원 됩니다.
 keywords: Azure App Service, Linux, OSS
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2018
-ms.author: yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d43491de7500204ed470757a1b744017a8180b57
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852524"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74687625"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 
-이 자습서에서는 관리되는 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) 리포지토리 또는 [Docker 허브](https://hub.docker.com)에서 사용자 지정 컨테이너 이미지에 대한 연속 배포를 구성합니다.
+이 자습서에서는 관리 되는 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) 리포지토리 또는 [Docker 허브](https://hub.docker.com)에서 사용자 지정 컨테이너 이미지에 대 한 연속 배포를 구성 합니다.
 
 ## <a name="enable-continuous-deployment-with-acr"></a>ACR을 사용하여 지속적인 배포 활성화
 

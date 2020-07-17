@@ -1,26 +1,17 @@
 ---
-title: 로컬 Service Fabric 클러스터에서 Java 앱 디버그 | Microsoft Docs
+title: 로컬 Service Fabric 클러스터에서 Java 앱 디버그
 description: 이 자습서에서는 로컬 클러스터에서 실행되는 Service Fabric Java 애플리케이션에서 로그를 가져오고 디버그하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c664b586260957138249028e4d521c29b411d56d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444262"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75465391"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>자습서: 로컬 Service Fabric 클러스터에 배포된 Java 애플리케이션 디버그
 
@@ -41,7 +32,7 @@ ms.locfileid: "57444262"
 > * 구성 가능한 위치로 로그 리디렉션
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -91,9 +82,9 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. Eclipse IDE에서 **실행 -&gt; 구성 디버그 -&gt; 원격 Java 애플리케이션**을 선택하고 만든 **Voting** 구성을 클릭하고 **디버그**를 클릭합니다.
 
-11. 웹 브라우저로 이동하여 **localhost:8080**에 액세스합니다. 그러면 중단점을 자동 적중하고 Eclipse는 **Debug perspective** 상태가 됩니다.
+11. 웹 브라우저로 이동하여 **localhost:8080**에 액세스합니다. 그러면 자동으로 중단점에 도달하고 Eclipse는 **디버그 큐브 뷰**를 시작합니다.
 
-이제 이와 동일한 단계를 적용하여 Eclipse에서 어떠한 Service Fabric 애플리케이션도 디버깅할 수 있습니다.
+이제 동일한 단계를 적용하여 Eclipse에서 모든 Service Fabric 애플리케이션을 디버깅할 수 있습니다.
 
 ## <a name="redirect-application-logs-to-custom-location"></a>애플리케이션 로그를 사용자 지정 위치로 리디렉션
 

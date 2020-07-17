@@ -1,19 +1,18 @@
 ---
 title: IoT Device Provisioning Service의 보안 엔드포인트 | Microsoft Docs
-description: 개념 - 백 엔드 앱용 IoT Device Provisioning 서비스에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
+description: 개념-백 엔드 앱에 대 한 IoT 장치 프로 비전 서비스에 대 한 액세스를 제어 하는 방법입니다. 보안 토큰에 대한 정보가 포함됩니다.
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626663"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79285150"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
 
@@ -24,7 +23,7 @@ ms.locfileid: "60626663"
 * 프로비전 서비스에 액세스하기 위해 백 엔드 앱에 부여할 수 있는 다양한 권한
 * 권한을 확인하기 위해 사용되는 인증 프로세스 및 토큰.
 
-### <a name="when-to-use"></a>사용하는 경우
+### <a name="when-to-use"></a>사용 시기
 
 프로비전 서비스 엔드포인트에 액세스하려면 적절한 권한이 있어야 합니다. 예를 들어 백 엔드 앱은 서비스에 보내는 모든 메시지와 함께 보안 자격 증명을 포함하는 토큰을 포함해야 합니다.
 
@@ -39,7 +38,7 @@ ms.locfileid: "60626663"
 > [!NOTE]
 > 자세한 내용은 [사용 권한](#device-provisioning-service-permissions)을 참조하세요.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 Azure IoT Hub Device Provisioning Service는 공유 액세스 정책에 대한 토큰을 확인하여 엔드포인트에 대한 액세스를 부여합니다. 대칭 키와 같은 보안 자격 증명은 통신 중에 전송되지 않습니다.
 
@@ -50,7 +49,7 @@ Azure IoT Hub Device Provisioning Service는 공유 액세스 정책에 대한 �
 
 HTTP는 유일하게 지원되는 프로토콜이며 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```csharp
 SharedAccessSignature sr = 
    mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
@@ -75,7 +74,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 
 다음은 예상 값입니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | --- | --- |
 | {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다.|
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
@@ -190,5 +189,5 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
-[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

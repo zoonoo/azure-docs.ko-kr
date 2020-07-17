@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: d1b2d80a1960abb37262ef7429ee5b99665986b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9e44aecc5015986079afb3190101cdaabc4a6874
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265137"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>자습서: SmarterU와 Azure Active Directory 통합
+
+> [!NOTE]
+> SmarterU를 Azure Active Directory와 통합하는 프로세스도 [SmarterU 도움말 시스템](https://help.smarteru.com/ID2053086)에 문서화되어 유지 관리됩니다.
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 SmarterU를 통합하는 방법에 대해 알아봅니다.
 SmarterU와 Azure AD를 통합하면 다음과 같은 이점이 있습니다.
@@ -31,10 +34,10 @@ SmarterU와 Azure AD를 통합하면 다음과 같은 이점이 있습니다.
 * 사용자가 자신의 Azure AD 계정으로 SmarterU에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SmarterU와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -57,7 +60,7 @@ SmarterU의 Azure AD 통합을 구성하려면 갤러리의 SmarterU를 관리�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -165,10 +168,10 @@ SmarterU에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -221,7 +224,7 @@ Azure AD 사용자가 SmarterU에 로그인할 수 있도록 하려면 SmarterU�
     d. **저장**을 클릭합니다.
 
 > [!NOTE]
-> 다른 SmarterU 사용자 계정 생성 도구 또는 SmarterU가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 SmarterU 사용자 계정 생성 도구 또는 SmarterU가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

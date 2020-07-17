@@ -1,27 +1,19 @@
 ---
-title: 오픈 소스 기술 FAQ - Azure App Service | Microsoft Docs
-description: Azure App Service Web Apps 기능의 오픈 소스 기술에 대한 질문과 대답을 확인합니다.
-services: app-service\web
-documentationcenter: ''
+title: 오픈 소스 기술 Faq
+description: Azure App Service에서 오픈 소스 기술에 대 한 자주 묻는 질문에 대 한 답변을 확인 하세요.
 author: genlin
-manager: cshepard
-editor: ''
+manager: dcscontentpm
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: seodec18
-ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 82bdf4cd25d486d48f4f2adda222197a600434d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61270213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559570"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
@@ -33,11 +25,11 @@ ms.locfileid: "61270213"
 
 PHP 로깅을 켜려면:
 
-1. [Kudu 웹 사이트](https://*yourwebsitename*.scm.azurewebsites.net)에 로그인합니다.
-2. 맨 위 메뉴에서 **디버그 콘솔** > **CMD**를 선택합니다.
+1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
+2. 상단 메뉴에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.
 3. **Site** 폴더를 선택합니다.
 4. **wwwroot** 폴더를 선택합니다.
-5. **+** 아이콘을 선택하고 나서 **새 파일**을 선택합니다.
+5. **+** 아이콘을 선택 하 고 **새 파일**을 선택 합니다.
 6. 파일 이름을 **.user.ini**로 설정합니다.
 7. **.user.ini** 옆에 있는 연필 아이콘을 선택합니다.
 8. 파일에 다음 코드를 추가합니다. `log_errors=on`
@@ -63,7 +55,7 @@ Node.js 애플리케이션의 버전을 변경하려면 다음 옵션 중 하나
   1. Azure Portal에서 웹앱으로 이동합니다.
   2. **설정** 블레이드에서 **애플리케이션 설정**을 선택합니다.
   3. **앱 설정**에서 WEBSITE_NODE_DEFAULT_VERSION을 키로 포함하고 원하는 Node.js 버전을 값으로 포함할 수 있습니다.
-  4. [Kudu 콘솔](https://*yourwebsitename*.scm.azurewebsites.net)로 이동합니다.
+  4. **Kudu console** ()로 이동 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
   5. Node.js 버전을 확인하려면 다음 명령을 입력합니다.  
      ```
      node -v
@@ -98,7 +90,7 @@ debug.log 또는 php_errors.log 파일에 이 오류가 표시되면 앱이 연�
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>App Service에 호스트된 Node.js 앱을 디버그하려면 어떻게 하나요?
 
-1.  [Kudu 콘솔](https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole)로 이동합니다.
+1.  **Kudu console** ()로 이동 `https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole` 합니다.
 2.  애플리케이션 로그 폴더(D:\home\LogFiles\Application)로 이동합니다.
 3.  logging_errors.txt 파일에서 콘텐츠를 확인합니다.
 
@@ -145,7 +137,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 
 1. app/lib 폴더에서 sqljdbc*.jar 파일을 제거합니다.
 2. 사용자 지정 Tomcat 또는 Azure Marketplace Tomcat 웹 서버를 사용하는 경우 이 .jar 파일을 Tomcat lib 폴더로 복사합니다.
-3. Azure Portal에서 Java를 사용하도록 설정한 경우(**Java 1.8** > **Tomcat 서버** 선택) sqljdbc.* jar 파일을 앱에 해당하는 폴더에 복사합니다. 그다음에 다음 클래스 경로 설정을 web.config 파일에 추가합니다.
+3. Azure Portal에서 java를 사용 하도록 설정 하는 경우 ( **java 1.8**  >  **Tomcat 서버**선택) 앱에 병렬 되는 폴더에 sqljdbc. * jar 파일을 복사 합니다. 그다음에 다음 클래스 경로 설정을 web.config 파일에 추가합니다.
 
     ```xml
     <httpPlatform>
@@ -178,7 +170,7 @@ The process cannot access the file because it is being used by another process.
 
 Marketplace 및 사용자 지정 배포의 경우 로그 파일은 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 폴더에 있습니다. 폴더 위치는 사용 중인 Jetty 버전에 따라 달라집니다. 예를 들어 여기에 제공된 경로는 Jetty 9.1.2에 해당합니다. jetty_*YYYY_MM_DD*.stderrout.log를 찾습니다.
 
-포털 앱 설정 배포의 경우 로그 파일은 D:\home\LogFiles에 있습니다. jetty_*YYYY_MM_DD*.stderrout.log 찾기
+포털 앱 설정 배포의 경우 로그 파일은 D:\home\LogFiles에 있습니다. *YYYY_MM_DD*jetty_를 찾습니다.
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>내 Azure 웹앱에서 메일을 보낼 수 있나요?
 
@@ -188,24 +180,24 @@ App Service에는 기본 제공 메일 기능이 없습니다. 앱에서 메일�
 
 최근에 Azure로 마이그레이션한 경우 WordPress가 이전 도메인 URL로 리디렉션될 수 있습니다. 이 문제의 원인은 MySQL 데이터베이스의 설정 때문입니다.
 
-WordPress Buddy+는 데이터베이스에서 직접 리디렉션 URL을 업데이트하는 데 사용할 수 있는 Azure 사이트 확장입니다. WordPress Buddy+ 사용에 대한 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
+WordPress Buddy+는 데이터베이스에서 직접 리디렉션 URL을 업데이트하는 데 사용할 수 있는 Azure 사이트 확장입니다. WordPress Buddy+ 사용에 대한 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
 
 또는 SQL 쿼리 또는 PHPMyAdmin을 사용하여 리디렉션 URL을 수동으로 업데이트하려면 [WordPress: Redirecting to wrong URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/)(WordPress: 잘못된 URL로 리디렉션)을 참조하세요.
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>내 WordPress 로그인 암호를 어떻게 변경할 수 있나요?
 
-WordPress 로그인 암호를 기억하지 못하는 경우 WordPress Buddy+를 사용하여 암호를 업데이트할 수 있습니다. 암호를 다시 설정하려면 WordPress Buddy+ Azure 사이트 확장을 설치하고 [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)에 설명된 단계를 완료합니다.
+WordPress 로그인 암호를 기억하지 못하는 경우 WordPress Buddy+를 사용하여 암호를 업데이트할 수 있습니다. 암호를 다시 설정하려면 WordPress Buddy+ Azure 사이트 확장을 설치하고 [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)에 설명된 단계를 완료합니다.
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>WordPress에 로그인할 수 없습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
-최근에 플러그 인을 설치한 후 WordPress에서 잠긴 것을 알았다면 잘못된 플러그 인이 있을 수 있습니다. WordPress Buddy+는 WordPress에서 플러그 인을 사용하지 않도록 설정할 수 있는 Azure 사이트 확장입니다. 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
+최근에 플러그 인을 설치한 후 WordPress에서 잠긴 것을 알았다면 잘못된 플러그 인이 있을 수 있습니다. WordPress Buddy+는 WordPress에서 플러그 인을 사용하지 않도록 설정할 수 있는 Azure 사이트 확장입니다. 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>내 WordPress 데이터베이스를 마이그레이션하려면 어떻게 하나요?
 
 WordPress 웹 사이트에 연결된 MySQL 데이터베이스를 마이그레이션할 수 있는 다양한 옵션이 있습니다.
 
 * 개발자: [명령 프롬프트 또는 PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/) 사용
-* 비 개발자: [WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) 사용
+* 비 개발자: [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) 사용
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>WordPress의 보안을 강화하려면 어떻게 해야 하나요?
 

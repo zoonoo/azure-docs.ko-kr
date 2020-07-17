@@ -1,23 +1,24 @@
 ---
 title: 웹 서비스용 Excel 추가 기능
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) - Azure
 description: 코드를 작성하지 않고 Excel에서 직접 Azure Machine Learning 웹 서비스를 사용하는 방법입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+ms.topic: how-to
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 9e801e0d7a26cd4d6c43118959aee1dec7216b1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8565e3c62ea1b74879f2e127abed772576563886
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60750249"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211326"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio 웹 서비스용 Excel 추가 기능
+# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio (클래식) 웹 서비스용 Excel 추가 기능
+
 Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비스를 호출할 수 있습니다.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>통합 문서에서 기존 웹 서비스를 사용하는 단계
@@ -37,13 +38,13 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
    
     ![Predict 섹션](./media/excel-add-in-for-web-services/image1.png)
 
-웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요.
+웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포에 대 한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조 하세요.
 
 웹 서비스에 대한 API 키를 가져옵니다. 새 Machine Learning 웹 서비스의 기존 Machine Learning 웹 서비스를 게시했는지 여부에 따라 이 작업을 수행하는 위치가 달라집니다.
 
 **기존 웹 서비스 사용** 
 
-1. Machine Learning Studio에서 왼쪽 창의 **WEB SERVICES** 섹션을 클릭한 다음 웹 서비스를 선택합니다.
+1. Machine Learning Studio (클래식)의 왼쪽 창에서 **웹 서비스** 섹션을 클릭 한 다음 웹 서비스를 선택 합니다.
    
     ![Studio 웹 서비스 선택](./media/excel-add-in-for-web-services/image4.png)
 2. 웹 서비스에 대한 API 키를 복사합니다.
@@ -53,22 +54,22 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 4. **요청 URI** 섹션을 찾습니다.  URL을 복사하고 저장합니다.
 
 > [!NOTE]
-> 이제 [Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에 로그인하여 기존 Machine Learning 웹 서비스에 대한 API 키를 가져올 수 있습니다.
+> 이제 [Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에 로그인 하 여 클래식 Machine Learning 웹 서비스에 대 한 API 키를 가져올 수 있습니다.
 > 
 > 
 
 **새 웹 서비스 사용**
 
-1. [Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에서 **웹 서비스**를 클릭한 다음 웹 서비스를 선택합니다. 
+1. [Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에서 **웹 서비스**를 클릭 한 다음 웹 서비스를 선택 합니다. 
 2. **사용**을 클릭합니다.
 3. **기본 사용량 정보** 섹션을 찾습니다. **기본 키** 및 **요청-응답** URL을 복사하여 저장합니다.
 
 ## <a name="steps-to-add-a-new-web-service"></a>새 웹 서비스 추가 단계
 
-1. 웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요.
+1. 웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포에 대 한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조 하세요.
 2. **사용**을 클릭합니다.
 3. **기본 사용량 정보** 섹션을 찾습니다. **기본 키** 및 **요청-응답** URL을 복사하여 저장합니다.
-4. Excel에서 **웹 서비스** 섹션으로 이동합니다(**Predict** 섹션에 있는 경우 뒤로 화살표를 클릭하여 웹 서비스 목록으로 이동).
+4. Excel에서 **웹 서비스** 섹션으로 이동 합니다 ( **Predict** 섹션에 있는 경우 뒤로 화살표를 클릭 하 여 웹 서비스 목록으로 이동).
    
     ![웹 서비스 선택으로 이동](./media/excel-add-in-for-web-services/image3.png)
 5. **Add Web Service**를 클릭합니다.
@@ -82,4 +83,4 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 ## <a name="sharing-your-workbook"></a>통합 문서 공유
 통합 문서를 저장하면 추가한 웹 서비스의 API/기본 키도 저장됩니다. 즉, 신뢰할 수 있는 사용자와만 통합 문서를 공유해야 합니다.
 
-다음 설명 섹션 또는 [포럼](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409)에서 질문을 할 수 있습니다.
+다음 설명 섹션 또는 [포럼](https://docs.microsoft.com/answers/topics/azure-machine-learning.html)에서 질문을 할 수 있습니다.

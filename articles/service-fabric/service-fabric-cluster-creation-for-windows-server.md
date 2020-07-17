@@ -1,43 +1,34 @@
 ---
-title: 독립 실행형 Azure Service Fabric 클러스터 만들기 | Microsoft Docs
+title: 독립 실행형 Azure Service Fabric 클러스터 만들기
 description: 온-프레미스 또는 클라우드에서 Windows Server 컴퓨터(실제 또는 가상)를 사용하여 Azure Service Fabric 클러스터를 만듭니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ba6474751913b4994ae840f77577b3c1db6c5f73
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142686"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259276"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기
-Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 머신 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 즉, 온-프레미스 또는 클라우드 공급자에 서로 연결된 일련의 Windows Server 컴퓨터가 있는 환경에서 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다. 서비스 패브릭은 독립 실행형 Windows Server 패키지라는 서비스 패브릭 클러스터를 만들 수 있는 설치 패키지를 제공합니다.
+Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 머신 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 즉, 온-프레미스 또는 클라우드 공급자에 서로 연결된 일련의 Windows Server 컴퓨터가 있는 환경에서 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다. 서비스 패브릭은 독립 실행형 Windows Server 패키지라는 서비스 패브릭 클러스터를 만들 수 있는 설치 패키지를 제공합니다. Azure의 기존 Service Fabric 클러스터는 관리형 서비스로 제공되고, 독립 실행형 Service Fabric 클러스터는 셀프 서비스입니다. 차이점에 대한 자세한 내용은 [Azure 및 독립 실행형 Service Fabric 클러스터 비교](./service-fabric-deploy-anywhere.md)를 참조하세요.
 
 이 문서에서는 Service Fabric 독립 실행형 클러스터를 만들기 위한 단계를 안내합니다.
 
 > [!NOTE]
-> 이 독립 실행형 Windows Server 패키지는 상업적으로 비용 없이 사용할 수 이며 프로덕션 배포에 사용할 수 있습니다. 이 패키지는 "Preview"에 있는 새 Service Fabric 기능을 포함할 수 있습니다. "[이 패키지에 포함된 미리 보기 기능](#previewfeatures_anchor)"까지 아래로 스크롤합니다. 미리 보기 기능 목록 섹션입니다. 현재 [EULA 사본을 다운로드](https://go.microsoft.com/fwlink/?LinkID=733084)할 수 있습니다.
+> 이 독립 실행형 Windows Server 패키지는 비용 없이 상업적으로 제공되며 프로덕션 배포에 사용할 수 있습니다. 이 패키지는 "Preview"에 있는 새 Service Fabric 기능을 포함할 수 있습니다. "[이 패키지에 포함된 미리 보기 기능](#previewfeatures_anchor)"까지 아래로 스크롤합니다. 미리 보기 기능 목록 섹션입니다. 현재 [EULA 사본을 다운로드](https://go.microsoft.com/fwlink/?LinkID=733084)할 수 있습니다.
 > 
 > 
 
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Windows Server용 Service Fabric 패키지 지원
-* [Azure Service Fabric 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?)에서 Windows Server용 Service Fabric 독립 실행형 패키지에 대해 커뮤니티에 문의합니다.
+* [Azure Service Fabric에 대한 Microsoft 질문과 대답 페이지](/answers/topics/azure-service-fabric.html)에서 Windows Server용 Service Fabric 독립 실행형 패키지에 대해 궁금한 점을 커뮤니티에 물어보세요.
 * [Service Fabric에 대한 전문 지원](https://support.microsoft.com/oas/default.aspx?prid=16146)에 대한 티켓을 엽니다.  [여기](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0)에서 Microsoft의 전문 지원에 대해 자세히 알아봅니다.
 * 또한 [Microsoft 프리미어 지원](https://support.microsoft.com/en-us/premier)의 일부로 이 패키지에 대해 지원을 받을 수도 있습니다.
-* 자세한 내용은 [Azure Service Fabric 지원 옵션](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)을 참조하세요.
+* 자세한 내용은 [Azure Service Fabric 지원 옵션](./service-fabric-support.md)을 참조하세요.
 * 지원을 위해 로그를 수집하려면 [Service Fabric 독립 실행형 로그 수집기](service-fabric-cluster-standalone-package-contents.md)를 실행합니다.
 
 <a id="downloadpackage"></a>
@@ -116,7 +107,7 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 > 
 > 
 
-#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>시나리오: c: 오프라인(인터넷 끊김) 클러스터 만들기
+#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>시나리오 C: 오프라인(인터넷 끊김) 클러스터 만들기
 Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다운로드됩니다. 클러스터를 인터넷에 연결되지 않은 컴퓨터에 배포할 때 Service Fabric 런타임 패키지를 별도로 다운로드하고 클러스터 생성 시 경로를 제공해야 합니다.
 런타임 패키지는 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 인터넷에 연결된 다른 컴퓨터에서 개별적으로 다운로드할 수 있습니다. 오프라인 클러스터를 배포하는 위치에 런타임 패키지를 복사하고 다음 예제와 같이 포함된 `-FabricRuntimePackagePath` 매개 변수를 사용하여 `CreateServiceFabricCluster.ps1`을 실행하여 클러스터를 만듭니다. 
 
@@ -135,7 +126,7 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
@@ -153,7 +144,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>3단계: Service Fabric Explorer를 사용하여 클러스터 시각화
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터를 시각화하고 애플리케이션을 관리할 수 있는 좋은 도구입니다.  Service Fabric Explorer는 브라우저를 사용하여 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)로 이동하여 액세스할 수 있는 클러스터에서 실행되는 서비스입니다.
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터를 시각화하고 애플리케이션을 관리할 수 있는 좋은 도구입니다.  Service Fabric Explorer는 브라우저를 사용하여 `http://localhost:19080/Explorer`로 이동하여 액세스할 수 있는 클러스터에서 실행되는 서비스입니다.
 
 클러스터 대시보드는 애플리케이션 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다. 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다.
 
@@ -212,7 +203,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 
 ## <a name="preview-features-included-in-this-package"></a>이 패키지에 포함된 미리 보기 기능
-없음.
+없음
 
 
 > [!NOTE]
@@ -225,7 +216,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 * [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)
 * [독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거](service-fabric-cluster-windows-server-add-remove-nodes.md)
 * [독립 실행형 Service Fabric 클러스터 버전 업그레이드](service-fabric-cluster-upgrade-windows-server.md)
-* [Windows를 실행하는 Azure VM에서 독립 실행형 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Windows를 실행하는 Azure VM에서 독립 실행형 서비스 패브릭 클러스터 만들기](./service-fabric-cluster-creation-via-arm.md)
 * [Windows 보안을 사용하여 독립 실행형 클러스터 보호](service-fabric-windows-cluster-windows-security.md)
 * [X509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호](service-fabric-windows-cluster-x509-security.md)
 

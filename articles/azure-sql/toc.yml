@@ -1,0 +1,1144 @@
+- name: Azure SQL 설명서
+  href: index.yml
+- name: Azure SQL란?
+  href: azure-sql-iaas-vs-paas-what-is-overview.md
+- name: 공유 SQL DB & SQL MI 문서
+  items:
+    - name: 구매 모델
+      items:
+        - name: 개요
+          href: database/purchasing-models.md
+        - name: vCore 모델 개요
+          href: database/service-tiers-vcore.md
+        - name: Azure 하이브리드 혜택
+          href: azure-hybrid-benefit.md
+        - name: 예약 용량
+          href: database/reserved-capacity-overview.md
+    - name: 컴퓨팅 및 스토리지
+      items:
+        - name: 개요
+          href: database/service-tiers-general-purpose-business-critical.md
+          displayName: provisioned compute tier
+        - name: 범용 / 표준
+          href: database/service-tier-general-purpose.md
+        - name: 중요 비즈니스용 / 프리미엄
+          href: database/service-tier-business-critical.md
+    - name: 공유 개념
+      itemS:
+        - name: 기능 비교
+          href: database/features-comparison.md
+        - name: 다중 모델 기능
+          href: multi-model-features.md
+        - name: 메모리 내 OLTP
+          href: in-memory-oltp-overview.md
+        - name: 임시 테이블
+          href: temporal-tables.md
+        - name: 스케일 업/다운
+          href: database/scale-resources.md
+        - name: 읽기 확장
+          href: database/read-scale-out.md
+        - name: 보안
+          items:
+            - name: 개요
+              href: database/security-overview.md
+              displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
+            - name: 모범 사례
+              href: database/security-best-practice.md
+            - name: 보안 기준
+              href: database/security-baseline.md
+            - name: 보안 특성
+              href: database/security-controls.md
+            - name: Advanced Data Security
+              href: database/advanced-data-security.md
+            - name: Advanced Threat Protection
+              href: database/threat-detection-overview.md
+            - name: 데이터 검색 및 분류
+              href: database/data-discovery-and-classification-overview.md
+            - name: 동적 데이터 마스킹
+              href: database/dynamic-data-masking-overview.md
+            - name: SQL 취약성 평가
+              items:
+                - name: SQL 취약성 평가
+                  href: database/sql-vulnerability-assessment.md
+                - name: 취약성 평가 규칙
+                  href: database/sql-database-vulnerability-assessment-rules.md
+            - name: '로그인, 사용자 계정, 역할 및 사용 권한'
+              href: database/logins-create-manage.md
+            - name: Azure AD 인증
+              href: database/authentication-aad-overview.md
+              items:
+                - name: Azure AD 인증 구성
+                  href: database/authentication-aad-configure.md
+                - name: 다단계 AAD 인증
+                  href: database/authentication-mfa-ssms-overview.md
+                - name: Multi-Factor Auth 구성
+                  href: database/authentication-mfa-ssms-configure.md
+                - name: 조건부 액세스
+                  href: database/conditional-access-configure.md
+            - name: TDE(투명한 데이터 암호화)
+              items:
+                - name: 개요
+                  href: database/transparent-data-encryption-tde-overview.md
+                - name: BYOK(Bring Your Own Key)
+                  href: database/transparent-data-encryption-byok-overview.md
+        - name: 비즈니스 연속성
+          displayName: 'Backup, back up, restore, recovery'
+          items:
+            - name: 개요
+              href: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
+            - name: 고가용성
+              href: database/high-availability-sla.md
+            - name: 자동 장애 조치 그룹
+              href: database/auto-failover-group-overview.md
+            - name: Backup 및 복구
+              items:
+                - name: 자동화된 백업
+                  href: database/automated-backups-overview.md
+                - name: 가속 데이터베이스 복구
+                  href: accelerated-database-recovery.md
+                - name: 백업을 사용한 복구
+                  href: database/recovery-using-backups.md
+                - name: 장기 백업 보존
+                  href: database/long-term-retention-overview.md
+        - name: 모니터링 및 튜닝
+          items:
+            - name: 설명서
+              href: database/monitoring-tuning-index.yml
+            - name: 개요
+              href: database/monitor-tune-overview.md
+            - name: 인텔리전스 Insights
+              href: database/intelligent-insights-overview.md
+            - name: SQL 분석
+              href: /azure/log-analytics/log-analytics-azure-sql?toc=/azure/azure-sql/toc.json
+            - name: 자동 조정
+              href: database/automatic-tuning-overview.md
+            - name: 메모리 내 OLTP
+              href: in-memory-oltp-overview.md
+            - name: 확장 이벤트
+              items:
+                - name: 확장 이벤트
+                  href: database/xevent-db-diff-from-svr.md
+                - name: 확장된 이벤트 - 이벤트 파일
+                  href: database/xevent-code-event-file.md
+                - name: 확장된 이벤트 - 링 버퍼
+                  href: database/xevent-code-ring-buffer.md
+    - name: 공유 방법
+      items:
+        - name: 할당량 증가 요청
+          href: database/quota-increase-request.md
+        - name: 작업 자동화
+          href: database/job-automation-overview.md
+        - name: 비즈니스 연속성
+          items:
+            - name: 장애 조치(failover) 그룹 구성
+              href: database/auto-failover-group-configure.md
+            - name: 임시 보존 정책 구성
+              href: database/temporal-tables-retention-policy.md
+            - name: Azure Blob 스토리지를 사용하여 백업 보존 구성
+              href: database/long-term-backup-retention-configure.md
+        - name: 보안
+          items:
+            - name: BYOK를 사용하여 TDE 구성
+              href: database/transparent-data-encryption-byok-configure.md
+            - name: 스토리지에 취약성 검색 저장
+              href: database/sql-database-vulnerability-assessment-storage.md
+            - name: Always Encrypted
+              items:
+                - name: Azure 키 자격 증명 모음 사용
+                  href: database/always-encrypted-azure-key-vault-configure.md
+                - name: 인증서 저장소 사용
+                  href: database/always-encrypted-certificate-store-configure.md
+        - name: 모니터링 및 튜닝
+          items:
+            - name: 쿼리 성능 문제 식별
+              href: identify-query-performance-issues.md
+            - name: 성능에 대한 일괄 처리
+              href: performance-improve-use-batching.md
+            - name: BCP를 사용하여 데이터 로드
+              href: load-from-csv-with-bcp.md
+            - name: 애플리케이션 및 데이터베이스 튜닝 지침
+              href: database/performance-guidance.md
+            - name: DMV를 사용하여 성능 모니터링
+              href: database/monitoring-with-dmvs.md
+            - name: 로그 진단 원격 분석
+              href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+            - name: 메모리 내 OLTP
+              items:
+                - name: 메모리 내 OLTP 구성
+                  href: in-memory-oltp-configure.md
+                - name: 메모리 내 기능 사용해보기
+                  href: in-memory-sample.md
+                - name: 메모리 내 OLTP 공간 모니터링
+                  href: in-memory-oltp-monitor-space.md
+        - name: 데이터 로드 및 이동
+          items:
+            - name: BACPAC 파일에서 데이터베이스 가져오기
+              href: database/database-import.md
+            - name: BACPAC 파일로 데이터베이스 내보내기
+              href: database/database-export.md
+            - name: 새 지역으로 리소스 이동
+              href: database/move-resources-across-regions.md
+            - name: ADF를 사용하여 데이터 로드
+              href: ../data-factory/connector-azure-sql-database.md?toc=/azure/azure-sql/toc.json
+        - name: 데이터 애플리케이션 개발
+          items:
+            - name: 개요
+              href: database/develop-overview.md
+            - name: JSON 데이터 작업
+              href: database/json-features.md
+            - name: Spark 커넥터 사용
+              href: database/spark-connector.md
+            - name: ASP.NET App Service 사용
+              href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/azure-sql/toc.json
+            - name: Azure Functions 사용
+              href: /azure/azure-functions/functions-scenario-database-table-cleanup?toc=/azure/azure-sql/toc.json
+            - name: Azure Logic Apps 사용
+              href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/azure-sql/toc.json
+            - name: Azure Cognitive Search를 사용하여 인덱싱
+              href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/azure-sql/toc.json
+            - name: 서버 쪽 CLR/.NET 통합
+              href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json'
+            - name: Java
+              items:
+                - name: Spring Data JDBC 사용
+                  href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/sql-database/toc.json
+                - name: Spring Data JPA 사용
+                  href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/sql-database/toc.json
+- name: SQL Database(SQL DB)
+  items:
+    - name: 설명서
+      href: database/index.yml
+    - name: 개요
+      items:
+        - name: SQL Database 정의
+          href: database/sql-database-paas-overview.md
+        - name: 새로운 기능
+          href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+        - name: 단일 데이터베이스
+          href: database/single-database-overview.md
+        - name: 탄력적 풀
+          href: database/elastic-pool-overview.md
+        - name: 논리 SQL 서버
+          href: database/logical-servers.md
+        - name: 서비스 계층
+          items:
+            - name: 서버를 사용하지 않음
+              href: database/serverless-tier-overview.md
+            - name: DTU 모델 개요
+              href: database/service-tiers-dtu.md
+            - name: 하이퍼스케일
+              href: database/service-tier-hyperscale.md
+            - name: 하이퍼스케일 FAQ
+              href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+            - name: 프리미엄 RS에서 마이그레이션
+              href: database/service-tiers-prs.md
+    - name: 빠른 시작
+      href: database/quickstart-content-reference-guide.md
+      items:
+        - name: 데이터베이스 만들기
+          items:
+            - name: Azure portal
+              href: database/single-database-create-quickstart.md
+            - name: ARM 템플릿
+              displayName: Resource Manager
+              href: database/single-database-create-arm-template-quickstart.md
+        - name: 구성
+          items:
+            - name: 서버 수준 IP 방화벽 규칙
+              href: database/firewall-create-server-level-portal-quickstart.md
+    - name: 자습서
+      items:
+        - name: 데이터베이스 설계
+          items:
+            - name: SSMS를 사용하여 데이터베이스 디자인
+              href: database/design-first-database-tutorial.md
+            - name: .NET을 사용하여 데이터베이스 디자인
+              href: database/design-first-database-csharp-tutorial.md
+        - name: 비즈니스 연속성
+          items:
+            - name: 장애 조치(failover) 그룹에 db 추가
+              href: database/failover-group-add-single-database-tutorial.md
+            - name: 장애 조치(failover) 그룹에 풀 추가
+              href: database/failover-group-add-elastic-pool-tutorial.md
+            - name: 복제본에 대한 보안 구성
+              href: database/active-geo-replication-security-configure.md
+            - name: 지역 분산 애플리케이션
+              href: database/geo-distributed-application-configure-tutorial.md
+            - name: 활성 지리적 복제
+              href: database/active-geo-replication-configure-portal.md
+        - name: 보안
+          items:
+            - name: 보안 구성
+              href: database/secure-database-tutorial.md
+            - name: TDE BYOK 키 순환
+              href: database/transparent-data-encryption-byok-key-rotation.md
+            - name: TDE 보호기 제거
+              href: database/transparent-data-encryption-byok-remove-tde-protector.md
+        - name: 데이터 이동
+          items:
+            - name: DMS를 사용하여 마이그레이션
+              href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/azure-sql/toc.json
+            - name: SQL 데이터 동기화 설정
+              href: database/sql-data-sync-sql-server-configure.md
+            - name: 서버리스로 SQLite 마이그레이션
+              href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
+    - name: 개념
+      items:
+        - name: 연결 아키텍처
+          href: database/connectivity-architecture.md
+        - name: 연결 설정
+          href: database/connectivity-settings.md
+        - name: T-SQL 차이점
+          href: database/transact-sql-tsql-differences-sql-server.md
+        - name: Azure Automation
+          href: database/automation-manage.md
+        - name: 탄력적 쿼리
+          href: database/elastic-query-overview.md
+        - name: 탄력적 트랜잭션
+          href: database/elastic-transactions-overview.md
+        - name: 리소스 관리
+          items:
+            - name: 단일 데이터베이스 리소스
+              items:
+                - name: vCore 리소스 제한
+                  href: database/resource-limits-vcore-single-databases.md
+                - name: DTU 리소스 제한
+                  href: database/resource-limits-dtu-single-databases.md
+            - name: 탄력적 풀 리소스
+              items:
+                - name: vCore 리소스 제한
+                  href: database/resource-limits-vcore-elastic-pools.md
+                - name: DTU 리소스 제한
+                  href: database/resource-limits-dtu-elastic-pools.md
+            - name: 논리 SQL 서버 리소스
+              items:
+                - name: Database 리소스 제한
+                  href: database/resource-limits-logical-server.md
+        - name: 비즈니스 연속성
+          items:
+            - name: 활성 지리적 복제
+              href: database/active-geo-replication-overview.md
+            - name: 중단 복구 지침
+              href: database/disaster-recovery-guidance.md
+            - name: 복구 훈련
+              href: database/disaster-recovery-drills.md
+        - name: SQL 데이터 동기화
+          items:
+            - name: 개요
+              href: database/sql-data-sync-data-sql-server-sql-database.md
+            - name: 데이터 동기화 에이전트
+              href: database/sql-data-sync-agent-overview.md
+            - name: 데이터 동기화의 모범 사례
+              href: database/sql-data-sync-best-practices.md
+            - name: 데이터 동기화 문제 해결
+              href: database/sql-data-sync-troubleshoot.md
+        - name: 보안
+          items:
+            - name: Azure SQL 감사
+              href: database/auditing-overview.md
+            - name: 감사 로그 형식
+              href: database/audit-log-format.md
+            - name: 네트워크 액세스 컨트롤
+              href: database/network-access-controls-overview.md
+            - name: DNS 별칭
+              href: database/dns-alias-overview.md
+            - name: vNet 엔드포인트
+              href: database/vnet-service-endpoint-rule-overview.md
+            - name: Private Link
+              href: database/private-endpoint-overview.md
+        - name: 분할된 데이터베이스
+          items:
+            - name: 분할된 데이터베이스
+              href: database/elastic-scale-introduction.md
+            - name: 용어
+              href: database/elastic-scale-glossary.md
+            - name: 탄력적인 클라이언트 라이브러리
+              href: database/elastic-database-client-library.md
+            - name: 분할된 맵
+              href: database/elastic-scale-shard-map-management.md
+            - name: 쿼리 라우팅
+              href: database/elastic-scale-data-dependent-routing.md
+            - name: 자격 증명 관리
+              href: database/elastic-scale-manage-credentials.md
+            - name: 분할된 데이터 이동
+              href: database/elastic-scale-overview-split-and-merge.md
+            - name: 탄력적 도구 FAQ
+              href: database/elastic-scale-faq.md
+    - name: 방법
+      href: database/how-to-content-reference-guide.md
+      items:
+        - name: 연결 및 쿼리
+          href: database/connect-query-content-reference-guide.md
+          items:
+            - name: 임시 쿼리 연결 및 실행
+              items:
+                - name: Azure Data Studio
+                  href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
+                - name: SSMS
+                  href: database/connect-query-ssms.md
+                - name: Azure portal
+                  href: database/connect-query-portal.md
+                - name: VS 코드
+                  href: database/connect-query-vscode.md
+            - name: 앱에서 연결 및 쿼리
+              items:
+                - name: Visual Studio를 사용하여 .NET
+                  href: database/connect-query-dotnet-visual-studio.md
+                - name: .NET Core
+                  href: database/connect-query-dotnet-core.md
+                - name: Active Directory MFA를 사용하는 .NET
+                  href: database/active-directory-interactive-connect-azure-sql-db.md
+                - name: Go
+                  href: database/connect-query-go.md
+                - name: Java
+                  href: database/connect-query-java.md
+                - name: Node.js
+                  href: database/connect-query-nodejs.md
+                - name: PHP
+                  href: database/connect-query-php.md
+                - name: Python
+                  href: database/connect-query-python.md
+                - name: Ruby
+                  href: database/connect-query-ruby.md
+                - name: R
+                  href: database/connect-query-r.md
+        - name: 관리
+          items:
+            - name: 관리 API 참조
+              href: database/single-database-manage.md
+            - name: DNS 별칭 PowerShell
+              href: database/dns-alias-powershell-create.md
+            - name: 파일 공간 관리
+              href: database/file-space-manage.md
+            - name: 연결 문제에 대해 Resource Health 사용
+              href: database/resource-health-to-troubleshoot-connectivity.md
+            - name: vCore로 DTU 마이그레이션
+              href: database/migrate-dtu-to-vcore.md
+            - name: 데이터베이스 리소스 크기 조정
+              href: database/single-database-scale.md
+            - name: 풀 리소스 크기 조정
+              href: database/elastic-pool-scale.md
+            - name: 풀 리소스 관리
+              href: database/elastic-pool-manage.md
+            - name: 조밀한 탄력적 풀의 리소스 관리
+              href: database/elastic-pool-resource-management.md
+            - name: 하이퍼스케일 성능 진단
+              href: database/hyperscale-performance-diagnostics.md
+        - name: 보안
+          items:
+            - name: VNet 또는 방화벽 뒤의 스토리지 계정에 대한 감사
+              href: database/audit-write-storage-account-behind-vnet-firewall.md
+            - name: 위협 감지 구성
+              href: database/threat-detection-configure.md
+            - name: 동적 데이터 마스킹 구성
+              href: database/dynamic-data-masking-configure-portal.md
+            - name: IP 기반 방화벽
+              href: database/firewall-configure.md
+            - name: vNet 엔드포인트 - PowerShell
+              href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
+        - name: 비즈니스 연속성
+          items:
+            - name: Azure Blob 스토리지를 사용하여 백업 보존 구성
+              href: database/long-term-backup-retention-configure.md
+            - name: 지역에서 복제 구성 - 포털
+              href: database/active-geo-replication-configure-portal.md
+            - name: 지역 복제를 위한 보안 구성
+              href: database/active-geo-replication-security-configure.md
+        - name: 성능
+          items:
+            - name: Query Performance Insight 사용
+              href: database/query-performance-insight-use.md
+            - name: 자동 조정 사용
+              href: database/automatic-tuning-enable.md
+            - name: 자동 조정을 위한 이메일 알림 사용
+              href: database/automatic-tuning-email-notifications-configure.md
+            - name: 성능 권장 사항 적용
+              href: database/database-advisor-find-recommendations-portal.md
+            - name: 경고 만들기
+              href: database/alerts-insights-configure-portal.md
+            - name: 데이터베이스 관리자 권장 사항 구현
+              href: database/database-advisor-implement-performance-recommendations.md
+            - name: Stream Analytics로 데이터 스트리밍
+              href: database/stream-data-stream-analytics-integration.md
+        - name: 데이터 로드 및 이동
+          items:
+            - name: SQL Database로 마이그레이션
+              href: database/migrate-to-database-from-sql-server.md
+            - name: 마이그레이션 후 SQL Database 관리
+              href: database/manage-data-after-migrating-to-database.md
+            - name: 가져오기/내보내기(Azure 서비스 비활성화 허용)
+              href: database/database-import-export-azure-services-off.md
+            - name: BACPAC 파일에서 데이터베이스 가져오기
+              href: database/database-import.md
+            - name: Azure 내에서 데이터베이스 복사
+              href: database/database-copy.md
+            - name: SQL Database에 복제
+              href: database/replication-to-sql-database.md
+            - name: SQL 데이터 동기화
+              items:
+                - name: 스키마 변경 내용 복제
+                  href: database/sql-data-sync-update-sync-schema.md
+                - name: OMS로 모니터링
+                  href: database/sql-data-sync-monitor-sync.md
+        - name: 분할된 데이터베이스
+          items:
+            - name: 클라이언트 라이브러리 업그레이드
+              href: database/elastic-scale-upgrade-client-library.md
+            - name: 분할된 앱 만들기
+              href: database/elastic-scale-get-started.md
+            - name: 수평 분할된 데이터 쿼리
+              href: database/elastic-query-getting-started.md
+            - name: 다중 분할된 쿼리
+              href: database/elastic-scale-multishard-querying.md
+            - name: 분할된 데이터 이동
+              href: database/elastic-scale-configure-deploy-split-and-merge.md
+            - name: 보안 구성
+              href: database/elastic-scale-split-merge-security-configuration.md
+            - name: 분할된 데이터베이스 추가
+              href: database/elastic-scale-add-a-shard.md
+            - name: 분할된 맵 문제 해결
+              href: database/elastic-database-recovery-manager.md
+            - name: 분할된 데이터베이스 마이그레이션
+              href: database/elastic-convert-to-use-elastic-tools.md
+            - name: 카운터 만들기
+              href: database/elastic-database-perf-counters.md
+            - name: 엔터티 프레임워크 사용
+              href: database/elastic-scale-use-entity-framework-applications-visual-studio.md
+            - name: Dapper 프레임워크 사용
+              href: database/elastic-scale-working-with-dapper.md
+        - name: 분산 데이터 쿼리
+          items:
+            - name: 수직 분할된 데이터 쿼리
+              href: database/elastic-query-getting-started-vertical.md
+            - name: 확장된 데이터 계층에 대한 보고
+              href: database/elastic-query-horizontal-partitioning.md
+            - name: 여러 스키마를 사용하여 테이블에서 쿼리
+              href: database/elastic-query-vertical-partitioning.md
+        - name: 탄력적 작업
+          items:
+            - name: 작업 구성
+              href: database/elastic-jobs-overview.md
+            - name: 만들기 및 관리(PowerShell)
+              href: database/elastic-jobs-powershell-create.md
+            - name: 만들기 및 관리(T-SQL)
+              href: database/elastic-jobs-tsql-create-manage.md
+            - name: 마이그레이션(오래된 탄력적 작업부터)
+              href: database/elastic-jobs-migrate.md
+        - name: 데이터 애플리케이션 디자인
+          items:
+            - name: 앱 인증
+              href: database/application-authentication-get-client-id-keys.md
+            - name: 재해 복구를 위한 디자인
+              href: database/designing-cloud-solutions-for-disaster-recovery.md
+            - name: 탄력적 풀을 위한 디자인
+              href: database/disaster-recovery-strategies-for-applications-with-elastic-pool.md
+            - name: 앱 업그레이드를 위한 디자인
+              href: database/manage-application-rolling-upgrade.md
+            - name: C 및 C ++
+              href: database/develop-cplusplus-simple.md
+            - name: Excel
+              href: database/connect-excel.md
+            - name: 포트 - ADO.NET
+              href: database/adonet-v12-develop-direct-route-ports.md
+            - name: 다중 테넌트 SaaS
+              items:
+                - name: SaaS 디자인 패턴
+                  href: database/saas-tenancy-app-design-patterns.md
+                - name: SaaS 비디오 사용
+                  href: database/saas-tenancy-video-index-wingtip-brk3120-20171011.md
+                - name: SaaS 앱 보안
+                  href: database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
+                - name: 다중 테넌트 SaaS 애플리케이션 예제
+                  items:
+                    - name: Wingtip Tickets 샘플
+                      href: database/saas-tenancy-welcome-wingtip-tickets-app.md
+                    - name: 일반 지침
+                      href: database/saas-tenancy-wingtip-app-guidance-tips.md
+                    - name: 단일 애플리케이션
+                      items:
+                        - name: 예제 앱 배포
+                          href: database/saas-standaloneapp-get-started-deploy.md
+                        - name: 테넌트 프로비전
+                          href: database/saas-standaloneapp-provision-and-catalog.md
+                    - name: 테넌트당 데이터베이스
+                      items:
+                        - name: 자습서 소개
+                          href: database/saas-dbpertenant-wingtip-app-overview.md
+                        - name: 예제 앱 배포
+                          href: database/saas-dbpertenant-get-started-deploy.md
+                        - name: 테넌트 프로비전
+                          href: database/saas-dbpertenant-provision-and-catalog.md
+                        - name: 데이터베이스 성능 모니터링
+                          href: database/saas-dbpertenant-performance-monitoring.md
+                        - name: Azure Monitor 로그로 모니터링
+                          href: database/saas-dbpertenant-log-analytics.md
+                        - name: 하나의 테넌트 복원
+                          href: database/saas-dbpertenant-restore-single-tenant.md
+                        - name: 테넌트 스키마 관리
+                          href: database/saas-tenancy-schema-management.md
+                        - name: 교차 테넌트 보고
+                          href: database/saas-tenancy-cross-tenant-reporting.md
+                        - name: 테넌트 분석
+                          items:
+                            - name: SQL Database 사용
+                              href: database/saas-tenancy-tenant-analytics.md
+                            - name: SQL Data Warehouse 사용
+                              href: database/saas-tenancy-tenant-analytics-adf.md
+                    - name: 지역 복원을 사용하여 재해 복구
+                      href: database/saas-dbpertenant-dr-geo-restore.md
+                    - name: 데이터베이스 지역 복제를 사용하여 재해 복구
+                      href: database/saas-dbpertenant-dr-geo-replication.md
+                - name: 다중 테넌트 데이터베이스
+                  items:
+                    - name: 예제 앱 배포
+                      href: database/saas-multitenantdb-get-started-deploy.md
+                    - name: 테넌트 프로비전
+                      href: database/saas-multitenantdb-provision-and-catalog.md
+                    - name: 데이터베이스 성능 모니터링
+                      href: database/saas-multitenantdb-performance-monitoring.md
+                    - name: 임시 쿼리 실행
+                      href: database/saas-multitenantdb-adhoc-reporting.md
+                    - name: 테넌트 스키마 관리
+                      href: database/saas-multitenantdb-schema-management.md
+                    - name: 분석용 ETL
+                      href: database/saas-multitenantdb-tenant-analytics.md
+    - name: 샘플
+      items:
+        - name: Azure CLI
+          href: database/az-cli-script-samples-content-guide.md?tabs=single-database
+        - name: Azure PowerShell
+          href: database/powershell-script-content-guide.md?tabs=single-database
+        - name: Azure 리소스 관리자
+          href: database/arm-templates-content-guide.md?tabs=single-database
+        - name: Azure Policy 기본 제공 기능
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
+        - name: 코드 샘플
+          href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
+- name: SQL Managed Instance(SQL MI)
+  items:
+    - name: 설명서
+      href: managed-instance/index.yml
+    - name: 개요
+      items:
+        - name: SQL Managed Instance란?
+          href: managed-instance/sql-managed-instance-paas-overview.md
+        - name: 새로운 기능
+          href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
+        - name: 인스턴스 풀
+          href: managed-instance/instance-pools-overview.md
+        - name: 질문과 대답
+          displayName: faq
+          href: managed-instance/frequently-asked-questions-faq.md
+    - name: 빠른 시작
+      href: managed-instance/quickstart-content-reference-guide.md
+      items:
+        - name: SQL Managed Instance 만들기
+          items:
+            - name: Azure portal
+              href: managed-instance/instance-create-quickstart.md
+            - name: PowerShell
+              href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+            - name: ARM 템플릿
+              displayName: Resource Manager
+              href: managed-instance/create-template-quickstart.md
+            - name: 인스턴스 풀 만들기
+              href: managed-instance/instance-pools-configure.md
+        - name: 구성
+          items:
+            - name: 서비스 지원 서브넷 구성
+              href: managed-instance/subnet-service-aided-configuration-enable.md
+            - name: 공용 엔드포인트
+              href: managed-instance/public-endpoint-configure.md
+            - name: 최소 TLS 버전
+              href: managed-instance/minimal-tls-version-configure.md
+            - name: 클라이언트 VM 연결
+              href: managed-instance/connect-vm-instance-configure.md
+            - name: 지점 및 사이트 간 연결
+              href: managed-instance/point-to-site-p2s-configure.md
+            - name: 장기 백업 보존
+              href: managed-instance/long-term-backup-retention-configure.md
+        - name: 데이터 로드
+          items:
+            - name: 샘플 데이터베이스 복원
+              href: managed-instance/restore-sample-database-quickstart.md
+    - name: 자습서
+      items:
+        - name: DMS를 사용하여 마이그레이션
+          href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/azure-sql/toc.json
+        - name: 보안 구성
+          href: managed-instance/aad-security-configure-tutorial.md
+        - name: 장애 조치(failover) 그룹에 인스턴스 추가
+          href: managed-instance/failover-group-add-instance-tutorial.md
+        - name: 온-프레미스 사용자 및 그룹 마이그레이션
+          href: managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md
+        - name: 트랜잭션 복제
+          items:
+            - name: MI 구독으로 MI 게시
+              href: managed-instance/replication-between-two-instances-configure-tutorial.md
+            - name: 'MI 게시, MI 배포, SQL 구독'
+              href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
+    - name: 개념
+      items:
+        - name: 트랜잭션 복제
+          href: managed-instance/replication-transactional-overview.md
+        - name: 관리 API 참조
+          href: managed-instance/api-references-create-manage-instance.md
+        - name: 리소스 한계
+          href: managed-instance/resource-limits.md
+        - name: 연결 아키텍처
+          href: managed-instance/connectivity-architecture-overview.md
+        - name: T-SQL 차이점
+          href: managed-instance/transact-sql-tsql-differences-sql-server.md
+        - name: Machine Learning Services
+          items:
+            - name: 개요
+              href: managed-instance/machine-learning-services-overview.md
+            - name: 주요 차이점
+              href: managed-instance/machine-learning-services-differences.md
+            - name: 빠른 시작
+              items:
+                - name: Python
+                  items:
+                    - name: Python 스크립트 실행
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: 데이터 구조 및 개체
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-data-structures?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: Python 함수
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: 모델 학습 및 점수 매기기
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                - name: R
+                  items:
+                    - name: R 스크립트 실행
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: 데이터 형식 및 개체
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: R 함수
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: 모델 학습 및 점수 매기기
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+            - name: 자습서
+              items:
+                - name: Python
+                  items:
+                    - name: 스키 대여(선형 회귀)
+                      items:
+                        - name: 1 - 소개
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 2 - 데이터 준비
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 3 - 모델 학습
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 4 - 모델 배포
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: 고객 분류(K-Means 클러스터링)
+                      items:
+                        - name: 1 - 소개
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 2 - 데이터 준비
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 3-모델 만들기
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 4 - 모델 배포
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                - name: R
+                  items:
+                    - name: 스키 대여(의사 결정 트리)
+                      items:
+                        - name: 1 - 소개
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 2 - 데이터 준비
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 3 - 모델 학습
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 4 - 모델 배포
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: 고객 분류(K-Means 클러스터링)
+                      items:
+                        - name: 1 - 소개
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 2 - 데이터 준비
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 3-모델 만들기
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: 4 - 모델 배포
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+            - name: 'Python, R 패키지 관리'
+              items:
+                - name: Python
+                  items:
+                    - name: Python 패키지 정보 가져오기
+                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: sqlmlutils를 사용하여 설치
+                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                - name: R
+                  items:
+                    - name: R 패키지 정보 가져오기
+                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: sqlmlutils를 사용하여 설치
+                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: miniCRAN 리포지토리 만들기
+                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: R 패키지 사용 팁
+                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+        - name: 기능
+          items:
+            - name: 연결된 서버
+              href: 'https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/azure-sql/toc.json'
+            - name: Service Broker
+              href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json'
+            - name: 데이터베이스 메일
+              href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json'
+        - name: 보안
+          items:
+            - name: 보안 공용 엔드포인트
+              href: managed-instance/public-endpoint-overview.md
+            - name: 감사
+              href: managed-instance/auditing-configure.md
+    - name: 방법
+      items:
+        - name: 개요
+          href: managed-instance/how-to-content-reference-guide.md
+        - name: SQL Managed Instance로 마이그레이션
+          href: managed-instance/migrate-to-instance-from-sql-server.md
+        - name: 표준 시간대 사용자 지정
+          href: managed-instance/timezones-overview.md
+        - name: 연결 형식 구성
+          href: managed-instance/connection-types-overview.md
+        - name: TDE 인증서 마이그레이션
+          href: managed-instance/tde-certificate-migrate.md
+        - name: 지정 시간으로 복원
+          href: managed-instance/point-in-time-restore.md
+        - name: 관리되는 인스턴스 서브넷의 크기 결정
+          href: managed-instance/vnet-subnet-determine-size.md
+        - name: 관리되는 인스턴스용 신규 VNet 및 서브넷 만들기
+          href: managed-instance/virtual-network-subnet-create-arm-template.md
+        - name: 관리되는 인스턴스용 기존 VNet 및 서브넷 구성
+          href: managed-instance/vnet-existing-add-subnet.md
+        - name: 관리형 인스턴스를 삭제한 후 서브넷 삭제
+          href: managed-instance/virtual-cluster-delete.md
+        - name: 사용자 지정 DNS 구성
+          href: managed-instance/custom-dns-configure.md
+        - name: 네트워크 구성 동기화
+          href: managed-instance/azure-app-sync-network-configuration.md
+        - name: 관리 엔드포인트 IP 주소 찾기
+          href: managed-instance/management-endpoint-find-ip-address.md
+        - name: 기본 제공 방화벽 보호 확인
+          href: managed-instance/management-endpoint-verify-built-in-firewall.md
+        - name: 위협 감지 구성
+          href: managed-instance/threat-detection-configure.md
+        - name: 애플리케이션 연결
+          href: managed-instance/connect-application-instance.md
+        - name: 경고 만들기
+          href: managed-instance/alerts-create.md
+    - name: 샘플
+      items:
+        - name: Azure CLI
+          href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
+        - name: Azure PowerShell
+          href: database/powershell-script-content-guide.md?tabs=managed-instance
+        - name: Azure 리소스 관리자
+          href: database/arm-templates-content-guide.md?tabs=managed-instance
+        - name: Azure Policy 기본 제공 기능
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
+        - name: 코드 샘플
+          href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
+- name: Azure VM의 SQL Server
+  items:
+    - name: 설명서
+      href: virtual-machines/index.yml
+    - name: Windows
+      items:
+        - name: 개요
+          items:
+            - name: SQL Server VM이란?
+              href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+            - name: 새로운 기능
+              href: virtual-machines/windows/doc-changes-updates-release-notes.md
+        - name: 빠른 시작
+          items:
+            - name: SQL VM 만들기
+              items: null
+            - name: 포털
+              href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
+            - name: PowerShell
+              href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
+            - name: ARM 템플릿
+              href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
+        - name: 개념
+          items:
+            - name: 비즈니스 연속성
+              items:
+                - name: 개요
+                  href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+                - name: 백업 및 복원
+                  href: virtual-machines/windows/backup-restore.md
+                - name: 백업용 Azure Storage
+                  href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
+                - name: Always On 가용성 그룹
+                  href: virtual-machines/windows/availability-group-overview.md
+                - name: 장애 조치(Failover) 클러스터 인스턴스
+                  href: virtual-machines/windows/failover-cluster-instance-overview.md
+            - name: 모범 사례
+              items:
+                - name: 성능
+                  href: virtual-machines/windows/performance-guidelines-best-practices.md
+                - name: 보안
+                  href: virtual-machines/windows/security-considerations-best-practices.md
+                - name: 클러스터 구성
+                  href: virtual-machines/windows/hadr-cluster-best-practices.md
+                - name: 애플리케이션 패턴
+                  href: virtual-machines/windows/application-patterns-development-strategies.md
+            - name: 관리
+              items:
+                - name: 전용 호스트
+                  href: virtual-machines/windows/dedicated-host.md
+                - name: SQL 2008 및 R2에 대한 지원 확장
+                  href: virtual-machines/windows/sql-server-2008-extend-end-of-support.md
+        - name: 방법 가이드
+          items:
+            - name: SQL Server VM에 연결
+              href: virtual-machines/windows/ways-to-connect-to-sql.md
+            - name: SQL Server VM 만들기
+              items:
+                - name: 포털 사용
+                  href: virtual-machines/windows/create-sql-vm-portal.md
+                - name: Azure PowerShell 사용
+                  href: virtual-machines/windows/create-sql-vm-powershell.md
+            - name: 관리
+              items:
+                - name: Azure Portal 사용
+                  href: virtual-machines/windows/manage-sql-vm-portal.md
+                - name: 라이선스 모델
+                  displayName: 'ahb, ahub, payg, change, modify, update'
+                  href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
+                - name: 버전
+                  displayName: 'change, modify, update'
+                  href: virtual-machines/windows/change-sql-server-edition.md
+                - name: 스토리지
+                  href: virtual-machines/windows/storage-configuration.md
+                - name: Azure Key Vault 통합
+                  href: virtual-machines/windows/azure-key-vault-integration-configure.md
+                - name: 스토리지를 UltraSSD로 마이그레이션
+                  href: virtual-machines/windows/storage-migrate-to-ultradisk.md
+                - name: SQL VM RP에 등록
+                  displayName: 'resource provider, registration'
+                  items:
+                    - name: 단일 VM
+                      href: virtual-machines/windows/sql-vm-resource-provider-register.md
+                    - name: 여러 VM 대량 등록
+                      href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+                - name: 관리 작업 자동화
+                  items:
+                    - name: SQL Server IaaS 에이전트 확장 사용
+                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
+                    - name: 자동화된 패치
+                      href: virtual-machines/windows/automated-patching.md
+            - name: 마이그레이션
+              items:
+                - name: SQL Server 데이터베이스를 VM으로 마이그레이션
+                  href: virtual-machines/windows/migrate-to-vm-from-sql-server.md
+                - name: 새 Azure 지역으로 VM 마이그레이션
+                  href: virtual-machines/windows/move-sql-vm-different-region.md
+            - name: 비즈니스 연속성
+              items:
+                - name: 백업 및 복원
+                  items:
+                    - name: 자동화된 백업(SQL 2016 이상)
+                      href: virtual-machines/windows/automated-backup.md
+                    - name: 자동화된 백업(SQL 2014)
+                      href: virtual-machines/windows/automated-backup-sql-2014.md
+                - name: Always On 가용성 그룹
+                  items:
+                    - name: Azure SQL VM CLI
+                      href: virtual-machines/windows/availability-group-az-cli-configure.md
+                    - name: Azure 빠른 시작 템플릿
+                      href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+                    - name: 다중 영역
+                      href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+                    - name: 도메인 독립형(작업 그룹)
+                      href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+                    - name: 수동으로 구성
+                      items:
+                        - name: 필수 구성 요소
+                          href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+                        - name: 자습서
+                          href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                        - name: 부하 분산 장치 - Azure Portal
+                          href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+                        - name: 부하 분산 장치 - Azure PowerShell
+                          href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                - name: 장애 조치 클러스터 인스턴스(FCI)
+                  items:
+                    - name: FCI용 VM 준비
+                      href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
+                    - name: FCI 만들기
+                      items:
+                        - name: Azure 공유 디스크(SQL2019+)
+                          href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
+                        - name: 스토리지 공간 다이렉트(Win2016+)
+                          href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+                        - name: 프리미엄 파일 공유(Win2012+)
+                          href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+                    - name: DNN(분산 네트워크 이름)
+                      items:
+                        - name: FCI용 DNN 만들기
+                          href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
+                        - name: FCI DNN 및 SQL Server 기능
+                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+                - name: 연결 구성
+                  items:
+                    - name: VNN(가상 네트워크 이름)
+                      href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
+        - name: 참조
+          items:
+            - name: Azure PowerShell
+              href: /powershell/azure/overview
+            - name: Azure CLI
+              href: /cli/azure/
+            - name: T-SQL
+              href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+            - name: SQL Server 드라이버
+              href: 'https://docs.microsoft.com/sql/connect/sql-connection-libraries'
+            - name: REST (영문)
+              href: /rest/api/
+        - name: 리소스
+          items:
+            - name: FAQ
+              href: virtual-machines/windows/frequently-asked-questions-faq.md
+            - name: 가격 책정
+              href: virtual-machines/windows/pricing-guidance.md
+            - name: SSDT(SQL Server Data Tools)
+              href: '/https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
+            - name: SSMS(SQL Server Management Studio)
+              href: 'https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms'
+            - name: SQL Server 도구
+              href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
+            - name: Azure 로드맵
+              href: 'https://azure.microsoft.com/roadmap/?category=compute'
+            - name: MSDN 포럼
+              href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server'
+            - name: Stack Overflow
+              href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
+    - name: Linux
+      items:
+        - name: 개요
+          items:
+            - name: Linux SQL Server VM 정보
+              href: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
+        - name: 빠른 시작
+          items:
+            - name: SQL VM 만들기 - 포털
+              href: virtual-machines/linux/sql-vm-create-portal-quickstart.md
+        - name: 자습서
+          items:
+            - name: STONITH를 사용하여 Azure RHEL VM 가용성 그룹 설정
+              href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
+            - name: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성
+              href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+        - name: 리소스
+          items:
+            - name: FAQ
+              href: virtual-machines/linux/frequently-asked-questions-faq.md
+            - name: Linux의 SQL Server 설명서
+              href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-overview'
+            - name: SSDT(SQL Server Data Tools)
+              href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
+            - name: SQL Server 도구
+              href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
+            - name: Azure 로드맵
+              href: 'https://azure.microsoft.com/roadmap/?category=compute'
+            - name: Stack Overflow
+              href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
+- name: 참조
+  items:
+    - name: T-SQL 언어 참조
+      href: /sql/t-sql/language-reference
+    - name: Azure CLI
+      href: /cli/azure/sql
+    - name: Azure PowerShell
+      href: /powershell/module/az.sql
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.sql.models
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.sql
+    - name: REST (영문)
+      href: /rest/api/sql/
+    - name: SQL용 Resource Manager 템플릿
+      displayName: ARM
+      href: /azure/templates/microsoft.sql/allversions
+    - name: SQL 도구
+      href: /sql/tools/overview-sql-tools
+    - name: SSMS(SQL Server Management Studio)
+      href: /sql/ssms/download-sql-server-management-studio-ssms
+    - name: SSDT(SQL Server Data Tools)
+      href: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - name: BCP
+      href: /sql/tools/bcp-utility
+    - name: SQLCMD
+      href: /sql/tools/sqlcmd-utility
+    - name: SqlPackage
+      href: 'https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/azure-sql/toc.json'
+    - name: SQL Database 관리 라이브러리 패키지
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
+    - name: SQL 연결 드라이버
+      href: /sql/connect/sql-connection-libraries
+    - name: SQL Server 드라이버
+      href: /sql/connect/sql-server-drivers
+      items:
+        - name: ADO.NET
+          href: /sql/connect/ado-net/microsoft-ado-net-sql-server?view=sql-server-ver15
+        - name: JDBC
+          href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
+        - name: Node.js
+          href: /sql/connect/node-js/node-js-driver-for-sql-server
+        - name: ODBC
+          href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+        - name: PHP
+          href: /sql/connect/php/microsoft-php-driver-for-sql-server
+        - name: Python
+          href: /sql/connect/python/python-driver-for-sql-server
+        - name: Ruby
+          href: /sql/connect/ruby/ruby-driver-for-sql-server
+- name: 리소스
+  items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: /learn/browse/?products=azure-sql-database
+    - name: SQL Server 블로그
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Microsoft Azure 블로그
+      href: 'https://azure.microsoft.com/blog/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 공용 데이터 집합
+      href: public-data-sets.md
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/sql-azure'
+    - name: 문제 해결
+      items:
+        - name: 연결 오류
+          href: database/troubleshoot-common-errors-issues.md
+        - name: 일반적인 연결 문제
+          href: database/troubleshoot-common-connectivity-issues.md
+        - name: 가져오기/내보내기 서비스 중단
+          href: database/database-import-export-hang.md
+    - name: 서비스 업데이트
+      items:
+        - name: 게이트웨이 IP 주소 업데이트
+          href: database/gateway-migration.md
+        - name: 정기적인 유지 관리 이벤트
+          href: database/planned-maintenance.md
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?service=sql-database'
+    - name: 아키텍처 센터
+      href: /azure/architecture/
+    - name: 고객 사례
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

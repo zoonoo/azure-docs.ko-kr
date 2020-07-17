@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - 내부 및 외부 NSG를 사용하여 두 개의 VM 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 내부 및 외부 NSG를 사용하여 두 개의 VM 만들기
+title: 'CLI 샘플: 내부 및 외부 NSG가 포함된 두 개의 VM 만들기'
+description: Azure CLI를 사용하여 네트워크 트래픽을 보호하기 위해 내부 및 외부 NSG가 포함된 두 개의 VM을 만듭니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -16,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: be4b42b84feaee9a7f0eb54a2d27bc4dba28b7d2
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b4339ab2c512a96614158f673cb07b60184f5f71
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891014"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459953"
 ---
-# <a name="secure-network-traffic-between-virtual-machines"></a>가상 머신 간의 네트워크 트래픽 보안
+# <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>NSG를 사용하여 가상 머신 간의 네트워크 트래픽 보호
 
 이 스크립트는 두 개의 가상 머신을 만들고 해당 컴퓨터에 들어오는 트래픽의 보안을 유지합니다. 첫 번째 가상 머신은 인터넷에 액세스할 수 있고 포트 22 및 포트 80에서 트래픽을 허용하도록 NSG(네트워크 보안 그룹)를 구성합니다. 두 번째 가상 머신은 인터넷에 액세스할 수 없고 NSG가 첫 번째 가상 머신의 트래픽을 허용하도록 구성합니다.
 

@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 2/20/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 9469fd6a1ffc61e90948178b105abd9f83e55fde
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4fa32668faa72973f765a75d4edc3e4598b43652
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020674"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609311"
 ---
 1. Eclipse를 시작합니다.
 
@@ -17,7 +17,7 @@ ms.locfileid: "65020674"
 
    ![Eclipse Launcher의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-1. 잠시 후 Eclipse IDE의 주 창이 표시됩니다. 시작 화면이 표시되는 경우 시작 화면을 닫습니다.
+1. 잠시 후 Eclipse IDE의 주 창이 표시됩니다. 시작 화면이 표시되는 경우 **시작** 화면을 닫습니다.
 
 1. Eclipse 메뉴 모음에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 새 프로젝트를 만듭니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "65020674"
 
    ![Java 프로젝트가 강조 표시된 새 프로젝트 대화 상자의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-02-select-wizard.png)
 
-1. 새 Java 프로젝트 마법사가 시작됩니다. **프로젝트 이름** 필드에 **빠른 시작**을 입력하고, 실행 환경으로 **JavaSE-1.8**을 선택합니다. **마침**을 선택합니다.
+1. **새 Java 프로젝트** 마법사가 시작됩니다. **프로젝트 이름** 필드에 **빠른 시작**을 입력하고, 실행 환경으로 **JavaSE-1.8**을 선택합니다. **마침**을 선택합니다.
 
    ![새 Java 프로젝트 마법사의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-03-create-java-project.png)
 
@@ -35,18 +35,18 @@ ms.locfileid: "65020674"
 
    ![패키지 탐색기의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. **새 POM 만들기** 창이 나타납니다. **그룹 Id** 필드에 **com.microsoft.cognitiveservices.speech.samples**를 입력하고, **아티팩트 Id**에 **빠른 시작**을 입력합니다. 그런 다음, **마침**을 선택합니다.
+1. **새 POM 만들기** 창이 나타납니다. **그룹 ID** 필드에 *com.microsoft.cognitiveservices.speech.samples*를 입력하고, *아티팩트 ID*에 **빠른 시작**을 입력합니다. 그런 다음, **마침**을 선택합니다.
 
    ![[새 POM 만들기] 창의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
-1. **pom.xml** 파일을 열고 편집합니다.
+1. *pom.xml* 파일을 열고 편집합니다.
 
    * 파일 끝 부분에서 닫는 `</project>` 태그 앞에 다음과 같이 Speech SDK의 Maven 리포지토리에 대한 참조를 사용하여 `repositories` 요소를 만듭니다.
 
-     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
+     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * 또한 다음과 같이 Speech SDK 버전 1.5.0을 종속성으로 사용하여 `dependencies` 요소를 추가합니다.
+   * 또한 Speech SDK 버전 1.12.1을 종속성으로 사용하여 `dependencies` 요소를 추가합니다:
 
-     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 
    * 변경 내용을 저장합니다.

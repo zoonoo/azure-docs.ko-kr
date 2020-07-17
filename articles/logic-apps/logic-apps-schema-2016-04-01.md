@@ -1,21 +1,18 @@
 ---
-title: 2016년 6월 1일 스키마 업데이트 - Azure Logic Apps | Microsoft Docs
+title: 스키마 업데이트 6 월-1-2016
 description: Azure Logic Apps의 논리 앱 정의에 대한 업데이트된 스키마 버전 2016-06-01
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
-ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 6df29543df2b7b2609582f7e8dd9a0629182760c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74792884"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2016년 6월 1일
 
@@ -105,14 +102,14 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 
 1. Azure Portal에서 논리 앱을 엽니다.
 
-2. **개요**로 이동합니다. 논리 앱 도구 모음에서 **스키마 업데이트**를 선택합니다.
+2. **개요**로 이동 합니다. 논리 앱 도구 모음에서 **스키마 업데이트**를 선택합니다.
    
    ![스키마 업데이트 선택][1]
    
    업그레이드된 정의가 반환되며 필요할 경우 리소스 정의에 복사 및 붙여넣을 수 있습니다. 
 
    > [!IMPORTANT]
-   > 업그레이드된 논리 앱에서 모든 연결 참조가 유효한 상태로 유지되도록 **다른 이름으로 저장**을 선택하는 것이 좋습니다.
+   > 업그레이드된 논리 앱에서 모든 연결 참조가 유효한 상태로 유지되도록****다른 이름으로 저장**을 선택하는 것이 좋습니다.
 
 3. 업그레이드 블레이드 도구 모음에서 **다른 이름으로 저장**을 선택합니다.
 
@@ -121,7 +118,7 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 5. 업그레이드된 논리 앱이 예상대로 작동하는지 확인합니다.
    
    > [!NOTE]
-   > 수동 또는 요청 트리거를 사용하는 경우 콜백 URL이 새 논리 앱에서 변경됩니다. 새 URL을 테스트하여 종단 간 환경이 작동하는지 확인합니다. 이전 URL을 유지하기 위해 기존 논리 앱에 복제할 수 있습니다.
+   > 수동 또는 요청 트리거를 사용하는 경우 콜백 URL이 새 논리 앱에서 변경됩니다. 새 URL을 테스트하여 엔드투엔드 환경이 작동하는지 확인합니다. 이전 URL을 유지하기 위해 기존 논리 앱에 복제할 수 있습니다.
 
 6. *선택 사항* 이전 논리 앱을 새 스키마 버전으로 덮어쓰려면 도구 모음에서 **스키마 업데이트** 옆에 있는 **복제**를 선택합니다. 동일한 리소스 ID를 유지하거나 논리 앱의 트리거 URL을 요청하려는 경우에만 이 단계가 필요합니다.
 
@@ -175,8 +172,9 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 * [논리 앱용 워크플로 정의 만들기](../logic-apps/logic-apps-author-definitions.md)
-* [논리 앱용 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
+* [논리 앱 배포 자동화](logic-apps-azure-resource-manager-templates-overview.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

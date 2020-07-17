@@ -1,20 +1,19 @@
 ---
-title: '자습서: Java 애플리케이션을 사용하여 Azure Cosmos DB에서 Cassandra API 테이블에 샘플 데이터 로드'
+title: '자습서: Azure Cosmos DB의 Cassandra API 테이블에 샘플 데이터를 로드하는 Java 앱'
 description: 이 자습서에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB에서 Cassandra API 테이블로 샘플 사용자 데이터를 로드하는 방법을 보여줍니다.
 author: kanshiG
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
-Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 68baffea86ce5c877217ec05d477288b71830a42
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6a12db8e34421dd16c12d167896ef66b3377d524
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037432"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853038"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB에서 Cassandra API 테이블에 샘플 데이터 로드
 
@@ -26,9 +25,9 @@ ms.locfileid: "54037432"
 > * Cassandra 테이블로 데이터 로드
 > * 앱 실행
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 문서는 여러 부분으로 구성된 자습서의 일부분입니다. 이 문서를 시작하기 전에 [Cassandra API 계정, 키스페이스 및 테이블을 만들어야 합니다](create-cassandra-api-account-java.md).   
 

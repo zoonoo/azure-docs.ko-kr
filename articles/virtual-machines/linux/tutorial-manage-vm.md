@@ -1,31 +1,29 @@
 ---
-title: 자습서 - Azure CLI로 Linux VM 만들기 및 관리 | Microsoft Docs
+title: 자습서 - Azure CLI를 사용하여 Linux VM 만들기 및 관리
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure에서 Linux VM을 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 8e559be82fc7c3d6b25b99319785d49e30f56287
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749145"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81460004"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서: Azure CLI로 Linux VM 만들기 및 관리
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서 - Azure CLI로 Linux VM 만들기 및 관리
 
-Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기 및 연결
@@ -34,7 +32,7 @@ Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환�
 > * VM 크기 조정
 > * VM 상태 보기 및 이해
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -44,7 +42,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupVM --location eastus
 ```
 
@@ -54,7 +52,7 @@ az group create --name myResourceGroupVM --location eastus
 
 [az vm create](https://docs.microsoft.com/cli/azure/vm) 명령을 사용하여 가상 머신을 만듭니다. 
 
-가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 다음 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 VM을 만듭니다. VM에서 *azureuser*라는 사용자 계정을 만들고, SSH 키가 기본 키 위치(*~/.ssh*)에 없는 경우 새로 만듭니다.
+가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 다음 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 VM을 만듭니다. VM에서 *azureuser*라는 사용자 계정을 만들고, SSH 키가 기본 키 위치( *~/.ssh*)에 없는 경우 새로 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -67,7 +65,7 @@ az vm create \
 
 VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. `publicIpAddress`를 메모해 둡니다. 이 주소는 가상 머신에 액세스하는 데 사용할 수 있습니다. 
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -106,7 +104,7 @@ az vm image list --output table
 
 명령 출력은 Azure에서 가장 인기 있는 VM 이미지를 반환합니다.
 
-```bash
+```output
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
@@ -130,7 +128,7 @@ az vm image list --offer CentOS --all --output table
 
 부분 출력:
 
-```azurecli-interactive 
+```output
 Offer             Publisher         Sku   Urn                                     Version
 ----------------  ----------------  ----  --------------------------------------  -----------
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
@@ -143,26 +141,26 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207     
 
 특정 이미지를 사용하여 VM을 배포하려면 이미지를 [식별](cli-ps-findimage.md#terminology)하기 위한 게시자, 제품, SKU 및 버전 번호(선택 사항)로 구성된 *Urn* 열의 값을 적어 둡니다. 이미지를 지정하면 이미지 버전 번호는 최신 버전의 배포를 선택하도록 “최신”으로 대체될 수 있습니다. 이 예제에서는 CentOS 6.5 이미지의 최신 버전을 지정하기 위해 `--image` 인수를 사용합니다.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
 ## <a name="understand-vm-sizes"></a>VM 크기 이해
 
-가상 머신 크기에 따라 CPU, GPU, 메모리 등 가상 머신에 사용할 수 있는 계산 리소스의 양이 결정됩니다. 가상 머신은 예상되는 워크로드에 맞게 적절히 크기 조정되어야 합니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수 있습니다.
+가상 머신 크기에 따라 CPU, GPU, 메모리 등 가상 머신에 사용할 수 있는 컴퓨팅 리소스의 양이 결정됩니다. 가상 머신은 예상되는 워크로드에 맞게 적절히 크기 조정되어야 합니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수 있습니다.
 
 ### <a name="vm-sizes"></a>VM 크기
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
 
-| Type                     | 크기           |    설명       |
+| Type                     | 일반적인 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [범용](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
-| [Compute에 최적화](sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
-| [메모리에 최적화](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
-| [Storage에 최적화](../virtual-machines-windows-sizes-storage.md)      | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NC            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
-| [고성능](sizes-hpc.md) | H, A8-11          | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. 
+| [범용](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
+| [컴퓨팅 최적화](sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
+| [메모리에 최적화](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [Storage에 최적화](sizes-storage.md)      | Lsv2, Ls              | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
+| [고성능](sizes-hpc.md) | H        | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
 
 
 ### <a name="find-available-vm-sizes"></a>사용 가능한 VM 크기 찾기
@@ -175,7 +173,7 @@ az vm list-sizes --location eastus --output table
 
 부분 출력:
 
-```azurecli-interactive 
+```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  2          3584  Standard_DS1                          1           1047552                    7168
@@ -200,7 +198,7 @@ az vm list-sizes --location eastus --output table
 
 이전 VM 만들기 예제에서는 크기가 제공되지 않았으므로 기본 크기가 사용되었습니다. [az vm create](/cli/azure/vm) 및 `--size` 인수를 사용하여 만들 때 VM 크기를 선택할 수 있습니다. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM3 \
@@ -222,6 +220,7 @@ VM의 크기를 조정하기 전에 원하는 크기를 현재 Azure 클러스�
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
+
 원하는 크기를 사용할 수 있는 경우 전원이 켜진 상태에서 VM 크기를 조정할 수 있지만 작업 중 다시 부팅됩니다. [az vm resize]( /cli/azure/vm) 명령을 사용하여 크기 조정을 수행합니다.
 
 ```azurecli-interactive 
@@ -230,19 +229,19 @@ az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_
 
 원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
-할당 취소되면 크기 조정이 발생할 수 있습니다. 
+할당이 취소되면 크기가 조정될 수 있습니다. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
 크기를 조정한 후 VM을 시작할 수 있습니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -252,21 +251,21 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 
 ### <a name="power-states"></a>전원 상태
 
-| 전원 상태 | 설명
+| 전원 상태 | Description
 |----|----|
 | 시작 중 | 가상 머신이 시작되고 있음을 나타냅니다. |
 | 실행 중 | 가상 머신이 실행되고 있음을 나타냅니다. |
 | 중지 중 | 가상 머신이 중지되고 있음을 나타냅니다. | 
-| 중지됨 | 가상 머신이 중지되었음을 나타냅니다. 중지 상태의 가상 머신에도 여전히 계산 요금이 발생됩니다.  |
-| 할당 취소 중 | 가상 컴퓨터의 할당이 취소되고 있음을 나타냅니다. |
-| 할당 취소됨 | 가상 컴퓨터가 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. 할당 취소됨 상태의 가상 머신에는 계산 요금이 발생하지 않습니다. |
+| 중지됨 | 가상 머신이 중지되었음을 나타냅니다. 중지 상태의 가상 머신에도 여전히 컴퓨팅 요금이 발생됩니다.  |
+| 할당 취소 중 | 가상 머신의 할당이 취소되고 있음을 나타냅니다. |
+| 할당 취소됨 | 가상 머신이 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. 할당 취소됨 상태의 가상 머신에는 컴퓨팅 요금이 발생하지 않습니다. |
 | - | 가상 머신의 전원 상태가 알 수 없음을 나타냅니다. |
 
 ### <a name="find-the-power-state"></a>전원 상태 찾기
 
 특정 VM의 상태를 검색하려면 [az vm get-instance-view](/cli/azure/vm) 명령을 사용합니다. 가상 머신 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm get-instance-view \
     --name myVM \
     --resource-group myResourceGroupVM \
@@ -275,7 +274,7 @@ az vm get-instance-view \
 
 출력:
 
-```azurecli-interactive 
+```output
 ode                DisplayStatus    Level
 ------------------  ---------------  -------
 PowerState/running  VM running       Info
@@ -289,19 +288,19 @@ PowerState/running  VM running       Info
 
 이 명령은 가상 머신의 개인 및 공용 IP 주소를 반환합니다.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
 ### <a name="stop-virtual-machine"></a>가상 머신 중지
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="start-virtual-machine"></a>가상 머신 시작
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -309,7 +308,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 리소스 그룹을 삭제하면 VM, 가상 네트워크 및 디스크와 같이 그 안에 포함된 리소스도 모두 삭제됩니다. `--no-wait` 매개 변수는 작업이 완료될 때까지 대기하지 않고 프롬프트로 제어를 반환합니다. `--yes` 매개 변수는 작업을 수행하는 추가 프롬프트 없이 리소스를 삭제할 것인지 확인합니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroupVM --no-wait --yes
 ```
 

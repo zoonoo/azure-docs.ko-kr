@@ -1,22 +1,22 @@
 ---
 title: Bing News Search API란?
-titlesuffix: Azure Cognitive Services
-description: Bing News Search API를 사용하여 헤드라인 및 추세 토픽을 포함하여 여러 범주의 최신 헤드라인을 웹에서 검색하는 방법을 알아봅니다.
+titleSuffix: Azure Cognitive Services
+description: Bing News Search API를 사용하여 헤드라인 및 추세 항목을 포함하여 카테고리 전반의 최신 헤드라인을 웹에서 검색하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/10/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877102"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602757"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Bing News Search API란?
 
@@ -28,7 +28,7 @@ Bing News Search API는 검색 결과만을 제공합니다. 다른 형식의 �
 
 Bing News Search API에서는 주로 관련 뉴스 문서를 찾고 반환하는 반면 웹에서 지능적이고 포커스가 있는 뉴스 검색을 제공합니다.
 
-|기능  |설명  |
+|기능  |Description  |
 |---------|---------|
 |[검색 용어 제안 및 사용](concepts/search-for-news.md#suggest-and-use-search-terms)     | [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 검색 환경을 향상시킵니다.         |
 |[일반 뉴스 가져오기](concepts/search-for-news.md#get-general-news)     | Bing News Search API에 검색 쿼리를 보내고, 관련 뉴스 문서의 목록을 다시 가져와서 뉴스를 찾습니다.           |
@@ -40,10 +40,8 @@ Bing News Search API에서는 주로 관련 뉴스 문서를 찾고 반환하는
 
 Bing News Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 프로그래밍 언어에서 쉽게 호출할 수 있습니다. REST API 또는 SDK를 사용하여 서비스를 사용할 수 있습니다.
 
-1. Bing Search API에 대한 액세스 권한이 있는 Cognitive Services API 계정을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-news-api) 수 있습니다.
-
+1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/cognitive-services/)을 만들 수 있습니다.
 2. 유효한 검색 쿼리를 사용하여 API에 요청을 보냅니다.
-
 3. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -54,6 +52,6 @@ Bing News Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) 참조 섹션에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 헤더, API 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 있습니다.
-
+* [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) 참조 섹션에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 헤더, API 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 있습니다.
 * [Bing 사용 및 표시 요구 사항](./useanddisplayrequirements.md)에서는 Bing 검색 API를 통해 획득한 콘텐츠와 정보의 허용 가능한 용도를 지정하고 있습니다.
+* [Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.

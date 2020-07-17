@@ -1,24 +1,23 @@
 ---
-title: 포털에서 Azure IoT Hub Device Provisioning Service를 위한 클라우드 설정 | Microsoft Docs
-description: Azure Portal에서 IoT Hub 자동 디바이스 프로비전
+title: 자습서 - 포털에서 Azure IoT Hub Device Provisioning Service를 위한 클라우드 설정
+description: 이 자습서에서는 IoT Hub DPS(Device Provisioning Service)를 사용하여 [Azure Portal](https://portal.azure.com)에서 디바이스 프로비저닝을 위한 클라우드 리소스를 설정하는 방법을 보여줍니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170737"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74976726"
 ---
-# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전을 위한 클라우드 리소스 구성
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>자습서: IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전을 위한 클라우드 리소스 구성
 
-이 자습서에서는 IoT Hub Device Provisioning Service를 사용하여 자동 디바이스 프로비전을 위해 클라우드를 설정하는 방법을 보여줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 IoT Hub Device Provisioning Service를 사용하여 자동 디바이스 프로비전을 위해 클라우드를 설정하는 방법을 보여줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 IoT Hub Device Provisioning Service 만들기 및 ID 범위 가져오기
@@ -44,12 +43,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 4. 다음 정보로 **IoT Hub Device Provisioning Service** 양식을 채웁니다.
     
-   | 설정       | 제안 값 | 설명 | 
+   | 설정       | 제안 값 | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Name** | 고유한 이름 | -- | 
+   | **이름** | 고유한 이름 | -- | 
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
-   | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
-   | **위치**: | 모든 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |   
+   | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
+   | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |   
 
    ![포털에서 Device Provisioning Service에 대한 기본 정보 입력](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
@@ -63,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
+### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -113,7 +112,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
  
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 IoT Hub Device Provisioning Service 만들기 및 ID 범위 가져오기

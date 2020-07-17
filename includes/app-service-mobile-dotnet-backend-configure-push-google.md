@@ -4,16 +4,16 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: d1dcd7895025ea608e5f6c4db5e0967817934f2a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 3c6147cc24f285fc32dce145e594f743c9633c20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804632"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "68857446"
 ---
 백 엔드 프로젝트 형식&mdash;([.NET 백 엔드](#dotnet) 또는[ Node.js 백 엔드](#nodejs))과 일치하는 절차를 사용합니다.
 
-### <a name="dotnet"></a>.NET 백 엔드 프로젝트
+### <a name="net-back-end-project"></a><a name="dotnet"></a>.NET 백 엔드 프로젝트
 
 1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. `Microsoft.Azure.NotificationHubs`를 검색한 다음 **설치**를 클릭합니다. Notification Hubs 클라이언트 라이브러리를 설치합니다.
 2. 컨트롤러 폴더에서 TodoItemController.cs를 열고 다음 `using` 문을 추가합니다.
@@ -67,9 +67,9 @@ ms.locfileid: "59804632"
 
 4. 서버 프로젝트를 다시 게시합니다.
 
-### <a name="nodejs"></a>Node.js 백 엔드 프로젝트
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Node.js 백 엔드 프로젝트
 
-1. 아직 수행하지 않은 경우 [빠른 시작 프로젝트를 다운로드](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure Portal에서 온라인 편집기](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.
+1. 백 엔드 프로젝트를 설정합니다.
 2. todoitem.js 파일의 기존 코드를 다음으로 바꿉니다.
 
     ```javascript

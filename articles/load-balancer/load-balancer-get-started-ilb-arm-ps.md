@@ -1,24 +1,24 @@
 ---
 title: PowerShell을 사용하여 Azure 내부 부하 분산 장치 만들기
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Azure Resource Manager로 Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치를 만드는 방법 알아보기
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 521f8f29e2f8475ab7308f5646b94c6fc0f6a01f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/02/2020
+ms.author: allensu
+ms.openlocfilehash: dcf54e5a9bee5f7dc6cba9e3cb178027f53ed5fb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60398811"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961288"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
@@ -42,13 +42,13 @@ ms.locfileid: "60398811"
 
 부하 분산 장치를 배포하려면 다음 개체를 만들어야 합니다.
 
-* 프런트 엔드 IP 풀: 들어오는 모든 네트워크 트래픽에 대한 사설 IP 주소
-* 백 엔드 주소 풀: 프런트 엔드 IP 주소의 부하가 분산된 트래픽을 수신하기 위한 네트워크 인터페이스
-* 부하 분산 규칙: 부하 분산 장치의 포트(원본 및 로컬) 구성
-* 프로브 구성: 가상 머신에 대한 상태 프로브
-* 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙
+* 프런트 엔드 IP 구성 – 들어오는 모든 네트워크 트래픽에 대한 개인 IP 주소.
+* 백 엔드 주소 풀: 프런트 엔드 IP 주소의 부하가 분산된 트래픽을 수신하기 위한 네트워크 인터페이스.
+* 부하 분산 규칙: 부하 분산 장치의 포트(원본 및 로컬) 구성.
+* 프로브 구성: 가상 머신에 대한 상태 프로브.
+* 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙.
 
-부하 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
+부하 분산 장치 구성 요소에 대 한 자세한 내용은 [Azure Load Balancer 구성 요소](components.md)를 참조 하세요.
 
 다음 단계에서는 두 개의 가상 머신 간에 부하 분산 장치를 구성하는 방법을 설명합니다.
 
@@ -138,10 +138,11 @@ $beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 
 이 예제에서는 다음 네 가지 규칙 개체를 만듭니다.
 
-* RDP(원격 데스크톱 프로토콜)에 대한 인바운드 NAT 규칙: 포트 3441~포트 3389에서 들어오는 모든 트래픽 리디렉션
-* RDP에 대한 두 번째 인바운드 NAT 규칙: 포트 3442~포트 3389에서 들어오는 모든 트래픽 리디렉션
-* 상태 프로브 규칙: HealthProbe.aspx 경로의 상태 확인
-* 부하 분산 장치 규칙: 공용 포트 80의 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80으로 부하 분산
+* RDP(원격 데스크톱 프로토콜)에 대한 인바운드 NAT 규칙: 포트 3441의 모든 들어오는 트래픽을 포트 3389로 리디렉션합니다.
+* RDP에 대한 두 번째 인바운드 NAT 규칙: 포트 3442의 모든 들어오는 트래픽을 포트 3389로 리디렉션합니다.
+* 상태 프로브 규칙: HealthProbe.aspx 경로의 상태를 확인합니다.
+* 부하 분산 장치 규칙: 공용 포트 80에서 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80로 부하 분산 합니다.
+* [Ha 포트 부하 분산 장치 규칙](load-balancer-ha-ports-overview.md) 은 모든 포트에 들어오는 모든 트래픽을 부하 분산 하 여 표준 ilb에 대 한 ha 시나리오를 간소화 합니다.
 
 ```azurepowershell-interactive
 $inboundNATRule1= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
@@ -151,6 +152,8 @@ $inboundNATRule2= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendI
 $healthProbe = New-AzLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+
+$haportslbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### <a name="step-2-create-the-load-balancer"></a>2단계: 부하 분산 장치 만들기
@@ -158,8 +161,10 @@ $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $fr
 부하 분산 장치를 만들고 개체 규칙(RDP, 부하 분산 장치 및 상태 프로브에 대한 인바운드 NAT)을 결합합니다.
 
 ```azurepowershell-interactive
-$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
+$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -SKU Standard -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 ```
+
+`-SKU Basic`을 사용하여 기본 Load Balancer를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 사용을 권장합니다.
 
 ## <a name="create-the-network-interfaces"></a>네트워크 인터페이스 만들기
 
@@ -191,53 +196,55 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 구성을 검토합니다.
 
-    $backendnic1
+```azurepowershell-interactive
+$backendnic1
+```
 
 설정은 다음과 같이 표시되어야 합니다.
 
-    Name                 : lb-nic1-be
-    ResourceGroupName    : NRP-RG
-    Location             : westus
-    Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-    Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
-    ProvisioningState    : Succeeded
-    Tags                 :
-    VirtualMachine       : null
-    IpConfigurations     : [
+```output
+Name                 : lb-nic1-be
+ResourceGroupName    : NRP-RG
+Location             : westus
+Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
+ProvisioningState    : Succeeded
+Tags                 :
+VirtualMachine       : null
+IpConfigurations     : [
+                     {
+                       "PrivateIpAddress": "10.0.2.6",
+                       "PrivateIpAllocationMethod": "Static",
+                       "Subnet": {
+                         "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
+                       },
+                       "PublicIpAddress": {
+                         "Id": null
+                       },
+                       "LoadBalancerBackendAddressPools": [
                          {
-                           "PrivateIpAddress": "10.0.2.6",
-                           "PrivateIpAllocationMethod": "Static",
-                           "Subnet": {
-                             "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
-                           },
-                           "PublicIpAddress": {
-                             "Id": null
-                           },
-                           "LoadBalancerBackendAddressPools": [
-                             {
-                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
-                             }
-                           ],
-                           "LoadBalancerInboundNatRules": [
-                             {
-                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
-                             }
-                           ],
-                           "ProvisioningState": "Succeeded",
-                           "Name": "ipconfig1",
-                           "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
                          }
-                       ]
-    DnsSettings          : {
-                         "DnsServers": [],
-                         "AppliedDnsServers": []
-                       }
-    AppliedDnsSettings   :
-    NetworkSecurityGroup : null
-    Primary              : False
-
-
+                       ],
+                       "LoadBalancerInboundNatRules": [
+                         {
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
+                         }
+                       ],
+                       "ProvisioningState": "Succeeded",
+                       "Name": "ipconfig1",
+                       "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
+                       "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                     }
+                   ]
+DnsSettings          : {
+                     "DnsServers": [],
+                     "AppliedDnsServers": []
+                   }
+AppliedDnsSettings   :
+NetworkSecurityGroup : null
+Primary              : False
+```
 
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>3단계: NIC를 VM에 할당
 
@@ -251,7 +258,7 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>1단계: 부하 분산 장치 리소스 저장
 
-부하 분산 장치 리소스를 변수로 저장(아직 수행하지 않은 경우)합니다. **$lb**를 변수 이름으로 사용합니다. 스크립트의 특성 값에 대해 이전 단계에서 만든 부하 분산 장치 리소스의 이름을 사용합니다.
+부하 분산 장치 리소스를 변수로 저장(아직 수행하지 않은 경우)합니다. **$Lb**변수 이름을 사용 하 고 있습니다. 스크립트의 특성 값에 대해 이전 단계에서 만든 부하 분산 장치 리소스의 이름을 사용 합니다.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

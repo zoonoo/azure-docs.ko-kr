@@ -1,26 +1,19 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 백업에서 웹앱 복원 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 백업에서 웹앱 복원
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell: 앱 백업 복원'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 백업에서 앱을 복원하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
-ms.service: app-service-web
-ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: aca7f700dc7004f682430d0794f8bc9b024f41b3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.custom: mvc, seodec18
+ms.openlocfilehash: a10a451bff73c081d9b0c95c494acb8b2051bd84
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113501"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057739"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Azure PowerShell을 사용하여 백업에서 웹앱 복원
 

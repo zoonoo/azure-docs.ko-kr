@@ -1,9 +1,9 @@
 ---
-title: Azure Traffic Manager 지리적 라우팅 유형에서 사용하는 국가/지역 계층 구조 | Microsoft Docs
+title: 지리적 라우팅에서 사용 하는 국가/지역 계층 구조-Azure Traffic Manager
 description: 이 문서에서는 Azure Traffic Manager 지리적 라우팅 유형에서 사용하는 국가/지역 계층 구조를 나열합니다.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumud
-ms.openlocfilehash: 7e3ea1d2a0c3e8501222d57a92fad917d465022e
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.author: rohink
+ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76938641"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>지리적 트래픽 라우팅 메소드에 대해 Azure Traffic Manager에서 사용하는 국가/지역 계층 구조
 
@@ -99,7 +98,7 @@ ms.locfileid: "64867001"
 
         - ME(몬테네그로)
 
-        - MK (마케도니아 북부)
+        - MK (북부 마케도니아)
 
         - MT(몰타)
 
@@ -128,7 +127,7 @@ ms.locfileid: "64867001"
         - SM(산마리노)
 
         - UA(우크라이나)
-            - 영역의 크리미아 반도
+            - Crimea의 지역
 
         - VA (바티칸 시국)
 
@@ -270,7 +269,7 @@ ms.locfileid: "64867001"
 
         - TT(트리니다드 토바고)
 
-        - UM(미국 소수 외부 제도)
+        - UM (미국 소수 외부 제도)
 
         - US(미국)
 
@@ -380,7 +379,7 @@ ms.locfileid: "64867001"
 
         - VG(영국령 버진 아일랜드)
 
-        - VI(미국령 버진 아일랜드)
+        - VI (미국령 버진 아일랜드)
 
         - XE(신트외스타티우스)
 
@@ -564,7 +563,7 @@ ms.locfileid: "64867001"
 
         - TD(차드)
 
-        - TF(프랑스 남쪽 영역)
+        - TF(프랑스 남부 지방)
 
         - TG(토고)
 

@@ -9,15 +9,15 @@ ms.date: 02/26/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 8d8f8021925ac9c9e427dd6571ecaa1a30c85497
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670985"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67182825"
 ---
 <!-- This is the instructions for creating a simulated device you can use for testing routing.-->
 
-다음으로 디바이스 ID를 만들고 나중에 사용할 키를 저장합니다. 이 장치 ID는 IoT Hub에 메시지를 보내는 시뮬레이션 애플리케이션에서 사용됩니다. 이 기능은 PowerShell이나 Azure Resource Manager 템플릿을 사용하는 경우 사용할 수 없습니다. 다음 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 시뮬레이션된 디바이스를 만드는 방법을 알려줍니다.
+다음으로 디바이스 ID를 만들고 나중에 사용할 키를 저장합니다. 이 디바이스 ID는 IoT Hub에 메시지를 보내는 시뮬레이션 애플리케이션에서 사용됩니다. 이 기능은 PowerShell이나 Azure Resource Manager 템플릿을 사용하는 경우 사용할 수 없습니다. 다음 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 시뮬레이션된 디바이스를 만드는 방법을 알려줍니다.
 
 1. [Azure Portal](https://portal.azure.com)을 열고 사용자의 Azure 계정에 로그인합니다.
 

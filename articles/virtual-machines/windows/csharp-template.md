@@ -1,26 +1,19 @@
 ---
-title: C# 및 Resource Manager 템플릿을 사용하여 VM 배포 | Microsoft Docs
+title: C# 및 Resource Manager 템플릿을 사용하여 VM 배포
 description: C# 및 Resource Manager 템플릿을 사용하여 Azure VM을 배포하는 방법에 대해 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dfcc0c550af9df6c884c8cd864ed90daf5f78e2f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402186"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82082920"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 
@@ -166,7 +159,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-parameters-file"></a>매개 변수 파일 만들기
 
-템플릿에 정의된 리소스 매개 변수의 값을 지정하려면 값이 들어 있는 매개 변수 파일을 만듭니다.
+템플릿에 있는 리소스 매개 변수의 값을 지정하려면 값이 들어 있는 매개 변수 파일을 만듭니다.
 
 1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *Parameters.json*으로 지정하고 **추가**를 클릭합니다.
 2. 만든 파일에 이 JSON 코드를 추가합니다.
@@ -199,7 +192,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
@@ -208,14 +201,14 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 4. AZURE_AUTH_LOCATION이라는 Windows 환경 변수를 만든 권한 부여 파일의 전체 경로로 설정합니다. 예를 들어 다음 PowerShell 명령을 사용할 수 있습니다.
 
     ```powershell
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
     
 
 ## <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
-1. 만들었던 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 기존 문에 추가합니다.
+1. 만든 프로젝트의 Program.cs 파일을 엽니다. 그런 다음 파일 맨 위에 있는 기존 문에 다음 using 문을 추가합니다.
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -227,7 +220,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-2. 관리 클라이언트를 만들려면 다음 코드를 Main 메서드에 추가합니다.
+2. 관리 클라이언트를 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
     ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
@@ -253,9 +246,9 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-템플릿 및 매개 변수는 Azure의 저장소 계정에서 배포됩니다. 이 단계에서는 계정을 만들고 파일을 업로드합니다. 
+템플릿 및 매개 변수는 Azure의 스토리지 계정에서 배포됩니다. 이 단계에서는 계정을 만들고 파일을 업로드합니다. 
 
 계정을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
@@ -295,7 +288,7 @@ paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-만든 저장소 계정에서 템플릿 및 매개 변수를 배포합니다. 
+만든 스토리지 계정에서 템플릿 및 매개 변수를 배포합니다. 
 
 템플릿을 배포하려면 Main 메서드에 다음 코드를 추가합니다.
 

@@ -1,30 +1,20 @@
 ---
 title: 스마트 감지 - 성능 이상 | Microsoft Docs
 description: Application Insights는 앱 원격 분석의 스마트 분석을 수행하여 잠재적 성능 문제에 대해 경고합니다. 이 기능에는 설정이 필요하지 않습니다.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.author: mbullwin
-ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61294086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84016851"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md)는 웹 애플리케이션의 성능을 자동으로 분석하고 잠재적 문제에 대해 경고할 수 있습니다. 스마트 검색 알림 중 하나를 수신했으므로 읽어볼 수 있습니다.
 
-이 기능에는 [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md) 또는 [Node.js](../../azure-monitor/app/nodejs.md) 및 [웹 페이지 코드](../../azure-monitor/app/javascript.md)에서 Application Insights용 앱을 구성하는 것 외에는 특별한 설정이 필요하지 않습니다. 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
+이 기능을 사용 하려면 [지원 되는 언어](../../azure-monitor/app/platforms.md)에 대 한 Application Insights 앱을 구성 하는 것 외에 특별 한 설정이 필요 하지 않습니다. 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>스마트 검색 알림은 언제 제공되나요?
 
@@ -52,13 +42,13 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 2. **범위**. 이 문제가 모든 트래픽에 영향을 주나요? 아니면 일부 페이지에만 영향을 주나요? 특정 브라우저 또는 위치로 제한되나요? 이 정보는 알림에서 얻을 수 있습니다.
 3. **진단**. 종종 알림의 진단 정보는 문제의 특성을 암시합니다. 예를 들어 요청 속도가 높을 때 응답 시간이 느려지면 서버 또는 종속성이 오버로드된 것을 암시합니다. 
 
-    그렇지 않으면 Application Insights에서 성능 블레이드를 엽니다. 여기서 [프로파일러](profiler.md) 데이터를 찾을 수 있습니다. 예외가 throw되는 경우에는 [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)를 사용할 수 있습니다.
+    그렇지 않으면 Application Insights에서 성능 블레이드를 엽니다. 여기서 [프로파일러](profiler.md) 데이터를 찾을 수 있습니다. 예외가 throw되는 경우에는 [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)를 사용할 수 있습니다.
 
 
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
-스마트 검색 알림은 기본적으로 사용되도록 설정되며 [Application Insights 리소스에 대해 액세스 권한이 있는 소유자, 기고자 및 읽기 권한자](../../azure-monitor/app/resources-roles-access-control.md)에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
+스마트 검색 알림은 기본적으로 사용되도록 설정되며 Application Insights 리소스에 대해 [모니터링 리더](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 액세스 권한이 있는 자들에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
   ![스마트 검색 설정](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -69,7 +59,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 ## <a name="faq"></a>FAQ
 
 * *그렇다면, 내 데이터를 확인하나요?*
-  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](../../azure-monitor/app/data-retention-privacy.md)입니다.
+  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
 * *Application Insights를 통해 수집되는 모든 데이터를 분석하나요?*
   * 현재는 암호화되지 않습니다. 현재는 요청 응답 시간, 종속성 응답 시간 및 페이지 로드 시간을 분석합니다. 추가 메트릭에 대한 분석은 현재 서비스를 위해 작업 중입니다.
 
@@ -79,12 +69,12 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 * *나만의 이상 감지 규칙을 만들거나 기존 규칙을 사용자 지정할 수 있나요?*
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
-    * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](../../azure-monitor/app/alerts.md)할 수 있습니다.
-    * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md), [PowerBI](../../azure-monitor/app/export-power-bi.md )에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-telemetry.md).
+    * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](/azure/azure-monitor/platform/alerts-log)할 수 있습니다.
+    * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md), [Power BI](../../azure-monitor/app/export-power-bi.md )에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-telemetry.md).
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
-* 이것이 *메트릭 경고[를 대신하나요](../../azure-monitor/app/alerts.md)?*
+* 이것이 *메트릭 경고[를 대신하나요](/azure/azure-monitor/platform/alerts-log)?*
   * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
@@ -183,11 +173,11 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
 * [프로파일러](profiler.md) 
-* [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)
+* [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)
 * [분석](../../azure-monitor/log-query/get-started-portal.md)
 * [분석 스마트 진단](../../azure-monitor/app/analytics.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
-* [수동으로 구성된 메트릭 경고](../../azure-monitor/app/alerts.md)
+* [수동으로 구성된 메트릭 경고](/azure/azure-monitor/platform/alerts-log)
 * [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)

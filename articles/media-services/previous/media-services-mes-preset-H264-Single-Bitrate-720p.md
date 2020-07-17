@@ -1,8 +1,8 @@
 ---
 title: H264 단일 비트 전송률 720p Media Encoder Standard 사전 설정-Azure | Microsoft Docs
-description: 이 문서에서는 **H264 단일 비트 전송률 720p** 태스크 사전 설정에 대한 개요를 제공합니다.
-author: WenJason
-manager: digimobile
+description: 이 문서에서는 "H264 단일 비트 전송률 720p" 작업 미리 설정 Media Encoder Standard에 대 한 개요를 제공 합니다.
+author: Juliako
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,15 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/19/2019
-ms.date: 04/01/2019
-ms.author: v-jay
-ms.openlocfilehash: d43b78b83ca1dcb60dc6afb17424354975681494
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 03/19/2019
+ms.author: juliako
+ms.openlocfilehash: e48f0c614ba7a7b4199e6ddf0050de0ae7db063f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61129600"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74886832"
 ---
 # <a name="h264-single-bitrate-720p"></a>H264 단일 비트 전송률 720p
 `Media Encoder Standard`는 인코딩 작업을 만들 때 사용할 수 있는 인코딩 미리 설정을 정의합니다. `preset name`을 사용하여 미디어 파일을 인코딩할 형식을 지정할 수 있습니다. 또는 자신만의 JSON 또는 XML 기반 미리 설정(UTF-8 또는 UTF-16 인코딩을 사용하여)을 만들 수 있습니다. 그런 다음 사용자 지정 미리 설정을 인코더에 전달합니다. `Media Encoder Standard` 인코더에서 지원되는 모든 미리 설정 이름의 목록을 보려면 [Media Encoder Standard에 대한 작업 미리 설정](media-services-mes-presets-overview.md)을 참조하세요.  

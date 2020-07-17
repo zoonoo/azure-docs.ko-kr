@@ -1,27 +1,19 @@
 ---
-title: Azure에서 Windows VM의 OS 드라이브 확장 | Microsoft Docs
+title: Azure에서 Windows VM의 OS 드라이브 확장
 description: Resource Manager 배포 모델에서 Azure Powershell을 사용하여 가상 머신의 OS 드라이브 크기를 확장합니다.
-services: virtual-machines-windows
-documentationcenter: ''
-author: kirpasingh
-manager: roshar
-editor: ''
-tags: azure-resource-manager
-ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
+author: mimckitt
+manager: vashan
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: kirpas
+ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: bd863a8ddd9e2277b628673d2146efd8c458c319
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 5044993e04dabc363a7a4ee49abb66285bcd7521
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338252"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
 
@@ -32,13 +24,13 @@ ms.locfileid: "55979499"
 
 
 > [!IMPORTANT]
-> Azure Virtual Machine의 OS 디스크 크기를 조정하면 다시 시작됩니다.
+> Azure Virtual Machine의 OS 디스크 크기를 조정하려면 가상 머신의 할당을 취소해야 합니다.
 >
 > 디스크를 확장한 후 더 큰 디스크를 활용하려면 [OS 내에서 볼륨](#expand-the-volume-within-the-os)을 확장해야 합니다.
 > 
 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
 
 
 ## <a name="resize-a-managed-disk"></a>관리 디스크 크기 조정
@@ -167,7 +159,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="resizing-data-disks"></a>데이터 디스크 크기 조정
 
-이 문서는 주로 VM의 OS 디스크를 확장하는 데 중점을 두지만 스크립트는 VM에 연결된 데이터 디스크를 확장하는 데 사용할 수도 있습니다. 예를 들어 VM에 연결된 첫 번째 데이터 디스크를 확장하려면 아래와 같이 `StorageProfile`의 `OSDisk` 개체를 `DataDisks` 배열로 바꾸고 숫자 인덱스를 사용하여 첫 번째 연결된 데이터 디스크의 참조를 가져옵니다.
+이 문서는 주로 VM의 OS 디스크를 확장하는 데 중점을 두지만 스크립트는 VM에 연결된 데이터 디스크를 확장하는 데 사용할 수도 있습니다. 데이터 디스크만 확장 하는 경우 VM의 할당을 취소할 필요가 **없습니다** . 예를 들어 VM에 연결된 첫 번째 데이터 디스크를 확장하려면 아래와 같이 `StorageProfile`의 `OSDisk` 개체를 `DataDisks` 배열로 바꾸고 숫자 인덱스를 사용하여 첫 번째 연결된 데이터 디스크의 참조를 가져옵니다.
 
 **관리 디스크**
 
@@ -208,9 +200,9 @@ VM의 디스크를 확장한 후에는 OS로 이동하고 볼륨을 확장하여
 
 2.  명령 프롬프트를 열고 **diskpart**를 입력합니다.
 
-2.  **DISKPART** 프롬프트에 `list volume`을 입력합니다. 확장할 볼륨을 기록해 둡니다.
+2.  **DISKPART** 프롬프트에서 `list volume`을(를) 입력합니다. 확장할 볼륨을 기록해 둡니다.
 
-3.  **DISKPART** 프롬프트에 `select volume <volumenumber>`를 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber*가 선택됩니다.
+3.  **DISKPART** 프롬프트에서 `select volume <volumenumber>`을(를) 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber*가 선택됩니다.
 
 4.  **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
 

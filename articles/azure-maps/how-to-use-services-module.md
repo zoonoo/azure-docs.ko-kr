@@ -1,6 +1,6 @@
 ---
-title: 서비스 모듈-Azure Maps를 사용 하 여 | Microsoft Docs
-description: Azure Maps 서비스 모듈을 사용 하는 방법을 알아봅니다.
+title: Azure Maps Services 모듈 사용 | Microsoft Azure 맵
+description: 이 문서에서는 Azure Maps services 모듈을 사용 하 여 Microsoft Azure Maps REST 서비스를 활용 하는 방법을 알아봅니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,40 +8,39 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: f3650d4db06a763308939e9fb1a98fddb0eaa04a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80804659"
 ---
-# <a name="use-the-azure-maps-services-module"></a>Azure Maps 서비스 모듈을 사용
+# <a name="use-the-azure-maps-services-module"></a>Azure Maps services 모듈 사용
 
-Azure Maps 웹 SDK는 제공 된 *services 모듈*합니다. 이 모듈은 손쉽게 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST 서비스를 사용 하는 도우미 라이브러리입니다.
+Azure Maps 웹 SDK는 *서비스 모듈*을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST 서비스를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다.
 
-## <a name="use-the-services-module-in-a-webpage"></a>웹 페이지에서 서비스 모듈을 사용 합니다.
+## <a name="use-the-services-module-in-a-webpage"></a>웹 페이지에서 서비스 모듈 사용
 
 1. 새 HTML 파일 만들기
-1. Azure Maps 서비스 모듈을 로드 합니다. 두 가지 방법 중 하나에서 로드할 수 있습니다.
-    - Azure Maps 서비스 모듈의 전역적으로 호스팅되는 Azure Content Delivery Network 버전을 사용 합니다. 에 대 한 스크립트 참조를 추가 합니다 `<head>` 파일의 요소:
+1. Azure Maps services 모듈을 로드 합니다. 다음 두 가지 방법 중 하나로 로드할 수 있습니다.
+    - Azure Maps services 모듈의 전역적으로 호스팅된 Azure Content Delivery Network 버전을 사용 합니다. 파일의 요소에 스크립트 참조를 추가 합니다 `<head>` .
 
         ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - 사용 하 여 로컬로 또는 Azure 매핑합니다 웹 SDK 소스 코드를 로드 합니다 [azure-맵-rest](https://www.npmjs.com/package/azure-maps-rest) npm 패키지를 선택한 후 앱과 함께 호스트할 합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 이 명령을 사용 합니다.
+    - 또는 [Azure Maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm 패키지를 사용 하 여 AZURE MAPS 웹 SDK 소스 코드에 대 한 서비스 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스팅합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 이 명령 사용:
     
         > **npm install azure-maps-rest**
     
-        그런 다음에 대 한 스크립트 참조를 추가 합니다 `<head>` 파일의 요소:
+        그런 다음 파일의 요소에 스크립트 참조를 추가 합니다 `<head>` .
 
          ```html
-        <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
+        <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
          ```
 
-1. 인증 파이프라인을 만듭니다. 서비스 URL 클라이언트 끝점을 초기화 하기 전에 파이프라인을 만들어야 합니다. 사용자 고유의 Azure Maps 계정 키 또는 Azure Active Directory (Azure AD) 자격 증명을 사용 하 여 Azure Maps 검색 서비스 클라이언트를 인증 합니다. 이 예제에서는 검색 서비스 URL 클라이언트가 만들어집니다. 
+1. 인증 파이프라인을 만듭니다. 서비스 URL 클라이언트 끝점을 초기화 하려면 먼저 파이프라인을 만들어야 합니다. 사용자 고유의 Azure Maps 계정 키 또는 Azure Active Directory (Azure AD) 자격 증명을 사용 하 여 Azure Maps Search 서비스 클라이언트를 인증 합니다. 이 예제에서는 검색 서비스 URL 클라이언트가 생성 됩니다. 
 
-    인증에 대 한 구독 키를 사용 하면:
+    인증에 구독 키를 사용 하는 경우:
 
     ```javascript
     // Get an Azure Maps key at https://azure.com/maps.
@@ -59,7 +58,7 @@ Azure Maps 웹 SDK는 제공 된 *services 모듈*합니다. 이 모듈은 손�
     var searchURL = new atlas.service.SearchURL(pipeline);
     ```
 
-    인증 Azure AD를 사용 하는 경우:
+    인증에 Azure AD를 사용 하는 경우:
 
     ```javascript
     // Enter your Azure AD client ID.
@@ -73,115 +72,138 @@ Azure Maps 웹 SDK는 제공 된 *services 모듈*합니다. 이 모듈은 손�
     // This time-out must be cleared when the TokenCredential object is no longer needed.
     // If the time-out is not cleared, the memory used by the TokenCredential will never be reclaimed.
     var renewToken = async () => {
-    try {
-      console.log("Renewing token");
-      var token = await getAadToken();
-      tokenCredential.token = token;
-      tokenRenewalTimer = setTimeout(renewToken, getExpiration(token));
-    } catch (error) {
-      console.log("Caught error when renewing token");
-      clearTimeout(tokenRenewalTimer);
-      throw error;
-    }
+      try {
+        console.log("Renewing token");
+        var token = await getAadToken();
+        tokenCredential.token = token;
+        tokenRenewalTimer = setTimeout(renewToken, getExpiration(token));
+      } catch (error) {
+        console.log("Caught error when renewing token");
+        clearTimeout(tokenRenewalTimer);
+        throw error;
+      }
     }
     tokenRenewalTimer = setTimeout(renewToken, getExpiration(aadToken));
 
     // Use tokenCredential to create a pipeline.
     var pipeline = atlas.service.MapsURL.newPipeline(tokenCredential, {
-    retryOptions: { maxTries: 4 } // Retry options
+      retryOptions: { maxTries: 4 } // Retry options
     });
 
     // Create an instance of the SearchURL client.
     var searchURL = new atlas.service.SearchURL(pipeline);
 
     function getAadToken() {
-        // Use the signed-in auth context to get a token.
-        return new Promise((resolve, reject) => {
-            // The resource should always be https://atlas.microsoft.com/.
-            const resource = "https://atlas.microsoft.com/";
-            authContext.acquireToken(resource, (error, token) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(token);
-                }
-            });
-        })
+      // Use the signed-in auth context to get a token.
+      return new Promise((resolve, reject) => {
+        // The resource should always be https://atlas.microsoft.com/.
+        const resource = "https://atlas.microsoft.com/";
+        authContext.acquireToken(resource, (error, token) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(token);
+          }
+        });
+      })
     }
 
     function getExpiration(jwtToken) {
-        // Decode the JSON Web Token (JWT) to get the expiration time stamp.
-        const json = atob(jwtToken.split(".")[1]);
-        const decode = JSON.parse(json);
+      // Decode the JSON Web Token (JWT) to get the expiration time stamp.
+      const json = atob(jwtToken.split(".")[1]);
+      const decode = JSON.parse(json);
 
-        // Return the milliseconds remaining until the token must be renewed.
-        // Reduce the time until renewal by 5 minutes to avoid using an expired token.
-        // The exp property is the time stamp of the expiration, in seconds.
-        const renewSkew = 300000;
-        return (1000 * decode.exp) - Date.now() - renewSkew;
+      // Return the milliseconds remaining until the token must be renewed.
+      // Reduce the time until renewal by 5 minutes to avoid using an expired token.
+      // The exp property is the time stamp of the expiration, in seconds.
+      const renewSkew = 300000;
+      return (1000 * decode.exp) - Date.now() - renewSkew;
     }
     ```
 
-    자세한 내용은 [Azure Maps를 사용 하 여 인증](azure-maps-authentication.md)합니다.
+    자세한 내용은 [Azure Maps 인증](azure-maps-authentication.md)을 참조 하세요.
 
-1. 다음 코드는 새로 만든된 Azure Search 서비스 URL 클라이언트 geocode 주소를 사용합니다. "1 Microsoft Way, Redmond, WA". 코드를 사용 하는 `searchAddress` 함수 및 페이지의 본문에는 테이블로 결과 표시 합니다.
+1. 다음 코드는 새로 만든 Azure Maps Search 서비스 URL 클라이언트를 사용 하 여 "1 Microsoft 방식, Redmond, WA"와 같은 주소로 geocode를 사용 합니다. 이 코드에서는 함수를 사용 하 `searchAddress` 고 결과를 페이지 본문에 테이블로 표시 합니다.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
-    searchURL.searchAddress(atlas.service.Aborter.timeout(10000), '1 microsoft way, redmond, wa').then(response => {
-      var html = [];
+    searchURL.searchAddress(atlas.service.Aborter.timeout(10000), '1 microsoft way, redmond, wa')
+      .then(response => {
+        var html = [];
 
-      // Display the total results.
-      html.push('Total results: ', response.summary.numResults, '<br/><br/>');
+        // Display the total results.
+        html.push('Total results: ', response.summary.numResults, '<br/><br/>');
 
-      // Create a table of the results.
-      html.push('<table><tr><td></td><td>Result</td><td>Latitude</td><td>Longitude</td></tr>');
+        // Create a table of the results.
+        html.push('<table><tr><td></td><td>Result</td><td>Latitude</td><td>Longitude</td></tr>');
 
-      for(var i=0;i<response.results.length;i++){
-        html.push('<tr><td>', (i+1), '.</td><td>', 
-          response.results[i].address.freeformAddress, 
-          '</td><td>', 
-          response.results[i].position.lat,
-          '</td><td>', 
-          response.results[i].position.lon,
-          '</td></tr>');
-      }
+        for(var i=0;i<response.results.length;i++){
+          html.push('<tr><td>', (i+1), '.</td><td>', 
+            response.results[i].address.freeformAddress, 
+            '</td><td>', 
+            response.results[i].position.lat,
+            '</td><td>', 
+            response.results[i].position.lon,
+            '</td></tr>');
+        }
 
-      html.push('</table>');
+        html.push('</table>');
 
-      // Add the resulting HTML to the body of the page.
-      document.body.innerHTML = html.join('');
+        // Add the resulting HTML to the body of the page.
+        document.body.innerHTML = html.join('');
     });
     ```
 
-    코드 샘플을 실행 하 고 전체는 다음과 같습니다.
+    전체 코드 샘플은 다음과 같습니다.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="서비스 모듈을 사용 하 여" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-펜을을 참조 하세요 <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Services 모듈을 사용 하 여</a> 에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 <a href='https://codepen.io'>CodePen</a>합니다.
+<iframe height="500" style="width: 100%;" scrolling="no" title="서비스 모듈 사용" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+CodePen에서 Azure Maps ()를 <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>사용 하 여 서비스 모듈을 사용 하</a> 여 펜을 확인 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
 </iframe>
+
+<br/>
+
+## <a name="azure-government-cloud-support"></a>Azure Government 클라우드 지원
+
+Azure Maps 웹 SDK는 Azure Government 클라우드를 지원 합니다. Azure Maps Web SDK에 액세스 하는 데 사용 되는 모든 JavaScript 및 CSS Url은 동일 하 게 유지 되지만, Azure Maps 플랫폼의 Azure Government 클라우드 버전에 연결 하려면 다음 작업을 수행 해야 합니다.
+
+대화형 맵 컨트롤을 사용 하는 경우 클래스의 인스턴스를 만들기 전에 다음 코드 줄을 추가 `Map` 합니다. 
+
+```javascript
+atlas.setDomain('atlas.azure.us');
+```
+
+지도와 서비스를 인증 하는 경우 Azure Government 클라우드 플랫폼에서 Azure Maps 인증 세부 정보를 사용 해야 합니다.
+
+서비스 모듈을 사용 하는 경우 API URL 끝점의 인스턴스를 만들 때 서비스에 대 한 도메인을 설정 해야 합니다. 예를 들어 다음 코드는 클래스의 인스턴스를 만들고 `SearchURL` 도메인을 Azure Government 클라우드로 가리킵니다.
+
+```javascript
+var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
+```
+
+Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 변경 `atlas.azure.us` 합니다. 예를 들어 검색 API 서비스를 사용 하는 경우 URL 도메인을에서 `https://atlas.microsoft.com/search/` 로 변경 `https://atlas.azure.us/search/` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl?view=azure-iot-typescript-latest)
+> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest)
+> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest)
+> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [SubscriptionKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential?view=azure-iot-typescript-latest)
+> [SubscriptionKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-iot-typescript-latest)
+> [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-maps-typescript-latest)
 
-서비스 모듈을 사용 하는 추가 코드 샘플, 이러한 문서를 참조 하세요.
+서비스 모듈을 사용 하는 더 많은 코드 샘플은 다음 문서를 참조 하세요.
 
 > [!div class="nextstepaction"]
 > [지도에 검색 결과 표시](./map-search-location.md)

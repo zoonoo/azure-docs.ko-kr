@@ -1,5 +1,6 @@
 ---
-title: Azure API Management 정책 샘플 - 상관 관계 ID를 포함하는 헤더 추가 | Microsoft Docs
+title: API management 정책 샘플-상관 관계 id를 포함 하는 헤더 추가
+titleSuffix: Azure API Management
 description: Azure API Management 정책 샘플 - 상관 관계 ID를 포함하는 헤더를 인바운드 요청에 추가하는 방법을 보여줍니다.
 services: api-management
 documentationcenter: ''
@@ -9,16 +10,14 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 126701674b6dc529404f5a7854cda9b31c336170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 79910aa60602a80cbe79c4ce9899f6ff73fbfde9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306786"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75422244"
 ---
 # <a name="add-a-header-containing-a-correlation-id"></a>상관 관계 ID를 포함하는 헤더 추가
 

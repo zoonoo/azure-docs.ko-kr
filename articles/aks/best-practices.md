@@ -2,18 +2,13 @@
 title: AKS(Azure Kubernetes Service)에 대한 모범 사례
 description: 클러스터 운영자 및 개발자가 AKS(Azure Kubernetes Service)에서 애플리케이션을 구축 및 관리하는 모범 사례에 대한 모음입니다.
 services: container-service
-author: rockboyfor
-ms.service: container-service
 ms.topic: article
-origin.date: 12/07/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 12/07/2018
+ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467156"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77596320"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션을 구축 및 관리하는 클러스터 운영자 및 개발자의 모범 사례
 
@@ -25,7 +20,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축
 
 클러스터 운영자는 애플리케이션 소유자 및 개발자와 협력하여 요구 사항을 파악합니다. 그런 다음, 다음과 같은 모범 사례를 사용하여 필요에 따라 AKS 클러스터를 구성합니다.
 
-**다중 테넌트 지원**
+**다중 테 넌 트**
 
 * [클러스터 격리에 대한 모범 사례](operator-best-practices-cluster-isolation.md)
     * 다중 테넌트 핵심 구성 요소 및 네임스페이스를 통한 논리적 격리와 관련이 있습니다.
@@ -41,7 +36,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축
 * [클러스터 보안 및 업그레이드에 대한 모범 사례](operator-best-practices-cluster-security.md)
     * API 서버에 대한 액세스를 보호하고, 컨테이너 액세스를 제한하며, 업그레이드 및 노드 재부팅을 관리합니다.
 * [컨테이너 이미지 관리 및 보안에 대한 모범 사례](operator-best-practices-container-image-management.md)
-    * 신뢰할 수 있는 레지스트리를 사용하여 이미지와 런타임을 보호하고, 기본 이미지 업데이트를 자동으로 빌드합니다.
+    * 기본 이미지 업데이트에 대 한 이미지 및 런타임 보안 및 자동화 된 빌드를 포함 합니다.
 * [Pod 보안에 대한 모범 사례](developer-best-practices-pod-security.md)
     * 리소스에 대한 액세스를 보호하고, 자격 증명 노출을 제한하며, Pod ID와 디지털 키 자격 증명 모음을 사용합니다.
 
@@ -74,7 +69,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축
 * [액세스 및 ID](concepts-identity.md)
 * [보안 개념](concepts-security.md)
 * [네트워크 개념](concepts-network.md)
-* [저장소 옵션](concepts-storage.md)
+* [스토리지 옵션](concepts-storage.md)
 * [크기 조정 옵션](concepts-scale.md)
 
 ## <a name="next-steps"></a>다음 단계

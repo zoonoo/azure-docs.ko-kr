@@ -4,34 +4,31 @@ description: 부팅할 때 발생하는 "0x0000005A-CRITICAL SERVICE FAILED" 오
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60593230"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129858"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 블루 스크린에 "CRITICAL SERVICE FAILED"가 표시됨
 이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 부팅할 때 발생할 수 있는 "CRITICAL SERVICE FAILED" 오류에 대해 설명합니다. 그리고 해당 문제를 해결할 수 있는 문제 해결 단계를 제공합니다. 
 
-> [!NOTE] 
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용을 설명하고 있으며, 새로운 배포에 대해 클래식 배포 모델 대신 이 모델을 사용하는 것이 좋습니다.
 
 ## <a name="symptom"></a>증상 
 
 Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)에서 부트 스크린샷을 확인하면 블루 스크린에 다음 오류 메시지 중 하나가 표시됩니다.
 
-- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 http://windows.com/stopcode를 참조하세요. 지원 담당자를 호출하는 경우 이 정보를 제공합니다. 코드 중지: 중요 서비스 실패" 
-- "PC에 문제가 생겨 다시 시작해야 합니다. 일부 오류 정보를 수집하고 있습니다. 그런 다음 자동으로 다시 시작합니다. 자세한 내용을 보려면 나중에 온라인에서 다음 오류를 검색할 수 있습니다. CRITICAL_SERVICE_FAILED"
+- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 https://windows.com/stopcode를 참조하세요. 지원 담당자에게 연락하는 경우 다음 정보를 제공하세요. 중지 코드: CRITICAL SERVICE FAILED" 
+- "PC에 문제가 생겨 다시 시작해야 합니다. 일부 오류 정보를 수집하고 있습니다. 그런 다음 자동으로 다시 시작합니다. 자세한 내용을 보려면 나중에 온라인에서 이 오류를 검색할 수 있습니다. RITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>원인
 
@@ -40,14 +37,14 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 - 손상된 시스템 파일 또는 메모리
 - 애플리케이션에서 메모리의 금지된 섹터에 액세스
 
-## <a name="solution"></a>해결 방법 
+## <a name="solution"></a>솔루션 
 
 이 문제를 해결하려면 [지원을 요청하고 덤프 파일을 제출](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file)하세요. 덤프 파일이 있으면 Microsoft에서 문제를 더 빠르게 진단할 수 있습니다. 또는 다음 자가 진단 솔루션을 사용해 볼 수도 있습니다.
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
-1. 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
-2. [복구 VM에 OS 디스크를 연결합니다](./troubleshoot-recovery-disks-portal-windows.md). 
+1. 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+2. [OS 디스크를 복구 VM에 연결](./troubleshoot-recovery-disks-portal-windows.md)합니다. 
 3. 복구 VM에 대한 원격 데스크톱 연결을 설정합니다.
 
 ### <a name="enable-dump-logs-and-serial-console"></a>덤프 로그 및 직렬 콘솔을 사용하도록 설정
@@ -87,13 +84,17 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 
 1. 복구 VM의 관리자 권한 명령 프롬프트에서 다음 명령을 실행합니다. 이 명령은 해당하는 OS 디스크가 다음 부팅 시 안전 모드로 시작되도록 설정합니다.
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     예를 들어 연결한 OS 디스크가 드라이브 F인 경우 다음 명령을 실행합니다.
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
-2. [OS 디스크를 분리한 다음 해당 VM에 OS 디스크를 다시 연결합니다](troubleshoot-recovery-disks-portal-windows.md). VM이 안전 모드로 부팅됩니다. 오류가 계속 발생하면 선택적 단계로 이동합니다.
+2. [Os 디스크를 분리 한 다음, 영향을 받는 VM에 os 디스크를 다시 연결](troubleshoot-recovery-disks-portal-windows.md)합니다. VM이 안전 모드로 부팅됩니다. 오류가 계속 발생하면 선택적 단계로 이동합니다.
 3. **실행** 상자를 열고 **검증 도구**를 실행하여 드라이버 검증 도구 관리자 도구를 시작합니다.
 4. **서명되지 않은 드라이버 자동으로 선택**을 선택하고 **다음**을 클릭합니다.
 5. 서명되지 않은 드라이버 파일 목록이 표시됩니다. 파일 이름을 기억해 둡니다.
@@ -101,24 +102,27 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 
 7. 안전 부팅 설정을 제거합니다.
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.  VM을 다시 시작합니다. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>선택 사항: 덤프 크래시 모드로 덤프 로그 분석
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>선택 사항: 덤프 크래시 모드에서 덤프 로그 분석
 
-덤프 로그를 직접 분석 하려면 다음이 단계를 수행 합니다.
+덤프 로그를 직접 분석 하려면 다음 단계를 수행 합니다.
 
 1. 복구 VM에 OS 디스크를 연결합니다.
-2. 연결한 OS 디스크에서 **\windows\system32\config**로 이동합니다. 롤백이 필요한 경우에 대비해 모든 파일을 백업으로 복사합니다.
+2. 연결한 OS 디스크에서 **\windows\system32\config**로 이동 합니다. 롤백이 필요한 경우 모든 파일을 백업으로 복사 합니다.
 3. **레지스트리 편집기**(regedit.exe)를 시작합니다.
-4. **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일** > **Hive 로드**를 선택합니다.
-5. 연결한 OS 디스크에서 **\windows\system32\config\SYSTEM** 폴더로 이동합니다. Hive 이름으로 **BROKENSYSTEM**을 입력합니다. 새 레지스트리 Hive는 **HKEY_LOCAL_MACHINE** 키 아래에 표시됩니다.
+4. **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일**  >  **로드 하이브**를 선택 합니다.
+5. 연결한 OS 디스크에서 **\windows\system32\config\SYSTEM** 폴더를 찾습니다. Hive 이름으로 **BROKENSYSTEM**을 입력합니다. 새 레지스트리 Hive는 **HKEY_LOCAL_MACHINE** 키 아래에 표시됩니다.
 6. **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl**로 이동하여 값을 다음과 같이 변경합니다.
 
     Autoreboot = 0
 
     CrashDumpEnabled = 2
-7.  **BROKENSYSTEM**을 선택합니다. 메뉴에서 **파일** > **Hive 언로드**를 선택합니다.
+7.  **BROKENSYSTEM**을 선택합니다. 메뉴에서 **파일**  >  **언로드 하이브**를 선택 합니다.
 8.  디버그 모드로 부팅되도록 BCD 설정을 수정합니다. 이렇게 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 사용합니다.
 
     ```cmd
@@ -135,10 +139,10 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} recoveryenabled no
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} integrityservices disable
     ```
-9. [OS 디스크를 분리한 다음 해당 VM에 OS 디스크를 다시 연결합니다](troubleshoot-recovery-disks-portal-windows.md).
+9. [Os 디스크를 분리 한 다음, 영향을 받는 VM에 os 디스크를 다시 연결](troubleshoot-recovery-disks-portal-windows.md)합니다.
 10. VM을 부팅하여 덤프 분석이 표시되는지 확인합니다. 로드할 수 없는 파일을 찾습니다. 이 파일을 작동하는 VM의 파일로 바꿔야 합니다. 
 
-    덤프 분석 샘플은 다음과 같습니다. filecrypt.sys에서 **오류**가 발행했는지 확인할 수 있습니다. "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
+    덤프 분석 샘플은 다음과 같습니다. "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys"를 통해 filecrypt.sys에서 **FAILURE**가 발생했음을 확인할 수 있습니다.
 
     ```
     kd> !analyze -v 

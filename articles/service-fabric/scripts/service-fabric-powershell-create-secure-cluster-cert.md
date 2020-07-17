@@ -1,26 +1,25 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터 만들기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터 만들기
+title: Powershell에서 Service Fabric 클러스터 만들기
+description: Azure PowerShell 스크립트 샘플 - X.509 인증서로 보호되는 Service Fabric 클러스터를 만듭니다.
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 01/19/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: ae43ab6cb8236d2e438eb107491126756325bb5d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f8e1a0ca86f9346cf07c87a738d48cb56f6d7d57
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666625"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75614777"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 

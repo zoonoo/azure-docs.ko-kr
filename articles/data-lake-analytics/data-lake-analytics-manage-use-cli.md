@@ -1,19 +1,19 @@
 ---
-title: Azure 명령줄 인터페이스를 사용하여 Azure Data Lake Analytics 관리
+title: Azure CLI를 사용 하 여 Azure Data Lake Analytics 관리
 description: 이 문서에서는 Azure CLI를 사용하여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리하는 방법을 설명합니다.
 services: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2e77e31049e2643f1488eb3f6be906de735ad2b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387063"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121421"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)를 사용하여 Azure Data Lake Analytics 관리
 
@@ -22,15 +22,15 @@ ms.locfileid: "60387063"
 Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택을 클릭합니다.
 
 
-**필수 구성 요소**
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에 다음 리소스가 있어야 합니다.
 
-* Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * Azure CLI. [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 참조하세요.
 
-   * 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases) 를 다운로드하여 설치합니다.
+  * 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases) 를 다운로드하여 설치합니다.
 
 * `az login` 명령을 사용하여 인증하고, 사용하려는 구독을 선택합니다. 회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
@@ -66,7 +66,7 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
    az dla account update --account "<Data Lake Analytics Account Name>" --firewall-state "Enabled" --query-store-retention 7
    ```
 
-### <a name="list-accounts"></a>계정 목록 표시
+### <a name="list-accounts"></a>계정 나열
 
 특정 리소스 그룹 내의 데이터 레이크 분석 계정 나열
 
@@ -90,7 +90,7 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
 
 Data Lake Analytics는 현재 다음 두 데이터 원본을 지원합니다.
 
-* [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
+* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage](../storage/common/storage-introduction.md)
 
 분석 계정을 만들 때 Azure 데이터 레이크 Storage 계정이 기본 Storage 계정이 되도록 지정해야 합니다. 기본 Data Lake 스토리지 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 Storage 계정 및/또는 Azure Storage 계정을 더 추가할 수 있습니다. 
@@ -111,7 +111,7 @@ Data Lake Analytics는 현재 다음 두 데이터 원본을 지원합니다.
 
 > [!NOTE]
 > File Storage FAQ FQDN(예: “myblob.blob.core.windows.net”)을 사용하지 마십시오.
-> 
+>
 
 ### <a name="add-additional-data-lake-store-accounts"></a>데이터 레이크 저장소 계정 추가
 
@@ -146,6 +146,7 @@ Blob Storage 계정 나열:
 ![데이터 레이크 분석은 데이터 원본을 나열합니다.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### <a name="delete-data-sources"></a>데이터 원본 삭제:
+
 데이터 레이크 저장소 계정을 삭제하려면:
 
    ```azurecli
@@ -159,6 +160,7 @@ Blob Storage 계정 나열:
    ```
 
 ## <a name="manage-jobs"></a>작업 관리
+
 작업을 만들려면 데이터 레이크 분석 계정이 있어야 합니다.  자세한 내용은 [데이터 레이크 분석 계정 관리](#manage-accounts)를 참조하세요.
 
 ### <a name="list-jobs"></a>작업 나열
@@ -179,7 +181,7 @@ Blob Storage 계정 나열:
 
 > [!NOTE]
 > 작업의 기본 우선 순위는 1000이고 작업에 대한 기본 병렬 처리 수준은 1입니다.
-> 
+>
 >    ```azurecli
 >    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
 >    ```
@@ -193,11 +195,11 @@ list 명령을 사용하여 Job ID를 찾은 후 cancel을 사용하여 작업�
 
 ## <a name="pipelines-and-recurrences"></a>파이프라인 및 되풀이
 
-**파이프라인 및 되풀이에 대한 정보 가져오기**
+### <a name="get-information-about-pipelines-and-recurrences"></a>파이프라인 및 되풀이에 대한 정보 가져오기
 
 `az dla job pipeline` 명령을 사용하여 이전에 제출한 작업의 파이프라인 정보를 확인합니다.
 
-```
+```azurecli
 az dla job pipeline list --account "<Data Lake Analytics Account Name>"
 
 az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
@@ -205,15 +207,14 @@ az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeli
 
 `az dla job recurrence` 명령을 사용하여 이전에 제출한 작업의 되풀이 정보를 확인합니다.
 
-```
+```azurecli
 az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="see-also"></a>참고 항목
-* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
-* [Azure 포털을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
-* [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
-* [Azure 포털을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
+## <a name="next-steps"></a>다음 단계
+* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
+* [Azure Portal를 사용 하 여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
+* [Azure Portal를 사용 하 여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
+* [Azure Portal를 사용 하 여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

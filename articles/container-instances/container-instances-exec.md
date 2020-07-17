@@ -1,18 +1,13 @@
 ---
-title: Azure Container Instances에서 실행 중인 컨테이너에서 명령 실행
+title: 실행 중인 컨테이너 인스턴스에서 명령 실행
 description: Azure Container Instances에서 현재 실행 중인 컨테이너에서 명령을 실행하는 방법에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: danlep
-ms.openlocfilehash: 577e2386c352798bc21a2c78b22726128ac7cf0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60579749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79247203"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>실행 중인 Azure Container Instances에서 명령 실행
 
@@ -34,8 +29,7 @@ az container exec --resource-group myResourceGroup --name mynginx --exec-command
 
 다음 예제 출력에서 Bash 셸은 실행 중인 Linux 컨테이너에서 시작되어 `ls`를 실행할 터미널을 제공합니다.
 
-```console
-$ az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
+```output
 root@caas-83e6c883014b427f9b277a2bba3b7b5f-708716530-2qv47:/# ls
 bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
 boot  etc  lib   media  opt  root  sbin  sys  usr
@@ -46,8 +40,11 @@ Bye.
 
 이 예제에서 명령 프롬프트는 실행 중인 Nanoserver 컨테이너에서 실행됩니다.
 
-```console
-$ az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
+```azurecli
+az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
+```
+
+```output
 Microsoft Windows [Version 10.0.14393]
 (c) 2016 Microsoft Corporation. All rights reserved.
 
@@ -82,7 +79,7 @@ Bye.
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
 ```
 
-## <a name="restrictions"></a>제한
+## <a name="restrictions"></a>제한 사항
 
 현재 Azure Container Instances에서는 [az container exec][az-container-exec]를 사용하여 단일 프로세스를 시작하도록 지원합니다. 또한 명령 인수를 전달할 수 없습니다. 예를 들어 `sh -c "echo FOO && echo BAR"`에서 명령을 연결하거나 `echo FOO`를 실행할 수 없습니다.
 

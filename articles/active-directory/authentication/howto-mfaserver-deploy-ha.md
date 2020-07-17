@@ -1,26 +1,28 @@
 ---
-title: 고가용성-Azure Active Directory에 대 한 Azure MFA 서버를 구성 합니다.
+title: Azure MFA 서버의 고가용성 - Azure Active Directory
 description: 고가용성을 제공하는 구성에서 Azure Multi-Factor Authentication 서버의 여러 인스턴스를 배포합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.topic: how-to
+ms.date: 11/21/2019
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5e7b5f6bef5358acf0709f994b85215e505fa4db
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358719"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "80653378"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>고가용성을 위한 Azure Multi-Factor Authentication 서버 구성
 
 Azure 서버 MFA 배포로 고가용성을 달성하려면 여러 MFA 서버를 배포해야 합니다. 이 섹션에서는 Azure MFS 서버 배포에서 고가용성 목표를 달성하기 위한 부하가 분산된 디자인에 대한 정보를 제공합니다.
+
+> [!IMPORTANT]
+> Microsoft는 2019년 7월 1일부터 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 신규 사용자의 다단계 인증이 필요한 고객은 클라우드 기반 Azure Multi-Factor Authentication을 사용해야 합니다. 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="mfa-server-overview"></a>MFA 서버 개요
 
@@ -36,7 +38,7 @@ MFA 마스터와 하위 MFA 서버는 모두 2단계 인증이 필요한 경우 
 
 AD와 성공적으로 인증된 후 MFA 서버는 MFA 서비스와 통신합니다. MFA 서버는 애플리케이션에 대한 사용자 액세스를 허용하거나 거부하는 MFA 서비스 알림을 기다립니다.
 
-MFA 마스터 서버가 오프라인인 경우 인증은 계속 처리될 수 있지만 MFA 데이터베이스에 대한 변경이 요구되는 작업은 처리할 수 없습니다. (예: 사용자, 셀프 서비스 PIN 변경, 변경 사용자 정보 또는 사용자 포털에 대 한 액세스 추가)
+MFA 마스터 서버가 오프라인인 경우 인증은 계속 처리될 수 있지만 MFA 데이터베이스에 대한 변경이 요구되는 작업은 처리할 수 없습니다. (예를 들어 사용자 추가, 셀프 서비스 PIN 변경 및 사용자 정보 변경 또는 사용자 포털 액세스 등)
 
 ## <a name="deployment"></a>배포
 
@@ -63,7 +65,7 @@ Azure MFA 서버 및 관련 구성 요소 간 부하 분산을 위해서는 다�
    ![Azure MFA 서버 - 앱 서버 HA](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > RPC는 동적 포트를 사용하므로 RPC에서 잠재적으로 사용할 수 있는 동적 포트 범위까지 방화벽을 열어 놓는 것은 좋지 않습니다. MFA 응용 프로그램 서버 **사이에** 방화벽이 있는 경우 하위 및 마스터 서버 간의 복제 트래픽에 대한 정적 포트에서 통신하고 방화벽에서 해당 포트를 열도록 MFA 서버를 구성해야 합니다. ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor```에서 ```Pfsvc_ncan_ip_tcp_port```라는 DWORD 레지스트리 값을 만들고 값을 사용 가능한 정적 포트로 설정하여 정적 포트를 강제 적용할 수 있습니다. 연결은 항상 하위 MFA 서버에 의해 마스터로 시작되고 정적 포트는 마스터에서만 필요하지만 언제든지 하위를 마스터가 되도록 수준을 올릴 수 있으므로 모든 MFA 서버에서 정적 포트를 설정해야 합니다.
+   > RPC는 동적 포트를 사용하므로 RPC에서 잠재적으로 사용할 수 있는 동적 포트 범위까지 방화벽을 열어 놓는 것은 좋지 않습니다. MFA 애플리케이션 서버 **사이에** 방화벽이 있는 경우 하위 및 마스터 서버 간의 복제 트래픽에 대한 정적 포트에서 통신하고 방화벽에서 해당 포트를 열도록 MFA 서버를 구성해야 합니다. ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor```에서 ```Pfsvc_ncan_ip_tcp_port```라는 DWORD 레지스트리 값을 만들고 값을 사용 가능한 정적 포트로 설정하여 정적 포트를 강제 적용할 수 있습니다. 연결은 항상 하위 MFA 서버에 의해 마스터로 시작되고 정적 포트는 마스터에서만 필요하지만 언제든지 하위를 마스터가 되도록 수준을 올릴 수 있으므로 모든 MFA 서버에서 정적 포트를 설정해야 합니다.
 
 2. 두 명의 사용자 포털/MFA 모바일 앱 서버(MFA-UP-MAS1 및 MFA-UP-MAS2)는 **상태 저장** 구성으로 부하 분산됩니다(mfa.contoso.com). 고정 세션은 MFA 사용자 포털과 Mobile App Service의 부하 분산을 위한 필수 조건임에 유의하세요.
    ![Azure MFA 서버 - 사용자 포털 및 Mobile App Service HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)

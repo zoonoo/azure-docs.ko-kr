@@ -6,18 +6,19 @@ author: billmath
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60295378"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253497"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Azure AD Connect의 성능에 영향을 주는 요인
 
@@ -28,13 +29,13 @@ Azure AD Connect는 Active Directory를 Azure AD에 동기화합니다. 이 서�
 | 토폴로지| Azure AD Connect의 엔드포인트 및 구성 요소 배포는 네트워크에서 관리해야 합니다. |
 | 확장| Azure AD Connect에서 관리되는 사용자, 그룹 및 OU와 같은 개체의 수입니다. |
 | 하드웨어| Azure AD Connect에 대한 하드웨어(물리적 또는 가상) 및 CPU, 메모리, 네트워크 및 하드 드라이브 구성을 비롯한 각 하드웨어 구성 요소에 대한 종속 성능 용량입니다. |
-| 구성| Azure AD Connect는 디렉터리 및 정보를 처리합니다. |
+| Configuration| Azure AD Connect는 디렉터리 및 정보를 처리합니다. |
 | 로드| 개체 변경의 빈도입니다. 로드는 시간, 일 또는 주 동안에 달라질 수 있습니다. 구성 요소에 따라 최대 부하 또는 평균 부하에 맞게 디자인해야 합니다. |
 
 이 문서의 목적은 Azure AD Connect 프로비저닝 엔진의 성능에 영향을 미치는 요소를 설명하는 것입니다. 대규모 또는 복잡한 조직(100,000개 초과의 개체를 프로비전하는 조직)은 여기에 설명된 성능 문제가 발생하는 경우 Azure AD Connect 구현을 최적화하기 위한 권장 사항을 사용할 수 있습니다. [Azure AD Connect 상태](how-to-connect-health-agent-install.md)와 같은 Azure AD Connect의 다른 구성 요소 및 에이전트는 여기에서 다루지 않습니다.
 
 > [!IMPORTANT]
-> Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 동작 중 하나는 Azure AD Connect 동기화의 불일치하거나 지원되지 않는 상태가 될 수 있습니다. 결과적으로, Microsoft는 해당 배포에 대해 기술 지원을 제공할 수 없습니다.
+> Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 작업을 수행 하면 Azure AD Connect 동기화 상태가 일치 하지 않거나 지원 되지 않는 상태가 될 수 있습니다. 따라서 Microsoft는 이러한 배포에 대 한 기술 지원을 제공할 수 없습니다.
 
 ## <a name="azure-ad-connect-component-factors"></a>Azure AD Connect 구성 요소
 
@@ -42,7 +43,7 @@ Azure AD Connect는 Active Directory를 Azure AD에 동기화합니다. 이 서�
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-프로비전 엔진은 각 Active Directory 포리스트와 Azure AD에 연결되어 있습니다. 각 디렉터리에서 정보를 읽는 프로세스를 가져오기라고 합니다. 내보내기는 프로비전 엔진에서 디렉터리를 업데이트하는 것을 가리킵니다. 동기화는 프로비전 엔진 내에서 개체가 흐르는 방식의 규칙을 평가합니다. 자세한 내용은 [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)를 참조하세요.
+프로비전 엔진은 각 Active Directory 포리스트와 Azure AD에 연결되어 있습니다. 각 디렉터리에서 정보를 읽는 프로세스를 가져오기라고 합니다. 내보내기는 프로비전 엔진에서 디렉터리를 업데이트하는 것을 가리킵니다. 동기화는 프로비전 엔진 내에서 개체가 흐르는 방식의 규칙을 평가합니다. 더 자세한 내용은 [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)를 참조하세요.
 
 Azure AD Connect는 Active Directory를 Azure AD에 동기화할 수 있도록 다음 준비 영역, 규칙 및 프로세스를 사용합니다.
 
@@ -142,7 +143,7 @@ Active Directory CS의 여러 영구적인 [디스커넥터 개체](concept-azur
 
 ## <a name="azure-ad-connect-dependency-factors"></a>Azure AD Connect 종속성 요소
 
-Azure AD Connect의 성능은 가져오고 내보내는 연결된 디렉터리의 성능에 따라 달라 집니다. 예를 들어 가져와야 하는 Active Directory의 크기 또는 Azure AD 서비스에 대한 네트워크 대기 시간이 있습니다. 프로비전 엔진이 사용하는 SQL Database도 동기화 주기의 전반적인 성능에 영향을 줍니다.
+Azure AD Connect의 성능은 가져오고 내보내는 연결된 디렉터리의 성능에 따라 달라 집니다. 예를 들어 가져와야 하는 Active Directory의 크기 또는 Azure AD 서비스에 대한 네트워크 대기 시간이 있습니다. 프로 비전 엔진에서 사용 하는 SQL database도 동기화 주기의 전반적인 성능에 영향을 줍니다.
 
 ### <a name="active-directory-factors"></a>Active Directory 요소
 
@@ -171,7 +172,7 @@ Azure AD는 DoS(서비스 거부) 공격으로부터 클라우드 서비스를 �
 
 - 사용자가 100,000명 초과인 조직은 SQL Database와 프로비전 엔진을 동일한 서버에 배치함으로써 네트워크 대기 시간을 줄일 수 있습니다.
 - 동기화 프로세스의 높은 디스크 입력 및 출력(I/O) 요구 사항으로 인해 최적의 결과를 위해서 프로비전 엔진의 SQL Database에 SSD(반도체 드라이브)를 사용합니다. 불가능한 경우 RAID 0 또는 RAID 1 구성을 고려합니다.
-- 미리 전체 동기화를 수행하지 마십시오. 불필요 한 변동 및 느린 응답 시간으로 이어질 수 있습니다.
+- 전체 동기화를 수행 하지 않습니다. 미리; 불필요 한 변동 및 느린 응답 시간이 발생 합니다.
 
 ## <a name="conclusion"></a>결론
 

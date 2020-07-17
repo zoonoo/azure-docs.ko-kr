@@ -1,26 +1,19 @@
 ---
-title: Node.js에 대한 모범 사례 및 문제 해결 - Azure App Service
-description: Azure App Service의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 단계에 대해 알아봅니다.
-services: app-service\web
-documentationcenter: nodejs
-author: ranjithr
-manager: wadeh
-editor: ''
+title: Node.js 모범 사례 및 문제 해결
+description: Azure App Service에서 실행 되는 Node.js 응용 프로그램에 대 한 모범 사례 및 문제 해결 단계를 알아봅니다.
+author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: ranjithr
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2c60e851d61a5f33e1b050412b0e91b81e20a16
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853063"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169988"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -130,7 +123,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 agentkeepalive 모듈은 소켓이 Azure 웹앱 VM에서 다시 사용되도록 합니다. 각 아웃바운드 요청에서 새 소켓을 만들면 애플리케이션에 오버 헤드가 추가됩니다. 애플리케이션이 아웃바운드 요청에서 소켓을 재사용하면 애플리케이션이 VM당 할당된 maxSockets를 초과하지 않도록 할 수 있습니다. Azure App Service에 대한 권장 사항은 agentKeepAlive maxSockets 값을 VM당 총 160개 소켓(node.exe의 인스턴스 4 \* 40 maxSockets/인스턴스)으로 설정하는 것입니다.
 
-[agentKeepALive](https://www.npmjs.com/package/agentkeepalive) 구성 예제:
+[Agentkeepalive](https://www.npmjs.com/package/agentkeepalive) 구성 예제:
 
 ```nodejs
 let keepaliveAgent = new Agent({
@@ -177,9 +170,9 @@ http.createServer(function (req, res) {
 
 site/wwwroot 디렉터리로 이동합니다. 다음 예제와 같이 명령 프롬프트가 표시됩니다.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
+![Site/wwwroot 디렉터리와 명령 프롬프트를 보여 주는 스크린샷](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
-`npm install v8-profiler`명령을 실행합니다.
+`npm install v8-profiler` 명령을 실행합니다.
 
 이 명령은 node\_modules 디렉터리에 v8-profiler와 모든 종속성을 설치합니다.
 이제 server.js를 편집하여 애플리케이션을 프로파일링합니다.
@@ -210,11 +203,11 @@ http.createServer(function (req, res) {
 
 위의 코드 프로필은 WriteConsoleLog 함수를 프로파일링한 후 프로파일 출력을 사이트의 wwwroot 아래 'profile.cpuprofile' 파일에 기록합니다. 애플리케이션에 요청 보내기 사이트의 wwwroot 아래에 'profile.cpuprofile' 파일이 생성된 것을 확인할 수 있습니다.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
+![Profile.cpuprofile 파일을 보여 주는 스크린샷](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-이 파일을 다운로드하여 Chrome F12 Tools로 엽니다. Chrome에서 F12 키를 누른 다음 **프로필** 탭을 선택합니다. **로드** 단추를 선택합니다. 다운로드한 profile.cpuprofile 파일을 선택합니다. 방금 로드한 프로파일을 클릭합니다.
+이 파일을 다운로드하여 Chrome F12 Tools로 엽니다. Chrome에서 F12 키를 누른 다음 **프로필** 탭을 선택 합니다. **로드** 단추를 선택 합니다. 다운로드한 profile.cpuprofile 파일을 선택합니다. 방금 로드한 프로파일을 클릭합니다.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
+![로드 한 profile.cpuprofile 파일을 보여 주는 스크린샷](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
 95%의 시간이 WriteConsoleLog 함수에 의해 소요되었다는 것을 볼 수 있습니다. 또한 이 문제를 발생시킨 정확한 줄 번호와 원본 파일도 표시됩니다.
 
@@ -258,7 +251,7 @@ node.exe가 임의로 종료된 이유 몇 가지는 다음과 같습니다.
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http 상태 및 하위 상태
 
-이 `cnodeconstants`[원본 파일](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h)에는 오류로 인해 iisnode에서 반환할 수 있는 가능한 상태/하위 상태 조합이 모두 나열되어 있습니다.
+이 `cnodeconstants` [원본 파일](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h)에는 오류로 인해 iisnode에서 반환할 수 있는 가능한 상태/하위 상태 조합이 모두 나열되어 있습니다.
 
 win32 오류 코드를 표시하도록 애플리케이션에 대해 FREB를 사용하도록 설정합니다(성능상의 이유로 비프로덕션 사이트에서만 FREB를 사용하도록 설정하세요).
 
@@ -276,12 +269,12 @@ win32 오류 코드를 표시하도록 애플리케이션에 대해 FREB를 사�
 
 NODE.exe에 `NODE_PENDING_PIPE_INSTANCES`라는 설정이 있습니다. Azure App Service에서 이 값은5000으로 설정됩니다. 따라서 node.exe는 명명된 파이프에서 한 번에 5000개의 요청만 받아들일 수 있습니다. 이 값은 Azure App Service에서 실행 중인 대부분의 노드 애플리케이션에서 충분합니다. `NODE_PENDING_PIPE_INSTANCES`에 대한 값이 높으므로 Azure App Service에 503.1003이 표시되지 않아야 합니다.
 
-## <a name="more-resources"></a>추가 리소스
+## <a name="more-resources"></a>기타 참고 자료
 
 Azure App Service에서 다음 링크를 따라 node.js 애플리케이션에 대해 자세히 알아보세요.
 
 * [Azure App Service에서 Node.js 웹앱 시작](app-service-web-get-started-nodejs.md)
-* [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Azure 애플리케이션에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 개발자 센터](../nodejs-use-node-modules-azure-apps.md)

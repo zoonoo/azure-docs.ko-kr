@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "65467873"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>빠른 시작: Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행
@@ -30,7 +30,7 @@ Azure 구독에 디바이스 시뮬레이션을 배포할 때 일부 구성 옵�
 
 Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators)에 로그인합니다.
 
-**장치 시뮬레이션** 타일을 클릭합니다.
+**디바이스 시뮬레이션** 타일을 클릭합니다.
 
 ![디바이스 시뮬레이션 선택](./media/quickstart-device-simulation-deploy/devicesimulation.png)
 

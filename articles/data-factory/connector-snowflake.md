@@ -1,0 +1,406 @@
+---
+title: 눈송이에서 눈송이로 데이터 복사
+description: Azure Data Factory를 사용 하 여 눈송이에서 눈송이로 데이터를 복사 하는 방법에 대해 알아봅니다.
+services: data-factory
+ms.author: jingwang
+author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
+ms.service: data-factory
+ms.workload: data-services
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 07/09/2020
+ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220306"
+---
+# <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 눈송이 간 데이터 복사
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 눈송이에서 눈송이로 데이터를 복사 하는 방법을 설명 합니다. Data Factory에 대 한 자세한 내용은 [소개 문서](introduction.md)를 참조 하세요.
+
+## <a name="supported-capabilities"></a>지원되는 기능
+
+이 눈송이 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+
+- [지원 되는 원본/싱크 행렬](copy-activity-overview.md) 테이블이 포함 된 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
+
+복사 작업의 경우이 눈송이 커넥터는 다음과 같은 기능을 지원 합니다.
+
+- 눈송이의 [copy를 [location] 명령으로](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) 활용 하는 눈송이의 데이터를 최상의 성능을 얻기 위해 복사 합니다.
+- 눈송이의 [copy to [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) 명령을 사용 하 여 최상의 성능을 얻기 위해 데이터를 눈송이로 복사 합니다. Azure의 눈송이를 지원 합니다.
+
+## <a name="get-started"></a>시작
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+
+다음 섹션에서는 눈송이 커넥터에 한정 된 Data Factory 엔터티를 정의 하는 속성에 대해 자세히 설명 합니다.
+
+## <a name="linked-service-properties"></a>연결된 서비스 속성
+
+다음은 눈송이 연결 된 서비스에 대해 지원 되는 속성입니다.
+
+| 속성         | 설명                                                  | 필수 |
+| :--------------- | :----------------------------------------------------------- | :------- |
+| type             | Type 속성은 **눈송이**로 설정 되어야 합니다.              | 예      |
+| connectionString | [전체 계정 이름](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (지역 및 클라우드 플랫폼을 식별 하는 추가 세그먼트 포함), 사용자 이름, 암호, 데이터베이스 및 웨어하우스를 구성 합니다. 눈송이 인스턴스에 연결할 JDBC 연결 문자열을 지정 합니다. Azure Key Vault에 암호를 넣을 수도 있습니다. 자세한 내용은 테이블 아래의 예를 참조 하 고 [Azure Key Vault 문서의 저장소 자격 증명](store-credentials-in-key-vault.md) 을 참조 하세요.| 예      |
+| connectVia       | 데이터 저장소에 연결 하는 데 사용 되는 [통합 런타임](concepts-integration-runtime.md) 입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 지정 하지 않으면 기본 Azure integration runtime을 사용 합니다. | 예       |
+
+**예:**
+
+```json
+{
+    "name": "SnowflakeLinkedService",
+    "properties": {
+        "type": "Snowflake",
+        "typeProperties": {
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Azure Key Vault의 암호:**
+
+```json
+{
+    "name": "SnowflakeLinkedService",
+    "properties": {
+        "type": "Snowflake",
+        "typeProperties": {
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                }, 
+                "secretName": "<secretName>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>데이터 세트 속성
+
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 
+
+눈송이 데이터 집합에 대해 지원 되는 속성은 다음과 같습니다.
+
+| 속성  | 설명                                                  | 필수                    |
+| :-------- | :----------------------------------------------------------- | :-------------------------- |
+| type      | 데이터 집합의 type 속성은 **SnowflakeTable**로 설정 해야 합니다. | 예                         |
+| 스키마 | 스키마의 이름입니다. |원본에 대해 아니요, 싱크에 대해 예  |
+| 테이블 | 테이블/뷰의 이름입니다. |원본에 대해 아니요, 싱크에 대해 예  |
+
+**예:**
+
+```json
+{
+    "name": "SnowflakeDataset",
+    "properties": {
+        "type": "SnowflakeTable",
+        "typeProperties": {
+            "schema": "<Schema name for your Snowflake database>",
+            "table": "<Table name for your Snowflake database>"
+        },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
+        "linkedServiceName": {
+            "referenceName": "<name of linked service>",
+            "type": "LinkedServiceReference"
+        }
+    }
+}
+```
+
+## <a name="copy-activity-properties"></a>복사 작업 속성
+
+작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 눈송이 원본 및 싱크에서 지 원하는 속성의 목록을 제공 합니다.
+
+### <a name="snowflake-as-the-source"></a>원본으로 서의 눈송이
+
+눈송이 커넥터는 눈송이의 [COPY to [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) 명령을 활용 하 여 최상의 성능을 구현 합니다.
+
+싱크 데이터 저장소 및 형식이 눈송이 복사 명령에 의해 기본적으로 지원 되는 경우 복사 작업을 사용 하 여 눈송이에서 싱크로 직접 복사할 수 있습니다. 자세한 내용은 [눈송이에서 직접 복사](#direct-copy-from-snowflake)를 참조 하세요. 그렇지 않으면 눈송이에서 기본 제공 [준비 복사본](#staged-copy-from-snowflake)을 사용 합니다.
+
+눈송이에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성이 지원 됩니다.
+
+| 속성                     | 설명                                                  | 필수 |
+| :--------------------------- | :----------------------------------------------------------- | :------- |
+| type                         | 복사 작업 원본의 type 속성은 **SnowflakeSource**로 설정 해야 합니다. | 예      |
+| Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다.<br>저장 프로시저 실행은 지원 되지 않습니다. | 아니요       |
+| exportSettings | 눈송이에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 아니요       |
+| ***에서 `exportSettings` 다음을 수행 합니다.*** |  |  |
+| 형식 | **SnowflakeExportCopyCommand**로 설정 된 내보내기 명령의 유형입니다. | 예 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조 하세요. | 아니요 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 명령을 복사 하기 위해 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)을 참조 하세요. | 아니요 |
+
+#### <a name="direct-copy-from-snowflake"></a>눈송이에서 직접 복사
+
+싱크 데이터 저장소 및 형식이이 섹션에 설명 된 조건을 충족 하는 경우 복사 작업을 사용 하 여 눈송이에서 싱크로 직접 복사할 수 있습니다. Data Factory는 설정을 확인 하 고 다음 조건이 충족 되지 않으면 복사 작업 실행에 실패 합니다.
+
+- **싱크 연결 된 서비스** 는 **공유 액세스 서명** 인증을 사용 하는 [**Azure Blob storage**](connector-azure-blob-storage.md) 입니다.
+
+- **싱크 데이터 형식은** 다음과 같은 구성 **으로 Parquet**, **구분 된 텍스트**또는 **JSON** 입니다.
+
+    - **Parquet** 형식의 경우 압축 코덱은 **None**, **Snappy**또는 **Lzo**입니다.
+    - **구분 기호로 분리 된 텍스트** 형식:
+        - `rowDelimiter`는 **\r\n**또는 모든 단일 문자입니다.
+        - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
+        - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
+        - `quoteChar`**큰따옴표**, **작은따옴표** 또는 **빈 문자열** (따옴표 문자 없음)입니다.
+    - **JSON** 형식의 경우 직접 복사는 원본 눈송이 테이블 또는 쿼리 결과도 단일 열을 가지 며이 열의 데이터 형식은 **VARIANT**, **OBJECT**또는 **배열인**경우에만 지원 합니다.
+        - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
+        - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
+        - `filePattern`복사 활동 싱크에서 기본값 또는 **Setofobjects**로 설정 됩니다.
+
+- 복사 활동 원본에서 `additionalColumns` 가 지정 되지 않았습니다.
+- 열 매핑이 지정 되지 않았습니다.
+
+**예제:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromSnowflake",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Snowflake input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "SnowflakeSource",
+                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "exportSettings": {
+                    "type": "SnowflakeExportCopyCommand",
+                    "additionalCopyOptions": {
+                        "MAX_FILE_SIZE": "64000000",
+                        "OVERWRITE": true
+                    },
+                    "additionalFormatOptions": {
+                        "DATE_FORMAT": "'MM/DD/YYYY'"
+                    }
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="staged-copy-from-snowflake"></a>눈송이에서 준비 된 복사
+
+싱크 데이터 저장소 또는 형식이 눈송이 복사 명령과 기본적으로 호환 되지 않는 경우 마지막 섹션에 설명 된 대로 중간 Azure Blob 저장소 인스턴스를 사용 하 여 기본 제공 준비 된 복사본을 사용 하도록 설정 합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. Data Factory은 눈송이에서 준비 저장소로 데이터를 내보낸 다음 데이터를 싱크에 복사 하 고 마지막으로 준비 저장소에서 임시 데이터를 정리 합니다. 준비를 사용 하 여 데이터 복사에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance-features.md#staged-copy) 를 참조 하세요.
+
+이 기능을 사용 하려면 Azure storage 계정을 중간 준비로 참조 하는 [Azure Blob 저장소 연결 된 서비스](connector-azure-blob-storage.md#linked-service-properties) 를 만듭니다. 그런 다음 `enableStaging` `stagingSettings` 복사 작업에서 및 속성을 지정 합니다.
+
+> [!NOTE]
+> 스테이징 Azure Blob 저장소 연결 된 서비스는 눈송이 복사 명령에 필요한 공유 액세스 서명 인증을 사용 해야 합니다. 
+
+**예제:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromSnowflake",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Snowflake input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "SnowflakeSource",
+                "sqlReaderQuery": "SELECT * FROM MyTable"
+            },
+            "sink": {
+                "type": "<sink type>"
+            },
+            "enableStaging": true,
+            "stagingSettings": {
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                },
+                "path": "mystagingpath"
+            }
+        }
+    }
+]
+```
+
+### <a name="snowflake-as-sink"></a>눈송이를 싱크로
+
+눈송이 커넥터는 눈송이의 [COPY to [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) 명령을 활용 하 여 최상의 성능을 구현 합니다. Azure의 눈송이에 데이터를 쓰는 것을 지원 합니다.
+
+원본 데이터 저장소 및 형식이 눈송이 복사 명령에 의해 기본적으로 지원 되는 경우 복사 작업을 사용 하 여 원본에서 눈송이로 직접 복사할 수 있습니다. 자세한 내용은 [눈송이로 직접 복사](#direct-copy-to-snowflake)를 참조 하세요. 그렇지 않으면 눈송이에 기본 제공 [준비 복사본을](#staged-copy-to-snowflake)사용 합니다.
+
+데이터를 눈송이로 복사 하기 위해 복사 작업 **싱크** 섹션에서 지원 되는 속성은 다음과 같습니다.
+
+| 속성          | 설명                                                  | 필수                                      |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
+| type              | 복사 작업 싱크의 type 속성은 **SnowflakeSink**로 설정 됩니다. | 예                                           |
+| preCopyScript     | 각 실행 시 눈송이에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
+| importSettings | 데이터를 눈송이에 쓰는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 아니요 |
+| ***에서 `importSettings` 다음을 수행 합니다.*** |                                                              |  |
+| 형식 | **SnowflakeImportCopyCommand**로 설정 된 가져오기 명령의 유형입니다. | 예 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조 하세요. | 아니요 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 제공 된 복사 명령에 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)을 참조 하세요. | 아니요 |
+
+#### <a name="direct-copy-to-snowflake"></a>눈송이로 직접 복사
+
+원본 데이터 저장소 및 형식이이 섹션에 설명 된 조건을 충족 하는 경우 복사 작업을 사용 하 여 원본에서 눈송이로 직접 복사할 수 있습니다. Azure Data Factory는 설정을 확인 하 고 다음 조건이 충족 되지 않으면 복사 작업 실행에 실패 합니다.
+
+- **원본 연결 된 서비스** 는 **공유 액세스 서명** 인증을 사용 하는 [**Azure Blob storage**](connector-azure-blob-storage.md) 입니다.
+
+- **원본 데이터 형식은** 다음과 같은 구성을 사용 하는 **Parquet**, **구분 된 텍스트**또는 **JSON** 입니다.
+
+    - **Parquet** 형식의 경우 압축 코덱은 **None**또는 **Snappy**입니다.
+
+    - **구분 기호로 분리 된 텍스트** 형식:
+        - `rowDelimiter`는 **\r\n**또는 모든 단일 문자입니다. 행 구분 기호가 "\r\n"이 아닌 경우 `firstRowAsHeader` **false**여야 하 고 `skipLineCount` 가 지정 되지 않습니다.
+        - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
+        - `encodingName`기본값은 "UTF-8", "UTF-16", "UTF-16", "32 UTF-8", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "로 설정 됩니다. ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "iso-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar`**큰따옴표**, **작은따옴표** 또는 **빈 문자열** (따옴표 문자 없음)입니다.
+    - **JSON** 형식의 경우 직접 복사는 싱크 눈송이 테이블에 단일 열만 있고이 열의 데이터 형식이 **VARIANT**, **OBJECT**또는 **배열인**경우에만 지원 합니다.
+        - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
+        - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
+        - 열 매핑이 지정 되지 않았습니다.
+
+- 복사 작업 원본에서: 
+
+   -  `additionalColumns`을(를) 지정하지 않았습니다.
+   - 원본이 폴더인 경우 `recursive` 는 true로 설정 됩니다.
+   - `prefix`, `modifiedDateTimeStart` `modifiedDateTimeEnd` 는 지정 되지 않습니다.
+
+**예제:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToSnowflake",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Snowflake output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "SnowflakeSink",
+                "importSettings": {
+                    "type": "SnowflakeImportCopyCommand",
+                    "copyOptions": {
+                        "FORCE": "TRUE",
+                        "ON_ERROR": "SKIP_FILE",
+                    },
+                    "fileFormatOptions": {
+                        "DATE_FORMAT": "YYYY-MM-DD",
+                    }
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="staged-copy-to-snowflake"></a>눈송이로 준비 된 복사
+
+싱크 데이터 저장소 또는 형식이 눈송이 복사 명령과 기본적으로 호환 되지 않는 경우 마지막 섹션에 설명 된 대로 중간 Azure Blob 저장소 인스턴스를 사용 하 여 기본 제공 준비 된 복사본을 사용 하도록 설정 합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. Data Factory은 눈송이의 데이터 형식 요구 사항을 충족 하도록 데이터를 자동으로 변환 합니다. 그런 다음 복사 명령을 호출 하 여 데이터를 눈송이로 로드 합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비를 사용 하 여 데이터 복사에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance-features.md#staged-copy) 를 참조 하세요.
+
+이 기능을 사용 하려면 Azure storage 계정을 중간 준비로 참조 하는 [Azure Blob 저장소 연결 된 서비스](connector-azure-blob-storage.md#linked-service-properties) 를 만듭니다. 그런 다음 `enableStaging` `stagingSettings` 복사 작업에서 및 속성을 지정 합니다.
+
+> [!NOTE]
+> 스테이징 Azure Blob 저장소 연결 된 서비스는 눈송이 복사 명령에 필요한 공유 액세스 서명 인증을 사용 해야 합니다.
+
+**예:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToSnowflake",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Snowflake output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "SnowflakeSink"
+            },
+            "enableStaging": true,
+            "stagingSettings": {
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                },
+                "path": "mystagingpath"
+            }
+        }
+    }
+]
+```
+
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용은 [조회 작업](control-flow-lookup-activity.md)을 참조 하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+Data Factory 복사 작업에서 원본 및 싱크로 지원 되는 데이터 저장소 목록은 [지원 되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조 하세요.

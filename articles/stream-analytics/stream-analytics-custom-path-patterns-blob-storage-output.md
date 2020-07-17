@@ -1,7 +1,6 @@
 ---
 title: Azure Stream Analytics 사용자 지정 Blob 출력 분할
 description: 이 문서에서는 Azure Stream Analytics 작업의 Blob 스토리지 출력에 대한 사용자 지정 날짜/시간 경로 패턴과 사용자 지정 필드 또는 특성 기능을 설명합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789417"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747629"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
 
@@ -26,9 +24,9 @@ Azure Stream Analytics는 사용자 지정 필드 또는 특성과 사용자 지
 
 ### <a name="partition-key-options"></a>파티션 키 옵션
 
-입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다. 파티션 키에는 nvarchar (max) 여야 합니다.
+입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다. 파티션 키는 NVARCHAR(MAX)여야 합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 한 작업이 외부 비디오 게임 서비스에 연결된 라이브 사용자 세션에서 입력 데이터를 가져오고, 수집된 데이터에 세션을 식별하기 위한 **client_id** 열이 포함되어 있다고 가정해 봅시다. 데이터를 **client_id**로 분할하기 위해, 작업을 만들 때 Blob 출력 속성에 **{client_id}** 파티션 토큰이 포함되도록 Blob 경로 패턴 필드를 설정합니다. 다양한 **client_id** 값을 갖는 데이터가 Stream Analytics 작업을 통해 흐르면 폴더별 단일 **client_id** 값에 따라 별도의 폴더에 출력 데이터가 저장됩니다.
 
@@ -66,22 +64,22 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
 
 ## <a name="custom-datetime-path-patterns"></a>사용자 지정 날짜/시간 경로 패턴
 
-사용자 지정 날짜/시간 경로 패턴을 사용하면 Hive 스트리밍 규칙을 사용하여 정렬하는 출력 형식을 지정하여 Azure Stream Analytics에서 다운스트림 처리를 위해 Azure Databricks 및 Azure HDInsight에 데이터를 보낼 수 있는 기능을 부여할 수 있습니다. 사용자 지정 날짜/시간 경로 패턴은 서식 지정자와 함께 Blob 출력의 경로 접두사 필드에서 `datetime` 키워드를 사용하여 쉽게 구현됩니다. 예: `{datetime:yyyy}`.
+사용자 지정 날짜/시간 경로 패턴을 사용하면 Hive 스트리밍 규칙을 사용하여 정렬하는 출력 형식을 지정하여 Azure Stream Analytics에서 다운스트림 처리를 위해 Azure Databricks 및 Azure HDInsight에 데이터를 보낼 수 있는 기능을 부여할 수 있습니다. 사용자 지정 날짜/시간 경로 패턴은 서식 지정자와 함께 Blob 출력의 경로 접두사 필드에서 `datetime` 키워드를 사용하여 쉽게 구현됩니다. `{datetime:yyyy}`)을 입력합니다.
 
 ### <a name="supported-tokens"></a>지원되는 토큰
 
 다음 서식 지정자 토큰은 사용자 지정 날짜/시간 형식을 설정하기 위해 단독 또는 함께 사용할 수 있습니다.
 
-|형식 지정자   |설명   |예제 시간 2018-01-02T10:06:08에 대한 결과|
+|서식 지정자   |Description   |예제 시간 2018-01-02T10:06:08에 대한 결과|
 |----------|-----------|------------|
 |{datetime:yyyy}|연도(4자리 숫자)|2018|
 |{datetime:MM}|월(01-12)|01|
 |{datetime:M}|월(1-12)|1|
 |{datetime:dd}|일(01-31)|02|
-|{datetime:d}|일(1-12)|2|
+|{datetime:d}|일(1-31)|2|
 |{datetime:HH}|시간(00-23의 24시간 형식)|10|
-|{datetime:mm}|분(00-24)|06|
-|{datetime:m}|분(0-24)|6|
+|{datetime:mm}|분(00-60)|06|
+|{datetime:m}|분(0-60)|6|
 |{datetime:ss}|초(00-60)|08|
 
 사용자 지정 날짜/시간 패턴을 사용하려는 경우 {date} 및/또는 {time} 토큰을 경로 접두사에 추가하여 기본 제공 날짜/시간 서식을 사용하여 드롭다운을 생성할 수 있습니다.
@@ -104,7 +102,7 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
 
 Blob Storage에 대한 사용자 지정 경로 패턴은 Hive 스트리밍 규칙에서 사용될 수 있습니다. 폴더 이름에서 `column=`으로 레이블이 지정된 폴더가 생성됩니다.
 
-예: `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`.
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`)을 입력합니다.
 
 사용자 지정 출력은 테이블을 변경하고 파티션을 수동으로 추가하는 번거로움을 없애서 Azure Stream Analytics와 Hive 간에 데이터를 전송합니다. 대신, 다음을 사용하여 자동으로 여러 폴더를 추가할 수 있습니다.
 
@@ -112,9 +110,9 @@ Blob Storage에 대한 사용자 지정 경로 패턴은 Hive 스트리밍 규�
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
-[Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) 빠른 시작 가이드에 따라 저장소 계정, 리소스 그룹, Stream Analytics 작업 및 입력 원본을 만듭니다. 빠른 시작 가이드에서 사용된 동일한 샘플 데이터를 사용하며 [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)에서도 사용 가능합니다.
+[Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) 빠른 시작 가이드에 따라 스토리지 계정, 리소스 그룹, Stream Analytics 작업 및 입력 원본을 만듭니다. 빠른 시작 가이드에서 사용된 동일한 샘플 데이터를 사용하며 [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)에서도 사용 가능합니다.
 
 다음 구성을 사용하여 Blob 출력 싱크를 만듭니다.
 

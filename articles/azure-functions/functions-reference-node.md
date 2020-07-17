@@ -1,33 +1,25 @@
 ---
-title: Azure Functions에 대한 JavaScript 개발자 참조 | Microsoft Docs
+title: Azure Functions에 대 한 JavaScript 개발자 참조
 description: JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버리스 아키텍처
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
-ms.service: azure-functions
-ms.devlang: nodejs
-ms.topic: reference
-ms.date: 02/24/2019
-ms.author: glenga
-ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.topic: conceptual
+ms.date: 12/17/2019
+ms.openlocfilehash: d71301ef73cd94c13b12e17c923ec73abb8e4aae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140953"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252729"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
 이 가이드에는 JavaScript로 Azure Functions를 작성하는 복잡성에 대한 정보가 포함되어 있습니다.
 
-JavaScript 함수는 트리거될 때 실행되는 내보낸 `function`입니다([트리거는 function.json에서 구성됨](functions-triggers-bindings.md)). 모든 함수에 전달 된 첫 번째 인수는 `context` 수신 및 송신 데이터 바인딩, 로깅 및 런타임과 통신에 사용 되는 개체입니다.
+JavaScript 함수는 트리거될 때 실행되는 내보낸 `function`입니다([트리거는 function.json에서 구성됨](functions-triggers-bindings.md)). 모든 함수에 전달 되는 첫 번째 인수는 개체 이며,이 `context` 개체는 바인딩 데이터를 보내고 보내고 보내고, 로깅 하 고, 런타임과 통신 하는 데 사용 됩니다.
 
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 첫 번째를 만드는 함수 빠른 시작을 완료 함수를 사용 하 여 [Visual Studio Code](functions-create-first-function-vs-code.md) 하거나 [포털에서](functions-create-first-azure-function.md)합니다.
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 함수 퀵 스타트를 완료 하 여 [Visual Studio Code](functions-create-first-function-vs-code.md) 또는 [포털에서](functions-create-first-azure-function.md)첫 번째 함수를 만듭니다.
 
-이 문서에서는 [TypeScript 앱 개발](#typescript)합니다.
+이 문서는 [TypeScript 앱 개발](#typescript)도 지원 합니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -52,15 +44,15 @@ FunctionsProject
 
 프로젝트 루트에는 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.js)과 바인딩 구성 파일(function.json)이 있는 폴더가 있습니다. `function.json`의 부모 디렉터리 이름은 항상 함수의 이름입니다.
 
-Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 ## <a name="exporting-a-function"></a>함수 내보내기
 
-JavaScript 함수는 [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports)(또는 [`exports`](https://nodejs.org/api/modules.html#modules_exports))를 통해 내보내야 합니다. 내보낸 함수는 트리거될 때 실행되는 JavaScript 함수여야 합니다.
+JavaScript 함수는 (또는)를 통해 내보내야 합니다 [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) [`exports`](https://nodejs.org/api/modules.html#modules_exports) . 내보낸 함수는 트리거될 때 실행되는 JavaScript 함수여야 합니다.
 
 기본적으로 Functions 런타임은 `index.js`에서 함수를 찾습니다. 여기서 `index.js`는 해당하는 `function.json`과 동일한 부모 디렉터리를 공유합니다. 기본적인 경우 내보낸 함수는 `run` 또는 `index`라는 해당 파일 또는 내보내기의 유일한 내보내기여야 합니다. 함수의 파일 위치 및 내보내기 이름을 구성하려면 아래에서 [함수의 진입점 구성](functions-reference-node.md#configure-function-entry-point)에 대한 내용을 읽어보세요.
 
-내보낸 함수는 실행에서 인수의 수로 전달됩니다. 사용하는 첫 번째 인수는 항상 `context` 개체입니다. 함수가 동기화되면(Promise를 반환하지 않음) 올바른 사용을 위해 `context.done`을 호출해야 할 때 `context` 개체를 전달해야 합니다.
+내보낸 함수는 실행에서 인수의 수로 전달됩니다. 사용하는 첫 번째 인수는 항상 `context` 개체입니다. 함수가 동기 (약속을 반환 하지 않음) 인 경우 올바른 사용을 위해를 호출 해야 하므로 개체를 전달 해야 합니다 `context` `context.done` .
 
 ```javascript
 // You should include context, other arguments are optional
@@ -71,7 +63,7 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>비동기 함수 내보내기
-Functions 런타임 2.x 버전에서 [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 선언 또는 일반 JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)를 사용할 때 함수가 완료되었음을 나타내는 [`context.done`](#contextdone-method) 콜백을 명시적으로 호출할 필요가 없습니다. 내보낸 비동기 함수/Promise가 완료되면 함수가 완료됩니다. 버전 1.x 런타임을 대상으로 하는 함수의 경우 코드 실행이 완료되면 [`context.done`](#contextdone-method)을 호출해야 합니다.
+[`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function)함수 런타임의 버전 2.x에서 선언 또는 일반 JavaScript [약속](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) 을 사용 하는 경우 [`context.done`](#contextdone-method) 함수가 완료 되었다는 신호를 보내기 위해 명시적으로 콜백을 호출할 필요가 없습니다. 내보낸 비동기 함수/Promise가 완료되면 함수가 완료됩니다. 버전 1.x 런타임을 대상으로 하는 함수의 경우 [`context.done`](#contextdone-method) 코드 실행이 완료 될 때도 호출 해야 합니다.
 
 다음 예제는 트리거되었으며 즉시 실행을 완료한다고 기록하는 간단한 함수입니다.
 
@@ -110,7 +102,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 
 ### <a name="inputs"></a>입력
 입력은 Azure Functions에서 두 가지 범주로 나뉩니다. 즉 하나는 트리거 입력이고, 다른 하나는 추가 입력입니다. 트리거 및 기타 입력 바인딩(`direction === "in"`의 바인딩)은 다음과 같은 세 가지 방법으로 함수에서 읽을 수 있습니다.
- - **_[권장]_  함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. 합니다 `name` 에 정의 된 속성 *function.json* 해야 하지만, 매개 변수의 이름과 일치 하도록 필요 하지 않습니다.
+ - **_[권장] _ 함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. `name` *function.js* 에 정의 된 속성은 매개 변수의 이름과 일치 하지 않아도 되지만 반드시 일치 해야 하는 것은 아닙니다.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -139,9 +131,9 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 ### <a name="outputs"></a>outputs
 출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json*에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
 
-(이러한 메서드를 결합 하지 마세요) 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다.
+다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다 (이러한 메서드를 결합 하지 않음).
 
-- **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 함수를 반환 하는 비동기/프라미스를 사용 하는 경우에 할당 된 출력 데이터를 사용 하 여 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
+- **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 비동기/약속 반환 함수를 사용 하는 경우 출력 데이터가 할당 된 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
 
   ```javascript
   module.exports = async function(context) {
@@ -155,7 +147,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
   };
   ```
 
-  동기 함수를 사용하는 경우 [`context.done`](#contextdone-method)을 사용하여 이 개체를 반환할 수 있습니다(예제 참조).
+  동기 함수를 사용 하는 경우 [`context.done`](#contextdone-method) (예제 참조)를 사용 하 여이 개체를 반환할 수 있습니다.
 - **_[단일 출력에 대한 권장]_ 직접 값을 반환하고 $return 바인딩 이름을 사용합니다.** 함수를 반환하는 비동기/Promise에서 작동합니다. [비동기 함수 내보내기](#exporting-an-async-function)에서 예제를 참조하세요. 
 - **`context.bindings`에 대한 값을 할당합니다.** context.bindings에 직접 값을 할당할 수 있습니다.
 
@@ -204,7 +196,7 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-읽기 또는 바인딩 데이터 할당에 사용 되는 명명 된 개체를 반환 합니다. 입력 및 트리거 데이터 바인딩 속성에서 참조 하 여 액세스할 수 있습니다 `context.bindings`합니다. 데이터를 추가 하 여 출력 바인딩은 데이터를 할당할 수 있습니다. `context.bindings`
+바인딩 데이터를 읽거나 할당 하는 데 사용 되는 명명 된 개체를 반환 합니다. 입력 및 트리거 바인딩 데이터는의 속성을 읽어 액세스할 수 있습니다 `context.bindings` . 출력 바인딩 데이터는에 데이터를 추가 하 여 할당할 수 있습니다.`context.bindings`
 
 예를 들어 function.json의 다음 바인딩 정의를 통해 `context.bindings.myInput`에서 큐의 콘텐츠에 액세스하고 `context.bindings.myOutput`을 사용하여 출력을 큐에 할당할 수 있습니다.
 
@@ -240,7 +232,7 @@ context.bindings.myOutput = {
 context.bindingData
 ```
 
-트리거 메타데이터 및 함수 호출 데이터(`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`)를 포함하는 명명된 개체를 반환합니다. 트리거 메타데이터의 예제는 [event hubs example](functions-bindings-event-hubs.md#trigger---javascript-example)을 참조하세요.
+트리거 메타데이터 및 함수 호출 데이터(`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`)를 포함하는 명명된 개체를 반환합니다. 트리거 메타데이터의 예제는 [event hubs example](functions-bindings-event-hubs-trigger.md)을 참조하세요.
 
 ### <a name="contextdone-method"></a>context.done 메서드
 
@@ -248,9 +240,9 @@ context.bindingData
 context.done([err],[propertyBag])
 ```
 
-런타임에서는 코드가 완료되었음을 알 수 있습니다. 함수가 [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 선언을 사용하는 경우 `context.done()`을 사용할 필요가 없습니다. `context.done` 콜백을 암시적으로 호출합니다. 비동기 함수는 Node 8 이상 버전에서 지원되며 Functions 런타임의 2.x 버전이 필요합니다.
+런타임에서는 코드가 완료되었음을 알 수 있습니다. 함수에서 선언을 사용 하는 경우를 [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 사용할 필요가 없습니다 `context.done()` . `context.done` 콜백을 암시적으로 호출합니다. 비동기 함수는 Node 8 이상 버전에서 지원되며 Functions 런타임의 2.x 버전이 필요합니다.
 
-함수가 비동기 함수가 아닌 경우 함수가 완료됐음을 런타임에 알리려면 `context.done`을 **반드시 호출해야** 합니다. 실행이 누락된 경우 시간 초과가 발생합니다.
+함수가 비동기 함수가 아닌 경우를 **호출** `context.done` 하 여 함수가 완료 되었음을 런타임에 알려야 합니다. 실행이 누락된 경우 시간 초과가 발생합니다.
 
 `context.done` 메서드를 사용하면 출력 바인딩 데이터가 포함된 JSON 개체와 런타임에 사용자 정의 오류를 다시 전달할 수 있습니다. `context.done`에 전달된 속성은 `context.bindings` 개체에 설정된 내용을 덮어씁니다.
 
@@ -273,9 +265,9 @@ context.log(message)
 기본 추적 수준에서 스트리밍 함수 로그에 기록할 수 있습니다. `context.log`에 다른 추적 수준에서 함수 로그를 작성할 수 있는 추가 로깅 메서드가 제공됩니다.
 
 
-| 방법                 | 설명                                |
+| 메서드                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | 오류 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.   |
+| **오류 (_메시지_)**   | 오류 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.   |
 | **warn(_message_)**    | 경고 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다. |
 | **info(_message_)**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
 | **verbose(_message_)** | 자세한 정보 표시 수준 로깅에 씁니다.           |
@@ -292,7 +284,7 @@ host.json 파일에 [로깅에 대한 추적 수준 임계값을 구성](#config
 
 ## <a name="writing-trace-output-to-the-console"></a>콘솔에 추적 출력 작성 
 
-Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 Function App 수준에서 캡처됩니다. 이 즉, 출력에서 `console.log` 특정 함수 호출에 연결 되지 않습니다 및 특정 함수의 로그에 표시 되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
+Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 함수 앱 수준에서 캡처됩니다. 즉,의 출력 `console.log` 은 특정 함수 호출에 연결 되지 않으며 특정 함수의 로그에 표시 되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
 
 `context.log()`를 호출하면 메시지를 _정보_ 추적 수준인 기본 추적 수준에서 콘솔에 씁니다. 다음 코드는 정보 추적 수준에서 콘솔에 씁니다.
 
@@ -350,14 +342,14 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 자산      | 설명                                                    |
+| 속성      | 설명                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
-| _headers_     | 요청 헤더를 포함하는 개체입니다.                   |
-| _method_      | 요청의 HTTP 메서드입니다.                                |
+| _머리글과_     | 요청 헤더를 포함하는 개체입니다.                   |
+| _방법이_      | 요청의 HTTP 메서드입니다.                                |
 | _originalUrl_ | 요청의 URL입니다.                                        |
 | _params_      | 요청의 라우팅 매개 변수를 포함하는 개체입니다. |
-| _query_       | 쿼리 매개 변수를 포함하는 개체입니다.                  |
+| _쿼리_       | 쿼리 매개 변수를 포함하는 개체입니다.                  |
 | _rawBody_     | 문자열 형식의 메시지 본문입니다.                           |
 
 
@@ -365,12 +357,13 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 자산  | 설명                                               |
+| 속성  | 설명                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
-| _headers_ | 응답 헤더를 포함하는 개체입니다.             |
+| _머리글과_ | 응답 헤더를 포함하는 개체입니다.             |
 | _isRaw_   | 응답에 대한 서식 지정을 건너뜀을 나타냅니다.    |
 | _status_  | 응답의 HTTP 상태 코드입니다.                     |
+| _쿠키_ | 응답에 설정 된 HTTP 쿠키 개체의 배열입니다. HTTP 쿠키 개체에는 `name` , `value` 및와 같은 기타 쿠키 속성이 있습니다 `maxAge` `sameSite` . |
 
 ### <a name="accessing-the-request-and-response"></a>요청 및 응답 액세스 
 
@@ -379,9 +372,9 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 + **`context` 개체의 `req` 및 `res` 속성에서.** 이러한 방식으로 전체 `context.bindings.name` 패턴을 사용하지 않고 대신 기존 패턴을 사용하여 context 개체에서 HTTP 데이터에 액세스할 수 있습니다. 다음 예제에서는 `context`의 `req` 및 `res` 개체에 액세스하는 방법을 보여 줍니다.
 
     ```javascript
-    // You can access your http request off the context ...
+    // You can access your HTTP request off the context ...
     if(context.req.body.emoji === ':pizza:') context.log('Yay!');
-    // and also set your http response
+    // and also set your HTTP response
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
@@ -397,9 +390,9 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[응답 전용]_ `context.res.send(body?: any)`를 호출합니다.** HTTP 응답은 입력 `body`를 응답 본문으로 작성합니다. `context.done()`은 암시적으로 호출됩니다.
++ **_[응답 전용]_`context.res.send(body?: any)`를 호출합니다.** HTTP 응답은 입력 `body`를 응답 본문으로 작성합니다. `context.done()`은 암시적으로 호출됩니다.
 
-+ **_[응답 전용]_ `context.done()`를 호출합니다.** `context.done()` 메서드에 전달되는 응답을 반환하는 특별한 종류의 HTTP 바인딩이 있습니다. 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
++ **_[응답 전용]_`context.done()`를 호출합니다.** 특수 한 형식의 HTTP 바인딩은 메서드에 전달 되는 응답을 반환 합니다 `context.done()` . 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
 
     ```json
     {
@@ -414,19 +407,32 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
     context.done(null, res);   
     ```  
 
+## <a name="scaling-and-concurrency"></a>스케일링 및 동시성
+
+기본적으로 Azure Functions는 응용 프로그램의 부하를 자동으로 모니터링 하 고 필요에 따라 Node.js에 대 한 추가 호스트 인스턴스를 만듭니다. Functions는 QueueTrigger에 대한 메시지 보존 기간, 큐 크기 등의 기본 제공(사용자 구성 불가능) 임계값을 여러 트리거 유형에 사용하여 인스턴스를 추가할 시기를 결정합니다. 자세한 내용은 [사용 계획 및 프리미엄 계획의 작동 방식](functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조하세요.
+
+이러한 크기 조정 동작은 많은 Node.js 응용 프로그램에서 충분 합니다. CPU 바인딩된 응용 프로그램의 경우 여러 언어 작업자 프로세스를 사용 하 여 성능을 향상 시킬 수 있습니다.
+
+기본적으로 모든 Functions 호스트 인스턴스에는 언어 작업자 프로세스가 하나만 있습니다. [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) 애플리케이션 설정을 사용하여 호스트당 작업자 프로세스 수를 10개까지 늘릴 수 있습니다. 그러면 Azure Functions는 이러한 작업자 사이에 동시 함수 호출을 균등하게 분산하려고 시도합니다. 
+
+요구 사항을 충족하기 위해 애플리케이션을 스케일 아웃할 때 Functions가 만드는 각 호스트에 FUNCTIONS_WORKER_PROCESS_COUNT가 적용됩니다. 
+
 ## <a name="node-version"></a>노드 버전
 
-다음 표에서는 주 버전의 Functions 런타임 각각에서 사용되는 Node.js 버전을 보여 줍니다.
+다음 표에서는 운영 체제별로 함수 런타임의 각 주 버전에 대해 지원 되는 현재 Node.js 버전을 보여 줍니다.
 
-| Functions 버전 | Node.js 버전 | 
-|---|---|
-| 1.x | 6.11.2(런타임에 의해 잠김) |
-| 2.x  | _활성 LTS_ 및 짝수 번호의 _현재_ Node.js 버전(8.11.1 및 10.14.1 권장). WEBSITE_NODE_DEFAULT_VERSION [앱 설정](functions-how-to-use-azure-function-app-settings.md#settings)을 사용하여 버전을 설정합니다.|
+| Functions 버전 | 노드 버전 (Windows) | 노드 버전 (Linux) |
+|---|---| --- |
+| 1.x | 6.11.2(런타임에 의해 잠김) | 해당 없음 |
+| 2.x  | ~ 8<br/>~ 10 (권장)<br/>~ 12<sup>*</sup> | ~ 8 (권장)<br/>~ 10  |
+| 3.x | ~ 10<br/>~ 12 (권장)  | ~ 10<br/>~ 12 (권장) |
 
-위의 앱 설정을 확인하거나 함수에서 `process.version`을 인쇄하여 런타임에 사용 중인 현재 버전을 확인할 수 있습니다.
+<sup>*</sup>노드 ~ 12는 현재 함수 런타임의 버전 2.x에서 허용 됩니다. 그러나 최상의 성능을 위해 노드 ~ 12에서 함수 런타임 버전 3(sp3)을 사용 하는 것이 좋습니다. 
+
+위의 앱 설정을 확인하거나 함수에서 `process.version`을 인쇄하여 런타임에 사용 중인 현재 버전을 확인할 수 있습니다. WEBSITE_NODE_DEFAULT_VERSION [앱 설정을](functions-how-to-use-azure-function-app-settings.md#settings) 와 같은 지원 되는 lts 버전으로 설정 하 여 Azure의 버전을 대상으로 `~10` 합니다.
 
 ## <a name="dependency-management"></a>종속성 관리
-아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 Function App에 모든 종속성이 설치되어 있는지 확인해야 합니다.
+아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 함수 앱에 모든 종속성이 설치되어 있는지 확인해야 합니다.
 
 ```javascript
 // Import the underscore.js library
@@ -440,11 +446,11 @@ module.exports = function(context) {
 ```
 
 > [!NOTE]
-> Function App의 루트에 `package.json` 파일을 정의해야 합니다. 파일을 정의하면 앱의 모든 함수에서 동일한 캐시된 패키지를 공유할 수 있으므로 최상의 성능을 제공합니다. 버전 충돌이 발생하는 경우 특정 함수의 폴더에 `package.json` 파일을 추가하여 이 충돌을 해결할 수 있습니다.  
+> 함수 앱의 루트에 `package.json` 파일을 정의해야 합니다. 파일을 정의하면 앱의 모든 함수에서 동일한 캐시된 패키지를 공유할 수 있으므로 최상의 성능을 제공합니다. 버전 충돌이 발생하는 경우 특정 함수의 폴더에 `package.json` 파일을 추가하여 이 충돌을 해결할 수 있습니다.  
 
-원본 제어에서 Function App을 배포할 때 리포지토리에 있는 모든 `package.json` 파일이 배포 중에 폴더의 `npm install`을 트리거합니다. 그러나 포털 또는 CLI를 통해 배포할 때는 수동으로 패키지를 설치해야 합니다.
+원본 제어에서 함수 앱을 배포할 때 리포지토리에 있는 모든 `package.json` 파일이 배포 중에 폴더의 `npm install`을 트리거합니다. 그러나 포털 또는 CLI를 통해 배포할 때는 수동으로 패키지를 설치해야 합니다.
 
-Function App에 패키지를 설치하는 방법에는 두 가지가 있습니다. 
+함수 앱에 패키지를 설치하는 방법에는 두 가지가 있습니다. 
 
 ### <a name="deploying-with-dependencies"></a>종속성을 사용하여 배포
 1. `npm install`을 실행하여 모든 필수 패키지를 로컬에 설치합니다.
@@ -453,9 +459,9 @@ Function App에 패키지를 설치하는 방법에는 두 가지가 있습니�
 
 
 ### <a name="using-kudu"></a>Kudu 사용
-1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
+1. `https://<function_app_name>.scm.azurewebsites.net`로 이동하세요.
 
-2. **디버그 콘솔** > **CMD**를 클릭합니다.
+2. **디버그 콘솔**  >  **CMD**를 클릭 합니다.
 
 3. `D:\home\site\wwwroot`로 이동한 다음 package.json 파일을 페이지 위쪽의 **wwwroot** 폴더로 끌어갑니다.  
     다른 방법으로 함수 앱에 파일을 업로드할 수도 있습니다. 자세한 내용은 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)을 참조하세요. 
@@ -465,23 +471,16 @@ Function App에 패키지를 설치하는 방법에는 두 가지가 있습니�
 
 ## <a name="environment-variables"></a>환경 변수
 
-Functions에서 [앱 설정](functions-app-settings.md)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. `GetEnvironmentVariable` 함수에 표시된 대로 `process.env`를 사용하여 이러한 설정에 액세스할 수 있습니다.
+Functions에서 [앱 설정](functions-app-settings.md)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. `process.env` `context.log()` `AzureWebJobsStorage` 및 환경 변수를 기록 하는에 대 한 두 번째 및 세 번째 호출에서 여기에 표시 된 대로를 사용 하 여 이러한 설정에 액세스할 수 있습니다 `WEBSITE_SITE_NAME` .
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     context.log('Node.js timer trigger function ran!', timeStamp);
-    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
-    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-
-    context.done();
+    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
-
-function GetEnvironmentVariable(name)
-{
-    return name + ": " + process.env[name];
-}
 ```
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
@@ -504,7 +503,7 @@ FunctionApp
  | - myNodeFunction
  | | - function.json
  | - lib
- | | - nodeFunction.js
+ | | - sayHello.js
  | - node_modules
  | | - ... packages ...
  | - package.json
@@ -514,7 +513,7 @@ FunctionApp
 
 ```json
 {
-  "scriptFile": "../lib/nodeFunction.js",
+  "scriptFile": "../lib/sayHello.js",
   "bindings": [
     ...
   ]
@@ -544,7 +543,7 @@ class MyObj {
         this.foo = 1;
     };
 
-    function logFoo(context) { 
+    logFoo(context) { 
         context.log("Foo is " + this.foo); 
         context.done(); 
     }
@@ -554,57 +553,78 @@ const myObj = new MyObj();
 module.exports = myObj;
 ```
 
-이 예제에서는 해당 것에 유의 해야 개체를 내보낸 있지만 실행 간에 상태를 유지 하는 것에 대 한 보장 되지 않습니다.
+이 예제에서 개체를 내보내는 경우에도 실행 간의 상태를 유지 하는 것은 보장 되지 않는다는 점에 유의 해야 합니다.
 
 ## <a name="local-debugging"></a>로컬 디버깅
 
-시작 하는 경우는 `--inspect` 매개 변수를 지정된 된 포트에서 디버깅 클라이언트에 대 한 Node.js 프로세스를 수신 대기 합니다. Azure Functions에서 2.x의 경우 환경 변수 또는 앱 설정을 추가 하 여 코드를 실행 하는 Node.js 프로세스에 전달할 인수를 지정할 수 있습니다 `languageWorkers:node:arguments = <args>`합니다. 
+매개 변수를 사용 하 여 시작 하면 `--inspect` Node.js 프로세스가 지정 된 포트에서 디버깅 클라이언트를 수신 대기 합니다. Azure Functions 2.x에서는 환경 변수 또는 앱 설정을 추가 하 여 코드를 실행 하는 Node.js 프로세스에 전달할 인수를 지정할 수 있습니다 `languageWorkers:node:arguments = <args>` . 
 
-로컬로 디버그 하려면 추가 `"languageWorkers:node:arguments": "--inspect=5858"` 아래에서 `Values` 에서 프로그램 [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) 파일과 5858 포트로 디버거를 연결 합니다.
+로컬로 디버그 하려면 `"languageWorkers:node:arguments": "--inspect=5858"` `Values` 파일 [의local.settings.js](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) 에를 추가 하 고 포트 5858에 디버거를 연결 합니다.
 
-VS Code를 사용 하 여 디버깅 하는 경우는 `--inspect` 매개 변수를 사용 하 여 자동으로 추가 됩니다는 `port` 프로젝트의 launch.json 파일의 값입니다.
+VS Code를 사용 하 여 디버깅 하는 경우 `--inspect` `port` 파일의 프로젝트 launch.js에 있는 값을 사용 하 여 매개 변수가 자동으로 추가 됩니다.
 
-버전에서 1.x에서 설정 `languageWorkers:node:arguments` 작동 하지 것입니다. 디버그 포트를 사용 하 여 선택할 수 있습니다 합니다 [ `--nodeDebugPort` ](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) Azure Functions 핵심 도구에 대 한 매개 변수입니다.
+버전 1.x에서는 설정이 `languageWorkers:node:arguments` 작동 하지 않습니다. Azure Functions Core Tools에서 매개 변수를 사용 하 여 디버그 포트를 선택할 수 있습니다 [`--nodeDebugPort`](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) .
 
 ## <a name="typescript"></a>TypeScript
 
-버전 대상 지정의 Functions 런타임 2.x 둘 다 [Visual Studio Code에 대 한 Azure Functions](functions-create-first-function-vs-code.md) 하며 [Azure Functions 핵심 도구](functions-run-local.md) 지원 템플릿을 사용 하 여 함수 앱을 만들 수 있습니다 TypeScript 함수 앱 프로젝트입니다. 서식 파일 생성 `package.json` 고 `tsconfig.json` 트랜스 파일을 쉽게 하는 프로젝트 파일을 실행 하 고 이러한 도구를 사용 하 여 TypeScript 코드에서 JavaScript 함수를 게시 합니다.
+함수 런타임의 버전 2.x를 대상으로 지정 하는 경우 Visual Studio Code 및 [Azure Functions Core Tools](functions-run-local.md) [에 대 한 Azure Functions](functions-create-first-function-vs-code.md) 를 모두 사용 하 여 TypeScript 함수 앱 프로젝트를 지 원하는 템플릿을 사용 하 여 함수 앱을 만들 수 있습니다. 템플릿에서는 `package.json` `tsconfig.json` 이러한 도구를 사용 하 여 TypeScript 코드에서 JavaScript 함수를 더 쉽게 트랜스 파일 실행 하 고 게시할 수 있도록 하는 및 프로젝트 파일을 생성 합니다.
 
-생성 된 `.funcignore` 파일 프로젝트를 Azure에 게시 되 면 파일 제외 됩니다 나타내는 데 사용 됩니다.  
+생성 된 `.funcignore` 파일은 프로젝트가 Azure에 게시 될 때 제외 되는 파일을 나타내는 데 사용 됩니다.  
 
-TypeScript 파일 (.ts)은 트랜스 파일 된 JavaScript (.js) 파일에는 `dist` 출력 디렉터리입니다. TypeScript 템플릿을 사용 합니다 [ `scriptFile` 매개 변수](#using-scriptfile) 에서 `function.json` 해당.js 파일의 위치를 나타내는 `dist` 폴더. 출력 위치를 사용 하 여 템플릿에 의해 설정 됩니다 `outDir` 의 매개 변수는 `tsconfig.json` 파일입니다. 이 설정을 사용 하거나 폴더의 이름을 변경 하면 런타임이 실행 하는 코드를 찾을 수 없는 경우.
+TypeScript 파일 (.ts)은 출력 디렉터리에서 JavaScript 파일 (.js)로 트랜스 파일 된 됩니다 `dist` . TypeScript 템플릿에서는의 [ `scriptFile` 매개 변수](#using-scriptfile) 를 사용 `function.json` 하 여 폴더에 있는 해당 .js 파일의 위치를 표시 합니다 `dist` . 출력 위치는 `outDir` 파일에서 매개 변수를 사용 하 여 템플릿에 의해 설정 됩니다 `tsconfig.json` . 이 설정 또는 폴더의 이름을 변경 하면 런타임에서 실행할 코드를 찾을 수 없습니다.
 
-> [!NOTE]
-> TypeScript에 대 한 실험적 지원 있는 버전의 Functions 런타임 1.x 합니다. 실험 버전 transpiles 함수를 호출 하는 경우 JavaScript 파일로 TypeScript 파일입니다. 버전에서 2.x의 경우이 실험적 지원을 호스트 초기화 되기 전에 소스 간 컴파일을 수행 하는 도구 기반 메서드 및 배포 프로세스 중 대체 되었습니다.
-
-로컬로 개발 하 고 TypeScript 프로젝트에서 배포 하는 방식을 개발 도구에 따라 달라 집니다.
+TypeScript 프로젝트에서 로컬로 개발 하 고 배포 하는 방법은 개발 도구에 따라 달라 집니다.
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-합니다 [Visual Studio Code에 대 한 Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) 확장을 사용 하면 TypeScript를 사용 하 여 함수를 개발할 수 있습니다. 핵심 도구는 Azure Functions 확장의 요구 사항입니다.
+[Visual Studio Code 확장에 대 한 Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) 를 사용 하면 TypeScript를 사용 하 여 함수를 개발할 수 있습니다. 핵심 도구는 Azure Functions 확장의 요구 사항입니다.
 
-Visual Studio Code에는 TypeScript 함수 앱을 만들려면 선택 하기만 하면 `TypeScript` 을 함수 앱을 만들고 언어를 선택 하 라는 메시지가 표시 됩니다.
+Visual Studio Code에서 TypeScript 함수 앱을 만들려면 `TypeScript` 함수 앱을 만들 때 해당 언어로를 선택 합니다.
 
-누르면 **F5** 앱을 실행 하려면 로컬에서 소스 간 컴파일을 수행 됩니다 (func.exe) 호스트 초기화 되기 전에 합니다. 
+**F5** 키를 눌러 응용 프로그램을 로컬로 실행 하는 경우로는 호스트 (func.exe)가 초기화 되기 전에 수행 됩니다. 
 
-사용 하 여 Azure 함수 앱을 배포할 때의 **함수 앱에 배포 하는 중...**  단추, Azure Functions 확장 TypeScript 소스 파일에서 먼저 JavaScript 파일의 프로덕션 준비 빌드를 생성 합니다.
+**함수 앱에 배포** ... 단추를 사용 하 여 함수 앱을 Azure에 배포 하는 경우 Azure Functions 확장은 먼저 TypeScript 소스 파일에서 프로덕션이 준비 된 JavaScript 파일 빌드를 생성 합니다.
 
-### <a name="azure-functions-core-tools"></a>Azure Functions 핵심 도구
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-핵심 도구를 사용 하는 TypeScript 함수 앱 프로젝트를 만들려면 함수 앱을 만들 때 typescript 언어 옵션을 지정 해야 합니다. 다음 방법 중 하나에서이 수행할 수 있습니다.
+핵심 도구를 사용 하는 경우 TypeScript 프로젝트가 JavaScript 프로젝트와 다른 몇 가지 방법이 있습니다.
 
-- 실행 합니다 `func init` 명령을 선택 `node` 언어 스택 및 선택 `typescript`합니다.
+#### <a name="create-project"></a>프로젝트 만들기
+
+핵심 도구를 사용 하 여 TypeScript 함수 앱 프로젝트를 만들려면 함수 앱을 만들 때 TypeScript 언어 옵션을 지정 해야 합니다. 다음 방법 중 하나를 수행 하 여이 작업을 수행할 수 있습니다.
+
+- 명령을 실행 `func init` 하 고를 `node` 언어 스택으로 선택한 다음를 선택 `typescript` 합니다.
 
 - `func init --worker-runtime typescript` 명령을 실행합니다.
 
-핵심 도구를 사용 하 여 로컬로 함수 앱 코드를 실행 하려면 사용 합니다 `npm start` 대신 명령을 `func host start`합니다. `npm start` 명령은 다음 명령과 같습니다.
+#### <a name="run-local"></a>로컬 실행
+
+핵심 도구를 사용 하 여 함수 앱 코드를 로컬로 실행 하려면 대신 다음 명령을 사용 합니다 `func host start` . 
+
+```command
+npm install
+npm start
+```
+
+`npm start`명령은 다음 명령과 동일 합니다.
 
 - `npm run build`
 - `func extensions install`
 - `tsc`
 - `func start`
 
-사용 하기 전에 합니다 [ `func azure functionapp publish` ] Azure에 배포 하는 명령, 먼저 실행 해야 합니다는 `npm run build:production` 명령입니다. 이 명령을 사용 하 여 배포할 수 있는 TypeScript 소스 파일에서 JavaScript 파일의 프로덕션 준비 빌드를 만듭니다 [ `func azure functionapp publish` ]합니다.
+#### <a name="publish-to-azure"></a>Azure에 게시
+
+명령을 사용 하 여 [`func azure functionapp publish`] Azure에 배포 하기 전에 TypeScript 원본 파일에서 프로덕션 준비가 된 JavaScript 파일 빌드를 만듭니다. 
+
+다음 명령은 핵심 도구를 사용 하 여 TypeScript 프로젝트를 준비 하 고 게시 합니다. 
+
+```command
+npm run build:production 
+func azure functionapp publish <APP_NAME>
+```
+
+이 명령에서을 `<APP_NAME>` 함수 앱의 이름으로 바꿉니다.
 
 ## <a name="considerations-for-javascript-functions"></a>JavaScript 함수에 대한 고려 사항
 
@@ -612,7 +632,7 @@ JavaScript 함수로 작업하는 경우 다음 섹션의 고려 사항에 유�
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>단일 vCPU App Service 계획 선택
 
-App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있는 계획보다는 단일 vCPU 계획을 선택하는 것이 좋습니다. 현재 Functions는 단일 vCPU VM에서 JavaScript 함수를 더 효율적으로 실행합니다. 더 큰 VM을 사용해도 예상된 성능 향상을 보여 주지 않습니다. 필요한 경우 더 많은 단일 vCPU VM 인스턴스를 추가 하 여 수동으로 확장 수 또는 자동 크기 조정을 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)을 참조하세요.
+App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있는 계획보다는 단일 vCPU 계획을 선택하는 것이 좋습니다. 현재 Functions는 단일 vCPU VM에서 JavaScript 함수를 더 효율적으로 실행합니다. 더 큰 VM을 사용해도 예상된 성능 향상을 보여 주지 않습니다. 필요한 경우 더 많은 단일 vCPU VM 인스턴스를 추가 하 여 수동으로 확장 하거나 자동 크기 조정을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)을 참조하세요.
 
 ### <a name="cold-start"></a>콜드 부팅
 
@@ -620,14 +640,64 @@ App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있�
 
 ### <a name="connection-limits"></a>연결 제한
 
-Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용 하는 경우 모든 함수 호출을 사용 하 여 새 클라이언트를 만들지 마세요. 대신, 전역 범위에서 정적 클라이언트를 만듭니다. 자세한 내용은 [Azure Functions에서 연결 관리](manage-connections.md)합니다.
+Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용 하는 경우 모든 함수 호출을 사용 하 여 새 클라이언트를 만들지 마세요. 대신 전역 범위에서 단일 정적 클라이언트를 만듭니다. 자세한 내용은 [Azure Functions에서 연결 관리](manage-connections.md)를 참조 하세요.
+
+### <a name="use-async-and-await"></a>`async`및 사용`await`
+
+JavaScript에서 Azure Functions를 작성 하는 경우 및 키워드를 사용 하 여 코드를 작성 해야 합니다 `async` `await` . 콜백이 나를 사용 하는 대신 및를 사용 하 여 코드를 작성 `async` `await` `.then` `.catch` 하면 두 가지 일반적인 문제를 방지할 수 있습니다.
+ - [Node.js 프로세스를 중단](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)하는 catch 되지 않은 예외를 throw 하 여 다른 함수 실행에 영향을 줄 수 있습니다.
+ - 올바르게 대기 않는 비동기 호출로 인해 발생 한 잘못 된 동작 (예: 컨텍스트별의 로그 누락)입니다.
+
+아래 예제에서는 `fs.readFile` 두 번째 매개 변수로 오류 중심 콜백 함수를 사용 하 여 비동기 메서드를 호출 합니다. 이 코드는 위에서 언급 한 문제를 모두 발생 시킵니다. 올바른 범위에서 명시적으로 catch 되지 않은 예외는 전체 프로세스 (문제 #1)를 중단 합니다. `context.done()`콜백 함수의 범위 외부에서를 호출 하면 파일을 읽기 전에 함수 호출이 종료 될 수 있습니다 (문제 #2). 이 예에서는를 `context.done()` 너무 일찍 호출 하면로 시작 하는 로그 항목이 누락 `Data from file:` 됩니다.
+
+```javascript
+// NOT RECOMMENDED PATTERN
+const fs = require('fs');
+
+module.exports = function (context) {
+    fs.readFile('./hello.txt', (err, data) => {
+        if (err) {
+            context.log.error('ERROR', err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        context.log(`Data from file: ${data}`);
+        // context.done() should be called here
+    });
+    // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
+    context.done();
+}
+```
+
+`async`및 키워드를 사용 `await` 하면 이러한 오류를 방지할 수 있습니다. Node.js 유틸리티 함수를 사용 하 여 [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) 오류 우선 콜백 스타일 함수를 대기 가능 함수로 설정 해야 합니다.
+
+아래 예제에서 함수 실행 중에 throw 된 처리 되지 않은 예외는 예외를 발생 시킨 개별 호출에만 실패 합니다. `await`키워드는 다음 단계를 `readFileAsync` 완료 한 후에만 실행 되는 단계를 의미 합니다 `readFile` . `async`및를 사용 하 `await` 는 경우에도 콜백을 호출할 필요가 없습니다 `context.done()` .
+
+```javascript
+// Recommended pattern
+const fs = require('fs');
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+
+module.exports = async function (context) {
+    let data;
+    try {
+        data = await readFileAsync('./hello.txt');
+    } catch (err) {
+        context.log.error('ERROR', err);
+        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
+        throw err;
+    }
+    context.log(`Data from file: ${data}`);
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 자료를 참조하세요.
 
 + [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 + [Azure Functions 개발자 참조](functions-reference.md)
 + [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-[`func azure functionapp publish`]: functions-run-local.md#project-file-deployment
+[' func azure functionapp 게시 ']: functions-run-local.md#project-file-deployment

@@ -1,33 +1,29 @@
 ---
-title: 'Azure AD Connect 동기화: Azure AD Connect 동기화의 구성 변경 | Microsoft Docs'
+title: 'Azure AD Connect 동기화: Azure AD Connect 동기화의 구성 변경'
 description: Azure AD Connect 동기화의 구성을 변경하는 방법을 안내합니다.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60244017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357871"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
 
 > [!WARNING]
-> 기본 동기화 규칙을 변경하는 경우 다음번에 Azure AD Connect가 업데이트될 때 이러한 변경 내용이 덮어쓰여지므로 예기치 않거나 원치 않은 동기화 결과가 발생하게 됩니다.
+> 기본 동기화 규칙을 변경하는 경우 다음번에 Azure AD Connect가 업데이트될 때 이러한 변경 내용이 덮어써지므로 예기치 않거나 원치 않은 동기화 결과가 발생하게 됩니다.
 >
 > 기본 동기화 규칙에는 지문이 포함되어 있습니다. 이들 규칙을 변경하면 지문이 더 이상 일치하지 않습니다. 나중에 Azure AD Connect의 새 릴리스를 적용할 때 문제가 될 수 있습니다. 이 문서에 유일하게 변경하는 방법이 설명되어 있습니다.
 
@@ -60,7 +56,7 @@ ms.locfileid: "60244017"
 1. **새 규칙 추가**를 클릭합니다.
 2. **설명** 페이지에서 다음을 입력합니다.  
    ![인바운드 규칙 필터링](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **이름**: 규칙에 설명이 포함된 이름을 지정합니다.
+   * **Name**: 규칙에 설명이 포함된 이름을 지정합니다.
    * **설명**: 다른 사용자가 어떤 규칙인지 이해할 수 있도록 간단한 설명을 제공합니다.
    * **연결된 시스템**: 개체를 찾을 수 있는 시스템입니다. 이 경우 **Active Directory Connector**를 선택합니다.
    * **연결된 시스템/메타버스 개체 유형**: **사용자** 및 **개인**을 각각 선택합니다.
@@ -69,7 +65,7 @@ ms.locfileid: "60244017"
    * **태그**: 이 항목은 비워 둡니다. Microsoft의 기본 규칙으로만 이 상자에 값을 채워야 합니다.
 3. **범위 지정 필터** 페이지에서 **givenName ISNOTNULL**을 입력합니다.  
    ![인바운드 규칙 범위 지정 필터](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
-    이 섹션은 규칙을 적용해야 개체를 정의하는 데 사용됩니다. 비워 두면 규칙은 모든 사용자 개체에 적용됩니다. 하지만 여기에는 회의실, 서비스 계정 및 기타 사람이 아닌 사용자 개체가 포함됩니다.
+   이 섹션은 규칙을 적용해야 개체를 정의하는 데 사용됩니다. 비워 두면 규칙은 모든 사용자 개체에 적용됩니다. 하지만 여기에는 회의실, 서비스 계정 및 기타 사람이 아닌 사용자 개체가 포함됩니다.
 4. **조인 규칙** 페이지에서는 필드를 비워 둡니다.
 5. **변환** 페이지에서 **FlowType**을 **식**으로 변경합니다. **대상 특성**에 **givenName**을 선택합니다. 또 **원본**에는 **PCase([givenName])** 를 입력합니다.
    ![인바운드 규칙 변환](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
@@ -140,19 +136,19 @@ ms.locfileid: "60244017"
 
 ### <a name="length-of-attributes"></a>특성의 길이
 문자열 특성은 기본적으로 인덱싱 가능하게 설정되고 최대 길이는 448자입니다. 더 길어질 수 있는 문자열 특성을 사용한다면 특성 흐름에 반드시 다음을 포함해야 합니다.  
-`attributeName` <- `Left([attributeName],448)`.
+`attributeName` <- `Left([attributeName],448)`를 참조하세요.
 
 ### <a name="changing-the-userprincipalsuffix"></a>userPrincipalSuffix 변경
 Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 ID로 적절하지 않을 수도 있습니다. Azure AD Connect 동기화 설치 마법사를 통해 다른 특성을 선택할 수 있습니다(예: *mail*). 하지만 일부 경우에는 특성을 계산해야 합니다.
 
 예를 들어 회사 Contoso에는 2개의 Azure AD 디렉터리가 있습니다. 하나는 프로덕션용이고 하나는 테스트용입니다. 테스트 테넌트의 사용자가 로그인 ID에 다른 접미사를 사용하도록 할 수 있습니다.  
-`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`.
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`를 참조하세요.
 
 이 식에서는 첫 번째 @-sign(Word) 왼쪽에 있는 모든 것을 고정된 문자열과 연결합니다.
 
 ### <a name="convert-a-multi-value-attribute-to-single-value"></a>다중 값 특성을 단일 값으로 변환
 Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨터에서 단일 값으로 보이더라도 스키마에서는 다중 값입니다. 설명 특성이 한 예입니다.  
-`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`.
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`를 참조하세요.
 
 이 식에서 특성에 값이 있는 경우 해당 특성 내 첫 번째 항목(*Item*)에서 선행 및 후행 공백을 제거한 다음(*트리밍*), 문자열에 처음 448개의 문자(*왼쪽*)를 유지합니다.
 
@@ -166,7 +162,7 @@ Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨�
 이 Fabrikam 시나리오에서는 클라우드에 동기화된 특성 중 일부라도 클라우드에 남아 있지 않아야 합니다. Azure AD에서 이들 특성이 제거되었는지 확인하려 합니다.  
 ![잘못된 확장 특성](./media/how-to-connect-sync-change-the-configuration/badextensionattribute.png)
 
-1. 새 인바운드 동기화 규칙 만들기 및 설명 
+1. 새 인바운드 동기화 규칙 만들기 및 설명
   ![설명](./media/how-to-connect-sync-change-the-configuration/syncruledescription.png)
 2. **FlowType**이 **Expression**, **Source**가 **AuthoritativeNull**인 특성 흐름을 만듭니다. 리터럴 **AuthoritativeNull**은 우선 순위가 더 낮은 동기화 규칙이 그 값을 채우려고 해도 메타 버스에서 그 값이 비어 있어야 함을 나타냅니다.
   ![확장 특성에 대한 변환](./media/how-to-connect-sync-change-the-configuration/syncruletransformations.png)
@@ -204,7 +200,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **UserT
 
 - Azure AD는 UserType 특성에 대해 **멤버** 및 **게스트** 두 값만 허용합니다.
 - Azure AD Connect에서 UserType 특성이 동기화에 대해 사용하도록 설정되어 있지 않은 경우 디렉터리 동기화를 통해 만든 Azure AD 사용자는 UserType 특성이 **멤버**로 설정되었을 것입니다.
-- Azure AD는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않습니다. 이 특성은 Azure AD 사용자를 만드는 동안에만 설정할 수 있습니다.
+- 버전 1.5.30.0 이전에 Azure AD에서는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않았습니다. 이전 버전에서는 Azure AD 사용자를 만드는 동안에만 설정하고 [ 변경](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)할 수 있었습니다.
 
 UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 이 특성이 온-프레미스 Active Directory에서 파생되는 방법을 결정해야 합니다. 다음은 가장 일반적인 방식입니다.
 
@@ -214,7 +210,7 @@ UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 이 �
 
 - 또는 UserType 특성의 값을 다른 속성에서 파생할 수 있습니다. 예를 들어 온-프레미스 AD userPrincipalName 특성이 도메인 부분 <em>@partners.fabrikam123.org</em>로 끝나는 경우 모든 사용자를 **게스트**로 동기화하는 것이 좋습니다. 
 
-    앞에서 언급했듯이 Azure AD Connect는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않습니다. 그러므로 결정한 논리가 테넌트의 모든 기존 Azure AD 사용자에 대해 UserType 특성이 구성되는 방법과 일치하도록 해야 합니다.
+    앞에서 설명했듯이 이전 버전의 Azure AD Connect에서는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않았습니다. 그러므로 결정한 논리가 테넌트의 모든 기존 Azure AD 사용자에 대해 UserType 특성이 구성되는 방법과 일치하도록 해야 합니다.
 
 UserType 특성의 동기화를 사용하도록 설정하는 단계는 다음과 같이 요약할 수 있습니다.
 
@@ -247,7 +243,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
  5. **확인**을 클릭하여 저장합니다.
 ![온-프레미스 AD 커넥터 스키마에 원본 특성 추가](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>3단계: Azure AD 커넥터 스키마에 UserType 추가
+### <a name="step-3-add-the-usertype-attribute-to-the-azure-ad-connector-schema"></a>3 단계: Azure AD 커넥터 스키마에 UserType 특성 추가
 기본적으로 UserType 특성은 Azure AD Connect 공간으로 가져오지 않습니다. 가져온 특성 목록에 UserType 특성을 추가하려면 다음을 수행합니다.
 
  1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
@@ -266,19 +262,19 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 3. **새 규칙 추가** 단추를 클릭하여 새 인바운드 규칙을 만듭니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | Value | 세부 정보 |
+    | attribute | 값 | 세부 정보 |
     | --- | --- | --- |
-    | Name | *이름 제공* | 예: *In from AD – User UserType* |
-    | 설명 | *설명 제공* |  |
+    | 속성 | *이름 제공* | 예: *In from AD – User UserType* |
+    | Description | *설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 AD 커넥터 선택* |  |
-    | 연결된 시스템 개체 유형 | **User** |  |
+    | 연결된 시스템 개체 유형 | **사용자** |  |
     | 메타버스 개체 유형 | **Person** |  |
     | 링크 형식 | **Join** |  |
     | 우선 순위 | *1-99 사이의 숫자 선택* | 1-99는 사용자 지정 동기화 규칙을 위해 예약되어 있습니다. 다른 동기화 규칙에서 사용하는 값은 선택하지 않습니다. |
 
 5. **범위 지정 필터** 탭으로 이동하여 **다음 절이 있는 단일 범위 지정 필터 그룹**을 추가합니다.
 
-    | 특성 | 연산자 | Value |
+    | attribute | 연산자 | 값 |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | 사용자\_ |
 
@@ -288,13 +284,13 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 직접 | UserType | extensionAttribute1 | 선택 취소 되어 있음 | 주 지역에서 |
+    | 직접 | UserType | extensionAttribute1 | 선택 취소됨 | 업데이트 |
 
     또 다른 예로 UserType 특성의 값을 다른 속성에서 파생할 수 있습니다. 예를 들어 온-프레미스 AD userPrincipalName 특성이 도메인 부분 <em>@partners.fabrikam123.org</em>로 끝나는 경우 모든 사용자를 게스트로 동기화하는 것이 좋습니다. 다음과 같은 식을 구현할 수 있습니다.
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 식 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"멤버","게스트"),Error("UserType을 결정하기 위한 UserPrincipalName이 없습니다.")) | 선택 취소 되어 있음 | 주 지역에서 |
+    | 식 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"멤버","게스트"),Error("UserType을 결정하기 위한 UserPrincipalName이 없습니다.")) | 선택 취소됨 | 업데이트 |
 
 7. **추가**를 클릭하여 인바운드 규칙을 만듭니다.
 
@@ -308,22 +304,22 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 3. **새 규칙 추가** 단추를 클릭합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | Value | 세부 정보 |
+    | attribute | 값 | 세부 정보 |
     | ----- | ------ | --- |
-    | Name | *이름 제공* | 예: *Out to AAD – User UserType* |
-    | 설명 | *설명 제공* ||
+    | 속성 | *이름 제공* | 예: *Out to AAD – User UserType* |
+    | Description | *설명 제공* ||
     | 연결된 시스템 | *AAD 커넥터 선택* ||
-    | 연결된 시스템 개체 유형 | **User** ||
+    | 연결된 시스템 개체 유형 | **사용자** ||
     | 메타버스 개체 유형 | **Person** ||
     | 링크 형식 | **Join** ||
     | 우선 순위 | *1-99 사이의 숫자 선택* | 1-99는 사용자 지정 동기화 규칙을 위해 예약되어 있습니다. 다른 동기화 규칙에서 사용하는 값은 선택하지 않습니다. |
 
 5. **범위 지정 필터** 탭으로 이동하여 **다음 두 절이 있는 단일 범위 지정 필터 그룹**을 추가합니다.
 
-    | 특성 | 연산자 | Value |
+    | attribute | 연산자 | 값 |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | 사용자 |
-    | cloudMastered | NOTEQUAL | True  |
+    | cloudMastered | NOTEQUAL | True |
 
     범위 지정 필터는 이 아웃바운드 동기화 규칙이 적용되는 Azure AD 개체를 결정합니다. 이 예제에서는 *Out to AD – User Identity* 기본 동기화 규칙과 동일한 범위 지정 필터를 사용합니다. 온-프레미스 Active Directory와 동기화되지 않은 User 개체에 동기화 규칙이 적용되지 않도록 합니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
 
@@ -331,7 +327,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 직접 | UserType | UserType | 선택 취소 되어 있음 | 주 지역에서 |
+    | 직접 | UserType | UserType | 선택 취소됨 | 업데이트 |
 
 7. **추가**를 클릭하여 아웃바운드 규칙을 만듭니다.
 
@@ -344,7 +340,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
 1. **온-프레미스 AD 커넥터**에서 **전체 가져오기**를 실행합니다
 
-   1. Synchronization Service Manager에 있는 **작업** 탭으로 이동합니다.
+   1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
    2. **온-프레미스 AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **실행**을 선택합니다.
    3. 팝업 대화 상자에서 **전체 가져오기**를 선택하고 **확인**을 클릭합니다.
    4. 작업이 완료될 때까지 기다립니다.

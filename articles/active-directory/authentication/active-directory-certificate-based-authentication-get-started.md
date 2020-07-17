@@ -1,31 +1,32 @@
 ---
-title: 인증서 기반 인증-Azure Active Directory를 사용 하 여 시작
+title: 인증서 기반 인증-Azure Active Directory
 description: 사용자 환경에서 인증서 기반 인증을 구성하는 방법 알아보기
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
-ms.date: 01/15/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.topic: how-to
+ms.date: 11/21/2019
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: has-adal-ref
+ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359078"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202869"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
-인증서 기반 인증을 사용하면 Exchange Online 계정을 다음에 연결할 때 Windows, Android 또는 iOS 장치의 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증을 받을 수 있습니다.
+인증서 기반 인증을 사용하면 Exchange Online 계정을 다음에 연결할 때 Windows, Android 또는 iOS 디바이스의 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증을 받을 수 있습니다.
 
 - Microsoft Outlook 및 Microsoft Word와 같은 Microsoft 모바일 애플리케이션
 - EAS(Exchange ActiveSync) 클라이언트
 
-이 기능을 구성하면 모바일 장치의 특정 메일 및 Microsoft Office 애플리케이션에 사용자 이름 및 암호 조합을 입력해야 합니다.
+이 기능을 구성하면 모바일 디바이스의 특정 메일 및 Microsoft Office 애플리케이션에 사용자 이름 및 암호 조합을 입력해야 합니다.
 
 항목 내용:
 
@@ -36,13 +37,16 @@ ms.locfileid: "60359078"
 
 인증서 기반 인증을 구성하려면 다음 명령문에 해당되어야 합니다.
 
-- CBA(인증서 기반 인증)는 최신 인증(ADAL)을 사용하는 브라우저 애플리케이션 또는 네이티브 클라이언트의 페더레이션 환경에서만 지원됩니다. 단, 페더레이션 및 관리 계정 모두에 사용할 수 있는 EXO(Exchange Online)용 EAS(Exchange Active Sync)는 예외입니다.
+- CBA (인증서 기반 인증)는 브라우저 응용 프로그램에 대 한 페더레이션 환경, ADAL (최신 인증) 또는 MSAL 라이브러리를 사용 하는 네이티브 클라이언트에 대해서만 지원 됩니다. 단, 페더레이션 및 관리 계정 모두에 사용할 수 있는 EXO(Exchange Online)용 EAS(Exchange Active Sync)는 예외입니다.
 - Azure Active Directory에는 루트 인증 기관 및 중간 인증 기관을 구성되어야 합니다.
 - 각 인증 기관에는 인터넷 연결 URL을 통해 참조될 수 있는 CRL(인증서 해지 목록)이 있어야 합니다.
 - Azure Active Directory에 해당 인증 기관이 하나 이상 구성되어 있어야 합니다. [인증 기관 구성](#step-2-configure-the-certificate-authorities) 섹션에서 관련 단계를 찾을 수 있습니다.
-- Exchange ActiveSync 클라이언트의 경우, 보안 주체 이름 또는 주체 대체 이름 필드의 RFC822 이름 값에 Exchange Online 사용자가 라우팅할 수 있는 전자 메일 주소가 있어야 합니다. Azure Active Directory는 디렉터리의 프록시 주소 특성에 RFC822 값을 매핑합니다.
+- Exchange ActiveSync 클라이언트의 경우 사용자 이름 또는 주체 대체 이름 필드의 RFC822 이름 값에 Exchange online의 사용자 라우팅 가능한 메일 주소가 있어야 합니다. Azure Active Directory는 디렉터리의 프록시 주소 특성에 RFC822 값을 매핑합니다.
 - 클라이언트 디바이스는 클라이언트 인증서를 발급하는 하나 이상의 인증 기관에 액세스해야 합니다.
 - 클라이언트 인증을 위한 클라이언트 인증서가 클라이언트에 발급되어야 합니다.
+
+>[!IMPORTANT]
+>Azure Active Directory 다운로드 하 고 캐시에 대 한 CRL의 최대 크기는 20MB이 고, CRL을 다운로드 하는 데 필요한 시간은 10 초를 초과 하면 안 됩니다.  Azure Active Directory CRL을 다운로드할 수 없는 경우 해당 CA에서 발급 한 인증서를 사용 하는 인증서 기반 인증에 실패 합니다. CRL 파일이 크기 제약 조건 내에 있는지 확인 하는 모범 사례는 인증서 수명을 합당 한 제한 내에서 유지 하 고 만료 된 인증서를 정리 하는 것입니다.
 
 ## <a name="step-1-select-your-device-platform"></a>1단계: 디바이스 플랫폼 선택
 
@@ -65,6 +69,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 인증 기관에 대한 스키마는 다음과 같습니다.
 
+```csharp
     class TrustedCAsForPasswordlessAuth
     {
        CertificateAuthorityInformation[] certificateAuthorities;
@@ -86,13 +91,16 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
         RootAuthority = 0,
         IntermediateAuthority = 1
     }
+```
 
 구성에는 [Azure Active Directory PowerShell 버전 2](/powershell/azure/install-adv2?view=azureadps-2.0)를 사용할 수 있습니다.
 
 1. 관리자 권한으로 Windows PowerShell을 시작합니다.
 2. Azure AD 모듈 버전 [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) 이상을 설치합니다.
 
-        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+```powershell
+    Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+```
 
 첫 번째 구성 단계로 테넌트와 연결을 설정해야 합니다. 테넌트에 대한 연결이 있으면 디렉터리에 정의된 신뢰할 수 있는 인증 기관을 검토, 추가, 삭제 및 수정할 수 있습니다.
 
@@ -100,39 +108,49 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 테넌트와 연결을 설정하려면 [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet을 사용합니다.
 
+```azurepowershell
     Connect-AzureAD
+```
 
 ### <a name="retrieve"></a>장치
 
 디렉터리에 정의된 신뢰할 수 있는 인증 기관을 검색하려면 [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용합니다.
 
+```azurepowershell
     Get-AzureADTrustedCertificateAuthority
+```
 
 ### <a name="add"></a>추가
 
-신뢰할 수 있는 인증 기관을 만들려면 [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용하고 **crlDistributionPoint** 특성을 올바른 값으로 설정합니다.
+신뢰할 수 있는 인증 기관을 만들려면 [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용하고 **crlDistributionPoint** 특성을 올바른 값으로 설정합니다.
 
+```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
     $new_ca.AuthorityType=0
     $new_ca.TrustedCertificate=$cert
     $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
+```
 
 ### <a name="remove"></a>제거
 
 신뢰할 수 있는 인증 기관을 제거하려면 [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용합니다.
 
+```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
+```
 
 ### <a name="modify"></a>수정
 
 신뢰할 수 있는 인증 기관을 수정하려면 [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용합니다.
 
+```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
+```
 
 ## <a name="step-3-configure-revocation"></a>3단계: 해지 구성
 
@@ -148,17 +166,23 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 1. 관리 자격 증명을 MSOL 서비스에 연결합니다.
 
+```powershell
         $msolcred = get-credential
         connect-msolservice -credential $msolcred
+```
 
 2. 사용자에 대한 현재 StsRefreshTokensValidFrom 값을 검색합니다.
 
+```powershell
         $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
         $user.StsRefreshTokensValidFrom
+```
 
 3. 사용자에 대한 새 StsRefreshTokensValidFrom 값을 현재 타임스탬프와 같게 구성합니다.
 
+```powershell
         Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+```
 
 설정하는 날짜는 이후 날짜여야 합니다. 날짜가 이후 날짜가 아닌 경우 **StsRefreshTokensValidFrom** 속성이 설정되지 않은 것입니다. 날짜가 이후 날짜인 경우 **StsRefreshTokensValidFrom** 이 현재 시간(Set-MsolUser 명령으로 지정된 날짜 아님)으로 설정됩니다.
 
@@ -166,7 +190,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="testing-your-certificate"></a>인증서 테스트
 
-첫 번째 구성 테스트로 **장치의 브라우저**를 사용하여 [Outlook Web Access](https://outlook.office365.com) 또는 [SharePoint Online](https://microsoft.sharepoint.com)에 로그인을 시도해야 합니다.
+첫 번째 구성 테스트로 **디바이스의 브라우저**를 사용하여 [Outlook Web Access](https://outlook.office365.com) 또는 [SharePoint Online](https://microsoft.sharepoint.com)에 로그인을 시도해야 합니다.
 
 로그인에 성공했으면 다음을 의미합니다.
 
@@ -177,7 +201,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 **모바일 Office 애플리케이션에서 인증서 인증을 테스트하려면**
 
-1. 테스트 장치에서 Office 모바일 응용 프로그램(예: OneDrive)을 설치합니다.
+1. 테스트 디바이스에서 Office 모바일 애플리케이션(예: OneDrive)을 설치합니다.
 3. 애플리케이션을 시작합니다.
 4. 사용자 이름을 입력하고 사용하려는 사용자 인증서를 선택합니다.
 
@@ -199,7 +223,7 @@ Intune과 같은 MDM(모바일 디바이스 관리)을 활용하거나 디바이
 
 **인증서 인증을 테스트하려면**
 
-1. 이전 섹션의 요구 사항을 충족하는 EAS 프로필을 응용 프로그램에서 구성합니다.
+1. 이전 섹션의 요구 사항을 충족하는 EAS 프로필을 애플리케이션에서 구성합니다.
 2. 애플리케이션을 열고 메일이 동기화되는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계

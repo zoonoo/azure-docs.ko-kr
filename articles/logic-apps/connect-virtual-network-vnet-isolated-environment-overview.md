@@ -1,90 +1,144 @@
 ---
-title: ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 액세스
-description: 이 개요에서는 ISE(통합 서비스 환경)가 논리 앱이 Azure VNET(가상 네트워크)에 액세스하는 데 도움이 되는 방법 설명
+title: Azure 가상 네트워크에 액세스
+description: ISEs (integration service environment)가 Azure 가상 네트워크에 액세스 하는 방법에 대 한 개요 (Vnet)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 1ef8c8eec3865f2a6e363e7da1dbda9504b81c05
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 07/05/2020
+ms.openlocfilehash: 85f4cc9f9e6e762a85571010840cc697bc6c9888
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546413"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963668"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
-때로는 통합 계정과 논리 앱 해야 가상 컴퓨터 (Vm)와 같은 보안된 리소스를 다른 시스템 또는 내에 있는 서비스에 대 한 액세스는 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)합니다. 이 액세스를 설정 하려면 [만들기를 *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 논리 앱을 실행 하 고 통합을 만들 수 있는 계정입니다.
+경우에 따라 논리 앱은 가상 머신 (Vm), 다른 시스템 또는 서비스와 같은 보안 리소스에 대 한 액세스 권한이 있어야 하며, [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)내부 또는 연결 됩니다. 이 액세스를 설정 하기 위해 [ISE ( *integration service environment* )를 만들](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)수 있습니다. ISE는 전용 리소스를 사용 하 고 "전역" 다중 테 넌 트 Logic Apps 서비스와 별도로 실행 되는 Logic Apps 서비스의 인스턴스입니다.
 
-ISE를 만들면 Azure 개인 및 격리 된 인스턴스를 Logic Apps 서비스의 Azure 가상 네트워크에 배포 합니다. 이 비공개 인스턴스는 스토리지 등의 전용 리소스를 사용하며, 공용 “글로벌” Logic Apps 서비스와는 별도로 실행됩니다. 다른 Azure 테 넌 트 수 라고도 하는 앱의 성능에 미치는 영향을 줄일 수 있습니다도 격리 된 개인 인스턴스와 공용 전역 인스턴스를 구분 하는 ["시끄러운 이웃" 효과](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)합니다.
+예를 들어 일부 Azure virtual network는 azure [개인 링크](../private-link/private-link-overview.md)를 통해 설정할 수 있는 개인 끝점을 사용 하 여 azure에서 호스트 되는 Azure Storage, Azure Cosmos DB, Azure SQL Database, 파트너 서비스 또는 고객 서비스와 같은 azure PaaS 서비스에 대 한 액세스를 제공 합니다. 논리 앱에서 개인 끝점을 사용 하는 가상 네트워크에 액세스 해야 하는 경우에는 ISE 내에서 해당 논리 앱을 만들고, 배포 하 고, 실행 해야 합니다.
 
-프로그램 ISE를 만든 후 논리 앱 또는 통합 계정을 만들 하려고 할 때으로 선택할 수 있습니다 프로그램 ISE를 논리 앱 또는 통합 계정 위치:
+ISE를 만들 때 Azure는 해당 ISE를 Azure 가상 네트워크에 *삽입*하거나 배포합니다. 그런 다음, 액세스해야 하는 논리 앱 및 통합 계정의 위치로 이 ISE를 사용할 수 있습니다.
 
 ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-이제 논리 앱 내에 또는 이러한 항목 중 하나를 사용 하 여 가상 네트워크에 연결 하는 시스템을 직접 액세스할 수 있습니다.
+이 개요에서는 [ISE를 사용 하려는 이유에](#benefits)대 한 자세한 내용, [전용 및 다중 테 넌 트 Logic Apps 서비스 간의 차이점](#difference), Azure 가상 네트워크 내부 또는 연결 된 리소스에 직접 액세스 하는 방법에 대해 설명 합니다.
 
-* **ISE**-SQL Server와 같은 해당 시스템에 대 한 커넥터를 레이블이 지정 된
-* A **Core**-기본 제공 트리거 또는 HTTP 트리거 또는 작업 등의 작업을 레이블이 지정
-* 사용자 지정 커넥터
+<a name="benefits"></a>
 
-이 개요에서는 ISE를 논리 앱을 제공 하는 방법에 대 한 자세한 설명 및 통합 계정에 Azure 가상 네트워크에 직접 액세스 및 ISE를와 전역 Logic Apps 서비스 간의 차이점을 비교 합니다.
+## <a name="why-use-an-ise"></a>ISE를 사용 하는 이유
 
-> [!NOTE]
-> Logic apps, 기본 제공 트리거, 기본 제공 작업 및 커넥터 가격 책정 ISE 사용에서 실행 되는 사용량 기반 가격 책정 계획에서 다른 계획 합니다. 자세한 내용은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
+고유한 별도의 전용 인스턴스에서 논리 앱을 실행하면 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향(["사용량이 많은 인접 항목" 효과](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)로 알려짐)을 줄일 수 있습니다. ISE는 다음과 같은 이점도 제공합니다.
+
+* 가상 네트워크 내부 또는 연결 된 리소스에 대 한 직접 액세스
+
+  ISE에서 만들고 실행 하는 논리 앱은 [ise에서 실행 되는 특별히 설계 된 커넥터](../connectors/apis-list.md#ise-connectors)를 사용할 수 있습니다. 온-프레미스 시스템 또는 데이터 원본에 대 한 ISE 커넥터가 있는 경우 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 사용 하지 않고 직접 연결할 수 있습니다. 자세한 내용은이 항목의 뒷부분에 나오는 [전용 및 다중 테 넌 트](#difference) 및 [온-프레미스 시스템에](#on-premises) 대 한 액세스를 참조 하세요.
+
+* 외부에 있거나 가상 네트워크에 연결 되지 않은 리소스에 계속 액세스
+
+  ISE에서 만들고 실행 하는 논리 앱은 ISE 특정 커넥터를 사용할 수 없을 때 다중 테 넌 트 Logic Apps 서비스에서 실행 되는 커넥터를 계속 사용할 수 있습니다. 자세한 내용은 [전용 및 다중 테 넌 트](#difference)를 참조 하세요.
+
+* 다중 테넌트 서비스의 논리 앱에서 공유되는 고정 IP 주소와는 별개의 고정 IP 주소입니다. 대상 시스템과 통신하도록 단일 공용, 정적 및 예측 가능한 아웃바운드 IP 주소를 설정할 수도 있습니다. 이런 방식으로 각 ISE에 대한 해당 대상 시스템에서 추가 방화벽을 설정할 필요가 없습니다.
+
+* 실행 지속 시간, 스토리지 보존, 처리량, HTTP 요청 및 응답 시간 제한, 메시지 크기 및 사용자 지정 커넥터 요청에 대한 제한이 증가합니다. 자세한 내용은 [Azure Logic Apps에 대한 제한 및 구성](logic-apps-limits-and-config.md)을 참조하세요.
 
 <a name="difference"></a>
 
-## <a name="isolated-versus-global"></a>격리 방식과 전역 방식 비교
+## <a name="dedicated-versus-multi-tenant"></a>전용 및 다중 테 넌 트
 
-Azure에서 통합된 서비스 환경 (ISE)을 만들 때 Azure 가상 네트워크를 선택할 수 있습니다 *삽입할* 에 ISE입니다. Azure는 다음를 삽입 하거나 가상 네트워크에 Logic Apps 서비스의 전용 인스턴스를 배포 합니다. 이 작업을 통해 격리된 환경이 만들어지면 전용 리소스에서 논리 앱을 만들고 실행할 수 있습니다. 논리 앱을 만들면 가상 네트워크 및 해당 네트워크의 리소스에 논리 앱 직접 액세스를 제공 하는 앱의 위치와 ISE에 선택 합니다.
+ISE에서 논리 앱을 만들고 실행 하는 경우 다중 테 넌 트 Logic Apps 서비스와 동일한 사용자 환경 및 유사한 기능을 사용할 수 있습니다. 다중 테 넌 트 Logic Apps 서비스에서 사용할 수 있는 동일한 기본 제공 트리거, 작업 및 관리 되는 커넥터를 모두 사용할 수 있습니다. 일부 관리 되는 커넥터는 추가 ISE 버전을 제공 합니다. Ise 커넥터와 ise가 아닌 커넥터 간의 차이점은 ise 내에서 작업할 때 실행 되는 위치와 논리 앱 디자이너에 있는 레이블이 있습니다.
 
-ISE의 논리 앱은 전역 Logic Apps 서비스와 같은 사용자 환경과 비슷한 기능을 제공합니다. 동일한 기본 제공 트리거, 기본 제공 작업 및 전역 Logic Apps 서비스에서 커넥터를 사용할 수 할 뿐만 아니라 ISE 관련 커넥터를 사용할 수도 있습니다. 예를 들어 다음과 같습니다.는 ISE에서 실행 되는 버전을 제공 하는 일부 표준 커넥터
+![ISE에 레이블이 있거나 없는 커넥터](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
 
-* Azure Blob Storage, File Storage 및 Table Storage
-* Azure Queues, Azure Service Bus, Azure Event Hubs 및 IBM MQ
-* FTP 및 SFTP-SSH
-* SQL Server, SQL Data Warehouse, Azure Cosmos DB
-* AS2, X12 및 EDIFACT
+* HTTP와 같은 기본 제공 트리거와 동작은 **핵심** 레이블을 표시 하 고 논리 앱과 동일한 ISE에서 실행 됩니다.
 
-ISE 커넥터와 기타 커넥터의 차이는 트리거와 작업이 실행되는 위치입니다.
+* **ISE** 레이블을 표시 하는 관리 커넥터는 특별히 ISEs 용으로 설계 되었으며 *항상 논리 앱과 동일한 ISE로 실행*됩니다. 예를 들어 [ISE 버전을 제공 하는 일부 커넥터](../connectors/apis-list.md#ise-connectors)는 다음과 같습니다.<p>
 
-* 프로그램 ISE에서 기본 제공 트리거 및 HTTP와 같은 작업을 항상 실행 논리 앱 및 표시와 같은 ISE에는 **Core** 레이블.
+  * Azure Blob Storage, File Storage 및 Table Storage
+  * Azure Service Bus, Azure 큐, Azure Event Hubs
+  * Azure Automation, Azure Key Vault, Azure Event Grid 및 Azure Monitor 로그
+  * FTP, SFTP-SSH, 파일 시스템 및 SMTP
+  * SAP, IBM MQ, IBM DB2 및 IBM 3270
+  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * AS2, X12 및 EDIFACT
 
-  ![트리거와 작업을 기본 제공 하는 "Core"를 선택 합니다.](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+  드문 경우 이지만 온-프레미스 시스템 또는 데이터 원본에 ISE 커넥터를 사용할 수 있는 경우 온 [-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 사용 하지 않고 직접 연결할 수 있습니다. 자세한 내용은이 항목의 뒷부분에 있는 [온-프레미스 시스템 액세스](#on-premises) 를 참조 하세요.
 
-* 커넥터는 ISE에서 실행 되는 전역 Logic Apps 서비스에서 사용 가능한 버전 호스트할 공개적으로. 두 버전을 사용 하 여 커넥터를 제공 하는 커넥터에 대 한 합니다 **ISE** 레이블을 지정 항상 논리 앱으로 동일한 ISE에서 실행 합니다. **ISE** 레이블이 없는 커넥터는 전역 Logic Apps 서비스에서 실행됩니다.
+* **Ise** 레이블을 표시 하지 않는 관리 커넥터는 ise 내에서 논리 앱에 대 한 작업을 계속 합니다. 이러한 커넥터는 항상 ISE가 아닌 *다중 테 넌 트 Logic Apps 서비스에서 실행*됩니다.
 
-  ![ISE 커넥터 선택](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
+* [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 요구 하는지 여부에 관계 없이 *ise 외부*에서 만든 사용자 지정 커넥터는 ise 내에서 논리 앱을 계속 사용할 수 있습니다. 그러나 *ISE 내* 에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이에서 작동 하지 않습니다. 자세한 내용은 [온-프레미스 시스템에 액세스](#on-premises)를 참조 하세요.
 
-### <a name="access-to-on-premises-data-sources"></a>온-프레미스 데이터 원본에 대 한 액세스
+<a name="on-premises"></a>
 
-Azure virtual network에 연결 된 온-프레미스 시스템에 대 한 삽입 ISE를 해당 네트워크 logic apps 이러한 항목 중 하나를 사용 하 여 해당 시스템에 직접 액세스할 수 있도록 합니다.
+## <a name="access-to-on-premises-systems"></a>온-프레미스 시스템에 대 한 액세스
 
-* 예를 들어, SQL Server는 시스템에 대 한 ISE 버전 커넥터
-  
-* HTTP 동작
-  
+ISE 내에서 실행 되는 논리 앱은 다음 항목을 사용 하 여 Azure 가상 네트워크 내에 있거나 연결 된 온-프레미스 시스템 및 데이터 원본에 직접 액세스할 수 있습니다.<p>
+
+* **핵심** 레이블을 표시 하는 HTTP 트리거 또는 동작
+
+* 온-프레미스 시스템 또는 데이터 원본에 대 한 **ISE** 커넥터 (사용할 수 있는 경우)
+
+  ISE 커넥터를 사용할 수 있는 경우 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)없이 시스템 또는 데이터 원본에 직접 액세스할 수 있습니다. 그러나 ISE에서 SQL Server에 액세스 하 고 Windows 인증을 사용 해야 하는 경우에는 커넥터의 비 ISE 버전 및 온-프레미스 데이터 게이트웨이를 사용 해야 합니다. 커넥터의 ISE 버전이 Windows 인증을 지원 하지 않습니다. 자세한 내용은 [ISE 커넥터](../connectors/apis-list.md#ise-connectors) 및 [integration Service environment에서 연결](../connectors/apis-list.md#integration-service-environment)을 참조 하세요.
+
 * 사용자 지정 커넥터
 
-  * 온-프레미스 데이터 게이트웨이 필요로 하는 사용자 지정 커넥터 있고 ISE 외부 해당 커넥터를 만든 경우는 ISE에서 logic apps는 해당 커넥터를 사용할 수도 있습니다.
-  
-  * ISE를에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이와 함께 작동 하지 않습니다. 그러나 이러한 커넥터 ISE를 호스팅하는 가상 네트워크에 연결 된 온-프레미스 데이터 원본에 직접 액세스할 수 있습니다. 따라서는 ISE에서 logic apps 가능성이 필요 하지 않습니다 데이터 게이트웨이 통해 이러한 리소스와 통신할 때.
+  * [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 요구 하는지 여부에 관계 없이 *ise 외부*에서 만든 사용자 지정 커넥터는 ise 내에서 논리 앱을 계속 사용할 수 있습니다.
 
-가상 네트워크에 연결 되지 않습니다 또는 ISE 버전의 커넥터 없는 온-프레미스 시스템의 경우 먼저 [온-프레미스 데이터 게이트웨이 설정](../logic-apps/logic-apps-gateway-install.md) 전에 논리 앱은 해당 시스템에 연결할 수 있습니다.
+  * *ISE 내* 에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이와 작동 하지 않습니다. 그러나 이러한 커넥터는 ISE를 호스트 하는 가상 네트워크 내에 있거나 연결 된 온-프레미스 시스템 및 데이터 원본에 직접 액세스할 수 있습니다. 따라서 ISE 내에 있는 논리 앱은 일반적으로 해당 리소스에 액세스할 때 데이터 게이트웨이가 필요 하지 않습니다.
+
+ISE 커넥터가 없거나 가상 네트워크 외부에 있거나 가상 네트워크에 연결 되지 않은 온-프레미스 시스템 및 데이터 원본에 액세스 하려면 여전히 온-프레미스 데이터 게이트웨이를 사용 해야 합니다. ISE 내의 논리 앱은 **CORE** 또는 **ise** 레이블이 없는 커넥터를 계속 사용할 수 있습니다. 이러한 커넥터는 ISE가 아닌 다중 테 넌 트 Logic Apps 서비스 에서만 실행 됩니다. 
+
+<a name="ise-level"></a>
+
+## <a name="ise-skus"></a>ISE Sku
+
+ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습니다. 이러한 Sku 간의 차이점은 다음과 같습니다.
+
+* **개발자**
+
+  는 실험, 개발 및 테스트에 사용할 수 있지만 프로덕션 또는 성능 테스트에는 사용할 수 없는 저렴 한 ISE를 제공 합니다. 개발자 SKU에는 고정 월별 가격에 대 한 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터 및 단일 [무료 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정이 포함 되어 있습니다. 그러나이 SKU에는 SLA (서비스 수준 계약), 용량을 확장 하는 옵션 또는 재활용 중 중복성을 포함 하지 않습니다. 즉, 지연 또는 가동 중지 시간이 발생할 수 있습니다.
+
+* **Premium**
+
+  는 프로덕션에 사용할 수 있는 ISE를 제공 하 고 SLA 지원, 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터, 단일 [표준 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정, 용량을 확장 하는 옵션 및 고정 된 월별 가격을 재활용 하는 동안 중복성을 포함 합니다.
+
+> [!IMPORTANT]
+> SKU 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다.
+
+가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요.
+
+<a name="endpoint-access"></a>
+
+## <a name="ise-endpoint-access"></a>ISE 끝점 액세스
+
+ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하도록 선택할 수 있습니다. 선택은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. 이러한 끝점은 논리 앱의 실행 기록에서 입/출력에 액세스할 수 있는 방법에도 영향을 줍니다.
+
+> [!IMPORTANT]
+> ISE를 만드는 동안에만 액세스 끝점을 선택할 수 있으며 나중에이 옵션을 변경할 수 없습니다.
+
+* **내부**: 개인 끝점은 *가상 네트워크 내부 에서만*논리 앱의 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 ISE에서 논리 앱에 대 한 호출을 허용 합니다. 실행 기록에 액세스 하려는 컴퓨터와 개인 끝점 간에 네트워크 연결이 있는지 확인 합니다. 예를 들어 클라이언트 컴퓨터는 ISE의 가상 네트워크 내부 또는 ISE의 가상 네트워크 (예: 피어 링 또는 가상 사설망)에 연결 된 가상 네트워크 내부에 있을 수 있습니다.
+
+* **외부**: 공용 끝점은 ISE에서 논리 앱에 대 한 호출을 허용 하며, *가상 네트워크 외부에서*논리 앱 실행 기록의 입력 및 출력을 보고 액세스할 수 있습니다. NSGs (네트워크 보안 그룹)를 사용 하는 경우 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 인바운드 규칙으로 설정 되어 있는지 확인 합니다. 자세한 내용은 [ISE에 대 한 액세스 사용](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)을 참조 하세요.
+
+ISE가 내부 또는 외부 액세스 끝점을 사용 하는지 확인 하려면 ISE의 메뉴에서 **설정**아래에 있는 **속성**을 선택 하 고 **액세스 끝점** 속성을 찾습니다.
+
+![ISE 액세스 끝점 찾기](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
+
+<a name="pricing-model"></a>
+
+## <a name="pricing-model"></a>가격 책정 모델
+
+ISE에서 실행 되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 소비 기반 요금제와 다른 고정 요금제를 사용 합니다. 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="integration-accounts-with-ise"></a>ISE와의 통합 계정
 
-ISE(통합 서비스 환경) 내에서 논리 앱을 통해 통합 계정을 사용할 수 있습니다. 그러나 해당 통합 계정은 연결된 논리 앱과 *동일한 ISE*를 사용해야 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다. 통합 계정을 만들 때는 통합 계정의 위치로 ISE를 선택할 수 있습니다.
+ISE(통합 서비스 환경) 내에서 논리 앱을 통해 통합 계정을 사용할 수 있습니다. 그러나 해당 통합 계정은 연결된 논리 앱과 *동일한 ISE*를 사용해야 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다. 통합 계정을 만들 때는 통합 계정의 위치로 ISE를 선택할 수 있습니다. ISE를 사용 하 여 통합 계정에 대 한 가격 책정 및 청구 작업 방법을 알아보려면 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [격리된 논리 앱에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)하는 방법 알아보기
+* [Azure Logic Apps에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 대해 자세히 알아보기
 * [Azure 서비스에 대한 가상 네트워크 통합](../virtual-network/virtual-network-for-azure-services.md)에 대해 알아보기

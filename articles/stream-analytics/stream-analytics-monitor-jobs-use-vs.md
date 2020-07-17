@@ -1,20 +1,19 @@
 ---
-title: Visual Studio를 사용하여 Azure Stream Analytics 작업 모니터링 및 관리
+title: Visual Studio를 사용하여 Azure Stream Analytics 모니터링 및 관리
 description: 이 문서에서는 Visual Studio를 사용하여 Azure Stream Analytics 작업을 모니터링하고 관리하는 방법을 설명합니다.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e673d4f1c2d58a61c541cca4f8448dffc003f9fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 79d677caf0c57fb36d211333b28be0eaa6528948
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479439"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044127"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Visual Studio를 사용하여 Stream Analytics 작업 모니터링 및 관리
 
@@ -22,7 +21,7 @@ ms.locfileid: "61479439"
 
 ## <a name="job-summary"></a>작업 요약
 
-**작업 요약** 및 **작업 메트릭**은 작업의 빠른 스냅숏을 제공합니다. 작업의 상태 및 이벤트 정보를 한눈에 확인할 수 있습니다.
+**작업 요약** 및 **작업 메트릭**은 작업의 빠른 스냅샷을 제공합니다. 작업의 상태 및 이벤트 정보를 한눈에 확인할 수 있습니다.
 
 <img src="./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-job-summary-metrics.png" alt="Stream Analytics job summary and job metrics" width="300px"/> 
 
@@ -42,7 +41,7 @@ ms.locfileid: "61479439"
 
 
 ## <a name="get-support"></a>지원 받기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요. 
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

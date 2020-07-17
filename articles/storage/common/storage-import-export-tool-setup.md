@@ -1,19 +1,19 @@
 ---
 title: Azure Import/Export 도구 설정 | Microsoft Docs
 description: Azure Import/Export 서비스를 위한 드라이브 준비 및 복구 도구 설정 방법을 알아봅니다.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/29/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: d2ce6c409ae9cbf99589d11dfc850e2324d1b0c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7d2cac9402477090ae412dcf21265bec4609278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514179"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Azure Import/Export 도구 설정
 
@@ -23,13 +23,13 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 * 가져오기 작업이 완료된 후에는 이 도구를 사용하여 손상되거나 누락되거나 다른 Blob과 충돌한 Blob을 복구할 수 있습니다.
 * 완료된 내보내기 작업에서 드라이브를 받은 후에는 이 도구를 사용하여 드라이브에서 손상되거나 누락된 파일을 복구할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 가져오기 작업을 위해 **드라이브를 준비**하는 경우 다음과 같은 필수 조건을 충족해야 합니다.
 
 * 활성 Azure 구독이 있어야 합니다.
-* 구독에는 가져올 파일을 저장할 수 있는 충분한 공간이 있는 저장소 계정이 있어야 합니다.
-* 저장소 계정 액세스 키 중 적어도 하나가 필요합니다.
+* 구독에는 가져올 파일을 저장할 수 있는 충분한 공간이 있는 스토리지 계정이 있어야 합니다.
+* 스토리지 계정 액세스 키 중 적어도 하나가 필요합니다.
 * Windows 7, Windows Server 2008 R2 또는 최신 Windows 운영 체제가 설치된 컴퓨터("복사 컴퓨터")가 필요합니다.
 * .NET Framework 4가 복사 컴퓨터에 설치되어야 합니다.
 * 복사 컴퓨터에서 BitLocker를 사용할 수 있어야 합니다.
@@ -39,13 +39,13 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 부분적으로 실패한 **가져오기를 복구**하려는 경우 다음이 필요합니다.
 
 * 복사 로그 파일
-* 저장소 계정 키입니다.
+* 스토리지 계정 키입니다.
 
 부분적으로 실패한 **내보내기를 복구**하려는 경우 다음이 필요합니다.
 
 * 복사 로그 파일
 * 매니페스트 파일(선택 사항)
-* 저장소 계정 키입니다.
+* 스토리지 계정 키입니다.
 
 ## <a name="installing-the-azure-importexport-tool"></a>Azure Import/Export 도구 설치
 

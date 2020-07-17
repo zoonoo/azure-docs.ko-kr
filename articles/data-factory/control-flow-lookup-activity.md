@@ -1,25 +1,25 @@
 ---
-title: Azure Data Factory에서 조회 작업 | Microsoft Docs
+title: Azure Data Factory에서 조회 작업
 description: 조회 작업을 사용하여 외부 소스의 값을 조회하는 방법을 배웁니다. 이 출력을 이후 작업에서 계속 참조할 수 있습니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: shlo
-ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768673"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81418003"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 조회 작업은 Azure Data Factory에서 지원하는 데이터 원본에서 데이터 세트를 검색할 수 있습니다. 조회 작업은 다음과 같은 시나리오에 사용합니다.
 - 개체 이름을 하드 코딩하는 대신, 후속 작업에서 작동할 개체를 동적으로 결정합니다. 개체의 예로는 파일과 테이블이 있습니다.
@@ -54,11 +54,11 @@ ms.locfileid: "60768673"
 
 ## <a name="type-properties"></a>형식 속성
 
-이름 | 설명 | Type | Required?
+Name | Description | Type | 필수 여부
 ---- | ----------- | ---- | --------
 데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
 source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
-firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | Boolean | 아니요. 기본값은 `true`입니다.
+firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | 부울 | 아니요. 기본값은 `true`입니다.
 
 > [!NOTE]
 > 
@@ -82,7 +82,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
     }
     ```
 
-* **`firstRowOnly`가 `false`로 설정되면** 출력 형식은 다음 코드와 같습니다. `count` 필드는 반환되는 레코드 수를 나타냅니다. 자세한 값은 고정 `value` 배열 아래에 표시됩니다. 이 경우 조회 작업 후에 [Foreach 작업](control-flow-for-each-activity.md)이 이어집니다. `@activity('MyLookupActivity').output.value` 패턴을 사용하여 `value` 배열을 ForEach 작업 `items` 필드에 전달합니다. `value` 배열의 요소에 액세스하려면 `@{activity('lookupActivity').output.value[zero based index].propertyname}` 구문을 따릅니다. 예는 `@{activity('lookupActivity').output.value[0].tablename}`입니다.
+* **`firstRowOnly`가 `false`로 설정되면** 출력 형식은 다음 코드와 같습니다. `count` 필드는 반환되는 레코드 수를 나타냅니다. 자세한 값은 고정 `value` 배열 아래에 표시됩니다. 이 경우 조회 작업 후에 [Foreach 작업](control-flow-for-each-activity.md)이 이어집니다. `@activity('MyLookupActivity').output.value` 패턴을 사용하여 `value` 배열을 ForEach 작업 `items` 필드에 전달합니다. `value` 배열의 요소에 액세스하려면 `@{activity('lookupActivity').output.value[zero based index].propertyname}` 구문을 따릅니다. 예제는 `@{activity('lookupActivity').output.value[0].tablename}`입니다.
 
     ```json
     {
@@ -232,17 +232,14 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 ```
 
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
-이 저장소 계정에는 SQL 테이블의 이름을 사용하는 JSON 파일이 포함되어 있습니다. 
+이 스토리지 계정에는 SQL 테이블의 이름을 사용하는 JSON 파일이 포함되어 있습니다. 
 
 ```json
 {
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>"
         }
     },
         "name": "AzureStorageLinkedService"
@@ -259,10 +256,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
         "type": "AzureSqlDatabase",
         "description": "",
         "typeProperties": {
-            "connectionString": {
-                "value": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;",
-                "type": "SecureString"
-            }
+            "connectionString": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;"
         }
     }
 }

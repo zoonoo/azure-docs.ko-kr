@@ -1,33 +1,34 @@
 ---
-title: VHD에서 데이터 가져오기 및 Microsoft Azure Data Box를 사용하여 관리 디스크로 복사 | Microsoft Docs
+title: '자습서: VHD에서 관리 디스크로 복사'
+titleSuffix: Azure Data Box
 description: 온-프레미스 VM 워크로드의 VHD에서 Azure Data Box로 데이터를 복사하는 방법 알아보기
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 965c768df9138d850c2ac9f88e3797dcc54fa3fc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282562"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501866"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>자습서: Data Box를 사용하여 Azure의 관리 디스크로 데이터 가져오기
 
 이 자습서에서는 Azure Data Box를 사용하여 Azure의 관리 디스크로 온-프레미스 VHD를 마이그레이션하는 방법을 설명합니다. 온-프레미스 VM의 VHD는 Data Box에 페이지 Blob으로 복사되며 관리 디스크로 Azure에 업로드됩니다. 그런 다음, 이러한 관리 디스크를 Azure VM에 연결할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * 필수 구성 요소 검토
 > * Data Box에 연결
 > * Data Box에 데이터 복사
 
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -38,6 +39,8 @@ ms.locfileid: "59282562"
 
     - [Azure 개체 크기 제한에서 지원되는 관리 디스크 크기](data-box-limits.md#azure-object-size-limits).
     - [Azure 관리 디스크 소개](/azure/virtual-machines/windows/managed-disks-overview). 
+
+5. Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 때까지 원본 데이터의 복사본을 유지 관리합니다.
 
 ## <a name="connect-to-data-box"></a>Data Box에 연결
 
@@ -56,8 +59,8 @@ ms.locfileid: "59282562"
  
 |        연결 프로토콜           |             공유에 대한 UNC 경로                                               |
 |-------------------|--------------------------------------------------------------------------------|
-| SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Premium SSD>\file1.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard HDD>\file2.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard SSD>\file3.vhd` |  
-| NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<Premium SSD>/file1.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard HDD>/file2.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard SSD>/file3.vhd` |
+| SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<PremiumSSD>\file1.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<StandardHDD>\file2.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<StandardSSD>\file3.vhd` |  
+| NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<PremiumSSD>/file1.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<StandardHDD>/file2.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<StandardSSD>/file3.vhd` |
 
 연결 단계는 Data Box 공유에 연결하는 데 SMB를 사용하는지 아니면 NFS를 사용하는지 여부에 따라 다릅니다.
 
@@ -92,7 +95,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
     ```
     C:\>net use \\169.254.250.200\mydbmdrgl_MDisk /u:mdisk
-    Enter the password for ‘mdisk’ to connect to '169.254.250.200':
+    Enter the password for 'mdisk' to connect to '169.254.250.200':
     The command completed successfully.
     C: \>
     ```

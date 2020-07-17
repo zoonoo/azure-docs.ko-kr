@@ -1,19 +1,15 @@
 ---
-title: 자습서 - 업데이트된 컨테이너 이미지를 지역 Azure 앱 배포로 푸시
-description: 수정된 Docker 이미지를 지리적으로 복제된 Azure 컨테이너 레지스트리로 푸시한 다음, 여러 지역에서 실행되는 웹앱에 자동으로 배포되는 변경 내용을 확인합니다. 3부로 구성된 시리즈 중 제3부입니다.
-services: container-registry
-author: dlepow
-ms.service: container-registry
+title: 자습서 - 지역 복제 레지스트리로 업데이트 푸시
+description: 업데이트된 Docker 이미지를 지역 복제 Azure 컨테이너 레지스트리로 푸시한 다음, 여러 지역에서 실행되는 웹앱에 자동으로 배포되는 변경 내용을 확인합니다. 3부로 구성된 시리즈 중 제3부입니다.
 ms.topic: tutorial
 ms.date: 04/30/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256624"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74454697"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>자습서: 지역 웹앱 배포를 위해 업데이트된 컨테이너 이미지를 지리적으로 복제된 컨테이너 레지스트리로 푸시
 

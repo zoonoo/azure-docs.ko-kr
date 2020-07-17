@@ -1,28 +1,26 @@
 ---
-title: Azure MFA 로그인 2 단계 인증-Azure Active Directory를 사용 하 여 | Microsoft Docs
-description: 이 페이지에서는 Azure MFA에서 사용할 수 있는 다양한 로그인 방법을 확인할 수 있는 위치에 대한 지침을 제공합니다.
-keywords: 사용자 인증, 로그인 환경, 휴대폰으로 로그인, 사무실 전화로 로그인
+title: 회사 또는 학교 계정 인증을 사용하여 로그인 - Azure AD
+description: 다양한 2단계 인증 방법을 사용하여 회사 또는 학교 계정에 로그인하는 방법을 알아봅니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 04/02/2017
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: daa2cfae4ed8371e245d12a9f805fe07f31a6d76
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334440"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742951"
 ---
-# <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 로그인 환경
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>2단계 인증 방법을 사용하여 회사 또는 학교 계정에 로그인
+
 > [!NOTE]
 > 이 문서의 목적은 일반적인 로그인 환경을 연습해보는 것입니다. 로그인 관련 지원을 얻거나 문제를 해결하려면 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-troubleshoot.md)를 참조하세요.
 

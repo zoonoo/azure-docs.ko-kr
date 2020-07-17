@@ -1,21 +1,21 @@
 ---
 title: Bing Spell Check API란?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 상황에 맞는 맞춤법 검사를 위해 기계 학습 및 통계 기계 번역을 사용하는 Bing Spell Check API에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 22f75efb3cb4baa645030e7ad64072674de662ed
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 205d7991551ca48c3ea2e61baef53f5d06bdcbd2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890842"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200493"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Bing Spell Check API란?
 
@@ -23,8 +23,7 @@ Bing Spell Check API를 사용하면 텍스트에 대해 문맥 문법 및 맞�
 
 ## <a name="features"></a>기능
 
-
-|  |  |
+| 기능 | Description |
 |---------|---------|
 |여러 맞춤법 검사 모드     | 여러 맞춤법 검사 모드를 사용하면 문법 및/또는 맞춤법에 중점을 둔 교정을 받을 수 있습니다. |
 |은어 및 비격식 언어 인식     | 텍스트에 사용된 일반적인 표현 및 비격식 용어를 인식합니다.         |
@@ -43,4 +42,6 @@ Bing Spell Check API는 HTTP 요청을 수행하고 JSON 응답을 구문 분석
 
 먼저 Bing Spell Check Search API [대화형 데모](https://azure.microsoft.com/services/cognitive-services/spell-check/)를 시도하여 다양한 텍스트를 신속하게 확인할 수 있는 방법을 살펴봅니다.
 
-API를 호출할 준비가 되면 [Cognitive Services API 계정](../../cognitive-services/cognitive-services-apis-create-account.md)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)을 만들 수 있습니다.
+API를 호출할 준비가 되면 [Cognitive Services API 계정](../../cognitive-services/cognitive-services-apis-create-account.md)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/cognitive-services/)을 만들 수 있습니다.
+
+[Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 탐색할 수도 있습니다.

@@ -1,44 +1,55 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: key-vault
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839010"
 ---
-#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>키 트랜잭션 (지역당 자격 증명 모음 당 10 초 내에 허용 되는 최대 트랜잭션<sup>1</sup>):
+### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>주요 트랜잭션 (지역<sup>1</sup>당 자격 증명 모음 당 10 초 내에 허용 되는 최대 트랜잭션 수):
 
 |키 유형|HSM 키<br>키 만들기|HSM 키<br>모든 다른 트랜잭션|소프트웨어 키<br>키 만들기|소프트웨어 키<br>모든 다른 트랜잭션|
 |:---|---:|---:|---:|---:|
-|RSA 2,048-bit|5|1,000|10|2,000|
-|3,072 비트 RSA|5|250|10|500|
-|RSA 4,096-bit|5|125|10|250|
+|RSA 2048 비트|5|1,000|10|2,000|
+|RSA 3072 비트|5|250|10|500|
+|RSA 4096 비트|5|125|10|250|
 |ECC P-256|5|1,000|10|2,000|
 |ECC P-384|5|1,000|10|2,000|
 |ECC P-521|5|1,000|10|2,000|
 |ECC SECP256K1|5|1,000|10|2,000|
 
 > [!NOTE]
-> 위의 표에서 알 수 RSA 2,048 비트 소프트웨어 키의 10 초당 2,000 개의 GET 트랜잭션을 허용 됩니다. RSA 2,048 비트 HSM-키, 10 초 GET 트랜잭션 1,000 개 허용 됩니다.
+> 위의 표에서 RSA 2048 비트 소프트웨어 키의 경우 2000 GET 트랜잭션/10 초가 허용 됩니다. RSA 2048 비트 HSM 1000 키의 경우 10 초 당 트랜잭션 가져오기가 허용 됩니다.
 >
-> 조정 임계값은가 중, 및 합계에 적용 됩니다. 예를 들어, 위의 표에 표시 된 것 처럼 RSA HSM-키에서 GET 작업을 수행할 때 8 배 더 비용도 비싸다는 사실을 2,048 비트 키를 비교할 4096 비트 키를 사용 합니다. 있기 때문입니다 1,000/125 = 8.
+> 제한 임계값은 가중치가 적용 되며 합계에 적용 됩니다. 예를 들어 앞의 표에 나와 있는 것 처럼 RSA HSM 키에 대 한 GET 작업을 수행할 때 2048 비트 키와 비교 하 여 4096 비트 키를 사용 하는 것이 8 배 더 비쌉니다. 1000/125 = 8 이기 때문입니다.
 >
-> 10 초 간격을 지정 된 Azure Key Vault 클라이언트를 수행할 수 있습니다 *하나만* 발생 하기 전에 다음 작업을 `429` 제한 HTTP 상태 코드:
-> - 2,000 개의 RSA 2,048 비트 키 소프트웨어 GET 트랜잭션
-> - RSA 2,048 비트 HSM 키 GET 트랜잭션 1,000 개
-> - 125 RSA 4096 비트 HSM 키 GET 트랜잭션
-> - 124 RSA 4096 비트 HSM-키 GET 트랜잭션 및 8 RSA 2,048 비트 HSM 키 가져오기
+> 지정 된 10 초 간격으로 Azure Key Vault 클라이언트는 *only one* `429` 조정 HTTP 상태 코드를 발생 하기 전에 다음 작업 중 하나만 수행할 수 있습니다.
+> - 2000 RSA 2048 비트 소프트웨어-키 가져오기 트랜잭션
+> - 1000 RSA 2048 비트 HSM-키 가져오기 트랜잭션
+> - 125 RSA 4096 비트 HSM-키 가져오기 트랜잭션
+> - 124 RSA 4096 비트 HSM-키 가져오기 트랜잭션 및 8 RSA 2048 비트 HSM-key GET 트랜잭션
 
-#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>암호, 관리 되는 저장소 계정 키 및 자격 증명 모음 트랜잭션:
-| 트랜잭션 유형 | 지역당 자격 증명 모음 당 10 초 내에 허용 되는 최대 트랜잭션<sup>1</sup> |
+### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>비밀, 관리 되는 storage 계정 키 및 자격 증명 모음 트랜잭션:
+
+| 트랜잭션 유형 | 지역 당 자격 증명 모음 당 10 초 내에 허용 되는 최대 트랜잭션<sup>1</sup> |
 | --- | --- |
 | 모든 트랜잭션 |2,000 |
 
-이러한 제한에 도달 하는 경우 제한을 처리 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 제한 지침](../articles/key-vault/key-vault-ovw-throttling.md)합니다.
+이러한 제한을 초과 하는 경우 제한을 처리 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 제한 지침](../articles/key-vault/key-vault-ovw-throttling.md)을 참조 하세요.
 
-<sup>1</sup> 는 구독 전체의 모든 트랜잭션 유형에 대 한 제한은 5 번 key vault 제한 수입니다. 예를 들어 HSM-다른 구독 당 트랜잭션은 5,000 개의 트랜잭션 제한 구독 당 10 초에서입니다.
+<sup>1</sup> 모든 트랜잭션 유형에 대 한 구독 전체 제한은 key vault 제한 당 5 회입니다. 예를 들어 HSM-구독 당 다른 트랜잭션은 구독 당 10 초 내에 5000 트랜잭션으로 제한 됩니다.
+
+### <a name="azure-private-link-integration"></a>Azure 개인 링크 통합
+
+> [!NOTE]
+> 구독 당 프라이빗 엔드포인트를 사용하도록 설정된 키 자격 증명 모듬의 수는 조정할 수 있는 제한입니다. 아래에 표시된 제한은 기본 제한입니다. 서비스에 대한 한도 증가를 요청하려면 akv-privatelink@microsoft.com에 전자 메일을 보내 주세요. 이러한 요청은 사례별 기준으로 승인합니다.
+
+| 리소스 | 제한 |
+| -------- | ----- |
+| 키 자격 증명 모음 당 개인 끝점 | 64 |
+| 구독 당 개인 끝점을 포함 하는 주요 자격 증명 모음 | 400 |

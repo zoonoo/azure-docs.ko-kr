@@ -1,19 +1,19 @@
 ---
-title: .NET 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
+title: .NET 및 Azure Cosmos DB의 API for MongoDB를 사용하여 Xamarin 앱 빌드
 description: Azure Cosmos DB의 MongoDB API를 사용하여 연결하고 쿼리할 수 있는 Xamarin 코드 샘플을 제공합니다.
 author: codemillmatt
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2018
+ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: c7a80ae704d13934a5d51bc5538bc28693b49e5b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: db28455c47541b49b38ddbbc4d5e83ae20e2279d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588095"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659166"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
 
@@ -23,7 +23,7 @@ ms.locfileid: "56588095"
 > * [Node.JS](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
@@ -34,7 +34,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 샘플을 실행하려면 [Visual Studio](https://www.visualstudio.com/downloads/) 또는 [Mac용 Visual Studio](https://visualstudio.microsoft.com/vs/mac/) 및 유효한 Azure CosmosDB 계정이 필요합니다.
 
-아직 Visual Studio가 없으면 설치 시 **.NET을 사용한 모바일 개발** 워크로드가 설치된 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드합니다.
+아직 Visual Studio가 없으면 설치 시 **.NET을 사용한 모바일 개발** 워크로드가 설치된 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드합니다.
 
 Mac에서 작업하려는 경우 [Mac용 Visual Studio](https://visualstudio.microsoft.com/vs/mac/)를 다운로드하여 설치 프로그램을 실행합니다.
 
@@ -50,12 +50,20 @@ Mac에서 작업하려는 경우 [Mac용 Visual Studio](https://visualstudio.mic
 
 ## <a name="clone-the-sample-app"></a>샘플 앱 복제
 
-먼저 GitHub에서 샘플 앱을 다운로드합니다. 이 앱은 MongoDB의 문서 저장소 모델을 사용하여 todo 앱을 구현합니다.
+먼저 GitHub에서 샘플 앱을 다운로드합니다. 이 앱은 MongoDB의 문서 스토리지 모델을 사용하여 todo 앱을 구현합니다.
 
-1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+1. Windows에서 명령 프롬프트를 열거나 Mac에서 터미널을 열고 git-samples라는 새 폴더를 만든 다음, 창을 닫습니다.
+
+    ```batch
+    md "C:\git-samples"
+    ```
 
     ```bash
-    md "C:\git-samples"
+    mkdir '$home\git-samples\
     ```
 
 2. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 새 폴더로 변경합니다.
@@ -86,6 +94,8 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
     settings.SslSettings =
         new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+    settings.RetryWrites = false;
 
     MongoClient mongoClient = new MongoClient(settings);
     ```
@@ -160,11 +170,16 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
 3. (복사 단추를 사용하여) 포털에서 **기본 연결 문자열** 값을 복사하고 **APIKeys.cs** 파일에서 **ConnectionString** 필드의 값으로 만듭니다.
 
+4. 연결 문자열에서 `&replicaSet=globaldb`를 제거합니다. 쿼리 문자열에서 해당 값을 제거하지 않으면 런타임 오류가 발생합니다.
+
+> [!IMPORTANT]
+> 런타임 오류를 방지하려면 연결 문자열의 쿼리 문자열에서 `&replicaSet=globaldb` 키/값 쌍을 제거해야 합니다.
+
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다.
 
 ## <a name="run-the-app"></a>앱 실행
 
-### <a name="visual-studio-2017"></a>Visual Studio 2017
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
 1. Visual Studio의 **솔루션 탐색기**에서 각 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 2. **모든 NuGet 패키지 복원**을 클릭합니다.
@@ -172,12 +187,12 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 4. F5 키를 눌러 애플리케이션 디버깅을 시작합니다.
 5. iOS에서 실행하려는 경우 먼저 컴퓨터는 Mac에 연결됩니다(수행하는 방법에 대한 [지침](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)은 다음과 같음).
 6. **TaskList.iOS** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
-7. F5 키를 클릭하여 응용 프로그램 디버깅을 시작합니다.
+7. F5 키를 클릭하여 애플리케이션 디버깅을 시작합니다.
 
 ### <a name="visual-studio-for-mac"></a>Mac용 Visual Studio
 
 1. 플랫폼 드롭다운 목록에서 실행할 플랫폼에 따라 TaskList.iOS 또는 TaskList.Android를 선택합니다.
-2. cmd+Enter 키를 눌러 응용 프로그램 디버깅을 시작합니다.
+2. cmd+Enter 키를 눌러 애플리케이션 디버깅을 시작합니다.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

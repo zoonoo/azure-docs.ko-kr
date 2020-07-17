@@ -1,24 +1,22 @@
 ---
-title: Azure VM(Virtual Machines)에서 SAP HANA 시스템 복제 설정 | Microsoft Docs
+title: RHEL의 Azure VM에 있는 SAP HANA의 고가용성 | Microsoft Docs
 description: Azure VM(Virtual Machines)에서 SAP HANA의 고가용성을 설정합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MSSedusch
-manager: jeconnoc
+author: rdeltcheva
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2019
-ms.author: sedusch
-ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.date: 05/21/2020
+ms.author: radeltch
+ms.openlocfilehash: ed53b77587e307926689b2c20d7223212f3394d4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922126"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800270"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -44,7 +42,7 @@ ms.locfileid: "64922126"
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 
-온-프레미스 개발에서 HANA 시스템 복제를 사용하거나 공유 저장소를 사용하여 SAP HANA의 고가용성을 설정할 수 있습니다.
+온-프레미스 개발에서 HANA 시스템 복제를 사용하거나 공유 스토리지를 사용하여 SAP HANA의 고가용성을 설정할 수 있습니다.
 Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원되는 유일한 고가용성 기능입니다.
 SAP HANA 복제는 하나의 기본 노드와 하나 이상의 보조 노드로 구성됩니다. 기본 노드의 데이터를 변경하면 보조 노드에 동기적 또는 비동기적으로 복제됩니다.
 
@@ -108,7 +106,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     * **Db 형식**: **HANA**를 선택합니다.
     * **SAP 시스템 크기**: 새 시스템에서 제공할 SAP의 수를 입력합니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
     * **시스템 가용성**: **HA**를 선택합니다.
-    * **관리자 사용자 이름, 관리자 암호 또는 SSH 키**: 새 사용자가 만들어진 컴퓨터에 로그인 할 수 있습니다.
+    * **관리자 사용자 이름, 관리자 암호 또는 SSH 키**: 머신에 로그인하는 데 사용할 수 있게 만들어진 새 사용자입니다.
     * **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다. 새 가상 네트워크를 만들려면 공백으로 두세요.
 
 ### <a name="manual-deployment"></a>수동 배포
@@ -117,83 +115,122 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 가상 네트워크를 만듭니다.
 1. 가용성 집합을 만듭니다.  
    업데이트 도메인의 최대 수를 설정합니다.
-1. 부하 분산 장치(내부)를 만듭니다.
+1. 부하 분산 장치(내부)를 만듭니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)를 만드는 것이 좋습니다.
    * 2단계에서 만든 가상 네트워크를 선택합니다.
 1. 가상 머신 1을 만듭니다.  
    최소한 Red Hat Enterprise Linux 7.4 for SAP HANA를 사용합니다. 이 예제에서는 Red Hat Enterprise Linux 7.4 for SAP HANA 이미지(<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM>)를 사용합니다. 3단계에서 만든 가용성 집합을 선택합니다.
 1. 가상 머신 2를 만듭니다.  
    최소한 Red Hat Enterprise Linux 7.4 for SAP HANA를 사용합니다. 이 예제에서는 Red Hat Enterprise Linux 7.4 for SAP HANA 이미지(<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM>)를 사용합니다. 3단계에서 만든 가용성 집합을 선택합니다.
 1. 데이터 디스크를 추가합니다.
-1. 부하 분산 장치를 구성합니다. 먼저 프런트 엔드 IP 풀을 만듭니다.
+1. 표준 부하 분산 장치를 사용하는 경우 다음 구성 단계를 수행합니다.
+   1. 먼저 프런트 엔드 IP 풀을 만듭니다.
 
-   1. 부하 분산 장치를 열고, **프런트 엔드 IP 풀**을 선택하고, **추가**를 선택합니다.
-   1. 새 프런트 엔드 IP 풀의 이름을 입력합니다(예: **hana-frontend**).
-   1. **할당**을 **정적**으로 설정하고 IP 주소를 입력합니다(예: **10.0.0.13**).
-   1. **확인**을 선택합니다.
-   1. 새 프런트 엔드 IP 풀을 만든 후, 풀 IP 주소를 적어 둡니다.
+      1. 부하 분산 장치를 열고, **프런트 엔드 IP 풀**을 선택하고, **추가**를 선택합니다.
+      1. 새 프런트 엔드 IP 풀의 이름을 입력합니다(예: **hana-frontend**).
+      1. **할당**을 **정적**으로 설정하고 IP 주소를 입력합니다(예: **10.0.0.13**).
+      1. **확인**을 선택합니다.
+      1. 새 프런트 엔드 IP 풀을 만든 후, 풀 IP 주소를 적어 둡니다.
 
-1. 다음으로, 백 엔드 풀을 만듭니다.
+   1. 다음으로, 백 엔드 풀을 만듭니다.
 
-   1. 부하 분산 장치를 열고, **백 엔드 풀**을 선택한 다음, **추가**를 클릭합니다.
-   1. 새 백 엔드 풀의 이름 입력합니다(예: **hana-backend**).
-   1. **가상 머신 추가**를 선택합니다.
-   1. 3단계에서 만든 가용성 집합을 선택합니다.
-   1. SAP HANA 클러스터의 가상 머신을 선택합니다.
-   1. **확인**을 선택합니다.
+      1. 부하 분산 장치를 열고, **백 엔드 풀**을 선택한 다음, **추가**를 클릭합니다.
+      1. 새 백 엔드 풀의 이름 입력합니다(예: **hana-backend**).
+      1. **가상 머신 추가**를 선택합니다.
+      1. **가상 머신**을 선택합니다.
+      1. SAP HANA 클러스터의 가상 머신 및 해당 IP 주소를 선택합니다.
+      1. **추가**를 선택합니다.
 
-1. 다음으로, 상태 프로브를 만듭니다.
+   1. 다음으로, 상태 프로브를 만듭니다.
 
-   1. 부하 분산 장치를 열고, **상태 프로브**를 선택한 다음, **추가**를 선택합니다.
-   1. 새 상태 프로브의 이름을 입력합니다(예: **hana-hp**).
-   1. 프로토콜 및 포트 625**03**으로 **TCP**를 선택합니다. 5로 설정된 **간격** 값, 2로 설정된 **비정상 임계값** 값을 유지합니다.
-   1. **확인**을 선택합니다.
+      1. 부하 분산 장치를 열고, **상태 프로브**를 선택한 다음, **추가**를 선택합니다.
+      1. 새 상태 프로브의 이름을 입력합니다(예: **hana-hp**).
+      1. 프로토콜 및 포트 625**03**으로 **TCP**를 선택합니다. 5로 설정된 **간격** 값, 2로 설정된 **비정상 임계값** 값을 유지합니다.
+      1. **확인**을 선택합니다.
 
-1. SAP HANA 1.0의 경우 부하 분산 규칙을 만듭니다.
+   1. 다음으로 부하 분산 규칙을 만듭니다.
+   
+      1. 부하 분산 장치를 열고, **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
+      1. 새 부하 분산 장치 규칙의 이름을 입력합니다(예: **hana-lb**).
+      1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**, **hana-backend** 및 **hana-hp**).
+      1. **HA 포트**를 선택합니다.
+      1. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
+      1. **부동 IP를 사용하도록 설정**했는지 확인합니다.
+      1. **확인**을 선택합니다.
 
-   1. 부하 분산 장치를 열고, **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
-   1. 새 부하 분산 장치 규칙의 이름을 입력합니다(예: hana-lb-3**03**15).
-   1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**).
-   1. **TCP**로 설정된 **프로토콜**을 유지하고, 포트 3**03**15를 입력합니다.
-   1. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
-   1. **부동 IP를 사용하도록 설정**했는지 확인합니다.
-   1. **확인**을 선택합니다.
-   1. 포트 3**03**17에 대해 이러한 단계를 반복합니다.
+   > [!Note]
+   > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 공용 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하여 Virtual Machines에 대한 공용 엔드포인트 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조하세요.  
 
-1. SAP HANA 2.0의 경우 시스템 데이터베이스에 대한 부하 분산 규칙을 만듭니다.
+1. 또는 시나리오에서 기본 부하 분산 장치를 사용하는 경우 다음 구성 단계를 수행합니다.
+   1. 부하 분산 장치를 구성합니다. 먼저 프런트 엔드 IP 풀을 만듭니다.
 
-   1. 부하 분산 장치를 열고, **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
-   1. 새 부하 분산 장치 규칙의 이름을 입력합니다(예: hana-lb-3**03**13).
-   1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**).
-   1. **TCP**로 설정된 **프로토콜**을 유지하고, 포트 3**03**13을 입력합니다.
-   1. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
-   1. **부동 IP를 사용하도록 설정**했는지 확인합니다.
-   1. **확인**을 선택합니다.
-   1. 포트 3**03**14에 대해 이러한 단계를 반복합니다.
+      1. 부하 분산 장치를 열고, **프런트 엔드 IP 풀**을 선택하고, **추가**를 선택합니다.
+      1. 새 프런트 엔드 IP 풀의 이름을 입력합니다(예: **hana-frontend**).
+      1. **할당**을 **정적**으로 설정하고 IP 주소를 입력합니다(예: **10.0.0.13**).
+      1. **확인**을 선택합니다.
+      1. 새 프런트 엔드 IP 풀을 만든 후, 풀 IP 주소를 적어 둡니다.
 
-1. SAP HANA 2.0의 경우 테넌트 데이터베이스에 대한 부하 분산 규칙을 만듭니다.
+   1. 다음으로, 백 엔드 풀을 만듭니다.
 
-   1. 부하 분산 장치를 열고, **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
-   1. 새 부하 분산 장치 규칙의 이름을 입력합니다(예: hana-lb-3**03**40).
-   1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**).
-   1. **TCP**로 설정된 **프로토콜**을 유지하고, 포트 3**03**40을 입력합니다.
-   1. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
-   1. **부동 IP를 사용하도록 설정**했는지 확인합니다.
-   1. **확인**을 선택합니다.
-   1. 포트 3**03**41 및 3**03**42에 대해 이러한 단계를 반복합니다.
+      1. 부하 분산 장치를 열고, **백 엔드 풀**을 선택한 다음, **추가**를 클릭합니다.
+      1. 새 백 엔드 풀의 이름 입력합니다(예: **hana-backend**).
+      1. **가상 머신 추가**를 선택합니다.
+      1. 3단계에서 만든 가용성 집합을 선택합니다.
+      1. SAP HANA 클러스터의 가상 머신을 선택합니다.
+      1. **확인**을 선택합니다.
+
+   1. 다음으로, 상태 프로브를 만듭니다.
+
+      1. 부하 분산 장치를 열고, **상태 프로브**를 선택한 다음, **추가**를 선택합니다.
+      1. 새 상태 프로브의 이름을 입력합니다(예: **hana-hp**).
+      1. 프로토콜 및 포트 625**03**으로 **TCP**를 선택합니다. 5로 설정된 **간격** 값, 2로 설정된 **비정상 임계값** 값을 유지합니다.
+      1. **확인**을 선택합니다.
+
+   1. SAP HANA 1.0의 경우 부하 분산 규칙을 만듭니다.
+
+      1. 부하 분산 장치를 열고, **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
+      1. 새 부하 분산 장치 규칙의 이름을 입력합니다(예: hana-lb-3**03**15).
+      1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**).
+      1. **TCP**로 설정된 **프로토콜**을 유지하고, 포트 3**03**15를 입력합니다.
+      1. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
+      1. **부동 IP를 사용하도록 설정**했는지 확인합니다.
+      1. **확인**을 선택합니다.
+      1. 포트 3**03**17에 대해 이러한 단계를 반복합니다.
+
+   1. SAP HANA 2.0의 경우 시스템 데이터베이스에 대한 부하 분산 규칙을 만듭니다.
+
+      1. 부하 분산 장치를 열고, **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
+      1. 새 부하 분산 장치 규칙의 이름을 입력합니다(예: hana-lb-3**03**13).
+      1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**).
+      1. **TCP**로 설정된 **프로토콜**을 유지하고, 포트 3**03**13을 입력합니다.
+      1. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
+      1. **부동 IP를 사용하도록 설정**했는지 확인합니다.
+      1. **확인**을 선택합니다.
+      1. 포트 3**03**14에 대해 이러한 단계를 반복합니다.
+
+   1. SAP HANA 2.0의 경우 테넌트 데이터베이스에 대한 부하 분산 규칙을 만듭니다.
+
+      1. 부하 분산 장치를 열고, **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
+      1. 새 부하 분산 장치 규칙의 이름을 입력합니다(예: hana-lb-3**03**40).
+      1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**).
+      1. **TCP**로 설정된 **프로토콜**을 유지하고, 포트 3**03**40을 입력합니다.
+      1. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
+      1. **부동 IP를 사용하도록 설정**했는지 확인합니다.
+      1. **확인**을 선택합니다.
+      1. 포트 3**03**41 및 3**03**42에 대해 이러한 단계를 반복합니다.
 
 SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드의 [테넌트 데이터베이스에 연결](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 챕터 또는 [SAP Note 2388694][2388694]를 참조하세요.
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 하는 Azure Vm에서 TCP 타임 스탬프를 사용 하지 마십시오. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브 실패 합니다. 매개 변수를 설정 **net.ipv4.tcp_timestamps** 하 **0**합니다. 자세한 내용은 참조 하십시오 [부하 분산 장치 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)합니다.
-> SAP 참고 참고 [2382421](https://launchpad.support.sap.com/#/notes/2382421)합니다. 
+> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조하세요.
+> 또한 SAP 참고 [2382421](https://launchpad.support.sap.com/#/notes/2382421)을 참조하세요. 
 
 ## <a name="install-sap-hana"></a>SAP HANA 설치
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-* **[A]**: 단계가 모든 노드에 적용됩니다.
-* **[1]**: 단계가 노드 1에만 적용됩니다.
-* **[2]**: 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
+* **[A]** : 단계가 모든 노드에 적용됩니다.
+* **[1]** : 단계가 노드 1에만 적용됩니다.
+* **[2]** : 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
 
 1. **[A]** 디스크 레이아웃 **LVM(논리 볼륨 관리자)** 을 설정합니다.
 
@@ -225,9 +262,13 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   논리 볼륨을 만듭니다. `-i` 스위치 없이 `lvcreate`를 사용하는 경우 선형 볼륨이 만들어집니다. I/O 성능 향상을 위해 `-i` 인수가 기본 물리적 볼륨 수와 동일한 스트라이프 볼륨을 만드는 것이 좋습니다. 이 문서에서는 2개의 물리적 볼륨이 데이터 볼륨에 사용되므로 `-i` 스위치 인수가 **2**로 설정됩니다. 로그 볼륨에 1개의 물리적 볼륨이 사용되므로 `-i` 스위치는 명시적으로 사용하지 않습니다. 각 데이터, 로그 또는 공유 볼륨에 대해 하나 이상의 물리적 볼륨을 사용하는 경우 `-i` 스위치를 사용하고 기본 물리적 볼륨 수로 설정합니다.
+   논리 볼륨을 만듭니다. `-i` 스위치 없이 `lvcreate`를 사용하는 경우 선형 볼륨이 만들어집니다. 더 나은 I/O 성능을 위해 스트라이프 볼륨을 만들고 [SAP HANA VM 스토리지 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)에 설명된 값에 스트라이프 크기를 정렬하는 것이 좋습니다. `-i` 인수는 기본 실제 볼륨의 수여야 하며 `-I` 인수는 스트라이프 크기입니다. 이 문서에서는 2개의 물리적 볼륨이 데이터 볼륨에 사용되므로 `-i` 스위치 인수가 **2**로 설정됩니다. 데이터 볼륨의 스트라이프 크기는 **256KiB**입니다. 로그 볼륨에는 하나의 실제 볼륨이 사용되므로 `-i` 또는 `-I` 스위치는 로그 볼륨 명령에 명시적으로 사용되지 않습니다.  
 
-   <pre><code>sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+   > [!IMPORTANT]
+   > 각 데이터, 로그 또는 공유 볼륨에 대해 하나 이상의 물리적 볼륨을 사용하는 경우 `-i` 스위치를 사용하고 기본 물리적 볼륨 수로 설정합니다. 스트라이프 볼륨을 만들 때 `-I` 스위치를 사용하여 스트라이프 크기를 지정합니다.  
+   > 스트라이프 크기 및 디스크 수를 비롯한 권장되는 스토리지 구성은 [SAP HANA VM 스토리지 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)을 참조하세요.  
+
+   <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
    sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
@@ -335,14 +376,14 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[A]** SAP 호스트 에이전트를 업그레이드합니다.
 
-   [SAP Software Center][sap-swcenter]에서 최신 SAP 호스트 에이전트 아카이브를 다운로드하고 다음 명령을 실행하여 에이전트를 업그레이드합니다. 다운로드한 파일을 가리키도록 아카이브의 경로를 바꿉니다.
+   [SAP 소프트웨어 센터][sap-swcenter]에서 최신 SAP 호스트 에이전트 아카이브를 다운로드하고 다음 명령을 실행하여 에이전트를 업그레이드합니다. 다운로드한 파일을 가리키도록 아카이브의 경로를 바꿉니다.
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
 
 1. **[A]** 방화벽 구성
 
-   Azure 부하 분산 장치 프로브 포트에 대 한 방화벽 규칙을 만듭니다.
+   Azure 부하 분산 장치 프로브 포트의 방화벽 규칙을 만듭니다.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp
    sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp --permanent
@@ -352,9 +393,9 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-* **[A]**: 단계가 모든 노드에 적용됩니다.
-* **[1]**: 단계가 노드 1에만 적용됩니다.
-* **[2]**: 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
+* **[A]** : 단계가 모든 노드에 적용됩니다.
+* **[1]** : 단계가 노드 1에만 적용됩니다.
+* **[2]** : 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
 
 1. **[A]** 방화벽 구성
 
@@ -382,14 +423,14 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
    SAP HANA 2.0 또는 MDC를 사용하는 경우 SAP NetWeaver 시스템에 대한 테넌트 데이터베이스를 만듭니다. **NW1**을 SAP 시스템의 SID로 바꿉니다.
 
-   다음으로 실행 < hanasid\>adm 명령:
+   다음 명령을 <hanasid\>adm으로 실행합니다.
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   로 데이터베이스 백업 < hanasid\>adm:
+   데이터베이스를 <hanasid\>adm으로 백업합니다.
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -409,7 +450,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[2]** 두 번째 노드에서 시스템 복제를 구성합니다.
     
-   두 번째 노드를 등록하여 시스템 복제를 시작합니다. 로 다음 명령을 < hanasid\>adm:
+   두 번째 노드를 등록하여 시스템 복제를 시작합니다. 다음 명령을 <hanasid\>adm으로 실행합니다.
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -443,9 +484,9 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-* **[A]**: 단계가 모든 노드에 적용됩니다.
-* **[1]**: 단계가 노드 1에만 적용됩니다.
-* **[2]**: 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
+* **[A]** : 단계가 모든 노드에 적용됩니다.
+* **[1]** : 단계가 노드 1에만 적용됩니다.
+* **[2]** : 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
 
 1. **[A]** 방화벽 구성
 
@@ -457,7 +498,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[1]** 필요한 사용자를 만듭니다.
 
-   다음 명령을 루트로 실행 합니다. 굵은 글꼴 문자열(HANA 시스템 ID **HN1** 및 인스턴스 번호 **03**)을 SAP HANA 설치의 값으로 바꿉니다.
+   다음 명령을 루트로 실행합니다. 굵은 글꼴 문자열(HANA 시스템 ID **HN1** 및 인스턴스 번호 **03**)을 SAP HANA 설치의 값으로 바꿉니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -467,7 +508,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[A]** 키 저장소 항목을 만듭니다.
 
-   새 키 저장소 항목을 만드는 루트로 다음 명령을 실행 합니다.
+   다음 명령을 루트로 실행하여 새로운 키 저장소 항목을 만듭니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -475,7 +516,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[1]** 데이터베이스를 백업합니다.
 
-   루트로 데이터베이스 백업:
+   루트로 데이터베이스를 백업합니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -488,7 +529,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   기본 사이트를 만들려면 < hanasid\>adm:
+   기본 사이트를 <hanasid\>adm으로 만듭니다.
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -496,7 +537,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[2]** 보조 노드에서 시스템 복제를 구성합니다.
 
-   보조 사이트에 등록 < hanasid\>adm:
+   보조 사이트를 <hanasid\>adm으로 등록합니다.
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -522,14 +563,21 @@ sudo yum install -y resource-agents-sap-hana
 <pre><code>sudo pcs property set maintenance-mode=true
 
 # Replace the bold string with your instance number and HANA system ID
-sudo pcs resource create SAPHanaTopology_<b>HN1</b>_<b>03</b> SAPHanaTopology SID=<b>HN1</b> InstanceNumber=<b>03</b> --clone clone-max=2 clone-node-max=1 interleave=true
+sudo pcs resource create SAPHanaTopology_<b>HN1</b>_<b>03</b> SAPHanaTopology SID=<b>HN1</b> InstanceNumber=<b>03</b> \
+op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600 \
+--clone clone-max=2 clone-node-max=1 interleave=true
 </code></pre>
 
 다음으로, HANA 리소스를 만듭니다.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
 
-sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false master notify=true clone-max=2 clone-node-max=1 interleave=true
+sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
+op start timeout=3600 op stop timeout=3600 \
+op monitor interval=61 role="Slave" timeout=700 \
+op monitor interval=59 role="Master" timeout=700 \
+op promote timeout=3600 op demote timeout=3600 \
+master notify=true clone-max=2 clone-node-max=1 interleave=true
 
 sudo pcs resource create vip_<b>HN1</b>_<b>03</b> IPaddr2 ip="<b>10.0.0.13</b>"
 
@@ -545,6 +593,9 @@ sudo pcs property set maintenance-mode=false
 </code></pre>
 
 클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
+
+> [!NOTE]
+> 위의 구성에서 시간 제한은 단지 예제이며 특정 HANA 설정에 맞게 조정해야 할 수 있습니다. 예를 들어 SAP HANA 데이터베이스를 시작하는 데 시간이 더 오래 걸리는 경우 시작 시간 제한을 늘려야 할 수 있습니다.  
 
 <pre><code>sudo pcs status
 
@@ -563,7 +614,7 @@ sudo pcs property set maintenance-mode=false
 #      vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
 
-## <a name="test-the-cluster-setup"></a>클러스터 설치 테스트
+## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
 
 이 섹션에서는 설정을 테스트하는 방법을 설명합니다. 테스트를 시작하기 전에 Pacemaker에 실패한 작업이 없으며(pcs status를 통해), 예기치 않은 위치 제약 조건이 없고(예를 들어 마이그레이션 테스트의 결과), systemReplicationStatus의 경우처럼 해당 HANA가 동기화 상태에 있는지 확인합니다.
 
@@ -647,16 +698,13 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 SAP HANA가 마스터로 실행 중인 노드에서 네트워크 인터페이스를 사용하지 않도록 설정하여 Azure 펜싱 에이전트의 설정을 테스트할 수 있습니다.
-참조 [Red Hat 기술 자료 문서 79523](https://access.redhat.com/solutions/79523) 네트워크 오류를 시뮬레이션 하는 방법에 대 한 합니다. 이 예제에서는 net_breaker 스크립트를 사용하여 네트워크에 대한 모든 액세스를 차단합니다.
+네트워크 장애를 시뮬레이션하는 방법에 대한 설명은 [Red Hat 기술 자료 문서 79523](https://access.redhat.com/solutions/79523)을 참조하세요. 이 예제에서는 net_breaker 스크립트를 사용하여 네트워크에 대한 모든 액세스를 차단합니다.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
 
 클러스터 구성에 따라 이제 가상 머신을 다시 시작하거나 중지해야 합니다.
 `stonith-action`을 off로 설정하면 가상 머신이 중지되고 리소스가 실행 중인 가상 머신으로 마이그레이션됩니다.
-
-> [!NOTE]
-> 가상 머신이 다시 온라인 상태가 될 때까지 최대 15분이 걸릴 수 있습니다.
 
 가상 머신을 다시 시작한 후, `AUTOMATED_REGISTER="false"`로 설정한 경우 SAP HANA 리소스가 보조로 시작하는 데 실패합니다. 이 경우 다음 명령을 실행하여 HANA 인스턴스를 보조로 구성합니다.
 
@@ -728,9 +776,29 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 </code></pre>
 
+### <a name="test-a-manual-failover"></a>수동 장애 조치(failover) 테스트
+
+테스트 시작 전 리소스 상태:
+
+<pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
+    Started: [ hn1-db-0 hn1-db-1 ]
+Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Masters: [ hn1-db-0 ]
+    Slaves: [ hn1-db-1 ]
+Resource Group: g_ip_HN1_03
+    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
+    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+</code></pre>
+
+hn1-db-0 노드에서 클러스터를 중지하여 수동 장애 조치(failover)를 테스트할 수 있습니다.
+
+<pre><code>[root@hn1-db-0 ~]# pcs cluster stop
+</code></pre>
+
+
 ## <a name="next-steps"></a>다음 단계
 
 * [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아보려면 [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)를 참조하세요.
+* [SAP HANA VM 스토리지 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)

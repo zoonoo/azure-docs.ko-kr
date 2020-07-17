@@ -1,25 +1,24 @@
 ---
-title: 빠른 시작 - PowerShell을 사용하여 Azure Analysis Services 서버 만들기 | Microsoft Docs
+title: 빠른 시작 - PowerShell을 사용하여 Azure Analysis Services 만들기 | Azure Analysis Services | Microsoft Docs
 description: PowerShell을 사용하여 Azure Analysis Services 서버를 만드는 방법 알아보기
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fedc053d7869d9d5e85f890dcc707852a27df089
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: e2b772ac060e55d21341626772667d56245542ca
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011384"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80409930"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>빠른 시작: 서버 만들기 - PowerShell
 
 이 빠른 시작은 명령줄에서 PowerShell을 사용하여 Azure 구독에 Azure Analysis Services 서버를 만드는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -45,7 +44,7 @@ Connect-AzAccount
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 서버를 만들 때 구독에서 리소스 그룹을 지정해야 합니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 새 리소스 그룹을 만들 수 있습니다. 다음 예제에서는 미국 서부 지역의 `myResourceGroup`라는 리소스 그룹을 만듭니다.
+[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 서버를 만들 때 구독에서 리소스 그룹을 지정해야 합니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 새 리소스 그룹을 만들 수 있습니다. 다음 예제에서는 미국 서부 지역의 `myResourceGroup`라는 리소스 그룹을 만듭니다.
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"

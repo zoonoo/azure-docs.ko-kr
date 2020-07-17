@@ -1,19 +1,20 @@
 ---
-title: '자습서: 데이터 복사 서비스를 통해 Microsoft Azure Data Box 디바이스로 데이터 복사 | Microsoft Docs'
+title: '자습서: 데이터 복사 서비스를 사용하여 디바이스에 복사'
+titleSuffix: Azure Data Box
 description: 이 자습서에서는 데이터 복사 서비스를 통해 Azure Data Box 디바이스로 데이터를 복사하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343530"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219155"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사(미리 보기)
 
@@ -24,12 +25,13 @@ ms.locfileid: "56343530"
 - NAS 환경에서 중간 호스트를 사용하지 못할 수도 있습니다.
 - 데이터의 수집 및 업로드에 몇 주가 소요되는 작은 파일 사용. 데이터 복사 서비스는 작은 파일에 대한 수집 및 업로드 시간을 대폭 단축시킵니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * Data Box에 데이터 복사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -42,9 +44,14 @@ ms.locfileid: "56343530"
 
 NAS 디바이스에 연결된 후, 다음 단계는 데이터를 복사하는 것입니다. 데이터 복사를 시작하기 전에 다음 고려 사항을 검토합니다.
 
-- 데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 및 Data Box 제한](data-box-limits.md) 문서에 설명된 크기 제한을 준수해야 합니다.
-- Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
-- 데이터 복사 서비스가 데이터를 읽는 동안 데이터가 변동되는 경우 오류 또는 데이터 손상이 표시될 수 있습니다.
+* 데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 및 Data Box 제한](data-box-limits.md) 문서에 설명된 크기 제한을 준수해야 합니다.
+
+* Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
+
+* 데이터 복사 서비스가 데이터를 읽는 동안 데이터가 변동되는 경우 오류 또는 데이터 손상이 표시될 수 있습니다.
+
+> [!IMPORTANT]
+> Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
 
 데이터 복사 서비스를 사용하여 데이터를 복사하려면 작업을 만들어야 합니다.
 
@@ -57,9 +64,9 @@ NAS 디바이스에 연결된 후, 다음 단계는 데이터를 복사하는 �
     
     |필드                          |값    |
     |-------------------------------|---------|
-    |**작업 이름**                       |작업에 사용할 230자 미만의 고유한 이름입니다. 다음 문자는 작업 이름에 허용되지 않습니다. \<, \>, \|, \?, \*, \\, \:, \/ 및 \\\.         |
+    |**작업 이름**                       |작업에 사용할 230자 미만의 고유한 이름입니다. \<, \>, \|, \?, \*, \\, \:, \/ 및 \\\. 문자는 작업 이름에 사용할 수 없습니다.         |
     |**원본 위치**                |`\\<ServerIPAddress>\<ShareName>` 또는 `\\<ServerName>\<ShareName>` 형식으로 데이터 소스에 대한 SMB 경로를 를 제공합니다.        |
-    |**사용자 이름**                       |데이터 원본에 액세스하기 위한 `\\<DomainName><UserName>` 형식의 사용자 이름입니다.        |
+    |**사용자 이름**                       |데이터 원본에 액세스하기 위한 `\\<DomainName><UserName>` 형식의 사용자 이름입니다. 로컬 관리자가 연결하는 경우 명시적 보안 권한이 필요합니다. 폴더를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택한 다음, **보안**을 선택합니다. 이렇게 하면 **보안** 탭에 로컬 관리자가 추가됩니다.       |
     |**암호**                       |데이터 원본에 액세스하기 위한 암호입니다.           |
     |**대상 스토리지 계정**    |목록에서 데이터를 업로드하려면 대상 스토리지 계정을 선택합니다.         |
     |**대상 유형**       |다음 목록에서 대상 스토리지 유형을 선택합니다. **블록 Blob**, **페이지 Blob** 또는 **Azure Files**.        |
@@ -144,4 +151,3 @@ Data Box 디바이스를 Microsoft로 다시 배송하는 방법을 알아보려
 
 > [!div class="nextstepaction"]
 > [Microsoft로 Azure Data Box 디바이스 배송](./data-box-deploy-picked-up.md)
-

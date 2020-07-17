@@ -1,6 +1,6 @@
 ---
 title: IoT 솔루션 가속기 소개 - Azure | Microsoft Docs
-description: Azure IoT 솔루션 가속기에 대해 알아봅니다. IoT 솔루션 가속기는 완전한 종단 간 장치이며 IoT 솔루션을 배포할 준비가 되었습니다.
+description: Azure IoT 솔루션 가속기에 대해 알아봅니다. IoT 솔루션 가속기는 완전한 엔드투엔드이며 IoT 솔루션을 배포할 준비가 되었습니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/09/2019
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172821"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "71309510"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기란?
 
@@ -42,7 +42,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 ### <a name="connected-factory"></a>연결된 팩터리
 
-[연결된 팩터리 솔루션 가속기](iot-accelerators-connected-factory-sample-walkthrough.md)를 사용하여 [OPC 통합 아키텍처](https://opcfoundation.org/about/opc-technologies/opc-ua/) 인터페이스를 사용하여 산업 자산의 원격 분석을 수집하고 제어합니다. 산업 자산에는 공장 생산 라인에서 어셈블리 및 테스트 스테이션이 포함될 수 있습니다.
+[연결된 팩터리 솔루션 가속기](iot-accelerators-connected-factory-features.md)를 사용하여 [OPC 통합 아키텍처](https://opcfoundation.org/about/opc-technologies/opc-ua/) 인터페이스를 사용하여 산업 자산의 원격 분석을 수집하고 제어합니다. 산업 자산에는 공장 생산 라인에서 어셈블리 및 테스트 스테이션이 포함될 수 있습니다.
 
 연결된 팩터리 대시보드를 사용하여 산업용 디바이스를 모니터링하고 관리할 수 있습니다.
 
@@ -78,14 +78,14 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 원래 솔루션 가속기는 MVC(모델-뷰-컨트롤러) 아키텍처를 사용하는 .NET을 사용하여 작성되었습니다. Microsoft는 솔루션 가속기를 새로운 마이크로 서비스 아키텍처로 업데이트하고 있습니다. 다음 표에서는 GitHub 리포지토리에 대한 링크를 사용하여 솔루션 가속기의 현재 상태를 보여줍니다.
 
-| 솔루션 가속기   | 아키텍처  | Languages     |
+| 솔루션 가속기   | Architecture  | 언어     |
 | ---------------------- | ------------- | ------------- |
 | 원격 모니터링      | 마이크로 서비스 | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 및 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
 | 예측 유지 관리 | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
 | 연결된 팩터리      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | 디바이스 시뮬레이션      | 마이크로 서비스 | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-마이크로서비스 아키텍처에 대해 자세히 알아보려면 [Azure IoT 참조 아키텍처 소개](iot-accelerators-architecture-overview.md)를 참조하세요.
+마이크로서비스 아키텍처에 대해 자세히 알아보려면 [Azure IoT 참조 아키텍처 소개](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/)를 참조하세요.
 
 ## <a name="deployment-options"></a>배포 옵션
 
@@ -93,9 +93,9 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 원격 모니터링 솔루션 가속기를 다음 구성으로 배포할 수 있습니다.
 
-* **표준:** 프로덕션 배포를 개발할 수 있도록 확장된 인프라 배포입니다. Azure Container Service는 마이크로 서비스를 여러 개의 Azure 가상 머신에 배포합니다. Kubernetes는 개별 마이크로 서비스를 호스팅하는 Docker 컨테이너를 오케스트레이션합니다.
-* **기본:** 데모 또는 배포 테스트에 대한 비용을 절약할 수 있는 버전입니다. 모든 마이크로 서비스가 단일 Azure 가상 머신에 배포됩니다.
-* **로컬:** 테스트 및 개발을 위한 로컬 머신 배포입니다. 이 방법은 마이크로 서비스를 로컬 Docker 컨테이너에 배포하고, 클라우드의 IoT Hub, Azure Cosmos DB 및 Azure Storage 서비스에 연결합니다.
+* **Standard:** 프로덕션 배포를 개발할 수 있도록 확장된 인프라 배포입니다. Azure Container Service는 마이크로 서비스를 여러 개의 Azure 가상 머신에 배포합니다. Kubernetes는 개별 마이크로 서비스를 호스팅하는 Docker 컨테이너를 오케스트레이션합니다.
+* **Basic:** 데모 또는 배포 테스트에 대한 비용을 절약할 수 있는 버전입니다. 모든 마이크로 서비스가 단일 Azure 가상 머신에 배포됩니다.
+* **로컬:** 테스트 및 개발을 위한 로컬 컴퓨터 배포입니다. 이 방법은 마이크로 서비스를 로컬 Docker 컨테이너에 배포하고, 클라우드의 IoT Hub, Azure Cosmos DB 및 Azure Storage 서비스에 연결합니다.
 
 솔루션 가속기를 실행하는 비용은 조합된 [기본 Azure 서비스 실행 비용](https://azure.microsoft.com/pricing)입니다. 배포 옵션을 선택할 때 사용되는 Azure 서비스의 세부 정보가 표시됩니다.
 

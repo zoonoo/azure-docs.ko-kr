@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60381469"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory 하이브리드 ID 설계 고려 사항
@@ -44,7 +44,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 
 
 다음 그래픽은 IT 관리자가 클라우드 및 온-프레미스에 위치한 애플리케이션에 Single Sign-On(SSO)을 사용자가 사용할 수 있도록 Microsoft Azure Active Directory를 사용하여 현재 온-프레미스에 있는 Windows Server Active Directory 솔루션을 통합하도록 관리할 수 있는 하이브리드 ID 솔루션의 예를 보여줍니다.
 
-![예](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
+![예제](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
 
 위의 그림은 최종 사용자 인증 프로세스에 단일 환경을 제공하고 해당 리소스를 관리하는 IT를 용이하게 하기 위해 온-프레미스 기능을 통합하는 클라우드 서비스를 활용하는 하이브리드 ID 솔루션의 예제입니다. 이 예제는 일반적인 시나리오일 수 있지만 모든 조직의 하이브리드 ID 설계는 여러 요구 사항으로 인해 그림1에 설명된 예제와 다를 수 있습니다. 
 
@@ -60,7 +60,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 
 | 하이브리드 ID 단계 | 항목 목록 |
 | --- | --- |
 | ID 요구 사항 확인 |[비즈니스 요구 사항 결정](plan-hybrid-identity-design-considerations-business-needs.md)<br> [디렉터리 동기화 요구 사항 결정](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Multi-Factor Authentication 요구 사항 결정](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [하이브리드 ID 채택 전략 정의](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
-| 강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획 |[데이터 보호 요구 사항 결정](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [콘텐츠 관리 요구 사항 결정](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [액세스 제어 요구 사항 확인](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [사고 대응 요구 사항 결정](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
+| 강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획 |[데이터 보호 요구 사항 결정](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [콘텐츠 관리 요구 사항 확인](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [액세스 제어 요구 사항 확인](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [사고 대응 요구 사항 확인](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | 하이브리드 ID 수명 주기에 대한 계획 |[하이브리드 ID 관리 작업 결정](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [동기화 관리](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [하이브리드 ID 관리 채택 전략 결정](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
 ## <a name="next-steps"></a>다음 단계

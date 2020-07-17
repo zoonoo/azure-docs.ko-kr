@@ -1,20 +1,19 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 12/06/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 12/06/2018
+ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c1e34bb418f9be2e26afc117343f1fa50bd8566
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60845591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76308910"
 ---
 이 FAQ는 클래식 배포 모델을 사용하는 P2S 연결에 적용됩니다.
 
@@ -28,7 +27,7 @@ ms.locfileid: "60845591"
 * Windows 8.1(32비트 및 64비트)
 * Windows Server 2012(64비트 전용)
 * Windows Server 2012 R2(64비트 전용)
-* 윈도우 10
+* Windows 10
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>지점 및 사이트 간 SSTP를 지원하는 소프트웨어 VPN 클라이언트를 사용할 수 있습니까?
 
@@ -36,7 +35,8 @@ ms.locfileid: "60845591"
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에 존재할 수 있는 VPN 클라이언트 엔드포인트의 수는 어떻게 됩니까?
 
-최대 128개의 VPN 클라이언트에서 가상 네트워크에 동시에 연결할 수 있습니다.
+VPN 클라이언트 끝점의 양은 게이트웨이 sku 및 프로토콜에 따라 달라 집니다.
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>지점 및 사이트 간 연결에 내부 PKI 루트 CA를 사용할 수 있습니까?
 

@@ -1,39 +1,39 @@
 ---
 title: '빠른 시작: Cassandra API와 Node.js - Azure Cosmos DB'
 description: 이 빠른 시작은 Node.js와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여줍니다.
-author: SnehaGunda
-ms.author: sngun
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: a8698bf74d8be4a57d5928b8be74bcf35cee008f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.date: 05/18/2020
+ms.openlocfilehash: fbb24ac1974c23bf5292a987fc64a84dff69bf7d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586140"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118358"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>빠른 시작: Node.js SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
-> * [Java](create-cassandra-java.md)
+> * [.NET Core](create-cassandra-dotnet-core.md)
+> * [Java v3](create-cassandra-java.md)
+> * [Java v4](create-cassandra-java-v4.md)
 > * [Node.JS](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
 >  
 
-이 빠른 시작은 GitHub에서 예제를 복제하여 프로필 앱을 빌드하기 위해 Node.js와 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)를 사용하는 방법을 보여줍니다. 또한 웹 기반 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만드는 방법도 보여 줍니다.
+이 빠른 시작에서는 Azure Cosmos DB Cassandra API 계정을 만들고 GitHub에서 복제된 Cassandra Node.js 앱을 사용하여 Cassandra 데이터베이스 및 컨테이너를 만듭니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 테이블, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
 
 또한 다음 항목도 필요합니다.
-* [Node.js](https://nodejs.org/en/) 버전 v0.10.29 이상
+* [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) 버전 v0.10.29 이상
 * [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
@@ -114,75 +114,87 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 * 키/값 엔터티가 삽입됩니다.
 
     ```javascript
-    ...
-       {
-          query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'IvanaV', 'Belgaum', '2017-10-3136']
-        }
-    ];
-    client.batch(queries, { prepare: true}, next);
+        function insert(next) {
+            console.log("\insert");
+            const arr = ['INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (1, \'AdrianaS\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (2, \'JiriK\', \'Toronto\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (3, \'IvanH\', \'Mumbai\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (4, \'IvanH\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (5, \'IvanaV\', \'Belgaum\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (6, \'LiliyaB\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (7, \'JindrichH\', \'Buenos Aires\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (8, \'AdrianaS\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (9, \'JozefM\', \'Seattle\')'];
+            arr.forEach(element => {
+            client.execute(element);
+            });
+            next();
+        },
     ```
 
 * 모든 키 값을 가져오는 쿼리입니다.
 
     ```javascript
-   var query = 'SELECT * FROM uprofile.user';
-    client.execute(query, { prepare: true}, function (err, result) {
-      if (err) return next(err);
-      result.rows.forEach(function(row) {
-        console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-      }, this);
-      next();
-    });
+        function selectAll(next) {
+            console.log("\Select ALL");
+            var query = 'SELECT * FROM uprofile.user';
+            client.execute(query, function (err, result) {
+            if (err) return next(err);
+            result.rows.forEach(function(row) {
+                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+            }, this);
+            next();
+            });
+        },
     ```  
     
 * 키 값을 가져오는 쿼리입니다.
 
     ```javascript
-    function selectById(next) {
-        console.log("\Getting by id");
-        var query = 'SELECT * FROM uprofile.user where user_id=1';
-        client.execute(query, { prepare: true}, function (err, result) {
-        if (err) return next(err);
+        function selectById(next) {
+            console.log("\Getting by id");
+            var query = 'SELECT * FROM uprofile.user where user_id=1';
+            client.execute(query, function (err, result) {
+            if (err) return next(err);
             result.rows.forEach(function(row) {
-            console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-        }, this);
-        next();
-        });
-    }
+                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+            }, this);
+            next();
+            });
+        }
     ```  
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 연결 문자열을 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
 
-    화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-nodejs/copy.png) 화면 오른쪽에 있는 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다.
+1. 화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-nodejs/copy.png) 화면 오른쪽에 있는 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다.
 
-    ![Azure Portal, 연결 문자열 페이지에서 CONTACT POINT, USERNAME 및 PASSWORD를 보고 복사](./media/create-cassandra-nodejs/keys.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="Azure Portal, 연결 문자열 페이지에서 CONTACT POINT, USERNAME 및 PASSWORD를 보고 복사":::
 
-2. `config.js` 파일을 엽니다. 
+1. `config.js` 파일을 엽니다. 
 
-3. 포털의 CONTACT POINT 값을 줄 4의 `<FillMEIN>`에 붙여넣습니다.
+1. 포털의 CONTACT POINT 값을 줄 4의 `<FillMEIN>`에 붙여넣습니다.
 
     이제 줄 4는 다음과 같이 보일 것입니다. 
 
     `config.contactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350"`
 
-4. 포털의 USERNAME 값을 복사하여 줄 2의 `<FillMEIN>`에 붙여넣습니다.
+1. 포털의 USERNAME 값을 복사하여 줄 2의 `<FillMEIN>`에 붙여넣습니다.
 
     줄 2는 다음과 같이 보일 것입니다. 
 
     `config.username = 'cosmos-db-quickstart';`
     
-5. 포털의 PASSWORD 값을 복사하여 줄 3의 `<FillMEIN>`에 붙여넣습니다.
+1. 포털의 PASSWORD 값을 복사하여 줄 3의 `<FillMEIN>`에 붙여넣습니다.
 
     줄 3은 다음과 같이 보일 것입니다.
 
     `config.password = '2Ggkr662ifxz2Mg==';`
 
-6. `config.js` 파일을 저장합니다.
+1. `config.js` 파일을 저장합니다.
     
 ## <a name="use-the-x509-certificate"></a>X509 인증서 사용
 
@@ -194,21 +206,43 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 3. `uprofile.js`를 저장합니다.
 
+> [!NOTE]
+> 이후 단계에서 인증서 관련 오류가 발생하고 Windows 머신에서 실행되고 있는 경우 .crt 파일을 아래의 Microsoft .cer 형식으로 올바르게 변환하는 프로세스를 수행했는지 확인합니다.
+> 
+> .crt 파일을 두 번 클릭하여 인증서 표시로 엽니다. 
+>
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="출력 보기 및 확인":::
+>
+> 인증서 마법사에서 다음을 누릅니다. Base-64로 인코딩된 X.509(.CER)를 선택한 후, 다음을 선택합니다.
+>
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="출력 보기 및 확인":::
+>
+> 찾아보기를 선택하여 대상을 찾고 파일 이름을 입력합니다.
+> 다음을 선택한 다음, 완료를 선택합니다.
+>
+> 이제 올바른 형식의 .cer 파일이 있어야 합니다. `uprofile.js`의 경로가 이 파일을 가리키는지 확인합니다.
+
 ## <a name="run-the-nodejs-app"></a>Node.js 앱 실행
 
-1. git 터미널 창에서 `npm install`을 실행하여 필요한 npm 모듈을 설치합니다.
+1. git 터미널 창에서 이전에 복제한 샘플 디렉터리에 있는지 확인합니다.
 
-2. `node uprofile.js`를 실행하여 노드 애플리케이션을 시작합니다.
+    ```bash
+    cd azure-cosmos-db-cassandra-nodejs-getting-started
+    ```
 
-3. 명령줄에서 예상대로 결과가 나타나는지 확인하세요.
+2. `npm install`을 실행하여 필요한 npm 모듈을 설치합니다.
 
-    ![출력 보기 및 확인](./media/create-cassandra-nodejs/output.png)
+3. `node uprofile.js`를 실행하여 노드 애플리케이션을 시작합니다.
+
+4. 명령줄에서 예상대로 결과가 나타나는지 확인하세요.
+
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="출력 보기 및 확인":::
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다. 
 
-4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
+5. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
-    ![데이터 탐색기에서 데이터 보기](./media/create-cassandra-nodejs/data-explorer.png) 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="데이터 탐색기에서 데이터 보기"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
@@ -220,9 +254,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 컨테이너를 만들고, 앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 Cassandra API를 사용하여 Azure Cosmos DB 계정을 만들고 Cassandra 데이터베이스 및 컨테이너를 만드는 Cassandra Node.js 앱을 실행하는 방법을 알아보았습니다. 이제 Azure Cosmos DB 계정으로 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 Cassandra 데이터 가져오기](cassandra-import-data.md)
-
-

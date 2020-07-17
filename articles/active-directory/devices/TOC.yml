@@ -1,8 +1,8 @@
-- name: 디바이스 관리 설명서
+- name: 다바이스 Identities 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Azure AD에서 디바이스 관리란?
+    - name: 디바이스 ID란?
       href: overview.md
     - name: 엔터프라이즈 상태 로밍이란?
       href: enterprise-state-roaming-overview.md
@@ -18,54 +18,82 @@
     - name: Windows 10 첫 실행 환경 중 Azure AD 조인 구성
       href: azuread-joined-devices-frx.md
 - name: 개념
-  expanded: false
-  items:
-    - name: 온-프레미스 리소스에 대한 SSO
-      href: azuread-join-sso.md
-- name: 방법 가이드
   expanded: true
   items:
-    - name: Azure Portal을 사용하여 디바이스 관리
+    - name: Azure AD 등록 디바이스
+      href: concept-azure-ad-register.md
+    - name: Azure AD 조인 디바이스
+      href: concept-azure-ad-join.md
+    - name: 하이브리드 Azure AD 가입 디바이스
+      href: concept-azure-ad-join-hybrid.md
+    - name: 온-프레미스 리소스에 대한 SSO
+      href: azuread-join-sso.md
+    - name: 기본 새로 고침 토큰
+      href: concept-primary-refresh-token.md
+    - name: Azure 관리 워크스테이션
+      href: concept-azure-managed-workstation.md
+- name: 방법 가이드
+  expanded: false
+  items:
+    - Name: Azure AD 디바이스 배포 계획
+      href: plan-device-deployment.md
+    - name: Azure AD 조인 구현 계획
+      href: azureadjoin-plan.md
+    - name: Azure AD 조인 디바이스에 로컬 관리자 할당
+      href: assign-local-admin.md
+    - name: 하이브리드 Azure AD 조인 구현 계획
+      href: hybrid-azuread-join-plan.md
+    - name: 하이브리드 Azure AD 조인의 제어된 유효성 검사
+      href: hybrid-azuread-join-control.md
+    - name: 디바이스 ID 관리
       href: device-management-azure-portal.md
     - name: 부실 디바이스 관리
       href: manage-stale-devices.md
-    - name: Azure AD 조인 구현 계획
-      href: azureadjoin-plan.md
-    - name: 하이브리드 Azure AD 조인 구현 계획
-      href: hybrid-azuread-join-plan.md
-    - name: 디바이스의 하이브리드 Azure AD 조인 제어
-      href: hybrid-azuread-join-control.md
-    - name: Azure AD 조인 디바이스에 로컬 관리자 할당
-      href: assign-local-admin.md
     - name: 엔터프라이즈 상태 로밍 사용
       href: enterprise-state-roaming-enable.md
-    - name: 하이브리드 Azure AD 조인 Windows 현재 디바이스 문제 해결
-      href: troubleshoot-hybrid-join-windows-current.md
-    - name: 하이브리드 Azure AD 조인 레거시 Windows 디바이스 문제 해결
-      href: troubleshoot-hybrid-join-windows-legacy.md
-    - name: 엔터프라이즈 상태 로밍 문제 해결
-      href: enterprise-state-roaming-troubleshooting.md
-    - name: FAQ
-      href: faq.md
-    - name: 엔터프라이즈 상태 사용 FAQ
-      href: enterprise-state-roaming-faqs.md
-- name: 참고 자료
+    - name: Windows Azure VM 및 Azure AD
+      href: howto-vm-sign-in-azure-ad-windows.md
+    - name: 가상 데스크톱 인프라
+      href: howto-device-identity-virtual-desktop-infrastructure.md
+    - name: Azure 관리 워크스테이션 배포
+      href: howto-azure-managed-workstation.md
+    - name: 디바이스 ID 문제 해결
+      items:
+        - name: 하이브리드 Azure AD 조인 Windows 현재 디바이스 문제 해결
+          href: troubleshoot-hybrid-join-windows-current.md
+        - name: dsregcmd를 사용하여 문제 해결
+          href: troubleshoot-device-dsregcmd.md
+        - name: Windows 하위 수준 디바이스에 조인된 하이브리드 Azure AD 문제 해결
+          href: troubleshoot-hybrid-join-windows-legacy.md
+        - name: 엔터프라이즈 상태 로밍 문제 해결
+          href: enterprise-state-roaming-troubleshooting.md
+    - name: 질문과 대답
+      items:
+        - name: FAQ
+          href: faq.md
+        - name: 엔터프라이즈 상태 사용 FAQ
+          href: enterprise-state-roaming-faqs.md
+- name: 참조
   items:
     - name: 엔터프라이즈 상태 로밍 GPO 설정
       href: enterprise-state-roaming-group-policy-settings.md
     - name: 엔터프라이즈 상태 로밍 Windows 설정
       href: enterprise-state-roaming-windows-settings-reference.md
+    - name: Graph API
+      items:
+        - name: 디바이스 ID API
+          href: /graph/api/resources/device?view=graph-rest-1.0
 - name: 리소스
   items:
     - name: Azure 피드백 포럼
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
-    - name: 가격
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

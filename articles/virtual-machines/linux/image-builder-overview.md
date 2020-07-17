@@ -1,18 +1,19 @@
 ---
-title: Azure 이미지 작성기 Linux Virtual Machines (미리 보기)에 대해 알아보기
-description: Azure 이미지 작성기에 대해 알아봅니다.
+title: Azure 이미지 작성기 (미리 보기)에 대해 알아보기
+description: Azure의 가상 컴퓨터에 대 한 Azure 이미지 빌더에 대해 자세히 알아보세요.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
-ms.topic: article
-ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: 6dd46fa09142689246dda6bd0c696ee8c15aab0f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.topic: conceptual
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.reviewer: danis
+ms.openlocfilehash: 4cacc96975d6a366e2d353580d22c9818b19a321
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159827"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82792057"
 ---
 # <a name="preview-azure-image-builder-overview"></a>미리 보기: Azure 이미지 작성기 개요
 

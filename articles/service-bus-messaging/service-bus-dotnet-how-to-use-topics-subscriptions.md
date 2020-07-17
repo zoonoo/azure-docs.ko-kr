@@ -1,25 +1,15 @@
 ---
 title: Azure Service Bus 항목 및 구독 시작 | Microsoft Docs
 description: Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 애플리케이션을 작성합니다.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 04/15/2019
-ms.author: aschhab
-ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/23/2020
+ms.openlocfilehash: 7b2b8382c11f447237a8f49ee5be1f4989e3f906
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714248"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337524"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
 
@@ -30,14 +20,14 @@ ms.locfileid: "60714248"
 1. 항목에 일련의 메시지를 보내도록 .NET Core 콘솔 애플리케이션을 작성합니다.
 2. 구독에서 해당 메시지를 수신하도록 .NET Core 콘솔 애플리케이션을 작성합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 하거나 등록을 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
-2. 단계를 수행 합니다 [빠른 시작: Azure portal을 사용 하 여 Service Bus 토픽 및 구독 항목을 만들려면](service-bus-quickstart-topics-subscriptions-portal.md) 다음 태스크를 수행 합니다.
-    1. Service Bus를 만듭니다 **네임 스페이스**합니다.
-    2. 가져오기의 **연결 문자열**합니다.
-    3. 만들기는 **항목** 네임 스페이스에 있습니다.
-    4. 만들 **구독** 네임 스페이스에서 항목을 합니다.
+1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+2. 빠른 시작: Azure Portal을 사용 하 여 다음 작업을 수행 하는 [항목에 대 한 Service Bus 토픽 및 구독 만들기를](service-bus-quickstart-topics-subscriptions-portal.md) 참조 하세요.
+    1. Service Bus **네임스페이스**를 만듭니다.
+    2. **연결 문자열**을 가져옵니다.
+    3. 네임스페이스에서 **토픽**을 만듭니다.
+    4. 네임 스페이스의 항목에 대 **한 구독 하나** 를 만듭니다.
 3. [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
 4. [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
  
@@ -75,16 +65,10 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
     static ITopicClient topicClient;
     ``` 
 
-3. `Main()`이라는 기본 내용을 다음 코드줄로 바꿉니다.
+3. 메서드를 다음 `Main()` **async** `Main` 단계에서 추가할 SendMessagesAsync 메서드를 사용 하 여 비동기적으로 메시지를 보내는 다음 비동기 메서드로 바꿉니다. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-   
-4. `Main()`의 바로 뒤에 메시지 전송 메서드를 호출하는 다음 비동기 `MainAsync()` 메서드를 추가합니다.
-
-    ```csharp
-    static async Task MainAsync()
+    public static async Task Main(string[] args)
     {
         const int numberOfMessages = 10;
         topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
@@ -101,8 +85,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
         await topicClient.CloseAsync();
     }
     ```
-
-5. `MainAsync()` 메서드의 바로 뒤에 `numberOfMessagesToSend`(현재 10으로 설정됨)으로 지정된 메시지 수를 전송하는 작업을 수행하는 다음 `SendMessagesAsync()` 메서드를 추가합니다.
+5. `Main` 메서드의 바로 뒤에 `numberOfMessagesToSend`(현재 10으로 설정됨)으로 지정된 메시지 수를 전송하는 작업을 수행하는 다음 `SendMessagesAsync()` 메서드를 추가합니다.
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -146,25 +129,20 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
             const string TopicName = "<your_topic_name>";
             static ITopicClient topicClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
+            public static async Task Main(string[] args)
             {
                 const int numberOfMessages = 10;
                 topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
-
+    
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
-
+    
                 // Send messages.
                 await SendMessagesAsync(numberOfMessages);
-
+    
                 Console.ReadKey();
-
+    
                 await topicClient.CloseAsync();
             }
 
@@ -200,7 +178,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
 
 ## <a name="receive-messages-from-the-subscription"></a>구독에서 메시지 받기
 
-보낸 메시지를 받으려면 다른.NET Core 콘솔 응용 프로그램 만들기 및 설치 합니다 **Microsoft.Azure.ServiceBus** NuGet 패키지를 이전의 보낸 사람 응용 프로그램과 유사 합니다.
+전송 된 메시지를 받으려면 다른 .NET Core 콘솔 응용 프로그램을 만들고 이전 발신자 응용 프로그램과 유사한 **ServiceBus** NuGet 패키지를 설치 합니다.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>코드를 작성하여 구독에서 메시지 받기
 
@@ -222,17 +200,11 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. `Main()`이라는 기본 내용을 다음 코드줄로 바꿉니다.
+3. 메서드를 `Main()` 다음 **비동기** `Main` 메서드로 바꿉니다. `RegisterOnMessageHandlerAndReceiveMessages()`다음 단계에서 추가할 메서드를 호출 합니다. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-4. `Main()`의 바로 뒤에 `RegisterOnMessageHandlerAndReceiveMessages()` 메서드를 호출하는 다음 비동기 `MainAsync()` 메서드를 추가합니다.
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
 
         Console.WriteLine("======================================================");
@@ -244,11 +216,10 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
 
         Console.ReadKey();
 
-        await subscriptionClient.CloseAsync();
+        await subscriptionClient.CloseAsync();    
     }
-    ```
-
-5. `MainAsync()` 메서드의 바로 뒤에 메시지 처리기를 등록하고 보낸 사람 애플리케이션에서 보낸 메시지를 수신하는 다음 메서드를 추가합니다.
+   ```
+5. `Main()` 메서드의 바로 뒤에 메시지 처리기를 등록하고 보낸 사람 애플리케이션에서 보낸 메시지를 수신하는 다음 메서드를 추가합니다.
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -322,25 +293,20 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
             const string SubscriptionName = "<your_subscription_name>";
             static ISubscriptionClient subscriptionClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
+            public static async Task Main(string[] args)
+            {    
                 subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
-
+        
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
                 Console.WriteLine("======================================================");
-
-                // Register subscription message handler and receive messages in a loop.
+        
+                // Register subscription message handler and receive messages in a loop
                 RegisterOnMessageHandlerAndReceiveMessages();
-
+        
                 Console.ReadKey();
-
-                await subscriptionClient.CloseAsync();
+        
+                await subscriptionClient.CloseAsync();    
             }
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -388,11 +354,14 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
         }
     }
     ```
-9. 프로그램을 실행하고 포털을 다시 확인합니다. 이제 **메시지 수**와 **현재** 값이 **0**이 됩니다.
+9. 프로그램을 실행하고 포털을 다시 확인합니다. **메시지 수** 와 **현재** 값이 이제 **0**입니다.
    
     ![항목 길이][topic-message-receive]
 
-축하합니다! 이제 .NET Standard 라이브러리를 사용하여 토픽 및 구독을 만들고, 10개의 메시지를 보내고, 해당 메시지를 수신했습니다.
+지금까지 이제 .NET Standard 라이브러리를 사용하여 토픽 및 구독을 만들고, 10개의 메시지를 보내고, 해당 메시지를 수신했습니다.
+
+> [!NOTE]
+> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

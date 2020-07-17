@@ -1,23 +1,16 @@
 ---
 title: Azure Application Insights를 사용하여 요청을 추적하는 코드 작성 | Microsoft Docs
 description: 요청에 대한 프로필을 받을 수 있도록 Application Insights를 사용하여 요청을 추적하는 코드를 작성합니다.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 4782e560b580b7f565724dbb35ed9876bffdc256
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77671599"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Application Insights를 사용하여 요청을 추적하는 코드 작성
 
@@ -37,7 +30,7 @@ Azure 클라우드 서비스 작업자 역할 및 Service Fabric 상태 비저�
         ```
       이 전역 계측 키 구성에 대한 자세한 내용은 [Application Insights를 통해 Service Fabric 사용](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md)을 참조하세요.  
 
-  1. 계측하려는 코드 조각의 경우 다음 예제와 같이 `StartOperation<RequestTelemetry>` **using** 문을 추가합니다.
+  1. 계측 하려는 코드의 모든 부분에 대해 `StartOperation<RequestTelemetry>` 다음 예제와 같이 **using** 문을 추가 합니다.
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -51,7 +44,7 @@ Azure 클라우드 서비스 작업자 역할 및 Service Fabric 상태 비저�
         }
         ```
 
-        다른 `StartOperation<RequestTelemetry>` 범위 내의 `StartOperation<RequestTelemetry>` 호출은 지원되지 않습니다. 대신, 중첩된 범위에서는 `StartOperation<DependencyTelemetry>`를 사용할 수 있습니다. 예를 들면 다음과 같습니다.  
+        다른 `StartOperation<RequestTelemetry>` 범위 내의 `StartOperation<RequestTelemetry>` 호출은 지원되지 않습니다. 대신, 중첩된 범위에서는 `StartOperation<DependencyTelemetry>`를 사용할 수 있습니다. 예를 들어:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

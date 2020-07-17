@@ -1,43 +1,39 @@
 ---
 title: Azure Monitor 로그 쿼리에서 문자열 작업 | Microsoft Docs
 description: Azure Monitor 로그 쿼리에서 문자열을 편집, 비교, 검색하고 다양한 기타 작업을 수행하는 방법을 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 08/16/2018
+ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61424706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75397459"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 문자열 작업
 
 
 > [!NOTE]
-> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 하 고 [Azure Monitor 로그 쿼리를 사용 하 여 시작](get-started-queries.md) 이 자습서를 완료 하기 전에 합니다.
+> 이 자습서를 완료 하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 을 완료 하 고 [Azure Monitor 로그 쿼리를 시작](get-started-queries.md) 해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 이 문서에서는 문자열을 편집, 비교, 검색하고 다양한 기타 작업을 수행하는 방법을 설명합니다.
 
-문자열의 각 문자에는 해당 위치에 따라 인덱스 번호가 있습니다. 첫 번째 문자는 인덱스 0에 있고, 다음 문자는 1에 있습니다. 이와 같이 계속 적용됩니다. 다른 문자열 함수는 다음 섹션에 나와 있는 것처럼 인덱스 번호를 사용합니다. 다음 예제 대부분이 특정 데이터 원본을 사용하지 않고 문자열 조작을 보여 주기 위해 **print** 명령을 사용합니다.
+문자열의 각 문자에는 해당 위치에 따라 인덱스 번호가 있습니다. 첫 번째 문자는 인덱스 0에 있고 다음 문자는 1입니다. 다른 문자열 함수는 다음 섹션에 나와 있는 것처럼 인덱스 번호를 사용합니다. 다음 예제 대부분이 특정 데이터 원본을 사용하지 않고 문자열 조작을 보여 주기 위해 **print** 명령을 사용합니다.
 
 
 ## <a name="strings-and-escaping-them"></a>문자열 및 이스케이프
-문자열 값은 작은따옴표 또는 큰따옴표 문자로 래핑됩니다. 백슬래시(\)는 문자를 다음에 나오는 문자에 대해 이스케이프하는 데 사용됩니다. 예를 들어 탭의 경우 \t, 줄 바꿈에 대해 \n, 따옴표 문자에 대해 \"를 사용합니다.
+문자열 값은 작은따옴표 또는 큰따옴표 문자로 래핑됩니다. 백슬래시 ( \\ )는 문자에 대 한 \t (탭), \n (줄 바꿈) 및 따옴표 문자 자체와 같은 문자를 이스케이프 하는 데 사용 됩니다 \" .
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
+```
+
+```Kusto
+print 'this is a "string" literal in single \' quotes'
 ```
 
 "\\"가 이스케이프 문자로 사용되지 않도록 하기 위해 문자열의 접두사로 "\@"을 추가합니다.
@@ -53,30 +49,30 @@ print @"C:\backslash\not\escaped\with @ prefix"
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |같음                              |예           |`"aBc" == "aBc"`
 `!=`           |같지 않음                          |예           |`"abc" != "ABC"`
-`=~`           |같음                              |아닙니다.            |`"abc" =~ "ABC"`
-`!~`           |같지 않음                          |아닙니다.            |`"aBc" !~ "xyz"`
-`has`          |오른쪽이 왼쪽의 전체 항임 |아닙니다.|`"North America" has "america"`
-`!has`         |오른쪽이 왼쪽의 전체 항이 아님       |아닙니다.            |`"North America" !has "amer"` 
+`=~`           |같음                              |아니요            |`"abc" =~ "ABC"`
+`!~`           |같지 않음                          |아니요            |`"aBc" !~ "xyz"`
+`has`          |오른쪽이 왼쪽의 전체 항임 |아니요|`"North America" has "america"`
+`!has`         |오른쪽이 왼쪽의 전체 항이 아님       |아니요            |`"North America" !has "amer"` 
 `has_cs`       |오른쪽이 왼쪽의 전체 항임 |예|`"North America" has_cs "America"`
 `!has_cs`      |오른쪽이 왼쪽의 전체 항이 아님       |예            |`"North America" !has_cs "amer"` 
-`hasprefix`    |오른쪽이 왼쪽의 항 접두사임         |아닙니다.            |`"North America" hasprefix "ame"`
-`!hasprefix`   |오른쪽이 왼쪽의 항 접두사가 아님     |아닙니다.            |`"North America" !hasprefix "mer"` 
+`hasprefix`    |오른쪽이 왼쪽의 항 접두사임         |아니요            |`"North America" hasprefix "ame"`
+`!hasprefix`   |오른쪽이 왼쪽의 항 접두사가 아님     |아니요            |`"North America" !hasprefix "mer"` 
 `hasprefix_cs`    |오른쪽이 왼쪽의 항 접두사임         |예            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |오른쪽이 왼쪽의 항 접두사가 아님     |예            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |오른쪽이 왼쪽의 항 접미사임         |아닙니다.            |`"North America" hassuffix "ica"`
-`!hassuffix`   |오른쪽이 왼쪽의 항 접미사가 아님     |아닙니다.            |`"North America" !hassuffix "americ"`
+`hassuffix`    |오른쪽이 왼쪽의 항 접미사임         |아니요            |`"North America" hassuffix "ica"`
+`!hassuffix`   |오른쪽이 왼쪽의 항 접미사가 아님     |아니요            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |오른쪽이 왼쪽의 항 접미사임         |예            |`"North America" hassuffix_cs "ica"`
 `!hassuffix_cs`   |오른쪽이 왼쪽의 항 접미사가 아님     |예            |`"North America" !hassuffix_cs "icA"`
-`contains`     |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |아닙니다.            |`"FabriKam" contains "BRik"`
-`!contains`    |오른쪽이 왼쪽에 발생하지 않음           |아닙니다.            |`"Fabrikam" !contains "xyz"`
+`contains`     |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |아니요            |`"FabriKam" contains "BRik"`
+`!contains`    |오른쪽이 왼쪽에 발생하지 않음           |아니요            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |예           |`"FabriKam" contains_cs "Kam"`
 `!contains_cs`  |오른쪽이 왼쪽에 발생하지 않음           |예           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|아닙니다.            |`"Fabrikam" startswith "fab"`
-`!startswith`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|아닙니다.        |`"Fabrikam" !startswith "kam"`
+`startswith`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|아니요            |`"Fabrikam" startswith "fab"`
+`!startswith`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|아니요        |`"Fabrikam" !startswith "kam"`
 `startswith_cs`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|예            |`"Fabrikam" startswith_cs "Fab"`
 `!startswith_cs`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|예        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|아닙니다.             |`"Fabrikam" endswith "Kam"`
-`!endswith`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|아닙니다.         |`"Fabrikam" !endswith "brik"`
+`endswith`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|아니요             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|아니요         |`"Fabrikam" !endswith "brik"`
 `endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|예             |`"Fabrikam" endswith "Kam"`
 `!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|예         |`"Fabrikam" !endswith "brik"`
 `matches regex`|왼쪽에 오른쪽의 일치 항목이 포함됨        |예           |`"Fabrikam" matches regex "b.*k"`
@@ -86,9 +82,9 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="countof"></a>countof
 
-문자열의 부분 문자열 발생을 계산합니다. 일반 문자열을 일치하거나 정규식을 사용할 수 있습니다. 일반 문자열 일치는 겹칠 수 있지만 정규식 일치는 겹칠 수 없습니다.
+문자열의 부분 문자열 발생을 계산합니다. 일반 문자열을 일치하거나 정규식을 사용할 수 있습니다. 일반 문자열 일치는 겹칠 수 있으며, 정규식 일치는 겹칠 수 없습니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 ```
 countof(text, search [, kind])
 ```
@@ -96,7 +92,7 @@ countof(text, search [, kind])
 ### <a name="arguments"></a>인수:
 - `text` - 입력 문자열입니다. 
 - `search` - text 내에서 일치하는 일반 문자열 또는 정규식입니다.
-- `kind` - _normal_ | _regex_(기본값: normal).
+- `kind` - _보통_  |  _regex_ (기본값: normal).
 
 ### <a name="returns"></a>반환
 
@@ -125,7 +121,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## <a name="extract"></a>extract
 
-지정된 문자열에서 정규식에 대한 일치 항목을 가져옵니다. 또한 필요에 따라 추출된 부분 문자열을 지정된 형식으로 변환합니다.
+지정된 문자열에서 정규식에 대한 일치 항목을 가져옵니다. 필요에 따라 추출 된 부분 문자열을 지정 된 형식으로 변환 합니다.
 
 ### <a name="syntax"></a>구문
 
@@ -177,7 +173,7 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 - *isempty*는 인수가 빈 문자열이거나 null인 경우 true를 반환합니다(*isnull* 참조).
 - *isnotempty*는 인수가 빈 문자열이거나 null이 아닌 경우 true를 반환합니다(*isnotnull* 참조). 별칭: *notempty*
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 
 ```Kusto
 isempty(value)
@@ -203,7 +199,7 @@ Heartbeat | where isnotempty(ComputerIP) | take 1  // return 1 Heartbeat record 
 
 URL을 해당 부분(프로토콜, 호스트, 포트 등)을 분할하고 이러한 부분을 문자열로 포함하는 사전 개체를 반환합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 
 ```
 parseurl(urlstring)
@@ -260,7 +256,7 @@ SecurityEvent
 
 결과는 다음과 같을 수 있습니다.
 
-작업                                        |대체됨
+활동                                        |대체됨
 ------------------------------------------------|----------------------------------------------------------
 4663 - 개체에 액세스하려고 했습니다.  |활동 ID 4663: 개체에 액세스하려고 했습니다.
 
@@ -269,7 +265,7 @@ SecurityEvent
 
 지정된 구분 기호에 따라 지정된 문자열을 분할하고 결과 부분 문자열의 배열을 반환합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 ```
 split(source, delimiter [, requestedIndex])
 ```
@@ -296,7 +292,7 @@ print split("aabbcc", "bb");        // result: ["aa","cc"]
 
 문자열 인수를 연결합니다(1-16개 인수 지원).
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 ```
 strcat("string1", "string2", "string3")
 ```
@@ -311,7 +307,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 
 문자열의 길이를 반환합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 ```
 strlen("text_to_evaluate")
 ```
@@ -326,7 +322,7 @@ print strlen("hello")   // result: 5
 
 지정된 인덱스에서 시작하여 지정된 소스 문자열의 부분 문자열을 추출합니다. 선택적으로 요청된 부분 문자열의 길이를 지정할 수 있습니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 ```
 substring(source, startingIndex [, length])
 ```
@@ -350,7 +346,7 @@ print substring("ABCD", 0, 2);  // result: "AB"
 
 지정된 문자열을 모두 소문자 또는 모두 대문자로 변환합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 ```
 tolower("value")
 toupper("value")

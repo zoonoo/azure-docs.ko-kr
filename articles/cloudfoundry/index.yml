@@ -1,0 +1,52 @@
+### YamlMime:Landing
+title: Azure의 Cloud Foundry 설명서
+summary: Cloud Foundry는 다양한 언어 및 프레임워크로 개발되는 12개 요소(12-factor) 애플리케이션을 빌드하고, 배포하고, 운영하기 위한 오픈 소스 PaaS(Platform-as-a-Service)입니다.
+metadata:
+  title: Azure의 Cloud Foundry 설명서
+  description: Cloud Foundry는 다양한 언어 및 프레임워크로 개발되는 12개 요소(12-factor) 애플리케이션을 빌드하고, 배포하고, 운영하기 위한 오픈 소스 PaaS(Platform-as-a-Service)입니다.
+  services: multiple
+  ms.service: multiple
+  ms.devlang: devops
+  ms.topic: landing-page
+  author: georgewallace
+  ms.author: gwallace
+  ms.date: 03/08/2020
+  ms.openlocfilehash: 92fc1fb74316e2a80d0cf4fde912f05db2b3613b
+  ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/12/2020
+  ms.locfileid: "84750335"
+landingContent:
+- title: Azure의 Cloud Foundry 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure의 Cloud Foundry 개요
+      url: cloudfoundry-get-started.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure에 Cloud Foundry 배포
+      url: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
+  - linkListType: how-to-guide
+    links:
+    - text: 첫 번째 앱 배포
+      url: cloudfoundry-deploy-your-first-app.md
+- title: 리소스
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure의 Pivotal Cloud Foundry
+      url: https://pivotal.io/partners/microsoft
+    - text: Azure와 Cloud Foundry 통합
+      url: how-cloud-foundry-integrates-with-azure.md
+    - text: Azure에 Cloud Foundry 설치
+      url: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
+    - text: Cloud Foundry용 Azure DevOps 플러그 인
+      url: https://github.com/Microsoft/vsts-cloudfoundry
+    - text: Cloud Foundry용 Microsoft Log Analytics 노즐
+      url: https://github.com/Azure/oms-log-analytics-firehose-nozzle
+    - text: Cloud Foundry에 대한 자세한 정보
+      url: https://docs.cloudfoundry.org/

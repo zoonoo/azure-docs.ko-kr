@@ -1,6 +1,6 @@
 ---
 title: 원격 모니터링 솔루션 가속기 FAQ - Azure | Microsoft Docs
-description: 원격 모니터링 솔루션 가속기에 대한 질문과 대답
+description: 이 문서에서는 원격 모니터링 솔루션 가속기에 대 한 자주 묻는 질문에 답변 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,11 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c410ac7f41adb623a7198320a1edced097778569
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61447915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "73826246"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 대한 질문과 대답
 
@@ -40,13 +39,13 @@ ms.locfileid: "61447915"
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>원격 모니터링 솔루션의 이전 버전 관련 정보는 어디서 확인할 수 있나요?
 
-원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/)에서 보관된 설명서를 확인할 수 있습니다.
+원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. 에서 보관 된 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/) .
 
 ### <a name="next-steps"></a>다음 단계
 
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
-* [원격 모니터링 솔루션 가속기의 기능 탐색](quickstart-remote-monitoring-deploy.md)
+* [원격 모니터링 솔루션 가속기의 기능 살펴보기](quickstart-remote-monitoring-deploy.md)
 * [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
 * [연결된 팩터리 솔루션 가속기 배포](quickstart-connected-factory-deploy.md)
 * [처음부터 IoT 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up)

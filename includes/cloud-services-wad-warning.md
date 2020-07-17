@@ -1,10 +1,15 @@
 ---
-ms.openlocfilehash: f23d5246401f23694755e63a51c52da5dbf5ac1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+author: tanmaygore
+ms.author: tagore
+ms.service: cloud-services
+ms.topic: include
+ms.date: 11/25/2018
+ms.openlocfilehash: 5deba9d8968f71ef1b21517e74e6af4c39aa9271
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76279482"
 ---
 > [!WARNING]
 > 기존 역할에서 진단을 사용하도록 설정한 경우 패키지를 배포하면 이미 설정한 모든 확장이 비활성화됩니다. 내용은 다음과 같습니다.

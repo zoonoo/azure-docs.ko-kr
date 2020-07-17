@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f86fe5e3-0e91-40d6-869c-3df6912d27ea
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 48c5804df53c084715cac872aa431cf8694c6d35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13012474e34af80c84b034703a3b34f0208036bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885121"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "73156277"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>자습서: Flatter Files와 Azure Active Directory 통합
 
@@ -30,10 +31,10 @@ Flatter Files를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 * 사용자가 해당 Azure AD 계정으로 Flatter Files에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Flatter Files와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -56,7 +57,7 @@ Flatter Files의 Azure AD 통합을 구성하려면 갤러리의 Flatter Files�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -124,11 +125,11 @@ Flatter Files에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 2. **대시보드**를 클릭합니다. 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Single Sign-on 구성](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. **설정**을 클릭하고 **회사** 탭에서 다음 단계를 수행합니다. 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Single Sign-on 구성](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. **인증에 SAML 2.0 사용**을 선택합니다.
     
@@ -136,7 +137,7 @@ Flatter Files에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 4. **SAML 구성** 대화 상자에서 다음 단계를 수행합니다. 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
+    ![Single Sign-on 구성](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
     a. **도메인** 텍스트 상자에서 등록된 도메인을 입력합니다.
    
@@ -170,7 +171,7 @@ Flatter Files에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

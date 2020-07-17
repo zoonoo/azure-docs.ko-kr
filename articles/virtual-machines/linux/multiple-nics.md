@@ -1,25 +1,18 @@
 ---
-title: 여러 NIC를 사용하여 Azure에서 Linux VM 만들기 | Microsoft Docs
+title: 여러 Nic를 사용 하 여 Azure에서 Linux VM 만들기
 description: Azure CLI 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 Linux VM을 만드는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772436"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706684"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 
@@ -58,7 +51,7 @@ az network vnet subnet create \
     --address-prefix 10.0.2.0/24
 ```
 
-[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *Mynetworksecuritygroup*이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \
@@ -87,7 +80,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>VM 만들기 및 NIC 연결
 VM을 만들 때 `--nics`로 만든 NIC를 지정합니다. 또한 VM 크기를 선택할 때도 주의해야 합니다. VM에 추가할 수 있는 NIC 총수가 제한되어 있습니다. [Linux VM 크기](sizes.md)에 대해 자세히 읽어보세요.
 
-[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myvm*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -100,7 +93,7 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
+[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for-multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="add-a-nic-to-a-vm"></a>VM에 NIC 추가
 이전 단계에서는 여러 NIC가 있는 VM을 만들었습니다. Azure CLI를 사용해서 기존 VM에 NIC를 추가할 수도 있습니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](change-vm-size.md)할 수 있습니다.
@@ -138,7 +131,7 @@ az vm nic add \
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
+[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for-multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="remove-a-nic-from-a-vm"></a>VM에서 NIC 제거
 기존 VM에사 NIC를 제거하려면 먼저 [az vm deallocate](/cli/azure/vm)를 사용하여 VM을 할당 취소합니다. 다음 예제에서는 *myVM*이라는 VM을 할당 취소합니다.
@@ -164,7 +157,7 @@ az vm start --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 여러 NIC 만들기
-Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경을 정의합니다. [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)에 대해 읽어볼 수 있습니다. Resource Manager 템플릿은 여러 NIC를 만드는 것과 같이 배포하는 동안 리소스의 여러 인스턴스를 만드는 방법을 제공합니다. *복사* 를 사용하여 만들 인스턴스 수를 지정합니다.
+Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경을 정의합니다. [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)에 대해 읽어볼 수 있습니다. Resource Manager 템플릿은 여러 NIC를 만드는 것과 같이 배포하는 동안 리소스의 여러 인스턴스를 만드는 방법을 제공합니다. *복사* 를 사용하여 만들 인스턴스 수를 지정합니다.
 
 ```json
 "copy": {
@@ -175,7 +168,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 [*복사*를 사용하여 여러 인스턴스 만들기](../../resource-group-create-multiple.md)에 대해 자세히 읽어보세요. 
 
-`copyIndex()`를 사용하여 리소스 이름에 번호를 추가할 수도 있습니다. 이와 같이 `myNic1`, `myNic2` 등을 만들 수 있습니다. 다음은 인덱스 값을 추가하는 예를 보여 줍니다.
+또한를 사용 하 여 `copyIndex()` 리소스 이름에 번호를 추가 하 여, 등을 만들 수 있습니다 `myNic1` `myNic2` . 다음은 인덱스 값을 추가 하는 예를 보여 줍니다.
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -183,7 +176,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 [Resource Manager 템플릿을 사용하여 여러 NIC 만들기](../../virtual-network/template-samples.md)의 전체 예제를 읽어볼 수 있습니다.
 
-[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
+[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for-multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>여러 NIC에 대한 게스트 OS 구성
 

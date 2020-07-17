@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ccf8014938e813676e9338e9bfc4eaa18f63f9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436951"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481394"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Azure Active Directory 보고서란?
 
@@ -54,9 +54,9 @@ Azure AD(Azure Active Directory) 보고서는 환경에서 작업의 포괄적�
 
 - **Azure Active Directory Free 및 Basic 버전**에는 위험 플래그가 지정된 사용자 및 위험한 로그인 목록이 있습니다. 
 
-- **Azure Active Directory Premium 1** 버전은 각 보고서에서 검색된 기본 위험 이벤트 중 일부를 검사할 수 있게 함으로써 이 모델을 확장합니다. 
+- **Azure Active Directory Premium 1** 버전은 각 보고서에서 검색된 기본 위험 탐지 중 일부를 검사할 수 있게 함으로써 이 모델을 확장합니다. 
 
-- **Azure Active Directory Premium 2** 버전은 기본 위험 이벤트에 대한 가장 자세한 정보를 제공하며, 구성된 위험 수준에 자동으로 응답하는 보안 정책을 구성할 수도 있습니다.
+- **Azure Active Directory Premium 2** 버전은 기본 위험 탐지에 대한 가장 자세한 정보를 제공하며, 구성된 위험 수준에 자동으로 응답하는 보안 정책을 구성할 수도 있습니다.
 
 
 ## <a name="activity-reports"></a>작업 보고서
@@ -81,7 +81,7 @@ Azure AD(Azure Active Directory) 보고서는 환경에서 작업의 포괄적�
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>감사 로그 보고서에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?  
 
-감사 로그 보고서는 라이선스가 있는 기능에 대해 사용할 수 있습니다. 특정 기능에 대한 라이선스가 있으면 해당 기능에 대한 감사 로그 정보에 액세스할 수도 있습니다. 자세한 내용은 [Azure Active Directory 기능 및 특성](https://www.microsoft.com/cloud-platform/azure-active-directory-features)을 참조하세요.   
+감사 로그 보고서는 라이선스가 있는 기능에 대해 사용할 수 있습니다. 특정 기능에 대한 라이선스가 있으면 해당 기능에 대한 감사 로그 정보에 액세스할 수도 있습니다. [다양한 유형의 라이선스](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses)에 따른 자세한 기능 비교는 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다. 자세한 내용은 [Azure Active Directory 기능 및 특성](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad)을 참조하세요.
 
 ### <a name="sign-ins-report"></a>로그인 보고서
 

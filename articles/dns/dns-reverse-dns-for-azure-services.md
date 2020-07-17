@@ -1,23 +1,21 @@
 ---
-title: Azure 서비스에 대한 역방향 DNS | Microsoft Docs
-description: Azure에서 호스트되는 서비스에 대해 역방향 DNS 조회를 구성하는 방법 알아보기
+title: Azure 서비스에 대 한 역방향 DNS-Azure DNS
+description: 이 학습 경로를 사용 하 여 Azure에서 호스트 되는 서비스에 대 한 역방향 DNS 조회 구성을 시작 합니다.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
+author: rohinkoul
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
-ms.openlocfilehash: e162d838cb4895841428a827b56bec28e3e16b8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.author: rohink
+ms.openlocfilehash: 15396467e92b3e035add03d0d29888558571aa2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533148"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711241"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Azure에서 호스트되는 서비스에 대해 역방향 DNS 구성
 
@@ -31,7 +29,7 @@ Azure의 서비스는 Azure에서 할당하고 Microsoft가 소유하는 IP 주�
 
 이 문서를 읽기 전에 이 [Azure의 역방향 DNS 및 지원 개요](dns-reverse-dns-overview.md)에 익숙해지는 것이 좋습니다.
 
-Azure DNS에서 계산 리소스(예: 가상 머신, 가상 머신 확장 집합 또는 Service Fabric 클러스터)는 PublicIpAddress 리소스를 통해 노출됩니다. 역방향 DNS 조회는 PublicIpAddress의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
+Azure DNS에서 컴퓨팅 리소스(예: 가상 머신, 가상 머신 확장 집합 또는 Service Fabric 클러스터)는 PublicIpAddress 리소스를 통해 노출됩니다. 역방향 DNS 조회는 PublicIpAddress의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
 
 
 역방향 DNS는 현재 Azure App Service에 대해 지원되지 않습니다.
@@ -61,7 +59,7 @@ Azure는 현재 IPv4 PublicIpAddress 리소스에 대해서만 역방향 DNS를 
 
 #### <a name="powershell"></a>PowerShell
 
-기존 PublicIpAddresses에 역방향 DNS를 추가하려면
+역방향 DNS를 기존 PublicIpAddress 업데이트 하려면 다음을 수행 합니다.
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"

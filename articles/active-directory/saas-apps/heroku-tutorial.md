@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d7d72ec6-4a60-4524-8634-26d8fbbcc833
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78901524392c575fcb9e821650b392dcea28c8b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a9cb7738a8983ca2f76866fa40d49cd6cc06f99
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873940"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "73159076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>자습서: Heroku와 Azure Active Directory 통합
 
@@ -31,10 +32,10 @@ Heroku를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 Heroku에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Heroku와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -58,7 +59,7 @@ Heroku의 Azure AD 통합을 구성하려면 갤러리의 Heroku를 관리되는
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -141,7 +142,7 @@ Heroku에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 6. **Heroku 로그인 URL** 및 **Heroku 엔터티 ID** 값을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션으로 돌아가서 이러한 값을 각각 **로그온 URL** 및 **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
 
-    ![Configure Single Sign-On](./media/heroku-tutorial/tutorial_heroku_52.png)
+    ![Single Sign-on 구성](./media/heroku-tutorial/tutorial_heroku_52.png)
 
 7. **다음**을 클릭합니다.
 
@@ -166,7 +167,7 @@ Heroku에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

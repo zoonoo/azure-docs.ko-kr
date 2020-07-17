@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60630465"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513036"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>웹 UI를 사용하여 StorSimple 가상 배열 관리
 ![설정 프로세스 흐름](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -40,7 +39,7 @@ ms.locfileid: "60630465"
 서비스 데이터 암호화 키의 위치를 잊어버려서 키를 찾아야 하는 경우에는 서비스에 등록된 디바이스의 로컬 웹 UI에서 다음 단계를 수행합니다.
 
 #### <a name="to-get-the-service-data-encryption-key"></a>서비스 데이터 암호화 키를 가져오려면
-1. 로컬 웹 UI에 연결합니다. **구성** > **클라우드 설정**으로 이동합니다.
+1. 로컬 웹 UI에 연결합니다. **구성**  >  **클라우드 설정**으로 이동 합니다.
 2. 페이지 아래쪽에서 **서비스 데이터 암호화 키 가져오기**를 클릭합니다. 키가 표시됩니다. 이 키를 복사하여 저장합니다.
    
     ![서비스 데이터 암호화 키 가져오기 1](./media/storsimple-ova-web-ui-admin/image27.png)
@@ -49,7 +48,7 @@ ms.locfileid: "60630465"
 로컬 웹 UI를 통해 디바이스를 구성하는 경우에 오류가 발생할 수 있습니다. 오류를 진단하고 해결하기 위해 진단 테스트를 실행합니다.
 
 #### <a name="to-run-the-diagnostic-tests"></a>진단 테스트를 실행하려면
-1. 로컬 웹 UI에서 **문제 해결** > **진단 테스트**로 이동합니다.
+1. 로컬 웹 UI에서 **문제 해결**  >  **진단 테스트**로 이동 합니다.
    
     ![진단 실행 1](./media/storsimple-ova-web-ui-admin/image29.png)
 2. 페이지 아래쪽에서 **진단 테스트 실행**을 클릭합니다. 네트워크, 디바이스, 웹 프록시, 시간 또는 클라우드 설정에서 문제가 될만한 내용을 진단하는 테스트가 시작됩니다. 디바이스에서 테스트가 실행 중이라는 메시지가 표시됩니다.
@@ -61,7 +60,7 @@ ms.locfileid: "60630465"
 로그 패키지는 Microsoft 지원에서 디바이스 문제를 해결하는 데 도움을 줄 수 있는 관련된 로그로 구성됩니다. 이 릴리스에서 로그 패키지는 로컬 웹 UI를 통해 생성될 수 있습니다.
 
 #### <a name="to-generate-the-log-package"></a>로그 패키지를 생성하려면
-1. 로컬 웹 UI에서 **문제 해결** > **시스템 로그**로 이동합니다.
+1. 로컬 웹 UI에서 **문제 해결**  >  **시스템 로그**로 이동 합니다.
    
     ![로그 패키지 생성 1](./media/storsimple-ova-web-ui-admin/image31.png)
 2. 페이지 아래쪽에서 **로그 패키지 만들기**를 클릭합니다. 시스템 로그 패키지가 만들어집니다. 이 작업에 몇 분 정도가 소요됩니다.
@@ -80,8 +79,8 @@ ms.locfileid: "60630465"
 로컬 웹 UI를 사용하여 가상 디바이스를 종료하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 볼륨 또는 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화됩니다. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>가상 디바이스를 종료하려면
-1. 로컬 웹 UI에서 **유지 관리** > **전원 설정**으로 이동합니다.
-2. 페이지 아래쪽에서 **종료**를 클릭합니다.
+1. 로컬 웹 UI에서 **유지 관리**  >  **전원 설정**으로 이동 합니다.
+2. 페이지 맨 아래에서 **종료**를 클릭 합니다.
    
     ![디바이스 종료 1](./media/storsimple-ova-web-ui-admin/image36.png)
 3. 디바이스를 종료하면 진행 중인 IO가(있다면) 중단되고 가동 중지 시간이 발생한다는 내용의 경고가 표시됩니다. 필터 설정 후에 확인 아이콘 ![확인 아이콘](./media/storsimple-ova-web-ui-admin/image3.png).
@@ -95,7 +94,7 @@ ms.locfileid: "60630465"
     디바이스가 종료됩니다. 디바이스를 시작하려면 Hyper-V 관리자를 통해 시작해야 합니다.
 
 #### <a name="to-restart-your-virtual-device"></a>가상 디바이스를 다시 시작하려면
-1. 로컬 웹 UI에서 **유지 관리** > **전원 설정**으로 이동합니다.
+1. 로컬 웹 UI에서 **유지 관리**  >  **전원 설정**으로 이동 합니다.
 2. 페이지 아래쪽에서 **다시 시작**을 클릭합니다.
    
     ![디바이스 다시 시작](./media/storsimple-ova-web-ui-admin/image36.png)

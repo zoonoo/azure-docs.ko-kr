@@ -1,50 +1,135 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Hub
 title: Azure Media Services 설명서
+summary: Azure Media Services는 인코딩, 패키징, 콘텐츠 보호 및 라이브 이벤트 브로드캐스팅이 필요한 솔루션을 구축할 수 있는 클라우드 기반 미디어 워크플로 플랫폼입니다.
+brand: azure
 metadata:
-  document_id: null
-  title: Azure Media Services 설명서 | Microsoft Docs
-  meta.description: 'Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.'
+  title: Azure Media Services 설명서
+  description: Azure Media Services는 인코딩, 패키징, 콘텐츠 보호 및 라이브 이벤트 브로드캐스팅이 필요한 솔루션을 빌드할 수 있게 하는 클라우드 기반 미디어 워크플로 플랫폼입니다.
   services: media-services
-  author: juliako
-  manager: femila
   ms.service: media-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 03/11/2019
+  ms.subservice: 
+  ms.topic: hub-page
+  ms.collection: collection
+  author: Juliako
   ms.author: juliako
-abstract:
-  description: 'Azure Media Services는 인코딩, 패키징, 콘텐츠 보호 및 라이브 이벤트 브로드캐스팅이 필요한 솔루션을 구축할 수 있는 클라우드 기반 미디어 워크플로 플랫폼입니다. Azure Media Services는 Azure CDN과 완벽하게 통합되어 Akamai 및 Verizon의 CDN 서비스를 통해 전송 크기를 조정함으로써 고객이 자신의 요구 사항(예: 콘텐츠 전송 네트워크 간의 부하 분산)에 적합한 솔루션을 선택할 수 있도록 합니다. Azure Media Services Video Indexer를 사용하면 기본 제공 비디오 및 오디오 분석기가 미리 설정된 AI를 사용하여 메타데이터와 인사이트를 추출할 수 있습니다. Video Indexer API를 통해 제공된 AI 모델을 사용자 고유의 콘텐츠로 학습하여 정확도를 쉽게 향상시킬 수 있습니다.'
-sections:
+  ms.date: 07//2020
+  ms.openlocfilehash: 5d49173a9c06e35c5af3831e504fc6f55a8dfc50
+  ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84259544"
+highlightedContent:
+  items:
+  - title: Azure Media Services v3 정보
+    itemType: overview
+    url: ./latest/media-services-overview.md
+  - title: Azure Media Services v3 개념
+    itemType: concept
+    url: ./latest/concepts-overview.md
+  - title: Azure Media Services Video Indexer 정보
+    itemType: overview
+    url: ./video-indexer/video-indexer-overview.md
+  - title: Media Services v3 미리 설정과 Video Indexer 비교
+    itemType: concept
+    url: ./video-indexer/compare-video-indexer-with-media-services-presets.md
+  - title: IoT Edge의 Live Video Analytics(미리 보기)
+    itemType: overview
+    url: ./live-video-analytics-edge/overview.md
+  - title: Azure Media Player
+    itemType: overview
+    url: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview
+  - title: Azure Media Services v2 정보(레거시)
+    itemType: overview
+    url: ./previous/media-services-overview.md
+  - title: Media Services v2에서 v3으로 마이그레이션
+    itemType: concept
+    url: ./latest/migrate-from-v2-to-v3.md
+conceptualContent:
+  items:
+  - title: Media Services v3 API를 사용하여 개발
+    links:
+    - url: ./latest/media-services-apis-overview.md
+      itemType: concept
+      text: Media Services v3을 사용하여 개발
+    - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+      itemType: sample
+      text: 코드 샘플
+    - url: ./latest/release-notes.md
+      itemType: concept
+      text: Media Services v3의 새로운 기능 알아보기
+  - title: 라이브 스트리밍
+    links:
+    - url: ./latest/live-streaming-overview.md
+      itemType: concept
+      text: 라이브 스트리밍
+    - url: ./latest/recommended-on-premises-live-encoders.md
+      itemType: concept
+      text: 권장 라이브 스트리밍 인코더
+    - url: ./latest/stream-live-tutorial-with-api.md
+      itemType: tutorial
+      text: 라이브 스트리밍
+  - title: 주문형 스트리밍
+    links:
+    - url: ./latest/assets-concept.md
+      itemType: concept
+      text: 업로드
+    - url: ./latest/encoding-concept.md
+      itemType: concept
+      text: Encoding
+    - url: ./latest/stream-files-tutorial-with-rest.md
+      itemType: tutorial
+      text: 원격 파일 및 스트림 인코딩
+    - url: ./latest/stream-files-tutorial-with-api.md
+      itemType: tutorial
+      text: 업로드된 파일 및 스트림 인코딩
+  - title: 콘텐츠 암호화
+    links:
+    - url: ./latest/content-protection-overview.md
+      itemType: concept
+      text: 보호
+    - url: ./latest/protect-with-aes128.md
+      itemType: tutorial
+      text: AES-128로 동적으로 암호화
+    - url: ./latest/protect-with-drm.md
+      itemType: tutorial
+      text: DRM을 사용하여 동적으로 암호화
+  - title: 콘텐츠 분석
+    links:
+    - url: ./latest/analyzing-video-audio-files-concept.md
+      itemType: concept
+      text: 미디어 분석
+    - url: ./latest/analyze-videos-tutorial-with-api.md
+      itemType: tutorial
+      text: 비디오 분석
+  - title: Azure Media Services 사양에 대해 알아보기
+    links:
+    - url: media-services-specifications-live-timed-metadata.md
+      itemType: concept
+      text: 라이브 스트리밍의 시간 제한 메타데이터(RTMP 및 부드러운 스트리밍)
+    - url: media-services-specifications-ms-sstr-amendment-hevc.md
+      itemType: concept
+      text: HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항
+    - url: media-services-fmp4-live-ingest-overview.md
+      itemType: concept
+      text: 부드러운 스트리밍 수집 프로토콜
+  - title: IoT Edge의 Live Video Analytics(미리 보기)
+    links:
+    - url: ./live-video-analytics-edge/overview.md
+      itemType: overview
+      text: 개요
+    - url: ./live-video-analytics-edge/use-your-model-quickstart.md
+      itemType: quickstart
+      text: 사용자 고유의 모델로 Live Video Analytics 실행
+additionalContent:
+  sections:
   - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: /azure/media-services/latest/
-            html: '<p>Media Services v3를 사용하여 콘텐츠를 인코딩/패키징/보호하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석할 수 있습니다.</p>'
-            image:
-              src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
-            title: Azure Media Services v3
-          - href: /azure/media-services/previous/
-            html: '<p>인코딩, 패키지, 보호 등을 수행합니다. 유지 관리 중인 레거시 서비스입니다. 고객은 새로운 기능과 향상된 기능을 갖춘 Media Services v3으로 마이그레이션하는 것이 좋습니다.</p>'
-            image:
-              src: null
-            title: Azure Media Services v2(레거시)
-          - href: /azure/cdn/
-            html: <p>Azure CDN의 기능을 사용하여 Akamai 및 Verizon의 서비스를 통해 규모에 맞게 콘텐츠를 스트림하거나 여러 콘텐츠 전송 네트워크에서 부하를 분산시킬 수 있습니다.</p>
-            image:
-              src: /azure/cdn/media/index/cdn.svg
-            title: CDN
-          - href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
-            html: <p>다양한 브라우저 및 디바이스의 Microsoft Azure Media Services에서 미디어 콘텐츠를 재생할 수 있습니다.</p>
-            image:
-              src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
-            title: Azure Media Player
-          - href: /azure/media-services/video-indexer/
-            html: <p>Video Indexer를 사용하여 비디오 및 오디오 파일에서 인사이트를 추출할 수 있습니다.</p>
-            image:
-              src: media/index/AMSIcons-media_analytics.svg
-            title: Azure Media Services Video Indexer
+    - title: Azure Storage
+      summary: 블록 Blob 및 컨테이너에 대해 알아봅니다.
+      url: https://docs.microsoft.com/azure/storage/
+    - title: CDN
+      summary: Azure CDN의 기능을 사용하여 Akamai 및 Verizon의 서비스를 통해 규모에 맞게 콘텐츠를 스트림하거나 여러 콘텐츠 배달 네트워크에서 부하를 분산시킵니다.
+      url: https://docs.microsoft.com/azure/cdn
+    - title: Event Grid
+      summary: Azure Event Grid를 사용하여 관련 이벤트에 대응하는 방법을 알아봅니다.
+      url: https://docs.microsoft.com/azure/event-grid/

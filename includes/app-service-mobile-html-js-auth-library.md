@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 5fe9fe8ced675f68161f0df9f2665b47f9d47ac5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55905155"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "67182714"
 ---
-### <a name="server-auth"></a>방법: 공급자를 사용하여 인증(서버 흐름)
+### <a name="how-to-authenticate-with-a-provider-server-flow"></a><a name="server-auth"></a>방법: 공급자를 사용하여 인증(서버 흐름)
 Mobile Apps가 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, Azure App Service에서 공급자로부터 제공된 애플리케이션 ID 및 암호를 구성해야 합니다.
-자세한 내용은 [앱에 인증 추가](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md)자습서를 참조하세요.
+자세한 내용은 앱에 인증 추가 자습서를 [참조하세요.](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md)
 
 ID 공급자를 등록하고 나면 공급자의 이름을 사용하여 `.login()` 메서드를 호출합니다. 예를 들어, Facebook으로 로그인하려면 다음 코드를 사용합니다.
 
@@ -32,7 +32,7 @@ client.login("facebook").done(function (results) {
 
 이 경우 Azure App Service는 OAuth 2.0 인증 흐름을 관리합니다.  선택한 공급자의 로그인 페이지가 표시되고 ID 공급자로 성공적으로 로그인한 후에는 App Service 인증 토큰이 생성됩니다. login 함수를 완료하면 사용자 ID와 App Service 인증 토큰을 각각 userId 및 authenticationToken 필드에 표시하는 JSON 개체가 반환됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다.
 
-### <a name="client-auth"></a>방법: 공급자를 사용하여 인증(클라이언트 흐름)
+### <a name="how-to-authenticate-with-a-provider-client-flow"></a><a name="client-auth"></a>방법: 공급자를 사용하여 인증(클라이언트 흐름)
 
 앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 App Service에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
 
@@ -53,7 +53,7 @@ client.login(
 ```
 이 예제에서는 각 공급자 SDK에서 제공된 토큰이 token 변수에 저장되어 있다고 가정합니다.
 
-### <a name="auth-getinfo"></a>방법: 인증된 사용자에 대한 정보 얻기
+### <a name="how-to-obtain-information-about-the-authenticated-user"></a><a name="auth-getinfo"></a>방법: 인증된 사용자에 대한 정보 얻기
 
 모든 AJAX 라이브러리와 함께 HTTP 호출 사용 시 인증 정보를 `/.auth/me` 엔드포인트에서 검색할 수 있습니다.  `X-ZUMO-AUTH` 헤더를 인증 토큰으로 설정했는지 확인합니다.  인증 토큰은 `client.currentUser.mobileServiceAuthenticationToken`에 저장되어 있습니다.  예를 들어, fetch API를 사용하려면 다음과 같이 합니다.
 
@@ -69,4 +69,4 @@ fetch(url, { headers: headers })
     });
 ```
 
-fetch는 [npm 패키지](https://www.npmjs.com/package/whatwg-fetch)로 제공되거나 [CDNJS](https://cdnjs.com/libraries/fetch)에서 브라우저 다운로드할 수 있습니다. 또한 jQuery 또는 AJAX API를 사용하여 정보를 가져올 수도 있습니다.  데이터는 JSON 개체로 수신됩니다.
+가져오기는 [npm 패키지로](https://www.npmjs.com/package/whatwg-fetch) 사용하거나 [CDNJS에서](https://cdnjs.com/libraries/fetch)브라우저를 다운로드할 수 있습니다. 또한 jQuery 또는 AJAX API를 사용하여 정보를 가져올 수도 있습니다.  데이터는 JSON 개체로 수신됩니다.

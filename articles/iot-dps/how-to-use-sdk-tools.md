@@ -1,19 +1,17 @@
 ---
-title: Azure IoT Hub Device Provisioning Service SDK에 제공된 도구를 사용하여 개발 간소화
-description: 이 문서에서는 개발을 위한 Azure IoT Hub Device Provisioning Service SDK에서 제공되는 도구를 검토합니다.
-author: yzhong94
-ms.author: yizhon
+title: Azure IoT Hub 장치 프로 비전 서비스 Sdk 도구 사용
+description: 이 문서에서는 개발을 위해 Azure IoT Hub 장치 프로 비전 서비스 (DPS) Sdk에서 제공 되는 도구를 검토 합니다.
+author: robinsh
+ms.author: robinsh
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
-ms.openlocfilehash: dc8c29b1c7d4e5056cb6aeee6335e32687fd547f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627324"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691631"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>SDK에서 제공된 도구를 사용하여 프로비전할 개발을 간소화하는 방법
 IoT Hub Device Provisioning 서비스는 안전하고 확장 가능한 방식으로 Just-In-Time 무인 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 프로비전 프로세스를 간소화합니다.  X.509 인증서 또는 TPM(신뢰할 수 있는 플랫폼 모듈)의 형식인 보안 증명이 필요합니다.  Microsoft는 [다른 보안 하드웨어 파트너](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)와도 협력하여 IoT 배포를 보호하는 경우에 신뢰성을 향상시킵니다. 하드웨어 보안 요구 사항을 이해하는 것은 개발자에게 매우 어려울 수 있습니다. 개발자가 프로비전 서비스와 통신하는 클라이언트를 작성하는 편의 계층을 사용할 수 있도록 일련의 Azure IoT Provisioning SDK가 제공됩니다. 또한 SDK에서는 개발에서 보안 증명을 간소화하기 위한 도구 집합뿐만 아니라 일반적인 시나리오에 대한 샘플을 제공합니다.
@@ -27,7 +25,7 @@ TPM 시뮬레이터를 사용하기 위한 단계는 다음과 같습니다.
    git clone https://github.com/Azure/azure-iot-sdk-java.git
    ```
 2. ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/``` 아래에 있는 TPM 시뮬레이터 폴더로 이동합니다.
-3. 장치를 프로비전하기 위해 클라이언트 애플리케이션을 실행하기 전에 Simulator.exe를 실행합니다.
+3. 디바이스를 프로비전하기 위해 클라이언트 애플리케이션을 실행하기 전에 Simulator.exe를 실행합니다.
 4. 등록 ID 및 인증 키를 가져오기 위해 프로비전 프로세스 전체에서 백그라운드에 시뮬레이터를 실행합니다.  두 값은 실행의 한 인스턴스에서만 유효합니다.
 
 ## <a name="x509-certificate-generator"></a>X.509 인증서 생성기
@@ -38,12 +36,12 @@ TPM 시뮬레이터를 사용하기 위한 단계는 다음과 같습니다.
         * [Node.JS](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell 또는 Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
-    * DICE(Device Identity Composition Engine) 에뮬레이터: DICE는 TLS 프로토콜 및 X.509 클라이언트 인증서에 기반한 암호화 디바이스 ID 및 증명에 사용할 수 있습니다.  DICE를 사용하는 디바이스 ID에 대해 자세히 [알아봅니다](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/).
+    * DICE(디바이스 ID 컴퍼지션 엔진) 에뮬레이터: DICE는 TLS 프로토콜 및 X.509 클라이언트 인증서에 기반한 암호화 디바이스 ID 및 증명에 사용할 수 있습니다.  DICE를 사용하는 디바이스 ID에 대해 자세히 [알아봅니다](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/).
 
 ### <a name="using-x509-certificate-generator-with-dice-emulator"></a>DICE 에뮬레이터와 함께 X.509 인증서 생성기 사용
 SDK는 [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator)에 위치하는 DICE 에뮬레이터와 함께 X.509 인증서 생성기를 제공합니다.  이 생성자는 플랫폼 간에 작동합니다.  다른 언어로 개발을 위해 생성된 인증서를 사용할 수 있습니다.
 
-반면 현재 DICE 에뮬레이터는 루트 인증서, 중간 인증서, 리프 인증서 및 연결된 개인 키를 출력합니다.  그러나 루트 인증서 또는 중간 인증서는 별도 리프 인증서를 서명하는 데 사용할 수 없습니다.  서명 인증서를 여러 디바이스의 리프 인증서 서명에 사용하는 그룹 등록 시나리오를 테스트하는 경우 인증서 체인을 생성하기 위해 OpenSSL을 사용할 수 있습니다.
+반면 현재 DICE 에뮬레이터는 루트 인증서, 중간 인증서, 리프 인증서 및 연결된 프라이빗 키를 출력합니다.  그러나 루트 인증서 또는 중간 인증서는 별도 리프 인증서를 서명하는 데 사용할 수 없습니다.  서명 인증서를 여러 디바이스의 리프 인증서 서명에 사용하는 그룹 등록 시나리오를 테스트하는 경우 인증서 체인을 생성하기 위해 OpenSSL을 사용할 수 있습니다.
 
 이 생성자를 사용하여 X.509 인증서를 생성하려면:
 1. [개발 환경을 준비](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java)하고 GitHub 리포지토리를 복제합니다.
@@ -60,9 +58,9 @@ SDK는 [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provis
    java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
    ```
 7. 메시지가 표시되면 필요에 따라 인증서에 대해 _일반 이름_을 입력할 수 있습니다.
-8. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 개인 키**, **중간 인증서** 및 **루트 인증서**를 로컬로 생성합니다.
+8. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 프라이빗 키**, **중간 인증서** 및 **루트 인증서**를 로컬로 생성합니다.
 
-**클라이언트 인증서**는 디바이스에 대한 리프 인증서입니다.  **클라이언트 인증서** 및 연결된 **클라이언트 인증서 개인 키**는 디바이스 클라이언트에 필요합니다. 선택한 언어에 따라 클라이언트 애플리케이션에 이를 배치하는 메커니즘은 달라질 수 있습니다.  자세한 내용은 X.509를 사용하여 시뮬레이션된 디바이스 만들기에서 [빠른 시작](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509)을 참조하세요.
+**클라이언트 인증서**는 디바이스에 대한 리프 인증서입니다.  **클라이언트 인증서** 및 연결된 **클라이언트 인증서 프라이빗 키**는 디바이스 클라이언트에 필요합니다. 선택한 언어에 따라 클라이언트 애플리케이션에 이를 배치하는 메커니즘은 달라질 수 있습니다.  자세한 내용은 X.509를 사용하여 시뮬레이션된 디바이스 만들기에서 [빠른 시작](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509)을 참조하세요.
 
 루트 인증서 또는 중간 인증서는 [프로그래밍 방식으로](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) 또는 [포털](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments)을 사용하여 등록 그룹 또는 개별 등록을 만드는 데 사용합니다.
 

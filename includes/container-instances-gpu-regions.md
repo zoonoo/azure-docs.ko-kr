@@ -2,21 +2,20 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 03/01/2019
+ms.date: 10/17/2019
 ms.author: danlep
-ms.openlocfilehash: d5491784dd27843ebbb13f692d8426c2b7edeec5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7f5b6780fd330489a893354143dc866bf416c8e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75445845"
 ---
-### <a name="supported-regions"></a>지원되는 지역
+### <a name="region-availability"></a>지역 가용성
 
-* 미국 동부 
-* 미국 서부 2 
-* 미국 중남부 
-* 서유럽 
-* 북유럽 
-* 동아시아 
-* 인도 중부 
+| 영역 | OS | 사용 가능한 GPU Sku |
+| -------- | ---- | :-----------: |
+| 미국 동부, 유럽 서부, 미국 서 부 2 | Linux | K80, P100, V100 |
+| 동남 아시아 | Linux | P100, V100|
+| 인도 중부 | Linux | V100 |
+| 북유럽 | Linux | K80 |

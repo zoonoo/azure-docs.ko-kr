@@ -1,31 +1,21 @@
 ---
-title: Linux VM에서 데이터 디스크 분리 - Azure | Microsoft Docs
+title: Linux VM에서 데이터 디스크 분리 - Azure
 description: Azure CLI 또는 Azure Portal을 사용하여 Azure의 가상 머신에서 데이터 디스크를 분리하는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 02cb970b5c70064abbbc71e585fe3dd1540fda90
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 7a9915f0c523afd755223393e70595364676cd3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658229"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
 
-가상 머신에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 머신에서 디스크가 제거되지만, 저장소에서는 제거되지 않습니다. 이 문서에서는 Ubuntu LTS 16.04 배포판으로 작업합니다. 다른 배포판을 사용하는 경우 디스크 탑재 해제 지침이 다를 수 있습니다.
+가상 머신에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 머신에서 디스크가 제거되지만, 스토리지에서는 제거되지 않습니다. 이 문서에서는 Ubuntu LTS 16.04 배포판으로 작업합니다. 다른 배포판을 사용하는 경우 디스크 탑재 해제 지침이 다를 수 있습니다.
 
 > [!WARNING]
 > 디스크를 분리해도 자동으로 삭제되지 않습니다. Premium Storage를 구독하는 경우 디스크에 대한 스토리지 요금이 계속 부과됩니다. 자세한 내용은 [Premium Storage 사용 시 가격 책정 및 청구](https://azure.microsoft.com/pricing/details/storage/page-blobs/)를 참조하세요.
@@ -109,20 +99,18 @@ az vm disk detach \
     -n myDataDisk
 ```
 
-디스크가 저장소에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
+디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>포털을 사용하여 데이터 디스크 분리
 
 1. 왼쪽 메뉴에서 **Virtual Machines**을 선택합니다.
-2. 분리할 데이터 디스크가 있는 가상 컴퓨터를 선택하고 **중지**를 클릭하여 VM을 할당 취소합니다.
-3. 가상 머신 창에서 **디스크**를 선택합니다.
-4. **디스크** 창 상단에서 **편집**을 선택합니다.
-5. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 ![분리 단추 이미지](./media/detach-disk/detach.png) 분리 단추를 클릭합니다.
-5. 디스크를 제거한 후에 창 상단에서 저장을 클릭합니다.
-6. 가상 머신 창에서 **개요**를 클릭한 다음 창 상단에서 **시작** 단추를 클릭하여 VM을 다시 시작합니다.
+1. 가상 컴퓨터 블레이드에서 **디스크**를 선택합니다.
+1. **디스크** 블레이드 상단에서 **편집**을 선택합니다.
+1. **디스크** 블레이드에서 분리할 데이터 디스크의 맨 오른쪽에 있는 ![분리 단추 이미지](./media/detach-disk/detach.png) 분리 단추를 클릭합니다.
+1. 디스크를 제거한 후에 블레이드 상단에서 **저장**을 클릭합니다.
 
-디스크가 저장소에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
+디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: 자습서 - RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한을 부여하는 방법을 알아봅니다.
+title: '자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여 - Azure RBAC'
+description: 이 자습서에서는 Azure Portal 및 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 사용자 액세스 권한을 부여하는 방법을 알아봅니다.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 5786f7b48477fa705b43e3a953ac15b2c768bd71
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854258"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362020"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>자습서: RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 자습서에서는 리소스 그룹에서 가상 머신을 만들고 관리할 수 있는 액세스 권한을 사용자에게 부여합니다.
+[Azure RBAC(Azure 역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 자습서에서는 리소스 그룹에서 가상 머신을 만들고 관리할 수 있는 액세스 권한을 사용자에게 부여합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 리소스 그룹 범위에 속한 사용자에게 액세스 권한 부여
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="grant-access"></a>액세스 권한 부여
 
-RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다.
+Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다.
 
 1. **리소스 그룹** 목록에서 새 **rbac-resource-group** 리소스 그룹을 클릭합니다.
 
@@ -72,7 +72,9 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
    역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-   ![추가 메뉴](./media/role-assignments-portal/add-menu.png)
+   ![역할 할당 추가 메뉴](./media/shared/add-role-assignment-menu.png)
+
+    역할 할당 추가 창이 열립니다.
 
    ![역할 할당 추가 창](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
@@ -88,7 +90,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 ## <a name="remove-access"></a>액세스 권한 제거
 
-RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합니다.
+Azure RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합니다.
 
 1. 역할 할당 목록에서 Virtual Machine 기여자 역할이 있는 사용자 옆에 확인 표시를 추가합니다.
 
@@ -115,5 +117,4 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](tutorial-role-assignments-user-powershell.md)
-
+> [자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](tutorial-role-assignments-user-powershell.md)

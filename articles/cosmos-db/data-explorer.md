@@ -3,15 +3,15 @@ title: Azure Cosmos DB 탐색기를 사용하여 데이터 관리
 description: Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 관리할 수 있는 독립 실행형 웹 기반 인터페이스입니다.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 07/16/2018
+ms.topic: how-to
+ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: d50bf7d865cb286f2a1421156b477dc92dc978d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 918f5a4a572f5518e5ae1b08db3d88d559571ed7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261888"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos 탐색기를 사용하여 데이터 작업 
 
@@ -25,7 +25,7 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Azure Cosmos DB 탐색기 액세스
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인 합니다. 
 
 2. **모든 리소스**에서 Azure Cosmos DB 계정을 찾아서 탐색한 다음, 키를 선택하고 **기본 연결 문자열**을 복사합니다.  
 
@@ -41,11 +41,13 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
    계정을 열 때 사용할 액세스 유형을 선택하고 **열기**를 클릭합니다. 탐색기를 연 후의 환경은 Azure Portal의 데이터 탐색기 탭과 동일합니다.   
 
-   ![Azure Cosmos DB 탐색기 열기](./media/data-explorer/open-data-explorer-with-access-url.png)
+   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Azure Cosmos DB 탐색기 열기":::
 
 ## <a name="known-issues"></a>알려진 문제
 
 현재, 임시 읽기/쓰기 또는 읽기 권한을 공유할 수 있는 **전체 화면 열기** 환경은 Azure Cosmos DB Gremlin 및 Table API 계정에 대해 아직 지원되지 않습니다. 하지만 Azure Cosmos DB 탐색기에 연결 문자열을 전달하면 Gremlin 및 Table API 계정을 볼 수 있습니다. 
+
+현재는 데이터 탐색기에서 UUID가 포함 된 문서 보기를 지원 하지 않습니다. 이러한 문서를 포함 하는 개별 문서 또는 쿼리를 보기만 하 여 컬렉션을 로드 하는 데에는 영향을 주지 않습니다. 이러한 문서를 보고 관리 하려면 사용자가 원래 이러한 문서를 만드는 데 사용 된 도구를 계속 사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB 탐색기를 시작하여 데이터를 관리하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.

@@ -4,22 +4,21 @@ description: PerfInsights를 사용하여 Windows VM 성능 문제를 해결하�
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318415"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207707"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
@@ -45,7 +44,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 -   Microsoft SQL Server 데이터베이스 구성 설정(VM이 SQL Server를 실행하는 서버로 식별된 경우)
 
--   저장소 안정성 카운터
+-   스토리지 안정성 카운터
 
 -   중요한 Windows 핫픽스
 
@@ -72,7 +71,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 이 시나리오에서는 네트워크 추적과 함께 특별한 성능 카운터 캡처를 실행합니다. 캡처에는 모든 SMB(Server Message Block) 클라이언트 공유 카운터가 포함됩니다. 다음은 캡처에 포함되는 몇 가지 주요 SMB 클라이언트 공유 성능 카운터입니다.
 
-| **형식**     | **SMB 클라이언트 공유 카운터** |
+| **유형**     | **SMB 클라이언트 공유 카운터** |
 |--------------|-------------------------------|
 | IOPS         | 데이터 요청 수/초             |
 |              | 읽기 요청 수/초             |
@@ -80,13 +79,13 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 | 대기 시간      | 평균 초/데이터 요청         |
 |              | 평균 초/읽기                 |
 |              | 평균 초/쓰기                |
-| IO 크기      | 평균 바이트 수/데이터 요청       |
-|              | 평균 바이트 수/읽기               |
-|              | 평균 바이트 수/쓰기              |
+| IO 크기      | 평균 바이트/데이터 요청       |
+|              | 평균 바이트/읽기               |
+|              | 평균 바이트/쓰기              |
 | 처리량   | 데이터 바이트 수/쓰기                |
 |              | 읽기 바이트 수/초                |
 |              | 쓰기 바이트 수/초               |
-| 큐 길이 | 평균 읽기 큐 길이        |
+| 큐 길이 | Avg. 큐 길이 읽기        |
 |              | 평균 쓰기 큐 길이       |
 |              | 평균 데이터 큐 길이        |
 
@@ -100,42 +99,41 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>PerfInsights에서 수집하는 정보 유형
 
-Windows VM, 디스크 또는 저장소 풀 구성, 성능 카운터, 로그 및 다양한 추적과 관련된 정보가 수집됩니다. 사용하는 성능 시나리오에 따라 다릅니다. 다음 표에서 자세한 내용을 제공합니다.
+Windows VM, 디스크 또는 스토리지 풀 구성, 성능 카운터, 로그 및 다양한 추적과 관련된 정보가 수집됩니다. 사용하는 성능 시나리오에 따라 다릅니다. 다음 표에서 자세한 내용을 제공합니다.
 
-|수집되는 데이터                              |  |  | 성능 시나리오 |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | 빠른 성능 분석 | 벤치마킹 | 성능 분석 | Azure Files 분석 | 고급 성능 분석 |
-| 이벤트 로그의 정보       | 예.                        | 예                                | 예                      | 예                  | 예                  |
-| 시스템 정보                | 예.                        | 예                                | 예                      | 예                  | 예.                  |
-| 볼륨 매핑                        | 예.                        | 예                                | 예                      | 예                  | 예.                  |
-| 디스크 매핑                          | 예.                        | 예                                | 예                      | 예                  | 예.                  |
-| 실행 중인 태스크                     | 예.                        | 예                                | 예                      | 예                  | 예                  |
-| 저장소 안정성 카운터      | 예.                        | 예                                | 예                      | 예                  | 예.                  |
-| 저장소 정보               | 예.                        | 예                                | 예                      | 예                  | 예                  |
-| Fsutil 출력                     | 예                        | 예                                | 예                      | 예                  | 예.                  |
+| 수집되는 데이터 | 빠른 성능 분석 | 벤치마킹 | 성능 분석 | Azure Files 분석 | 고급 성능 분석 |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
+| 이벤트 로그의 정보       | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 시스템 정보                | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 볼륨 매핑                        | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 디스크 매핑                          | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 실행 중인 작업                     | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 스토리지 안정성 카운터      | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 스토리지 정보               | 예                        | 예                                | 예                      | 예                  | 예                  |
+| Fsutil 출력                     | 예                        | 예                                | 예                      | 예                  | 예                  |
 | 필터 드라이버 정보                | 예                        | 예                                | 예                      | 예                  | 예                  |
-| Netstat 출력                    | 예.                        | 예                                | 예                      | 예                  | 예                  |
+| Netstat 출력                    | 예                        | 예                                | 예                      | 예                  | 예                  |
 | 네트워크 구성             | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 방화벽 구성            | 예.                        | 예                                | 예                      | 예                  | 예.                  |
-| SQL Server 구성          | 예.                        | 예                                | 예                      | 예                  | 예.                  |
-| 성능 진단 추적 *  | 예.                        | 예                                | 예                      | 예                  | 예.                  |
-| 성능 카운터 추적 **      |                            |                                    | 예.                      |                      | 예                  |
+| 방화벽 구성            | 예                        | 예                                | 예                      | 예                  | 예                  |
+| SQL Server 구성          | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 성능 진단 추적 *  | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 성능 카운터 추적 **      |                            |                                    | 예                      |                      | 예                  |
 | SMB 카운터 추적 **              |                            |                                    |                          | 예                  |                      |
-| SQL Server 카운터 추적 **       |                            |                                    | 예                      |                      | 예.                  |
-| XPerf 추적                       |                            |                                    |                          |                      | 예.                  |
+| SQL Server 카운터 추적 **       |                            |                                    | 예                      |                      | 예                  |
+| XPerf 추적                       |                            |                                    |                          |                      | 예                  |
 | StorPort 추적                    |                            |                                    |                          |                      | 예                  |
 | 네트워크 추적                     |                            |                                    |                          | 예                  | 예                  |
-| Diskspd 벤치마크 추적 ***       |                            | 예.                                |                          |                      |                      |
+| Diskspd 벤치마크 추적 ***       |                            | 예                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>성능 진단 추적 (*)
 
 백그라운드에서 규칙 기반 엔진을 실행하여 데이터를 수집하고 지속적인 성능 문제를 진단합니다. 현재 지원되는 규칙은 다음과 같습니다.
 
-- HighCpuUsage 규칙: 높은 CPU 사용량 기간을 검색 하 고 해당 기간 동안의 최고 CPU 사용량 소비자를 표시 합니다.
-- HighDiskUsage 규칙: 물리적 디스크에 높은 디스크 사용량 기간을 검색 하 고 해당 기간 동안의 최고 디스크 사용량 소비자를 표시 합니다.
-- HighResolutionDiskMetric 규칙: 각 물리적 디스크에 대 한 50 밀리초 당 IOPS, 처리량 및 IO 대기 시간 메트릭을 보여 줍니다. 디스크 제한 기간을 빠르게 식별하는 데 유용합니다.
-- HighMemoryUsage 규칙: 높은 메모리 사용량 기간을 검색 하 고 해당 기간 동안의 메모리 최대 사용량 소비자를 표시 합니다.
+- HighCpuUsage 규칙: 높은 CPU 사용량 기간을 검색하고 해당 기간 동안의 최고 CPU 사용량 소비자를 표시합니다.
+- HighDiskUsage 규칙: 실제 디스크에 대한 높은 디스크 사용량 기간을 검색하고 해당 기간 동안의 최고 디스크 사용량 소비자를 표시합니다.
+- HighResolutionDiskMetric 규칙: 각 실제 디스크에 대한 50밀리초당 IOPS, 처리량 및 IO 대기 시간 메트릭을 표시합니다. 디스크 제한 기간을 빠르게 식별하는 데 유용합니다.
+- HighMemoryUsage 규칙: 높은 메모리 사용 기간을 검색하고 해당 기간 동안의 최고 메모리 사용량 소비자를 표시합니다.
 
 > [!NOTE] 
 > 현재 .NET Framework 4.5 이상 버전이 포함된 Windows 버전이 지원됩니다.
@@ -167,7 +165,7 @@ Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽�
 
 -  이 도구는 성능 문제가 있는 VM에서 실행해야 합니다. 
 
--  다음 운영 체제가 지원됩니다. Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016; Windows 8.1 및 Windows 10입니다.
+-  지원되는 운영 체제는 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016, Windows 8.1과 Windows 10입니다.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>프로덕션 VM에서 도구 실행 시 발생할 수 있는 문제
 
@@ -175,7 +173,7 @@ Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽�
 
 -  DiskSpd를 사용하도록 구성된 벤치마킹 시나리오 또는 “고급 성능 분석” 시나리오의 경우, 다른 백그라운드 작업이 I/O 워크로드를 방해하지 않도록 합니다.
 
--  기본적으로 이 도구는 임시 저장소 드라이브를 사용하여 데이터를 수집합니다. 추적을 더 오랫동안 사용하도록 유지하면 수집되는 데이터의 양이 적절할 수 있습니다. 이렇게 하면 임시 디스크의 공간 가용성을 낮출 수 있으므로 이 드라이브를 사용하는 모든 애플리케이션에 영향을 미칠 수 있습니다.
+-  기본적으로 이 도구는 임시 스토리지 드라이브를 사용하여 데이터를 수집합니다. 추적을 더 오랫동안 사용하도록 유지하면 수집되는 데이터의 양이 적절할 수 있습니다. 이렇게 하면 임시 디스크의 공간 가용성을 낮출 수 있으므로 이 드라이브를 사용하는 모든 애플리케이션에 영향을 미칠 수 있습니다.
 
 ### <a name="how-do-i-run-perfinsights"></a>PerfInsights를 실행하는 방법 
 
@@ -194,7 +192,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 2. PerfInsights.zip 파일의 차단을 해제합니다. 이렇게 하려면 PerfInsights.zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. **일반** 탭에서 **차단 해제**를 선택한 다음 **확인**을 선택합니다. 이렇게 하면 추가 보안을 요구하는 메시지가 표시되지 않고 이 도구가 실행됩니다.  
 
-    ![차단 해제가 강조 표시된 PerfInsights 스크린샷](media/how-to-use-perfInsights/unlock-file.png)
+    ![차단 해제가 강조 표시된 PerfInsights 스크린샷](media/how-to-use-perfInsights/pi-unlock-file.png)
 
 3.  압축된 PerfInsights.zip 파일을 임시 드라이브(보통은 기본적으로 D 드라이브)로 확장합니다. 
 
@@ -204,7 +202,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![PerfInsights 명령줄 출력 스크린샷](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![PerfInsights 명령줄 출력 스크린샷](media/how-to-use-perfInsights/pi-commandline.png)
     
     PerfInsights 시나리오를 실행하기 위한 기본 구문은 다음과 같습니다.
     
@@ -224,7 +222,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    아래 예제를 사용하여 5분 동안 성능 분석 시나리오를 실행하고 결과 zip 파일을 저장소 계정에 업로드할 수 있습니다.
+    아래 예제를 사용하여 5분 동안 성능 분석 시나리오를 실행하고 결과 zip 파일을 스토리지 계정에 업로드할 수 있습니다.
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
@@ -253,41 +251,41 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 **검색 결과** 탭을 선택합니다.
 
-![PerfInsights 보고서 스크린샷](media/how-to-use-perfInsights/findingtab.png)
-![PerfInsights 보고서 스크린샷](media/how-to-use-perfInsights/findings.PNG)
+![PerfInsights 보고서 스크린샷](media/how-to-use-perfInsights/pi-finding-tab.png)
+![PerfInsights 보고서 스크린샷](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > 높음으로 분류된 검색 결과는 성능 문제를 일으킬 수 있는 알려진 문제입니다. 보통으로 분류된 검색 결과는 반드시 성능 문제를 일으키지는 않지만 최적이 아닌 구성을 나타냅니다. 낮음으로 분류되는 검색 결과는 정보만 제공합니다.
 
 권장 사항과, 모든 높음 및 보통 결과에 대한 링크를 검토합니다. 성능에 어떻게 영향을 미칠 수 있고 성능 최적화 구성을 위한 모범 사례는 무엇인지 살펴봅니다.
 
-### <a name="storage-tab"></a>저장소 탭
+### <a name="storage-tab"></a>스토리지 탭
 
-**검색 결과** 섹션은 저장소와 관련된 다양한 검색 결과 및 권장 사항을 표시합니다.
+**검색 결과** 섹션은 스토리지와 관련된 다양한 검색 결과 및 권장 사항을 표시합니다.
 
 **디스크 맵** 및 **볼륨 맵** 섹션에서는 논리 볼륨과 실제 디스크가 서로 관련된 방식을 설명합니다.
 
-실제 디스크 관점(디스크 맵)에서 테이블은 디스크에서 실행 중인 모든 논리 볼륨을 표시합니다. 다음 예에서 **PhysicalDrive2**는 여러 파티션(J 및 H)에서 만든 2개의 논리 볼륨을 실행합니다.
+실제 디스크 관점(디스크 맵)에서 테이블은 디스크에서 실행 중인 모든 논리 볼륨을 표시합니다. 다음 예제에서 **예에서** 는 여러 파티션에 생성 된 두 개의 논리 볼륨을 실행 합니다 (J 및 H).
 
-![디스크 탭 스크린샷](media/how-to-use-perfInsights/disktab.png)
+![디스크 탭 스크린샷](media/how-to-use-perfInsights/pi-disk-tab.png)
 
 볼륨 관점(볼륨 맵)에서 테이블은 각 논리 볼륨 아래의 모든 실제 디스크를 표시합니다. RAID/동적 디스크의 경우 여러 실제 디스크에서 논리 볼륨을 실행할 수 있습니다. 다음 예에서 *C:\\mount*는 실제 디스크 2 및 3에서 *SpannedDisk*로 구성된 탑재 지점입니다.
 
-![볼륨 탭 스크린샷](media/how-to-use-perfInsights/volumetab.png)
+![볼륨 탭 스크린샷](media/how-to-use-perfInsights/pi-volume-tab.png)
 
 ### <a name="sql-tab"></a>SQL 탭
 
 대상 VM에서 SQL Server 인스턴스를 호스팅하는 경우 **SQL**이라는 보고서에 추가 탭이 표시됩니다.
 
-![SQL 탭 스크린샷](media/how-to-use-perfInsights/sqltab.png)
+![SQL 탭 스크린샷](media/how-to-use-perfInsights/pi-sql-tab.png)
 
 이 섹션에는 VM에 호스팅된 SQL Server 인스턴스 각각에 대한 **검색 결과** 탭 및 추가적인 탭이 포함되어 있습니다.
 
-**검색 결과** 탭에는 권장 사항과 함께 확인할 수 있는 모든 SQL 관련 성능 문제의 목록이 포함됩니다.
+검색 **결과** 탭에는 권장 사항과 함께 발견 된 모든 SQL 관련 성능 문제의 목록이 포함 되어 있습니다.
 
 다음 예에서는 **PhysicalDrive0**(C 드라이브 실행)이 표시됩니다. **modeldev** 및 **modellog** 파일이 모두 C 드라이브에 있고 이 파일들은 서로 다른 형식(예: 데이터 파일 및 트랜잭션 로그)의 파일이기 때문입니다.
 
-![로그 정보 스크린샷](media/how-to-use-perfInsights/loginfo.png)
+![로그 정보 스크린샷](media/how-to-use-perfInsights/pi-log-info.png)
 
 SQL Server의 특정 인스턴스에 대한 탭에는 선택한 인스턴스에 대한 기본 정보를 표시하는 일반 섹션이 있습니다. 이 탭에는 설정, 구성, 사용자 옵션 등의 고급 정보를 포함하는 추가적인 섹션도 있습니다.
 
@@ -298,7 +296,7 @@ SQL Server의 특정 인스턴스에 대한 탭에는 선택한 인스턴스에 
 
 ### <a name="diskspd"></a>Diskspd
 
-Diskspd는 Microsoft에서 제공하는 저장소 로드 생성기 및 성능 테스트 도구입니다. 자세한 내용은 [Diskspd](https://github.com/Microsoft/diskspd)를 참조하세요.
+Diskspd는 Microsoft에서 제공하는 스토리지 로드 생성기 및 성능 테스트 도구입니다. 자세한 내용은 [Diskspd](https://github.com/Microsoft/diskspd)를 참조하세요.
 
 ### <a name="xperf"></a>XPerf
 
@@ -310,7 +308,7 @@ Xperf는 Windows 성능 도구 키트에서 추적을 캡처하는 명령줄 도
 
 다음 스크린샷과 유사한 메시지가 표시됩니다.
 
-![Microsoft 지원 웹 사이트의 샘플 메시지 스크린샷](media/how-to-use-perfInsights/supportemail.png)
+![Microsoft 지원 웹 사이트의 샘플 메시지 스크린샷](media/how-to-use-perfInsights/pi-support-email.png)
 
 메시지의 지침에 따라 파일 전송 작업 영역에 액세스합니다. 보안을 강화하기 위해 처음 사용할 때 암호를 변경해야 합니다.
 

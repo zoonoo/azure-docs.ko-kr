@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60246447"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
@@ -42,18 +42,18 @@ ms.locfileid: "60246447"
 * [우선 순위](#precedence), 특성 기여의 충돌을 해결합니다.
 * 대상, 대상 개체
 
-## <a name="scope"></a>범위
+## <a name="scope"></a>Scope
 범위 모듈은 개체를 평가하고 범위 내에서 처리에 포함되어야 하는 규칙을 결정합니다. 개체에 대한 특성 값에 따라 다른 동기화 규칙이 범위에 있다고 평가됩니다. 예를 들어 사서함이 없는 비활성화된 사용자에게는 사서함이 있는 활성화된 사용자보다 다양한 규칙이 적용됩니다.  
-![범위](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 범위는 그룹 및 절로 정의됩니다. 절은 그룹 내에 있습니다. 논리적 AND는 그룹의 모든 절 간에 사용됩니다. 예를 들어 (부서 = IT AND 국가 = 덴마크). 논리 OR은 그룹 간에 사용됩니다.
 
-![범위](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
  이 그림의 범위는 (부서 = IT AND 국가 = 덴마크) OR (국가 = 스웨덴)으로 읽혀야 합니다. 그룹 1 또는 그룹 2가 true로 평가되는 경우 규칙은 범위 내에 있습니다.
 
 범위 모듈은 다음 작업을 지원합니다.
 
-| 작업(Operation) | 설명 |
+| 작업(Operation) | Description |
 | --- | --- |
 | EQUAL, NOTEQUAL |값이 특성의 값과 같은지 평가하는 문자열 비교입니다. 다중값 특성의 경우 ISIN 및 ISNOTIN를 확인합니다. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |값이 특성의 값보다 적은지 평가하는 문자열 비교입니다. |
@@ -92,7 +92,7 @@ ms.locfileid: "60246447"
 메타버스 개체가 삭제되면 **프로비전** 되도록 표시된 아웃바운드 동기화 규칙과 연결된 모든 개체는 삭제되도록 표시됩니다.
 
 ## <a name="transformations"></a>변환
-변환은 특성이 원본에서 대상에 흐르는 방식을 정의하는 데 사용됩니다. 흐름에는 Direct, Constant 또는 Expression **흐름 유형** 중 하나가 있을 수 있습니다. 직접 흐름은 추가 변환 없이 그대로 특성 값을 사용합니다. 상수 값은 지정된 값을 설정합니다. 식은 선언적 프로비전 식 언어를 사용하여 변환이 어떻게 되어야 하는지를 표현합니다. 식 언어에 대한 세부 정보는 [선언적 프로비전 식 언어 이해](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) 항목에서 찾을 수 있습니다.
+변환은 특성이 원본에서 대상에 흐르는 방식을 정의하는 데 사용됩니다. 흐름은 직접, 상수 또는 식과 같은 **흐름 유형**중 하나를 가질 수 있습니다. 직접 흐름은 추가 변환 없이 그대로 특성 값을 사용합니다. 상수 값은 지정된 값을 설정합니다. 식은 선언적 프로비전 식 언어를 사용하여 변환이 어떻게 되어야 하는지를 표현합니다. 식 언어에 대한 세부 정보는 [선언적 프로비전 식 언어 이해](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) 항목에서 찾을 수 있습니다.
 
 ![프로비전 또는 조인](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -164,4 +164,4 @@ ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야
 
 **참조 항목**
 
-* [Azure AD Connect 동기화: 함수 참조](reference-connect-sync-functions-reference.md)
+* [Azure AD 동기화 연결: 함수 참조](reference-connect-sync-functions-reference.md)

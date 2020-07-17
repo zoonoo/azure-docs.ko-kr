@@ -1,28 +1,23 @@
 ---
-title: Azure Automation Graphical Runbook SDK의 개요
-description: 이 문서에서는 Azure Automation Graphical Runbook SDK를 사용하는 방법을 설명합니다.
+title: Azure Automation 그래픽 Runbook SDK(미리 보기) 사용
+description: 이 문서에서는 Azure Automation 그래픽 Runbook SDK(미리 보기)를 사용하는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
 ms.date: 07/20/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bc9f1feff6d8d45e52c8621d1ec4b36e0a4a4a76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 969e60cd08a65adb1dd731aa7c6c3f9872e288fd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61303219"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835039"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Azure Automation Graphical Runbook SDK 사용
+# <a name="use-the-azure-automation-graphical-runbook-sdk-preview"></a>Azure Automation 그래픽 Runbook SDK(미리 보기) 사용
 
-[Graphical Runbook](automation-graphical-authoring-intro.md)은 기본 Windows PowerShell 또는 PowerShell 워크플로 코드의 복잡성을 관리하는 데 도움이 되는 Runbook입니다. Microsoft Azure Automation Graphical Authoring SDK를 통해 개발자는 Azure Automation 서비스 사용을 위한 Graphical Runbook을 만들고 편집할 수 있습니다. 다음 코드 조각은 코드에서 Graphical Runbook 만들기의 기본 흐름을 보여줍니다.
+[그래픽 Runbook](automation-graphical-authoring-intro.md)은 기본 Windows PowerShell 또는 PowerShell 워크플로 코드의 복잡성을 관리하는 데 도움이 됩니다. Microsoft Azure Automation 그래픽 작성 SDK를 통해 개발자는 Azure Automation 사용을 위한 그래픽 Runbook을 만들고 편집할 수 있습니다. 이 문서에서는 코드에서 그래픽 Runbook을 만들 때의 기본 단계를 설명합니다.
 
-## <a name="pre-requisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-시작하려면 프로젝트로 `Microsoft.Azure.Automation.GraphicalRunbook.Model` 패키지를 가져옵니다.
+[SDK](https://www.microsoft.com/download/details.aspx?id=50734)를 다운로드하여 `Orchestrator.GraphRunbook.Model.dll` 패키지를 가져옵니다.
 
 ## <a name="create-a-runbook-object-instance"></a>Runbook 개체 인스턴스 만들기
 
@@ -103,9 +98,9 @@ var initializeRunbookVariable = runbook.AddActivity(
 |WorkflowScriptActivity     | Runbook의 컨텍스트에서 PowerShell 또는 PowerShell 워크플로 코드의 블록을 실행합니다(Runbook 유형에 따라). 강력한 도구이지만 과도하게 사용하지 마십시오. UI는 이 스크립트 블록을 텍스트로 표시합니다. 실행 엔진은 제공된 블록을 검은색 상자로 처리하고 기본 구문 검사를 제외하고 해당 콘텐츠를 분석하는 시도를 하지 않습니다. 단일 PowerShell 명령을 호출해야 하는 경우 CommandActivity를 사용합니다.        |
 
 > [!NOTE]
-> 제공된 클래스에서 사용자 고유의 작업을 파생하지 마십시오. Azure Automation은 사용자 지정 작업 유형과 함께 Runbook을 사용할 수 없습니다.
+> 제공된 클래스에서 사용자 고유의 작업을 파생하지 마세요. Azure Automation은 사용자 지정 작업 유형과 함께 Runbook을 사용할 수 없습니다.
 
-CommandActivity 및 InvokeRunbookActivity 매개 변수는 직접 값이 아닌 값 설명자로 제공되어야 합니다. 값 설명자는 실제 매개 변수 값이 생성되어야 하는 방법을 지정합니다. 다음 값 설명자가 현재 제공됩니다.
+`CommandActivity` 및 `InvokeRunbookActivity` 매개 변수를 직접 값이 아닌 값 설명자로 제공해야 합니다. 값 설명자는 실제 매개 변수 값을 생성하는 방법을 지정합니다. 다음 값 설명자가 현재 제공됩니다.
 
 
 |설명자  |정의  |
@@ -119,7 +114,7 @@ CommandActivity 및 InvokeRunbookActivity 매개 변수는 직접 값이 아닌 
 |PowerShellExpressionValueDescriptor     | 작업을 호출하기 직전에 평가될 자유 양식 PowerShell 식을 지정합니다.  <br/>강력한 도구이지만 과도하게 사용하지 마십시오. UI는 이 식을 텍스트로 표시합니다. 실행 엔진은 제공된 블록을 검은색 상자로 처리하고 기본 구문 검사를 제외하고 해당 콘텐츠를 분석하는 시도를 하지 않습니다. 가능한 경우 보다 구체적인 값 설명자를 사용합니다.      |
 
 > [!NOTE]
-> 제공된 클래스에서 사용자 고유의 값 설명자를 파생하지 마십시오. Azure Automation은 사용자 지정 값 설명자 유형과 함께 Runbook을 사용할 수 없습니다.
+> 제공된 클래스에서 사용자 고유의 값 설명자를 파생하지 마세요. Azure Automation은 사용자 지정 값 설명자 유형과 함께 Runbook을 사용할 수 없습니다.
 
 작업을 연결하는 링크를 인스턴스화하고 Runbook에 추가합니다.
 
@@ -140,10 +135,9 @@ runbook.AddLink(
 var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
-**.graphrunbook** 확장을 사용하여 이 문자열을 파일에 저장할 수 있으며 이 파일을 Azure Automation으로 가져올 수 있습니다.
+**.graphrunbook** 확장명으로 파일에 이 문자열을 저장할 수 있습니다. 해당 Runbook을 Azure Automation으로 가져올 수 있습니다.
 직렬화된 형식은 `Orchestrator.GraphRunbook.Model.dll`의 향후 버전에서 변경될 수 있습니다. 이전 버전과의 호환성을 약속 드립니다. `Orchestrator.GraphRunbook.Model.dll`의 이전 버전으로 직렬화된 모든 Runbook은 모든 새 버전으로 역직렬화될 수 있습니다. 이후 버전과의 호환성은 보장되지 않습니다. 최신 버전으로 직렬화된 Runbook을 이전 버전으로 역직렬화할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Automation에서 Graphical Runbook에 대해 자세히 알아보려면 [그래픽 작성 소개](automation-graphical-authoring-intro.md)를 참조하세요.
-
+자세한 내용은 [Azure Automation에서 그래픽 Runbook 작성](automation-graphical-authoring-intro.md)을 참조하세요.

@@ -1,24 +1,24 @@
 ---
-title: Azure Traffic Manager를 사용한 가중치 적용 라운드 로빈 트래픽 라우팅 방법 구성 | Microsoft Docs
-description: 이 문서에서는 Traffic Manager에서 라운드 로빈 메서드를 사용하여 트래픽 부하를 분산하는 방법을 설명합니다
+title: 자습서 - Azure Traffic Manager를 사용하여 가중치가 적용된 라운드 로빈 트래픽 라우팅 구성
+description: 이 자습서에서는 Traffic Manager에서 라운드 로빈 방법을 사용하여 트래픽 부하를 분산하는 방법을 설명합니다
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: ef39c09d4fc411937fdd6f4b5b5aec491efd0c5f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.author: rohink
+ms.openlocfilehash: b06df3814661b64f7fa46cd5e3b8f4dea9d51710
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113290"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711669"
 ---
-# <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Traffic Manager에서 가중치 적용 트래픽 라우팅 방법 구성
+# <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>자습서: Traffic Manager에서 가중치 적용 트래픽 라우팅 방법 구성
 
 일반적인 트래픽 라우팅 방법 패턴은 클라우드 서비스와 웹 사이트를 포함하는 일련의 동일한 엔드포인트를 제공하고 각 엔드포인트에 똑같이 트래픽을 전송하는 것입니다. 다음 단계에서는 이 유형의 트래픽 라우팅 방법을 구성하는 방법을 간략하게 설명합니다.
 

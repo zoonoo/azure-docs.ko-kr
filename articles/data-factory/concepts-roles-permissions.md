@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory용 역할 및 권한 | Microsoft Docs
+title: Azure Data Factory용 역할 및 권한
 description: 데이터 팩터리를 만들고 하위 리소스를 사용하는 데 필요한 역할과 권한에 대해 설명합니다.
 ms.date: 11/5/2018
 ms.topic: conceptual
@@ -7,18 +7,20 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-ms.tgt_pltfrm: na
-author: gauravmalhot
-ms.author: gamal
-manager: craigg
-ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+author: djpmsft
+ms.author: daperlov
+manager: anandsub
+ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61261835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263248"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 이 문서에서는 Azure Data Factory 리소스를 만들고 관리하는 데 필요한 역할 및 이러한 역할을 통해 부여되는 권한에 대해 설명합니다.
 
@@ -30,7 +32,7 @@ ms.locfileid: "61261835"
 - Azure Portal에서 자식 리소스를 만들고 관리하려면 리소스 그룹 수준 이상의 **Data Factory 기여자** 역할에 속해야 합니다.
 - PowerShell 또는 SDK를 사용하여 자식 리소스를 만들고 관리하려면 리소스 수준 이상의 **기여자** 역할만으로도 충분합니다.
 
-사용자를 역할에 추가하는 방법에 대한 지침 샘플은 [역할 추가](../billing/billing-add-change-azure-subscription-administrator.md) 문서를 참조하세요.
+사용자를 역할에 추가하는 방법에 대한 지침 샘플은 [역할 추가](../cost-management-billing/manage/add-change-subscription-administrator.md) 문서를 참조하세요.
 
 ## <a name="set-up-permissions"></a>권한 설정
 
@@ -57,7 +59,7 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
 
 ### <a name="custom-scenarios-and-custom-roles"></a>사용자 지정 시나리오 및 사용자 지정 역할
 
-데이터 팩터리 사용자에게 각기 다른 액세스 수준을 부여해야 하는 경우도 있습니다. 예를 들면 다음과 같습니다.
+데이터 팩터리 사용자에게 각기 다른 액세스 수준을 부여해야 하는 경우도 있습니다. 다음은 그 예입니다.
 - 사용자에게 특정 데이터 팩터리에 대한 권한만 있는 그룹이 필요할 수 있습니다.
 - 사용자가 데이터 팩터리를 하나 이상 모니터링할 수는 있지만 수정할 수는 없는 그룹이 필요할 수도 있습니다.
 
@@ -67,7 +69,7 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
 
 - 사용자가 Azure Portal에서 리소스 그룹의 모든 데이터 팩터리를 작성, 편집 또는 삭제할 수 있도록 설정합니다.
 
-  사용자에 대해 리소스 그룹 수준에서 기본 제공 **데이터 팩터리 참가자** 역할을 할당합니다. 구독의 모든 데이터 팩터리 액세스를 허용하려는 경우 구독 수준에서 역할을 할당합니다.
+  사용자에 대해 리소스 그룹 수준에서 기본 제공 **데이터 팩터리 참가자** 역할을 할당합니다. 구독의 모든 데이터 팩터리에 대한 액세스를 허용하려면 구독 수준에서 역할을 할당합니다.
 
 - 사용자가 데이터 팩터리를 확인(읽기) 및 모니터링할 수는 있지만 편집하거나 변경하지는 못하도록 설정합니다.
 
@@ -79,6 +81,10 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
 
   1. 데이터 팩터리 수준에서 기본 제공 **참가자** 역할을 할당합니다.
   2. 권한이 **Microsoft.Resources/deployments/** 인 사용자 지정 역할을 만듭니다. 리소스 그룹 수준에서 사용자에게 이 사용자 지정 역할을 할당합니다.
+
+- 사용자가 연결 된 서비스에서 연결을 테스트 하거나 데이터 집합의 데이터를 미리 볼 수 있도록 합니다.
+
+    다음 동작에 대 한 권한이 있는 사용자 지정 역할을 만듭니다. **DataFactory/factory/getFeatureValue/read** 및 **DataFactory/Factory/Getfeaturevalue eaccess/action**. 사용자의 데이터 팩터리 리소스에 이 사용자 지정 역할을 할당합니다.
 
 - 사용자가 PowerShell이나 SDK에서는 데이터 팩터리를 업데이트할 수 있지만 Azure Portal에서는 업데이트할 수 없도록 설정합니다.
 

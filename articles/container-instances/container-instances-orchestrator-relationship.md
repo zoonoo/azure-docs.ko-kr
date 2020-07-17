@@ -1,19 +1,14 @@
 ---
-title: Azure Container Instances 및 컨테이너 오케스트레이션
+title: 컨테이너 인스턴스 및 컨테이너 오케스트레이션
 description: Azure Container Instances가 컨테이너 오케스트레이터와 상호 작용하는 방법을 이해합니다
-services: container-instances
-author: dlepow
-ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
-ms.author: danlep
+ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74533668"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
@@ -25,13 +20,13 @@ Azure Container Instances는 오케스트레이션 플랫폼의 기본 일정 �
 
 오케스트레이션의 표준 정의에는 다음 작업이 포함됩니다.
 
-- **예약**: 컨테이너 이미지 및 리소스 요청을 지정하여 컨테이너를 실행할 적절한 머신을 찾습니다.
-- **선호도/반선호도**: 서로 가깝거나(성능 목적) 충분히 멀리 떨어져 있는(가용성 목적) 컨테이너 세트가 실행되도록 지정합니다.
+- **예약**: 컨테이너 이미지 및 리소스 요청을 지정하여 컨테이너를 실행할 적절한 컴퓨터를 찾습니다.
+- **선호도/반선호도**: 서로 가깝거나(성능 목적) 충분히 멀리 떨어져 있는(가용성 목적) 컨테이너 집합이 실행되도록 지정합니다.
 - **상태 모니터링**: 컨테이너 오류를 관찰하여 자동으로 일정을 다시 조정합니다.
-- **장애 조치**: 각 머신에서 실행되는 작업을 추적하고 실패한 머신의 컨테이너를 정상 노드로 다시 예약합니다.
-- **크기 조정**: 수동 또는 자동으로 요청에 맞게 컨테이너 인스턴스를 추가하거나 제거합니다.
-- **네트워킹**: 여러 호스트 머신 간에 통신하도록 컨테이너를 조정하는 오버레이 네트워크를 제공합니다.
-- **서비스 검색**: 컨테이너가 호스트 머신 간에 이동하면서 IP 주소를 변경하는 경우에도 자동으로 서로 찾을 수 있게 합니다.
+- **장애 조치**: 각 컴퓨터에서 실행되는 작업을 추적하고 실패한 컴퓨터의 컨테이너를 정상 노드로 다시 예약합니다.
+- **크기 조정**: 수동 또는 자동으로 요청에 맞게 Container Instance를 추가하거나 제거합니다.
+- **네트워킹**: 여러 호스트 컴퓨터 간에 통신하도록 컨테이너를 조정하는 오버레이 네트워크를 제공합니다.
+- **서비스 검색**: 컨테이너가 호스트 컴퓨터 간에 이동하면서 IP 주소를 변경하는 경우에도 자동으로 서로 찾을 수 있게 합니다.
 - **조정된 애플리케이션 업그레이드**: 애플리케이션 작동 중단 시간을 방지하고 문제가 발생한 경우 롤백할 수 있도록 컨테이너 업그레이드를 관리합니다.
 
 ## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Azure Container Instances와 오케스트레이션: 계층화된 접근 방식
@@ -56,7 +51,7 @@ Azure Container Instances를 포함한 오케스트레이터 통합이 여전히
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>샘플 구현: AKS(Azure Kubernetes Service)에 대한 가상 노드
 
-[Azure Kubernetes Service](../aks/intro-kubernetes.md)(AKS) 클러스터에서 애플리케이션 워크로드를 신속하게 확장하기 위해 Azure Container Instances에서 동적으로 생성한 *가상 노드*를 사용할 수 있습니다. 현재 미리 보기에서 가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 
+[Azure Kubernetes Service](../aks/intro-kubernetes.md)(AKS) 클러스터에서 애플리케이션 워크로드를 신속하게 확장하기 위해 Azure Container Instances에서 동적으로 생성한 *가상 노드*를 사용할 수 있습니다. 가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 
 
 가상 노드는 현재 Linux 컨테이너 인스턴스를 지원합니다. [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) 또는 [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545)을 사용하여 가상 노드를 시작합니다.
 
@@ -71,6 +66,6 @@ Kubernetes API를 서버리스 컨테이너 플랫폼으로 확장하는 추가 
 <!-- IMAGES -->
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
+[aci-connector-k8s]: https://github.com/virtual-kubelet/azure-aci
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

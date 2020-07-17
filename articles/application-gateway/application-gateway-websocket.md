@@ -1,18 +1,17 @@
 ---
-title: Azure Application Gateway의 WebSocket 지원 | Microsoft Docs
-description: 이 페이지에서는 Application Gateway WebSocket 지원에 대한 개요를 제공합니다.
+title: Azure 애플리케이션 게이트웨이에서 WebSocket 지원
+description: Application Gateway는 모든 게이트웨이 크기에 WebSocket에 대한 네이티브 지원을 제공합니다. 사용자가 구성할 수 있는 설정이 없습니다.
 author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
+services: application-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 03/18/2019
-ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 11/16/2019
+ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74130337"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway의 WebSocket 지원 개요
 
@@ -22,17 +21,17 @@ Application Gateway는 모든 게이트웨이 크기에 WebSocket에 대한 네�
 
 80 또는 443 포트에서 표준 HTTP 수신기를 계속 사용하여 WebSocket 트래픽을 받을 수 있습니다. WebSocket 트래픽은 Application Gateway 규칙에 지정된 대로 적절한 백 엔드 풀을 사용하여 WebSocket 활성화된 백 엔드 서버로 지정됩니다. 백 엔드 서버는 [상태 프로브 개요](application-gateway-probe-overview.md) 섹션에서 설명한 대로 애플리케이션 게이트웨이 프로브에 응답해야 합니다. 애플리케이션 게이트웨이 상태 프로브는 HTTP/HTTPS 전용입니다. 각 백 엔드 서버는 WebSocket 트래픽을 서버로 라우팅하기 위해 애플리케이션 게이트웨이에 대한 HTTP 프로브에 응답해야 합니다.
 
-채팅, 대시보드 및 게임 앱 등 신속 하 고 실시간 통신을 활용 하는 앱에서 사용 됩니다.
+채팅, 대시보드 및 게임 앱 등 신속한 실시간 통신을 활용하는 앱에서 사용됩니다.
 
-## <a name="how-does-websocket-work"></a>WebSocket는 어떻게 작동 하나요
+## <a name="how-does-websocket-work"></a>WebSocket 작동 방식
 
-WebSocket 연결을 설정 하려면 특정 HTTP 기반 핸드셰이크를 클라이언트와 서버 간에 교환 됩니다. 성공 하면 응용 프로그램 계층 프로토콜은 "업그레이드" HTTP에서 websocket을 이전에 설정된 된 TCP 연결을 사용 하 여. HTTP는 완전히에 관여;이 발생 하면 데이터를 보낼 수 있습니다 또는 WebSocket 연결이 닫힐 때까지 두 끝점에서 WebSocket 프로토콜을 사용 하 여 수신 합니다. 
+WebSocket 연결을 설정 하기 위해 특정 HTTP 기반 핸드셰이크는 클라이언트와 서버 간에 교환 됩니다. 성공하면 애플리케이션 계층 프로토콜이 이전에 설정된 TCP 연결을 사용하여 HTTP에서 WebSocket으로 "업그레이드"됩니다. 이렇게 되면 HTTP는 완전히 제외됩니다. 데이터는 WebSocket 연결을 종료할 때까지 양쪽 엔드포인트에서 WebSocket 프로토콜을 사용하여 보내거나 받을 수 있습니다. 
 
-![addcert](./media/application-gateway-websocket/websocket.png)
+![서버당](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>수신기 구성 요소
 
-기존 HTTP 수신기를 사용하여 WebSocket을 지원할 수 있습니다. 다음은 샘플 템플릿 파일에 있는 httpListeners 요소의 코드 조각입니다. WebSocket을 지원하고 WebSocket 트래픽을 보호하기 위해 HTTP 및 HTTPS 수신기가 모두 필요합니다. 수신기를 사용 하 여 응용 프로그램 게이트웨이 만들려면 포털 또는 Azure PowerShell을 사용할 수 있습니다 마찬가지로 포트 80/443 WebSocket 트래픽을 지원 하도록 합니다.
+기존 HTTP 수신기를 사용하여 WebSocket을 지원할 수 있습니다. 다음은 샘플 템플릿 파일에 있는 httpListeners 요소의 코드 조각입니다. WebSocket을 지원하고 WebSocket 트래픽을 보호하기 위해 HTTP 및 HTTPS 수신기가 모두 필요합니다. 마찬가지로 포털 또는 Azure PowerShell를 사용 하 여 WebSocket 트래픽을 지원 하기 위해 포트 80/443의 수신기를 사용 하 여 응용 프로그램 게이트웨이를 만들 수 있습니다.
 
 ```json
 "httpListeners": [
@@ -68,7 +67,7 @@ WebSocket 연결을 설정 하려면 특정 HTTP 기반 핸드셰이크를 클�
 
 ## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>BackendAddressPool, BackendHttpSetting 및 라우팅 규칙 구성
 
-BackendAddressPool은 WebSocket 지원 서버가 포함된 백 엔드 풀을 정의하는 데 사용됩니다. backendHttpSetting은 80 및 443 백 엔드 포트로 정의됩니다. 쿠키 기반 선호도 및 requestTimeouts의 속성은 WebSocket 트래픽과 관련이 없습니다. 라우팅 규칙은 변경할 필요가 없으며, 'Basic'(기본)은 적절한 수신기를 해당 백 엔드 주소 풀에 연결하는 데 사용됩니다. 
+BackendAddressPool은 WebSocket 지원 서버가 포함된 백 엔드 풀을 정의하는 데 사용됩니다. backendHttpSetting은 80 및 443 백 엔드 포트로 정의됩니다. HTTP 설정의 요청 시간 제한 값은 WebSocket 세션에도 적용 됩니다. 적절 한 수신기를 해당 백 엔드 주소 풀에 연결 하는 데 사용 되는 라우팅 규칙에 필요한 변경 내용이 없습니다. 
 
 ```json
 "requestRoutingRules": [{

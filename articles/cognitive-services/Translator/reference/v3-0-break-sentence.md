@@ -1,23 +1,23 @@
 ---
-title: Translator Text API BreakSentence 메서드
-titlesuffix: Azure Cognitive Services
-description: Translator Text API BreakSentence 메서드를 사용합니다.
+title: Translator 사이 문장의 메서드
+titleSuffix: Azure Cognitive Services
+description: Translator 사이 문장 메서드는 텍스트 부분에서 문장 경계의 위치를 식별 합니다.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: b2c0fbbfbcd2e3cf71ef85b9d06f2f805698bfd0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 01/21/2020
+ms.author: swmachan
+ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797427"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588635"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
+# <a name="translator-30-breaksentence"></a>Translator 3.0:가 중 문장
 
 텍스트에서 문장 경계의 위치를 식별합니다.
 
@@ -33,45 +33,20 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-<table width="100%">
-  <th width="20%">쿼리 매개 변수</th>
-  <th>설명</th>
-  <tr>
-    <td>api-version</td>
-    <td>*필수 쿼리 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
-  </tr>
-  <tr>
-    <td>language</td>
-    <td>*선택적 쿼리 매개 변수*입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다.</td>
-  </tr>
-  <tr>
-    <td>script</td>
-    <td>*선택적 쿼리 매개 변수*입니다.<br/>입력 텍스트에서 사용되는 스크립트를 식별하는 스크립트 태그입니다. 스크립트를 지정하지 않으면 언어의 기본 스크립트가 가정됩니다.</td>
-  </tr>
-</table> 
+| 쿼리 매개 변수 | 설명 |
+| -------| ----------- |
+| api-version <img width=200/>   | **필수 쿼리 매개 변수**입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
+| 언어 | **선택적 쿼리 매개 변수**입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다. |
+| script    | **선택적 쿼리 매개 변수**입니다.<br/>입력 텍스트에서 사용되는 스크립트를 식별하는 스크립트 태그입니다. 스크립트를 지정하지 않으면 언어의 기본 스크립트가 가정됩니다.  | 
 
 요청 헤더에는 다음이 포함됩니다.
 
-<table width="100%">
-  <th width="20%">헤더</th>
-  <th>설명</th>
-  <tr>
-    <td>인증 헤더</td>
-    <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
-  </tr>
-  <tr>
-    <td>콘텐츠 형식</td>
-    <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*필수 요청 헤더*<br/>요청 본문의 길이입니다.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*선택 사항*입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
-  </tr>
-</table> 
+| 헤더 | 설명 |
+| ------- | ----------- |
+| 인증 헤더 <img width=200/>  | **필수 요청 헤더**<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
+| 콘텐츠 형식 | **필수 요청 헤더**<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다. |
+| Content-Length    | **필수 요청 헤더**<br/>요청 본문의 길이입니다.  | 
+| X-ClientTraceId   | **선택 사항입니다**.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.  | 
 
 ## <a name="request-body"></a>요청 본문
 
@@ -109,7 +84,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 ```json
 [
   {
-    "sentenceLengths": [ 13, 11, 22 ]
+    "sentLen": [ 13, 11, 22 ]
     "detectedLanguage": {
       "language": "en",
       "score": 401
@@ -135,14 +110,14 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 <table width="100%">
   <th width="20%">상태 코드</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>성공.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>쿼리 매개 변수 중 하나가 누락되었거나 유효하지 않습니다. 다시 시도하기 전에 요청 매개 변수를 수정합니다.</td>
+    <td>쿼리 매개 변수 중 하나가 없거나 잘못되었습니다. 다시 시도하기 전에 요청 매개 변수를 수정합니다.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -154,7 +129,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>서버는 클라이언트 요청 한도 초과 했기 때문에 요청을 거부 합니다.</td>
+    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -166,17 +141,13 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   </tr>
 </table> 
 
-오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [v3 Translator Text API 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 확인할 수 있습니다. 
+오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 찾을 수 있습니다. 
 
 ## <a name="examples"></a>예
 
 다음 예제에서는 단일 문장에 대한 문장 경계를 가져오는 방법을 보여 줍니다. 문장의 언어는 서비스에서 자동으로 검색됩니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-
----
 

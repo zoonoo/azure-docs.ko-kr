@@ -1,26 +1,25 @@
 ---
-title: Linux용 Azure VM 확장 및 기능 | Microsoft Docs
+title: Linux 용 Azure VM 확장 및 기능
 description: 확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 머신에 사용할 수 있는 확장을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: roiyz
-ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: akjosh
+ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387278"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042121"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -38,7 +37,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](custom-script-linux.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 VM에서 확장을 처리하려면 Azure Linux 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -46,16 +45,16 @@ VM에서 확장을 처리하려면 Azure Linux 에이전트를 설치해야 합�
 
 Azure VM 에이전트는 Azure VM과 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. VM 에이전트는 VM 확장 실행을 포함하여 Azure VM 배포 및 관리의 다양한 기능적 측면을 담당합니다. Azure VM 에이전트는 Azure Marketplace 이미지에 미리 설치되며 지원되는 운영 체제에 수동으로 설치될 수 있습니다. Linux용 Azure VM 에이전트는 Linux 에이전트로 알려져 있습니다.
 
-지원되는 운영 체제 및 설치 지침에 대한 자세한 내용은 [Azure Virtual Machines 에이전트](agent-linux.md)를 참조하세요.
+지원 되는 운영 체제 및 설치 지침에 대 한 자세한 내용은 [Azure 가상 컴퓨터 에이전트](agent-linux.md)를 참조 하세요.
 
 #### <a name="supported-agent-versions"></a>지원되는 에이전트 버전
 
-가능한 최상의 환경을 제공하기 위해 에이전트의 최소 버전이 있습니다. 자세한 내용은 [이 문서](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)(영문)를 읽어보세요.
+가능한 최상의 환경을 제공하기 위해 에이전트의 최소 버전이 있습니다. 자세한 내용은 [이 문서](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)를 참조하세요.
 
 #### <a name="supported-oses"></a>지원되는 OS
 
 Linux 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 OS 확장에 대한 제한이 있습니다. 자세한 내용은 [이 문서](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
-)(영문)를 읽어보세요.
+)를 참조하세요.
 
 일부 확장은 모든 OS에서 지원되지 않으며 *오류 코드 51, ‘지원되지 않는 OS’* 를 내보낼 수 있습니다. 지원 가능성에 대한 개별 확장 설명서를 확인합니다.
 
@@ -72,7 +71,7 @@ Linux 에이전트에는 에이전트 트래픽 요청을 리디렉션하기 위
 
 ## <a name="discover-vm-extensions"></a>VM 확장 검색
 
-Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list)를 사용합니다. 다음 예제에서는 *westus* 위치의 모든 사용 가능한 확장을 나열합니다.
+Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list)를 사용합니다. 다음 예제에서는 *westus* 위치에서 사용 가능한 모든 확장을 나열 합니다.
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -86,7 +85,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예에서는 *myResourceGroup*이라는 리소스 그룹의 *myVM*이라는 VM에 대해 사용자 지정 스크립트 확장을 실행합니다.
+Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예제에서는 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 Vm에 대해 사용자 지정 스크립트 확장을 실행 합니다. 사용자 고유의 정보를 사용 하 여 예제 리소스 그룹 이름, VM 이름 및 스크립트를 실행 (https: \/ /raw.githubusercontent.com/me/project/hello.sh)으로 바꿉니다. 
 
 ```azurecli
 az vm extension set `
@@ -116,9 +115,9 @@ Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포
 
 ### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
-Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산된 VM 세트 및 Azure SQL 데이터베이스를 배포한 다음, 각 VM에 .NET Core 애플리케이션을 설치하는 Resource Manager 템플릿에서 가져옵니다. VM 확장은 소프트웨어 설치를 관리합니다.
+Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산 된 Vm 및 Azure SQL Database 집합을 배포 하는 리소스 관리자 템플릿에서 가져온 후 각 VM에 .NET Core 응용 프로그램을 설치 합니다. VM 확장은 소프트웨어 설치를 관리합니다.
 
-자세한 내용은 전체 [Resource Manager 템플릿](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)을 참조하세요.
+자세한 내용은 전체 [리소스 관리자 템플릿](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)을 참조 하세요.
 
 ```json
 {
@@ -153,7 +152,7 @@ Resource Manager 템플릿 작성에 대한 자세한 내용은 [Azure Resource 
 
 ## <a name="secure-vm-extension-data"></a>VM 확장 데이터 보호
 
-VM 확장을 실행하는 경우 자격 증명, 저장소 계정 이름 및 저장소 계정 액세스 키와 같은 중요한 정보를 포함해야 할 수도 있습니다. 많은 VM 확장에는 데이터를 암호화하고 대상 VM 내에서만 해독하는 보호된 구성이 포함되어 있습니다. 각 확장에는 보호되는 특정 구성 스키마가 있으며 각각은 확장 관련 설명서에 자세히 나와 있습니다.
+VM 확장을 실행하는 경우 자격 증명, 스토리지 계정 이름 및 스토리지 계정 액세스 키와 같은 중요한 정보를 포함해야 할 수도 있습니다. 많은 VM 확장에는 데이터를 암호화하고 대상 VM 내에서만 해독하는 보호된 구성이 포함되어 있습니다. 각 확장에는 보호되는 특정 구성 스키마가 있으며 각각은 확장 관련 설명서에 자세히 나와 있습니다.
 
 다음 예제에서는 Linux용 사용자 지정 스크립트 확장의 인스턴스를 보여 줍니다. 실행할 명령에는 자격 증명 집합이 포함됩니다. 이 예제에서는 실행할 명령이 암호화되지 않습니다.
 
@@ -337,7 +336,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 1. Linux 에이전트 로그를 확인하려면 */var/log/waagent.log*에서 확장이 프로비전되었을 때 작업을 확인합니다.
 
-2. */var/log/azure/<extensionName>* 에서 실제 확장 로그의 자세한 내용을 확인합니다.
+2. */var/log/azure/\<extensionName>* 에서 실제 확장 로그의 자세한 내용을 확인합니다.
 
 3. 오류 코드, 알려진 문제 등에 대한 확장 관련 설명서 문제 해결 섹션을 확인합니다.
 
@@ -404,7 +403,7 @@ az vm extension delete \
 
 ## <a name="common-vm-extension-reference"></a>일반적인 VM 확장 참조
 
-| 확장 이름 | 설명 | 자세한 정보 |
+| 확장 이름 | 설명 | 추가 정보 |
 | --- | --- | --- |
 | Linux용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Linux용 사용자 지정 스크립트 확장](custom-script-linux.md) |
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

@@ -1,7 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 URI 사용
 description: Azure Data Lake Storage Gen2 URI 사용
-services: storage
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -9,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3f486da121927be23a6bd86e8567574cd95c541e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: fa0f67e0d72ee5710a42b6de744ddae98e20220a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939276"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80437122"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Azure Data Lake Storage Gen2 URI 사용
 
@@ -28,13 +27,13 @@ Data Lake Storage Gen2에 대한 URI 구문은 스토리지 계정이 Data Lake 
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **체계 식별자**: `abfs` 프로토콜이 체계 식별자로 사용됩니다. SSL(Secure Sockets Layer) 연결 사용 여부에 관계없이 연결하는 옵션이 있습니다. `abfss`을 사용하여 Secure Socket Layer 연결에 연결합니다.
+1. **체계 식별자**: `abfs` 프로토콜이 체계 식별자로 사용됩니다. TLS (전송 계층 보안)를 사용 하거나 사용 하지 않고 (이전에는 SSL (SSL(Secure Sockets Layer)) 연결) 연결 하는 옵션이 있습니다. `abfss`TLS 연결을 사용 하 여 연결 하는 데 사용 합니다.
 
 2. **파일 시스템**: 파일 및 폴더를 포함하는 부모 위치입니다. Azure Storage Blob 서비스의 컨테이너와 동일합니다.
 
 3. **계정 이름**: 만드는 동안 스토리지 계정에 지정된 이름입니다.
 
-4. **경로**: 슬래시(`/`)로 구분된 디렉터리 구조의 표현입니다.
+4. **경로**: 디렉터리 구조의 슬래시 구분 기호(`/`) 표시입니다.
 
 5. **파일 이름**: 개별 파일의 이름입니다. 이 매개 변수는 디렉터리의 주소를 지정하는 경우, 선택 사항입니다.
 
@@ -42,7 +41,7 @@ Data Lake Storage Gen2에 대한 URI 구문은 스토리지 계정이 Data Lake 
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-1. **경로**: 슬래시(`/`)로 구분된 디렉터리 구조의 표현입니다.
+1. **경로**: 디렉터리 구조의 슬래시 구분 기호(`/`) 표시입니다.
 
 2. **파일 이름**: 개별 파일의 이름입니다.
 

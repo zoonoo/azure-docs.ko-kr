@@ -2,17 +2,16 @@
 title: Azure DNS 위임 개요
 description: 도메인 위임을 변경하고 Azure DNS 이름 서버를 사용하여 도메인 호스팅을 제공하는 방법을 이해합니다.
 services: dns
-author: WenJason
+author: rohinkoul
 ms.service: dns
-origin.date: 2/19/2019
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.openlocfilehash: 70c1c1ab0dd5d1998054cf0c68325022803dff06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 2/19/2019
+ms.author: rohink
+ms.topic: conceptual
+ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563161"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76939044"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Azure DNS를 사용하여 DNS 영역 위임
 
@@ -22,7 +21,7 @@ Azure DNS를 사용하면 DNS 영역을 호스트하고 Azure에서 도메인에
 
 ### <a name="domains-and-zones"></a>도메인 및 영역
 
-Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름이 단순히 '**.**'인 'root' 도메인에서 시작합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  이러한 최상위 수준 도메인 아래는 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인입니다.  방식으로 계속됩니다. DNS 계층 구조의 도메인은 별도의 DNS 영역을 사용하여 호스트됩니다. 이러한 영역은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스트됩니다.
+Domain Name System은 도메인 계층 구조입니다. 계층은 이름이 '**.**' 인 ' root ' 도메인에서 시작 합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  이러한 최상위 수준 도메인 아래는 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인입니다.  방식으로 계속됩니다. DNS 계층 구조의 도메인은 별도의 DNS 영역을 사용하여 호스트됩니다. 이러한 영역은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스트됩니다.
 
 **DNS 영역** - 도메인은 Domain Name System의 고유 이름입니다(예: 'contoso.com'). DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 여러 DNS 레코드를 포함할 수 있습니다.
 
@@ -39,7 +38,7 @@ DNS 서버에는 다음 두 가지 유형이 있습니다.
 
 Azure DNS는 권한이 있는 DNS 서비스를 제공합니다.  재귀 DNS 서비스를 제공하지 않습니다. Azure의 Cloud Services 및 VM은 자동으로 구성하여 Azure 인프라의 일부로 제공되는 재귀 DNS 서비스를 별도로 사용합니다. 이러한 DNS 설정을 변경하는 방법에 대한 정보는 [Azure에서 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조하세요.
 
-PC 또는 모바일 장치의 DNS 클라이언트는 일반적으로 재귀적 DNS 서버를 호출하여 클라이언트 애플리케이션에 필요한 DNS 쿼리를 수행합니다.
+PC 또는 모바일 디바이스의 DNS 클라이언트는 일반적으로 재귀적 DNS 서버를 호출하여 클라이언트 애플리케이션에 필요한 DNS 쿼리를 수행합니다.
 
 재귀적 DNS 서버는 'www.contoso.com'과 같은 DNS 레코드에 대한 쿼리를 받을 경우 먼저 'contoso.com' 도메인에 대한 영역을 호스트하는 이름 서버를 찾아야 합니다. 이름 서버를 찾으려면 루트 이름 서버에서 시작하여 'com' 영역을 호스트하는 이름 서버를 찾습니다. 그런 다음 'com' 이름 서버를 쿼리하여 'contoso.com' 영역을 호스트하는 이름 서버를 찾습니다.  끝으로, 이러한 이름 서버에 'www.contoso.com'을 쿼리할 수 있습니다.
 
@@ -67,5 +66,5 @@ PC 또는 모바일 장치의 DNS 클라이언트는 일반적으로 재귀적 D
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure DNS에 도메인을 위임](dns-delegate-domain-azure-dns.md)하는 방법을 알아봅니다.
+[Azure DNS에 도메인을 위임](dns-delegate-domain-azure-dns.md) 하는 방법을 알아봅니다.
 

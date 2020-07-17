@@ -1,27 +1,15 @@
 ---
-title: Azure CLI를 사용하여 Web App for Containers 관리 - Azure App Service | Microsoft Docs
-description: Azure CLI를 사용하여 Web App for Containers 관리
+title: CLI를 사용 하 여 사용자 지정 Linux 컨테이너 관리
+description: 명령줄에서 Azure App Service의 사용자 지정 Linux 컨테이너를 관리 하는 방법에 대해 알아봅니다. 앱 프로 비전 또는 유지 관리를 자동화 합니다.
 keywords: azure app service, 웹앱, cli, linux, oss
-services: app-service
-documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
-editor: ''
-ms.assetid: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 21f6963fbaada4524f27602454d38e7252a5e8b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5ca5322467402af710df68c82d747f8f8d65e142
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78255933"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Azure CLI를 사용하여 Web App for Containers 관리
 
@@ -63,9 +51,9 @@ az webapp log config -n sname -g rgname --web-server-logging filesystem
 az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 ```
 
-## <a name="using-docker-images-from-a-private-registry"></a>개인 레지스트리의 Docker 이미지 사용
+## <a name="using-docker-images-from-a-private-registry"></a>프라이빗 레지스트리의 Docker 이미지 사용
 
-개인 레지스트리의 이미지를 사용하도록 앱을 구성할 수 있습니다. 레지스트리, 사용자 이름 및 암호에 대한 URL을 제공해야 합니다. 이 작업은 다음 명령을 사용하여 수행할 수 있습니다.
+프라이빗 레지스트리의 이미지를 사용하도록 앱을 구성할 수 있습니다. 레지스트리, 사용자 이름 및 암호에 대한 URL을 제공해야 합니다. 이 작업은 다음 명령을 사용하여 수행할 수 있습니다.
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>

@@ -9,18 +9,17 @@ editor: ''
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513669"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에서 공유 또는 볼륨 백업
 
@@ -32,7 +31,7 @@ StorSimple Virtual Array는 파일 서버 또는 iSCSI 서버로 구성할 수 �
 
 ## <a name="back-up-shares-and-volumes"></a>공유 및 볼륨 백업
 
-Backup은 지정 시간 보호 기능을 제공하고, 복구 기능을 개선하며, 공유 및 볼륨의 복원 시간을 최소화합니다. 두 가지 방법으로 StorSimple 장치에서 공유 또는 볼륨을 백업할 수 있습니다. **예약** 나 **수동**합니다. 각 메서드는 다음 섹션에서 설명합니다.
+Backup은 지정 시간 보호 기능을 제공하고, 복구 기능을 개선하며, 공유 및 볼륨의 복원 시간을 최소화합니다. StorSimple 디바이스에서 공유 또는 볼륨을 두 가지 방법(**예약** 또는 **수동**)으로 백업할 수 있습니다. 각 메서드는 다음 섹션에서 설명합니다.
 
 ## <a name="change-the-backup-start-time"></a>백업 시작 시간 변경
 
@@ -86,7 +85,7 @@ StorSimple Virtual Array에는 하루 중 지정된 시간(22:30)에 시작하�
    
      ![백업 작업 세부 정보](./media/storsimple-virtual-array-backup/takebackup5m.png)
 
-4. 백업이 완료되면 **관리 > Backup 카탈로그**로 이동합니다. 디바이스에서 모든 공유 또는 볼륨의 클라우드 스냅숏을 확인합니다.
+4. 백업이 완료되면 **관리 > Backup 카탈로그**로 이동합니다. 디바이스에서 모든 공유 또는 볼륨의 클라우드 스냅샷을 확인합니다.
    
     ![백업 완료됨](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 

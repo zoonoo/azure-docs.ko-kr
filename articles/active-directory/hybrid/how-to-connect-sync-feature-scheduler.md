@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect 동기화: 스케줄러 | Microsoft Docs'
+title: 'Azure AD Connect 동기화: Scheduler | Microsoft Docs'
 description: 이 항목에서는 Azure AD Connect 동기화의 기본 제공 스케줄러 기능을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -9,22 +9,22 @@ editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139282"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146999"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: Scheduler
-이 항목에서는 Azure AD Connect 동기화 (동기화 엔진)의 기본 제공 스케줄러를 설명 합니다.
+이 항목에서는 Azure AD Connect sync (동기화 엔진)의 기본 제공 스케줄러에 대해 설명 합니다.
 
 이 기능은 빌드 1.1.105.0(2016년 2월에 발표됨)에서 도입되었습니다.
 
@@ -36,9 +36,17 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 스케줄러는 두 작업을 수행합니다.
 
 * **동기화 주기**. 변경 내용 가져오기, 동기화 및 내보내기 프로세스입니다.
-* **유지 관리 작업**. 암호 재설정 및 DRS(Device Registration Service)에 대한 키와 인증서를 갱신합니다. 작업 로그의 이전 항목을 삭제합니다.
+* **유지 관리 태스크**. 암호 재설정 및 DRS(Device Registration Service)에 대한 키와 인증서를 갱신합니다. 작업 로그의 이전 항목을 삭제합니다.
 
 스케줄러 자체가 항상 실행되지만 이러한 작업 중 하나만 실행되도록 구성하거나 하나도 실행되지 않도록 구성할 수 있습니다. 예를 들어 고유한 동기화 주기 프로세스가 필요한 경우 스케줄러에서 이 작업을 사용하지 않도록 설정할 수 있지만 유지 관리 작업은 여전히 실행됩니다.
+
+>[!IMPORTANT]
+>기본적으로 동기화 주기는 30 분 마다 실행 됩니다. 동기화 cycley를 수정한 경우 동기화 주기가 적어도 7 일 마다 한 번씩 실행 되는지 확인 해야 합니다. 
+>
+>* 델타 동기화는 마지막 델타 동기화 로부터 7 일 이내에 수행 되어야 합니다.
+>* 전체 동기화를 수행 하는 델타 동기화는 마지막 전체 동기화가 완료 된 시간부터 7 일 이내에 수행 되어야 합니다.
+>
+>이렇게 하지 않으면 동기화 문제가 발생할 수 있으며,이 경우 전체 동기화를 실행 하 여 해결 해야 합니다. 이는 준비 모드의 서버에도 적용 됩니다.
 
 ## <a name="scheduler-configuration"></a>Scheduler 구성
 현재 구성 설정을 보려면 PowerShell로 이동하고 `Get-ADSyncScheduler`를 실행합니다. 아래 그림과 같이 표시됩니다.
@@ -50,7 +58,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 * **AllowedSyncCycleInterval**. Azure AD에서 허용되는 동기화 주기 간의 가장 짧은 시간 간격입니다. 이 설정보다 더 자주 동기화할 수 없으며 계속 지원됩니다.
 * **CurrentlyEffectiveSyncCycleInterval**. 현재 적용 중인 일정입니다. AllowedSyncInterval보다 낮은 경우 CustomizedSyncInterval(설정된 경우)과 동일한 값을 갖습니다. 1.1.281 이전 빌드를 사용하고 CustomizedSyncCycleInterval을 변경한 경우 이 변경 내용은 다음 동기화 주기 후에 적용됩니다. 1.1.281 빌드의 경우 변경 내용은 즉시 적용됩니다.
 * **CustomizedSyncCycleInterval**. 스케줄러를 기본값 30분이 아닌 다른 빈도로 실행하려면 이 설정을 구성합니다. 위의 그림에서는 스케줄러가 1시간마다 실행되도록 설정되었습니다. 이 설정을 AllowedSyncInterval보다 낮은 값으로 설정하면 후자가 사용됩니다.
-* **NextSyncCyclePolicyType**. 델타 또는 초기입니다. 다음 실행 시 델타 변경만 처리할지 또는 전체 가져오기 및 동기화를 수행할지 여부를 정의합니다. 후자는 새 규칙 또는 변경된 규칙을 다시 처리하기도 합니다.
+* **NextSyncCyclePolicyType**. 델타 또는 초기입니다. 다음 실행에서 델타 변경 내용만 처리 하거나 다음 실행이 전체 가져오기 및 동기화를 수행 해야 하는지 여부를 정의 합니다. 또한 후자는 새로운 또는 변경 된 규칙을 다시 처리 합니다.
 * **NextSyncCycleStartTimeInUTC**. 스케줄러가 다음 동기화 주기를 시작하는 다음 시간입니다.
 * **PurgeRunHistoryInterval**. 작업 로그가 유지되어야 하는 시간입니다. 이러한 로그는 Synchronization Service Manager에서 검토할 수 있습니다. 기본값은 7일 동안 로그를 유지하는 것입니다.
 * **SyncCycleEnabled**. 스케줄러가 작업의 일부로 가져오기, 동기화 및 내보내기 프로세스를 실행 중인지 나타냅니다.
@@ -74,10 +82,10 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 구문: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
  d -일, HH - 시간, mm - 분, ss - 초
 
-예제: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
+예: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 3시간마다 실행되도록 스케줄러를 변경합니다.
 
-예제: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
+예: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
 매일 실행되도록 스케줄러를 변경합니다.
 
 ### <a name="disable-the-scheduler"></a>스케줄러 사용 안 함  
@@ -109,24 +117,24 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 
 즉시 동기화되어야 하는 긴급한 변경 사항이 있을 수 있습니다. 이것이 주기를 수동으로 실행해야 하는 이유입니다. 
 
-수동으로 동기화 주기를 실행 하는 PowerShell에서 다음 실행 해야 할 경우 `Start-ADSyncSyncCycle -PolicyType Delta`합니다.
+동기화 주기를 수동으로 실행 해야 하는 경우 PowerShell을 실행 `Start-ADSyncSyncCycle -PolicyType Delta` 합니다.
 
 전체 동기화 주기를 시작하려면 PowerShell 프롬프트에서 `Start-ADSyncSyncCycle -PolicyType Initial`을 실행합니다.   
 
-이 프로세스를 최적화 하는 방법을 알아보려면 다음 섹션을 참조에서 전체 동기화 주기 실행 많은 시간이 소요 될 수 있습니다.
+전체 동기화 주기를 실행 하는 데 시간이 많이 걸릴 수 있습니다 .이 프로세스를 최적화 하는 방법에 대 한 자세한 내용은 다음 섹션을 참조 하세요.
 
-### <a name="sync-steps-required-for-different-configuration-changes"></a>다른 구성 변경 하는 데 필요한 단계를 동기화 합니다.
-다른 구성 변경에는 변경 내용이 모든 개체에 올바르게 적용 되도록 다른 동기화 단계가 필요 합니다.
+### <a name="sync-steps-required-for-different-configuration-changes"></a>여러 구성 변경에 필요한 동기화 단계
+구성 변경 내용에 따라 모든 개체에 변경 내용이 올바르게 적용 되도록 다른 동기화 단계가 필요 합니다.
 
-- 더 많은 개체 및 (동기화 규칙을 추가/수정)에서 원본 디렉터리에서 가져올 특성 추가
-    - 원본 디렉터리에 대 한 커넥터에서 전체 가져오기는 필요
+- 동기화 규칙을 추가/수정 하 여 원본 디렉터리에서 가져올 개체 또는 특성을 추가 했습니다.
+    - 해당 원본 디렉터리에 대 한 커넥터에서 전체 가져오기가 필요 합니다.
 - 동기화 규칙 변경
-    - 변경 된 동기화 규칙에 대 한 커넥터에 전체 동기화가 필요
+    - 변경 된 동기화 규칙에 대 한 커넥터에서 전체 동기화가 필요 합니다.
 - 다른 수의 개체가 포함되도록 [필터링](how-to-connect-sync-configure-filtering.md) 변경
-    - 전체 가져오기는 커넥터에서 각 AD 커넥터에 대 한 사용 하는 경우 특성 기반 필터링에 따라 필요한 동기화 엔진에 이미 가져온 되는 특성
+    - 동기화 엔진으로 이미 가져오는 특성을 기반으로 특성 기반 필터링을 사용 하는 경우가 아니면 각 AD 커넥터용 커넥터에 전체 가져오기가 필요 합니다.
 
-### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>오른쪽 조합 델타 및 전체 동기화 단계를 실행 하는 동기화 주기를 사용자 지정
-전체 동기화 주기를 실행 하지 않으려면 다음 cmdlet을 사용 하 여 전체 단계를 실행 하는 특정 커넥터를 표시할 수 있습니다.
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>동기화 주기 사용자 지정 델타 및 전체 동기화 단계의 오른쪽 조합을 실행 합니다.
+전체 동기화 주기가 실행 되지 않도록 하려면 다음 cmdlet을 사용 하 여 특정 커넥터가 전체 단계를 실행 하도록 표시할 수 있습니다.
 
 `Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
 
@@ -134,13 +142,13 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 
 `Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
 
-예제:  다음 실행을 가져올 새 특성이 필요 하지 않은 "AD 포리스트 A" 커넥터에 대 한 동기화 규칙에 변경한 경우 델타 동기화를 실행 하는 cmdlet도 않았습니다 전체 동기화 단계는 커넥터에 대 한 순환 합니다.
+예: 새 특성을 가져올 필요가 없는 "AD 포리스트 A" 커넥터에 대 한 동기화 규칙을 변경한 경우 다음 cmdlet을 실행 하 여 델타 동기화 주기를 실행 하면 해당 커넥터에 대 한 전체 동기화 단계도 수행 됩니다.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
 
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
-예제:  변경한 경우 동기화 규칙 "AD 포리스트 A" 커넥터에 대 한 필요한 이제 새 특성을 가져올 수 있도록 전체 가져오기를 해당 커넥터에 대 한 전체 동기화 단계도 않았습니다는 델타 동기화 주기를 실행 하려면 다음 cmdlet을 실행 합니다.
+예: 이제 새 특성을 가져올 수 있도록 "AD 포리스트 A" 커넥터에 대 한 동기화 규칙을 변경한 경우 다음 cmdlet을 실행 하 여 해당 커넥터에 대 한 전체 가져오기, 전체 동기화 단계를 수행 하는 델타 동기화 주기를 실행 합니다.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
 
@@ -157,7 +165,7 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 동기화 주기를 실행 중일 때 구성을 변경할 수 없습니다. 스케줄러에서 프로세스를 완료할 때까지 기다릴 수 있지만 이를 중지하여 즉시 변경할 수도 있습니다. 현재 주기를 중지해도 나쁜 영향을 주지 않으며 변경 사항은 다음 실행 시 처리됩니다.
 
 1. 먼저 PowerShell cmdlet `Stop-ADSyncSyncCycle`을 사용하여 스케줄러가 현재 주기를 중지하도록 합니다.
-2. 1.1.281 이전 빌드를 사용 중인 경우 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 다음 작업을 수행합니다. ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. 1.1.281 이전 빌드를 사용 중인 경우 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png) 작업을 수행합니다.
    * 시작 메뉴에서 **동기화 서비스**를 시작합니다. **커넥터**로 이동하여 **실행** 상태인 커넥터를 강조 표시하고 작업에서 **중지**를 선택합니다.
 
 스케줄러가 아직 활성화되어 있으며 다음에 다시 시작합니다.

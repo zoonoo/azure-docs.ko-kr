@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: active-directory
 documentationcenter: dev-center-name
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: c2769282a2e9afda22d2e03c653b0f62b05b98bc
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: e52433cfae1e889f07818f582fc3aef0752932ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74482486"
 ---
-이 문서를 읽기 전에 다음 개념을 잘 알고 있어야 하거나 다음 문서를 참조 해야 합니다.
+이 문서를 읽기 전에 다음 개념에 대해 잘 알고 있어야 합니다.
 
-- [Microsoft id 플랫폼 개요](../articles/active-directory/develop/v2-overview.md)
+- [Microsoft ID 플랫폼 개요](../articles/active-directory/develop/v2-overview.md)
 - [인증 기본 사항](../articles/active-directory/develop/authentication-scenarios.md)
 - [대상 그룹](../articles/active-directory/develop/v2-supported-account-types.md)
 - [애플리케이션 및 서비스 주체](../articles/active-directory/develop/app-objects-and-service-principals.md)

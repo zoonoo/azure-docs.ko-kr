@@ -1,20 +1,15 @@
 ---
-title: Service Fabric Mesh에서 기존 .NET 앱 컨테이너화 | Microsoft Docs
-description: 기존 .NET 앱에 Mesh 지원 추가
-services: service-fabric-mesh
-keywords: Service Fabric Mesh 컨테이너화
+title: Service Fabric Mesh에서 기존 .NET 앱 컨테이너화
+description: 전체 .NET framework를 사용 하는 ASP.NET 및 콘솔 프로젝트에 Service Fabric 메시 컨테이너 오케스트레이션 지원을 추가 합니다.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: cb4e327e1c8c0a653cb94233f568b4847494c439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419449"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75462042"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Service Fabric Mesh에서 기존 .NET 앱 컨테이너화
 
@@ -25,7 +20,7 @@ Visual Studio 2017에서 전체 .NET Framework를 사용하는 ASP.NET 및 콘�
 > [!NOTE]
 > 현재 .NET **Core** 프로젝트가 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없으면 시작하기 전에 [무료 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
@@ -71,4 +66,4 @@ Service Fabric Mesh 애플리케이션 프로젝트를 솔루션에 추가합니
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric Mesh에 앱을 게시하는 방법을 참조하세요. [자습서 - Service Fabric Mesh 애플리케이션 배포](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+Service Fabric Mesh에 앱을 게시하는 방법은 [자습서 - Service Fabric Mesh 애플리케이션 배포](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)를 참조하세요.

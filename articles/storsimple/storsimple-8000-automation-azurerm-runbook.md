@@ -1,25 +1,17 @@
 ---
-title: Azure Automation Runbook을 사용하여 StorSimple 디바이스 관리 | Microsoft Docs
+title: Azure Automation Runbook을 사용 하 여 StorSimple 장치 관리
 description: Azure Automation Runbook을 사용하여 StorSimple 작업을 자동화하는 방법에 대한 자세한 정보
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 30d70bb7e1f868060e3b287a0cdfb117c585b9ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 737533cd75ebec8d5d6c614f496e0c9b552217aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310218"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514160"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Azure Automation Runbook을 사용하여 StorSimple 디바이스 관리
 
@@ -30,7 +22,7 @@ ms.locfileid: "60310218"
 
 이 섹션에서는 StorSimple에 대한 Windows PowerShell 스크립트를 예로 들어 스크립트를 Runbook으로 가져온 다음 Runbook을 게시 및 실행하는 데 필요한 여러 단계를 자세히 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -179,7 +171,7 @@ StorSimple 8000 시리즈 디바이스 관리를 위한 자동화 모듈을 만�
 
 ### <a name="import-publish-and-run-automation-runbook"></a>Automation Runbook 가져오기, 게시 및 실행
 
-1. Azure Portal에서 Azure 실행 자동화 계정을 만듭니다. 이렇게 하려면 **Azure Marketplace > 모두**로 이동한 다음 **자동화**를 검색합니다. **Automation 계정**을 선택합니다.
+1. Azure Portal에서 Azure 실행 자동화 계정을 만듭니다. 이렇게 하려면 **Azure Marketplace > 모두**로 이동한 다음 **자동화**를 검색합니다. **Automation 계정**을 선택 합니다.
 
     ![search-automation](./media/storsimple-8000-automation-azurerm-runbook/automation1.png)
 
@@ -196,7 +188,7 @@ StorSimple 8000 시리즈 디바이스 관리를 위한 자동화 모듈을 만�
 
       Automation 계정이 생성되면 알림이 표시됩니다. Automation 계정을 만드는 방법에 대한 자세한 내용은 [실행 계정 만들기](https://docs.microsoft.com/azure/automation/automation-create-runas-account)를 참조하세요.
 
-3. 생성된 Automation 계정이 StorSimple 디바이스 관리자 서비스에 액세스할 수 있는지 확인하려면 Automation 계정에 적절한 권한을 할당해야 합니다. StorSimple 디바이스 관리자 서비스의 **액세스 제어**로 이동합니다. **+ 추가**를 클릭하고 Azure Automation 계정의 이름을 입력합니다. 설정을 **저장**합니다.
+3. 생성된 Automation 계정이 StorSimple 디바이스 관리자 서비스에 액세스할 수 있는지 확인하려면 Automation 계정에 적절한 권한을 할당해야 합니다. StorSimple 디바이스 관리자 서비스의 **액세스 제어**로 이동합니다. **+ 추가**를 클릭하고 Azure Automation 계정의 이름을 입력합니다. 설정을 **저장** 합니다.
 
     ![add-permissions-automation-account](./media/storsimple-8000-automation-azurerm-runbook/goto-add-roles.png)
 
@@ -214,7 +206,7 @@ StorSimple 8000 시리즈 디바이스 관리를 위한 자동화 모듈을 만�
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Runbook을 편집하고 **테스트 창**을 클릭합니다. StorSimple 디바이스 관리자 서비스 이름, StorSimple 디바이스 이름, 구독 등의 매개 변수를 제공합니다. 테스트를 **시작**합니다. 실행이 완료되면 보고서가 생성됩니다. 자세한 내용은 [Runbook을 테스트하는 방법](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook)을 참조하세요.
+8. Runbook을 편집 하 고 **테스트 창**을 클릭 합니다. StorSimple 디바이스 관리자 서비스 이름, StorSimple 디바이스 이름, 구독 등의 매개 변수를 제공합니다. 테스트를 **시작**합니다. 실행이 완료되면 보고서가 생성됩니다. 자세한 내용은 runbook을 테스트 하 [는 방법](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook)을 참조 하세요.
 
     ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 

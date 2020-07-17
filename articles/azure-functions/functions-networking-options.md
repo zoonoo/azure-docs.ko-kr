@@ -1,109 +1,156 @@
 ---
-title: Azure 네트워킹 옵션 함수
-description: Azure Functions에서 사용 가능한 모든 네트워킹 옵션의 개요
-services: functions
+title: Azure Functions 네트워킹 옵션
+description: Azure Functions에서 사용할 수 있는 모든 네트워킹 옵션에 대한 개요입니다.
 author: alexkarcher-msft
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117229"
 ---
-# <a name="azure-functions-networking-options"></a>Azure 네트워킹 옵션 함수
+# <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
-이 문서에서는 Azure Functions에 대 한 호스팅 옵션에서 사용할 수 있는 네트워킹 기능을 설명합니다. 다음과 같은 네트워킹 옵션의 모든 인터넷 라우팅 가능 주소를 사용 하지 않고 리소스에 액세스 하거나 함수 앱에 대 한 인터넷 액세스를 제한 하는 일부 기능을 제공 합니다. 
+이 문서에서는 Azure Functions에 대한 호스팅 옵션에서 사용할 수 있는 네트워킹 기능을 설명합니다. 다음 네트워킹 옵션을 통해 인터넷 라우팅 가능한 주소를 사용하지 않고 리소스에 액세스하거나 함수 앱에 대한 인터넷 액세스를 제한할 수 있습니다.
 
-호스팅 모델은 서로 다른 수준의 네트워크 격리를 사용할 수 있는 경우 올바른 선택 네트워크 격리 요구 사항을 충족 하는 데 도움이 됩니다.
+호스팅 모델은 서로 다른 수준의 네트워크 격리를 사용할 수 있습니다. 올바른 격리를 선택하면 네트워크 격리 요구 사항을 충족할 수 있습니다.
 
-여러 가지 방법으로 함수 앱을 호스트할 수 있습니다.
+다음 두 가지 방법으로 함수 앱을 호스트할 수 있습니다.
 
-* 다양 한 수준의 가상 네트워크 연결 및 확장 옵션을 사용 하 여 다중 테 넌 트 인프라를에서 실행 되는 계획 옵션의 집합이 있는:
-    * 합니다 [소비 계획](functions-scale.md#consumption-plan), 부하에 동적으로 조정 하며 최소한의 네트워크 격리 옵션을 제공 합니다.
-    * 합니다 [프리미엄 요금제](functions-scale.md#premium-plan-public-preview), 또한 확장 되는 동적으로 보다 포괄적인 네트워크 격리를 제공 하는 동안.
-    * Azure [App Service 계획](functions-scale.md#app-service-plan), 고정된 크기에서 작동 하며 프리미엄 요금제에 유사한 네트워크 격리를 제공 합니다.
-* 함수를 실행할 수 있습니다는 [App Service Environment](../app-service/environment/intro.md)합니다. 이 메서드는 가상 네트워크에 함수를 배포 하 고 전체 네트워크 제어 및 격리를 제공 합니다.
+* 다양한 수준의 가상 네트워크 연결 및 확장 옵션을 사용하여 다중 테넌트 인프라에서 실행되는 요금제 옵션 중에서 선택할 수 있습니다.
+    * [사용 계획](functions-scale.md#consumption-plan)은 부하에 대응하여 동적으로 확장되고 최소한의 네트워크 격리 옵션을 제공합니다.
+    * [프리미엄 계획](functions-scale.md#premium-plan)은 동적으로 확장되고 보다 포괄적인 네트워크 격리를 제공합니다.
+    * Azure [App Service 계획](functions-scale.md#app-service-plan)은 고정된 규모에서 작동하며 프리미엄 계획과 비슷한 네트워크 격리를 제공합니다.
+* [App Service Environment](../app-service/environment/intro.md)에서 함수를 실행할 수 있습니다. 이 메서드는 가상 네트워크에 함수를 배포하고 전체 네트워크 제어 및 격리를 제공합니다.
 
 ## <a name="matrix-of-networking-features"></a>네트워킹 기능 매트릭스
 
-|                |[소비 계획](functions-scale.md#consumption-plan)|[프리미엄 계획 (미리 보기)](functions-scale.md#premium-plan-public-preview)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
-|----------------|-----------|----------------|---------|-----------------------|  
-|[인바운드 IP 제한](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[아웃 바운드 IP 제한](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-|[가상 네트워크 통합](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[가상 네트워크 통합 미리 보기 (Azure ExpressRoute 및 서비스 끝점의 아웃 바운드)](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
-|[VNet](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[개인 사이트 액세스](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ## <a name="inbound-ip-restrictions"></a>인바운드 IP 제한
 
-우선 순위에 따른 IP 주소 목록을 허용/거부 된 앱에 대 한 액세스를 정의 하려면 IP 제한을 사용할 수 있습니다. 목록에는 IPv4 및 IPv6 주소를 포함할 수 있습니다. 하나 이상의 항목의 경우 목록 끝에 있는 암시적 "모두 거부"입니다. IP 제한은 모든 함수 호스팅 옵션을 사용 하 여 작동합니다.
+IP 제한을 사용하여 앱 액세스가 허용 또는 거부되는 IP 주소의 목록을 우선 순위대로 정의할 수 있습니다. 목록에는 IPv4 및 IPv6 주소가 포함될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 "모두 거부"가 표시됩니다. IP 제한은 모든 함수 호스팅 옵션에서 작동합니다.
 
 > [!NOTE]
-> Azure portal 편집기를 사용 하려면 포털을 실행 중인 함수 앱에 직접 액세스할 수 있어야 합니다. 또한 포털에 액세스 하려면 사용 중인 장치에 해당 IP 허용 목록에 있어야 합니다. 네트워크 제한 사항이 사용 하 여 액세스할 수 있습니다 기능에는 **플랫폼 기능** 탭 합니다.
+> 네트워크 제한을 사용하는 경우 가상 네트워크 내에서만 포털 편집기를 사용하거나, 사용 중인 컴퓨터의 IP 주소를 안전 수신자 목록의 Azure Portal에 액세스하는 데 사용할 수 있습니다. 하지만 모든 컴퓨터에서 **플랫폼 기능** 탭에 있는 기능에 액세스할 수 있습니다.
 
-자세한 내용은 참조 하세요 [Azure App Service에 정적 액세스 제한](../app-service/app-service-ip-restrictions.md)합니다.
+자세히 알아보려면 [Azure App Service 정적 액세스 제한](../app-service/app-service-ip-restrictions.md)을 참조하세요.
 
-## <a name="outbound-ip-restrictions"></a>아웃 바운드 IP 제한
+## <a name="private-site-access"></a>프라이빗 사이트 액세스
 
-아웃 바운드 IP 제한만 App Service Environment에 배포 하는 함수에 대 한 제공 됩니다. App Service Environment를 배포할 가상 네트워크에 대 한 아웃 바운드 제한을 구성할 수 있습니다.
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
 ## <a name="virtual-network-integration"></a>가상 네트워크 통합
 
-가상 네트워크 통합 함수 앱을 가상 네트워크 내의 리소스에 액세스할 수 있습니다. 이 기능은 프리미엄 요금제와 App Service 계획에서 사용할 수 있습니다. App Service Environment의 앱 인 경우 가상 네트워크를 이미 있고 동일한 가상 네트워크의 리소스를 연결할 가상 네트워크 통합을 사용 하 여 필요 하지 않습니다.
+가상 네트워크 통합을 사용하면 함수 앱이 가상 네트워크 내의 리소스에 액세스할 수 있습니다.
+Azure Functions는 두 종류의 가상 네트워크 통합을 지원합니다.
 
-가상 네트워크 통합 가상 네트워크의 리소스에 함수 앱 액세스를 부여 하지만 허용 하지 않습니다 [개인 사이트 액세스](#private-site-access) 가상 네트워크에서 함수 앱으로 합니다.
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
-앱에서 데이터베이스 및 가상 네트워크에서 실행 되는 웹 서비스에 액세스할 수 있도록 가상 네트워크 통합을 사용할 수 있습니다. 가상 네트워크 통합을 사용 하 여 VM의 응용 프로그램에 대 한 공개 끝점을 노출할 필요가 없습니다. 개인, 비 인터넷 라우팅 가능 주소를 대신 사용할 수 있습니다.
+Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 인프라를 사용합니다. 가상 네트워크 통합의 두 유형을 자세히 알아보려면 다음을 참조하세요.
 
-Virtual network 통합의 일반 공급 버전 함수 앱을 가상 네트워크에 연결 하는 VPN gateway에 의존 합니다. App Service 계획에서 호스트 하는 함수에 제공 됩니다. 이 기능을 구성 하는 방법에 알아보려면 참조 [Azure virtual network와 앱 통합](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration)합니다.
+* [지역 가상 네트워크 통합](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
+* [게이트웨이 필요 가상 네트워크 통합](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-### <a name="preview-version-of-virtual-network-integration"></a>가상 네트워크 통합 미리 보기 버전
+가상 네트워크 통합을 설정하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크에 함수 앱 통합](functions-create-vnet.md)을 참조하세요.
 
-새 버전의 가상 네트워크 통합 기능이 미리 보기로 제공에서 됩니다. 지점-사이트 간 VPN에 종속 되지 않기입니다. ExpressRoute에서 리소스에 액세스를 지원 또는 서비스 끝점입니다. PremiumV2를 확장 하는 App Service 계획 및 프리미엄 요금제에서 제공 됩니다.
+## <a name="regional-virtual-network-integration"></a>지역 가상 네트워크 통합
 
-다음은이 버전의 일부 특성입니다.
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
-* 게이트웨이를 사용할 필요가 없습니다.
-* ExpressRoute가 연결된 가상 네트워크와의 통합을 제외하고는 추가 구성 없이 ExpressRoute 연결을 통해 리소스에 액세스할 수 있습니다.
-* 함수 실행 리소스 서비스 끝점 보호를 사용할 수 있습니다. 이렇게 하려면 가상 네트워크 통합을 위해 사용 하는 서브넷에서 서비스 끝점을 사용 하도록 설정 합니다.
-* 서비스 끝점 보안 리소스를 사용 하는 트리거를 구성할 수 없습니다. 
-* 함수 앱 및 가상 네트워크 모두 동일한 지역에 있어야 합니다.
-* 새로운 기능에는 Azure Resource Manager를 통해 배포 된 가상 네트워크에 서브넷을 사용 하지 않는 필요 합니다.
-* 기능 미리 보기 상태인 동안에 프로덕션 워크 로드 지원 되지 않습니다.
-* 경로 테이블 및 전역 피어 링 아직 사용할 수 없는 기능을 사용 하 여 합니다.
-* 함수 앱의 잠재적인 인스턴스마다 하나의 주소 사용 됩니다. 할당 후 서브넷 크기를 변경할 수 없으므로, 최대 배율 크기를 쉽게 지원할 수 있는 서브넷을 사용 합니다. 예를 들어, 80 인스턴스로 확장할 수 있는 프리미엄 계획을 지원 하려면 것이 좋습니다는 `/25` 126 호스트 주소를 제공 하는 서브넷입니다.
+## <a name="connect-to-service-endpoint-secured-resources"></a>서비스 엔드포인트 보안 리소스에 연결
 
-가상 네트워크 통합 미리 보기 버전을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요 [Azure virtual network를 사용 하 여 함수 앱을 통합](functions-create-vnet.md)합니다.
+높은 수준의 보안을 제공하기 위해 서비스 엔드포인트를 사용하여 여러 Azure 서비스를 가상 네트워크로 제한할 수 있습니다. 그런 다음 해당 가상 네트워크와 함수 앱을 통합하여 리소스에 액세스해야 합니다. 이 구성은 가상 네트워크 통합을 지원하는 모든 계획에서 지원됩니다.
+
+자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
+
+## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한
+
+함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 현재 이 계정에 대한 가상 네트워크 제한을 사용할 수 없습니다. 함수 앱에 사용하는 스토리지 계정에서 가상 네트워크 서비스 엔드포인트를 구성하는 경우 해당 구성은 앱을 중단합니다.
+
+자세한 내용은 [스토리지 계정 요구 사항](./functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
+
+## <a name="use-key-vault-references"></a>Key Vault 참조 사용
+
+Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions 애플리케이션에서 Azure Key Vault의 비밀을 사용할 수 있습니다. Azure Key Vault는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다.
+
+현재 서비스 엔드포인트로 Ket Vault가 보호되지 않는 경우 [Key Vault 참조](../app-service/app-service-key-vault-references.md)가 작동하지 않습니다. 가상 네트워크 통합을 사용하여 Key Vault에 연결하려면 애플리케이션 코드에서 Key Vault를 호출해야 합니다.
+
+## <a name="virtual-network-triggers-non-http"></a>가상 네트워크 트리거(비 HTTP)
+
+현재 다음 두 가지 방법 중 하나로 가상 네트워크 내에서 비 HTTP 트리거 함수를 사용할 수 있습니다.
+
++ 프리미엄 계획에서 함수 앱을 실행하고 가상 네트워크 트리거 지원을 사용 설정합니다.
++ App Service 계획 또는 App Service Environment에서 함수 앱을 실행합니다.
+
+### <a name="premium-plan-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용하는 프리미엄 계획
+
+프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **가상 네트워크 트리거 지원** 설정은 **구성** > **함수 런타임 설정**의 [Azure Portal](https://portal.azure.com)에서 확인할 수 있습니다.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+다음 Azure CLI 명령을 사용하여 가상 네트워크 트리거를 사용하도록 설정할 수도 있습니다.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
+
+가상 네트워크 트리거는 Functions 런타임의 버전 2.x 이상에서 지원됩니다. 다음과 같은 비 HTTP 트리거 형식이 지원됩니다.
+
+| 내선 번호 | 최소 버전 |
+|-----------|---------| 
+|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 이상 |
+|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 이상|
+|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 이상|
+|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 이상|
+|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 이상|
+
+> [!IMPORTANT]
+> 가상 네트워크 트리거 지원을 사용하도록 설정하면 이전 표에 표시된 트리거 유형만 애플리케이션을 사용하여 동적으로 확장됩니다. 표에 없는 트리거는 계속 사용할 수 있지만 예열된 인스턴스 수 이상으로 크기가 조정되지 않습니다. 트리거의 전체 목록은 [트리거 및 바인딩](./functions-triggers-bindings.md#supported-bindings)을 참조하세요.
+
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용하는 App Service 계획 및 App Service Environment
+
+함수 앱이 App Service 계획 또는 App Service Environment에서 실행되는 경우 비 HTTP 트리거 함수를 사용할 수 있습니다. 함수가 올바르게 트리거되려면 트리거 연결에 정의된 리소스에 대한 액세스 권한이 있는 가상 네트워크에 연결되어야 합니다.
+
+예를 들어 가상 네트워크의 트래픽만 허용하도록 Azure Cosmos DB를 구성하고자 한다고 가정하겠습니다. 이 경우 해당 가상 네트워크에 가상 네트워크 통합을 제공하는 App Service 계획에 함수 앱을 배포해야 합니다. 통합을 사용하면 해당 Azure Cosmos DB 리소스에서 함수를 트리거할 수 있습니다.
 
 ## <a name="hybrid-connections"></a>하이브리드 연결
 
-[하이브리드 연결](../service-bus-relay/relay-hybrid-connections-protocol.md) 다른 네트워크의 응용 프로그램 리소스에 액세스 하는 데 사용할 수 있는 Azure Relay의 기능입니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 응용 프로그램 액세스에 사용할 수 없습니다. 하이브리드 연결이에서 실행 되는 함수에 사용할 수는 [App Service 계획](functions-scale.md#app-service-plan) 와 [App Service Environment](../app-service/environment/intro.md)합니다.
+[하이브리드 연결](../service-bus-relay/relay-hybrid-connections-protocol.md)은 다른 네트워크의 애플리케이션에 액세스하는 데 사용할 수 있는 Azure Relay의 기능입니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 이를 사용하여 애플리케이션 액세스할 수 없습니다. 하이브리드 연결은 사용 계획을 제외한 Windows에서 실행되는 함수에서 사용할 수 있습니다.
 
-Azure Functions를 사용 하는 대로 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합에 상호 연결 합니다. 즉, 모든 운영 체제 및 모든 응용 프로그램에 하이브리드 연결 끝점 수 있는 TCP 수신 대기 포트에 액세스할 때는으로 합니다. 하이브리드 연결 기능 알고 또는 응용 프로그램 프로토콜이 무엇 인지 또는 액세스 하는 중 처리 하지 않습니다. 네트워크 액세스를 제공 하기만 하면 됩니다.
+Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합에 상호 연결됩니다. 즉, TCP 수신 대기 포트에 액세스하는 한, 하이브리드 연결 엔드포인트는 모든 운영 체제 및 모든 애플리케이션에 있을 수 있습니다. 하이브리드 연결 기능은 애플리케이션 프로토콜이 무엇인지 또는 사용자가 무엇에 액세스하고 있는지 인식하거나 상관하지 않습니다. 네트워크 액세스만 제공합니다.
 
-자세한 내용은 참조는 [하이브리드 연결에 대 한 App Service 설명서](../app-service/app-service-hybrid-connections.md), App Service 계획에서 함수를 지 합니다.
+자세한 내용은 [하이브리드 연결 관련 App Service 설명서](../app-service/app-service-hybrid-connections.md)를 참조하세요. 동일한 구성 단계는 Azure Functions를 지원합니다.
 
-## <a name="private-site-access"></a>개인 사이트 액세스
+>[!IMPORTANT]
+> 하이브리드 연결은 Windows 플랜에서만 지원됩니다. Linux는 지원되지 않습니다.
 
-개인 사이트 액세스 로부터 개인 네트워크와 같은 Azure virtual network 내 에서만에서 액세스할 수 있는 앱을 만드는 가리킵니다. 
-* 개인 사이트 액세스는 프리미엄 및 App Service에서 사용할 수 있는 시점을 계획 **서비스 끝점** 구성 됩니다. 자세한 내용은 참조 하세요. [virtual network 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * 서비스 끝점을 사용 하 여 함수 여전히에 인터넷에 대 한 모든 아웃 바운드 액세스도 구성 하는 VNET 통합을 사용 하 여 염두에 두어야 합니다.
-* 개인 사이트 액세스는 내부 부하 분산 장치 (ILB)를 사용 하 여 구성 된 App Service Environment에만 사용할 수 있습니다. 자세한 내용은 [만들기 및 App Service Environment를 사용 하 여 내부 부하 분산 장치를 사용 하 여](../app-service/environment/create-ilb-ase.md)입니다.
+## <a name="outbound-ip-restrictions"></a>아웃바운드 IP 제한
 
-여러 가지 방법으로 다른 호스팅 옵션에 대 한 가상 네트워크 리소스에 액세스할 수 있습니다. 하지만 App Service Environment 가상 네트워크를 통해 발생 하는 함수에 대 한 트리거를 허용 하는 유일한 방법은 됩니다.
+아웃바운드 IP 제한은 프리미엄 계획, App Service 계획 또는 App Service Environment에서 사용할 수 있습니다. App Service Environment가 배포되는 가상 네트워크에 대한 아웃바운드 제한을 구성할 수 있습니다.
+
+프리미엄 계획 또는 App Service 계획에서 함수 앱과 가상 네트워크를 통합하는 경우 앱에서 기본적으로 인터넷에 아웃바운드 호출을 수행할 수 있습니다. 애플리케이션 설정 `WEBSITE_VNET_ROUTE_ALL=1`을 추가하여 모든 아웃바운드 트래픽이 트래픽 제한에 네트워크 보안 그룹 규칙을 사용할 수 있는 가상 네트워크로 전송되도록 합니다.
+
+## <a name="automation"></a>Automation
+다음 Api를 사용 하면 프로그래밍 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
+
++ **Azure CLI**: [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 지역 가상 네트워크 통합을 추가, 나열 또는 제거 하는 명령을 사용 합니다.  
++ **ARM 템플릿**: 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정할 수 있습니다. 전체 예제는 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조 하세요.
+
+## <a name="troubleshooting"></a>문제 해결
+
+[!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
 ## <a name="next-steps"></a>다음 단계
-네트워킹 및 Azure Functions에 대 한 자세한 내용을 보려면: 
 
-* [가상 네트워크 통합을 사용 하 여 시작 하는 방법에 대 한 자습서를 수행 합니다.](./functions-create-vnet.md)
-* [읽기 네트워킹 FAQ 함수](./functions-networking-faq.md)
-* [가상 네트워크 통합 된 앱 서비스/기능에 자세히 알아보기](../app-service/web-sites-integrate-with-vnet.md)
-* [Azure에서 가상 네트워크에 자세히 알아보기](../virtual-network/virtual-networks-overview.md)
-* [추가 네트워킹 기능 및 App Service Environment를 사용 하 여 컨트롤을 사용 하도록 설정](../app-service/environment/intro.md)
-* [하이브리드 연결을 사용 하 여 방화벽 변경 없이 개별 온-프레미스 리소스에 연결](../app-service/app-service-hybrid-connections.md)
+네트워킹 및 Azure Functions에 대한 자세한 내용은 다음을 확인하세요.
+
+* [가상 네트워크 통합 시작하기에 관한 자습서 따라하기](./functions-create-vnet.md)
+* [Functions 네트워킹 FAQ 참조하기](./functions-networking-faq.md)
+* [App Service/Functions와 가상 네트워크 통합에 대해 자세히 알아보기](../app-service/web-sites-integrate-with-vnet.md)
+* [Azure의 가상 네트워크에 대해 자세히 알아보기](../virtual-network/virtual-networks-overview.md)
+* [App Service Environment로 제어 및 네트워킹 기능 활성화](../app-service/environment/intro.md)
+* [하이브리드 연결을 사용하여 방화벽 변경 없이 개별 온-프레미스 리소스에 연결](../app-service/app-service-hybrid-connections.md)

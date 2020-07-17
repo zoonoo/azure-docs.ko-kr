@@ -3,29 +3,27 @@ title: Azure(대규모 인스턴스)의 SAP HANA 인증 | Microsoft Docs
 description: Azure(대규모 인스턴스)에 있는 SAP HANA의 인증입니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: jeconnoc
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15de566d756d6b0f7719eabf74ee9c7ac66659d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2a02f0e1b05b9de8105126d1c9e4e3f79057285f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794002"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77617219"
 ---
 # <a name="certification"></a>인증
 
 NetWeaver 인증 외에도, SAP에서는 Azure IaaS와 같은 특정 인프라에서 SAP HANA를 지원하기 위해 SAP HANA에 대한 특수한 인증을 요구합니다.
 
-SAP Note 및 SAP HANA 인증과 더불어 NetWeaver에서 핵심은 [SAP Note #1928533 – Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533)합니다.
+NetWeaver에 대 한 핵심 SAP Note 및 SAP HANA 인증에 대 한 자세한 내용은 [Sap note #1928533 – azure의 sap 응용 프로그램: 지원 제품 및 AZURE VM 유형](https://launchpad.support.sap.com/#/notes/1928533)을 참조 하세요.
 
 SAP HANA on Azure 인증 레코드(대형 인스턴스) 단위는 [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 사이트에서 제공합니다. 
 

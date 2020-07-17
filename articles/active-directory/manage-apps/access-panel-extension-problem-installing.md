@@ -1,27 +1,27 @@
 ---
-title: 애플리케이션 액세스 패널 브라우저 확장 설치 - Azure | Microsoft Docs
+title: 응용 프로그램 액세스 패널 브라우저 확장 설치-Azure AD
 description: 액세스 패널 브라우저 확장을 설치할 때 발생하는 일반적인 오류를 해결합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 5/4/2018
-ms.author: mimart
+ms.topic: troubleshooting
+ms.date: 05/04/2018
+ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1973bc647b0e3c7fc453009f638b770e171132fc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2046c24220079a604792d07f3ebc3f6ef11e9c8a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84761088"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
@@ -37,7 +37,7 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
 
 암호 기반 SSO에는 다음 브라우저 중 하나를 사용할 수 있습니다.
 
-- **Microsoft Edge**: Windows 10 Anniversary Edition 이상 
+- **Microsoft Edge**: Windows 10 기념일 Edition 이상 
 - **Chrome**: Windows 7 이상 및 MacOS X 이상
 - **Firefox 26.0 이상**: Windows XP SP2 이상 및 Mac OS X 10.6 이상
 
@@ -63,7 +63,7 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
 또한 Chrome 및 Microsoft Edge 확장은 다음 사이트에서 직접 다운로드할 수도 있습니다.
 
 - [Chrome 확장](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Microsoft Edge 확장](https://www.microsoft.com/en-us/p/my-apps-secure-sign-in-extension/9pc9sckkzk84)
 - [Firefox 확장](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>My Apps 보안 로그인 확장 사용
@@ -89,8 +89,8 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
        마지막으로 사용한 세 개의 앱이 **최근에 사용한 항목** 바로 가기 목록에 표시됩니다.
        
 * 원격으로 회사 내부 URL을 사용하려면 다음을 수행합니다.
-    1. 테넌트에 [애플리케이션 프록시 구성](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable)
-    2. 애플리케이션 프록시를 통해 [애플리케이션 및 URL 게시](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal)
+    1. 테 넌 트에서 [응용 프로그램 프록시 구성](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable)
+    2. 응용 프로그램 프록시를 통해 [응용 프로그램](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) 및 URL 게시
     3. 확장을 설치하고, 시작하려면 로그인을 선택하여 확장에 로그인
     4. 이제 원격으로도 내부 회사 URL로 이동할 수 있습니다.
 

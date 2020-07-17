@@ -1,22 +1,17 @@
 ---
-title: Oracle 데이터베이스에 연결 - Azure Logic Apps | Microsoft Docs
+title: Oracle 데이터베이스에 연결
 description: Oracle 데이터베이스 REST API 및 Azure Logic Apps로 레코드 삽입 및 관리
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 03/29/2017
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: estfan, logicappspm
+ms.topic: article
+ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 06f65aef203b4f0d765f21b9d17b90081de85c94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453618"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836280"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
 
@@ -25,9 +20,16 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 * 고객 데이터베이스에 새 고객을 추가하거나 주문 데이터베이스에서 주문을 업데이트하여 워크플로를 작성합니다.
 * 데이터의 행을 가져오고, 새 행을 삽입하고, 삭제하는 작업을 사용합니다. 예를 들어 Dynamics CRM Online에서 레코드가 만들어지면(트리거) Oracle 데이터베이스에 행을 삽입합니다(작업). 
 
+이 커넥터는 다음 항목을 지원하지 않습니다.
+
+* 보기 
+* 복합 키가 있는 모든 테이블
+* 테이블의 중첩된 개체 유형
+* 스칼라가 아닌 값을 사용하는 데이터베이스 함수
+
 이 아티클에서는 논리 앱에서 Oracle 데이터베이스 커넥터를 사용하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 지원되는 Oracle 버전: 
     * Oracle 9 이상
@@ -76,7 +78,7 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. 다음 단계에서는 다른 커넥터를 사용하여 워크플로를 작성할 수 있습니다. Oracle에서 데이터 가져오기를 테스트하려면 전자 메일 보내기 커넥터(예: Office 365 또는 Gmail) 중 하나를 사용하여 Oracle 데이터가 포함된 전자 메일을 직접 보냅니다. Oracle 테이블의 동적 토큰을 사용하여 전자 메일의 `Subject` 및 `Body`을 작성합니다.
+7. 다음 단계에서는 다른 커넥터를 사용하여 워크플로를 작성할 수 있습니다. Oracle에서 데이터 가져오기를 테스트하려면 이메일 보내기 커넥터(예: Office 365 또는 Outlook) 중 하나를 사용하여 Oracle 데이터가 포함된 이메일을 직접 보냅니다. Oracle 테이블의 동적 토큰을 사용하여 전자 메일의 `Subject` 및 `Body`을 작성합니다.
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
@@ -85,7 +87,7 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 ### <a name="workflow-ideas"></a>워크플로 아이디어
 
-*  \#oracle 해시 태그를 모니터하고 데이터베이스에 트윗을 배치하여 다른 애플리케이션 내에서 사용하고 쿼리할 수 있도록 하려고 합니다. 논리 앱에서 `Twitter - When a new tweet is posted` 트리거를 추가하고 **#oracle** 해시 태그를 입력합니다. 그런 다음 `Oracle Database - Insert row` 작업을 추가하고 테이블을 선택합니다.
+* \#oracle 해시 태그를 모니터하고 데이터베이스에 트윗을 배치하여 다른 애플리케이션 내에서 사용하고 쿼리할 수 있도록 하려고 합니다. 논리 앱에서 `Twitter - When a new tweet is posted` 트리거를 추가하고 **#oracle** 해시 태그를 입력합니다. 그런 다음 `Oracle Database - Insert row` 작업을 추가하고 테이블을 선택합니다.
 
     ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
@@ -101,7 +103,7 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 **해결 방법**: 게이트웨이가 설치되어 있는 온-프레미스 컴퓨터에서 실행 중이며 인터넷에 연결할 수 있는지 확인합니다.  꺼져 있거나 절전 모드 상태일 수 있는 컴퓨터에는 게이트웨이를 설치하지 않는 것이 좋습니다. 온-프레미스 데이터 게이트웨이 서비스(PBIEgwService)를 다시 시작할 수도 있습니다.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**오류**: 사용 중인 공급자는 더 이상 사용되지 않습니다. 'System.Data.OracleClient에는 Oracle 클라이언트 소프트웨어 버전 8.1.7 이상이 필요합니다.'. [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376)을 참조하여 공식 공급자를 설치합니다.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**오류**: 사용 중인 공급자는 더 이상 사용되지 않습니다. 'System.Data.OracleClient에는 Oracle 클라이언트 소프트웨어 버전 8.1.7 이상이 필요합니다.'. [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376)을 참조하여 공식 공급자를 설치합니다.
 
 **원인**: 온-프레미스 데이터 게이트웨이가 실행 중인 컴퓨터에 Oracle 클라이언트 SDK가 설치되지 않았습니다.  
 
@@ -112,12 +114,6 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 **원인**: 테이블에 기본 키가 없습니다.  
 
 **해결 방법**: Oracle Database 커넥터에는 기본 키 열이 있는 테이블을 사용해야 합니다.
-
-#### <a name="currently-not-supported"></a>현재 지원되지 않음
-
-* 뷰 
-* 복합 키가 있는 모든 테이블
-* 테이블의 중첩된 개체 유형
  
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
@@ -125,10 +121,10 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 ## <a name="get-some-help"></a>도움 받기
 
-[Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)에서는 질문하고, 질문에 답변하고, 다른 Logic Apps 사용자가 어떤 일을 하는지 확인할 수 있습니다. 
+[Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)에서 질문하고, 질문에 답변하고, 다른 Logic Apps 사용자가 수행 중인 작업을 확인할 수 있습니다. 
 
 [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)에서 투표하고 아이디어를 제출해 주시면 Logic Apps 및 커넥터를 개선하는 데 도움이 될 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱을 만들고](../logic-apps/quickstart-create-first-logic-app-workflow.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 커넥터를 탐색합니다.
+[논리 앱을 만들고](../logic-apps/quickstart-create-first-logic-app-workflow.md)[API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 커넥터를 탐색합니다.

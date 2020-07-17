@@ -1,5 +1,5 @@
 - name: Bing Image Search API 설명서
-  href: index.yml
+  href: ../bing-web-search/index.yml
 - name: 개요
   expanded: true
   items:
@@ -26,14 +26,8 @@
           href: quickstarts/ruby.md
     - name: SDK)
       items:
-        - name: 'C# 사용'
-          href: image-search-sdk-quickstart.md
-        - name: Node.js 사용
-          href: image-search-sdk-node-quickstart.md
-        - name: Python 사용
-          href: image-sdk-python-quickstart.md
-        - name: Java 사용
-          href: image-sdk-java-quickstart.md
+        - name: Bing Image Search 클라이언트 라이브러리
+          href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 이미지 검색 웹 애플리케이션 빌드
@@ -52,10 +46,12 @@
       href: gif-images.md
     - name: 최신 이미지 가져오기
       href: trending-images.md
-    - name: 이미지의 페이지 표시
-      href: paging-images.md
+    - name: 검색 결과 페이징
+      maintainContext: true
+      href: ../bing-web-search/paging-search-results.md
     - name: 크기 조정 및 자르기 썸네일
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: v5에서 v7로 업그레이드
       href: bing-image-upgrade-guide-v5-to-v7.md
 - name: 개념
@@ -64,12 +60,12 @@
       href: concepts/bing-image-search-get-images.md
     - name: 검색 쿼리 보내기 및 사용
       href: concepts/bing-image-search-sending-queries.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Image Search API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference'
     - name: Bing Image Search API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference'
     - name: Azure PowerShell 참조
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
     - name: Azure CLI 참조
@@ -78,12 +74,12 @@
       items:
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet'
-        - name: 자바
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/imagesearch?view=azure-java-stable'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python'
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/imagesearch?view=azure-node-latest'
+          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-imagesearch/?view=azure-node-latest'
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch'
     - name: Bing 사용 및 표시 요구 사항
@@ -93,7 +89,7 @@
   items:
     - name: FAQ
       href: bing-image-search-resource-faq.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
@@ -111,7 +107,10 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
     - name: Bing Image Search 엔드포인트
       href: image-search-endpoint.md
-    - name: 언어 및 지역 지원
+    - name: 언어 지원
       href: language-support.md
     - name: Bing Image Search API에 대한 분석
-      href: bing-image-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

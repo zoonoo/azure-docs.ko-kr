@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704984"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -32,7 +31,7 @@ NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 �
 
 인터넷에서 포트 80을 통해 VM에 연결하려고 하지만 연결에 실패합니다. 인터넷에서 포트 80에 액세스할 수 없는 이유를 확인하기 위해 Azure [Portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) 또는 [Azure CLI](#diagnose-using-azure-cli)를 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 볼 수 있습니다.
 
-다음 단계는 효과적인 보안 규칙을 볼 수 있는 기존 VM이 있다고 가정합니다. 기존 VM이 없는 경우 먼저 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM을 배포하여 이 문서의 작업과 함께 완료합니다. 이 아티클에 있는 예제는 *myVMVMNic*라는 네트워크 인터페이스가 있는 *myVM*이라는 VM에 대한 것입니다. VM 및 네트워크 인터페이스는 *myResourceGroup*이라는 리소스 그룹에 있고, *미국 동부* 영역에 있습니다. 해당 단계에서 문제를 진단하는 VM에 대해 적절히 값을 변경합니다.
+다음 단계는 효과적인 보안 규칙을 볼 수 있는 기존 VM이 있다고 가정합니다. 기존 VM이 없는 경우 먼저 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM을 배포하여 이 아티클의 작업을 완료합니다. 이 아티클에 있는 예제는 *myVMVMNic*라는 네트워크 인터페이스가 있는 *myVM*이라는 VM에 대한 것입니다. VM 및 네트워크 인터페이스는 *myResourceGroup*이라는 리소스 그룹에 있고, *미국 동부* 영역에 있습니다. 해당 단계에서 문제를 진단하는 VM에 대해 적절히 값을 변경합니다.
 
 ## <a name="diagnose-using-azure-portal"></a>Azure Portal을 사용하여 진단
 
@@ -79,9 +78,9 @@ NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령 또는 컴퓨터에서 PowerShell을 사용하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 해야 Azure PowerShell 모듈 버전 1.0.0 이상. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Connect-AzAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우 `Connect-AzAccount` [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 Azure에 로그인 하려면도 실행 해야 합니다.
 
-네트워크 인터페이스에 대 한 유효 보안 규칙 가져오기 [Get AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)합니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다.
+[AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)를 사용 하 여 네트워크 인터페이스에 대 한 유효 보안 규칙을 가져옵니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -103,7 +102,7 @@ $VM.NetworkProfile
 
 다음 예제와 유사한 출력이 표시됩니다.
 
-```powershell
+```output
 NetworkInterfaces
 -----------------
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
@@ -115,7 +114,7 @@ NetworkInterfaces
 
 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 아티클에서는 Azure CLI 버전 2.0.32 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 `az login`를 실행하고 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
-[az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)를 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다.
+[az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)를 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 있는 *Myvmvmnic* 라는 네트워크 인터페이스에 대 한 유효 보안 규칙을 가져옵니다.
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -138,7 +137,7 @@ az vm show \
 
 반환된 출력 내에 다음 예제와 비슷한 정보가 나타납니다.
 
-```azurecli
+```output
 "networkProfile": {
     "additionalProperties": {},
     "networkInterfaces": [
@@ -168,14 +167,14 @@ az vm show \
 
 이 문서의 [시나리오](#scenario)에 제공된 문제를 진단하기 위해 Azure [Portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) 또는 [Azure CLI](#diagnose-using-azure-cli)를 사용하는지 여부에 따라 솔루션은 다음 속성을 사용하여 네트워크 보안 규칙을 만드는 것입니다.
 
-| 자산                | 값                                                                              |
+| 속성                | 값                                                                              |
 |---------                |---------                                                                           |
 | 원본                  | 모두                                                                                |
 | 원본 포트 범위      | 모두                                                                                |
 | 대상             | VM의 IP 주소, IP 주소의 범위 또는 서브넷에 있는 모든 주소입니다. |
 | 대상 포트 범위 | 80                                                                                 |
-| Protocol                | TCP                                                                                |
-| 액션(Action)                  | 허용                                                                              |
+| 프로토콜                | TCP                                                                                |
+| 작업                  | Allow                                                                              |
 | 우선 순위                | 100                                                                                |
 | 이름                    | Allow-HTTP-All                                                                     |
 
@@ -183,7 +182,7 @@ az vm show \
 
 Azure에서 인바운드 트래픽을 처리할 때 서브넷에 연결된 NSG의 규칙을 처리한 다음(연결된 NSG가 있는 경우), 네트워크 인터페이스에 연결된 NSG의 규칙을 처리합니다. 네트워크 인터페이스와 서브넷에 연결된 NSG가 있는 경우 포트는 VM에 도달하는 트래픽에 대해 두 NSG에서 열려야 합니다. 관리 및 통신 문제를 완화하려면 개별 네트워크 인터페이스가 아닌 서브넷에 NSG를 연결하는 것이 좋습니다. 서브넷 내의 VM에 다른 보안 규칙이 필요한 경우 ASG(애플리케이션 보안 그룹)의 네트워크 인터페이스 멤버를 만들고, ASG를 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. [애플리케이션 보안 그룹](security-overview.md#application-security-groups)에 대해 자세히 알아봅니다.
 
-여전히 통신 문제가 있는 경우 [고려할 사항](#considerations) 및 추가 진단을 참조하세요.
+여전히 통신 문제가 있는 경우 [고려 사항](#considerations) 및 추가 진단을 참조 하세요.
 
 ## <a name="considerations"></a>고려 사항
 

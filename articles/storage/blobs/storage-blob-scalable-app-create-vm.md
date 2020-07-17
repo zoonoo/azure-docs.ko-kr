@@ -1,30 +1,27 @@
 ---
-title: Azure에서 확장 가능한 애플리케이션에 필요한 VM 및 저장소 계정 만들기 | Microsoft Docs
+title: Azure에서 확장 가능한 애플리케이션에 대한 VM 및 스토리지 계정 만들기
 description: Azure Blob Storage를 사용하여 확장 가능한 애플리케이션을 실행하는 데 사용할 VM을 배포하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: a5b6c22b3917784b20ad11bddf200d1546c48597
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 60bb227af7cc886bb35cbd045cc8a27cf82ae903
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882872"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75372281"
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 애플리케이션에 필요한 가상 머신 및 저장소 계정 만들기
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 애플리케이션에 필요한 가상 머신 및 스토리지 계정 만들기
 
-이 자습서는 시리즈의 1부입니다. 이 자습서에서는 Azure Storage 계정으로 대량의 임의 데이터를 업로드하고 다운로드하는 애플리케이션을 배포하는 방법을 설명합니다. 이 자습서를 마치면 대량의 데이터를 저장소 계정으로 업로드하고 다운로드하는 가상 머신에서 실행되는 콘솔 애플리케이션이 생깁니다.
+이 자습서는 시리즈의 1부입니다. 이 자습서에서는 Azure Storage 계정으로 대량의 임의 데이터를 업로드하고 다운로드하는 애플리케이션을 배포하는 방법을 설명합니다. 이 자습서를 마치면 대량의 데이터를 스토리지 계정으로 업로드하고 다운로드하는 가상 머신에서 실행되는 콘솔 애플리케이션이 생깁니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 저장소 계정 만들기
+> * 스토리지 계정 만들기
 > * 가상 머신 만들기
 > * 사용자 지정 스크립트 확장 구성
 
@@ -32,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
@@ -44,7 +41,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
  
 이 샘플은 Azure Storage 계정의 Blob 컨테이너에 50개의 대용량 파일을 업로드합니다. 스토리지 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. 만든 리소스 그룹에 [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount) 명령을 사용하여 스토리지 계정을 만듭니다.
 
@@ -60,7 +57,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-가상 머신 구성을 만듭니다. 이 구성은 가상 컴퓨터 이미지, 크기 및 인증 구성 등 가상 컴퓨터를 배포할 때 사용되는 설정을 포함합니다. 이 단계를 실행할 때 자격 증명을 묻는 메시지가 나타납니다. 입력하는 값은 가상 머신에 대한 사용자 이름 및 암호로 구성됩니다.
+가상 머신 구성을 만듭니다. 이 구성은 가상 머신 이미지, 크기 및 인증 구성 등 가상 머신을 배포할 때 사용되는 설정을 포함합니다. 이 단계를 실행할 때 자격 증명을 묻는 메시지가 나타납니다. 입력하는 값은 가상 머신에 대한 사용자 이름 및 암호로 구성됩니다.
 
 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 가상 머신을 만듭니다.
 
@@ -126,14 +123,14 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈의 1부에서는 다음을 수행하는 방법과 같이 저장소 계정을 만들고, 가상 머신을 배포하고, 가상 머신에서 필수 구성 요소를 구성하는 방법에 대해 알아보았습니다.
+시리즈의 1부에서는 다음을 수행하는 방법과 같이 스토리지 계정을 만들고, 가상 머신을 배포하고, 가상 머신에서 필수 구성 요소를 구성하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 저장소 계정 만들기
+> * 스토리지 계정 만들기
 > * 가상 머신 만들기
 > * 사용자 지정 스크립트 확장 구성
 
-시리즈의 2부로 이동하여 지수 다시 시도와 병렬 처리를 사용하여 저장소 계정으로 대량의 데이터를 업로드합니다.
+시리즈의 2부로 이동하여 지수 다시 시도와 병렬 처리를 사용하여 스토리지 계정으로 대량의 데이터를 업로드합니다.
 
 > [!div class="nextstepaction"]
-> [저장소 계정에 대량의 대용량 파일을 병렬로 업로드](storage-blob-scalable-app-upload-files.md)
+> [스토리지 계정에 대량의 대용량 파일을 병렬로 업로드](storage-blob-scalable-app-upload-files.md)

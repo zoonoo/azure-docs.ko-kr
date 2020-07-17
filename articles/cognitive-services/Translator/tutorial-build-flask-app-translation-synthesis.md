@@ -1,21 +1,22 @@
 ---
-title: '자습서: 텍스트를 번역, 합성 및 분석하는 Flask 앱 만들기 - Translator Text API'
+title: '자습서: 텍스트를 번역, 합성 및 분석하는 Flask 앱 빌드 - Translator'
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 Azure Cognitive Services를 사용하여 텍스트를 번역하고 감정을 분석하고 번역된 텍스트를 음성으로 합성하는 Flask 기반 웹앱을 만듭니다. 주된 초점은 애플리케이션을 사용할 수 있게 해주는 Python 코드 및 Flask 경로입니다. 앱을 제어하는 Javascript에 많은 시간을 소비하지 않으려고 하지만, 모든 파일을 제공하므로 원할 경우 검사할 수 있습니다.
+description: 이 자습서에서는 Flask 기반 웹앱을 빌드하여 텍스트를 번역하고, 감정을 분석하고 번역된 텍스트를 음성으로 합성합니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.author: erhopf
-ms.openlocfilehash: 69e6797e91fc645e3bd3e3b300cea6852a662214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/26/2020
+ms.author: swmachan
+ms.custom: tracking-python
+ms.openlocfilehash: b70ac801765461401a7bfa1d2f251fb41176dccb
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59007461"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232766"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>자습서: Azure Cognitive Services를 사용하여 Flask 앱 만들기
 
@@ -27,7 +28,7 @@ ms.locfileid: "59007461"
 > * Azure 구독 키 받기
 > * 개발 환경 설정 및 종속성 설치
 > * Flask 앱 만들기
-> * Translator Text API를 사용하여 텍스트 번역
+> * Translator를 사용하여 텍스트 번역
 > * Text Analytics를 사용하여 입력 텍스트 및 번역에 대한 긍정적/부정적 감정 분석
 > * Speech Services를 사용하여 번역된 텍스트를 합성된 음성으로 변환
 > * 로컬에서 Flask 앱 실행
@@ -44,7 +45,7 @@ Flask는 웹 애플리케이션을 만들기 위한 마이크로 프레임워크
 * [Flask 설명서](http://flask.pocoo.org/)
 * [Flask for Dummies - 초보자용 Flask 가이드](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 위해 필요한 소프트웨어 및 구독 키를 살펴보겠습니다.
 
@@ -52,14 +53,14 @@ Flask는 웹 애플리케이션을 만들기 위한 마이크로 프레임워크
 * [Git 도구](https://git-scm.com/downloads)
 * IDE 또는 [Visual Studio Code](https://code.visualstudio.com/)나 [Atom](https://atom.io/) 같은 텍스트 편집기  
 * [Chrome](https://www.google.com/chrome/browser/) 또는 [Firefox](https://www.mozilla.org/firefox)
-* **Translator Text** 구독 키(지역을 선택할 필요는 없습니다.)
+* **Translator** 구독 키(지역을 선택할 필요는 없습니다.)
 * **미국 서부** 지역의 **Text Analytics** 구독 키.
 * **미국 서부** 지역의 **Speech Services** 구독 키.
 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>계정 만들기 및 리소스 구독
 
 앞에서 설명한 대로 이 자습서를 실행하려면 구독 키 3개가 필요합니다. 즉, Azure 계정 내에 다음을 위한 리소스를 만들어야 합니다.
-* Translator Text
+* 변환기
 * 텍스트 분석
 * Speech Services
 
@@ -106,7 +107,7 @@ Flask 웹앱을 만들기 전에 프로젝트용 작업 디렉터리를 만들�
    | 플랫폼 | 셸 | 명령 |
    |----------|-------|---------|
    | macOS/Linux | bash/zsh | `source venv/bin/activate` |
-   |  Windows | bash | `source venv/Scripts/activate` |
+   | Windows | bash | `source venv/Scripts/activate` |
    | | 명령줄 | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
@@ -128,7 +129,7 @@ Requests는 HTTP 1.1 요청을 보내는 데 사용되는 인기 있는 모듈�
    ```
 
 > [!NOTE]
-> Requests에 대해 자세히 알아보려면 [Requests: 사용자를 위한 HTTP](http://docs.python-requests.org/en/master/)를 참조하세요.
+> Requests에 대해 자세히 알아보려면 [Requests: 사용자를 위한 HTTP](https://2.python-requests.org/en/master/)를 참조하세요.
 
 ### <a name="install-and-configure-flask"></a>Flask 설치 및 구성
 
@@ -144,7 +145,7 @@ Requests는 HTTP 1.1 요청을 보내는 데 사용되는 인기 있는 모듈�
    ```
    터미널에 버전이 표시될 것입니다. 다른 내용이 표시되면 문제가 발생했음을 의미합니다.
 
-2. Flask 앱을 실행하려면 Flask에서 flask 명령 또는 Python의 -m 스위치를 사용할 수 있습니다. `FLASK_APP` 환경 변수를 내보내서 작동할 앱을 터미널에 지시해야 그렇게 할 수 있습니다.
+2. Flask 앱을 실행하려면 Flask에서 flask 명령 또는 Python의 -m 스위치를 사용하면 됩니다. `FLASK_APP` 환경 변수를 내보내서 작동할 앱을 터미널에 지시해야 그렇게 할 수 있습니다.
 
    **macOS/Linux**:
    ```
@@ -245,14 +246,14 @@ def about():
 
 이제 간단한 Flask 앱의 작동 원리를 파악했으므로 다음 단계로 넘어가겠습니다.
 
-* Translator Text API를 호출하고 응답을 반환하는 몇몇 Python 작성
+* Translator를 호출하고 응답을 반환하는 몇 가지 Python 작성
 * Python 코드를 호출하는 Flask 경로 만들기
 * 텍스트 입력 및 번역 영역, 언어 선택, 그리고 번역 단추를 사용하여 HTML 업데이트
 * 사용자가 HTML에서 Flask 앱과 상호 작용할 수 있게 해주는 Javascript 작성
 
-### <a name="call-the-translator-text-api"></a>Translator Text API 호출
+### <a name="call-the-translator"></a>Translator 호출
 
-가장 먼저 해야 할 일은 Translator Text API를 호출하는 함수를 작성하는 것입니다. 이 함수는 `text_input` 및 `language_output` 두 인수를 사용합니다. 이 함수는 사용자가 앱에서 번역 단추를 누를 때마다 호출됩니다. HTML의 텍스트 영역은 `text_input`으로 전송되며, HTML의 언어 선택 값은 `language_output`으로 전송됩니다.
+가장 먼저 해야 할 일은 Translator를 호출하는 함수를 작성하는 것입니다. 이 함수는 `text_input` 및 `language_output` 두 인수를 사용합니다. 이 함수는 사용자가 앱에서 번역 단추를 누를 때마다 호출됩니다. HTML의 텍스트 영역은 `text_input`으로 전송되며, HTML의 언어 선택 값은 `language_output`으로 전송됩니다.
 
 1. 먼저 작업 디렉터리의 루트에 `translate.py`라는 파일을 만들어 보겠습니다.
 2. 다음으로, 이 코드를 `translate.py`에 추가합니다. 이 함수는 `text_input` 및 `language_output` 두 인수를 사용합니다.
@@ -262,7 +263,8 @@ def about():
    # Don't forget to replace with your Cog Services subscription key!
    # If you prefer to use environment variables, see Extra Credit for more info.
    subscription_key = 'YOUR_TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
-
+   
+   # Don't forget to replace with your Cog Services location!
    # Our Flask route will supply two arguments: text_input and language_output.
    # When the translate text button is pressed in our Flask app, the Ajax request
    # will grab these values from our web app, and use them in the request.
@@ -275,6 +277,7 @@ def about():
 
        headers = {
            'Ocp-Apim-Subscription-Key': subscription_key,
+           'Ocp-Apim-Subscription-Region': 'location',
            'Content-type': 'application/json',
            'X-ClientTraceId': str(uuid.uuid4())
        }
@@ -286,7 +289,7 @@ def about():
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Translator Text 구독 키를 추가하고 저장합니다.
+3. Translator 구독 키를 추가하고 저장합니다.
 
 ### <a name="add-a-route-to-apppy"></a>`app.py`에 경로 추가
 
@@ -467,7 +470,7 @@ flask run
 제공된 서버 주소로 이동합니다. 입력 영역에 텍스트를 입력하고 언어를 선택하고 번역을 누릅니다. 번역문이 표시될 것입니다. 표시되지 않는다면 구독 키를 추가했는지 확인하십시오.
 
 > [!TIP]
-> 변경한 내용이 표시되지않거나 앱이 예상한 방법으로 작동하지 않는 경우 캐시를 지우거나 개인/incognito 창을 열어 보십시오.
+> 변경한 내용이 표시되지않거나 앱이 예상한 방법으로 작동하지 않는 경우 캐시를 지우거나 프라이빗/incognito 창을 열어 보십시오.
 
 **CTRL + C**를 눌러 앱을 종료한 다음, 다음 섹션으로 이동합니다.
 
@@ -653,7 +656,7 @@ flask run
 제공된 서버 주소로 이동합니다. 입력 영역에 텍스트를 입력하고 언어를 선택하고 번역을 누릅니다. 번역문이 표시될 것입니다. 다음으로, 감정 분석 실행 단추를 누릅니다. 두 개의 점수가 표시될 것입니다. 표시되지 않는다면 구독 키를 추가했는지 확인하십시오.
 
 > [!TIP]
-> 변경한 내용이 표시되지않거나 앱이 예상한 방법으로 작동하지 않는 경우 캐시를 지우거나 개인/incognito 창을 열어 보십시오.
+> 변경한 내용이 표시되지않거나 앱이 예상한 방법으로 작동하지 않는 경우 캐시를 지우거나 프라이빗/incognito 창을 열어 보십시오.
 
 **CTRL + C**를 눌러 앱을 종료한 다음, 다음 섹션으로 이동합니다.
 
@@ -778,10 +781,10 @@ Flask 앱에 `synthesize.py`를 호출하는 경로를 만들어 보겠습니다
        <option value="(zh-CN, Kangkang, Apollo)">Chinese (Mainland) | Male | Kangkang, Apollo</option>
        <option value="(zh-HK, Tracy, Apollo)">Chinese (Hong Kong)| Female | Tracy, Apollo</option>
        <option value="(zh-HK, Danny, Apollo)">Chinese (Hong Kong) | Male | Danny, Apollo</option>
-       <option value="(zh-TW, Yating, Apollo)">Chinese (Taiwan)| Female | Yaiting, Apollo</option>
+       <option value="(zh-TW, Yating, Apollo)">Chinese (Taiwan)| Female | Yating, Apollo</option>
        <option value="(zh-TW, Zhiwei, Apollo)">Chinese (Taiwan) | Male | Zhiwei, Apollo</option>
        <option value="(hr-HR, Matej)">Croatian | Male | Matej</option>
-       <option value="(en-US, Jessa24kRUS)">English (US) | Female | Jessa24kRUS</option>
+       <option value="(en-US, AriaRUS)">English (US) | Female | AriaRUS</option>
        <option value="(en-US, Guy24kRUS)">English (US) | Male | Guy24kRUS</option>
        <option value="(en-IE, Sean)">English (IE) | Male | Sean</option>
        <option value="(fr-FR, Julie, Apollo)">French | Female | Julie, Apollo</option>
@@ -798,7 +801,7 @@ Flask 앱에 `synthesize.py`를 호출하는 경로를 만들어 보겠습니다
        <option value="(it-IT, Cosimo, Apollo)">Italian | Male | Cosimo, Apollo</option>
        <option value="(ja-JP, Ichiro, Apollo)">Japanese | Male | Ichiro</option>
        <option value="(ja-JP, HarukaRUS)">Japanese | Female | HarukaRUS</option>
-       <option value="(ko-KR, HeamiRUS)">Korean | Female | Haemi</option>
+       <option value="(ko-KR, HeamiRUS)">Korean | Female | Heami</option>
        <option value="(pt-BR, HeloisaRUS)">Portuguese (Brazil) | Female | HeloisaRUS</option>
        <option value="(pt-BR, Daniel, Apollo)">Portuguese (Brazil) | Male | Daniel, Apollo</option>
        <option value="(pt-PT, HeliaRUS)">Portuguese (Portugal) | Female | HeliaRUS</option>
@@ -952,7 +955,7 @@ flask run
 제공된 서버 주소로 이동합니다. 입력 영역에 텍스트를 입력하고 언어를 선택하고 번역을 누릅니다. 번역문이 표시될 것입니다. 다음으로, 음성을 선택한 다음, 텍스트 음성 변환 단추를 누릅니다. 번역문이 합성된 음성으로 재생될 것입니다. 표시되지 않는다면 구독 키를 추가했는지 확인하십시오.
 
 > [!TIP]
-> 변경한 내용이 표시되지않거나 앱이 예상한 방법으로 작동하지 않는 경우 캐시를 지우거나 개인/incognito 창을 열어 보십시오.
+> 변경한 내용이 표시되지않거나 앱이 예상한 방법으로 작동하지 않는 경우 캐시를 지우거나 프라이빗/incognito 창을 열어 보십시오.
 
 끝났습니다. 이제 번역을 수행하고 감정을 분석하고 음성을 합성하는 제대로 작동하는 앱을 갖게 되었습니다. **Ctrl + C**를 눌러 앱을 종료합니다. 다른 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)도 꼭 확인해 보세요.
 
@@ -962,6 +965,6 @@ flask run
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Translator Text API 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Translator 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
 * [텍스트 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 * [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)

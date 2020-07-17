@@ -1,22 +1,17 @@
 ---
 title: Azure Monitor 리소스 그룹 인사이트 | Microsoft Docs
 description: Azure Monitor를 사용하여 리소스 그룹 수준에서 분산 애플리케이션 및 서비스의 상태 및 성능 이해
-services: azure-monitor
-author: NumberByColors
-manager: carmonm
-ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.subservice: ''
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.author: daviste
-ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119424"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798135"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 
@@ -42,7 +37,7 @@ Azure Resource Health를 표시하려면 표 위에 있는 **Azure Resource Heal
 
 ![리소스 상태 그래프가 추가된 스크린샷](./media/resource-group-insights/0003-overview.png)
 
-기본적으로 리소스는 앱 계층 및 리소스 종류별로 그룹화됩니다. **앱 계층**은 리소스 그룹 인사이트 개요 페이지의 컨텍스트 내에서만 존재하는 리소스 종류의 간단한 분류 입니다. 애플리케이션 코드, 계산 인프라, 네트워킹, 스토리지 + 데이터베이스와 관련된 리소스 종류가 있습니다. 관리 도구에는 자체 앱 계층이 있으며 다른 모든 리소스는 **기타** 앱 계층으로 분류됩니다. 이러한 그룹화는 애플리케이션에서 정상 및 비정상 상태의 하위 시스템을 일목요연하게 확인하는 데 도움이 될 수 있습니다.
+기본적으로 리소스는 앱 계층 및 리소스 종류별로 그룹화됩니다. **앱 계층**은 리소스 그룹 인사이트 개요 페이지의 컨텍스트 내에서만 존재하는 리소스 종류의 간단한 분류 입니다. 애플리케이션 코드, 컴퓨팅 인프라, 네트워킹, 스토리지 + 데이터베이스와 관련된 리소스 종류가 있습니다. 관리 도구에는 자체 앱 계층이 있으며 다른 모든 리소스는 **기타** 앱 계층으로 분류됩니다. 이러한 그룹화는 애플리케이션에서 정상 및 비정상 상태의 하위 시스템을 일목요연하게 확인하는 데 도움이 될 수 있습니다.
 
 ## <a name="diagnose-issues-in-your-resource-group"></a>리소스 그룹의 문제 진단
 
@@ -121,6 +116,6 @@ Azure Monitor for Resource Groups는 Azure Monitor 경고 관리 시스템을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Azure Monitor 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)

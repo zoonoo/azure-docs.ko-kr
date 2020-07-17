@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705052"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>가상 머신 라우팅 문제 진단
 
@@ -30,19 +29,15 @@ ms.locfileid: "64730501"
 
 VM에 연결하려고 하지만 연결에 실패합니다. VM에 액세스할 수 없는 이유를 확인하기 위해 Azure [Portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) 또는 [Azure CLI](#diagnose-using-azure-cli)를 사용하여 네트워크 인터페이스에 대한 유효 경로를 볼 수 있습니다.
 
-다음 단계에서는 유효 경로를 볼 수 있는 기존 VM이 있다고 가정합니다. 기존 VM이 없는 경우 먼저 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM을 배포하여 이 아티클의 작업을 완료합니다. 이 아티클에 있는 예제는 *myVMVMNic*라는 네트워크 인터페이스가 있는 *myVM*이라는 VM에 대한 것입니다. VM 및 네트워크 인터페이스는 *myResourceGroup*이라는 리소스 그룹에 있고, *미국 동부* 영역에 있습니다. 해당 단계에서 문제를 진단하는 VM에 대해 적절히 값을 변경합니다.
+다음 단계에서는 유효 경로를 볼 수 있는 기존 VM이 있다고 가정합니다. 기존 VM이 없는 경우 먼저 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM을 배포하여 이 아티클의 작업을 완료합니다. 이 문서의 예제는 이름이 *myVMNic1*인 네트워크 인터페이스를 사용 하 여 *MYVM* 이라는 vm에 대 한 것입니다. VM 및 네트워크 인터페이스는 *myResourceGroup*이라는 리소스 그룹에 있고, *미국 동부* 영역에 있습니다. 해당 단계에서 문제를 진단하는 VM에 대해 적절히 값을 변경합니다.
 
 ## <a name="diagnose-using-azure-portal"></a>Azure Portal을 사용하여 진단
 
 1. [필요한 권한](virtual-network-network-interface.md#permissions)이 있는 Azure 계정으로 Azure [Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure Portal 맨 위에 있는 검색 상자에 실행 중 상태인 VM의 이름을 입력합니다. 검색 결과에 VM의 이름이 나타나면 선택합니다.
-3. 다음 그림에 표시된 대로 **문제 진단 및 해결**을 선택한 다음, **권장 단계** 아래에서 7항목의 **유효 경로**를 선택합니다.
-
-    ![유효한 경로 보기](./media/diagnose-network-routing-problem/view-effective-routes.png)
-
-4. **myVMVMNic**라는 네트워크 인터페이스의 유효 경로는 다음 그림과 같습니다.
-
-     ![유효한 경로 보기](./media/diagnose-network-routing-problem/effective-routes.png)
+3. 왼쪽의 **설정** 에서 **네트워킹**을 선택 하 고 이름을 선택 하 여 네트워크 인터페이스 리소스로 이동 합니다.
+     ![네트워크 인터페이스 보기](./media/diagnose-network-routing-problem/view-nics.png)
+4. 왼쪽에서 **유효 경로**를 선택 합니다. **MyVMNic1** 이라는 네트워크 인터페이스에 대 한 유효 경로는 다음 그림에 표시 됩니다. ![ 유효 경로 보기](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
     VM에 연결된 여러 네트워크 인터페이스가 있는 경우 선택하여 모든 네트워크 인터페이스에 대한 유효 경로를 볼 수 있습니다. 각 네트워크 인터페이스가 다른 서브넷에 있을 수 있으므로 각 네트워크 인터페이스의 유효 경로는 다를 수 있습니다.
 
@@ -56,13 +51,13 @@ VM에 연결하려고 하지만 연결에 실패합니다. VM에 액세스할 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령 또는 컴퓨터에서 PowerShell을 사용하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 해야 Azure PowerShell 모듈 버전 1.0.0 이상. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Connect-AzAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Connect-AzAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
-네트워크 인터페이스에 대 한 유효 경로 가져옵니다 [Get AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)합니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 유효 경로를 가져옵니다.
+[AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)를 사용 하 여 네트워크 인터페이스에 대 한 유효 경로를 가져옵니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 있는 *myVMNic1*이라는 네트워크 인터페이스에 대 한 유효 경로를 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `
-  -NetworkInterfaceName myVMVMNic `
+  -NetworkInterfaceName myVMNic1 `
   -ResourceGroupName myResourceGroup `
   | Format-Table
 ```
@@ -82,20 +77,20 @@ $VM.NetworkProfile
 ```powershell
 NetworkInterfaces
 -----------------
-{/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
+{/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic1
 ```
 
-이전 출력에서 네트워크 인터페이스 이름은 *myVMVMNic*입니다.
+이전 출력에서 네트워크 인터페이스 이름은 *myVMNic1*입니다.
 
 ## <a name="diagnose-using-azure-cli"></a>Azure CLI를 사용하여 진단
 
 [Azure Cloud Shell](https://shell.azure.com/bash) 뒤에 오는 명령 또는 컴퓨터에서 CLI를 사용하여 실행할 수 있습니다. 이 아티클에서는 Azure CLI 버전 2.0.32 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 `az login`를 실행하고 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
-[az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)을 사용하여 네트워크 인터페이스에 대한 유효 경로를 가져옵니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 유효 경로를 가져옵니다.
+[az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)을 사용하여 네트워크 인터페이스에 대한 유효 경로를 가져옵니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 있는 *myVMNic1* 이라는 네트워크 인터페이스에 대 한 유효 경로를 가져옵니다.
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
-  --name myVMVMNic \
+  --name myVMNic1 \
   --resource-group myResourceGroup
 ```
 
@@ -118,7 +113,7 @@ az vm show \
 - 사용자 지정 경로를 포함하는 경로 테이블이 네트워크 인터페이스가 있는 서브넷에 연결되었는지 확인합니다. [서브넷에 경로 테이블을 연결하는](manage-route-table.md#associate-a-route-table-to-a-subnet) 방법을 알아봅니다.
 - 배포한 Azure VPN Gateway 또는 네트워크 가상 어플라이언스가 작동할 수 있는지 확인합니다. Network Watcher의 [VPN 진단](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 기능을 사용하여 Azure VPN Gateway에 발생한 문제를 확인합니다.
 
-여전히 통신 문제가 있는 경우 [고려할 사항](#considerations) 및 추가 진단을 참조하세요.
+여전히 통신 문제가 있는 경우 [고려 사항](#considerations) 및 추가 진단을 참조 하세요.
 
 ## <a name="considerations"></a>고려 사항
 
@@ -129,7 +124,7 @@ az vm show \
 - 0.0.0.0/0에 대한 경로를 만든 경우 모든 아웃바운드 인터넷 트래픽은 NVA 또는 VPN Gateway 등 사용자가 지정한 다음 홉으로 라우팅됩니다. 이러한 경로 생성을 흔히 강제 터널링이라고 합니다. 다음 홉이 트래픽을 처리하는 방법에 따라 인터넷에서 VM으로 RDP 또는 SSH 프로토콜을 사용하는 원격 연결은 이 경로에서 작동하지 않을 수 있습니다. 다음과 같이 강제 터널링을 사용하도록 설정할 수 있습니다.
     - 사이트 간 VPN을 사용하는 경우 *VPN Gateway*라는 다음 홉 형식을 사용하여 경로를 만듭니다. [강제 터널링을 구성](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대해 자세히 알아봅니다.
     - 사이트 간 VPN 또는 ExpressRoute 회로를 사용할 때 가상 네트워크 게이트웨이를 통해 BGP에 0.0.0.0/0(기본 경로)을 보급하는 경우입니다. [사이트 간 VPN](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ip-addresses-used-for-azure-private-peering)에서 BGP를 사용하는 방법을 자세히 알아봅니다.
-- 가상 네트워크 피어링 트래픽이 제대로 작동하려면 피어링된 가상 네트워크의 접두사 범위에 대해 *VNet 피어링*이라는 다음 홉 형식의 시스템 경로가 존재해야 합니다. 이러한 경로가 존재하지 않고 가상 네트워크 피어링 링크 연결이 **연결됨** 상태인 경우:
+- 가상 네트워크 피어링 트래픽이 제대로 작동하려면 피어링된 가상 네트워크의 접두사 범위에 대해 *VNet 피어링*이라는 다음 홉 형식의 시스템 경로가 존재해야 합니다. 이러한 경로가 없고 가상 네트워크 피어 링 링크가 **연결**되어 있는 경우:
     - 몇 초 정도 기다렸다가 다시 시도합니다. 새로 설정된 피어링 연결인 경우 경우에 따라 서브넷에 있는 모든 네트워크 인터페이스로 경로를 전파하는 데 시간이 더 오래 걸립니다. 가상 네트워크 피어링에 대한 자세한 내용은 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md) 및 [가상 네트워크 피어링 관리](virtual-network-manage-peering.md)를 참조하세요.
     - 네트워크 보안 그룹 규칙이 통신에 영향을 미칠 수 있습니다. 자세한 내용은 [가상 머신 네트워크 트래픽 필터 문제 진단](diagnose-network-traffic-filter-problem.md)을 참조하세요.
 - Azure가 각 Azure 네트워크 인터페이스에 기본 경로를 할당하지만 여러 네트워크 인터페이스가 VM에 연결된 경우 주 네트워크 인터페이스만이 VM의 운영 체제 내에서 기본 경로(0.0.0.0/0) 또는 게이트웨이가 할당됩니다. [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) 또는 [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) VM에 연결된 보조 네트워크 인터페이스에 대한 기본 경로를 만드는 방법을 알아봅니다. [기본 및 보조 네트워크 인터페이스](virtual-network-network-interface-vm.md#constraints)에 대해 자세히 알아봅니다.

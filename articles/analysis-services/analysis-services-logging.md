@@ -1,25 +1,23 @@
 ---
 title: Azure Analysis Services에 대한 진단 로깅 | Microsoft Docs
-description: Azure Analysis Services에 진단 로깅을 설정하는 방법을 알아봅니다.
+description: Azure Analysis Services 서버 모니터링에 대한 로깅을 설정하는 방법을 설명합니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: MT
+ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010925"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701483"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
-Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure Monitor 로그](../azure-monitor/azure-monitor-log-hub.md)로 내보낼 수 있습니다.
+Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. Azure Analysis Services는 Azure Monitor와 연결됩니다. [Azure Monitor 리소스 로그](../azure-monitor/platform/platform-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure Monitor 로그](../azure-monitor/azure-monitor-log-hub.md)로 내보낼 수 있습니다.
 
-![Storage, Event Hubs 또는 Azure Monitor 로그에 진단 로깅](./media/analysis-services-logging/aas-logging-overview.png)
+![Storage, Event Hubs 또는 Azure Monitor 로그에 리소스 로깅](./media/analysis-services-logging/aas-logging-overview.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,7 +27,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 ### <a name="engine"></a>엔진
 
-**엔진**을 선택하면 모든 [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)를 기록합니다. 개별 이벤트를 선택할 수 없습니다. 
+**엔진**을 선택하면 모든 [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)를 기록합니다. 개별 이벤트를 선택할 수 없습니다. 
 
 |XEvent 범주 |이벤트 이름  |
 |---------|---------|
@@ -43,7 +41,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 |쿼리     |   쿼리 종료      |
 |명령     |  명령 시작       |
 |명령     |  명령 종료       |
-|오류 및 경고     |   오류      |
+|오류 및 경고     |   Error      |
 |검색     |   검색 종료      |
 |알림     |    알림     |
 |세션     |  세션 초기화       |
@@ -67,41 +65,41 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 ### <a name="all-metrics"></a>모든 메트릭
 
-메트릭 범주는 메트릭에서 표시된 동일한 [서버 메트릭](analysis-services-monitor.md#server-metrics)을 기록합니다.
+메트릭 범주는 AzureMetrics 테이블에 동일한 [서버 메트릭](analysis-services-monitor.md#server-metrics)을 기록합니다. 쿼리 [스케일 아웃](analysis-services-scale-out.md)을 사용하고 각 읽기 복제본에 대해 메트릭을 분리해야 하는 경우에는 대신 AzureDiagnostics 테이블을 사용합니다. 여기서 **OperationName**은 **LogMetric**과 같습니다.
 
 ## <a name="setup-diagnostics-logging"></a>진단 로깅 설정
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. [Azure Portal](https://portal.azure.com) > 서버의 왼쪽 탐색 영역에서 **진단 로그**를 클릭한 다음 **진단 로그 켜기**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com) > 서버의 왼쪽 탐색 영역에서 **진단 설정**를 클릭한 다음, **진단 로그 켜기**를 클릭합니다.
 
-    ![Azure Portal에서 Azure Cosmos DB에 대한 진단 로깅 설정](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
+    ![Azure Portal에서 Azure Cosmos DB에 대한 리소스 로깅 설정](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
 2. **진단 설정**에서 다음 옵션을 지정합니다. 
 
     * **이름**. 만들 로그에 대한 이름을 입력합니다.
 
-    * **저장소 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
+    * **스토리지 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 스토리지 계정이 필요합니다. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 스토리지 계정을 선택합니다. 새로 만든 스토리지 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
     * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
     * **Azure Monitor(Log Analytics 작업 영역)로 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나, 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md) 리소스를 사용합니다. 로그를 보는 방법에 대한 자세한 내용은 이 문서의 [Log Analytics 작업 영역에서 로그 보기](#view-logs-in-log-analytics-workspace)를 참조하세요.
 
-    * **엔진**. xEvents를 기록하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
-    * **서비스**. 서비스 수준 이벤트를 기록하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
-    * **메트릭**. [Metrics](analysis-services-monitor.md#server-metrics)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
+    * **엔진**. xEvents를 기록하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 리소스 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
+    * **서비스**. 서비스 수준 이벤트를 기록하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 리소스 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
+    * **메트릭**. [Metrics](analysis-services-monitor.md#server-metrics)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 리소스 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
 
 3. **저장**을 클릭합니다.
 
-    “\<작업 영역 이름>의 진단을 업데이트하지 못했습니다. \<subscription id> 구독은 microsoft.insights를 사용하도록 등록되지 않았습니다.” 오류를 수신하는 경우 [Azure 진단 문제 해결](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) 지침을 따라 계정을 등록한 다음 이 절차를 다시 시도합니다.
+    “\<작업 영역 이름>의 진단을 업데이트하지 못했습니다. \<subscription id> 구독은 microsoft.insights를 사용하도록 등록되지 않았습니다.” 오류를 수신하는 경우 [Azure Diagnostics 문제 해결](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) 지침을 따라 계정을 등록한 다음, 이 절차를 다시 시도합니다.
 
-    나중에 진단 로그를 저장하는 방법을 변경하려면 이 페이지로 돌아와서 설정을 수정할 수 있습니다.
+    나중에 리소스 로그를 저장하는 방법을 변경하려면 이 페이지로 돌아와서 설정을 수정할 수 있습니다.
 
 ### <a name="powershell"></a>PowerShell
 
-계속할 기본 명령은 다음과 같습니다. PowerShell을 사용하여 저장소 계정에 대한 로깅을 설정하는 방법에 대한 단계별 도움말을 보려면 이 문서의 뒷부분에 나오는 자습서를 참조하세요.
+계속할 기본 명령은 다음과 같습니다. PowerShell을 사용하여 스토리지 계정에 대한 로깅을 설정하는 방법에 대한 단계별 도움말을 보려면 이 문서의 뒷부분에 나오는 자습서를 참조하세요.
 
-PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정하려면 다음 명령을 사용합니다.
+PowerShell을 사용하여 메트릭 및 리소스 로깅을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
-- 스토리지 계정에서 진단 로그의 스토리지를 사용하도록 설정하려면 다음 명령을 사용합니다.
+- 스토리지 계정에서 리소스 로그의 스토리지를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
@@ -109,7 +107,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
    스토리지 계정 ID는 로그를 보낼 스토리지 계정에 대한 리소스 ID입니다.
 
-- 이벤트 허브로의 진단 로그 스트리밍을 활성화하려면 다음 명령을 사용합니다.
+- 이벤트 허브로의 리소스 로그 스트리밍을 활성화하려면 다음 명령을 사용합니다.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
@@ -121,7 +119,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
    {service bus resource ID}/authorizationrules/{key name}
    ``` 
 
-- 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 이 명령을 사용합니다.
+- 리소스 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
@@ -141,11 +139,11 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-[Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화](../azure-monitor/platform/diagnostic-logs-stream-template.md)하는 방법을 알아봅니다. 
+[Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화](../azure-monitor/platform/diagnostic-settings-template.md)하는 방법을 알아봅니다. 
 
 ## <a name="manage-your-logs"></a>로그 관리
 
-로그는 일반적으로 로깅을 설정하는 몇 시간 내에 사용할 수 있습니다. 저장소 계정의 로그 관리에 따라 다릅니다.
+로그는 일반적으로 로깅을 설정하는 몇 시간 내에 사용할 수 있습니다. 스토리지 계정의 로그 관리에 따라 다릅니다.
 
 * 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
 * 더 이상 스토리지 계정에 유지하지 않으려는 로그를 삭제합니다.
@@ -161,36 +159,62 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 쿼리 작성기에서 **LogManagement** > **AzureDiagnostics**를 확장합니다. AzureDiagnostics에는 엔진 및 서비스 이벤트가 포함됩니다. 쿼리는 즉석에서 생성됩니다. EventClass\_의 필드에는 xEvent 이름이 포함됩니다. 온-프레미스 로깅에 xEvents를 사용한 경우 익숙해 보일 수 있습니다. **EventClass\_s** 또는 이벤트 이름 중 하나를 클릭하면 Log Analytics 작업 영역이 계속 쿼리를 생성합니다. 나중에 다시 사용하도록 쿼리를 저장해야 합니다.
 
-### <a name="example-query"></a>예제 쿼리
-이 쿼리는 model 데이터베이스 및 서버에 대한 각 쿼리 종료/새로 고침 종료 이벤트의 CPU를 계산하고 반환합니다.
+### <a name="example-queries"></a>쿼리 예
+
+#### <a name="example-1"></a>예 1
+
+다음 쿼리는 model 데이터베이스 및 서버에 대한 각 쿼리 종료/새로 고침 종료 이벤트의 기간을 반환합니다. 스케일 아웃하는 경우 복제본 번호가 ServerName_s에 포함되기 때문에 복제본별로 결과가 구분됩니다. RootActivityId_g별로 그룹화하면 Azure Diagnostics REST API에서 검색되는 행 수가 줄어들며 [Log Analytics 속도 제한](https://dev.loganalytics.io/documentation/Using-the-API/Limits)에 설명된 제한을 벗어나지 않습니다.
 
 ```Kusto
-let window =  AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName" and DatabaseName_s =~ "MyDatabaseName" ;
 window
 | where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
 | where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
 | extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
-| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
-| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
-| join kind=leftouter (
-window
-    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
-    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
-    ) on RootActivityId_g
-| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
-
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs
+| order by StartTime_t asc
 ```
 
+#### <a name="example-2"></a>예제 2
+
+다음 쿼리는 서버에 대한 메모리 및 QPU 소비량을 반환합니다. 스케일 아웃하는 경우 복제본 번호가 ServerName_s에 포함되기 때문에 복제본별로 결과가 구분됩니다.
+
+```Kusto
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where name_s == "memory_metric" or name_s == "qpu_metric"
+| project ServerName_s, TimeGenerated, name_s, value_s
+| summarize avg(todecimal(value_s)) by ServerName_s, name_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
+
+#### <a name="example-3"></a>예제 3
+
+다음 쿼리는 서버에 대한 Rows read/sec Analysis Services 엔진 성능 카운터를 반환합니다.
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where parse_json(tostring(parse_json(perfobject_s).counters))[0].name == "Rows read/sec" 
+| extend Value = tostring(parse_json(tostring(parse_json(perfobject_s).counters))[0].value) 
+| project ServerName_s, TimeGenerated, Value
+| summarize avg(todecimal(Value)) by ServerName_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
 
 수백 개의 쿼리를 사용할 수 있습니다. 쿼리에 대한 자세한 내용은 [Azure Monitor 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조하세요.
 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>PowerShell을 사용하여 로깅 켜기
 
-이 빠른 자습서에서는 Analysis Service 서버와 동일한 구독 및 리소스 그룹에서 저장소 계정을 만듭니다. 그런 다음 로깅, 새 저장소 계정에 출력을 보내는 진단을 켜려면 AzDiagnosticSetting 집합을 사용 합니다.
+이 빠른 자습서에서는 Analysis Service 서버와 동일한 구독 및 리소스 그룹에서 스토리지 계정을 만듭니다. 그러면 Set-AzDiagnosticSetting을 사용하여 진단 로깅을 설정하고, 출력을 새 스토리지 계정에 전송합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 다음 리소스가 필요합니다.
 
 * 기존 Azure Analysis Services 서버 서버 리소스를 만드는 방법에 대한 지침은 [Azure Portal에서 서버 만들기](analysis-services-create-server.md) 또는 [PowerShell을 사용하여 Azure Analysis Services 서버 만들기](analysis-services-create-powershell.md)를 참조하세요.
@@ -224,7 +248,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 ### <a name="create-a-new-storage-account-for-your-logs"></a>로그에 대한 새 스토리지 계정 만들기
 
-서버와 동일한 구독에서 제공되는 로그에 기존 스토리지 계정을 사용할 수 있습니다. 이 자습서의 경우 Analysis Services 로그에 전용인 새 스토리지 계정을 만듭니다. 편의를 위해 저장소 계정 세부 정보를 **sa**라는 변수에 저장합니다.
+서버와 동일한 구독에서 제공되는 로그에 기존 스토리지 계정을 사용할 수 있습니다. 이 자습서의 경우 Analysis Services 로그에 전용인 새 스토리지 계정을 만듭니다. 편의를 위해 스토리지 계정 세부 정보를 **sa**라는 변수에 저장합니다.
 
 또한 Analysis Services 서버를 포함하는 것과 동일한 리소스 그룹을 사용합니다. 또한 `awsales_resgroup`, `awsaleslogs` 및 `West Central US`의 값을 고유한 값으로 바꿉니다.
 
@@ -244,7 +268,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>로깅 사용
 
-로깅을 사용 하려면 새 저장소 계정, 서버 계정 및 범주에 대 한 변수와 함께 집합 AzDiagnosticSetting cmdlet을 사용 합니다. 다음 명령을 실행하고 **-Enabled** 플래그를 **$true**로 설정합니다.
+로깅을 사용하려면 새 스토리지 계정, 서버 계정 및 범주의 변수와 함께 Set-AzDiagnosticSetting cmdlet을 사용합니다. 다음 명령을 실행하고 **-Enabled** 플래그를 **$true**로 설정합니다.
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -301,6 +325,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 리소스 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)에 대해 자세히 알아보기
+[Azure Monitor 리소스 로깅](../azure-monitor/platform/platform-logs-overview.md)에 대해 자세히 알아봅니다.
 
-참조 [집합 AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell 도움말에서입니다.
+PowerShell 도움말에서 [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting)을 참조하세요.

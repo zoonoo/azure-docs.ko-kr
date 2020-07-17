@@ -1,13 +1,18 @@
 ---
-ms.openlocfilehash: 2e2567d5e14ca8e3722d426834c19a1beaf56c62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+author: wesmc7777
+ms.author: wesmc
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.openlocfilehash: b1cfb9e84dbc4e4fa18e4800a152c4387bbcd96f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863910"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "68667930"
 ---
 > [!div class="op_single_selector"]
-> * [장치: Node.js 서비스: Node.js](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)
-> * [장치: C#서비스: C#](../articles/iot-hub/iot-hub-csharp-csharp-schedule-jobs.md)
-> * [장치: Java Service: Java](../articles/iot-hub/iot-hub-java-java-schedule-jobs.md)
-> * [장치: Python Service: Python](../articles/iot-hub/iot-hub-python-python-schedule-jobs.md)
+> * [Node.JS](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)
+> * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-schedule-jobs.md)
+> * [Java](../articles/iot-hub/iot-hub-java-java-schedule-jobs.md)
+> * [Python](../articles/iot-hub/iot-hub-python-python-schedule-jobs.md)

@@ -1,27 +1,30 @@
 ---
-title: '빠른 시작: Bing Spell Check REST API 및 Python으로 맞춤법 검사'
-titlesuffix: Azure Cognitive Services
-description: Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
+title: '빠른 시작: REST API 및 Python으로 맞춤법 검사 - Bing Spell Check'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작을 통해 Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 1cf46fd5ec55f0b240f6bb4adbe49c1344a4663b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.custom: tracking-python
+ms.openlocfilehash: 65994313549c1744da58c5d63a70e803777f7f53
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547682"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84611089"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>빠른 시작: Bing Spell Check REST API 및 Python으로 맞춤법 검사
 
-이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Python 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 이 애플리케이션은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)에 제공됩니다.
+이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Python 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+이 애플리케이션은 Python으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)에 제공됩니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Python [3.x](https://www.python.org)
 
@@ -29,14 +32,14 @@ ms.locfileid: "59547682"
 
 ## <a name="initialize-the-application"></a>애플리케이션 초기화
 
-1. 선호하는 IDE 또는 편집기에서 새 Python 파일을 만들고, 다음 import 문을 추가합니다.
+1. 선호하는 IDE 또는 편집기에서 새 Python 파일을 만들고 다음 import 문을 추가합니다.
 
    ```python
    import requests
    import json
    ```
 
-2. 맞춤법 검사를 원하는 텍스트, 구독 키 및 Bing Spell Check 엔드포인트에 대한 변수를 만듭니다.
+2. 맞춤법 검사를 원하는 텍스트, 구독 키 및 Bing Spell Check 엔드포인트에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -52,8 +55,12 @@ ms.locfileid: "59547682"
     data = {'text': example_text}
     ```
 
-2. 요청에 대한 매개 변수를 추가합니다. `mkt=` 뒤에 시장 코드를 추가합니다. 시장 코드는 요청을 수행한 국가입니다. 또한 `&mode=` 뒤에 맞춤법 검사 모드를 추가합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음)입니다.
+2. 요청에 대한 매개 변수를 추가합니다. 
 
+   1. `=` 연산자를 사용하여 `mkt` 매개 변수에 시장 코드를 할당합니다. 시장 코드는 요청을 수행한 국가/지역의 코드입니다. 
+
+   1. `&` 연산자를 사용하여 `mode` 매개 변수를 추가한 다음, 맞춤법 검사 모드를 할당합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음) 중 하나일 수 있습니다. 
+ 
     ```python
     params = {
         'mkt':'en-us',
@@ -78,12 +85,21 @@ ms.locfileid: "59547682"
     response = requests.post(endpoint, headers=headers, params=params, data=data)
     ```
 
-2. JSON 응답을 받아서 출력합니다.
+2. JSON 응답을 가져와서 출력합니다.
 
     ```python
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
     ```
+
+
+## <a name="run-the-application"></a>애플리케이션 실행
+
+명령줄을 사용하는 경우 다음 명령을 사용하여 애플리케이션을 실행합니다.
+
+```bash
+python <FILE_NAME>.py
+```
 
 ## <a name="example-json-response"></a>예제 JSON 응답
 
@@ -133,4 +149,4 @@ ms.locfileid: "59547682"
 > [단일 페이지 웹앱 만들기](../tutorials/spellcheck.md)
 
 - [Bing Spell Check API란?](../overview.md)
-- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

@@ -1,23 +1,13 @@
 ---
 title: Java 웹 프로젝트에서 Application Insights 문제 해결
 description: 문제 해결 가이드 - Application Insights를 사용하여 라이브 Java 앱을 모니터링합니다.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/14/2018
-ms.author: mbullwin
-ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 03/14/2019
+ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484790"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -25,7 +15,7 @@ ms.locfileid: "60899502"
 ## <a name="build-errors"></a>빌드 오류
 **Eclipse 또는 Intellij Idea에서 Maven 또는 Gradle을 통해 Application Insights SDK를 추가할 때 빌드 또는 체크섬 유효성 검사 오류가 표시됩니다.**
 
-* 종속성 `<version>` 요소가 와일드카드 문자(예: (Maven) `<version>[2.0,)</version>` 또는 (Gradle) `version:'2.0.+'`)로 패턴을 사용하는 경우 `2.0.1`과 같은 특정 버전을 대신 지정해 봅니다. 최신 버전은 [릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java/releases) 를 참조하세요.
+* 종속성 `<version>` 요소가 와일드카드 문자가 포함된 패턴을 사용하는 경우(예: (Maven) `<version>[2.0,)</version>` 또는 (Gradle) `version:'2.0.+'`) `2.0.1`과 같이 특정 버전을 대신 지정해 보세요. 최신 버전은 [릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java/releases) 를 참조하세요.
 
 ## <a name="no-data"></a>데이터 없음
 **Application Insights를 추가하고 내 앱을 실행했는데 포털에 데이터가 표시되지 않습니다.**
@@ -35,20 +25,19 @@ ms.locfileid: "60899502"
 * xml 파일에 `<DisableTelemetry>true</DisableTelemetry>` 노드가 없는지 확인합니다.
 * 방화벽에서 dc.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다. 최신 버전은 [방화벽 예외의 전체 목록](../../azure-monitor/app/ip-addresses.md)
 * Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 애플리케이션 블레이드를 닫고 다시 엽니다.
-* ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)의 루트 노드 아래에 `<SDKLogger />` 요소를 추가하여 IDE 콘솔 창에 기록을 켜고, 의심스러운 로그에 대해 앞에 AI: INFO/WARN/ERROR가 붙은 항목을 확인합니다.
+* [Turn on logging](#debug-data-from-the-sdk) `<SDKLogger />` 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml 파일의 루트 노드 아래에 요소를 추가 하 여 로깅을 설정 하 고 의심 스러운 로그의 AI: INFO/WARN/ERROR 앞에 있는 항목을 확인 합니다. 
 * 콘솔의 출력 메시지에서 “구성 파일을 찾았습니다”라는 문을 찾아 ApplicationInsights.xml 파일이 Java SDK에 의해 성공적으로 로드되었음을 확인합니다.
 * 구성 파일이 없으면 출력 메시지를 확인하여 구성 파일이 검색되고 있는 위치를 확인하고, ApplicationInsights.xml이 그러한 검색 위치 중 한 위치에 있는지 확인합니다. 일반적으로 구성 파일을 Application Insights SDK JAR 주위에 배치할 수 있습니다. 예: Tomcat에서는 WEB-INF/classes 폴더를 의미합니다. 개발 중에 웹 프로젝트의 리소스 폴더에 ApplicationInsights.xml을 배치할 수 있습니다.
 * SDK의 알려진 문제에 대해서는 [GitHub 문제 페이지](https://github.com/Microsoft/ApplicationInsights-Java/issues)를 참조하세요.
 * 버전 충돌 문제를 방지하려면 동일한 버전의 Application Insights 코어, 웹, 에이전트 및 로깅 어펜더를 사용합니다.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
-* [상태 블로그](https://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 알아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격 책정을 열어 확인 합니다. 그렇다면 요금제를 업그레이드 하거나 추가 용량에 대 한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 * 최근에 SDK를 업그레이드했나요? 고유한 SDK jar만 프로젝트 디렉터리 내부에 있는지 확인합니다. 두 개의 서로 다른 SDK 버전이 있으면 안 됩니다.
 * 올바른 AI 리소스를 보고 있나요? 원격 분석이 필요한 리소스에 애플리케이션의 iKey를 일치합니다. 동일해야 합니다.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>기대한 모든 데이터가 표시되지 않는 경우
-* 사용량 및 예상 비용 페이지를 열고 [샘플링](../../azure-monitor/app/sampling.md)이 작동 중인지 확인합니다. (100% 전송이란 샘플링을 사용하지 않는다는 의미입니다.) Application Insights 서비스는 앱에서 도착하는 원격 분석의 일부만 허용하도록 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다.
+* 사용량 및 예상 비용 페이지를 열고 [샘플링](../../azure-monitor/app/sampling.md)이 작동 중인지 확인합니다. (100% 전송에서는 샘플링이 작동 하지 않음을 의미 합니다.) 앱에서 수신 하는 원격 분석의 일부만 허용 하도록 Application Insights 서비스를 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다.
 * SDK 샘플링이 켜져 있나요? 켜져 있으면 적용 가능한 모든 유형에서 지정된 비율로 데이터가 샘플링됩니다.
 * 이전 버전의 Java SDK를 실행 중인가요? 버전 2.0.1부터 로컬 드라이브의 데이터 지속성뿐 아니라 간헐적인 네트워크 및 백 엔드 오류를 처리하는 내결함성 메커니즘이 도입되었습니다.
 * 과도한 원격 분석 때문에 제한되나요? INFO 로깅을 켜면 “앱이 제한되었습니다.”라는 로그 메시지가 표시됩니다. 현재 제한은 32K 원격 분석 항목/초입니다.
@@ -57,9 +46,8 @@ ms.locfileid: "60899502"
 * [Java 에이전트 구성](java-agent.md)에 따라 Java 에이전트를 구성했나요?
 * Java 에이전트 jar 및 AI-Agent.xml 파일이 동일한 폴더에 있는지 확인합니다.
 * 자동 수집하려는 종속성에서 자동 수집이 지원되는지 확인합니다. 현재 MySQL, MsSQL, Oracle DB 및 Azure Cache for Redis 종속성 수집만 지원됩니다.
-* JDK 1.7 또는 1.8을 사용 중인가요? 현재 JDK 9에서 종속성 수집을 지원하지 않습니다.
 
-## <a name="no-usage-data"></a>사용 현황 데이터 없음
+## <a name="no-usage-data"></a>사용량 현황 데이터 없음
 **요청 및 응답 시간에 대한 데이터는 표시되는데 페이지 보기, 브라우저 또는 사용자 데이터는 표시되지 않습니다.**
 
 서버에서 원격 분석을 보내도록 앱을 설정했습니다. 이제 다음 단계로 [웹 브라우저에서 원격 분석을 보내도록 웹 페이지를 설정][usage]해야 합니다.
@@ -72,7 +60,7 @@ ms.locfileid: "60899502"
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 **원격 분석 수집을 사용하지 않도록 설정하려면 어떻게 해야 하나요?**
 
-코드:
+코드
 
 ```Java
 
@@ -80,7 +68,7 @@ ms.locfileid: "60899502"
     config.setTrackingIsDisabled(true);
 ```
 
-**또는**
+**디스크나**
 
 ApplicationInsights.xml(프로젝트의 리소스 폴더에 있음)을 업데이트합니다. 루트 노드 아래에 다음을 추가합니다.
 
@@ -92,7 +80,7 @@ ApplicationInsights.xml(프로젝트의 리소스 폴더에 있음)을 업데이
 XML 메서드를 사용하여 값 변경 시 애플리케이션을 다시 시작해야 합니다.
 
 ## <a name="changing-the-target"></a>대상 변경
-**내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?**
+**내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경 하려면 어떻게 해야 하나요?**
 
 * [새 리소스의 계측 키를 가져옵니다.][java]
 * Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고**Azure**, **Application Insights 구성**을 차례로 선택한 다음, 키를 변경합니다.
@@ -110,16 +98,16 @@ API의 상황에 대한 자세한 정보를 가져오려면 ApplicationInsights.
 파일에 출력하도록 로거에 지시할 수도 있습니다.
 
 ```XML
-  <SDKLogger type="FILE">
+  <SDKLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>
     <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
 </SDKLogger>
 ```
 
-### <a name="spring-boot-starter"></a>Spring Boot Starter
+### <a name="spring-boot-starter"></a>스프링 부팅 스타터
 
-Application Insights Spring Boot Starter를 사용 하 여 Spring Boot 앱을 사용 하 여 SDK 로깅을 사용 하려면 다음을 추가 합니다 `application.properties` 파일.:
+Application Insights 스프링 부팅 스타터를 사용 하 여 스프링 부팅 앱에서 SDK 로깅을 사용 하도록 설정 하려면 파일에 다음을 추가 합니다 `application.properties` .
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -127,20 +115,42 @@ azure.application-insights.logger.base-folder-path=C:/agent/AISDK
 azure.application-insights.logger.level=trace
 ```
 
-### <a name="java-agent"></a>Java Agent
+또는 표준 오류로 인쇄 하려면 다음을 수행 하십시오.
 
-업데이트 JVM 에이전트 로깅을 사용 하도록 설정 합니다 [Ai-agent.xml 파일이](java-agent.md)합니다.
+```yaml
+azure.application-insights.logger.type=console
+azure.application-insights.logger.level=trace
+```
+
+### <a name="java-agent"></a>Java 에이전트
+
+JVM 에이전트 로깅을 사용 하도록 설정 하려면 [AI-Agent.xml 파일](java-agent.md)을 업데이트 합니다.
 
 ```xml
-<AgentLogger type="FILE">
+<AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>
     <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
 </AgentLogger>
 ```
 
+### <a name="java-command-line-properties"></a>Java 명령줄 속성
+_버전 2.4.0 이후_
+
+구성 파일을 변경 하지 않고 명령줄 옵션을 사용 하 여 로깅을 사용 하도록 설정 하려면:
+
+```
+java -Dapplicationinsights.logger.file.level=trace -Dapplicationinsights.logger.file.uniquePrefix=AI -Dapplicationinsights.logger.baseFolderPath="C:/my/log/dir" -jar MyApp.jar
+```
+
+또는 표준 오류로 인쇄 하려면 다음을 수행 하십시오.
+
+```
+java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
+```
+
 ## <a name="the-azure-start-screen"></a>Azure 시작 화면
-**[Azure Portal](https://portal.azure.com)을 보고 있습니다. 맵에 내 앱에 대한 정보가 표시되나요?**
+**[Azure Portal를](https://portal.azure.com)보고 있습니다. 지도에서 내 앱에 대 한 정보를 알려주세요.**
 
 아니요, 전 세계 Azure 서버의 상태가 표시됩니다.
 

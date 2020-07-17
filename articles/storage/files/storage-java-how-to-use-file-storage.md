@@ -1,20 +1,18 @@
 ---
 title: Java를 사용하여 Azure Files 개발 | Microsoft Docs
 description: Azure Files를 사용하여 파일 데이터를 저장하는 Java 애플리케이션 및 서비스를 개발하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: Java
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 238e5971e79b192e0ef422dcd452859ff7566580
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 54f545c2d4f897f85ab3e5fd10d07666e93e4f41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721674"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509679"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Java를 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -33,10 +31,10 @@ ms.locfileid: "64721674"
 > Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 Java I/O 클래스를 사용하여 Azure 파일 공유에 액세스하는 애플리케이션을 작성할 수 있습니다. 이 문서에서는 [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage Java SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
 
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
-샘플을 빌드하려면 JDK(Java 개발 키트)와 [Java용 Azure Storage SDK](https://github.com/Azure/azure-storage-java)가 필요합니다. Azure 저장소 계정도 만들었어야 합니다.
+샘플을 빌드하려면 JDK(Java 개발 키트)와 [Java용 Azure Storage SDK](https://github.com/Azure/azure-storage-java)가 필요합니다. Azure Storage 계정도 만들었어야 합니다.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 애플리케이션 설정
-Azure 저장소 API를 사용하려면 저장소 서비스를 액세스하고자 하는 위치에서 Java 파일의 맨 위에 다음 명령문을 추가하십시오.
+Azure Storage API를 사용하려면 스토리지 서비스를 액세스하고자 하는 위치에서 Java 파일의 맨 위에 다음 명령문을 추가하십시오.
 
 ```java
 // Include the following imports to use blob APIs.
@@ -44,8 +42,8 @@ import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.file.*;
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Azure 저장소 연결 문자열 설정
-Azure Files를 사용하려면 Azure Storage 계정에 연결해야 합니다. 첫 번째 단계는 저장소 계정에 연결하는 데 사용할 연결 문자열을 구성하는 것입니다. 이를 위해 정적 변수를 정의해 보겠습니다.
+## <a name="set-up-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
+Azure Files를 사용하려면 Azure Storage 계정에 연결해야 합니다. 첫 번째 단계는 스토리지 계정에 연결하는 데 사용할 연결 문자열을 구성하는 것입니다. 이를 위해 정적 변수를 정의해 보겠습니다.
 
 ```java
 // Configure the connection-string with your values
@@ -60,7 +58,7 @@ public static final String storageConnectionString =
 > 
 > 
 
-## <a name="connecting-to-an-azure-storage-account"></a>Azure 저장소 계정에 연결
+## <a name="connecting-to-an-azure-storage-account"></a>Azure Storage 계정에 연결
 스토리지 계정에 연결하려면, **CloudStorageAccount** 개체를 사용하여 **구문 분석** 메서드로 연결 문자열을 전달합니다.
 
 ```java
@@ -75,7 +73,7 @@ try {
 **CloudStorageAccount.parse** 는 InvalidKeyException을 발생시키므로 try/catch 블록 안에 넣어야 합니다.
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
-Azure Files의 모든 파일 및 디렉터리는 **공유**라는 이름의 컨테이너 안에 있습니다. 저장소 계정은 계정 용량이 허용하는 만큼의 공유를 가질 수 있습니다. 공유 및 해당 콘텐츠에 액세스하려면 Azure Files 클라이언트를 사용해야 합니다.
+Azure Files의 모든 파일 및 디렉터리는 **공유**라는 이름의 컨테이너 안에 있습니다. 스토리지 계정은 계정 용량이 허용하는 만큼의 공유를 가질 수 있습니다. 공유 및 해당 콘텐츠에 액세스하려면 Azure Files 클라이언트를 사용해야 합니다.
 
 ```java
 // Create the Azure Files client.
@@ -123,7 +121,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
-또한 루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 저장소를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드는 루트 디렉터리 아래에 **sampledir**이라는 이름의 하위 디렉터리를 만듭니다.
+또한 루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 스토리지를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드는 루트 디렉터리 아래에 **sampledir**이라는 이름의 하위 디렉터리를 만듭니다.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -156,7 +154,7 @@ if ( containerDir.deleteIfExists() ) {
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Azure 파일 공유의 파일 및 디렉터리 열거
-공유 내에서 파일 및 디렉터리 목록을 가져오는 것은 CloudFileDirectory 참조에서 **listFilesAndDirectories** 를 호출하여 쉽게 수행할 수 있습니다. 메서드는 반복할 수 있는 ListFileItem 개체 목록을 반환합니다. 한 예로, 다음 코드는 파일 및 디렉터리를 루트 디렉터리 안에 나열합니다.
+공유 내에서 파일 및 디렉터리 목록을 가져오는 작업은 CloudFileDirectory 참조에서 **Listfilesanddirectories** 를 호출 하 여 쉽게 수행할 수 있습니다. 메서드는 반복할 수 있는 ListFileItem 개체 목록을 반환합니다. 한 예로, 다음 코드는 파일 및 디렉터리를 루트 디렉터리 안에 나열합니다.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -168,7 +166,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 ```
 
 ## <a name="upload-a-file"></a>파일 업로드
-이 섹션에서는 로컬 저장소에서 공유의 루트 디렉터리로 파일을 업로드하는 방법을 배웁니다.
+이 섹션에서는 로컬 스토리지에서 공유의 루트 디렉터리로 파일을 업로드하는 방법을 배웁니다.
 
 파일을 업로드하는 첫 번째 단계는 상주해야 하는 디렉터리에 대한 참조를 가져오는 것입니다. 공유 개체의 **getRootDirectoryReference** 메서드를 호출하여 가져올 수 있습니다.
 
@@ -224,12 +222,12 @@ if ( file.deleteIfExists() ) {
 ```
 
 ## <a name="next-steps"></a>다음 단계
-다른 Azure 저장소 API에 대해 더 알아보려면 다음 링크를 따르십시오.
+다른 Azure Storage API에 대해 더 알아보려면 다음 링크를 따르십시오.
 
-* [Java 개발자용 Azure](/java/azure)/)
-* [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java)
+* [Java 개발자 용 Azure](/java/azure)/)
+* [Java 용 Azure Storage SDK](https://github.com/azure/azure-storage-java)
 * [Android용 Azure Storage SDK](https://github.com/azure/azure-storage-android)
-* [Azure Storage 클라이언트 SDK 참조](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage 클라이언트 SDK 참조](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md)

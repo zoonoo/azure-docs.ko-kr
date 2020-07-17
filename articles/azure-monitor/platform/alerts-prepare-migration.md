@@ -1,87 +1,88 @@
 ---
-title: 논리 앱 및 runbook을 업데이트 하 여 Azure Monitor 클래식 경고 마이그레이션 준비
-description: 웹 후크, logic apps와 자발적인 마이그레이션을 준비 하는 runbook을 수정 하는 방법에 알아봅니다.
-author: snehithm
-ms.service: azure-monitor
+title: 경고 마이그레이션을 위해 논리 앱 & runbook 업데이트
+description: 자발적 마이그레이션을 준비 하기 위해 웹 후크, 논리 앱 및 runbook을 수정 하는 방법에 대해 알아봅니다.
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 347c89991cbb4d28b46eafff0a783148793ad2f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81114418"
 ---
-# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>논리 앱 및 runbook 클래식 경고 규칙의 마이그레이션 준비
+# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>클래식 경고 규칙 마이그레이션을 위한 논리 앱 및 Runbook 준비
 
-로 [발표](monitoring-classic-retirement.md), Azure Monitor에서 클래식 경고 2019 년 7 월에에서 사용 중지 됩니다. 마이그레이션 도구는 클래식 경고 규칙을 사용 하는 고 마이그레이션 자체 트리거 하려는 고객에 게 Azure portal에서 사용할 수 있습니다.
+[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 9 월 2019 (원래 7 월 2019 일)에 사용 중지 됩니다. 마이그레이션 도구는 클래식 경고 규칙을 사용 하는 고객과 마이그레이션 자체를 트리거하는 고객에 게 Azure Portal에서 사용할 수 있습니다.
 
-새 경고 규칙에 클래식 경고 규칙을 자발적으로 마이그레이션하도록 선택 하는 경우는 두 시스템 간의 일부 차이점이 있습니다 주의 합니다. 이 문서에서는 이러한 차이점과 변경에 대 한 준비 하는 방법을 설명 합니다.
+> [!NOTE]
+> 마이그레이션 도구의 롤아웃 지연으로 인해 클래식 경고 마이그레이션의 사용 중지 날짜가 원래 발표 된 날짜 6 월 30 일까 지 2019 년 8 월 31 2019 일로 연장 되었습니다.
 
-## <a name="api-changes"></a>API 변경
+기존 경고 규칙을 자발적으로 새 경고 규칙으로 마이그레이션하기를 선택 하는 경우 두 시스템 간에 몇 가지 차이점이 있습니다. 이 문서에서는 이러한 차이점과 변경을 준비 하는 방법을 설명 합니다.
 
-클래식 경고 규칙 만들기 및 관리 하는 Api (`microsoft.insights/alertrules`)은 새로운 메트릭 경고 만들기 및 관리 하는 Api와 다릅니다 (`microsoft.insights/metricalerts`). 프로그래밍 방식으로 만들을 지금 클래식 경고 규칙을 관리 하는 경우 새 Api를 사용 하려면 배포 스크립트를 업데이트 합니다.
+## <a name="api-changes"></a>API 변경 내용
 
-다음 표는 클래식 및 새 경고에 대 한 프로그래밍 인터페이스에 대 한 참조:
+클래식 경고 규칙 ()을 만들고 관리 하는 Api는 `microsoft.insights/alertrules` 새 메트릭 경고 ()를 만들고 관리 하는 api와 다릅니다 `microsoft.insights/metricalerts` . 지금 기존 경고 규칙을 프로그래밍 방식으로 만들고 관리 하는 경우 새 Api를 사용 하도록 배포 스크립트를 업데이트 합니다.
 
-|         |클래식 경고  |새로운 메트릭 경고 |
+다음 표는 클래식 및 새 경고의 프로그래밍 인터페이스에 대 한 참조입니다.
+
+|         |클래식 경고  |새 메트릭 경고 |
 |---------|---------|---------|
-|REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|REST API     | [microsoft insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor 메트릭 경고](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
-| Azure Resource Manager 템플릿 | [클래식 경고에 대 한](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[새로운 메트릭 경고에 대 한](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+|PowerShell      | [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
+| Azure Resource Manager 템플릿 | [클래식 경고의 경우](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[새 메트릭 경고의 경우](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
-## <a name="notification-payload-changes"></a>알림 페이로드가 변경
+## <a name="notification-payload-changes"></a>알림 페이로드 변경
 
-알림 페이로드 형식 간에 약간 다릅니다 [클래식 경고 규칙](alerts-webhooks.md) 하 고 [새 메트릭 경고](alerts-metric-near-real-time.md#payload-schema)합니다. 모든 웹 후크, 논리 앱 또는 클래식 경고 규칙에 의해 트리거되는 runbook 작업에 있는 경우 새 메트릭 경고 페이로드 형식을 허용 하도록 이러한 알림 끝점을 업데이트 해야 합니다.
+알림 페이로드 형식은 [클래식 경고 규칙과](alerts-webhooks.md) [새 메트릭 경고](alerts-metric-near-real-time.md#payload-schema)간에 약간 다릅니다. 기존 경고 규칙에 의해 트리거되는 webhook, 논리 앱 또는 runbook 작업이 있는 경우 새 메트릭 경고의 페이로드 형식을 허용 하도록 해당 알림 끝점을 업데이트 해야 합니다.
 
-다음 표를 사용 하 여 새 형식으로 클래식 형식에서 웹 후크 페이로드 필드 매핑:
+다음 표를 사용 하 여 기본 형식에서 새 형식으로 webhook 페이로드 필드를 매핑합니다.
 
-|  |클래식 경고  |새로운 메트릭 경고 |
+|  |클래식 경고  |새 메트릭 경고 |
 |---------|---------|---------|
-|경고 활성화 되었거나 해결?    | **status**       | **data.status** |
-|경고에 대 한 컨텍스트 정보     | **context**        | **data.context**        |
-|타임 스탬프는 경고가 활성화 되었거나 해결     | **context.timestamp**       | **data.context.timestamp**        |
+|경고가 활성화 또는 해결 되었습니까?    | **status**       | **데이터. 상태** |
+|경고에 대 한 컨텍스트 정보     | **context**        | **데이터. 컨텍스트**        |
+|경고가 활성화 되거나 해결 된 타임 스탬프입니다.     | **context. timestamp**       | **data. context. timestamp**        |
 | 경고 규칙 ID | **context.id** | **data.context.id** |
 | 경고 규칙 이름 | **context.name** | **data.context.name** |
-| 경고 규칙의 설명 | **context.description** | **data.context.description** |
-| 경고 규칙 조건 | **context.condition** | **data.context.condition** |
-| 메트릭 이름 | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| 시간 집계 (메트릭이 집계 되는 방식을 평가 창 위에)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
-| 평가 기간 | **context.condition.windowSize** | **data.context.condition.windowSize** |
-| 연산자 (집계 된 메트릭 값을 비교 방법을 임계값에 대해) | **context.condition.operator** | **data.context.condition.operator** |
-| 임계값 | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |
-| 메트릭 값 | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| 구독 ID | **context.subscriptionId** | **data.context.subscriptionId** |
-| 영향을 받는 리소스의 리소스 그룹 | **context.resourceGroup** | **data.context.resourceGroup** |
-| 영향을 받는 리소스의 이름 | **context.resourceName** | **data.context.resourceName** |
-| 영향을 받는 리소스의 형식 | **context.resourceType** | **data.context.resourceType** |
-| 영향을 받는 리소스의 리소스 ID | **context.resourceId** | **data.context.resourceId** |
-| 포털 리소스 요약 페이지에 직접 링크 | **context.portalLink** | **data.context.portalLink** |
-| 웹 후크 또는 논리 앱에 전달할 사용자 지정 페이로드 필드 | **properties** | **data.properties** |
+| 경고 규칙에 대 한 설명 | **컨텍스트입니다. 설명** | **데이터. 컨텍스트 설명** |
+| 경고 규칙 조건 | **context. 조건** | **data. context. 조건** |
+| 메트릭 이름 | **metricName** | **metricName [0]..** |
+| 시간 집계 (평가 기간 동안 메트릭이 집계 되는 방법)| **컨텍스트별. timeAggregation** | **컨텍스트별. timeAggregation** |
+| 평가 기간 | **windowSize** | **windowSize.** |
+| 연산자 (집계 된 메트릭 값을 임계값과 비교 하는 방법) | **컨텍스트별. 연산자** | **data. condition. 연산자** |
+| 임계값 | **컨텍스트별. threshold** | **data. context. condition. allOf [0]. threshold** |
+| 메트릭 값 | **metricValue** | **metricValue [0]..** |
+| 구독 ID | **context. subscriptionId** | **데이터. context. subscriptionId** |
+| 영향을 받는 리소스의 리소스 그룹 | **컨텍스트별. resourceGroup** | **데이터. 컨텍스트와 resourceGroup** |
+| 영향을 받는 리소스의 이름 | **Context.resourcename** | **data. Context.resourcename** |
+| 영향을 받는 리소스의 유형입니다. | **컨텍스트별. resourceType** | **데이터. 컨텍스트 resourceType** |
+| 영향을 받는 리소스의 리소스 ID | **컨텍스트별. resourceId** | **데이터. 컨텍스트 resourceId** |
+| 포털 리소스 요약 페이지에 대 한 직접 링크 | **portalLink** | **portalLink** |
+| 웹 후크 또는 논리 앱에 전달할 사용자 지정 페이로드 필드 | **properties** | **데이터. 속성** |
 
-페이로드 비슷합니다 볼 수 있습니다. 다음 섹션을 제공합니다.
+페이로드는 볼 수 있는 것과 유사 합니다. 다음 섹션에서 다음을 제공 합니다.
 
-- 새 형식을 사용 하려면 논리 앱을 수정 하는 방법에 대 한 세부 정보입니다.
+- 새 형식으로 작업 하기 위해 논리 앱을 수정 하는 방법에 대해 자세히 설명 합니다.
 - 새 경고에 대 한 알림 페이로드를 구문 분석 하는 runbook 예제입니다.
 
-## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>메트릭 경고 알림을 수신 하도록 논리 앱을 수정
+## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>메트릭 경고 알림을 받도록 논리 앱 수정
 
-클래식 경고를 사용 하 여 논리 앱을 사용 하는 경우에 새 메트릭 경고 페이로드를 구문 분석 논리 앱 코드를 수정 해야 합니다. 다음 단계를 수행하세요.
+클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 아래 단계를 수행합니다.
 
 1. 새 논리 앱을 만듭니다.
 
-1. "Azure 모니터-메트릭 경고 처리기" 템플릿을 사용 합니다. 이 서식 파일에는 **HTTP 요청** 정의 된 적절 한 스키마를 사용 하 여 트리거.
+1. "Azure Monitor-메트릭 경고 처리기" 템플릿을 사용 합니다. 이 템플릿에는 적절 한 스키마가 정의 된 **HTTP 요청** 트리거가 있습니다.
 
-    ![논리 앱 템플릿](media/alerts-migration/logic-app-template.png "메트릭 알림 템플릿")
+    ![논리-앱-템플릿](media/alerts-migration/logic-app-template.png "메트릭 경고 템플릿")
 
 1. 처리 논리를 호스트 하는 작업을 추가 합니다.
 
-## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>메트릭 경고 알림을 수신 하는 automation runbook을 사용 하 여
+## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>메트릭 경고 알림을 수신 하는 automation runbook 사용
 
-다음 예제에서는 runbook에서 사용 하기 위해 PowerShell 코드를 제공 합니다. 이 코드 둘 다 클래식 메트릭 경고 규칙 및 새로운 메트릭 경고 규칙에 대 한 페이로드를 구문 분석할 수 있습니다.
+다음 예제에서는 runbook에서 사용할 수 있는 PowerShell 코드를 제공 합니다. 이 코드는 클래식 메트릭 경고 규칙 및 새 메트릭 경고 규칙에 대 한 페이로드를 구문 분석할 수 있습니다.
 
 ```PowerShell
 ## Example PowerShell code to use in a runbook to handle parsing of both classic and new metric alerts.
@@ -148,19 +149,19 @@ else {
 
 ```
 
-경고가 트리거될 때 가상 컴퓨터를 중지 하는 runbook의 전체 예제를 보려면 합니다 [Azure Automation 설명서](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook)합니다.
+경고가 트리거될 때 가상 머신을 중지 하는 runbook의 전체 예는 [Azure Automation 설명서](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook)를 참조 하세요.
 
-## <a name="partner-integration-via-webhooks"></a>웹 후크를 통해 파트너 통합
+## <a name="partner-integration-via-webhooks"></a>웹 후크를 통한 파트너 통합
 
-대부분의 [클래식 경고와 통합 되는 파트너](https://docs.microsoft.com/azure/azure-monitor/platform/partners) 이미 해당 통합을 통해 최신 메트릭 경고를 지원 합니다. 새로운 메트릭 경고를 이미 사용 하는 알려진된 통합 됩니다.
+[클래식 경고와 통합 되는](https://docs.microsoft.com/azure/azure-monitor/platform/partners) 대부분의 파트너는 통합을 통해 최신 메트릭 경고를 이미 지원 합니다. 이미 새 메트릭 경고와 함께 작동 하는 알려진 통합은 다음과 같습니다.
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-여기에 나열 되지 않은 파트너 통합을 사용 중인 경우 통합 공급자를 사용 하 여 작동 하는지 확인 통합 새로운 메트릭 경고를 사용 하 여 합니다.
+여기에 나열 되지 않은 파트너 통합을 사용 하는 경우 통합이 새 메트릭 경고와 함께 작동 하는지 통합 공급자에 게 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [마이그레이션 도구를 사용 하는 방법](alerts-using-migration-tool.md)
-- [마이그레이션 도구 작동 원리를 이해합니다](alerts-understand-migration.md)
+- [마이그레이션 도구 사용 방법](alerts-using-migration-tool.md)
+- [마이그레이션 도구의 작동 방식 이해](alerts-understand-migration.md)

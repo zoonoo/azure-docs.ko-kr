@@ -1,54 +1,49 @@
 ---
-title: Azure 활동 데이터를 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
-description: Azure 활동 데이터를 Azure Sentinel 연결 하는 방법에 알아봅니다.
+title: Azure 활동 데이터를 Azure 센티널에 연결 | Microsoft Docs
+description: 한 번의 클릭으로 azure 활동 로그를 Azure 센티널로 스트리밍합니다. 활동 로그는 Azure에서 구독 수준 이벤트를 기록 하 고 표시 합니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 8c25baa8-b93b-41da-9e6c-15bb7b5c5511
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
-ms.author: rkarlin
-ms.openlocfilehash: 67e4bb2d0f308a3f20f0a29ec8b1f2a0d46fc082
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 03/22/2020
+ms.author: yelevin
+ms.openlocfilehash: 88f363406ec40dfa439a52ad351501d1c64dce95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564490"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Azure 활동 로그에서 데이터 연결
 
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+한 번의 클릭으로 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md) 의 로그를 azure 센티널로 스트리밍할 수 있습니다. 활동 로그는 Azure Resource Manager 작동 데이터에서 Service Health 이벤트의 업데이트에 이르기까지 Azure에서 구독 수준 이벤트를 기록 하 고 표시 하는 구독 로그입니다. 활동 로그를 사용 하 여 구독에서 리소스에 대해 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대 한 ' 무엇을, 누가, 언제 '를 결정할 수 있습니다. 작업 및 기타 관련 속성의 상태를 배울 수도 있습니다. 활동 로그에는 읽기 (GET) 작업 또는 클래식/"RDFE" 모델을 사용 하는 리소스에 대 한 작업이 포함 되지 않습니다. 
 
-로그를 스트리밍하려면 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md) 번의 클릭으로 Azure Sentinel에 있습니다. 활동 로그는 Azure에서 발생 하는 구독 수준 이벤트에 대 한 정보를 제공 하는 구독 로그입니다. 여기에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. 활동 로그를 통해 확인할 수 있습니다는 ' 무엇을, 누가, 언제 ' 대 한 모든 쓰기 작업 (PUT, POST, DELETE) 구독의 리소스에서 수행 합니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기 (GET) 작업 또는 클래식을 사용 하는 리소스에 대 한 작업이 없는 / "RDFE" 모델입니다. 
+## <a name="prerequisites"></a>사전 요구 사항
 
+- 사용자에 게 Log Analytics 작업 영역에 대 한 참가자 권한이 있어야 합니다.
+- 사용자에 게 Azure 센티널로 스트리밍할 로그가 포함 된 모든 구독에 대 한 읽기 권한이 있어야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="set-up-the-azure-activity-connector"></a>Azure 작업 커넥터 설정
 
-- 전역 관리자 또는 보안 관리자 권한이 있는 사용자
+1. Azure 센티널 탐색 메뉴에서 **데이터 커넥터**를 선택 합니다. 커넥터 목록에서 **Azure 활동**을 클릭 한 다음 오른쪽 아래에 있는 **커넥터 페이지 열기** 단추를 클릭 합니다.
 
+2. **지침** 탭에서 **Azure 활동 로그 구성 >** 링크를 클릭 합니다.
 
-## <a name="connect-to-azure-activity-log"></a>Azure 활동 로그에 연결
+3. **Azure 활동 로그** 창에서 azure 센티널로 스트리밍할 로그가 포함 된 구독을 선택 합니다. 
 
-1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure 활동 로그** 바둑판식으로 배열 합니다.
+4. 오른쪽에 열리는 구독 창에서 **연결**을 클릭 합니다.
 
-2. Azure 활동 로그 창에서 Azure Sentinel를 스트리밍 하려는 구독을 선택 합니다. 
-
-3. **연결**을 클릭합니다.
-
-4. Log Analytics에서 관련 스키마를 사용 하 여 Azure 활동 경고에 대 한를 검색 **AzureActivity**합니다.
-
-
- 
+5. Azure 활동 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 `AzureActivity` 쿼리 창에를 입력 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel Azure 활동 로그 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
-- 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
+이 문서에서는 azure 활동 로그를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [기본 제공](tutorial-detect-threats-built-in.md) 또는 [사용자 지정](tutorial-detect-threats-custom.md) 규칙을 사용 하 여 Azure 센티널에서 위협을 검색 하기 시작 합니다.

@@ -1,18 +1,15 @@
 ---
 title: Azure Monitor에서 메트릭 경고가 작동하는 방식을 이해합니다.
 description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에서 메트릭 경고가 작동하는 방식에 대한 개요를 제공합니다.
-author: snehithm
-ms.author: snmuvva
-ms.date: 9/18/2018
+ms.date: 07/09/2020
 ms.topic: conceptual
-ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712868"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187526"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -28,14 +25,16 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 
 - 대상 리소스(모니터링할 Azure 리소스): myVM
 - 메트릭: 백분율 CPU
-- 조건 형식: 공용
-- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. 지원되는 시간 집계는 최소, 최대, 평균, 총계): 평균
-- 기간(확인할 메트릭 값에 대한 되돌아 보기 시간 범위): 지난 5분
-- 빈도(메트릭 경고에서 조건이 충족되는지 확인하는 빈도): 1분
-- 연산자: 다음보다 큼
+- 조건 형식: Static
+- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. [지원 되는 시간 집계](metrics-charts.md#changing-aggregation) 는 Min, Max, Avg, Total, Count): Average입니다.
+- 기간 (메트릭 값을 확인 하는 뒤로 이동 창): 지난 5 분 동안
+- 빈도 (메트릭 경고에서 조건이 충족 되었는지 확인 하는 빈도): 1 분
+- 연산자: 보다 큼
 - 임계값: 70
 
 경고 규칙이 만들어진 시점 이후 모니터는 1분 간격으로 실행되며 지난 5분 간의 메트릭 값을 살펴 이 평균이 70을 초과하는지 확인합니다. 조건에 부합하면, 즉 지난 5분의 평균 백분율 CPU가 70을 초과하면 경고 규칙에서 활성화된 알림을 생성합니다. 경고 규칙과 연결된 작업 그룹에서 이메일이나 웹후크 작업을 구성한 경우 모두 활성화된 알림을 받게 됩니다.
+
+한 규칙에서 여러 조건을 사용 하는 경우 규칙은 조건을 함께 "ands" 합니다. 즉, 경고 규칙의 모든 조건이 true로 평가 되 고 조건 중 하나가 더 이상 true가 아니면 해결 될 때 경고가 발생 합니다. 이러한 유형의 경고 규칙에 대 한 예는 Azure 가상 머신을 모니터링 하 고 "CPU 비율이 90% 보다 크면" 큐 길이가 300 항목을 초과 하는 경우 경고를 생성 하는 것입니다.
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>동적 조건 형식이 있는 경고 규칙
 
@@ -44,12 +43,12 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 - 대상 리소스(모니터링할 Azure 리소스): myVM
 - 메트릭: 백분율 CPU
 - 조건 형식: 동적
-- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. 지원되는 시간 집계는 최소, 최대, 평균, 총계): 평균
-- 기간(확인할 메트릭 값에 대한 되돌아 보기 시간 범위): 지난 5분
-- 빈도(메트릭 경고에서 조건이 충족되는지 확인하는 빈도): 1분
-- 연산자: 다음보다 큼
-- 민감도: 중간
-- 되돌아 보기 기간: 4
+- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. [지원 되는 시간 집계](metrics-charts.md#changing-aggregation) 는 Min, Max, Avg, Total, Count): Average입니다.
+- 기간 (메트릭 값을 확인 하는 뒤로 이동 창): 지난 5 분 동안
+- 빈도 (메트릭 경고에서 조건이 충족 되었는지 확인 하는 빈도): 1 분
+- 연산자: 보다 큼
+- 민감도: 중형
+- 이전 기간을 찾습니다. 4
 - 위반 수: 4
 
 경고 규칙이 만들어지면 동적 임계값 기계 학습 알고리즘에서 사용 가능한 기록 데이터를 가져오고 메트릭 계열 동작 패턴에 가장 적합한 임계값을 계산하며, 새 데이터를 기반으로 하여 지속적으로 학습하여 임계값을 더 정확하게 만듭니다.
@@ -62,7 +61,7 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 
 후속 검사에서 "myVM"의 사용량이 임계값을 계속 초과하면 해당 조건이 해결될 때까지 경고 규칙이 다시 실행되지 않습니다.
 
-일정 시간 후 "myVM"의 사용량이 정상 상태, 즉 임계값 미만으로 떨어집니다. 경고 규칙은 해결 알림을 보내기 위해 두 번 이상 조건을 모니터링합니다. 조건이 유동적인 경우 소음을 줄이기 위해 세 번 연속 경고 조건에 부합하지 않으면 경고 규칙에서 해결/비활성화 메시지를 보냅니다.
+시간이 지난 후에는 "myVM"의 사용량이 정상으로 복귀 됩니다 (임계값 아래로 이동). 경고 규칙은 해결 알림을 보내기 위해 두 번 이상 조건을 모니터링합니다. 조건이 유동적인 경우 소음을 줄이기 위해 세 번 연속 경고 조건에 부합하지 않으면 경고 규칙에서 해결/비활성화 메시지를 보냅니다.
 
 해결됨 알림은 웹후크 또는 이메일을 통해 전송되므로 Azure Portal의 경고 인스턴스 상태(모니터 상태라고도 함)도 해결됨으로 설정됩니다.
 
@@ -74,7 +73,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 - 대상 리소스: myAppServicePlan
 - 메트릭: 백분율 CPU
-- 조건 형식: 공용
+- 조건 형식: Static
 - 차원
   - 인스턴스 = InstanceName1, InstanceName2
 - 시간 집계: 평균
@@ -89,7 +88,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 - 대상 리소스: myAppServicePlan
 - 메트릭: 백분율 CPU
-- 조건 형식: 공용
+- 조건 형식: Static
 - 차원
   - 인스턴스 = *
 - 시간 집계: 평균
@@ -113,8 +112,8 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 - 기간: 지난 5분
 - 빈도: 1분
 - 연산자: GreaterThan
-- 민감도: 중간
-- 되돌아 보기 기간: 1
+- 민감도: 중형
+- 이전 기간을 찾습니다. 1
 - 위반 수: 1
 
 이 규칙은 지난 5분 동안의 평균 CPU 사용량이 각 인스턴스에 대해 예상된 동작을 초과하는지 모니터링합니다. 메트릭 경고 규칙을 다시 수정할 필요 없이 동일한 규칙에 따라 발생하는 인스턴스를 모니터링할 수 있습니다. 각 인스턴스에서 메트릭 계열 동작 패턴에 맞는 임계값을 가져오고, 새 데이터에 따라 지속적으로 변경되어 임계값을 더 정확하게 만듭니다. 이전과 마찬가지로 각 인스턴스는 개별적으로 모니터링되며 알림도 개별적으로 받게 됩니다.
@@ -123,15 +122,32 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고를 사용한 모니터링 축소
 
-지금까지 단일 메트릭 경고를 사용하여 단일 Azure 리소스와 관련된 하나 이상의 메트릭 시계열을 모니터링하는 방법을 확인했습니다. 많은 리소스에 동일한 경고 규칙을 적용하려는 경우가 많습니다. Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수도 있습니다. 이 기능은 현재 가상 머신에서만 지원됩니다. 또한 단일 메트릭 경고가 한 Azure 지역의 리소스를 모니터링할 수 있습니다.
+지금까지 단일 메트릭 경고를 사용하여 단일 Azure 리소스와 관련된 하나 이상의 메트릭 시계열을 모니터링하는 방법을 확인했습니다. 많은 리소스에 동일한 경고 규칙을 적용하려는 경우가 많습니다. 또한 동일한 Azure 지역에 있는 리소스에 대해 하나의 메트릭 경고 규칙을 사용 하 여 동일한 유형의 여러 리소스를 모니터링 하는 것을 지원 합니다. Azure Monitor 
 
-다음 세 가지 방법 중 하나로 단일 메트릭 경고를 통해 모니터링 범위를 지정할 수 있습니다.
+이 기능은 현재 다음과 같은 Azure 클라우드의 서비스에 대 한 플랫폼 메트릭 (사용자 지정 메트릭이 아님)에 대해 지원 됩니다.
 
-- 구독 내 한 Azure 지역에 있는 가상 머신 목록으로
+| 서비스 | 공용 Azure | 정부 | 중국 |
+|:--------|:--------|:--------|:--------|
+| 가상 머신  | **예** | 아니요 | 아니요 |
+| SQL server 데이터베이스 | **예** | **예** | 아니요 |
+| SQL server 탄력적 풀 | **예** | **예** | 아니요 |
+| Data box edge 장치 | **예** | **예** | 아니요 |
+
+세 가지 방법 중 하나로 단일 메트릭 경고 규칙에 따라 모니터링 범위를 지정할 수 있습니다. 예를 들어 virtual machines를 사용 하 여 범위를 다음과 같이 지정할 수 있습니다.  
+
+- 구독 내에서 한 Azure 지역에 있는 가상 머신 목록
 - 구독 내 하나 이상의 리소스 그룹에 있는 모든 가상 머신(한 Azure 지역에 있는)
-- 구독의 모든 가상 머신(한 Azure 지역에 있는)
+- 구독의 모든 가상 컴퓨터 (하나의 Azure 지역)
 
-여러 리소스를 모니터링하는 메트릭 경고 규칙을 만드는 작업은 단일 리소스를 모니터링하는 [다른 메트릭 경고를 만드는](alerts-metric.md) 것과 같습니다. 차이점은 모니터링하려는 모든 리소스를 사용자가 선택한다는 것입니다. [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수도 있습니다. 각 가상 머신에 대한 개별 알림을 받게 됩니다.
+> [!NOTE]
+>
+> 다중 리소스 메트릭 경고 규칙의 범위는 선택한 리소스 유형의 리소스를 하나 이상 포함 해야 합니다.
+
+여러 리소스를 모니터링하는 메트릭 경고 규칙을 만드는 작업은 단일 리소스를 모니터링하는 [다른 메트릭 경고를 만드는](alerts-metric.md) 것과 같습니다. 차이점은 모니터링하려는 모든 리소스를 사용자가 선택한다는 것입니다. [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수도 있습니다. 모니터링 되는 각 리소스에 대 한 개별 알림을 받게 됩니다.
+
+> [!NOTE]
+>
+> 여러 리소스를 모니터링하는 메트릭 경고 규칙에서는 하나의 조건만 허용됩니다.
 
 ## <a name="typical-latency"></a>일반적인 대기 시간
 
@@ -139,47 +155,12 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>메트릭 경고에 대한 지원되는 리소스 종류
 
-지원되는 리소스 종류의 전체 목록은 이 [문서](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에서 확인할 수 있습니다.
+지원 되는 리소스 종류의 전체 목록은이 [문서](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에서 찾을 수 있습니다.
 
-현재는 클래식 메트릭 경고를 사용하는데 메트릭 경고가 사용 중인 모든 리소스 종류를 지원하는지를 확인하려는 경우 아래 표를 참조하세요. 이 표에는 클래식 메트릭 경고가 지원하는 리소스 종류, 그리고 이러한 리소스 종류가 현재 메트릭 경고에서 지원되는지 여부가 나와 있습니다.
-
-|클래식 메트릭 경고가 지원하는 리소스 종류 | 메트릭 경고의 지원 여부 |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | 예 |
-| Microsoft.Batch/batchAccounts| 예|
-|Microsoft.Cache/redis| 예 |
-|Microsoft.ClassicCompute/virtualMachines | 아닙니다. |
-|Microsoft.ClassicCompute/domainNames/slots/roles | 아닙니다.|
-|Microsoft.CognitiveServices/accounts | 아닙니다. |
-|Microsoft.Compute/virtualMachines | 예|
-|Microsoft.Compute/virtualMachineScaleSets| 예|
-|Microsoft.ClassicStorage/storageAccounts| 아닙니다. |
-|Microsoft.DataFactory/datafactories | 예|
-|Microsoft.DBforMySQL/servers| 예|
-|Microsoft.DBforPostgreSQL/servers| 예|
-|Microsoft.Devices/IotHubs | 아닙니다.|
-|Microsoft.DocumentDB/databaseAccounts| 예|
-|Microsoft.EventHub/namespaces | 예|
-|Microsoft.Logic/workflows | 예|
-|Microsoft.Network/loadBalancers |예|
-|Microsoft.Network/publicIPAddresses| 예|
-|Microsoft.Network/applicationGateways| 예|
-|Microsoft.Network/expressRouteCircuits| 예|
-|Microsoft.Network/trafficManagerProfiles | 예|
-|Microsoft.Search/searchServices | 예|
-|Microsoft.ServiceBus/namespaces| 예 |
-|Microsoft.Storage/storageAccounts | 예|
-|Microsoft.StreamAnalytics/streamingjobs| 예|
-|Microsoft.TimeSeriesInsights/environments | 예|
-|Microsoft. Web/serverfarms | 예 |
-|Microsoft. Web/sites(함수 제외) | 예|
-|Microsoft. Web/hostingEnvironments/multiRolePools | 아닙니다.|
-|Microsoft. Web/hostingEnvironments/workerPools| 아닙니다. |
-|Microsoft.SQL/Servers | 아닙니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure에서 메트릭 경고를 생성, 표시 및 관리하는 방법에 대해 알아봅니다](alerts-metric.md).
+- [Azure에서 메트릭 경고를 만들고, 보고, 관리 하는 방법을 알아봅니다.](alerts-metric.md)
 - [Azure Resource Manager 템플릿을 사용한 메트릭 경고 배포 방법 알아보기](../../azure-monitor/platform/alerts-metric-create-templates.md)
-- [작업 그룹에 대해 자세히 알아보기](action-groups.md)
+- [작업 그룹에 대 한 자세한 정보](action-groups.md)
 - [동적 임계값 조건 형식에 대해 자세히 알아봅니다](alerts-dynamic-thresholds.md).

@@ -1,17 +1,16 @@
 ---
-title: Azure Database for MariaDB에서 쿼리 성능 문제를 해결하는 방법
-description: 이 문서에서는 EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능 문제를 해결하는 방법을 설명합니다.
+title: 쿼리 성능 문제 해결 - Azure Database for MariaDB
+description: EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능 문제를 해결하는 방법을 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: 672635c8d8c84fa16c106ae79e97332fd740928d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: troubleshooting
+ms.date: 3/18/2020
+ms.openlocfilehash: ca9a74763715c5c68526ff3213a14d2148f5ad30
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60745165"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834308"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능을 프로파일링하는 방법
 **EXPLAIN**은 쿼리를 최적화하는 편리한 도구입니다. EXPLAIN 문은 SQL 문이 어떻게 실행되는지에 대한 정보를 얻는 데 사용할 수 있습니다. 다음 출력은 EXPLAIN 문의 실행 예제입니다.
@@ -163,7 +162,7 @@ possible_keys: NULL
  
 ## <a name="conclusion"></a>결론
  
-EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있다고 해서 MariaDB가 해당 인덱스를 쿼리에 반드시 사용할 수 있는 것은 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
+EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있다고 해서 MariaDB가 해당 인덱스를 쿼리에 사용할 수 있는 것은 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
 
 ## <a name="next-steps"></a>다음 단계
-- 가장 궁금한 질문에 대한 동료의 답변을 찾아보거나 새로운 질문/답변을 게시하려면 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb)를 참조하세요.
+- 가장 궁금한 질문에 대한 동료의 답변을 찾아보거나 새로운 질문/답변을 게시하려면 [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb)를 참조하세요.

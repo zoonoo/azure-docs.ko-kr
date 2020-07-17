@@ -1,21 +1,18 @@
 ---
 title: Azure Application Insights로 ASP.NET 웹앱 모니터링 | Microsoft Docs
 description: Application Insights를 사용하여 모니터링하도록 ASP.NET 웹앱을 빠르게 설정하는 지침을 제공합니다.
-services: application-insights
-keywords: ''
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
-ms.service: application-insights
+ms.date: 06/26/2019
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 074010a2f3b1f4f4a58b3c4727bf4eed28402e0a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805349"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82142629"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -23,10 +20,10 @@ Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 
 
 이 빠른 시작에서는 애플리케이션을 분석하는 데 사용할 수 있는 다양한 방법 중 하나인 기존 ASP.NET 웹 애플리케이션에 Application Insights를 추가하고 실시간 통계 분석을 시작하는 방법을 보여줍니다. ASP.NET 웹 애플리케이션이 없는 경우 [ASP.NET 웹앱 빠른 시작 만들기](../../app-service/app-service-web-get-started-dotnet-framework.md)에 따라 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+- 다음 워크로드로 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)를 설치합니다.
     - ASP.NET 및 웹 개발
     - Azure 개발
 
@@ -35,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
-1. Visual Studio 2017에서 프로젝트를 엽니다.
+1. Visual Studio 2019에서 프로젝트를 엽니다.
 2. 프로젝트 메뉴에서 **Application Insights 구성**을 선택합니다. Visual Studio는 애플리케이션에 Application Insights SDK를 추가합니다.
 
     > [!IMPORTANT]
@@ -47,7 +44,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 구독을 선택하고 **등록**을 클릭합니다.
 
-5. **디버그** 메뉴에서 **디버깅 시작**을 선택하거나 F5 키를 눌러서 애플리케이션을 실행합니다.
+5. **프로젝트** > **NuGet 패키지 관리** > **패키지 소스: nuget.org** > **업데이트**를 선택하여 Application Insights SDK 패키지를 안정적인 최신 릴리스로 업데이트합니다.
+
+6. **디버그** 메뉴에서 **디버깅 시작**을 선택하거나 F5 키를 눌러서 애플리케이션을 실행합니다.
 
 ## <a name="confirm-app-configuration"></a>앱 구성 확인
 
@@ -63,13 +62,13 @@ Application Insights는 실행 중인 위치에 관계 없이 애플리케이션
 
 1. 솔루션 탐색기에서 **연결된 서비스** 폴더(구름과 플러그 모양의 아이콘)를 확장한 후 **Application Insights** 폴더를 마우스 오른쪽 단추로 클릭하고 **Application Insights 포털 열기**를 클릭합니다.  애플리케이션에 대한 몇 가지 정보와 다양한 옵션이 표시됩니다.
 
-    ![애플리케이션 맵](media/quick-monitor-portal/4overview.png)
+    ![애플리케이션 맵](media/quick-monitor-portal/04-overview.png)
 
 2. **애플리케이션 맵**을 클릭하여 애플리케이션 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
-    ![애플리케이션 맵](media/quick-monitor-portal/5appmap.png)
+    ![애플리케이션 맵](media/quick-monitor-portal/05-appmap.png)
 
-3. 애플리케이션 구성 요소 중 하나에서 **앱 분석** 아이콘 ![애플리케이션 맵](media/quick-monitor-portal/app-analytics-icon.png) **Analytics에서 보기**를 클릭합니다. 그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다.  이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. 애플리케이션 구성 요소 중 하나에서 **앱 분석** 아이콘 ![애플리케이션 맵](media/quick-monitor-portal/app-viewinlogs-icon.png) **Logs(Analytics)에서 보기**를 클릭합니다. 그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Logs(Analytics)** 가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
     ![분석](media/quick-monitor-portal/6viewanalytics.png)
 
@@ -101,10 +100,6 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ```
 
 자세한 내용은 GitHub 리포지토리의 [오픈 소스 JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)를 참조하세요.
-
-## <a name="video"></a>비디오
-
-* [처음부터 .NET 애플리케이션으로 Application Insight 구성](https://www.youtube.com/watch?v=blnGAVgMAfA)에 대한 외부의 단계별 비디오입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 테스트를 완료하면 리소스 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.

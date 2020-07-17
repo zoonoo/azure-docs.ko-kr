@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Box 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Box 구성 | Microsoft Docs'
 description: Azure Active Directory와 Box 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -15,21 +15,20 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c1397b4189a9c2c15e3878687ea8c67c1da7567f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60431759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77058572"
 ---
-# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Box 구성
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Box 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Box로 자동으로 프로비전 및 프로비전 해제하도록 Box 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Box와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -37,7 +36,7 @@ Box와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Box Business 계획 이상
 
 > [!NOTE]
-> 이 자습서의 단계를 테스트하는 경우 프로덕션 환경을 사용하는 것은 바람직하지 *않습니다*.
+> 이 자습서의 단계를 테스트 하는 경우 프로덕션 환경을 사용 *하지* 않는 것이 좋습니다.
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 따릅니다.
 
@@ -87,7 +86,7 @@ Azure Portal의 **Box > 사용자 및 그룹** 탭에서 Box에 대한 액세스
 
 이 섹션은 Box에 Active Directory 사용자 계정을 프로비전할 수 있도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > Enterprise Apps > 모든 응용 프로그램** 섹션으로 이동 합니다.
 
 2. Single Sign-On에 대한 Box를 이미 구성한 경우 검색 필드를 사용하여 Box의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Box**를 검색합니다. 검색 결과에서 Box를 선택하고 애플리케이션의 목록에 추가합니다.
 
@@ -101,11 +100,11 @@ Azure Portal의 **Box > 사용자 및 그룹** 탭에서 Box에 대한 액세스
 
 6. **Box에 대한 액세스 권한 부여를 위한 로그인** 페이지에서 필요한 자격 증명을 제공한 다음 **권한 부여**를 클릭합니다. 
    
-    ![자동 사용자 프로비저닝 사용](./media/box-userprovisioning-tutorial/IC769546.png "자동 사용자 프로비저닝 사용")
+    ![자동 사용자 프로비전 사용](./media/box-userprovisioning-tutorial/IC769546.png "자동 사용자 프로비전 사용")
 
 7. **Box에 액세스 허용**을 클릭하여 이 작업에 권한을 부여하고 Azure Portal로 돌아옵니다. 
    
-    ![자동 사용자 프로비저닝 사용](./media/box-userprovisioning-tutorial/IC769549.png "자동 사용자 프로비저닝 사용")
+    ![자동 사용자 프로비전 사용](./media/box-userprovisioning-tutorial/IC769549.png "자동 사용자 프로비전 사용")
 
 8. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Box 앱에 연결되었는지 확인합니다. 연결에 실패하면 Box 계정에 팀 관리자 권한이 있는지 확인하고 **"권한 부여"** 단계를 다시 시도합니다.
 
@@ -123,9 +122,9 @@ Azure Portal의 **Box > 사용자 및 그룹** 탭에서 Box에 대한 액세스
 
 [사용자 및 그룹] 섹션에서 Box에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Box 앱의 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 로그에 연결된 링크를 따를 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
-Box 테넌트에서 동기화된 사용자가 **관리 콘솔**의 **관리된 사용자**에 나열됩니다.
+Box 테넌트에서 동기화된 사용자가 **관리 콘솔**의 **관리되는 사용자** 아래에 나열됩니다.
 
 ![통합 상태](./media/box-userprovisioning-tutorial/IC769556.png "통합 상태")
 
@@ -134,4 +133,4 @@ Box 테넌트에서 동기화된 사용자가 **관리 콘솔**의 **관리된 �
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-On 구성](box-tutorial.md)
+* [Single Sign-on 구성](box-tutorial.md)

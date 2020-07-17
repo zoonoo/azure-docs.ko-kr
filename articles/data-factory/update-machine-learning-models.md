@@ -1,31 +1,32 @@
 ---
-title: Azure Data Factory를 사용하여 Machine Learning 모델 업데이트 | Microsoft Docs
+title: Azure Data Factory를 사용 하 여 machine learning 모델 업데이트
 description: Azure Data Factory 및 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: shlo
-ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82927397"
 ---
-# <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
-이 문서는 기본 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
+# <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용 하 여 ML Studio (클래식) v 모델 업데이트
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+이 문서에서는 [Azure Machine Learning 및 Azure Data Factory를 사용 하 여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)의 기본 Azure Data Factory-ML Studio (클래식) 통합 문서를 보완 합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
 
 ## <a name="overview"></a>개요
-Azure Machine Learning 모델을 조작하는 프로세스의 일부로 모델을 학습하고 저장합니다. 그런 다음, 이를 예측 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다.
+운영 화 ML Studio (클래식) 모델 프로세스의 일부로 모델을 학습 하 고 저장 합니다. 그런 다음, 이를 예측 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다.
 
-Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이지 않습니다. 새 데이터를 사용할 수 있는 경우 또는 API 소비자가 자체적인 데이터를 가진 경우 모델을 재학습해야 합니다. Azure Machine Learning에서 모델을 다시 학습하는 방법에 대한 자세한 내용은 [Machine Learning 모델 재학습](../machine-learning/machine-learning-retrain-machine-learning-model.md)을 참조하세요.
+Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이지 않습니다. 새 데이터를 사용할 수 있는 경우 또는 API 소비자가 자체적인 데이터를 가진 경우 모델을 재학습해야 합니다. 
 
 재학습은 자주 발생할 수 있습니다. 일괄 처리 실행 작업 및 리소스 업데이트 작업을 사용하면 Azure Machine Learning 모델을 조작하여 Data Factory를 통해 예측 웹 서비스를 다시 학습하고 업데이트할 수 있습니다.
 
@@ -33,9 +34,9 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 
 ![웹 서비스](./media/update-machine-learning-models/web-services.png)
 
-## <a name="azure-machine-learning-update-resource-activity"></a>Azure Machine Learning 리소스 업데이트 작업
+## <a name="ml-studio-classic-update-resource-activity"></a>ML Studio (클래식) 리소스 업데이트 작업
 
-다음 JSON 코드 조각은 Azure Machine Learning Batch 실행 동작을 정의합니다.
+다음 JSON 코드 조각은 ML Studio (클래식) 일괄 처리 실행 작업을 정의 합니다.
 
 ```json
 {
@@ -57,26 +58,26 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 }
 ```
 
-| 자산                      | 설명                              | 필수 |
+| 속성                      | 설명                              | 필수 |
 | :---------------------------- | :--------------------------------------- | :------- |
-| 이름                          | 파이프라인의 작업 이름입니다.     | 예      |
-| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
-| 형식                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예.      |
-| linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | 예.      |
+| name                          | 파이프라인의 작업 이름입니다.     | 예      |
+| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
+| type                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예      |
+| linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | 예      |
 | trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |
-| trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예.      |
-| trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | 예.      |
+| trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예      |
+| trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | 예      |
 
-## <a name="end-to-end-workflow"></a>종단 간 워크플로
+## <a name="end-to-end-workflow"></a>엔드투엔드 워크플로
 
 모델을 다시 학습하고 예측 웹 서비스를 업데이트하는 전체 프로세스에는 다음 단계가 포함됩니다.
 
-- **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스 호출은 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명하는 예측 웹 서비스 호출과 동일합니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트 하는 데 사용할 수 있는 iLearner 파일.
+- **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스 호출은 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명하는 예측 웹 서비스 호출과 동일합니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트 하는 데 사용할 수 있는 iLearner 파일입니다.
 - **리소스 업데이트 작업**을 통해 **예측 웹 서비스**의 **리소스 업데이트 엔드포인트**를 호출하여 새로운 학습된 모델을 통해 웹 서비스를 업데이트합니다.
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
 
-위에서 언급한 종단 간 워크플로가 작동하려면 다음 두 개의 Azure Machine Learning 연결된 서비스를 만들어야 합니다.
+위에서 언급한 엔드투엔드 워크플로가 작동하려면 다음 두 개의 Azure Machine Learning 연결된 서비스를 만들어야 합니다.
 
 1. 학습 웹 서비스에 대한 Azure Machine Learning 연결된 서비스 - 일괄 처리 실행 작업에서 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명한 것과 동일한 방식으로 사용됩니다. 차이점은 학습 웹 서비스의 출력이 리소스 업데이트 작업에서 예측 웹 서비스를 업데이트하는 데 사용하는 iLearner 파일이라는 것입니다.
 2. 예측 웹 서비스의 리소스 업데이트 엔드포인트에 대한 Azure Machine Learning 연결된 서비스 - 리소스 업데이트 작업에서 위의 단계에서 반환된 iLearner 파일을 사용하여 예측 웹 서비스를 업데이트하는 데 사용됩니다.
@@ -197,7 +198,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 ```
 
 ### <a name="pipeline"></a>파이프라인
-파이프라인에는 두 개의 활동인 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**가 있습니다. 일괄 처리 실행 작업에서는 학습 데이터를 입력으로 가져오고, iLearner 파일을 출력으로 생성합니다. 그런 다음 리소스 업데이트 작업에서 이 iLearner 파일을 가져오고, 이를 사용하여 예측 웹 서비스를 업데이트합니다.
+파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. 일괄 처리 실행 작업에서는 학습 데이터를 입력으로 가져오고, iLearner 파일을 출력으로 생성합니다. 그런 다음 리소스 업데이트 작업에서 이 iLearner 파일을 가져오고, 이를 사용하여 예측 웹 서비스를 업데이트합니다.
 
 ```JSON
 {

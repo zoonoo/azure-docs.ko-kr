@@ -1,19 +1,18 @@
 ---
-title: 자습서 - Azure Analysis Services 서버에 샘플 모델 추가 | Microsoft Docs
+title: 자습서 - 샘플 모델 추가 - Azure Analysis Services | Microsoft Docs
 description: 이 자습서 단원에서는 Azure Analysis Services에서 샘플 모델을 추가하는 방법을 알아봅니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903932"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697510"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>자습서: 포털에서 샘플 모델 추가
 
@@ -74,6 +73,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 자습서에서는 서버에 기본, 샘플 모델을 추가하는 방법을 배웠습니다. 이제 모델 데이터베이스가 있으므로 SQL Server Management Studio에서 연결하고 사용자 역할을 추가할 수 있습니다. 자세한 내용은 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: 서버 관리자 및 사용자 역할 구성](analysis-services-database-users.md)
+> [자습서: 서버 관리자 및 사용자 역할 구성](tutorials/analysis-services-tutorial-roles.md)
 
 

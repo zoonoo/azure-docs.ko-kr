@@ -5,6 +5,7 @@
     - name: Azure Maps란?
       href: about-azure-maps.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 웹앱 만들기
       href: quick-demo-map-app.md
@@ -22,8 +23,26 @@
           href: tutorial-create-store-locator.md
     - name: REST API 자습서
       items:
+        - name: 실내 맵 만들기
+          href: tutorial-creator-indoor-maps.md
         - name: 지오펜스 설정
           href: tutorial-geofence.md
+        - name: 공간 분석
+          href: tutorial-iot-hub-maps.md
+        - name: Azure Notebooks(Python)를 사용한 EV 라우팅
+          href: tutorial-ev-routing.md
+        - name: Azure Notebooks(Python)를 사용한 날씨 데이터 분석
+          href: weather-service-tutorial.md
+    - name: Google Maps에서 마이그레이션
+      items:
+        - name: Google Maps에서 마이그레이션
+          href: migrate-from-google-maps.md
+        - name: 웹앱 마이그레이션
+          href: migrate-from-google-maps-web-app.md
+        - name: Android 앱 마이그레이션
+          href: migrate-from-google-maps-android-app.md
+        - name: 웹 서비스 마이그레이션
+          href: migrate-from-google-maps-web-services.md
 - name: 개념
   items:
     - name: Azure Maps 인증
@@ -32,8 +51,16 @@
       href: azure-maps-event-grid-integration.md
     - name: 올바른 가격 책정 계층 선택
       href: choose-pricing-tier.md
+    - name: 실내 맵용 Creator
+      items:
+        - name: 실내 맵 개념
+          href: creator-indoor-maps.md
+        - name: 그리기 변환 오류 및 경고
+          href: drawing-conversion-error-codes.md
     - name: 적용 범위
       items:
+        - name: 적용 범위
+          href: geographic-coverage.md
         - name: 지오코딩 검사
           href: geocoding-coverage.md
         - name: 트래픽 검사
@@ -42,14 +69,20 @@
           href: render-coverage.md
         - name: 라우팅 검사
           href: routing-coverage.md
+        - name: Mobility 검사
+          href: mobility-coverage.md
+        - name: Weather 검사
+          href: weather-coverage.md
     - name: 지역화 지원
       href: supported-languages.md
     - name: 지원되는 맵 스타일
       href: supported-map-styles.md
-    - name: 웹 SDK 지원 브라우저
-      href: supported-browsers.md
     - name: 확대/축소 수준 및 타일 그리드
       href: zoom-levels-and-tile-grid.md
+    - name: Mobility Service 데이터 구조
+      href: mobility-service-data-structure.md
+    - name: Weather Service 개념
+      href: weather-services-concepts.md
 - name: 방법 가이드
   items:
     - name: Maps 계정 관리
@@ -58,23 +91,42 @@
           href: how-to-manage-account-keys.md
         - name: 인증 관리
           href: how-to-manage-authentication.md
+          items:
+            - name: 디먼 애플리케이션을 보호하는 방법
+              href: how-to-secure-daemon-app.md
+            - name: 대화형 로그인 단일 페이지 애플리케이션을 보호하는 방법
+              href: how-to-secure-spa-users.md
+            - name: 웹 애플리케이션을 보호하는 방법
+              href: how-to-secure-webapp-users.md
+            - name: 비 대화형 로그인 단일 페이지 애플리케이션을 보호하는 방법
+              href: how-to-secure-spa-app.md
+            - name: 입력 제한 애플리케이션을 보호하는 방법
+              href: how-to-secure-device-code.md
         - name: 가격 책정 계층 관리
           href: how-to-manage-pricing-tier.md
+        - name: Creator 관리
+          href: how-to-manage-creator.md
         - name: 사용 메트릭 보기
           href: how-to-view-api-usage.md
     - name: REST API에서 지도 데이터 가져오기
       items:
         - name: 주소 검색
           href: how-to-search-for-address.md
-        - name: 검색 관련 모범 사례
+        - name: Search Service 사용 모범 사례
           href: how-to-use-best-practices-for-search.md
+        - name: Route Service 사용 모범 사례
+          href: how-to-use-best-practices-for-routing.md
         - name: 정적 맵에서 사용자 지정 데이터 렌더링
           href: how-to-render-custom-data.md
+        - name: 공용 전송 경로 요청
+          href: how-to-request-transit-data.md
+        - name: 실시간 공용 전송 데이터 요청
+          href: how-to-request-real-time-data.md
     - name: 웹 SDK를 사용하여 개발
       items:
         - name: 지도 컨트롤
           items:
-            - name: 웹 지도 컨트롤 시작
+            - name: Azure Maps 맵 컨트롤 사용
               href: how-to-use-map-control.md
             - name: 맵 만들기
               href: map-create.md
@@ -82,32 +134,52 @@
               href: choose-map-style.md
             - name: 맵에 컨트롤 추가
               href: map-add-controls.md
-            - name: 기호 계층 추가
+            - name: 데이터 소스 만들기
+              href: create-data-source-web-sdk.md
+            - name: 기호 레이어 추가
               href: map-add-pin.md
             - name: 팝업 추가
               href: map-add-popup.md
-            - name: 거품형 계층 추가
+            - name: 거품형 레이어 추가
               href: map-add-bubble-layer.md
-            - name: 셰이프 추가
+            - name: HTML 마커 추가
+              href: map-add-custom-html.md
+            - name: 선 계층 추가
+              href: map-add-line-layer.md
+            - name: 다각형 레이어 추가
               href: map-add-shape.md
+            - name: 다각형 입체 면 레이어 추가
+              href: map-extruded-polygon.md
             - name: 열 지도 계층 추가
               href: map-add-heat-map-layer.md
+            - name: 이미지 레이어 추가
+              href: map-add-image-layer.md
+            - name: 타일 레이어 추가
+              href: map-add-tile-layer.md
+            - name: 트래픽 표시
+              href: map-show-traffic.md
             - name: 클러스터 지점 데이터
               href: clustering-point-data-web-sdk.md
             - name: 데이터 기반 스타일 식 사용
               href: data-driven-style-expressions-web-sdk.md
-            - name: 이미지 오버레이
-              href: map-add-image-layer.md
-            - name: 타일 레이어 추가
-              href: map-add-tile-layer.md
-            - name: HTML 마커
-              href: map-add-custom-html.md
-            - name: 트래픽 표시
-              href: map-show-traffic.md
-            - name: 마우스 이벤트와 상호 작용
+            - name: 이미지 템플릿을 사용하는 방법
+              href: how-to-use-image-templates-web-sdk.md
+            - name: 이벤트에 반응
               href: map-events.md
             - name: 앱에 액세스할 수 있게 만들기
               href: map-accessibility.md
+        - name: 그리기 도구
+          items:
+            - name: 그리기 도구 모듈 사용
+              href: set-drawing-options.md
+            - name: 그리기 도구 모음 추가
+              href: map-add-drawing-toolbar.md
+            - name: 도형 데이터 가져오기
+              href: map-get-shape-data.md
+            - name: 그리기 이벤트에 반응
+              href: drawing-tools-events.md
+            - name: 상호 작용 유형 및 바로 가기 키
+              href: drawing-tools-interactions-keyboard-shortcuts.md
         - name: 서비스 모듈
           items:
             - name: 서비스 모듈 사용
@@ -118,23 +190,79 @@
               href: map-get-information-from-coordinate.md
             - name: A에서 B로의 방향 표시
               href: map-route.md
+        - name: 실내 맵 모듈
+          items:
+            - name: 실내 맵 모듈
+              href: how-to-use-indoor-module.md
+            - name: 실내 맵을 위한 동적 스타일 지정
+              href: indoor-map-dynamic-styling.md
+            - name: 그리기 오류 시각화 도우미
+              href: drawing-error-visualizer.md
+        - name: 공간 IO 모듈
+          items:
+            - name: 공간 IO 모듈 사용
+              href: how-to-use-spatial-io-module.md
+            - name: 단순 데이터 레이어 추가
+              href: spatial-io-add-simple-data-layer.md
+            - name: 공간 데이터 읽기 및 쓰기
+              href: spatial-io-read-write-spatial-data.md
+            - name: OGC 지도 계층 추가
+              href: spatial-io-add-ogc-map-layer.md
+            - name: WFS 서비스에 연결
+              href: spatial-io-connect-wfs-service.md
+            - name: 핵심 작업 활용
+              href: spatial-io-core-operations.md
+            - name: 지원되는 데이터 형식 세부 정보
+              href: spatial-io-supported-data-format-details.md
+        - name: 웹 SDK 지원 브라우저
+          href: supported-browsers.md
     - name: Android SDK를 사용하여 개발
       items:
         - name: Android 지도 컨트롤 시작
           href: how-to-use-android-map-control-library.md
-        - name: 기호 계층 추가
+        - name: 맵 스타일 변경
+          href: set-android-map-styles.md
+        - name: 기호 레이어 추가
           href: how-to-add-symbol-to-android-map.md
         - name: 셰이프 추가
           href: how-to-add-shapes-to-android-map.md
-        - name: 맵 스타일 변경
-          href: set-android-map-styles.md
-- name: 참고 자료
+        - name: 기능 정보 표시
+          href: display-feature-information-android.md
+        - name: 타일 레이어 추가
+          href: how-to-add-tile-layer-android-map.md
+        - name: 트래픽 데이터 표시
+          href: how-to-show-traffic-android.md
+    - name: Power BI에서 Azure Maps 사용
+      items:
+        - name: 시작
+          href: power-bi-visual-getting-started.md
+        - name: 레이어 이해
+          href: power-bi-visual-understanding-layers.md
+        - name: 거품형 레이어 추가
+          href: power-bi-visual-add-bubble-layer.md
+        - name: 가로 막대형 차트 레이어 추가
+          href: power-bi-visual-add-bar-chart-layer.md
+        - name: 참조 레이어 추가
+          href: power-bi-visual-add-reference-layer.md
+        - name: 타일 레이어 추가
+          href: power-bi-visual-add-tile-layer.md
+        - name: 실시간 트래픽 표시
+          href: power-bi-visual-show-real-time-traffic.md
+        - name: 액세스 관리
+          href: power-bi-visual-manage-access.md
+    - name: 데이터 피드백 제공
+      href: how-to-use-feedback-tool.md
+- name: 참조
   items:
     - name: API 및 매개 변수 확장
       items:
+        - name: 그리기 패키지 요구 사항
+          href: drawing-requirements.md
+        - name: 동적 맵 StylesObject
+          href: schema-stateset-stylesobject.md
         - name: 차량 소비 모델
           href: consumption-model.md
-        - name: GeoJSON 형식 확장
+        - name: 확장된 GeoJSON 형식
           href: extend-geojson.md
         - name: Geofence GeoJSON 형식
           href: geofence-geojson.md
@@ -146,11 +274,15 @@
           href: 'https://docs.microsoft.com/rest/api/maps/data'
         - name: 지리적 위치 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: 모바일 서비스
+          href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: Render Service
           href: 'https://docs.microsoft.com/rest/api/maps/render'
+        - name: Render Service V2
+          href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
         - name: Route Service
           href: 'https://docs.microsoft.com/rest/api/maps/route'
-        - name: Search 서비스
+        - name: Search Service
           href: 'https://docs.microsoft.com/rest/api/maps/search'
         - name: 공간 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/spatial'
@@ -158,30 +290,80 @@
           href: 'https://docs.microsoft.com/rest/api/maps/timezone'
         - name: Traffic Service
           href: 'https://docs.microsoft.com/rest/api/maps/traffic'
+        - name: Weather Service
+          href: 'https://docs.microsoft.com/rest/api/maps/weather'
+        - name: Maps Creator 서비스
+          items:
+            - name: 별칭 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/alias'
+            - name: 변환 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/conversion'
+            - name: 데이터 세트 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/dataset'
+            - name: Feature State 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/featurestate'
+            - name: 타일 세트 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/tileset'
+            - name: WFS 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/wfs'
         - name: Maps 계정 관리
           href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript
       items:
         - name: 지도 컨트롤
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: 그리기 도구
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: 서비스 모듈
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
+        - name: 공간 IO 모듈
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/'
+        - name: 실내 모듈
+          href: 'https://aka.ms/am-indoor-module-websdk/'
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.maps/accounts
+    - name: Azure CLI
+      href: /cli/azure/maps
 - name: 리소스
   items:
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Azure IoT SDK
+      items:
+        - name: IoT 서비스 SDK
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        - name: IoT 디바이스 SDK
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Azure Maps 사용 약관
-      href: 'https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31'
+      href: 'https://azure.microsoft.com/support/legal/'
     - name: Azure Maps 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-maps'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-maps'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Azure Maps 비디오
       href: 'https://aka.ms/AzureMapsVideos'
+    - name: 공개 소스 프로젝트
+      href: open-source-projects.md
+    - name: Azure Maps 사례 연구
+      href: 'https://aka.ms/AzureMapsCaseStudies'
     - name: Azure Maps 용어집
       href: glossary.md
     - name: 서비스 업데이트
@@ -194,29 +376,3 @@
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: IoT 학교의 Azure Maps
       href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
-- name: 관련 항목
-  items:
-    - name: 솔루션
-      items:
-        - name: IoT 솔루션 가속기
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: 플랫폼 서비스
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning 서비스
-          href: /azure/iot-dps
-        - name: 지도
-          href: /azure/azure-maps
-        - name: 서비스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: IoT Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: IoT 디바이스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

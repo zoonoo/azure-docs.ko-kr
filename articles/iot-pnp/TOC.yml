@@ -1,0 +1,117 @@
+- name: IoT 플러그 앤 플레이 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: IoT 플러그 앤 플레이란?
+      href: overview-iot-plug-and-play.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 디바이스 만들기
+      items:
+        - name: C Linux
+          href: quickstart-create-pnp-device-linux.md
+        - name: C Windows
+          href: quickstart-create-pnp-device-windows.md
+    - name: 디바이스를 IoT Hub에 연결
+      items:
+        - name: C Linux
+          href: quickstart-connect-pnp-device-c-linux.md
+        - name: C Windows
+          href: quickstart-connect-pnp-device-c-windows.md
+        - name: C#
+          href: quickstart-connect-pnp-device-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-node.md
+    - name: 디바이스를 IoT Central에 연결
+      href: ../iot-central/core/tutorial-connect-pnp-device.md
+    - name: 솔루션에서 디바이스에 연결
+      items:
+        - name: C#
+          href: quickstart-connect-pnp-device-solution-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-solution-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-solution-node.md
+- name: 자습서
+  items:
+    - name: VS Code를 사용하여 디바이스 만들기
+      href: tutorial-pnp-visual-studio-code.md
+    - name: 인증을 위해 준비된 디바이스 빌드
+      href: tutorial-build-device-certification.md
+    - name: 디바이스 인증
+      href: tutorial-certification-test.md
+- name: 개념
+  items:
+    - name: 용어
+      href: iot-plug-and-play-glossary.md
+    - name: 개발자 가이드
+      href: concepts-developer-guide.md
+    - name: 공용 인터페이스
+      href: concepts-common-interfaces.md
+    - name: 모델 검색
+      href: concepts-model-discovery.md
+    - name: 한도 및 할당량
+      href: concepts-limits-quotas.md
+- name: 방법 가이드
+  items:
+    - name: Visual Studio 및 Visual Studio Code를 사용하여 개발
+      href: howto-develop-with-vs-vscode.md
+    - name: IoT Explorer 설치
+      href: howto-install-iot-explorer.md
+    - name: Azure CLI 확장 설치
+      href: howto-install-pnp-cli.md
+    - name: IoT 포털에 등록
+      href: howto-onboard-portal.md
+    - name: 모델 관리
+      href: howto-manage-models.md
+    - name: 디바이스에 연결 및 상호 작용
+      href: howto-develop-solution.md
+- name: 참조
+  items:
+    - name: 라이브러리 및 SDK
+      href: libraries-sdks.md
+    - name: REST API
+      items:
+        - name: Digital Twin
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
+        - name: Digital Twin 서비스
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
+        - name: Digital Twin 모델 리포지토리
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
+        - name: REST 보안 토큰 생성
+          href: howto-generate-sas-token.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-IoT
+- name: 리소스
+  items:
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Azure IoT SDK
+      items:
+        - name: IoT 서비스 SDK
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        - name: IoT 디바이스 SDK
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

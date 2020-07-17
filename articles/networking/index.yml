@@ -1,0 +1,342 @@
+### YamlMime:Hub
+title: Azure 네트워킹 설명서
+summary: Azure의 리소스에 대한 연결을 제공하고, 애플리케이션을 제공 및 보호하고, 다양한 Azure 네트워킹 서비스에 대해 알아봅니다.
+brand: azure
+metadata:
+  title: Azure 네트워킹 설명서
+  description: Azure 네트워킹 서비스는 Azure의 리소스에 대한 연결을 제공하고, 애플리케이션을 제공 및 보호하고, 네트워크를 보호합니다.
+  ms.service: virtual-network
+  ms.topic: hub-page
+  ms.collection: 
+  author: KumudD
+  ms.author: kumud
+  manager: mtillman
+  ms.date: 03/17/2020
+  ms.openlocfilehash: eba71e790c9da1978e0c9cac84b1913447972db2
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800706"
+highlightedContent:
+  items:
+  - title: Azure 네트워킹이란?
+    itemType: overview
+    url: networking-overview.md
+  - title: Azure 네트워킹의 새로운 기능
+    itemType: whats-new
+    url: https://azure.microsoft.com/updates/?category=networking
+  - title: Azure의 부하 분산 옵션
+    itemType: architecture
+    url: https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview
+  - title: Azure의 허브-스포크 네트워크 토폴로지
+    itemType: architecture
+    url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+  - title: 라우팅 기본 설정이란?
+    itemType: concept
+    url: ../virtual-network/routing-preference-overview.md
+  - title: Azure 서비스를 사용하여 원격으로 작업
+    itemType: concept
+    url: working-remotely-support.md
+conceptualContent:
+  items:
+  - title: 가상 네트워크
+    links:
+    - url: ../virtual-network/virtual-networks-overview.md
+      itemType: concept
+      text: Azure 가상 네트워크란?
+    - url: ../virtual-network/tutorial-restrict-network-access-to-resources.md
+      itemType: tutorial
+      text: 리소스에 대한 네트워크 액세스 제한
+    - url: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+      itemType: tutorial
+      text: Azure 가상 네트워크 연결
+    - url: ../virtual-network/diagnose-network-traffic-filter-problem.md
+      itemType: how-to-guide
+      text: 네트워크 트래픽 필터 문제 해결
+    footerLink:
+      url: ../virtual-network/index.yml
+      text: 자세히 보기
+  - title: 온-프레미스에서 Azure로 연결 - VPN 암호화
+    links:
+    - url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+      itemType: overview
+      text: Azure VPN Gateway란?
+    - url: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
+      itemType: tutorial
+      text: 사이트 간 연결
+    - url: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+      itemType: how-to-guide
+      text: 지점 및 사이트 간 연결
+    - url: ../vpn-gateway/vpn-gateway-troubleshoot.md
+      itemType: how-to-guide
+      text: VPN Gateways 문제 해결
+    footerLink:
+      url: ../vpn-gateway/index.yml
+      text: 자세히 보기
+  - title: 온-프레미스에서 Azure로 확장 - 프라이빗 연결
+    links:
+    - url: ../expressroute/expressroute-introduction.md
+      itemType: concept
+      text: Azure ExpressRoute란?
+    - url: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md
+      itemType: tutorial
+      text: ExpressRoute 회로 만들기 및 수정
+    - url: ../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md
+      itemType: tutorial
+      text: 가상 네트워크를 ExpressRoute 회로에 연결합니다.
+    - url: ../expressroute/expressroute-troubleshooting-network-performance.md
+      itemType: how-to-guide
+      text: 네트워크 성능 문제 해결
+    footerLink:
+      url: ../expressroute/index.yml
+      text: 자세히 보기
+  - title: DNS
+    links:
+    - url: ../dns/dns-overview.md
+      itemType: overview
+      text: Azure DNS란?
+    - url: ../private-link/private-endpoint-overview.md
+      itemType: overview
+      text: Azure 프라이빗 DNS란?
+    - url: ../dns/dns-delegate-domain-azure-dns.md
+      itemType: tutorial
+      text: 도메인 및 하위 도메인 호스트
+    - url: ../dns/dns-getstarted-portal.md
+      itemType: tutorial
+      text: Azure DNS 문제 해결
+    footerLink:
+      url: ../dns/index.yml
+      text: 자세히 보기
+  - title: 네트워크 부하 분산 장치
+    links:
+    - url: ../load-balancer/load-balancer-overview.md
+      itemType: overview
+      text: Azure Load Balancer란?
+    - url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
+      itemType: quickstart
+      text: VM에 내부 트래픽 부하 분산
+    - url: ../load-balancer/tutorial-load-balancer-port-forwarding-portal.md
+      itemType: tutorial
+      text: 포트 전달 구성
+    - url: ../load-balancer/load-balancer-troubleshoot.md
+      itemType: how-to-guide
+      text: Azure Load Balancer 문제 해결
+    footerLink:
+      url: ../load-balancer/index.yml
+      text: 자세히 보기
+  - title: DNS 기반 부하 분산 장치
+    links:
+    - url: ../traffic-manager/traffic-manager-overview.md
+      itemType: overview
+      text: Azure Traffic Manager란?
+    - url: ../traffic-manager/tutorial-traffic-manager-improve-website-response.md
+      itemType: tutorial
+      text: 짧은 대기 시간을 위해 트래픽 라우팅
+    - url: ../traffic-manager/traffic-manager-routing-methods.md
+      itemType: concept
+      text: 트래픽 라우팅 방법
+    - url: ../traffic-manager/traffic-manager-troubleshooting-degraded.md
+      itemType: how-to-guide
+      text: Traffic Manager의 성능 저하 상태 문제 해결
+    footerLink:
+      url: ../traffic-manager/index.yml
+      text: 자세히 보기
+  - title: 웹 애플리케이션 부하 분산 장치
+    links:
+    - url: ../application-gateway/overview.md
+      itemType: overview
+      text: Azure Application Gateway란?
+    - url: ../application-gateway/quick-create-portal.md
+      itemType: quickstart
+      text: 포털을 사용하여 웹 트래픽 보내기
+    - url: ../application-gateway/application-gateway-faq.md
+      itemType: concept
+      text: 질문과 대답
+    - url: ../application-gateway/application-gateway-troubleshooting-502.md
+      itemType: how-to-guide
+      text: 잘못된 게이트웨이 오류 문제 해결
+    footerLink:
+      url: ../application-gateway/index.yml
+      text: 자세히 보기
+  - title: 글로벌 부하 분산 장치
+    links:
+    - url: ../frontdoor/front-door-overview.md
+      itemType: overview
+      text: Azure Front Door Service란?
+    - url: ../frontdoor/front-door-custom-domain.md
+      itemType: how-to-guide
+      text: Azure Front Door Service에 사용자 지정 도메인 추가
+    - url: ../frontdoor/front-door-how-to-redirect-https.md
+      itemType: how-to-guide
+      text: HTTP에서 HTTPS로 리디렉션
+    - url: ../frontdoor/front-door-troubleshoot-routing.md
+      itemType: how-to-guide
+      text: 라우팅 문제 해결
+    footerLink:
+      url: ../frontdoor/index.yml
+      text: 자세히 보기
+  - title: 네트워크 상태 모니터링
+    links:
+    - url: ../network-watcher/network-watcher-monitoring-overview.md
+      itemType: overview
+      text: Azure Network Watcher란?
+    - url: ../network-watcher/traffic-analytics.md
+      itemType: concept
+      text: Azure의 트래픽 분석
+    - url: ../network-watcher/network-watcher-nsg-flow-logging-portal.md
+      itemType: tutorial
+      text: VM과 주고 받는 네트워크 트래픽 흐름 기록
+    footerLink:
+      url: ../network-watcher/index.yml
+      text: 자세히 보기
+  - title: 네트워크 방화벽
+    links:
+    - url: ../firewall/overview.md
+      itemType: overview
+      text: Azure Firewall이란?
+    - url: ../firewall/tutorial-firewall-deploy-portal.md
+      itemType: tutorial
+      text: Azure Firewall 배포 및 구성
+    - url: ../firewall/tutorial-firewall-dnat.md
+      itemType: tutorial
+      text: Azure Firewall을 사용하여 인바운드 인터넷 트래픽 필터링
+    footerLink:
+      url: ../firewall/index.yml
+      text: 자세히 보기
+  - title: Azure VM에 대한 보안 액세스
+    links:
+    - url: ../bastion/bastion-overview.md
+      itemType: overview
+      text: Azure Bastion 정보
+    - url: ../bastion/bastion-create-host-portal.md
+      itemType: how-to-guide
+      text: Azure Bastion 호스트 만들기
+    - url: ../bastion/troubleshoot.md
+      itemType: how-to-guide
+      text: Azure Bastion 문제 해결
+    footerLink:
+      url: ../bastion/index.yml
+      text: 자세히 보기
+  - title: 네트워크 보안 관리
+    links:
+    - url: ../firewall-manager/overview.md
+      itemType: overview
+      text: Azure Firewall Manager란?
+    - url: ../firewall-manager/secured-virtual-hub.md
+      itemType: concept
+      text: 보안 가상 허브란?
+    - url: ../firewall-manager/secure-cloud-network.md
+      itemType: tutorial
+      text: Azure Firewall Manager를 사용하여 가상 WAN 보호
+    footerLink:
+      url: ../firewall-manager/index.yml
+      text: 자세히 보기
+  - title: 웹 애플리케이션 방화벽
+    links:
+    - url: ../web-application-firewall/overview.md
+      itemType: overview
+      text: Azure 웹 애플리케이션 방화벽이란?
+    - url: ../web-application-firewall/ag/ag-overview.md
+      itemType: concept
+      text: Application Gateway의 WAF
+    - url: ../web-application-firewall/afds/afds-overview.md
+      itemType: concept
+      text: Azure Front Door 서비스의 WAF
+    - url: ../web-application-firewall/cdn/cdn-overview.md
+      itemType: concept
+      text: Azure CDN의 WAF
+    - url: ../web-application-firewall/ag/web-application-firewall-troubleshoot.md
+      itemType: how-to-guide
+      text: Application Gateway용 WAF 문제 해결
+    footerLink:
+      url: ../web-application-firewall/index.yml
+      text: 자세히 보기
+  - title: 서비스에 대한 프라이빗 액세스
+    links:
+    - url: ../private-link/private-link-overview.md
+      itemType: overview
+      text: Azure Private Link란?
+    - url: ../private-link/private-endpoint-overview.md
+      itemType: concept
+      text: Azure 프라이빗 엔드포인트란?
+    - url: ../private-link/troubleshoot-private-link-connectivity.md
+      itemType: how-to-guide
+      text: Azure Private Link 문제 해결
+    footerLink:
+      url: ../private-link/index.yml
+      text: 자세히 보기
+  - title: DDoS Protection
+    links:
+    - url: ../virtual-network/ddos-protection-overview.md
+      itemType: overview
+      text: Azure DDoS Protection 표준이란?
+    - url: ../virtual-network/manage-ddos-protection.md
+      itemType: how-to-guide
+      text: DDoS Protection 관리
+    - url: ../virtual-network/ddos-protection-partner-onboarding.md
+      itemType: concept
+      text: 온보딩 파트너
+    footerLink:
+      url: https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices
+      text: 자세히 보기
+  - title: Content Delivery Network
+    links:
+    - url: ../cdn/cdn-overview.md
+      itemType: overview
+      text: Azure Content Delivery Network란?
+    - url: ../cdn/cdn-create-new-endpoint.md
+      itemType: quickstart
+      text: CDN 프로필 및 엔드포인트 만들기
+    - url: ../cdn/cdn-standard-rules-engine-reference.md
+      itemType: concept
+      text: Azure CDN에 대한 표준 규칙 엔진 참조
+    - url: ../cdn/cdn-troubleshoot-endpoint.md
+      itemType: how-to-guide
+      text: Azure CDN 엔드포인트 문제 해결
+    footerLink:
+      url: ../cdn/index.yml
+      text: 자세히 보기
+  - title: 통합 허브 및 스포크 네트워킹
+    links:
+    - url: ../virtual-wan/virtual-wan-about.md
+      itemType: overview
+      text: Azure Virtual WAN이란?
+    - url: ../virtual-wan/virtual-wan-global-transit-network-architecture.md
+      itemType: concept
+      text: 글로벌 전송 네트워크 아키텍처 - Azure Virtual WAN
+    - url: ../virtual-wan/virtual-wan-locations-partners.md
+      itemType: concept
+      text: Azure Virtual WAN 파트너 및 위치
+    - url: ../virtual-wan/migrate-from-hub-spoke-topology.md
+      itemType: how-to-guide
+      text: 허브-스포크 토폴로지에서 마이그레이션
+    footerLink:
+      url: ../virtual-wan/index.yml
+      text: 자세히 보기
+  - title: Peering Services
+    links:
+    - url: ../peering-service/about.md
+      itemType: overview
+      text: Azure Peering Service란?
+    - url: ../internet-peering/overview.md
+      itemType: overview
+      text: 인터넷 피어링이란?
+    - url: ../internet-peering/overview-peering-service.md
+      itemType: concept
+      text: 인터넷 피어링과 Azure의 Peering Service
+    footerLink:
+      url: ../peering-service/index.yml
+      text: 자세히 보기
+additionalContent:
+  sections:
+  - items:
+    - title: Azure 네트워킹에 대한 Azure PowerShell 명령
+      summary: Azure 네트워크 Cmdlet에 대해 알아봅니다.
+      url: https://docs.microsoft.com/en-us/powershell/module/az.network/?view=azps-3.5.0#networking
+    - title: Azure 네트워킹에 대한 Azure CLI 명령
+      summary: CLI 참조에서 Azure 네트워크 명령을 찾아보세요.
+      url: https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest
+    - title: Azure 네트워킹 블로그
+      summary: Azure 네트워킹의 최신 블로그를 봅니다.
+      url: https://azure.microsoft.com/blog/topics/networking/

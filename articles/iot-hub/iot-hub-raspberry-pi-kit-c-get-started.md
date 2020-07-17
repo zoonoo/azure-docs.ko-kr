@@ -8,12 +8,11 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
-ms.openlocfilehash: 6a895d7978f1af3914bbb9dee3594dbfffd9f317
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 03f9d58cab725335b0f4090ac1a7289c32c0af7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81640540"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
 
@@ -51,7 +50,7 @@ ms.locfileid: "61442494"
 
 * Raspberry Pi 2 또는 Raspberry Pi 3 보드.
 
-* 활성 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
+* 활성화된 Azure 구독. Azure 계정이 없는 경우 몇 분만에 [무료 azure 평가판 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 * Pi에 연결할 모니터, USB 키보드 및 마우스.
 
@@ -76,18 +75,14 @@ ms.locfileid: "61442494"
 * 확산형 10mm LED.
 
 > [!NOTE]
-> 코드 샘플은 시뮬레이션 된 센서 데이터를 지원 하기 때문에 이러한 항목은 선택 사항입니다.
+> 코드 샘플에서 시뮬레이션 된 센서 데이터를 지원 하기 때문에 이러한 항목은 선택 사항입니다.
 >
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>IoT 허브에서 새 디바이스 등록
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
@@ -101,13 +96,13 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
 
-   1. [데스크톱을 사용 하 여 Raspbian Stretch를 다운로드](https://www.raspberrypi.org/downloads/raspbian/) (.zip 파일).
+   1. 데스크톱 (.zip 파일) [을 사용 하 여 Raspbian Stretch를 다운로드](https://www.raspberrypi.org/downloads/raspbian/) 합니다.
 
    2. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 
 2. microSD 카드에 Raspbian을 설치합니다.
 
-   1. [Etcher SD 카드 버너 유틸리티를 다운로드하여 설치합니다](https://etcher.io/).
+   1. [ETCHER SD 카드 버너 유틸리티를 다운로드 하 여 설치](https://etcher.io/)합니다.
 
    2. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
 
@@ -121,9 +116,9 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ### <a name="enable-ssh-and-spi"></a>SSH 및 SPI를 사용하도록 설정
 
-1. Pi를 모니터, 키보드 및 마우스를 연결, Pi를 시작한 다음 사용 하 여 Raspbian에 로그인 `pi` 사용자 이름으로 및 `raspberry` 암호로 합니다.
+1. Pi를 모니터, 키보드 및 마우스에 연결 하 고 Pi를 시작한 다음 사용자 이름 및를 암호로 사용 하 여 Raspbian에 로그인 `pi` `raspberry` 합니다.
  
-2. Raspberry 아이콘 > **기본 설정** > **Raspberry Pi 구성**을 클릭합니다.
+2. Raspberry 아이콘 > **기본 설정**  >  **Raspberry Pi 구성**을 클릭 합니다.
 
    ![Raspbian 기본 설정 메뉴](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
@@ -137,7 +132,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ### <a name="connect-the-sensor-to-pi"></a>Pi에 센서 연결
 
-실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뛰세요](#connect-pi-to-the-network).
+실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뜁니다](#connect-pi-to-the-network).
 
 ![Raspberry Pi와 센서 연결](./media/iot-hub-raspberry-pi-kit-c-get-started/3-raspberry-pi-sensor-connection.png)
 
@@ -164,13 +159,13 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
 ### <a name="connect-pi-to-the-network"></a>네트워크에 Pi 연결
 
-마이크로 USB 케이블 및 전원 공급 장치를 사용하여 Pi를 켭니다. 이더넷 케이블을 사용하여 Pi를 유선 네트워크에 연결하거나 [Raspberry Pi Foundation의 지침](https://www.raspberrypi.org/learning/software-guide/wifi/)에 따라 Pi를 무선 네트워크에 연결합니다. Pi가 네트워크에 성공적으로 연결된 후 [Pi의 IP 주소](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)를 적어 두어야 합니다.
+마이크로 USB 케이블 및 전원 공급 장치를 사용하여 Pi를 켭니다. 이더넷 케이블을 사용하여 Pi를 유선 네트워크에 연결하거나 [Raspberry Pi Foundation의 지침](https://www.raspberrypi.org/documentation/configuration/wireless/)에 따라 Pi를 무선 네트워크에 연결합니다. Pi가 네트워크에 성공적으로 연결된 후 [Pi의 IP 주소](https://www.raspberrypi.org/documentation/remote-access/ip-address.md)를 적어 두어야 합니다.
 
 ![유선 네트워크에 연결](./media/iot-hub-raspberry-pi-kit-c-get-started/5-power-on-pi.png)
 
 ## <a name="run-a-sample-application-on-pi"></a>Pi에서 샘플 애플리케이션 실행
 
-### <a name="sign-into-your-raspberry-pi"></a>Raspberry Pi에 로그인
+### <a name="sign-into-your-raspberry-pi"></a>Raspberry Pi에 로그인 합니다.
 
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Raspberry Pi에 연결합니다.
    
@@ -232,11 +227,11 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ![출력 - Raspberry Pi에서 IoT Hub로 전송된 센서 데이터](./media/iot-hub-raspberry-pi-kit-c-get-started/8-run-output.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>허브에서 수신한 메시지 읽기
+## <a name="read-the-messages-received-by-your-hub"></a>허브에서 받은 메시지 읽기
 
-장치에서 IoT hub에서 수신한 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 참조 하세요 [for Visual Studio Code 장치 및 IoT Hub 간에 메시지를 받고 보내는 데 사용 하 여 Azure IoT 도구](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)합니다.
+장치에서 IoT hub가 받은 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 [Azure IoT Tools를 사용 하 여 장치와 IoT Hub 간에 메시지 보내기 및 받기 Visual Studio Code](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)을 참조 하세요.
 
-장치에서 보낸 데이터를 처리 하는 방법을 더 보려면, 다음 섹션을 진행 합니다.
+장치에서 전송 되는 데이터를 처리 하는 방법에 대 한 자세한 내용은 다음 섹션을 계속 진행 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8b2238eb0fab9aeeb42d11b4176c0d681b5f8e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "70073534"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Azure API Management에서 구독 만들기
 
@@ -26,7 +25,7 @@ Azure API Management를 통해 API를 게시하면 구독 키를 사용하여 �
 
 이 문서에서는 Azure Portal에서 구독을 만들기 위한 단계를 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 수행하기 위한 필수 구성 요소는 다음과 같습니다.
 
@@ -38,7 +37,7 @@ Azure API Management를 통해 API를 게시하면 구독 키를 사용하여 �
 1. 왼쪽 메뉴에서 **구독**을 선택합니다.
 2. **구독 추가**를 선택합니다.
 3. 구독의 이름을 입력하고 범위를 선택합니다.
-4. 필요에 따라 구독 사용자와 연결 해야 하는 경우 선택 합니다.
+4. 필요에 따라 구독을 사용자와 연결 해야 하는지 여부를 선택 합니다.
 5. **저장**을 선택합니다.
 
 ![유연성 있는 구독](./media/api-management-subscriptions/flexible-subscription.png)

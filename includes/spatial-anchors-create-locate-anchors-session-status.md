@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: a78649033b84a726b6e7daee95efc4192ce85c3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bb75ea0f8eb3fcf85a06cadd68ae111d51369891
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232346"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "76694267"
 ---
-충분 한 환경 데이터를 새 클라우드 앵커를 만들기 전에 캡처된 해야 합니다.
+앞에서 설명한 것처럼 새 클라우드 공간 앵커를 만들기 전에 캡처된 충분한 환경 데이터가 필요합니다. 즉, `ReadyForCreateProgress`가 1보다 커야 하지만 `RecommendedForCreateProgress`가 1보다 커질 때까지 기다리는 것이 좋습니다.

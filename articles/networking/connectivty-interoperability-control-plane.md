@@ -1,5 +1,5 @@
 ---
-title: 'Azure 백 엔드 연결 기능의 상호 운용성: 제어 평면 분석 | Microsoft Docs'
+title: 'Azure의 상호 운용성: 제어 평면 분석'
 description: 이 문서에서는 ExpressRoute, 사이트 간 VPN 및 Azure의 가상 네트워크 피어링 간의 상호 운용성을 분석하는 데 사용할 수 있는 테스트 설정의 제어 평면 분석에 대해 설명합니다.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 28ce4cfd0c62586510a6f7dfdeca8b552fe9638e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e41bc86533815c394077bf5276d930fe958cd19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60425643"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80518283"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Azure 백 엔드 연결 기능의 상호 운용성: 제어 평면 분석
+# <a name="interoperability-in-azure--control-plane-analysis"></a>Azure의 상호 운용성: 제어 평면 분석
 
 이 문서에서는 [테스트 설정][Setup]의 제어 평면 분석에 대해 설명합니다. 테스트 설정의 [테스트 설정 구성][Configuration] 및 [데이터 평면 분석][Data-Analysis]을 검토할 수도 있습니다.
 
@@ -27,13 +27,13 @@ ms.locfileid: "60425643"
 
 다음 그림에서는 허브 가상 네트워크(VNet) 및 스포크 VNet 관점의 네트워크를 보여줍니다(파란색으로 강조 표시). 또한 이 그림은 다양한 네트워크의 ASN(Autonomous System Number) 및 서로 다른 네트워크 간에 교환되는 경로를 보여줍니다. 
 
-[![1]][1]
+![1][1]
 
-VNet의 Azure ExpressRoute 게이트웨이의 ASN이 Microsoft MSEE(Microsoft Enterprise Edge Router)의 ASN과 다른 것을 알 수 있습니다. ExpressRoute 게이트웨이는 개인 ASN(**65515**의 값)을 사용하며 MSEE는 공용 ASN(**12076**의 값)을 전역적으로 사용합니다. MSEE는 피어이므로 ExpressRoute 피어링을 구성할 때 피어 ASN으로 **12076**을 사용합니다. Azure 쪽의 경우 MSEE는 ExpressRoute 게이트웨이를 사용하여 eBGP 피어링을 설정합니다. MSEE가 각 ExpressRoute 피어링에 대해 설정하는 이중 eBGP 피어링은 제어 평면 수준에서 투명합니다. 따라서 ExpressRoute 경로 테이블을 볼 때 VNet의 접두사에 대해 VNet의 ExpressRoute 게이트웨이 ASN이 표시됩니다. 
+VNet의 Azure ExpressRoute 게이트웨이의 ASN이 Microsoft MSEE(Microsoft Enterprise Edge Router)의 ASN과 다른 것을 알 수 있습니다. ExpressRoute 게이트웨이는 프라이빗 ASN(**65515**의 값)을 사용하며 MSEE는 공용 ASN(**12076**의 값)을 전역적으로 사용합니다. Express 경로 피어 링을 구성 하는 경우 MSEE는 피어 이므로 **12076** 를 피어 ASN으로 사용 합니다. Azure 쪽의 경우 MSEE는 ExpressRoute 게이트웨이를 사용하여 eBGP 피어링을 설정합니다. MSEE가 각 ExpressRoute 피어링에 대해 설정하는 이중 eBGP 피어링은 제어 평면 수준에서 투명합니다. 따라서 Express 경로 테이블을 보면 VNet 접두사에 대 한 VNet의 Express 경로 게이트웨이 ASN이 표시 됩니다. 
 
 다음 그림에는 예제 ExpressRoute 경로 테이블을 보여줍니다. 
 
-[![5]][5]
+![5][5]
 
 Azure 내에서 ASN은 피어링 관점에서만 중요합니다. 기본적으로 ExpressRoute 게이트웨이 및 Azure VPN Gateway에서 VPN Gateway의 ASN은 **65515**입니다.
 
@@ -41,19 +41,19 @@ Azure 내에서 ASN은 피어링 관점에서만 중요합니다. 기본적으�
 
 온-프레미스 위치 1 및 원격 VNet은 모두 ExpressRoute 1을 통해 허브 VNet에 연결됩니다. 다음 다이어그램에 나와 있는 것처럼 동일한 토폴로지 측면을 공유합니다.
 
-[![2]][2]
+![2][2]
 
 ## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>사이트 간 VPN을 통한 온-프레미스 위치 1 및 분기 VNet 관점
 
-온-프레미스 위치 1과 분기 VNet은 사이트 간 VPN 연결을 통해 허브 VNet의 VPN Gateway에 연결됩니다. 다음 다이어그램에 나와 있는 것처럼 동일한 토폴로지 측면을 공유합니다.
+온-프레미스 위치 1과 분기 VNet은 사이트 간 VPN 연결을 통해 허브 VNet의 VPN gateway에 연결 됩니다. 다음 다이어그램에 나와 있는 것처럼 동일한 토폴로지 측면을 공유합니다.
 
-[![3]][3]
+![3][3]
 
 ## <a name="on-premises-location-2-perspective"></a>온-프레미스 위치 2 관점
 
-온-프레미스 위치 2는 ExpressRoute 2의 개인 피어링을 통해 허브 VNet에 연결됩니다. 
+온-프레미스 위치 2는 ExpressRoute 2의 프라이빗 피어링을 통해 허브 VNet에 연결됩니다. 
 
-[![4]][4]
+![4][4]
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>탠덤에서 ExpressRoute 및 사이트 간 VPN 연결
 
@@ -61,7 +61,7 @@ Azure 내에서 ASN은 피어링 관점에서만 중요합니다. 기본적으�
 
 ExpressRoute Microsoft 피어링을 사용하여 온-프레미스 네트워크와 Azure VNet 간에 개인적으로 데이터를 교환하도록 사이트 간 VPN을 구성할 수 있습니다. 이 구성을 사용하면 비밀성, 신뢰성 및 무결성을 유지하며 데이터를 교환할 수 있습니다. 데이터 교환은 재생 방지이기도 합니다. ExpressRoute Microsoft 피어링을 사용하여 터널 모드에서 사이트 간 IPsec VPN을 구성하는 방법에 대한 자세한 내용은 [ExpressRoute Microsoft 피어링을 통한 사이트 간 VPN][S2S-Over-ExR]을 참조하세요. 
 
-Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 제한은 처리량입니다. IPsec 터널을 통한 처리량은 VPN Gateway 용량에 의해 제한됩니다. VPN Gateway 처리량은 ExpressRoute 처리량보다 낮습니다. 이 시나리오에서 매우 안전한 트래픽의 경우 IPsec 터널 및 모든 다른 트래픽의 경우 개인 피어링을 사용하면 ExpressRoute 대역폭 사용량을 최적화하는 데 도움이 될 수 있습니다.
+Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 제한은 처리량입니다. IPsec 터널을 통한 처리량은 VPN Gateway 용량에 의해 제한됩니다. VPN Gateway 처리량은 ExpressRoute 처리량보다 낮습니다. 이 시나리오에서 매우 안전한 트래픽의 경우 IPsec 터널 및 모든 다른 트래픽의 경우 프라이빗 피어링을 사용하면 ExpressRoute 대역폭 사용량을 최적화하는 데 도움이 될 수 있습니다.
 
 ### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>ExpressRoute에 대한 안전한 장애 조치(failover) 경로인 사이트 간 VPN
 
@@ -95,10 +95,10 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 
 <!--Image References-->
 [1]: ./media/backend-interoperability/HubView.png "토폴로지의 허브 및 스포크 VNet 관점"
-[2]: ./media/backend-interoperability/Loc1ExRView.png "ExpressRoute 1을 통한 토폴로지의 위치 1 및 원격 VNet 관점"
-[3]: ./media/backend-interoperability/Loc1VPNView.png "사이트 간 VPN을 통한 토폴로지의 위치 1 및 분기 VNet 관점"
-[4]: ./media/backend-interoperability/Loc2View.png "토폴로지의 위치 2 관점"
-[5]: ./media/backend-interoperability/ExR1-RouteTable.png "ExpressRoute 1 경로 테이블"
+[2]: ./media/backend-interoperability/Loc1ExRView.png "Express 경로 1을 통한 토폴로지의 위치 1 및 원격 VNet 관점"
+[3]: ./media/backend-interoperability/Loc1VPNView.png "사이트 간 VPN을 통해 토폴로지의 위치 1 및 분기 VNet 관점"
+[4]: ./media/backend-interoperability/Loc2View.png "위치 2 토폴로지의 관점"
+[5]: ./media/backend-interoperability/ExR1-RouteTable.png "Express 경로 1 경로 테이블"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

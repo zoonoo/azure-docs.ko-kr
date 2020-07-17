@@ -1,25 +1,15 @@
 ---
-title: Microsoft Azure Service Fabric에 대한 일반적인 질문 | Microsoft Docs
-description: 다음은 Service Fabric에 대해 자주 묻는 몇 가지 질문과 그에 대한 답변입니다.
-services: service-fabric
-documentationcenter: .net
-author: chackdan
-manager: chackdan
-editor: ''
-ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Microsoft Azure Service Fabric에 대 한 일반적인 질문
+description: 기능, 사용 사례 및 일반적인 시나리오를 비롯 하 여 Service Fabric에 대 한 질문과 대답입니다.
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2017
-ms.author: chackdan
-ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pepogors
+ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359428"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258939"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -32,9 +22,9 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 롤백하려면 어떻게 해야 하나요?
 
-애플리케이션 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 애플리케이션 업그레이드](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)는 [애플리케이션 업그레이드 매개 변수](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 애플리케이션 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
+애플리케이션 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 애플리케이션 업그레이드](./service-fabric-application-upgrade.md?branch=master)는 [애플리케이션 업그레이드 매개 변수](./service-fabric-application-upgrade-parameters.md?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 애플리케이션 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
  
-클러스터에서 여전히 Resource Manager 템플릿의 클래식 인증서 지문 속성을 사용하는 경우 최신 비밀 관리 기능을 활용할 수 있도록 [클러스터를 인증서 지문에서 일반 이름으로 변경](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)하는 것이 좋습니다.
+클러스터에서 여전히 Resource Manager 템플릿의 클래식 인증서 지문 속성을 사용하는 경우 최신 비밀 관리 기능을 활용할 수 있도록 [클러스터를 인증서 지문에서 일반 이름으로 변경](./service-fabric-cluster-change-cert-thumbprint-to-cn.md)하는 것이 좋습니다.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>여러 Azure 지역 또는 나만의 데이터 센터에 걸쳐서 클러스터를 만들 수 있나요?
 
@@ -51,7 +41,7 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 노드에서 OS 업데이트를 자동으로 수신하나요?
 
-일반적으로 요즘 제공되는 기능인 [Virtual Machine Scale Set 자동 OS 이미지 업데이트](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)를 사용할 수 있습니다.
+일반적으로 요즘 제공되는 기능인 [Virtual Machine Scale Set 자동 OS 이미지 업데이트](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)를 사용할 수 있습니다.
 
 Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아래의 운영 체제를 패치하기 위한 [을 제공](service-fabric-patch-orchestration-application.md)하고 있습니다.
 
@@ -72,7 +62,7 @@ Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아
 다음 세 가지 이유로 인해 프로덕션 클러스터에는 5개의 이상의 노드가 있어야 합니다.
 1. 실행 중인 사용자 서비스가 없는 경우에도 Service Fabric 클러스터는 Naming Service 및 장애 조치(Failover) 관리자 서비스를 포함한 일련의 상태 저장 시스템 서비스를 실행합니다. 클러스터가 계속 작동하려면 이러한 시스템 서비스가 필수입니다.
 2. 항상 노드당 하나의 서비스 복제본이 배치되므로 클러스터 크기는 서비스(실제로는 파티션)에 포함될 수 있는 최대 복제본 수입니다.
-3. 클러스터 업그레이드는 하나 이상의 노드를 중지시키기 때문에 노드 하나 이상의 버퍼를 포함하려고 하므로 프로덕션 클러스터에 최솟값 ‘이외에’ 두 개 이상의 노드를 포함하려고 합니다. 최솟값은 아래 설명된 대로 시스템 서비스의 쿼럼 크기입니다.  
+3. 클러스터 업그레이드는 하나 이상의 노드를 중지시키기 때문에 노드 하나 이상의 버퍼를 포함하려고 하므로 프로덕션 클러스터에 최솟값 ‘이외에’ 두 개 이상의 노드를 포함하려고 합니다.** 최솟값은 아래 설명된 대로 시스템 서비스의 쿼럼 크기입니다.  
 
 두 개의 노드가 동시에 실패하는 경우 클러스터를 사용 가능하게 하려고 합니다. Service Fabric 클러스터가 사용 가능하려면 시스템 서비스를 사용할 수 있어야 합니다. Naming Service 및 장애 조치(Failover) 관리자 서비스 같은 상태 저장 시스템 서비스는 클러스터에 어떤 서비스가 배포되었고 현재 호스트되는 위치를 추적하며 강력한 일관성을 따릅니다. 한편 강력한 일관성은 해당 서비스 상태로 특정 업데이트를 위해 *쿼럼*을 획득하는 기능에 의존하는데, 여기서 쿼럼은 지정된 서비스에 대한 복제본(N/2 +1)의 엄격한 다수성을 나타냅니다. 따라서 두 개의 노드가 동시에 손실되어 시스템 서비스의 복제본 두 개가 동시에 손실되는 경우 탄력적으로 대응하려면 ClusterSize에서 QuorumSize를 뺀 값이 2보다 크거나 같아야(ClusterSize - QuorumSize >= 2) 합니다. 이 경우 최솟값이 5가 됩니다. 이를 확인하기 위해 클러스터에 N개 노드가 있고 각 노드에 하나씩 시스템 서비스의 N개 복제본이 있는 경우를 살펴보겠습니다. 시스템 서비스의 쿼럼 크기는 (N/2 + 1)입니다. 위의 부등식은 N - (N/2 + 1) >= 2 같이 표시됩니다. N이 짝수인 경우와 N이 홀수인 경우를 고려해야 합니다. N이 짝수인 경우 N = 2\*m이라고 합니다. 여기서 m >= 1입니다. 부등식은 2\*m - (2\*m/2 + 1) >= 2 또는 m >= 3 같이 표시됩니다. N의 최솟값은 6이고 이 값은 m = 3인 경우 달성됩니다. 한편, N이 홀수인 경우 N = 2\*m+1이라고 합니다. 여기서 m >= 1입니다. 부등식은 2\*m+1 - ( (2\*m+1)/2 + 1 ) >= 2, 2\*m+1 - (m+1) >= 2 또는 m >= 2 같이 표시됩니다. N의 최솟값은 5이고 이 값은 m = 2인 경우 달성됩니다. 따라서 부등식 ClusterSize - QuorumSize >= 2를 충족하는 N의 모든 값 중에 최솟값은 5입니다.
 
@@ -104,7 +94,7 @@ Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아
 Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 대한 책임은 귀하에게 있습니다. 클러스터의 가상 머신에서 OS 이미지를 업그레이드하고 한 번에 하나의 VM에서 수행해야 합니다. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)의 연결된 데이터 디스크를 암호화할 수 있나요?
-예.  자세한 내용은 [연결된 데이터 디스크를 사용하여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [디스크 암호화(PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) 및 [디스크 암호화(CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)를 참조하세요.
+예.  자세한 내용은 [연결 된 데이터 디스크를 사용 하 여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) 및 [Virtual Machine Scale Sets에 대 한 Azure Disk Encryption](../virtual-machine-scale-sets/disk-encryption-overview.md)를 참조 하세요.
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)에서 우선 순위가 낮은 VM을 사용할 수 있나요?
 아니요. 우선 순위가 낮은 VM은 지원되지 않습니다. 
@@ -135,8 +125,8 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>비밀을 가져오도록 내 애플리케이션을 KeyVault로 어떻게 인증하나요?
 다음은 애플리케이션을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
 
-a. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
-B. 가상 머신 확장 집합 MSI가 활성화 호스트를 가져오려면 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발할 수 있습니다 [MSI 끝점에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)를 차례로 [keyVault에서비밀을검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+A. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
+B. 가상 머신 확장 집합 MSI 사용 호스트의 경우 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발 하 여 [msi 끝점에서 액세스 토큰](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 가져온 다음, [keyvault에서 비밀을 검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)수 있습니다.
 
 ## <a name="application-design"></a>애플리케이션 설계
 
@@ -146,7 +136,8 @@ B. 가상 머신 확장 집합 MSI가 활성화 호스트를 가져오려면 SF 
 
 - 다른 서비스의 모든 파티션을 쿼리하는 서비스를 만들어 필요한 데이터를 가져옵니다.
 - 다른 서비스의 모든 파티션에서 데이터를 수신할 수 있는 서비스를 만듭니다.
-- 각 서비스에서 외부 저장소로 주기적으로 데이터를 푸시합니다. 이 방법은 수행하는 쿼리가 핵심 비즈니스 논리에 포함되지 않는 경우에만 적절합니다.
+- 각 서비스에서 외부 저장소로 주기적으로 데이터를 푸시합니다. 이 방법은 외부 저장소의 데이터가 유효 하지 않기 때문에 수행 중인 쿼리가 핵심 비즈니스 논리의 일부가 아닌 경우에만 적합 합니다.
+- 또는 신뢰할 수 있는 컬렉션이 아닌 데이터 저장소에서 직접 모든 레코드의 쿼리를 지 원하는 데이터를 저장 합니다. 이로 인해 오래 된 데이터에 대 한 문제는 제거 되지만 신뢰할 수 있는 컬렉션의 이점을 활용 하는 것은 허용 되지 않습니다.
 
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>내 행위자에 대해 데이터를 쿼리하는 가장 좋은 방법은 무엇인가요?
@@ -186,10 +177,10 @@ Reliable Services와 마찬가지로 행위자 서비스에 저장할 수 있는
 
 GitHub의 Service Fabric 일부에 대해 오픈 소스를 제공하였으며([신뢰할 수 있는 서비스 프레임워크](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [신뢰할 수 있는 작업자 프레임워크](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core 통합 라이브러리](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer) 및 [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)), 해당 프로젝트에 대한 커뮤니티 참여를 받고 있습니다. 
 
-Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 발표했습니다](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/). 현재 GitHub의 Linux 빌드 및 테스트 도구가 포함된 [Service Fabric 리포지토리](https://github.com/Microsoft/service-fabric/)가 있습니다. 즉, 리포지토리를 복제하고, Linux용 Service Fabric을 빌드하고, 기본 테스트를 실행하고, 현안을 공개하고, 끌어오기 요청을 제출할 수 있습니다. 마이그레이션된 Windows 빌드 환경과 함께 완벽한 CI 환경을 제공하기 위해 최선을 다하고 있습니다.
+Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 발표했습니다](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). 현재 GitHub의 Linux 빌드 및 테스트 도구가 포함된 [Service Fabric 리포지토리](https://github.com/Microsoft/service-fabric/)가 있습니다. 즉, 리포지토리를 복제하고, Linux용 Service Fabric을 빌드하고, 기본 테스트를 실행하고, 현안을 공개하고, 끌어오기 요청을 제출할 수 있습니다. 마이그레이션된 Windows 빌드 환경과 함께 완벽한 CI 환경을 제공하기 위해 최선을 다하고 있습니다.
 
-공지되면 [Service Fabric 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 자세한 내용을 확인하세요.
+공지되면 [Service Fabric 블로그](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)에서 자세한 내용을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 자세한 [core Service Fabric 개념](service-fabric-technical-overview.md) 하 고 [모범 사례](service-fabric-best-practices-overview.md) Fabric concepts](service-fabric-technical-overview.md) 얼음 및 [모범 사례](service-fabric-best-practices-overview.md)
+[핵심 Service Fabric 개념](service-fabric-technical-overview.md) 및 [모범 사례](service-fabric-best-practices-overview.md) 에 대해 알아봅니다.

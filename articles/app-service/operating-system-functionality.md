@@ -1,26 +1,15 @@
 ---
-title: App Service의 운영 체제 기능 - Azure
-description: Azure App Service에서 웹앱, 모바일 앱 백 엔드, API 앱에 사용할 수 있는 OS 기능에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: mollybos
+title: 운영 체제 기능
+description: Windows에서 Azure App Service의 OS 기능에 대해 알아봅니다. 앱에서 가져오는 파일, 네트워크 및 레지스트리 액세스의 유형을 확인 합니다.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74671620"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
 이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 Windows 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
@@ -41,7 +30,7 @@ App Service는 서로 다른 계층 간의 원활한 크기 조정 환경을 지
 <a id="developmentframeworks"></a>
 
 ## <a name="development-frameworks"></a>개발 프레임워크
-App Service 가격 책정 계층은 앱에서 사용할 수 있는 계산 리소스(CPU, 디스크 스토리지, 메모리, 네트워크 송신)의 양을 제어합니다. 하지만 앱에서 사용할 수 있는 프레임워크 기능의 범위는 크기 조정 계층에 관계없이 동일하게 유지됩니다.
+App Service 가격 책정 계층은 앱에서 사용할 수 있는 컴퓨팅 리소스(CPU, 디스크 스토리지, 메모리, 네트워크 송신)의 양을 제어합니다. 하지만 앱에서 사용할 수 있는 프레임워크 기능의 범위는 크기 조정 계층에 관계없이 동일하게 유지됩니다.
 
 App Service는 ASP.NET, 클래식 ASP, node.js, PHP, Python을 포함하여 다양한 개발 프레임워크를 지원합니다. 이 프레임워크는 모두 IIS 내에서 확장으로 실행됩니다. 보안 구성을 간소화하고 일반화하기 위해 App Service 앱은 일반적으로 다양한 개발 프레임워크를 기본 설정으로 실행합니다. 개별 개발 프레임워크별로 API 노출 영역 및 기능을 사용자 지정하여 앱을 구성하는 접근 방식을 사용할 수도 있습니다. 대신 App Service는 앱의 개발 프레임워크에 관계없이 일반적인 기준 운영 체제 기능을 사용하여 보다 일반적인 접근 방식을 취합니다.
 
@@ -61,17 +50,17 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 - App Service에서 단독으로 사용하며 고객이 액세스할 수 없는 Azure 패키지 cspkg 파일을 포함하는 애플리케이션 드라이브
 - VM의 크기에 따라 크기가 달라지는 "user" 드라이브(C:\ 드라이브) 
 
-애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예를 들면 다음과 같습니다. 
+애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예를 들어: 
 
 - 앱이 디스크 공간 부족을 나타내는 오류를 throw할 수 있습니다.
 - Kudu 콘솔로 이동하면 디스크 오류가 표시될 수 있습니다.
-- VSTS 또는 Visual Studio의 배포가 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`로 인해 실패할 수 있습니다.
+- Azure DevOps 또는 Visual Studio에서 배포가 실패할 수 있습니다 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)` .
 - 앱 성능이 저하될 수 있습니다.
 
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-aka-unc-shares"></a>네트워크 드라이브(일명 UNC 공유)
-앱 배포 및 유지 관리를 간단하게 만드는 App Service의 고유한 측면 중 하나는 모든 사용자 콘텐츠가 UNC 공유 집합에 저장된다는 점입니다. 이 모델은 부하가 분산된 여러 개의 서버가 있는 온-프레미스 웹 호스팅 환경에서 사용되는 일반적인 콘텐츠 저장 패턴에 잘 매핑됩니다. 
+앱 배포 및 유지 관리를 간단하게 만드는 App Service의 고유한 측면 중 하나는 모든 사용자 콘텐츠가 UNC 공유 집합에 저장된다는 점입니다. 이 모델은 부하가 분산된 여러 개의 서버가 있는 온-프레미스 웹 호스팅 환경에서 사용되는 일반적인 콘텐츠 스토리지 패턴에 잘 매핑됩니다. 
 
 App Service 내에는 각 데이터 센터에서 만들어진 다수의 UNC 공유가 있습니다. 각 데이터 센터에서 모든 고객의 사용자 콘텐츠가 차지하는 비율이 각 UNC 공유에 할당됩니다. 뿐만 아니라 단일 고객의 구독에 대한 모든 파일 콘텐츠는 항상 동일한 UNC 공유에 보관됩니다. 
 
@@ -82,11 +71,11 @@ Azure 서비스가 작동하는 방식으로 인해 UNC 공유를 호스트하�
 ### <a name="types-of-file-access-granted-to-an-app"></a>앱에 부여되는 파일 액세스 형식
 각 고객의 구독에는 데이터 센터 내의 특정 UNC 공유에 예약된 디렉터리 구조가 있습니다. 고객에게는 특정 데이터 센터 내에서 만든 여러 개의 앱이 있을 수 있으므로, 단일 고객 구독에 속한 모든 디렉터리는 동일한 UNC 공유에 만들어집니다. 이 공유는 콘텐츠, 오류 및 진단 로그, 소스 제어에서 만들어진 이전 버전 앱 등에 해당하는 디렉터리를 포함할 수 있습니다. 예상대로 고객의 앱 디렉터리는 앱의 애플리케이션 코드가 런타임에 읽고 쓸 수 있습니다.
 
-앱을 실행하는 가상 머신에 설치된 로컬 드라이브에서 App Service는 C:\ 드라이브의 일정 공간을 앱 특정 임시 로컬 저장소로 예약합니다. 앱은 고유 임시 로컬 저장소를 완전히 읽고 쓸 수 있지만, 이 저장소는 사실상 애플리케이션 코드에서 직접적으로 사용되도록 만들어지지 않았습니다. IIS 및 웹 애플리케이션 프레임워크를 위한 임시 파일 저장소를 제공하기 위한 것입니다. 또한 App Service는 각 앱이 사용할 수 있는 임시 로컬 저장소의 양을 제한하여 개별 앱이 과도한 양의 로컬 파일 저장소를 소비하지 못하도록 합니다.
+앱을 실행하는 가상 머신에 설치된 로컬 드라이브에서 App Service는 C:\ 드라이브의 일정 공간을 앱 특정 임시 로컬 스토리지로 예약합니다. 앱은 고유 임시 로컬 스토리지를 완전히 읽고 쓸 수 있지만, 이 스토리지는 사실상 애플리케이션 코드에서 직접적으로 사용되도록 만들어지지 않았습니다. IIS 및 웹 애플리케이션 프레임워크를 위한 임시 파일 스토리지를 제공하기 위한 것입니다. 또한 App Service는 각 앱이 사용할 수 있는 임시 로컬 스토리지의 양을 제한하여 개별 앱이 과도한 양의 로컬 파일 스토리지를 소비하지 못하도록 합니다.
 
-App Service가 임시 로컬 저장소를 사용하는 방법을 두 가지 예로 들면 임시 ASP.NET 파일용 디렉터리와 IIS 압축 파일용 디렉터리 등입니다. ASP.NET 컴파일 시스템은 임시 컴파일 캐시 위치로 "Temporary ASP.NET Files" 디렉터리를 사용합니다. IIS는 압축된 응답 출력을 저장하는 데 "IIS Temporary Compressed Files" 디렉터리를 사용합니다. 이 두 가지 파일 사용법은(다른 사용법도 포함) 모두 App Service에서 앱별 임시 로컬 저장소로 다시 매핑됩니다. 이렇게 다시 매핑되면 해당 기능이 예상대로 지속됩니다.
+App Service가 임시 로컬 스토리지를 사용하는 방법을 두 가지 예로 들면 임시 ASP.NET 파일용 디렉터리와 IIS 압축 파일용 디렉터리 등입니다. ASP.NET 컴파일 시스템은 임시 컴파일 캐시 위치로 "Temporary ASP.NET Files" 디렉터리를 사용합니다. IIS는 압축된 응답 출력을 저장하는 데 "IIS Temporary Compressed Files" 디렉터리를 사용합니다. 이 두 가지 파일 사용법은(다른 사용법도 포함) 모두 App Service에서 앱별 임시 로컬 스토리지로 다시 매핑됩니다. 이렇게 다시 매핑되면 해당 기능이 예상대로 지속됩니다.
 
-App Service의 각 앱은 "애플리케이션 풀 ID"라는 권한이 낮은 임의의 고유 작업자 프로세스 ID로 실행됩니다. 이 ID에 대한 자세한 내용은 [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)를 참조하세요. 애플리케이션 코드는 운영 체제 드라이브(D:\ 드라이브)에 대한 기본적인 읽기 전용 액세스에 이 ID를 사용합니다. 따라서 애플리케이션 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스팅 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다. 
+App Service의 각 응용 프로그램은 "응용 프로그램 풀 id" 라는 임의의 고유한 낮은 권한의 작업자 프로세스 id로 실행 되며 여기에서 자세히 설명 [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) 합니다. 애플리케이션 코드는 운영 체제 드라이브(D:\ 드라이브)에 대한 기본적인 읽기 전용 액세스에 이 ID를 사용합니다. 따라서 애플리케이션 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스팅 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다. 
 
 <a name="multipleinstances"></a>
 
@@ -96,9 +85,9 @@ App Service의 각 앱은 "애플리케이션 풀 ID"라는 권한이 낮은 임
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>네트워크 액세스
-애플리케이션 코드는 외부 서비스를 노출하는 인터넷 액세스 엔드포인트에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 앱은 이 동일한 프로토콜을 사용하여 Azure 내의 서비스에 연결할 수 있습니다.&#151;예를 들어 SQL Database에 대한 HTTPS 연결을 설정하면 됩니다.
+애플리케이션 코드는 외부 서비스를 노출하는 인터넷 액세스 엔드포인트에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 앱은 이러한 동일한 프로토콜을 사용 하 여 Azure 내에서 서비스에 연결할 수 있습니다. 예를 들어 SQL Database에 대 한 HTTPS 연결을 설정할 수 있습니다.
 
-앱이 하나의 로컬 루프백 연결을 설정하고 앱이 해당 로컬 루프백 소켓을 수신 대기하도록 만드는 제한된 기능도 있습니다. 이 기능은 주로 기능의 일부로 로컬 루프백 소켓을 수신 대기하는 앱을 사용하도록 설정하기 위한 것입니다. 각 앱에서 "비공개" 루프백 연결을 볼 수 있습니다 앱 "A"는 앱 "B"가 설정한 로컬 루프백 소켓을 수신할 수 없습니다.
+앱이 하나의 로컬 루프백 연결을 설정하고 앱이 해당 로컬 루프백 소켓을 수신 대기하도록 만드는 제한된 기능도 있습니다. 이 기능은 주로 기능의 일부로 로컬 루프백 소켓을 수신 대기하는 앱을 사용하도록 설정하기 위한 것입니다. 각 앱에서 "프라이빗" 루프백 연결을 볼 수 있습니다 앱 "A"는 앱 "B"가 설정한 로컬 루프백 소켓을 수신할 수 없습니다.
 
 전체적으로 앱을 실행하는 다양한 프로세스 사이의 IPC(프로세스 간 통신) 메커니즘으로 명명된 파이프도 지원됩니다. 예를 들어 IIS FastCGI 모듈은 PHP 페이지를 실행하는 개별 프로세스를 조정하는 데 명명된 파이프를 사용합니다.
 
@@ -127,13 +116,13 @@ App Service의 각 앱은 "애플리케이션 풀 ID"라는 권한이 낮은 임
 ## <a name="registry-access"></a>레지스트리 액세스
 앱은 실행 가상 머신의 레지스트리의 상당 부분(전체는 아님)에 읽기 전용으로 액세스할 수 있습니다. 즉, 앱이 로컬 사용자 그룹에 대한 읽기 전용 액세스를 허용하는 레지스트리 키에 액세스할 수 없음을 의미합니다. 현재 읽기 또는 쓰기 액세스가 지원되지 않는 레지스트리의 하나의 영역은 HKEY\_CURRENT\_USER Hive입니다.
 
-사용자별 레지스트리 키 액세스를 포함하여 레지스트리에 대한 쓰기 액세스는 차단됩니다. 앱의 관점에서 보면, Azure 환경에서는 여러 가상 머신에서 앱을 마이그레이션할 수 있고 마이그레이션하므로 레지스트리에 대한 쓰기 액세스에 의존해서는 안 됩니다. 앱이 사용할 수 있는 유일한 쓰기 가능한 영구 저장소는 App Service UNC 공유에 저장된 앱별 콘텐츠 디렉터리 구조입니다. 
+사용자별 레지스트리 키 액세스를 포함하여 레지스트리에 대한 쓰기 액세스는 차단됩니다. 앱의 관점에서 보면, Azure 환경에서는 여러 가상 머신에서 앱을 마이그레이션할 수 있고 마이그레이션하므로 레지스트리에 대한 쓰기 액세스에 의존해서는 안 됩니다. 앱이 사용할 수 있는 유일한 쓰기 가능한 영구 스토리지는 App Service UNC 공유에 저장된 앱별 콘텐츠 디렉터리 구조입니다. 
 
 ## <a name="remote-desktop-access"></a>원격 데스크톱 액세스
 
 App Service는 VM 인스턴스에 대한 원격 데스크톱 액세스를 제공하지 않습니다.
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 
 [Azure App Service 샌드박스](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - App Service의 실행 환경에 대한 최신 정보입니다. 이 페이지는 App Service 개발 팀에서 직접 유지 관리합니다.
 

@@ -1,20 +1,18 @@
 ---
-title: Azure Storage 테이블 디자인에서 관계 모델링 | Microsoft Docs
+title: Azure 테이블 저장소 디자인에서 관계 모델링 | Microsoft Docs
 description: Table Storage 솔루션을 설계할 때 모델링 프로세스를 이해합니다.
 services: storage
-author: WenJason
+author: MarkMcGeeAtAquent
 ms.service: storage
 ms.topic: article
-origin.date: 04/23/2018
-ms.date: 02/25/2019
-ms.author: v-jay
+ms.date: 04/23/2018
+ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75457570"
 ---
 # <a name="modeling-relationships"></a>관계 모델링
 이 아티클에서는 Azure Table Storage 솔루션을 디자인할 수 있도록 모델링 프로세스를 설명합니다.
@@ -31,7 +29,7 @@ ms.locfileid: "60502539"
 
 이 예는 **PartitionKey** 값을 기반으로 형식 간의 암시적 일대다의 관계를 보여 줍니다. 각 부서에는 여러 직원이 있을 수 있습니다.  
 
-또한 이 예에서는 부서 엔터티와 해당 관련 직원 엔터티가 동일한 파티션에 있습니다. 여러 엔터티 유형에 대해 서로 다른 파티션, 테이블 또는 저장소 계정을 사용하도록 선택할 수 있습니다.  
+또한 이 예에서는 부서 엔터티와 해당 관련 직원 엔터티가 동일한 파티션에 있습니다. 여러 엔터티 유형에 대해 서로 다른 파티션, 테이블 또는 스토리지 계정을 사용하도록 선택할 수 있습니다.  
 
 다른 접근 방식은 다음 예와 같이 데이터를 비정규화하고 비정규화된 부서가 있는 직원 엔터티만 저장하는 것입니다. 이 특정 시나리오에서는 부서 관리자 정보를 변경할 수 있어야 하는 요구 사항이 있는 경우 이 비정규화된 접근 방식이 적합하지 않을 수 있습니다. 부서 관리자 정보를 변경하려면 부서의 모든 직원을 업데이트해야 하기 때문입니다.  
 
@@ -58,13 +56,13 @@ ms.locfileid: "60502539"
 <td>
 <ul>
 <li>일부 클라이언트 활동의 경우 직원 및 부서 엔터티를 둘 다 검색해야 할 수 있습니다.</li>
-<li>저장소 작업이 동일한 파티션에서 발생합니다. 대용량 트랜잭션의 경우 핫스폿이 발생할 수 있습니다.</li>
+<li>스토리지 작업이 동일한 파티션에서 발생합니다. 대용량 트랜잭션의 경우 핫스폿이 발생할 수 있습니다.</li>
 <li>EGT를 사용하여 직원을 새 부서로 이동할 수 없습니다.</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>별도의 엔터티 유형, 서로 다른 파티션, 테이블 또는 저장소 계정</td>
+<td>별도의 엔터티 유형, 서로 다른 파티션, 테이블 또는 스토리지 계정</td>
 <td>
 <ul>
 <li>단일 작업으로 부서 엔터티 또는 직원 엔터티를 업데이트할 수 있습니다.</li>
@@ -94,14 +92,14 @@ ms.locfileid: "60502539"
 </tr>
 </table>
 
-이러한 옵션 간에 선택하는 방법 및 가장 중요한 장단점은 특정 애플리케이션 시나리오에 따라 다릅니다. 예를 들어 부서 엔터티를 수정하는 빈도, 모든 직원 쿼리를 수행하는 데 추가 부서 정보가 필요한지 여부, 파티션 또는 저장소 계정의 확장성 제한에 얼마나 근접했는지 여부 등에 따라 달라집니다.  
+이러한 옵션 간에 선택하는 방법 및 가장 중요한 장단점은 특정 애플리케이션 시나리오에 따라 다릅니다. 예를 들어 부서 엔터티를 수정하는 빈도, 모든 직원 쿼리를 수행하는 데 추가 부서 정보가 필요한지 여부, 파티션 또는 스토리지 계정의 확장성 제한에 얼마나 근접했는지 여부 등에 따라 달라집니다.  
 
 ## <a name="one-to-one-relationships"></a>일대일 관계
 도메인 모델은 엔터티 간의 일대일 관계를 포함할 수 있습니다. Table service에서 일대일 관계를 구현해야 하는 경우 두 관련 엔터티를 모두 검색해야 할 때 해당 엔터티를 연결하는 방법도 선택해야 합니다. 이 링크는 키 값의 명명 규칙에 따라 암시적일 수 있으며, 각 엔터티의 **PartitionKey** 및 **RowKey** 값 형식으로 링크를 해당 관련 엔터티에 저장할 경우 명시적일 수 있습니다. 관련 엔터티를 동일한 파티션에 저장해야 하는지 여부에 대한 자세한 내용은 [일대다 관계](#one-to-many-relationships)섹션을 참조하세요.  
 
 Table service에서 일대일 관계를 구현하기 위한 구현 고려 사항도 있습니다.  
 
-* 큰 엔터티 처리(자세한 내용은 [큰 엔터티 패턴](table-storage-design-patterns.md#large-entities-pattern)참조)  
+* 대량 엔터티 처리 (자세한 내용은 [Large Entities 패턴](table-storage-design-patterns.md#large-entities-pattern)참조).  
 * 액세스 제어 구현(자세한 내용은 공유 액세스 서명을 사용하여 액세스 제어 참조).  
 
 ## <a name="join-in-the-client"></a>클라이언트에 조인

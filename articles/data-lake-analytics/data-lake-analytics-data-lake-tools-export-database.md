@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스 내보내기
+title: 내보내기 U-SQL 데이터베이스-Azure Data Lake Tools for Visual Studio
 description: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스를 내보내고 자동으로 로컬 계정으로 가져오는 방법을 알아봅니다.
 services: data-lake-analytics
 author: yanancai
@@ -7,14 +7,14 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2017
-ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 364682f6bcf2edeecc7af2da6c91e4bfd1de98a4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60628576"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117290"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL 데이터베이스 내보내기
 
@@ -51,7 +51,7 @@ ms.locfileid: "60628576"
 
 내보내기 대상에 대해 다른 설정을 구성할 수도 있습니다. 구성에 대한 설명은 다음 표에 나와 있습니다.
 
-|구성|설명|
+|구성|Description|
 |-------------|-----------|
 |대상 이름|내보내는 데이터베이스 리소스를 저장할 위치를 나타냅니다. 예를 들어 어셈블리, 추가 파일 및 샘플 데이터가 있습니다. 이 이름을 갖는 폴더가 로컬 데이터 루트 폴더 아래에 만들어집니다.|
 |프로젝트 디렉터리|내보내는 U-SQL 스크립트를 저장할 위치를 정의합니다. 모든 데이터베이스 개체 정의는 이 위치에 저장됩니다.|

@@ -1,32 +1,32 @@
 ---
 title: Bing Image Search API를 사용하여 GIF 이미지 검색
 titleSuffix: Azure Cognitive Services
-description: Bing Image Search API를 사용하여 웹에서 .gif 이미지를 검색합니다.
+description: Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4b396c3b99c143f20caa774ee3c4c6ee25f96150
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65777132"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169987"
 ---
 # <a name="search-for-gif-images"></a>GIF 이미지 검색 
 
-Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.  개발자는 다양한 대화 시나리오에 관련된 gif를 통합할 수 있습니다. 
+Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.개발자는 다양한 대화 시나리오에 관련된 gif를 통합할 수 있습니다. 
 
 다음 URL은 애니메이션된 .gif 이미지에 대한 쿼리입니다.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 ```
-[q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 매개 변수는 검색 단어를 지정합니다.  또한 이전 쿼리는 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) 필터 매개 변수를 사용하여 `animatedGif`를 지정합니다.
+[q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 매개 변수는 검색 단어를 지정합니다.  또한 이전 쿼리는 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) 필터 매개 변수를 사용하여 `animatedGif`를 지정합니다.
 
 결과의 예를 보려면 다음 URL을 사용하여 bing.com을 검색합니다.
 ```
@@ -35,18 +35,18 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 ```
 ## <a name="query-parameters"></a>쿼리 매개 변수
 
-쿼리 매개 변수 및 옵션에 대한 자세한 내용은 [Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters)를 참조하세요. 예제는 [Java를 사용하여 애니메이션된 gif 예제 검색](#gifExample) 헤더 아래에서 수행됩니다.
+쿼리 매개 변수 및 옵션에 대한 자세한 내용은 [Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query-parameters)를 참조하세요. 예제는 [Java를 사용하여 애니메이션된 gif 예제 검색](#gifExample) 헤더 아래에서 수행됩니다.
 
 ## <a name="tips-and-suggestions"></a>팁 및 제안 사항
 
-- [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) 및 [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize) 매개 변수를 지정할 수 있습니다. 인덱스에서 대부분의 gif가 2MB 미만이므로 maxFileSize=2000000으로 설정하는 것이 좋습니다.  그러면 대역폭이 모바일 셀룰러 시나리오와 같은 문제가 있는 경우 데이터 크기를 제어할 수 있습니다.
+- [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxfilesize) 및 [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minfilesize) 매개 변수를 지정할 수 있습니다. 인덱스에서 대부분의 gif가 2MB 미만이므로 maxFileSize=2000000으로 설정하는 것이 좋습니다.  그러면 대역폭이 모바일 셀룰러 시나리오와 같은 문제가 있는 경우 데이터 크기를 제어할 수 있습니다.
 - 인식된 성능을 향상시키려면 원본 URL을 로드하기 전에 먼저 썸네일을 로드합니다.  
 - 사용자 쿼리가 아직 없는 첫 번째 실행 또는 방문 페이지 환경의 경우 추세 gif 검색을 사용하여 [추세 이미지 API](trending-images.md)에서 도움을 줍니다.
-- [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) 매개 변수에 대한 세 가지 설정이 있습니다.  `strict` 옵션은 성인 등급 콘텐츠를 차단합니다.
+- [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 매개 변수에 대한 세 가지 설정이 있습니다.  `strict` 옵션은 성인 등급 콘텐츠를 차단합니다.
 - 지원되는 언어 및 위치의 전체 목록은 [mkt](supported-countries-markets.md)를 참조하세요.
 - *AnimatedGifHttps*는 https 주소에서 생성되고 애니메이션된 gif 이미지만을 반환합니다. 보안상 대부분의 애플리케이션은 https를 통해 외부 웹 링크에 연결되어야 합니다. 예를 들어 Apple 앱 스토어는 HTTPS를 통해 웹 서비스에 연결되어야 합니다. 그러면 전송 중에 사용자 데이터를 안전하게 암호화합니다.
 
-<a name="gifExample" />
+<a name="gifExample"></a>
 
 ## <a name="example-search-for-animated-gif-using-java"></a>Java를 사용하는 애니메이션된 gif 검색 예제
 
@@ -55,7 +55,7 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 
 ```
-다음 예제에서 볼 수 있듯이 URL 쿼리에는 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers) 헤더가 필요합니다.
+다음 예제에서 볼 수 있듯이 URL 쿼리에는 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#headers) 헤더가 필요합니다.
 
 다음 Java 예제에서는 요청을 빌드하고 전송합니다.
 
@@ -208,5 +208,5 @@ class SearchResults{
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [C# 빠른 시작](quickstarts/csharp.md)
+- [C # 빠른 시작](quickstarts/csharp.md)
 - [자습서 Image Search 단일 페이지 애플리케이션](tutorial-bing-image-search-single-page-app.md)

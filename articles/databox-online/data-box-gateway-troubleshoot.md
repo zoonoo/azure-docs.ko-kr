@@ -5,25 +5,26 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9688df6c27717cc74c874c75a9df0b47ffd24853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564008"
 ---
-# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway 문제 해결 
+# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway 문제 해결
 
-이 문서에서는 Azure Data Box Gateway에서 문제를 해결하는 방법을 설명합니다. 이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 Azure Data Box Gateway에서 문제를 해결하는 방법을 설명합니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
+>
 > * 진단 실행
 > * 지원 패키지 수집
 > * 로그를 사용하여 문제 해결
-
 
 ## <a name="run-diagnostics"></a>진단 실행
 
@@ -40,7 +41,7 @@ ms.locfileid: "60754448"
 
 ## <a name="collect-support-package"></a>지원 패키지 수집
 
-로크 패키지는 Microsoft 지원에서 디바이스 문제를 해결하는 데 도움을 줄 수 있는 모든 관련 로그로 구성됩니다. 로그 패키지는 로컬 웹 UI를 통해 생성할 수 있습니다.
+로크 패키지는 Microsoft 지원에서 디바이스 문제를 해결하는 데 도움을 줄 수 있는 모든 관련 로그로 구성됩니다. 로그 패키지는 로컬 웹 UI를 통해 생성할 수 있습니다. 
 
 지원 패키지를 수집하려면 다음 단계를 수행합니다. 
 

@@ -1,11 +1,11 @@
 ---
 title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Samanage 구성 | Microsoft Docs'
-description: 자동으로 프로 비전 하 고 사용자 계정을 Samanage로 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 알아봅니다.
+description: 사용자 계정을 Azure AD에서 Samanage로 자동으로 프로 비전 및 프로 비전 해제 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
+manager: beatrizd
 ms.assetid: 62d0392f-37d4-436e-9aff-22f4e5b83623
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,165 +13,153 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
-ms.author: v-wingf-msft
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d474d9bfd6016885eaa21afcea5d44d39c624084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 01/13/2020
+ms.author: Zhchia
+ms.openlocfilehash: 182d314b24ce082d996cb692e2a7bb35265abcfe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82628061"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Samanage 구성
+이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 Samanage 및 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 [Samanage](https://www.samanage.com/pricing/) 에 자동으로 프로 비전 하 고 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
-이 자습서에서는 자동으로 프로 비전 하 고 사용자 및 그룹을 Samanage로 프로 비전 해제 하도록 Azure AD를 구성 하려면 Samanage 및 Azure Active Directory (Azure AD)에서 수행 하는 단계를 보여 줍니다.
+## <a name="migrate-to-the-new-samange-application"></a>새 Samange 응용 프로그램으로 마이그레이션
 
-> [!NOTE]
-> 이 자습서는 Azure AD 사용자 프로 비전 서비스를 기반으로 빌드되는 커넥터를 설명 합니다. 이 서비스의 용도, 작동 방법 및 자주 묻는 질문에 대 한 내용은 참조 하세요 [사용자 프로 비전 및 Azure Active Directory를 사용 하 여 소프트웨어-as a service (SaaS) 응용 프로그램에 프로 비전 해제 자동화](../manage-apps/user-provisioning.md)합니다.
+Samanage와의 기존 통합이 있는 경우 최신 변경 내용에 대 한 아래 섹션을 참조 하세요. Samanage를 처음 설정 하는 경우이 섹션을 건너뛰고 **지원 되는 기능**으로 이동할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+#### <a name="whats-changing"></a>변경 내용은?
+* Azure AD 쪽 변경: Samange에서 사용자를 프로 비전 하는 권한 부여 방법이 **기본 인증**입니다. 곧 권한 부여 방법이 **Long 존속 비밀 토큰**으로 변경 된 것을 볼 수 있습니다.
 
-이 자습서에 설명 된 시나리오에서는 있다고 가정 합니다.
 
-* Azure AD 테넌트.
-* A [Samanage 테 넌 트](https://www.samanage.com/pricing/) Professional 패키지를 사용 하 여 합니다.
-* 관리자 권한이 있는 Samanage의 사용자 계정.
+#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>기존 사용자 지정 통합을 새 응용 프로그램으로 마이그레이션하려면 어떻게 해야 하나요?
+유효한 관리자 자격 증명과 기존 Samanage 통합이 있는 경우에 **는 아무 조치도 필요 하지**않습니다. 새 응용 프로그램으로 고객을 자동으로 마이그레이션합니다. 이 프로세스는 백그라운드에서 완전히 수행 됩니다. 기존 자격 증명이 만료 되거나 응용 프로그램에 대 한 액세스 권한을 다시 부여 해야 하는 경우에는 수명이 긴 비밀 토큰을 생성 해야 합니다. 새 토큰을 생성 하려면이 문서의 2 단계를 참조 하세요.
 
-> [!NOTE]
-> Azure AD 프로 비전 통합에 의존 합니다 [Samanage Rest API](https://www.samanage.com/api/)합니다. 이 API는 Samanage 개발자 Professional 패키지를 사용 하 여 계정에 대해 사용할 수 있습니다.
 
-## <a name="add-samanage-from-the-azure-marketplace"></a>Azure Marketplace에서 Samanage를 추가 합니다.
+#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>응용 프로그램이 마이그레이션 되었는지 어떻게 알 수 있나요? 
+응용 프로그램이 마이그레이션되면 관리자 **자격 증명** 섹션에서 **관리자 사용자 이름** 및 **관리자 암호** 필드는 단일 **비밀 토큰** 필드로 대체 됩니다.
 
-Azure AD를 사용 하 여 프로 비전 하는 자동 사용자를 Samanage를 구성 하기 전에 관리 되는 SaaS 응용 프로그램의 목록에 Azure Marketplace에서 Samanage를 추가 합니다.
+## <a name="capabilities-supported"></a>지원되는 기능
+> [!div class="checklist"]
+> * Samanage에서 사용자 만들기
+> * 더 이상 액세스할 필요가 없는 경우 Samanage에서 사용자 제거
+> * Azure AD와 Samanage 간에 사용자 특성을 동기화 상태로 유지
+> * Samanage에서 그룹 및 그룹 멤버 자격 프로 비전
+> * Samanage에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/samanage-tutorial) (권장)
 
-Marketplace에서 Samanage를 추가 하려면 다음이 단계를 수행 합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-1. 에 [Azure portal](https://portal.azure.com), 왼쪽 탐색 창에서 선택 **Azure Active Directory**합니다.
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-    ![Azure Active Directory 아이콘](common/select-azuread.png)
+* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
+* 전문 패키지가 포함 된 [Samanage 테 넌 트](https://www.samanage.com/pricing/) .
+* 관리자 권한이 있는 Samanage의 사용자 계정
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
+1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
+2. [프로비저닝 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정합니다.
+3. [AZURE AD와 Samanage 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정 합니다. 
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+## <a name="step-2-configure-samanage-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용 하 여 프로 비전을 지원 하도록 Samanage 구성
 
-3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션**을 선택합니다.
+인증에 대 한 비밀 토큰을 생성 하려면 [이](https://help.samanage.com/s/article/Tutorial-Tokens-Authentication-for-API-Integration-1536721557657)를 참조 합니다.
 
-    ![새 애플리케이션 단추](common/add-new-app.png)
+## <a name="step-3-add-samanage-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Samanage 추가
 
-4. 검색 상자에서 입력 **Samanage** 선택한 **Samanage** 결과 패널에서 합니다. 응용 프로그램을 추가 하려면 선택 **추가**합니다.
+Azure AD 응용 프로그램 갤러리에서 Samanage를 추가 하 여 Samanage에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 Samanage를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
-    ![결과 목록의 Samanage](common/search-new-app.png)
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 
-## <a name="assign-users-to-samanage"></a>Samanage에 사용자 할당
+Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-이라는 개념을 사용 하 여 azure Active Directory *할당* 어떤 사용자가 선택한 앱에 대 한 액세스를 받아야 하는지를 판단 합니다. 자동 사용자 프로 비전의 컨텍스트에서 사용자 또는 Azure AD에서 응용 프로그램에 할당 된 그룹 동기화 됩니다.
+* Samanage에 사용자 및 그룹을 할당할 때 **기본 액세스**외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
 
-구성 및 자동 사용자 프로 비전을 사용 하도록 설정 하기 전에 Samanage에 대 한 액세스를 필요한 사용자 또는 Azure AD의 그룹을 결정 합니다. 이 사용자 또는 그룹을 Samanage에 할당 하려면의 지침을 따릅니다 [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)합니다.
+* 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
 
-### <a name="important-tips-for-assigning-users-to-samanage"></a>Samanage에 사용자를 할당하기 위한 주요 팁
 
-*    현재 Samanage 역할 자동 및 동적으로 채워지는 Azure portal UI에서. 사용자에 게 Samanage 역할을 할당 하기 전에 Samanage 테 넌 트의 최신 역할을 검색 하는 Samanage에 대 한 초기 동기화가 완료 되었는지 확인 합니다.
+## <a name="step-5-configure-automatic-user-provisioning-to-samanage"></a>5단계. Samanage에 자동 사용자 프로 비전 구성 
 
-*    단일 할당 하는 것이 좋습니다 Azure AD 사용자를 Samanage에 초기 자동 사용자 프로 비전 구성을 테스트 합니다. 할당할 수 있습니다 추가 사용자 및 그룹 나중에 성공한 후 테스트 합니다.
+이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 TestApp에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
-*    Samanage에 사용자를 할당 하면 선택 유효한 응용 프로그램별 역할, 사용 가능한 경우 할당 대화 상자에서 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
+### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Azure AD에서 Samanage에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행합니다.
 
-## <a name="configure-automatic-user-provisioning-to-samanage"></a>Samanage에 자동 사용자 프로비저닝 구성
-
-이 섹션에서는 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다. 만들기, 업데이트 및 Azure AD의 사용자 또는 그룹 할당에 따라 Samanage의 사용자 또는 그룹을 사용 하지 않도록 설정 하려면 사용 합니다.
-
-> [!TIP]
-> SAML 기반 single sign Samanage에 대 한 사용할 수 있습니다. 지침에 따라 합니다 [Samanage single sign-on 자습서](samanage-tutorial.md)합니다. Single sign on 구성할 수 있습니다 자동 사용자 프로 비전과 별개로 있지만 이러한 두 기능은 서로 보완적입니다.
-
-### <a name="configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Azure AD에서 Samanage에 대 한 자동 사용자 프로 비전 구성
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 선택 **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램** > **Samanage**합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 2. 애플리케이션 목록에서 **Samanage**를 선택합니다.
 
-    ![응용 프로그램 목록에서 Samanage 링크](common/all-applications.png)
+    ![애플리케이션 목록의 Samanage 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![Samanage 프로비전](./media/samanage-provisioning-tutorial/ProvisioningTab.png)
+    ![프로비저닝 탭](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![Samanage 프로 비전 모드](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
+    ![프로비저닝 탭](common/provisioning-automatic.png)
 
-5. 아래는 **관리자 자격 증명** 섹션에서 관리자 사용자 이름 및 Samanage 계정의 관리자 암호를 입력 합니다. 이러한 값의 예는 다음과 같습니다.
+5. **관리자 자격 증명** 섹션 아래에 `https://api.samanage.com` 있는 **테 넌 트 URL**에 입력 합니다.  **비밀 토큰**에 이전에 검색된 비밀 토큰 값을 입력합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Samanage에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Samanage 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
-   * 에 **관리자 사용자 이름** 상자에서 Samanage 테 넌 트에서 관리자 계정의 사용자 이름을 입력 합니다. 예는 admin@contoso.com입니다.
+    ![프로비전](./media/samanage-provisioning-tutorial/provisioning.png)
 
-   * 에 **관리자 암호** 상자에서 관리자 사용자 이름에 해당 하는 관리자 계정의 암호를 입력 합니다.
+6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
 
-6. 5 단계에에서 표시 된 상자에 입력 한 후 선택 **연결 테스트** 되도록 Azure AD가 Samanage에 연결할 수 있습니다. 연결에 실패 하면 Samanage 계정에 관리자 권한이 있는지 확인 하 고 다시 시도.
+    ![알림 이메일](common/provisioning-notification-email.png)
 
-    ![Samanage 테스트 연결](./media/samanage-provisioning-tutorial/TestConnection.png)
+7. **저장**을 선택합니다.
 
-7. 에 **알림 전자 메일** 상자에 사용자의 전자 메일 주소를 입력 하거나 프로 비전 오류 알림의 받을 그룹입니다. 선택 된 **오류가 발생 하는 경우 전자 메일 알림 보내기** 확인란 합니다.
+8. **매핑** 섹션 아래에서 **Samanage에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
-    ![Samanage 알림 전자 메일](./media/samanage-provisioning-tutorial/EmailNotification.png)
+9. **특성 매핑** 섹션에서 Azure AD에서 Samanage로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Samanage의 사용자 계정을 일치시키는 데 사용됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 Samanage API에서 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-8. **저장**을 선택합니다.
+      ![Samange 사용자 매핑](./media/samanage-provisioning-tutorial/user-attributes.png)
 
-9. **매핑** 섹션에서 **Azure Active Directory 사용자를 Samanage에 동기화**를 선택합니다.
+10. **매핑** 섹션에서 **Azure Active Directory 그룹을 Samanage에 동기화**를 선택합니다.
 
-    ![Samanage 사용자 동기화](./media/samanage-provisioning-tutorial/UserMappings.png)
+11. **특성 매핑** 섹션에서 Azure AD에서 Samanage로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Samanage의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-10. **특성 매핑** 섹션에서 Azure AD에서 Samanage로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Samanage의 사용자 계정을 일치시키는 데 사용됩니다. 모든 변경 내용을 저장 하려면 선택 **저장할**합니다.
+      ![Samange 그룹 매핑](./media/samanage-provisioning-tutorial/group-attributes.png)
 
-    ![Samanage 일치 하는 사용자 특성](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
+12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-11. 그룹 매핑을 사용하려면 **매핑** 섹션에서 **Azure Active Directory 그룹을 Samanage에 동기화**를 선택합니다.
+13. Samanage에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
-    ![Samanage 그룹 동기화](./media/samanage-provisioning-tutorial/GroupMappings.png)
+    ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-12. **사용**을 **예**로 설정하여 그룹을 동기화합니다. **특성 매핑** 섹션에서 Azure AD에서 Samanage로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Samanage의 사용자 계정을 일치시키는 데 사용됩니다. 모든 변경 내용을 저장 하려면 선택 **저장할**합니다.
+14. **설정**의 **범위** 섹션에서 원하는 값을 선택하여 Samanage에 프로비전하려는 사용자 및/또는 그룹을 정의합니다.
 
-    ![Samanage 일치 하는 그룹 특성](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
+    ![프로비전 범위](common/provisioning-scope.png)
 
-13. 범위 지정 필터를 구성 하려면의 지침에 따라 합니다 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)합니다.
+15. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
-14. Azure AD에서 Samanage에 대 한 서비스를 프로 비전을 사용 하도록 설정 합니다 **설정** 섹션, 변경 **프로 비전 상태** 를 **에서**.
+    ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-    ![Samanage 프로 비전 상태](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
+이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
 
-15. Samanage에 프로 비전 할 사용자 또는 그룹을 정의 합니다. 에 **설정을** 섹션에서 원하는 값을 선택 합니다 **범위**합니다. 선택 하는 경우는 **모든 사용자 및 그룹 동기화** 옵션, ". 커넥터 제한 사항" 섹션에 설명 된 대로 제한 사항을 고려
+## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
+프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
-    ![Samanage 범위](./media/samanage-provisioning-tutorial/ScopeSync.png)
-
-16. 프로 비전 할 준비가 선택 **저장할**합니다.
-
-    ![Samanage 저장](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
-
-
-이 작업에는 모든 사용자의 초기 동기화가 시작 됩니다. 또는에 정의 된 그룹 **범위** 에 **설정** 섹션입니다. 초기 동기화 이후 동기화 보다 더 오래 걸립니다. Azure AD 프로 비전 서비스를 실행 하기만 약 40 분 마다 발생 합니다. 
-
-사용할 수는 **동기화 세부 정보** 진행률을 모니터링 하 고 프로 비전 작업 보고서에 링크를 따라 섹션입니다. 보고서에 프로 비전 서비스 Samanage에서 Azure AD에서 수행 되는 모든 작업에 설명 합니다.
-
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항
 
-선택 하는 경우는 **모든 사용자 및 그룹 동기화** 옵션 및 값을 Samanage에 대 한 구성 **역할** 특성을 아래 값을는 **null 인 경우 기본값은 (는 선택 사항)** 상자 다음 형식으로 표현 해야 합니다.
+**모든 사용자 및 그룹 동기화** 옵션을 선택 하 고 Samanage **roles** 특성에 대 한 값을 구성 하는 경우 **null (옵션)** 상자의 값은 다음 형식으로 표시 되어야 합니다.
 
-- {"displayName": "역할"을 (를) 이며, 여기서 역할은 기본 값입니다.
+- {"displayName": "role"}. 여기서 role은 원하는 기본값입니다.
+
+## <a name="change-log"></a>로그 변경
+
+* 04/22/2020-기본 인증에서 수명이 긴 비밀 토큰으로 권한 부여 방법이 업데이트 되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-
 
 ## <a name="next-steps"></a>다음 단계
 
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
-
-<!--Image references-->
-[1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/samanage-provisioning-tutorial/tutorial_general_02.png
-[3]: ./media/samanage-provisioning-tutorial/tutorial_general_03.png

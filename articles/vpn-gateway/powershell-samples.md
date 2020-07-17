@@ -1,33 +1,24 @@
 ---
-title: VPN Gateway에 대한 Azure PowerShell 샘플 | Microsoft Docs
+title: VPN Gateway에 대한 Azure PowerShell 샘플
 description: VPN Gateway에 대한 Azure PowerShell 샘플
 services: vpn-gateway
-documentationcenter: ''
-author: WenJason
-manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: ''
+author: cherylmc
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
-origin.date: 04/25/2018
-ms.date: 12/10/2018
-ms.author: v-jay
-ms.openlocfilehash: bdc9fd503f3ae1a3ededb9eba71268765c8801aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/10/2020
+ms.author: cherylmc
+ms.openlocfilehash: fcae37da3ef9c5b2b7633db1dd16cec247a782af
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539624"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203820"
 ---
 # <a name="azure-powershell-samples-for-vpn-gateway"></a>VPN Gateway에 대한 Azure PowerShell 샘플
 
 다음 표에는 Azure PowerShell 스크립트에 대한 링크가 포함됩니다.
 
-| | |
+| 스크립트 | Description |
 |----|----|
 | [VPN Gateway 만들기](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md) | 경로 기반 VPN Gateway를 만듭니다. |
 | [VPN Gateway 및 P2S 구성 만들기 - RADIUS](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md) | RADIUS 사용자 이름/암호 인증을 사용하는 경로 기반 VPN Gateway 및 P2S 구성을 만듭니다. |

@@ -7,15 +7,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd696539cda5b24d801da692822b13de143249dd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60333863"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121523"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대해 CI/CD 파이프라인을 설정하는 방법  
 
@@ -66,7 +66,7 @@ U-SQL 프로젝트의 U-SQL 스크립트에는 U-SQL 데이터베이스 개체�
 [U-SQL 데이터베이스 프로젝트](data-lake-analytics-data-lake-tools-develop-usql-database.md)에 대해 자세히 알아봅니다.
 
 >[!NOTE]
->DROP 문을 실수로 삭제 문제가 발생할 수 있습니다. DROP 문을 사용할 수 있도록, MSBuild 인수를 명시적으로 지정 해야 합니다. **AllowDropStatement** 비 데이터 관련된 놓기 작업을 같은 어셈블리 및 drop을 삭제 하면 테이블 반환 함수입니다. **AllowDataDropStatement** 하면 놓기 작업에서는 drop table 및 drop 스키마와 같은 관련 된 데이터입니다. AllowDropStatement AllowDataDropStatement 사용 하기 전에 사용 하도록 설정 해야 합니다.
+>DROP 문이 우연히 삭제 문제를 일으킬 수 있습니다. DROP 문을 사용 하려면 MSBuild 인수를 명시적으로 지정 해야 합니다. **Allowdropstatement** 는 drop assembly 및 drop table 값 함수와 같은 비 데이터 관련 삭제 작업을 활성화 합니다. **AllowDataDropStatement** 는 drop table 및 drop schema와 같은 데이터 관련 drop 작업을 사용 하도록 설정 합니다. AllowDataDropStatement를 사용 하기 전에 AllowDropStatement를 사용 하도록 설정 해야 합니다.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>MSBuild 명령줄을 사용하여 U-SQL 프로젝트 빌드
@@ -79,11 +79,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 인수 정의 및 값은 다음과 같습니다.
 
-* **USQLSDKPath=\<U-SQL Nuget package>\build\runtime**. 이 매개 변수는 U-SQL 언어 서비스에 대한 NuGet 패키지의 설치 경로를 나타냅니다.
-* **USQLTargetType=Merge 또는 SyntaxCheck**:
+* **USQLSDKPath = \<U-SQL Nuget package> \build\runtime**. 이 매개 변수는 U-SQL 언어 서비스에 대한 NuGet 패키지의 설치 경로를 나타냅니다.
+* **USQLTargetType = Merge 또는 SyntaxCheck**:
     * **Merge**. Merge 모드는 코드 숨김 파일을 컴파일합니다. 예로 **.cs**, **.py** 및 **.r** 파일입니다. U-SQL 스크립트로 결과 사용자 정의 코드 라이브러리를 인라인합니다. 예로는 dll 이진, Python 또는 R 코드가 있습니다.
     * **SyntaxCheck**. SyntaxCheck 모드는 먼저 U-SQL 스크립트로 코드 숨김 파일을 병합합니다. 그런 다음, U-SQL 스크립트를 컴파일하여 코드의 유효성을 검사합니다.
-* **DataRoot =\<DataRoot 경로 >** 합니다. DataRoot는 SyntaxCheck 모드에만 필요합니다. SyntaxCheck 모드를 사용하여 스크립트를 빌드하는 경우 MSBuild는 스크립트에서 데이터베이스 개체에 대한 참조를 확인합니다. 빌드하기 전에 빌드 머신의 DataRoot 폴더에서 U-SQL 데이터베이스의 참조된 개체를 포함하는 일치하는 로컬 환경을 설정합니다. [U-SQL 데이터베이스 프로젝트를 참조](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project)하여 이러한 데이터베이스 종속성을 관리할 수도 있습니다. MSBuild는 파일이 아닌 데이터베이스 개체 참조만 확인합니다.
+* **DataRoot=\<DataRoot path>**. DataRoot는 SyntaxCheck 모드에만 필요합니다. SyntaxCheck 모드를 사용하여 스크립트를 빌드하는 경우 MSBuild는 스크립트에서 데이터베이스 개체에 대한 참조를 확인합니다. 빌드하기 전에 빌드 머신의 DataRoot 폴더에서 U-SQL 데이터베이스의 참조된 개체를 포함하는 일치하는 로컬 환경을 설정합니다. [U-SQL 데이터베이스 프로젝트를 참조](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project)하여 이러한 데이터베이스 종속성을 관리할 수도 있습니다. MSBuild는 파일이 아닌 데이터베이스 개체 참조만 확인합니다.
 * **EnableDeployment=true** 또는 **false**. EnableDeployment는 빌드 프로세스 동안 참조된 U-SQL 데이터베이스를 배포하도록 허용되는지를 나타냅니다. U-SQL 데이터베이스 프로젝트를 참조하고 U-SQL 스크립트에서 데이터베이스 개체를 사용하는 경우 이 매개 변수를 **true**로 설정합니다.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Azure Pipelines를 통한 연속 통합
@@ -92,7 +92,7 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 ![U-SQL 프로젝트에 대한 MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
-1.  MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. 2단계에서 직접 MSBuild 인수 예제를 사용하려는 경우 **고급** > **대상 디렉터리**를 `$(Build.SourcesDirectory)/packages`로 설정합니다.
+1.  MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. **Advanced**  >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급**대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
 
     ![U-SQL 프로젝트에 대한 NuGet 복원 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -313,9 +313,9 @@ NuGet 패키지 참조를 추가하려면 Visual Studio 솔루션 탐색기에�
 
 ### <a name="build-u-sql-a-database-project-with-the-msbuild-command-line"></a>MSBuild 명령줄을 사용하여 U-SQL 데이터베이스 프로젝트 빌드
 
-U-SQL 데이터베이스 프로젝트를 빌드하려면 표준 MSBuild 명령줄을 호출하고 U-SQL SDK NuGet 패키지 참조를 추가 인수로 전달합니다. 다음 예제를 참조하세요. 
+U-SQL 데이터베이스 프로젝트를 빌드하려면 표준 MSBuild 명령줄을 호출하고 U-SQL SDK NuGet 패키지 참조를 추가 인수로 전달합니다. 다음 예제를 참조하십시오. 
 
-```
+```console
 msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime
 ```
 
@@ -325,21 +325,20 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
 명령줄 외에 Visual Studio Build 또는 MSBuild 작업을 사용하여 Azure Pipelines에서 U-SQL 데이터베이스 프로젝트를 빌드할 수 있습니다. 빌드 작업을 설정하려면 빌드 파이프라인의 두 가지 작업인 NuGet 복원 작업 및 MSBuild 작업을 추가해야 합니다.
 
-   ![U-SQL 프로젝트에 대한 CI/CD MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
+   ![U-SQL 프로젝트에 대한 CI/CD MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-
-1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. 2단계에서 직접 MSBuild 인수 예제를 사용하려는 경우 **고급** > **대상 디렉터리**를 `$(Build.SourcesDirectory)/packages`로 설정합니다.
+1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. **Advanced**  >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급**대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
 
    ![U-SQL 프로젝트를 위한 CI/CD NuGet 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
 2. 다음 예제와 같이 MSBuild 인수를 Visual Studio 빌드 도구 또는 MSBuild 작업에서 설정합니다. 또는 Azure Pipelines 빌드 파이프라인에서 이러한 인수에 대한 변수를 정의할 수 있습니다.
 
-   ![U-SQL 데이터베이스 프로젝트에 대한 CI/CD MSBuild 변수 정의](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
+   ![U-SQL 데이터베이스 프로젝트에 대한 CI/CD MSBuild 변수 정의](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png)
 
-   ```
+   ```console
    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
    ```
- 
+
 ### <a name="u-sql-database-project-build-output"></a>U-SQL 데이터베이스 프로젝트 빌드 출력
 
 U-SQL 데이터베이스 프로젝트에 대한 빌드 출력은 접미사 `.usqldbpack`으로 명명된 U-SQL 데이터베이스 배포 패키지입니다. `.usqldbpack` 패키지는 DDL 폴더의 단일 U-SQL 스크립트에 모든 DDL 문이 포함된 zip 파일입니다. 모든 **.dll** 및 임시 폴더에 어셈블리를 위한 추가 파일을 포함합니다.
@@ -369,7 +368,7 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
     <#
         This script is used for getting dependencies and SDKs for U-SQL database deployment.
         PowerShell command line support for deploying U-SQL database package(.usqldbpack file) will come soon.
-        
+
         Example :
             GetUSQLDBDeploymentSDK.ps1 -AzureSDK "AzureSDKFolderPath" -DBDeploymentTool "DBDeploymentToolFolderPath"
     #>
@@ -452,39 +451,39 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
 
 ### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>PackageDeploymentTool.exe 매개 변수 설명
 
-#### <a name="common-parameters"></a>일반 매개 변수
+#### <a name="common-parameters"></a>공통 매개 변수
 
-| 매개 변수 | 설명 | 기본값 | 필수 |
+| 매개 변수 | Description | 기본값 | 필수 |
 |---------|-----------|-------------|--------|
-|패키지|배포할 U-SQL 데이터베이스 배포 패키지의 경로입니다.|Null|true|
-|데이터베이스|배포하거나 만들 데이터베이스 이름입니다.|마스터|false|
-|로그 파일|로깅을 위한 파일의 경로입니다. 표준 출력에 대한 기본값입니다(콘솔).|Null|false|
+|패키지|배포할 U-SQL 데이터베이스 배포 패키지의 경로입니다.|null|true|
+|데이터베이스|배포하거나 만들 데이터베이스 이름입니다.|master|false|
+|LogFile|로깅을 위한 파일의 경로입니다. 표준 출력에 대한 기본값입니다(콘솔).|null|false|
 |LogLevel|로그 수준: 자세한 정보, 보통, 경고 또는 오류입니다.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>로컬 배포에 대한 매개 변수입니다.
 
-|매개 변수|설명|기본값|필수|
+|매개 변수|Description|기본값|필수|
 |---------|-----------|-------------|--------|
-|DataRoot|로컬 데이터 루트 폴더의 경로입니다.|Null|true|
+|DataRoot|로컬 데이터 루트 폴더의 경로입니다.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Azure Data Lake Analytics 배포에 대한 매개 변수입니다.
 
-|매개 변수|설명|기본값|필수|
+|매개 변수|Description|기본값|필수|
 |---------|-----------|-------------|--------|
-|계좌|계정 이름별로 배포할 Azure Data Lake Analytics 계정을 지정합니다.|Null|true|
-|ResourceGroup|Azure Data Lake Analytics 계정에 대한 Azure 리소스 그룹 이름입니다.|Null|true|
-|SubscriptionId|Azure Data Lake Analytics 계정에 대한 Azure 구독 ID입니다.|Null|true|
-|테넌트|테넌트 이름은 Azure AD(Azure Active Directory) 도메인 이름입니다. Azure Portal의 구독 관리 페이지에서 찾을 수 있습니다.|Null|true|
-|AzureSDKPath|Azure SDK에서 종속 어셈블리를 검색하기 위한 경로입니다.|Null|true|
+|계정|계정 이름별로 배포할 Azure Data Lake Analytics 계정을 지정합니다.|null|true|
+|ResourceGroup|Azure Data Lake Analytics 계정에 대한 Azure 리소스 그룹 이름입니다.|null|true|
+|SubscriptionId|Azure Data Lake Analytics 계정에 대한 Azure 구독 ID입니다.|null|true|
+|테넌트|테넌트 이름은 Azure AD(Azure Active Directory) 도메인 이름입니다. Azure Portal의 구독 관리 페이지에서 찾을 수 있습니다.|null|true|
+|AzureSDKPath|Azure SDK에서 종속 어셈블리를 검색하기 위한 경로입니다.|null|true|
 |대화형|인증에 대화형 모드를 사용할지 여부입니다.|false|false|
-|clientid|비대화형 인증을 위해 필요한 Azure AD 애플리케이션 ID입니다.|Null|비대화형 인증에 필요합니다.|
-|Secrete|비대화형 인증을 위한 비밀 또는 암호입니다. 신뢰할 수 있고 안전한 환경에서만 사용해야 합니다.|Null|비대화형 인증에서 필수입니다. 그렇지 않으면 SecreteFile을 사용합니다.|
-|SecreteFile|비대화형 인증을 위한 비밀 또는 암호를 저장하는 파일입니다. 현재 사용자만 읽을 수 있도록 유지해야 합니다.|Null|비대화형 인증에서 필수입니다. 그렇지 않으면 비밀을 사용합니다.|
-|CertFile|비대화형 인증을 위한 X.509 인증서를 저장하는 파일입니다. 기본값은 클라이언트 비밀 인증을 사용하는 것입니다.|Null|false|
+|clientid|비대화형 인증을 위해 필요한 Azure AD 애플리케이션 ID입니다.|null|비대화형 인증에 필요합니다.|
+|Secrete|비대화형 인증을 위한 비밀 또는 암호입니다. 신뢰할 수 있고 안전한 환경에서만 사용해야 합니다.|null|비대화형 인증에서 필수입니다. 그렇지 않으면 SecreteFile을 사용합니다.|
+|SecreteFile|비대화형 인증을 위한 비밀 또는 암호를 저장하는 파일입니다. 현재 사용자만 읽을 수 있도록 유지해야 합니다.|null|비대화형 인증에서 필수입니다. 그렇지 않으면 비밀을 사용합니다.|
+|CertFile|비대화형 인증을 위한 X.509 인증서를 저장하는 파일입니다. 기본값은 클라이언트 비밀 인증을 사용하는 것입니다.|null|false|
 | JobPrefix | U-SQL DDL 작업의 데이터베이스 배포에 대한 접두사입니다. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Lake Analytics 코드를 테스트하는 방법](data-lake-analytics-cicd-test.md).
+- [Azure Data Lake Analytics 코드를 테스트 하는 방법](data-lake-analytics-cicd-test.md)
 - [로컬 머신에서 U-SQL 스크립트 실행](data-lake-analytics-data-lake-tools-local-run.md).
 - [U-SQL 데이터베이스 프로젝트를 사용하여 U-SQL 데이터베이스 개발](data-lake-analytics-data-lake-tools-develop-usql-database.md).

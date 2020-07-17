@@ -1,25 +1,23 @@
 ---
-title: Azure Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 트래픽 패턴 시각화 | Microsoft Docs
+title: 오픈 소스 도구를 사용 하 여 네트워크 트래픽 패턴 시각화
+titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Capanalysis와 함께 Network Watcher 패킷 캡처를 사용하여 VM과 주고 받는 트래픽을 시각화하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.author: damendo
+ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64936018"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738637"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>오픈 소스 도구를 사용하여 VM과 주고 받는 네트워크 트래픽 패턴 시각화
 
@@ -29,7 +27,7 @@ Azure의 Network Watcher는 네트워크에서 패킷 캡처를 수행하여 데
 
 ## <a name="scenario"></a>시나리오
 
-Azure VM에 간단한 웹 애플리케이션을 배포했으며 오픈 소스 도구를 통해 네트워크 트래픽을 시각화하여 흐름 패턴과 오류를 신속하게 식별하고자 합니다. Network Watcher를 사용하면 네트워크 환경의 패킷 캡처를 획득하여 저장소 계정에 바로 저장할 수 있습니다. 그러면 CapAnalysis가 저장소 BLOB에서 직접 패킷 캡처를 수집하고 해당 콘텐츠를 시각화할 수 있습니다.
+Azure VM에 간단한 웹 애플리케이션을 배포했으며 오픈 소스 도구를 통해 네트워크 트래픽을 시각화하여 흐름 패턴과 오류를 신속하게 식별하고자 합니다. Network Watcher를 사용하면 네트워크 환경의 패킷 캡처를 획득하여 스토리지 계정에 바로 저장할 수 있습니다. 그러면 CapAnalysis가 스토리지 BLOB에서 직접 패킷 캡처를 수집하고 해당 콘텐츠를 시각화할 수 있습니다.
 
 ![시나리오][1]
 
@@ -42,14 +40,14 @@ CapAnalysis에 원격으로 액세스하려면 새 인바운드 보안 규칙을
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Azure Network Watcher를 사용하여 패킷 캡처 세션 시작
 
-Network Watcher를 사용하면 가상 컴퓨터가 주고 받는 트래픽을 추적하는 패킷을 캡처할 수 있습니다. 패킷 캡처 세션을 시작하는 방법은 [Network Watcher를 사용하여 패킷 캡처 관리](network-watcher-packet-capture-manage-portal.md)의 지침을 참조하세요. 패킷 캡처는 CapAnalysis가 액세스할 수 있도록 저장소 BLOB에 저장할 수 있습니다.
+Network Watcher를 사용하면 가상 컴퓨터가 주고 받는 트래픽을 추적하는 패킷을 캡처할 수 있습니다. 패킷 캡처 세션을 시작하는 방법은 [Network Watcher를 사용하여 패킷 캡처 관리](network-watcher-packet-capture-manage-portal.md)의 지침을 참조하세요. 패킷 캡처는 CapAnalysis가 액세스할 수 있도록 스토리지 BLOB에 저장할 수 있습니다.
 
 ### <a name="upload-a-packet-capture-to-capanalysis"></a>CapAnalysis에 패킷 캡처 업로드
-"URL에서 가져오기" 탭을 사용하여 패킷 캡처가 저장된 저장소 BLOB의 링크를 제공하는 방법을 통해 Network Watcher가 만든 패킷 캡처를 직접 업로드할 수 있습니다.
+&quot;URL에서 가져오기&quot; 탭을 사용하여 패킷 캡처가 저장된 스토리지 BLOB의 링크를 제공하는 방법을 통해 Network Watcher가 만든 패킷 캡처를 직접 업로드할 수 있습니다.
 
-CapAnalysis에 대한 링크를 제공할 때 저장소 BLOB URL에 SAS 토큰을 추가해야 합니다.  이렇게 하려면 저장소 계정에서 공유 액세스 서명으로 이동하여 허용되는 권한을 지정하고 SAS 생성 단추를 눌러 토큰을 만들어야 합니다. 그런 다음, SAS 토큰을 패킷 캡처 저장소 BLOB URL에 추가할 수 있습니다.
+CapAnalysis에 대한 링크를 제공할 때 스토리지 BLOB URL에 SAS 토큰을 추가해야 합니다.  이렇게 하려면 스토리지 계정에서 공유 액세스 서명으로 이동하여 허용되는 권한을 지정하고 SAS 생성 단추를 눌러 토큰을 만들어야 합니다. 그런 다음, SAS 토큰을 패킷 캡처 스토리지 BLOB URL에 추가할 수 있습니다.
 
-결과 URL은 다음 URL과 같습니다. http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+결과 URL은 다음 URL과 같습니다. `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>패킷 캡처 분석
@@ -76,7 +74,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
 1. 지역 지도
 
-    이 창을 사용 하면 각 국가/지역의 트래픽 볼륨을 확장 하는 색을 사용 하 여 네트워크 트래픽의 지도 보기를 사용 하 여 할 수 있습니다. 해당 국가/지역의 Ip에서 보내거나 받는 데이터 비율 같은 추가 흐름 통계를 보는 데 강조 표시 된 국가 선택할 수 있습니다.
+    이 창에서는 각 국가/지역의 트래픽 양에 대 한 색을 조정 하 여 네트워크 트래픽의 지도 보기를 제공 합니다. 강조 표시 된 국가/지역을 선택 하 여 해당 국가/지역의 Ip에서 보내고 받은 데이터의 비율과 같은 추가 흐름 통계를 볼 수 있습니다.
 
     ![지역 지도][8]
 
@@ -86,7 +84,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
     ![filters][11]
 
-    모든 CapAnalysis의 기능에 대해 자세히 알아보려면 [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about)을 참조하세요.
+    [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about)모든 CapAnalysis 기능에 대 한 자세한 내용은을 참조 하세요.
 
 ## <a name="conclusion"></a>결론
 
@@ -96,7 +94,7 @@ Network Watcher의 패킷 캡처 기능을 사용하면 네트워크 과학 수�
 
 [NSG 흐름 기록](network-watcher-nsg-flow-logging-overview.md)을 방문하여 NSG 흐름 로그에 대해 자세히 알아보기
 
-[Power BI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)를 방문하여 Power BI로 NSG 흐름 로그를 시각화하는 방법 알아보기
+[PowerBI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI로 NSG 흐름 로그를 시각화하는 방법에 대해 알아보세요.
 <!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png

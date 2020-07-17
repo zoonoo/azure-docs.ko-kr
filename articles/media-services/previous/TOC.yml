@@ -1,5 +1,5 @@
 - name: Media Services 설명서
-  href: index.md
+  href: index.yml
 - name: 개요
   href: media-services-overview.md
   items:
@@ -37,7 +37,7 @@
           href: media-services-portal-vod-get-started.md
         - name: .NET SDK
           href: media-services-dotnet-get-started.md
-        - name: 자바
+        - name: Java
           href: media-services-java-how-to-use.md
         - name: REST (영문)
           href: media-services-rest-get-started.md
@@ -49,8 +49,23 @@
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
 - name: 방법
   items:
+    - name: 레거시 구성 요소
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      href: legacy-components.md
+      items:
+        - name: Azure Media Encoder에서 마이그레이션
+          href: migrate-azure-media-encoder.md
+          displayName: AME
+        - name: Windows Azure Media Encoder에서 마이그레이션
+          href: migrate-windows-azure-media-encoder.md
+          displayName: WAME
+        - name: 인덱서 v1 및 v2에서 마이그레이션
+          href: migrate-indexer-v1-v2.md
     - name: 관리
       items:
+        - name: 계정
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: 엔터티
           items:
             - name: .NET
@@ -64,12 +79,12 @@
               href: media-services-portal-manage-streaming-endpoints.md
             - name: .NET
               href: media-services-dotnet-manage-streaming-endpoints.md
-        - name: Storage
+        - name: 스토리지
           items:
-            - name: 저장소 액세스 키 롤링 후 Media Services 업데이트
+            - name: 스토리지 액세스 키 롤링 후 Media Services 업데이트
               href: media-services-roll-storage-access-keys.md
             - name: 여러 스토리지 계정 간 자산 관리
-              href: meda-services-managing-multiple-storage-accounts.md
+              href: media-services-managing-multiple-storage-accounts.md
         - name: 할당량 및 제한 사항
           href: media-services-quotas-and-limitations.md
     - name: Postman 구성
@@ -89,10 +104,10 @@
               href: media-services-portal-upload-files.md
             - name: .NET
               href: media-services-dotnet-upload-files.md
+              displayName: invalid character
             - name: REST (영문)
               href: media-services-rest-upload-files.md
-        - name: Aspera를 사용하여 대용량 파일 업로드
-          href: media-services-upload-files-with-aspera.md
+              displayName: invalid character
         - name: StorSimple을 사용하여 파일 업로드
           href: media-services-upload-files-from-storsimple.md
         - name: 기존 Blob 복사
@@ -240,34 +255,18 @@
         - name: 클라우드 인코더와 함께 사용할 온-프레미스 인코더 구성
           href: media-services-live-encoders-overview.md
           items:
-            - name: FMLE 인코더
-              href: media-services-configure-fmle-live-encoder.md
             - name: Haivision KB 인코더
               href: media-services-configure-kb-live-encoder.md
-            - name: NewTek TriCaster 인코더
-              href: media-services-configure-tricaster-live-encoder.md
             - name: Wirecast 인코더
               href: media-services-configure-wirecast-live-encoder.md
         - name: 장기 실행 작업 처리
           href: media-services-dotnet-long-operations.md
         - name: 분할된 MP4 라이브 수집 사양
-          href: media-services-fmp4-live-ingest-overview.md
-        - name: 시작
-          href: media-services-azure-media-clipper-getting-started.md
-        - name: 비디오 로드
-          href: media-services-azure-media-clipper-load-assets.md
-        - name: 바로 가기 키 구성
-          href: media-services-azure-media-clipper-keyboard-shortcuts.md
-        - name: 지역화 구성
-          href: media-services-azure-media-clipper-localization.md
-        - name: 잘라내기 작업 제출
-          href: media-services-azure-media-clipper-submit-job.md
-        - name: Azure portal
-          href: media-services-azure-media-clipper-portal.md
+          href: ../media-services-fmp4-live-ingest-overview.md
     - name: 콘텐츠 보호
       href: media-services-content-protection-overview.md
       items:
-        - name: 저장소 암호화
+        - name: 스토리지 암호화
           href: media-services-rest-storage-encryption.md
         - name: AES-128 암호화
           href: media-services-protect-with-aes128.md
@@ -392,12 +391,11 @@
           href: media-services-deliver-asset-download.md
         - name: 장애 조치 스트리밍 시나리오
           href: media-services-implement-failover.md
+          displayName: 'HA, high availability'
     - name: 사용
       items:
         - name: 기존 플레이어로 미디어 재생
           href: media-services-playback-content-with-existing-players.md
-        - name: Media Player로 미디어 재생
-          href: media-services-develop-video-players.md
         - name: 기타 재생 옵션
           items:
             - name: 부드러운 스트리밍 Windows 스토어 애플리케이션
@@ -440,7 +438,7 @@
           href: media-services-error-codes.md
         - name: 재시도 논리
           href: media-services-retry-logic-in-dotnet-sdk.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
@@ -455,18 +453,21 @@
     - name: 사양
       items:
         - name: 라이브 수집 - 분할된 MP4 라이브 수집 사양
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: 라이브 수집 - 라이브 스트리밍에서 신호 타이밍 메타데이터
-          href: media-services-specifications-live-timed-metadata.md
+          href: ../media-services-specifications-live-timed-metadata.md
         - name: 부드러운 스트리밍 HEVC
-          href: media-services-specifications-ms-sstr-amendment-hevc.md
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+    - name: 레거시 구성 요소
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      href: legacy-components.md
 - name: 리소스
   items:
     - name: Azure Media Services 커뮤니티
       href: media-services-community.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

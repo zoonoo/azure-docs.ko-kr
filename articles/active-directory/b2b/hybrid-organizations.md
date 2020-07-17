@@ -1,5 +1,5 @@
 ---
-title: 하이브리드 조직에 대한 B2B 협업 - Azure Active Directory | Microsoft Docs
+title: 하이브리드 조직에 대 한 B2B 공동 작업-Azure AD
 description: Azure AD B2B 협업을 사용하여 온-프레미스 및 클라우드 리소스에 파트너 액세스 권한을 부여합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,11 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b30e9c14863f67d28203eac916606e8786101e3b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74272479"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>하이브리드 조직에 대한 Azure Active Directory B2B 협업
 
@@ -48,6 +47,6 @@ Azure AD 이전에는 온-프레미스 ID 시스템이 있는 조직은 일반�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여](hybrid-cloud-to-on-premises.md)
-- [Azure AD B2B 공동 작업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여](hybrid-on-premises-to-cloud.md)
+- [로컬로 관리 되는 파트너 계정에 Azure AD B2B 공동 작업을 사용 하 여 클라우드 리소스에 대 한 액세스 권한 부여](hybrid-on-premises-to-cloud.md)
 
 

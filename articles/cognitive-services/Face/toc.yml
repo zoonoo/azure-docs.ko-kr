@@ -1,20 +1,14 @@
-- name: Face API 설명서
+- name: Face 설명서
   href: index.yml
 - name: 개요
   expanded: true
   items:
-    - name: Face API란?
+    - name: Face 서비스란?
       href: Overview.md
 - name: 빠른 시작
   items:
-    - name: 클라이언트 SDK 사용
-      items:
-        - name: 이미지에서 얼굴 감지
-          items:
-            - name: 'C#'
-              href: QuickStarts/csharp-detect-sdk.md
-            - name: Python
-              href: Tutorials/FaceAPIinPythonTutorial.md
+    - name: 클라이언트 라이브러리 사용
+      href: Quickstarts/client-libraries.md
     - name: REST API 사용
       items:
         - name: 이미지에서 얼굴 감지
@@ -25,7 +19,7 @@
               href: QuickStarts/curl.md
             - name: Go
               href: QuickStarts/go.md
-            - name: 자바
+            - name: Java
               href: QuickStarts/Java.md
             - name: JavaScript
               href: QuickStarts/JavaScript.md
@@ -43,8 +37,6 @@
       items:
         - name: 'C#'
           href: Tutorials/FaceAPIinCSharpTutorial.md
-        - name: Android
-          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: 개념
   items:
     - name: 얼굴 감지
@@ -59,10 +51,12 @@
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: 얼굴 추가
       href: Face-API-How-to-Topics/how-to-add-faces.md
-    - name: HeadPose를 사용하여 사각형 회전
+    - name: HeadPose 특성 사용
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: 얼굴 인식 모델 지정
       href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: 얼굴 감지 모델 지정
+      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: 대규모 기능 사용
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: 실시간 비디오 분석
@@ -75,41 +69,45 @@
           href: face-how-to-install-containers.md
         - name: 컨테이너 구성
           href: face-resource-container-config.md
-    - name: Face API 연결 서비스 사용
-      href: vs-face-connected-service.md
-- name: 참고 자료
+        - name: 컨테이너 인스턴스 사용
+          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+- name: 참조
   items:
     - name: Face API
       href: APIReference.md
     - name: SDK
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet'
-        - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face'
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
-        - name: Android(Java)
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable'
         - name: iOS
           href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: 리소스
   items:
     - name: 샘플
       items:
-        - name: Face API 샘플
-          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
+        - name: Face 샘플
+          href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face'
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/430315-face-api'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: 암호화
+      href: face-encryption-of-data-at-rest.md
     - name: 릴리스 정보
       href: ReleaseNotes.md

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59c46e30f0f1c4ce3cf8cbe06808945ec0d9b5e2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e97a66a1b21b46649a1206eb522c180e84a0a0d4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006848"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67099163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>자습서: Kantega SSO for JIRA와 Azure Active Directory 통합
 
@@ -32,10 +32,10 @@ Kantega SSO for JIRA를 Azure AD와 통합하면 다음과 같은 이점이 있�
 * 사용자가 자신의 Azure AD 계정으로 Kantega SSO for JIRA에 자동으로 로그인(Single Sign-On) 되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Kantega SSO for JIRA와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -58,7 +58,7 @@ Kantega SSO for JIRA가 Azure AD에 통합되도록 구성하려면 갤러리에
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -110,7 +110,7 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     b. **회신 URL** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![Kantega SSO for JIRA 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
@@ -139,39 +139,39 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 1. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon1.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon1.png)
 
 1. [추가 기능] 탭 섹션에서 **새 추가 기능 찾기**를 클릭합니다. **Kantega SSO for JIRA(SAML & Kerberos)** 를 검색하고 **설치** 단추를 클릭하여 새 SAML 플러그 인을 설치합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon2.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon2.png)
 
 1. 플러그 인 설치가 시작됩니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon3.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon3.png)
 
 1. 설치가 완료되면 **닫기**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon33.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon33.png)
 
 1.  **관리**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon34.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon34.png)
     
 1. 새 플러그 인이 **INTEGRATIONS**(통합) 아래 나열됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon35.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon35.png)
 
 1. **SAML** 섹션의 **ID 공급자 추가** 드롭다운에서 **Azure AD(Azure Active Directory)** 를 선택합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon4.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon4.png)
 
 1. 구독 수준을 **기본**으로 선택합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon5.png)       
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon5.png)       
 
 1. **앱 속성** 섹션에서 다음 단계를 수행합니다. 
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon6.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon6.png)
 
     a. **앱 ID URI**를 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에서 **식별자, 회신 URL 및 로그온 URL**로 사용합니다.
 
@@ -179,7 +179,7 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 1. **Metadata import**(메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다. 
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon7.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon7.png)
 
     a. **Metadata file on my computer**(내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
@@ -187,7 +187,7 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 1. **Name and SSO location**(이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon8.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon8.png)
 
     a. **ID 공급자 이름** 텍스트 상자에 ID 공급자의 이름(예: Azure AD)을 입력합니다.
 
@@ -195,11 +195,11 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 1. 서명 인증서를 확인하고 **다음**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon9.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon9.png)
 
 1. **JIRA 사용자 계정** 섹션에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon10.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon10.png)
 
     a. **필요한 경우 JIRA의 내부 디렉터리에 사용자 만들기**를 선택하고 사용자에 대한 적절한 그룹 이름을 입력합니다(그룹이 여러 개인 경우 쉼표로 구분 가능).
 
@@ -207,11 +207,11 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 1. **Finish**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon11.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon11.png)
 
 1. **Known domains for Azure AD**(Azure AD에 알려진 도메인) 섹션에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon12.png)
+    ![Single Sign-on 구성](./media/kantegassoforjira-tutorial/addon12.png)
 
     a. 페이지의 왼쪽 창에서 **Known domains**(알려진 도메인)를 선택합니다.
 
@@ -239,7 +239,7 @@ Kantega SSO for JIRA에서 Azure AD Single Sign-On을 구성하려면 다음 단
   
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
-ms.openlocfilehash: f987b236cbec9bd4dd332213c2ec7eadcb0752e7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: aaa8908f5b05ae4c4523760c3c12a077ac1a09d5
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212008"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "67509882"
 ---
 > [!NOTE] 
-> Azure 데이터 팩터리 매핑 데이터 흐름은 현재 공개 미리 보기 기능 및 Azure 고객 SLA 프로 비전 적용 되지 않습니다.
+> Azure Data Factory 매핑 데이터 흐름은 현재 공개 미리 보기 기능이 며 Azure 고객 SLA 프로 비전의 영향을 받지 않습니다. 현재 다음과 같은 Azure 지역에서는 데이터 흐름을 매핑할 수 없습니다. 미국 중부, 브라질 남부, 프랑스 중부, 대한민국 중부.

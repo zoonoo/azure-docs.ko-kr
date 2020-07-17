@@ -1,19 +1,17 @@
 ---
-title: 고객 데이터 요청 기능
-description: 고객 데이터 요청 기능 요약
+title: Azure IoT Hub 장치에 대 한 고객 데이터 요청
+description: Azure IoT Hub에서 관리 되는 대부분의 장치는 개인은 아니지만 일부는입니다. 이 문서에서는 장치에서 개인 데이터를 내보내거나 삭제할 수 있는 관리자에 대해 설명 합니다.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1519637eddf909040131a1efac5738fc7cc8e565
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a05fbf6e1908f88014cd8da99fafb875de033f45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60845803"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79499323"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 
@@ -37,17 +35,17 @@ Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용하여 진단 �
 
 테넌트 관리자는 Azure Portal에서 Azure IoT Hub 확장의 IoT 디바이스 블레이드를 사용하여 디바이스를 삭제할 수 있습니다. 그러면 해당 디바이스와 연결된 데이터가 삭제됩니다.
 
-또한 REST API를 사용하여 디바이스에 대한 삭제 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 삭제](/rest/api/iothub/service/deletedevice)를 참조하세요.
+또한 REST API를 사용하여 디바이스에 대한 삭제 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 삭제](/rest/api/iothub/service/registrymanager/deletedevice)를 참조하세요.
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 
-테넌트 관리자는 Azure Portal에서 Azure IoT Hub 확장의 IoT 디바이스 블레이드 내 복사하여 붙여넣기를 사용하여 해당 디바이스와 연결된 데이터를 내보낼 수 있습니다.
+테 넌 트 관리자는 Azure Portal에서 Azure IoT Hub 확장의 IoT 장치 창 내에서 복사 및 붙여넣기를 활용 하 여 장치와 연결 된 데이터를 내보낼 수 있습니다.
 
-또한 REST API를 사용하여 디바이스에 대한 내보내기 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 가져오기](/rest/api/iothub/service/getdevice)를 참조하세요.
+또한 REST API를 사용하여 디바이스에 대한 내보내기 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 가져오기](/rest/api/iothub/service/registrymanager/getdevice)를 참조하세요.
 
 > [!NOTE]
 > Microsoft 엔터프라이즈 서비스를 사용하는 경우 Microsoft는 시스템 생성 로그라는 일부 정보를 생성합니다. 일부 Azure IoT Hub 시스템 생성 로그는 테넌트 관리자가 액세스하거나 내보낼 수 없습니다. 이러한 로그는 서비스 내에서 수행된 실제 작업 및 개별 디바이스와 관련된 진단 데이터로 구성됩니다.
 
 ## <a name="links-to-additional-documentation"></a>추가 설명서에 대한 링크
 
-Azure IoT Hub 서비스 API에 대한 전체 설명서는 [IoT Hub 서비스 API](https://docs.microsoft.com/rest/api/iothub/service)에 있습니다.
+Azure IoT Hub 서비스 API에 대한 전체 설명서는 [IoT Hub 서비스 API](https://docs.microsoft.com/rest/api/iothub/service/configuration)에 있습니다.

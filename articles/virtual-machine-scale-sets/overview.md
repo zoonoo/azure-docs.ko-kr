@@ -1,30 +1,23 @@
 ---
-title: Azure 가상 머신 확장 집합 개요 | Microsoft Docs
+title: Azure 가상 머신 확장 집합 개요
 description: Azure 가상 머신 확장 집합 및 애플리케이션의 크기를 자동으로 조정하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: mimckitt
+ms.author: mimckitt
 ms.topic: overview
-ms.custom: mvc
-ms.date: 03/27/2018
-ms.author: manayar
-ms.openlocfilehash: 1ace0ddd3b29f844488eb7579934541fa8273fa0
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.service: virtual-machine-scale-sets
+ms.subservice: ''
+ms.date: 06/30/2020
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: ec96cab0a147e661df48318aadb057f9f6785b1f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199905"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026528"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
-Azure 가상 머신 확장 집합을 사용하면 부하 분산된 동일한 VM 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 애플리케이션에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.
+Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 애플리케이션에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.
 
 
 ## <a name="why-use-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하는 이유는?
@@ -35,7 +28,7 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
 - **손쉬운 여러 VM 만들기 및 관리**
     - 애플리케이션을 실행하는 VM을 많이 사용하는 경우 환경 전체에서 일관된 구성을 유지해야 합니다. 신뢰할 수 있는 애플리케이션 성능을 위해 VM 크기, 디스크 구성 및 애플리케이션 설치가 모든 VM에서 일치해야 합니다.
     - 확장 집합을 사용하면 동일한 기본 OS 이미지 및 구성에 모든 VM 인스턴스가 만들어집니다. 이 방법을 사용하면 추가 구성 작업 또는 네트워크 관리 없이 수백 개의 VM을 쉽게 관리할 수 있습니다.
-    - 확장 집합은 기본 4계층 트래픽 분산에는 [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)를 사용하고, 고급 7계층 트래픽 분산 및 SSL 종료에는 [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)를 사용하도록 지원합니다.
+    - 확장 집합은 기본 4계층 트래픽 분산에는 [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)를 사용하고, 고급 7계층 트래픽 분산 및 TLS 종료에는 [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)를 사용하도록 지원합니다.
 
 - **고가용성 및 애플리케이션 복원력 제공**
     - 확장 집합은 애플리케이션의 여러 인스턴스를 실행하는 데 사용됩니다. 이러한 VM 인스턴스 중 하나에 문제가 있는 경우, 고객은 중단을 최소화하면서 다른 VM 인스턴스 중 하나를 통해 애플리케이션에 계속 액세스합니다.
@@ -60,8 +53,13 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
 | 고가용성 및 중복성   | 수동으로 가용성 집합을 만들거나 가용성 영역 전체에 VM을 배포하고 추적합니다. | 자동으로 가용성 영역 또는 가용성 집합에서 VM 인스턴스를 배포합니다. |
 | VM 크기 조정                     | 수동 모니터링 및 Azure Automation                                                 | 자동으로 호스트 메트릭, 인 게스트(in-guest) 메트릭, Application Insights 또는 일정에 따라 크기를 조정합니다. |
 
-확장 집합은 추가 비용 없이 사용할 수 있습니다. VM 인스턴스, 부하 분산 장치 또는 Managed Disk 저장소와 같은 기본 컴퓨팅 리소스에 대해서만 비용을 지불합니다. 자동 크기 조정 및 중복성과 같은 관리 및 자동화 기능은 VM 사용에 대한 추가 요금이 발생하지 않습니다.
+확장 집합은 추가 비용 없이 사용할 수 있습니다. VM 인스턴스, 부하 분산 디바이스 또는 Managed Disk 스토리지와 같은 기본 컴퓨팅 리소스에 대해서만 비용을 지불합니다. 자동 크기 조정 및 중복성과 같은 관리 및 자동화 기능은 VM 사용에 대한 추가 요금이 발생하지 않습니다.
 
+## <a name="how-to-monitor-your-scale-sets"></a>크기 집합을 모니터링하는 방법
+
+간단한 온보딩 프로세스가 있고 확장 집합의 VM에서 중요한 CPU, 메모리, 디스크 및 네트워크 성능 카운터 컬렉션을 자동화하는 [VM용 Azure Monitor](../azure-monitor/insights/vminsights-overview.md)를 사용합니다. 또한 확장 집합의 가용성과 성능에 집중하는 데 도움이 되는 추가 모니터링 기능 및 미리 정의된 시각화가 포함되어 있습니다.
+
+페이지 보기, 애플리케이션 요청 및 예외를 포함하여 애플리케이션에 대한 자세한 정보를 수집하려면 Application Insights를 사용하여 [가상 머신 확장 집합 애플리케이션](../azure-monitor/app/azure-vm-vmss-apps.md)에 대한 모니터링을 사용하도록 설정합니다. 사용자 트래픽을 시뮬레이션하도록 [가용성 테스트](../azure-monitor/app/monitor-web-app-availability.md)를 구성하여 애플리케이션의 가용성을 추가로 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 시작하려면 Azure Portal에서 첫 번째 가상 머신 확장 집합을 만듭니다.

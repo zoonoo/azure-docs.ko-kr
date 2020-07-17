@@ -4,16 +4,16 @@ description: Azure Storage의 준수 제품 요약
 services: storage
 author: fhryo-msft
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c24db9fb1b411de31ba8d086b6baa418f656c920
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514399"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure Storage 준수 제품
 
@@ -21,7 +21,7 @@ Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 �
 
 아래에서 Azure Storage의 준수 제품을 검색하여 Azure Storage 서비스 사용 시 서비스를 규제할 수 있습니다. 다음 Azure Storage 제품에 적용 가능합니다. Blobs, Files, Queues, Tables, Disks, Cool Storage 및 Premium Storage.
 
-## <a name="global"></a>전역
+## <a name="global"></a>Global
 
 * [CSA-STAR-Attestation](https://www.microsoft.com/trustcenter/compliance/csa-star-attestation)
 * [CSA-Star-Certification](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)
@@ -64,7 +64,6 @@ Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 �
 * [MAS + ABS(싱가포르)](https://aka.ms/AzureCompliance)
 * [MPAA](https://www.microsoft.com/trustcenter/compliance/mpaa)
 * [NEN-7510(네덜란드)](https://www.microsoft.com/trustcenter/compliance/nen-7510)
-* [NHS IG Toolkit(영국)](https://www.microsoft.com/trustcenter/Compliance/NHS)
 * [PCI DSS](https://www.microsoft.com/trustcenter/compliance/pci)
 * [공유 평가](https://aka.ms/AzureCompliance)
 * [SOX](https://www.microsoft.com/trustcenter/compliance/SOX)

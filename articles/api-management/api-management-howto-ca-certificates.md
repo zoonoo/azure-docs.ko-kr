@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 5161a35fd52b2f3d8374c76bdab60281e33dacf6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "70073598"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법
 
@@ -30,7 +29,7 @@ Azure API Management를 통해 신뢰할 수 있는 루트 및 중간 인증서 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"> </a>CA 인증서 업로드
+## <a name="upload-a-ca-certificate"></a><a name="step1"> </a>CA 인증서 업로드
 
 ![CA 인증서 추가](media/api-management-howto-ca-certificates/00.png)
 
@@ -55,7 +54,7 @@ Azure API Management를 통해 신뢰할 수 있는 루트 및 중간 인증서 
 > [!NOTE]
 > `New-AzApiManagementSystemCertificate` Powershell 명령을 사용하여 CA 인증서를 업로드할 수 있습니다.
 
-## <a name="step1a"> </a>클라이언트 인증서 삭제
+## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>클라이언트 인증서 삭제
 
 인증서를 삭제하려면 바로 가기 메뉴 **...** 를 클릭하고 인증서 옆에 있는 **삭제**를 선택합니다.
 

@@ -1,42 +1,36 @@
 ---
-title: 템플릿을 사용하여 엔드투엔드 작업 실행 - Azure Batch | Microsoft Docs
-description: 템플릿 파일 및 Azure CLI를 사용하여 Batch 풀, 작업 및 태스크를 만듭니다.
-services: batch
-author: laurenhughes
-manager: jeconnoc
-ms.assetid: ''
-ms.service: batch
-ms.devlang: na
-ms.topic: article
-ms.workload: big-compute
+title: 템플릿을 사용하여 엔드투엔드 작업 실행
+description: CLI 명령만을 사용하여 풀을 만들고, 입력 데이터를 업로드하고, 작업 및 관련된 작업을 만들고, 결과 출력 데이터를 다운로드할 수 있습니다.
+ms.topic: how-to
 ms.date: 12/07/2018
-ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 80d2e995a18a2d6dafbb8d92fdd5996b10eab17c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783741"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815998"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI 템플릿 및 파일 전송 사용
 
-Azure CLI에 대한 Azure Batch 확장을 사용하여 코드를 작성하지 않고 Batch 작업을 실행할 수 있습니다.
+Azure CLI에 대한 Batch 확장을 사용하여 코드를 작성하지 않고 Batch 작업을 실행할 수 있습니다.
 
-Azure CLI로 JSON 템플릿 파일을 만들어서 Batch 풀, 작업 및 태스크를 만드는 데 사용합니다. CLI 확장 명령을 사용하여 Batch 계정과 연결된 저장소 계정에 작업 입력 파일을 쉽게 업로드하고 작업 출력 파일을 다운로드합니다.
+Azure CLI로 JSON 템플릿 파일을 만들어서 Batch 풀, 작업 및 태스크를 만드는 데 사용합니다. CLI 확장 명령을 사용하여 Batch 계정과 연결된 스토리지 계정에 작업 입력 파일을 쉽게 업로드하고 작업 출력 파일을 다운로드합니다.
+
+> [!NOTE]
+> JSON 파일은 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/template-syntax.md)과 동일한 기능을 지원하지 않습니다. 원시 REST 요청 본문과 같은 형식으로 지정해야 합니다. CLI 확장은 기존 명령을 변경하지 않지만 일부 Azure Resource Manager 템플릿 기능을 추가하는 유사한 템플릿 옵션을 포함합니다. [Windows, Mac 및 Linux용 Azure Batch CLI 확장](https://github.com/Azure/azure-batch-cli-extensions)을 참조하세요.
 
 ## <a name="overview"></a>개요
 
-Azure CLI로 확장하면 개발자가 아닌 사용자가 종단 간 Batch를 사용할 수 있습니다. CLI 명령만을 사용하여 풀을 만들고, 입력 데이터를 업로드하고, 작업 및 관련된 작업을 만들고, 결과 출력 데이터를 다운로드할 수 있습니다. 추가 코드가 필요하지 않습니다. CLI 명령을 직접 실행하거나 스크립트에 통합합니다.
+Azure CLI로 확장하면 개발자가 아닌 사용자가 엔드투엔드 Batch를 사용할 수 있습니다. CLI 명령만을 사용하여 풀을 만들고, 입력 데이터를 업로드하고, 작업 및 관련된 작업을 만들고, 결과 출력 데이터를 다운로드할 수 있습니다. 추가 코드가 필요하지 않습니다. CLI 명령을 직접 실행하거나 스크립트에 통합합니다.
 
-Batch 템플릿은 풀, 작업, 태스크 및 기타 항목을 생성할 때 속성 값을 지정하는 JSON 파일에 대한 [Azure CLI의 기존 Batch 지원](batch-cli-get-started.md#json-files-for-resource-creation)에 기반하여 빌드됩니다. Batch 템플릿은 다음과 같은 기능을 추가합니다.
+Batch 템플릿은 풀, 작업, 태스크 및 기타 항목을 생성할 때 속성 값을 지정하는 JSON 파일에 대한 [Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation)의 기존 Batch 지원에 기반하여 빌드됩니다. Batch 템플릿은 다음과 같은 기능을 추가합니다.
 
 -   매개 변수를 정의할 수 있습니다. 템플릿을 사용하는 경우 템플릿 본문에 지정된 다른 항목 속성 값을 사용하여 해당 항목을 만들도록 매개 변수 값을 지정합니다. Batch 및 Batch에서 실행하는 애플리케이션을 이해하는 사용자는 템플릿을 만들고 풀, 작업 및 태스크 속성 값을 지정할 수 있습니다. Batch 및/또는 애플리케이션에 덜 익숙한 사용자는 정의된 매개 변수에 대한 값을 지정해야 합니다.
 
 -   작업 태스크 팩터리는 작업과 연관된 하나 이상의 태스크를 만들고, 많은 작업 정의를 만들 필요없이 작업 제출 크게 간소화합니다.
 
 
-작업은 일반적으로 입력 데이터 파일을 사용하고 출력 데이터 파일을 생성합니다. 저장소 계정은 기본적으로 각 Bach 계정을 사용하여 연결됩니다. 코딩 및 저장소 자격 증명 없이 CLI를 사용하여 이 저장소 계정 간 파일을 전송합니다.
+작업은 일반적으로 입력 데이터 파일을 사용하고 출력 데이터 파일을 생성합니다. 스토리지 계정은 기본적으로 각 Bach 계정을 사용하여 연결됩니다. 코딩 및 스토리지 자격 증명 없이 CLI를 사용하여 이 스토리지 계정 간 파일을 전송합니다.
 
 예를 들어 [ffmpeg](https://ffmpeg.org/)는 오디오 및 비디오 파일을 처리하는 인기 있는 애플리케이션입니다. 다음은 Azure Batch CLI를 사용하여 원본 비디오 파일을 다른 해상도로 코드 변환하기 위해 ffmpeg를 호출하는 단계입니다.
 
@@ -59,7 +53,7 @@ az extension add --name azure-batch-cli-extensions
 Batch CLI 확장 및 추가 설치 옵션에 대한 자세한 내용은 [GitHub 리포지토리](https://github.com/Azure/azure-batch-cli-extensions)를 참조하세요.
 
 
-CLI 확장 기능을 사용하려면 Azure Batch 계정이 필요하며, 저장소에서 또한 저장소로 파일을 전송하는 명령에 대해서는 연결된 저장소 계정이 필요합니다.
+CLI 확장 기능을 사용하려면 Azure Batch 계정이 필요하며, 스토리지에서 또한 스토리지로 파일을 전송하는 명령에 대해서는 연결된 스토리지 계정이 필요합니다.
 
 Azure CLI를 사용하여 Batch 계정에 로그인하려면 [Azure CLI를 사용하여 Batch 리소스 관리](batch-cli-get-started.md)를 참조하세요.
 
@@ -69,7 +63,7 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
 
 -   **매개 변수**
 
-    -   템플릿이 사용될 때 제공해야 하는 매개 변수 값으로 속성 값을 본문 섹션에서 지정할 수 있습니다. 예를 들어 풀에 대한 전체 정의를 본문에 배치하고 하나의 매개 변수만을 풀 ID에 정의할 수 있습니다. 따라서 풀을 만드는 데 풀 ID 문자열을 제공해야 합니다.
+    -   템플릿이 사용될 때 제공해야 하는 매개 변수 값으로 속성 값을 본문 섹션에서 지정할 수 있습니다. 예를 들어 풀에 대한 전체 정의를 본문에 배치하고 하나의 매개 변수만을 `poolId`에 정의할 수 있습니다. 따라서 풀을 만드는 데 풀 ID 문자열을 제공해야 합니다.
         
     -   Batch 및 Batch에서 실행할 애플리케이션에 대한 지식이 있는 사용자가 템플릿 본문을 작성할 수 있습니다. 템플릿이 사용될 때 작성자 정의 매개 변수에 대한 값만을 제공해야 합니다. 따라서 깊이 있는 Batch 및/또는 애플리케이션 지식이 없는 사용자는 템플릿을 사용할 수 있습니다.
 
@@ -144,7 +138,7 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
 az batch pool create --template pool-ffmpeg.json
 ```
 
-CLI는 `poolId` 및 `nodeCount` 매개 변수에 대한 값을 제공하라는 메시지를 표시합니다. JSON 파일의 매개 변수를 제공할 수도 있습니다. 예를 들면 다음과 같습니다.
+CLI는 `poolId` 및 `nodeCount` 매개 변수에 대한 값을 제공하라는 메시지를 표시합니다. JSON 파일의 매개 변수를 제공할 수도 있습니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -269,7 +263,7 @@ Batch 풀 또는 작업을 만들려면 [Batch Explorer](https://github.com/Azur
 
 ## <a name="file-groups-and-file-transfer"></a>파일 그룹 및 파일 전송
 
-대부분의 작업 및 태스크에는 입력 파일이 필요하고 결과로 출력 파일을 생성합니다. 일반적으로 입력 파일 및 출력 파일은 클라이언트에서 노드로, 또는 노드에서 클라이언트로 전송됩니다. Azure Batch CLI 확장은 파일 전송을 추상화하고 각 Batch 계정에 연결될 수 있는 저장소 계정을 사용합니다.
+대부분의 작업 및 태스크에는 입력 파일이 필요하고 결과로 출력 파일을 생성합니다. 일반적으로 입력 파일 및 출력 파일은 클라이언트에서 노드로, 또는 노드에서 클라이언트로 전송됩니다. Azure Batch CLI 확장은 파일 전송을 추상화하고 각 Batch 계정에 연결될 수 있는 스토리지 계정을 사용합니다.
 
 파일 그룹은 Azure Storage 계정에서 생성된 컨테이너와 동등합니다. 파일 그룹에는 하위 폴더가 있을 수 있습니다.
 

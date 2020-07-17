@@ -3,20 +3,19 @@ title: Team Data Science Process 수명 주기의 고객 승인 단계
 description: 데이터 과학 프로젝트의 고객 승인 단계에 대한 목표, 작업 및 결과물입니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91d645e6120040870c7c1696c7bfd8f68509cb35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76720523"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 고객 승인 단계
 
@@ -33,10 +32,10 @@ ms.locfileid: "60303573"
 ![TDSP 수명 주기](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goal"></a>목표
-**프로젝트 결과물 최종 확정**: 프로덕션 환경의 파이프라인, 모델 및 배포가 고객 목표를 충족하는지 확인합니다.
+## <a name="goal"></a>Goal
+**프로젝트 결과물 마무리**: 프로덕션 환경의 파이프라인, 모델 및 배포가 고객의 목표를 충족 하는지 확인 합니다.
 
-## <a name="how-to-do-it"></a>수행 방법
+## <a name="how-to-do-it"></a>작업 방법
 이 단계에서 설명하는 두 가지 기본 작업은 다음과 같습니다.
 
    * **시스템 유효성 검사**: 배포된 모델과 파이프라인이 고객 요구 사항을 충족하는지 확인합니다.
@@ -44,7 +43,7 @@ ms.locfileid: "60303573"
 
 고객이 시스템에서 비즈니스 요구 사항을 충족하고 허용 가능한 정확도로 질문에 대답하는지 확인한 다음, 클라이언트 애플리케이션에서 사용할 수 있도록 시스템을 프로덕션에 배포합니다. 모든 문서를 완성하여 검토합니다. 프로젝트는 운영 담당 엔터티로 이전됩니다. 예를 들어 이 엔터티는 IT 팀, 고객 데이터 과학 팀 또는 운영 시스템을 운영할 책임이 있는 고객 담당자일 수 있습니다. 
 
-## <a name="artifacts"></a>아티팩트
+## <a name="artifacts"></a>Artifacts
 이 최종 단계에서 생성되는 주요 아티팩트는 **고객을 위한 프로젝트 종료 보고서**입니다. 이 기술 보고서는 시스템 작동 방법을 학습하는 데 유용한 프로젝트의 모든 세부 정보를 포함합니다. TDSP는 [보고서 끝내기](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) 템플릿을 제공합니다. 이 템플릿을 있는 그대로 사용하거나 특정 클라이언트 요구에 따라 사용자 지정할 수 있습니다. 
 
 
@@ -58,6 +57,6 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
    4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)
 
-특정 시나리오 프로세스의 모든 단계를 보여주는 종합적인 전체 연습도 제공됩니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 
+특정 시나리오에 대 한 프로세스의 모든 단계를 보여 주는 전체 연습을 제공 합니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 
 
 Azure Machine Learning Studio를 사용하는 TDSP의 단계 실행 방법의 예제를 보려면 [Azure Machine Learning에서 TDSP 사용](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)을 참조하세요.

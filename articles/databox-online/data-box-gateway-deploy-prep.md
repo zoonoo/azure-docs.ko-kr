@@ -6,25 +6,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 553d6f716bbb6e98aa64ef07cb80d2d6cba370b6
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620090"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561609"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 배포 준비
 
-
-이 문서는 Azure Data Box Gateway를 완전히 배포하는 데 필요한 배포 자습서 시리즈 중 첫 번째 자습서입니다. 이 자습서에서는 Data Box Gateway 리소스를 배포하기 위해 Azure Portal을 준비하는 방법을 설명합니다. 
+이 문서는 Azure Data Box Gateway를 완전히 배포하는 데 필요한 배포 자습서 시리즈 중 첫 번째 자습서입니다. 이 자습서에서는 Data Box Gateway 리소스를 배포하기 위해 Azure Portal을 준비하는 방법을 설명합니다.
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 포털 준비에는 10분 미만이 소요됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * 새 리소스 만들기
 > * 가상 디바이스 이미지 다운로드
 > * 활성화 키 가져오기
@@ -42,7 +42,7 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 
 이제 Azure Portal 설치를 시작할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 여기에는 Data Box Gateway 리소스, Data Box Gateway 디바이스 및 데이터 센터 네트워크에 대한 구성 필수 조건이 있습니다.
 
@@ -50,8 +50,12 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 
 시작하기 전에 다음 사항을 확인합니다.
 
-- Data Box Gateway 리소스에 Microsoft Azure 구독이 지원되어야 합니다. 종량제 구독은 지원되지 않습니다.
-- 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
+* Data Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](https://docs.microsoft.com/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다.
+* Azure Stack Edge / Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
+    - Azure Stack Edge / Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상)로서 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 공급자가 등록되어 있는지 확인해야 합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
+    - 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
+- Microsoft Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조하세요.
+- 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
 
 ### <a name="for-the-data-box-gateway-device"></a>Data Box Gateway 디바이스의 경우
 
@@ -85,27 +89,26 @@ Data Box Gateway 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
 1. Microsoft Azure 자격 증명을 사용하여 다음에 로그인합니다.
 
-    - URL [https://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인하거나
+    - URL [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인하거나
     - 또는 URL [https://portal.azure.us](https://portal.azure.us)에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)로 이동합니다.
-
-2. 왼쪽 창에서 **+ 리소스 만들기**를 선택합니다. **Data Box Edge/Data Box Gateway**를 검색합니다. Data Box Edge/Data Box Gateway를 선택합니다. **만들기**를 선택합니다.
-3. Data Box Gateway 디바이스에서 사용하려는 구독을 선택합니다. Data Box Gateway 리소스를 배포할 지역을 선택합니다. 이 릴리스에서는 미국 동부, 동남 아시아 및 유럽 서부를 사용할 수 있습니다. 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. **Data Box Gateway** 옵션에서 **만들기**를 선택합니다.
+2. 왼쪽 창에서 **+ 리소스 만들기**를 선택합니다. **Azure Stack Edge / Data Box Gateway**를 검색합니다. Azure Stack Edge / Data Box Gateway를 선택합니다. **만들기**를 선택합니다.
+3. Data Box Gateway 디바이스에서 사용하려는 구독을 선택합니다. Data Box Gateway 리소스를 배포할 지역을 선택합니다. Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. **Data Box Gateway** 옵션에서 **만들기**를 선택합니다.
 
     ![Data Box Gateway 서비스 검색](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
-4. **기본 사항** 탭에서 다음 **프로젝트 세부 정보**를 선택합니다.
+4. **기본 사항** 탭에서 다음 **프로젝트 세부 정보**를 입력하거나 선택합니다.
     
     |설정  |값  |
     |---------|---------|
-    |구독    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
-    |리소스 그룹  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.     |
+    |Subscription    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
+    |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.     |
 
 5. 다음 **인스턴스 세부 정보**를 입력하거나 선택합니다.
 
     |설정  |값  |
     |---------|---------|
-    |Name   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |   
-    |지역     |이 릴리스는 미국 동부, 동남 아시아 및 서유럽에 리소스를 배포할 수 있습니다. Azure Government의 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 나열된 모든 정부 지역에서 사용 가능합니다. <br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
+    |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |   
+    |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government의 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 나열된 모든 정부 지역에서 사용 가능합니다. <br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
     
     ![Data Box 게이트웨이 리소스 만들기](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

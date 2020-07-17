@@ -1,25 +1,16 @@
 ---
-title: Azure Resource Manager 스크립트를 사용하여 StorSimple 디바이스 관리 | Microsoft Docs
+title: AzureRM PowerShell 스크립트를 사용 하 여 StorSimple 장치 관리
 description: Azure Resource Manager 스크립트를 사용하여 StorSimple 작업을 자동화하는 방법 알아보기
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 646b862733e8727c9c8729f1ac038fa88cfa0580
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 009e8c7e1cb59d68f3d3aa15de32ec47083095f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513097"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 디바이스 관리
 
@@ -43,7 +34,7 @@ ms.locfileid: "60726420"
 | [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | 이 스크립트는 StorSimple 디바이스 관리자 서비스에서 실행 중인 모든 StorSimple 작업을 가져옵니다.                                                                                                                     |
 | [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | 이 스크립트는 업데이트 서버를 검색하고 StorSimple 디바이스에 설치할 수 있는 업데이트가 있는지 알려줍니다.                                                                                          |
 | [Install-DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | 이 스크립트는 StorSimple 디바이스에 사용 가능한 업데이트를 설치합니다.                                                                                                                                           |
-| [Manage-CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | 이 스크립트는 수동 클라우드 스냅숏을 시작하고 지정된 보존 기간(일)보다 오래된 클라우드 스냅숏을 삭제합니다.                                                                                                   |
+| [Manage-CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | 이 스크립트는 수동 클라우드 스냅샷을 시작하고 지정된 보존 기간(일)보다 오래된 클라우드 스냅샷을 삭제합니다.                                                                                                   |
 | [Monitor-Backups.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | 이 Azure Automation Runbook PowerShell 스크립트는 모든 백업 작업의 상태를 보고합니다.                                                                                                              |
 | [Remove-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | 이 스크립트는 단일 백업 개체를 삭제합니다.                                                                                                                                                           |
 | [Start-DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | 이 스크립트는 StorSimple 디바이스에서 수동 백업을 시작합니다.                                                                                                                                       |
@@ -57,7 +48,7 @@ ms.locfileid: "60726420"
 
 이 섹션은 예제 스크립트를 작성하고 스크립트를 실행하는 데 필요한 다양한 단계를 자세히 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있어야 합니다.
 

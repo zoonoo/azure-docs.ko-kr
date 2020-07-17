@@ -1,324 +1,409 @@
 ---
-title: HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩 - Azure Logic Apps | Microsoft 문서
-description: Azure Logic Apps에 대해 워크플로를 호출, 트리거 또는 중첩하기 위해 HTTP 엔드포인트 설정
+title: 논리 앱 호출, 트리거 또는 중첩
+description: Azure Logic Apps에서 논리 앱 워크플로를 호출, 트리거 또는 중첩 하기 위해 HTTPS 끝점을 설정 합니다.
 services: logic-apps
-keywords: 워크플로, HTTP 엔드포인트
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
-ms.custom: H1Hack27Feb2017
-ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.reviewer: jonfan, logicappspm
+ms.topic: article
+ms.date: 05/28/2020
+ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304276"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84170276"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩
+# <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTPS 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
-URL을 통해 Logic Apps를 트리거 또는 호출할 수 있도록 동기식 HTTP 엔드포인트를 기본적으로 논리 앱에 트리거로 표시할 수 있습니다. 또한 호출 가능 엔드포인트의 패턴을 사용하여 Logic Apps에서 워크플로를 중첩할 수도 있습니다.
+논리 앱이 다른 서비스에서 들어오는 요청을 받을 수 있도록 URL을 통해 논리 앱을 호출할 수 있도록 하려면 동기 HTTPS 끝점을 해당 논리 앱의 트리거로 고유 하 게 노출할 수 있습니다. 이 기능을 설정 하면 논리 앱을 다른 논리 앱 내에 중첩 하 여 호출 가능 끝점의 패턴을 만들 수도 있습니다.
 
-HTTP 엔드포인트를 만들려면 Logic Apps가 들어오는 요청을 받을 수 있도록 이러한 트리거를 추가할 수 있습니다.
+호출 가능 끝점을 설정 하기 위해 논리 앱에서 들어오는 요청을 받을 수 있도록 하는 다음 트리거 형식을 사용할 수 있습니다.
 
 * [요청](../connectors/connectors-native-reqres.md)
-
-* [API 연결 웹후크](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
-
 * [HTTP 웹후크](../connectors/connectors-native-webhook.md)
-
-   > [!NOTE]
-   > 이 예제에서는 **요청** 트리거를 사용하지만 나열된 어떤 HTTP 트리거도 사용할 수 있으며, 모든 원칙은 다른 트리거 유형에 동일하게 적용됩니다.
-
-## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>논리 앱을 위해 HTTP 엔드포인트 설정
-
-HTTP 엔드포인트를 만들려면 들어오는 요청을 받을 수 있는 트리거를 추가합니다.
-
-1. [Azure Portal](https://portal.azure.com "Azure Portal")에 로그인합니다. 논리 앱으로 이동하고 논리 앱 디자이너를 엽니다.
-
-2. 논리 앱이 들어오는 요청을 받을 수 있도록 하는 트리거를 추가합니다. 예를 들어, 논리 앱에 **요청** 트리거를 추가합니다.
-
-3.  필요에 따라 **요청 본문 JSON 스키마**에서 트리거가 받을 것으로 예상하는 페이로드(데이터)에 대해 JSON 스키마를 입력할 수 있습니다.
-
-    설계자는 워크플로를 통해 논리 앱이 트리거에서 데이터를 소비, 구문 분석 및 전달하는 데 사용할 수 있는 토큰을 생성하는 데 이 스키마를 사용합니다. 
-    [JSON 스키마에서 생성된 토큰](#generated-tokens)에 관한 추가 정보.
-
-    이 예의 경우 디자이너에 표시된 스키마를 입력합니다.
-
-    ```json
-    {
-      "type": "object",
-      "properties": {
-        "address": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "address"
-      ]
-    }
-    ```
-
-    ![요청 작업 추가][1]
-
-    > [!TIP]
-    > 
-    > [jsonschema.net](https://jsonschema.net/) 같은 도구에서, 또는 **샘플 페이로드를 사용하여 스키마 생성**을 선택하여 **요청** 트리거에서 샘플 JSON 페이로드에 대한 스키마를 생성할 수 있습니다. 
-    > 샘플 페이로드를 입력하고 **완료**를 선택합니다.
-
-    예를 들어 다음 샘플 페이로드는:
-
-    ```json
-    {
-       "address": "21 2nd Street, New York, New York"
-    }
-    ```
-
-    다음 스키마를 생성합니다.
-
-    ```json
-    {
-       "type": "object",
-       "properties": {
-          "address": {
-             "type": "string" 
-          }
-       }
-    }
-    ```
-
-4.  논리 앱을 저장합니다. **이 URL의 HTTP POST** 아래에서 이제 다음 예와 같은 생성된 콜백 URL을 확인할 수 있습니다.
-
-    ![엔드포인트에 대해 생성된 콜백 URL](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
-
-    이 URL은 인증에 사용하는 쿼리 매개 변수에 공유 액세스 서명(SAS) 키를 포함합니다. 
-    Azure Portal의 논리 앱 개요에서 HTTP 엔드포인트 URL을 가져올 수도 있습니다. **트리거 기록** 아래에서 트리거를 선택합니다.
-
-    ![Azure Portal에서 HTTP 엔드포인트 URL 가져오기][2]
-
-    또는 다음을 호출하여 URL을 가져올 수도 있습니다.
-
-    ```
-    POST https://management.azure.com/{logic-app-resourceID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
-    ```
-
-## <a name="change-the-http-method-for-your-trigger"></a>트리거를 위한 HTTP 메서드 변경
-
-기본적으로 **요청** 트리거는 HTTP POST 요청을 예상하지만 다른 HTTP 메서드를 사용할 수 있습니다. 
+* [ApiConnectionWebhook 형식이](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) 있고 들어오는 HTTPS 요청을 받을 수 있는 관리 되는 커넥터 트리거
 
 > [!NOTE]
-> 메서드 유형을 하나만 지정할 수 있습니다.
+> 이러한 예제에서는 요청 트리거를 사용 하지만 이전 목록에 있는 모든 HTTPS 요청 기반 트리거를 사용할 수 있습니다. 모든 원칙은 이러한 다른 트리거 유형에 동일 하 게 적용 됩니다.
 
-1. **요청** 트리거에서 **고급 옵션 표시**를 선택합니다.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조 하세요.
 
-2. **메서드** 목록을 엽니다. 이 예의 경우 **GET**을 선택하면 HTTP 엔드포인트의 URL을 나중에 테스트할 수 있습니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-    > [!NOTE]
-    > 다른 HTTP 메서드를 선택하거나 사용자의 고유한 논리 앱에 대한 사용자 지정 메서드를 지정할 수 있습니다.
+* Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-    ![HTTP 메서드 변경](./media/logic-apps-http-endpoint/change-method.png)
+* 트리거를 사용 하 여 호출 가능 끝점을 만드는 논리 앱입니다. 빈 논리 앱 또는 현재 트리거를 바꾸려는 기존 논리 앱으로 시작할 수 있습니다. 이 예에서는 빈 논리 앱으로 시작 합니다.
 
-## <a name="accept-parameters-through-your-http-endpoint-url"></a>HTTP 엔드포인트 URL을 통해 매개 변수 허용
+## <a name="create-a-callable-endpoint"></a>호출 가능 끝점 만들기
 
-HTTP 엔드포인트 URL이 매개 변수를 허용하도록 하려면 트리거의 상대 경로를 사용자 지정합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 만들고 엽니다.
 
-1. **요청** 트리거에서 **고급 옵션 표시**를 선택합니다. 
+   이 예제에서는 요청 트리거를 사용 하지만 들어오는 HTTPS 요청을 받을 수 있는 트리거를 사용할 수 있습니다. 모든 원칙은 이러한 트리거에 동일 하 게 적용 됩니다. 요청 트리거에 대 한 자세한 내용은 [Azure Logic Apps를 사용 하 여 인바운드 HTTPS 호출 받기 및 응답](../connectors/connectors-native-reqres.md)을 참조 하세요.
 
-2. **메서드** 아래에서 요청에 사용할 HTTP 메서드를 지정합니다. 이 예의 경우 아직 선택하지 않은 경우 **GET** 메서드를 선택하여 HTTP 엔드포인트의 URL을 테스트할 수 있습니다.
+1. 검색 상자 아래에서 **기본 제공**을 선택 합니다. 검색 상자에서 필터로 `request`을 입력합니다. 트리거 목록에서 **HTTP 요청을 받을 때**를 선택 합니다.
 
-      > [!NOTE]
-      > 트리거에 대한 상대 경로를 지정하는 경우 트리거에 대한 HTTP 메서드도 명시적으로 지정해야 합니다.
+   ![요청 트리거 찾기 및 선택](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
 
-3. **상대 경로** 아래에서 URL이 허용해야 하는 매개 변수에 대한 상대 경로를 지정합니다. 예: `customers/{customerID}`.
+1. 필요에 따라 **본문 Json 스키마 요청** 상자에서 트리거를 받을 것으로 간주 되는 페이로드 또는 데이터를 설명 하는 json 스키마를 입력할 수 있습니다.
 
-    ![HTTP 메서드 및 매개 변수에 대한 상대 경로 지정](./media/logic-apps-http-endpoint/relativeurl.png)
+   디자이너는이 스키마를 사용 하 여 트리거 출력을 나타내는 토큰을 생성 합니다. 그런 다음 논리 앱의 워크플로 전체에서 이러한 출력을 쉽게 참조할 수 있습니다. [JSON 스키마에서 생성 된 토큰](#generated-tokens)에 대해 자세히 알아보세요.
 
-4. 매개 변수를 사용하려면 논리 앱에 **응답** 작업을 추가합니다. (트리거 아래에서 **새 단계** > **작업 추가** > **응답**을 선택) 
+   이 예에서는 다음 스키마를 입력 합니다.
 
-5. 응답의 **본문**에 트리거의 상대 경로에 지정한 매개 변수의 토큰을 포함합니다.
+   ```json
+      {
+      "type": "object",
+      "properties": {
+         "address": {
+            "type": "object",
+            "properties": {
+               "streetNumber": {
+                  "type": "string"
+               },
+               "streetName": {
+                  "type": "string"
+               },
+               "town": {
+                  "type": "string"
+               },
+               "postalCode": {
+                  "type": "string"
+               }
+            }
+         }
+      }
+   }
+    ```
 
-    예를 들어 `Hello {customerID}`로 돌아가려면 응답의 **본문**을 `Hello {customerID token}`로 업데이트합니다. 
-    동적 콘텐츠 목록이 나타나고 선택할 `customerID` 토큰이 표시됩니다.
+   ![요청 작업에 대 한 JSON 스키마 제공](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
 
-    ![응답 본문에 매개 변수 추가](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+   또는 샘플 페이로드를 제공 하 여 JSON 스키마를 생성할 수 있습니다.
 
-    **본문**은 다음 예와 유사해야 합니다.
+   1. **요청** 트리거에서 **샘플 페이로드를 사용 하 여 스키마 생성을**선택 합니다.
 
-    ![매개 변수 포함 응답 본문](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+   1. **샘플 JSON 페이로드 입력 또는 붙여넣기** 상자에 샘플 페이로드를 입력 합니다. 예를 들면 다음과 같습니다.
 
-6. 논리 앱을 저장합니다. 
+      ```json
+      {
+         "address": {
+            "streetNumber": "00000",
+            "streetName": "AnyStreet",
+            "town": "AnyTown",
+            "postalCode": "11111-1111"
+        }
+      }
+      ```
 
-    HTTP 엔드포인트 URL은 이제 다음 예와 같은 상대 경로를 포함합니다. 
+   1. 준비가 되 면 **완료**를 선택 합니다.
 
-    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+      이제 **요청 본문 JSON 스키마** 상자에 생성 된 스키마가 표시 됩니다.
 
-7. HTTP 엔드포인트를 테스트하려면 업데이트된 URL을 복사하여 다른 브라우저 창에 붙여넣되, `{customerID}`을 `123456`로 바꾸고 Enter 키를 누릅니다.
+1. 논리 앱을 저장합니다.
 
-    브라우저에 다음 텍스트가 표시되어야 합니다. 
+   **HTTP POST url** 상자에는 다른 서비스에서 논리 앱을 호출 하 고 트리거하는 데 사용할 수 있는 생성 된 콜백 url이 표시 됩니다. 이 URL에는 인증에 사용 되는 SAS (공유 액세스 서명) 키를 지정 하는 쿼리 매개 변수가 포함 되어 있습니다.
 
-    `Hello 123456`
+   ![엔드포인트에 대해 생성된 콜백 URL](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
+
+1. 콜백 URL을 복사 하려면 다음 옵션을 사용할 수 있습니다.
+
+   * **HTTP POST url** 상자 오른쪽에서 **URL 복사** (파일 복사 아이콘)를 선택 합니다.
+
+   * 이 POST 호출을 수행 합니다.
+
+     `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
+
+   * 논리 앱의 **개요** 창에서 콜백 URL을 복사 합니다.
+
+     1. 논리 앱의 메뉴에서 **개요**를 선택 합니다.
+
+     1. **요약** 섹션에서 **트리거 기록 참조**를 선택 합니다.
+
+        ![Azure Portal에서 끝점 URL 가져오기](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+
+     1. **콜백 url [POST]** 에서 url을 복사 합니다.
+
+        ![Azure Portal에서 끝점 URL 복사](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
+
+<a name="select-method"></a>
+
+## <a name="select-expected-request-method"></a>필요한 요청 방법 선택
+
+기본적으로 요청 트리거는 POST 요청을 예상 합니다. 다른 메서드를 지정할 수 있지만 단일 메서드만 지정할 수 있습니다.
+
+1. 요청 트리거에서 **새 매개 변수 추가** 목록을 열고 **메서드**를 선택 하 여이 속성을 트리거에 추가 합니다.
+
+   ![트리거에 "메서드" 속성 추가](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
+
+1. **메서드** 목록에서 instead of 트리거가 원하는 메서드를 선택 합니다. 또는 사용자 지정 메서드를 지정할 수 있습니다.
+
+   예를 들어, 나중에 끝점의 URL을 테스트할 수 있도록 **GET** 메서드를 선택 합니다.
+
+   ![트리거에서 예상한 요청 방법 선택](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+
+<a name="endpoint-url-parameters"></a>
+
+## <a name="pass-parameters-through-endpoint-url"></a>끝점 URL을 통해 매개 변수 전달
+
+끝점의 URL을 통해 매개 변수 값을 허용 하려는 경우 다음 옵션을 사용할 수 있습니다.
+
+* [GET parameters](#get-parameters) 또는 URL 매개 변수를 통해 값을 허용 합니다.
+
+  이러한 값은 끝점의 URL에서 이름-값 쌍으로 전달 됩니다. 이 옵션의 경우 요청 트리거에서 GET 메서드를 사용 해야 합니다. 후속 작업에서 식에 함수를 사용 하 여 매개 변수 값을 트리거 출력으로 가져올 수 있습니다 `triggerOutputs()` .
+
+* 요청 트리거의 매개 변수에 대 한 [상대 경로를 통해 값을 허용](#relative-path) 합니다.
+
+  이러한 값은 끝점 URL의 상대 경로를 통해 전달 됩니다. 또한 트리거에 필요한 [메서드를](#select-method) 명시적으로 선택 해야 합니다. 후속 작업에서 해당 출력을 직접 참조 하 여 매개 변수 값을 트리거 출력으로 가져올 수 있습니다.
+
+<a name="get-parameters"></a>
+
+### <a name="accept-values-through-get-parameters"></a>GET 매개 변수를 통해 값 허용
+
+1. 요청 트리거에서 **새 매개 변수 추가 목록을**열고 **메서드** 속성을 트리거에 추가한 다음 **GET** 메서드를 선택 합니다.
+
+   자세한 내용은 [필요한 요청 메서드 선택](#select-method)을 참조 하세요.
+
+1. 요청 트리거 아래에 매개 변수 값을 사용 하려는 작업을 추가 합니다. 이 예에서는 **응답** 작업을 추가 합니다.
+
+   1. 요청 트리거에서 **새 단계**  >  **작업 추가**를 선택 합니다.
+   
+   1. **작업 선택** 아래의 검색 상자에 `response`을 필터로 입력합니다. 작업 목록에서 **응답** 작업을 선택 합니다.
+
+1. `triggerOutputs()`매개 변수 값을 검색 하는 식을 작성 하려면 다음 단계를 수행 합니다.
+
+   1. 동적 콘텐츠 목록이 표시 되도록 응답 작업의 **본문** 속성 내부를 클릭 하 고 **식**을 선택 합니다.
+
+   1. **식** 상자에이 식을 입력 하 `parameter-name` 고을 매개 변수 이름으로 바꾸고 **확인**을 선택 합니다.
+
+      `triggerOutputs()['queries']['parameter-name']`
+
+      ![트리거에 "triggerOutputs ()" 식을 추가 합니다.](./media/logic-apps-http-endpoint/trigger-outputs-expression.png)
+
+      **Body** 속성에서 식은 토큰으로 확인 `triggerOutputs()` 됩니다.
+
+      !["TriggerOutputs ()" 식이 확인 되었습니다.](./media/logic-apps-http-endpoint/trigger-outputs-expression-token.png)
+
+      논리 앱을 저장 하는 경우 디자이너에서 다른 곳으로 이동 하 고 디자이너로 돌아가면 토큰은 사용자가 지정한 매개 변수 이름을 표시 합니다. 예를 들면 다음과 같습니다.
+
+      ![매개 변수 이름에 대해 확인 된 식](./media/logic-apps-http-endpoint/resolved-expression-parameter-token.png)
+
+      코드 보기에서 **Body** 속성은 다음과 같이 응답 작업의 정의에 표시 됩니다.
+
+      `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
+
+      예를 들어 이라는 매개 변수에 대 한 값을 전달 하려고 한다고 가정 `postalCode` 합니다. **Body** 속성은 후행 공백을 사용 하 여 문자열을 지정 하 고 그 뒤에 해당 하는 식을 지정 합니다 `Postal Code: ` .
+
+      ![트리거에 대 한 예제 "triggerOutputs ()" 식을 추가 합니다.](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
+
+1. 호출 가능 끝점을 테스트 하려면 요청 트리거에서 콜백 URL을 복사 하 고 다른 브라우저 창에 URL을 붙여넣습니다. URL에서 물음표 () 뒤에 나오는 매개 변수 이름과 값을 다음 형식으로 URL에 추가 하 `?` 고 enter 키를 누릅니다.
+
+   `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
+
+   `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+   브라우저는 다음 텍스트와 함께 응답을 반환 합니다.`Postal Code: 123456`
+
+   ![요청을 콜백 URL로 보내는 응답](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+1. URL 내의 다른 위치에 매개 변수 이름과 값을 넣으려면 앰퍼샌드 ()를 접두사로 사용 해야 합니다 `&` . 예를 들면 다음과 같습니다.
+
+   `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
+
+   이 예제에서는 `postalCode=123456` url 내의 서로 다른 위치에 있는 샘플 매개 변수 이름 및 값을 사용 하는 콜백 URL을 보여 줍니다.
+
+   * 첫 번째 위치:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+   * 두 번째 위치:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+> [!NOTE]
+> URI에 해시 또는 파운드 기호 ()를 포함 하려는 경우에는 **#** 이 인코딩된 버전을 대신 사용 합니다.`%25%23`
+
+<a name="relative-path"></a>
+
+### <a name="accept-values-through-a-relative-path"></a>상대 경로를 통해 값 허용
+
+1. 요청 트리거에서 **새 매개 변수 추가** 목록을 열고이 속성을 트리거에 추가 하는 **상대 경로**를 선택 합니다.
+
+   ![트리거에 "상대 경로" 속성 추가](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
+
+1. **상대 경로** 속성에서 URL에 허용 하려는 JSON 스키마의 매개 변수에 대 한 상대 경로를 지정 합니다 (예:) `/address/{postalCode}` .
+
+   ![매개 변수에 대 한 상대 경로를 지정 합니다.](./media/logic-apps-http-endpoint/relative-path-url-value.png)
+
+1. 요청 트리거 아래에 매개 변수 값을 사용 하려는 작업을 추가 합니다. 이 예에서는 **응답** 작업을 추가 합니다.
+
+   1. 요청 트리거에서 **새 단계**  >  **작업 추가**를 선택 합니다.
+
+   1. **작업 선택** 아래의 검색 상자에 `response`을 필터로 입력합니다. 작업 목록에서 **응답** 작업을 선택 합니다.
+
+1. 응답 동작의 **Body** 속성에서 트리거의 상대 경로에 지정한 매개 변수를 나타내는 토큰을 포함 합니다.
+
+   예를 들어 응답 작업을 반환 하려고 한다고 가정 `Postal Code: {postalCode}` 합니다.
+
+   1. **본문** 속성에 `Postal Code: ` 후행 공백을 사용 하 여을 입력 합니다. 동적 콘텐츠 목록이 열려 있는 상태로 유지 되도록 편집 상자 내에 커서를 둡니다.
+
+   1. 동적 콘텐츠 목록의 **HTTP 요청이 수신** 되는 경우 섹션에서 **postalCode** 토큰을 선택 합니다.
+
+      ![지정 된 매개 변수를 응답 본문에 추가 합니다.](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+
+      **Body** 속성에는 이제 선택 된 매개 변수가 포함 됩니다.
+
+      ![매개 변수가 있는 예제 응답 본문](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+
+1. 논리 앱을 저장합니다.
+
+   요청 트리거에서 콜백 URL은 업데이트 되며 이제는 다음과 같은 상대 경로를 포함 합니다.
+
+   `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+1. 호출 가능 끝점을 테스트 하려면 요청 트리거에서 업데이트 된 콜백 URL을 복사 하 고 URL을 다른 브라우저 창에 붙여넣은 `{postalCode}` 다음 url에서을로 바꾸고 `123456` enter 키를 누릅니다.
+
+   브라우저는 다음 텍스트와 함께 응답을 반환 합니다.`Postal Code: 123456`
+
+   ![요청을 콜백 URL로 보내는 응답](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+> [!NOTE]
+> URI에 해시 또는 파운드 기호 ()를 포함 하려는 경우에는 **#** 이 인코딩된 버전을 대신 사용 합니다.`%25%23`
+
+## <a name="call-logic-app-through-endpoint-url"></a>끝점 URL을 통해 논리 앱 호출
+
+끝점을 만든 후에는 `POST` 끝점의 전체 URL에 HTTPS 요청을 전송 하 여 논리 앱을 트리거할 수 있습니다. Logic Apps는 직접 액세스 엔드포인트에 대한 기본 제공 지원을 포함합니다.
 
 <a name="generated-tokens"></a>
 
-### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>논리 앱에 대한 JSON 스키마에서 생성된 토큰
+## <a name="tokens-generated-from-schema"></a>스키마에서 생성 된 토큰
 
-**요청** 트리거에 JSON 스키마를 제공하면 논리 앱 디자이너가 이 스키마의 속성에 대한 토큰을 생성합니다. 논리 앱 워크플로를 통해 데이터를 전달하는 데 해당 토큰을 사용할 수 있습니다.
+요청 트리거에서 JSON 스키마를 제공 하는 경우 논리 앱 디자이너는 해당 스키마의 속성에 대 한 토큰을 생성 합니다. 논리 앱 워크플로를 통해 데이터를 전달하는 데 해당 토큰을 사용할 수 있습니다.
 
-이 예의 경우 JSON 스키마에 `title` 및 `name` 속성을 추가하면 해당 토큰은 이제 이후 워크플로 단계에 사용할 수 있습니다. 
-
-다음은 완료된 JSON 스키마입니다.
+예를 들어,와 같은 속성을 `"suite"` JSON 스키마에 추가 하는 경우 논리 앱의 이후 단계에서 해당 속성에 대 한 토큰을 사용할 수 있습니다. 다음은 완료된 JSON 스키마입니다.
 
 ```json
-{
+   {
    "type": "object",
    "properties": {
       "address": {
-         "type": "string"
-      },
-      "title": {
-         "type": "string"
-      },
-      "name": {
-         "type": "string"
+         "type": "object",
+         "properties": {
+            "streetNumber": {
+               "type": "string"
+            },
+            "streetName": {
+               "type": "string"
+            },
+            "suite": {
+               "type": "string"
+            },
+            "town": {
+               "type": "string"
+            },
+            "postalCode": {
+               "type": "string"
+            }
+         }
       }
-   },
-   "required": [
-      "address",
-      "title",
-      "name"
-   ]
+   }
 }
 ```
 
-## <a name="create-nested-workflows-for-logic-apps"></a>Logic Apps에 대한 중첩 워크플로 만들기
+## <a name="create-nested-logic-apps"></a>중첩 된 논리 앱 만들기
 
-요청을 받을 수 있는 다른 논리 앱을 추가하여 Logic Apps에서 워크플로를 중첩할 수 있습니다. 이러한 논리 앱을 포함하려면 **Azure Logic Apps - 논리 앱 워크플로 선택** 작업을 트리거에 추가합니다. 그런 다음 자격이 있는 Logic Apps 중에서 선택할 수 있습니다.
+요청을 받을 수 있는 다른 논리 앱을 추가하여 Logic Apps에서 워크플로를 중첩할 수 있습니다. 이러한 논리 앱을 포함 하려면 다음 단계를 수행 합니다.
 
-![다른 논리 앱 추가](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+1. 다른 논리 앱을 호출 하려는 단계 아래에서 **새 단계**  >  **작업 추가**를 선택 합니다.
 
-## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>HTTP 엔드포인트를 통해 Logic Apps 호출 또는 트리거
+1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `logic apps`을 입력합니다. 작업 목록에서 **Logic Apps 워크플로 선택**을 선택 합니다.
 
-HTTP 엔드포인트를 만든 후 `POST` 메서드를 통해 논리 앱을 전체 URL로 트리거할 수 있습니다. Logic Apps는 직접 액세스 엔드포인트에 대한 기본 제공 지원을 포함합니다.
+   ![현재 논리 앱 내에서 논리 앱 중첩](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
-> [!NOTE] 
-> 언제든 논리 앱을 수동으로 실행하려면 Logic App 디자이너 또는 Logic App 코드 보기 도구모음에서 **실행**을 선택합니다.
+   사용자가 선택할 수 있는 적합 한 논리 앱이 디자이너에 표시 됩니다.
+
+1. 현재 논리 앱에서 호출할 논리 앱을 선택 합니다.
+
+   ![현재 논리 앱에서 호출할 논리 앱을 선택 합니다.](./media/logic-apps-http-endpoint/select-logic-app-to-nest.png)
 
 ## <a name="reference-content-from-an-incoming-request"></a>들어오는 요청의 콘텐츠 참조
 
-콘텐츠의 형식이 `application/json`이면 들어오는 요청의 속성을 참조할 수 있습니다. 그렇지 않으면 콘텐츠는 다른 API에 전달할 수 있는 단일 이진 단위로 처리됩니다. 워크플로 내에서 이 콘텐츠를 참조하려면 해당 콘텐츠를 변환해야 합니다. 예를 들어 `application/xml` 콘텐츠를 전달하는 경우 `@xpath()`를 사용하여 XPath 추출을 수행하거나 `@json()`를 사용하여 XML을 JSON으로 변환할 수 있습니다. [콘텐츠 형식 사용](../logic-apps/logic-apps-content-type.md)에 대해 자세히 알아봅니다.
+들어오는 요청의 콘텐츠 형식이 인 경우 `application/json` 들어오는 요청에서 속성을 참조할 수 있습니다. 그렇지 않으면이 콘텐츠는 다른 Api에 전달할 수 있는 단일 이진 단위로 처리 됩니다. 논리 앱의 워크플로 내에서이 콘텐츠를 참조 하려면 먼저 해당 콘텐츠를 변환 해야 합니다.
 
-들어오는 요청에서 출력을 가져오려면 `@triggerOutputs()` 함수를 사용할 수 있습니다. 출력은 다음 예제와 같이 표시될 수 있습니다.
+예를 들어 형식으로 콘텐츠를 전달 하는 경우 `application/xml` [ `@xpath()` 식을](../logic-apps/workflow-definition-language-functions-reference.md#xpath) 사용 하 여 XPath 추출을 수행 하거나, [ `@json()` 식을](../logic-apps/workflow-definition-language-functions-reference.md#json) 사용 하 여 XML을 JSON으로 변환할 수 있습니다. 지원 되는 [콘텐츠 형식을](../logic-apps/logic-apps-content-type.md)사용 하는 방법에 대해 자세히 알아보세요.
+
+들어오는 요청의 출력을 가져오려면 [ `@triggerOutputs` 식을](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs)사용할 수 있습니다. 예를 들어 다음 예제와 같은 출력을 가정 합니다.
 
 ```json
 {
-    "headers": {
-        "content-type" : "application/json"
-    },
-    "body": {
-        "myProperty" : "property value"
-    }
+   "headers": {
+      "content-type" : "application/json"
+   },
+   "body": {
+      "myProperty" : "property value"
+   }
 }
 ```
 
-특히 `@triggerBody()` 속성에 액세스하기 위해 `body` 바로 가기를 사용할 수 있습니다. 
+구체적으로 속성에 액세스 하려면 `body` [ `@triggerBody()` 식을](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) 바로 가기로 사용할 수 있습니다.
 
 ## <a name="respond-to-requests"></a>요청에 응답
 
-콘텐츠를 호출자에게 반환하여 논리 앱을 시작하는 특정 요청에 응답하는 것이 좋습니다. 응답에 대한 상태 코드, 헤더 및 본문을 생성하려면 **응답** 작업을 사용할 수 있습니다. 이 작업은 워크플로의 끝뿐만 아니라 논리 앱의 어디서나 나타날 수 있습니다.
+호출자에 게 콘텐츠를 반환 하 여 논리 앱을 트리거하는 특정 요청에 응답 하려는 경우가 있습니다. 응답의 상태 코드, 헤더 및 본문을 구성 하려면 응답 작업을 사용 합니다. 이 작업은 워크플로의 끝뿐만 아니라 논리 앱의 어디서나 나타날 수 있습니다. 논리 앱에 응답 작업이 포함 되지 않은 경우 끝점은 **202 수락** 상태를 *즉시* 응답 합니다.
 
-> [!NOTE] 
-> 논리 앱에 **응답**이 포함되지 않은 경우 HTTP 엔드포인트는 **202 수락됨** 상태로 *즉시* 응답합니다. 또한 워크플로를 중첩 논리 앱으로 호출하지 않은 한 원래 요청에서 응답을 가져오려면 응답에 필요한 모든 단계를 [요청 시간 제한](./logic-apps-limits-and-config.md) 이내에 완료해야 합니다. 이 시간 제한 내에 도달하는 응답 작업이 없으면 들어오는 요청은 시간 초과되어 **408 클라이언트 시간 제한** HTTP 응답을 수신합니다. 중첩 논리 앱의 경우 부모 논리 앱은 필요한 시간에 관계없이 응답이 완료될 때까지 계속 기다립니다.
+원래 호출자가 성공적으로 응답을 받으려면 트리거된 논리 앱을 중첩 된 논리 앱으로 호출 하지 않는 한 응답에 필요한 모든 단계를 [요청 시간](./logic-apps-limits-and-config.md) 제한 내에 완료 해야 합니다. 이 한도 내에 응답이 반환 되지 않으면 들어오는 요청 시간이 초과 되어 **408 클라이언트 시간 제한** 응답을 받습니다.
+
+중첩 된 논리 앱의 경우 부모 논리 앱은 필요한 시간에 관계 없이 모든 단계가 완료 될 때까지 응답을 계속 기다립니다.
 
 ### <a name="construct-the-response"></a>응답 생성
 
-응답 본문에 둘 이상의 헤더 및 임의 형식의 콘텐츠를 포함할 수 있습니다. 예제 응답의 경우 헤더는 응답의 콘텐츠 형식이 `application/json`인 것으로 지정합니다. 그리고 본문은 **요청** 트리거에 대해 이전에 업데이트된 JSON 스키마에 따라 `title` 및 `name`를 포함합니다.
+응답 본문에는 여러 헤더와 모든 형식의 콘텐츠를 포함할 수 있습니다. 예를 들어이 응답의 헤더는 응답의 콘텐츠 형식이이 `application/json` 고 본문에 `town` `postalCode` 요청 트리거에 대 한이 항목의 앞부분에서 설명한 JSON 스키마에 따라 및 속성에 대 한 값이 포함 되도록 지정 합니다.
 
-![HTTP 응답 작업][3]
+![HTTPS 응답 작업에 대 한 응답 콘텐츠 제공](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 응답 속성:
 
-| 자산 | 설명 |
-| --- | --- |
-| statusCode |들어오는 요청에 응답하는 HTTP 상태 코드를 지정합니다. 이 코드는 2xx, 4xx 또는 5xx로 시작하는 모든 유효한 상태 코드가 될 수 있습니다. 하지만 3xx 상태 코드는 허용되지 않습니다. |
-| headers |응답에 포함될 헤더의 수를 정의합니다. |
-| 본문 |문자열, JSON 개체 또는 이전 단계에서 참조한 이진 콘텐츠일 수도 있는 본문 개체를 지정합니다. |
+| 속성 (표시) | 속성(JSON) | Description |
+|--------------------|-----------------|-------------|
+| **상태 코드** | `statusCode` | 들어오는 요청에 대 한 응답에서 사용할 HTTPS 상태 코드입니다. 이 코드는 2xx, 4xx 또는 5xx로 시작하는 모든 유효한 상태 코드가 될 수 있습니다. 하지만 3xx 상태 코드는 허용되지 않습니다. |
+| **헤더** | `headers` | 응답에 포함할 하나 이상의 헤더입니다. |
+| **본문** | `body` | 문자열, JSON 개체 또는 이전 단계에서 참조 한 이진 콘텐츠 일 수 있는 body 개체입니다. |
+||||
 
-**응답** 작업에 대한 JSON 스키마는 이제 다음과 유사하게 표시됩니다.
+논리 앱 디자이너 도구 모음에서 응답 작업 및 논리 앱의 전체 JSON 정의에 대 한 JSON 정의를 보려면 **코드 보기**를 선택 합니다.
 
 ``` json
 "Response": {
+   "type": "Response",
+   "kind": "http",
    "inputs": {
       "body": {
-         "title": "@{triggerBody()?['title']}",
-         "name": "@{triggerBody()?['name']}"
+         "postalCode": "@triggerBody()?['address']?['postalCode']",
+         "town": "@triggerBody()?['address']?['town']"
       },
       "headers": {
-           "content-type": "application/json"
+         "content-type": "application/json"
       },
       "statusCode": 200
    },
-   "runAfter": {},
-   "type": "Response"
+   "runAfter": {}
 }
 ```
 
-> [!TIP]
-> 논리 앱에 대한 전체 JSON 정의를 보려면 논리 앱 디자이너에서 **코드 보기**를 선택합니다.
+## <a name="q--a"></a>Q&A
 
-## <a name="q--a"></a>질문과 대답
+#### <a name="q-what-about-url-security"></a>Q: URL 보안이란 무엇입니까?
 
-#### <a name="q-what-about-url-security"></a>Q: URL 보안의 경우는 어떨까요?
+**A**: AZURE는 [SAS (공유 액세스 서명)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature)를 사용 하 여 논리 앱 콜백 url을 안전 하 게 생성 합니다. 이 서명은 쿼리 매개 변수로 전달 되 고 논리 앱을 실행 하기 전에 유효성을 검사 해야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
 
-A: Azure는 공유 액세스 서명 (SAS)을 사용 하 여 논리 앱 콜백 Url을 안전 하 게 생성 합니다. 이 서명은 쿼리 매개 변수로 전달되고 논리 앱이 시작하기 전에 유효성이 검사되어야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
+> [!IMPORTANT]
+> 프로덕션 및 고급 보안 시스템의 경우 다음과 같은 이유로 브라우저에서 직접 논리 앱을 호출 하는 것에 대해 적극 권장 합니다.
+>
+> * URL에 공유 액세스 키가 나타납니다.
+> * Azure Logic Apps 고객 간에 공유 도메인으로 인해 보안 콘텐츠 정책을 관리할 수 없습니다.
 
-   > [!IMPORTANT]
-   > 프로덕션 및 보안 시스템의 경우 다음과 같은 이유로 논리 앱을 브라우저에서 직접 호출하는 것을 권장하지 않습니다.
-   > 
-   > * URL에 공유 액세스 키가 나타납니다.
-   > * 논리 앱 고객 간에 공유 도메인으로 인해 보안 콘텐츠 정책을 관리할 수 없습니다.
+#### <a name="q-can-i-configure-callable-endpoints-further"></a>Q: 호출 가능 끝점을 추가로 구성할 수 있나요?
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>Q: HTTP 끝점을 추가로 구성할 수 있나요?
+**A**: 예, HTTPS 끝점은 [Azure API Management](../api-management/api-management-key-concepts.md)를 통해 더 많은 고급 구성을 지원 합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
 
-A: HTTP 끝점을 통해 고급 구성을 지원 예 [ **API Management**](../api-management/api-management-key-concepts.md)합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
-
-* [요청 메서드 변경](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
-* [요청의 URL 세그먼트 변경](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* [Azure Portal](https://portal.azure.com/ "Azure Portal")에서 API Management 도메인 설정
+* [요청 메서드 변경](../api-management/api-management-advanced-policies.md#SetRequestMethod)
+* [요청의 URL 세그먼트 변경](../api-management/api-management-transformation-policies.md#RewriteURL)
+* [Azure Portal](https://portal.azure.com/) 에서 API Management 도메인 설정
 * 기본 인증을 확인하는 정책 설정
-
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q: 2014 년 12 월 1 일, 미리 보기에서 스키마를 마이그레이션할 때 변경 기능
-
-A: 이러한 변경에 대 한 요약 정보는 다음과 같습니다.
-
-| 2014 년 12 월 1 일 미리 보기 | 2016년 6월 1일 |
-| --- | --- |
-| **HTTP 수신기** API 앱 클릭 |**수동 트리거** 클릭(API 앱 필요 없음) |
-| HTTP 수신기 설정 "*자동으로 응답 보내기*" |**응답** 작업 포함 또는 워크플로 정의에 없음 |
-| 기본 또는 OAuth 인증 구성 |API Management를 통해 |
-| HTTP 메서드 구성 |**고급 옵션 표시** 아래에서 HTTP 메서드를 선택합니다. |
-| 상대 경로 구성 |**고급 옵션 표시** 아래에서 상대 경로를 추가합니다. |
-| `@triggerOutputs().body.Content`을 통해 들어오는 본문을 참조합니다. |`@triggerOutputs().body`을 통해 참조합니다. |
-| **HTTP 응답 보내기** 작업 |**HTTP 요청에 응답** 클릭(API 앱 필요 없음) |
-
-## <a name="get-help"></a>도움말 보기
-
-질문하고, 질문에 답변하고, 다른 Azure Logic Apps 사용자가 어떤 일을 하는지 알아보려면 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문하세요.
-
-Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)에서 투표하고 아이디어를 제출하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [작성자 논리 앱 정의](./logic-apps-author-definitions.md)
-* [오류 및 예외 처리](./logic-apps-exception-handling.md)
-
-[1]: ./media/logic-apps-http-endpoint/manualtrigger.png
-[2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
-[3]: ./media/logic-apps-http-endpoint/response.png
+* [Azure Logic Apps를 사용 하 여 들어오는 HTTPS 호출 받기 및 응답](../connectors/connectors-native-reqres.md)

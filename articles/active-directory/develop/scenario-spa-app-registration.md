@@ -1,52 +1,80 @@
 ---
-title: 단일 페이지 응용 프로그램 (앱 등록)-Microsoft id 플랫폼
-description: 단일 페이지 응용 프로그램 (앱 등록)을 빌드하는 방법을 알아봅니다
+title: SPA(단일 페이지 애플리케이션) 등록 | Azure
+titleSuffix: Microsoft identity platform
+description: 단일 페이지 애플리케이션을 빌드하는 방법 알아보기(앱 등록)
 services: active-directory
-documentationcenter: dev-center-name
-author: navyasric
+author: hahamil
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
-ms.author: nacanuma
+ms.date: 05/19/2020
+ms.author: hahamil
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1faf4669dca2aaaf3f873e66f859473ccd99f10
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074832"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682404"
 ---
-# <a name="single-page-application---app-registration"></a>단일 페이지 응용 프로그램-앱 등록
+# <a name="single-page-application-app-registration"></a>단일 페이지 애플리케이션: 앱 등록
 
-이 페이지는 단일 페이지 응용 프로그램 (SPA)에 대 한 앱 등록 세부 정보를 설명합니다.
+Microsoft ID 플랫폼에서 SPA(단일 페이지 애플리케이션)를 등록하려면 다음 단계를 완료합니다. 암시적 허용 흐름을 지원하는 MSAL.js 1.0 및 PKCE를 사용하는 인증 코드 흐름을 지원하는 MSAL.js 2.0의 등록 단계는 서로 다릅니다.
 
-다음 단계에 따라 [Microsoft id 플랫폼을 사용 하 여 새 응용 프로그램을 등록](quickstart-register-app.md), 응용 프로그램에 대 한 지원 되는 계정을 선택 합니다. SPA 시나리오는 개인 Microsoft 계정 또는 조직 및 조직에 계정 사용 하 여 인증을 지원할 수 있습니다.
+## <a name="create-the-app-registration"></a>앱 등록 만들기
 
-다음으로, 단일 페이지 응용 프로그램에 적용 되는 응용 프로그램 등록의 특정 측면에 알아봅니다.
+MSAL.js 1.0 및 2.0 기반 애플리케이션의 경우 둘 다 먼저 다음 단계를 완료하여 초기 앱 등록을 만듭니다.
 
-## <a name="register-a-redirect-uri"></a>리디렉션 URI를 등록 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 계정에서 여러 테넌트에 액세스할 수 있는 경우 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 만들려는 앱 등록을 포함해야 할 테넌트를 선택합니다.
+1. **Azure Active Directory**를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록**을 선택합니다.
+1. **새 등록**을 선택하고 애플리케이션의 **이름**을 입력한 다음, 애플리케이션의 **지원되는 계정 유형**을 선택합니다. **리디렉션 URI**를 입력하면 **안 됩니다**. 다른 계정 유형에 대한 설명은 [Azure Portal을 사용하여 새 애플리케이션 등록](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)을 참조하세요.
+1. **등록**을 선택하여 앱 등록을 만듭니다.
 
-암시적 흐름을 웹 브라우저에서 실행 중인 단일 페이지 응용 프로그램에 토큰 리디렉션을 보냅니다. 따라서 리디렉션 응용 프로그램 토큰을 받을 수 있는 URI를 등록 하는 중요 한 요구 사항을 것입니다. 리디렉션 URI는 응용 프로그램에 대 한 URI를 사용 하 여 정확히 일치를 확인 하세요.
+그런 다음, **리디렉션 URI**로 앱 등록을 구성하여 Microsoft ID 플랫폼이 보안 토큰과 함께 클라이언트를 리디렉션해야 하는 위치를 지정합니다. 애플리케이션에서 사용 중인 MSAL.js 버전에 해당하는 단계를 사용합니다.
 
-에 [Azure portal](https://go.microsoft.com/fwlink/?linkid=2083908)의 등록 된 응용 프로그램으로 이동할를 **인증** 선택 응용 프로그램 페이지를 **웹** 플랫폼 값을 입력 하 고는 응용 프로그램에 대 한 리디렉션 URI는 **리디렉션 URI** 필드입니다.
+- [인증 코드 흐름을 사용하는 MSAL.js 2.0](#redirect-uri-msaljs-20-with-auth-code-flow)(권장)
+- [암시적 흐름을 사용하는 MSAL.js 1.0](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="enable-the-implicit-flow"></a>암시적 흐름을 사용 하도록 설정
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>리디렉션 URI: 인증 코드 흐름을 사용하는 MSAL.js 2.0
 
-동일한 **인증** 페이지의 **고급 설정**을 설정할 수도 있습니다는 **암시적 권한 부여**합니다. 응용 프로그램에서 사용자 및 ID 토큰을 가져오기의 로그인을 수행만 경우 사용 하도록 설정 하는 데 충분 **ID 토큰** 확인란을 선택 합니다.
+MSAL.js 2.0 이상을 사용하는 앱의 리디렉션 URI를 추가하려면 다음 단계를 따르세요. MSAL.js 2.0보다 높은 버전에서는 [브라우저의 타사 쿠키 제한](reference-third-party-cookies-spas.md)에 대한 대응으로 PKCE 및 CORS를 사용하여 인증 코드 흐름을 지원합니다. 암시적 허용 흐름은 MSAL.js 2.0보다 높은 버전에서 지원되지 않습니다.
 
-응용 프로그램에 Api를 호출할 액세스 토큰을 가져오는 데 필요한 경우 사용 하도록 설정 되었는지 확인 합니다 **액세스 토큰을** 도 확인란을 선택 합니다. 자세한 내용은 [ID 토큰](./id-tokens.md) 하 고 [액세스 토큰을](./access-tokens.md)입니다.
+1. Azure Portal에서 이전에 [앱 등록 만들기](#create-the-app-registration)에서 만든 앱 등록을 선택합니다.
+1. **관리**에서 **인증**을 선택한 다음, **플랫폼 추가**를 선택합니다.
+1. **웹 애플리케이션**에서 **단일 페이지 애플리케이션** 타일을 선택합니다.
+1. **리디렉션 URI**에서 [리디렉션 URI](reply-url.md)를 입력합니다. **암시적 허용**에서 확인란을 선택하면 **안 됩니다**.
+1. **구성**을 선택하여 리디렉션 URI 추가를 마칩니다.
 
-## <a name="api-permissions"></a>API 사용 권한
+이제 SPA(단일 페이지 애플리케이션)의 등록을 완료하고 클라이언트가 리디렉션되고 보안 토큰이 전송될 리디렉션 URI를 구성했습니다. **플랫폼 추가** 창에서 **단일 페이지 애플리케이션** 타일을 사용하여 리디렉션 URI를 구성하면 애플리케이션 등록은 PKCE 및 CORS를 사용하여 인증 코드 흐름을 지원하도록 구성됩니다.
 
-단일 페이지 응용 프로그램에서 로그인 한 사용자를 대신 하 여 Api를 호출할 수 있습니다. 위임 된 권한을 요청 해야 합니다. 세부 정보를 참조 하세요. [웹 Api에 액세스 권한을 추가 합니다.](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>리디렉션 URI: 암시적 흐름을 사용하는 MSAL.js 1.0
+
+MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 앱에 대한 리디렉션 URI를 추가하려면 다음 단계를 수행합니다. MSAL.js 1.3 이전 버전을 사용하는 애플리케이션은 인증 코드 흐름을 지원하지 않습니다.
+
+1. Azure Portal에서 이전에 [앱 등록 만들기](#create-the-app-registration)에서 만든 앱 등록을 선택합니다.
+1. **관리**에서 **인증**을 선택한 다음, **플랫폼 추가**를 선택합니다.
+1. **웹 애플리케이션**에서 **단일 페이지 애플리케이션** 타일을 선택합니다.
+1. **리디렉션 URI**에서 [리디렉션 URI](reply-url.md)를 입력합니다.
+1. **암시적 흐름**를 사용하도록 설정합니다.
+    - 애플리케이션에서 사용자를 로그인하는 경우 **ID 토큰**을 선택합니다.
+    - 애플리케이션에서 보호된 웹 API를 호출해야 하는 경우에는 **액세스 토큰**을 선택합니다. 이러한 토큰 형식에 대한 자세한 내용은 [ID 토큰](id-tokens.md) 및 [액세스 토큰](access-tokens.md)을 참조하세요.
+1. **구성**을 선택하여 리디렉션 URI 추가를 마칩니다.
+
+이제 SPA(단일 페이지 애플리케이션)의 등록을 완료하고 클라이언트가 리디렉션되고 보안 토큰이 전송될 리디렉션 URI를 구성했습니다. **ID 토큰** 및 **액세스 토큰** 중 하나 또는 둘 다를 선택하여 암시적 허용 흐름을 사용하도록 설정했습니다.
+
+## <a name="note-about-authorization-flows"></a>권한 부여 흐름에 대한 참고 사항
+
+기본적으로 단일 페이지 애플리케이션 플랫폼 구성을 사용하여 만든 앱 등록은 인증 코드 흐름을 사용하도록 설정합니다. 이 흐름을 활용하려면 애플리케이션에서 MSAL.js 2.0 이상을 사용해야 합니다.
+
+앞에서 설명한 것처럼 MSAL.js 1.3을 사용하는 단일 페이지 애플리케이션은 암시적 허용 흐름으로 제한됩니다. 현재 [OAuth 2.0 모범 사례](v2-oauth2-auth-code-flow.md)에서는 SPA에 대한 암시적 흐름이 아닌 인증 코드 흐름을 사용하도록 권장합니다. 또한 수명이 제한된 새로 고침 토큰을 사용하면 애플리케이션이 Safari ITP와 같은 [최신 브라우저 쿠키 프라이버시 제한](reference-third-party-cookies-spas.md)에 맞게 조정됩니다.
+
+앱 등록으로 표시되는 모든 프로덕션 단일 페이지 애플리케이션이 MSAL.js 2.0 및 인증 코드 흐름을 사용하는 경우 Azure Portal에서 앱 등록 **인증** 창의 암시적 허용 설정을 선택 취소합니다. 그러나 암시적 흐름이 사용하도록 설정(선택)된 상태로 두면 MSAL.js 1.x 및 암시적 흐름을 사용하는 애플리케이션은 계속 작동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+다음으로, 이전 단계에서 만든 앱 등록을 사용하도록 앱의 코드를 구성합니다.
 
 > [!div class="nextstepaction"]
 > [앱의 코드 구성](scenario-spa-app-configuration.md)

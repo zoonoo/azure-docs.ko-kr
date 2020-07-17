@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a16e989a6da8daa4a290c7eaa4363eef09c9749
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356341"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Azure AD Connect에서 동기화되지 않는 특성 문제 해결
 
@@ -32,22 +32,22 @@ ms.locfileid: "60455966"
 
 ### <a name="terminology"></a>**용어**
 
-* **CS:** 커넥터 공간(데이터베이스의 테이블)
-* **MV:** 메타버스(데이터베이스의 테이블)
-* **AD:** Active Directory
+* **CS:** 데이터베이스의 테이블인 커넥터 공간
+* **MV:** 메타 버스-데이터베이스의 테이블입니다.
+* **광고:** Active Directory
 * **AAD:** Azure Active Directory
 
 ### <a name="synchronization-steps"></a>**동기화 단계**
 
-* AD에서 가져오기: Active Directory 개체를 AD CS로 가져옵니다.
+* AD에서 가져오기: Active Directory 개체가 AD CS로 전환 됩니다.
 
-* AAD에서 가져오기: Azure Active Directory 개체를 AAD CS로 가져옵니다.
+* AAD에서 가져오기: Azure Active Directory 개체가 AAD CS로 전환 됩니다.
 
-* 동기화: **인바운드 동기화 규칙** 및 **아웃바운드 동기화 규칙**은 우선 순위 번호가 낮은 규칙부터 차례로 실행됩니다. 동기화 규칙을 보려면 데스크톱 애플리케이션에서 **동기화 규칙 편집기**로 이동하면 됩니다. **인바운드 동기화 규칙**은 CS에서 MV로 데이터를 가져옵니다. **아웃바운드 동기화 규칙**은 MV에서 CS로 데이터를 가져옵니다.
+* 동기화: **인바운드 동기화 규칙** 및 **아웃 바운드 동기화 규칙** 은 우선 순위가 낮은 것부터 높은 순서로 실행 됩니다. 동기화 규칙을 보려면 데스크톱 애플리케이션에서 **동기화 규칙 편집기**로 이동하면 됩니다. **인바운드 동기화 규칙**은 CS에서 MV로 데이터를 가져옵니다. **아웃바운드 동기화 규칙**은 MV에서 CS로 데이터를 가져옵니다.
 
-* AD로 내보내기: 동기화를 실행하고 나면 AD CS에서 **Active Directory**로 개체가 내보내집니다.
+* AD로 내보내기: 동기화를 실행 한 후 AD CS에서 **Active Directory**로 개체를 내보냅니다.
 
-* AAD로 내보내기: 동기화를 실행하고 나면 AAD CS에서 **Azure Active Directory**로 개체가 내보내집니다.
+* AAD로 내보내기: 동기화를 실행 한 후 개체를 AAD CS에서 **Azure Active Directory**로 내보냅니다.
 
 ### <a name="step-by-step-investigation"></a>**단계별 조사**
 
@@ -83,12 +83,12 @@ ms.locfileid: "60455966"
 * [Azure AD Connect 동기화: 기술 개념](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
 * [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
 * [Azure AD Connect 동기화: 선언적 프로비전 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
-* [Azure AD Connect 동기화: 선언적 프로비전 식 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
+* [Azure AD Connect 동기화: 선언적 프로 비전 식 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
 * [Azure AD Connect 동기화: 기본 구성 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
 * [Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
 * [Azure AD Connect 동기화: 섀도 특성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
-- [하이브리드 ID란?](whatis-hybrid-identity.md)
+- [동기화를 Azure AD Connect](how-to-connect-sync-whatis.md)합니다.
+- [하이브리드 id 란?](whatis-hybrid-identity.md)

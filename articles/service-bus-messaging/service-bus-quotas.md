@@ -1,25 +1,13 @@
 ---
-title: Microsoft Azure Service Bus 할당량 및 제한 | Microsoft Docs
-description: Azure Service Bus 한도 및 할당량을 확인합니다.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 2b1e266f-be81-48f1-9874-50fcb40ecca2
-ms.service: service-bus-messaging
-ms.devlang: na
+title: 할당량 및 한도 Microsoft Azure Service Bus
+description: '이 문서에는 Azure Service Bus 메시징의 기본 할당량 및 제한 임계값이 나열 되어 있습니다. 예: 구독 당 최대 네임 스페이스 수'
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/01/2018
-ms.author: aschhab
-ms.openlocfilehash: f9c9059a5f66c6ba1c2e9d9dd637c0675fc7e220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: dd7d4d5b9f9d4034b4d4524fa1e0503c0ea713d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337099"
 ---
 # <a name="service-bus-quotas"></a>Service Bus 할당량
 이 섹션에는 Azure Service Bus 메시징의 기본 할당량 및 제한 임계값이 나열됩니다.

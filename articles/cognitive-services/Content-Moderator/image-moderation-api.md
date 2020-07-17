@@ -1,38 +1,40 @@
 ---
 title: 이미지 조정 - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Content Moderator의 머신 지원 이미지 조정 및 인간 참여형 검토 도구를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다.
+titleSuffix: Azure Cognitive Services
+description: Content Moderator의 기계 지원 이미지 조정 및 사용자가 반복 하는 검토 도구를 사용 하 여 성인 및 외설 콘텐츠에 대 한 이미지를 중간에 사용 합니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.openlocfilehash: fe76e32bfd9b1734f3c84a400f897b7af7e3168b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756041"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800998"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 
-Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
+Content Moderator의 기계 지원 이미지 조정 및 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 를 사용 하 여 성인 및 외설 콘텐츠에 대 한 이미지를 중간에 보호 합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>성인 및 외설 콘텐츠 평가
 
 **평가** 작업은 0과 1 사이의 신뢰도 점수를 반환합니다. true 또는 false에 해당하는 부울 데이터도 반환합니다. 이러한 값은 이미지에 잠재적인 성인 또는 외설 콘텐츠가 포함될지 여부를 예측합니다. 이 API로 이미지(파일 또는 URL)를 호출하면 반환된 응답에 다음 정보가 포함됩니다.
 
-    "ImageModeration": {
-      .............
-      "adultClassificationScore": 0.019196987152099609,
-      "isImageAdultClassified": false,
-      "racyClassificationScore": 0.032390203326940536,
-      "isImageRacyClassified": false,
-      ............
-      ],
+```json
+"ImageModeration": {
+    .............
+    "adultClassificationScore": 0.019196987152099609,
+    "isImageAdultClassified": false,
+    "racyClassificationScore": 0.032390203326940536,
+    "isImageRacyClassified": false,
+    ............
+    ],
+```
 
 > [!NOTE]
 > 
@@ -51,22 +53,23 @@ Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토
 
 예제 추출:
 
-    "TextDetection": {
-      "status": {
+```json
+"TextDetection": {
+    "status": {
         "code": 3000.0,
         "description": "OK",
         "exception": null
-      },
-      .........
-      "language": "eng",
-      "text": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
-      "candidates": []
     },
-
+    .........
+    "language": "eng",
+    "text": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
+    "candidates": []
+},
+```
 
 ## <a name="detecting-faces"></a>얼굴 감지
 
-얼굴을 감지 하는 작업은 이미지에서 얼굴 등의 개인 데이터를 검색할 수 있습니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
+얼굴을 감지 하면 이미지의 얼굴 같은 개인 데이터를 검색 하는 데 도움이 됩니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
 
 응답에는 다음 정보가 포함됩니다.
 
@@ -75,29 +78,30 @@ Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토
 
 예제 추출:
 
-
-    "FaceDetection": {
-       ......
-      "result": true,
-      "count": 2,
-      "advancedInfo": [
-      .....
-      ],
-      "faces": [
+```json
+"FaceDetection": {
+    ......
+    "result": true,
+    "count": 2,
+    "advancedInfo": [
+        .....
+    ],
+    "faces": [
         {
-          "bottom": 598,
-          "left": 44,
-          "right": 268,
-          "top": 374
+            "bottom": 598,
+            "left": 44,
+            "right": 268,
+            "top": 374
         },
         {
-          "bottom": 620,
-          "left": 308,
-          "right": 532,
-          "top": 396
+            "bottom": 620,
+            "left": 308,
+            "right": 532,
+            "top": 396
         }
-      ]
-    }
+    ]
+}
+```
 
 ## <a name="creating-and-managing-custom-lists"></a>사용자 지정 목록 만들기 및 관리
 
@@ -124,7 +128,8 @@ Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 �
 
 예제 추출:
 
-    {
+```json
+{
     ..............,
     "IsMatch": true,
     "Matches": [
@@ -137,14 +142,15 @@ Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 �
         }
     ],
     ....
-    }
+}
+```
 
-## <a name="human-review-tool"></a>사용자 검토 도구
+## <a name="review-tool"></a>검토 도구
 
-좀 더 미묘한 차이가 있는 경우 Content Moderator의 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 및 해당 API를 사용하여 사용자 중재자가 검토할 수 있게 조정 결과 및 콘텐츠를 제공합니다. 컴퓨터 할당 태그를 검토하고 최종 결정을 확인합니다.
+미묘한 사례에 대 한 자세한 내용은 Content Moderator [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 및 해당 API를 사용 하 여 사용자 중재자를 위해 검토에서 중재 결과와 콘텐츠를 노출 합니다. 컴퓨터 할당 태그를 검토하고 최종 결정을 확인합니다.
 
 ![사용자 중재자를 위한 이미지 검토](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 
-[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. Visual Studio 및 C#에 익숙한 경우 [이미지 조정 .NET 빠른 시작](image-moderation-quickstart-dotnet.md)도 확인합니다.
+[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 [리뷰, 워크플로 및 작업](./review-api.md) 을 참조 하 여 인간 리뷰를 설정 하는 방법을 알아보세요.

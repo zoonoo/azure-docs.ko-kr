@@ -1,53 +1,51 @@
 ---
-title: Azure Marketplace 및 AppSource 지원 | Azure
-description: Azure Marketplace 및 AppSource에 대한 지원 정보 및 링크
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
-manager: nunoc
+title: Microsoft 상업용 Marketplace 지원 - Azure Marketplace
+description: 파트너 센터의 Azure Marketplace 및 AppSource에 대한 지원 정보 및 링크
 ms.service: marketplace
-ms.topic: article
-ms.date: 10/05/2018
-ms.author: yijenj
-ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+author: keferna
+ms.author: keferna
+ms.date: 04/14/2020
+ms.openlocfilehash: 1e4539dcec1f3f57f7fcc0ca0b8d8c266dc1bc99
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937694"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121506"
 ---
-# <a name="support-for-the-marketplace"></a>Marketplace에 대한 지원  
-다음은 Marketplace에 대한 지원 옵션 목록입니다.  
+# <a name="support-for-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace에 대한 지원
 
-또한 [C+AI 커뮤니티 포럼의 Marketplace 채널](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222)에서 여러 질문에 대한 답변을 얻을 수 있습니다.  
+Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질문이 있나요? 다음은 상업용 Marketplace에 대한 지원 옵션 목록입니다. 다음 리소스 외의 [C+AI 커뮤니티 포럼의 Marketplace 채널](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222)에서도 많은 질문에 대한 답변을 확인할 수 있습니다.  
 
 ## <a name="onboarding"></a>온보딩
 
-Microsoft를 사용 하 여 티켓을 열어 [marketplace 게시자 지원](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) Microsoft 또는 온 보 딩 및 시작을 사용 하 여 문제에 대 한 [파트너 지원](https://partner.microsoft.com/support) 질문 Microsoft 파트너 네트워크에 있는 경우.
+온보딩 및 시작하기에 대한 모든 문제에 대해 Microsoft [Marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport)에서 티켓을 엽니다.
 
-## <a name="cloud-partner-portal"></a>클라우드 파트너 포털  
+## <a name="partner-center"></a>파트너 센터
 
-| 지원 채널 | 설명 | 가용성 |  
+| 지원 채널 | Description | 가용성 |  
 |:--- |:--- |:--- |  
-| 도움이 필요하면 [Marketplace 지원](https://go.microsoft.com/fwlink/?linkid=844975)의 인시던트 만들기 페이지를 방문하세요.</li> </ul> | Cloud 파트너 포털에 대한 지원. | PST 오전 6시~오후 6시에 지원이 제공됩니다. |  
+| 도움이 필요하면 [Marketplace 지원](https://aka.ms/marketplacepublishersupport)의 인시던트 만들기 페이지를 방문하세요.</li> </ul> | 파트너 센터 지원. | 지원은 24x5로 제공됩니다. |  
 
 ## <a name="technical"></a>기술  
 
-| 지원 채널 | 설명 |  
+| 지원 채널 | Description |  
 |:--- |:--- |  
-| MSDN 포럼: [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket)에 있는 Marketplace | Microsoft Developer Network 포럼입니다. |  
+| MSDN 포럼: [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/products/azure)에 있는 Marketplace | Microsoft Developer Network 포럼입니다. |  
 | 스택 오버플로: [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure)에 있는 Azure | Azure Marketplace와 관련된 모든 사항에 대한 솔루션을 얻고 질문을 할 수 있는 스택 오버플로 환경입니다.<ul> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)에 있는 Azure Marketplace</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)에 있는 Azure Resource Manager</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)에 있는 Azure의 Virtual Machines</li> <li>스택 오버플로: [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)에 있는 Azure의 컨테이너</li> </ul> |
-| AppSource 지원: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Dynamics 앱 게시 지원 |
 
 ## <a name="marketing-resources"></a>마케팅 리소스  
 
-| 지원 채널 | 설명 | 가용성 |  
+| 지원 채널 | Description | 가용성 |  
 |:--- |:--- |:--- |  
 | 메일: [cosell@microsoft.com](mailto:cosell@microsoft.com) | 온보딩 프로세스 및 공동 판매 프로그램 관련 질문에 대한 지원입니다. | 태평양 표준 시간대를 기준으로 합니다. |  
 | 메일: [gtm@microsoft.com](mailto:gtm@microsoft.com) | GTM 혜택 및 프로그램 질문에 대한 지원입니다. | 태평양 표준 시간대의 근무 시간입니다. |  
 | 메일: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Azure 로고의 브랜드 사용과 브랜딩에 대한 질문과 답변을 제공합니다. |  |  
 
-
 ## <a name="next-steps"></a>다음 단계
-[Azure Marketplace 및 AppSource 게시자 가이드](./marketplace-publishers-guide.md) 페이지를 방문합니다.  
- 
+
+* [상업용 Marketplace 게시자 가이드 페이지](index.yml)를 참조하세요.
+* [파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원](partner-center-portal/support.md)에 대해 자세히 알아보세요.
+
 ---

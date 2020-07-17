@@ -1,22 +1,17 @@
 ---
-title: '최종 사용자 인증: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1과 함께 .NET SDK 사용 | Microsoft Docs'
+title: 최종 사용자 인증-Data Lake Storage Gen1를 사용 하는 .NET-Azure
 description: Azure Active Directory와 .NET SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: cgronlun
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12f6e0fd34de96677693b7f0d159c7cf9032ca1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511298"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -29,40 +24,32 @@ ms.locfileid: "60880287"
 
 이 문서에서는 .NET SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 배웁니다. .NET SDK를 사용하여 Data Lake Storage Gen1에서 서비스 간 인증을 수행하려면 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-* **Visual Studio 2013, 2015 또는 2017**. 아래 지침에서는 Visual Studio 2017을 사용합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+* **Visual Studio 2013 이상** 아래 지침에서는 Visual Studio 2019을 사용 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Active Directory "네이티브" 애플리케이션을 만듭니다**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
 ## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
-1. Visual Studio를 열고 콘솔 애플리케이션을 만듭니다.
-2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
+1. Visual Studio에서 **파일** 메뉴, **새로 만들기**, **프로젝트**를 차례로 선택 합니다.
+2. **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
+3. **프로젝트 이름**에 `CreateADLApplication`를 입력하고 **만들기**를 선택합니다.
 
-   | 자산 | 값 |
-   | --- | --- |
-   | Category |Templates/Visual C#/Windows |
-   | Template |콘솔 애플리케이션 |
-   | 이름 |CreateADLApplication |
-
-4. **확인**을 클릭하여 프로젝트를 만듭니다.
-
-5. NuGet 패키지를 프로젝트에 추가합니다.
+4. NuGet 패키지를 프로젝트에 추가합니다.
 
    1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-   2. **NuGet 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
+   2. **NuGet 패키지 관리자** 탭에서 **패키지 원본** 이 **nuget.org** 로 설정 되어 있고 **시험판 포함** 확인란이 선택 되어 있는지 확인 합니다.
    3. 다음 NuGet 패키지를 검색하고 설치합니다.
 
       * `Microsoft.Azure.Management.DataLake.Store` - 이 자습서에서는 v2.1.3-미리 보기를 사용합니다.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.2.12를 사용합니다.
 
-        ![NuGet 원본 추가](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "새 Azure Data Lake 계정 만들기")
+        ![NuGet 소스 추가](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "새 Azure Data Lake 계정 만들기")
    4. **NuGet 패키지 관리자**를 닫습니다.
 
-6. **Program.cs**를 엽니다.
-7. using 문을 다음 줄로 바꿉니다.
+5. **Program.cs** 열기
+6. using 문을 다음 줄로 바꿉니다.
 
     ```csharp
     using System;
@@ -82,7 +69,7 @@ ms.locfileid: "60880287"
 ## <a name="end-user-authentication"></a>최종 사용자 인증
 .NET 클라이언트 애플리케이션에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 네이티브 애플리케이션에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Data Lake Storage Gen1로 애플리케이션을 **대화형으로** 인증할 수 있습니다. 다시 말해서, Azure 자격 증명을 입력하라는 메시지가 표시됩니다.
 
-사용 편의를 위해, 다음 코드 조각은 모든 Azure 구독에 유효한 클라이언트 ID 및 리디렉션 URI에 기본값을 사용합니다. 다음 코드 조각에서 테넌트 ID 값만 입력하면 됩니다. [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)에 제공된 지침에 따라 테넌트 ID를 검색할 수 있습니다.
+사용 편의를 위해, 다음 코드 조각은 모든 Azure 구독에 유효한 클라이언트 ID 및 리디렉션 URI에 기본값을 사용합니다. 다음 코드 조각에서 테넌트 ID 값만 입력하면 됩니다. [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)에 제공된 지침에 따라 테넌트 ID를 검색할 수 있습니다.
     
 - Main() 함수를 다음 코드로 바꿉니다.
 

@@ -1,35 +1,26 @@
 ---
-title: Traffic Manager에 대한 Azure CLI 샘플 | Microsoft Docs
-description: Traffic Manager에 대한 Azure CLI 샘플
-services: traffic-manager
-documentationcenter: traffic-manager
-author: WenJason
-manager: digimoblie
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: traffic-manager
-ms.devlang: na
+title: DNS용 Azure CLI 샘플 - Azure DNS
+description: 이 샘플에서는 Azure CLI를 사용하여 Azure DNS에서 DNS 영역 및 레코드를 만듭니다.
+services: dns
+author: rohinkoul
+ms.service: dns
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
-origin.date: 04/30/2018
-ms.date: 05/28/2018
-ms.author: kumud
-ms.openlocfilehash: c28c5599306a8d6bf12b911f1c7e3115529fa897
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.author: rohink
+ms.openlocfilehash: d5fdeaeb9060794af2168f072a174b49b9c9d3d9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790898"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "76937685"
 ---
-# <a name="azure-cli-samples-for-traffic-manager"></a>Traffic Manager에 대한 Azure CLI 샘플
+# <a name="azure-cli-examples-for-azure-dns"></a>Azure DNS에 대한 Azure CLI 예제
 
-다음 표에는 Azure CLI를 사용하여 빌드된 Traffic Manager에 대한 bash 스크립트에 대한 링크가 포함됩니다.
+다음 표에는 Azure DNS에 대한 Azure CLI 예제의 링크가 포함되어 있습니다.
 
 | | |
 |-|-|
-| [DNS 영역 및 레코드 만들기](./scripts/traffic-manager-cli-create-dns-zone-record.md) | 도메인 이름에 대한 DNS 영역 및 레코드를 만듭니다. |
+| [DNS 영역 및 레코드 만들기](./scripts/dns-cli-create-dns-zone-record.md) | 도메인 이름에 대한 DNS 영역 및 레코드를 만듭니다. |
 | | |
 
 

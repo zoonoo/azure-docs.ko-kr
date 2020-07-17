@@ -1,26 +1,20 @@
 ---
-title: 'Azure Backup: Azure VM 백업에서 파일 및 폴더 복구'
-description: Azure 가상 머신 복구 지점에서 파일 복구
-services: backup
-author: pvrk
-manager: shivamg
-keywords: 항목 수준 복구, Azure 백업에서 파일 복구, Azure VM에서 파일 복원
-ms.service: backup
+title: Azure VM 백업에서 파일 및 폴더 복구
+description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 및 폴더를 복구하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 3/01/2019
-ms.author: pullabhk
-ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 03/01/2019
+ms.custom: references_regions
+ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240216"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027168"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
 Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Azure VM(가상 머신) 및 디스크](./backup-azure-arm-restore-vms.md)를 복원하는 기능을 제공합니다. 이 문서에서는 Azure VM Backup에서 파일 및 폴더를 어떻게 복구할 수 있는지 설명합니다. 파일 및 폴더 복원은 Resource Manager 모델을 사용하여 배포된 Azure VM에서만 사용 가능하며 Recovery Services 자격 증명 모음에 대해 보호됩니다.
 
-> [!Note]
+> [!NOTE]
 > 이 기능은 Resource Manager 모델을 사용하여 배포된 Azure VM에서 사용 가능하며 Recovery Services 자격 증명 모음에 대해 보호됩니다.
 > 암호화된 VM 백업으로부터 파일 복구는 지원되지 않습니다.
 >
@@ -53,43 +47,25 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
     ![실행 파일 또는 스크립트에 대한 다운로드 메시지](./media/backup-azure-restore-files-from-vm/run-the-script.png)
 
-    실행 파일 또는 스크립트를 관리자 권한으로 실행하려면 다운로드 파일을 컴퓨터에 저장하는 것이 좋습니다.
+    실행 파일 또는 스크립트를 관리자 권한으로 실행하려면 다운로드한 파일을 컴퓨터에 저장하는 것이 좋습니다.
 
 6. 실행 파일 또는 스크립트는 암호로 보호되어 암호가 필요합니다. **파일 복구** 메뉴에서 복사 버튼을 클릭하여 암호를 메모리에 로드합니다.
 
     ![생성된 암호](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. 다운로드 위치(일반적으로 다운로드 폴더)에서 실행 파일 또는 스크립트를 마우스 오른쪽 단추로 클릭하고 관리자 자격 증명을 사용하여 실행합니다. 메시지가 표시되면 암호를 입력하거나 메모리에서 암호를 붙여넣고 Enter를 누릅니다. 올바른 암호를 입력하면 스크립트가 복구 지점에 연결됩니다.
+7. 스크립트를 실행하는 데 [적합한 머신](#selecting-the-right-machine-to-run-the-script)이 필요합니다. 적합한 머신이 스크립트를 다운로드한 머신인 경우 다운로드 섹션을 계속 진행하면 됩니다. 다운로드 위치(일반적으로 *Downloads* 폴더)에서 실행 파일 또는 스크립트를 마우스 오른쪽 단추로 클릭하고 관리자 자격 증명을 사용하여 실행합니다. 메시지가 표시되면 암호를 입력하거나 메모리의 암호를 붙여넣고 **Enter** 키를 누릅니다. 올바른 암호를 입력하면 스크립트가 복구 지점에 연결됩니다.
 
     ![파일 복구 메뉴](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
-    제한된 액세스를 포함하는 컴퓨터에서 스크립트를 실행하는 경우 다음에 대한 액세스 권한이 있는지 확인합니다.
+8. Linux 머신의 경우 python 스크립트가 생성됩니다. 스크립트를 다운로드하여 관련/호환 Linux 서버에 복사해야 합니다. 스크립트를 실행하려면 ```chmod +x <python file name>```을 사용하여 권한을 수정해야 할 수도 있습니다. 그런 다음, ```./<python file name>```을 사용하여 python 파일을 실행합니다.
 
-    - download.microsoft.com
-    - Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (에 대 한 Azure 공용 지역)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (에 대 한 Azure 중국)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (에 대 한 Azure US Government)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (에 대 한 Azure Germany)
-    - 아웃바운드 포트 3260
-
-> [!Note]
-> 
-> * 다운로드 한 스크립트 파일 이름 합니다 **지역 이름** URL에서를 입력 하도록 합니다. 에 대 한 예를 들어: 다운로드 한 스크립트 이름을 사용 하 여 시작 \'VMname\'\_\'geoname\'_\'GUID\', ContosoVM_wcus_12345678 같은...<br><br>
-> * Url "https:\//pod01-rec2.wcus.backup.windowsazure.com"
-
-
-   Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 컴퓨터에 스크립트가 실행되는 구성 요소가 없는 경우 스크립트에서 구성 요소 설치를 허가할지 묻습니다. 동의하여 필요한 구성 요소를 설치 합니다.
-
-   스크립트가 실행되는 컴퓨터와 복구 지점의 데이터 간에 보안 채널을 구축하는 데 사용되는 구성 요소를 다운로드하려면 download.microsoft.com에 대한 액세스 권한이 필요합니다.
-
-   백업된 VM과 동일한(또는 호환) 운영 체제가 있는 모든 컴퓨터에서 스크립트를 실행할 수 있습니다. 호환되는 운영 체제는 [호환되는 OS 표](backup-azure-restore-files-from-vm.md#system-requirements)를 참조하세요. 보호된 Azure 가상 머신에서 Windows 저장소 공간(Windows Azure VM의 경우) 또는 LVM/RAID 배열(Linux VM의 경우)을 사용하는 경우 동일한 가상 머신에서 실행 파일 또는 스크립트를 실행할 수 없습니다. 대신, 호환되는 운영 체제로 다른 컴퓨터에서 실행 파일 또는 스크립트를 실행합니다.
+스크립트가 성공적으로 실행될 수 있도록 [액세스 요구 사항](#access-requirements) 섹션을 참조하세요.
 
 ### <a name="identifying-volumes"></a>볼륨 식별
 
 #### <a name="for-windows"></a>Windows의 경우
 
-실행 파일을 실행하면 운영 체제는 새 볼륨을 탑재하고 드라이브 문자를 할당합니다. Windows 탐색기 또는 파일 탐색기를 사용하여 해당 드라이브를 탐색할 수 있습니다. 볼륨에 할당된 드라이브 문자는 원래 가상 컴퓨터와 다를 수 있지만 볼륨 이름은 유지됩니다. 예를 들어 원래 가상 컴퓨터에서 볼륨이 "데이터 디스크(E:`\`)"인 경우 해당 볼륨은 로컬 컴퓨터에서 "데이터 디스크('임의 드라이브 문자':`\`)로 연결할 수 있습니다. 사용자의 파일/폴더를 찾을 때까지 스크립트 출력에 나와 있는 모든 볼륨을 탐색합니다.  
+실행 파일을 실행하면 운영 체제는 새 볼륨을 탑재하고 드라이브 문자를 할당합니다. Windows 탐색기 또는 파일 탐색기를 사용하여 해당 드라이브를 탐색할 수 있습니다. 볼륨에 할당된 드라이브 문자가 원래 가상 머신과 다를 수 있습니다. 하지만 볼륨 이름은 그대로 유지됩니다. 예를 들어 원래 가상 머신의 볼륨이 "Data Disk(E:`\`)"인 경우 해당 볼륨을 로컬 컴퓨터에서 "Data Disk('아무 문자':`\`)로 연결할 수 있습니다. 해당하는 파일 또는 폴더를 찾을 때까지 스크립트 출력에 나와 있는 모든 볼륨을 탐색합니다.  
 
    ![파일 복구 메뉴](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
@@ -101,13 +77,30 @@ Linux에서 복구 지점의 볼륨은 스크립트가 실행되는 폴더에 �
 
 ## <a name="closing-the-connection"></a>연결 닫기
 
-파일을 식별하고 로컬 저장소 위치에 복사한 후에는 추가 드라이브를 제거(또는 분리)합니다. 드라이브를 분리하려면 Azure Portal의 **파일 복구** 메뉴에서 **디스크 분리**를 클릭합니다.
+파일을 식별하고 로컬 스토리지 위치에 복사한 후에는 추가 드라이브를 제거(또는 분리)합니다. 드라이브를 분리하려면 Azure Portal의 **파일 복구** 메뉴에서 **디스크 분리**를 클릭합니다.
 
 ![디스크 분리](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
 디스크가 분리되면 메시지가 표시됩니다. 디스크를 제거할 수 있도록 연결을 새로 고치는 데 몇 분이 소요될 수 있습니다.
 
-Linux에서 복구 지점에 대한 연결이 단절된 후 OS는 해당 탑재 경로를 자동으로 제거하지 않습니다. 탑재 경로는 "분리된" 볼륨으로 존재하고 표시되지만 파일에 액세스하거나 파일을 액세스/작성할 때 오류를 throw합니다. 수동으로 제거할 수도 있습니다. 스크립트는 실행 시 모든 이전 복구 지점에서 존재하는 이러한 볼륨을 식별하고 승인 시 정리합니다.
+Linux에서 복구 지점에 대한 연결이 단절된 후 OS는 해당 탑재 경로를 자동으로 제거하지 않습니다. 탑재 경로는 "분리된" 볼륨으로 존재하고 사용자가 볼 수 있지만, 파일에 액세스하거나 파일에 데이터를 쓰려고 시도할 때 오류가 throw됩니다. 수동으로 제거할 수도 있습니다. 스크립트는 실행 시 모든 이전 복구 지점에서 존재하는 이러한 볼륨을 식별하고 승인 시 정리합니다.
+
+## <a name="selecting-the-right-machine-to-run-the-script"></a>스크립트를 실행할 적절한 머신을 선택합니다.
+
+스크립트가 성공적으로 다운로드된 후에는 스크립트를 실행할 머신이 적절한 머신인지 확인해야 합니다. 다음은 머신에서 충족해야 하는 요구 사항입니다.
+
+### <a name="original-backed-up-machine-versus-another-machine"></a>원래 백업 머신을 다른 머신과 비교
+
+1. 백업된 머신이 대용량 디스크 VM인 경우, 즉, 디스크 수가 16개를 초과하거나 각 디스크가 4TB보다 큰 경우에는 스크립트를 **다른 머신에서 실행**하고 [이 요구 사항](#file-recovery-from-virtual-machine-backups-having-large-disks)을 충족해야 합니다.
+1. 백업된 머신이 대용량 디스크 VM이 아닌 경우에도 [이 시나리오](#special-configurations)에서는 동일한 백업된 VM에서 스크립트를 실행할 수 없습니다.
+
+### <a name="os-requirements-on-the-machine"></a>머신의 OS 요구 사항
+
+스크립트를 실행해야 하는 머신은 [이 OS 요구 사항](#system-requirements)을 충족해야 합니다.
+
+### <a name="access-requirements-for-the-machine"></a>머신의 액세스 요구 사항
+
+스크립트를 실행해야 하는 머신은 [이 액세스 요구 사항](#access-requirements)을 충족해야 합니다.
 
 ## <a name="special-configurations"></a>특수 구성
 
@@ -120,11 +113,11 @@ Linux에서 복구 지점에 대한 연결이 단절된 후 OS는 해당 탑재 
 
 대신, 호환되는 운영 체제로 다른 컴퓨터에서 실행 가능한 스크립트를 실행합니다.
 
-### <a name="windows-storage-spaces"></a>Windows 저장소 공간
+### <a name="windows-storage-spaces"></a>Windows 스토리지 공간
 
-Windows 저장소 공간은 저장소를 가상화할 수 있는 Windows 기술입니다. Windows 저장소 공간을 사용하면 업계 표준 디스크를 저장소 풀로 그룹화할 수 있습니다. 그런 다음 해당 저장소 풀의 사용 가능한 공간을 사용하여 저장소 공간이라는 가상 디스크를 만들 수 있습니다.
+Windows 스토리지 공간은 스토리지를 가상화할 수 있는 Windows 기술입니다. Windows 스토리지 공간을 사용하면 업계 표준 디스크를 스토리지 풀로 그룹화할 수 있습니다. 그런 다음 해당 스토리지 풀의 사용 가능한 공간을 사용하여 스토리지 공간이라는 가상 디스크를 만들 수 있습니다.
 
-보호된 Azure VM에서 Windows 저장소 공간을 사용하는 경우 동일한 VM에서는 실행 가능한 스크립트를 실행할 수 없습니다. 대신, 호환되는 운영 체제로 다른 컴퓨터에서 실행 가능한 스크립트를 실행합니다.
+보호된 Azure VM에서 Windows 스토리지 공간을 사용하는 경우 동일한 VM에서는 실행 가능한 스크립트를 실행할 수 없습니다. 대신, 호환되는 운영 체제로 다른 컴퓨터에서 실행 가능한 스크립트를 실행합니다.
 
 ### <a name="lvmraid-arrays"></a>LVM/RAID 배열
 
@@ -138,25 +131,34 @@ Linux에서 LVM(논리 볼륨 관리자) 및/또는 소프트웨어 RAID 배열�
 
 #### <a name="for-lvm-partitions"></a>LVM 파티션의 경우
 
-실제 볼륨에 볼륨 그룹 이름을 나열합니다.
+실제 볼륨에 볼륨 그룹 이름을 나열하려면 다음을 수행합니다.
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
-볼륨 그룹에 모든 논리 볼륨, 이름 및 해당 경로를 나열합니다.
+볼륨 그룹에 모든 논리 볼륨, 이름 및 해당 경로를 나열하려면 다음을 수행합니다.
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs commands results>
 ```
 
-선택한 경로에 논리 볼륨을 탑재하려면.
+또한 ```lvdisplay``` 명령은 볼륨 그룹이 활성 상태인지 여부를 보여줍니다. 볼륨 그룹이 비활성으로 표시되면 다시 활성화하여 탑재해야 합니다. 볼륨 그룹이 비활성으로 표시되면 다음 명령을 사용하여 활성화합니다.
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+vgchange –a y  <volume-group-name from the pvs commands results>
+```
+
+볼륨 그룹 이름이 활성화된 후에는 ```lvdisplay``` 명령을 한 번 더 실행하여 관련 특성을 모두 확인합니다.
+
+선택한 경로에 논리 볼륨을 탑재하려면 다음을 수행합니다.
+
+```bash
+#!/bin/bash
+mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>RAID 배열의 경우
@@ -165,7 +167,7 @@ $ mount <LV path> </mountpath>
 
 ```bash
 #!/bin/bash
-$ mdadm –detail –scan
+mdadm –detail –scan
 ```
 
  관련 RAID 디스크는 `/dev/mdm/<RAID array name in the protected VM>`으로 표시됩니다.
@@ -174,10 +176,10 @@ RAID 디스크에 실제 볼륨이 있는 경우 탑재 명령을 사용합니�
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
-RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대한 이전 절차를 사용하되 RAID 디스크 이름 대신에 볼륨 이름을 사용합니다.
+RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대한 이전 절차를 사용하되, RAID 디스크 이름 대신 볼륨 이름을 사용합니다.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 
@@ -187,6 +189,7 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
+| Windows Server 2019    | 윈도우 10 |
 | Windows Server 2016    | 윈도우 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
@@ -206,18 +209,69 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 | SLES | 12 이상 |
 | openSUSE | 42.2 이상 |
 
-> [!Note]
-> SLES 12 SP4 OS를 사용 하 여 컴퓨터에서 파일 복구 스크립트를 실행 중인 몇 가지 문제가 발견 했습니다. SLES 팀을 사용 하 여 조사 중입니다.
-> 현재, 실행 파일 복구 스크립트를 SLES 12 SP2 및 SP3 운영 체제 버전을 사용 하 여 컴퓨터에서 작동 합니다.
+> [!NOTE]
+> SLES 12 SP4 OS를 사용하는 머신에서 파일 복구 스크립트를 실행하는 동안 몇 가지 문제가 발견되었으며 SLES 팀이 문제를 조사 중입니다.
+> 현재 SLES 12 SP2 및 SP3 OS 버전을 사용하는 머신에서 파일 복구 스크립트를 실행할 수 있습니다.
 >
 
 스크립트는 복구 지점에 안전하게 연결하고 실행하기 위해 Python 및 bash 구성 요소가 필요합니다.
 
-|구성 요소 | Version  |
+|구성 요소 | 버전  |
 | --------------- | ---- |
 | bash | 4 이상 |
 | python | 2.6.6 이상  |
 | TLS | 1.2가 지원되어야 합니다.  |
+
+## <a name="access-requirements"></a>액세스 요구 사항
+
+제한된 액세스를 포함하는 컴퓨터에서 스크립트를 실행하는 경우 다음에 대한 액세스 권한이 있는지 확인합니다.
+
+- `download.microsoft.com`
+- Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Azure 공용 지역의 경우)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(Azure 중국 21Vianet의 경우)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Azure 미국 정부의 경우)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de`(Azure 독일의 경우)
+- 아웃바운드 포트 53(DNS), 443, 3260
+
+> [!NOTE]
+>
+> - 다운로드한 스크립트 파일 이름의 URL이 **지역 이름**으로 채워집니다. 예: 다운로드 한 스크립트 이름은 \' \' \_ \' ContosoVM_wcus_12345678와 같은 VMname geoname \' _ \' GUID \' *ContosoVM_wcus_12345678* 로 시작 합니다.
+> - URL은 <https://pod01-rec2.wcus.backup.windowsazure.com>"입니다.
+>
+
+Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 스크립트가 실행되는 컴퓨터에 구성 요소가 없으면 스크립트에서는 구성 요소를 설치할 권한을 요청합니다. 동의하여 필요한 구성 요소를 설치 합니다.
+
+스크립트가 실행되는 머신과 복구 지점의 데이터 간에 보안 채널을 구축하는 데 사용되는 구성 요소를 다운로드하려면 `download.microsoft.com`에 대한 액세스 권한이 필요합니다.
+
+## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>대용량 디스크가 있는 가상 머신 백업에서 파일 복구
+
+이 섹션에서는 16 개 이상의 디스크를 사용 하는 Azure 가상 컴퓨터의 백업에서 파일 복구를 수행 하는 방법 또는 각 디스크 크기가 4 TB를 초과 하는 방법에 대해 설명 합니다.
+
+파일 복구 프로세스는 백업에서 모든 디스크를 연결 하므로 대량 디스크 수 (>16) 또는 대량 디스크 > (각각 4 TB)를 사용 하는 경우 다음 작업을 수행 하는 것이 좋습니다.
+
+- 파일 복구에 사용할 별도의 복원 서버(Azure VM D2v3 VM)를 유지합니다. 이 복원 서버를 파일 복구에만 사용할 수 있으며 필요하지 않으면 종료할 수 있습니다. 원래 머신에 복구하면 VM 자체에 상당한 영향을 주기 때문에 이 방법은 권장하지 않습니다.
+- 그런 다음, 스크립트를 한 번 실행하여 파일 복구 작업이 성공했는지 확인합니다.
+- 파일 복구 프로세스가 중단되면(디스크가 탑재되지 않거나 탑재되었지만 표시되지 않으면) 다음 단계를 수행합니다.
+  - 복원 서버가 Windows VM인 경우:
+    - OS가 WS 2012 이상인지 확인합니다.
+    - 레지스트리 키가 아래의 복원 서버에서 제안하는 대로 설정되었는지 확인하고 서버를 다시 부팅합니다. GUID 옆에 있는 숫자의 범위는 0001-0005입니다. 다음 예제에서는 0004입니다. 매개 변수 섹션이 나올 때까지 레지스트리 키 경로를 탐색합니다.
+
+    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+
+```registry
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+```
+
+- 복원 서버가 Linux VM인 경우:
+  - /etc/iscsi/iscsid.conf 파일에서 설정을 다음과 같이 변경합니다.
+    - node.conn[0].timeo.noop_out_timeout = 5에서 node.conn[0].timeo.noop_out_timeout = 30으로 변경
+- 위와 같이 변경한 후 스크립트를 다시 실행합니다. 이렇게 변경하면 파일 복구가 성공할 가능성이 높습니다.
+- 사용자가 스크립트를 다운로드할 때마다 Azure Backup은 다운로드의 복구 지점을 준비하는 프로세스를 시작합니다. 대용량 디스크인 경우 이 프로세스에 상당한 시간이 소요됩니다. 요청이 연속으로 발생하면 대상 준비가 다운로드 스파이럴 상태에 빠집니다. 따라서 포털/PowerShell/CLI에서 스크립트를 다운로드하고 20-30분 정도 기다렸다가(경험적 추론) 실행하는 것이 좋습니다. 이 시점에 대상은 스크립트에서 연결할 준비가 되어 있어야 합니다.
+- 파일 복구 후, 포털로 돌아가서 볼륨을 탑재할 수 없었던 복구 지점에 대해 **디스크 분리**를 클릭합니다. 기본적으로 이 단계는 기존 프로세스/세션을 모두 정리하고 복구 가능성을 높입니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -225,48 +279,55 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 | 오류 메시지/시나리오 | 가능한 원인 | 권장 작업 |
 | ------------------------ | -------------- | ------------------ |
-| Exe 출력: *대상에 연결하는 동안 예외가 발생했습니다.* |스크립트가 복구 지점에 액세스할 수 없습니다.    | 컴퓨터가 이전 액세스 요구 사항을 충족하는지 확인하세요. |  
+| Exe 출력: *대상에 연결하는 동안 예외가 catch되었습니다.* | 스크립트가 복구 지점에 액세스할 수 없습니다.    | 머신이 [이전 액세스 요구 사항](#access-requirements)을 충족하는지 확인하세요. |  
 | Exe 출력: *iSCSI 세션을 통해 대상이 이미 로그인되었습니다.* | 동일한 컴퓨터에서 스크립트가 이미 실행되었고 드라이브가 연결되었습니다. | 복구 지점의 볼륨이 이미 연결되었습니다. 원래 VM과 동일한 드라이브 문자로 탑재되지 않을 수 있습니다. 파일 탐색기에서 사용 가능한 모든 볼륨을 탐색하여 파일을 찾습니다. |
-| Exe 출력: *디스크가 포털을 통해 분리되었고 12시간 제한을 초과했으므로 이 스크립트는 유효하지 않습니다. 포털에서 새 스크립트를 다운로드하세요.* |    디스크가 포털에서 분리되었거나 12시간 제한을 초과했습니다. | 이 특정 exe는 현재 유효하지 않고 실행할 수 없습니다. 복구 지정 시간의 파일에 액세스하려면 포털에서 새 exe를 찾으세요.|
-| exe가 실행되는 머신에서: 분리 단추를 클릭하면 새 볼륨이 분리되지 않습니다. | 머신에서 iSCSI 초기자가 응답하지 않거나 대상에 대한 연결을 새로 고치지 않고 캐시를 유지 관리하지 않습니다. |  **분리**를 클릭한 후에 잠시 대기합니다. 새 볼륨이 분리되지 않으면 모든 볼륨을 탐색하세요. 모든 볼륨을 탐색하면 초기자가 강제로 연결을 새로 고치도록 하여 디스크를 사용할 수 없다는 오류 메시지와 함께 볼륨이 분리됩니다.|
-| Exe 출력: 스크립트가 성공적으로 실행되지만 스크립트 출력에 "New volumes attached(새 볼륨 연결됨)"가 표시되지 않습니다. |    일시적인 오류입니다.    | 볼륨은 이미 연결되었습니다. Explorer를 열어 탐색합니다. 스크립트를 실행할 때마다 동일한 컴퓨터를 사용하는 경우 컴퓨터를 다시 시작하면 목록이 후속 exe 실행에 표시됩니다. |
-| Linux 특정: 원하는 볼륨을 볼 수 없습니다. | 스크립트가 실행되는 컴퓨터의 OS는 보호된 VM의 기본 파일 시스템을 인식하지 못할 수도 있습니다. | 복구 지점이 충돌 일관성 또는 파일 일관성인지 확인합니다. 파일 일관성인 경우 OS가 보호된 VM의 파일 시스템을 인식하는 다른 컴퓨터에서 스크립트를 실행합니다. |
-| Windows 특정: 원하는 볼륨을 볼 수 없습니다. | 디스크가 연결되었을 수도 있지만 볼륨이 구성되지 않았습니다. | 디스크 관리 화면에서 복구 지점과 관련된 추가 디스크를 식별합니다. 이러한 디스크가 오프라인 상태이면 디스크를 마우스 오른쪽 단추로 클릭하고 '온라인'을 클릭하여 온라인 상태로 전환합니다.|
+| Exe 출력: *디스크가 포털을 통해 분리되었고 12시간 제한을 초과했으므로 이 스크립트는 유효하지 않습니다. 포털에서 새 스크립트를 다운로드하세요.* |    디스크가 포털에서 분리되었거나 12시간 제한을 초과했습니다. | 이 exe는 현재 유효하지 않으며 실행할 수 없습니다. 특정 시점 복구 파일에 액세스하려면 포털에서 새 exe를 찾으세요.|
+| exe가 실행되는 머신에서: 분리 단추를 클릭하면 새 볼륨이 분리되지 않습니다. | 머신에서 iSCSI 초기자가 응답하지 않거나 대상에 대한 연결을 새로 고치지 않고 캐시를 유지하지 않습니다. |  **분리**를 클릭한 후에 잠시 대기합니다. 새 볼륨이 분리되지 않으면 모든 볼륨을 탐색하세요. 모든 볼륨을 탐색하면 초기자가 강제로 연결을 새로 고침하고, 디스크를 사용할 수 없다는 오류 메시지와 함께 볼륨이 분리됩니다.|
+| Exe 출력: 스크립트가 성공적으로 실행되지만 스크립트 출력에 "New volumes attached(새 볼륨 연결됨)"가 표시되지 않습니다. |    일시적인 오류입니다.    | 볼륨은 이미 연결되었습니다. Explorer를 열어 탐색합니다. 스크립트를 실행할 때마다 동일한 머신을 사용하는 경우 머신을 다시 시작하면 목록이 후속 exe 실행에 표시됩니다. |
+| Linux 특정: 원하는 볼륨을 볼 수 없습니다. | 스크립트가 실행되는 컴퓨터의 OS는 보호된 VM의 기본 파일 시스템을 인식하지 못할 수도 있습니다. | 복구 지점이 충돌 일관적인지 아니면 파일 일관적인지 확인합니다. 파일 일관적인 경우 OS가 보호된 VM의 파일 시스템을 인식하는 다른 머신에서 스크립트를 실행하세요. |
+| Windows 특정: 원하는 볼륨을 볼 수 없습니다. | 디스크가 연결되었을 수도 있지만 볼륨이 구성되지 않았습니다. | 디스크 관리 화면에서 복구 지점과 관련된 추가 디스크를 식별합니다. 이러한 디스크가 오프라인 상태이면 디스크를 마우스 오른쪽 단추로 클릭하고 **온라인**을 클릭하여 온라인 상태로 전환합니다.|
 
 ## <a name="security"></a>보안
 
-이 섹션에서는 사용자가 기능의 보안 측면을 인식 되도록 Azure VM 백업 으로부터 파일 복구가의 구현을 위해 다양 한 보안 조치를 설명 합니다.
+이 섹션에서는 Azure VM 백업에서 파일 복구를 구현하는 데 사용되는 다양한 보안 조치에 대해 설명합니다.
 
 ### <a name="feature-flow"></a>기능 흐름
 
-이 기능 전체 VM 또는 VM을 복원 하지 않고도 VM 데이터를 액세스 하기 위해 작성 된 디스크에 최소 단계입니다. VM 데이터에 대 한 액세스 (아래 표시 된 것 처럼 실행 하는 경우 복구 볼륨을 탑재)는 스크립트를 통해 제공 되 고 모든 보안 구현의 토대를 형성 하므로
+이 기능은 전체 VM 또는 VM 디스크를 복원할 필요 없이 최소한의 단계로 VM 데이터에 액세스할 수 있도록 만들어졌습니다. VM 데이터에 대한 액세스는 스크립트(아래와 같이 실행하면 복구 볼륨을 탑재하는)를 통해 제공되며 모든 보안 구현의 기초를 형성합니다.
 
   ![보안 기능 흐름](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
 
 ### <a name="security-implementations"></a>보안 구현
 
-#### <a name="select-recovery-point-who-can-generate-script"></a>복구 지점 (하는 스크립트를 생성할 수)를 선택 합니다.
+#### <a name="select-recovery-point-who-can-generate-script"></a>복구 지점(스크립트를 생성할 수 있는) 선택
 
-스크립트에 대 한 액세스는 제공 VM 데이터를 처음부터 생성할 수 있는 사용자를 제어 하는 것이 중요 합니다. Azure portal에 로그인 해야 하 고 해야 하나 [RBAC 권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 스크립트를 생성 하는 일을 할 수 있습니다.
+이 스크립트는 VM 데이터에 대한 액세스를 제공하므로, 이 스크립트를 생성할 수 있는 사람을 제어하는 것이 가장 중요합니다. 스크립트를 생성하려면 Azure Portal에 로그인하여 [RBAC에 대한 권한을 부여](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)받아야 합니다.
 
-파일 복구 VM 복원 및 디스크 복원에 대 한 동일한 수준의 필요에 따라 권한 부여 해야합니다. 즉, 권한이 있는 사용자만 수 뷰 VM 데이터 스크립트를 생성할 수 있습니다.
+파일 복구에는 VM 복원 및 디스크 복원과 동일한 수준의 권한 부여가 필요합니다. 즉, 권한 있는 사용자만 VM 데이터를 살펴보고 스크립트를 생성할 수 있습니다.
 
-생성된 된 스크립트는 Azure Backup 서비스에 대 한 공식 Microsoft 인증서로 서명 됩니다. 스크립트를 사용 하 여 변조 있음을 나타내고 서명이 손상 된 OS에서 스크립트를 실행 하려고 잠재적 위험으로 강조 표시 됩니다.
+생성된 스크립트는 Azure Backup 서비스에 대한 공식 Microsoft 인증서를 사용하여 서명됩니다. 스크립트가 변조되었다는 것은 서명이 손상되었다는 뜻이며, 스크립트를 실행하려는 시도가 있으면 OS에서는 이것을 잠재적 위험으로 강조 표시합니다.
 
-#### <a name="mount-recovery-volume-who-can-run-script"></a>탑재 복구 볼륨 (하는 스크립트를 실행할 수 있음)
+#### <a name="mount-recovery-volume-who-can-run-script"></a>복구 볼륨(스크립트를 실행할 수 있는) 탑재
 
-관리자만 스크립트를 실행할 수 및 관리자 모드에서 실행 해야 합니다. 스크립트는만 미리 생성 된 일련의 단계를 실행 하 고 외부 소스에서 입력을 허용 하지 않습니다.
+오직 관리자만이 스크립트를 실행할 수 있으며 관리자 모드에서 실행해야 합니다. 스크립트는 미리 생성된 단계 세트만 실행하고 외부 소스의 입력을 허용하지 않습니다.
 
-스크립트를 실행 하려면만에 나와 있는 권한 있는 사용자에 게 스크립트의 생성 시점에 Azure portal 또는 PowerShell/CLI 암호 하나 필요 합니다. 이 스크립트를 다운로드 하는 권한 있는 사용자는도 스크립트를 실행 하는 일을 담당 하는 것입니다.
+스크립트를 실행하려면 Azure Portal 또는 PowerShell/CLI에서 스크립트를 생성할 때 권한 있는 사용자에게만 표시되는 암호가 필요합니다. 이는 스크립트를 다운로드하는 권한 있는 사용자도 스크립트 실행을 담당하도록 하기 위한 조치입니다.
 
-#### <a name="browse-files-and-folders"></a>파일 및 폴더 찾아보기
+#### <a name="browse-files-and-folders"></a>파일 및 폴더 찾기
 
-스크립트 파일 및 폴더를 이동할 컴퓨터에서 iSCSI 초기자를 사용 하 고 iSCSI 대상으로 구성 된 복구 지점에 연결. 다음 시나리오 중 하나 또는 모든 구성 요소를 모방/스푸핑 시도 하나 있는 가정할 수 있습니다.
+스크립트는 파일과 폴더를 찾기 위해 머신의 iSCSI 초기자를 사용하여 iSCSI 대상으로 구성된 복구 지점에 연결합니다. 여기서는 누군가가 어느 한/모든 구성 요소를 모방/스푸핑하려는 시나리오를 생각해 볼 수 있습니다.
 
-각 구성 요소를 인증 하는 다른 있도록 상호 CHAP 인증 메커니즘을 사용 합니다. 즉, iscsi 및 스크립트를 실행 하는 컴퓨터에 연결 되어야 가짜 대상에 연결 하는 가짜 초기자에 대 한 매우 어렵습니다.
+각 구성 요소가 서로를 인증하도록 상호 CHAP 인증 메커니즘을 사용하겠습니다. 즉, 가짜 초기자가 iSCSI 대상에 연결하고 가짜 대상이 스크립트가 실행되는 머신에 연결하기가 매우 어렵습니다.
 
-복구 서비스와 컴퓨터 간의 데이터 흐름은 TCP를 통한 보안 SSL 터널을 작성 하 여 보호 됩니다 ([TLS 1.2가 지원 되어야](#system-requirements) 스크립트를 실행 하는 컴퓨터에서)
+복구 서비스와 머신 간의 데이터 흐름은 스크립트가 실행되는 머신에서 TCP를 통해 보안 TLS 터널([TLS 1.2가 지원되어야 함](#system-requirements))을 빌드하여 보호됩니다.
 
-모든 파일 액세스 제어 목록 (ACL)는 부모/백업 VM에 탑재 된 파일 시스템에도 유지 됩니다.
+부모/백업된 VM에 있는 모든 파일 ACL(액세스 제어 목록)은 탑재된 파일 시스템에도 유지됩니다.
 
-스크립트는 복구 지점에 대 한 읽기 전용으로 액세스할 하 고 12 시간 동안만 유효 합니다. 이전에 대 한 액세스를 제거 하려는 경우 Azure Portal/PowerShell/CLI에 로그인 하 고 수행 합니다 **디스크를 분리** 해당 특정 복구 지점에 대 한 합니다. 스크립트를 즉시 무효화 됩니다.
+스크립트는 복구 지점에 대한 읽기 전용 액세스 권한을 제공하며 12시간 동안만 유효합니다. 그 전에 액세스 권한을 제거하려면 Azure Portal/PowerShell/CLI에 로그인하여 해당 복구 지점에 대해 **디스크 분리**를 수행합니다. 그러면 스크립트가 즉시 무효화됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- 파일을 복원하는 동안 문제가 발생하는 경우 [문제 해결](#troubleshooting) 섹션을 참조하세요.
+- [PowerShell을 통해 파일 복원](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup) 방법을 알아보세요.
+- [Azure CLI를 통해 파일 복원](https://docs.microsoft.com/azure/backup/tutorial-restore-files) 방법을 알아보세요.
+- VM을 복원한 후에는 [백업 관리](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms) 방법을 알아보세요.

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 관리 디스크를 OS 디스크로 연결하여 VM 만들기 | Microsoft Docs
+title: 관리 디스크를 OS 디스크로 연결하여 VM 만들기 - PowerShell 샘플
 description: Azure PowerShell 스크립트 샘플 - 관리 디스크를 OS 디스크로 연결하여 VM 만들기
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -9,30 +9,29 @@ editor: ramankum
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: a608db9d806f9b0ed69eec3ce4dfb69adc5a5ea3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 4514940918f33ee28fc4195b821018df54252e13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449084"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75368491"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>PowerShell과 기존 관리 OS 디스크를 사용하여 가상 머신 만들기
 
-이 스크립트는 기존 관리 디스크를 OS 디스크로 연결하여 가상 컴퓨터를 만듭니다. 이전 시나리오에서는 이 스크립트를 사용합니다.
+이 스크립트는 기존 관리 디스크를 OS 디스크로 연결하여 가상 머신을 만듭니다. 이전 시나리오에서는 이 스크립트를 사용합니다.
 * 다른 구독의 관리 디스크에서 복사된 기존의 관리 OS 디스크에서 VM 만들기
 * 특수화된 VHD 파일에서 만든 기존 관리 디스크에서 VM 만들기 
-* 스냅숏에서 만든 기존의 관리 OS 디스크에서 VM 만들기 
+* 스냅샷에서 만든 기존의 관리 OS 디스크에서 VM 만들기 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
 
 ## <a name="sample-script"></a>샘플 스크립트
 

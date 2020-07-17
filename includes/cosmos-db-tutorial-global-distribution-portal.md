@@ -2,20 +2,20 @@
 title: Azure Cosmos DB 글로벌 배포
 description: Azure Portal에서 Azure Cosmos DB를 사용하여 데이터를 전역으로 복제하는 방법을 알아봅니다.
 services: cosmos-db
-author: rimman
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: include
 ms.date: 12/26/2018
-ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cb9899712fd023aaec41f4b6bb34357b60ecb106
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796116"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75751580"
 ---
-## <a id="addregion"></a>Azure Portal을 사용하여 글로벌 데이터베이스 지역 추가
+## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Azure Portal을 사용하여 글로벌 데이터베이스 지역 추가
 Azure Cosmos DB는 전 세계의 모든 [Azure 지역][azureregions]에서 사용할 수 있습니다. 데이터베이스 계정에서 기본 일관성 수준을 선택한 후에는 (선택한 기본 일관성 수준 및 글로벌 배포 수요에 따라) 하나 이상의 지역을 연결합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 왼쪽 막대에서 **Azure Cosmos DB**를 클릭합니다.

@@ -1,49 +1,47 @@
 ---
-title: Azure Marketplace에 대한 컨테이너 제품 게시 가이드
-description: 이 아티클에서는 Marketplace에서 컨테이너를 게시하기 위한 요구 사항을 설명합니다.
+title: Azure Marketplace의 컨테이너 제공에 대 한 게시 가이드
+description: 이 문서에서는 Azure Marketplace의 컨테이너 제공을 게시 하기 위한 요구 사항을 설명 합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
 ms.service: marketplace
-ms.topic: article
-ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: 41a09be36262ff09c383b8ccb64a94230a11d3f1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+author: keferna
+ms.author: keferna
+ms.date: 04/15/2020
+ms.openlocfilehash: 81069b0340202a0a481522ef1920806026ebcbe1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937921"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119398"
 ---
-# <a name="containers-offer-publishing-guide"></a>컨테이너 제품 게시 가이드
+# <a name="publishing-guide-for-container-offers"></a>컨테이너 제품 게시 가이드
 
-컨테이너 제품을 통해 컨테이너 이미지를 Azure Marketplace에 게시할 수 있습니다. 이 가이드를 사용하여 이 제품에 대한 요구 사항을 이해합니다. 
+컨테이너를 통해 컨테이너 이미지를 Azure Marketplace에 게시할 수 있습니다. 이 가이드를 사용하여 이 제품에 대한 요구 사항을 이해합니다. 
 
-Marketplace를 통해 배포되고 청구되는 트랜잭션 제품은 다음과 같습니다. 사용자에게 표시되는 작업에 대한 호출은 "지금 가져오기"입니다.
+컨테이너 제공은 Azure Marketplace를 통해 배포 되 고 청구 되는 트랜잭션 제품입니다. 사용자에게 표시되는 작업에 대한 호출은 "지금 가져오기"입니다.
 
-솔루션이 Kubernetes 기반 Azure Container Service로 프로비전된 Docker 컨테이너 이미지인 경우 컨테이너 제품 유형을 사용합니다.
+솔루션이 Kubernetes 기반 Azure Container service 인스턴스로 설정 된 Docker 컨테이너 이미지인 경우 *컨테이너* 제안 유형을 사용 합니다. 
 
->[!NOTE]
->예를 들어, Kubernetes 기반 컨테이너 런타임의 Azure 고객 선택인 Azure Kubernetes Service 또는 Azure Container Instances 같은 Kubernetes 기반 Azure Container Service입니다.  
+> [!NOTE]
+> Kubernetes 기반 Azure container service 인스턴스의 예는 Kubernetes 기반 컨테이너 런타임에 대 한 azure 고객이 선택할 수 있는 Azure Kubernetes 서비스 또는 Azure Container Instances입니다.  
 
 Microsoft는 현재 무료 및 BYOL(사용자 라이선스 필요) 라이선스 모델을 지원합니다.
 
-## <a name="containers-offer"></a>컨테이너 제품
+## <a name="container-offer-requirements"></a>컨테이너 제품 요구 사항
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
-| 청구 및 계량 | 무료 또는 BYOL 청구 모델을 지원합니다. |  
-| Dockerfile에서 작성된 이미지 | 컨테이너 이미지는 Docker 이미지 사양을 기반으로 해야 하며 Dockerfile에서 작성해야 합니다.<ul> <li>Docker 이미지를 빌드하는 방법에 대한 자세한 내용은 [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage)에 있는 사용법 섹션으로 이동합니다.</li> </ul> |  
-| ACR에서 호스팅 | 컨테이너 이미지는 Azure Container Registry(ACR) 리포지토리에서 호스팅되어야 합니다.<ul> <li>ACR을 사용하는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)에 있는 빠른 시작: Azure Portal 페이지를 사용하여 컨테이너 레지스트리 만들기로 이동합니다.</li> </ul> |  
-| 이미지 태그 지정 | 컨테이너 이미지는 최소 1개 태그를 포함해야 합니다(최대 태그: 16).<ul> <li>이미지를 태그하는 방법에 대한 자세한 내용은 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag)에 있는 Docker 태그 페이지로 이동합니다.</li> </ul> |  
+| 청구 및 계량 | 무료 또는 BYOL 청구 모델을 지원합니다.<br><br> |  
+| Dockerfile에서 빌드된 이미지 | 컨테이너 이미지는 Docker 이미지 사양을 기반으로 하 고 Dockerfile에서 빌드해야 합니다.<br> <br>Docker 이미지를 작성 하는 방법에 대 한 자세한 내용은 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/#usage)의 "사용법" 섹션을 참조 하세요.<br><br> |  
+| Azure Container Registry 리포지토리에서 호스팅 | 컨테이너 이미지는 Azure Container Registry 리포지토리에서 호스팅해야 합니다.<br> <br>Azure Container Registry 작업에 대 한 자세한 내용은 빠른 시작 [: Azure Portal를 사용 하 여 개인 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-portal.md)를 참조 하세요.<br><br> |  
+| 이미지 태그 지정 | 컨테이너 이미지는 태그를 하나 이상 포함 해야 합니다 (최대 태그 수: 16).<br><br>이미지에 태그를 지정 하는 방법에 대 한 자세한 내용은 `docker tag` [Docker 설명서](https://docs.docker.com/engine/reference/commandline/tag) 사이트의 페이지를 참조 하세요.<br><br> |  
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행하지 않았다면 
+아직 수행하지 않은 경우 [Azure Marketplace로 클라우드 비즈니스를 확장](https://azuremarketplace.microsoft.com/sell)하는 방법을 알아보세요.
 
-- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
+파트너 센터에서 등록하고 작업을 시작하려면
 
-새 제품을 등록하고 만들거나 기존에서 작업하는 경우
-
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).
-- 자세한 내용은 [컨테이너](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer)를 참조하세요.
+- 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.
+- 자세한 내용은 [Azure container 제품 만들기](./partner-center-portal/create-azure-container-offer.md) 를 참조 하세요.

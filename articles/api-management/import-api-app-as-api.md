@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 120fe358e5c8afe63e98038ad353d5ebc45a1937
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 28b055cb343b7f894a28eee5fbe452d037fd6b0e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636471"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249493"
 ---
 # <a name="import-an-api-app-as-an-api"></a>API로 API 앱 가져오기
 
@@ -31,16 +30,16 @@ ms.locfileid: "51636471"
 > * Azure Portal에서 API 테스트
 > * 개발자 포털에서 API 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 구독에 API 앱이 있는지 확인합니다. 자세한 내용은 [App Service 설명서](https://docs.microsoft.com/azure/app-service/)를 참조하세요.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 구독에 API 앱이 있는지 확인합니다. 자세한 내용은 [App Service 설명서](../app-service/index.yml)를 참조하세요.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>백 엔드 API 가져오기 및 게시
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>백 엔드 API 가져오기 및 게시
 
-1. **API Management**에서 **API**를 선택합니다.
+1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API**를 선택합니다.
 2. **새 API 추가** 목록에서 **API 앱**을 선택합니다.
 
     ![API 앱](./media/import-api-app-as-api/api-app.png)
@@ -57,9 +56,10 @@ ms.locfileid: "51636471"
 
     * **Starter**
     * **무제한**   
-7. **만들기**를 선택합니다.
+7. 다른 API 설정을 입력합니다. 생성 중에 값을 설정하거나 나중에 **설정** 탭으로 이동하여 값을 설정할 수 있습니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#-import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
+8. **만들기**를 선택합니다.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
+## <a name="test-the-new-api-in-the-azure-portal"></a>Azure Portal에서 새 API 테스트
 
 dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.  
 
@@ -71,21 +71,6 @@ dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사�
 1. **보내기**를 누릅니다.
 
     백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
-
-## <a name="call-operation"> </a>개발자 포털에서 작업 호출
-
-**개발자 포털**에서 작업을 호출하여 API를 테스트할 수도 있습니다. 
-
-1. "백 엔드 API 가져오기 및 게시" 단계에서 만든 API를 선택합니다.
-2. **개발자 포털**을 누릅니다.
-
-    "개발자 포털" 사이트가 열립니다.
-3. 만든 **API**를 선택합니다.
-4. 테스트할 작업을 클릭합니다.
-5. **시도**를 누릅니다.
-6. **보내기**를 누릅니다.
-    
-    작업 호출 후에는 개발자 포털에 **응답 상태**, **응답 헤더**, **응답 콘텐츠**가 표시됩니다.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

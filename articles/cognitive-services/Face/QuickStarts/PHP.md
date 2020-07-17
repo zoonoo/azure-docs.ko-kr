@@ -1,32 +1,35 @@
 ---
 title: '빠른 시작: REST API 및 PHP를 사용하여 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 PHP와 함께 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
+description: 이 빠른 시작에서는 PHP와 함께 Face REST API를 사용하여 이미지에서 얼굴을 감지합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f4d848eae23023d55ad41b7893610f246eddefd9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490449"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987822"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>빠른 시작: REST API 및 PHP를 사용하여 이미지에서 얼굴 감지
 
 이 빠른 시작에서는 이미지에서 사람 얼굴을 감지하기 위해 PHP와 함께 Azure Face REST API를 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
-- [Visual Studio Code](https://code.visualstudio.com/download) 같은 코드 편집기
-- PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 패키지
-- PHP 지원 웹 브라우저입니다. 이를 설정하지 않은 경우 머신에 [XAMPP](https://www.apachefriends.org/)를 설치 및 설정하면 됩니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+    * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
+* [Visual Studio Code](https://code.visualstudio.com/download) 같은 코드 편집기
+* PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 패키지
+* PHP 지원 웹 브라우저입니다. 이를 설정하지 않은 경우 머신에 [XAMPP](https://www.apachefriends.org/)를 설치 및 설정하면 됩니다.
 
 ## <a name="initialize-the-html-file"></a>HTML 파일 초기화
 
@@ -43,17 +46,15 @@ ms.locfileid: "59490449"
 
 ## <a name="write-the-php-script"></a>PHP 스크립트 작성
 
-문서의 `body` 요소 내에 다음 코드를 추가합니다. 그러면 URL 필드, **얼굴 분석** 단추, 응답 창 및 이미지 표시 창으로 구성된 기본 사용자 인터페이스가 설정됩니다.
+문서의 `body` 요소 내에 다음 코드를 추가합니다. 이 코드는 URL 필드, **얼굴 분석** 단추, 응답 창 및 이미지 표시 창이 있는 기본 사용자 인터페이스를 설정합니다.
 
 ```php
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
 
-// You must use the same location in your REST call as you used to obtain
-// your subscription keys. For example, if you obtained your subscription keys
-// from westus, replace "westcentralus" in the URL below with "westus".
-$uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/';
+// Replace <My Endpoint String> with the string in your endpoint URL.
+$uriBase = 'https:/<My Endpoint String>.com/face/v1.0/';
 
 $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
@@ -101,7 +102,9 @@ catch (HttpException $ex)
 ?>
 ```
 
-`subscriptionKey` 필드를 구독 키의 값으로 업데이트해야 하며 올바른 지역 식별자가 포함되도록 `uriBase` 문자열을 변경해야 할 수도 있습니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조). `returnFaceAttributes` 필드는 검색할 얼굴 특성을 지정하며 원하는 용도에 맞게 이 문자열을 변경할 수 있습니다.
+`subscriptionKey` 필드를 구독 키의 값으로 업데이트하고, 올바른 엔드포인트 문자열이 포함되도록 `uriBase` 문자열을 변경해야 합니다. `returnFaceAttributes` 필드는 검색할 얼굴 특성을 지정하며 원하는 용도에 맞게 이 문자열을 변경할 수 있습니다.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="run-the-script"></a>스크립트 실행
 

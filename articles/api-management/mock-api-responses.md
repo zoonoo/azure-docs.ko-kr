@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412749"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "70067935"
 ---
 # <a name="mock-api-responses"></a>모의 API 응답
 
@@ -28,7 +27,7 @@ ms.locfileid: "50412749"
 + API 외관이 먼저 설계되고 나중에 백 엔드가 구현된 경우 또는 백 엔드가 함께 개발되는 경우
 + 백 엔드가 일시적으로 작동하지 않거나 크기를 조정할 수 없는 경우
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 테스트 API 만들기 
@@ -38,7 +37,7 @@ ms.locfileid: "50412749"
 
 ![모의 작업 응답](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + [Azure API Management의 정책 개념](api-management-howto-policies.md)을 이해합니다.
@@ -64,7 +63,7 @@ ms.locfileid: "50412749"
 1. 이전 단계에서 만든 API를 선택합니다.
 2. **+작업 추가**를 클릭합니다.
 
-    | 설정             | 값                             | 설명                                                                                                                                                                                   |
+    | 설정             | 값                             | Description                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **표시 이름**    | *테스트 호출*                       | **개발자 포털**에 표시되는 이름입니다.                                                                                                                                       |
     | **URL**(HTTP 동사) | GET                               | 미리 정의된 HTTP 동사 중 하나를 선택할 수 있습니다.                                                                                                                                         |
@@ -79,7 +78,7 @@ ms.locfileid: "50412749"
 5. 목록에서 **200 정상**을 선택합니다.
 6. 오른쪽의 **표시** 제목 아래에서 **+표시 추가**를 선택합니다.
 7. "*애플리케이션/json*"을 검색 상자에 입력하고 **애플리케이션/json** 콘텐츠 형식을 선택합니다.
-8. **샘플** 텍스트 상자에 `{ 'sampleField' : 'test' }`를 입력합니다.
+8. **샘플** 텍스트 상자에 `{ "sampleField" : "test" }`를 입력합니다.
 9. **만들기**를 선택합니다.
 
 ## <a name="enable-response-mocking"></a>모의 응답 사용
@@ -94,7 +93,7 @@ ms.locfileid: "50412749"
 
     ![모의 응답 정책 타일](./media/mock-api-responses/mock-responses-policy-tile.png)
 
-6. **API Management 응답** 텍스트 상자에 **200 정상, 응용 프로그램/json**을 입력합니다. 이 섹션은 API가 이전 섹션에서 정의한 응답을 반환해야 함을 나타냅니다.
+6. **API Management 응답** 텍스트 상자에 **200 정상, 애플리케이션/json**을 입력합니다. 이 섹션은 API가 이전 섹션에서 정의한 응답을 반환해야 함을 나타냅니다.
 
     ![모의 응답 사용](./media/mock-api-responses/mock-api-responses-set-mocking.png)
 
@@ -122,7 +121,7 @@ ms.locfileid: "50412749"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 테스트 API 만들기

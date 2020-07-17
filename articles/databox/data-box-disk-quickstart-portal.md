@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 02/26/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.localizationpriority: high
+ms.openlocfilehash: fcc7c6ff74e17db2066d97597849c985f5a961e9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546928"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "76514071"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Data Box Disk 배포
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Box Disk를 배포하는 방법을 설명합니다. 단계는 신속하게 주문을 만들고, 디스크를 수신하고, 압축을 풀고, 연결하고 Azure에 업로드하도록 디스크에 데이터를 복사하는 방법을 포함합니다.
@@ -24,7 +26,17 @@ ms.locfileid: "57546928"
 
 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+::: zone-end
+
+::: zone target="chromeless"
+
+이 가이드에서는 Azure Portal에서 Azure Data Box Disk를 사용하는 단계를 안내합니다. 이 가이드는 다음과 같은 질문에 대답하는 데 도움이 됩니다.
+
+::: zone-end
+
+::: zone target="docs"
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에
 
@@ -34,7 +46,24 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs)에서 Azure Portal에 로그인합니다.
 
-## <a name="order"></a>순서
+::: zone-end
+
+::: zone target="chromeless"
+
+> [!div class="checklist"]
+>
+> - **필수 구성 요소 검토**: 디스크 및 케이블, 운영 체제 및 기타 소프트웨어의 수를 확인합니다.
+> - **연결 및 잠금 해제**: 디바이스를 연결하고 디스크를 잠금 해제하여 데이터를 복사합니다.
+> - **디스크에 데이터 복사 및 유효성 검사**: 디스크에 데이터를 미리 생성된 폴더로 복사합니다.
+> - **디스크 반환**: 데이터가 스토리지 계정에 업로드되는 Azure 데이터 센터에 디스크를 반환합니다.
+> - **Azure에서 데이터 확인**: 원본 데이터 서버에서 데이터를 삭제하기 전에 스토리지 계정에 데이터가 업로드되었는지 확인합니다.
+
+::: zone-end
+
+
+::: zone target="docs"
+
+## <a name="order"></a>주문
 
 이 단계에는 약 5분 정도가 걸립니다.
 
@@ -73,7 +102,7 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 
 1. 드라이브에 *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* 및 *DataBoxDiskImport* 폴더가 포함됩니다. 블록 Blob으로 가져와야 하는 데이터를 *BlockBlob* 폴더로 끌어서 놓아 복사합니다. 마찬가지로 VHD/VHDX와 같은 데이터를 *PageBlob* 폴더로 끌어다 놓고 해당 데이터를 *AzureFile*로 끌어다 놓습니다. Managed Disks로 업로드하려는 VHD를 *ManagedDisk* 아래의 폴더에 복사합니다.
 
-    *BlockBlob* 및 *PageBlob* 폴더 아래에 각 하위 폴더에 대한 Azure 저장소 계정에 컨테이너가 만들어집니다. *AzureFile* 아래의 하위 폴더에 대해 파일 공유가 생성됩니다.
+    *BlockBlob* 및 *PageBlob* 폴더 아래에 각 하위 폴더에 대한 Azure Storage 계정에 컨테이너가 만들어집니다. *AzureFile* 아래의 하위 폴더에 대해 파일 공유가 생성됩니다.
 
     *BlockBlob* 및 *PageBlob* 폴더 아래의 모든 파일은 Azure Storage 계정 아래의 기본 컨테이너 `$root`로 복사됩니다. *AzureFile* 내의 폴더로 파일을 복사합니다. *AzureFile* 폴더로 직접 복사된 모든 파일에 오류가 발생하고 블록 blob으로 업로드됩니다.
 
@@ -101,7 +130,7 @@ Data Box Disk 서비스가 이메일 알림을 보내고 Azure Portal에서 작�
 2. Azure Data Box 서비스는 Azure Portal을 통해 데이터 복사가 완료되었음을 알립니다.
     
     1. 모든 오류에 대한 오류 로그를 확인하고 적절한 조치를 수행합니다.
-    2. 원본에서 데이터를 삭제하기 전에 데이터 저장소 계정에 있는지 확인합니다.
+    2. 원본에서 데이터를 삭제하기 전에 데이터 스토리지 계정에 있는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -123,3 +152,5 @@ Data Box Disk 서비스가 이메일 알림을 보내고 Azure Portal에서 작�
 
 > [!div class="nextstepaction"]
 > [Azure Portal을 사용하여 Data Box Disk 관리](data-box-portal-ui-admin.md)
+
+::: zone-end

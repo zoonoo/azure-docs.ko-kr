@@ -1,21 +1,18 @@
 ---
-title: X12 메시지 인코딩 - Azure Logic Apps | Microsoft Docs
+title: X12 메시지 인코딩
 description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 X12 메시지 인코더를 사용하여 EDI 유효성을 검사하고 XML 디코딩 메시지 변환
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
-ms.openlocfilehash: 871d6d2b2019372bd258f8909ed0feeeddac4af7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74792354"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 X12 메시지 인코딩
 
@@ -27,13 +24,13 @@ X12 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 속�
 필요한 항목은 다음과 같습니다.
 
 * Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)
-* [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)이 이미 정의되고 Azure 구독과 연결되었습니다. X12 메시지 인코딩 커넥터를 사용하는 통합 계정이 있어야 합니다.
+* 이미 정의 되 고 Azure 구독과 연결 된 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md) 입니다. X12 메시지 인코딩 커넥터를 사용하는 통합 계정이 있어야 합니다.
 * 통합 계정에 이미 정의된 둘 이상의 [파트너](logic-apps-enterprise-integration-partners.md)
 * 통합 계정에 이미 정의된 [X12 규약](logic-apps-enterprise-integration-x12.md)
 
 ## <a name="encode-x12-messages"></a>X12 메시지 인코딩
 
-1. [논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)
+1. [논리 앱을 만듭니다](quickstart-create-first-logic-app-workflow.md).
 
 2. X12 메시지 인코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
@@ -47,7 +44,7 @@ X12 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 속�
 
     별표가 있는 속성은 필수 사항입니다.
 
-    | 자산 | 세부 정보 |
+    | 속성 | 설명 |
     | --- | --- |
     | 연결 이름 * |연결의 이름을 입력합니다. |
     | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |

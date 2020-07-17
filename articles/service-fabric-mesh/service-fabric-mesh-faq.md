@@ -1,24 +1,19 @@
 ---
-title: Azure Service Fabric Mesh에 대한 일반적인 질문 | Microsoft Docs
+title: Azure Service Fabric 메시에 대 한 일반적인 질문
 description: Azure Service Fabric Mesh에 대한 일반적인 질문과 대답을 알아봅니다.
-services: service-fabric-mesh
-keywords: ''
-author: chackdan
-ms.author: chackdan
+ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143286"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260122"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
 
-Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에는 일반적인 질문에 대한 답변이 있습니다.
+Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에는 일반적인 질문에 대한 답변이 있습니다.
 
 ## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>문제를 보고하거나 질문을 하려면 어떻게 하나요?
 
@@ -28,17 +23,17 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>미리 보기에 참여하는 비용은 얼마인가요?
 
-메시 미리 보기에 응용 프로그램 또는 컨테이너 배포는 청구 되지 않습니다. 청구에 사용할 수 있도록 5 월에 업데이트를 시청 하세요. 그러나 의견을 교환하실 수 리소스를 배포 하 고 하지 그대로 삭제 적극적으로 테스트 하는 경우가 아니면 실행 합니다.
+현재 메시 미리 보기에 응용 프로그램 또는 컨테이너를 배포 하는 데는 요금이 부과 되지 않습니다. 청구에 대 한 사용할 수 있는 경우의 업데이트를 시청 하세요. 그러나 배포 하는 리소스는 삭제 하 고 적극적으로 테스트 하는 경우에는 실행 하지 않는 것이 좋습니다.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>코어 수와 RAM의 할당량 제한이 있나요?
 
 예. 각 구독에 대한 할당량은 다음과 같습니다.
 
-- 애플리케이션 수: 5
-- 애플리케이션당 코어 수: 12
-- 애플리케이션당 총 RAM: 48GB
-- 네트워크 및 수신 엔드포인트 수: 5
-- 연결할 수 있는 Azure 볼륨 수: 10
+- 응용 프로그램 수: 5
+- 응용 프로그램당 코어 수: 12
+- 응용 프로그램당 총 RAM: 48 GB
+- 네트워크 및 수신 끝점: 5
+- 연결할 수 있는 Azure 볼륨: 10
 - 서비스 복제본 수: 3
 - 배포할 수 있는 최대 컨테이너는 4코어, 16GB RAM으로 제한됩니다.
 - 최대 6코어까지 0.5코어 증분으로 부분 코어를 컨테이너에 할당할 수 있습니다.
@@ -49,10 +44,13 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 이 경우 Azure CLI에서 `az mesh app show` 명령을 실행하여 시스템에서 배포를 종료한 것인지 확인할 수 있습니다. `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."`가 반환되는지 확인합니다. 
 
-예를 들면 다음과 같습니다. 
+예: 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -86,7 +84,6 @@ Windows Fall Creators 업데이트(버전 1709) 머신에서 개발하는 경우
 Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경우 Windows 버전 1709 또는 Windows 버전 1803의 Docker 이미지를 사용합니다.
 
 다음 컨테이너 OS 이미지를 사용하여 서비스를 배포할 수 있습니다.
-
 - Windows - windowsservercore 및 nanoserver
     - Windows Server 1709
     - Windows Server 1803
@@ -96,11 +93,11 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
     - 알려진 제한 사항 없음
 
 > [!NOTE]
-> Visual Studio 메시에 대 한 도구 지원 하지 않습니다 아직 Windows Server 2019 1809 컨테이너를 배포 합니다.
+> Visual Studio tools for 메시는 아직 Windows Server 2019 및 1809 컨테이너에 배포 하는 기능을 지원 하지 않습니다.
 
-### <a name="what-types-of-applications-can-i-deploy"></a>어떤 유형의 응용 프로그램을 배포할 수 있습니까? 
+### <a name="what-types-of-applications-can-i-deploy"></a>어떤 종류의 응용 프로그램을 배포할 수 있나요? 
 
-응용 프로그램 리소스 (할당량에 대 한 자세한 내용은 위 참조)에 배치 제한 내에 컨테이너에서 실행 하는 아무 것도 배포할 수 있습니다. 감지 하 고 잘못 된 워크 로드를 실행 하는 것에 대 한 메시를 사용 하는 여부 (즉, 마이닝) 시스템을 아무나, 다음 권리를 배포 및 차단 목록 구독의 서비스에서 실행을 종료 합니다. 연락 하세요 우리에 게 특정 워크 로드 실행에 대 한 질문이 있는 경우. 
+응용 프로그램 리소스에 적용 되는 제한 사항에 맞는 컨테이너에서 실행 되는 모든 항목을 배포할 수 있습니다 (할당량에 대 한 자세한 내용은 위 참조). 사용자가 잘못 된 작업을 실행 하는 데 메시를 사용 하 고 있는 경우 (즉, 마이닝), 배포를 종료 하 고 서비스에서 구독이 실행 되지 않도록 하는 권한을 차단 목록 합니다. 특정 워크 로드 실행에 대 한 질문이 있으면 microsoft에 문의 하세요. 
 
 ## <a name="developer-experience-issues"></a>개발자 환경 문제
 
@@ -109,8 +106,8 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
 컨테이너에서 Service Fabric DNS 서비스로 보내는 DNS 쿼리는 특정 상황에서 실패할 수 있습니다. 이 문제는 조사 중입니다. 문제를 완화하려면 다음을 수행합니다.
 
 - 기본 컨테이너 이미지로 Windows Fall Creators 업데이트(버전 1709) 이상을 사용합니다.
-- 서비스 이름만으로 작동하지 않는 경우 정규화된 이름인 ServiceName.ApplicationName을 사용합니다.
-- 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 예를 들면 다음과 같습니다.
+- 서비스 이름만 작동 하지 않는 경우 정규화 된 이름: ServiceName. ApplicationName을 시도 합니다.
+- 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 예:
 
 ```Dockerfile
 EXPOSE 80
@@ -124,7 +121,7 @@ EXPOSE 80
 
 Azure Mesh는 현재 애플리케이션 간의 DNS 확인을 지원하지 않습니다.
 
-Windows 10에서 Service Fabric 개발 클러스터를 실행하는 경우와 관련해서 다른 알려진 DNS 문제가 있는 경우, [Windows 컨테이너 디버그](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) 및 [알려진 DNS 문제](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues)를 참조하세요.
+Windows 10에서 Service Fabric 개발 클러스터를 실행 하는 것과 관련 된 기타 알려진 DNS 문제는 [windows 컨테이너 디버그](../service-fabric/service-fabric-how-to-debug-windows-containers.md) 및 [알려진 dns 문제](../service-fabric/service-fabric-dnsservice.md#known-issues)를 참조 하세요.
 
 ### <a name="networking"></a>네트워킹
 
@@ -144,9 +141,9 @@ CPU 가용성 및 한도가 모든 애플리케이션에서 고정될 수 있습
 - 로컬 클러스터에 여러 앱을 배포하는 경우 5노드 클러스터를 사용합니다.
 - 현재 테스트하지 않는 앱을 제거합니다.
 
-### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Windows 컨테이너에 대 한 지원이 제한적으로 VS 도구
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS 도구는 Windows 컨테이너에 대해 제한 된 지원을 제공 합니다.
 
-Visual Studio 도구는 현재 Windows Server 1709 및 1803의 기본 OS 버전을 사용 하 여 Windows 컨테이너를 배포만 지원 합니다. 
+Visual Studio 도구는 현재 Windows Server 1709 및 1803의 기본 OS 버전을 사용 하는 Windows 컨테이너 배포만 지원 합니다. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>기능 차이 및 기타 알려진 문제
 
@@ -172,4 +169,4 @@ IP 주소를 즉시 사용할 수 없는 알려진 문제가 있습니다. 관�
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric Mesh에 대한 자세한 내용은 [개요](service-fabric-mesh-overview.md)를 참조하세요.
+Service Fabric 메시에 대해 자세히 알아보려면 [개요](service-fabric-mesh-overview.md)를 참조 하세요.

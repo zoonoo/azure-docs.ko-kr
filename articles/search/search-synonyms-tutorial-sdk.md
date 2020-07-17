@@ -1,50 +1,48 @@
 ---
-title: 동의어 C# 예제-Azure Search
-description: 이 C# 예제에서는 Azure Search에서 인덱스에 동의어 기능을 추가 하는 방법을 알아봅니다. 동의어 맵은 동일한 용어 목록입니다. 동의어를 지원하는 필드는 사용자가 제공한 용어 및 모든 관련 동의어를 포함하도록 쿼리를 확장합니다.
-manager: cgronlun
+title: '동의어 c # 예제'
+titleSuffix: Azure Cognitive Search
+description: '이 c # 예제에서는 Azure Cognitive Search에서 동의어 기능을 인덱스에 추가 하는 방법에 대해 알아봅니다. 동의어 맵은 동일한 용어 목록입니다. 동의어를 지원하는 필드는 사용자가 제공한 용어 및 모든 관련 동의어를 포함하도록 쿼리를 확장합니다.'
+manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025163"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079448"
 ---
-# <a name="example-add-synonyms-for-azure-search-in-c"></a>예제: C#에서 Azure Search에 대한 동의어 추가
+# <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>예: C에 Azure Cognitive Search에 대 한 동의어 추가 #
 
 동의어는 입력 용어와 의미상 동일하다고 간주되는 용어를 비교하여 쿼리를 확장합니다. 예를 들어 "car"를 "automobile" 또는 "vehicle"이라는 용어를 포함하는 문서와 비교합니다. 
 
-Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*을 통해 *동의어 맵*에 정의됩니다. 이 예제에서는 추가 및 기존 인덱스와 동의어를 사용 하기 위한 필수 단계를 다룹니다. 다음 방법에 대해 알아봅니다.
+Azure Cognitive Search에서 동의어는 동일한 용어를 연결 하는 *매핑 규칙* 을 통해 *동의어 맵에*정의 됩니다. 이 예에서는 기존 인덱스와 동의어를 추가 하 고 사용 하는 데 필요한 단계에 대해 설명 합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
-> * 사용 하 여 동의어 맵 합니다 [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) 클래스입니다. 
-> * 설정 된 [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) 동의어를 통해 쿼리 확장을 지원 해야 하는 필드의 속성입니다.
+> * [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) 클래스를 사용 하 여 동의어 맵을 만듭니다. 
+> * 동의어를 통해 쿼리 확장을 지원 해야 하는 필드에 대해 [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) 속성을 설정 합니다.
 
-평소 대로 동의어 지원 필드를 쿼리할 수 있습니다. 동의어에 액세스 하는 데 필요한 추가 쿼리 구문은 없습니다.
+일반적으로 동의어 사용 필드를 쿼리할 수 있습니다. 동의어에 액세스 하는 데 필요한 추가 쿼리 구문은 없습니다.
 
-여러 동의어 맵을 만들고 모든 인덱스에 사용할 수 있는 서비스 전반 리소스로 게시한 다음 필드 수준에서 사용할 용어를 참조합니다. Azure Search에서는 쿼리 시 인덱스를 검색하는 것 외에도 용어가 쿼리에서 사용되는 필드에 지정된 경우 동의어 맵에서 조회를 수행합니다.
+여러 동의어 맵을 만들고 모든 인덱스에 사용할 수 있는 서비스 전반 리소스로 게시한 다음 필드 수준에서 사용할 용어를 참조합니다. 쿼리에서 인덱스를 검색 하는 것 외에도, 쿼리에서 사용 되는 필드에 대해 지정 된 경우 Azure Cognitive Search는 동의어 맵에서 조회를 수행 합니다.
 
 > [!NOTE]
-> 동의어를 프로그래밍 방식으로 만들 수 있지만 포털에는 없습니다. 동의어에 대한 Azure Portal 지원이 사용자에게 유용한 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 피드백을 제공해 주세요.
+> 동의어는 프로그래밍 방식으로 만들 수 있지만 포털에서는 만들 수 없습니다. 동의어에 대한 Azure Portal 지원이 사용자에게 유용한 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 피드백을 제공해 주세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 자습서 요구 사항은 다음과 같습니다.
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Search 서비스](search-create-service-portal.md)
-* [Microsoft.Azure.Search .NET library](https://aka.ms/search-sdk)
-* [.NET 애플리케이션에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Azure Cognitive Search 서비스](search-create-service-portal.md)
+* [Microsoft.Azure.Search .NET library](https://docs.microsoft.com/dotnet/api/overview/azure/search)
+* [.NET 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>개요
 
-이전 및 이후 쿼리는 동의어의 가치를 설명합니다. 이 예제에서는 쿼리를 실행 하 고 샘플 인덱스에서 결과 반환 하는 샘플 응용 프로그램을 사용 합니다. 샘플 애플리케이션은 두 개의 문서로 채워진 "hotels"라는 작은 인덱스를 만듭니다. 애플리케이션은 인덱스에 나타나지 않는 조건 및 구를 사용하여 검색 쿼리를 실행하고 동의어 기능을 사용한 다음, 다시 동일한 검색을 실행합니다. 아래 코드에서는 전체 흐름을 보여 줍니다.
+이전 및 이후 쿼리는 동의어의 가치를 설명합니다. 이 예에서는 쿼리를 실행 하 고 샘플 인덱스에서 결과를 반환 하는 예제 응용 프로그램을 사용 합니다. 샘플 애플리케이션은 두 개의 문서로 채워진 "hotels"라는 작은 인덱스를 만듭니다. 애플리케이션은 인덱스에 나타나지 않는 조건 및 구를 사용하여 검색 쿼리를 실행하고 동의어 기능을 사용한 다음, 다시 동일한 검색을 실행합니다. 아래 코드에서는 전체 흐름을 보여 줍니다.
 
 ```csharp
   static void Main(string[] args)
@@ -78,7 +76,7 @@ Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*
       Console.ReadKey();
   }
 ```
-샘플 인덱스를 만들고 채우는 단계는 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)에서 설명됩니다.
+샘플 인덱스를 만들고 채우는 단계는 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)에 설명 되어 있습니다.
 
 ## <a name="before-queries"></a>"이전" 쿼리
 
@@ -129,7 +127,7 @@ no document matched
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
    ```
-   동의어 맵은 오픈 소스 표준 `solr` 형식에 따라야 합니다. 형식은 `Apache Solr synonym format` 섹션 아래의 [Azure Search의 동의어](search-synonyms.md)에서 설명됩니다.
+   동의어 맵은 오픈 소스 표준 `solr` 형식에 따라야 합니다. 이 형식에 대 한 설명은 [Azure Cognitive Search의 동의어](search-synonyms.md) 섹션에서 설명 `Apache Solr synonym format` 합니다.
 
 2. 인덱스 정의에서 동의어 맵을 사용하도록 검색 가능한 필드를 구성합니다. `EnableSynonymsInHotelsIndex`에서 `synonymMaps` 속성을 새로 업로드된 동의어 맵의 이름으로 설정하여 두 개의 필드인 `category` 및 `tags`에서 동의어를 사용합니다.
    ```csharp
@@ -163,18 +161,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 첫 번째 쿼리는 `five star=>luxury` 규칙에서 문서를 찾습니다. 두 번째 쿼리는 `internet,wifi`를 사용하여 검색을 확장하고 세 번째 쿼리는 일치하는 문서를 찾는 데 `hotel, motel` 및 `economy,inexpensive=>budget`을 모두 사용합니다.
 
-동의어를 추가하면 검색 환경이 완전히 변경됩니다. 이 예제에서는 원본 쿼리는 인덱스의 문서와 관련 된 경우에 의미 있는 결과 반환 하지 못했습니다. 동의어를 사용하여 인덱스의 기본 데이터를 변경하지 않고 일반적인 용도로 사용되는 용어를 포함하도록 인덱스를 확장할 수 있습니다.
+동의어를 추가하면 검색 환경이 완전히 변경됩니다. 이 예에서는 인덱스의 문서가 관련 된 경우에도 원래 쿼리에서 의미 있는 결과를 반환 하지 못했습니다. 동의어를 사용하여 인덱스의 기본 데이터를 변경하지 않고 일반적인 용도로 사용되는 용어를 포함하도록 인덱스를 확장할 수 있습니다.
 
 ## <a name="sample-application-source-code"></a>샘플 애플리케이션 소스 코드
 [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)에서 이 연습에 사용된 샘플 애플리케이션의 전체 소스 코드를 찾을 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-에 예제는 Azure Search 서비스를 포함 하는 리소스 그룹을 삭제 하 여 정리 하는 가장 빠른 방법입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
+예제 후 정리 하는 가장 빠른 방법은 Azure Cognitive Search 서비스를 포함 하는 리소스 그룹을 삭제 하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Cognitive Search 서비스의 개요 페이지에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 예제에서 동의어 기능을 보여 줍니다 C# 를 만들고 및 매핑 규칙을 게시 한 다음 쿼리에서 동의어 맵을 호출 하는 코드입니다. 추가 정보는 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 및 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 참조 설명서에서 찾을 수 있습니다.
+이 예제에서는 매핑 규칙을 만들어 게시 한 다음 쿼리에서 동의어 맵을 호출 하는 c # 코드의 동의어 기능을 보여 주었습니다. 추가 정보는 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 및 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 참조 설명서에서 찾을 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Search에서 동의어를 사용하는 방법](search-synonyms.md)
+> [Azure Cognitive Search에서 동의어를 사용 하는 방법](search-synonyms.md)

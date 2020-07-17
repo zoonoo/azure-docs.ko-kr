@@ -1,25 +1,25 @@
 ---
-title: Office 365 그룹에 대한 만료 정책 빠른 시작 - Azure Active Directory | Microsoft Docs
+title: 그룹 만료 정책 빠른 시작 - Azure AD | Microsoft Docs
 description: Office 365 그룹의 만료 - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 616910eda33b3ddc49fa6233ccb3989c5e4214e2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199310"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582853"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 Office 365 그룹이 만료되도록 설정
 
@@ -27,19 +27,23 @@ ms.locfileid: "58199310"
 
 만료 정책은 간단합니다.
 
-* 그룹 소유자에게는 곧 만료될 그룹을 갱신하라는 알림이 제공됩니다.
-* 갱신하지 않은 그룹은 삭제됩니다.
-* 삭제된 Office 365 그룹은 30일 내에 그룹 소유자 또는 Azure AD 관리자가 복원할 수 있습니다.
+- 만료가 다가올 때 사용자 활동이 있는 그룹이 자동으로 갱신됩니다.
+- 그룹 소유자에게는 곧 만료될 그룹을 갱신하라는 알림이 제공됩니다.
+- 갱신하지 않은 그룹은 삭제됩니다.
+- 삭제된 Office 365 그룹은 30일 내에 그룹 소유자 또는 Azure AD 관리자가 복원할 수 있습니다.
+
+> [!NOTE]
+> 이제 그룹은 Azure AD 인텔리전스를 사용하여 최근에 사용되었는지 여부에 따라 자동으로 갱신됩니다. 이러한 갱신 결정은 Outlook, SharePoint, Teams, Yammer 등의 Office 365 서비스에 있는 그룹의 사용자 활동을 기준으로 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
-그룹 만료를 설정하려면 조직의 글로벌 관리자 또는 사용자 관리자여야 합니다.
+ 그룹 만료 설정에 필요한 최소 권한 역할은 조직의 사용자 관리자입니다.
 
 ## <a name="turn-on-user-creation-for-groups"></a>그룹에 대한 사용자 만들기 기능 켜기
 
-1. 조직의 글로벌 관리자 또는 사용자 관리자인 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 사용자 관리자 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **그룹**을 선택한 다음, **일반**을 선택합니다.
   
@@ -69,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="to-remove-the-expiration-policy"></a>만료 정책을 제거하려면
 
-1. 해당 테넌트의 글로벌 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure AD 조직의 글로벌 관리자 계정으로 [Azure Portal](https://portal.azure.com)에 로그인했는지 확인합니다.
 2. **Azure Active Directory** > **그룹** > **만료**를 선택합니다.
 3. **이러한 Office 365 그룹에 만료 사용**을 **없음**으로 설정합니다.
 
@@ -80,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-기술 제약 조건을 포함한 만료, 사용자 지정 차단 단어를 추가하는 방법, Office 365 앱의 최종 사용자 환경에 대한 자세한 내용은 만료 정책에 대해 자세히 설명하는 다음 문서를 참조하세요.
+PowerShell 지침 및 기술 제약 조건을 포함한 만료에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [만료 정책 모든 세부 정보](groups-lifecycle.md)
+> [만료 정책 PowerShell](groups-lifecycle.md)

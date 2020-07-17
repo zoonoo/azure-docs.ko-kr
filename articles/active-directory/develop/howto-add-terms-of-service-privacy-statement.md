@@ -1,30 +1,25 @@
 ---
-title: 앱에 대 한 서비스 및 개인정보취급방침 약관 | Azure
+title: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 | Microsoft
 description: Azure AD를 사용하도록 등록된 앱의 서비스 약관 및 개인정보처리방침을 구성하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
-ms.reviwer: lenalepa, sureshja
+ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478011"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 및 개인정보취급방침 조건 구성
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 구성
 
 Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌드하고 관리하는 개발자는 앱의 서비스 약관 및 개인정보처리방침에 대한 링크를 포함해야 합니다. 서비스 약관 및 개인정보처리방침은 사용자 동의 환경을 통해 사용자에게 표시됩니다. 서비스 약관 및 개인정보처리방침은 사용자가 앱을 믿고 사용할 수 있게 도와줍니다. 서비스 약관 및 개인정보처리방침은 여러 디렉터리에서 사용되거나 모든 Microsoft 계정에 제공되는 사용자용 다중 테넌트 앱에서 특히 중요합니다.
 
@@ -46,7 +41,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 
 | 지침     | 설명                           |
 |---------------|---------------------------------------|
-| 형식        | 유효한 URL                             |
+| 서식        | 유효한 URL                             |
 | 유효한 스키마 | HTTP 및 HTTPS<br/>HTTPS 권장 |
 | 최대 길이    | 2048자                       |
 
@@ -56,35 +51,22 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 
 서비스 약관 및 개인정보처리방침이 준비되면 다음 방법 중 하나를 사용하여 앱에 이러한 문서의 링크를 추가할 수 있습니다.
 
-* [Azure Portal을 통해](#registered-in-azure-portal)
-* [애플리케이션 등록 포털 또는 개발자 센터에서](#registered-in-app-reg-portal)
+* [Azure Portal](#azure-portal)
 * [앱 개체 JSON을 사용하여](#app-object-json)
-* [MSGraph 베타 REST API를 사용하여](#msgraph-beta-rest-api)
+* [Microsoft Graph API 사용](#msgraph-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Azure Portal에서 앱을 등록한 경우
-
-Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Azure Portal 사용
+Azure Portal에서 다음 단계를 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
-3. 앱의 **속성** 섹션을 엽니다.
+3. **브랜딩** 창을 엽니다.
 4. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 5. 변경 내용을 저장합니다.
 
-    ![서비스 약관 및 개인정보처리방침 URL이 있는 앱 속성 섹션](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![앱 속성에는 서비스 약관 및 개인정보 처리 방침 Url이 포함 됩니다.](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
-### <a name="registered-in-app-reg-portal"></a>애플리케이션 등록 포털에서 앱을 등록한 경우
-
-애플리케이션 등록 포털 또는 개발자 센터에서 앱을 등록한 경우 다음 단계를 수행합니다.
-
-1. [애플리케이션 등록 포털](https://apps.dev.microsoft.com/)에 로그인합니다.
-2. 앱을 선택하고 **프로필** 섹션으로 스크롤합니다.
-3. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
-4. 변경 내용을 저장합니다.
-
-    ![서비스 약관 및 개인정보처리방침 URL이 있는 앱 프로필 섹션](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
-
-### <a name="app-object-json"></a>앱 개체 JSON을 사용하여
+### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>앱 개체 JSON을 사용하여
 
 앱 개체 JSON을 직접 수정하는 것을 선호하는 경우 Azure Portal 또는 애플리케이션 등록 포털에서 매니페스트 편집기를 사용하여 앱의 서비스 약관 및 개인정보처리방침 링크를 포함할 수 있습니다.
 
@@ -95,12 +77,12 @@ Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
     }
 ```
 
-### <a name="msgraph-beta-rest-api"></a>MSGraph 베타 REST API를 사용하여
+### <a name="using-the-microsoft-graph-api"></a><a name="msgraph-rest-api"></a>Microsoft Graph API 사용
 
-프로그래밍 방식으로 모든 앱을 업데이트하려면 MSGraph 베타 REST API를 사용하여 서비스 약관 및 개인정보처리방침 문서 링크를 포함하도록 모든 앱을 업데이트하면 됩니다.
+모든 앱을 프로그래밍 방식으로 업데이트 하려면 Microsoft Graph API를 사용 하 여 모든 앱을 업데이트 하 여 서비스 약관 및 개인정보 처리 방침 문서에 대 한 링크를 포함 합니다.
 
 ```
-PATCH https://graph.microsoft.com/beta/applications/{application id}
+PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 { 
     "appId": "{your application id}", 
     "info": { 
@@ -115,4 +97,4 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 
 > [!NOTE]
 > * `supportUrl`, `marketingUrl` 및 `logoUrl` 필드에 할당된 기존 값을 덮어쓰지 않도록 주의해야 합니다.
-> * MSGraph 베타 REST API는 Azure AD 계정으로 로그인하는 경우에만 작동합니다. 개인 Microsoft 계정은 지원되지 않습니다.
+> * Microsoft Graph API는 Azure AD 계정으로 로그인 하는 경우에만 작동 합니다. 개인 Microsoft 계정은 지원되지 않습니다.

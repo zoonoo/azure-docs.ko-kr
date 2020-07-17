@@ -5,16 +5,25 @@
     - name: Azure Firewall이란?
       href: overview.md
 - name: 자습서
-  expanded: true
   items:
     - name: 배포 및 구성
       href: tutorial-firewall-deploy-portal.md
     - name: 하이브리드 네트워크에 배포
-      href: tutorial-hybrid-ps.md
+      href: tutorial-hybrid-portal.md
     - name: DNAT를 사용하여 인바운드 트래픽 필터링
       href: tutorial-firewall-dnat.md
-    - name: 진단 로그 모니터링
-      href: tutorial-diagnostics.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: IP 그룹을 사용하여 배포 - ARM 템플릿
+      displayName: Resource Manager
+      href: quick-create-ipgroup-template.md
+    - name: 여러 주소를 사용하여 배포 - ARM 템플릿
+      displayName: Resource Manager
+      href: quick-create-multiple-ip-template.md
+    - name: 가용성 영역을 사용하여 배포 - ARM 템플릿
+      displayName: Resource Manager
+      href: deploy-template.md
 - name: 샘플
   items:
     - name: Azure PowerShell
@@ -23,6 +32,8 @@
       href: log-analytics-samples.md
 - name: 개념
   items:
+    - name: Azure Firewall 기능
+      href: features.md
     - name: FQDN 태그
       href: fqdn-tags.md
     - name: 인프라 FQDN
@@ -35,23 +46,55 @@
       href: rule-processing.md
     - name: 서비스 태그
       href: service-tags.md
+    - name: IP 그룹
+      href: ip-groups.md
+    - name: 강제 터널링
+      href: forced-tunneling.md
+    - name: 인증서
+      href: compliance-certifications.md
+    - name: 중앙 관리
+      href: central-management.md
+    - name: 원격 작업 지원
+      href: remote-work-support.md
+    - name: 네트워크 규칙의 FQDN
+      href: fqdn-filtering-network-rules.md
 - name: 방법 가이드
   items:
     - name: Azure PowerShell을 사용하여 배포
       href: deploy-ps.md
-    - name: 템플릿을 사용하여 배포
-      href: deploy-template.md
+    - name: 하이브리드 네트워크에 배포 - PowerShell
+      href: tutorial-hybrid-ps.md
+    - name: Azure CLI를 사용하여 배포
+      href: deploy-cli.md
+    - name: 여러 공용 IP를 사용하여 배포
+      href: deploy-multi-public-ip-powershell.md
+    - name: 가용성 영역을 사용하여 배포
+      href: deploy-availability-zone-powershell.md
     - name: 부하 분산 장치와 통합
       href: integrate-lb.md
-- name: 참고 자료
+    - name: SQL FQDN을 사용한 애플리케이션 규칙
+      href: sql-fqdn-filtering.md
+    - name: SNAT 프라이빗 범위
+      href: snat-private-range.md
+    - name: IP 그룹 만들기
+      href: create-ip-group.md
+    - name: Windows Virtual Desktop 보호
+      href: protect-windows-virtual-desktop.md
+    - name: AKS(Azure Kubernetes Service) 보호
+      href: protect-azure-kubernetes-service.md
+    - name: DNS 설정
+      href: dns-settings.md
+    - name: 진단 로그 모니터링
+      href: firewall-diagnostics.md
+- name: 참조
   items:
     - name: Azure CLI
-      href: /cli/azure/network
+      href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET
       href: /dotnet/api
-    - name: 자바
+    - name: Java
       href: /java/api
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
@@ -60,18 +103,18 @@
     - name: REST (영문)
       href: /rest/api/firewall
     - name: Azure 리소스 관리자
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:
     - name: FAQ
       href: firewall-faq.md
     - name: 작성자 템플릿
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

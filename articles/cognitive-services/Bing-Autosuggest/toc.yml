@@ -1,5 +1,5 @@
 - name: Bing Autosuggest 설명서
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: 개요
   items:
     - name: Bing Autosuggest란?
@@ -7,21 +7,27 @@
     - name: Bing Search API 비교
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: REST API 빠른 시작
+- name: 빠른 시작
   expanded: true
   items:
-    - name: 'C#'
-      href: quickstarts/csharp.md
-    - name: 자바
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
+    - name: REST API
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+    - name: 클라이언트 라이브러리
+      items:
+        - name: Bing Autosuggest 클라이언트 라이브러리
+          href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 단일 페이지 웹앱
@@ -36,26 +42,28 @@
       href: concepts/get-suggestions.md
     - name: 요청 보내기
       href: concepts/sending-requests.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Autosuggest API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference'
     - name: Bing Autosuggest API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference'
     - name: SDK
       items:
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet'
-        - name: 자바
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable'
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest'
     - name: 사용 및 표시 요구 사항
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true
 - name: 리소스
   items:
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'
@@ -71,7 +79,10 @@
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api'
     - name: 사용해 보세요.
       href: 'https://azure.microsoft.com/services/cognitive-services/autosuggest/'
-    - name: 언어 및 지역 지원
+    - name: 언어 지원
       href: language-support.md
     - name: Bing Autosuggest API에 대한 분석
-      href: bing-autosuggest-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

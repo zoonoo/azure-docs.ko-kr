@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL로 최소 가동 중지 시간 마이그레이션
-description: 이 문서에서는 Azure Database Migration Service를 사용하여 Azure Database for PostgreSQL로 PostgreSQL 데이터베이스의 최소 가동 중지 시간 마이그레이션을 수행하는 방법을 설명합니다.
+title: Azure Database for PostgreSQL 단일 서버에 대 한 최소 가동 중지 시간 마이그레이션
+description: 이 문서에서는 Azure Database Migration Service를 사용 하 여 PostgreSQL Azure Database for PostgreSQL 데이터베이스에 대 한 최소 가동 중지 시간 마이그레이션을 수행 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: ceb64781dc7e5243f785ad239c24e5f21b0481ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: how-to
+ms.date: 5/6/2019
+ms.openlocfilehash: 0b7c6392fbd795a078e9ec8f61281d95cf6363bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421231"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112394"
 ---
-# <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Azure Database for PostgreSQL로 최소 가동 중지 시간 마이그레이션
+# <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 최소 가동 중지 시간 마이그레이션
 새로 도입된 [Azure Database Migration Service](https://aka.ms/get-dms)(DMS)에 대한 **지속적인 동기화 기능**을 사용하여 최소 가동 중지 시간으로 Azure Database for PostgreSQL로 PostgreSQL 마이그레이션을 수행할 수 있습니다. 이 기능은 애플리케이션에서 발생하는 가동 중지 시간을 제한합니다.
 
 ## <a name="overview"></a>개요

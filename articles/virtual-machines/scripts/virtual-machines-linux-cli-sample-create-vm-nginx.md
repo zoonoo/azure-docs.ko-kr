@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - NGINX를 사용하여 Linux VM 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - NGINX를 사용하여 Linux VM 만들기
 description: Azure CLI 스크립트 샘플 - NGINX를 사용하여 Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -16,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5aa682af11744389739a539e900924ed93a3bbd6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4cea4fa293083298858a775eff01b9acf17d6c7c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691153"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81458622"
 ---
 # <a name="create-a-vm-with-nginx"></a>NGINX를 사용하여 VM 만들기
 
-이 스크립트는 Azure Virtual Machine을 만들고 Azure Virtual Machine 사용자 지정 스크립트 확장을 사용하여 NGINX를 설치합니다. 스크립트를 실행하면 가상 컴퓨터의 공용 IP 주소에서 데모 웹 사이트에 액세스할 수 있습니다.
+이 스크립트는 Azure Virtual Machine을 만들고 Azure Virtual Machine 사용자 지정 스크립트 확장을 사용하여 NGINX를 설치합니다. 스크립트를 실행하면 가상 머신의 공용 IP 주소에서 데모 웹 사이트에 액세스할 수 있습니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

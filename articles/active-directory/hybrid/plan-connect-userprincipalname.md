@@ -10,12 +10,11 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81680034"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
 
@@ -25,7 +24,7 @@ UserPrincipalName 특성 값은 사용자 계정에 대한 Azure AD 사용자 �
 ## <a name="upn-terminology"></a>UPN 용어
 이 문서에서는 다음과 같은 용어가 사용됩니다.
 
-|용어|설명|
+|용어|Description|
 |-----|-----|
 |초기 도메인|Azure AD 테넌트의 기본 도메인(onmicrosoft.com)입니다. 예: contoso.onmicrosoft.com.|
 |MOERA(Microsoft 온라인 전자 메일 라우팅 주소)|Azure AD에서는 Azure AD MailNickName 특성 및 Azure AD 초기 도메인의 MOERA를 &lt;MailNickName&gt;&#64;&lt; 초기 도메인&gt;으로 계산합니다.|
@@ -52,7 +51,7 @@ UPN은 사용자가 로그인할 수 있도록 하기 위해 Azure AD에서 사�
 
 대체 로그인 ID를 사용하면 사용자가 UPN 이외의 특성(예: 메일)을 사용하여 로그인할 수 있는 로그인 환경을 구성할 수 있습니다.
 
-Azure AD에서 대체 로그인 ID를 사용하도록 설정하기 위해 Azure AD Connect를 사용할 때 추가 구성 단계가 필요하지 않습니다. 마법사에서 직접 대체 ID를 구성할 수 있습니다. 동기화 섹션 아래에서 사용자에 대한 Azure AD 로그인 구성을 확인하세요. **사용자 계정 이름** 드롭다운에서 대체 로그인 ID에 대한 특성을 선택합니다.
+Azure AD에서 대체 로그인 ID를 사용하도록 설정하기 위해 Azure AD Connect를 사용할 때 추가 구성 단계가 필요하지 않습니다. 마법사에서 직접 대체 ID를 구성할 수 있습니다. 동기화 섹션에서 사용자에 대 한 Azure AD 로그인 구성을 참조 하세요. **사용자 계정 이름** 드롭다운 아래에서 대체 로그인 ID에 대 한 특성을 선택 합니다.
 
 ![확인되지 않은 도메인](./media/plan-connect-userprincipalname/altloginid.png)  
 
@@ -93,7 +92,7 @@ Azure AD UserPrincipalName 특성 값이 MOERA로 설정될 수 있으므로 MOE
 - mailNickName      : &lt;not set&gt;
 - proxyAddresses        : {SMTP:us1@contoso.com}
 - mail          : us2@contoso.com
-- userPrincipalName : us3@contoso.com`
+- userPrincipalName : us3@contoso.com
 
 사용자 개체를 처음으로 Azure AD 테넌트와 동기화
 - Azure AD MailNickName 특성을 기본 SMTP 주소 접두사로 설정합니다.

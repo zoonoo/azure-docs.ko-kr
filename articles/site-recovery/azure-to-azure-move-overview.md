@@ -1,34 +1,23 @@
 ---
-title: Azure Site Recovery 서비스를 사용하여 다른 Azure 지역으로 Azure IaaS VM 이동 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS VM을 이동합니다.
-services: site-recovery
+title: Azure Site Recovery를 사용하여 Azure VM을 다른 지역으로 이동
+description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure VM을 이동합니다.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078009"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130627"
 ---
-# <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
+# <a name="moving-azure-vms-to-another-azure-region"></a>다른 Azure 지역으로 Azure VM 이동
 
-Azure는 고객 기반과 더불어 성장하고 있으며 증가하는 요구에 맞춰 새로운 지역에 대한 지원을 추가하고 있습니다. 서비스 전반에 걸쳐 매월 새로운 기능도 추가됩니다. 가용성을 높이려면 VM(가상 머신)을 다른 지역이나 가용 영역으로 이동하는 것이 좋습니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure VM을 다른 Azure 지역으로 이동하는 데 필요한 이유와 단계에 대한 개요를 제공합니다. 
 
-이 자습서에서는 VM을 이동해야 하는 다양한 시나리오에 대해 설명합니다. 가용성을 높이기 위해 대상 지역에서 아키텍처를 구성하는 방법에 대해서도 설명합니다. 
-
-이 자습서에서는 다음 사항에 대해 알아봅니다.
-
-> [!div class="checklist"]
-> 
-> * VM을 이동하는 이유
-> * 일반적인 아키텍처
-> * VM을 대상 지역에 그대로 이동
-> * VM을 이동하여 가용성 향상
 
 ## <a name="reasons-to-move-azure-vms"></a>Azure VM을 이동하는 이유
 
@@ -62,11 +51,11 @@ VM을 이동하려면 다음 단계를 수행해야 합니다.
 
      ![여러 계층에 단일 인스턴스 VM 배포](media/move-vm-overview/regular-deployment.png)
 
-* **가용성 집합에 배포되는 각 계층의 VM**: 계층의 각 VM은 가용성 집합으로 구성됩니다. [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)을 사용하면 Azure에 배포한 VM이 클러스터의 격리된 여러 하드웨어 노드에 분산되도록 할 수 있습니다. 이렇게 하면 Azure 내의 하드웨어 또는 소프트웨어에 장애가 발생해도 VM의 하위 세트만 영향을 받고 전반적인 솔루션은 사용 가능한 작동 상태를 유지할 수 있습니다.
+* **가용성 집합에 배포되는 각 계층의 VM**: 계층의 각 VM은 가용성 집합으로 구성됩니다. [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)을 사용하면 Azure에 배포한 VM이 클러스터의 격리된 여러 하드웨어 노드에 분산되도록 할 수 있습니다. 이렇게 하면 Azure 내의 하드웨어 또는 소프트웨어에 장애가 발생해도 VM의 하위 세트만 영향을 받고 전반적인 솔루션은 사용 가능한 작동 상태를 유지할 수 있습니다.
 
      ![가용성 집합 전반에 VM 배포](media/move-vm-overview/avset.png)
 
-* **가용성 영역 전반에 배포되는 각 계층의 VM**: 계층의 각 VM은 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에서 구성됩니다. Azure 지역의 가용성 영역은 장애 도메인과 업데이트 도메인의 조합입니다. 예를 들어 Azure 지역의 3개 영역에 VM을 3개 이상 만들면 장애 도메인 3개와 업데이트 도메인 3개에 VM이 효과적으로 분산됩니다. Azure 플랫폼은 업데이트 도메인에 분산된 VM을 인식하여 다른 영역에 있는 VM이 동시에 업데이트되지 않게 합니다.
+* **가용성 영역 전반에 배포되는 각 계층의 VM**: 계층의 각 VM은 [가용성 영역](../availability-zones/az-overview.md)에서 구성됩니다. Azure 지역의 가용성 영역은 장애 도메인과 업데이트 도메인의 조합입니다. 예를 들어 Azure 지역의 3개 영역에 VM을 3개 이상 만들면 장애 도메인 3개와 업데이트 도메인 3개에 VM이 효과적으로 분산됩니다. Azure 플랫폼은 업데이트 도메인에 분산된 VM을 인식하여 다른 영역에 있는 VM이 동시에 업데이트되지 않게 합니다.
 
      ![가용성 영역 배포](media/move-vm-overview/zone.png)
 
@@ -92,7 +81,7 @@ VM을 이동하려면 다음 단계를 수행해야 합니다.
 
      ![여러 계층에 단일 인스턴스 VM 배포](media/move-vm-overview/single-zone.png)
 
-* **가용성 집합에 배포되는 각 계층의 VM**: Azure Site Recovery를 사용하여 VM에 대한 복제를 사용하도록 설정하면 가용성 집합의 VM을 별도의 가용성 영역으로 구성할 수 있습니다. 이동 작업이 완료된 후 가용성 SLA는 99.9%가 됩니다.
+* **가용성 집합에 배포되는 각 계층의 VM**: Azure Site Recovery를 사용하여 VM에 대한 복제를 사용하도록 설정하면 가용성 집합의 VM을 별도의 가용성 영역으로 구성할 수 있습니다. 이동 작업이 완료된 후 가용성 SLA는 99.99%가 됩니다.
 
      ![가용성 집합 및 가용성 영역 전반에 VM 배포](media/move-vm-overview/aset-azone.png)
 

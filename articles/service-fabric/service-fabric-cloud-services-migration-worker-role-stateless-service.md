@@ -1,25 +1,15 @@
 ---
-title: Azure Cloud Services 앱을 Service Fabric으로 변환 | Microsoft Docs
+title: Azure Cloud Services apps를 Service Fabric으로 변환
 description: 이 가이드에서는 Cloud Services에서 서비스 패브릭으로 마이그레이션할 수 있도록 Cloud Services 웹과 작업자 역할 및 서비스 패브릭 상태 비저장 서비스를 비교합니다.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75463332"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
 이 문서에서는 Cloud Services 웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 마이그레이션하는 방법을 설명합니다. Cloud Services에서 전반적인 아키텍처를 대략적으로 동일하게 유지하는 애플리케이션에 대한 Service Fabric으로의 가장 간단한 마이그레이션 경로입니다.
@@ -32,7 +22,7 @@ ms.locfileid: "62110012"
 ![서비스 패브릭 및 Cloud Services 프로젝트 비교][3]
 
 ## <a name="worker-role-to-stateless-service"></a>작업자 역할에서 상태 비저장 서비스
-개념적으로 작업자 역할은 모든 작업 인스턴스는 동일하고 언제든지 인스턴스에 요청을 라우팅할 수 있음을 의미하는 상태 비저장 작업을 나타냅니다. 각 인스턴스는 이전 요청을 기억하지 않습니다. 작업이 작동 중인 상태는 Azure Table Storage 또는 Azure Document DB와 같은 외부 상태 저장소에서 관리됩니다. 서비스 패브릭에서 이러한 유형의 작업은 상태 비저장 서비스에 의해 표시됩니다. 작업자 역할을 서비스 패브릭으로 마이그레이션하는 가장 간단한 방법은 작업자 역할 코드를 상태 비저장 서비스로 변환하여 수행할 수 있습니다.
+개념적으로 작업자 역할은 모든 작업 인스턴스는 동일하고 언제든지 인스턴스에 요청을 라우팅할 수 있음을 의미하는 상태 비저장 작업을 나타냅니다. 각 인스턴스는 이전 요청을 기억하지 않습니다. 작업이 수행 되는 상태는 Azure Table Storage 또는 Azure Cosmos DB와 같은 외부 상태 저장소를 통해 관리 됩니다. 서비스 패브릭에서 이러한 유형의 작업은 상태 비저장 서비스에 의해 표시됩니다. 작업자 역할을 서비스 패브릭으로 마이그레이션하는 가장 간단한 방법은 작업자 역할 코드를 상태 비저장 서비스로 변환하여 수행할 수 있습니다.
 
 ![작업자 역할에서 상태 비저장 서비스][4]
 
@@ -41,20 +31,20 @@ ms.locfileid: "62110012"
 
 | **애플리케이션** | **지원됨** | **마이그레이션 경로** |
 | --- | --- | --- |
-| ASP.NET 웹 양식 |아닙니다. |ASP.NET Core 1 MVC로 변환 |
+| ASP.NET 웹 양식 |아니요 |ASP.NET Core 1 MVC로 변환 |
 | ASP.NET MVC |마이그레이션 사용 |ASP.NET Core 1 MVC로 업그레이드 |
 | ASP.NET Web API |마이그레이션 사용 |자체 호스팅된 서버 또는 ASP.NET Core 1 사용 |
-| ASP.NET Core 1 |예 |N/A |
+| ASP.NET Core 1 |예 |해당 없음 |
 
 ## <a name="entry-point-api-and-lifecycle"></a>진입점 API 및 수명 주기
 작업자 역할 및 Service Fabric 서비스 API는 비슷한 진입점을 제공합니다. 
 
-| **진입점** | **작업자 역할** | **서비스 패브릭 서비스** |
+| **진입점** | **작업자 역할** | **Service Fabric 서비스** |
 | --- | --- | --- |
 | 처리 중 |`Run()` |`RunAsync()` |
-| VM 시작 |`OnStart()` |N/A |
-| VM 중지 |`OnStop()` |N/A |
-| 클라이언트 요청에 대한 수신기 열기 |N/A |<ul><li> 상태 비저장인 경우 `CreateServiceInstanceListener()`</li><li>상태 저장인 경우 `CreateServiceReplicaListener()`</li></ul> |
+| VM 시작 |`OnStart()` |해당 없음 |
+| VM 중지 |`OnStop()` |해당 없음 |
+| 클라이언트 요청에 대한 수신기 열기 |해당 없음 |<ul><li> 상태 비저장인 경우 `CreateServiceInstanceListener()`</li><li>상태 저장인 경우 `CreateServiceReplicaListener()`</li></ul> |
 
 ### <a name="worker-role"></a>작업자 역할
 ```csharp
@@ -110,8 +100,8 @@ namespace Stateless1
 
 작업자 역할 및 서비스 패브릭 서비스의 수명 주기 및 수명 간에는 몇 가지 주요 차이점이 있습니다.
 
-* **수명 주기:** 가장 큰 차이점은 작업자 역할은 VM의 수명 주기 VM 시작 및 중지 시기에 대 한 이벤트를 포함 하는 VM에 연결 되어 있으므로. 서비스 패브릭 서비스는 VM 수명 주기와 별개의 수명 주기를 가지므로 관련되지 않으므로 호스트 VM 또는 컴퓨터의 시작 및 중지 시기에 대한 이벤트를 포함하지 않습니다.
-* **수명:** 작업자 역할 인스턴스를 재활용 하는 경우는 `Run` 메서드 종료 됩니다. 하지만 서비스 패브릭 서비스의 `RunAsync` 메서드는 완료될 때까지 실행할 수 있고 서비스 인스턴스는 제공됩니다. 
+* **수명 주기:** 가장 큰 차이점은 작업자 역할은 VM이므로 해당 수명 주기는 VM의 시작 및 중지 시기에 대한 이벤트를 포함하는 VM에 연결되어 있다는 점입니다. 서비스 패브릭 서비스는 VM 수명 주기와 별개의 수명 주기를 가지므로 관련되지 않으므로 호스트 VM 또는 컴퓨터의 시작 및 중지 시기에 대한 이벤트를 포함하지 않습니다.
+* **수명:**`Run` 메서드가 종료되는 경우 작업자 역할 인스턴스는 재활용됩니다. 하지만 서비스 패브릭 서비스의 `RunAsync` 메서드는 완료될 때까지 실행할 수 있고 서비스 인스턴스는 제공됩니다. 
 
 서비스 패브릭은 클라이언트 요청을 수신 대기하는 서비스에 대한 선택적 통신 설정 진입점을 제공합니다. RunAsync와 통신 진입점은 서비스 패브릭 서비스에서 선택적 재정의입니다. 서비스는 클라이언트 요청을 수신 대기하거나 처리 루프를 실행하거나 둘 다 수행하도록 선택할 수 있습니다. 클라이언트 요청을 계속해서 수신 대기할 수 있기 때문에 RunAsync 메서드가 서비스 인스턴스를 다시 시작하지 않고 종료하도록 허용되는 것은 이 때문입니다.
 
@@ -121,10 +111,10 @@ Cloud Services 환경 API는 현재 VM 인스턴스에 대한 정보 및 기능 
 | **환경 작업** | **Cloud Services** | **Service Fabric** |
 | --- | --- | --- |
 | 구성 설정 및 변경 알림 |`RoleEnvironment` |`CodePackageActivationContext` |
-| 로컬 저장소 |`RoleEnvironment` |`CodePackageActivationContext` |
+| 로컬 스토리지 |`RoleEnvironment` |`CodePackageActivationContext` |
 | 엔드포인트 정보 |`RoleInstance` <ul><li>현재 인스턴스: `RoleEnvironment.CurrentRoleInstance`</li><li>다른 역할 및 인스턴스: `RoleEnvironment.Roles`</li> |<ul><li>현재 노드 주소의 경우 `NodeContext`</li><li>서비스 엔드포인트 검색의 경우 `FabricClient` 및 `ServicePartitionResolver`</li> |
-| 환경 에뮬레이션 |`RoleEnvironment.IsEmulated` |N/A |
-| 동시 변경 이벤트 |`RoleEnvironment` |N/A |
+| 환경 에뮬레이션 |`RoleEnvironment.IsEmulated` |해당 없음 |
+| 동시 변경 이벤트 |`RoleEnvironment` |해당 없음 |
 
 ## <a name="configuration-settings"></a>구성 설정
 Cloud Services의 구성 설정은 VM 역할에 대해 설정되고 해당 VM 역할의 모든 인스턴스에 적용합니다. 이러한 설정은 ServiceConfiguration.*.cscfg 파일에서 설정된 키-값 쌍이며 RoleEnvironment를 통해 직접 액세스할 수 있습니다. Service Fabric에서 VM은 여러 서비스 및 애플리케이션을 호스팅할 수 있으므로 설정은 VM이 아닌 각 서비스 및 각 애플리케이션에 개별적으로 적용됩니다. 서비스는 세 가지 패키지로 구성됩니다.

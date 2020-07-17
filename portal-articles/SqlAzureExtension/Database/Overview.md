@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 04/09/2019
 ms.author: ninarn
-ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d4f0c50f57661576f97ddd3772d78b9fa293153
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61244462"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040523"
 ---
 # <a name="sql-database-documentation"></a>SQL Database 설명서
 
@@ -29,7 +29,7 @@ Azure에서 SQL Database를 사용하면 Azure Portal, Azure CLI 및 Azure Power
 
 ## <a name="step-by-step-tutorials"></a>단계별 자습서
 
-SQL DB를 사용하여 데이터베이스를 만들고 관리하며 마이그레이션하는 방법을 알아봅니다.
+SQL Database를 사용하여 데이터베이스를 만들고, 관리하며, 마이그레이션하는 방법을 알아봅니다.
 
 - 빠른 시작 가이드를 사용하여 [단일 데이터베이스](/azure/sql-database/sql-database-single-database-quickstart-guide) 시작
 - [SSMS](/azure/sql-database/sql-database-design-first-database) 또는 [.NET](/azure/sql-database/sql-database-design-first-database-csharp)을 사용하여 새 단일 데이터베이스에 대한 스키마 만들기 및 설계

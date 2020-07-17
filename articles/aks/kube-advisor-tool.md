@@ -1,18 +1,18 @@
 ---
-title: 모범 사례 구현을 위해 Azure에서 Kubernetes 배포 확인
+title: 모범 사례에 대한 배포 확인
+titleSuffix: Azure Kubernetes Service
 description: kube-advisor를 사용하여 Azure Kubernetes Service에 대한 배포의 모범 사례 구현을 확인하는 방법 알아보기
 services: container-service
 author: seanmck
-ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073768"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255254"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>클러스터에서 Kubernetes 모범 사례 확인
 
@@ -22,19 +22,19 @@ ms.locfileid: "65073768"
 
 [kube-advisor 도구][kube-advisor-github]는 클러스터에서 실행되도록 설계된 단일 컨테이너입니다. Kubernetes API 서버에 배포에 대한 정보를 쿼리하여 제안된 개선 사항 집합을 반환합니다.
 
-Kube-관리자 도구 리소스 요청과 PodSpecs에 대 한 Windows 응용 프로그램 뿐만 아니라 Linux 응용 프로그램에서 누락 된 제한에 대해 보고할 수 있지만 kube-관리자 도구 자체 Linux pod에서 예약 해야 합니다. Pod를 사용 하 여 특정 OS를 사용 하 여 노드 풀에서 실행 되도록 예약할 수 있습니다는 [노드 선택기] [ k8s-node-selector] pod 구성에서 합니다.
+Kube-advisor 도구는 Linux 애플리케이션뿐만 아니라 Windows 애플리케이션용 PodSpecs에서 누락된 리소스 요청 및 제한에 대해 보고할 수 있지만 kube-advisor 도구 자체는 Linux Pod에서 예약해야 합니다. Pod의 구성에서 [노드 선택기][k8s-node-selector]를 사용하여 특정 OS가 있는 노드 풀에서 실행되도록 Pod를 예약할 수 있습니다.
 
 > [!NOTE]
 > kube-advisor 도구는 최상의 노력을 기준으로 Microsoft에서 지원됩니다. 문제와 제안은 GitHub에 제출해야 합니다.
 
 ## <a name="running-kube-advisor"></a>kube-advisor 실행
 
-[RBAC(역할 기반 액세스 제어)](azure-ad-integration.md)용으로 구성된 클러스터에서 도구를 실행하려면 다음 명령을 사용합니다. 첫 번째 명령은 Kubernetes 서비스 계정을 만듭니다. 두 번째 명령은 이 서비스 계정을 사용하여 Pod에서 도구를 실행하고 종료 후 Pod를 삭제하도록 구성합니다. 
+[RBAC(역할 기반 액세스 제어)](./azure-ad-integration-cli.md)용으로 구성된 클러스터에서 도구를 실행하려면 다음 명령을 사용합니다. 첫 번째 명령은 Kubernetes 서비스 계정을 만듭니다. 두 번째 명령은 이 서비스 계정을 사용하여 Pod에서 도구를 실행하고 종료 후 Pod를 삭제하도록 구성합니다. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 
-kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
+kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
 RBAC를 사용하지 않는 경우 다음과 같이 명령을 실행할 수 있습니다.

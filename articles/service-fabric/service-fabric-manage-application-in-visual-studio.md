@@ -1,26 +1,15 @@
 ---
-title: Visual Studio에서 Azure Service Fabric 애플리케이션 관리 | Microsoft Docs
+title: Visual Studio에서 애플리케이션 관리
 description: Visual Studio를 사용하여 Azure Service Fabric 애플리케이션과 서비스를 만들고, 개발하고, 배포하고, 디버그합니다.
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: chackdan
-editor: ''
-ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4744858869e10094389be58ddd3960cb8cc2773a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d6734f5da0fb7e5c9052b26b55b2d90b068bdbbf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75614335"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Visual Studio를 사용하여 Service Fabric 애플리케이션 쓰기 및 관리 단순화하기
 Visual Studio를 통해 Azure Service Fabric 애플리케이션 및 서비스를 관리할 수 있습니다. [개발 환경을 설정](service-fabric-get-started.md)한 후, Visual Studio를 사용하여 로컬 개발 클러스터에서 Service Fabric 애플리케이션을 만들거나 서비스를 추가하거나 애플리케이션의 패키징, 등록 및 배포를 수행할 수 있습니다.

@@ -1,5 +1,5 @@
 - name: Bing Local Business Search API 설명서
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
   expanded: true
   items: null
 - name: 개요
@@ -19,7 +19,7 @@
           href: quickstarts/local-quickstart.md
         - name: Java 사용
           href: quickstarts/local-search-java-quickstart.md
-        - name: Node 사용
+        - name: Node.js 사용
           href: quickstarts/local-search-node-quickstart.md
         - name: Python 사용
           href: quickstarts/local-search-python-quickstart.md
@@ -31,7 +31,7 @@
       href: specify-geographic-search.md
     - name: 로컬 비즈니스 검색 범주
       href: local-categories.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 사용 및 표시 요구 사항
       href: ../Bing-Web-Search/use-display-requirements.md
@@ -41,6 +41,8 @@
 - name: 리소스
   items:
     - name: Cognitive Services 체험하기
-      href: 'https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api'
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
     - name: 가격 정보
-      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/'
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

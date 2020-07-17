@@ -1,5 +1,5 @@
 - name: Bing Video Search API 설명서
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: 개요
   expanded: true
   items:
@@ -8,7 +8,7 @@
     - name: Bing Search API 비교
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: REST API 빠른 시작
+- name: 빠른 시작
   expanded: true
   items:
     - name: REST API
@@ -27,14 +27,8 @@
           href: quickstarts/ruby.md
     - name: SDK)
       items:
-        - name: 'C# 사용'
-          href: quickstarts/sdk-csharp-quickstart.md
-        - name: Node.js 사용
-          href: quickstarts/sdk-node-quickstart.md
-        - name: Python 사용
-          href: quickstarts/sdk-python-quickstart.md
-        - name: Java 사용
-          href: quickstarts/sdk-java-quickstart.md
+        - name: Bing Video Search 클라이언트 라이브러리
+          href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 단일 페이지 웹앱 빌드
@@ -50,9 +44,11 @@
     - name: 인기 비디오 가져오기
       href: trending-videos.md
     - name: 페이지 비디오
-      href: paging-videos.md
+      maintainContext: true
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: 크기 조정 및 자르기 썸네일
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: v5에서 v7로 업그레이드
       href: bing-video-upgrade-guide-v5-to-v7.md
 - name: 개념
@@ -61,22 +57,22 @@
       href: concepts/get-videos.md
     - name: 검색 요청 보내기
       href: concepts/sending-requests.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Video Search API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference'
     - name: Bing Video Search API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v5-reference'
     - name: SDK
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet'
-        - name: 자바
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python'
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/videosearch?view=azure-node-latest'
+          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-videosearch/?view=azure-node-latest'
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch'
     - name: 사용 및 표시 요구 사항
@@ -84,11 +80,11 @@
       maintainContext: true
 - name: 리소스
   items:
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/911452-bing-video-search-api'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=bing+video+search'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
@@ -101,4 +97,7 @@
     - name: 사용해 보세요.
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8'
     - name: Bing Video Search API에 대한 분석
-      href: bing-video-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

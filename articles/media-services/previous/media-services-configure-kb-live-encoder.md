@@ -13,26 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;dbgeorge
-ms.openlocfilehash: 058a1f964eb14d89628c92cbadd80511b7a27bae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: juliako
+ms.openlocfilehash: babb5a10818c8108bae34402962fd2503dbecbdc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61230574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81641693"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Haivision KB 라이브 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기  
 > [!div class="op_single_selector"]
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
 이 항목에서는 [Havision KB 라이브 인코더](https://www.haivision.com/products/kb-series/)를 구성하여 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다. 자세한 내용은 [Azure Media Services를 사용하여 Live Encoding을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 이 자습서에서는 AMSE(Azure Media Services 탐색기) 도구를 사용하여 AMS(Azure Media Services)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure Portal을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel.md)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 *   SSW v5.01 이상을 실행하여 Haivision KB 인코더에 액세스합니다.
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
 * 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
@@ -59,15 +56,15 @@ ms.locfileid: "61230574"
 
 비디오:
 -   코덱: H.264
--   프로필 높음(수준 4.0)
--   Bitrate: 5000kbps
+-   프로필: 높음(수준 4.0)
+-   비트 전송률: 5,000kbps
 -   키 프레임: 2초(60프레임)
 -   프레임 속도: 30
 
 Audio:
 -   코덱: AAC(LC)
--   Bitrate: 192kbps
--   샘플링 속도: 44.1kHz
+-   비트 전송률: 192kbps
+-   샘플 속도: 44.1khz
 
 ## <a name="configuration-steps"></a>구성 단계
 1.  Haivision KB 사용자 인터페이스에 로그인합니다.
@@ -97,7 +94,7 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 ## <a name="create-a-program"></a>프로그램 만들기
 1.  채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 라이브 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 새 프로그램 만들기를 선택합니다.
 [Haivision](./media/media-services-configure-kb-live-encoder/program.png)
-1.  AMSE 도구의 라이브 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 새 프로그램 만들기를 선택합니다. 또한 저장소 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.
+1.  AMSE 도구의 라이브 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 새 프로그램 만들기를 선택합니다. 또한 스토리지 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.
 2.  지금 프로그램 시작 상자를 선택합니다.
 3.  프로그램 만들기를 클릭합니다.
 4.  프로그램이 실행되고 있으면 프로그램을 마우스 오른쪽 단추로 클릭하고 프로그램 재생으로 이동한 다음 Azure Media Player 사용을 선택하여 재생을 확인합니다.

@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/04/2019
+ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280656"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133766"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
@@ -74,6 +74,10 @@ Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상�
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>가상 머신의 연결 단추가 회색으로 표시되어 장애 조치된 가상 머신에 RDP/SSH를 연결할 수 없음
 
+RDP 문제에 대 한 자세한 문제 해결 지침은 [여기](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)에서 설명서를 참조 하세요.
+
+SSH 문제에 대 한 자세한 문제 해결 지침은 [여기](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md)에서 설명서를 참조 하세요.
+
 Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 표시되고 Express 경로 또는 사이트 간 VPN 연결을 통해 Azure에 연결되지 않은 경우에는 다음을 수행합니다.
 
 1. **가상 머신** > **네트워킹**으로 차례로 이동하고, 필요한 네트워크 인터페이스의 이름을 클릭합니다.  ![네트워크 인터페이스](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
@@ -86,7 +90,7 @@ Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 �
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>연결할 수 없음/RDP/SSH - VM 연결 단추 사용 가능
 
-Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 있는 경우(회색으로 표시되지 않음), 가상 머신에서 **부트 진단**을 검사하고 [이 문서](../virtual-machines/windows/boot-diagnostics.md)에 나열된 오류를 확인합니다.
+Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 있는 경우(회색으로 표시되지 않음), 가상 머신에서 **부트 진단**을 검사하고 [이 문서](../virtual-machines/troubleshooting/boot-diagnostics.md)에 나열된 오류를 확인합니다.
 
 1. 가상 머신이 시작되지 않은 경우 이전의 복구 지점으로 장애 조치를 시도합니다.
 2. 가상 머신 내 애플리케이션이 가동되지 않는 경우 애플리케이션 일치 복구 지점으로 장애 조치를 시도합니다.
@@ -106,31 +110,43 @@ Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 
 >[!Note]
 >부트 진단 이외의 설정을 사용하도록 설정하려면 장애 조치 전에 Azure VM 에이전트를 가상 머신에 설치해야 합니다.
 
+## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>UEFI 기반 컴퓨터를 Azure로 장애 조치한 후 직렬 콘솔을 열 수 없는 경우
+
+RDP를 사용하여 컴퓨터에 연결할 수 있지만 직렬 콘솔을 열 수 없다면 다음 단계에 따라 진행합니다.
+
+* 컴퓨터 OS가 Red Hat 또는 Oracle Linux 7.*/8.0인 경우, 루트 권한으로 장애 조치 Azure VM에서 다음 명령을 실행합니다. 명령이 완료된 후 VM을 다시 부팅합니다.
+
+        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+
+* 컴퓨터 OS가 CentOS 7.*인 경우, 루트 권한으로 장애 조치 Azure VM에서 다음 명령을 실행합니다. 명령이 완료된 후 VM을 다시 부팅합니다.
+
+        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+
 ## <a name="unexpected-shutdown-message-event-id-6008"></a>예기치 않은 시스템 종료 메시지(이벤트 ID 6008)
 
 장애 조치(failover) 후 Windows VM을 부팅할 때 복구된 VM에 예기치 않은 시스템 종료 메시지를 수신하는 경우 장애 조치(failover)에 사용된 복구 지점에서 VM 종료 상태가 캡처되지 않았음을 나타냅니다. 이 오류는 VM이 완전히 종료되지 않은 시점으로 복구할 때 발생합니다.
 
-일반적으로 문제를 유발하지는 않으며, 계획되지 않은 장애 조치(failover)의 경우 무시할 수 있습니다. 계획 된 장애 조치 하는 경우 VM은 장애 조치 전에 올바르게 종료 되었는지 확인 하 고 복제 온-프레미스 데이터를 Azure로 전송할에 보류 중인 충분 한 시간을 제공 합니다. 그런 다음, [장애 조치(failover) 화면](site-recovery-failover.md#run-a-failover)의 **최신** 옵션을 사용하여 Azure에서 보류 중인 데이터가 복구 지점으로 처리되어 VM 장애 조치(failover)에 사용되도록 합니다.
+일반적으로 문제를 유발하지는 않으며, 계획되지 않은 장애 조치(failover)의 경우 무시할 수 있습니다. 장애 조치가 계획된 경우, 장애 조치 이전에 VM이 제대로 종료되었는지 확인하고 온-프레미스에서 보류 중인 복제 데이터가 Azure에 전송되는 데 충분한 시간을 제공합니다. 그런 다음, [장애 조치(failover) 화면](site-recovery-failover.md#run-a-failover)의 **최신** 옵션을 사용하여 Azure에서 보류 중인 데이터가 복구 지점으로 처리되어 VM 장애 조치(failover)에 사용되도록 합니다.
 
-## <a name="unable-to-select-the-datastore"></a>데이터 저장소를 선택할 수 없습니다.
+## <a name="unable-to-select-the-datastore"></a>데이터 저장소를 선택할 수 없는 경우
 
-이 문제는 장애 조치에서 발생 하는 가상 컴퓨터를 다시 보호 하는 동안 Azure의 데이터 저장소 포털을 볼 수 없는 경우에 표시 됩니다. 즉, 마스터 대상 가상 머신으로 추가 Azure Site Recovery에 Vcenter에서 인식 되지 않습니다.
+이 문제는 장애 조치가 발생한 가상 머신(VM)을 다시 보호하려고 할 때 Azure Portal에서 데이터 저장소를 볼 수 없는 경우에 표시됩니다. 그 이유는 마스터 대상이 Azure Site Recovery에 추가된 vCenters 아래의 가상 머신으로 인식되지 않기 때문입니다.
 
-가상 머신을 다시 보호 하는 방법에 대 한 자세한 내용은 참조 하세요. [다시 보호 및 Azure로 장애 조치 후 온-프레미스 사이트로 다시 컴퓨터를 장애](vmware-azure-reprotect.md)합니다.
+가상 머신(VM)을 다시 보호하는 방법에 관한 자세한 내용은 [Azure로 장애 조치(failover) 후에 머신을 온-프레미스 사이트로 다시 보호 및 장애 복구(failback)](vmware-azure-reprotect.md)를 참조하세요.
 
 이 문제를 해결하려면
 
-마스터를 수동으로 만들 원본 컴퓨터를 관리 하는 vCenter의 대상입니다. 작업을 수행한 후 다음 vCenter 검색 및 새로 고침 fabric 데이터 저장소를 사용할 수 있습니다.
+원본 컴퓨터를 관리하는 vCenter에서 마스터 대상을 수동으로 만듭니다. 다음 vCenter의 검색 및 새로 고침 패브릭 작업 후 데이터 저장소를 사용할 수 있습니다.
 
 > [!Note]
 > 
-> 검색 및 새로 고침 fabric 작업을 완료 하는 데 최대 30 분 정도 걸릴 수 있습니다. 
+> 검색 및 새로 고침 패브릭 작업을 완료하는 데 최대 30분이 걸릴 수 있습니다. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>35 SSL 오류가 발생 하 여 CS 사용 하 여 Linux 마스터 대상 등록 실패 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>CS를 사용한 Linux 마스터 대상 등록이 실패하고 TLS 오류 35가 발생 
 
-마스터 대상에 사용 되는 인증 된 프록시 구성 서버를 사용 하 여 Azure Site Recovery 마스터 대상 등록에 실패 했습니다. 
+마스터 대상에서 인증된 프록시를 사용 중이기 때문에 구성 서버에서 Azure Site Recovery 마스터 대상 등록이 실패합니다. 
  
-이 오류는 설치 로그에 다음 문자열로 표시 됩니다. 
+이 오류는 설치 로그에서 다음 문자열로 표시됩니다. 
 
 ```
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
@@ -138,27 +154,27 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 이 문제를 해결하려면
  
-1. 구성 서버 VM에서 명령 프롬프트를 열고 다음 명령을 사용 하 여 프록시 설정을 확인:
+1. 구성 서버 VM에서 명령 프롬프트를 열고 다음 명령을 사용하여 프록시 설정을 확인합니다.
 
-    cat /etc/environment echo $http_proxy 에코 $https_proxy 
+    cat /etc/environment echo $http_proxy echo $https_proxy 
 
-2. 이전 명령의 출력 http_proxy 또는 https_proxy 설정이 정의 되는 경우, 구성 서버와 마스터 대상 통신 차단을 해제 하려면 다음 방법 중 하나를 사용 합니다.
+2. 이전 명령의 출력에 http_proxy 또는 https_proxy 설정이 정의된 것으로 표시될 경우, 다음 방법 중 하나를 사용하여 구성 서버와 마스터 대상 간의 통신 차단을 해제하세요.
    
-   - 다운로드 합니다 [PsExec 도구](https://aka.ms/PsExec)합니다.
-   - 시스템 사용자 컨텍스트에 액세스 프록시 주소가 구성 되어 있는지 여부를 확인 하는 도구를 사용 합니다. 
-   - 프록시 구성 된 경우 IE를 열고 PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에서 합니다.
+   - [PsExec 도구](https://aka.ms/PsExec)를 다운로드합니다.
+   - 도구를 사용하여 시스템 사용자 컨텍스트에 액세스하고 프록시 주소가 구성되었는지 여부를 확인합니다. 
+   - 프록시가 구성된 경우, PsExec 도구를 사용하여 시스템 사용자 컨텍스트에서 IE를 엽니다.
   
      **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
 
-   - 마스터 대상 서버가 구성 서버와 통신할 수 있는지 확인 합니다.
+   - 마스터 대상 서버가 구성 서버와 통신할 수 있는지 확인하려면
   
-     - 프록시를 통해 마스터 대상 서버 IP 주소를 사용 하지 않으려면 Internet Explorer에서 프록시 설정을 수정 합니다.   
+     - 프록시를 통해 마스터 대상 서버 IP 주소를 사용하지 않도록 Internet Explorer에서 프록시 설정을 수정합니다.   
      또는
-     - 마스터 대상 서버에 프록시를 사용 하지 않도록 설정 합니다. 
+     - 마스터 대상 서버에서 프록시를 사용하지 않도록 설정합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Windows VM에 대한 RDP 연결](../virtual-machines/windows/troubleshoot-rdp-connection.md) 문제 해결
-- [Linux VM에 대한 SSH 연결](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md) 문제 해결
+- [Windows VM에 대한 RDP 연결](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md) 문제 해결
+- [Linux VM에 대한 SSH 연결](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md) 문제 해결
 
-도움이 더 필요한 경우 [Site Recovery 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 쿼리를 게시하거나 이 문서의 끝에 의견을 남기세요. 도움을 드릴 수 있도록 커뮤니티를 운영 중입니다.
+도움이 더 필요하다면 [Site Recovery에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-site-recovery.html)에 쿼리를 게시하거나 이 문서의 끝에 의견을 남기세요. 도움을 드릴 수 있도록 커뮤니티를 운영 중입니다.

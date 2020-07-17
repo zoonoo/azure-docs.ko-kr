@@ -1,36 +1,29 @@
 ---
-title: Azure 확장 집합 템플릿에서 기존 가상 네트워크 참조 | Microsoft Docs
+title: Azure 확장 집합 템플릿에서 기존 가상 네트워크를 참조 합니다.
 description: 기존 Azure Virtual Machine Scale Set 템플릿에 가상 네트워크를 추가하는 방법 알아보기
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: networking
 ms.date: 04/26/2019
-ms.author: manayar
-ms.openlocfilehash: 8b75b9898eb767866c0843594a82570cfb65d122
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: fab6e6742fa43e1e38ee661b67896ae4aa11b3ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83124825"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 기존 가상 네트워크에 대한 참조 추가
 
-이 문서를 수정 하는 방법을 보여 줍니다 합니다 [기본 확장 집합 템플릿](virtual-machine-scale-sets-mvss-start.md) 새로 만드는 대신 기존 가상 네트워크에 배포 합니다.
+이 문서에서는 [기본 확장 집합 템플릿을](virtual-machine-scale-sets-mvss-start.md) 수정 하 여 새 가상 네트워크를 만드는 대신 기존 가상 네트워크에 배포 하는 방법을 보여 줍니다.
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
 
-에 [이전 문서](virtual-machine-scale-sets-mvss-start.md) 기본 확장 집합 템플릿을 작성 합니다. 이제 이전 템플릿을 사용 하 여 하 고 수정 하 여 기존 가상 네트워크에 크기 집합을 배포 하는 템플릿을 만듭니다. 
+[이전 문서](virtual-machine-scale-sets-mvss-start.md)에서 기본 확장 집합 템플릿을 만들었습니다. 이제 이전 템플릿을 사용 하 고 수정 하 여 기존 가상 네트워크에 확장 집합을 배포 하는 템플릿을 만듭니다. 
 
-먼저 `subnetId` 매개 변수를 추가합니다. 이 문자열은 확장 집합 구성에 전달되어 확장 집합에서 미리 만든 서브넷을 식별하여 가상 머신을 배포할 수 있게 합니다. 이 문자열 형식 이어야 합니다. `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+먼저 `subnetId` 매개 변수를 추가합니다. 이 문자열은 확장 집합 구성에 전달되어 확장 집합에서 미리 만든 서브넷을 식별하여 가상 머신을 배포할 수 있게 합니다. 이 문자열의 형식은 다음과 같아야 합니다.`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 
 예를 들어 `myvnet` 이름, `mysubnet` 서브넷, `myrg` 리소스 그룹 및 `00000000-0000-0000-0000-000000000000` 구독을 사용하여 기존 가상 네트워크에 확장 집합을 배포하려면 subnetId가 `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`이 됩니다.
 
@@ -89,7 +82,7 @@ ms.locfileid: "64868947"
          "capacity": 2
 ```
 
-마지막으로 전달 합니다 `subnetId` 사용자가 설정한 매개 변수 (사용 하는 대신 `resourceId` 동일한 배포에서 vnet의 ID를 가져오려면는 어떤 기본 실행 가능한 확장 집합 템플릿에서 수행).
+마지막으로,를 사용 하는 `subnetId` 대신 사용자가 설정한 매개 변수를 전달 하 여 `resourceId` 동일한 배포에서 VNET의 ID를 가져옵니다 .이는 기본 실행 가능 크기 집합 템플릿에서 수행 됩니다.
 
 ```diff
                        "name": "myIpConfig",

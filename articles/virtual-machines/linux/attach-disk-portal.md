@@ -1,27 +1,17 @@
 ---
-title: Linux VM에 데이터 디스크 연결 | Microsoft Docs
+title: Linux VM에 데이터 디스크 연결
 description: 포털을 사용하여 새 또는 기존 데이터 디스크를 Linux VM에 연결합니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 5e1c6212-976c-4962-a297-177942f90907
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: d5dd916f7e4434640db6dae6f8c5a73d1ff2d3e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c0129ba35841a457e73ef1061d156d3246cb65f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187949"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660220"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. 
@@ -34,10 +24,9 @@ VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 
 
 ## <a name="find-the-virtual-machine"></a>가상 머신 찾기
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴에서 **Virtual Machines**를 클릭합니다.
-3. 목록에서 가상 머신을 선택합니다.
-4. 가상 머신 페이지의 **Essentials**에서 **디스크**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동하여 VM을 찾습니다. **가상 머신**을 검색하여 선택합니다.
+2. 목록에서 VM을 선택합니다.
+3. **가상 머신** 페이지 사이드바의 **설정**에서 **디스크**를 선택합니다.
    
     ![디스크 설정 열기](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -100,6 +89,9 @@ dmesg | grep SCSI
 
 ### <a name="partition-a-new-disk"></a>새 디스크 분할
 데이터가 포함된 기존 디스크를 사용 중이라면 디스크 탑재 단계로 건너뜁니다. 새 디스크를 연결하는 경우에는 디스크를 분할해야 합니다.
+
+> [!NOTE]
+> 배포판에 사용할 수 있는 최신 버전의 fdisk 또는 parted를 사용하는 것이 좋습니다.
 
 `fdisk`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이어서 GPT 분할을 사용해야 하는 경우 `parted`를 사용하여 GPT 분할을 수행할 수 있습니다. 디스크 크기가 2TiB 미만이라면 MBR 또는 GPT 분할을 사용하면 됩니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
 
@@ -181,6 +173,16 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+
+#### <a name="alternate-method-using-parted"></a>parted를 사용하는 대체 방법
+fdisk 유틸리티는 대화형 입력이 필요하므로 자동화 스크립트에 사용하기에 적합하지 않습니다. 그러나 [parted](https://www.gnu.org/software/parted/) 유틸리티는 스크립팅할 수 있으므로 자동화 시나리오에서 더 효율적입니다. parted 유틸리티를 사용하여 데이터 디스크를 분할하고 포맷할 수 있습니다. 아래 연습에서는 새 데이터 디스크 /dev/sdc를 사용하고 [XFS](https://xfs.wiki.kernel.org/) 파일 시스템을 사용하여 포맷합니다.
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
+partprobe /dev/sdc1
+```
+위에서 설명한 것처럼 [partprobe](https://linux.die.net/man/8/partprobe) 유틸리티를 사용하여 커널이 새 파티션 및 파일 시스템을 즉시 인식하는지 확인합니다. partprobe를 사용하지 않으면 blkid 또는 lslbk 명령이 새 파일 시스템의 UUID를 즉시 반환하지 않을 수 있습니다.
+
 ### <a name="mount-the-disk"></a>디스크 탑재
 `mkdir`을 사용하여 파일 시스템을 탑재할 디렉터리를 만듭니다. 다음 예제에서는 */datadrive*에 디렉터리를 만듭니다.
 
@@ -222,14 +224,14 @@ sudo vi /etc/fstab
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-
+완료되면 */etc/fstab* 파일을 저장하고 시스템을 다시 부팅합니다.
 > [!NOTE]
 > 나중에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 대부분의 배포는 *nofail* 및/또는 *nobootwait* fstab 옵션을 제공합니다. 이러한 옵션을 사용하면 디스크가 부팅 시 탑재되지 않더라도 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.
 > 
 > *nofail* 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 Linux에 SSH를 사용할 수 없음](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)(영문)에 설명되어 있는 동작이 발생할 수 있습니다.
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure에서 Linux에 대한 TRIM/UNMAP 지원
-일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 저장소에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.
+일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 스토리지에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 

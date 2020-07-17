@@ -1,32 +1,23 @@
 ---
-title: Visual Studio를 사용하여 앱 문제 해결 - Azure App Service
+title: Visual Studio를 사용하여 문제 해결
 description: Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추적 및 로깅 도구를 사용하여 App Service 앱 문제를 해결하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: .net
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412826"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857200"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
 이 자습서에서는 원격으로 [디버그 모드](https://docs.microsoft.com/visualstudio/debugger/)를 실행하거나 애플리케이션 로그 및 웹 서버 로그를 확인하여 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
 
-다음 내용을 배웁니다.
+다음에 대해 알아봅니다.
 
 * Visual Studio에서 사용할 수 있는 앱 관리 기능
 * Visual Studio 원격 뷰를 사용하여 원격 앱에서 빠르게 변경하는 방법
@@ -37,17 +28,17 @@ ms.locfileid: "65412826"
 
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](/visualstudio/debugger/intellitrace) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a><a name="prerequisites"></a>필수 조건
 이 자습서에서는 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 설정한 개발 환경, 웹 프로젝트 및 App Service 앱을 사용합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 애플리케이션이 필요합니다.
 
 이 사용설명서에 제시된 코드 샘플은 C# MVC 웹 애플리케이션용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 애플리케이션에도 동일하게 적용됩니다.
 
-이 자습서에서는 Visual Studio 2019를 사용 하는 가정 합니다. 
+이 자습서에서는 Visual Studio 2019을 사용 하 고 있다고 가정 합니다. 
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 애플리케이션에 대해서만 작동합니다.
 
-## <a name="sitemanagement"></a>앱 구성 및 관리
-Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기**를 사용하여 사용할 수 있는 기능에 대해 알아봅니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기** 도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
+## <a name="app-configuration-and-management"></a><a name="sitemanagement"></a>앱 구성 및 관리
+Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기**를 사용 하 여 사용할 수 있는 기능을 확인 합니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기** 도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
 
 1. Visual Studio에서 Azure에 아직 로그인하지 않은 경우 **Azure**를 마우스 오른쪽 단추로 클릭하고 **서버 탐색기**에서 **Microsoft Azure 구독에 연결**을 선택합니다.
 
@@ -70,14 +61,14 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
     이 사용설명서에서는 로깅 및 추적 드롭다운을 사용합니다. 원격 디버깅도 사용하지만 다른 방법을 사용하여 이를 사용하도록 설정합니다.
 
-    이 창에 있는 애플리케이션 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure App Service: 애플리케이션 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요.
+    이 창의 앱 설정 및 연결 문자열 상자에 대 한 자세한 내용은 [Azure App Service: 응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조 하세요.
 
     이 창에서 지원하지 않는 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure Portal을 엽니다.
 
-## <a name="remoteview"></a>서버 탐색기에서 앱 파일 액세스
+## <a name="access-app-files-in-server-explorer"></a><a name="remoteview"></a>서버 탐색기에서 앱 파일 액세스
 일반적으로 Web.config 파일에서 `customErrors` 플래그를 `On` 또는 `RemoteOnly`로 설정한 상태로 웹 프로젝트가 배포되기 때문에 문제가 발생한 경우 유용한 오류 메시지를 받지 못합니다. 받을 수 있는 대부분의 오류는 다음 중 하나와 유사합니다.
 
-**'/' 애플리케이션의 서버 오류:**
+**'/' 응용 프로그램에 서버 오류가 있습니다.**
 
 ![도움이 되지 않는 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
@@ -112,7 +103,7 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
 Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 있도록 App Service 앱의 파일 읽기/편집 기능을 사용하는 한 가지 예에 지나지 않습니다.
 
-## <a name="remotedebug"></a>앱 원격 디버깅
+## <a name="remote-debugging-apps"></a><a name="remotedebug"></a>앱 원격 디버깅
 자세한 오류 메시지에 충분한 정보가 제공되지 않은 경우 로컬로 오류를 다시 만들 수는 없습니다. 이때 문제를 해결하는 또 다른 방법은 원격으로 디버그 모드에서 실행하는 것입니다. 중단점을 설정하고 메모리를 직접 조작하며 코드를 단계별로 실행하고 심지어 코드 경로를 변경할 수 있습니다.
 
 원격 디버깅은 Visual Studio의 Express Edition에서 작동하지 않습니다.
@@ -121,22 +112,22 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 1. [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 만든 웹 프로젝트를 엽니다.
 
-2. *Controllers\HomeController.cs*를 엽니다.
+1. *Controllers\HomeController.cs*를 엽니다.
 
-3. `About()` 메서드를 삭제하고 그 자리에 다음 코드를 삽입합니다.
+1. `About()` 메서드를 삭제하고 그 자리에 다음 코드를 삽입합니다.
 
-``` c#
-public ActionResult About()
-{
-    string currentTime = DateTime.Now.ToLongTimeString();
-    ViewBag.Message = "The current time is " + currentTime;
-    return View();
-}
-```
+    ```csharp
+    public ActionResult About()
+    {
+        string currentTime = DateTime.Now.ToLongTimeString();
+        ViewBag.Message = "The current time is " + currentTime;
+        return View();
+    }
+    ```
 
-1. `ViewBag.Message` 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/)합니다.
+1. 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/) `ViewBag.Message` 합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 클릭 합니다.
 
 1. **프로필** 드롭다운 목록에서 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
 
@@ -174,7 +165,7 @@ public ActionResult About()
 
      ![새 값이 표시된 정보 페이지](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remotedebugwj"></a> 원격 디버깅 WebJob
+## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a> 원격 디버깅 WebJob
 이 섹션에서는 [Azure WebJob SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)에서 만든 프로젝트 및 앱을 사용하여 원격으로 디버그하는 방법을 보여 줍니다
 
 이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4에서만 사용할 수 있습니다.
@@ -244,17 +235,17 @@ public ActionResult About()
 * 디버그하는 동안 서버는 데이터를 Visual Studio로 보내며, 이로 인해 대역폭 사용 요금에 영향을 줄 수 있습니다. 대역폭 요금에 대한 자세한 내용은 [Azure 가격 책정](https://azure.microsoft.com/pricing/calculator/)을 참조하십시오.
 * *Web.config* 파일에서 `compilation` 요소의 `debug` 특성이 true로 설정되어 있어야 합니다. 디버그 빌드 구성을 게시하면 기본적으로 true로 설정됩니다.
 
-``` xml
-<system.web>
-  <compilation debug="true" targetFramework="4.5" />
-  <httpRuntime targetFramework="4.5" />
-</system.web>
-```
+    ```xml
+    <system.web>
+      <compilation debug="true" targetFramework="4.5" />
+      <httpRuntime targetFramework="4.5" />
+    </system.web>
+    ```
 * 디버거에서 디버그하려는 코드가 단계별로 실행되지 않는 경우 "내 코드만" 설정을 변경해야 할 수 있습니다.  자세한 내용은 [Visual Studio에서 Just My Code를 사용하여 사용자 코드만 디버그할지 지정](https://docs.microsoft.com/visualstudio/debugger/just-my-code)을 참조하세요.
 * 원격 디버깅 기능을 사용하도록 설정하면 서버의 타이머가 시작되고 48시간 후 기능이 자동으로 꺼집니다. 이 48시간 제한은 보안 및 성능상의 이유로 제한됩니다. 원하는 횟수만큼 기능을 쉽게 다시 켤 수 있습니다. 디버깅을 활발히 사용하지 않는 경우 이를 사용하지 않는 상태로 두는 것이 좋습니다.
 * 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](/visualstudio/debugger/debugging-in-visual-studio)을 참조하십시오.
 
-## <a name="logsoverview"></a>진단 로그 개요
+## <a name="diagnostic-logs-overview"></a><a name="logsoverview"></a>진단 로그 개요
 App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같은 종류의 로그를 생성할 수 있습니다.
 
 * **애플리케이션 추적 로그**<br/>
@@ -264,13 +255,13 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 * **자세한 오류 메시지 로그**<br/>
   웹 서버는 실패한 HTTP 요청(상태 코드 400 이상을 발생하는 요청)에 대해 일부 추가 정보가 수록된 HTML 페이지를 생성합니다.
 * **실패한 요청 추적 로그**<br/>
-  웹 서버는 실패한 HTTP 요청에 대한 자세한 추적 정보가 수록된 XML 파일을 생성합니다. 또한 웹 서버는 브라우저에서 XML 파일 형식으로 지정할 수 있도록 XSL 파일도 제공합니다.
+   웹 서버는 실패한 HTTP 요청에 대한 자세한 추적 정보가 수록된 XML 파일을 생성합니다. 또한 웹 서버는 브라우저에서 XML 파일 형식으로 지정할 수 있도록 XSL 파일도 제공합니다.
 
 로깅 기능을 사용하면 앱 성능에 영향을 미칠 수 있으므로 Azure에서는 필요에 따라 각 로그 유형을 사용 또는 사용하지 않도록 설정할 수 있는 기능이 제공됩니다. 애플리케이션 로그의 경우 특정 심각도 수준 이상의 로그만 작성되도록 지정할 수 있습니다. 새 앱을 만들 때 기본적으로 모든 로깅은 사용하지 않도록 설정됩니다.
 
 로그는 앱의 파일 시스템에 있는 *LogFiles* 폴더의 파일에 기록되며 FTP를 통해 액세스할 수 있습니다. 웹 서버 로그 및 애플리케이션 로그는 또한 Azure Storage 계정에도 기록될 수 있습니다. 스토리지 계정에서는 파일 시스템에서 보존할 수 있는 로그보다 훨씬 많은 볼륨의 로그를 보존할 수 있습니다. 파일 시스템을 사용하는 경우 최대 100MB의 로그로 제한됩니다. 참고로, 파일 시스템 로그는 단기 보존용입니다. 제한값에 도달한 경우 Azure는 새 로그를 위한 공간을 만들기 위해 오래된 로그 파일을 삭제합니다.  
 
-## <a name="apptracelogs"></a>애플리케이션 추적 로그 만들기 및 보기
+## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>애플리케이션 추적 로그 만들기 및 보기
 이 섹션에서는 다음 작업을 수행합니다.
 
 * [Azure 및 ASP.NET 시작](app-service-web-get-started-dotnet-framework.md)에서 만든 웹 프로젝트에 추적 문을 추가합니다.
@@ -280,36 +271,36 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure Queue Storage 작업을 하는 방법 - 로그를 쓰는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요. 로그를 보고 Azure에 저장하는 방법을 제어하기 위한 다음 지침은 WebJob에서 만들어진 애플리케이션 로그에도 적용됩니다.
 
 ### <a name="add-tracing-statements-to-the-application"></a>애플리케이션에 추적 문 추가
-1. *Controllers\HomeController.cs*를 열고 `Index`, `About`, `Contact` 메서드를 다음 코드로 바꾸어 `System.Diagnostics`에 대해 `Trace` 문과 `using` 문을 추가합니다.
+1. *Controllers\ homecontroller.cs*를 열고 `Index` , `About` 및 `Contact` 메서드를 `Trace` `using` 에 대 한 문과 문을 추가 하기 위해 다음 코드로 바꿉니다 `System.Diagnostics` .
 
-```c#
-public ActionResult Index()
-{
-    Trace.WriteLine("Entering Index method");
-    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-    Trace.WriteLine("Leaving Index method");
-    return View();
-}
-
-public ActionResult About()
-{
-    Trace.WriteLine("Entering About method");
-    ViewBag.Message = "Your app description page.";
-    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-    Trace.WriteLine("Leaving About method");
-    return View();
-}
-
-public ActionResult Contact()
-{
-    Trace.WriteLine("Entering Contact method");
-    ViewBag.Message = "Your contact page.";
-    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-    Trace.WriteLine("Leaving Contact method");
-    return View();
-}        
-```
+    ```csharp
+    public ActionResult Index()
+    {
+        Trace.WriteLine("Entering Index method");
+        ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+        Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+        Trace.WriteLine("Leaving Index method");
+        return View();
+    }
+    
+    public ActionResult About()
+    {
+        Trace.WriteLine("Entering About method");
+        ViewBag.Message = "Your app description page.";
+        Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+        Trace.WriteLine("Leaving About method");
+        return View();
+    }
+    
+    public ActionResult Contact()
+    {
+        Trace.WriteLine("Entering Contact method");
+        ViewBag.Message = "Your contact page.";
+        Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+        Trace.WriteLine("Leaving Contact method");
+        return View();
+    }        
+    ```
 
 1. 파일 맨 위에 `using System.Diagnostics;` 문을 추가합니다.
 
@@ -321,32 +312,32 @@ public ActionResult Contact()
     ![디버그 창의 추적](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
     다음 단계는 디버그 모드에서 컴파일하지 않고 웹 페이지에서 추적 출력을 보는 방법을 보여 줍니다.
-2. 프로젝트 폴더에 위치한 애플리케이션 Web.config 파일을 열고 파일 끝에 있는 닫는 `<system.diagnostics>` 요소 바로 앞에 `</configuration>` 요소를 추가합니다.
+1. 프로젝트 폴더에 위치한 애플리케이션 Web.config 파일을 열고 파일 끝에 있는 닫는 `<system.diagnostics>` 요소 바로 앞에 `</configuration>` 요소를 추가합니다.
 
-``` xml
-<system.diagnostics>
-<trace>
-  <listeners>
-    <add name="WebPageTraceListener"
-        type="System.Web.WebPageTraceListener,
-        System.Web,
-        Version=4.0.0.0,
-        Culture=neutral,
-        PublicKeyToken=b03f5f7f11d50a3a" />
-  </listeners>
-</trace>
-</system.diagnostics>
-```
+    ``` xml
+    <system.diagnostics>
+    <trace>
+      <listeners>
+        <add name="WebPageTraceListener"
+            type="System.Web.WebPageTraceListener,
+            System.Web,
+            Version=4.0.0.0,
+            Culture=neutral,
+            PublicKeyToken=b03f5f7f11d50a3a" />
+      </listeners>
+    </trace>
+    </system.diagnostics>
+    ```
 
 `WebPageTraceListener`를 사용하면 `/trace.axd`로 이동하여 추적 출력을 확인할 수 있습니다.
 1. Web.config 파일의 `<system.web>` 아래에 <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace 요소</a>를 다음 예와 같이 추가합니다.
 
-``` xml
-<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
-```       
+    ``` xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+    ```
 
 1. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
-1. 브라우저 창의 주소 표시줄에 추가할 *trace.axd* URL을 한 다음 Enter 키를 누릅니다 (URL은 비슷한 `http://localhost:53370/trace.axd`).
+1. 브라우저 창의 주소 표시줄에서 *trace.axd* 를 url에 추가한 후 enter 키를 누릅니다. url은와 유사 `http://localhost:53370/trace.axd` 합니다.
 1. **애플리케이션 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄의 **세부 정보 보기**를 클릭합니다.
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -357,7 +348,9 @@ public ActionResult Contact()
 
     기본적으로 `trace.axd` 는 로컬에서만 사용할 수 있습니다. 원격 앱에서 사용할 수 있도록 하려면, 다음 예제에 표시된 것처럼 *Web.config* 파일의 `trace` 요소에 `localOnly="false"`를 추가하면 됩니다.
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```
 
     그러나 프로덕션 앱에서 `trace.axd`를 사용하도록 설정하는 것은 보안상의 이유로 권장되지 않습니다. 다음 섹션에서는 App Service 앱에서 추적 로그를 읽는 가장 쉬운 방법을 확인할 수 있습니다.
 
@@ -414,7 +407,7 @@ public ActionResult Contact()
 
 검색 문자열 또는 정규식을 입력하면 Visual Studio에서 클라이언트 측의 로깅 정보가 필터링됩니다. 즉, **출력** 창에 로그가 표시된 후에 조건을 입력할 수 있으며 로그를 다시 생성할 필요 없이 필터링 조건을 변경할 수 있습니다.
 
-## <a name="webserverlogs"></a>웹 서버 로그 보기
+## <a name="view-web-server-logs"></a><a name="webserverlogs"></a>웹 서버 로그 보기
 웹 서버 로그는 앱의 모든 HTTP 작업을 기록합니다. **출력** 창에서 웹 서버 로그를 보려면 앱에서 이를 사용하도록 설정하고, Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다.
 
 1. **서버 탐색기**에서 열었던 **Azure Web App 구성** 탭에서 웹 서버 로깅을 **켜기**로 변경하고 **저장**을 클릭합니다.
@@ -434,9 +427,9 @@ public ActionResult Contact()
 
 기본적으로 Visual Studio를 사용하여 웹 서버 로그를 사용하도록 처음 설정하는 경우 Azure는 로그를 파일 시스템에 기록합니다. 또는 Azure Portal을 사용하여 웹 서버 로그가 스토리지 계정의 Blob 컨테이너에 기록되도록 지정할 수 있습니다.
 
-포털을 사용하여 Azure 저장소 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하는 경우 Visual Studio에서 로깅을 사용하도록 다시 설정하면 저장소 계정 설정이 복원됩니다.
+포털을 사용하여 Azure Storage 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하는 경우 Visual Studio에서 로깅을 사용하도록 다시 설정하면 스토리지 계정 설정이 복원됩니다.
 
-## <a name="detailederrorlogs"></a>자세한 오류 메시지 로그 보기
+## <a name="view-detailed-error-message-logs"></a><a name="detailederrorlogs"></a>자세한 오류 메시지 로그 보기
 자세한 오류 로그에서는 오류 응답 코드(400 이상)를 유발한 HTTP 요청과 관련된 일부 추가 정보가 제공됩니다. **출력** 창에서 웹 서버 로그를 보려면 웹 앱에서 이를 사용하도록 설정하고, Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다.
 
 1. **서버 탐색기**에서 열었던 **Azure Web App 구성** 탭에서 **자세한 오류 메시지**를 **켜기**로 변경하고 **저장**을 클릭합니다.
@@ -459,7 +452,7 @@ public ActionResult Contact()
 
     ![브라우저 창의 자세한 오류 로그](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
-## <a name="downloadlogs"></a>파일 시스템 로그 다운로드
+## <a name="download-file-system-logs"></a><a name="downloadlogs"></a>파일 시스템 로그 다운로드
 **출력** 창에서 모니터링할 수 있는 모든 로그는 *.zip* 파일로 다운로드할 수도 있습니다.
 
 1. **출력** 창에서 **스트리밍 로그 다운로드**를 클릭합니다.
@@ -558,7 +551,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
      ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
  -->
-## <a name="failedrequestlogs"></a>실패한 요청 추적 로그 보기
+## <a name="view-failed-request-tracing-logs"></a><a name="failedrequestlogs"></a>실패한 요청 추적 로그 보기
 실패한 요청 추적 로그는 URL 다시 쓰기 또는 인증 문제 등이 발생하는 경우 IIS에서 HTTP 요청이 처리되는 방식을 자세히 이해해야 하는 경우에 유용합니다.
 
 App Service 앱은 IIS 7.0 이상 버전에서 사용할 수 있는 실패한 요청 추적 기능을 똑같이 사용합니다. 하지만 기록된 오류를 구성하는 IIS 설정에 대한 액세스 권한이 없습니다. 실패한 요청 추적을 사용하도록 설정하면 모든 오류가 캡처됩니다.
@@ -586,7 +579,7 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
 5. 새 브라우저 창에서 앱의 **개요** 페이지의 **FTP 호스트 이름** 또는 **FTPS 호스트 이름** 아래에 표시된 URL로 이동합니다.
 
-6. 이전에 만든 FTP 자격 증명을 사용하여 로그인합니다(사용자 이름 앞에 앱 이름 포함).
+6. 이전에 만든 FTP 자격 증명을 사용 하 여 로그인 합니다 (사용자 이름에 대 한 앱 이름 접두사 포함).
 
     브라우저에 앱의 루트 폴더가 표시됩니다.
 
@@ -608,7 +601,7 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
     ![브라우저의 실패한 요청 추적](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
-## <a name="nextsteps"></a>다음 단계
+## <a name="next-steps"></a><a name="nextsteps"></a>다음 단계
 Visual Studio를 사용하여 App Service 앱에서 생성된 로그를 쉽게 보는 방법을 확인했습니다. 다음 섹션에서는 관련 항목에 대한 기타 리소스 링크를 제공합니다.
 
 * App Service 문제 해결
@@ -623,13 +616,13 @@ Visual Studio를 사용하여 App Service 앱에서 생성된 로그를 쉽게 �
 Azure App Service에서 앱 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [앱을 모니터링하는 방법](web-sites-monitor.md)
-* [Visual Studio 2013을 사용하여 Azure App Service에서 메모리 누수 검사](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
+* [Visual Studio 2013을 사용하여 Azure App Service에서 메모리 누수 검사](https://devblogs.microsoft.com/devops/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013/) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
 * [알아 두면 도움이 되는 Azure App Service 온라인 도구](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Amit Apple의 블로그 게시물입니다.
 
 특정 문제 해결 질문과 관련하여 도움이 필요한 경우 다음 포럼 중 하나에서 게시물을 작성하십시오.
 
 * [ASP.NET 사이트의 Azure 포럼](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET)(영문)
-* [MSDN의 Azure 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/)(영문)
+* [Microsoft Q의 Azure 포럼은 A를&](https://docs.microsoft.com/answers/topics/azure-webapps.html)합니다.
 * [StackOverflow.com](https://www.stackoverflow.com)(영문)
 
 ### <a name="debugging-in-visual-studio"></a>Visual Studio의 디버깅
@@ -643,7 +636,7 @@ App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다
 * [Azure App Service의 원격 디버깅 소개 3부 - 다중 인스턴스 환경 및 GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Webjob 디버깅(비디오)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-앱에 Azure 웹 API 또는 Mobile Services 백 엔드가 사용되는 경우 이들을 디버그해야 하면 [Visual Studio에서 .NET 백 엔드 디버깅](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)을 참조하세요.
+앱에 Azure 웹 API 또는 Mobile Services 백 엔드가 사용되는 경우 이들을 디버그해야 하면 [Visual Studio에서 .NET 백 엔드 디버깅](/archive/blogs/azuremobile/debugging-net-backend-in-visual-studio)을 참조하세요.
 
 ### <a name="tracing-in-aspnet-applications"></a>ASP.NET 애플리케이션의 추적
 현재 인터넷에서 ASP.NET 추적과 관련하여 완벽한 최신 소개 정보를 제공하는 곳이 없습니다. 최상의 방법은 MVC가 아직 출시되지 않은 시점에 Web Forms용으로 작성된 기존 소개 자료를 먼저 참조한 후, 특정 문제에 주력하는 최신 블로그 게시물의 정보로 보충하는 것입니다. 시작하기에 유용한 리소스 위치는 다음과 같습니다.
@@ -651,25 +644,25 @@ App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다
 * [모니터링 및 원격 분석(Azure에서 실제 클라우드 앱 빌드)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)<br>
   Azure 클라우드 애플리케이션에서 추적을 권장하는 eBook 챕터.
 * [ASP.NET 추적](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
-  오래된 자료이지만 추적의 기초를 소개하는 여전히 유용한 리소스입니다.
+   오래된 자료이지만 추적의 기초를 소개하는 여전히 유용한 리소스입니다.
 * [추적 수신기](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   추적 수신기에 대한 정보를 제공하지만 [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener)를 언급하지 않습니다.
 * [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합](/previous-versions/b0ectfxd(v=vs.140))<br/>
   이 문서도 오래되었지만 소개 자료에서 다루지 않은 일부 추가 정보가 포함되어 있습니다.
-* [ASP.NET MVC Razor 뷰에서 추적](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [ASP.NET MVC Razor 뷰에서 추적](https://devblogs.microsoft.com/aspnet/tracing-in-asp-net-mvc-razor-views/)<br/>
   Razor 뷰의 추적 정보와 더불어, MVC 애플리케이션의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 애플리케이션의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](/previous-versions/bb397417(v=vs.140))에서 Global.asax를 참조하세요. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
 
-``` c#
-try
-{
-   // Your code that might cause an exception to be thrown.
-}
-catch (Exception ex)
-{
-    Trace.TraceError("Exception: " + ex.ToString());
-    throw;
-}
-```
+    ```csharp
+    try
+    {
+       // Your code that might cause an exception to be thrown.
+    }
+    catch (Exception ex)
+    {
+        Trace.TraceError("Exception: " + ex.ToString());
+        throw;
+    }
+    ```
 
 * [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
    이 사용설명서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 애플리케이션을 디버그하는 데 사용하는 도구입니다.
@@ -685,13 +678,13 @@ catch (Exception ex)
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
-* [IIS 성능 문제 또는 LogParser를 사용 하 여 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-  웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
-* [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [LogParser를 사용 하 여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+   웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
+* [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>실패한 요청 로그 분석
-Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) 섹션은 이러한 로그 사용 방법을 이해하는 데 유용할 수 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure App Service에서 수행할 수 없습니다.
+Microsoft TechNet 웹 사이트에는 이러한 로그를 사용 하는 방법을 이해 하는 데 도움이 될 수 있는 [실패 한 요청 추적 사용](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) 섹션이 포함 되어 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure App Service에서 수행할 수 없습니다.
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

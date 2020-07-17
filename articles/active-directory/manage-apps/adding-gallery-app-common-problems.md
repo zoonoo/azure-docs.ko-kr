@@ -3,24 +3,24 @@ title: Azure AD 갤러리 애플리케이션을 추가하는 문제 | Microsoft 
 description: Azure AD 갤러리 애플리케이션을 추가하는 경우 직면하는 일반적인 문제 및 문제를 해결하기 위해 수행할 수 있는 작업 이해
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e4387a3ca02297311cd9ab025c315ca3324cbbbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784435"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760408"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션을 추가하는 문제
 
@@ -40,7 +40,7 @@ ms.locfileid: "65784435"
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>추가한 후 내 애플리케이션을 설정하는 방법을 모름
 
-응용 프로그램에 대 한 학습을 사용 하 여 도움이 필요한 경우는 [Azure Active Directory와 SaaS Apps를 통합 하는 방법에 대 한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 문서는 시작 하는 것이 좋습니다.
+응용 프로그램에 대해 학습 하는 데 도움이 필요한 경우 [Azure Active Directory 문서와 SaaS 앱을 통합 하는 방법에 대 한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 에서 시작 하는 것이 좋습니다.
 
 또한 [Azure AD 애플리케이션 문서 라이브러리](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index)를 통해 Azure AD로 Single Sign-On 및 작동 방법에 대해 자세히 알아볼 수 있습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "65784435"
 
 다음 단계를 수행하여 포털 알림의 세부 정보를 확인할 수 있습니다.
 
-1.  선택 된 **알림을** Azure portal의 오른쪽 위에 있는 아이콘 (벨)
+1.  Azure Portal의 오른쪽 위에 있는 **알림** 아이콘 (벨)을 선택 합니다.
 
 2.  **오류** 상태(옆에 빨간색(!)이 있는)에서 알림을 선택합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "65784435"
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>지원 엔지니어에게 알림 세부 정보를 전송하여 도움을 얻는 방법
 
-도움이 필요한 경우 지원 엔지니어가 신속하게 도움을 줄 수 있도록 **아래에 나열된 모든 세부 정보**를 공유하는 것은 매우 중요합니다. **스크린샷을 찍거나** **오류 복사** 텍스트 상자 오른쪽에 있는 **오류 복사 아이콘**을 클릭하여 이를 쉽게 수행할 수 있습니다.
+도움이 필요한 경우 지원 엔지니어가 신속하게 도움을 줄 수 있도록 **아래에 나열된 모든 세부 정보**를 공유하는 것은 매우 중요합니다. **스크린샷을 찍거나****오류 복사** 텍스트 상자 오른쪽에 있는 **오류 복사 아이콘**을 클릭하여 이를 쉽게 수행할 수 있습니다.
 
 ## <a name="notification-details-explained"></a>알림 세부 정보 설명
 
@@ -75,7 +75,7 @@ ms.locfileid: "65784435"
 
 - **제목** - 알림의 설명이 포함된 제목
 
-  * 예제 - **애플리케이션 프록시 설정**
+  * 예제- **응용 프로그램 프록시 설정**
 
 - **설명** – 작업의 결과로 발생한 문제에 대한 설명
 
@@ -93,13 +93,13 @@ ms.locfileid: "65784435"
 
   -   예제 – **2017-03-23T19:50:43.7583681Z**
 
-- **내부 트랜잭션 ID** – 시스템에서 오류를 찾는 데 사용할 수 있습니다 내부 ID
+- **내부 트랜잭션 id** – 시스템에서 오류를 조회 하는 데 사용할 수 있는 내부 id입니다.
 
   -   예제 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 - **UPN** – 작업을 수행한 사용자
 
-  -   예 – **tperkins\@f128.info**
+  -   예 – **tperkins \@ f128.info**
 
 - **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
 
@@ -113,11 +113,11 @@ ms.locfileid: "65784435"
 
 -   **표시 이름** – **(비어 있을 수 있음)** 오류에 대한 보다 자세한 표시 이름
 
-    -   예제 - **애플리케이션 프록시 설정**
+    -   예제- **응용 프로그램 프록시 설정**
 
 -   **상태** - 알림의 특정 상태
 
-    -   예제 – **실패**
+    -   예 – **실패**
 
 -   **개체 ID** – **(비어 있을 수 있음)** 작업이 수행된 개체 ID
 
@@ -125,7 +125,7 @@ ms.locfileid: "65784435"
 
 -   **세부 정보** – 작업의 결과로 발생한 문제에 대한 자세한 설명
 
-    -   예 – **내부 url `https://bing.com/` 이미 사용 중 이므로 잘못 되었습니다**
+    -   예제 – **내부 url `https://bing.com/` 은 이미 사용 중 이므로 유효 하지 않습니다** .
 
 -   **오류 복사** - **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹과 공유하도록 모든 알림 세부 정보 복사 
 -   엔지니어

@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6811a06eb3483fd53b6e566033935c3b2e00ceca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887256"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 경고
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "60335766"
 * 대역폭
 * 상태 코드
 * 캐시 상태
-* 연결
+* Connections
 
 ## <a name="creating-a-real-time-alert"></a>실시간 경고 만들기
 1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동합니다.
@@ -108,7 +108,7 @@ ms.locfileid: "60335766"
 13. **저장** 단추를 클릭하여 경고 구성을 저장합니다.  5단계에서 **경고 사용** 을 선택한 경우 경고는 지금 활성화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [Azure CDN의 실시간 통계](cdn-real-time-stats.md)
-*  [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-*  [사용 패턴](cdn-analyze-usage-patterns.md)
+* [Azure CDN의 실시간 통계](cdn-real-time-stats.md)
+* [고급 HTTP 보고서](cdn-advanced-http-reports.md)
+* [사용 패턴](cdn-analyze-usage-patterns.md) 분석
 

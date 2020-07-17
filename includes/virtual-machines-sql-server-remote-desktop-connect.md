@@ -1,22 +1,21 @@
 ---
-author: rockboyfor
+author: rothja
 ms.service: virtual-machines-sql
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: jroth
 ms.openlocfilehash: fe5daa38c43723c85fb464e191ee4a3e85700e0b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129772"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "67182159"
 ---
 1. Azure Virtual Machine을 만들고 실행한 후에 Azure Portal의 Virtual Machines 아이콘을 클릭하면 VM을 볼 수 있습니다.
 
-1. 새 VM에 대한 줄임표(**...**)를 클릭합니다.
+1. 새 VM에 대한 줄임표( **...** )를 클릭합니다.
 
-1. **Connect**를 클릭합니다.
+1. **연결**을 클릭합니다.
 
    ![포털에서 VM에 연결](./media/virtual-machines-sql-server-remote-desktop-connect/azure-virtual-machine-connect.png)
 
@@ -29,5 +28,3 @@ ms.locfileid: "62129772"
    ![원격 데스크톱 인증](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
 1. **확인**을 클릭하여 연결합니다.
-
-<!--Update_Description: wording update, update link-->

@@ -1,29 +1,20 @@
 ---
-title: Azure Service Fabric Java 클라이언트 API | Microsoft Docs
+title: Azure Service Fabric Java 클라이언트 API
 description: Service Fabric 클라이언트 REST API 사양을 사용하여 Service Fabric Java 클라이언트 API를 생성하고 사용합니다.
-services: service-fabric
-documentationcenter: java
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 97bba87331965b0f7ce20ec2ee089e0e18f72457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c093958b9a8c5a21cb6996db891705ec8c3d21ab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720283"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246285"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
 
-Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로컬 개발 컴퓨터 또는 다른 클라우드의 Service Fabric 클러스터에 마이크로 서비스 기반 응용 프로그램 및 컨테이너를 배포하고 관리할 수 있습니다. 이 문서에서는 Service Fabric 클라이언트 REST API에 기반하여 Service Fabric Java 클라이언트 API를 생성하고 사용하는 방법에 대해 설명합니다.
+Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로컬 개발 컴퓨터 또는 다른 클라우드의 Service Fabric 클러스터에 마이크로 서비스 기반 애플리케이션 및 컨테이너를 배포하고 관리할 수 있습니다. 이 문서에서는 Service Fabric 클라이언트 REST API에 기반하여 Service Fabric Java 클라이언트 API를 생성하고 사용하는 방법에 대해 설명합니다.
 
 ## <a name="generate-the-client-code-using-autorest"></a>AutoRest를 사용하여 클라이언트 코드 생성
 
@@ -128,11 +119,10 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
     * 이는 removeReplica API 호출의 동기 변형입니다.
  2. **public ServiceFuture\<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback\<Void> serviceCallback)**
     * 나중에 기반한 비동기 프로그래밍을 사용하고 콜백을 사용하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
- 3. **공용 Observable\<Void > removeReplicaAsync (문자열 nodeName, UUID partitionId, 문자열 replicaId)**
+ 3. **public Observable\<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)**
     * 사후 비동기 프로그래밍을 사용하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
- 4. **공용 Observable\<ServiceResponse\<Void >> removeReplicaWithServiceResponseAsync (문자열 nodeName, UUID partitionId, 문자열 replicaId)**
+ 4. **공개 관찰 가능 \<ServiceResponse\<Void>> removeReplicaWithServiceResponseAsync (문자열 nodeName, UUID partitionId, 문자열 replicaId)**
     * 사후 비동기 프로그래밍을 사용하고 RAW REST 응답을 처리하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Service Fabric REST API](https://docs.microsoft.com/rest/api/servicefabric/)에 대해 알아봅니다.
-
+* [Service Fabric REST API](/rest/api/servicefabric/)에 대해 알아봅니다.

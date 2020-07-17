@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 473bc0a58fe49c7f454c81402b57ddce7fc745b2
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182264"
 ---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>클라우드 어플라이언스에서 원격 관리를 구성하려면
 
@@ -27,7 +27,7 @@ ms.locfileid: "55736138"
 
     1. **원격 관리를 사용**이 활성화되어 있는지 확인합니다.
     2. 기본값은 HTTPS를 통해 연결합니다. HTTP를 사용하여 연결하도록 선택할 수 있습니다. HTTP를 통한 연결은 신뢰할 수 있는 네트워크에서만 허용됩니다. HTTP가 활성화되어 있는지 확인합니다.
-    3. 블레이드 맨 위에 있는 명령 모음에서 **... 자세히**를 클릭한 후 **인증서 다운로드**를 클릭하여 원격 관리 인증서를 다운로드합니다. 이 파일을 저장하는 위치를 지정할 수 있습니다. 이 인증서는 클라우드 어플라이언스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 설치됩니다.
+    3. 블레이드 맨 위에 있는 명령 모음에서 ...을 클릭 합니다. ** **그런 다음 **인증서 다운로드** 를 클릭 하 여 원격 관리 인증서를 다운로드 합니다. 이 파일을 저장하는 위치를 지정할 수 있습니다. 이 인증서는 클라우드 어플라이언스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 설치됩니다.
 
         ![원격 관리 블레이드](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage4.png)
 5. **저장**을 클릭하고 메시지가 표시되면 변경 내용을 확인 합니다.

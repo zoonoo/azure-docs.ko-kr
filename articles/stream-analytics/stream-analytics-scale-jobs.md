@@ -1,20 +1,17 @@
 ---
 title: Azure Stream Analytics 작업에서 강화 및 확장
 description: 이 아티클에서는 입력 데이터를 분할하고, 쿼리를 조정하고, 작업 스트리밍 단위를 설정하여 Stream Analytics 작업의 크기를 조정하는 방법을 설명합니다.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d982cc94a9ab0517d6453a30371635c1e3100676
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60816806"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835600"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>처리량을 높이도록 Azure Stream Analytics 작업 크기 조정
 이 문서에서는 Streaming Analytics 작업에 대한 처리량을 증가시키기 위해 Stream Analytics 쿼리를 조정하는 방법을 보여 줍니다. 다음 가이드를 사용하여 더 높은 부하를 처리하고 더 많은 시스템 리소스(예: 추가 대역폭, 추가 CPU 리소스, 추가 메모리)를 활용하도록 작업 크기를 조정할 수 있습니다.
@@ -25,7 +22,7 @@ ms.locfileid: "60816806"
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>사례 1 - 쿼리가 기본적으로 여러 입력 파티션 간에 완전히 병렬 처리 가능한 경우
 쿼리가 기본적으로 여러 입력 파티션 간에 완전히 병렬 처리가 가능하면 다음 단계를 따를 수 있습니다.
 1.  **PARTITION BY** 키워드를 사용하여 쉬운 병렬 처리가 되도록 쿼리를 작성합니다. [이 페이지](stream-analytics-parallelization.md)의 쉬운 병렬 처리(Embarrassingly parallel) 작업 섹션에서 자세한 내용을 참조하세요.
-2.  쿼리에 사용되는 출력 형식에 따라, 일부 출력은 병렬 처리할 수 없거나, 쉬운 병렬 처리를 위해 추가 구성이 필요할 수 있습니다. 예를 들어 SQL, SQL DW 및 PowerBI 출력은 병렬 처리가 가능하지 않습니다. 출력은 출력 싱크로 전송되기 전에 항상 병합됩니다. Blob, Tables, ADLS, Service Bus 및 Azure Function은 자동으로 병렬 처리됩니다. CosmosDB 및 이벤트 허브에서는 PartitionKey 구성이 **PARTITION BY** 필드(일반적으로 PartitionId)와 일치하도록 설정되어야 합니다. 이벤트 허브의 경우 모든 입/출력의 파티션 수가 일치하도록 하여 파티션 간에 교차가 이루어지지 않도록 특히 주의해야 합니다. 
+2.  쿼리에 사용되는 출력 형식에 따라, 일부 출력은 병렬 처리할 수 없거나, 쉬운 병렬 처리를 위해 추가 구성이 필요할 수 있습니다. 예를 들어 PowerBI 출력은 병렬화되지 않습니다. 출력은 출력 싱크로 전송되기 전에 항상 병합됩니다. Blob, Tables, ADLS, Service Bus 및 Azure Function은 자동으로 병렬 처리됩니다. SQL 및 SQL DW 출력에는 병렬화 옵션이 있습니다. 이벤트 허브에서는 PartitionKey 구성이 **PARTITION BY** 필드(일반적으로 PartitionId)와 일치하도록 설정되어야 합니다. 이벤트 허브의 경우 모든 입/출력의 파티션 수가 일치하도록 하여 파티션 간에 교차가 이루어지지 않도록 특히 주의해야 합니다. 
 3.  **6개 SU**(단일 컴퓨팅 노드의 전체 용량)로 쿼리를 실행하여 달성 가능한 최대 처리량을 측정하고, **GROUP BY**를 사용하는 경우 작업이 처리할 수 있는 그룹(카디널리티) 수를 측정합니다. 시스템 리소스 제한에 도달하는 작업의 일반적인 증상은 다음과 같습니다.
     - SU % 사용률 메트릭이 80%를 초과합니다. 이것은 메모리 사용량이 높음을 나타냅니다. 이 메트릭의 증가에 영향을 주는 요인은 [여기](stream-analytics-streaming-unit-consumption.md)에 설명되어 있습니다. 
     -   출력 타임스탬프가 벽 시계 시간보다 느립니다. 쿼리 논리에 따라 출력 타임스탬프와 벽 시계 시간 간에는 논리 오프셋이 있을 수 있습니다. 그러나 이들은 거의 같은 속도로 진행됩니다. 출력 타임스탬프가 점점 더 느려지면 시스템이 과부하되었다는 것을 의미합니다. 이것은 다운스트림 출력 싱크 제한이나 높은 CPU 사용률의 결과일 수 있습니다. 현재는 CPU 사용률 메트릭을 제공하지 않으므로 둘 간을 구분하는 것이 어려울 수 있습니다.
@@ -80,12 +77,12 @@ ms.locfileid: "60816806"
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

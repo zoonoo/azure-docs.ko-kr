@@ -1,32 +1,22 @@
 ---
-title: Azure의 Service Fabric에서 Windows 컨테이너 모니터링 및 진단 | Microsoft Docs
+title: Windows 컨테이너 모니터링 및 진단
 description: 이 자습서에서는 Azure Service Fabric에서 Windows 컨테이너의 모니터링 및 진단을 위해 Azure Monitor 로그를 구성합니다.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.date: 07/22/2019
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663165"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244806"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>자습서: Azure Monitor 로그를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
 자습서의 3부이며, Service Fabric에서 오케스트레이션되는 Windows 컨테이너를 모니터링하도록 Azure Monitor 로그를 설정하는 과정을 안내합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에 대한 Azure Monitor 로그 구성
@@ -35,7 +25,7 @@ ms.locfileid: "58663165"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -47,7 +37,7 @@ ms.locfileid: "58663165"
 이 자습서의 1부에서 [제공된 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure)을 사용한 경우 제네릭 Service Fabric Azure Resource Manager 템플릿에 다음 내용을 추가해야 합니다. Azure Monitor 로그를 사용하여 컨테이너를 모니터링하도록 설정하려는 고유한 클러스터가 있는 경우 다음을 수행합니다.
 
 * Resource Manager 템플릿을 다음과 같이 변경합니다.
-* PowerShell을 통해 배포하여 [템플릿 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)를 통해 클러스터를 업그레이드합니다. Azure Resource Manager는 리소스가 있음을 인식하므로 업그레이드로 배포됩니다.
+* PowerShell을 통해 배포하여 [템플릿 배포](./service-fabric-cluster-creation-via-arm.md)를 통해 클러스터를 업그레이드합니다. Azure Resource Manager는 리소스가 있음을 인식하므로 업그레이드로 배포됩니다.
 
 ### <a name="adding-azure-monitor-logs-to-your-cluster-template"></a>클러스터 템플릿에 Azure Monitor 로그 추가
 
@@ -86,7 +76,7 @@ ms.locfileid: "58663165"
     "omsSolution": "ServiceFabric"
     ```
 
-3. Microsoft Monitoring Agent를 가상 머신 확장으로 추가합니다. 가상 머신 확장 집합 리소스를 찾습니다. *resources* > *“apiVersion”: “[variables(‘vmssApiVersion’)]”*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*의 *ServiceFabricNode* 확장 아래에 다음과 같은 확장 설명을 추가합니다. 
+3. Microsoft Monitoring Agent를 가상 머신 확장으로 추가합니다. 가상 머신 확장 집합 리소스를 찾습니다. *resources* >  *“apiVersion”: “[variables(‘vmssApiVersion’)]”* . *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*의 *ServiceFabricNode* 확장 아래에 다음과 같은 확장 설명을 추가합니다. 
     
     ```json
     {
@@ -186,7 +176,7 @@ ms.locfileid: "58663165"
     },
     ```
 
-필요에 따라 참조할 수 있는 이러한 모든 변경 내용이 있는 샘플 템플릿(이 자습서의 1부에서 사용됨)은 [여기](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)를 참조하세요. 이러한 변경 내용은 리소스 그룹에 Log Analytics 작업 영역을 추가합니다. 작업 영역은 [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) 에이전트를 통해 구성된 스토리지 테이블에서 Service Fabric 플랫폼 이벤트를 수집하도록 구성됩니다. 또한 Log Analytics 에이전트(Microsoft Monitoring Agent)가 클러스터의 각 노드에 가상 머신 확장으로 추가되었습니다. 따라서 클러스터 크기를 조정할 때 에이전트가 자동으로 각 컴퓨터에 구성되고 동일한 작업 영역에 연결됩니다.
+필요에 따라 참조할 수 있는 이러한 모든 변경 내용이 있는 샘플 템플릿(이 자습서의 1부에서 사용됨)은 [여기](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/d2ffa318581fc23ac7f1b0ab2b52db1a0d7b4ba7/5-VM-Windows-OMS-UnSecure/sfclusteroms.json)를 참조하세요. 이러한 변경 내용은 리소스 그룹에 Log Analytics 작업 영역을 추가합니다. 작업 영역은 [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) 에이전트를 통해 구성된 스토리지 테이블에서 Service Fabric 플랫폼 이벤트를 수집하도록 구성됩니다. 또한 Log Analytics 에이전트(Microsoft Monitoring Agent)가 클러스터의 각 노드에 가상 머신 확장으로 추가되었습니다. 따라서 클러스터 크기를 조정할 때 에이전트가 자동으로 각 컴퓨터에 구성되고 동일한 작업 영역에 연결됩니다.
 
 새 변경 내용이 포함된 템플릿을 배포하여 현재 클러스터를 업그레이드합니다. 이 작업이 완료되면 리소스 그룹에 Log Analytics 리소스가 표시됩니다. 클러스터가 준비되 컨테이너화된 애플리케이션을 배포합니다. 다음 단계에서는 컨테이너 모니터링을 설정합니다.
 
@@ -233,7 +223,7 @@ Log Analytics 작업 영역으로 이동되며, 여기서 솔루션을 보고, �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에 대한 Azure Monitor 로그 구성
@@ -242,7 +232,7 @@ Log Analytics 작업 영역으로 이동되며, 여기서 솔루션을 보고, �
 
 이제 컨테이너화된 애플리케이션에 대한 모니터링을 설정했으므로 다음을 시도해 보세요.
 
-* 위와 유사한 단계에 따라 Linux 클러스터에 대해 Azure Monitor 로그를 설정합니다. [이 템플릿](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux)을 참조하여 Resource Manager 템플릿 내용을 변경합니다.
-* 검색 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md)를 설정하도록 Azure Monitor 로그를 구성합니다.
+* 위와 유사한 단계에 따라 Linux 클러스터에 대해 Azure Monitor 로그를 설정합니다. [이 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS)을 참조하여 Resource Manager 템플릿 내용을 변경합니다.
+* 검색 및 진단에 도움이 되는 [자동 경고](../azure-monitor/platform/alerts-overview.md)를 설정하도록 Azure Monitor 로그를 구성합니다.
 * 클러스터에 대해 구성할 Service Fabric의 [권장 성능 카운터](service-fabric-diagnostics-event-generation-perf.md) 목록을 탐색합니다.
-* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능을 알아봅니다.
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.

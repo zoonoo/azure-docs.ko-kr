@@ -1,49 +1,37 @@
 ---
-title: Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
-titleSuffix: Azure Dev Spaces
+title: 비즈니스 연속성 및 재해 복구
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
-description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
+description: Azure Dev Spaces 및 Azure Kubernetes 서비스를 사용 하 여 비즈니스 연속성을 제공 하 고 재해 복구를 준비 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-manager: jeconnoc
-ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: gwallace
+ms.openlocfilehash: 4e47d4b05dedb981d55c527f76ae1c3a120f23d0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686984"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232426"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
 
 ## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)용 재해 복구 지침 검토
 
-Azure Dev Spaces는 AKS(Azure Kubernetes Service)의 기능입니다. AKS의 재해 복구 지침을 파악하고, Dev Spaces에 사용하는 AKS 클러스터에 이러한 지침이 적용되는지 여부를 고려해야 합니다. 자세한 내용은 [AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)를 참조하세요.
+Azure Dev Spaces는 AKS(Azure Kubernetes Service)의 기능입니다. AKS의 재해 복구 지침을 파악하고, Dev Spaces에 사용하는 AKS 클러스터에 이러한 지침이 적용되는지 여부를 고려해야 합니다. 자세한 내용은 [AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례](../../aks/operator-best-practices-multi-region.md)를 참조하세요.
 
 ## <a name="enable-dev-spaces-on-aks-clusters-in-different-regions"></a>여러 지역에서 AKS 클러스터에 대해 Dev Spaces를 사용하도록 설정
 
 여러 지역에서 AKS 클러스터에 대해 Dev Spaces를 사용하도록 설정하면 Azure 지역 하나에서 오류가 발생하더라도 Dev Spaces 사용을 즉시 다시 시작할 수 있습니다.
 
-여러 지역에 AKS를 배포하는 방법과 관련된 일반 정보는 [여러 지역 배포 계획](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment)을 참조하세요.
-
-Azure Dev Spaces와 호환되는 AKS 클러스터 배포에 대한 정보는 [Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)를 참조하세요.
-
-### <a name="enable-dev-spaces-via-the-azure-portal"></a>Azure Portal을 통해 Dev Spaces를 사용하도록 설정
-
-Azure Portal에서 각 클러스터의 속성 아래에 있는 **Dev Spaces** 탐색 항목을 클릭합니다. 그런 다음 Dev Spaces를 사용하도록 설정하는 옵션을 선택합니다.
-
-![Azure Portal을 통해 Dev Spaces를 사용하도록 설정](../media/common/enable-dev-spaces.jpg)
-
-각 클러스터에 대해 이 프로세스를 반복합니다.
+여러 지역에 AKS를 배포하는 방법과 관련된 일반 정보는 [여러 지역 배포 계획](../../aks/operator-best-practices-multi-region.md#plan-for-multiregion-deployment)을 참조하세요.
 
 ### <a name="enable-dev-spaces-via-the-azure-cli"></a>Azure CLI를 통해 Dev Spaces를 사용하도록 설정
 
 명령줄에서 Dev Spaces를 사용하도록 설정할 수도 있습니다.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -55,11 +43,11 @@ Dev Spaces 사용 시에는 보통 Kubernetes 클러스터의 상위 개발 공�
 
 ## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Dev Spaces용으로 사용할 올바른 AKS 클러스터 선택
 
-팀의 초기 계획을 실행하는 백업 클러스터를 올바르게 구성하고 나면 언제든지 백업 클러스터로 빠르게 전환할 수 있습니다. 그런 후에는 Dev Spaces에서 작업 중인 개별 서비스를 다시 실행할 수 있습니다.
+팀의 초기 계획을 실행하는 백업 클러스터를 올바르게 구성하고 나면 언제든지 백업 클러스터로 빠르게 전환할 수 있습니다. 그런 다음 자식 dev 공간에서 작업 중인 개별 서비스를 다시 실행할 수 있습니다.
 
 다음 CLI 명령을 사용하여 다른 클러스터를 선택합니다.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 

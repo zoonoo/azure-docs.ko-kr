@@ -1,32 +1,31 @@
 ---
-title: PaaS 리소스에 대한 네트워크 액세스 제한 - Azure CLI | Microsoft Docs
+title: PaaS 리소스에 대 한 네트워크 액세스 제한-Azure CLI
 description: 이 문서에서는 Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트를 통해 Azure Storage 및 Azure SQL Database와 같은 Azure 리소스에 대한 네트워크 액세스를 제한하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e52829723b41f9274251ebe7432aa659251c0da4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 5d08dd2705c69f3fa8f8e0830e487833f7cf96f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689336"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
-가상 네트워크 서비스 엔드포인트를 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 개인 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 엔드포인트를 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 문서에서는 다음 방법을 설명합니다.
+가상 네트워크 서비스 엔드포인트를 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 프라이빗 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 엔드포인트를 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 문서에서는 다음 방법을 설명합니다.
 
 * 하나의 서브넷이 있는 가상 네트워크 만들기
 * 서브넷을 추가하고 서비스 엔드포인트를 사용하도록 설정
@@ -64,7 +63,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>서비스 엔드포인트 사용 
 
-서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. [az network vnet list-endpoint-services](/cli/azure/network/vnet)를 사용하여 Azure 위치에서 사용할 수 있는 서비스 엔드포인트 지원 서비스를 확인합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 끝점 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
+서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. [az network vnet list-endpoint-services](/cli/azure/network/vnet)를 사용하여 Azure 위치에서 사용할 수 있는 서비스 엔드포인트 지원 서비스를 확인합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 엔드포인트 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -93,7 +92,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-[az network vnet subnet update](/cli/azure/network/vnet/subnet)를 사용하여 네트워크 보안 그룹을 *Private* 서브넷에 연결합니다. 다음 예제에서는 *myNsgPrivate* 네트워크 보안 그룹을 *Private* 서브넷에 연결합니다.
+[az network vnet subnet update](/cli/azure/network/vnet/subnet)를 사용하여 네트워크 보안 그룹을 *프라이빗* 서브넷에 연결합니다. 다음 예제에서는 *myNsgPrivate* 네트워크 보안 그룹을 *프라이빗* 서브넷에 연결합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -120,7 +119,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-각 네트워크 보안 그룹에는 몇 [기본 보안 규칙](security-overview.md#default-security-rules)합니다. 규칙 뒤에 오는 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 허용 하는 기본 보안 규칙을 재정의 합니다. `destination-address-prefix "Internet"` 옵션 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 거부 합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
+각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](security-overview.md#default-security-rules)포함 되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 허용 하는 기본 보안 규칙을 재정의 합니다. `destination-address-prefix "Internet"`옵션은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 거부 합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +136,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-다음과 같은 규칙이 SSH 트래픽을 허용 어디에서 나 서브넷에 인바운드 합니다. 이 규칙은 인터넷의 모든 인바운드 트래픽을 거부하는 기본 보안 규칙을 재정의합니다. SSH는 이후 단계에서 연결을 테스트할 수 있도록 서브넷에 허용 됩니다.
+다음 규칙은 어디에서 나 서브넷에 대 한 SSH 트래픽 인바운드를 허용 합니다. 이 규칙은 인터넷의 모든 인바운드 트래픽을 거부하는 기본 보안 규칙을 재정의합니다. 이후 단계에서 연결을 테스트할 수 있도록 서브넷에 SSH를 사용할 수 있습니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -158,7 +157,7 @@ az network nsg rule create \
 
 서비스 엔드포인트에 사용할 수 있는 Azure 서비스를 통해 만든 리소스에 대한 네트워크 액세스를 제한하는 데 필요한 단계는 서비스에 따라 다릅니다. 각 서비스에 대한 특정 단계는 개별 서비스의 설명서를 참조하세요. 이 문서의 나머지 부분에는 Azure Storage 계정에 대한 네트워크 액세스를 제한하는 단계가 예제로 포함되어 있습니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 [az storage account create](/cli/azure/storage/account)를 사용하여 Azure Storage 계정을 만듭니다. `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.
 
@@ -188,7 +187,7 @@ saConnectionString=$(az storage account show-connection-string \
 echo $saConnectionString
 ```
 
-### <a name="create-a-file-share-in-the-storage-account"></a>저장소 계정에 파일 공유 만들기
+### <a name="create-a-file-share-in-the-storage-account"></a>스토리지 계정에 파일 공유 만들기
 
 [az storage share create](/cli/azure/storage/share)를 사용하여 스토리지 계정에서 파일 공유를 만듭니다. 이후 단계에서 네트워크 액세스를 확인하기 위해 이 파일 공유가 탑재됩니다.
 
@@ -199,9 +198,9 @@ az storage share create \
   --connection-string $saConnectionString > /dev/null
 ```
 
-### <a name="deny-all-network-access-to-a-storage-account"></a>저장소 계정에 대한 모든 네트워크 액세스 거부
+### <a name="deny-all-network-access-to-a-storage-account"></a>스토리지 계정에 대한 모든 네트워크 액세스 거부
 
-기본적으로 저장소 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대한 액세스를 제한하려면 [az storage account update](/cli/azure/storage/account)를 사용하여 기본 작업을 *거부*로 변경합니다. 네트워크 액세스가 거부되면 네트워크에서 저장소 계정에 액세스할 수 없습니다.
+기본적으로 스토리지 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대한 액세스를 제한하려면 [az storage account update](/cli/azure/storage/account)를 사용하여 기본 작업을 *거부*로 변경합니다. 네트워크 액세스가 거부되면 네트워크에서 스토리지 계정에 액세스할 수 없습니다.
 
 ```azurecli-interactive
 az storage account update \
@@ -212,7 +211,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>서브넷에서 네트워크 액세스 사용
 
-[az storage account network-rule add](/cli/azure/storage/account/network-rule)를 사용하여 *Private* 서브넷에서 스토리지 계정에 대한 네트워크 액세스를 허용합니다.
+[az storage account network-rule add](/cli/azure/storage/account/network-rule)를 사용하여 *프라이빗* 서브넷에서 스토리지 계정에 대한 네트워크 액세스를 허용합니다.
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -223,7 +222,7 @@ az storage account network-rule add \
 ```
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
-저장소 계정에 대한 네트워크 액세스를 테스트하려면 각 서브넷에 VM을 배포합니다.
+스토리지 계정에 대한 네트워크 액세스를 테스트하려면 각 서브넷에 VM을 배포합니다.
 
 ### <a name="create-the-first-virtual-machine"></a>첫 번째 가상 머신 만들기
 
@@ -270,9 +269,9 @@ az vm create \
 
 VM을 만드는 데 몇 분이 걸립니다. 만든 후에는 반환된 출력에서 **publicIpAddress**를 적어둡니다. 이 주소는 이후 단계에서 인터넷을 통해 VM에 액세스하는 데 사용됩니다.
 
-## <a name="confirm-access-to-storage-account"></a>저장소 계정에 대한 액세스 확인
+## <a name="confirm-access-to-storage-account"></a>스토리지 계정에 대한 액세스 확인
 
-*myVmPrivate* VM으로 SSH를 수행합니다. 바꿉니다  *\<publicIpAddress >* 의 공용 IP 주소를 사용 하 여 프로그램 *myVmPrivate* VM.
+*myVmPrivate* VM으로 SSH를 수행합니다. *\<publicIpAddress>* 를 *Myvmprivate* VM의 공용 IP 주소로 바꿉니다.
 
 ```bash 
 ssh <publicIpAddress>
@@ -284,7 +283,7 @@ ssh <publicIpAddress>
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-만든 디렉터리에 Azure 파일 공유를 탑재합니다. 다음 명령을 실행하기 전에 `<storage-account-name>`을 계정 이름으로, `<storage-account-key>`를 [저장소 계정 만들기](#create-a-storage-account)에서 검색한 키로 바꿉니다.
+만든 디렉터리에 Azure 파일 공유를 탑재합니다. 다음 명령을 실행하기 전에 `<storage-account-name>`을 계정 이름으로, `<storage-account-key>`를 [스토리지 계정 만들기](#create-a-storage-account)에서 검색한 키로 바꿉니다.
 
 ```bash
 sudo mount --types cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -298,11 +297,11 @@ VM에 다른 공용 IP 주소에 대한 아웃바운드 연결이 없는지 확�
 ping bing.com -c 4
 ```
 
-*Private* 서브넷과 연결된 네트워크 보안 그룹이 Azure Storage 서비스에 지정된 주소 이외의 공용 IP 주소에 대한 아웃바운드 액세스를 허용하지 않으므로 응답이 수신되지 않습니다.
+*프라이빗* 서브넷과 연결된 네트워크 보안 그룹이 Azure Storage 서비스에 지정된 주소 이외의 공용 IP 주소에 대한 아웃바운드 액세스를 허용하지 않으므로 응답이 수신되지 않습니다.
 
 *myVmPrivate* VM에 대한 SSH 세션을 종료합니다.
 
-## <a name="confirm-access-is-denied-to-storage-account"></a>저장소 계정에 대한 액세스가 거부되는지 확인
+## <a name="confirm-access-is-denied-to-storage-account"></a>스토리지 계정에 대한 액세스가 거부되는지 확인
 
 다음 명령을 사용하여 *myVmPublic* VM으로 SSH 세션을 만듭니다. `<publicIpAddress>`를 *myVmPublic* VM의 공용 IP 주소로 바꿉니다. 
 
@@ -316,7 +315,7 @@ ssh <publicIpAddress>
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-만든 디렉터리에 Azure 파일 공유를 탑재합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 다음 명령을 실행하기 전에 `<storage-account-name>`을 계정 이름으로, `<storage-account-key>`를 [저장소 계정 만들기](#create-a-storage-account)에서 검색한 키로 바꿉니다.
+만든 디렉터리에 Azure 파일 공유를 탑재합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 다음 명령을 실행 하기 전에을 `<storage-account-name>` 계정 이름으로 바꾸고를 `<storage-account-key>` [저장소 계정 만들기](#create-a-storage-account)에서 검색 한 키로 바꿉니다.
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -326,7 +325,7 @@ sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-sh
 
 *myVmPublic* VM에 대한 SSH 세션을 종료합니다.
 
-컴퓨터에서 [az storage share list](/cli/azure/storage/share?view=azure-cli-latest)를 사용하여 스토리지 계정의 공유를 봅니다. `<account-name>` 및 `<account-key>`를 [저장소 계정 만들기](#create-a-storage-account)의 저장소 계정 이름과 키로 바꿉니다.
+컴퓨터에서 [az storage share list](/cli/azure/storage/share?view=azure-cli-latest)를 사용하여 스토리지 계정의 공유를 봅니다. `<account-name>` 및 `<account-key>`를 [스토리지 계정 만들기](#create-a-storage-account)의 스토리지 계정 이름과 키로 바꿉니다.
 
 ```azurecli-interactive
 az storage share list \
@@ -334,7 +333,7 @@ az storage share list \
   --account-key <account-key>
 ```
 
-액세스가 거부되고 *이 요청은 이 작업을 수행할 권한이 없습니다.* 오류가 수신됩니다. 사용자 컴퓨터가 *MyVirtualNetwork* 가상 네트워크의 *Private* 서브넷에 없기 때문입니다.
+액세스가 거부되고 *이 요청은 이 작업을 수행할 권한이 없습니다.* 오류가 수신됩니다. 사용자 컴퓨터가 *MyVirtualNetwork* 가상 네트워크의 *프라이빗* 서브넷에 없기 때문입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -1,29 +1,20 @@
 ---
-title: Azure Service Fabric에서 C#을 통한 서비스 원격 통신 보호 | Microsoft Docs
+title: 'C와의 보안 서비스 원격 통신 #'
 description: Azure Service Fabric 클러스터에서 실행되는 C# Reliable Services에서 서비스 원격 기반 통신을 보호하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: suchiagicha
-manager: chackdan
-editor: vturecek
-ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 04/20/2017
-ms.author: suchiagicha
-ms.openlocfilehash: f247142f26490e1899256917b64fbec7308fb281
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: pepogors
+ms.openlocfilehash: ba68df53f1f21b9ff360772fe1a60c93c8df74d3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107673"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252218"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>C# 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-services-secure-communication.md)
+> * [Windows의 c #](service-fabric-reliable-services-secure-communication.md)
 > * [Linux에서 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
@@ -209,4 +200,4 @@ C# 서비스에서 서비스 원격 기능을 사용하는 경우 서비스를 �
     ```
 
 
-다음 단계는 [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)를 참조하세요.
+다음 단계는 [Reliable Services에서 OWIN을 사용하는 Web API](./service-fabric-reliable-services-communication-aspnetcore.md)를 참조하세요.

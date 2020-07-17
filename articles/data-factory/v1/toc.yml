@@ -22,8 +22,6 @@
       items:
         - name: 복사 마법사
           href: data-factory-copy-data-wizard-tutorial.md
-        - name: Azure portal
-          href: data-factory-copy-activity-tutorial-using-azure-portal.md
         - name: Visual Studio
           href: data-factory-copy-activity-tutorial-using-visual-studio.md
         - name: Azure PowerShell
@@ -78,7 +76,7 @@
               href: data-factory-azure-documentdb-connector.md
             - name: Azure Data Lake Storage Gen1
               href: data-factory-azure-datalake-connector.md
-            - name: Azure Search
+            - name: Azure Cognitive Search
               href: data-factory-azure-search-connector.md
             - name: Azure SQL Database
               href: data-factory-azure-sql-connector.md
@@ -152,9 +150,9 @@
         - name: .NET 사용자 지정 작업
           href: data-factory-use-custom-activities.md
         - name: R 스크립트 호출
-          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample'
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample'
         - name: Azure Analysis Services에서 모델 다시 처리
-          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample'
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample'
         - name: 컴퓨팅 연결 서비스
           href: data-factory-compute-linked-services.md
     - name: 개발
@@ -183,7 +181,7 @@
           href: data-factory-troubleshoot-gateway-issues.md
     - name: 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
@@ -201,11 +199,9 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 사례 연구
       href: data-factory-customer-case-studies.md
-    - name: 학습 경로
-      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: 가격
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -215,7 +211,7 @@
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=data-factory'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=data-factory'

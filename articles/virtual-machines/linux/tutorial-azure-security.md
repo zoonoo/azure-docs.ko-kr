@@ -1,27 +1,25 @@
 ---
-title: 자습서 - Azure에서 Linux VM을 위한 Azure Security Center 사용 | Microsoft Docs
+title: 자습서 - Azure에서 Linux VM을 위한 Azure Security Center 사용
 description: 이 자습서에서는 Azure에서 Linux 가상 머신을 보호하고 안전하게 하는 데 유용한 Azure Security Center 기능에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460106"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Linux 가상 머신 모니터링
 
@@ -72,16 +70,16 @@ VM 보안 구성을 확인하려면 먼저 Security Center 데이터 수집을 �
 
 ## <a name="view-vm-configuration-health"></a>VM 구성 상태 보기
 
-데이터 수집을 설정하고 보안 정책을 설정하면 Security Center에서 경고 및 권장 사항을 제공하기 시작합니다. VM이 배포되면 데이터 수집 에이전트가 설치됩니다. 그러면 Security Center가 새 VM에 대한 데이터로 채워집니다. VM 구성 상태에 대한 자세한 내용은 [Security Center에서 VM 보호](../../security-center/security-center-virtual-machine-recommendations.md)를 참조하세요. 
+데이터 수집을 설정하고 보안 정책을 설정하면 Security Center에서 경고 및 권장 사항을 제공하기 시작합니다. VM이 배포되면 데이터 수집 에이전트가 설치됩니다. 그러면 Security Center가 새 VM에 대한 데이터로 채워집니다. VM 구성 상태에 대한 자세한 내용은 [Security Center에서 VM 보호](../../security-center/security-center-virtual-machine-protection.md)를 참조하세요. 
 
 데이터가 수집되면 각 VM 및 관련 Azure 리소스에 대한 리소스 상태가 집계됩니다. 이 정보는 읽기 쉬운 차트로 표시됩니다. 
 
 리소스 상태를 보려면
 
-1.  Security Center 대시보드의 **방지**에서 **계산**을 선택합니다. 
-2.  **계산** 블레이드에서 **VM 및 계산**을 선택합니다. 이 보기는 모든 VM의 구성 상태에 대한 요약을 제공합니다.
+1.  Security Center 대시보드의 **방지**에서 **컴퓨팅**을 선택합니다. 
+2.  **컴퓨팅** 블레이드에서 **VM 및 컴퓨팅**을 선택합니다. 이 보기는 모든 VM의 구성 상태에 대한 요약을 제공합니다.
 
-![상태 계산](./media/tutorial-azure-security/compute-health.png)
+![컴퓨팅 상태](./media/tutorial-azure-security/compute-health.png)
 
 VM에 대한 모든 권장 사항을 보려면 해당 VM을 선택합니다. 
 
@@ -104,7 +102,7 @@ Azure Security Center가 구성 데이터로 채워지기 시작하면 설정한
 
 ## <a name="view-detected-threats"></a>검색된 위협 보기
 
-Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 경고를 표시합니다. 보안 경고 기능은 각 VM, Azure 네트워킹 로그 및 연결된 파트너 솔루션에서 수집된 데이터를 집계하여 Azure 리소스에 대한 보안 위협을 검색합니다. Security Center 위협 검색 기능에 대한 자세한 내용은 [Azure Security Center 검색 기능](../../security-center/security-center-detection-capabilities.md)을 참조하세요.
+Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 경고를 표시합니다. 보안 경고 기능은 각 VM, Azure 네트워킹 로그 및 연결된 파트너 솔루션에서 수집된 데이터를 집계하여 Azure 리소스에 대한 보안 위협을 검색합니다. Security Center 위협 탐지 기능에 대한 자세한 내용은 [Security Center 위협 검색 방법](../../security-center/security-center-alerts-overview.md#detect-threats)을 참조하세요.
 
 보안 경고 기능을 사용하려면 Azure Security Center 가격 책정 계층을 *체험*에서 *표준*으로 높여야 합니다. 이 상위 가격 책정 계층으로 전환하면 **평가판**을 사용할 수 있습니다. 
 
@@ -124,7 +122,7 @@ Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 
 ![RDP 공격](./media/tutorial-azure-security/rdp-attack.png)
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Security Center를 설정한 다음 Security Center에서 VM을 검토했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure Security Center를 설정한 다음 Security Center에서 VM을 검토했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 수집 설정
@@ -135,5 +133,5 @@ Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 
 Jenkins, GitHub 및 Docker를 사용하여 CI/CD 파이프라인을 만드는 방법에 대해 알아보려면 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Jenkins, GitHub 및 Docker를 사용하여 CI/CD 인프라 만들기](tutorial-jenkins-github-docker-cicd.md)
+> [Jenkins, GitHub 및 Docker를 사용하여 CI/CD 인프라 만들기](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

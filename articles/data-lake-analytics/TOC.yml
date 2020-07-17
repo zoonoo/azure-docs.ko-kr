@@ -1,5 +1,5 @@
 - name: Data Lake Analytics 설명서
-  href: index.md
+  href: index.yml
 - name: 개요
   items:
     - name: Data Lake Analytics란?
@@ -16,6 +16,11 @@
       href: data-lake-analytics-get-started-powershell.md
     - name: Azure CLI
       href: data-lake-analytics-get-started-cli.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 방법
   items:
     - name: Data Lake Analytics 관리
@@ -34,20 +39,22 @@
               href: data-lake-analytics-manage-use-dotnet-sdk.md
             - name: Python
               href: data-lake-analytics-manage-use-python-sdk.md
-            - name: 자바
+            - name: Java
               href: data-lake-analytics-manage-use-java-sdk.md
             - name: Node.js
               href: data-lake-analytics-manage-use-nodejs.md
         - name: 사용자 추가
           href: data-lake-analytics-add-users.md
-        - name: 정책
-          href: data-lake-analytics-policies.md
+        - name: 계정 정책
+          href: data-lake-analytics-account-policies.md
         - name: 보안 작업 폴더
           href: data-lake-analytics-secure.md
         - name: 진단 로그 액세스
           href: data-lake-analytics-diagnostic-logs.md
         - name: 할당량 한도 조정
           href: data-lake-analytics-quota-limits.md
+        - name: 재해 복구 계획
+          href: data-lake-analytics-disaster-recovery.md
     - name: U-SQL 프로그램 개발
       items:
         - name: U-SQL 언어
@@ -116,7 +123,21 @@
           href: data-lake-analytics-cicd-test.md
         - name: U-SQL SDK
           href: data-lake-analytics-u-sql-sdk.md
-- name: 참고 자료
+    - name: U-SQL 개발자를 위한 Apache Spark 이해
+      items:
+        - name: U-SQL 개발자를 위한 Apache Spark 이해
+          href: understand-spark-for-usql-developers.md
+        - name: Apache Spark 데이터 형식 이해
+          href: understand-spark-data-formats.md
+        - name: Apache Spark 코드 개념 이해
+          href: understand-spark-code-concepts.md
+    - name: U-SQL 작업 문제 해결
+      items:
+        - name: U-SQL 런타임 오류 문제 해결
+          href: runtime-troubleshoot.md
+        - name: .NET 업그레이드 문제 해결
+          href: dotnet-upgrade-troubleshoot.md
+- name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.datalakeanalytics
@@ -130,7 +151,7 @@
       href: /rest/api/datalakeanalytics/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.datalakeanalytics/allversions
-    - name: CLI
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/dla'
 - name: 리소스
   items:
@@ -140,15 +161,15 @@
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 변경 내용 요청
       href: 'https://feedback.azure.com/forums/327234-data-lake'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake'
-    - name: 가격
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-lake-analytics.html'
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/data-lake-analytics/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=data-lake-analytics'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-lake'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics'

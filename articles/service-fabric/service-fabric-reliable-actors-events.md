@@ -1,25 +1,16 @@
 ---
-title: 행위자 기반 Azure 서비스 패브릭 행위자의 이벤트| Microsoft Docs
-description: 서비스 패브릭 Reliable Actors의 이벤트에 대해 소개합니다.
-services: service-fabric
-documentationcenter: .net
+title: 행위자 기반 Azure Service Fabric 행위자의 이벤트
+description: 행위자와 클라이언트 간에 통신 하는 효과적인 방법 인 Service Fabric Reliable Actors에 대 한 이벤트에 대해 알아봅니다.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 9075fc8391e8afa21e3963c1eff6a630c586d647
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b17befcd86cd56eb5eb385ddc5196cbfce73003c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726403"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260425"
 ---
 # <a name="actor-events"></a>행위자 이벤트
 행위자 이벤트는 행위자에서 클라이언트로 최상의 알림을 보낼 수 있는 방법을 제공합니다. 행위자 이벤트는 행위자-클라이언트 간 통신을 위해 디자인되었으며 행위자-행위자 간 통신에는 사용하지 않아야 합니다.
@@ -109,9 +100,9 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 
 
 ## <a name="next-steps"></a>다음 단계
-* [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
+* [행위자 재입력](service-fabric-reliable-actors-reentrancy.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
-* [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [행위자 API 참조 설명서](/previous-versions/azure/dn971626(v=azure.100))
+* [C # 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
 * [Java 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)

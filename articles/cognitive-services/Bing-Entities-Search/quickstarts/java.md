@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Java를 사용하여 Bing Entity Search REST API에 검색 요청 보내기'
-titlesuffix: Azure Cognitive Services
+title: '빠른 시작: Java를 사용하여 REST API에 검색 요청 보내기 - Bing Entity Search'
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Java를 통해 Bing Entity Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: e1799f2af89fd0498c11f3d695d84ccd93a9c857
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6d4e7297ba0b325aa0045c16620d716ceb1418b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681933"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650251"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>빠른 시작: Java를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
 이 빠른 시작을 사용하여 Bing Entity Search API를 처음 호출하고 JSON 응답을 봅니다. 이 간단한 Java 애플리케이션은 뉴스 검색 쿼리를 API에 보내고, 응답을 표시합니다.
 
-이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/)
-* [Gson 라이브러리](https://github.com/google/gson)
+* [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/).
+* [Gson 라이브러리](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
-1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
+1. 주로 사용하는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
 
    ```java
    import java.io.*;
@@ -50,7 +50,7 @@ ms.locfileid: "59681933"
    import com.google.gson.JsonParser;
    ```
 
-2. 새 클래스에서 API 엔드포인트, 구독 키 및 검색 쿼리에 대한 변수를 만듭니다.
+2. 새 클래스에서 API 엔드포인트, 구독 키 및 검색 쿼리에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
    ```java
    public class EntitySearch {
@@ -68,7 +68,7 @@ ms.locfileid: "59681933"
 
 ## <a name="construct-a-search-request-string"></a>검색 요청 문자열 작성
 
-1. JSON `String`을 반환하는 `search()` 함수를 만듭니다. 검색 쿼리를 url로 인코딩한 다음, `&q=`을 사용하여 매개 변수 문자열에 추가합니다. `?mkt=`을 사용하여 문자열에 시장을 추가합니다.
+1. JSON `String`을 반환하는 `search()` 함수를 만듭니다. 검색 쿼리를 url로 인코딩한 다음, `&q=`을 사용하여 매개 변수 문자열에 추가합니다. `?mkt=`를 사용하여 매개 변수 문자열에 시장을 추가합니다.
  
 2. 해당하는 호스트, 경로 및 매개 변수 문자열을 사용하여 URL 개체를 만듭니다.
     
@@ -119,9 +119,9 @@ ms.locfileid: "59681933"
 
 ## <a name="format-the-json-response"></a>JSON 응답 형식 지정
 
-1. JSON 응답의 형식을 지정하는 새 `prettify` 함수를 만듭니다. 새 `JsonParser`를 만들고, json 텍스트에서 `parse()`를 호출하여 JSON 개체로 저장합니다. 
+1. JSON 응답의 형식을 지정하는 새 `prettify` 함수를 만듭니다. 새 `JsonParser`를 만들어 JSON 텍스트에서 `parse()`를 호출한 다음, JSON 개체로 저장합니다. 
 
-2. Gson 라이브러리를 사용하여 새 `GsonBuilder()`를 만들고, `setPrettyPrinting().create()`를 사용하여 json 형식을 지정합니다. 그리고 반환합니다.    
+2. Gson 라이브러리를 사용하여 새 `GsonBuilder()`를 만들고 `setPrettyPrinting().create()`를 사용하여 JSON 형식을 지정한 다음, 반환합니다.    
   
    ```java
    //...
@@ -136,7 +136,7 @@ ms.locfileid: "59681933"
 
 ## <a name="call-the-search-function"></a>검색 함수 호출
 
-1. 프로젝트의 기본 메서드에서 `search()`를 호출하고, `prettify()`를 사용하여 텍스트 형식을 지정합니다.
+- 프로젝트의 기본 메서드에서 `search()`를 호출하고, `prettify()`를 사용하여 텍스트 형식을 지정합니다.
     
     ```java
         public static void main(String[] args) {
@@ -220,5 +220,5 @@ ms.locfileid: "59681933"
 > [!div class="nextstepaction"]
 > [단일 페이지 웹앱 빌드](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Bing Entity Search API란?](../overview.md )
-* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Bing Entity Search API란?](../overview.md)
+* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

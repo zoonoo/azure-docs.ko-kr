@@ -10,6 +10,8 @@
       href: quickstart-create-traffic-manager-profile.md
     - name: Traffic Manager 프로필 만들기 - PowerShell
       href: quickstart-create-traffic-manager-profile-powershell.md
+    - name: Traffic Manager 프로필 만들기 - Azure CLI
+      href: quickstart-create-traffic-manager-profile-cli.md
 - name: 자습서
   items:
     - name: 짧은 대기 시간을 위해 트래픽 라우팅
@@ -81,17 +83,23 @@
       href: traffic-manager-load-balancing-azure.md
     - name: Traffic Manager 성능 측정
       href: traffic-manager-performance-considerations.md
-    - name: 진단 로그 활성화
+    - name: 리소스 로그 사용
       href: traffic-manager-diagnostic-logs.md
     - name: Azure PowerShell을 사용하여 Traffic Manager 관리
       href: traffic-manager-powershell-arm.md
     - name: 인터넷 도메인이 Traffic Manager를 가리키도록 설정
       href: traffic-manager-point-internet-domain.md
+    - name: 서브넷 재정의
+      items:
+        - name: 서브넷 재정의 구성 - Azure CLI
+          href: traffic-manager-subnet-override-cli.md
+        - name: 서브넷 재정의 구성 - PowerShell
+          href: traffic-manager-subnet-override-powershell.md
     - name: 문제 해결
       items:
         - name: Azure Traffic Manager의 성능 저하된 상태 문제 해결
           href: traffic-manager-troubleshooting-degraded.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
@@ -99,40 +107,32 @@
       href: /powershell/module/az.trafficmanager
     - name: Azure CLI
       href: /cli/azure/network/traffic-manager
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.trafficmanager
     - name: Node.js
       href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/'
     - name: Ruby
       href: 'https://www.rubydoc.info/gems/azure_mgmt_traffic_manager'
     - name: Python
-      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html'
+      href: 'https://azure.github.io/azure-sdk-for-python/ref/Traffic-Manager.html'
     - name: REST (영문)
       href: 'https://msdn.microsoft.com/library/mt163667.aspx'
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/trafficmanagerprofiles
-- name: 관련 항목
-  items:
-    - name: Application Gateway
-      href: /azure/application-gateway/
-    - name: Load Balancer
-      href: /azure/load-balancer/
-    - name: Azure DNS
-      href: /azure/dns/
 - name: 리소스
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
-    - name: 가격
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/traffic-manager/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 제한
-      href: '../azure-subscription-service-limits.md#traffic-manager-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
     - name: SLA

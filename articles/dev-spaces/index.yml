@@ -1,57 +1,70 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Dev 공간
+### YamlMime:Landing
+title: Azure Dev Spaces 설명서
+summary: Azure Dev Spaces는 더 큰 애플리케이션의 컨텍스트에서 코드를 쉽게 실행하고 디버깅할 수 있는 AKS의 확장입니다. 코드를 엔드투엔드로 테스트하고, 클러스터에서 실행 중인 코드의 중단점을 적중하고, 팀 멤버 간에 간섭 없이 개발 클러스터를 공유할 수 있습니다.
 metadata:
-  title: Azure Dev 공간
-  meta.description: Rapid Kubernetes development with containers and microservices on Azure.
+  title: Azure Dev Spaces 설명서
+  description: Azure Dev Spaces는 더 큰 애플리케이션의 컨텍스트에서 코드를 쉽게 실행하고 디버깅할 수 있는 AKS의 확장입니다. 코드를 엔드투엔드로 테스트하고, 클러스터에서 실행 중인 코드의 중단점을 적중하고, 팀 멤버 간에 간섭 없이 개발 클러스터를 공유할 수 있습니다.
   services: azure-dev-spaces
-  author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
-  ms.date: 08/23/2018
+  author: zr-msft
   ms.author: zarhoads
-sections:
-  - title: 팀에 대한 신속하고 반복적인 Kubernetes 개발 환경입니다.
-    items:
-      - type: paragraph
-        text: '최소한의 개발 컴퓨터 설정을 통해 AKS(Azure Kubernetes Service)에서 바로 컨테이너를 반복적으로 실행하고 디버그할 수 있습니다.  공유 Kubernetes 클러스터에서 팀과 공동 작업을 수행하고, 종속성을 복제하거나 모의하지 않고 다른 구성 요소를 사용하여 종단 간 테스트를 수행할 수도 있습니다. Azure Dev Spaces를 사용하면 Windows, Mac 또는 Linux에서 Visual Studio, Visual Studio Code 또는 명령줄과 같은 익숙한 도구를 사용하여 개발할 수 있습니다.'
-      - type: markdown
-        text: |-
-          > [!IMPORTANT]
-          > Azure Dev Spaces는 **미국 동부**, **미국 동부 2**, **미국 중부**, **미국 서부 2**, **북유럽**, **서유럽**, **영국 남부**, **동남 아시아**, **오스트레일리아 동부**, **캐나다 중부** 및 **캐나다 동부** 지역의 AKS 클러스터에서만 지원됩니다. Azure Dev Spaces는 Linux, MacOS 또는 Windows 8 이상에 설치된 [Azure Dev Spaces 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)에서 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Visual Studio Code](https://code.visualstudio.com/download)를 사용하여 AKS에서 애플리케이션을 빌드하고 실행할 수 있습니다. 뿐만 아니라 Windows 8 이상에 설치된 웹 개발 워크로드 및 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)에서 [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)을 사용할 수 있습니다.
-  - title: Azure Dev Spaces에서 시작
-    items:
-      - type: paragraph
-        text: 시작하려면 언어별 가이드를 선택하세요.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: 자바
-            href: quickstart-java.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: .NET 및 VS Code
-            href: quickstart-netcore.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: .NET 및 Visual Studio
-            href: quickstart-netcore-visualstudio.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: Node.js
-            href: quickstart-nodejs.md
-  - title: Azure Dev 공간이 Kubernetes 개발을 단순화하는 방법
-    items:
-      - type: paragraph
-        text: Azure Dev Spaces는 다음과 같은 방식으로 개발 팀이 Kubernetes에서 생산성을 높이도록 지원합니다.
-      - type: list
-        style: unordered
-        items:
-          - text: 각 팀 멤버의 로컬 개발 컴퓨터 설정을 최소화하고 Azure의 관리되는 Kubernetes 클러스터인 AKS에서 바로 작업합니다.
-          - text: Visual Studio 2017 또는 Visual Studio Code를 사용하여 Kubernetes에서 바로 코드를 반복하고 디버깅합니다.
-          - text: 개발 단계부터 프로덕션 단계까지 사용할 수 있는 Docker 및 Kubernetes configuration-as-code 자산을 생성합니다.
-          - text: '팀과 관리되는 Kubernetes 클러스터를 공유하고 공동 작업합니다. 격리 상태에서 코드를 개발하고, 종속성을 복제하거나 목업하지 않고 다른 구성 요소로 통합형 테스트를 수행합니다.'
-      - type: markdown
-        text: '![](media/azure-dev-spaces/collaborate-graphic.gif)'
+  manager: gwallace
+  ms.date: 09/30/2019
+  ms.openlocfilehash: ea9865d35b25b5691f702b91c6255f0f703c3e90
+  ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/03/2020
+  ms.locfileid: "84310039"
+landingContent:
+- title: Azure Dev Spaces 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Dev Spaces란?
+      url: about.md
+  - linkListType: concept
+    links:
+    - text: Azure Dev Spaces의 작동 원리
+      url: how-dev-spaces-works.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Dev Spaces 설치
+      url: how-to/install-dev-spaces.md
+- title: 마이크로서비스 개발 및 테스트
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 마이크로서비스 실행 및 디버그
+      url: quickstart-netcore.md
+    - text: 팀과 함께 마이크로서비스 세트에 대해 협업
+      url: quickstart-team-development.md
+  - linkListType: how-to-guide
+    links:
+    - text: 더 나은 엔드투엔드 테스트를 위해 CI/CD 파이프라인에 Dev Spaces 통합
+      url: how-to/setup-cicd.md
+- title: 고급 시나리오
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 NuGet 피드 사용
+      url: how-to/use-custom-nuget-feed.md
+    - text: 프라이빗 Helm 리포지토리 사용
+      url: how-to/use-private-helm-repo.md
+    - text: Windows 컨테이너와 상호 작용
+      url: how-to/run-dev-spaces-windows-containers.md
+    - text: 사용자 지정 수신 및 HTTPS에 traefik 사용
+      url: how-to/ingress-https-traefik.md
+    - text: 사용자 지정 수신 및 HTTPS에 NGINX 사용
+      url: how-to/ingress-https-nginx.md
+- title: 미리 보기 기능
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Dev Spaces로 GitHub 작업 사용
+      url: how-to/github-actions.md
+    - text: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용
+      url: how-to/local-process-kubernetes-vs-code.md
+    - text: Visual Studio에서 Kubernetes와 함께 로컬 프로세스 사용
+      url: how-to/local-process-kubernetes-visual-studio.md

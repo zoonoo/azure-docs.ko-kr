@@ -1,25 +1,27 @@
 ---
-title: Azure Functions 및 Azure SignalR Service를 사용 하 여 실시간 앱 빌드
-description: Azure SignalR Service를 사용 하 여 서버 리스 응용 프로그램에서 간략히 설명 합니다.
+title: Azure SignalR Service & 실시간 앱 Azure Functions 빌드
+description: 다음 예제를 통해 Azure SignalR Service를 사용 하 여 실시간 서버 리스 웹 응용 프로그램을 개발 하는 방법을 알아봅니다.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c06203cfd7537dd4c9bc35c75a3f21d12bf64d26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61401890"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74157613"
 ---
-# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure Functions 및 Azure SignalR Service를 사용 하 여 실시간 앱 빌드
+# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure Functions 및 Azure SignalR 서비스를 사용 하 여 실시간 앱 빌드
 
-Azure SignalR Service와 Azure Functions는 둘 다 완전히 관리되는 서비스라서 인프라를 관리하는 대신 애플리케이션 빌드에 집중이 가능한 확장성이 높은 서비스이기 때문에, [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 두 가지 서비스를 함께 사용하여 실시간 통신을 제공하는 것이 일반적입니다.
+Azure SignalR Service 및 Azure Functions는 인프라를 관리 하는 대신 응용 프로그램을 구축 하는 데 집중할 수 있도록 하는 완전히 관리 되 고 확장성이 뛰어난 서비스입니다. 일반적으로 두 서비스를 함께 사용 하 여 [서버](https://azure.microsoft.com/solutions/serverless/) 를 사용 하지 않는 환경에서 실시간 통신을 제공 하는 것이 일반적입니다.
+
+> [!NOTE]
+> 대화형 자습서에서 SignalR 및 Azure Functions를 함께 사용 하는 방법을 알아보고 [Azure Functions 및 SignalR 서비스를 사용 하 여 웹 응용 프로그램에서 자동 업데이트](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)를 사용 하도록 설정 합니다.
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Azure 서비스를 통해 실시간 통신 통합
 
-Azure Functions를 사용하면 JavaScript, C # 및 Java를 비롯한 [여러 가지 언어](../azure-functions/supported-languages.md)로 코드를 작성하여 클라우드에서 이벤트가 발생할 때마다 트리거 할 수 있습니다. 이러한 이벤트의 예는 다음과 같습니다.
+Azure Functions를 통해 JavaScript, Python, c # 및 Java를 비롯 한 [여러 언어](../azure-functions/supported-languages.md)의 코드를 작성 하 여 클라우드에서 이벤트가 발생할 때마다 트리거할 수 있습니다. 이러한 이벤트의 예는 다음과 같습니다.
 
 * HTTP 및 웹후크 요청
 * 주기적 타이머
@@ -41,7 +43,7 @@ Azure Functions 및 SignalR Service로 구현할 수 있는 실시간 서버리�
 
 ## <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
-Azure Functions용 SignalR Service 바인딩을 통해 Azure Function 앱이 SignalR Service에 연결된 클라이언트에 메시지를 게시할 수 있습니다. 클라이언트는 .NET, JavaScript 및 Java에서 사용할 수 있는 SignalR 클라이언트 SDK를 사용하여 서비스에 연결할 수 있으며 더 많은 언어에서 곧 제공 될 예정입니다.
+Azure Functions용 SignalR Service 바인딩을 통해 Azure 함수 앱이 SignalR Service에 연결된 클라이언트에 메시지를 게시할 수 있습니다. 클라이언트는 .NET, JavaScript 및 Java에서 사용할 수 있는 SignalR 클라이언트 SDK를 사용하여 서비스에 연결할 수 있으며 더 많은 언어에서 곧 제공 될 예정입니다.
 
 ### <a name="an-example-scenario"></a>예제 시나리오
 
@@ -63,11 +65,12 @@ SignalR Service를 사용하면 모든 클라이언트 또는 클라이언트의
 
 이 문서에서는 Azure Functions를 SignalR Service와 함께 사용하여 다양한 실시간 메시징 시나리오를 사용하는 방법에 대한 개요를 살펴봤습니다.
 
-Azure Functions 및 SignalR Service를 함께 사용 하는 방법에 대 한 전체 내용은 다음 가이드를 참조 하세요.
+Azure Functions 및 SignalR Service를 함께 사용 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
-* [Azure Functions 개발 및 SignalR Service를 사용 하 여 구성](signalr-concept-serverless-development-config.md)
+* [SignalR Service를 사용 하 여 개발 및 구성 Azure Functions](signalr-concept-serverless-development-config.md)
+* [Azure Functions 및 SignalR Service를 사용하여 웹 애플리케이션에서 자동 업데이트 사용](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 자세히 알아보려면 다음 빠른 시작 중 하나를 수행하세요.
 
-* [Azure SignalR Service Serverless 빠른 시작 - C#](signalr-quickstart-azure-functions-csharp.md)
+* [Azure SignalR 서비스 서버 리스 빠른 시작-C #](signalr-quickstart-azure-functions-csharp.md)
 * [Azure SignalR Service Serverless 빠른 시작 - JavaScript](signalr-quickstart-azure-functions-javascript.md)

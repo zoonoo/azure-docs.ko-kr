@@ -1,0 +1,43 @@
+### YamlMime:Landing
+title: Azure의 Docker 설명서
+summary: Docker는 Linux 및 Windows에서 컨테이너와 함께 빠르게 사용할 수 있는 인기 있는 컨테이너 관리 및 이미징 플랫폼입니다. Azure에서 Docker를 활용하는 방법을 알아봅니다.
+metadata:
+  title: Azure의 Docker 설명서
+  description: Docker는 Linux 및 Windows에서 컨테이너와 함께 빠르게 사용할 수 있는 인기 있는 컨테이너 관리 및 이미징 플랫폼입니다. Azure에서 Docker를 활용하는 방법을 알아봅니다.
+  services: multiple
+  ms.service: multiple
+  ms.topic: landing-page
+  author: georgewallace
+  ms.author: gwallace
+  ms.date: 03/08/2020
+  ms.openlocfilehash: daff334cbbe118d6fdbc42a5497313f9671fd7f1
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "78944015"
+landingContent:
+- title: Azure에 Docker 배포
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Ubuntu 빠른 시작 템플릿에 Docker 배포
+      url: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
+- title: 시작하기
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure App Service에서 PostgreSQL을 사용하여 Python(Django) 웹앱 실행
+      url: ../app-service/containers/tutorial-python-postgresql-app.md
+    - text: Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
+      url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
+- title: 리소스
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Docker Azure 사이트
+      url: https://docs.docker.com/docker-for-azure/why/
+    - text: Docker Azure 드라이버
+      url: https://docs.docker.com/machine/drivers/azure/
+    - text: Docker에 대한 자세한 정보
+      url: https://docker.com

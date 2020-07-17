@@ -1,5 +1,5 @@
 ---
-title: StorSimple 디바이스에 대한 안정성 | Microsoft Docs
+title: StorSimple 8000 시리즈 장치를 안전 하 게 설치 & 작동
 description: 안전성 규칙, 지침 및 고려 사항을 설명하고 StorSimple 디바이스를 안전하게 설치하고 작동하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 66b881ab13e27ee457af4fa1bafb82ad14e9674d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514544"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 디바이스의 안전한 설치 및 작동
 ![경고 아이콘](./media/storsimple-safety/IC740879.png)
@@ -33,8 +32,8 @@ ms.locfileid: "60631682"
 | 아이콘 | 설명 |
 |:--- |:--- |
 | ![위험 아이콘](./media/storsimple-safety/IC740879.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
-| ![경고 아이콘](./media/storsimple-safety/IC740879.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
-| ![경고 아이콘](./media/storsimple-safety/IC740879.png) **주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![경고 아이콘 ](./media/storsimple-safety/IC740879.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![경고 아이콘 ](./media/storsimple-safety/IC740879.png) **주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
 | ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:** |중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. |
 | ![감전 아이콘](./media/storsimple-safety/IC740882.png) **감전 위험** |높은 전압 |
 | ![무거운 무게 아이콘](./media/storsimple-safety/IC740883.png) **무거운 무게** | |
@@ -67,7 +66,7 @@ ms.locfileid: "60631682"
 전기 연결에서 과열 또는 화재 가능성을 줄이려면:
 
 * 기술 사양에 상세히 기술된 요구 사항을 충족하기 위해 전기 과부하 보호 기능과 함께 적합한 전원을 제공하십시오.
-* 두 갈래의 전원 코드("Y" 리드)를 사용하지 마십시오.
+* 분기 전원 코드 ("Y" 리드)를 사용 하지 마십시오.
 * 해당 안전, 배기 가스 및 열 요구 사항을 준수하기 위해 커버를 제거하지 말고 모든 베이를 플러그인 모듈 또는 드라이브 블랭크로 채워야 합니다.
 * 장비가 제조업체에서 지정한 방식으로 사용되어야 합니다. 제조업체에서 지정하지 않은 방식으로 이 장비를 사용할 경우 장비에서 제공하는 보호 기능이 작동하지 않을 수 있습니다.
 
@@ -96,20 +95,21 @@ ms.locfileid: "60631682"
 
 * 랙은 안전한 배전 시스템을 포함해야 합니다. 인클로저에 과전류 보호 기능을 제공해야 하며 설치된 인클로저 총 수에 의해 과부하되어서는 안 됩니다. 명판에 표시된 정격 소비 전력을 확인해야 합니다.
 * 배전 시스템에서는 랙에 있는 각 인클로저에 신뢰할 수 있는 접지를 제공해야 합니다.
-* 배전 시스템의 설계에서는 모든 인클로저의 모든 전원 공급 장치로부터 나오는 전체 접지 누설 전류를 고려해야 합니다. 각 인클로저의 각 전원 공급 장치에는 60Hz, 264볼트에서 최대 1.0mA의 접지 누설 전류를 포함합니다. 랙에 “누설 전류 높음. 전기를 연결하기 전에 접지(어스) 연결이 필요합니다."라는 레이블이 필요할 수 있습니다.
+* 배전 시스템의 설계에서는 모든 인클로저의 모든 전원 공급 장치로부터 나오는 전체 접지 누설 전류를 고려해야 합니다. 각 인클로저의 각 전원 공급 장치에는 60Hz, 264볼트에서 최대 1.0mA의 접지 누설 전류를 포함합니다. 랙이 "높은 누출 전류"로 레이블을 지정 해야 할 수 있습니다. 공급망에 연결 하기 전에 접지 (지구) 연결을 반드시 수행 해야 합니다. "
 * 인클로저와 함께 구성된 랙은 UL 60950-1 및 IEC 60950-1/EN 60950-1의 안전 요구 사항을 충족해야 합니다.
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
 랙 시스템의 적절한 냉각을 위해:
 
-* 랙 설계 시 섭씨 35도(화씨 95도)의 인클로저 작동을 위한 최대 주변 온도를 고려해야 합니다.
+* 랙 설계 시 섭씨 35도(화씨 95도)의 인클로저 작동을 위한 최대 주변 온도를 고려해야 합니다. 랙 시스템이 쿨 장소를 보관 하 고 데이터 센터의 AC 환풍구에서 적절 한 공기가 있는지 확인 합니다.
 * 시스템은 저압의 후면 배기 설치에서 작동합니다(랙 도어에서 발생하는 배압 및 장애물이 5파스칼[0.5mm 수면계]을 초과하지 않음).
 
 ## <a name="power-cooling-module-pcm-precautions"></a>PCM(전원 냉각 모듈) 주의 사항
+
 디바이스는 두 개의 PCM과 함께 작동하도록 설계되었습니다. 각 PCM에는 전원 공급 장치와 이중 축 팬이 있습니다. 임계 조건에서 시스템은 한 대의 전원 공급 장치에 오류가 발생해도 정상적인 작동을 계속할 수 있습니다. 항상 두 PCM(및 전원 공급 장치)을 설치해야 합니다. PCM 하나로는 예비 전력을 제공하지 않습니다. 따라서 하나의 PCM만 고장나도 가동 중지 시간 또는 데이터 손실이 발생할 수 있습니다.
 
-![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **경고!**
 
 부상, 감전 또는 사망 가능성을 줄이려면:
 
@@ -123,6 +123,7 @@ ms.locfileid: "60631682"
 * 교체품을 즉시 설치할 수 없는 경우 PCM을 제거하지 마십시오. 모든 모듈이 장착된 상태에서만 인클로저를 작동해야 합니다.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>정전기 방전(ESD) 주의 사항
+
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
 다음 ESD 관련 주의 상태를 확인하세요.
@@ -133,9 +134,10 @@ ms.locfileid: "60631682"
 * ESD 손상 시 보증이 적용되지 않습니다.
 
 ## <a name="battery-disposal-precautions"></a>배터리 폐기 주의 사항
+
 전원 공급 장치는 일시적인 단기 정전 중에 메모리 내용을 보호하는 특수 배터리를 사용합니다. 이 배터리는 PCM에 장착되어 있습니다. 배터리에 대한 다음 정보를 숙지하십시오.
 
-![경고 아이콘](./media/storsimple-safety/IC740879.png) **경고!**
+![경고 아이콘 ](./media/storsimple-safety/IC740879.png) **경고!**
 
 누전, 화재, 폭발, 부상 또는 사망 위험을 줄이려면:
 
@@ -145,11 +147,11 @@ ms.locfileid: "60631682"
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
-배터리를 선적하거나 항공편으로 운송하는 경우 [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)의 IATA 리튬 배터리 지침 문서를 따르세요.
+무선으로 배터리를 배송 하거나 전송 하는 경우에 제공 되는[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 이 보안 공지를 검토한 후 다음 단계에서는 디바이스를 개봉하고 랙 및 케이블을 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * 8100 디바이스의 경우 [StorSimple 8100 디바이스 설치](storsimple-8100-hardware-installation.md)로 이동합니다.
 * 8600 디바이스의 경우 [StorSimple 8600 디바이스 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
-

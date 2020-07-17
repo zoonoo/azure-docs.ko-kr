@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 91675cd8348ed9d564b3e6b01ebcb039eabf0929
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 391ae72a9e2bc78ed120cf4f5fdf844a6248566a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269863"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74233462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>자습서: Overdrive와 Azure Active Directory 통합
 
@@ -31,10 +31,10 @@ Overdrive를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다
 * 사용자가 해당 Azure AD 계정으로 Overdrive에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Overdrive와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -59,7 +59,7 @@ Overdrive의 Azure AD 통합을 구성하려면 갤러리의 Overdrive를 관리
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -148,10 +148,10 @@ Overdrive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -186,7 +186,7 @@ Overdrive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 이 섹션에서는 Overdrive에서 Britta Simon이라는 사용자를 만듭니다. Overdrive는 Just-In-Time 프로비저닝을 지원하며, 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. Overdrive에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 >[!NOTE]
->다른 OverDrive 사용자 계정 생성 도구 또는 OverDrive가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>다른 OverDrive 사용자 계정 생성 도구 또는 OverDrive가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 >
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 

@@ -1,26 +1,24 @@
 ---
-title: SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS | Microsoft Docs
+title: RHEL for SAP NetWeaver에 대 한 Azure Vm의 GlusterFS | Microsoft Docs
 description: SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
-ms.author: sedusch
-ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: radeltch
+ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711284"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77591917"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS
 
@@ -76,7 +74,7 @@ ms.locfileid: "60711284"
 
 ## <a name="overview"></a>개요
 
-SAP NetWeaver의 가용성을 높이려면 공유 저장소가 필요합니다. GlusterFS는 별도의 클러스터에서 구성되며, 여러 SAP 시스템에서 사용할 수 있습니다.
+SAP NetWeaver의 가용성을 높이려면 공유 스토리지가 필요합니다. GlusterFS는 별도의 클러스터에서 구성되며, 여러 SAP 시스템에서 사용할 수 있습니다.
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-rhel-glusterfs/rhel-glusterfs.png)
 
@@ -87,7 +85,7 @@ github의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 ### <a name="deploy-linux-via-azure-template"></a>Azure 템플릿을 통해 Linux 배포
 
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 Red Hat Enterprise Linux용 이미지가 있습니다.
-Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
+Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 머신, 가용성 집합 등을 배포 합니다. 템플릿을 배포 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 [SAP 파일 서버 템플릿][template-file-server]을 엽니다.
 1. 다음 매개 변수를 입력합니다.
@@ -99,11 +97,11 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    4. 관리자 사용자 이름, 관리자 암호 또는 SSH 키  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    5. 서브넷 ID  
-      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 /subscriptions/**&lt;구독 ID&gt;**/resourceGroups/**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt;** 과 같은 형식입니다.
+      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/** &lt; subscription &gt; ID**/Resourcegroups//** &lt; 리소스 그룹 이름 &gt; **/providers/Microsoft.Network/virtualNetworks/** &lt; 가상 네트워크 이름 &gt; **/subnets/** &lt; 서브넷 이름 &gt; ** 처럼 보입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
-먼저 이 클러스터용으로 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
+먼저 이 클러스터용으로 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)를 만드는 것이 좋습니다.  
 
 1. 리소스 그룹 만들기
 1. Virtual Network 만들기
@@ -355,5 +353,5 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 * [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.
+* Azure (큰 인스턴스)의 SAP HANA에 대 한 고가용성 및 재해 복구 계획을 수립 하는 방법을 알아보려면 [azure에서 SAP HANA (큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)를 참조 하세요.
 * Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.

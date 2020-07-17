@@ -3,25 +3,25 @@ title: 딥 링크를 사용하여 애플리케이션에 로그인하는 문제 |
 description: Azure AD를 사용하여 딥 링크 URL에서 애플리케이션에 액세스하는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44825f32a13db0a221252c042dc9f23ec43a9c8f
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 3c68143dabd9b047a8d6cc37ccac770b7d954656
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759490"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>딥 링크를 사용하여 애플리케이션에 로그인하는 문제
 
@@ -57,7 +57,7 @@ ms.locfileid: "65825422"
 
 올바른 딥 링크가 있는지 확인하려면 다음 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "65825422"
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+6. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 7. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -101,7 +101,7 @@ ms.locfileid: "65825422"
 
 6.  설치되면 브라우저 세션을 **다시 시작**합니다.
 
-7.  액세스 패널에 로그인하고 암호 SSO 애플리케이션을 **시작**할 수 있는지 확인합니다.
+7.  액세스 패널에 로그인 하 고 암호 SSO 응용 프로그램을 **시작할** 수 있는지 확인 합니다.
 
 아래와 같은 직접 링크에서 Chrome 및 Firefox에 대한 확장을 다운로드할 수 있습니다.
 
@@ -121,7 +121,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com) 을 열고 **전역 관리자** 또는 **공동 관리자**권한으로 로그인 합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -145,7 +145,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 애플리케이션에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -163,7 +163,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 8. **암호 기반 로그온** 모드를 선택합니다.
 
-9. [애플리케이션에 사용자를 할당합니다](#how-to-assign-a-user-to-an-application-directly).
+9. [응용 프로그램에 사용자를 할당](#how-to-assign-a-user-to-an-application-directly)합니다.
 
 10. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 
@@ -179,7 +179,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com) 을 열고 **전역 관리자** 또는 **공동 관리자**권한으로 로그인 합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -191,7 +191,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 6.  **비갤러리 애플리케이션**을 클릭합니다.
 
-7.  **이름** 텍스트 상자에 애플리케이션의 이름을 입력합니다. **추가**를 선택합니다.
+7.  **이름** 텍스트 상자에 애플리케이션의 이름을 입력합니다. **추가를 선택 합니다.**
 
 잠시 후 애플리케이션의 구성 창이 표시됩니다.
 
@@ -199,7 +199,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 애플리케이션에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1.  [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 

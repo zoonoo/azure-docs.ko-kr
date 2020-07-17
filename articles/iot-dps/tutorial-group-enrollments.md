@@ -1,23 +1,22 @@
 ---
-title: Java 및 등록 그룹을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 디바이스 프로비전 | Microsoft Docs
-description: Azure 자습서 - IoT Hub Device Provisioning Service용 Java 디바이스 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
+title: 자습서 - Java 및 등록 그룹을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 디바이스 프로비전
+description: 이 자습서에서는 IoT Hub DPS(Device Provisioning Service)용 Java 디바이스, 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스를 만들고 프로비저닝합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/04/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d6cb3af134ff272d79cfc440047a3d90733ee9e8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805056"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74976811"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 디바이스 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
+# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>자습서: IoT Hub Device Provisioning Service용 Java 디바이스 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 
 다음 단계에서는 Windows OS를 실행 중인 개발 머신에서 X.509 디바이스를 시뮬레이션하고, 코드 샘플을 사용하여 등록 그룹을 통해 이 시뮬레이션된 디바이스를 Device Provisioning Service 및 IoT Hub와 연결하는 방법을 보여줍니다. 
 
@@ -171,11 +170,11 @@ ms.locfileid: "56805056"
     private static final String leafPrivateKey = "<Your Private PEM Key here>";
     ```
 
-1. `leafPublicPem` 및 `leafPrivateKey` 변수를 공용 및 개인 디바이스 인증서로 업데이트합니다.
+1. `leafPublicPem` 및 `leafPrivateKey` 변수를 공용 및 프라이빗 디바이스 인증서로 업데이트합니다.
 
-    PowerShell을 사용하여 디바이스 인증서를 생성한 경우 mydevice* 파일에 디바이스에 대한 공개 키, 개인 키 및 PFX가 포함됩니다.
+    PowerShell을 사용하여 디바이스 인증서를 생성한 경우 mydevice* 파일에 디바이스에 대한 공개 키, 프라이빗 키 및 PFX가 포함됩니다.
 
-    Bash 셸을 사용하여 디바이스 인증서를 생성한 경우 ./certs/new-device.cert.pem에 공개 키가 포함됩니다. 디바이스의 개인 키는 ./private/new-device.key.pem 파일에 있게 됩니다.
+    Bash 셸을 사용하여 디바이스 인증서를 생성한 경우 ./certs/new-device.cert.pem에 공개 키가 포함됩니다. 디바이스의 프라이빗 키는 ./private/new-device.key.pem 파일에 있게 됩니다.
 
     공개 키 파일을 열고 `leafPublicPem` 변수를 해당 값으로 업데이트합니다. _-----BEGIN PRIVATE KEY-----_ 부터 _-----END PRIVATE KEY-----_ 까지 텍스트를 복사합니다.
 
@@ -189,7 +188,7 @@ ms.locfileid: "56805056"
         "-----END CERTIFICATE-----\n";
     ```
 
-    개인 키 파일을 열고 `leafPrivatePem` 변수를 해당 값으로 업데이트합니다. _-----BEGIN RSA PRIVATE KEY-----_ 부터 _-----END RSA PRIVATE KEY-----_ 까지 텍스트를 복사합니다.
+    프라이빗 키 파일을 열고 `leafPrivatePem` 변수를 해당 값으로 업데이트합니다. _-----BEGIN RSA PRIVATE KEY-----_ 부터 _-----END RSA PRIVATE KEY-----_ 까지 텍스트를 복사합니다.
 
     ```java
     private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
@@ -242,7 +241,7 @@ ms.locfileid: "56805056"
 
     ![성공적인 등록](./media/tutorial-group-enrollments/registration.png)
 
-1. 포털에서 프로비전 서비스에 연결된 IoT 허브로 이동하여 **디바이스 탐색기** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다. 샘플 장치 애플리케이션을 실행하기 전에 블레이드를 이미 열어 놓은 경우 화면 상단의 **새로 고침** 단추를 클릭해야 합니다. 
+1. 포털에서 프로비전 서비스에 연결된 IoT 허브로 이동하여 **디바이스 탐색기** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다. 샘플 디바이스 애플리케이션을 실행하기 전에 블레이드를 이미 열어 놓은 경우 화면 상단의 **새로 고침** 단추를 클릭해야 합니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/tutorial-group-enrollments/hub-registration.png) 
 

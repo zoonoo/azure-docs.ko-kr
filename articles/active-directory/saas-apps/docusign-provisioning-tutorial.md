@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 121d147a3f8c91f17e955120b2c14f7dbd3da592
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c0a6302383240f65d900369128337a41a13ecfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280106"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805079"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 DocuSign 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 DocuSign으로 자동으로 프로비전 및 프로비전 해제하도록 DocuSign 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -62,7 +62,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 이 섹션에서는 DocuSign에 Active Directory 사용자 계정을 프로비전할 수 있도록 설정하는 방법을 간략하게 설명합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > Enterprise Apps > 모든 응용 프로그램** 섹션으로 이동 합니다.
 
 1. Single Sign-On에 대한 DocuSign을 이미 구성한 경우 검색 필드를 사용하여 DocuSign의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **DocuSign**을 검색합니다. 검색 결과에서 DocuSign을 선택하고 애플리케이션의 목록에 추가합니다.
 
@@ -77,6 +77,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     a. **관리자 사용자 이름** 텍스트 상자에서 DocuSign.com에서 할당된 **시스템 관리자** 프로필을 가진 DocuSign 계정 이름을 입력합니다.
    
     b. **관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
+
+> [!NOTE]
+> SSO 및 사용자 프로비저닝을 모두 설정 하는 경우 프로 비전에 사용 되는 권한 부여 자격 증명을 SSO 및 사용자 이름/암호 둘 다에서 작동 하도록 구성 해야 합니다.
 
 1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 DocuSign 앱에 연결되었는지 확인합니다.
 
@@ -94,10 +97,10 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 사용자 및 그룹 섹션에서 DocuSign에 할당된 모든 사용자의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 DocuSign 앱의 프로비저닝 서비스에서 수행한 모든 작업을 설명하는 프로비저닝 활동 로그를 확인할 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-On 구성](docusign-tutorial.md)
+* [Single Sign-on 구성](docusign-tutorial.md)

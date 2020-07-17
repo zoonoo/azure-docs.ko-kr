@@ -1,25 +1,25 @@
 ---
-title: '자습서: 예약된 IP 주소로 자동 크기 조정, 영역 중복 애플리케이션 게이트웨이 만들기 - Azure PowerShell'
+title: '자습서: 웹 애플리케이션 액세스 향상 - Azure Application Gateway'
 description: 이 자습서에서는 Azure PowerShell을 사용하여 예약된 IP 주소로 자동 크기 조정, 영역 중복 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 2/14/2019
+ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947137"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74011357"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>자습서: 웹 애플리케이션 액세스를 향상시키는 애플리케이션 게이트웨이 만들기
 
 웹 애플리케이션 액세스 향상과 관련된 IT 관리자인 경우 고객의 요구 사항에 따라 크기를 조정하고 여러 가용성 영역을 확장할 수 있도록 애플리케이션 게이트웨이를 최적화할 수 있습니다. 이 자습서는 자동 크기 조정, 영역 중복 및 예약된 VIP(고정 IP)와 같은 Azure Application Gateway 기능을 구성하는 데 도움이 됩니다. Azure PowerShell cmdlet과 Azure Resource Manager 배포 모델을 사용하여 문제를 해결합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기
@@ -32,7 +32,7 @@ ms.locfileid: "64947137"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

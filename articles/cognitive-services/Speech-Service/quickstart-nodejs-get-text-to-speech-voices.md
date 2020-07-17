@@ -1,35 +1,35 @@
 ---
-title: '빠른 시작: 텍스트 음성 변환 음성 Node.js-음성 서비스를 나열 합니다.'
+title: '빠른 시작: 텍스트 음성 변환 음성 나열, Node.js - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Node.js를 사용 하 여 지역/끝점에 대 한 표준 및 신경망 음성의 전체 목록을 가져오는 방법에 알아봅니다. 음성 가용성 지역별로 다름 및 목록 JSON으로 반환 됩니다.
+description: 이 빠른 시작에서는 Node.js를 사용하여 지역/엔드포인트에 대한 표준 음성 및 인공신경망 음성의 전체 목록을 가져오는 방법을 알아봅니다. 목록은 JSON으로 반환되며 음성 가용성은 지역에 따라 다릅니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 04/02/2019
+ms.topic: quickstart
+ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9fe8bc06aafd17518d37c35034fac9b566e079ce
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58887117"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261553"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>빠른 시작: Node.js를 사용 하 여 텍스트 음성 변환 음성 목록을 가져옵니다.
+# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>빠른 시작: Node.js를 사용하여 텍스트-음성 변환 음성 목록 가져오기
 
-이 빠른 시작에서는 Node.js를 사용 하 여 지역/끝점에 대 한 표준 및 신경망 음성의 전체 목록을 가져오는 방법에 알아봅니다. 음성 가용성 지역별로 다름 및 목록 JSON으로 반환 됩니다. 지원 되는 지역 목록은 참조 하세요 [지역](regions.md)합니다.
+이 빠른 시작에서는 Node.js를 사용하여 지역/엔드포인트에 대한 표준 음성 및 인공신경망 음성의 전체 목록을 가져오는 방법을 알아봅니다. 목록은 JSON으로 반환되며 음성 가용성은 지역에 따라 다릅니다. 지원되는 지역의 전체 목록은 [ 지역](regions.md)을 참조하세요.
 
-이 빠른 시작에서는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 음성 서비스 리소스를 사용 하 여 합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
+이 빠른 시작에는 Speech Service 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* [Node 8.12.x 이상](https://nodejs.org/en/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* Speech Service에 대한 Azure 구독 키. [평가판을 가져올 수 있습니다](get-started.md).
+* <a href="https://nodejs.org/en/" target="_blank">Node 8.12.x 이상<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a> 또는 즐겨 사용하는 텍스트 편집기
+* Speech Service에 대한 Azure 구독 키입니다. [평가판을 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>프로젝트 만들기 및 종속성 요구
 
@@ -39,7 +39,7 @@ ms.locfileid: "58887117"
 // Requires request and request-promise for HTTP requests
 // e.g. npm install request request-promise
 const rp = require('request-promise');
-// Requires fs to write the list of languagesto a file
+// Requires fs to write the list of languages to a file
 const fs = require('fs');
 ```
 
@@ -48,9 +48,9 @@ const fs = require('fs');
 
 ## <a name="get-an-access-token"></a>액세스 토큰 가져오기
 
-Text-to-Speech REST API에는 인증을 위한 액세스 토큰이 필요합니다. 액세스 토큰을 가져오려면 교환이 필요합니다. 액세스 토큰 사용에 대 한 음성 서비스 구독 키를 교환 하는이 함수는 `issueToken` 끝점입니다.
+Text-to-Speech REST API에는 인증을 위한 액세스 토큰이 필요합니다. 액세스 토큰을 가져오려면 교환이 필요합니다. 이 함수에서는 `issueToken` 엔드포인트를 사용하여 액세스 토큰의 Speech Service 구독 키를 교환합니다.
 
-이 샘플 음성 서비스 구독의 미국 서 부 지역에 있다고 가정 합니다. 다른 지역을 사용하는 경우 `uri` 값을 업데이트합니다. 전체 목록은 [지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)을 참조하세요.
+이 샘플에서는 Speech Service 구독이 미국 서부 지역에 있다고 가정합니다. 다른 지역을 사용하는 경우 `uri` 값을 업데이트합니다. 전체 목록은 [지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)을 참조하세요.
 
 이 코드를 프로젝트에 복사합니다.
 
@@ -71,13 +71,13 @@ function getAccessToken(subscriptionKey) {
 > [!NOTE]
 > 인증에 대한 자세한 내용은 [액세스 토큰으로 인증](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)을 참조하세요.
 
-다음 섹션에서는 음성 목록을 가져오고 JSON 출력 파일을 저장 하는 함수를 만들겠습니다.
+다음 섹션에서는 음성 목록을 가져오고 JSON 출력을 파일에 저장하는 함수를 만듭니다.
 
 ## <a name="make-a-request-and-save-the-response"></a>요청을 작성하고 응답을 저장합니다.
 
-다음 요청 및 반환 된 음성의 목록을 저장 하려는 합니다. 이 샘플에서는 사용자가 미국 서부 엔드포인트를 사용하고 있다고 가정합니다. 리소스가 다른 지역에 등록된 경우에는 `uri`을 업데이트해야 합니다. 자세한 내용은 [Speech Services 영역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)합니다.
+여기서 요청을 작성하고 반환되는 음성 목록을 저장합니다. 이 샘플에서는 사용자가 미국 서부 엔드포인트를 사용하고 있다고 가정합니다. 리소스가 다른 지역에 등록된 경우에는 `uri`을 업데이트해야 합니다. 자세한 내용은 [Speech Service 지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)을 참조하세요.
 
-다음으로, 요청에 대해 필수 헤더를 추가 합니다. 마지막으로 서비스에 대한 요청을 만듭니다. 요청에 성공 하면 200 상태 코드가 반환 됩니다을 하는 경우 응답 파일에 기록 됩니다.
+그런 다음, 요청에 필요한 헤더를 추가합니다. 마지막으로 서비스에 대한 요청을 만듭니다. 요청이 성공하고 200 상태 코드가 반환되면 응답이 파일에 기록됩니다.
 
 ```javascript
 function textToSpeech(accessToken) {
@@ -104,9 +104,9 @@ function textToSpeech(accessToken) {
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-이제 거의 완료되었습니다. 마지막 단계는 비동기 함수를 만드는 것입니다. 이 함수는 환경 변수에서 구독 키를 읽을, 토큰을 가져오려면, 요청이 완료 될 때까지 기다리는 다음 파일에 대 한 JSON 응답을 작성 합니다.
+이제 거의 완료되었습니다. 마지막 단계는 비동기 함수를 만드는 것입니다. 이 함수는 환경 변수에서 구독 키를 읽고, 토큰을 가져오고, 요청이 완료될 때까지 기다린 다음, 파일에 JSON 응답을 작성합니다.
 
-환경 변수를 사용 하 여 친숙 하지 않은 사용자 구독 키 하드 코드 된 문자열을 사용 하 여 테스트 하려는 경우 대체 `process.env.SPEECH_SERVICE_KEY` 문자열로 구독 키를 사용 하 여 합니다.
+환경 변수를 사용하는 데 친숙하지 않거나 문자열로 하드 코딩된 구독 키를 사용하여 테스트하려는 경우 `process.env.SPEECH_SERVICE_KEY`를 문자열로 구독 키로 바꿉니다.
 
 ```javascript
 // Use async and await to get the token before attempting

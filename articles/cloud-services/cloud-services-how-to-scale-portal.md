@@ -2,24 +2,17 @@
 title: 포털에서 클라우드 서비스의 크기를 자동으로 조정하는 방법 | Microsoft Docs
 description: 포털을 사용하여 Azure에서 클라우드 서비스 웹 역할 또는 작업자 역할에 대한 자동 크기 조정 규칙을 구성하는 방법에 대해 알아봅니다.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
+author: tgore03
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: tagore
+ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61435319"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223689"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>포털에서 클라우드 서비스 크기 자동 조정을 구성하는 방법
 
@@ -48,12 +41,12 @@ ms.locfileid: "61435319"
 클라우드 서비스를 선택하면 클라우드 서비스 블레이드가 표시되어야 합니다.
 
 1. 클라우드 서비스 블레이드의 **역할 및 인스턴스** 타일에서 클라우드 서비스의 이름을 선택합니다.   
-   **중요**: 역할 아래에 있는 역할 인스턴스가 아니라 클라우드 서비스 역할을 클릭 해야 합니다.
+   **중요**: 역할 아래에 있는 역할 인스턴스가 아니라 클라우드 서비스 역할을 클릭해야 합니다.
 
-    ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![역할 및 인스턴스 타일의 스크린샷-B 큐 1 옵션을 사용 하는 작업자 역할을 빨간색으로 설명 합니다.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. **크기 조정** 타일을 선택합니다.
 
-    ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![판매 타일이 빨간색으로 표시 된 작업 페이지의 스크린샷](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>자동 크기 조정
 **수동** 또는 **자동**의 두 가지 모드 중 하나를 사용하여 역할에 대한 크기 조정 설정을 구성할 수 있습니다. 수동에서는 예상할 수 있는 절대 인스턴스 수를 설정합니다. 하지만 자동을 사용하면 크기 조정 방법과 정도를 제어하는 규칙을 설정할 수 있습니다.
@@ -96,7 +89,7 @@ ms.locfileid: "61435319"
 
 규칙 트리거는 조건 값을 추가할 수 있는 클라우드 서비스(CPU 사용량, 디스크 작업 또는 네트워크 작업)의 메트릭을 기준으로 합니다. 또한 메시지 큐 또는 구독에 연결된 일부 다른 Azure 리소스의 메트릭을 기준으로 트리거가 작동되도록 할 수 있습니다.
 
-![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![메트릭 이름 옵션이 빨간색으로 표시 된 규칙 대화 상자의 스크린샷](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 규칙을 구성한 후 규칙 블레이드 아래쪽에 있는 **확인** 단추를 선택합니다.
 
@@ -112,3 +105,6 @@ ms.locfileid: "61435319"
 3. 크기를 조정할 역할의 인스턴스입니다.
 
 크기 조정 설정을 구성한 후 맨 위에 있는 **저장** 아이콘을 선택합니다.
+
+
+

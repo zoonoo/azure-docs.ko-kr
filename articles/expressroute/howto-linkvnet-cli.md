@@ -1,19 +1,17 @@
 ---
-title: '가상 네트워크를 ExpressRoute 회로에 연결: CLI: Azure | Microsoft Docs'
+title: 'Azure Express 경로: 회로에 VNet 연결: CLI'
 description: 이 문서는 Resource Manager 배포 모델 및 CLI를 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법을 보여줍니다.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: anzaman,cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: how-to
+ms.date: 05/21/2019
+ms.author: cherylmc
+ms.openlocfilehash: 133a586612f8a5b864c84400ece63d9ba6ccb150
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883082"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84729245"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
@@ -24,7 +22,7 @@ ms.locfileid: "60883082"
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> * [PowerShell(클래식)](expressroute-howto-linkvnet-classic.md)
+> * [PowerShell (클래식)](expressroute-howto-linkvnet-classic.md)
 > 
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
@@ -35,8 +33,8 @@ ms.locfileid: "60883082"
 
 * 활성화된 ExpressRoute 회로가 있어야 합니다. 
   * 지침을 수행하여 [ExpressRoute 회로를 만들고](howto-circuit-cli.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다. 
-  * 회로에 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](howto-routing-cli.md) 을 참조하세요. 
-  * Azure 개인 피어이링 구성되어 있는지 확인합니다. 네트워크와 Microsoft 간의 BGP 피어링이 종단 간 연결을 사용하도록 작동 중이어야 합니다.
+  * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침은 [라우팅 구성](howto-routing-cli.md) 문서를 참조 하세요. 
+  * Azure 프라이빗 피어이링 구성되어 있는지 확인합니다. 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
   * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 구성합니다](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). `--gateway-type ExpressRoute`를 사용해야 합니다.
 
 * 최대 10개의 가상 네트워크를 표준 ExpressRoute 회로에 연결할 수 있습니다. 표준 ExpressRoute 회로를 사용하는 경우 모든 가상 네트워크는 동일한 지역에 있어야 합니다. 
@@ -57,7 +55,7 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 여러 구독에서 ExpressRoute 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독에서 ExpressRoute 회로에 대한 작업을 공유하는 방법의 간단한 계통도가 나와 있습니다.
 
-큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서: IT)는 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 ExpressRoute 회로를 사용할 수 있습니다.
+큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 ExpressRoute 회로를 사용할 수 있습니다.
 
 > [!NOTE]
 > 전용 회로에 대한 연결 및 대역폭 요금은 ExpressRoute 회로 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
@@ -86,7 +84,7 @@ az network express-route auth create --circuit-name MyCircuit -g ExpressRouteRes
 
 응답에는 권한 부여 키와 상태가 포함됩니다.
 
-```azurecli
+```output
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
 "authorizationUseStatus": "Available",
 "etag": "W/\"010353d4-8955-4984-807a-585c21a22ae0\"",
@@ -124,7 +122,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 
 회로 사용자는 회로 소유자의 피어 ID 및 권한 부여 키가 필요합니다. 권한 부여 키는 GUID입니다.
 
-```azurecli
+```powershell
 Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
@@ -139,6 +137,34 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 **연결 권한 부여를 해제하려면**
 
 ExpressRoute 회로와 가상 네트워크의 연결을 삭제하여 권한 부여를 해제할 수 있습니다.
+
+## <a name="modify-a-virtual-network-connection"></a>가상 네트워크 연결 수정
+가상 네트워크 연결의 특정 속성을 업데이트할 수 있습니다. 
+
+**연결 무게를 업데이트하려면**
+
+가상 네트워크를 여러 ExpressRoute 회로에 연결할 수 있습니다. 둘 이상의 ExpressRoute 회로에서 동일한 접두사를 수신할 수도 있습니다. 이 접두사를 대상으로 하는 트래픽을 전송할 연결을 선택하기 위해 연결의 *RoutingWeight*를 변경할 수 있습니다. 트래픽은 제일 높은 *RoutingWeight*를 사용한 연결로 전송됩니다.
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+*RoutingWeight*의 범위는 0에서 32000입니다. 기본값은 0입니다.
+
+## <a name="configure-expressroute-fastpath"></a>Express 경로 구성 
+Express 경로 회로가 [express 경로 다이렉트](expressroute-erdirect-about.md) 에 있고 가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ 인 경우 [express 경로 fastpath](expressroute-about-virtual-network-gateways.md) 를 사용 하도록 설정할 수 있습니다. FastPath는 초당 패킷 및 온-프레미스 네트워크와 가상 네트워크 간의 초당 연결과 같은 데이터 경로 preformance를 향상 시킵니다. 
+
+**새 연결에서 FastPath 구성**
+
+```azurecli
+az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
+```
+
+**FastPath를 사용 하도록 기존 연결 업데이트**
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
+```
 
 ## <a name="next-steps"></a>다음 단계
 

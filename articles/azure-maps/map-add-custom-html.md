@@ -1,20 +1,19 @@
 ---
-title: Azure Maps에 HTML 표식 추가 | Microsoft Docs
-description: Javascript 맵에 HTML 표식을 추가하는 방법
-author: jingjing-z
-ms.author: jinzh
-ms.date: 05/07/2018
+title: 맵에 HTML 표식 추가 | Microsoft Azure Maps
+description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 맵에 HTML 표식을 추가하는 방법을 알아봅니다.
+author: Philmea
+ms.author: philmea
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 30d9cf9848a8d99505bf9f9c97bef5aaa31065ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769671"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119287"
 ---
 # <a name="add-html-markers-to-the-map"></a>맵에 HTML 표식 추가
 
@@ -28,16 +27,36 @@ ms.locfileid: "60769671"
 
 ## <a name="add-an-html-marker"></a>HTML 표식 추가
 
-HtmlMarker 클래스에는 기본 스타일이 있습니다. 표식의 색 및 텍스트 옵션을 설정하여 표식을 사용자 지정할 수 있습니다. HtmlMarker 클래스의 기본 스타일은 색과 텍스트 자리 표시자가 있는 SVG 템플릿입니다. 빠른 사용자 지정을 위해 HtmlMarker 옵션에서 색 및 텍스트 속성을 설정합니다. 
+[HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) 클래스에는 기본 스타일이 있습니다. 표식의 색 및 텍스트 옵션을 설정하여 표식을 사용자 지정할 수 있습니다. HTML 표식 클래스의 기본 스타일은 `{color}` 및 `{text}` 자리 표시자가 있는 SVG 템플릿입니다. 빠른 사용자 지정을 위해 HTML 표식 옵션에서 색 및 텍스트 속성을 설정합니다. 
+
+다음 코드에서는 HTML 표식을 만들고 color 속성을 "DodgerBlue"로 설정하고 text 속성을 "10"으로 설정합니다. 팝업은 표식에 연결되고 `click` 이벤트는 팝업의 표시 여부를 전환하는 데 사용됩니다.
+
+```javascript
+//Create an HTML marker and add it to the map.
+var marker = new atlas.HtmlMarker({
+    color: 'DodgerBlue',
+    text: '10',
+    position: [0, 0],
+    popup: new atlas.Popup({
+        content: '<div style="padding:10px">Hello World</div>',
+        pixelOffset: [0, -30]
+    })
+});
+
+map.markers.add(marker);
+
+//Add a click event to toggle the popup.
+map.events.add('click',marker, () => {
+    marker.togglePopup();
+});
+```
+
+다음은 위의 기능을 실행하는 전체 코드 샘플입니다.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='맵에 HTML 표식 추가' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>맵에 HTML 표식 추가</a>를 참조하세요.
 </iframe>
-
-위의 코드에서 첫 번째 코드 블록은 지도 개체를 만듭니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
-
-두 번째 코드 블록은 [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 클래스의 [markers](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) 속성을 사용하여 지도에 [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)를 추가합니다. HtmlMarker가 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 표시되도록 합니다.
 
 ## <a name="create-svg-templated-html-marker"></a>SVG 템플릿 기반 HTML 표식 만들기
 
@@ -47,6 +66,9 @@ Html 표식의 기본값 `htmlContent`는 위치 폴더 `{color}` 및 `{text}`�
 
 <iframe height='500' scrolling='no' title='사용자 지정 SVG 템플릿을 사용하는 HTML 표식' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>사용자 지정 SVG 템플릿을 사용하는 HTML 표식</a>을 참조하세요.
 </iframe>
+
+> [!TIP]
+> Azure Maps Web SDK는 HTML 표식에서 사용할 수 있는 여러 SVG 이미지 템플릿을 제공합니다. 자세한 내용은 [이미지 템플릿을 사용하는 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조하세요.
 
 ## <a name="add-a-css-styled-html-marker"></a>CSS 스타일 HTML 표식 추가
 
@@ -89,6 +111,9 @@ HTML 표식의 이점 중 하나는 CSS를 사용하여 얻을 수 있는 여러
 > [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [이미지 템플릿을 사용하는 방법](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [기호 계층 추가](./map-add-pin.md)

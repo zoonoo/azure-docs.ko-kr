@@ -1,22 +1,22 @@
 ---
-title: B2B 공동 작업 API 및 사용자 지정-Azure Active Directory | Microsoft Docs
+title: B2B 공동 작업 API 및 사용자 지정-Azure Active Directory
 description: Azure Active Directory B2B 협업은 비즈니스 파트너가 선택적으로 회사 애플리케이션에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: reference
+ms.topic: how-to
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0369988bc6f6503f9940e6aabccb91ab843d63f5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e9f62ece12732c45037bcad328eec162bebb4e6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65811878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387204"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 협업 API 및 사용자 지정
 
@@ -91,7 +91,7 @@ PowerShell을 사용하여 외부 사용자를 조직에 쉽게 추가하고 초
 New-AzureADMSInvitation
 ```
 
-다음 옵션을 사용할 수 있습니다.
+사용할 수 있는 옵션은 다음과 같습니다.
 
 * -InvitedUserDisplayName
 * -InvitedUserEmailAddress
@@ -115,13 +115,13 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > AzureAD PowerShell 모듈 또는 AzureADPreview PowerShell 모듈의 최신 버전이 있는지 확인합니다. 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-[https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)에서 초대 API 참조를 확인하세요.
+에서 초대 API 참조를 확인 하세요 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-- [B2B 공동 작업 초대 전자 메일의 요소](invitation-email-elements.md)
-- [B2B 공동 작업 초대 상환](redemption-experience.md)
-- [초대 없이 B2B 공동 작업 사용자 추가](add-user-without-invite.md)
+- [Azure AD B2B 협업이란?](what-is-b2b.md)
+- [B2B 협업 초대 이메일의 요소](invitation-email-elements.md)
+- [B2B 협업 초대 상환](redemption-experience.md)
+- [초대 없이 B2B 협업 사용자 추가](add-user-without-invite.md)

@@ -2,24 +2,21 @@
 title: Azure의 Kubernetes 자습서 - 클러스터 업그레이드
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 기존 AKS 클러스터를 최신 Kubernetes 버전으로 업그레이드하는 방법을 알아봅니다.
 services: container-service
-author: iainfoulds
-ms.service: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.author: iainfou
+ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: b0d0d8326d6274252f4c4a865bc8f022daf9e199
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a89e8bb42bec4323d2189ca93dfe73171c4a128c
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029362"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887992"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 Kubernetes 업그레이드
 
 애플리케이션 및 클러스터 수명 주기의 일부로, Kubernetes 최신 버전으로 업그레이드하여 새 기능을 사용할 수 있습니다. Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터를 업그레이드할 수 있습니다.
 
-총 7부 중 7부인 이 자습서에서는 Kubernetes 클러스터가 업그레이드됩니다. 다음 방법에 대해 알아봅니다.
+총 7부 중 7부인 이 자습서에서는 Kubernetes 클러스터가 업그레이드됩니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 현재 및 사용 가능한 Kubernetes 버전 확인
@@ -37,15 +34,30 @@ ms.locfileid: "61029362"
 클러스터를 업그레이드하려면 먼저 [az aks get-upgrades][] 명령을 사용하여 업그레이드할 수 있는 Kubernetes 릴리스를 확인합니다.
 
 ```azurecli
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-다음 예제에서는 현재 버전이 *1.9.11*이고 *업그레이드* 열 아래에 사용 가능한 버전이 표시됩니다.
+다음 예제에서는 현재 버전이 *1.15.11*이며 사용 가능한 버전이 *업그레이드* 아래에 표시됩니다.
 
-```
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.9.11           1.9.11             1.10.8, 1.10.9
+```json
+{
+  "agentPoolProfiles": null,
+  "controlPlaneProfile": {
+    "kubernetesVersion": "1.15.11",
+    ...
+    "upgrades": [
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.8"
+      },
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.9"
+      }
+    ]
+  },
+  ...
+}
 ```
 
 ## <a name="upgrade-a-cluster"></a>클러스터 업그레이드
@@ -58,16 +70,19 @@ default  myResourceGroup  1.9.11           1.9.11             1.10.8, 1.10.9
 1. 새 노드가 준비되고 클러스터에 조인될 때 Kubernetes 스케줄러에서 Pod를 실행하기 시작합니다.
 1. 이전 노드가 삭제되고, 클러스터의 다음 노드가 차단 및 드레이닝 프로세스를 시작합니다.
 
-[az aks upgrade][] 명령을 사용하여 AKS 클러스터를 업그레이드합니다. 다음 예제에서는 클러스터를 Kubernetes 버전 *1.10.9*로 업데이트합니다.
-
-> [!NOTE]
-> 부 버전을 한 번에 하나씩 업그레이드할 수 있습니다. 예를 들어 *1.9.11*에서 *1.10.9*로 업그레이드할 수 있지만, *1.9.6*에서 *1.11.x*로 바로 업그레이드할 수는 없습니다. *1.9.11*에서 *1.11.x*로 업그레이드하려면 먼저 *1.9.11*에서 *1.10.x*로 업그레이드한 다음, *1.10.x*에서 *1.11.x*로 업그레이드합니다.
+[az aks upgrade][] 명령을 사용하여 AKS 클러스터를 업그레이드합니다.
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.9
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
 ```
 
-압축된 다음 예제 출력에서는 *kubernetesVersion* 현재 보고서 *1.10.9*를 표시합니다.
+> [!NOTE]
+> 부 버전을 한 번에 하나씩 업그레이드할 수 있습니다. 예를 들어 *1.14.x*에서 *1.15.x*로 업그레이드할 수 있지만, *1.14.x*에서 *1.16.x*로 직접 업그레이드할 수는 없습니다. *1.14.x*에서 *1.16.x*로 업그레이드하려면 먼저 *1.14.x*에서 *1.15.x*로 업그레이드한 다음, *1.15.x*에서 *1.16.x*로 업그레이드합니다.
+
+압축된 다음 예제 출력에서는 *1.16.8*로 업그레이드한 결과를 보여줍니다. 이제 *kubernetesVersion*에서 *1.16.8*을 보고합니다.
 
 ```json
 {
@@ -85,7 +100,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.10.9",
+  "kubernetesVersion": "1.16.8",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -100,12 +115,12 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-다음 예제 출력은 AKS 클러스터가 *KubernetesVersion 1.10.9*를 실행하는 것을 보여줍니다.
+다음 예제 출력에서는 AKS 클러스터에서 *KubernetesVersion 1.16.8*을 실행하는 것을 보여줍니다.
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.10.9               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.16.8               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
@@ -117,11 +132,11 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요.
+> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요. 관리 ID를 사용하는 경우 플랫폼에서 ID를 관리하므로 비밀을 프로비저닝하거나 회전할 필요가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 AKS 클러스터에서 Kubernetes를 업그레이드했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 AKS 클러스터에서 Kubernetes를 업그레이드했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 현재 및 사용 가능한 Kubernetes 버전 확인

@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: '사용자, 그룹, 라이선스 및 역할'
+    - name: 'Azure AD 사용자, 그룹, 라이선스 및 역할'
       href: directory-overview-user-model.md
 - name: 빠른 시작
   items:
@@ -10,13 +10,15 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 사용자에게 라이선스 할당
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: 무제한 앱 등록에 대한 사용 권한 부여
+      href: roles-quickstart-app-registration-limits.md
     - name: 그룹 만료 설정
       href: groups-quickstart-expiration.md
     - name: 그룹 명명 정책 설정
       href: groups-quickstart-naming-policy.md
 - name: 자습서
   items:
-    - name: 동적으로 채워진 그룹 만들기
+    - name: 동적 그룹 만들기
       href: groups-dynamic-tutorial.md
 - name: 개념
   expanded: true
@@ -29,22 +31,36 @@
       href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 그룹 기반 라이선스 기본 사항
       href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: 그룹에서 액세스 관리
+      href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
 - name: 방법 가이드
   expanded: true
   items:
     - name: 사용자 관리
       items:
-        - name: Azure AD에 새 사용자 추가
+        - name: 사용자 만들기
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 사용자 대량 만들기
+          href: users-bulk-add.md
         - name: 사용자 프로필 관리
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 내 직원 위임
+          href: my-staff-configure.md
+        - name: 사용자 정보 다운로드
+          href: users-bulk-download.md
         - name: 사용자 계정 공유
           href: users-sharing-accounts.md
         - name: 관리자 역할에 사용자 할당
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 사용자 대량 삭제
+          href: users-bulk-delete.md
         - name: 삭제한 사용자 복원
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: 관리되지 않는 디렉터리의 계정 닫기
+        - name: 사용자 대량 복원
+          href: users-bulk-restore.md
+        - name: 사용자의 액세스 권한 취소
+          href: users-revoke-access.md
+        - name: 비관리형 디렉터리의 계정 닫기
           href: users-close-account.md
         - name: B2B 사용자 추가
           href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -54,7 +70,7 @@
           href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 디렉터리 관리
       items:
-        - name: 디렉터리 관리
+        - name: Azure AD 조직
           href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 도메인 이름 관리
           href: domains-manage.md
@@ -72,76 +88,117 @@
       items:
         - name: 그룹에서 액세스 관리
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Azure Portal에서 그룹 관리
+        - name: 그룹 만들기(Azure Portal)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: PowerShell for Graph(v2) 그룹 관리
           href: groups-settings-v2-cmdlets.md
-        - name: PowerShell MSOnline 그룹 관리
+        - name: PowerShell MSOnline에서 그룹 관리
           href: groups-settings-cmdlets.md
-        - name: 그룹 멤버 관리
+        - name: 그룹 및 멤버 목록 검색
+          href: groups-members-owners-search.md
+        - name: 그룹 멤버 추가 또는 제거
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 동적 그룹
+          items:
+            - name: 동적 그룹 만들기
+              href: groups-create-rule.md
+            - name: 동적 그룹 규칙 구문
+              href: groups-dynamic-membership.md
+            - name: 구성원 규칙 유효성 검사
+              href: groups-dynamic-rule-validation.md
+            - name: 그룹 멤버 자격 형식 변경
+              href: groups-change-type.md
+        - name: 구성원 대량 추가
+          href: groups-bulk-import-members.md
+        - name: 구성원 대량 제거
+          href: groups-bulk-remove-members.md
+        - name: 멤버 목록 대량 다운로드
+          href: groups-bulk-download-members.md
+        - name: 그룹 목록 대량 다운로드
+          href: groups-bulk-download.md
+        - name: 삭제된 그룹 복원
+          href: groups-restore-deleted.md
+        - name: 그룹 설정 관리
+          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 그룹 소유자 관리
           href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 그룹에서 그룹 관리
           href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: SaaS 앱에 대한 그룹 액세스 추가
           href: groups-saasapps.md
-        - name: 그룹 명명 참조
+        - name: 그룹 명명 정책 설정
           href: groups-naming-policy.md
-        - name: 그룹 만료 참조
+        - name: 그룹 만료 정책 설정
           href: groups-lifecycle.md
-        - name: 만료되거나 삭제된 그룹 복원
-          href: groups-restore-deleted.md
-        - name: 그룹 설정 관리
-          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 그룹 셀프 서비스 설정
           href: groups-self-service-management.md
-        - name: 동적 그룹
-          items:
-            - name: 동적 그룹 만들기
-              href: groups-create-rule.md
-            - name: 동적 그룹 규칙
-              href: groups-dynamic-membership.md
-            - name: 그룹 멤버 자격 형식 변경
-              href: groups-change-type.md
+        - name: 민감도 레이블 할당
+          href: groups-assign-sensitivity-labels.md
     - name: 라이선스 할당
       items:
+        - name: 사용자에게 라이선스 할당
+          href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 그룹에 라이선스 할당
           href: licensing-groups-assign.md
         - name: 그룹 라이선스 문제 해결
           href: licensing-groups-resolve-problems.md
         - name: 사용자를 그룹 라이선스로 변경
           href: licensing-groups-migrate-users.md
-        - name: 사용자의 라이선스 변경
+        - name: 사용자 또는 그룹의 라이선스 변경
           href: licensing-groups-change-licenses.md
         - name: 추가 시나리오
           href: licensing-group-advanced.md
-        - name: PowerShell에서 그룹 라이선스
+        - name: PowerShell 및 Graph를 사용한 그룹 라이선싱
           href: licensing-ps-examples.md
         - name: 라이선스에 대한 서비스 계획 ID
           href: licensing-service-plan-reference.md
     - name: Azure AD 관리자 역할
+      expanded: true
       items:
         - name: 역할 및 권한
           href: directory-assign-admin-roles.md
         - name: 역할 보기 및 할당
           href: directory-manage-roles-portal.md
-        - name: PowerShell을 사용하여 역할 할당
-          href: roles-assign-powershell.md
-        - name: 앱 관리자 역할 위임
-          href: roles-delegate-app-roles.md
+        - name: 사용자 지정 역할
+          items:
+            - name: 사용자 지정 역할
+              href: roles-custom-overview.md
+            - name: 사용자 지정 역할 만들기
+              href: roles-create-custom.md
+            - name: 사용자 지정 역할 할당 보기
+              href: roles-view-assignments.md
+            - name: Azure AD 관리 센터에서 역할 할당
+              href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+            - name: PowerShell에서 사용자 지정 역할 할당
+              href: roles-assign-powershell.md
+            - name: 사용자 지정 역할
+              href: roles-custom-available-permissions.md
+            - name: 앱 관리자 권한 위임
+              href: roles-delegate-app-roles.md
         - name: 태스크별 최소 권한 있는 역할
           href: roles-delegate-by-task.md
         - name: Microsoft 365 역할
           href: roles-m365-workload-docs.md
-        - name: 관리자 역할 보안
+        - name: 역할 보안
           items:
             - name: 역할 보안 계획
               href: directory-admin-roles-secure.md
             - name: 비상 계정 만들기
               href: directory-emergency-access.md
         - name: 관리 단위
-          href: directory-administrative-units.md
+          items:
+            - name: 관리 단위 개요
+              href: directory-administrative-units.md
+            - name: AU 추가 및 관리
+              href: roles-admin-units-manage.md
+            - name: AU에 사용자 추가 및 관리
+              href: roles-admin-units-add-manage-users.md
+            - name: AU에 그룹 추가 및 관리
+              href: roles-admin-units-add-manage-groups.md
+            - name: AU 범위를 사용하여 역할 할당
+              href: roles-admin-units-assign-roles.md
+            - name: FAQ 및 문제 해결
+              href: roles-admin-units-faq-troubleshoot.md
     - name: 로그인 관리
       items:
         - name: 회사 브랜딩 사용자 지정
@@ -164,7 +221,7 @@
           href: groups-troubleshooting.md
         - name: 그룹 라이선스 문제 해결
           href: licensing-groups-resolve-problems.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 그래프 API
       href: 'https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview'

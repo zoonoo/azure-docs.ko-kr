@@ -1,37 +1,27 @@
 ---
-title: Azure의 Service Fabric에서 컨테이너 앱 장애 조치(failover) 및 크기 조정 | Microsoft Docs
+title: 컨테이너 앱 장애 조치(failover) 및 크기 조정
 description: 아 자습서에서는 장애 조치(failover)가 Azure Service Fabric 컨테이너 애플리케이션에서 처리되는 방법을 알아봅니다.  또한 클러스터에서 실행되는 컨테이너 및 서비스의 크기를 조정하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/12/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0a3edac7638d8b63086482cdecf8d74bde426c35
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665630"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75614097"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>자습서: Service Fabric으로 컨테이너 서비스의 장애 조치(failover) 및 크기 조정을 보여 줍니다.
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>자습서: Service Fabric을 통한 컨테이너 서비스의 장애 조치(failover) 및 크기 조정 시연
 
-이 자습서는 시리즈의 3부입니다. 이 자습서에서는 장애 조치(failover)가 Service Fabric 컨테이너 애플리케이션에서 처리되는 방법을 알아봅니다. 또한 컨테이너의 크기를 조정하는 방법을 배웁니다. 이 자습서에서는 다음을 수행했습니다.
+이 자습서는 시리즈의 3부입니다. 이 자습서에서는 장애 조치(failover)가 Service Fabric 컨테이너 애플리케이션에서 처리되는 방법을 알아봅니다. 또한 컨테이너의 크기를 조정하는 방법을 배웁니다. 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에서 컨테이너 장애 조치(failover)에 대해 알아보기
 > * 애플리케이션에서 웹 프런트 엔드 컨테이너 크기 조정
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [2부](service-fabric-tutorial-package-containers.md)의 애플리케이션은 활성 Service Fabric 클러스터에서 실행되고 있습니다.
 
@@ -56,7 +46,7 @@ Service Fabric 컨테이너는 해당 서비스에 대한 로드를 수용하도
 
 웹 프런트 엔드의 크기를 조정하려면 다음 단계를 수행합니다.
 
-1. 클러스터에서 Service Fabric Explorer를 엽니다(예: `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`).
+1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`
 2. 트리 뷰에서 **fabric:/TestContainer/azurevotefront** 노드 옆에 있는 줄임표(...)를 클릭하고 **Scale Service**를 선택합니다.
 
 ![sfxscale][sfxscale]

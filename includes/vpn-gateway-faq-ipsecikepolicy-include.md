@@ -2,22 +2,21 @@
 title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 12/14/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 12/05/2019
+ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84346319"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
-사용자 지정 IPsec/IKE 정책은 **VpnGw1, VpnGw2, VpnGw3, 표준** 및 **HighPerformance** VPN Gateway에서 지원됩니다. **기본** SKU는 지원되지 **않습니다**.
+사용자 지정 IPsec/IKE 정책은 기본 SKU를 제외한 모든 Azure SKU에서 지원됩니다.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>연결에서 얼마나 많은 정책을 지정할 수 있나요?
 지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
@@ -68,7 +67,7 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 
 자세한 내용은 [여러 온-프레미스 정책 기반 VPN 디바이스 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
 
-### <a name ="DH"></a>어떤 Diffie-Hellman 그룹이 지원됩니까?
+### <a name="which-diffie-hellman-groups-are-supported"></a><a name ="DH"></a>어떤 Diffie-Hellman 그룹이 지원됩니까?
 아래 표에는 IKE(DHGroup) 및 IPsec(PFSGroup)에 지원되는 Diffie-Hellman 그룹이 나열되어 있습니다.
 
 | **Diffie-Hellman 그룹**  | **DHGroup**              | **PFSGroup** | **키 길이** |
@@ -103,6 +102,18 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>ExpressRoute 연결에서 사용자 지정 IPsec/IKE 정책이 작동하나요?
 아니요. IPsec/IKE 정책은 Azure VPN Gateway를 통해 S2S VPN 및 VNet 간 연결에서만 작동합니다.
+
+### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>IKEv1 또는 IKEv2 프로토콜 유형과의 연결을 어떻게 만드나요?
+IKEv1 연결은 기본 SKU, 표준 SKU 및 기타 [레거시 sku](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku)를 제외 하 고 모든 경로 기반 VPN 유형 sku에서 만들 수 있습니다. 연결을 만드는 동안 연결 프로토콜 유형(IKEv1 또는 IKEv2)을 지정할 수 있습니다. 연결 프로토콜 유형을 지정하지 않으면 해당하는 경우 기본 옵션으로 IKEv2가 사용됩니다. 자세한 내용은 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) 설명서를 참조하세요. SKU 유형 및 IKEv1/IKEv2 지원에 대한 내용은 [게이트웨이를 정책 기반 VPN 디바이스에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
+
+### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>IKEv1와 IKEv2 연결 간에 전송이 허용됩니까?
+예. IKEv1와 IKEv2 연결 간의 전송은 지원됩니다.
+
+### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>RouteBased VPN 유형의 기본 SKU에 대한 IKEv1 사이트 간 연결을 사용할 수 있나요?
+아니요. 기본 SKU는 이 기능을 지원하지 않습니다.
+
+### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>연결을 만든 후 연결 프로토콜 유형을 변경할 수 있나요? (IKEv1에서 IKEv2로 또는 그 반대로)
+아니요. 연결이 만들어지면 IKEv1/IKEv2 프로토콜을 변경할 수 없습니다. 원하는 프로토콜 유형을 사용하여 새 연결을 삭제하고 다시 만들어야 합니다.
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>IPsec에 대한 추가 구성 정보는 어디에서 찾을 수 있나요?
 [S2S 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)을 참조하세요.

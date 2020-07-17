@@ -1,6 +1,6 @@
 ---
 title: C로 Windows 디바이스를 원격 모니터링에 프로비전 - Azure | Microsoft Docs
-description: Windows에서 실행 중인 C로 작성한 애플리케이션을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 장치를 연결하는 방법을 설명합니다.
+description: Windows에서 실행 중인 C로 작성한 애플리케이션을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 2a8a0bf1e63f06bbe6b6a073af6b3da8904dcaeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61450232"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>디바이스를 원격 모니터링 솔루션 가속기에 연결(Windows)
@@ -21,11 +21,11 @@ ms.locfileid: "61450232"
 
 이 자습서는 원격 모니터링 솔루션 가속기에 실제 디바이스를 연결하는 방법을 보여 줍니다.
 
-제한된 장치에서 실행되는 대부분의 임베디드 애플리케이션과 마찬가지로, 장치 애플리케이션의 클라이언트 코드는 C로 작성됩니다. 이 자습서에서는 Windows를 실행하는 머신에서 장치 클라이언트 애플리케이션을 빌드합니다.
+제한된 디바이스에서 실행되는 대부분의 임베디드 애플리케이션과 마찬가지로, 디바이스 애플리케이션의 클라이언트 코드는 C로 작성됩니다. 이 자습서에서는 Windows를 실행하는 머신에서 디바이스 클라이언트 애플리케이션을 빌드합니다.
 
 디바이스를 시뮬레이션하려면 [새 시뮬레이션된 디바이스 만들기 및 테스트](iot-accelerators-remote-monitoring-create-simulated-device.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드의 단계를 완료하려면 [Windows 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment)의 단계에 따라 필요한 개발 도구 및 라이브러리를 Windows 머신에 추가합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "61450232"
 
 ## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행
 
-1. **remote_monitoring.c** 파일을 편집하여 `<connectionstring>`을 이 방법 가이드 시작 부분에서 솔루션 가속기에 장치를 추가할 때 적어 둔 장치 연결 문자열로 바꿉니다.
+1. **remote_monitoring.c** 파일을 편집하여 `<connectionstring>`을 이 방법 가이드 시작 부분에서 솔루션 가속기에 디바이스를 추가할 때 적어 둔 디바이스 연결 문자열로 바꿉니다.
 
 1. [Windows에서 C SDK 빌드](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#build-the-c-sdk-in-windows)의 단계에 따라 SDK 및 원격 모니터링 클라이언트 애플리케이션을 빌드합니다.
 

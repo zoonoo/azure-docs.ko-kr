@@ -1,18 +1,20 @@
 ---
-title: 포함 파일
-description: 포함 파일
-services: logic-apps
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 05/14/2018
+author: ecfan
 ms.author: estfan
-ms.custom: include file
-ms.openlocfilehash: 6594031aeccae4b9f0ea843e2d72cb01a67d492d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/06/2020
+ms.openlocfilehash: 1113201941ce0757b58e361c08c9d79d7dd374cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60952583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449106"
 ---
-논리 앱에서 서비스에 액세스하려면 논리 앱과 해당 서비스 사이에 *연결*을 만들어야 합니다. 이전에 이 연결을 만들지 않은 경우 논리 앱에 해당 서비스에 대한 트리거 또는 작업을 추가할 때 연결 정보에 대한 메시지가 나타납니다. Logic Apps 디자이너는 논리 앱에서 직접 이 연결을 쉽게 만드는 방법을 제공합니다.
+처음으로 서비스 또는 시스템에 연결 하는 트리거 또는 작업을 추가 하면 논리 앱 디자이너에서 다음과 같이 연결에 따라 달라 지는 필요한 정보를 제공 하 여 *연결* 을 만들라는 메시지를 표시 합니다.
+
+* 새 연결에 사용할 이름입니다.
+* 서버 또는 시스템 이름
+* 사용자 또는 계정 자격 증명
+* 사용할 인증 유형
+* 온-프레미스 데이터 원본에 연결할 때 이전에 만든 데이터 게이트웨이의 Azure 구독 및 이름

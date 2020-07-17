@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 6f1a0cf6025cb3a398ab93320c6fcb69b1e62429
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60558096"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "70072164"
 ---
 # <a name="edit-an-api"></a>API 편집
 
@@ -27,7 +26,7 @@ ms.locfileid: "60558096"
 + APIM 인스턴스에서 작업을 추가, 삭제, 이름을 변경하여 수행할 수 있습니다. 
 + API의 swagger를 편집할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 + [첫 번째 API 가져오기 및 게시](import-and-publish.md)

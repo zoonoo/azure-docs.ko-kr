@@ -1,208 +1,447 @@
 ---
 title: Java를 사용한 Azure Storage 샘플 | Microsoft Docs
-description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. Java 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
-services: storage
+description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. Java 스토리지 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: java
-ms.topic: article
-ms.date: 05/03/2019
 ms.author: mhopkins
+ms.date: 02/13/2020
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 3d241f1905244d3a8039372262f84ba0fd25220d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.topic: sample
+ms.openlocfilehash: 26fe0538548e13933e112e83bae6e6131f2a030d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209789"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594642"
 ---
-# <a name="azure-storage-samples-using-java"></a>Java를 사용한 Azure Storage 샘플
-
-## <a name="java-sample-index"></a>Java 샘플 인덱스
+# <a name="azure-storage-samples-using-v12-java-client-libraries"></a>v12 Java 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
 다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. GitHub에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">엔드포인트</th><th style="font-size:110%">시나리오</th><th style="font-size:110%">샘플 코드</th></tr></thead><tbody>
-<tr>
-<td rowspan="16"><b>Blob</b></td>
-<td>Blob 추가</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>블록 Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>클라이언트 쪽 암호화</td>
-<td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption">Java에서 Azure 클라이언트 쪽 암호화 시작</a></td>
-</tr>
-<tr>
-<td>Blob 복사</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>컨테이너 만들기</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>Blob 삭제</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>컨테이너 삭제</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>BLOB 메타데이터/속성/통계</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>컨테이너 ACL/메타데이터/속성</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>페이지 범위 가져오기</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java#L399">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>BLOB/컨테이너 임대</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>BLOB/컨테이너 나열</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>페이지 Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>SAS</td>
-<td><a href="https://github.com/Azure/azure-storage-java/blob/89540f018f1160ce55619c6fe7b5f5ff57d0ce10/src/test/java/com/microsoft/azure/storage/Samples.java#L513">SAS 테스트 샘플</a></td>
-</tr>   
-<tr>
-<td>서비스 속성</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td>Blob 스냅숏</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>
-<tr>
-<td rowspan="9"><b>파일</b></td>
-<td>공유/디렉터리/파일 만들기</td>
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java에서 Azure File Service 시작</a></td>
-</tr>
-<tr>
-<td>공유/디렉터리/파일 삭제</td>
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java에서 Azure File Service 시작</a></td>
-</tr>
-<tr>
-<td>디렉터리 속성/메타데이터</td>
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java에서 Azure File Service 시작</a></td>
-</tr>
-<tr>
-<td>파일 다운로드</td>
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java에서 Azure File Service 시작</a></td>
-</tr>
-<tr>
-<td>파일 속성/메타데이터/메트릭</td>
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java에서 Azure File Service 시작</a></td>
-</tr>
-<tr>
-<td>파일 서비스 속성</td>
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java에서 Azure File Service 시작</a></td>
-</tr>
-<tr>
-<td>디렉터리 및 파일 나열</td>
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java에서 Azure File Service 시작</a></td>
-</tr>
-<tr>
-<td>공유 나열</td>
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java에서 Azure File Service 시작</a></td>
-</tr>
-<tr>
-<td>속성/메타데이터/통계 공유</td>
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java에서 Azure File Service 시작</a></td>
-</tr>
-<tr>
-<td rowspan="8"><b>큐</b></td>
-<td>메시지 추가</td>
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java#L63">Java에서 Azure Queue Service 시작</a></td>
-</tr>
-<tr>
-<td>클라이언트 쪽 암호화</td>
-<td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption/blob/master/src/gettingstarted/KeyVaultGettingStarted.java">Java에서 Azure 클라이언트 쪽 암호화 시작</a></td>
-</tr>
-<tr>
-<td>큐 만들기</td>
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure Queue Service 시작</a></td>
-</tr>
-<tr>
-<td>메시지/큐 삭제</td>
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure Queue Service 시작</a></td>
-</tr>
-<tr>
-<td>메시지 보기</td>
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure Queue Service 시작</a></td>
-</tr>
-<tr>
-<td>큐 ACL/메타데이터/통계</td>
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java에서 Azure Queue Service 시작</a></td>
-</tr>
-<tr>
-<td>큐 서비스 속성</td>
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java에서 Azure Queue Service 시작</a></td>
-</tr>
-<tr>
-<td>메시지 업데이트</td>
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure Queue Service 시작</a></td>
-</tr>
-<tr>
-<td rowspan="7"><b>테이블</b></td>
-<td>테이블 만들기</td>
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td>
-</tr>
-<tr>
-<td>엔터티/테이블 삭제</td>
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td>
-</tr>
-<tr>
-<td>엔터티 삽입/병합/바꾸기</td>
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td>
-</tr>
-<tr>
-<td>엔터티 쿼리</td>
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td>
-</tr>
-<tr>
-<td>쿼리 테이블</td>
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td>
-</tr>
-<tr>
-<td>테이블 ACL/속성</td>
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Java에서 Azure Table Service 시작</a></td>
-</tr>
-<tr>
-<td>엔터티 업데이트</td>
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td>
-</tr>
-</tbody>
-</table>
-<br/>
+> [!NOTE]
+> 이러한 샘플에서는 최신 Azure Storage Java v12 라이브러리를 사용합니다. 레거시 v8 코드는 GitHub 리포지토리의 [Java에서 Azure Blob Service 시작](https://github.com/Azure-Samples/storage-blob-java-getting-started)을 참조하세요.
 
-## <a name="azure-code-samples-library"></a>Azure 코드 샘플 라이브러리
+## <a name="blob-samples"></a>Blob 샘플
 
-코드 샘플 라이브러리를 보려면 다운로드하여 로컬로 실행할 수 있는 Azure Storage에 대한 샘플이 포함되어 있는 [Azure 코드 샘플](https://azure.microsoft.com/resources/samples/?service=storage) 라이브러리로 이동합니다. 코드 샘플 라이브러리에서 .zip 형식으로 샘플 코드를 제공합니다. 또는 각 샘플에 대한 GitHub 리포지토리를 찾아 복제할 수 있습니다.
+### <a name="authentication"></a>인증
 
-[!INCLUDE [storage-java-samples-include](../../../includes/storage-java-samples-include.md)]
+:::row:::
+   :::column span="":::
+      [공유 키 자격 증명을 사용하여 인증](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L38)
+   :::column-end:::
+   :::column span="":::
+      [Azure ID를 사용하여 인증](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/AzureIdentityExample.java#L10)
+   :::column-end:::
+:::row-end:::
+
+### <a name="blob-service"></a>Blob service
+
+:::row:::
+   :::column span="":::
+      [Blob 서비스 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L49)
+   :::column-end:::
+   :::column span="":::
+      [컨테이너 나열](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L10)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [컨테이너 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L52)
+   :::column-end:::
+:::row-end:::
+
+### <a name="batching"></a>일괄 처리
+
+:::row:::
+   :::column span="":::
+      [Blob 일괄 처리 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L41)
+   :::column-end:::
+   :::column span="":::
+      [Blob 대량 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L45)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Blob 일괄 처리에 대한 액세스 계층 설정](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L51)
+   :::column-end:::
+:::row-end:::
+
+### <a name="container"></a>컨테이너
+
+:::row:::
+   :::column span="":::
+      [컨테이너 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L57)
+   :::column-end:::
+   :::column span="":::
+      [컨테이너 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L64)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Blob 나열](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L112)
+   :::column-end:::
+   :::column span="":::
+      [컨테이너 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L123)
+   :::column-end:::
+:::row-end:::
+
+### <a name="blob"></a>Blob
+
+:::row:::
+   :::column span="":::
+      [Blob 업로드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L79)
+   :::column-end:::
+   :::column span="":::
+      [Blob 다운로드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L86)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Blob 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L118)
+   :::column-end:::
+   :::column span="":::
+      [큰 파일에서 Blob 업로드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L95)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [파일에 큰 Blob 다운로드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L100)
+   :::column-end:::
+:::row-end:::
+
+### <a name="troubleshooting"></a>문제 해결
+:::row:::
+   :::column span="2":::
+      [컨테이너 클라이언트를 사용하여 복구 가능한 오류 트리거](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/StorageErrorHandlingExample.java#L11)
+   :::column-end:::
+:::row-end:::
+
+## <a name="data-lake-storage-gen2-samples"></a>Data Lake Storage Gen2 샘플
+
+### <a name="data-lake-service"></a>Data Lake 서비스
+:::row:::
+   :::column span="":::
+      [Data Lake 서비스 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L48)
+   :::column-end:::
+   :::column span="":::
+      [파일 시스템 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L57)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file-system"></a>파일 시스템
+:::row:::
+   :::column span="":::
+      [파일 시스템 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L64)
+   :::column-end:::
+   :::column span="":::
+      [디렉터리 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L68)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [파일 및 하위 디렉터리 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L73)
+   :::column-end:::
+   :::column span="":::
+      [파일 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L83)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [파일 시스템의 경로 나열](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L131)
+   :::column-end:::
+   :::column span="":::
+      [파일 시스템 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L142)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Azure 스토리지 계정의 파일 시스템 나열](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/ListFileSystemsExample.java#L10)
+   :::column-end:::
+:::row-end:::
+
+### <a name="directory"></a>디렉터리
+
+:::row:::
+   :::column span="":::
+      [디렉터리 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L31)
+   :::column-end:::
+   :::column span="":::
+      [부모 디렉터리 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L37)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [자식 디렉터리 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L44)
+   :::column-end:::
+   :::column span="":::
+      [자식 디렉터리에 파일 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L52)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [디렉터리 속성 가져오기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L68)
+   :::column-end:::
+   :::column span="":::
+      [자식 디렉터리 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L83)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [부모 폴더 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L90)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file"></a>파일
+
+:::row:::
+   :::column span="":::
+      [파일 클라이언트를 사용하여 파일 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L93)
+   :::column-end:::
+   :::column span="":::
+      [파일 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L137)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [파일에 대한 액세스 제어 설정](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L82)
+   :::column-end:::
+   :::column span="":::
+      [파일에 대한 액세스 제어 가져오기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L104)
+   :::column-end:::
+:::row-end:::
+
+
+## <a name="azure-file-samples"></a>Azure File 샘플
+
+### <a name="authentication"></a>인증
+
+:::row:::
+   :::column span="2":::
+      [연결 문자열을 사용하여 인증](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L27)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file-service"></a>파일 서비스
+
+:::row:::
+   :::column span="":::
+      [파일 공유 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
+   :::column-end:::
+   :::column span="":::
+      [속성 가져오기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L40)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [공유 나열](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
+   :::column-end:::
+   :::column span="":::
+      [공유 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file-share"></a>파일 공유
+
+:::row:::
+   :::column span="":::
+      [공유 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L29)
+   :::column-end:::
+   :::column span="":::
+      [공유 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L40)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [공유 스냅샷 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L55)
+   :::column-end:::
+   :::column span="":::
+      [공유 클라이언트를 사용하여 디렉터리 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L63)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [공유 속성 가져오기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L72)
+   :::column-end:::
+   :::column span="":::
+      [루트 디렉터리 및 목록 디렉터리 가져오기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L100)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [공유 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L151)
+   :::column-end:::
+:::row-end:::
+
+### <a name="directory"></a>디렉터리
+
+:::row:::
+   :::column span="":::
+      [부모 디렉터리 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L35)
+   :::column-end:::
+   :::column span="":::
+      [자식 디렉터리 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L42)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [자식 디렉터리에 파일 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L50)
+   :::column-end:::
+   :::column span="":::
+      [디렉터리 및 파일 나열](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L66)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [자식 폴더 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L90)
+   :::column-end:::
+   :::column span="":::
+      [부모 폴더 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L97)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file"></a>파일
+
+:::row:::
+   :::column span="":::
+      [파일 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L45)
+   :::column-end:::
+   :::column span="":::
+      [파일 업로드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L90)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [파일 다운로드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L100)
+   :::column-end:::
+   :::column span="":::
+      [파일 속성 가져오기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L120)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [파일 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L128)
+   :::column-end:::
+:::row-end:::
+
+
+## <a name="queue-samples"></a>큐 샘플
+
+### <a name="authentication"></a>인증
+
+:::row:::
+   :::column span="2":::
+      [SAS 토큰을 사용하여 인증](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L17)
+   :::column-end:::
+:::row-end:::
+
+### <a name="queue-service"></a>큐 서비스
+
+:::row:::
+   :::column span="":::
+      [큐 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L20)
+   :::column-end:::
+   :::column span="":::
+      [큐 나열](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L22)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [큐 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L27)
+   :::column-end:::
+:::row-end:::
+
+### <a name="queue"></a>큐
+
+:::row:::
+   :::column span="":::
+      [큐 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L25)
+   :::column-end:::
+   :::column span="":::
+      [큐에 메시지 추가](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L27)
+   :::column-end:::
+:::row-end:::
+
+### <a name="message"></a>메시지
+
+:::row:::
+   :::column span="":::
+      [메시지 수 가져오기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L34)
+   :::column-end:::
+   :::column span="":::
+      [메시지 보기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L37)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [메시지 받기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L41)
+   :::column-end:::
+   :::column span="":::
+      [메시지 업데이트](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L45)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [첫 번째 메시지 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L50)
+   :::column-end:::
+   :::column span="":::
+      [모든 메시지 지우기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L59)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [큐 삭제](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L64)
+   :::column-end:::
+:::row-end:::
+
+## <a name="table-samples-v11"></a>테이블 샘플(v11)
+
+:::row:::
+   :::column span="":::
+      [테이블 만들기](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L50)
+   :::column-end:::
+   :::column span="":::
+      [엔터티/테이블 삭제](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L109)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [엔터티 삽입/병합/바꾸기](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L195)
+   :::column-end:::
+   :::column span="":::
+      [엔터티 쿼리](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L234)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [테이블 쿼리](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L262)
+   :::column-end:::
+   :::column span="":::
+      [테이블 ACL/속성](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java#L49)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [엔터티 업데이트](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L76)
+   :::column-end:::
+:::row-end:::
+
+## <a name="azure-code-sample-libraries"></a>Azure 코드 샘플 라이브러리
+
+전체 Java 샘플 라이브러리를 보려면 다음으로 이동하세요.
+
+* [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+* [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
+* [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
+* [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
+
+각 라이브러리에 대한 GitHub 리포지토리를 찾아보고 복제할 수 있습니다.
 
 ## <a name="getting-started-guides"></a>시작 가이드
 
 Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방법에 대한 지침은 찾고 있는 경우 다음 가이드를 확인해 보세요.
 
 * [Java에서 Azure Blob Service 시작](../blobs/storage-quickstart-blobs-java.md)
-* [Java에서 Azure Queue Service 시작](../queues/storage-java-how-to-use-queue-storage.md)
+* [Java에서 Azure Queue Service 시작](../queues/storage-quickstart-queues-java.md)
 * [Java에서 Azure Table Service 시작](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Java에서 Azure File Service 시작](../files/storage-java-how-to-use-file-storage.md)
 
@@ -211,4 +450,6 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 다른 언어용 샘플에 대한 정보:
 
 * .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
+* Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
+* JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
 * 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

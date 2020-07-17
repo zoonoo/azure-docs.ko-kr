@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: f66a3653bc85925349dde84551310fd24f4c9336
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: cfd5cf77b9df8cdd5b856a0b36b9010077a7078a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632876"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "68562492"
 ---
 **파일** > **빌드 설정**을 선택하여 **빌드 설정**을 엽니다.
 
@@ -21,8 +21,3 @@ ms.locfileid: "58632876"
 
 **빌드 설정** 창을 닫습니다.
 
-### <a name="download-and-import-the-unity-arkit-plugin"></a>Unity ARKit 플러그인 다운로드 및 가져오기
-
-[Unity ARKit 플러그 인 버전 2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip)을 다운로드하여 아카이브를 추출합니다.
-
-추출한 Unity ARKit 플러그 인 폴더에서 `Assets` 폴더의 내용을 샘플의 `Assets` 폴더로 복사합니다.

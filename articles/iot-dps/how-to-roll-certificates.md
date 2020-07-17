@@ -1,25 +1,23 @@
 ---
-title: Azure IoT Hub Device Provisioning Service에서 X.509 인증서를 배포하는 방법 | Microsoft Docs
-description: 디바이스 프로비저닝 서비스 인스턴스로 X.509 인증서를 배포하는 방법
+title: Azure IoT Hub 장치 프로 비전 서비스에서 x.509 인증서 롤
+description: DPS (장치 프로 비전 서비스) 인스턴스로 X. x.509 인증서를 롤백하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74974890"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 디바이스 인증서 배포 방법
 
 IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인증서를 배포하는 주된 이유 두 가지는 보안 위반 및 인증서 만료입니다. 
 
-인증서 배포는 위반 발생 시 시스템을 보호할 수 있는 보안 모범 사례입니다. [보안 위험 가정 방법론](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)의 일환으로 Microsoft는 예방 조치와 함께 사후 보안 프로세스의 필요성을 주장하고 있습니다. 디바이스 인증서 배포는 이러한 보안 프로세스의 일환으로 포함되어야 합니다. 인증서의 배포 빈도는 솔루션의 보안 요구 사항에 따라 달라집니다. 중요도 높은 데이터가 포함된 솔루션을 사용하는 고객은 매일 인증서를 배포하기도 하며 어떤 고객은 2년마다 인증서를 배포할 수도 있습니다.
+인증서 배포는 위반 발생 시 시스템을 보호할 수 있는 보안 모범 사례입니다. [보안 위험 가정 방법론](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)의 일환으로 Microsoft는 예방 조치와 함께 사후 보안 프로세스의 필요성을 강조하고 있습니다. 디바이스 인증서 배포는 이러한 보안 프로세스의 일환으로 포함되어야 합니다. 인증서의 배포 빈도는 솔루션의 보안 요구 사항에 따라 달라집니다. 중요도 높은 데이터가 포함된 솔루션을 사용하는 고객은 매일 인증서를 배포하기도 하며 어떤 고객은 2년마다 인증서를 배포할 수도 있습니다.
 
 디바이스 인증서 배포에는 디바이스 및 IoT Hub에 저장된 인증서 업데이트가 포함됩니다. 이후 디바이스는 Device Provisioning Service를 통해 일반 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 IoT Hub로 스스로 다시 프로비전합니다.
 
@@ -109,7 +107,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 1. 디바이스 프로비저닝 서비스 인스턴스에 대해 **인증서** 탭을 클릭합니다.
 
-2. 목록에서 손상된 인증서를 클릭한 다음, **삭제** 단추를 클릭합니다. 인증서 이름을 입력하여 삭제를 확인하고 **확인**을 클릭합니다. 손상된 모든 인증서에 대해 이 프로세스를 반복합니다.
+2. 목록에서 손상된 인증서를 클릭한 다음, **삭제** 단추를 클릭합니다. 인증서 이름을 입력 하 여 삭제를 확인 하 고 **확인**을 클릭 합니다. 손상된 모든 인증서에 대해 이 프로세스를 반복합니다.
 
     ![루트 CA 인증서 삭제](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -131,7 +129,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 
 
-#### <a name="update-compromised-intermediate-certificates"></a>손상된 중간 인증서 업데이트 
+#### <a name="update-compromised-intermediate-certificates"></a>손상된 중간 인증서 업데이트
 
 1. **등록 그룹**을 클릭한 다음, 목록에서 그룹 이름을 클릭합니다. 
 
@@ -157,7 +155,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 나중에 보조 인증서도 만료 시점이 가까워져 배포가 필요한 경우 기본 구성을 사용하도록 전환할 수 있습니다. 기본 및 보조 인증서를 이런 식으로 회전하면 프로비전을 수행하는 디바이스에서 가동 중지 시간이 없게 됩니다. 
 
-#### <a name="update-expiring-root-ca-certificates"></a>만료 루트 CA 인증서 업데이트 
+#### <a name="update-expiring-root-ca-certificates"></a>만료 루트 CA 인증서 업데이트
 
 1. [확인된 CA 인증서 구성](how-to-verify-certificates.md)에서 설명한 단계에 따라 새 루트 CA 인증서를 추가 및 확인합니다.
 

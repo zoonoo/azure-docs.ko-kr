@@ -1,22 +1,22 @@
 ---
-title: 지리적 가용성 및 통화 지원 | Azure
-description: Azure Marketplace 및 AppSource에서 지리적 가용성
-services: Azure, Marketplace, Compute, Storage, Networking
-author: qianw211
+title: Microsoft 상업용 마켓플레이스의 지리적 가용성 및 통화 지원
+description: 상업용 마켓플레이스의 트랜잭션에 대한 지리적 가용성 및 통화 지원
 ms.service: marketplace
-ms.topic: article
-ms.date: 02/28/2019
-ms.author: ellacroi
-ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+author: keferna
+ms.author: keferna
+ms.date: 01/29/2020
+ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938264"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120010"
 ---
-# <a name="geographic-availability-and-currency-support"></a>지리적 가용성 및 통화 지원
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상업용 마켓플레이스의 지리적 가용성 및 통화 지원
 
-고객의 청구 주소, 정의 된 대로 141 지역에서 azure Marketplace 제품을 구입할 수 있습니다 하 고 17 통화로 트랜잭션을 완료할 수 있습니다. 나열 합니다. 아래 표에서 지원 지리적 위치, 해당 [ISO 3166 두 자리 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), 및 할당 된 통화입니다.
+상업용 마켓플레이스 제품은 고객의 청구 주소에서 정의된 대로 141개 지역에서 구매할 수 있으며 트랜잭션은 17개 통화로 완료할 수 있습니다. 아래 표에는 지원되는 각 지리적 위치, 해당 [ISO 3166 2자리 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) 및 할당된 통화가 나와 있습니다.
 
 |   국가/지역 이름               |   ISO-2   |   통화   |
 |-------------------------------------|-----------|--------------|
@@ -44,10 +44,11 @@ ms.locfileid: "64938264"
 | 브루나이                              | BN        | USD          |
 | 불가리아                            | BG        | EUR          |
 | 카메룬                            | CM        | USD          |
-| 캐나다                              | CA        | CAD          |
+| Canada                              | CA        | CAD          |
 | 카보베르데                          | CV        | USD          |
 | 케이맨 제도                      | KY        | USD          |
 | 칠레                               | CL        | USD          |
+| 중국\**                            | CN        | 해당 없음          |
 | 콜롬비아                            | CO        | USD          |
 | 코스타리카                          | CR        | USD          |
 | 코트디부아르                       | CI        | USD          |
@@ -86,7 +87,7 @@ ms.locfileid: "64938264"
 | 요르단                              | JO        | USD          |
 | 카자흐스탄                          | KZ        | USD          |
 | 케냐                               | KE        | USD          |
-| 한국 (남부)                       | KR        | KRW          |
+| 한국(남부)                       | KR        | KRW          |
 | 쿠웨이트                              | KW        | USD          |
 | 키르기스스탄                          | KG        | USD          |
 | 라트비아                              | LV        | EUR          |
@@ -147,12 +148,12 @@ ms.locfileid: "64938264"
 | 튀니지                             | TN        | USD          |
 | 터키                              | TR        | USD          |
 | 투르크메니스탄                        | TM        | USD          |
-| 바티칸 (교황청)             | VA        | EUR          |
-| 미국령 버진아일랜드 | VI        | USD          |
+| 바티칸 시국(교황청)             | VA        | EUR          |
+| 미국령 버진 아일랜드 | VI        | USD          |
 | 우간다                              | UG        | USD          |
 | 우크라이나                             | UA        | USD          |
 | 아랍에미리트                | AE        | USD          |
-| 영국                      | GB        | GBP          |
+| United Kingdom                      | GB        | GBP          |
 | 미국                       | US        | USD          |
 | 우루과이                             | UY        | USD          |
 | 우즈베키스탄                          | UZ        | USD          |
@@ -163,4 +164,6 @@ ms.locfileid: "64938264"
 | 짐바브웨                            | ZW        | USD          |
 |   |   |   |
 
-\* 브라질에서 고객의 경우 Marketplace를 통해 클라우드 솔루션 공급자 (CSP) USD를 사용합니다.
+\* 브라질 고객의 경우 CSP(클라우드 솔루션 공급자)를 통한 Marketplace에서는 USD를 사용합니다.
+
+\** 무료 및 BYOL VM 이미지만 해당합니다.

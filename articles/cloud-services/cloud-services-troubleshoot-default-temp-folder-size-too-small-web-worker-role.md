@@ -4,23 +4,22 @@ description: 클라우드 서비스 역할에는 TEMP 폴더에 대한 공간이
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7862e4d5c4dd603dacf5784df6c4194392ebc351
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bea9e163e9dde6c42de87048379d663222cb56e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60652184"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82734623"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>클라우드 서비스 웹/작업자 역할에서 기본 TEMP 폴더 크기가 너무 작습니다.
 클라우드 서비스 작업자 또는 웹 역할의 기본 임시 디렉터리에는 최대 100MB 크기의 공간이 있으며 특정 시점에 꽉 찰 수도 있습니다. 이 문서는 임시 디렉터리에 대한 공간 부족을 방지하는 방법을 설명합니다.
@@ -33,8 +32,8 @@ ms.locfileid: "60652184"
 ## <a name="suggestion-to-fix-the-problem"></a>문제를 해결하려는 제안
 다음 대안 중 하나를 구현합니다.
 
-* 로컬 저장소 리소스를 구성하고 TEMP 또는 TMP를 사용하는 대신 직접 액세스합니다. 애플리케이션 내에서 실행되는 코드에서 로컬 스토리지 리소스에 액세스하려면 [RoleEnvironment.GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) 메서드를 호출합니다.
-* 로컬 저장소 리소스를 구성하고 TEMP 및 TMP 디렉터리를 카리켜서 로컬 저장소 리소스의 경로를 가리키도록 합니다. 이 수정 작업은 [RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) 메서드 내에서 수행되어야 합니다.
+* 로컬 스토리지 리소스를 구성하고 TEMP 또는 TMP를 사용하는 대신 직접 액세스합니다. 애플리케이션 내에서 실행되는 코드에서 로컬 스토리지 리소스에 액세스하려면 [RoleEnvironment.GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) 메서드를 호출합니다.
+* 로컬 스토리지 리소스를 구성하고 TEMP 및 TMP 디렉터리를 카리켜서 로컬 스토리지 리소스의 경로를 가리키도록 합니다. 이 수정 작업은 [RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) 메서드 내에서 수행되어야 합니다.
 
 다음 코드 예제에서는 OnStart 메서드 내에서 TEMP 및 TMP에 대한 대상 디렉터리를 수정하는 방법을 보여줍니다.
 
@@ -73,6 +72,6 @@ namespace WorkerRole1
 ## <a name="next-steps"></a>다음 단계
 [Azure 웹 역할 ASP.NET 임시 폴더의 크기를 늘리는 방법](https://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx)을 설명하는 블로그를 읽으세요.
 
-클라우드 서비스에 대한 [문제해결 문서](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) 를 더 봅니다.
+클라우드 서비스에 대한 [문제해결 문서](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) 를 더 봅니다.
 
 Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.

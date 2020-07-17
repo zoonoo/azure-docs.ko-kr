@@ -1,39 +1,39 @@
 ---
-title: Azure CLI-Azure HDInsight를 사용 하 여 Apache Hadoop 클러스터 만들기
-description: 플랫폼 간 Azure CLI를 사용 하 여 HDInsight 클러스터를 만드는 방법에 알아봅니다.
+title: Azure CLI를 사용 하 여 Apache Hadoop 클러스터 만들기-Azure HDInsight
+description: 플랫폼 간 Azure CLI를 사용 하 여 Azure HDInsight 클러스터를 만드는 방법을 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: hrasheed
-ms.openlocfilehash: 0a278cd98b0dd6c6d8f0fe9bfee81e5bafd4f543
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 02/03/2020
+ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597688"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080706"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight 클러스터 만들기
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Azure CLI를 사용 하 여 HDInsight 3.6 클러스터를 만드는이 문서의 연습에서 설명 합니다.
+이 문서의 단계는 Azure CLI을 사용 하 여 HDInsight 3.6 클러스터를 만드는 과정을 안내 합니다.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 단계에 대 한 합니다.
+Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)에 나온 단계를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 
-1. Azure 구독에 로그인 합니다. Azure Cloud Shell을 사용 하도록 선택 하기만 하면 계획 이라면 **사용해** 코드 블록의 오른쪽 위 모퉁이에서. 그렇지 않은 경우 아래 명령을 입력 합니다.
+1. Azure 구독에 로그인합니다. Azure Cloud Shell을 사용하려는 경우 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기**를 선택합니다. 그렇지 않은 경우 아래 명령을 입력합니다.
 
     ```azurecli-interactive
     az login
@@ -42,16 +42,16 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. 환경 변수를 설정 합니다. 이 문서에서 변수 사용은 Bash를 기반으로 합니다. 다른 환경에 대 한 약간의 변형이 필요 합니다. 참조 [az-hdinsight 만들기](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 클러스터 생성에 대 한 가능한 매개 변수의 전체 목록은 합니다.
+2. 환경 변수를 설정합니다. 이 문서에서 변수를 사용 하는 것은 Bash를 기반으로 합니다. 다른 환경에서는 약간의 변형이 필요합니다. 클러스터 만들기에 사용할 수 있는 매개 변수의 전체 목록은 [az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 를 참조 하세요.
 
     |매개 변수 | 설명 |
     |---|---|
-    |`--size`| 클러스터의 작업자 노드 수입니다. 이 문서에서는 변수 `clusterSizeInNodes` 에 전달 된 값으로 `--size`입니다. |
-    |`--version`| HDInsight 클러스터 버전입니다. 이 문서에서는 변수 `clusterVersion` 에 전달 된 값으로 `--version`입니다. 참고 항목: [지원 되는 HDInsight 버전](./hdinsight-component-versioning.md#supported-hdinsight-versions)합니다.|
-    |`--type`| HDInsight 클러스터를 같은 유형의: interactivehive, hadoop, hbase, kafka, storm, spark, rserver, mlservices 합니다.  이 문서에서는 변수 `clusterType` 에 전달 된 값으로 `--type`입니다. 참고 항목: [클러스터 유형 및 구성](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types)합니다.|
-    |`--component-version`|공백으로 구분 된 버전에서 다양 한 Hadoop 구성 요소, 버전 ' 구성 요소 버전 =' 형식입니다. 이 문서에서는 변수 `componentVersion` 에 전달 된 값으로 `--component-version`입니다. 참고 항목: [Hadoop 구성 요소](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)합니다.|
+    |`--workernode-count`| 클러스터의 작업자 노드 수입니다. 이 문서에서는 변수를 `clusterSizeInNodes` 에 전달 된 값으로 사용 `--workernode-count` 합니다. |
+    |`--version`| HDInsight 클러스터 버전입니다. 이 문서에서는 변수를 `clusterVersion` 에 전달 된 값으로 사용 `--version` 합니다. 참고 항목: [지원 되는 HDInsight 버전](./hdinsight-component-versioning.md#supported-hdinsight-versions)|
+    |`--type`| HDInsight 클러스터 유형 (예: hadoop, interactivehive, hbase, kafka, 폭풍, spark, rserver, mlservices).  이 문서에서는 변수를 `clusterType` 에 전달 된 값으로 사용 `--type` 합니다. 참고 항목: [클러스터 형식 및 구성](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type)|
+    |`--component-version`|' Component = version ' 형식의 공백으로 구분 된 버전에 있는 다양 한 Hadoop 구성 요소의 버전입니다. 이 문서에서는 변수를 `componentVersion` 에 전달 된 값으로 사용 `--component-version` 합니다. 참고 항목: [Hadoop 구성 요소](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)|
 
-    바꿉니다 `RESOURCEGROUPNAME`, `LOCATION`를 `CLUSTERNAME`를 `STORAGEACCOUNTNAME`, 및 `PASSWORD` 원하는 값으로. 필요에 따라 다른 변수 값을 변경 합니다. 다음 CLI 명령을 입력 합니다.
+    `RESOURCEGROUPNAME`,, `LOCATION` `CLUSTERNAME` , 및를 `STORAGEACCOUNTNAME` `PASSWORD` 원하는 값으로 바꿉니다. 다른 변수의 값을 원하는 대로 변경 합니다. 그런 다음 CLI 명령을 입력 합니다.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -60,7 +60,7 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
     export AZURE_STORAGE_ACCOUNT=STORAGEACCOUNTNAME
     export httpCredential='PASSWORD'
     export sshCredentials='PASSWORD'
-    
+
     export AZURE_STORAGE_CONTAINER=$clusterName
     export clusterSizeInNodes=1
     export clusterVersion=3.6
@@ -68,7 +68,7 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
     export componentVersion=Hadoop=2.7
     ```
 
-3. [리소스 그룹을 만들려면](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) 아래 명령을 입력 하 여:
+3. 아래 명령을 입력 하 여 [리소스 그룹을 만듭니다](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) .
 
     ```azurecli-interactive
     az group create \
@@ -76,9 +76,9 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
         --name $resourceGroupName
     ```
 
-    유효한 위치 목록을 사용 합니다 `az account list-locations` 명령을 실행 하 고 다음 위치 중 하나를 사용 하 여는 `name` 값입니다.
+    유효한 위치 목록을 보려면 `az account list-locations` 명령을 사용한 다음 값의 위치 중 하나를 사용 `name` 합니다.
 
-4. [Azure storage 계정 만들기](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) 아래 명령을 입력 하 여:
+4. 아래 명령을 입력 하 여 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) .
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +91,7 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
         --sku Standard_LRS
     ```
 
-5. [Azure 저장소 계정에서 기본 키를 추출](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) 아래 명령을 입력 하 여 변수에 저장 합니다.
+5. [Azure Storage 계정에서 기본 키를 추출](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) 하 고 아래 명령을 입력 하 여 변수에 저장 합니다.
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +100,7 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
         --query [0].value -o tsv)
     ```
 
-6. [Azure storage 컨테이너를 만드는](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) 아래 명령을 입력 하 여:
+6. 아래 명령을 입력 하 여 [Azure Storage 컨테이너를 만듭니다](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) .
 
     ```azurecli-interactive
     az storage container create \
@@ -109,7 +109,7 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. [HDInsight 클러스터를 만들](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 다음 명령을 입력 하 여:
+7. 다음 명령을 입력 하 여 [HDInsight 클러스터를 만듭니다](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) .
 
     ```azurecli-interactive
     az hdinsight create \
@@ -120,25 +120,25 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
         --http-password $httpCredential \
         --http-user admin \
         --location $location \
-        --size $clusterSizeInNodes \
+        --workernode-count $clusterSizeInNodes \
         --ssh-password $sshCredentials \
         --ssh-user sshuser \
         --storage-account $AZURE_STORAGE_ACCOUNT \
         --storage-account-key $AZURE_STORAGE_KEY \
-        --storage-default-container $AZURE_STORAGE_CONTAINER \
+        --storage-container $AZURE_STORAGE_CONTAINER \
         --version $clusterVersion
     ```
 
     > [!IMPORTANT]  
     > HDInsight 클러스터는 워크로드 또는 클러스터에 대한 튜닝 기술에 해당하는 다양한 형식을 제공합니다. 하나의 클러스터에서 Storm 및 HBase 등의 여러 유형을 결합하는 클러스터를 만들기 위해 지원되는 메서드가 없습니다.
 
-    클러스터 생성 프로세스를 완료하는 데 몇 분 정도 걸릴 수 있습니다. 일반적으로 약 15분이 걸립니다.
+    클러스터 만들기 프로세스가 완료 되는 데 몇 분 정도 걸릴 수 있습니다. 일반적으로 약 15분이 걸립니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
+이 문서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
 
-전체 또는 일부 리소스를 제거 하려면 다음 명령을 입력 합니다.
+리소스를 제거하려면 다음 명령의 전체 또는 일부를 입력합니다.
 
 ```azurecli-interactive
 # Remove cluster
@@ -167,12 +167,11 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
+Azure CLI를 사용 하 여 HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용 하 여 클러스터 작업을 수행 하는 방법을 알아보세요.
 
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop 클러스터
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase 클러스터

@@ -1,31 +1,29 @@
 ---
-title: Azure Data Lake Storage Gen2 Storm 성능 튜닝 지침 | Microsoft Docs
+title: '성능 조정: 스톰, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Azure Data Lake Storage Gen2의 Storm 성능 튜닝에 대한 지침입니다.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: aa3c942448be6444044981eacc2bbc3214b9c1b4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465918"
 ---
-# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Storm on HDInsight 및 Azure Data Lake Storage Gen2에 대한 성능 튜닝 지침
+# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: 스톰, HDInsight & Azure Data Lake Storage Gen2
 
 Azure Storm 토폴로지의 성능을 조정할 때 고려해야 하는 요소를 이해합니다. 예를 들어, Spout 및 Bolt(작업이 I/O 또는 메모리 집약적인지에 따름)에서 수행한 작업의 특징을 이해하는 것이 중요합니다. 이 문서에서는 다양한 성능 조정 지침, 일반적인 문제 해결 등을 다룹니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure Data Lake Storage Gen2 계정**. 계정을 만드는 방법에 대한 지침은 [빠른 시작: 분석을 위한 스토리지 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조하세요.
+* **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: 분석을 위한 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조 하세요.
 * Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
-* **Data Lake Storage Gen2에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 Storm](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조하세요.
+* **Data Lake Storage Gen2에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 스톰](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조 하세요.
 * **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen2 성능 튜닝 지침](data-lake-storage-performance-tuning-guidance.md)을 참조하세요.   
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>토폴로지의 병렬 처리 조정
@@ -64,7 +62,7 @@ D13v2 Azure VM과 함께 8개의 작업자 노드 클러스터가 있다고 가�
 기본 토폴로지를 만든 후에는 매개 변수를 수정할 것인지 고려할 수 있습니다.
 * **작업자 노드당 JVM 수** 메모리 내에 호스트하는 큰 데이터 구조(예: 조회 테이블)가 있는 경우 각 JVM에는 별도 복사본이 필요합니다. 또는 JVM을 적게 설정한 경우 여러 스레드에 걸쳐 데이터 구조를 사용할 수 있습니다. Bolt I/O의 경우, JVM 수는 해당 JVM 간에 추가된 스레드 수와 큰 차이가 없습니다. 간소화하기 위해 작업자당 하나의 JVM이 있는 것이 좋습니다. 하지만 Bolt에서 수행한 작업이나 필요한 애플리케이션 프로세스에 따라 이 번호를 변경해야 합니다.
 * **Spout 실행자 수** 이전 예제에서 Data Lake Storage Gen2에 대한 쓰기에 Bolt를 사용하므로 Spout 수는 Bolt 성능과 직접 관련이 없습니다. 하지만 Spout에서 발생하는 처리 또는 I/O 양에 따라 최적의 성능을 얻기 위해 Spout을 조정하는 것이 좋습니다. Bolt를 사용할 수 있는 충분한 Spout이 있는지 확인합니다. Spout의 출력 속도는 Bolt의 처리량과 일치해야 합니다. 실제 구성은 Spout에 따라 달라집니다.
-* **태스크 수** 각 Bolt는 단일 스레드로 실행됩니다. Bolt당 추가 태스크는 어떠한 동시성도 제공하지 않습니다. 이익이 되는 경우는 튜플을 승인하는 프로세스가 Bolt 실행 시간의 상당 부분을 차지하는 경우 뿐입니다. Bolt에서 승인을 보내기 전에 많은 튜플을 추가에 그룹화하는 것이 좋습니다. 즉, 대부분의 경우에 여러 태스크에는 추가적인 이점이 없습니다.
+* **태스크 수** 각 Bolt는 단일 스레드로 실행됩니다. Bolt당 추가 태스크는 어떠한 동시성도 제공하지 않습니다. 이익이 되는 경우는 튜플을 승인하는 프로세스가 Bolt 실행 시간의 상당 부분을 차지하는 경우 뿐입니다. 볼트에서 승인을 보내기 전에 많은 튜플을 더 큰 추가로 그룹화 하는 것이 좋습니다. 즉, 대부분의 경우에 여러 태스크에는 추가적인 이점이 없습니다.
 * **로컬 또는 순서 섞기 그룹화** 이 설정을 사용하면 동일한 작업자 프로세스 내에서 튜플이 Bolt로 전송됩니다. 그러면 프로세스 간 통신과 네트워크 호출이 줄어듭니다. 대부분의 토폴로지에 사용하는 것이 좋습니다.
 
 이 기본 시나리오는 시작 지점으로 사용하는 것이 좋습니다. 최적의 성능을 얻기 위해 이전 매개 변수를 조정하여 소유한 데이터를 테스트합니다.
@@ -73,7 +71,7 @@ D13v2 Azure VM과 함께 8개의 작업자 노드 클러스터가 있다고 가�
 
 Spout를 조정하도록 다음 설정을 수정할 수 있습니다.
 
-- **튜플 시간 초과: topology.message.timeout.secs** 이 설정은 실패로 간주되기 전에 메시지가 승인을 완료 및 수신하는 데 걸리는 시간을 결정합니다.
+- **튜플 시간 초과: topology.message.timeout.secs** 이 설정은 메시지를 완료 하는 데 걸리는 시간을 결정 하 고 승인을 수신 하는 데 실패 한 것으로 간주 합니다.
 
 - **작업자 프로세스당 최대 메모리: worker.childopts** 이 설정을 통해 Java 작업자에 대해 추가 명령줄 매개 변수를 지정할 수 있습니다. 여기서 가장 일반적으로 사용된 설정은 XmX이며 JVM 힙에 할당된 최대 메모리를 결정합니다.
 
@@ -90,17 +88,17 @@ I/O 집약적인 토폴로지에서 각 Bolt 스레드는 자체 파일에 기�
 
 * **총 프로세스 실행 대기 시간** 1개의 튜플이 Spout에 의해 보내지는 데 소요되어 Bolt에 의해 처리되고 승인되는 평균 시간입니다.
 
-* **총 Bolt 프로세스 대기 시간** 승인을 받기까지 Bolt에서 튜플에 소요된 평균 시간입니다.
+* **총 Bolt 프로세스 대기 시간** 이는 승인을 받을 때까지 볼트의 튜플에 소요 된 평균 시간입니다.
 
 * **총 Bolt 실행 대기 시간** 실행 메서드에서 Bolt에 소요된 평균 시간입니다.
 
 * **오류 수** 시간이 초과되기 전에 완전히 처리되지 않은 튜플 수를 나타냅니다.
 
-* **용량** 시스템이 얼마나 사용 중인지를 측정한 값입니다. 1이면 Bolt가 가장 빠르게 작동 중입니다. 1 미만이면 병렬 처리를 늘립니다. 1보다 크면 병렬 처리를 줄입니다.
+* **수용.** 시스템이 얼마나 사용 중인지를 측정한 값입니다. 1이면 Bolt가 가장 빠르게 작동 중입니다. 1 미만이면 병렬 처리를 늘립니다. 1보다 크면 병렬 처리를 줄입니다.
 
 ## <a name="troubleshoot-common-problems"></a>일반적인 문제 해결
 일반적인 문제 해결 시나리오는 다음과 같습니다.
-* **많은 튜플의 시간이 초과되었습니다.** 토폴로지에서 각 노드를 확인하여 병목 현상이 발생한 위치를 확인합니다. 가장 일반적인 원인은 Bolt가 Spout을 따라갈 수 없기 때문입니다. 이렇게 하면 튜플이 처리될 때까지 대기하는 동안 내부 버퍼를 방해합니다. 시간 초과 값을 늘리거나 보류 중인 최대 Spout을 줄이세요.
+* **많은 튜플이 시간 초과 됩니다.** 토폴로지의 각 노드를 확인 하 여 병목 현상이 발생 한 위치를 확인 합니다. 가장 일반적인 원인은 Bolt가 Spout을 따라갈 수 없기 때문입니다. 이렇게 하면 튜플이 처리될 때까지 대기하는 동안 내부 버퍼를 방해합니다. 시간 초과 값을 늘리거나 보류 중인 최대 Spout을 줄이세요.
 
 * **총 프로세스 실행 대기 시간이 길지만 Bolt 프로세스 대기 시간이 짧습니다.** 이런 경우 튜플이 충분히 빨리 승인되지 않을 수 있습니다. acknowledger 수가 충분한지 확인하세요. Bolt가 처리를 시작하기 전에 큐에서 너무 오래 대기 중인 것도 원인이 될 수 있습니다. 보류 중인 최대 Spout을 줄이세요.
 
@@ -111,10 +109,10 @@ Data Lake Storage Gen2에서 제공하는 대역폭의 제한에 도달하면 �
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정합니다.
 
-1. **Ambari** > **Storm** > **Config** > **고급 storm-worker-log4j**에서 **&lt;root level="info"&gt;** 를 **&lt;root level=”debug”&gt;** 로 변경합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
+1. **Ambari**  >  **스톰**  >  **구성**  >  **고급 스톰-log4j**에서 ** &lt; root level = "info" &gt; ** 를 ** &lt; root level = "debug" &gt; **로 변경 합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
 2. Data Lake Storage Gen2 제한 예외에 대한 작업자 노드의 Storm 토폴로지 로그(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래)를 모니터링합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Storm의 추가 성능 조정은 이 [블로그](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)를 참조하세요.
+[이 블로그에서](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)는 스톰의 추가 성능 튜닝을 참조할 수 있습니다.
 
 추가 예제를 실행하려면 [GitHub에서 이 항목](https://github.com/hdinsight/storm-performance-automation)을 참조하세요.

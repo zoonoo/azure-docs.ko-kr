@@ -1,19 +1,19 @@
 ---
-title: 온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
+title: '인프라: 온-프레미스에서 Azure HDInsight로 Apache Hadoop'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 인프라 모범 사례를 알아봅니다.
 author: hrasheed-msft
-ms.reviewer: jasonwhowell
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1bd06507bd8a20cf504c1ff4cd9fe7e3b9196a3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: how-to
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687772"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083103"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
 
@@ -23,12 +23,19 @@ ms.locfileid: "64687772"
 
 HDInsight 클러스터 용량 계획을 만들기 위한 주요 선택 항목은 다음과 같습니다.
 
-- **지역 선택** - Azure 지역은 클러스터가 물리적으로 프로비전되는 위치를 결정합니다. 읽기 및 쓰기 대기 시간을 최소화하려면 클러스터가 데이터와 동일한 지역에 있어야 합니다.
-- **저장소 위치 및 크기 선택** - 기본 저장소는 클러스터와 동일한 지역에 있어야 합니다. 48 노드 클러스터의 경우 4~8개의 저장소 계정을 갖는 것이 좋습니다. 총 스토리지 이미 충분할 수 있지만 각 스토리지 계정이 계산 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 저장소 계정이 여러 개 있는 경우 각 저장소 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 저장소 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 저장소 계정당 하나의 컨테이너만 사용합니다.
-- **VM 크기 및 유형 선택(이제 G-시리즈 지원)** - 각 클러스터 유형마다 노드 유형 집합이 있으며 각 노드 유형은 해당 VM 크기 및 유형에 대한 특정 옵션을 제공합니다. VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시간에 따라 결정됩니다. 각 노드 유형에 대한 최적의 VM 크기 및 유형을 결정하는 데 시뮬레이트된 워크로드를 사용할 수 있습니다.
-- **작업자 노드 수 선택** - 시뮬레이트된 워크로드를 사용하여 작업자 노드의 초기 수를 결정할 수 있습니다. 최대 부하 요구 사항에 맞게 더 많은 작업자 노드를 추가하여 나중에 클러스터를 확장할 수 있습니다. 추가 작업자 노드가 필요하지 않을 때 클러스터를 나중에 축소할 수 있습니다.
+**지역**  
+Azure 지역은 클러스터가 물리적으로 프로 비전 되는 위치를 결정 합니다. 읽기 및 쓰기 대기 시간을 최소화하려면 클러스터가 데이터와 동일한 지역에 있어야 합니다.
 
-자세한 내용은 문서 [HDInsight 클러스터에 대한 용량 계획](../hdinsight-capacity-planning.md)을 참조하세요.
+**저장소 위치 및 크기**  
+기본 저장소는 클러스터와 동일한 지역에 있어야 합니다.48-노드 클러스터의 경우 4 ~ 8 개의 저장소 계정을 포함 하는 것이 좋습니다. 총 스토리지 이미 충분할 수 있지만 각 스토리지 계정이 컴퓨팅 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 스토리지 계정이 여러 개 있는 경우 각 스토리지 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 스토리지 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 스토리지 계정당 하나의 컨테이너만 사용합니다.
+
+**VM 크기 및 유형 (이제 G 시리즈 지원)**  
+클러스터 유형마다 노드 유형 집합이 있으며 각 노드 유형은 VM 크기 및 유형에 대한 특정 옵션을 제공합니다. VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시간에 따라 결정됩니다. 각 노드 유형에 대한 최적의 VM 크기 및 유형을 결정하는 데 시뮬레이트된 워크로드를 사용할 수 있습니다.
+
+**작업자 노드 수**  
+시뮬레이션 된 워크 로드를 사용 하 여 초기 작업자 노드 수를 확인할 수 있습니다. 최대 부하 요구 사항에 맞게 더 많은 작업자 노드를 추가하여 나중에 클러스터를 확장할 수 있습니다. 나중에 추가 작업자 노드가 필요 하지 않은 경우 클러스터를 다시 확장할 수 있습니다.
+
+자세한 내용은 [HDInsight 클러스터에 대 한 용량 계획](../hdinsight-capacity-planning.md)문서를 참조 하세요.
 
 ## <a name="use-recommended-virtual-machine-type-for-cluster"></a>클러스터에 권장되는 가상 머신 유형 사용
 
@@ -36,11 +43,11 @@ HDInsight 클러스터 용량 계획을 만들기 위한 주요 선택 항목은
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>HDInsight에서 Hadoop 구성 요소의 가용성 확인
 
-각 HDInsight 버전은 HDP(Hortonworks Data Platform) 버전의 클라우드 배포판이며 Hadoop 에코 시스템 구성 요소의 집합으로 구성됩니다. 모든 HDInsight 구성 요소 및 해당 현재 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전 관리](../hdinsight-component-versioning.md)를 참조하세요.
+각 HDInsight 버전은 Hadoop 에코 시스템 구성 요소 집합의 클라우드 배포입니다. 모든 HDInsight 구성 요소 및 해당 현재 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전 관리](../hdinsight-component-versioning.md)를 참조하세요.
 
 또한 Apache Ambari UI 또는 Ambari REST API를 사용하여 HDInsight에서 Hadoop 구성 요소 및 버전을 확인할 수 있습니다.
 
-응용 프로그램 또는 구성 요소는 온-프레미스 클러스터에서 사용할 수 있었지만 HDInsight 클러스터의 일부가 아닌에 지 노드 또는 HDInsight 클러스터와 동일한 VNet에서 VM에 추가할 수 있습니다. Azure HDInsight에서 사용할 수 없는 타사 Hadoop 애플리케이션을 HDInsight 클러스터에서 "애플리케이션" 옵션을 사용하여 설치할 수 있습니다. 사용자 지정 Hadoop 애플리케이션을 "스크립트 동작"을 사용하여 HDInsight 클러스터에 설치할 수 있습니다. 다음 표는 일반적인 애플리케이션 및 해당 HDInsight 통합 옵션 중 일부를 나열합니다.
+온-프레미스 클러스터에서 사용할 수 있지만 HDInsight 클러스터의 일부가 아닌 응용 프로그램이 나 구성 요소는에 지 노드 또는 HDInsight 클러스터와 동일한 VNet의 VM에 추가할 수 있습니다. Azure HDInsight에서 사용할 수 없는 타사 Hadoop 애플리케이션을 HDInsight 클러스터에서 "애플리케이션" 옵션을 사용하여 설치할 수 있습니다. 사용자 지정 Hadoop 애플리케이션을 "스크립트 동작"을 사용하여 HDInsight 클러스터에 설치할 수 있습니다. 다음 표는 일반적인 애플리케이션 및 해당 HDInsight 통합 옵션 중 일부를 나열합니다.
 
 |**애플리케이션**|**통합**
 |---|---|
@@ -69,7 +76,7 @@ HDInsight 클러스터 용량 계획을 만들기 위한 주요 선택 항목은
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-자세한 내용은 [각 HDInsight 버전에서 제공되는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) 문서 참조
+자세한 내용은 [각 HDInsight 버전에서 제공되는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) 문서 참조
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -94,7 +101,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 스크립트 작업을 Azure Marketplace에 HDInsight 애플리케이션으로 게시할 수도 있습니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [HDInsight에 타사 Apache Hadoop 애플리케이션 설치](../hdinsight-apps-install-applications.md)
 - [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)
@@ -102,7 +109,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 구성 사용자 지정
 
-`core-site.xml`, `hive-site.xml` 및 `oozie-env.xml`과 같은 구성 파일에서 구성에 대한 변경 내용은 부트스트랩을 사용하여 만들 수 있습니다. 다음 스크립트는 Powershell을 사용 하는 예제 [AZ 모듈](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [새로 만들기-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+`core-site.xml`, `hive-site.xml` 및 `oozie-env.xml`과 같은 구성 파일에서 구성에 대한 변경 내용은 부트스트랩을 사용하여 만들 수 있습니다. 다음 스크립트는 PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)을 사용 하는 예입니다.
 
 ```powershell
 # hive-site.xml configuration
@@ -127,7 +134,7 @@ New—AzHDInsightCluster `
     —Config $config
 ```
 
-자세한 내용은 [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-bootstrap.md) 문서를 참조하세요.  도 참조 하세요 [Apache Ambari REST API를 사용 하 여 HDInsight 관리 클러스터](../hdinsight-hadoop-manage-ambari-rest-api.md)합니다.
+자세한 내용은 [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-bootstrap.md) 문서를 참조하세요.  또한 [Apache Ambari REST API를 사용 하 여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari-rest-api.md)를 참조 하세요.
 
 ## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>HDInsight Hadoop 클러스터 에지 노드에서 클라이언트 도구 액세스
 
@@ -147,8 +154,8 @@ Azure Portal을 통해 에지 노드를 만들거나 삭제할 수 있으며 클
 
 HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 이 기능을 통해 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight 클러스터 크기 조정](../hdinsight-scaling-best-practices.md)합니다.
-* [클러스터 크기 조정](../hdinsight-administer-use-portal-linux.md#scale-clusters)합니다.
+* [HDInsight 클러스터 크기 조정](../hdinsight-scaling-best-practices.md)
+* [클러스터 크기 조정](../hdinsight-administer-use-portal-linux.md#scale-clusters)
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>Azure Virtual Network에 HDInsight 사용
 
@@ -160,21 +167,21 @@ HDInsight와 함께 Azure Virtual Network를 사용하면 다음 시나리오가
 - Azure Virtual Network에서 데이터 저장소에 HDInsight를 연결합니다.
 - 인터넷을 통해 공개적으로 사용할 수 없는 Hadoop 서비스에 직접 액세스합니다. 예를 들어 Kafka API 또는 HBase Java API.
 
-HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니다. HDInsight가 기존 Virtual Network에 추가되는 경우 기존 네트워크 보안 그룹 및 사용자 정의 경로는 Azure 데이터 센터에서 [여러 개의 IP 주소](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)에 대한 무제한 액세스를 허용하도록 업데이트되어야 합니다. 또한를 트래픽을 차단 하지 않도록 해야 합니다 [포트](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports), HDInsight 서비스에서 사용 중인는 합니다.
+HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니다. HDInsight가 기존 Virtual Network에 추가되는 경우 기존 네트워크 보안 그룹 및 사용자 정의 경로는 Azure 데이터 센터에서 [여러 개의 IP 주소](../hdinsight-management-ip-addresses.md)에 대한 무제한 액세스를 허용하도록 업데이트되어야 합니다. 또한 HDInsight 서비스에서 사용 중인 [포트](../control-network-traffic.md#required-ports)에 대 한 트래픽을 차단 하지 않도록 해야 합니다.
 
 > [!Note]  
 > HDInsight는 현재 강제 터널링을 지원하지 않습니다. 강제 터널링은 검사 및 로깅을 위해 디바이스에 아웃바운드 인터넷 트래픽을 적용하는 서브넷 설정입니다. 서브넷에 HDInsight를 설치하기 전에 강제 터널링을 제거하거나 HDInsight에 대해 새 서브넷을 만듭니다. HDInsight는 또한 아웃바운드 네트워크 연결 제한을 지원하지 않습니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure 가상 네트워크 개요](../../virtual-network/virtual-networks-overview.md)
-- [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight-extend-hadoop-virtual-network.md)
+- [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight-plan-virtual-network-deployment.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Azure Virtual Network 서비스 엔드포인트를 사용하여 Azure 서비스에 안전하게 연결
 
-HDInsight에서 지 원하는 [virtual network 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md), Azure Blob Storage, Azure Data Lake 저장소 Gen2, Cosmos DB 및 SQL 데이터베이스에 안전 하 게 연결할 수 있습니다. Azure HDInsight에 대한 서비스 엔드포인트를 활성화하여 트래픽은 Azure 데이터 센터 내에서 보안된 경로를 통해 흐릅니다. 네트워킹 계층에서 이 향상된 수준의 보안을 사용하여 빅 데이터 저장소 계정을 지정된 VNET(Virtual Network)으로 잠글 수 있으며 여전히 HDInsight 클러스터를 원활하게 사용하여 해당 데이터에 액세스하고 처리할 수 있습니다.
+HDInsight는 Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB 및 SQL 데이터베이스에 안전 하 게 연결할 수 있도록 하는 [가상 네트워크 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md)을 지원 합니다. Azure HDInsight에 대한 서비스 엔드포인트를 활성화하여 트래픽은 Azure 데이터 센터 내에서 보안된 경로를 통해 흐릅니다. 네트워킹 계층에서 이 향상된 수준의 보안을 사용하여 빅 데이터 스토리지 계정을 지정된 VNET(Virtual Network)으로 잠글 수 있으며 여전히 HDInsight 클러스터를 원활하게 사용하여 해당 데이터에 액세스하고 처리할 수 있습니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [서비스 엔드포인트를 사용하여 HDInsight 보안 강화](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
@@ -191,6 +198,4 @@ Azure Virtual Network와 VPN 게이트웨이를 사용하여 HDInsight를 온-�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시리즈의 다음 문서를 읽어보세요.
-
-- [온-프레미스에서 Azure HDInsight Hadoop 마이그레이션에 대한 저장소 모범 사례](apache-hadoop-on-premises-migration-best-practices-storage.md)
+이 시리즈의 다음 문서를 참조 하세요. [온-프레미스에 대 한 저장소 모범 사례 Azure HDInsight Hadoop 마이그레이션](apache-hadoop-on-premises-migration-best-practices-storage.md)

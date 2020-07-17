@@ -1,84 +1,58 @@
 ---
-title: 관리자 관리 사용자 및 장치-Azure MFA-Azure Active Directory
-description: 사용자가 증명 프로세스를 다시 수행하도록 하는 등의 사용자 설정을 변경하는 방법에 대해 설명합니다.
+title: Azure Multi-Factor Authentication에 대 한 사용자 설정 관리-Azure Active Directory
+description: Azure에 대 한 사용자 설정 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다 Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.topic: how-to
+ms.date: 04/13/2020
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d6d901c050f6d1df8b53b34f0088d3ad8b0f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415152"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658691"
 ---
-# <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
+# <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대 한 사용자 설정 관리
 
-관리자는 다음 사용자 및 디바이스 설정을 관리할 수 있습니다.
+Azure Multi-Factor Authentication 사용자를 관리 하려면 사용자가 암호를 재설정 하 고 MFA에 다시 등록 하거나 기존 MFA 세션을 해지 하도록 요구할 수 있습니다. 앱 암호를 정의한 사용자의 경우 이러한 암호를 삭제 하도록 선택 하 여 해당 응용 프로그램에서 레거시 인증이 실패 하도록 할 수도 있습니다. 이러한 작업은 사용자에 게 지원을 제공 해야 하거나 보안 상태를 다시 설정 하려는 경우에 필요할 수 있습니다.
 
-* 사용자가 연락 방법을 다시 제공하도록 요청
-* 앱 암호 삭제
-* 모든 신뢰할 수 있는 디바이스에서 MFA 요청
+## <a name="manage-user-authentication-options"></a>사용자 인증 옵션 관리
 
-## <a name="require-users-to-provide-contact-methods-again"></a>사용자가 연락 방법을 다시 제공하도록 요청
-
-이 설정은 사용자가 등록 프로세스를 다시 완료하도록 합니다. 비브라우저 앱은 사용자에게 해당 앱 암호가 있는 경우 계속 작동됩니다.  또한 **선택한 사용자에 의해 생성된 모든 기존 앱 암호 삭제**를 선택하여 사용자 앱 암호를 삭제할 수 있습니다.
-
-### <a name="how-to-require-users-to-provide-contact-methods-again"></a>연락처 메서드를 다시 제공할 사용자를 요구하는 방법
+*인증 관리자* 역할이 할당 된 경우 사용자가 암호를 재설정 하 고 MFA를 다시 등록 하거나 사용자 개체에서 기존 MFA 세션을 취소 하도록 요구할 수 있습니다. 사용자 설정을 관리 하려면 다음 단계를 완료 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
-3. 오른쪽의 도구 모음에서 **Multi-Factor Authentication**을 선택합니다. 다단계 인증 페이지가 열립니다.
-4. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 빠른 단계 옵션 목록이 오른쪽에 나타납니다.
-5. **Manage user settings**(사용자 설정 관리)를 선택합니다.
-6. **Require selected users to provide contact methods again**(선택한 사용자가 연락 방법을 다시 제공하도록 요청) 상자를 선택합니다.
-   ![사용자가 연락 방법을 다시 제공 하도록 요구](./media/howto-mfa-userdevicesettings/reproofup.png)
-7. **저장**을 클릭합니다.
-8. **닫기**를 클릭합니다.
+1. 왼쪽에서 **Azure Active Directory**  >  **사용자**  >  **모든 사용자**를 선택 합니다.
+1. 작업을 수행 하려는 사용자를 선택 하 고 **인증 방법**을 선택 합니다. 창의 맨 위에서 사용자에 대 한 다음 옵션 중 하나를 선택 합니다.
+   - **암호 다시 설정** 사용자의 암호를 다시 설정 하 고 다음 로그인 시 변경 해야 할 임시 암호를 할당 합니다.
+   - **Mfa를 다시 등록 해야** 합니다. 그러면 사용자가 다음 번에 로그인 할 때 새 mfa 인증 방법을 설정 하도록 요청 됩니다.
+   
+      > [!NOTE]
+      > 관리자가 MFA를 다시 등록 해야 하는 경우 사용자의 현재 등록 된 인증 방법이 삭제 되지 않습니다. 사용자가 MFA를 다시 등록 한 후에는 보안 정보를 검토 하 고 더 이상 사용할 수 없는 이전에 등록 된 인증 방법을 삭제 하는 것이 좋습니다.
+   
+   - **Mfa 세션 철회** 사용자의 기억 된 mfa 세션을 지우고 장치에서 정책에 따라 다음에 필요할 때 mfa를 수행 하도록 요구 합니다.
+
+   ![Azure Portal에서 인증 방법 관리](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
 ## <a name="delete-users-existing-app-passwords"></a>사용자 기존 앱 암호 삭제
 
-이 설정은 사용자가 만든 모든 앱 암호를 삭제합니다. 이러한 앱 암호와 연결된 브라우저가 아닌 앱은 새 앱 암호가 생성될 때까지 작동 중지됩니다.
+필요한 경우 사용자가 만든 모든 앱 암호를 삭제할 수 있습니다. 이러한 앱 암호와 연결된 브라우저가 아닌 앱은 새 앱 암호가 생성될 때까지 작동 중지됩니다. 이 작업을 수행 하려면 *전역 관리자* 권한이 필요 합니다.
 
-### <a name="how-to-delete-users-existing-app-passwords"></a>사용자 기존 앱 암호를 삭제하는 방법
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
-3. 오른쪽의 도구 모음에서 **Multi-Factor Authentication**을 선택합니다. 다단계 인증 페이지가 열립니다.
-4. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 빠른 단계 옵션 목록이 오른쪽에 나타납니다.
-5. **Manage user settings**(사용자 설정 관리)를 선택합니다.
-6. **선택한 사용자에 의해 생성된 모든 기존 앱 암호 삭제** 상자를 선택합니다.
-   ![모든 기존 앱 암호 삭제](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-7. **저장**을 클릭합니다.
-8. **닫기**를 클릭합니다.
-
-## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>사용자에 대해 기억된 모든 디바이스에서 MFA 복원
-
-Azure Multi-Factor Authentication의 구성 가능한 기능 중 하나는 사용자에게 디바이스를 신뢰할 수 있는 것으로 표시하는 옵션을 제공하는 것입니다. 자세한 내용은 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md#remember-multi-factor-authentication)을 참조하세요.
-
-사용자는 일반 디바이스에서 구성 가능한 일 수 동안 2단계 인증을 옵트아웃할 수 있습니다. 계정이 손상되거나 신뢰할 수 있는 디바이스를 분실한 경우 신뢰할 수 있는 상태를 제거할 수 있어야 하고 다시 2단계 인증이 필요합니다.
-
-**모든 저장된 디바이스에서 Multi-Factor Authentication 복원** 설정은 사용자가 디바이스를 신뢰할 수 있는 것으로 표시하도록 선택했는지 여부에 관계없이 다음에 로그인할 때 2단계 인증을 수행해야 하는 문제에 직면한다는 것을 의미합니다.
-
-### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>사용자에 대해 일시 중단된 모든 디바이스에서 MFA를 복원하는 방법
+사용자의 앱 암호를 삭제 하려면 다음 단계를 완료 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
-3. 오른쪽의 도구 모음에서 **Multi-Factor Authentication**을 선택합니다. 다단계 인증 페이지가 열립니다.
-4. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 빠른 단계 옵션 목록이 오른쪽에 나타납니다.
-5. **Manage user settings**(사용자 설정 관리)를 선택합니다.
-6. 확인란 **모든 기억 된 장치에서 multi-factor authentication 복원**
-   ![모든 기억 된 장치에서 multi-factor authentication 복원](./media/howto-mfa-userdevicesettings/rememberdevices.png)
-7. **저장**을 클릭합니다.
-8. **닫기**를 클릭합니다.
+1. 왼쪽에서 **Azure Active Directory**  >  **사용자**  >  **모든 사용자**를 선택 합니다.
+1. **Multi-Factor Authentication**을 선택합니다. 이 메뉴 옵션을 보려면 오른쪽으로 스크롤해야 할 수 있습니다. 아래 예제 스크린샷을 선택하여 전체 Azure Portal 창 및 메뉴 위치를 확인합니다. [![](media/howto-mfa-userstates/selectmfa-cropped.png "Azure AD의 사용자 창에서 Multi-Factor Authentication을 선택합니다.")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 오른쪽에 빠른 단계 옵션 목록이 표시 됩니다.
+1. **사용자 설정 관리**를 선택 하 고 다음 예제와 같이 모든 기존 앱 암호 삭제의 확인란을 선택 하 여 **선택한 사용자가 생성 한 모든 기존 앱 암호를 삭제**합니다. 확인란을 선택 합니다. ![](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+1. **저장**, **닫기**를 차례로 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md) 방법에 대해 자세히 알아보기
-- 사용자에게 지원이 필요한 경우 [2단계 인증에 대한 사용자 가이드](../user-help/multi-factor-authentication-end-user.md) 안내
+이 문서에서는 개별 사용자 설정을 구성 하는 방법을 설명 했습니다. Azure Multi-Factor Authentication 서비스 설정을 구성 하려면 [azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md) 을 참조 하세요.
+
+사용자에 게 도움이 필요한 경우 [Azure Multi-Factor Authentication에 대 한 사용자 가이드](../user-help/multi-factor-authentication-end-user.md)를 참조 하세요.

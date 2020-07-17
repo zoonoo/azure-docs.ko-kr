@@ -1,37 +1,29 @@
 ---
-title: Azure에서 일반화된 VHD를 업로드하여 여러 VM 만들기 | Microsoft Docs
+title: Azure에서 일반화된 VHD를 업로드하여 여러 VM 만들기
 description: Azure Storage 계정에 일반화된 VHD를 업로드하여 Resource Manager 배포 모델과 함께 사용할 Windows VM을 만듭니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5b38d022d372e7d35ba2dbeaef90660ce95f73fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom: storage-accounts
+ms.openlocfilehash: fc2e2ff0edc09e613b1da0a503eff9d53ebcf7a9
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250750"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234616"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Azure에 일반화된 VHD를 업로드하여 새 VM 만들기
 
-이 항목에서는 일반화된 관리되지 않는 디스크를 저장소 계정에 업로드한 다음 업로드된 디스크를 사용하여 새 VM을 만드는 방법에 대해 설명합니다. 일반화된 VHD 이미지에는 Sysprep을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 
+이 항목에서는 일반화된 관리되지 않는 디스크를 스토리지 계정에 업로드한 다음 업로드된 디스크를 사용하여 새 VM을 만드는 방법에 대해 설명합니다. 일반화된 VHD 이미지에는 Sysprep을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 
 
-저장소 계정의 전문화된 VHD에서 VM을 만들려는 경우 [전문화된 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
+스토리지 계정의 전문화된 VHD에서 VM을 만들려는 경우 [전문화된 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
 
-이 항목에서는 저장소 계정을 사용하지만 고객은 대신 Managed Disks를 사용하는 것이 좋습니다. 관리 디스크를 사용하여 새 VM을 준비, 업로드 및 만드는 방법에 대한 전체 연습을 보려면 [Managed Disks를 사용하여 Azure에 업로드된 일반화된 VHD에서 새 VM 만들기](upload-generalized-managed.md)를 참조하세요.
+이 항목에서는 스토리지 계정을 사용하지만 고객은 대신 Managed Disks를 사용하는 것이 좋습니다. 관리 디스크를 사용하여 새 VM을 준비, 업로드 및 만드는 방법에 대한 전체 연습을 보려면 [Managed Disks를 사용하여 Azure에 업로드된 일반화된 VHD에서 새 VM 만들기](upload-generalized-managed.md)를 참조하세요.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prepare-the-vm"></a>VM 준비
 
@@ -57,7 +49,7 @@ ms.locfileid: "60250750"
 5. **확인**을 클릭합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Sysprep이 완료되면 가상 컴퓨터를 종료합니다. 
+6. Sysprep이 완료되면 가상 머신을 종료합니다. 
 
 > [!IMPORTANT]
 > Azure에 VHD를 업로드하거나 VM에서 이미지를 만드는 작업을 완료할 때까지 VM을 다시 시작하지 않습니다. VM이 실수로 다시 시작되면 Sysprep을 실행하여 다시 일반화합니다.
@@ -88,10 +80,10 @@ PowerShell 버전 1.4 이상을 아직 설치하지 않은 경우 [Azure PowerSh
     Select-AzSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-### <a name="get-the-storage-account"></a>저장소 계정 가져오기
-업로드한 VM 이미지를 저장할 Azure 저장소 계정이 필요합니다. 기존 저장소 계정을 사용하거나 새 계정을 만들 수 있습니다. 
+### <a name="get-the-storage-account"></a>스토리지 계정 가져오기
+업로드한 VM 이미지를 저장할 Azure 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나 새 계정을 만들 수 있습니다. 
 
-사용 가능한 저장소 계정을 표시하려면 다음을 입력합니다.
+사용 가능한 스토리지 계정을 표시하려면 다음을 입력합니다.
 
 ```powershell
 Get-AzStorageAccount
@@ -99,9 +91,9 @@ Get-AzStorageAccount
 
 기존 스토리지 계정을 사용하려면 VM 이미지 업로드 섹션으로 이동합니다.
 
-저장소 계정을 만들어야 하는 경우 다음 단계를 따릅니다.
+스토리지 계정을 만들어야 하는 경우 다음 단계를 따릅니다.
 
-1. 저장소 계정을 만들어야 하는 리소스 그룹의 이름을 알아야 합니다. 구독의 모든 리소스 그룹을 찾으려면 다음을 입력합니다.
+1. 스토리지 계정을 만들어야 하는 리소스 그룹의 이름을 알아야 합니다. 구독의 모든 리소스 그룹을 찾으려면 다음을 입력합니다.
    
     ```powershell
     Get-AzResourceGroup
@@ -182,7 +174,7 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>공용 IP 주소 및 네트워크 인터페이스 만들기
-가상 네트워크에서 가상 머신과 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
+가상 네트워크에서 가상 머신과 통신하려면 [공용 IP 주소](../../virtual-network/public-ip-addresses.md) 및 네트워크 인터페이스가 필요합니다.
 
 1. 공용 IP 주소 만들기. 이 예에서는 **myPip**라는 공용 IP 주소를 만듭니다. 
    

@@ -1,35 +1,35 @@
 ---
-title: '자습서: Azure Key Vault를 사용하여 Azure Storage에서 Blob 암호화 및 해독 | Microsoft Docs'
-description: Azure Key Vault를 사용하여 Microsoft Azure Storage에 대한 클라이언트 쪽 암호화를 사용하여 Blob을 암호화하고 해독하는 방법입니다.
+title: '자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독'
+titleSuffix: Azure Storage
+description: Azure Key Vault를 통해 클라이언트 쪽 암호화를 사용하여 Blob을 암호화하고 해독하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: d7c740133911689c6d3f8e29c2cb20aa8873f0c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 21771fb1bb041dd2f09f5d82d9def4cfe91794f6
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788004"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808386"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독
 
-## <a name="introduction"></a>소개
-이 자습서에서는 Azure Key Vault와 함께 클라이언트 쪽 저장소 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 애플리케이션에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
+이 자습서에서는 Azure Key Vault와 함께 클라이언트 쪽 스토리지 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 애플리케이션에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
 
 **예상 완료 시간:** 20분
 
-Azure Key Vault에 대한 개요는 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
+Azure Key Vault에 대한 개요는 [Azure Key Vault란?](../../key-vault/general/overview.md)을 참조하세요.
 
 Azure Storage에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure Storage에 대한 클라이언트 쪽 암호화 및 Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * Azure Storage 계정
 * Visual Studio 2013 이상
@@ -48,7 +48,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure Key Vault 설정
 
-이 자습서를 계속 하려면 자습서에 설명 된 다음 단계를 수행 해야 [빠른 시작: 설정 및.NET 웹 앱을 사용 하 여 Azure Key Vault에서 비밀을 검색할](../../key-vault/quick-create-net.md):
+이 자습서를 계속하려면 자습서 [빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/secrets/quick-create-net.md)에 요약된 다음 단계를 수행해야 합니다.
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 또는 암호를 키 자격 증명 모음에 추가합니다.
@@ -121,15 +121,16 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>사용자의 프로그램에서 저장소 및 키 자격 증명 모음 액세스
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>프로그램에서 Azure Storage 및 Key Vault 액세스
 
-Main () 메서드에서 다음 코드를 추가 합니다.
+Main() 메서드에서 다음 코드를 추가합니다.
 
 ```csharp
 // This is standard code to interact with Blob storage.
 StorageCredentials creds = new StorageCredentials(
     CloudConfigurationManager.GetSetting("accountName"),
-    CloudConfigurationManager.GetSetting("accountKey");
+    CloudConfigurationManager.GetSetting("accountKey")
+);
 CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
 CloudBlobClient client = account.CreateCloudBlobClient();
 CloudBlobContainer contain = client.GetContainerReference(CloudConfigurationManager.GetSetting("container"));
@@ -153,7 +154,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 
 ## <a name="encrypt-blob-and-upload"></a>Blob 암호화 및 업로드
 
-Blob을 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
+Blob을 암호화하고 Azure Storage 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
 
 ```csharp
 // Retrieve the key that you created previously.
@@ -181,7 +182,7 @@ using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
 
 암호 해독은 실제로 확인 프로그램 클래스가 합리적인 경우입니다. 암호화에 사용되는 키의 ID는 해당 메타 데이터의 Blob과 연결되므로 키를 검색하고 키와 Blob 사이의 연결을 기억할 이유가 없습니다. 다만 키가 키 자격 증명 모음에 남아 있는지 확인하기만 하면 됩니다.   
 
-RSA 키의 개인 키는 키 자격 증명 모음에 남아 있으므로 해독을 실행하려면 CEK를 포함하고 있는 Blob 메타데이터의 암호화 키를 해독하기 위해 키 자격 증명 모음에 보냅니다.
+RSA 키의 프라이빗 키는 키 자격 증명 모음에 남아 있으므로 해독을 실행하려면 CEK를 포함하고 있는 Blob 메타데이터의 암호화 키를 해독하기 위해 키 자격 증명 모음에 보냅니다.
 
 방금 업로드한 Blob을 암호 해독하려면 다음을 추가합니다.
 
@@ -229,6 +230,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
+
 이것으로 끝입니다. 마음껏 즐기세요!
 
 ## <a name="next-steps"></a>다음 단계

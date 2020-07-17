@@ -4,17 +4,17 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3312d1ec7c2535e103cf8959599c0d4c3014f520
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58404085"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218342"
 ---
-1. [PowerShell 인터페이스를 연결할](#connect-to-the-powershell-interface)합니다.
-2. 사용 하 여는 `Get-HcsApplianceInfo` 장치에 대 한 정보를 가져올 수 있습니다.
+1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
+2. 를 사용 `Get-HcsApplianceInfo` 하 여 장치에 대 한 정보를 가져옵니다.
 
-    다음 예제에서는이 cmdlet의 사용법을 보여 줍니다.
+    다음 예에서는이 cmdlet을 사용 하는 방법을 보여 줍니다.
 
     ```
     [10.100.10.10]: PS>Get-HcsApplianceInfo
@@ -43,16 +43,16 @@ ms.locfileid: "58404085"
     IsRegistered                  : False
     ```
 
-    중요 한 장치 정보 중 일부를 요약 하는 표는 다음과 같습니다.
-    
-    | 매개 변수                             | 설명                                                                                                                                                  |   |
-    |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | 장치를 배포 하는 동안 로컬 웹 UI 통해 구성 된 장치의 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다.  |   |
-    | SerialNumber                   | 장치 일련 번호는 공장에서 할당 된 고유 번호입니다.                                                                             |   |
-    | 모델                          | 가장자리가 상자의 데이터 또는 데이터 상자 게이트웨이 장치에 대 한 모델입니다. 데이터 상자 게이트웨이에 대 한 가상 및 실제 데이터 상자의 가장자리에 대 한 모델은.                   |   |
-    | FriendlySoftwareVersion        | 디바이스 소프트웨어 버전에 해당하는 친숙한 문자열입니다. 미리 보기를 실행 하는 시스템에 대 한 친숙 한 소프트웨어 버전 데이터 상자 가장자리 1902 것입니다. |   |
-    | HcsVersion                     | 사용자 디바이스에서 실행되는 HCS 소프트웨어 버전입니다. 예를 들어 데이터 상자 가장자리 1902에 해당 하는 HCS 소프트웨어 버전은 1.4.771.324 합니다.            |   |
-    | LocalCapacityInMb              | 메가 비트에 장치의 로컬 총 용량입니다.                                                                                                        |   |
-    | IsRegistered                   | 이 값 장치 서비스를 사용 하 여 활성화 하는 경우를 나타냅니다.                                                                                         |   |
+    몇 가지 중요 한 장치 정보를 요약 하는 표는 다음과 같습니다.
+
+    | 매개 변수 | 설명 |
+    |-----------|-------------|
+    | FriendlyName                   | 장치를 배포 하는 동안 로컬 웹 UI를 통해 구성 된 장치의 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다.  |
+    | SerialNumber                   | 장치 일련 번호는 팩터리에서 할당 된 고유 번호입니다.                                                                             |
+    | 모델                          | Azure Stack Edge 또는 Data Box Gateway 장치에 대 한 모델입니다. 모델은 Azure Stack Edge 및 Data Box Gateway에 대 한 가상 모델입니다.                   |
+    | FriendlySoftwareVersion        | 디바이스 소프트웨어 버전에 해당하는 친숙한 문자열입니다. Preview를 실행 하는 시스템의 경우 소프트웨어 버전은 1902 Data Box Edge 됩니다. |
+    | HcsVersion                     | 사용자 디바이스에서 실행되는 HCS 소프트웨어 버전입니다. 예를 들어 Data Box Edge 1902에 해당 하는 HCS software 버전은 1.4.771.324입니다.            |
+    | LocalCapacityInMb              | 장치의 총 로컬 용량 (Mbps)입니다.                                                                                                        |
+    | IsRegistered 됨                   | 이 값은 장치가 서비스로 활성화 되어 있는지 여부를 나타냅니다.                                                                                         |
 
 

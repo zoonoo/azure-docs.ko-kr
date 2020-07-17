@@ -1,21 +1,21 @@
 ---
 title: C#에서 비디오 콘텐츠의 유해한 자료 분석 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: .NET용 Content Moderator SDK를 사용하여 다양하고 불쾌한 자료에 대한 텍스트 비디오 콘텐츠를 분석하는 방법
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.topic: how-to
+ms.date: 05/18/2020
+ms.author: pafarley
+ms.openlocfilehash: 081f512fd421bf46a86f3789eadd75e178e1b6f5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864803"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685298"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
@@ -23,8 +23,8 @@ ms.locfileid: "55864803"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
-- [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전
+## <a name="prerequisites"></a>사전 요구 사항
+- 모든 버전의 [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="set-up-azure-resources"></a>Azure 리소스 설정
 
@@ -40,7 +40,7 @@ Azure Portal에서 새 AMS 구독으로 이동한 후 측면 메뉴에서 **API 
 
 **Azure AD 앱** 섹션에서 **새로 만들기**를 선택하고 새 Azure AD 애플리케이션 등록에 이름을 지정합니다(예: "VideoModADApp"). **저장**을 클릭하고 애플리케이션이 구성되는 동안 몇 분 기다립니다. 그런 다음, 페이지의 **Azure AD 앱** 섹션에 새로운 앱 등록이 표시됩니다.
 
-앱 등록을 선택하고 아래의 **애플리케이션 관리** 단추를 클릭합니다. 나중에 필요하므로 **애플리케이션 ID** 필드의 값을 기록합니다. **설정** > **키**를 선택하고 새 키에 대한 설명을 입력합니다(예: "VideoModKey"). **저장**을 클릭하면 새 키 값이 나타납니다. 이 문자열을 복사하고 안전한 곳에 저장합니다.
+앱 등록을 선택하고 아래의 **애플리케이션 관리** 단추를 클릭합니다. 나중에 필요하므로 **애플리케이션 ID** 필드의 값을 기록합니다. **설정**  >  **키**를 선택 하 고 새 키에 대 한 설명 (예: "videomodkey")을 입력 합니다. **저장**을 클릭하면 새 키 값이 나타납니다. 이 문자열을 복사하고 안전한 곳에 저장합니다.
 
 위 프로세스에 대한 자세한 안내는 [Azure AD 인증 시작](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)을 참조하세요.
 
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>리소스 참조 설정
 
-_Program.cs_의 **Program** 클래스에 다음 정적 필드를 추가합니다. 이 필드에는 AMS 구독 연결에 필요한 정보가 있습니다. 위의 단계에서 얻은 값으로 입력하세요. `CLIENT_ID`는 Azure AD 앱의 **애플리케이션 ID** 값이고 `CLIENT_SECRET`는 해당 앱에 대해 사용자가 생성한 "VideoModKey"의 값입니다.
+_Program.cs_의 **Program** 클래스에 다음 정적 필드를 추가 합니다. 이 필드에는 AMS 구독 연결에 필요한 정보가 있습니다. 위의 단계에서 얻은 값으로 입력하세요. `CLIENT_ID`는 Azure AD 앱의 **애플리케이션 ID** 값이고 `CLIENT_SECRET`는 해당 앱에 대해 사용자가 생성한 "VideoModKey"의 값입니다.
 
 ```csharp
 // declare constants and globals
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 로컬 비디오 파일을 사용하려면(가장 간단한 사례) 프로젝트에 추가하고 `INPUT_FILE` 값으로 경로를 입력합니다(상대 경로는 실행 디렉터리와 상대적임).
 
-또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예를 들면 다음과 같습니다.
+또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 다음은 그 예입니다.
 
 ```JSON
 {

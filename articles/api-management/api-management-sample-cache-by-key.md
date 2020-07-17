@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b87244b4df155768e815bdba5226fc784866f6b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780824"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249719"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Azure API Management의 사용자 지정 캐싱
-Azure API Management 서비스에서는 리소스 URL을 키로 사용하는 [HTTP 응답 캐싱](api-management-howto-cache.md) 에 대한 기본 제공 지원을 포함합니다. `vary-by` 속성을 사용하여 요청 헤더에서 키를 수정할 수 있습니다. 전체 HTTP 응답(즉, 표현)을 캐싱하는 데 유용하지만 때때로 표현의 일부를 캐싱하는 데 유용합니다. 새 [cache-lookup-value](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) 및 [cache-store-value](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) 정책은 임의의 정책 정의 내에서 데이터를 저장하고 검색하는 기능을 제공합니다. 이제 외부 서비스에서 나오는 응답을 캐시할 수 있기 때문에 이 기능은 이전에 도입된 [보내기 요청](/azure/api-management/api-management-advanced-policies#SendRequest) 정책에 값을 추가합니다.
+Azure API Management 서비스에서는 리소스 URL을 키로 사용하는 [HTTP 응답 캐싱](api-management-howto-cache.md) 에 대한 기본 제공 지원을 포함합니다. `vary-by` 속성을 사용하여 요청 헤더에서 키를 수정할 수 있습니다. 전체 HTTP 응답(즉, 표현)을 캐싱하는 데 유용하지만 때때로 표현의 일부를 캐싱하는 데 유용합니다. 새 [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) 및 [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) 정책은 임의의 정책 정의 내에서 데이터를 저장하고 검색하는 기능을 제공합니다. 이제 외부 서비스에서 나오는 응답을 캐시할 수 있기 때문에 이 기능은 이전에 도입된 [보내기 요청](./api-management-advanced-policies.md#SendRequest) 정책에 값을 추가합니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 API Management 서비스는 테넌트 단위 공유 데이터 캐시를 사용하므로 여러 단위까지 확장되어 동일하게 캐시된 데이터에 대한 액세스를 얻습니다. 그러나 다중 하위 지역 배포로 작업할 때 각 지역 내에 독립적인 캐시가 있습니다. 일부 정보가 유일한 원본인 경우 소스 캐시를 데이터 저장소로 처리하지 않는 것이 중요합니다. 이렇게 하고 이후 다중 지역 배포를 활용하기로 결정한 경우 출장 중인 사용자와 고객은 캐시된 데이터에 액세스를 하지 못할 수 있습니다.
 
 ## <a name="fragment-caching"></a>부분 캐싱
-반환되는 응답이 결정하는 비용이 높고 적절한 시간에 대해 원래 상태를 유지하는 데이터의 일부를 포함하는 경우도 있습니다. 예를 들어 항공 예약, 비행 상태 등과 관련된 정보를 제공하는 항공사에서 작성한 서비스를 고려하는 것이 좋습니다. 사용자가 항공사 포인트 프로그램의 멤버인 경우 항공사는 현재 상태와 누적 주행 거리에 관련된 정보를 보유합니다. 이 사용자 관련 정보는 다른 시스템에 저장될 수 있지만 비행 상태 및 예약에 대한 반환된 응답에 포함하는 것이 바람직할 수 있습니다. 이렇게 하려면 조각 캐싱이라는 프로세스를 사용합니다. 기본 표시는 사용자 관련 정보를 삽입할 위치를 나타내는 일종의 토큰을 사용하여 원본 서버에서 반환할 수 있습니다. 
+반환되는 응답이 결정하는 비용이 높고 적절한 시간에 대해 원래 상태를 유지하는 데이터의 일부를 포함하는 경우도 있습니다. 예를 들어 비행 예약, 비행 상태 등을 비롯 한 정보를 제공 하는 항공편으로 작성 된 서비스를 생각해 보세요. 사용자가 airlines points 프로그램의 멤버인 경우에도 현재 상태 및 누적 된 진행 상태와 관련 된 정보를 갖게 됩니다. 이 사용자 관련 정보는 다른 시스템에 저장될 수 있지만 비행 상태 및 예약에 대한 반환된 응답에 포함하는 것이 바람직할 수 있습니다. 이렇게 하려면 조각 캐싱이라는 프로세스를 사용합니다. 기본 표시는 사용자 관련 정보를 삽입할 위치를 나타내는 일종의 토큰을 사용하여 원본 서버에서 반환할 수 있습니다. 
 
 백 엔드 API에서 다음과 같은 JSON 응답을 고려합니다.
 

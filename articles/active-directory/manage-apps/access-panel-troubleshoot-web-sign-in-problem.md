@@ -3,25 +3,25 @@ title: 액세스 패널 웹 사이트에 로그인할 때 발생하는 문제 | 
 description: 액세스 패널을 사용하여 로그인하려고 하는 동안 발생할 수 있는 문제를 해결하기 위한 지침
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4f2ad4db231c616b3022ecafc62b12d6d81b67fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784317"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760816"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>액세스 패널 웹 사이트에 로그인할 때 발생하는 문제
 
@@ -39,7 +39,7 @@ ms.locfileid: "65784317"
 
 ## <a name="general-issues-to-check-first"></a>먼저 확인해야 할 일반적인 문제 
 
--   사용자가 **올바른 URL**(<https://myapps.microsoft.com>)에 로그인되어 있는지 확인합니다.
+-   사용자가 **올바른 URL**에 로그인 하 고 있는지 확인 합니다.<https://myapps.microsoft.com>
 
 -   사용자의 브라우저에서 해당 **신뢰할 수 있는 사이트**에 URL을 추가했는지 확인합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "65784317"
 
 -   [사용자의 계정 상태 확인](#check-a-users-account-status)
 
--   [사용자의 암호 다시 설정](#reset-a-users-password)
+-   [사용자 암호 다시 설정](#reset-a-users-password)
 
 -   [셀프 서비스 암호 재설정 사용](#enable-self-service-password-reset)
 
@@ -88,11 +88,11 @@ ms.locfileid: "65784317"
 
 -   [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)
 
--   [사용자의 그룹 멤버 자격 확인](#check-a-users-group-memberships)
+-   [사용자의 그룹 구성원 자격 확인](#check-a-users-group-memberships)
 
 -   [사용자의 할당된 라이선스 확인](#check-a-users-assigned-licenses)
 
--   [사용자에게 라이선스 할당](#assign-a-user-a-license)
+-   [사용자에 게 라이선스 할당](#assign-a-user-a-license)
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Azure Active Directory에 사용자의 계정이 존재하는지 확인
 
@@ -104,9 +104,9 @@ ms.locfileid: "65784317"
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -122,13 +122,13 @@ ms.locfileid: "65784317"
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7.  **프로필**을 클릭합니다.
+7.  **프로필**을 클릭 합니다.
 
 8.  **설정** 아래에서 **로그인 차단**이 **아니오**로 설정되어야 합니다.
 
@@ -142,9 +142,9 @@ ms.locfileid: "65784317"
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -174,13 +174,13 @@ ms.locfileid: "65784317"
 
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4. 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5. **모든 사용자**를 클릭합니다.
+5. **모든 사용자**를 클릭 합니다.
 
 6. 창 맨 위에 있는 **Multi-Factor Authentication** 단추를 클릭합니다.
 
-7. **Multi-factor Authentication 관리 포털**을 일단 로드하면 **사용자** 탭인지 확인합니다.
+7. **Multi-Factor Authentication 관리 포털이** 로드 되 면 **사용자** 탭에 있는지 확인 합니다.
 
 8. 검색, 필터링 또는 정렬을 사용하여 사용자 목록에서 사용자를 찾습니다.
 
@@ -201,13 +201,13 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7.  **프로필**을 클릭합니다.
+7.  **프로필**을 클릭 합니다.
 
 8.  **인증 연락처 정보**까지 스크롤합니다.
 
@@ -223,9 +223,9 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -241,9 +241,9 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -259,15 +259,15 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
 7.  **라이선스**를 클릭하여 사용자가 현재 할당된 라이선스를 봅니다.
 
-8.  **할당** 단추를 클릭합니다.
+8.  **할당** 단추를 클릭 합니다.
 
 9.  사용 가능한 제품 목록에서 **하나 이상의 제품**을 선택합니다.
 

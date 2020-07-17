@@ -1,6 +1,6 @@
 ---
 title: StorSimple 암호 변경 | Microsoft Docs
-description: StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 스냅숏 관리자 및 디바이스 관리자 암호를 변경하는 방법에 대해 설명합니다.
+description: StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 스냅샷 관리자 및 디바이스 관리자 암호를 변경하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ab874bbdcd47a4bfa9abfba721afa46d0f23a338
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: becbf7f89266fb0f56aaa053eb7cba9291da6896
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60638011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514105"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 암호 변경
 
@@ -58,10 +58,10 @@ Windows PowerShell 인터페이스를 사용하여 StorSimple 디바이스에 �
 
 이제 디바이스 관리자 암호를 업데이트해야 합니다. 이 수정된 암호를 사용하여 Windows PowerShell 인터페이스에 액세스할 수 있습니다.
 
-## <a name="set-the-storsimple-snapshot-manager-password"></a>StorSimple 스냅숏 관리자 암호 설정
-StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬 및 클라우드 스냅숏의 형태로 StorSimple 디바이스의 백업을 관리할 수 있습니다.
+## <a name="set-the-storsimple-snapshot-manager-password"></a>StorSimple 스냅샷 관리자 암호 설정
+StorSimple Snapshot Manager 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬및 클라우드 스냅샷의 형태로 StorSimple 디바이스의 백업을 관리할 수 있습니다.
 
-StorSimple 스냅숏 관리자에서 디바이스를 구성하면, 디바이스 IP 주소 및 암호를 입력하여 저장소 디바이스를 인증하라는 메시지가 표시됩니다.
+StorSimple 스냅샷 관리자에서 디바이스를 구성하면, 디바이스 IP 주소 및 암호를 입력하여 스토리지 디바이스를 인증하라는 메시지가 표시됩니다.
 
 Azure Portal을 통해 StorSimple Snapshot Manager에 대한 암호를 설정하거나 변경할 수 있습니다. 다음 단계를 수행하여 StorSimple Snapshot Manager 암호를 설정하거나 변경합니다.
 
@@ -90,7 +90,7 @@ Azure Portal을 통해 StorSimple Snapshot Manager에 대한 암호를 설정하
 
      ![](./media/storsimple-8000-change-passwords/changepwd6.png)
 
-이제 StorSimple 스냅숏 관리자 암호가 업데이트됩니다.
+이제 StorSimple 스냅샷 관리자 암호가 업데이트됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 보안](storsimple-8000-security.md)에 대해 자세히 알아봅니다.

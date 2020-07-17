@@ -1,24 +1,16 @@
 ---
 title: Azure Monitor 로그 쿼리 예제 | Microsoft Docs
 description: Kusto 쿼리 언어를 사용한 Azure Monitor의 로그 쿼리 예제입니다.
-services: log-analytics
-documentationcenter: ''
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 03/16/2020
+ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79480286"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
 이 문서에는 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
@@ -34,7 +26,7 @@ ms.locfileid: "60759914"
 Event
 | where EventLog == "Application" 
 | where TimeGenerated > ago(24h) 
-| where RenderedDescription == "cryptographic"
+| where RenderedDescription contains "cryptographic"
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>unmarshaling 관련 이벤트 검색
@@ -181,7 +173,6 @@ let EndTime = now()-4d;
 Perf
 | where CounterName == "% Processor Time"  
 | where TimeGenerated > StartTime and TimeGenerated < EndTime
-and TimeGenerated < EndTime
 | project TimeGenerated, Computer, cpu=CounterValue 
 | join kind= inner (
    Perf
@@ -237,7 +228,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>활동 ID별 보안 이벤트 개수 계산
 
 
-이 예제에서는 고정된 구조인 **Activity** 열: \<ID\>-\<이름\>을 사용합니다.
+이 예에서는 **활동** 열의 고정 구조를 사용 \<ID\> - \<Name\> 합니다.
 이 구조에서는 **Activity** 값을 새 열 2개로 구문 분석하고 각 **activityID**의 발생 횟수를 계산합니다.
 
 ```Kusto
@@ -278,7 +269,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>활동 이름 및 ID 구문 분석
-아래의 두 예제에서는 고정된 구조인 **Activity** 열: \<ID\>-\<이름\>을 사용합니다. 첫 번째 예제에서는 **parse** 연산자를 사용하여 새 열 2개(**activityID** 및 **activityDesc**)에 값을 할당합니다.
+아래의 두 예제는 **활동** 열의 고정 구조를 사용 \<ID\> - \<Name\> 합니다. 첫 번째 예제에서는 **parse** 연산자를 사용하여 새 열 2개(**activityID** 및 **activityDesc**)에 값을 할당합니다.
 
 ```Kusto
 SecurityEvent
@@ -381,42 +372,49 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용량
 
-### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>컴퓨터당 성능 사용량 보고서의 평균 크기 계산
+`Usage`데이터 형식은 솔루션 또는 데이터 형식에 따라 수집 데이터 볼륨을 추적 하는 데 사용할 수 있습니다. [컴퓨터](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) 또는 [Azure 구독, 리소스 그룹 또는 리소스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription)별로 수집 데이터 볼륨을 연구 하는 다른 방법이 있습니다.
 
-이 예제에서는 지난 3시간 동안의 컴퓨터당 성능 사용량 보고서 평균 크기를 계산합니다.
-결과는 막대형 차트로 표시됩니다.
-```Kusto
+#### <a name="data-volume-by-solution"></a>솔루션별 데이터 볼륨
+
+지난 한 달 동안(마지막 1일 미만의 시간은 제외) 솔루션별로 청구 가능한 데이터 볼륨을 보는 데 사용되는 쿼리는 다음과 같습니다.
+
+```kusto
 Usage 
-| where TimeGenerated > ago(3h)
-| where DataType == "Perf" 
-| where QuantityUnit == "MBytes" 
-| summarize avg(Quantity) by Computer
-| sort by avg_Quantity desc nulls last
-| render barchart
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-### <a name="timechart-latency-percentiles-50-and-95"></a>시간 차트 대기 시간 백분위수 50 및 95
+여기서 `where IsBillable = true` 절은 수집 비용이 없는 특정 솔루션에서 데이터 형식을 필터링합니다.  또한를 사용 하는 절은 `TimeGenerated` Azure Portal의 쿼리 환경이 기본값 24 시간을 초과 하지 않도록 하는 데만 사용 됩니다. 사용량 데이터 형식을 사용하는 경우, `StartTime` 및 `EndTime`은 결과가 표시되는 시간 버킷을 나타냅니다. 
 
-이 예제에서는 지난 24시간 동안 시간별로 보고된 **avgLatency**의 50번째 및 95번째 백분위수를 계산하여 차트로 작성합니다.
+#### <a name="data-volume-by-type"></a>형식별 데이터 볼륨
 
-```Kusto
-Usage
-| where TimeGenerated > ago(24h)
-| summarize percentiles(AvgLatencyInSeconds, 50, 95) by bin(TimeGenerated, 1h) 
-| render timechart
+데이터 형식별 데이터 추세를 확인하기 위해 다음과 같이 더 자세한 내용을 다룰 수 있습니다.
+
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-### <a name="usage-of-specific-computers-today"></a>오늘의 특정 컴퓨터 사용량
-이 예제에서는 _ContosoFile_ 문자열이 포함된 컴퓨터 이름의 전날 **Usage** 데이터를 검색합니다. 결과는 **TimeGenerated**를 기준으로 정렬됩니다.
+또는 지난 한 달 동안 솔루션 및 형식별로 테이블을 표시하려면
 
-```Kusto
-Usage
-| where TimeGenerated > ago(1d)
-| where  Computer contains "ContosoFile" 
-| sort by TimeGenerated desc nulls last
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by Solution, DataType
+| sort by Solution asc, DataType asc
 ```
+
+> [!NOTE]
+> 사용량 데이터 형식의 일부 필드가 여전히 스키마에 있지만 더 이상 사용되지 않으며 해당 값은 더 이상 채워지지 않습니다. 이는 **컴퓨터**일 뿐 아니라 수집과 관련된 필드(**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** 및 **AverageProcessingTimeMs**)이기도 합니다.
 
 ## <a name="updates"></a>업데이트
 
@@ -425,13 +423,12 @@ Usage
 
 ```Kusto
 let ComputersMissingUpdates3DaysAgo = Update
-| where TimeGenerated between (ago(3d)..ago(2d))
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where TimeGenerated between (ago(30d)..ago(1h))
+| where Classification !has "Critical" and UpdateState =~ "Needed"
 | summarize makeset(Computer);
-
 Update
 | where TimeGenerated > ago(1d)
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where Classification has "Critical" and UpdateState =~ "Needed"
 | where Computer in (ComputersMissingUpdates3DaysAgo)
 | summarize UniqueUpdatesCount = dcount(Product) by Computer, OSType
 ```

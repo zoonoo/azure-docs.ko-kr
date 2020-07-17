@@ -1,19 +1,17 @@
 ---
-title: Azure IoT Hub Device Provisioning Service의 보안 개념 | Microsoft Docs
-description: Device Provisioning Service 및 IoT Hub를 사용하는 디바이스에 해당하는 보안 프로비전 개념 설명
+title: Azure IoT Hub 장치 프로 비전 서비스-보안 개념
+description: DPS (장치 프로 비전 서비스) 및 IoT Hub를 사용 하는 장치에 특정 한 보안 프로 비전 개념을 설명 합니다.
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: briz
-ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705392"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service 보안 개념 
 
@@ -34,30 +32,30 @@ Device Provisioning Service는 다음과 같은 형식의 증명을 지원합니
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
-하드웨어 보안 모듈 또는 HSM은 안전한 디바이스 비밀의 하드웨어 기반 저장소를 위해 사용되며 가장 안전한 형태의 비밀 저장소입니다. X.509 인증서 및 SAS 토큰은 HSM에 저장될 수 있습니다. HSM은 증명 메커니즘 및 프로비전 지원에 사용될 수 있습니다.
+하드웨어 보안 모듈 또는 HSM은 안전한 디바이스 비밀의 하드웨어 기반 스토리지를 위해 사용되며 가장 안전한 형태의 비밀 스토리지입니다. X.509 인증서 및 SAS 토큰은 HSM에 저장될 수 있습니다. HSM은 증명 메커니즘 및 프로비전 지원에 사용될 수 있습니다.
 
 > [!TIP]
 > 디바이스에 비밀을 안전하게 저장하는 데 디바이스와 함께 HSM을 사용하는 것이 좋습니다.
 
-디바이스 비밀은 소프트웨어(메모리)에도 저장될 수 있지만 HSM보다 덜 안전한 형태의 저장소입니다.
+디바이스 비밀은 소프트웨어(메모리)에도 저장될 수 있지만 HSM보다 덜 안전한 형태의 스토리지입니다.
 
 ## <a name="trusted-platform-module"></a>신뢰할 수 있는 플랫폼 모듈
 
 TPM은 플랫폼을 인증하는 데 사용되는 키를 안전하게 저장하기 위한 표준을 참조할 수 있거나 표준을 구현하는 모듈과 상호 작용하는 데 사용되는 I/O 인터페이스를 참조할 수 있습니다. TPM은 별도 하드웨어, 통합된 하드웨어, 펌웨어 기반 또는 소프트웨어 기반으로 존재할 수 있습니다. [TPM 및 TPM 증명](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation)에 대해 자세히 알아봅니다. Device Provisioning Service는 TPM 2.0만 지원합니다.
 
-TPM 증명은 인증 및 저장소 루트 키를 사용하여 서명된 SAS(공유 액세스 서명) 토큰을 제공하는 nonce 챌린지를 기준으로 진행됩니다.
+TPM 증명은 인증 및 스토리지 루트 키를 사용하여 서명된 SAS(공유 액세스 서명) 토큰을 제공하는 nonce 챌린지를 기준으로 진행됩니다.
 
 ### <a name="endorsement-key"></a>인증 키
 
-인증 키는 내부적으로 생성되거나 제조 시간에 삽입된 TPM 내부에 포함된 비대칭 키이며, 모든 TPM에서 고유합니다. 인증 키를 변경하거나 제거할 수 없습니다. 인증 키의 비공개 부분 TPM 외부로 공개되지 않는 반면 인증 키의 공개 부분은 정품 TPM을 인식하는 데 사용됩니다. [인증 키](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx)에 대해 자세히 알아봅니다.
+인증 키는 내부적으로 생성되거나 제조 시간에 삽입된 TPM 내부에 포함된 비대칭 키이며, 모든 TPM에서 고유합니다. 인증 키를 변경하거나 제거할 수 없습니다. 인증 키의 프라이빗 부분은 TPM 외부로 공개되지 않는 반면 인증 키의 공개 부분은 정품 TPM을 인식하는 데 사용됩니다. [인증 키](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx)에 대해 자세히 알아봅니다.
 
-### <a name="storage-root-key"></a>저장소 루트 키
+### <a name="storage-root-key"></a>스토리지 루트 키
 
-스토리지 루트 키는 TPM에 저장되고 이러한 키를 TPM 없이 사용할 수 없도록 애플리케이션에 의해 생성된 TPM 키를 보호하는 데 사용됩니다. 저장소 루트 키는 TPM의 소유권을 가져올 때 생성됩니다. 새 사용자가 소유권을 가져올 수 있도록 TPM을 삭제하는 경우 새 저장소 루트 키가 생성됩니다. [저장소 루트 키](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx)에 대해 자세히 알아봅니다.
+스토리지 루트 키는 TPM에 저장되고 이러한 키를 TPM 없이 사용할 수 없도록 애플리케이션에 의해 생성된 TPM 키를 보호하는 데 사용됩니다. 스토리지 루트 키는 TPM의 소유권을 가져올 때 생성됩니다. 새 사용자가 소유권을 가져올 수 있도록 TPM을 삭제하는 경우 새 스토리지 루트 키가 생성됩니다. [스토리지 루트 키](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx)에 대해 자세히 알아봅니다.
 
 ## <a name="x509-certificates"></a>X.509 인증서
 
-X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. X.509 인증서는 일반적으로 체인의 각 인증서가 다음으로 높고, 그 다음으로 높은 등등의 우선 순위에 있는 인증서의 개인 키로 서명되는 신뢰의 인증서 체인에 정렬되며, 자체 서명된 루트 인증서에서 종료됩니다. 이 방식을 사용하는 경우 신뢰할 수 있는 루트 CA(인증 기관)에서 생성한 루트 인증서에서 각각의 중간 CA를 거쳐 디바이스에 설치된 최종 엔터티 “리프” 인증서로의 위임된 신뢰 체인이 설정됩니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 디바이스 인증](/azure/iot-hub/iot-hub-x509ca-overview)을 참조하세요. 
+X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. X.509 인증서는 일반적으로 체인의 각 인증서가 다음으로 높고, 그 다음으로 높은 등등의 우선 순위에 있는 인증서의 프라이빗 키로 서명되는 신뢰의 인증서 체인에 정렬되며, 자체 서명된 루트 인증서에서 종료됩니다. 이 방식을 사용하는 경우 신뢰할 수 있는 루트 CA(인증 기관)에서 생성한 루트 인증서에서 각각의 중간 CA를 거쳐 디바이스에 설치된 최종 엔터티 “리프” 인증서로의 위임된 신뢰 체인이 설정됩니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 디바이스 인증](/azure/iot-hub/iot-hub-x509ca-overview)을 참조하세요. 
 
 인증서 체인은 종종 디바이스와 관련된 논리적 또는 물리적 계층 일부를 나타냅니다. 예를 들어, 제조업체는 다음과 같은 작업을 수행할 수 있습니다.
 - 자체 서명된 루트 CA 인증서 발급
@@ -77,9 +75,9 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 
 ### <a name="end-entity-leaf-certificate"></a>최종 엔터티 “리프” 인증서
 
-리프 인증서 또는 최종 엔터티 인증서는 인증서 보유자를 식별합니다. 인증서 체인에는 루트 인증서와 0개 이상의 중간 인증서가 있습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다. 디바이스를 프로비전 서비스에 고유하게 식별하며, 때로는 디바이스 인증서라고도 합니다. 인증하는 동안 디바이스는 이 인증서와 관련된 개인 키를 사용하여 서비스의 소유 챌린지 증명에 응답합니다.
+리프 인증서 또는 최종 엔터티 인증서는 인증서 보유자를 식별합니다. 인증서 체인에는 루트 인증서와 0개 이상의 중간 인증서가 있습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다. 디바이스를 프로비전 서비스에 고유하게 식별하며, 때로는 디바이스 인증서라고도 합니다. 인증하는 동안 디바이스는 이 인증서와 관련된 프라이빗 키를 사용하여 서비스의 소유 챌린지 증명에 응답합니다.
 
-리프 인증서 사용을 [개별 등록](./concepts-service.md#individual-enrollment) 항목 요구 사항이는 **주체 이름** 개별 등록 항목의 등록 ID로 설정 되어야 합니다. 리프 인증서를 사용는 [등록 그룹](./concepts-service.md#enrollment-group) 항목이 있어야 합니다 **주체 이름** 에 표시 됩니다는 원하는 장치 ID로 설정 합니다 **등록 레코드** 에 대 한 등록 그룹의 인증 된 장치입니다.
+[개별 등록](./concepts-service.md#individual-enrollment) 항목에 사용 되는 리프 인증서에는 **주체 이름을** 개별 등록 항목의 등록 ID로 설정 해야 한다는 요구 사항이 있습니다. [등록 그룹](./concepts-service.md#enrollment-group) 항목에 사용 되는 리프 인증서의 **주체 이름은** 원하는 장치 ID로 설정 되어야 하며, 등록 그룹의 인증 된 장치에 대 한 **등록 레코드** 에 표시 됩니다.
 
 자세한 내용은 [X.509 CA 인증서로 서명된 디바이스 인증](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)을 참조하세요.
 

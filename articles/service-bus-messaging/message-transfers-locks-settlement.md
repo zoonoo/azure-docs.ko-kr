@@ -1,24 +1,13 @@
 ---
-title: Azure Service Bus 전송, 잠금 및 확인 | Microsoft Docs
-description: Service Bus 메시지 전송 및 확인 작업 개요
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: 메시지 전송, 잠금 및 정착지 Azure Service Bus
+description: 이 문서에서는 메시지 전송, 잠금 및 결산일 작업 Azure Service Bus에 대 한 개요를 제공 합니다.
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: aschhab
-ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 22be139fccdeecee846c204a8035804fb897ae5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341156"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>메시지 전송, 잠금 및 확인
 
@@ -96,11 +85,15 @@ for (int i = 0; i < 100; i++)
 
 ## <a name="settling-receive-operations"></a>수신 작업 확인
 
-수신 작업의 경우 Service Bus API 클라이언트에서 두 가지 명시적 모드인 ‘수신 및 삭제’와 ‘보기-잠금’을 사용하도록 설정합니다.
+수신 작업의 경우 Service Bus API 클라이언트에서는 두 가지 명시적 모드인 *수신 및 삭제* 및 *보기-잠금*을 사용할 수 있습니다.
+
+### <a name="receiveanddelete"></a>ReceiveAndDelete
 
 [수신 및 삭제](/dotnet/api/microsoft.servicebus.messaging.receivemode) 모드는 수신 클라이언트로 송신하는 모든 메시지를 송신 시 확인된 상태로 간주하도록 브로커에 지시합니다. 즉, 메시지는 브로커가 송신하는 즉시 사용된 것으로 간주됩니다. 메시지 전송이 실패할 경우 메시지는 손실됩니다.
 
 이 모드의 장점은 수신기가 메시지에 대해 추가 작업을 수행할 필요가 없으며 확인 결과를 기다리느라 지연되지도 않는다는 것입니다. 개별 메시지에 포함된 데이터에 값이 부족하고 매우 짧은 기간 동안만 의미가 있는 경우 이 모드를 사용하는 것이 좋습니다.
+
+### <a name="peeklock"></a>PeekLock
 
 [보기-잠금](/dotnet/api/microsoft.servicebus.messaging.receivemode) 모드는 수신 클라이언트가 수신된 메시지를 명시적으로 확인하기 원한다는 것을 브로커에 알려줍니다. 메시지가 서비스에서 배타적 잠금 상태에 있는 동안 메시지를 수신기가 처리할 수 있지만 경쟁하는 다른 수신기는 해당 메시지를 볼 수 없습니다. 잠금 기간은 처음에 큐 또는 구독 수준에 정의되며, 잠금을 소유하는 클라이언트가 [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 작업을 통해 확장할 수 있습니다.
 
@@ -121,6 +114,14 @@ for (int i = 0; i < 100; i++)
 일반적으로 메시지 처리 맨 끝에서, 경우에 따라 몇 분 동안의 처리 작업 후에 **Complete**가 실패하면 수신 애플리케이션은 작업 상태를 보존하고 한 번 더 배달될 경우 동일한 메시지를 무시할지 여부 또는 작업 결과를 삭제하고 메시지가 다시 배달될 때 다시 시도할지 여부를 결정할 수 있습니다.
 
 중복 메시지 배달을 식별하기 위한 일반적인 메커니즘은 보낸 사람이 원본 프로세스의 식별자에 맞게 고유한 값으로 설정할 수 있고 설정해야 하는 메시지 ID를 확인하는 것입니다. 작업 스케줄러는 지정된 작업자를 사용하여 메시지 ID를 작업자에게 할당하려는 작업의 식별자로 설정하고, 작업자는 해당 작업이 이미 수행된 경우 해당 작업 할당이 두 번째로 나오는 경우를 무시합니다.
+
+> [!IMPORTANT]
+> 메시지에서 PeekLock 획득 하는 잠금은 휘발성 이며 다음 조건에서 손실 될 수 있다는 점에 유의 해야 합니다.
+>   * 서비스 업데이트
+>   * OS 업데이트
+>   * 잠금을 보유 하는 동안 엔터티 (큐, 토픽, 구독)의 속성을 변경 합니다.
+>
+> 잠금이 손실 되 면 Azure Service Bus에서 클라이언트 응용 프로그램 코드에 표시 되는 LockLostException을 생성 합니다. 이 경우 클라이언트의 기본 재시도 논리가 자동으로 시작 되 고 작업을 다시 시도 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

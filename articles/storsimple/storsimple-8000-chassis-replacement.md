@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 7dfc39f4d08c8a49d1564a0a5bd7e3ef4156e3fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: de0f6299f35f9d76fdade976bf70456426e5ec51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61312448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513438"
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>StorSimple 디바이스의 섀시 교체
 ## <a name="overview"></a>개요
@@ -41,7 +40,7 @@ StorSimple 디바이스의 섀시를 꺼내려면 다음 단계를 따르세요.
 4. 각 드라이브를 꺼내고 들어 있던 슬롯을 적어둡니다. 자세한 내용은 [디스크 드라이브 꺼내기](storsimple-8000-disk-drive-replacement.md#remove-the-disk-drive)를 참조하세요.
 5. EBOD 엔클로저에서(이 섀시에서 오류가 발생한 경우) EBOD 컨트롤러 모듈을 꺼냅니다. 자세한 내용은 [EBOD 컨트롤러 꺼내기](storsimple-8000-ebod-controller-replacement.md#remove-an-ebod-controller)를 참조하세요.
    
-    기본 엔클로저에서(이 섀시에서 오류가 발생한 경우) 컨트롤러를 꺼내고 들어 있던 슬롯을 적어둡니다. 자세한 내용은 [컨트롤러 꺼내기](storsimple-8000-controller-replacement.md#remove-a-controller)를 참조하세요.
+    기본 엔클로저에서(이 섀시에서 오류가 발생한 경우) 컨트롤러를 꺼내고 들어 있던 슬롯을 적어둡니다. 자세한 내용은 [컨트롤러 제거](storsimple-8000-controller-replacement.md#remove-a-controller)를 참조 하세요.
 
 ## <a name="install-the-chassis"></a>섀시 설치
 StorSimple 디바이스에 섀시를 설치하려면 다음 단계를 따르세요.

@@ -1,9 +1,9 @@
 ---
-title: Azure Notification Hubs를 사용하여 Xamarin.Android 앱에 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs를 사용하여 Xamarin.Android 앱에 푸시 알림 보내기 | Microsoft Docs
 description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin.Android 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: xamarin
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/01/2019
-ms.author: jowargo
-ms.openlocfilehash: 00e62226ee7e2b912a909cfa32a25e4562b99e83
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 08/01/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 08/01/2019
+ms.openlocfilehash: 06be9e7c4ce41ff01494ecef84a800b52db6b82e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203736"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308135"
 ---
-# <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.Android 앱에 알림 푸시
+# <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>자습서: Notification Hubs를 사용하여 Xamarin.Android 앱에 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -38,7 +40,7 @@ ms.locfileid: "65203736"
 > * Xamarin.Android 앱을 생성한 후 알림 허브에 연결
 > * Azure Portal에서 테스트 알림 전송
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Windows의 경우 [Xamarin이 포함된 Visual Studio] 또는 OS X의 경우 [Mac용 Visual Studio]
@@ -52,10 +54,10 @@ ms.locfileid: "65203736"
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-### <a name="configure-gcm-settings-for-the-notification-hub"></a>알림 허브에 대한 GCM 설정 구성
+### <a name="configure-gcmfcm-settings-for-the-notification-hub"></a>알림 허브에 대한 GCM/FCM 설정 구성
 
-1. **알림 설정** 섹션에서 **Google(GCM)** 을 선택합니다.
-2. Google Firebase 콘솔에서 적어둔 **레거시 서버 키**를 입력합니다.
+1. 왼쪽 메뉴의 **설정** 섹션에서 **Google(GCM/FCM)** 을 선택합니다.
+2. Google Firebase 콘솔에서 적어둔 **서버 키**를 입력합니다.
 3. 도구 모음에서 **저장**을 선택합니다.
 
     ![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
@@ -66,26 +68,35 @@ ms.locfileid: "65203736"
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Visual Studio 프로젝트 생성 및 NuGet 패키지 설치
 
-1. Visual Studio에서 **파일** 메뉴를 열고 **새로 만들기**를 선택한 다음, **프로젝트**를 선택합니다. **새 프로젝트** 창에서 다음 단계를 수행합니다. 
-    1. **설치됨**, **Visual C#** 을 확장한 후 **Android**를 클릭합니다.
-    2. 목록에서 **Android 앱(Xamarin)** 을 선택합니다. 
-    3. 프로젝트의 **이름** 을 입력합니다. 
-    4. 프로젝트의 **위치** 를 선택합니다. 
-    5. **확인**을 선택합니다. 
+> [!NOTE]
+> 이 자습서에 설명된 단계는 Visual Studio 2017에 대한 것입니다. 
 
-        ![새 프로젝트 대화 상자](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)        
-2. **새 Android 앱** 대화 상자에서 **빈 앱**을 선택하고 **확인**을 선택합니다. 
+1. Visual Studio에서 **파일** 메뉴를 열고 **새로 만들기**를 선택한 다음, **프로젝트**를 선택합니다. **새 프로젝트** 창에서 다음 단계를 수행합니다.
+    1. **설치됨**, **Visual C#** 을 확장한 후 **Android**를 클릭합니다.
+    2. 목록에서 **Android 앱(Xamarin)** 을 선택합니다.
+    3. 프로젝트의 **이름** 을 입력합니다.
+    4. 프로젝트의 **위치** 를 선택합니다.
+    5. **확인**을 선택합니다.
+
+        ![새 프로젝트 대화 상자](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)
+2. **새 Android 앱** 대화 상자에서 **빈 앱**을 선택하고 **확인**을 선택합니다.
 
     ![새 프로젝트 대화 상자](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
-1. **솔루션 탐색기** 창에서 **속성**을 확장하고 **AndroidManifest.xml**을 클릭합니다. Google Firebase 콘솔에서 Firebase Cloud Messaging을 프로젝트에 추가할 때 입력한 패키지 이름과 일치하도록 패키지 이름을 업데이트합니다.
+3. **솔루션 탐색기** 창에서 **속성**을 확장하고 **AndroidManifest.xml**을 클릭합니다. Google Firebase 콘솔에서 Firebase Cloud Messaging을 프로젝트에 추가할 때 입력한 패키지 이름과 일치하도록 패키지 이름을 업데이트합니다.
 
     ![GCM의 패키지 이름](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
-3. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-4. **찾아보기** 탭을 선택합니다. **Xamarin.GooglePlayServices.Base**를 검색합니다. 결과 목록에서 **Xamarin.GooglePlayServices.Base**를 선택합니다. 그런 후 **설치**를 선택합니다.
+4. 다음 단계를 수행하여 프로젝트에 대한 대상 Android 버전을 **Android 9.0(원형)** 으로 설정합니다. 
+    1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 
+    1. **Android 버전을 사용하여 컴파일: (대상 프레임워크)** 필드의 경우 **Android 9.0(원형)** 을 선택합니다. 
+    1. 대상 프레임워크 변경을 계속하려면 메시지 상자에서 **예**를 선택합니다.
+1. 다음 단계를 수행하여 필요한 NuGet 패키지를 프로젝트에 추가합니다.
+    1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+    1. **설치됨** 탭으로 전환하고, **Xamarin.Android.Support.Design**을 선택하고, 오른쪽 창에서 **업데이트**를 선택하여 패키지를 최신 버전으로 업데이트합니다.
+    1. **찾아보기** 탭으로 전환합니다. **Xamarin.GooglePlayServices.Base**를 검색합니다. 결과 목록에서 **Xamarin.GooglePlayServices.Base**를 선택합니다. 그런 후 **설치**를 선택합니다.
 
-    ![Google Play 서비스 NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
-5. **NuGet 패키지 관리자** 창에서 **Xamarin.Firebase.Messaging**을 검색합니다. 결과 목록에서 **Xamarin.Firebase.Messaging**을 선택합니다. 그런 후 **설치**를 선택합니다.
-6. 이제 **Xamarin.Azure.NotificationHubs.Android**를 검색합니다. 결과 목록에서 **Xamarin.Azure.NotificationHubs.Android**를 선택합니다. 그런 후 **설치**를 선택합니다.
+        ![Google Play 서비스 NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
+    6. **NuGet 패키지 관리자** 창에서 **Xamarin.Firebase.Messaging**을 검색합니다. 결과 목록에서 **Xamarin.Firebase.Messaging**을 선택합니다. 그런 후 **설치**를 선택합니다.
+    7. 이제 **Xamarin.Azure.NotificationHubs.Android**를 검색합니다. 결과 목록에서 **Xamarin.Azure.NotificationHubs.Android**를 선택합니다. 그런 후 **설치**를 선택합니다.
 
 ### <a name="add-the-google-services-json-file"></a>Google Services JSON 파일 추가
 
@@ -112,7 +123,8 @@ ms.locfileid: "65203736"
         </intent-filter>
     </receiver>
     ```
-2. **애플리케이션 요소 앞**에 다음 명령문을 추가합니다. 
+
+2. **애플리케이션 요소 앞**에 다음 명령문을 추가합니다.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -120,12 +132,13 @@ ms.locfileid: "65203736"
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     ```
-1. Android 앱 및 알림 허브에 대해 다음 정보를 수집합니다.
+
+3. Android 앱 및 알림 허브에 대해 다음 정보를 수집합니다.
 
    * **연결 문자열 수신 대기**: [Azure Portal]의 대시보드에서 **연결 문자열 보기**를 선택합니다. 이 값에 대한 `DefaultListenSharedAccessSignature` 연결 문자열을 복사합니다.
    * **허브 이름**: [Azure Portal]의 허브 이름입니다. 예를 들어 *mynotificationhub2*입니다.
-3. **솔루션 탐색기** 창에서 **프로젝트**를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택한 다음, **클래스**를 선택합니다.
-4. Xamarin 프로젝트에 대해 `Constants.cs` 클래스를 만들고 클래스에 다음 상수 값을 정의합니다. 자리 표시자는 해당 값으로 바꿉니다.
+4. **솔루션 탐색기** 창에서 **프로젝트**를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택한 다음, **클래스**를 선택합니다.
+5. Xamarin 프로젝트에 대해 `Constants.cs` 클래스를 만들고 클래스에 다음 상수 값을 정의합니다. 자리 표시자는 해당 값으로 바꿉니다.
 
     ```csharp
     public static class Constants
@@ -134,19 +147,22 @@ ms.locfileid: "65203736"
         public const string NotificationHubName = "<hub name>";
     }
     ```
-5. 명령문을 사용하여 다음 항목을 `MainActivity.cs`에 추가합니다.
+
+6. 명령문을 사용하여 다음 항목을 `MainActivity.cs`에 추가합니다.
 
     ```csharp
     using Android.Util;
     using Android.Gms.Common;
     ```
-6. 다음 속성을 MainActivity 클래스에 추가합니다. 앱 실행 중에 경고 대화 상자를 표시하는 데 사용할 TAG 변수입니다.
+
+7. 다음 속성을 MainActivity 클래스에 추가합니다. 앱 실행 중에 경고 대화 상자를 표시하는 데 사용할 TAG 변수입니다.
 
     ```csharp
     public const string TAG = "MainActivity";
     internal static readonly string CHANNEL_ID = "my_notification_channel";
     ```
-7. 다음 메서드를 MainActivity 클래스에 추가합니다. 디바이스에서 **Google Play 서비스**를 사용할 수 있는지 확인합니다. 
+
+8. 다음 메서드를 MainActivity 클래스에 추가합니다. 디바이스에서 **Google Play 서비스**를 사용할 수 있는지 확인합니다.
 
     ```csharp
     public bool IsPlayServicesAvailable()
@@ -163,12 +179,13 @@ ms.locfileid: "65203736"
             }
             return false;
         }
-     
+
         Log.Debug(TAG, "Google Play Services is available.");
         return true;
     }
     ```
-1. 알림 채널을 만드는 MainActivity 클래스에 다음 메서드를 추가합니다.
+
+9. 알림 채널을 만드는 MainActivity 클래스에 다음 메서드를 추가합니다.
 
     ```csharp
     private void CreateNotificationChannel()
@@ -180,19 +197,20 @@ ms.locfileid: "65203736"
             // channel on older versions of Android.
             return;
         }
-     
+
         var channelName = CHANNEL_ID;
         var channelDescription = string.Empty;
         var channel = new NotificationChannel(CHANNEL_ID, channelName, NotificationImportance.Default)
         {
             Description = channelDescription
         };
-     
+
         var notificationManager = (NotificationManager)GetSystemService(NotificationService);
         notificationManager.CreateNotificationChannel(channel);
     }
     ```
-1. `MainActivity.cs`에서 다음 코드를 `base.OnCreate(savedInstanceState)` 다음에 있는 `OnCreate`에 추가합니다.
+
+10. `MainActivity.cs`에서 다음 코드를 `base.OnCreate(savedInstanceState)` 다음에 있는 `OnCreate`에 추가합니다.
 
     ```csharp
     if (Intent.Extras != null)
@@ -206,114 +224,97 @@ ms.locfileid: "65203736"
             }
         }
     }
-    
+
     IsPlayServicesAvailable();
     CreateNotificationChannel();
     ```
-8. `Constants` 클래스를 만들었던 것처럼 새 클래스 `MyFirebaseIIDService`를 만듭니다.
-9. 명령문을 사용하여 다음 항목을 `MyFirebaseIIDService.cs`에 추가합니다.
 
-    ```csharp
-    using Android.Util;
-    using WindowsAzure.Messaging;
-    using Firebase.Iid;
-    ```
-
-10. `MyFirebaseIIDService.cs`에서 다음 `class` 선언을 추가하고 클래스가 `FirebaseInstanceIdService`에서 상속되도록 합니다.
-
-    ```csharp
-    [Service]
-    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
-    public class MyFirebaseIIDService : FirebaseInstanceIdService
-    ```
-11. `MyFirebaseIIDService.cs`에서 다음 코드를 추가합니다.
-
-    ```csharp
-    const string TAG = "MyFirebaseIIDService";
-    NotificationHub hub;
-
-    public override void OnTokenRefresh()
-    {
-        var refreshedToken = FirebaseInstanceId.Instance.Token;
-        Log.Debug(TAG, "FCM token: " + refreshedToken);
-        SendRegistrationToServer(refreshedToken);
-    }
-
-    void SendRegistrationToServer(string token)
-    {
-        // Register with Notification Hubs
-        hub = new NotificationHub(Constants.NotificationHubName,
-                                    Constants.ListenConnectionString, this);
-
-        var tags = new List<string>() { };
-        var regID = hub.Register(token, tags.ToArray()).RegistrationId;
-
-        Log.Debug(TAG, $"Successful registration of ID {regID}");
-    }
-    ```
-12. 프로젝트에 대한 또 다른 클래스를 새로 만들고, 이름을 `MyFirebaseMessagingService`로 지정합니다.
-13. 명령문을 사용하여 다음 항목을 `MyFirebaseMessagingService.cs`에 추가합니다.
+15. `MyFirebaseMessagingService`라는 클래스를 프로젝트에 추가합니다. 
+16. 명령문을 사용하여 다음 항목을 `MyFirebaseMessagingService.cs`에 추가합니다.
 
     ```csharp
     using Android.Util;
     using Firebase.Messaging;
-    using Android.Support.V4.App;
-    using Build = Android.OS.Build;
+    using Android.Support.V4.App;    
+    using WindowsAzure.Messaging;
     ```
-14. 클래스 선언 위에 다음을 추가하고, 클래스가 `FirebaseMessagingService`에서 상속되도록 합니다.
+
+17. 클래스 선언 위에 다음을 추가하고, 클래스가 `FirebaseMessagingService`에서 상속되도록 합니다.
 
     ```csharp
     [Service]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
-15. 다음 코드를 `MyFirebaseMessagingService.cs`에 추가합니다.
+
+18. `MyFirebaseMessagingService` 클래스 내에 다음 코드를 추가하여 수신된 메시지를 처리합니다. 
 
     ```csharp
-    const string TAG = "MyFirebaseMsgService";
-    public override void OnMessageReceived(RemoteMessage message)
-    {
-        Log.Debug(TAG, "From: " + message.From);
-        if(message.GetNotification()!= null)
+        const string TAG = "MyFirebaseMsgService";
+        NotificationHub hub;
+    
+        public override void OnMessageReceived(RemoteMessage message)
         {
-            //These is how most messages will be received
-            Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
-            SendNotification(message.GetNotification().Body);
+            Log.Debug(TAG, "From: " + message.From);
+            if (message.GetNotification() != null)
+            {
+                //These is how most messages will be received
+                Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
+                SendNotification(message.GetNotification().Body);
+            }
+            else
+            {
+                //Only used for debugging payloads sent from the Azure portal
+                SendNotification(message.Data.Values.First());
+    
+            }
         }
-        else
+    
+        void SendNotification(string messageBody)
         {
-            //Only used for debugging payloads sent from the Azure portal
-            SendNotification(message.Data.Values.First());
-
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.AddFlags(ActivityFlags.ClearTop);
+            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+    
+            var notificationBuilder = new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID);
+    
+            notificationBuilder.SetContentTitle("FCM Message")
+                        .SetSmallIcon(Resource.Drawable.ic_launcher)
+                        .SetContentText(messageBody)
+                        .SetAutoCancel(true)
+                        .SetShowWhen(false)
+                        .SetContentIntent(pendingIntent);
+    
+            var notificationManager = NotificationManager.FromContext(this);
+    
+            notificationManager.Notify(0, notificationBuilder.Build());
         }
-    }
-
-    void SendNotification(string messageBody)
-    {
-        var intent = new Intent(this, typeof(MainActivity));
-        intent.AddFlags(ActivityFlags.ClearTop);
-        var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-
-        var notificationBuilder = new NotificationCompat.Builder(this)
-                    .SetContentTitle("FCM Message")
-                    .SetSmallIcon(Resource.Drawable.ic_launcher)
-                    .SetContentText(messageBody)
-                    .SetAutoCancel(true)
-                    .SetShowWhen(false)
-                    .SetContentIntent(pendingIntent);
-
-        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
-        {
-            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
-        }
-
-        var notificationManager = NotificationManager.FromContext(this);
-
-        notificationManager.Notify(0, notificationBuilder.Build());
-    }
     ```
-16. 프로젝트를 **빌드**합니다.
-17. 디바이스 또는 로드된 에뮬레이터에서 앱을 **실행**합니다.
+
+19. 다음 메서드를MyFirebaseMessagingService 클래스(이전 단계에서 추가된 코드 바로 아래)에 추가하여 FCM 등록 토큰을 받고 Notification Hubs 인스턴스(허브)로 보냅니다. 
+
+    ```csharp
+        public override void OnNewToken(string token)
+        {
+            Log.Debug(TAG, "FCM token: " + token);
+            SendRegistrationToServer(token);
+        }
+
+        void SendRegistrationToServer(string token)
+        {
+            // Register with Notification Hubs
+            hub = new NotificationHub(Constants.NotificationHubName,
+                                        Constants.ListenConnectionString, this);
+
+            var tags = new List<string>() { };
+            var regID = hub.Register(token, tags.ToArray()).RegistrationId;
+
+            Log.Debug(TAG, $"Successful registration of ID {regID}");
+        }
+    ```
+1. 프로젝트를 **빌드**합니다.
+1. 디바이스 또는 로드된 에뮬레이터에서 앱을 **실행**합니다.
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Azure Portal에서 테스트 알림 전송
 
@@ -328,7 +329,7 @@ ms.locfileid: "65203736"
 이 자습서에서는 백 엔드에 등록된 모든 Android 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 Android 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
->[특정 디바이스에 알림 푸시](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[특정 디바이스에 알림 푸시](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Anchors. -->
 [Enable Google Cloud Messaging]: #register

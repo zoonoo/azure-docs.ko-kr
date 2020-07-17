@@ -1,8 +1,8 @@
-- name: Azure DevOps 프로젝트 설명서
+- name: Azure DevOps Starter 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Azure DevOps Projects란?
+    - name: Azure DevOps Starter란?
       href: overview.md
 - name: 빠른 시작
   expanded: true
@@ -13,7 +13,7 @@
     - name: Node.js
       href: /azure/devops-project/azure-devops-project-nodejs
       maintainContext: true
-    - name: 자바
+    - name: Java
       href: /azure/devops-project/azure-devops-project-java
       maintainContext: true
     - name: Python
@@ -30,7 +30,7 @@
       maintainContext: true
 - name: 자습서
   items:
-    - name: 1 - GitHub 및 DevOps Projects
+    - name: 1 - GitHub 및 DevOps Starter
       href: azure-devops-project-github.md
       maintainContext: true
     - name: 2 - VM에 배포
@@ -44,4 +44,10 @@
       maintainContext: true
     - name: 5 - Azure Service Fabric에 배포
       href: azure-devops-project-service-fabric.md
+      maintainContext: true
+    - name: 6 - Azure Cosmos DB에 배포
+      href: azure-devops-project-cosmos-db.md
+      maintainContext: true
+    - name: 7 - Azure Functions에 배포
+      href: azure-devops-project-functions.md
       maintainContext: true

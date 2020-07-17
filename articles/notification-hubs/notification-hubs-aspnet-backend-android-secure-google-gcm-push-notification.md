@@ -3,9 +3,9 @@ title: Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기
 description: Azure에서 Android 앱에 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java 및 C#으로 작성되었습니다.
 documentationcenter: android
 keywords: 푸시 알림,푸시알림,푸시 메시지,android 푸시 알림
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 27536b0a3d7e0858a5660b4c7b33cb6679b5fbf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 419a9f9b5ce698c7516edd55856cbea9891ba029
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "71212172"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기
 
@@ -32,7 +34,7 @@ ms.locfileid: "60874565"
 ## <a name="overview"></a>개요
 
 > [!IMPORTANT]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)을 참조하세요.
+> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)을 참조하세요.
 
 Microsoft Azure의 푸시 알림 지원을 통해 간편하게 사용할 수 있는 다중 플랫폼의 확장형 푸시 메시지 인프라에 액세스할 수 있습니다. 이 인프라에서는 모바일 플랫폼용 소비자 애플리케이션 및 엔터프라이즈 애플리케이션에 사용할 푸시 알림을 매우 간단하게 구현할 수 있습니다.
 
@@ -58,7 +60,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 간편하게 사용할 수 있
 
 ## <a name="modify-the-android-project"></a>Android 프로젝트 수정
 
-푸시 알림의 *ID*만 보내도록 앱 백 엔드를 수정했으므로 해당 알림을 처리하고 백 엔드를 콜백하여 표시할 보안 메시지를 검색하도록 Android 앱을 변경해야 합니다.
+푸시 알림의 *ID* 만 보내도록 앱 백 엔드를 수정 했으므로 해당 알림을 처리 하 고 백 엔드를 콜백 하 여 표시할 보안 메시지를 검색 하도록 Android 앱을 변경 해야 합니다.
 이 목표를 달성하려면 Android 앱이 푸시 알림을 받을 때 백 엔드에 인증하는 방법을 알고 있어야 합니다.
 
 이제 앱의 공유 기본 설정에서 인증 헤더 값을 저장하기 위해 *로그인* 흐름을 수정합니다. 유사 메커니즘을 사용하여 사용자 앱에서 자격 증명 없이 사용해야 하는 인증 토큰(예: OAuth 토큰)을 저장할 수 있습니다.

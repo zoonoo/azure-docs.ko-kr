@@ -1,10 +1,10 @@
 ---
-title: '자습서: Azure Portal을 사용하여 Azure Load Balancer에서 포트 전달 구성'
-titlesuffix: Azure Load Balancer
+title: '자습서: 포트 전달 구성 - Azure Portal'
+titleSuffix: Azure Load Balancer
 description: 이 자습서에서는 Azure Load Balancer를 사용하여 Azure 가상 네트워크의 VM에 대한 연결을 설정하도록 포트 전달을 구성하는 방법을 보여 줍니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007511"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207890"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>자습서: 포털을 사용하여 Azure Load Balancer에서 포트 전달 구성
 
 포트 전달을 사용하면 Azure Load Balancer 공용 IP 주소 및 포트 번호를 통해 Azure 가상 네트워크의 VM(가상 머신)에 연결할 수 있습니다. 
 
-이 자습서에서는 Azure Load Balancer에 포트 전달을 설정합니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Load Balancer에 포트 전달을 설정합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 공용 표준 부하 분산 장치를 만들어 여러 VM에 네트워크 트래픽 부하를 분산합니다. 
@@ -49,10 +49,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 구독               | 구독을 선택합니다.    |    
-    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
-    | Name                   | *myLoadBalancer*                                   |
-    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | Subscription               | 구독을 선택합니다.    |    
+    | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
+    | 속성                   | *myLoadBalancer*                                   |
+    | 지역         | **서유럽**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **표준**을 선택합니다.                          |
     | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |가용성 영역| **영역 중복**을 선택합니다.    |
      
     >[!NOTE]
-     >가용성 영역을 지원하는 위치에 부하 분산 장치 및 해당 리소스를 모두 만들어야 합니다. 자세한 내용은 [가용성 영역을 지원하는 지역](../availability-zones/az-overview.md#services-support-by-region)을 참조하세요. 
+     >가용성 영역을 지원하는 위치에 부하 분산 장치 및 해당 리소스를 모두 만들어야 합니다. 자세한 내용은 [가용성 영역을 지원하는 지역](../availability-zones/az-region.md)을 참조하세요. 
 
 3. **검토 + 만들기** 탭에서 **만들기**를 클릭합니다.  
   
@@ -68,19 +68,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 두 개의 가상 머신이 있는 가상 네트워크를 만들고, 해당 VM을 부하 분산 장치의 백 엔드 풀에 추가합니다. 
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
-1. 포털의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
-   
-1. **가상 네트워크 만들기** 창에서 다음 값을 입력하거나 선택합니다.
-   
-   - **이름**: *MyVNet*을 입력합니다.
-   - **ResourceGroup**: **기존 항목 선택**을 드롭다운하고, **MyResourceGroupLB**를 선택합니다. 
-   - **서브넷** > **이름**: *MyBackendSubnet*을 입력합니다.
-   
-1. **만들기**를 선택합니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-   ![가상 네트워크 만들기](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLB(기존 리소스 그룹 선택) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | 서유럽      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>VM을 만들고 부하 분산 장치 백 엔드 풀에 추가합니다.
 
@@ -89,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **가상 머신 만들기**의 **기본** 탭에서 다음 값을 입력하거나 선택합니다.
    - **구독** > **리소스 그룹**: 드롭다운하고 **MyResourceGroupLB**를 선택합니다.
    - **가상 머신 이름**: *MyVM1*을 입력합니다.
-   - **지역**: **유럽 서부**를 선택합니다. 
+   - **지역**: **서유럽**를 선택합니다. 
    - **사용자 이름**: *azureuser*를 입력합니다.
    - **암호**: *Azure1234567*을 입력합니다. 
      **암호 확인** 필드에 암호를 다시 입력합니다.
@@ -149,8 +150,8 @@ VM에 대해 인바운드 인터넷(HTTP) 연결을 허용하는 NSG(네트워�
    - **프로토콜**: **TCP**를 선택합니다. 
    - **작업**: **허용**을 선택합니다.  
    - **우선 순위**: *100*을 입력합니다. 
-   - **이름**: *MyHTTPRule*을 입력합니다. 
-   - **설명**: ‘HTTP 허용’을 입력합니다. 
+   - **Name**: *MyHTTPRule*을 입력합니다. 
+   - **설명**: ‘HTTP 허용’을 입력합니다.  
    
 1. **추가**를 선택합니다. 
    
@@ -188,7 +189,7 @@ VM을 만들 때 부하 분산 장치 백 엔드 풀을 만들고 VM을 풀에 �
    
 1. **상태 프로브 추가** 페이지에서 다음 값을 입력하거나 선택합니다.
    
-   - **이름**: *MyHealthProbe*를 입력합니다.
+   - **Name**: *MyHealthProbe*를 입력합니다.
    - **프로토콜**: 드롭다운하고 **HTTP**를 선택합니다. 
    - **포트**: *80*을 입력합니다. 
    - **경로**: 기본 URI에 대해 */* 를 허용합니다. 이 값은 다른 URI로 바꿀 수 있습니다. 
@@ -211,7 +212,7 @@ VM을 만들 때 부하 분산 장치 백 엔드 풀을 만들고 VM을 풀에 �
    
 1. **부하 분산 규칙 추가** 페이지에서 다음 값을 입력하거나 선택합니다.
    
-   - **이름**: *MyLoadBalancerRule*을 입력합니다.
+   - **Name**: *MyLoadBalancerRule*을 입력합니다.
    - **프로토콜**: **TCP**를 선택합니다.
    - **포트**: *80*을 입력합니다.
    - **백 엔드 포트**: *80*을 입력합니다.
@@ -232,15 +233,16 @@ VM을 만들 때 부하 분산 장치 백 엔드 풀을 만들고 VM을 풀에 �
    
 1. **인바운드 NAT 규칙 추가** 페이지에서 다음 값을 입력하거나 선택합니다.
    
-   - **이름**: *MyNATRuleVM1*을 입력합니다.
+   - **Name**: *MyNATRuleVM1*을 입력합니다.
    - **포트**: *4221*을 입력합니다.
    - **대상 가상 머신**: 드롭다운에서 **MyVM1**을 선택합니다.
+   - **Network IP 구성**: 드롭다운에서 **ipconfig1**을 선택합니다.
    - **포트 매핑**: **사용자 지정**을 선택합니다.
    - **대상 포트**: *3389*를 입력합니다.
    
 1. **확인**을 선택합니다.
    
-1. 단계를 반복해서 **포트**: *4222* 및 **대상 가상 머신**: **MyVM2**를 사용하여 MyNATRuleVM2라는 인바운드 NAT 규칙을 추가합니다.
+1. 단계를 반복해서 **포트**:  *4222* 및 **대상 가상 머신**: **MyVM2**.
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 

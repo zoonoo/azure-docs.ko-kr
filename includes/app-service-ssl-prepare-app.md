@@ -8,26 +8,30 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832875"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "78301008"
 ---
 ## <a name="prepare-your-web-app"></a>웹앱 준비
 
-사용자 지정 SSL 인증서(타사 인증서 또는 App Service 인증서)를 웹앱에 바인딩하려면 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 **기본**, **표준**, **프리미엄** 또는 **격리**계층에 있어야 합니다. 이 단계에서는 웹앱이 지원되는 가격 책정 계층에 있음을 확인합니다.
+사용자 지정 보안 바인딩을 만들거나 App Service 앱에 대한 클라이언트 인증서를 사용하도록 설정하려면 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 **기본**, **표준**, **프리미엄** 또는 **격리** 계층에 있어야 합니다. 이 단계에서는 웹앱이 지원되는 가격 책정 계층에 있음을 확인합니다.
 
-### <a name="log-in-to-azure"></a>Azure에 로그인
+### <a name="sign-in-to-azure"></a>Azure에 로그인
 
 [Azure Portal](https://portal.azure.com)을 엽니다.
 
 ### <a name="navigate-to-your-web-app"></a>웹앱으로 이동
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 웹앱의 이름을 클릭합니다.
+**App Services**를 검색하여 선택합니다.
 
-![웹앱 선택](./media/app-service-ssl-prepare-app/select-app.png)
+![App Service 선택](./media/app-service-ssl-prepare-app/app-services.png)
+
+**App Service** 페이지에서 웹앱의 이름을 선택합니다.
+
+![Azure 앱에 대한 포털 탐색](./media/app-service-ssl-prepare-app/select-app.png)
 
 웹앱의 관리 페이지에 연결되었습니다.  
 

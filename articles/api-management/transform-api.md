@@ -9,25 +9,24 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 68c516ee7ca2d76339760ce0ad95590686250603
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 4c3cc572dd9629605414cd88d7735c2b31f92249
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851261"
 ---
 # <a name="transform-and-protect-your-api"></a>API 변환 및 보호
 
-이 자습서에서는 개인 백 엔드 정보를 노출시키지 있도록 API를 변환하는 방법을 보여 줍니다. 예를 들어 백 엔드에서 실행되는 기술 스택에 대한 정보를 숨기려고 할 수 있습니다. 또한 API HTTP 응답의 본문에 표시되는 원래 URL을 숨기고, 대신 APIM 게이트웨이로 리디렉션하려고 할 수도 있습니다.
+이 자습서에서는 프라이빗 백 엔드 정보를 노출시키지 있도록 API를 변환하는 방법을 보여 줍니다. 예를 들어 백 엔드에서 실행되는 기술 스택에 대한 정보를 숨기려고 할 수 있습니다. 또한 API HTTP 응답의 본문에 표시되는 원래 URL을 숨기고, 대신 APIM 게이트웨이로 리디렉션하려고 할 수도 있습니다.
 
 이 자습서에서는 Azure API Management로 속도 제한을 구성하여 백 엔드 API에 대한 보호를 추가하기가 얼마나 쉬운지 보여 줍니다. 예를 들어 개발자가 과도하게 사용하지 않도록 API 호출 횟수를 제한하려고 할 수 있습니다. 자세한 내용은 [API Management 정책](api-management-policies.md)을 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -38,7 +37,7 @@ ms.locfileid: "59521940"
 
 ![정책](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 -   [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 -   [Azure API Management의 정책 개념](api-management-howto-policies.md)을 이해합니다.
@@ -83,8 +82,10 @@ ms.locfileid: "59521940"
 
 7. 다음과 같이 **\<outbound>** 코드를 수정합니다.
 
-       <set-header name="X-Powered-By" exists-action="delete" />
-       <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
+   <set-header name="X-Powered-By" exists-action="delete" />
+   <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
 
    ![정책](./media/transform-api/set-policy.png)
 
@@ -113,11 +114,8 @@ ms.locfileid: "59521940"
 2.  **모든 작업**을 선택합니다.
 3.  화면 맨 위에서 **디자인** 탭을 선택합니다.
 4.  **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
-5.  **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
-6.  오른쪽 창의 **변환 정책** 아래에서 **+ 본문에서 문자열 찾기 및 바꾸기**를 클릭합니다.
-7.  **find-and-replace** 코드(**\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 예: 
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  **&lt;아웃 바운드&gt;** 요소 내에 커서를 놓고 오른쪽 위 모서리에 있는 **코드 조각 표시** 단추를 클릭합니다.
+6.  오른쪽 창의 **변환 정책** 아래에서 **콘텐츠의 URL 마스킹**을 클릭합니다.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>속도 제한 정책(제한)을 추가하여 API 보호
 
@@ -131,33 +129,37 @@ ms.locfileid: "59521940"
 4.  **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 5.  **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
 6.  오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
-7.  **rate-limit-by-key** 코드(**\<인바운드\>** 요소에서)를 다음 코드로 수정합니다.
+7.  **rate-limit-by-key** 코드( **\<inbound\>** 요소)를 다음 코드로 수정합니다.
 
-        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
+    <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
 
 ## <a name="test-the-transformations"></a>변환 테스트
 
 이 시점에서 코드 편집기에서 코드를 살펴보면 정책은 다음과 같습니다.
 
-    <policies>
-        <inbound>
-            <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
-            <base />
-        </inbound>
-        <backend>
-            <base />
-        </backend>
-        <outbound>
-            <set-header name="X-Powered-By" exists-action="delete" />
-            <set-header name="X-AspNet-Version" exists-action="delete" />
-            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
-            <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
-            <base />
-        </outbound>
-        <on-error>
-            <base />
-        </on-error>
-    </policies>
+   ```
+   <policies>
+      <inbound>
+        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+        <base />
+      </inbound>
+      <backend>
+        <base />
+      </backend>
+      <outbound>
+        <set-header name="X-Powered-By" exists-action="delete" />
+        <set-header name="X-AspNet-Version" exists-action="delete" />
+        <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
+        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+        <base />
+      </outbound>
+      <on-error>
+        <base />
+      </on-error>
+   </policies>
+   ```
 
 이 섹션의 나머지 부분에서는 이 문서에서 설정한 정책 변환을 테스트합니다.
 
@@ -202,7 +204,7 @@ ms.locfileid: "59521940"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 >

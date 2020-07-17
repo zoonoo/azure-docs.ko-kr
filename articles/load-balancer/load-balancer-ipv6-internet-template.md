@@ -1,25 +1,24 @@
 ---
 title: IPv6을 사용하여 인터넷 연결 부하 분산 장치 배포 - Azure 템플릿
-titlesuffix: Azure Load Balancer
-description: Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원을 배포하는 방법.
+titleSuffix: Azure Load Balancer
+description: Azure 템플릿을 사용 하 여 Azure Load Balancer 및 부하가 분산 된 Vm에 대 한 IPv6 지원을 배포 하는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803731"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
@@ -29,6 +28,8 @@ ms.locfileid: "61216855"
 > * [템플릿](load-balancer-ipv6-internet-template.md)
 
 
+>[!NOTE] 
+>이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다. 이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함 하는 [Azure vnet에 대 한 ipv6](../virtual-network/ipv6-overview.md) 에서 포괄적인 ipv6 연결을 사용할 수 있습니다.  Azure Vnet의 i p v 6은 Azure의 IPv6 응용 프로그램에 권장 되는 표준입니다. [AZURE VNET Powershell 배포를 위한 IPv6](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 참조  
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 머신의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
@@ -42,7 +43,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
 * 할당된 IPv4 및 IPv6 주소를 사용하는 각 VM에 대한 가상 네트워크 인터페이스
 * IPv4 및 IPv6 공용 IP 주소를 가진 인터넷 연결 부하 분산 장치
-* 공용 VIP를 개인 엔드포인트로 매핑하기 위한 두 개의 부하 분산 규칙
+* 공용 VIP를 프라이빗 엔드포인트로 매핑하기 위한 두 개의 부하 분산 규칙
 * 두 개의 VM이 들어 있는 가용성 집합
 * 2개의 가상 머신(VM)
 
@@ -50,7 +51,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
 이 문서에서는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) 갤러리에 게시된 템플릿을 참조합니다. 갤러리에서 템플릿을 다운로드하거나 갤러리에서 직접 Azure에 배포를 시작할 수 있습니다. 이 문서에서는 템플릿을 로컬 컴퓨터에 다운로드했다고 가정합니다.
 
-1. Azure Portal을 열고 Azure 구독 내에서 VM 및 네트워킹 리소스를 만들 권한이 있는 계정으로 로그인합니다. 또한 기존 리소스를 사용하고 있는 것이 아니라면 리소스 그룹 및 저장소 계정을 만들기 위해서는 계정에 권한이 필요합니다.
+1. Azure Portal을 열고 Azure 구독 내에서 VM 및 네트워킹 리소스를 만들 권한이 있는 계정으로 로그인합니다. 또한 기존 리소스를 사용하고 있는 것이 아니라면 리소스 그룹 및 스토리지 계정을 만들기 위해서는 계정에 권한이 필요합니다.
 2. 메뉴에서 "+새"를 클릭한 다음 검색 상자에 "템플릿"을 입력합니다. 검색 결과에서 "템플릿 배포"를 선택합니다.
 
     ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
@@ -96,12 +97,12 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 템플릿이 성공적으로 배포했다면 다음 작업을 완료하여 연결 유효성 검사를 할 수 있습니다.
 
 1. Azure Portal에 로그인하여 템플릿 배포를 통해 만들어진 각 VM에 연결합니다. Windows Server VM을 배포한 경우 명령 프롬프트에서 ipconfig /all을 실행합니다. VM에 IPv4 및 IPv6 주소가 모두 표시됩니다. Linux VM을 배포한 경우, Linux 배포를 위해 제공된 지침을 사용하여 동적 IPv6 주소를 수신하도록 Linux OS를 구성해야 합니다.
-2. IPv6 인터넷에 연결된 클라이언트에서 부하 분산 장치의 공용 IPv6 주소에 연결을 시작합니다. 부하 분산 장치가 두 VM 간에 적절히 분산하는지 확인하려면 각 VM에 Microsoft IIS(인터넷 정보 서비스)와 같은 웹 서버를 설치할 수 있습니다. 각 서버의 기본 웹 페이지는 고유하게 식별하기 위해 텍스트 "Server0" 또는 "Server1"을 포함할 수 있습니다. 그런 다음 IPv6 인터넷에 연결된 클라이언트에서 인터넷 브라우저를 열고 각 VM에 대한 종단간 IPv6 연결을 확인하기 위해 부하 분산 장치의 dnsNameforIPv6LbIP 매개 변수에 대해 지정한 호스트 이름으로 이동합니다. 단 하나의 서버 웹 페이지 만이 표시된다면 브라우저 캐시를 지워야 할 수도 있습니다. 여러 개인 찾아보기 세션을 엽니다. 각 서버에서의 응답이 표시됩니다.
+2. IPv6 인터넷에 연결된 클라이언트에서 부하 분산 장치의 공용 IPv6 주소에 연결을 시작합니다. 부하 분산 장치가 두 VM 간에 적절히 분산하는지 확인하려면 각 VM에 Microsoft IIS(인터넷 정보 서비스)와 같은 웹 서버를 설치할 수 있습니다. 각 서버의 기본 웹 페이지는 고유하게 식별하기 위해 텍스트 "Server0" 또는 "Server1"을 포함할 수 있습니다. 그런 다음, IPv6 인터넷에 연결된 클라이언트에서 인터넷 브라우저를 열고 각 VM에 대한 엔드투엔드 IPv6 연결을 확인하기 위해 부하 분산 장치의 dnsNameforIPv6LbIP 매개 변수에 대해 지정한 호스트 이름으로 이동합니다. 단 하나의 서버 웹 페이지 만이 표시된다면 브라우저 캐시를 지워야 할 수도 있습니다. 여러 프라이빗 찾아보기 세션을 엽니다. 각 서버에서의 응답이 표시됩니다.
 3. IPv4 인터넷에 연결된 클라이언트에서 부하 분산 장치의 공용 IPv4 주소에 연결을 시작합니다. 부하 분산 장치가 VM 두 개를 부하 분산하고 있는지 확인하려면 2 단계에서 설명된 대로 IIS를 사용하여 테스트할 수 있습니다.
 4. 각 VM에서 IPv6 또는 IPv4에 연결된 인터넷 디바이스에 아웃 바운드 연결을 시작합니다. 두 경우 모두 대상 디바이스에 의해 표시된 원본 IP는 부하 분산 디바이스의 공용 IPv4 또는 IPv6 주소입니다.
 
 > [!NOTE]
-> IPv4 및 IPv6 모두에 대한 ICMP은 Azure 네트워크에서 차단됩니다. 따라서 ping과 같은 ICMP 도구는 언제나 작동하지 않습니다. 연결을 테스트하려면 TCPing 또는 PowerShell Test-NetConnection cmdlet와 같은 대체 TCP를 사용합니다. 다이어그램에 표시된 IP 주소는 나타날 수도 있는 값의 예제임에 유의하세요. IPv6 주소는 동적으로 할당되므로 받게 될 주소는 다르며 지역에 따라 달라질 수 있습니다. 또한 부하 분산 장치에 있는 공용 IPv6 주소가 백 엔드 풀에 있는 개인 IPv6 주소와는 다른 접두사로 시작하는 것은 일반적입니다.
+> IPv4 및 IPv6 모두에 대한 ICMP은 Azure 네트워크에서 차단됩니다. 따라서 ping과 같은 ICMP 도구는 언제나 작동하지 않습니다. 연결을 테스트하려면 TCPing 또는 PowerShell Test-NetConnection cmdlet와 같은 대체 TCP를 사용합니다. 다이어그램에 표시된 IP 주소는 나타날 수도 있는 값의 예제임에 유의하세요. IPv6 주소는 동적으로 할당되므로 받게 될 주소는 다르며 지역에 따라 달라질 수 있습니다. 또한 부하 분산 장치에 있는 공용 IPv6 주소가 백 엔드 풀에 있는 프라이빗 IPv6 주소와는 다른 접두사로 시작하는 것은 일반적입니다.
 
 ## <a name="template-parameters-and-variables"></a>템플릿 매개 변수 및 변수
 
@@ -109,7 +110,7 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 
 이 문서에서 사용된 예제 템플릿에는 다음 변수 및 매개 변수가 들어 있습니다.
 
-| 매개 변수 / 변수 | 메모 |
+| 매개 변수 / 변수 | 참고 |
 | --- | --- |
 | adminUsername |가상 머신에 로그인하는 데 사용되는 관리자 계정의 이름을 지정합니다. |
 | adminPassword |가상 머신에 로그인하는 데 사용되는 관리자 계정의 비밀번호를 지정합니다. |
@@ -117,13 +118,13 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 | dnsNameforIPv6LbIP |부하 분산 장치의 공개 이름으로 할당하려는 DNS 호스트 이름을 지정합니다. 이 이름은 부하 분산 장치의 공용 IPv6 주소로 바뀝니다. 이름은 소문자이어야 하며 다음 정규식과 일치해야 합니다. ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ 이 이름은 IPv4 주소와 같은 이름일 수 있습니다. 클라이언트가 이 이름에 대한 DNS 쿼리를 보낼 때 Azure는 이름이 공유된 경우 A 및 AAAA 기록 모두를 반환합니다. |
 | vmNamePrefix |VM 이름 접두사를 지정합니다. VM이 만들어질 때 템플릿은 이름에 번호(0, 1, 등)를 추가합니다. |
 | nicNamePrefix |네트워크 인터페이스 이름 접두사를 지정합니다. 네트워크 인터페이스가 만들어질 때 템플릿은 이름에 번호(0, 1, 등)를 추가합니다. |
-| storageAccountName |기존 저장소 계정의 이름을 입력하거나 템플릿으로 만든 새 이름을 지정합니다. |
+| storageAccountName |기존 스토리지 계정의 이름을 입력하거나 템플릿으로 만든 새 이름을 지정합니다. |
 | availabilitySetName |그런 다음 VM에 사용하도록 설정할 가용성 집합의 이름을 입력합니다. |
 | addressPrefix |Virtual Network의 주소 범위를 정의하는 데 사용되는 주소 접두사 |
 | subnetName |VNet에 대해 생성되는 서브넷의 이름 |
 | subnetPrefix |서브넷의 주소 범위를 정의하는 데 사용되는 주소 접두사 |
 | vnetName |VM에서 사용하는 VNet에 대한 이름을 지정합니다. |
-| ipv4PrivateIPAddressType |개인 IP 주소(정적 또는 동적)에 대해 사용되는 할당 방법. |
+| ipv4PrivateIPAddressType |개인 IP 주소(정적 또는 동적)에 대해 사용되는 할당 방법 |
 | ipv6PrivateIPAddressType |개인 IP 주소(동적)에 대해 사용되는 할당 방법. IPv6 만이 동적 할당을 지원합니다. |
 | numberOfInstances |템플릿을 통해 배포한 부하 분산 인스턴스의 수 |
 | ipv4PublicIPAddressName |부하 분산 장치의 공용 IPv4 주소와 통신하는 데 사용할 DNS 이름을 지정합니다. |

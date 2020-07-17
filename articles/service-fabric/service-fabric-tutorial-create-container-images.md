@@ -1,27 +1,17 @@
 ---
-title: Azure의 Service Fabric에서 컨테이너 이미지 만들기 | Microsoft Docs
+title: Azure의 Service Fabric에서 컨테이너 이미지 만들기
 description: 이 자습서에서는 다중 컨테이너 Service Fabric 애플리케이션에 대한 컨테이너 이미지를 만드는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/15/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662553"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "78252780"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>자습서: Linux Service Fabric 클러스터에서 컨테이너 이미지 만들기
 
@@ -41,7 +31,7 @@ ms.locfileid: "58662553"
 > * [컨테이너를 사용하여 Service Fabric 애플리케이션 빌드 및 실행](service-fabric-tutorial-package-containers.md)
 > * [Service Fabric에서 장애 조치(failover) 및 크기 조정이 처리되는 방법](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Service Fabric에 대한 Linux 개발 환경 설정 [여기](service-fabric-get-started-linux.md)의 지침을 따라 Linux 환경을 설정합니다.
 * 이 자습서에는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
@@ -90,13 +80,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 먼저 **az login** 명령을 실행하여 Azure 계정에 로그인합니다.
 
-```bash
+```azurecli
 az login
 ```
 
 다음으로 **az account** 명령을 사용하여 Azure Container Registry를 만들 구독을 선택합니다. <subscription_id> 대신 Azure 구독의 구독 ID를 입력해야 합니다.
 
-```bash
+```azurecli
 az account set --subscription <subscription_id>
 ```
 
@@ -104,23 +94,23 @@ Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요�
 
 **az group create** 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *westus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
-```bash
+```azurecli
 az group create --name <myResourceGroup> --location westus
 ```
 
 **az acr create** 명령으로 Azure Container Registry를 만듭니다. \<acrName>을 구독에서 만들려는 컨테이너 레지스트리의 이름으로 대체합니다. 이 이름은 영숫자이며 고유해야 합니다.
 
-```bash
+```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
 이 자습서의 나머지 부분에서는 선택한 컨테이너 레지스트리 이름의 자리 표시자로 "acrName"을 사용합니다. 이 값을 적어 두세요.
 
-## <a name="log-in-to-your-container-registry"></a>컨테이너 레지스트리에 로그인
+## <a name="sign-in-to-your-container-registry"></a>컨테이너 레지스트리에 로그인
 
-이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 로그인합니다. **az acr login** 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
+이미지를 푸시하기 전에 먼저 ACR 인스턴스에 로그인합니다. **az acr login** 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -146,13 +136,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 loginServer 이름을 가져오려면 다음 명령을 실행합니다.
 
-```bash
+```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
 다음과 같은 결과가 있는 테이블을 출력합니다. 이 결과는 다음 단계에서 컨테이너 레지스트리에 푸시하기 전에 **azure-vote-front** 이미지의 태그를 지정하는 데 사용됩니다.
 
-```bash
+```output
 Result
 ------------------
 <acrName>.azurecr.io
@@ -168,7 +158,7 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 출력:
 
-```bash
+```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
 <acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
@@ -192,19 +182,19 @@ docker 밀어넣기 명령이 완료되려면 몇 분 정도 걸립니다.
 
 Azure Container Registry로 푸시한 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository) 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
 
-```bash
+```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
 출력:
 
-```bash
+```output
 Result
 ----------------
 azure-vote-front
 ```
 
-자습서를 완료하면 개인 Azure Container Registry 인스턴스에 컨테이너 이미지가 저장됩니다. 이후 자습서에서 이 이미지는 ACR에서 Service Fabric 클러스터로 배포됩니다.
+자습서를 완료하면 프라이빗 Azure Container Registry 인스턴스에 컨테이너 이미지가 저장됩니다. 이후 자습서에서 이 이미지는 ACR에서 Service Fabric 클러스터로 배포됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

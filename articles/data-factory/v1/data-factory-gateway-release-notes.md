@@ -1,23 +1,21 @@
 ---
-title: 데이터 관리 게이트웨이 릴리스 정보 | Microsoft 문서
+title: 데이터 관리 게이트웨이에 대한 릴리스 정보
 description: 데이터 관리 게이트웨이 릴리스 정보
 services: data-factory
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60486467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194477"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
@@ -41,33 +39,33 @@ ms.locfileid: "60486467"
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>향상된 기능
 - 필요한 경우 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가하여 서비스 버스를 허용 목록에 포함할 수 있습니다. Azure Portal에서 각각의 DNS 항목을 찾을 수 있습니다(Data Factory -> '작성자 및 배포' -> '게이트웨이' -> JSON의 “serviceUrls”).
-- 이제 HDFS 커넥터는 SSL 유효성 검사를 건너뛸 수 있도록 하여 자체 서명된 공용 인증서를 지원합니다.
-- 수정됨: 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제
+- 이제 HDFS 커넥터는 TLS 유효성 검사를 건너뛸 수 있으므로 자체 서명 된 공용 인증서를 지원 합니다.
+- 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제가 수정되었습니다.
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>향상된 기능
 -   (필요한 경우) 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가해 Service Bus를 허용 목록에 추가할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 -   이제, 단일 블록 Blob에/에서 데이터를 최대 4.75TB까지 복사할 수 있습니다. 이 크기는 단일 블록 Blob에 대해 지원되는 최대값입니다. 이전에는 195GB까지로 제한되었습니다.
--   수정됨: 복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제.
--   수정됨: 멱등 기능을 사용하여 DocumentDB에서 온-프레미스 SQL Server로 복사하는 중에 범위를 벗어나는 인덱스 문제.
--   수정됨: SQL 정리 스크립트가 복사 마법사에서 온-프레미스 SQL Server와 작동하지 않는 문제.
--   수정됨: 끝에 공백이 있는 열 이름이 복사되지 않는 문제.
+-   복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제가 수정되었습니다.
+-   수정 됨: 멱 등 성 기능을 사용 하 여 문서 DB에서 SQL Server로 복사 하는 동안 범위를 벗어난 문제가 발생 했습니다.
+-   수정 됨: SQL 정리 스크립트가 복사 마법사의 SQL Server에서 작동 하지 않습니다.
+-   끝에 공백이 있는 열 이름이 복사되지 않는 문제가 수정되었습니다.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>향상된 기능
-- 수정됨: 게이트웨이 머신을 다시 부팅할 때 자격 증명이 누락되는 문제.
-- 수정됨: 백업 파일을 사용하여 게이트웨이를 복원하는 중에 발생하는 등록 문제.
+- 게이트웨이 컴퓨터를 다시 부팅할 때 자격 증명이 누락되는 문제가 수정되었습니다.
+- 백업 파일을 사용하여 게이트웨이를 복원하는 중에 발생하는 등록 문제가 수정되었습니다.
 
 
 ## <a name="2762401"></a>2.7.6240.1
 ### <a name="enhancements-"></a>향상된 기능
-- 수정됨: Oracle에서 10진수 null 값을 원본으로 잘못 읽는 문제.
+- Oracle에서 10진수 null 값을 원본으로 잘못 읽는 문제가 수정되었습니다.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>새로운 기능
 - 고객이 게이트웨이 등록 경험에 대한 피드백을 제공할 수 있습니다.
-- 새 압축 형식 지원: ZIP(Deflate)
+- 새 압축 형식 지원: ZIP (Deflate)
 
 ### <a name="enhancements-"></a>향상된 기능
 - Oracle Sink, HDFS 원본에 대한 성능 개선
@@ -75,7 +73,7 @@ ms.locfileid: "60486467"
 
 
 ## <a name="2561641"></a>2.5.6164.1
-### <a name="enhancements"></a>향상된 기능
+### <a name="enhancements"></a>개선 사항
 - 더욱 강력하고 향상된 게이트웨이 등록 환경- 게이트웨이 등록 프로세스 동안 진행 상태를 추적할 수 있어, 더 나은 응답성의 등록 환경이 만들어졌습니다.
 - 게이트웨이 복원 프로세스 개선-이 업데이트를 사용하여 게이트웨이 백업 파일이 없는 경우에도 게이트웨이를 복구할 수 있습니다. 포털에서 연결된 서비스 자격 증명을 다시 설정해야 합니다.
 - 버그 수정
@@ -112,7 +110,7 @@ ms.locfileid: "60486467"
 *  이제 DB2 드라이버는 이미 지원되는 플랫폼(Linux, Unix 및 Windows)과 함께 i(AS/400)용 z/OS 및DB2를 지원합니다.
 *  온-프레미스 데이터 저장소에 대한 Azure Cosmos DB를 원본 또는 대상으로 사용하도록 지원합니다.
 *  이미 지원되는 범용 스토리지 계정과 함께 콜드/핫 Blob Storage에서/으로 데이터를 복사하도록 지원합니다.
-*  원격 로그인 권한이 있는 게이트웨이를 통해 온-프레미스 SQL Server에 연결할 수 있습니다.  
+*  원격 로그인 권한이 있는 게이트웨이를 통해 SQL Server에 연결할 수 있습니다.  
 
 ## <a name="2060131"></a>2.0.6013.1
 
@@ -126,10 +124,10 @@ ms.locfileid: "60486467"
 
     *  재구성되고 간소화된 컨트롤입니다.
 
-    *  [코드가 없는 복사 도구](data-factory-copy-data-wizard-tutorial.md)를 사용하여 저장소에서 데이터를 복사할 수 있습니다. 이 기능에 대한 전반적인 세부 정보는 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
-*  데이터 관리 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Machine Learning으로 직접 데이터를 수신할 수 있습니다.
+    *  [코드가 없는 복사 도구](data-factory-copy-data-wizard-tutorial.md)를 사용하여 스토리지에서 데이터를 복사할 수 있습니다. 이 기능에 대한 전반적인 세부 정보는 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
+*  데이터 관리 게이트웨이를 사용 하 여 SQL Server 데이터베이스에서 직접 데이터를 Azure Machine Learning로 수신할 수 있습니다.
 
-*  성능 개선
+*  성능 향상
 
     * 코드가 없는 복사 도구에서 SQL Server에 대해 스키마/미리 보기를 보는 성능이 향상됩니다.
 
@@ -145,7 +143,7 @@ ms.locfileid: "60486467"
 
 *  자동 업데이트가 실패하면 게이트웨이 설치 관리자는 자동 업데이트를 최대 3회까지 다시 시도합니다.
 
-*  성능 개선
+*  성능 향상
 
     * 코드가 없는 복사 시나리오를 통해 온-프레미스 서버의 큰 테이블을 로드하는 성능을 개선합니다.
 
@@ -153,7 +151,7 @@ ms.locfileid: "60486467"
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  성능 개선
+*  성능 향상
 
 *  버그 수정
 
@@ -165,34 +163,34 @@ ms.locfileid: "60486467"
 *  업데이트 일정 시간을 설정하는 기능
 *  자동 업데이트를 설정/해제하기 위한 PowerShell 스크립트
 *  JSON 형식 파일 지원  
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  문제 해결 환경 개선
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  온-프레미스 HDFS 원본/싱크 지원
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -209,7 +207,7 @@ ms.locfileid: "60486467"
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Azure 데이터 팩터리에 대 한 ODBC 데이터 원본의 테이블 이름 지원
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -230,13 +228,13 @@ ms.locfileid: "60486467"
 
 *  Azure Data Factory에 대해 관계형 데이터베이스 5개(MySQL, PostgreSQL, DB2, Teradata, Sybase) 지원
 *  압축 지원(Gzip 및 Deflate)
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Azure 데이터 팩터리에 대 한 Oracle 데이터 원본 지원 추가
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1454921"></a>1.4.5492.1

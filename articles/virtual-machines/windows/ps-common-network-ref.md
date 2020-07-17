@@ -1,26 +1,17 @@
 ---
-title: Azure Virtual Networks에 대한 공통 PowerShell 명령 | Microsoft Docs
+title: Azure Virtual Networks에 대한 공통 PowerShell 명령
 description: Vm에 대한 가상 네트워크 및 연결된 리소스 만들기를 시작하게 하는 공통 PowerShell 명령.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 56e1a73c-8299-4996-bd03-f74585caa1dc
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 020f2a4171a5bd656e53c91e59edb16931b20d0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 78aac1e49b23cf7fd294314f335aa429e8458639
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597669"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233359"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Azure Virtual Networks에 대한 공통 PowerShell 명령
 
@@ -39,7 +30,7 @@ ms.locfileid: "60597669"
 | ---- | ------- |
 | 서브넷 구성 만들기 |$subnet1 = [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>일반적인 네트워크는 [인터넷 연결 부하 분산 장치](../../load-balancer/load-balancer-internet-overview.md)에 대한 서브넷 및 [내부 부하 분산 장치](../../load-balancer/load-balancer-internal-overview.md)에 대한 별도 서브넷을 가질 수도 있습니다. |
 | 가상 네트워크 만들기 |$vnet = [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
-| 고유한 도메인 이름에 대한 테스트 |[Test-AzDnsAvailability](https://docs.microsoft.com/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>Azure 관리 DNS 서버에서 공용 IP 주소에 대한 domainname.location.cloudapp.azure.com 매핑을 만드는 [공용 IP 리소스](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)에 대한 DNS 도메인 이름을 지정할 수 있습니다. 이 이름에는 문자, 숫자 및 하이픈만 포함할 수 있습니다. 첫 번째 및 마지막 문자는 문자 또는 숫자여야 하며 도메인 이름은 Azure 위치 내에서 고유해야 합니다. **True** 가 반환된 경우 제안한 이름이 전역적으로 고유합니다. |
+| 고유한 도메인 이름에 대한 테스트 |[Test-AzDnsAvailability](https://docs.microsoft.com/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>Azure 관리 DNS 서버에서 공용 IP 주소에 대한 domainname.location.cloudapp.azure.com 매핑을 만드는 [공용 IP 리소스](../../virtual-network/public-ip-addresses.md)에 대한 DNS 도메인 이름을 지정할 수 있습니다. 이 이름에는 문자, 숫자 및 하이픈만 포함할 수 있습니다. 첫 번째 및 마지막 문자는 문자 또는 숫자여야 하며 도메인 이름은 Azure 위치 내에서 고유해야 합니다. **True** 가 반환된 경우 제안한 이름이 전역적으로 고유합니다. |
 | 공용 IP 주소 만들기 |$pip = [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) -Name "myPublicIp" -ResourceGroupName $myResourceGroup -DomainNameLabel "myDNS" -Location $location -AllocationMethod Dynamic<BR><BR>공용 IP 주소는 이전에 테스트했고 부하 분산 장치의 프런트 엔드 구성에서 사용되는 도메인 이름을 사용합니다. |
 | 프런트 엔드 IP 구성 만들기 |$frontendIP = [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) -Name "myFrontendIP" -PublicIpAddress $pip<BR><BR>프런트 엔드 구성은 들어오는 네트워크 트래픽에 대해 이전에 만든 공용 IP 주소를 포함합니다. |
 | 백 엔드 주소 풀 만들기 |$beAddressPool = [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) -Name "myBackendAddressPool"<BR><BR>네트워크 인터페이스를 통해 액세스 하는 부하 분산 장치의 백 엔드에 대한 내부 주소를 제공합니다. |
@@ -74,6 +65,6 @@ ms.locfileid: "60597669"
 | 공용 IP 주소 삭제 |[Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress)-Name "myIPAddress" -ResourceGroupName $myResourceGroup<BR><BR>리소스 그룹에서 지정된 공용 IP 주소를 제거합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* [VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 할 때 방금 만든 네트워크 인터페이스를 사용합니다.
-* [여러 네트워크 인터페이스를 사용하여 VM 만들기](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md)를 할 수 있는 방법을 알아봅니다.
+[VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 할 때 방금 만든 네트워크 인터페이스를 사용합니다.
+
 

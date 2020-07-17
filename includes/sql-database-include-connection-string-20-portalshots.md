@@ -11,16 +11,16 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182283"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Azure 포털에서 연결 문자열 가져오기
 [Azure Portal](https://portal.azure.com/)에서 클라이언트 프로그램이 Azure SQL Database와 상호 작용하는 데 필요한 연결 문자열을 가져올 수 있습니다.
 
-1. **모든 서비스** > **SQL 데이터베이스**를 클릭합니다.
+1. **모든 서비스**  >  **SQL 데이터베이스**를 선택 합니다.
 
 2. **SQL 데이터베이스** 블레이드 왼쪽 위에 있는 필터 텍스트 상자에 데이터베이스 이름을 입력합니다.
 

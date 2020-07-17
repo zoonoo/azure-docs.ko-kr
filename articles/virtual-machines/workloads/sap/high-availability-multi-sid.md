@@ -3,26 +3,24 @@ title: Azure에서 SAP 다중 SID 구성 만들기 | Microsoft Docs
 description: Windows 가상 머신의 고가용성 SAP NetWeaver 다중 SID 구성 가이드
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
-author: goraco
-manager: jeconnoc
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 0b89b4f8-6d6c-45d7-8d20-fe93430217ca
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/09/2016
-ms.author: goraco
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b27ea761d19eb494895daceff699b2b604eccea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 553abc0a221950d81f3ee8591875507d0b6a2f0c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797329"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020764"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver 다중 SID 구성 만들기
 
@@ -78,8 +76,8 @@ ms.locfileid: "59797329"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 [dbms-guide-2.1]:../../virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
@@ -366,9 +364,9 @@ ms.locfileid: "59797329"
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -381,15 +379,15 @@ ms.locfileid: "59797329"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-windows-attach-disk-portal]:../../virtual-machines-windows-attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../../../azure-resource-manager/resource-group-overview.md
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture]:../../../azure-resource-manager/management/overview.md
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 [virtual-machines-Az-versus-azuresm]:virtual-machines-windows-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md 
@@ -415,10 +413,10 @@ ms.locfileid: "59797329"
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:./../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[virtual-machines-windows-portal-sql-alwayson-int-listener]:./../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -445,7 +443,7 @@ ms.locfileid: "59797329"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-2016년 9월 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다.
+2016년 9월에 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있는 기능을 릴리스했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다.
 
 SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide]에 설명된 대로 내부 부하 분산 장치를 사용하여 SAP ASCS/SCS에 대한 Windows 클러스터 구성을 만들 수 있습니다.
 
@@ -456,7 +454,7 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide]에서 설명되고 이 다이어그램에 표시된 대로 하나의 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터를 구성했습니다.
 
 ![고가용성 SAP ASCS/SCS 인스턴스][sap-ha-guide-figure-6001]
@@ -468,12 +466,12 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 ![Azure에서 여러 SAP ASCS/SCS 클러스터링된 인스턴스][sap-ha-guide-figure-6002]
 
 > [!NOTE]
->각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 수에 제한이 있습니다.
+>각 Azure 내부 부하 분산 장치에 대한 프라이빗 프런트 엔드 IP의 수에 제한이 있습니다.
 >
 >하나의 WSFC 클러스터에서 SAP ASCS/SCS 인스턴스의 최대수는 각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 최대수와 같습니다.
 >
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP"를 참조하세요.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 프라이빗 프런트 엔드 IP"를 참조하세요.
 
 두 가지 고가용성 SAP 시스템을 포함한 전체 그림은 다음과 같습니다.
 
@@ -622,7 +620,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 다음을 수행합니다.
 1. 각 클러스터 노드에 추가 디스크 또는 동일한 크기의 디스크(스트라이프해야 하는)를 추가하고 서식을 지정합니다.
-2. SIOS DataKeeper를 사용하여 저장소 복제를 구성합니다.
+2. SIOS DataKeeper를 사용하여 스토리지 복제를 구성합니다.
 
 이 절차는 WSFC 클러스터 컴퓨터에 SIOS DataKeeper를 이미 설치했다고 가정합니다. 설치한 경우 이제 컴퓨터 간의 복제를 구성해야 합니다. 프로세스는 기본 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide-8.12.3.3]에서 자세히 설명합니다.  
 
@@ -642,31 +640,31 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 고급 절차는 다음과 같습니다.
 
-1. [SAP 첫 번째 클러스터 노드 설치][sap-ha-guide-9.1.2].  
+1. [SAP 첫 번째 클러스터 노드를 설치합니다][sap-ha-guide-9.1.2].  
  이 단계에서는 **기존 WSFC 클러스터 노드 1**에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다.
 
-2. [ASCS/SCS 인스턴스의 SAP 프로필 수정][sap-ha-guide-9.1.3].
+2. [ASCS/SCS 인스턴스의 SAP 프로필을 수정합니다][sap-ha-guide-9.1.3].
 
-3. [프로브 포트 구성][sap-ha-guide-9.1.4].  
+3. [프로브 포트를 구성합니다][sap-ha-guide-9.1.4].  
  이 단계에서는 PowerShell을 사용하여 SAP 클러스터 리소스 SAP-SID2-IP 프로브 포트를 구성하고 있습니다. SAP ASCS/SCS 클러스터 노드 중 하나에서 이 구성을 실행합니다.
 
-4. [데이터베이스 인스턴스 설치][sap-ha-guide-9.2].  
+4. [데이터베이스 인스턴스를 설치합니다][sap-ha-guide-9.2].  
  이 단계에서는 전용 WSFC 클러스터에 DBMS를 설치하고 있습니다.
 
-5. [두 번째 클러스터 노드 설치][sap-ha-guide-9.3].  
+5. [두 번째 클러스터 노드를 설치합니다][sap-ha-guide-9.3].  
  이 단계에서는 기존 WSFC 클러스터 노드 2에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다.
 
 6. SAP ASCS /SCS 인스턴스 및 ProbePort의 Windows 방화벽 포트를 엽니다.  
  SAP ASCS/SCS 인스턴스에 사용되는 두 클러스터 노드에서 SAP ASCS/SCS에서 사용하는 모든 Windows 방화벽 포트를 열고 있습니다. 이러한 포트는 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide-8.8]에 나열되어 있습니다.  
  또한 62350 시나리오에서와 같이 Azure 내부 부하 분산 장치 프로브 포트를 엽니다.
 
-7. [SAP ERS Windows 서비스 인스턴스의 시작 유형 변경][sap-ha-guide-9.4].
+7. [SAP ERS Windows 서비스 인스턴스의 시작 유형을 변경합니다][sap-ha-guide-9.4].
 
-8. 새 전용 VM에서 [SAP 기본 애플리케이션 서버 설치][sap-ha-guide-9.5].
+8. 새 전용 VM에서 [SAP 기본 애플리케이션 서버를 설치합니다][sap-ha-guide-9.5].
 
-9. 새 전용 VM에서 [SAP 추가 애플리케이션 서버 설치][sap-ha-guide-9.6].
+9. 새 전용 VM에서 [SAP 추가 애플리케이션 서버를 설치합니다][sap-ha-guide-9.6].
 
-10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제 테스트][sap-ha-guide-10].
+10. [SAP ASCS/SCS 인스턴스 장애 조치(failover) 및 SIOS 복제를 테스트합니다][sap-ha-guide-10].
 
 ## <a name="next-steps"></a>다음 단계
 

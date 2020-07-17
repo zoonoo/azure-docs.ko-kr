@@ -1,24 +1,13 @@
 ---
-title: Azure Service Bus 메시지 찾아보기 | Microsoft Docs
-description: Service Bus 메시지 찾아보기 및 미리 보기
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Service Bus-메시지 찾아보기
+description: Service Bus 메시지 찾아보기 및 피킹 Azure Service Bus 클라이언트에서 큐 또는 구독에 있는 모든 메시지를 열거할 수 있습니다.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 425cf262b80e83a4d06074a567a2921eee12f9c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341234"
 ---
 # <a name="message-browsing"></a>메시지 찾아보기
 
@@ -30,11 +19,11 @@ ms.locfileid: "60402754"
 
 이런 내용은 지연된 메시지를 큐에서 복구하려고 시도할 때 특히 유의해야 합니다. [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) 인스턴트를 통과한 메시지는 어떠한 방법으로도(Peek에 의해 반환되는 경우에도) 일반 검색을 수행할 수 없습니다. Peek은 로그의 현재 상태를 반영하는 진단 도구이기 때문에 이러한 메시지를 반환하는 것은 의도적입니다.
 
-또한 Peek는 잠긴 상태에서 다른 수신기가 현재 처리하고 있지만 아직 완료되지 않은 메시지를 반환합니다. 하지만 Peek는 연결이 끊긴 스냅숏을 반환하기 때문에 미리 본 메시지에서 메시지의 잠금 상태를 관찰할 수 없으며 애플리케이션이 해당 메시지를 읽으려고 하면 [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) 및 [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) 속성이 [InvalidOperationException](/dotnet/api/system.invalidoperationexception)을 throw합니다.
+또한 Peek는 잠긴 상태에서 다른 수신기가 현재 처리하고 있지만 아직 완료되지 않은 메시지를 반환합니다. 하지만 Peek는 연결이 끊긴 스냅샷을 반환하기 때문에 미리 본 메시지에서 메시지의 잠금 상태를 관찰할 수 없으며 애플리케이션이 해당 메시지를 읽으려고 하면 [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) 및 [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) 속성이 [InvalidOperationException](/dotnet/api/system.invalidoperationexception)을 throw합니다.
 
 ## <a name="peek-apis"></a>Peek API
 
-[Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) 및 [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) 메서드는 모든 .NET 및 Java 클라이언트 라이브러리와 모든 수신기 개체 **MessageReceiver**, **MessageSession**, **QueueClient** 및 **SubscriptionClient**에 있습니다. Peek은 모든 큐와 구독 및 각각의 배달 못한 메시지 큐에서 작동합니다.
+[Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) 및 [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) 메서드는 모든 .net 및 Java 클라이언트 라이브러리와 모든 받는 사람 개체: **MessageReceiver**, **messagesession**에 존재 합니다. Peek은 모든 큐와 구독 및 각각의 배달 못한 메시지 큐에서 작동합니다.
 
 반복적으로 호출되면 Peek 메서드는 큐 또는 구독 로그에 있는 모든 메시지를 시퀀스 번호 순서대로(가장 낮은 시퀀스 번호에서 가장 높은 시퀀스 번호로) 열거합니다. 다음은 메시지를 큐에 넣은 순서이며 최종적으로 메시지가 검색될 수 있는 순서는 아닙니다.
 

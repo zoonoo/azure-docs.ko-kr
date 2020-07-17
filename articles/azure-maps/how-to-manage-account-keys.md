@@ -1,25 +1,25 @@
 ---
-title: Azure Maps 계정 관리 | Microsoft Docs
-description: Azure Portal을 사용하여 Azure Maps 계정을 관리할 수 있습니다.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 02/14/2019
+title: Azure Portal에서 Azure Maps 계정 관리 | Microsoft Azure 맵
+description: 이 문서에서는 Azure Portal 사용 하 여 Microsoft Azure Maps 계정을 관리 하는 방법을 알아봅니다.
+author: philmea
+ms.author: philmea
+ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42247cc576e55c7c504e9832017af336439b11b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80335545"
 ---
 # <a name="manage-your-azure-maps-account"></a>Azure Maps 계정 관리
 
 Azure Portal을 통해 Azure Maps 계정을 관리할 수 있습니다. 계정이 생기면 웹 사이트 또는 모바일 애플리케이션에서 API를 구현할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-a-new-account"></a>새 계정 만들기
 
@@ -31,22 +31,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 4. 새로운 계정에 대한 정보를 입력합니다.
 
-![포털에서 계정 정보 입력](./media/how-to-manage-account-keys/new-account-portal.png)
+[![Azure Portal에 Azure Maps 계정 정보를 입력 하십시오.](./media/how-to-manage-account-keys/new-account-portal.png)](./media/how-to-manage-account-keys/new-account-portal.png#lightbox)
 
 ## <a name="delete-an-account"></a>계정 삭제
 
 Azure Portal에서 계정을 삭제할 수 있습니다. 계정 개요 페이지로 이동하여 **삭제**를 선택합니다.
 
-![포털에서 계정 삭제](./media/how-to-manage-account-keys/account-delete-portal.png)
+[![Azure Portal에서 Azure Maps 계정을 삭제 합니다.](./media/how-to-manage-account-keys/account-delete-portal.png)](./media/how-to-manage-account-keys/account-delete-portal.png#lightbox)
 
 그러면 확인 페이지가 표시됩니다. 계정 이름을 입력하여 계정 삭제를 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Maps 계정의 가격 책정 계층을 관리하는 방법을 알아봅니다.
-    > [!div class="nextstepaction"] 
-    > [가격 책정 계층 관리](./how-to-manage-pricing-tier.md)
+Azure Maps를 사용 하 여 인증을 설정 하 고 Azure Maps 구독 키를 가져오는 방법을 알아봅니다.
+> [!div class="nextstepaction"]
+> [인증 관리](how-to-manage-authentication.md)
 
-* Azure Maps 계정에 대한 API 사용량 메트릭을 확인하는 방법을 알아봅니다.
-    > [!div class="nextstepaction"] 
-    > [사용 메트릭 보기](./how-to-view-api-usage.md)
+Azure Maps 계정의 가격 책정 계층을 관리하는 방법을 알아봅니다.
+> [!div class="nextstepaction"] 
+> [가격 책정 계층 관리](how-to-manage-pricing-tier.md)
+
+Azure Maps 계정에 대한 API 사용량 메트릭을 확인하는 방법을 알아봅니다.
+> [!div class="nextstepaction"] 
+> [사용 메트릭 보기](how-to-view-api-usage.md)

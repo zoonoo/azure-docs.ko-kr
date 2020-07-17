@@ -1,18 +1,14 @@
 ---
-title: Azure Event Grid 구독에 대한 배달 못한 편지 및 다시 시도 정책
+title: 배달 못한 편지 및 재시도 정책-Azure Event Grid
 description: Event Grid에 대한 이벤트 전송 옵션을 사용자 지정하는 방법을 설명합니다. 배달 못한 편지 대상을 설정하고 배달을 다시 시도하기 위한 기간을 지정합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/06/2019
-ms.author: spelluru
-ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 07/07/2020
+ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181965"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105509"
 ---
 # <a name="dead-letter-and-retry-policies"></a>배달 못한 편지 및 다시 시도 정책
 
@@ -22,10 +18,12 @@ ms.locfileid: "58181965"
 
 ## <a name="set-dead-letter-location"></a>배달 못한 편지 위치 설정
 
-배달 못한 편지 위치를 설정하려면 엔드포인트로 전달할 수 없는 이벤트를 보유할 저장소 계정이 필요합니다. 이 예제는 기존 스토리지 계정의 리소스 ID를 가져옵니다. 배달 못한 편지 엔드포인트의 스토리지 계정에 있는 컨테이너를 사용하는 이벤트 구독을 만듭니다.
+배달 못한 편지 위치를 설정하려면 엔드포인트로 전달할 수 없는 이벤트를 보유할 스토리지 계정이 필요합니다. 이 예제는 기존 스토리지 계정의 리소스 ID를 가져옵니다. 배달 못한 편지 엔드포인트의 스토리지 계정에 있는 컨테이너를 사용하는 이벤트 구독을 만듭니다.
 
 > [!NOTE]
-> 이 문서의 명령을 실행 하기 전에 저장소에서 저장소 계정 및 blob 컨테이너를 만듭니다.
+> - 이 문서에서 명령을 실행 하기 전에 저장소에서 저장소 계정 및 blob 컨테이너를 만듭니다.
+> - Event Grid 서비스는이 컨테이너에 blob을 만듭니다. Blob 이름에는 모든 문자를 대문자로 포함 하는 Event Grid 구독의 이름이 포함 됩니다. 예를 들어 구독의 이름이 My Blob Subscription 인 경우 배달 못한 편지 blob의 이름에는 MY BLOB-SUBSCRIPTION (myblobcontainer/MY BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json)이 포함 됩니다. 이 동작은 Azure 서비스 간 처리의 차이점을 방지 하는 것입니다.
+
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -45,7 +43,7 @@ az eventgrid event-subscription create \
 배달 못한 편지를 해제하려면 이벤트 구독을 만드는 명령을 다시 실행하지만 `deadletter-endpoint`에 대한 값을 제공하지는 않습니다. 이벤트 구독을 삭제할 필요가 없습니다.
 
 > [!NOTE]
-> 로컬 머신에서 Azure CLI를 사용하는 경우 Azure CLI 버전 2.0.56 이상을 사용하세요. Azure CLI의 최신 버전을 설치하는 방법에 대한 지침은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+> 로컬 머신에서 Azure CLI를 사용 중인 경우 Azure CLI 버전 2.0.56 이상을 사용하세요. Azure CLI의 최신 버전을 설치하는 방법에 대한 지침은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ### <a name="powershell"></a>PowerShell
 

@@ -1,32 +1,29 @@
 ---
-title: 서버를 사용하지 않는 시나리오 - Azure 서비스를 사용하여 사용자 지정 인사이트 대시보드 만들기 | Microsoft Docs
+title: Customer insights 대시보드 만들기
 description: Azure Logic Apps 및 Azure Functions로 고객 대시보드를 빌드하여 고객 피드백, 소셜 미디어 데이터 등을 관리
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464426"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75980436"
 ---
-# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
 
 Azure는 인프라에 대한 염려 없이 클라우드에서 앱을 빠르게 빌드하고 호스팅하는 데 도움이 되는 [서버리스](https://azure.microsoft.com/solutions/serverless/) 도구를 제공합니다. 이 자습서에서는 고객 피드백을 트리거하고 Machine Learning으로 피드백을 분석하고 Power BI 또는 Azure Data Lake와 같은 원본 정보를 게시하는 대시보드를 만들 수 있습니다.
 
-이 솔루션의 경우 서버리스 앱을 위해 [Azure Functions](https://azure.microsoft.com/services/functions/) 및 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 핵심 Azure 구성 요소를 사용합니다.
+이 솔루션의 경우 서버를 사용하지 않는 앱을 위해 [Azure Functions](https://azure.microsoft.com/services/functions/) 및 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 핵심 Azure 구성 요소를 사용합니다.
 Azure Logic Apps는 서버가 없는 구성 요소에서 오케스트레이션을 만들고 200개 이상의 서비스 및 API에 연결할 수 있도록 클라우드에서 서버를 사용하지 않는 워크플로 엔진을 제공합니다. Azure Functions는 클라우드에 서버를 사용하지 않는 계산을 제공합니다. 이 솔루션은 미리 정의된 키워드를 기반으로 고객 트윗에 플래그를 지정하도록 Azure Functions를 사용합니다.
 
 이 시나리오에서는 고객의 피드백을 찾도록 트리거하는 논리 앱을 만듭니다. 고객 피드백에 응답하는 데 도움이 되는 일부 커넥터에는 Outlook.com, Office 365, Survey Monkey, Twitter 및 [웹 형식의 HTTP 요청](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/)이 포함됩니다. 사용자가 만든 워크플로는 Twitter에서 해시태그를 모니터링합니다.
 
-[Visual Studio에서 전체 솔루션을 빌드](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)하고 [Azure Resource Manager 템플릿을 사용하여 솔루션을 배포](../logic-apps/logic-apps-create-deploy-template.md)할 수 있습니다. 이 솔루션을 만드는 방법을 보여 주는 동영상 연습은 [이 채널 9 비디오를 시청](https://aka.ms/logicappsdemo)하세요. 
+[Visual Studio에서 전체 솔루션을 빌드](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)하고 [Azure Resource Manager 템플릿을 사용하여 솔루션을 배포](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)할 수 있습니다. 이 솔루션을 만드는 방법을 보여 주는 동영상 연습은 [이 채널 9 비디오를 시청](https://aka.ms/logicappsdemo)하세요. 
 
 ## <a name="trigger-on-customer-data"></a>고객 데이터에서 트리거
 
@@ -34,7 +31,7 @@ Azure Logic Apps는 서버가 없는 구성 요소에서 오케스트레이션�
 
    논리 앱을 처음 접하는 경우 [Azure Portal을 위한 빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md) 또는 [Visual Studio을 위한 빠른 시작](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)을 검토하세요.
 
-2. Logic Apps 디자이너에서 다음 동작이 있는 Twitter 트리거를 찾아서 추가합니다. **새 트윗이 게시될 때**
+2. Logic Apps 디자이너에서 **새 트윗이 게시될 때**라는 동작이 있는 Twitter 트리거를 찾아서 추가합니다.
 
 3. 키워드 또는 해시태그를 기준으로 트윗을 수신하도록 트리거를 설정합니다.
 
@@ -99,14 +96,14 @@ Visual Studio 또는 Azure Portal에서 이전 실행 내역을 보려면 다음
 
 * Visual Studio 클라우드 탐색기를 엽니다. 논리 앱을 찾아 앱의 바로 가기 메뉴를 엽니다. **실행 기록 열기**를 선택합니다.
 
-  > [!NOTE]
-  > Visual Studio 2019에 대 한 클라우드 탐색기 수 Azure portal에서 논리 앱 디자이너를 열고 하지만 아직 포함 된 논리 앱 디자이너를 열거나 실행할 수 없습니다 기록 합니다.
+  > [!TIP]
+  > Visual Studio 2019에 이 명령이 없으면 Visual Studio에 대한 최신 업데이트가 있는지 확인합니다.
 
 * Azure Portal에서 논리 앱을 찾습니다. 논리 앱의 메뉴에서 **개요**를 선택합니다. 
 
 ## <a name="create-automated-deployment-templates"></a>자동화된 배포 템플릿 만들기
 
-논리 앱 솔루션을 만든 후 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-overview.md#template-deployment)으로 앱을 캡처하여 전 세계의 Azure 지역에 배포합니다. 이 기능을 사용하여 앱의 다른 버전을 만들고 솔루션을 Azure Pipelines에 통합하기 위해 매개 변수를 수정할 수 있습니다. 모든 종속성과 함께 전체 솔루션을 단일 템플릿으로 관리할 수 있도록 Azure Functions를 배포 템플릿에 포함할 수 있습니다. [논리 앱 배포 템플릿 만드는 방법](../logic-apps/logic-apps-create-deploy-template.md)을 알아보세요.
+논리 앱 솔루션을 만든 후 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)으로 앱을 캡처하여 전 세계의 Azure 지역에 배포합니다. 이 기능을 사용하여 앱의 다른 버전을 만들고 솔루션을 Azure Pipelines에 통합하기 위해 매개 변수를 수정할 수 있습니다. 모든 종속성과 함께 전체 솔루션을 단일 템플릿으로 관리할 수 있도록 Azure Functions를 배포 템플릿에 포함할 수 있습니다. [논리 앱 배포를 자동화](logic-apps-azure-resource-manager-templates-overview.md)하는 방법을 알아봅니다.
 
 Azure 함수를 사용한 배포 템플릿의 예는 [Azure 빠른 시작 템플릿 리포지토리](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic)를 확인해 보세요.
 

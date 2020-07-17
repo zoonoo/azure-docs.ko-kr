@@ -1,19 +1,17 @@
 ---
 title: Azure Stream Analytics 지리 공간적 함수 소개
 description: 이 문서에서는 Azure Stream Analytics 작업에 사용되는 지리 공간적 함수를 설명합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75426235"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Stream Analytics 지리 공간적 함수 소개
 
@@ -27,7 +25,7 @@ Azure Stream Analytics의 지리 공간적 함수를 사용하여 지리 공간�
 * 지오-펜싱
 * 셀 사이트 간 전화 추적
 
-Stream Analytics 쿼리 언어에는 기본 제공되는 7개의 지리 공간적 함수가 있습니다. 즉, **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS** 및 **ST_WITHIN**입니다.
+Stream Analytics 쿼리 언어는 7개의 기본 제공 지리 공간적 함수인 **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**, **ST_WITHIN**을 제공합니다.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -54,7 +52,7 @@ FROM input
 
  {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-자세한 내용은 [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) 참조를 참조하세요.
+자세한 내용은 [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) 참조를 참조하세요.
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -81,7 +79,7 @@ FROM input
   
  {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
 
-자세한 내용은 [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) 참조를 참조하세요.
+자세한 내용은 [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) 참조를 참조하세요.
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -108,10 +106,10 @@ FROM input
  
  {"type" : "Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
-자세한 내용은 [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) 참조를 참조하세요.
+자세한 내용은 [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) 참조를 참조하세요.
 
 
-## <a name="stdistance"></a>ST_DISTANCE
+## <a name="st_distance"></a>ST_DISTANCE
 `ST_DISTANCE` 함수는 두 점 사이의 거리(미터)를 반환합니다. 
 
 다음 쿼리는 `ST_DISTANCE`를 사용하여 주유소가 자동차로부터 10km 이내 거리에 있을 때 이벤트를 생성합니다.
@@ -122,9 +120,9 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-자세한 내용은 [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance) 참조를 참조하세요.
+자세한 내용은 [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) 참조를 참조하세요.
 
-## <a name="stoverlaps"></a>ST_OVERLAPS
+## <a name="st_overlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS` 함수는 두 다각형을 비교합니다. 다각형이 겹치면 이 함수는 1을 반환합니다. 다각형이 겹치지 않으면 이 함수는 0을 반환합니다. 
 
 다음 쿼리는 `ST_OVERLAPS`를 사용하여 건물이 홍수 범람 가능 구역 내에 있을 때 이벤트를 생성합니다.
@@ -143,9 +141,9 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-자세한 내용은 [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps) 참조를 참조하세요.
+자세한 내용은 [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) 참조를 참조하세요.
 
-## <a name="stintersects"></a>ST_INTERSECTS
+## <a name="st_intersects"></a>ST_INTERSECTS
 `ST_INTERSECTS` 함수는 두 LineString을 비교합니다. LineString이 교차하면 이 함수는 1을 반환합니다. LineString이 교차하지 않으면 이 함수는 0을 반환합니다.
 
 다음 예제 쿼리를 `ST_INTERSECTS`를 사용하여 포장된 도로가 비포장 도로와 교차하는지를 확인합니다.
@@ -160,8 +158,8 @@ FROM input
   
 |datacenterArea|stormArea|  
 |--------------------|---------------|  
-|{“type”:”LineString”, “coordinates”: [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{“type”:”LineString”, “coordinates”: [ [0.0, 10.0], [0.0, 0.0], [0.0, -10.0] ]}|  
-|{“type”:”LineString”, “coordinates”: [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{“type”:”LineString”, “coordinates”: [ [-10.0, 10.0], [0.0, 10.0], [10.0, 10.0] ]}|  
+|{"type": "LineString", "좌표": [[-10.0, 0.0], [0.0, 0.0], [10.0, 0.0]]}|{"type": "LineString", "좌표": [[0.0, 10.0], [0.0, 0.0], [0.0,-10.0]]}|  
+|{"type": "LineString", "좌표": [[-10.0, 0.0], [0.0, 0.0], [10.0, 0.0]]}|{"type": "LineString", "좌표": [[-10.0, 10.0], [0.0, 10.0], [10.0, 10.0]]}|  
   
 ### <a name="output-example"></a>출력 예제  
 
@@ -169,9 +167,9 @@ FROM input
   
  0  
 
-자세한 내용은 [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects) 참조를 참조하세요.
+자세한 내용은 [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) 참조를 참조하세요.
 
-## <a name="stwithin"></a>ST_WITHIN
+## <a name="st_within"></a>ST_WITHIN
 `ST_WITHIN` 함수는 점 또는 다각형이 다각형 내에 있는지 여부를 확인합니다. 다각형 안에 점 또는 다각형이 포함되어 있으면 이 함수는 1을 반환합니다. 점 또는 다각형이 선언된 다각형 내에 있지 않으면 이 함수는 0을 반환합니다.
 
 다음 예제 쿼리는 `ST_WITHIN`을 사용하여 배송 목적지가 지정된 창고 다각형 내에 있는지 여부를 확인합니다.
@@ -186,8 +184,8 @@ FROM input
   
 |deliveryDestination|warehouse|  
 |-------------------------|---------------|  
-|{“type”:”Point”, “coordinates”: [76.6, 10.1]}|{“type”:”Polygon”, “coordinates”: [ [0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0] ]}|  
-|{“type”:”Point”, “coordinates”: [15.0, 15.0]}|{“type”:”Polygon”, “coordinates”: [ [10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0] ]}|  
+|{"type": "Point", "좌표": [76.6, 10.1]}|{"type": "Polygon", "좌표": [[0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0]]}|  
+|{"type": "Point", "좌표": [15.0, 15.0]}|{"type": "Polygon", "좌표": [[10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0]]}|  
   
 ### <a name="output-example"></a>출력 예제  
 
@@ -195,12 +193,12 @@ FROM input
   
  1  
 
-자세한 내용은 [ST_WITHIN](https://msdn.microsoft.com/azure/stream-analytics/reference/st-within) 참조를 참조하세요.
+자세한 내용은 [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) 참조를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

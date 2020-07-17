@@ -1,27 +1,18 @@
 ---
-title: Microsoft Azure StorSimple 데이터 관리자 작업에 .NET SDK 사용 | Microsoft Docs
+title: Microsoft Azure StorSimple Data Manager 작업에 .NET SDK 사용
 description: .NET SDK를 사용하여 StorSimple 데이터 관리자 작업을 시작하는 방법에 대해 알아보기
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 316eddc98de78974bb2583f91ced635b148686c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60632359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514894"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용 하 여 데이터 변환 시작 하려면
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용 하 여 데이터 변환 시작
 
 ## <a name="overview"></a>개요
 
@@ -34,7 +25,7 @@ ms.locfileid: "60632359"
  
   이 문서에서는 샘플 .NET 콘솔 애플리케이션을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있어야 합니다.
 *   다음을 실행하는 컴퓨터:
@@ -44,7 +35,7 @@ ms.locfileid: "60632359"
     - Azure Powershell. [Azure Powershell을 다운로드합니다](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   리소스 그룹 내 StorSimple 데이터 관리자에 올바르게 구성된 작업 정의
 *   모든 필수 dll입니다. 이러한 dll을 [GitHub 리포지토리](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 다운로드합니다.
-*   GitHub 리포지토리의 [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) 스크립트입니다.
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)GitHub 리포지토리에서 스크립트를 시작 합니다.
 
 ## <a name="step-by-step-procedure"></a>단계별 절차
 
@@ -69,11 +60,11 @@ ms.locfileid: "60632359"
 
 3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
-    1. **Visual Studio 2012/2013/2015**을 실행합니다.
+    1. **Visual Studio 2012/2013/2015**를 시작 합니다.
     1. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.
 
         ![프로젝트 1 만들기](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
-    2. **설치됨 > 템플릿 > Visual C# > 콘솔 응용 프로그램**을 선택합니다.
+    2. **설치됨 &gt; 템플릿 &gt; Visual C# &gt; 콘솔 애플리케이션**을 선택합니다.
     3. **이름**으로 **DataTransformationApp**을 입력합니다.
     4. **위치**로 **C:\DataTransformation**을 선택합니다.
     6. **확인**을 클릭하여 프로젝트를 만듭니다.
@@ -128,7 +119,7 @@ ms.locfileid: "60632359"
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
     ```
 
-    (또는)
+    또는
 
     런타임 시 작업 정의 매개 변수를 변경하려는 경우 다음 코드를 추가합니다.
 
@@ -172,7 +163,7 @@ ms.locfileid: "60632359"
 
    ![데이터 변환 작업을 초기화하는 코드 조각](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-9. 이 작업은 루트 디렉터리와 일치하는 데이터와 StorSimple 볼륨 내의 파일 필터를 변환하고 지정된 컨테이너/파일 공유에 배치합니다. 파일을 변환하는 경우 메시지는 컨테이너/파일 공유와 동일한 저장소 계정에 있고 작업 정의와 동일한 이름을 갖는 저장소 큐에 추가됩니다. 이 메시지를 트리거로 사용하여 파일의 추가 처리를 시작할 수 있습니다.
+9. 이 작업은 루트 디렉터리와 일치하는 데이터와 StorSimple 볼륨 내의 파일 필터를 변환하고 지정된 컨테이너/파일 공유에 배치합니다. 파일을 변환하는 경우 메시지는 컨테이너/파일 공유와 동일한 스토리지 계정에 있고 작업 정의와 동일한 이름을 갖는 스토리지 큐에 추가됩니다. 이 메시지를 트리거로 사용하여 파일의 추가 처리를 시작할 수 있습니다.
 
 10. 작업이 트리거되면 다음 코드를 사용하여 완성을 위해 작업을 추적합니다. 작업을 실행하기 위해 이 코드를 반드시 추가해야 하는 것은 아닙니다.
 

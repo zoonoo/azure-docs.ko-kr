@@ -1,21 +1,21 @@
 ---
 title: Bing Autosuggest API를 사용한 검색어 제안
-titlesuffix: Azure Cognitive Services
-description: Bing Autosuggest API 사용 방법을 알아봅니다.
+titleSuffix: Azure Cognitive Services
+description: 이 문서에서는 Bing Autosuggest API를 사용 하 여 쿼리 용어를 제안 하는 개념과 쿼리 길이가 관련성이 높은 영향을 제안 하는 개념을 설명 합니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 293dcaadfc20116455983b3fc0069f9e9df3f843
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
+ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010551"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74072883"
 ---
 # <a name="suggesting-query-terms"></a>쿼리 용어 제안
 
@@ -23,7 +23,7 @@ ms.locfileid: "57010551"
 
 ## <a name="example-request"></a>요청 예
 
-다음 예제에서는 *sail*에 대해 제안된 쿼리 문자열을 반환하는 요청을 보여 줍니다. [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query) 쿼리 매개 변수를 설정할 때 사용자의 부분 쿼리 용어를 URL 인코딩해야 합니다. 예를 들어 사용자가 *sailing les*를 입력한 경우 `q`를 `sailing+les` 또는 `sailing%20les`로 설정합니다.
+다음 예제에서는 *sail*에 대해 제안된 쿼리 문자열을 반환하는 요청을 보여 줍니다. [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query) 쿼리 매개 변수를 설정할 때 사용자의 부분 쿼리 용어를 URL 인코딩해야 합니다. 예를 들어 사용자가 *sailing les*를 입력한 경우 `q`를 `sailing+les` 또는 `sailing%20les`로 설정합니다.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -34,7 +34,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-다음 응답에는 제안된 쿼리 용어를 포함하는 [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) 개체 목록이 포함됩니다.
+다음 응답에는 제안된 쿼리 용어를 포함하는 [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) 개체 목록이 포함됩니다.
 
 ```json
 {

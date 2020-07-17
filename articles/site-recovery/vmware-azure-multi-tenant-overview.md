@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복구를 위한 다중 테넌트 지원(CSP) 개요 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 VMware VM 다중 테 넌 트 재해 복구
 description: 다중 테넌트 환경(CSP) 프로그램에서 VMWare와 Azure 간 재해 복구를 위해 제공되는 Azure Site Recovery 지원에 대해 간략하게 설명합니다.
 author: mayurigupta13
 manager: rochakm
@@ -7,16 +7,15 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718124"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74083983"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>CSP를 사용한 VMware와 Azure 간 재해 복구를 위한 다중 테넌트 지원 개요
 
-[Azure Site Recovery](site-recovery-overview.md)는 테넌트 구독을 위해 다중 테넌트 환경을 지원합니다. 또한 Microsoft CSP(클라우드 솔루션 공급자) 프로그램을 통해 생성 및 관리되는 테넌트 구독에 대한 다중 테넌트도 지원합니다.
+[Azure Site Recovery](site-recovery-overview.md) 은 테 넌 트 구독에 대 한 다중 테 넌 트 환경을 지원 합니다. 또한 Microsoft CSP(클라우드 솔루션 공급자) 프로그램을 통해 생성 및 관리되는 테넌트 구독에 대한 다중 테넌트도 지원합니다.
 
 이 아티클에서는 Azure 복제에 대해 다중 테넌트 VMware를 구현하고 관리하는 개요를 제공합니다.
 
@@ -24,11 +23,11 @@ ms.locfileid: "60718124"
 
 세 가지 주요 다중 테넌트 모델이 있습니다.
 
-* **공유 HSP(호스팅 서비스 공급 기업)**: 파트너는 물리적 인프라를 소유하고 공유 리소스(vCenter, 데이터 센터, 실제 스토리지 등)를 사용하여 동일한 인프라에서 다중 테넌트 VM을 호스팅합니다. 파트너는 재해 복구 관리를 관리 서비스로 제공할 수 있으며 테넌트는 재해 복구를 셀프 서비스 솔루션으로 소유할 수 있습니다.
+* **HSP(공유 호스팅 서비스 공급자)**: 파트너는 물리적 인프라를 소유하고 공유 리소스(vCenter, 데이터 센터, 실제 스토리지 등)를 사용하여 동일한 인프라에서 다중 테넌트 VM을 호스팅합니다. 파트너는 재해 복구 관리를 관리 서비스로 제공할 수 있으며 테넌트는 재해 복구를 셀프 서비스 솔루션으로 소유할 수 있습니다.
 
-* **전용 호스팅 서비스 공급 기업**: 파트너는 물리적 인프라를 소유하지만 전용 리소스(여러 vCenter, 실제 데이터 저장소 등)를 사용하여 별도의 인프라에서 각 테넌트의 VM을 호스팅합니다. 파트너는 재해 복구 관리를 관리 서비스로 제공할 수 있으며 테넌트는 이를 셀프 서비스 솔루션으로 소유할 수 있습니다.
+* **전용 호스팅 서비스 공급자**: 파트너는 물리적 인프라를 소유하지만 전용 리소스(여러 vCenter, 실제 데이터 저장소 등)를 사용하여 별도의 인프라에서 각 테넌트의 VM을 호스팅합니다. 파트너는 재해 복구 관리를 관리 서비스로 제공할 수 있으며 테넌트는 이를 셀프 서비스 솔루션으로 소유할 수 있습니다.
 
-* **MSP(관리형 서비스 공급 기업)**: VM을 호스팅하는 실제 인프라를 고객이 소유하고 파트너는 재해 복구를 사용하고 관리합니다.
+* **MSP(관리형 서비스 공급자)**: 고객은 VM을 호스팅하는 실제 인프라를 소유하고 파트너는 재해 복구를 사용하고 관리합니다.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>공유 HSP(호스팅 서비스 공급자)
 
@@ -72,18 +71,18 @@ ms.locfileid: "60718124"
 
 ### <a name="create-a-vcenter-account"></a>vCenter 계정 만들기
 
-1. 미리 정의된 *읽기 전용* 역할을 복제하여 새 역할을 만들고 편리한 이름을 부여합니다(예: 이 예제에서 표시된 것처럼 Azure_Site_Recovery).
+1. 미리 정의 된 *읽기 전용* 역할을 복제 하 여 새 역할을 만든 다음이 예와 같이 편리한 이름을 지정 합니다 (예: Azure_Site_Recovery).
 2. 이 역할에 다음 권한을 할당합니다.
 
    * **데이터 저장소**: 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 머신 파일 업데이트
    * **네트워크**: 네트워크 할당
    * **리소스**: 리소스 풀에 VM 할당, 전원이 꺼진 VM 마이그레이션, 전원이 켜진 VM 마이그레이션
-   * **작업**: 만들기 작업, 업데이트 작업
-   * **VM - 구성**: 모두
+   * **작업**: 작업 만들기, 작업 업데이트
+   * **VM - 구성**: 전체
    * **VM - 상호 작용** &gt; 질문 응답, 디바이스 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치
    * **VM - 인벤토리** > 기존 항목에서 만들기, 새로 만들기, 등록, 등록 취소
    * **VM - 프로비전**> 가상 머신 다운로드 허용, 가상 머신 파일 업로드 허용
-   * **VM - 스냅숏 관리** > 스냅숏 제거
+   * **VM - 스냅샷 관리** &gt; 스냅샷 제거
 
        ![역할 편집 대화 상자](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
@@ -120,7 +119,7 @@ ms.locfileid: "60718124"
 
 1. Azure Portal에 있는 앞에서 만든 자격 증명 모음에서 만든 vCenter 계정을 사용하여 구성 서버에 vCenter Server를 등록합니다.
 2. 일반 프로세스에 대한 Site Recovery를 위해 “준비 인프라” 프로세스를 완료합니다.
-3. 이제 VM을 복제할 준비가 되었습니다. 테넌트의 VM이 **복제** > **가상 머신 선택**에 표시되는지만 확인합니다.
+3. 이제 VM을 복제할 준비가 되었습니다. **복제**  >  **선택 가상 컴퓨터**에 테 넌 트의 vm만 표시 되는지 확인 합니다.
 
 ## <a name="dedicated-hosting-solution"></a>전용 호스팅 솔루션
 

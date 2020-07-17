@@ -1,67 +1,71 @@
 ---
-title: 셀프 서비스 암호 재설정 등록 - Azure Active Directory | Microsoft Docs
-description: Azure AD 셀프 서비스 암호 재설정을 위한 인증 데이터를 등록합니다.
+title: 인증 정보를 사용한 본인 암호 재설정 - Azure AD
+description: Azure AD 셀프 서비스 암호 재설정을 위해 인증 수단 정보를 등록하면 관리자 도움 없이도 본인의 암호를 다시 설정할 수 있습니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f113c42ff45811f31eb77a92873fb187dd51ea6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: end-user-help
+ms.date: 05/28/2020
+ms.author: curtand
+ms.openlocfilehash: 999b458985d8ab486e8dbd6bcaa48ddd9e02fc28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60530878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266103"
 ---
-# <a name="register-for-self-service-password-reset"></a>셀프 서비스 암호 재설정 등록
+# <a name="register-your-verification-method-info-to-reset-your-own-password"></a>자신의 암호를 재설정하기 위한 본인 확인 방법 정보 등록
 
-> [!IMPORTANT]
-> 로그인할 수 없어서 여기에 있나요? 그렇다면 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조하세요.
+회사 또는 학교 암호가 생각 나지 않거나, 조직으로부터 암호를 받은 적이 없거나, 계정이 잠긴 경우 보안 정보 및 모바일 디바이스를 사용하여 회사 또는 학교 암호를 재설정할 수 있습니다.
 
-최종 사용자는 Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사용하는 경우 암호를 재설정하거나 계정 잠금을 직접 해제할 수 있습니다. 이 기능을 사용하려면 먼저 인증 방법을 등록하거나 관리자가 입력한 미리 정의된 인증 방법을 확인해야 합니다.
+관리자는 사용자가 정보를 등록하고 암호를 재설정할 수 있도록 이 기능을 켜야 합니다. **암호를 잊어버렸습니다** 옵션이 표시되지 않는 경우 조직의 관리자가 이 기능을 켜지 않은 것입니다. 이 기능이 필요하다고 생각하시는 경우 지원 센터에 도움을 요청하세요.
 
-## <a name="register-or-confirm-authentication-data-with-sspr"></a>SSPR을 사용하여 인증 데이터 등록 또는 확인
+>[!Important]
+>이 문서는 셀프 서비스 암호 재설정에 가입하려는 사용자를 위한 것입니다. 즉 alain@contoso.com , 관리자의 도움 없이 자신의 회사 또는 학교 암호 (예:)를 다시 설정할 수 있습니다. 직원 또는 다른 사용자에 대해 셀프 서비스 암호 재설정을 켜는 방법을 원하는 관리자는 [Azure AD 셀프 서비스 암호 재설정 배포 및 기타 문서](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)를 참조하세요.
 
-1. 디바이스에서 웹 브라우저를 열고 [암호 재설정 등록 페이지](https://aka.ms/ssprsetup)로 이동합니다.
-2. 관리자가 제공한 사용자 이름과 암호를 입력합니다.
-3. IT 직원이 작업을 구성한 방식에 따라 구성하고 확인하는 데 다음 옵션 중 하나 이상을 사용할 수 있습니다. 관리자가 사용자 정보를 사용할 수 있는 권한이 있는 경우 사용자의 일부 정보를 채울 수 있습니다.
-    * **사무실 전화**: 관리자만 이 옵션을 설정할 수 있습니다.
-    * **인증 전화**: 이 옵션을 액세스 권한이 있는 다른 전화 번호로 설정합니다. 예제는 문자 또는 호출을 받을 수 있는 휴대폰입니다.
-    * **인증 메일**: 재설정하려는 암호 없이 액세스할 수 있는 암호 확인용 메일로 이 옵션을 설정합니다.
-    * **보안 질문**: 사용자가 응답하도록 관리자가 승인한 질문 목록입니다. 같은 질문을 사용하거나 두 번 이상 답변할 수 없습니다.
-4. 관리자가 요구하는 정보를 제공하고 확인합니다. 둘 이상의 옵션을 사용할 수 있는 경우 여러 개의 방법을 등록하는 것이 좋습니다. 이렇게 하면 방법 중 하나를 사용할 수 없을 때 유연하게 작업할 수 있습니다. 출장 중이어서 사무실 전화에 액세스할 수 없는 경우를 예로 들 수 있습니다.
+## <a name="set-up-your-password-reset-verification-method"></a>암호 재설정 확인 방법 설정
 
-    ![인증 방법 등록 후 마침 선택][Register]
+1. 디바이스에서 웹 브라우저를 열고 [암호 정보 페이지](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup)로 이동합니다.
 
-5. **마침**을 선택합니다. 나중에 필요할 때 SSPR을 사용할 수 있습니다.
+2. 관리자가 조직을 설정한 방식에 따라 다음 옵션 중 하나 이상을 보안 인증 방법으로 설정하는 데 사용할 수 있습니다. 여러 옵션을 사용할 수 있다면 방법 중 하나를 사용할 수 없게 되는 경우를 대비하여 둘 이상의 옵션을 보안 확인 방법으로 사용하는 것이 좋습니다.
 
-**인증 전화** 또는 **인증 전자 메일**에 데이터를 입력하면 전역 디렉터리에 표시되지 않습니다. 이 데이터를 볼 수 있는 유일한 사람은 사용자와 관리자입니다. 보안 질문에 대한 대답만 볼 수 있습니다.
+    - **인증 앱.** Microsoft Authenticator 앱 또는 다른 인증자 앱을 보안 확인 방법으로 사용하도록 선택합니다. 앱 설정 방법에 대한 자세한 내용은[확인 방법으로 Microsoft Authenticator 앱 설정](security-info-setup-auth-app.md)을 참조하세요.
 
-관리자는 적절한 방법을 등록했는지 확인하기 위해 일정 기간 후에 인증 방법을 확인해야 할 수 있습니다.
+    - **문자 메시지.** 본인의 모바일 디바이스에 직접 문자 메시지를 보내려면 선택합니다. 문자 메시지 설정에 대한 자세한 내용은 [확인 방법으로 문자 메시지 설정](security-info-setup-text-msg.md)을 참조하세요.
+
+    - **전화 통화.** 등록된 전화 번호로 전화를 받으려면 선택합니다. 전화 통화 설정에 대한 자세한 내용은 [확인 방법으로 전화 번호 설정](security-info-setup-phone-number.md)을 참조하세요.
+
+    - **보안 키.** Microsoft 호환 보안 키를 사용하려면 선택합니다. 자세한 내용은 [확인 방법으로 보안 키 설정](security-info-setup-security-key.md)을 참조하세요.
+
+    - **이메일 주소.** 잊었거나 분실한 암호를 요청하지 않고 사용할 수 있는 대체 이메일 주소를 선택합니다. 보안 확인 방법이 아닌 암호 재설정에만 적용됩니다. 이메일 주소 설정에 대한 자세한 내용은 [확인 방법으로 이메일 주소 설정](security-info-setup-email.md)을 참조하세요.
+
+    - **보안 질문.** 관리자가 정한 미리 정의된 보안 질문을 설정하고 답하도록 선택합니다. 보안 확인 방법이 아닌 암호 재설정에만 적용됩니다. 보안 질문에 대한 자세한 내용은 [확인 방법으로 보안 질문 설정](security-info-setup-questions.md)을 참조하세요.
+
+3. 메서드를 선택 및 설정한 후 **마침**을 선택하여 프로세스를 완료합니다.
+
+    > [!Note]
+    > 전화 번호 또는 이메일 주소에 추가된 정보는 조직의 글로벌 디렉터리와 공유되지 않습니다. 이 정보는 본인과 관리자만 볼 수 있습니다. 보안 질문에 대한 대답만 볼 수 있습니다.
 
 ## <a name="common-problems-and-their-solutions"></a>일반적인 문제 및 해결 방법
 
  다음은 일반적인 오류 사례 및 해결 방법입니다.
 
-| 오류 사례| 어떤 오류가 표시되나요?| 해결 방법 |
+| 오류 메시지 |  가능한 솔루션 |
 | --- | --- | --- |
-| 내 사용자 ID를 입력한 후에 "관리자에게 문의하세요" 페이지가 보입니다. | 관리자에게 문의하세요. <br> <br> Microsoft에서 사용자 계정 암호가 관리되지 않는 것이 감지되었습니다. 결과적으로 자동으로 암호를 재설정할 수 없습니다. <br> <br> IT 직원에게 추가 지원을 요청하세요. | IT 직원이 온-프레미스 환경에서 암호를 관리하고 **계정 링크에 액세스할 수 없음**에서 암호를 재설정할 수 없기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 다시 설정하려면 도움말에 대해 IT 직원에게 직접 문의합니다. 이 기능을 활성화할 수 있도록 암호를 재설정하길 원한다는 것을 해당 IT 직원에게 알려주세요.|
-| 내 사용자 ID를 입력한 후에 "계정은 암호 재설정에 사용할 수 없습니다." 오류가 발생합니다. | 암호 재설정을 위해 계정을 사용할 수 없습니다. <br> <br> 죄송하지만 IT 직원이 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | IT 직원이 **계정에 액세스할 수 없음** 링크에서 조직에 대해 암호 재설정을 사용하도록 설정하지 않았거나 기능을 사용하도록 허가하지 않았기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 재설정하려면 **관리자에게 문의하세요.** 링크를 선택합니다. 회사의 IT 직원에게 전자 메일이 전송됩니다. 이 전자 메일은 이 기능을 활성화할 수 있도록 암호를 재설정하길 원한다는 것을 해당 IT 직원에게 알려줍니다. |
-| 내 사용자 ID를 입력한 후에 "계정을 확인하지 못했습니다" 오류가 발생합니다. | 계정을 확인하지 못했습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | 이 메시지는 암호 재설정을 사용할 수 있지만 서비스를 사용하도록 등록하지 않은 경우 표시됩니다. 암호 재설정을 등록하려면 계정에 대한 액세스를 회복한 후에 [암호 재설정 등록 페이지](https://aka.ms/ssprsetup)로 이동합니다. <br> <br> 암호를 재설정하려면 **관리자에게 문의하세요.** 링크를 선택하여 회사의 IT 직원에게 메일을 보냅니다. |
+| 관리자에게 문의하세요.<br>Microsoft에서 사용자 계정 암호가 관리되지 않는 것이 감지되었습니다. 결과적으로 자동으로 암호를 재설정할 수 없습니다.<br>IT 직원에게 추가 지원을 요청하세요.| 사용자 ID를 입력한 후 이 오류 메시지가 표시되었다면 해당 조직에서 내부적으로 암호를 관리하며 사용자가 **계정에 액세스할 수 없음** 링크에서 암호를 재설정할 수 없다는 뜻입니다. 이 경우 암호를 재설정하려면 해당 조직의 기술 지원팀이나 관리자에게 문의해야 합니다. |
+| 암호 재설정을 위해 계정을 사용할 수 없습니다.<br>죄송하지만 IT 직원이 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다.<br>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | 사용자 ID를 입력한 후 이 오류 메시지가 표시되었다면 조직에서 암호 재설정 기능을 켜지 않았거나 해당 사용자가 이 기능을 사용하도록 허용되지 않았음을 의미합니다. 이런 상황에서 암호를 재설정하려면 **관리자 문의** 링크를 선택해야 합니다. 링크를 클릭하면 조직의 기술 지원팀 또는 관리자에게 이메일을 보내 암호 재설정이 필요함을 알립니다. |
+| 계정을 확인하지 못했습니다.<br>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | 사용자 ID를 입력한 후 이 오류 메시지가 표시되었다면 해당 조직에서 암호 재설정을 켰고 사용자가 이 기능을 사용할 수 있으나 서비스에 등록되지 않았음을 의미합니다. 이 상황에서 암호를 재설정하려면 해당 조직의 기술 지원팀이나 관리자에게 문의해야 합니다. 디바이스로 돌아와 암호 재설정에 등록하는 내용은 이 문서의 위 프로세스를 참조하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 
-* [셀프 서비스 암호 재설정을 사용하여 암호 변경](active-directory-passwords-update-your-own-password.md)
-* [암호 재설정 등록 페이지](https://aka.ms/ssprsetup)
-* [암호 재설정 포털](https://passwordreset.microsoftonline.com/)
-* [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+- [셀프 서비스 암호 재설정을 사용하여 암호 변경](active-directory-passwords-update-your-own-password.md)
 
-[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "등록된 방법을 보여 주는 암호 재설정 등록 페이지 및 마침 단추"
+- [보안 정보 페이지](https://mysignins.microsoft.com/security-info)
 
+- [암호 재설정 포털](https://passwordreset.microsoftonline.com/)
+
+- [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)

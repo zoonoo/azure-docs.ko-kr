@@ -1,23 +1,23 @@
 ---
 title: Microsoft Azure Data Box Gateway 개요 | Microsoft Docs
-description: Azure로 데이터를 전송하는 데 사용할 수 있는 가상 어플라이언스 저장소 솔루션인 Azure Data Box Gateway에 대해 설명합니다.
+description: Azure로 데이터를 전송하는 데 사용할 수 있는 가상 어플라이언스 스토리지 솔루션인 Azure Data Box Gateway에 대해 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 2905cae6d5d97062d5a2fc1da41d55290d89fb4a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924516"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100748"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Azure Data Box Gateway란?
 
-Azure Data Box Gateway는 Azure로 데이터를 원활하게 전송하는 데 사용할 수 있는 저장소 솔루션입니다. 이 문서에서는 Azure Data Box Gateway 솔루션의 개요, 이점, 주요 기능 및 이 디바이스를 배포할 수 있는 시나리오를 소개합니다.
+Azure Data Box Gateway는 Azure로 데이터를 원활하게 전송하는 데 사용할 수 있는 스토리지 솔루션입니다. 이 문서에서는 Azure Data Box Gateway 솔루션의 개요, 이점, 주요 기능 및 이 디바이스를 배포할 수 있는 시나리오를 소개합니다.
 
 Data Box Gateway는 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 머신을 기반으로 하는 가상 디바이스입니다. 가상 디바이스는 온-프레미스에 있으며, NFS 및 SMB 프로토콜을 사용하여 해당 디바이스에 데이터를 씁니다. 그러면 디바이스가 Azure 블록 Blob, 페이지 Blob 또는 Azure Files로 데이터를 전송합니다.
 
@@ -49,7 +49,7 @@ Data Box Gateway의 이점은 다음과 같습니다.
 
 Data Box Gateway의 기능은 다음과 같습니다.
 
-|기능 |설명  |
+|기능 |Description  |
 |---------|---------|
 |속도     | 고도로 최적화된 완전 자동 데이터 전송 기능과 대역폭이 제공됩니다.|
 |지원되는 프로토콜     | 데이터 수집을 위한 표준 SMB 및 NFS 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용을 확인하려면 [Data Box Gateway 시스템 요구 사항](data-box-gateway-system-requirements.md)을 방문하세요.|
@@ -57,7 +57,6 @@ Data Box Gateway의 기능은 다음과 같습니다.
 |빠른 액세스     | 가장 최근에 사용한 파일에 빠르게 액세스할 수 있도록 디바이스에 로컬 캐시가 생성됩니다.|
 |오프라인 업로드     | 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
-|암호화    | *https*를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.       |
 |복원력     | 네트워크 복원 기능이 기본적으로 제공됩니다.        |
 
 
@@ -65,7 +64,7 @@ Data Box Gateway의 기능은 다음과 같습니다.
 
 Data Box Gateway 가상 디바이스의 사양은 다음과 같습니다.
 
-| 사양                                          | 설명              |
+| 사양                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | 가상 프로세서(코어)   | 최소 4개 |
 | 메모리  |최소 8GB|
@@ -90,16 +89,11 @@ Data Box Gateway 솔루션은 Data Box Gateway 리소스, Data Box Gateway 가�
 
 데이터를 전송하는 Data Box Gateway 물리적 디바이스, Azure 리소스 및 대상 스토리지 계정이 모두 동일한 Azure 지역에 있지 않아도 됩니다.
 
-- **리소스 가용성** - 이 릴리스의 경우 공용 클라우드를 지원하는 다음 Azure 지역에서 Data Box Gateway 리소스를 사용할 수 있습니다.
-    - **미국** - 미국 동부
-    - **유럽 연합** - 유럽 서부
-    - **아시아 태평양** - 동남 아시아
+- **리소스 가용성** - Azure Data Box Gateway 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox)으로 이동합니다. Data Box Gateway는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
 
-    Data Box Gateway는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
+- **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다.
 
-- **대상 저장소 계정** - 데이터를 저장하는 저장소 계정은 모든 Azure 지역에서 사용할 수 있습니다.
-
-    성능을 최적화하려면 저장소 계정이 Data Box 데이터를 저장하는 지역이 디바이스를 사용하는 지역 근처여야 합니다. 저장소 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
+    성능을 최적화하려면 스토리지 계정이 Data Box 데이터를 저장하는 지역이 디바이스를 사용하는 지역 근처여야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

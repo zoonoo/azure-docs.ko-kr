@@ -1,197 +1,184 @@
 ---
-title: Linux에서 Node.js 앱 만들기 - Azure App Service | Microsoft Docs
-description: 몇 분 안에 Linux의 Azure App Service에서 첫 번째 Node.js Hello World를 배포합니다.
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
-ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: quickstart
-ms.date: 03/27/2019
+title: '빠른 시작: Linux Node.js 앱 만들기'
+description: 첫 번째 Node.js 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service에서 Linux 앱을 시작하세요.
+author: msangapu-msft
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 54602425ae6e1ff65a8445355af2eca09d495b05
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.date: 08/12/2019
+ms.topic: quickstart
+ms.devlang: javascript
+ms.openlocfilehash: 52466bac083f78002a8208ba52ca7d1b951c4064
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548681"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801487"
 ---
-# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 앱 만들기
+# <a name="create-a-nodejs-app-in-azure"></a>Azure에서 Node.js 앱 만들기
 
-> [!NOTE]
-> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 Node.js 앱 만들기](../app-service-web-get-started-nodejs.md)를 참조하세요.
->
+Azure App Service는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Node.js 앱을 Azure App Service에 배포하는 방법을 보여줍니다.
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작은 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용하여 Linux의 App Service에 Node.js 앱을 배포하는 방법을 보여줍니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-Cloud Shell에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다.
+Azure 계정이 없는 경우 지금 200달러의 Azure 크레딧으로 체험 계정에 [지금 가입](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension)하여 서비스 조합을 사용해 볼 수 있습니다.
 
-![Azure에서 실행되는 샘플 앱](media/quickstart-nodejs/hello-world-in-browser.png)
+Node.js 패키지 관리자인 [Node.js 및 npm](https://nodejs.org/en/download)과 함께 [Visual Studio Code](https://code.visualstudio.com/)를 설치해야 합니다.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+또한 Azure PaaS(Platform as a Service)에서 Linux Web Apps를 만들고, 관리하고, 배포하는 데 사용할 수 있는 [Azure App Service 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)도 설치해야 합니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+### <a name="sign-in"></a>로그인
 
-## <a name="download-the-sample"></a>샘플 다운로드
+확장이 설치되면 Azure 계정에 로그인합니다. 작업 표시줄에서 Azure 로고를 선택하여 **AZURE APP SERVICE** 탐색기를 표시합니다. **Azure에 로그인...** 을 선택하고 지침을 따릅니다.
 
-Cloud Shell에서 quickstart 디렉터리를 만든 다음, 해당 디렉토리로 이동합니다.
+![Azure에 로그인](./media/quickstart-nodejs/sign-in.png)
+
+### <a name="troubleshooting"></a>문제 해결
+
+**"이름이 [구독 ID]인 구독을 찾을 수 없습니다"** 오류가 표시되면 프록시를 사용하고 Azure API에 연결할 수 없기 때문일 수 있습니다. `export`를 사용하여 터미널의 프록시 정보를 사용하여 `HTTP_PROXY` 및 `HTTPS_PROXY` 환경 변수를 구성합니다.
+
+```sh
+export HTTPS_PROXY=https://username:password@proxy:8080
+export HTTP_PROXY=http://username:password@proxy:8080
+```
+
+환경 변수를 설정해도 문제가 해결되지 않으면 아래에 있는 **문제가 발생했습니다.** 단추를 선택하여 문의해 주세요.
+
+### <a name="prerequisite-check"></a>필수 구성 요소 확인
+
+계속하기 전에 모든 필수 구성 요소를 설치하고 구성했는지 확인합니다.
+
+VS Code에서 상태 표시줄에는 Azure 이메일 주소가 표시되고, **AZURE APP SERVICE** 탐색기에는 구독이 표시됩니다.
+
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
+
+## <a name="create-your-nodejs-application"></a>Node.js 애플리케이션 만들기
+
+다음으로, 클라우드에 배포할 수 있는 Node.js 애플리케이션을 만듭니다. 이 빠른 시작에서는 애플리케이션 생성기를 사용하여 터미널에서 애플리케이션을 빠르게 스캐폴드합니다.
+
+> [!TIP]
+> [Node.js 자습서](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)를 이미 완료한 경우 [Azure에 배포](#deploy-to-azure)로 건너뛸 수 있습니다.
+
+### <a name="scaffold-a-new-application-with-the-express-generator"></a>Express 생성기를 사용하여 새 애플리케이션 스캐폴드
+
+[Express](https://www.expressjs.com)는 Node.js 애플리케이션을 빌드하고 실행하는 데 널리 사용되는 프레임워크입니다. [Express 생성기](https://expressjs.com/en/starter/generator.html) 도구를 사용하여 새 Express 애플리케이션을 스캐폴드할(만들) 수 있습니다. Express 생성기는 npm 모듈로 제공되며, npm 명령줄 도구`npx`를 사용하여 직접(설치 없이) 실행할 수 있습니다.
 
 ```bash
-mkdir quickstart
-
-cd quickstart
+npx express-generator myExpressApp --view pug --git
 ```
 
-이어서 다음 명령을 실행하여 quickstart 디렉터리에 샘플 앱 리포지토리를 복제합니다.
+`--view pug --git` 매개 변수는 [pug](https://pugjs.org/api/getting-started.html) 템플릿 엔진(이전의 `jade`)을 사용하고 `.gitignore` 파일을 만들도록 생성기에 지시합니다.
+
+애플리케이션의 모든 종속성을 설치하려면 새 폴더로 이동하여 `npm install`을 실행합니다.
 
 ```bash
-git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
+cd myExpressApp
+npm install
 ```
 
-실행 시 다음 예와 유사한 정보를 출력합니다.
+### <a name="run-the-application"></a>애플리케이션 실행
+
+다음으로, 애플리케이션이 실행되는지 확인합니다. 터미널에서 `npm start` 명령을 사용하여 애플리케이션을 시작하여 서버를 시작합니다.
 
 ```bash
-Cloning into 'nodejs-docs-hello-world'...
-remote: Counting objects: 40, done.
-remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
-Unpacking objects: 100% (40/40), done.
-Checking connectivity... done.
+npm start
 ```
 
-> [!NOTE]
-> 샘플 index.js는 수신 대기 포트를 process.env.PORT로 설정합니다. 이 환경 변수는 App Service에 의해 할당됩니다.
->
+이제 브라우저를 열고, 다음과 같이 표시되는 `http://localhost:3000`으로 이동합니다.
 
-## <a name="create-a-web-app"></a>웹앱 만들기
+![Express 애플리케이션 실행](./media/quickstart-nodejs/express.png)
 
-샘플 코드가 들어있는 디렉토리로 이동한 후 `az webapp up` 명령을 실행합니다.
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 
-다음 명령에서 <app_name>을 고유한 앱 이름으로 바꿉니다.
+## <a name="deploy-to-azure"></a>Deploy to Azure
+
+이 섹션에서는 VS Code와 Azure App Service 확장을 사용하여 Node.js 앱을 배포합니다. 이 빠른 시작에서는 앱이 압축되어 Linux의 Azure 웹앱에 배포되는 가장 기본적인 배포 모델을 사용합니다.
+
+### <a name="deploy-using-azure-app-service"></a>Azure App Service를 사용하여 배포
+
+먼저 VS Code에서 애플리케이션 폴더를 엽니다.
 
 ```bash
-cd nodejs-docs-hello-world
-
-az webapp up -n <app_name>
+code .
 ```
 
-이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
+**AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다.
 
-```json
-Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
-Resource group creation complete
-Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
-App service plan creation complete
-Creating app '<app_name>' ....
-Webapp creation complete
-Updating app settings to enable build after deployment
-Creating zip with contents of dir /home/username/quickstart/nodejs-docs-hello-world ...
-Preparing to deploy and build contents to app.
-Fetching changes.
+![웹앱에 배포](./media/quickstart-nodejs/deploy.png)
 
-Generating deployment script.
-Generating deployment script.
-Generating deployment script.
-Running deployment command...
-Running deployment command...
-Running deployment command...
-Deployment successful.
-All done.
-{
-  "app_url": "https://<app_name>.azurewebsites.net",
-  "location": "Central US",
-  "name": "<app_name>",
-  "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
-  "serverfarm": "appsvc_asp_Linux_CentralUS",
-  "sku": "STANDARD",
-  "src_path": "/home/username/quickstart/nodejs-docs-hello-world ",
-  "version_detected": "6.9",
-  "version_to_create": "node|6.9"
-}
-```
+> [!TIP]
+> '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 **명령 팔레트**(Ctrl+Shift+P)에서 배포할 수도 있습니다.
 
-`az webapp up` 명령에는 다음 작업이 포함됩니다.
+1. 현재 열려 있는 `myExpressApp` 디렉터리를 선택합니다.
 
-- 기본 리소스 그룹 만들기
+1. 기본적으로 Linux의 App Service에 배포되는 **새 웹앱 만들기**를 선택합니다.
 
-- 기본 앱 서비스 계획 만들기
+1. 웹앱에 대해 전역적으로 고유한 이름을 입력하고, Enter 키를 누릅니다. 앱 이름에 유효한 문자는 'a-z', '0-9' 및 '-'입니다.
 
-- 지정된 이름의 앱 만들기
+1. **Node.js 버전**을 선택합니다. LTS가 추천됩니다.
 
-- 현재 작업 디렉터리에서 앱까지의 [배포 파일을 압축합니다](https://docs.microsoft.com/azure/app-service/deploy-zip).
+    알림 채널에는 앱에 대해 만들어지는 Azure 리소스가 표시됩니다.
 
-## <a name="browse-to-the-app"></a>앱으로 이동
+1. 대상 서버에서 `npm install`을 실행하도록 구성을 업데이트하라는 메시지가 표시되면 **예**를 선택합니다. 그러면 앱이 배포됩니다.
 
-웹 브라우저를 사용하여 배포된 애플리케이션으로 이동합니다. <app_name>을 앱 이름으로 바꿉니다.
+    ![구성된 배포](./media/quickstart-nodejs/server-build.png)
 
-```bash
-http://<app_name>.azurewebsites.net
-```
+1. 배포가 시작되면 이후 배포에서 자동으로 동일한 App Service 웹앱을 대상으로 지정하도록 작업 영역을 업데이트하라는 메시지가 표시됩니다. 변경 내용이 올바른 앱에 배포되도록 하려면 **예**를 선택합니다.
 
-Node.js 샘플 코드가 기본 제공 이미지가 있는 Linux의 App Service에서 실행됩니다.
+    ![구성된 배포](./media/quickstart-nodejs/save-configuration.png)
 
-![Azure에서 실행되는 샘플 앱](media/quickstart-nodejs/hello-world-in-browser.png)
+> [!TIP]
+> 애플리케이션이 PORT 환경 변수(`process.env.PORT`)에서 제공하는 포트를 수신 대기하고 있는지 확인하세요.
 
-**축하합니다.** Linux의 App Service에 첫 번째 Node.js 앱을 배포했습니다.
+### <a name="browse-the-app-in-azure"></a>Azure에서 앱 찾아보기
 
-## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
+배포가 완료되면 프롬프트에서 **웹 사이트 찾아보기**를 선택하여 새로 배포된 웹앱을 확인합니다.
 
-Cloud Shell에서 `nano index.js`을 입력하여 Nano 텍스트 편집기를 엽니다.
+### <a name="troubleshooting"></a>문제 해결
 
-![Nano index.js](media/quickstart-nodejs/nano-indexjs.png)
+**"이 디렉터리 또는 페이지를 볼 수 있는 권한을 가지고 있지 않습니다."** 오류가 표시되면 애플리케이션이 제대로 시작되지 못했을 수 있습니다. 다음 섹션으로 이동하여 로그 출력을 확인하고 오류를 찾아 해결합니다. 해결할 수 없는 경우 아래에 있는 **문제가 발생했습니다.** 단추를 선택하여 문의해 주세요. 성심껏 도와드리겠습니다!
 
- `response.end`에 대한 호출에서 텍스트를 약간 변경합니다.
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
 
-```nodejs
-response.end("Hello Azure!");
-```
+### <a name="update-the-app"></a>앱 업데이트
 
-변경 내용을 저장하고 Nano를 종료합니다. `^O` 명령을 사용하여 저장하고 `^X` 명령을 사용하여 종료합니다.
+동일한 프로세스를 사용하여 새 앱을 만들지 않고 기존 앱을 선택하여 변경 내용을 해당 앱에 배포할 수 있습니다.
 
-이제 앱을 다시 배포합니다. `<app_name>`을 앱으로 대체합니다.
+## <a name="viewing-logs"></a>로그 보기
 
-```bash
-az webapp up -n <app_name>
-```
+이 섹션에서는 실행 중인 App Service 앱에서 로그를 보거나 "추적(tail)"하는 방법에 대해 알아봅니다. 앱에서 `console.log`에 대한 모든 호출은 Visual Studio Code의 출력 창에 표시됩니다.
 
-배포가 완료되면 **앱으로 이동** 단계에서 열린 브라우저 창으로 다시 전환하고 페이지를 새로 고칩니다.
+**AZURE APP SERVICE** 탐색기에서 앱을 찾아서 마우스 오른쪽 단추로 클릭하고, **스트리밍 로그 보기**를 선택합니다.
 
-![Azure에서 실행되는 업데이트된 샘플 앱](media/quickstart-nodejs/hello-azure-in-browser.png)
+VS Code 출력 창이 열려 로그 스트림에 연결됩니다.
 
-## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
+![스트리밍 로그 보기](./media/quickstart-nodejs/view-logs.png)
 
-만든 앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
+![로깅 사용 및 다시 시작](./media/quickstart-nodejs/enable-restart.png)
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
+몇 초 후에 로그 스트리밍 서비스에 연결되었다는 메시지가 표시됩니다. 페이지를 몇 번 새로 고쳐 더 많은 작업을 볼 수 있습니다.
 
-![Azure 앱에 대한 포털 탐색](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+<pre>
+2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
+2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
+2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
+2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
+</pre>
 
-앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 완료할 수 있습니다.
-
-![Azure Portal의 App Service 페이지](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
-
-왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다.
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 이러한 리소스가 나중에 필요하지 않을 경우 Cloud Shell에서 리소스 그룹을 삭제합니다. 지역을 수정한 경우 리소스 그룹 이름 `appsvc_rg_Linux_CentralUS`를 응용 프로그램에 특정된 리소스 그룹으로 업데이트합니다.
-
-```azurecli-interactive
-az group delete --name appsvc_rg_Linux_CentralUS
-```
-
-이 명령을 실행하는 데 1분 정도 걸릴 수 있습니다.
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [자습서: MongoDB를 사용하는 Node.js 앱](tutorial-nodejs-mongodb-app.md)
+축하합니다! 이 빠른 시작을 성공적으로 완료했습니다!
 
-> [!div class="nextstepaction"]
-> [Node.js 앱 구성](configure-language-nodejs.md)
+다음으로, 다른 Azure 확장을 확인합니다.
+
+* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+* [Docker 도구](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+* [Azure CLI 도구](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+* [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+
+또는 [Azure용 Node 팩](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) 확장 팩을 설치하여 모두 가져옵니다.

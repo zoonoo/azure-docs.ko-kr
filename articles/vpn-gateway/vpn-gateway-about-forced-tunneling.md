@@ -1,26 +1,17 @@
 ---
-title: 'Azure 사이트 간 연결의 강제 터널링 구성: 클래식 | Microsoft Docs'
+title: 'Azure VPN Gateway: 강제 터널링-사이트 간 연결 구성: 클래식'
 description: 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 '강제 적용'하는 방법입니다.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77201580"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 강제 터널링 구성
 
@@ -28,7 +19,7 @@ ms.locfileid: "60506028"
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-이 문서에서는 클래식 배포 모델을 사용하여 만든 가상 네트워크에 대한 강제 터널링을 구성하는 과정을 안내합니다. 강제 터널링은 포털을 통해서가 아닌 PowerShell을 사용하여 구성할 수 있습니다. Resource Manager 배포 모델에 대 한 강제 터널링을 구성 하려는 경우 다음 드롭다운 목록에서 Resource Manager 문서를 선택 합니다.
+이 문서에서는 클래식 배포 모델을 사용하여 만든 가상 네트워크에 대한 강제 터널링을 구성하는 과정을 안내합니다. 강제 터널링은 포털을 통해서가 아닌 PowerShell을 사용하여 구성할 수 있습니다. 리소스 관리자 배포 모델에 대 한 강제 터널링을 구성 하려면 다음 드롭다운 목록에서 리소스 관리자 문서를 선택 합니다.
 
 > [!div class="op_single_selector"]
 > * [PowerShell - 클래식](vpn-gateway-about-forced-tunneling.md)
@@ -41,13 +32,13 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 * 각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
 
-  * **로컬 VNet 경로**: 동일한 가상 네트워크의 대상 VM에 바로 연결됩니다.
-  * **온-프레미스 경로**: Azure VPN Gateway에 연결됩니다.
-  * **기본 경로**: 인터넷에 바로 연결됩니다. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
+  * **로컬 VNet 경로:** 동일한 가상 네트워크에서 대상 VM으로 직접
+  * **온-프레미스 경로:** Azure VPN Gateway로
+  * **기본 경로:** 인터넷으로 직접. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
 * 사용자 정의 경로가 릴리스되면서 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
 * 가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다.
 * 강제 터널링은 동적 라우팅 VPN Gateway(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다.
-* ExpressRoute 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다. 자세한 내용은 [ExpressRoute 설명서](https://azure.microsoft.com/documentation/services/expressroute/) 를 참조하세요.
+* ExpressRoute 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다. 자세한 내용은 [express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) 를 참조 하세요.
 
 ## <a name="configuration-overview"></a>구성 개요
 다음 예에서 프런트 엔드 서브넷은 강제 터널링되지 않았습니다. 프런트 엔드 서브넷에서 작업은 계속해서 인터넷에서 직접 고객의 요청을 수락하고 응답할 수 있습니다. 중간 계층 및 백 엔드 서브넷은 강제 터널링됩니다. 이러한 두 서브넷에서 인터넷으로의 모든 아웃바운드 연결은 S2S VPN 터널 중 하나를 통해 온-프레미스 사이트로 다시 force되거나 리디렉션됩니다.
@@ -59,9 +50,22 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 ## <a name="before-you-begin"></a>시작하기 전에
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
-* Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 구성된 가상 네트워크입니다. 
-* 최신 버전의 Azure PowerShell cmdlet. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요.
+* [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
+
+### <a name="to-sign-in"></a>로그인 하려면
+
+1. 관리자 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
+
+   ```powershell
+   azure config mode asm
+   ```
+2. 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
+
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="configure-forced-tunneling"></a>강제 터널링 구성
 다음 절차에 따라 가상 네트워크에 대한 강제 터널링을 지정할 수 있습니다. 구성 단계는 VNet 네트워크 구성 파일에 해당합니다.
@@ -104,7 +108,7 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
     </VirtualNetworkSite>
 ```
 
-이 예제에서 가상 네트워크 'MultiTier-VNet'에는 세 개의 서브넷(‘Frontend’, ‘Midtier’ 및 ‘Backend’ 서브넷)과 네 개의 프레미스 간 연결(‘DefaultSiteHQ’ 및 분기 세 개)이 있습니다. 
+이 예제에서 가상 네트워크 'MultiTier-VNet'에는 3개의 서브넷(Frontend', 'Midtier' 및 'Backend' 서브넷)과 함께 4개의 크로스 프레미스 연결(DefaultSiteHQ 및 3개의 분기)이 있습니다. 
 
 단계에서는 강제 터널링에 대한 기본 사이트 연결로 DefaultSiteHQ 를 설정하고 강제 터널링을 사용하도록 Midtier 및 Backend 서브넷을 구성합니다.
 

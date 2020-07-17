@@ -4,22 +4,20 @@ description: VM을 다시 부팅하게 할 수 있는 이벤트를 나열
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 70a6845349b90cf614a84e13680ebb6fc6b3e2a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77919416"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -31,10 +29,7 @@ Azure에서 실행되는 애플리케이션이 VM 재부팅 및 가동 중지 �
 
 애플리케이션에 이러한 수준의 중복성을 제공하기 위해 여러 개의 VM을 가용성 집합으로 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 VM을 사용할 수 있고 99.95% [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/)가 충족되도록 합니다.
 
-사용 가능성 집합에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-- [VM의 가용성 관리](../windows/manage-availability.md)
-- [VM의 가용성 구성](../windows/classic/configure-availability.md)
+가용성 집합에 대 한 자세한 내용은 [vm의 가용성 관리](../windows/manage-availability.md) 를 참조 하세요.
 
 ## <a name="resource-health-information"></a>Resource Health 정보
 
@@ -57,7 +52,7 @@ Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Linux 가�
 
 Microsoft Azure의 이 업데이트 클래스는 사용자가 실행 중인 VM에는 아무런 영향도 주지 않습니다. 이러한 많은 업데이트는 실행 중인 인스턴스를 방해하지 않고 업데이트할 수 있는 구성 요소 또는 서비스에 대한 업데이트입니다. 일부는 VM을 재부팅하지 않고 적용할 수 있는 호스트 운영 체제의 플랫폼 인프라 업데이트입니다.
 
-이러한 메모리 보존 업데이트는 바로 실시간 마이그레이션을 가능하게 하는 기술을 통해 수행됩니다. 업데이트가 진행되는 동안 VM은 *일시 중지* 상태에 있게 됩니다. 이 상태는 기본 호스트 운영 체제가 필요한 업데이트 및 패치를 받는 동안 RAM의 메모리를 유지합니다. VM은 일시 중지 후 30초 내에 다시 시작됩니다. VM이 다시 시작된 후 시계는 자동으로 동기화됩니다.
+이러한 메모리 보존 업데이트는 바로 실시간 마이그레이션을 가능하게 하는 기술을 통해 수행됩니다. 업데이트 되는 경우 VM은 *일시 중지* 됨 상태로 전환 됩니다. 이 상태는 기본 호스트 운영 체제가 필요한 업데이트 및 패치를 받는 동안 RAM의 메모리를 유지합니다. VM은 일시 중지 후 30초 내에 다시 시작됩니다. VM이 다시 시작된 후 시계는 자동으로 동기화됩니다.
 
 일시 중지 기간이 짧기 때문에 이 메커니즘을 통한 업데이트 배포는 VM에 미치는 영향이 크게 줄어듭니다. 그러나 모든 업데이트를 이러한 방식으로 배포할 수는 없습니다. 
 
@@ -68,7 +63,7 @@ Microsoft Azure의 이 업데이트 클래스는 사용자가 실행 중인 VM�
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>사용자 시작 재부팅 또는 종료 작업
 
-Azure Portal, Azure PowerShell, 명령줄 인터페이스 또는 API 다시 설정을 수행한 경우 [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md)에서 이벤트를 확인할 수 있습니다.
+Azure Portal, Azure PowerShell, 명령줄 인터페이스 또는 REST API에서 다시 부팅을 수행 하는 경우 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)에서 이벤트를 찾을 수 있습니다.
 
 VM의 운영 체제에서 작업을 수행하는 경우 시스템 로그에서 이벤트를 찾을 수 있습니다.
 
@@ -102,7 +97,7 @@ VM은 Azure 데이터 센터 내에서 실행되는 실제 서버에서 호스�
 
 가끔 Azure 운영 팀은 Azure 플랫폼의 전반적인 상태를 확인하기 위한 유지 관리 활동을 수행해야 할 수 있습니다. 이 동작은 VM 사용 가능성에 영향을 줄 수 있고 일반적으로 앞에서 설명한 대로 동일한 자동 복구 작업이 발생합니다.  
 
-계획 되지 않은 유지 관리는 다음과 같습니다.
+계획 되지 않은 유지 관리에는 다음이 포함 됩니다.
 
 - 긴급 노드 조각 모음
 - 긴급 네트워크 스위치 업데이트
@@ -111,15 +106,15 @@ VM은 Azure 데이터 센터 내에서 실행되는 실제 서버에서 호스�
 
 VM 자체 내의 문제로 인해 VM이 다시 시작할 수 있습니다. VM에서 실행되는 작업 부하 또는 역할은 게스트 운영 체제 내에서 버그 검사를 트리거할 수 있습니다. 충돌에 대한 이유를 확인하는 도움말은 시스템 및 Windows VM에 대한 애플리케이션 로그와 Linux VM에 대한 직렬 로그에서 확인합니다.
 
-### <a name="storage-related-forced-shutdowns"></a>Storage 관련 강제 종료
+### <a name="storage-related-forced-shutdowns"></a>스토리지 관련 강제 종료
 
-Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 데이터 스토리지에 대한 가상 디스크를 사용합니다. VM 및 연결된 가상 디스크 간의 사용 가능성 또는 연결이 120초 이상 영향을 받을 때마다 Azure 플랫폼은 데이터 손상을 방지하기 위해 VM을 강제 종료합니다. 저장소 연결이 복원된 후에 VM의 전원은 자동으로 다시 켜집니다. 
+Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 데이터 스토리지에 대한 가상 디스크를 사용합니다. VM 및 연결된 가상 디스크 간의 사용 가능성 또는 연결이 120초 이상 영향을 받을 때마다 Azure 플랫폼은 데이터 손상을 방지하기 위해 VM을 강제 종료합니다. 스토리지 연결이 복원된 후에 VM의 전원은 자동으로 다시 켜집니다. 
 
-강제 종료 기간은 5분 정도로 짧지만 훨씬 길어질 수 있습니다. 다음은 저장소 관련 강제 종료와 연결된 특정 사례 중 하나입니다. 
+강제 종료 기간은 5분 정도로 짧지만 훨씬 길어질 수 있습니다. 다음은 스토리지 관련 강제 종료와 연결된 특정 사례 중 하나입니다. 
 
 **IO 제한 초과**
 
-초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 저장소는 500IOPS로 제한됩니다.) 이 문제를 완화하려면 워크로드에 따라 디스크 스트라이프를 사용하거나 게스트 VM 내에서 저장소 공간을 구성합니다. 자세한 내용은 [Storage 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
+초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 저장소는 500 IOPS로 제한 됩니다.) 이 문제를 완화 하려면 워크 로드에 따라 디스크 스트라이프를 사용 하거나 게스트 VM 내에서 저장소 공간을 구성 합니다. 자세한 내용은 [스토리지 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
 
 ### <a name="other-incidents"></a>다른 인시던트
 

@@ -8,22 +8,23 @@ manager: daveba
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73f30f4f16ad879468a424d6e5cbe81e68b7c33d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc7e8e3219cc2b11ed123889973c375edd22664d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359401"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>AD DS와 함께 Azure AD Connect Health 사용
-다음 문서는 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 중점을 둡니다. AD DS의 지원되는 버전은 다음과 같습니다. Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016
+다음 문서는 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 중점을 둡니다. 지원되는 AD DS 버전은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016입니다.
 
 Azure AD Connect Health를 사용한 AD FS 모니터링에 대한 자세한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조하세요.
 
@@ -39,14 +40,14 @@ AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러�
 ## <a name="domain-controllers-dashboard"></a>도메인 컨트롤러 대시보드
 이 대시보드에서는 모니터링 도메인 컨트롤러 각각의 주요 작업 메트릭 및 상태와 함께 사용자 환경의 토폴로지 보기를 제공합니다. 표시된 메트릭은 추가 조사가 필요할 수 있는 모든 도메인 컨트롤러를 신속하게 식별하는 데 도움이 됩니다. 기본적으로 열의 하위 집합만 표시됩니다. 하지만, 열 명령을 두 번 클릭하면 사용 가능한 열 집합 전체를 찾을 수 있습니다. 가장 원하는 열을 선택하면 이 대시보드가 AD DS 환경의 상태를 한 곳에서 쉽게 볼 수 있는 곳으로 변환됩니다.
 
-![도메인 컨트롤러](./media/how-to-connect-health-adds/aadconnect-health-adds-domainsandsites-dashboard.png)
+![도메인 컨트롤러 하나 이상](./media/how-to-connect-health-adds/aadconnect-health-adds-domainsandsites-dashboard.png)
 
 해당하는 도메인 또는 사이트에서 도메인 컨트롤러를 그룹화할 수 있으며 환경 토폴로지를 이해하는 데 도움이 됩니다. 마지막으로 블레이드 헤더를 두 번 클릭하면 사용 가능한 화면을 활용하도록 대시보드가 최대화됩니다. 여러 열을 표시하는 경우 크게 볼수록 도움이 됩니다.
 
 ## <a name="replication-status-dashboard"></a>복제 상태 대시보드
 이 대시보드에서는 모니터링되는 도메인 컨트롤러의 복제 상태 및 복제 토폴로지 보기를 제공합니다. 발견된 모든 오류에 대한 유용한 설명서와 함께 가장 최근 복제를 시도한 상태가 나열됩니다. 오류가 있는 도메인 컨트롤러를 두 번 클릭하면 오류에 대한 자세한 정보, 권장되는 해결 단계, 문제 해결 설명서에 대한 링크와 같은 정보를 포함하는 새 블레이드가 열립니다.
 
-![복제 진행 상태](./media/how-to-connect-health-adds/aadconnect-health-adds-replication.png)
+![복제 상태](./media/how-to-connect-health-adds/aadconnect-health-adds-replication.png)
 
 ## <a name="monitoring"></a>모니터링
 이 기능은 다양한 성능 카운터의 추세를 그래프로 제공하며 이 정보는 계속해서 모니터링되는 각각의 도메인 컨트롤러에서 수집됩니다. 도메인 컨트롤러의 성능은 포리스트에 있는 다른 모든 모니터된 도메인 컨트롤러 간에 쉽게 비교될 수 있습니다. 또한 다양한 성능 카운터를 나란히 볼 수 있으며 환경에서 문제를 해결할 때 유용합니다.
@@ -60,7 +61,7 @@ AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러�
 * [Azure AD Connect Health Agent 설치](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health 작업](how-to-connect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
-* [동기화에 대한 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
+* [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
-* [Azure AD Connect Health 버전 내역](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)
 

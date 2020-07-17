@@ -1,6 +1,6 @@
 ---
-title: Azure Storage 탐색기 접근성(미리 보기) | Microsoft Docs
-description: Azure Storage 탐색기 접근성(미리 보기)
+title: Azure Storage Explorer 접근성(미리 보기) | Microsoft Docs
+description: Azure Storage Explorer 접근성(미리 보기)
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -15,29 +15,29 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60457269"
 ---
-# <a name="storage-explorer-accessibility"></a>Storage 탐색기 접근성
+# <a name="storage-explorer-accessibility"></a>Storage Explorer 접근성
 
 ## <a name="screen-readers"></a>화면 읽기 프로그램
 
-Storage 탐색기는 Windows 및 Mac에서의 화면 읽기 프로그램 사용을 지원합니다. 각 플랫폼에 대해 다음 화면 읽기 프로그램을 사용하는 것이 좋습니다.
+Storage Explorer는 Windows 및 Mac에서의 화면 읽기 프로그램 사용을 지원합니다. 각 플랫폼에 대해 다음 화면 읽기 프로그램을 사용하는 것이 좋습니다.
 
 플랫폼 | 화면 판독기
 ---------|--------------
 Windows  | NVDA
-Mac      | 음성 전달
-Linux    | (화면 읽기 프로그램은 Linux에서 지원 되지 않음)
+Mac      | 음성
+Linux    | (화면 판독기는 Linux에서 지원 되지 않음)
 
-Storage 탐색기를 실행할 때 접근성 문제가 발생하면 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
+Storage Explorer를 실행할 때 접근성 문제가 발생하면 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
 
-## <a name="zoom"></a>Zoom
+## <a name="zoom"></a>확대/축소
 
-확대/축소를 통해 Storage 탐색기에서 텍스트를 확대할 수 있습니다. 확대하려면 [도움말] 메뉴에서 **확대/축소**를 클릭합니다. [도움말] 메뉴를 사용하여 확대/축소 수준을 다시 기본 수준으로 축소하고 재설정할 수 있습니다.
+확대/축소를 통해 Storage Explorer에서 텍스트를 확대할 수 있습니다. 확대하려면 [도움말] 메뉴에서 **확대/축소**를 클릭합니다. [도움말] 메뉴를 사용하여 확대/축소 수준을 다시 기본 수준으로 축소하고 재설정할 수 있습니다.
 
 ![[도움말] 메뉴의 [확대/축소] 옵션][0]
 
@@ -45,7 +45,7 @@ Storage 탐색기를 실행할 때 접근성 문제가 발생하면 [GitHub에�
 
 ## <a name="high-contrast-themes"></a>고대비 테마
 
-Storage 탐색기에는 두 개의 고대비 테마(**고대비 밝게**, **고대비 어둡게**)가 있습니다. 에 도움말을 선택 하 여 테마를 변경할 수 있습니다 > 테마 메뉴.
+Storage Explorer에는 두 개의 고대비 테마(**고대비 밝게**, **고대비 어둡게**)가 있습니다. 도움말 > 테마 메뉴에서를 선택 하 여 테마를 변경할 수 있습니다.
 
 ![테마 하위 메뉴][1]
 
@@ -80,8 +80,8 @@ Explorer               | **Control+Shift+E**
 
 명령  | 바로 가기 키
 ---------|------------------
-확대  | **Control+=**
-축소 | **Control+-**
+확대  | **컨트롤 + =**
+축소 | **컨트롤 +-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Blob 및 파일 공유 편집기 명령
 
@@ -105,7 +105,7 @@ Explorer               | **Control+Shift+E**
 명령                | 바로 가기 키
 -----------------------|------------------
 개발자 도구 설정/해제 | **F12**
-다시 로드                 | **Alt+Control+R**
+다시 로드                 | **Alt + Ctrl + R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

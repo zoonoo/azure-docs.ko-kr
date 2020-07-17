@@ -2,24 +2,16 @@
 title: 클라우드 서비스 모델 및 패키지 정의 | Microsoft Docs
 description: Azure의 클라우드 서비스 모델(.csdef,.cscfg) 및 패키지(.cspkg)에 대해 설명합니다.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: tanmaygore
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: tagore
+ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432639"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79247489"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
 클라우드 서비스는 서비스 정의 *(.csdef)*, 서비스 구성 *(.cscfg)*, 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg**는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg**와 **ServiceConfig.cscfg**에서 모두 클라우드 서비스를 만듭니다.
@@ -90,9 +82,9 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 </ServiceDefinition>
 ```
 
-여기에 사용되는 XML 스키마를 더 잘 이해하려면 [서비스 정의 스키마](/previous-versions/azure/reference/ee758711(v=azure.100))를 참조하면 됩니다. 그러나 여기서 간략하게 몇 가지 요소를 설명합니다.
+여기에 사용 된 XML 스키마를 더 잘 이해 하기 위해 [서비스 정의 스키마](/previous-versions/azure/reference/ee758711(v=azure.100)) 를 참조할 수 있지만, 다음은 몇 가지 요소에 대 한 간략 한 설명입니다.
 
-**Sites**  
+**사이트용**  
 IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한 정의를 포함합니다.
 
 **InputEndpoints**  
@@ -104,16 +96,16 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한
 **ConfigurationSettings**  
  특정 역할의 기능에 대한 설정 정의를 포함합니다.
 
-**Certificates**  
+**인증서**  
  역할에 필요한 인증서에 대한 정의를 포함합니다. 앞의 코드 예제에서는 Azure Connect 구성에 사용되는 인증서를 보여 줍니다.
 
 **LocalResources**  
- 로컬 저장소 리소스에 대한 정의를 포함합니다. 로컬 저장소 리소스는 역할의 인스턴스가 실행 중인 가상 머신의 파일 시스템에 예약된 디렉터리입니다.
+ 로컬 스토리지 리소스에 대한 정의를 포함합니다. 로컬 스토리지 리소스는 역할의 인스턴스가 실행 중인 가상 머신의 파일 시스템에 예약된 디렉터리입니다.
 
-**Imports**  
+**가져오기**  
  가져온 모듈에 대한 정의를 포함합니다. 앞의 코드 예제에서는 원격 데스크톱 연결 및 Azure Connect에 대한 모듈을 보여 줍니다.
 
-**Startup**  
+**Startup 클래스**  
  역할이 시작될 때 실행되는 작업을 포함합니다. 작업은 .cmd 또는 실행 파일에 정의됩니다.
 
 <a name="cscfg"></a>
@@ -149,7 +141,7 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한
 **ConfigurationSettings**  
  역할에 대해 실행 중인 인스턴스의 설정을 구성합니다. `<Setting>` 요소의 이름은 서비스 정의 파일에 있는 설정 정의와 일치해야 합니다.
 
-**Certificates**  
+**인증서**  
  서비스에서 사용되는 인증서를 구성합니다. 앞의 코드 예제에서는 RemoteAccess 모듈의 인증서를 정의하는 방법을 보여 줍니다. *thumbprint* 특성 값은 사용할 인증서의 지문으로 설정되어야 합니다.
 
 <p/>
@@ -186,7 +178,7 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 하나의 IP 주�
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" hostHeader="mail.mysite.cloudapp.net" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -223,6 +215,9 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 하나의 IP 주�
 <a name="cspkg"></a>
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
+> [!NOTE]
+> 배포할 수 있는 최대 패키지 크기는 600MB입니다.
+
 애플리케이션을 Azure에서 클라우드 서비스로 배포하려면 먼저 적절한 형식으로 애플리케이션을 패키지해야 합니다. **CSPack** 명령줄 도구( [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치됨)를 사용하여 Visual Studio 대신 패키지 파일을 만들 수 있습니다.
 
 **CSPack** 은 서비스 정의 파일 및 서비스 구성 파일의 콘텐츠를 사용하여 패키지의 콘텐츠를 정의합니다. **CSPack**은 [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy)을 사용하여 Azure에 업로드할 수 있는 애플리케이션 패키지 파일(.cspkg)을 생성합니다. 기본적으로 패키지의 이름은 `[ServiceDefinitionFileName].cspkg`이지만 **CSPack**의 `/out` 옵션을 사용하여 다른 이름을 지정할 수 있습니다.
@@ -296,3 +291,6 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
+
+
+

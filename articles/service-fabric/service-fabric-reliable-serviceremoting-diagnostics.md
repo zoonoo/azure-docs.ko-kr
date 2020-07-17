@@ -1,41 +1,32 @@
 ---
-title: Azure Service Fabric 진단 및 모니터링 | Microsoft Docs
+title: Azure ServiceFabric 진단 및 모니터링
 description: 이 문서에서는 Service Fabric Reliable ServiceRemoting 런타임에서 내보낸 성능 카운터를 포함하여 성능 모니터링 기능을 설명합니다.
-services: service-fabric
-documentationcenter: .net
 author: suchiagicha
-manager: chackdan
-editor: suchiagicha
-ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2017
-ms.author: suchiagicha
-ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: pepogors
+ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925949"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245928"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting에 대한 진단 및 성능 모니터링
-Reliable ServiceRemoting 런타임에서는 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 ServiceRemoting이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
+Reliable ServiceRemoting 런타임에서는 [성능 카운터](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1)를 내보냅니다. 이러한 정보는 ServiceRemoting이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
 
 
 ## <a name="performance-counters"></a>성능 카운터
 Reliable ServiceRemoting 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
-| Category | 설명 |
+| 범주 | 설명 |
 | --- | --- |
 | Service Fabric 서비스 |Azure Service Fabric Remoting 서비스 전용 카운터. 예: 요청을 처리하는 데 걸린 평균 시간 |
 | Service Fabric 서비스 메서드 |Service Fabric Remoting 서비스에 의해 구현되는 메서드 전용 카운터. 예: 서비스 메서드가 호출되는 빈도 |
 
 앞의 각 범주마다 하나 이상의 카운터가 있습니다.
 
-Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 애플리케이션을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 은 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
+Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) 애플리케이션을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)는 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
 
 ### <a name="performance-counter-instance-names"></a>성능 카운터 인스턴스 이름
 많은 수의 ServiceRemoting 서비스 또는 파티션이 있는 클러스터에는 성능 카운터 인스턴스 수가 많습니다. 성능 카운터 인스턴스 이름은 성능 카운터 인스턴스가 연결된 특정 파티션 및 서비스 메서드(있는 경우)를 식별하는 데 도움이 될 수 있습니다.
@@ -45,7 +36,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* - 성능 카운터 인스턴스와 연결된 서비스 패브릭 파티션 ID의 문자열 표현. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 메서드를 통해 생성됩니다.
+*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
 
 *ServiceReplicaOrInstanceId*는 성능 카운터 인스턴스와 연결된 Service Fabric 복제본/인스턴스 ID의 문자열 표현입니다.
 
@@ -66,7 +57,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 *ServiceRuntimeMethodId*는 내부 용도에 맞게 패브릭 서비스 런타임에 의해 생성되는 32비트 정수의 문자열 표현입니다. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
-*ServiceFabricPartitionID* - 성능 카운터 인스턴스와 연결된 서비스 패브릭 파티션 ID의 문자열 표현. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 메서드를 통해 생성됩니다.
+*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
 
 *ServiceReplicaOrInstanceId*는 성능 카운터 인스턴스와 연결된 Service Fabric 복제본/인스턴스 ID의 문자열 표현입니다.
 
@@ -83,7 +74,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 Reliable Service 런타임은 서비스 메서드의 실행과 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주 이름 | 카운터 이름 | 설명 |
+| 범주의 이름입니다. | 카운터 이름 | 설명 |
 | --- | --- | --- |
 | Service Fabric 서비스 메서드 |초당 호출 수 |초당 서비스 메서드가 호출되는 횟수 |
 | Service Fabric 서비스 메서드 |호출당 평균 시간(밀리초) |서비스 메서드를 실행하는 데 걸린 시간(밀리초) |
@@ -92,13 +83,13 @@ Reliable Service 런타임은 서비스 메서드의 실행과 관련하여 다�
 ### <a name="service-request-processing-performance-counters"></a>서비스 요청 처리 성능 카운터
 클라이언트가 서비스 프록시 개체를 통해 메서드를 호출하면 요청 메시지가 네트워크를 통해 서비스 서비스에 전송됩니다. 서비스는 요청 메시지를 처리하고 응답을 다시 클라이언트로 보냅니다. Reliable ServiceRemoting 런타임은 서비스 요청 처리와 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주 이름 | 카운터 이름 | 설명 |
+| 범주의 이름입니다. | 카운터 이름 | 설명 |
 | --- | --- | --- |
 | Service Fabric 서비스 |미해결 요청 수 |서비스에서 처리 중인 요청 수 |
 | Service Fabric 서비스 |요청당 평균 시간(밀리초) |서비스에서 요청을 처리하는 데 걸린 시간(밀리초) |
-| Service Fabric 서비스 |요청 deserialization에 걸린 평균 시간(밀리초) |서비스에서 수신될 때 서비스 요청 메시지를 deserialize하는 데 걸린 시간(밀리초) |
+| Service Fabric 서비스 |요청 deserialization에 걸린 평균 시간(밀리초) |서비스에서 수신될 때 서비스 요청 메시지를 역직렬화하는 데 걸린 시간(밀리초) |
 | Service Fabric 서비스 |요청 serialization에 걸린 평균 시간(밀리초) |응답이 클라이언트로 전송되기 전에 서비스에서 서비스 응답 메시지를 직렬화하는 데 걸린 시간(밀리초) |
 
 ## <a name="next-steps"></a>다음 단계
-* [샘플 코드](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
-* [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [예제 코드](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
+* [PerfView의 EventSource 공급자](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

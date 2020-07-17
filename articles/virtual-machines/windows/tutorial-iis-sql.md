@@ -1,26 +1,19 @@
 ---
-title: 자습서 - Azure에서 SQL, IIS, .NET 스택을 실행하는 VM 만들기 | Microsoft Docs
+title: 자습서 - Azure에서 SQL, IIS, .NET 스택을 실행하는 VM 만들기
 description: 이 자습서에서는 Azure에서 Windows 가상 머신에 Azure SQL, IIS, .NET 스택을 설치하는 방법을 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 770fa89bc08b448482b4a74d21ee307df8a9f836
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3e44236f74a5448c540c58ba730d65b412d48bd0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58167918"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82101708"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM에 SQL, IIS, .NET 스택 설치
 
@@ -130,7 +123,7 @@ Set-AzVMSqlServerExtension `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure PowerShell을 사용하여 SQL&#92;IIS&#92;.NET 스택을 설치했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure PowerShell을 사용하여 SQL&#92;IIS&#92;.NET 스택을 설치했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * VM 만들기 
@@ -138,8 +131,8 @@ Set-AzVMSqlServerExtension `
 > * SQL Server를 실행하는 VM 만들기
 > * SQL Server 확장 설치
 
-SSL 인증서로 IIS 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+TLS/SSL 인증서로 IIS 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [SSL 인증서로 IIS 웹 서버 보호](tutorial-secure-web-server.md)
+> [TLS/SSL 인증서로 IIS 웹 서버 보호](tutorial-secure-web-server.md)
 

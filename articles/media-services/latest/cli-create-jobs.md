@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: e4f2d4f0e7dd9380ba708d84dfe7588043fd4a68
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236690"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "71122385"
 ---
-# <a name="cli-example-create-and-submit-a-job"></a>CLI 예제: 작업 만들기 및 제출
+# <a name="cli-example-create-and-submit-a-job"></a>CLI 예: 작업 만들기 및 제출
 
 Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입력 비디오를 찾을 위치를 Media Services에 알려줘야 합니다. 옵션 중 하나는 다음 문서와 같이 HTTPS URL을 작업 입력으로 지정하는 것입니다. 
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 [Media Services 계정 만들기](create-account-cli-how-to.md)
 
@@ -87,4 +87,4 @@ az ams job start \
 
 ## <a name="next-steps"></a>다음 단계
 
-[Media Services 개요](media-services-overview.md)
+[az ams job(CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)

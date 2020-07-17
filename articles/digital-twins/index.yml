@@ -1,31 +1,81 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Digital Twins 설명서
+### YamlMime:Landing
+title: Azure Digital Twins 미리 보기 설명서
+summary: Azure Digital Twins를 사용하여 자산, 환경 및 비즈니스 시스템을 디지털로 표현하고 실제 세상을 모델링하는 차세대 IoT 솔루션을 빌드하는 방법을 알아봅니다.
 metadata:
-  title: 'Azure Digital Twins 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: Azure Digital Twins를 사용하여 스마트 공간 솔루션을 만듭니다.
-  author: dsk-2015
-  manager: timlt
+  title: Azure Digital Twins 미리 보기 설명서 - 자습서, API 참조 | Microsoft Docs
+  description: Azure Digital Twins를 사용하여 사람, 장소 및 항목을 연결하고 공간 인텔리전스를 사용하여 IoT 솔루션을 빌드하는 방법을 알아봅니다.
   ms.service: digital-twins
-  services: digital-twins
   ms.topic: landing-page
-  ms.date: 10/15/2018
-  ms.author: dkshir
-abstract:
-  description: 'Azure Digital Twins를 사용하여 사람, 장소 및 항목을 연결하고 공간 인텔리전스를 사용하여 IoT 솔루션을 빌드하는 방법을 알아봅니다. 가상의 스마트 건물을 모니터링하고, 자세한 개념을 알아보고, 실제 환경을 모델링하는 차세대 IoT 솔루션을 만드는 빠른 시작 및 자습서를 설명합니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: <a href="quickstart-view-occupancy-dotnet">Azure Digital Twins .NET 샘플을 사용하여 공기가 좋은 사용 가능한 공간을 찾는</a> 방법을 알아봅니다.
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: Azure Digital Twins를 사용자 지정하고 사용하여 기능을 모니터링하는 방법을 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/digital-twins/tutorial-facilities-setup">샘플 건물 프로비전</a>
-          - html: <a href="/azure/digital-twins/tutorial-facilities-udf">건물의 조건 모니터링</a>
-          - html: <a href="/azure/digital-twins/tutorial-facilities-events">건물의 알림 받기</a>
-          - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">건물의 이벤트 분석</a>
+  ms.collection: collection
+  author: philmea
+  ms.author: philmea
+  ms.date: 02/12/2020
+  ms.openlocfilehash: 105a9de63f13a7a6460638ad967be40edd0783a4
+  ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/26/2020
+  ms.locfileid: "85392151"
+landingContent:
+- title: Azure Digital Twins 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Digital Twins란?
+      url: overview.md
+- title: 자습서 시작
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 클라이언트 앱 코딩
+      url: tutorial-code.md
+  - linkListType: tutorial
+    links:
+    - text: 샘플 클라이언트 앱으로 기본 사항 살펴보기
+      url: tutorial-command-line-app.md
+  - linkListType: tutorial
+    links:
+    - text: 엔드투엔드 솔루션 연결
+      url: tutorial-end-to-end.md
+- title: 배우기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 사용자 지정 모델
+      url: concepts-models.md
+  - linkListType: concept
+    links:
+    - text: Digital Twins 및 쌍 그래프
+      url: concepts-twins-graph.md
+  - linkListType: concept
+    links:
+    - text: 쿼리 언어
+      url: concepts-query-language.md
+- title: 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Digital Twins CLI 사용
+      url: how-to-use-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Digital Twins 인스턴스 만들기
+      url: how-to-set-up-instance.md
+  - linkListType: how-to-guide
+    links:
+    - text: 클라이언트 애플리케이션 인증
+      url: how-to-authenticate-client.md
+- title: API 참조
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Digital Twins API 및 SDK 사용
+      url: how-to-use-apis-sdks.md
+  - linkListType: how-to-guide
+    links:
+    - text: AutoRest를 사용하여 사용자 지정 SDK 만들기
+      url: how-to-create-custom-sdks.md
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/

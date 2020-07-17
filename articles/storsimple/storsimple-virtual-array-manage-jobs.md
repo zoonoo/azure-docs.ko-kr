@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 31879821-b599-4609-a7f4-d4b0f658a933
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
-ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507486"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 작업 보기
 ## <a name="overview"></a>개요
@@ -36,7 +36,7 @@ ms.locfileid: "60302502"
   * **상태** – 작업은 **모두**, **진행 중**, **성공**이나 **실패** 또는 **취소** 상태일 수 있습니다.
   * **엔터티** – 작업은 볼륨, 공유 또는 디바이스에 연관될 수 있습니다.
   * **디바이스** – 작업이 시작된 디바이스의 이름입니다.
-  * **시작 시간** – 작업이 시작된 시간입니다.
+  * **시작** 시간 – 작업이 시작 된 시간입니다.
   * **기간** – 작업이 실행되는 기간입니다.
 * **상태** – 모두, 실행 중, 완료 또는 실패한 작업을 검색할 수 있습니다.
 * **작업 유형** – 작업 유형은 모두, 백업, 복원, 장애 조치, 업데이트 다운로드 또는 업데이트 설치일 수 있습니다.
@@ -51,7 +51,7 @@ ms.locfileid: "60302502"
 2. 작업 테이블 형식 목록에서 작업을 선택합니다.
    
     ![작업 블레이드](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
-3. 페이지 맨 아래에서 **세부 정보**를 클릭합니다.
+3. 페이지 아래쪽에서 **세부 정보**를 클릭합니다.
 4. **세부 정보** 대화 상자에서 상태, 세부 정보 및 시간 통계를 볼 수 있습니다. 다음 그림은 **백업 작업 세부 정보** 대화 상자의 예를 보여 줍니다.
    
     ![작업 세부 정보](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
@@ -59,10 +59,10 @@ ms.locfileid: "60302502"
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>가상 머신이 하이퍼바이저에서 일시 중지되는 경우 작업 실패
 StorSimple 가상 배열에서 작업이 진행 중인 경우 디바이스(하이퍼바이저에 프로비전된 가상 컴퓨터)가 15분 넘게 일시 중지되면 작업이 실패합니다. 이는 StorSimple 가상 배열 시간과 Microsoft Azure 시간이 동기화 해제되기 때문입니다. 
 
-다음 오류가 표시됩니다. "장치 시간이 15 분 이상에 Microsoft Azure를 사용 하 여 동기화 되어 있습니다. 하이퍼바이저와 디바이스 시간이 NTP 서버와 동기화되어 있는지 확인합니다. 연결 문제가 없는지 확인합니다. 연결 문제를 해결하려면 가상 디바이스의 로컬 웹 UI에서 진단 테스트를 실행하세요."
+다음과 같은 오류가 표시됩니다. "디바이스 시간이 15분 넘게 Microsoft Azure와 동기화가 끊어졌습니다. 하이퍼바이저와 디바이스 시간이 NTP 서버와 동기화되어 있는지 확인합니다. 연결 문제가 없는지 확인합니다. 연결 문제를 해결하려면 가상 디바이스의 로컬 웹 UI에서 진단 테스트를 실행하세요."
 
 이러한 실패는 백업, 복원, 업데이트 및 장애 조치(failover) 작업에 적용됩니다. 가상 머신이 Hyper-V에 프로비전된 경우 이 컴퓨터는 최종적으로 하이퍼바이저와 시간을 동기화합니다. 이러한 동기화 후 작업을 다시 시작할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리하는 방법을 알아봅니다.](storsimple-ova-web-ui-admin.md)
+[로컬 웹 UI를 사용 하 여 StorSimple 가상 배열을 관리 하는 방법을 알아봅니다](storsimple-ova-web-ui-admin.md).
 

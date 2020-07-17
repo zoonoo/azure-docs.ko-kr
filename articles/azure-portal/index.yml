@@ -1,45 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Portal 문서
+summary: Azure Portal은 명령줄 도구의 대안을 제공하는 웹 기반의 통합 콘솔입니다. Azure Portal을 사용하여 Azure 구독을 관리할 수 있습니다. 간단한 웹앱에서 복잡한 클라우드 배포까지 모든 것을 구축, 관리 및 모니터링합니다. 리소스를 체계적으로 볼 수 있는 사용자 지정 대시보드를 생성하고 최상의 환경을 위해 접근성 옵션을 구성합니다.
 metadata:
-  description: Azure Portal을 사용하고 사용자 지정 대시보드를 만드는 방법을 알아봅니다.
-  services: azure portal
-  documentationcenter: ''
-  author: kfollis
-  manager: mtillman
-  editor: ''
-  ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
+  title: Azure Portal 문서
+  description: Azure Portal 웹 기반 콘솔을 사용하여 Azure 구독 및 리소스를 관리하는 방법에 대해 알아봅니다. Azure Portal은 명령줄 도구 대신 사용할 수 있습니다.
+  services: Azure portal
   ms.service: azure-portal
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.tgt_pltfrm: na
-  ms.workload: na
-  ms.date: 10/08/2018
-  ms.author: kfollis
-abstract:
-  description: 'Azure Portal은 웹 기반 통합 콘솔로, 간단한 웹앱에서 복잡한 클라우드 애플리케이션까지 모든 것을 빌드, 관리 및 모니터링할 수 있습니다. 여기에는 사용자 지정 가능한 대시보드 및 접근성 옵션이 포함됩니다.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/azure-preview-portal-supported-browsers-devices
-            html: '<p>모든 최신 데스크톱, 태블릿 디바이스 및 브라우저에서 Azure Portal을 실행하세요.</p>'
-            title: 지원되는 브라우저 및 디바이스
-          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-            html: <p>Azure Portal에서 대비 또는 색 구성표를 변경하세요.</p>
-            title: 고대비 켜기
-          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-            html: <p>Azure Portal 전반에서 작동하는 바로 가기 키에 대해 알아보세요.</p>
-            title: 바로 가기 키
-          - href: /azure/azure-portal/azure-portal-dashboards
-            html: <p>여러 개의 대시보드를 만들고 Azure 구독에 액세스할 수 있는 다른 사용자와 공유하세요.</p>
-            title: Azure 대시보드 만들기 및 공유
-          - href: /azure/azure-portal/azure-portal-dashboard-share-access
-            html: <p>조직의 다른 사용자와 대시보드를 게시하고 공유하세요.</p>
-            title: RBAC를 사용하여 대시보드 공유
-          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-            html: <p>조직용 대시보드를 프로그래밍 방식으로 만들기 및 게시</p>
-            title: Azure 대시보드를 프로그래밍 방식으로 만들기
+  ms.collection: collection
+  author: mblythe
+  ms.author: mblythe
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 277326eb6b120c4cc1b456a17c6f58791c66dd16
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "75890785"
+landingContent:
+- title: Azure Portal 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Portal이란?
+      url: azure-portal-overview.md
+    - text: 지원되는 브라우저 및 디바이스
+      url: azure-portal-supported-browsers-devices.md
+- title: Azure Portal 사용자 지정
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 포털 기본 설정 지정
+      url: set-preferences.md
+    - text: 사용자 지정 대시보드 만들기 및 공유
+      url: azure-portal-dashboards.md
+    - text: 즐겨찾기 관리
+      url: azure-portal-add-remove-sort-favorites.md
+- title: Azure Portal에 대한 액세스 관리
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Portal URL 수신 허용 목록
+      url: azure-portal-safelist-urls.md
+    - text: 대시보드에 대한 역할 기반 액세스 제어
+      url: azure-portal-dashboard-share-access.md
+  - linkListType: learn
+    links:
+    - text: Azure의 리소스 관리
+      url: /learn/paths/manage-resources-in-azure/
+    - text: RBAC(역할 기반 액세스 제어)로 Azure 리소스 보안
+      url: /learn//modules/secure-azure-resources-with-rbac/
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Quickstart Center를 사용한 온보딩
+      url: azure-portal-quickstart-center.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Portal 방법 비디오 시리즈
+      url: azure-portal-video-series.md
+  - linkListType: learn
+    links:
+    - text: Azure 기본 사항
+      url: /learn/paths/azure-fundamentals/
+    - text: 클라우드 개념 - 클라우드 컴퓨팅의 원칙
+      url: /learn/modules/principles-cloud-computing/
+- title: 접근성 옵션 사용
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 바로 가기 키
+      url: azure-portal-keyboard-shortcuts.md
+  - linkListType: how-to-guide
+    links:
+    - text: 고대비 켜기
+      url: azure-portal-change-theme-high-contrast.md
+- title: 지원 요청 생성 및 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure 지원 요청 만들기
+      url: ../azure-portal/supportability/how-to-create-azure-support-request.md
+    - text: 지역 또는 SKU 구독 문제 해결
+      url: ../azure-portal/supportability/sku-series-unavailable.md

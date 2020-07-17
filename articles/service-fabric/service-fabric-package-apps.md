@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 앱 패키징 | Microsoft Docs
-description: 클러스터에 배포하기 전에 Service Fabric 애플리케이션을 패키지하는 방법입니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Azure Service Fabric 앱 패키지
+description: Azure Service Fabric 응용 프로그램 패키징 및 클러스터에 배포를 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718386"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260968"
 ---
 # <a name="package-an-application"></a>애플리케이션 패키지 작성
 
@@ -54,12 +43,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예를 들면 다음과 같습니다.
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예:
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
 
-**SetupEntryPoint**를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
+**Setupentrypoint**를 구성 하는 방법에 대 한 자세한 내용은 [서비스 설치 진입점에 대 한 정책 구성](service-fabric-application-runas-security.md) 을 참조 하세요.
 
 <a id="Package-App"></a>
 
@@ -67,9 +56,9 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Visual Studio를 사용하여 패키지 빌드
 
-Visual Studio 2015를 사용하여 애플리케이션을 만드는 경우 패키지 명령을 사용하여 위에서 설명한 레이아웃과 일치하는 패키지를 자동으로 만들 수 있습니다.
+Visual Studio를 사용 하 여 응용 프로그램을 만든 경우 *패키지* 명령을 사용 하 여 위에 설명 된 레이아웃과 일치 하는 패키지를 자동으로 만들 수 있습니다.
 
-패키지를 만들려면 솔루션 탐색기에서 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 아래와 같이 패키지 명령을 선택합니다.
+패키지를 만들려면 *솔루션 탐색기* 에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **패키지** 명령을 선택 합니다.
 
 ![Visual Studio를 통해 애플리케이션 패키징][vs-package-command]
 
@@ -222,7 +211,7 @@ diff 프로비전이 옵션이 아니며 패키지를 포함해야 하는 경우
 `sfpkg` 파일은 초기 애플리케이션 패키지를 포함하는 zip이며 확장명 ".sfpkg"를 갖습니다.
 zip 내의 애플리케이션 패키지는 압축되거나 압축이 풀릴 수 있습니다. zip 내의 애플리케이션 패키지의 압축은 [앞에서 언급한](service-fabric-package-apps.md#compress-a-package) 것처럼 코드, 구성 및 데이터 패키지 수준에서 수행됩니다.
 
-`sfpkg`를 만들려면 압축되거나 압축되지 않은 원래 애플리케이션 패키지를 포함하는 폴더를 시작합니다. 그런 다음 유틸리티를 사용하여 ".sfpkg" 확장명으로 폴더를 압축합니다. 예를 들어 [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx)를 사용합니다.
+`sfpkg`를 만들려면 압축되거나 압축되지 않은 원래 애플리케이션 패키지를 포함하는 폴더를 시작합니다. 그런 다음 유틸리티를 사용하여 ".sfpkg" 확장명으로 폴더를 압축합니다. 예를 들어 [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_)를 사용합니다.
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
@@ -237,7 +226,7 @@ ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 
 ## <a name="next-steps"></a>다음 단계
 
-[애플리케이션 배포 및 제거][10]에서는 PowerShell을 사용하여 애플리케이션 인스턴스를 관리하는 방법을 설명합니다.
+응용 [프로그램 배포 및 제거][10] PowerShell을 사용 하 여 응용 프로그램 인스턴스를 관리 하는 방법을 설명 합니다.
 
 [여러 환경에 대한 애플리케이션 매개 변수 관리][11]에서는 여러 애플리케이션 인스턴스의 매개 변수 및 환경 변수를 구성하는 방법을 설명합니다.
 

@@ -3,37 +3,52 @@ title: Azure 대시보드에서 사용자 지정 markdown 타일 사용
 description: Azure 대시보드에 markdown 타일을 추가하여 정적 콘텐츠를 표시하는 방법을 알아봅니다.
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: v-biyu
-origin.date: 01/25/2019
-ms.date: 03/04/2019
-ms.topic: conceptual
+author: mgblythe
+ms.author: mblythe
+ms.date: 01/08/2020
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 338135561a462fec3b0bfc619a3518cb420908f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763995"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Azure 대시보드에서 markdown 타일을 사용하여 사용자 지정 콘텐츠 표시
 
-Azure 대시보드에 markdown 타일을 추가하여 사용자 지정 정적 콘텐츠를 표시할 수 있습니다. 예를 들어 markdown 타일을 사용하여 기본 지침, 이미지 또는 하이퍼링크 세트를 표시할 수 있습니다.
+Azure 대시보드에 markdown 타일을 추가하여 사용자 지정 정적 콘텐츠를 표시할 수 있습니다. 예를 들어 기본 지침, 이미지 또는 markdown 타일에 대 한 하이퍼링크 집합을 표시할 수 있습니다.
 
 ## <a name="add-a-markdown-tile-to-your-dashboard"></a>대시보드에 markdown 타일 추가
 
-1. Azure Portal 사이드바에서 **대시보드**를 선택합니다. 사용자 지정 대시보드를 만든 경우 대시보드 보기에서 드롭다운을 사용하여 사용자 지정 markdown 타일이 표시되는 대시보드를 선택합니다. 편집 아이콘을 선택하여 **타일 갤러리**를 엽니다.
+1. Azure Portal 사이드바에서 **대시보드**를 선택합니다.
+
+   ![포털 사이드바를 보여 주는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-nav.png)
+
+1. 사용자 지정 대시보드를 만든 경우 대시보드 보기에서 드롭다운을 사용하여 사용자 지정 markdown 타일이 표시되는 대시보드를 선택합니다. 편집 아이콘을 선택하여 **타일 갤러리**를 엽니다.
 
    ![대시보드 편집 보기를 보여 주는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-2. **파일 갤러리**에서 **markdown**이라는 타일을 찾고 **추가**를 클릭합니다. 타일이 대시보드에 추가되고 **markdown 편집** 창이 열립니다.
+1. **타일 갤러리**에서 **Markdown** 라는 타일을 찾은 다음 **추가**를 선택 합니다. 타일이 대시보드에 추가되고 **markdown 편집** 창이 열립니다.
 
-3. **제목**, **부제목** 및 **콘텐츠** 필드를 편집하여 타일을 사용자 지정합니다. 여기에 표시된 예에서는 사용자 지정 지원 센터 정보를 표시하도록 markdown 타일이 편집되었습니다.
+1. **제목** 및 **부제목**에 대 한 값을 입력 합니다 .이 값은 다른 필드로 이동한 후 타일에 표시 됩니다.
 
-   ![markdown 타일 편집 보기를 표시하는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![제목 및 부제목 입력 결과를 보여 주는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-4. **완료**를 선택하여 **markdown 편집** 창을 해제합니다. 콘텐츠가 markdown 타일에 표시됩니다. 그러면 오른쪽 아래 모서리의 핸들을 끌어 크기를 조정할 수 있습니다.
+1. Markdown 내용 포함: **인라인 편집** 또는 **URL을 사용 하 여 콘텐츠 삽입**에 대 한 옵션 중 하나를 선택 합니다.
+
+   - Markdown를 직접 입력 하려면 **인라인 편집** 을 선택 합니다.
+
+      ![인라인 콘텐츠 입력을 보여 주는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
+
+   - 온라인으로 호스팅된 기존 markdown 콘텐츠를 사용 하려는 경우 **URL을 사용 하 여 콘텐츠 삽입** 을 선택 합니다.
+
+      ![URL 입력을 보여 주는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
+
+      > [!NOTE]
+      > 보안을 강화 하기 위해 markdown 파일을 만들어 [암호화가 사용 되는 Azure storage 계정 blob](../storage/common/storage-service-encryption.md)에 저장 한 다음 URL 옵션을 사용 하 여 파일을 가리킬 수 있습니다. Markdown 콘텐츠는 저장소 계정의 암호화 옵션을 통해 암호화 됩니다. 파일에 대 한 권한이 있는 사용자만 대시보드의 markdown 콘텐츠를 볼 수 있습니다.
+
+1. **완료**를 선택하여 **markdown 편집** 창을 해제합니다. 콘텐츠는 오른쪽 아래 모서리에서 핸들을 끌어 크기를 조정할 수 있는 Markdown 타일에 표시 됩니다.
 
    ![사용자 지정 markdown 타일을 보여 주는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 

@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: Azure Portal에서 게스트 사용자 추가 - Azure Active Directory'
+title: '빠른 시작: Azure Portal에서 게스트 사용자 추가 - Azure AD'
 description: 이 빠른 시작을 사용하여 Azure AD 관리자가 Azure Portal에서 B2B 게스트 사용자를 추가하는 방법을 알아보고 B2B 초대 워크플로를 살펴봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 01/23/2020
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 2f3d96926221a69e1cf216be81368a2eb87c938a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295031"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "76758339"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 
@@ -25,9 +25,9 @@ ms.locfileid: "58295031"
 
 이 빠른 시작에서는 Azure AD에 새 게스트 사용자를 추가하고, 초대를 보내고, 게스트 사용자의 초대 사용 프로세스가 어떻게 표시되는지 확인합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서의 시나리오를 완료하려면 다음이 필요합니다.
 
@@ -46,9 +46,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![새 게스트 사용자 옵션을 선택할 수 있는 위치를 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
-5.  **사용자 이름**에서 외부 사용자의 이메일 주소를 입력합니다. **초대하는 개인 메시지를 포함**에서 환영 메시지를 입력합니다. 
+5. **새 사용자** 페이지에서 **사용자 초대**를 선택하고 게스트 사용자 정보를 추가합니다. 
 
-    ![게스트 사용자 초대 메시지를 입력할 수 있는 위치를 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+   - **이름.** 게스트 사용자의 이름 및 성입니다.
+   - **메일 주소(필수)** . 게스트 사용자의 메일 주소입니다.
+   - **개인 메시지(선택 사항)** 게스트 사용자에 대한 개인 환영 메시지를 포함합니다.
+   - **그룹**: 하나 이상의 기존 그룹에 게스트 사용자를 추가하거나 나중에 이 작업을 수행할 수 있습니다.
+   - **디렉터리 역할**: 사용자에 대한 Azure AD 관리 권한이 필요한 경우 Azure AD 역할에 추가할 수 있습니다. 
 
 6. **초대**를 선택하여 게스트 사용자에게 자동으로 초청을 발송합니다. 메시지 **사용자를 초대함**이 포함된 알림이 오른쪽 위에 표시됩니다. 
 7.  초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.
@@ -84,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 더 이상 필요하지 않은 경우 테스트 게스트 사용자 및 테스트 앱을 삭제합니다.
 1.  Azure AD 관리자로 Azure Portal에 로그인합니다.
 2.  왼쪽 창에서 **Azure Active Directory**를 선택합니다.
-3.  **관리**에서 **엔터프라이즈 응용 프로그램**을 선택합니다.
+3.  **관리**에서 **엔터프라이즈 애플리케이션**을 선택합니다.
 4.  애플리케이션 **Salesforce**를 열고 **삭제**를 선택합니다.
 5.  왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 6.  **관리**에서 **사용자**를 선택합니다.

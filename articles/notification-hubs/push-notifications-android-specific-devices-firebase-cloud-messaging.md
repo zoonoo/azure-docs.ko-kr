@@ -1,11 +1,11 @@
 ---
-title: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 특정 디바이스에 푸시 알림 보내기 | Microsoft Docs
 description: Notification Hubs를 사용하여 Azure Notification Hubs 및 Google FCM(Firebase Cloud Messaging)을 사용하여 특정 Android 디바이스에 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
-editor: spelluru'
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,15 +14,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
-ms.author: jowargo
-ms.openlocfilehash: f4a0da5d3ef0dd2d5ae04a2cc1b07ddb0a649bef
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 04/30/2019
+ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205388"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126871"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>자습서: Azure Notification Hubs 및 Google FCM(Firebase Cloud Messaging)을 사용하여 특정 Android 디바이스에 알림 푸시
+# <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>자습서: Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 특정 디바이스에 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -40,7 +42,7 @@ ms.locfileid: "65205388"
 > * 태그가 지정된 알림 보내기
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서는 [자습서: Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-fcm-get-started.md) 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-fcm-get-started.md)
 
@@ -201,7 +203,7 @@ ms.locfileid: "65205388"
     }
     ```
 
-    이 클래스는 로컬 저장소를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
+    이 클래스는 로컬 스토리지를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
 4. `MainActivity` 클래스에 `Notifications`에 대한 필드를 추가합니다.
 
     ```java
@@ -217,7 +219,7 @@ ms.locfileid: "65205388"
 
         mainActivity = this;
 
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
         notifications = new Notifications(this, NotificationSettings.HubName, NotificationSettings.HubListenConnectionString);
         notifications.subscribeToCategories(notifications.retrieveCategories());
     }
@@ -267,11 +269,11 @@ ms.locfileid: "65205388"
 
     이 메서드는 범주 목록을 만들고 `Notifications` 클래스를 사용하여, 로컬 스토리지에 목록을 저장하고 알림 허브에 해당 태그를 등록합니다. 범주가 변경되면 새 범주로 등록이 다시 생성됩니다.
 
-이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 디바이스의 로컬 저장소에 저장하고 알림 허브에 등록할 수 있습니다.
+이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 디바이스의 로컬 스토리지에 저장하고 알림 허브에 등록할 수 있습니다.
 
 ## <a name="register-for-notifications"></a>알림 등록
 
-다음 단계에서는 로컬 저장소에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다.
+다음 단계에서는 로컬 스토리지에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다.
 
 1. 다음 코드가 `MainActivity` 클래스의 `onCreate` 메서드 끝에 있는지 확인합니다.
 
@@ -279,7 +281,7 @@ ms.locfileid: "65205388"
     notifications.subscribeToCategories(notifications.retrieveCategories());
     ```
 
-    이 코드를 통해 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다.
+    이 코드를 통해 앱이 시작될 때마다 로컬 스토리지에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다.
 2. 그런 후 다음과 같이 `MainActivity` 클래스의 `onStart()` 메서드를 업데이트합니다.
 
     ```java
@@ -308,7 +310,7 @@ ms.locfileid: "65205388"
 
     이 코드는 이전에 저장한 범주의 상태를 기반으로 기본 활동을 업데이트합니다.
 
-이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 디바이스의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
+이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 디바이스의 로컬 스토리지에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
 
 ## <a name="send-tagged-notifications"></a>태그가 지정된 알림 보내기
 
@@ -329,7 +331,7 @@ ms.locfileid: "65205388"
 이 자습서에서는 범주에 등록한 특정 Android 디바이스에 브로드캐스트 알림을 보냈습니다. 특정 사용자에게 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
->[특정 사용자에 알림 푸시](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
+>[특정 사용자에 알림 푸시](push-notifications-android-specific-users-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG

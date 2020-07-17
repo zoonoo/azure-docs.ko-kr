@@ -1,18 +1,17 @@
 ---
-title: Azure DNS FAQ
-description: Azure DNS에 대한 질문과 대답
+title: FAQ-Azure DNS
+description: 이 문서에서는 Azure DNS에 대 한 질문과 대답을 알아봅니다.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
-ms.author: victorh
-ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.date: 6/15/2019
+ms.author: rohink
+ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77121727"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -42,7 +41,7 @@ Azure는 유효한 DNS 요청에 대해 100%의 시간 동안 하나 이상의 A
 
 도메인은 Domain Name System의 고유 이름입니다. 예를 들어 contoso.com이 있습니다.
 
-DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 도메인 contoso.com에는 여러 DNS 레코드가 포함될 수 있습니다. 레코드를 메일 서버에 www mail.contoso.com 포함 될 수 있습니다\.contoso.com 웹 사이트에 대 한 합니다. 이러한 레코드는 DNS 영역 contoso.com에서 호스트됩니다.
+DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 도메인 contoso.com에는 여러 DNS 레코드가 포함될 수 있습니다. 이 레코드에는 메일 서버에 대 한 mail.contoso.com 및 웹 사이트용 www contoso.com 포함 될 수 있습니다 \. . 이러한 레코드는 DNS 영역 contoso.com에서 호스트됩니다.
 
 도메인 이름은 *단지 이름일 뿐입니다*. DNS 영역은 도메인 이름의 DNS 레코드를 포함하는 데이터 리소스입니다. Azure DNS를 사용하여 DNS 영역을 호스트하고 Azure에서 도메인에 대한 DNS 레코드를 관리할 수 있습니다. 또한 인터넷의 DNS 쿼리에 응답하기 위해 DNS 이름 서버를 제공합니다.
 
@@ -116,10 +115,10 @@ Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>별칭 레코드 집합의 대상으로 지원되는 리소스는 무엇인가요?
 
-- **DNS A/AAAA 레코드 집합의 공용 IP 리소스를 가리킵니다**. A/AAAA 레코드 집합을 만들고 공용 IP 리소스를 가리키는 별칭 레코드 집합으로 설정할 수 있습니다.
-- **DNS A/AAAA/CNAME 레코드 집합의 Traffic Manager 프로필을 가리킵니다**. DNS CNAME 레코드 집합에서 Traffic Manager 프로필의 CNAME을 가리킬 수 있습니다. 예로 contoso.trafficmanager.net이 있습니다. 이제 DNS 영역의 A 또는 AAAA 레코드 집합에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리킬 수도 있습니다.
-- **Azure 콘텐츠 배달 네트워크 (CDN) 끝점을 가리키도록**합니다. Azure storage 및 Azure CDN을 사용 하 여 정적 웹 사이트를 만들 때 유용 합니다.
-- **동일한 영역 내의 다른 DNS 레코드 집합을 가리킵니다**. 별칭 레코드는 동일한 유형의 다른 레코드 집합을 참조할 수 있습니다. 예를 들어 DNS CNAME 레코드 집합을 동일한 유형의 다른 CNAME 레코드 집합에 대한 별칭으로 설정할 수 있습니다. 이 정렬은 일부 레코드 집합은 별칭으로, 일부는 비별칭으로 지정하려는 경우에 유용합니다.
+- **DNS A/AAAA 레코드 집합에서 공용 IP 리소스를 가리킵니다.** A/AAAA 레코드 집합을 만들고 공용 IP 리소스를 가리키는 별칭 레코드 집합으로 설정할 수 있습니다.
+- **DNS A/AAAA/CNAME 레코드 집합에서 Traffic Manager 프로필을 가리킵니다.** DNS CNAME 레코드 집합에서 Traffic Manager 프로필의 CNAME을 가리킬 수 있습니다. 예로 contoso.trafficmanager.net이 있습니다. 이제 DNS 영역의 A 또는 AAAA 레코드 집합에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리킬 수도 있습니다.
+- **Azure Content Delivery Network (CDN) 끝점을 가리킵니다**. 이는 Azure storage 및 Azure CDN를 사용 하 여 정적 웹 사이트를 만드는 경우에 유용 합니다.
+- **동일한 영역 내 다른 DNS 레코드 집합을 가리킵니다.** 별칭 레코드는 동일한 유형의 다른 레코드 집합을 참조할 수 있습니다. 예를 들어 DNS CNAME 레코드 집합을 동일한 유형의 다른 CNAME 레코드 집합에 대한 별칭으로 설정할 수 있습니다. 이 정렬은 일부 레코드 집합은 별칭으로, 일부는 비별칭으로 지정하려는 경우에 유용합니다.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Azure Portal에서 별칭 레코드를 만들고 업데이트할 수 있나요?
 
@@ -143,13 +142,13 @@ Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지
 
 ## <a name="use-azure-dns"></a>Azure DNS 사용
 
-### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>공동 호스트할 수 있나요 도메인을 Azure DNS 및 다른 DNS 공급자를 사용 하 여?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Azure DNS 및 다른 DNS 공급자를 사용 하 여 도메인을 공동 호스트할 수 있나요?
 
 예. Azure DNS에서는 다른 DNS 서비스와의 도메인 공동 호스팅을 지원합니다.
 
 공동 호스팅을 설정 하려면 두 공급자의 이름 서버를 가리키도록 도메인의 NS 레코드를 수정 합니다. NS(이름 서버) 레코드는 도메인에 대한 DNS 쿼리를 수신하는 공급자를 제어합니다. Azure DNS, 다른 공급자 및 부모 영역에서 이러한 NS 레코드를 수정할 수 있습니다. 부모 영역은 일반적으로 도메인 이름 등록자를 통해 구성됩니다. DNS 위임에 대한 자세한 내용은 [DNS 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
-또한 도메인에 대한 DNS 레코드가 두 DNS 공급자 간에 동기화되는지도 확인해야 합니다. Azure DNS는 현재 DNS 영역 전송을 지원하지 않습니다. DNS 레코드는 [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 사용해서 DNS 동기화해야 합니다.
+또한 도메인에 대한 DNS 레코드가 두 DNS 공급자 간에 동기화되는지도 확인해야 합니다. Azure DNS는 현재 DNS 영역 전송을 지원하지 않습니다. DNS 레코드는 [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/rest/api/dns/), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 사용해서 DNS 동기화해야 합니다.
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>4개의 Azure DNS 이름 서버 모두에 도메인을 위임해야 하나요?
 
@@ -167,7 +166,7 @@ Azure DNS를 사용할 경우 다음과 같은 기본 제한이 적용됩니다.
 
 DNS 영역을 이동할 때 DNS 쿼리에 영향을 미치지 않습니다. 영역에 할당된 이름 서버는 동일하게 유지됩니다. DNS 쿼리는 전체적으로 일반적인 방식대로 처리됩니다.
 
-DNS 영역을 이동하는 방법에 대한 자세한 내용 및 지침을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.
+DNS 영역을 이동하는 방법에 대한 자세한 내용 및 지침을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
 ### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>DNS 변경 내용이 적용되는 데 시간이 얼마나 걸리나요?
 
@@ -187,7 +186,7 @@ Azure DNS는 Azure Resource Manager를 사용하여 관리됩니다. Azure DNS�
 
 ### <a name="do-azure-dns-name-servers-resolve-over-ipv6"></a>Azure DNS 이름 서버가 IPv6를 통해 확인하나요? 
 
-예. Azure DNS 이름 서버는 이중 스택입니다. 이중 스택이라는 것은 IPv4 및 IPv6 주소를 둘 다 보유함을 의미합니다. DNS 영역에 할당된 Azure DNS 이름 서버에 대한 IPv6 주소를 찾으려면 nslookup과 같은 도구를 사용합니다. 예는 `nslookup -q=aaaa <Azure DNS Nameserver>`입니다.
+예. Azure DNS 이름 서버는 이중 스택입니다. 이중 스택이라는 것은 IPv4 및 IPv6 주소를 둘 다 보유함을 의미합니다. DNS 영역에 할당된 Azure DNS 이름 서버에 대한 IPv6 주소를 찾으려면 nslookup과 같은 도구를 사용합니다. 예제는 `nslookup -q=aaaa <Azure DNS Nameserver>`입니다.
 
 ### <a name="how-do-i-set-up-an-idn-in-azure-dns"></a>Azure DNS에서 IDN을 설정하려면 어떻게 해야 하나요?
 
@@ -195,93 +194,12 @@ IDN(국제 도메인 이름)은 [punycode](https://en.wikipedia.org/wiki/Punycod
 
 Azure DNS에서 IDN을 구성하려면 영역 이름 또는 레코드 집합 이름을 punycode로 변환합니다. Azure DNS는 현재 punycode로의 또는 punycode로부터의 기본 제공 변환을 지원하지 않습니다.
 
-## <a name="private-dns"></a>개인 DNS
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
-
-### <a name="does-azure-dns-support-private-domains"></a>Azure DNS에서는 개인 도메인을 지원하나요?
-
-개인 도메인에 대한 지원은 개인 영역 기능을 사용하여 구현됩니다. 이 기능은 현재 공개 미리 보기로 사용할 수 있습니다. 개인 영역은 인터넷 연결 Azure DNS 영역과 동일한 도구를 사용하여 관리됩니다. 이러한 영역은 지정된 가상 네트워크 내에서만 확인할 수 있습니다. 자세한 내용은 [개요](private-dns-overview.md)를 참조하세요.
-
-현재, 개인 영역은 Azure Portal에서 지원되지 않습니다.
-
-Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
-
-### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>개인 영역 컨텍스트에서 등록 가상 네트워크와 확인 가상 네트워크 간의 차이점은 무엇인가요?
-
-가상 네트워크는 DNS 개인 영역에 등록 가상 네트워크 또는 확인 가상 네트워크를 통해 연결할 수 있습니다. 두 경우 모두, 가상 네트워크의 가상 머신이 개인 영역에 있는 레코드를 성공적으로 확인합니다. 등록 가상 네트워크를 사용할 경우 DNS 레코드는 가상 네트워크의 가상 머신에 대한 영역으로 자동 등록됩니다. 등록 가상 네트워크의 가상 머신이 삭제되면 연결된 개인 영역의 해당 DNS 레코드도 자동으로 제거됩니다. 
-
-### <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Azure DNS 개인 영역이 여러 Azure 지역에서 작동하나요?
-
-예. 개인 영역에서는 Azure 지역의 가상 네트워크 간 DNS 확인이 지원됩니다. 개인 영역은 가상 네트워크를 명시적으로 피어링하지 않아도 작동합니다. 모든 가상 네트워크는 개인 영역에 대한 확인 가상 네트워크로 지정해야 합니다. 고객은 TCP/HTTP 트래픽이 지역 간을 흐를 수 있도록 가상 네트워크를 피어링해야 할 수 있습니다.
-
-### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>개인 영역을 위해 가상 네트워크에서 인터넷에 연결되어야 하나요?
-
-아니요. 개인 영역은 가상 네트워크에서 작동합니다. 고객은 이러한 영역을 사용하여 가상 머신 또는 가상 네트워크 내부 및 여러 가상 네트워크 간의 다른 리소스에 대한 도메인을 관리합니다. 이름 확인을 위해 인터넷 연결이 필요하지는 않습니다. 
-
-### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>확인을 위해 여러 가상 네트워크에서 동일한 개인 영역을 사용할 수 있나요?
-
-예. 고객은 최대 10개의 확인 가상 네트워크를 단일 개인 영역에 연결할 수 있습니다.
-
-### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>다른 구독에 속하는 가상 네트워크를 개인 영역에 확인 가상 네트워크로 추가할 수 있나요?
-
-예. 가상 네트워크와 개인 DNS 영역에 대해 쓰기 작업 권한이 있어야 합니다. 쓰기 권한은 여러 RBAC 역할에 부여할 수 있습니다. 예를 들어, 클래식 네트워크 참가자 RBAC 역할에는 가상 네트워크에 대한 쓰기 권한이 있습니다. RBAC 역할에 대한 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
-
-### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>고객이 가상 머신을 삭제하는 경우, 개인 영역에서 자동으로 등록된 가상 컴퓨터 DNS 레코드도 자동으로 삭제되나요?
-
-예. 등록 가상 네트워크 내에서 가상 머신을 삭제하면 해당 영역에 등록된 DNS 레코드가 자동으로 삭제됩니다. 
-
-### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>등록 가상 네트워크에서 개인 영역에 자동으로 등록된 가상 머신 레코드를 수동으로 삭제할 수 있나요?
-
-아니요. 등록 가상 네트워크에서 개인 영역에 자동으로 등록된 가상 머신 DNS 레코드를 고객은 볼 수도 없고 편집할 수도 없습니다. 이러한 자동으로 등록된 DNS 레코드를 영역에서 수동으로 만든 DNS 레코드로 덮어쓸 수 있습니다. 다음 질문과 대답이 이 항목에 대한 것입니다.
-
-### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>등록 가상 네트워크에서 자동으로 등록된 기존 가상 머신과 동일한 호스트가 있는 개인 영역으로 새 DNS 레코드를 수동으로 만들려고 하면 어떻게 되나요?
-
-등록 가상 네트워크에서 자동으로 등록된 기존 가상 머신과 동일한 호스트가 있는 개인 영역으로 새 DNS 레코드를 수동으로 만들려고 합니다. 이렇게 하면 새 DNS 레코드가 자동으로 등록된 가상 머신 레코드를 덮어씁니다. 이 영역에서 다시 수동으로 만든 이 DNS 레코드를 삭제하려고 하면 삭제가 성공합니다. 가상 머신이 여전히 존재하고 개인 IP가 연결되어 있기만 하면 자동 등록이 다시 수행됩니다. DNS 레코드는 영역에서 자동으로 다시 생성됩니다.
-
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-will-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-too"></a>사설 영역에서 등록 가상 네트워크의 연결을 해제하면 어떻게 되나요? 가상 네트워크의 자동으로 등록된 가상 머신 레코드가 해당 영역에서도 제거되나요?
-
-예. 개인 영역에서 등록 가상 네트워크의 연결을 끊으려면 연결된 등록 가상 네트워크를 제거하도록 DNS 영역을 업데이트합니다. 이 프로세스에서 자동으로 등록된 가상 머신 레코드는 영역에서 제거됩니다. 
-
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>개인 영역에 연결된 등록(또는 확인) 가상 네트워크를 삭제하면 어떻게 되나요? 영역에서 등록 또는 확인 가상 네트워크로 연결된 가상 네트워크를 가상 네트워크의 연결을 해제하기 위해 개인 영역을 수동으로 업데이트해야 하나요?
-
-예. 먼저 개인 영역에서 연결을 해제하지 않고 등록 또는 확인 가상 네트워크를 삭제하면 삭제 작업이 성공합니다. 그렇지만 가상 네트워크가 개인 영역에서 자동으로 연결 해제되지는 않습니다. 수동으로 개인 영역에서 가상 네트워크 연결을 해제해야 합니다. 이러한 이유로, 연결을 삭제하기 전에 먼저 개인 영역에서 가상 네트워크의 연결을 해제합니다.
-
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>DNS 확인의 기본 FQDN (internal.cloudapp.net)를 사용 하 여 계속 작동 개인 영역 (예를 들어 private.contoso.com) 가상 네트워크에 연결 된 경우에?
-
-예. 개인 영역은 Azure에서 제공한 internal.cloudapp.net 영역을 사용하여 기본 DNS 확인을 대체하지 않습니다. 이 영역은 추가 기능 또는 향상된 기능으로 제공됩니다. Azure에서 제공한 internal.cloudapp.net을 신뢰하는지 또는 사용자 고유의 개인 영역을 신뢰하는지에 관계없이 확인하려는 영역의 FQDN을 사용하도록 합니다. 
-
-### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>연결된 가상 네트워크 내의 가상 머신에 사용되는 DNS 접미사가 개인 영역의 DNS 접두사로 변경되나요?
-
-아니요. , 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 가상 머신의 이 DNS 접미사를 개인 영역의 DNS 접미사로 수동으로 변경할 수 있습니다. 
-
-### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>이 미리 보기 기간 동안 개인 영역에 대한 제한 사항이 있나요?
-
-예. 공개 미리 보기 중에 다음과 같은 제한 사항이 적용됩니다.
-* 개인 영역당 1개의 등록 가상 네트워크
-* 개인 영역당 최대 10개의 확인 가상 네트워크
-* 지정된 가상 네트워크가 1개의 개인 영역에만 등록 가상 네트워크로 연결될 수 있습니다.
-* 지정된 가상 네트워크가 최대 10개의 개인 영역에 확인 가상 네트워크로 연결될 수 있습니다.
-* 등록 가상 네트워크를 지정하는 경우 개인 영역에 등록된 해당 가상 네트워크의 VM에 대한 DNS 레코드를 PowerShell, CLI 또는 API에서 보거나 검색할 수 없습니다. VM 레코드는 성공적으로 등록되고 확인됩니다.
-* 역방향 DNS는 등록 가상 네트워크의 개인 IP 공간에 대해서만 작동합니다.
-* 개인 영역에 등록되지 않은 개인 IP에 대한 역방향 DNS는 "internal.cloudapp.net"을 DNS 접미사로 반환합니다. 이 접미사는 확인할 수 없습니다. 개인 영역에 확인 가상 네트워크로 연결된 가상 네트워크의 가상 머신에 대한 개인 IP를 예로 들 수 있습니다.
-* 가상 네트워크는 등록 또는 확인 가상 네트워크로 개인 영역에 처음 연결할 때 비어 있어야 합니다. 가상 네트워크가 나중에 등록 또는 확인 가상 네트워크로 다른 개인 영역에 연결할 때는 비어 있지 않을 수 있습니다.
-* Azure와 온-프레미스 네트워크 간에 확인이 가능하도록 조건부 전달은 지원되지 않습니다. 고객이 다른 메커니즘을 통해 이 시나리오를 실현하는 방법을 알아봅니다. [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
-
-### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>개인 영역의 영역 또는 레코드에 대해 할당량 또는 제한이 있나요?
-
-개인 영역의 구독당 허용되는 영역 수에는 제한이 없습니다. 개인 영역에 대한 영역당 레코드 집합 수에는 제한이 없습니다. 공용 및 개인 영역은 전체 DNS 제한을 초과하지 않습니다. 자세한 내용은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md#azure-dns-limits)을 참조하세요.
-
-### <a name="is-there-portal-support-for-private-zones"></a>개인 영역에 대한 포털 지원이 있나요?
-
-API, PowerShell, CLI 및 SDK를 통해 이미 만든 개인 영역은 Azure Portal에 표시됩니다. 하지만 고객은 새 개인 영역을 만들거나 가상 네트워크와의 연결을 관리할 수 없습니다. 등록 가상 네트워크로 연결된 가상 네트워크의 경우 자동으로 등록된 VM 레코드를 포털에서 볼 수 없습니다. 
-
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure DNS에 대해 자세히 알아봅니다](dns-overview.md).
+- [Azure DNS에 대해 자세히 알아보세요](dns-overview.md).
 
-- [개인 도메인에 Azure DNS를 사용하는 방법에 대해 자세히 알아봅니다](private-dns-overview.md).
+- [프라이빗 도메인에 Azure DNS를 사용하는 방법에 대해 자세히 알아봅니다](private-dns-overview.md).
 
-- [DNS 영역 및 레코드에 대해 자세히 알아봅니다](dns-zones-records.md).
+- [DNS 영역 및 레코드에 대해 자세히 알아보세요](dns-zones-records.md).
 
 - [Azure DNS 시작](dns-getstarted-portal.md)

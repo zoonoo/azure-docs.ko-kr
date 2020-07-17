@@ -4,148 +4,174 @@
   items:
     - name: Azure DNS란?
       href: dns-overview.md
+    - name: Azure 프라이빗 DNS란?
+      href: private-dns-overview.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 이름 확인 - 포털
-      href: dns-getstarted-portal.md
-    - name: 이름 확인 - PowerShell
-      href: dns-getstarted-powershell.md
-    - name: 이름 확인 - CLI
-      href: dns-getstarted-cli.md
+    - name: 공용 DNS
+      items:
+        - name: 공용 영역 만들기 - 포털
+          href: dns-getstarted-portal.md
+        - name: 공용 영역 만들기 - PowerShell
+          href: dns-getstarted-powershell.md
+        - name: 공용 영역 만들기 - CLI
+          href: dns-getstarted-cli.md
+    - name: 프라이빗 DNS
+      items:
+        - name: 프라이빗 영역 만들기 - 포털
+          href: private-dns-getstarted-portal.md
+        - name: 프라이빗 영역 만들기 - CLI
+          href: private-dns-getstarted-cli.md
+        - name: 프라이빗 영역 만들기 - PowerShell
+          href: private-dns-getstarted-powershell.md
 - name: 자습서
   items:
-    - name: Azure DNS에서 도메인 호스트
-      href: dns-delegate-domain-azure-dns.md
-    - name: 웹앱에 대한 사용자 지정 DNS 레코드 만들기
-      href: dns-web-sites-custom-domain.md
-    - name: 개인 DNS 영역 및 레코드 만들기
-      href: private-dns-getstarted-powershell.md
-    - name: Traffic Manager에 대한 별칭 레코드
-      href: tutorial-alias-tm.md
-    - name: 공용 IP 주소에 대한 별칭 레코드
-      href: tutorial-alias-pip.md
-    - name: 영역 레코드에 대한 별칭 레코드
-      href: tutorial-alias-rr.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
+    - name: 공용 DNS
+      items:
+        - name: Azure DNS에서 도메인 호스트
+          href: dns-delegate-domain-azure-dns.md
+        - name: 웹앱에 대한 사용자 지정 DNS 레코드 만들기
+          href: dns-web-sites-custom-domain.md
+        - name: Traffic Manager에 대한 별칭 레코드
+          href: tutorial-alias-tm.md
+        - name: 공용 IP 주소에 대한 별칭 레코드
+          href: tutorial-alias-pip.md
+        - name: 영역 레코드에 대한 별칭 레코드
+          href: tutorial-alias-rr.md
 - name: 개념
   items:
-    - name: 영역 및 레코드
-      href: dns-zones-records.md
-    - name: 별칭 레코드
-      href: dns-alias.md
-    - name: Azure DNS로 위임
-      href: dns-domain-delegation.md
-    - name: FAQ
-      href: dns-faq.md
-    - name: 개인 DNS 영역 사용
-      href: private-dns-overview.md
-    - name: 개인 DNS 시나리오
-      href: private-dns-scenarios.md
-    - name: DNS 메트릭 및 경고
-      href: dns-alerts-metrics.md
-    - name: 역방향 DNS
-      href: dns-reverse-dns-overview.md
-    - name: Azure DNS 및 Traffic Manager를 사용하여 재해 복구
-      href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: 공용 DNS
+      items:
+        - name: 영역 및 레코드
+          href: dns-zones-records.md
+        - name: 별칭 레코드
+          href: dns-alias.md
+        - name: Azure DNS로 위임
+          href: dns-domain-delegation.md
+        - name: FAQ
+          href: dns-faq.md
+        - name: DNS 메트릭 및 경고
+          href: dns-alerts-metrics.md
+        - name: 역방향 DNS
+          href: dns-reverse-dns-overview.md
+        - name: Azure DNS 및 Traffic Manager를 사용하여 재해 복구
+          href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: 프라이빗 DNS
+      items:
+        - name: 프라이빗 DNS 영역
+          href: private-dns-privatednszone.md
+        - name: 가상 네트워크 링크
+          href: private-dns-virtual-network-links.md
+        - name: 자동 등록
+          href: private-dns-autoregistration.md
+        - name: 프라이빗 DNS 시나리오
+          href: private-dns-scenarios.md
+        - name: 가상 네트워크의 DNS 확인
+          href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
+        - name: FAQ
+          href: dns-faq-private.md
 - name: 방법
   items:
-    - name: 개인 DNS 영역 및 레코드 만들기 - Azure CLI
-      href: private-dns-getstarted-cli.md
-    - name: 부하 분산 웹앱에 대한 별칭 레코드
-      href: dns-alias-appservice.md
-    - name: DNS 영역 관리
+    - name: 공용 DNS
       items:
-        - name: Azure portal
-          href: dns-operations-dnszones-portal.md
-        - name: Azure PowerShell
-          href: dns-operations-dnszones.md
-        - name: Azure CLI
-          href: dns-operations-dnszones-cli.md
-    - name: DNS 레코드 관리
+        - name: 부하 분산 웹앱에 대한 별칭 레코드
+          href: dns-alias-appservice.md
+        - name: DNS 영역 관리
+          items:
+            - name: Azure portal
+              href: dns-operations-dnszones-portal.md
+            - name: Azure PowerShell
+              href: dns-operations-dnszones.md
+            - name: Azure CLI
+              href: dns-operations-dnszones-cli.md
+        - name: DNS 레코드 관리
+          items:
+            - name: Azure portal
+              href: dns-operations-recordsets-portal.md
+            - name: Azure PowerShell
+              href: dns-operations-recordsets.md
+            - name: Azure CLI
+              href: dns-operations-recordsets-cli.md
+        - name: 역방향 DNS 관리
+          items:
+            - name: Azure DNS에서 역방향 조회 영역 호스트
+              href: dns-reverse-dns-hosting.md
+            - name: Azure 서비스에 대한 역방향 DNS 레코드 관리
+              href: dns-reverse-dns-for-azure-services.md
+        - name: DNS 영역 파일 가져오기 및 내보내기
+          href: dns-import-export.md
+        - name: 하위 도메인 위임
+          href: delegate-subdomain.md
+        - name: PowerShell을 사용하여 하위 도메인 위임
+          href: delegate-subdomain-ps.md
+        - name: 다른 Azure 서비스와 통합
+          href: dns-for-azure-services.md
+        - name: DNS 영역 및 레코드 보호
+          href: dns-protect-zones-recordsets.md
+        - name: .NET SDK를 사용하여 DNS 작업 자동화
+          href: dns-sdk.md
+        - name: Azure 리소스에 대한 사용자 지정 도메인
+          href: dns-custom-domain.md
+    - name: 프라이빗 DNS
       items:
-        - name: Azure portal
-          href: dns-operations-recordsets-portal.md
-        - name: Azure PowerShell
-          href: dns-operations-recordsets.md
-        - name: Azure CLI
-          href: dns-operations-recordsets-cli.md
-    - name: 역방향 DNS 관리
-      items:
-        - name: Azure DNS에서 역방향 조회 영역 호스트
-          href: dns-reverse-dns-hosting.md
-        - name: Azure 서비스에 대한 역방향 DNS 레코드 관리
-          href: dns-reverse-dns-for-azure-services.md
-    - name: DNS 영역 파일 가져오기 및 내보내기
-      href: dns-import-export.md
-    - name: 하위 도메인 위임
-      href: delegate-subdomain.md
-    - name: PowerShell을 사용하여 하위 도메인 위임
-      href: delegate-subdomain-ps.md
-    - name: 다른 Azure 서비스와 통합
-      href: dns-for-azure-services.md
-    - name: DNS 영역 및 레코드 보호
-      href: dns-protect-zones-recordsets.md
-    - name: .NET SDK를 사용하여 DNS 작업 자동화
-      href: dns-sdk.md
-    - name: Azure 리소스에 대한 사용자 지정 도메인
-      href: dns-custom-domain.md
+        - name: 프라이빗 DNS 영역 및 레코드 보호
+          href: dns-protect-private-zones-recordsets.md
     - name: 문제 해결
       items:
         - name: 문제 해결 가이드
           href: dns-troubleshoot.md
-- name: 참고 자료
+- name: 참조
   items:
-    - name: 코드 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=dns'
-    - name: Azure PowerShell
-      href: /powershell/module/az.dns
-    - name: Azure CLI
-      href: /cli/azure/network/dns
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.dns.models
-    - name: 자바
-      href: /java/api/com.microsoft.azure.management.dns
-    - name: Node.js
-      href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
-    - name: Ruby
-      href: 'https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
-    - name: Python
-      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html'
-    - name: REST (영문)
-      href: /rest/api/dns/
-    - name: Resource Manager 템플릿
-      href: /azure/templates/microsoft.network/dns-allversions
-- name: 관련 항목
-  items:
-    - name: Application Gateway
-      href: /azure/application-gateway/
-    - name: Virtual Network
-      href: /azure/virtual-network/
-    - name: Virtual Machine
-      href: /azure/virtual-machines/
-    - name: 부하 분산 장치
-      href: /azure/load-balancer/
-    - name: Traffic Manager
-      href: /azure/traffic-manager/
-    - name: 웹 앱
-      href: /azure/app-service/
+    - name: 공용 DNS
+      items:
+        - name: 코드 샘플
+          href: 'https://azure.microsoft.com/resources/samples/?service=dns'
+        - name: CLI 샘플
+          href: cli-samples.md
+        - name: Azure PowerShell
+          href: /powershell/module/az.dns
+        - name: Azure CLI
+          href: /cli/azure/network/dns
+        - name: .NET
+          href: /dotnet/api/microsoft.azure.management.dns.models
+        - name: Java
+          href: /java/api/com.microsoft.azure.management.dns
+        - name: Node.js
+          href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
+        - name: Ruby
+          href: 'https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
+        - name: Python
+          href: 'https://azure.github.io/azure-sdk-for-python/ref/DNS.html'
+        - name: REST (영문)
+          href: /rest/api/dns/
+        - name: Resource Manager 템플릿
+          href: /azure/templates/microsoft.network/dns-allversions
+    - name: 프라이빗 DNS
+      items:
+        - name: Azure CLI
+          href: /cli/azure/network/private-dns
+        - name: Azure PowerShell
+          href: /powershell/module/az.PrivateDns
+        - name: .NET
+          href: /dotnet/api/overview/azure/privatedns/management
+        - name: REST (영문)
+          href: /rest/api/dns/privatedns/privatezones
 - name: 리소스
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 기능 요청
       href: 'https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
     - name: 네트워킹 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/dns/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=dns'
+    - name: 프라이빗 DNS 영역 마이그레이션 가이드
+      href: private-dns-migration-guide.md

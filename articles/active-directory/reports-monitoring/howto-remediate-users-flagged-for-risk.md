@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서 | Microsoft Docs
+title: Azure Active Directory 포털에서 위험 플래그가 지정 된 사용자 | Microsoft Docs
 description: Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서에 대해 알아보기
 services: active-directory
 author: MarkusVi
@@ -7,7 +7,7 @@ manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -15,12 +15,11 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286668"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608928"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
 
@@ -32,7 +31,7 @@ Microsoft는 환경을 안전하게 유지하기 위해 최선을 다하고 있�
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>위험 플래그가 지정된 사용자 보고서에 액세스
 
-Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers)를 통해 위험 플래그가 지정된 사용자를 검토할 수 있습니다. Azure AD가 없으면 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)에서 무료로 등록할 수 있습니다. 
+Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers)를 통해 위험 플래그가 지정된 사용자를 검토할 수 있습니다. Azure AD가 없는 경우에서 무료로 등록할 수 있습니다 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD) . 
 
 위험 플래그가 지정된 사용자 보고서에서 각 사용자에 대해 다음과 같은 조치를 취할 수 있습니다.
 
@@ -46,7 +45,7 @@ Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azur
 
 Office 365 자격 증명을 사용하여 **Azure 관리 센터**에 액세스할 수도 있습니다. Azure AD에 대한 액세스가 활성화되면 Azure AD 포털로 리디렉션됩니다. 기본 구독 수준에서 보고서에서 제공되는 세부 정보의 양은 제한됩니다. Azure Premium 구독자에 대한 추가 데이터 및 분석을 사용할 수 있습니다.
 
-액세스 하는 **위험 플래그가 지정 된 사용자** Microsoft 365 관리 센터에서 보고서:
+Microsoft 365 관리 센터에서 **위험 플래그가 지정 된 사용자** 보고서에 액세스 하려면 다음을 수행 합니다.
 
 1.  왼쪽 탐색 메뉴에서 **관리 센터**를 선택합니다. 
 2.  **Azure AD**를 선택합니다.
@@ -60,7 +59,7 @@ Office 365 자격 증명을 사용하여 **Azure 관리 센터**에 액세스할
 다음 작업을 수행하면 영향을 받는 계정을 수정하고 환경을 보호할 수 있습니다.
 
 1.  다단계 인증 및 셀프 서비스 암호 재설정에 대한 [올바른 정보를 확인](https://aka.ms/MFAValid)합니다. 
-2.  모든 사용자에 대해 [다단계 인증을 사용하도록 설정](https://aka.ms/MFAuth)합니다. 
+2.  모든 사용자에 대해 [multi-factor authentication을 사용 하도록 설정](https://aka.ms/MFAuth) 합니다. 
 3.  영향을 받는 모든 계정에 대해 이 [수정 스크립트](https://aka.ms/remediate)를 사용하여 다음 단계를 자동으로 수행합니다. 
 
     a. 암호를 다시 설정하여 계정을 보호하고 활성 세션을 종료합니다.
@@ -75,7 +74,7 @@ Office 365 자격 증명을 사용하여 **Azure 관리 센터**에 액세스할
 
     f. 계정에서 암호 복잡성을 높게 설정합니다.
 
-    g. 사서함 감사를 사용하도록 설정합니다.
+    예: 사서함 감사를 사용하도록 설정합니다.
 
     h. 관리자가 검토할 수 있도록 감사 로그를 생성합니다.
 
@@ -85,12 +84,11 @@ Office 365 자격 증명을 사용하여 **Azure 관리 센터**에 액세스할
 
 또한 다음을 수행해야 합니다.
 
-- [비정상적인 활동 해결에 대한 이 지침](https://aka.ms/fixaccount)을 살펴보고 구현합니다. 
+- [비정상적인 활동의 해결에 대 한이 지침](https://aka.ms/fixaccount)을 읽고 구현 합니다. 
 - 테넌트의 활동을 분석할 수 있도록 [감사 파이프라인을 사용하도록 설정](https://aka.ms/improvesecurity)합니다. 설정이 완료되면 감사 스토리지에 활동 로그가 채워지기 시작합니다. 이 시점에서 [보안 및 준수 센터의 검색 및 조사 리소스](https://aka.ms/sccsearch)를 활용할 수도 있습니다. 
-- [이 스크립트](https://aka.ms/mailboxaudit1)를 사용하여 모든 계정에 대해 사서함 감사를 사용하도록 설정합니다. 
 - 모든 사서함에 대한 대리자 권한 및 메일 전달 규칙을 검토합니다. 이 [PowerShell 스크립트](https://aka.ms/delegateforwardrules)를 사용하여 이 작업을 수행할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Active Directory ID 보호](../active-directory-identityprotection.md)
-* [위험 플래그가 지정된 사용자](concept-user-at-risk.md)
+* [위험에 대한 플래그가 지정된 사용자](concept-user-at-risk.md)

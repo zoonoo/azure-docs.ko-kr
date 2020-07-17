@@ -1,36 +1,26 @@
 ---
-title: Azure CLI를 사용하여 Linux 환경 만들기 | Microsoft Docs
-description: Azure CLI를 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+title: Azure CLI를 사용 하 여 Linux 환경 만들기
+description: Azure CLI를 사용하여 스토리지, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 디바이스, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: eb4c5897cdadecd074c2764faceeed13f4c724c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7ee4674f5e7c04709256459c3417a1379a65aedc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328643"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78969555"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 완전한 Linux 가상 머신 만들기
-Azure에서 가상 머신(VM)를 신속하게 만들려면 기본 값을 사용하여 모든 필요한 지원 리소스를 생성하는 단일 Azure CLI 명령을 사용할 수 있습니다. 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹 규칙 등의 리소스는 자동으로 생성됩니다. 프로덕션 환경에서의 더 높은 제어를 위해 미리 이 리소스를 만들어 VM을 여기에 추가할 수 있습니다. 이 문서에서는 VM을 만들고 지원 리소스를 하나씩 만드는 방법을 안내합니다. 
+Azure에서 가상 머신(VM)를 신속하게 만들려면 기본 값을 사용하여 모든 필요한 지원 리소스를 생성하는 단일 Azure CLI 명령을 사용할 수 있습니다. 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹 규칙 등의 리소스는 자동으로 생성됩니다. 프로덕션 환경에서의 더 높은 제어를 위해 미리 이 리소스를 만들어 VM을 여기에 추가할 수 있습니다. 이 문서에서는 VM을 만들고 지원 리소스를 하나씩 만드는 방법을 안내합니다.
 
 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치했고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹은 가상 머신과 지원하는 가상 네트워크 리소스에 앞서 만들어져야 합니다. [az group create](/cli/azure/group)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹은 가상 머신과 지원하는 가상 네트워크 리소스에 앞서 만들어져야 합니다. [Az group create](/cli/azure/group)를 사용 하 여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -112,7 +102,7 @@ az network public-ip create \
     --dns-name mypublicdns
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -182,7 +172,7 @@ az network nsg rule create \
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -345,7 +335,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -480,9 +470,9 @@ az vm availability-set create \
 ## <a name="create-a-vm"></a>VM 만들기
 인터넷에서 액세스 가능한 VM을 지원하기 위해 네트워크 리소스를 만들었습니다. 이제 VM을 만들어 SSH 키로 보호합니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](cli-ps-findimage.md)에서 설명한 대로 [az vm image list](/cli/azure/vm/image)를 통해 추가적인 이미지를 찾을 수 있습니다.
 
-인증에 사용할 SSH 키를 지정합니다. SSH 공개 키 쌍이 없는 경우 [만들거나 ](mac-create-ssh-keys.md) `--generate-ssh-keys` 매개 변수를 사용하여 만들 수 있습니다. 키 쌍이 있으면 이 매개 변수는 `~/.ssh`의 기존 키를 사용합니다.
+인증에 사용할 SSH 키를 지정합니다. SSH 공개 키 쌍이 없는 경우 [만들거나 ](mac-create-ssh-keys.md)`--generate-ssh-keys` 매개 변수를 사용하여 만들 수 있습니다. 키 쌍이 있으면 이 매개 변수는 `~/.ssh`의 기존 키를 사용합니다.
 
-[az vm create](/cli/azure/vm) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제에서는 *myvm*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -515,7 +505,7 @@ az vm create \
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-출력
+출력:
 
 ```bash
 The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.
@@ -559,13 +549,13 @@ sudo apt-get install -y nginx
 ![VM의 기본 NGINX 사이트](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>템플릿으로 내보내기
-동일한 매개 변수를 사용하여 추가 개발 환경을 만들려고 하거나 일치하는 프로덕션 환경을 만들려면 어떻게 해야 할까요? Resource Manager는 사용자 환경에 대한 모든 매개 변수를 정의하는 JSON 템플릿을 사용합니다. 이 JSON 템플릿을 참조하여 전체 환경을 빌드합니다. [JSON 템플릿을 수동으로 빌드](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하거나 기존 환경을 내보내 JSON 템플릿을 만들 수 있습니다. 다음과 같이 [az group export](/cli/azure/group)를 사용하여 리소스 그룹을 내보냅니다.
+동일한 매개 변수를 사용하여 추가 개발 환경을 만들려고 하거나 일치하는 프로덕션 환경을 만들려면 어떻게 해야 할까요? Resource Manager는 사용자 환경에 대한 모든 매개 변수를 정의하는 JSON 템플릿을 사용합니다. 이 JSON 템플릿을 참조하여 전체 환경을 빌드합니다. Json [템플릿을 수동으로 작성](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 하거나 기존 환경을 내보내 json 템플릿을 만들 수 있습니다. 다음과 같이 [az group export](/cli/azure/group)를 사용하여 리소스 그룹을 내보냅니다.
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-이 명령을 실행하면 `myResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `az group export` 명령에 `--include-parameter-default-value` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 [parameters.json 파일을 만듭니다](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+이 명령을 실행하면 `myResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `az group export` 명령에 `--include-parameter-default-value` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집 하 여 리소스 이름을 지정 하거나 리소스 이름을 지정 하는 [파일에 parameters.js를 만듭니다](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 템플릿에서 환경을 만들려면 다음과 같이 [az group deployment create](/cli/azure/group/deployment)를 사용합니다.
 
@@ -575,7 +565,7 @@ az group deployment create \
     --template-file myResourceGroup.json
 ```
 
-[템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 저장소 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
+[템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 스토리지 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 애플리케이션을 빌드할 수 있습니다.

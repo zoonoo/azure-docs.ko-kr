@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid 개념
 description: Azure Event Grid 및 해당 개념을 설명합니다. Event Grid의 몇 가지 주요 구성 요소를 정의합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/07/2020
+ms.openlocfilehash: 003139374a056da6ddc22dd1453d28761ff58871
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562358"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116491"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
 
@@ -22,7 +18,8 @@ ms.locfileid: "60562358"
 
 이벤트는 시스템에서 발생하는 무언가를 완벽히 설명하는 가장 작은 크기의 정보입니다. 모든 이벤트에는 이벤트의 원본, 이벤트가 발생한 시간 및 고유 식별자와 같은 일반적인 정보가 있습니다. 또한 모든 이벤트에는 특정 유형의 이벤트에만 관련된 특정 정보도 있습니다. 예를 들어 Azure Storage에서 만드는 새 파일에 대한 이벤트에는 `lastTimeModified` 값과 같은 파일에 대한 세부 정보가 포함되어 있습니다. 또는 Event Hubs 이벤트는 캡처 파일의 URL을 갖습니다. 
 
-각 이벤트는 64KB의 데이터로 제한됩니다.
+최대 64 KB 크기의 이벤트는 GA (일반 공급) Service Level Agreement(서비스 수준 약정) (SLA)에서 다룹니다. 최대 1mb 크기의 이벤트에 대 한 지원은 현재 미리 보기 상태입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 
+
 
 이벤트에 포함되어 전송되는 속성은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
@@ -34,15 +31,15 @@ ms.locfileid: "60562358"
 
 이벤트 원본은 이벤트가 발생하는 위치입니다. 각 이벤트 원본은 하나 이상의 이벤트 유형과 관련이 있습니다. 예를 들어 Azure Storage는 이벤트가 생성된 Blob에 대한 이벤트 원본입니다. IoT Hub는 디바이스에서 만든 이벤트에 대한 이벤트 원본입니다. 애플리케이션은 사용자가 정의한 사용자 지정 이벤트에 대한 이벤트 원본입니다. 이벤트 원본은 Event Grid에 이벤트를 보내는 역할을 담당합니다.
 
-지원되는 Event Grid 원본을 구현하는 방법에 대한 내용은 [Azure Event Grid의 이벤트 원본](event-sources.md)을 참조하세요.
+지원되는 Event Grid 원본을 구현하는 방법에 대한 내용은 [Azure Event Grid의 이벤트 원본](overview.md#event-sources)을 참조하세요.
 
 ## <a name="topics"></a>토픽
 
 Event Grid 항목에는 원본이 이벤트를 보내는 엔드포인트가 제공됩니다. 게시자는 Event Grid 항목을 만들고 이벤트 원본에 항목이 하나 필요한지 또는 둘 이상 필요한지 여부를 결정합니다. 항목은 관련 이벤트의 컬렉션에 사용됩니다. 특정 이벤트 형식에 응답하려면 구독자가 구독할 토픽을 결정합니다.
 
-시스템 토픽은 Azure 서비스에서 제공하는 기본 제공 항목입니다. 게시자가 항목을 소유하기 때문에 Azure 구독에는 시스템 항목이 표시되지 않지만 항목을 구독할 수 있습니다. 구독하려면 이벤트로부터 받으려는 리소스에 대한 정보를 제공합니다. 리소스에 액세스할 수 있는,으로 해당 이벤트를 구독할 수 있습니다.
+시스템 항목은 Azure Storage, Azure Event Hubs 및 Azure Service Bus와 같은 Azure 서비스에서 제공 하는 기본 제공 항목입니다. Azure 구독에서 시스템 항목을 만들고 구독할 수 있습니다. 자세한 내용은 [시스템 항목 개요](system-topics.md)를 참조 하세요. 
 
-사용자 지정 토픽은 애플리케이션 및 타사 토픽입니다. 사용자 지정 항목을 만들거나 사용자 지정 항목에 대한 액세스가 할당되면 구독에 사용자 지정 항목이 표시됩니다.
+사용자 지정 토픽은 애플리케이션 및 타사 토픽입니다. 사용자 지정 항목을 만들거나 사용자 지정 항목에 대한 액세스가 할당되면 구독에 사용자 지정 항목이 표시됩니다. 자세한 내용은 [사용자 지정 항목](custom-topics.md)을 참조 하세요.
 
 애플리케이션을 디자인할 때는 만들려는 토픽 수를 유연하게 결정할 수 있습니다. 대규모 솔루션의 경우 관련된 이벤트의 각 범주에 대한 사용자 지정 토픽을 만듭니다. 사용자 계정을 수정하고 주문을 처리하는 것과 관련된 이벤트를 보내는 애플리케이션을 예로 들 수 있습니다. 이벤트 처리기가 이벤트의 두 범주 모두를 원할 가능성은 낮습니다. 두 개의 사용자 지정 토픽을 만들고 이벤트 처리기가 관심 있는 토픽에 구독할 수 있도록 합니다. 소규모 솔루션의 경우 모든 이벤트를 단일 토픽으로 전송할 수도 있습니다. 원하는 이벤트 유형에 대한 이벤트 구독자를 필터링할 수 있습니다.
 
@@ -59,9 +56,6 @@ Event Grid 항목에는 원본이 이벤트를 보내는 엔드포인트가 제�
 현재 Event Grid 구독을 확보하는 방법에 대한 정보는 [쿼리 Event Grid 구독](query-event-subscriptions.md)을 참조하세요.
 
 ## <a name="event-subscription-expiration"></a>이벤트 구독 만료
-
-Azure CLI의 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 사용하면 이벤트 구독을 만들 때 만료 날짜를 설정할 수 있습니다. REST API를 사용 중인 경우 `api-version=2018-09-15-preview`를 사용합니다.
-
 해당 날짜 이후 이벤트 구독이 자동으로 만료됩니다. 제한된 시간 동안만 필요한 이벤트 구독 만료를 설정하고 이러한 구독을 정리하는 것에 대해 신경 쓰고 싶지 않습니다. 예를 들어, 시나리오를 테스트하기 위해 이벤트 구독을 만들 때 만료를 설정할 수 있습니다. 
 
 만료를 설정하는 예제는 [고급 필터가 포함된 구독](how-to-filter-events.md#subscribe-with-advanced-filters)을 참조하세요.
@@ -82,7 +76,10 @@ Event Grid에서 이벤트가 구독자의 엔드포인트에서 수신되었는
 
 ## <a name="batching"></a>일괄 처리
 
-사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리의 최대 크기는 1MB입니다. 각 이벤트도 64KB보다 크면 안 됩니다.
+사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리의 최대 크기는 1MB입니다. 각 이벤트는 여전히 64 KB (일반 공급) 또는 1mb (미리 보기) 보다 크지 않아야 합니다.
+
+> [!NOTE]
+> 최대 64 KB 크기의 이벤트는 GA (일반 공급) Service Level Agreement(서비스 수준 약정) (SLA)에서 다룹니다. 최대 1mb 크기의 이벤트에 대 한 지원은 현재 미리 보기 상태입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

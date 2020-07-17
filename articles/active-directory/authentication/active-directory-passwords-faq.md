@@ -4,25 +4,24 @@ description: Azure AD 셀프 서비스 암호 재설정에 대해 자주 묻는 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.topic: how-to
+ms.date: 04/15/2020
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359061"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826471"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
 다음은 암호 재설정과 관련된 모든 항목에 대한 몇 가지 질문과 대답(FAQ)입니다.
 
-여기에서 답변되지 않은 Azure Active Directory(Azure AD) 및 셀프 서비스 암호 재설정(SSPR)에 대한 일반적인 질문이 있는 경우 [Azure AD 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD)에서 다른 사용자들의 도움을 요청할 수 있습니다. 커뮤니티는 엔지니어, 제품 관리자, MVP 및 동료 IT 전문가들로 구성되어 있습니다.
+여기에서 답변되지 않은 Azure Active Directory(Azure AD) 및 셀프 서비스 암호 재설정(SSPR)에 대한 일반적인 질문이 있는 경우 [Azure Active Directory에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-active-directory.html)에서 다른 사용자들의 도움을 요청할 수 있습니다. 커뮤니티는 엔지니어, 제품 관리자, MVP 및 동료 IT 전문가들로 구성되어 있습니다.
 
 이 FAQ는 다음 섹션으로 구분하여 설명합니다.
 
@@ -36,7 +35,7 @@ ms.locfileid: "60359061"
 
 * **Q:  내 사용자가 자신의 암호 재설정 데이터를 등록할 수 있나요?**
 
-  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 사용자는 암호 재설정 등록 포털(https://aka.ms/ssprsetup))로 이동하여 인증 정보를 등록할 수 있습니다. 사용자는 액세스 패널 ( https://myapps.microsoft.com) ) 을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
+  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 사용자는 암호 재설정 등록 포털(https://aka.ms/ssprsetup) )로 이동하여 인증 정보를 등록할 수 있습니다. 사용자는 액세스 패널 ( https://myapps.microsoft.com) ) 을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
   >
   >
 * **Q:  그룹에 대해 암호 재설정을 사용하도록 설정한 후 모든 사용자에게 이를 사용하도록 설정하려는 경우, 사용자가 다시 등록해야 하나요?**
@@ -46,7 +45,7 @@ ms.locfileid: "60359061"
   >
 * **Q:  내 사용자 대신 암호 재설정 데이터를 정의할 수 있나요?**
 
-  > **A:** Azure AD Connect, PowerShell 사용 하 여이 수행할 수는 예는 [Azure portal](https://portal.azure.com), 또는 [Microsoft 365 관리 센터](https://admin.microsoft.com)합니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요.
+  > **A:** 예. Azure AD Connect, PowerShell, [Azure Portal](https://portal.azure.com) 또는 [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 암호 재설정 데이터를 정의할 수 있습니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요.
   >
   >
 * **Q:  온-프레미스에서 본인 확인 질문 데이터를 동기화할 수 있나요?**
@@ -56,7 +55,7 @@ ms.locfileid: "60359061"
   >
 * **Q:  내 사용자가 다른 사용자들이 볼 수 없도록 데이터를 등록할 수 있나요?**
 
-  > **A:** 예. 사용자가 암호 재설정 등록 포털을 사용하여 데이터를 등록한 경우 데이터가 전역 관리자 및 사용자에게만 표시되는 개인 인증 필드에 저장됩니다.
+  > **A:** 예. 사용자가 암호 재설정 등록 포털을 사용하여 데이터를 등록한 경우 데이터가 글로벌 관리자 및 사용자에게만 표시되는 프라이빗 인증 필드에 저장됩니다.
   >
   >
 * **Q:  내 사용자를 등록해야 암호 재설정을 사용할 수 있나요?**
@@ -101,7 +100,7 @@ ms.locfileid: "60359061"
   > 이 시간 내에 알림이 수신되지 않으면 다음을 수행합니다.
   > * 정크 메일 폴더를 확인합니다.
   > * 연락받을 전화 번호나 메일이 올바른지 확인합니다.
-  > * 디렉터리의 인증 데이터가 올바르게 확인 형식, 예를 들어, + 1 4255551234 또는 *사용자\@contoso.com*합니다. 
+  > * 디렉터리의 인증 데이터 형식이 정확한지 확인합니다(예: +1 4255551234 또는 *user\@contoso.com*). 
 * **Q:  암호 재설정에서 지원되는 언어는 무엇인가요?**
 
   > **A:** 암호 재설정 UI, SMS 메시지 및 음성 통화는 Office 365에서 지원되는 동일한 언어로 지역화됩니다.
@@ -114,7 +113,7 @@ ms.locfileid: "60359061"
   >
 * **Q:  암호 재설정으로 이동할 수 있는 위치에 대해 사용자에게 어떻게 교육할 수 있습니까?**
 
-  > **A:** [SSPR 배포](howto-sspr-deployment.md#sample-communication) 문서의 제안 사항을 직접 시도해 보세요.
+  > **A:** [SSPR 배포](howto-sspr-deployment.md#plan-communications) 문서의 제안 사항을 직접 시도해 보세요.
   >
   >
 * **Q:  모바일 디바이스에서 이 페이지를 사용할 수 있나요?**
@@ -179,7 +178,7 @@ ms.locfileid: "60359061"
   >
 * **Q:  메일 및 SMS 일회용 암호는 얼마 동안 유효하나요?**
 
-  > **A:** 암호 재설정을 위한 세션 수명은 15분입니다. 암호 재설정 작업을 시작한 순간부터 15분 동안 암호 재설정을 마쳐야 합니다. 이 기간이 만료된 후 전자 메일 및 SMS 일회용 암호는 유효하지 않습니다.
+  > **A:** 암호 재설정을 위한 세션 수명은 15분입니다. 암호 재설정 작업을 시작한 순간부터 15분 동안 암호 재설정을 마쳐야 합니다. 이메일 및 SMS 일회용 암호는 암호 재설정 세션 동안 5분간 유효합니다.
   >
   >
 * **Q:  사용자가 암호를 다시 설정하지 못하도록 차단할 수 있나요?**
@@ -235,11 +234,11 @@ ms.locfileid: "60359061"
   >
 * **Q:  암호 재설정 또는 등록 보고 데이터에 액세스하는 API가 있나요?**
 
-  > **A:** 예. 암호 재설정 보고 데이터 스트림에 액세스하는 방법을 알아보려면 [프로그래밍 방식으로 암호 재설정 보고 이벤트에 액세스하는 방법](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent)을 참조하세요.
+  > **A:** 예. 암호 재설정 보고 데이터에 액세스하는 방법을 알아보려면 [Azure Log Analytics REST API 참조](/rest/api/loganalytics/)를 참조하세요.
   >
   >
 
-## <a name="password-writeback"></a>암호 쓰기 저장(writeback)
+## <a name="password-writeback"></a>비밀번호 쓰기 저장
 
 * **Q:  비밀번호 쓰기 저장은 배후에서 어떻게 작동하나요?**
 
@@ -266,12 +265,12 @@ ms.locfileid: "60359061"
   > **A:** 페더레이션되고 암호 해시 동기화된 통과 인증 사용자를 비롯하여 온-프레미스 Active Directory에서 Azure AD로 동기화되는 사용자 계정에 대한 비밀번호 쓰기 저장이 작동합니다.
   >
   >
-* **Q:  비밀번호 쓰기 저장이 내 도메인 암호 정책을 적용하나요?**
+* **Q:  비밀번호 쓰기 저장이 내 도메인의 암호 정책을 적용하나요?**
 
   > **A:** 예. 비밀번호 쓰기 저장은 암호 사용 기간, 기록, 복잡성, 필터 및 관리자가 로컬 도메인에서 암호에 적용한 그 밖의 제한 사항을 이행합니다.
   >
   >
-* **Q:  비밀번호 쓰기 저장은 안전한가요?  해킹을 당하지 않는다고 어떻게 확신할 수 있습니까?**
+* **Q:  비밀번호 쓰기 저장은 안전한가요?  해킹되지 않는다는 것을 어떻게 확신할 수 있습니까?**
 
   > **A:** 예. 비밀번호 쓰기 저장은 안전합니다. 비밀번호 쓰기 저장 서비스에 의해 구현되는 여러 보안 레이어에 대한 자세한 내용은 [비밀번호 쓰기 저장 개요](howto-sspr-writeback.md) 문서의 [비밀번호 쓰기 저장 보안](concept-sspr-writeback.md#password-writeback-security) 섹션을 확인하세요.
   >

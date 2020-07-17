@@ -1,6 +1,6 @@
 ---
-title: Video Indexer와 Azure Media Services v3 미리 설정 비교 | Microsoft Docs
-description: 이 항목에서는 Video Indexer와 Azure Media Services v3 미리 설정을 비교합니다.
+title: Video Indexer 및 Azure Media Services v3 미리 설정 비교
+description: 이 문서에서는 Video Indexer 기능과 Azure Media Services v3 미리 설정을 비교 합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,20 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: 275178998948e357a6a72fbe5d0b3c9c01485a3a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: dcfc6ea4afe23424e72c625518356be52f62bc81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77602198"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Azure Media Services v3 미리 설정 및 Video Indexer 비교 
 
 이 문서에서는 **Video Indexer API**와 **Media Services v3 API**의 기능을 비교합니다. 
 
-현재는에서 제공 하는 기능 간에 중복 된 [Video Indexer Api](https://api-portal.videoindexer.ai/) 및 [Media Services v3 Api](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)합니다. 다음 표에는 차이점과 유사점을 이해하기 위한 현재의 지침이 나와 있습니다. 
+현재 [Video Indexer api](https://api-portal.videoindexer.ai/) 및 [Media Services v3 api](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)에서 제공 하는 기능 사이에 중복이 있습니다. 다음 표에는 차이점과 유사점을 이해하기 위한 현재의 지침이 나와 있습니다. 
 
 ## <a name="compare"></a>비교
 
@@ -33,10 +32,10 @@ ms.locfileid: "65800168"
 |---|---|---|
 |미디어 인사이트|[향상된 기능](video-indexer-output-json-v2.md) |[기본 사항](../latest/intelligence-concept.md)|
 |환경|지원되는 기능의 전체 목록 보기: <br/> [개요](video-indexer-overview.md)|비디오 인사이트만 반환합니다.|
-|결제|[Media Services 가격](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services 가격](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|준수|[ISO 27001](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [ISO 27018](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27018), [SOC 1,2,3](https://www.microsoft.com/TrustCenter/Compliance/SOC)를 [HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa)를 [FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/fedramp)를 [PCI](https://www.microsoft.com/trustcenter/compliance/pci), 및 [ HITRUST](https://www.microsoft.com/TrustCenter/Compliance/hitrust) 인증 합니다. 최신 업데이트를 방문 [Video Indexer의 인증 상태를 현재](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)합니다.|Media Services는 많은 인증을 준수합니다. [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf)를 살펴보고, "Media Services"를 검색하여 관심 인증서를 준수하는지 확인합니다.|
-|무료 평가판|미국 동부|사용할 수 없음|
-|지역 가용성|미국 동부 2, 미국 중남부, 미국 서 부 2, 북유럽, 서유럽, 동남 아시아, 동남 아시아 및 오스트레일리아 동부입니다.  최신 업데이트에 대 한 참조를 [지역별 제품](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) 페이지입니다.|[Azure 상태](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) 참조|
+|결제|[Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
+|규정 준수|최신 규정 준수 업데이트는 [Azure 준수 Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 를 방문 하 고 "Video Indexer"를 검색 하 여 관심 있는 인증서를 준수 하는지 확인 합니다.|최신 규정 준수 업데이트는 [Azure 준수 Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 를 방문 하 고 "Media Services"를 검색 하 여 관심 있는 인증서를 준수 하는지 확인 합니다.|
+|평가판|미국 동부|사용할 수 없음|
+|지역 가용성|[지역별 Cognitive Services 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) 참조|[지역별 Media Services 가용성을](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)참조 하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

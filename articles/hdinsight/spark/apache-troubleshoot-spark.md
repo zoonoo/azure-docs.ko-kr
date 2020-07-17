@@ -1,223 +1,115 @@
 ---
-title: Azure HDInsight의 Spark 문제 해결
+title: Azure HDInsight의 Apache Spark 문제 해결
 description: Apache Spark 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.reviewer: jasonh
+ms.topic: troubleshooting
+ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4dc7293c00097c7a5752e29bf7c9a203cbb31a5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721161"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79271942"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 
-[Apache Ambari](https://ambari.apache.org/)에서 [Apache Spark](https://spark.apache.org/) 페이로드 작업 시 주요 문제 및 해결 방법을 알아봅니다.
+[Apache Ambari](https://ambari.apache.org/)에서 Apache Spark 페이로드를 사용할 때의 주요 문제 및 해결 방법에 대해 알아봅니다.
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>클러스터에서 Apache Ambari를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
-### <a name="resolution-steps"></a>해결 단계:
+Spark 구성 값을 튜닝 하 여 Apache Spark 응용 프로그램 예외를 방지할 수 있습니다 `OutofMemoryError` . 다음 단계는 Azure HDInsight의 기본 Spark 구성 값을 보여 줍니다.
 
-Spark 구성 값을 조정할 수 있습니다는 Apache Spark 응용 프로그램 OutofMemoryError 예외를 방지 합니다. 다음 단계에서는 Azure HDInsight에서 기본 Spark 구성 값 보여 줍니다. 
+1. `https://CLUSTERNAME.azurehdidnsight.net`클러스터 자격 증명을 사용 하 여 Ambari에 로그인 합니다. 초기 화면에 개요 대시보드가 표시 됩니다. HDInsight 3.6과 4.0 간에는 약간의 외관상 차이가 있습니다.
 
-1. 클러스터 목록에서 **Spark2**를 선택합니다.
+1. **Spark2**  >  **Configs**로 이동 합니다.
 
-    ![목록에서 클러스터 선택](./media/apache-troubleshoot-spark/update-config-1.png)
+    ![Configs 탭 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-2. **Configs** 탭을 선택합니다.
+1. 구성 목록에서 **spark2-defaults**를 선택 하 고 확장 합니다.
 
-    ![Configs 탭 선택](./media/apache-troubleshoot-spark/update-config-2.png)
+1. **spark.executor.memory**와 같이 조정해야 하는 값 설정을 찾습니다. 이 경우에는 **9728m** 의 값이 너무 높습니다.
 
-3. 구성 목록에서 **Custom-spark2-defaults**를 선택합니다.
+    ![custom-spark-defaults 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
-    ![custom-spark-defaults 선택](./media/apache-troubleshoot-spark/update-config-3.png)
+1. 값을 권장 설정으로 지정합니다. 이 설정에는 **2048m** 값이 권장됩니다.
 
-4. **spark.executor.memory**와 같이 조정해야 하는 값 설정을 찾습니다. 이 경우 **4608m**의 값이 너무 높습니다.
+1. 값을 저장하고 구성을 저장합니다. **저장**을 선택합니다.
 
-    ![spark.executor.memory 필드 선택](./media/apache-troubleshoot-spark/update-config-4.png)
-
-5. 값을 권장 설정으로 지정합니다. 이 설정에는 **2048m** 값이 권장됩니다.
-
-    ![값을 2048m으로 변경](./media/apache-troubleshoot-spark/update-config-5.png)
-
-6. 값을 저장하고 구성을 저장합니다. 도구 모음에서 **저장**을 선택합니다.
-
-    ![설정 및 구성 저장](./media/apache-troubleshoot-spark/update-config-6a.png)
-
-    주의할 필요가 있는 구성이면 알림이 표시됩니다. 항목을 확인한 후 **계속 진행**을 선택합니다. 
-
-    ![계속 진행 선택](./media/apache-troubleshoot-spark/update-config-6b.png)
+    ![값을 2048m으로 변경](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
     구성 변경 내용에 대한 메모를 작성하고 **저장**을 선택합니다.
 
-    ![변경 내용에 대한 메모 입력](./media/apache-troubleshoot-spark/update-config-6c.png)
+    ![변경 내용에 대한 메모 입력](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-7. 구성이 저장될 때마다 서비스를 다시 시작하라는 메시지가 표시됩니다. **다시 시작**을 선택합니다.
+    주의할 필요가 있는 구성이면 알림이 표시됩니다. 항목을 확인한 후 **계속 진행**을 선택합니다.
 
-    ![다시 시작 선택](./media/apache-troubleshoot-spark/update-config-7a.png)
+    ![계속 진행 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
+
+1. 구성이 저장될 때마다 서비스를 다시 시작하라는 메시지가 표시됩니다. **다시 시작**을 선택합니다.
+
+    ![다시 시작 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
     다시 시작을 확인합니다.
 
-    ![다시 시작 확인 선택](./media/apache-troubleshoot-spark/update-config-7b.png)
+    ![다시 시작 확인 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png)
 
     실행 중인 프로세스를 검토할 수 있습니다.
 
-    ![실행 중인 프로세스 검토](./media/apache-troubleshoot-spark/update-config-7c.png)
+    ![실행 중인 프로세스 검토](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-8. 구성을 추가할 수 있습니다. 구성 목록에서 **Custom-spark2-defaults**를 선택하고 **속성 추가**를 선택합니다.
+1. 구성을 추가할 수 있습니다. 구성 목록에서 **Custom-spark2-defaults**를 선택하고 **속성 추가**를 선택합니다.
 
-    ![속성 추가 선택](./media/apache-troubleshoot-spark/update-config-8.png)
+    ![속성 추가 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
-9. 새 속성을 정의합니다. 데이터 형식과 같은 특정 설정에 대한 대화 상자를 사용하여 단일 속성을 정의할 수 있습니다. 또는 줄당 하나의 정의를 사용하여 여러 속성을 정의할 수 있습니다. 
+1. 새 속성을 정의합니다. 데이터 형식과 같은 특정 설정에 대한 대화 상자를 사용하여 단일 속성을 정의할 수 있습니다. 또는 줄당 하나의 정의를 사용하여 여러 속성을 정의할 수 있습니다.
 
     이 예제에서 **spark.driver.memory** 속성의 값은 **4g**로 정의되었습니다.
 
-    ![새 속성 정의](./media/apache-troubleshoot-spark/update-config-9.png)
+    ![새 속성 정의](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
-10. 6단계와 7단계에서 설명한 대로 구성을 저장하고 서비스를 다시 시작합니다.
+1. 6단계와 7단계에서 설명한 대로 구성을 저장하고 서비스를 다시 시작합니다.
 
 이러한 변경 내용은 클러스터 전체를 대상으로 하지만 Spark 작업을 제출할 때 재정의할 수 있습니다.
 
-### <a name="additional-reading"></a>추가 참조 자료
-
-[HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>클러스터에서 Jupyter Notebook을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
-### <a name="resolution-steps"></a>해결 단계:
+Jupyter Notebook의 첫 번째 셀에서 **%%configure** 지시문 뒤에 유효한 JSON 형식의 Spark 구성을 지정합니다. 필요에 따라 실제 값을 변경합니다.
 
-1. 설정해야 하는 Spark 구성 및 값을 결정하려면 Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인을 참조하세요.
-
-2. Jupyter Notebook의 첫 번째 셀에서 **%%configure** 지시문 뒤에 유효한 JSON 형식의 Spark 구성을 지정합니다. 필요에 따라 실제 값을 변경합니다.
-
-    ![구성 추가](./media/apache-troubleshoot-spark/add-configuration-cell.png)
-
-### <a name="additional-reading"></a>추가 참조 자료
-
-[HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+![구성 추가](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>클러스터에서 Apache Livy를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
-### <a name="resolution-steps"></a>해결 단계:
+cURL 같은 REST 클라이언트를 사용하여 Livy로 Spark 애플리케이션을 제출합니다. 다음과 유사한 명령을 사용합니다. 필요에 따라 실제 값을 변경합니다.
 
-1. 설정해야 하는 Spark 구성 및 값을 결정하려면 Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인을 참조하세요. 
-
-2. cURL 같은 REST 클라이언트를 사용하여 Livy로 Spark 애플리케이션을 제출합니다. 다음과 유사한 명령을 사용합니다. 필요에 따라 실제 값을 변경합니다.
-
-    ```apache
-    curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://container@storageaccountname.blob.core.windows.net/example/jars/sparkapplication.jar", "className":"com.microsoft.spark.application", "numExecutors":4, "executorMemory":"4g", "executorCores":2, "driverMemory":"8g", "driverCores":4}'  
-    ```
-
-### <a name="additional-reading"></a>추가 참조 자료
-
-[HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+```apache
+curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://container@storageaccountname.blob.core.windows.net/example/jars/sparkapplication.jar", "className":"com.microsoft.spark.application", "numExecutors":4, "executorMemory":"4g", "executorCores":2, "driverMemory":"8g", "driverCores":4}'  
+```
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>클러스터에서 spark-submit을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
-### <a name="resolution-steps"></a>해결 단계:
-
-1. 설정해야 하는 Spark 구성 및 값을 결정하려면 Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인을 참조하세요.
-
-2. 다음과 비슷한 명령을 사용하여 spark-shell을 시작합니다. 필요에 따라 구성의 실제 값을 변경합니다. 
-
-    ```apache
-    spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
-    ```
-
-### <a name="additional-reading"></a>추가 참조 자료
-
-[HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
-
-## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인
-
-### <a name="detailed-description"></a>자세한 설명
-
-Spark 애플리케이션이 다음과 같은 유형의 확인(catch)할 수 없는 예외로 인해 실패합니다.
+다음과 비슷한 명령을 사용하여 spark-shell을 시작합니다. 필요에 따라 구성의 실제 값을 변경합니다.
 
 ```apache
-ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439) 
-
-java.lang.OutOfMemoryError 
-    at java.io.ByteArrayOutputStream.hugeCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.grow(Unknown Source) 
-    at java.io.ByteArrayOutputStream.ensureCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.write(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject0(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject(Unknown Source) 
-    at org.apache.spark.serializer.JavaSerializationStream.writeObject(JavaSerializer.scala:44) 
-    at org.apache.spark.serializer.JavaSerializerInstance.serialize(JavaSerializer.scala:101) 
-    at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:239) 
-    at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) 
-    at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) 
-    at java.lang.Thread.run(Unknown Source) 
+spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
 ```
 
-```apache
-ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker-0,5,main] 
+### <a name="additional-reading"></a>추가 참조 항목
 
-java.lang.OutOfMemoryError 
-    at java.io.ByteArrayOutputStream.hugeCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.grow(Unknown Source) 
-    at java.io.ByteArrayOutputStream.ensureCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.write(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject0(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject(Unknown Source) 
-    at org.apache.spark.serializer.JavaSerializationStream.writeObject(JavaSerializer.scala:44) 
-    at org.apache.spark.serializer.JavaSerializerInstance.serialize(JavaSerializer.scala:101) 
-    at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:239) 
-    at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) 
-    at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) 
-    at java.lang.Thread.run(Unknown Source) 
-```
+[HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
-### <a name="probable-cause"></a>가능한 원인:
+## <a name="next-steps"></a>다음 단계
 
-이 예외의 가장 가능성 높은 원인은 JVM(Java Virtual Machine)에 할당된 힙 메모리가 충분하지 않다는 것입니다. 이러한 JVM은 Spark 애플리케이션의 일부로 실행기 또는 드라이버로서 시작됩니다. 
+문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-### <a name="resolution-steps"></a>해결 단계:
+* [Spark 메모리 관리 개요](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-1. Spark 애플리케이션에서 처리하는 데이터의 최대 크기를 결정합니다. 입력 데이터의 최대 크기, 입력 데이터 변환을 통해 생성되는 중간 데이터, 애플리케이션이 중간 데이터를 추가적으로 변환할 때 생성되는 출력 데이터에 따라 이러한 크기를 추측해 볼 수 있습니다. 초기에 공식적으로 추측할 수 없는 경우 이 프로세스를 반복할 수 있습니다. 
+* [HDInsight 클러스터에서 Spark 응용 프로그램 디버깅](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
-2. 사용할 HDInsight 클러스터가 Spark 애플리케이션을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. YARN UI에서 Cluster Metrics 섹션에 있는 **Memory Used** 값과 Memory Total 값, VCores Used 값과 **Memory Total** 값, **VCores Used** 값과 **VCores Total** 값을 검토하여 이를 확인할 수 있습니다.
+* [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 
-3. 다음 Spark 구성을 사용 가능한 메모리 및 코어의 90%를 초과하지 않는 적절한 값으로 설정합니다. 값은 Spark 애플리케이션의 메모리 요구 사항을 벗어나지 않아야 합니다. 
+* [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-    ```apache
-    spark.executor.instances (Example: 8 for 8 executor count) 
-    spark.executor.memory (Example: 4g for 4 GB) 
-    spark.yarn.executor.memoryOverhead (Example: 384m for 384 MB) 
-    spark.executor.cores (Example: 2 for 2 cores per executor) 
-    spark.driver.memory (Example: 8g for 8GB) 
-    spark.driver.cores (Example: 4 for 4 cores)   
-    spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
-    ```
-
-    모든 실행 기에서 사용 하는 총 메모리를 계산 합니다. 
-    
-    ```apache
-    spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
-    ```
-   드라이버를 사용 하는 총 메모리를 계산 합니다.
-    
-    ```apache
-    spark.driver.memory + spark.yarn.driver.memoryOverhead
-    ```
-
-### <a name="additional-reading"></a>추가 참조 자료
-
-- [Apache Spark 메모리 관리 개요](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [HDInsight 클러스터에서 Apache Spark 애플리케이션 디버그](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
-
-
-### <a name="see-also"></a>관련 항목
-[Azure HDInsight를 사용하여 문제 해결](../../hdinsight/hdinsight-troubleshoot-guide.md)
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

@@ -3,23 +3,16 @@ title: Cloud Services에 대한 일반적인 시작 작업 | Microsoft Docs
 description: 클라우드 서비스 웹 역할 또는 작업자 역할에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
+author: tgore03
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: tagore
+ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406398"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920066"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>일반적인 클라우드 서비스 시작 작업
 이 문서에서는 클라우드 서비스에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다. 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다. 
@@ -31,7 +24,7 @@ ms.locfileid: "60406398"
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>역할이 시작되기 전에 환경 변수를 정의합니다.
-특정 태스크에 대해 정의된 환경 변수가 필요한 경우 [Task] 요소 내부의 [환경] 요소를 사용합니다.
+특정 태스크에 대해 정의된 환경 변수가 필요한 경우 [태스크] 요소 내부의 [환경] 요소를 사용합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -73,7 +66,7 @@ ms.locfileid: "60406398"
 ### <a name="example-of-managing-the-error-level"></a>오류 수준 관리 예제
 이 예에서는 오류 처리 및 로깅으로 JSON에 대한 압축 섹션 및 압축 항목을 *Web.config* 파일에 추가합니다.
 
-[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe*에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) 특성을 `elevated`에 설정하는 것을 포함합니다.
+[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe*에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) 특성을 `elevated`에 설정하는 것을 포함합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -96,7 +89,7 @@ REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. Th
 REM   batch file were executed twice. This can occur and must be accounted for in an Azure startup
 REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
 REM   command will safely set the ERRORLEVEL to zero.
-IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
+IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 
 REM   If the ERRORLEVEL is not zero at this point, some other error occurred.
 IF %ERRORLEVEL% NEQ 0 (
@@ -125,13 +118,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>방화벽 규칙 추가
-Azure에는 사실상 두 개의 방화벽이 있습니다. 첫 번째 방화벽은 가상 컴퓨터와 외부 세계 간의 연결을 제어합니다. 이 방화벽은 [ServiceDefinition.csdef] 파일의 [엔드포인트] 요소에 의해 제어됩니다.
+Azure에는 사실상 두 개의 방화벽이 있습니다. 첫 번째 방화벽은 가상 머신과 외부 세계 간의 연결을 제어합니다. 이 방화벽은 [ServiceDefinition.csdef] 파일의 [엔드포인트] 요소에 의해 제어됩니다.
 
 두 번째 방화벽은 가상 머신과 해당 가상 머신 내의 프로세스 간의 연결을 제어합니다. 이 방화벽은 `netsh advfirewall firewall` 명령줄 도구를 통해 제어할 수 있습니다.
 
 Azure는 역할 내에서 시작되는 프로세스에 대한 방화벽 규칙을 만듭니다. 예를 들어 서비스 또는 프로그램을 시작하면 Azure는 필요한 방화벽 규칙을 만들어 해당 서비스가 인터넷과 통신할 수 있도록 합니다. 그러나 사용자의 역할(예: COM + 서비스 또는 Windows 예약된 태스크) 외부 프로세스에 의해 시작되는 서비스를 만드는 경우 해당 서비스에 대한 액세스를 허용하는 방화벽 규칙을 수동으로 만들어야 합니다. 이러한 방화벽 규칙은 시작 작업을 사용하여 만들 수 있습니다.
 
-방화벽 규칙을 만드는 시작 작업은 [상승된][task]  **executionContext**을 반환하는 경우 시작 작업이 실패합니다. 다음 시작 작업을 [ServiceDefinition.csdef] 파일에 추가합니다.
+방화벽 규칙을 만드는 시작 작업은 [상승된][환경]**executionContext**을 반환하는 경우 시작 작업이 실패합니다. 다음 시작 작업을 [ServiceDefinition.csdef] 파일에 추가합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -247,14 +240,14 @@ REM   If an error occurred, return the errorlevel.
 EXIT /B %errorlevel%
 ```
 
-## <a name="create-files-in-local-storage-from-a-startup-task"></a>시작 작업에서 로컬 저장소에 파일을 만듭니다.
-로컬 저장소 리소스를 사용하여 애플리케이션에 의해 나중에 액세스하는 시작 태스크에서 만든 파일을 저장할 수 있습니다.
+## <a name="create-files-in-local-storage-from-a-startup-task"></a>시작 작업에서 로컬 스토리지에 파일을 만듭니다.
+로컬 스토리지 리소스를 사용하여 애플리케이션에 의해 나중에 액세스하는 시작 태스크에서 만든 파일을 저장할 수 있습니다.
 
-로컬 스토리지 리소스를 만들려면 [LocalResources] 섹션을 [ServiceDefinition.csdef] 파일에 추가한 다음 [LocalStorage] 자식 요소를 추가합니다. 로컬 저장소 리소스에 고유한 이름을 부여하고 시작 작업에 대한 적절한 크기를 부여합니다.
+로컬 스토리지 리소스를 만들려면 [LocalResources] 섹션을 [ServiceDefinition.csdef] 파일에 추가한 다음 [LocalStorage] 자식 요소를 추가합니다. 로컬 스토리지 리소스에 고유한 이름을 부여하고 시작 작업에 대한 적절한 크기를 부여합니다.
 
-시작 작업에서 로컬 저장소 리소스를 사용하려면 로컬 저장소 리소스 위치를 참조하는 환경 변수를 만들어야 합니다. 그러면 시작 태스크 및 애플리케이션이 로컬 저장소 리소스에 파일을 읽고 쓸 수 있게 됩니다.
+시작 작업에서 로컬 스토리지 리소스를 사용하려면 로컬 스토리지 리소스 위치를 참조하는 환경 변수를 만들어야 합니다. 그러면 시작 태스크 및 애플리케이션이 로컬 스토리지 리소스에 파일을 읽고 쓸 수 있게 됩니다.
 
-**ServiceDefinition.csdef** 파일의 관련 섹션은 다음과 같습니다.
+**ServiceDefinition.csdef** 파일의 관련 섹션이 아래에 나와 있습니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -293,7 +286,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-[GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) 메서드를 사용하여 Azure SDK에서 로컬 저장소 폴더에 액세스할 수 있습니다.
+[GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) 메서드를 사용하여 Azure SDK에서 로컬 스토리지 폴더에 액세스할 수 있습니다.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -306,7 +299,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 컴퓨팅 에뮬레이터와 클라우드에서 서로 다른 동작을 수행하도록 하는 이 기능은 [ServiceDefinition.csdef] 파일에서 환경 변수를 만들어서 수행될 수 있습니다. 그런 다음 시작 태스크에서 값의 해당 환경 변수를 테스트합니다.
 
-환경 변수를 만들려면 [변수]/[RoleInstanceValue] 요소를 추가하고 `/RoleEnvironment/Deployment/@emulated`의 XPath 값을 만듭니다. **%ComputeEmulatorRunning%** 환경 변수의 값은 계산 에뮬레이터에서 실행 되는 경우 `true`이(가) 되고 클라우드에서 실행 되는 경우 `false`이(가) 됩니다.
+환경 변수를 만들려면 RoleInstanceValue 요소 [변수]를 추가 하 / [RoleInstanceValue] 고의 XPath 값을 만듭니다 `/RoleEnvironment/Deployment/@emulated` . **%ComputeEmulatorRunning%** 환경 변수의 값은 컴퓨팅 에뮬레이터에서 실행되는 경우 `true`이 되고 클라우드에서 실행되는 경우 `false`가 됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -383,9 +376,7 @@ EXIT /B 0
 웹 또는 작업자 역할에 대한 작업을 구성할 때 따라야 하는 몇 가지 모범 사례는 다음과 같습니다.
 
 ### <a name="always-log-startup-activities"></a>항상 시작 작업 기록
-Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어 **%PathToApp1Install%** 디렉터리의 setup.exe를 실행하려면:
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어 **% PathToApp1Install%** 디렉터리에서 setup.exe를 실행 하려면 다음을 수행 합니다.`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 xml을 단순화하기 위해 로깅과 함께 모든 시작 태스크를 호출하는 래퍼 *cmd* 파일을 만들고 동일한 환경 변수를 공유하는 각 하위 태스크를 확인할 수 있습니다.
 
@@ -472,12 +463,12 @@ EXIT %ERRORLEVEL%
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>시작 작업에 적절하게 executionContext 설정
 시작 작업에 대한 권한을 적절하게 설정합니다. 경우에 따라 역할이 일반 권한으로 실행되더라도 시작 작업을 상승된 권한으로 실행해야 합니다.
 
- [상승된][task] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
+[상승된][환경] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
 
 상승된 권한이 필요한 시작 작업의 예로 **AppCmd.exe** 를 사용하여 IIS를 구성하는 시작 작업을 들 수 있습니다. **AppCmd.exe**는 `executionContext="elevated"`이(가) 필요합니다.
 
 ### <a name="use-the-appropriate-tasktype"></a>적절한 taskType 사용
-[taskType][task] 특성은 시작 태스크가 실행되는 방식을 결정합니다. **간단**, **백그라운드** 및 **포그라운드**의 세 가지 값이 있습니다. 백그라운드 및 포그라운드 작업은 비동기적으로 시작된 다음 간단 작업이 한 번에 하나씩 동기적으로 실행됩니다.
+[taskType][태스크] 특성은 시작 태스크가 실행되는 방식을 결정합니다. **간단**, **백그라운드** 및 **포그라운드**의 세 가지 값이 있습니다. 백그라운드 및 포그라운드 작업은 비동기적으로 시작된 다음 간단 작업이 한 번에 하나씩 동기적으로 실행됩니다.
 
 **간단** 시작 태스크의 경우 ServiceDefinition.csdef 파일에 나열된 태스크의 순서에 따라 태스크를 실행할 순서를 설정할 수 있습니다. **간단** 태스크가 0이 아닌 종료 코드로 끝나는 경우 시작 절차가 중지되고 역할이 시작되지 않습니다.
 
@@ -489,15 +480,15 @@ EXIT %ERRORLEVEL%
 시작 배치 파일의 끝에 누락된 `EXIT /B 0` 은(는) 시작하지 않는 역할의 일반적인 이유입니다.
 
 > [!NOTE]
-> 중첩된 배치 파일은 `/B` 매개 변수를 사용하는 경우 때로는 중지됩니다. [로그 래퍼](#always-log-startup-activities)를 사용하는 경우와 같이 다른 배치 파일에서 현재 배치 파일을 호출하는 경우 이 중단 문제가 발생하지 않는지 확인하려고 합니다. 이 경우에 `/B` 매개 변수를 생략할 수 있습니다.
+> 매개 변수를 사용 하는 경우 중첩 된 배치 파일이 때때로 응답을 중지 하는 것을 알고 있습니다 `/B` . [로그 래퍼](#always-log-startup-activities)를 사용 하는 경우 처럼 다른 배치 파일이 현재 배치 파일을 호출 하는 경우에는이 문제가 발생 하지 않도록 할 수 있습니다. 이 경우에 `/B` 매개 변수를 생략할 수 있습니다.
 > 
 > 
 
 ### <a name="expect-startup-tasks-to-run-more-than-once"></a>시작 작업이 두 번 이상 실행되도록 예상
 모든 역할 재활용은 재부팅을 포함하지 않으므로 모든 역할 재활용은 모든 시작 작업 실행을 포함합니다. 이는 시작 작업이 문제 없이 재부팅 사이 여러 번 실행될 수 있어야 함을 의미합니다. 이에 대해서는 [앞의 섹션](#detect-that-your-task-has-already-run)에서 설명합니다.
 
-### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>로컬 저장소를 사용하여 역할에 액세스할 수 있어야 하는 파일을 저장합니다.
-그런 다음 역할에 액세스할 수 있는 시작 작업 중 파일을 복사하거나 만들려는 경우 해당 파일이 로컬 저장소에 배치되어 있어야 합니다. [앞의 섹션](#create-files-in-local-storage-from-a-startup-task)을 참조하세요.
+### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>로컬 스토리지를 사용하여 역할에 액세스할 수 있어야 하는 파일을 저장합니다.
+그런 다음 역할에 액세스할 수 있는 시작 작업 중 파일을 복사하거나 만들려는 경우 해당 파일이 로컬 스토리지에 배치되어 있어야 합니다. [이전 섹션](#create-files-in-local-storage-from-a-startup-task)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 [서비스 모델 및 패키지](cloud-services-model-and-package.md)
@@ -506,7 +497,7 @@ EXIT %ERRORLEVEL%
 
 [만들고 배포하세요](cloud-services-how-to-create-deploy-portal.md) .
 
-[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
+[ServiceDefinition. .csdef]: cloud-services-model-and-package.md#csdef
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime

@@ -1,5 +1,5 @@
 ---
-title: IoT DevKit에서 클라우드로 - Azure IoT Hub에 IoT MXChip DevKit 연결 | Microsoft Docs
+title: Azure IoT Hub 원격 모니터링에 MXChip IoT DevKit 연결
 description: 이 자습서에서는 IoT DevKit AZ3166의 센서 상태를 Azure IoT 원격 모니터링 솔루션 가속기로 보내는 방법을 알아봅니다.
 author: liydu
 manager: jeffya
@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: ae8dc263e08528c6e3b3bae8c779162c96d51f43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61324625"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81258459"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit를 Azure IoT 원격 모니터링 솔루션 가속기에 연결
 
@@ -29,7 +28,7 @@ ms.locfileid: "61324625"
 * DevKit을 Wi-Fi에 연결
 * 개발 환경 준비
 
-활성 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
+활성화된 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
 
 * [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
 
@@ -120,7 +119,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 ## <a name="change-device-id"></a>디바이스 ID 변경
 
-코드에서 사용자 지정된 디바이스 ID로 하드코딩된 **AZ3166**을 변경하려는 경우 [원격 모니터링 예제](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)에 표시된 코드 줄을 수정합니다.
+코드에서 사용자 지정된 디바이스 ID로 하드코딩된 **AZ3166**을 변경하려는 경우 [원격 모니터링 예제](../iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)에 표시된 코드 줄을 수정합니다.
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
@@ -135,6 +134,6 @@ DevKit 디바이스를 Azure IoT 원격 모니터링 솔루션 가속기에 연�
 
 * [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](/azure/iot-central/core/howto-connect-devkit)
 
 * [IoT 개발자 키트](https://microsoft.github.io/azure-iot-developer-kit/) 

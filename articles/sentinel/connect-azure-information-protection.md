@@ -1,62 +1,76 @@
 ---
-title: Azure Information Protection 데이터 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
-description: Azure Sentinel에서 Azure Information Protection 데이터에 연결 하는 방법에 알아봅니다.
+title: Azure 센티널에 Azure Information Protection 연결
+description: Azure Information Protection 데이터 커넥터를 구성 하 여 Azure Information Protection에서 Azure 센티널로 로깅 정보를 스트리밍합니다. 
 services: sentinel
-documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
-editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
-ms.service: sentinel
-ms.devlang: na
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4b73edd10521b23fb4befbe4fe7d9f0c7b496de3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 09/24/2019
+ms.author: yelevin
+ms.openlocfilehash: f06f8d3450f8907aa1be34b738565ac55e5e3d2d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204309"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559141"
 ---
-# <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection의 데이터에 연결
+# <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection에서 데이터 연결
 
 > [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> Azure 센티널의 Azure Information Protection 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-로그를 스트리밍하려면 [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) 번의 클릭으로 Azure Sentinel에 있습니다. Azure Information Protection 클라우드 또는 온-프레미스 인프라 및 컨트롤과 도움말 보안 메일, 문서 및 중요 한 데이터를 회사 외부에서 공유에 저장 하는지 여부를 데이터를 보호할 수 있습니다. 포함 된 레이블 및 권한을 쉬운 분류부터 Azure Information Protection을 사용 하 여 항상 데이터 보호를 강화 합니다. 에 연결할 때 Azure Information Protection Azure Sentinel, 스트림 모든 경고를 Azure Information Protection의 Azure Sentinel에.
+Azure Information Protection 데이터 커넥터를 구성 하 여 [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) 에서 Azure 센티널로 로깅 정보를 스트리밍할 수 있습니다. Azure Information Protection은 클라우드 또는 온-프레미스에 저장 되어 있든 상관 없이 중요 한 데이터를 제어 하 고 보호 하는 데 도움이 됩니다.
 
+[Azure Information Protection에 대 한 중앙 보고가](https://docs.microsoft.com/azure/information-protection/reports-aip) 이미 구성 되어 있으므로이 서비스의 로깅 정보가 현재 Azure 센티널에 대해 선택한 것과 동일한 Log Analytics 작업 영역에 저장 되어 있는 경우이 데이터 커넥터의 구성을 건너뛸 수 있습니다. Azure Information Protection의 로깅 정보는 Azure 센티널에서 이미 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+그러나 Azure Information Protection의 로깅 정보가 현재 Azure 센티널에 대해 선택한 것과 다른 Log Analytics 작업 영역으로 이동 하는 경우 다음 중 하나를 수행 합니다.
 
-- 전역 관리자, 보안 관리자 또는 정보 보호 권한 있는 사용자
+- Azure 센티널에서 선택한 작업 영역을 변경 합니다.
 
+- 이 데이터 커넥터를 구성 하 여 수행할 수 있는 Azure Information Protection에 대 한 작업 영역을 변경 합니다.
+    
+    작업 영역을 변경 하는 경우 Azure Information Protection에 대 한 새 보고 데이터가 이제 Azure 센티널에 사용 하는 작업 영역에 저장 되며, Azure 센티널에서 기록 데이터를 사용할 수 없습니다. 또한 사용자 지정 쿼리, 경고 또는 REST Api에 대해 이전 작업 영역을 구성 하는 경우 Azure Information Protection에 사용 하려면 Azure 센티널 작업 영역에 대해 이러한 작업 영역을 다시 구성 해야 합니다. Azure Information Protection를 사용 하는 클라이언트와 서비스에는 재구성이 필요 하지 않습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+- 다음은 테 넌 트에 대 한 Azure AD 관리자 역할 중 하나입니다. 
+    - Azure Information Protection 관리자
+    - 보안 관리자
+    - 규정 준수 관리자
+    - 규정 준수 데이터 관리자
+    - 전역 관리자
+    
+    > [!NOTE]
+    > 테 넌 트가 [통합 레이블 지정 플랫폼](/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)에 있는 경우 Azure Information Protection 관리자 역할을 사용할 수 없습니다.
+    
+    이러한 관리자 역할은 Azure Information Protection 커넥터를 구성 하는 데만 필요 하며 Azure 센티널이 Azure Information Protection에 연결 된 경우에는 필요 하지 않습니다.
+
+- Azure 센티널 및 Azure Information Protection에 사용 중인 Log Analytics 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
+
+- Azure Information Protection Azure Portal에 추가 되었습니다. 이 단계에 대 한 도움이 필요한 경우 [Azure Portal에 Azure Information Protection 추가](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal)를 참조 하세요.
 
 ## <a name="connect-to-azure-information-protection"></a>Azure Information Protection에 연결
 
-Azure Information Protection에 이미 있는 경우 인지 확인 [네트워크에서 사용 하도록 설정](https://docs.microsoft.com/azure/information-protection/activate-service)합니다.
-Azure Information Protection을 배포 하 고 데이터 가져오기, 경고 데이터를 쉽게 수행할 수 있으면 Azure Sentinel로 스트림할 수 있습니다.
+Azure Information Protection에 대 한 Log Analytics 작업 영역을 구성 하지 않았거나 Azure Information Protection 로깅 정보를 저장 하는 작업 영역을 변경 해야 하는 경우 다음 지침을 따르십시오.
 
+1. Azure 센티널에서 **데이터 커넥터**를 선택한 다음 **(미리 보기)를 Azure Information Protection**합니다.
 
-1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure Information Protection** 바둑판식으로 배열 합니다.
+2. **커넥터 페이지 열기**를 선택 합니다.
 
-2. 로 이동 합니다 [Azure Information Protection 포털](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
+3. **분석 구성 (미리 보기)** 블레이드에서 현재 Azure 센티널에 사용 중인 작업 영역을 선택 합니다. 다른 작업 영역을 선택 하는 경우 Azure Information Protection의 보고 데이터를 Azure 센티널에서 사용할 수 없습니다.
 
-3. 아래 **연결**를 클릭 하 여 Azure Information Protection의 Azure Sentinel 로그의 스트리밍을 설정 [analytics 구성](https://portal.azure.com/#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/analyticsOnboardBlade)
+4. 작업 영역을 선택한 경우 **확인** 을 선택 하면 커넥터 **상태가** **연결 됨**으로 변경 됩니다.
 
-4. Azure Sentinel 배포한는 작업 영역을 선택 합니다. 
-
-5. **확인**을 클릭합니다.
-
-6. Log Analytics에서 관련 스키마를 사용 하 여 Azure Information Protection 경고에 대 한를 검색 **InformationProtectionLogs_CL**합니다.
-
-
-
+5. Azure Information Protection의 보고 데이터는 선택한 작업 영역 내의 **InformationProtectionLogs_CL** 테이블에 저장 됩니다. 
+    
+    이 보고 데이터에 대 한 Azure Monitor에서 관련 스키마를 사용 하려면 **InformationProtectionEvents**를 검색 합니다. 이러한 이벤트 함수에 대 한 자세한 내용은 Azure Information Protection 설명서에서 [이벤트 함수에 대 한 친숙 한 스키마 참조](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel에 Azure Information Protection을 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
-- 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
+
+이 문서에서는 Azure Information Protection를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.

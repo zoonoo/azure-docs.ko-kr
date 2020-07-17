@@ -1,23 +1,23 @@
 ---
 title: Azure Cosmos DB의 스토리지 비용 최적화
 description: 이 문서에서는 Azure Cosmos DB에 저장된 데이터에 대한 스토리지 비용을 관리하는 방법을 설명합니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: rimman
-ms.openlocfilehash: aed32db257ddbc8cb5b8f4af5f27024c23583798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/21/2019
+ms.openlocfilehash: 1508adda761fcba7ba70df3bb212d3eb4e32f242
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60928916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "72754955"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Azure Cosmos DB의 스토리지 비용 최적화
 
-Azure Cosmos DB는 무제한 스토리지 및 처리량을 제공합니다. Azure Cosmos 컨테이너 또는 데이터베이스에서 프로비전/구성해야 하는 처리량과 달리, 스토리지는 사용량에 따라 요금이 청구됩니다. 사용하는 논리적 스토리지에 대해서만 요금이 청구되며, 스토리지를 미리 예약할 필요가 없습니다. 스토리지는 Azure Cosmos DB 컨테이너에 추가하거나 제거하는 데이터에 따라 자동으로 확장되고 축소됩니다.
+Azure Cosmos DB는 무제한 스토리지 및 처리량을 제공합니다. Azure Cosmos 컨테이너 또는 데이터베이스에서 프로비전/구성해야 하는 처리량과 달리, 스토리지는 사용량에 따라 요금이 청구됩니다. 사용하는 논리적 스토리지에 대해서만 요금이 청구되며, 스토리지를 미리 예약할 필요가 없습니다. Storage는 Azure Cosmos 컨테이너에 추가 하거나 제거 하는 데이터에 따라 자동으로 확장 및 축소 됩니다.
 
-## <a name="storage-cost"></a>저장소 비용
+## <a name="storage-cost"></a>스토리지 비용
 
 스토리지는GB 단위로 요금이 청구됩니다. 로컬 SSD 지원 스토리지는 데이터 및 인덱싱에 사용됩니다. 사용된 총 스토리지는 Azure Cosmos DB를 사용하는 모든 지역에서 사용되는 데이터 및 인덱스에 필요한 스토리지와 같습니다. Azure Cosmos 계정을 세 지역에 전역으로 복제하는 경우 이러한 세 지역의 총 스토리지 비용을 지불합니다. 스토리지 요구 사항을 예측하려면 [Capacity Planner](https://www.documentdb.com/capacityplanner) 도구를 참조하세요. Azure Cosmos DB의 스토리지 비용은 $0.25GB/월입니다. 최신 업데이트는 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요. 경고를 설정하여 Azure Cosmos 컨테이너에서 사용하는 스토리지를 확인할 수 있습니다. 스토리지를 모니터링하려면 [Azure Cosmos DB 모니터링](monitor-accounts.md)을 참조하세요.
 
@@ -39,7 +39,7 @@ Azure Cosmos DB에서 최적 성능과 비용 혜택을 얻으려면 항목 크�
 
 ## <a name="check-storage-consumed"></a>사용한 스토리지 확인
 
-Azure Cosmos 컨테이너의 스토리지 사용을 확인하려면 컨테이너에서 HEAD 또는 GET 요청을 실행하고 `x-ms-request-quota` 및 `x-ms-request-usage` 헤더를 검사할 수 있습니다. 또는.NET SDK를 사용할 때 사용할 수는 [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), 및 [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) 소비 되는 저장소를 가져올 속성입니다.
+Azure Cosmos 컨테이너의 스토리지 사용을 확인하려면 컨테이너에서 HEAD 또는 GET 요청을 실행하고 `x-ms-request-quota` 및 `x-ms-request-usage` 헤더를 검사할 수 있습니다. 또는 .NET SDK를 사용 하 여 작업 하는 경우 [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))및 [documentsizeusage](https://msdn.microsoft.com/library/azure/dn850324.aspx) 속성을 사용 하 여 사용 된 저장소를 가져올 수 있습니다.
 
 ## <a name="using-sdk"></a>SDK 사용
 

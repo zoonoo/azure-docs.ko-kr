@@ -3,7 +3,7 @@ title: Azure Cloud Shell 개요 | Microsoft Docs
 description: Azure Cloud Shell의 개요입니다.
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -12,19 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: 5608b3e0f9b98db62d22245de5a864f757f48799
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75832502"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
-Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다.
-작업 방식에 가장 적합한 셸 환경을 유연하게 선택할 수 있습니다.
-Linux 사용자는 Bash 환경을 선택할 수 있으며, Windows 사용자는 PowerShell을 선택할 수 있습니다.
+Azure Cloud Shell은 Azure 리소스를 관리하기 위해 브라우저에서 액세스할 수 있는 인증된 대화형 셸입니다.
+Bash 또는 PowerShell 중에서 작업 방식에 가장 적합한 셸 환경을 유연하게 선택할 수 있습니다.
 
 아래를 클릭하여 shell.azure.com에서 시도하세요.
 
@@ -41,11 +39,14 @@ Cloud Shell은 Azure 관리 작업을 사용하여 빌드된 브라우저 기반
 Cloud Shell을 활용하여 클라우드가 제공할 수 있는 방식으로 로컬 컴퓨터에서 제한되지 않고 작업할 수 있습니다.
 
 ### <a name="choice-of-preferred-shell-experience"></a>기본 설정된 셸 환경 선택
-사용자는 셸 드롭다운에서 Bash 또는 PowerShell 중 하나를 선택할 수 있습니다.
+사용자는 Bash 또는 PowerShell 중에서 선택할 수 있습니다.
+1. **Cloud Shell**를 선택 합니다.
 
-![Cloud Shell의 Bash](media/overview/overview-bash-pic.png)
+    ![Cloud Shell 아이콘](media/overview/overview-cloudshell-icon.png)
 
-![Azure Cloud Shell의 PowerShell](media/overview/overview-ps-pic.png)
+2. **Bash** 또는 **PowerShell**을 선택 합니다.
+
+    ![Bash 또는 PowerShell 중 하나를 선택 합니다.](media/overview/overview-choices.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>인증 및 구성된 Azure 워크스테이션
 Cloud Shell은 Microsoft에서 관리되므로 널리 사용되는 명령줄 도구 및 언어 지원을 제공합니다. 또한 Cloud Shell은 Azure CLI 또는 Azure PowerShell cmdlet을 통해 리소스에 즉시 액세스하도록 자동으로 안전하게 인증합니다.
@@ -70,12 +71,13 @@ Cloud Shell은 다음에서 사용할 수 있는 유연한 도구입니다.
 * [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure Files 저장소 연결
-Cloud Shell 머신은 임시이며, 파일을 저장하려면 기존 또는 새로운 Azure Files 공유를 `clouddrive`로 탑재해야 합니다.
+### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure Files 스토리지 연결
+Cloud Shell 컴퓨터는 임시 이지만 파일은 디스크 이미지와 이라는 탑재 된 파일 공유를 통해 두 가지 방법으로 유지 `clouddrive` 됩니다.  처음 시작하면 Cloud Shell은 사용자를 대신하여 리소스 그룹, 스토리지 계정 및 Azure Files 공유를 만들라는 메시지를 표시합니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. Azure Cloud Shell의 Bash 및 PowerShell 모두에 의해 단일 파일 공유가 매핑될 수 있으며 사용될 것입니다.
 
-Cloud Shell를 첫 번째로 시작할 때 리소스 그룹, 저장소 계정 및 Azure Files 공유를 만들라는 메시지가 표시됩니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. Azure Cloud Shell의 Bash 및 PowerShell 모두에 의해 단일 파일 공유가 매핑될 수 있으며 사용될 것입니다.
+자세한 내용은 [새 또는 기존 저장소 계정을](persisting-shell-storage.md) 탑재 하거나 [Cloud Shell에 사용 되는 지 속성 메커니즘](persisting-shell-storage.md#how-cloud-shell-storage-works)에 대해 알아보는 방법을 알아보세요.
 
-[새 저장소 계정 또는 기존 저장소 계정](persisting-shell-storage.md)을 탑재하는 방법을 알아보세요.
+> [!NOTE]
+> Azure storage 방화벽은 cloud shell 저장소 계정에 대해 지원 되지 않습니다.
 
 ## <a name="concepts"></a>개념
 * Cloud Shell은 세션 별, 사용자 단위 기준으로 제공된 임시 호스트에서 실행됩니다.
@@ -88,8 +90,8 @@ Cloud Shell를 첫 번째로 시작할 때 리소스 그룹, 저장소 계정 �
 
 [Azure Cloud Shell의 Bash](features.md)와 [Azure Cloud Shell의 PowerShell](features-powershell.md)에 들어 있는 기능에 대해 자세히 알아 보세요.
 
-## <a name="pricing"></a>가격
-탑재된 Azure Files 공유의 필수 구성 요소를 포함하여 Azure Cloud Shell을 호스트하는 컴퓨터는 추가 비용 없이 사용할 수 있습니다. 일반 저장소 비용이 적용됩니다.
+## <a name="pricing"></a>가격 책정
+탑재된 Azure Files 공유의 필수 구성 요소를 포함하여 Azure Cloud Shell을 호스트하는 컴퓨터는 추가 비용 없이 사용할 수 있습니다. 일반 스토리지 비용이 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>

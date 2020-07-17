@@ -1,27 +1,19 @@
 ---
 title: 배포 FAQ - Azure App Service | Microsoft Docs
 description: Azure App Service Web Apps 기능의 배포에 대한 질문과 대답을 확인합니다.
-services: app-service\web
-documentationcenter: ''
 author: genlin
-manager: cshepard
-editor: ''
+manager: dcscontentpm
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74671680"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 배포 FAQ
 
@@ -38,16 +30,16 @@ ms.locfileid: "65413876"
 
 자세한 내용은 [App Service에 앱 배포](deploy-local-git.md)를 참조하세요.
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Visual Studio에서 배포하려고 할 때 오류 메시지가 표시됩니다. 이 문제를 해결하려면 어떻게 해야 하나요?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Visual Studio에서 배포하려고 할 때 오류 메시지가 표시됩니다. 이 오류를 해결 어떻게 할까요??
 
-다음과 같은 메시지가 나타나면 이전 버전의 SDK를 사용하는 것일 수 있습니다. "리소스 그룹 'YourResourceGroup'에서 'YourResourceName' 리소스를 배포하는 동안 오류가 발생했습니다. MissingRegistrationForLocation: 구독이 '미국 중부' 위치의 '구성 요소' 리소스 종류에 대해 등록되지 않았습니다. 이 리소스 형식에 액세스할 수 있는 권한을 가지려면 이 공급자에 대해 다시 등록하세요.” 
+다음 메시지가 표시되면 SDK의 이전 버전을 사용하고 있을 수 있습니다. “리소스 그룹 ‘YourResourceGroup’의 ‘YourResourceName’ 리소스에 대한 배포에서 오류가 발생했습니다. MissingRegistrationForLocation: 구독이 ‘Central US’ 위치의 ‘components’ 리소스 형식에 대해 등록되지 않았습니다. 이 위치에 액세스할 수 있도록이 공급자를 다시 등록 합니다. " 
 
 이 오류를 해결하려면 [최신 SDK](https://azure.microsoft.com/downloads/)로 업그레이드합니다. 이 메시지가 표시되고 최신 SDK가 있으면 지원 요청을 제출하세요.
 
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Visual Studio에서 App Service로 ASP.NET 애플리케이션을 배포하려면 어떻게 하나요?
 <a id="deployasp"></a>
 
-이 자습서 [5 분 안에 Azure에 첫 번째 ASP.NET 웹 앱을 만드는](app-service-web-get-started-dotnet.md) Visual Studio를 사용 하 여 App Service에서 웹 앱에 ASP.NET 웹 응용 프로그램을 배포 하는 방법을 보여 줍니다.
+[5 분 내에 Azure에서 첫 번째 ASP.NET 웹 앱 만들기](app-service-web-get-started-dotnet.md) 자습서에서는 Visual Studio를 사용 하 여 App Service에서 웹 앱에 ASP.NET 웹 응용 프로그램을 배포 하는 방법을 보여 줍니다.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>배포 자격 증명 형식에는 무엇이 있나요?
 
@@ -59,7 +51,7 @@ App Service 앱의 파일 구조에 대한 자세한 내용은 [File structure i
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>내 파일을 FTP하려고 할 때 “FTP 오류 550 - 디스크 공간이 부족합니다.” 메시지가 표시되면 어떻게 해결하나요?
 
-이 메시지가 표시되면 웹앱에 대한 서비스 계획에서 디스크 할당량에 도달한 것일 수 있습니다. 필요한 디스크 공간에 따라 상위 서비스 계층으로 확장해야 할 수 있습니다. 가격 계획 및 리소스 제한에 대한 자세한 내용은 [App Service 가격](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
+이 메시지가 표시 되 면 웹 앱에 대 한 서비스 계획에서 디스크 할당량이 실행 중일 가능성이 높습니다. 필요한 디스크 공간에 따라 상위 서비스 계층으로 확장해야 할 수 있습니다. 가격 계획 및 리소스 제한에 대한 자세한 내용은 [App Service 가격](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>내 App Service 웹앱에 대한 지속적인 배포를 설정하려면 어떻게 하나요?
 
@@ -69,11 +61,11 @@ Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox 및 기타 Git 리포지토�
 
 GitHub 또는 Bitbucket의 지속적인 배포 관련 문제를 조사하는 방법에 대한 자세한 내용은 [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)(지속적인 배포 조사)를 참조하세요.
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>내 사이트에 FTP하고 내 코드를 게시할 수 없습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>내 사이트에 FTP하고 내 코드를 게시할 수 없습니다. 이 문제를 해결하려면 어떻게 할까요?
 
 FTP 문제를 해결하려면:
 
-1. 올바른 호스트 이름 및 자격 증명을 입력하고 있는지 확인합니다. 다양한 자격 증명 형식 및 이러한 자격 증명을 사용하는 방법에 대한 자세한 내용은 [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials)(배포 자격 증명)를 참조하세요.
+1. 올바른 호스트 이름 및 자격 증명을 입력 하 고 있는지 확인 합니다. 다양한 자격 증명 형식 및 이러한 자격 증명을 사용하는 방법에 대한 자세한 내용은 [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials)(배포 자격 증명)를 참조하세요.
 2. FTP 포트가 방화벽으로 차단되지 않았는지 확인합니다. 포트에는 다음 설정이 있어야 합니다.
     * FTP 제어 연결 포트: 21
     * FTP 데이터 연결 포트: 989, 10001-10300
@@ -90,7 +82,7 @@ Azure 빠른 시작은 선택한 배포 스택 및 방법을 사용하여 앱을
 
 Azure DevOps에서 지속적인 배포를 사용할 수 있는 다음과 같은 두 가지 옵션이 있습니다.
 
-*   Git 프로젝트를 사용합니다. 배포 센터를 사용 하 여 App Service를 통해 연결 합니다.
+*   Git 프로젝트를 사용합니다. Deployment Center를 사용 하 여 App Service를 통해 연결 합니다.
 *   TFVC(Team Foundation Version Control) 프로젝트를 사용합니다. App Service에 대한 빌드 에이전트를 사용하여 배포합니다.
 
 이러한 두 가지 옵션에 대한 연속 코드 배포는 기존 개발자 워크플로 및 체크 인 절차에 따라 달라집니다. 자세한 내용은 다음 문서를 참조하세요. 

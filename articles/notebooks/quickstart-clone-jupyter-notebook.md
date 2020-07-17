@@ -1,34 +1,31 @@
 ---
-title: Azure Notebooks를 사용하여 GitHub에서 Jupyter 노트 복제
+title: Azure Notebooks 미리 보기를 사용하여 GitHub에서 Jupyter Notebook 복제
 description: GitHub 리포지토리에서 Jupyter 노트를 신속하게 복제하고 Azure Notebooks 계정에서 실행합니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 35352e74a8db071a2f85bd71857d47f3af1953e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60238648"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833089"
 ---
-# <a name="quickstart-clone-a-notebook"></a>빠른 시작: Notebook 복제
+# <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 복제
 
-많은 데이터 과학자와 개발자는 여러 다른 프로젝트 형식에 대한 스토리지 및 버전 제어를 제공하는 무료 서비스인 [GitHub 리포지토리](https://github.com)에 노트를 저장합니다. GitHub는 로컬로 실행되는 Jupyter 노트에 대해 공동 작업을 수행하는 수단으로 자주 사용됩니다. 이러한 경우 모든 협력자는 리포지토리의 로컬 복사본을 유지 관리하고 해당 복사본에서 노트를 실행합니다.
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-복제를 수행하면 대신, Azure Notebooks 계정에 GitHub 노트 복사본이 만들어집니다. 이 클론은 원본 리포지토리와는 별개이며, 변경 내용은 Azure Notebooks 계정에만 저장되고 원본에는 영향을 주지 않습니다. 클론이 클라우드에 있으므로 로컬 복사본을 만들 필요가 없거나 자신의 컴퓨터에 Jupyter를 설치하지 않은 다른 공동 작업자와 프로젝트를 공유할 수 있습니다. 또한 노트를 단순히 나만의 프로젝트 시작점으로 사용하거나 데이터 파일을 획득하기 위해 복제할 수도 있습니다.
+이 빠른 시작에서는 GitHub에 저장된 Jupyter Notebook을 Azure Notebooks 계정에 복사합니다. 
+
+GitHub 리포지토리는 Jupyter Notebooks에 대한 스토리지 및 버전 제어를 제공합니다. 협력자는 리포지토리의 로컬 복사본을 유지 관리하고 해당 복사본에서 Notebooks를 실행합니다. GitHub에서 Jupyter Notebook을 Azure Notebooks 계정으로 복제하면 Notebook의 독립적인 복사본이 생성됩니다. 변경 내용은 Azure Notebooks 계정에만 저장되고 원래 GitHub 리포지토리에는 영향을 주지 않습니다. 
+
+Azure Notebooks 클론이 클라우드에 있으므로 로컬 복사본을 만들거나 컴퓨터에 Jupyter를 설치하지 않아도 되는 협력자와 공유할 수 있습니다. 또한 단순히 나만의 프로젝트 시작점으로 사용하거나 데이터 파일을 획득하기 위해 Notebook을 복제할 수도 있습니다. 
+
+## <a name="prerequisites"></a>사전 요구 사항
+없음
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Azure Cognitive Services 노트 복제
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
+1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. 자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.
 
 1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
@@ -52,7 +49,7 @@ ms.locfileid: "60238648"
 
 1. 복제가 완료되면 Azure Notebooks에서 모든 파일의 복사본을 볼 수 있는 새 프로젝트로 이동됩니다.
 
-    [![](media/quickstarts/completed-clone.png "완료된 클론 보기")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>노트 공유
 
@@ -60,7 +57,7 @@ ms.locfileid: "60238648"
 
     ![프로젝트 공유 명령](media/quickstarts/share-project-command.png)
 
-1. 프로젝트를 복제할 때 **공용** 옵션을 선택 취소했으므로 클론은 비공개입니다. 복사본을 공용으로 지정하려면 **프로젝트 설정**을 선택하고 팝업에서 **공용 프로젝트**를 설정한 후 **저장**을 선택합니다.
+1. 프로젝트를 복제할 때 **공용** 옵션을 선택 취소했으므로 클론은 프라이빗입니다. 복사본을 공용으로 지정하려면 **프로젝트 설정**을 선택하고 팝업에서 **공용 프로젝트**를 설정한 후 **저장**을 선택합니다.
 
 1. 프로젝트에서 노트를 선택하여 실행합니다. 예를 들어 Azure Cognitive Services 리포지토리의 각 노트에는 자체적으로 빠른 시작이 포함되어 있습니다. 아래 이미지는 BingImageSearchAPI 노트를 사용하고, Cognitive Services API 구독 키를 추가하고, 검색어를 "puppies"에서 "bunnies"로 변경한 이후의 결과를 보여 줍니다.
 
@@ -77,4 +74,4 @@ ms.locfileid: "60238648"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀 분석을 실행할 Jupyter Notebook 생성 및 실행](tutorial-create-run-jupyter-notebook.md)

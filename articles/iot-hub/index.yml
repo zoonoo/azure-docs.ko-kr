@@ -1,91 +1,122 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: IoT Hub 설명서
+### YamlMime:Landing
+title: Azure IoT Hub 설명서
 metadata:
-  title: 'Azure IoT Hub 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: 'IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API, 참조, 비디오 및 기타 설명서입니다.'
-  author: dominicbetts
-  manager: timlt
-  ms.service: iot-hub
+  title: Azure IoT Hub 설명서
+  description: Azure IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다.
   services: iot-hub
+  ms.service: iot-hub
   ms.topic: landing-page
-  ms.date: 04/26/2018
-  ms.author: dobett
-abstract:
-  description: 'IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API 참조, 비디오 및 기타 설명서는 IoT 디바이스와 솔루션 백 엔드 간의 안정적인 양방향 통신을 배포하는 데 도움이 됩니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_NET.svg'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_python.svg'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_android.svg'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_c.svg'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_ios.svg'
-        rows:
-          - title: 원격 분석 전송
-            values:
-              - href: /azure/iot-hub/quickstart-send-telemetry-node
-              - href: /azure/iot-hub/quickstart-send-telemetry-dotnet
-              - href: /azure/iot-hub/quickstart-send-telemetry-java
-              - href: /azure/iot-hub/quickstart-send-telemetry-python
-              - href: /azure/iot-hub/quickstart-send-telemetry-android
-              - href: /azure/iot-hub/quickstart-send-telemetry-c
-              - href: /azure/iot-hub/quickstart-send-telemetry-ios
-          - title: 디바이스 제어
-            values:
-              - href: /azure/iot-hub/quickstart-control-device-node
-              - href: /azure/iot-hub/quickstart-control-device-dotnet
-              - href: /azure/iot-hub/quickstart-control-device-java
-              - href: /azure/iot-hub/quickstart-control-device-python
-              - href: /azure/iot-hub/quickstart-control-device-android
-          - title: 디바이스 스트림을 사용한 통신(미리 보기)
-            values:
-              - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
-              - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
-              - href: null
-              - href: null
-              - href: null
-              - href: /azure/iot-hub/quickstart-device-streams-echo-c
-              - href: null
-          - title: 디바이스 스트림을 사용한 SSH/RDP(미리 보기)
-            values:
-              - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
-              - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
-              - href: null
-              - href: null
-              - href: null
-              - href: /azure/iot-hub/quickstart-device-streams-proxy-c
-              - href: null
-  - title: 단계별 자습서
-    items:
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/iot-hub/tutorial-routing">IoT Hub에서 자동 메시지 라우팅 구성</a>
-          - html: <a href="/azure/iot-hub/tutorial-device-twins">백 엔드 서비스에서 디바이스 구성</a>
-          - html: <a href="/azure/iot-hub/tutorial-firmware-update">디바이스 펌웨어 업데이트 프로세스 구현</a>
-          - html: <a href="/azure/iot-hub/tutorial-connectivity">시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: <p><a href="/cli/azure/iot">Azure CLI</a></p>
-          - title: Languages
-            html: '<p><a href="/dotnet/api/microsoft.azure.devices">.NET(서비스)</a></p><p><a href="/dotnet/api/microsoft.azure.devices.client">.NET(디바이스)</a></p><p><a href="https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/">C(디바이스 SDK)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.service">.NET(서비스)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java(디바이스)</a></p><p><a href="/javascript/api/azure-iothub/?view=azure-iot-typescript-latest">Node.js(서비스)</a></p><p><a href="/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js(디바이스)</a></p>'
-          - title: REST (영문)
-            html: <p><a href="/rest/api/iothub/device">REST(디바이스)</a></p><p><a href="/rest/api/iothub/service">REST(서비스)</a></p><p><a href="/rest/api/iothub/iothubresource">REST(IoT Hub 리소스)</a></p><p><a href="/rest/api/iothub/certificates">REST(인증서)</a></p>
+  author: robinsh
+  ms.author: robinsh
+  manager: eliotgra
+  ms.date: 03/23/2020
+  ms.custom: amqp
+  ms.openlocfilehash: c2faec6885987a57147cef2f0e9ec50bcf003793
+  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/11/2020
+  ms.locfileid: "86259365"
+landingContent:
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal을 사용하여 허브 만들기
+      url: iot-hub-create-through-portal.md
+    - text: CLI를 사용하여 디바이스에서 허브로 원격 분석 데이터 보내기
+      url: quickstart-send-telemetry-cli.md
+    - text: 허브에 연결된 디바이스 제어
+      url: quickstart-control-device-node.md
+  - linkListType: get-started
+    links:
+    - text: 디바이스 관리
+      url: iot-hub-node-node-device-management-get-started.md
+    - text: 디바이스 구성
+      url: iot-hub-configuration-best-practices.md
+- title: 디바이스 상태 동기화
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Node.js를 사용하여 Device Twins 작업
+      url: iot-hub-node-node-twin-getstarted.md
+    - text: IoT 메트릭 이해
+      url: iot-hub-metrics.md
+    - text: 진단 로깅
+      url: iot-hub-monitor-resource-health.md
+    - text: IoT의 연결 끊김 모니터링, 진단 및 문제 해결
+      url: iot-hub-troubleshoot-connectivity.md
+- title: 솔루션 확장
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 올바른 계층 선택
+      url: iot-hub-scaling.md
+    - text: 할당량 및 제한 이해
+      url: iot-hub-devguide-quotas-throttling.md
+- title: 프로토콜 선택
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 지원되는 프로토콜
+      url: iot-hub-devguide-protocols.md
+    - text: TLS 지원
+      url: iot-hub-tls-support.md
+    - text: MQTT 지원
+      url: iot-hub-mqtt-support.md
+    - text: IP 주소 지정
+      url: iot-hub-understand-ip-address.md
+    - text: AMQP
+      url: iot-hub-amqp-support.md
+    - text: 프로토콜 게이트웨이
+      url: iot-hub-protocol-gateway.md
+- title: 다른 서비스로 디바이스 데이터 라우팅
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure IoT Hub 메시지 라우팅 이해
+      url: iot-hub-devguide-messages-d2c.md
+  - linkListType: tutorial
+    links:
+    - text: Azure CLI로 준비
+      url: tutorial-routing-config-message-routing-cli.md
+    - text: Azure Resource Manager 템플릿으로 준비
+      url: tutorial-routing-config-message-routing-rm-template.md
+    - text: 라우팅 결과 실행 및 보기
+      url: tutorial-routing-view-message-routing-results.md
+- title: IoT Hub Tools 사용
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: VS Code용 IoT Tools 사용
+      url: iot-hub-create-use-iot-toolkit.md
+    - text: IoT Explorer
+      url: ../iot-pnp/howto-install-iot-explorer.md
+- title: IoT 보안 인증서 사용
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: IoT Hub에 대한 액세스 제어
+      url: iot-hub-devguide-security.md
+    - text: X.509 CA 인증서를 사용한 디바이스 인증
+      url: iot-hub-x509ca-overview.md
+    - text: IoT Hub를 통한 X.509 보안
+      url: iot-hub-security-x509-get-started.md
+    - text: X.509 CA 인증서 보안 개념
+      url: iot-hub-x509ca-concept.md
+- title: IoT Hub에 대한 Azure CLI 사용
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: IoT에 대한 CLI 참조
+      url: /cli/azure/azure-cli-reference-for-IoT
+  - linkListType: concept
+    links:
+    - text: IoT Hub 만들기
+      url: iot-hub-create-using-cli.md
+    - text: IoT 디바이스 관리
+      url: iot-hub-device-management-iot-extension-azure-cli-2-0.md
+    - text: 메시지 라우팅 구성
+      url: tutorial-routing-config-message-routing-cli.md
+    - text: 원격 분석 전송 및 모니터링
+      url: quickstart-send-telemetry-cli.md

@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Azure Firewall Manager 설명서
+summary: 전역적으로 분산된 보안 관리 서비스인 Azure Firewall Manager를 배포하는 방법에 대해 알아봅니다.
+metadata:
+  title: Azure Firewall Manager 설명서
+  description: 전역적으로 분산된 보안 관리 서비스인 Azure Firewall Manager를 배포하는 방법에 대해 알아봅니다.
+  services: firewall
+  ms.service: firewall-manager
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 10/10/2019
+  ms.openlocfilehash: bf7474f1519fbd94be3de8daa15a43775a6a6a0a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85561440"
+landingContent:
+- title: Azure Firewall Manager에 대해 알아보기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Firewall Manager란?
+      url: overview.md
+    - text: 배포 개요
+      url: deployment-overview.md
+- title: 보안 가상 허브에 대해 알아보기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 가상 허브란?
+      url: secured-virtual-hub.md
+- title: 보안 파트너 공급자
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 파트너 공급자란?
+      url: trusted-security-partners.md
+  - linkListType: how-to-guide
+    links:
+    - text: 보안 파트너 공급자 배포
+      url: deploy-trusted-security-partner.md
+- title: Azure 클라우드 네트워크 보안
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure Portal을 사용하여 클라우드 네트워크 보호
+      url: secure-cloud-network.md

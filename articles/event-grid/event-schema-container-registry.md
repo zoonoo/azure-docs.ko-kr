@@ -1,36 +1,33 @@
 ---
-title: Azure Event Grid Container Registry 이벤트 스키마
-description: Azure Event Grid를 사용 하 여 컨테이너 레지스트리 이벤트에 제공 되는 속성을 설명 합니다.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
-ms.topic: reference
-ms.date: 03/12/2019
-ms.author: spelluru
-ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+title: Event Grid 원본으로 Azure Container Registry
+description: 를 사용 하 여 Container Registry 이벤트에 제공 되는 속성을 설명 Azure Event Grid
+ms.topic: conceptual
+ms.date: 07/07/2020
+ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345467"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113720"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Container Reigstry에 대한 Azure Event Grid 이벤트 스키마
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Container Registry
 
-이 문서에서는 Container Reigstry 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 Container Reigstry 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
-Azure Container Registry는 다음 이벤트 유형을 내보냅니다.
+### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
-| 이벤트 유형 | 설명 |
+Azure Container Registry는 다음과 같은 이벤트 유형을 내보냅니다.
+
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | 이미지를 푸시할 때 발생합니다. |
 | Microsoft.ContainerRegistry.ImageDeleted | 이미지를 삭제할 때 발생합니다. |
-| Microsoft.ContainerRegistry.ChartPushed | Helm 차트 푸시 될 때 발생 합니다. |
-| Microsoft.ContainerRegistry.ChartDeleted | Helm 차트를 삭제할 때 발생 합니다. |
+| Microsoft.containerregistry | 투구 차트가 푸시되는 경우 발생 합니다. |
+| Microsoft.containerregistry 삭제 됨 | 투구 차트가 삭제 될 때 발생 합니다. |
 
-## <a name="example-event"></a>예제 이벤트
+### <a name="example-event"></a>예제 이벤트
 
 다음 예제는 이미지가 푸시된 이벤트의 스키마를 보여줍니다. 
 
@@ -95,7 +92,7 @@ Azure Container Registry는 다음 이벤트 유형을 내보냅니다.
 }]
 ```
 
-푸시 이벤트 차트에 대 한 스키마 이미징된 푸시된 이벤트에 대 한 스키마와 유사 하지만 요청 개체를 포함 하지 않습니다.
+차트 푸시된 이벤트의 스키마는 이미지를 만든 이벤트에 대 한 스키마와 유사 하지만 요청 개체를 포함 하지 않습니다.
 
 ```json
 [{
@@ -123,7 +120,7 @@ Azure Container Registry는 다음 이벤트 유형을 내보냅니다.
 }]
 ```
 
-차트 삭제 이벤트에 대 한 스키마 이미지 삭제 된 이벤트에 대 한 스키마와 유사 하지만 요청 개체를 포함 하지 않습니다.
+차트 삭제 된 이벤트의 스키마는 이미지를 삭제 한 이벤트에 대 한 스키마와 비슷하지만 요청 개체는 포함 하지 않습니다.
 
 ```json
 [{
@@ -151,53 +148,59 @@ Azure Container Registry는 다음 이벤트 유형을 내보냅니다.
 }]
 ```
 
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 자산 | Type | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| 제목 | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
-| eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | string | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | Blob Storage 이벤트 데이터입니다. |
-| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | object | Blob Storage 이벤트 데이터입니다. |
+| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | Type | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| id | string | 이벤트 ID입니다. |
-| timestamp | string | 이벤트가 발생한 시간입니다. |
-| action | string | 제공된 이벤트를 포함하는 동작입니다. |
+| id | 문자열 | 이벤트 ID입니다. |
+| timestamp | 문자열 | 이벤트가 발생한 시간입니다. |
+| action | 문자열 | 제공된 이벤트를 포함하는 동작입니다. |
 | 대상 | 개체 | 이벤트의 대상입니다. |
-| 요청 | 개체 | 이벤트를 생성한 요청입니다. |
+| request | 개체 | 이벤트를 생성한 요청입니다. |
 
 대상 개체의 속성은 다음과 같습니다.
 
-| 자산 | Type | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| mediaType | string | 참조된 개체의 MIME 형식입니다. |
-| size | 정수 | 콘텐츠의 바이트 수입니다. 길이 필드와 동일합니다. |
-| digest | string | 콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다. |
-| length | 정수 | 콘텐츠의 바이트 수입니다. 크기 필드와 동일합니다. |
-| 리포지토리(repository) | string | 리포지토리 이름입니다. |
-| tag | string | 태그 이름입니다. |
-| 이름 | string | 차트 이름입니다. |
-| 버전 | string | 차트 버전입니다. |
+| mediaType | 문자열 | 참조된 개체의 MIME 형식입니다. |
+| 크기 | integer | 콘텐츠의 바이트 수입니다. 길이 필드와 동일합니다. |
+| digest | 문자열 | 콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다. |
+| length | integer | 콘텐츠의 바이트 수입니다. 크기 필드와 동일합니다. |
+| 리포지토리 | 문자열 | 리포지토리 이름입니다. |
+| 태그 | 문자열 | 태그 이름입니다. |
+| name | 문자열 | 차트 이름입니다. |
+| 버전 | 문자열 | 차트 버전입니다. |
 
 요청 개체의 속성은 다음과 같습니다.
 
-| 자산 | Type | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| id | string | 이벤트를 시작한 요청의 ID입니다. |
-| addr | string | IP 또는 호스트 이름 및 가능한 경우 이벤트를 시작한 클라이언트 연결의 포트입니다. 이 값은 표준 http 요청에서 온 RemoteAddr입니다. |
-| host | string | 외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 http 호스트 헤더를 통해 지정됩니다. |
-| 메서드 | string | 이벤트를 생성한 요청 메서드입니다. |
-| useragent | string | 요청의 사용자 에이전트 헤더입니다. |
+| id | 문자열 | 이벤트를 시작한 요청의 ID입니다. |
+| addr | 문자열 | IP 또는 호스트 이름 및 가능한 경우 이벤트를 시작한 클라이언트 연결의 포트입니다. 이 값은 표준 http 요청에서 온 RemoteAddr입니다. |
+| host | 문자열 | 외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 http 호스트 헤더를 통해 지정됩니다. |
+| method | 문자열 | 이벤트를 생성한 요청 메서드입니다. |
+| useragent | 문자열 | 요청의 사용자 에이전트 헤더입니다. |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+|제목 |Description  |
+|---------|---------|
+| [빠른 시작: 컨테이너 레지스트리 이벤트 전송](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용하여 Container Registry 이벤트를 전송하는 방법을 보여줍니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 

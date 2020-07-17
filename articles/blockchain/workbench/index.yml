@@ -1,36 +1,99 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Blockchain Workbench 설명서
+### YamlMime:Landing
+title: Azure Blockchain Workbench 미리 보기 설명서
+summary: 블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 Azure에서 Blockchain Workbench를 배포하고 Azure에서 블록체인 애플리케이션을 만들고 관리하는 방법을 보여 줍니다.
 metadata:
-  title: 'Azure Blockchain Workbench 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: '블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 Azure에서 Blockchain Workbench를 배포하고 Azure에서 블록체인 애플리케이션을 만들고 관리하는 방법을 보여 줍니다.'
-  services: blockchain-workbench
-  author: patricka
-  manager: femila
-  ms.service: blockchain-workbench
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: Azure Blockchain Workbench 미리 보기 설명서
+  description: 블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 Azure에서 Blockchain Workbench를 배포하고 Azure에서 블록체인 애플리케이션을 만들고 관리하는 방법을 보여 줍니다.
+  services: azure-blockchain
+  ms.service: azure-blockchain
   ms.topic: landing-page
-  ms.date: 04/17/2018
+  author: PatAltimore
   ms.author: patricka
-abstract:
-  description: '블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Azure에서 Blockchain Workbench를 배포하여 Azure에서 블록체인 애플리케이션을 만들고 사용하는 방법을 보여 줍니다.'
-sections:
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 'Azure에서 블록체인 애플리케이션을 배포, 생성 및 사용하는 방법을 알아봅니다.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Azure Blockchain Workbench 배포</a>
-          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">블록체인 응용 프로그램 만들기</a>
-          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">블록체인 응용 프로그램 사용</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST (영문)
-            html: '<p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">REST API</a></p>'
+  ms.date: 09/05/2019
+  ms.openlocfilehash: 2dda68b1f8fff25759ff250646747f1faf63beb4
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "74324650"
+landingContent:
+- title: Azure Blockchain Workbench 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Blockchain Workbench란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Architecture
+      url: architecture.md
+  - linkListType: video
+    links:
+    - text: Azure Blockchain Workbench 소개
+      url: https://channel9.msdn.com/Shows/Blocktalk/Introduction-to-Azure-Blockchain-Workbench
+- title: 시작하기
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Azure Blockchain Workbench 배포
+      url: deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Blockchain Workbench 애플리케이션 만들기
+      url: create-app.md
+    - text: Blockchain Workbench 애플리케이션 사용
+      url: use.md
+  - linkListType: video
+    links:
+    - text: Azure Blockchain Workbench 애플리케이션 빌드
+      url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
+- title: 샘플 계약
+  linkLists:
+  - linkListType: download
+    links:
+    - text: 간단한 마켓플레이스
+      url: https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/simple-marketplace
+    - text: 기본 출처
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/basic-provenance
+    - text: 디지털 락커
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/digital-locker
+    - text: 냉장 운송
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation
+    - text: 자산 이전
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer
+    - text: 여러 워크플로가 있는 고급 마켓플레이스
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/bazaar-item-listing
+- title: 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 애플리케이션 사용자 관리
+      url: manage-users.md
+    - text: 애플리케이션 구성
+      url: configuration.md
+    - text: 애플리케이션 버전 관리
+      url: version-app.md
+- title: 통합
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 스마트 계약 통합 패턴
+      url: integration-patterns.md
+  - linkListType: how-to-guide
+    links:
+    - text: 오프 체인 데이터베이스에 연결
+      url: getdb-details.md
+    - text: Excel에서 데이터 사용
+      url: data-excel.md
+    - text: Power BI에서 데이터 사용
+      url: data-powerbi.md
+    - text: SQL Management Studio에서 데이터 사용
+      url: data-sql-management-studio.md
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: use-api.md
+    - text: 메시징 API
+      url: messages-overview.md
+    - text: 데이터베이스 뷰
+      url: database-views.md

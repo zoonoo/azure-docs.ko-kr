@@ -1,19 +1,18 @@
 ---
 title: Azure Application Gateway 사용자 지정 오류 페이지 만들기
-description: 이 문서는 Application Gateway 사용자 지정 오류 페이지를 작성하는 방법을 보여 줍니다.
+description: 이 문서는 Application Gateway 사용자 지정 오류 페이지를 작성하는 방법을 보여 줍니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-origin.date: 02/14/2019
-ms.date: 02/26/2019
-ms.author: v-junlch
-ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: how-to
+ms.date: 11/16/2019
+ms.author: victorh
+ms.openlocfilehash: d78f7aa2a02f14dc9b875895e3057bd4dee29b74
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832037"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808077"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Application Gateway 사용자 지정 오류 페이지 만들기
 
@@ -35,6 +34,7 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 - **모두** - 수신기 수준에서 정의된 사용자 지정 오류 페이지가 전역 수준에서 하나의 세트를 대체합니다.
 
 사용자 지정 오류 페이지를 작성하려면 다음이 있어야 합니다.
+
 - HTTP 응답 상태 코드.
 - 오류 페이지의 해당 위치. 
 - 위치에 대해 공개적으로 액세스 가능한 Azure Storage Blob.
@@ -42,16 +42,16 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 
 오류 페이지의 크기는 1MB 미만이어야 합니다. 이미지가 오류 페이지에 링크된 경우, 사용자 지정 오류 페이지에서 공용으로 액세스 가능한 절대 URL 또는 base64 인코드된 이미지 인라인이어야 합니다. 이미지가 동일한 Blob 위치에 있는 상대 링크는 현재 지원되지 않습니다. 
 
-오류 페이지를 지정한 후에는 애플리케이션 게이트웨이가 저장소 Blob 위치에서 이를 다운로드하여 로컬 애플리케이션 게이트웨이 캐시에 저장합니다. 그런 다음, 오류 페이지는 애플리케이션 게이트웨이에서 직접 제공됩니다. 기존 사용자 지정 오류 페이지를 수정하려면 애플리케이션 게이트웨이 구성에서 다른 Blob 위치를 가리켜야 합니다. 애플리케이션 게이트웨이는 정기적으로 BLOB 위치를 검사하여 새 버전을 가져옵니다.
+오류 페이지를 지정한 후에는 애플리케이션 게이트웨이가 스토리지 Blob 위치에서 이를 다운로드하여 로컬 애플리케이션 게이트웨이 캐시에 저장합니다. 그런 다음, 오류 페이지는 애플리케이션 게이트웨이에서 직접 제공됩니다. 기존 사용자 지정 오류 페이지를 수정하려면 애플리케이션 게이트웨이 구성에서 다른 Blob 위치를 가리켜야 합니다. 애플리케이션 게이트웨이는 정기적으로 BLOB 위치를 검사하여 새 버전을 가져옵니다.
 
 ## <a name="portal-configuration"></a>포털 구성
 
 1. 포털에서 Application Gateway를 탐색하고 애플리케이션 게이트웨이를 선택하세요.
 
-    ![ag-overview](./media/custom-error/ag-overview.png)
+    ![ag-overview](media/custom-error/ag-overview.png)
 2. **수신기**를 클릭하고 오류 페이지를 지정할 특정 수신기로 이동하세요.
 
-    ![Application Gateway 수신기](./media/custom-error/ag-listener.png)
+    ![Application Gateway 수신기](media/custom-error/ag-listener.png)
 3. 수신기 수준에서 403 WAF 오류 또는 502 유지 관리 페이지에 대한 사용자 지정 오류 페이지를 구성합니다.
 
     > [!NOTE]
@@ -59,7 +59,7 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 
 4. 지정된 오류 상태 코드에 대해 공개적으로 액세스 가능한 BLOB URL을 지정하고 저장**을 클릭하세요**. Application Gateway가 이제 사용자 지정 오류 페이지로 구성됩니다.
 
-   ![Application Gateway 오류 코드](./media/custom-error/ag-error-codes.png)
+   ![Application Gateway 오류 코드](media/custom-error/ag-error-codes.png)
 
 ## <a name="azure-powershell-configuration"></a>Azure PowerShell 구성
 
@@ -76,5 +76,3 @@ Azure PowerShell을 사용하여 사용자 지정 오류 페이지를 구성할 
 ## <a name="next-steps"></a>다음 단계
 
 Application Gateway 진단에 대한 자세한 내용은 [백엔드 건강, 진단 로그 및 Application Gateway에 대한 메트릭](application-gateway-diagnostics.md)을 참조하세요.
-
-<!-- Update_Description: wording update -->

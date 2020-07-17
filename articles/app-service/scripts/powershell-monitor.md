@@ -1,27 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 웹 서버 로그를 사용하여 웹앱 모니터링 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 웹 서버 로그를 사용하여 웹앱 모니터링
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: 'PowerShell: 웹 서버 로그로 모니터링'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 웹 서버 로그를 사용하여 앱을 모니터링하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
-ms.service: app-service
-ms.devlang: multiple
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: ac503c4408432da4e2c0c9281ee5cdd6e5d9e984
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c9b3ab6f8115f68ead478c0de21e4661d3ca032c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198593"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437925"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>웹 서버 로그로 웹앱 모니터링
 
@@ -53,7 +43,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | 웹앱의 구성을 수정합니다. |
-| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | 웹앱의 메트릭을 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

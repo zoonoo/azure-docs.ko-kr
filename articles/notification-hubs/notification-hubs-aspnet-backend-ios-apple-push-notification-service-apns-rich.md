@@ -3,9 +3,9 @@ title: Azure Notification Hubs 다양한 푸시
 description: Azure에서 iOS 앱에 다양한 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Objective-C 및 C#으로 작성되었습니다.
 documentationcenter: ios
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60873089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "71212197"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs 다양한 푸시
 
@@ -34,7 +36,7 @@ ms.locfileid: "60873089"
 개요:
 
 1. 앱 백 엔드:
-   * 백 엔드 데이터베이스/로컬 저장소에 풍부한 페이로드(이 경우 이미지)를 저장합니다.
+   * 백 엔드 데이터베이스/로컬 스토리지에 풍부한 페이로드(이 경우 이미지)를 저장합니다.
    * 이 풍부한 알림의 ID를 디바이스에 보냅니다.
 2. 디바이스의 앱:
    * 받은 ID로 풍부한 페이로드를 요청하는 백 엔드에 연결합니다.
@@ -50,12 +52,12 @@ ms.locfileid: "60873089"
     ![][IOS2]
 5. `Notifications.cs`에서 다음 using 문을 추가합니다.
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
 6. 전체 `Notifications` 클래스를 다음 코드로 업데이트합니다. 자리 표시자를 알림 허브 자격 증명 및 이미지 파일 이름으로 바꿔야 합니다.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -105,7 +107,7 @@ ms.locfileid: "60873089"
 
 7. `NotificationsController.cs`에서 ‘NotificationsController’를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 디바이스에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);
@@ -135,7 +137,7 @@ ms.locfileid: "60873089"
     }
     ```
 8. 이제 모든 디바이스에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 다시 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
-9. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 엔드포인트* 라고 합니다. **게시**를 클릭합니다.
+9. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인 하 고 기존 또는 새 웹 사이트를 선택 하 고 **연결** 탭에서 **대상 URL** 속성을 기록 합니다. 이 URL은이 자습서의 뒷부분에 있는 *백 엔드 끝점* 으로 참조 합니다. **게시**를 클릭합니다.
 
 ## <a name="modify-the-ios-project"></a>iOS 프로젝트 수정
 

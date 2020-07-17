@@ -2,28 +2,42 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines
-author: jpconnock
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
-ms.author: jeconnoc
+ms.date: 02/06/2020
+ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 74496cd3d4cd01be326baae870b075eb923983af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581146"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837917"
 ---
-# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
+## <a name="what-is-the-time-required-for-migration"></a>마이그레이션에 필요한 기간은 얼마인가요?
+
+마이그레이션의 계획 및 실행은 아키텍처의 복잡성에 따라 크게 달라지며 몇 개월이 걸릴 수 있습니다.  
+
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>IaaS VM(클래식)에서 새 고객의 정의는 무엇인가요?
+
+2020년 2월 동안(사용 중단을 시작하기 1개월 전) 구독에 IaaS VM(클래식)이 없는 고객은 새 고객으로 간주됩니다. 
+
+## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>IaaS VM(클래식)에서 기존 고객의 정의는 무엇인가요?
+
+2020년 2월에 구독에 활성 상태 또는 중지되었지만 할당된 IaaS VM(클래식)이 있던 고객은 기존 고객으로 간주됩니다. 이러한 고객만 2023년 3월 1일까지 Azure Service Manager에서 Azure Resource Manager로 VM을 마이그레이션할 수 있습니다. 
+
+## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>"NewClassicVMCreationNotAllowedForSubscription"이라는 오류가 발생하는 이유는 무엇인가요?
+
+사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. [ARM을 사용하는 Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)를 사용하는 것이 좋습니다. ARM을 사용하는 Azure VM을 사용할 수 없는 경우 고객 지원팀에 구독 허용 목록을 문의하세요.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 애플리케이션에 영향을 미치나요? 
 
-아니요. VM(클래식)은 일반 공급 제품에서 완전하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다.
+2023년 3월 1일까지는 IaaS VM(클래식)에 영향을 미치지 않습니다. IaaS VM(클래식)은 일반 공급에서 완전하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다. 2023년 3월 1일부터 이러한 VM은 완전히 사용 중지되며 활성 또는 할당된 VM이 중지 및 할당 취소됩니다. Cloud Services(클래식), 스토리지 계정(클래식) 등 다른 클래식 리소스에는 영향을 주지 않습니다.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>가까운 미래에 마이그레이션할 계획이 없는 경우 내 VM은 어떻게 됩니까? 
 
-Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없으며 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. Resource Manager의 IaaS로 구현된 [몇 가지 개선 사항](../articles/azure-resource-manager/resource-manager-deployment-model.md)을 살펴볼 것을 권장합니다.
+2023년 3월 1일부터 IaaS VM(클래식)은 완전히 사용 중지되며 활성 또는 할당된 VM이 중지 및 할당 취소됩니다. 비즈니스 영향을 방지하려면 지금 마이그레이션 계획을 시작하여 2023년 3월 1일 이전에 완료하는 것이 좋습니다. Microsoft는 기존 클래식 API, Cloud Services 및 리소스 모델을 중단할 계획이 없으며 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. 이러한 리소스를 Azure Resource Manager로 마이그레이션하는 계획을 마련하는 것을 권장합니다. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>이 마이그레이션 계획으로 기존 도구는 어떻게 되나요? 
 
@@ -39,7 +53,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>커밋 작업이 실패한 경우 마이그레이션을 롤백할 수 있나요? 
 
-커밋 작업이 실패한 경우 마이그레이션을 중단할 수 없습니다. 커밋 작업을 포함한 모든 마이그레이션 작업은 idempotent 상태입니다. 따라서 짧은 기간 이후 작업을 다시 시도해보는 것이 좋습니다. 그래도 오류가 발생할 경우 지원 티켓을 만들거나 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows)에서 ClassicIaaSMigration 태그로 포럼 게시물을 작성할 수 있습니다.
+커밋 작업이 실패한 경우 마이그레이션을 중단할 수 없습니다. 커밋 작업을 포함한 모든 마이그레이션 작업은 idempotent 상태입니다. 따라서 짧은 기간 이후 작업을 다시 시도해보는 것이 좋습니다. 그래도 오류가 발생하면 지원 티켓을 생성하세요.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Resource Manager에서 IaaS를 활용해야 할 경우 다른 Express 경로 회로를 구매해야 하나요? 
 
@@ -51,7 +65,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 ## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>자격 증명 모음에 내 클래식 VM을 백업했습니다. 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하고 Recovery Services 자격 증명 모음에서 보호할 수 있나요?
 
-클래식 모드에서 Resource Manager 모드로 VM을 이동하는 <a name="vault">경우</a> 마이그레이션 이전에 생성된 백업은 새로 마이그레이션된 Resource Manager VM으로 마이그레이션되지 않습니다. 하지만 클래식 VM의 백업을 보관하려는 경우 마이그레이션 전에 다음 단계를 수행하세요. 
+클래식 모드에서 Resource Manager 모드로 VM을 이동하는 경우 마이그레이션 이전에 생성된 백업은 새로 마이그레이션된 Resource Manager VM으로 마이그레이션되지 않습니다. 하지만 클래식 VM의 백업을 보관하려는 경우 마이그레이션 전에 다음 단계를 수행하세요. 
 
 1. Recovery Services 자격 증명 모음에서 **보호된 항목** 탭으로 이동하고 VM을 선택합니다. 
 2. 보호 중지를 클릭합니다. *연결된 백업 데이터 삭제* 옵션을 **검사하지 않음**으로 둡니다.
@@ -63,8 +77,8 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 가상 머신을 Resource Manager 모드로 마이그레이션하려면 
 
-1. VM에서 백업/스냅숏 확장을 삭제합니다.
-2. 클래식 모드에서 Resource Manager 모드로 가상 머신을 마이그레이션합니다. 가상 머신에 해당하는 저장소 및 네트워크 정보가 Resource Manager 모드로 마이그레이션되도록 합니다.
+1. VM에서 백업/스냅샷 확장을 삭제합니다.
+2. 클래식 모드에서 Resource Manager 모드로 가상 머신을 마이그레이션합니다. 가상 머신에 해당하는 스토리지 및 네트워크 정보가 Resource Manager 모드로 마이그레이션되도록 합니다.
 
 또한 마이그레이션된 VM을 백업하려는 경우 가상 머신 관리 블레이드로 이동하여 [백업을 사용하도록 설정](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm)합니다.
 
@@ -78,11 +92,11 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 ## <a name="how-do-i-report-an-issue"></a>문제를 보고하려면 어떻게 해야 하나요? 
 
-키워드 ClassicIaaSMigration을 사용하여 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows)에 마이그레이션에 대한 문제와 질문을 게시하세요. 이 포럼에 모든 질문을 게시하는 것이 좋습니다. 지원 계약을 맺은 경우 지원 티켓을 로깅해도 좋습니다.
+[VM에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)에 ClassicIaaSMigration 키워드를 사용하여 VM에 대한 문제 및 질문을 게시합니다. 이 포럼에 모든 질문을 게시하는 것이 좋습니다. 지원 계약을 맺은 경우 지원 티켓을 로깅해도 좋습니다.
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>마이그레이션 중 플랫폼이 선택한 리소스 이름이 마음에 들지 않으면 어떻게 하나요? 
 
-클래식 배포 모델에서 명시적으로 이름을 입력한 모든 리소스는 마이그레이션 중 해당 이름이 보존됩니다. 새 리소스가 생성되는 경우도 있습니다. 예를 들어 모든 VM에 대해 네트워크 인터페이스가 생성됩니다. 현재는 마이그레이션 중 이와 같이 새로 생성된 리소스 이름을 제어하는 기능을 지원하지 않습니다. [Azure 사용자 의견 포럼](http://feedback.azure.com)에서 이 기능에 대한 투표를 실시하세요.
+클래식 배포 모델에서 명시적으로 이름을 입력한 모든 리소스는 마이그레이션 중 해당 이름이 보존됩니다. 새 리소스가 생성되는 경우도 있습니다. 예를 들어 모든 VM에 대해 네트워크 인터페이스가 생성됩니다. 현재는 마이그레이션 중 이와 같이 새로 생성된 리소스 이름을 제어하는 기능을 지원하지 않습니다. [Azure 사용자 의견 포럼](https://feedback.azure.com)에서 이 기능에 대한 투표를 실시하세요.
 
 ## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>권한 부여 링크를 통해 구독에서 사용되는 ExpressRoute 회로를 마이그레이션할 수 있습니까? 
 

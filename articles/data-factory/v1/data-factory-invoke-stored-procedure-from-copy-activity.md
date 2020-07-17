@@ -1,24 +1,23 @@
 ---
-title: Azure Data Factory 복사 작업에서 저장 프로시저 호출 | Microsoft Docs
+title: Azure Data Factory 복사 작업에서 저장 프로시저 호출
 description: Azure SQL Database 또는 Azure Data Factory 복사 작업의 SQL Server에서 저장 프로시저를 호출하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 35e9347039a7b9939ab4d2719f9738429dec168c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f687901601ba517a50710610d4c827524b8ec565
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60824255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320984"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업에서 저장 프로시저 호출
 > [!NOTE]
@@ -30,7 +29,7 @@ ms.locfileid: "60824255"
 다음 샘플에서는 Data Factory 파이프라인(복사 작업)에서 SQL Server Database의 저장 프로시저를 호출하는 방법을 보여 줍니다.  
 
 ## <a name="output-dataset-json"></a>출력 데이터 세트 JSON
-출력 데이터 세트 JSON에서 **type**을 **SqlServerTable**로 설정합니다. Azure SQL 데이터베이스에 사용하기 위해 이 항목을 **AzureSqlTable**로 설정합니다. **tableName** 속성 값은 저장 프로시저의 첫 번째 매개 변수 이름과 일치해야 합니다.  
+출력 데이터 세트 JSON에서 **형식**을 **SqlServerTable**로 설정합니다. **AzureSqlTable** 로 설정 하 여 Azure SQL Database에 사용 합니다. **tableName** 속성 값은 저장 프로시저의 첫 번째 매개 변수 이름과 일치해야 합니다.  
 
 ```json
 {
@@ -69,7 +68,7 @@ ms.locfileid: "60824255"
 ```
 
 ## <a name="stored-procedure-definition"></a>저장 프로시저 정의 
-데이터베이스에서 **SqlWriterStoredProcedureName**과 동일한 이름으로 저장 프로시저를 정의합니다. 저장 프로시저는 원본 데이터 저장소의 입력 데이터를 처리하고 데이터를 대상 데이터베이스의 테이블에 삽입합니다. 저장 프로시저의 첫 번째 매개 변수 이름은 데이터 세트 JSON(Marketing)에 정의된 tableName과 일치해야 합니다.
+데이터베이스에서 **SqlWriterStoredProcedureName**와 동일한 이름을 사용 하 여 저장 프로시저를 정의 합니다. 저장 프로시저는 원본 데이터 저장소의 입력 데이터를 처리하고 데이터를 대상 데이터베이스의 테이블에 삽입합니다. 저장 프로시저의 첫 번째 매개 변수 이름은 데이터 세트 JSON(Marketing)에 정의된 tableName과 일치해야 합니다.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -82,7 +81,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>테이블 유형 정의
-데이터베이스에서 **SqlWriterTableType**과 동일한 이름으로 테이블 형식을 정의합니다. 테이블 형식의 스키마는 입력 데이터 세트의 스키마와 일치해야 합니다.
+데이터베이스에서 **sqlwritertabletype과**와 동일한 이름을 사용 하 여 테이블 형식을 정의 합니다. 테이블 형식의 스키마는 입력 데이터 세트의 스키마와 일치해야 합니다.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(

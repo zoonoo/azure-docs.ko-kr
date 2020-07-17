@@ -1,21 +1,16 @@
 ---
-title: 콘텐츠 유형 처리 - Azure Logic Apps | Microsoft Docs
-description: Logic Apps가 디자인 타임 및 런타임에 콘텐츠 형식을 처리하는 방법 알아보기
+title: 콘텐츠 형식 처리
+description: Azure Logic Apps에서 디자인 타임 및 런타임에 워크플로의 다양 한 콘텐츠 형식을 처리 하는 방법에 대해 알아봅니다.
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 07/20/2018
+ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60685767"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75666876"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Azure Logic Apps에서 콘텐츠 형식 처리
 
@@ -63,7 +58,7 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
   
   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.  
   
-  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예를 들면 다음과 같습니다. 
+  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예를 들어: 
 
      ![샘플 JSON 페이로드 입력](./media/logic-apps-content-type/request-trigger.png)
 
@@ -105,7 +100,7 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
 
   3. 요청에서, `Content-Type` 헤더를 포함하고 헤더 값을 `application/json`으로 설정합니다.
 
-* **JSON 구문 분석 작업**
+* **Parse JSON 작업**
 
   논리 앱 디자이너에서 이 작업을 사용할 때 JSON 출력을 구문 분석하고 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생성할 수 있습니다. 
   그 후 이러한 속성을 논리 앱 워크플로 전체에서 간편하게 참조하고 사용할 수 있습니다. 요청 트리거와 마찬가지로, 구문 분석할 JSON 콘텐츠를 설명하는 JSON 스키마를 입력하거나 생성할 수 있습니다. 
@@ -140,15 +135,16 @@ Logic Apps는 항상 수신한 HTTP 요청 또는 응답의 `Content-Type`을 �
 
 이 목록은 다음 [함수](../logic-apps/workflow-definition-language-functions-reference.md)를 사용할 때 Logic Apps가 콘텐츠를 변환하는 방법을 설명합니다.
 
-* `json()`: 데이터를 캐스팅 `application/json`
-* `xml()`: 데이터를 캐스팅 `application/xml`
-* `binary()`: 데이터를 캐스팅 `application/octet-stream`
-* `string()`: 데이터를 캐스팅 `text/plain`
-* `base64()`: 콘텐츠를 base64 문자열로 변환합니다.
-* `base64toString()`: Base64로 인코딩된 문자열을 변환 `text/plain`
-* `base64toBinary()`: Base64로 인코딩된 문자열을 변환 `application/octet-stream`
-* `encodeDataUri()`: 문자열을 dataUri 바이트 배열로 인코딩합니다.
-* `decodeDataUri()`: 디코딩 한 `dataUri` 바이트 배열로
+* `json()`: 데이터를 `application/json`로 캐스팅합니다.
+* `xml()`: 데이터를 `application/xml`로 캐스팅합니다.
+* `binary()`: 데이터를 `application/octet-stream`로 캐스팅합니다.
+* `string()`: 데이터를 `text/plain`로 캐스팅합니다.
+* `base64()`: 콘텐츠를 b a s e 64로 인코딩된 문자열로 변환 합니다.
+* `base64toString()`: B a s e 64로 인코딩된 문자열을로 변환 합니다.`text/plain`
+* `base64toBinary()`: B a s e 64로 인코딩된 문자열을로 변환 합니다.`application/octet-stream`
+* `dataUri()`: 문자열을 데이터 URI로 변환 합니다.
+* `dataUriToBinary()`: 데이터 URI를 이진 문자열로 변환 합니다.
+* `dataUriToString()`: 데이터 URI를 문자열로 변환 합니다.
 
 예를 들어 이 콘텐츠처럼 `Content-Type`이 `application/xml`로 설정된 HTTP 요청을 받는 경우:
 
@@ -178,9 +174,9 @@ Logic Apps는 다른 콘텐츠 형식과 호환 및 지원되지만 `$content` �
 
 Logic Apps는 양식 데이터를 처리하기 위한 다음과 같은 네이티브 함수를 제공합니다. 
 
-* [triggerFormDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
+* [triggerFormDataValue ()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
 * [triggerFormDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues)
-* [formDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
+* [formDataValue ()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
 * [formDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues)
 
 또는 이 예제와 같은 언어 식을 사용하여 데이터에 직접 액세스할 수 있습니다.

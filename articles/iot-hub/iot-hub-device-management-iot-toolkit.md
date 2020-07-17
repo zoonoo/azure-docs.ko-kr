@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT 디바이스 관리 | Microsoft Docs
+title: VSCode 용 Azure IoT 도구를 사용 하 여 azure IoT 장치 관리
 description: Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공하는 Visual Studio Code용 Azure IoT Tools를 사용하여 Azure IoT Hub 디바이스를 관리합니다.
 author: formulahendry
 ms.service: iot-hub
@@ -7,16 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401173"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81688093"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT Hub 디바이스 관리
 
-![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
+![엔드투엔드 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)는 IoT Hub 관리 및 IoT 애플리케이션 개발을 더욱 용이하게 해주는 유용한 Visual Studio Code 확장입니다. 다양한 작업을 수행하는 데 사용할 수 있는 관리 옵션이 제공됩니다.
 
@@ -27,7 +26,7 @@ ms.locfileid: "60401173"
 | 직접 메서드             | 메시지 보내기 시작 또는 중지, 디바이스 다시 부팅 등의 디바이스 작업을 수행합니다.                                        |
 | 디바이스 쌍 읽기           | 디바이스의 보고된 상태를 가져옵니다. 예를 들어 디바이스에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
 | 디바이스 쌍 업데이트         | 디바이스를 특정 상태(예: LED를 녹색으로 설정 또는 원격 분석 전송 간격을 30 분으로 설정)로 지정합니다.         |
-| 클라우드-장치 메시지   | 디바이스에 알림을 보냅니다. 예를 들어 "오늘 비가 올 가능성이 매우 높습니다. 반드시 우산을 챙기세요."              |
+| 클라우드-디바이스 메시지   | 디바이스에 알림을 보냅니다. 예를 들어 "오늘 비가 올 가능성이 매우 높습니다. 반드시 우산을 챙기세요."              |
 
 이러한 옵션을 사용하는 방법에 대한 차이점과 지침에 대한 자세한 내용은 [디바이스-클라우드 통신 지침](iot-hub-devguide-d2c-guidance.md) 및 [클라우드-디바이스 통신 지침](iot-hub-devguide-c2d-guidance.md)을 참조하세요.
 
@@ -45,14 +44,14 @@ ms.locfileid: "60401173"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-* 활성 Azure 구독.
+* 활성화된 Azure 구독.
 * 구독 중인 Azure IoT Hub
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [VS Code 용 azure IoT 도구](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 나 [Visual Studio Code에서이 링크를 열도록](vscode:extension/vsciot-vscode.azure-iot-tools)합니다.
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는이 URL을 복사 하 여 브라우저 창에 붙여 넣습니다 `vscode:extension/vsciot-vscode.azure-iot-tools` .
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 
-1. **탐색기**에서 VS Code를 보고 왼쪽 아래 모서리에서 **Azure IoT Hub 장치** 섹션을 확장합니다.
+1. **탐색기**에서 VS Code를 보고 왼쪽 아래 모서리에서 **Azure IoT Hub 디바이스** 섹션을 확장합니다.
 
 2. 상황에 맞는 메뉴에서 **IoT Hub 선택**을 클릭합니다.
 
@@ -60,10 +59,10 @@ ms.locfileid: "60401173"
 
 4. 로그인 후 Azure 구독 목록이 표시되면 IoT Hub 및 Azure 구독을 선택합니다.
 
-5. 잠시 후 장치 목록이 **Azure IoT Hub 장치** 탭에 표시됩니다.
+5. 잠시 후 디바이스 목록이 **Azure IoT Hub 디바이스** 탭에 표시됩니다.
 
    > [!Note]
-   > **IoT Hub 연결 문자열 설정**을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 디바이스를 연결할 IoT Hub의 연결 문자열을 입력합니다.
+   > **IoT Hub 연결 문자열 설정**을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 장치를 연결 하는 IoT hub에 대 한 **iothubowner** 정책 연결 문자열을 입력 합니다.
 
 ## <a name="direct-methods"></a>직접 메서드
 
@@ -71,7 +70,7 @@ ms.locfileid: "60401173"
 
 2. 입력 상자에 메서드 이름 및 페이로드를 입력합니다.
 
-3. 결과가 **OUTPUT** > **Azure IoT Hub Toolkit** 보기에 표시됩니다.
+3. 결과는 **출력**  >  **Azure IoT Hub** 보기에 표시 됩니다.
 
 ## <a name="read-device-twin"></a>디바이스 쌍 읽기
 
@@ -87,15 +86,15 @@ ms.locfileid: "60401173"
 
 3. **디바이스 쌍 업데이트**를 선택하여 디바이스 쌍을 업데이트합니다.
 
-## <a name="send-cloud-to-device-messages"></a>클라우드-장치 메시지 보내기
+## <a name="send-cloud-to-device-messages"></a>클라우드-디바이스 메시지 보내기
 
 IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행합니다.
  
-1. 장치를 마우스 오른쪽 단추로 클릭하고 **장치에 C2D 메시지 보내기**를 선택합니다. 
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 C2D 메시지 보내기**를 선택합니다. 
 
 2. 입력 상자에 메시지를 입력합니다.
 
-3. 결과가 **OUTPUT** > **Azure IoT Hub Toolkit** 보기에 표시됩니다.
+3. 결과는 **출력**  >  **Azure IoT Hub** 보기에 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

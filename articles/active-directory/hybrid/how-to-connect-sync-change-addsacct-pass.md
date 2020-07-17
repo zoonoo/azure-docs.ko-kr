@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect 동기화:  AD DS 계정 암호 변경 | Microsoft Docs'
+title: 'Azure AD Connect 동기화: AD DS 계정 암호 변경 | Microsoft Docs'
 description: 이 항목 문서에서는 AD DS 계정의 암호가 변경된 후 Azure AD Connect를 업데이트하는 방법을 설명합니다.
 services: active-directory
 keywords: AD DS 계정, Active Directory 계정, 암호
@@ -12,24 +12,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35e04be046e20883f60c576745a29342add68a81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4077146292db1266d5dbc51cc577f952b2bff191
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60241615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357514"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>AD DS 계정 암호 변경
 AD DS 계정은 Azure AD Connect가 온-프레미스 Active Directory와 통신하는 데 사용하는 사용자 계정을 나타냅니다. AD DS 계정의 암호를 변경하는 경우 Azure AD Connect 동기화 서비스를 새 암호로 업데이트해야 합니다. 그렇지 않으면 더 이상 온-프레미스 Active Directory와 올바르게 동기화될 수 없으며 다음 오류가 발생합니다.
 
 * Synchronization Service Manager에서 온-프레미스 AD를 사용하여 가져오기 또는 내보내기 작업을 수행하면 **no-start-credentials** 오류를 나타내며 실패합니다.
 
-* Windows 이벤트 뷰어에서 애플리케이션 이벤트 로그에는 **이벤트 ID 6000** 오류 및 메시지 **'자격 증명이 잘못되었기 때문에 "contoso.com" 관리 에이전트를 실행하지 못했습니다.'** 가 포함됩니다.
+* Windows 이벤트 뷰어에서 응용 프로그램 이벤트 로그에 **이벤트 ID 6000** 및 메시지 **' "contoso.com" 자격 증명이 잘못 되었기 때문에 "관리 에이전트를 실행 하지 못했습니다."** 라는 오류가 포함 되어 있습니다.
 
 
 ## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>AD DS 계정에 대한 새 암호로 동기화 서비스를 업데이트하는 방법
@@ -42,7 +42,7 @@ AD DS 계정은 Azure AD Connect가 온-프레미스 Active Directory와 통신�
 
 3. 암호가 변경된 AD DS 계정에 해당하는 **AD 커넥터**를 선택합니다.
 
-4. **작업** 아래에서 **속성**을 선택합니다.
+4. **작업**아래에서 **속성**을 선택 합니다.
 
 5. 팝업 대화 상자에서 **Active Directory 포리스트에 연결**을 선택합니다.
 

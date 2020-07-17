@@ -1,22 +1,22 @@
 ---
-title: Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
+title: 포털의 HTTP에서 HTTPS로 리디렉션-Azure 애플리케이션 게이트웨이
 description: Azure Portal을 사용하여 HTTP에서 HTTPS로 리디렉션된 트래픽으로 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 12/7/2018
+ms.topic: how-to
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84804343"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure Portal을 사용하여 SSL 종료를 위한 인증서로 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 라우팅 규칙은 애플리케이션 게이트웨이에서 HTTP 트래픽을 HTTPS 포트로 리디렉션하는 데 사용됩니다. 이 예제에서는 두 개의 가상 머신 인스턴스를 포함하는 애플리케이션 게이트웨이의 백 엔드 풀에 대한 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)도 만듭니다.
+Azure Portal를 사용 하 여 TLS 종료를 위한 인증서로 [응용 프로그램 게이트웨이](overview.md) 를 만들 수 있습니다. 라우팅 규칙은 애플리케이션 게이트웨이에서 HTTP 트래픽을 HTTPS 포트로 리디렉션하는 데 사용됩니다. 이 예제에서는 두 개의 가상 머신 인스턴스를 포함하는 애플리케이션 게이트웨이의 백 엔드 풀에 대한 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)도 만듭니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 또는 나중에 인증서를 만들고 IIS를 설치 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 자습서의 명령을 실행하려면 `Login-AzAccount`를 실행하여 Azure에 연결해야 합니다.
+이 자습서에서는 인증서를 만들고 IIS를 설치 하는 데 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 자습서의 명령을 실행하려면 `Login-AzAccount`를 실행하여 Azure에 연결해야 합니다.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
@@ -83,7 +83,7 @@ Export-PfxCertificate `
    - *myVNet* - 가상 네트워크 이름
    - *10.0.0.0/16* - 가상 네트워크 주소 공간
    - *myAGSubnet* - 서브넷 이름
-   - *10.0.1.0/24* - 서브넷 주소 공간
+   - *10.0.0.0/24* - 서브넷 주소 공간
 
      ![가상 네트워크 만들기](./media/create-url-route-portal/application-gateway-vnet.png)
 
@@ -118,22 +118,22 @@ Export-PfxCertificate `
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>리디렉션 구성을 사용하여 라우팅 규칙 추가
 
-1. **myAppGateway**에서 **규칙**을 선택한 후 **+기본**을 선택합니다.
-2. **이름**으로 *Rule2*를 입력합니다.
+1. **MyAppGateway**에서 **규칙** 을 선택한 다음 **+ 라우팅 규칙 요청**을 선택 합니다.
+2. **규칙 이름**에 *Rule2*를 입력 합니다.
 3. 수신기에 대해 **MyListener**를 선택했는지 확인합니다.
-4. **리디렉션 구성** 확인란을 선택합니다.
+4. **백 엔드 대상** 탭을 클릭 하 고 **대상 유형** 을 *리디렉션*으로 선택 합니다.
 5. **리디렉션 유형**으로 **영구**를 선택합니다.
 6. **리디렉션 대상**으로 **수신기**를 선택합니다.
 7. **대상 수신기**가 **appGatewayHttpListener**로 설정되어 있는지 확인합니다.
-8. **쿼리 문자열 포함** 및 **경로 포함** 확인란을 선택합니다.
-9. **확인**을 선택합니다.
+8. **쿼리 문자열 포함** 및 **포함 경로** 에 대해 *예*를 선택 합니다.
+9. **추가**를 선택합니다.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
 이 예제에서는 애플리케이션 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다.
 
 1. 포털 왼쪽 위 모서리에서 **+리소스 만들기**를 선택합니다.
-2. **컴퓨팅**을 선택합니다.
+2. **Compute**를 선택 합니다.
 3. 검색 상자에 *확장 집합*을 입력하고 Enter 키를 누릅니다.
 4. **가상 머신 확장 집합**을 선택한 후 **만들기**를 선택합니다.
 5. **가상 머신 확장 집합 이름**으로 *myvmss*를 입력합니다.
@@ -159,7 +159,7 @@ Export-PfxCertificate `
 5. **백 엔드 풀에서 모든 대상 제거**를 선택합니다.
 6. **저장**을 선택합니다.
 7. 이 프로세스가 완료되면 **myAppGatewaymyvmss** 백 엔드 풀을 선택하고 **삭제**, **확인**을 차례로 선택합니다.
-8. **appGatewayBackendPool**을 선택합니다.
+8. **AppGatewayBackendPool**를 선택 합니다.
 9. **대상** 아래에서 **VMSS**를 선택합니다.
 10. **VMSS** 아래에서 **myvmss**를 선택합니다.
 11. **네트워크 인터페이스 구성** 아래에서 **myvmssNic**를 선택합니다.
@@ -215,7 +215,7 @@ IIS 사용하여 인스턴스를 변경한 후에는 이 변경 내용으로 확
 1. **myAppGateway**를 선택합니다.
 2. **개요** 페이지에서 **프런트 엔드 공용 IP 주소** 아래의 IP 주소를 기록해 둡니다.
 
-3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들어 http://52.170.203.149
+3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들면 http://52.170.203.149과 같습니다.
 
    ![보안 경고](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

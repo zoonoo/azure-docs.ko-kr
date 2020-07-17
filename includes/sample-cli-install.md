@@ -1,16 +1,17 @@
 ---
-author: sptramer
-ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/25/2018
-ms.author: sttramer
-ms.openlocfilehash: ebdfadcb70cc9788a3d18fa99261412506889764
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 05/31/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.openlocfilehash: fd3965c42679c8435348a66cc7eeab90d1eeb1b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821483"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374674"
 ---
-이 샘플을 실행하려면 최신 버전의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 설치해야 합니다. 시작하려면 `az login`을 실행하여 Azure와 연결합니다.
+이 샘플을 실행하려면 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다. 시작하려면 `az login`을 실행하여 Azure와 연결합니다.
 
-이 샘플은 Bash 셸에서 작동합니다. Windows 클라이언트에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 설치](/cli/azure/install-azure-cli-windows)를 참조하세요.
+Azure CLI 샘플은 `bash` 셸용으로 작성됩니다. Windows PowerShell 또는 명령 프롬프트에서 이 샘플을 실행하려면 스크립트의 요소를 변경해야 할 수도 있습니다.
+

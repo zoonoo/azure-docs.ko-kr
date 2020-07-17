@@ -1,98 +1,181 @@
 ---
-title: Azure Portal 대시보드 만들기 및 공유 | Microsoft Docs
-description: 이 문서에서는 Azure Portal에서 대시보드를 만들고 편집하는 방법을 설명합니다.
+title: Azure Portal에서 대시보드 만들기 및 공유
+description: 이 문서에서는 Azure Portal에서 대시보드를 만들고, 사용자 지정 하 고, 게시 하 고, 공유 하는 방법을 설명 합니다.
 services: azure-portal
 documentationcenter: ''
 author: sewatson
-manager: doubeby
-editor: tysonn
+manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/06/2016
-ms.author: kfollis
-ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 03/23/2020
+ms.author: mblythe
+ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60552712"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764012"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
-여러 개의 대시보드를 만들고 Azure 구독에 액세스할 수 있는 다른 사용자와 공유할 수 있습니다.  이 문서에서는 대시보드 만들기, 편집, 게시 및 액세스 관리의 기본 사항을 알아봅니다.
 
-## <a name="create-a-dashboard"></a>대시보드 만들기
-대시보드를 만들려면 현재 대시보드 이름 옆에 있는 **새 대시보드** 단추를 선택합니다.  
+대시보드는 Azure Portal의 클라우드 리소스에 대해 집중적으로 구성 된 뷰입니다. 일상 작업을 신속하게 시작하고 리소스를 모니터링할 수 있는 작업 영역으로 대시보드를 사용합니다. 예를 들어 프로젝트, 작업 또는 사용자 역할을 기반으로 사용자 지정 대시보드를 빌드합니다.
 
-![대시보드 만들기](./media/azure-portal-dashboards/new-dashboard.png)
+Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기본 대시보드를 편집할 수 있습니다. 추가 대시보드를 만들고 사용자 지정 하 고 대시보드를 게시 및 공유 하 여 다른 사용자가 사용할 수 있도록 합니다. 이 문서에서는 새 대시보드를 만들고, 인터페이스를 사용자 지정 하 고, 대시보드를 게시 및 공유 하는 방법을 설명 합니다.
 
-이 작업은 새 비어 있는 개인 대시보드를 만들고 대시보드의 이름을 지정하고 타일을 추가하거나 다시 정렬할 수 있는 사용자 지정 모드를 설정합니다.  이 모드에서는 축소 가능한 타일 갤러리가 왼쪽 탐색 메뉴보다 우선합니다.  타일 갤러리를 사용하면 다양한 방법으로 Azure 리소스에 대한 타일을 찾을 수 있습니다. [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups), 리소스 형식, [태그](../azure-resource-manager/resource-group-using-tags.md) 또는 이름별로 리소스의 이름을 검색하여 찾을 수 있습니다.  
+## <a name="create-a-new-dashboard"></a>새 대시보드 만들기
 
-![대시보드 사용자 지정](./media/azure-portal-dashboards/customize-dashboard.png)
+이 예제에서는 새 개인 대시보드를 만들고 이름을 할당 합니다. 시작하려면 다음 단계를 수행하세요.
 
-타일을 원하는 대시보드 화면에 끌어서 놓아 추가합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-특정 리소스에 연결되지 않은 타일에 대한 **일반** 이라는 새 범주가 있습니다.  이 예제에서는 Markdown 타일을 고정합니다.  이 타일을 사용하여 대시보드에 사용자 지정 콘텐츠를 추가합니다.  타일은 일반 텍스트인 [Markdown 구문](https://daringfireball.net/projects/markdown/syntax)및 제한된 일련의 HTML을 지원합니다.  (안전을 위해 `<script>` 태그를 삽입하거나 포털을 방해할 수 있는 CSS의 특정 스타일 요소를 사용하는 등의 작업을 수행할 수 없습니다.) 
+1. Azure Portal 메뉴에서 **대시보드**를 선택 합니다. 기본 보기는 이미 대시보드로 설정 되어 있을 수 있습니다.
 
-![Markdown 추가](./media/azure-portal-dashboards/add-markdown.png)
+    ![대시보드 열기](./media/azure-portal-dashboards/portal-menu-dashboard.png)
+
+1. **새 대시보드**를 선택 합니다.
+
+    ![새 대시보드의 스크린샷](./media/azure-portal-dashboards/create-new-dashboard.png)
+
+    이 작업을 수행 하면 타일 **갤러리**가 열리며, 여기서 타일을 선택 하 고 타일을 정렬할 빈 그리드를 선택 합니다.
+
+    ![타일 갤러리 및 빈 그리드 스크린샷](./media/azure-portal-dashboards/dashboard-name.png)
+
+1. 대시보드 레이블에서 **내 대시보드** 텍스트를 선택 하 고 사용자 지정 대시보드를 쉽게 식별 하는 데 도움이 되는 이름을 입력 합니다.
+
+1. 페이지 머리글에서 **사용자 지정 완료** 를 선택 하 여 편집 모드를 종료 합니다.
+
+이제 대시보드 보기에 새 대시보드가 표시 됩니다. 대시보드 이름 옆의 화살표를 선택 하 여 사용할 수 있는 대시보드를 표시 합니다. 이 목록에는 다른 사용자가 만들고 공유한 대시보드가 포함 되어 있을 수 있습니다.
 
 ## <a name="edit-a-dashboard"></a>대시보드 편집
-대시보드를 만든 후에 타일 갤러리 또는 블레이드의 타일 표현에서 타일을 고정할 수 있습니다. 리소스 그룹의 표현을 고정해 보겠습니다. 해당 항목을 검색할 때 또는 리소스 그룹 블레이드에서 고정할 수 있습니다. 두 가지 방법은 리소스 그룹의 타일 표시를 고정합니다.
 
-![대시보드에 고정](./media/azure-portal-dashboards/pin-to-dashboard.png)
+이제 대시보드를 편집 하 여 Azure 리소스를 나타내는 타일을 추가, 크기 조정 및 정렬 해 보겠습니다.
 
-항목을 고정한 후에 대시보드에 나타납니다.
+### <a name="add-tiles-from-the-dashboard"></a>대시보드에서 타일 추가
 
-![대시보드 보기](./media/azure-portal-dashboards/view-dashboard.png)
+대시보드에 타일을 추가 하려면 다음 단계를 수행 합니다.
 
-Markdown 타일 및 대시보드에 고정된 리소스 그룹이 있으므로 타일의 크기를 조정하고 적합한 레이아웃으로 다시 정렬할 수 있습니다.
+1. ![ ](./media/azure-portal-dashboards/dashboard-edit-icon.png) 페이지 머리글에서 편집 아이콘 **편집** 을 선택 합니다.
 
-"..."에 마우스를 가져가고 선택하거나 타일을 마우스 오른쪽 단추로 클릭하여 해당 타일에 대한 상황에 맞는 모든 명령을 볼 수 있습니다. 기본적으로 두 가지 항목이 있습니다.
+    ![대시보드 강조 표시 편집의 스크린샷](./media/azure-portal-dashboards/dashboard-edit.png)
 
-1. **대시보드에서 고정 해제** – 대시보드에서 타일을 제거합니다.
-2. **사용자 지정** – 사용자 지정 모드로 실행됩니다.
+1. **타일 갤러리** 를 찾아보거나 검색 필드를 사용 하 여 원하는 타일을 찾습니다.
 
-![타일 사용자 지정](./media/azure-portal-dashboards/customize-tile.png)
+1. **추가** 를 선택 하 여 기본 크기 및 위치를 사용 하 여 타일을 대시보드에 추가 합니다. 또는 타일을 그리드로 끌어 원하는 위치에 놓습니다.
 
-사용자 지정을 선택하여 타일의 크기를 조정하고 순서를 변경합니다. 타일 크기를 조정하려면 다음 이미지에 나와 있는 것처럼 상황에 맞는 메뉴에서 새 크기를 선택합니다.
+> [!TIP]
+> 둘 이상의 조직에서 작업 하는 경우 **조직 id** 타일을 대시보드에 추가 하 여 리소스가 속한 조직을 명확 하 게 표시 합니다.
 
-![타일 크기 조정](./media/azure-portal-dashboards/resize-tile.png)
+### <a name="add-tiles-from-a-resource-page"></a>리소스 페이지에서 타일 추가
 
-또는 타일이 모든 크기를 지원하는 경우 하단 오른쪽 모서리를 원하는 크기로 끌어올 수 있습니다.
+타일을 대시보드에 추가 하는 다른 방법이 있습니다. 대부분의 리소스 페이지에는 명령 모음에 압정 아이콘이 있습니다. 아이콘을 선택 하면 원본 페이지를 나타내는 타일이 현재 활성 상태인 대시보드에 고정 됩니다. 
 
-![타일 크기 조정](./media/azure-portal-dashboards/resize-corner.png)
+![고정 아이콘이 있는 페이지 명령 모음의 스크린샷](./media/azure-portal-dashboards/dashboard-pin-blade.png)
 
-타일의 크기를 조정한 후에 대시보드를 봅니다.
+### <a name="resize-or-rearrange-tiles"></a>타일 크기 조정 또는 다시 정렬
 
-![타일 보기](./media/azure-portal-dashboards/view-tile.png)
+타일의 크기를 변경 하거나 대시보드의 타일을 다시 정렬 하려면 다음 단계를 수행 합니다.
 
-대시보드의 사용자 지정을 완료한 후에 사용자 지정 모드를 종료하려면 **사용자 지정 완료**를 선택하거나 상황에 맞는 메뉴에서 **사용자 지정 완료**를 마우스 오른쪽 단추로 클릭하고 선택합니다.
+1. ![ ](./media/azure-portal-dashboards/dashboard-edit-icon.png) 페이지 머리글에서 편집 아이콘 **편집** 을 선택 합니다.
 
-## <a name="publish-a-dashboard-and-manage-access-control"></a>대시보드 게시 및 액세스 제어 관리
-대시보드를 만들 때 기본적으로 비공개입니다. 즉, 볼 수 있는 유일한 사람은 사용자입니다.  다른 사람이 볼 수 있도록 하려면 다른 대시보드 명령 옆에 나타나는 **공유** 단추를 사용합니다.
+1. 타일의 오른쪽 위 모퉁이에 있는 상황에 맞는 메뉴를 선택 합니다. 그런 다음 타일 크기를 선택 합니다. 크기를 지 원하는 타일의 오른쪽 아래 모서리에는 타일을 원하는 크기로 끌 수 있는 "핸들"이 포함 됩니다.
 
-![대시보드 공유](./media/azure-portal-dashboards/share-dashboard.png)
+    ![타일 크기 메뉴가 열린 대시보드의 스크린샷](./media/azure-portal-dashboards/dashboard-tile-resize.png)
 
-게시하려는 대시보드에 대한 구독 및 리소스 그룹을 선택하라는 메시지가 표시됩니다. 에코시스템에 대시보드를 매끄럽게 통합하기 위해 공유 대시보드를 Azure 리소스로 구현했습니다(따라서 전자 메일 주소를 입력하여 공유할 수 없습니다).  포털에서 대부분 타일에 표시되는 정보에 대한 액세스는 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)로 제어됩니다. 액세스 제어 관점에서 공유 대시보드는 가상 머신 또는 저장소 계정과 차이가 없습니다.  
+1. 타일을 선택 하 고 표의 새 위치로 끌어 대시보드를 정렬 합니다.
 
-Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽기 권한자** 역할에 할당된 팀의 구성원이 있다고 가정해 보겠습니다.  소유자 또는 참여자인 사용자는 해당 구독 내에서 대시보드를 나열, 보기, 만들기, 수정 또는 삭제할 수 있습니다.  읽기 권한자인 사용자는 대시보드를 나열 및 볼 수 있지만 수정 또는 삭제할 수 없습니다.  읽기 권한자 액세스를 보유한 사용자는 공유 대시보드에 대한 로컬 편집을 만들 수 있지만 해당 변경 내용을 서버로 다시 게시할 수 없습니다.  그러나 사용하기 위해 대시보드의 개인 복사본을 만들 수 있습니다.  늘 그렇듯이 대시보드의 개별 타일은 해당하는 리소스에 따라 고유한 액세스 제어 규칙을 적용합니다.  
+### <a name="additional-tile-configuration"></a>추가 타일 구성
 
-편의를 위해 포털의 게시 환경에서는 **대시보드**라는 리소스 그룹에 대시보드를 배치한 위치의 패턴을 안내합니다.  
+일부 타일에는 원하는 정보를 표시 하는 추가 구성이 필요할 수 있습니다. 예를 들어 **메트릭 차트** 타일은 **Azure Monitor**의 메트릭을 표시 하도록 설정 되어야 합니다. 또한 타일 데이터를 사용자 지정 하 여 대시보드의 기본 시간 설정을 재정의할 수 있습니다.
 
-![대시보드 게시](./media/azure-portal-dashboards/publish-dashboard.png)
+설정 해야 하는 타일은 타일을 사용자 지정할 때까지 **타일 구성** 배너를 표시 합니다. 타일을 사용자 지정 하려면:
 
-또한 특정 리소스 그룹에 대시보드를 게시할 수 있습니다.  해당 대시보드에 대한 액세스 제어는 리소스 그룹에 대한 액세스 제어와 일치합니다.  해당 리소스 그룹에서 리소스를 관리할 수 있는 사용자는 대시보드에도 액세스 권한이 있습니다.
+1. 페이지 머리글에서 **사용자 지정 완료** 를 선택 하 여 편집 모드를 종료 합니다.
 
-![리소스 그룹에 대시보드 게시](./media/azure-portal-dashboards/publish-to-resource-group.png)
+1. 배너를 선택 하 고 필요한 설치를 수행 합니다.
 
-대시보드를 게시한 후에 **공유 + 액세스** 제어 창이 새로 고쳐지고 대시보드에 대한 사용자 액세스를 관리하는 링크를 포함하여 게시된 대시보드에 대한 정보를 보여 줍니다.  이 링크는 Azure 리소스에 대한 액세스를 관리하는 데 사용되는 표준 역할 기반 Access Control 블레이드를 시작합니다.  언제든지 **공유**를 선택하여 이 보기로 돌아올 수 있습니다.
+    ![구성이 필요한 타일의 스크린샷](./media/azure-portal-dashboards/dashboard-configure-tile.png)
 
-![액세스 제어 관리](./media/azure-portal-dashboards/manage-access.png)
+> [!NOTE]
+> Markdown 타일을 사용 하면 대시보드에 사용자 지정 정적 콘텐츠를 표시할 수 있습니다. 이는 기본 지침, 이미지, 하이퍼링크 집합 또는 연락처 정보 일 수도 있습니다. Markdown 타일을 사용 하는 방법에 대 한 자세한 내용은 [Azure 대시보드의 markdown 타일을 사용 하 여 사용자 지정 콘텐츠 표시를](azure-portal-markdown-tile.md)참조 하세요.
+
+### <a name="customize-tile-data"></a>타일 데이터 사용자 지정
+
+대시보드의 데이터는 지난 24 시간 동안의 활동을 자동으로 표시 합니다. 이 타일에 대해 다른 시간 범위를 표시 하려면 다음 단계를 수행 합니다.
+
+1. 상황 **Customize tile data** 에 맞는 메뉴 또는 ![ ](./media/azure-portal-dashboards/dashboard-filter.png) 타일의 왼쪽 위 모퉁이에 있는 필터 아이콘 필터에서 타일 데이터 사용자 지정을 선택 합니다.
+
+    ![타일 상황에 맞는 메뉴의 스크린샷](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
+
+1. **타일 수준에서 대시보드 시간 설정을 재정의**하려면이 확인란을 선택 합니다.
+
+    ![타일 시간 설정을 구성 하는 대화 상자 스크린샷](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
+
+1. 이 타일에 대해 표시할 시간 범위를 선택 합니다. 지난 30 분에서 지난 30 일 동안 선택 하거나 사용자 지정 범위를 정의할 수 있습니다.
+
+1. 표시할 시간 단위를 선택 합니다. 1 분에서 1 개월까지 모든 위치를 표시할 수 있습니다.
+
+1. **적용**을 선택합니다.
+
+## <a name="delete-a-tile"></a>타일 삭제
+
+대시보드에서 타일을 제거 하려면 다음 단계를 수행 합니다.
+
+* 타일의 오른쪽 위 모퉁이에 있는 상황에 맞는 메뉴를 선택한 다음 **대시보드에서 제거**를 선택 합니다. 또는
+
+* ![편집 아이콘 ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **편집** 을 선택 하 여 사용자 지정 모드로 전환 합니다. 타일의 오른쪽 위 모서리를 마우스로 가리킨 다음 ![ 삭제 아이콘 삭제 아이콘을 선택 ](./media/azure-portal-dashboards/dashboard-delete-icon.png) 하 여 대시보드에서 타일을 제거 합니다.
+
+   ![대시보드에서 타일을 제거 하는 방법을 보여 주는 스크린샷](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+
+## <a name="clone-a-dashboard"></a>대시보드 복제
+
+새 대시보드의 템플릿으로 기존 대시보드를 사용 하려면 다음 단계를 수행 합니다.
+
+1. 대시보드 보기에 복사 하려는 대시보드가 표시 되는지 확인 합니다.
+
+1. 페이지 머리글에서 ![ 복제 아이콘 복제를 선택 ](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**합니다.
+
+1. 대시보드 복사본 ( *대시보드 이름의* **복제본** )이 편집 모드에서 열립니다. 이 문서의 이전 단계를 사용 하 여 대시보드 이름을 바꾸고 사용자 지정 합니다.
+
+## <a name="publish-and-share-a-dashboard"></a>대시보드 게시 및 공유
+
+대시보드를 만들 때 기본적으로 비공개입니다. 즉, 사용자가 볼 수 있는 유일한 사용자입니다. 다른 사용자가 대시보드를 사용할 수 있도록 하려면 해당 대시보드를 게시 하 고 공유할 수 있습니다. 자세한 내용은 [역할 기반 Access Control를 사용 하 여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)를 참조 하세요.
+
+### <a name="open-a-shared-dashboard"></a>공유 대시보드 열기
+
+공유 대시보드를 찾아서 열려면 다음 단계를 수행 합니다.
+
+1. 대시보드 이름 옆의 화살표를 선택 합니다.
+
+1. 표시 된 대시보드 목록에서 선택 합니다. 열려는 대시보드가 나열 되지 않은 경우:
+
+    1. **모든 대시보드 찾아보기**를 선택 합니다.
+
+        ![대시보드 선택 메뉴 스크린샷](./media/azure-portal-dashboards/dashboard-browse.png)
+
+    1. **유형** 필드에서 **공유 대시보드**를 선택 합니다.
+
+        ![모든 대시보드 선택 메뉴의 스크린샷](./media/azure-portal-dashboards/dashboard-browse-all.png)
+
+    1. 하나 이상의 구독을 선택 합니다. 이름을 기준으로 대시보드를 필터링 하는 텍스트를 입력할 수도 있습니다.
+
+    1. 공유 대시보드 목록에서 대시보드를 선택 합니다.
+
+## <a name="delete-a-dashboard"></a>대시보드 삭제
+
+개인 또는 공유 대시보드를 영구적으로 삭제 하려면 다음 단계를 수행 합니다.
+
+1. 대시보드 이름 옆의 목록에서 삭제 하려는 대시보드를 선택 합니다.
+
+1. ![ ](./media/azure-portal-dashboards/dashboard-delete-icon.png) 페이지 머리글에서 삭제 아이콘 **삭제** 를 선택 합니다.
+
+1. 개인 대시보드의 경우 확인 대화 상자에서 **확인** 을 선택 하 여 대시보드를 제거 합니다. 공유 대시보드의 경우 확인 대화 상자에서 확인란을 선택 하 여 게시 된 대시보드가 더 이상 다른 사용자에 게 표시 되지 않음을 확인 합니다. 그런 다음 **확인**을 선택합니다.
+
+    ![삭제 확인 스크린샷](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 리소스를 관리 하려면 참조 [Azure portal을 사용 하 여 Azure 관리 리소스](../azure-resource-manager/manage-resources-portal.md)합니다.
-* 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure Portal을 사용하여 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.
 
+* [역할 기반 Access Control을 사용하여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)
+* [Azure 대시보드를 프로그래밍 방식으로 만들기](azure-portal-dashboards-create-programmatically.md)

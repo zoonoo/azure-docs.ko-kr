@@ -1,125 +1,168 @@
 ---
-title: Azure Time Series Insights에서 API로 인증하고 권한을 부여하는 방법 | Microsoft Docs
+title: API 인증 및 권한 부여 - Azure Time Series Insights | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 애플리케이션에 대한 인증 및 권한 부여를 구성하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
-ms.author: anshan
-manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+author: deepakpalled
+ms.author: shresha
+manager: dpalled
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.custom: seodec18
-ms.openlocfilehash: 5fb2802bfe9cc0a4d3297e6fa749e5b94008c616
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.date: 06/18/2020
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: 9668307047771304c2d3785dc7ff3f760171a43f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472541"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182001"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
-이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 애플리케이션에서 사용되는 인증 및 권한 부여를 구성하는 방법을 설명합니다.
+이 문서에서는 새 Azure Active Directory 블레이드를 사용하여 Azure Active Directory에 앱을 등록하는 방법을 설명합니다. Azure Active Directory에 등록된 앱은 사용자가 인증을 받고 Time Series Insights 환경에 연결된 Azure Time Series insights API를 사용할 수 있도록 권한을 부여 받도록 합니다.
 
-> [!TIP]
-> 읽어보세요 [데이터 액세스 권한을 부여](./time-series-insights-data-access.md) Azure Active Directory에서 Time Series Insights 환경에 있습니다.
+## <a name="service-principal"></a>서비스 주체
 
-## <a name="service-principal"></a>서비스 사용자
+다음 섹션에서는 앱을 대신해 Time Series Insights API에 액세스하도록 애플리케이션을 구성하는 방법을 설명합니다. 그러면 애플리케이션은 Azure Active Directory를 통해 자체 애플리케이션 자격 증명을 사용하여 Time Series Insights 환경에서 참조 데이터를 쿼리하거나 게시할 수 있습니다.
 
-이 및 다음 섹션에는 응용 프로그램 대신 Time Series Insights API에 액세스 하는 응용 프로그램을 구성 하는 방법을 설명 합니다. 응용 프로그램 수를 쿼리 또는 사용자 자격 증명이 아니라 응용 프로그램 자격 증명을 사용 하 여 Time Series Insights 환경에서 참조 데이터를 게시 합니다.
+## <a name="summary-and-best-practices"></a>요약 및 모범 사례
 
-## <a name="best-practices"></a>모범 사례
+Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포함됩니다.
 
-갖고 있는 경우 액세스 Time Series Insights는 응용 프로그램:
+1. Azure Active Directory에서 [애플리케이션을 등록](#azure-active-directory-app-registration)합니다.
+1. 애플리케이션에 [Time Series Insights 환경에 대한 데이터 액세스 권한](#granting-data-access)을 부여합니다.
+1. **애플리케이션 ID** 및 **클라이언트 암호**를 사용하여 [클라이언트 앱](#client-app-initialization)의 `https://api.timeseries.azure.com/`에서 토큰을 획득합니다. 그런 다음 토큰을 사용하여 Time Series Insights API를 호출할 수 있습니다.
 
-1. Azure Active Directory 앱을 설정 합니다.
-1. [데이터 액세스 정책을 할당](./time-series-insights-data-access.md) Time Series Insights 환경에서.
+**3단계**에 따라 애플리케이션 및 사용자 자격 증명을 분리하면 다음 작업을 수행할 수 있습니다.
 
-사용자 자격 증명 대신 응용 프로그램을 사용 하 여 이후 바람직한:
+* 자체 사용 권한과 다른 앱 ID에 대한 사용 권한을 할당합니다. 일반적으로 이러한 권한은 앱 실행에 필요한 것으로만 제한됩니다. 예를 들어 앱이 Time Series Insights 환경에서만 데이터를 읽을 수 있도록 허용할 수 있습니다.
+* **클라이언트 암호** 또는 보안 인증서를 사용하여 사용자의 인증 자격 증명을 만드는 것과 애플리케이션의 보안을 격리합니다. 따라서 애플리케이션의 자격 증명은 특정 사용자의 자격 증명에 종속되지 않습니다. 사용자의 역할이 변경되어도 애플리케이션에 새 자격 증명이나 추가 구성이 반드시 필요한 것은 아닙니다. 사용자가 암호를 변경하는 경우 애플리케이션에 대한 모든 액세스에 새 자격 증명이나 키가 필요하지는 않습니다.
+* 특정 사용자의 자격 증명이 아닌 **클라이언트 암호** 또는 보안 인증서(존재해야 함)를 사용하여 무인 스크립트를 실행합니다.
+* 암호 대신 보안 인증서를 사용하여 Azure Time Series Insights API에 대한 액세스를 보호합니다.
 
-* 자체 사용 권한과에서 다릅니다 앱 id에 사용 권한을 할당할 수 있습니다. 일반적으로 이러한 권한은 앱 실행에 필요한 것으로만 제한됩니다. 예를 들어 앱이 Time Series Insights 환경에서만 데이터를 읽을 수 있도록 허용할 수 있습니다.
-* 책임이 변경 되 면 앱의 자격 증명을 변경할 수 없는 합니다.
-* 무인 스크립트를 실행할 때 인증서 또는 애플리케이션 키를 사용하여 인증을 자동화할 수 있습니다.
+> [!IMPORTANT]
+> Azure Time Series Insights 보안 정책을 구성하는 경우 **문제의 분리**(위의 시나리오에 설명됨) 원칙을 따릅니다.
 
-다음 섹션에서는 Azure portal 통해 이러한 단계를 수행 하는 방법을 보여 줍니다. 문서는 응용 프로그램은 하나의 조직 내 에서만 실행 되도록 하는 단일 테 넌 트 응용 프로그램에 중점을 둡니다. 일반적으로 조직에서 실행 되는 기간 업무 응용 프로그램에 대 한 단일 테 넌 트 응용 프로그램을 사용할 수 있습니다.
+> [!NOTE]
+> * 이 문서에서는 애플리케이션을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 애플리케이션을 중점적으로 다룹니다.
+> * 일반적으로 단일 조직에서 실행되는 LOB(기간 업무) 애플리케이션에 대해 단일 테넌트 애플리케이션을 사용하게 됩니다.
 
-## <a name="set-up-summary"></a>설정 요약
+## <a name="detailed-setup"></a>자세한 설정
 
-설정 흐름 세 단계로 구성 됩니다.
+### <a name="azure-active-directory-app-registration"></a>Azure Active Directory 앱 등록
 
-1. Azure Active Directory에서 애플리케이션을 만듭니다.
-1. 이 애플리케이션에 Time Series Insights 환경에 액세스할 수 있는 권한을 부여합니다.
-1. 토큰을 획득 하는 응용 프로그램 ID 및 키를 사용 하 여 `https://api.timeseries.azure.com/`입니다. 그런 다음 토큰을 사용하여 Time Series Insights API를 호출할 수 있습니다.
+[!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-## <a name="detailed-setup"></a>자세한 설치
+### <a name="granting-data-access"></a>데이터 액세스 권한 부여
 
-1. Azure Portal에서 **Azure Active Directory** > **앱 등록** > **새 애플리케이션 등록**을 선택합니다.
-
-   [![Azure Active Directory에서 새 응용 프로그램 등록](media/authentication-and-authorization/active-directory-new-application-registration.png)](media/authentication-and-authorization/active-directory-new-application-registration.png#lightbox)
-
-1. 애플리케이션의 이름을 지정하고, **웹앱/API** 형식을 선택하고, **로그온 URL**에 대한 유효한 URI를 선택하고, **만들기**를 클릭합니다.
-
-   [![Azure Active Directory에서 응용 프로그램 만들기](media/authentication-and-authorization/active-directory-create-web-api-application.png)](media/authentication-and-authorization/active-directory-create-web-api-application.png#lightbox)
-
-1. 새로 만든 애플리케이션을 선택하고 해당 애플리케이션 ID를 원하는 텍스트 편집기에 복사합니다.
-
-   [![응용 프로그램 ID 복사](media/authentication-and-authorization/active-directory-copy-application-id.png)](media/authentication-and-authorization/active-directory-copy-application-id.png#lightbox)
-
-1. **키**를 선택하고 키 이름을 입력한 후 만료를 선택하고 **저장**을 클릭합니다.
-
-   [![응용 프로그램 키를 선택 합니다.](media/authentication-and-authorization/active-directory-application-keys.png)](media/authentication-and-authorization/active-directory-application-keys.png#lightbox)
-
-   [![키 이름 및 만료를 입력 하 고 저장 클릭](media/authentication-and-authorization/active-directory-application-keys-save.png)](media/authentication-and-authorization/active-directory-application-keys-save.png#lightbox)
-
-1. 원하는 텍스트 편집기에 키를 복사합니다.
-
-   [![응용 프로그램 키를 복사 합니다.](media/authentication-and-authorization/active-directory-copy-application-key.png)](media/authentication-and-authorization/active-directory-copy-application-key.png#lightbox)
-
-1. Time Series Insights 환경에 대해 **데이터 액세스 정책**을 선택하고 **추가**를 클릭합니다.
+1. Time Series Insights 환경에 대해 **데이터 액세스 정책**을 선택하고 **추가**를 선택합니다.
 
    [![Time Series Insights 환경에 새 데이터 액세스 정책 추가](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
-1. 에 **사용자 선택** 대화 상자에서 응용 프로그램 이름을 붙여 넣습니다 (에서 **2 단계**) 또는 응용 프로그램 ID (에서 **3 단계**).
+1. **사용자 선택** 대화 상자의 Azure Active Directory 앱 등록 섹션에서 **애플리케이션 이름** 또는 **애플리케이션 ID**를 붙여넣습니다.
 
-   [![사용자 선택 대화 상자에서 응용 프로그램 찾기](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [![사용자 선택 대화 상자에서 애플리케이션 찾기](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-1. 역할 선택 (**판독기** 데이터를 쿼리 하는 것에 대 한 **참가자** 데이터를 쿼리하고 참조 데이터를 변경 하기 위한)를 클릭 하 고 **확인**합니다.
+1. 역할을 선택합니다. **읽기 권한자**를 선택하여 데이터를 쿼리하거나 **기여자**를 선택하여 데이터를 쿼리하고 참조 데이터를 변경합니다. **확인**을 선택합니다.
 
-   [![읽기 권한자 또는 참가자 역할 선택 대화 상자에서 선택](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [![사용자 역할 선택 대화 상자에서 읽기 권한자 또는 기여자 선택](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
-1. 클릭 하 여 정책 저장 **확인**합니다.
+1. **확인**을 선택하여 정책을 저장합니다.
 
-1. 응용 프로그램 ID를 사용 하 여 (에서 **3 단계**) 및 응용 프로그램 키 (에서 **5 단계**) 응용 프로그램 대신 토큰을 획득 합니다. 애플리케이션이 Time Series Insights API를 호출할 때 `Authorization` 헤더에서 이 토큰을 전달할 수 있습니다.
+   > [!TIP]
+   > 고급 데이터 액세스 옵션에 대한 내용은 [데이터 액세스 권한 부여](./time-series-insights-data-access.md)를 읽어보세요.
 
-    C#을 사용하는 경우 다음 코드를 사용하여 애플리케이션 대신 토큰을 가져올 수 있습니다. 전체 샘플은 [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)를 참조하세요.
+### <a name="client-app-initialization"></a>클라이언트 앱 초기화
 
-    ```csharp
-    // Enter your Active Directory tenant domain name
-    var tenant = "YOUR_AD_TENANT.onmicrosoft.com";
-    var authenticationContext = new AuthenticationContext(
-        $"https://login.microsoftonline.com/{tenant}",
-        TokenCache.DefaultShared);
+* 개발자는 MSAL (Microsoft Authentication Library)을 사용 하 여 Azure Time Series Insights 인증할 수 있습니다.
 
-    AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-        // Set the resource URI to the Azure Time Series Insights API
-        resource: "https://api.timeseries.azure.com/",
-        clientCredential: new ClientCredential(
-            // Application ID of application registered in Azure Active Directory
-            clientId: "YOUR_APPLICATION_ID",
-            // Application key of the application that's registered in Azure Active Directory
-            clientSecret: "YOUR_CLIENT_APPLICATION_KEY"));
+* ADAL을 사용 하 여 인증 하려면:
 
-    string accessToken = token.AccessToken;
-    ```
+   1. 애플리케이션을 대신하여 토큰을 획득하려면 Azure Active Directory 앱 등록 섹션에서 **애플리케이션 ID** 및 **클라이언트 암호**(애플리케이션 키)를 사용합니다.
 
-사용 합니다 **응용 프로그램 ID** 하 고 **키** Azure Time Series Insight를 사용 하 여 인증 하도록 응용 프로그램에서 합니다.
+   1. C#에서 다음 코드는 애플리케이션 대신 토큰을 가져올 수 있습니다. 전체 샘플은 [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)를 참조하세요.
+
+        [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
+
+   1. 애플리케이션이 Time Series Insights API를 호출할 때 `Authorization` 헤더에서 이 토큰을 전달할 수 있습니다.
+
+> [!IMPORTANT]
+> [ADAL (Azure Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) 을 사용 하는 경우 [msal으로의 마이그레이션](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration)에 대해 읽어 보십시오.
+
+   자세히 알아보려면 [c #을 사용 하 여 Azure Time Series Insights 환경에 대 한 GA 참조 데이터 관리](time-series-insights-manage-reference-data-csharp.md) 문서를 참조 하세요.
+
+## <a name="common-headers-and-parameters"></a>일반 헤더 및 매개 변수
+
+이 섹션에서는 Time Series Insights GA 및 Preview API에 대해 쿼리를 수행하는 데 사용되는 일반적인 HTTP 요청 헤더 및 매개 변수에 대해 설명합니다. API 관련 요구 사항은 [Time Series Insights REST API 참조 설명서](https://docs.microsoft.com/rest/api/time-series-insights/)에서 좀 더 자세히 설명합니다.
+
+> [!TIP]
+> REST API를 사용하고, HTTP 요청을 수행하고, HTTP 응답을 처리하는 방법에 대해 자세히 알아보려면 [Azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)를 읽어보세요.
+
+### <a name="authentication"></a>인증
+
+[Time Series Insights REST API](https://docs.microsoft.com/rest/api/time-series-insights/)에 대해 인증된 쿼리를 수행하려면 선택한 REST 클라이언트(Postman, JavaScript, C#)를 사용하여 유효한 OAuth 2.0 전달자 토큰을 [권한 부여 헤더](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate)에 전달해야 합니다.
+
+> [!TIP]
+> 호스티트 Azure Time Series Insights [클라이언트 SDK 샘플 시각화](https://tsiclientsample.azurewebsites.net/)를 읽고 차트 및 그래프와 함께 [JavaScript 클라이언트 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 사용하여 프로그래밍 방식으로 Time Series Insights API로 인증하는 방법을 알아봅니다.
+
+### <a name="http-headers"></a>HTTP 헤더
+
+필요한 요청 헤더는 아래에 설명되어 있습니다.
+
+| 필수 요청 헤더 | 설명 |
+| --- | --- |
+| 권한 부여 | Time Series Insights로 인증하려면 유효한 OAuth 2.0 전달자 토큰을 **권한 부여** 헤더에 전달해야 합니다. |
+
+> [!IMPORTANT]
+> 토큰은 토큰의 "대상"이라고도 하는 `https://api.timeseries.azure.com/` 리소스로 정확히 발급되어야 합니다.
+> * 따라서 [Postman](https://www.getpostman.com/) **AuthURL**은 다음과 같습니다. `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
+> * `https://api.timeseries.azure.com/`은 유효하지만 `https://api.timeseries.azure.com`은 유효하지 않습니다.
+
+선택적 요청 헤더는 아래에 설명되어 있습니다.
+
+| 선택적 요청 헤더입니다. | Description |
+| --- | --- |
+| Content-type | `application/json`만 지원됩니다. |
+| x-ms-client-request-id | 클라이언트 요청 ID입니다. 서비스는 이 값을 기록합니다. 이 서비스는 서비스 간 작업을 추적할 수 있습니다. |
+| x-ms-client-session-id | 클라이언트 세션 ID입니다. 서비스는 이 값을 기록합니다. 이 서비스는 서비스 간 관련 작업 그룹을 추적할 수 있습니다. |
+| x-ms-client-application-name | 이 요청을 생성한 애플리케이션의 이름입니다. 서비스는 이 값을 기록합니다. |
+
+선택 사항이지만 권장되는 응답 헤더는 아래에 설명되어 있습니다.
+
+| 응답 헤더 | Description |
+| --- | --- |
+| Content-type | `application/json`만 지원됩니다. |
+| x-ms-request-id | 서버에서 생성된 요청 ID입니다. Microsoft에 문의하여 요청을 조사하는 데 사용할 수 있습니다. |
+| x-ms-property-not-found-behavior | GA API의 선택적 응답 헤더입니다. 가능한 값은 `ThrowError`(기본값) 또는 `UseNull`입니다. |
+
+### <a name="http-parameters"></a>HTTP 매개 변수
+
+> [!TIP]
+> [참조 설명서](https://docs.microsoft.com/rest/api/time-series-insights/)에서 필수 및 선택적 쿼리 정보에 대한 자세한 내용을 확인하세요.
+
+필수 URL 쿼리 문자열 매개 변수는 API 버전에 따라 달라집니다.
+
+| 해제 | 가능한 API 버전 값 |
+| --- |  --- |
+| 일반 공급 | `api-version=2016-12-12`|
+| 미리 보기 | `api-version=2018-11-01-preview` |
+| 미리 보기 | `api-version=2018-08-15-preview` |
+
+선택적 URL 쿼리 문자열 매개 변수에는 HTTP 요청 실행 시간에 대한 시간 제한을 설정하는 작업이 포함됩니다.
+
+| 선택적 쿼리 매개 변수 | 설명 | 버전 |
+| --- |  --- | --- |
+| `timeout=<timeout>` | HTTP 요청 실행을 위한 서버 쪽 시간 제한입니다. [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) 미 [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) API에만 적용됩니다. 제한 시간 값은 ISO 8601 기간 형식(예: `"PT20S"`)이어야 하며 `1-30 s` 범위에 있어야 합니다. 기본값은 `30 s`입니다. | GA |
+| `storeType=<storeType>` | 웜 저장소가 사용하도록 설정된 미리 보기 환경의 경우 `WarmStore` 또는 `ColdStore`에서 쿼리를 실행할 수 있습니다. 쿼리의 이 매개 변수는 쿼리를 실행해야 하는 저장소를 정의합니다. 정의되지 않은 경우 쿼리는 콜드 저장소에서 실행됩니다. 웜 저장소를 쿼리하려면 **storeType**을 `WarmStore`로 설정해야 합니다. 정의되지 않은 경우 콜드 저장소에 대해 쿼리가 실행됩니다. | 미리 보기 |
 
 ## <a name="next-steps"></a>다음 단계
 
-- Time Series Insights API를 호출하는 샘플 코드는 [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)를 참조하세요.
+* GA Time Series Insights API를 호출하는 샘플 코드는 [C#을 사용하여 데이터 쿼리](./time-series-insights-query-data-csharp.md)를 읽어보세요.
 
-- API 참조 정보에 대해서는 [쿼리 API 참조](/rest/api/time-series-insights/ga-query-api)를 참조하세요.
+* Preview Time Series Insights API 코드 샘플은 [C#을 사용하여 미리 보기 데이터 쿼리](./time-series-insights-update-query-data-csharp.md)를 읽어보세요.
 
-- 설명 하는 방법 [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)합니다.
+* API 참조 정보를 보려면 [쿼리 API 참조](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) 설명서를 참조하세요.
+
+* [서비스 주체를 만드는](../active-directory/develop/howto-create-service-principal-portal.md) 방법을 알아봅니다.

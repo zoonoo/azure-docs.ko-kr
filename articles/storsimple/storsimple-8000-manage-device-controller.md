@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: baa035269f4a5b2f39263264f23183b308264ead
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513941"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>StorSimple 디바이스 컨트롤러 관리
 
@@ -47,7 +46,7 @@ ms.locfileid: "60505992"
 
 > [!IMPORTANT]
 > * **이렇게 하면 중복 손실과 가동 중지 시간 위험 가능성이 높아져서 실행 중인 컨트롤러를 물리적으로 제거하지 말아야 합니다.**
-> * 다음 절차는 물리적 StorSimple 디바이스에만 적용됩니다. StorSimple Cloud Appliance를 시작, 중지 및 다시 시작하는 방법에 대한 자세한 내용은 [클라우드 어플라이언스로 작업](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance)을 참조하세요.
+> * 다음 절차는 물리적 StorSimple 디바이스에만 적용됩니다. StorSimple Cloud Appliance를 시작, 중지 및 다시 시작하는 방법에 대한 자세한 내용은 [클라우드 어플라이언스로 작업](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance)을 참조하세요.
 
 StorSimple용 Windows PowerShell 또는 StorSimple 디바이스 관리자 서비스의 Azure Portal을 통해 단일 디바이스 컨트롤러를 다시 시작하거나 종료할 수 있습니다.
 
@@ -111,7 +110,7 @@ Azure Portal에서 디바이스 컨트롤러를 관리하려면 다음 단계를
 Microsoft Azure StorSimple 디바이스를 공장 기본 설정으로 다시 설정하려면 다음 단계를 수행합니다.
 
 ### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell의 기본 설정으로 디바이스를 재설정하려면
-1. 직렬 콘솔을 통해 디바이스에 액세스합니다. **활성** 컨트롤러에 연결하려면 배너 메시지를 확인하세요.
+1. 직렬 콘솔을 통해 디바이스에 액세스합니다. 배너 메시지를 확인 하 여 **활성** 컨트롤러에 연결 되어 있는지 확인 합니다.
 2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
 3. 프롬프트에서 전체 클러스터를 다시 설정하는 다음 명령을 입력하면 모든 데이터, 메타데이터 및 컨트롤러 설정을 제거합니다.
    

@@ -16,22 +16,14 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9f834924a564f92fe7050a1236701701af7f5229
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60295129"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647259"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계
 요구 사항을 정의하고 모바일 디바이스 관리 솔루션에 대한 모든 옵션을 검토했으므로 사용자와 조직에 적합한 지원 인프라 배포에 대한 다음 단계를 수행할 준비가 되었습니다.
-
-## <a name="hybrid-identity-solutions"></a>하이브리드 ID 솔루션
--요구 사항에 맞는 특정 솔루션 시나리오를 활용하는 것은 모바일 디바이스 관리 인프라 배포에 대한 세부 사항을 검토하고 계획하는 좋은 방법입니다. 다음 솔루션은 가장 일반적인 몇몇 모바일 디바이스 관리 시나리오를 설명합니다.
-
-* [엔터프라이즈 환경 솔루션에서 모바일 디바이스 및 PC 관리](https://technet.microsoft.com/library/dn582037.aspx) 는 Microsoft Intune을 사용하여 온-프레미스 System Center 2012 Configuration Manager 인프라를 클라우드로 확장하여 모바일 디바이스를 관리하는 데 도움이 됩니다. 이 하이브리드 인프라를 사용하면 중간 규모 및 대규모 환경에서 IT 전문가가 BYOD 및 원격 액세스를 사용하면서 관리의 복잡성을 줄일 수 있습니다.
-* [Configuration Manager 2007 솔루션에 대한 모바일 디바이스 관리](https://technet.microsoft.com/library/dn508400.aspx) 는 인프라가 System Center Configuration Manager 2007에 있을 때 모바일 디바이스를 관리하는 데 도움이 됩니다. 이 솔루션에서는 System Center 2012 Configuration Manager를 실행하는 단일 서버를 설정하는 방법을 보여 주므로 Microsoft Intune을 실행하고 MDM 기능을 활용할 수 있습니다.
-* [소규모 환경 솔루션에서 모바일 디바이스 관리](https://technet.microsoft.com/library/dn715906.aspx) 는 MDM을 지원해야 하는 소기업을 위한 시나리오입니다. Microsoft Intune을 사용하여 모바일 디바이스 관리 및 BYOD를 지원하도록 현재 인프라를 확장하는 방법을 설명합니다. 이 솔루션은 독립 실행형의, 로컬 서버가 없는 클라우드 전용 구성에서 Microsoft Intune 사용을 지원하는 가장 간단한 시나리오를 설명합니다.
 
 ## <a name="hybrid-identity-documentation"></a>하이브리드 ID 설명서
 개념 및 절차 계획, 배포 및 관리 콘텐츠는 모바일 디바이스 관리 솔루션을 구현할 때 유용합니다.
@@ -44,11 +36,10 @@ ms.locfileid: "60295129"
 다음 리소스를 모니터링하면 모바일 디바이스 관리 솔루션에 대한 최신 뉴스 및 업데이트를 확인할 수 있습니다.
 
 * [Microsoft Enterprise Mobility 블로그](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Microsoft In The Cloud 블로그](https://blogs.technet.com/b/in_the_cloud/)
-* [Microsoft Intune 블로그](https://blogs.technet.com/b/microsoftintune/)
-* [Microsoft System Center Configuration Manager 블로그](https://blogs.technet.com/b/configurationmgr/)
-* [Microsoft System Center Configuration Manager 팀 블로그](https://blogs.technet.com/b/configmgrteam/)
+* [Microsoft In The Cloud 블로그](https://cloudblogs.microsoft.com/)
+* [Microsoft Intune 블로그](https://techcommunity.microsoft.com/t5/intune-customer-success/welcome-to-the-new-intune-customer-success-blog/ba-p/281367)
+* [Microsoft Endpoint Configuration Manager 블로그](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## <a name="see-also"></a>참고 항목
-[디자인 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
+[설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
 

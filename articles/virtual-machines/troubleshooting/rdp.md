@@ -4,7 +4,7 @@ description: Windows VM용 Azure에서 RDP 문제를 해결합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 96e0b0b03643143064e52d1f05ee37b58559f607
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "60307005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "71057280"
 ---
 # <a name="troubleshoot-rdp-issues"></a>RDP 문제 해결
 
@@ -31,7 +31,7 @@ ms.locfileid: "60307005"
 - [DHCP를 사용 안 함으로 인한 RDP 오류 문제 해결](troubleshoot-rdp-dhcp-disabled.md)
 - [NSG 설정으로 인한 RDP 오류 문제 해결](troubleshoot-rdp-nsg-problem.md)
 - [특정 오류 해결](troubleshoot-specific-rdp-errors.md)
-- [라이선스 없는 서버 오류 해결](troubleshoot-rdp-no-license-server.md)
+- [라이선스 없이 서버의 오류 해결](troubleshoot-rdp-no-license-server.md)
 - [원격 데스크톱 서비스 문제 해결](troubleshoot-remote-desktop-services-issues.md)
 - [내부 오류 문제 해결](Troubleshoot-rdp-internal-error.md)
 - [연결이 자주 끊기는 문제 해결](troubleshoot-rdp-intermittent-connectivity.md)
@@ -43,7 +43,7 @@ ms.locfileid: "60307005"
 - [안전 모드에서 발생하는 RDP 오류 문제 해결](troubleshoot-rdp-safe-mode.md)
 - [Azure VM에서 게스트 OS 방화벽 사용 안 함](disable-guest-os-firewall-windows.md)
 - [게스트 OS의 방화벽 규칙 사용 또는 사용 안 함](enable-disable-firewall-rule-guest-os.md)
-- [게스트 OS 방화벽이 인바운드 트래픽 차단](guest-os-firewall-blocking-inbound-traffic.md)
+- [게스트 OS 방화벽이 인바운드 트래픽을 차단하고 있습니다.](guest-os-firewall-blocking-inbound-traffic.md)
 - [게스트 OS 방화벽이 잘못 구성됨](guest-os-firewall-misconfigured.md) 
 - [netvsc.sys에서 발생하는 RDP 오류 문제 해결](troubleshoot-rdp-driver-netvsc.md)
 

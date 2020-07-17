@@ -1,22 +1,18 @@
 ---
-title: Azure Event Grid 리소스 그룹 이벤트 스키마
+title: Event Grid 소스로 서의 Azure 리소스 그룹
 description: Azure Event Grid를 사용하여 리소스 그룹 이벤트에 제공되는 속성을 설명합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
-ms.topic: reference
-ms.date: 01/12/2019
-ms.author: spelluru
-ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 07/07/2020
+ms.openlocfilehash: ed01bfdb67d9b8a3dd5875ec3fd8c6edf8922520
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561696"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105917"
 ---
-# <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid 리소스 그룹에 대한 이벤트 스키마
+# <a name="azure-resource-group-as-an-event-grid-source"></a>Event Grid 소스로 서의 Azure 리소스 그룹
 
-이 문서에서는 리소스 그룹 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 리소스 그룹 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
 Azure 구독 및 리소스 그룹은 동일한 이벤트 유형을 내보냅니다. 이벤트 유형은 리소스 변경 또는 작업과 관련이 있습니다. 주요 차이는 리소스 그룹이 리소스 그룹 내 리소스에 대한 이벤트를 내보내고 Azure 구독은 구독 전체에서 리소스에 대한 이벤트를 내보낸다는 것입니다.
 
@@ -28,13 +24,14 @@ Azure 구독 및 리소스 그룹은 동일한 이벤트 유형을 내보냅니�
 
 이벤트 주체는 작업의 대상이 되는 리소스의 리소스 ID입니다. 리소스에 대한 이벤트를 필터링하려면 이벤트 구독을 만들 때 해당 리소스 ID를 제공합니다.  리소스 종류별로 필터링하려면 `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`과 같은 형식으로 값을 사용합니다.
 
-샘플 스크립트 및 자습서 목록은 [리소스 그룹 이벤트 원본](event-sources.md#resource-groups)을 참조하세요.
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
-VM을 만들거나 저장소 계정을 삭제할 때와 같이 리소스 그룹은 Azure Resource Manager에서 관리 이벤트를 내보냅니다.
+### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
-| 이벤트 유형 | 설명 |
+VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그룹은 Azure Resource Manager에서 관리 이벤트를 내보냅니다.
+
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | 리소스에서 작업이 취소되면 발생합니다. |
 | Microsoft.Resources.ResourceActionFailure | 리소스에서 작업이 실패하면 발생합니다. |
@@ -46,7 +43,7 @@ VM을 만들거나 저장소 계정을 삭제할 때와 같이 리소스 그룹�
 | Microsoft.Resources.ResourceWriteFailure | 만들기 또는 업데이트 작업이 실패하면 발생합니다. |
 | Microsoft.Resources.ResourceWriteSuccess | 만들기 또는 업데이트 작업이 성공하면 발생합니다. |
 
-## <a name="example-event"></a>예제 이벤트
+### <a name="example-event"></a>예제 이벤트
 
 다음 예제는 **ResourceWriteSuccess** 이벤트의 스키마를 보여줍니다. 동일한 스키마가 `eventType`에 대한 다른 값을 사용하여 **ResourceWriteFailure** 및 **ResourceWriteCancel** 이벤트에 사용됩니다.
 
@@ -230,14 +227,14 @@ VM을 만들거나 저장소 계정을 삭제할 때와 같이 리소스 그룹�
 }]
 ```
 
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 자산 | Type | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| 제목 | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
@@ -247,18 +244,28 @@ VM을 만들거나 저장소 계정을 삭제할 때와 같이 리소스 그룹�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | Type | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| 권한 부여 | object | 작업에 대해 요청된 권한입니다. |
-| claims | object | 클레임의 속성입니다. 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요. |
-| CorrelationId | 문자열 | 문제 해결을 위한 작업 ID입니다. |
-| httpRequest | object | 작업의 세부 정보입니다. 이 개체는 기존 리소스를 업데이트하거나 리소스를 삭제하는 경우에만 포함됩니다. |
+| 권한 부여 | 개체 | 작업에 대해 요청된 권한입니다. |
+| claims | 개체 | 클레임의 속성입니다. 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요. |
+| correlationId | 문자열 | 문제 해결을 위한 작업 ID입니다. |
+| httpRequest | 개체 | 작업의 세부 정보입니다. 이 개체는 기존 리소스를 업데이트하거나 리소스를 삭제하는 경우에만 포함됩니다. |
 | resourceProvider | 문자열 | 작업에 대한 리소스 공급자입니다. |
 | resourceUri | 문자열 | 작업에서 리소스의 URI입니다. |
 | operationName | 문자열 | 수행된 작업입니다. |
-| status | 문자열 | 작업의 상태. |
+| 상태 | 문자열 | 작업의 상태. |
 | subscriptionId | 문자열 | 리소스의 구독 ID입니다. |
 | tenantId | 문자열 | 리소스의 테넌트 ID입니다. |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+|제목  |Description  |
+|---------|---------|
+| [자습서: Azure Event Grid 및 Logic Apps를 사용 하 여 가상 머신 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md) | 논리 앱은 가상 머신의 변경 내용을 모니터링하고 이러한 변경에 대한 이메일을 보냅니다. |
+| [Azure CLI: 리소스 그룹에 대한 이벤트 구독](./scripts/event-grid-cli-resource-group.md)| 리소스 그룹에 대한 이벤트를 구독하는 샘플 스크립트입니다. WebHook에 이벤트를 보냅니다. |
+| [Azure CLI: 리소스 그룹에 대한 이벤트 구독 및 리소스에 대한 필터링](./scripts/event-grid-cli-resource-group-filter.md) | 리소스 그룹에 대한 이벤트를 구독하고 하나의 리소스에 대한 이벤트를 필터링하는 샘플 스크립트입니다. |
+| [PowerShell: 리소스 그룹에 대한 이벤트 구독](./scripts/event-grid-powershell-resource-group.md) | 리소스 그룹에 대한 이벤트를 구독하는 샘플 스크립트입니다. WebHook에 이벤트를 보냅니다. |
+| [PowerShell: 리소스 그룹에 대한 이벤트 구독 및 리소스에 대한 필터링](./scripts/event-grid-powershell-resource-group-filter.md) | 리소스 그룹에 대한 이벤트를 구독하고 하나의 리소스에 대한 이벤트를 필터링하는 샘플 스크립트입니다. |
+| [Resource Manager 템플릿: 리소스 구독](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Azure 구독 또는 리소스 그룹에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

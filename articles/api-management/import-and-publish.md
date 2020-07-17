@@ -1,6 +1,6 @@
 ---
-title: Azure API Management에서 첫 번째 API 가져오기 및 게시 | Microsoft Docs
-description: Azure API Management에서 첫 번째 API를 가져온 후 게시하는 방법을 알아봅니다.
+title: Azure API Management에서 첫 번째 API 가져오기 및 게시
+description: OpenAPI 사양 API를 Azure API Management로 가져오고 Azure Portal에서 API를 테스트하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -9,113 +9,91 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/24/2019
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 0e104f4cbdef7edc5c109781509e3924400e5ba4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 38b723cb823547d4737a68576575c2b629f5eb67
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959734"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206279"
 ---
-# <a name="import-and-publish-your-first-api"></a>첫 번째 API 가져오기 및 게시 
+# <a name="import-and-publish-your-first-api"></a>첫 번째 API 가져오기 및 게시
 
-이 자습서에서는 https://conferenceapi.azurewebsites.net?format=json에 있는 "OpenAPI 사양" 백 엔드 API를 가져오는 방법을 보여줍니다. 이 백 엔드 API는 Microsoft에서 제공하고 Azure에서 호스트됩니다. 
+이 자습서에서는 JSON 형식의 OpenAPI 사양 백 엔드 API를 Azure API Management로 가져오는 방법을 보여 줍니다. Microsoft는 백 엔드 API를 제공하고, Azure에서 이 API를 [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json)에 호스팅합니다.
 
-백 엔드 API를 APIM(API Management)으로 가져오면 APIM API는 백 엔드 API의 외관이 됩니다. 백 엔드 API를 가져올 때 원본 API와 APIM API는 동일합니다. APIM을 사용하여 백 엔드 API를 건드리지 않고 필요에 따라 외관을 사용자 지정할 수 있습니다. 자세한 내용은 [API 변환 및 보호](transform-api.md)를 참조하세요. 
+백 엔드 API를 API Management로 가져오면 API Management API가 백 엔드 API의 외관이 됩니다. 백 엔드 API에 연결하지 않고도 API Management에서 요구 사항에 맞게 외관을 사용자 지정할 수 있습니다. 자세한 내용은 [API 변환 및 보호](transform-api.md)를 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 첫 번째 API 가져오기
+> * API Management로 API 가져오기
 > * Azure Portal에서 API 테스트
-> * 개발자 포털에서 API 테스트
 
-![새 API](./media/api-management-get-started/created-api.png)
+![새 API](./media/api-management-import-and-publish/created-api.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-+ [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
+- [Azure API Management 용어](api-management-terminology.md)를 숙지합니다.
+- [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>백 엔드 API 가져오기 및 게시
+## <a name="import-and-publish-a-backend-api"></a><a name="create-api"> </a>백 엔드 API 가져오기 및 게시
 
 이 섹션에서는 OpenAPI 사양 백 엔드 API를 가져오고 게시하는 방법을 보여 줍니다.
- 
-1. **API Management**에서 **API**를 선택합니다.
-2. 목록에서 **OpenAPI 사양**을 선택하고 팝업에서 **전체**를 클릭합니다.
 
-    ![API 만들기](./media/api-management-get-started/create-api.png)
+1. API Management 인스턴스의 왼쪽 탐색 영역의 **API Management** 섹션에서 **API**를 선택합니다.
+1. **OpenAPI** 타일을 선택한 다음, 팝업 화면에서 **전체**를 선택합니다.
+1. **OpenAPI 사양에서 만들기** 화면에서 다음 표의 값을 사용하여 API를 만듭니다.
 
-    만드는 동안 또는 나중에 **설정** 탭으로 이동하여 API 값을 설정할 수 있습니다. 필드 옆에 있는 빨간색 별표는 필수 필드임을 나타냅니다.
+   양식의 필드 옆에 있는 빨간색 별표는 필수 필드임을 나타냅니다. 만들기 중에 또는 나중에 **설정** 탭으로 이동하여 API 값을 설정할 수 있습니다.
 
-    첫 번째 API를 만들려면 아래 테이블에서 값을 사용합니다.
+   ![API 만들기](./media/api-management-import-and-publish/create-api.png)
 
-    | 설정                   | 값                                              | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-    |---------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **OpenAPI 사양** | https://conferenceapi.azurewebsites.net?format=json | API를 구현하는 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-    | **표시 이름**          | *데모 회의 API*                              | 서비스 URL을 입력한 후 tab 키를 누르면 APIM은 json에 포함된 내용에 따라 이 필드를 채웁니다. <br/>이 이름은 개발자 포털에 표시됩니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-    | **Name**                  | *demo-conference-api*                              | API의 고유한 이름을 제공합니다. <br/>서비스 URL을 입력한 후 tab 키를 누르면 APIM은 json에 포함된 내용에 따라 이 필드를 채웁니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-    | **설명**           | API에 대한 선택적 설명을 제공합니다.        | 서비스 URL을 입력한 후 tab 키를 누르면 APIM은 json에 포함된 내용에 따라 이 필드를 채웁니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-    | **URL 구성표**            | *HTTPS*                                            | API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-    | **API URL 접미사**        | *conference*                                       | 접미사는 API Management 서비스의 기준 URL에 추가됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-    | **제품**              | *무제한*                                        | 제품은 하나 이상의 API와 연결됩니다. 다양한 API를 제품에 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/>API를 제품(이 예제에서는 *Unlimited*)에 연결하여 API를 게시합니다. 이 새 API를 제품에 추가하려면 제품 이름을 입력합니다(나중에 **설정** 페이지에서 입력 가능). 이 단계는 여러 제품에 API 추가를 여러 번 반복할 수 있습니다.<br/>개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독할 경우 해당 제품의 모든 API에 적절한 구독 키를 받게 됩니다. <br/> APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 모든 제품을 구독한 상태가 됩니다.<br/> 기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품과 함께 제공됩니다. **Starter** 및 **Unlimited**입니다. |
-    | **태그**                  |                                                    | API 구성을 위한 태그입니다. 검색, 그룹화 또는 필터링에 태그를 사용할 수 있습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-    | **API 버전 관리**     |                                                    | 버전 관리에 대한 자세한 내용은 [여러 버전의 API 게시](api-management-get-started-publish-versions.md)를 참조하세요.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+   |설정|값|Description|
+   |-------|-----|-----------|
+   |**OpenAPI 사양**|*https:\//conferenceapi.azurewebsites.net?format=json*|API를 구현하는 서비스입니다. API 관리는 이 주소로 요청을 전달합니다.|
+   |**표시 이름**|이전 서비스 URL이 입력되면 API Management에서 JSON을 기반으로 하여 이 필드를 채웁니다.|개발자 포털에 표시되는 이름입니다.|
+   |**이름**|이전 서비스 URL이 입력되면 API Management에서 JSON을 기반으로 하여 이 필드를 채웁니다.|API에 대한 고유 이름입니다.|
+   |**설명**|이전 서비스 URL이 입력되면 API Management에서 JSON을 기반으로 하여 이 필드를 채웁니다.|API에 대한 선택적 설명입니다.|
+   |**URL 구성표**|**HTTPS**|API에 액세스하는 데 사용할 수 있는 프로토콜입니다.|
+   |**API URL 접미사**|*conference*|API Management 서비스의 기준 URL에 추가된 접미사입니다. API Management는 해당 접미사로 API를 구분하므로 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.|
+   |**태그**| |검색, 그룹화 또는 필터링을 위해 API를 구성하는 태그입니다.|
+   |**제품**|**무제한**|하나 이상의 API에 대한 연결입니다. 각 API Management 인스턴스에는 두 개의 샘플 제품, 즉 **Starter** 및 **Unlimited**입니다. 이 예제에서는 API를 **무제한** 제품과 연결하여 API를 게시합니다.<br/>여러 API를 제품에 포함시키고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. 이 API를 다른 제품에 추가하려면 제품 이름을 입력하거나 선택합니다. API를 여러 제품에 추가하려면 이 단계를 반복합니다. 나중에 **설정** 페이지에서 API를 제품에 추가할 수도 있습니다.<br/>개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독하는 경우 해당 제품의 모든 API에 적합한 구독 키를 얻게 됩니다. <br/>API Management 인스턴스를 만든 경우 이미 관리자이므로 인스턴스의 모든 제품을 구독하게 됩니다.|
+   |**게이트웨이**|**관리**|API를 노출하는 API 게이트웨이입니다. 이 필드는 **Developer** 및 **Premium** 계층 서비스에서만 사용할 수 있습니다.<br/>**관리** 게이트웨이는 API Management 서비스에 기본 제공되고 Azure에서 Microsoft가 호스팅하는 게이트웨이를 나타냅니다. 다른 게이트웨이는 [자체 호스트된 게이트웨이](self-hosted-gateway-overview.md)이며 프리미엄 및 개발자 서비스 계층에서만 사용할 수 있습니다. 온-프레미스 또는 다른 클라우드에 배포할 수 있습니다.<br/>게이트웨이를 선택하지 않으면 API를 사용할 수 없으며 API 요청이 실패합니다.|
+   |**API 버전 관리**|선택 또는 선택 취소|버전 관리에 대한 자세한 내용은 [여러 버전의 API 게시](api-management-get-started-publish-versions.md)를 참조하세요.|
 
-    >[!NOTE]
-    > API를 게시하려면 API를 제품과 연결해야 합니다. **설정 페이지**에서 연결할 수 있습니다.
+   > [!NOTE]
+   > API를 API 소비자에게 게시하려면 제품과 연결해야 합니다.
 
-3. **만들기**를 선택합니다.
+2. **만들기**를 선택합니다.
 
-> [!TIP]
-> 사용자 고유의 API 정의를 가져오는 데 문제가 있는 경우 [알려진 문제 및 제한 사항 목록](api-management-api-import-restrictions.md)을 참조하세요.
+API 정의를 가져오는 데 문제가 있는 경우 [알려진 문제 및 제한 사항 목록](api-management-api-import-restrictions.md)을 참조하세요.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
+## <a name="test-the-new-api-in-the-azure-portal"></a>Azure Portal에서 새 API 테스트
 
-![API 맵 테스트](./media/api-management-get-started/01-import-first-api-01.png)
+Azure Portal에서 직접 API 작업을 호출합니다. 그러면 작업을 보고 테스트할 수 있는 편리한 방법이 제공됩니다.
 
-dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.
+1. API Management 인스턴스의 왼쪽 탐색 영역에 있는 **API Management** 섹션에서 **API**를 선택한 다음, **데모 회의 API**를 선택합니다.
+1. **테스트** 탭, **GetSpeakers**를 차례로 선택합니다. 페이지에 **쿼리 매개 변수** 및 **헤더**(있는 경우)가 표시됩니다. 이 API와 연결된 구독 키에 대해 **Ocp-Apim-Subscription-Key**가 자동으로 채워집니다.
+1. **보내기**를 선택합니다.
 
-1. 이전 단계에서(**API** 탭에서) 만든 API를 선택합니다.
-2. **테스트** 탭을 누릅니다.
-3. **GetSpeakers**를 클릭합니다. 페이지에는 쿼리 매개 변수에 대한 필드가 표시되며, 이 경우에는 헤더 필드만 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. 키가 자동으로 채워집니다.
-4. **보내기**를 누릅니다.
+   ![API 맵 테스트](./media/api-management-import-and-publish/01-import-first-api-01.png)
 
-    백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
+   백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
 
-## <a name="call-operation"> </a>개발자 포털에서 작업 호출
+## <a name="next-steps"></a><a name="next-steps"> </a>다음 단계
 
-**개발자 포털**에서 작업을 호출하여 API를 테스트할 수도 있습니다.
-
-1. **개발자 포털**로 이동합니다.
-
-    ![개발자 포털](./media/api-management-get-started/developer-portal.png)
-
-2. **API**를 선택하고 **데모 회의 API** 및 **GetSpeakers**를 차례로 클릭합니다.
-
-    페이지에는 쿼리 매개 변수에 대한 필드가 표시되며, 이 경우에는 헤더 필드만 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 키가 자동으로 채워집니다.
-
-3. **시도**를 누릅니다.
-4. **보내기**를 누릅니다.
-
-    작업이 호출되면 개발자 포털에 응답이 표시됩니다.  
-
-## <a name="next-steps"> </a>다음 단계
-
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 첫 번째 API 가져오기
 > * Azure Portal에서 API 테스트
-> * 개발자 포털에서 API 테스트
 
-다음 자습서를 진행합니다.
+제품을 만들고 게시하는 방법을 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
 > [제품 생성 및 게시](api-management-howto-add-products.md)

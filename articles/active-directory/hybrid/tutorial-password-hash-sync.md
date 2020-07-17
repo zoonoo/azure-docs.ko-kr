@@ -1,5 +1,5 @@
 ---
-title: '자습서:  PHS(암호 해시 동기화)를 사용하여 단일 AD 포리스트를 Azure에 통합 | Microsoft Docs'
+title: '자습서:  PHS를 사용하여 단일 AD 포리스트를 Azure에 통합'
 description: 암호 해시 동기화를 사용하여 하이브리드 ID 환경을 설정하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45379f8f955c50e2598ebcebd34e971c29b2c81c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103233"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "66474008"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>자습서:  PHS(암호 해시 동기화)를 사용하여 단일 AD 포리스트 통합
 
@@ -27,7 +27,7 @@ ms.locfileid: "58103233"
 
 다음 자습서에서는 암호 해시 동기화를 사용하여 하이브리드 ID 환경을 만드는 방법을 설명합니다.  이 환경을 테스트에 사용하거나 하이브리드 ID가 작동하는 방식에 익숙해지기 위해 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 다음은 이 자습서를 완료하는 데 필요한 필수 구성 요소입니다.
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview)가 설치되어 있는 컴퓨터.  [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) 또는 [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) 컴퓨터에서 수행하는 것이 좋습니다.
 - 가상 머신이 인터넷과 통신할 수 있는 [외부 네트워크 어댑터](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network).
@@ -35,7 +35,7 @@ ms.locfileid: "58103233"
 - Windows Server 2016의 복사본
 
 > [!NOTE]
-> 이 자습서는 가장 빠른 시간 내에 자습서 환경을 만들 수 있도록 PowerShell 스크립트를 사용합니다.  각 스크립트는 스크립트의 시작 부분에 선언된 변수를 사용합니다.  사용자 환경에 맞게 변수를 변경할 수 있으며, 변경해야 합니다.
+> 이 자습서에서는 가장 빠른 시간 내에 자습서 환경을 만들 수 있도록 PowerShell 스크립트를 사용합니다.  각 스크립트는 스크립트의 시작 부분에 선언된 변수를 사용합니다.  사용자 환경에 맞게 변수를 변경할 수 있으며, 변경해야 합니다.
 >
 >사용된 스크립트는 Azure AD Connect를 설치하기 전에 일반 Active Directory 환경을 만듭니다.  모든 자습서와 관련이 있습니다.
 >
@@ -83,7 +83,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
 7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
 8. **사용자 지정:  Windows만 설치(고급)** 선택
-9. **다음**을 누릅니다
+9. **다음**을 클릭합니다.
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.
 
 ## <a name="install-active-directory-prerequisites"></a>Active Directory 설치 필수 조건
@@ -197,7 +197,7 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 3.  이 사용자에 대한 이름 및 사용자 이름을 입력합니다. 이 사용자는 테넌트에 대한 글로벌 관리자가 됩니다. **디렉터리 역할**을 **글로벌 관리자**로 변경해야 합니다. 임시 암호를 표시할 수도 있습니다. 완료되면 **만들기**를 선택합니다.</br>
 ![만들기](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. 이 작업이 완료되면 새 웹 브라우저를 열고 새 글로벌 관리자 계정 및 임시 암호를 사용하여 myapps.microsoft.com에 로그인합니다.
-5. 글로벌 관리자에 대한 암호를 기억할 수 있는 것으로 변경합니다.
+5. 글로벌 관리자의 암호를 기억할만한 것으로 변경합니다.
 
 ## <a name="download-and-install-azure-ad-connect"></a>Azure AD Connect 다운로드 및 설치
 이제 Azure AD Connect를 다운로드하고 설치할 순서입니다.  설치가 완료되면 빠른 설치를 실행합니다.  다음을 수행합니다.
@@ -224,7 +224,7 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 4. 새 사용자가 테넌트에 표시되는지 확인</br>
 ![동기화](media/tutorial-password-hash-sync/synch1.png)</br>
 
-## <a name="test-signing-in-with-one-of-our-users"></a>사용자로 로그인 테스트
+## <a name="test-signing-in-with-one-of-our-users"></a>사용자 중 한 명으로 로그인 테스트
 
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
 2. 새 테넌트에 생성된 사용자 계정으로 로그인합니다.  다음 형식을 사용하여 로그인해야 합니다(user@domain.onmicrosoft.com). 사용자가 온-프레미스 로그인에 사용한 것과 동일한 암호를 사용합니다.</br>

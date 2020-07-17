@@ -1,10 +1,10 @@
 ---
 title: '자습서: VM에 내부 트래픽 부하 분산 - Azure Portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 이 자습서에서는 Azure Portal을 사용하여 표준 Load Balancer를 만들고 관리하는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create and Standard Load Balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8961a50490bdbf8b456e87e1c00577c2c8afd050
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845208"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240374"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 인터넷 트래픽 부하를 VM에 분산
 
-부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. 이 자습서에서는 인터넷 트래픽을 여러 VM에 분산하여 고가용성을 제공하는 Azure 표준 Load Balancer의 여러 가지 구성 요소에 대해 알아봅니다. 다음 방법에 대해 알아봅니다.
+부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. 이 자습서에서는 인터넷 트래픽을 여러 VM에 분산하여 고가용성을 제공하는 Azure 표준 Load Balancer의 여러 가지 구성 요소에 대해 알아봅니다. 다음 방법을 알아봅니다.
 
 
 > [!div class="checklist"]
@@ -49,10 +49,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 구독               | 구독을 선택합니다.    |    
-    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *myResourceGroupSLB*를 입력합니다.|
-    | Name                   | *myLoadBalancer*                                   |
-    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | Subscription               | 구독을 선택합니다.    |    
+    | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *myResourceGroupSLB*를 입력합니다.|
+    | 속성                   | *myLoadBalancer*                                   |
+    | 지역         | **서유럽**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **표준**을 선택합니다.                          |
     | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
@@ -85,12 +85,11 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
      
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myHealthProbe*를 입력합니다. |
+    | 속성 | *myHealthProbe*를 입력합니다. |
     | 프로토콜 | **HTTP**를 선택합니다. |
     | 포트 | *80*을 입력합니다.|
     | 간격 | 프로브 시도 **간격**(초)으로 *15*를 입력합니다. |
     | 비정상 임계값 | **비정상 임계값** 또는 VM이 비정상 상태로 간주되는 데 필요한 연속 프로브 오류 횟수로 *2*를 선택합니다.|
-    | 상태 프로브 | *myHealthProbe*를 선택합니다. |
     
 4. **확인**을 선택합니다.
 
@@ -104,7 +103,7 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myHTTPRule*을 입력합니다. |
+    | 속성 | *myHTTPRule*을 입력합니다. |
     | 프로토콜 | **TCP**를 선택합니다. |
     | 포트 | *80*을 입력합니다.|
     | 백 엔드 포트 | *80*을 입력합니다. |
@@ -117,22 +116,20 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 
 이 섹션에서는 가상 네트워크를 만들고, Load Balancer의 백 엔드 풀에 사용되는 가상 머신 3개를 만든 다음, Load Balancer를 테스트하기 위한 IIS를 가상 머신에 설치합니다.
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
-2. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | Name | *myVNet*을 입력합니다. |
-    | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
-    | 구독 | 구독을 선택합니다.|
-    | 리소스 그룹 | 기존 리소스(*myResourceGroupSLB*)를 선택합니다. |
-    | 위치 | **유럽 서부**를 선택합니다.|
-    | 서브넷 - 이름 | *myBackendSubnet*을 입력합니다. |
-    | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
-    
-3. 나머지는 기본값으로 두고 **만들기**를 선택합니다.
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB(기존 리소스 그룹 선택) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | 서유럽      |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
@@ -165,7 +162,7 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 1. **관리** 탭을 선택하거나 **다음** > **관리**를 선택합니다. **모니터링**에서 **부트 진단**을 **끄기**로 설정합니다. 
 1. **검토 + 만들기**를 선택합니다.   
 1. 설정을 검토한 다음, **만들기**를 선택합니다.
-1. 단계에 따라 각각 **가용성 영역** **2** 및 **3**에서 표준 SKU 공용 IP 주소를 사용하며 모든 기타 설정이 *myVM1*과 동일한 두 개의 추가 VM, *myVM2*와 *myVM3*을 만듭니다.  
+1. 단계에 따라 각각 **가용성 영역** **2** 및 **3**에서 표준 SKU 공용 IP 주소를 사용하며 모든 기타 설정이 *myVM1*과 동일한 두 개의 추가 VM(*myVM2*와 *myVM3*)을 만듭니다.  
 
 ### <a name="create-network-security-group-rule"></a>네트워크 보안 그룹 규칙 만들기
 

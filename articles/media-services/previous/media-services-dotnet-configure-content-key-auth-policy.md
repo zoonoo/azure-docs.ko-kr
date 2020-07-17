@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;mingfeiy
-ms.openlocfilehash: 744887a3b23518a5b970a3fda94bf990806bd2d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: juliako
+ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61230273"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712397"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>동적 암호화: 콘텐츠 키 인증 정책 구성
+# <a name="configure-a-content-key-authorization-policy"></a>콘텐츠 키 인증 정책 구성
+
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>개요
@@ -33,11 +33,11 @@ Media Services에서 자산을 암호화하려는 경우 암호화 키(CommonEnc
 
 플레이어가 스트림을 요청하면 Media Services는 지정된 키를 사용하고 AES 또는 DRM 암호화를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
 
-Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책에는 하나 이상의 인증 제한이 있을 수 있습니다 옵션은 열기 또는 토큰 제한입니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services 지원 토큰에는 [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)(간단한 웹 토큰) 형식 및 [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)(JSON Web Token) 형식의 토큰을 지원합니다.
+Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책에는 하나 이상의 인증 제한이 있을 수 있습니다 옵션은 열기 또는 토큰 제한입니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services는[SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)(단순 웹 토큰) 형식 및 JSON Web Token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) 형식의 토큰을 지원 합니다.
 
 Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만들거나 Azure Access Control Service를 사용하여 토큰을 발급할 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다(이 문서에서 설명). 토큰이 유효하고 해당 토큰의 클레임이 콘텐츠 키에 대해 구성된 클레임과 일치하는 경우 Media Services 키 배달 서비스는 암호화 키를 클라이언트에게 반환합니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [JWT 토큰 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [Azure Active Directory와 Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기반으로 하는 콘텐츠 키 배달을 제한합니다](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
@@ -391,8 +391,8 @@ PlayReady 및 Widevine으로 콘텐츠를 암호화하는 방법을 알아보려
 
 키 권한 부여 정책에 사용된 토큰 제한에 따라 테스트 토큰을 가져오려면 “[테스트 토큰](#test-token)” 섹션을 참조하세요. 
 
-## <a id="types"></a>ContentKeyAuthorizationPolicy를 정의할 때 사용되는 형식
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>ContentKeyAuthorizationPolicy를 정의할 때 사용되는 형식
+### <a name="contentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
 
 ```csharp
     public enum ContentKeyRestrictionType
@@ -403,7 +403,7 @@ PlayReady 및 Widevine으로 콘텐츠를 암호화하는 방법을 알아보려
     }
 ```
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a name="contentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
 ```csharp 
     public enum ContentKeyDeliveryType
@@ -415,7 +415,7 @@ PlayReady 및 Widevine으로 콘텐츠를 암호화하는 방법을 알아보려
     }
 ```
 
-### <a id="TokenType"></a>TokenType
+### <a name="tokentype"></a><a id="TokenType"></a>토큰
 
 ```csharp
     public enum TokenType
@@ -425,6 +425,10 @@ PlayReady 및 Widevine으로 콘텐츠를 암호화하는 방법을 알아보려
         JWT = 2,
     }
 ```
+
+## <a name="additional-notes"></a>추가적인 참고 사항
+
+* Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

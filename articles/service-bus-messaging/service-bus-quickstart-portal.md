@@ -1,32 +1,28 @@
 ---
-title: 빠른 시작 - Azure Portal을 사용하여 Service Bus 큐 만들기 | Microsoft Docs
+title: Azure Portal을 사용하여 Service Bus 큐 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Service Bus 큐를 만드는 방법에 대해 알아봅니다. 그런 다음, 샘플 클라이언트 애플리케이션을 사용하여 큐에서 메시지를 보내고 받습니다.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 0753259f76c46c5df4246008f3f80ffa5bf35747
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607758"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337327"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>빠른 시작: Azure Portal을 사용하여 Service Bus 큐 만들기
 이 빠른 시작에서는 [Azure Portal][Azure portal]을 사용하여 메시징 네임스페이스 및 해당 네임스페이스 내에 큐를 만들고 네임스페이스에서 권한 부여 자격 증명을 얻은 다음, Service Bus 큐에서 메시지를 보내고 받는 방법을 보여 줍니다. 그런 다음, [.NET 표준 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)를 사용하여 이 큐에서 메시지를 보내고 받는 방법을 보여 줍니다.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
-- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상 Visual Studio를 사용하여 큐로 메시지를 보내고 큐에서 메시지를 받는 샘플을 작성합니다. 이 샘플은 PowerShell을 사용하여 만든 큐를 테스트하는 것입니다. 
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
+- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상 Visual Studio를 사용하여 큐로 메시지를 보내고 큐에서 메시지를 받는 샘플을 빌드합니다. 이 샘플은 PowerShell을 사용하여 만든 큐를 테스트하는 것입니다. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
@@ -35,7 +31,19 @@ ms.locfileid: "59607758"
 
 ## <a name="send-and-receive-messages"></a>메시지 보내기 및 받기
 
-네임스페이스와 큐가 프로비전되고 필요한 자격 증명이 있으면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)에서 코드를 검사할 수 있습니다.
+> [!NOTE]
+> 이 섹션에서 메시지를 보내고 받는 데 사용되는 샘플은 .NET 샘플입니다. 다른 프로그래밍 언어를 사용하여 메시지를 송/수신하는 샘플은 [Service Bus 샘플](service-bus-samples.md)을 참조하세요. 
+> 
+> 다양한 프로그래밍 언어를 사용하여 메시지를 송/수신하기 위한 단계별 지침은 다음 빠른 시작을 참조하세요.
+> - [.NET](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [azure/service-bus 패키지를 사용하는 Node.js](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [azure-sb 패키지를 사용하는 Node.js](service-bus-nodejs-how-to-use-queues.md)
+> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
+> - [Ruby](service-bus-ruby-how-to-use-queues.md)
+
+네임스페이스와 큐가 프로비전되고 필요한 자격 증명이 있으면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)에서 코드를 검사할 수 있습니다.
 
 코드를 실행하려면 다음을 수행합니다.
 
@@ -197,6 +205,8 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
     await queueClient.CompleteAsync(message.SystemProperties.LockToken);
 }
 ```
+> [!NOTE]
+> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

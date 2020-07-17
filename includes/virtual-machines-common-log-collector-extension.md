@@ -4,44 +4,44 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74085262"
 ---
-Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다.
+Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure Storage 계정으로 보낼 수 있습니다.
 
 > [!NOTE]
-> 대부분의 로깅된 정보에 대한 설명은 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp에서 확인할 수 있습니다.
+> 기록 된 대부분의 정보에 대 한 설명은 다음에서 찾을 수 있습니다.https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 
 수집할 파일의 유형에 따라 달라지는 두 가지 모드의 컬렉션이 있습니다.
 
-* **Azure 게스트 에이전트만 로그(GA)**. 이 컬렉션 모드는 Azure 게스트 에이전트 및 기타 Azure 구성 요소와 관련된 모든 로그를 포함합니다.
-* **모든 로그(전체)**. 이 컬렉션 모드는 GA 모드의 모든 파일과 다음 정보를 수집합니다.
+* **Azure 게스트 에이전트 로그만 (GA)**. 이 컬렉션 모드는 Azure 게스트 에이전트 및 기타 Azure 구성 요소와 관련된 모든 로그를 포함합니다.
+* **모든 로그 (전체)**. 이 컬렉션 모드는 GA 모드의 모든 파일과 다음 정보를 수집합니다.
   
   * 시스템 및 애플리케이션 이벤트 로그
   * HTTP 오류 로그
   * IIS 로그
-  * 설정 로그
+  * 설치 로그
   * 기타 시스템 로그
 
 두 컬렉션 모드에서 다음 구조의 컬렉션을 사용하여 추가 데이터 수집 폴더를 지정할 수 있습니다.
 
-* **이름**: 수집된 파일이 포함된 Zip 파일 내의 하위 폴더의 이름으로 사용되는 컬렉션의 이름입니다.
-* **Location**: 수집될 파일이 배치될 가상 머신의 폴더 경로입니다.
+* **이름**: 수집된 파일이 포함된 zip 파일 내의 하위 폴더의 이름으로 사용될 컬렉션의 이름입니다.
+* **위치**: 수집되는 파일이 배치될 가상 머신의 폴더 경로입니다.
 * **SearchPattern**: 수집할 파일의 이름 패턴입니다. 기본값은 “\*”입니다.
 * **재귀**: 수집되는 파일이 지정된 위치에 재귀적으로 배치됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-* 생성된 zip 파일을 저장하려면 확장에 대한 저장소 계정이 있어야 합니다.
-* Azure PowerShell. 참조 [Azure PowerShell 설치](/powershell/azure/install-az-ps)] 설치 지침에 대 한 합니다.
+* 생성된 zip 파일을 저장하려면 확장에 대한 스토리지 계정이 있어야 합니다.
+* Azure PowerShell. 설치 지침은 install [Azure PowerShell](/powershell/azure/install-az-ps)]를 참조 하세요.
 
 ## <a name="add-the-extension"></a>확장 추가
 [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlet 또는 [서비스 관리 REST API](https://msdn.microsoft.com/library/ee460799.aspx)를 사용하여 AzureLogCollector 확장을 추가할 수 있습니다.
@@ -50,7 +50,7 @@ Cloud Services의 경우 기존 Azure Powershell cmdlet인 **Set-azureserviceext
 
 Virtual Machines의 경우 기존 Azure Powershell cmdlet인 **Set-AzureVMExtension**을 사용하여 Virtual Machines에서 확장을 사용하도록 설정할 수 있습니다. 이 확장이 cmdlet을 통해 사용하도록 설정될 때마다 각 인스턴스에서 로그 수집이 트리거됩니다.
 
-내부적으로 이 확장은 JSON 기반 PublicConfiguration 및 PrivateConfiguration을 사용합니다. 다음은 공용 및 개인 구성에 대한 샘플 JSON의 레이아웃입니다.
+내부적으로 이 확장은 JSON 기반 PublicConfiguration 및 PrivateConfiguration을 사용합니다. 다음은 공용 및 프라이빗 구성에 대한 샘플 JSON의 레이아웃입니다.
 
 ### <a name="publicconfiguration"></a>PublicConfiguration
 
@@ -86,7 +86,7 @@ Virtual Machines의 경우 기존 Azure Powershell cmdlet인 **Set-AzureVMExtens
 ```
 
 > [!NOTE]
-> 이 확장은 **privateConfiguration**이 필요하지 않습니다. **–PrivateConfiguration** 인수에 대해 비어 있는 구조를 제공할 수 있습니다.
+> 이 확장에는 **privateConfiguration**이 필요하지 않습니다. **–PrivateConfiguration** 인수에 대해 비어 있는 구조를 제공할 수 있습니다.
 > 
 > 
 
@@ -132,7 +132,7 @@ Virtual Machines의 경우 기존 Azure Powershell cmdlet인 **Set-AzureVMExtens
    > 고정된 드라이브를 사용하지 않으므로 토큰 `%roleroot%`을(를) 사용하여 역할 루트 드라이브를 지정할 수 있습니다.
    > 
    > 
-4. 업로드될 수집된 파일에 Azure 저장소 계정 이름 및 키를 제공합니다.
+4. 업로드될 수집된 파일에 Azure Storage 계정 이름 및 키를 제공합니다.
 
    ```powershell
    $StorageAccountName = 'YourStorageAccountName'
@@ -181,10 +181,10 @@ param (
 * **역할**: "WebRole1" 또는 "WorkerRole1"과 같은 역할 목록입니다.
 * **인스턴스**: 쉼표로 구분된 역할 인스턴스의 이름 목록입니다. 모든 역할 인스턴스에 대해 와일드카드 문자열(“*”)을 사용합니다.
 * **슬롯**: 슬롯 이름입니다. “프로덕션” 또는 “스테이징”입니다.
-* **모드**: 수집 모드입니다. "Full" 또는 "GA"입니다.
-* **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 스토리지 계정의 이름입니다.
-* **StorageAccountKey**: Azure Storage 계정 키 이름입니다.
-* **AdditionalDataLocationList**: 다음 구조의 목록:
+* **모드**: 컬렉션 모드입니다. "Full" 또는 "GA"입니다.
+* **Storageaccountname**: 수집 된 데이터를 저장 하기 위한 Azure 저장소 계정의 이름입니다.
+* **StorageAccountKey**: Azure storage 계정 키의 이름입니다.
+* **AdditionalDataLocationList**: 다음 구조의 목록입니다.
 
   ```powershell
   {
@@ -224,7 +224,7 @@ param (
         #more locations can be added....
    ```
   
-2. 업로드될 수집된 파일에 Azure 저장소 계정 이름 및 키를 제공합니다.
+2. 업로드될 수집된 파일에 Azure Storage 계정 이름 및 키를 제공합니다.
 
    ```powershell
    $StorageAccountName = 'YourStorageAccountName'
@@ -261,10 +261,10 @@ param (
 
 * **ServiceName**: 클라우드 서비스 이름입니다.
 * **VMName**: VM의 이름입니다.
-* **모드**: 수집 모드입니다. "Full" 또는 "GA"입니다.
-* **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 스토리지 계정의 이름입니다.
-* **StorageAccountKey**: Azure Storage 계정 키 이름입니다.
-* **AdditionalDataLocationList**: 다음 구조의 목록:
+* **모드**: 컬렉션 모드입니다. "Full" 또는 "GA"입니다.
+* **Storageaccountname**: 수집 된 데이터를 저장 하기 위한 Azure 저장소 계정의 이름입니다.
+* **StorageAccountKey**: Azure storage 계정 키의 이름입니다.
+* **AdditionalDataLocationList**: 다음 구조의 목록입니다.
 
   ```
   {

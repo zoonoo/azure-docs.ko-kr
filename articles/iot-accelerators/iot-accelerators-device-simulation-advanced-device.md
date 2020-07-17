@@ -6,15 +6,17 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
-ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom:
+- mvc
+- amqp
+- mqtt
+ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61449059"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81683820"
 ---
 # <a name="create-an-advanced-device-model"></a>고급 디바이스 모델 만들기
 
@@ -22,7 +24,7 @@ ms.locfileid: "61449059"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드의 단계를 수행하려면 Azure 구독에서 디바이스 시뮬레이션의 배포된 인스턴스가 필요합니다.
 
@@ -162,8 +164,8 @@ IoT 디바이스는 다양한 프로토콜을 사용하여 연결할 수 있습�
 * 개체 - JSON을 사용하여 직렬화됨
 * 이진 - base64를 사용하여 직렬화됨
 * 텍스트
-* BOOLEAN
-* 정수 
+* 부울
+* 정수
 * Double
 * DateTime
 
@@ -504,7 +506,7 @@ function main(context, state) {
 
 **고급**을 클릭하면 고급 디바이스 모델 탭이 열립니다.
 
-![[고급] 탭](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
+![고급 탭](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
 
 **찾아보기**를 클릭하고 만든 JSON 및 JavaScript 파일을 선택합니다. 세 파일을 모두 선택해야 합니다. 하나의 파일이 누락된 경우 유효성 검사에 실패합니다.
 

@@ -1,84 +1,98 @@
 ---
-title: 플랫 파일 인코딩 또는 디코딩 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 엔터프라이즈 통합용 플랫 파일 인코딩 또는 디코딩
+title: 플랫 파일 인코딩 또는 디코딩
+description: 엔터프라이즈 통합 팩를 사용 하 여 Azure Logic Apps에서 엔터프라이즈 통합을 위한 플랫 파일 인코딩 또는 디코딩
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
-ms.date: 07/08/2016
-ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 05/09/2020
+ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61467312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83005323"
 ---
-# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 플랫 파일 인코딩 또는 디코딩
+# <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps에서 플랫 파일 인코딩 및 디코딩
 
-B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내기 전에 XML 콘텐츠를 인코딩하려 할 수 있습니다. 논리 앱에서 플랫 파일 인코딩 커넥터를 사용하여 이 작업을 수행할 수 있습니다. 만든 논리 앱은 HTTP 요청 트리거를 포함하여 다른 애플리케이션 또는 다양한 [커넥터](../connectors/apis-list.md)에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 논리 앱에 대한 자세한 내용은 [논리 앱 설명서](logic-apps-overview.md "논리 앱에 대해 자세히 알아보기")에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다.  
+B2B (기업 간) 시나리오에서 비즈니스 파트너에 게 XML 콘텐츠를 보내기 전에 먼저 해당 콘텐츠를 인코딩해야 할 수 있습니다. 논리 앱을 빌드하여 **플랫 파일** 커넥터를 사용 하 여 플랫 파일을 인코딩 및 디코딩할 수 있습니다. 논리 앱은 요청 트리거, 다른 앱 또는 [Azure Logic Apps에서 지 원하는 다른 커넥터](../connectors/apis-list.md)와 같은 다양 한 소스에서이 XML 콘텐츠를 가져올 수 있습니다. 자세한 내용은 [Azure Logic Apps](logic-apps-overview.md)란?을 참조 하세요.
 
-## <a name="create-the-flat-file-encoding-connector"></a>플랫 파일 인코딩 커넥터 만들기
-다음 단계를 수행하여 플랫 파일 인코딩 커넥터를 논리 앱을 추가합니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-1. 논리 앱을 만들고 [통합 계정에 연결](logic-apps-enterprise-integration-accounts.md "논리 앱에 통합 계정을 연결하는 방법 알아보기")에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 이 계정은 XML 데이터를 인코딩하는 데 사용할 스키마를 포함합니다.  
-1. **요청 - HTTP 요청을 받은 경우** 트리거를 논리 앱에 추가합니다.  
-   ![선택할 트리거의 스크린샷](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
-1. 다음을 수행하여 플랫 파일 인코딩 작업을 추가합니다.
-   
-    a. **더하기** 기호를 선택합니다.
-   
-    b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
-   
-    다. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
-   
-    d. 목록에서 **플랫 파일 Encoding** 옵션을 선택합니다.   
-   ![플랫 파일 Encoding 옵션의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
-1. **플랫 파일 Encoding** 대화 상자에서 **콘텐츠** 텍스트 상자를 선택합니다.  
-   ![텍스트 상자 콘텐츠의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-3.png)  
-1. 본문 태그를 인코딩하려는 콘텐츠로 선택합니다. 본문 태그는 콘텐츠 필드를 채웁니다.     
-   ![본문 태그의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-4.png)  
-1. **스키마 이름** 목록 상자를 선택하고 입력 콘텐츠를 인코딩하는 데 사용할 스키마를 선택합니다.    
-   ![스키마 이름 목록 상자의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-5.png)  
-1. 작업을 저장합니다.   
-   ![저장 아이콘의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)  
+* Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-이 시점에서 플랫 파일 인코딩 커넥터의 설정이 완료됩니다. 실제 애플리케이션에서는 SalesForce와 같은 LOB(line-of-business) 애플리케이션에 인코딩한 데이터를 저장할 수 있습니다. 또는 인코딩된 데이터를 거래 업체에 보낼 수 있습니다. 제공된 다른 커넥터 중 하나를 사용하여 Salesforce 또는 거래 파트너에게 인코딩 작업의 출력을 보내는 동작을 쉽게 추가할 수 있습니다.
+* 논리 앱 워크플로를 시작 하는 트리거 및 **플랫 파일** 커넥터를 사용 하려는 논리 앱입니다. **플랫 파일** 커넥터는 트리거가 아니라 동작만 제공 합니다. 트리거 또는 다른 작업을 사용 하 여 XML 콘텐츠를 인코딩 또는 디코딩을 위해 논리 앱에 제공할 수 있습니다. 논리 앱을 처음 접하는 경우 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
-이제 HTTP 엔드포인트에 요청하고 요청 본문에 XML 콘텐츠를 포함하여 커넥터를 테스트할 수 있습니다.  
+* Azure 구독과 연결 되 고 **플랫 파일** 커넥터를 사용 하려는 [논리 앱에 연결](logic-apps-enterprise-integration-accounts.md#link-account) 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 입니다. 논리 앱과 통합 계정이 동일한 위치 또는 Azure 지역에 있어야 합니다.
 
-## <a name="create-the-flat-file-decoding-connector"></a>플랫 파일 디코딩 커넥터 만들기
+* XML 콘텐츠를 인코딩 또는 디코딩하는 통합 계정에 업로드 한 플랫 파일 [스키마](logic-apps-enterprise-integration-schemas.md)
 
-> [!NOTE]
-> 이러한 단계를 완료하려면 통합 계정에 이미 업로드된 스키마 파일이 있어야 합니다.
+* 통합 계정에 이미 정의 된 두 개 이상의 [거래 업체](logic-apps-enterprise-integration-partners.md)
 
-1. **요청 - HTTP 요청을 받은 경우** 트리거를 논리 앱에 추가합니다.  
-   ![선택할 트리거의 스크린샷](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
-1. 다음을 수행하여 플랫 파일 디코딩 작업을 추가합니다.
-   
-    a. **더하기** 기호를 선택합니다.
-   
-    b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
-   
-    다. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
-   
-    d. 목록에서 **플랫 파일 디코딩** 옵션을 선택합니다.   
-   ![플랫 파일 디코딩 옵션의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
-1. **콘텐츠** 제어를 선택합니다. 그러면 이전 단계에서 콘텐츠로 디코딩하는 데 사용할 수 있는 콘텐츠의 목록이 생성됩니다. 들어오는 HTTP 요청의 *본문* 을 콘텐츠로 디코딩하는 데 사용할 수 있습니다. **콘텐츠** 제어에 직접 디코딩할 콘텐츠를 입력할 수도 있습니다.     
-1. *본문* 태그를 선택합니다. 이제 본문 태그는 **콘텐츠** 제어에 위치합니다.
-1. 콘텐츠를 디코딩하는 데 사용할 스키마의 이름을 선택합니다. 다음 스크린샷에서는 *OrderFile* 이 선택한 스키마 이름임을 보여 줍니다. 이전에 이 스키마 이름을 통합 계정에 업로드했습니다.
-   
-   ![플랫 파일 디코딩 대화 상자의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-decode-1.png)    
-1. 작업을 저장합니다.  
-   ![저장 아이콘의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)    
+## <a name="add-flat-file-encode-action"></a>플랫 파일 인코딩 작업 추가
 
-이 시점에서 플랫 파일 디코딩 커넥터의 설정이 완료됩니다. 실제 애플리케이션에서는 SalesForce와 같은 LOB(line-of-business) 애플리케이션에 디코딩한 데이터를 저장할 수 있습니다. Salesforce에 디코딩 작업의 출력을 보내는 작업을 쉽게 추가할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-이제 HTTP 엔드포인트에 요청하고 요청 본문에 디코딩하려는 XML 콘텐츠를 포함하여 커넥터를 테스트할 수 있습니다.  
+1. 논리 앱의 트리거 또는 동작에서 **새 단계**  >  **작업 추가**를 선택 합니다. 이 예제에서는 **HTTP 요청을 받을 때**명명 된 요청 트리거를 사용 하 고 논리 앱 외부에서 인바운드 요청을 처리 합니다.
+
+   > [!TIP]
+   > JSON 스키마를 제공 하는 것은 선택 사항입니다. 인바운드 요청의 샘플 페이로드가 있으면 **샘플 페이로드를 사용 하 여 스키마 생성**을 선택 하 고 샘플 페이로드를 입력 한 다음 **완료**를 선택 합니다. 스키마가 **요청 본문 JSON 스키마** 상자에 나타납니다.
+
+1. **작업 선택**아래에서를 입력 `flat file` 합니다. 작업 목록에서 **플랫 파일 인코딩** 작업을 선택 합니다.
+
+   !["플랫 파일 인코딩" 동작을 선택 합니다.](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-encoding.png)
+
+1. **콘텐츠** 상자 내부를 클릭 하 여 동적 콘텐츠 목록이 표시 되도록 합니다. 목록에서 **HTTP 요청이 수신** 되는 경우 섹션에서 트리거의 요청 본문 출력과 인코딩할 콘텐츠를 포함 하는 **body** 속성을 선택 합니다.
+
+   ![동적 콘텐츠 목록에서 인코딩할 콘텐츠 선택](./media/logic-apps-enterprise-integration-flatfile/select-content-to-encode.png)
+
+   > [!TIP]
+   > 동적 콘텐츠 목록에 **본문** 속성이 표시 되지 않으면 **HTTP 요청을 수신** 하는 경우 섹션 레이블 옆에 있는 **자세히 보기** 를 선택 합니다.
+   > **콘텐츠** 상자에 디코딩할 콘텐츠를 직접 입력할 수도 있습니다.
+
+1. **스키마 이름** 목록에서 인코딩에 사용할 연결 된 통합 계정에 있는 스키마를 선택 합니다. 예를 들면 다음과 같습니다.
+
+   ![인코딩에 사용할 스키마 선택](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-encoding.png)
+
+   > [!NOTE]
+   > 목록에 스키마가 표시 되지 않으면 통합 계정에 인코딩에 사용할 스키마 파일이 포함 되지 않습니다. 사용 하려는 스키마를 통합 계정에 업로드 합니다.
+
+1. 논리 앱을 저장합니다. 커넥터를 테스트 하려면 요청 트리거의 **HTTP POST URL** 속성에 표시 되는 HTTPS 끝점에 요청 하 고 요청 본문에 인코딩할 XML 콘텐츠를 포함 합니다.
+
+이제 플랫 파일 인코딩 작업을 설정 하는 작업이 완료 되었습니다. 실제 응용 프로그램에서는 Salesforce와 같은 LOB (기간 업무) 앱에 인코딩된 데이터를 저장 하는 것이 좋습니다. 또는 인코딩된 데이터를 거래 파트너에 게 보낼 수 있습니다. 인코딩 작업의 출력을 Salesforce 또는 거래 파트너로 보내려면 [Azure Logic Apps에서 사용할 수](../connectors/apis-list.md)있는 다른 커넥터를 사용 합니다.
+
+## <a name="add-flat-file-decode-action"></a>플랫 파일 디코딩 작업 추가
+
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
+
+1. 논리 앱의 트리거 또는 동작에서 **새 단계**  >  **작업 추가**를 선택 합니다. 이 예제에서는 **HTTP 요청을 받을 때**명명 된 요청 트리거를 사용 하 고 논리 앱 외부에서 인바운드 요청을 처리 합니다.
+
+   > [!TIP]
+   > JSON 스키마를 제공 하는 것은 선택 사항입니다. 인바운드 요청의 샘플 페이로드가 있으면 **샘플 페이로드를 사용 하 여 스키마 생성**을 선택 하 고 샘플 페이로드를 입력 한 다음 **완료**를 선택 합니다. 스키마가 **요청 본문 JSON 스키마** 상자에 나타납니다.
+
+1. **작업 선택**아래에서를 입력 `flat file` 합니다. 작업 목록에서 다음 작업을 선택 합니다. **플랫 파일 디코딩**
+
+   !["플랫 파일 디코딩" 동작을 선택 합니다.](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-decoding.png)
+
+1. **콘텐츠** 상자 내부를 클릭 하 여 동적 콘텐츠 목록이 표시 되도록 합니다. 목록에서 **HTTP 요청이 수신** 되는 경우 섹션에서 트리거의 요청 본문 출력과 디코딩할 콘텐츠를 포함 하는 **body** 속성을 선택 합니다.
+
+   ![동적 콘텐츠 목록에서 디코딩할 콘텐츠를 선택 합니다.](./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png)
+
+   > [!TIP]
+   > 동적 콘텐츠 목록에 **본문** 속성이 표시 되지 않으면 **HTTP 요청을 수신** 하는 경우 섹션 레이블 옆에 있는 **자세히 보기** 를 선택 합니다. **콘텐츠** 상자에 디코딩할 콘텐츠를 직접 입력할 수도 있습니다.
+
+1. **스키마 이름** 목록에서 디코딩에 사용할 연결 된 통합 계정에 있는 스키마를 선택 합니다. 예를 들면 다음과 같습니다.
+
+   ![디코딩에 사용할 스키마 선택](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-decoding.png)
+
+   > [!NOTE]
+   > 목록에 스키마가 표시 되지 않으면 통합 계정에 디코딩에 사용할 스키마 파일이 포함 되지 않습니다. 사용 하려는 스키마를 통합 계정에 업로드 합니다.
+
+1. 논리 앱을 저장합니다. 커넥터를 테스트 하려면 요청 트리거의 **HTTP POST URL** 속성에 표시 되는 HTTPS 끝점에 요청 하 고 요청 본문에서 디코드 하려는 XML 콘텐츠를 포함 합니다.
+
+이제 플랫 파일 디코딩 작업을 설정 하는 작업이 완료 되었습니다. 실제 응용 프로그램에서는 Salesforce와 같은 LOB (기간 업무) 앱에 디코딩된 데이터를 저장 하는 것이 좋습니다. 또는 디코딩된 데이터를 거래 업체에 보낼 수 있습니다. 디코딩 작업의 출력을 Salesforce 또는 거래 파트너에 게 보내려면 [Azure Logic Apps에서 사용할 수](../connectors/apis-list.md)있는 다른 커넥터를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
 
+* [엔터프라이즈 통합 팩](logic-apps-enterprise-integration-overview.md) 에 대 한 자세한 정보

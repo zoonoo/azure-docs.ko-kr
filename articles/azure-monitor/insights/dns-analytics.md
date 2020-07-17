@@ -1,24 +1,17 @@
 ---
 title: Azure Monitor의 DNS 분석 솔루션 | Microsoft Docs
 description: Azure Monitor의 DNS 분석 솔루션을 설정 및 사용하여 보안, 성능 및 작업 관련 정보를 DNS 인프라에 수집합니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 03/20/2018
-ms.author: magoedte
-ms.openlocfilehash: 6dd5872d5ec3e79e3c76b1807aea946015fb0eac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60496494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552814"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -43,15 +36,15 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
 | [Windows 에이전트](../platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
 | [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure 저장소 계정](../platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Azure storage 계정](../platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
 솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. 이 데이터는 Azure Monitor에 업로드된 후 솔루션 대시보드에 표시됩니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](https://technet.microsoft.com/library/dn800669.aspx#enhanc)를 통해 거의 실시간으로 수집됩니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 정보를 사용하여 솔루션을 구성합니다.
 
@@ -64,7 +57,7 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 솔루션 대시보드에서 **구성**을 클릭하여 DNS 분석 구성 페이지를 엽니다. 다음과 같은 2가지 유형의 구성 변경을 수행할 수 있습니다.
 
-- **허용 목록에 포함된 도메인 이름**. 솔루션이 모든 조회 쿼리를 처리하는 것은 아닙니다. 도메인 이름 접미사의 허용 목록이 유지됩니다. 이 허용 목록의 도메인 이름 접미사와 일치하는 도메인 이름으로 확인되는 조회 쿼리는 솔루션에서 처리되지 않습니다. 허용 목록에 포함된 도메인 이름이 처리되지 않으면 Azure Monitor에 전송되는 데이터를 최적화하는 데 도움이 됩니다. 기본 허용 목록에는 인기 있는 공용 도메인 이름(예: www.google.com 및 www.facebook.com 등)이 포함됩니다. 스크롤하여 전체 기본 목록을 볼 수 있습니다.
+- **허용 목록 도메인 이름**입니다. 솔루션이 모든 조회 쿼리를 처리하는 것은 아닙니다. 도메인 이름 접미사의 허용 목록이 유지됩니다. 이 허용 목록의 도메인 이름 접미사와 일치하는 도메인 이름으로 확인되는 조회 쿼리는 솔루션에서 처리되지 않습니다. 허용 목록에 포함된 도메인 이름이 처리되지 않으면 Azure Monitor에 전송되는 데이터를 최적화하는 데 도움이 됩니다. 기본 허용 목록에는 인기 있는 공용 도메인 이름(예: www.google.com 및 www.facebook.com 등)이 포함됩니다. 스크롤하여 전체 기본 목록을 볼 수 있습니다.
 
   목록을 수정하여 조회 정보를 보려는 도메인 이름 접미사를 추가할 수 있습니다. 조회 정보를 보지 않으려는 도메인 이름 접미사는 제거할 수 있습니다.
 
@@ -106,7 +99,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 ![DNS 보안 블레이드](./media/dns-analytics/dns-security-blade.png)
 
-목록의 클라이언트 IP를 클릭하면 로그 검색이 열리고 해당 쿼리의 조회 세부 정보를 표시합니다. 다음 예제에서 DNS 분석은 [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot)과의 통신이 수행되었음을 감지했습니다.
+목록의 클라이언트 IP를 클릭하면 로그 검색이 열리고 해당 쿼리의 조회 세부 정보를 표시합니다. 다음 예제에서 DNS 분석는 [Ircbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621)과의 통신이 수행 되었음을 감지 했습니다.
 
 ![ircbot을 표시하는 로그 검색 결과](./media/dns-analytics/ircbot.png)
 
@@ -179,13 +172,16 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 1. **검색 쿼리 상자**에 `DnsInventory`를 입력하여 솔루션에서 관리되는 DNS 서버에 대한 모든 DNS 인벤토리 관련 데이터를 표시합니다. 결과에는 DNS 서버, DNS 영역 및 리소스 레코드에 대한 로그 데이터가 표시됩니다.
 
     ![DnsInventory 로그 검색](./media/dns-analytics/log-search-dnsinventory.png)
+    
+## <a name="troubleshooting"></a>문제 해결
 
-## <a name="feedback"></a>사용자 의견
+일반적인 문제 해결 단계:
 
-두 가지 방법으로 사용자 의견을 제공할 수 있습니다.
+1. 누락 된 DNS 조회 데이터-이 문제를 해결 하려면 구성를 다시 설정 하거나 포털에서 구성 페이지를 한 번만 로드 하십시오. 다시 설정 하려면 설정을 다른 값으로 변경한 다음 다시 원래 값으로 변경 하 고 구성을 저장 합니다.
 
-- **UserVoice**. 작업 중인 DNS 분석 기능에 대한 아이디어를 게시합니다. [Log Analytics UserVoice 페이지](https://aka.ms/dnsanalyticsuservoice)를 방문하세요.
-- **코호트 가입**. 새로운 고객이 코호트에 가입하여 새 기능을 미리 사용해보고 DNS 분석 기능을 향상시키는 데 도움을 줄 수 있기 바랍니다. 코호트 가입에 관심이 있는 경우 [빠른 설문 조사](https://aka.ms/dnsanalyticssurvey)에 참여하세요.
+## <a name="suggestions"></a>제안
+
+사용자 의견을 제공 하려면 [Log Analytics UserVoice 페이지](https://aka.ms/dnsanalyticsuservoice) 를 방문 하 여 작업할 DNS 분석 기능에 대 한 아이디어를 게시 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,18 +1,17 @@
 ---
 title: Azure CLI를 사용하여 IoT Hub 만들기 | Microsoft 문서
-description: Azure CLI를 사용하여 Azure IoT Hub를 만드는 방법입니다.
+description: Azure CLI 명령을 사용 하 여 리소스 그룹을 만든 다음 리소스 그룹에서 IoT hub를 만드는 방법에 대해 알아봅니다. 허브를 제거 하는 방법에 대해서도 알아봅니다.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 78ea9071f220b2a78c6d9260d47145f22284d760
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: e7253747d95917e34725cc7c6c034b1306f65e50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708079"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 만들기
 
@@ -20,7 +19,7 @@ ms.locfileid: "55250268"
 
 이 문서는 Azure CLI를 사용하여 IoT Hub를 만드는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 문서를 완료하려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

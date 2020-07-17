@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: f8dd11e7fb0b9fda0e0f1c7d3f794f6bfd766cdf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 60463a00c6864bed7b3a18e816ef0143d3573782
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231457"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67103249"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>자습서: Everbridge와 Azure Active Directory 통합
 
@@ -29,11 +29,11 @@ Azure AD와 Everbridge를 통합하는 경우 다음을 수행할 수 있습니�
 
 * Everbridge에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
 * 사용자가 자신의 Azure AD 계정으로 Everbridge에 자동으로 로그인할 수 있도록 합니다. 이 액세스 제어를 SSO(Single Sign-On)라고 합니다.
-* Azure Portal을 사용하여 단일 중앙 위치에서 계정을 관리합니다.
+* Azure Portal을 사용하여 중앙의 한 위치에서 계정을 관리합니다.
 Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Everbridge와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -97,7 +97,7 @@ Everbridge에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 선택하여 **기본 SAML 구성** 대화 상자를 엽니다.
+3. **SAML로 Single Sign-On 설정** 페이지에서 **편집**을 선택하여 **기본 SAML 구성** 대화 상자를 엽니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -134,7 +134,7 @@ Everbridge에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
      > [!NOTE]
      > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL 값을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Everbridge 지원 팀](mailto:support@everbridge.com)에 문의합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 선택하여 **페더레이션 메타데이터 XML**을 다운로드합니다. 컴퓨터에 저장합니다.
+6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 선택하여 **페더레이션 메타데이터 XML**을 다운로드합니다. 인증서를 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -192,9 +192,9 @@ Azure Portal에서 테스트 사용자 Britta Simon을 만들려면 다음 단�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 상자에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예는 BrittaSimon@contoso.com입니다.
+    b. **사용자 이름** 상자에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예제는 BrittaSimon@contoso.com입니다.
 
-    다. **암호 표시** 확인란을 선택합니다. **암호** 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택합니다. **암호** 상자에 표시되는 값을 적어 둡니다.
 
     d. **만들기**를 선택합니다.
 
@@ -236,7 +236,7 @@ Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Everbridge에
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory를 사용하여 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

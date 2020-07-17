@@ -1,25 +1,27 @@
 ---
 title: '빠른 시작: 데이터 과학 실험 만들기'
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) - Azure
 description: 이 기계 학습 빠른 시작에서는 간단한 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
-author: garyericson
-ms.author: garye
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105729"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965147"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>빠른 시작: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>빠른 시작: Azure Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
 
-이 빠른 시작에서는 [Azure Machine Learning Studio](what-is-ml-studio.md)에서 제조업체 및 기술 사양과 같은 다양한 변수에 따라 자동차 가격을 예측하는 기계 학습 실험을 만듭니다.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+이 빠른 시작에서는 [Azure Machine Learning Studio(클래식)](what-is-ml-studio.md)에서 제조업체 및 기술 사양과 같은 다양한 변수에 따라 자동차 가격을 예측하는 기계 학습 실험을 만듭니다.
 
 기계 학습을 처음 사용하는 경우 [초급자를 위한 데이터 과학](data-science-for-beginners-the-5-questions-data-science-answers.md) 비디오 시리즈는 일상적인 언어와 개념을 사용하는 기계 학습에 대한 훌륭한 소개입니다.
 
@@ -40,20 +42,18 @@ ms.locfileid: "58105729"
 [알고리즘 선택 및 적용]: #choose-and-apply-an-algorithm
 [새 자동차 가격 예측]: #predict-new-automobile-prices
 
-Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)로 이동하고, **여기서 등록**을 선택하여 체험 계정을 만듭니다. 체험 작업 영역에는 이 빠른 시작에 필요한 모든 기능이 있습니다.
-
 ## <a name="get-the-data"></a>데이터 가져오기
 
 기계 학습에 가장 먼저 필요한 것은 데이터입니다.
-사용할 수 있는 몇 가지 데이터 세트 샘플이 Studio에 포함되어 있거나 여러 원본에서 데이터를 가져올 수 있습니다. 이 예제에서는 작업 영역에 포함되어 있는 샘플 데이터 세트, 즉 **자동차 가격 데이터(원시)** 를 사용합니다.
+사용할 수 있는 몇 가지 데이터 세트 샘플이 Studio(클래식)에 포함되어 있거나 여러 원본에서 데이터를 가져올 수 있습니다. 이 예제에서는 작업 영역에 포함되어 있는 샘플 데이터 세트, 즉 **자동차 가격 데이터(원시)** 를 사용합니다.
 이 데이터 세트에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 여러 개별 자동차에 대한 항목이 포함되어 있습니다.
 
 > [!TIP]
-> 다음 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.azure.ai)에서 찾을 수 있습니다. Go to **[Walkthrough - Credit risk prediction](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
+> 다음 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.azure.ai)에서 찾을 수 있습니다. **[첫 번째 데이터 과학 실험 - 자동차 자격 예측](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** 으로 이동하고, **Studio에서 열기**를 클릭하여 실험의 복사본을 Machine Learning Studio(클래식) 작업 영역으로 다운로드합니다.
 
 실험에 데이터 세트를 가져오는 방법은 다음과 같습니다.
 
-1. Machine Learning Studio 창의 아래쪽에서 **+새로 만들기**를 클릭하여 새 실험을 만듭니다. **실험** >  **빈 실험**을 차례로 선택합니다.
+1. Machine Learning Studio(클래식) 창의 아래쪽에서 **+새로 만들기**를 클릭하여 새 실험을 만듭니다. **실험** >  **빈 실험**을 차례로 선택합니다.
 
 1. 실험은 캔버스의 위쪽에서 볼 수 있는 기본 이름이 지정됩니다. 이 텍스트를 선택하고 **자동차 가격 예측**과 같이 의미 있는 것으로 이름을 바꿉니다. 이름은 고유할 필요가 없습니다.
 
@@ -96,7 +96,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 1. [데이터 세트에서 열 선택][select-columns] 모듈을 클릭하고 **속성** 창에서 **열 선택기 시작**을 클릭합니다.
 
    - 왼쪽에서 **규칙으로**
-   - **다음으로 시작**에서 **모든 열**을 클릭합니다. 이러한 규칙은 [데이터 세트에서 열 선택][select-columns]에서 모든 열(제외하려는 열은 예외임)을 통과하도록 지정합니다.
+   - **다음으로 시작**에서 **모든 열**을 클릭합니다. 이 규칙은 [데이터 세트에서 열 선택][select-columns]에서 모든 열(제외하려는 열 제외)을 통과하도록 지정합니다.
    - 다음 드롭다운에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. 열 목록이 표시됩니다. **normalized-losses**를 선택하면 텍스트 상자에 추가됩니다.
    - 확인 표시(OK) 단추(오른쪽 아래)를 클릭하여 열 선택기를 닫습니다.
 
@@ -107,11 +107,11 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
      !["normalized-losses" 열이 제외되었음을 보여 주는 속성 창](./media/create-experiment/showing-excluded-column.png)
 
      > [!TIP] 
-     > 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우에 [데이터 세트에서 열 선택][select-columns] 모듈을 두 번 클릭하고 "정규화된 손실 제외"라는 주석을 입력합니다.
+     > 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우 [데이터 세트에서 열 선택][select-columns] 모듈을 두 번 클릭하고 "정규화된 손실 제외"라는 주석을 입력합니다.
 
      ![모듈을 두 번 클릭하여 주석 추가](./media/create-experiment/add-comment.png)
 
-1. [누락된 데이터 정리][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [데이터 세트에서 열 선택][select-columns] 모듈과 연결합니다. **속성** 창에서 **정리 모드** 아래 **전체 열 제거**를 선택합니다. 이러한 옵션은 [누락된 데이터 정리][clean-missing-data]에서 누락 값이 있는 모든 행을 제거하여 데이터를 정리하도록 지정합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
+1. [누락 데이터 정리][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [데이터 세트에서 열 선택][select-columns] 모듈과 연결합니다. **속성** 창에서 **정리 모드** 아래 **전체 열 제거**를 선택합니다. 이 옵션은 [누락 데이터 정리][clean-missing-data]에서 누락된 값이 있는 행을 제거하여 데이터를 정리하도록 지정합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
 
     !["누락된 데이터 정리" 모듈에 대한 정리 모드를 "전체 행 제거"로 설정](./media/create-experiment/set-remove-entire-row.png)
 
@@ -130,15 +130,15 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 ## <a name="define-features"></a>기능 정의
 
-기계 학습에서 *기능*은 관심 있는 부분에 대한 측정 가능한 개별 속성입니다. 여기서는 데이터 세트의 각 행이 하나의 자동차를 나타내고 각 열은 해당 자동차의 기능입니다.
+기계 학습에서 *기능*은 관심 있는 항목에 대한 측정 가능한 개별 속성입니다. 여기서는 데이터 세트의 각 행이 하나의 자동차를 나타내고 각 열은 해당 자동차의 기능입니다.
 
 예측 모델을 만들기에 적절한 기능 집합을 찾으려면 해결하려는 문제에 대한 실험과 지식이 있어야 합니다. 일부 기능은 다른 기능에 비해 대상 예측에 더 유용합니다. 일부 기능은 다른 기능과 강력한 상관 관계가 있으며 제거할 수 있습니다. 예를 들어 city-mpg와 highway-mpg는 밀접한 관련이 있으므로 예측에 크게 영향을 주지 않고 하나를 유지하고 다른 하나를 제거할 수 있습니다.
 
 데이터 세트에서 기능 하위 집합을 사용하는 모델을 빌드하겠습니다. 다시 돌아와서 다양한 특성을 선택하고 실험을 다시 실행하여 더 나은 결과가 나오는지 확인할 수 있습니다. 하지만 시작하려면 다음과 같은 기능을 시도해 보겠습니다.
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+> 만들기, 본문 스타일, 휠 기반, 엔진 크기, 마력, 최대 rpm, 고속도로-mpg, 가격
 
-1. 다른 [데이터 세트에서 열 선택][select-columns] 모듈을 실험 캔버스에 끌어 놓습니다. [누락된 데이터 정리][clean-missing-data] 모듈의 왼쪽 출력 포트를 [데이터 세트에서 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
+1. 다른 [데이터 세트에서 열 선택][select-columns] 모듈을 실험 캔버스에 끌어다 놓습니다. [누락된 데이터 정리][clean-missing-data] 모듈의 왼쪽 출력 포트를 [데이터 세트에서 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
 
     !["데이터 세트에서 열 선택" 모듈을 "누락된 데이터 정리" 모듈에 연결](./media/create-experiment/connect-clean-to-select.png)
 
@@ -183,11 +183,11 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. 학습 알고리즘을 선택하려면 캔버스 왼쪽의 모듈 팔레트에서 **Machine Learning** 범주를 확장한 후 **Initialize Model**을 확장합니다. 기계 학습 알고리즘을 초기화하는 데 사용할 수 있는 몇 가지 범주의 모듈이 표시됩니다. 이 예제의 경우 **회귀** 범주 아래 [선형 회귀][linear-regression] 모듈을 선택하고 실험 캔버스로 끌어 놓습니다. (팔레트 검색 상자에 "linear regression"을 입력하여 모듈을 찾을 수도 있습니다.)
 
-1. [모델 학습][train-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. [선형 회귀][linear-regression] 모듈의 출력 포트를 [모델 학습][train-model] 모듈의 왼쪽 포트에 연결하고 [분할 데이터][split] 모듈의 데이터 학습 출력(왼쪽 포트)를 [모델 학습][train-model] 모듈의 오른쪽 입력 포트에 연결합니다.
+1. [모델 학습][train-model] 모듈을 찾아서 실험 캔버스로 끌어 놓습니다. [선형 회귀][linear-regression] 모듈의 출력을 [모델 학습][train-model] 모듈의 왼쪽 입력에 연결하고 [데이터 분할][split] 모듈의 학습 데이터 출력(왼쪽 포트)을 [모델 학습][train-model] 모듈의 오른쪽 입력에 연결합니다.
 
     !["모델 학습" 모듈을 "선형 회귀" 및 "데이터 분할" 모듈 모두에 연결](./media/create-experiment/connect-train-model.png)
 
-1. [모델 학습][train-model] 모듈을 선택하고 **속성** 창에서 **열 선택기 시작**을 클릭한 다음 **가격** 열을 선택합니다. **가격**은 모델에서 예측할 값입니다.
+1. [모델 학습][train-model] 모듈을 선택하고 **속성** 창에서 **열 선택기 시작**을 클릭한 다음, **가격** 열을 선택합니다. **가격**은 모델에서 예측할 값입니다.
 
     **사용 가능한 열** 목록에서 가격 열을 **선택한 열** 목록으로 이동하여 열 선택기에서 **가격** 열을 선택합니다.
 
@@ -203,7 +203,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 데이터의 75%를 사용하여 모델을 학습했으며, 이제 모델을 사용하여 나머지 25% 데이터의 점수를 매겨 모델 기능이 얼마나 좋은지 확인할 수 있습니다.
 
-1. [모델 점수 매기기][score-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. [모델 학습][train-model]모듈의 출력 포트를 [모델 점수 매기기][score-model]의 왼쪽 입력 포트에 연결합니다. 오른쪽 입력 포트를 [데이터 분할][split] 모듈의 테스트 데이터 출력(오른쪽 포트)을 [모델 점수 매기기][score-model]의 오른쪽 입력 포트에 연결합니다.
+1. [모델 점수 매기기][score-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. [모델 학습][train-model] 모듈의 출력을 [모델 점수 매기기][score-model]의 왼쪽 입력 포트에 연결합니다. [데이터 분할][split] 모듈의 테스트 데이터 출력(오른쪽 포트)을 [모델 점수 매기기][score-model]의 오른쪽 입력 포트에 연결합니다.
 
     !["모델 점수 매기기" 모듈을 "모델 학습" 및 "데이터 분할" 모듈 모두에 연결](./media/create-experiment/connect-score-model.png)
 
@@ -217,7 +217,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. 실험을 실행합니다.
 
-[모델 평가][evaluate-model] 모듈의 출력을 보려면 출력 포트를 클릭한 다음 **시각화**를 선택합니다.
+[모델 평가][evaluate-model] 모듈의 출력을 보려면 출력 포트를 클릭한 다음, **시각화**를 선택합니다.
 
 ![실험 평가 결과](./media/create-experiment/evaluation-results.png)
 
@@ -240,7 +240,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 이 빠른 시작에서는 샘플 데이터 세트 샘플을 사용하여 간단한 실험을 만들었습니다. 모델을 만들고 배포하는 프로세스를 자세히 살펴보려면 예측 솔루션 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Studio에서 예측 솔루션 개발](tutorial-part1-credit-risk.md)
+> [자습서: Studio(클래식)에서 예측 솔루션 개발](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

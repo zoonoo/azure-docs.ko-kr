@@ -1,26 +1,19 @@
 ---
-title: Azure 가상 머신 확장 집합에 애플리케이션 배포 | Microsoft Docs
+title: Azure 가상 머신 확장 집합에 애플리케이션 배포
 description: Linux 및 Windows 가상 머신 인스턴스의 확장 집합에 애플리케이션을 배포하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: management
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 09145612821cb669e26e3ccb8d15611112eca700
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618628"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124927"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 세트에 애플리케이션 배포
 
@@ -36,8 +29,8 @@ Azure 플랫폼 이미지 중 하나를 사용하여 확장 집합에서 인스�
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
-## <a name="already-provisioned"></a>사용자 지정 스크립트 확장을 사용하여 앱 설치
-사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트는 Azure 저장소 또는 GitHub에서 다운로드하거나 확장 런타임에서 Azure Portal에 제공할 수 있습니다. 확장 집합에서 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자세한 내용은 다음 자습서를 참조하세요.
+## <a name="install-an-app-with-the-custom-script-extension"></a><a name="already-provisioned"></a>사용자 지정 스크립트 확장을 사용하여 앱 설치
+사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트는 Azure Storage 또는 GitHub에서 다운로드하거나 확장 런타임에서 Azure Portal에 제공할 수 있습니다. 사용자 지정 스크립트 확장을 사용하여 앱을 설치하는 방법에 대한 자세한 내용은 다음 자습서를 참조하세요.
 
 - [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
@@ -45,11 +38,11 @@ Azure 플랫폼 이미지 중 하나를 사용하여 확장 집합에서 인스�
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>PowerShell DSC를 사용하여 Windows VM에 앱 설치
-[PowerShell DSC(Desired State Configuration)](https://msdn.microsoft.com/powershell/dsc/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법을 정의합니다. LCM(로컬 구성 관리자) 엔진은 푸시된 구성에 따라 요청된 작업을 처리하는 각 대상 노드에서 실행됩니다.
+[PowerShell DSC(Desired State Configuration)](/powershell/scripting/dsc/overview/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법을 정의합니다. LCM(로컬 구성 관리자) 엔진은 푸시된 구성에 따라 요청된 작업을 처리하는 각 대상 노드에서 실행됩니다.
 
 PowerShell DSC 확장을 사용하면 PowerShell을 통해 확장 집합의 VM 인스턴스를 사용자 지정할 수 있습니다. 다음 예제를 참조하세요.
 
-- VM 인스턴스가 GitHub에서 DSC 패키지를 다운로드하도록 지시합니다(*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*).
+- VM 인스턴스가 GitHub에서 DSC 패키지를 다운로드하도록 지시합니다( *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip* ).
 - 설치 스크립트를 실행하도록 확장을 설정합니다(`configure-http.ps1`).
 - [Get-AzVmss](/powershell/module/az.compute/get-azvmss)를 사용하여 확장 집합에 대한 정보를 가져옵니다.
 - [Update-AzVmss](/powershell/module/az.compute/update-azvmss)를 사용하여 VM 인스턴스에 확장을 적용합니다.

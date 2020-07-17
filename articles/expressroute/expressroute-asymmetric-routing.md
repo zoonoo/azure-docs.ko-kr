@@ -1,20 +1,17 @@
 ---
-title: 비대칭 라우팅 - Azure ExpressRoute | Microsoft Docs
+title: 'Azure Express 경로: 비대칭 라우팅'
 description: 이 문서에서는 대상에 여러 개의 링크가 있는 네트워크에서 비대칭 라우팅을 사용하여 발생할 수 있는 문제를 살펴봅니다.
-documentationcenter: na
 services: expressroute
 author: osamazia
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
-ms.custom: seodec18
-ms.openlocfilehash: 6ece48d892f46a4f8bbeb66d3ebda9f532b621b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74072152"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>여러 네트워크 경로를 포함한 비대칭 라우팅
 이 문서에서는 네트워크 원본과 대상 간에 여러 경로를 사용할 수 있을 때 전달 및 반환 네트워크 트래픽에서 다른 경로를 사용하는 방법을 설명합니다.
@@ -26,7 +23,7 @@ ms.locfileid: "60367798"
 
 ![여러 경로가 포함된 네트워크](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
 
-인터넷에서 주로 발생하지만 비대칭 라우팅도 다른 조합의 여러 경로에 적용됩니다. 예를 들어 동일한 대상으로 이동하는 인터넷 경로 및 개인 경로와 동일한 대상으로 이동하는 여러 개인 경로에 모두 적용됩니다.
+인터넷에서 주로 발생하지만 비대칭 라우팅도 다른 조합의 여러 경로에 적용됩니다. 예를 들어 동일한 대상으로 이동하는 인터넷 경로 및 프라이빗 경로와 동일한 대상으로 이동하는 여러 개인 경로에 모두 적용됩니다.
 
 원본에서 대상까지의 과정에서 라우터는 각각 대상에 도달하는 최상의 경로를 계산합니다. 라우터는 두 가지 주요 요소를 기반으로 가능한 최상의 경로를 결정합니다.
 
@@ -34,7 +31,7 @@ ms.locfileid: "60367798"
 * 경로와 연결된 서브넷 마스크의 길이는 라우팅 경로에 영향을 줍니다. 라우터가 다른 서브넷 마스크가 아닌 동일한 IP 주소에 대한 여러 보급을 수신하는 경우 해당 라우터는 더 긴 서브넷 마스크를 포함한 보급을 구체적인 경로로 간주하기 때문에 선호합니다.
 
 ## <a name="stateful-devices"></a>상태 저장 디바이스
-라우터는 라우팅을 위해 패킷의 IP 헤더를 살펴봅니다. 패킷 내부를 훨씬 자세히 살펴보는 디바이스가 있습니다. 일반적으로 이러한 장치는 Layer4(전송 제어 프로토콜 또는 TCP; 또는 사용자 데이터그램 프로토콜 또는 UDP) 또는 심지어 Layer7(애플리케이션 계층) 헤더를 확인합니다. 이러한 종류의 디바이스는 보안 디바이스 또는 대역폭 최적화 디바이스입니다. 
+라우터는 라우팅을 위해 패킷의 IP 헤더를 살펴봅니다. 패킷 내부를 훨씬 자세히 살펴보는 디바이스가 있습니다. 일반적으로 이러한 디바이스는 Layer4(전송 제어 프로토콜 또는 TCP; 또는 사용자 데이터그램 프로토콜 또는 UDP) 또는 심지어 Layer7(애플리케이션 계층) 헤더를 확인합니다. 이러한 종류의 디바이스는 보안 디바이스 또는 대역폭 최적화 디바이스입니다. 
 
 방화벽은 상태 저장 디바이스의 일반적인 예입니다. 방화벽은 패킷이 프로토콜, TCP/UDP 포트, URL 헤더 등 다양한 필드에 따라 해당 인터페이스를 통과하도록 허용하거나 거부합니다. 이 수준의 패킷 검사는 디바이스에 많은 처리 부하를 배치합니다. 방화벽은 성능을 개선하기 위해 흐름의 첫 번째 패킷을 검사합니다. 패킷이 진행되도록 허용하는 경우 해당 상태 테이블에 흐름 정보를 보관합니다. 이 흐름에 관련된 모든 후속 패킷은 초기 결정에 따라 허용됩니다. 기존 흐름의 일부인 패킷은 방화벽에 도달할 수 있습니다. 방화벽에 이전 상태 정보가 없는 경우 방화벽은 패킷을 삭제합니다.
 
@@ -50,7 +47,7 @@ ExpressRoute를 통해 Microsoft에 연결할 때 네트워크에는 다음과 �
 
 그런 다음, ExpressRoute를 켜고 ExpressRoute를 통해 Microsoft에서 제공하는 서비스를 사용합니다. Microsoft의 다른 모든 서비스는 인터넷을 통해 사용됩니다. ExpressRoute에 연결된 에지에 별도 방화벽을 배포합니다. Microsoft는 특정 서비스에 대한 ExpressRoute에 네트워크에 대한 구체적인 접두사를 보급합니다. 라우팅 인프라는 해당 접두사에 대한 기본 경로로 ExpressRoute를 선택합니다. ExpressRoute에 걸쳐 Microsoft에 대한 공용 IP 주소를 보급하지 않는 경우 Microsoft는 인터넷을 통해 공용 IP 주소와 통신합니다. 네트워크에서 Microsoft로 전달되는 트래픽은 ExpressRoute를 사용하고 Microsoft의 역방향 트래픽은 인터넷을 사용합니다. 에지의 방화벽이 상태 테이블에서 찾을 수 없는 흐름에 대한 응답 패킷을 확인하는 경우 반환 트래픽을 삭제합니다.
 
-ExpressRoute 및 인터넷에 동일한 NAT(네트워크 주소 변환) 풀을 사용하는 경우 개인 IP 주소의 네트워크에 클라이언트와 비슷한 문제가 표시됩니다. 이러한 서비스에 대한 IP 주소가 ExpressRoute를 통해 보급되지 않기 때문에 Windows 업데이트와 같은 서비스에 대한 요청은 인터넷을 통해 이동합니다. 그러나 반환 트래픽은 ExpressRoute를 통해 다시 돌아옵니다. Microsoft가 인터넷 및 ExpressRoute에서 동일한 서브넷 마스크를 가진 IP 주소를 수신하는 경우 인터넷에 대한 ExpressRoute를 선호합니다. 네트워크 에지에서 ExpressRoute에 연결된 방화벽이나 기타 상태 저장 디바이스에 흐름에 대한 이전 정보가 없는 경우 해당 흐름에 속하는 패킷을 삭제합니다.
+Express 경로 및 인터넷에 대해 동일한 NAT (네트워크 주소 변환) 풀을 보급 하도록 선택 하는 경우 개인 IP 주소에 네트워크의 클라이언트와 유사한 문제가 표시 됩니다. 이러한 서비스에 대한 IP 주소가 ExpressRoute를 통해 보급되지 않기 때문에 Windows 업데이트와 같은 서비스에 대한 요청은 인터넷을 통해 이동합니다. 그러나 반환 트래픽은 ExpressRoute를 통해 다시 돌아옵니다. Microsoft가 인터넷 및 ExpressRoute에서 동일한 서브넷 마스크를 가진 IP 주소를 수신하는 경우 인터넷에 대한 ExpressRoute를 선호합니다. 네트워크 에지에서 ExpressRoute에 연결된 방화벽이나 기타 상태 저장 디바이스에 흐름에 대한 이전 정보가 없는 경우 해당 흐름에 속하는 패킷을 삭제합니다.
 
 ## <a name="asymmetric-routing-solutions"></a>비대칭 라우팅 솔루션
 비대칭 라우팅의 문제를 해결하는 두 가지 주요 옵션이 있습니다. 하나는 라우팅을 통한 방법이고 다른 하나는 SNAT(원본 기반 NAT)를 사용하는 것입니다.

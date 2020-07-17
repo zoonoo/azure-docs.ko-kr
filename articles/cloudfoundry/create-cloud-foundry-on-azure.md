@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 382e342f2144bcc6eeedafd74790bb442b8f9308
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784861"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "73161788"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Azure에서 Pivotal Cloud Foundry 클러스터 만들기
 
@@ -64,7 +64,7 @@ ssh-keygen -t rsa -b 2048
 
     > [!NOTE]
     >
-    > 사용자 고유의 애플리케이션 홈 페이지와 식별자 URI를 선택하세요(예: http://www.contoso.com).
+    > 사용자 고유의 애플리케이션 홈 페이지와 식별자 URI를 선택하세요(예: http\://www\.contoso.com).
 
 4. 새 앱 ID를 사용하여 서비스 주체를 만듭니다.
 
@@ -72,11 +72,11 @@ ssh-keygen -t rsa -b 2048
 
 5. 서비스 주체의 권한 역할을 기여자로 설정합니다.
 
-    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor”`
+    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
 
     또는 다음을 사용할 수도 있습니다.
 
-    `az role assignment create --assignee {service-principal-name} --role “Contributor”`
+    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
 
     ![서비스 주체 역할 할당](media/deploy/svc-princ.png )
 

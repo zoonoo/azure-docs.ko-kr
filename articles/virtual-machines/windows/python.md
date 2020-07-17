@@ -1,30 +1,22 @@
 ---
-title: Python을 사용하여 Azure에서 Windows VM 만들기 및 관리 | Microsoft Docs
+title: Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 description: Python을 사용하여 Azure에서 Windows VM을 만들고 관리하는 방법을 설명합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 748bc08e003d398e96ef55493e4f3b0bf6b7da28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: b5f8b0e8f22a476ad379b55275d79c2874966852
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84551978"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Python을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Python을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Visual Studio 프로젝트 만들기
@@ -111,22 +103,22 @@ azure 패키지가 성공적으로 설치되었음이 출력 창에 표시됩니
 
 ```python
 resource_group_client = ResourceManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 network_client = NetworkManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 compute_client = ComputeManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 ```
 
 ### <a name="create-the-vm-and-supporting-resources"></a>VM 및 지원 리소스 만들기
 
-모든 리소스는 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)에 포함되어야 합니다.
+모든 리소스는 [리소스 그룹](../../azure-resource-manager/management/overview.md)에 포함되어야 합니다.
 
 1. 리소스 그룹을 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
@@ -172,7 +164,7 @@ compute_client = ComputeManagementClient(
     input('Availability set created. Press enter to continue...')
     ```
 
-[공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)는 가상 머신과 통신해야 합니다.
+[공용 IP 주소](../../virtual-network/public-ip-addresses.md)는 가상 머신과 통신해야 합니다.
 
 1. 가상 머신에 대한 공용 IP 주소를 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
@@ -255,7 +247,7 @@ compute_client = ComputeManagementClient(
     input('Press enter to continue...')
     ```
 
-가상 컴퓨터는 가상 네트워크에서 통신하기 위해 네트워크 인터페이스가 필요합니다.
+가상 머신은 가상 네트워크에서 통신하기 위해 네트워크 인터페이스가 필요합니다.
 
 1. 네트워크 인터페이스를 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
@@ -501,7 +493,7 @@ compute_client = ComputeManagementClient(
 
 가상 머신에도 VHD로 저장되는 [데이터 디스크](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)가 하나 이상 있을 수 있습니다.
 
-1. 가상 컴퓨터에 데이터 디스크를 추가하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다. 
+1. 가상 머신에 데이터 디스크를 추가하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다. 
 
     ```python
     def add_datadisk(compute_client):

@@ -1,22 +1,24 @@
 ---
 title: Azure IoT Hub의 수동 장애 조치 | Microsoft Docs
-description: Azure IoT Hub에 대해 수동 장애 조치를 수행하는 방법을 보여줍니다.
+description: IoT 허브의 수동 장애 조치(failover)를 다른 지역으로 수행하고 작동하는지 확인한 다음, 원래 지역으로 돌아가서 다시 확인하는 방법에 대해 알아봅니다.
 author: robinsh
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 07/24/2019
 ms.author: robinsh
-ms.custom: mvc
-ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.custom:
+- mvc
+- mqtt
+ms.openlocfilehash: 86b39beb2958194f7c86409c5d78992616234b05
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002904"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81769904"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행(공개 미리 보기)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행
 
 수동 장애 조치는 고객이 해당 허브의 작업을 주 지역에서 해당 Azure 지역 쌍을 이루는 지역으로 [장애 조치](https://en.wikipedia.org/wiki/Failover)할 수 있는 IoT Hub 서비스의 기능입니다. 수동 장애 조치는 지역 재해 또는 확장된 서비스 중단 발생 시 수행될 수 있습니다. 프로덕션에서 실행 중인 기능보다 테스트 IoT Hub를 사용하는 것이 좋지만 재해 복구 기능을 테스트하기 위해 계획된 장애 조치를 수행할 수도 있습니다. 수동 장애 조치 기능은 추가 비용 없이 고객에게 제공됩니다.
 
@@ -29,9 +31,11 @@ ms.locfileid: "60002904"
 > * 장애 복구를 수행하여 기본 위치에 IoT Hub의 작업을 반환합니다. 
 > * 허브가 올바른 위치에서 올바르게 실행 중인지 확인합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 자습서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -47,7 +51,7 @@ ms.locfileid: "60002904"
 
     **리소스 그룹**: **새로 만들기**를 클릭하고, 리소스 그룹 이름에 **ManlFailRG**를 지정합니다.
 
-    **지역**: 미리 보기의 일부인 가까운 지역을 선택합니다. 이 자습서에서는 `westus2`를 사용합니다. Azure 지역 쌍을 이루는 지역 간에서만 장애 조치를 수행할 수 있습니다. westus2를 사용하는 지역 쌍을 이루는 지역은 WestCentralUS입니다.
+    **지역**: 가까운 지역을 선택합니다. 이 자습서에서는 `West US 2`를 사용합니다. Azure 지역 쌍을 이루는 지역 간에서만 장애 조치를 수행할 수 있습니다. 미국 서부 2를 사용하는 지역 쌍을 이루는 지역은 WestCentralUS입니다.
     
    **IoT Hub이름**: IoT Hub의 이름을 지정합니다. 허브 이름은 전역적으로 고유해야 합니다. 
 
@@ -65,33 +69,38 @@ IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 �
 
 1. **리소스 그룹**을 클릭한 다음, 리소스 그룹 **ManlFailRG**를 선택합니다. 리소스 목록에서 허브를 클릭합니다. 
 
-2. IoT Hub 창의 **복원력**에서 **수동 장애 조치(미리 보기)** 를 클릭합니다. 허브에서 유효한 영역을 설정하지 않으면 수동 장애 조치 옵션이 사용할 수 없게 됩니다.
+1. IoT Hub 창의 **설정**에서 **장애 조치(Failover)** 를 클릭합니다.
 
    ![IoT Hub 속성 창을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-3. 수동 장애 조치 창에 **IoT Hub에 대한 기본 위치** 및 **IoT Hub에 대한 보조 위치**를 표시합니다. 기본 위치는 초기에 IoT Hub를 만들 때 지정한 위치에 설정되고 항상 허브가 현재 활성화된 위치를 나타냅니다. 보조 위치는 기본 위치에 페어링된 표준 [Azure 지역 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)입니다. 위치 값을 변경할 수 없습니다. 이 자습서의 경우 기본 위치가 `westus2`이며 보조 위치는 `WestCentralUS`입니다.
+1. 수동 장애 조치(failover) 창에 **현재 위치** 및 **장애 조치(failover) 위치**가 표시됩니다. 현재 위치는 항상 허브가 현재 활성 상태인 위치를 나타냅니다. 장애 조치(failover) 위치는 현재 위치에 페어링된 표준 [Azure 지역 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)입니다. 위치 값을 변경할 수 없습니다. 이 자습서의 경우 현재 위치가 `West US 2`이며 장애 조치(failover) 위치는 `West Central US`입니다.
 
    ![수동 장애 조치 창을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-02.png)
 
-3. 수동 장애 조치 창의 맨 위에서 **장애 조치 시작**을 클릭합니다. **수동 장애 조치 확인** 창이 표시됩니다. 장애 조치할 항목이 있는지 확인하려는 IoT Hub의 이름을 입력합니다. 그런 다음, 장애 조치를 시작하려면 **확인**을 클릭합니다.
+1. 수동 장애 조치(failover) 창의 맨 위에서 **장애 조치(failover) 시작**을 클릭합니다. 
+
+1. 확인 창에서 장애 조치할 항목이 있는지 확인하려는 IoT Hub의 이름을 입력합니다. 그런 다음, 장애 조치(failover)를 시작하려면 **장애 조치(failover)** 를 클릭합니다.
 
    수동 장애 조치를 수행하는 데 걸리는 시간은 허브에 등록된 디바이스의 수에 비례합니다. 예를 들어 100,000개의 디바이스가 있는 경우 15분 정도가 걸릴 수 있지만 5백만 개의 디바이스가 있는 경우 1시간 이상 걸릴 수 있습니다.
 
-4. **수동 장애 조치(failover) 확인** 창에서 장애 조치할 항목이 있는지 확인하려는 IoT Hub의 이름을 입력합니다. 그런 다음, 장애 조치를 시작하려면 확인을 클릭합니다. 
-
    ![수동 장애 조치 창을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   수동 장애 조치 프로세스가 실행되는 동안 수동 장애 조치 창에 수동 장애 조치가 진행 중임을 알려주는 배너가 표시됩니다. 
+   수동 장애 조치(failover) 프로세스가 실행되는 동안 수동 장애 조치(failover)가 진행 중임을 알리는 배너가 표시됩니다. 
 
    ![진행 중인 수동 장애 조치를 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-04-in-progress.png)
 
-   IoT Hub 창을 닫고 리소스 그룹 창에서 클릭하여 다시 여는 경우 허브가 활성화되었음을 알려주는 배너가 표시됩니다. 
+   IoT Hub 창을 닫고 리소스 그룹 창에서 클릭하여 다시 여는 경우 허브가 수동 장애 조치(failover) 중임을 알려주는 배너가 표시됩니다. 
 
-   ![비활성화된 IoT Hub를 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
+   ![진행 중인 IoT Hub 장애 조치(failover)를 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   작업이 완료되면 수동 장애 조치 페이지에서 기본 및 보조 지역이 대칭 이동하고 허브가 다시 활성화됩니다. 이 예제에서 현재 기본 위치가 `WestCentralUS`이며 보조 위치는 `westus2`입니다. 
+   작업이 완료되면 수동 장애 조치(failover) 페이지에서 현재 및 장애 조치(failover) 지역이 대칭 이동하고 허브가 다시 활성화됩니다. 이 예제에서 현재 기본 위치가 `WestCentralUS`이며 장애 조치(failover) 위치는 `West US 2`입니다. 
 
    ![장애 조치가 완료되었음을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
+
+   개요 페이지에는 장애 조치(failover)가 완료되고 IoT Hub가 `West Central US`에서 실행 중임을 나타내는 배너가 표시됩니다.
+
+   ![개요 페이지에서 장애 조치(failover)가 완료되었음을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
+
 
 ## <a name="perform-a-failback"></a>장애 복구(failback) 수행 
 
@@ -101,15 +110,15 @@ IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 �
 
 1. 장애 복구를 수행하려면 Iot Hub에 대한 Iot Hub 창으로 돌아갑니다.
 
-2. IoT Hub 창의 **복원력**에서 **수동 장애 조치(미리 보기)** 를 클릭합니다. 
+2. IoT Hub 창의 **설정**에서 **장애 조치(Failover)** 를 클릭합니다. 
 
-3. 수동 장애 조치 창의 맨 위에서 **장애 조치 시작**을 클릭합니다. **수동 장애 조치 확인** 창이 표시됩니다. 
+3. 수동 장애 조치(failover) 창의 맨 위에서 **장애 조치(failover) 시작**을 클릭합니다. 
 
-4. **수동 장애 조치(failover) 확인** 창에서 장애 복구(failback)할 항목이 있는지 확인하려는 IoT Hub의 이름을 입력합니다. 그런 다음, 장애 복구를 시작하려면 확인을 클릭합니다. 
+4. 확인 창에서 장애 복구(failback)할 항목이 있는지 확인하려는 IoT Hub의 이름을 입력합니다. 그런 다음, 장애 복구를 시작하려면 확인을 클릭합니다. 
 
-   ![수동 장애 복구 요청 스크린샷](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
+   ![수동 장애 복구 요청 스크린샷](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   배너는 장애 조치 수행 섹션에 설명된 대로 표시됩니다. 장애 복구를 완료한 후에 원래 설정된 대로 `westus2`를 기본 위치로 표시하고 `WestCentralUS`를 보조 위치로 표시합니다.
+   배너는 장애 조치 수행 섹션에 설명된 대로 표시됩니다. 장애 복구(failback)를 완료한 후에 원래 설정된 대로 `West US 2`를 현재 위치로 표시하고 `West Central US`를 장애 조치(failover) 위치로 표시합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
@@ -135,4 +144,4 @@ IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 �
 IoT 디바이스의 상태를 관리하는 방법에 대해 알아보려면 다음 자습서로 이동합니다. 
 
 > [!div class="nextstepaction"]
-> [IoT 장치의 상태 관리](tutorial-device-twins.md)
+> [IoT 디바이스의 상태 관리](tutorial-device-twins.md)

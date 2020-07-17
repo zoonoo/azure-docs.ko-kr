@@ -1,199 +1,399 @@
 ---
-title: 웹 앱 호출 web Api (코드 구성-)는 Microsoft id 플랫폼
-description: 웹 앱을 빌드하는 방법을 알아봅니다 호출 web Api (응용 프로그램의 코드 구성)는
+title: 웹 API를 호출하는 웹앱 구성 - Microsoft ID 플랫폼 | Azure
+description: 웹 API를 호출하는 웹앱의 코드를 구성하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 3a6f92022a4e26c84efc2d5f68c3aad8b4685d30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558800"
 ---
-# <a name="web-app-that-calls-web-apis---code-configuration"></a>호출 웹 Api 코드 구성 되는 웹 앱
+# <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
 
-에 표시 된 대로 [웹 앱 로그인 사용자 시나리오](scenario-web-app-sign-user-overview.md)에 Open ID를 위임 된 사용자를 로그인 connect (OIDC) 미들웨어, OIDC 프로세스에서 후크 하는 데 사용할 수 있습니다. 작업을 수행 하는 방법은 프레임 워크에 따라 다릅니다. 있습니다 사용 (여기 ASP.NET 및 ASP.NET Core) 미들웨어 OIDC 이벤트를 구독할 것을 하지만 합니다. 원리는 다음과 같습니다.
+[사용자를 로그인하는 웹앱](scenario-web-app-sign-user-overview.md) 시나리오에 나온 것처럼 웹앱은 [OAuth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 사용자를 로그인합니다. 이 흐름에는 두 단계가 있습니다.
 
-- 하면 사용할 수 있게 ASP.NET 또는 ASP.NET core 권한 부여 코드를 요청 합니다. ASP.NET/ASP.NET 코어는 수행 하 여 사용자가 로그인 하 고 동의 하면 수 있도록
-- 웹 앱에서 권한 부여 코드 수신에 가입할 수 있습니다.
-- 인증 코드를 수신 하면 MSAL 라이브러리 코드 및 결과 액세스 토큰을 사용 하 고 토큰 캐시의 저장소 토큰 새로 고침을 사용 합니다. 여기에서 캐시 수 응용 프로그램의 다른 부분에서 자동으로 다른 토큰을 획득 합니다.
+1. 인증 코드를 요청합니다. 이 부분에서는 사용자와의 프라이빗 대화 상자를 Microsoft ID 플랫폼에 위임합니다. 해당 대화가 진행되는 동안 사용자는 로그인하여 웹 API 사용에 동의합니다. 프라이빗 대화 상자가 성공적으로 종료되면 웹앱은 해당 리디렉션 URI에 대한 인증 코드를 수신합니다.
+1. 인증 코드를 교환하여 API에 대한 액세스 토큰을 요청합니다.
 
-## <a name="libraries-supporting-web-app-scenarios"></a>웹 앱 시나리오를 지 원하는 라이브러리
+[사용자를 로그인하는 웹앱](scenario-web-app-sign-user-overview.md) 시나리오에서는 첫 번째 단계에 대해서만 다룹니다. 사용자를 로그인할 뿐만 아니라 이제 웹 API를 호출하도록 웹앱을 수정하는 방법을 알아봅니다.
 
-웹 앱에 대 한 권한 부여 코드 흐름을 지 원하는 라이브러리는 다음과 같습니다.
+## <a name="libraries-that-support-web-app-scenarios"></a>웹앱 시나리오를 지원하는 라이브러리
 
-| MSAL 라이브러리 | 설명 |
+MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 대한 인증 코드 흐름을 지원합니다.
+
+| MSAL 라이브러리 | Description |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 지원 되는 플랫폼은.NET Framework 및.NET Core 플랫폼 (UWP 없습니다, Xamarin.iOS 및 Xamarin.Android 플랫폼으로 하는 데 공용 클라이언트 응용 프로그램 빌드) |
-| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 진행 중-공개 미리 보기에서 개발 |
-| ![자바](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 진행 중-공개 미리 보기에서 개발 |
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework 및 .NET Core 플랫폼을 지원합니다. UWP(유니버설 Windows 플랫폼), Xamarin.iOS 및 Xamarin.Android는 퍼블릭 클라이언트 애플리케이션을 빌드하는 데 사용되는 플랫폼이므로 지원되지 않습니다. ASP.NET Core 웹앱 및 웹 API, MSAL.NET은 Microsoft.Identity.Web이라는 더 높은 수준의 라이브러리에 캡슐화되어 있습니다.|
+| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> Python용 MSAL | Python 웹 애플리케이션 지원. |
+| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> Java용 MSAL | Java 웹 애플리케이션 지원. |
 
-## <a name="aspnet-core-configuration"></a>ASP.NET Core 구성
+관심 있는 플랫폼에 대한 탭을 선택합니다.
 
-ASP.NET Core에서의 작업이 수행 된 `Startup.cs` 파일입니다. 구독 하는 것이 좋습니다는 `OnAuthorizationCodeReceived` ID 열 이벤트를 연결 하 고이 이벤트에서 MSAL을 호출 합니다. NET의 메서드 `AcquireTokenFromAuthorizationCode` 토큰 캐시, 요청 된 범위에 대 한 액세스 토큰 및 만료에 가까워질 때 액세스 토큰 새로 고침 또는 동일한 사용자를 대신해 서 토큰을 가져오려면 사용할 새로 고침 토큰을 저장 하는 효과가 있는 에 있지만 다른 리소스에 대 한 합니다.
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-아래 코드의 주석의 위빙을 MSAL.NET 및 ASP.NET Core의 몇 가지 까다로운 측면을 이해 하는 데 도움이 됩니다.
+웹앱에서 Microsoft.Identity.Web을 사용할 때 보호되는 API를 호출할 수 있도록 하려면 `AddWebAppCallsProtectedWebApi`를 호출하고 토큰 캐시 직렬화 형식(예: 메모리 내 토큰 캐시)을 지정하기만 하면 됩니다.
 
-```CSharp
-  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-  {
-   // Response type. We ask ASP.NET to request an Auth Code, and an IDToken
-   options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
-
-   // This "offline_access" scope is needed to get a refresh token when users sign in with
-   // their Microsoft personal accounts
-   // (it's required by MSAL.NET and automatically provided by Azure AD when users
-   // sign in with work or school accounts, but not with their Microsoft personal accounts)
-   options.Scope.Add(OidcConstants.ScopeOfflineAccess);
-   options.Scope.Add("user.read"); // for instance
-
-   // Handling the auth redemption by MSAL.NET so that a token is available in the token cache
-   // where it will be usable from Controllers later (through the TokenAcquisition service)
-   var handler = options.Events.OnAuthorizationCodeReceived;
-   options.Events.OnAuthorizationCodeReceived = async context =>
-   {
-    // As AcquireTokenByAuthorizationCode is asynchronous we want to tell ASP.NET core
-    // that we are handing the code even if it's not done yet, so that it does 
-    // not concurrently call the Token endpoint.
-    context.HandleCodeRedemption();
-
-    // Call MSAL.NET AcquireTokenByAuthorizationCode
-    var application = BuildConfidentialClientApplication(context.HttpContext,
-                                                         context.Principal);
-    var result = await application.AcquireTokenByAuthorizationCode(scopes.Except(scopesRequestedByMsalNet), context.ProtocolMessage.Code)
-                                  .ExecuteAsync();
-
-    // Do not share the access token with ASP.NET Core otherwise ASP.NET will cache it
-    // and will not send the OAuth 2.0 request in case a further call to
-    // AcquireTokenByAuthorizationCodeAsync in the future for incremental consent 
-    // (getting a code requesting more scopes)
-    // Share the ID Token so that the identity of the user is known in the application (in 
-    // HttpContext.User)
-    context.HandleCodeRedemption(null, result.IdToken);
-
-    // Call the previous handler if any
-    await handler(context);
-   };
-```
-
-ASP.NET core에서는 기밀 클라이언트 응용 프로그램 빌드 HttpContext에 있는 정보를 사용 합니다. 웹 앱에서 로그인 한 사용자를 인식 된 URL이이 HttpContext (에 `ClaimsPrincipal`). 또한 사용 하 여 ASP.NET Core 구성에는 "azure Ad" 섹션에는 및에 바인딩된는 `_applicationOptions` 데이터 구조입니다. 마지막으로 응용 프로그램 토큰 캐시를 유지 해야 합니다.
-
-```CSharp
-/// <summary>
-/// Creates an MSAL Confidential client application
-/// </summary>
-/// <param name="httpContext">HttpContext associated with the OIDC response</param>
-/// <param name="claimsPrincipal">Identity for the signed-in user</param>
-/// <returns></returns>
-private IConfidentialClientApplication BuildConfidentialClientApplication(HttpContext httpContext, ClaimsPrincipal claimsPrincipal)
+```C#
+// This method gets called by the runtime. Use this method to add services to the container.
+public void ConfigureServices(IServiceCollection services)
 {
- var request = httpContext.Request;
+    // more code here
 
- // Find the URI of the application)
- string currentUri = UriHelper.BuildAbsolute(request.Scheme, request.Host, request.PathBase, azureAdOptions.CallbackPath ?? string.Empty);
+    services.AddSignIn(Configuration, "AzureAd")
+            .AddWebAppCallsProtectedWebApi(Configuration,
+                                           initialScopes: new string[] { "user.read" })
+            .AddInMemoryTokenCaches();
 
- // Updates the authority from the instance (including national clouds) and the tenant
- string authority = $"{azureAdOptions.Instance}{azureAdOptions.TenantId}/";
-
- // Instantiates the application based on the application options (including the client secret)
- var app = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_applicationOptions)
-               .WithRedirectUri(currentUri)
-               .WithAuthority(authority)
-               .Build();
-
- // Initialize token cache providers. In the case of Web applications, there must be one
- // token cache per user (here the key of the token cache is in the claimsPrincipal which
- // contains the identity of the signed-in user)
- if (this.UserTokenCacheProvider != null)
- {
-  this.UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
- }
- if (this.AppTokenCacheProvider != null)
- {
-  this.AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
- }
- return app;
+    // more code here
 }
 ```
 
-`AcquireTokenByAuthorizationCode` 실제로 ASP.NET에서 요청한 권한 부여 코드를 교환 하 고 MSAL.NET 사용자 토큰 캐시에 추가 되는 토큰을 가져옵니다. 여기에서 하 한 ASP.NET Core 컨트롤러에서 사용 합니다.
+토큰 캐시에 대해 자세히 알아보려면 [토큰 캐시 직렬화 옵션](#token-cache)을 참조하세요.
 
-## <a name="aspnet-configuration"></a>ASP.NET 구성
+> [!NOTE]
+> 여기에서 코드 예제를 완전히 이해하려면 [ASP.NET Core 기본](https://docs.microsoft.com/aspnet/core/fundamentals), 특히 [종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) 및 [옵션](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)에 대해 잘 알고 있어야 합니다.
 
-ASP.NET 작업을 처리 하는 방법은 비슷합니다 점을 제외 하 고 OpenIdConnect 및 구독을 구성 합니다 `OnAuthorizationCodeReceived` 이벤트가 발생 하면는 `App_Start\Startup.Auth.cs` 파일입니다. 알게 비슷한 개념 RedirectUri 약간 작은 경우 구성 파일을 지정 해야 하는 여기는 점을 제외 하 고 강력한:
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-```CSharp
-private void ConfigureAuth(IAppBuilder app)
+사용자 로그인은 OIDC(Open ID Connect) 미들웨어에 위임되므로 OIDC 프로세스와 상호 작용해야 합니다. 상호 작용하는 방법은 사용하는 프레임워크에 따라 다릅니다.
+
+ASP.NET의 경우 미들웨어 OIDC 이벤트를 구독합니다.
+
+- ASP.NET Core에서 Open ID Connect 미들웨어를 통해 인증 코드를 요청하게 됩니다. ASP.NET 또는 ASP.NET Core를 통해 사용자가 로그인하고 동의할 수 있습니다.
+- 웹앱을 구독하여 인증 코드를 수신합니다. 이 구독은 C# 대리자를 사용하여 수행됩니다.
+- 인증 코드를 받으면 MSAL 라이브러리를 사용하여 해당 코드를 교환합니다. 결과 액세스 토큰과 새로 고침 토큰은 토큰 캐시에 저장됩니다. 컨트롤러와 같은 애플리케이션의 다른 부분에서 캐시를 사용하여 다른 토큰을 자동으로 가져올 수 있습니다.
+
+이 문서 및 다음 예제의 코드 예제는 [ASP.NET 웹앱 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)에서 추출됩니다. 전체 구현에 대한 자세한 내용은 해당 샘플을 참조하는 것이 좋습니다.
+
+# <a name="java"></a>[Java](#tab/java)
+
+이 문서 및 다음 예제의 코드 예제는 Java용 MSAL을 사용하는 웹앱 샘플인 [Microsoft Graph를 호출하는 Java 웹 애플리케이션](https://github.com/Azure-Samples/ms-identity-java-webapp)에서 추출됩니다.
+샘플은 현재 Java용 MSAL에서 권한 부여 코드 URL을 생성하고 Microsoft ID 플랫폼에 대한 권한 부여 엔드포인트 탐색을 처리합니다. 스프린트 보안을 사용하여 사용자를 로그인할 수도 있습니다. 전체 구현에 대한 자세한 내용은 샘플을 참조하는 것이 좋습니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+이 문서 및 다음 문서의 코드 예제는 MSAL.Python을 사용하는 웹앱 샘플인 [Microsoft Graph를 호출하는 Python 웹 애플리케이션](https://github.com/Azure-Samples/ms-identity-python-webapp)에서 추출됩니다.
+샘플은 현재 MSAL.Python에서 권한 부여 코드 URL을 생성하고 Microsoft ID 플랫폼에 대한 권한 부여 엔드포인트 탐색을 처리합니다. 전체 구현에 대한 자세한 내용은 샘플을 참조하는 것이 좋습니다.
+
+---
+
+## <a name="code-that-redeems-the-authorization-code"></a>인증 코드를 교환하는 코드입니다.
+
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
+
+Microsoft.Identity.Web은 올바른 OpenID Connect 설정을 지정하고, 코드를 받은 이벤트를 구독하고, 코드를 교환하여 코드를 단순화합니다. 인증 코드를 교환하는 데 필요한 추가 코드는 없습니다.
+
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
+
+ASP.NET은 OpenID Connect의 구성과 `OnAuthorizationCodeReceived` 이벤트에 대한 구독이 [App_Start\Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) 파일에서 발생한다는 점을 제외하고 ASP.NET Core와 유사한 작업을 처리합니다. ASP.NET에서는 `RedirectUri`를 [Web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15)에서 지정해야 한다는 점을 제외하고 개념도 ASP.NET Core와 유사합니다. 이 구성은 애플리케이션을 배포할 때 변경해야 하기 때문에 ASP.NET Core에서보다 약간 덜 강력합니다.
+
+Startup.Auth.cs에 대한 코드는 다음과 같습니다.
+
+```csharp
+public partial class Startup
 {
- app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-
- app.UseCookieAuthentication(new CookieAuthenticationOptions { });
-
- app.UseOpenIdConnectAuthentication(
- new OpenIdConnectAuthenticationOptions
- {
-  Authority = Globals.Authority,
-  ClientId = Globals.ClientId,
-  RedirectUri = Globals.RedirectUri,
-  PostLogoutRedirectUri = Globals.RedirectUri,
-  Scope = Globals.BasicSignInScopes, // a basic set of permissions for user sign in & profile access
-  TokenValidationParameters = new TokenValidationParameters
+  public void ConfigureAuth(IAppBuilder app)
   {
-  // We'll inject our own issuer validation logic below.
-  ValidateIssuer = false,
-  NameClaimType = "name",
-  },
-  Notifications = new OpenIdConnectAuthenticationNotifications()
-  {
-   AuthorizationCodeReceived = OnAuthorizationCodeReceived,
+    app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+
+    app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+    // Custom middleware initialization. This is activated when the code obtained from a code_grant is present in the query string (&code=<code>).
+    app.UseOAuth2CodeRedeemer(
+        new OAuth2CodeRedeemerOptions
+        {
+            ClientId = AuthenticationConfig.ClientId,
+            ClientSecret = AuthenticationConfig.ClientSecret,
+            RedirectUri = AuthenticationConfig.RedirectUri
+        }
+      );
+
+  app.UseOpenIdConnectAuthentication(
+      new OpenIdConnectAuthenticationOptions
+      {
+        // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0.
+        Authority = AuthenticationConfig.Authority,
+        ClientId = AuthenticationConfig.ClientId,
+        RedirectUri = AuthenticationConfig.RedirectUri,
+        PostLogoutRedirectUri = AuthenticationConfig.RedirectUri,
+        Scope = AuthenticationConfig.BasicSignInScopes + " Mail.Read", // A basic set of permissions for user sign-in and profile access "openid profile offline_access"
+        TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            // In a real application, you would use IssuerValidator for additional checks, such as making sure the user's organization has signed up for your app.
+            //     IssuerValidator = (issuer, token, tvp) =>
+            //     {
+            //        //if(MyCustomTenantValidation(issuer))
+            //        return issuer;
+            //        //else
+            //        //    throw new SecurityTokenInvalidIssuerException("Invalid issuer");
+            //    },
+            //NameClaimType = "name",
+        },
+        Notifications = new OpenIdConnectAuthenticationNotifications()
+        {
+            AuthorizationCodeReceived = OnAuthorizationCodeReceived,
+            AuthenticationFailed = OnAuthenticationFailed,
+        }
+      });
   }
- });
+
+  private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification context)
+  {
+      // Upon successful sign-in, get the access token and cache it by using MSAL.
+      IConfidentialClientApplication clientApp = MsalAppBuilder.BuildConfidentialClientApplication(new ClaimsPrincipal(context.AuthenticationTicket.Identity));
+      AuthenticationResult result = await clientApp.AcquireTokenByAuthorizationCode(new[] { "Mail.Read" }, context.Code).ExecuteAsync();
+  }
+
+  private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
+  {
+      notification.HandleResponse();
+      notification.Response.Redirect("/Error?message=" + notification.Exception.Message);
+      return Task.FromResult(0);
+  }
 }
 ```
 
-```CSharp
-private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification context)
-{
- // Upon successful sign in, get & cache a token using MSAL
- string userId = context.AuthenticationTicket.Identity.FindFirst(ClaimTypes.NameIdentifier).Value;
- IConfidentialClientApplication clientapp;
- clientApp = ConfidentialClientApplicationBuilder.Create(Globals.ClientId)
-                  .WithClientSecret(Globals.ClientSecret)
-                  .WithRedirectUri(Globals.RedirectUri)
-                  .WithAuthority(new Uri(Globals.Authority))
-                  .Build();
+# <a name="java"></a>[Java](#tab/java)
 
-  EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);
+[사용자를 로그인하는 웹앱: 코드 구성](scenario-web-app-sign-user-app-configuration.md?tabs=java#initialization-code)을 참조하여 Java 샘플에서 인증 코드를 가져오는 방법을 알아보세요. 앱에서 코드를 수신한 후, [AuthFilter.java#L51-L56](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java#L51-L56):
 
- AuthenticationResult result = await clientapp.AcquireTokenByAuthorizationCode(scopes, context.Code)
-                                              .ExecuteAsync();
+1. [AuthHelper.java#L67-L97](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L67-L97)에서 `AuthHelper.processAuthenticationCodeRedirect` 메서드로 위임합니다.
+1. `getAuthResultByAuthCode`를 호출합니다.
+
+```Java
+class AuthHelper {
+  // Code omitted
+  void processAuthenticationCodeRedirect(HttpServletRequest httpRequest, String currentUri, String fullUrl)
+            throws Throwable {
+
+  // Code omitted
+  AuthenticationResponse authResponse = AuthenticationResponseParser.parse(new URI(fullUrl), params);
+
+  // Code omitted
+  IAuthenticationResult result = getAuthResultByAuthCode(
+                    httpRequest,
+                    oidcResponse.getAuthorizationCode(),
+                    currentUri);
+
+// Code omitted
+  }
 }
 ```
 
-### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>(코어) ASP.NET 웹 앱에 대 한 MSAL.NET 토큰 캐시
+`getAuthResultByAuthCode` 메서드는 [AuthHelper.java#L176](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L176)에 정의되어 있습니다. MSAL `ConfidentialClientApplication`을 만든 다음, 인증 코드에서 만든 `AuthorizationCodeParameters`를 사용하여 `acquireToken()`을 호출합니다.
 
-웹 앱, 웹 Api의 팩트를 토큰 캐시 구현을 다릅니다 데스크톱 응용 프로그램 토큰 캐시 구현을 (하는 경우가 많습니다 [기반 파일](scenario-desktop-acquire-token.md#file-based-token-cache)합니다. ASP.NET/ASP.NET Core 세션 또는 Redis cache를 또는 데이터베이스 또는 Azure Blob 저장소도 사용할 수 있습니다. 코드에서이 코드 조각은의 개체는 `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` 캐시 서비스를 바인딩하는 메서드 호출 합니다. 세부 정보는 같습니다.이 시나리오 가이드에서 다루지 않지만 아래의 링크를 클릭 발생 합니다.
+```Java
+   private IAuthenticationResult getAuthResultByAuthCode(
+            HttpServletRequest httpServletRequest,
+            AuthorizationCode authorizationCode,
+            String currentUri) throws Throwable {
+
+        IAuthenticationResult result;
+        ConfidentialClientApplication app;
+        try {
+            app = createClientApplication();
+
+            String authCode = authorizationCode.getValue();
+            AuthorizationCodeParameters parameters = AuthorizationCodeParameters.builder(
+                    authCode,
+                    new URI(currentUri)).
+                    build();
+
+            Future<IAuthenticationResult> future = app.acquireToken(parameters);
+
+            result = future.get();
+        } catch (ExecutionException e) {
+            throw e.getCause();
+        }
+
+        if (result == null) {
+            throw new ServiceUnavailableException("authentication result was null");
+        }
+
+        SessionManagementHelper.storeTokenCacheInSession(httpServletRequest, app.tokenCache().serialize());
+
+        return result;
+    }
+
+    private ConfidentialClientApplication createClientApplication() throws MalformedURLException {
+        return ConfidentialClientApplication.builder(clientId, ClientCredentialFactory.create(clientSecret)).
+                authority(authority).
+                build();
+    }
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+인증 코드 흐름은 [사용자를 로그인하는 웹앱: 코드 구성](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code)에 표시된 대로 요청됩니다. 그런 다음, Flask가 `/getAToken` URL에서 라우팅되는 `authorized` 함수에서 코드가 수신됩니다. 이 코드의 전체 컨텍스트는 [app.py#L30-L44](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L30-L44)를 참조하세요.
+
+```python
+ @app.route("/getAToken")  # Its absolute URL must match your app's redirect_uri set in AAD.
+def authorized():
+    if request.args['state'] != session.get("state"):
+        return redirect(url_for("login"))
+    cache = _load_cache()
+    result = _build_msal_app(cache).acquire_token_by_authorization_code(
+        request.args['code'],
+        scopes=app_config.SCOPE,  # Misspelled scope would cause an HTTP 400 error here.
+        redirect_uri=url_for("authorized", _external=True))
+    if "error" in result:
+        return "Login failure: %s, %s" % (
+            result["error"], result.get("error_description"))
+    session["user"] = result.get("id_token_claims")
+    _save_cache(cache)
+    return redirect(url_for("index"))
+```
+
+---
+
+클라이언트 암호 대신 클라이언트 인증서 또는 클라이언트 어설션을 사용하여 기밀 클라이언트 애플리케이션에서 해당 ID를 증명할 수도 있습니다.
+클라이언트 어설션을 사용하는 것은 고급 시나리오로, [클라이언트 어설션](msal-net-client-assertions.md)에 자세히 설명되어 있습니다.
+
+## <a name="token-cache"></a>토큰 캐시
 
 > [!IMPORTANT]
-> 매우 중요 한 사항은 웹 앱과 web Api에 있어야 한다는 사용자 (계정) 당 하나의 토큰 캐시 됩니다. 각 계정의 토큰 캐시를 직렬화해야 합니다.
+> 웹앱 또는 웹 API에 대한 토큰 캐시 구현은 데스크톱 애플리케이션에 대한 구현과 다르며, 이는 종종 [파일 기반](scenario-desktop-acquire-token.md#file-based-token-cache)입니다.
+> 보안 및 성능상의 이유로, 웹앱 및 웹 API의 경우 사용자 계정마다 하나의 토큰 캐시가 있는지 확인하는 것이 중요합니다. 각 계정의 토큰 캐시를 직렬화해야 합니다.
 
-토큰 캐시를 사용 하 여 웹 앱 및 웹 Api에 대 한 방법의 예제에서 사용할 수는 [ASP.NET Core 웹 앱 자습서](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 단계의 [2-2 토큰 캐시](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)합니다. 구현 방법은 [Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 폴더에 있는 [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) 라이브러리의 [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) 폴더를 살펴보세요.
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
+
+ASP.NET Core 자습서에서는 종속성 주입을 사용하여 애플리케이션에 대한 Startup.cs 파일에서 토큰 캐시 구현을 결정할 수 있습니다. Microsoft.Identity.Web에는 [토큰 캐시 직렬화](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application)에 설명된 미리 작성된 토큰 캐시 직렬 변환기가 제공됩니다. ASP.NET Core [분산 메모리 캐시](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache)를 선택할 수도 있습니다.
+
+```csharp
+// Use a distributed token cache by adding:
+    services.AddSignIn(Configuration, "AzureAd")
+            .AddWebAppCallsProtectedWebApi(Configuration,
+                                           initialScopes: new string[] { "user.read" })
+            .AddDistributedTokenCaches();
+
+// Then, choose your implementation.
+// For instance, the distributed in-memory cache (not cleared when you stop the app):
+services.AddDistributedMemoryCache();
+
+// Or a Redis cache:
+services.AddStackExchangeRedisCache(options =>
+{
+ options.Configuration = "localhost";
+ options.InstanceName = "SampleInstance";
+});
+
+// Or even a SQL Server token cache:
+services.AddDistributedSqlServerCache(options =>
+{
+ options.ConnectionString = _config["DistCache_ConnectionString"];
+ options.SchemaName = "dbo";
+ options.TableName = "TestCache";
+});
+```
+
+토큰 캐시 공급자에 대한 자세한 내용은 자습서에서 [ASP.NET Core 웹앱 자습서 | 토큰 캐시](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) 단계를 참조하세요.
+
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
+
+웹앱 또는 웹 API에 대한 토큰 캐시 구현은 데스크톱 애플리케이션에 대한 구현과 다르며, 이는 종종 [파일 기반](scenario-desktop-acquire-token.md#file-based-token-cache)입니다.
+
+웹앱 구현에서는 ASP.NET 세션 또는 서버 메모리를 사용할 수 있습니다. 예를 들어 [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Utils/MsalAppBuilder.cs#L39-L51)에서 MSAL.NET 애플리케이션을 만든 후 캐시 구현이 후크되는 방법을 참조하세요.
+
+```csharp
+public static class MsalAppBuilder
+{
+ // Omitted code
+    public static IConfidentialClientApplication BuildConfidentialClientApplication(ClaimsPrincipal currentUser)
+    {
+      IConfidentialClientApplication clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
+            .WithClientSecret(AuthenticationConfig.ClientSecret)
+            .WithRedirectUri(AuthenticationConfig.RedirectUri)
+            .WithAuthority(new Uri(AuthenticationConfig.Authority))
+            .Build();
+
+      // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache with our implementation.
+      MSALPerUserMemoryTokenCache userTokenCache = new MSALPerUserMemoryTokenCache(clientapp.UserTokenCache, currentUser ?? ClaimsPrincipal.Current);
+
+      return clientapp;
+  }
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+MSAL Java는 토큰 캐시를 직렬화 및 역직렬화하는 메서드를 제공합니다. Java 샘플은 [AuthHelper.java#L99-L122](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L99-L122)의 `getAuthResultBySilentFlow` 메서드에 표시된 것처럼 세션에서 직렬화를 처리합니다.
+
+```Java
+IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, HttpServletResponse httpResponse)
+      throws Throwable {
+
+  IAuthenticationResult result =  SessionManagementHelper.getAuthSessionObject(httpRequest);
+
+  IConfidentialClientApplication app = createClientApplication();
+
+  Object tokenCache = httpRequest.getSession().getAttribute("token_cache");
+  if (tokenCache != null) {
+      app.tokenCache().deserialize(tokenCache.toString());
+  }
+
+  SilentParameters parameters = SilentParameters.builder(
+          Collections.singleton("User.Read"),
+          result.account()).build();
+
+  CompletableFuture<IAuthenticationResult> future = app.acquireTokenSilently(parameters);
+  IAuthenticationResult updatedResult = future.get();
+
+  // Update session with latest token cache.
+  SessionManagementHelper.storeTokenCacheInSession(httpRequest, app.tokenCache().serialize());
+
+  return updatedResult;
+}
+```
+
+`SessionManagementHelper` 클래스의 세부 정보는 [Java용 MSAL 샘플](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/SessionManagementHelper.java)에 제공됩니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python 샘플에서 각 요청에 대한 기밀 클라이언트 애플리케이션을 다시 만든 다음, Flask 세션 캐시에서 직렬화하여 계정마다 하나의 캐시가 있는지 확인합니다.
+
+```python
+from flask import Flask, render_template, session, request, redirect, url_for
+from flask_session import Session  # https://pythonhosted.org/Flask-Session
+import msal
+import app_config
+
+
+app = Flask(__name__)
+app.config.from_object(app_config)
+Session(app)
+
+# Code omitted here for simplicity
+
+def _load_cache():
+    cache = msal.SerializableTokenCache()
+    if session.get("token_cache"):
+        cache.deserialize(session["token_cache"])
+    return cache
+
+def _save_cache(cache):
+    if cache.has_state_changed:
+        session["token_cache"] = cache.serialize()
+
+def _build_msal_app(cache=None):
+    return msal.ConfidentialClientApplication(
+        app_config.CLIENT_ID, authority=app_config.AUTHORITY,
+        client_credential=app_config.CLIENT_SECRET, token_cache=cache)
+```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시점에서 때 사용자 로그인 토큰을 토큰 캐시에 저장 됩니다. 웹 앱의 다른 부분에 다음 사용 방법 확인해 보겠습니다.
+이 시점에서 사용자가 로그인하면 토큰이 토큰 캐시에 저장됩니다. 웹앱의 다른 부분에서 사용되는 방법을 살펴보겠습니다.
 
 > [!div class="nextstepaction"]
-> [웹 앱에 로그인](scenario-web-app-call-api-sign-in.md)
+> [웹 API를 호출하는 웹앱: 글로벌 로그아웃 시 캐시에서 계정 제거](scenario-web-app-call-api-sign-in.md)

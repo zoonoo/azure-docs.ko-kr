@@ -1,5 +1,5 @@
 ---
-title: 색 구성표 검색 - Computer Vision
+title: 색 구성표 검색-Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 이미지에서 색 구성표를 검색하는 데 관련된 개념입니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998620"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80244735"
 ---
 # <a name="detect-color-schemes-in-images"></a>이미지에서 색 구성표 검색
 
@@ -30,7 +30,7 @@ Computer Vision은 주조색과 채도의 조합을 기반으로 하여 이미�
 
 다음 예제에서는 예제 이미지의 색 구성표를 검색할 때 Computer Vision에서 반환된 JSON 응답을 보여줍니다. 이 경우 예제 이미지는 흑백 이미지가 아니라 기조 전경색 및 배경색이 검은색이고 전체 이미지의 주조색이 검은색과 흰색입니다.
 
-![야외 Mountain 일몰, 개인의 실루엣을 사용 하 여](./Images/mountain_vista.png)
+![사용자의 실루엣을 사용한 일몰 전 실외 산](./Images/mountain_vista.png)
 
 ```json
 {
@@ -56,8 +56,8 @@ Computer Vision은 주조색과 채도의 조합을 기반으로 하여 이미�
 
 | 이미지 | 주조색 |
 |-------|-----------------|
-|![녹색 배경의 흰색 꽃](./Images/flower.png)| 전경: 검정<br/>배경: 흰색<br/>색: 검은색, 흰색, 녹색|
-![역을 달리는 열차](./Images/train_station.png) | 전경: 검정<br/>배경: 검정<br/>색: 검정 |
+|![녹색 배경의 흰색 꽃](./Images/flower.png)| 전경색: 검은색<br/>배경색: 흰색<br/>색: 검은색, 흰색, 녹색|
+![역을 달리는 열차](./Images/train_station.png) | 전경색: 검은색<br/>배경색: 검은색<br/>색: 검은색 |
 
 ### <a name="accent-color-examples"></a>강조색 예제
 
@@ -78,6 +78,9 @@ Computer Vision은 주조색과 채도의 조합을 기반으로 하여 이미�
 |![맨해튼 건물의 흑백 사진](./Images/bw_buildings.png) | true |
 |![파란색 집 및 앞 마당](./Images/house_yard.png) | false |
 
-## <a name="next-steps"></a>다음 단계
+## <a name="use-the-api"></a>API 사용
 
-[이미지 형식 검색](concept-detecting-image-types.md)에 대한 개념을 알아봅니다.
+색 구성표 검색 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Color` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 `"color"` 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다.
+
+* [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)

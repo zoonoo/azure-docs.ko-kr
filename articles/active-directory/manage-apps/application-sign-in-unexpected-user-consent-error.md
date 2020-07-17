@@ -3,25 +3,24 @@ title: 애플리케이션에 대한 동의를 수행할 때 예기치 않은 오
 description: 애플리케이션에 대한 동의 프로세스 도중 발생할 수 있는 오류 및 사용자가 할 수 있는 조치를 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763757"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>애플리케이션에 대한 동의를 수행할 때 예기치 않은 오류
 
@@ -33,11 +32,14 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키
 
 ## <a name="requesting-not-authorized-permissions-error"></a>권한 없는 사용 권한 요청 오류
 * **AADSTS90093:** &lt;clientAppDisplayName&gt;은 사용 권한이 부여되지 않은 하나 이상의 사용 권한을 요청합니다. 사용자 대신 이 애플리케이션에 동의할 수 있는 관리자에게 문의합니다.
+* **AADSTS90094:** &lt;clientAppDisplayName&gt;에는 관리자만 권한을 부여할 수 있는 조직의 리소스에 대한 액세스 권한이 필요합니다. 이 앱을 사용하려면 먼저 관리자에게 앱의 사용 권한을 부여하도록 요청하세요.
 
 이 오류는 회사 관리자가 아닌 사용자가 관리자만이 부여할 수 있는 사용 권한을 요청하는 애플리케이션을 사용하려고 할 때 발생합니다. 해당 조직을 대신하여 애플리케이션에 대한 액세스 권한을 부여하는 관리자가 이 오류를 해결할 수 있습니다.
 
+이 오류는 Microsoft가 권한 요청을 위험한 것으로 검색 하 여 사용자가 응용 프로그램에 동의 하지 못하도록 하는 경우에도 발생할 수 있습니다. 이 경우 감사 이벤트는 "ApplicationManagement" 범주, "응용 프로그램에 대 한 동의"의 활동 유형 및 "위험한 응용 프로그램 검색 됨" 상태 이유에도 기록 됩니다.
+
 ## <a name="policy-prevents-granting-permissions-error"></a>사용 권한 부여를 방지하는 정책 오류
-* **AADSTS90093:** &lt;tenantDisplayName&gt;의 관리자는 사용 권한이 요청하는 &lt;앱의 이름&gt;을 부여하지 못하도록 방지하는 정책을 설정했습니다. 사용자 대신 이 앱에 대한 권한을 부여할 수 있는 &lt;tenantDisplayName&gt;의 관리자에게 문의하세요.
+* **AADSTS90093:**&lt;tenantDisplayName&gt;의 관리자는 사용 권한이 요청하는 &lt;앱의 이름&gt;을 부여하지 못하도록 방지하는 정책을 설정했습니다. 사용자 대신 이 앱에 대한 권한을 부여할 수 있는 &lt;tenantDisplayName&gt;의 관리자에게 문의하세요.
 
 회사 관리자가 애플리케이션에 대해 동의하는 사용자의 기능을 해제한 다음, 관리자가 아닌 사용자가 동의를 필요로 하는 애플리케이션을 사용하려는 경우에 이 오류가 발생합니다. 해당 조직을 대신하여 애플리케이션에 대한 액세스 권한을 부여하는 관리자가 이 오류를 해결할 수 있습니다.
 
@@ -47,7 +49,7 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키
 이 오류는 일시적인 서비스 쪽 문제가 발생했음을 나타냅니다. 애플리케이션에 대한 동의하도록 다시 시도하여 문제를 해결할 수 있습니다.
 
 ## <a name="resource-not-available-error"></a>리소스 사용할 수 없음 오류
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; 앱은 사용할 수 없는 &lt;resourceAppDisplayName&gt; 리소스에 액세스하는 사용 권한을 요청했습니다. 
+* **AADSTS65005:**&lt;clientAppDisplayName&gt; 앱은 사용할 수 없는 &lt;resourceAppDisplayName&gt; 리소스에 액세스하는 사용 권한을 요청했습니다. 
 
 애플리케이션 개발자에게 문의하세요.
 
@@ -57,7 +59,7 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키
 이 리소스를 사용할 수 있도록 하거나 &lt;tenantDisplayName&gt;의 관리자에게 문의합니다.
 
 ## <a name="permissions-mismatch-error"></a>권한 불일치 오류
-* **AADSTS65005:** 앱이 &lt;resourceAppDisplayName&gt; 리소스에 액세스하기 위해 동의를 요청했습니다. 앱 등록 중에 앱이 미리 구성된 방법과 일치하지 않기 때문에 이 요청에 실패했습니다. 앱 공급업체에게 문의하세요.**
+* **AADSTS65005:** 앱이 &lt;resourceAppDisplayName&gt; 리소스에 액세스하기 위한 동의를 요청했습니다. 앱 등록 중에 앱이 미리 구성된 방법과 일치하지 않기 때문에 이 요청에 실패했습니다. 앱 공급업체에게 문의하세요.**
 
 사용자가 동의하려는 애플리케이션이 조직의 디렉터리(테넌트)에서 찾을 수 없는 리소스 애플리케이션에 액세스하는 사용 권한을 요청하는 경우에 이러한 오류가 발생합니다. 이 상황이 발생할 수 있는 몇 가지 이유는 다음과 같습니다.
 

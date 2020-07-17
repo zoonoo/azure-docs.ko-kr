@@ -1,67 +1,62 @@
 ---
-title: Azure Automation을 사용 하 여 Azure Analysis Services 모델 새로 고침 | Microsoft Docs
-description: Azure Automation을 사용 하 여 모델 새로 고침을 코딩 하는 방법에 알아봅니다.
+title: Azure Automation을 사용하여 Azure Analysis Services 모델 새로 고침 | Microsoft Docs
+description: 이 문서에서는 Azure Automation을 사용하여 Azure Analysis Services의 모델 새로 고침을 코딩하는 방법을 설명합니다.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 1897193f0ae781029a7303c42ca8eeaa51389892
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389975"
 ---
-# <a name="refresh-with-azure-automation"></a>Azure Automation을 사용 하 여 새로 고침
+# <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
-Azure Automation 및 PowerShell Runbook을 사용 하 여 Azure Analysis 테이블 형식 모델에서 자동된 데이터 새로 고침 작업을 수행할 수 있습니다.  
+Azure Automation과 PowerShell Runbook을 사용하여 Azure Analysis 테이블 형식 모델에서 자동 데이터 새로 고침 작업을 수행할 수 있습니다.  
 
-이 문서의 예제에서에서 사용 하는 [PowerShell SqlServer 모듈](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps)합니다.
+이 문서의 예제에서는 [SqlServer PowerShell 모듈](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps)을 사용 합니다. 모델 새로 고침을 보여주는 샘플 PowerShell Runbook이 이 문서의 뒷부분에서 제공됩니다.  
 
-샘플 모델을 새로 고침 하는 방법을 보여 주는 PowerShell Runbook은이 문서의 뒷부분에 제공 됩니다.  
+## <a name="authentication"></a>인증
 
-## <a name="authentication"></a>Authentication
+모든 호출은 유효한 Azure Active Directory(OAuth 2) 토큰을 사용하여 인증되어야 합니다.  이 문서의 예제에서는 SPN (서비스 주체)을 사용 하 여 Azure Analysis Services에 인증 합니다. 자세히 알아보려면 [Azure Portal를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
 
-유효한 Azure Active Directory (OAuth 2) 토큰을 사용 하 여 모든 호출을 인증 되어야 합니다.  이 문서의 예제에에서는 SPN (서비스 사용자)를 사용 하 여 Azure Analysis Services에 인증할 수 됩니다.
-
-서비스 주체 만들기에 대 한 자세한 내용은 참조 하세요.
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!IMPORTANT]
-> 다음 예제에서는 Azure Analysis Services 방화벽을 비활성화 하는 것으로 가정 합니다. 방화벽이 설정 되어 요청 초기자의 공용 IP 주소를 방화벽에서 허용 목록에 추가 해야 합니다.
+> 다음 예에서는 Azure Analysis Services 방화벽을 사용하지 않는다고 가정합니다. 방화벽이 사용 되는 경우 요청 개시자의 공용 IP 주소를 방화벽 규칙에 포함 해야 합니다.
 
-### <a name="install-sqlserver-modules-from-powershell-gallery"></a>PowerShell 갤러리의 SqlServer 모듈을 설치 합니다.
+### <a name="install-sqlserver-modules-from-powershell-gallery"></a>PowerShell 갤러리에서 SqlServer 모듈을 설치합니다.
 
-1. Azure Automation 계정에서 클릭 **모듈**, 한 다음 **갤러리 찾아보기**합니다.
+1. Azure Automation 계정에서 **모듈**과 **갤러리 찾아보기**를 차례로 클릭합니다.
 
-2. 검색 표시줄에서 검색 **SqlServer**합니다.
+2. 검색 창에서 **SqlServer**를 검색합니다.
 
-    ![모듈 검색](./media/analysis-services-refresh-azure-automation/1.png)
+    ![검색 모듈](./media/analysis-services-refresh-azure-automation/1.png)
 
-3. Sql Server를 선택한 다음 클릭 **가져오기**합니다.
+3. SqlServer를 선택한 다음, **가져오기**를 클릭합니다.
  
-    ![모듈 가져오기](./media/analysis-services-refresh-azure-automation/2.png)
+    ![가져오기 모듈](./media/analysis-services-refresh-azure-automation/2.png)
 
 4. **확인**을 클릭합니다.
  
-### <a name="create-a-service-principal-spn"></a>서비스 주체 (SPN) 만들기
+### <a name="create-a-service-principal-spn"></a>SPN(서비스 사용자 이름) 만들기
 
-서비스 주체 만들기에 대 한 자세한 참조 [Azure portal을 사용 하 여 서비스 주체를 만들려면](../active-directory/develop/howto-create-service-principal-portal.md)합니다.
+서비스 사용자 만들기에 대해 알아보려면 [Azure Portal을 사용하여 서비스 사용자 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-### <a name="configure-permissions-in-azure-analysis-services"></a>Azure Analysis Services에서 사용 권한 구성
+### <a name="configure-permissions-in-azure-analysis-services"></a>Azure Analysis Services에서 권한 구성
  
-만든 서비스 주체는 서버의 서버 관리자 권한이 있어야 합니다. 자세히 알아보려면 [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)를 참조하세요.
+직접 만든 서비스 사용자에게는 서버에 대한 서버 관리자 권한이 있어야 합니다. 자세히 알아보려면 [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)를 참조하세요.
 
-## <a name="design-the-azure-automation-runbook"></a>Azure Automation Runbook을 디자인 합니다.
+## <a name="design-the-azure-automation-runbook"></a>Azure Automation Runbook 디자인
 
-1. Automation 계정을 만듭니다는 **자격 증명** 리소스 서비스 주체를 안전 하 게 저장 하는 데 사용할입니다.
+1. Automation 계정에서 서비스 사용자를 안전하게 저장하는 데 사용할 **자격 증명** 리소스를 만듭니다.
 
     ![자격 증명 만들기](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. 자격 증명에 대 한 세부 정보를 입력 합니다.  에 대 한는 **사용자 이름**, 입력는 **SPN ClientId**에 대 한를 **암호**, 입력 합니다 **SPN 비밀**.
+2. 자격 증명에 대한 세부 정보를 입력합니다. **사용자 이름**에 서비스 사용자 애플리케이션 ID(appid)를 입력하고 **암호**에는 서비스 사용자 비밀을 입력합니다.
 
     ![자격 증명 만들기](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -69,89 +64,89 @@ Azure Automation 및 PowerShell Runbook을 사용 하 여 Azure Analysis 테이�
 
     ![Runbook 가져오기](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. 찾아보기 합니다 **새로 고침 Model.ps1** 파일을 제공을 **이름** 및 **설명**, 클릭 하 고 **만들기**합니다.
+4. **Refresh-Model.ps1** 파일을 찾고 **이름**과 **설명**을 입력한 다음, **만들기**를 클릭합니다.
 
     ![Runbook 가져오기](./media/analysis-services-refresh-azure-automation/9.png)
 
-5. Runbook을 만든 경우 자동으로 편집 모드로 전환 됩니다.  **게시**를 선택합니다.
+5. Runbook이 생성되면 편집 모드로 자동 전환됩니다.  **게시**를 선택합니다.
 
     ![Runbook 게시](./media/analysis-services-refresh-azure-automation/10.png)
 
     > [!NOTE]
-    > 생성 된 자격 증명 리소스 이전에 runbook에서 사용 하 여 검색 합니다 **Get-automationpscredential** 명령입니다.  이 명령은 전달 되어는 **Invoke ProcessASADatabase** Azure Analysis Services에 대 한 인증을 수행 하려면 PowerShell 명령입니다.
+    > 이전에 만든 자격 증명 리소스는 **Get-AutomationPSCredential** 명령을 사용하여 Runbook을 통해 검색됩니다.  그런 다음, 이 명령은 **Invoke-ProcessASADatabase** PowerShell 명령으로 전달되어 Azure Analysis Services에 대한 인증을 수행합니다.
 
-6. 클릭 하 여 runbook을 테스트할 **시작**합니다.
+6. **시작**을 클릭하여 Runbook을 테스트합니다.
 
     ![Runbook 시작](./media/analysis-services-refresh-azure-automation/11.png)
 
-7. 입력 합니다 **DATABASENAME**, **ANALYSISSERVER**, 및 **REFRESHTYPE** 매개 변수 및 클릭 한 다음 **확인**합니다. 합니다 **WEBHOOKDATA** Runbook이 수동으로 실행 하는 경우 매개 변수가 필요 하지 않습니다.
+7. **DATABASENAME**, **ANALYSISSERVER** 및 **REFRESHTYPE** 매개 변수를 입력한 다음, **확인**을 클릭합니다. Runbook을 수동으로 실행하는 경우에는 **WEBHOOKDATA** 매개 변수가 필요하지 않습니다.
 
     ![Runbook 시작](./media/analysis-services-refresh-azure-automation/12.png)
 
-Runbook이 성공적으로 실행 하는 경우 다음과 유사한 출력이 표시 됩니다.
+Runbook 실행에 성공하면 다음과 같은 출력이 표시됩니다.
 
-![성공적으로 실행](./media/analysis-services-refresh-azure-automation/13.png)
+![실행 성공](./media/analysis-services-refresh-azure-automation/13.png)
 
-## <a name="use-a-self-contained-azure-automation-runbook"></a>자체 포함 된 Azure Automation Runbook 사용
+## <a name="use-a-self-contained-azure-automation-runbook"></a>자체 포함 Azure Automation Runbook 사용
 
-Runbook 일정에 따라 Azure Analysis Services 모델 새로 고침 트리거를 구성할 수 있습니다.
+예정된 시간에 Azure Analysis Services 모델 새로 고침을 트리거하도록 Runbook을 구성할 수 있습니다.
 
-이 다음과 같이 구성할 수 있습니다.
+다음과 같이 구성할 수 있습니다.
 
-1. Automation Runbook을 클릭 **일정**, 한 다음 **일정 추가**합니다.
+1. Automation Runbook에서 **일정**과 **일정 추가**를 차례로 클릭합니다.
  
     ![일정 만들기](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. 클릭 **일정** > **새 일정을 만들려면**, 다음 세부 정보를 입력 합니다.
+2. **일정** > **새 일정 만들기**를 클릭한 다음, 세부 정보를 입력합니다.
 
     ![일정 구성](./media/analysis-services-refresh-azure-automation/15.png)
 
 3. **만들기**를 클릭합니다.
 
-4. 일정에 대 한 매개 변수를 설정 합니다. 이러한 사용할 때마다 Runbook을 트리거합니다. 합니다 **WEBHOOKDATA** 매개 변수는 비워 둘 수는 일정을 통해 실행 하는 경우.
+4. 일정에 대한 매개 변수를 입력합니다. Runbook이 트리거될 때마다 사용됩니다. 일정을 통해 실행할 때는 **WEBHOOKDATA** 매개 변수를 비워둬야 합니다.
 
     ![매개 변수 구성](./media/analysis-services-refresh-azure-automation/16.png)
 
 5. **확인**을 클릭합니다.
 
-## <a name="consume-with-data-factory"></a>Data Factory를 사용 하 여 사용
+## <a name="consume-with-data-factory"></a>Data Factory에서 사용
 
-Azure Data Factory를 사용 하 여 runbook을 사용을 먼저 만듭니다는 **웹 후크** runbook에 대 한 합니다. 합니다 **웹 후크** Azure Data Factory 웹 작업을 통해 호출할 수 있는 URL을 제공 합니다.
+Azure Data Factory를 사용하여 Runbook을 사용하려면 먼저 Runbook에 대한 **Webhook**를 만듭니다. **Webhook**은 Azure Data Factory 웹 작업을 통해 호출할 수 있는 URL을 제공합니다.
 
 > [!IMPORTANT]
-> 만들려는 **웹 후크**, Runbook의 상태 여야 합니다 **게시**합니다.
+> **Webhook**을 만들려면 Runbook의 상태가 **게시됨**이어야 합니다.
 
-1. Automation Runbook에서 클릭 **웹 후크**를 클릭 하 고 **웹 후크 추가**합니다.
+1. Automation Runbook에서 **Webhook**를 클릭한 후 **Webhook 추가**를 클릭합니다.
 
-   ![웹 후크 추가](./media/analysis-services-refresh-azure-automation/17.png)
+   ![Webhook 추가](./media/analysis-services-refresh-azure-automation/17.png)
 
-2. 이름 및 만료 매개 변수로 웹 후크를 제공 합니다.  Automation Runbook 내에서 웹 후크만 하 게 식별 하는 이름, URL의 일부를 형성 하지 않습니다.
+2. Webhook에 이름과 만료 정보를 지정합니다.  이름은 Automation Runbook 내부에서 Webhook만 식별하며 URL의 일부를 구성하지는 않습니다.
 
    >[!CAUTION]
-   >URL을 확인할 수 없는 것 다시 한 번 닫을 하므로 마법사를 닫기 전에 복사한 확인 합니다.
+   >마법사를 닫기 전에 URL을 복사해야 합니다. 닫은 후에는 되돌릴 수 없습니다.
     
-   ![웹 후크 구성](./media/analysis-services-refresh-azure-automation/18.png)
+   ![Webhook 구성](./media/analysis-services-refresh-azure-automation/18.png)
 
-    Webhook에 대 한 매개 변수를 비워 둘 수 있습니다.  Azure Data Factory 웹 작업을 구성할 때 웹 호출의 본문에 매개 변수를 전달할 수 있습니다.
+    Webhook에 대한 매개 변수는 비워둘 수 있습니다.  Azure Data Factory 웹 작업을 구성할 때 매개 변수는 웹 호출의 본문으로 전달될 수 있습니다.
 
-3. Data Factory에서 구성 된 **웹 작업**
+3. Data Factory에서 **웹 작업**을 구성합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
-   ![예제 웹 작업](./media/analysis-services-refresh-azure-automation/19.png)
+   ![웹 작업 예제](./media/analysis-services-refresh-azure-automation/19.png)
 
-합니다 **URL** Webhook에서 만든 URL입니다.
+**URL**은 Webhook에서 만든 URL입니다.
 
-합니다 **본문** 은 다음 속성을 포함 하는 JSON 문서:
+**본문**은 JSON 문서이며, 다음 속성을 포함해야 합니다.
 
 
-|자산  |값  |
+|속성  |값  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Azure Analysis Services 데이터베이스의 이름 <br/> 예제: AdventureWorksDB         |
-|**AnalysisServicesServer**     |Azure Analysis Services 서버 이름입니다. <br/> 예제: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
-|**DatabaseRefreshType**     |새로 고침 수행을 형식입니다. <br/> 예제: 전체         |
+|**AnalysisServicesServer**     |Azure Analysis Services 서버 이름 <br/> 예: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**DatabaseRefreshType**     |수행할 새로 고침 유형 <br/> 예제: 전체         |
 
-예제 JSON 본문:
+JSON 본문 예:
 
 ```json
 {
@@ -161,30 +156,30 @@ Azure Data Factory를 사용 하 여 runbook을 사용을 먼저 만듭니다는
 }
 ```
 
-이러한 매개 변수는 PowerShell 스크립트 runbook에 정의 됩니다.  웹 작업 실행 될 때 전달 된 JSON 페이로드 WEBHOOKDATA는 합니다.
+이러한 매개 변수는 Runbook PowerShell 스크립트에 정의되어 있습니다.  웹 작업이 실행될 때 전달된 JSON 페이로드는 WEBHOOKDATA입니다.
 
-이 deserialize 및 다음 Invoke ProcesASDatabase PowerShell 명령에서 사용 되는 PowerShell 매개 변수로 저장 합니다.
+이것은 역직렬화되어 PowerShell 매개 변수로 저장된 다음, Invoke-ProcesASDatabase PowerShell 명령에 사용됩니다.
 
-![Deserialize 된 웹 후크](./media/analysis-services-refresh-azure-automation/20.png)
+![역직렬화된 Webhook](./media/analysis-services-refresh-azure-automation/20.png)
 
-## <a name="use-a-hybrid-worker-with-azure-analysis-services"></a>Hybrid Worker를 사용 하 여 Azure Analysis Services를 사용 하 여
+## <a name="use-a-hybrid-worker-with-azure-analysis-services"></a>Azure Analysis Services에서 Hybrid Worker 사용
 
-고정 공용 IP 주소를 사용 하 여 Azure Virtual Machine는 Azure Automation Hybrid Worker로 사용할 수 있습니다.  이 공용 IP 주소는 다음 Azure Analysis Services 방화벽에 추가할 수 있습니다.
+고정 공용 IP 주소를 사용하는 Azure Virtual Machine은 Azure Automation Hybrid Worker로 사용할 수 있습니다.  이러한 공용 IP 주소는 Azure Analysis Services 방화벽에 추가할 수 있습니다.
 
 > [!IMPORTANT]
-> 가상 머신에 공용 IP 주소를 정적으로 구성 되었는지 확인 합니다.
+> Virtual Machine 공용 IP 주소가 고정으로 구성되어 있는지 확인하십시오.
 >
->Azure Automation Hybrid Worker를 구성 하는 방법에 대 한 자세한 내용은 참조 하세요 [Hybrid Runbook Worker를 사용 하 여 데이터 센터 또는 클라우드 리소스를 자동화할](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker)합니다.
+>Azure Automation Hybrid Worker 구성에 대해 알아보려면 [Hybrid Runbook Worker 설치](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation)를 참조하세요.
 
-Hybrid Worker 구성 되 면 섹션에 설명 된 대로 웹 후크를 만듭니다 [Consume Data Factory를 사용 하 여](#consume-with-data-factory)입니다.  여기에서 유일한 차이점은 선택 하는 **에서 실행** > **Hybrid Worker** 웹 후크를 구성 하는 경우 옵션입니다.
+Hybrid Worker가 구성되면 [Data Factory에서 사용](#consume-with-data-factory) 섹션의 설명에 따라 Webhook를 만듭니다.  여기서 유일한 차이점은 Webhook를 구성할 때 **실행 위치** > **Hybrid Worker** 옵션을 선택하는 것입니다.
 
-Hybrid Worker를 사용 하 여 웹 후크 예제:
+Hybrid Worker를 사용하는 Webhook 예:
 
-![예제 하이브리드 작업자 웹 후크](./media/analysis-services-refresh-azure-automation/21.png)
+![Hybrid Worker Webhook 예](./media/analysis-services-refresh-azure-automation/21.png)
 
-## <a name="sample-powershell-runbook"></a>예제 PowerShell Runbook
+## <a name="sample-powershell-runbook"></a>샘플 PowerShell Runbook
 
-다음 코드 조각은 PowerShell Runbook을 사용 하 여 Azure Analysis Services 모델 새로 고침을 수행 하는 방법의 예시입니다.
+다음 코드 조각은 PowerShell Runbook을 사용하여 Azure Analysis Services 모델 새로 고침을 수행하는 방법의 예입니다.
 
 ```powershell
 param

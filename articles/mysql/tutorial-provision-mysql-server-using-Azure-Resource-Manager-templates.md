@@ -1,19 +1,19 @@
 ---
-title: '자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전'
+title: '자습서: Azure Database for MySQL 만들기 - Azure Resource Manager 템플릿'
 description: 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버의 배포를 프로비전하고 자동화하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 6e4bb7622fe51c0cab4fc45e945e5bb07b1d32f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925848"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74771103"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
 
@@ -105,7 +105,7 @@ Azure Resource Manager 템플릿에 익숙치 않은데 시도하려는 경우 �
 
 ```azurecli-interactive
 az login
-az group create -n ExampleResourceGroup  -l “West US2”
+az group create -n ExampleResourceGroup  -l "West US2"
 az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
 ```
 

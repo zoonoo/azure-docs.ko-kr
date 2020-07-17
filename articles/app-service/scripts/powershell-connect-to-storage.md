@@ -1,27 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 스토리지 계정에 앱 연결 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 스토리지 계정에 App Service 앱 연결
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: 'PowerShell: 스토리지 계정에 연결'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱을 스토리지 계정에 연결하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
-ms.service: app-service
-ms.devlang: multiple
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 523ab8aa242b2c5eab2d9c2aa5b61485d84185eb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d1c8951445c0be6a3d4b9c4763d719fc7d79d2d5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106803"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74685327"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account"></a>스토리지 계정에 App Service 앱 연결
 

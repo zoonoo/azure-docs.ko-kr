@@ -1,0 +1,78 @@
+### YamlMime:Landing
+title: Azure Remote Rendering 설명서
+summary: ARR(Azure Remote Rendering)은 HoloLens 2와 같은 디바이스에서 매우 복잡한 3D 모델을 실시간으로 렌더링하는 데 사용할 수 있는 서비스입니다. ARR은 현재 공개 미리 보기로 제공됩니다.
+metadata:
+  title: Azure Remote Rendering 설명서
+  description: ARR(Azure Remote Rendering) 서비스를 사용하여 매우 복잡한 3D 모델을 실시간으로 원격으로 렌더링하고 HoloLens 2와 같은 디바이스에 결과를 표시하는 방법을 알아봅니다.
+  ms.service: azure-remote-rendering
+  ms.topic: landing-page
+  author: florianborn71
+  ms.author: flborn
+  ms.date: 03/26/2020
+  ms.openlocfilehash: e740fd08dc3e616b0768c6c15fd4191cb58e261a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85565434"
+landingContent:
+- title: Azure Remote Rendering 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Remote Rendering이란?
+      url: overview/about.md
+    - text: 시스템 요구 사항
+      url: overview/system-requirements.md
+    - text: Azure Remote Rendering 계정 만들기
+      url: how-tos/create-an-account.md
+- title: Azure Remote Rendering을 시작하기 위한 주요 개념 알아보기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 인증 구성
+      url: how-tos/authentication.md
+    - text: Remote Rendering 세션
+      url: concepts/sessions.md
+    - text: 엔터티
+      url: concepts/entities.md
+    - text: 구성 요소
+      url: concepts/components.md
+    - text: 모델
+      url: concepts/models.md
+    - text: 모델 변환
+      url: how-tos/conversion/model-conversion.md
+- title: 첫 번째 모델 변환 및 렌더링
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Unity를 사용하여 모델 렌더링
+      url: quickstarts/render-model.md
+    - text: HoloLens에 Unity 샘플 배포
+      url: quickstarts/deploy-to-hololens.md
+    - text: 데스크톱에 Unity 샘플 배포
+      url: quickstarts/deploy-to-desktop.md
+    - text: HoloLens에 네이티브 C++ 샘플 배포
+      url: quickstarts/native-cpp/hololens/deploy-native-cpp-tutorial.md
+    - text: 렌더링을 위해 모델 변환
+      url: quickstarts/convert-model.md
+- title: 고유 앱을 빌드하는 방법 알아보기
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 개요
+      url: tutorials/unity/tutorial-landing.md
+    - text: 원격으로 렌더링된 모델 보기
+      url: tutorials/unity/view-remote-models/view-remote-models.md
+    - text: 사용자 지정 모델 로드
+      url: tutorials/unity/custom-models/custom-models.md
+    - text: 모델 조작
+      url: tutorials/unity/manipulate-models/manipulate-models.md
+    - text: 재질, 조명 및 효과 구체화
+      url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+    - text: Azure Remote Rendering 및 모델 스토리지 보안
+      url: tutorials/unity/security/security.md
+    - text: 상용 준비된 Azure Remote Rendering 애플리케이션 만들기
+      url: tutorials/unity/commercial-ready/commercial-ready.md
+    - text: '네이티브 C++: Hololens Holographic 앱에 Remote Rendering 통합'
+      url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

@@ -71,12 +71,16 @@
       href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md
     - name: 비밀 관리
       href: service-fabric-mesh-howto-manage-secrets.md
+    - name: 다른 Azure 지역으로 애플리케이션 이동
+      href: move-across-regions.md
     - name: 샘플 찾기
       href: service-fabric-mesh-howto-find-samples.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Service Fabric 메시 리소스 공급자 REST API
       href: /rest/api/servicefabric/sfmeshrp-index
+    - name: Service Fabric Mesh CLI 참조
+      href: /cli/azure/ext/mesh
     - name: Service Fabric 클라이언트 리소스 REST API
       href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
     - name: Service Fabric Maven CLI 참조

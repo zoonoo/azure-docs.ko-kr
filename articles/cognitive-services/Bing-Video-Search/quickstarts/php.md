@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Bing Video Search REST API 및 PHP를 사용하여 비디오 검색'
-titlesuffix: Azure Cognitive Services
+title: '빠른 시작: REST API 및 PHP를 사용하여 비디오 검색 - Bing Video Search'
+titleSuffix: Azure Cognitive Services
 description: PHP를 통해 Bing Video Search REST API로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
 author: aahill
@@ -8,23 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 50c39594aeb014860d25b2f2cc791ebfec14b572
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535203"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849623"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>빠른 시작: Bing Video Search REST API 및 PHP를 사용하여 비디오 검색
 
-Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 확인하려면 이 빠른 시작을 사용합니다. 이 간단한 JavaScript 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 애플리케이션은 JavaScript에서 작성되고 Node.js를 사용하지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
-예제 코드는 PHP 5.6에서 작동하도록 작성되었습니다.
+이 빠른 시작을 사용하여 Bing Video Search API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 PHP 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, JSON 응답을 표시합니다. 예제 코드는 PHP 5.6에서 작동하도록 작성되었습니다.
 
-API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)를 참조하세요.
+이 애플리케이션은 PHP로 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * PHP 5.6 이상
 
@@ -32,12 +31,12 @@ API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/
 
 ## <a name="running-the-application"></a>애플리케이션 실행
 
-[Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)는 Bing 검색 엔진의 비디오 결과를 반환합니다.
+[Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)는 Bing 검색 엔진의 비디오 결과를 반환합니다.
 
-1. 코드 주석에 설명된 대로 `php.ini`에서 보안 HTTP 지원이 사용하도록 설정되었는지 확인합니다.
+1. 다음 코드에 설명된 대로 `;extension=php_openssl.dll` 줄의 주석 처리를 제거하여 `php.ini` 파일에서 보안 HTTP 지원을 사용하도록 설정합니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다.
 3. 아래 제공된 코드를 추가합니다.
-4. `accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
+4. `$accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다. `$endpoint` 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 5. 프로그램을 실행합니다.
 
 ```php

@@ -1,17 +1,17 @@
 ---
 title: 빠른 시작 - Azure SignalR Service REST API
-description: Azure SignalR Service REST API를 사용하기 위한 빠른 시작입니다.
+description: 다음 샘플에서 Azure SignalR Service와 함께 REST API를 사용하는 방법을 알아봅니다. REST API 사양에 대한 세부 정보를 찾습니다.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 88a5a1bcff8542ac500bbb5e0da790f77c90a825
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70053fbc47a5ba85e7bb18ab762868973d014beb
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530795"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548123"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 
@@ -19,7 +19,7 @@ Azure SignalR Service는 브로드캐스트와 같은 서버-클라이언트 통
 
 이 빠른 시작에서는 명령줄 앱에서 C#으로 작성된 연결된 클라이언트 앱에 메시지를 보내는 방법을 알아보겠습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작은 macOS, Windows 또는 Linux에서 실행할 수 있습니다.
 
@@ -97,7 +97,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 샘플의 루트 디렉터리에서 `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"`을 실행할 수 있습니다. 그 뒤에는 `-c "<ConnectionString>"` 옵션이 더 이상 필요하지 않습니다.
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용
 
 서버가 시작된 후에 명령을 사용하여 메시지를 보냅니다.
 
@@ -111,7 +111,7 @@ broadcast
 
 각기 다른 클라이언트 이름으로 여러 클라이언트를 시작할 수 있습니다.
 
-## <a name="usage"> </a> 타사 서비스와의 통합
+## <a name="integration-with-third-party-services"></a><a name="usage"> </a> 타사 서비스와 통합
 
 Azure SignalR 서비스를 통해 타사 서비스를 시스템과 통합할 수 있습니다.
 
@@ -130,11 +130,18 @@ API | `1.0-preview` | `1.0`
 --- | --- | ---
 [모두에게 브로드캐스트](#broadcast) | **&#x2713;** | **&#x2713;**
 [그룹에 브로드캐스트](#broadcast-group) | **&#x2713;** | **&#x2713;**
-일부 그룹에 브로드캐스트 | **&#x2713;**(사용되지 않음) | `N / A`
-[특정 사용자에게 보내기](#send-user) | **&#x2713;** | **&#x2713;**
-일부 사용자에게 보내기 | **&#x2713;**(사용되지 않음) | `N / A`
+일부 그룹에 브로드캐스트 | **&#x2713;** (사용되지 않음) | `N / A`
+[사용자에게 보내기](#send-user) | **&#x2713;** | **&#x2713;**
+일부 사용자에게 보내기 | **&#x2713;** (사용되지 않음) | `N / A`
 [그룹에 사용자 추가](#add-user-to-group) | `N / A` | **&#x2713;**
 [그룹에서 사용자 제거](#remove-user-from-group) | `N / A` | **&#x2713;**
+[사용자 존재 확인](#check-user-existence) | `N / A` | **&#x2713;**
+[모든 그룹에서 사용자 제거](#remove-user-from-all-groups) | `N / A` | **&#x2713;**
+[연결로 보내기](#send-connection) | `N / A` | **&#x2713;**
+[그룹에 연결 추가](#add-connection-to-group) | `N / A` | **&#x2713;**
+[그룹에서 연결 제거](#remove-connection-from-group) | `N / A` | **&#x2713;**
+[클라이언트 연결 닫기](#close-connection) | `N / A` | **&#x2713;**
+[Service Health](#service-health) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>모두에게 브로드캐스트
@@ -153,7 +160,7 @@ API | `1.0-preview` | `1.0`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | 위와 동일
 
 <a name="send-user"> </a>
-### <a name="sending-to-specific-users"></a>특정 사용자에게 보내기
+### <a name="sending-to-a-user"></a>사용자에게 보내기
 
 버전 | API HTTP 메서드 | 요청 URL | 요청 본문
 --- | --- | --- | ---
@@ -165,14 +172,77 @@ API | `1.0-preview` | `1.0`
 
 버전 | API HTTP 메서드 | 요청 URL
 --- | --- | ---
-`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>그룹에서 사용자 제거
 
 버전 | API HTTP 메서드 | 요청 URL
 --- | --- | ---
-`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
+
+<a name="check-user-existence"> </a>
+### <a name="check-user-existence-in-a-group"></a>그룹에 사용자가 있는지 확인
+
+API 버전 | API HTTP 메서드 | 요청 URL
+---|---|---
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups/<group-name>`
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>` 
+
+응답 상태 코드 | Description
+---|---
+`200` | 사용자가 있음
+`404` | 사용자가 없음
+
+<a name="remove-user-from-all-groups"> </a>
+### <a name="remove-a-user-from-all-groups"></a>모든 그룹에서 사용자 제거
+
+API 버전 | API HTTP 메서드 | 요청 URL
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups`
+
+<a name="send-connection"> </a>
+### <a name="send-message-to-a-connection"></a>연결로 메시지 보내기
+
+API 버전 | API HTTP 메서드 | 요청 URL | 요청 본문
+---|---|---|---
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>` | `{ "target":"<method-name>", "arguments":[ ... ] }`
+
+<a name="add-connection-to-group"> </a>
+### <a name="add-a-connection-to-a-group"></a>그룹에 연결 추가
+
+API 버전 | API HTTP 메서드 | 요청 URL
+---|---|---
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
+
+<a name="remove-connection-from-group"> </a>
+### <a name="remove-a-connection-from-a-group"></a>그룹에서 연결 제거
+
+API 버전 | API HTTP 메서드 | 요청 URL
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
+
+<a name="close-connection"> </a>
+### <a name="close-a-client-connection"></a>클라이언트 연결 닫기
+
+API 버전 | API HTTP 메서드 | 요청 URL
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>?reason=<close-reason>`
+
+<a name="service-health"> </a>
+### <a name="service-health"></a>서비스 상태
+
+API 버전 | API HTTP 메서드 | 요청 URL
+---|---|---                             
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/health`
+
+응답 상태 코드 | Description
+---|---
+`200` | 서비스 양호
+`503` | 서비스를 사용할 수 없음
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
@@ -181,4 +251,4 @@ API | `1.0-preview` | `1.0`
 이 빠른 시작에서는 REST API를 사용하여 SignalR Service에서 클라이언트로 실시간 메시지를 브로드캐스트하는 방법을 알아보았습니다. 다음으로, REST API를 기반으로 빌드되는 SignalR Service 바인딩을 사용하여 Azure Functions를 개발 및 배포하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azuer SignalR Service 바인딩을 사용하여 Azure Functions 개발](signalr-quickstart-azure-functions-csharp.md)
+> [Azure SignalR Service 바인딩을 사용하여 Azure Functions 개발](signalr-quickstart-azure-functions-csharp.md)

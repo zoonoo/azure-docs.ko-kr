@@ -1,25 +1,19 @@
 ---
 title: 클라우드 서비스를 구성하는 방법(포털) | Microsoft Docs
-description: Azure에서 Cloud Services를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다. 이 예제는 Azure Portal을 사용합니다.
+description: Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
+author: tgore03
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: tagore
+ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61435812"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223740"
 ---
 # <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
 
@@ -52,9 +46,9 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 ## <a name="monitoring"></a>모니터링
 
-클라우드 서비스에 경고를 추가할 수 있습니다. **설정** > **경고 규칙** > **경고 추가**를 클릭합니다.
+클라우드 서비스에 경고를 추가할 수 있습니다. **설정**  >  **경고 규칙**  >  **경고 추가**를 클릭 합니다.
 
-![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![경고 규칙 옵션이 강조 표시 되 고 빨간색으로 표시 되 고 경고 추가 옵션이 빨간색으로 표시 된 설정으로 이동 하는 설정의 스크린샷](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 여기에서 경고를 설정할 수 있습니다. **메트릭** 드롭다운 상자에서 다음 데이터 형식에 대한 경고를 설정할 수 있습니다.
 
@@ -64,11 +58,11 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 * 네트워크 출력
 * CPU 비율
 
-![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![모든 구성 옵션이 설정 된 경고 규칙 추가 창의 스크린샷](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>메트릭 타일에서 모니터링 구성
 
-**설정** > **경고 규칙**을 사용하는 대신 클라우드 서비스의 **모니터링** 섹션에서 메트릭 타일 중 하나를 클릭할 수 있습니다.
+**설정**  >  **경고 규칙**을 사용 하는 대신 클라우드 서비스의 **모니터링** 섹션에서 메트릭 타일 중 하나를 클릭할 수 있습니다.
 
 ![클라우드 서비스 모니터링](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -107,6 +101,9 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 ## <a name="next-steps"></a>다음 단계
 
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
-* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
+* [사용자 지정 도메인 이름을](cloud-services-custom-domain-name-portal.md)구성 합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
-* [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)구성
+* [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성 합니다.
+
+
+

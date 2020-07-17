@@ -1,26 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 웹앱 만들기 및 GitHub의 코드 배포 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 웹앱 만들기 및 GitHub의 코드 배포
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: GitHub에서 코드 배포'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 GitHub에서 코드를 배포하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
-ms.service: app-service-web
-ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e4daa27fa7ea441e571adcf0e90dfcab8b5e3256
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 22b6a50b76c7d2e29f4705823db904e2c35f2717
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110390"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74684862"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-github"></a>웹앱 만들기 및 GitHub의 코드 배포
 
@@ -51,7 +42,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
-| [Set-AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
+| [집합 AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

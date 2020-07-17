@@ -1,22 +1,17 @@
 ---
-title: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증 | Microsoft Docs
-description: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증하는 방법 알아보기
-services: data-lake-store
-documentationcenter: ''
+title: 인증-Azure AD를 사용 하 여 Data Lake Storage Gen1
+description: Azure Active Directory를 사용 하 여 Azure Data Lake Storage Gen1 인증 하는 방법을 알아봅니다.
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49e6df417190071e06582be400575e1880f2543a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82692294"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증
 
@@ -35,14 +30,14 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 * 빈 셀은 인증 옵션이 지원되지 않는다는 의미입니다.
 
 
-|다음에서 이 인증 옵션 사용...                   |.NET         |자바     |PowerShell |Azure CLI | Python   |REST (영문)     |
+|다음에서 이 인증 옵션 사용...                   |.NET         |Java     |PowerShell |Azure CLI | Python   |REST (영문)     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
-|최종 사용자(MFA 없이**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(사용되지 않음)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
-|최종 사용자(MFA 사용)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
-|서비스 간(클라이언트 키 사용)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
-|서비스 간(클라이언트 인증서 사용) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
+|최종 사용자(MFA 없이**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(사용 되지 않음)     |    **[✔ *](data-lake-store-end-user-authenticate-rest-api.md)**    |
+|최종 사용자(MFA 사용)                           |    **[✔ *](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔ *](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔ *](data-lake-store-get-started-cli-2.0.md)**      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
+|서비스 간(클라이언트 키 사용)         |    **[✔ *](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔ *](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔ *](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔ *](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
+|서비스 간(클라이언트 인증서 사용) |    **[✔ *](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-<i>* <b>✔\*</b> 기호를 클릭합니다. 이 기호는 연결입니다.</i><br>
+<i>* <b>✔ \* </b> 기호를 클릭 합니다. 링크입니다.</i><br>
 <i>** MFA는 Multi-Factor Authentication을 의미</i>
 
 인증에 Azure Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure Active Directory의 인증 시나리오](../active-directory/develop/authentication-scenarios.md)를 참조하세요.

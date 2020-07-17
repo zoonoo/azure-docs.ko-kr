@@ -1,5 +1,5 @@
 ---
-title: MySQL용 Azure Database에 대한 Azure CLI 샘플
+title: Azure CLI 샘플 - Azure Database for MySQL
 description: 이 문서는 MySQL용 Azure Database와 상호 작용하는 데 사용할 수 있는 Azure CLI 코드 샘플을 나열합니다.
 author: ajlam
 ms.author: andrela
@@ -7,18 +7,18 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: c5ecaf5ba893cce38327d38236d593e06b31abb9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: 467d14e1f00e88999e130d28ee0e5a00dac47825
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350941"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120962"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>MySQL용 Azure Database에 대한 Azure CLI 샘플 
 다음 테이블은 MySQL용 Azure Database의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다.
 
-| |  |
+| 샘플 링크 | Description  |
 |---|---|
 |**서버 만들기**||
 | [서버 및 방화벽 규칙 만들기](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | MySQL 서버용 단일 Azure Database를 만들고 서버 수준 방화벽 규칙을 구성하는 Azure CLI 스크립트입니다. |

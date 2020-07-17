@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid에 대한 이벤트를 필터링하는 방법
-description: 이벤트를 필터링하는 Azure Event Grid 구독을 만드는 방법을 보여줍니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
+description: 이 문서에서는 Event Grid 구독을 만들 때 이벤트 유형 (주체, 운영자 및 데이터 등)을 기준으로 이벤트를 필터링 하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: spelluru
-ms.openlocfilehash: 182a936e97cd6ed2527d618dfe777ae861c757e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 07/07/2020
+ms.openlocfilehash: 99fb00f99a055033ccfcd99e32a52d423878fb44
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182254"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105577"
 ---
 # <a name="filter-events-for-event-grid"></a>Event Grid에 대한 이벤트 필터링
 
@@ -185,17 +181,15 @@ az eventgrid event-subscription create \
 
 보다 유연한 필터링을 원한다면 연산자 및 데이터 속성을 사용하여 이벤트를 필터링하면 됩니다.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ### <a name="subscribe-with-advanced-filters"></a>고급 필터가 포함된 구독
 
 고급 필터링에 사용할 수 있는 연산자 및 키에 대해 알아보려면 [고급 필터링](event-filtering.md#advanced-filtering)을 참조하세요.
 
 다음은 사용자 지정 토픽을 만드는 예제입니다. 사용자 지정 토픽을 구독하고 데이터 개체의 값으로 필터링합니다. 색 속성이 파란색, 빨간색 또는 녹색으로 설정된 이벤트가 구독에 전송됩니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
-```azurecli-interactive
+```azurecli
 topicName=<your-topic-name>
 endpointURL=<endpoint-URL>
 
@@ -216,7 +210,7 @@ az eventgrid event-subscription create \
 
 PowerShell의 경우 다음을 사용합니다.
 
-```azurepowershell-interactive
+```powershell
 $topicName = <your-topic-name>
 $endpointURL = <endpoint-URL>
 
@@ -240,9 +234,9 @@ New-AzEventGridSubscription `
 
 필터를 테스트하려면 색 필드가 녹색으로 설정된 이벤트를 보냅니다. 녹색은 필터의 값 중 하나이므로 이벤트가 엔드포인트로 전달됩니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
-```azurecli-interactive
+```azurecli
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name $topicName -g gridResourceGroup --query "key1" --output tsv)
 
@@ -253,7 +247,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 
 PowerShell의 경우 다음을 사용합니다.
 
-```azurepowershell-interactive
+```powershell
 $endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
 $keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
 
@@ -279,16 +273,16 @@ Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-ke
 
 이벤트가 전송되지 않은 시나리오를 테스트하려면 색 필드가 노란색으로 설정된 이벤트를 보냅니다. 노란색은 구독에서 지정된 값 중 하나가 아니므로 이벤트는 구독에 배달되지 않습니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
-```azurecli-interactive
+```azurecli
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 PowerShell의 경우 다음을 사용합니다.
 
-```azurepowershell-interactive
+```powershell
 $htbody = @{
     id= $eventID
     eventType="recordInserted"

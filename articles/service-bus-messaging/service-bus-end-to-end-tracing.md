@@ -1,41 +1,30 @@
 ---
-title: Azure Service Bus 종단 간 추적 및 진단 | Microsoft Docs
-description: Service Bus 클라이언트 진단 및 종단 간 추적 개요
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Service Bus 엔드투엔드 추적 및 진단 | Microsoft Docs
+description: Service Bus 클라이언트 진단 및 종단 간 추적 (처리에 관련 된 모든 서비스를 통해 클라이언트)에 대 한 개요입니다.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 6138d3d6424364f28f55f81044768acb894bc651
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340731"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
 마이크로 서비스 개발의 일반적인 문제점 중 하나는 처리에 관련된 모든 서비스를 통해 클라이언트의 작업을 추적할 수 있다는 것입니다. 디버깅, 성능 분석, A/B 테스트 및 기타 일반적인 진단 시나리오에 유용합니다.
 이 문제점의 한 부분은 논리적 작업 추적입니다. 메시지 처리 결과와 대기 시간 및 외부 종속성 호출이 포함됩니다. 다른 부분은 프로세스 경계를 벗어나는 이러한 진단 이벤트의 상관관계입니다.
 
-생산자가 큐를 통해 메시지를 보내는 경우 일반적으로 다른 클라이언트 또는 서비스에서 시작된 다른 논리적 작업 범위에서 발생합니다. 소비자가 메시지를 수신하면 동일한 작업이 계속됩니다. 생산자와 소비자(작업을 처리하는 다른 서비스)가 둘 다 원격 분석 이벤트를 내보내 작업 흐름과 결과를 추적합니다. 이러한 이벤트와 추적 작업을 종단 간에 상호 연결하려면 원격 분석을 보고하는 각 서비스가 추적 컨텍스트를 사용하여 모든 이벤트에 스탬프를 지정해야 합니다.
+생산자가 큐를 통해 메시지를 보내는 경우 일반적으로 다른 클라이언트 또는 서비스에서 시작된 다른 논리적 작업 범위에서 발생합니다. 소비자가 메시지를 수신하면 동일한 작업이 계속됩니다. 생산자와 소비자(작업을 처리하는 다른 서비스)가 둘 다 원격 분석 이벤트를 내보내 작업 흐름과 결과를 추적합니다. 이러한 이벤트와 추적 작업을 엔드투엔드에 상호 연결하려면 원격 분석을 보고하는 각 서비스가 추적 컨텍스트를 사용하여 모든 이벤트에 스탬프를 지정해야 합니다.
 
 Microsoft Azure Service Bus 메시징에는 생산자와 소비자가 이러한 추적 컨텍스트를 전달하는 데 사용하는 페이로드 속성이 정의되어 있습니다.
-프로토콜은 [HTTP 상관관계 프로토콜](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)을 기반으로 합니다.
+프로토콜은 [HTTP 상관관계 프로토콜](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)을 기반으로 합니다.
 
 | 속성 이름        | 설명                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostic-Id       | 큐에 대한 생산자의 외부 호출 고유 식별자입니다. 이유, 고려 사항 및 형식은 [HTTP 프로토콜의 Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id)를 참조하세요. |
-|  Correlation-Context | 작업 처리에 관련된 모든 서비스에 전파되는 작업 컨텍스트입니다. 자세한 내용은 [HTTP 프로토콜의 Correlation-Context](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context)를 참조하세요. |
+|  Diagnostic-Id       | 큐에 대한 생산자의 외부 호출 고유 식별자입니다. 이유, 고려 사항 및 형식은 [HTTP 프로토콜의 Request-Id](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id)를 참조하세요. |
+|  Correlation-Context | 작업 처리에 관련된 모든 서비스에 전파되는 작업 컨텍스트입니다. 자세한 내용은 [HTTP 프로토콜의 Correlation-Context](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context)를 참조하세요. |
 
-## <a name="service-bus-net-client-auto-tracing"></a>Service Bus .NET 클라이언트 자동 추적
+## <a name="service-bus-net-client-autotracing"></a>Service Bus .NET 클라이언트 자동 추적
 
 버전 3.0.0부터 [Microsoft Azure ServiceBus Client for .NET](/dotnet/api/microsoft.azure.servicebus.queueclient)은 추적 시스템 또는 클라이언트 코드 조각에서 연결할 수 있는 추적 계측 지점을 제공합니다.
 계측을 사용하면 클라이언트 쪽에서 모든 Service Bus 메시징 서비스 호출을 추적할 수 있습니다. [메시지 처리기 패턴](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)을 사용하여 메시지 처리를 완료하면 메시지 처리도 계측됩니다.
@@ -84,6 +73,12 @@ async Task ProcessAsync(Message message)
 또한 메시지 처리 중에 보고된 중첩된 추적 및 예외에 `RequestTelemetry`의 ‘하위’로 표시되는 상관관계 속성을 사용하여 스탬프가 지정됩니다.
 
 메시지 처리 중에 지원되는 외부 구성 요소를 호출하는 경우 해당 구성 요소도 자동으로 추적되고 상호 연결됩니다. 수동 추적 및 상관관계는 [Application Insights .NET SDK를 사용하여 사용자 지정 작업 추적](../azure-monitor/app/custom-operations-tracking.md)을 참조하세요.
+
+Application Insights SDK 외에 외부 코드를 실행 하는 경우 Application Insights 로그를 볼 때 **시간이** 더 오래 걸릴 것입니다. 
+
+![Application Insights 로그의 기간이 깁니다.](./media/service-bus-end-to-end-tracing/longer-duration.png)
+
+메시지를 받는 시간이 지연 된 것은 아닙니다. 이 시나리오에서는 메시지가 SDK 코드에 대 한 매개 변수로 전달 되기 때문에 메시지를 이미 받았습니다. 그리고 App Insights 로그 (**프로세스**)의 **name** 태그는 현재 외부 이벤트 처리 코드에서 메시지를 처리 하 고 있음을 나타냅니다. 이 문제는 Azure와 관련이 없습니다. 대신 이러한 메트릭은 Service Bus에서 메시지를 이미 수신 했을 때 외부 코드의 효율성을 나타냅니다. Service Bus에서 메시지를 받은 후 **프로세스** 태그가 생성 되 고 할당 된 위치를 확인 하려면 [GitHub에서이 파일](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs) 을 참조 하세요. 
 
 ### <a name="tracking-without-tracing-system"></a>추적 시스템 없이 추적
 추적 시스템이 자동 Service Bus 호출 추적을 지원하지 않는 경우 추적 시스템 또는 애플리케이션에 해당 지원을 추가하는 것이 좋습니다. 이 섹션에서는 Service Bus .NET 클라이언트가 보내는 진단 이벤트에 대해 설명합니다.  
@@ -141,7 +136,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 #### <a name="events"></a>이벤트
 
-각 작업에 대해 두 개의 이벤트(‘Start’ 및 ‘Stop’)가 전송됩니다. 대체로 ‘Stop’ 이벤트에만 관심이 있습니다. 이 이벤트는 작업 결과, 시작 시간 및 지속 기간을 활동 속성으로 제공합니다.
+각 작업에 대해 두 개의 이벤트(‘Start’ 및 ‘Stop’)가 전송됩니다. 대체로 ‘Stop’ 이벤트에만 관심이 있습니다. 작업의 결과 뿐만 아니라 시작 시간 및 기간을 작업 속성으로 제공 합니다.
 
 이벤트 페이로드는 수신기에 작업 컨텍스트를 제공하며 API 수신 매개 변수 및 반환 값을 복제합니다. ‘Stop’ 이벤트 페이로드에 ‘Start’ 이벤트 페이로드의 모든 속성이 있으므로 ‘Start’ 이벤트는 완전히 무시해도 됩니다.
 
@@ -204,7 +199,7 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 #### <a name="filtering-and-sampling"></a>필터링 및 샘플링
 
-이벤트의 일부만 기록하여 성능 오버헤드 또는 저장소 소비량을 줄이는 것이 바람직한 경우도 있습니다. 앞의 예제와 같이 ‘Stop’ 이벤트만 기록하거나 이벤트의 샘플 비율을 기록할 수 있습니다. 
+이벤트의 일부만 기록하여 성능 오버헤드 또는 스토리지 소비량을 줄이는 것이 바람직한 경우도 있습니다. 앞의 예제와 같이 ‘Stop’ 이벤트만 기록하거나 이벤트의 샘플 비율을 기록할 수 있습니다. 
 `DiagnosticSource`는 `IsEnabled` 조건자로 이 작업을 수행하는 방법을 제공합니다. 자세한 내용은 [DiagnosticSource의 컨텍스트 기반 필터링](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering)을 참조하세요.
 
 성능 영향을 최소화하기 위해 단일 작업에 대해 `IsEnabled`를 여러 번 호출할 수 있습니다.

@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: c20f86fe7fdcfc7ecc940923a8c98fa1fbf4cf65
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0fba49ec5a610d03ece2dce7fa5bb0d9d094ab4c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247032"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203177"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 함수 앱, 데이터베이스, 저장소 계정이 관리되었는지 등 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 함수 앱, 데이터베이스, 스토리지 계정이 관리되었는지 등 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.  
 Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인합니다.
@@ -21,4 +21,5 @@ Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로�
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
-일반적으로 사용자와 가까운 지역에서 리소스 그룹 및 리소스를 만듭니다. App Service 계획에 대해 지원되는 모든 위치를 확인하려면 [az appservice list-locations](/cli/azure/appservice#az-appservice-list-locations) 명령을 실행합니다.
+
+일반적으로 사용자와 가까운 [지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 리소스 그룹 및 리소스를 만듭니다. 

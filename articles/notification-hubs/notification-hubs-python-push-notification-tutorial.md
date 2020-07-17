@@ -1,25 +1,28 @@
 ---
 title: Python과 함께 Notification Hubs를 사용하는 방법
-description: Python 백 엔드에서 Azure Notification Hubs를 사용하는 방법에 대해 알아봅니다.
+description: Python 응용 프로그램에서 Azure Notification Hubs를 사용 하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 5640dd4a-a91e-4aa0-a833-93615bde49b4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
-ms.author: jowargo
 ms.date: 01/04/2019
-ms.openlocfilehash: 43a691ff9025cdb39786f965be6a2fca1b33bd3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.custom: tracking-python
+ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458455"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220068"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
 
@@ -30,7 +33,7 @@ MSDN 문서 [Notification Hubs REST API](https://msdn.microsoft.com/library/dn22
 > [!NOTE]
 > 이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다. 샘플은 Python 3.4를 사용하여 만들어졌습니다.
 
-이 문서에서는 다음 방법을 안내합니다.
+이 아티클에서는 다음을 수행하는 방법을 보여줍니다.
 
 - Python에서 Notification Hubs 기능에 대한 REST 클라이언트를 빌드하는 방법
 - Python 인터페이스를 사용하여 알림 허브 REST API에 알림을 보냅니다.
@@ -109,9 +112,11 @@ def get_expiry():
     # By default returns an expiration of 5 minutes (=300 seconds) from now
     return int(round(time.time() + 300))
 
+
 @staticmethod
 def encode_base64(data):
     return base64.b64encode(data)
+
 
 def sign_string(self, to_sign):
     key = self.SasKeyValue.encode('utf-8')
@@ -120,6 +125,7 @@ def sign_string(self, to_sign):
     digest = signed_hmac_sha256.digest()
     encoded_digest = self.encode_base64(digest)
     return encoded_digest
+
 
 def generate_sas_token(self):
     target_uri = self.Endpoint + self.HubName
@@ -139,7 +145,8 @@ def generate_sas_token(self):
 ```python
 class Notification:
     def __init__(self, notification_format=None, payload=None, debug=0):
-        valid_formats = ['template', 'apple', 'fcm', 'windows', 'windowsphone', "adm", "baidu"]
+        valid_formats = ['template', 'apple', 'fcm',
+                         'windows', 'windowsphone', "adm", "baidu"]
         if not any(x in notification_format for x in valid_formats):
             raise Exception(
                 "Invalid Notification format. " +
@@ -164,7 +171,8 @@ class Notification:
 ```python
 def make_http_request(self, url, payload, headers):
     parsed_url = urllib.parse.urlparse(url)
-    connection = http.client.HTTPSConnection(parsed_url.hostname, parsed_url.port)
+    connection = http.client.HTTPSConnection(
+        parsed_url.hostname, parsed_url.port)
 
     if self.Debug > 0:
         connection.set_debuglevel(self.Debug)
@@ -172,7 +180,8 @@ def make_http_request(self, url, payload, headers):
         url += self.DEBUG_SEND
         print("--- REQUEST ---")
         print("URI: " + url)
-        print("Headers: " + json.dumps(headers, sort_keys=True, indent=4, separators=(' ', ': ')))
+        print("Headers: " + json.dumps(headers, sort_keys=True,
+                                       indent=4, separators=(' ', ': ')))
         print("--- END REQUEST ---\n")
 
     connection.request('POST', url, payload, headers)
@@ -192,6 +201,7 @@ def make_http_request(self, url, payload, headers):
             "Error sending notification. Received HTTP code " + str(response.status) + " " + response.reason)
 
     connection.close()
+
 
 def send_notification(self, notification, tag_or_tag_expression=None):
     url = self.Endpoint + self.HubName + '/messages' + self.API_VERSION
@@ -226,31 +236,39 @@ def send_notification(self, notification, tag_or_tag_expression=None):
 
     self.make_http_request(url, payload_to_send, headers)
 
+
 def send_apple_notification(self, payload, tags=""):
     nh = Notification("apple", payload)
     self.send_notification(nh, tags)
+
 
 def send_fcm_notification(self, payload, tags=""):
     nh = Notification("fcm", payload)
     self.send_notification(nh, tags)
 
+
 def send_adm_notification(self, payload, tags=""):
     nh = Notification("adm", payload)
     self.send_notification(nh, tags)
+
 
 def send_baidu_notification(self, payload, tags=""):
     nh = Notification("baidu", payload)
     self.send_notification(nh, tags)
 
+
 def send_mpns_notification(self, payload, tags=""):
     nh = Notification("windowsphone", payload)
 
     if "<wp:Toast>" in payload:
-        nh.headers = {'X-WindowsPhone-Target': 'toast', 'X-NotificationClass': '2'}
+        nh.headers = {'X-WindowsPhone-Target': 'toast',
+                      'X-NotificationClass': '2'}
     elif "<wp:Tile>" in payload:
-        nh.headers = {'X-WindowsPhone-Target': 'tile', 'X-NotificationClass': '1'}
+        nh.headers = {'X-WindowsPhone-Target': 'tile',
+                      'X-NotificationClass': '1'}
 
     self.send_notification(nh, tags)
+
 
 def send_windows_notification(self, payload, tags=""):
     nh = Notification("windows", payload)
@@ -263,6 +281,7 @@ def send_windows_notification(self, payload, tags=""):
         nh.headers = {'X-WNS-Type': 'wns/badge'}
 
     self.send_notification(nh, tags)
+
 
 def send_template_notification(self, properties, tags=""):
     nh = Notification("template", properties)
@@ -283,7 +302,7 @@ hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
 결과적으로 Notification Hub 보내기 요청 HTTP URL에 "test" 쿼리 문자열이 추가됩니다.
 
-## <a name="complete-tutorial"></a>자습서 완료
+## <a name="complete-the-tutorial"></a><a name="complete-tutorial"></a>자습서 완료
 
 이제 Python 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
@@ -358,13 +377,13 @@ hub.send_baidu_notification(baidu_payload)
 
 Python 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="enabling-the-debug-property"></a>`debug` 속성 사용
 
 NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록 설정하면, 다음과 같이 자세한 HTTP 요청 및 응답 덤프 요청에 전달된 HTTP 헤더뿐만 아니라 Notification Hub에서 받은 HTTP 응답을 이해할 수 있는 NotificationOutcome도 표시됩니다.
 
-![][1]
+![빨간색으로 요약 된 H T T P 요청 및 응답 덤프와 알림 결과 메시지의 세부 정보가 포함 된 콘솔의 스크린샷][1]
 
 예를 들어 메시지가 푸시 알림 서비스로 전송되면
 
@@ -385,7 +404,7 @@ Windows 클라이언트로 브로드캐스트 알림 메시지를 보낼 때 전
 hub.send_windows_notification(wns_payload)
 ```
 
-![][2]
+![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식 및 빨간색으로 요약 된 X W N S 형식 값이 포함 된 콘솔의 스크린샷][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>태그(또는 태그 식)를 지정하여 알림 보내기
 
@@ -395,7 +414,7 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![][3]
+![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, Service Bus 알림 태그 및 X W N S 형식 값이 빨간색으로 표시 된 콘솔의 스크린샷][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>여러 태그를 지정하여 알림 보내기
 
@@ -406,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![][4]
+![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, Service Bus 알림 태그 및 X W N S 형식 값이 빨간색으로 표시 된 콘솔의 스크린샷][4]
 
 ### <a name="templated-notification"></a>템플릿 기반 알림
 
@@ -425,19 +444,19 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![][5]
+![H T T P 요청에 대 한 세부 정보와 콘텐츠 형식 및 Service Bus 알림 형식 값이 빨간색으로 표시 된 콘솔의 스크린샷][5]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
+이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음과 같은 작업을 할 수 있습니다.
 
 - 이 문서의 모든 코드가 포함된 전체 [Python REST 래퍼 샘플]을 다운로드합니다.
--  [속보 자습서]
--  [지역화 뉴스 자습서]
+- [최신 뉴스 자습서] 의 Notification Hubs 태깅 기능에 대해 계속 학습
+- [지역화 뉴스 자습서]
 
 <!-- URLs -->
 [Python REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[시작 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[자습서 시작 하기]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [속보 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [지역화 뉴스 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 

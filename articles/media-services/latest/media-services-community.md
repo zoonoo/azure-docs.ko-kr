@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services 커뮤니티 개요 | Microsoft 문서
-description: 이 Azure Media Services 커뮤니티 페이지에는 질문, 의견을 Media Services에 대 한 업데이트를 가져올 수에 다양 한 방법을 설명 합니다.
+title: Azure Media Services v3 커뮤니티 개요
+description: 이 Azure Media Services 커뮤니티 페이지에서는 질문 및 피드백을 제공하고 Media Services에 대한 업데이트를 받는 다양한 방법을 다룹니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,18 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 01/22/2020
 ms.author: juliako
-ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: ab775e8d93111f7494d2bf321216e2725c438fc8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710174"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828502"
 ---
-# <a name="azure-media-services-community"></a>Azure Media Services 커뮤니티  
+# <a name="azure-media-services-v3-community"></a>Azure Media Services v3 커뮤니티  
 
-이 Azure Media Services 커뮤니티 페이지에는 질문, 의견을 Media Services에 대 한 업데이트를 가져올 수에 다양 한 방법을 설명 합니다.
+이 Azure Media Services 커뮤니티 페이지에서는 질문 및 피드백을 제공하고 Media Services에 대한 업데이트를 받는 다양한 방법을 다룹니다.
 
 ## <a name="provide-feedback-and-make-suggestions"></a>피드백 제공 및 제안하기
 
@@ -32,7 +31,7 @@ ms.locfileid: "64710174"
 
 ### <a name="twitter"></a>Twitter
 
-사용할 수는 [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter 핸들을 문의 하거나 Twitter에서 업데이트를 수행 합니다. 사용 된 [ @AzureSupport ](https://twitter.com/azuresupport) Twitter에서 지원을 요청 하려면 twitter 핸들입니다.  
+[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter 핸들을 사용하여 Microsoft에 문의하거나 Twitter에서 업데이트를 팔로우할 수 있습니다. [@AzureSupport](https://twitter.com/azuresupport) Twitter 핸들을 사용하여 Twitter에서 지원을 요청하세요.  
 
 ### <a name="online-forums"></a>온라인 포럼
 
@@ -40,24 +39,11 @@ ms.locfileid: "64710174"
 
 현재, MSDN은 Media Services 팀의 기본 커뮤니티 포럼입니다.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
 
 또한 이 팀은 Stack Overflow에서 'azure-media-services' 태그가 지정된 질문을 모니터링합니다.
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
-
-## <a name="contact-the-team"></a>팀에 문의
-
-기본 전자 메일은 azure Media Services: **amshelp\@microsoft.com**합니다.
-
-다음 표에 기능 하위 팀의 전자 메일이 나열되어 있습니다.
-
-| 기능 | Email |
-| --- | --- |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure 미디어 탐색기 |amse@microsoft.com |
-| Workflow Designer |mepd@microsoft.com |
-| 라이브 스트리밍 및 패키징 |amslived@microsoft.com |
 
 ## <a name="next-steps"></a>다음 단계
 

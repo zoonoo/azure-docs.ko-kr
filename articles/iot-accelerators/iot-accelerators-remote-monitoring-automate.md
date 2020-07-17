@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션에서 디바이스 문제 감지 자습서 - Azure | Microsoft Docs
+title: 원격 모니터링 솔루션을 사용하여 디바이스 문제 감지 - Azure | Microsoft Docs
 description: 이 자습서에서는 규칙 및 작업을 사용하여 원격 모니터링 솔루션에서 임계값 기반 디바이스 문제를 자동으로 감지하는 방법을 보여줍니다.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598685"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712516"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스를 사용하여 문제 감지
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스를 사용하여 문제 검색
 
 이 자습서에서는 연결된 IoT 디바이스를 사용하여 문제를 검색하도록 원격 모니터링 솔루션 가속기를 구성할 수 있습니다. 디바이스를 사용하여 문제를 검색하려면 솔루션 대시보드에서 경고를 생성하는 규칙을 추가합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "53598685"
 
 또한 지난 5분 동안 디바이스의 평균 습도가 80%보다 크고 디바이스의 온도가 화씨 75도보다 큰 경우 냉각기에 대한 중요한 경고를 만들도록 요청받게 됩니다.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 >[!div class="checklist"]
 > * 솔루션에서 규칙 보기
@@ -54,8 +54,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 설정          | 값                                 |
 | ---------------- | ------------------------------------- |
 | 규칙 이름        | 냉각기 경고                       |
-| 설명      | 냉각기 압력이 150PSI를 초과함 |
-| 장치 그룹     | **냉각기** 디바이스 그룹             |
+| Description      | 냉각기 압력이 150PSI를 초과함 |
+| 디바이스 그룹     | **냉각기** 디바이스 그룹             |
 | 계산      | 인스턴트                               |
 | 조건 1 필드| pressure                              |
 | 조건 1 연산자 | 초과                      |
@@ -77,14 +77,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 설정          | 값                                 |
 | ---------------- | ------------------------------------- |
 | 규칙 이름        | 냉각기 습도 및 온도 위험    |
-| 설명      | 습도 및 온도가 중요함 |
-| 장치 그룹     | **냉각기** 디바이스 그룹             |
+| Description      | 습도 및 온도가 중요함 |
+| 디바이스 그룹     | **냉각기** 디바이스 그룹             |
 | 계산      | 평균                               |
 | 기간      | 5                                     |
 | 조건 1 필드| humidity                              |
 | 조건 1 연산자 | 초과                      |
 | 조건 1 값    | 80                                |
-| 심각도 수준  | 중요                              |
+| 심각도 수준  | 위험                              |
 
 [![여러 조건 규칙 만들기 파트 1](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 

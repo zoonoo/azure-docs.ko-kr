@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: iot-hub
 author: dominicbetts
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dd5dc53311c8611a4ca4d174401bba797fe5c4b1
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: f3cab4909937bbf5ccb0f72b194b08810c0487c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792043"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>진단 설정에 대한 로깅 사용
 
@@ -31,19 +31,19 @@ ms.locfileid: "58505888"
 
 5. 로그를 보낼 위치를 선택합니다. 다음 세 가지 옵션을 조합해서 선택할 수 있습니다.
 
-   * 저장소 계정에 보관
+   * 스토리지 계정에 보관
    * 이벤트 허브로 스트림
    * Log Analytics에 보내기
 
 6. 모니터링하려는 작업을 선택하고 해당 작업에 대한 로그를 사용하도록 설정합니다. 진단 설정이 보고할 수 있는 작업은 같습니다.
 
-   * 연결
+   * Connections
    * 디바이스 원격 분석
-   * 클라우드-장치 메시지
+   * 클라우드-디바이스 메시지
    * 디바이스 ID 작업
    * 파일 업로드
    * 메시지 라우팅
-   * 클라우드-장치 쌍 작업
+   * 클라우드-디바이스 쌍 작업
    * 디바이스-클라우드 쌍 작업
    * 쌍 작업
    * 업무 작업
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-새 설정은 약 10분 후에 적용됩니다. 그런 다음, 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../articles/azure-monitor/platform/diagnostic-logs-overview.md)을 참조하세요.
+새 설정은 약 10분 후에 적용됩니다. 그런 다음, 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성 하는 방법에 대 한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../articles/azure-monitor/platform/platform-logs-overview.md)을 참조 하세요.

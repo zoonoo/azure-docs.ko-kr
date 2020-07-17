@@ -1,28 +1,24 @@
 ---
-title: Azure Active Directory에 등록된 애플리케이션에서 앱 역할을 추가하고 토큰으로 수신하는 방법
+title: 앱 역할 추가 및 토큰에서 가져오기 | Azure
+titleSuffix: Microsoft identity platform
 description: Azure Active Directory에 등록된 애플리케이션에서 앱 역할을 추가하고 이 역할에 사용자와 그룹을 할당하여 토큰의 `roles` 클레임으로 받는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: kkrishna
+author: kalyankrishna1
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: kkrishna
-ms.reviewer: ''
+ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd78e98c37bea0fed1787e1e07a026fa35597f47
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65593918"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187033"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에 앱 역할 추가 및 토큰으로 수신
 
@@ -39,25 +35,21 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 ### <a name="declare-app-roles-using-azure-portal"></a>Azure Portal을 사용하여 앱 역할 선언
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 위쪽 막대에서 내 계정을 선택한 다음, **디렉터리 전환**을 선택합니다.
-1. **디렉터리 + 구독** 창이 열리면 **즐겨찾기** 또는 **모든 디렉터리** 목록에서 애플리케이션에 등록할 Active Directory 테넌트를 선택합니다.
-1. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **즐겨찾기** 또는 **모든 디렉터리** 목록에서 애플리케이션을 등록하려는 Active Directory 테넌트를 선택합니다.
+1. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 1. **Azure Active Directory** 창에서 **앱 등록**을 선택하여 모든 애플리케이션 목록을 봅니다.
-
-     여기에 원하는 애플리케이션이 보이지 않으면 **앱 등록** 목록의 맨 위에서 다양한 필터를 사용하여 목록을 제한하거나 목록을 아래로 스크롤하여 애플리케이션을 찾습니다.
-
-1. 앱 역할을 정의하려는 애플리케이션을 선택합니다.
-1. 애플리케이션의 블레이드에서 **매니페스트**를 선택합니다.
+1. 앱 역할을 정의하려는 애플리케이션을 선택합니다. 그런 후 **매니페스트**를 선택합니다.
 1. `appRoles` 설정을 찾고 모든 애플리케이션 역할을 추가하여 앱 매니페스트를 편집합니다.
 
      > [!NOTE]
-     > 이 매니페스트에 각 앱 역할 정의 대 한 다른 유효한 GUID 있어야 합니다.는 `id` 속성입니다. 
-     > 
-     > `value` 각 앱 역할 정의의 속성에는 응용 프로그램의 코드에 사용 되는 문자열을 정확히 일치 해야 합니다. `value` 속성에는 공백을 포함할 수 없습니다. 이 매니페스트를 저장 하는 경우 오류를 받게.
-     
+     > 이 매니페스트의 각 앱 역할 정의에는 `id` 속성의 매니페스트 컨텍스트 내에서 유효한 다른 GUID가 있어야 합니다.
+     >
+     > 각 앱 역할 정의의 `value` 속성은 애플리케이션의 코드에 사용되는 문자열과 정확히 일치해야 합니다. `value` 속성은 공백을 포함할 수 없습니다. 이 경우 매니페스트를 저장하면 오류가 표시됩니다.
+
 1. 매니페스트를 저장합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 다음 예제는 `users`에게 할당할 수 있는 `appRoles`를 보여줍니다.
 
@@ -82,7 +74,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 ```
 
 > [!NOTE]
->`displayName` 공백을 포함할 수 없습니다.
+>`displayName`에는 공백을 포함할 수 없습니다.
 
 앱 역할은 `users`, `applications` 또는 둘 다를 대상으로 정의할 수 있습니다. `applications`에서 사용할 수 있는 경우 앱 역할은 **필수 권한** 블레이드에 애플리케이션 권한으로 나타납니다. 다음 예제는 `Application`을 대상으로 하는 앱 역할을 보여줍니다.
 
@@ -93,7 +85,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
       "allowedMemberTypes": [
         "Application"
       ],
-      "displayName": "Consumer Apps",
+      "displayName": "ConsumerApps",
       "id": "47fbb575-859a-4941-89c9-0f7a6c30beac",
       "isEnabled": true,
       "description": "Consumer apps have access to the consumer data.",
@@ -103,7 +95,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 "availableToOtherTenants": false,
 ```
 
-정의 된 역할의 수는 응용 프로그램 매니페스트에 있는 한계를 영향을 줍니다. 자세히 설명 했습니다 있어야 합니다 [제한 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) 페이지.
+정의된 역할 수는 애플리케이션 매니페스트에 포함된 제한에 영향을 줍니다. 이 내용은 [매니페스트 제한](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) 페이지에서 자세히 설명합니다.
 
 ### <a name="assign-users-and-groups-to-roles"></a>역할에 사용자 및 그룹 할당
 
@@ -119,19 +111,19 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 1. **사용자 및 그룹** 목록의 맨 위에서 **사용자 추가** 단추를 선택하여 **할당 추가** 창을 엽니다.
 1. **할당 추가** 창에서 **사용자 및 그룹** 선택기를 선택합니다.
 
-     특정 사용자 또는 그룹을 검색하고 찾는 텍스트 상자와 함께 사용자 및 보안 그룹 목록이 표시됩니다. 이 화면에서는 여러 사용자 및 그룹을 한 번에 선택할 수 있습니다.
+     특정 사용자 및 그룹을 검색하고 찾는 텍스트 상자와 함께 사용자 및 보안 그룹의 목록이 표시됩니다. 이 화면에서는 여러 사용자 및 그룹을 한 번에 선택할 수 있습니다.
 
 1. 사용자 및 그룹을 모두 선택하고 나면 맨 아래 **선택** 단추를 눌러서 다음 부분으로 이동합니다.
 1. **할당 추가** 창에서 **역할 선택** 선택기를 선택합니다. 앞서 앱 매니페스트에서 선언한 모든 역할이 표시됩니다.
 1. 역할을 선택하고 **선택** 단추를 누릅니다.
 1. 맨 아래 **할당** 단추를 눌러서 앱에 사용자 및 그룹의 할당을 완료합니다.
-1. 추가한 사용자와 그룹이 업데이트된 **사용자 및 그룹** 목록에 보이는지 확인합니다.
+1. 추가한 사용자 및 그룹이 업데이트된 **사용자 및 그룹** 목록에 보이는지 확인합니다.
 
 ## <a name="more-information"></a>자세한 정보
 
-- [Azure AD 응용 프로그램 역할 &amp; 역할 클레임을 사용하여 웹 앱에서 권한 부여(샘플)](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-roleclaims/)
-- [앱에서 보안 그룹 및 애플리케이션 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)
-- [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
+- [ASP.NET Core 웹앱에 앱 역할 및 역할 클레임을 사용하는 권한 부여 추가](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Microsoft id 플랫폼을 사용 하 여 응용 프로그램에서 권한 부여 구현 (비디오)](https://www.youtube.com/watch?v=LRoc-na27l0)
+- [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [AAD 액세스 토큰](access-tokens.md)
 - [AAD `id_tokens`](id-tokens.md)

@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법
-description: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법을 알아봅니다.
-author: rimman
-ms.author: rimman
+title: '자습서: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법'
+description: '자습서: 쿼리 플레이그라운드를 통해 Azure Cosmos DB에서 SQL 쿼리를 사용하여 쿼리하는 방법 알아보기'
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: bc9835876e8b87213ddbae65e43222467e751ea3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921127"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -56,16 +56,17 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md)는 SQL을 사용하여 문
   "isRegistered": false
 }
 ```
+
 ## <a name="where-can-i-run-sql-queries"></a>SQL 쿼리를 실행할 수 있는 위치
 
 Azure Portal의 [데이터 탐색기]를 사용하여 [REST API 및 SDK](sql-api-sdk-dotnet.md)를 통해 쿼리를 실행할 수 있으며, 기존 샘플 데이터 집합에 대해 쿼리를 실행하는 [쿼리 실습](https://www.documentdb.com/sql/demo)도 사용할 수 있습니다.
 
 SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
-* [SQL 쿼리 및 SQL 구문](how-to-sql-query.md)
+* [SQL 쿼리 및 SQL 구문](sql-query-getting-started.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서에서는 Azure Cosmos DB 계정과 컬렉션이 있다고 가정합니다. 이들 중 하나라도 없는가요? [5분 빠른 시작](create-mongodb-nodejs.md)을 완료하세요.
+이 자습서에서는 Azure Cosmos DB 계정과 컬렉션이 있다고 가정합니다. 이러한 리소스가 없나요? [5분 빠른 시작](create-cosmosdb-resources-portal.md)을 완료하세요.
 
 ## <a name="example-query-1"></a>예제 쿼리 1
 
@@ -73,9 +74,11 @@ SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
 
 **쿼리**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
+```
 
 **결과**
 
@@ -110,23 +113,34 @@ SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
 
 ## <a name="example-query-2"></a>예제 쿼리 2
 
-다음 쿼리에서는 ID가 `WakefieldFamily`와 일치하는 가족의 자식 이름을 학년(grade) 순서로 정렬하여 모두 반환합니다.
+다음 쿼리에서는 ID가 등급별로 정렬된 `WakefieldFamily`와 일치하는 가족의 모든 자식 이름을 반환합니다.
 
 **쿼리**
 
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
+```
 
 **결과**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+```
+[
+    {
+        "givenName": "Jesse"
+    },
+    {
+        "givenName": "Lisa"
+    }
+]
+```
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
 > * SQL을 사용하여 쿼리하는 방법  

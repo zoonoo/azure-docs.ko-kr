@@ -1,24 +1,16 @@
 ---
 title: Azure Application Insights Funnels
 description: Funnels를 사용하여 고객이 애플리케이션과 상호 작용하는 방법을 검색하는 방법을 알아봅니다.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/17/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 2cb7e15b701b53e74618c21bf219a355d495f985
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 07/17/2017
+ms.reviewer: mbullwin
+ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372923"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797823"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Application Insights Funnels를 통해 고객이 애플리케이션을 사용하는 방법 검색
 
@@ -53,7 +45,7 @@ ms.locfileid: "60372923"
   * [사용 현황 개요](usage-overview.md)
   * [사용자, 세션 및 이벤트](usage-segmentation.md)
   * [보존](usage-retention.md)
-  * [통합 문서](../../azure-monitor/app/usage-workbooks.md)
+  * [통합 문서](../../azure-monitor/platform/workbooks-overview.md)
   * [사용자 컨텍스트 추가](usage-send-user-context.md)
   * [Power BI에 내보내기](../../azure-monitor/app/export-power-bi.md )
 

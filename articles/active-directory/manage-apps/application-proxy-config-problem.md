@@ -3,31 +3,30 @@ title: 애플리케이션 프록시 애플리케이션을 만들 때 문제 발�
 description: Azure AD 관리 포털에서 애플리케이션 프록시 애플리케이션을 만들 때 발생하는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104b98cba0948ec5d0896877e54eab1e7cd4049f
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2593f80db4c271d6ae4773f324cc9777e5400550
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825811"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764964"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 만들 때 문제 발생 
 
 다음은 새로운 애플리케이션 프록시 애플리케이션을 만들 때 발생하는 몇 가지 일반적인 문제입니다.
 
-## <a name="recommended-documents"></a>권장 문서 
+## <a name="recommended-documents"></a>권장되는 문서 
 
 관리 포털을 통해 애플리케이션 프록시 애플리케이션을 만드는 방법에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md)를 참조하세요.
 

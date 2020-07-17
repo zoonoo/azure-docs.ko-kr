@@ -2,60 +2,147 @@
 title: 웹 대시보드를 사용하여 Azure Kubernetes Service 클러스터를 관리합니다.
 description: AKS(Azure Kubernetes Service) 클러스터를 관리하는 데 기본 제공 Kubernetes 웹 UI 대시보드를 사용하는 방법 알아보기
 services: container-service
-author: iainfoulds
-ms.service: container-service
+author: mlearned
 ms.topic: article
-ms.date: 10/08/2018
-ms.author: iainfou
-ms.openlocfilehash: e831979e0a9f9c8b4d812f682403ecf466abbd13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2020
+ms.author: mlearned
+ms.openlocfilehash: 1754e166cd5c5a3d7309bc8c6f6459cdd0852396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762907"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 
 Kubernetes에는 기본 관리 작업에 사용할 수 있는 웹 대시보드가 포함됩니다. 이 대시보드를 사용하면 애플리케이션의 기본 상태와 메트릭을 보고 서비스를 작성 및 배포하며 기존 애플리케이션을 편집할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Kubernetes 대시보드에 액세스하는 방법을 보여준 후 일부 기본적인 대시보드 작업 과정을 안내합니다.
 
-Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요.
+Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요. AKS는 버전 2.0 이상의 오픈 소스 대시보드를 사용 합니다.
+
+> [!WARNING]
+> **AKS 대시보드 추가 기능이 사용 중단 되도록 설정 되었습니다.** 
+> * Kubernetes 대시보드는 1.18 미만의 Kubernetes 버전을 실행 하는 클러스터에 대해 기본적으로 사용 하도록 설정 됩니다.
+> * Kubernetes 1.18 이상에서 만든 모든 새 클러스터에 대해 기본적으로 대시보드 추가 기능이 사용 하지 않도록 설정 됩니다. 
+ > * Kubernetes 1.19부터 미리 보기에서 AKS은 더 이상 관리 되는 kube 추가 기능을 설치 하는 것을 지원 하지 않습니다. 
+ > * 추가 기능이 사용 하도록 설정 된 기존 클러스터는 영향을 받지 않습니다. 사용자는 계속 해 서 사용자가 설치한 소프트웨어로 오픈 소스 대시보드를 수동으로 설치할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에 설명된 단계에서는 AKS 클러스터를 만들고 클러스터와 `kubectl` 연결을 설정했다고 가정합니다. AKS 클러스터를 만들어야 하는 경우, [AKS 빠른 시작][aks-quickstart]을 참조하세요.
+이 문서에 자세히 설명 된 단계에서는 AKS 클러스터를 만들고 `kubectl` 클러스터와의 연결을 설정 했다고 가정 합니다. AKS 클러스터를 만들어야 하는 경우, [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.46 이상이 설치되고 구성되어 있어야 합니다.  `az --version` 을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.6.0 이상이 설치 및 구성 되어 있어야 합니다.  `az --version` 을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+
+## <a name="disable-the-kubernetes-dashboard"></a>Kubernetes 대시보드 사용 안 함
+
+Kube-dashboard 추가 기능은 **K8s 1.18 보다 오래 된 클러스터에서 기본적으로 사용 하도록 설정**됩니다. 다음 명령을 실행 하 여 추가 기능을 사용 하지 않도록 설정할 수 있습니다.
+
+``` azure-cli
+az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
+```
 
 ## <a name="start-the-kubernetes-dashboard"></a>Kubernetes 대시보드 시작
 
-Kubernetes 대시보드를 시작하려면 [az aks browse][az-aks-browse] 명령을 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster*라는 클러스터의 대시보드를 엽니다.
+클러스터에서 Kubernetes 대시보드를 시작 하려면 [az aks browse][az-aks-browse] 명령을 사용 합니다. 이 명령을 사용 하려면 클러스터에 kube 추가 기능을 설치 해야 합니다 .이 추가 기능은 Kubernetes 1.18 보다 오래 된 버전을 실행 하는 클러스터에 기본적으로 포함 되어 있습니다.
+
+다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster*라는 클러스터의 대시보드를 엽니다.
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-이 명령은 개발 시스템과 Kubernetes API 사이에 프록시를 만들고 웹 브라우저에서 Kubernetes 대시보드를 엽니다. 웹 브라우저에서 Kubernetes 대시보드 열리지 복사 하 고 일반적으로 Azure CLI에 명시 된 URL 주소를 붙여 `http://127.0.0.1:8001`합니다.
+이 명령은 개발 시스템과 Kubernetes API 사이에 프록시를 만들고 웹 브라우저에서 Kubernetes 대시보드를 엽니다. 웹 브라우저가 Kubernetes 대시보드에서 열리지 않는 경우 Azure CLI에 표시된 URL 주소(일반적으로 `http://127.0.0.1:8001`)를 복사하여 붙여넣으세요.
+
+> [!NOTE]
+> 에서 대시보드가 표시 되지 않으면 `http://127.0.0.1:8001` 다음 주소로 수동으로 라우팅할 수 있습니다. 1.16 이상의 클러스터에는 https를 사용 하 고 별도의 끝점이 필요 합니다.
+> * K8s 1.16 이상:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+> * K8s 1.15 이상:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
+
+<!--
+![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
+
+You have the following options to sign in to your cluster's dashboard:
+
+* A [kubeconfig file][kubeconfig-file]. You can generate a kubeconfig file using [az aks get-credentials][az-aks-get-credentials].
+* A token, such as a [service account token][aks-service-accounts] or user token. On [AAD-enabled clusters][aad-cluster], this token would be an AAD token. You can use `kubectl config view` to list the tokens in your kubeconfig file. For more details on creating an AAD token for use with an AKS cluster see [Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI][aad-cluster].
+* The default dashboard service account, which is used if you click *Skip*.
+
+> [!WARNING]
+> Never expose the Kubernetes dashboard publicly, regardless of the authentication method used.
+> 
+> When setting up authentication for the Kubernetes dashboard, it is recommended that you use a token over the default dashboard service account. A token allows each user to use their own permissions. Using the default dashboard service account may allow a user to bypass their own permissions and use the service account instead.
+> 
+> If you do choose to use the default dashboard service account and your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
+>
+> To create a binding, use the [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] command as shown in the following example. **This sample binding does not apply any additional authentication components and may lead to insecure use.**
+>
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
+> 
+> You can now access the Kubernetes dashboard in your RBAC-enabled cluster. To start the Kubernetes dashboard, use the [az aks browse][az-aks-browse] command as detailed in the previous step.
+>
+> If your cluster does not use RBAC, it is not recommended to create a *ClusterRoleBinding*.
+> 
+> For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+
+After you choose a method to sign in, the Kubernetes dashboard is displayed. If you chose to use *token* or *skip*, the Kubernetes dashboard will use the permissions of the currently logged in user to access the cluster.
+
+> [!IMPORTANT]
+> If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. The Kubernetes dashboard does not currently support user-provided credentials to determine the level of access, rather it uses the roles granted to the service account. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
+> 
+> To create a binding, use the [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] command. The following example shows how to create a sample binding, however, this sample binding does not apply any additional authentication components and may lead to insecure use. The Kubernetes dashboard is open to anyone with access to the URL. Do not expose the Kubernetes dashboard publicly.
+>
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
+> 
+> For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+-->
+
+## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>대시보드에 로그인 (kubernetes 1.16 +)
+
+> [!IMPORTANT]
+> Kubernetes 대시보드 또는 Kubernetes v 1.16 + [의 v 1.10.1](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) 에서 서비스 계정 "Kubernetes-대시보드"는 [해당 릴리스의 보안 수정](https://github.com/kubernetes/dashboard/pull/3400)으로 인해 더 이상 리소스를 검색 하는 데 사용할 수 없습니다. 따라서 인증 정보가 없는 요청은 401 권한 없음 오류를 반환 합니다. 서비스 계정에서 검색 된 전달자 토큰은이 [Kubernetes 대시보드 예제](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui)와 같이 여전히 사용할 수 있지만이는 이전 버전과 비교 하 여 대시보드 추가 기능에 대 한 로그인 흐름에 영향을 줍니다.
+>
+>1.16 이전 버전을 실행 하는 경우에도 "kubernetes" 서비스 계정에 권한을 부여할 수 있지만 **권장 되지는 않습니다**.
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
+
+제공 된 초기 화면에는 kubeconfig 또는 토큰이 필요 합니다. 두 옵션 모두 대시보드에 해당 리소스를 표시 하려면 리소스 권한이 필요 합니다.
+
+![로그인 화면](./media/kubernetes-dashboard/login.png)
+
+**Kubeconfig 사용**
+
+Azure AD를 사용 하도록 설정 된 azure ad 및 비 Azure AD 사용 클러스터의 경우 kubeconfig를 전달할 수 있습니다. 액세스 토큰이 유효한 지 확인 합니다. 토큰이 만료 된 경우 kubectl를 통해 토큰을 새로 고칠 수 있습니다.
+
+1. Admin kubeconfig을로 설정 합니다.`az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
+1. 선택 `Kubeconfig` 하 고 클릭 `Choose kubeconfig file` 하 여 파일 선택기 열기
+1. Kubeconfig 파일 선택 (기본값은 $HOME/.kube/config)
+1. `Sign In`을 클릭합니다.
+
+**토큰 사용**
+
+1. **비 AZURE AD를 사용할 수 있는 클러스터**의 경우를 실행 `kubectl config view` 하 고 클러스터의 사용자 계정과 연결 된 토큰을 복사 합니다.
+1. 로그인에서 토큰 옵션에 붙여넣습니다.    
+1. `Sign In`을 클릭합니다.
+
+Azure AD 사용 클러스터의 경우 다음 명령을 사용 하 여 AAD 토큰을 검색 합니다. 명령에서 리소스 그룹 및 클러스터 이름을 바꾼 유효성을 검사 합니다.
+
+```
+## Update <RESOURCE_GROUP and <AKS_NAME> with your input.
+
+kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROUP>_<AKS_NAME>")].user.auth-provider.config.access-token}'
+```
+
+성공적으로 완료 되 면 아래와 유사한 페이지가 표시 됩니다.
 
 ![Kubernetes 웹 대시보드의 개요 페이지](./media/kubernetes-dashboard/dashboard-overview.png)
 
-### <a name="for-rbac-enabled-clusters"></a>RBAC 지원 클러스터의 경우
-
-AKS 클러스터에서 RBAC를 사용하는 경우, 대시보드에 올바르게 액세스하려면 먼저 *ClusterRoleBinding*을 만들어야 합니다. 기본적으로 Kubernetes 대시보드는 최소한의 읽기 권한을 사용하여 배포되고 RBAC 액세스 오류를 표시합니다. Kubernetes 대시보드는 액세스 수준을 확인하는 사용자 제공 자격 증명을 현재 지원하지 않으며, 대신 서비스 계정에 부여된 역할을 사용합니다. 클러스터 관리자는 *kubernetes 대시보드* 서비스 계정에 대한 추가 액세스 권한을 부여하도록 선택할 수 있지만 이는 권한 상승에 대한 벡터일 수 있습니다. 또한 더 세분화된 수준의 액세스를 제공하려면 Azure Active Directory 인증을 통합할 수 있습니다.
-
-바인딩을 만들려면 다음 예제와 같이 [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] 명령을 사용합니다. 
-
-> [!WARNING]
-> 이 샘플 바인딩은 추가 인증 구성 요소를 적용하지 않으므로 사용이 안전하지 않을 수 있습니다. Kubernetes 대시보드는 URL 액세스 권한을 가진 모든 사용자에게 열립니다. Kubernetes 대시보드를 공개적으로 공개하지 마세요.
->
-> 다른 인증 방법 사용에 대한 자세한 내용은 [액세스 제어][dashboard-authentication]에 대한 Kubernetes 대시보드 wiki를 참조하세요.
-
-```console
-kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
-```
-
-이제 RBAC 지원 클러스터의 Kubernetes 대시보드에 액세스할 수 있습니다. Kubernetes 대시보드를 시작하려면 이전 단계에서 설명한 대로 [az aks browse][az-aks-browse] 명령을 사용합니다.
-
 ## <a name="create-an-application"></a>애플리케이션 만들기
+
+다음 단계를 수행 하려면 사용자에 게 해당 리소스에 대 한 사용 권한이 있어야 합니다. 
 
 Kubernetes 대시보드가 관리 작업의 복잡도를 줄일 수 있는 방법을 보기 위해 애플리케이션을 작성해 보겠습니다. 텍스트 입력, YAML 파일을 제공하거나 그래픽 마법사를 통해 Kubernetes 대시보드에서 애플리케이션을 작성할 수 있습니다.
 
@@ -70,7 +157,7 @@ Kubernetes 대시보드가 관리 작업의 복잡도를 줄일 수 있는 방�
 
 ![Kubernetes 웹 대시보드에 앱 배포](./media/kubernetes-dashboard/create-app.png)
 
-공용 외부 IP 주소가 Kubernetes 서비스에 지정되는 데 1분이나 2분이 소요됩니다. 왼쪽에 있는 **감지 및 로드 밸런싱**에서 **서비스**를 선택하세요. 다음 예제에 표시된 대로 ‘외부 엔드포인트’를 포함하여 애플리케이션 서비스가 나열됩니다.
+공용 외부 IP 주소가 Kubernetes 서비스에 지정되는 데 1분이나 2분이 소요됩니다. 왼쪽에 있는 **감지 및 로드 밸런싱**에서 **서비스**를 선택하세요. 다음 예제에 표시된 대로 ‘외부 엔드포인트’를 포함하여 애플리케이션 서비스가 나열됩니다.**
 
 ![서비스 및 엔드포인트 목록 보기](./media/kubernetes-dashboard/view-services.png)
 
@@ -108,12 +195,17 @@ Kubernetes 대시보드는 애플리케이션을 만들고 보는 것 외에도 
 Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요.
 
 <!-- LINKS - external -->
-[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubeconfig-file]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 <!-- LINKS - internal -->
+[aad-cluster]: ./azure-ad-integration-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[install-azure-cli]: /cli/azure/install-azure-cli
+[aks-service-accounts]: ./concepts-identity.md#kubernetes-service-accounts
+[az-account-get-access-token]: /cli/azure/account?view=azure-cli-latest#az-account-get-access-token
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[install-azure-cli]: /cli/azure/install-azure-cli

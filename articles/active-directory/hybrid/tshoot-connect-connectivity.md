@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Azure AD 문제 해결 연결 문제 | Microsoft Docs'
+title: 'Azure AD Connect: Azure AD 연결 문제 해결 | Microsoft Docs'
 description: Azure AD Connect의 연결 문제를 해결하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -11,17 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.custom: has-adal-ref
+ms.openlocfilehash: a329ec32e241d88a56fc7031904777888ac194ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572788"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356409"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Azure AD 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -31,7 +32,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 
 이 문서에서는 Fabrikam이 해당 프록시를 통해 Azure AD에 연결되는 방법을 보여 줍니다. 프록시 서버의 이름은 fabrikamproxy이고 포트 8080을 사용하고 있습니다.
 
-첫째, [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) 가 올바르게 구성되었는지 확인해야 합니다.  
+첫째, [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) 가 올바르게 구성되었는지 확인해야 합니다.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -43,7 +44,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 
 이러한 URL 중 다음 표는 Azure AD에 연결하기 위한 절대적인 최소 기본 사항입니다. 이 목록은 비밀번호 쓰기 저장 또는 Azure AD Connect Health와 같은 선택적 기능은 포함하지 않습니다. 여기에 초기 구성 시 발생하는 문제 해결에 도움이 되는 내용이 나와 있습니다.
 
-| URL | 포트 | 설명 |
+| URL | 포트 | Description |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |CRL 목록을 다운로드하는 데 사용됩니다. |
 | \*.verisign.com |HTTP/80 |CRL 목록을 다운로드하는 데 사용됩니다. |
@@ -58,30 +59,29 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 다음 문제는 설치 마법사에서 발생하는 가장 일반적인 오류입니다.
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>설치 마법사가 올바르게 구성되지 않음
-마법사 자체가 프록시에 연결할 수 없는 경우 이 오류가 표시됩니다.  
+마법사 자체가 프록시에 연결할 수 없는 경우 이 오류가 표시됩니다.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * 이 오류가 표시되면 [machine.config](how-to-connect-install-prerequisites.md#connectivity)가 올바르게 구성되었는지 확인합니다.
 * 올바르게 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity) 의 단계를 수행합니다.
 
 ### <a name="a-microsoft-account-is-used"></a>Microsoft 계정이 사용됨
-**학교 또는 조직 계정**이 아닌 **Microsoft 계정**을 사용하면 일반 오류가 발생합니다.  
+**학교 또는 조직 계정**이 아닌 **Microsoft 계정**을 사용하면 일반 오류가 발생합니다.
 ![Microsoft 계정이 사용됨](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>MFA 엔드포인트에 연결할 수 없음
-엔드포인트 **https://secure.aadcdn.microsoftonline-p.com**에 연결할 수 없고 전역 관리자가 MFA를 사용하도록 설정한 경우 이 오류가 표시됩니다.  
+이 오류는 끝점에 **https://secure.aadcdn.microsoftonline-p.com** 연결할 수 없고 전역 관리자가 MFA를 사용 하도록 설정한 경우에 나타납니다.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * 이 오류가 표시되는 경우 엔드포인트 **secure.aadcdn.microsoftonline-p.com**이 프록시에 추가되어 있는지 확인합니다.
 
 ### <a name="the-password-cannot-be-verified"></a>암호를 확인할 수 없음
-설치 마법사가 Azure AD 연결에 성공했지만 암호 자체를 확인할 수 없는 경우 이 오류가 표시됩니다.  
-![잘못 된 암호입니다.](./media/tshoot-connect-connectivity/badpassword.png)
+설치 마법사가 Azure AD에 연결 하는 데 성공 했지만 암호 자체를 확인할 수 없는 경우 다음 오류가 표시 됩니다. ![ 잘못 된 암호입니다.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* 암호가 임시 암호라서 변경해야 하나요? 실제로 올바른 암호인가요? Azure AD Connect 서버 이외의 컴퓨터에서 https://login.microsoftonline.com에 로그인하여 계정이 사용 가능한지 확인합니다.
+* 암호가 임시 암호라서 변경해야 하나요? 실제로 올바른 암호인가요? Azure AD Connect 서버 이외의 컴퓨터에서 `https://login.microsoftonline.com`에 로그인하여 계정이 사용 가능한지 확인합니다.
 
 ### <a name="verify-proxy-connectivity"></a>프록시 연결 확인
-Azure AD Connect 서버가 프록시 및 인터넷에 실제로 연결되었는지 확인하려면 프록시가 웹 요청을 허용하는지 확인하기 위해 PowerShell을 사용합니다. PowerShell 프롬프트에서 `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`를 실행합니다. (기술적으로 https://login.microsoftonline.com을 첫 번째로 호출하고 작동도 되지만 다른 URI가 더 빠르게 응답합니다.)
+Azure AD Connect 서버가 프록시 및 인터넷에 실제로 연결되었는지 확인하려면 프록시가 웹 요청을 허용하는지 확인하기 위해 PowerShell을 사용합니다. PowerShell 프롬프트에서 `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`를 실행합니다. (기술적으로 `https://login.microsoftonline.com`을 첫 번째로 호출하고 작동도 되지만 다른 URI가 더 빠르게 응답합니다.)
 
 PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사용합니다. winhttp/netsh 설정이 이러한 cmdlet에 영향을 주지 않아야 합니다.
 
@@ -93,10 +93,10 @@ PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사�
 프록시가 올바르게 구성되지 않으면 ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)과 같은 오류가 표시됩니다.
 
-| 오류 | 오류 텍스트 | 주석 |
+| Error | 오류 텍스트 | 의견 |
 | --- | --- | --- |
 | 403 |사용할 수 없음 |요청된 URL에 대해 프록시가 열려 있지 않습니다. 프록시 구성을 다시 확인하고 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 이 열려 있는지 확인합니다. |
-| 407 |프록시 인증 필요 |프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우 machine.config에서 이 설정이 구성되었는지 확인합니다. 또한 마법사를 실행하는 사용자 및 서비스 계정에 대해 도메인 계정을 사용하고 있는지 확인합니다. |
+| 407 |프록시 인증 필요 |프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우이 설정이 machine.config에 구성 되어 있는지 확인 합니다. 또한 마법사를 실행 하는 사용자와 서비스 계정에 도메인 계정을 사용 하 고 있는지 확인 합니다. |
 
 ### <a name="proxy-idle-timeout-setting"></a>프록시 유휴 시간 제한 설정
 Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 응답을 생성하기 전에 요청을 처리하는 데 최대 5분이 소요될 수 있습니다. 대규모 그룹 구성원이 동일한 내보내기 요청에 포함되어 있는 그룹 개체가 많이 있을 때 특히 이러한 처리 시간이 오래 걸릴 수 있습니다. 프록시 유휴 시간 제한을 5분보다 크게 구성해야 합니다. 그렇지 않은 경우 Azure AD Connect 서버에서 Azure AD와의 간헐적 연결 문제가 확인될 수 있습니다.
@@ -104,14 +104,14 @@ Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect와 Azure AD 간의 통신 패턴
 위의 모든 단계를 수행했는데도 여전히 연결할 수 없다면 이제 네트워크 로그를 살펴봅니다. 이 섹션에는 일반적이고 성공적인 연결 패턴이 나와 있습니다. 네트워크 로그를 읽고 있는 중이라면 무시해도 되는 지엽적인 내용도 나옵니다.
 
-* https://dc.services.visualstudio.com에 대한 호출이 있습니다. 설치가 성공하는 데 프록시에 이 URL이 열려 있을 필요는 없으므로 이러한 호출은 무시해도 됩니다.
+* `https://dc.services.visualstudio.com`에 대한 호출이 있습니다. 설치가 성공하는 데 프록시에 이 URL이 열려 있을 필요는 없으므로 이러한 호출은 무시해도 됩니다.
 * DNS 확인에서 microsoftonline.com이 아닌 DNS 이름 공간 nsatc.net 및 기타 네임스페이스에 있어야 하는 실제 호스트가 나열됩니다. 그러나 실제 서버 이름에 대한 웹 서비스를 요청하지 않으므로 이러한 URL을 프록시에 추가할 필요가 없습니다.
 * 엔드포인트 adminwebservice 및 provisioningapi는 검색 엔드포인트이며 사용할 실제 엔드포인트를 찾는 데 사용됩니다. 이러한 엔드포인트는 사용자의 하위 지역에 따라 다릅니다.
 
 ### <a name="reference-proxy-logs"></a>참조 프록시 로그
 다음은 실제 프록시 로그의 덤프 및 수행된 설치 마법사 페이지입니다(동일한 엔드포인트에 대한 중복 항목은 제거됨). 이 섹션은 고유한 프록시 및 네트워크 로그에 대한 참조로 사용할 수 있습니다. 실제 엔드포인트는 사용자 환경에서 다를 수 있습니다(특히 *기울임꼴*의 URL).
 
-**Azure AD에 연결**
+**Azure에 연결**
 
 | Time | URL |
 | --- | --- |
@@ -165,8 +165,8 @@ Azure AD 디렉터리를 찾거나 해결할 수 없습니다. 확인되지 않�
 ### <a name="authorization-failure"></a>권한 부여 실패
 Azure AD에서 사용자에게 작업을 수행하도록 권한을 부여하지 못했습니다.
 
-### <a name="authentication-canceled"></a>취소 인증
-Multi-factor authentication (MFA) 챌린지 취소 되었습니다.
+### <a name="authentication-canceled"></a>인증 취소 됨
+MFA (multi-factor authentication) 챌린지를 취소 했습니다.
 
 <div id="connect-msolservice-failed">
 <!--
@@ -186,7 +186,7 @@ Multi-factor authentication (MFA) 챌린지 취소 되었습니다.
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Azure AD 전역 관리자 역할 필요
-사용자가 인증되었습니다. 그러나 사용자에게 전역 관리자 역할이 할당되지 않습니다. 이것이 사용자에게 [전역 관리자 역할을 할당하는 방법](../users-groups-roles/directory-assign-admin-roles.md)입니다. 
+사용자가 인증되었습니다. 그러나 사용자에게 전역 관리자 역할이 할당되지 않습니다. 이것이 사용자에게 [전역 관리자 역할을 할당하는 방법](../users-groups-roles/directory-assign-admin-roles.md)입니다.
 
 <div id="privileged-identity-management">
 <!--
@@ -224,7 +224,7 @@ Multi-factor authentication (MFA) 챌린지 취소 되었습니다.
 ## <a name="troubleshooting-steps-for-previous-releases"></a>이전 릴리스에 대한 문제 해결 단계입니다.
 빌드 번호 1.1.105.0(2016년 2월에 발표됨)으로 시작하는 릴리스에서 로그인 도우미 사용이 중지되었습니다. 이 섹션 및 구성은 더 이상 필요하지 않지만 참조로 유지됩니다.
 
-단일 로그인 도우미를 작동하려면 winhttp가 구성되어야 합니다. 이 구성은 [**netsh**](how-to-connect-install-prerequisites.md#connectivity)를 사용하여 수행할 수 있습니다.  
+단일 로그인 도우미를 작동하려면 winhttp가 구성되어야 합니다. 이 구성은 [**netsh**](how-to-connect-install-prerequisites.md#connectivity)를 사용하여 수행할 수 있습니다.
 ![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>로그인 도우미가 올바르게 구성되지 않음

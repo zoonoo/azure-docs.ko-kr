@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: expressroute
 author: cherylmc
@@ -9,15 +9,15 @@ ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67181937"
 ---
 > [!NOTE]
 > 이러한 예제가 S2S/ExpressRoute 공존 구성에는 적용되지 않습니다.
-> 공존 구성의 게이트웨이 사용에 대한 자세한 내용은 [공존 연결 구성](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)을 참조하세요.
+> 공존 구성에서 게이트웨이를 사용 하는 방법에 대 한 자세한 내용은 공존 [연결 구성](../articles/expressroute/expressroute-howto-coexist-classic.md#gw) 을 참조 하세요.
 
 ## <a name="add-a-gateway"></a>게이트웨이를 추가합니다.
 

@@ -1,19 +1,20 @@
 ---
 title: Azure Virtual Machines를 사용한 고급 자동 크기 조정
-description: 크기 조정 작업에 대한 전자 메일을 전송하고 웹후크 URL을 호출하는 여러 규칙 및 프로필에 Resource Manager 및 VM Scale Sets를 사용합니다.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+description: 크기 조정 작업에 대한 이메일을 보내고 웹후크 URL을 호출하는 여러 규칙 및 프로필이 포함된 Resource Manager 및 VM 확장 집합을 사용합니다.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
-ms.date: 02/22/2016
-ms.author: ancav
+ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/25/2020
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787804"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373882"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Resource Manager 템플릿을 사용하여 VM Scale Sets에 대한 고급 자동 크기 조정 구성
 되풀이 일정 또는 특정 날짜에 성능 메트릭 임계값을 기반으로 Virtual Machine Scale Sets의 규모를 확장 및 감축할 수 있습니다. 또한 크기 조정 동작에 대한 전자 메일 및 웹후크 알림을 구성할 수 있습니다. 이 연습에서는 VM 확장 집합에서 Resource Manager 템플릿을 사용하여 이 모든 개체를 구성하는 예를 보여 줍니다.
@@ -35,7 +36,7 @@ ms.locfileid: "60787804"
 
 3. 이제 일정 또는 특정 요구 사항에 따라 프로필 및 규칙을 추가할 수 있습니다. 3개의 프로필로 자동 크기 조정 설정을 만듭니다. 자동 크기 조정의 프로필 및 규칙을 이해하려면 [자동 크기 조정 모범 사례](autoscale-best-practices.md)를 검토하세요.  
 
-    | 프로필 및 규칙 | 설명 |
+    | 프로필 및 규칙 | Description |
     |--- | --- |
     | **프로필** |**성능/메트릭 기반** |
     | 규칙 |Service Bus 큐 메시지 수 > x |

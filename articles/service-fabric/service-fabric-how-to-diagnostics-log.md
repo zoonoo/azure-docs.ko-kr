@@ -1,25 +1,16 @@
 ---
-title: Azure 또는 독립 실행형 클러스터의 .NET Service Fabric 앱에서 로그 이벤트 생성
+title: .NET 앱에서 로그 이벤트 생성
 description: Azure 클러스터 또는 독립 실행형 클러스터에 호스트된 .NET Service Fabric 애플리케이션에 로깅을 추가하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: d1b3dc25dd9bda9d7f9d9152c2a94cea8321f5cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: caa6d4fc27373e524f4c492635cffbf8b735add8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482610"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247220"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 애플리케이션에 로깅 추가
 
@@ -105,9 +96,9 @@ internal sealed class ServiceEventSource : EventSource
 
 ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Logging))은 애플리케이션에 대한 표준 로깅 API를 제공하는 로깅 프레임워크입니다. 다른 로깅 백 엔드에 대한 지원을 ASP.NET Core 로깅에 연결할 수 있습니다. 이렇게 하면 많은 코드를 변경할 필요 없이 애플리케이션의 로깅에 대한 다양한 지원이 처리됩니다.
 
-1. 계측하려는 프로젝트에 **Microsoft.Extensions.Logging** NuGet 패키지를 추가합니다. 또한 공급자 패키지를 추가합니다. 자세한 내용은 [ASP.NET Core 로그인](https://docs.microsoft.com/aspnet/core/fundamentals/logging)(영문)을 참조하세요.
-2. **Microsoft.Extensions.Logging**에 대한 **using** 지시문을 서비스 파일에 추가합니다.
-3. 서비스 클래스 내에 private 변수를 정의합니다.
+1. 계측할 프로젝트에 **Microsoft 확장명 로깅** 패키지를 추가 합니다. 또한 공급자 패키지를 추가합니다. 자세한 내용은 [ASP.NET Core 로그인](/aspnet/core/fundamentals/logging)(영문)을 참조하세요.
+2. 서비스 파일에 **로깅하** 는 **using** 지시문을 추가 합니다.
+3. 서비스 클래스 내에 프라이빗 변수를 정의합니다.
 
    ```csharp
    private ILogger _logger = null;
@@ -170,19 +161,9 @@ ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.
 5. Serilog 없이 ASP.NET Core를 사용하는 경우와 동일한 코드를 계측합니다.
 
    >[!NOTE]
-   >앞의 예제와 함께 정적 `Log.Logger`를 사용하지 *않는* 것이 좋습니다. Service Fabric은 단일 프로세스 내에서 동일한 서비스 유형의 여러 인스턴스를 호스팅할 수 있습니다. 정적 `Log.Logger`를 사용하는 경우 속성 보강자의 마지막 기록기는 실행 중인 모든 인스턴스의 값을 표시합니다. _logger 변수가 서비스 클래스의 private 멤버 변수가 되는 한 가지 이유입니다. 또한 서비스 전체에서 사용할 수 있는 일반 코드에서 `_logger`를 사용할 수 있도록 해야 합니다.
+   >앞의 예제와 함께 정적 `Log.Logger`를 사용하지 *않는* 것이 좋습니다. Service Fabric은 단일 프로세스 내에서 동일한 서비스 유형의 여러 인스턴스를 호스팅할 수 있습니다. 정적 `Log.Logger`를 사용하는 경우 속성 보강자의 마지막 기록기는 실행 중인 모든 인스턴스의 값을 표시합니다. _logger 변수가 서비스 클래스의 프라이빗 멤버 변수가 되는 한 가지 이유입니다. 또한 서비스 전체에서 사용할 수 있는 일반 코드에서 `_logger`를 사용할 수 있도록 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Service Fabric의 애플리케이션 모니터링](service-fabric-diagnostics-event-generation-app.md)에 대해 자세히 알아봅니다.
 - [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 및 [Microsoft Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)를 사용하는 로깅에 대해 알아봅니다.
-
-
-
-
-
-
-
-
-
-

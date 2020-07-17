@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 341d8dd712b858572ec5df76b176258ca87c8857
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271121"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67094435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>자습서: Pingboard와 Azure Active Directory 통합
 
@@ -31,10 +31,10 @@ Pingboard를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 * 사용자가 해당 Azure AD 계정으로 Pingboard에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Pingboard와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -59,7 +59,7 @@ Pingboard와 Azure AD의 통합을 구성하려면 갤러리의 Pingboard를 관
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -111,7 +111,7 @@ Pingboard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     b. **회신 URL** 텍스트 상자에서 `https://<entity-id>.pingboard.com/auth/saml/consume` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![Pingboard 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
@@ -140,7 +140,7 @@ Pingboard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. 상단 메뉴에서 **앱 > 통합**을 선택합니다.
 
-    ![Configure Single Sign-On](./media/pingboard-tutorial/Pingboard_integration.png)
+    ![Single Sign-on 구성](./media/pingboard-tutorial/Pingboard_integration.png)
 
 3. **통합** 페이지에서 **"Azure Active Directory"** 타일을 찾아 클릭합니다.
 
@@ -176,7 +176,7 @@ Pingboard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
   
     b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -224,7 +224,7 @@ Pingboard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **전체 이름** 텍스트 상자에서 **Britta Simon**과 같은 사용자의 전체 이름을 입력합니다.
 
-    b. **이메일** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
+    b. **이메일** 텍스트 상자에서 **brittasimon@contoso.com** 과 같은 사용자의 이메일 주소를 입력합니다.
 
     다. **직함** 텍스트 상자에 Britta Simon의 직함을 입력합니다.
 

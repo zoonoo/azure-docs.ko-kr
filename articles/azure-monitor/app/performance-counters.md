@@ -1,27 +1,17 @@
 ---
 title: Application Insights의 성능 카운터 | Microsoft Docs
 description: Application Insights에서 시스템 및 사용자 지정 .NET 성능 카운터를 모니터링합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: mbullwin
-ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256963"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701470"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
-Windows는 광범위한 [성능 카운터](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters)(예: CPU 점유율, 메모리, 디스크, 네트워크 사용량 등)를 제공합니다. 고유한 성능 카운터를 정의할 수도 있습니다. 관리 액세스 권한이 있는 온-프레미스 호스트 또는 가상 머신의 IIS에서 애플리케이션이 실행되는 경우.
+Windows는 광범위한 [성능 카운터](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters)(예: CPU 점유율, 메모리, 디스크, 네트워크 사용량 등)를 제공합니다. 고유한 성능 카운터를 정의할 수도 있습니다. 성능 카운터 컬렉션은 관리 액세스 권한이 있는 온-프레미스 호스트 또는 가상 머신의 IIS에서 애플리케이션이 실행되는 한 지원됩니다. Azure Web Apps로 실행되는 애플리케이션은 성능 카운터에 직접 액세스할 수 없지만, 사용 가능한 카운터의 하위 집합이 Application Insights에 의해 수집됩니다.
 
 ## <a name="view-counters"></a>카운터 보기
 
@@ -29,48 +19,46 @@ Windows는 광범위한 [성능 카운터](https://docs.microsoft.com/windows/de
 
 ![Application Insights에서 보고하는 시스템 성능 카운터](./media/performance-counters/performance-counters.png)
 
-.NET 웹 애플리케이션에 대해 수집되는 현재 기본 카운터는 다음과 같습니다.
-
-         - % Process\\Processor Time
-         - % Process\\Processor Time Normalized
-         - Memory\\Available Bytes
-         - ASP.NET Requests/Sec
-         - .NET CLR Exceptions Thrown / sec
-         - ASP.NET ApplicationsRequest Execution Time
-         - Process\\Private Bytes
-         - Process\\IO Data Bytes/sec
-         - ASP.NET Applications\\Requests In Application Queue
-         - Processor(_Total)\\% Processor Time
-
-한 곳에서 가장 유용한 차트를 모두 보려면 [대시보드](../../azure-monitor/app/app-insights-dashboards.md)를 만들어 이 대시보드에 해당 차트를 고정합니다.
+ASP.NET/ASP.NET Core 웹 애플리케이션에 대해 수집되도록 구성된 현재 기본 카운터는 다음과 같습니다.
+- % Process\\Processor Time
+- % Process\\Processor Time Normalized
+- Memory\\Available Bytes
+- ASP.NET Requests/Sec
+- .NET CLR Exceptions Thrown / sec
+- ASP.NET ApplicationsRequest Execution Time
+- Process\\Private Bytes
+- Process\\IO Data Bytes/sec
+- ASP.NET Applications\\Requests In Application Queue
+- Processor(_Total)\\% Processor Time
 
 ## <a name="add-counters"></a>카운터 추가
 
 원하는 성능 카운터가 메트릭 목록에 포함되지 않은 경우 추가할 수 있습니다.
 
 1. 로컬 서버에서 다음 PowerShell 명령을 사용하여 서버에서 사용할 수 있는 카운터를 확인합니다.
-   
+
     `Get-Counter -ListSet *`
-   
+
     ([`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx) 참조)
 2. ApplicationInsights.config를 엽니다.
-   
+
    * 앱에 개발 중인 Application Insights를 추가한 경우 프로젝트에서 ApplicationInsights.config를 편집한 후 서버에 다시 배포합니다.
-   * 상태 모니터를 사용하여 런타임 시 웹앱을 계측한 경우 IIS에서 앱의 루트 디렉터리에 있는 ApplicationInsights.config를 찾습니다. 각 서버 인스턴스에서 해당 ApplicationInsights.config를 업데이트합니다.
 3. 다음과 같이 성능 수집기 지시문을 편집합니다.
-   
-```XML
-   
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
-      <Counters>
-        <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
-      </Counters>
-    </Add>
 
-```
+    ```XML
 
-표준 카운터 및 사용자가 직접 구현한 카운터를 모두 캡처할 수 있습니다. `\Objects\Processes`는 모든 Windows 시스템에서 사용할 수 있는 표준 카운터의 한 예입니다. `\Sales(photo)\# Items Sold`는 웹 서비스에서 구현할 수 있는 사용자 지정 카운터의 한 예입니다. 
+        <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
+          <Counters>
+            <Add PerformanceCounter="\Objects\Processes"/>
+            <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
+          </Counters>
+        </Add>
+    ```
+
+> [!NOTE]
+> ASP.NET Core 애플리케이션에 `ApplicationInsights.config`가 없으므로 위의 방법은 ASP.NET Core 애플리케이션에 적합하지 않습니다.
+
+표준 카운터 및 사용자가 직접 구현한 카운터를 모두 캡처할 수 있습니다. `\Objects\Processes`는 모든 Windows 시스템에서 사용할 수 있는 표준 카운터의 한 예입니다. `\Sales(photo)\# Items Sold`는 웹 서비스에서 구현할 수 있는 사용자 지정 카운터의 한 예입니다.
 
 형식은 `\Category(instance)\Counter"`이며, 인스턴스가 없는 범주인 경우에는 `\Category\Counter`입니다.
 
@@ -78,24 +66,45 @@ Windows는 광범위한 [성능 카운터](https://docs.microsoft.com/windows/de
 
 인스턴스를 지정하면 보고된 메트릭의 "CounterInstanceName" 차원으로 수집됩니다.
 
-### <a name="collecting-performance-counters-in-code"></a>코드에서 성능 카운터 수집
+### <a name="collecting-performance-counters-in-code-for-aspnet-web-applications-or-netnet-core-console-applications"></a>ASP.NET 웹 애플리케이션 또는 .NET/.NET Core 콘솔 애플리케이션 코드에서 성능 카운터 수집
 시스템 성능 카운터를 수집하고 Application Insights에 보내려면 다음과 같은 코드 조각을 사용할 수 있습니다.
 
 
-``` C#
-
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
+      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
+
 또는 만든 사용자 지정 메트릭과 동일한 작업을 수행할 수 있습니다.
 
-``` C#
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
+
+### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>ASP.NET Core 웹 애플리케이션 코드에서 성능 카운터 수집
+
+아래와 같이 `Startup.cs` 클래스의 `ConfigureServices` 메서드를 수정합니다.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+
+        // The following configures PerformanceCollectorModule.
+  services.ConfigureTelemetryModule<PerformanceCollectorModule>((module, o) =>
+            {
+                // the application process name could be "dotnet" for ASP.NET Core self-hosted applications.
+                module.Counters.Add(new PerformanceCounterCollectionRequest(
+    @"\Process([replace-with-application-process-name])\Page Faults/sec", "DotnetPageFaultsPerfSec"));
+            });
+    }
 ```
 
 ## <a name="performance-counters-in-analytics"></a>분석에서의 성능 카운터
@@ -116,19 +125,31 @@ Windows는 광범위한 [성능 카운터](https://docs.microsoft.com/windows/de
 ![Application Insights 분석에서 역할 인스턴스에 의해 분할된 성능](./media/performance-counters/analytics-metrics-role-instance.png)
 
 ## <a name="aspnet-and-application-insights-counts"></a>ASP.NET 및 Application Insights 개수
+
 *예외 속도와 예외 메트릭 간의 차이점은 무엇인가요?*
 
 * *예외 속도* 는 시스템 성능 카운터입니다. CLR은 발생하는 처리된 예외 및 처리되지 않은 예외를 모두 계산하고 샘플링 간격의 합계를 간격 길이로 나눕니다. Application Insights SDK는 이 결과를 수집하여 포털에 보냅니다.
 
 * *예외* 는 차트의 샘플링 간격에 포털이 받은 TrackException 보고서 개수입니다. 코드에서 TrackException 호출을 작성한 처리된 예외만 포함하며, [처리되지 않은 예외](../../azure-monitor/app/asp-net-exceptions.md)는 모두 포함되지 않습니다. 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에서 성능 카운터
-성능 카운터는 애플리케이션이 전체 .NET Framework를 대상으로 하는 경우에만 지원됩니다. .NET Core 응용 프로그램에 대 한 성능 카운터를 수집 하는 기능은 없습니다.
+## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Azure Web Apps에서 실행되는 애플리케이션에 대한 성능 카운터
+
+Azure Web Apps에 배포된 ASP.NET 및 ASP.NET Core 애플리케이션은 모두 특수한 샌드박스 환경에서 실행됩니다. 이 환경에서는 시스템 성능 카운터에 대한 직접 액세스를 허용하지 않습니다. 그러나 제한된 카운터 하위 집합은 [여기](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables) 설명된 대로 환경 변수로 노출됩니다. ASP.NET 및 ASP.NET Core용 Application Insights SDK는 이러한 특수 환경 변수를 통해 Azure Web Apps에서 성능 카운터를 수집합니다. 이 환경에서는 카운터의 하위 집합만 사용할 수 있으며 전체 목록은 [여기](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)에서 확인할 수 있습니다.
+
+## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.NET Core 애플리케이션의 성능 카운터
+
+ASP.NET Core의 성능 카운터에 대한 지원은 제한적입니다.
+
+* [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 버전 2.4.1 이상에서는 애플리케이션이 Azure Web Apps(Windows)에서 실행되는 경우 성능 카운터를 수집합니다.
+* SDK 버전 2.7.1 이상에서는 애플리케이션이 Windows에서 실행되고 `NETSTANDARD2.0` 이상을 대상으로 하는 경우 성능 카운터를 수집합니다.
+* .NET Framework를 대상으로 하는 애플리케이션의 경우 모든 버전의 SDK에서 성능 카운터를 지원합니다.
+* SDK 버전 2.8.0 이상에서는 Linux의 cpu/메모리 카운터를 지원합니다. 다른 카운터는 Linux에서 지원되지 않습니다. Linux 및 기타 비 Windows 환경에서 시스템 카운터를 가져오는 권장 방법은 [EventCounters](eventcounters.md)를 사용하는 것입니다.
 
 ## <a name="alerts"></a>경고
-다른 메트릭과 마찬가지로 성능 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../../azure-monitor/app/alerts.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
+다른 메트릭과 마찬가지로 성능 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../../azure-monitor/platform/alerts-log.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
 
-## <a name="next"></a>다음 단계
+## <a name="next-steps"></a><a name="next"></a>다음 단계
+
 * [종속성 추적](../../azure-monitor/app/asp-net-dependencies.md)
 * [예외 추적](../../azure-monitor/app/asp-net-exceptions.md)
 

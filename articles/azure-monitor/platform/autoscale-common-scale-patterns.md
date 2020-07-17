@@ -1,19 +1,14 @@
 ---
 title: 일반적인 자동 크기 조정 패턴 개요
 description: Azure에서 리소스의 크기를 자동으로 조정하는 일반적인 패턴 중 일부에 대해 알아봅니다.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a77cf1704c20abb77d432eab16569071208f6da8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534253"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75396101"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>일반적인 자동 크기 조정 패턴 개요
 이 문서에서는 Azure에서 리소스의 크기를 조정하는 몇 가지 일반적인 패턴에 대해 설명합니다.
@@ -54,9 +49,9 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 
 ## <a name="scale-based-on-custom-metric"></a>사용자 지정 메트릭 기준 크기 조정
 
-웹 프런트 엔드 및 백 엔드와 통신 하는 API 계층을 갖습니다.
+백 엔드와 통신 하는 웹 프런트 엔드 및 API 계층이 있습니다.
 
-- 프런트 엔드의 사용자 지정 이벤트를 기준으로 API 계층을 확장하려고 합니다(예: 장바구니의 항목 수에 따라 체크 아웃 프로세스 크기 조정).
+- 프런트 엔드의 사용자 지정 이벤트에 따라 API 계층의 크기를 조정하려고 합니다(예: 장바구니의 항목 수에 따라 체크아웃 프로세스를 조정하려는 경우).
 
 ![사용자 지정 메트릭 기준 크기 조정][5]
 

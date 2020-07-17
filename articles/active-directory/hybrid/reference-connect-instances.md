@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/18/2018
+ms.date: 05/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca481d50efb99d6e36c66388192e9f27cd66bf45
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "66298825"
 ---
-# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: 인스턴스에 대한 특별 고려 사항
+# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: 인스턴스에 대한 특별한 고려 사항
 Azure AD Connect는 Azure AD 및 Office 365의 전세계 인스턴스로 가장 많이 사용됩니다. 그러나 다른 인스턴스도 있고 URL 및 기타 특별한 고려 사항에 대한 다른 요구 사항을 포함합니다.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud 독일
@@ -39,10 +39,10 @@ Azure AD 테넌트에 로그인할 경우 onmicrosoft.de 도메인의 계정을 
 
 Microsoft Cloud 독일에 현재 표시되지 않는 기능은 다음과 같습니다.
 
-* **비밀번호 쓰기 저장**은 Azure AD Connect 버전 1.1.570.0 이상에서 미리 보기로 제공됩니다.
+* **비밀 번호 쓰기 저장** 은 Azure AD Connect 버전 1.1.570.0 및 이후 버전으로 미리 보기에 사용할 수 있습니다.
 * 다른 Azure AD Premium 서비스를 사용할 수 없습니다.
 
-## <a name="microsoft-azure-government-cloud"></a>Microsoft Azure Government 클라우드
+## <a name="microsoft-azure-government"></a>Microsoft Azure Government
 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/) 는 미국 정부를 위한 클라우드입니다.
 
 이 클라우드는 DirSync의 이전 버전에서 지원되어 왔습니다. Azure AD Connect의 1.1.180 빌드에서 차세대 클라우드가 지원됩니다. 이 차세대 클라우드는 미국 전용 기반 엔드포인트를 사용하고 프록시 서버에서 열린 URL의 다른 목록이 있습니다.
@@ -51,17 +51,21 @@ Microsoft Cloud 독일에 현재 표시되지 않는 기능은 다음과 같습�
 | --- |
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
-| \*.windows.net(자동 Azure AD 정부 테넌트 검색에 필수) |
+| \*. windows.net (자동 Azure Government 테 넌 트 검색에 필요) |
 | \*.gov.us.microsoftonline.com |
 | +인증서 해지 목록 |
 
 > [!NOTE]
-> AAD Connect 버전 1.1.647.0의 경우 *.windows.net이 프록시 서버에 열려 있으므로 더 이상 레지스트리에서 AzureInstance 값을 설정할 필요가 없습니다.
+> 1.1.647.0 버전에서는 *. windows.net가 프록시 서버에 열려 Azure AD Connect 있으므로 레지스트리에서 AzureInstance 값을 설정 하는 것이 더 이상 필요 하지 않습니다. 그러나 Azure AD Connect 서버에서 인터넷 연결을 허용 하지 않는 고객의 경우 다음과 같은 수동 구성을 사용할 수 있습니다.
 
-Microsoft Azure Government 클라우드에 현재 표시되지 않는 기능은 다음과 같습니다.
+### <a name="manual-configuration"></a>수동 구성
 
-* **비밀번호 쓰기 저장**은 Azure AD Connect 버전 1.1.570.0 이상에서 미리 보기로 제공됩니다.
-* 다른 Azure AD Premium 서비스를 사용할 수 없습니다.
+다음 수동 구성 단계는 Azure AD Connect Azure Government 동기화 끝점을 사용 하도록 하는 데 사용 됩니다.
+
+1. Azure AD Connect 설치를 시작합니다.
+2. EULA를 허용하는 첫 번째 페이지가 표시되면 진행을 멈추고 설치 마법사가 실행되도록 합니다.
+3. regedit을 시작하고 레지스트리 키 `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance`을 `4` 값으로 변경합니다.
+4. Azure AD Connect 설치 마법사로 다시 이동하여 EULA에 동의하고 계속합니다. 설치 하는 동안 **사용자 지정 구성** 설치 경로 (Express 설치 아님)를 사용 하 고 평소와 같이 설치를 계속 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

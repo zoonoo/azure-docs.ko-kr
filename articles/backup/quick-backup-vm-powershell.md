@@ -1,25 +1,20 @@
 ---
-title: Azure 빠른 시작 - PowerShell을 사용하여 VM 백업
-description: Azure PowerShell을 사용하여 가상 머신을 백업하는 방법을 알아봅니다.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: backup
+title: 빠른 시작 - PowerShell을 사용하여 VM 백업
+description: 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure Virtual Machines를 백업하는 방법을 알아봅니다.
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 05432f5a38c3d907afa95ac7b1b3adfe9c5515fe
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8021ca553a1434c891bee911e85d351c61938594
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236346"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "74171955"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 
-[Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 모듈은 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 사용됩니다. 
+[Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 모듈은 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 사용됩니다.
 
 [Azure Backup](backup-overview.md)은 온-프레미스 머신과 앱, Azure VM을 백업합니다. 이 문서에서는 AZ 모듈을 사용하여 Azure VM을 백업하는 방법을 보여 줍니다. 또는 [Azure CLI](quick-backup-vm-cli.md)를 사용하거나 [Azure Portal](quick-backup-vm-portal.md)에서 VM을 백업할 수 있습니다.
 
@@ -31,17 +26,17 @@ ms.locfileid: "65236346"
 
 ## <a name="sign-in-and-register"></a>로그인 및 등록
 
-1. `Connect-AzAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+1. `Connect-AzAccount` 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
     ```powershell
     Connect-AzAccount
     ```
+
 2. Azure Backup을 처음 사용하는 경우 다음과 같이 [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider)를 사용하여 구독에서 Azure Recovery Service 공급자를 등록해야 합니다.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -54,7 +49,6 @@ ms.locfileid: "65236346"
 - Azure Backup은 백업된 데이터에 대한 스토리지를 자동으로 처리합니다. 기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md)를 사용합니다. 지역 중복은 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업된 데이터가 복제되도록 합니다.
 
 이제 자격 증명 모음을 만듭니다.
-
 
 1. [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)를 사용하여 자격 증명 모음을 만듭니다.
 
@@ -73,11 +67,12 @@ ms.locfileid: "65236346"
     ```
 
 3. 다음과 같이 [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty)를 사용하여 자격 증명 모음의 스토리지 중복 구성(LRS/GRS)을 변경합니다.
-    
+
     ```powershell
     Get-AzRecoveryServicesVault `
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
+
     > [!NOTE]
     > 자격 증명 모음에 보호된 백업 항목이 없는 경우에만 스토리지 중복을 수정할 수 있습니다.
 
@@ -86,7 +81,7 @@ ms.locfileid: "65236346"
 Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지정합니다.
 
 - 정책은 백업 실행 시기와 백업에서 만든 복구 지점에 대한 보존 기간을 정의합니다.
-- 기본 보호 정책은 VM에 대한 백업을 하루에 한 번 실행하고, 만들어진 복구 지점을 30일 동안 유지합니다. 이 기본 정책을 사용하여 VM을 빠르게 보호할 수 있습니다. 
+- 기본 보호 정책은 VM에 대한 백업을 하루에 한 번 실행하고, 만들어진 복구 지점을 30일 동안 유지합니다. 이 기본 정책을 사용하여 VM을 빠르게 보호할 수 있습니다.
 
 다음과 같이 백업을 사용하도록 설정합니다.
 
@@ -105,20 +100,20 @@ Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지�
         -Policy $policy
     ```
 
-
 ## <a name="start-a-backup-job"></a>백업 작업 시작
 
-백업은 백업 정책에 지정된 일정에 따라 실행됩니다. 또한 임시 백업을 실행할 수도 있습니다.
+백업은 백업 정책에 지정된 일정에 따라 실행됩니다. 다음과 같이 주문형 백업을 실행할 수도 있습니다.
 
 - 첫 번째 초기 백업 작업에서는 전체 복구 지점이 만들어집니다.
 - 초기 백업 후에는 각 백업 작업에서 증분 복구 지점이 만들어집니다.
-- 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 저장소 및 시간 효율적입니다.
+- 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 스토리지 및 시간 효율적입니다.
 
-임시 백업을 실행하려면 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)을 사용합니다. 
+주문형 백업을 실행하려면 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)을 사용합니다.
+
 - [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer)를 사용하여 백업 데이터를 보관하는 컨테이너를 자격 증명 모음에 지정합니다.
 - 백업할 각 VM은 항목으로 처리됩니다. 백업 작업을 시작하려면 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)을 사용하여 VM에 대한 정보를 가져옵니다.
 
-다음과 같이 임시 백업 작업을 실행합니다.
+주문형 백업 작업은 다음과 같이 실행합니다.
 
 1. 컨테이너를 지정하고, VM 정보를 가져오고, 백업을 실행합니다.
 
@@ -136,7 +131,6 @@ Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지�
 
 2. 첫 번째 백업 작업에서 전체 복구 지점을 만들므로 최대 20분을 기다려야 할 수도 있습니다. 다음 절차에서 설명한 대로 작업을 모니터링합니다.
 
-
 ## <a name="monitor-the-backup-job"></a>백업 작업 모니터링
 
 1. [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob)을 실행하여 작업 상태를 모니터링합니다.
@@ -144,9 +138,10 @@ Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지�
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
+
     출력은 다음 예제와 비슷합니다. 여기서는 작업 상태를 **InProgress**(진행 중)로 보여 줍니다.
 
-    ```
+    ```output
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
     ------------   ---------         ------       ---------              -------                -----
     myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
@@ -155,10 +150,10 @@ Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지�
 
 2. 작업 상태가 **Completed**(완료)이면 VM이 보호되고 전체 복구 지점이 저장됩니다.
 
-
 ## <a name="clean-up-the-deployment"></a>배포 정리
 
 VM을 더 이상 백업할 필요가 없으면 이를 정리할 수 있습니다.
+
 - VM 복원을 시도하려면 정리 단계를 건너뜁니다.
 - 기존 VM을 사용한 경우 마지막 단계인 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet을 건너뛰어 리소스 그룹과 VM을 그대로 유지할 수 있습니다.
 
@@ -171,10 +166,9 @@ Remove-AzRecoveryServicesVault -Vault $vault
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Recovery Services 자격 증명 모음을 만들고, VM에 대한 보호를 사용하도록 설정하고, 초기 복구 지점을 만들었습니다. 
+이 빠른 시작에서는 Recovery Services 자격 증명 모음을 만들고, VM에 대한 보호를 사용하도록 설정하고, 초기 복구 지점을 만들었습니다.
 
 - Azure Portal에서 VM을 백업하는 방법을 [알아봅니다](tutorial-backup-vm-at-scale.md).
 - VM을 빠르게 복원하는 방법을 [알아봅니다](tutorial-restore-disk.md).

@@ -1,29 +1,29 @@
 ---
-title: 지원 및 도움말 옵션
-titlesuffix: Azure Cognitive Services
-description: Speech Service와 통합되는 응용 프로그램을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
+title: 지원 및 도움말 옵션-Speech service
+titleSuffix: Azure Cognitive Services
+description: 음성 서비스와 통합 하는 응용 프로그램을 만들 때 질문과 문제에 대 한 도움말 및 지원을 얻는 방법
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.author: wolfma
-ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/05/2019
+ms.author: jhakulin
+ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138146"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "76169520"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
-있습니다 하기 시작 음성 서비스의 기능을 살펴보고? 애플리케이션에 새로운 기능을 구현하고 있나요? 개발자가 도움을 얻을 수 있는 방법에 대한 제안 사항은 다음과 같습니다.
+Speech Service의 기능을 탐색하기 시작했나요? 애플리케이션에 새로운 기능을 구현하고 있나요? 개발자가 도움을 얻을 수 있는 방법에 대한 제안 사항은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * *Azure Cognitive Services*의 새로운 개발에 대한 정보를 받거나 *Speech Service*와 관련된 최신 뉴스를 찾습니다.
-> * 릴리스 정보는 모든 릴리스에 대 한 정보를 포함 합니다.
+> * *Azure Cognitive Services*의 새로운 개발에 대 한 정보를 계속 받거나 *음성 서비스*와 관련 된 최신 뉴스를 찾아보세요.
+> * 릴리스 정보에는 모든 릴리스에 대 한 정보가 포함 되어 있습니다.
 > * 커뮤니티에서 문제가 논의되었는지 또는 구현하려는 기능에 대한 기존 설명서가 이미 있는지 검색합니다.
 > * 만족스러운 대답을 찾을 수 없으면 *Stack Overflow*에 대한 질문을 합니다.
 > * GitHub의 샘플 중 하나에 문제가 있으면 *GitHub* 문제를 제기합니다.
@@ -31,11 +31,11 @@ ms.locfileid: "65138146"
 
 ## <a name="stay-informed"></a>최신 소식 수신
 
-Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에 수집됩니다. 음성 서비스에 대 한 최신 정보를 추적 합니다 [Speech Services 블로그](https://azure.microsoft.com/blog/tag/speech-service/)합니다.
+Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에 수집됩니다. 음성 서비스에 대 한 최신 정보를 보려면 [음성 서비스 블로그](https://azure.microsoft.com/blog/tag/speech-service/)를 추적 하세요.
 
 ## <a name="release-notes"></a>릴리스 정보
 
-합니다 [릴리스](https://aka.ms/csspeech/whatsnew) 새 릴리스가 출시 되는 즉시 업데이트 됩니다. 새로운 기능, 향상 및 버그 수정에 대 한 정보를 포함 하는 참고 합니다.
+[릴리스 정보](https://aka.ms/csspeech/whatsnew) 는 새 릴리스를 사용할 수 있는 즉시 업데이트 됩니다. 이 메모에는 새로운 기능, 향상 된 기능 및 버그 수정에 대 한 정보가 포함 되어 있습니다.
 
 ## <a name="search"></a>검색
 
@@ -58,34 +58,14 @@ Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있�
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
 
-## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
-
-Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 여기서는 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
-
-검색을 통해 문제에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문을 작성할 때 다음 태그 중 하나를 사용합니다.
-
-|구성 요소/영역  |태그들  |
-|---------|---------|
-|음성 인식 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|음성 합성 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|음성 의도 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|일반 음성 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| 음성 우선 가상 도우미 (미리 보기) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
-
-> [!TIP]
-> Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  
-> * [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
-> * [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
-
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 
 샘플은 오픈 소스로 게시되는 경우가 많습니다. 질문이나 문제가 있으면 해당 GitHub 리포지토리에 *문제*를 제기합니다. 끌어오기 요청을 제출할 수도 있습니다. 다음 목록에는 샘플 리포지토리에 대한 링크가 포함되어 있습니다.
 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [장치 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-버그 보고서 또는 기능 요청을 만들거나 일반적인 질문을 하고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
+버그 보고서를 작성 하거나 기능 요청을 하거나 일반적인 질문을 하 고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
 
 **버그 설명**
 
@@ -109,14 +89,24 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
  - OS [예: Windows, Linux, Android, iOS, ...] - 구체적으로 작성해 주세요.
  - 하드웨어 - x64, x86, ARM, ...
- - 브라우저 [예: Chrome, Safari]\(있는 경우) - 구체적으로 작성해 주세요.
+ - 브라우저 [예: Chrome, Safari](있는 경우) - 구체적으로 작성해 주세요.
 
 **추가 컨텍스트**
 
  - 오류 메시지, 로그 정보, 스택 추적, ...
- - 상호 작용 하는 특정 서비스에 대 한 오류를 보고 하는 경우 세션 Id 및 시간 (시 표준 시간대)의 보고 된 인시던트를 보고 합니다. SessionId는 받은 모든 콜백/이벤트에 보고됩니다.
+ - 특정 서비스 상호 작용에 대 한 오류를 보고 하는 경우 보고 된 인시던트의 SessionId 및 time (포함)을 보고 합니다. SessionId는 받은 모든 콜백/이벤트에 보고됩니다.
  - 기타 추가 정보
 
+## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
+
+Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 여기서는 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
+
+검색을 통해 문제에 대 한 답변을 찾을 수 없는 경우 [ \[\]\[microsoft 인식 음성\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)태그를 사용 하 여 Stack Overflow에 새 질문을 제출 합니다.
+
+> [!TIP]
+> Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  
+> * [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
+> * [최소, 완전 및 안정형 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
 
 ## <a name="uservoice-forum"></a>UserVoice 포럼
 

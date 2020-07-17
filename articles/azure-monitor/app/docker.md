@@ -1,25 +1,15 @@
 ---
 title: Azure Application Insights에서 Docker 애플리케이션 모니터링 | Microsoft Docs
 description: Docker 성능 카운터, 이벤트 및 예외는 컨테이너식 앱에서 보낸 원격 분석과 함께 Application Insights에 표시될 수 있습니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: mbullwin
-ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77669610"
 ---
-# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Application Insights (사용 되지 않음)에서 Docker 응용 프로그램 모니터링
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Application Insights에서 Docker 응용 프로그램 모니터링 (사용 되지 않음)
 
 > [!NOTE]
 > 이 솔루션은 더 이상 사용되지 않습니다. 컨테이너 모니터링의 현재 투자에 대한 자세한 내용을 보려면 [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)를 확인해보세요.
@@ -88,9 +78,9 @@ Docker 타일을 클릭합니다.
 ![예제](./media/docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>앱 원격 분석에 추가되는 Docker 컨텍스트
-AI SDK를 사용하여 계측되는 응용 프로그램에서 보내는 요청 원격 분석은 Docker 컨텍스트 정보를 사용하여 보강됩니다.
+AI SDK를 사용하여 계측되는 애플리케이션에서 보내는 요청 원격 분석은 Docker 컨텍스트 정보를 사용하여 보강됩니다.
 
-## <a name="q--a"></a>질문과 대답
+## <a name="q--a"></a>Q&A
 *Docker에서 얻을 수 없는 어떤 기능을 Application Insights가 제공하나요?*
 
 * 컨테이너 및 이미지별로 성능 카운터의 자세한 분석 결과를 제공합니다.
@@ -99,7 +89,7 @@ AI SDK를 사용하여 계측되는 응용 프로그램에서 보내는 요청 �
 
 *앱 자체에서 원격 분석을 가져오려면 어떻게 해야 하나요?*
 
-* Application Insights SDK를 앱에 설치합니다. 방법 알아보기: [Java 웹앱](../../azure-monitor/app/java-get-started.md), [Windows 웹앱](../../azure-monitor/app/asp-net.md)
+* Application Insights SDK를 앱에 설치합니다. [Java 웹앱](../../azure-monitor/app/java-get-started.md), [Windows 웹앱](../../azure-monitor/app/asp-net.md)에 대한 방법을 알아봅니다.
 
 ## <a name="video"></a>비디오
 

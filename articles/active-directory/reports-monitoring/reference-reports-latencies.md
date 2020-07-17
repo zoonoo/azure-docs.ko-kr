@@ -17,12 +17,11 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74007696"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
 
@@ -41,7 +40,7 @@ ms.locfileid: "65594026"
 > **대기 시간(95번째 백분위수)** 은 로그의 95%가 보고되는 시간을 가리키고, **대기 시간(99번째 백분위수)** 은 로그의 99%각 보고되는 시간을 가리킵니다. 
 >
 
-| 보고 | 대기 시간(95번째 백분위수) |대기 시간(99번째 백분위수)|
+| 보고서 | 대기 시간(95번째 백분위수) |대기 시간(99번째 백분위수)|
 | :-- | --- | --- |
 | 감사 로그 | 2분  | 5분  |
 | 로그인 | 2분  | 5분 |
@@ -59,24 +58,24 @@ ms.locfileid: "65594026"
 
 다음 표에는 보안 보고서에 대한 대기 시간 정보가 나와 있습니다.
 
-| 보고 | 최소 | 평균 | 최대 |
+| 보고서 | 최소값 | 평균 | 최대 |
 | :-- | --- | --- | --- |
 | 위험에 노출된 사용자          | 5분   | 15분  | 2시간  |
 | 위험한 로그인         | 5분   | 15분  | 2시간  |
 
-## <a name="risk-events"></a>위험 이벤트
+## <a name="risk-detections"></a>위험 탐지
 
-Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 감지된 각 의심스러운 동작은 **위험 이벤트**라는 레코드에 저장됩니다.
+Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색 된 각 의심 스러운 동작은 **위험 검색**이라고 하는 레코드에 저장 됩니다.
 
-다음 표에는 위험 이벤트에 대한 대기 시간 정보가 나와 있습니다.
+다음 표에서는 위험 검색에 대 한 대기 시간 정보를 나열 합니다.
 
-| 보고 | 최소 | 평균 | 최대 |
+| 보고서 | 최소값 | 평균 | 최대 |
 | :-- | --- | --- | --- |
-| 익명 IP 주소에서의 로그인 |5분 |15분 |2시간 |
-| 일반적이지 않은 위치에서의 로그인 |5분 |15분 |2시간 |
-| 자격 증명이 유출된 사용자 |2시간 |4시간 |8시간 |
-| 비정상적 위치 간 이동 불가능 |5분 |1시간 |8시간  |
-| 감염된 디바이스에서의 로그인 |2시간 |4시간 |8시간  |
+| 익명 IP 주소에서 로그인 |5분 |15분 |2시간 |
+| 알 수 없는 위치에서 로그인 |5분 |15분 |2시간 |
+| 자격 증명이 손실된 사용자 |2시간 |4시간 |8시간 |
+| 비정상적 위치로 불가능한 이동 |5분 |1시간 |8시간  |
+| 감염된 디바이스에서 로그인 |2시간 |4시간 |8시간  |
 | 의심스러운 작업이 있는 IP 주소에서 로그인 |2시간 |4시간 |8시간  |
 
 
@@ -84,4 +83,4 @@ Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사�
 
 * [Azure AD 보고서 개요](overview-reports.md)
 * [Azure AD 보고서에 대한 프로그래밍 방식 액세스](concept-reporting-api.md)
-* [Azure Active Directory 위험 이벤트](concept-risk-events.md)
+* [Azure Active Directory 위험 탐지](concept-risk-events.md)

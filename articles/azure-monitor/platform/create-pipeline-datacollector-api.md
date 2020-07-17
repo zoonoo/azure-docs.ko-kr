@@ -1,24 +1,17 @@
 ---
-title: Azure Monitor 데이터 수집기 API를 사용 하 여 데이터 파이프라인 만들기 | Microsoft Docs
+title: 데이터 수집기 API를 사용 하 여 데이터 파이프라인 만들기
 description: REST API를 호출할 수 있는 모든 클라이언트에서 Azure Monitor HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 작업 영역에 추가할 수 있습니다. 이 아티클에서는 자동화된 방식으로 파일에 저장된 데이터를 업로드하는 방법을 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 08/09/2018
-ms.author: magoedte
-ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80055105"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>데이터 수집기 API를 사용하여 데이터 파이프라인 만들기
 
@@ -27,7 +20,7 @@ ms.locfileid: "65603239"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>예제 문제
-이 아티클의 나머지 부분에서는 Application Insights에서 페이지 보기 데이터를 검사합니다. 에서는 소모 수 해야 상황 파악을 사용 하 여 전 세계 모든 국가/지역의의 모집단이 포함 된 사용자 지정 데이터를 Application Insights SDK에서 기본적으로 수집 하는 지리적 정보를 상호 연결 하려는 가상 시나리오에서는 가장 마케팅 달러입니다. 
+이 아티클의 나머지 부분에서는 Application Insights에서 페이지 보기 데이터를 검사합니다. 이 가상 시나리오에서는 Application Insights SDK에서 기본적으로 수집한 지리적 정보를 전 세계의 모든 국가/지역에 대 한 인구를 포함 하는 사용자 지정 데이터로 상관 관계를 지정 하려고 합니다. 가장 많은 마케팅 금액을 지출 해야 하는 위치를 식별 하는 것이 좋습니다. 
 
 이를 위해 [UN World Population Prospects](https://esa.un.org/unpd/wpp/)와 같은 공용 데이터 원본을 사용합니다. 데이터는 다음과 같은 간단한 스키마를 제공합니다.
 
@@ -63,7 +56,7 @@ Blob Storage, 논리 앱 또는 Azure Function의 자세한 설정을 이 아티
 논리 앱을 저장하고 테스트를 진행합니다.
 
 ## <a name="ingesting-xml-csv-or-other-formats-of-data"></a>XML, CSV 또는 다른 형식의 데이터를 수집합니다.
-현재 논리 앱에는 쉽게 XML, CSV 또는 다른 형식을 JSON 형식으로 변환할 기본 제공 기능이 없습니다. 따라서 다른 수단을 사용하여 이 변환을 완료해야 합니다. 이 문서에서는 Azure Functions의 서버리스 계산 기능을 매우 간단하고 저렴한 방법으로 사용합니다. 
+현재 논리 앱에는 쉽게 XML, CSV 또는 다른 형식을 JSON 형식으로 변환할 기본 제공 기능이 없습니다. 따라서 다른 수단을 사용하여 이 변환을 완료해야 합니다. 이 문서에서는 Azure Functions의 서버리스 컴퓨팅 기능을 매우 간단하고 저렴한 방법으로 사용합니다. 
 
 이 예제에서는 CSV 파일을 구문 분석하지만 다른 파일 형식은 마찬가지로 처리될 수 있습니다. 특정 데이터 형식에 대해 올바른 논리를 반영하도록 Azure Function의 역직렬화 부분을 수정하면 됩니다.
 
@@ -131,7 +124,7 @@ Blob Storage, 논리 앱 또는 Azure Function의 자세한 설정을 이 아티
 4. 함수를 저장합니다.
 5. 코드가 올바르게 작동하는지 확인하기 위해 함수를 테스트합니다. 오른쪽 창에서 **테스트** 탭으로 전환하여 테스트를 다음과 같이 구성합니다. 샘플 데이터를 포함한 Blob에 대한 링크를 **요청 본문** 텍스트 상자에 배치합니다. **실행**을 클릭한 후에 **출력** 상자에 JSON 출력이 표시됩니다.
 
-    ![Function App 테스트 코드](./media/create-pipeline-datacollector-api/functions-test-01.png)
+    ![함수 앱 테스트 코드](./media/create-pipeline-datacollector-api/functions-test-01.png)
 
 이제 돌아가서 이전에 빌드하기 시작한 논리 앱이 JSON 형식으로 수집되고 변환된 데이터를 포함하도록 수정해야 합니다.  보기 디자이너를 사용하여 다음과 같이 구성한 다음, 논리 앱을 저장합니다.
 

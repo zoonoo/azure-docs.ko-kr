@@ -1,33 +1,33 @@
 ---
-title: '자습서: Azure 공용 IP 주소를 참조하는 Azure DNS 별칭 레코드를 만듭니다.'
+title: '자습서: Azure 공용 IP 주소를 참조하는 Azure DNS 별칭 레코드 만들기'
 description: 이 자습서에서는 Azure 공용 IP 주소를 참조하도록 Azure DNS 별칭 레코드를 구성하는 방법을 보여줍니다.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 7dcbfdaf00b0e628541cfd1a3b79df8cf8334ed3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: rohink
+ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536881"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985442"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>자습서: Azure 공용 IP 주소를 참조하도록 별칭 레코드 구성 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 네트워크 인프라 만들기.
-> * 웹 서버 가상 머신 만들기.
-> * 별칭 레코드 만들기.
+> * 공용 IP를 사용하여 웹 서버 가상 머신을 만듭니다.
+> * 공용 IP를 가리키는 별칭 레코드를 만듭니다.
 > * 별칭 레코드 테스트.
 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 테스트할 Azure DNS에서 호스트할 수 있는 도메인 이름이 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
 
 Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습서: Azure DNS에서 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
@@ -36,7 +36,7 @@ Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습�
 
 ## <a name="create-the-network-infrastructure"></a>네트워크 인프라 만들기
 먼저 웹 서버를 배치할 가상 네트워크 및 서브넷을 만듭니다.
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 왼쪽 위에서 **리소스 만들기**를 선택합니다. 검색 상자에 *리소스 그룹*을 입력하고 **RG-DNS-Alias-pip**라는 리소스 그룹을 만듭니다.
 3. **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 4. **VNet-Servers**라는 가상 네트워크를 만들고 **RG-DNS-Alias-pip** 리소스 그룹에 배치한 후 서브넷 이름을 **SN-Web**으로 지정합니다.
@@ -48,7 +48,7 @@ Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습�
 4. **설정**에서 **VNet-Servers** 가상 네트워크 및 **SN-Web** 서브넷을 선택합니다. 공용 인바운드 포트의 경우 **HTTP** > **HTTPS** > **RDP(3389)** 를 선택한 다음, **확인**을 선택합니다.
 5. **요약** 페이지에서 **만들기**를 선택합니다.
 
-이 절차는 완료하는 데 몇 분이 걸립니다.
+이 절차는 완료하는 데 몇 분이 걸립니다. 가상 머신에는 NIC가 연결되어 있으며 Web-01-ip라는 기본 동적 공용 IP가 있습니다. 공용 IP는 가상 머신이 다시 시작될 때마다 변경됩니다.
 
 ### <a name="install-iis"></a>IIS 설치
 

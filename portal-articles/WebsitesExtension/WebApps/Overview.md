@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60530870"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "73488435"
 ---
 # <a name="app-service-documentation"></a>App Service 설명서
 Azure App Service를 사용하면 인프라뿐만 아니라 언어 또는 웹 프레임워크 런타임도 관리하지 않고 선택한 프로그래밍 언어로 웹 애플리케이션을 만들고 호스팅할 수 있습니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps Services 또는 Git 리포지토리에서 자동화된 배포를 사용합니다. 빠른 시작, 자습서 및 샘플을 통해 Azure App Service를 사용하는 방법을 알아봅니다.
@@ -42,7 +42,7 @@ Azure에서 보안 웹 애플리케이션을 배포하고 관리하며 모니터
   - [MySQL을 사용하는 Java](/app-service/app-service-web-tutorial-java-mysql)
   - [PostgreSQL을 사용하는 Python](/app-service/containers/tutorial-python-postgresql-app)
 - [기존 사용자 지정 도메인을 애플리케이션에 매핑](/azure/app-service/app-service-web-tutorial-custom-domain)
-- [기존 SSL 인증서를 애플리케이션에 바인딩](/azure/app-service/app-service-web-tutorial-custom-SSL)
+- [SSL 인증서를 애플리케이션에 바인딩](/azure/app-service/configure-ssl-bindings)
 
 ## <a name="free-pluralsight-video-training"></a>무료 Pluralsight 동영상 교육
 

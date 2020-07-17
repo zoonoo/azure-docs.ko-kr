@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성 | Microsoft Docs
-description: Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
+title: Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
+description: Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅을 구성합니다. 메시지의 속성에 따라 스토리지 계정 또는 Service Bus 큐로 라우팅합니다.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6faa585f1ad38eb981e0bbffffef603c4aab0bc8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 056dac7977115f97892d8dbfde0710e00237804e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360266"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "78674335"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>자습서: Azure CLI를 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -30,22 +30,22 @@ ms.locfileid: "59360266"
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Azure CLI를 사용하여 리소스 만들기
 
+아래 스크립트를 복사하여 Cloud Shell에 붙여넣고 Enter 키를 누릅니다. 스크립트가 한 번에 한 줄씩 실행됩니다. 스크립트의 첫 번째 섹션은 이 자습서의 기본 리소스(스토리지 계정, IoT Hub, Service Bus 네임스페이스 및 Service Bus 큐)를 만듭니다. 자습서의 나머지 부분을 진행하면서 스크립트의 각 블록을 복사하여 Cloud Shell에 붙여넣고 실행합니다.
+
+> [!TIP]
+> 디버깅 팁: 이 스크립트는 연속 기호(백슬래시 `\`)를 사용하여 스크립트를 더 읽기 쉽게 만듭니다. 스크립트를 실행하는 데 문제가 있으면 Cloud Shell 세션이 `bash`를 실행 중이고 백슬래시 뒤에 공백이 없는지 확인하세요.
+> 
+
 몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 이를 위해 해당 리소스 이름에는 *randomValue*라는 임의의 영숫자 값이 추가됩니다. randomValue는 스크립트의 맨 위에 한 번 생성되고 전체 스크립트에서 필요에 따라 리소스에 추가됩니다. 임의로 설정하지 않으려면 빈 문자열이나 특정 값으로 설정할 수 있습니다. 
 
 > [!IMPORTANT]
 > 초기 스크립트에 설정된 변수는 라우팅 스크립트에도 사용되기 때문에 모든 스크립트를 동일한 Cloud Shell 세션에서 실행합니다. 새 세션을 열어서 라우팅을 설정하기 위한 스크립트를 실행하면, 여러 변수가 누락된 값이 됩니다.
 >
 
-아래 스크립트를 복사하여 Cloud Shell에 붙여넣고 Enter 키를 누릅니다. 스크립트가 한 번에 한 줄씩 실행됩니다. 스크립트의 첫 번째 섹션은 이 자습서의 기본 리소스(스토리지 계정, IoT Hub, Service Bus 네임스페이스 및 Service Bus 큐)를 만듭니다. 자습서의 나머지 부분을 진행하면서 스크립트의 각 블록을 복사하여 Cloud Shell에 붙여넣고 실행합니다.
-
-> [!TIP]
-> 디버깅 팁: 이 스크립트는 연속 기호(백슬래시 `\`)를 사용하여 스크립트를 더 읽기 쉽게 만듭니다. 스크립트를 실행하는 데 문제가 있으면 백슬래시 뒤에 공백이 없는지 확인하세요.
-> 
-
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
-# This field is used when setting up the routing rules.
-subscriptionID=$(az account show --query id)
+# This field is used when setting up the routing queries.
+subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
 # You can set this to "" or to a specific value if you don't want it to be random.
@@ -55,7 +55,7 @@ randomValue=$RANDOM
 # This command installs the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that 
 #   don't have to be globally unique.
@@ -155,7 +155,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 먼저 스토리지 계정에 대한 엔드포인트를 설정한 다음, 경로를 설정합니다. 
 
-이러한 변수는 다음과 같이 설정됩니다.
+Cloud Shell 세션 내에서 설정해야 하는 스크립트에 사용되는 변수는 다음과 같습니다.
 
 **storageConnectionString**: 이 값은 이전 스크립트에서 설정한 스토리지 계정에서 검색됩니다. 메시지 라우팅을 통해 스토리지 계정에 액세스하는 데 사용됩니다.
 
@@ -257,7 +257,7 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-이제 Service Bus 큐에 대한 메시지 경로와 라우팅 엔드포인트를 설정합니다. 이러한 변수는 다음과 같이 설정됩니다.
+이제 Service Bus 큐에 대한 메시지 경로와 라우팅 엔드포인트를 설정합니다. Cloud Shell 세션 내에서 설정해야 하는 스크립트에 사용되는 변수는 다음과 같습니다.
 
 **endpointName**: 이 필드는 엔드포인트를 식별하는 이름입니다. 
 
@@ -302,7 +302,7 @@ az iot hub route create --name $routeName \
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스가 설정되고 메시지 경로가 구성되었으면, 다음 자습서로 진행하여 IoT 허브에 메시지를 보내서, 다른 대상으로 라우팅되는 것을 확인하는 방법을 살펴보세요. 
+리소스가 설정되고 메시지 경로가 구성되었으면 다음 자습서로 진행하여, IoT 허브에 메시지를 보낸 후 다른 대상으로 라우팅되는 과정을 확인하는 방법을 살펴보세요. 
 
 > [!div class="nextstepaction"]
 > [2부 - 메시지 라우팅 결과 보기](tutorial-routing-view-message-routing-results.md)

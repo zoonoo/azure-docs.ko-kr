@@ -1,60 +1,102 @@
 ---
-title: System Center Configuration Manager를 사용하여 Azure로 VMware VM 및 물리적 서버의 재해 복구를 위한 Azure Site Recovery 모바일 서비스 설치 자동화 | Microsoft Docs
-description: 이 문서는 Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 재해 복구하기 위해 System Center Configuration Manager를 사용하여 모바일 서비스 설치를 자동화하는 데 도움이 됩니다.
+title: Azure Site Recovery에서 설치의 재해 복구를 위한 모바일 서비스 자동화
+description: Azure Site Recovery를 사용 하 여 VMware/물리적 서버 재해 복구를 위해 모바일 서비스를 자동으로 설치 하는 방법입니다.
 author: Rajeswari-Mamilla
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 04/14/2019
+ms.topic: how-to
+ms.date: 2/5/2020
 ms.author: ramamill
-ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77252230"
 ---
-# <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>System Center Configuration Manager를 사용하여 모바일 서비스 설치 자동화
+# <a name="automate-mobility-service-installation"></a>모바일 서비스 설치 자동화
 
-모바일 서비스는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure에 복제하려는 VMware VM 및 물리적 서버에 설치됩니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)에서 모바일 서비스 에이전트의 설치 및 업데이트를 자동화 하는 방법을 설명 합니다.
 
-이 문서에서는 System Center Configuration Manager를 사용하여 VMware VM에서 Azure Site Recovery 모바일 서비스를 배포하는 방법의 예제를 제공합니다. Configuration Manager 같은 소프트웨어 배포 도구를 사용하면 다음과 같은 장점이 있습니다.
+Azure에 대 한 온-프레미스 VMware Vm 및 물리적 서버의 재해 복구를 위해 Site Recovery를 배포할 때 복제 하려는 각 컴퓨터에 모바일 서비스 에이전트를 설치 합니다. 모바일 서비스는 컴퓨터에서 데이터 쓰기를 캡처하여 복제를 위해 Site Recovery 프로세스 서버에 전달 합니다. 다음과 같은 몇 가지 방법으로 모바일 서비스를 배포할 수 있습니다.
 
-* 소프트웨어 업데이트에 대한 계획된 유지 관리 시간에 새로 설치 및 업그레이드 예약
-* 동시에 수백 대의 서버에 대규모로 배포
+- **강제 설치**: Azure Portal에서 컴퓨터에 대 한 복제를 사용 하도록 설정 하는 경우 모바일 서비스 에이전트를 설치 Site Recovery 수 있습니다.
+- **수동 설치**: 각 컴퓨터에 모바일 서비스를 수동으로 설치 합니다. 푸시 및 수동 설치에 [대해 자세히 알아보세요](vmware-physical-mobility-service-overview.md) .
+- **자동 배포**: Microsoft Endpoint Configuration Manager와 같은 소프트웨어 배포 도구 또는 JetPatch와 같은 타사 도구를 사용 하 여 설치를 자동화 합니다.
 
-이 문서에서는 System Center Configuration Manager 2012 R2를 사용하여 배포 작업을 설명합니다. **9.9.4510.1** 버전 이상의 모바일 서비스를 사용하는 것으로 가정합니다.
+자동 설치 및 업데이트는 다음과 같은 경우에 솔루션을 제공 합니다.
 
-또는 사용 하 여 모바일 서비스 설치를 자동화할 수 있습니다 [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md)합니다.
+- 조직에서 보호 된 서버에 강제 설치를 허용 하지 않습니다.
+- 회사 정책에 따라 암호를 주기적으로 변경 해야 합니다. 강제 설치에 대 한 암호를 지정 해야 합니다.
+- 보안 정책은 특정 컴퓨터에 대 한 방화벽 예외를 추가 하는 것을 허용 하지 않습니다.
+- 호스팅 서비스 공급자 역할을 하 고 Site Recovery를 사용 하 여 강제 설치에 필요한 고객 컴퓨터 자격 증명을 제공 하지 않으려고 합니다.
+- 에이전트 설치를 여러 서버에 동시에 확장 해야 합니다.
+- 계획 된 유지 관리 기간 동안 설치 및 업그레이드를 예약 하려고 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-1. Configuration Manager와 같은 소프트웨어 배포 도구가 사용자 환경에 이미 배포되어 있어야 합니다.
-2. Site Recovery를 사용하여 보호하려는 모든 **Windows 서버**와 모든 **Linux 서버**에 각각 하나씩, 총 두 개의 [디바이스 컬렉션](https://technet.microsoft.com/library/gg682169.aspx)을 만들어야 합니다.
-3. Recovery Services 자격 증명 모음에 이미 구성 서버가 등록되어 있어야 합니다.
-4. Configuration Manager 컴퓨터가 액세스할 수 있는 보안 네트워크 파일 공유(SMB 공유)가 있어야 합니다.
+설치를 자동화 하려면 다음 항목이 필요 합니다.
 
-## <a name="deploy-on-windows-machines"></a>Windows 컴퓨터에 배포
-> [!NOTE]
-> 이 문서에서는 구성 서버의 IP 주소가 192.168.3.121이고 보안 네트워크 파일 공유가 \\\ContosoSecureFS\MobilityServiceInstallers인 것으로 가정합니다.
+- [Configuration Manager](/configmgr/) 또는 [JetPatch](https://jetpatch.com/microsoft-azure-site-recovery/)와 같은 배포 된 소프트웨어 설치 솔루션
+- 배포 필수 구성 요소는 VMware 재해 복구를 위한 [Azure](tutorial-prepare-azure.md) 및 온-프레미스에서 또는 [물리적 서버](physical-azure-disaster-recovery.md) 재해 복구를 위해 [온-프레미스](vmware-azure-tutorial-prepare-on-premises.md) 에 배치 됩니다. 재해 복구에 대 한 [지원 요구 사항을](vmware-physical-azure-support-matrix.md) 검토 합니다.
 
-### <a name="prepare-for-deployment"></a>배포 준비
-1. 네트워크 공유에 폴더를 만들고 이름을 **MobSvcWindows**로 지정합니다.
-2. 구성 서버에 로그인하고 관리자 권한 명령 프롬프트를 엽니다.
-3. 다음 명령을 실행하여 암호 파일을 생성합니다.
+## <a name="prepare-for-automated-deployment"></a>자동 배포 준비
 
-    `cd %ProgramData%\ASR\home\svsystems\bin`
+다음 표에서는 모바일 서비스 배포를 자동화 하기 위한 도구와 프로세스를 요약 합니다.
 
-    `genpassphrase.exe -v > MobSvc.passphrase`
-4. 네트워크 공유에서 **MobSvc.passphrase** 파일을 **MobSvcWindows** 폴더로 복사합니다.
-5. 다음 명령을 실행하여 구성 서버의 설치 관리자 리포지토리를 찾아봅니다.
+**도구** | **세부 정보** | **지침**
+--- | --- | ---
+**Configuration Manager** | 1. 위에 나열 된 [필수 구성 요소가](#prerequisites) 있는지 확인 합니다. <br/><br/> 2. Site Recovery 구성 서버를 파일을 다운로드 하는 등 원본 환경을 설정 하 고,이 템플릿을 사용 하 여 VMware VM으로 구성 서버를 배포 하는 등의 방법으로 재해 복구를 배포 합니다.<br/><br/> 3. 구성 서버를 Site Recovery 서비스에 등록 하 고, 대상 Azure 환경을 설정 하 고, 복제 정책을 구성 합니다.<br/><br/> 4. 자동화 된 모바일 서비스 배포의 경우 구성 서버 암호 및 모바일 서비스 설치 파일이 포함 된 네트워크 공유를 만듭니다.<br/><br/> 5. 설치 또는 업데이트를 포함 하는 Configuration Manager 패키지를 만들고 모바일 서비스 배포를 준비 합니다.<br/><br/> 6. 모바일 서비스가 설치 된 컴퓨터에 대해 Azure로의 복제를 사용 하도록 설정할 수 있습니다. | [Configuration Manager를 사용 하 여 자동화](#automate-with-configuration-manager)
+**JetPatch** | 1. 위에 나열 된 [필수 구성 요소가](#prerequisites) 있는지 확인 합니다. <br/><br/> 2. JetPatch 에이전트 관리자를 다운로드 하 고 배포 하는 등 원본 환경을 설정 하 고, Site Recovery 환경에서 Azure Site Recovery에 대 한 배포를 포함 하 여에 대 한 재해 복구를 배포.<br/><br/> 3. 구성 서버를 Site Recovery 등록 하 고, 대상 Azure 환경을 설정 하 고, 복제 정책을 구성 합니다.<br/><br/> 4. 자동화 된 배포의 경우 JetPatch 에이전트 관리자 구성을 초기화 하 고 완료 합니다.<br/><br/> 5. JetPatch에서 모바일 서비스 에이전트의 배포 및 업그레이드를 자동화 하는 Site Recovery 정책을 만들 수 있습니다. <br/><br/> 6. 모바일 서비스가 설치 된 컴퓨터에 대해 Azure로의 복제를 사용 하도록 설정할 수 있습니다. | [JetPatch 에이전트 관리자를 사용 하 여 자동화](https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/)<br/><br/> [JetPatch에서 에이전트 설치 문제 해결](https://kc.jetpatch.com/hc/articles/360035981812)
 
-   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
+## <a name="automate-with-configuration-manager"></a>Configuration Manager를 사용 하 여 자동화
 
-6. 네트워크 공유에서 **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe**를 **MobSvcWindows** 폴더로 복사합니다.
-7. 다음 코드를 복사하여 **MobSvcWindows** 폴더에 **install.bat**으로 저장합니다.
+### <a name="prepare-the-installation-files"></a>설치 파일 준비
 
-   > [!NOTE]
-   > 이 스크립트의 [CSIP] 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
+1. 필수 구성 요소가 있는지 확인 합니다.
+1. 구성 서버를 실행 하는 컴퓨터에서 액세스할 수 있는 보안 네트워크 파일 공유 (SMB 공유)를 만듭니다.
+1. Configuration Manager에서 모바일 서비스를 설치 하거나 업데이트 하려는 [서버를 범주화](/sccm/core/clients/manage/collections/automatically-categorize-devices-into-collections) 합니다. 한 컬렉션에는 모든 Windows 서버, 다른 모든 Linux 서버가 포함 되어야 합니다.
+1. 네트워크 공유에서 폴더를 만듭니다.
+
+   - Windows 컴퓨터에 설치 하는 경우 _MobSvcWindows_라는 폴더를 만듭니다.
+   - Linux 컴퓨터에 설치 하는 경우 _MobSvcLinux_라는 폴더를 만듭니다.
+
+1. 구성 서버 컴퓨터에 로그인합니다.
+1. 구성 서버 컴퓨터에서 관리 명령 프롬프트를 엽니다.
+1. 암호 파일을 생성 하려면 다음 명령을 실행 합니다.
+
+    ```Console
+    cd %ProgramData%\ASR\home\svsystems\bin
+    genpassphrase.exe -v > MobSvc.passphrase
+    ```
+
+1. _Mobsvc.passphrase_ 파일을 Windows 폴더 및 Linux 폴더에 복사 합니다.
+1. 설치 파일이 포함 된 폴더를 찾아보려면 다음 명령을 실행 합니다.
+
+    ```Console
+    cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository
+    ```
+
+1. 이러한 설치 파일을 네트워크 공유에 복사 합니다.
+
+   - Windows의 경우 _MobSvcWindows_에 _Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ 를 복사 합니다.
+   - Linux의 경우 _MobSvcLinux_에 다음 파일을 복사 합니다.
+     - _Microsoft ASR_UARHEL6 -64release_
+     - _Microsoft ASR_UARHEL7 -64release_
+     - _Microsoft ASR_UASLES11-SP3-64release_
+     - _Microsoft ASR_UASLES11-SP4-64release_
+     - _Microsoft ASR_UAOL6 -64release_
+     - _Microsoft ASR_UAUBUNTU 14.04 -64release_
+
+1. 다음 절차에 설명 된 대로 Windows 또는 Linux 폴더에 코드를 복사 합니다. 다음을 가정 합니다.
+
+   - 구성 서버의 IP 주소는 `192.168.3.121` 입니다.
+   - 보안 네트워크 파일 공유는 `\\ContosoSecureFS\MobilityServiceInstallers` 입니다.
+
+### <a name="copy-code-to-the-windows-folder"></a>Windows 폴더에 코드 복사
+
+다음 코드를 복사 합니다.
+
+- _install.bat_으로 _MobSvcWindows_ 폴더에 코드를 저장 합니다.
+- `[CSIP]`이 스크립트의 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
+- 이 스크립트는 모바일 서비스 에이전트의 새로 설치 및 이미 설치 된 에이전트의 업데이트를 지원 합니다.
 
 ```DOS
 Time /t >> C:\Temp\logfile.log
@@ -149,100 +191,15 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 :ENDSCRIPT
     echo "End of script." >> C:\Temp\logfile.log
-
-
 ```
 
-### <a name="create-a-package"></a>패키지 만들기
+### <a name="copy-code-to-the-linux-folder"></a>Linux 폴더로 코드 복사
 
-1. Configuration Manager 콘솔에 로그인합니다.
-2. **소프트웨어 라이브러리** > **응용 프로그램 관리** > **패키지**로 이동합니다.
-3. **패키지**를 마우스 오른쪽 단추로 클릭하고 **패키지 만들기**를 선택합니다.
-4. 이름, 설명, 제조업체, 언어, 버전에 대한 값을 제공합니다.
-5. **이 패키지는 원본 파일을 포함합니다** 확인란을 선택합니다.
-6. **찾아보기**를 클릭하고 설치 관리자가 저장된 네트워크 공유를 선택합니다(\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
+다음 코드를 복사 합니다.
 
-   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
-
-7. **만들려는 프로그램 유형 선택** 페이지에서 **표준 프로그램**을 선택하고 **다음**을 클릭합니다.
-
-   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
-
-8. **이 표준 프로그램에 대한 정보 지정** 페이지에서 다음 입력을 제공하고 **다음**을 클릭합니다. (다른 입력은 해당 기본값을 사용할 수 있습니다.)
-
-   | **매개 변수 이름** | **값** |
-   |--|--|
-   | 이름 | Microsoft Azure Mobility Service(Windows) 설치 |
-   | 명령 줄 | install.bat |
-   | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
-
-   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
-
-9. 다음 페이지에서 대상 운영 체제를 선택합니다. 모바일 서비스는 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2에만 설치할 수 있습니다.
-
-   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
-
-10. 마법사를 완료하려면 **다음**을 두 번 클릭합니다.
-
-
-> [!NOTE]
-> 스크립트는 모바일 서비스 에이전트의 새로 설치 및 이미 설치된 에이전트의 업데이트를 모두 지원합니다.
-
-### <a name="deploy-the-package"></a>패키지 배포
-1. Configuration Manager 콘솔에서 패키지를 마우스 오른쪽 단추로 클릭하고 **콘텐츠 배포**를 선택합니다.
-   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 패키지를 복사할 위치에 **[배포 지점](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** 을 선택합니다.
-3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
-4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
-   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. 필수 구성 요소 섹션에서 만든 Widows Server 디바이스 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
-
-   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
-
-6. **콘텐츠 대상 지정** 페이지에서 **배포 지점**을 선택합니다.
-7. **이 소프트웨어를 배포하는 방법을 제어하는 설정 지정** 페이지에서 목적이 **필수**인지 확인합니다.
-
-   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
-
-8. **이 배포에 대한 일정 지정** 페이지에서 일정을 지정합니다. 자세한 내용은 [패키지 일정 예약](https://technet.microsoft.com/library/gg682178.aspx)을 참조하세요.
-9. **배포 지점** 페이지에서 데이터 센터 요구 사항에 따라 속성을 구성합니다. 그런 다음 마법사를 완료합니다.
-
-> [!TIP]
-> 불필요한 재부팅을 방지하려면 매월 유지 관리 시간 또는 소프트웨어 업데이트 시간에 패키지 설치를 예약합니다.
-
-Configuration Manager 콘솔을 사용하여 배포 진행률을 모니터링할 수 있습니다. **모니터링** > **배포** > *[패키지 이름]* 으로 이동합니다.
-
-  ![배포를 모니터링하는 Configuration Manager 옵션의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
-
-## <a name="deploy-on-linux-machines"></a>Linux 컴퓨터에 배포
-> [!NOTE]
-> 이 문서에서는 구성 서버의 IP 주소가 192.168.3.121이고 보안 네트워크 파일 공유가 \\\ContosoSecureFS\MobilityServiceInstallers인 것으로 가정합니다.
-
-### <a name="prepare-for-deployment"></a>배포 준비
-1. 네트워크 공유에 폴더를 만들고 이름을 **MobSvcLinux**로 지정합니다.
-2. 구성 서버에 로그인하고 관리자 권한 명령 프롬프트를 엽니다.
-3. 다음 명령을 실행하여 암호 파일을 생성합니다.
-
-    `cd %ProgramData%\ASR\home\svsystems\bin`
-
-    `genpassphrase.exe -v > MobSvc.passphrase`
-4. 네트워크 공유에서 **MobSvc.passphrase** 파일을 **MobSvcLinux** 폴더로 복사합니다.
-5. 다음 명령을 실행하여 구성 서버에서 설치 관리자 리포지토리를 찾아봅니다.
-
-   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
-
-6. 네트워크 공유에서 다음 파일을 **MobSvcLinux** 폴더로 복사합니다.
-   * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
-   * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
-
-
-7. 아래 코드를 복사하여 **MobSvcLinux** 폴더에 **install_linux.sh**로 저장합니다.
-   > [!NOTE]
-   > 이 스크립트의 [CSIP] 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
+- _MobSvcLinux_ 폴더의 코드를 _install_linux. sh_로 저장 합니다.
+- `[CSIP]`이 스크립트의 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
+- 이 스크립트는 모바일 서비스 에이전트의 새로 설치 및 이미 설치 된 에이전트의 업데이트를 지원 합니다.
 
 ```Bash
 #!/usr/bin/env bash
@@ -380,63 +337,67 @@ cd /tmp
 
 ### <a name="create-a-package"></a>패키지 만들기
 
-1. Configuration Manager 콘솔에 로그인합니다.
-2. **소프트웨어 라이브러리** > **응용 프로그램 관리** > **패키지**로 이동합니다.
-3. **패키지**를 마우스 오른쪽 단추로 클릭하고 **패키지 만들기**를 선택합니다.
-4. 이름, 설명, 제조업체, 언어, 버전에 대한 값을 제공합니다.
-5. **이 패키지는 원본 파일을 포함합니다** 확인란을 선택합니다.
-6. **찾아보기**를 클릭하고 설치 관리자가 저장된 네트워크 공유를 선택합니다(\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
+1. Configuration Manager 콘솔에 로그인 하 고 **소프트웨어 라이브러리**  >  **응용 프로그램 관리**  >  **패키지**로 이동 합니다.
+1. **패키지**  >  **패키지 만들기**를 마우스 오른쪽 단추로 클릭 합니다.
+1. 이름, 설명, 제조업체, 언어, 버전 등 패키지 정보를 제공 합니다.
+1. **이 패키지에 소스 파일이 포함 되어**있습니다 .를 선택 합니다.
+1. **찾아보기**를 클릭 하 고 관련 설치 관리자 (_MobSvcWindows_ 또는 _MobSvcLinux_)를 포함 하는 네트워크 공유 및 폴더를 선택 합니다. 그다음에 **다음**을 선택합니다.
 
-   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-7. **만들려는 프로그램 유형 선택** 페이지에서 **표준 프로그램**을 선택하고 **다음**을 클릭합니다.
+1. **만들려는 프로그램 유형 선택** 페이지에서 **표준 프로그램**  >  **다음**을 선택 합니다.
 
    ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
-8. **이 표준 프로그램에 대한 정보 지정** 페이지에서 다음 입력을 제공하고 **다음**을 클릭합니다. (다른 입력은 해당 기본값을 사용할 수 있습니다.)
+1. **이 표준 프로그램에 대 한 정보 지정** 페이지에서 다음 값을 지정 합니다.
 
-    | **매개 변수 이름** | **값** |
-   |--|--|
-   | 이름 | Microsoft Azure Mobility Service(Linux) 설치 |
-   | 명령 줄 | ./install_linux.sh |
-   | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
+    **매개 변수** | **Windows 값** | **Linux 값**
+    --- | --- | ---
+    **이름** | Microsoft Azure Mobility Service(Windows) 설치 | Microsoft Azure 모바일 서비스 (Linux)를 설치 합니다.
+    **명령줄** | install.bat | ./install_linux.sh
+    **프로그램을 실행할 수 있습니다.** | 사용자 로그온 여부 | 사용자 로그온 여부
+    **기타 매개 변수** | 기본 설정 사용 | 기본 설정 사용
 
-   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-9. 다음 페이지에서 **모든 플랫폼에서 이 프로그램 실행**을 선택합니다.
-   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
+1. **이 표준 프로그램의 요구 사항 지정**에서 다음 작업을 수행 합니다.
 
-10. 마법사를 완료하려면 **다음**을 두 번 클릭합니다.
+   - Windows 컴퓨터의 경우 **지정 된 플랫폼 에서만이 프로그램을 실행할 수 있음**을 선택 합니다. 그런 다음 [지원 되는 Windows 운영 체제](vmware-physical-azure-support-matrix.md#replicated-machines) 를 선택 하 고 **다음**을 선택 합니다.
+   - Linux 컴퓨터의 경우 **모든 플랫폼에서이 프로그램을 실행할 수 있음**을 선택 합니다. **다음**을 선택합니다.
 
-> [!NOTE]
-> 스크립트는 모바일 서비스 에이전트의 새로 설치 및 이미 설치된 에이전트의 업데이트를 모두 지원합니다.
+1. 마법사를 마칩니다.
 
 ### <a name="deploy-the-package"></a>패키지 배포
-1. Configuration Manager 콘솔에서 패키지를 마우스 오른쪽 단추로 클릭하고 **콘텐츠 배포**를 선택합니다.
+
+1. Configuration Manager 콘솔에서 패키지를 마우스 오른쪽 단추로 클릭 하 고 **콘텐츠 배포**를 선택 합니다.
+
    ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 패키지를 복사할 위치에 **[배포 지점](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** 을 선택합니다.
-3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
-4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
+
+1. 패키지를 복사할 위치에 배포 지점을 선택합니다. [자세히 알아보기](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).
+1. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
+1. 패키지 배포가 완료 된 후 패키지 > **배포**를 마우스 오른쪽 단추로 클릭 합니다.
+
    ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. 전제 조건 섹션에서 만든 Linux Server 디바이스 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
 
-   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
-
-6. **콘텐츠 대상 지정** 페이지에서 **배포 지점**을 선택합니다.
-7. **이 소프트웨어를 배포하는 방법을 제어하는 설정 지정** 페이지에서 목적이 **필수**인지 확인합니다.
+1. 이전에 만든 Windows 또는 Linux 장치 컬렉션을 선택 합니다.
+1. **콘텐츠 대상 지정** 페이지에서 **배포 위치**를 선택 합니다.
+1. **이 소프트웨어를 배포 하는 방법을 제어 하는 설정 지정** 페이지에서 **용도** 를 **필수**로 설정 합니다.
 
    ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-8. **이 배포에 대한 일정 지정** 페이지에서 일정을 지정합니다. 자세한 내용은 [패키지 일정 예약](https://technet.microsoft.com/library/gg682178.aspx)을 참조하세요.
-9. **배포 지점** 페이지에서 데이터 센터 요구 사항에 따라 속성을 구성합니다. 그런 다음 마법사를 완료합니다.
+1. **이 배포에 대 한 일정 지정**에서 일정을 설정 합니다. [자세히 알아보기](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
 
-사용자가 구성한 일정에 따라 Linux Server 디바이스 컬렉션에 모바일 서비스가 설치됩니다.
+   - 모바일 서비스는 지정 된 일정에 따라 설치 됩니다.
+   - 불필요한 재부팅을 방지하려면 매월 유지 관리 시간 또는 소프트웨어 업데이트 시간에 패키지 설치를 예약합니다.
 
+1. **배포 지점의** 페이지에서 설정을 구성 하 고 마법사를 완료 합니다.
+1. Configuration Manager 콘솔에서 배포 진행률을 모니터링 합니다. **모니터링**  >  **배포**로 이동  >  _\<your package name\>_ 합니다.
 
-## <a name="uninstall-the-mobility-service"></a>모바일 서비스 설치 제거
-모바일 서비스를 제거하는 Configuration Manager 패키지를 만들 수 있습니다. 이렇게 하려면 다음 스크립트를 사용합니다.
+### <a name="uninstall-the-mobility-service"></a>모바일 서비스 제거
 
-```
+Configuration Manager 패키지를 만들어 모바일 서비스를 제거할 수 있습니다. 예를 들어 다음 스크립트는 모바일 서비스를 제거 합니다.
+
+```DOS
 Time /t >> C:\logfile.log
 REM ==================================================
 REM ==== Check if Mob Svc is already installed =======
@@ -454,8 +415,8 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
                 echo "Uninstall" >> C:\logfile.log
                 MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
 :ENDSCRIPT
-
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 가상 머신의 [보호를 활성화](vmware-azure-enable-replication.md)할 준비가 되었습니다.
+
+Vm에 대해 [복제를 사용 하도록 설정](vmware-azure-enable-replication.md) 합니다.

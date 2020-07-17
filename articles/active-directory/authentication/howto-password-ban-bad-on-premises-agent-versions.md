@@ -1,22 +1,21 @@
 ---
-title: 온-프레미스 Azure AD 암호 보호 에이전트 버전 릴리스 내역-Azure Active Directory
+title: 암호 보호 에이전트 릴리스 기록-Azure Active Directory
 description: 문서 버전 릴리스 및 동작 변경 기록
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 02/01/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 11/21/2019
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74847852"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 암호 보호 에이전트에 대한 버전 기록
 
@@ -24,37 +23,37 @@ ms.locfileid: "60358211"
 
 릴리스 날짜: 3/22/2019
 
-* 이벤트 로그 메시지에서 사소한 오타가 오류를 수정 합니다.
-* 최종 일반 공급 버전으로 업데이트 EULA 계약에 동의
+* 이벤트 로그 메시지의 사소한 오타가 오류 수정
+* EULA 계약을 최종 일반 공급 버전으로 업데이트
 
 > [!NOTE]
-> 1.2.125.0 빌드는 일반 공급 빌드입니다. 모든 사용자에 게 다시 주셔서 제품 피드백을 제공 했습니다!
+> Build 1.2.125.0는 일반 가용성 빌드입니다. 모든 사람이 제품에 대 한 피드백을 제공 해 주셔서 감사 합니다.
 
 ## <a name="121160"></a>1.2.116.0
 
 릴리스 날짜: 3/13/2019
 
-* Get-AzureADPasswordProtectionProxy 및 Get AzureADPasswordProtectionDCAgent cmdlet은 이제 다음과 같은 제한 사항이 있는 테 넌 트 보고서 소프트웨어 버전 및 현재 Azure:
-  * 소프트웨어 버전 및 Azure 테 넌 트 데이터는 에서만 이상 DC 에이전트 1.2.116.0 버전을 실행 하는 프록시에 사용할 수 있습니다.
-  * 프록시의 재등록 (또는 갱신) 될 때까지 azure 테 넌 트 데이터를 보고 될 수 있습니다 또는 포리스트 발생 했습니다.
-* 프록시 서비스는 이제.NET 4.7이 설치 되어 있는지 필요 합니다.
-  * .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
-  * Server Core 시스템에서 성공 하기 위해.NET 4.7 설치 관리자를 /q 플래그를 전달 해야 할 수도 있습니다.
-* 프록시 서비스는 이제 자동 업그레이드를 지원합니다. 프록시 서비스와 함께 설치 되는 Microsoft Azure AD Connect Agent Updater 서비스를 사용 하는 자동 업그레이드 합니다. 자동 업그레이드는 기본적으로 켜져 있습니다.
-* 자동 업그레이드가 사용 하도록 설정할 수 있습니다 또는 집합 AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 사용 하지 않도록 설정 합니다. Get-AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
-* DC 에이전트 서비스에 대 한 이진 서비스 AzureADPasswordProtectionDCAgent.exe로 바뀌었습니다.
-* 프록시 서비스에 대 한 이진 서비스 AzureADPasswordProtectionProxy.exe로 바뀌었습니다. 방화벽 규칙을 타사 방화벽을 사용 하는 경우 그에 따라 수정 해야 합니다.
-  * 참고: http 프록시 구성 파일을 이전 프록시에 사용 된 경우 설치를 바꿀 필요 (에서 *proxyservice.exe.config* 하 *AzureADPasswordProtectionProxy.exe.config*) 이후 업그레이드 합니다.
-* DC 에이전트에서 시간이 제한 된 기능 검사를 모두 제거 되었습니다.
-* 사소한 버그 수정 및 로깅 개선 사항
+* 이제 AzureADPasswordProtectionProxy 및 AzureADPasswordProtectionDCAgent cmdlet은 소프트웨어 버전 및 현재 Azure 테 넌 트를 보고 하며 다음과 같은 제한 사항이 있습니다.
+  * 소프트웨어 버전 및 Azure 테 넌 트 데이터는 버전 1.2.116.0 이상을 실행 하는 DC 에이전트 및 프록시에만 사용할 수 있습니다.
+  * Azure 테 넌 트 데이터는 프록시 또는 포리스트를 다시 등록 하거나 갱신할 때까지 보고 되지 않을 수 있습니다.
+* 이제 프록시 서비스에 .NET 4.7이 설치 되어 있어야 합니다.
+  * .NET 4.7은 완전히 업데이트 된 Windows Server에 이미 설치 되어 있어야 합니다. 그렇지 않은 경우 [Windows 용 .NET Framework 4.7 오프 라인 설치 관리자](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)에서 찾은 설치 관리자를 다운로드 하 여 실행 합니다.
+  * Server Core 시스템에서는/q 플래그를 .NET 4.7 설치 관리자에 전달 하 여 성공 하도록 해야 할 수 있습니다.
+* 이제 프록시 서비스에서 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있습니다.
+* AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 자동 업그레이드를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
+* DC 에이전트 서비스의 서비스 이진 파일 이름이 AzureADPasswordProtectionDCAgent.exe (으)로 바뀌었습니다.
+* 프록시 서비스에 대 한 서비스 이진 파일의 이름이 AzureADPasswordProtectionProxy.exe로 바뀌었습니다. 타사 방화벽을 사용 하는 경우 방화벽 규칙을 적절 하 게 수정 해야 할 수 있습니다.
+  * 참고: 이전 프록시 설치에서 http 프록시 구성 파일을 사용 하는 경우이 업그레이드 후에는 *proxyservice.exe.config* 에서 *AzureADPasswordProtectionProxy.exe.config*로 이름을 변경 해야 합니다.
+* 모든 시간 제한 기능 검사가 DC 에이전트에서 제거 되었습니다.
+* 사소한 버그 수정 및 로깅 향상
 
 ## <a name="12650"></a>1.2.65.0
 
-릴리스 날짜: 2019년 2월 1일
+릴리스 날짜: 2/1/2019
 
 변경 내용:
 
-* DC 에이전트 및 프록시 서비스는 이제 Server Core에서 지원됩니다. 최소 OS 요구 사항은 이전과 동일하며, DC 에이전트에는 Windows Server 2012, 프록시에는 Windows Server 2012 R2가 필요합니다.
+* DC 에이전트 및 프록시 서비스는 이제 Server Core에서 지원됩니다. Mininimum OS 요구 사항은 이전에서 변경 되지 않았습니다. DC 에이전트의 경우 Windows Server 2012이 고, 프록시에는 Windows Server 2012 R2입니다.
 * Register-AzureADPasswordProtectionProxy 및 Register-AzureADPasswordProtectionForest cmdlet은 이제 디바이스 코드 기반 Azure 인증 모드를 지원합니다.
 * Get-AzureADPasswordProtectionDCAgent cmdlet은 심하게 훼손되었거나 또는 잘못된 서비스 연결 지점을 무시합니다. 이를 통해 도메인 컨트롤러에서 출력에 여러 번 표시되는 버그가 수정되었습니다.
 * Get-AzureADPasswordProtectionSummaryReport cmdlet은 심하게 훼손되었거나 또는 잘못된 서비스 연결 지점을 무시합니다. 이를 통해 도메인 컨트롤러에서 출력에 여러 번 표시되는 버그가 수정되었습니다.

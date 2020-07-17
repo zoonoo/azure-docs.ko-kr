@@ -1,22 +1,22 @@
 ---
-title: Azure IoT Hub Device Provisioning Service를 위한 디바이스 설정
-description: 디바이스 제조 프로세스 중 IoT Hub Device Provisioning Service를 통해 프로비전할 디바이스 설정
+title: 자습서 - Azure IoT Hub Device Provisioning Service를 위한 디바이스 설정
+description: 이 자습서에서는 디바이스 제조 프로세스 중 IoT Hub DPS(Device Provisioning Service)를 통해 프로비저닝할 디바이스를 설정하는 방법을 보여줍니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500977"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687127"
 ---
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
+# <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>자습서: Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
 
 이전 자습서에서 디바이스를 IoT Hub에 자동으로 프로비전하도록 Azure IoT Hub Device Provisioning Service를 설정하는 방법을 배웠습니다. 이 자습서에서는 IoT Hub가 자동으로 프로비전되도록 제조 과정에서 디바이스를 설정하는 방법을 보여줍니다. 디바이스를 처음으로 부팅하고 프로비전 서비스에 연결할 때 디바이스의 [증명 메커니즘](concepts-device.md#attestation-mechanism)에 따라 디바이스가 프로비전됩니다. 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -27,45 +27,49 @@ ms.locfileid: "59500977"
 
 이 자습서에서는 여러분이 이미 [클라우드 리소스 설정](tutorial-set-up-cloud.md) 자습서의 지침에 따라 Device Provisioning Service 인스턴스 및 IoT Hub를 만든 것으로 가정합니다.
 
-이 자습서에서는 C용 Device Provisioning Service 클라이언트 SDK를 포함하고 있는 [Azure IoT SDK 및 C 리포지토리용 라이브러리](https://github.com/Azure/azure-iot-sdk-c)를 사용합니다. 이 SDK는 현재 Windows 또는 Ubuntu 구현에서 실행 중인 디바이스에 TPM 및 X.509 지원을 제공합니다. 이 자습서는 Windows 개발 클라이언트 사용을 기반으로 하며, 마찬가지로 사용자가 Visual Studio 2017의 기본적인 내용을 알고 있다고 가정합니다. 
+이 자습서에서는 C용 Device Provisioning Service 클라이언트 SDK를 포함하고 있는 [Azure IoT SDK 및 C 리포지토리용 라이브러리](https://github.com/Azure/azure-iot-sdk-c)를 사용합니다. 이 SDK는 현재 Windows 또는 Ubuntu 구현에서 실행 중인 디바이스에 TPM 및 X.509 지원을 제공합니다. 이 자습서는 Windows 개발 클라이언트 사용을 기반으로 하며, 마찬가지로 사용자가 Visual Studio의 기본적인 내용을 알고 있다고 가정합니다. 
 
 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드가 활성화된 Visual Studio 2015 또는 [Visual Studio 2017](https://www.visualstudio.com/vs/)
+다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
+
+* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
-
-
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>플랫폼별 SDK 버전 빌드
 
-Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트웨어를 구현하는 데 도움을 줍니다. 하지만 사용하려면 개발 클라이언트 플랫폼 및 증명 메커니즘과 관련된 SDK의 버전을 빌드해야 합니다. 이 자습서에서는 Windows 개발 플랫폼에서 지원되는 증명 형식에 Visual Studio 2017을 사용하는 SDK를 빌드합니다.
+Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트웨어를 구현하는 데 도움을 줍니다. 하지만 사용하려면 개발 클라이언트 플랫폼 및 증명 메커니즘과 관련된 SDK의 버전을 빌드해야 합니다. 이 자습서에서는 Windows 개발 플랫폼에서 지원되는 증명 형식에 Visual Studio를 사용하는 SDK를 빌드합니다.
 
 1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다.
 
     `CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 'C++를 사용한 데스크톱 개발' 워크로드)를 머신에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다.
 
-1. 명령 프롬프트 또는 Git Bash 셸을 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리를 복제합니다.
-    
+2. SDK의 [최신 릴리스](https://github.com/Azure/azure-iot-sdk-c/releases/latest)에 대한 태그 이름을 찾습니다.
+
+3. 명령 프롬프트 또는 Git Bash 셸을 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리의 최신 릴리스를 복제합니다. 이전 단계에서 찾은 태그를 `-b` 매개 변수의 값으로 사용합니다.
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
-
-1. Git 리포지토리의 루트 디렉터리에서 `cmake` 하위 디렉터리를 만들고 해당 폴더로 이동합니다. 
+4. Git 리포지토리의 루트 디렉터리에서 `cmake` 하위 디렉터리를 만들고 해당 폴더로 이동합니다. `azure-iot-sdk-c` 디렉터리에서 다음 명령을 실행합니다.
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-1. 사용할 증명 메커니즘을 기반으로 개발 플랫폼의 SDK를 빌드합니다. 다음 명령 중 하나를 사용합니다(또한 명령마다 후행 마침표가 2개 있는 것에 주의). 완료되면 CMake가 사용자의 디바이스 관련 콘텐츠를 포함하는 `/cmake` 하위 디렉터리를 빌드합니다.
+5. 사용할 증명 메커니즘을 기반으로 개발 플랫폼의 SDK를 빌드합니다. 다음 명령 중 하나를 사용합니다(또한 명령마다 후행 마침표가 2개 있는 것에 주의). 완료되면 CMake가 사용자의 디바이스 관련 콘텐츠를 포함하는 `/cmake` 하위 디렉터리를 빌드합니다.
  
     - 증명에 TPM 시뮬레이터를 사용하는 디바이스의 경우:
 
@@ -96,8 +100,9 @@ Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트
 
 - X.509 디바이스의 경우 디바이스에 발급된 인증서를 가져와야 합니다. 프로비전 서비스는 X.509 증명 메커니즘을 사용하는 디바이스에 대한 액세스를 제어하는 두 가지 유형의 등록 항목을 공개합니다. 필요한 인증서는 사용할 등록 유형에 따라 다릅니다.
 
-    1. 개별 등록: 특정 단일 디바이스를 등록합니다. 이 유형의 등록 항목은 [최종 엔터티, "리프", 인증서](concepts-security.md#end-entity-leaf-certificate)가 필요합니다.
-    1. 등록 그룹: 이 유형의 등록 항목은 중간 또는 루트 인증서가 필요합니다. 자세한 내용은 [X.509 인증서를 사용하여 프로비전 서비스에 대한 디바이스 액세스 제어](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)를 참조하세요.
+    - 개별 등록: 특정 단일 디바이스를 등록합니다. 이 유형의 등록 항목은 [최종 엔터티, "리프", 인증서](concepts-security.md#end-entity-leaf-certificate)가 필요합니다.
+    
+    - 등록 그룹: 이 유형의 등록 항목은 중간 또는 루트 인증서가 필요합니다. 자세한 내용은 [X.509 인증서를 사용하여 프로비전 서비스에 대한 디바이스 액세스 제어](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)를 참조하세요.
 
 ### <a name="simulated-devices"></a>시뮬레이션된 디바이스
 
@@ -139,7 +144,7 @@ Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트
 마지막 단계는 장치를 IoT Hub 서비스에 등록하도록 Device Provisioning Service 클라이언트 SDK를 사용하는 등록 애플리케이션을 작성하는 것입니다. 
 
 > [!NOTE]
-> 이 단계에서는 워크스테이션에서 SDK 샘플 등록 애플리케이션을 실행하여 얻은 시뮬레이션된 장치를 사용하는 것으로 가정합니다. 하지만 물리적 장치에 배포할 등록 애플리케이션을 작성하는 경우에도 동일한 개념이 적용됩니다. 
+> 이 단계에서는 워크스테이션에서 SDK 샘플 등록 애플리케이션을 실행하여 얻은 시뮬레이션된 디바이스를 사용하는 것으로 가정합니다. 하지만 물리적 디바이스에 배포할 등록 애플리케이션을 작성하는 경우에도 동일한 개념이 적용됩니다. 
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 블레이드를 선택하고 **_ID 범위_** 값을 복사합니다. *ID 범위*는 서비스에 의해 생성되고 고유성이 보장됩니다. 이는 변경할 수 없으며 등록 ID를 고유하게 식별하는 데 사용됩니다.
 
@@ -201,7 +206,7 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. **모든 리소스** 블레이드 위쪽에서 **삭제**를 클릭합니다.  
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 플랫폼별 Device Provisioning Service 클라이언트 SDK 빌드
@@ -211,5 +216,4 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 자동 프로비전을 위한 Azure IoT Hub Device Provisioning Service에 등록하여 IoT Hub에 디바이스를 프로비전하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [IoT Hub에 디바이스 프로비저닝](tutorial-provision-device-to-hub.md)
-
+> [IoT Hub에 디바이스 프로비전](tutorial-provision-device-to-hub.md)

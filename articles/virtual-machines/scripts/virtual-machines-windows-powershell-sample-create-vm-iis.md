@@ -1,27 +1,25 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - IIS | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - IIS
 description: Azure PowerShell 스크립트 샘플 - IIS
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3e54db65725c66f2b411cccfa5432cc82804c61f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f405e8efe18173128ea45832341d67d735745826
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001088"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459239"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>PowerShell을 사용하여 IIS VM 만들기
 
@@ -29,7 +27,7 @@ ms.locfileid: "56001088"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
 
 ## <a name="sample-script"></a>샘플 스크립트
 

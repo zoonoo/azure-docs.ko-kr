@@ -5,19 +5,19 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "66473793"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  ADConnectivityTools PowerShell 참조
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell 참조
 
 이 설명서에서는 Azure AD Connect에 포함된 ADConnectivityTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "60454645"
 
 로컬 DNS 문제를 검색합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObject] [<CommonParameters>]
@@ -36,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>설명
 
 로컬 DNS 연결 테스트를 실행합니다.
-Active Directory 커넥터를 구성하려면 사용자가 연결하려고 하는 포리스트와 이 포리스트와 연결된 도메인 컨트롤러의 이름 확인을 모두 가지고 있어야 합니다.
+Active Directory 커넥터를 구성 하려면 사용자가 연결 하려는 포리스트와이 포리스트에 연결 된 도메인 컨트롤러에 대 한 이름 resolutionthe를 모두 포함 해야 합니다.
 
 ### <a name="examples"></a>예제
 
@@ -52,7 +52,7 @@ Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM","MYD
 Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -114,7 +114,7 @@ Accept wildcard characters: False
 
 지정한 포리스트가 있는지 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ForestExists [-Forest] <String> [<CommonParameters>]
@@ -132,7 +132,7 @@ DNS 서버에서 포리스트와 연결된 IP 주소를 쿼리합니다.
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -161,7 +161,7 @@ Accept wildcard characters: False
 
 AD 포리스트 기능 수준을 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -200,7 +200,7 @@ Confirm-FunctionalLevel -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUser
 Confirm-FunctionalLevel -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -262,7 +262,7 @@ Accept wildcard characters: False
 
 로컬 네트워크 연결 문제를 검색합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObject] [<CommonParameters>]
@@ -289,7 +289,7 @@ Confirm-NetworkConnectivity -SkipDnsPort -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO
 Confirm-NetworkConnectivity -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO.COM" -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-dcs"></a>-DCs
 
@@ -309,8 +309,9 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-사용자가 AD 사이트/로그온 DC에서 제공하는 DNS 서비스를 사용하지 않는 경우 53 포트를 확인하지 않고 건너뛸 수 있습니다.
-사용자가 여전히 _.ldap._tcp.\<forestfqdn\>을 확인할 수 있어야 Active Directory 커넥터 구성이 성공합니다.
+사용자가 AD 사이트/로그온 DC에서 제공 하는 DNS 서비스를 사용 하지 않는 경우 포트 53 확인을 건너뛰는 것이 좋습니다.
+사용자가 계속 해 서 _tcp를 확인할 수 있어야 합니다.\<forestfqdn\>
+Active Directory 커넥터 구성이 성공 하도록 하려면입니다.
 
 ```yml
 Type: SwitchParameter
@@ -352,7 +353,7 @@ Accept wildcard characters: False
 
 지정된 포리스트 및 해당 연결된 도메인 컨트롤러에 연결할 수 있는지 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-TargetsAreReachable [-Forest] <String> [-DCs] <Array> [<CommonParameters>]
@@ -376,7 +377,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM",
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -421,7 +422,7 @@ Accept wildcard characters: False
 
 가져온 포리스트 FQDN의 도메인에 연결할 수 있는지 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -460,7 +461,7 @@ Confirm-ValidDomains -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUserCre
 Confirm-ValidDomains -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -521,7 +522,7 @@ Accept wildcard characters: False
 
 사용자에게 엔터프라이즈 관리자 자격 증명이 있는지 확인합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ValidEnterpriseAdminCredentials [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
@@ -546,7 +547,7 @@ Confirm-ValidEnterpriseAdminCredentials -DomainName test.contoso.com -Verbose
 Confirm-ValidEnterpriseAdminCredentials -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
@@ -575,7 +576,7 @@ Accept wildcard characters: False
 
 계정과 암호의 조합에서 DomainFQDN을 검색합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-DomainFQDNData [[-DomainFQDNDataType] <String>] [-RunWithCurrentlyLoggedInUserCredentials]
@@ -602,7 +603,7 @@ Get-DomainFQDNData -DomainFQDNDataType DomainFQDNName -Verbose
 Get-DomainFQDNData -DomainFQDNDataType RootDomainName -RunWithCurrentlyLoggedInUserCredentials
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-domainfqdndatatype"></a>-DomainFQDNDataType
 
@@ -664,7 +665,7 @@ Accept wildcard characters: False
 
 계정과 암호의 조합에서 ForestFQDN을 검색합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ForestFQDN [-Forest] <String> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
@@ -689,7 +690,7 @@ Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -Verbose
 Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -734,7 +735,7 @@ Accept wildcard characters: False
 
 Main 함수입니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-ConnectivityValidation [-Forest] <String> [-AutoCreateConnectorAccount] <Boolean> [[-UserName] <String>]
@@ -753,7 +754,7 @@ AD 자격 증명이 유효한지 확인하는 사용 가능한 모든 메커니�
 Start-ConnectivityValidation -Forest "test.contoso.com" -AutoCreateConnectorAccount $True -Verbose
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -773,9 +774,9 @@ Accept wildcard characters: False
 
 #### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
 
-사용자 지정 설치의 경우: 사용자가 AADConnect 마법사의 AD 포리스트 계정 창에서 "새 AD 계정 만들기"를 선택한 경우 플래그는 $True입니다.
+사용자 지정 설치의 경우 사용자가 AADConnect 마법사의 AD 포리스트 계정 창에서 "새 AD 계정 만들기"를 선택한 경우 플래그는 $True입니다.
 사용자가 "기존 AD 계정 사용"을 선택한 경우 $False입니다.
-기본 설치의 경우: 기본 설치에 대한 이 변수의 값은 $True여야 합니다.
+기본 설치의 경우 기본 설치에 대한 이 변수의 값은 $True여야 합니다.
 
 ```yml
 Type: Boolean
@@ -816,7 +817,7 @@ Accept wildcard characters: False
 
 네트워크 연결 테스트를 위한 Main 함수입니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSCredential>
@@ -842,7 +843,7 @@ Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM"
 Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM" -DCs "DC1.TEST.CONTOSO.COM", "DC2.TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 

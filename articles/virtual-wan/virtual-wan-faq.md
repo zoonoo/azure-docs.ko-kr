@@ -4,16 +4,16 @@ description: 가상 WAN에 대한 FAQ
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 10/04/2018
+ms.topic: troubleshooting
+ms.date: 10/17/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
-ms.openlocfilehash: 1027d584ef2215ad47ad92584480c75e139274e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecec5daddd2e7a885b9c8d390fd98fdba3b038d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753239"
 ---
 # <a name="virtual-wan-faq"></a>가상 WAN FAQ
 

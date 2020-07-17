@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 예제 - Azure Media Services 자산 만들기 | Microsoft Docs
+title: Azure CLI를 사용하여 Azure Media Services 자산에 콘텐츠 업로드
 description: 이 토픽의 Azure CLI 스크립트는 콘텐츠를 업로드 할 Media Services Asset을 만드는 방법을 보여줍니다.
 services: media-services
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 4b6aebc807426f533bc4c1e2c0405e69c264dc33
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 0c24464050d0beee120dcb234582a464d6245270
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235985"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "76310648"
 ---
 # <a name="cli-example-create-an-asset"></a>CLI 예제: 자산 만들기
 
 이 문서의 Azure CLI 스크립트는 콘텐츠를 업로드 할 Media Services Asset을 만드는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 [Media Services 계정 만들기](create-account-cli-how-to.md)
 

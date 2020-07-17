@@ -1,62 +1,91 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Sentinel Preview 설명서
+### YamlMime:Landing
+title: Azure Sentinel 설명서
+summary: 이 문서에서는 Azure Sentinel을 사용하여 시작하기 위한 사용 사례를 제공합니다. 현대 세계에 맞게 재설계된 SIEM으로 위협이 해를 입히기 전에 확인하여 제거하세요. Azure Sentinel은 엔터프라이즈 전체를 폭넓은 시각으로 모니터링합니다.
 metadata:
-  title: 'Azure Sentinel Preview 설명서 - 자습서, 빠른 시작 | Microsoft Doc'
-  meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
+  title: Azure Sentinel 설명서
+  description: '이 문서에서는 Azure Sentinel을 사용하여 시작하기 위한 사용 사례와 시나리오를 제공합니다. 현대 세계에 맞게 재설계된 SIEM으로 위협이 해를 입히기 전에 확인하여 제거하세요. Azure Sentinel은 엔터프라이즈 전체를 폭넓은 시각으로 모니터링합니다. # 필수; 검색 결과에 표시되는 문서 설명입니다. 160개 미만의 문자.'
   services: sentinel
-  author: cmcclister
-  manager: carolz
   ms.service: sentinel
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: azure-sentinel
   ms.topic: landing-page
-  ms.date: 02/28/19
-  ms.author: cmcclister
-abstract:
-  description: 'Azure Sentinel Preview는 클라우드 규모의 기업 전체에 대해 인텔리전트 보안 분석을 제공하는 클라우드 네이티브 SIEM입니다. 중요한 사항에 집중할 수 있는 무제한 클라우드 속도 및 규모를 사용하세요. 모든 클라우드 또는 온-프레미스 자산, Office 365, Azure 리소스 및 기타 클라우드에서 쉽게 데이터를 수집하세요. Microsoft 보안 분석 전문가로부터 기본 제공된 기계 학습을 사용하여 실질적으로 위협을 검색하세요. 기본 제공 오케스트레이션 및 자동화 플레이북을 사용하여 위협 대응을 자동화하세요.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Azure Sentinel에 데이터를 등록하고 데이터 및 잠재적 위협을 표시하는 방법에 대해 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/deploy.svg
-            text: Azure Sentinel 등록
-            href: /azure/sentinel/quickstart-onboard
-          - image:
-              src: media/index/get-started.svg
-            text: Azure Sentinel 시작
-            href: /azure/sentinel/quickstart-get-visibility
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: '보안 정책을 정의하고,악의적인 작업으로부터 리소스를 보호하고,보안 알림 및 인시던트에 대응하는 방법을 알아봅니다.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/sentinel/tutorial-detect-threats">Azure Sentinel을 사용하여 위협 검색</a>
-          - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">자동화된 위협 대응 설정</a>
-  - title: Microsoft Learn을 통해 기술 쌓기
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure의 보안 소개
-            href: 'https://docs.microsoft.com/learn/azure'
-            image:
-              src: media/index/tutorial.svg
-              href: 'https://docs.microsoft.com/learn/azure'
-      - type: paragraph
-        text: <a href="/learn/browse/?term=security">더 많은 대화형 학습 보기...</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - html: '<a href="https://azure.microsoft.com/updates/?product=sentinel">서비스 업데이트</a>'
+  ms.collection: collection
+  author: yelevin
+  ms.author: yelevin
+  ms.date: 06/25/2020
+  ms.openlocfilehash: d4e86295020ab68c6769ac34d6259bd78cf9934e
+  ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/25/2020
+  ms.locfileid: "85374562"
+landingContent:
+- title: Azure Sentinel 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Sentinel이란?
+      url: overview.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Sentinel 등록
+      url: quickstart-onboard.md
+    - text: 경고 표시
+      url: quickstart-get-visibility.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Sentinel에 데이터 연결
+      url: connect-data-sources.md
+- title: 추가 데이터 원본 연결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Active Directory 연결
+      url: connect-azure-active-directory.md
+    - text: Azure Information Protection 연결
+      url: connect-azure-information-protection.md
+    - text: AWS 연결
+      url: connect-aws.md
+    - text: Palo Alto Networks 연결
+      url: connect-paloalto.md
+    - text: 위협 인텔리전스 연결
+      url: connect-threat-intelligence.md
+- title: 다중 테넌트 작업
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Sentinel에서 다중 테넌트 지원을 사용하도록 설정하는 방법
+      url: multiple-tenants-service-providers.md
+- title: 사용자 환경에서 발생하는 상황 확인
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 데이터 모니터링
+      url: tutorial-monitor-your-data.md
+    - text: 인시던트 조사
+      url: tutorial-investigate-cases.md
+- title: 위협 감지
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 기본 제공 분석을 사용하여 위협 탐지
+      url: tutorial-detect-threats-built-in.md
+    - text: 사용자 지정 검색 규칙 만들기
+      url: tutorial-detect-threats-custom.md
+- title: 위협 방지 자동화
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 위협에 자동으로 응답
+      url: tutorial-respond-threats-playbook.md
+    - text: Jupyter Notebooks를 사용하여 보안 위협 헌팅
+      url: notebooks.md
+- title: 위협 탐지에 대한 사전 예방
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 위협 인텔리전스 연결
+      url: connect-threat-intelligence.md
+    - text: 위협에 대한 헌팅
+      url: hunting.md

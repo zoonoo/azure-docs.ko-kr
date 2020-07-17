@@ -2,23 +2,22 @@
 title: Premium Edition에 가입 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory Premium Edition에 가입하는 방법에 대한 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 09/07/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: c146640112190fe08bb1b3b806c95a2854da9083
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604457"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition에 가입
 Azure AD(Azure Active Directory) Premium Edition을 구매하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만들어야 하는 경우 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다.
@@ -37,7 +36,7 @@ Active Directory Premium 1 또는 Premium 2에 등록하기 전에 먼저 기존
 이전에 구매하고 활성화한 Azure AD 라이선스와 함께 Azure 구독을 사용하여 등록하면 동일 디렉터리에서 라이선스가 자동으로 활성화됩니다. 그렇지 않은 경우에는 라이선스 플랜 및 Azure AD 액세스를 활성화해야 합니다. 라이선스 플랜을 활성화하는 방법에 대한 자세한 내용은 [새 라이선스 플랜 활성화](#activate-your-new-license-plan)를 참조하세요. Azure AD 액세스를 활성화하는 방법에 대한 자세한 내용은 [Azure AD 액세스 활성화](#activate-your-azure-ad-access)를 참조하세요. 
 
 ## <a name="sign-up-using-your-existing-azure-or-office-365-subscription"></a>기존 Azure 또는 Office 365 구독을 사용하여 등록
-Azure 또는 Office 365 구독자는 Azure Active Directory Premium Edition을 온라인으로 구매할 수 있습니다. 자세한 단계는 [Azure Active Directory Premium을 구입하는 방법 - 기존 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) 또는 [Azure Active Directory Premium을 구입하는 방법 - 새로운 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)을 참조하세요.
+Azure 또는 Office 365 구독자는 Azure Active Directory Premium Edition을 온라인으로 구매할 수 있습니다. 자세한 단계는 [Azure Active Directory Premium 구매 방법 - 새 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)을 참조하세요.
 
 ## <a name="sign-up-using-your-enterprise-mobility--security-licensing-plan"></a>Enterprise Mobility + Security 라이선싱 플랜을 사용하여 등록
 Enterprise Mobility + Security는 Azure AD Premium, Azure Information Protection 및 Microsoft Intune으로 구성된 제품군입니다. 이미 EMS 라이선스가 있다면 다음 라이선싱 옵션 중 하나를 사용하여 Azure AD로 시작할 수 있습니다.

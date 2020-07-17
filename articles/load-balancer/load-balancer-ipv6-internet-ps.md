@@ -1,25 +1,24 @@
 ---
-title: IPv6으로 인터넷 연결 부하 분산 장치 만들기 - PowerShell
-titlesuffix: Azure Load Balancer
+title: IPv6-Azure PowerShell를 사용 하 여 인터넷 연결 부하 분산 장치 만들기
+titleSuffix: Azure Load Balancer
 description: PowerShell을 사용하여 리소스 관리자에 대한 IPv6를 포함한 인터넷 연결 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 48552105ddd2defb0f38350c7840cd8ded40ab0f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 8553c54b60d1d4e60e28bcb3006bcc804dbc39ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803696"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>PowerShell을 사용하여 리소스 관리자에 대한 IPv6를 포함한 인터넷 연결 부하 분산 장치 만들기 시작
 
@@ -28,6 +27,8 @@ ms.locfileid: "56672834"
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [템플릿](load-balancer-ipv6-internet-template.md)
 
+>[!NOTE] 
+>이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다. 이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함 하는 [Azure vnet에 대 한 ipv6](../virtual-network/ipv6-overview.md) 에서 포괄적인 ipv6 연결을 사용할 수 있습니다.  Azure Vnet의 i p v 6은 Azure의 IPv6 응용 프로그램에 권장 되는 표준입니다. [AZURE VNET Powershell 배포를 위한 IPv6](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 참조 
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 머신의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
@@ -42,7 +43,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 이 시나리오에서는 다음과 같은 Azure 리소스를 만듭니다.
 
 * IPv4 및 IPv6 공용 IP 주소를 가진 인터넷 연결 부하 분산 장치
-* 공용 VIP를 개인 엔드포인트로 매핑하기 위한 두 개의 부하 분산 규칙
+* 공용 VIP를 프라이빗 엔드포인트로 매핑하기 위한 두 개의 부하 분산 규칙
 * 두 개의 VM이 들어 있는 가용성 집합
 * 2개의 가상 머신(VM)
 * 할당된 IPv4 및 IPv6 주소를 사용하는 각 VM에 대한 가상 네트워크 인터페이스
@@ -53,13 +54,13 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
 부하 분산 장치를 배포하려면 다음 개체를 만들고 구성해야 합니다.
 
-* 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다.
-* 백 엔드 주소 풀 - 부하 분산 장치의 네트워크 트래픽을 받는 가상 머신에 대한 NIC(네트워크 인터페이스)를 포함합니다.
+* 프런트 엔드 IP 구성-들어오는 네트워크 트래픽에 대 한 공용 IP 주소를 포함 합니다.
+* 백 엔드 주소 풀-부하 분산 장치에서 네트워크 트래픽을 수신 하는 가상 머신에 대 한 Nic (네트워크 인터페이스)를 포함 합니다.
 * 부하 분산 규칙 - 백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
 * 인바운드 NAT 규칙 - 백 엔드 주소 풀에 있는 특정 가상 컴퓨터에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
 * 프로브 - 백 엔드 주소 풀의 가상 머신 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
-자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
+자세한 내용은 [Azure Load Balancer 구성 요소](./components.md)를 참조 하세요.
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Resource Manager를 사용하도록 PowerShell 설치
 
@@ -100,7 +101,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. 프런트 엔드 IP 주소 풀에 대한 Azure Public IP address (PIP) 리소스를 만듭니다. 값을 변경 해야 `-DomainNameLabel` 다음 명령을 실행 하기 전에 합니다. 값은 Azure 지역 내에서 고유 해야 합니다.
+2. 프런트 엔드 IP 주소 풀에 대한 Azure Public IP address (PIP) 리소스를 만듭니다. `-DomainNameLabel`다음 명령을 실행 하기 전에 값을 변경 해야 합니다. 값은 Azure 지역 내에서 고유 해야 합니다.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
@@ -230,10 +231,4 @@ VM 만들기에 대한 자세한 내용은 [리소스 관리자 및 Azure PowerS
     New-AzVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
     ```
 
-## <a name="next-steps"></a>다음 단계
 
-[내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)
-
-[부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
-
-[부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)

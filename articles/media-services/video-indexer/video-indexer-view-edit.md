@@ -1,7 +1,7 @@
 ---
 title: Video Indexer 정보 보기 및 편집
 titlesuffix: Azure Media Services
-description: 이 항목에서는 Video Indexer의 인사이트를 보고 편집하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Media Services Video Indexer insights를 보고 편집 하는 방법을 보여 줍니다.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,11 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 24a723bd32cb40807da1757b3fffb925d4ba1fef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: e9bb516d498d989b97f1069af9a9f4cb673ea96d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74892671"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Video Indexer 정보 보기 및 편집
 
@@ -37,7 +36,7 @@ ms.locfileid: "65799169"
 
 ## <a name="next-steps"></a>다음 단계
 
-[비디오의 세부 정보를 사용 합니다.](use-editor-create-project.md)
+[비디오의 심층 통찰력 사용](use-editor-create-project.md)
 
 ## <a name="see-also"></a>참고 항목
 

@@ -4,15 +4,14 @@ description: Azure Cosmos DB 요청의 SQL 쿼리 성능을 계측 및 디버깅
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
-ms.date: 11/02/2017
+ms.topic: how-to
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546423"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392134"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
@@ -25,9 +24,9 @@ Azure Cosmos DB에서는 스키마 또는 보조 인덱스를 요구하지 않�
 
 ## <a name="about-sql-query-execution"></a>SQL 쿼리 실행 정보
 
-Azure Cosmos DB에는 컨테이너에 데이터를 저장하여 [저장소 크기 또는 요청 처리량](partition-data.md)에 맞게 확장할 수 있습니다. Azure Cosmos DB는 데이터 증가 또는 프로비전된 처리량 증가를 처리하도록 데이터를 실제 파티션 간에 원활하게 조정합니다. REST API 또는 지원되는 [SQL SDK](sql-api-sdk-dotnet.md) 중 하나를 사용하여 모든 컨테이너에 대해 SQL 쿼리를 실행할 수 있습니다.
+Azure Cosmos DB에는 컨테이너에 데이터를 저장하여 [스토리지 크기 또는 요청 처리량](partition-data.md)에 맞게 확장할 수 있습니다. Azure Cosmos DB는 데이터 증가 또는 프로비전된 처리량 증가를 처리하도록 데이터를 실제 파티션 간에 원활하게 조정합니다. REST API 또는 지원되는 [SQL SDK](sql-api-sdk-dotnet.md) 중 하나를 사용하여 모든 컨테이너에 대해 SQL 쿼리를 실행할 수 있습니다.
 
-분할에 대한 간략한 개요: 데이터를 실제 파티션 간에 분할하는 방법을 결정하는 파티션 키(예: “city”)를 정의합니다. 단일 파티션 키에 속하는 데이터(예를 들어 "city" == "Seattle")는 실제 파티션 내에 저장되지만 일반적으로 실제 파티션 하나는 여러 파티션 키를 포함합니다. 파티션이 저장소 크기에 도달하면 서비스는 파티션을 두 개의 새로운 파티션으로 원활하게 분할하고 파티션 키를 이러한 파티션 간에 균등하게 나눕니다. 파티션은 일시적이므로 API는 파티션 키 해시의 범위를 나타내는 “파티션 키 범위”의 추상화를 사용합니다. 
+분할에 대한 간략한 개요: 데이터를 실제 파티션 간에 분할하는 방법을 결정하는 파티션 키(예: “city”)를 정의합니다. 단일 파티션 키에 속하는 데이터(예를 들어 "city" == "Seattle")는 실제 파티션 내에 저장되지만 일반적으로 실제 파티션 하나는 여러 파티션 키를 포함합니다. 파티션이 스토리지 크기에 도달하면 서비스는 파티션을 두 개의 새로운 파티션으로 원활하게 분할하고 파티션 키를 이러한 파티션 간에 균등하게 나눕니다. 파티션은 일시적이므로 API는 파티션 키 해시의 범위를 나타내는 “파티션 키 범위”의 추상화를 사용합니다. 
 
 Azure Cosmos DB에 쿼리를 실행하는 경우 SDK는 다음 논리 단계를 수행합니다.
 
@@ -44,7 +43,7 @@ SDK는 쿼리 실행을 위한 다양한 옵션을 제공합니다. 예를 들�
 | `EnableScanInQuery` | 인덱싱을 옵트아웃(opt out)했지만 검색을 통해 쿼리를 실행하려는 경우 true로 설정해야 합니다. 요청된 필터 경로에 인덱싱이 사용되지 않는 경우에만 적용 가능합니다. | 
 | `MaxItemCount` | 왕복당 서버에 반환할 최대 항목 수입니다. -1로 설정하면 서버에서 항목 수를 관리하도록 할 수 있습니다. 또는 이 값을 낮춰서 왕복당 적은 수의 항목만 검색할 수 있습니다. 
 | `MaxBufferedItemCount` | 클라이언트 쪽 옵션이므로 파티션 간 ORDER BY를 수행할 때 메모리 사용량을 제한하는 데 사용합니다. 값이 높을수록 파티션 간 정렬 대기 시간이 줄어듭니다. |
-| `MaxDegreeOfParallelism` | Azure Cosmos DB 데이터베이스 서비스에서 병렬 쿼리를 실행하는 동안 클라이언트 쪽에서 실행되는 동시 작업 수를 가져오거나 설정합니다. 양수 속성 값은 동시 작업 수를 설정 값으로 제한합니다. 0보다 작은 값으로 설정할 경우 시스템이 실행할 동시 작업 수를 자동으로 결정합니다. |
+| `MaxDegreeOfParallelism` | Azure Cosmos database 서비스에서 병렬 쿼리를 실행 하는 동안 클라이언트 쪽에서 실행 되는 동시 작업 수를 가져오거나 설정 합니다. 양수 속성 값은 동시 작업 수를 설정 값으로 제한합니다. 0보다 작은 값으로 설정할 경우 시스템이 실행할 동시 작업 수를 자동으로 결정합니다. |
 | `PopulateQueryMetrics` | 컴파일 시간, 인덱스 루프 시간 및 문서 로드 시간과 같은 다양한 쿼리 실행 단계에서 소요한 시간에 대한 통계 정보를 자세히 로깅할 수 있습니다. 쿼리 통계의 출력을 Azure 지원과 공유하여 쿼리 성능 문제를 진단할 수 있습니다. |
 | `RequestContinuation` | 쿼리에서 반환한 불투명 연속 토큰을 전달하여 쿼리 실행을 다시 시작할 수 있습니다. 연속 토큰은 쿼리 실행에 필요한 모든 상태를 캡슐화합니다. |
 | `ResponseContinuationTokenLimitInKb` | 서버에서 반환한 연속 토큰의 최대 크기를 제한할 수 있습니다. 애플리케이션 호스트에 응답 헤더 크기에 대한 제한이 있는 경우 설정해야 합니다. 이 옵션을 설정하면 해당 쿼리에 사용된 전체 기간 및 RU를 늘릴 수 있습니다.  |
@@ -131,12 +130,12 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 | `x-ms-documentdb-query-metrics` | 실행에 대한 쿼리 통계입니다. 다양한 쿼리 실행 단계에서 소요한 시간에 대한 통계 정보를 포함하는 구분된 문자열입니다. `x-ms-documentdb-populatequerymetrics`가 `True`로 설정되면 반환됩니다. | 
 | `x-ms-request-charge` | 쿼리에서 사용한 [요청 단위](request-units.md) 수입니다. | 
 
-REST API 요청 헤더 및 옵션에 대한 자세한 내용은 [Querying resources using the REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api)(REST API를 사용하여 리소스 쿼리)를 참조하세요.
+REST API 요청 헤더 및 옵션에 대한 자세한 내용은 [Querying resources using the REST API](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api)(REST API를 사용하여 리소스 쿼리)를 참조하세요.
 
 ## <a name="best-practices-for-query-performance"></a>쿼리 성능에 대한 모범 사례
 Azure Cosmos DB 쿼리 성능에 영향을 주는 가장 일반적인 요소는 다음과 같습니다. 이 문서에서 이러한 각 항목에 대해 자세히 살펴보겠습니다.
 
-| 비율 | 팁 | 
+| 요소 | 팁 | 
 | ------ | -----| 
 | 프로비전된 처리량 | 쿼리당 RU를 측정하고 사용자 쿼리에 필요한 프로비전된 처리량이 있는지 확인합니다. | 
 | 분할 및 파티션 키 | 짧은 대기 시간을 위해 필터 절에 파티션 키가 있는 쿼리를 선호합니다. |
@@ -169,7 +168,7 @@ Azure Cosmos DB에서 가장 좋은 클라이언트 쪽 성능을 얻는 방법�
 
 
 #### <a name="max-item-count"></a>최대 항목 수
-쿼리의 경우 `MaxItemCount`의 값은 종단 간 쿼리 시간에 상당한 영향을 미칠 수 있습니다. 서버에 대한 각 왕복은 `MaxItemCount`의 항목 수 이상을 반환하지 않습니다(기본값은 100개 항목). 이를 더 높은 값으로 설정하면(-1이 최대이자 권장됨) 서버와 클라이언트 간 왕복 횟수를 제한되어 쿼리 기간이 전체적으로 개선됩니다. 특히 대규모 결과 집합의 쿼리의 경우가 해당됩니다.
+쿼리의 경우 `MaxItemCount`의 값은 엔드투엔드 쿼리 시간에 상당한 영향을 미칠 수 있습니다. 서버에 대한 각 왕복은 `MaxItemCount`의 항목 수 이상을 반환하지 않습니다(기본값은 100개 항목). 이를 더 높은 값으로 설정하면(-1이 최대이자 권장됨) 서버와 클라이언트 간 왕복 횟수를 제한되어 쿼리 기간이 전체적으로 개선됩니다. 특히 대규모 결과 집합의 쿼리의 경우가 해당됩니다.
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -216,7 +215,7 @@ SDK 릴리스 정보 및 구현된 클래스와 메서드에 대한 자세한 �
 ### <a name="indexing-policy"></a>인덱싱 정책
 인덱싱 경로, 종류, 모드 및 쿼리 실행에 어떻게 영향을 주는지에 대한 내용은 [인덱싱 정책 구성](index-policy.md)을 참조하세요. 기본적으로 인덱싱 정책은 같음 쿼리에는 유효하지만 범위 쿼리/order by 쿼리에는 유효하지 않은 문자열용 해시 인덱싱을 사용합니다. 문자열에 대해 범위 쿼리가 필요한 경우 모든 문자열에 대해 범위 인덱스 유형을 지정하는 것이 좋습니다. 
 
-기본적으로 Azure Cosmos DB 자동 인덱싱 모든 데이터에 적용 됩니다. 고성능을 위한 시나리오를 삽입, 이것은 각 삽입 작업에 대 한 RU 비용을 절감 하는 대로 경로 제외 하는 것이 좋습니다. 
+기본적으로 Azure Cosmos DB는 모든 데이터에 자동 인덱싱을 적용 합니다. 고성능 삽입 시나리오의 경우 각 삽입 작업에 대 한 추가 비용을 줄이기 위해 경로를 제외 하는 것이 좋습니다. 
 
 ## <a name="query-execution-metrics"></a>쿼리 실행 메트릭
 선택 사항인 `x-ms-documentdb-populatequerymetrics` 헤더(.NET SDK에서 `FeedOptions.PopulateQueryMetrics`)에 전달하여 쿼리 실행에 대한 자세한 메트릭을 얻을 수 있습니다. `x-ms-documentdb-query-metrics`에서 반환된 값은 쿼리 실행의 고급 문제 해결을 위한 다음 키-값 쌍을 포함합니다. 
@@ -272,7 +271,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 
 ## <a name="next-steps"></a>다음 단계
-* 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](how-to-sql-query.md)를 참조하세요. 
+* 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](sql-query-getting-started.md)를 참조하세요. 
 * 요청 단위에 대해 알아보려면 [요청 단위](request-units.md)를 참조하세요.
 * 인덱싱 정책에 대해 알아보려면 [인덱싱 정책](index-policy.md)을 참조하세요. 
 

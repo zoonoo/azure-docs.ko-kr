@@ -1,27 +1,27 @@
 ---
 title: 사용자 지정 개발 애플리케이션에 로그인하는 문제 | Microsoft Docs
-description: 응용 프로그램에 로그인 할 수 없습니다를 발생 시킬 수 있는 일반적인 오류를 개발한 경우 Azure AD를 사용 하 여
+description: Azure AD를 사용 하 여 개발한 응용 프로그램에 로그인 할 수 없도록 하는 일반적인 오류
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cdfc2a39c6bd3b68df7feb978d2548ad67631235
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759133"
 ---
 # <a name="problems-signing-in-to-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 로그인 하는 문제
 
@@ -29,7 +29,7 @@ ms.locfileid: "65825227"
 
 ## <a name="errors-related-to--misconfigured-apps"></a>잘못 구성된 앱과 관련된 오류
 
-* 포털의 구성이 앱의 구성과 일치하는지 확인합니다. 특히, 클라이언트/응용 프로그램 ID, 회신 URL, 클라이언트 비밀/키 및 앱 ID URI를 비교합니다.
+* 포털의 구성이 앱의 구성과 일치하는지 확인합니다. 특히, 클라이언트/애플리케이션 ID, 회신 URL, 클라이언트 비밀/키 및 앱 ID URI를 비교합니다.
 
 * 구성한 리소스만을 요청하기 위해 **필요한 리소스** 탭에서 구성된 권한이 있는 코드에서 액세스를 요청하는 리소스를 비교합니다.
 
@@ -41,6 +41,6 @@ ms.locfileid: "65825227"
 
 [동의 및 Azure AD와 앱 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
-[Azure AD v2.0 수렴형 앱에 대한 동의 및 권한 부여](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

@@ -1,11 +1,11 @@
 ---
-title: Azure Notification Hubs를 사용하여 특정 Windows 휴대폰에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서는 Azure Notification Hubs를 사용하여 애플리케이션 백 엔드로 등록된 특정(모두는 아님) Windows Phone 8 또는 Windows Phone 8.1 장치에 알림을 푸시하는 방법을 알아봅니다.
+title: Azure Notification Hubs를 사용하여 특정 Windows 휴대폰에 푸시 알림 보내기 | Microsoft Docs
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 애플리케이션 백 엔드로 등록된 특정(모두는 아님) Windows Phone 8 또는 Windows Phone 8.1 디바이스에 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,15 +14,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 10f8c2e21f2dcf8c108576d54fe6776ecf04a0f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 72ecb5bdb6bb024c5e4422548dd11888c03e4799
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861323"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126935"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Windows Phone 디바이스에 알림 푸시
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Windows 휴대폰에 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -33,7 +35,7 @@ ms.locfileid: "57861323"
 > [!NOTE]
 > Notification Hubs Windows Phone SDK에서는 Windows Phone 8.1 Silverlight 앱에서의 WNS(Windows 푸시 알림 서비스) 사용을 지원하지 않습니다. Windows Phone 8.1 Silverlight 앱에서 MPNS 대신 WNS를 사용하려면 REST API를 사용하는 [Notification Hubs - Windows Phone Silverlight 자습서]를 따릅니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 모바일 앱에 범주 선택 추가
@@ -41,9 +43,9 @@ ms.locfileid: "57861323"
 > * 태그가 지정된 알림 보내기
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-[자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)를 완료하세요. 이 자습서에서는 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있도록 모바일 애플리케이션을 업데이트합니다.
+이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)를 완료하세요. 이 자습서에서는 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있도록 모바일 애플리케이션을 업데이트합니다.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>모바일 앱에 범주 선택 추가
 
@@ -204,7 +206,7 @@ ms.locfileid: "57861323"
     }
     ```
 
-    이 클래스는 격리된 저장소를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림 등록을 사용하여 이러한 범주에 등록하는 메서드가 포함됩니다.
+    이 클래스는 격리된 스토리지를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림 등록을 사용하여 이러한 범주에 등록하는 메서드가 포함됩니다.
 4. `App.xaml.cs` 프로젝트 파일에서 `App` 클래스에 다음 속성을 추가합니다. `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
 
     ```csharp
@@ -241,11 +243,11 @@ ms.locfileid: "57861323"
 
     이 메서드는 범주 목록을 만들고 `Notifications` 클래스를 사용하여, 로컬 스토리지에 목록을 저장하고 알림 허브에 해당 태그를 등록합니다. 범주가 변경되면 새 범주로 등록이 다시 생성됩니다.
 
-이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 디바이스의 로컬 저장소에 저장하고 알림 허브에 등록할 수 있습니다.
+이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 디바이스의 로컬 스토리지에 저장하고 알림 허브에 등록할 수 있습니다.
 
 ## <a name="register-for-notifications"></a>알림 등록
 
-다음 단계에서는 로컬 저장소에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다.
+다음 단계에서는 로컬 스토리지에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다.
 
 > [!NOTE]
 > MPNS(Microsoft 푸시 알림 서비스)에서 할당하는 채널 URI는 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
@@ -265,7 +267,7 @@ ms.locfileid: "57861323"
     }
     ```
 
-    이 코드를 통해 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다.
+    이 코드를 통해 앱이 시작될 때마다 로컬 스토리지에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다.
 2. MainPage.xaml.cs 프로젝트 파일에서 `OnNavigatedTo` 메서드를 구현하는 다음 코드를 추가합니다.
 
     ```csharp
@@ -284,7 +286,7 @@ ms.locfileid: "57861323"
 
     이 코드는 전에 저장한 범주의 상태를 기반으로 기본 페이지를 업데이트합니다.
 
-이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 디바이스의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
+이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 디바이스의 로컬 스토리지에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
 
 ## <a name="send-tagged-notifications"></a>태그가 지정된 알림 보내기
 

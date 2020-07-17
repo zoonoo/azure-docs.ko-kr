@@ -1,5 +1,5 @@
 ---
-title: 이미지 형식 검색 - Computer Vision
+title: 이미지 형식 검색-Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API의 이미지 형식 검색 기능과 관련된 개념입니다.
 services: cognitive-services
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4e6c2db5333962d7ae43534998ffc1c48b0dba45
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895450"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80244565"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Computer Vision으로 이미지 형식 검색
 
-사용 하 여 합니다 [분석 이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API, Computer Vision을 분석할 수 이미지의 콘텐츠 형식은 이미지가 클립 아트 또는 선 그리기 인지 여부를 나타내는입니다.
+[이미지 분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API를 사용 하면 이미지가 클립 아트 인지 또는 선 그리기 인지를 나타내는 이미지의 콘텐츠 형식을 분석할 수 Computer Vision.
 
 ## <a name="detecting-clip-art"></a>클립 아트 검색
 
 Computer Vision은 다음 표에 설명된 대로 이미지를 분석하고, 이미지가 클립 아트인 가능성을 0부터 3까지로 평가합니다.
 
-| 값 | 의미 |
+| Value | 의미 |
 |-------|---------|
 | 0 | 클립 아트 아님 |
 | 1 | 모호함 |
@@ -113,6 +113,9 @@ Computer Vision는 이미지를 분석하고 이미지가 선 그리기인지 �
 }
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="use-the-api"></a>API 사용
 
-참조 된 [분석 이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 이미지 형식을 검색 하는 방법을 알아보려면 설명서를 참조 합니다.
+이미지 유형 검색 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `ImageType` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 `"imageType"` 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다.
+
+* [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)

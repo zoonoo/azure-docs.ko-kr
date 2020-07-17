@@ -1,10 +1,10 @@
 ---
-title: 가상 머신 네트워크 라우팅 진단 문제 - 자습서 - Azure Portal | Microsoft Docs
+title: '자습서: VM 네트워크 라우팅 문제 진단 - Azure Portal'
+titleSuffix: Azure Network Watcher
 description: 이 자습서에서는 Azure Network Watcher의 다음 홉 기능을 사용하여 가상 머신 네트워크 라우팅 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: ea64c93726c3bc5c5d60f35790bb337333d4d47a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312198"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "76845212"
 ---
-# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 네트워크 라우팅 진단 문제
+# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 네트워크 라우팅 문제 진단
 
-VM(가상 머신)을 배포하는 경우 Azure는 관련된 몇 가지 기본 경로를 만듭니다. 사용자 지정 경로를 만들어 Azure의 기본 경로를 재정의할 수 있습니다. 경우에 따라 사용자 지정 경로는 VM에서 다른 리소스와 통신할 수 없게 됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+VM(가상 머신)을 배포하는 경우 Azure는 관련된 몇 가지 기본 경로를 만듭니다. 사용자 지정 경로를 만들어 Azure의 기본 경로를 재정의할 수 있습니다. 경우에 따라 사용자 지정 경로는 VM에서 다른 리소스와 통신할 수 없게 됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기
@@ -45,16 +45,16 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 ## <a name="create-a-vm"></a>VM 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **+ 리소스 만들기**를 선택합니다.
-2. **계산**을 선택한 다음, **Windows Server 2016 Datacenter** 또는 **Ubuntu Server 17.10 VM**을 선택합니다.
+2. **컴퓨팅**을 선택한 다음, **Windows Server 2016 Datacenter** 또는 **Ubuntu Server 17.10 VM**을 선택합니다.
 3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **확인**을 선택합니다.
 
     |설정|값|
     |---|---|
-    |Name|myVm|
+    |속성|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 사용 중인 구독을 선택합니다.|
-    |리소스 그룹| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
+    |Subscription| 구독을 선택합니다.|
+    |Resource group| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
 
 4. VM에 대한 크기를 선택한 다음, **선택**을 선택합니다.
@@ -65,11 +65,11 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 Network Watcher와의 네트워크 통신을 테스트하려면 먼저 하나 이상의 Azure 지역에서 Network Watcher를 사용하도록 설정하고 Network Watcher의 다음 홉 기능을 사용하여 통신을 테스트해야 합니다.
 
-### <a name="enable-network-watcher"></a>Network Watcher 사용
+### <a name="enable-network-watcher"></a>네트워크 감시자 사용
 
 하나 이상의 지역에서 이미 Network Watcher를 사용하도록 설정한 경우 [다음 홉 사용](#use-next-hop)으로 건너뜁니다.
 
-1. 포털에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
+1. 포털에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 결과에 **Network Watcher**가 표시되면 이를 선택합니다.
 2. **지역**을 선택하여 확장하고, 다음 그림처럼 **미국 동부** 오른쪽에서 **...** 를 선택합니다.
 
     ![Network Watcher 사용](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -85,17 +85,17 @@ Azure에서는 기본 대상에 대한 경로를 자동으로 만듭니다. 기�
 
     |설정                  |값                                                   |
     |---------                |---------                                               |
-    | 리소스 그룹          | myResourceGroup 선택                                 |
+    | Resource group          | myResourceGroup 선택                                 |
     | 가상 머신         | myVm 선택                                            |
     | Linux       | myvm - 네트워크 인터페이스 이름은 달라질 수 있습니다.   |
     | 원본 IP 주소       | 10.0.0.4                                               |
-    | 대상 IP 주소   | 13.107.21.200 - www.bing.com에 대한 주소 중 하나입니다. |
+    | 대상 IP 주소  | 13.107.21.200 - <www.bing.com>에 대한 주소 중 하나입니다. |
 
     ![다음 홉](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
     몇 초 후에 결과는 다음 홉 형식이 **인터넷**이며, **경로 테이블 ID**가 **시스템 경로**임을 알려줍니다. 이 결과를 사용하면 대상에 대한 올바른 시스템 경로가 있음을 알 수 있습니다.
 
-3. **대상 IP 주소**를 *172.31.0.100*으로 변경하고 **다음 홉**을 다시 선택합니다. 반환된 결과는 **없음**이 **다음 홉 형식**이며, **경로 테이블 ID**가 **시스템 경로**임도 알려줍니다. 이 결과를 사용하면 대상에 대한 올바른 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
+3. **대상 IP 주소**를 *172.31.0.100*으로 변경하고 **다음 홉**을 다시 선택합니다. 반환된 결과는 **없음**이 **다음 홉 형식**이며, **경로 테이블 ID**가 **시스템 경로**임도 알려줍니다. 이 결과를 사용하면 대상에 대한 유효한 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
 
 ## <a name="view-details-of-a-route"></a>경로의 세부 정보 보기
 

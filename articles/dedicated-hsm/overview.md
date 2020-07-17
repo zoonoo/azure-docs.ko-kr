@@ -2,8 +2,8 @@
 title: Dedicated HSM이란? - Azure 전용 HSM | Microsoft Docs
 description: Azure 전용 HSM 개요에서는 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 88a49c9c124c5399749d2b60595d7f5c7ec77b20
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: mbaldwin
+ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117995"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "70881083"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Azure 전용 HSM이란?
 
@@ -91,4 +91,4 @@ Azure Dedicated HSM이 적합할지 여부는 가능하거나 가능하지 않�
 * [물리적 보안](physical-security.md)
 * [네트워킹](networking.md)
 * [지원 가능성](supportability.md)
-* [모니터링](monitoring.md)
+* [Monitoring](monitoring.md)

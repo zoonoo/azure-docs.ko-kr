@@ -1,24 +1,24 @@
 ---
-title: Azure Traffic Manager를 사용한 우선 순위 트래픽 라우팅 방법 구성 | Microsoft Docs
-description: 이 문서에서는 Traffic Manager에서 우선 순위 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
+title: 자습서 - Azure Traffic Manager를 사용하여 우선 순위 트래픽 라우팅 구성
+description: 이 자습서에서는 Traffic Manager에서 우선 순위 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: rohink
+ms.openlocfilehash: 2c541f8318bd7e75de7526e6b7a9e3a32462782d
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884004"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706752"
 ---
-# <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Traffic Manager에서 우선 순위 트래픽 라우팅 방법 구성
+# <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>자습서: Traffic Manager에서 우선 순위 트래픽 라우팅 방법 구성
 
 웹 사이트 모드에 관계없이 Azure Websites는 데이터 센터(지역이라고도 함) 내의 웹 사이트에 대해 이미 장애 조치(Failover) 기능을 제공합니다. Traffic Manager는 다른 데이터 센터의 웹 사이트에 대해 장애 조치(Failover)를 제공합니다.
 

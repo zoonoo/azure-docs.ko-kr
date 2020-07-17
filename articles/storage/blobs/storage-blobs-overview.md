@@ -1,19 +1,19 @@
 ---
-title: Blob Storage 소개 - Azure의 개체 스토리지
+title: Blob(개체) 스토리지 정보 - Azure Storage
 description: Azure Blob Storage는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 개체 데이터를 저장합니다. Blob Storage는 빅 데이터 분석을 위한 Azure Data Lake Storage Gen2도 지원합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 11/19/2018
+ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 35a428c2ae706d7838778c7590e5378ab5df40f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8f9c1b1762c4e6028d935e03a630dfc0ca4ee4b9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258405"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "73615756"
 ---
 # <a name="what-is-azure-blob-storage"></a>Azure Blob Storage란? 
 

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 09/24/2018
+ms.topic: how-to
+ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: caf7db5f27ed6f612d0896bff0899feda3311883
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60242259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357752"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -33,10 +33,10 @@ Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 
 
 Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md) 또는 [통과 인증](how-to-connect-pta.md) 로그인 방법과 결합할 수 있습니다. ADFS(Active Directory Federation Services)에는 Seamless SSO를 적용할 수 _없습니다_.
 
-![원활한 Single Sign-On](./media/how-to-connect-sso/sso1.png)
+![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Seamless SSO는 사용자 디바이스가 **도메인에 조인**되어야 하지만 [Azure AD에 조인](../active-directory-azureadjoin-overview.md)될 필요는 없습니다.
+>원활한 SSO 사용을 위해서는 사용자의 디바이스가 **도메인 조인**되어야만 하지만, [Azure AD 조인된](../devices/concept-azure-ad-join.md) 디바이스 또는 [하이브리드 Azure AD 조인된](../devices/concept-azure-ad-join-hybrid.md) 디바이스에서는 사용되지 않습니다. Azure AD 조인된 디바이스, 하이브리드 Azure AD 조인된 디바이스 및 Azure AD 등록된 디바이스의 SSO는 [기본 새로 고침 토큰](../devices/concept-primary-refresh-token.md)을 기반으로 작동합니다.
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -53,8 +53,8 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 - 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`) 중 하나일 수 있습니다. Seamless SSO는 Kerberos 티켓에서 `securityIdentifier` 클레임을 사용하여 Azure AD에서 해당하는 사용자 개체를 조회하기 때문에 두 사용 사례가 작동합니다.
 - Seamless SSO는 편의적인 기능입니다. 어떤 이유로든 실패하면 사용자 로그인 환경은 일반 동작으로 돌아갑니다. 즉 사용자가 로그인 페이지에 자신의 암호를 입력해야 합니다.
-- 응용 프로그램 (예를 들어 `https://myapps.microsoft.com/contoso.com`) 전달 된 `domain_hint` (OpenID Connect) 또는 `whr` 테 넌 트 식별 (SAML) 매개 변수 또는 `login_hint` 매개 변수-사용자를 식별 사용자가 해당 Azure AD 로그인 요청에서 자동으로 그 입력 사용자 이름이 나 암호 없이 로그인 합니다.
-- 사용자는 또한 자동 로그온 환경을 가져올 경우 응용 프로그램 (예를 들어 `https://contoso.sharepoint.com`) 테 넌 트-즉,로 설정 하는 Azure AD 끝점에 로그인 요청을 보내고 `https://login.microsoftonline.com/contoso.com/<..>` 하거나 `https://login.microsoftonline.com/<tenant_ID>/<..>` -Azure AD의 공통 끝점-즉, 대신 `https://login.microsoftonline.com/common/<...>` .
+- 애플리케이션(예: `https://myapps.microsoft.com/contoso.com`)이 Azure AD 로그인 요청에서 테넌트를 식별하는 `domain_hint`(OpenID Connect) 또는 `whr`(SAML) 매개 변수 또는 사용자를 식별하는 `login_hint` 매개 변수를 전달하면, 사용자는 사용자 이름이나 암호를 입력하지 않고 자동으로 로그인됩니다.
+- 또한 애플리케이션(예: `https://contoso.sharepoint.com`)이 Azure AD의 공통 엔드포인트(즉, `https://login.microsoftonline.com/common/<...>`) 대신 Azure AD의 엔드포인트에 테넌트(즉, `https://login.microsoftonline.com/contoso.com/<..>` 또는 `https://login.microsoftonline.com/<tenant_ID>/<..>`)로 로그인 요청을 전송할 경우에도 사용자는 자동 로그온 환경을 사용할 수 있습니다.
 - 로그아웃이 지원됩니다. 따라서 사용자는 Seamless SSO를 사용하여 자동으로 로그인되는 대신, 로그인하는 데 사용할 다른 Azure AD 계정을 선택할 수 있습니다.
 - 버전 16.0.8730.xxxx 이상의 Office 365 Win32 클라이언트(Outlook, Word, Excel 등)는 비대화형 흐름을 사용하여 지원됩니다. OneDrive의 경우 자동 로그온 환경에 대해 [OneDrive 자동 구성 기능](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894)을 활성화해야 합니다.
 - Azure AD Connect를 통해 사용하도록 설정할 수 있습니다.
@@ -63,12 +63,12 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|윈도우 10|예\*|아닙니다.|예.|예\*\*\*|N/A
-|Windows 8.1|예\*|N/A|예|예\*\*\*|N/A
-|Windows 8|예\*|N/A|예.|예\*\*\*|N/A
-|Windows 7|예\*|N/A|예|예\*\*\*|N/A
-|Windows Server 2012 R2 이상|예\*\*|N/A|예|예\*\*\*|N/A
-|Mac OS X|N/A|N/A|예\*\*\*|예\*\*\*|예\*\*\*
+|윈도우 10|예\*|예|예|예\*\*\*|해당 없음
+|Windows 8.1|예\*|해당 없음|예|예\*\*\*|해당 없음
+|Windows 8|예\*|해당 없음|예|예\*\*\*|해당 없음
+|Windows 7|예\*|해당 없음|예|예\*\*\*|해당 없음
+|Windows Server 2012 R2 이상|예\*\*|해당 없음|예|예\*\*\*|해당 없음
+|Mac OS X|해당 없음|해당 없음|예\*\*\*|예\*\*\*|예\*\*\*
 
 
 \*Internet Explorer 버전 10 이상 필요
@@ -78,14 +78,14 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 \*\*\*[추가 구성](how-to-connect-sso-quick-start.md#browser-considerations)이 필요합니다.
 
 >[!NOTE]
->Windows 10의 경우 Azure AD를 통한 최적의 Single Sign-On 환경을 위해 [Azure AD 조인](../active-directory-azureadjoin-overview.md)을 사용하는 것이 좋습니다.
+>Windows 10의 경우 Azure AD를 통한 최적의 Single Sign-On 환경을 위해 [Azure AD 조인](../devices/concept-azure-ad-join.md)을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [**빠른 시작**](how-to-connect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.
-- [**배포 계획**](https://aka.ms/AuthenticationDeploymentPlan) - 단계별 배포 계획입니다.
+- [**배포 계획**](https://aka.ms/deploymentplans/sso) - 단계별 배포 계획입니다.
 - [**기술 심층 분석**](how-to-connect-sso-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
-- [**FAQ(질문과 대답)**](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
+- [**FAQ(질문과 대답)** ](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.
 

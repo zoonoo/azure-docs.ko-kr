@@ -1,21 +1,21 @@
 ---
 title: 모델 테스트 및 다시 학습 - Custom Vision Service
-titlesuffix: Azure Cognitive Services
-description: 이미지를 테스트하고 사용하여 모델을 다시 학습하는 방법을 알아봅니다.
+titleSuffix: Azure Cognitive Services
+description: 이 문서에서는 이미지를 테스트 하 고이를 사용 하 여 Custom Vision 서비스에서 모델을 다시 학습 하는 방법을 보여 줍니다.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.author: anroth
-ms.openlocfilehash: d516cee81aef66ec58399cb5ff23c89db16bf2ab
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.author: pafarley
+ms.openlocfilehash: 5a3aacd1d07ff068fe50312b2c1d47ac080e5c2c
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350439"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391726"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Custom Vision Service를 사용하여 모델 테스트 및 다시 학습
 
@@ -35,7 +35,7 @@ ms.locfileid: "58350439"
 
 이제 이 테스트 이미지를 모델에 추가하고 모델을 다시 학습할 수 있습니다.
 
-## <a name="use-the-predicted-image-for-training"></a>학습에 대 한 예측된 이미지를 사용 합니다.
+## <a name="use-the-predicted-image-for-training"></a>학습에 예측 이미지 사용
 
 이전에 학습용으로 제출된 이미지를 사용하려면 다음 단계를 따르세요.
 

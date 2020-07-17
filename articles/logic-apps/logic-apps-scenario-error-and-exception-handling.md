@@ -1,25 +1,21 @@
 ---
-title: 예외 처리 및 오류 로깅 시나리오 - Azure Logic Apps | Microsoft Docs
-description: 다음은 Azure Logic Apps에 대한 고급 예외 처리 및 오류 로깅에 대한 실제 사용 사례입니다.
+title: 예외 처리 & 오류 로깅 시나리오
+description: 고급 예외 처리 및 오류 로깅에 대 한 실제 사용 사례 및 시나리오 Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: hedidin
-ms.author: b-hoedid
-ms.reviewer: estfan, LADocs
-ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599462"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76902693"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
-이 시나리오에서는 논리 앱을 확장하여 예외 처리를 더 잘 지원할 수 있는 방법에 대해 설명합니다. 실제 사용 사례를 사용하여 "Azure Logic Apps에서 예외 및 오류 처리를 지원하나요?"라는 질문에 답변했습니다.
+이 시나리오에서는 논리 앱을 확장하여 예외 처리를 더 잘 지원할 수 있는 방법에 대해 설명합니다. 실제 사용 사례를 사용하여 "Logic Apps가 예외 및 오류 처리를 지원하나요?"라는 질문에 대해 답변을 제공하고 있습니다.
 
 > [!NOTE]
 > 최신 버전의 Azure Logic Apps 스키마는 작업 응답에 대한 표준 템플릿을 제공합니다. 이 템플릿은 API 앱에서 반환된 내부 유효성 검사 및 오류 응답을 모두 포함합니다.
@@ -28,7 +24,7 @@ ms.locfileid: "60599462"
 
 다음은 이 시나리오에 대한 사용 사례입니다. 
 
-유명한 의료 조직이 Microsoft Dynamics CRM Online을 사용하여 환자 포털을 만드는 Azure 솔루션을 개발하는 데 참여했습니다. Dynamics CRM Online 환자 포털과 Salesforce 간에 예약 기록을 보내야 했습니다. 모든 환자 기록에 [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) 표준을 사용하도록 요청을 받았습니다.
+유명한 의료 조직이 Microsoft Dynamics CRM Online을 사용하여 환자 포털을 만드는 Azure 솔루션을 개발하는 데 참여했습니다. Dynamics CRM Online 환자 포털과 Salesforce 간에 예약 기록을 보내야 했습니다. 모든 환자 기록에 [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) 표준을 사용하도록 요청을 받았습니다.
 
 이 프로젝트에는 두 가지 주요 요구 사항이 있었습니다.  
 
@@ -40,9 +36,9 @@ ms.locfileid: "60599462"
 
 ## <a name="how-we-solved-the-problem"></a>문제를 해결한 방법
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB")를 로그 및 오류 레코드에 대한 리포지토리로 선택했습니다(Cosmos DB에서는 레코드를 문서로 참조함). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 를 로그 및 오류 레코드에 대 한 리포지토리로 선택 했습니다 (Cosmos DB 레코드를 문서로 참조). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
 
-다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. Cosmos DB에는 TTL([Time To Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time To Live"))이라는 속성이 있으며, 이 속성을 사용하여 각 기록 또는 컬렉션에 대한 **Time To Live** 값을 설정할 수 있습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
+다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. Cosmos DB에는 TTL ( [time To live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Ttl (Time to Live)") ) 이라는 속성이 있으며,이 속성을 통해 각 레코드 또는 컬렉션의 Ttl ( **time to live** ) 값을 설정할 수 있었습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
 
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 Cosmos DB 데이터베이스와 두 개의 컬렉션(로깅 및 오류)을 만들어야 합니다.
@@ -434,7 +430,7 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 
 Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `PatientId` 를 사용하고 Unix 타임스탬프 값(double)으로 변환되는 타임스탬프를 추가합니다. 값을 잘라서 소수 자릿수 값을 제거합니다.
 
-[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs)에서 오류 컨트롤러 API의 소스 코드를 확인할 수 있습니다.
+[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs)에서 오류 컨트롤러 API의 소스 코드를 볼 수 있습니다.
 
 다음 구문을 사용하여 논리 앱에서 API를 호출합니다.
 
@@ -479,10 +475,10 @@ Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `Patien
 
 ### <a name="source-code"></a>소스 코드
 
-Logic Apps 예외 관리 API 애플리케이션에 대한 소스 코드는 이 [GitHub 리포지토리](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")에서 프로젝트의 높은 수준의 비디오를 볼 수 있습니다.
+Logic Apps exception management API 응용 프로그램에 대 한 소스 코드는이 [GitHub 리포지토리에서](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [논리 앱 예제 및 시나리오 더 보기](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Logic Apps 모니터링에 대해 알아보기](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Logic Apps용 자동화된 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
+* [논리 앱 모니터링](../logic-apps/monitor-logic-apps.md)
+* [논리 앱 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

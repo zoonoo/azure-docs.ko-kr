@@ -3,27 +3,28 @@ title: Azure Media Services REST 호출에 대한 Postman 환경 가져오기
 description: 이 항목에서는 Azure Media Services REST 호출에 대한 Postman 환경 정의를 제공합니다.
 services: media-services
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: Juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.openlocfilehash: 6813dfca4a89263a10887ef4fa58c7403a9b1294
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 03/20/2019
+ms.author: juliako
+ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637559"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78926705"
 ---
 # <a name="import-the-postman-environment"></a>Postman 환경 가져오기  
 
 이 문서에는 Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 [Postman 컬렉션](postman-collection.md)을 사용하는 **Postman** 환경 변수의 정의가 포함되어 있습니다. 환경 및 컬렉션 파일은 [Media Services REST API 호출에 대한 Postman 구성](media-rest-apis-with-postman.md) 자습서에서 사용됩니다.
+
+> [!NOTE]
+> 의 값 `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token` 입니다. 테 넌 트 ID를 가져오려면 포털에서 사용자 이름 위로 마우스를 가져가면 (오른쪽 위 모서리에 있음) "디렉터리: Microsoft ({{TENANTID}})에 표시 됩니다.
 
 ```
 {

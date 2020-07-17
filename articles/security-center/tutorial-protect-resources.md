@@ -1,11 +1,10 @@
 ---
-title: Azure Security Center 자습서 - Azure Security Center로 리소스 보호 | Microsoft Docs
-description: 이 자습서는 Just-In-Time VM 액세스 정책과 애플리케이션 제어 정책을 구성하는 방법을 보여 줍니다.
+title: 액세스 및 애플리케이션 컨트롤 자습서 - Azure Security Center
+description: 이 자습서에서는 Just-In-Time VM 액세스 정책과 애플리케이션 제어 정책을 구성하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -13,17 +12,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: monhaber
-ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 12/03/2018
+ms.author: memildin
+ms.openlocfilehash: 0b28de7af16053093cd0108224188cdd615fce55
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110344"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435514"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>자습서: Azure Security Center로 리소스 보호
-Security Center는 액세스 및 애플리케이션 제어를 통해 악성 활동을 차단하여 위협에 대한 노출을 제한합니다. JIT(Just-In-Time) VM(가상 머신) 액세스는 지속적인 VM 액세스를 거부할 수 있도록 하여 공격에 대한 노출을 줄입니다. 대신, 필요한 경우에만 VM에 대한 제어 및 감사된 액세스를 제공합니다. 적응형 응용 프로그램 제어는 VM에서 실행할 수 있는 응용 프로그램을 제어하여 맬웨어로부터 VM을 강화합니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
+Security Center는 액세스 및 애플리케이션 제어를 통해 악성 활동을 차단하여 위협에 대한 노출을 제한합니다. JIT(Just-In-Time) VM(가상 머신) 액세스는 지속적인 VM 액세스를 거부할 수 있도록 하여 공격에 대한 노출을 줄입니다. 대신, 필요한 경우에만 VM에 대한 제어 및 감사된 액세스를 제공합니다. 적응형 애플리케이션 제어는 VM에서 실행할 수 있는 애플리케이션을 제어하여 맬웨어로부터 VM을 강화합니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -31,9 +30,7 @@ Security Center는 액세스 및 애플리케이션 제어를 통해 악성 활�
 > * Just-In-Time VM 액세스 정책 구성
 > * 애플리케이션 제어 정책 구성
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center 표준 가격 책정 계층에 있어야 합니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
 
 ## <a name="manage-vm-access"></a>VM 액세스 관리
@@ -43,7 +40,7 @@ JIT VM 액세스를 사용하면 Azure VM에 대한 인바운드 트래픽을 �
 
 1. Security Center 주 메뉴에서 **고급 클라우드 방어** 아래의 **Just-In-Time VM 액세스**를 선택합니다.
 
-   ![Just-In-Time VM 액세스][1]
+   ![Just-in-time VM 액세스][1]
 
    **Just-In-Time VM 액세스**는 VM 상태에 대한 정보를 제공합니다.
 
@@ -71,13 +68,11 @@ JIT VM 액세스를 사용하면 Azure VM에 대한 인바운드 트래픽을 �
 4. **확인**을 선택하여 저장합니다.
 
 ## <a name="harden-vms-against-malware"></a>맬웨어로부터 VM 강화
-적응형 응용 프로그램 제어는 구성된 리소스 그룹에서 실행할 수 있는 응용 프로그램 집합을 정의하는 데 도움이 되며, 이로 인해 특히 맬웨어로부터 VM을 강화할 수 있는 혜택이 있습니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
+적응형 애플리케이션 제어는 구성된 리소스 그룹에서 실행할 수 있는 애플리케이션 집합을 정의하는 데 도움이 되며, 이로 인해 특히 맬웨어로부터 VM을 강화할 수 있는 혜택이 있습니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
 
-이 기능은 Windows 컴퓨터에서만 사용할 수 있습니다.
+1. Security Center 주 메뉴로 돌아갑니다. **고급 클라우드 방어** 아래에서 **적응형 애플리케이션 제어**를 선택합니다.
 
-1. Security Center 주 메뉴로 돌아갑니다. **고급 클라우드 방어** 아래에서 **적응형 응용 프로그램 제어**를 선택합니다.
-
-   ![적응 응용 프로그램 컨트롤][3]
+   ![적응 애플리케이션 컨트롤][3]
 
    **리소스 그룹** 섹션에는 세 개의 탭이 있습니다.
 
@@ -85,11 +80,11 @@ JIT VM 액세스를 사용하면 Azure VM에 대한 인바운드 트래픽을 �
    - **권장**: 애플리케이션 컨트롤이 권장되는 리소스 그룹의 목록입니다.
    - **권장 사항 없음**: 애플리케이션 컨트롤 권장 사항이 없는 VM을 포함하는 리소스 그룹의 목록입니다. 예를 들어 애플리케이션이 항상 변경되어 안정적인 상태에 도달하지 않았던 VM이 있습니다.
 
-2. **권장** 탭을 선택하여 응용 프로그램 제어 권장 사항이 있는 리소스 그룹 목록을 확인합니다.
+2. **권장** 탭을 선택하여 애플리케이션 제어 권장 사항이 있는 리소스 그룹 목록을 확인합니다.
 
    ![애플리케이션 제어 권장 사항][4]
 
-3. 리소스 그룹을 선택하여 **응용 프로그램 제어 규칙 만들기** 옵션을 엽니다. **VM 선택**에서 권장된 VM 목록을 검토하고 응용 프로그램 컨트롤을 적용하지 않으려는 것을 선택 취소합니다. **허용 목록 규칙에 대한 프로세스 선택**에서 권장된 응용 프로그램의 목록을 검토하고 적용하지 않으려는 것을 선택 취소합니다. 이 목록에는 다음과 같은 정보가 포함됩니다.
+3. 리소스 그룹을 선택하여 **애플리케이션 제어 규칙 만들기** 옵션을 엽니다. **VM 선택**에서 권장된 VM 목록을 검토하고 애플리케이션 컨트롤을 적용하지 않으려는 것을 선택 취소합니다. **허용 목록 규칙에 대한 프로세스 선택**에서 권장된 애플리케이션의 목록을 검토하고 적용하지 않으려는 것을 선택 취소합니다. 이 목록에는 다음과 같은 정보가 포함됩니다.
 
    - **이름**: 전체 애플리케이션 경로
    - **프로세스**: 모든 경로 내에 있는 애플리케이션 수
@@ -99,7 +94,7 @@ JIT VM 액세스를 사용하면 Azure VM에 대한 인바운드 트래픽을 �
 4. 선택이 완료되면 **만들기**를 선택합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 컬렉션의 다른 빠른 시작과 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 이후의 빠른 시작과 자습서를 계속 사용하려면 표준 계층을 계속 실행하고 자동 프로비저닝을 설정된 상태로 유지합니다. 계속하지 않거나 체험 계층으로 되돌리려면 다음을 수행합니다.
+이 컬렉션의 다른 빠른 시작과 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 후속 빠른 시작 및 자습서를 계속 사용하려면 표준 계층을 계속 실행하고 자동 프로비저닝을 설정된 상태로 유지합니다. 계속하지 않거나 체험 계층으로 되돌리려면 다음을 수행합니다.
 
 1. Security Center 주 메뉴로 돌아가서 **보안 정책**을 선택합니다.
 2. 체험 계층으로 되돌리려는 구독 또는 정책을 선택합니다. **보안 정책**이 열립니다.
@@ -115,7 +110,7 @@ JIT VM 액세스를 사용하면 Azure VM에 대한 인바운드 트래픽을 �
 4. **저장**을 선택합니다.
 
 >[!NOTE]
-> 자동 프로비저닝을 해제해도 Microsoft Monitoring Agent가 프로비전된 Azure VM에서 Agent가 제거되지는 않습니다. 자동 프로비저닝을 사용하지 않도록 설정하면 리소스에 대한 보안 모니터링이 제한됩니다.
+> 자동 프로비저닝을 해제해도 에이전트가 프로비저닝된 Azure VM에서 Log Analytics 에이전트가 제거되지는 않습니다. 자동 프로비저닝을 사용하지 않도록 설정하면 리소스에 대한 보안 모니터링이 제한됩니다.
 >
 
 ## <a name="next-steps"></a>다음 단계

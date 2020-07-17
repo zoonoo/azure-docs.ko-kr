@@ -1,178 +1,166 @@
 ---
-title: Azure AD 권한 관리란? (미리 보기)-Azure Active Directory
-description: Azure Active Directory 권한 관리 및 사용 하 여 내부 및 외부 사용자에 대 한 그룹, 응용 프로그램 및 SharePoint Online 사이트에 대 한 액세스를 관리 하는 방법을의 개요를 봅니다.
+title: 권한 관리란? - Azure AD
+description: Azure Active Directory 권한 관리에 대한 개요와 이를 사용하여 내부 및 외부 사용자의 그룹, 애플리케이션 및 SharePoint Online 사이트에 대한 액세스를 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: barclayn
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.subservice: compliance
-ms.date: 04/27/2019
-ms.author: rolyon
-ms.reviewer: mwahl
+ms.date: 06/18/2020
+ms.author: barclayn
+ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abe2f7deef2a1dbe82f4702fd3477303891ab2e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
-ms.translationtype: MT
+ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873601"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338194"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리란? (미리 보기)
+# <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) 권한 관리는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+Azure AD(Azure Active Directory) 권한 관리는 조직에서 액세스 요청 워크플로, 액세스 할당, 검토 및 만료를 자동화하여 ID 및 액세스 수명 주기를 규모에 맞게 관리할 수 있도록 지원하는 [ID 거버넌스](identity-governance-overview.md) 기능입니다.
 
-조직에서 직원 들에는 다양 한 그룹, 응용 프로그램 및 사이트 작업 수행에 액세스를 해야 합니다. 이 액세스를 관리 하는 것은 어려운 문제입니다. 대부분의 경우에서 프로젝트에 대 한 사용자에 게 필요한 모든 리소스의 구성 된 목록이 없는 있습니다. 프로젝트 관리자에 이해가 필요한 리소스, 시간 및 관련 된 개인 프로젝트 지속 됩니다. 그러나 프로젝트 관리자는 일반적으로 권한이 없을을 승인 하거나 다른 사용자에 게 액세스 권한을 부여 합니다. 이 시나리오는 외부 개인 이나 회사를 사용 하려고 할 때 좀 더 복잡해 집니다.
+조직의 직원은 다양한 그룹, 애플리케이션 및 사이트에 액세스하여 자신의 업무를 수행해야 합니다. 요구 사항이 변경되면 새 애플리케이션이 추가되거나 사용자에게 추가 액세스 권한이 필요하므로 이 액세스를 관리하는 것이 어렵습니다.  외부 조직과 협업하는 경우 이 시나리오는 더 복잡해집니다. 조직의 리소스에 액세스해야 하는 다른 조직의 사용자를 모를 수 있으며, 조직에서 사용하는 애플리케이션, 그룹 또는 사이트를 모를 수도 있습니다.
 
-Azure Active Directory (Azure AD) 권한 관리는 내부 사용자와 조직 외부 사용자에 대 한 그룹, 응용 프로그램 및 SharePoint Online 사이트에 대 한 액세스를 관리할 수 있습니다.
+Azure AD 권한 관리를 사용하면 이러한 리소스에 액세스해야 하는 내부 사용자 및 조직 외부 사용자의 그룹, 애플리케이션 및 SharePoint Online 사이트에 대한 액세스를 더 효율적으로 관리할 수 있습니다.
 
-## <a name="why-use-entitlement-management"></a>권한 관리를 사용 하는 이유는?
+## <a name="why-use-entitlement-management"></a>권한 관리를 사용하는 이유는 무엇일까요?
 
-기업이 직면 과제와 같은 리소스에 대 한 액세스를 관리:
+기업 조직에서는 리소스에 액세스하는 직원을 관리할 때 다음과 같은 문제에 직면하는 경우가 많습니다.
 
-- 사용자가 가져야 하는 액세스를 모를 수 있습니다.
-- 사용자가 적절 한 개인 또는 적절 한 리소스를 찾는 데 문제가 있을 수 있습니다.
-- 사용자에서 검색 하 고 리소스에 대 한 액세스 권한을 받게 되 면 이러한 유지할 수 있습니다 비즈니스 용도에 필요한 것 보다 더 이상 액세스
+- 사용자가 자신에게 필요한 액세스 권한을 모를 수 있으며, 그렇지 않고 알고 있더라도 자신의 액세스를 승인할 수 있는 올바른 개인을 찾는 데 어려움이 있을 수 있습니다.
+- 사용자가 리소스에 대한 액세스 권한을 찾고 받은 후에는 업무상 필요한 것보다 더 오래 액세스할 수 있습니다.
 
-이러한 문제는 공급 체인 조직이 나 다른 비즈니스 파트너에 있는 외부 사용자와 같은 다른 디렉터리에서 액세스 해야 하는 사용자에 대 한 상황에서 복잡해 집니다. 예를 들면 다음과 같습니다.
+공급망 조직 또는 다른 비즈니스 파트너의 외부 사용자와 같이 다른 조직에서 액세스해야 하는 사용자의 경우 이러한 문제는 더 복잡합니다. 예를 들면 다음과 같습니다.
 
-- 조직 모를 수 초대할 수 있는 다른 디렉터리의 특정 개인의 모든
-- 조직에서는 이러한 사용자를 초대할 수 인 경우에 조직 일관 되 게 모든 사용자의 액세스를 관리 하 기억 하지 수 없습니다.
+- 한 사용자가 다른 조직의 디렉터리에 있는 특정 사용자를 모두 초대할 수 있다는 것을 알지 못할 수 있습니다.
+- 이러한 사용자를 초대할 수 있는 경우에도 해당 조직의 사용자가 모든 사용자의 액세스를 일관되게 관리해야 한다는 것을 기억하지 못할 수 있습니다.
 
-Azure AD 권한 관리는 이러한 문제를 해결 하는 데 도움이 됩니다.
+Azure AD 권한 관리는 이러한 문제를 해결하는 데 도움이 될 수 있습니다.  고객이 Azure AD 권한 관리를 사용하는 방법에 대해 자세히 알아보려면 [Avanade 사례 연구](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) 및 [Centrica 사례 연구](https://customers.microsoft.com/story/757467-centrica-energy-azure)를 참조하세요.  다음 비디오에서는 권한 관리 및 그 가치에 대해 간략히 설명합니다.
 
-## <a name="what-can-i-do-with-entitlement-management"></a>권한 관리를 사용 하 여 어떻게 해야 합니까?
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
-다음은 일부 권한 관리의 기능입니다.
+## <a name="what-can-i-do-with-entitlement-management"></a>권한 관리를 통해 무엇을 할 수 있을까요?
 
-- 사용자가 요청할 수 있는 관련된 리소스의 패키지 만들기
-- 요청 리소스 및 액세스가 만료 되는 경우에 방법에 대 한 규칙을 정의 합니다.
-- 내부 및 외부 사용자에 대 한 액세스의 수명 주기를 제어 합니다.
-- 리소스 관리 위임
-- 요청을 승인할 승인자를 지정 합니다.
-- 기록을 추적 하는 보고서 만들기
+몇 가지 권한 관리 기능은 다음과 같습니다.
 
-Id 관리 및 권한 관리의 개요, 2018 Ignite 컨퍼런스에서 다음 동영상을 시청 합니다.
+- 관리자가 아닌 사용자에게 액세스 패키지를 만들 수 있는 권한을 위임합니다. 이러한 액세스 패키지에는 사용자가 요청할 수 있는 리소스가 포함되어 있으며, 위임된 액세스 패키지 관리자는 사용자가 요청할 수 있는 규칙, 액세스를 승인해야 하는 사용자 및 액세스가 만료되는 시기에 대한 정책을 정의할 수 있습니다.
+- 사용자가 액세스를 요청할 수 있는 연결된 조직을 선택합니다.  아직 디렉터리에 없는 사용자가 액세스를 요청하고 승인되면 해당 사용자가 자동으로 디렉터리로 초대되고 액세스 권한이 할당됩니다.  액세스가 만료되면 다른 액세스 패키지 할당이 없는 경우 디렉터리의 B2B 계정이 자동으로 제거될 수 있습니다.
 
->[!VIDEO https://www.youtube.com/embed/aY7A0Br8u5M]
+[첫 번째 액세스 패키지 만들기 자습서](entitlement-management-access-package-first.md)를 시작할 수 있습니다. 또한 다음을 포함하여 [일반적인 시나리오](entitlement-management-scenarios.md)를 참조하거나 비디오를 시청할 수 있습니다.
 
-## <a name="what-resources-can-i-manage"></a>어떤 리소스를 관리할 수 있나요?
+- [조직에서 Azure AD 권한 관리를 배포하는 방법](https://www.youtube.com/watch?v=zaaKvaaYwI4)
+- [Azure AD 권한 관리의 사용을 모니터링하고 크기를 조정하는 방법](https://www.youtube.com/watch?v=omtNJ7ySjS0)
+- [권한 관리에서 위임하는 방법](https://www.youtube.com/watch?v=Fmp1eBxzrqw)
 
-권한 관리에 대 한 액세스를 관리할 수 있는 리소스의 종류는 다음과 같습니다.
+## <a name="what-are-access-packages-and-what-resources-can-i-manage-with-them"></a>액세스 패키지는 무엇이며, 이를 통해 관리할 수 있는 리소스는 무엇일까요?
 
-- Azure AD 보안 그룹
-- Office 365 그룹
-- Azure AD에 대 한 엔터프라이즈 응용 프로그램
-- SaaS 애플리케이션
-- 사용자 지정 통합 응용 프로그램
-- SharePoint Online 사이트 모음
-- SharePoint Online 사이트
+권한 관리는 *액세스 패키지* 개념을 Azure AD에 도입합니다. 액세스 패키지는 사용자가 프로젝트에서 작업하거나 작업을 수행하는 데 필요한 액세스 권한이 있는 모든 리소스의 번들입니다. 액세스 패키지는 내부 직원 및 조직 외부 사용자의 액세스를 제어하는 데 사용됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+ 권한 관리를 통해 사용자의 액세스를 관리할 수 있는 리소스의 종류는 다음과 같습니다.
 
-Azure AD 권한 관리 (미리 보기)를 사용 하려면 다음 라이선스 중 하나가 있어야 있습니다.
+- Azure AD 보안 그룹의 멤버 자격
+- Microsoft 365 그룹 및 팀의 멤버 자격
+- Azure AD 엔터프라이즈 애플리케이션에 할당(페더레이션, Single Sign-On 및/또는 프로비저닝을 지원하는 SaaS 애플리케이션 및 사용자 지정 통합 애플리케이션 포함)
+- SharePoint Online 사이트의 멤버 자격
 
-- Azure AD Premium P2
-- EMS(Enterprise Mobility + Security) E5 라이선스
+Azure AD 보안 그룹 또는 Microsoft 365 그룹을 사용 하는 다른 리소스에 대 한 액세스를 제어할 수도 있습니다.  예를 들면 다음과 같습니다.
 
-자세한 내용은 [Azure Active Directory Premium edition에 등록](../fundamentals/active-directory-get-started-premium.md) 하거나 [Enterprise Mobility + Security E5 평가판](https://aka.ms/emse5trial)합니다.
+- 액세스 패키지의 Azure AD 보안 그룹을 사용 하 고 해당 그룹에 대 한 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 를 구성 하 여 Microsoft 365에 대 한 라이선스를 사용자에 게 제공할 수 있습니다.
+- 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 만들어 사용자에게 Azure 리소스를 관리할 수 있는 액세스 권한을 부여할 수 있습니다.
 
-Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 클라우드, 현재이 미리 보기에서 사용 하기 위해 사용할 수 없는 경우
+## <a name="how-do-i-control-who-gets-access"></a>액세스 권한을 얻는 사용자를 제어하려면 어떻게 할까요?
 
-## <a name="what-are-access-packages-and-policies"></a>액세스 패키지 및 정책 이란?
+액세스 패키지를 사용하면 관리자 또는 위임된 액세스 패키지 관리자에서 리소스(그룹, 앱 및 사이트) 및 해당 리소스에 대해 사용자에게 필요한 역할을 나열합니다.
 
-권한 관리의 개념을 소개는 *액세스 패키지*합니다. 액세스 패키지는 사용자가 프로젝트에서 작업 또는 해당 작업을 수행 해야 하는 모든 리소스 번들입니다. 리소스 그룹, 응용 프로그램 또는 사이트에 대 한 액세스를 포함 합니다. 액세스 패키지 내부 직원 및도 조직 외부 사용자에 대 한 액세스를 제어 하는 데 사용 됩니다. 액세스 패키지 라는 컨테이너에 정의 된 *카탈로그*합니다.
+또한 액세스 패키지에는 하나 이상의 *정책*이 포함됩니다. 정책은 액세스 패키지에 할당할 규칙 또는 가드 레일을 정의합니다. 각 정책을 사용하여 적절한 사용자만 액세스를 요청할 수 있고, 해당 요청에 대한 승인자가 있으며, 해당 리소스에 대한 액세스 시간이 제한되고, 갱신되지 않으면 만료되도록 보장할 수 있습니다.
 
-하나 이상의 액세스 패키지 포함 *정책을*합니다. 정책 규칙 또는 액세스 패키지를 액세스 하는 guardrails를 정의 합니다. 적절 한 사용자만 적절 한 리소스와 적절 한 양의 시간에 대 한 액세스를 부여 되어 있는지 적용 정책을 사용 하도록 설정 합니다.
+![액세스 패키지 및 정책](./media/entitlement-management-overview/elm-overview-access-package.png)
 
-![패키지 액세스 및 정책](./media/entitlement-management-overview/elm-overview-access-package.png)
+각 정책 내에서 관리자 또는 액세스 패키지 관리자는 다음을 정의합니다.
 
-패키지를 액세스 및 해당 정책을 사용 하 여 액세스 패키지 관리자를 정의합니다.
+- 액세스를 요청할 수 있는 기존 사용자(일반적으로 직원 또는 이미 초대된 게스트) 또는 외부 사용자의 파트너 조직
+- 승인 프로세스 및 액세스를 승인하거나 거부할 수 있는 사용자
+- 승인된 사용자의 할당 만료 이전의 액세스 할당 기간
 
-- 리소스
-- 리소스에 필요한 사용자 역할
-- 내부 사용자와 액세스를 요청할 수 있는 외부 사용자
-- 승인 프로세스 및 승인 하거나 액세스를 거부할 수 있는 사용자
-- 사용자의 액세스 기간
+다음 다이어그램에서는 권한 관리의 다양한 요소에 대한 예를 보여 줍니다. 여기에는 두 개의 액세스 패키지 예가 포함된 하나의 카탈로그가 있습니다.
 
-다음 다이어그램은 자격 관리에서 다양 한 요소 예를 보여 줍니다. 두 가지 예제 액세스 패키지 보여 줍니다.
-
-- **액세스 패키지 1** 단일 리소스 그룹을 포함 합니다. 액세스는 액세스를 요청 하려면 디렉터리의 사용자 집합을 사용 하는 정책을 사용 하 여 정의 됩니다.
-- **액세스 패키지 2** 리소스로 그룹, 응용 프로그램 및 SharePoint Online 사이트를 포함 합니다. 액세스는 두 개의 다른 정책을 사용 하 여 정의 됩니다. 첫 번째 정책이 액세스를 요청 하려면 디렉터리의 사용자 집합을 수 있습니다. 두 번째 정책은 액세스를 요청 하는 외부 디렉터리에 사용자를 수 있습니다.
+- **액세스 패키지 1**에는 단일 그룹이 리소스로 포함되어 있습니다. 액세스는 디렉터리의 사용자 세트에서 액세스를 요청할 수 있도록 하는 정책으로 정의됩니다.
+- **액세스 패키지 2**에는 그룹, 애플리케이션 및 SharePoint Online 사이트가 리소스로 포함되어 있습니다. 액세스는 두 개의 서로 다른 정책으로 정의됩니다. 첫 번째 정책을 사용하면 디렉터리의 사용자 세트에서 액세스를 요청할 수 있습니다. 두 번째 정책을 사용하면 외부 디렉터리의 사용자가 액세스를 요청할 수 있습니다.
 
 ![권한 관리 개요](./media/entitlement-management-overview/elm-overview.png)
 
-## <a name="external-users"></a>외부 사용자
+## <a name="when-should-i-use-access-packages"></a>액세스 패키지는 언제 사용해야 하나요?
 
-사용 하는 경우는 [Azure AD-비즈니스 (b2b)](../b2b/what-is-b2b.md) 환경을 초대를 리소스 디렉터리로 가져오고 사용 하려는 외부 게스트 사용자의 전자 메일 주소를 알고 있어야 합니다. 참가자가 시간이 지남에 따라 변경 하는 경우 또는 작거나 단기 프로젝트에서 작업 하는 모든 참가자가 이미 알고 있지만 많은 사용자를 사용 하려는 경우 관리는이 어려운 경우에 유용한이 작동 합니다.  예를 들어, 다른 조직의 작업 및 해당 조직 연락처의 한 지점 수 있습니다 하지만 시간이 지남에 따라 해당 조직에서 추가 사용자도 액세스 해야 합니다.
+액세스 패키지는 액세스 할당을 위해 다른 메커니즘을 대체하지 않습니다.  다음과 같은 상황에서 가장 적합합니다.
 
-권한 관리를 사용 하 여 사용자를 지정 하는 또한 액세스 패키지를 요청 하려면 Azure AD를 사용 하는 조직에서 허용 하는 정책을 정의할 수 있습니다. 승인이 필요한 여부와 액세스에 대 한 만료 날짜를 지정할 수 있습니다. 승인자로 지정할 수도 있습니다 승인이 필요한 경우 이전에 초대-액세스 해야 하는 조직에서 외부 사용자를 모르는 되므로 외부 조직에서 하나 이상의 사용자입니다. 액세스 패키지를 구성한 후에 외부 조직에서 사용자 연락처에 액세스 패키지에 링크를 보낼 수 있습니다. 외부 조직의 사용자가 해당 연락처 타인과 공유할 수 및 액세스 패키지를 요청 하려면이 링크를 사용할 수 있습니다.  이미 디렉터리에 초대 된 사용자는 조직에서 해당 링크를 이용할 수 있습니다.
+- 직원에게는 특정 작업에 대해 시간이 제한된 액세스가 필요합니다.  예를 들어 그룹 기반 라이선스 및 동적 그룹을 사용하여 모든 직원에게 Exchange Online 사서함이 있는지 확인한 다음, 직원에게 다른 부서의 부서 리소스를 읽는 등의 추가 액세스가 필요한 상황에서 액세스 패키지를 사용할 수 있습니다.
+- 직원 관리자 또는 지정된 다른 개인이 액세스를 승인해야 합니다.
+- 각 부서에서 IT의 개입 없이 리소스에 대한 자체의 액세스 정책을 관리하려고 합니다.  
+- 둘 이상의 조직에서 프로젝트를 협업하고 있으며, 그 결과로 Azure AD B2B를 통해 한 조직의 여러 사용자를 호출하여 다른 조직의 리소스에 액세스해야 합니다.
 
-요청이 승인 되 면 자격 관리 있지 않은 경우 이미 디렉터리에 사용자를 초대를 포함할 수 있는 필요한 액세스를 사용 하 여 사용자 프로 비전 됩니다. Azure AD에 B2B 계정을 자동으로 만듭니다.  Note는 관리자로 제한 되어 있습니다 이전에 조직에서 허용 하는 공동 작업에 대 한 설정를 [B2B 허용 또는 거부 목록을](../b2b/allow-deny-list.md) 다른 조직에 초대를 허용 하거나 차단 합니다.  사용자가 허용 또는 차단 목록에서 허용 되지 않는 경우 다음 이러한가 초대할 수 없습니다.
+## <a name="how-do-i-delegate-access"></a>액세스를 위임하려면 어떻게 할까요?
 
-영원에 대 한 외부 사용자의 액세스 하지 않으려면 때문에 180 일 같은 정책에서 만료 날짜를 지정 합니다. 180 일 후에 대 한 액세스를 갱신 하지 않으면 자격 관리 제거 됩니다 해당 액세스 패키지와 관련 된 모든 액세스.  권한 관리를 통해 초대 된 사용자가 다른 액세스 패키지 할당이 없습니다, 다음 잃게가 마지막으로 할당 하는 경우 해당 B2B 계정 로그인에서 30 일 동안 차단 되며 이후에 제거 합니다.  이렇게 하면 불필요 한 계정의 확산 됩니다.  
+ 액세스 패키지는 카탈로그(*catalogs*)라는 컨테이너에 정의됩니다.  하나의 카탈로그를 모든 액세스 패키지에 사용하거나, 고유한 카탈로그를 만들고 소유할 수 있는 개인을 지정할 수 있습니다. 관리자는 리소스를 모든 카탈로그에 추가할 수 있지만, 관리자가 아닌 사용자는 자신이 소유한 리소스만 카탈로그에 추가할 수 있습니다. 카탈로그 소유자는 다른 사용자를 카탈로그 공동 소유자 또는 액세스 패키지 관리자로 추가할 수 있습니다.  이러한 시나리오는 [Azure AD 권한 관리의 위임 및 역할](entitlement-management-delegate.md) 문서에서 자세히 설명하고 있습니다.
 
-## <a name="terminology"></a>용어
+## <a name="summary-of-terminology"></a>용어 요약
 
-권한 관리 및 해당 설명서를 더 잘 이해 하려면 다음 용어를 검토 해야 합니다.
+다음에 나오는 용어 목록은 권한 관리 및 해당 설명서를 더 잘 이해하기 위해 다시 참조할 수 있습니다.
 
-| 용어 또는 개념 | 설명 |
+| 용어 | Description |
 | --- | --- |
-| 권한 관리 | 할당을 취소 하 고 액세스 패키지를 관리 하는 서비스입니다. |
-| 패키지 액세스 | 컬렉션 사용 권한 및 정책을 사용자가 요청할 수 있는 리소스입니다. 카탈로그 액세스 패키지를 항상 포함 됩니다. |
-| 액세스 요청 | 액세스 패키지를 액세스 하는 요청입니다. 요청은 일반적으로 워크플로 통해 이동합니다. |
-| policy | 사용자 액세스를 얻는 방법, 승인할 수 있는, 사용자가 액세스할 기간 등 액세스 수명 주기를 정의 하는 규칙의 집합입니다. 예제 정책에 대 한 직원 액세스 및 외부 액세스 포함 됩니다. |
-| catalog | 관련 된 리소스 및 액세스 패키지의 컨테이너입니다. |
-| 일반 카탈로그 | 항상 사용할 수 있는 기본 제공 카탈로그입니다. 일반 카탈로그 리소스를 추가 하려면 특정 권한이 필요 합니다. |
-| resource | 자산 또는 사용자 권한을 부여할 수 있는 서비스 (예: 그룹, 응용 프로그램 또는 사이트). |
-| 리소스 종류 | 그룹, 응용 프로그램 및 SharePoint Online 사이트를 포함 하는 리소스의 형식입니다. |
-| 리소스 역할 | 컬렉션 리소스를 사용 하 여 연결 된 권한입니다. |
-| 리소스 디렉터리 | 하나 이상의 리소스를 공유할 수 있는 디렉터리입니다. |
-| 할당 된 사용자 | 사용자 또는 그룹에 대 한 액세스 패키지를 할당 하는 것입니다. |
-| enable | 프로세스는 액세스 패키지를 요청 하는 사용자를 사용할 수 있도록입니다. |
+| 액세스 패키지 | 팀 또는 프로젝트에 필요하고 정책으로 관리되는 리소스의 번들입니다. 액세스 패키지는 항상 카탈로그에 포함되어 있습니다. 사용자가 액세스를 요청해야 하는 시나리오에 맞는 새 액세스 패키지를 만듭니다.  |
+| 액세스 요청 | 액세스 패키지의 리소스에 액세스하기 위한 요청입니다. 요청은 일반적으로 승인 워크플로를 통해 수행됩니다.  승인되면 요청하는 사용자가 액세스 패키지 할당을 받습니다. |
+| 할당 | 사용자에게 액세스 패키지를 할당하면 해당 액세스 패키지의 모든 리소스 역할이 사용자에게 할당됩니다.  액세스 패키지 할당에는 일반적으로 만료되기 전의 시간 제한이 있습니다. |
+| 카탈로그 | 관련 리소스 및 액세스 패키지로 구성된 컨테이너입니다.  카탈로그는 위임하는 데 사용되므로 관리자가 아닌 사용자는 자신의 액세스 패키지를 만들 수 있습니다. 카탈로그 소유자는 자신이 소유한 리소스를 카탈로그에 추가할 수 있습니다. |
+| 카탈로그 작성자 | 새 카탈로그를 만들 수 있는 권한이 있는 사용자의 컬렉션입니다.  카탈로그 작성자 권한이 있는 관리자가 아닌 사용자는 새 카탈로그를 만드는 경우 자동으로 해당 카탈로그의 소유자가 됩니다. |
+| 연결된 조직 | 관계가 있는 외부 Azure AD 디렉터리 또는 도메인입니다. 연결된 조직의 사용자는 정책에서 액세스를 요청할 수 있도록 지정할 수 있습니다. |
+| policy | 사용자가 액세스하는 방법, 승인할 수 있는 사용자 및 할당을 통해 사용자가 액세스할 수 있는 기간과 같은 액세스 수명 주기를 정의하는 규칙 세트입니다. 정책은 액세스 패키지에 연결됩니다. 예를 들어 액세스 패키지에는 직원이 액세스를 요청하고, 외부 사용자가 액세스를 요청하는 두 개의 정책이 있을 수 있습니다. |
+| resource | 사용자에게 권한을 부여할 수 있는 역할이 있는 자산입니다(예: Office 그룹, 보안 그룹, 애플리케이션 또는 SharePoint Online 사이트). |
+| 리소스 디렉터리 | 공유할 하나 이상의 리소스가 있는 디렉터리입니다. |
+| 리소스 역할 | 리소스에서 연결하고 정의한 권한의 컬렉션입니다. 그룹에는 멤버 및 소유자의 두 가지 역할이 있습니다. SharePoint 사이트에는 일반적으로 세 개의 역할이 있지만, 추가 사용자 지정 역할도 있을 수 있습니다. 애플리케이션에는 사용자 지정 역할이 있을 수 있습니다. |
 
-## <a name="roles-and-permissions"></a>역할 및 권한
 
-권한 관리에 작업 함수를 기반으로 하는 다른 역할에 있습니다.
+## <a name="license-requirements"></a>라이선스 요구 사항
 
-| 역할 | 설명 |
-| --- | --- |
-| [사용자 관리자](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | 권한 관리의 모든 측면을 관리 합니다.<br/>사용자 및 그룹을 만듭니다. |
-| 카탈로그를 만든 | 카탈로그 만들기 및 관리 합니다. 일반적으로 IT 관리자 또는 리소스 소유자입니다. 카탈로그를 자동으로 생성 하는 사람에는 카탈로그의 첫 번째 카탈로그 소유자가 됩니다. |
-| 카탈로그 소유자 | 편집 하 고 기존 카탈로그를 관리 합니다. 일반적으로 IT 관리자 또는 리소스 소유자입니다. |
-| 패키지 관리자 액세스 | 편집 하 고 카탈로그 내에서 모든 기존 액세스 패키지를 관리 합니다. |
-| 승인자 | 패키지에 액세스 하려면 요청을 승인 합니다. |
-| 요청자 | 패키지 액세스를 요청 합니다. |
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-다음 표에서 이러한 각 역할에 대 한 사용 권한을 나열합니다.
+Azure 독일, Azure 중국 21Vianet과 같은 특수 클라우드는 현재 사용할 수 없습니다.
 
-| Task | 사용자 관리자 | 카탈로그를 만든 | 카탈로그 소유자 | 패키지 관리자 액세스 | 승인자 |
-| --- | :---: | :---: | :---: | :---: | :---: |
-| [일반 카탈로그에서 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
-| [카탈로그에서 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| [액세스 패키지에서 리소스 역할 추가/제거](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 요청할 수 있는 사용자 지정](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [직접 액세스 패키지에 사용자 할당](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지에 할당 권한이 있는 사용자 보기](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 요청 보기](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [요청의 배달 오류 보기](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [보류 중인 요청 취소](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 숨기기](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 삭제 합니다.](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 요청 승인](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
-| [카탈로그 만들기](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| [일반 카탈로그에서 리소스를 추가/제거 합니다.](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
-| [카탈로그에서 리소스를 추가/제거 합니다.](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [카탈로그 소유자를 추가 하거나 패키지 관리자에 액세스](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [카탈로그를 편집/삭제](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+### <a name="how-many-licenses-must-you-have"></a>필요한 라이선스 수는 어떻게 되나요?
+
+디렉터리에는 다음을 고려한 개수 이상의 Azure AD Premium P2 라이선스가 있어야 합니다.
+
+- 액세스 패키지를 **요청할 수 있는** 멤버 사용자의 수
+- 액세스 패키지를 요청하는 멤버 및 게스트 사용자의 수
+- 액세스 패키지에 대한 요청을 승인하는 멤버 및 게스트 사용자의 수
+- 액세스 패키지에 직접 할당된 멤버 및 게스트 사용자의 수
+
+Azure AD Premium P2 라이선스가 필요하지 **않은** 작업은 다음과 같습니다.
+
+- 초기 카탈로그, 패키지 및 정책을 설정하고 다른 사용자에게 관리 작업을 위임할 수 있는 전역 관리자 역할이 있는 사용자에게는 라이선스가 필요하지 않습니다.
+- 카탈로그 작성자, 카탈로그 소유자 및 액세스 패키지 관리자와 같은 관리 작업을 위임받은 사용자에게는 라이선스가 필요하지 않습니다.
+- 액세스 패키지를 **요청할 수 있지만** 액세스 패키지를 요청하지 않는 게스트에게는 라이선스가 필요하지 **않습니다**.
+
+멤버 사용자(직원)를 위해 구매하는 각 유료 Azure AD Premium P2 라이선스의 경우 Azure AD B2B를 사용하여 최대 5명의 게스트 사용자를 초대할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 라이선스 지침](../b2b/licensing-guidance.md)을 참조하세요.
+
+라이선스에 대한 자세한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
+
+### <a name="example-license-scenarios"></a>라이선스 시나리오 예
+
+필요한 라이선스 수를 결정하는 데 도움이 되는 몇 가지 라이선스 시나리오 예는 다음과 같습니다.
+
+| 시나리오 | 계산 | 라이선스 수 |
+| --- | --- | --- |
+| Woodgrove Bank의 전역 관리자가 초기 카탈로그를 만들고, 다른 6명의 사용자에게 관리 작업을 위임합니다. 정책 중 하나에서 **모든 직원**(2,000명)이 특정 액세스 패키지 세트를 요청할 수 있도록 지정합니다. 150명의 직원이 액세스 패키지를 요청합니다. | 액세스 패키지를 **요청할 수 있는** 2,000명의 직원 | 2,000 |
+| Woodgrove Bank의 전역 관리자가 초기 카탈로그를 만들고, 다른 6명의 사용자에게 관리 작업을 위임합니다. 정책 중 하나에서 **모든 직원**(2,000명)이 특정 액세스 패키지 세트를 요청할 수 있도록 지정합니다. 다른 정책에서 **Contoso 파트너의 사용자**(게스트) 중 일부 사용자가 승인을 전제로 하여 동일한 액세스 패키지를 요청할 수 있도록 지정합니다. Contoso에는 30,000명의 사용자가 있습니다. 150명의 직원이 액세스 패키지를 요청하고, 10,500명의 Contoso 사용자가 액세스를 요청합니다. | 2,000명 직원 + 1:5 비율을 초과하는 500명 Contoso 게스트 사용자(10,500 - (2000 * 5)) | 2,500 |
 
 ## <a name="next-steps"></a>다음 단계
 

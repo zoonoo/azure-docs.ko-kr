@@ -1,34 +1,24 @@
 ---
-title: Azure Service Bus 메시징 엔터티 일시 중단 | Microsoft Docs
-description: Azure Service Bus 메시지 엔터티를 일시 중단한 후 다시 활성화합니다.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Service Bus-메시징 엔터티 일시 중단
+description: 이 문서에서는 Azure Service Bus 메시지 엔터티 (큐, 토픽 및 구독)를 일시적으로 일시 중단 하 고 다시 활성화 하는 방법을 설명 합니다.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/23/2020
+ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340006"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>메시징 엔터티 일시 중단 및 다시 활성화(사용 안 함)
 
-큐, 토픽 및 구독을 일시적으로 중단할 수 있습니다. 일시 중단을 수행하면 엔터티가 사용 안 함 상태가 되며 모든 메시지는 저장소에 유지됩니다. 그러나 메시지를 제거 또는 추가할 수 없으며 해당 프로토콜 작업은 오류를 생성합니다.
+큐, 토픽 및 구독을 일시적으로 중단할 수 있습니다. 일시 중단을 수행하면 엔터티가 사용 안 함 상태가 되며 모든 메시지는 스토리지에 유지됩니다. 그러나 메시지를 제거 또는 추가할 수 없으며 해당 프로토콜 작업은 오류를 생성합니다.
 
 엔터티 일시 중단은 일반적으로 긴급한 관리상의 이유로 수행됩니다. 한 가지 시나리오는 큐에서 메시지를 제거하고, 처리를 실패하고, 메시지를 잘못 완료 및 제거하는 잘못된 수신기를 배포하는 경우입니다. 해당 동작이 진단되면 수정된 코드를 배포할 때까지 큐를 사용하지 않도록 설정하고, 결함 있는 코드에 의한 추가 데이터 손실을 방지할 수 있습니다.
 
 사용자 또는 시스템에 의해 일시 중단 또는 다시 활성화가 수행될 수 있습니다. 시스템은 구독 지출 제한에 도달하는 등, 중대한 관리상의 이유가 있을 때만 엔터티를 일시 중단합니다. 시스템에서 사용하지 않도록 설정된 엔터티는 사용자가 다시 활성화할 수 없지만 일시 중단의 원인에 해결되면 복원됩니다.
 
-포털에는 **속성** 다음 스크린샷은 큐에 대 한 설정/해제; 해당 엔터티에 대 한 섹션은 상태 변경을 허용:
+포털에서 해당 엔터티에 대 한 **속성** 섹션을 통해 상태를 변경할 수 있습니다. 다음 스크린샷은 큐에 대 한 토글을 보여 줍니다.
 
 ![][1]
 
@@ -40,8 +30,8 @@ ms.locfileid: "59047350"
 
 큐에 대해 설정할 수 있는 상태는 다음과 같습니다.
 
--   **활성**: 큐가 활성 상태입니다.
--   **사용 안 함**: 큐가 일시 중단되었습니다.
+-   **Active**: 큐가 활성 상태입니다.
+-   **Disabled**: 큐가 일시 중단되었습니다.
 -   **SendDisabled**: 큐가 부분적으로 일시 중단되었으며 수신이 허용됩니다.
 -   **ReceiveDisabled**: 큐가 부분적으로 일시 중단되었으며 송신이 허용됩니다.
 

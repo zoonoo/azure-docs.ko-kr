@@ -3,23 +3,21 @@ title: Azure Network Watcher 인스턴스 만들기 | Microsoft Docs
 description: Azure 지역에서 Network Watcher를 사용하도록 설정하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: c97f6dff17896b8a58c17aed9063e0b2b5733503
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: damendo
+ms.openlocfilehash: 6b7453a0100233896e3d01769897ed224a0b2618
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681568"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737549"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
 
@@ -51,7 +49,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>포털에서 Network Watcher 만들기
 
-**모든 서비스** > **네트워킹** > **Network Watcher**로 이동합니다. Network Watcher에 대해 사용하도록 설정하려는 모든 구독을 선택할 수 있습니다. 이 작업은 사용할 수 있는 모든 지역에서 Network Watcher를 만듭니다.
+**모든 서비스**  >  **네트워킹**  >  **Network Watcher**로 이동 합니다. Network Watcher에 대해 사용하도록 설정하려는 모든 구독을 선택할 수 있습니다. 이 작업은 사용할 수 있는 모든 지역에서 Network Watcher를 만듭니다.
 
 ![Network Watcher 만들기](./media/network-watcher-create/figure1.png)
 
@@ -103,6 +101,26 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
+## <a name="delete-a-network-watcher-in-the-portal"></a>포털에서 Network Watcher 삭제
+
+**모든 서비스**  >  **네트워킹**  >  **Network Watcher**로 이동 합니다.
+
+아직 없는 경우 개요 탭을 선택 합니다. 드롭다운을 사용 하 여에서 네트워크 감시자를 사용 하지 않도록 설정할 구독을 선택 합니다.
+화살표를 클릭 하 여 선택한 구독에 대 한 영역 목록을 확장 합니다. 지정 된 경우 오른쪽에 있는 3 개의 점을 사용 하 여 상황에 맞는 메뉴에 액세스 합니다.
+"네트워크 감시자 사용 안 함"을 클릭 하 여 비활성화를 시작 합니다. 이 단계를 확인 하 라는 메시지가 표시 됩니다. 예를 클릭하여 계속합니다.
+포털에서는 모든 구독의 모든 지역에 대해 개별적으로이 작업을 수행 해야 합니다.
+
+
+## <a name="delete-a-network-watcher-with-powershell"></a>PowerShell을 사용 하 여 Network Watcher 삭제
+
+Network Watcher 인스턴스를 삭제 하려면 다음 예제를 실행 합니다.
+
+```powershell
+New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus
+New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG -Location westcentralus
+Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 이제 Network Watcher의 인스턴스가 있으니 제공되는 기능에 대해 알아봅니다.
@@ -114,5 +132,3 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 * [보안 그룹 보기](network-watcher-security-group-view-overview.md)
 * [NSG 흐름 로깅](network-watcher-nsg-flow-logging-overview.md)
 * [Virtual Network 게이트웨이 문제 해결](network-watcher-troubleshoot-overview.md)
-
-Network Watcher 인스턴스가 있으면 가상 머신 내에서 패킷 캡처를 사용하도록 설정할 수 있습니다. 방법을 알아보려면 [경고가 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 참조하세요.

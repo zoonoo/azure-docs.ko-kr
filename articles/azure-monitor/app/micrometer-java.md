@@ -1,30 +1,22 @@
 ---
-title: Azure Application Insights Java SDK에 Micrometer를 사용하는 방법 | Microsoft Docs
-description: 'Micrometer를 Application Insights Spring Boot 및 Spring Boot 이외 애플리케이션에 사용하기 위한 단계별 가이드입니다. '
-services: application-insights
-documentationcenter: java
-author: lgayhardt
-manager: carmonm
-ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
+description: Micrometer를 Application Insights Spring Boot 및 Spring Boot 이외 애플리케이션에 사용하기 위한 단계별 가이드입니다.
 ms.topic: conceptual
-ms.date: 11/01/2018
+author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 778690fb2796cea3154b3acbb662341fdaea87da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 11/01/2018
+ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77670069"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 Micrometer 애플리케이션 모니터링은 JVM 기반 애플리케이션 코드의 메트릭을 측정하며, 자주 사용하는 모니터링 시스템으로 데이터를 내보낼 수 있습니다. 이 문서에서는 Spring Boot 및 Spring Boot 이외 애플리케이션 모두에 대해 Application Insights에 Micrometer를 사용하는 방법을 안내합니다.
 
 ## <a name="using-spring-boot-15x"></a>Spring Boot 1.5x 사용
 pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다. 
-* [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA 이상
+* [Application Insights 스프링-부팅-스타터](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 이상
 * Micrometer Azure Registry 1.1.0 이상
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 이상(Spring 프레임워크의 자동 구성 코드 지원)
 * [ApplicationInsights 리소스](../../azure-monitor/app/create-new-resource.md )
@@ -37,7 +29,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
-        <version>1.1.0-BETA</version>
+        <version>2.5.0</version>
     </dependency>
 
     <dependency>
@@ -64,7 +56,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 * Application Insights Spring-boot-starter 2.1.2 이상
-* Azure-spring-boot-metrics-starters 2.0.7 이상  
+* Azure-스프링-부팅-메트릭-초보자 2.0.7 이상
 * [Application Insights 리소스](../../azure-monitor/app/create-new-resource.md )
 
 단계:
@@ -87,9 +79,9 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 기본 메트릭:
 
 *    Tomcat, JVM, Logback 메트릭, Log4J 메트릭, 가동 시간 메트릭, 프로세서 메트릭, FileDescriptorMetrics 메트릭에 대해 자동으로 구성된 메트릭입니다.
-*    예를 들어 netflix hystrix가 클래스 경로에 있는 경우 해당 메트릭도 가져옵니다. 
+*    예를 들어 클래스 경로에 Netflix Hystrix가 있는 경우 해당 메트릭을 가져옵니다. 
 *    해당 bean을 추가하여 다음 메트릭을 사용할 수 있습니다. 
-        - CacheMetrics(CaffeineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -121,10 +113,8 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 ## <a name="use-micrometer-with-non-spring-boot-web-applications"></a>Spring Boot 웹 애플리케이션이 없는 Micrometer 사용
 
 pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
- 
-* [Application Insight Core 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.2.0) 이상
-* [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) 이상
-* [웹 필터 등록](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
+
+* Application Insights Web Auto 2.5.0 이상
 * Micrometer Azure Registry 1.1.0 이상
 * [Application Insights 리소스](../../azure-monitor/app/create-new-resource.md )
 
@@ -141,14 +131,41 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
         
         <dependency>
             <groupId>com.microsoft.azure</groupId>
-            <artifactId>applicationinsights-web</artifactId>
-            <version>2.2.0</version>
-        </dependency
+            <artifactId>applicationinsights-web-auto</artifactId>
+            <version>2.5.0</version>
+        </dependency>
      ```
 
-2. Application Insights.xml 파일을 리소스 폴더에 배치
+2. `ApplicationInsights.xml`리소스 폴더에 파일을 넣습니다.
 
-    샘플 Servlet 클래스(타이머 메트릭 내보냄):
+    ```XML
+    <?xml version="1.0" encoding="utf-8"?>
+    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+    
+       <!-- The key from the portal: -->
+       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+    
+       <!-- HTTP request component (not required for bare API) -->
+       <TelemetryModules>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+       </TelemetryModules>
+    
+       <!-- Events correlation (not required for bare API) -->
+       <!-- These initializers add context data to each event -->
+       <TelemetryInitializers>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+       </TelemetryInitializers>
+    
+    </ApplicationInsights>
+    ```
+
+3. 샘플 Servlet 클래스(타이머 메트릭 내보냄):
 
     ```Java
         @WebServlet("/hello")
@@ -187,7 +204,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
     
     ```
 
-      샘플 구성 클래스:
+4. 샘플 구성 클래스:
 
     ```Java
          @WebListener
@@ -252,5 +269,5 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Micrometer에 대한 자세한 내용은 공식 [Micrometer 설명서](https://micrometer.io/docs)를 참조하세요.
-* Azure의 Spring에 대한 자세한 내용은 공식 [Azure의 Spring 설명서](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)를 참조하세요.
+* 마이크로 측정기에 대해 자세히 알아보려면 공식 [마이크로 측정기 설명서](https://micrometer.io/docs)를 참조 하세요.
+* Azure의 스프링에 대해 알아보려면 [azure의 공식 스프링 설명서](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)를 참조 하세요.

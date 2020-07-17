@@ -1,25 +1,24 @@
 ---
-title: Azure Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행 | Microsoft Docs
+title: 오픈 소스 도구를 사용 하 여 네트워크 침입 감지 수행
+titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색을 수행하는 방법에 대해 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.author: damendo
+ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737362"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
 
@@ -39,7 +38,7 @@ ms.locfileid: "65605708"
 
 ### <a name="install-suricata"></a>Suricata 설치
 
-설치의 다른 모든 메서드는 https://suricata.readthedocs.io/en/latest/install.html을 방문하세요.
+설치의 다른 모든 메서드는 https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation을 방문하세요.
 
 1. VM의 명령줄 터미널에서 다음 명령을 실행합니다.
 
@@ -77,7 +76,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>탄력적 스택 설정
 
-Suricata에서 생성하는 로그에는 네트워크에서 발생하는 작업에 대한 유용한 정보가 포함되지만 이러한 로그 파일은 읽고 이해하기 어렵습니다. Suricata를 탄력적 스택과 연결하여 로그에서 정보를 검색하고, 그래프화하며 분석하고 정보를 끌어낼 수 있는 Kibana 대시보드를 만들 수 있습니다.
+Suricata에서 생성 하는 로그에는 네트워크에서 발생 하는 상황에 대 한 중요 한 정보가 포함 되어 있지만 이러한 로그 파일은 읽고 이해 하기가 가장 쉽습니다. Suricata를 탄력적 스택과 연결하여 로그에서 정보를 검색하고, 그래프화하며 분석하고 정보를 끌어낼 수 있는 Kibana 대시보드를 만들 수 있습니다.
 
 #### <a name="install-elasticsearch"></a>Elasticsearch 설치
 
@@ -210,13 +209,13 @@ Suricata에서 생성하는 로그에는 네트워크에서 발생하는 작업�
     sudo chmod 775 /var/log/suricata/eve.json
     ```
 
-1. Logstash를 시작하려면 명령을 실행합니다.
+1. Logstash를 시작하려면 다음 명령을 실행합니다.
 
     ```
     sudo /etc/init.d/logstash start
     ```
 
-Logstash 설치에 대한 추가 정보는 [공식적인 설명서](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)를 참조하세요.
+Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)를 참조하세요.
 
 ### <a name="install-kibana"></a>Kibana 설치
 
@@ -255,7 +254,7 @@ Logstash 설치에 대한 추가 정보는 [공식적인 설명서](https://www.
 
 샘플 대시보드는 Suricata 경고 로그에 대한 다양한 시각화를 제공합니다.
 
-1. 지리적 위치 (IP에 따른)에 따라 원본 해당 국가/지역에 따라 경고의 분포를 보여 주는 맵 – GeoIP 별 경고
+1. GeoIP로 경고 – 지리적 위치에 따라 원본의 해당 국가/지역에의 한 경고 분포를 보여 주는 맵입니다 (IP로 결정 됨).
 
     ![지역 ip][3]
 
@@ -275,7 +274,7 @@ Logstash 설치에 대한 추가 정보는 [공식적인 설명서](https://www.
 
     ![이미지 7][7]
 
-사용자 지정 시각화 및 대시보드 만들기에 대한 자세한 내용은 [Kibana의 공식적인 설명서](https://www.elastic.co/guide/en/kibana/current/introduction.html)를 참조하세요.
+사용자 지정 시각화 및 대시보드를 만드는 방법에 대 한 자세한 설명서는 [Kibana의 공식 설명서](https://www.elastic.co/guide/en/kibana/current/introduction.html)를 참조 하세요.
 
 ## <a name="conclusion"></a>결론
 

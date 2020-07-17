@@ -1,6 +1,5 @@
 ---
-title: Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Angular를 사용하여 UI 빌드
-titleSuffix: Azure Cosmos DB
+title: Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 UI 만들기(3부)
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 3부
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158706"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114387"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Angular를 사용하여 UI 빌드
 
@@ -33,12 +32,12 @@ ms.locfileid: "54158706"
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 자습서의 이 부분을 시작하기 전에 자습서 [2부](tutorial-develop-mongodb-nodejs-part2.md)의 단계를 완료했는지 확인합니다.
 
 > [!TIP]
-> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
+> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 애플리케이션을 가져올 수 있습니다.
 
 ## <a name="build-the-ui"></a>UI 빌드
 
@@ -52,7 +51,7 @@ ms.locfileid: "54158706"
 
     터미널 창에는 새 구성 요소에 대한 확인이 표시됩니다.
 
-    ![Hero 구성 요소 설치](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png" alt-text="hero 구성 요소 설치":::
 
     만들고 업데이트된 파일을 살펴보겠습니다. 
 
@@ -63,7 +62,7 @@ ms.locfileid: "54158706"
 
 4. 동일한 폴더에서 **app.module.ts** 파일을 열고 5줄의 선언에 `HeroesComponent`을 추가하고 10줄로 가져옵니다.
 
-    ![app-module.ts 파일 열기](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="app-module.ts 파일 열기":::
 
 5. **heroes.component.html** 파일로 돌아가서 이 코드에 복사합니다. `<div>`는 전체 페이지에 대한 컨테이너입니다. 컨테이너 내에는 만들어야 하는 Heroes 목록이 있습니다. 따라서 이 중 하나를 클릭하면 선택하고 편집하거나 UI에서 삭제할 수 있습니다. 그런 다음 HTML에서 선택한 항목을 확인할 수 있도록 몇 가지 스타일을 지정했습니다. 편집 영역도 있으므로 새 Hero를 추가하거나 기존 Hero를 편집할 수 있습니다. 
 
@@ -395,7 +394,7 @@ ms.locfileid: "54158706"
 
 5. `Hero` 용어를 마우스 왼쪽 단추로 클릭하면 Visual Studio는 코드 블록의 왼쪽에 전구 모양 아이콘을 표시합니다. 
 
-    ![Visual Studio Code의 전구 모양 아이콘](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Visual Studio Code의 전구 모양 아이콘":::
 
 6. 전구 모양 아이콘을 클릭한 다음, **"/app/hero"에서 Hero 가져오기**를 클릭합니다. 또는 **"./hero"에서 Hero 가져오기**를 클릭합니다. (설정에 따라 메시지 변경)
 
@@ -491,7 +490,7 @@ ms.locfileid: "54158706"
 
 3. 이제 인터넷 브라우저를 열고 **localhost:3000**으로 이동하고 로컬로 실행 중인 앱을 확인합니다.
 
-     ![로컬로 Hero 응용 프로그램 실행](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
+     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="로컬로 Hero 애플리케이션 실행":::
 
 ## <a name="next-steps"></a>다음 단계
 

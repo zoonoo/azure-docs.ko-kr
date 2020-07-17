@@ -1,26 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - Azure Cache for Redis에 대한 세부 정보 가져오기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Azure Cache for Redis에 대한 세부 정보를 가져옵니다.
-services: cache
-documentationcenter: ''
+title: Azure Cache for Redis에 대한 세부 정보 가져오기 - Azure CLI
+description: 이 Azure CLI 코드 샘플에서는 프로비전 상태를 포함하여 Azure Cache for Redis 인스턴스에 대한 세부 정보를 검색하는 방법을 보여줍니다.
 author: yegu-ms
-manager: jhubbard
-editor: ''
+ms.author: yegu
 tags: azure-service-management
-ms.assetid: 155924e6-00d5-4a8c-ba99-5189f300464a
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
-ms.openlocfilehash: 8b4c0311f935fa141170206f51e01b90eb4b98ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 54920017f4a0598a74a54114e3d1e0a5392d7d2a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240290"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75411069"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 세부 정보 가져오기
 

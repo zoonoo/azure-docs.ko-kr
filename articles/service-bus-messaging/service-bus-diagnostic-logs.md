@@ -1,80 +1,41 @@
 ---
 title: Azure Service Bus 진단 로그 | Microsoft Docs
-description: Azure에서 Service Bus에 대한 진단 로그를 설정하는 방법을 알아봅니다.
-keywords: ''
-documentationcenter: .net
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
+description: 이 문서에서는 Azure Service Bus에 사용할 수 있는 모든 운영 및 진단 로그에 대 한 개요를 제공 합니다.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/23/2020
+ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337534"
 ---
-# <a name="service-bus-diagnostic-logs"></a>Service Bus 진단 로그
+# <a name="enable-diagnostics-logs-for-service-bus"></a>Service Bus에 대 한 진단 로그 사용
 
-Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
-* **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)**. 이러한 로그에는 작업에서 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
-* **[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)**. 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
+Azure Service Bus 네임 스페이스 사용을 시작 하는 경우 네임 스페이스를 생성, 삭제 또는 액세스 하는 방법과 시기를 모니터링할 수 있습니다. 이 문서에서는 사용 가능한 모든 운영 및 진단 로그에 대 한 개요를 제공 합니다.
 
-## <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
-
-진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 활성화하려면 다음 단계를 수행합니다.
-
-1.  [Azure Portal](https://portal.azure.com)의 **모니터링 + 관리**에서 **진단 로그**를 클릭합니다.
-
-    ![진단 로그에 대한 블레이드 탐](./media/service-bus-diagnostic-logs/image1.png)
-
-2. 모니터링하려는 리소스를 클릭합니다.  
-
-3.  **진단 켜기**를 클릭합니다.
-
-    ![진단 로그 사용](./media/service-bus-diagnostic-logs/image2.png)
-
-4.  **상태**에서 **켜기**를 클릭합니다.
-
-    ![진단 로그 상태 변경](./media/service-bus-diagnostic-logs/image3.png)
-
-5.  원하는 보관 대상을 설정합니다 예를 들어 저장소 계정, event hub 또는 Azure Monitor를 기록합니다.
-
-6.  새 진단 설정을 저장합니다.
-
-새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 블레이드에 로그가 나타납니다.
-
-진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조하세요.
-
-## <a name="diagnostic-logs-schema"></a>진단 로그 스키마
-
-모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 섹션에 설명된 형식을 사용하는 문자열 필드가 있습니다.
+Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 되는 *관리 작업* 을 캡처하는 활동 및 작업 로그를 지원 합니다. 특히 이러한 로그는 큐 생성, 사용된 리소스 및 작업 상태를 비롯한 작업 형식을 캡처합니다.
 
 ## <a name="operational-logs-schema"></a>작업 로그 스키마
 
-**OperationalLogs** 범주의 로그는 Service Bus 작업 중 발생하는 일을 캡처합니다. 특히 이러한 로그는 큐 생성, 사용된 리소스 및 작업 상태를 비롯한 작업 형식을 캡처합니다.
+모든 로그는 다음 두 위치에서 JavaScript Object Notation (JSON) 형식으로 저장 됩니다.
 
-작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
+- **Azureactivity**: Azure Portal 또는 Azure Resource Manager 템플릿 배포를 통해 네임 스페이스에 대해 수행 되는 작업 및 작업의 로그를 표시 합니다.
+- **Azurediagnostics**: API를 사용 하거나 언어 SDK의 관리 클라이언트를 통해 네임 스페이스에 대해 수행 되는 작업 및 작업의 로그를 표시 합니다.
 
-이름 | 설명
-------- | -------
-ActivityId | 추적에 사용되는 내부 ID
-EventName | 작업 이름           
-ResourceId | Azure Resource Manager 리소스 ID
-SubscriptionId | 구독 ID
-EventTimeString | 작업 시간
-EventProperties | 작업 속성
-상태 | 작업 상태
-Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트)
-카테고리 | OperationalLogs
+작업 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
+
+| 이름 | Description |
+| ------- | ------- |
+| ActivityId | 지정 된 작업을 식별 하는 데 사용 되는 내부 ID |
+| EventName | 작업 이름 |
+| ResourceId | Azure Resource Manager 리소스 ID |
+| SubscriptionId | 구독 ID |
+| EventTimeString | 작업 시간 |
+| EventProperties | 작업 속성 |
+| 상태 | 작업 상태 |
+| Caller | 작업 호출자 (Azure Portal 또는 관리 클라이언트) |
+| 범주 | OperationalLogs |
 
 작업 로그 JSON 문자열 예제는 다음과 같습니다.
 
@@ -92,9 +53,59 @@ Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트)
 }
 ```
 
+## <a name="events-and-operations-captured-in-operational-logs"></a>작업 로그에 캡처되는 이벤트 및 작업
+
+작업 로그는 Azure Service Bus 네임 스페이스에 대해 수행 되는 모든 관리 작업을 캡처합니다. Azure Service Bus에서 수행 되는 대량의 데이터 작업으로 인해 데이터 작업이 캡처되지 않습니다.
+
+> [!NOTE]
+> 데이터 작업을 보다 효율적으로 추적할 수 있도록 클라이언트 쪽 추적을 사용 하는 것이 좋습니다.
+
+다음 관리 작업은 작업 로그에 캡처됩니다. 
+
+| Scope | 연산|
+|-------| -------- |
+| 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임 스페이스 업데이트 </li> <li> 네임스페이스 삭제 </li> <li> 네임 스페이스 SharedAccess 정책 업데이트 </li> </ul> | 
+| 큐 | <ul> <li> 큐 만들기</li> <li> 큐 업데이트</li> <li> 큐 삭제 </li> <li> 삭제 큐 자동 삭제 </li> </ul> | 
+| 항목 | <ul> <li> 토픽 만들기 </li> <li> 토픽 업데이트 </li> <li> 토픽 삭제 </li> <li> Delete 토픽 자동 삭제 </li> </ul> |
+| Subscription | <ul> <li> 구독 만들기 </li> <li> 구독 업데이트 </li> <li> 구독 삭제 </li> <li> 구독 삭제 자동 삭제 </li> </ul> |
+
+> [!NOTE]
+> 현재 *읽기* 작업은 작업 로그에서 추적 되지 않습니다.
+
+## <a name="enable-operational-logs"></a>작업 로그 사용
+
+작업 로그는 기본적으로 사용 되지 않습니다. 진단 로그를 사용 하도록 설정 하려면 다음을 수행 합니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 Azure Service Bus 네임 스페이스로 이동한 후 **모니터링**아래에서 **진단 설정**을 선택 합니다.
+
+   !["진단 설정" 링크](./media/service-bus-diagnostic-logs/image1.png)
+
+1. **진단 설정** 창에서 **진단 설정 추가**를 선택 합니다.  
+
+   !["진단 설정 추가" 링크](./media/service-bus-diagnostic-logs/image2.png)
+
+1. 다음을 수행 하 여 진단 설정을 구성 합니다.
+
+   a. **이름** 상자에 진단 설정의 이름을 입력합니다.  
+
+   b. 진단 로그에 다음 세 가지 대상 중 하나를 선택합니다.  
+   - **저장소 계정에 보관**을 선택 하는 경우 진단 로그가 저장 되는 저장소 계정을 구성 해야 합니다.  
+   - **이벤트 허브로 스트림**을 선택 하는 경우 진단 로그를 스트리밍할 이벤트 허브를 구성 해야 합니다.
+   - **Log Analytics 보내기를**선택 하는 경우 진단이 전송 될 Log Analytics 인스턴스를 지정 해야 합니다.  
+
+   다. **OperationalLogs** 확인란을 선택 합니다.
+
+    !["진단 설정" 창](./media/service-bus-diagnostic-logs/image3.png)
+
+1. **저장**을 선택합니다.
+
+새 설정은 약 10분 후에 적용됩니다. 구성된 보관 대상의 **진단 로그** 창에 로그가 표시됩니다.
+
+진단 구성 설정에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-Service Bus에 대한 자세한 내용을 보려면 다음 링크를 참조하세요.
+Service Bus에 대 한 자세한 내용은 다음을 참조 하세요.
 
 * [Service Bus 소개](service-bus-messaging-overview.md)
 * [Service Bus 시작](service-bus-dotnet-get-started-with-queues.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure 빠른 시작 - Azure Portal을 사용하여 고가용성 애플리케이션을 위한 Front Door 프로필 만들기
-description: 이 빠른 시작 문서에는 고가용성, 고성능 글로벌 웹 애플리케이션을 위한 Front Door를 만드는 방법을 설명합니다.
+title: '빠른 시작: Azure Front Door Service를 사용하여 고가용성 설정'
+description: 이 빠른 시작에서는 Azure Front Door Service를 고가용성, 고성능 글로벌 웹 애플리케이션에 사용하는 방법을 설명합니다.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,87 +11,159 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2018
+ms.date: 04/27/2020
 ms.author: sharadag
-ms.openlocfilehash: 39e7626e6b4c545649e39ff2120d1f1fd105d764
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c1ce34bb7fc851d3f763241c9e92371b43ed1861
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994669"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82133378"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>빠른 시작: 고가용성 글로벌 웹 애플리케이션을 위한 Front Door 만들기
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>빠른 시작: 고가용성 글로벌 웹 애플리케이션에 대한 Front Door 만들기
 
-이 빠른 시작에서는 글로벌 웹 애플리케이션에 고가용성 및 고성능을 제공하는 Front Door 프로필을 만드는 방법을 설명합니다. 
+Azure Portal을 사용하여 웹 애플리케이션에 대한 고가용성을 설정하여 Azure Front Door를 시작합니다.
 
-이 빠른 시작에 설명된 시나리오에는 서로 다른 Azure 지역에서 실행되는 두 개의 웹 애플리케이션 인스턴스가 포함되어 있습니다. 동등한 [가중치 및 동일한 우선 순위 백 엔드](front-door-routing-methods.md)를 기반으로 애플리케이션을 실행하는 가장 가까운 사이트 백 엔드에 사용자 트래픽을 보내는 Front Door 구성이 만들어집니다. Front Door는 지속적으로 웹 애플리케이션을 모니터링하다가 가장 가까운 사이트를 사용할 수 없게 되면 그 다음 가용 백업 사이트로 자동 장애 조치(failover)합니다.
+이 빠른 시작에서 Azure Front Door는 서로 다른 Azure 지역에서 실행되는 웹 애플리케이션의 두 인스턴스를 풀링합니다. 가중치와 우선 순위가 동일한 백 엔드를 기반으로 하는 Front Door 구성을 만듭니다. 이 구성은 애플리케이션을 실행하는 가장 가까운 사이트로 트래픽을 보냅니다. Azure Front Door는 웹 애플리케이션을 지속적으로 모니터링합니다. 이 서비스는 가장 가까운 사이트를 사용할 수 없는 경우 자동 장애 조치를 사용 가능한 다음 사이트에 제공합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>필수 조건
-이 빠른 시작을 진행하려면 서로 다른 Azure 지역(*미국 동부* 및 *유럽 서부*)에서 실행되는 두 개의 웹 애플리케이션 인스턴스를 배포해야 합니다. 두 웹 애플리케이션 인스턴스 모두 활성/활성 모드에서 실행됩니다. 즉, 둘 중 하나가 장애 조치(failover) 역할을 하는 능동/대기 모드와는 달리 둘 중 하나가 언제든지 트래픽을 받을 수 있습니다.
+## <a name="create-two-instances-of-a-web-app"></a>웹앱의 두 인스턴스 만들기
 
-1. 화면 왼쪽 상단에서 **리소스 만들기** > **웹** > **웹앱** > **만들기**를 선택합니다.
-2. **웹앱**에서, 다음 정보를 입력 또는 선택하고, 지정된 설정이 없으면 기본 설정을 입력합니다.
+이 빠른 시작에는 서로 다른 Azure 지역에서 실행되는 웹 애플리케이션의 두 인스턴스가 필요합니다. 두 웹 애플리케이션 인스턴스는 모두 *활성/활성* 모드로 실행되므로 두 인스턴스 중 하나에서 트래픽을 수행할 수 있습니다. 이 구성은 장애 조치로 작동하는 *활성/대기* 구성과 다릅니다.
 
-     | 설정         | 값     |
-     | ---              | ---  |
-     | 이름           | 웹앱의 고유한 이름을 입력합니다.  |
-     | 리소스 그룹          | **새로 만들기**를 선택한 다음, *myResourceGroupFD1*을 입력합니다. |
-     | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanEastUS*를 입력하고 **확인**을 선택합니다. 
-     |      위치  |   미국 동부        |
-    |||
+웹앱이 아직 없는 경우 다음 단계를 사용하여 웹앱 예제를 설정합니다.
 
-3. **만들기**를 선택합니다.
-4. 웹앱이 배포되면 기본 웹 사이트가 생성됩니다.
-5. 1-3 단계를 반복하여 다른 Azure 지역에 다음 설정으로 두 번째 웹 사이트를 만듭니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
-     | 설정         | 값     |
-     | ---              | ---  |
-     | 이름           | 웹앱의 고유한 이름을 입력합니다.  |
-     | 리소스 그룹          | **새로 만들기**를 선택한 다음, *myResourceGroupFD2*를 입력합니다. |
-     | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanWestEurope*을 입력하고 **확인**을 선택합니다. 
-     |      위치  |   서유럽      |
-    |||
+1. 홈 페이지 또는 Azure 메뉴에서 **리소스 만들기**를 선택합니다.
 
+1. **웹** > **웹앱**을 차례로 선택합니다.
+
+   ![Azure Portal에서 웹앱 만들기](media/quickstart-create-front-door/create-web-app-azure-front-door.png)
+
+1. **웹앱**에서 사용할 **구독**을 선택합니다.
+
+1. **리소스 그룹**에 대해 **새로 만들기**를 선택합니다. **이름**에 대해 *FrontDoorQS_rg1*을 입력하고, **확인**을 선택합니다.
+
+1. **인스턴스 세부 정보** 아래에서 웹앱에 대한 고유한 **이름**을 입력합니다. 이 예에서는 *WebAppContoso-1*을 사용합니다.
+
+1. **런타임 스택**을 선택합니다(이 예에서는 *.NET Core 2.1 (LTS)* ).
+
+1. 지역(예: *미국 중부*)을 선택합니다.
+
+1. **Windows 플랜**에 대해 **새로 만들기**를 선택합니다. **이름**에 대해 *myAppServicePlanCentralUS*를 입력하고, **확인**을 선택합니다.
+
+1. **Sku 및 크기**가 **표준 S1 100 총 ACU, 1.75GB 메모리**인지 확인합니다.
+
+1. **검토 + 만들기**를 선택하고, **요약**을 검토한 다음, **만들기**를 선택합니다. 배포가 완료되는 데 몇 분 정도 걸릴 수 있습니다.
+
+   ![웹앱에 대한 요약 검토](media/quickstart-create-front-door/web-app-summary-azure-front-door.png)
+
+배포가 완료되면 두 번째 웹앱을 만듭니다. 다음 값을 제외하고 동일한 값으로 동일한 절차를 사용합니다.
+
+| 설정          | 값     |
+| ---              | ---  |
+| **리소스 그룹**   | **새로 만들기**를 선택하고, *FrontDoorQS_rg2*를 입력합니다. |
+| **이름**             | 웹앱에 대한 고유 이름을 입력합니다(이 예에서는 *WebAppContoso-2*).  |
+| **지역**           | 다른 지역(이 예에서는 *미국 중남부*) |
+| **App Service 계획** > **Windows 플랜**         | **새로 만들기**를 선택하고, *myAppServicePlanSouthCentralUS*를 입력한 다음, **확인**을 선택합니다. |
 
 ## <a name="create-a-front-door-for-your-application"></a>애플리케이션에 대한 Front Door 만들기
-### <a name="a-add-a-frontend-host-for-front-door"></a>a. Front Door에 대한 프런트 엔드 호스트 추가
-두 개의 백 엔드 간의 가장 낮은 대기 시간에 따라 사용자 트래픽을 전달하는 Front Door 구성을 만듭니다.
 
-1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Front Door** > **만들기**를 선택합니다.
-2. **Front Door 만들기**에서, 기본 정보를 추가하고 Front Door를 구성할 구독을 제공합니다. 다른 Azure 리소스와 마찬가지로, 새로 만드는 경우 ResourceGroup 및 리소스 그룹 영역을 새로 제공해야 합니다. 마지막으로, Front Door의 이름을 제공해야 합니다.
-3. 기본 정보를 입력한 후 정의할 첫 번째 단계는 구성에 대한 **프런트 엔드 호스트**입니다. 결과는 `myappfrontend.azurefd.net`처럼 유효한 도메인 이름이어야 합니다. 이 호스트 이름은 글로벌하게 고유해야 하지만 Front Door가 유효성 검사를 처리할 것입니다. 
+두 웹앱 서버 간의 가장 짧은 대기 시간을 기준으로 사용자 트래픽을 보내도록 Azure Front Door를 구성합니다. 시작하려면 Azure Front Door에 대한 프런트 엔드 호스트를 추가합니다.
 
-### <a name="b-add-application-backend-and-backend-pools"></a>B. 애플리케이션 백 엔드 및 백 엔드 풀 추가
+1. 홈 페이지 또는 Azure 메뉴에서 **리소스 만들기**를 선택합니다. **네트워킹** > **Front Door**를 차례로 선택합니다.
 
-다음으로, 애플리케이션이 어디에 상주하는지 Front Door가 알 수 있도록 백 엔드 풀에 애플리케이션 백 엔드를 구성해야 합니다. 
+1. **Front Door 만들기**에서 **구독**을 선택합니다.
 
-1. '+' 아이콘을 클릭하여 백 엔드 풀을 추가하고 백 엔드 풀의 **이름**을 지정합니다(예: `myBackendPool`).
-2. 다음으로, [백 엔드 추가]를 클릭하고 앞에서 만든 웹 사이트를 추가합니다.
-3. **대상 호스트 유형**을 'App Service'로 선택하고, 웹 사이트를 만든 구독을 선택하고, **대상 호스트 이름**에서 첫 번째 웹사이트, 즉  *myAppServicePlanEastUS.azurewebsites.net*을 선택합니다.
-4. 나머지 필드는 그대로 두고 **추가'** 를 클릭합니다.
-5. 2~4단계를 반복하여 다른 웹 사이트, 즉, *myAppServicePlanWestEurope.azurewebsites.net*을 추가합니다.
-6. 필요에 따라 백 엔드 풀의 상태 프로브 및 부하 분산 설정을 업데이트할 수 있지만, 기본값을 사용해도 정상적으로 작동합니다. **추가**를 클릭합니다.
+1. **리소스 그룹**에 대해 **새로 만들기**를 선택하고, *FrontDoorQS_rg0*을 입력한 다음, **확인**을 선택합니다.  기존 리소스 그룹을 대신 사용할 수 있습니다.
 
+1. 리소스 그룹을 만든 경우 **리소스 그룹 위치**를 선택하고, **다음: 구성**을 선택합니다.
 
-### <a name="c-add-a-routing-rule"></a>C. 라우팅 규칙 추가
-마지막으로, 회람 규칙에서 '+' 아이콘을 클릭하여 회람 규칙을 구성합니다. 이렇게 해야만 프런트 엔드 호스트를 백 엔드 풀에 매핑할 수 있으며, 엄밀하게 말해서 `myappfrontend.azurefd.net`로 요청이 들어오면 백 엔드 풀 `myBackendPool`로 전달하도록 구성하는 것입니다. **추가**를 클릭하여 Front Door에 대한 회람 규칙을 추가합니다. 이제 Front Door를 만들 시간이므로 **검토 및 만들기**를 클릭합니다.
+1. **프런트 엔드/도메인**에서 **+** 를 선택하여 **프런트 호스트 추가**를 엽니다.
 
->[!WARNING]
-> **반드시** Front Door의 각 프런트 엔드 호스트에 기본 경로('/\*')가 연결된 회람 규칙이 있어야 합니다. 즉, 모든 회람 규칙에서 기본 경로('/\*')에 정의된 각 프런트 엔드 호스트의 회람 규칙이 하나 이상 있어야 합니다. 그렇지 않으면 최종 사용자 트래픽이 올바르게 라우팅되지 않을 수 있습니다.
+1. **호스트 이름**에 대해 전역적으로 고유한 호스트 이름을 입력합니다. 이 예에서는 *contoso-frontend*를 사용합니다. **추가**를 선택합니다.
 
-## <a name="view-front-door-in-action"></a>작동 중인 View Front
-View Front를 만든 후 구성이 모든 곳에 글로벌하게 배포될 때까지 몇 분 정도 걸립니다. 배포가 완료되면 앞에서 만든 프런트 엔드 호스트에 액세스합니다. 다시 말해서, 웹 브라우저로 이동하여 `myappfrontend.azurefd.net` URL을 누릅니다. 백 엔드 풀에 지정된 백 엔드에서 가장 가까운 백 엔드로 요청이 자동 라우팅됩니다. 
+   ![Azure Front Door에 대한 프런트 엔드 호스트 추가](media/quickstart-create-front-door/add-frontend-host-azure-front-door.png)
 
-### <a name="view-front-door-handle-application-failover"></a>Front Door 핸들 애플리케이션 장애 조치(failover) 보기
-작동 중인 Front Door의 인스턴트 글로벌 장애 조치(failover)를 테스트하려면 앞에서 만든 웹 사이트 중 하나로 이동하여 웹 사이트를 중지합니다. 백 엔드 풀에 대해 정의된 상태 프로브 설정에 따라, 트래픽을 다른 웹 사이트 배포로 즉시 장애 조치(failover)할 것입니다. Front Door의 백 엔드 풀 구성에서 백 엔드를 사용하지 않도록 설정하여 동작을 테스트할 수도 있습니다. 
+다음으로, 두 개의 웹앱이 포함된 백 엔드 풀을 만듭니다.
+
+1. 여전히 **Front Door 만들기**의 **백 엔드 풀**에서 **+** 를 선택하여 **백 엔드 풀 추가**를 엽니다.
+
+1. **이름**에 대해 *myBackendPool*을 입력합니다.
+
+1. **백 엔드 추가**를 선택합니다. **백 엔드 호스트 유형**에 대해 *App Service*를 선택합니다.
+
+1. 구독을 선택한 다음, **백 엔드 호스트 이름**에서 만든 첫 번째 웹앱을 선택합니다. 이 예에서는 웹앱이 *WebAppContoso-1*이었습니다. **추가**를 선택합니다.
+
+1. **백 엔드 추가**를 다시 선택합니다. **백 엔드 호스트 유형**에 대해 *App Service*를 선택합니다.
+
+1. 구독을 다시 선택하고, **백 엔드 호스트 이름**에서 만든 두 번째 웹앱을 선택합니다. **추가**를 선택합니다.
+
+   ![Front Door에 백 엔드 호스트 추가](media/quickstart-create-front-door/add-backend-host-pool-azure-front-door.png)
+
+마지막으로, 회람 규칙을 추가합니다. 회람 규칙은 프런트 엔드 호스트를 백 엔드 풀에 매핑합니다. 규칙은 `contoso-frontend.azurefd.net`에 대한 요청을 **myBackendPool**에 전달합니다.
+
+1. 여전히 **Front Door 만들기**의 **회람 규칙**에서 **+** 를 선택하여 회람 규칙을 구성합니다.
+
+1. **규칙 추가**에서 **이름**에 대해 *LocationRule*을 입력합니다. 모든 기본값을 적용한 다음, **추가**를 선택하여 회람 규칙을 추가합니다.
+
+   >[!WARNING]
+   > 기본 경로(`\*`)가 연결된 회람 규칙이 Front Door의 각 프런트 엔드 호스트에 **있어야 합니다**. 즉, 모든 회람 규칙에서 하나 이상의 회람 규칙이 기본 경로(`\*`)에 정의된 각 프런트 엔드 호스트에 있어야 합니다. 이렇게 하지 않으면 최종 사용자 트래픽이 올바르게 라우팅되지 않을 수 있습니다.
+
+1. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다.
+
+   ![구성된 Azure Front Door](media/quickstart-create-front-door/configuration-azure-front-door.png)
+
+## <a name="view-azure-front-door-in-action"></a>작동 중인 Azure Front Door 보기
+
+Front Door를 만들면 구성이 전역적으로 배포되는 데 몇 분 정도 걸립니다. 완료되면 생성한 프런트 엔드 호스트에 액세스합니다. 브라우저에서 `contoso-frontend.azurefd.net`으로 이동합니다. 요청이 자동으로 백 엔드 풀에 지정된 서버에서 가장 가까운 서버로 라우팅됩니다.
+
+이 빠른 시작에서 이러한 앱을 만든 경우 정보 페이지가 표시됩니다.
+
+즉각적인 글로벌 장애 조치가 작동 중인지 테스트하려면 다음 단계를 수행합니다.
+
+1. 위에서 설명한 대로 브라우저를 열고, 프런트 엔드 주소(`contoso-frontend.azurefd.net`)로 이동합니다.
+
+1. Azure Portal에서 *앱 서비스*를 검색하여 선택합니다. 아래로 스크롤하여 웹앱 중 하나(이 예에서는 **WebAppContoso-1**)를 찾습니다.
+
+1. 웹앱을 선택한 다음, **중지**, **예**를 차례로 선택하여 확인합니다.
+
+1. 브라우저를 새로 고칩니다. 동일한 정보 페이지가 표시됩니다.
+
+   >[!TIP]
+   >이러한 작업에는 약간의 지연이 있습니다. 다시 새로 고쳐야 할 수도 있습니다.
+
+1. 다른 웹앱도 찾아서 중지합니다.
+
+1. 브라우저를 새로 고칩니다. 이번에는 오류 메시지가 표시됩니다.
+
+   ![웹앱의 두 인스턴스가 모두 중지됨](media/quickstart-create-front-door/web-app-stopped-message.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 리소스 그룹, 웹 애플리케이션 및 모든 관련 리소스를 삭제합니다.
+
+작업을 완료한 후에는 생성한 모든 항목을 제거할 수 있습니다. 리소스 그룹을 삭제하면 해당 콘텐츠도 삭제됩니다. 이 Front Door를 사용하지 않으려면 필요한 요금이 청구되지 않도록 리소스를 제거해야 합니다.
+
+1. Azure Portal에서 **리소스 그룹**을 검색하여 선택하거나 Azure Portal 메뉴에서 **리소스 그룹**을 선택합니다.
+
+1. 필터링하거나 아래로 스크롤하여 리소스 그룹(예: **FrontDoorQS_rg0**)을 찾습니다.
+
+1. 리소스 그룹을 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
+
+   >[!WARNING]
+   >이 작업은 되돌릴 수 없습니다.
+
+1. 확인할 리소스 그룹 이름을 입력한 다음, **삭제**를 선택합니다.
+
+다른 두 그룹에 대해 이 절차를 반복합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 고가용성 및 고성능이 필요한 웹 애플리케이션에 대한 사용자 트래픽을 보낼 수 있도록 Front Door를 만들었습니다. 트래픽 라우팅에 대한 자세한 내용은 Front Door에서 사용하는 [라우팅 방법](front-door-routing-methods.md)을 참조하세요.
+
+사용자 지정 도메인을 Front Door에 추가하는 방법을 알아보려면 다음 문서로 계속 진행하세요.
+> [!div class="nextstepaction"]
+> [사용자 지정 도메인 추가](front-door-custom-domain.md)
+
+트래픽 라우팅에 대해 자세히 알아보려면 [Front Door 라우팅 방법](front-door-routing-methods.md)을 참조하세요.

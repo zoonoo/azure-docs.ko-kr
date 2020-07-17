@@ -1,10 +1,10 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 다중 계층 애플리케이션용 네트워크 만들기 | Microsoft Docs
+title: 다중 계층 애플리케이션을 위한 VNet 만들기 - Azure PowerShell 스크립트 샘플
 description: Azure PowerShell 스크립트 샘플 - 다중 계층 애플리케이션을 위한 가상 네트워크를 만듭니다.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
-ms.openlocfilehash: efd496f2f69f243b958f4e780b9f3455d2ffece3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: 32140429d96d73100c4bd5a2ae274e508a15b7a8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648697"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74091315"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>다중 계층 애플리케이션을 위한 네트워크 만들기 스크립트 샘플
 
@@ -34,7 +34,8 @@ Azure [Cloud Shell](https://shell.azure.com/powershell) 또는 로컬 PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> 서브넷 ID는 가상 네트워크를 만든 후에 특히 -Subnet 옵션이 포함된 New-AzVirtualNetwork cmdlet을 사용하여 할당됩니다. New-AzVirtualNetwork를 호출하기 전에 New-AzVirtualNetworkSubnetConfig cmdlet을 사용하여 서브넷을 구성하는 경우 서브넷 ID는 New-AzVirtualNetwork를 호출할 때까지 표시되지 않습니다.
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
+서브넷 ID는 가상 네트워크를 만든 후 -Subnet 옵션이 포함된 New-AzVirtualNetwork cmdlet을 사용하여 할당됩니다. New-AzVirtualNetwork를 호출하기 전에 New-AzVirtualNetworkSubnetConfig cmdlet을 사용하여 서브넷을 구성하는 경우 서브넷 ID는 New-AzVirtualNetwork를 호출할 때까지 표시되지 않습니다.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 

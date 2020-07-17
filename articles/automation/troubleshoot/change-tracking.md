@@ -1,69 +1,123 @@
 ---
-title: Azure 변경 내용 추적을 사용하여 문제 해결
-description: 이 문서에서는 변경 내용 추적 문제 해결에 대한 정보를 제공합니다.
+title: Azure Automation 변경 내용 추적 및 인벤토리 문제 해결
+description: 이 문서에서는 Azure Automation 변경 내용 추적 및 인벤토리 기능과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: georgewallace
-ms.author: gwallace
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddd41756f0e373e3bf627a88f441512fe0db91b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61085332"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187237"
 ---
-# <a name="troubleshoot-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 문제 해결
+# <a name="troubleshoot-change-tracking-and-inventory-issues"></a>변경 내용 추적 및 인벤토리 문제 해결
+
+이 문서에서는 Azure Automation 변경 내용 추적 및 인벤토리 문제를 해결하는 방법을 설명합니다. 변경 내용 추적 및 인벤토리에 대한 일반 정보는 [변경 내용 추적 및 인벤토리 개요](../change-tracking.md)를 참조하세요.
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>시나리오: 변경 내용 추적 레코드가 Windows 머신에 표시되지 않음
+### <a name="scenario-change-tracking-and-inventory-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>시나리오: 변경 내용 추적 및 인벤토리 레코드가 Windows 머신에 표시되지 않음
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
-변경 내용 추적을 위해 등록된 Windows 머신에 대한 인벤토리 또는 변경 내용 추적 결과가 표시되지 않습니다.
+기능에 대해 사용하도록 설정된 Windows 머신에 대한 변경 내용 추적 및 인벤토리 결과가 표시되지 않습니다.
 
 #### <a name="cause"></a>원인
 
-이 오류는 다음과 같은 원인으로 인해 발생할 수 있습니다.
+이 오류는 다음과 같은 경우에 발생할 수 있습니다.
 
-1. **Microsoft Monitoring Agent**가 실행되고 있지 않습니다.
-2. Automation 계정과의 통신이 차단되었습니다.
-3. 변경 내용 추적용 관리 팩이 다운로드되지 않았습니다.
-4. 온보딩 중인 VM이 현재 설치된 Microsoft Monitoring Agent를 사용하여 sysprep 되지 않은 머신에서 복제된 것일 수 있습니다.
+* Windows용 Azure Log Analytics 에이전트가 실행되고 있지 않습니다.
+* Automation 계정과의 통신이 차단되었습니다.
+* 변경 내용 추적 및 인벤토리 관리 팩이 다운로드되지 않습니다.
+* 활성화되는 VM은 설치된 Windows용 Log Analytics 에이전트를 사용하여 시스템 준비(sysprep)로 준비되지 않은 복제된 머신에서 가져온 것일 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-1. **Microsoft Monitoring Agent**(HealthService.exe)가 머신에서 실행되고 있는지 확인합니다.
-1. 머신에서 **이벤트 뷰어**를 확인하여 단어가 `changetracking`인 이벤트를 검색합니다.
-1. [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 방문하여 변경 내용 추적이 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아봅니다.
-1. 다음 변경 내용 추적 및 인벤토리 관리 팩이 로컬에 있는지 확인합니다.
-    * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
-    * Microsoft.IntelligencePacks.InventoryChangeTracking.*
-    * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-1. 복제된 이미지를 사용하는 경우 이미지에 sysprep을 수행한 후에 Microsoft Monitoring Agent 에이전트를 설치합니다.
-
-이러한 해결 방법으로 문제가 해결되지 않았으며 고객 지원팀에 문의하는 경우 다음 명령을 실행하여 에이전트에 대한 진단을 수집할 수 있습니다.
-
-에이전트 머신에서 `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools`로 이동하여 다음 명령을 실행합니다.
+Log Analytics 에이전트 머신에서 **C:\Program Files\Microsoft Monitoring Agent\Agent\Tools**로 이동하고 다음 명령을 실행합니다.
 
 ```cmd
-set stop healthservice
+net stop healthservice
 StopTracing.cmd
 StartTracing.cmd VER
 net start healthservice
 ```
 
+여전히 도움이 필요한 경우 진단 정보를 수집하고 지원 담당자에게 문의할 수 있습니다.
+
 > [!NOTE]
-> 기본적으로 오류 추적이 사용되며, 이전 예제와 같은 자세한 오류 메시지를 표시하려는 경우 `VER` 매개 변수를 사용합니다. 정보 추적의 경우 `StartTracing.cmd`를 호출할 때 `INF`를 사용합니다.
+> Log Analytics 에이전트는 기본적으로 오류 추적을 사용하도록 설정합니다. 앞의 예제와 같이 자세한 오류 메시지를 사용하려면 `VER` 매개 변수를 사용합니다. 정보 추적의 경우 `StartTracing.cmd`를 호출할 때 `INF`를 사용합니다.
+
+##### <a name="log-analytics-agent-for-windows-not-running"></a>Windows용 Log Analytics 에이전트가 실행되고 있지 않음
+
+Windows용 Log Analytics 에이전트(**HealthService.exe**)가 머신에서 실행되고 있는지 확인합니다.
+
+##### <a name="communication-to-automation-account-blocked"></a>Automation 계정에 대한 통신이 차단됨
+
+머신에서 이벤트 뷰어를 확인하여 단어가 `changetracking`인 이벤트를 검색합니다.
+
+변경 내용 추적 및 인벤토리가 작동하도록 허용해야 하는 주소 및 포트에 대한 자세한 내용은 [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조하세요.
+
+##### <a name="management-packs-not-downloaded"></a>관리 팩이 다운로드되지 않음
+
+다음 변경 내용 추적 및 인벤토리 관리 팩이 로컬로 설치되어 있는지 확인합니다.
+
+* `Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*`
+* `Microsoft.IntelligencePacks.InventoryChangeTracking.*`
+* `Microsoft.IntelligencePacks.SingletonInventoryCollection.*`
+
+##### <a name="vm-from-cloned-machine-that-has-not-been-sysprepped"></a>sysprep되지 않은 복제된 머신의 VM
+
+복제된 이미지를 사용하는 경우 이미지에 sysprep을 수행한 다음, Windows용 Log Analytics 에이전트를 설치합니다.
+
+## <a name="linux"></a>Linux
+
+### <a name="scenario-no-change-tracking-and-inventory-results-on-linux-machines"></a>시나리오: Linux 머신에서 변경 내용 추적 및 인벤토리 결과 없음
+
+#### <a name="issue"></a>문제
+
+기능에 대해 사용하도록 설정된 Linux 머신에 대한 변경 내용 추적 및 인벤토리 결과가 표시되지 않습니다. 
+
+#### <a name="cause"></a>원인
+이 문제와 관련된 가능한 원인은 다음과 같습니다.
+* Linux용 Log Analytics 에이전트가 실행되고 있지 않습니다.
+* Linux용 Log Analytics 에이전트가 올바르게 구성되지 않았습니다.
+* FIM(파일 무결성 모니터링) 충돌이 있습니다.
+
+#### <a name="resolution"></a>해결 방법 
+
+##### <a name="log-analytics-agent-for-linux-not-running"></a>Linux용 Log Analytics 에이전트가 실행되고 있지 않음
+
+Linux용 Log Analytics 에이전트(**omsagent**)의 디먼이 머신에서 실행되고 있는지 확인합니다. Automation 계정에 연결된 Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
+
+```loganalytics Copy
+Heartbeat
+| summarize by Computer, Solutions
+```
+
+쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 에이전트를 다시 설치해야 합니다. 설치 및 구성에 대한 자세한 내용은 [Log Analytics 에이전트를 사용하여 로그 데이터 수집](../../azure-monitor/platform/log-analytics-agent.md)을 참조하세요.
+
+머신이 쿼리 결과에 표시되면 범위 구성을 확인합니다. [Azure Monitor의 모니터링 솔루션 대상 지정](../../azure-monitor/insights/solution-targeting.md)을 참조하세요.
+
+이 문제의 해결 방법에 대한 자세한 내용은 [문제: Linux 데이터가 보이지 않음](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data)을 참조하세요.
+
+##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>Linux용 Log Analytics 에이전트가 올바르게 구성되지 않았습니다.
+
+OMS 로그 수집기 도구를 사용하여 로그 및 명령줄 출력 컬렉션에 대해 Linux용 Log Analytics 에이전트가 올바르게 구성되어 있지 않을 수 있습니다. [변경 내용 추적 및 인벤토리 개요](../change-tracking.md)를 참조하세요.
+
+##### <a name="fim-conflicts"></a>FIM 충돌
+
+Azure Security Center의 FIM 기능이 Linux 파일의 무결성에 대해 잘못된 유효성 검사를 할 수 있습니다. FIM이 작동하고 Linux 파일 모니터링에 대해 올바르게 구성되어 있는지 확인합니다. [변경 내용 추적 및 인벤토리 개요](../change-tracking.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
+여기에 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 통해 추가 지원을 받으세요.
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가로부터 답변을 얻습니다.
-* [@AzureSupport](https://twitter.com/azuresupport)를 사용하여 연결 – Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하여 고객 환경을 개선하는 공식 Microsoft Azure 계정입니다.
-* 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+* 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에게 연결합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 선택합니다.

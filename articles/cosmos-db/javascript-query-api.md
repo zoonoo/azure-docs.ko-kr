@@ -1,23 +1,21 @@
 ---
-title: Azure Cosmos DB에서 JavaScript LINQ(Language-Integrated Query) API 작업
+title: Azure Cosmos DB 저장 프로시저 및 트리거에서 JavaScript 통합 쿼리 API 사용
 description: 이 문서에서는 Azure Cosmos DB에서 저장 프로시저 및 트리거를 만들기 위한 JavaScript LINQ(Language-Integrated Query) API의 개념을 소개합니다.
-author: rockboyfor
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/08/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
+ms.date: 05/07/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 785c430347bc62a00eee80c977f2d6ce440c08db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61043239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82982278"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 JavaScript 쿼리 API
 
-Azure Cosmos DB의 SQL API를 사용하여 쿼리를 발급하는 방식과 더불어 [Cosmos DB 서버 쪽 SDK](https://azure.github.io/azure-cosmosdb-js-server/)를 사용하면 JavaScript 인터페이스를 통해 최적화된 쿼리를 수행할 수 있습니다. 이 JavaScript 인터페이스를 사용하기 위해 SQL 언어를 알 필요는 없습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 함수 호출 시퀀스에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 JavaScript 런타임으로 구문 분석되고 Azure Cosmos DB 인덱스를 사용하여 효율적으로 실행됩니다.
+Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에도 [Cosmos DB 서버 쪽 SDK](https://azure.github.io/azure-cosmosdb-js-server/) 는 Cosmos DB 저장 프로시저 및 트리거에서 최적화 된 쿼리를 수행 하기 위한 JavaScript 인터페이스를 제공 합니다. 이 JavaScript 인터페이스를 사용하기 위해 SQL 언어를 알 필요는 없습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 함수 호출 시퀀스에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 JavaScript 런타임으로 구문 분석되고 Azure Cosmos DB 인덱스를 사용하여 효율적으로 실행됩니다.
 
 ## <a name="supported-javascript-functions"></a>지원되는 JavaScript 함수
 
@@ -34,7 +32,7 @@ Azure Cosmos DB의 SQL API를 사용하여 쿼리를 발급하는 방식과 더�
 
 조건자 및/또는 선택기 함수 안에 포함된 경우 다음과 같은 JavaScript 구문이 Azure Cosmos DB 인덱스에서 직접 실행하도록 자동으로 최적화됩니다.
 
-- 단순 연산자: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
+- 단순 연산자 `=` `+` `-` `*` : `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
 - 개체 리터럴을 포함하는 리터럴: {}
 - var, 반환
 
@@ -52,7 +50,7 @@ Azure Cosmos DB의 SQL API를 사용하여 쿼리를 발급하는 방식과 더�
 > [!NOTE]
 > JavaScript 쿼리 API를 사용하는 경우 `__`(이중 밑줄)은 `getContext().getCollection()`에 대한 별칭입니다.
 
-|**SQL**|**JavaScript Query API**|**설명**|
+|**SQL**|**JavaScript 쿼리 API**|**설명**|
 |---|---|---|
 |SELECT *<br>FROM docs| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;return doc;<br>});|모든 문서(연속 토큰과 함께 페이지가 매겨진)의 결과는 있는 그대로입니다.|
 |SELECT <br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs.message AS msg,<br>&nbsp;&nbsp;&nbsp;docs.actions <br>FROM docs|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|모든 문서에서 id, message(msg로 별칭이 지정됨) 및 action을 프로젝션합니다.|
@@ -70,5 +68,3 @@ Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수
 - [Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 사용하는 방법](how-to-use-stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript 서버 쪽 API 참조](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6(ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
-
-<!-- Update_Description: update meta properties -->

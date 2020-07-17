@@ -1,26 +1,26 @@
 ---
-title: Azure Data Factory의 If 조건 작업 | Microsoft Docs
+title: Azure Data Factory의 If 조건 작업
 description: If 조건 작업을 사용하면 조건에 따라 프로세스 흐름을 제어할 수 있습니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414609"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory의 If 조건 작업
-If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false`로 평가되면 다른 작업 집합을 평가합니다. 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이로 확인 되 면 작업 집합을 실행 하 `true` 고 조건이로 평가 되 면 다른 작업 집합을 실행 `false` 합니다. 
 
 ## <a name="syntax"></a>구문
 
@@ -64,15 +64,15 @@ If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 �
 
 ## <a name="type-properties"></a>형식 속성
 
-자산 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-이름 | if 조건 작업의 이름입니다. | 문자열 | 예
-형식 | **IfCondition**으로 설정해야 함 | 문자열 | 예
+name | if 조건 작업의 이름입니다. | String | 예
+type | **IfCondition**으로 설정해야 함 | String | 예
 식 | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | 예
-ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | 배열 | 예
-ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | 배열 | 예
+ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
+ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 이 샘플의 파이프라인에서는 입력 폴더의 데이터를 출력 폴더로 복사합니다. 출력 폴더는 파이프라인 매개 변수 routeSelection의 값에 의해 결정됩니다. routeSelection의 값이 true이면 데이터가 outputPath1로 복사됩니다. 또한 routeSelection의 값이 false이면 데이터가 outputPath2로 복사됩니다. 
 
 > [!NOTE]
@@ -183,7 +183,7 @@ ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합�
 
 ```json
 "expression":  {
-    "value":  "@pipeline().parameters.routeSelection == 1", 
+    "value":  "@equals(pipeline().parameters.routeSelection,1)", 
     "type": "Expression"
 }
 ```
@@ -197,10 +197,7 @@ ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합�
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

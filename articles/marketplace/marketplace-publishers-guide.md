@@ -1,25 +1,25 @@
 ---
-title: Azure Marketplace 및 AppSource 게시 가이드
-description: 앱 및 서비스 게시자에 대한 Azure Marketplace 및 Microsoft AppSource 개요입니다.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+title: Microsoft 상업용 마켓플레이스 게시 가이드
+description: Microsoft AppSource 및 Azure Marketplace에 제품을 게시하려는 Microsoft 파트너를 위한 상업용 마켓플레이스에 대한 개요입니다.
 ms.service: marketplace
-ms.topic: article
-ms.date: 06/05/2018
-ms.author: ellacroi
-ms.openlocfilehash: a3d75f09ac21fcdb4862cf8eefff0b5c05fd3369
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+author: keferna
+ms.author: keferna
+ms.date: 04/12/2020
+ms.openlocfilehash: 2ce8767092fb1b93f743e8a5b81a9fbfb01468bf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937621"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120826"
 ---
-# <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 및 AppSource 게시 가이드
+# <a name="commercial-marketplace-publishing-guide"></a>상업용 마켓플레이스 게시 가이드
 
-Marketplace 게시 가이드는 신규 및 기존 게시자가 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com) 상점에서 애플리케이션 및 서비스를 나열하여 Microsoft와의 파트너 사업을 성장시키는 방법을 배우도록 도와주기 위해 작성되었습니다.
+이 게시 가이드는 신규 및 기존 게시자가 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com)라는 상업용 마켓플레이스 상점에서 애플리케이션 및 서비스를 나열하여 Microsoft와의 파트너 사업을 성장시키는 방법을 배우도록 도와주기 위해 작성되었습니다.
 
 >[!Note]
->여기서 Marketplace는 Azure Marketplace와 AppSource를 둘 다 나타냅니다.  자세한 내용은 [하나의 마켓플레이스, 두 개의 상점](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)을 참조하세요.
+>여기서 Marketplace는 Azure Marketplace와 AppSource를 둘 다 나타냅니다.  자세한 내용은 [하나의 마켓플레이스, 두 개의 상점](comparing-appsource-azure-marketplace.md)을 참조하세요.
 
 이 가이드는 다음 항목을 설명합니다. 
 *   Marketplace의 정의 및 작동 방식 
@@ -52,7 +52,7 @@ Marketplace에서 솔루션 포트폴리오를 활용하여 새로운 시장, �
 
 Marketplace를 통해 사용할 수 있는 인사이트 및 분석을 통해 품목의 성과에 대한 정보를 얻을 수 있습니다. 캠페인 성능, 주문과 결제에 대한 정보와 솔루션에 대한 캠페인 활동을 극대화하는 방법에 대한 정보를 얻을 수 있습니다.
 
-### <a name="marketplace-go-to-market-benefits"></a>Marketplace Go-To-Market 혜택 
+### <a name="commercial-marketplace-benefits"></a>상업용 마켓플레이스의 이점 
 
 Marketplace의 새 품목은 파트너가 Marketplace에서 사업을 성장시키는 데 도움이 되는 다양한 무료 혜택을 받을 수 있습니다. 이러한 혜택은 다음 범주로 구분됩니다. 
 
@@ -62,9 +62,9 @@ Marketplace의 새 품목은 파트너가 Marketplace에서 사업을 성장시�
 
 *   공동 판매: Marketplace를 통해 Microsoft와 함께 판매를 시작하고 가속화할 수 있습니다. 프로그램 및 지원에 액세스하여 Microsoft 팀과의 공동 판매를 촉진합니다.
 
-일단 Marketplace에 [솔루션을 제출](https://azuremarketplace.microsoft.com/sell/signup)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.
+일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  자세한 내용은 [파트너 센터 계정을 만드는 방법](partner-center-portal/create-account.md)을 참조하세요.
 
-Microsoft Go-to-Market 혜택 및 Marketplace에서 비즈니스를 확장하는 방법에 대한 자세한 내용은 [Microsoft Go-To-Market 서비스](https://partner.microsoft.com/reach-customers/gtm)를 참조하세요.
+[상업용 마켓플레이스의 이점](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

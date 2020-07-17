@@ -10,35 +10,34 @@ ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 4db99f23019b34e7361e3ead4096939b9499320d
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 43dc0020f64a80e10f179fd194c4878f2fec41ad
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518099"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243208"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
 
-위임 기존 웹 사이트를 사용 하 여 개발자 로그인을 처리 하기 위한 / 등록 및 개발자 포털의 기본 제공 기능을 사용 하는 대신 제품에 구독을 허용 합니다. 따라서 웹 사이트에서 사용자 데이터를 소유하고 이러한 단계에 대한 유효성 검사를 편리한 방식으로 수행할 수 있습니다.
+위임을 사용하면 개발자 포털에서 기본 제공 기능을 사용하는 대신,기존 웹 사이트를 사용하여 개발자 로그인/가입 및 제품 구독을 처리할 수 있습니다. 이렇게 하면 웹 사이트에서 사용자 데이터를 소유하고 이러한 단계의 유효성 검사를 사용자 지정 방식으로 수행 할 수 있습니다.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"> </a>로그인 및 등록 위임 개발자
+## <a name="delegating-developer-sign-in-and-sign-up"></a><a name="delegate-signin-up"> </a>개발자 로그인 및 가입 위임
 
-개발자 로그인을 위임 하 고 기존 웹 사이트에 등록 하려면 사이트에 특수 한 위임 끝점을 만드는 데 해야 합니다. API Management 개발자 포털에서 시작 된 이러한 요청에 대 한 진입점으로 작동 해야 합니다.
+개발자를 위임하고 기존 웹 사이트에 로그인하여 가입하려면 사이트에서 특별한 위임 엔드포인트를 만들어야 합니다. 이는 API Management 개발자 포털에서 시작된 이러한 요청에 대한 진입점으로 작동해야 합니다.
 
 최종 워크플로는 다음과 같습니다.
 
-1. 로그인에 대 한 개발자 클릭 또는 링크 API Management 개발자 포털에 등록
+1. 개발자가 API Management 개발자 포털에서 로그인 또는 가입 링크를 클릭합니다.
 2. 브라우저가 위임 엔드포인트로 리디렉션됩니다.
-3. 위임 끝점에 리디렉션되거나 로그인 또는 등록에 사용자를 요청 하는 UI를 제공 합니다.
+3. 반환된 위임 엔드포인트가 사용자에게 로그인 또는 가입을 요청하는 UI로 리디렉션되거나 이를 제공합니다.
 4. 성공하면 사용자가 처음 시작했던 API Management 개발자 포털 페이지로 다시 리디렉션됩니다.
 
-먼저, 위임 엔드포인트를 통해 요청을 라우팅하도록 API Management를 설정하겠습니다. API Management 게시자 포털에서 **보안**을 클릭하고 **위임** 탭을 클릭합니다. '위임 로그인 및 등록'을 사용 하도록 설정 하려면이 확인란을 클릭 합니다.
+먼저, 위임 엔드포인트를 통해 요청을 라우팅하도록 API Management를 설정하겠습니다. Azure Portal의 API Management 리소스에서 **보안**을 검색한 다음, **위임** 항목을 클릭합니다. '로그인 및 가입 위임' 확인란을 클릭하여 사용하도록 설정합니다.
 
 ![위임 페이지][api-management-delegation-signin-up]
 
@@ -49,33 +48,33 @@ ms.locfileid: "65518099"
 
 1. 다음 형식의 요청을 받습니다.
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn & returnUrl = {원본 페이지의 URL} & 솔트 = {문자열} & sig = {문자열}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
    > 
    > 
    
-    쿼리 매개 변수를 로그인/등록 사례:
+    로그인/가입 사례에 대한 쿼리 매개 변수는 다음과 같습니다.
    
    * **operation**: 위임 요청의 유형을 식별합니다. 이 경우 **SignIn**만 가능합니다.
-   * **returnUrl**: 사용자 로그인 정보를 클릭 하거나 등록 링크를 페이지의 URL
+   * **returnUrl**: 사용자가 로그인 또는 가입 링크를 클릭한 페이지의 URL입니다.
    * **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
    * **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 2. 요청이 Azure API Management에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
    
-   * **returnUrl** 및 **salt** 쿼리 매개 변수([아래 제공된 예제 코드])에 따라 문자열의 HMAC-SHA512 해시를 계산합니다.
+   * **returnUrl** 및 **salt** 쿼리 매개 변수([아래 제공된 예제 코드])에 따라 문자열의 HMAC-SHA512 해시를 컴퓨팅합니다.
      
      > HMAC(**salt** + '\n' + **returnUrl**)
      > 
      > 
    * 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
-3. 로그인에 대 한 요청을 받고 / 등록 하는 확인: 합니다 **작업** 쿼리 매개 변수 설정 "**SignIn**" 합니다.
-4. 로그인 또는 등록 하는 UI를 사용 하 여 사용자를 표시 합니다.
-5. 사용자가 등록하고 있는 경우 API Management에서 사용자의 해당 계정을 만들어야 합니다. API Management REST API를 사용하여 [사용자를 만듭니다]. 이 작업을 수행 하는 경우 또는 수를 추적할 수 있는 사용자 저장소의 값과 동일한 사용자 ID를 설정 하는 확인 합니다.
+3. 로그인/가입 요청을 받고 있는지 확인합니다. **operation** 쿼리 매개 변수가 "**SignIn**"으로 설정됩니다.
+4. 사용자에게 로그인 또는 가입을 위한 UI를 제공합니다.
+5. 사용자가 등록하고 있는 경우 API Management에서 사용자의 해당 계정을 만들어야 합니다. API Management REST API를 사용하여 [사용자를 만듭니다]. 이 작업을 수행하는 경우 사용자 ID를 사용자 저장소에 있는 것과 동일한 값 또는 추적할 수 있는 사용자 ID로 설정해야 합니다.
 6. 사용자가 인증되면
    
    * API Management REST API를 통해 [SSO(Single-Sign-On) 토큰을 요청]합니다.
    * returnUrl 쿼리 매개 변수를 위의 API 호출에서 받은 SSO URL에 추가합니다.
      
-     > 예: https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > 예: `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * 사용자를 위에서 생성한 URL로 리디렉션합니다.
@@ -89,24 +88,24 @@ ms.locfileid: "65518099"
 계정 관리 작업에 대한 다음 쿼리 매개 변수를 전달해야 합니다.
 
 * **operation**: 위임 요청의 유형을 식별합니다(ChangePassword, ChangeProfile 또는 CloseAccount).
-* **userId**: 관리할 계정의 사용자 ID
+* **userId**: 관리할 계정의 사용자 ID입니다.
 * **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
 * **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
-## <a name="delegate-product-subscription"> </a>제품 구독 위임
-제품 구독 위임는 사용자 로그인/접속을 위임 하는 유사 하 게 작동 합니다. 최종 워크플로는 다음과 같습니다.
+## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>제품 구독 위임
+제품 구독 위임은 사용자 로그인/가입 위임과 비슷하게 작동합니다. 최종 워크플로는 다음과 같습니다.
 
-1. 개발자는 API Management 개발자 포털에서 제품을 선택 하 고 구독 단추를 클릭 합니다.
-2. 브라우저가 위임 끝점으로 리디렉션됩니다.
-3. 위임 끝점 필요한 제품 구독 단계를 수행합니다. 가 단계를 디자인할 수 있습니다. 추가 질문 요청 또는 정보를 저장 하 고 사용자 개입 없이 대금 청구 정보를 요청 하려면 다른 페이지로 리디렉션 포함 될 수 있습니다.
+1. 개발자가 API Management 개발자 포털에서 제품을 선택하고 [구독] 단추를 클릭합니다.
+2. 브라우저가 위임 엔드포인트로 리디렉션됩니다.
+3. 위임 엔드포인트는 필요한 제품 구독 단계를 수행합니다. 사용자가 단계를 설계해야 합니다. 청구 정보를 요청하거나, 추가 질문을 요청하거나, 단순히 정보를 저장하고 사용자 작업을 요구하지 않도록 다른 페이지로 리디렉션하는 것이 포함될 수 있습니다.
 
 이 기능을 사용하려면 **위임** 페이지에서 **제품 구독 위임**을 클릭합니다.
 
-그런 다음 위임 끝점은 다음 작업을 확인 합니다.
+다음으로, 위임 엔드포인트에서 다음 작업을 수행하는지 확인합니다.
 
 1. 다음 형식의 요청을 받습니다.
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation= {operation} & productId = {구독할 제품} & userId = {요청 하는 사용자} & 솔트 = {문자열} & sig = {문자열}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
    >
    
     제품 구독 케이스에 대한 쿼리 매개 변수:
@@ -116,28 +115,28 @@ ms.locfileid: "65518099"
      * "Unsubscribe": 제품에 대한 사용자 구독을 취소하는 요청입니다.
      * "Renew": 구독을 갱신하는 요청입니다(예: 만료일이 다가오는 경우).
    * **productId**: 사용자가 구독을 요청한 제품의 ID입니다.
-   * **subscriptionId**: 온 *Unsubscribe* 하 고 *갱신* -제품 구독 ID
-   * **userId**: 요청에 대 한 사용자의 ID
+   * **subscriptionId**: *구독 취소* 및 *갱신*에서 - 제품 구독의 ID입니다.
+   * **userId**: 요청을 만든 사용자의 ID입니다.
    * **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
    * **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
 2. 요청이 Azure API Management에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
    
-   * 기반으로 하는 문자열의 HMAC-SHA512를 계산 합니다 **productId**를 **userId**, 및 **솔트** 쿼리 매개 변수:
+   * **productId**, **userId** 및 **salt** 쿼리 매개 변수를 기반으로 하는 문자열의 HMAC-SHA512를 계산합니다.
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
-3. 제품 구독에서 요청 된 작업의 유형에 따라 처리 **작업** -예를 들어, 대금 청구, 추가 질문 등입니다.
-4. 사용자 쪽에서 제품 구독을 구독 하 여 API Management 제품에 대 한 사용자 [구독에 대 한 REST API를 호출합니다.]합니다.
+3. **operation**에서 요청한 작업의 유형(예: 청구, 추가 질문 등)에 따라 제품 구독을 처리합니다.
+4. 사용자의 제품 구독이 성공적으로 완료되면 [구독에 대한 REST API 호출]하여 사용자가 API Management 제품도 구독하도록 처리합니다.
 
-## <a name="delegate-example-code"> </a> 예제 코드
+## <a name="example-code"></a><a name="delegate-example-code"> </a> 예제 코드
 
-샘플 표시 방식을 코드 다음에:
+이러한 코드 샘플에서는 다음을 수행하는 방법을 보여 줍니다.
 
-* 사용 된 *위임 유효성 검사 키*, 게시자 포털의 위임 화면에 설정 된
-* HMAC를 다음에 사용 되는 서명의 유효성을 검사할 전달된 된 returnUrl의 유효성을 증명을 만듭니다.
+* 게시자 포털의 [위임] 화면에서 설정된 *위임 유효성 검사 키*를 가져옵니다.
+* HMAC를 만든 다음, 이를 통해 서명의 유효성을 검사하여 전달된 returnUrl의 유효성을 증명합니다.
 
 약간만 수정하면 동일한 코드를 productId 및 userId에도 사용할 수 있습니다.
 
@@ -175,6 +174,9 @@ var digest = hmac.update(salt + '\n' + returnUrl).digest();
 var signature = digest.toString('base64');
 ```
 
+> [!IMPORTANT]
+> 위임 변경 내용을 적용하려면 [개발자 포털을 다시 게시](api-management-howto-developer-portal-customize.md#publish)해야 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 위임에 대한 자세한 내용은 다음 비디오를 참조하세요.
 
@@ -184,10 +186,10 @@ var signature = digest.toString('base64');
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[SSO(Single-Sign-On) 토큰을 요청]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[사용자를 만듭니다]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[구독에 대 한 REST API를 호출합니다.]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
+[SSO(Single-Sign-On) 토큰을 요청]: /rest/api/apimanagement/2019-12-01/user/generatessourl
+[사용자를 만듭니다]: /rest/api/apimanagement/2019-12-01/user/createorupdate
+[구독에 대한 REST API 호출]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps
 [아래 제공된 예제 코드]: #delegate-example-code
 
-[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
+[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png

@@ -1,0 +1,241 @@
+### YamlMime:Hub
+title: Azure 보안 설명서
+summary: 보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로벌 보안 인텔리전스, 정교한 고객 관련 컨트롤 및 강화된 보안 인프라로 인한 고유한 보안 장점을 제공합니다. 이 강력한 조합을 통해 애플리케이션 및 데이터를 보호하고 규정 준수 활동을 지원하며, 모든 규모의 조직에 비용 효율적인 보안을 제공합니다.
+brand: azure
+metadata:
+  title: Azure 보안 설명서
+  description: 보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로벌 보안 인텔리전스, 정교한 고객 관련 컨트롤 및 강화된 보안 인프라로 인한 고유한 보안 장점을 제공합니다. 이 강력한 조합을 통해 애플리케이션 및 데이터를 보호하고 규정 준수 활동을 지원하며, 모든 규모의 조직에 비용 효율적인 보안을 제공합니다.
+  services: security
+  ms.service: security
+  ms.subservice: na
+  ms.topic: hub-page
+  ms.collection: na
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 08/29/2019
+  ms.openlocfilehash: b3c5fb0dd15c1211132e627b507aa20a043f09ba
+  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/10/2020
+  ms.locfileid: "81115357"
+highlightedContent:
+  items:
+  - title: Azure 보안 소개
+    itemType: overview
+    url: ./fundamentals/overview.md
+  - title: 보안 모범 사례 및 패턴
+    itemType: concept
+    url: ./fundamentals/best-practices-and-patterns.md
+  - title: Azure Security Center란?
+    itemType: overview
+    url: ../security-center/security-center-intro.md
+conceptualContent:
+  items:
+  - title: 기본 사항
+    links:
+    - url: ./fundamentals/technical-capabilities.md
+      itemType: overview
+      text: Azure 보안 기술 기능
+    - url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
+      itemType: concept
+      text: 클라우드 컴퓨팅에 대한 공유 책임
+    - url: ./fundamentals/security-controls.md
+      itemType: concept
+      text: Azure 서비스에 대한 보안 제어
+    footerLink:
+      url: ./fundamentals/index.yml
+      text: 자세히 보기
+  - title: 개발자
+    links:
+    - url: ./develop/secure-dev-overview.md
+      itemType: overview
+      text: 보안 개발 모범 사례
+    - url: ./develop/secure-web-app.md
+      itemType: tutorial
+      text: 보안 웹앱 개발
+    - url: ./develop/threat-modeling-tool.md
+      itemType: concept
+      text: Microsoft 위협 모델링 도구
+    footerLink:
+      url: ./develop/index.yml
+      text: 자세히 보기
+  - title: 벤치마크 및 권장 사항
+    links:
+    - url: ./benchmarks/introduction.md
+      itemType: download
+      text: Azure 클라우드 보안 벤치 마크
+    - url: ../security-center/security-center-using-recommendations.md
+      itemType: overview
+      text: Azure Security Center 권장 사항
+    footerLink:
+      url: ./benchmarks/index.yml
+      text: 자세히 보기
+  - title: 비밀 및 키
+    links:
+    - url: ../key-vault/key-vault-overview.md
+      itemType: overview
+      text: Azure Key Vault란?
+    - url: ../key-vault/quick-create-cli.md
+      itemType: quickstart
+      text: 비밀 설정 및 검색
+    - url: ../dedicated-hsm/overview.md
+      itemType: overview
+      text: Azure 전용 HSM이란?
+    footerLink:
+      url: /azure/key-vault/
+      text: 자세히 보기
+  - title: 데이터 보호
+    links:
+    - url: ./fundamentals/encryption-atrest.md
+      itemType: concept
+      text: 미사용 데이터 암호화
+    - url: ./fundamentals/data-encryption-best-practices.md
+      itemType: concept
+      text: 데이터 보안 및 암호화 모범 사례
+    - url: ../storage/blobs/security-recommendations.md
+      itemType: concept
+      text: 스토리지 보안
+    footerLink:
+      url: ./fundamentals/encryption-overview.md
+      text: 자세히 보기
+  - title: ID 관리
+    links:
+    - url: ./fundamentals/choose-ad-authn.md
+      itemType: concept
+      text: 적합한 인증 방법 선택
+    - url: ./fundamentals/steps-secure-identity.md
+      itemType: concept
+      text: ID 인프라 보호
+    - url: ./fundamentals/identity-management-best-practices.md
+      itemType: concept
+      text: 보안 모범 사례
+    footerLink:
+      url: ./fundamentals/identity-management-overview.md
+      text: 자세히 보기
+  - title: 보안 모니터링
+    links:
+    - url: ../security-center/security-center-get-started.md
+      itemType: quickstart
+      text: Security Center에 구독 온보딩
+    - url: ../security-center/security-center-just-in-time.md
+      itemType: how-to-guide
+      text: Just-In-Time 가상 머신 액세스
+    - url: ../security-center/tutorial-security-policy.md
+      itemType: how-to-guide
+      text: 보안 정책 작업
+    footerLink:
+      url: /azure/security-center/
+      text: 자세히 보기
+  - title: IoT 보안 모니터링
+    links:
+    - url: ../asc-for-iot/overview.md
+      itemType: overview
+      text: IoT용 Azure Security Center 소개
+    - url: ../asc-for-iot/architecture.md
+      itemType: how-to-guide
+      text: IoT용 Azure Security Center 아키텍처
+    - url: ../asc-for-iot/getting-started.md
+      itemType: how-to-guide
+      text: IoT용 Azure Security Center 시작
+    footerLink:
+      url: /azure/asc-for-iot/
+      text: 자세히 보기
+  - title: 보안 분석
+    links:
+    - url: ../sentinel/overview.md
+      itemType: overview
+      text: Azure Sentinel 미리 보기란?
+    - url: ../sentinel/quickstart-onboard.md
+      itemType: quickstart
+      text: Azure Sentinel 미리 보기 온보딩
+    - url: ../sentinel/quickstart-get-visibility.md
+      itemType: quickstart
+      text: Azure Sentinel 미리 보기 시작
+    footerLink:
+      url: /azure/sentinel/
+      text: 자세히 보기
+  - title: 위협 보호
+    links:
+    - url: ../security-center/security-center-alerts-overview.md
+      itemType: concept
+      text: Azure Security Center의 보안 경고
+    - url: ../storage/common/storage-advanced-threat-protection.md
+      itemType: concept
+      text: Advanced Threat Protection for Azure Storage
+    - url: ../sql-database/sql-database-threat-detection-overview.md
+      itemType: concept
+      text: Azure SQL Database의 Advanced Threat Protection
+    footerLink:
+      url: ./fundamentals/threat-detection.md
+      text: 자세히 보기
+  - title: 로깅 및 감사
+    links:
+    - url: ./fundamentals/log-audit.md
+      itemType: concept
+      text: Azure 로깅 및 감사
+    - url: ./fundamentals/management-monitoring-overview.md
+      itemType: overview
+      text: 관리 및 모니터링 개요
+    footerLink:
+      url: https://docs.microsoft.com/search/?search=security+audit+log&scope=azure&category=Documentation
+      text: 추가 항목 검색
+  - title: 네트워크 보안
+    links:
+    - url: ./fundamentals/network-overview.md
+      itemType: overview
+      text: 보안 개요
+    - url: ./fundamentals/network-best-practices.md
+      itemType: concept
+      text: 보안 모범 사례
+    - url: ./fundamentals/ddos-best-practices.md
+      itemType: concept
+      text: DDoS Protection
+  - title: 인프라 보안
+    links:
+    - url: ./fundamentals/physical-security.md
+      itemType: concept
+      text: Azure 시설, 구역 및 물리적 보안
+    - url: ./fundamentals/infrastructure-network.md
+      itemType: concept
+      text: 네트워크 아키텍처
+    - url: ./fundamentals/protection-customer-data.md
+      itemType: concept
+      text: 고객 데이터 보호
+    footerLink:
+      url: ./fundamentals/infrastructure.md
+      text: 자세히 보기
+  - title: 가상 머신 보안
+    links:
+    - url: ./fundamentals/virtual-machines-overview.md
+      itemType: overview
+      text: 보안 개요
+    - url: ./fundamentals/iaas.md
+      itemType: concept
+      text: IaaS 워크로드에 대한 모범 사례
+    - url: ./fundamentals/azure-marketplace-images.md
+      itemType: concept
+      text: 보안 구성 권장 사항
+  - title: 데이터베이스 보안
+    links:
+    - url: ./fundamentals/encryption-overview.md#encryption-of-data-at-rest-with-azure-sql-database
+      itemType: overview
+      text: 데이터 보안
+    - url: ./fundamentals/paas-applications-using-sql.md
+      itemType: concept
+      text: PaaS 데이터베이스에 대한 모범 사례
+    - url: ./fundamentals/database-security-checklist.md
+      itemType: concept
+      text: 보안 검사 목록
+  - title: 거버넌스 및 규정 준수
+    links:
+    - url: ../governance/policy/overview.md
+      itemType: overview
+      text: Azure Policy 서비스
+    - url: ../governance/blueprints/overview.md
+      itemType: overview
+      text: Azure Blueprints 서비스
+    footerLink:
+      url: /azure/governance/
+      text: 자세히 보기

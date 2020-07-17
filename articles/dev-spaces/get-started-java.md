@@ -1,23 +1,21 @@
 ---
-title: Java 및 VS Code를 사용하여 클라우드에서 Kubernetes 개발 환경 만들기
-titleSuffix: Azure Dev Spaces
+title: 'Kubernetes 개발 공간 만들기: Visual Studio Code 및 Java'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
-manager: mmontwil
-ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Java 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
+manager: gwallace
+ms.openlocfilehash: c71471d1a89188a065bafef2c5b6372aeff35851
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426310"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240532"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-java"></a>Azure Dev Spaces에서 Java를 사용하여 시작
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 Java
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 
@@ -34,7 +32,7 @@ Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 
 ### <a name="sign-in-to-azure-cli"></a>Azure CLI에 로그인
 Azure에 로그인합니다. 터미널 창에 다음 명령을 입력합니다.
 
-```cmd
+```azurecli
 az login
 ```
 
@@ -44,27 +42,28 @@ az login
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>여러 Azure 구독이 있는 경우...
 다음을 실행하여 구독을 볼 수 있습니다. 
 
-```cmd
-az account list
+```azurecli
+az account list --output table
 ```
-JSON 출력에서 `isDefault: true`이 포함된 구독을 찾습니다.
+
+*IsDefault*에 대해 *True*가 있는 구독을 찾습니다.
 사용하려는 구독이 없으면 기본 구독을 변경할 수 있습니다.
 
-```cmd
+```azurecli
 az account set --subscription <subscription ID>
 ```
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
-명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)에 리소스 그룹을 만듭니다.
+명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역][supported-regions]에 리소스 그룹을 만듭니다.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location <region>
 ```
 
 다음 명령을 사용하여 Kubernetes 클러스터를 만듭니다.
 
-```cmd
+```azurecli
 az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
@@ -74,7 +73,7 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-key
 
 AKS 클러스터를 포함하는 리소스 그룹을 사용하여 다음 Azure CLI 명령 및 AKS 클러스터 이름을 입력합니다. 명령은 Azure Dev Spaces에 대한 지원을 통해 클러스터를 구성합니다.
 
-   ```cmd
+   ```azurecli
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
 
@@ -94,7 +93,7 @@ Azure Dev Spaces를 사용하여 Java 애플리케이션을 디버그하려면 V
 이 섹션에서는 Java 웹 애플리케이션을 만들어 Kubernetes의 컨테이너에서 실행합니다.
 
 ### <a name="create-a-java-web-app"></a>Java 웹앱 만들기
-https://github.com/Azure/dev-spaces로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**을 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/java/getting-started/webfrontend`에 있습니다.
+[https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces)로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**를 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/java/getting-started/webfrontend`에 있습니다.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Docker 및 Kubernetes 개발을 위한 코드 준비
 지금까지 로컬로 실행할 수 있는 기본 웹앱이 있었습니다. 이제 앱의 컨테이너 및 Kubernetes에 배포되는 방법을 정의하는 자산을 만들어 컨테이너화합니다. 이 작업은 Azure Dev Spaces를 사용하여 쉽게 할 수 있습니다. 
@@ -104,12 +103,15 @@ https://github.com/Azure/dev-spaces로 이동하여 GitHub에서 코드를 다�
 1. 이 명령을 실행합니다(**webfrontend**가 현재 폴더인지 확인).
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 Azure CLI의 `azds prep` 명령은 기본 설정으로 Docker 및 Kubernetes 자산을 생성합니다.
 * `./Dockerfile`은 앱의 컨테이너 이미지 및 원본 코드가 빌드되는 방법을 설명하고 컨테이너 내에서 실행됩니다.
 * `./charts/webfrontend` 아래의 [Helm 차트](https://docs.helm.sh)는 Kubernetes에 컨테이너를 배포하는 방법을 설명합니다.
+
+> [!TIP]
+> 프로젝트의 [Dockerfile 및 Helm 차트](how-dev-spaces-works-prep.md#prepare-your-code)는 Azure Dev Spaces에서 코드를 빌드하고 실행하는 데 사용되지만 프로젝트를 빌드하고 실행하는 방법을 변경하려면 이러한 파일을 수정할 수 있습니다.
 
 지금은 이러한 파일의 전체 컨텐츠를 이해할 필요가 없습니다. 언급할 가치가 있지만 **코드 자산으로 동일한 Kubernetes 및 Docker 구성을 개발에서 프로덕션까지 사용할 수 있으므로 서로 다른 환경에서 더 나은 일관성을 제공합니다.**
  
@@ -137,18 +139,27 @@ azds up
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-브라우저 창에서 이 URL을 열고 웹앱 로드를 확인합니다. 컨테이너가 실행될 때 `stdout` 및 `stderr` 출력이 터미널 창으로 스트리밍됩니다.
+`up` 명령의 출력에서 서비스의 공용 URL을 식별합니다. `.azds.io`로 끝납니다. 위의 예제에서 공용 URL은 `http://webfrontend.1234567890abcdef1234.eus.azds.io/`입니다.
+
+웹앱을 보려면 브라우저에서 공용 URL을 엽니다. 또한 웹앱을 조작할 때 `stdout` 및 `stderr` 출력이 *azds trace* 터미널 창으로 스트리밍됩니다. HTTP 요청이 시스템을 통과할 때 추적 정보도 표시됩니다. 이를 통해 개발하는 동안 복잡한 다중 서비스 호출을 보다 쉽게 추적할 수 있습니다. Dev Spaces에서 추가된 계측은 이 요청 추적을 제공합니다.
 
 > [!Note]
-> 첫 번째 실행 시 공용 DNS를 준비하는 데 몇 분 정도 걸릴 수 있습니다. 공용 URL이 확인되지 않으면 콘솔 출력에 표시되는 `http://localhost:<portnumber>` URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 AKS에서 실행되고 있습니다. 편의상 로컬 컴퓨터에서 서비스와 쉽게 상호 작용할 수 있도록 Azure Dev Spaces는 Azure에서 실행되는 컨테이너에 대한 임시 SSH 터널을 만듭니다. DNS 레코드 준비되면 돌아와서 나중에 공용 URL을 시도해볼 수 있습니다.
-> ### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
-> Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아니라, 클라우드의 Kubernetes 환경에서 코드 변경 내용을 신속하고 반복적으로 확인할 수 있게 해주는 것입니다.
+> 공용 URL 외에도 콘솔 출력에 표시되는 `http://localhost:<portnumber>` URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 AKS에서 실행되고 있습니다. Azure Dev Spaces는 Kubernetes *포트 전달* 기능을 사용하여 localhost 포트를 AKS에서 실행 중인 컨테이너에 매핑합니다. 로컬 컴퓨터에서 서비스 조작이 용이해집니다.
+
+### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
+Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아니라, 클라우드의 Kubernetes 환경에서 코드 변경 내용을 신속하고 반복적으로 확인할 수 있게 해주는 것입니다.
 
 1. 터미널 창에서 `Ctrl+C`(`azds up` 중지)를 누릅니다.
-1. `src/main/java/com/ms/sample/webfrontend/Application.java`라는 코드 파일을 열고 인사말 메시지를 편집합니다. `return "Hello from webfrontend in Azure!";`
+1. `src/main/java/com/ms/sample/webfrontend/Application.java`를 열고 [줄 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19)에서 인사말 메시지를 편집합니다.
+
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
 1. 파일을 저장합니다.
 1. 터미널 창에서 `azds up`를 실행합니다.
 
@@ -181,7 +192,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> 명령 팔레트에 Azure Dev Spaces 명령이 보이지 않으면 Azure Dev Spaces용 VS Code 확장 프로그램을 설치했는지 확인합니다. VS Code에서 연 작업 영역이 azds.yaml을 포함하는 폴더인지 확인합니다.
+> 명령 팔레트에 Azure Dev Spaces 명령이 보이지 않으면 Azure Dev Spaces용 VS Code 확장 프로그램을 설치했는지 확인합니다. VS Code에서 연 작업 영역이 `azds.yaml`을 포함하는 폴더인지 확인합니다.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Kubernetes에서 컨테이너 디버깅
 **F5** 키를 눌러 Kubernetes에서 코드를 디버깅하세요.
@@ -189,7 +200,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 `up` 명령과 마찬가지로 코드가 개발 환경에 동기화되고 컨테이너가 빌드되어 Kubernetes에 배포됩니다. 물론 이번에는 디버거가 원격 컨테이너에 연결됩니다.
 
 > [!Tip]
-> VS Code 상태 표시줄에 클릭 가능한 URL이 표시됩니다.
+> VS Code 상태 표시줄이 주황색으로 바뀌면 디버거가 연결되었음을 나타냅니다. 클릭 가능한 URL이 표시되며 이를 사용하여 애플리케이션을 열 수 있습니다.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -207,9 +218,9 @@ public String greeting()
 }
 ```
 
-파일을 저장하고, **디버그 작업 창**에서 **새로 고침** 단추를 클릭합니다.
+파일을 저장하고, **디버그 작업 창**에서 **다시 시작** 단추를 클릭합니다.
 
-![](media/get-started-java/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 코드 편집이 완료될 때마다 상당한 시간이 소요되는 새 컨테이너 이미지 다시 빌드 및 다시 배포 작업을 수행하는 대신 Azure Dev Spaces는 기존 컨테이너 내에서 코드를 점진적으로 다시 컴파일하여 더 빠른 편집/디버그 루프를 제공합니다.
 
@@ -221,3 +232,6 @@ public String greeting()
 
 > [!div class="nextstepaction"]
 > [다중 서비스 개발에 대해 알아보기](multi-service-java.md)
+
+
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

@@ -4,29 +4,20 @@ ms.service: api-management
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
-ms.openlocfilehash: 3a46462f761e7608ae7554604577a1e9d7f88b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 52c2768605fa50f82029511b50bfd313fe325026
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60558061"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "73471965"
 ---
 ## <a name="go-to-your-api-management-instance"></a>API Management 인스턴스로 이동
 
-![API Management 인스턴스로 이동](./media/api-management-navigate-to-instance/00-FindResource-01.png)
+1. Azure Portal에서 **API Management Services**를 검색하여 선택합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+   ![API Management Services 선택](media/api-management-navigate-to-instance/view-apim1.png)
 
-2. **모든 서비스**를 선택합니다.  
+1. **API Management** 화면에서 API Management 인스턴스를 선택합니다.
 
-3. 검색 상자에 `api management`를 입력합니다.
-
-4. 검색 결과에서 **API Management 서비스**를 선택합니다.
-
-5. API Management 서비스 인스턴스를 선택합니다.
-
-> [!TIP]
-> Azure Portal에서 API Management를 즐겨찾기에 추가하려면 별표를 선택합니다.
->
-> API Management 아이콘(![API Management 아이콘](./media/api-management-navigate-to-instance/apim-icon.png))이 이제 포털의 왼쪽 메뉴에 나타납니다.
+   ![API Management 인스턴스 선택](media/api-management-navigate-to-instance/view-apim2.png)
 

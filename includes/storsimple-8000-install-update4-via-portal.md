@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a3ccf76b2722c04a9353fcc7020ff1387bc454c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60860493"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182406"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Azure 포털에서 업데이트를 설치하려면
 
@@ -17,7 +17,7 @@ ms.locfileid: "60860493"
 
     ![디바이스 선택](./media/storsimple-8000-install-update4-via-portal/update1.png)
 
-2. **디바이스 설정** > **디바이스 업데이트**로 이동합니다.
+2. **장치 설정**  >  **장치 업데이트**로 이동 합니다.
 
     ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update4-via-portal/update2.png)
 

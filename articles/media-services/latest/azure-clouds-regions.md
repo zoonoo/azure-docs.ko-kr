@@ -1,22 +1,22 @@
 ---
-title: Azure Media Services v3를 사용할 수 있는 클라우드 및 지역 | Microsoft Docs
+title: Azure Media Services v3를 사용할 수 있는 클라우드 및 지역
 description: 이 문서에서는 Azure Media Services v3를 사용할 수 있는 Azure 클라우드 및 지역에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/07/2019
-ms.author: juliako
-ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.date: 5/28/2020
+ms.author: inhenkel
+ms.custom: references_regions
+ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409276"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196250"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Azure Media Services v3가 있는 클라우드 및 지역
 
@@ -33,15 +33,28 @@ Azure Media Services v3는 전 세계 Azure, Azure Government, Azure Germany, Az
 | [LiveEvents](live-streaming-overview.md) | 사용 가능 | 사용 가능 | 사용 가능 | 사용 가능 |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | 사용 가능 | 사용 가능 | 사용 가능 | 사용 가능 |
 
+## <a name="feature-availability-in-preview"></a>Preview의 기능 가용성
+
+[LiveTranscription](live-transcription.md) 은 다음 지역에서 제공 됩니다.
+
+- 동남아시아
+- 서유럽
+- 북유럽
+- 미국 동부
+- 미국 중부
+- 미국 중남부
+- 미국 서부 2
+- 브라질 남부
+
 ## <a name="regionsgeographieslocations"></a>Azure 지역/지리적 위치/위치
 
-[Azure Media Services 서비스가 배포 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+[Azure Media Services 서비스가 배포 된 지역](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
-### <a name="region-code-name"></a>Azure 지역 코드 이름 
+### <a name="region-code-name"></a>Azure 지역 코드 이름
 
 **location** 매개 변수를 제공해야 하는 경우 지역 코드 이름을 **location** 값으로 제공해야 합니다. 계정이 속해 있고 호출을 라우팅해야 하는 Azure 지역의 코드 이름을 가져오려면 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)에서 다음 줄을 실행합니다.
 
-```bash
+```azurecli-interactive
 az account list-locations
 ```
 
@@ -66,37 +79,37 @@ az account list-locations
 
 ### <a name="global-azure"></a>글로벌 Azure
 
-|엔드포인트 ||
-| --- | --- | 
-| Azure 리소스 관리자 |  `https://management.azure.com/` |
-| 인증 | `https://login.microsoftonline.com/` | 
+|엔드포인트||
+| --- | --- |
+| Azure Resource Manager |  `https://management.azure.com/` |
+| 인증 | `https://login.microsoftonline.com/` |
 | 토큰 대상 그룹 | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
 |엔드포인트||
-| --- | --- | 
-| Azure 리소스 관리자 |  `https://management.usgovcloudapi.net/` |
-| 인증 | `https://login.microsoftonline.us/` | 
+| --- | --- |
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| 인증 | `https://login.microsoftonline.us/` |
 | 토큰 대상 그룹 | `https://management.core.usgovcloudapi.net/` |
 
-### <a name="azure-germany"></a>Azure Germany
+### <a name="azure-germany"></a>Azure 독일
 
 | 엔드포인트 ||
 | --- | --- |  
-| Azure 리소스 관리자 | `https://management.cloudapi.de/` |
+| Azure Resource Manager | `https://management.cloudapi.de/` |
 | 인증 | `https://login.microsoftonline.de/` |
 | 토큰 대상 그룹 | `https://management.core.cloudapi.de/`|
 
-### <a name="azure-china-21vianet"></a>Azure China 21Vianet
+### <a name="azure-china-21vianet"></a>Azure 중국 21Vianet
 
 |엔드포인트||
-| --- | --- | 
-| Azure 리소스 관리자 | `https://management.chinacloudapi.cn/` |
+| --- | --- |
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | 인증 | `https://login.chinacloudapi.cn/` |
 | 토큰 대상 그룹 |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)

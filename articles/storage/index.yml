@@ -1,143 +1,149 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Hub
 title: Azure Storage 설명서
+summary: Azure Storage에는 개체, 파일, 디스크, 큐 및 테이블 스토리지가 포함되어 있습니다. 하이브리드 스토리지 솔루션에 대한 서비스와 데이터를 전송, 공유, 백업하는 서비스도 제공됩니다.
+brand: azure
 metadata:
-  title: 'Azure Storage 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: 'Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 스토리지를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage에는 Azure Blob, Azure Data Lake Storage Gen2, Azure File, Azure Queue 및 Azure Table이 포함됩니다.'
-  services: storage
-  author: tamram
-  manager: twooley
+  title: Azure Storage 설명서
+  description: Azure Storage 설명서 허브 페이지입니다. 클라우드 및 하이브리드 스토리지 솔루션에 대한 서비스와 데이터를 전송, 공유, 백업하는 서비스의 설명서를 안내합니다.
   ms.service: storage
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 06/27/2018
-  ms.author: tamram
-abstract:
-  description: 'Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 클라우드 스토리지를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage에는 Azure Blob(개체), Azure Data Lake Storage Gen2, Azure File, Azure Queue 및 Azure Table이 포함됩니다. 빠른 시작 및 자습서를 통해 애플리케이션에서 Azure Storage를 활용하는 방법을 알아보세요.'
-sections:
-  - title: 5분 빠른 시작
+  ms.topic: hub-page
+  author: twooley
+  ms.author: twooley
+  ms.date: 05/01/2020
+  ms.openlocfilehash: f4428556c33bc476b21932034fa43b020f9e779d
+  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/03/2020
+  ms.locfileid: "82735031"
+highlightedContent:
+  items:
+  - title: 주요 스토리지 서비스 소개
+    itemType: concept
+    url: /azure/storage/common/storage-introduction?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - title: 스토리지 계정 유형에 대한 자세한 정보
+    itemType: concept
+    url: /azure/storage/common/storage-account-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - title: 스토리지 계정 만들기
+    itemType: how-to-guide
+    url: /azure/storage/common/storage-account-create?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - title: 영역 중복에 대한 자세한 정보
+    itemType: concept
+    url: /azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - title: Azure로 데이터 전송
+    itemType: concept
+    url: /azure/storage/common/storage-choose-data-transfer-solution?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+additionalContent:
+  sections:
+  - title: 클라우드 스토리지 솔루션
     items:
-      - type: paragraph
-        text: 이러한 빠른 시작을 탐색하여 Azure Storage를 사용하는 방법을 알아봅니다.
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/portal.svg
-              text: 포털
-          - image:
-              src: media/index/logo_powershell.svg
-              text: PowerShell
-          - image:
-              src: media/index/cli.svg
-              text: Azure CLI
-          - image:
-              src: media/index/logo_net.svg
-          - image:
-              src: media/index/logo_java.svg
-          - image:
-              src: media/index/logo_python.svg
-          - image:
-              src: media/index/logo_nodejs.svg
-        rows:
-          - title: 저장소 계정 만들기
-            values:
-              - href: /azure/storage/common/storage-quickstart-create-account?tabs=portal
-              - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell
-              - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-cli
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-          - title: Blob 빠른 시작
-            values:
-              - href: /azure/storage/blobs/storage-quickstart-blobs-portal
-              - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
-              - href: /azure/storage/blobs/storage-quickstart-blobs-cli
-              - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
-              - href: /azure/storage/blobs/storage-quickstart-blobs-java
-              - href: /azure/storage/blobs/storage-quickstart-blobs-python
-              - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
-          - title: Data Lake Storage Gen2
-            values:
-              - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
-              - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
-              - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-  - title: 단계별 자습서
+    - title: 앱의 개체 스토리지
+      links:
+      - url: /azure/storage/blobs/storage-blobs-introduction
+        text: 비정형 데이터용 스토리지(Blob 스토리지)에 대한 자세한 정보
+      - url: /rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
+        text: 블록, 추가 및 페이지 Blob 이해
+      - url: /azure/storage/blobs/
+        text: 자세히 보기 >
+    - title: 빅 데이터 분석용 스토리지
+      links:
+      - url: /azure/storage/blobs/data-lake-storage-introduction
+        text: 엔터프라이즈 데이터 레이크용 스토리지에 대한 자세한 정보
+      - url: /azure/storage/blobs/data-lake-storage-data-scenarios
+        text: 빅 데이터를 처리하는 옵션 및 도구 이해
+    - title: 클라우드 호스팅 파일 공유
+      links:
+      - url: /azure/storage/files/storage-files-introduction
+        text: 주요 Azure Storage 플랫폼에서 제공하는 파일 공유(Azure Files) 사용
+      - url: /azure/azure-netapp-files/azure-netapp-files-introduction
+        text: NetApp ONTAP에서 제공하는 볼륨(Azure NetApp Files) 사용
+    - title: IaaS 워크로드용 디스크 스토리지
+      links:
+      - url: /azure/virtual-machines/windows/managed-disks-overview
+        text: Azure VM용 블록 수준 스토리지 볼륨에 대한 자세한 정보
+      - url: /azure/virtual-machines/windows/disks-types
+        text: 사용 가능한 디스크 유형 이해
+      - url: /azure/virtual-machines/windows/attach-managed-disk-portal
+        text: VM에 새 디스크 추가 - Windows
+      - url: /azure/virtual-machines/linux/attach-disk-portal
+        text: VM에 데이터 디스크 연결 - Linux
+    - title: 비동기 메시지 큐용 스토리지
+      links:
+      - url: /azure/storage/queues/storage-queues-introduction
+        text: 큐용 Azure Storage 솔루션(Queue storage)에 대한 자세한 정보
+      - url: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
+        text: Queue storage와 Service Bus 큐 비교
+      - url: /azure/storage/queues/
+        text: 자세히 보기 >
+    - title: 정형 NoSQL 데이터용 스토리지
+      links:
+      - url: /azure/storage/tables/table-storage-overview
+        text: 클라우드에 정형 NoSQL 데이터 저장(Table Storage 및 Cosmos DB)
+      - url: /azure/cosmos-db/table-support
+        text: Table Storage와 Cosmos DB Table API 비교
+      - url: /azure/storage/tables/
+        text: 자세히 보기 >
+  - title: 하이브리드 스토리지 솔루션
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Blob
-            html: <p>클라우드에서 이미지 데이터 업로드 및 처리</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">클라우드에서 이미지 데이터 업로드 및 검색</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Blob을 처리하는 Azure Functions 트리거</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">애플리케이션 데이터 보호</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">저장소 모니터링 및 문제 해결</a></li></ul><p>고가용성을 위해 애플리케이션 디자인</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">고가용성 애플리케이션 데이터 만들기</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">읽기 액세스 중복 저장소 액세스 오류 시뮬레이션</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Azure Storage에서 구조화되지 않은 데이터 검색</a></p>
-          - title: Data Lake Storage Gen2
-            html: '<p><a href="/azure/storage/blobs/data-lake-storage-handle-data-using-databricks">Azure Databricks를 사용하여 데이터 추출, 변환 및 로드</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">Spark를 사용하여 DataBricks로 Azure Data Lake Storage Gen2에 액세스</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드</a></p>'
-  - title: 샘플
+    - title: 온-프레미스 파일 공유를 클라우드로 확장
+      links:
+      - url: /azure/storage/files/storage-sync-files-planning
+        text: Azure 파일 공유를 Windows 파일 서버(Azure FileSync)와 동기화
+      - url: /azure/storage/files/storage-sync-files-deployment-guide
+        text: Azure 파일 동기화 배포
+      - url: /azure/storage/files/
+        text: 자세히 보기 >
+    - title: 온라인 데이터 전송(온-프레미스에서 Azure로)
+      links:
+      - url: /azure/databox-online/data-box-gateway-overview
+        text: Azure로 원활하게 데이터 전송(Data Box Gateway)
+      - url: /azure/databox-online/data-box-edge-overview
+        text: Azure로 전송하기 전에 로컬로 데이터 처리(Azure Stack Edge)
+      - url: /azure/databox-online/
+        text: 자세히 보기 >
+    - title: HPC(고성능 컴퓨팅) 워크로드용으로 캐싱
+      links:
+      - url: /azure/hpc-cache/hpc-cache-overview
+        text: 완전 관리형 파일 캐싱 서비스(Azure HPC Cache) 사용
+      - url: /azure/avere-vfxt/avere-vfxt-overview
+        text: Azure에서 온-프레미스 NAS 캐시(Avere vFXT for Azure)
+      - url: /azure/fxt-edge-filer/fxt-overview
+        text: 온-프레미스 캐싱 어플라이언스(Azure FXT Edge Filer) 배포
+  - title: 데이터 작업
     items:
-      - type: paragraph
-        text: 일반 관리 작업에 대한 스크립트를 찾습니다.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '.NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blob</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">파일</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">큐</a>'
-          - html: 'Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blob</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">파일</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">큐</a>'
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
-  - title: Microsoft Learn을 통해 기술 쌓기
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure에서 데이터 소개
-            href: /learn/modules/intro-to-data-in-azure/
-            image:
-              src: /learn/achievements/intro-to-data-in-azure.svg
-              href: //learn/modules/intro-to-data-in-azure/
-          - title: "\_Azure에서 데이터 저장소 접근 방법 선택"
-            href: /learn/modules/choose-storage-approach-in-azure/
-            image:
-              src: /learn/achievements/choose-storage-approach-in-azure.svg
-              href: /learn/modules/choose-storage-approach-in-azure/
-          - title: Azure 저장소 계정 만들기
-            href: /learn/modules/create-azure-storage-account/
-            image:
-              src: /learn/achievements/create-azure-storage-account.svg
-              href: /learn/modules/create-azure-storage-account/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-storage">더 많은 대화형 학습 보기...</a>
-  - title: 무료 Pluralsight 동영상 교육
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure에서 .NET으로 개발
-            href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
-          - title: Azure에서 Node.js로 개발
-            href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Azure CLI</a></p>
-          - title: Languages
-            html: '<p><a href="/dotnet/api/overview/azure/storage/client">.NET</a></p><p><a href="/java/api/overview/azure/storage/client?view=azure-java-stable">Java</a></p><p><a href="/javascript/api/overview/azure/storage?view=azure-node-latest">Node.JS</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="https://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="https://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="https://azure.github.io/azure-storage-android">Android</a></p>'
-          - title: REST (영문)
-            html: '<p><a href="/rest/api/storageservices">Blob, 큐, 테이블 및 파일 API</a></p><p><a href="/rest/api/storagerp">저장소 리소스 공급자 API</a></p><p><a href="/rest/api/storageimportexport">Import/Export 서비스 API</a></p>'
+    - title: Azure로 오프라인 대량 전송
+      links:
+      - url: /azure/databox/data-box-disk-overview
+        text: 40TB 미만의 데이터 전송(Data Box Disk)
+      - url: /azure/databox/data-box-overview
+        text: 40-500TB의 데이터 전송(Data Box)
+      - url: /azure/databox/data-box-heavy-overview
+        text: 500TB를 초과하는 데이터 전송(Data Box Heavy)
+      - url: /azure/databox/
+        text: 자세히 보기 >
+    - title: 작은 데이터 세트 전송(온라인)
+      links:
+      - url: /azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        text: AzCopy 명령줄 도구 사용
+      - url: /azure/storage/blobs/storage-quickstart-blobs-storage-explorer
+        text: Azure Storage Explorer GUI 기반 도구 사용
+    - title: 비용 제어
+      links:
+      - url: /azure/storage/blobs/storage-blob-storage-tiers
+        text: 비용 효율적인 방식의 계층 BLOB 데이터(핫, 쿨, 보관)
+    - title: 데이터 공유
+      links:
+      - url: /azure/data-share/
+        text: 고객 및 파트너와 데이터 공유(Azure Data Share)
+      - url: /azure/data-share/supported-data-stores
+        text: 공유를 지원하는 데이터 스토리지
+      - url: /azure/data-share/
+        text: 자세히 보기 >
+    - title: 데이터 백업
+      links:
+      - url: /azure/backup/quick-backup-vm-portal
+        text: VM 백업(Azure Backup)
+      - url: /azure/backup/tutorial-backup-azure-files
+        text: Azure 파일 공유 백업
+      - url: /azure/backup/
+        text: 자세히 보기 >

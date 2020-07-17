@@ -1,31 +1,29 @@
 ---
 title: Azure Analysis Services의 서버 관리자 관리 | Microsoft Docs
-description: Azure에서 Analysis Services 서버 관리자를 관리하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Portal, PowerShell 또는 REST Api를 사용 하 여 Azure Analysis Services 서버에 대 한 서버 관리자를 관리 하는 방법을 설명 합니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 25eb111871bbe3b18f59b0d6c123c72f3e55c859
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9edc43f9b2b62a3d9da9d6fba5ab52318e8b6427
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498715"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077510"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
 
-서버 관리자는 서버가 상주하는 테넌트의 Azure AD(Azure Active Directory)에서 유효한 사용자 또는 보안 그룹이어야 합니다. Azure Portal 또는 SSMS의 [서버 속성], PowerShell 또는 REST API에서 서버에 대한 **Analysis Services 관리자**를 사용하여 서버 관리자를 관리할 수 있습니다. 
+서버 관리자는 서버가 상주 하는 테 넌 트에 대 한 유효한 사용자, 서비스 주체 또는 보안 Azure Active Directory 그룹 (Azure AD) 이어야 합니다. Azure Portal 또는 SSMS의 [서버 속성], PowerShell 또는 REST API에서 서버에 대한 **Analysis Services 관리자**를 사용하여 서버 관리자를 관리할 수 있습니다. 
 
-> [!NOTE]
-> 보안 그룹에는 `True`로 설정된 `MailEnabled` 속성이 있어야 합니다.
+**보안 그룹**을 추가할 때를 사용 `obj:groupid@tenantid` 합니다. 서비스 사용자는 서버 관리자 역할에 추가 된 보안 그룹에서 지원 되지 않습니다.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Azure Portal을 사용하여 서버 관리자를 추가하려면
 
 1. 포털에서 서버에 대해 **Analysis Services 관리자**를 클릭합니다.
-2. **\<서버 이름> - Analysis Services 관리자**에서 **추가**를 클릭합니다.
+2. ** \<servername> Analysis Services 관리자**에서 **추가**를 클릭 합니다.
 3. **서버 관리자 추가**에서 Azure AD의 사용자 계정을 선택하거나 이메일 주소를 통해 외부 사용자를 초대합니다.
 
     ![Azure Portal의 서버 관리자](./media/analysis-services-server-admins/aas-manage-users-admins.png)
@@ -42,8 +40,8 @@ ms.locfileid: "60498715"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-사용 하 여 [새로 만들기-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet을 새 서버를 만들 때 관리자 매개 변수를 지정 합니다. <br>
-사용 하 여 [집합 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet는 기존 서버에 대 한 관리자 매개 변수를 수정 합니다.
+새 서버를 만들 때 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet을 사용 하 여 관리자 매개 변수를 지정 합니다. <br>
+[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet을 사용 하 여 기존 서버에 대 한 관리자 매개 변수를 수정 합니다.
 
 ## <a name="rest-api"></a>REST API
 

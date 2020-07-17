@@ -1,45 +1,34 @@
 ---
-title: 이 빠른 시작에서는 Java를 사용하여 Azure Device Provisioning Service에 X.509 디바이스를 등록하는 방법을 보여줍니다. | Microsoft Docs
-description: 이 빠른 시작에서는 두 그룹과 개별 등록을 사용합니다. 이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 디바이스를 등록합니다.
+title: Java를 사용하여 Azure Device Provisioning Service에 X.509 디바이스 등록
+description: 이 빠른 시작에서는 두 그룹과 개별 등록을 사용합니다. 이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub DPS(Device Provisioning Service)에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/20/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3eec6628ca7dbc16e0cc01701620f1699ba8d368
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 594e6092483e86f579ae980e56f42c1a4bad7cbd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412774"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044637"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>빠른 시작: Java를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 시뮬레이션된 디바이스 그룹을 프로그래밍 방식으로 등록하는 방법을 보여줍니다. 디바이스는 [등록 그룹](concepts-service.md#enrollment-group) 또는 [개별 등록](concepts-service.md#individual-enrollment)을 만들어 프로비전 서비스 인스턴스에 등록됩니다. 이 빠른 시작에는 두 가지 유형의 등록을 만드는 방법을 보여줍니다. 등록은 샘플 Java 애플리케이션의 도움으로 [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 생성됩니다. 
+이 빠른 시작에서는 Java를 사용하여 X.509 시뮬레이션된 디바이스 그룹을 Azure IoT Hub Device Provisioning Service에 프로그래밍 방식으로 등록합니다. 디바이스는 등록 그룹 또는 개별 등록을 만들어 프로비저닝 서비스 인스턴스에 등록됩니다. 이 빠른 시작에서는 Java 서비스 SDK와 Java 애플리케이션 샘플을 사용하여 두 가지 유형의 등록을 만드는 방법을 보여 줍니다.
 
-이 빠른 시작에서는 IoT 허브 및 Device Provisioning Service 인스턴스를 이미 만들었다고 예상합니다. 이러한 리소스를 아직 만들지 않은 경우 이 문서를 계속하기 전에 [Azure Portal을 사용하여 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)을 완료합니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="prerequisites"></a>필수 조건
-
-* [Java SE Development Kit 8](https://aka.ms/azure-jdks)을 설치합니다.
-* [Maven 3](https://maven.apache.org/download.cgi)을 설치합니다. 다음을 실행하여 현재 Maven 버전을 확인할 수 있습니다.
-
-    ```cmd/sh
-    mvn --version
-    ```
-
-* [Git](https://git-scm.com/download/)를 설치합니다.
-
+- [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 완료
+- 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
+- [Maven 3](https://maven.apache.org/download.cgi)
+- [Git](https://git-scm.com/download/)
 
 <a id="javasample"></a>
 
@@ -52,7 +41,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
 
 다음 단계에서는 X.509 디바이스에 대한 프로비전 세부 정보를 샘플 코드에 추가하는 방법을 보여줍니다. 
 
-1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 디바이스 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
+1. 명령 프롬프트를 엽니다. [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 디바이스 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -77,37 +66,37 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
         1. 명령 창에서 **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_** 폴더로 이동합니다.
         2. 다음 명령을 실행하여 도구를 빌드합니다.
 
-                ```cmd\sh
-                mvn clean install
-                ```
+            ```cmd\sh
+            mvn clean install
+            ```
 
         4. 다음 명령을 사용하여 도구를 실행합니다.
 
-                ```cmd\sh
-                cd target
-                java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-                ```
+            ```cmd\sh
+            cd target
+            java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+            ```
 
         5. 메시지가 표시되면 필요에 따라 인증서에 대해 _일반 이름_을 입력할 수 있습니다.
-        6. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 개인 키** 및 **루트 인증서**를 로컬로 생성합니다.
+        6. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 프라이빗 키** 및 **루트 인증서**를 로컬로 생성합니다.
         7. **_-----BEGIN CERTIFICATE-----_** 및 **_-----END CERTIFICATE-----_** 줄을 포함하여 **루트 인증서**를 복사합니다. 
         8. 아래와 같이 **PUBLIC_KEY_CERTIFICATE_STRING** 매개 변수에 **루트 인증서**의 값을 할당합니다.
 
-                ```Java
-                private static final String PUBLIC_KEY_CERTIFICATE_STRING =
-                        "-----BEGIN CERTIFICATE-----\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "-----END CERTIFICATE-----\n";
-                ```
+            ```Java
+            private static final String PUBLIC_KEY_CERTIFICATE_STRING =
+            "-----BEGIN CERTIFICATE-----\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "-----END CERTIFICATE-----\n";
+            ```
 
         9. 명령 창을 닫거나 *확인 코드*에 대한 메시지가 표시되면 **n**을 입력합니다. 
  
@@ -142,6 +131,13 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
 
 ## <a name="build-and-run-sample-group-enrollment"></a>샘플 그룹 등록 빌드 및 실행
 
+Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을 지원합니다.
+
+- [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 디바이스를 등록하는 데 사용됩니다.
+- [개별 등록](concepts-service.md#individual-enrollment): 단일 디바이스를 등록하는 데 사용됩니다.
+
+이 절차에서는 등록 그룹을 사용하지만, 다음 섹션에서는 개별 등록을 사용합니다.
+
 1. 명령 창을 열고 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 폴더로 이동합니다.
 
 2. 다음 명령을 사용하여 샘플 코드를 빌드합니다.
@@ -150,7 +146,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
     mvn install -DskipTests
     ```
 
-   이 명령은 [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) Maven 패키지를 컴퓨터에 다운로드합니다. 이 패키지에는 샘플 코드에서 빌드해야 하는 Java 서비스 SDK에 대한 이진 파일이 포함되어 있습니다. 이전 섹션에서 _X.509 인증서 생성기_ 도구를 실행한 경우 이 패키지는 이미 컴퓨터에 다운로드되어 있습니다. 
+   이 명령은 [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) Maven 패키지를 컴퓨터에 다운로드합니다. 이 패키지에는 샘플 코드에서 빌드해야 하는 Java 서비스 SDK에 대한 이진 파일이 포함되어 있습니다. 이전 섹션에서 _X.509 인증서 생성기_ 도구를 실행한 경우 이 패키지는 이미 컴퓨터에 다운로드되어 있습니다. 
 
 3. 명령 창에서 다음 명령을 사용하여 샘플을 실행합니다.
 
@@ -161,7 +157,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
 
 4. 성공적으로 등록되었는지 출력 창을 확인합니다.
 
-5. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. **등록 그룹** 탭 아래에 자동 생성된 *그룹 이름*이 있는 X.509 장치 그룹이 표시됩니다. 
+5. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. **등록 그룹** 탭 아래에 자동 생성된 *그룹 이름*이 있는 X.509 디바이스 그룹이 표시됩니다. 
 
     ![포털에서 성공적인 X.509 등록 확인](./media/quick-enroll-device-x509-java/verify-x509-enrollment.png)  
 
@@ -207,10 +203,10 @@ Java 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리소�
 
 1. 컴퓨터에서 Java 샘플 출력 창을 닫습니다.
 1. 컴퓨터에서 _X509 인증서 생성기_ 창을 닫습니다.
-1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 클릭한 다음, **등록 그룹** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 X.509 디바이스에 대한 *그룹 이름*을 선택하고, 블레이드 위쪽의 **삭제** 단추를 클릭합니다.  
+1. Azure Portal에서 Device Provisioning Service로 이동하여 **등록 관리**를 선택한 다음, **등록 그룹** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 X.509 디바이스의 *그룹 이름* 옆에 있는 확인란을 선택하고 창 위쪽의 **삭제** 단추를 누릅니다.  
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 시뮬레이션된 X.509 디바이스 그룹을 Device Provisioning Service에 등록했습니다. 디바이스 프로비저닝에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 
+이 빠른 시작에서는 시뮬레이션된 X.509 디바이스 그룹을 Device Provisioning Service에 등록했습니다. 디바이스 프로비전에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning 서비스 자습서](./tutorial-set-up-cloud.md)
+> [Azure IoT Hub Device Provisioning Service 자습서](./tutorial-set-up-cloud.md)

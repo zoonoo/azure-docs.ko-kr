@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 18519c64e1bba82e60cc431cb5f634a30ad68e92
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: f1e201b5f86311aeaeca4d077140f4dc429a0357
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565617"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67104210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>자습서: Direct와 Azure Active Directory 통합
 
@@ -31,10 +31,10 @@ Direct를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 direct에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Direct와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -57,7 +57,7 @@ Direct의 Azure AD 통합을 구성하려면 갤러리의 Direct를 관리되는
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -107,7 +107,7 @@ direct에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     **식별자** 텍스트 상자에 URL을 입력합니다. `https://direct4b.com/`
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![이미지](common/both-preintegrated-signon.png)
 
@@ -151,7 +151,7 @@ direct에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
   
     b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -191,11 +191,11 @@ direct에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 1. **IDP 시작 모드**에서 테스트하려는 경우:
 
-    액세스 패널에서 **Direct** 타일을 클릭하면 **Direct** 응용 프로그램에 자동으로 로그온됩니다.
+    액세스 패널에서 **Direct** 타일을 클릭하면 **Direct** 애플리케이션에 자동으로 로그온됩니다.
 
 2. **SP 시작 모드**에서 테스트하려는 경우:
 
-    a. 액세스 패널에서 **Direct** 타일을 클릭하면 응용 프로그램 로그온 페이지로 리디렉션됩니다.
+    a. 액세스 패널에서 **Direct** 타일을 클릭하면 애플리케이션 로그온 페이지로 리디렉션됩니다.
 
     b. 표시되는 텍스트 상자에 `subdomain`을 입력하고 ‘다음’을 누르면 **Direct** 애플리케이션에 자동으로 로그온됩니다.
 

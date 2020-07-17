@@ -1,27 +1,23 @@
 ---
-title: 내부 리디렉션으로 애플리케이션 게이트웨이 만들기 - Azure CLI | Microsoft Docs
+title: CLI를 사용 하는 내부 리디렉션
+titleSuffix: Azure Application Gateway
 description: Azure CLI를 사용하여 내부 웹 트래픽을 해당 풀로 리디렉션하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: how-to
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d889d0c13c911e02d73bb1de76b7c3d1aa240027
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806810"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure CLI를 사용하여 [애플리케이션 게이트웨이](overview.md)를 만들 때 [웹 트래픽 리디렉션](multiple-site-overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 정의합니다. 그런 다음, 웹 트래픽이 적절한 풀에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인 및 사용 예가 소유한 *www\.contoso.com* 하 고 *www\.contoso.org*합니다.
+Azure CLI를 사용하여 [애플리케이션 게이트웨이](overview.md)를 만들 때 [웹 트래픽 리디렉션](multiple-site-overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 정의합니다. 그런 다음, 웹 트래픽이 적절한 풀에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www\.contoso.com* 및 *www\.contoso.org*의 예제를 사용한다고 가정합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -101,7 +97,7 @@ az network application-gateway create \
 
 ## <a name="add-listeners-and-rules"></a>수신기 및 규칙 추가 
 
-애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 수신기의 도메인에 대해 만들어집니다 *www\.contoso.com* 하 고 *www\.contoso.org*합니다.
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www\.contoso.com* 및 *www\.contoso.org*의 도메인에 대해 수신기가 생성됩니다.
 
 [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create)를 사용하여 트래픽을 라우팅하는 데 필요한 백 엔드 수신기를 추가합니다.
 
@@ -124,7 +120,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>리디렉션 구성 추가
 
-트래픽을 전송 하는 리디렉션 구성을 추가 *www\.consoto.org* 의 수신기로 *www\.contoso.com* 를사용하여applicationgateway에[az 네트워크 응용 프로그램 게이트웨이에 리디렉션 구성을 만드는](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create)합니다.
+[Az network application-게이트웨이 리디렉션-구성 만들기](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create)를 사용 하 여 *www \. consoto.org* 에서 application gateway의 *www \. contoso.com* 수신기로 트래픽을 보내는 리디렉션 구성을 추가 합니다.
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -213,15 +209,15 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http:\//www.contoso.com.
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-예를 들어 다른 도메인에 주소를 변경 http://www.contoso.org 는 트래픽이 www의 수신기로 다시 리디렉션 되었다고는 표시 및\.contoso.com입니다.
+주소를 다른 도메인으로 변경 합니다 (예: http: \/ /www.contoso.org). 트래픽이 www contoso.com의 수신기로 다시 리디렉션되는 것을 볼 수 있습니다 \. .
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
 
 > * 네트워크 설정
 > * 애플리케이션 게이트웨이 만들기

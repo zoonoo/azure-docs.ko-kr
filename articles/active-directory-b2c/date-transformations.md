@@ -1,27 +1,27 @@
 ---
-title: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 날짜 클레임 변환 예제 | Microsoft Docs
-description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 날짜 클레임 변환의 예제를 제공합니다.
+title: 사용자 지정 정책에 대 한 날짜 클레임 변환 예제
+description: Azure Active Directory B2C의 IEF (Identity Experience Framework) 스키마에 대 한 날짜 클레임 변환 예입니다.
 services: active-directory-b2c
-author: davidmu1
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+ms.date: 02/16/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 22484adcc709c1d2726d8086ac75300f189bcc41
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710431"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202554"
 ---
 # <a name="date-claims-transformations"></a>날짜 클레임 변환
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure AD(Active Directory) B2C에서 ID 경험 프레임워크 스키마의 날짜 클레임 변환을 사용하는 예제를 제공합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 Id 경험 프레임 워크 스키마의 날짜 클레임 변환을 사용 하는 예제를 제공 합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
@@ -29,19 +29,19 @@ ms.locfileid: "64710431"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | 문자열 | 첫 번째 클레임의 유형이며, 두 번째 클레임보다 나중에 나와야 합니다. |
-| inputClaim | rightOperand | 문자열 | 두 번째 클레임의 유형이며, 첫 번째 클레임보다 먼저 나와야 합니다. |
-| InputParameter | AssertIfEqualTo | 부울 | 왼쪽 피연산자가 오른쪽 피연산자와 같으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
-| InputParameter | AssertIfRightOperandIsNotPresent | 부울 | 오른쪽 피연산자가 없으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
+| InputClaim | leftOperand | string | 첫 번째 클레임의 유형이며, 두 번째 클레임보다 나중에 나와야 합니다. |
+| InputClaim | rightOperand | string | 두 번째 클레임의 유형이며, 첫 번째 클레임보다 먼저 나와야 합니다. |
+| InputParameter | AssertIfEqualTo | boolean | 왼쪽 피연산자가 오른쪽 피연산자와 같으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
+| InputParameter | AssertIfRightOperandIsNotPresent | boolean | 오른쪽 피연산자가 없으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | 두 날짜 /시간 사이의 시간을 동일하게 간주하도록 허용할 시간(밀리초)을 지정합니다(예: 클럭 스큐). |
 
-**AssertDateTimeIsGreaterThan** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. 자체 어설션된 **DateTimeGreaterThan** 기술 프로필 메타데이터는 기술 프로필에서 사용자에게 제공하는 오류 메시지를 제어합니다.
+**AssertDateTimeIsGreaterThan** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. 자체 어설션된 **DateTimeGreaterThan** 기술 프로필 메타데이터는 기술 프로필에서 사용자에게 제공하는 오류 메시지를 제어합니다. 오류 메시지는 [지역화](localization-string-ids.md#claims-transformations-error-messages)될 수 있습니다.
 
 ![AssertStringClaimsAreEqual execution](./media/date-transformations/assert-execution.png)
 
 다음 예제에서는 `currentDateTime` 클레임과 `approvedDateTime` 클레임을 비교합니다. `currentDateTime`이 `approvedDateTime`보다 큰 경우 오류가 throw됩니다. 차이가 5분(30,000밀리초) 이내인 경우 변환에서 값을 동일하게 처리합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="approvedDateTime" TransformationClaimType="leftOperand" />
@@ -56,7 +56,7 @@ ms.locfileid: "64710431"
 ```
 
 `login-NonInteractive` 유효성 검사 기술 프로필은 `AssertApprovedDateTimeLaterThanCurrentDateTime` 클레임 변환을 호출합니다.
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -67,7 +67,7 @@ ms.locfileid: "64710431"
 
 자체 어설션된 기술 프로필은 **login-NonInteractive** 유효성 검사 기술 프로필을 호출합니다.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="DateTimeGreaterThan">Custom error message if the provided left operand is greater than the right operand.</Item>
@@ -78,11 +78,11 @@ ms.locfileid: "64710431"
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **leftOperand**: 2018-10-01T15:00:00.0000000Z
-    - **rightOperand**: 2018-10-01T14:00:00.0000000Z
+    - **leftOperand**: 2020-03-01T15:00:00.0000000 z
+    - **rightOperand**: 2020-03-01T14:00:00.0000000 z
 - 결과: 오류가 throw됨
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
@@ -92,11 +92,11 @@ ms.locfileid: "64710431"
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | date | 변환할 ClaimType입니다. |
-| OutputClaim | outputClaim | datetime | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+| OutputClaim | outputClaim | dateTime | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 다음 예제에서는 `dateOfBirth` 클레임(date 데이터 형식)을 다른 `dateOfBirthWithTime` 클레임(dateTime 데이터 형식)으로 변환하는 방법을 보여 줍니다.
 
-```XML
+```xml
   <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
@@ -107,12 +107,41 @@ ms.locfileid: "64710431"
   </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **inputClaim**: 2019-06-01
+    - **Inputclaim**: 2020-15-03
 - 출력 클레임:
-    - **outputClaim**: 1559347200(June 1, 2019 12:00:00 AM)
+    - **Outputclaim**: 2020-15-03T00:00:00.0000000 z
+
+## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim
+
+**DateTime** Claimtype을 **Date** claimtype으로 변환 합니다. 클레임 변환은 날짜에서 시간 형식을 제거 합니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | dateTime | 변환할 ClaimType입니다. |
+| OutputClaim | outputClaim | date | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+
+다음 예에서는 클레임 `systemDateTime` (dateTime 데이터 형식)을 다른 클레임 `systemDate` (날짜 데이터 형식)으로 변환 하는 방법을 보여 줍니다.
+
+```xml
+<ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="systemDate" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예제
+
+- 입력 클레임:
+  - **Inputclaim**: 2020-15-03T11:34:22.0000000 z
+- 출력 클레임:
+  - **Outputclaim**: 2020-15-03
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -120,9 +149,9 @@ ms.locfileid: "64710431"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | currentDateTime | datetime | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+| OutputClaim | currentDateTime | dateTime | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
-```XML
+```xml
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="currentDateTime" />
@@ -130,10 +159,10 @@ ms.locfileid: "64710431"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 * 출력 클레임:
-    * **currentDateTime**: 1534418820(August 16, 2018 11:27:00 AM)
+    * **Currentdatetime**: 2020-15-03T11:40:35.0000000 z
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
@@ -141,16 +170,16 @@ ms.locfileid: "64710431"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | datetime | 두 번째 dateTime보다 이전인지 또는 나중인지를 비교할 첫 번째 dateTime입니다. null 값은 예외를 throw합니다. |
-| InputClaim | secondDateTime | datetime | 첫 번째 dateTime보다 이전인지 또는 나중인지를 비교할 두 번째 dateTime입니다. Null 값은 현재 datetTime로 처리됩니다. |
+| InputClaim | firstDateTime | dateTime | 두 번째 dateTime보다 이전인지 또는 나중인지를 비교할 첫 번째 dateTime입니다. null 값은 예외를 throw합니다. |
+| InputClaim | secondDateTime | dateTime | 첫 번째 dateTime보다 이전인지 또는 나중인지를 비교할 두 번째 dateTime입니다. Null 값은 현재 datetTime로 처리됩니다. |
 | InputParameter | operator | 문자열 | same(같음), later than(보다 이후) 또는 earlier than(보다 이전) 값 중 하나입니다. |
 | InputParameter | timeSpanInSeconds | int | 첫 번째 datetime에 시간 간격을 추가합니다. |
-| OutputClaim | result | 부울 | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+| OutputClaim | result | boolean | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 이 클레임 변환을 사용하여 두 ClaimTypes가 서로 같은지, 하나가 더 나중인지 또는 이전인지를 확인합니다. 예를 들어 사용자가 TOS(서비스 약관)에 마지막으로 동의한 시간을 저장할 수 있습니다. 3개월 후 사용자에게 TOS에 다시 액세스하도록 요청할 수 있습니다.
 클레임 변환을 실행하려면 먼저 현재 dateTime 및 사용자가 TOS에 마지막으로 동의한 시간을 가져와야 합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="CompareLastTOSAcceptedWithCurrentDateTime" TransformationMethod="DateTimeComparison">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="currentDateTime" TransformationClaimType="firstDateTime" />
@@ -166,11 +195,11 @@ ms.locfileid: "64710431"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    - **secondDateTime**: 2018-04-01T00:00:00.100000Z
+    - **Firstdatetime**: 2020-01-01T00:00:00.100000 z
+    - **secondDateTime**: 2020-04-01T00:00:00.100000 z
 - 입력 매개 변수:
     - **operator**: 보다 나중
     - **timeSpanInSeconds**: 7776000(90일)

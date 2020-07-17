@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array 재해 복구 및 디바이스 장애 조치 | Microsoft Docs
+title: StorSimple 가상 배열에 대 한 장애 조치 (Failover) 및 재해 복구
 description: StorSimple 가상 배열 장애 조치 방법에 대해 자세히 알아봅니다.
 services: storsimple
 documentationcenter: NA
@@ -9,18 +9,17 @@ editor: ''
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b864cc8bc0e5d39967a2307bd98bda082b6cfd5e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515225"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Azure Portal을 통해 StorSimple 가상 배열에 대한 재해 복구 및 디바이스 장애 조치
 
@@ -40,11 +39,11 @@ DR은 열 지도 기반 계층화 및 추적을 사용하여 전체 디바이스
 > 
 > 
 
-재해 복구는 디바이스 장애 조치 기능을 통해 조정되며 **디바이스** 블레이드에서 시작됩니다. 이 블레이드는 StorSimple 디바이스 관리자 서비스에 연결된 모든 StorSimple 디바이스를 표로 작성합니다. 각 디바이스에 대해 친숙한 이름, 상태, 프로비전된 용량 및 최대 용량, 유형 및 모델이 표시됩니다.
+재해 복구는 장치 장애 조치 (failover) 기능을 통해 오케스트레이션 **장치** 블레이드에서 시작 됩니다. 이 블레이드는 StorSimple 디바이스 관리자 서비스에 연결된 모든 StorSimple 디바이스를 표로 작성합니다. 각 디바이스에 대해 친숙한 이름, 상태, 프로비전된 용량 및 최대 용량, 유형 및 모델이 표시됩니다.
 
 ## <a name="prerequisites-for-device-failover"></a>디바이스 장애 조치에 대한 필수 조건
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 모든 디바이스 장애 조치에 대해 다음과 같은 필수 조건을 충족했는지 확인합니다.
 
@@ -57,22 +56,22 @@ DR은 열 지도 기반 계층화 및 추적을 사용하여 전체 디바이스
   > 
 * 대상 디바이스는 원본 디바이스와 동일한 이름을 가질 수 없습니다.
 * 원본 및 대상 디바이스는 같은 형식이어야 합니다. 파일 서버로 구성된 가장 배열에서는 또 다른 파일 서버로만 장애 조치를 할 수 있습니다. iSCSI 서버에도 같은 내용이 적용됩니다.
-* 파일 서버 DR의 경우 대상 디바이스를 원본과 동일한 도메인에 조인하는 것이 좋습니다. 이 구성을 통해 공유 사용 권한을 자동으로 확인할 수 있습니다. 같은 도메인에 있는 대상 디바이스에 대한 장애 조치만 해당됩니다.
+* 파일 서버 DR의 경우 대상 디바이스를 원본과 동일한 도메인에 조인하는 것이 좋습니다. 이 구성을 통해 공유 사용 권한을 자동으로 확인할 수 있습니다. 동일한 도메인에 있는 대상 장치에 대 한 장애 조치 (failover)만 지원 됩니다.
 * DR에 사용할 수 있는 대상 디바이스는 원본 디바이스와 용량이 같거나 더 큰 디바이스입니다. 서비스에 연결되어 있지만 충분한 공간 조건을 충족하지 않는 디바이스는 대상 디바이스로 사용할 수 없습니다.
 
 ### <a name="other-considerations"></a>기타 고려 사항
 
-* 계획된 장애 조치(Failover)의 경우 
+* 계획 된 장애 조치 (failover)의 경우:
   
   * 원본 디바이스의 모든 볼륨 또는 공유를 오프라인으로 전환하는 것이 좋습니다.
-  * 데이터 손실을 최소화하기 위해 디바이스의 백업을 수행한 후에 장애 조치를 진행하는 것이 좋습니다. 
+  * 데이터 손실을 최소화하기 위해 디바이스의 백업을 수행한 후에 장애 조치를 진행하는 것이 좋습니다.
 * 계획되지 않은 장애 조치의 경우 디바이스에서는 가장 최근 백업을 사용하여 데이터를 복원합니다.
 
 ### <a name="device-failover-prechecks"></a>디바이스 장애 조치 사전 검사
 
 DR이 시작되기 전에 디바이스에서는 사전 검사를 수행합니다. 이러한 검사는 DR이 시작된 후 오류가 발생하지 않도록 하는 데 도움이 됩니다. 사전 검사에는 다음 내용이 포함됩니다.
 
-* 저장소 계정 유효성 검사
+* 스토리지 계정 유효성 검사
 * Azure에 대한 클라우드 연결 확인
 * 대상 디바이스의 사용 가능한 공간 확인
 * iSCSI 서버 원본 디바이스 볼륨에 다음 항목이 있는지 확인
@@ -138,7 +137,7 @@ DR이 성공적으로 완료된 후에는, 원본 디바이스에 있는 클라�
 
     3. **이 작업이 대상 디바이스에 대한 데이터를 장애 조치한다는 것을 이해합니다.** 를 확인합니다. 
 
-    4. **장애 조치**를 클릭합니다.
+    4. 장애 조치 ( **failover)를**클릭 합니다.
     
         ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. 장애 조치 작업을 시작하면 알림이 표시됩니다. **디바이스 &gt; 작업**을 이동하여 장애 조치를 모니터링할 수 있습니다.
@@ -162,7 +161,7 @@ DR이 성공적으로 완료된 후에는, 원본 디바이스에 있는 클라�
 
 **DR 중 클라우드 연결 중단**
 
-DR이 시작된 후와 디바이스 복원이 완료되기 전에 클라우드 연결이 중단되면, DR이 실패합니다. 실패 알림을 받게 됩니다. DR에 대한 대상 디바이스는 *사용할 수 없음*으로 표시됩니다. 동일한 대상 디바이스를 향후 DR에 사용할 수 없습니다.
+DR이 시작된 후와 디바이스 복원이 완료되기 전에 클라우드 연결이 중단되면, DR이 실패합니다. 실패 알림이 표시 됩니다. DR에 대한 대상 디바이스는 *사용할 수 없음*으로 표시됩니다. 동일한 대상 디바이스를 향후 DR에 사용할 수 없습니다.
 
 **호환되는 대상 디바이스 없음**
 

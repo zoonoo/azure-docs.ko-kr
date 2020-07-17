@@ -1,173 +1,328 @@
+### YamlMime:TOC
 - name: Azure VM 문제 해결
-  href: index.md
-- name: 할당 오류
+  href: index.yml
+- name: 배포 오류 문제 해결
+  items:
+    - name: Windows
+      href: troubleshoot-deploy-vm-windows.md
+    - name: Linux
+      href: troubleshoot-deploy-vm-linux.md
+    - name: 가용성 집합
+      href: virtual-machines-availability-set-supportability.md
+- name: VM 배포 지침
+  items:
+    - name: SLES 15 SP1로 업그레이드
+      href: linux-upgrade-suse-15sp1.md
+    - name: 새 VM 배포
+      items:
+        - name: Linux
+          href: troubleshoot-deployment-new-vm-linux.md
+        - name: Windows
+          href: troubleshoot-deployment-new-vm-windows.md
+    - name: VM 재배포
+      items:
+        - name: Linux
+          href: redeploy-to-new-node-linux.md
+        - name: Windows
+          href: redeploy-to-new-node-windows.md
+    - name: NIC 재설정
+      href: reset-network-interface.md
+- name: 할당 오류 문제 해결
   items:
     - name: 할당 오류
       href: allocation-failure.md
+    - name: 클래식 배포 모델
+      href: allocation-failure-classic.md
+- name: VM 다시 시작 문제
+  items:
+    - name: VM 다시 시작 또는 크기 조정
+      href: restart-resize-error-troubleshooting.md
+    - name: '서비스 다시 시작, 종료 또는 중지'
+      href: boot-error-troubleshoot-windows.md
+- name: 예기치 않은 다시 시작
+  items:
+    - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
+      href: unexpected-reboots-attached-vhds.md
+    - name: 시스템 다시 부팅 이해
+      href: understand-vm-reboot.md
+- name: VM을 시작하거나 중지할 수 없음
+  items:
+    - name: Azure Automation을 사용하여 VM 시작/중지
+      href: ../../automation/troubleshoot/start-stop-vm.md
+    - name: VM 다시 시작 또는 크기 조정
+      href: restart-resize-error-troubleshooting.md
     - name: 클래식 배포 할당 오류
       href: allocation-failure-classic.md
-- name: RDP
-  href: rdp.md
-  items:
-    - name: RDP 다시 설정
-      href: reset-rdp.md
-    - name: RDP 문제 해결
-      href: troubleshoot-rdp-connection.md
-    - name: 자세한 RDP 문제 해결
-      href: detailed-troubleshoot-rdp.md
-    - name: DHCP를 사용 안 함으로 인한 RDP 오류 문제 해결
-      href: troubleshoot-rdp-dhcp-disabled.md
-    - name: NSG 설정으로 인한 RDP 오류 문제 해결
-      href: troubleshoot-rdp-nsg-problem.md
-    - name: 특정 오류 해결
-      href: troubleshoot-specific-rdp-errors.md
-    - name: 라이선스 없이 서버의 오류 해결
-      href: troubleshoot-rdp-no-license-server.md
-    - name: 원격 데스크톱 서비스 문제 해결
-      href: troubleshoot-remote-desktop-services-issues.md
-    - name: 내부 오류 문제 해결
-      href: Troubleshoot-rdp-internal-error.md
-    - name: 연결이 자주 끊기는 문제 해결
-      href: troubleshoot-rdp-intermittent-connectivity.md
-    - name: 일반 오류 문제 해결
-      href: troubleshoot-rdp-general-error.md
-    - name: 인증 오류 문제 해결
-      href: troubleshoot-authentication-error-rdp-vm.md
-    - name: 이벤트 ID로 Azure VM RDP 연결 문제 해결
-      href: event-id-troubleshoot-vm-rdp-connecton.md
-    - name: 고정 IP로 인해 VM에서 RDP 오류 문제 해결
-      href: troubleshoot-rdp-static-ip.md
-    - name: NIC를 사용 안 함으로 인해 VM에서 RDP 오류 문제 해결
-      href: troubleshoot-rdp-nic-disabled.md
-    - name: 안전 모드에서 발생하는 RDP 오류 문제 해결
-      href: troubleshoot-rdp-safe-mode.md
-    - name: Azure VM에서 게스트 OS 방화벽 사용 안 함
-      href: disable-guest-os-firewall-windows.md
-    - name: 게스트 OS의 방화벽 규칙 사용 또는 사용 안 함
-      href: enable-disable-firewall-rule-guest-os.md
-    - name: 게스트 OS 방화벽이 인바운드 트래픽을 차단하고 있습니다.
-      href: guest-os-firewall-blocking-inbound-traffic.md
-    - name: 게스트 OS 방화벽이 잘못 구성되었습니다.
-      href: guest-os-firewall-misconfigured.md
-    - name: netvsc.sys에서 발생하는 RDP 오류 문제 해결
-      href: troubleshoot-rdp-driver-netvsc.md
-- name: SSH
-  items:
-    - name: SSH 문제 해결
-      href: troubleshoot-ssh-connection.md
-    - name: 파일 시스템 오류 해결
-      href: 'https://support.microsoft.com/help/3213321'
-    - name: 커널 관련 부팅 문제 해결
-      href: 'https://support.microsoft.com/help/4091524'
-    - name: fstab 오류 해결
-      href: 'https://support.microsoft.com/help/3206699'
-    - name: 자세한 SSH 문제 해결
-      href: detailed-troubleshoot-ssh-connection.md
-- name: 일반적인 오류 메시지
-  href: error-messages.md
-- name: Windows VM 관련 성능 문제
-  href: performance-diagnostics.md
-  items:
-    - name: PerfInsights를 사용하는 방법
-      href: how-to-use-perfInsights.md
-    - name: 성능 진단 확장
-      href: performance-diagnostics-vm-extension.md
-- name: Windows VM 에이전트 오프라인 설치
-  href: install-vm-agent-offline.md
-- name: VM 재배포
+    - name: VM 시작이 중단됨
+      href: troubleshoot-vm-boot-configure-update.md
+    - name: VM 수명 주기 및 상태
+      href: ../windows/states-lifecycle.md
+- name: VM이 부팅되지 않음
   items:
     - name: Linux
-      href: redeploy-to-new-node-linux.md
+      href: boot-error-troubleshoot-linux.md
+      items:
+        - name: Grub 복구
+          href: troubleshoot-vm-boot-error.md
     - name: Windows
-      href: redeploy-to-new-node-windows.md
-- name: VM 암호 다시 설정
+      href: boot-error-troubleshoot.md
+      items:
+        - name: 부트 진단
+          href: boot-diagnostics.md
+        - name: 부팅 오류 - 디스크 읽기 오류 발생
+          href: boot-error-disk-read-error-occurred.md
+        - name: BitLocker 오류
+          href: troubleshoot-bitlocker-boot-error.md
+        - name: 블루 스크린 오류
+          href: troubleshoot-common-blue-screen-error.md
+        - name: 파일 시스템 오류 확인
+          href: troubleshoot-check-disk-boot-error.md
+        - name: 중요 프로세스 사용 안 함
+          href: troubleshoot-guide-critical-process-died.md
+        - name: 중요 서비스 실패
+          href: troubleshoot-critical-service-failed-boot-error.md
+        - name: 부팅 오류 문제 해결 - 상태를 찾을 수 없음
+          href: boot-error-status-not-found.md
+        - name: Windows 업데이트 설치 용량 문제 해결
+          href: windows-update-installation-capacity.md
+        - name: 부팅 가능한 디스크가 아님
+          href: troubleshoot-guide-not-bootable-disk.md
+        - name: 다시 부팅 루프
+          href: troubleshoot-reboot-loop.md
+        - name: Windows 업데이트에서 중단
+          href: troubleshoot-stuck-updating-boot-error.md
+        - name: 예기치 않은 다시 시작 또는 오류
+          href: troubleshoot-unexpected-restart-error-during-vm-boot.md
+        - name: VM 시작이 중단됨
+          href: troubleshoot-vm-boot-configure-update.md
+        - name: Windows 부팅 관리자로 인해 VM을 부팅할 수 없음
+          href: troubleshoot-guide-windows-boot-manager-menu.md
+        - name: 업데이트로 인해 VM이 응답하지 않음
+          href: unresponsive-vm-apply-windows-update.md
+        - name: 그룹 정책을 적용하는 동안 VM이 응답하지 않음
+          href: unresponsive-vm-apply-group-policy.md
+        - name: 보안 정책을 적용하는 동안 VM이 응답하지 않음
+          href: unresponsive-vm-apply-security-policy.md
+        - name: Windows 중지 오류 - 메모리 없음 상태
+          href: troubleshoot-windows-stop-error.md
+- name: VM에 연결할 수 없습니다.
+  items:
+    - name: RDP
+      href: rdp.md
+      items:
+        - name: RDP 다시 설정
+          href: reset-rdp.md
+        - name: RDP 문제 해결
+          href: troubleshoot-rdp-connection.md
+        - name: 자세한 RDP 문제 해결
+          href: detailed-troubleshoot-rdp.md
+        - name: DHCP를 사용 안 함으로 인한 RDP 오류 문제 해결
+          href: troubleshoot-rdp-dhcp-disabled.md
+        - name: NSG 설정으로 인한 RDP 오류 문제 해결
+          href: troubleshoot-rdp-nsg-problem.md
+        - name: 특정 오류 해결
+          href: troubleshoot-specific-rdp-errors.md
+        - name: 라이선스 없이 서버의 오류 해결
+          href: troubleshoot-rdp-no-license-server.md
+        - name: 원격 데스크톱 서비스 문제 해결
+          href: troubleshoot-remote-desktop-services-issues.md
+        - name: 내부 오류 문제 해결
+          href: Troubleshoot-rdp-internal-error.md
+        - name: 연결이 자주 끊기는 문제 해결
+          href: troubleshoot-rdp-intermittent-connectivity.md
+        - name: 일반 오류 문제 해결
+          href: troubleshoot-rdp-general-error.md
+        - name: 인증 오류 문제 해결
+          href: troubleshoot-authentication-error-rdp-vm.md
+        - name: 이벤트 ID로 Azure VM RDP 연결 문제 해결
+          href: event-id-troubleshoot-vm-rdp-connecton.md
+        - name: 고정 IP로 인해 VM에서 RDP 오류 문제 해결
+          href: troubleshoot-rdp-static-ip.md
+        - name: NIC를 사용 안 함으로 인해 VM에서 RDP 오류 문제 해결
+          href: troubleshoot-rdp-nic-disabled.md
+        - name: 안전 모드에서 발생하는 RDP 오류 문제 해결
+          href: troubleshoot-rdp-safe-mode.md
+        - name: Azure VM에서 게스트 OS 방화벽 사용 안 함
+          href: disable-guest-os-firewall-windows.md
+        - name: 게스트 OS의 방화벽 규칙 사용 또는 사용 안 함
+          href: enable-disable-firewall-rule-guest-os.md
+        - name: 게스트 OS 방화벽이 인바운드 트래픽을 차단하고 있습니다.
+          href: guest-os-firewall-blocking-inbound-traffic.md
+        - name: 게스트 OS 방화벽이 잘못 구성되었습니다.
+          href: guest-os-firewall-misconfigured.md
+        - name: netvsc.sys에서 발생하는 RDP 오류 문제 해결
+          href: troubleshoot-rdp-driver-netvsc.md
+    - name: SSH
+      items:
+        - name: SSH 문제 해결
+          href: troubleshoot-ssh-connection.md
+        - name: 파일 시스템 오류 해결
+          href: linux-recovery-cannot-start-file-system-errors.md
+        - name: 커널 관련 부팅 문제 해결
+          href: 'https://support.microsoft.com/help/4091524'
+        - name: LVM 구성 VM 복구 및 부팅 안 함
+          href: chroot-logical-volume-manager.md
+        - name: fstab 오류 해결
+          href: linux-virtual-machine-cannot-start-fstab-errors.md
+        - name: 자세한 SSH 문제 해결
+          href: detailed-troubleshoot-ssh-connection.md
+    - name: 애플리케이션 액세스 문제
+      href: troubleshoot-app-connection.md
+- name: VM 암호 재설정에 대한 도움말
   items:
     - name: Windows
       href: reset-local-password-without-agent.md
     - name: Linux
       href: reset-password.md
-- name: NIC 재설정
-  href: reset-network-interface.md
-- name: VM 다시 시작 또는 크기 조정
-  href: restart-resize-error-troubleshooting.md
-- name: 직렬 콘솔 사용
+    - name: VM 복구 액세스
+      items:
+        - name: Windows
+          items:
+            - name: PowerShell
+              href: troubleshoot-recovery-disks-windows.md
+            - name: Azure portal
+              href: troubleshoot-recovery-disks-portal-windows.md
+        - name: Linux
+          items:
+            - name: CLI
+              href: troubleshoot-recovery-disks-linux.md
+            - name: Azure portal
+              href: troubleshoot-recovery-disks-portal-linux.md
+        - name: 디바이스 이름이 변경됨
+          href: troubleshoot-device-names-problems.md
+- name: 가상 디스크 관리 문제
   items:
-    - name: Linux VM
-      href: serial-console-linux.md
+    - name: 개요
+      href: ../windows/managed-disks-overview.md
+    - name: FAQ
+      href: ../windows/faq-for-disks.md
+    - name: 스토리지 리소스 삭제 시 오류
+      href: storage-resource-deletion-errors.md
+    - name: 클래식 스토리지 리소스 삭제 시 오류
+      href: storage-classic-cannot-delete-storage-account-container-vhd.md
+    - name: Azure에서 VM을 만들 때 VHD가 지원되지 않습니다.
+      href: vhd-not-supported-vm-azure.md
+    - name: 중첩된 가상화 사용
+      href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: VM 성능 문제
+  items:
+    - name: Azure VM 성능 문제 해결
       items:
-        - name: 직렬 콘솔 GRUB/단일 사용자 모드
-          href: serial-console-grub-single-user-mode.md
-        - name: 직렬 콘솔 NMI/SysRq
-          href: serial-console-nmi-sysrq.md
-    - name: Windows VM
-      href: serial-console-windows.md
+        - name: Linux 또는 Windows의 성능 문제
+          href: troubleshoot-performance-virtual-machine-linux-windows.md
+        - name: 성능 진단
+          href: performance-diagnostics.md
+    - name: PerfInsights
       items:
-        - name: CMD 및 PowerShell 명령
-          href: serial-console-cmd-ps-commands.md
-- name: 저장소 리소스 삭제 시 오류
-  href: storage-resource-deletion-errors.md
-- name: 클래식 스토리지 리소스 삭제 시 오류
-  href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
-  href: unexpected-reboots-attached-vhds.md
+        - name: Windows
+          items:
+            - name: PerfInsights를 사용하는 방법
+              href: how-to-use-perfinsights.md
+            - name: 성능 진단 확장
+              href: performance-diagnostics-vm-extension.md
+        - name: Linux
+          items:
+            - name: PerfInsights를 사용하는 방법
+              href: how-to-use-perfinsights-linux.md
+- name: VM 확장 문제
+  items:
+    - name: Azure 확장 개요
+      href: ../extensions/overview.md
+    - name: 확장 문제 해결
+      href: ../extensions/troubleshoot.md
+    - name: Windows VM 에이전트 오프라인 설치
+      href: install-vm-agent-offline.md
+- name: 백업 및 복원
+  items:
+    - name: Azure VM의 백업 오류 문제 해결
+      href: ../../backup/backup-azure-vms-troubleshoot.md
+- name: 명령을 사용하여 VM 복구
+  items:
+    - name: Windows
+      href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
+    - name: Linux
+      href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md
 - name: Windows 정품 인증 문제
-  href: troubleshoot-activation-problems.md
-- name: 강제 터널링을 사용한 정품 인증 문제
-  href: custom-routes-enable-kms-activation.md
-- name: 애플리케이션 액세스 문제
-  href: troubleshoot-app-connection.md
-- name: 새 VM 배포
   items:
-    - name: Linux
-      href: troubleshoot-deployment-new-vm-linux.md
-    - name: Windows
-      href: troubleshoot-deployment-new-vm-windows.md
-- name: 배포 문제 해결
-  items:
-    - name: Linux
-      href: troubleshoot-deploy-vm-linux.md
-    - name: Windows
-      href: troubleshoot-deploy-vm-windows.md
-- name: 장치 이름이 변경됨
-  href: troubleshoot-device-names-problems.md
-- name: VM 복구 액세스
-  items:
-    - name: Windows
-      items:
-        - name: PowerShell
-          href: troubleshoot-recovery-disks-windows.md
-        - name: Azure portal
-          href: troubleshoot-recovery-disks-portal-windows.md
-    - name: Linux
-      items:
-        - name: CLI
-          href: troubleshoot-recovery-disks-linux.md
-        - name: Azure portal
-          href: troubleshoot-recovery-disks-portal-linux.md
-- name: 부트 오류
-  href: boot-error-troubleshoot.md
-  items:
-    - name: 부트 진단
-      href: boot-diagnostics.md
-    - name: BitLocker 오류
-      href: troubleshoot-bitlocker-boot-error.md
-    - name: 파일 시스템 오류 확인
-      href: troubleshoot-check-disk-boot-error.md
-    - name: 블루 스크린 오류
-      href: troubleshoot-common-blue-screen-error.md
-    - name: VM 시작이 중단됨
-      href: troubleshoot-vm-boot-configure-update.md
-    - name: 중요 서비스 실패
-      href: troubleshoot-critical-service-failed-boot-error.md
-    - name: 다시 부팅 루프
-      href: troubleshoot-reboot-loop.md
-    - name: Windows 업데이트에서 중단
-      href: troubleshoot-stuck-updating-boot-error.md
-- name: 제한 오류
-  href: troubleshooting-throttling-errors.md
-- name: 중첩된 가상화 사용
-  href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: 시스템 다시 부팅 이해
-  href: understand-vm-reboot.md
+    - name: Windows 정품 인증 문제
+      href: troubleshoot-activation-problems.md
+    - name: 강제 터널링을 사용한 정품 인증 문제
+      href: custom-routes-enable-kms-activation.md
 - name: 원격 문제 해결 도구
   href: remote-tools-troubleshoot-azure-vm-issues.md
+  items:
+    - name: 직렬 콘솔
+      items:
+        - name: 개요
+          href: serial-console-overview.md
+        - name: Linux용 직렬 콘솔
+          href: serial-console-linux.md
+          items:
+            - name: 직렬 콘솔 GRUB/단일 사용자 모드
+              href: serial-console-grub-single-user-mode.md
+            - name: 직렬 콘솔 NMI/SysRq
+              href: serial-console-nmi-sysrq.md
+            - name: 직렬 콘솔 grub 사전 예방적 구성
+              href: serial-console-grub-proactive-configuration.md
+        - name: Windows용 직렬 콘솔
+          href: serial-console-windows.md
+          items:
+            - name: CMD 및 PowerShell 명령
+              href: serial-console-cmd-ps-commands.md
+        - name: 직렬 콘솔 활성화 및 비활성화
+          href: serial-console-enable-disable.md
+        - name: 직렬 콘솔 내의 전원 옵션
+          href: serial-console-power-options.md
+        - name: 일반적인 직렬 콘솔 오류
+          href: serial-console-errors.md
+- name: Azure Disk Encryption 문제
+  items:
+    - name: Windows
+      items:
+        - name: 개요
+          href: ../windows/disk-encryption-overview.md
+        - name: 문제 해결
+          href: ../windows/disk-encryption-troubleshooting.md
+        - name: FAQ
+          href: ../windows/disk-encryption-faq.md
+    - name: Linux
+      items:
+        - name: 개요
+          href: ../linux/disk-encryption-overview.md
+        - name: 문제 해결
+          href: ../linux/disk-encryption-troubleshooting.md
+        - name: FAQ
+          href: ../linux/disk-encryption-faq.md
+- name: 할당량 증가
+  items:
+    - name: 컴퓨팅 vCPU 제한 증가
+      items:
+        - name: 리소스 관리자 배포 모델
+          items:
+            - name: VM 시리즈 vCPU 제한 증가
+              href: ../../azure-portal/supportability/per-vm-quota-requests.md
+            - name: 지역별 총 vCPU 제한 증가
+              href: ../../azure-portal/supportability/regional-quota-requests.md
+            - name: 스폿 할당량 제한 증가
+              href: ../../azure-portal/supportability/low-priority-quota.md
+        - name: 클래식 배포 모델
+          href: ../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md
+    - name: 네트워킹 제한 증가
+      href: ../../azure-portal/supportability/networking-quota-requests.md
+- name: 마이그레이션 및 이동 문제
+  items:
+    - name: Azure Resource Manager 마이그레이션(ASM에서 ARM으로) FAQ
+      href: ../windows/migration-classic-resource-manager-overview.md
+- name: 계획된 유지 관리
+  items:
+    - name: 개요
+      href: ../maintenance-notifications.md
+- name: 일반적인 오류 메시지
+  href: error-messages.md
+  items:
+    - name: 제한 오류
+      href: troubleshooting-throttling-errors.md
+- name: Support 문
+  items:
+    - name: 32비트 운영 체제 지원
+      href: support-32-bit-operating-systems-virtual-machines.md

@@ -1,20 +1,16 @@
 ---
-title: 앱을 최신 스키마로 마이그레이션 - Azure Logic Apps | Microsoft Docs
-description: 논리 앱을 최신 스키마 버전으로 마이그레이션하는 방법
+title: 최신 스키마로 앱 마이그레이션
+description: 논리 앱 워크플로 JSON 정의를 최신 워크플로 정의 언어 스키마 버전으로 마이그레이션하는 방법
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: bf27739bd42106550c18e3bbc27a1ff8b3770747
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: cef0fcb990cd2c5c6583822d4dc4c6993c52eac2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75666791"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>논리 앱을 최신 스키마 버전으로 마이그레이션
 
@@ -37,7 +33,7 @@ ms.locfileid: "60447159"
 
 * 마이그레이션된 스크립트를 새 논리 앱으로 복사합니다. 테스트를 완료하고 마이그레이션된 앱이 예상대로 작동하는 것을 확인하기 전에는 이전 버전을 덮어쓰지 마세요.
 
-* 프로덕션에 배치하기 **전에** 논리 앱을 테스트합니다.
+* 프로덕션에 배치 **하기 전에** 논리 앱을 테스트 합니다.
 
 * 마이그레이션이 완료되면 가능한 경우 [관리 API](../connectors/apis-list.md)를 사용하도록 논리 앱 업데이트를 시작합니다. 예를 들어 Dropbox v1을 사용하는 모든 곳에서 DropBox v2를 사용하기 시작합니다.
 

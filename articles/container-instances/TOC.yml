@@ -1,4 +1,4 @@
-- name: Container Instances
+- name: Container Instances 설명서
   href: index.yml
 - name: 개요
   items:
@@ -13,6 +13,9 @@
       href: container-instances-quickstart-portal.md
     - name: 컨테이너 인스턴스 배포 - PowerShell
       href: container-instances-quickstart-powershell.md
+    - name: 컨테이너 인스턴스 배포 - ARM 템플릿
+      displayName: Resource Manager
+      href: container-instances-quickstart-template.md
 - name: 자습서
   items:
     - name: 컨테이너 이미지 만들기 및 배포
@@ -29,6 +32,10 @@
           href: container-instances-multi-container-yaml.md
         - name: 컨테이너 그룹 배포 - Resource Manager
           href: container-instances-multi-container-group.md
+    - name: Azure 서비스와 통합
+      items:
+        - name: Azure Functions로 트리거
+          href: container-instances-tutorial-azure-function-trigger.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -45,39 +52,55 @@
       href: container-instances-region-availability.md
     - name: 오케스트레이터와의 관계
       href: container-instances-orchestrator-relationship.md
-    - name: 보안 고려 사항
-      href: container-instances-image-security.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
+        - name: 보안 고려 사항
+          href: container-instances-image-security.md
+    - name: 가상 네트워킹
+      href: container-instances-virtual-network-concepts.md
 - name: 방법 가이드
   items:
     - name: 배포
       items:
-        - name: 가상 네트워크에 배포(미리 보기)
+        - name: 가상 네트워크에 배포
           href: container-instances-vnet.md
         - name: Azure Container Registry에서 배포
           href: container-instances-using-azure-container-registry.md
+        - name: GitHub 작업을 사용하여 배포(미리 보기)
+          href: container-instances-github-action.md
+        - name: 배포 데이터 암호화
+          href: container-instances-encrypt-data.md
+        - name: 전용 호스트에 배포
+          href: container-instances-dedicated-hosts.md
+        - name: Logic Apps 커넥터 사용
+          href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
     - name: 컨테이너 시나리오
       items:
         - name: 일회성 작업에 대한 다시 시작 정책 설정
           href: container-instances-restart-policy.md
         - name: 환경 변수 설정(env)
           href: container-instances-environment-variables.md
-        - name: 컨테이너 entrypoint 재정의
+        - name: 컨테이너 시작 명령 설정(entrypoint)
           href: container-instances-start-command.md
         - name: 명령 실행(exec)
           href: container-instances-exec.md
-        - name: Jenkins 빌드 작업 실행
-          href: container-instances-jenkins.md
+        - name: 설치 컨테이너 실행(init)
+          href: container-instances-init-container.md
         - name: 관리 ID 사용(미리 보기)
           href: container-instances-managed-identity.md
         - name: GPU 리소스 사용(미리 보기)
           href: container-instances-gpu.md
-        - name: SSL 엔드포인트 사용
+        - name: 사이드카에서 SSL 엔드포인트 사용
           href: container-instances-container-group-ssl.md
+        - name: 고정 IP 주소 노출
+          href: container-instances-application-gateway.md
     - name: 데이터 볼륨 탑재
       items:
         - name: Azure 파일 공유
           href: container-instances-volume-azure-files.md
-        - name: Secret
+        - name: 비밀
           href: container-instances-volume-secret.md
         - name: 빈 디렉터리
           href: container-instances-volume-emptydir.md
@@ -87,6 +110,8 @@
       items:
         - name: 활동성 프로브 구성
           href: container-instances-liveness-probe.md
+        - name: 준비 상태 프로브 구성
+          href: container-instances-readiness-probe.md
         - name: 컨테이너 중지 및 시작
           href: container-instances-stop-start.md
         - name: 실행 중인 컨테이너 업데이트
@@ -97,13 +122,13 @@
           href: container-instances-monitor.md
         - name: 컨테이너 로그 및 이벤트 가져오기
           href: container-instances-get-logs.md
-        - name: Azure Log Analytics로 로깅
+        - name: Azure Monitor 로그를 사용하여 로깅
           href: container-instances-log-analytics.md
     - name: 문제 해결
       items:
         - name: 일반적인 문제 해결
           href: container-instances-troubleshooting.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/container
@@ -115,25 +140,31 @@
       href: /dotnet/api/overview/azure/containerinstance
     - name: Python
       href: /python/api/overview/azure/containerinstance
-    - name: 자바
+    - name: Java
       href: /java/api/overview/azure/containerinstance
     - name: Node.js
       href: /javascript/api/overview/azure/containerinstances
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: YAML
+      href: container-instances-reference-yaml.md
+    - name: 커넥터
+      href: /connectors/aci
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-container-instances
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/container-instances/'
     - name: 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 제품 사용자 의견 제공
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: FAQ
+      href: container-instances-faq.md

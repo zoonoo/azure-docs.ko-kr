@@ -1,45 +1,35 @@
 ---
-title: Azure Marketplace 및 AppSource 로드맵 | Azure
-description: Microsoft Azure Marketplace에서 일어나고 있는 내용에 대한 로드맵
-services: Azure, Marketplace, Compute
-author: qianw211
-manager: MaggiePucciEvans
+title: Microsoft 상업용 마켓플레이스 릴리스 리소스
+description: 상업용 Marketplace에 대한 새로운 기능 및 예정된 기능, 릴리스 및 기타 업데이트에 대해 알아봅니다.
 ms.service: marketplace
-ms.topic: article
-ms.date: 03/29/2019
-ms.author: BrianLevenson
-ms.openlocfilehash: 881d62cd7b7b9d4434a807a2aab62b75e9a8e97b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
+ms.date: 05/19/2020
+ms.openlocfilehash: 880b9027a3708dc283e43b813d3dabf2c9ffd401
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937789"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120809"
 ---
-# <a name="azure-marketplace-and-appsource-roadmap"></a>Azure Marketplace 및 AppSource 로드맵
+# <a name="microsoft-commercial-marketplace-resources"></a>Microsoft 상업용 마켓플레이스 리소스
 
-이 문서에서는 Azure Marketplace, AppSource 및 관련된 파트너 프로그램에서 다음에 일어날 일에 대한 보기를 제공합니다. 이 항목에서는 커밋된에 대 한 대략적인 시간 프레임에 표시 될 때 월별 새로 고칠 수 중요 한 기능의 일부만 캡처합니다. 모든 기능과 관련 된 포괄적인 목록은 아니지 주요 투자에 대 한 가시성을 제공 하기 위한 것입니다. 이러한 기능 집합 및 제공 시기는 현재 및 변경 될 수 있습니다.
+Microsoft 상업용 Marketplace의 최근 릴리스 및 기타 업데이트에 대한 자세한 내용은 다음 리소스를 참조하세요.
+
+* [Microsoft AppSource 및 Azure Marketplace - 파트너 커뮤니티 포럼 ](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222)
+* [Marketplace 및 CSP(클라우드 솔루션 공급자) 업데이트 블로그](https://aka.ms/marketplacemarchupdateblog)
+* [CSP 채널에 제품 게시(ISV)](./cloud-solution-providers.md)
+* [Marketplace 제품 재판매(CSP)](https://aka.ms/marketplaceincsp)
+* [Microsoft 상업용 Marketplace 표준 계약](./standard-contract.md)
+* [SaaS 처리 API](./partner-center-portal/pc-saas-fulfillment-apis.md)
+* [상업용 Marketplace에 대한 지리적 가용성 및 통화 지원](./marketplace-geo-availability-currencies.md)
+* [파트너 센터의 상업용 Marketplace 분석](./partner-center-portal/analytics.md)
+* [Microsoft Build Marketplace 블로그](https://aka.ms/marketplacebuildblog)
+* [Marketplace 5월 업데이트 블로그](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
+* 파트너 센터: [계정 만들기](partner-center-portal/create-account.md) / [계정 관리](partner-center-portal/manage-account.md) / [CPP에서 마이그레이션](partner-center-portal/account-migration-from-cpp-to-pc.md)
+* 파트너 센터: [SaaS 제공](partner-center-portal/create-new-saas-offer.md)  /  [게시 상태](partner-center-portal/publishing-status.md) 만들기/ [기존 제안](partner-center-portal/update-existing-offer.md)  /  [제안 분석](partner-center-portal/analytics.md) 업데이트
+* [파트너 센터에서 Marketplace에 대한 지원 받기](partner-center-portal/support.md)
 
 제안 사항을 보내 주세요! 새 기능, 프로그램 및 이벤트에 대한 최신 업데이트를 받으려면 [Microsoft 파트너 커뮤니티](https://www.microsoftpartnercommunity.com/)의 대화에 참여하세요.
-
-## <a name="roadmap"></a>로드맵
-![](./media/marketplace-publishers-guide/roadmap.png)
-
-## <a name="recent-releases"></a>최신 릴리스
-
-기능을 라이브 되 면 로드맵에서 제거 됩니다. Marketplace에 추가 된 기능에는 다음이 포함 됩니다.
-
-### <a name="for-march-2019"></a>에 대해 2019 년 3 월
-
-* [Marketplace + CSP 업데이트 블로그](https://azure.microsoft.com/blog/azure-marketplace-and-cloud-solution-provider-updates-march-2019/)
-* [CSP 채널 (ISV)에 제품을 게시](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)
-* [(CSP) Marketplace 제품을 재판매](https://docs.microsoft.com/partner-center/sell-marketplace-products)
-* [표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)
-* [SaaS Fulfillment API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis)
-* [Marketplace 지역 및 통화](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
-* [Seller Insights](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
-
-## <a name="next-steps"></a>다음 단계
-
-[Azure Marketplace 및 AppSource 게시자 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) 페이지를 방문합니다.
-
----

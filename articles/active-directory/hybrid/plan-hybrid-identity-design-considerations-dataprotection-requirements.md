@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "64918787"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
@@ -39,7 +39,7 @@ ms.locfileid: "64918787"
 > 
 
 ## <a name="determine-data-protection-requirements"></a>데이터 보호 요구 사항 결정
-이동성의 시대에 회사에는 대부분 공통의 목표가 있습니다. 생산성을 향상시키기 위해 온-프레미스하는 동안 또는 어디서든 원격으로 사용자가 모바일 장치에서 생산성을 높일 수 있도록 합니다. 이러한 요구 사항이 있는 회사는 또한 회사의 데이터 보안을 유지하고 사용자의 개인 정보를 유지하기 위해 완화해야 하는 위협의 수에 대한 문제입니다. 각 회사는 이런 점에서 다른 요구 사항이 있을 수 있습니다. 회사가 행동하는 업계에 따라 달라질 수 있는 다른 규정 준수 규칙은 다른 설계 결정으로 이어질 수 있습니다. 
+이동성의 시대에 회사에는 대부분 공통의 목표가 있습니다. 생산성을 향상시키기 위해 온-프레미스하는 동안 또는 어디서든 원격으로 사용자가 모바일 디바이스에서 생산성을 높일 수 있도록 합니다. 이러한 요구 사항이 있는 회사는 또한 회사의 데이터 보안을 유지하고 사용자의 개인 정보를 유지하기 위해 완화해야 하는 위협의 수에 대한 문제입니다. 각 회사는 이런 점에서 다른 요구 사항이 있을 수 있습니다. 회사가 행동하는 업계에 따라 달라질 수 있는 다른 규정 준수 규칙은 다른 설계 결정으로 이어질 수 있습니다. 
 
 그러나 업계에 관계 없이 탐색 하 고 유효성을 검사해야 할 일부 보안 사항이 있습니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "64918787"
   * 그렇다면 하이브리드 ID 솔루션은 SSL/TLS와 같은 보안 제어와 통합할 수 있나요?
 * 클라우드 ID 관리는 서명된 디렉터리 저장소(내부 및 데이터 센터 간) 간에 트래픽을 유지합니까?
 
-## <a name="compliance"></a>준수
+## <a name="compliance"></a>규정 준수
 규정, 법률 및 규정 준수 요구 사항은 회사가 속해 있는 업계에 따라 달라집니다. 강력하게 규제된 업계에 있는 회사는 규정 준수 문제와 관련된 ID 관리 문제를 해결해야 합니다. SOX(Sarbanes-Oxley), HIPAA(Health Insurance Portability and Accountability Act), GLBA(Gramm-Leach-Bliley Act) 및 PCI DSS(Payment Card Industry Data Security Standard)와 같은 규정은 ID 및 액세스에 관해 엄격합니다. 회사가 도입하는 하이브리드 ID 솔루션에는 하나 이상의 이러한 규정 요구 사항을 충족하는 핵심 기능이 있어야 합니다. 이 영역의 경우 다음 질문을 묻는지를 확인합니다.
 
 * 하이브리드 ID 솔루션은 비즈니스에 대한 규정 요구 사항을 준수합니까?
@@ -80,13 +80,13 @@ ms.locfileid: "64918787"
 * 회사가 규정 요구 사항을 준수할 수 있게 해주는 기본 제공 기능이 있습니까? 
 
 > [!NOTE]
-> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 는 사용 가능한 옵션과 각 옵션의 장점/단점을 고려 합니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 > 
 > 
 
 ## <a name="next-steps"></a>다음 단계
- [콘텐츠 관리 요구 사항 결정](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
+ [콘텐츠 관리 요구 사항 확인](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
 

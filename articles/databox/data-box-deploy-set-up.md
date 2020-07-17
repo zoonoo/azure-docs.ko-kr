@@ -1,31 +1,44 @@
 ---
-title: Azure Data Box 설정| Microsoft Docs
+title: Azure Data Box 설치 자습서 | Microsoft Docs
 description: 장치에 케이블을 연결하고 Azure Data Box에 연결하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/08/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.localizationpriority: high
+ms.openlocfilehash: 850144e4835b43e219fa059bbc1c92bb3ef412f4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895756"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200509"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>자습서: Azure Data Box에 케이블 연결
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="cable-and-connect-to-your-device"></a>디바이스에 케이블 연결
+
+::: zone-end
+
+::: zone target="docs"
 
 이 자습서에서는 Azure Data Box Disk에 케이블을 연결하고, 연결하고, 전원을 켜는 방법을 설명합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Data Box 케이블 연결
 > * Data Box에 연결
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -34,15 +47,15 @@ ms.locfileid: "57895756"
     - 현재 레이블 아래의 디바이스에 부착된 투명 주머니에 배송 레이블이 있습니다. 반품 발송 시 사용할 수 있으므로 이 레이블을 안전하게 보관하세요.
     - 유럽의 일부 지역은 상자에 패키징된 디바이스를 받을 수 있습니다. 디바이스를 개봉한 후에는 반품 배송에 대비해 상자를 보관해 두세요.
 3. [Data Box 안전 지침](data-box-safety.md)을 검토했습니다.
-4. 100TB 저장소 디바이스에 사용할 하나의 접지식 전원 코드를 수취했습니다.
+4. 100TB 스토리지 디바이스에 사용할 하나의 접지식 전원 코드를 수취했습니다.
 5. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
     - [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
     - 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없는 경우 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다. 
 6. Data Box를 놓을 평평한 표면이 있어야 합니다. 표준 랙 선반에 디바이스를 놓으려면 데이터 센터 랙에 7U 슬롯이 있어야 합니다. 디바이스는 랙에 평평하게 놓거나 똑바로 세울 수 있습니다.
 7. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 준비해 둔 상태여야 합니다.
-    - 하나 이상의 10GbE SFP+ 2축 동 또는 SFP+ 광섬유 케이블(DATA 1, DATA 2 네트워크 인터페이스에 사용). Data Box에는 PCI Express 3.0 네트워크 인터페이스가 있는 Mellanox ConnectX®-3 Pro EN 이중 포트 10GBASE-T 어댑터가 있으므로 이 인터페이스와 호환되는 케이블이 작동합니다. 예를 들어, CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 케이블을 내부 테스트에 사용했습니다. 자세한 내용은 [Mellanox의 지원되는 케이블 및 스위치 목록](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)을 참조하세요.
+    - 하나 이상의 10GbE SFP+ 2축 동 또는 SFP+ 광섬유 케이블(DATA 1, DATA 2 네트워크 인터페이스에 사용). Data Box에는 PCI Express 3.0 네트워크 인터페이스가 있는 Mellanox ConnectX®-3 Pro EN 이중 포트 10GBASE-T 어댑터가 있으므로 이 인터페이스와 호환되는 케이블이 작동합니다. 예를 들어, CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M 케이블을 내부 테스트에 사용했습니다. 자세한 내용은 [Mellanox의 지원되는 케이블 및 스위치 목록](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)을 참조하세요.
     - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
-    - RJ-45 CAT 6A 하나 또는 RJ-45 CAT 6 네트워크 케이블 하나(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
+    - RJ-45 CAT 6A 1개 또는 RJ-45 CAT 6 네트워크 케이블 1개(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
 
 ## <a name="cable-your-device"></a>디바이스 케이블 연결
 
@@ -63,6 +76,38 @@ ms.locfileid: "57895756"
 4. 디바이스의 전면 조작 패널에서 전원 단추를 찾습니다. 디바이스를 켭니다.
 
     ![Data Box 전원 단추](media/data-box-deploy-set-up/data-box-powered-door-open.png)
+
+::: zone-end
+
+::: zone target="chromeless"
+
+디바이스를 받은 후에는 디바이스에 케이블을 연결해야 합니다. 
+
+## <a name="cable-your-device"></a>디바이스 케이블 연결
+
+1. 디바이스가 변조되었거나 손상된 듯하면 이 단계를 진행하지 말고 Microsoft 지원에 교체용 디바이스 배송을 요청하세요.
+2. 디바이스에 케이블을 꽂기 전에 다음 케이블이 있는지 확인합니다.
+    
+    - (포함) 디바이스에 연결할 수 있는 IEC60320 C-13 커넥터가 한쪽 끝에 부착된 정격 10A 이상의 접지 전원 코드
+    - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
+    - 10GbE SFP+ Twinax 동 케이블 2개(10Gbps DATA 1, DATA 2 네트워크 인터페이스에 사용)
+    - RJ-45 CAT 6A 1개 또는 RJ-45 CAT 6 네트워크 케이블 1개(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
+
+3. 디바이스를 꺼내 평평한 표면에 놓습니다. 
+    
+4. 아래 그림과 같이 디바이스에 케이블을 꽂습니다.  
+
+    ![케이블이 연결된 Data Box 디바이스의 백플레인](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
+
+    1. 디바이스에 전원 케이블을 연결합니다.
+    2. RJ-45 CAT 6 네트워크 케이블을 사용하여 호스트 컴퓨터를 디바이스의 관리 포트(MGMT)에 연결합니다. 
+    3. SFP+ Twinax 동 케이블을 사용하여 데이터용 10Gbps(1Gbps 초과 권장) 네트워크 인터페이스(DATA 1 또는 DATA 2)를 하나 이상 연결합니다. 
+    4. 디바이스를 켭니다. 전원 단추는 디바이스의 전면 패널에 있습니다.
+
+::: zone-end
+
+::: zone target="docs"
+
 
 ## <a name="connect-to-your-device"></a>디바이스에 연결
 
@@ -92,6 +137,22 @@ ms.locfileid: "57895756"
 
 디바이스 설정이 완료되면 디바이스 공유에 연결하여 컴퓨터의 데이터를 디바이스로 복사할 수 있습니다. 
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="connect-your-device"></a>디바이스 연결
+
+1. 디바이스 암호를 확인하려면 **Azure Portal**에서 [일반 &gt; 디바이스 정보](https://portal.azure.com)로 이동합니다.
+2. Data Box에 연결하는 데 사용 중인 컴퓨터의 이더넷 어댑터에서 고정 IP 주소 192.168.100.5 및 서브넷 255.255.255.0을 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다. 
+3. Azure Portal에서 암호를 사용하여 로그인합니다. 웹 사이트의 보안 인증서 문제를 나타내는 오류가 표시됩니다. 브라우저별 지침에 따라 웹 페이지로 이동합니다.
+4. 기본적으로 10Gbps 또는 1Gbps 데이터 인터페이스의 네트워크 설정은 DHCP로 구성됩니다. 필요한 경우 이 인터페이스를 정적으로 구성하고 IP 주소를 제공할 수 있습니다. 
+
+::: zone-end
+
+
+::: zone target="docs"
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
@@ -104,4 +165,6 @@ Data Box에서 데이터를 복사하는 방법을 알아보려면 다음 자습
 
 > [!div class="nextstepaction"]
 > [Azure Data Box에 데이터 복사](./data-box-deploy-copy-data.md)
+
+::: zone-end
 

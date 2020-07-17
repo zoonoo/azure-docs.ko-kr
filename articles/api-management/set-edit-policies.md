@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9249cb1ac64bf61b405bc3537523cc85bca3f00c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097200"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252796"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
 
@@ -39,23 +38,25 @@ ms.locfileid: "62097200"
 4. 이전에 가져온 API 중 하나를 선택합니다.
 5. **디자인** 탭을 선택합니다.
 6. 정책을 적용하려는 작업을 선택합니다. 모든 작업에 정책을 적용하려는 경우 **모든 작업**을 선택합니다.
-7. **인바운드 처리** 또는 **아웃바운드 처리** 섹션에서 **</>**(코드 편집기) 아이콘을 선택합니다.
+7. **</>** **인바운드 처리** 또는 **아웃 바운드 처리** 섹션에서 (코드 편집기) 아이콘을 선택 합니다.
 8. 원하는 정책 코드를 적절한 블록 중 하나에 붙여넣습니다.
-         
-        <policies>
-             <inbound>
-                 <base />
-             </inbound>
-             <backend>
-                 <base />
-             </backend>
-             <outbound>
-                 <base />
-             </outbound>
-             <on-error>
-                 <base />
-             </on-error>
-         </policies>
+
+    ```xml
+    <policies>
+        <inbound>
+            <base />
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
  
 ## <a name="configure-scope"></a>범위 구성
 
@@ -109,7 +110,7 @@ API 범위는 선택한 API의 **모든 작업**에 대해 구성됩니다.
 
     ![API 범위](./media/api-management-howto-policies/api-scope.png)
 
-2. **모든 작업**을 선택합니다.
+2. **모든 작업** 선택
 3. 삼각형 아이콘을 클릭합니다.
 4. **코드 편집기**를 선택합니다.
 5. 정책을 추가하거나 편집합니다.
@@ -119,7 +120,7 @@ API 범위는 선택한 API의 **모든 작업**에 대해 구성됩니다.
 
 작업 범위는 선택한 작업에 대해 구성됩니다.
 
-1. **API**를 선택합니다.
+1. **API**를 선택 합니다.
 2. 정책을 적용하려는 작업을 선택합니다.
 
     ![작업 범위](./media/api-management-howto-policies/operation-scope.png)
@@ -134,5 +135,5 @@ API 범위는 선택한 API의 **모든 작업**에 대해 구성됩니다.
 다음 관련 항목을 참조하세요.
 
 + [API 변환](transform-api.md)
-+ [정책 참조](api-management-policy-reference.md)(정책 문 및 해당 설정에 대한 전체 목록)
++ [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
 + [정책 샘플](policy-samples.md)

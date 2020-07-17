@@ -1,25 +1,15 @@
 ---
-title: Resource Manager 아키텍처 | Microsoft Docs
-description: 서비스 패브릭 클러스터 리소스 관리자의 아키텍처 개요
-services: service-fabric
-documentationcenter: .net
+title: 리소스 관리자 아키텍처
+description: Azure Service Fabric 클러스터 리소스 관리자 서비스에 대 한 및 아키텍처 정보를 개략적으로 설명 합니다.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bfbdb05e8d2764d2b878e22d236cae30519da176
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75551695"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>클러스터 리소스 관리자 아키텍처 개요
 Service Fabric Cluster Resource Manager는 클러스터에서 실행되는 중앙 서비스입니다. 이 서비스는 특히 리소스 소비 및 배치 규칙 측면에서 클러스터에 있는 서비스의 원하는 상태를 관리합니다. 
@@ -65,7 +55,7 @@ Cluster Resource Manager는 해당 서비스 내의 각 서비스 개체별로 �
 </center>
 
 ## <a name="next-steps"></a>다음 단계
-- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [Service Fabric 클러스터 설명](./service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 확인하세요.
+- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대 한 자세한 내용은 [Service Fabric 클러스터 설명](./service-fabric-cluster-resource-manager-cluster-description.md) 문서를 참조 하세요.
 - Cluster Resource Manager의 기본 임무는 클러스터의 부하를 다시 분산하고 배치 규칙을 적용하는 것입니다. 이러한 동작은 구성하는 방법에 대한 자세한 내용은 [Service Fabric 클러스터 부하 분산](./service-fabric-cluster-resource-manager-balancing.md)을 참조하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png

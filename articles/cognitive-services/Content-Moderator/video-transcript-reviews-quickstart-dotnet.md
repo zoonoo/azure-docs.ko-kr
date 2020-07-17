@@ -1,21 +1,21 @@
 ---
 title: .NET을 사용하여 비디오 대본 만들기 - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: .NET용 Content Moderator SDK를 사용하여 비디오 대본 검토 만들기
+titleSuffix: Azure Cognitive Services
+description: .NET 용 Azure Cognitive Services Content Moderator SDK를 사용 하 여 비디오 성적 리뷰를 만드는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
-ms.date: 03/19/2019
-ms.author: sajagtap
-ms.openlocfilehash: fa782f687979f1d32cdf1c18bd08f6672e39adfe
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.topic: conceptual
+ms.date: 10/24/2019
+ms.author: pafarley
+ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868602"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "73744385"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
 
@@ -25,9 +25,9 @@ ms.locfileid: "64868602"
 - 검토에 조정된 대본 추가
 - 검토 게시
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 로그인 또는 Content Moderator에서 계정을 만듭니다 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 이미 수행 하지 않은 경우 사이트입니다.
+- 아직 수행 하지 않은 경우 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만듭니다.
 - 이 문서에서는 사용자 결정을 위한 검토 도구에서 [비디오를 조정](video-moderation-api.md)하고 [비디오 검토를 생성](video-reviews-quickstart-dotnet.md)했다고 가정합니다. 이제 검토 도구에서 조정된 비디오 대본을 추가하려고 합니다.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>API 키에서 검토 API를 호출할 수 있는지 확인(작업 생성)
@@ -74,30 +74,26 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 ```
 
-### <a name="add-private-properties"></a>개인 속성 추가
+### <a name="add-private-properties"></a>프라이빗 속성 추가
 
-VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 개인 속성을 추가합니다.
-
-표시된 위치에서 이러한 속성의 예제 값을 바꿉니다.
+다음 개인 속성을 **videorec**# 클래스 **프로그램**의 네임 스페이스에 추가 합니다. 및 `CMSubscriptionKey` 필드 `AzureEndpoint` 를 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
 
 ```csharp
 namespace VideoReviews
 {
     class Program
     {
-        // NOTE: Replace this example location with the location for your Content Moderator account.
+        // NOTE: Enter a valid endpoint URL
         /// <summary>
-        /// The region/location for your Content Moderator account, 
-        /// for example, westus.
+        /// The endpoint URL of your subscription
         /// </summary>
-        private static readonly string AzureRegion = "YOUR CONTENT MODERATOR REGION";
+        private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
-        // NOTE: Replace this example key with a valid subscription key.
+        // NOTE: Enter a valid subscription key.
         /// <summary>
         /// Your Content Moderator subscription key.
         /// </summary>
@@ -112,12 +108,6 @@ namespace VideoReviews
         /// the Content Moderator web site. Your team name is the Id associated 
         /// with your subscription.</remarks>
         private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
-
-        /// <summary>
-        /// The base URL fragment for Content Moderator calls.
-        /// </summary>
-        private static readonly string AzureBaseURL =
-            $"{AzureRegion}.api.cognitive.microsoft.com";
 
         /// <summary>
         /// The minimum amount of time, in milliseconds, to wait between calls
@@ -142,7 +132,7 @@ public static ContentModeratorClient NewClient()
 {
     return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
     {
-        Endpoint = AzureBaseURL
+        Endpoint = AzureEndpoint
     };
 }
 ```
@@ -154,15 +144,15 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews**에는 다음 매개 변수가 필요합니다.
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
-1. **IList\<CreateVideoReviewsBodyItem >** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
+1. **\<IList CreateVideoReviewsBodyItem>** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
 
 **CreateVideoReviewsBodyItem**에는 여러 속성이 있습니다. 최소한 다음 속성을 설정합니다.
-- **Content**. 검토할 비디오의 URL입니다.
+- **콘텐츠**. 검토할 비디오의 URL입니다.
 - **ContentId**. 비디오 검토에 할당할 ID입니다.
-- **Status**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
+- **상태**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
 
 > [!NOTE]
-> **CreateVideoReviews** IList 반환\<문자열 >. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다.
+> **CreateVideoReviews** 는 IList\<문자열>을 반환 합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다.
 
 VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -211,7 +201,7 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 1. **CreateVideoReviews**에서 반환된 비디오 검토 ID입니다.
 1. 대본을 포함하는 **Stream** 개체입니다.
 
-대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: 웹 비디오 텍스트 트랙 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
+대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: Web Video Text Tracks 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 
 > [!NOTE]
 > 프로그램은 VTT 형식의 샘플 대본을 사용합니다. 실제 솔루션에서는 Azure Media Indexer 서비스를 사용하여 비디오에서 [대본을 생성](https://docs.microsoft.com/azure/media-services/media-services-index-content)합니다.
@@ -244,15 +234,15 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
 1. **CreateVideoReviews**에서 반환된 비디오 검토 ID입니다.
-1. IList\<TranscriptModerationBodyItem >. **TranscriptModerationBodyItem**에는 다음 속성이 있습니다.
-1. **Terms**. IList\<TranscriptModerationBodyItemTermsItem >. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
-1. **Index**. 용어의 0부터 시작하는 인덱스입니다.
-1. **Term**. 용어를 포함하는 문자열입니다.
-1. **Timestamp**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
+1. IList\<TranscriptModerationBodyItem>입니다. **TranscriptModerationBodyItem**에는 다음 속성이 있습니다.
+1. **용어**. IList\<TranscriptModerationBodyItemTermsItem>입니다. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
+1. **인덱스**. 용어의 0부터 시작하는 인덱스입니다.
+1. **용어**. 용어를 포함하는 문자열입니다.
+1. **타임 스탬프**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
 
-대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: 웹 비디오 텍스트 트랙 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
+대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: Web Video Text Tracks 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 
-VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다. 이 메서드는 **ContentModeratorClient.TextModeration.ScreenText** 메서드에 대본을 제출합니다. 또한 IList에 결과 변환\<TranscriptModerationBodyItem >를 전송 하 **AddVideoTranscriptModerationResult**합니다.
+VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다. 이 메서드는 **ContentModeratorClient.TextModeration.ScreenText** 메서드에 대본을 제출합니다. 또한 결과를 IList\<TranscriptModerationBodyItem>로 변환 하 고 **AddVideoTranscriptModerationResult**에 제출 합니다.
 
 ```csharp
 /// <summary>
@@ -376,7 +366,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>비디오 대본 검토로 이동
 
-**검토**>**비디오**>**대본** 화면에서 Content Moderator 검토 도구의 비디오 대본 검토로 이동합니다.
+>**비디오**기록 **검토**>화면에서 Content Moderator 검토 도구의 비디오 녹음 **/녹음/** 리뷰로 이동 합니다.
 
 다음 기능이 표시됩니다.
 - 추가한 두 줄의 대본

@@ -1,17 +1,17 @@
 ---
-title: Azure SignalR Service 클라이언트를 인증 하기 위한 가이드
-description: 이 가이드에서는 Azure SignalR Service 클라이언트를 인증 하는 방법을 알아봅니다.
+title: Azure SignalR Service 클라이언트 인증 가이드
+description: e2e 예제에 따라 사용자 고유의 인증을 구현하고 Azure SignalR Service에 통합하는 방법을 알아봅니다.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb99a0690e1d07f058572b188ae0b76995f48504
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003688"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961798"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service 인증
 
@@ -31,7 +31,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 ![Azure에서 호스트되는 OAuth 완료](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * GitHub 계정을 사용하여 새 OAuth 앱 등록
@@ -40,7 +40,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
@@ -58,7 +58,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 3. 새 OAuth 앱에 대해 다음 설정을 사용한 후 **애플리케이션 등록**을 클릭합니다.
 
-    | 설정 이름 | 제안 값 | 설명 |
+    | 설정 이름 | 제안 값 | Description |
     | ------------ | --------------- | ----------- |
     | 애플리케이션 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
     | 홈페이지 URL | `http://localhost:5000/home` | |
@@ -67,8 +67,10 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 4. 새 OAuth 앱 등록이 완료되면 다음 명령을 사용하여 *클라이언트 ID* 및 *클라이언트 암호*를 보안 관리자에 추가합니다. *Your_GitHub_Client_Id* 및 *Your_GitHub_Client_Secret*을 OAuth 앱에 대한 값으로 바꿉니다.
 
-        dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
-        dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```dotnetcli
+    dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
+    dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```
 
 ## <a name="implement-the-oauth-flow"></a>OAuth 흐름 구현
 
@@ -76,9 +78,11 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 1. 최신 *Microsoft.AspNetCore.Authentication.Cookies* 및 *AspNet.Security.OAuth.GitHub* 패키지에 대한 참조를 추가하고 모든 패키지를 복원합니다.
 
-        dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
-        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
-        dotnet restore
+    ```dotnetcli
+    dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+    dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
+    dotnet restore
+    ```
 
 1. *Startup.cs*를 열고 다음 네임스페이스에 대한 `using` 문을 추가합니다.
 
@@ -345,19 +349,25 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 2. .NET Core CLI를 사용하여 앱을 빌드하고 명령 셸에서 다음 명령을 실행합니다.
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 3. 빌드가 성공적으로 완료되면 다음 명령을 실행하여 웹앱을 로컬로 실행합니다.
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     기본적으로 앱은 포트 5000에 로컬로 호스트됩니다.
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Production
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Production
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+                    Application started. Press Ctrl+C to shut down.
+    ```
 
 4. 브라우저 창을 시작하고 `http://localhost:5000`으로 이동합니다. 위쪽의 **여기** 링크를 클릭하여 GitHub로 로그인합니다.
 
@@ -377,7 +387,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 ## <a name="deploy-the-app-to-azure"></a>Azure에 앱 배포
 
-이 섹션에서는 사용할지 Azure 명령줄 인터페이스 (CLI)에서 Azure Cloud Shell에서 새 웹 앱을 만드는 [Azure App Service](https://docs.microsoft.com/azure/app-service/) Azure에서 ASP.NET 응용 프로그램을 호스팅합니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
+이 섹션에서는 Azure Cloud Shell의 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 ASP.NET 애플리케이션을 호스트할 새 웹앱을 [Azure App Service](https://docs.microsoft.com/azure/app-service/)에서 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
 
 이 섹션의 단계에서는 Azure CLI에 대해 *signalr* 확장을 사용합니다. 다음 명령을 실행하여 Azure CLI용 *signalr* 확장을 설치합니다.
 
@@ -412,11 +422,11 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
     --plan $WebAppPlan
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | -------------------- | --------------- |
 | ResourceGroupName | 이 리소스 그룹 이름은 이전 자습서에서 제안된 것입니다. 모든 자습서 리소스를 그룹화된 상태로 유지하는 것이 좋습니다. 이전 자습서에서 사용한 것과 동일한 리소스 그룹을 사용합니다. |
 | WebAppPlan | 새로운 고유한 App Service 계획 이름을 입력합니다. |
-| WebAppName | 이것은 새 웹앱의 이름이 되고 URL의 일부로 사용됩니다. 고유한 이름을 사용합니다. 예를 들어 signalrtestwebapp22665120과 같습니다.   |
+| WebAppName | 이것은 새 웹앱의 이름이 되고 URL의 일부로 사용됩니다. 고유 이름을 사용하십시오. 예를 들어 signalrtestwebapp22665120과 같습니다.   |
 
 ### <a name="add-app-settings-to-the-web-app"></a>웹앱에 앱 설정 추가
 
@@ -460,7 +470,7 @@ az webapp config appsettings set --name $WebAppName \
     --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | -------------------- | --------------- |
 | GitHubClientId | GitHub OAuth 앱에 대한 비밀 클라이언트 ID를 이 변수에 할당합니다. |
 | GitHubClientSecret | GitHub OAuth 앱에 대한 비밀 암호를 이 변수에 할당합니다. |
@@ -495,7 +505,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     --query [url] -o tsv
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | -------------------- | --------------- |
 | DeploymentUserName | 새 배포 사용자 이름을 선택합니다. |
 | DeploymentUserPassword | 새 배포 사용자의 암호를 선택합니다. |
@@ -543,10 +553,10 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 2. 인증 앱을 클릭하고 아래와 같이 **홈페이지 URL** 및 **권한 부여 콜백 URL**을 업데이트합니다.
 
-    | 설정 | 예 |
+    | 설정 | 예제 |
     | ------- | ------- |
-    | 홈페이지 URL | https://signalrtestwebapp22665120.azurewebsites.net/home |
-    | 권한 부여 호출 URL | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
+    | 홈페이지 URL | `https://signalrtestwebapp22665120.azurewebsites.net/home` |
+    | 권한 부여 호출 URL | `https://signalrtestwebapp22665120.azurewebsites.net/signin-github` |
 
 3. 웹앱 URL로 이동한 다음, 애플리케이션을 테스트합니다.
 
@@ -563,13 +573,13 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
 
-**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 후 **리소스 그룹 삭제**를 클릭합니다.
+**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
-![삭제](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![DELETE](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

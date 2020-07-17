@@ -1,11 +1,10 @@
 ---
-title: Azure Security Center 빠른 시작 - Security Center에 Linux 컴퓨터 온보딩 | Microsoft Docs
+title: Azure Security Center에 Linux 컴퓨터 온보딩 | Microsoft Docs
 description: 이 빠른 시작에서는 Security Center에 Linux 컴퓨터를 온보딩하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,23 +13,23 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: memildin
+ms.openlocfilehash: 3b7181550fd76f158ec04e9779f4301bd74484e1
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521923"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435970"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Linux 컴퓨터 온보딩
-Azure 구독을 온보딩한 후 Linux 에이전트를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
+Azure 구독을 온보딩한 후 에이전트를 프로비저닝하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다. 에이전트는 Log Analytics 에이전트라고 하지만 OMS 에이전트라고도 합니다.
 
-이 빠른 시작에서는 Linux 컴퓨터에 Linux 에이전트를 설치하는 방법을 보여 줍니다.
+이 빠른 시작에서는 Linux 컴퓨터에 에이전트를 설치하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
 
-이 빠른 시작을 수행하기 위해서는 Security Center의 가격 계층이 표준(Standard)이어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 비용 없이 Security Center의 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+이 빠른 시작을 수행하기 위해서는 Security Center의 가격 계층이 표준이어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 비용 없이 Security Center의 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ## <a name="add-new-linux-computer"></a>새 Linux 컴퓨터 추가
 
@@ -57,15 +56,15 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
    ![에이전트 설치][5]
 
-Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/omsagent/\<workspace id>/log/* 에서 확인할 수 있습니다.
+에이전트에 대한 로그는 */var/opt/microsoft/omsagent/\<workspace id>/log/* 에서 확인할 수 있습니다.
 
   ![에이전트에 대한 로그][6]
 
 잠시 후에(최대 30분까지 걸릴 수 있음) 새 Linux 컴퓨터가 Security Center에 나타납니다.
 
-이제 Azure VM과 비 Azure 컴퓨터를 한곳에서 모니터링할 수 있습니다. **계산** 아래에는 모든 VM 및 컴퓨터의 개요가 권장 사항과 함께 나와 있습니다. 각 열에 하나의 권장 사항 집합이 표시됩니다. 색은 해당 권장 사항에 대한 VM 또는 컴퓨터의 현재 보안 상태를 나타냅니다. Security Center는 보안 경고를 통해서도 이러한 컴퓨터에서 검색된 내용을 표시합니다.
+이제 Azure VM과 비 Azure 컴퓨터를 한곳에서 모니터링할 수 있습니다. **컴퓨팅** 아래에는 모든 VM 및 컴퓨터의 개요가 권장 사항과 함께 나와 있습니다. 각 열에 하나의 권장 사항 집합이 표시됩니다. 색은 해당 권장 사항에 대한 VM 또는 컴퓨터의 현재 보안 상태를 나타냅니다. Security Center는 보안 경고를 통해서도 이러한 컴퓨터에서 검색된 내용을 표시합니다.
 
-  ![계산 블레이드][7] **계산** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
+  ![컴퓨팅 블레이드][7]**컴퓨팅** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
 
   ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) 비 Azure 컴퓨터
 
@@ -82,7 +81,7 @@ Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/om
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 Linux 컴퓨터에 에이전트를 프로비전했습니다. Security Center를 사용하는 방법에 대한 자세한 내용은 보안 정책 구성 및 리소스 보안 평가를 위한 자습서로 계속 진행하세요.
+이 빠른 시작에서는 Linux 컴퓨터에 에이전트를 프로비저닝했습니다. Security Center를 사용하는 방법에 대한 자세한 내용은 보안 정책 구성 및 리소스 보안 평가를 위한 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [자습서: 보안 정책 정의 및 평가](tutorial-security-policy.md)

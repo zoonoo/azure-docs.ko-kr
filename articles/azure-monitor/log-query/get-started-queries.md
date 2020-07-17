@@ -1,36 +1,26 @@
 ---
 title: Azure Monitor에서 로그 쿼리 시작 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor에서 로그 쿼리 작성을 시작하기 위한 자습서를 제공합니다.
-services: log-analytics
-documentationcenter: ''
+ms.subservice: logs
+ms.topic: tutorial
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.date: 10/24/2019
+ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519010"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801430"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리 시작
-
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 시작
 
 > [!NOTE]
-> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 이 자습서를 완료 하기 전에 합니다.
+> 하나 이상의 가상 머신에서 데이터를 수집하는 경우 사용자 환경에서 이 연습을 수행할 수 있습니다. 그렇지 않은 경우 다양한 샘플 데이터를 포함하는 [데모 환경](https://portal.loganalytics.io/demo)을 사용합니다.  KQL에서 쿼리하는 방법을 이미 알고 있지만 리소스 유형에 따라 유용한 쿼리를 신속하게 만들어야 하는 경우 [저장된 예제 쿼리 창](saved-queries.md)을 참조하세요.
 
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+이 자습서에서는 Azure Monitor에서 로그 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
-이 자습서는 Azure Monitor 로그 쿼리를 작성 하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
-
-- 쿼리의 구조 이해
+- 쿼리 구조 이해
 - 쿼리 결과 정렬
 - 쿼리 결과 필터링
 - 시간 범위 지정
@@ -38,14 +28,22 @@ ms.locfileid: "65519010"
 - 사용자 지정 필드 정의 및 사용
 - 결과 집계 및 그룹화
 
+Azure Portal에서 Log Analytics를 사용하는 방법에 대한 자습서는 [Azure Monitor Log Analytics 시작](get-started-portal.md)을 참조하세요.<br>
+Azure Monitor에서 로그 쿼리에 대한 자세한 내용은 [Azure Monitor에서 로그 쿼리 개요](log-query-overview.md)를 참조하세요.
+
+아래 자습서의 비디오 버전을 따르세요.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>새 쿼리 작성
+
 쿼리는 테이블 이름 또는 *search* 명령을 사용하여 시작할 수 있습니다. 쿼리에 대한 명확한 범위를 정의하고 쿼리 성능 및 결과의 관련성을 개선하므로 테이블 이름을 사용하여 시작해야 합니다.
 
 > [!NOTE]
 > Azure Monitor에서 사용되는 Kusto 쿼리 언어는 대/소문자를 구분합니다. 언어 키워드는 일반적으로 소문자로 작성됩니다. 쿼리에서 테이블 또는 열 이름을 사용하는 경우 스키마 창에 표시된 대로 정확한 대/소문자를 사용해야 합니다.
 
 ### <a name="table-based-queries"></a>테이블 기반 쿼리
+
 Azure Monitor는 테이블에 각각 여러 열로 구성된 로그 데이터를 구성합니다. 모든 테이블 및 열은 Analytics 포털에서 Log Analytics의 스키마 창에 표시됩니다. 관심 있는 테이블을 식별한 다음, 일부 데이터를 살펴봅니다.
 
 ```Kusto
@@ -62,6 +60,7 @@ SecurityEvent
 `| take 10`을 추가하지 않고도 실제로 쿼리를 실행할 수 있습니다. 이는 여전히 유효할 수 있지만 최대 10,000개의 결과를 반환할 수 있습니다.
 
 ### <a name="search-queries"></a>검색 쿼리
+
 검색 쿼리는 덜 구조적이며, 일반적으로 해당 열에 있는 특정 값을 포함하는 레코드를 찾기에 더 적합합니다.
 
 ```Kusto
@@ -71,8 +70,8 @@ search in (SecurityEvent) "Cryptographic"
 
 이 쿼리는 구문 "Cryptographic"을 포함하는 레코드에 대한 *SecurityEvent* 테이블을 검색합니다. 이러한 레코드 중 10개의 레코드가 반환되고 표시됩니다. `in (SecurityEvent)` 부분을 생략하고 `search "Cryptographic"`만을 실행하는 경우 검색은 *모든* 테이블을 살펴봅니다. 이는 시간이 더 걸리며 덜 효율적입니다.
 
-> [!NOTE]
-> 기본적으로 _지난 24시간_의 시간 범위가 설정됩니다. 다른 범위를 사용하려면 시간 선택기를 사용하거나(*이동* 단추 옆에 위치함) 명시적 시간 범위 필터를 쿼리에 추가합니다.
+> [!WARNING]
+> 검색 쿼리는 더 많은 데이터를 처리해야 하기 때문에 일반적으로 테이블 기반 쿼리보다 느립니다. 
 
 ## <a name="sort-and-top"></a>정렬 및 위쪽
 **take**가 몇 가지 레코드를 가져오는 데 유용하지만 특정 순서 없이 결과가 선택되고 표시됩니다. 정렬된 보기를 가져오려면 기본 열을 기준으로 **정렬**할 수 있습니다.
@@ -108,7 +107,7 @@ SecurityEvent
 
 필터 조건을 작성하는 경우 다음 식을 사용할 수 있습니다.
 
-| 식 | 설명 | 예 |
+| 식 | Description | 예제 |
 |:---|:---|:---|
 | == | 같은지 여부를 확인<br>(대/소문자 구분) | `Level == 8` |
 | =~ | 같은지 여부를 확인<br>(대/소문자 구분하지 않음) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -136,12 +135,14 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>시간 범위 지정
 
 ### <a name="time-picker"></a>시간 선택기
+
 시간 선택기는 실행 단추 옆에 있고 지난 24시간의 레코드만을 쿼리하는 것을 나타냅니다. 이는 모든 쿼리에 적용되는 기본 시간 범위입니다. 지난 1시간의 레코드만을 가져오려면 _지난 1시간_을 선택하고 쿼리를 다시 실행합니다.
 
 ![시간 선택](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>쿼리에서 시간 필터
+
 쿼리에 시간 필터를 추가하여 고유한 시간 범위를 정의할 수도 있습니다. 시간 필터를 테이블 이름 바로 뒤에 배치하는 것이 좋습니다. 
 
 ```Kusto
@@ -153,7 +154,8 @@ SecurityEvent
 위의 시간 필터에서 `ago(30m)`는 "30분 전"을 의미하므로 이 쿼리는 최근 30분의 레코드만을 반환합니다. 기타 시간 단위에는 일(2d), 분(25m) 및 초(10s)가 포함됩니다.
 
 
-## <a name="project-and-extend-select-and-compute-columns"></a>Project 및 Extend: 열 선택 및 계산
+## <a name="project-and-extend-select-and-compute-columns"></a>Project 및 Extend: 열 선택 및 컴퓨팅
+
 **project**를 사용하여 결과에 포함할 특정 열을 선택합니다.
 
 ```Kusto
@@ -179,7 +181,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend**는 결과 집합에서 모든 원본 열을 유지하고 추가 항목을 정의합니다. 다음 쿼리에서 **확장할** 추가 하는 *EventCode* 열입니다. 보려는 레코드의 세부 정보를 확장 하는이 열이 표시 되지 테이블 결과의 끝에 있는 경우 있습니다 참고 해야 합니다.
+**extend**는 결과 집합에서 모든 원본 열을 유지하고 추가 항목을 정의합니다. 다음 쿼리에서는 **확장**을 사용하여 *EventCode* 열을 추가합니다. 이 열은 테이블의 끝에 표시되지 않을 수 있으며, 이 경우 레코드의 세부 정보를 확장해야 합니다.
 
 ```Kusto
 SecurityEvent
@@ -224,7 +226,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>시간 열별 요약
 결과 그룹화는 time 열 또는 다른 연속 값을 기준으로 할 수도 있습니다. 그러나 간단히 `by TimeGenerated`를 요약하면 이는 고유한 값이므로 시간 범위 동안 모든 단일 밀리초에 대한 그룹을 만듭니다. 
 
-연속 값에 따라 그룹을 만들려면 **bin**을 사용하여 범위를 관리 가능한 단위로 나누는 것이 가장 좋습니다. 다음 쿼리는 특정 컴퓨터에서 사용 가능한 메모리(*Available MBytes*)를 측정하는 *Perf* 레코드를 분석합니다. 지난 7 일 동안 1 시간 동안 각의 평균 값을 계산 합니다.
+연속 값에 따라 그룹을 만들려면 **bin**을 사용하여 범위를 관리 가능한 단위로 나누는 것이 가장 좋습니다. 다음 쿼리는 특정 컴퓨터에서 사용 가능한 메모리(*Available MBytes*)를 측정하는 *Perf* 레코드를 분석합니다. 지난 7일 동안 각 1시간의 평균 값을 계산합니다.
 
 ```Kusto
 Perf 
@@ -242,4 +244,7 @@ Perf
 
 ## <a name="next-steps"></a>다음 단계
 
-- [검색 쿼리 작성](search-queries.md)에 대해 알아보기
+- [Azure Monitor 로그 쿼리에서 문자열 작업](string-operations.md)을 통해 로그 쿼리에서 문자열 데이터를 사용하는 방법에 대해 자세히 알아봅니다.
+- [Azure Monitor 로그 쿼리에서 문자열 작업](advanced-aggregations.md)을 통해 로그 쿼리에서 문자열 데이터를 사용하는 방법에 대해 자세히 알아봅니다.
+- [Azure Monitor 로그 쿼리에서 조인](joins.md)을 통해 여러 테이블의 데이터를 조인하는 방법에 대해 알아봅니다.
+- [KQL 언어 참조](/azure/kusto/query/)에서 전체 Kusto 쿼리 언어에 대한 설명서를 가져옵니다.

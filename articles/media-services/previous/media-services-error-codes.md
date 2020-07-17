@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 오류 코드 | Microsoft 문서
-description: 이 항목에서는 Azure Media Services 오류 코드에 대한 개요를 제공합니다.
+description: Media Services에서 지원 되지 않는 작업에 대 한 인증 토큰 만료와 같은 문제에 따라 서비스에서 HTTP 오류 코드를 받을 수 있습니다. 이 문서에서는 Azure Media Services v2 API 오류 코드에 대 한 개요를 제공 합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f3c362730e7908e88b363659b7fa580b6f2cddf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74887071"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services 오류 코드
 Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원되지 않는 작업에 대한 인증 토큰 만료와 같은 문제에 따라 서비스에서 HTTP 오류 코드를 받을 수도 있습니다. 다음은 Media Services에서 반환되는 **HTTP 오류 코드** 및 가능한 원인의 목록입니다.  
@@ -72,7 +71,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 * 존재하지 않는 엔터티를 삭제하려는 시도가 있었습니다.
 * 존재하지 않는 엔터티에 연결하는 엔터티를 만들려는 시도가 있었습니다.
 * 존재하지 않는 엔터티를 GET하려는 시도가 있었습니다.
-* Media Services 계정과 연결되지 않은 저장소 계정을 지정하려는 시도가 있었습니다.  
+* Media Services 계정과 연결되지 않은 스토리지 계정을 지정하려는 시도가 있었습니다.  
 
 ## <a name="409-conflict"></a>409 충돌
 요청은 다음과 같은 이유로 허용되지않습니다.
@@ -82,11 +81,11 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 * 이미 사용된 지정 Id를 사용하여 ContentKey를 만들려는 시도가 있었습니다.
 * 이미 사용된 지정 Id를 사용하여 Locator를 만들려는 시도가 있었습니다.
 * 둘 이상의 IngestManifestFile에 IngestManifest 내에서 지정된 이름이 있습니다.
-* 두 번째 저장소 암호화 ContentKey를 저장소 암호화된 Asset에 연결하려는 시도가 있었습니다.
+* 두 번째 스토리지 암호화 ContentKey를 스토리지 암호화된 Asset에 연결하려는 시도가 있었습니다.
 * 동일한 ContentKey를 Asset에 연결하려는 시도가 있었습니다.
-* 저장소 컨테이너가 누락되었거나 더 이상 해당 Asset과 연결되지 않은 Asset에 로케이터를 만들려는 시도가 있었습니다.
+* 스토리지 컨테이너가 누락되었거나 더 이상 해당 Asset과 연결되지 않은 Asset에 로케이터를 만들려는 시도가 있었습니다.
 * 사용 중인 로케이터가 5개 있는 Asset에 로케이터를 만들려는 시도가 있었습니다. (Azure Storage는 한 개의 스토리지 컨테이너에 다섯 개의 공유 액세스 정책이란 제한을 적용합니다.)
-* Asset을 IngestManifestAsset에 연결하는 저장소 계정은 상위 IngestManifest에서 사용되는 저장소 계정과는 다릅니다.  
+* Asset을 IngestManifestAsset에 연결하는 스토리지 계정은 상위 IngestManifest에서 사용되는 스토리지 계정과는 다릅니다.  
 
 ## <a name="500-internal-server-error"></a>500 내부 서버 오류
 요청을 처리하는 동안 Media Services가 처리를 계속 실행하는 것을 막는 오류가 발생합니다. 다음 이유 중 하나 때문일 수 있습니다.
@@ -116,7 +115,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 > 
 > 
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [Media Services 관리 오류 코드](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>다음 단계

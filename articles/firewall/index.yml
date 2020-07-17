@@ -1,47 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Firewall 설명서
+summary: 클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다.
 metadata:
-  title: 'Azure Firewall 설명서 - 자습서, API 참조'
-  meta.description: 'Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
+  title: Azure Firewall 설명서
+  description: 클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다.
   services: firewall
-  author: vhorne
   ms.service: firewall
   ms.topic: landing-page
-  ms.date: 9/24/2018
+  author: vhorne
   ms.author: victorh
-abstract:
-  description: '클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서는 Azure 가상 네트워크 리소스를 보호하도록 애플리케이션 수준 및 네트워크 수준 정책을 설정하는 방법을 보여줍니다.'
-sections:
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: Azure Firewall을 배포하는 방법 알아보기
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Azure Portal을 사용하여 Azure Firewall 배포 및 구성</a>
-          - html: <a href="/azure/firewall/tutorial-hybrid-ps">하이브리드 네트워크에 배포</a>
-          - html: <a href="/azure/firewall/tutorial-firewall-dnat">DNAT를 사용하여 인바운드 트래픽 필터링</a>
-          - html: <a href="/azure/firewall/tutorial-diagnostics">로그 모니터링</a>
-  - title: 샘플
-    items:
-      - type: paragraph
-        text: 일반 작업에 대한 스크립트 샘플입니다.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: <p><a href="/powershell/module/az.network/new-azfirewall">Azure PowerShell</a></p><p><a href="/cli/azure/ext/azure-firewall/network/firewall">Azure CLI</a></p>
-          - title: Languages
-            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-          - title: REST (영문)
-            html: '<p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API 참조</a></p>'
+  ms.date: 08/30/2019
+  ms.openlocfilehash: aba20908401cba2c1b740570f62593b5afb92dc5
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "70147311"
+landingContent:
+- title: Azure Firewall에 대한 자세한 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Firewall이란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Azure Firewall 규칙 처리 논리
+      url: rule-processing.md
+    - text: 질문과 대답
+      url: firewall-faq.md
+- title: Azure Firewall 배포
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure Portal을 사용하여 배포
+      url: tutorial-firewall-deploy-portal.md
+    - text: 하이브리드 네트워크에 배포
+      url: tutorial-hybrid-portal.md
+    - text: 인바운드 트래픽 필터링
+      url: tutorial-firewall-dnat.md
+- title: Load Balancer와 통합
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure 표준 Load Balancer에 Azure Firewall 통합
+      url: integrate-lb.md
+- title: Azure Firewall 모니터링
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Firewall 로그 및 메트릭
+      url: logs-and-metrics.md
+  - linkListType: tutorial
+    links:
+    - text: Azure Firewall 로그 및 메트릭 모니터링
+      url: tutorial-diagnostics.md

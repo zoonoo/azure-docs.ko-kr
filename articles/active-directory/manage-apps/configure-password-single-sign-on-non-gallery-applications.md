@@ -1,40 +1,29 @@
 ---
-title: 비-갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법 | Microsoft Docs
-description: Azure AD 애플리케이션 갤러리에 없는 경우 보안 암호 기반 Single Sign-On에 대한 사용자 지정 비 갤러리 애플리케이션을 구성하는 방법
+title: Azure AD 앱에 대 한 암호 Single Sign-On를 구성 하는 방법 | Microsoft Docs
+description: Microsoft id 플랫폼 (Azure AD)에서 Azure AD 엔터프라이즈 응용 프로그램에 대 한 SSO (암호 Single Sign-On)를 구성 하는 방법
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/12/2018
-ms.author: mimart
+ms.topic: how-to
+ms.date: 07/10/2019
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df52e0c25ecaff451f133e3a9207fb04b11f4a5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763502"
 ---
-# <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비-갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
+# <a name="configure-password-single-sign-on"></a>암호 Single Sign-On 구성
 
-Azure AD 애플리케이션 갤러리 내에서 찾을 수 있는 선택 항목 외에도 원하는 애플리케이션이 나열되어 있지 않은 경우 **비 갤러리 애플리케이션**을 추가하는 옵션도 있습니다. 이 기능을 사용하여 조직에 이미 있는 애플리케이션 또는 [Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)의 일부가 아닌 공급 업체에서 사용할 수 있는 타사 애플리케이션을 추가할 수 있습니다.
+[갤러리 앱](add-gallery-app.md) 또는 [비 갤러리 웹 앱](add-non-gallery-app.md) 을 Azure AD 엔터프라이즈 응용 프로그램에 추가 하는 경우 사용할 수 있는 Single Sign-On 옵션 중 하나는 [암호 기반 Single Sign-On](what-is-single-sign-on.md#password-based-sso)입니다. 이 옵션은 HTML 로그인 페이지를 사용 하는 모든 웹에서 사용할 수 있습니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 애플리케이션에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 또한 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유 해야 하는 시나리오에 유용 합니다. 
 
-비 갤러리 애플리케이션을 추가한 후 [Azure Portal](https://portal.azure.com/)의 엔터프라이즈 애플리케이션에서 **Single Sign-On** 탐색 항목을 선택하여 이 애플리케이션이 사용하는 Single Sign-On 메서드를 구성할 수 있습니다.
-
-사용할 수 있는 Single Sign-On 방법 중 하나는 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) 옵션입니다. **비 갤러리 애플리케이션 추가** 환경으로 사전 통합된 애플리케이션의 세트에 없는 경우에도 HTML 기반 사용자 이름 및 암호 입력 필드를 렌더링하는 모든 애플리케이션을 통합할 수 있습니다.
-
-이 기능이 작동하는 방법은 사용자 이름 및 암호 입력 필드를 자동으로 감지하고 특정 애플리케이션 인스턴스에 대해 안전하게 저장할 수 있도록 하는 액세스 패널 확장의 일부인 페이지 스크랩 기술입니다. 그런 다음, 사용자가 애플리케이션 액세스 패널에서 해당 애플리케이션으로 이동할 때 사용자 이름 및 암호를 해당 필드에 안전하게 재생합니다.
-
-모든 종류의 애플리케이션을 Azure AD로 신속하게 통합하는 것은 좋은 방법이며 다음을 가능하게 합니다.
-
--   HTML 사용자 이름 및 암호 입력 필드를 렌더링하는 한 Azure AD 테넌트와 **전세계 모든 애플리케이션** 통합
+암호 기반 SSO는 응용 프로그램을 Azure AD에 신속 하 게 통합 하기 시작 하는 좋은 방법 이며 다음을 수행할 수 있습니다.
 
 -   Azure AD와 통합한 애플리케이션에 대한 사용자 이름 및 암호를 안전하게 저장 및 재생하여 **사용자에 대한 Single Sign-On** 활성화
-
--   모든 애플리케이션에 대한 **입력 필드 자동 감지** 및 자동 감지가 찾지 못하는 경우 액세스 패널 브라우저 확장을 사용하여 이러한 필드를 수동으로 검색할 수 있도록 함
 
 -   로그인하는 데 사용자 이름 및 암호 필드 이상을 필요로 하는 애플리케이션에 대해 **여러 로그인 필드를 필요로 하는 애플리케이션 지원**
 
@@ -44,148 +33,65 @@ Azure AD 애플리케이션 갤러리 내에서 찾을 수 있는 선택 항목 
 
 -   **비즈니스 그룹의 멤버**가 [셀프 서비스 애플리케이션 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) 기능을 사용하여 사용자에게 할당된 사용자 이름 및 암호를 지정하도록 허용
 
--   **관리자**가 애플리케이션에 사용자를 할당할 때 자격 증명 업데이트 기능을 사용하여 사용자에게 할당된 사용자 이름 및 암호를 지정하도록 허용
+-   **관리자** 가 자격 증명 업데이트 기능을 사용 하 여 응용 프로그램에 로그인 할 때 개인 또는 그룹에서 사용할 사용자 이름 및 암호를 지정할 수 있습니다. 
 
--   **관리자**가 [애플리케이션에 그룹을 할당](#assign-an-application-to-a-group-directly)할 때 자격 증명 업데이트 기능을 사용하여 사용자 그룹에서 사용하는 공유된 사용자 이름 및 암호를 지정하도록 허용
+## <a name="before-you-begin"></a>시작하기 전에
 
-다음 섹션에서는 **비 갤러리 애플리케이션 추가** 경험을 사용하여 추가하는 모든 애플리케이션에 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 활성화할 수 있는 방법을 설명합니다.
+애플리케이션이 Azure AD 테넌트에 추가되지 않은 경우 [갤러리 앱 추가](add-gallery-app.md) 또는 [비갤러리 앱 추가](add-non-gallery-app.md)를 참조하세요.
 
-## <a name="overview-of-steps-required"></a>필요한 단계 개요
+## <a name="open-the-app-and-select-password-single-sign-on"></a>앱을 열고 암호를 선택 Single Sign-On
 
-Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
+1. [Azure Portal](https://portal.azure.com)에 Azure AD 테넌트의 클라우드 애플리케이션 관리자 또는 애플리케이션 관리자로 로그인합니다.
 
--   [비갤러리 애플리케이션 추가](#add-a-non-gallery-application)
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**으로 이동 합니다. Azure AD 테넌트에 있는 애플리케이션 샘플이 임의로 표시됩니다. 
 
--   [암호 Single Sign-On에 대한 애플리케이션 구성](#configure-the-application-for-password-single-sign-on)
+3. **애플리케이션 유형** 메뉴에서 **모든 애플리케이션**을 선택한 다음, **적용**을 선택합니다.
 
--   사용자 또는 그룹에 애플리케이션 할당
+4. 검색 상자에서 애플리케이션 이름을 입력한 다음, 결과에서 애플리케이션을 선택합니다.
 
-    -   [애플리케이션에 사용자를 직접 할당](#assign-a-user-to-an-application-directly)
+5. **관리** 섹션 아래에서 **Single Sign-On**을 선택합니다. 
 
-    -   [그룹에 애플리케이션을 직접 할당](#assign-an-application-to-a-group-directly)
+6. **암호 기반**을 선택 합니다.
 
-## <a name="add-a-non-gallery-application"></a>비갤러리 애플리케이션 추가
+7. 응용 프로그램의 웹 기반 로그인 페이지의 URL을 입력 합니다. 이 문자열은 사용자 이름 입력 필드를 포함 하는 페이지 여야 합니다.
 
-Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
+   ![암호 기반 Single Sign-On](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
-1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+8. **저장**을 선택합니다. Azure AD는 사용자 이름 입력 및 암호 입력에 대 한 로그인 페이지의 구문 분석을 시도 합니다. 시도가 성공 하면 완료 된 것입니다. 
+ 
+> [!NOTE]
+> 다음 단계는 [응용 프로그램에 사용자 또는 그룹을 할당](methods-for-assigning-users-and-groups.md)하는 것입니다. 사용자 및 그룹을 할당 한 후 사용자가 응용 프로그램에 로그인 할 때 사용자를 대신 하 여 사용할 자격 증명을 제공할 수 있습니다. **사용자 및 그룹**을 선택 하 고 사용자 또는 그룹의 행에 대 한 확인란을 선택한 다음 **자격 증명 업데이트**를 클릭 합니다. 그런 다음 사용자 또는 그룹 대신 사용할 사용자 이름 및 암호를 입력 합니다. 그렇지 않으면 시작할 때 자격 증명을 입력 하 라는 메시지가 사용자에 게 표시 됩니다.
+ 
 
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+## <a name="manual-configuration"></a>수동 구성
 
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+Azure AD의 구문 분석에 실패 하는 경우 로그인을 수동으로 구성할 수 있습니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+1. ** \<application name> 구성**에서 ** \<application name> 암호 Single sign-on 설정 구성** 을 선택 하 여 로그온 **구성** 페이지를 표시 합니다. 
 
-5.  **엔터프라이즈 애플리케이션** 창의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
+2. **로그인 필드 수동 검색**을 선택 합니다. 로그인 필드의 수동 검색에 대해 설명 하는 추가 지침이 표시 됩니다.
 
-6.  **비갤러리 애플리케이션**을 클릭합니다.
+   ![암호 기반 Single Sign-On 수동 구성](./media/configure-password-single-sign-on/password-configure-sign-on.png)
+3. **캡처 로그인 필드**를 선택 합니다. 새 탭에서 캡처 상태 페이지가 열리고 **현재 진행 중인 메시지 메타 데이터 캡처가**표시 됩니다.
 
-7.  **이름** 텍스트 상자에 애플리케이션의 이름을 입력합니다. **추가**를 선택합니다.
+4. **액세스 패널 확장 필요** 상자가 새 탭에 표시 되 면 **지금 설치** 를 선택 하 여 **내 앱 보안 로그인 확장** 브라우저 확장을 설치 합니다. 브라우저 확장에는 Microsoft Edge, Chrome 또는 Firefox가 필요 합니다. 그런 다음, 확장을 설치, 시작 및 사용 하도록 설정 하 고 캡처 상태 페이지를 새로 고칩니다.
 
-짧은 시간 후에 애플리케이션의 구성 창을 볼 수 있습니다.
+   그러면 브라우저 확장에서 입력 한 URL을 표시 하는 다른 탭이 열립니다.
+5. 입력 한 URL이 있는 탭에서 로그인 프로세스를 진행 합니다. 사용자 이름 및 암호 필드를 입력 하 고 로그인을 시도 합니다. (올바른 암호를 제공할 필요가 없습니다.)
 
-## <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 애플리케이션 구성
+   캡처된 로그인 필드를 저장 하 라는 메시지가 표시 됩니다.
+6. **확인**을 선택합니다. 브라우저 확장이 **응용 프로그램에 대해 메시지 메타 데이터가 업데이트**된 상태에서 캡처 상태 페이지를 업데이트 합니다. 브라우저 탭이 닫힙니다.
 
-애플리케이션에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
+7. Azure AD **로그온 구성** 페이지에서 **확인을 선택 하면 앱에 성공적으로 로그인 할 수**있습니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+8. **확인**을 선택합니다.
 
-2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+로그인 페이지를 캡처한 후 사용자 및 그룹을 할당할 수 있으며 일반 [암호 SSO 응용 프로그램과](what-is-single-sign-on.md)마찬가지로 자격 증명 정책을 설정할 수 있습니다.
 
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
-
-4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
-
-5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
-
-   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
-
-6. Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
-
-7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
-
-8. **암호 기반 로그온** 모드를 선택합니다.
-
-9. **로그온 URL**을 입력합니다. 사용자가 로그인하기 위해 사용자 이름과 암호를 입력하는 URL입니다. URL에서 로그인 필드가 표시되는지 확인합니다.
-
-10. 애플리케이션에 사용자를 할당합니다.
-
-11. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
-
-
-## <a name="assign-a-user-to-an-application-directly"></a>애플리케이션에 사용자를 직접 할당
-
-애플리케이션에 하나 이상의 사용자를 직접 할당하려면 다음 단계를 수행합니다.
-
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
-
-2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
-
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
-
-4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
-
-5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
-
-   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
-
-6. 목록에서 사용자를 할당하려는 애플리케이션을 선택합니다.
-
-7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
-
-8. **할당 추가** 창을 열려면 **사용자 및 그룹** 목록의 맨 위에서 **추가** 단추를 클릭합니다.
-
-9. **할당 추가** 창에서 **사용자 및 그룹** 선택기를 클릭합니다.
-
-10. **이름 또는 전자 메일 주소로 검색** 검색 상자에 할당하려는 사용자의 **전체 이름** 또는 **전자 메일 주소**를 입력합니다.
-
-11. 목록의 **사용자** 위로 마우스를 이동하여 **확인란**을 표시합니다. 사용자의 프로필 사진이나 로고 옆의 확인란을 클릭하여 사용자를 **선택됨** 목록에 추가합니다.
-
-12. **선택 사항:** **하나를 초과하는 사용자를 추가**하려는 경우 **이름 또는 이메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **이메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
-
-13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 애플리케이션에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
-
-14. **선택 사항:** **할당 추가** 창에서 **역할 선택** 선택기를 클릭하여 선택한 사용자에게 할당할 역할을 선택합니다.
-
-15. **할당** 단추를 클릭하여 선택한 사용자에게 애플리케이션을 할당합니다.
-
-## <a name="assign-an-application-to-a-group-directly"></a>그룹에 애플리케이션을 직접 할당
-
-애플리케이션에 하나 이상의 그룹을 직접 할당하려면 다음 단계를 수행합니다.
-
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
-
-2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
-
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
-
-4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
-
-5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
-
-   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
-
-6. 목록에서 사용자를 할당하려는 애플리케이션을 선택합니다.
-
-7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
-
-8. **할당 추가** 창을 열려면 **사용자 및 그룹** 목록의 맨 위에서 **추가** 단추를 클릭합니다.
-
-9. **할당 추가** 창에서 **사용자 및 그룹** 선택기를 클릭합니다.
-
-10. **이름 또는 메일 주소로 검색** 검색 상자에 할당하려는 그룹의 **전체 그룹 이름**을 입력합니다.
-
-11. 목록의 **그룹** 위로 마우스를 이동하여 **확인란**을 표시합니다. 그룹의 프로필 사진이나 로고 옆의 확인란을 클릭하여 사용자를 **선택됨** 목록에 추가합니다.
-
-12. **선택 사항:** **하나를 초과하는 그룹을 추가**하려는 경우 **이름 또는 이메일 주소로 검색** 검색 상자에 다른 **전체 그룹 이름**을 입력하고 확인란을 클릭하여 이 그룹을 **선택됨** 목록에 추가합니다.
-
-13. 그룹 선택이 완료되면 **선택** 단추를 클릭하여 애플리케이션에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
-
-14. **선택 사항:** **할당 추가** 창에서 **역할 선택** 선택기를 클릭하여 선택한 그룹에 할당할 역할을 선택합니다.
-
-15. **할당** 단추를 클릭하여 선택한 그룹에 애플리케이션을 할당합니다.
-
-짧은 시간 후에 선택한 사용자는 액세스 패널에서 이러한 애플리케이션을 시작할 수 있습니다.
+> [!NOTE]
+> 애플리케이션에 **구성** 탭의 **로고 업로드** 단추를 사용하여 애플리케이션에 대한 타일 로고를 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[애플리케이션 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
+
+- [애플리케이션에 사용자 또는 그룹 할당](methods-for-assigning-users-and-groups.md)
+- [자동 사용자 계정 프로비저닝 구성](../app-provisioning/configure-automatic-user-provisioning-portal.md)

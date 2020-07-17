@@ -1,41 +1,31 @@
 ---
-title: Azure Cosmos DB에 대한 Azure CLI 샘플
-description: Azure CLI 샘플 - Azure Cosmos DB 계정, 데이터베이스, 컨테이너, 하위 지역 및 방화벽을 만들고 관리합니다.
+title: Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
+description: Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/26/2018
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.reviewer: sngun
-ms.openlocfilehash: a6348024d4e84c27610f1294f916cca9a851b6b9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 39550c3da7a5ed129e26dec3d33f19c65d76cdfa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034202"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560530"
 ---
-# <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure CLI 샘플
+# <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
 
-다음 표는 Azure Cosmos DB의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다.
+다음 표는 Azure Cosmos DB SQL(Core) API의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다. 다른 Azure Cosmos DB API에 대한 Azure CLI 샘플은 [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md) 및 [Table API](cli-samples-table.md)를 참조하세요. 모든 Azure Cosmos DB CLI 스크립트 샘플은 [Azure Cosmos DB CLI GitHub 리포지토리](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)에서 확인할 수 있습니다.
 
-| |  |
+|Task | Description |
 |---|---|
-|**Azure Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기**||
-| [SQL API를 사용하여 Azure Cosmos DB 계정 만들기](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| 단일 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |
-| [Cosmos DB의 MongoDB API를 사용하여 Azure Cosmos DB 계정 만들기](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 단일 Azure Cosmos DB 계정, 데이터베이스 및 컬렉션을 만듭니다. |
-| [Gremlin API를 사용하여 Azure Cosmos DB 계정 만들기](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 단일 Azure Cosmos DB 계정, 데이터베이스 및 그래프를 만듭니다. |
-| [Cassandra API를 사용하여 Azure Cosmos DB 계정 만들기](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 단일 Azure Cosmos DB 계정 및 데이터베이스를 만듭니다. |
-| [Table API를 사용하여 Azure Cosmos DB 계정 만들기](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 단일 Azure Cosmos DB 계정, 데이터베이스 및 테이블을 만듭니다. |
-|**Azure Cosmos DB 확장**||
-| [컨테이너 처리량 확장](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 컨테이너에서 프로비전되는 처리량을 변경합니다.|
-| [Azure Cosmos DB 데이터베이스 계정을 여러 하위 지역에서 복제 및 장애 조치 우선 순위 구성](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|지정된 장애 조치 우선 순위를 사용해서 계정 데이터를 여러 하위 지역으로 전체적으로 복제합니다.|
-|**Azure Cosmos DB 보안 유지**||
-| [계정 키 가져오기](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 계정에 대한 기본 및 보조 마스터 쓰기 키와 기본 및 보조 읽기 전용 키를 가져옵니다.|
-| [Azure Cosmos DB의 MongoDB API로 구성된 Cosmos 계정에 대한 연결 문자열 가져오기](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | MongoDB 앱을 Azure Cosmos DB 계정에 연결하기 위한 연결 문자열을 가져옵니다.|
-| [계정 키 재생성](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|계정 키를 다시 생성합니다.|
-| [방화벽 만들기](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| 승인된 머신 및/또는 클라우드 서비스 집합에서 계정에 대한 액세스를 제한하기 위한 인바운드 IP 액세스 제어 정책을 만듭니다.|
-|**고가용성, 재해 복구, 백업 및 복원**||
-| [장애 조치 정책 구성](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|계정이 복제되는 각 하위 지역의 장애 조치 우선 순위를 설정합니다.|
-|**Azure Cosmos DB를 리소스에 연결**||
-| [웹앱을 Azure Cosmos DB에 연결](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Azure Cosmos DB 데이터베이스 및 Azure Web App을 만들고 연결합니다.|
+| [Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| SQL(Core) API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |
+| [처리량 변경](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 컨테이너에서 RU/s를 업데이트합니다.|
+| [영역 추가 또는 장애 조치(failover)](scripts/cli/common/regions.md?toc=%2fcli%2fazure%2ftoc.json) | 영역을 추가하고, 장애 조치(failover) 우선순위를 변경하고, 수동 장애 조치(failover)를 트리거합니다.|
+| [계정 키 및 연결 문자열](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json) | 계정 키, 읽기 전용 키를 나열하고, 키를 다시 생성하고, 연결 문자열을 나열합니다.|
+| [IP 방화벽으로 보안](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| IP 방화벽이 구성된 Cosmos 계정을 만듭니다.|
+| [서비스 엔드포인트로 새 계정 보호](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Cosmos 계정을 만들고 서비스 엔드포인트로 보호합니다.|
+| [서비스 엔드포인트로 기존 계정 보호](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| 서브넷이 최종적으로 구성될 때 서비스 엔드포인트로 보호할 Cosmos 계정을 업데이트합니다.|
+| [삭제에서 리소스 잠그기](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|
 |||

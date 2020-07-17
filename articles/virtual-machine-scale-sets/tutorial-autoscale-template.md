@@ -1,27 +1,20 @@
 ---
-title: 자습서 - Azure 템플릿을 사용하여 자동으로 확장 집합 크기 조정 | Microsoft Docs
+title: 자습서 - Azure 템플릿을 사용하여 자동으로 확장 집합 크기 조정
 description: Azure Resource Manager 템플릿을 사용하여 CPU 요구량이 늘거나 줄어듦에 따라 가상 머신 확장 집합의 크기를 자동으로 조정하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: autoscale
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749196"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629545"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>자습서: Azure 템플릿을 사용하여 자동으로 가상 머신 확장 집합 크기 조정
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -32,7 +25,7 @@ ms.locfileid: "55749196"
 > * VM 인스턴스 스트레스 테스트 및 자동 크기 조정 규칙 트리거
 > * 요구량이 줄면 자동으로 다시 크기 조정
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -81,7 +74,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 | *threshold*       | 자동 크기 조정 규칙이 작업을 트리거하도록 하는 값입니다.                                                      | 70%             |
 | *direction*       | 규칙이 적용될 때 확장 집합이 확장 또는 축소되어야 하는지 여부를 정의합니다.                                              | 증가        |
 | *type*            | VM 인스턴스 수를 특정 값으로 변경해야 함을 나타냅니다.                                    | 변경 수    |
-| *값*           | 규칙이 적용될 때 규모를 확장하거나 축소해야 하는 VM 인스턴스의 수입니다.                                             | 3               |
+| *value*           | 규칙이 적용될 때 규모를 확장하거나 축소해야 하는 VM 인스턴스의 수입니다.                                             | 3               |
 | *cooldown*        | 자동 크기 조정 작업이 적용될 시간을 주기 위해 규칙을 다시 적용하기 전에 대기할 시간입니다. | 5분       |
 
 다음 규칙은 이전 섹션의 *Microsoft.insights/autoscalesettings* 리소스 공급자에 대한 프로필 섹션에 추가됩니다.
@@ -183,13 +176,14 @@ az vmss list-instance-connection-info \
 
 SSH를 첫 번째 VM 인스턴스에 연결합니다. 앞의 명령과 같이 `-p` 매개 변수를 사용하여 사용자 고유의 공용 IP 주소와 포트 번호를 지정합니다.
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 로그인한 후 **stress** 유틸리티를 설치합니다. CPU 로드를 생성하는 *10*개 **stress** 작업자를 시작합니다. 이러한 작업자는 *420*초 동안 실행되어 자동 크기 조정 규칙에서 원하는 작업을 구현하는 데 충분합니다.
 
-```azurecli-interactive
+```console
+sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -198,26 +192,26 @@ sudo stress --cpu 10 --timeout 420 &
 
 **stress**에서 CPU 로드를 생성하는지 확인하려면 **top** 유틸리티를 사용하여 활성 시스템 로드를 검사합니다.
 
-```azurecli-interactive
+```console
 top
 ```
 
 **top**을 종료한 다음, VM 인스턴스에 대한 연결을 닫습니다. **stress**가 VM 인스턴스에서 계속 실행됩니다.
 
-```azurecli-interactive
+```console
 Ctrl-c
 exit
 ```
 
 이전 [az vmss list-instance-connection-info](/cli/azure/vmss)에서 나열된 포트 번호를 사용하여 두 번째 VM 인스턴스에 연결합니다.
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
 **stress**를 설치하고 실행한 다음, 이 두 번째 VM 인스턴스에서 10개의 작업자를 시작합니다.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -226,7 +220,7 @@ sudo stress --cpu 10 --timeout 420 &
 
 두 번째 VM 인스턴스에 대한 연결을 닫습니다. **stress**가 VM 인스턴스에서 계속 실행됩니다.
 
-```azurecli-interactive
+```console
 exit
 ```
 
@@ -242,7 +236,7 @@ watch az vmss list-instances \
 
 CPU 임계값이 충족되면 자동 크기 조정 규칙에서 확장 집합의 VM 인스턴스 수를 늘립니다. 다음 출력에서는 확장 집합의 크기가 자동으로 확장함에 따라 생성된 세 개의 VM을 보여 줍니다.
 
-```bash
+```output
 Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name myScaleSet --output table
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
@@ -256,7 +250,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
 **stress**가 초기 VM 인스턴스에서 중지되면 평균 CPU 로드가 정상으로 돌아갑니다. 또 다른 5분이 지나면 자동 크기 조정 규칙에서 VM 인스턴스 수를 축소합니다. 규모 감축 작업에서 가장 높은 ID가 있는 VM 인스턴스를 먼저 제거합니다. 확장 집합에서 가용성 집합 또는 가용성 영역을 사용하는 경우 규모 감축 작업은 해당 VM 인스턴스 간에 균등하게 분산됩니다. 다음 예제 출력에서는 확장 집합의 자동 크기를 확장하면서 삭제된 하나의 VM 인스턴스를 보여 줍니다.
 
-```bash
+```output
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
@@ -279,8 +273,3 @@ az group delete --name myResourceGroup --yes --no-wait
 > * 자동 크기 조정 규칙 만들기 및 사용
 > * VM 인스턴스 스트레스 테스트 및 자동 크기 조정 규칙 트리거
 > * 요구량이 줄면 자동으로 다시 크기 조정
-
-실제로 사용되는 가상 머신 확장 집합의 추가 예제는 다음 샘플 Azure CLI 샘플 스크립트를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [Azure CLI용 확장 집합 스크립트 샘플](cli-samples.md)

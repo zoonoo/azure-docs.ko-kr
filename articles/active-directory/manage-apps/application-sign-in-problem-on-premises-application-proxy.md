@@ -1,26 +1,26 @@
 ---
-title: Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 로그인하는 데 문제가 있음 | Microsoft Docs
+title: Azure AD 앱 프록시를 사용 하 여 온-프레미스 앱에 로그인 하는 문제 | Microsoft Docs
 description: Azure AD 애플리케이션 프록시를 사용하여 Azure AD와 통합된 온-프레미스 애플리케이션에 로그인할 수 없을 때 직면하는 일반적인 문제 해결
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0adc2effb27ffcd870ec543ee7b353a092808797
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825250"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367719"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 로그인하는 데 문제가 있음
 
@@ -36,7 +36,7 @@ ms.locfileid: "65825250"
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>내 애플리케이션에 연결 문제가 있음
   다음 문서는 이 범주에서 가장 일반적인 몇 가지 문제를 해결하는 데 도움이 될 수 있습니다.
-  * [내 애플리케이션에 대해 어떤 포트를 열지 모름](application-proxy-connectivity-ports-how-to.md)
+  * [내 애플리케이션에 대해 어떤 포트를 열지 모름](application-proxy-add-on-premises-application.md)
   * [내 애플리케이션에 대한 커넥터 그룹에 작동 중인 커넥터가 없으므로 문제가 발생함](application-proxy-connectivity-no-working-connector.md)
 
 ## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>관리 포털에서 Azure AD 애플리케이션 프록시를 구성하는 데 문제가 있음
@@ -56,7 +56,7 @@ ms.locfileid: "65825250"
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>애플리케이션 프록시 에이전트 커넥터에 문제가 있음
   다음 문서는 이 범주에서 가장 일반적인 몇 가지 문제를 해결하는 데 도움이 될 수 있습니다.
-  * [응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제가](application-proxy-connector-installation-problem.md)
+  * [애플리케이션 프록시 에이전트 커넥터를 설치하는 데 문제가 있음](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>다음 단계
-[온-프레미스 애플리케이션에 보안된 원격 액세스를 제공하는 방법](application-proxy.md)
+[온-프레미스 애플리케이션에 대한 보안 원격 액세스를 제공하는 방법](application-proxy.md)

@@ -16,12 +16,11 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60383760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698770"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -42,7 +41,7 @@ ms.locfileid: "60383760"
 
 
 > [!IMPORTANT]
-> Microsoft는 공식적으로 문서화된 구성 또는 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 구성 또는 작업 중 하나는 Azure AD Connect 동기화의 불일치하거나 지원되지 않는 상태가 될 수 있습니다. 결과적으로, Microsoft는 해당 배포에 대해 기술 지원을 제공할 수 없습니다.
+> Microsoft는 공식적으로 문서화된 구성 또는 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 구성 또는 작업으로 인해 Azure AD Connect 동기화 상태가 일치 하지 않거나 지원 되지 않을 수 있습니다. 따라서 Microsoft는 이러한 배포에 대 한 기술 지원을 제공할 수 없습니다.
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>단일 포리스트, 단일 Azure AD 테넌트
@@ -60,11 +59,11 @@ ms.locfileid: "60383760"
 
 많은 조직에는 다중 온-프레미스 Active Directory 포리스트가 있는 환경이 있습니다. 둘 이상의 온-프레미스 Active Directory 포리스트가 있는 이유는 여러 가지가 있습니다. 대표적인 예는 계정 리소스 포리스트를 사용하는 디자인과 합병 또는 인수의 결과입니다.
 
-포리스트가 여러 개인 경우 단일 Azure AD Connect Sync 서버에서 모든 포리스트에 연결할 수 있어야 합니다. 서버를 도메인에 가입할 필요가 없습니다. 모든 포리스트에 연결해야 하는 경우 서버를 경계 네트워크(DMZ, 완충 지역 또는 스크린된 서브넷이라고도 함)에 배치할 수 있습니다.
+포리스트가 여러 개인 경우 단일 Azure AD Connect Sync 서버에서 모든 포리스트에 연결할 수 있어야 합니다. 서버는 도메인에 가입 되어 있어야 합니다. 모든 포리스트에 연결해야 하는 경우 서버를 경계 네트워크(DMZ, 완충 지역 또는 스크린된 서브넷이라고도 함)에 배치할 수 있습니다.
 
 Azure AD Connect 설치 마법사는 여러 포리스트에 표시되는 사용자를 통합하는 몇 가지 옵션을 제공합니다. 이러한 옵션의 목표는 사용자를 Azure AD에서 한 번만 표시하는 것입니다. 설치 마법사에서 사용자 지정 설치 경로에 구성할 수 있는 몇 가지 일반적인 토폴로지가 있습니다. **사용자를 고유하게 식별** 페이지에서 해당 토폴로지를 나타내는 옵션을 선택합니다. 통합은 사용자에 대해서만 구성됩니다. 중복된 그룹은 기본 구성과 통합되지 않습니다.
 
-일반적인 토폴로지는 별도의 토폴로지, [전체 메시](#multiple-forests-full-mesh-with-optional-galsync) 및 [계정 리소스 토폴로지](#multiple-forests-account-resource-forest) 섹션에 설명되어 있습니다.
+일반적인 토폴로지는 별도의 토폴로지, [전체 메시](#multiple-forests-full-mesh-with-optional-galsync)및 [계정 리소스 토폴로지에](#multiple-forests-account-resource-forest)대 한 섹션에서 설명 합니다.
 
 Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니다.
 
@@ -113,14 +112,14 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 
 ![다중 포리스트를 위한 계정 리소스 포리스트 토폴로지](./media/plan-connect-topologies/MultiForestAccountResource.png)
 
-계정 리소스 포리스트 토폴로지에는 활성 사용자 계정이 있는 하나 이상의 *계정* 포리스트가 있습니다. 또한 계정이 비활성화된 하나 이상의 *리소스* 포리스트가 있습니다.
+계정 리소스 포리스트 토폴로지에는 활성 사용자 계정이 있는 하나 이상의 *계정* 포리스트가 있습니다. 또한 비활성화 된 계정이 있는 하나 이상의 *리소스* 포리스트가 있습니다.
 
 이 시나리오에서는 하나 이상의 리소스 포리스트가 모든 계정 포리스트를 신뢰합니다. 리소스 포리스트에는 일반적으로 Exchange 및 Lync와 확장된 Active Directory 스키마가 있습니다. 다른 공유 서비스는 물론이고 모든 Exchange 및 Lync 서비스도 이 포리스트에 배치됩니다. 사용자는 이 포리스트에 비활성화된 계정을 가지며 사서함이 계정 포리스트에 연결됩니다.
 
 ## <a name="office-365-and-topology-considerations"></a>Office 365 및 토폴로지 고려 사항
 일부 Office 365 워크로드의 경우 지원되는 토폴로지에 약간의 제한이 있습니다.
 
-| 작업 | 제한 |
+| 작업 | 제한 사항 |
 | --------- | --------- |
 | Exchange Online | Exchange Online에서 지원하는 하이브리드 토폴로지에 대한 자세한 내용은 [여러 Active Directory 포리스트를 사용한 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)를 참조하세요. |
 | 비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 자세한 내용은 [Business Server 2015용 Skype에 대한 환경 요구 사항](https://technet.microsoft.com/library/dn933910.aspx)을 참조하세요. |
@@ -165,7 +164,7 @@ DNS 도메인은 단일 Azure AD 테넌트에만 등록할 수 있습니다. 온
 * Windows 10 디바이스는 하나의 Azure AD 테넌트에만 연결할 수 있습니다.
 * 암호 해시 동기화 및 통과 인증에 대한 SSO(Single Sign-On) 옵션은 하나의 Azure AD 테넌트에만 사용할 수 있습니다.
 
-상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 이 토폴로지는 단일 온-프레미스 구성을 전제로 하기 때문에 일부 쓰기 저장 기능이 지원되지 않습니다. 이러한 기능으로는 다음이 포함됩니다.
+상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 이 토폴로지는 단일 온-프레미스 구성을 전제로 하기 때문에 일부 쓰기 저장 기능이 지원되지 않습니다. 이러한 기능에는 다음이 포함됩니다.
 
 * 기본 구성으로 쓰기 저장 그룹화.
 * 디바이스 쓰기 저장.
@@ -197,4 +196,4 @@ FIM 2010 또는 MIM 2016 온-프레미스를 사용하여 두 Exchange 조직 �
 
 [Azure AD Connect 동기화](how-to-connect-sync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
-[Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.
+[Azure Active Directory와 온-프레미스 id 통합](whatis-hybrid-identity.md)에 대해 자세히 알아보세요.

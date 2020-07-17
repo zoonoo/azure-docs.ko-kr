@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: dc23a0a68471b82c990d5d8a3086e2e71e88d0c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513928"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 작업 보기 및 관리(업데이트 3 이상)
 
@@ -41,7 +40,7 @@ ms.locfileid: "60506211"
 * **상태** – 실행 중, 완료, 취소, 실패, 취소 중 또는 완료되었으나 오류 발생입니다.
 * **엔터티** – 작업은 볼륨, 백업 정책 또는 디바이스에 연관될 수 있습니다. 예를 들어 복제 작업은 볼륨과 연관되는 반면, 예약된 백업 작업은 백업 정책과 연관됩니다. 디바이스 작업은 DR(재해 복구) 또는 복원 작업의 결과로 만들어집니다.
 * **디바이스** – 작업이 시작된 디바이스의 이름입니다.
-* **시작 시간** – 작업이 시작된 시간입니다.
+* **시작** 시간 – 작업이 시작 된 시간입니다.
 * **기간** – 작업을 완료하는 데 필요한 시간입니다.
 
 작업 목록은 30초마다 새로 고쳐집니다.
@@ -77,15 +76,15 @@ ms.locfileid: "60506211"
 
 
 ### <a name="to-cancel-a-job"></a>작업 취소 방법
-1. **작업** 페이지에서 적절한 필터와 함께 쿼리를 실행하여 취소하려는 실행 중인 작업을 표시합니다. 작업을 선택합니다.
+1. **작업** 페이지에서 적절한 필터가 포함된 쿼리를 실행하여 취소하기를 원하는 실행 중인 작업을 표시합니다. 작업을 선택합니다.
 
 2. 선택한 작업을 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시하고 **취소**를 클릭합니다.
 
     ![작업 세부 정보](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
-3. 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 이 작업은 이제 취소됩니다.
+3. 확인 메시지가 표시되면 **예**를 클릭합니다. 이 작업은 이제 취소됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 백업 정책을 관리](storsimple-8000-manage-backup-policies-u2.md)하는 방법을 알아봅니다.
-* [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법에 대해 자세히 알아보기
+* [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 알아봅니다.
 

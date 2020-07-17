@@ -3,24 +3,24 @@ title: CDN(콘텐츠 배달 네트워크)이란? - Azure | Microsoft Docs
 description: Azure CDN(Content Delivery Network) 무엇인지 알아보고 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/09/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 262e5b7bbcbf6c463ef97d5acc72248d37195124
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843677"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260450"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Azure의 콘텐츠 배달 네트워크란?
 CDN(콘텐츠 배달 네트워크)은 사용자에게 웹 콘텐츠를 효율적으로 제공할 수 있는 서버의 분산 네트워크입니다. CDN은 최종 사용자와 가까운 POP(point-of-presence) 위치의 Edge 서버에 캐시된 콘텐츠를 저장하여 대기 시간을 최소화합니다. 
@@ -38,7 +38,7 @@ Azure CDN을 사용하여 웹 사이트 자산을 배달하면 다음과 같은 
 ## <a name="how-it-works"></a>작동 방법
 ![CDN 개요](./media/cdn-overview/cdn-overview.png)
 
-1. 사용자(Alice)가 특수 도메인 이름(예: _&lt;endpoint name&gt;_.azureedge.net)이 있는 URL을 사용하여 파일(자산이라고도 함)을 요청합니다. 이 이름은 엔드포인트 호스트 이름 또는 사용자 지정 도메인이 될 수 있습니다. DNS는 가장 성능이 좋은 POP 위치로 요청을 라우팅합니다. 이 위치는 대개 사용자와 지리적으로 가장 가까운 POP입니다.
+1. 사용자(Alice)가 특수 도메인 이름(예: _&lt;endpoint name&gt;_ .azureedge.net)이 있는 URL을 사용하여 파일(자산이라고도 함)을 요청합니다. 이 이름은 엔드포인트 호스트 이름 또는 사용자 지정 도메인이 될 수 있습니다. DNS는 가장 성능이 좋은 POP 위치로 요청을 라우팅합니다. 이 위치는 대개 사용자와 지리적으로 가장 가까운 POP입니다.
     
 2. POP의 에지 서버의 캐시에 파일이 없으면, POP는 원본 서버에서 파일을 요청합니다. 원본 서버는 Azure Web App, Azure Cloud Service, Azure Storage 계정 또는 공개적으로 액세스할 수 있는 웹 서버입니다.
    
@@ -59,7 +59,7 @@ Azure 구독마다 다음 리소스에 대한 기본 제한이 있습니다.
  - CDN 프로필에서 만들 수 있는 엔드포인트의 수 
  - 엔드포인트에 매핑할 수 있는 사용자 지정 도메인의 수
 
-CDN 구독 제한에 대한 자세한 정보는 [CDN 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 참조하세요.
+CDN 구독 제한에 대한 자세한 정보는 [CDN 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조하세요.
     
 ## <a name="azure-cdn-features"></a>Azure CDN 기능
 Azure CDN은 다음과 같은 주요 기능을 제공합니다.

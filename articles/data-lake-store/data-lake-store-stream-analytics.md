@@ -1,31 +1,24 @@
 ---
-title: Stream Analytics에서 Azure Data Lake Storage Gen1로 데이터 스트리밍 | Microsoft Docs
-description: Azure Stream Analytics를 사용하여 Azure Data Lake Storage Gen1에 데이터 스트리밍
-services: data-lake-store,stream-analytics
-documentationcenter: ''
+title: Stream Analytics에서 Data Lake Storage Gen1로 데이터 스트리밍-Azure
+description: Azure Stream Analytics를 사용 하 여 데이터를 Azure Data Lake Storage Gen1으로 스트리밍합니다.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 42c7894c33fe0f09748beee20508e7670545c0ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194946"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515162"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1에 데이터 스트리밍
-이 문서는 Azure Stream Analytics 작업에 대한 출력으로 Azure Data Lake Storage Gen1을 사용하는 방법을 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake Storage Gen1(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
+이 문서에서는 Azure Stream Analytics 작업에 대 한 출력으로 Azure Data Lake Storage Gen1를 사용 하는 방법에 대해 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake Storage Gen1(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Storage 계정**. 이 계정에서 Blob 컨테이너를 사용하여 Stream Analytics 작업에 대한 데이터를 입력합니다. 이 자습서의 경우 **storageforasa**라는 스토리지 계정 및 **storageforasacontainer**라는 계정 내의 컨테이너가 있다고 가정합니다. 컨테이너를 만든 후에 샘플 데이터 파일을 거기에 업로드합니다. 
   
@@ -41,7 +34,7 @@ ms.locfileid: "60194946"
     ![Stream Analytics 작업 만들기](./media/data-lake-store-stream-analytics/create.job.png "Stream Analytics 작업 만들기")
 
     > [!NOTE]
-    > 저장소 계정과 동일한 지역에 작업을 만들지 않으면 지역 간에 데이터를 이동하는 데 추가 비용이 발생합니다.
+    > 스토리지 계정과 동일한 지역에 작업을 만들지 않으면 지역 간에 데이터를 이동하는 데 추가 비용이 발생합니다.
     >
 
 ## <a name="create-a-blob-input-for-the-job"></a>작업에 대한 Blob 입력 만들기
@@ -59,7 +52,7 @@ ms.locfileid: "60194946"
    * **원본**으로 **Blob Storage**를 선택합니다.
    * **구독**에 대해 **현재 구독의 Blob Storage 사용**을 선택합니다.
    * **Storage 계정**에서 필수 조건의 일부로 만든 Storage 계정을 선택합니다. 
-   * **컨테이너**에 대해 선택한 저장소 계정에서 만든 컨테이너를 선택합니다.
+   * **컨테이너**에 대해 선택한 스토리지 계정에서 만든 컨테이너를 선택합니다.
    * **이벤트 직렬화 형식**으로 **CSV**를 선택합니다.
    * **구분 기호**로 **탭**을 선택합니다.
    * **Encoding**으로 **UTF-8**을 선택합니다.
@@ -96,7 +89,7 @@ ms.locfileid: "60194946"
     
 ## <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
-1. Stream Analytics 작업을 실행하려면 **쿼리** 탭에서 쿼리를 실행해야 합니다. 이 자습서에서는 아래의 화면 캡처와 같이 작업 입력 및 출력 별칭으로 자리 표시자를 대체하여 샘플 쿼리를 실행할 수 있습니다.
+1. Stream Analytics 작업을 실행 하려면 **쿼리** 탭에서 쿼리를 실행 해야 합니다. 이 자습서에서는 아래 화면 캡처에 표시 된 것 처럼 자리 표시자를 작업 입력 및 출력 별칭으로 바꿔서 샘플 쿼리를 실행할 수 있습니다.
 
     ![쿼리 실행](./media/data-lake-store-stream-analytics/run.query.png "쿼리 실행")
 
@@ -106,7 +99,7 @@ ms.locfileid: "60194946"
 
     **시작**을 클릭하여 작업을 시작합니다. 작업을 시작하는 데 최대 몇 분이 걸릴 수 있습니다.
 
-3. Blob에서 데이터를 선택하는 작업을 트리거하려면 샘플 데이터 파일을 Blob 컨테이너에 복사합니다. [Azure Data Lake Git 리포지토리](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)에서 샘플 데이터 파일을 가져올 수 있습니다. 이 자습서에서는 **vehicle1_09142014.csv** 파일을 복사하겠습니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
+3. Blob에서 데이터를 선택하는 작업을 트리거하려면 샘플 데이터 파일을 Blob 컨테이너에 복사합니다. [Azure Data Lake Git 리포지토리](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)에서 샘플 데이터 파일을 가져올 수 있습니다. 이 자습서에서는 **vehicle1_09142014.csv** 파일을 복사하겠습니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
 
 4. **개요** 탭의 **모니터링** 아래에서 데이터가 처리된 방식을 확인합니다.
 
@@ -118,5 +111,5 @@ ms.locfileid: "60194946"
 
     데이터 탐색기 창에서 Data Lake Storage Gen1 출력 설정(`streamanalytics/job/output/{date}/{time}`)에 지정된 대로 출력이 폴더 경로에 기록됩니다.  
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

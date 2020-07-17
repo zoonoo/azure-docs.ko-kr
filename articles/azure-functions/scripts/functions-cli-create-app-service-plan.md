@@ -1,25 +1,18 @@
 ---
-title: Azure CLI 스크립트 샘플 - App Service 계획에서 Function App 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - App Service 계획에서 Function App 만들기
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
+title: App Service 계획에서 함수 앱 만들기 - Azure CLI
+description: Azure CLI 스크립트 샘플 - App Service 계획에서 함수 앱 만들기
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/03/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 85fe8e567cd00decbefe79c77c11f777820080ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77e026e12d14745c308e1d02fade13f318d9e532
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325683"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74532852"
 ---
-# <a name="create-a-function-app-in-an-app-service-plan"></a>App Service 계획에서 Function App 만들기
+# <a name="create-a-function-app-in-an-app-service-plan"></a>App Service 계획에서 함수 앱 만들기
 
 이 Azure Functions 샘플 스크립트는 함수의 컨테이너인 함수 앱을 만듭니다. 생성된 함수 앱은 전용 App Service 계획을 사용하는데, 이는 서버 리소스가 항상 켜져 있음을 의미합니다.
 
@@ -43,13 +36,13 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서 
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Azure Storage 계정을 만듭니다. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | App Service 계획을 만듭니다. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | App Service 계획의 함수 앱을 만듭니다. |
+| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Azure Storage 계정을 만듭니다. |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | 프리미엄 플랜을 만듭니다. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | App Service 계획의 함수 앱을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 Azure Functions CLI 스크립트 샘플은 [Azure Functions 설명서](../functions-cli-samples.md)에서 확인할 수 있습니다.

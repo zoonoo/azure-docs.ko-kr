@@ -1,32 +1,31 @@
 ---
-title: Service Fabric 서비스 엔드포인트 지정 | Microsoft Docs
+title: Service Fabric 서비스 끝점 지정
 description: HTTPS 엔드포인트를 설정하는 방법을 포함하여 서비스 매니페스트에서 엔드포인트 리소스를 설명하는 방법
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 8707a9cb90afe1bf72f3aef6377f8ada409a1c64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610747"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
-서비스 매니페스트를 사용하면 컴파일된 코드를 변경하지 않고도 서비스에서 사용하는 리소스를 선언/변경할 수 있게 해줍니다. Azure 서비스 패브릭은 서비스에 대한 엔드포인트 리소스 구성을 지원합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 애플리케이션 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다. ServiceManifest.xml 파일에 대한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
+서비스 매니페스트를 사용 하면 컴파일된 코드를 변경 하지 않고 서비스에서 사용 하는 리소스를 선언 하거나 변경할 수 있습니다. Service Fabric은 서비스에 대 한 끝점 리소스의 구성을 지원 합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 애플리케이션 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다. ServiceManifest.xml 파일에 대한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
 
 ## <a name="endpoints"></a>엔드포인트
 서비스 매니페스트에 엔드포인트 리소스가 정의되면 서비스 패브릭에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. 예를 들어 이 단락 다음에 제공된 매니페스트 코드 조각에 지정된 엔드포인트 *ServiceEndpoint1* 을 보세요. 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 서비스의 복제본은 포트를 공유합니다. 그러면 서비스 복제본은 복제 및 클라이언트 요청의 수신 대기를 위해 필요한 경우 이러한 포트를 사용할 수 있습니다.
+
+Https 끝점을 지정 하는 서비스를 활성화할 때 포트에 대 한 액세스 제어 항목을 설정 하 고, 지정 된 서버 인증서를 포트에 바인딩하고, 서비스에서 실행 되는 id를 인증서의 개인 키에 대 한 권한으로 부여할 수 Service Fabric 합니다. 활성화 흐름은 Service Fabric 시작 될 때마다 또는 응용 프로그램의 인증서 선언이 업그레이드를 통해 변경 되는 경우에 호출 됩니다. 또한 끝점 인증서가 변경/갱신에 대해 모니터링 되 고, 필요에 따라 사용 권한이 주기적으로 다시 적용 됩니다.
+
+서비스가 종료 되 면 Service Fabric 끝점 액세스 제어 항목을 정리 하 고 인증서 바인딩을 제거 합니다. 그러나 인증서의 개인 키에 적용 되는 모든 사용 권한은 정리 되지 않습니다.
+
+> [!WARNING] 
+> 의도적으로 정적 포트는 ClusterManifest에 지정 된 응용 프로그램 포트 범위와 겹치면 안 됩니다. 정적 포트를 지정 하는 경우에는 응용 프로그램 포트 범위 외부에 할당 합니다. 그렇지 않으면 포트 충돌이 발생 합니다. Release 6.5를 사용 하면 이러한 충돌을 감지 하면 **상태 경고가** cu2 배포를 계속 해 서 배송 된 6.5 동작으로 동기화 할 수 있습니다. 그러나 다음 주요 릴리스에서는 응용 프로그램을 배포 하지 못할 수 있습니다.
+>
+> 릴리스 7.0에서는 응용 프로그램 포트 범위 사용량이 HostingConfig:: ApplicationPortExhaustThresholdPercentage (기본값 80%)를 초과 하는 경우 **상태 경고** 를 발행 합니다.
+>
 
 ```xml
 <Resources>
@@ -53,8 +52,6 @@ ms.locfileid: "60837762"
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>예: 서비스에 대한 HTTP 엔드포인트 지정
 다음 서비스 매니페스트는 &lt;Resources&gt; 요소에서 한 개의 TCP 엔드포인트 리소스와 두 개의 HTTP 엔드포인트 리소스를 정의합니다.
-
-HTTP 엔드포인트는 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,6 +87,7 @@ HTTP 엔드포인트는 서비스 패브릭에 의해 자동으로 ACL 처리됩
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+      <Endpoint Name="ServiceEndpoint4" Protocol="https" Port="14023"/>
 
       <!-- This endpoint is used by the replicator for replicating the state of your service.
            This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
@@ -111,7 +109,7 @@ HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통�
 > HTTPS를 사용하는 경우 동일한 노드에 배포된 다른 서비스 인스턴스(애플리케이션과 독립적)에 동일한 포트 및 인증서를 사용하지 않습니다. 다른 애플리케이션 인스턴스에서 동일한 포트를 사용하는 두 가지 다른 서비스를 업그레이드하면 업그레이드 오류가 발생합니다. 자세한 내용은 [HTTPS 엔드포인트로 여러 애플리케이션 업그레이드](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)를 참조하세요.
 >
 
-HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같습니다. 인증서에 대한 지문을 제공해야 합니다. EndpointRef는 HTTPS 프로토콜을 설정하는 ServiceManifest의 EndpointResource에 대한 참조입니다. 둘 이상의 Endpointcertificate를 추가할 수 있습니다.  
+HTTPS 끝점에 필요한 구성을 보여 주는 예제 ApplicationManifest는 다음과 같습니다. 서버/끝점 인증서를 지문 또는 주체 일반 이름으로 선언할 수 있으며 값을 제공 해야 합니다. EndpointRef는 Servicemanifest.xml의 Endpointref에 대 한 참조 이며 해당 프로토콜이 ' https ' 프로토콜로 설정 되어야 합니다. 둘 이상의 Endpointcertificate를 추가할 수 있습니다.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -132,7 +130,8 @@ HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같�
     <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
     <Policies>
-      <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByCN" EndpointRef="ServiceEndpoint4"/>
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
@@ -148,13 +147,16 @@ HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같�
     </Service>
   </DefaultServices>
   <Certificates>
-    <EndpointCertificate Name="TestCert1" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByTP" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByCN" X509FindType="FindBySubjectName" X509FindValue="ServiceFabric-EndpointCertificateBinding-Test" X509StoreName="MY" />  
   </Certificates>
 </ApplicationManifest>
 ```
 
 Linux 클러스터의 경우 **내** 저장소는 기본적으로 **/var/lib/sfcerts** 폴더입니다.
 
+## <a name="port-acling-for-http-endpoints"></a>HTTP 끝점에 대 한 포트 ACLing
+Service Fabric는 기본적으로 지정 된 HTTP (S) 끝점을 자동으로 ACL에 지정 합니다. 끝점에 [Securityaccesspolicy](service-fabric-assign-policy-to-endpoint.md) 가 연결 되어 있지 않고 Service Fabric 관리자 권한이 있는 계정을 사용 하 여 실행 되도록 구성 된 경우 자동으로 acling를 수행 **하지** 않습니다.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>ServiceManifest.xml에서 엔드포인트 재정의
 
@@ -175,7 +177,7 @@ ServiceManifestImport 섹션에서 새 섹션 "ResourceOverrides"를 추가합�
       </Endpoints>
     </ResourceOverrides>
         <Policies>
-           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+           <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint"/>
         </Policies>
   </ServiceManifestImport>
 ```
@@ -192,7 +194,7 @@ Parameters에서 아래 내용을 추가합니다.
   </Parameters>
 ```
 
-애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예를 들면 다음과 같습니다.
+애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예를 들어:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -200,7 +202,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 참고: ApplicationParameters에 제공된 값이 비어 있으면 해당 EndPointName에 대한 ServiceManifest에 제공된 기본값으로 돌아갑니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ServiceManifest에서 다음을 지정했습니다.
 
@@ -214,4 +216,4 @@ ServiceManifest에서 다음을 지정했습니다.
 
 또한 Applications 매개 변수에 대한 Port1 및 Protocol1 값은 null이거나 비어 있습니다. 포트는 여전히 ServiceFabric에 의해 결정됩니다. 또한 Protocol은 tcp가 됩니다.
 
-잘못된 값을 지정한다고 가정해 보겠습니다. Port의 경우처럼 int 대신 문자열 값 "Foo"를 지정했습니다.  New-ServiceFabricApplication 명령은 다음 오류와 함께 실패합니다. 'ResourceOverrides' 섹션에서 이름이 'ServiceEndpoint1'이고 특성이 'Port1'인 재정의 매개 변수가 잘못되었습니다. 지정된 값은 'Foo'이지만 'int'가 필요합니다.
+잘못된 값을 지정한다고 가정해 보겠습니다. 포트의 경우와 같이 int 대신 문자열 값 "Foo"를 지정 했습니다.  Get-servicefabricapplication 명령이 오류로 인해 실패 합니다. ' ResourceOverrides ' 섹션에서 이름이 ' ServiceEndpoint1 ' 특성이 ' Port1 ' 인 재정의 매개 변수가 잘못 되었습니다. 지정된 값은 'Foo'이지만 'int'가 필요합니다.

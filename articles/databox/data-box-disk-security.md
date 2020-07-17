@@ -1,19 +1,18 @@
 ---
-title: Microsoft Azure Data Box Disk 개요 | Microsoft Docs
-description: 많은 양의 데이터를 Azure로 전송할 수 있는 클라우드 솔루션인 Azure Data Box Disk에 대해 설명합니다.
+title: Microsoft Azure Data Box Disk 보안 기능 | 데이터의 Microsoft Docs
+description: Azure로 많은 양의 데이터를 전송할 수 있도록 하는 클라우드 솔루션인 Azure Data Box Disk에 대해 구현 된 보안 기능에 대해 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79117279"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk 보안 및 데이터 보호
 
@@ -26,7 +25,7 @@ Microsoft Azure Data Box 솔루션은 서로 상호 작용 하는 네 가지 기
 - **Azure에서 호스팅되는 Azure Data Box 서비스** - 디스크 순서를 만들고, 디스크를 구성한 다음 완료에 대한 순서를 추적하는 데 사용하는 관리 서비스입니다.
 - **Data Box Disk** – Azure로 온-프레미스 데이터를 가져올 수 있도록 함께 제공되는 실제 디스크입니다. 
 - **디스크에 연결된 클라이언트/호스트** – USB를 통해 Data Box 디스크에 연결하고 보호되어야 하는 데이터를 포함하는 인프라 내의 클라이언트입니다.
-- **클라우드 저장소** – 데이터가 저장되는 Azure 클라우드의 위치입니다. 이것이 일반적으로 사용자가 만든 Azure Data Box 리소스에 연결된 저장소 계정입니다.
+- **클라우드 저장소** – Azure 클라우드 내에서 데이터가 저장되는 위치입니다. 이것이 일반적으로 사용자가 만든 Azure Data Box 리소스에 연결된 스토리지 계정입니다.
 
 다음 다이어그램은 온-프레미스에서 Azure로 Azure Data Box Disk 솔루션을 통해 데이터 흐름을 나타냅니다.
 
@@ -34,7 +33,7 @@ Microsoft Azure Data Box 솔루션은 서로 상호 작용 하는 네 가지 기
 
 ## <a name="security-features"></a>보안 기능
 
-Data Box Disk는 인증된 엔터티만 데이터를 보고, 수정하거나 삭제할 수 있도록 하여 데이터 보호에 대한 보안 솔루션을 제공합니다. 이 솔루션에 대한 보안 기능은 저장된 데이터의 보안을 보장하는 디스크 및 연결된 서비스를 위한 것입니다. 
+Data Box Disk는 인증된 엔터티만 데이터를 보고, 수정하거나 삭제할 수 있도록 하여 데이터 보호에 대한 보안 솔루션을 제공합니다. 이 솔루션에 대한 보안 기능은 저장된 데이터의 보안을 보장하는 디스크 및 연결된 서비스를 위한 것입니다.
 
 ### <a name="data-box-disk-protection"></a>Data Box Disk 보호
 
@@ -48,7 +47,7 @@ Data Box Disk는 다음 기능을 통해 보호됩니다.
 
 Data Box Disk의 내부 및 외부로 흐르는 데이터는 다음 기능을 통해 보호됩니다.
 
-- 데이터의 상시 BitLocker 암호화 
+- 데이터의 상시 BitLocker 암호화
 - Azure에 대한 데이터 업로드가 완료되면 디스크에서 데이터 지우기를 보호합니다. 데이터 지우기는 NIST 800-88r1 표준을 따릅니다.
 
 ### <a name="data-box-service-protection"></a>Data Box 서비스 보호
@@ -56,10 +55,9 @@ Data Box Disk의 내부 및 외부로 흐르는 데이터는 다음 기능을 �
 Data Box 서비스는 다음 기능을 통해 보호됩니다.
 
 - Data Box Disk 서비스에 액세스하려면 Data Box Disk를 포함하는 Azure 구독 조직에 있어야 합니다. 구독은 Azure Portal에서 액세스할 수 있는 기능을 제어합니다.
-- Data Box Disk 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://www.microsoft.com/TrustCenter/Security/default.aspx)로 이동합니다. 
+- Data Box Disk 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://www.microsoft.com/TrustCenter/Security/default.aspx)로 이동합니다.
 - Data Box Disk는 서비스에서 디스크를 잠금 해제하는 데 사용되는 디스크 암호를 저장합니다. 
-- Data Box Disk 서비스는 서비스에 주문 세부 정보 및 상태를 저장합니다. 이 정보는 주문이 삭제될 때 삭제됩니다. 
-
+- Data Box Disk 서비스는 서비스에 주문 세부 정보 및 상태를 저장합니다. 이 정보는 주문이 삭제될 때 삭제됩니다.
 
 ## <a name="managing-personal-data"></a>개인 데이터 관리
 
@@ -73,7 +71,7 @@ Azure Data Box Disk는 서비스의 다음 키 인스턴스에서 개인 정보�
 
   - 담당자 이름
   - 전화 번호
-  - Email
+  - 메일
   - 주소
   - City
   - 우편 번호
@@ -87,7 +85,7 @@ Azure Data Box Disk는 서비스의 다음 키 인스턴스에서 개인 정보�
 
 - **배송 주소** – 주문이 완료되면 Data Box 서비스는 UPS 또는 DHL과 같은 타사 운송 업체에 배송 주소를 제공합니다. 
 
-자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
+자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

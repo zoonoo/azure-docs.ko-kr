@@ -9,12 +9,11 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b0a647fe3499590c0307b89d45d662ecf7e53392
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 02e814a9da320d688fe57edf3a3fe0640b8f5a47
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75976729"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(.NET)
 
@@ -23,14 +22,14 @@ ms.locfileid: "65827791"
 Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방식으로 만들고 관리합니다. 이 자습서는 Azure Resource Manager 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 만드는 방법을 보여 줍니다.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 사용하기 위한  [Azure Resource Manager 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있다는 것을 이해해야 합니다.  이 문서에서는 Azure Resource Manager 배포 모델 사용에 대해 설명합니다.
+> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [Azure Resource Manager와 클래식](../azure-resource-manager/management/deployment-models.md)이 있습니다.  이 문서에서는 Azure Resource Manager 배포 모델 사용에 대해 설명합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 있습니다.
-* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
+* Visual Studio.
+* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial] 을 만들 수 있습니다.
 * Azure Resource Manager 템플릿 파일을 저장할 수 있는 [Azure Storage 계정][lnk-storage-account]입니다.
 * [Azure PowerShell 1.0][lnk-powershell-install] 이상.
 
@@ -184,7 +183,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 IoT H
 
 이제 애플리케이션을 빌드하고 실행하기 전에 **CreateIoTHub** 메서드를 호출하여 완료합니다.
 
-1. **Main** 메서드의 끝에 다음 코드를 추가합니다.
+1. **Main** 메서드의 끝에 다음 코드를 추가 합니다.
 
     ```csharp
     CreateIoTHub(client);
@@ -195,10 +194,10 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 IoT H
 
 3. **디버그**, **디버깅 시작**을 차례로 클릭하여 애플리케이션을 실행합니다. 배포를 실행하는 데 몇 분 정도 걸릴 수 있습니다.
 
-4. 애플리케이션이 새 IoT Hub에 추가되었는지 확인하려면 [Azure Portal][lnk-azure-portal]을 방문하여 리소스 목록을 확인합니다. 또는 사용 하 여 합니다 **Get AzResource** PowerShell cmdlet.
+4. 애플리케이션이 새 IoT Hub에 추가되었는지 확인하려면 [Azure Portal][lnk-azure-portal]을 방문하여 리소스 목록을 확인합니다. 또는 **AzResource** PowerShell cmdlet을 사용 합니다.
 
 > [!NOTE]
-> 이 예제 애플리케이션은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 통해 IoT hub를 삭제할 수는 [Azure portal] [ lnk-azure-portal] 또는 사용 하 여는 **제거 AzResource** 했으면 PowerShell cmdlet.
+> 이 예제 애플리케이션은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 완료 되 면 [Azure Portal][lnk-azure-portal] 또는 **AzResource** PowerShell cmdlet을 사용 하 여 IoT hub를 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Resource Manager 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 배포했으므로 구체적인 내용을 알아볼 차례입니다.
@@ -214,7 +213,7 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 �
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포][lnk-iotedge]
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -222,7 +221,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

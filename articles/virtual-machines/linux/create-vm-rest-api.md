@@ -1,26 +1,16 @@
 ---
-title: Azure REST API를 통해 Linux 가상 머신 만들기 | Microsoft Docs
+title: REST API를 사용 하 여 Linux VM 만들기
 description: Azure에서 Azure REST API를 통해 관리 디스크 및 SSH 인증을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78970267"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -35,7 +25,7 @@ Azure Portal, Azure CLI 2.0, 여러 Azure SDK, Azure Resource Manager 템플릿 
 요청을 만들고 제출하기 전에 다음이 필요합니다.
 
 * 구독에 대한 `{subscription-id}`
-  * 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다.
+  * 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest) 을 참조 하세요.
 * 미리 만든 `{resourceGroupName}`
 * 같은 리소스 그룹의 [가상 네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md)
 * SSH 키 쌍(없는 경우 [새로 생성할](mac-create-ssh-keys.md) 수 있음)
@@ -52,10 +42,10 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 다음과 같은 헤더가 필요합니다.
 
-| 요청 헤더   | 설명 |
+| 요청 헤더   | Description |
 |------------------|-----------------|
 | *Content-Type:*  | 필수 사항입니다. `application/json`로 설정합니다. |
-| *권한 부여* | 필수 사항입니다. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
+| *권한 부여* | 필수 요소. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
 
 REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성 요소](/rest/api/azure/#components-of-a-rest-api-requestresponse)를 참조하세요.
 
@@ -63,12 +53,12 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| Name                       | 필수 | 형식                                                                                | 설명  |
+| 이름                       | 필수 | 형식                                                                                | 설명  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True      | string                                                                              | 리소스 위치. |
-| 이름                       |          | string                                                                              | 가상 머신의 이름. |
+| 위치                   | True     | string                                                                              | 리소스 위치. |
+| name                       |          | 문자열                                                                              | 가상 머신의 이름. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | 가상 머신에 대한 하드웨어 설정을 지정합니다. |
-| properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 가상 머신 디스크에 대한 저장소 설정을 지정합니다. |
+| properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 가상 머신 디스크에 대한 스토리지 설정을 지정합니다. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | 가상 머신에 대한 운영 체제 설정을 지정합니다. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | 가상 머신의 네트워크 인터페이스를 지정합니다. |
 
@@ -127,7 +117,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 }
 ```
 
-요청 본문에 사용 가능한 정의의 전체 목록은 참조 하세요 [가상 머신 만들기 또는 업데이트 요청 본문 정의](/rest/api/compute/virtualmachines/createorupdate#definitions)합니다.
+요청 본문에서 사용할 수 있는 정의의 전체 목록은 [Virtual machines 요청 본문 정의 만들기 또는 업데이트](/rest/api/compute/virtualmachines/createorupdate#definitions)를 참조 하세요.
 
 ## <a name="sending-the-request"></a>요청 보내기
 
@@ -137,9 +127,9 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| Name        | 형식                                                                              | 설명 |
+| Name        | Type                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
-| 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 확인          |
+| 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 정상          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |
 
 VM을 만든 이전 요청 본문 예제에서 압축된 *201 생성됨* 응답은 *vmId*가 할당되었으며 *provisioningState*가 *만들어지고 있음*을 보여 줍니다.

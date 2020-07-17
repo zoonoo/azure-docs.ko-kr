@@ -1,40 +1,37 @@
 ---
 title: Visual Studio에서 Azure VM에 웹앱 게시
 description: Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹 애플리케이션 게시
-services: virtual-machines-windows
 author: ghogen
-manager: douge
-tags: azure-service-management
-ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
+manager: jillfra
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d864230ff524f6c008f9f05c16505cd9d0e9f229
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204423"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82583355"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹앱 게시
 
-이 문서에서는 Visual Studio 2017에서 **Microsoft Azure Virtual Machines** 게시 기능을 사용하여 ASP.NET 웹 애플리케이션을 Azure VM(Virtual Machine)에 게시하는 방법을 설명합니다.  
+이 문서에서는 Visual Studio 2019의 **Microsoft Azure Virtual Machines** 게시 기능을 사용 하 여 Azure VM (가상 머신)에 ASP.NET 웹 응용 프로그램을 게시 하는 방법을 설명 합니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려면 VM 을 올바르게 설정해야 합니다.
 
-- 컴퓨터를 ASP.NET 웹 애플리케이션을 실행하도록 구성하고 WebDeploy를 컴퓨터에 설치해야 합니다.
+- ASP.NET 웹 응용 프로그램을 실행 하 고 WebDeploy를 설치 하도록 컴퓨터를 구성 해야 합니다. 자세한 내용은 [WebDeploy를 사용 하 여 ASP.NET VM 만들기](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md)를 참조 하세요.
 
 - VM에 구성된 DNS 이름이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](portal-create-fqdn.md)를 참조하세요.
 
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Visual Studio를 사용하여 Azure VM에 ASP.NET 웹앱 게시
 다음 섹션에서는 Azure Virtual Machine에 기존 ASP.NET 웹 애플리케이션을 게시하는 방법을 설명합니다.
 
-1. Visual Studio 2017에서 웹앱 솔루션을 엽니다.
+1. Visual Studio 2019에서 웹 앱 솔루션을 엽니다.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 3. 페이지 오른쪽의 화살표를 사용하여 **Microsoft Azure Virtual Machines**가 나올 때까지 게시 옵션을 탐색합니다.  
 
@@ -58,7 +55,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 7. 확인을 클릭하여 게시를 시작합니다.
 
-8. 자격 증명 대화 상자가 나타나면 게시 권한이 있게 구성된 대상 VM의 사용자 계정 이름과 암호를 입력합니다(일반적으로 VM을 만들 때 사용한 관리자 사용자 이름과 암호).  
+8. 자격 증명을 입력 하 라는 메시지가 표시 되 면 게시 권한으로 구성 된 대상 VM에 사용자 계정의 사용자 이름 및 암호를 제공 합니다. 이러한 자격 증명은 일반적으로 VM을 만들 때 사용 되는 관리자 사용자 이름 및 암호입니다.  
 
    ![WebDeploy 로그인]
 
@@ -72,7 +69,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 11. 게시에 성공하면 브라우저가 실행되어 새로 게시한 사이트의 URL이 열립니다.
 
-**성공!**
+**성공할!**
 
 이제 Azure Virtual Machine에 웹앱을 게시했습니다.
 
@@ -99,14 +96,14 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 ![게시 설정 - 연결 페이지]
 
 #### <a name="save-user-name-and-password"></a>사용자 이름 및 암호 저장
-- 게시할 때마다 매번 인증 정보를 입력하지 않으려면 **사용자 이름** 및 **암호** 필드를 입력하고 **암호 저장** 상자를 선택할 수 있습니다.
+- 게시할 때마다 인증 정보를 제공 하지 마십시오. 이렇게 하려면 **사용자 이름** 및 **암호** 필드를 입력 하 고 **암호 저장** 상자를 선택 합니다.
 - **연결 유효성 검사** 단추를 사용하여 올바른 정보를 입력했는지 확인합니다.
 
 #### <a name="deploy-to-clean-web-server"></a>깨끗한 웹 서버에 배포
 
-- 각각의 업로드 후 웹 애플리케이션의 깨끗한 사본이 웹 서버에 있는지 확인하려면(이전 배포와 관련하여 다른 파일이 남아 있지 않음) **설정** 탭에서 **대상의 추가 파일 제거** 탭을 선택합니다.
+- 각 업로드 후 웹 서버에 웹 응용 프로그램의 완전 한 복사본이 있고 이전 배포에서 다른 파일이 남아 있지 않은지 확인 하려면 **설정** 탭에서 **대상에서 추가 파일 제거** 확인란을 선택 합니다.
 
-- 경고: 이 설정 사용 하 여 게시 웹 서버 (wwwroot 디렉터리)에 있는 모든 파일을 삭제 합니다. 이 옵션을 사용하여 게시하기 전에 컴퓨터의 상태를 알고 있어야 합니다. 
+- 경고: 이 설정으로 게시하면 웹 서버의 모든 파일이 삭제됩니다(wwwroot 디렉터리). 이 옵션을 사용하여 게시하기 전에 컴퓨터의 상태를 알고 있어야 합니다. 
 
 ![게시 설정 - 설정 페이지]
 

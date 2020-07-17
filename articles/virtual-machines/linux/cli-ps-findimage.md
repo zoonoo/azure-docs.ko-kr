@@ -1,27 +1,16 @@
 ---
-title: Azure CLI를 사용하여 Linux VM 이미지 선택 | Microsoft Docs
+title: Azure CLI를 사용하여 Linux VM 이미지 선택
 description: Azure CLI를 사용하여 Marketplace VM 이미지의 게시자, 제품, SKU 및 버전을 확인하는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 453628dca04fbc3c48564f15b6cf61802165b0cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 0026c70a3a1a6b5e635e6b43e74b557d4218e6d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711598"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace에서 Linux VM 이미지 찾기
 
@@ -112,7 +101,7 @@ Debian             credativ     8                    credativ:Debian:8:8.0.20190
 
 `--location` 옵션을 사용하여 특정 위치를 지정하지 않으면 기본 위치 값이 반환됩니다. (`az configure --defaults location=<location>`을 실행하여 다른 기본 위치를 설정합니다.)
 
-예를 들어 다음 명령은 유럽 서부 지역의 모든 Debian 8 SKU를 나열합니다.
+예를 들어 다음 명령은 서유럽 지역의 모든 Debian 8 SKU를 나열합니다.
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -202,7 +191,7 @@ westus      akumina
 az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
-출력
+출력:
 
 ```
 Location    Name
@@ -213,7 +202,7 @@ westus      UbunturollingSnappy
 westus      UbuntuServer
 westus      Ubuntu_Core
 ```
-미국 서부 지역에서 Canonical이 Azure에 *UbuntuServer* 제품을 게시한다는 것을 확인할 수 있습니다. 하지만 SKU는 무엇입니까? 이 값을 얻으려면 `azure vm image list-skus`를 실행하고 검색한 위치, 게시자 및 제안을 설정합니다.
+미국 서부 지역에서 Canonical이 Azure에 *UbuntuServer* 제품을 게시한다는 것을 확인할 수 있습니다. 하지만 SKU는 무엇입니까? 이런 값을 얻으려면 `azure vm image list-skus`를 실행하고 검색한 위치, 게시자 및 제품을 설정합니다.
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -286,7 +275,7 @@ Resource Manager 템플릿을 사용하여 VM을 배포하는 경우 `imageRefer
 
 ### <a name="view-plan-properties"></a>플랜 속성 보기
 
-이미지의 구매 계획 정보를 보려면 [az vm image show](/cli/azure/image) 명령을 실행합니다. 출력의 `plan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.
+이미지의 구매 플랜 정보를 보려면 [az vm image show](/cli/azure/image) 명령을 실행합니다. 출력의 `plan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.
 
 예를 들어, Canonical Ubuntu Server 18.04 LTS 이미지는 `plan` 정보가 `null`이기 때문에 추가 약관이 없습니다.
 
@@ -310,12 +299,12 @@ az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 }
 ```
 
-RabbitMQ Certified by Bitnami 이미지에 유사한 명령을 실행하면 `name`, `product` 및 `publisher`와 같은 `plan` 속성이 표시됩니다. (일부 이미지에는 `promotion code` 속성도 있습니다.) 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
+RabbitMQ Certified by Bitnami 이미지에 유사한 명령을 실행하면 `name`, `product` 및 `publisher`와 같은 `plan` 속성이 표시됩니다. 일부 이미지에는 속성도 있습니다 `promotion code` . 이 이미지를 배포 하려면 다음 섹션을 참조 하 여 약관에 동의 하 고 프로그래밍 방식 배포를 사용 하도록 설정 하세요.
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
-출력
+출력:
 
 ```
 {
@@ -337,7 +326,7 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 
 ### <a name="accept-the-terms"></a>약관에 동의
 
-사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예를 들면 다음과 같습니다.
+사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예를 들어:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

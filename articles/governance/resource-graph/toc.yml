@@ -2,18 +2,47 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Azure Resource Graph 개요
+    - name: Azure Resource Graph란?
       displayName: 'Resource Manager, query language, rbac, permissions'
-      href: overview.md
+      href: ./overview.md
 - name: 빠른 시작
   expanded: true
   items:
+    - name: 첫 번째 쿼리 실행 - 포털
+      displayName: 'portal, resource, graph, explorer'
+      href: ./first-query-portal.md
     - name: 첫 번째 쿼리 실행 - Azure CLI
       displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: 첫 번째 쿼리 실행 - PowerShell
+      href: ./first-query-azurecli.md
+    - name: 첫 번째 쿼리 실행 - Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+      href: ./first-query-powershell.md
+    - name: 첫 번째 쿼리 실행 - .NET
+      displayName: 'core, auth, dotnet'
+      href: ./first-query-dotnet.md
+    - name: 첫 번째 쿼리 실행 - Go
+      displayName: 'package, sdk, golang'
+      href: ./first-query-go.md
+    - name: 첫 번째 쿼리 실행 - JavaScript
+      displayName: 'library, node, arm-resourcegraph'
+      href: ./first-query-javascript.md
+    - name: 첫 번째 쿼리 실행 - Python
+      displayName: 'library, azure-mgmt, cli'
+      href: ./first-query-python.md
+    - name: 첫 번째 쿼리 실행 - REST
+      displayName: 'armclient, postman'
+      href: ./first-query-rest-api.md
+    - name: 공유 쿼리 만들기 - Azure CLI
+      displayName: 'extension, docker, queries'
+      href: ./shared-query-azure-cli.md
+    - name: 공유 쿼리 배포 - ARM 템플릿
+      displayName: 'resource manager, queries'
+      href: ./shared-query-template.md
+- name: 자습서
+  items:
+    - name: Azure Portal에서 쿼리 만들기 및 공유
+      displayName: 'query, portal'
+      href: ./tutorials/create-share-query.md
 - name: 샘플
   items:
     - name: 시작 쿼리
@@ -33,12 +62,22 @@
     - name: 대규모 데이터 세트로 작업
       displayName: 'page, first, skip, token'
       href: ./concepts/work-with-data.md
+    - name: 제한된 요청에 대한 지침
+      displayName: 'pagination, batching, throttling, parallel'
+      href: ./concepts/guidance-for-throttled-requests.md
+    - name: 보안
+      items:
+        - name: Azure Security Benchmark에 대한 보안 기준
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: 방법 가이드
   items:
     - name: 리소스 변경 내용 가져오기
       displayName: 'resource, change, history, snapshot, details'
       href: ./how-to/get-resource-changes.md
-- name: 참고 자료
+- name: 문제 해결
+  displayName: 'errors, violation'
+  href: ./troubleshoot/general.md
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/ext/resource-graph/graph
@@ -54,23 +93,29 @@
       href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
     - name: Java용 Azure SDK(Maven)
       href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
-    - name: Node용 Azure SDK
+    - name: JavaScript용 Azure SDK
       href: /javascript/api/@azure/arm-resourcegraph
     - name: Python용 Azure SDK
       href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
     - name: Ruby용 Azure SDK(Gem)
       href: 'https://rubygems.org/gems/azure_mgmt_resourcegraph'
     - name: REST (영문)
-      href: /rest/api/azureresourcegraph/resources/resources
+      href: /rest/api/azure-resourcegraph/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+    - name: 리소스 관리자 템플릿
+      href: /azure/templates/microsoft.resourcegraph/allversions
+    - name: Resource Graph 테이블 및 리소스 종류
+      href: ./reference/supported-tables-resources.md
 - name: 리소스
   items:
+    - name: GitHub - 거버넌스 샘플
+      href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
+    - name: 거버넌스 YouTube 채널
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice
       href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345061'
-    - name: 거버넌스 YouTube 채널
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'

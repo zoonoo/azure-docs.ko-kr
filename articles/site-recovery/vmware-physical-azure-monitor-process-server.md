@@ -1,100 +1,102 @@
 ---
-title: Azure Site Recovery 프로세스 서버를 모니터링 합니다.
-description: 이 문서에서는 Azure Site Recovery 프로세스 서버를 모니터링 하는 방법을 설명 합니다.
+title: Azure Site Recovery 프로세스 서버 모니터링
+description: 이 문서에서는 VMware VM/물리적 서버 재해 복구에 사용되는 Azure Site Recovery 프로세스 서버를 모니터링하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
-ms.author: rayne
-ms.openlocfilehash: 5fac369f15edb3ef0be31d3dc7d7434104c18dfe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 11/14/2019
+ms.author: raynew
+ms.openlocfilehash: eebaa70cee99380ac67b8f6516a5b08ff2832c86
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928169"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134737"
 ---
 # <a name="monitor-the-process-server"></a>프로세스 서버 모니터링
 
-이 문서에서는 모니터링 하는 방법을 설명 합니다 [Site Recovery](site-recovery-overview.md) 프로세스 서버.
+이 문서에서는 [Site Recovery](site-recovery-overview.md) 프로세스 서버를 모니터링하는 방법을 설명합니다.
 
-- 프로세스 서버는 온-프레미스 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구를 설정할 때 사용 됩니다.
-- 기본적으로 프로세스 서버는 구성 서버에서 실행 됩니다. 구성 서버를 배포 하는 경우 기본적으로 설치 됩니다.
-- 필요에 따라 규모 및 핸들 많은 수의 복제 된 컴퓨터를 복제 트래픽이 높은 볼륨을 추가 하 고 스케일 아웃 프로세스 서버를 배포할 수 있습니다.
+- 프로세스 서버는 Azure를 대상으로 온-프레미스 VMware VM 및 물리적 서버의 재해 복구를 설정할 때 사용됩니다.
+- 기본적으로 프로세스 서버는 구성 서버에서 실행됩니다. 구성 서버를 배포할 때 기본적으로 설치됩니다.
+- 필요에 따라 많은 수의 복제된 머신과 더 많은 볼륨의 복제 트래픽을 확장 및 처리하기 위해 추가 스케일 아웃 프로세스 서버를 배포할 수 있습니다.
 
-[자세한](vmware-physical-azure-config-process-server-overview.md) 역할 및 프로세스 서버 배포에 대 한 합니다.
+프로세스 서버의 역할 및 배포에 대한 [자세한 내용을 알아보세요](vmware-physical-azure-config-process-server-overview.md).
 
 ## <a name="monitoring-overview"></a>모니터링 개요
 
-프로세스 서버에서 복제 된 데이터 캐싱, 압축 및 azure에 전송에 특히 많은 역할 이므로 지속적으로 프로세스 서버 상태를 모니터링 하는 것이 중요 합니다.
+프로세스 서버에는 특히 복제된 데이터 캐싱, 압축 및 Azure로 전송에서 많은 역할이 있으므로 지속적으로 프로세스 서버 상태를 모니터링하는 것이 중요합니다.
 
-일반적으로 프로세스 서버 성능에 영향을 주는 경우에 여러 가지가 있습니다. 성능에 영향을 주는 문제는 결국 푸시 프로세스 서버와 해당 복제 된 컴퓨터를 위험 상태로 VM 상태에 연계 효과 해야 합니다. 같은 경우가 포함 됩니다.
+일반적으로 프로세스 서버 성능에 영향을 주는 여러 가지 상황이 있습니다. 성능에 영향을 미치는 문제는 VM 상태에도 영향이 파급되고, 결국 프로세스 서버와 복제된 머신을 모두 위험 상태로 몰아갑니다. 예를 들어 다음과 같은 경우입니다.
 
-- 많은 수의 Vm에 근접 하거나 초과 하는 권장 되는 제한 사항 프로세스 서버를 사용 합니다.
-- 프로세스 서버를 사용 하 여 Vm 높은 이탈 률이 경우
-- Vm 및 프로세스 서버 간의 네트워크 처리량을 프로세스 서버로 복제 데이터를 업로드할 충분 하지 않습니다.
-- 프로세스 서버와 Azure 간의 네트워크 처리량 부족해 프로세스 서버에서 Azure로 복제 데이터를 업로드.
+- 많은 수의 VM이 프로세스 서버를 사용하여 권장되는 제한에 도달하거나 초과하는 경우
+- 프로세스 서버를 사용하는 VM의 변동률이 높은 경우
+- VM과 프로세스 서버 간의 네트워크 처리량 만으로는 복제 데이터를 프로세스 서버로 업로드할 수 없는 경우
+- 프로세스 서버와 Azure 간의 네트워크 처리량이 프로세스 서버에서 Azure로 복제 데이터를 업로드하는 데 충분하지 않은 경우
 
-이러한 모든 문제 Vm의 복구 지점 목표 (RPO)에 영향을 줄 수 있습니다. 
+이러한 모든 문제는 VM의 RPO(복구 지점 목표)에 영향을 줄 수 있습니다. 
 
-**이유는 무엇입니까?** VM에 대 한 복구 지점 생성에 모든 VM 디스크의 공통 요소를 포함할 필요 때문에 합니다. 하나의 디스크에 높은 변동률, 복제, 느린 되었거나 프로세스 서버에는 최적의 방법이 아닙니다. 영향 얼마나 효율적으로 복구 지점이 생성 됩니다.
+**그 이유는 무엇일까요?** VM에 대한 복구 지점을 생성하려면 VM의 모든 디스크에 공통 지점이 있어야 하기 때문입니다. 한 디스크의 변동률이 높거나, 복제가 느리거나, 프로세스 서버가 최적이 아닐 경우 이는 효율적으로 복구 지점이 생성되는 방식에 영향을 줍니다.
 
 ## <a name="monitor-proactively"></a>사전 모니터링
 
-이 프로세스 서버를 사용 하 여 문제를 방지 하려면에 중요 합니다.
+프로세스 서버와 관련된 문제를 방지하려면 다음을 수행하는 것이 중요합니다.
 
-- 프로세스 서버를 사용 하 여 특정 요구 사항 이해 [용량 및 크기 조정 지침](site-recovery-plan-capacity-vmware.md#capacity-considerations), 권장 사항에 따라 실행 되 고 프로세스 서버를 배포 되었는지 확인 합니다.
-- 경고, 모니터링 및 문제 발생 했을 때 프로세스 서버를 효율적으로 실행 되도록 합니다.
+- [용량 및 크기 조정 지침](site-recovery-plan-capacity-vmware.md#capacity-considerations)을 사용하여 프로세스 서버에 대한 특정 요구 사항을 이해하고, 권장 사항에 따라 프로세스 서버가 배포 및 실행되고 있는지 확인합니다.
+- 경고를 모니터링하고 문제가 발생할 때마다 해결하여 프로세스 서버를 계속 효율적으로 실행합니다.
 
 
 ## <a name="process-server-alerts"></a>프로세스 서버 경고
 
-프로세스 서버는 다음 표에 요약 된 상태 경고의 수를 생성 합니다.
+프로세스 서버는 다음 표에 요약된 다양한 상태 경고를 생성합니다.
 
 **경고 유형** | **세부 정보**
 --- | ---
-![Healthy][green] | 프로세스 서버가 연결 되어 있고 정상입니다.
-![Warning][yellow] | 지난 15 분 동안 CPU 사용률이 > 80%
-![Warning][yellow] | 지난 15 분간의 메모리 사용량 > 80%
-![Warning][yellow] | 지난 15 분 동안 캐시 폴더 사용 가능한 공간이 < 30%
-![Warning][yellow] | 프로세스 서버 서비스가 지난 15 분 동안 실행 되지 않습니다.
-![중요][red] | 지난 15 분 동안 CPU 사용률이 > 95%
-![중요][red] | 지난 15 분간의 메모리 사용량 > 95%
-![중요][red] | 최근 15 분 동안 캐시 폴더 사용 가능한 공간이 < 25%
-![중요][red] | 15 분 동안 프로세스 서버에서 하트 비트가 없습니다.
+![Healthy][green] | 프로세스 서버가 연결되어 있고 정상 상태입니다.
+![Warning][yellow] | 지난 15분 동안 CPU 사용률이 80%를 초과합니다.
+![Warning][yellow] | 지난 15분 동안 메모리 사용량이 80%를 초과합니다.
+![Warning][yellow] | 지난 15분 동안 캐시 폴더의 사용 가능한 공간이 30% 미만입니다.
+![Warning][yellow] | Site Recovery가 5분마다 보류/발신 데이터를 모니터링하고, 프로세스 서버 캐시 내 데이터를 30분 이내에 Azure에 업로드할 수 없는 것으로 추정합니다.
+![Warning][yellow] | 지난 15분 동안 프로세스 서버 서비스가 실행되지 않고 있습니다.
+![위험][red] | 지난 15분 동안 CPU 사용률이 95%를 초과합니다.
+![위험][red] | 지난 15분 동안 메모리 사용량이 95%를 초과합니다.
+![위험][red] | 지난 15분 동안 캐시 폴더의 사용 가능한 공간이 25% 미만입니다.
+![위험][red] | Site Recovery가 5분마다 보류/발신 데이터를 모니터링하고, 프로세스 서버 캐시 내 데이터를 45분 이내에 Azure에 업로드할 수 없는 것으로 추정합니다.
+![위험][red] | 15분 동안 프로세스 서버에서 하트비트가 없습니다.
 
 ![테이블 키](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
 > [!NOTE]
-> 프로세스 서버의 전반적인 상태는 최악의 생성 된 경고를 기반으로 합니다.
+> 프로세스 서버의 전반적인 상태는 생성된 최악의 경고를 기반으로 합니다.
 
 
 
-## <a name="monitor-process-server-health"></a>프로세스 서버 상태 모니터
+## <a name="monitor-process-server-health"></a>프로세스 서버 상태 모니터링
 
-다음과 같이 프로세스 서버 상태를 모니터링할 수 있습니다. 
+다음과 같이 프로세스 서버의 상태를 모니터링할 수 있습니다. 
 
-1. 복제 상태 및 자격 증명 모음에서 해당 프로세스 서버 및 복제 된 컴퓨터의 상태를 모니터링 하려면 > **복제 된 항목**를 모니터링 하려면 컴퓨터를 클릭 합니다.
-2. **복제 상태**, VM 상태를 모니터링할 수 있습니다. 오류 세부 정보에 대 한 드릴 다운 하려면 상태를 클릭 합니다.
+1. 복제된 머신 및 해당 프로세스 서버의 복제 상태 및 상태를 모니터링하려면 자격 증명 모음 > **복제된 항목**에서 모니터링하려는 머신을 클릭합니다.
+2. **복제 상태**에서 VM 상태를 모니터링할 수 있습니다. 상태를 클릭하여 오류 정보를 드릴다운합니다.
 
     ![VM 대시보드의 프로세스 서버 상태](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
 
-4. **프로세스 서버 상태**, 프로세스 서버 상태를 모니터링할 수 있습니다. 자세한 내용을 드릴 다운 합니다.
+4. **프로세스 서버 상태**에서 프로세스 서버의 상태를 모니터링할 수 있습니다. 세부 정보를 드릴다운합니다.
 
     ![VM 대시보드의 프로세스 서버 세부 정보](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
 
-5. 상태 그래픽 표현을 사용 하 여 VM 페이지에서 모니터링할 수 있습니다.
-    - 스케일 아웃 프로세스 서버에 연결 된 경고가 있으면 주황색으로 강조 표시 하 고 중요 한 문제가 있을 경우 빨간색 됩니다. 
-    - 구성 서버에서 기본 배포에서 프로세스 서버가 실행 중인지, 한 구성 서버에 따라 선택 됩니다.
-    - 드릴 다운 하려면 구성 서버 또는 프로세스 서버를 클릭 합니다. 모든 문제 및 수정 권장 사항을 note 합니다.
+5. VM 페이지의 그래픽 표현을 사용하여 상태를 모니터링할 수도 있습니다.
+    - 스케일 아웃 프로세스 서버는 관련된 경고가 있는 경우 주황색으로 강조 표시되고 중요한 문제가 있는 경우 빨간색으로 강조 표시됩니다. 
+    - 프로세스 서버가 구성 서버의 기본 배포에서 실행되는 경우 구성 서버가 그에 따라 강조 표시됩니다.
+    - 드릴다운하려면 구성 서버 또는 프로세스 서버를 클릭합니다. 모든 문제 및 수정 권장 사항을 기록해 둡니다.
 
-모니터링할 수도 있습니다 프로세스 서버에서 자격 증명 모음에서 **Site Recovery 인프라**합니다. **Site Recovery 인프라를 관리할**, 클릭 **구성 서버**합니다. 연결 된 프로세스 서버 및 드릴 다운 프로세스 서버 세부 정보 구성 서버를 선택 합니다.
+**Site Recovery 인프라**의 자격 증명 모음에서 프로세스 서버를 모니터링할 수도 있습니다. **Site Recovery 인프라 관리**에서 **구성 서버**를 클릭합니다. 프로세스 서버와 연결된 구성 서버를 선택하고 프로세스 서버 세부 정보로 드릴다운합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 가 있는 서버 문제를 처리를 수행 하는 경우이 [문제 해결 지침](vmware-physical-azure-troubleshoot-process-server.md)
-- 도움이 필요한 경우 [Azure Site Recovery 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 질문을 게시하세요. 
+- 프로세스 서버 문제가 있는 경우 [문제 해결 지침](vmware-physical-azure-troubleshoot-process-server.md)을 따르세요.
+- 도움이 필요한 경우 [Azure Site Recovery의 Microsoft Q&A 질문 페이지](/answers/topics/azure-site-recovery.html)에 질문을 게시하세요. 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

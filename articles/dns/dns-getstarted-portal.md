@@ -1,22 +1,23 @@
 ---
-title: 빠른 시작 - Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
+title: '빠른 시작: DNS 영역 및 레코드 만들기 - Azure Portal'
+titleSuffix: Azure DNS
 description: 이 단계별 빠른 시작 가이드를 통해 Azure Portal을 사용하여 Azure DNS 영역 및 레코드를 만드는 방법을 알아봅니다.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: feb46114b3cf1b04e6a181f84bcdc41c17f1c0ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: rohink
+ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119074"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160769"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
 
-공용 도메인에서 호스트 이름을 확인하기 위한 Azure DNS를 구성할 수 있습니다. 예를 들어 도메인 이름 등록 기관에서 *contoso.xyz* 도메인 이름을 구입한 경우, Azure DNS에서 *contoso.xyz* 도메인을 호스팅하고 *www.contoso.xyz*를 웹 서버 또는 웹앱의 IP 주소로 확인하도록 구성할 수 있습니다.
+공용 도메인에서 호스트 이름을 확인하기 위한 Azure DNS를 구성할 수 있습니다. 예를 들어 도메인 이름 등록 기관에서 *contoso.xyz* 도메인 이름을 구입한 경우, *contoso.xyz* 도메인을 호스팅하고 *`www.contoso.xyz`* 를 웹 서버 또는 웹앱의 IP 주소로 확인하도록 Azure DNS를 구성할 수 있습니다.
 
 이 빠른 시작에서는 테스트 도메인을 만든 다음, *www*를 *10.10.10.10* IP 주소로 확인하는 주소 레코드를 만듭니다.
 
@@ -41,7 +42,7 @@ DNS 영역에는 도메인에 대한 DNS 항목이 포함됩니다. Azure DNS에
 
 1. **DNS 영역 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
 
-   - **이름**: 이 빠른 시작 예제의 경우 *contoso.xyz*를 입력합니다. DNS 영역 이름으로는 Azure DNS 서버에 아직 구성되지 않은 모든 값을 사용할 수 있습니다. 실제 값은 도메인 이름 등록 기관에서 구입한 도메인입니다.
+   - **Name**: 이 빠른 시작 예제의 경우 *contoso.xyz*를 입력합니다. DNS 영역 이름으로는 Azure DNS 서버에 아직 구성되지 않은 모든 값을 사용할 수 있습니다. 실제 값은 도메인 이름 등록 기관에서 구입한 도메인입니다.
    - **리소스 그룹**: **새로 만들기**를 선택하고, *MyResourceGroup*을 입력하고, **확인**을 선택합니다. 리소스 그룹 이름은 Azure 구독 내에서 고유해야 합니다. 
 
 1. **만들기**를 선택합니다.
@@ -62,7 +63,7 @@ DNS 영역 내에서 도메인에 대한 DNS 항목 또는 레코드를 만듭�
 
 1. **레코드 집합 추가** 페이지에서 다음 값을 입력하거나 선택합니다.
 
-   - **이름**: *www*를 입력합니다. 레코드 이름은 지정된 IP 주소로 확인하려는 호스트 이름입니다.
+   - **Name**: *www*를 입력합니다. 레코드 이름은 지정된 IP 주소로 확인하려는 호스트 이름입니다.
    - **형식**: **A**를 선택합니다. 'A' 레코드가 가장 일반적이지만, 메일 서버('MX'), IP v6 주소('AAAA') 등에 대한 다른 레코드 형식도 있습니다. 
    - **TTL**: *1*을 입력합니다. DNS 요청의 *Time-to-live*는 DNS 서버 및 클라이언트가 응답을 캐시할 수 있는 시간을 지정합니다.
    - **TTL 단위**: **시간**을 선택합니다. **TTL** 값에 대한 시간 단위입니다. 
@@ -88,7 +89,7 @@ DNS 영역 내에서 도메인에 대한 DNS 항목 또는 레코드를 만듭�
    nslookup www.contoso.xyz <name server name>
    ```
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다. 
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

@@ -1,0 +1,76 @@
+### YamlMime:Landing
+title: 음성 텍스트 변환 설명서
+summary: 음성 인식으로 알려진 음성 텍스트에서 음성 텍스트는 오디오 스트림에 대 한 실시간 및 일괄 기록을 텍스트로 설정 합니다. 추가 참조 텍스트 입력을 사용 하 여 실시간 발음 평가를 사용 하 고 음성 오디오의 정확성과 능숙에 대 한 발표자 피드백을 제공 합니다.
+metadata:
+  title: 음성 텍스트 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: trevorbye
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 03/19/2020
+  ms.author: trbye
+  ms.openlocfilehash: c1f4b6b43f661251f764e65e5d5378952ab99d10
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800872"
+landingContent:
+- title: 음성 텍스트 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 실시간 음성 텍스트 변환이란?
+      url: speech-to-text.md
+    - text: 일괄 처리 음성 텍스트 변환이란?
+      url: batch-transcription.md
+    - text: 음성 인식 기본 사항
+      url: speech-to-text-basics.md
+    - text: 코드 없이 음성 텍스트에 대 한 음성 CLI 사용
+      url: spx-overview.md
+  - linkListType: quickstart
+    links:
+    - text: 마이크 입력에서 음성 인식
+      url: quickstarts/speech-to-text-from-microphone.md
+    - text: 오디오 파일에서 음성 인식
+      url: quickstarts/speech-to-text-from-file.md
+    - text: Blob 스토리지에 저장된 음성 인식
+      url: quickstarts/from-blob.md
+    - text: 참조 입력을 사용하여 발음 평가
+      url: rest-speech-to-text.md#pronunciation-assessment-parameters
+- title: 음성 텍스트를 사용 하 여 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 음성 인식 모드 선택
+      url: how-to-choose-recognition-mode.md
+    - text: 음성 인식 소스 언어 변경
+      url: how-to-specify-source-language.md
+    - text: Custom Speech를 사용하여 정확도 향상
+      url: how-to-custom-speech.md
+    - text: 압축된 오디오 입력 형식 사용
+      url: how-to-use-codec-compressed-audio-input-streams.md
+  - linkListType: tutorial
+    links:
+    - text: 테넌트 모델을 사용하여 정확도 향상
+      url: tutorial-tenant-model.md
+  - linkListType: concept
+    links:
+    - text: Custom Speech에 대한 데이터 준비
+      url: how-to-custom-speech-test-and-train.md
+    - text: Custom Speech 모델 학습
+      url: how-to-custom-speech-train-model.md
+    - text: 휴먼 레이블 전사 만들기
+      url: how-to-custom-speech-human-labeled-transcriptions.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 언어 지원
+      url: language-support.md#speech-to-text
+    - text: 음성 텍스트 변환 FAQ
+      url: faq-stt.md
+    - text: 음성 텍스트 가격
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

@@ -1,0 +1,4 @@
+- name: Autodesk Maya에서 물리적 기반 렌더링 재질 설정
+  href: maya-material-setup.md
+- name: Autodesk 3DSMax에서 물리적 기반 렌더링 재질 설정
+  href: 3dsmax-material-setup.md

@@ -4,18 +4,18 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7943ea13d93fa68b76d333bda5438fb5738f5cd1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728575"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050431"
 ---
 ## <a name="c-program-example"></a>C# 프로그램 예
 
-이 문서의 다음 섹션에는 T-SQL(Transact-SQL) 명령문을 SQL 데이터베이스로 보내기 위해 ADO.NET을 사용하는 C# 프로그램이 나와 있습니다. C# 프로그램은 다음 작업을 보여줍니다.
+이 문서의 다음 섹션에는 ADO.NET을 사용하여 T-SQL(Transact-SQL) 문을 SQL Database로 보내는 C# 프로그램이 나와 있습니다. C# 프로그램은 다음 작업을 보여줍니다.
 
-- [ADO.NET을 사용하여 SQL 데이터베이스에 연결](#cs_1_connect)
+- [ADO.NET을 사용하여 SQL Database에 연결](#cs_1_connect)
 - [T-SQL 명령문을 반환하는 메서드](#cs_2_return)
     - 테이블 만들기
     - 데이터로 테이블 채우기
@@ -37,7 +37,7 @@ ERD는 두 테이블 간의 관계를 표시합니다. **tabEmployee.DepartmentC
 
 C# 프로그램은 논리적으로 하나의 .cs 파일이며, 물리적으로 여러 코드 블록으로 분할되어 각 블록을 보다 쉽게 이해할 수 있습니다. 프로그램을 컴파일하고 실행하려면 다음 단계를 수행합니다.
 
-1. Visual Studio에서 C# 프로젝트를 만듭니다. 프로젝트 형식은 **템플릿** > **Visual C#** > **Windows데스크톱** > **콘솔 앱(.NET Framework)** 에 있는 *콘솔*이어야 합니다.
+1. Visual Studio에서 C# 프로젝트를 만듭니다. 프로젝트 형식은 **템플릿** > **Visual C#**  > **Windows데스크톱** > **콘솔 앱(.NET Framework)** 에 있는 *콘솔*이어야 합니다.
 
 1. 파일 *Program.cs*에서 다음 단계를 사용하여 코드의 시작 줄을 바꿉니다.
 
@@ -82,7 +82,7 @@ C# 프로그램은 논리적으로 하나의 .cs 파일이며, 물리적으로 �
 
 <a name="cs_1_connect"/>
 
-### <a name="connect-to-sql-database-using-adonet"></a>ADO.NET을 사용하여 SQL 데이터베이스에 연결
+### <a name="connect-to-sql-database-using-adonet"></a>ADO.NET을 사용하여 SQL Database에 연결
 
 ```csharp
 using System;

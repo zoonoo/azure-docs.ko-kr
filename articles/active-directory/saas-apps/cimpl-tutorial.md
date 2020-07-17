@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 58ee5481-ae40-4e4a-a3c9-86343851fc9a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8896922cf3f95439b76e12faf9577ca6570fbdf7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e1ac5b25a6dcf8e3dd7bf7b2788f168cc11290a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880724"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "73157437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>자습서: Cimpl과 Azure Active Directory 통합
 
@@ -31,10 +32,10 @@ Cimpl을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 Cimpl에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Cimpl과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -57,7 +58,7 @@ Cimpl의 Azure AD 통합을 구성하려면 갤러리의 Cimpl을 관리되는 S
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -110,7 +111,7 @@ Cimpl에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://sso.etelesolv.com/<TENANTNAME>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 가져오려면 Cimpl 팀(**+1 866-982-8250**)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 가져오려면 Cimpl 팀( **+1 866-982-8250**)에 문의하세요.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -128,7 +129,7 @@ Cimpl에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="configure-cimpl-single-sign-on"></a>Cimpl Single Sign-On 구성
 
-**Cimpl** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 Cimpl 지원 팀(**+1 866-982-8250**)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Cimpl** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 Cimpl 지원 팀( **+1 866-982-8250**)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -151,7 +152,7 @@ Cimpl에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -183,7 +184,7 @@ Cimpl에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="create-cimpl-test-user"></a>Cimpl 테스트 사용자 만들기
 
-이 섹션은 Cimpl에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Cimpl 계정에 사용자를 추가하려면 Cimpl 지원 팀(**+1 866-982-8250**)에 문의하세요.
+이 섹션은 Cimpl에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Cimpl 계정에 사용자를 추가하려면 Cimpl 지원 팀( **+1 866-982-8250**)에 문의하세요.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

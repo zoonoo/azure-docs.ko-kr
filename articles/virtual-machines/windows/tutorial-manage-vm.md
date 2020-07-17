@@ -1,31 +1,23 @@
 ---
-title: 자습서 - Azure PowerShell을 사용하여 Windows VM 만들기 및 관리 | Microsoft Docs
+title: '자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리'
 description: 이 자습서에서는 Azure PowerShell을 사용하여 Azure에서 Windows VM을 만들고 관리하는 방법을 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/28/2018
+ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 94858a147dc0383376a54bc94685d855d37e12d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 229df5d2f5186ad7cec08952f2a44790f9220dfe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991204"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82100314"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
 
-Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure VM(가상 머신) 배포 작업에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure VM(가상 머신) 배포 작업을 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기 및 연결
@@ -181,12 +173,12 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
 
-| Type                     | 일반적인 크기           |    설명       |
+| Type                     | 일반적인 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
-| [Compute에 최적화](sizes-compute.md)   | Fsv2, Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
-| [메모리에 최적화](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, Dv2  | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
-| [Storage에 최적화](sizes-storage.md)      | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
+| [컴퓨팅 최적화](sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
+| [메모리에 최적화](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [Storage에 최적화](sizes-storage.md)      | Lsv2, Ls              | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
 | [고성능](sizes-hpc.md) | H        | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
 
@@ -242,14 +234,14 @@ Start-AzVM `
 Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 
 
 
-| 전원 상태 | 설명
+| 전원 상태 | Description
 |----|----|
 | 시작 중 | 가상 머신이 시작되고 있습니다. |
 | 실행 중 | 가상 머신이 실행되고 있습니다. |
 | 중지 중 | 가상 머신이 중지되고 있습니다. |
-| 중지됨 | VM이 중지됩니다. 중지 상태의 가상 머신에도 여전히 계산 요금이 발생됩니다.  |
+| 중지됨 | VM이 중지됩니다. 중지 상태의 가상 머신에도 여전히 컴퓨팅 요금이 발생됩니다.  |
 | 할당 취소 중 | VM의 할당이 취소되고 있습니다. |
-| 할당 취소됨 | VM이 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. `Deallocated` 상태의 가상 머신에는 계산 요금이 발생하지 않습니다. |
+| 할당 취소됨 | VM이 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. `Deallocated` 상태의 가상 머신에는 컴퓨팅 요금이 발생하지 않습니다. |
 | - | VM의 전원 상태를 알 수 없습니다. |
 
 

@@ -11,20 +11,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cd52dbdf6c13900cde592aeb52d8bf9abf850f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347784"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358330"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 통과 인증: 기술 심층 분석
-이 문서에서는 Azure AD(Azure Active Directory) 통과 인증이 작동하는 방식에 대해 간략히 설명합니다. 심층적인 기술 및 보안 정보는 [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) 문서를 참조하세요.
+이 문서에서는 Azure AD(Azure Active Directory) 통과 인증이 작동하는 방식에 대해 간략히 설명합니다. 심층 기술 및 보안 정보는 [보안 심층](how-to-connect-pta-security-deep-dive.md) 살펴보기 문서를 참조 하세요.
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Azure Active Directory 통과 인증 작동 방식은?
 
@@ -39,7 +39,7 @@ ms.locfileid: "60347784"
 4. 사용자가 Azure AD 로그인 페이지에 암호를 입력하고 **로그인** 단추를 선택합니다.
 5. Azure AD에서 로그인 요청을 받으면 인증 에이전트의 공개 키로 암호화된 사용자 이름과 암호를 큐에 넣습니다.
 6. 온-프레미스 인증 에이전트는 큐에서 사용자 이름 및 암호화된 암호를 검색합니다. 에이전트는 큐의 요청을 자주 폴링하지 않고, 미리 설정된 영구 연결을 통해 요청을 검색합니다.
-7. 에이전트에서 해당 개인 키를 사용하여 암호를 해독합니다.
+7. 에이전트에서 해당 프라이빗 키를 사용하여 암호를 해독합니다.
 8. 에이전트에서 표준 Windows API(AD FS(Active Directory Federation Services)에서 사용하는 것과 비슷한 메커니즘)를 사용하여 Active Directory에 대한 사용자 이름과 암호의 유효성을 검사합니다. 사용자 이름은 온-프레미스 기본 사용자 이름(일반적으로 `userPrincipalName`) 또는 Azure AD Connect에 구성된 또 다른 특성(`Alternate ID`라고 함) 중 하나일 수 있습니다.
 9. 온-프레미스 Active Directory DC(도메인 컨트롤러)에서 요청을 평가하고, 적절한 응답(성공, 실패, 암호가 만료됨 또는 사용자가 잠겨 있음)을 에이전트에 반환합니다.
 10. 그러면 인증 에이전트가 이 응답을 다시 Azure AD로 반환합니다.
@@ -52,12 +52,12 @@ ms.locfileid: "60347784"
 
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
-- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 준비하고 실행합니다.
+- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 시작 하 고 실행 합니다.
 - [AD FS에서 통과 인증으로 마이그레이션](https://aka.ms/adfstoPTADP) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호합니다.
-- [질문과 대답](how-to-connect-pta-faq.md): 자주 묻는 질문에 대한 대답을 찾습니다.
+- [질문과 대답: 질문과](how-to-connect-pta-faq.md)대답을 찾습니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
-- [보안 심층 분석](how-to-connect-pta-security-deep-dive.md): 통과 인증 기능에 대한 심층 기술 정보를 가져옵니다.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): 이 보완 기능을 자세히 알아봅니다.
+- [보안 심층](how-to-connect-pta-security-deep-dive.md)이해: 통과 인증 기능에 대 한 자세한 기술 정보를 확인 하세요.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
 

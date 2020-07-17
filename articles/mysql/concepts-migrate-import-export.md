@@ -1,17 +1,16 @@
 ---
-title: Azure Database for MySQL의 가져오기 및 내보내기
+title: 가져오기 및 내보내기-Azure Database for MySQL
 description: 이 문서에서는 MySQL Workbench와 같은 도구를 사용하여 Azure Database for MySQL에서 데이터베이스를 가져오고 내보내는 일반적인 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/01/2018
-ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 2/27/2020
+ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838122"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78163729"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
 이 문서에서는 MySQL Workbench를 사용하여 Azure Database for MySQL 서버로 데이터를 가져오고 내보내는 두 가지 일반적인 방법을 설명합니다. 
@@ -19,10 +18,10 @@ ms.locfileid: "60838122"
 ## <a name="before-you-begin"></a>시작하기 전에
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md)를 따르는 Azure Database for MySQL 서버
-- [다운로드된](https://dev.mysql.com/downloads/workbench/) MySQL Workbench 또는 가져오기 및 내보내기를 위한 다른 MySQL 도구
+- MySQL 워크 벤치 [Mysql 워크 벤치 다운로드](https://dev.mysql.com/downloads/workbench/) 또는 다른 타사 mysql 도구로 가져오기/내보내기를 수행할 수 있습니다.
 
 ## <a name="use-common-tools"></a>일반 도구 사용
-MySQL Workbench, Toad 또는 Navicat과 같은 일반 도구를 사용하여 원격으로 연결하고 MySQL용 Azure 데이터베이스에서 데이터를 가져오거나 내보냅니다. 
+MySQL 워크 벤치 또는 mysqldump와 같은 일반적인 유틸리티와 도구를 사용 하 여 데이터를 원격으로 연결 하 고 Azure Database for MySQL에 가져오거나 내보냅니다. 
 
 인터넷에 연결된 클라이언트 컴퓨터에서 이러한 도구를 사용하여 Azure Database for MySQL에 연결합니다. [Azure Database for MySQL에서 SSL 연결 구성](concepts-ssl-connection-security.md)에 설명된 대로 최상의 보안을 위해 SSL 암호화 연결을 사용합니다.
 
@@ -46,7 +45,7 @@ MySQL 도구를 사용하여 다음과 같은 시나리오에서 Azure MySQL 데
 - 테이블 이외의 다른 데이터베이스 개체를 이동할 때 해당 개체를 명시적으로 만듭니다. 마이그레이션하려는 제약 조건(기본 키, 외래 키, 인덱스), 뷰, 함수, 프로시저, 트리거 및 다른 모든 데이터베이스 개체를 포함합니다.
 - MySQL 데이터베이스 이외의 외부 데이터 원본에서 데이터를 마이그레이션하는 경우 플랫 파일을 만들고 [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html)를 사용하여 가져옵니다.
 
-데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 저장소 엔진을 사용하도록 합니다. Azure Database for MySQL은 InnoDB 저장소 엔진만을 지원하므로 대체 저장소 엔진을 지원하지 않습니다. 테이블에 대체 저장소 엔진이 필요한 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 사용하도록 변환해야 합니다. 
+데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 스토리지 엔진을 사용하도록 합니다. Azure Database for MySQL은 InnoDB 스토리지 엔진만을 지원하므로 대체 스토리지 엔진을 지원하지 않습니다. 테이블에 대체 스토리지 엔진이 필요한 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 사용하도록 변환해야 합니다. 
 
 예를 들어 MyISAM 엔진을 사용하는 WordPress 또는 웹앱이 있는 경우 먼저 데이터를 InnoDB 테이블로 마이그레이션하여 테이블을 변환합니다. 그런 다음 Azure Database for MySQL로 복원합니다. `ENGINE=INNODB` 절을 사용하여 테이블을 만들기 위한 엔진을 설정한 다음 마이그레이션 전에 데이터를 호환되는 테이블로 전송합니다. 
 
@@ -96,7 +95,7 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 **데이터 내보내기** 탭을 사용하여 MySQL 데이터를 내보낼 수 있습니다. 
 1. 내보내려는 각 스키마를 선택하고, 필요에 따라 각 스키마에서 특정 스키마 개체/테이블을 선택하고, 내보내기를 생성합니다. 구성 옵션에는 프로젝트 폴더 또는 자체 포함된 SQL 파일로 내보내기가 포함되고, 저장된 루틴 및 이벤트를 덤프하거나 테이블 데이터를 건너뛰는 작업도 포함됩니다. 
  
-   또는 **결과 집합 내보내기**를 사용하여 SQL 편집기에서 CSV, JSON, HTML 및 XML 등의 다른 형식으로 특정 결과 집합을 내보냅니다. 
+   또는 **결과 집합 내보내기** 를 사용 하 여 SQL 편집기에서 CSV, JSON, HTML 및 XML 등의 다른 형식으로 특정 결과 집합을 내보냅니다. 
 3. 내보낼 데이터베이스 개체를 선택하고 관련 옵션을 구성합니다.
 4. **새로 고침**을 클릭하여 현재 개체를 로드합니다.
 5. 필요에 따라 내보내기 작업을 미세 조정하는 **고급 옵션** 탭을 엽니다. 예를 들어 테이블 잠금을 추가하고, insert 문 대신 replace를 사용하고, 억음 부호로 식별자를 묶는 작업을 수행할 수 있습니다.

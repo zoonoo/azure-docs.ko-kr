@@ -1,32 +1,24 @@
 ---
-title: 외부 App Service Environment 만들기 - Azure
-description: 앱 또는 독립 실행형을 만드는 동안 App Service Environment를 만드는 방법 설명
-services: app-service
-documentationcenter: na
+title: 외부 ASE 만들기
+description: 앱을 사용 하 여 App Service 환경을 만들거나 독립 실행형 (빈) ASE를 만드는 방법에 대해 알아봅니다.
 author: ccompy
-manager: stefsch
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75430505"
 ---
 # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기
 
 Azure App Service Environment는 Azure App Service를 Azure VNet(Virtual Network)의 서브넷에 배포한 것입니다.
 
 > [!NOTE]
-> 각 App Service Environment에는 가상 IP (VIP), App Service Environment에 연결할 수는 있습니다.
+> 각 App Service Environment에는 App Service Environment에 연결 하는 데 사용할 수 있는 VIP (가상 IP)가 있습니다.
 
 ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다.
 
@@ -39,9 +31,9 @@ ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다.
 
 ASE를 만든 후에는 다음을 변경할 수 없습니다.
 
-- Location
-- 구독
-- 리소스 그룹
+- 위치
+- Subscription
+- Resource group
 - 사용되는 VNet
 - 사용되는 서브넷
 - 서브넷 크기
@@ -96,7 +88,7 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
     b. 새 서브넷 이름을 입력합니다.
 
-    다. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/25`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 적어도 7개의 주소를 사용하고 Azure Networking은 다른 5개를 사용합니다. `/28` 서브넷에서는 외부 ASE에 대해 최대 4개의 App Service 계획 인스턴스를, ILB ASE에 대해서는 3개의 App Service 계획 인스턴스만 확장할 수 있습니다.
+    다. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/24`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 적어도 7개의 주소를 사용하고 Azure Networking은 다른 5개를 사용합니다. `/28` 서브넷에서는 외부 ASE에 대해 최대 4개의 App Service 계획 인스턴스를, ILB ASE에 대해서는 3개의 App Service 계획 인스턴스만 확장할 수 있습니다.
 
     d. 서브넷 IP 범위를 선택합니다.
 
@@ -132,12 +124,12 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
     b. 새 서브넷 이름을 입력합니다.
 
-    다. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/25`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 적어도 7개의 주소를 사용하고 Azure Networking은 다른 5개를 사용합니다. `/28` 서브넷에서는 외부 ASE에 대해 최대 4개의 App Service 계획 인스턴스를, ILB ASE에 대해서는 3개의 App Service 계획 인스턴스만 확장할 수 있습니다.
+    다. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/24`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 적어도 7개의 주소를 사용하고 Azure Networking은 다른 5개를 사용합니다. `/28` 서브넷에서는 외부 ASE에 대해 최대 4개의 App Service 계획 인스턴스를, ILB ASE에 대해서는 3개의 App Service 계획 인스턴스만 확장할 수 있습니다.
 
     d. 서브넷 IP 범위를 선택합니다.
 
 1.  “컨테이너 구성”을 선택합니다.
-    * 사용자 지정 이미지 이름을 입력합니다(Azure Container Registry, Docker 허브 및 개인 레지스트리를 사용할 수 있음). 사용자 고유의 사용자 지정 컨테이너를 사용하지 않으려는 경우, 코드를 가져오고, 위 지침에 따라 Linux의 App Service로 기본 제공 이미지를 사용할 수 있습니다. 
+    * 사용자 지정 이미지 이름을 입력합니다(Azure Container Registry, Docker 허브 및 프라이빗 레지스트리를 사용할 수 있음). 사용자 고유의 사용자 지정 컨테이너를 사용하지 않으려는 경우, 코드를 가져오고, 위 지침에 따라 Linux의 App Service로 기본 제공 이미지를 사용할 수 있습니다. 
 
     ![컨테이너 구성][9]
 
@@ -156,7 +148,7 @@ ASE 독립 실행형을 만드는 경우 내부에는 아무것도 없습니다.
 
 1. 구독을 선택합니다. 또한 이 구독은 ASE의 모든 앱이 사용하는 것입니다. 다른 구독에 있는 VNet에 ASE를 배치할 수 없습니다.
 
-1. 새 리소스 그룹을 선택하거나 지정합니다. ASE에 사용되는 리소스 그룹은 VNet에 사용되는 것과 동일해야 합니다. 기존 VNet을 선택하는 경우 ASE에 대한 리소스 그룹을 선택하는 작업은 VNet의 선택을 반영하도록 업데이트됩니다. *Resource Manager 템플릿을 사용하는 경우 VNet 리소스 그룹과 다른 리소스 그룹으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service Environment 만들기][MakeASEfromTemplate]를 참조하세요.
+1. 새 리소스 그룹을 선택하거나 지정합니다. ASE에 사용되는 리소스 그룹은 VNet에 사용되는 것과 동일해야 합니다. 기존 VNet을 선택하는 경우 ASE에 대한 리소스 그룹을 선택하는 작업은 VNet의 선택을 반영하도록 업데이트됩니다. *Resource Manager 템플릿을 사용하는 경우 VNet 리소스 그룹과 다른 리소스 그룹으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service 환경 만들기][MakeASEfromTemplate]를 참조 하세요.
 
     ![리소스 그룹 선택][6]
 
@@ -168,9 +160,9 @@ ASE 독립 실행형을 만드는 경우 내부에는 아무것도 없습니다.
 
       * **VIP 형식**에 **외부**를 선택하면 시스템이 IP 기반 SSL 목적으로 만들 수 있는 외부 IP 주소의 개수를 선택할 수 있습니다. 
     
-      * **VIP 형식**에 **내부**를 선택하면 ASE가 사용하는 도메인을 지정해야 합니다. 공개 또는 개인 주소 범위를 사용하는 VNet으로 ASE를 배포할 수 있습니다. 공용 주소 범위를 가진 VNet을 사용하려면 사전에 VNet을 만들어야 합니다. 
+      * **VIP 형식**에 **내부**를 선택하면 ASE가 사용하는 도메인을 지정해야 합니다. 공개 또는 프라이빗 주소 범위를 사용하는 VNet으로 ASE를 배포할 수 있습니다. 공용 주소 범위를 가진 VNet을 사용하려면 사전에 VNet을 만들어야 합니다. 
     
-    * 기존 VNet을 선택한 경우 새 서브넷은 ASE를 만들 때 만들어집니다. *포털에서 미리 생성된 서브넷을 사용할 수 없습니다. Resource Manager 템플릿을 사용하는 경우 기존 서브넷으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service Environment 만들기][MakeASEfromTemplate]를 참조하세요.
+    * 기존 VNet을 선택한 경우 새 서브넷은 ASE를 만들 때 만들어집니다. *포털에서 미리 생성 된 서브넷을 사용할 수 없습니다. 리소스 관리자 템플릿을 사용 하는 경우 기존 서브넷으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service Environment 만들기][MakeASEfromTemplate]를 참조하세요.
 
 ## <a name="app-service-environment-v1"></a>App Service 환경 v1
 
@@ -206,4 +198,4 @@ ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][AS
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md

@@ -1,41 +1,46 @@
 ---
-title: Azure Container Registry에서 Azure Container Instances에 배포
-description: Azure Container Registry의 컨테이너 이미지를 사용하여 Azure Container Instances에 컨테이너를 배포하는 방법을 알아봅니다.
+title: Azure Container Registry에서 컨테이너 이미지 배포
+description: Azure container registry에서 컨테이너 이미지를 당겨 Azure Container Instances 컨테이너를 배포 하는 방법에 대해 알아봅니다.
 services: container-instances
-author: dlepow
-ms.service: container-instances
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686153"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169615"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
-[Azure Container Registry](../container-registry/container-registry-intro.md)는 개인 Docker 컨테이너 이미지를 저장하는 데 사용되는 Azure 기반의 관리형 컨테이너 레지스트리 서비스입니다. 이 문서에서는 Azure Container Registry에 저장된 컨테이너 이미지를 Azure Container Instances에 배포하는 방법에 대해 설명합니다.
+[Azure Container Registry](../container-registry/container-registry-intro.md)는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 Azure 기반의 관리형 컨테이너 레지스트리 서비스입니다. 이 문서에서는 Azure Container Instances에 배포할 때 Azure container registry에 저장 된 컨테이너 이미지를 가져오는 방법을 설명 합니다. 레지스트리 액세스를 구성 하는 권장 방법은 Azure Active Directory 서비스 주체와 암호를 만들고 Azure key vault에 로그인 자격 증명을 저장 하는 것입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-**Azure Container Registry**: 이 문서의 단계를 완료하려면 Azure Container Registry가 필요하고 해당 레지스트리에 하나 이상의 컨테이너 이미지가 있어야 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
+**Azure container registry**:이 문서의 단계를 완료 하려면 azure container registry 및 레지스트리에 컨테이너 이미지가 하나 이상 필요 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 
 **Azure CLI**: 이 문서의 명령줄 예제는 [Azure CLI](/cli/azure/)를 사용하며 Bash 셸용으로 형식이 지정됩니다. 로컬로 [Azure CLI를 설치](/cli/azure/install-azure-cli)하거나 [Azure Cloud Shell][cloud-shell-bash]을 사용할 수 있습니다.
 
 ## <a name="configure-registry-authentication"></a>레지스트리 인증 구성
 
-프로덕션 시나리오에서 Azure Container Registry에 대한 액세스는 [서비스 주체](../container-registry/container-registry-auth-service-principal.md)를 사용하여 제공되어야 합니다. 서비스 주체를 통해 컨테이너 이미지에 대해 [역할 기반 액세스 제어](../container-registry/container-registry-roles.md)를 제공할 수 있습니다. 예를 들어, 레지스트리에 대해 끌어오기 전용 액세스 권한을 가지는 서비스 주체를 구성할 수 있습니다.
+"헤드리스" 서비스 및 응용 프로그램에 대 한 액세스를 제공 하는 프로덕션 시나리오에서는 [서비스 주체](../container-registry/container-registry-auth-service-principal.md)를 사용 하 여 레지스트리 액세스를 구성 하는 것이 좋습니다. 서비스 주체를 사용 하면 컨테이너 이미지에 대 한 [역할 기반 액세스 제어](../container-registry/container-registry-roles.md) 를 제공할 수 있습니다. 예를 들어, 레지스트리에 대해 끌어오기 전용 액세스 권한을 가지는 서비스 주체를 구성할 수 있습니다.
+
+Azure Container Registry는 추가 [인증 옵션](../container-registry/container-registry-authentication.md)을 제공 합니다.
+
+> [!NOTE]
+> 컨테이너 그룹 배포 중에 동일한 컨테이너 그룹에 구성 된 [관리 id](container-instances-managed-identity.md) 를 사용 하 여 이미지를 가져오기 위해 Azure Container Registry를 인증할 수 없습니다.
 
 다음 섹션에서는 Azure Key Vault 및 서비스 주체를 만들고, 자격 증명 모음에 서비스 주체의 자격 증명을 저장합니다. 
 
 ### <a name="create-key-vault"></a>주요 자격 증명 모음 만들기
 
-[Azure Key Vault](../key-vault/key-vault-overview.md)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
+[Azure Key Vault](../key-vault/general/overview.md)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
 
-`RES_GROUP` 변수를 키 자격 증명 모음을 만들 기존 리소스 그룹의 이름으로 업데이트하고 `ACR_NAME` 변수를 컨테이너 레지스트리의 이름으로 바꿉니다. `AKV_NAME`에 새 주요 자격 증명 모음의 이름을 지정합니다. 자격 증명 모음 이름은 Azure 내에서 고유해야 하고, 영숫자 3~24자 사이여야 하고, 문자로 시작하고 문자 또는 숫자로 끝나야 하며 연속 하이픈은 포함하면 안 됩니다.
+`RES_GROUP` 변수를 키 자격 증명 모음을 만들 기존 리소스 그룹의 이름으로 업데이트하고 `ACR_NAME` 변수를 컨테이너 레지스트리의 이름으로 바꿉니다. 간단히 하기 위해이 문서의 명령은 레지스트리, 키 자격 증명 모음 및 컨테이너 인스턴스가 모두 동일한 리소스 그룹에 생성 된 것으로 가정 합니다.
+
+ `AKV_NAME`에 새 주요 자격 증명 모음의 이름을 지정합니다. 자격 증명 모음 이름은 Azure 내에서 고유해야 하고, 영숫자 3~24자 사이여야 하고, 문자로 시작하고 문자 또는 숫자로 끝나야 하며 연속 하이픈은 포함하면 안 됩니다.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -47,12 +52,12 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 ### <a name="create-service-principal-and-store-credentials"></a>서비스 주체 만들기 및 자격 증명 저장
 
-이제 서비스 주체를 만들고 해당 자격 증명을 주요 자격 증명 모음에 저장해야 합니다.
+이제 서비스 주체를 만들고 키 자격 증명 모음에 자격 증명을 저장 합니다.
 
 다음 명령은 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]를 사용하여 서비스 주체를 만들고, [az keyvault secret set][az-keyvault-secret-set]을 사용하여 서비스 주체의 **암호**를 자격 증명 모음에 저장합니다.
 
 ```azurecli
-# Create service principal, store its password in AKV (the registry *password*)
+# Create service principal, store its password in vault (the registry *password*)
 az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
@@ -66,26 +71,26 @@ az keyvault secret set \
 
 이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush*로 변경합니다.
 
-다음으로, 인증을 위해 Azure Container Registry에 전달하는 **username**에 해당하는 서비스 주체의 *appId*를 자격 증명 모음에 저장합니다.
+다음으로, 인증을 위해 Azure Container Registry에 전달 하는 **사용자 이름인** 자격 증명 모음에 서비스 사용자의 *appId* 를 저장 합니다.
 
 ```azurecli
-# Store service principal ID in AKV (the registry *username*)
+# Store service principal ID in vault (the registry *username*)
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
+Azure Key Vault를 만들고 다음 두 비밀을 저장했습니다.
 
-* `$ACR_NAME-pull-usr`: **username** 컨테이너 레지스트리로 사용할 서비스 주체 ID입니다.
-* `$ACR_NAME-pull-pwd`: **password** 컨테이너 레지스트리로 사용할 서비스 주체 암호입니다.
+* `$ACR_NAME-pull-usr`: 서비스 주체 ID로, 컨테이너 레지스트리 **username**으로 사용됩니다.
+* `$ACR_NAME-pull-pwd`: 서비스 주체 암호로, 컨테이너 레지스트리 **password**로 사용됩니다.
 
 이제 사용자나 애플리케이션 및 서비스가 레지스트리에서 이미지를 끌어올 때 이러한 암호를 이름으로 참조할 수 있습니다.
 
 ## <a name="deploy-container-with-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
-서비스 주체 자격 증명은 Azure Key Vault 암호에 저장되므로, 애플리케이션 및 서비스는 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
+서비스 주체 자격 증명은 Azure Key Vault 암호에 저장되므로, 애플리케이션 및 서비스는 해당 자격 증명을 사용하여 프라이빗 레지스트리에 액세스할 수 있습니다.
 
 먼저 [az acr show][az-acr-show] 명령을 사용하여 레지스트리의 로그인 서버 이름을 가져옵니다. 로그인 서버 이름은 모두 소문자이며 `myregistry.azurecr.io`와 유사합니다.
 
@@ -109,8 +114,7 @@ az container create \
 
 `--dns-name-label` 값은 Azure 내에서 고유해야 하므로, 이전 명령은 컨테이너의 DNS 이름 레이블에 임의 숫자를 추가합니다. 명령의 출력에는 컨테이너의 FQDN(정규화된 도메인 이름)이 표시됩니다. 예를 들면 다음과 같습니다.
 
-```console
-$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_LOGIN_SERVER/aci-helloworld:v1 --registry-login-server $ACR_LOGIN_SERVER --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
+```output
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 
@@ -118,9 +122,10 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_L
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 배포
 
-컨테이너 그룹 정의에 `imageRegistryCredentials` 속성을 포함하여 Azure Resource Manager 템플릿에서 Azure Container Registry 속성을 지정할 수 있습니다.
+컨테이너 그룹 정의에 속성을 포함 하 여 Azure Resource Manager 템플릿에서 Azure container registry의 속성을 지정할 수 있습니다 `imageRegistryCredentials` . 예를 들어 레지스트리 자격 증명을 직접 지정할 수 있습니다.
 
 ```JSON
+[...]
 "imageRegistryCredentials": [
   {
     "server": "imageRegistryLoginServer",
@@ -128,9 +133,12 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_L
     "password": "imageRegistryPassword"
   }
 ]
+[...]
 ```
 
-Resource Manager 템플릿에서 Azure Key Vault 암호를 참조하는 방법에 대한 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)을 참조하세요.
+전체 컨테이너 그룹 설정은 [리소스 관리자 템플릿 참조](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups)를 참조 하세요.    
+
+Resource Manager 템플릿에서 Azure Key Vault 암호를 참조하는 방법에 대한 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)을 참조하세요.
 
 ## <a name="deploy-with-azure-portal"></a>Azure Portal을 사용하여 배포
 
@@ -163,7 +171,7 @@ Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container R
 
 <!-- LINKS - External -->
 [cloud-shell-bash]: https://shell.azure.com/bash
-[cloud-shell-powershell]: https://shell.azure.com/powershell
+[cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
 [az-acr-show]: /cli/azure/acr#az-acr-show

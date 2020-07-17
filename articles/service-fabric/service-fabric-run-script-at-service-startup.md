@@ -1,25 +1,15 @@
 ---
-title: Azure Service Fabric 서비스가 시작될 때 스크립트 실행 | Microsoft Docs
+title: Azure Service Fabric 서비스를 시작할 때 스크립트 실행
 description: Service Fabric 서비스 설치 진입점에 대한 정책을 구성하고 서비스 시작 시간에 스크립트를 실행하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
-ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837801"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75464278"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>로컬 사용자 또는 시스템 계정으로 서비스 시작 스크립트 실행
 Service Fabric 서비스 실행 파일이 시작되기 전에 일부 구성 또는 설치 작업을 실행해야 할 수도 있습니다.  예를 들어 환경 변수를 구성합니다. 서비스 실행 파일이 서비스의 서비스 매니페스트에서 시작되기 전에 실행할 스크립트를 지정할 수 있습니다. 서비스 설치 진입점에 대한 RunAs 정책을 구성하면 설치 실행 파일 실행에 사용되는 계정을 변경할 수 있습니다.  별도의 설치 진입점을 통해 짧은 기간 동안 높은 권한의 구성을 실행할 수 있으므로 서비스 호스트 실행 파일을 오랜 기간 동안 높은 권한으로 실행할 필요가 없습니다.
@@ -67,7 +57,7 @@ Service Fabric 서비스 실행 파일이 시작되기 전에 일부 구성 또�
 </ServiceManifest>
 ```
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>서비스 설치 진입점에 대한 정책 구성
-기본적으로 서비스 설치 진입점 실행 파일은 Service Fabric과 동일한 자격 증명(일반적으로 *NetworkService* 계정)으로 실행됩니다.  애플리케이션 매니페스트에서 로컬 시스템 계정이나 관리자 계정으로 시작 스크립트를 실행하도록 보안 권한을 변경할 수 있습니다.
+기본적으로 서비스 설치 진입점 실행 파일은 Service Fabric와 동일한 자격 증명 (일반적으로 *NetworkService* 계정)으로 실행 됩니다.  애플리케이션 매니페스트에서 로컬 시스템 계정이나 관리자 계정으로 시작 스크립트를 실행하도록 보안 권한을 변경할 수 있습니다.
 
 ### <a name="configure-the-policy-by-using-a-local-system-account"></a>로컬 시스템 계정을 사용하여 정책 구성
 다음 애플리케이션 매니페스트 예제에서는 사용자 관리자 계정(SetupAdminUser)으로 실행되도록 서비스 설치 진입점을 구성하는 방법을 보여 줍니다.
@@ -145,9 +135,9 @@ Service Fabric 서비스 실행 파일이 시작되기 전에 일부 구성 또�
 ## <a name="run-a-script-from-the-setup-entry-point"></a>설치 진입점에서 스크립트 실행
 이제 관리자 권한으로 실행할 시작 스크립트를 프로젝트에 추가합니다. 
 
-Visual Studio에서 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 새 파일 *MySetup.bat*를 추가합니다.
+Visual Studio에서 서비스 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 *MySetup.bat*라는 새 파일을 추가 합니다.
 
-그런 다음, *MySetup.bat* 파일이 서비스 패키지에 포함되도록 합니다. 기본적으로 아닙니다. 파일을 선택하고 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하며 **속성**을 선택합니다. 속성 대화 상자에서 **출력 디렉터리로 복사**가 **변경된 내용만 복사**로 설정되도록 합니다. 다음 스크린샷이 표시됩니다.
+다음으로 *MySetup.bat* 파일이 서비스 패키지에 포함 되어 있는지 확인 합니다. 기본적으로 아닙니다. 파일을 선택하고 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하며 **속성**을 선택합니다. 속성 대화 상자에서 **출력 디렉터리로 복사**가 **변경된 내용만 복사**로 설정되도록 합니다. 다음 스크린샷이 표시됩니다.
 
 ![SetupEntryPoint 배치 파일에 대한 Visual Studio CopyToOutput][image1]
 
@@ -163,21 +153,21 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ```
 
-다음으로 솔루션을 빌드하여 로컬 개발 클러스터에 배포합니다. 서비스가 시작되면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에 표시된 대로 MySetup.bat 파일이 두 가지 방법으로 성공한 것을 볼 수 있습니다. Azure PowerShell 명령 프롬프트를 열고 입력합니다.
+다음으로 솔루션을 빌드하여 로컬 개발 클러스터에 배포합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)와 같이 서비스가 시작 된 후에는 MySetup.bat 파일이 두 가지 방법으로 성공한 것을 볼 수 있습니다. Azure PowerShell 명령 프롬프트를 열고 입력합니다.
 
 ```
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ```
 
-그런 다음, 서비스가 배포되고 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 시작된 노드의 이름을 적어둡니다. 예를 들어 노드 2 등입니다. 다음으로 애플리케이션 인스턴스 작업 폴더로 이동하여 **TestVariable**값을 보여주는 out.txt 파일을 찾습니다. 예를 들어 이 서비스가 노드 2에 배포된 경우 **MyApplicationType**에 대한 이 경로로 이동할 수 있습니다.
+그런 다음, 서비스가 배포되고 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 시작된 노드의 이름을 적어둡니다. 예를 들어 노드 2 등입니다. 다음으로 애플리케이션 인스턴스 작업 폴더로 이동하여 **TestVariable**값을 보여주는 out.txt 파일을 찾습니다. 예를 들어이 서비스가 노드 2에 배포 된 경우 **Myapplicationtype**에 대 한이 경로로 이동할 수 있습니다.
 
 ```
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
 ## <a name="run-powershell-commands-from-a-setup-entry-point"></a>설치 진입점에서 PowerShell 명령 실행
-**SetupEntryPoint** 지점에서 PowerShell을 실행하려면 PowerShell 파일을 가리키는 배치 파일에서 **PowerShell.exe**를 실행하면 됩니다. 먼저 서비스 프로젝트(예: **MySetup.ps1**)에 PowerShell 파일을 추가합니다. 이 파일도 서비스 패키지에 포함되도록 *변경된 내용만 복사* 속성을 설정해야 합니다. 다음은 **TestVariable**이라는 시스템 환경 변수를 설정하는 PowerShell 파일 MySetup.ps1을 시작하는 간단한 배치 파일을 보여 주는 예제입니다.
+**Setupentrypoint** 지점에서 powershell을 실행 하려면 powershell 파일을 가리키는 배치 파일에서 **PowerShell.exe** 를 실행할 수 있습니다. 먼저 서비스 프로젝트(예: **MySetup.ps1**)에 PowerShell 파일을 추가합니다. 이 파일도 서비스 패키지에 포함되도록 *변경된 내용만 복사* 속성을 설정해야 합니다. 다음은 **TestVariable**이라는 시스템 환경 변수를 설정하는 PowerShell 파일 MySetup.ps1을 시작하는 간단한 배치 파일을 보여 주는 예제입니다.
 
 PowerShell 파일을 시작하기 위한 MySetup.bat입니다.
 

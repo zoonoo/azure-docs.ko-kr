@@ -1,27 +1,25 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - WordPress | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - WordPress
 description: Azure PowerShell 스크립트 샘플 - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e4dd70b1d2de54d19305c89dd6b93a5a394cbdf7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 78a7d284df2b1cf30965f1aadf43b4461e6b8de7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981182"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459664"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>PowerShell로 WordPress VM 만들기
 
@@ -31,7 +29,7 @@ ms.locfileid: "55981182"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
 
 ## <a name="sample-script"></a>샘플 스크립트
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구 시 온-프레미스로 장애 복구(failback) 문제 해결 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 VMware VM 재해 복구에서 장애 복구 문제 해결
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구하는 동안 발생하는 장애 복구(failback) 및 다시 보호 문제를 해결하는 방법을 설명합니다.
 author: rajani-janaki-ram
 manager: gauravd
@@ -7,18 +7,34 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309954"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
 
 이 아티클에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure로 장애 조치한 후 Azure VM을 온-프레미스 VMware 인프라로 장애 복구할 때 발생할 수 있는 문제를 해결하는 방법에 대해 설명합니다.
 
 장애 복구(failback)는 기본적으로 두 가지 기본 단계로 이루어집니다. 첫 번째 단계로 장애 조치 후에 Azure VM을 온-프레미스로 다시 보호해야 복제가 시작됩니다. 두 번째 단계는 Azure에서 장애 조치를 실행하여 온-프레미스 사이트로 장애 복구하는 것입니다.
+
+## <a name="common-issues"></a>일반적인 문제
+
+- 읽기 전용 사용자 vCenter 검색을 수행하고 가상 머신을 보호하면 보호에 성공하고 장애 조치가 작동합니다. 다시 보호 중에는 데이터 저장소를 검색할 수 없기 때문에 장애 조치가 실패합니다. 증상은 다시 보호 중에 데이터 저장소가 나열되지 않는 것입니다. 이 문제를 해결하려면 vCenter 자격 증명을 권한이 있는 적절한 계정으로 업데이트한 다음, 작업을 다시 시도하면 됩니다.
+- Linux 가상 컴퓨터를 장애 복구하고 온-프레미스에서 실행하면 네트워크 관리자 패키지가 컴퓨터에서 제거되었음을 알 수 있습니다. Azure에서 가상 머신을 복구할 때 네트워크 관리자 패키지가 제거되었기 때문에 이 기능이 제거됩니다.
+- Linux 가상 머신을 고정 IP 주소로 구성하고 Azure로 장애 조치하면 DHCP에서 IP 주소를 가져옵니다. 온-프레미스로 장애 조치하면 가상 머신에서 계속 DHCP를 사용하여 IP 주소를 가져옵니다. 컴퓨터에 수동으로 로그인한 다음, 필요한 경우 IP 주소를 고정 주소로 다시 설정합니다. Windows 가상 머신에서는 고정 IP 주소를 다시 얻을 수 있습니다.
+- ESXi 5.5 체험 버전 또는 vSphere 6 하이퍼바이저 체험 버전을 사용하는 경우 장애 조치는 성공하지만 장애 복구가 실패합니다. 장애 복구를 사용하도록 설정하려면 평가판 라이선스로 업그레이드합니다.
+- 프로세스 서버에서 구성 서버에 연결할 수 없는 경우 텔넷을 사용하여 443 포트에서 구성 서버에 대한 연결을 확인합니다. 프로세스 서버에서 구성 서버를 ping할 수도 있습니다. 또한 프로세스 서버에는 구성 서버에 연결될 때 하트비트도 있어야 합니다.
+- 물리적 온-프레미스 서버로 보호되는 Windows Server 2008 R2 SP1 서버는 Azure에서 온-프레미스 사이트로 장애 복구할 수 없습니다.
+- 다음과 같은 경우에 장애 복구(failback)를 수행할 수 없습니다.
+    - Azure에 컴퓨터를 마이그레이션했습니다. [자세히 알아보기](migrate-overview.md#what-do-we-mean-by-migration).
+    - 다른 리소스 그룹으로 VM을 이동했습니다.
+    - Azure VM을 삭제했습니다.
+    - VM의 보호를 해제했습니다.
+    - Azure에서 VM을 수동으로 만들었습니다. 컴퓨터가 처음에 온-프레미스로 보호되고 다시 보호되기 전에 Azure로 장애 조치(failover)되었어야 합니다.
+    - ESXi 호스트에 대해서만 실패할 수 있습니다. VMware VM 또는 Hyper-V 호스트, 물리적 서버 또는 VMware 워크스테이션에 대한 물리적 서버를 장애 복구(failback)할 수 없습니다.
+
 
 ## <a name="troubleshoot-reprotection-errors"></a>다시 보호 오류 문제 해결
 
@@ -35,7 +51,7 @@ ms.locfileid: "60565602"
 
 이 문제를 해결하려면:
 
-* Azure VM 네트워크에서 Azure VM이 온-프레미스 구성 서버와 통신할 수 있는지 확인합니다. 온-프레미스 데이터 센터에 사이트 간 VPN을 설정하거나 Azure VM의 가상 네트워크에서 개인 피어링을 사용하여 Azure ExpressRoute 연결을 구성할 수 있습니다.
+* Azure VM 네트워크에서 Azure VM이 온-프레미스 구성 서버와 통신할 수 있는지 확인합니다. 온-프레미스 데이터 센터에 사이트 간 VPN을 설정하거나 Azure VM의 가상 네트워크에서 프라이빗 피어링을 사용하여 Azure ExpressRoute 연결을 구성할 수 있습니다.
 * VM이 온-프레미스 구성 서버와 통신할 수 있는 경우 VM에 로그인합니다. 그런 다음, InMage Scout 애플리케이션 서비스를 확인합니다. 해당 서비스가 실행되지 않는 경우 서비스를 수동으로 시작합니다. 서비스 시작 형식이 **자동**으로 설정되었는지 확인합니다.
 
 ### <a name="error-code-78052"></a>오류 코드 78052
@@ -52,11 +68,11 @@ ms.locfileid: "60565602"
 
 ### <a name="error-code-78093"></a>오류 코드 78093
 
-**응답이 없는 상태에서 VM이 실행되지 않거나 액세스할 수 없습니다.**
+**VM이 실행 되 고 있지 않거나 응답 하지 않거나 액세스할 수 없습니다.**
 
 이 문제를 해결하려면:
 
-장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터에 잘못 된 네트워크 또는 (응답 하지 않거나 종료) 실행 중이 아닌 경우 다시 보호를 시작 하도록 VM에서 모바일 서비스를 구성 서버에 연결할 수 없습니다.
+장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터가 잘못 된 네트워크에 있거나 실행 중이 아닌 경우 (응답 없음 또는 종료) 구성 서버에서 VM의 모바일 서비스에 연결 하 여 다시 보호를 시작할 수 없습니다.
 
 * 온-프레미스와의 통신을 다시 시작할 수 있도록 VM을 다시 시작합니다.
 * Azure 가상 머신을 시작한 후에 다시 보호 작업을 다시 시작합니다.
@@ -65,7 +81,7 @@ ms.locfileid: "60565602"
 
 **데이터 저장소가 ESXi 호스트에서 액세스할 수 없습니다.**
 
-장애 복구에 대해 [마스터 대상 필수 구성 요소 및 지원되는 데이터 저장소](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)를 확인합니다.
+장애 복구에 대해 [마스터 대상 필수 구성 요소 및 지원되는 데이터 저장소](vmware-azure-prepare-failback.md#deploy-a-separate-master-target-server)를 확인합니다.
 
 
 ## <a name="troubleshoot-failback-errors"></a>장애 복구 오류 문제 해결
@@ -74,7 +90,7 @@ ms.locfileid: "60565602"
 
 ### <a name="error-code-8038"></a>오류 코드 8038
 
-**오류로 인해 온-프레미스 가상 머신을 불러오지 못했습니다.**
+**오류로 인해 온-프레미스 가상 컴퓨터를 가져오지 못했습니다.**
 
 이 문제는 메모리가 충분히 프로비전되지 않은 호스트에서 온-프레미스 VM을 가동하는 경우에 발생합니다. 
 

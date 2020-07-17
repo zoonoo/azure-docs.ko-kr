@@ -1,24 +1,13 @@
 ---
 title: Azure Service Bus 중복 메시지 검색 | Microsoft Docs
-description: 중복 Service Bus 메시지 검색
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: 이 문서에서는 Azure Service Bus 메시지에서 중복을 검색 하는 방법을 설명 합니다. 중복 된 메시지는 무시 하 고 삭제할 수 있습니다.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413651"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337903"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -37,7 +26,7 @@ ms.locfileid: "65413651"
 *MessageId*는 항상 GUID일 수 있지만 식별자를 비즈니스 프로세스에 고정하면 예측 가능한 반복성을 얻을 수 있으며 이것은 중복 검색 기능을 효과적으로 활용하는 데 바람직합니다.
 
 > [!NOTE]
-> 중복 검색 기능을 사용 하 고 세션 ID 또는 파티션 키 설정 되어 있지 않은 경우 메시지 ID는 파티션 키로 사용 됩니다. 메시지 ID도 설정 하지 않으면,.NET 및 AMQP 라이브러리는 자동으로 메시지에 대 한 메시지 ID를 생성 합니다. 자세한 내용은 [파티션 키 사용 하 여](service-bus-partitioning.md#use-of-partition-keys)입니다.
+> 중복 검색을 사용 하도록 설정 하 고 세션 ID 또는 파티션 키를 설정 하지 않은 경우에는 메시지 ID가 파티션 키로 사용 됩니다. 메시지 ID도 설정 되지 않은 경우 .NET 및 AMQP 라이브러리는 메시지에 대 한 메시지 ID를 자동으로 생성 합니다. 자세한 내용은 [파티션 키 사용](service-bus-partitioning.md#use-of-partition-keys)을 참조 하세요.
 
 ## <a name="enable-duplicate-detection"></a>중복 검색 사용
 
@@ -67,6 +56,8 @@ Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참�
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
+클라이언트 코드가 이전과 동일한 *MessageId* 를 사용 하 여 메시지를 다시 전송할 수 없는 시나리오에서는 안전 하 게 다시 처리할 수 있는 메시지를 설계 하는 것이 중요 합니다. [Idempotence에 대 한이 블로그 게시물](https://particular.net/blog/what-does-idempotent-mean) 에서는이를 수행 하는 방법에 대 한 다양 한 기술을 설명 합니다.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

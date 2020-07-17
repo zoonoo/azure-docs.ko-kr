@@ -4,22 +4,21 @@ description: Azure에서 Azure 사용자 지정 경로를 사용하여 강제 �
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: b121996530ea0618fc757f1ae12dfafde10ed7bb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 085647c392bb6cec51fba8b6e42cb8f03707223c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979380"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134581"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>강제 터널링 시나리오에서 Windows 정품 인증 실패
 
@@ -27,13 +26,13 @@ ms.locfileid: "55979380"
 
 ## <a name="symptom"></a>증상
 
-Azure Virtual Network 서브넷에서 [강제 터널링](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)을 사용하도록 설정하여 모든 인터넷 바인딩 트래픽을 온-프레미스 네트워크로 다시 전송합니다. 이 시나리오에서 Windows Server 2012 R2 이상의 Windows를 실행하는 Azure VM(Virtual Machines)은 Windows를 성공적으로 정품 인증할 수 있습니다. 그러나 이전 버전의 Windows를 실행하는 VM은 Windows 정품을 인증하지 못합니다.
+Azure Virtual Network 서브넷에서 [강제 터널링](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)을 사용하도록 설정하여 모든 인터넷 바인딩 트래픽을 온-프레미스 네트워크로 다시 전송합니다. 이 시나리오에서 Windows를 실행 하는 Azure virtual machines (Vm)는 Windows를 정품 인증 하지 못합니다.
 
 ## <a name="cause"></a>원인
 
 Azure Windows VM은 Windows 정품 인증을 위해 Azure KMS 서버에 연결해야 합니다. 이러한 정품 인증을 위해서는 Azure 공용 IP 주소에서 정품 인증 요청을 수행해야 합니다. 강제 터널링 시나리오에서는 정품 인증 요청이 Azure 공용 IP 주소가 아닌 온-프레미스 네트워크에서 수행되므로 정품 인증에 실패합니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 Azure 사용자 지정 경로를 사용하여 정품 인증 트래픽을 Azure KMS 서버로 보냅니다.
 
@@ -42,16 +41,19 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
 |플랫폼| KMS DNS|KMS IP|
 |------|-------|-------|
 |Azure 글로벌|kms.core.windows.net|23.102.135.246|
-|Azure Germany|kms.core.cloudapi.de|51.4.143.248|
+|Azure 독일|kms.core.cloudapi.de|51.4.143.248|
 |Azure 미국 정부|kms.core.usgovcloudapi.net|23.97.0.13|
-|Azure China 21Vianet|kms.core.chinacloudapi.cn|42.159.7.249|
+|Azure 중국 21Vianet|kms.core.chinacloudapi.cn|42.159.7.249|
 
 
 사용자 지정 경로를 추가하려면 다음 단계를 수행합니다.
 
 ### <a name="for-resource-manager-vms"></a>Resource Manager VM
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
+
+> [!NOTE] 
+> 활성화는 공용 IP 주소를 사용 하며 표준 SKU Load Balancer 구성의 영향을 받습니다. [Azure에서 아웃 바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 을 신중 하 게 검토 하 여 요구 사항에 대해 알아보세요.
 
 1. Azure PowerShell을 연 다음, [Azure 구독에 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)합니다.
 2. 다음 명령을 실행합니다.
@@ -68,14 +70,24 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
     Add-AzRouteConfig -Name "DirectRouteToKMS" -AddressPrefix 23.102.135.246/32 -NextHopType Internet -RouteTable $RouteTable
 
     Set-AzRouteTable -RouteTable $RouteTable
+
+    # Next, attach the route table to the subnet that hosts the VMs
+
+    Set-AzVirtualNetworkSubnetConfig -Name "Subnet01" -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/24" -RouteTable $RouteTable
+
+    Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 3. 정품 인증 문제가 있는 VM으로 이동합니다. [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)을 사용하여 KMS 서버에 연결할 수 있는지 테스트합니다.
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Windows 정품 인증을 시도하여 문제가 해결되었는지 확인합니다.
 
 ### <a name="for-classic-vms"></a>클래식 VM
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 1. Azure PowerShell을 연 다음, [Azure 구독에 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)합니다.
 2. 다음 명령을 실행합니다.
@@ -97,7 +109,9 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
 
 3. 정품 인증 문제가 있는 VM으로 이동합니다. [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)을 사용하여 KMS 서버에 연결할 수 있는지 테스트합니다.
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Windows 정품 인증을 시도하여 문제가 해결되었는지 확인합니다.
 

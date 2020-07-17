@@ -1,28 +1,27 @@
 ---
-title: Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 "고가용성" 확보 | Microsoft Docs
+title: SAP 시스템의 "고가용성"을 위해 Azure Vm 다시 시작 활용 | Microsoft Docs
 description: Azure 인프라 VM 다시 시작을 활용하여 SAP 애플리케이션의 고가용성 확보
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: jeconnoc
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: f0b2f8f0-e798-4176-8217-017afe147917
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cda0b1c0774ed33bf550e0edf329cc22a2807be3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825666"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134533"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 고가용성 확보
 
@@ -35,8 +34,8 @@ ms.locfileid: "60825666"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -205,7 +204,7 @@ ms.locfileid: "60825666"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -221,13 +220,13 @@ Linux에서 WSFC(Windows Server 장애 조치(failover) 클러스터링) 또는 
 >
 >
 
-고가용성을 위한 또 다른 중요한 인프라 요소는 저장소입니다. 예를 들어 Azure Storage SLA는 99.9% 사용 가능합니다. 모든 VM 및 해당 디스크를 단일 Azure Storage 계정에 배포하는 경우 잠재적으로 Azure Storage를 사용할 수 없게 되어 해당 스토리지 계정에 배치된 모든 VM 및 해당 VM 내에서 실행되는 모든 SAP 구성 요소를 사용할 수 없게 됩니다.  
+고가용성을 위한 또 다른 중요한 인프라 요소는 스토리지입니다. 예를 들어 Azure Storage SLA는 99.9% 사용 가능합니다. 모든 VM 및 해당 디스크를 단일 Azure Storage 계정에 배포하는 경우 잠재적으로 Azure Storage를 사용할 수 없게 되어 해당 스토리지 계정에 배치된 모든 VM 및 해당 VM 내에서 실행되는 모든 SAP 구성 요소를 사용할 수 없게 됩니다.  
 
 단일 Azure Storage 계정에 모든 VM을 배치하는 대신 각 VM에 대한 전용 스토리지 계정을 사용할 수 있습니다. 여러 독립 Azure Storage 계정을 사용하여 전반적인 VM 및 SAP 애플리케이션 가용성을 증가시킵니다.
 
 Azure Managed Disks는 연결된 가상 머신의 장애 도메인에 자동으로 배치됩니다. 가용성 집합에 가상 머신 두 대를 배치하고 관리 디스크를 사용하는 경우 플랫폼에서 각기 다른 장애 도메인으로 관리 디스크를 분산시키는 작업도 수행합니다. Premium Storage 계정을 사용하려는 경우에는 관리 디스크를 사용하는 것이 좋습니다.
 
-Azure 인프라 고가용성 및 저장소 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
+Azure 인프라 고가용성 및 스토리지 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 
 ![Azure 인프라 고가용성을 활용하여 SAP 애플리케이션 "고가용성" 확보][planning-guide-figure-2900]
 
@@ -268,7 +267,7 @@ SAP는 VM 내에서 OS가 시작된 이후에 즉시 SAP 인스턴스를 시작�
 
 VM 하나에 단일 SAP 애플리케이션 서버 인스턴스가 있는 일반적인 Azure 시나리오와 단일 VM이 다시 시작되는 경우를 가정하면, Autostart는 중요하지 않습니다. 하지만 SAP ABAP(고급 비즈니스 애플리케이션 프로그래밍) 또는 Java 인스턴스의 시작 프로필에 다음 매개 변수를 추가하여 활성화할 수 있습니다.
 
-      Autostart = 1
+`Autostart = 1`
 
 
   > [!NOTE]
@@ -280,7 +279,6 @@ VM 하나에 단일 SAP 애플리케이션 서버 인스턴스가 있는 일반�
 
   * [Unix 서버 시작/중지에 따른 SAP 시작 또는 중지](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [SAP NetWeaver 관리 에이전트 시작 및 중지](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-  * [HANA 데이터베이스의 자동 시작을 사용하도록 설정하는 방법](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
 ## <a name="next-steps"></a>다음 단계
 

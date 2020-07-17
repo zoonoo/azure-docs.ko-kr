@@ -1,26 +1,17 @@
 ---
-title: Azure ExpressRoute의 네트워크 구성 세부 정보 - App Service
-description: ExpressRoute 회로에 연결된 가상 네트워크에 있는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보입니다.
-services: app-service
-documentationcenter: ''
+title: Azure ExpressRoute v1 구성
+description: Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment에 대한 네트워크 구성. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: stefsch
-manager: nirma
-editor: ''
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: abe08da95416dd73035115361cb0d87822ad9239
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130673"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013400"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
 
@@ -29,7 +20,7 @@ ms.locfileid: "62130673"
 다음 시나리오에서 App Service Environment를 만들 수 있습니다.
 - Azure Resource Manager 가상 네트워크.
 - 클래식 배포 모델 가상 네트워크.
-- 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소)을 사용하는 가상 네트워크. 
+- 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소)을 사용하는 가상 네트워크. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -43,11 +34,11 @@ App Service Environment에서는 다음 네트워크 연결 설정이 제대로 
 
 * 포트 445에서 Azure 파일 서비스에 대한 아웃바운드 연결.
 
-* App Service Environment와 동일한 지역에 있는 Azure SQL Database 엔드포인트에 아웃바운드 네트워크 연결. SQL Database 엔드포인트는 포트 1433, 11000~11999 및 14000~14999에 대한 개방형 액세스가 필요한 database.windows.net 도메인에서 확인됩니다. SQL Database V12 포트 사용에 대한 자세한 내용은 [ADO.NET 4.5에 대한 1433 이외 포트](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
+* App Service Environment와 동일한 지역에 있는 Azure SQL Database 엔드포인트에 아웃바운드 네트워크 연결. SQL Database 엔드포인트는 포트 1433, 11000~11999 및 14000~14999에 대한 개방형 액세스가 필요한 database.windows.net 도메인에서 확인됩니다. SQL Database V12 포트 사용에 대한 자세한 내용은 [ADO.NET 4.5에 대한 1433 이외 포트](../../azure-sql/database/adonet-v12-develop-direct-route-ports.md)를 참조하세요.
 
 * Azure 관리 평면 엔드포인트에 아웃바운드 네트워크 연결(Azure 클래식 배포 모델 및 Azure Resource Manager 엔드포인트 모두). 이러한 엔드포인트 연결에는 management.core.windows.net 및 management.azure.com 도메인이 포함됩니다. 
 
-* ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com 도메인에 아웃바운드 네트워크 연결. SSL 기능을 지원하려면 이러한 도메인에 연결해야 합니다.
+* ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com 도메인에 아웃바운드 네트워크 연결. TLS 기능을 지원하려면 이러한 도메인에 연결해야 합니다.
 
 * 가상 네트워크의 DNS 구성은 이 문서에 언급된 모든 엔드포인트 및 도메인을 확인할 수 있어야 합니다. 엔드포인트를 확인할 수 없으면 App Service Environment가 만들어지지 않습니다. 기존의 모든 App Service Environment가 비정상으로 표시됩니다.
 
@@ -81,7 +72,7 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 > [!IMPORTANT]
 > UDR에 정의된 경로는 ExpressRoute 구성을 통해 보급된 경로보다 우선 적용되도록 구체적이어야 합니다. 다음 섹션에 설명된 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용합니다. 이 범위는 더 구체적인 주소 범위를 사용하는 경로 보급으로 의도치 않게 재정의될 수 있습니다.
 > 
-> 공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 App Service Environment가 지원되지 않습니다. 구성된 공용 피어링이 있는 ExpressRoute 구성은 다양한 Microsoft Azure IP 주소 범위 세트에 대해 Microsoft에서 경로 보급을 받습니다. 개인 피어링 경로에서 주소 범위를 교차 보급하는 경우 App Service Environment 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 강제 터널링됩니다. 이 네트워크 흐름은 현재 App Service Environment에서 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로 교차 보급 경로를 중지합니다.
+> 공용 피어링 경로에서 프라이빗 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 App Service Environment가 지원되지 않습니다. 구성된 공용 피어링이 있는 ExpressRoute 구성은 다양한 Microsoft Azure IP 주소 범위 세트에 대해 Microsoft에서 경로 보급을 받습니다. 프라이빗 피어링 경로에서 주소 범위를 교차 보급하는 경우 App Service Environment 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 강제 터널링됩니다. 이 네트워크 흐름은 현재 App Service Environment에서 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 프라이빗 피어링 경로로 교차 보급 경로를 중지합니다.
 > 
 > 
 
@@ -93,7 +84,7 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 
 이 섹션은 App Service Environment에 대한 예제 UDR 구성을 보여 줍니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure 다운로드 페이지][AzureDownloads]에서 Azure PowerShell을 설치합니다. 2015년 6월 이후 날짜의 다운로드를 선택합니다. **명령줄 도구** > **Windows PowerShell**에서 **설치**를 선택하여 최신 PowerShell cmdlet을 설치합니다.
 
@@ -116,7 +107,7 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 
 `Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet`
 
-0.0.0.0/0은 광범위한 주소 범위입니다. 이 범위는 ExpressRoute에서 보급하는 더 구체적인 주소 범위로 재정의됩니다. 0.0.0.0/0 경로가 있는 UDR은 0.0.0.0/0만 보급하는 ExpressRoute 구성과 함께 사용해야 합니다. 
+0.0.0.0/0은 광범위한 주소 범위입니다. 이 범위는 ExpressRoute에서 보급하는 더 구체적인 주소 범위로 재정의됩니다. 0\.0.0.0/0 경로가 있는 UDR은 0.0.0.0/0만 보급하는 ExpressRoute 구성과 함께 사용해야 합니다. 
 
 대신 Azure에서 사용 중인 포괄적인 최신 CIDR 범위 목록을 다운로드합니다. 모든 Azure IP 주소 범위에 대한 XML 파일은 [Microsoft 다운로드 센터][DownloadCenterAddressRanges]에서 사용할 수 있습니다.  
 

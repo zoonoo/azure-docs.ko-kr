@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Cosmos DB에서 Cassandra API 계정으로 데이터 마이그레이션'
+title: Azure Cosmos DB의 Cassandra API 계정으로 데이터 마이그레이션 - 자습서
 description: 이 자습서에서는 CQL Copy 명령 및 Spark를 사용하여 Apache Cassandra에서 Azure Cosmos DB의 Cassandra API 계정으로 데이터를 복사하는 방법을 알아봅니다.
 author: kanshiG
 ms.author: govindk
@@ -9,13 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
-Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: cc312a707f5ab74967b9d3bc050fec7bfcad9dbc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b450d8463c09647b8f87547afe9d714c4b8659c4
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851079"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858567"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB에서 Cassandra API 계정으로 데이터 마이그레이션
 
@@ -29,7 +28,7 @@ ms.locfileid: "58851079"
 > * cqlsh COPY 명령을 사용하여 데이터 마이그레이션
 > * Spark를 사용하여 데이터 마이그레이션
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites-for-migration"></a>마이그레이션을 위한 필수 조건
 
@@ -67,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * **처리량 증가:** 데이터 마이그레이션 기간은 Azure Cosmos DB의 테이블에 대해 프로비전하는 처리량에 따라 달라집니다. 마이그레이션 기간에 대한 처리량을 늘립니다. 처리량이 높을수록 속도 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Cosmos 계정은 원본 데이터베이스와 같은 지역에 두는 것이 좋습니다. 
 
-* **SSL 사용:** Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 있습니다. 계정과 상호 작용하는 경우 SSL을 사용해야 합니다. SSH와 함께 CQL을 사용하는 경우 SSL 정보를 제공할 수 있는 옵션이 있습니다.
+* **TLS 사용:** Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 있습니다. 계정과 상호 작용하는 경우 TLS를 사용해야 합니다. SSH와 함께 CQL을 사용하는 경우 TLS 정보를 제공할 수 있는 옵션이 있습니다.
 
 ## <a name="options-to-migrate-data"></a>데이터 마이그레이션 옵션
 

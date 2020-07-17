@@ -1,33 +1,25 @@
 ---
-title: Web App for Containers에 대한 사용자 지정 이미지 빌드 - Azure App Service | Microsoft Docs
-description: Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법.
+title: '자습서: 사용자 지정 이미지 빌드 및 실행'
+description: Azure App Service에서 실행할 수 있는 사용자 지정 Linux 이미지를 빌드하여 Azure Container Registries에 배포하고 App Service에서 실행하는 방법을 알아봅니다.
 keywords: azure app service, 웹앱, linux, docker, 컨테이너
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: 88ca971986119b3612c79d0bee381d3a0fc9a977
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545605"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906839"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>자습서: 개인 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
 
-[App Service](app-service-linux-intro.md)는 Linux에서 PHP 7.0 및 Node.js 4.5와 같은 특정 버전을 지원하는 기본 제공 Docker 이미지를 제공합니다. App Service는 Docker 컨테이너 기술을 사용하여 기본 제공 이미지와 사용자 지정 이미지를 모두 PaaS(Platform as a Service)로 호스팅합니다. 이 자습서에서는 App Service에서 사용자 지정 이미지를 빌드하고 실행하는 방법을 알아봅니다. 이 패턴은 기본 제공 이미지에 선택한 언어가 포함되어 있지 않거나 기본 제공 이미지에 제공되지 않는 특정 구성이 애플리케이션에 필요한 경우에 유용합니다.
+[App Service](app-service-linux-intro.md)는 Linux에서 PHP 7.3 및 Node.js 10.14와 같은 특정 버전을 지원하는 기본 제공 Docker 이미지를 제공합니다. App Service는 Docker 컨테이너 기술을 사용하여 기본 제공 이미지와 사용자 지정 이미지를 모두 PaaS(Platform as a Service)로 호스팅합니다. 이 자습서에서는 App Service에서 사용자 지정 이미지를 빌드하고 실행하는 방법을 알아봅니다. 이 패턴은 기본 제공 이미지에 선택한 언어가 포함되어 있지 않거나 기본 제공 이미지에 제공되지 않는 특정 구성이 애플리케이션에 필요한 경우에 유용합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 개인 컨테이너 레지스트리에 사용자 지정 이미지 배포
@@ -39,7 +31,7 @@ ms.locfileid: "59545605"
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -57,7 +49,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Docker 파일에서 이미지 빌드
 
-Git 리포지토리에서 _Dockerfile_을 살펴봅니다. 이 Docker 파일은 애플리케이션을 실행하는 데 필요한 Python 환경을 설명합니다. 또한 이미지는 컨테이너와 호스트 간에 보안 통신을 위해 [SSH](https://www.ssh.com/ssh/protocol/) 서버를 설정합니다.
+Git 리포지토리에서 _Dockerfile_을 살펴봅니다. 이 Docker 파일은 애플리케이션을 실행하는 데 필요한 Python 환경을 설명합니다. 또한 이미지는 컨테이너와 호스트 간에 보안 통신을 위해 [SSH](https://www.ssh.com/ssh/protocol/) 서버를 설정합니다. _Dockerfile_, `ENTRYPOINT ["init.sh"]`의 마지막 줄은 `init.sh`를 호출하여 SSH 서비스와 Python 서버를 시작합니다.
 
 ```Dockerfile
 FROM python:3.4
@@ -81,6 +73,8 @@ COPY init.sh /usr/local/bin/
     
 RUN chmod u+x /usr/local/bin/init.sh
 EXPOSE 8000 2222
+
+#service SSH start
 #CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
 ENTRYPOINT ["init.sh"]
 ```
@@ -129,8 +123,8 @@ az acr credential show --name <azure-container-registry-name>
 
 출력에는 사용자 이름과 함께 두 개의 암호가 표시됩니다.
 
-```json
-<
+<pre>
+{
   "passwords": [
     {
       "name": "password",
@@ -141,11 +135,11 @@ az acr credential show --name <azure-container-registry-name>
       "value": "{password}"
     }
   ],
-  "username": "<registry-username>"
+  "username": "&lt;registry-username&gt;"
 }
-```
+</pre>
 
-로컬 터미널 창에서 다음 예제와 같이 `docker login` 명령을 사용하여 Azure Container Registry에 로그인합니다. *\<azure-container-registry-name>* 및 *\<registry-username>* 을 레지스트리 값으로 바꿉니다. 메시지가 표시되면 이전 단계의 암호 중 하나를 입력합니다.
+로컬 터미널 창에서 다음 예제와 같이 `docker login` 명령을 사용하여 Azure Container Registry에 로그인합니다. *\<azure-container-registry-name>* 및 *\<registry-username>* 를 레지스트리의 값으로 바꿉니다. 메시지가 표시되면 이전 단계의 암호 중 하나를 입력합니다.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
@@ -155,7 +149,7 @@ docker login <azure-container-registry-name>.azurecr.io --username <registry-use
 
 ### <a name="push-image-to-azure-container-registry"></a>Azure Container Registry에 이미지 푸시하기
 
-Azure Container Registry용 로컬 이미지에 대한 태그를 지정합니다. 예: 
+Azure Container Registry용 로컬 이미지에 대한 태그를 지정합니다. 예를 들면 다음과 같습니다.
 ```bash
 docker tag mydockerimage <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
@@ -174,11 +168,11 @@ az acr repository list -n <azure-container-registry-name>
 
 다음과 같은 출력이 표시됩니다.
 
-```json
+<pre>
 [
   "mydockerimage"
 ]
-```
+</pre>
 
 ### <a name="create-app-service-plan"></a>App Service 플랜 만들기
 
@@ -186,7 +180,7 @@ az acr repository list -n <azure-container-registry-name>
 
 ### <a name="create-web-app"></a>웹앱 만들기
 
-Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](app-service-linux-intro.md)을 만듭니다. _\<app-name>_ 을 고유한 앱 이름으로, _\<azure-container-registry-name>_ 을 레지스트리 이름으로 바꿉니다.
+Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](app-service-linux-intro.md)을 만듭니다. _\<app-name>_ 를 고유한 앱 이름으로 바꾸고 _\<azure-container-registry-name>_ 를 레지스트리 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
@@ -194,7 +188,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -202,16 +196,16 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### <a name="configure-registry-credentials-in-web-app"></a>웹앱에서 레지스트리 자격 증명 구성
 
-App Service에서 개인 이미지를 끌어오려면 레지스트리와 이미지에 대한 정보가 필요합니다. Cloud Shell에서 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 명령을 제공합니다. *\<app-name>*, *\<azure-container-registry-name>*, _\<registry-username>_ 및 _\<password>_ 를 바꿉니다.
+App Service에서 개인 이미지를 끌어오려면 레지스트리와 이미지에 대한 정보가 필요합니다. Cloud Shell에서 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 명령을 제공합니다. *\<app-name>* , *\<azure-container-registry-name>* , _\<registry-username>_ 및 _\<password>_ 를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -242,23 +236,33 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 ## <a name="change-web-app-and-redeploy"></a>웹앱 변경 및 다시 배포
 
-로컬 Git 리포지토리에서 app/templates/app/index.html을 엽니다. 첫 번째 HTML 요소를 찾아서 변경합니다.
+로컬 Git 리포지토리에서 *app/templates/app/index.html*을 엽니다. 첫 번째 HTML 요소를 다음 코드와 일치하도록 변경합니다.
 
-```python
+```html
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
-      </div>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
     </div>
-  </nav>
+  </div>
+</nav>
 ```
 
-Python 파일을 수정하고 저장하면 새 Docker 이미지를 다시 빌드하고 푸시해야 합니다. 그런 다음 변경 내용을 적용하려면 웹앱을 다시 시작합니다. 이 자습서에서는 이전에 사용한 동일한 명령을 사용합니다. [Docker 파일에서 이미지 빌드](#build-the-image-from-the-docker-file) 및 [Azure Container Registry에 이미지 푸시](#push-image-to-azure-container-registry) 섹션을 참조할 수 있습니다. [웹앱 테스트](#test-the-web-app)의 지침에 따라 웹앱을 테스트합니다.
+변경 내용을 저장한 후에는 이 자습서의 앞부분에서 사용한 것과 동일한 명령을 사용하여 새 Docker 이미지를 다시 빌드하고 푸시합니다. [Docker 파일에서 이미지 빌드](#build-the-image-from-the-docker-file) 및 [Azure Container Registry에 이미지 푸시](#push-image-to-azure-container-registry) 섹션을 참조할 수 있습니다.
+
+새 이미지를 푸시한 후 다음 명령을 사용하여 웹앱을 다시 시작하여 변경 내용을 적용합니다.
+
+```azurecli-interactive
+az webapp restart --name <app_name> --resource-group myResourceGroup
+```
+
+`<app_name>`을 이전에 사용한 특정 이름으로 바꿉니다.
+
+앱이 다시 시작되면 [웹앱 테스트](#test-the-web-app)의 지침에 따라 테스트합니다.
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="enable-ssh-connections"></a>SSH 연결 사용
 
@@ -278,13 +282,13 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
     > [!NOTE]
     > 이 구성을 사용하면 컨테이너에 대한 외부 연결이 허용되지 않습니다. Kudu/SCM 사이트를 통해서만 SSH를 사용할 수 있습니다. Kudu/SCM 사이트는 Azure 계정으로 인증됩니다.
 
-* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18)에서 [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository)를 */etc/ssh/* 디렉터리에 복사합니다.
+* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18)은 리포지토리의[sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다.
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
-* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L22)에서 2222 포트를 컨테이너에 공개합니다. 개인 가상 네트워크의 브리지 네트워크 내에 있는 컨테이너에서 액세스할 수 있는 내부 전용 포트입니다. 
+* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L22)에서 2222 포트를 컨테이너에 공개합니다. 프라이빗 가상 네트워크의 브리지 네트워크 내에 있는 컨테이너에서 액세스할 수 있는 내부 전용 포트입니다. 
 
     ```Dockerfile
     EXPOSE 8000 2222
@@ -292,20 +296,20 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
 * [진입 스크립트](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5)에서 SSH 서버를 시작합니다.
 
-      ```bash
-      #!/bin/bash
-      service ssh start
+    ```bash
+    #!/bin/bash
+    service ssh start
     ```
 
-### Open SSH connection to container
+### <a name="open-ssh-connection-to-container"></a>컨테이너에 대한 SSH 연결 열기
 
-SSH connection is available only through the Kudu site, which is accessible at `https://<app-name>.scm.azurewebsites.net`.
+SSH 연결은 `https://<app-name>.scm.azurewebsites.net`에서 액세스할 수 있는 Kudu 사이트를 통해서만 사용할 수 있습니다.
 
-To connect, browse to `https://<app-name>.scm.azurewebsites.net/webssh/host` and sign in with your Azure account.
+연결하려면 `https://<app-name>.scm.azurewebsites.net/webssh/host`로 이동하고 Azure 계정으로 로그인합니다.
 
-You are then redirected to a page displaying an interactive console.
+그런 다음 대화형 콘솔을 표시하는 페이지로 리디렉션됩니다.
 
-You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, issue the `top` command at the prompt.
+특정 애플리케이션이 컨테이너에서 실행되고 있는지를 확인하려고 합니다. 컨테이너를 검사하고 실행 중인 프로세스를 확인하려면 프롬프트에서 `top` 명령을 실행합니다.
 
 ```bash
 top

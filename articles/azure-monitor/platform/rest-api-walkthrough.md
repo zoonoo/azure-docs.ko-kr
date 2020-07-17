@@ -1,19 +1,16 @@
 ---
 title: Azure Monitoring REST API 연습
 description: 요청을 인증하고 Azure Monitor REST API를 사용하여 사용 가능한 메트릭 정의 및 메트릭 값을 검색하는 방법입니다.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
+ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: robb
-ms.subservice: ''
-ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 602d11b20e50ec5ba56d0d9c1762292c07d0b67b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205625"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945344"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 
@@ -58,7 +55,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Azure Monitor API를 쿼리하려면 클라이언트 애플리케이션이 이전에 만든 서비스 주체를 인증에 사용해야 합니다. 다음 예제 PowerShell 스크립트에서는 JWT 인증 토큰을 가져오기 위해 ADAL([Active Directory 인증 라이브러리](../../active-directory/develop/active-directory-authentication-libraries.md))을 사용하는 방법을 보여줍니다. JWT 토큰은 Azure Monitor REST API에 대한 요청에서 HTTP 권한 부여 매개 변수의 일부로 전달됩니다.
+Azure Monitor API를 쿼리하려면 클라이언트 애플리케이션이 이전에 만든 서비스 주체를 인증에 사용해야 합니다. 다음 예제 PowerShell 스크립트에서는 JWT 인증 토큰을 가져오기 위해 ADAL([Active Directory 인증 라이브러리](../../active-directory/azuread-dev/active-directory-authentication-libraries.md))을 사용하는 방법을 보여줍니다. JWT 토큰은 Azure Monitor REST API에 대한 요청에서 HTTP 권한 부여 매개 변수의 일부로 전달됩니다.
 
 ```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -85,10 +82,10 @@ $authHeader = @{
 인증한 후에 Azure Monitor REST API에 대해 쿼리를 실행할 수 있습니다. 다음과 같이 두 가지 유용한 쿼리 가지가 있습니다.
 
 1. 리소스에 대한 메트릭 정의 나열
-2. 메트릭 값 검색 
+2. 메트릭 값 검색
 
 > [!NOTE]
-> Azure REST API를 사용 하 여 인증에 대 한 자세한 내용은 참조 하십시오 합니다 [Azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)합니다.
+> Azure REST API을 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 [azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)를 참조 하세요.
 >
 >
 
@@ -98,7 +95,7 @@ $authHeader = @{
 
 **메서드**: GET
 
-**요청 URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
+**요청 URI**: https: \/ \/ management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}* / *{resourceType}* / *{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
 
 예를 들어 Azure Storage 계정의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -118,9 +115,9 @@ Invoke-RestMethod -Uri $request `
 >
 >
 
-결과 JSON 응답 본문은 다음 예제와 유사합니다. (두 번째 메트릭에 차원이 있음)
+결과 JSON 응답 본문은 다음 예제와 유사합니다(두 번째 메트릭에 차원이 있음)
 
-```JSON
+```json
 {
     "value": [
         {
@@ -242,7 +239,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https\://management.azure.com/subscriptions/*{구독 id}*/resourceGroups/*{0} 리소스 그룹 이름}*/providers/*{ 리소스-공급자-namespace}*/*{0} 리소스 유형의}*/*{0} 리소스 이름}*/providers/microsoft.insights/metrics? metricnames =*{0} 메트릭}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& resultType 메타 데이터 api-버전 = = *{apiVersion}*
+**요청 URI**: https \: //management.azure.com/subscriptions/*{subscription-id}*/stgg/*{*/providers/} {resource-name}*{resource-provider-namespace}* / *{resource-type}* / *{resource-name}*/providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan = {*starttime/endtime}*&$filter = {*filter}*&resultType = 메타 데이터&api-version =*{apiVersion}*
 
 예를 들어 지정된 시간 범위 동안 GeoType dimension = 'Primary'인 'API Name dimension'에 대해 내보내진 차원의 값 목록을 검색하기 위해 요청은 다음과 같을 수 있습니다.
 
@@ -258,7 +255,7 @@ Invoke-RestMethod -Uri $request `
 
 결과 JSON 응답 본문은 다음 예제와 유사합니다.
 
-```JSON
+```json
 {
   "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
@@ -315,7 +312,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**요청 URI**: https: \/ /management.azure.com/subscriptions/*{subscription-id}*/stgg/*{/providers/}*{resource-*namespace}*{resource- / *type}*{resource- / *name*}/providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan =*{starttime/endtime}*&$filter =*{filter}*&interval =*{timeGrain}*&집계 = {*aggreation}*&api-version =*{apiVersion}*
 
 예를 들어 GeotType이 'Primary'였던 5분 범위 동안 'Transactions' 수에 의한 내림차순 값에서 상위 3개의 API를 검색하기 위해 요청은 다음과 같습니다.
 
@@ -331,7 +328,7 @@ Invoke-RestMethod -Uri $request `
 
 결과 JSON 응답 본문은 다음 예제와 유사합니다.
 
-```JSON
+```json
 {
   "cost": 0,
   "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
@@ -394,7 +391,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
+**요청 URI**: https: \/ \/ management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}* / *{resourceType}* / *{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
 
 예를 들어 Azure Logic App의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -415,7 +412,7 @@ Invoke-RestMethod -Uri $request `
 
 결과 JSON 응답 본문은 다음 예제와 유사합니다.
 
-```JSON
+```json
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
   "value": [
@@ -467,7 +464,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*
+**요청 URI**:`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 예를 들어, 주어진 범위와 시간 조직 1시간에 대해 RunsSucceeded 메트릭 데이터를 검색하려면 요청은 다음과 같습니다.
 
@@ -483,7 +480,7 @@ Invoke-RestMethod -Uri $request `
 
 결과 JSON 응답 본문은 다음 예제와 유사합니다.
 
-```JSON
+```json
 {
   "value": [
     {
@@ -531,7 +528,7 @@ Invoke-RestMethod -Uri $request `
 
 결과 JSON 응답 본문은 다음 예제와 유사합니다.
 
-```JSON
+```json
 {
   "value": [
     {
@@ -591,7 +588,7 @@ Invoke-RestMethod -Uri $request `
 
 예를 들어 특정 Logic App에 대한 메트릭 정의를 검색하려면 다음 명령을 실행합니다.
 
-```
+```console
 armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
 ```
 
@@ -615,7 +612,7 @@ REST API를 사용하면 사용 가능한 메트릭 정의, 세분성, 관련 �
 
 Azure Resource Explorer 등, 다른 방법으로 리소스 ID를 검색하고 Azure 포털과 PowerShell 또는 Azure CLI를 통해 원하는 리소스를 확인할 수 있습니다.
 
-### <a name="azure-resource-explorer"></a>Azure 리소스 탐색기
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
 원하는 리소스에 대한 리소스 ID를 찾을 때는 [Azure Resource Explorer](https://resources.azure.com) 도구를 사용하는 것도 유용한 방법입니다. 원하는 리소스로 이동한 다음 스크린샷에서처럼 표시된 ID를 살펴봅니다.
 
@@ -637,7 +634,7 @@ Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 
 결과는 다음 예제와 유사합니다.
 
-```
+```output
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
 Type           : Microsoft.Logic/workflows
@@ -657,15 +654,15 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용 하 여 Azure Storage 계정의 리소스 ID를 검색 하려면 다음을 실행 합니다 `az storage account show` 다음 예와에서 같이 명령:
+Azure CLI를 사용 하 여 Azure Storage 계정에 대 한 리소스 ID를 검색 하려면 `az storage account show` 다음 예제와 같이 명령을 실행 합니다.
 
-```
+```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 ```
 
 결과는 다음 예제와 유사합니다.
 
-```JSON
+```json
 {
   "accessTier": null,
   "creationTime": "2017-08-18T19:58:41.840552+00:00",
@@ -708,16 +705,30 @@ az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 
 ## <a name="retrieve-activity-log-data"></a>활동 로그 데이터 검색
 
-또한 Azure Monitor REST API를 사용하여 메트릭 정의 및 관련 값 외에도 Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수 있습니다. 예를 들어, [활동 로그](https://msdn.microsoft.com/library/azure/dn931934.aspx) 데이터를 쿼리할 수 있습니다. 다음 예제에서는 Azure Monitor REST API를 사용하여 Azure 구독에 대해 특정 날짜 범위의 활동 로그 데이터를 쿼리합니다.
+또한 Azure Monitor REST API를 사용하여 메트릭 정의 및 관련 값 외에도 Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수 있습니다. 예를 들어, [활동 로그](https://msdn.microsoft.com/library/azure/dn931934.aspx) 데이터를 쿼리할 수 있습니다. 다음 샘플 요청에서는 Azure Monitor REST API를 사용 하 여 활동 로그를 쿼리 합니다.
 
-```powershell
-$apiVersion = "2015-04-01"
-$filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -Verbose
+필터를 사용하여 활동 로그를 가져옵니다.
+
+``` HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
+```
+
+필터 및 선택을 사용하여 활동 로그를 가져옵니다.
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+선택을 사용하여 활동 로그를 가져옵니다.
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+필터 또는 선택을 사용하여 활동 로그를 가져옵니다.
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
 ## <a name="next-steps"></a>다음 단계

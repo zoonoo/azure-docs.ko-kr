@@ -1,6 +1,6 @@
 ---
-title: Storage 탐색기로 Azure Blob Storage 리소스 관리 | Microsoft Docs
-description: Storage 탐색기로 Azure Blob 컨테이너 및 Blob 관리
+title: Storage Explorer로 Azure Blob Storage 리소스 관리 | Microsoft Docs
+description: Storage Explorer로 Azure Blob 컨테이너 및 Blob 관리
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -12,51 +12,56 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298126"
 ---
-# <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Storage 탐색기로 Azure Blob Storage 리소스 관리
-## <a name="overview"></a>개요
-[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md)는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다.
-Blob Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage 탐색기를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
+# <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Storage Explorer를 사용하여 Azure Blob Storage 리소스 관리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="overview"></a>개요
+
+[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) 는 HTTP 또는 HTTPS를 통해 전 세계 어디에서 든 액세스할 수 있는 대량의 구조화 되지 않은 데이터 (예: 텍스트 또는 이진 데이터)를 저장 하기 위한 서비스입니다.
+Blob Storage를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage Explorer를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
-* [Storage 탐색기 다운로드 및 설치](https://www.storageexplorer.com)
+* [Storage Explorer 다운로드 및 설치](https://www.storageexplorer.com)
 * [Azure storage 계정 또는 서비스에 연결](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
+
 모든 blob은 단지 blob의 논리적 그룹화인 blob 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에 제한이 없으며, 각 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
 
-다음 단계에서는 Storage 탐색기 내에서 Blob 컨테이너를 만드는 방법을 보여줍니다.
+다음 단계에서는 Storage Explorer 내에서 Blob 컨테이너를 만드는 방법을 보여줍니다.
 
-1. 저장소 탐색기를 엽니다.
-2. 왼쪽 창에서 blob 컨테이너를 만들고자 하는 곳의 저장소 계정을 확장합니다.
+1. Storage Explorer를 엽니다.
+2. 왼쪽 창에서 blob 컨테이너를 만들고자 하는 곳의 스토리지 계정을 확장합니다.
 3. 마우스 오른쪽 단추로 **Blob 컨테이너**를 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 만들기**를 선택합니다.
 
    ![Blob 컨테이너 상황에 맞는 메뉴 만들기][0]
-4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 명명 규칙 및 제한 사항에 대한 정보는 [컨테이너 만들기 및 사용 권한 설정](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) 섹션을 참조하세요.
+4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 지정에 대 한 규칙 및 제한 사항에 대 한 자세한 내용은 [컨테이너 만들기](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) 를 참조 하세요.
 
    ![Blob 컨테이너 텍스트 상자 만들기][1]
-5. Blob 컨테이너 만들기가 끝나면 **Enter** 키를 누르거나 **Esc** 키를 눌러 취소합니다. Blob 컨테이너가 성공적으로 만들어졌다면 선택한 저장소 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
+5. Blob 컨테이너 만들기가 끝나면 **Enter** 키를 누르거나 **Esc** 키를 눌러 취소합니다. Blob 컨테이너가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
 
    ![만든 Blob 컨테이너][2]
 
 ## <a name="view-a-blob-containers-contents"></a>Blob 컨테이너 내용 보기
+
 Blob 컨테이너는 blob 및 폴더(blob도 포함할 수 있음)를 포함하고 있습니다.
 
-다음 단계에서는 Storage 탐색기 내에서 Blob 컨테이너의 콘텐츠를 보는 방법을 설명합니다.
+다음 단계에서는 Storage Explorer 내에서 Blob 컨테이너의 콘텐츠를 보는 방법을 설명합니다.
 
-1. 저장소 탐색기를 엽니다.
-2. 왼쪽 창에서 보려는 blob 컨테이너가 들어 있는 저장소 계정을 확장합니다.
-3. 저장소 계정의 **Blob 컨테이너**를 확장합니다.
+1. Storage Explorer를 엽니다.
+2. 왼쪽 창에서 보려는 blob 컨테이너가 들어 있는 스토리지 계정을 확장합니다.
+3. 스토리지 계정의 **Blob 컨테이너**를 확장합니다.
 4. 마우스 오른쪽 단추로 보려는 Blob 컨테이너를 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 편집기 열기**를 클릭합니다.
    또한 보려는 blob 컨테이너를 두 번 클릭할 수도 있습니다.
 
@@ -66,13 +71,14 @@ Blob 컨테이너는 blob 및 폴더(blob도 포함할 수 있음)를 포함하�
    ![Blob 컨테이너 편집기][3]
 
 ## <a name="delete-a-blob-container"></a>Blob 컨테이너 삭제
+
 필요에 따라 Blob 컨테이너를 쉽게 만들고 삭제할 수 있습니다. (개별 Blob 삭제 방법에 대한 자세한 내용은 [Blob 컨테이너의 Blob 관리](#managing-blobs-in-a-blob-container)섹션을 참조하세요.)
 
-다음 단계에서는 Storage 탐색기 내에서 Blob 컨테이너를 삭제하는 방법을 보여줍니다.
+다음 단계에서는 Storage Explorer 내에서 Blob 컨테이너를 삭제하는 방법을 보여줍니다.
 
-1. 저장소 탐색기를 엽니다.
-2. 왼쪽 창에서 보려는 blob 컨테이너가 들어 있는 저장소 계정을 확장합니다.
-3. 저장소 계정의 **Blob 컨테이너**를 확장합니다.
+1. Storage Explorer를 엽니다.
+2. 왼쪽 창에서 보려는 blob 컨테이너가 들어 있는 스토리지 계정을 확장합니다.
+3. 스토리지 계정의 **Blob 컨테이너**를 확장합니다.
 4. 마우스 오른쪽 단추로 삭제하려는 Blob 컨테이너를 클릭하고, 상황에 맞는 메뉴에서 **삭제**를 클릭합니다.
    또한 현재 선택된 blob 컨테이너를 삭제하려면 **삭제** 를 누를 수 있습니다.
 
@@ -82,29 +88,31 @@ Blob 컨테이너는 blob 및 폴더(blob도 포함할 수 있음)를 포함하�
    ![Blob 컨테이너 확인 삭제][5]
 
 ## <a name="copy-a-blob-container"></a>Blob 컨테이너 복사
-Storage 탐색기를 사용하여 Blob 컨테이너를 클립보드에 복사한 다음, 다른 스토리지 계정에 붙여넣을 수 있습니다. (개별 Blob 복사 방법에 대한 자세한 내용은 [Blob 컨테이너의 Blob 관리](#managing-blobs-in-a-blob-container)섹션을 참조하세요.)
 
-다음 단계에서는 한 저장소 계정에서 다른 계정으로 blob 컨테이너를 복사하는 방법을 보여 줍니다.
+Storage Explorer를 사용하여 Blob 컨테이너를 클립보드에 복사한 다음, 다른 스토리지 계정에 붙여넣을 수 있습니다. (개별 Blob 복사 방법에 대한 자세한 내용은 [Blob 컨테이너의 Blob 관리](#managing-blobs-in-a-blob-container)섹션을 참조하세요.)
 
-1. 저장소 탐색기를 엽니다.
-2. 왼쪽 창에서 복사하려는 blob 컨테이너가 들어 있는 저장소 계정을 확장합니다.
-3. 저장소 계정의 **Blob 컨테이너**를 확장합니다.
+다음 단계에서는 한 스토리지 계정에서 다른 계정으로 blob 컨테이너를 복사하는 방법을 보여 줍니다.
+
+1. Storage Explorer를 엽니다.
+2. 왼쪽 창에서 복사하려는 blob 컨테이너가 들어 있는 스토리지 계정을 확장합니다.
+3. 스토리지 계정의 **Blob 컨테이너**를 확장합니다.
 4. 마우스 오른쪽 단추로 복사하려는 Blob 컨테이너를 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 복사**를 클릭합니다.
 
    ![Blob 컨테이너 상황에 맞는 메뉴 복사][6]
-5. 마우스 오른쪽 단추로 blob 컨테이너를 붙여 넣을 원하는 "대상" 저장소 계정을 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 붙여넣기**를 선택합니다.
+5. 마우스 오른쪽 단추로 blob 컨테이너를 붙여 넣을 원하는 &quot;대상&quot; 스토리지 계정을 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 붙여넣기**를 선택합니다.
 
    ![Blob 컨테이너 상황에 맞는 메뉴 붙여넣기][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Blob 컨테이너에 대한 SAS 가져오기
-[SAS(공유 액세스 서명)](storage/common/storage-dotnet-shared-access-signature-part-1.md)는 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다.
-즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 저장소 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다.
+
+[SAS (공유 액세스 서명)](storage/common/storage-dotnet-shared-access-signature-part-1.md) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다.
+즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 스토리지 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다.
 
 다음 단계에서는 Blob 컨테이너에 대한 SAS를 만드는 방법을 보여 줍니다.
 
-1. 저장소 탐색기를 엽니다.
-2. 왼쪽 창에서 SAS 가져오기를 하려는 blob 컨테이너가 들어 있는 저장소 계정을 확장합니다.
-3. 저장소 계정의 **Blob 컨테이너**를 확장합니다.
+1. Storage Explorer를 엽니다.
+2. 왼쪽 창에서 SAS 가져오기를 하려는 blob 컨테이너가 들어 있는 스토리지 계정을 확장합니다.
+3. 스토리지 계정의 **Blob 컨테이너**를 확장합니다.
 4. 마우스 오른쪽 단추로 원하는 blob 컨테이너를 클릭하고, 상황에 맞는 메뉴에서 **공유 액세스 서명 가져오기**를 클릭합니다.
 
    ![SAS 상황에 맞는 메뉴 가져오기][8]
@@ -112,24 +120,25 @@ Storage 탐색기를 사용하여 Blob 컨테이너를 클립보드에 복사한
 
    ![SAS 옵션 가져오기][9]
 6. SAS 옵션 지정하기를 마치면 **만들기**를 선택합니다.
-7. Blob 컨테이너와 함께 저장소 리소스에 액세스하는 데 사용할 수 있는 URL 및 쿼리 문자열이 나열되는 두 번째 **공유 액세스 서명** 대화 상자가 표시됩니다.
+7. Blob 컨테이너와 함께 스토리지 리소스에 액세스하는 데 사용할 수 있는 URL 및 쿼리 문자열이 나열되는 두 번째 **공유 액세스 서명** 대화 상자가 표시됩니다.
    클립보드에 복사할 URL 옆에 있는 **복사** 를 선택합니다.
 
    ![SAS Url 복사][10]
 8. 완료되면 **닫기**를 선택합니다.
 
 ## <a name="manage-access-policies-for-a-blob-container"></a>Blob 컨테이너에 대한 액세스 정책 관리
+
 다음 단계에서는 Blob 컨테이너에 대한 액세스 정책을 관리(추가 및 제거)하는 방법을 보여 줍니다.
 
-1. 저장소 탐색기를 엽니다.
-2. 왼쪽 창에서 액세스 정책을 관리하려는 blob 컨테이너가 들어 있는 저장소 계정을 확장합니다.
-3. 저장소 계정의 **Blob 컨테이너**를 확장합니다.
+1. Storage Explorer를 엽니다.
+2. 왼쪽 창에서 액세스 정책을 관리하려는 blob 컨테이너가 들어 있는 스토리지 계정을 확장합니다.
+3. 스토리지 계정의 **Blob 컨테이너**를 확장합니다.
 4. 원하는 blob 컨테이너를 선택하고, 상황에 맞는 메뉴에서 **액세스 정책 관리**를 선택합니다.
 
    ![액세스 정책 상황에 맞는 메뉴 관리][11]
 5. **액세스 정책** 대화 상자는 선택된 blob 컨테이너에 대해 이미 만들어진 모든 액세스 정책을 나열합니다.
 
-   ![액세스 정책 옵션][12]        
+   ![액세스 정책 옵션][12]
 6. 액세스 정책 관리 작업에 따라 다음 단계를 수행하세요.
 
    * **새 액세스 정책 추가** - **추가**를 선택합니다. 생성되었다면 **액세스 정책** 대화 상자는 (기본 설정을 사용하여) 새로 추가된 액세스 정책을 표시합니다.
@@ -137,13 +146,14 @@ Storage 탐색기를 사용하여 Blob 컨테이너를 클립보드에 복사한
    * **액세스 정책 제거** - 제거하려는 액세스 정책 옆에 있는 **제거**를 선택합니다.
 
 ## <a name="set-the-public-access-level-for-a-blob-container"></a>Blob 컨테이너에 대한 공용 액세스 수준 설정
+
 기본적으로 모든 blob 컨테이너는 “공용 액세스 없음”으로 설정됩니다.
 
 다음 단계에서는 Blob 컨테이너에 대한 공용 액세스 수준을 지정하는 방법을 보여줍니다.
 
-1. 저장소 탐색기를 엽니다.
-2. 왼쪽 창에서 액세스 정책을 관리하려는 blob 컨테이너가 들어 있는 저장소 계정을 확장합니다.
-3. 저장소 계정의 **Blob 컨테이너**를 확장합니다.
+1. Storage Explorer를 엽니다.
+2. 왼쪽 창에서 액세스 정책을 관리하려는 blob 컨테이너가 들어 있는 스토리지 계정을 확장합니다.
+3. 스토리지 계정의 **Blob 컨테이너**를 확장합니다.
 4. 원하는 blob 컨테이너를 선택하고, 상황에 맞는 메뉴에서 **공용 액세스 수준 설정**을 선택합니다.
 
    ![공용 액세스 수준 상황에 맞는 메뉴 설정][13]
@@ -153,13 +163,14 @@ Storage 탐색기를 사용하여 Blob 컨테이너를 클립보드에 복사한
 6. **적용**을 선택합니다.
 
 ## <a name="managing-blobs-in-a-blob-container"></a>blob 컨테이너의 blob 관리
+
 Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬 컴퓨터에 blob 다운로드, 로컬 컴퓨터에서 blob 열기 등 많은 작업을 할 수 있습니다.
 
 다음 단계에서는 Blob 컨테이너 내에서 blobs (및 폴더)를 관리하는 방법을 보여줍니다.
 
-1. 저장소 탐색기를 엽니다.
-2. 왼쪽 창에서 관리하려는 blob 컨테이너가 들어 있는 저장소 계정을 확장합니다.
-3. 저장소 계정의 **Blob 컨테이너**를 확장합니다.
+1. Storage Explorer를 엽니다.
+2. 왼쪽 창에서 관리하려는 blob 컨테이너가 들어 있는 스토리지 계정을 확장합니다.
+3. 스토리지 계정의 **Blob 컨테이너**를 확장합니다.
 4. 보려는 blob 컨테이너를 두 번 클릭합니다.
 5. 기본 창에 blob 컨테이너 내용이 표시됩니다.
 
@@ -169,13 +180,13 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
 
    * **Blob 컨테이너에 파일 업로드**
 
-     1. 기본 창 도구 모음에서 **업로드**를 선택하고, 드롭 다운 메뉴에서 **파일 업로드**를 합니다.
+     1. 기본 창의 도구 모음에서 **업로드**를 선택 하 고 드롭다운 메뉴에서 **파일 업로드** 를 선택 합니다.
 
         ![파일 메뉴 업로드][15]
      2. **파일 업로드** 대화 상자에서 **파일** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 업로드할 파일을 선택합니다.
 
         ![파일 옵션 업로드][16]
-     3. **Blob 유형**을 지정합니다. 자세한 내용은 [컨테이너 만들기 및 사용 권한 설정](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container)을 참조하세요.
+     3. **Blob 유형**을 지정합니다. 자세한 내용은 [컨테이너 만들기](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) 를 참조 하세요.
      4. 필요에 따라 선택한 파일을 업로드할 대상 폴더를 지정합니다. 대상 폴더가 없다면 폴더가 만들어집니다.
      5. **업로드**를 선택합니다.
    * **Blob 컨테이너에 폴더 업로드**
@@ -186,7 +197,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
      2. **폴더 업로드** 대화 상자에서 **폴더** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 내용을 업로드할 폴더를 선택합니다.
 
         ![폴더 옵션 업로드][18]
-     3. **Blob 유형**을 지정합니다. 자세한 내용은 [컨테이너 만들기 및 사용 권한 설정](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container)을 참조하세요.
+     3. **Blob 유형**을 지정합니다. 자세한 내용은 [컨테이너 만들기](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) 를 참조 하세요.
      4. 필요에 따라 선택한 폴더 내용을 업로드할 대상 폴더를 지정합니다. 대상 폴더가 없다면 폴더가 만들어집니다.
      5. **업로드**를 선택합니다.
    * **로컬 컴퓨터에 blob 다운로드**
@@ -213,7 +224,8 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
      3. 확인 대화 상자에서 **확인** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [최신 Storage 탐색기 릴리스 정보 및 비디오](https://www.storageexplorer.com)를 보세요.
+
+* [최신 Storage Explorer 릴리스 정보 및 비디오](https://www.storageexplorer.com)를 보세요.
 * [Azure blob, 테이블, 큐 및 파일을 사용하여 애플리케이션을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

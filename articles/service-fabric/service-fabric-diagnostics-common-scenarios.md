@@ -1,33 +1,22 @@
 ---
-title: 일반적인 Azure Service Fabric 진단 시나리오 | Microsoft Docs
-description: Azure Service Fabric을 사용하여 일반적인 시나리오 문제를 해결하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: 일반적인 Azure Service Fabric 진단 시나리오
+description: Azure Service Fabric 애플리케이션 내에서 일반적인 모니터링 및 진단 시나리오의 문제 해결을 알아봅니다.
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
-ms.author: srrengar
-ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f92bc02082d8bcd9d917f05c93d3da413f772cd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394206"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257733"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
-이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 제시된 시나리오는 서비스 패브릭의 모든 3계층을 설명합니다. 애플리케이션, 클러스터 및 인프라 각 솔루션은 Application Insights 및 Azure Monitor 로그 Azure 모니터링 도구를 각 시나리오를 완료 합니다. 각 솔루션의 단계 사용자에 게 제공 소개 Application Insights를 사용 하는 방법에 및 Service Fabric의 컨텍스트에서 Azure Monitor를 기록 합니다.
+이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 제시된 시나리오는 서비스 패브릭의 모든 3계층을 설명합니다. 애플리케이션, 클러스터 및 인프라 각 솔루션에서 Application Insights, Azure Monitor 로그 및 Azure 모니터링 도구를 사용하여 각각의 시나리오를 완료합니다. 각 솔루션의 단계를 통해 Service Fabric의 컨텍스트에서 Application Insights 및 Azure Monitor 로그를 사용하는 방법을 사용자에게 소개할 수 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites-and-recommendations"></a>필수 구성 요소 및 권장 사항
+## <a name="prerequisites-and-recommendations"></a>필수 조건 및 권장 사항
 
 이 문서의 솔루션에서 사용하는 도구는 다음과 같습니다. 다음과 같이 설정하고 구성하는 것이 좋습니다.
 
@@ -56,7 +45,7 @@ ms.locfileid: "60394206"
 1. 동일한 Application Insight 리소스에서 예외 대신 "요청"을 필터링하여 모든 요청을 볼 수 있습니다
 2. Service Fabric Application Insights SDK를 사용하는 경우 서로 연결된 서비스의 시각적 표현과 성공하거나 실패한 요청 수를 볼 수 있습니다. 왼쪽에서 "애플리케이션 맵"을 클릭합니다.
 
-    ![AI 응용 프로그램 맵 블레이드](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI 응용 프로그램 맵](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![AI 앱 맵 블레이드](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI 앱 맵](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     애플리케이션 맵에 대한 자세한 내용은 [애플리케이션 맵 설명서](../azure-monitor/app/app-map.md)를 참조하세요.
 
@@ -77,7 +66,7 @@ ms.locfileid: "60394206"
 
 5. 위쪽에서 "새 경고 규칙"을 클릭하면, 이제 이 쿼리에 따라 이벤트가 도착할 때마다 선택한 통신 방법으로 경고 메시지를 받게 됩니다.
 
-    ![Azure Monitor 새 경고 로그](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Azure Monitor 로그 새 경고](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>애플리케이션 업그레이드 롤백에 대한 경고를 받으려면 어떻게 해야 할까요?
 
@@ -129,10 +118,10 @@ ms.locfileid: "60394206"
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>내 Reliable Services 및 Actors의 성능을 추적하려면 어떻게 할까요?
 
-응용 프로그램에서 Reliable Services 또는 행위자의 성능에 추적 하기 위해 서비스 패브릭 행위자, 행위자 메서드, 서비스 및 서비스 메서드 카운터를 수집 해야 합니다. 다음은 reliable service 및 actor 성능 카운터를 수집 하는 예
+애플리케이션에서 Reliable Services 또는 Actors의 성능을 추적하려면 Service Fabric 작업자, 작업자 메서드, 서비스 및 서비스 메서드 카운터도 수집해야 합니다. 수집 가능한 신뢰할 수 있는 서비스 및 작업자 성능 카운터의 예는 다음과 같습니다.
 
 >[!NOTE]
->Service Fabric 성능 카운터 현재 Log Analytics 에이전트에서 수집할 수 없습니다. 하지만에서 수집할 수 [다른 진단 솔루션](service-fabric-diagnostics-partners.md)
+>Service Fabric 성능 카운터는 현재 Log Analytics 에이전트에서 수집할 수 없지만 [다른 진단 솔루션](service-fabric-diagnostics-partners.md)에서 수집할 수 있습니다.
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -143,9 +132,10 @@ Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) 및 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AI에 경고 설정](../azure-monitor/app/alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
+* [일반 코드 패키지 활성화 오류 조회](./service-fabric-diagnostics-code-package-errors.md)
+* [AI에 경고 설정](../azure-monitor/platform/alerts-log.md) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 검색](../azure-monitor/app/proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 AI에 전송되는 원격 분석에 대한 사전 분석 수행
-* Azure Monitor 로그에 자세히 알아보려면 [경고](../log-analytics/log-analytics-alerts.md) 감지 및 진단에 도움이 되 합니다.
-* 온-프레미스 클러스터에 대 한 Azure Monitor 로그는 Azure Monitor 로그 데이터를 보낼 수 있는 게이트웨이 (HTTP 전달 프록시)를 제공 합니다. 이 대해 자세히 알아보기 [Log Analytics 게이트웨이 사용 하 여 Azure Monitor 로그에 인터넷 액세스 없이 컴퓨터 연결](../azure-monitor/platform/gateway.md)
-* 알아보기 합니다 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) Azure Monitor 로그의 일부로 제공 하는 기능
-* Azure Monitor 로그와 제공의 자세한 개요를 확인, 읽기 [Azure Monitor 로그 란?](../operations-management-suite/operations-management-suite-overview.md)
+* 검색 및 진단에 도움이 되도록 Azure Monitor 로그 [경고](../azure-monitor/platform/alerts-overview.md)에 대해 자세히 알아보세요.
+* 온-프레미스 클러스터의 경우 Azure Monitor 로그는 Azure Monitor 로그로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 Azure Monitor 로그에 컴퓨터 연결](../azure-monitor/platform/gateway.md)을 참조하세요.
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.
+* Azure Monitor 로그에 대한 자세한 개요와 제공되는 사항을 알아보려면 [Azure Monitor 로그란?](../azure-monitor/overview.md)을 참조하세요.

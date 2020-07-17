@@ -1,23 +1,13 @@
 ---
-title: 웹 애플리케이션 성능 모니터링 - Azure Application Insights | Microsoft Docs
+title: 웹 앱 성능 모니터링-Azure 애플리케이션 정보
 description: devOps 주기에 Application Insights를 적용하는 방법
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.author: mbullwin
-ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77669695"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -25,7 +15,7 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 
 ![Web Apps을 제공하는 방법의 복잡성 측면](./media/devops/010.png)
 
-최신 애플리케이션은 실행하는 동안 모니터링이 필요합니다. 특히, 대부분의 고객보다 빠르게 오류를 탐지해야 합니다. 또한 치명적이진 않지만 속도를 저해하거나 사용자에게 불편을 초래할 수도 있는 성능 문제들을 검색하고 수정하려고 합니다. 시스템이 만족스럽게 작동될 때 사용자가 어떤 작업을 하는지 알고 싶을 것입니다. 최신 기능을 사용하고 있나요? 잘 사용하고 있는지 궁금할 것입니다.
+최신 애플리케이션은 실행하는 동안 모니터링이 필요합니다. 특히, 대부분의 고객보다 빠르게 오류를 탐지해야 합니다. 또한 치명적이진 않지만 속도를 저해하거나 사용자에게 불편을 초래할 수도 있는 성능 문제들을 검색하고 수정하려고 합니다. 시스템이 만족스럽게 작동될 때 사용자가 어떤 작업을 하는지 알고 싶을 것입니다. 잘 사용하고 있는지 궁금할 것입니다.
 
 최신 웹 애플리케이션은 지속적인 업데이트 주기에 맞추어 개발됩니다. 즉, 새로운 기능 및 개선 사항을 릴리스하고, 사용자의 입장에서 잘 작동하는지 관찰하고, 이러한 수집된 정보를 바탕으로 다음 점진적 개발을 계획합니다. 이 주기의 핵심 부분은 관찰 단계입니다. Application Insights는 웹 애플리케이션의 성능과 사용을 모니터링하는 도구를 제공합니다.
 
@@ -118,7 +108,7 @@ Samtec 고객은 다음과 같이 말했습니다. "최근 기능 컷오버를 �
 
 ![애플리케이션 맵](./media/devops/0050.png)
 
-## <a name="application-insights-analytics"></a>Application Insights Analytics
+## <a name="application-insights-analytics"></a>Application Insights 분석
 [Analytics](../../azure-monitor/app/analytics.md)를 사용하면 SQL과 유사한 강력한 언어로 임의의 쿼리를 작성할 수 있습니다.  다양한 관점을 연결하고 서비스 성능과 비즈니스 메트릭, 고객 경험을 연관시킬 수 있는 올바른 질문을 던질 수 있으므로 전체 앱 스택 진단이 손쉬워집니다. 
 
 포털에 저장된 모든 원격 분석 인스턴스와 메트릭 원시 데이터를 쿼리할 수 있습니다. 언어에는 필터, 조인, 집계 및 기타 연산자가 포함됩니다. 필드 계산과 통계 분석도 수행할 수 있습니다. 테이블 형식 및 그래픽 시각화가 모두 들어 있습니다.
@@ -154,7 +144,7 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 경고가 발생한 경우 Application Insights는 자동으로 사용자의 작업 추적 시스템에서 작업 항목을 만듭니다.
 
 ## <a name="but-what-about"></a>기타 사항
-* [개인 정보 보호 및 저장소](../../azure-monitor/app/data-retention-privacy.md) - 원격 분석은 Azure 보안 서버에 보관됩니다.
+* [개인 정보 보호 및 스토리지](../../azure-monitor/app/data-retention-privacy.md) - 원격 분석은 Azure 보안 서버에 보관됩니다.
 * 성능 - 성능에 미치는 영향이 매우 낮습니다. 원격 분석은 일괄 처리됩니다.
 * [가격 책정](../../azure-monitor/app/pricing.md) - 무료로 시작할 수 있고 낮은 볼륨에서는 계속 무료로 이용할 수 있습니다.
 
@@ -166,7 +156,7 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 ## <a name="next-steps"></a>다음 단계
 Application Insights로 시작하기가 쉽습니다. 기본 옵션:
 
-* [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md), 및 [Azure App Service](../../azure-monitor/app/app-insights-overview.md)합니다.
+* [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)및 [Azure App Service](../../azure-monitor/app/app-insights-overview.md)에 대 한도 있습니다.
 * 개발 중에 프로젝트를 계측합니다. [ASP.NET](../../azure-monitor/app/asp-net.md) 또는 [Java](../../azure-monitor/app/java-get-started.md) 앱, [Node.js](../../azure-monitor/app/nodejs.md), 여러 가지 [기타 유형](../../azure-monitor/app/platforms.md) 호스트에 적용할 수 있습니다. 
 * 짧은 코드 조각을 추가하여 [아무 웹 페이지](../../azure-monitor/app/javascript.md) 나 계측합니다.
 

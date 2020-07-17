@@ -1,27 +1,14 @@
 ---
 title: Azure CLI(az) 및 Azure Service Fabric CLI(sfctl) 샘플
-description: Azure CLI(az) 및 Azure Service Fabric CLI(sfctl) 샘플
-services: service-fabric
-documentationcenter: service-fabric
-author: athinanthny
-manager: chackdan
-editor: ''
-tags: ''
-ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
-ms.service: service-fabric
-ms.devlang: na
+description: 클러스터, 애플리케이션 및 서비스 관리에 대한 Azure CLI(az) 및 Azure Service Fabric CLI(sfctl) 샘플.
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: service-fabric
 ms.date: 04/09/2018
-ms.author: atsenthi
-ms.custom: mvc
-ms.openlocfilehash: ef24e6313682aaf6bc88a63e404690168435f926
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b54efcf6ca6ef66beb655c423283ea1ad0a59d72
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664899"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182817"
 ---
 # <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Azure CLI(az) 및 Azure Service Fabric CLI(sfctl) 샘플
 
@@ -29,7 +16,7 @@ ms.locfileid: "58664899"
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-| | |
+| 샘플 | Description |
 |-|-|
 | **클러스터 만들기**(Azure CLI 사용)||
 | [보안 Linux 클러스터 만들기](./scripts/cli-create-cluster.md)| Azure Service Fabric 클러스터를 만듭니다. |

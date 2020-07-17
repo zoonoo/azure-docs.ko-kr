@@ -1,26 +1,19 @@
 ---
-title: Azure VM 확장 집합 VM의 인스턴스 ID 이해 | Microsoft Docs
-description: Azure VM 확장 집합 VM의 인스턴스 ID 이해
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
+title: Azure VM 확장 집합 VM의 인스턴스 ID 이해
+description: Azure VM 확장 집합에 대 한 인스턴스 Id를 이해 하 고, 가상 머신과 그에 노출 되는 다양 한 방법을 설명 합니다.
+author: mimckitt
+ms.author: mimckitt
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: management
 ms.date: 02/22/2018
-ms.author: manayar
-ms.openlocfilehash: 6aeba722a0661979664f8d61efdb9b2bf47ad801
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 430c08fc318a89c4d11575eab90ee524b88a979a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618503"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84607349"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Azure VM 확장 집합 VM의 인스턴스 ID 이해
 이 문서에서는 확장 집합의 인스턴스 ID와 이것이 노출되는 다양한 방식을 설명합니다.
@@ -29,11 +22,11 @@ ms.locfileid: "60618503"
 
 확장 집합의 VM마다 고유하게 식별하는 인스턴스 ID를 가져옵니다. 인스턴스 ID는 확장 집합에 있는 특정 VM에 작업을 수행하기 위해 확장 집합 API에 사용됩니다. 예를 들어 reimage API를 사용하는 경우 특정 인스턴스 ID를 지정하여 이미지를 다시 만들 수 있습니다.
 
-REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}`(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) 참조)
+REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}`(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimage) 참조)
 
 Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage`(자세한 내용은 [Powershell 설명서](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm) 참조)
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}`(자세한 내용은 [CLI 설명서](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest) 참조)
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (자세한 내용은 [cli 설명서](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)참조).
 
 확장 집합에 있는 모든 인스턴스를 나열하여 인스턴스 ID 목록을 가져올 수 있습니다.
 
@@ -41,14 +34,17 @@ REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}`(자세한 내용은 [Powershell 설명서](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm) 참조)
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}`(자세한 내용은 [CLI 설명서](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest) 참조)
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (자세한 내용은 [cli 설명서](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)참조).
 
 [resources.azure.com](https://resources.azure.com) 또는 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용하여 확장 집합의 VM을 나열할 수도 있습니다.
 
 출력의 정확한 표시는 명령에 제공하는 옵션에 따라 달라지지만 CLI의 몇 가지 샘플 출력은 다음과 같습니다.
 
+```azurecli
+az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 ```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+
+```output
 [
   {
     "instanceId": "85",
@@ -77,7 +73,7 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 
 확장 집합 VM 내에서 [인스턴스 메타데이터](../virtual-machines/windows/instance-metadata-service.md)를 쿼리하면 출력에 “이름”이 표시됩니다.
 
-```
+```output
 {
   "compute": {
     "location": "westus",

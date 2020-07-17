@@ -3,23 +3,19 @@ title: Azure Network Watcher에서 IP 흐름 확인 소개 | Microsoft Docs
 description: 이 페이지는 Network Watcher IP 흐름 확인 기능에 대한 개요를 제공합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: d352fb2d-4b4f-4ac4-9c2e-1cfccf0e7e03
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2017
-ms.author: kumud
-ms.openlocfilehash: 5c34fd2b6d354f594ed153647c1bed700566fad6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.author: damendo
+ms.openlocfilehash: 69aca5e0901a0da8aa98fe310ac220898bf650b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76845009"
 ---
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Azure Network Watcher에서 IP 흐름 확인 소개
 

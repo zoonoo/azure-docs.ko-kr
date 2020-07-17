@@ -1,73 +1,118 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Anomaly Detector API 설명서
+summary: Anomaly Detector API를 사용하여 시간이 지남에 따라 데이터를 모니터링하고 기계 학습 관련 변칙을 검색하는 방법을 알아봅니다. 볼륨, 업계 또는 시나리오에 관계없이 데이터에 대한 인사이트를 얻습니다.
 metadata:
-  title: 'Anomaly Detector API - 자습서, 빠른 시작, API 참조 - Azure Cognitive Services | Microsoft Docs'
-  description: 'Anomaly Detector API를 사용하여 시간이 지남에 따라 데이터를 모니터링하고 기계 학습 관련 변칙을 검색합니다. 볼륨, 업계 또는 시나리오에 관계없이 데이터에 대한 인사이트를 얻습니다.'
+  title: Anomaly Detector API - 자습서, 빠른 시작, API 참조
+  titleSuffix: Azure Cognitive Services
+  description: Anomaly Detector API를 사용하여 시간이 지남에 따라 데이터를 모니터링하고 기계 학습 관련 변칙을 검색합니다. 볼륨, 업계 또는 시나리오에 관계없이 데이터에 대한 인사이트를 얻습니다.
   services: cognitive-services
   author: aahill
-  manager: cgronlun
-  layout: LandingPage
+  manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 03/26/2019
+  ms.date: 09/10/2019
   ms.author: aahi
-abstract:
-  description: 'Anomaly Detector API를 통해 사용자가 문제를 신속하게 식별하여 손실과 고객에게 미치는 영향을 최소화할 수 있도록 변칙 검색 기능을 앱에 손쉽게 포함할 수 있습니다. 기계 학습 배경 지식이 필요하지 않습니다. 단일 API 호출을 통해 모든 형식 및 볼륨의 시계열 데이터를 수집하는 미리 학습된 AI 모델을 활성화하고, 데이터에 대해 높은 정확도를 보장하기 위해 최적의 변칙 검색 모델을 선택하고, 인시던트가 발생하는 즉시 해당 인시던트를 자동으로 표시할 수 있습니다. 모든 크기의 변칙을 검색하도록 서비스를 사용자 지정할 수 있습니다.  Anomaly Detector를 사용하여 비즈니스 인시던트를 식별하고, IoT 디바이스 트래픽을 모니터링하고, 사기 행위를 관리하고, 변화하는 시장에 대응합니다.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/anomaly-detector/overview
-            html: <p>Anomaly Detector API에 대한 자세한 정보</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Anomaly Detector API란?
-          - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
-            html: <p>API 관련 모범 사례를 사용하여 변칙 검색 결과 최적화</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Anomaly Detector API를 사용하는 경우 모범 사례
-          - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
-            html: '<p>변칙 검색 민감도를 조정하고, 다른 검색 모드를 사용합니다.</p>'
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Anomaly Detection API 사용
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 다음을 사용하여 시계열 데이터에서 변칙을 검색합니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/logo_Csharp.svg
-            href: quickstarts/detect-data-anomalies-csharp
-            text: 'C#'
-          - image:
-              src: media/logo_Java.svg
-            href: quickstarts/detect-data-anomalies-java
-            text: 자바
-          - image:
-              src: media/logo_python.svg
-            href: quickstarts/detect-data-anomalies-python
-            text: Python
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST API
-            html: '<p><a href="https://aka.ms/anomaly-detector-rest-api-ref">Anomaly Detector API</a></p>'
-          - title: SDK
-            html: '<p><a href="https://aka.ms/anomaly-detector-dotnet-ref">.NET</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2089915">Go</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2090370">Python</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2090788">Node.JS</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'
+  ms.openlocfilehash: 26632aebbd6cddd1463064b397a2f42071a5d518
+  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "81757292"
+landingContent:
+- title: Anomaly Detector API 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Anomaly Detector API란?
+      url: overview.md
+  - linkListType: get-started
+    links:
+    - text: Anomaly Detector 데모
+      url: https://aka.ms/adDemo
+  - linkListType: video
+    links:
+    - text: Anomaly Detector API 소개
+      url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
+    - text: Anomaly Detection API에서 사용하는 알고리즘
+      url: https://www.youtube.com/embed/ERTaAnwCarM
+  - linkListType: reference
+    links:
+    - text: Azure Anomaly Detector API 소개
+      url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+    - text: SR-CNN 알고리즘 개요
+      url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798
+    - text: 변칙 검색에 사용되는 알고리즘(KDD 문서)
+      url: https://arxiv.org/abs/1906.03821
+- title: 데이터에서 변칙 검색
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: C# 사용
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
+    - text: JavaScript 사용
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
+    - text: Python 사용
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
+  - linkListType: tutorial
+    links:
+    - text: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
+      url: tutorials/batch-anomaly-detection-powerbi.md
+    - text: Azure Databricks를 사용하여 스트리밍 데이터에서 변칙 검색
+      url: tutorials/anomaly-detection-streaming-databricks.md
+  - linkListType: video
+    links:
+    - text: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
+      url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks
+- title: 검색 결과 최적화
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 데이터의 변칙 검색 모드 및 매개 변수를 조정합니다.
+      url: how-to/identify-anomalies.md
+    - text: 모범 사례를 사용하여 변칙 검색 결과를 최적화합니다.
+      url: concepts/anomaly-detection-best-practices.md
+  - linkListType: video
+    links:
+    - text: Anomaly Detector 모범 사례
+      url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices
+- title: Docker 컨테이너 사용
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Anomaly Detector 컨테이너 설치 및 실행
+      url: anomaly-detector-container-howto.md
+    - text: Anomaly Detector 컨테이너 구성
+      url: anomaly-detector-container-configuration.md
+    - text: Azure에 컨테이너 인스턴스 배포
+      url: how-to/deploy-anomaly-detection-on-container-instances.md
+  - linkListType: video
+    links:
+    - text: 컨테이너 지원을 통해 온-프레미스에서 Anomaly Detector 가져오기
+      url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
+- title: Anomaly Detector 커뮤니티 참여
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Microsoft Teams Anomaly Detector Advisors 그룹에 참여
+      url: https://aka.ms/adadvisorsjoin
+    - text: 추천 사용자 생성 콘텐츠
+      url: user-generated-content.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: https://aka.ms/anomaly-detector-rest-api-ref
+    - text: .NET SDK
+      url: https://aka.ms/anomaly-detector-dotnet-ref
+    - text: .Python SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2090370
+    - text: Go SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2089915
+    - text: Node.js SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2090788
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Azure CLI
+      url: /cli/azure/cognitiveservices#az-cognitiveservices-list

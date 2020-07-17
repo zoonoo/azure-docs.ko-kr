@@ -1,22 +1,22 @@
 ---
-title: Azure Portal을 통해 Azure Database for PostgreSQL에서 서버 매개 변수 구성
-description: 이 문서에서는 Azure Portal을 통해 Azure Database for PostgreSQL에서 서버 매개 변수를 구성하는 방법을 설명합니다.
+title: 서버 매개 변수 구성-Azure Portal Azure Database for PostgreSQL 단일 서버
+description: 이 문서에서는 Azure Portal를 통해 Azure Database for PostgreSQL에서 Postgres 매개 변수를 구성 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2018
-ms.openlocfilehash: ed19083c6a4245a1b4bf7af166ae965d956c9e37
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 7a7a98818ba565aad9f2404c77682171514c7573
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067132"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117987"
 ---
-# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Azure portal을 통해 Azure Database for PostgreSQL-단일 서버에서 서버 매개 변수 구성 
+# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Azure Portal를 통해 Azure Database for PostgreSQL 단일 서버에서 서버 매개 변수 구성 
 Azure Portal을 통해 Azure Database for PostgreSQL에 대한 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for PostgreSQL 서버](quickstart-create-server-database-portal.md)
 

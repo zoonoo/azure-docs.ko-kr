@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504460"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>StorSimple 진단 도구를 사용하여 8000 시리즈 디바이스 문제 해결
 
@@ -33,7 +33,7 @@ StorSimple 진단 도구는 StorSimple 디바이스에 대한 시스템, 성능,
 
 이 도구는 사용자의 StorSimple 디바이스의 Windows PowerShell 인터페이스를 통해 실행할 수 있습니다. 사용자 디바이스의 로컬 인터페이스에 액세스하는 방법에는 두 가지가 있습니다.
 
-* [PuTTY를 사용하여 디바이스 직렬 콘솔에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [PuTTY를 사용 하 여 장치 직렬 콘솔에 연결](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)합니다.
 * [StorSimple용 Windows PowerShell을 통해 도구에 원격으로 액세스합니다](storsimple-8000-remote-connect.md).
 
 이 문서에서는 PuTTY를 통해 디바이스 직렬 콘솔에 연결한 것으로 가정합니다.
@@ -323,7 +323,7 @@ hcs_startup                                   Stopped hcs_startup
 
 ### <a name="network-test"></a>네트워크 테스트
 
-이 테스트는 사용자 StorSimple 디바이스의 네트워크 인터페이스, 포트, DNS 및 NTP 서버 연결, SSL 인증서, 스토리지 계정 자격 증명, 업데이트 서버에 대한 연결 및 웹 프록시 연결 상태를 확인합니다.
+이 테스트는 네트워크 인터페이스, 포트, DNS 및 NTP 서버 연결, TLS/SSL 인증서, 저장소 계정 자격 증명, 업데이트 서버에 대 한 연결 및 StorSimple 장치에서 웹 프록시 연결의 상태를 확인 합니다.
 
 #### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>DATA0만 사용하는 경우 네트워크 테스트의 샘플 출력
 
@@ -333,8 +333,8 @@ hcs_startup                                   Stopped hcs_startup
 * DNS 서버 구성은 유효하며 디바이스는 DNS 서버를 통해 연결할 수 있습니다.
 * NTP 서버 연결도 가능합니다.
 * 포트 80 및 443이 열려 있습니다. 그러나 포트 9354는 차단되어 있습니다. [시스템 네트워크 요구 사항](storsimple-system-requirements.md)에 따라 Service Bus 통신에 대한 이 포트를 열어야 합니다.
-* SSL 인증이 유효합니다.
-* 장치를 스토리지 계정인 _myss8000storageacct_에 연결할 수 있습니다.
+* TLS/SSL 인증을 사용할 수 있습니다.
+* 디바이스를 스토리지 계정인 _myss8000storageacct_에 연결할 수 있습니다.
 * 업데이트 서버에 대한 연결이 유효합니다.
 * 이 디바이스에 대한 웹 프록시가 구성되어 있지 않습니다.
 
@@ -378,7 +378,7 @@ Web proxy                               Not enabled         Web proxy is not...
 
 1.  첫째, 계층화된 볼륨과 선택된 보관 옵션을 사용하는 계층화된 볼륨의 조합을 만듭니다. 이 작업은 도구에서 64KB와 512KB Blob 크기 모두에 대한 테스트를 실행하는지 확인합니다.
 
-2. 볼륨을 만들고 구성한 후 cmdlet을 실행합니다. 형식:
+2. 볼륨을 만들고 구성한 후 cmdlet을 실행합니다. 유형:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 
@@ -388,9 +388,9 @@ Web proxy                               Not enabled         Web proxy is not...
 
     진단 도구에서 보고된 읽기-쓰기 대기 시간이 너무 높은 경우:
 
-    1. Azure Storage 계정에 대한 대기 시간을 이해하기 위해 Blob services에 대한 스토리지 분석을 구성하고 출력을 분석합니다. 자세한 지침은 [저장소 분석 설정 및 구성](../storage/common/storage-enable-and-view-metrics.md)으로 이동합니다. 그러한 대기 시간이 높고 StorSimple 진단 도구에서 수신한 숫자와 비교 가능한 경우 Azure Storage로 서비스 요청을 로그해야 합니다.
+    1. Azure Storage 계정에 대한 대기 시간을 이해하기 위해 Blob services에 대한 스토리지 분석을 구성하고 출력을 분석합니다. 자세한 지침은 [스토리지 분석 설정 및 구성](../storage/common/storage-enable-and-view-metrics.md)으로 이동합니다. 그러한 대기 시간이 높고 StorSimple 진단 도구에서 수신한 숫자와 비교 가능한 경우 Azure Storage로 서비스 요청을 로그해야 합니다.
 
-    2. 저장소 계정 대기 시간이 너무 낮은 경우 사용자 네트워크의 대기 시간 문제 조사를 위해 네트워크 관리자에게 문의합니다.
+    2. 스토리지 계정 대기 시간이 너무 낮은 경우 사용자 네트워크의 대기 시간 문제 조사를 위해 네트워크 관리자에게 문의합니다.
 
 #### <a name="sample-output-of-performance-test-run-on-an-8100-device"></a>8100 디바이스에서 실행되는 성능 테스트의 샘플 출력
 

@@ -1,26 +1,25 @@
 ---
-title: 그룹 기반 라이선스 추가 시나리오 - Azure Active Directory | Microsoft Docs
+title: 그룹 기반 라이선스 추가 시나리오-Azure AD | Microsoft Docs
 description: Azure Active Directory 그룹 기반 라이선스의 추가 시나리오
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: fbdebd8d59034bd16a3199c1304606ccf12ab2c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471899"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727673"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -28,22 +27,22 @@ ms.locfileid: "60471899"
 
 ## <a name="usage-location"></a>사용 위치
 
-일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자가 해당 사용자에 대해 **사용 위치** 속성을 지정해야 합니다. [Azure Portal](https://portal.azure.com)의 **사용자** &gt; **프로필** &gt; **설정**에서 지정할 수 있습니다.
+일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자가 해당 사용자에 대해 **사용 위치** 속성을 지정해야 합니다. [Azure Portal](https://portal.azure.com)에서는 **사용자** &gt; **프로필** &gt; **설정**에서 사용 위치를 지정할 수 있습니다.
 
-그룹 라이선스 할당의 경우 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다. 사용자가 여러 위치에 있는 경우 라이선스가 있는 그룹에 사용자를 추가하기 전에 해당 사실이 사용자 개체에 제대로 반영되는지 확인합니다.
+그룹 라이선스 할당의 경우 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다. 여러 위치에 사용자가 있는 경우 라이선스를 사용 하 여 그룹에 사용자를 추가 하기 전에 사용자 리소스에서 해당 사항을 올바르게 반영 해야 합니다.
 
 > [!NOTE]
 > 그룹 라이선스 할당이 이루어져도 사용자에 대한 기존 사용 위치는 수정되지 않습니다. 항상 Azure AD에서 사용자 만들기 흐름의 일부로(예: AAD Connect 구성을 통해) 사용 위치를 설정하는 것이 좋습니다. 이렇게 하면 라이선스 할당의 결과가 항상 정확하고 허용되지 않은 위치에서 사용자에게 서비스가 제공되지 않습니다.
 
 ## <a name="use-group-based-licensing-with-dynamic-groups"></a>동적 그룹에서 그룹 기반 라이선스 사용
 
-모든 보안 그룹에서 그룹 기반 라이선스를 사용할 수 있으며, 이는 Azure AD 동적 그룹과 결합할 수 있음을 의미합니다. 동적 그룹은 사용자 개체 특성에 대한 규칙을 실행하여 그룹에서 사용자를 자동으로 추가하거나 제거합니다.
+모든 보안 그룹에서 그룹 기반 라이선스를 사용할 수 있으며, 이는 Azure AD 동적 그룹과 결합할 수 있음을 의미합니다. 동적 그룹은 사용자 리소스 특성에 대해 규칙을 실행 하 여 그룹에서 사용자를 자동으로 추가 하 고 제거 합니다.
 
 예를 들어 사용자에게 할당하려는 일부 제품 집합에 대한 동적 그룹을 만들 수 있습니다. 각 그룹은 특성을 기준으로 사용자를 추가하는 규칙을 통해 채워지고 각 그룹에는 사용자에게 제공하려고 의도한 라이선스가 할당됩니다. 특성을 온-프레미스에 할당하여 Azure AD와 동기화할 수 있거나 클라우드에서 특성을 직접 관리할 수 있습니다.
 
 그룹에 추가된 직후에 라이선스가 사용자에게 할당됩니다. 특성을 변경하면 사용자는 그룹에서 나가고 라이선스가 제거됩니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 어떤 사용자가 Microsoft 웹 서비스에 액세스해야 하는지 결정하는 온-프레미스 ID 관리 솔루션의 예를 고려하세요. 이 솔루션은 **extensionAttribute1**을 사용하여 사용자가 가지고 있어야 하는 라이선스를 나타내는 문자열 값을 저장합니다. Azure AD Connect는 이 값을 Azure AD와 동기화합니다.
 
@@ -70,15 +69,13 @@ ms.locfileid: "60471899"
 
 사용자는 라이선스를 가진 여러 그룹의 구성원이 될 수 있습니다. 고려할 사항은 다음과 같습니다.
 
-- 동일한 제품에 대한 라이선스가 여러 개 있으면 겹칠 수 있어 사용 가능한 모든 서비스가 사용자에게 적용됩니다. 다음 예제에는 두 개의 라이선싱 그룹이 나와 있습니다. *E3 기본 서비스*에는 모든 사용자에게 처음 배포할 기본 서비스가 포함되어 있으며, *E3 확장 서비스*에는 일부 사용자에게만 배포할 수 있는 추가 서비스(Sway 및 Planner)가 포함되어 있습니다. 이 예제에서 사용자는 두 그룹 모두에 추가되었습니다.
+- 동일한 제품에 대한 라이선스가 여러 개 있으면 겹칠 수 있어 사용 가능한 모든 서비스가 사용자에게 적용됩니다. 다음 예에서는 두 개의 라이선스 그룹을 보여 줍니다. *E3 기본 서비스*에는 모든 사용자에게 처음 배포할 기본 서비스가 포함되어 있으며, *E3 확장 서비스*에는 일부 사용자에게만 배포할 수 있는 추가 서비스(Sway 및 Planner)가 포함되어 있습니다. 이 예제에서 사용자는 두 그룹 모두에 추가되었습니다.
 
   ![사용하도록 설정된 서비스의 스크린샷](./media/licensing-group-advanced/view-enabled-services.png)
 
   결과적으로 사용자가 제품의 12개 서비스 중 7개를 사용하도록 설정하는 한편, 하나의 라이선스만 이 제품에 사용합니다.
 
-- *E3* 라이선스를 선택하면 어떤 그룹으로 인해 사용자가 어떤 서비스를 사용할 수 있는지에 대한 정보를 포함하여 자세한 정보가 표시됩니다.
-
-  ![그룹별로 사용하도록 설정된 서비스의 스크린샷](./media/licensing-group-advanced/view-enabled-service-by-group.png)
+- *E3* 라이선스를 선택 하면 그룹 라이선스 할당에 의해 사용자가 사용할 수 있는 서비스에 대 한 정보를 포함 하 여 자세한 정보가 표시 됩니다.
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>그룹 라이선스와 공존하는 직접 라이선스
 
@@ -88,28 +85,21 @@ ms.locfileid: "60471899"
 
 직접 할당된 라이선스를 제거하더라도 상속된 라이선스에는 영향을 주지 않습니다. 그룹에서 Office 365 Enterprise E3 라이선스를 상속받는 사용자를 생각해보겠습니다.
 
-1. 처음에 사용자는 다음과 같이 네 가지 서비스 계획을 사용할 수 있는 *E3 기본 서비스* 그룹에서만 라이선스를 상속받습니다.
+처음에 사용자는 *E3 basic 서비스* 그룹 에서만 라이선스를 상속 하므로 4 개의 서비스 계획을 사용할 수 있습니다.
 
-   ![E3 그룹에서 사용하도록 설정된 서비스의 스크린샷](./media/licensing-group-advanced/e3-group-enabled-services.png)
+1. **할당** 을 선택 하 여 사용자에 게 E3 라이선스를 직접 할당 합니다. 이 경우 Yammer Enterprise를 제외한 모든 서비스 계획을 사용하지 않도록 설정합니다.
 
-2. **할당**을 선택하여 E3 라이선스를 사용자에게 직접 할당할 수 있습니다. 이 경우 Yammer Enterprise를 제외한 모든 서비스 계획을 사용하지 않도록 설정합니다.
+    결과적으로 사용자는 여전히 E3 제품의 라이선스 하나만 사용합니다. 그러나 직접 할당을 사용하면 해당 사용자에 대해서만 Yammer Enterprise 서비스를 사용하도록 설정할 수 있습니다. 그룹 멤버 자격과 직접 할당을 통해 사용 하도록 설정 된 서비스를 확인할 수 있습니다.
 
-   ![사용자에게 라이선스를 직접 할당하는 방법의 스크린샷](./media/licensing-group-advanced/assign-license-to-user.png)
+1. 직접 할당을 사용할 때 허용되는 작업은 다음과 같습니다.
 
-3. 결과적으로 사용자는 여전히 E3 제품의 라이선스 하나만 사용합니다. 그러나 직접 할당을 사용하면 해당 사용자에 대해서만 Yammer Enterprise 서비스를 사용하도록 설정할 수 있습니다. 그룹 멤버 자격과 직접 할당으로 어떤 서비스를 사용할 수 있는지는 확인할 수 있습니다.
-
-   ![상속된 할당 대 직접 할당의 스크린샷](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
-
-4. 직접 할당을 사용할 때 허용되는 작업은 다음과 같습니다.
-
-   - Yammer Enterprise는 사용자 개체에서 직접 해제 수 있습니다. 다른 서비스 토글과 달리 그림에서는 **사용/해제** 토글이 이 서비스에 대해 사용하도록 설정되었습니다. 이 서비스가 사용자에 대해 직접 사용하도록 설정되어 있으므로 수정할 수 있습니다.
+   - Yammer Enterprise는 사용자 리소스에서 직접 해제할 수 있습니다. 다른 서비스 토글과 달리 그림에서는 **사용/해제** 토글이 이 서비스에 대해 사용하도록 설정되었습니다. 이 서비스가 사용자에 대해 직접 사용하도록 설정되어 있으므로 수정할 수 있습니다.
    - 직접 할당된 라이선스의 일부로서 추가 서비스도 사용할 수 있습니다.
    - **제거** 단추를 사용하여 사용자로부터 직접 라이선스를 제거할 수 있습니다. 이제 사용자는 상속된 그룹 라이선스만 가지며 원래 서비스만 사용할 수 있게 됩니다.
 
-     ![직접 할당을 제거하는 방법을 보여 주는 스크린샷](./media/licensing-group-advanced/remove-direct-license.png)
-
 ## <a name="managing-new-services-added-to-products"></a>제품에 추가된 새 서비스 관리
-Microsoft에서 제품에 새 서비스를 추가하면 해당 서비스는 제품 라이선스를 할당한 모든 그룹에서 기본적으로 사용하도록 설정됩니다. 제품 변경에 대한 알림을 구독하는 테넌트의 사용자는 예정된 서비스 추가에 대해 알리는 메일을 미리 받게 됩니다.
+
+Microsoft에서 제품 라이선스 계획에 새 서비스를 추가할 때 제품 라이선스를 할당 한 모든 그룹에서이 서비스를 기본적으로 사용할 수 있습니다. 제품 변경에 대 한 알림을 구독 하는 조직의 사용자는 예정 된 서비스 추가에 대해 알려 주는 시간 전에 전자 메일을 받게 됩니다.
 
 관리자는 변경이 영향을 미치는 모든 그룹을 검토하고 각 그룹에서 새 서비스를 사용하지 않도록 설정하는 등의 작업을 수행합니다. 예를 들어 특정 서비스만 배포할 그룹을 만든 경우 해당 그룹을 다시 방문하여 새로 추가된 서비스가 사용하지 않도록 설정되었는지 확인할 수 있습니다.
 
@@ -117,11 +107,11 @@ Microsoft에서 제품에 새 서비스를 추가하면 해당 서비스는 제�
 
 1. 원래 *Office 365 Enterprise E5* 제품을 여러 그룹에 할당했습니다. 해당 그룹 중 하나인 *O365 E5 - Exchange only*는 해당 구성원에 대해 *Exchange Online(계획 2)* 서비스만 사용할 수 있도록 설계되어 있습니다.
 
-2. Microsoft에서 E5 제품이 새 서비스인 *Microsoft Stream*을 통해 확장될 것이라는 알림을 받았습니다. 서비스가 테넌트에서 사용 가능해지면 다음을 수행할 수 있습니다.
+2. Microsoft에서 E5 제품이 새 서비스인 *Microsoft Stream*을 통해 확장될 것이라는 알림을 받았습니다. 조직에서 서비스를 사용할 수 있게 되 면 다음을 수행할 수 있습니다.
 
 3. [**Azure Active Directory > 라이선스 > 모든 제품**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 블레이드로 이동하고 *Office 365 Enterprise E5*, **허가된 그룹**을 차례로 선택하여 해당 제품을 가진 모든 그룹 목록을 표시합니다.
 
-4. 검토할 그룹을 클릭합니다(이 경우 *O365 E5 - Exchange only*). 그러면 **라이선스** 탭이 열립니다. E5 라이선스를 클릭하면 모든 사용 가능한 서비스가 나열된 블레이드가 열립니다.
+4. 검토할 그룹을 클릭합니다(이 경우 *O365 E5 - Exchange only*). 그러면 **라이선스** 탭이 열립니다. E5 라이선스를 클릭 하면 사용 하도록 설정 된 모든 서비스가 나열 되는 블레이드가 열립니다.
    > [!NOTE]
    > *Exchange Online* 서비스 이외에 *Microsoft Stream* 서비스가 이 그룹에 자동으로 추가되어 사용하도록 설정되었습니다.
 
@@ -137,9 +127,9 @@ Microsoft에서 제품에 새 서비스를 추가하면 해당 서비스는 제�
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>PowerShell을 사용하여 누가 상속됨과 직접 라이선스를 가지고 있는지 확인
 PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할당받는지 아니면 그룹에서 상속받는지를 확인할 수 있습니다.
 
-1. `connect-msolservice` cmdlet을 실행하여 인증하고 테넌트에 연결합니다.
+1. Cmdlet을 실행 `connect-msolservice` 하 여 조직에 인증 하 고 연결 합니다.
 
-2. `Get-MsolAccountSku`는 테넌트에서 프로비전된 모든 제품 라이선스를 검색하는 데 사용할 수 있습니다.
+2. `Get-MsolAccountSku`Azure AD 조직에서 프로 비전 된 모든 제품 라이선스를 검색 하는 데 사용할 수 있습니다.
 
    ![Get-msolaccountsku cmdlet의 스크린샷](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
@@ -162,7 +152,7 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
    >[!TIP]
    > *대상* 필터에서 그룹의 이름을 입력하여 결과 범위를 지정할 수도 있습니다.
 
-3. 변경된 내용의 세부 정보를 보려면 목록 보기에서 항목을 클릭합니다. *수정된 속성* 아래에서 라이선스 할당에 대한 기존 값과 새 값이 모두 나열됩니다.
+3. 변경 된 내용에 대 한 세부 정보를 보려면 목록에서 항목을 선택 합니다. *수정된 속성* 아래에서 라이선스 할당에 대한 기존 값과 새 값이 모두 나열됩니다.
 
 세부 정보를 포함한 최근 그룹 라이선스 변경의 예는 다음과 같습니다.
 
@@ -188,7 +178,7 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
    > ```
 
 3. 모든 사용자의 변경 내용을 포함하여 그룹 처리 방법의 전체 로그를 확인하려면 다음 필터를 설정합니다.
-   - **초기자(작업자)**: "Microsoft Azure AD 그룹 기반 라이선스"
+   - **(작업자)에 의해 시작**: "Microsoft Azure AD 그룹 기반 라이선스"
    - **날짜 범위**(선택 사항): 특정 그룹이 처리를 시작 및 완료하는 시점을 알고 있는 경우에 범위를 사용자 지정합니다.
 
 이 샘플 출력은 처리 시작, 모든 사용자 변경 내용 결과 및 처리 완료를 표시합니다.
@@ -216,11 +206,11 @@ PowerShell 또는 Graph API를 통해 그룹을 삭제하려고 할 때 비슷�
 
 - 이 기능은 보안 그룹 및 securityEnabled가 TRUE인 Office 365 그룹에만 사용할 수 있습니다.
 
-- 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com) 그룹 기반 라이선스 현재 지원 하지 않습니다. 사용자가 그룹에서 라이선스를 상속받는 경우 이 라이선스는 Office 관리 포털에 일반 사용자 라이선스로 표시됩니다. 해당 라이선스를 수정하거나 라이선스를 제거하려고 시도하는 경우 포털에서 오류 메시지를 반환합니다. 상속된 그룹 라이선스는 사용자가 직접 수정할 수 없습니다.
+- [Microsoft 365 관리 센터](https://admin.microsoft.com) 는 현재 그룹 기반 라이선스를 지원 하지 않습니다. 사용자가 그룹에서 라이선스를 상속받는 경우 이 라이선스는 Office 관리 포털에 일반 사용자 라이선스로 표시됩니다. 해당 라이선스를 수정하거나 라이선스를 제거하려고 시도하는 경우 포털에서 오류 메시지를 반환합니다. 상속된 그룹 라이선스는 사용자가 직접 수정할 수 없습니다.
 
 - 대규모 그룹(예: 100,000명의 사용자)에 대해 라이선스를 할당하거나 수정하면 성능에 영향을 줄 수 있습니다. 특히 Azure AD 자동화에서 생성된 변경 볼륨은 Azure AD와 온-프레미스 시스템 간의 디렉터리 동기화 성능에 부정적인 영향을 줄 수 있습니다.
 
-- 동적 그룹을 사용하여 사용자의 멤버 자격을 관리하는 경우 사용자가 그룹의 일부인지를 확인합니다. 이 작업은 라이선스 할당에 필요합니다. 그렇지 않으면, 동적 그룹의 [멤버 자격 규칙에 대한 처리 상태를 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)합니다. 
+- 동적 그룹을 사용하여 사용자의 멤버 자격을 관리하는 경우 사용자가 그룹의 일부인지를 확인합니다. 이 작업은 라이선스 할당에 필요합니다. 그렇지 않으면, 동적 그룹의 [멤버 자격 규칙에 대한 처리 상태를 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)합니다.
 
 - 부하가 높은 특정 상황에서는 그룹에 대한 라이선스 변경 내용 또는 기존 라이선스가 있는 그룹에 대한 멤버 자격 변경 내용을 처리하는 데 시간이 오래 걸릴 수 있습니다. 변경 내용이 60K 사용자 이하의 그룹 크기를 처리하는 데 24시간 이상이 걸리는 경우 Microsoft에서 조사할 수 있도록 [지원 티켓을 열어주세요](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest). 
 

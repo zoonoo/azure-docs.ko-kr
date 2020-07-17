@@ -9,26 +9,24 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 687012e73b4b0c869b491ac1c9ea128662b23510
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78255469"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>단일 Azure 지역 내 SAP HANA 가용성
 이 문서에서는 한 Azure 지역 내의 여러 가용성 시나리오에 대해 설명합니다. Azure에는 전 세계에 걸쳐 많은 지역이 있습니다. Azure 지역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. Azure 지역 내의 VM에 SAP HANA를 배포하는 경우 Microsoft는 HANA 인스턴스가 있는 단일 VM의 배포를 제공합니다. 가용성을 높이기 위해 HANA 시스템 복제를 가용성 용도로 사용하는 [Azure 가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) 내에 두 개의 HANA 인스턴스가 있는 두 개의 VM을 배포할 수 있습니다. 
 
 현재 Azure는 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 제공하고 있습니다. 이 문서에서는 가용성 영역에 대해 자세히 설명하지 않습니다. 그러나 가용성 집합과 가용성 영역을 사용하는 방법에 대한 일반적인 내용이 설명되어 있습니다.
 
-가용성 영역이 제공되는 Azure 지역에는 여러 데이터 센터가 있습니다. 데이터 센터는 전원, 냉각 및 네트워크의 공급 장치와 독립적입니다. 단일 Azure 지역 내에 서로 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에 응용 프로그램을 배포하기 위해서입니다. 영역에 배포할 때 전원 및 네트워크의 문제가 하나의 Azure 가용성 영역 인프라에만 영향을 준다면, Azure 지역 내 응용 프로그램 배포는 계속 작동합니다. 일부 용량이 줄어들 수도 있습니다. 예를 들어 한 영역의 VM이 손실될 수 있지만 다른 두 영역의 VM은 계속 가동되어 실행됩니다. 
+가용성 영역이 제공되는 Azure 지역에는 여러 데이터 센터가 있습니다. 데이터 센터는 전원, 냉각 및 네트워크의 공급 장치와 독립적입니다. 단일 Azure 지역 내에 서로 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에 애플리케이션을 배포하기 위해서입니다. 영역에 배포할 때 전원 및 네트워크의 문제가 하나의 Azure 가용성 영역 인프라에만 영향을 준다면, Azure 지역 내 애플리케이션 배포는 계속 작동합니다. 일부 용량이 줄어들 수도 있습니다. 예를 들어 한 영역의 VM이 손실될 수 있지만 다른 두 영역의 VM은 계속 가동되어 실행됩니다. 
  
 Azure 가용성 집합은 가용성 집합 내에 배치한 VM 리소스를 Azure 데이터 센터에 배포할 때 서로 간에 오류가 격리되도록 하는 데 도움이 되는 논리적 그룹화 기능입니다. Azure는 가용성 집합 내에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 일부 Azure 문서에서 이 구성은 다른 [업데이트 및 장애 도메인](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)의 배치라고 합니다. 이러한 배치는 일반적으로 Azure 데이터 센터 내에 있습니다. 전원 및 네트워크 문제가 배포하는 데이터 센터에 영향을 준다고 가정하면, 한 Azure 지역의 모든 용량에 영향을 줍니다.
 
@@ -55,7 +53,7 @@ Azure VM 자동 다시 시작 또는 서비스 복구는 다음 두 수준에서
 Azure에서 제공하는 호스트 및 VM 모니터링을 사용하면 정상 Azure 호스트에서 호스트 문제가 발생한 Azure VM을 자동으로 다시 시작합니다. 
 
 >[!IMPORTANT]
->Azure 서비스 복구 과정에서 게스트 OS의 커널이 비상 상태인 Linux VM은 다시 시작되지 않습니다. 일반적으로 사용되는 Linux 릴리스의 기본 설정은 Linux 커널이 비상 상태인 VM 또는 서버를 자동으로 다시 시작하지 않는 것입니다. 대신 커널 디버거를 연결하여 분석할 수 있도록 OS의 커널 비상 상태를 유지할 것을 예상합니다. Azure는 이러한 동작을 인식하여 게스트 OS가 이러한 상태인 VM을 자동으로 다시 시작하지 않습니다. 이러한 경우가 매우 드물다는 가정입니다. VM 다시 시작을 사용하도록 설정하는 기본 동작을 덮어쓸 수 있습니다. 기본 동작을 변경하려면 /etc/sysctl.conf에 'kernel.panic' 매개 변수를 사용합니다. 이 매개 변수에 설정하는 시간은 초 단위입니다. 일반적인 권장 값은 이 매개 변수를 통해 재부팅을 트리거하기 전에 20~30초 동안 기다리는 것입니다. <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>도 참조하세요.
+>Azure 서비스 복구 과정에서 게스트 OS의 커널이 비상 상태인 Linux VM은 다시 시작되지 않습니다. 일반적으로 사용되는 Linux 릴리스의 기본 설정은 Linux 커널이 비상 상태인 VM 또는 서버를 자동으로 다시 시작하지 않는 것입니다. 대신 커널 디버거를 연결하여 분석할 수 있도록 OS의 커널 비상 상태를 유지할 것을 예상합니다. Azure는 이러한 동작을 인식하여 게스트 OS가 이러한 상태인 VM을 자동으로 다시 시작하지 않습니다. 이러한 경우가 매우 드물다는 가정입니다. VM 다시 시작을 사용하도록 설정하는 기본 동작을 덮어쓸 수 있습니다. 기본 동작을 변경하려면 /etc/sysctl.conf에 'kernel.panic' 매개 변수를 사용합니다. 이 매개 변수에 설정하는 시간은 초 단위입니다. 일반적인 권장 값은 이 매개 변수를 통해 재부팅을 트리거하기 전에 20~30초 동안 기다리는 것입니다. <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>을 참조하세요.
 
 이 시나리오에서 사용하는 두 번째 기능은 VM을 다시 부팅한 후 다시 시작한 VM에서 실행되는 HANA 서비스가 자동으로 시작된다는 것입니다. [HANA 서비스 자동 다시 시작](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)은 다양한 HANA 서비스의 Watchdog 서비스를 통해 설정할 수 있습니다.
 
@@ -79,7 +77,7 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
 
 아키텍처는 다음과 같습니다.
 
-![저장소 복제가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![스토리지 복제가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 이 설정은 중요한 RPO(복구 지점 목표) 및 RTO(복구 시간목표) 시간을 달성하는 데 적합하지 않습니다. 특히 RTO 시간은 복사된 백업을 사용하여 전체 데이터베이스를 완전히 복원해야 하므로 어려움을 겪습니다. 그러나 이 설정은 주 인스턴스에서 의도하지 않은 데이터 삭제를 복구하는 데 유용합니다. 이 설정을 사용하면 언제든지 특정 시점으로 복원하고, 데이터를 추출하며, 삭제된 데이터를 주 인스턴스로 가져올 수 있습니다. 따라서 다른 고가용성 기능과 함께 백업 복사본 방법을 사용해야 합니다. 
 
@@ -98,7 +96,7 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
  
 시나리오는 다음과 같습니다.
 
-![저장소 복제가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_HSR_sync_nopreload.PNG)
+![스토리지 복제가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_HSR_sync_nopreload.PNG)
 
 > [!NOTE]
 > HANA 시스템 복제 대상에서 데이터 미리 로드를 사용하지 않는 경우에도 64GB 이상의 메모리가 필요합니다. 또한 64GB 외에도, rowstore 데이터를 대상 인스턴스의 메모리에 유지하기 위해 충분한 메모리가 필요합니다.
@@ -109,15 +107,15 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>자동 장애 조치가 있는 SAP HANA 시스템 복제
 
-한 Azure 지역 내의 표준 및 가장 일반적인 가용성 구성에서는 SLES Linux를 실행하는 두 개의 Azure VM에 장애 조치 클러스터가 정의되어 있습니다. SLES Linux 클러스터는 [STONITH](http://linux-ha.org/wiki/STONITH) 디바이스와 함께 [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) 프레임워크를 기반으로 합니다. 
+한 Azure 지역 내의 표준 및 가장 일반적인 가용성 구성에서는 SLES Linux를 실행하는 두 개의 Azure VM에 장애 조치 클러스터가 정의되어 있습니다. SLES Linux 클러스터는 [STONITH](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) 디바이스와 함께 [Pacemaker](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 프레임워크를 기반으로 합니다. 
 
 SAP HANA 측면에서 볼 때, 사용되는 복제 모드가 동기화되고 자동 장애 조치가 구성됩니다. 두 번째 VM에서 SAP HANA 인스턴스는 핫 대기 노드로 작동합니다. 대기 노드는 주 SAP HANA 인스턴스에서 변경 레코드의 동기 스트림을 받습니다. 트랜잭션이 HANA 주 노드에서 애플리케이션을 통해 커밋되면, 보조 SAP HANA 노드에서 커밋된 레코드를 받았음을 확인할 때까지 주 HANA 노드는 애플리케이션에 대한 커밋 확인을 기다립니다. SAP HANA는 두 개의 동기 복제 모드를 제공합니다. 이러한 두 동기 복제 모드에 대한 자세한 내용 및 차이점에 대한 설명은 [SAP HANA 시스템 복제에 대한 복제 모드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html) 문서를 읽어보세요.
 
 전체 구성은 다음과 같습니다.
 
-![저장소 복제 및 장애 조치가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.PNG)
+![스토리지 복제 및 장애 조치가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.PNG)
 
-RPO=0 및 낮은 RTO 시간을 달성할 수 있기 때문에 이 솔루션은 선택할 수 있습니다. SAP HANA 클라이언트에서 가상 IP 주소를 사용하여 HANA 시스템 복제 구성에 연결하도록 SAP HANA 클라이언트 연결을 구성합니다. 이러한 구성은 보조 노드에 장애 조치하는 경우 응용 프로그램을 다시 구성할 필요가 없습니다. 이 시나리오에서는 주 VM 또는 보조 VM에 대한 Azure VM SKU가 동일해야 합니다.
+RPO=0 및 낮은 RTO 시간을 달성할 수 있기 때문에 이 솔루션은 선택할 수 있습니다. SAP HANA 클라이언트에서 가상 IP 주소를 사용하여 HANA 시스템 복제 구성에 연결하도록 SAP HANA 클라이언트 연결을 구성합니다. 이러한 구성은 보조 노드에 장애 조치하는 경우 애플리케이션을 다시 구성할 필요가 없습니다. 이 시나리오에서는 주 VM 또는 보조 VM에 대한 Azure VM SKU가 동일해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

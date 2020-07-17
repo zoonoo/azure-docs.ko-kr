@@ -1,6 +1,7 @@
 ---
-title: Azure Media Services를 사용한 클라우드 업로드 및 스토리지 | Microsoft Docs
-description: 이 문서에서는 클라우드 업로드 및 스토리지 개념을 설명합니다.
+title: Azure Storage 계정
+titleSuffix: Azure Media Services
+description: Azure Media Services와 함께 사용할 Azure 저장소 계정을 만드는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,60 +10,63 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79499829"
 ---
-# <a name="cloud-upload-and-storage"></a>클라우드 업로드 및 저장
+# <a name="azure-storage-accounts"></a>Azure Storage 계정
 
-Azure에서 미디어 콘텐츠 관리, 암호화, 인코딩, 분석 및 스트리밍을 시작하려면 Media Services 계정을 만들어야 합니다. Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름을 제공해야 합니다. 지정된 저장소 계정은 Media Services 계정에 연결됩니다. 
+Azure에서 미디어 콘텐츠 관리, 암호화, 인코딩, 분석 및 스트리밍을 시작하려면 Media Services 계정을 만들어야 합니다. Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름을 제공해야 합니다. 지정된 스토리지 계정은 Media Services 계정에 연결됩니다.
 
-Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용이 발생하지 않도록 Media Services 계정과 동일한 위치에 있는 스토리지 계정을 사용하는 것이 좋습니다.
+Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용을 방지 하기 위해 Media Services 계정과 동일한 위치에 저장소 계정을 사용 하는 것이 좋습니다.
 
-**기본** 저장소 계정은 하나 있어야 하며 Media Services 계정과 연결된 **보조** 저장소 계정은 여러 개 사용할 수 있습니다. Media Services는 **범용 v2**(GPv2) 또는 **범용 v1**(GPv1) 계정을 지원합니다. 
+하나의 **기본** 저장소 계정이 있어야 하며, Media Services 계정에 연결 된 **보조** 저장소 계정을 개수에 제한 없이 사용할 수 있습니다. Media Services는 **범용 v2**(GPv2) 또는 **범용 v1**(GPv1) 계정을 지원합니다. Blob 전용 계정은 **주**로 허용 되지 않습니다.
 
->[!NOTE]
-> Blob 전용 계정은 **기본**으로 허용되지 않습니다. 
+최신 기능과 성능을 활용할 수 있도록 GPv2를 사용 하는 것이 좋습니다. 저장소 계정에 대해 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조 하세요.
 
-핫 저장소 계층과 쿨 저장소 계층 중 하나를 선택할 수 있도록 GPv2를 사용하는 것이 좋습니다. 스토리지 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요. 
+> [!NOTE]
+> 핫 액세스 계층만 Azure Media Services와 함께 사용할 수 있지만, 다른 액세스 계층을 사용 하 여 적극적으로 사용 되지 않는 콘텐츠의 저장소 비용을 줄일 수 있습니다.
 
-다양 한 Sku를 저장소 계정에 대해 선택할 수 있습니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 고려해야 합니다. 
+저장소 계정에 대해 선택할 수 있는 다양 한 Sku가 있습니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션을 위해 SKU를 선택할 때 `--sku Standard_RAGRS` 비즈니스 연속성을 위한 지리적 복제를 제공 하는을 고려해 야 합니다.
 
-## <a name="assets-in-a-storage-account"></a>저장소 계정의 자산
+## <a name="assets-in-a-storage-account"></a>스토리지 계정의 자산
 
-Media Services v3에서는 Storage Api는 자산에 파일을 업로드 하는 데 사용 됩니다. 자세한 내용은 [자산 개념](assets-concept.md)합니다.
+Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업로드 합니다. 자세한 내용은 [Azure Media Services v3의 자산](assets-concept.md)을 참조 하세요.
 
 > [!Note]
-> Media Service API를 사용하지 않고 Media Services SDK에서 생성된 Blob 컨테이너의 콘텐츠를 변경하려고 하면 안 됩니다.
- 
-## <a name="storage-side-encryption"></a>저장소 쪽 암호화
+> Media Services Api를 사용 하지 않고 Media Services SDK에서 생성 된 blob 컨테이너의 콘텐츠를 변경해 서는 안 됩니다.
 
-미사용 자산을 보호하려면 저장소 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services v3에서 저장소 쪽 암호화가 작동하는 원리를 보여줍니다.
+## <a name="storage-side-encryption"></a>스토리지 쪽 암호화
+
+미사용 자산을 보호 하기 위해 자산을 저장소 쪽 암호화로 암호화 해야 합니다. 다음 표는 Media Services v3에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
 |암호화 옵션|설명|Media Services v3|
 |---|---|---|
-|Media Services 저장소 암호화| AES-256 암호화, Media Services에서 키 관리|지원되지 않음<sup>(1)</sup>|
-|[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원됨|
-|[저장소 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원되지 않음|
+|저장소 암호화 Media Services| AES-256 암호화, Media Services에서 관리 하는 키입니다. |지원 되지 않습니다. <sup>(1)</sup>|
+|[휴지 상태의 데이터에 대 한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨.|
+|[저장소 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원되지 않습니다.|
 
-<sup>1</sup> Media Services v3에서 저장소 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 저장소 암호화된 자산과 함께 작동하지만 새로 만들기를 허용하지는 않습니다.
+<sup>1</sup> Media Services v3에서 저장소 암호화 (AES-256 암호화)는 이전 버전과의 호환성을 위해서만 지원 됩니다. 즉, v 2를 Media Services 사용 하 여 자산을 만든 경우에만 v3에서 기존 저장소 암호화 된 자산을 사용할 수 있지만 새로 만들 수는 없습니다.
 
 ## <a name="storage-account-errors"></a>저장소 계정 오류
 
-Media Services 계정에 대 한 "연결 끊김" 상태 계정 저장소 액세스 키에 하나 이상의 변경으로 인해 연결 된 저장소 계정에 대 한 액세스를 더 이상에 있는지를 나타냅니다. 최신 저장소 액세스 키 Media Services 계정에서 많은 작업을 수행 하기 위해 필요한 합니다.
+Media Services 계정의 "연결 끊김" 상태는 스토리지 액세스 키가 변경되어 해당 계정이 하나 이상의 연결된 스토리지 계정에 액세스할 수 없는 경우를 나타냅니다. Media Services가 계정에서 많은 작업을 수행하려면 최신 스토리지 액세스 키가 필요합니다.
 
-연결 된 저장소 계정에 액세스할 수 없는 경우 Media Services 계정에 될 수 있는 기본 시나리오는 다음과 같습니다. 
+다음은 연결된 스토리지 계정에 대한 액세스 권한이 Media Services 계정에서 없어지는 주요 시나리오입니다.
 
-|문제|해결 방법|
+|문제점|솔루션|
 |---|---|
-|구독을 구분 하는 Media Services 계정 또는 연결 된 저장소 계정 마이그레이션 되었습니다. |동일한 구독에 있는 모든 수 있도록 저장소 계정 또는 Media Services 계정 마이그레이션하십시오. |
-|Media Services 계정 처럼 초기 Media Services 계정을이 지원 다른 구독에 연결 된 저장소 계정을 사용 됩니다. 모든 초기 Media Services 계정 최신 Azure 리소스 관리자 (ARM) 기반 계정으로 변환 된 및 연결이 끊긴 상태가 됩니다. |동일한 구독에 있는 모든 수 있도록 저장소 계정 또는 Media Services 계정 마이그레이션하십시오.|
+|Media Services 계정이나 연결된 스토리지 계정이 별도의 구독으로 마이그레이션되었습니다. |저장소 계정 또는 Media Services 계정이 모두 동일한 구독에 있도록 마이그레이션합니다. |
+|이것이 지원되던 초기 Media Services 계정이기 때문에, Media Services 계정이 다른 구독에 속하는 연결된 스토리지 계정을 사용합니다. 모든 초기 Media Services 계정은 최신 Azure 리소스 관리자 기반 계정으로 변환 되 고 연결 끊김 상태가 됩니다. |저장소 계정 또는 Media Services 계정이 모두 동일한 구독에 있도록 마이그레이션하십시오.|
+
+## <a name="azure-storage-firewall"></a>Azure Storage 방화벽
+
+Azure Media Services는 Azure Storage 방화벽이 나 [개인 끝점](https://docs.microsoft.com/azure/storage/common/storage-network-security) 을 사용 하는 저장소 계정을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Media Services 계정에 저장소 계정을 연결하는 방법을 알아보려면 [계정 만들기](create-account-cli-quickstart.md)를 참조하세요.
+Media Services 계정에 스토리지 계정을 연결하는 방법을 알아보려면 [계정 만들기](create-account-cli-quickstart.md)를 참조하세요.

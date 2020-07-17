@@ -1,23 +1,14 @@
 ---
 title: Azure Application Insights 트랜잭션 진단 | Microsoft Docs
-description: Application Insights 종단 간 트랜잭션 진단
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+description: Application Insights 엔드투엔드 트랜잭션 진단
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77671140"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -60,7 +51,7 @@ ms.locfileid: "60783715"
 
 ## <a name="details-of-the-selected-telemetry"></a>선택한 원격 분석의 세부 정보
 
-이 접을 수 있는 창에는 트랜잭션 차트 또는 목록에서 선택한 모든 항목의 세부 정보가 표시됩니다. "모두 표시"는 수집된 표준 특성을 모두 나열합니다. 모든 사용자 지정 특성은 표준 집합 아래에 별도로 나열됩니다. 스택 추적 창 아래의 "..."를 클릭하여 추적을 복사하기 위한 옵션을 가져옵니다. "프로파일러 추적 열기" 또는 "디버그 스냅숏 열기"는 해당 세부 정보 창에서 코드 수준 진단을 보여줍니다.
+이 접을 수 있는 창에는 트랜잭션 차트 또는 목록에서 선택한 모든 항목의 세부 정보가 표시됩니다. "모두 표시"는 수집된 표준 특성을 모두 나열합니다. 모든 사용자 지정 특성은 표준 집합 아래에 별도로 나열됩니다. 스택 추적 창 아래의 "..."를 클릭하여 추적을 복사하기 위한 옵션을 가져옵니다. "프로파일러 추적 열기" 또는 "디버그 스냅샷 열기"는 해당 세부 정보 창에서 코드 수준 진단을 보여줍니다.
 
 ![예외 세부 정보](media/transaction-diagnostics/exceptiondetail.png)
 
@@ -70,13 +61,13 @@ ms.locfileid: "60783715"
 
 ![검색 결과](media/transaction-diagnostics/searchResults.png)
 
-## <a name="profiler-and-snapshot-debugger"></a>프로파일러 및 스냅숏 디버거
+## <a name="profiler-and-snapshot-debugger"></a>프로파일러 및 스냅샷 디버거
 
-[Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅숏 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅숏을 볼 수 있습니다.
+[Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅샷 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅샷을 볼 수 있습니다.
 
-Profiler 작업 못한 경우에 문의 하세요 **serviceprofilerhelp\@microsoft.com**
+프로파일러 작업을 수행할 수 없는 경우 **serviceprofilerhelp \@ microsoft.com** 에 문의 하세요.
 
-스냅숏 디버거 작업 못한 경우에 문의 하세요 **snapshothelp\@microsoft.com**
+스냅숏 디버거 작업을 수행할 수 없는 경우 **snapshothelp \@ microsoft.com** 에 문의 하세요.
 
 ![프로파일러 통합](media/transaction-diagnostics/profilerTraces.png)
 
@@ -92,7 +83,7 @@ Profiler 작업 못한 경우에 문의 하세요 **serviceprofilerhelp\@microso
 
 액세스 권한이 있고 구성 요소가 최신 Application Insights SDK를 통해 계측되는 경우 오른쪽 위에 있는 피드백 채널을 통해 알려주세요.
 
-*종속성에 대해 중복된 행이 표시됩니다. 이것은 예상된 동작인가요?*
+*종속성에 대 한 중복 행이 표시 됩니다. 이것이 예상 되나요?*
 
 현재 아웃바운드 종속성 호출은 인바운드 요청과는 별도로 표시됩니다. 일반적으로 두 호출은 네트워크 왕복으로 인해 기간 값만 다를 뿐 동일하게 보입니다. 기간 막대의 선행 아이콘과 고유한 스타일은 구분하는 데 도움이 됩니다. 이러한 데이터 표시가 혼란스러운가요? 의견을 보내주세요!
 
@@ -102,4 +93,4 @@ Profiler 작업 못한 경우에 문의 하세요 **serviceprofilerhelp\@microso
 
 *새 환경에서 대부분의 관련 항목 쿼리가 누락되는 이유는 무엇인가요?*
 
-의도적인 작동입니다. 모든 구성 요소에서 관련된 모든 항목은 이미 왼쪽(위쪽 및 아래쪽 섹션)에서 사용할 수 있습니다. 새 환경에는 왼쪽에서 다루지 않는 두 개의 관련 항목, 즉 이 이벤트 전후 5분의 모든 원격 분석 및 사용자 타임라인이 있습니다.
+이것은 의도적인 것입니다. 모든 구성 요소에서 관련된 모든 항목은 이미 왼쪽(위쪽 및 아래쪽 섹션)에서 사용할 수 있습니다. 새 환경에는 왼쪽에서 다루지 않는 두 개의 관련 항목, 즉 이 이벤트 전후 5분의 모든 원격 분석 및 사용자 타임라인이 있습니다.

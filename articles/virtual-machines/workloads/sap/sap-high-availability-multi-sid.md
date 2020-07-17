@@ -3,26 +3,24 @@ title: Azure에서 SAP 다중 SID 구성 만들기 | Microsoft Docs
 description: Windows 가상 머신의 고가용성 SAP NetWeaver 다중 SID 구성 가이드
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
-author: goraco
-manager: jeconnoc
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 0b89b4f8-6d6c-45d7-8d20-fe93430217ca
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe9b70d74e326166afae366becc47fbcc8b2ea56
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d7938f7db22f004a0bf6cdf2e22dc8e103896719
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788718"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77617390"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver 다중 SID 구성 만들기
 
@@ -34,7 +32,7 @@ ms.locfileid: "59788718"
 [sap-ha-guide-figure-6004]:./media/virtual-machines-shared-sap-high-availability-guide/6004-sap-multi-sid-dns.png
 [sap-ha-guide-figure-6005]:./media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:./media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-ha-guide-9.1.1]:sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 
 [sap-ha-guide-8.8]:sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c
 [sap-ha-guide-8.12.3.3]:sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 
@@ -56,7 +54,7 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide]에서 설명되고 이 다이어그램에 표시된 대로 하나의 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터를 구성했습니다.
 
 ![고가용성 SAP ASCS/SCS 인스턴스][sap-ha-guide-figure-6001]
@@ -68,12 +66,12 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 ![Azure에서 여러 SAP ASCS/SCS 클러스터링된 인스턴스][sap-ha-guide-figure-6002]
 
 > [!NOTE]
->각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 수에 제한이 있습니다.
+>각 Azure 내부 부하 분산 장치에 대한 프라이빗 프런트 엔드 IP의 수에 제한이 있습니다.
 >
 >하나의 WSFC 클러스터에서 SAP ASCS/SCS 인스턴스의 최대수는 각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 최대수와 같습니다.
 >
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP"를 참조하세요.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 프라이빗 프런트 엔드 IP"를 참조하세요.
 
 두 가지 고가용성 SAP 시스템을 포함한 전체 그림은 다음과 같습니다.
 
@@ -222,7 +220,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 다음을 수행합니다.
 1. 각 클러스터 노드에 추가 디스크 또는 동일한 크기의 디스크(스트라이프해야 하는)를 추가하고 서식을 지정합니다.
-2. SIOS DataKeeper를 사용하여 저장소 복제를 구성합니다.
+2. SIOS DataKeeper를 사용하여 스토리지 복제를 구성합니다.
 
 이 절차는 WSFC 클러스터 컴퓨터에 SIOS DataKeeper를 이미 설치했다고 가정합니다. 설치한 경우 이제 컴퓨터 간의 복제를 구성해야 합니다. 프로세스는 기본 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide-8.12.3.3]에서 자세히 설명합니다.  
 
@@ -242,12 +240,12 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 고급 절차는 다음과 같습니다.
 
-1. [SAP 첫 번째 클러스터 노드 설치][sap-ha-guide-9.1.2].  
+1. [SAP 첫 번째 클러스터 노드를 설치합니다][sap-ha-guide-9.1.2].  
  이 단계에서는 **기존 WSFC 클러스터 노드 1**에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다.
 
-2. [ASCS/SCS 인스턴스의 SAP 프로필 수정][sap-ha-guide-9.1.3].
+2. [ASCS/SCS 인스턴스의 SAP 프로필을 수정합니다][sap-ha-guide-9.1.3].
 
-3. [프로브 포트 구성][sap-ha-guide-9.1.4].  
+3. [프로브 포트를 구성합니다][sap-ha-guide-9.1.4].  
  이 단계에서는 PowerShell을 사용하여 SAP 클러스터 리소스 SAP-SID2-IP 프로브 포트를 구성하고 있습니다. SAP ASCS/SCS 클러스터 노드 중 하나에서 이 구성을 실행합니다.
 
 4. [데이터베이스 인스턴스 설치][sap-ha-guide-9.2].  
@@ -260,13 +258,13 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
  SAP ASCS/SCS 인스턴스에 사용되는 두 클러스터 노드에서 SAP ASCS/SCS에서 사용하는 모든 Windows 방화벽 포트를 열고 있습니다. 이러한 포트는 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide-8.8]에 나열되어 있습니다.  
  또한 62350 시나리오에서와 같이 Azure 내부 부하 분산 장치 프로브 포트를 엽니다.
 
-7. [SAP ERS Windows 서비스 인스턴스의 시작 유형 변경][sap-ha-guide-9.4].
+7. [SAP ERS Windows 서비스 인스턴스의 시작 유형을 변경합니다][sap-ha-guide-9.4].
 
-8. 새 전용 VM에서 [SAP 기본 애플리케이션 서버 설치][sap-ha-guide-9.5].
+8. 새 전용 VM에서 [SAP 기본 애플리케이션 서버를 설치합니다][sap-ha-guide-9.5].
 
-9. 새 전용 VM에서 [SAP 추가 애플리케이션 서버 설치][sap-ha-guide-9.6].
+9. 새 전용 VM에서 [SAP 추가 애플리케이션 서버를 설치합니다][sap-ha-guide-9.6].
 
-10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제 테스트][sap-ha-guide-10].
+10. [SAP ASCS/SCS 인스턴스 장애 조치(failover) 및 SIOS 복제를 테스트합니다][sap-ha-guide-10].
 
 ## <a name="next-steps"></a>다음 단계
 

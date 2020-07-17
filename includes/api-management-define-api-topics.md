@@ -4,15 +4,16 @@ ms.service: api-management
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
-ms.openlocfilehash: 5224f11cba621da384be23d3ec402f17cb29f317
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ace11adbaaeebd3101ac621f44408e27ba7d18ab
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572418"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67849574"
 ---
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 
+* [API 가져오기 제한 사항](../articles/api-management/api-management-api-import-restrictions.md)
 * [OpenAPI 사양 가져오기](../articles/api-management/import-api-from-oas.md)
 * [SOAP API 가져오기](../articles/api-management/import-soap-api.md)
 * [SOAP API를 가져와서 REST로 변환](../articles/api-management/restify-soap-api.md)

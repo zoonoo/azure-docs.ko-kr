@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 15cfa025bde3367c57255ce50f95c69293b63f92
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 59d61eda7002fe46cf99fac63822b2333b2d64b5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283378"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67087761"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>자습서: UserEcho와 Azure Active Directory 통합
 
@@ -31,10 +31,10 @@ UserEcho를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 UserEcho에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 UserEcho와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -57,7 +57,7 @@ UserEcho의 Azure AD 통합을 구성하려면 갤러리의 UserEcho를 관리�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -132,19 +132,19 @@ UserEcho에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. 위쪽 도구 모음에서 메뉴를 확장하려면 사용자 이름을 클릭한 다음 **설정**을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_06.png) 
+    ![Single Sign-on 구성](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
 3. **통합**을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_07.png) 
+    ![Single Sign-on 구성](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
 4. **웹 사이트**를 클릭한 다음 **Single Sign-On(SAML2)** 을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_08.png) 
+    ![Single Sign-on 구성](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
 5. **Single Sign-On(SAML)** 페이지에서 다음 단계를 수행합니다.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_09.png)
+    ![Single Sign-on 구성](./media/userecho-tutorial/tutorial_userecho_09.png)
     
     a. **SAML 사용**을 **예**로 선택합니다.
     
@@ -176,7 +176,7 @@ UserEcho에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
   
     b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -216,23 +216,23 @@ UserEcho에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. 위쪽 도구 모음에서 메뉴를 확장하려면 사용자 이름을 클릭한 다음 **설정**을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_06.png)
+    ![Single Sign-on 구성](./media/userecho-tutorial/tutorial_userecho_06.png)
 
 3. **사용자**를 클릭하여 **사용자** 섹션을 확장합니다.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_10.png)
+    ![Single Sign-on 구성](./media/userecho-tutorial/tutorial_userecho_10.png)
 
 4. **사용자**를 클릭합니다.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_11.png)
+    ![Single Sign-on 구성](./media/userecho-tutorial/tutorial_userecho_11.png)
 
 5. **새 사용자 초대**를 클릭합니다.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_12.png)
+    ![Single Sign-on 구성](./media/userecho-tutorial/tutorial_userecho_12.png)
 
 6. **새 사용자 초대** 대화 상자에서 다음 단계를 수행합니다.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_13.png)
+    ![Single Sign-on 구성](./media/userecho-tutorial/tutorial_userecho_13.png)
 
     a. **이름** 텍스트 상자에 사용자 이름(예: Britta Simon)을 입력합니다.
     

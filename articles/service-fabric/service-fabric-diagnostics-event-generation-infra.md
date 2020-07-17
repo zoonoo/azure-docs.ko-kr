@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 플랫폼 수준 모니터링 | Microsoft Docs
+title: Azure Service Fabric 플랫폼 수준 모니터링
 description: Azure Service Fabric 클러스터를 모니터링 및 진단하는 데 사용되는 플랫폼 수준 이벤트 및 로그를 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: cbdbedf32e8a3dad85262f287b27a03df780d95a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 033b4967d3da382057c2651457f7792e760d8bc3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393064"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247618"
 ---
 # <a name="monitoring-the-cluster"></a>클러스터 모니터링
 
@@ -29,7 +20,7 @@ Service Fabric은 EventStore 및 다양한 기본 제공 로그 채널을 통해
 
 Windows에서 Service Fabric 이벤트는 작동 채널과 데이터 및 메시징 채널 사이에서 선택하는 데 사용되는 관련 `logLevelKeywordFilters` 세트가 있는 단일 ETW 공급자에서 사용할 수 있습니다. 이는 필요에 따라 필터링할 나가는 Service Fabric 이벤트를 격리하는 방식입니다.
 
-* **작업** 제공될 노드에 대한 이벤트, 배포 중인 새 애플리케이션 또는 업그레이드 롤백 등을 포함하여 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업입니다. 이벤트에 대한 전체 목록은 [여기](service-fabric-diagnostics-event-generation-operational.md)를 참조하세요.  
+* **작동** 노드에 대 한 이벤트, 배포 되는 새 응용 프로그램 또는 업그레이드 롤백 등을 비롯 하 여 Service Fabric 및 클러스터에서 수행 하는 상위 수준 작업입니다. [여기](service-fabric-diagnostics-event-generation-operational.md)에서 이벤트의 전체 목록을 참조 하세요.  
 
 * **작동 - 상세**  
 상태 보고서 및 부하 분산 결정
@@ -68,35 +59,35 @@ Service Fabric에는 다음과 같은 문서에서 자세히 설명하는 자체
 
 상태 모니터링은 특히 애플리케이션 업그레이드 중에 서비스 운영의 여러 측면에서 매우 중요합니다. 서비스의 각 업그레이드 도메인이 업그레이드되면 배포가 다음 업그레이드 도메인으로 이동하기 전에 업그레이드 도메인이 상태 확인을 통과해야 합니다. 정상 상태에 도달할 수 없는 경우 배포가 롤백되어 애플리케이션이 알려진 정상 상태로 유지됩니다. 서비스를 롤백하기 전에 일부 고객이 영향을 받을 수 있지만, 대부분의 고객에게는 문제가 발생하지 않습니다. 또한 운영자가 조치를 취할 때까지 기다릴 필요 없이 비교적 빨리 해결됩니다. 코드에 통합된 상태 검사가 많을수록 배포 문제에 대한 서비스 복원력이 더욱 높아집니다.
 
-서비스 상태의 또 다른 측면은 서비스의 메트릭 보고입니다. 메트릭은 리소스 사용량을 조정하는 데 사용되므로 Service Fabric에서 중요합니다. 또한 메트릭은 시스템 상태를 나타내는 표시기일 수도 있습니다. 예를 들어 많은 서비스가 있는 애플리케이션을 가질 수 있으며, 각 인스턴스에서 RPS(초당 요청 수)를 보고합니다. 한 서비스에서 다른 서비스보다 많은 리소스를 사용하는 경우 Service Fabric에서 클러스터 주변의 서비스 인스턴스를 이동하여 리소스 사용률을 유지하려고 합니다. 리소스 사용률이 작동하는 방식에 대한 자세한 설명은 [메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리](service-fabric-cluster-resource-manager-metrics.md)를 참조하세요.
+서비스 상태의 또 다른 측면은 서비스의 메트릭을 보고하는 것입니다. 메트릭은 리소스 사용량을 조정하는 데 사용되므로 Service Fabric에서 중요합니다. 또한 메트릭은 시스템 상태를 나타내는 표시기일 수도 있습니다. 예를 들어 많은 서비스가 있는 애플리케이션을 가질 수 있으며, 각 인스턴스에서 RPS(초당 요청 수)를 보고합니다. 한 서비스에서 다른 서비스보다 많은 리소스를 사용하는 경우 Service Fabric에서 클러스터 주변의 서비스 인스턴스를 이동하여 리소스 사용률을 유지하려고 합니다. 리소스 사용률이 작동하는 방식에 대한 자세한 설명은 [메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리](service-fabric-cluster-resource-manager-metrics.md)를 참조하세요.
 
 또한 메트릭을 통해 서비스 수행 방식에 대한 통찰력을 얻을 수도 있습니다. 시간이 지남에 따라 메트릭을 사용하여 서비스가 예상된 매개 변수 내에서 작동하는지 확인할 수 있습니다. 예를 들어 추세에서 월요일 오전 9시의 평균 RPS가 1,000인 경우 RPS가 500 미만이거나 1,500 이상일 때 경고하는 상태 보고서를 설정할 수 있습니다. 모든 것이 완벽할 수도 있지만 고객이 매우 만족스럽게 경험하고 있는지도 확인할 만한 가치가 있습니다. 서비스에서 상태 검사를 위해 보고할 수 있지만 클러스터의 리소스 분산에는 영향을 미치지 않는 메트릭 집합을 정의할 수 있습니다. 이렇게 하려면 메트릭 가중치를 0으로 설정합니다. 가중치가 0인 모든 메트릭을 시작하고 메트릭의 가중치가 클러스터의 리소스 분산에 미치는 영향을 확실히 이해할 때까지 가중치를 높이지 않는 것이 좋습니다.
 
 > [!TIP]
 > 너무 높은 가중치가 적용된 메트릭은 사용하지 마세요. 분산을 조정하기 위해 서비스 인스턴스를 이동하는 이유를 이해하기 어려울 수 있습니다. 몇 가지 메트릭에는 많은 시간이 걸릴 수 있습니다.
 
-애플리케이션의 상태 및 성능을 나타낼 수 있는 정보는 메트릭 및 상태 보고서의 후보가 됩니다. **CPU 성능 카운터는 노드가 활용되는 상태를 알려줄 수 있지만, 단일 노드에서 여러 서비스가 실행될 수 있으므로 특정 서비스가 정상 상태인지 여부는 알려주지 않습니다.** 그러나 RPS, 처리된 항목 및 요청 대기 시간과 같은 메트릭은 모두 특정 서비스의 상태를 나타낼 수 있습니다.
+애플리케이션의 상태 및 성능을 나타낼 수 있는 정보는 메트릭 및 상태 보고서의 후보가 됩니다. **CPU 성능 카운터는 노드가 활용되는 상태를 알려주지만 단일 노드에서 여러 서비스가 실행될 수 있기 때문에 특정 서비스의 상태가 정상인지 여부는 알려주지 않습니다.** 그러나 RPS, 처리된 항목 및 요청 대기 시간과 같은 메트릭은 모두 특정 서비스의 상태를 나타낼 수 있습니다.
 
 ## <a name="service-fabric-support-logs"></a>Service Fabric 지원 로그
 
-Azure Service Fabric 클러스터에 대한 도움을 받기 위해 Microsoft 지원에 문의해야 하는 경우 지원 로그가 거의 항상 필요합니다. 클러스터가 Azure에서 호스팅되는 경우 클러스터를 만드는 과정의 일부로 이러한 로그를 자동으로 구성하여 수집합니다. 로그는 클러스터의 리소스 그룹에 있는 전용 스토리지 계정에 저장됩니다. 저장소 계정에 고정된 이름은 없지만, 계정에는 *fabric*으로 시작하는 이름의 Blob 컨테이너와 테이블이 표시됩니다. 독립 실행형 클러스터의 로그 수집 설정에 대한 자세한 내용은 [독립 실행형 Azure Service Fabric 클러스터 만들기 및 관리](service-fabric-cluster-creation-for-windows-server.md) 및 [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)을 참조하세요. 독립 실행형 Service Fabric 인스턴스의 경우 로그는 로컬 파일 공유로 보내야 합니다. 지원을 받으려면 이러한 로그가 **필요하지만** Microsoft 고객 지원 팀 외부의 사람이 사용할 수 있는 것은 아닙니다.
+Azure Service Fabric 클러스터에 대한 도움을 받기 위해 Microsoft 지원에 문의해야 하는 경우 지원 로그가 거의 항상 필요합니다. 클러스터가 Azure에서 호스팅되는 경우 클러스터를 만드는 과정의 일부로 이러한 로그를 자동으로 구성하여 수집합니다. 로그는 클러스터의 리소스 그룹에 있는 전용 스토리지 계정에 저장됩니다. 스토리지 계정에 고정된 이름은 없지만, 계정에는 *fabric*으로 시작하는 이름의 Blob 컨테이너와 테이블이 표시됩니다. 독립 실행형 클러스터의 로그 수집 설정에 대한 자세한 내용은 [독립 실행형 Azure Service Fabric 클러스터 만들기 및 관리](service-fabric-cluster-creation-for-windows-server.md) 및 [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)을 참조하세요. 독립 실행형 Service Fabric 인스턴스의 경우 로그는 로컬 파일 공유로 보내야 합니다. 지원을 받으려면 이러한 로그가 **필요하지만** Microsoft 고객 지원 팀 외부의 사람이 사용할 수 있는 것은 아닙니다.
 
 ## <a name="measuring-performance"></a>성능 측정
 
-클러스터 성능 측정을 통해 어떻게 부하를 처리하고 클러스터 크기 조정과 관련된 의사 결정을 주도할 수 있는지 이해할 수 있습니다([Azure에서](service-fabric-cluster-scale-up-down.md) 또는 [온-프레미스로](service-fabric-cluster-windows-server-add-remove-nodes.md) 클러스터 크기를 조정하는 방법에 대한 자세한 내용 참조). 성능 데이터는 나중에 로그를 분석할 때 사용자나 애플리케이션 및 서비스가 수행한 작업에 비교될 경우에도 유용합니다. 
+클러스터 성능 측정을 통해 어떻게 부하를 처리하고 클러스터 크기 조정과 관련된 의사 결정을 주도할 수 있는지 이해할 수 있습니다([Azure에서](service-fabric-cluster-scale-in-out.md) 또는 [온-프레미스로](service-fabric-cluster-windows-server-add-remove-nodes.md) 클러스터 크기를 조정하는 방법에 대한 자세한 내용 참조). 성능 데이터는 나중에 로그를 분석할 때 사용자나 애플리케이션 및 서비스가 수행한 작업에 비교될 경우에도 유용합니다. 
 
 Service Fabric을 사용할 경우 수집할 경우 수집할 성능 카운터에 대해서는 [Service Fabric의 성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 참조하세요.
 
 클러스터에 대한 성능 데이터 수집을 설정하는 두 가지 일반적인 방법은 다음과 같습니다.
 
 * **에이전트 사용**  
-이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. Azure Monitor를 제공 하는 Azure Monitor에 대 한 읽기 Service Fabric의 로그인 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 하 고 [Log Analytics 에이전트 설정](../log-analytics/log-analytics-windows-agent.md) Log Analytics 에이전트에 대 한 자세한 내용을 보려면는 하나의 모니터링 에이전트인은 클러스터 Vm에 대 한 성능 데이터를 선택 하 고 컨테이너를 배포 하는 경우
+이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. Azure Monitor에 대 한 자세한 내용은 Service Fabric의 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 에 Azure Monitor 로그를 제공 하 고 [Log Analytics](../azure-monitor/platform/agent-windows.md) 에이전트에 대 한 자세한 내용은 클러스터 vm 및 배포 된 컨테이너에 대 한 성능 데이터를 선택할 수 있는 모니터링 에이전트 중 하나를 참조 하세요.
 
 * **Azure Table Storage대한 성능 카운터**  
 성능 메트릭은 이벤트와 동일한 테이블 스토리지에 보낼 수도 있습니다. 이렇게 하려면 Azure Diagnostics 구성을 변경하여 클러스터의 VM에서 적절한 성능 카운터를 선택하고, 컨테이너를 배포할 경우 Docker 통계를 선택해야 합니다. 성능 카운터 수집을 설정하려면 Service Fabric에서 [WAD의 성능 카운터](service-fabric-diagnostics-event-aggregation-wad.md)를 구성하는 방법을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Service Fabric에 대해 알아보세요 [Azure Monitor 통합 로그](service-fabric-diagnostics-event-analysis-oms.md) 클러스터 진단 수집을 사용자 지정 쿼리 및 경고 만들기
+* 클러스터 진단을 수집 하 고 사용자 지정 쿼리 및 경고를 만들기 위한 Service Fabric의 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 에 대해 알아봅니다.
 * Service Fabric의 기본 제공 진단 환경인 [EventStore](service-fabric-diagnostics-eventstore.md)에 대해 알아봅니다.
 * Service Fabric에서 몇 가지 [일반적인 진단 시나리오](service-fabric-diagnostics-common-scenarios.md)를 살펴봅니다.

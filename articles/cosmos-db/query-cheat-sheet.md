@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB PDF 쿼리 참고 자료
 description: Azure Cosmos DB의 SQL, MongoDB, Graph 및 Table API를 사용하여 데이터를 쿼리하는 방법을 알려주는 인쇄 가능한 PDF 참고 자료입니다.
-author: rockboyfor
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: v-yeche
-ms.openlocfilehash: 848b5a75e4e957b2ad61072ff2e229cacdba2019
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/28/2019
+ms.author: sngun
+ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60928217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117984"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 쿼리 참고 자료
 
@@ -23,12 +23,12 @@ Letter 크기 또는 A3 크기 다운로드 중에서 선택합니다.
 
 Letter 크기 용지(8.5" x 11")에 인쇄하려면 [Azure Cosmos DB Letter 크기 쿼리 참고 자료](https://go.microsoft.com/fwlink/?LinkId=623215)를 다운로드합니다.
 
-![Azure Cosmos DB 쿼리 참고 자료 - Letter 크기, SQL API, JavaScript, MongoDB, Gremlin 및 Table API 쿼리 및 함수 포함](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png" alt-text="Azure Cosmos DB 쿼리 참고 자료 - Letter 크기, SQL API, JavaScript, MongoDB, Gremlin 및 Table API 쿼리 및 함수 포함" border="false":::
 
 ## <a name="oversized-cheat-sheets"></a>Oversized 크기 참고 자료
 플로터 또는 대형 프린터를 사용하여 A3 용지(11.7" x 16.5")에 인쇄하려면 [Azure Cosmos DB A3 크기 참고 자료](https://go.microsoft.com/fwlink/?linkid=870413)를 다운로드합니다.
 
-![Azure Cosmos DB 쿼리 참고 자료 - A3 크기, SQL API, JavaScript, MongoDB, Gremlin 및 Table API 쿼리 및 함수 포함](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB 쿼리 참고 자료 - A3 크기, SQL API, JavaScript, MongoDB, Gremlin 및 Table API 쿼리 및 함수 포함" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 쿼리 작성에 대한 추가 도움말은 다음 문서를 참조하세요.

@@ -1,0 +1,82 @@
+### YamlMime:Landing
+title: Azure Kinect DK 설명서
+summary: Azure Kinect DK는 정교한 컴퓨터 비전과 음성 모델을 제공하는 고급 AI 센서가 포함된 개발자 키트입니다. Kinect에는 깊이 센서, 비디오 카메라가 장착된 공간 마이크 배열 그리고 여러 모드, 옵션, SDK(소프트웨어 개발 키트)가 포함된 일체형 소형 디바이스인 방향 센서가 포함되어 있습니다.
+metadata:
+  title: Azure Kinect DK 설명서
+  description: Azure Kinect DK는 정교한 컴퓨터 비전과 음성 모델을 제공하는 고급 AI 센서가 포함된 개발자 키트입니다. Kinect에는 깊이 센서, 비디오 카메라가 장착된 공간 마이크 배열 그리고 여러 모드, 옵션, SDK가 포함된 일체형 소형 디바이스인 방향 센서가 포함되어 있습니다.
+  ms.prod: kinect-dk
+  ms.topic: landing-page
+  author: tesych
+  ms.author: tesych
+  ms.date: 03/11/2020
+  ms.openlocfilehash: f1691507d75d6de630f3c5a48cd59c8cc22b5999
+  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/31/2020
+  ms.locfileid: "85277903"
+landingContent:
+- title: Azure Kinect DK 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Kinect DK란?
+      url: about-azure-kinect-dk.md
+  - linkListType: reference
+    links:
+    - text: 하드웨어 사양
+      url: hardware-specification.md
+    - text: 시스템 요구 사항
+      url: system-requirements.md
+- title: 시작하기
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Azure Kinect 센서 SDK
+      url: sensor-sdk-download.md
+    - text: Azure Kinect 신체 추적 SDK
+      url: body-sdk-download.md
+  - linkListType: quickstart
+    links:
+    - text: Azure Kinect DK 설정
+      url: set-up-azure-kinect-dk.md
+    - text: 센서 스트림을 파일에 기록
+      url: record-sensor-streams-file.md
+    - text: 첫 번째 Azure Kinect 애플리케이션 빌드
+      url: build-first-app.md
+    - text: 신체 추적 SDK 설정
+      url: body-sdk-setup.md
+    - text: 첫 번째 신체 추적 앱 빌드
+      url: build-first-body-app.md
+- title: 센서 SDK 사용
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 디바이스를 찾아서 열기
+      url: find-then-open-device.md
+    - text: 이미지 데이터 검색
+      url: about-sensor-sdk.md
+    - text: 마이크에 액세스
+      url: access-mics.md
+    - text: 기록 및 재생
+      url: record-playback-api.md
+- title: 신체 추적 SDK 사용
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 신체 추적 결과 가져오기
+      url: get-body-tracking-results.md
+    - text: 신체 프레임의 데이터에 액세스
+      url: access-data-body-frame.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 센서 SDK API
+      url: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
+    - text: 신체 추적 SDK API
+      url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html
+    - text: 비전 서비스
+      url: https://azure.microsoft.com/services/cognitive-services/directory/vision/
+    - text: Speech Services
+      url: https://docs.microsoft.com/azure/cognitive-services/speech-service/

@@ -1,0 +1,60 @@
+### YamlMime:Landing
+title: Azure FXT Edge Filer 설명서
+summary: Azure FXT Edge Filer 하이브리드 스토리지 캐시는 파일 기반의 읽기 집약적인 고성능 컴퓨팅(HPC) 워크플로를 위한 데이터 액세스를 가속화하는 하드웨어/소프트웨어 하이브리드 시스템입니다.
+metadata:
+  title: Azure FXT Edge Filer 설명서
+  description: Azure FXT Edge Filer를 읽기 집약적인 HPC(고성능 컴퓨팅) 작업의 캐싱 계층으로 사용합니다.
+  ms.service: fxt-edge-filer
+  ms.topic: landing-page
+  author: ronhogue
+  ms.author: rohogue
+  ms.date: 03/20/2020
+  ms.openlocfilehash: ab36532f1f3f29fdd4156c2c65f07d761fa76bb4
+  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "80276515"
+landingContent:
+- title: Azure FXT Edge Filer 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure FXT Edge Filer란?
+      url: fxt-overview.md
+- title: 시작하기
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1 - 하드웨어 설치
+      url: fxt-install.md
+    - text: 2 - 케이블 연결
+      url: fxt-network-power.md
+    - text: 3 - 하드웨어 암호 설정
+      url: fxt-node-password.md
+    - text: 4 - 클러스터 만들기
+      url: fxt-cluster-create.md
+    - text: 5 - 클러스터 노드 추가
+      url: fxt-add-nodes.md
+    - text: 6 - 백 엔드 스토리지 추가 및 가상 네임스페이스 구성
+      url: fxt-add-storage.md
+    - text: 7 - 클러스터의 네트워크 설정 구성
+      url: fxt-configure-network.md
+    - text: 8 - 클러스터에 클라이언트 탑재
+      url: fxt-mount-clients.md
+- title: 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 하드웨어 상태 모니터링
+      url: fxt-monitor.md
+    - text: 안전하게 하드웨어 전원 끄기
+      url: fxt-power-off.md
+- title: 리소스
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 하드웨어 사양
+      url: fxt-specs.md
+    - text: 추가 설명서
+      url: fxt-additional-doc.md

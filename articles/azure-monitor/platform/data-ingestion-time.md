@@ -1,23 +1,16 @@
 ---
 title: Azure Monitor의 로그 데이터 수집 시간 | Microsoft Docs
 description: Azure Monitor에서 로그 데이터를 수집할 때 대기 시간에 영향을 주는 다양한 요인에 대해 설명합니다.
-services: log-analytics
-documentationcenter: ''
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: log-analytics
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.date: 07/18/2019
+ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605607"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77666640"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor의 로그 데이터 수집 시간
 Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 로그 데이터가 수집된 후 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -45,10 +38,10 @@ Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 �
 ### <a name="agent-upload-frequency"></a>에이전트 업로드 빈도
 Log Analytics 에이전트를 경량으로 유지하기 위해 에이전트는 로그를 버퍼링하고 주기적으로 Azure Monitor에 업로드합니다. 업로드 빈도는 데이터 형식에 따라 30초에서 2분 사이입니다. 대부분의 데이터는 1분 이내에 업로드됩니다. 네트워크 조건 때문에 이 데이터가 Azure Monitor 수집 지점에 도달하는 대기 시간이 지연될 수도 있습니다.
 
-### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure 활동 로그, 진단 로그 및 메트릭
+### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Azure 활동 로그, 리소스 로그 및 메트릭
 Azure 데이터는 처리를 위해 Log Analytics 수집 지점에서 사용할 수 있는 추가 시간을 추가합니다.
 
-- 진단 로그의 데이터는 Azure 서비스에 따라 2-15분이 걸립니다. 사용자 환경에서 이 대기 시간을 검사하려면 [아래의 쿼리](#checking-ingestion-time)를 참조하세요.
+- 리소스 로그의 데이터는 Azure 서비스에 따라 2-15 분이 소요 됩니다. 사용자 환경에서 이 대기 시간을 검사하려면 [아래의 쿼리](#checking-ingestion-time)를 참조하세요.
 - Azure 플랫폼 메트릭은 Log Analytics 수집 지점으로 보내는 데 3분이 걸립니다.
 - 활동 로그 데이터는 Log Analytics 수집 지점으로 보내는데 약 10-15분이 걸립니다.
 
@@ -63,10 +56,10 @@ Azure 데이터는 처리를 위해 Log Analytics 수집 지점에서 사용할 
 각 솔루션에 대한 문서를 참조하여 해당 수집 빈도를 확인하세요.
 
 ### <a name="pipeline-process-time"></a>파이프라인 프로세스 시간
-로그 레코드가 Azure Monitor 파이프라인에 수집되고 나면, 테넌트 격리를 보장하고 해당 데이터가 손실되지 않도록 임시 스토리지에 기록됩니다. 이 프로세스로 인해 일반적으로 5~15초가 추가됩니다. 일부 관리 솔루션은 데이터가 스트리밍될 때 데이터를 집계하고 인사이트를 파생하기 위해 부하가 높은 알고리즘을 구현합니다. 예를 들어, 네트워크 성능 모니터링은 들어오는 데이터를 3분 간격으로 집계하므로 대기 시간 3분이 추가됩니다. 대기 시간을 증가시키는 또 다른 프로세스는 사용자 지정 로그를 처리하는 프로세스입니다. 경우에 따라 이 프로세스로 인해 로그에 에이전트가 파일에서 수집하는 대기 시간이 몇 분 정도 추가될 수 있습니다.
+로그 레코드가 Azure Monitor 파이프라인으로 수집 ( [_TimeReceived](log-standard-properties.md#_timereceived) 속성에서 식별 됨), 테 넌 트 격리를 보장 하 고 데이터가 손실 되지 않도록 하기 위해 임시 저장소에 기록 됩니다. 이 프로세스로 인해 일반적으로 5~15초가 추가됩니다. 일부 관리 솔루션은 데이터가 스트리밍될 때 데이터를 집계하고 인사이트를 파생하기 위해 부하가 높은 알고리즘을 구현합니다. 예를 들어, 네트워크 성능 모니터링은 들어오는 데이터를 3분 간격으로 집계하므로 대기 시간 3분이 추가됩니다. 대기 시간을 증가시키는 또 다른 프로세스는 사용자 지정 로그를 처리하는 프로세스입니다. 경우에 따라 이 프로세스로 인해 로그에 에이전트가 파일에서 수집하는 대기 시간이 몇 분 정도 추가될 수 있습니다.
 
 ### <a name="new-custom-data-types-provisioning"></a>새 사용자 지정 데이터 형식 프로비저닝
-[사용자 지정 로그](data-sources-custom-logs.md) 또는 [데이터 수집기 API](data-collector-api.md)에서 새 사용자 지정 데이터 형식이 생성되는 경우, 시스템이 전용 저장소 컨테이너를 만듭니다. 이는 이 데이터 형식이 처음 나타날 때만 발생하는 일회성 오버헤드입니다.
+[사용자 지정 로그](data-sources-custom-logs.md) 또는 [데이터 수집기 API](data-collector-api.md)에서 새 유형의 사용자 지정 데이터를 만들면 시스템에서 전용 저장소 컨테이너를 만듭니다. 이는 이 데이터 형식이 처음 나타날 때만 발생하는 일회성 오버헤드입니다.
 
 ### <a name="surge-protection"></a>서지 보호
 Azure Monitor의 최우선 과제는 고객 데이터가 손실되지 않도록 하는 것이므로, 시스템에 데이터 서지에 대한 보호 기능이 기본 제공됩니다. 여기에는 부하가 높은 경우에도 시스템이 계속 작동하도록 유지하는 버퍼가 포함됩니다. 부하가 정상적일 때는 이러한 제어로 인해 1분 미만이 추가되지만, 극단적인 조건과 오류 상황에서는 데이터를 안전하게 유지하는 반면 상당한 시간이 추가될 수 있습니다.
@@ -79,38 +72,50 @@ Azure Monitor의 최우선 과제는 고객 데이터가 손실되지 않도록 
 
 
 ## <a name="checking-ingestion-time"></a>수집 시간 확인
-수집 시간은 리소스와 상황에 따라 달라질 수 있습니다. 로그 쿼리를 사용하여 현재 환경의 특정 동작을 파악할 수 있습니다.
+수집 시간은 리소스와 상황에 따라 달라질 수 있습니다. 로그 쿼리를 사용하여 현재 환경의 특정 동작을 파악할 수 있습니다. 다음 표에서는 레코드를 만들고 Azure Monitor 전송 되는 레코드에 대해 다른 시간을 결정 하는 방법을 지정 합니다.
+
+| 단계 | 속성 또는 함수 | 의견 |
+|:---|:---|:---|
+| 데이터 원본에 생성 되는 레코드 | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>데이터 원본에서이 값을 설정 하지 않으면 _TimeReceived와 같은 시간으로 설정 됩니다. |
+| Azure Monitor 수집 끝점에서 받은 레코드 | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| 작업 영역에 저장 되어 쿼리에 사용할 수 있는 레코드 | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>수집 대기 시간 지연
-[ingestion_time()](/azure/kusto/query/ingestiontimefunction) 함수의 결과를 _TimeGenerated_ 필드의 내용과 비교하면 특정 레코드의 대기 시간을 측정할 수 있습니다. 다양한 집계에서 이 데이터를 사용하여 수집 대기 시간이 발생하는 방식을 확인할 수 있습니다. 수집 시간의 백분위수 몇 개를 검사하면 대량의 데이터 수집 시간 관련 정보를 파악할 수 있습니다. 
+[Ingestion_time ()](/azure/kusto/query/ingestiontimefunction) 함수의 결과를 _timegenerated_ 속성과 비교 하 여 특정 레코드의 대기 시간을 측정할 수 있습니다. 다양한 집계에서 이 데이터를 사용하여 수집 대기 시간이 발생하는 방식을 확인할 수 있습니다. 수집 시간의 백분위수 몇 개를 검사하면 대량의 데이터 수집 시간 관련 정보를 파악할 수 있습니다. 
 
-예를 들어 다음 쿼리는 해당일에 수집 시간이 가장 긴 컴퓨터를 보여 줍니다. 
+예를 들어 다음 쿼리는 이전 8 시간 동안 수집 시간이 가장 높은 컴퓨터를 보여 줍니다. 
 
 ``` Kusto
 Heartbeat
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
-| top 20 by percentile_E2EIngestionLatency_95 desc  
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
-일정 기간 동안 특정 컴퓨터의 수집 시간을 드릴다운하려는 경우 다음 쿼리를 사용합니다. 이 쿼리도 데이터를 그래프에 표시합니다. 
+
+위의 백분위 수 검사는 대기 시간에 일반적인 추세를 찾는 데 유용 합니다. 대기 시간에 단기 스파이크를 식별 하기 위해 최대 ()를 사용 하는 것이 `max()` 더 효과적일 수 있습니다.
+
+일정 기간 동안 특정 컴퓨터에 대 한 수집 시간을 드릴 다운 하려면 다음 쿼리를 사용 합니다 .이 쿼리는 그래프에서 과거 날짜의 데이터를 시각화도 합니다. 
+
 
 ``` Kusto
 Heartbeat 
-| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| where TimeGenerated > ago(24h) //and Computer == "ContosoWeb2-Linux"  
 | extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
-| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
-| render timechart  
+| extend AgentLatencyMin = todouble(datetime_diff("Second",_TimeReceived,TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95), percentiles(AgentLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart
 ```
  
-에 있는 해당 IP 주소를 기반으로 하는 국가/지역에 따라 컴퓨터 수집 시간을 표시 하려면 다음 쿼리를 사용 합니다. 
+다음 쿼리를 사용 하 여 해당 IP 주소를 기반으로 하는 국가/지역에 따라 컴퓨터 수집 시간을 표시 합니다. 
 
 ``` Kusto
 Heartbeat 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95),percentiles(AgentLatency,50,95) by RemoteIPCountry 
 ```
  
 에이전트에서 생성되는 각 데이터 형식의 수집 대기 시간은 서로 다를 수 있으므로 위의 쿼리를 다른 형식에 사용할 수도 있습니다. 여러 Azure 서비스의 수집 시간을 검사하려면 다음 쿼리를 사용합니다. 
@@ -119,7 +124,8 @@ Heartbeat
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
 
 ### <a name="resources-that-stop-responding"></a>응답하지 않는 리소스 

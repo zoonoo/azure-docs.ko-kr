@@ -4,26 +4,25 @@ titlesuffix: Azure Virtual Network
 description: 이 문서에서는 Azure Portal을 사용하여 서비스 엔드포인트 정책을 설정 및 연결하는 방법에 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: RDhillon
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 09/18/2018
-ms.author: kumud
-ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.date: 02/21/2020
+ms.author: rdhillon
+ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708181"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 엔드포인트를 만들기, 변경 또는 삭제
 
 서비스 엔드포인트 정책을 사용하면 서비스 엔드포인트를 통해 특정 Azure 리소스에 가상 네트워크 트래픽을 필터링 할 수 있습니다. 서비스 엔드포인트 정책을 잘 모르는 경우 [서비스 엔드포인트 정책 개요](virtual-network-service-endpoint-policies-overview.md)를 참조하여 자세히 알아보세요.
 
- 이 자습서에서는 다음 방법에 대해 알아봅니다.
+ 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 서비스 엔드포인트 정책 만들기
@@ -35,89 +34,82 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
- [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-service-endpoint-policy"></a>서비스 엔드포인트 정책 만들기
 
 1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
-2. 검색 창에 "서비스 엔드포인트 정책"을 입력하고 **서비스 엔드포인트 정책(미리 보기)** 를 선택한 다음, **만들기**를 선택합니다.
+2. 검색 창에서 "서비스 끝점 정책"을 입력 하 고 **서비스 끝점 정책** 을 선택한 후 **만들기**를 선택 합니다.
+
+![서비스 끝점 정책 만들기](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.png)
+
 3. **기본**에 다음 정보를 입력하거나 선택 
 
-   - 구독: 정책에 대한 사용자의 구독을 선택합니다.    
-   - 리소스 그룹: **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.     
+   - 구독: 정책에 대 한 구독을 선택 합니다.
+   - 리소스 그룹: **새로 만들기** 를 선택 하 고 *myresourcegroup* 을 입력 합니다.
    - 이름: myEndpointPolicy
-   - 위치: 미국 중서부     
+   - 위치: 미국 중부
  
-   ![서비스 엔드포인트 정책 기본 만들기](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
-   
-4. **정책 정의**에 다음 정보를 입력하거나 선택
+   ![서비스 엔드포인트 정책 기본 만들기](./media/virtual-network-service-endpoint-policies-portal/create-sep-basics.png)
 
-   - **+ 리소스 추가**를 클릭하고 다음 정보를 입력하거나 선택하고, 나머지 설정에 대해 기본값을 적용하고 **추가**를 클릭합니다.  
-   - 범위: **단일 계정**, **구독의 모든 계정** 또는 **리소스 그룹의 모든 계정**을 선택합니다.    
-   - 구독: 스토리지 계정에 대한 구독을 선택합니다. 정책 및 저장소 계정은 다른 구독에 있을 수 있습니다.   
+4. **리소스** 에서 **+ 추가** 를 선택 하 고 **리소스 추가** 창에서 다음 정보를 입력 하거나 선택 합니다.
+
+   - 서비스: 서비스 끝점 정책에는 **Microsoft 저장소** 만 사용할 수 있습니다.
+   - 범위: **단일 계정**에서 하나를 선택 하 고 **구독의 모든 계정** 및 **리소스 그룹의 모든 계정** 을 선택 합니다.
+   - 구독: 스토리지 계정에 대한 구독을 선택합니다. 정책 및 스토리지 계정은 다른 구독에 있을 수 있습니다.
    - 리소스 그룹: 리소스 그룹을 선택합니다. 범위가 "리소스 그룹의 모든 계정" 또는 "단일 계정"으로 설정된 경우 필요합니다.  
-   - 리소스: mystorageaccountportal    
-   - **+ 리소스 추가**를 클릭하여 계속 더 많은 리소스를 추가합니다.
-   
-   ![서비스 엔드포인트 정책 정의 만들기](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
-   
-5. 선택 사항: **태그**에 다음 정보를 입력하거나 선택:
+   - 리소스: 선택한 구독 또는 리소스 그룹에서 Azure Storage 리소스를 선택 합니다.
+   - 아래쪽의 **추가** 단추를 클릭 하 여 리소스 추가를 마칩니다.
+
+   ![서비스 끝점 정책 정의-리소스](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-resource.png)
+
+   - 필요에 따라 위의 단계를 반복 하 여 더 많은 리소스를 추가 합니다.
+
+5. 선택 사항: **태그**에 다음 정보를 입력하거나 선택합니다.
    
    - 키: 정책에 대한 키를 선택합니다. 예: 부서     
-   - 값: 키에 대한 값 쌍을 입력합니다. 예: 재무
+   - 값: 키에 대한 값 쌍을 입력합니다. 예: 금융
 
 6. **검토 + 만들기**를 선택합니다. 정보의 유효성을 검사하고 **만들기**를 클릭합니다. 추가로 편집하려면 **이전**을 클릭합니다. 
 
-   ![서비스 엔드포인트 정책 최종 유효성 검사 만들기](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-finalcreatereview.PNG)
+   ![서비스 엔드포인트 정책 최종 유효성 검사 만들기](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
   
- 
 ## <a name="view-endpoint-policies"></a>엔드포인트 정책 보기 
 
-1. 포털의 *모든 서비스* 상자에 *서비스 엔드포인트 정책* 입력을 시작합니다. **서비스 엔드포인트 정책(미리 보기)** 를 선택합니다.
+1. 포털의 *모든 서비스* 상자에 *서비스 엔드포인트 정책* 입력을 시작합니다. **서비스 끝점 정책**을 선택 합니다.
 2. 다음 그림에 표시된 것처럼 **구독**에서 구독 및 리소스 그룹 선택
 
-   ![정책 표시](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)
+   ![정책 표시](./media/virtual-network-service-endpoint-policies-portal/sep-view.png)
        
 3. 더 많은 정책 정의를 보거나 추가하려면 정책을 선택하고 **정책 정의**를 클릭합니다.
 
-   ![정책 정의 표시](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicy-adddefinitions.PNG)
+   ![정책 정의 표시](./media/virtual-network-service-endpoint-policies-portal/sep-policy-definition.png)
 
-4. **연결된 서브넷**을 선택하여 정책이 연결된 서브넷을 확인합니다. 서브넷에 정책을 연결하려면 "동일한 지역의 가상 네트워크로 이동"을 클릭합니다.
+4. **연결된 서브넷**을 선택하여 정책이 연결된 서브넷을 확인합니다. 서브넷이 아직 연결 되지 않은 경우 다음 단계의 지침을 따르세요.
 
-   ![연결된 서브넷 표시](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-view-associatedsubnets.PNG)
+   ![연결 된 서브넷](./media/virtual-network-service-endpoint-policies-portal/sep-associated-subnets.png)
  
-## <a name="associate-a-policy-to-a-subnet"></a>서브넷에 정책 연결
+5. 서브넷에 정책 연결
 
 >[!WARNING] 
-> 선택한 서비스의 경우 정책을 연결하기 전에 서브넷에서 액세스된 모든 리소스를 정책에 추가했는지 확인합니다. 정책이 연결되면 서비스에 대한 엔드포인트 지역의 경우 정책에 나열된 리소스에 대한 액세스만 허용됩니다. 
+> 정책을 지정 된 서브넷에 연결 하기 전에 서브넷에서 액세스 한 모든 리소스를 정책 정의에 추가 해야 합니다. 정책이 연결 되 면 나열 된 리소스 *허용* 에 대 한 액세스만 서비스 끝점에서 허용 됩니다. 
+>
+> 또한 서비스 끝점 정책에 연결 된 서브넷에 관리 되는 Azure 서비스가 없어야 합니다.
 
-서브넷에 정책을 연결하려면 먼저 가상 네트워크 및 서브넷을 만들어야 합니다. 그래야 서브넷에 정책을 연결할 수 있습니다.
+- 서브넷에 정책을 연결 하려면 먼저 가상 네트워크 및 서브넷을 만들어야 합니다. 이에 대 한 도움말은 [Virtual Network 만들기](./quick-create-portal.md) 문서를 참조 하세요.
 
-1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
-2. **네트워킹**을 선택한 다음 **가상 네트워크**를 선택합니다.
-3. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
-   - Name: myVirtualNetwork      
-   - 주소 공간: 10.0.0.0/16      
-   - 구독: 구독을 선택합니다. 정책은 VNet과 동일한 구독에 있어야 합니다.     
-   - 리소스 그룹: **기존 항목 사용**을 선택한 다음, *myResourceGroup*을 선택합니다.     
-   - 위치: 미국 중서부     
-   - 서브넷 이름: 개인     
-   - 주소 범위: 10.0.0.0/24
-     
-4. 포털 맨 위에 있는 **리소스, 서비스 및 문서 검색** 상자에 *myVirtualNetwork*를 입력하기 시작합니다. 검색 결과에 **myVirtualNetwork**가 표시되면 선택합니다.
-5. **SETTINGS**에서 **서브넷**을 선택한 다음, **개인**을 선택합니다.
-6. 다음 그림에 표시된 것처럼 **서비스 엔드포인트**, **Microsoft.Storage**, **서비스 엔드포인트 정책**,  **myEndpointPolicy** 및 **저장**을 차례로 선택합니다.
+- 가상 네트워크 및 서브넷을 설정한 후에는 Azure Storage에 대 한 Virtual Network 서비스 끝점을 구성 해야 합니다. Virtual Network 블레이드에서 **서비스 끝점**을 선택 하 고 다음 창에서 **Microsoft. 저장소** 를 선택 하 고 **서브넷** 에서 원하는 VNet 또는 서브넷을 선택 합니다.
 
-   ![연결 정책](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-associatepolicies.PNG)
+- 이제 아래와 같이 서브넷에 대 한 서비스 끝점을 구성 하기 전에 서비스 끝점 정책을 이미 만든 경우 위의 창에서 서비스 끝점 정책을 선택 하도록 선택할 수 있습니다.
+
+    ![서비스 끝점을 만드는 동안 서브넷 연결](./media/virtual-network-service-endpoint-policies-portal/vnet-config-service-endpoint-add-sep.png)
+
+- 또는 서비스 끝점이 이미 구성 된 후 서비스 끝점 정책을 연결 하는 경우 아래와 같이 **연결 된 서브넷** 창으로 이동 하 여 서비스 끝점 정책 블레이드 내에서 서브넷을 연결 하도록 선택할 수 있습니다.
+
+    ![9 월을 통해 서브넷 연결](./media/virtual-network-service-endpoint-policies-portal/sep-edit-subnet-association.png)
 
 >[!WARNING] 
->NSG(네트워크 보안 그룹)에 따라 이 서브넷에서 다른 지역의 서비스 리소스에 대한 액세스가 허용됩니다. 엔드포인트 지역에 대한 액세스만 제한하려면 NSG를 엔드포인트 지역의 서비스 트래픽으로만 제한합니다. 지역별 서비스 태그를 사용하여 NSG를 만드는 방법에 대한 자세한 내용은 [NSG Azure 서비스 태그](manage-network-security-group.md?toc=%2fcreate-a-security-rule%2f.json)를 참조하세요.
-
-아래 예제에서 NSG는 우선 순위가 낮은 규칙으로 "모두 거부" 규칙에 따라 WestCentralUS 및 WestUS2의 Azure Storage 리소스에 대한 액세스만 제한됩니다.
-
-![모든 NSG 거부](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-nsg-rules.PNG)
-
+>모든 지역의 Azure Storage 리소스에 대 한 액세스는이 서브넷에서 서비스 끝점 정책에 따라 제한 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 서비스 엔드포인트 정책을 만들어 서브넷에 연결했습니다. 서비스 엔드포인트 정책에 대한 자세한 내용은 [서비스 엔드포인트 정책 개요](virtual-network-service-endpoint-policies-overview.md)를 참조하세요.
-

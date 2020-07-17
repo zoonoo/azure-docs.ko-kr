@@ -2,9 +2,9 @@
 title: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기 | Microsoft Docs
 description: UWP(유니버설 Windows 플랫폼) 애플리케이션을 사용하여 특정 사용자에게 알림을 보내는 방법을 알아봅니다.
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402511"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "71212065"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기
 
@@ -31,7 +33,7 @@ ms.locfileid: "58402511"
 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 애플리케이션 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다.
 
 > [!NOTE]
-> 이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)에서 찾을 수 있습니다.
+> 이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)에서 찾을 수 있습니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -44,9 +46,9 @@ ms.locfileid: "58402511"
 > * 클라이언트 프로젝트에 대한 코드 업데이트
 > * 애플리케이션 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서는 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서에서 만든 Notification Hub 및 Visual Studio 프로젝트를 기반으로 합니다. 따라서 이 자습서를 시작하기 전에 완료합니다.
+이 자습서는 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서에서 완료한 프로젝트의 코드를 업데이트합니다. 따라서 이 자습서를 시작하기 전에 완료합니다.
 
 > [!NOTE]
 > Azure App Service의 Mobile Apps를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [Mobile Apps 버전](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)을 참조하세요.
@@ -126,7 +128,7 @@ ms.locfileid: "58402511"
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-10. **WindowsApp** 프로젝트의 `MainPage.xaml.cs`에서 다음 멤버를 `MainPage` 클래스에 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트로 바꿔야 합니다. 예: `http://mybackend.azurewebsites.net`
+10. **WindowsApp** 프로젝트의 `MainPage.xaml.cs`에서 다음 멤버를 `MainPage` 클래스에 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트으로 바꿔야 합니다. `http://mybackend.azurewebsites.net`)을 입력합니다.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
@@ -135,7 +137,7 @@ ms.locfileid: "58402511"
 
     `PushClick` 메서드는 **Send Push(푸시 전송)** 단추의 클릭 처리기입니다. `to_tag` 매개 변수와 일치하는 사용자 이름 태그가 있는 모든 디바이스로 알림을 트리거하도록 백 엔드를 호출합니다. 알림 메시지는 요청 본문의 JSON 콘텐츠로 전송됩니다.
 
-    `LoginAndRegisterClick` 메서드는 **로그인 및 등록** 단추의 클릭 처리기입니다. 기본 인증 토큰(이는 인증 체계에서 사용하는 모든 토큰을 나타냄)을 로컬 저장소에 저장한 다음, `RegisterClient`를 사용하여 백 엔드가 사용되는 알림에 등록합니다.
+    `LoginAndRegisterClick` 메서드는 **로그인 및 등록** 단추의 클릭 처리기입니다. 기본 인증 토큰(이는 인증 체계에서 사용하는 모든 토큰을 나타냄)을 로컬 스토리지에 저장한 다음, `RegisterClient`를 사용하여 백 엔드가 사용되는 알림에 등록합니다.
 
     ```csharp
     private async void PushClick(object sender, RoutedEventArgs e)
@@ -222,7 +224,7 @@ ms.locfileid: "58402511"
     ```
 13. **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가**를 클릭한 다음, **클래스**를 클릭합니다. 클래스 이름을 `RegisterClient.cs`로 지정한 다음, **확인**을 클릭하여 클래스를 생성합니다.
 
-    이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](https://msdn.microsoft.com/library/dn743807.aspx)를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 저장소에 저장된 인증 토큰을 사용합니다.
+    이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](https://msdn.microsoft.com/library/dn743807.aspx)를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 스토리지에 저장된 인증 토큰을 사용합니다.
 14. RegisterClient.cs 파일의 맨 위에 다음 `using` 문을 추가합니다.
 
     ```csharp

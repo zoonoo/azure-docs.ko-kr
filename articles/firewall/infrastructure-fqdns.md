@@ -1,18 +1,17 @@
 ---
 title: Azure Firewall의 인프라 FQDN
-description: Azure Firewall의 인프라 FQDN에 대해 자세히 알아보기
+description: Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 34201a0eb4139de64261f77f285096a2aa2dd3aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d4de81bad1ddda2f5b54f47c1be78925ad4cdbf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61066328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74168975"
 ---
 # <a name="infrastructure-fqdns"></a>인프라 FQDN
 
@@ -20,10 +19,9 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 
 다음 서비스는 기본 제공 규칙 컬렉션에 포함됩니다.
 
-- 스토리지 PIR(플랫폼 이미지 리포지토리)에 대한 액세스를 계산합니다.
-- 관리 디스크 상태 저장소 액세스.
+- 스토리지 PIR(플랫폼 이미지 리포지토리)에 대한 액세스를 컴퓨팅합니다.
+- 관리 디스크 상태 스토리지 액세스.
 - Azure Diagnostics 및 로깅(MDS)
-- Azure Active Directory
 
 ## <a name="overriding"></a>대체 
 
@@ -31,4 +29,4 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Azure Firewall을 배포 및 구성](tutorial-firewall-deploy-portal.md)하는 방법에 대해 알아봅니다.
+- [Azure 방화벽을 배포 하 고 구성](tutorial-firewall-deploy-portal.md)하는 방법에 대해 알아봅니다.

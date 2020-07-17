@@ -12,37 +12,36 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 01/09/2019
 ms.author: b-juche
-ms.openlocfilehash: 1f9c427045c9d42f6a11cc4bcc798cfc47a4428c
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.openlocfilehash: 0398cc6a5336141f51dde26ed7cf4cce8c2c0bb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75832576"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Azure NetApp Files에 대한 서비스 수준
-서비스 수준은 용량 풀의 특성입니다. 서비스 수준 정의 되며 볼륨에 할당 된 할당량을 기반으로 용량 풀에서 볼륨에 대 한 허용 된 최대 처리량에 의해 구별 됩니다.
+서비스 수준은 용량 풀의 특성입니다. 서비스 수준은 볼륨에 할당 된 할당량을 기준으로 용량 풀의 볼륨에 허용 되는 최대 처리량으로 정의 되 고 구분 됩니다.
 
 ## <a name="supported-service-levels"></a>지원 되는 서비스 수준
 
-Azure NetApp 파일에서는 세 가지 서비스 수준을 지원합니다. *Ultra*, *Premium*, 및 *표준*합니다. 
+Azure NetApp Files은 *Ultra*, *Premium*및 *Standard*의 세 가지 서비스 수준을 지원 합니다. 
 
-* <a name="Ultra"></a>Ultra 저장소
+* <a name="Ultra"></a>Ultra storage
 
-    최대 128 MiB/s 할당 볼륨 할당량 1tib 당 처리량의 Ultra 저장소 계층을 제공 합니다. 
+    Ultra storage 계층은 할당 된 볼륨 할당량의 TiB 1 개에 대 한 최대 128 MiB/s의 처리량을 제공 합니다. 
 
-* <a name="Premium"></a>Premium Storage
+* <a name="Premium"></a>Premium storage
 
-    최대 64 초 당 할당 된 볼륨 할당량 1tib 처리량의 프리미엄 저장소 계층을 제공 합니다. 
+    Premium storage 계층은 할당 된 볼륨 할당량의 TiB 1 개에 대 한 최대 64 MiB/s의 처리량을 제공 합니다. 
 
-* <a name="Standard"></a>Standard Storage
+* <a name="Standard"></a>표준 저장소
 
-    표준 저장소 계층만 16 초 당 할당 된 볼륨 할당량 1tib 처리량까지 제공 합니다.
+    표준 저장소 계층은 할당 된 볼륨 할당량의 TiB 1 개에 대 한 최대 16 개의 MiB/s를 제공 합니다.
 
 ## <a name="throughput-limits"></a>처리량 한도
 
-볼륨에 대 한 처리량 한도 다음 요인의 조합에 의해 결정 됩니다.
+볼륨의 처리량 제한은 다음 요소의 조합에 따라 결정 됩니다.
 * 볼륨이 속한 용량 풀의 서비스 수준
 * 볼륨에 할당 된 할당량  
 
@@ -50,12 +49,13 @@ Azure NetApp 파일에서는 세 가지 서비스 수준을 지원합니다. *Ul
 
 ![서비스 수준 그림](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
-위의 예제 1과 2 TiB 할당량의 할당 된 프리미엄 저장소 계층을 사용 하 여 용량 풀에서 볼륨을 할당할 128 MiB/s의 처리량 제한은 (TiB 2 * 64 초)입니다. 이 시나리오는 용량 풀 크기 또는 실제 볼륨 사용량에 관계 없이 적용 됩니다.
+위의 예제 1에서 TiB 할당 된 Premium storage 계층이 있는 용량 풀의 볼륨에는 처리량 제한인 128 MiB/s (2 TiB * 64 MiB/s)가 할당 됩니다. 이 시나리오는 용량 풀 크기나 실제 볼륨 소비에 관계 없이 적용 됩니다.
 
-위의 예제 2에서는 100gib 할당량의 할당 된 프리미엄 저장소 계층을 사용 하 여 용량 풀에서 볼륨을 할당할 6.25 MiB/s의 처리량 제한은 (0.09765625 TiB * 64 초)입니다. 이 시나리오는 용량 풀 크기 또는 실제 볼륨 사용량에 관계 없이 적용 됩니다.
+위의 예 2에서는 GiB 할당 된 Premium storage 계층이 있는 용량 풀의 볼륨에 100의 처리량 제한이 6.25 MiB/s (0.09765625 TiB * 64 MiB/s)로 할당 됩니다. 이 시나리오는 용량 풀 크기나 실제 볼륨 소비에 관계 없이 적용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - 여러 서비스 수준의 가격은 [Azure NetApp Files 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/netapp/)를 참조하세요.
-- 참조 [NetApp Azure Files에 대 한 비용 모델](azure-netapp-files-cost-model.md) 용량 풀의 용량 소비에 대 한 계산에 대 한 
+- 용량 풀의 용량 소비 계산에 대 [한 Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md) 을 참조 하세요. 
 - [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+- [Azure NetApp Files Service Level Agreement(서비스 수준 약정) (SLA)를](https://azure.microsoft.com/support/legal/sla/netapp/) 참조 하세요.

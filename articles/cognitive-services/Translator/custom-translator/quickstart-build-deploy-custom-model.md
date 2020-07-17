@@ -2,31 +2,45 @@
 title: '빠른 시작: 사용자 지정 모델 빌드, 배포 및 사용 - Custom Translator'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Custom Translator를 사용하여 번역 시스템을 구축하는 단계별 프로세스를 안내합니다.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
-ms.author: v-rada
+ms.date: 05/26/2020
+ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: 7875a32274ddf0ea886727cdc55a0bbb874b2296
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762996"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964382"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역용 사용자 지정 모델 빌드, 배포 및 사용
 
 이 문서에서는 Custom Translator를 사용하여 번역 시스템을 구축하는 단계별 지침을 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. [Custom Translator](https://portal.customtranslator.azure.ai) 포털을 사용하려면 [Microsoft 계정](https://signup.live.com) 또는 [Azure AD 계정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)(Azure에 호스트되는 조직 계정)으로 로그인해야 합니다.
 
-2. Azure Portal 통해 Translator Text API 구독. Custom Translator에서 작업 영역과 연결할 Translator Text API 구독 키가 필요합니다. [Translator Text API에 등록하는 방법](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)을 참조하세요.
+2. Azure Portal을 통한 Translator 구독. Custom Translator에서 작업 영역과 연결할 Translator 구독 키가 필요합니다. [Translator에 등록하는 방법](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)을 참조하세요.
 
-3. 위의 두 가지 조건이 모두 준비되면 [Custom Translator](https://portal.customtranslator.azure.ai) 포털에 로그인합니다. Custom Translator 포털에서, Microsoft Translator Text API 구독 키를 작업 영역과 연결할 수 있는 [설정] 페이지로 이동합니다.
+3. 위의 두 가지가 모두 있는 경우 [사용자 지정 변환기](https://portal.customtranslator.azure.ai) 포털에 로그인하여 작업 영역, 프로젝트, 파일 업로드 및 모델 만들기/배포를 만듭니다.
+
+## <a name="create-a-workspace"></a>작업 영역 만들기
+
+첫 사용자인 경우 서비스 약관에 동의하여 작업 영역을 만들고, 작업 영역을 Translator 구독과 연결하라는 메시지가 표시됩니다.
+
+![작업 영역 만들기](media/quickstart/terms-of-service.png)
+![작업 영역 만들기](media/quickstart/create-workspace-1.png)
+![작업 영역 만들기](media/quickstart/create-workspace-2.png)
+![작업 영역 만들기](media/quickstart/create-workspace-3.png)
+![작업 영역 만들기](media/quickstart/create-workspace-4.png)
+![작업 영역만들기](media/quickstart/create-workspace-5.png)
+![작업 영역 만들기](media/quickstart/create-workspace-6.png)
+
+이후에 Custom Translator 포털 방문 시 작업 영역을 관리하고, 추가 작업 영역을 만들고, Translator 구독 키를 작업 영역에 연결하고, 공동 소유자를 추가하고, 구독 키를 변경할 수 있는 설정 페이지로 이동합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
@@ -37,7 +51,7 @@ Custom Translator 포털 방문 페이지에서 [새 프로젝트]를 클릭합�
 
 ## <a name="upload-documents"></a>문서 업로드
 
-다음으로, [교육](training-and-model.md#training-dataset-for-custom-translator), [튜닝](training-and-model.md#tuning-dataset-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 문서 집합을 업로드합니다. 두 [병렬](what-are-parallel-documents.md) 및 콤보 문서를 모두 업로드할 수 있습니다. [사전](what-is-dictionary.md)도 업로드할 수 있습니다.
+다음으로, [교육](training-and-model.md#training-document-type-for-custom-translator), [튜닝](training-and-model.md#tuning-document-type-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 문서 집합을 업로드합니다. 두 [병렬](what-are-parallel-documents.md) 및 콤보 문서를 모두 업로드할 수 있습니다. [사전](what-is-dictionary.md)도 업로드할 수 있습니다.
 
 두 문서 탭 또는 특정 프로젝트 페이지의 문서를 업로드할 수 있습니다.
 
@@ -49,7 +63,7 @@ Custom Translator 포털 방문 페이지에서 [새 프로젝트]를 클릭합�
 
 필수 문서가 모두 업로드되면 그 다음 단계는 모델 빌드입니다.
 
-앞에서 만든 프로젝트를 선택합니다. 업로드한 모든 문서가 이 프로젝트와 언어 쌍을 공유하는 것을 볼 수 있습니다. 모델에 포함할 문서를 선택합니다. [교육](training-and-model.md#training-dataset-for-custom-translator), [튜닝](training-and-model.md#tuning-dataset-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 데이터를 선택할 수도 있고, 교육 데이터만 선택하고 Custom Translator가 자동으로 모델의 튜닝 및 테스트 세트를 빌드하게 할 수도 있습니다.
+앞에서 만든 프로젝트를 선택합니다. 업로드한 모든 문서가 이 프로젝트와 언어 쌍을 공유하는 것을 볼 수 있습니다. 모델에 포함할 문서를 선택합니다. [교육](training-and-model.md#training-document-type-for-custom-translator), [튜닝](training-and-model.md#tuning-document-type-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 데이터를 선택할 수도 있고, 교육 데이터만 선택하고 Custom Translator가 자동으로 모델의 튜닝 및 테스트 세트를 빌드하게 할 수도 있습니다.
 
 ![모델 만들기](media/quickstart/ct-how-to-train.png)
 
@@ -69,7 +83,7 @@ Custom Translator 포털 방문 페이지에서 [새 프로젝트]를 클릭합�
 
 ## <a name="use-a-deployed-model"></a>배포된 모델 사용
 
-배포된 모델은 [CategoryID를 검사하여 Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 통해 액세스할 수 있습니다. Translator Text API에 대한 자세한 내용은 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 확인할 수 있습니다.
+배포된 모델은 CategoryID(https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) )를 지정하여 Translator를 통해 액세스할 수 있습니다. Translator에 대한 자세한 내용은 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

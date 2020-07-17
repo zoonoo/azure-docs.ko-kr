@@ -1,35 +1,28 @@
 ---
-title: Azure의 Windows VM에 대한 시간 동기화 | Microsoft Docs
+title: Azure의 Windows VM에 대한 시간 동기화
 description: Windows 가상 머신에 대한 시간 동기화.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1a2e75dcffe32c6f1aeaba8646b96bbc1500ffdf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd9a196e5f957782de91cff69c01fbfa5716369a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82100501"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 시간 동기화
 
-시간 동기화는 보안 및 이벤트 상관 관계에서 중요합니다. 경우에 따라 시간 동기화는 분산 트랜잭션 구현에 사용됩니다. 여러 컴퓨터 시스템 간에 시간 정확도는 동기화를 통해 이루어집니다. 동기화는 재부팅 및 시간 원본 서버와 시간을 페칭하는 컴퓨터 간의 네트워크 트래픽을 비롯해 여러 작업에서 영향을 받을 수 있습니다. 
+시간 동기화는 보안 및 이벤트 상관 관계에서 중요합니다. 경우에 따라 시간 동기화는 분산 트랜잭션 구현에 사용됩니다. 여러 컴퓨터 시스템 간에 시간 정확도는 동기화를 통해 이루어집니다. 동기화는 재부팅 및 시간 원본 서버와 시간을 페치하는 컴퓨터 간의 네트워크 트래픽을 비롯해 여러 작업에서 영향을 받을 수 있습니다. 
 
 Azure는 이제 Windows Server 2016을 실행하는 인프라의 지원을 받습니다. Windows Server 2016은 시간을 수정하고 로컬 시계에 영향을 미치는 데 사용된 알고리즘을 개선하여 UTC와 동기화했습니다.  또한 Windows Server 2016은 정확한 시간을 위해 VM이 호스트와 동기화하는 방법을 제어하는 VMICTimeSync 서비스도 개선했습니다. 이러한 개선은 VM 시작 또는 VM 복원 시 시작 시간의 정확도 향상을 포함하며, Windows Time(W32time)에 제공되는 샘플에 대한 대기 시간 수정을 중단합니다. 
 
 
 >[!NOTE]
->Windows Time 서비스에 대한 빠른 개요는 이 [고급 개요 비디오](https://aka.ms/WS2016TimeVideo)를 참조하세요.
+>Windows 시간 서비스에 대한 간략한 개요는 이 [고급 개요 비디오](https://aka.ms/WS2016TimeVideo)를 살펴보세요.
 >
 > 자세한 내용은 [Windows Server 2016의 정확한 시간](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)을 참조하세요. 
 
@@ -39,7 +32,7 @@ Azure는 이제 Windows Server 2016을 실행하는 인프라의 지원을 받�
 
 Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 디바이스에서 시간을 사용하는 내부 Microsoft 시간 서버에 동기화됩니다. Azure의 가상 머신은 정확한 시간(*호스트 시간*)을 VM에 전달하기 위해 호스트에 의존할 수 있거나, VM이 직접 시간 서버 또는 둘의 조합에서 시간을 가져올 수 있습니다. 
 
-호스트와 가상 머신의 상호 작용은 시계에도 영향을 줄 수 있습니다. [메모리 보존 유지 관리](maintenance-and-updates.md#maintenance-not-requiring-a-reboot) 중에는 VM이 최대 30초 동안 일시 중지됩니다. 예를 들어 유지 관리를 시작하면 먼저 VM 시계는 오전 10:00:00시를 표시한 후, 28초간 지속됩니다. VM이 다시 시작되면 VM 시계는 여전히 오전 10:00:00시를 표시한 다음, 28초가 해제됩니다. 이를 수정하려면 VMICTimeSync 서비스가 호스트에서 발생하는 상황을 모니터링하고 VM에서 발생되는 변경을 보완하도록 요구합니다.
+호스트와 가상 머신의 상호 작용은 시계에도 영향을 줄 수 있습니다. [메모리 보존 유지 관리](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) 중에는 VM이 최대 30초 동안 일시 중지됩니다. 예를 들어 유지 관리를 시작하면 먼저 VM 시계는 오전 10:00:00시를 표시한 후, 28초간 지속됩니다. VM이 다시 시작되면 VM 시계는 여전히 오전 10:00:00시를 표시한 다음, 28초가 해제됩니다. 이를 수정하려면 VMICTimeSync 서비스가 호스트에서 발생하는 상황을 모니터링하고 VM에서 발생되는 변경을 보완하도록 요구합니다.
 
 VMICTimeSync 서비스는 샘플 또는 동기화 모드에서 작동하며 미래의 시계에만 영향을 줍니다. W32time이 실행되어야 하는 샘플 모드에서는 VMICTimeSync 서비스가 5초마다 호스트를 폴링하고 W32time에 시간 샘플을 제공합니다. W32time 서비스는 약 30초마다 최신 시간 샘플을 받아서 해당 샘플로 게스트 시계에 영향을 줍니다. 동기화 모드는 게스트가 다시 시작되었거나 게스트 시계가 호스트 시계보다 5초 넘게 늦는 경우 활성화됩니다. W32time 서비스가 제대로 실행되는 경우에는 후자의 상황이 절대 발생하지 않아야 합니다.
 
@@ -74,13 +67,13 @@ w32time은 계층 수준, 루트 지연, 루트 분산, 시간 오프셋의 우�
 
 ### <a name="host-only"></a>호스트 전용 
 
-time.windows.com은 공용 NTP 서버이므로 시간과 동기화는 인터넷을 통해 트래픽을 전송해야 하며, 다양한 패킷 지연 시간이 시간 동기화의 품질을 저하시킬 수 있습니다. 호스트 전용 동기화로 전환하여 time.windows.com을 제거하면 경우에 따라 시간 동기화 결과를 향상시킬 수 있습니다.
+Time.windows.com는 공용 NTP 서버 이므로 시간을 동기화 하면 인터넷을 통해 트래픽을 전송 해야 하며, 다양 한 패킷 지연이 발생 하면 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환 하 여 time.windows.com를 제거 하면 시간 동기화 결과를 향상 시킬 수 있습니다.
 
 기본 구성을 사용하는 시간 동기화 문제를 겪는 경우 호스트 전용 시간 동기화로 전환하는 것이 합리적입니다. 이 방법이 VM에서 시간 동기화를 향상시키는지 확인하려면 호스트 전용 동기화를 사용해 보세요. 
 
 ### <a name="external-time-server"></a>외부 시간 서버
 
-특정 시간 동기화 요구 사항이 있는 경우 외부 시간 서버를 사용할 수도 있습니다. 외부 시간 서버는 테스트 시나리오에 유용할 수 있는 특정 시간을 제공하면서 타사 데이터센터에 호스팅된 머신을 사용하여 시간 일관성을 보장하거나, 특별한 방식으로 윤초를 처리할 수 있습니다.
+특정 시간 동기화 요구 사항이 있는 경우 외부 시간 서버를 사용할 수도 있습니다. 외부 시간 서버는 테스트 시나리오에 유용할 수 있는 특정 시간을 제공하면서 타사 데이터 센터에 호스트된 머신을 사용하여 시간 일관성을 보장하거나, 특별한 방식으로 윤초를 처리할 수 있습니다.
 
 외부 서버를 VMICTimeSync 서비스 및 VMICTimeProvider와 결합하여 기본 구성과 유사한 결과를 제공할 수 있습니다. 
 
@@ -154,7 +147,7 @@ net stop w32time && net start w32time
 
 ## <a name="windows-server-2012-and-r2-vms"></a>Windows Server 2012 및 R2 VM 
 
-Windows Server 2012 및 Windows Server 2012 R2에는 시간 동기화에 대한 서로 다른 기본 설정이 있습니다. 기본적으로 w32time은 정확한 시간보다 서비스의 낮은 오버헤드를 선호하는 방식으로 구성됩니다. 
+Windows Server 2012 및 Windows 2012 Server 2008 r 2에는 시간 동기화에 대 한 기본 설정이 다릅니다. 기본적으로 w32time은 정확한 시간으로 서비스의 낮은 오버 헤드를 선호 하는 방식으로 구성 됩니다. 
 
 정확한 시간을 선호하는 최신 기본값을 사용하기 위해 Windows Server 2012 및 2012 R2 배포로 이동하려는 경우 다음 설정을 적용할 수 있습니다.
 
@@ -181,7 +174,7 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 - [Windows 시간 서비스 도구 및 설정](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
 - [Windows Server 2016 개선 사항](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Windows Server 2016의 정확한 시간](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-- [정확도 높은 환경에 대한 Windows 시간 서비스를 구성하도록 경계 지원](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
+- [Windows Server 2016에 대 한 정확한 시간](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+- [정확도가 높은 환경에 맞게 Windows 시간 서비스를 구성할 수 있는 지원 범위](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
 
 

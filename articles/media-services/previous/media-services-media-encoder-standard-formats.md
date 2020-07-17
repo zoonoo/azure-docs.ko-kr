@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard 형식 및 코덱 - Azure
-description: 이 항목에서는 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다.
+description: 이 문서에서는 Media Encoder Standard 형식 및 코덱에 대 한 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: c862de2eec4e6c116218457a20b567dc02778685
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712295"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택 합니다."]
 > * [버전 2](media-services-media-encoder-standard-formats.md)
 > * [버전 3](../latest/media-encoder-standard-formats.md)
 
@@ -68,7 +68,7 @@ ms.locfileid: "61463738"
 | MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |
 | MPEG-1 |예 |
 | VC-1/WMV9 |예 |
-| Canopus HQ/HQX |아닙니다. |
+| Canopus HQ/HQX |아니요 |
 | Mpeg-4 2부 |예 |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |예 |
 | 압축되지 않은 YUV420 또는 mezzanine |예 |
@@ -92,10 +92,10 @@ ms.locfileid: "61463738"
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |예 |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |
 | AMR(Adaptive Multi-Rate) |예 |
-| AES(SMPTE 331M 및 302M, AES3-2003) |아닙니다. |
-| Dolby® E |아닙니다. |
-| Dolby® Digital(AC3) |아닙니다. |
-| Dolby® Digital Plus(E-AC3) |아닙니다. |
+| AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |
+| Dolby® E |아니요 |
+| Dolby® Digital(AC3) |아니요 |
+| Dolby® Digital Plus(E-AC3) |아니요 |
 
 ## <a name="output-formats-and-codecs"></a>출력 형식 및 코덱
 다음 표에는 내보내기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
@@ -111,7 +111,7 @@ ms.locfileid: "61463738"
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md)
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)

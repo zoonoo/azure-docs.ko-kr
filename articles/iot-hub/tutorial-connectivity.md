@@ -5,16 +5,19 @@ services: iot-hub
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
-ms.custom: mvc
+ms.custom:
+- mvc
+- amqp
+- mqtt
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e42b403717eb83db06a9f719a6451cbca74c2929
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077567"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81770037"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트
 
@@ -22,24 +25,26 @@ ms.locfileid: "58077567"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * 디바이스 인증 확인
 > * 디바이스-클라우드 연결 확인
-> * 클라우드-장치 연결 확인
+> * 클라우드-디바이스 연결 확인
 > * 디바이스 쌍 동기화 확인
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서 실행하는 CLI 스크립트에서 [Azure CLI용 Microsoft Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)을 사용해야 합니다. 이 확장을 설치하려면 다음 CLI 명령을 실행합니다.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-이 자습서에서 실행하는 장치 시뮬레이터 애플리케이션은 Node.js를 사용하여 작성해야 합니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
+이 자습서에서 실행하는 디바이스 시뮬레이터 애플리케이션은 Node.js를 사용하여 작성해야 합니다. 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
 
 [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
 
@@ -49,7 +54,9 @@ az extension add --name azure-cli-iot-ext
 node --version
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서 샘플 디바이스 시뮬레이터 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+[https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip )에서 샘플 디바이스 시뮬레이터 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+
+방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 자습서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -77,7 +84,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
 개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests** 폴더로 이동합니다.
 
-터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 애플리케이션을 실행합니다. 포털에서 디바이스를 추가할 때 적어 둔 디바이스 연결 문자열을 사용합니다.
+터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 실행합니다. 포털에서 디바이스를 추가할 때 적어 둔 디바이스 연결 문자열을 사용합니다.
 
 ```cmd/sh
 npm install
@@ -101,13 +108,13 @@ node SimulatedDevice-1.js "{your device connection string}"
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
 # Requires the IoT Extension for Azure CLI
-# az extension add --name azure-cli-iot-ext
+# az extension add --name azure-iot
 
 # Reset the primary device key for MyTestDevice
 az iot hub device-identity update --device-id MyTestDevice --set authentication.symmetricKey.primaryKey=$key --hub-name {YourIoTHubName}
 ```
 
-개발 컴퓨터의 터미널 창에서 시뮬레이션된 장치 애플리케이션을 다시 실행합니다.
+개발 컴퓨터의 터미널 창에서 시뮬레이션된 디바이스 애플리케이션을 다시 실행합니다.
 
 ```cmd/sh
 npm install
@@ -137,7 +144,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests** 폴더로 이동합니다.
 
-터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 애플리케이션을 실행합니다.
+터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -178,7 +185,7 @@ az iot hub device-identity show-connection-string --device-id MyTestDevice --out
 
 메시지를 보내는 시뮬레이션된 디바이스를 실행하려면 다운로드한 코드의 **iot-hub\Tutorials\ConnectivityTests** 폴더로 이동합니다.
 
-터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 애플리케이션을 실행합니다.
+터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -195,11 +202,11 @@ node SimulatedDevice-3.js "{your device connection string}"
 
 시뮬레이션된 디바이스를 시작한 후에 메트릭을 사용할 수 있게 하는 데 몇 분 정도 걸립니다.
 
-## <a name="check-cloud-to-device-connectivity"></a>클라우드-장치 연결 확인
+## <a name="check-cloud-to-device-connectivity"></a>클라우드-디바이스 연결 확인
 
 이 섹션에서는 디바이스에 대한 테스트 직접 메서드를 호출하여 클라우드-디바이스 연결을 확인하는 방법을 보여줍니다. 개발 컴퓨터에서 시뮬레이션된 디바이스를 실행하여 허브로부터의 직접 메서드 호출을 수신 대기합니다.
 
-터미널 창에서 다음 명령을 사용하여 시뮬레이션된 장치 애플리케이션을 실행합니다.
+터미널 창에서 다음 명령을 사용하여 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
 
 ```cmd/sh
 node SimulatedDevice-3.js "{your device connection string}"
@@ -225,7 +232,7 @@ az iot hub invoke-device-method --device-id MyTestDevice --method-name TestMetho
 
 이 섹션에서 사용하는 시뮬레이션된 디바이스에서는 시작할 때마다 reported 속성을 허브로 보내고, desired 속성을 받을 때마다 이 속성을 콘솔에 출력합니다.
 
-터미널 창에서 다음 명령을 사용하여 시뮬레이션된 장치 애플리케이션을 실행합니다.
+터미널 창에서 다음 명령을 사용하여 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
 
 ```cmd/sh
 node SimulatedDevice-3.js "{your device connection string}"

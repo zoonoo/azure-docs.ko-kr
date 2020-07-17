@@ -1,25 +1,15 @@
 ---
-title: 고급 인증 및 권한 부여 사용 - Azure App Service | Microsoft Docs
-description: App Service의 인증 및 권한 부여를 사용자 지정하고, 사용자 클레임 및 서로 다른 토큰을 가져오는 방법을 보여 줍니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.devlang: multiple
+title: 인증/인증의 고급 사용
+description: 다양 한 시나리오에 대 한 App Service의 인증 및 권한 부여 기능을 사용자 지정 하 고 사용자 클레임 및 다른 토큰을 가져오는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 11/08/2018
-ms.author: cephalin
+ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b217bb1052a16ded205ac216878945fb960d32d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851426"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205583"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -34,6 +24,7 @@ ms.locfileid: "60851426"
 * [Google 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-google.md)
 * [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-microsoft.md)
 * [Twitter 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-twitter.md)
+* [Openid connect Connect 공급자를 사용 하 여 로그인 하도록 앱을 구성 하는 방법 (미리 보기)](configure-authentication-provider-openid-connect.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>다중 로그인 공급자 사용
 
@@ -45,7 +36,7 @@ ms.locfileid: "60851426"
 
 로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들면 다음과 같습니다.
 
-```HTML
+```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
 <a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
@@ -57,7 +48,7 @@ ms.locfileid: "60851426"
 
 사용자 사후 로그인을 사용자 지정 URL로 리디렉션하려면 `post_login_redirect_url` 쿼리 문자열 매개 변수를 사용합니다(ID 공급자 구성의 리디렉션 URI와 혼동하지 않음). 예를 들어 로그인한 후에 사용자를 `/Home/Index`로 이동하려면 다음 HTML 코드를 사용합니다.
 
-```HTML
+```html
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
@@ -113,7 +104,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 
 웹 페이지의 단순 로그아웃 링크는 다음과 같습니다.
 
-```HTML
+```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
@@ -131,7 +122,7 @@ GET /.auth/logout?post_logout_redirect_uri=/index.html
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
-[Azure Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행해야 합니다.
+[Azure Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
@@ -154,7 +145,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 
-모든 언어로 작성된 코드 또는 프레임워크는 이러한 헤더에서 필요한 정보를 가져올 수 있습니다. ASP.NET 4.6 앱의 경우 **ClaimsPrincipal** 이 적절한 값으로 자동 설정됩니다.
+모든 언어로 작성된 코드 또는 프레임워크는 이러한 헤더에서 필요한 정보를 가져올 수 있습니다. ASP.NET 4.6 앱의 경우 **ClaimsPrincipal** 이 적절한 값으로 자동 설정됩니다. 그러나 ASP.NET Core App Service 사용자 클레임과 통합 되는 인증 미들웨어는 제공 하지 않습니다. 해결 방법은 [MaximeRouiller. AppService. EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)를 참조 하세요.
 
 또한 애플리케이션에서 `/.auth/me`를 호출하여 인증된 사용자에 대한 추가 세부 사항을 가져올 수 있습니다. Mobile Apps 서버 SDK는 이 데이터를 사용하기 위한 도우미 메서드를 제공합니다. 자세한 내용은 [Azure Mobile Apps Node.js SDK를 사용하는 방법](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) 및 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)을 참조하세요.
 
@@ -186,9 +177,9 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 - **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
 - **Azure Active Directory**: [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
     1. 페이지의 위쪽에서 **읽기/쓰기**를 선택합니다.
-    2. 왼쪽 브라우저에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **사이트** > _**\<app\_name>**_ > **config** > **authsettings**로 이동합니다. 
+    2. 왼쪽 브라우저에서 **구독** > * *_ \<subscription\_name_** > **resourcegroups** > * *_* \<resource\_group\_name> _* > **공급자**  >  **Microsoft. 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**로 이동 합니다. 
     3. **편집**을 클릭합니다.
-    4. 다음 속성을 수정합니다. _\<app\_id&gt;_ 를 액세스하려는 서비스의 Azure Active Directory 애플리케이션 ID로 바꿉니다.
+    4. 다음 속성을 수정합니다. 을 _\<app\_id>_ 액세스 하려는 서비스의 Azure Active Directory 응용 프로그램 ID로 바꿉니다.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
@@ -198,9 +189,9 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 
 공급자가 구성되면 토큰 저장소에서 [새로 고침 토큰 및 액세스 토큰에 대한 만료 시간 찾을](#retrieve-tokens-in-app-code) 수 있습니다. 
 
-언제든지 액세스 토큰을 새로 고치려면 아무 언어에서나 `/.auth/refresh`를 호출하면 됩니다. 다음 코드 조각은 jQuery를 사용하여 JavaScript 클라이언트에서 액세스 토큰을 새로 고칩니다.
+언제 든 지 액세스 토큰을 새로 고치려면 모든 언어로를 호출 하면 `/.auth/refresh` 됩니다. 다음 코드 조각은 jQuery를 사용하여 JavaScript 클라이언트에서 액세스 토큰을 새로 고칩니다.
 
-```JavaScript
+```javascript
 function refreshTokens() {
   let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
@@ -231,17 +222,254 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>로그인 계정의 도메인 제한
 
-Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_, _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure Active Directory는 로그인 계정에 대해 여러 사용자 지정 도메인을 허용합니다. 이 동작은 _outlook.com_ 계정을 사용하는 사람이 액세스하는 것을 원치 않는 내부 앱의 경우 바람직하지 않을 수도 있습니다. 로그인 계정의 도메인 이름을 제한하려면 다음 단계를 수행합니다.
+Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_, _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure AD는 로그인 계정에 대해 원하는 수의 사용자 지정 도메인을 허용 합니다. 그러나 사용자의 브랜드 Azure AD 로그인 페이지 (예:)로 직접 사용자를 가속화 하는 것이 좋습니다 `contoso.com` . 로그인 계정의 도메인 이름을 제안 하려면 다음 단계를 수행 합니다.
 
-[https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **사이트** > _**\<app\_name>**_ > **config** > **authsettings**로 이동합니다. 
+에서 [https://resources.azure.com](https://resources.azure.com) **구독** > * *_ \<subscription\_name_** > **resourcegroups** > * *_* \<resource\_group\_name> _* > **공급자**인  >  **Microsoft 웹**  >  **사이트** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**로 이동 합니다. 
 
-**편집**을 클릭하고 다음 속성을 수정한 다음, **배치**를 클릭합니다. _\<domain\_name>_ 을 원하는 도메인으로 바꿨는지 확인합니다.
+**편집**을 클릭하고 다음 속성을 수정한 다음, **배치**를 클릭합니다. 을 _\<domain\_name>_ 원하는 도메인으로 바꾸어야 합니다.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+
+이 설정은 `domain_hint` 쿼리 문자열 매개 변수를 로그인 리디렉션 URL에 추가 합니다. 
+
+> [!IMPORTANT]
+> 클라이언트는 `domain_hint` 리디렉션 URL을 받은 후 매개 변수를 제거 하 고 다른 도메인으로 로그인 할 수 있습니다. 따라서이 함수는 편리 하지만 보안 기능이 아닙니다.
+>
+
+## <a name="authorize-or-deny-users"></a>사용자 권한 부여 또는 거부
+
+App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 거부)를 처리 하지만 앱에는 특정 사용자 그룹에만 액세스를 제한 하는 것과 같은 보다 세분화 된 권한 부여 동작이 필요할 수 있습니다. 특정 한 경우에는 로그인 한 사용자에 대 한 액세스를 허용 하거나 거부 하는 사용자 지정 응용 프로그램 코드를 작성 해야 합니다. 다른 경우에는 App Service 또는 id 공급자가 코드를 변경 하지 않고도 도움을 받을 수 있습니다.
+
+- [서버 수준](#server-level-windows-apps-only)
+- [Id 공급자 수준](#identity-provider-level)
+- [응용 프로그램 수준](#application-level)
+
+### <a name="server-level-windows-apps-only"></a>서버 수준 (Windows 앱에만 해당)
+
+모든 Windows 앱의 경우 *Web.config* 파일을 편집 하 여 IIS 웹 서버의 권한 부여 동작을 정의할 수 있습니다. Linux 앱은 IIS를 사용 하지 않으며 *Web.config*를 통해 구성할 수 없습니다.
+
+1. `https://<app-name>.scm.azurewebsites.net/DebugConsole` 로 이동합니다.
+
+1. App Service 파일의 브라우저 탐색기에서 *site/wwwroot*로 이동 합니다. *Web.config* 없는 경우 **+**  >  **새 파일**을 선택 하 여 만듭니다. 
+
+1. *Web.config* 의 연필을 선택 하 여 편집 합니다. 다음 구성 코드를 추가 하 고 **저장**을 클릭 합니다. *Web.config* 이미 있는 경우 `<authorization>` 요소를 모든 항목에 추가 하면 됩니다. 요소에 허용 하려는 계정을 추가 `<allow>` 합니다.
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+       <system.web>
+          <authorization>
+            <allow users="user1@contoso.com,user2@contoso.com"/>
+            <deny users="*"/>
+          </authorization>
+       </system.web>
+    </configuration>
+    ```
+
+### <a name="identity-provider-level"></a>Id 공급자 수준
+
+Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들면 다음과 같습니다.
+
+- [Azure App Service](configure-authentication-provider-aad.md)의 경우 Azure AD에서 직접 [엔터프라이즈 수준의 액세스를 관리할](../active-directory/manage-apps/what-is-access-management.md) 수 있습니다. 자세한 내용은 [응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법](../active-directory/manage-apps/methods-for-removing-user-access.md)을 참조 하세요.
+- [Google](configure-authentication-provider-google.md)의 경우 조직에 속한 google API 프로젝트는 조직의 사용자 에게만 액세스를 허용 하도록 구성할 [수 있습니다 (](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) [Google의 **OAuth 2.0 지원 설정** 페이지](https://support.google.com/cloud/answer/6158849?hl=en)참조).
+
+### <a name="application-level"></a>애플리케이션 수준
+
+다른 수준 중 하나에서 필요한 권한 부여를 제공 하지 않거나 플랫폼 또는 id 공급자가 지원 되지 않는 경우 사용자 [클레임](#access-user-claims)에 따라 사용자에 게 권한을 부여 하는 사용자 지정 코드를 작성 해야 합니다.
+
+## <a name="configure-using-a-file-preview"></a><a name="config-file"> </a>파일 (미리 보기)을 사용 하 여 구성
+
+필요에 따라 배포에서 제공 하는 파일을 통해 인증 설정을 구성할 수 있습니다. App Service 인증/권한 부여의 특정 미리 보기 기능에 필요할 수 있습니다.
+
+> [!IMPORTANT]
+> 응용 프로그램 페이로드와이 파일은 [슬롯과](./deploy-staging-slots.md)같이 환경 간에 이동할 수 있습니다. 각 슬롯에 다른 앱 등록을 고정 하는 것이 좋습니다. 이러한 경우에는 구성 파일을 사용 하는 대신 표준 구성 방법을 계속 사용 해야 합니다.
+
+### <a name="enabling-file-based-configuration"></a>파일 기반 구성 사용
+
+> [!CAUTION]
+> 미리 보기 중에 파일 기반 구성을 사용 하도록 설정 하면 Azure Portal, Azure CLI, Azure PowerShell 등의 일부 클라이언트를 통해 응용 프로그램에 대 한 App Service 인증/권한 부여 기능을 관리할 수 없습니다.
+
+1. 프로젝트의 루트에서 구성에 대 한 새 JSON 파일을 만듭니다 (웹/함수 앱의 D:\home\site\wwwroot에 배포 됨). [파일 기반 구성 참조](#configuration-file-reference)에 따라 원하는 구성을 입력 합니다. 기존 Azure Resource Manager 구성을 수정 하는 경우 컬렉션에서 캡처된 속성을 구성 파일로 변환 해야 `authsettings` 합니다.
+
+2. 에서 [Azure Resource Manager](../azure-resource-manager/management/overview.md) api에 캡처되는 기존 구성을 수정 합니다 `Microsoft.Web/sites/<siteName>/config/authsettings` . 이를 수정 하기 위해 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md) 또는 [Azure Resource Explorer](https://resources.azure.com/)같은 도구를 사용할 수 있습니다. Authsettings 컬렉션 내에서 세 개의 속성을 설정 해야 하며, 다른 속성은 제거할 수 있습니다.
+
+    1.  `enabled`"True"로 설정 합니다.
+    2.  `isAuthFromFile`"True"로 설정 합니다.
+    3.  `authFilePath`파일 이름으로 설정 합니다 (예: "auth.json").
+
+이 구성을 업데이트 한 후에는 해당 사이트에 대 한 인증/권한 부여 App Service의 동작을 정의 하는 데 파일의 내용이 사용 됩니다. Azure Resource Manager 구성으로 돌아가려면 `isAuthFromFile` 다시 "false"로 설정 하면 됩니다.
+
+### <a name="configuration-file-reference"></a>구성 파일 참조
+
+구성 파일에서 참조 되는 모든 암호는 [응용 프로그램 설정](./configure-common.md#configure-app-settings)으로 저장 해야 합니다. 원하는 것으로 설정의 이름을 바꿀 수 있습니다. 구성 파일의 참조가 동일한 키를 사용 하는지 확인 합니다.
+
+파일 내에서 가능한 구성 옵션은 다음과 같습니다.
+
+```json
+{
+    "platform": {
+        "enabled": <true|false>
+    },
+    "globalValidation": {
+        "requireAuthentication": <true|false>,
+        "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
+        "redirectToProvider": "<default provider alias>",
+        "excludedPaths": [
+            "/path1",
+            "/path2"
+        ]
+    },
+    "identityProviders": {
+        "azureActiveDirectory": {
+            "enabled": <true|false>,
+            "registration": {
+                "openIdIssuer": "<issuer url>",
+                "clientId": "<app id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_AAD_SECRET",
+            },
+            "login": {
+                "loginParameters": [
+                    "paramName1=value1",
+                    "paramName2=value2"
+                ]
+            },
+            "validation": {
+                "allowedAudiences": [
+                    "audience1",
+                    "audience2"
+                ]
+            }
+        },
+        "facebook": {
+            "enabled": <true|false>,
+            "registration": {
+                "appId": "<app id>",
+                "appSecretSettingName": "APP_SETTING_CONTAINING_FACEBOOK_SECRET"
+            },
+            "graphApiVersion": "v3.3",
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            },
+        },
+        "gitHub": {
+            "enabled": <true|false>,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_GITHUB_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            }
+        },
+        "google": {
+            "enabled": true,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_GOOGLE_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            },
+            "validation": {
+                "allowedAudiences": [
+                    "audience1",
+                    "audience2"
+                ]
+            }
+        },
+        "twitter": {
+            "enabled": <true|false>,
+            "registration": {
+                "consumerKey": "<consumer key>",
+                "consumerSecretSettingName": "APP_SETTING_CONTAINING TWITTER_CONSUMER_SECRET"
+            }
+        },
+        "openIdConnectProviders": {
+            "provider name": {
+                "enabled": <true|false>,
+                "registration": {
+                    "clientId": "<client id>",
+                    "clientCredential": {
+                        "secretSettingName": "<name of app setting containing client secret>"
+                    },
+                    "openIdConnectConfiguration": {
+                        "authorizationEndpoint": "<url specifying authorization endpoint>",
+                        "tokenEndpoint": "<url specifying token endpoint>",
+                        "issuer": "<url specifying issuer>",
+                        "certificationUri": "<url specifying jwks endpoint>",
+                        "wellKnownOpenIdConfiguration": "<url specifying .well-known/open-id-configuration endpoint - if this property is set, the other properties of this object are ignored, and authorizationEndpoint, tokenEndpoint, issuer, and certificationUri are set to the corresponding values listed at this endpoint>"
+                    }
+                },
+                "login": {
+                    "nameClaimType": "<name of claim containing name>",
+                    "loginScopes": [
+                        "profile",
+                        "email"
+                    ],
+                    "loginParameterNames": [
+                        "paramName1=value1",
+                        "paramName2=value2"
+                    ],
+                }
+            },
+            //...
+        },
+        "login": {
+            "routes": {
+                "logoutEndpoint": "<logout endpoint>"
+            },
+            "tokenStore": {
+                "enabled": <true|false>,
+                "tokenRefreshExtensionHours": "<double>",
+                "fileSystem": {
+                    "directory": "<directory to store the tokens in if using a file system token store (default)>"
+                },
+                "azureBlobStorage": {
+                    "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
+                }
+            },
+            "preserveUrlFragmentsForLogins": <true|false>,
+            "allowedExternalRedirectUrls": [
+                "https://uri1.azurewebsites.net/",
+                "https://uri2.azurewebsites.net/"
+            ],
+            "cookieExpiration": {
+                "convention": "FixedTime|IdentityProviderDerived",
+                "timeToExpiration": "<timespan>"
+            },
+            "nonce": {
+                "validateNonce": <true|false>,
+                "nonceExpirationInterval": "<timespan>"
+            }
+        },
+        "httpSettings": {
+            "requireHttps": <true|false>,
+            "routes": {
+                "apiPrefix": "<api prefix>"
+            },
+            "forwardProxy": {
+                "convention": "NoProxy|Standard|Custom",
+                "customHostHeaderName": "<host header value>",
+                "customProtoHeaderName": "<proto header value>"
+            }
+        }
+    }
+}
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
-> [자습서: 엔드투엔드 사용자 인증 및 권한 부여(Linux)](containers/tutorial-auth-aad.md)
+> [자습서: 종단 간 사용자 인증 및 권한 부여 (Windows)](app-service-web-tutorial-auth-aad.md) 
+>  [자습서: 종단 간 사용자 인증 및 권한 부여 (Linux)](containers/tutorial-auth-aad.md)

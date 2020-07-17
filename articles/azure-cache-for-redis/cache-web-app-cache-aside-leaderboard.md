@@ -1,32 +1,24 @@
 ---
-title: 캐시 배제 패턴을 사용하는 Azure Cache for Redis로 웹앱을 만들기 위한 자습서 | Microsoft Docs
+title: '자습서: 웹앱 만들기(캐시 배제) - Azure Cache for Redis'
 description: 캐시 배제 패턴을 사용하는 Azure Cache for Redis로 웹앱을 만드는 방법에 대해 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: ''
+ms.author: yegu
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893744"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082780"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
 이 자습서에서는 Azure Cache for Redis로 [캐시 배제 패턴](https://docs.microsoft.com/azure/architecture/patterns/cache-aside)을 사용하는 순위표를 포함시키기 위해 [Azure Cache for Redis를 위한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 만든 *ContosoTeamStats* ASP.NET 웹앱을 업데이트합니다. 샘플 애플리케이션은 성능 개선을 위해 데이터베이스에서 팀 통계 목록을 표시하고 Azure Cache for Redis를 사용하여 캐시에서 데이터를 저장하고 검색하는 여러 가지 방법을 보여줍니다. 이 자습서를 완료하면 데이터베이스에 읽고 쓰는 웹앱을 실행하고, Azure Cache for Redis에 최적화되고, Azure에서 호스팅하게 됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Cache for Redis를 사용하는 데이터를 저장하고 검색하여 데이터 처리량을 개선하고 데이터베이스 부하를 줄입니다.
@@ -36,12 +28,12 @@ ms.locfileid: "58893744"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 * 이 자습서는 [Azure Cache for Redis를 위한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 중단된 부분부터 계속됩니다. 아직 수행하지 않은 경우 먼저 빠른 시작을 수행합니다.
-* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+* 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
     * ASP.NET 및 웹 개발
     * Azure 개발
     * SQL Server Express LocalDB 또는 [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express)을 통한 .NET 데스크톱 개발.
@@ -156,7 +148,7 @@ ms.locfileid: "58893744"
 
 1. `configuration` 섹션 내에 다음 `connectionStrings` 섹션을 추가합니다. 연결 문자열의 이름은 `TeamContext`인 Entity Framework 데이터베이스 컨텍스트 클래스의 이름과 일치해야 합니다.
 
-    이 연결 문자열은 사용자가 [필수 구성 요소](#prerequisites)를 충족하며 Visual Studio 2017과 함께 설치된 *.NET 데스크톱 개발* 워크로드의 일부인 SQL Server Express LocalDB를 설치했다고 가정합니다.
+    이 연결 문자열은 사용자가 [필수 구성 요소](#prerequisites)를 충족하며 Visual Studio 2019와 함께 설치된 *.NET 데스크톱 개발* 워크로드의 일부인 SQL Server Express LocalDB를 설치했다고 가정합니다.
 
     ```xml
     <connectionStrings>
@@ -650,9 +642,9 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 ## <a name="publish-and-run-in-azure"></a>Azure에서 게시 및 실행
 
-### <a name="provision-a-sql-azure-database-for-the-app"></a>앱에 대한 SQL Azure 데이터베이스 프로비전
+### <a name="provision-a-database-for-the-app"></a>앱용 데이터베이스 프로비전
 
-이 섹션에서는 Azure에서 호스팅되는 동안 사용할 앱을 위해 새로운 SQL Azure 데이터베이스를 프로비전합니다.
+이 섹션에서는 Azure에서 호스팅되는 동안 사용할 앱을 위해 SQL Database의 새 데이터베이스를 프로비저닝합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
@@ -660,7 +652,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 1. 새 SQL Database에 대한 다음 설정을 사용합니다.
 
-   | 설정       | 제안 값 | 설명 |
+   | 설정       | 제안 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **데이터베이스 이름** | *ContosoTeamsDatabase* | 유효한 데이터베이스 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **구독** | *구독*  | 캐시를 만들고 App Service를 호스팅하는 데 사용한 것과 동일한 구독을 선택합니다. |
@@ -669,12 +661,12 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 1. **서버**에서 **필요한 설정 구성** > **새 서버 만들기**를 클릭하고 다음 정보를 입력한 다음, **선택** 단추를 클릭합니다.
 
-   | 설정       | 제안 값 | 설명 |
+   | 설정       | 제안 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
-   | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
+   | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
+   | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
-   | **위치**: | *미국 동부* | 캐시와 App Service를 만든 것과 동일한 지역을 선택합니다. |
+   | **위치** | *미국 동부* | 캐시와 App Service를 만든 것과 동일한 지역을 선택합니다. |
 
 1. **대시보드에 고정**을 클릭한 다음, **만들기**를 클릭하여 새 데이터베이스와 서버를 만듭니다.
 
@@ -686,10 +678,10 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 1. Entity Framework 데이터베이스 컨텍스트 클래스와 일치하도록 *TeamContext*라는 새 연결 문자열을 추가합니다. 새 데이터베이스에 대한 연결 문자열을 값으로 붙여넣습니다. 연결 문자열에서 다음과 같은 자리 표시자를 바꾸었는지 확인하고 **저장**을 클릭합니다.
 
-    | Placeholder | 제안 값 |
+    | 자리 표시자 | 제안 값 |
     | --- | --- |
-    | *{your_username}* | 방금 만든 데이터베이스 서버에 대한 **서버 관리자 로그인**을 사용합니다. |
-    | *{your_password}* | 방금 만든 데이터베이스 서버에 대한 암호를 사용합니다. |
+    | *{your_username}* | 방금 만든 서버에 대한 **서버 관리자 로그인**을 사용합니다. |
+    | *{your_password}* | 방금 만든 서버에 대한 암호를 사용합니다. |
 
     애플리케이션 설정으로 사용자 이름 및 암호를 추가하면 사용자 이름 및 암호가 코드에 포함되지 않습니다. 이 방법은 해당 자격 증명을 보호하는 데 유용합니다.
 
@@ -709,7 +701,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
     다음 테이블은 샘플 애플리케이션에서 각 작업 링크를 설명합니다.
 
-    | 조치 | 설명 |
+    | 작업 | Description |
     | --- | --- |
     | 새로 만들기 |새 팀을 만듭니다. |
     | 시즌 재생 |게임 시즌을 재생하고 팀 통계를 업데이트하고 만료된 팀 데이터를 캐시에서 지웁니다. |
@@ -735,11 +727,11 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 2. **항목 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다.
 3. 리소스 그룹의 오른쪽에 있는 **...** 을 클릭하여 **리소스 그룹 삭제**를 클릭합니다.
 
-    ![삭제](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
+    ![DELETE](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
 4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-    잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+    잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

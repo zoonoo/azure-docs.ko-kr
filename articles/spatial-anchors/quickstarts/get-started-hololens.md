@@ -1,19 +1,19 @@
 ---
-title: 빠른 시작 - Azure Spatial Anchors를 사용하여 HoloLens 앱 만들기 | Microsoft Docs
+title: '빠른 시작: DirectX를 사용하여 HoloLens 앱 만들기'
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 HoloLens 앱을 빌드하는 방법을 알아봅니다.
 author: craigktreasure
-manager: aliemami
+manager: virivera
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7a9eedfe851bb8b5519d0831f47cf6787345a1f8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 582bb3e0f98535ccdc7be059de904e152db6ac77
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996291"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870977"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>빠른 시작: C++/WinRT 및 DirectX로 Azure Spatial Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -28,11 +28,10 @@ ms.locfileid: "59996291"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
-
-- **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.17763.0 이상)** 구성 요소와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 이상</a>이 설치된 Windows 머신 및 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>.
+- **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>가 설치된 Windows 머신입니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 설치해야 합니다.
 - Visual Studio용 [C++/WinRT Visual Studio 확장(VSIX)](https://aka.ms/cppwinrt/vsix)은 [Visual Studio Marketplace](https://marketplace.visualstudio.com/)에서 설치합니다.
 - [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스. 이 문서에는 [Windows 10 2018년 10월 업데이트](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 )(RS5라고도 함)가 있는 HoloLens 디바이스가 필요합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인** 단추를 선택합니다.
 - 앱에서 해당 AppX 매니페스트에 **spatialPerception** 기능을 설정해야 합니다.
@@ -55,11 +54,13 @@ Visual Studio에서 `HoloLens\DirectX\SampleHoloLens.sln`을 엽니다.
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
 
+`case DemoStep::ConfigSession:`을 찾아 이전 버전의 계정 도메인으로 대체하는 `configuration.AccountDomain("MyAccountDomain");` 줄을 추가합니다.
+
 ## <a name="deploy-the-app-to-your-hololens"></a>HoloLens에 앱 배포
 
 **솔루션 구성**을 **릴리스**로 변경하고 **솔루션 플랫폼**을 **x86**로 변경하고 배포 대상 옵션에서 **디바이스**를 선택합니다.
 
-HoloLens 2를 사용하는 경우 **x86** 대신 **ARM**을 **솔루션 플랫폼**으로 사용합니다.
+HoloLens 2를 사용하는 경우 **x86** 대신 **ARM64**을 **솔루션 플랫폼**으로 사용합니다.
 
 ![Visual Studio 구성](./media/get-started-hololens/visual-studio-configuration.png)
 

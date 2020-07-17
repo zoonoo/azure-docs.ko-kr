@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Event Grid on IoT Edge 설명서
+summary: Event Grid on IoT Edge를 사용하여 거의 실시간으로 Edge 디바이스에서 생성된 관련 이벤트에 반응하는 방법에 대해 알아봅니다.
+metadata:
+  title: Event Grid on IoT Edge 설명서
+  description: Event Grid on IoT Edge를 사용하여 거의 실시간으로 Edge 디바이스에서 생성된 관련 이벤트에 반응하는 방법에 대해 알아봅니다.
+  services: event-grid
+  ms.service: event-grid
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 10/12/2019
+  ms.openlocfilehash: 4b79d64240b96ed41b535f8dbcd1155d67e76282
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "72991616"
+landingContent:
+- title: Event Grid on IoT Edge 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Event Grid on IoT Edge란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Event Grid 개념
+      url: concepts.md
+    - text: 이벤트 스키마
+      url: event-schemas.md
+    - text: 출력 일괄 처리
+      url: delivery-output-batching.md
+    - text: 고급 필터링
+      url: advanced-filtering.md
+    - text: 배달 및 다시 시도
+      url: delivery-retry.md
+- title: 시나리오
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 로컬로 이벤트 게시 및 구독
+      url: pub-sub-events-webhook-local.md
+    - text: 클라우드에서 이벤트 게시 및 구독
+      url: pub-sub-events-webhook-cloud.md
+    - text: Azure Event Grid로 이벤트 전달
+      url: forward-events-event-grid-cloud.md
+    - text: Azure IoT Hub로 이벤트 전달
+      url: forward-events-event-grid-cloud.md
+    - text: 로컬로 Azure Blob Storage 이벤트에 반응
+      url: react-blob-storage-events-locally.md
+- title: 보안
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 및 인증
+      url: security-authentication.md
+  - linkListType: how-to-guide
+    links:
+    - text: 클라이언트 인증 구성
+      url: configure-client-auth.md
+    - text: 웹후크 구독자 인증 구성
+      url: configure-webhook-subscriber-auth.md
+    - text: ID 인증 구성
+      url: configure-identity-auth.md

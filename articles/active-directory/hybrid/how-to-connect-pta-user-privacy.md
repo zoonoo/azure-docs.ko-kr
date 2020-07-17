@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/23/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60242372"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358126"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>사용자 개인 정보 및 Azure Active Directory 통과 인증
 
@@ -73,7 +73,7 @@ Foreach ($file in $Files) {
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>인증 에이전트 추적 로그 파일 삭제
 
-<strong>%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\</strong>의 콘텐츠를 주기적으로 확인하면서 이 폴더의 콘텐츠를 48시간마다 삭제해야 합니다. 
+**%PROGRAMDATA%\MICROSOFT\AZURE AD Connect Authentication Agent\Trace** 의 내용을 정기적으로 확인 하 고 48 시간 마다이 폴더의 내용을 삭제 해야 합니다. 
 
 >[!IMPORTANT]
 >인증 에이전트 서비스가 실행 중이면 폴더에서 현재 로그 파일을 삭제할 수 없습니다. 서비스를 중지한 후 다시 시도하세요. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증이 구성되어 있어야 합니다.
@@ -92,14 +92,14 @@ Foreach ($file in $files) {
 
 1.  확장명이 ".PS1"인 파일에 스크립트를 저장합니다.
 2.  **제어판**을 열고 **시스템 및 보안**을 클릭합니다.
-3.  **관리 도구** 제목 아래에서 “**예약 작업**”을 클릭합니다.
+3.  **관리 도구** 제목 아래에서 "**작업 예약**"을 클릭 합니다.
 4.  **작업 스케줄러**에서 **예약 작업 라이브러리**를 마우스 오른쪽 단추로 클릭하고 “**기본 작업 만들기…**”를 클릭합니다.
 5.  새 작업의 이름을 입력하고 **다음**을 클릭합니다.
 6.  **작업 트리거**로 “**매일**”을 선택하고 **다음**을 클릭합니다.
 7.  되풀이를 이틀로 설정하고 **다음**을 클릭합니다.
 8.  “**프로그램 시작**”을 작업으로 선택하고 **다음**을 클릭합니다.
-9.  프로그램/스크립트 상자에 “**PowerShell**”을 입력하고 “**인수 추가(선택 사항)**” 상자에 앞서 만든 스크립트의 전체 경로를 입력한 다음, **다음**을 클릭합니다.
-10. 다음 화면에는 작성하려는 작업의 요약이 표시됩니다. 값을 확인하고 **마침**을 클릭하여 작업을 만듭니다.
+9.  프로그램/스크립트 상자에 "**PowerShell**"을 입력 하 고 "**인수 추가 (선택 사항)**" 상자에 앞에서 만든 스크립트의 전체 경로를 입력 한 후 **다음**을 클릭 합니다.
+10. 다음 화면에는 작성하려는 작업의 요약이 표시됩니다. 값을 확인 하 고 **마침** 을 클릭 하 여 작업을 만듭니다.
  
 ### <a name="note-about-domain-controller-logs"></a>도메인 컨트롤러 로그에 대한 참고 사항
 

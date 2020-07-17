@@ -1,49 +1,74 @@
 ---
 title: 알고리즘 및 모듈 참조
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 시각적 인터페이스에서 사용할 수 있는 모듈에 알아봅니다
+description: Azure Machine Learning 디자이너(미리 보기)에서 사용할 수 있는 모듈에 대한 자세한 내용
+titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+author: likebupt
+ms.author: keli19
+ms.date: 05/19/2020
+ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856906"
 ---
-# <a name="algorithm--module-reference-overview"></a>알고리즘 및 모듈 참조 개요
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)에 대한 알고리즘 및 모듈 참조
 
-이 참조 콘텐츠 기계 학습 알고리즘 및 Azure Machine Learning 서비스의 시각적 인터페이스 (미리 보기)에서 사용할 수 있는 모듈의 각 기술 배경 정보를 제공 합니다.
+이 참조 콘텐츠는 Azure Machine Learning 디자이너(미리 보기)에서 사용할 수 있는 각 기계 학습 알고리즘 및 모듈에 대한 기술적 배경을 제공합니다.
 
-각 모듈에는 독립적으로 실행 하 고 기계 학습 작업에 필요한 입력을 지정을 수행할 수 있는 코드의 집합을 나타냅니다. 모듈을 특정 알고리즘을 포함 하거나 기계 학습, 누락 값 대체를 통계 분석 등의 중요 한 작업을 수행 합니다.
+각 모듈은 필요한 입력을 고려하여 독립적으로 실행되고 기계 학습 작업을 수행할 수 있는 코드 세트를 나타냅니다. 모듈은 특정 알고리즘을 포함하거나 누락된 값 대체 또는 통계 분석과 같이 기계 학습에서 중요한 작업을 수행할 수 있습니다.
+
+알고리즘 선택에 대한 도움말은 다음을 참조하세요. 
+* [알고리즘을 선택하는 방법](../how-to-select-algorithms.md)
+* [Azure Machine Learning 알고리즘 치트 시트](../algorithm-cheat-sheet.md)
 
 > [!TIP]
-> 시각적 인터페이스의 모든 실험에서 특정 모듈에 대 한 정보를 가져올 수 있습니다. 모듈을 선택한 다음 선택 합니다 **도움이** 링크를 **빠른 도움말** 창입니다.
+> 디자이너의 모든 파이프라인에서 특정 모듈에 대한 정보를 가져올 수 있습니다. 모듈 목록 또는 모듈의 오른쪽 창에서 모듈을 마우스로 가리킬 때 모듈 카드에서 **자세한 정보** 링크를 선택합니다.
 
-## <a name="modules"></a>모듈
+## <a name="data-preparation-modules"></a>데이터 준비 모듈
 
-모듈 기능으로 구성 되어 있습니다.
 
-| 기능 | 설명 | 모듈 |
-| --- |--- | ---- |
-| 데이터 형식 변환 | 데이터에 기계 학습에 사용 되는 다양 한 파일 형식 간 변환 | [CSV로 변환](convert-to-csv.md) |
-| 데이터 입력 및 출력 | 실험에 클라우드 소스에서 데이터를 이동 합니다. 프로그램 결과 또는 중간 데이터를 Azure Storage, SQL 데이터베이스 또는 Hive, 실험을 실행 하는 동안 쓰거나 실험 간에 데이터를 교환 하는 데 클라우드 저장소를 사용 합니다.  | [데이터 가져오기](import-data.md)<br/>[데이터 내보내기](export-data.md)<br/>[데이터를 수동으로 입력](enter-data-manually.md) |
-| 데이터 변환 | 기계 학습, 정규화 등 데이터, 기능 선택 및 차원 감소 범주화에 고유한 데이터에 대해 작업 합니다.| [데이터 집합의 열 선택](select-columns-in-dataset.md) <br/> [메타 데이터 편집](edit-metadata.md) <br/> [누락 데이터 정리](clean-missing-data.md) <br/> [열 추가](add-columns.md) <br/> [행 추가](add-rows.md) <br/> [중복 행 제거](remove-duplicate-rows.md) <br/> [데이터 분할](split-data.md) <br/> [데이터 정규화](normalize-data.md) <br/> [분할 및 샘플링](partition-and-sample.md) |
-| Python 모듈 | 코드를 작성 하 고 실험과 함께 Python을 통합 하는 모듈에 포함 해야 합니다. | [Python 스크립트 실행](execute-python-script.md)   <br/> [Python 모델 만들기](create-python-model.md)
-|  | **기계 학습 알고리즘**: | |
-| 분류 | 클래스를 예측 합니다.  이진 (2 클래스)에서 선택 하거나 다중 클래스 알고리즘입니다.| [다중 클래스 의사 결정 포리스트](multiclass-decision-forest.md) <br/> [다중 클래스 로지스틱 회귀](multiclass-logistic-regression.md)  <br/> [다중 클래스 신경망](multiclass-neural-network.md)  <br/>  [2 클래스 로지스틱 회귀](two-class-logistic-regression.md)  <br/>[2 클래스 평균된 퍼셉트론](two-class-averaged-perceptron.md) <br/> [2 클래스&nbsp;승격&nbsp;의사 결정&nbsp;트리](two-class-boosted-decision-tree.md)  <br/> [2 클래스 의사 결정 포리스트](two-class-decision-forest.md)  <br/> [2 클래스 신경망](two-class-neural-network.md)  <br/> [두&#8209;클래스&nbsp;지원&nbsp;벡터&nbsp;컴퓨터](two-class-support-vector-machine.md) 
-| 클러스터링 | 데이터를 그룹화 합니다.| [K-means 클러스터링](k-means-clustering.md)
-| 회귀 | 값을 예측 합니다. | [선형 회귀](linear-regression.md)  <br/> [신경망 회귀](neural-network-regression.md)  <br/> [의사 결정 포리스트 회귀](decision-forest-regression.md)  <br/> [향상 된&nbsp;의사 결정&nbsp;트리&nbsp;회귀](boosted-decision-tree-regression.md)
-|  | **빌드 및 모델 평가**: | |
-| 학습   | 알고리즘을 통해 데이터를 실행 합니다. | [모델 학습](train-model.md)  <br/> [클러스터링 모델 학습](train-clustering-model.md)    |
-| 모델 평가 | 학습된 된 모델의 정확도 측정 합니다. |  [모델 평가](evaluate-model.md)
-| Score | 방금 학습 된 모델에서 예측을 가져옵니다. | [변환 적용](apply-transformation.md)<br/>[할당할&nbsp;데이터&nbsp;에&nbsp;클러스터](assign-data-to-clusters.md) <br/>[모델 점수 매기기](score-model.md)
+| 기능 | Description | 모듈 |
+| --- |--- | --- |
+| 데이터 입력 및 출력 | 클라우드 소스에서 파이프라인으로 데이터를 이동합니다. 파이프라인을 실행 하는 동안 Azure Storage, SQL Database 또는 Hive에 결과 또는 중간 데이터를 쓰거나, 클라우드 저장소를 사용 하 여 파이프라인 간에 데이터를 교환 합니다.  | [수동으로 데이터 입력](enter-data-manually.md) <br/> [데이터 내보내기](export-data.md) <br/> [데이터 가져오기](import-data.md) |
+| 데이터 변환 | 데이터의 표준화 또는 범주화, 차원 감소 및 다양한 파일 형식 간의 데이터 변환 등 기계 학습에 고유한 데이터에 대한 작업입니다.| [열 추가](add-columns.md) <br/> [행 추가](add-rows.md) <br/> [수학 연산 적용](apply-math-operation.md) <br/> [SQL 변환 적용](apply-sql-transformation.md) <br/> [누락 데이터 정리](clean-missing-data.md) <br/> [값 잘라내기](clip-values.md) <br/> [CSV로 변환](convert-to-csv.md) <br/> [데이터 세트로 변환](convert-to-dataset.md) <br/> [표시기 값으로 변환](convert-to-indicator-values.md) <br/> [메타데이터 편집](edit-metadata.md) <br/> [Bin으로 데이터 그룹화](group-data-into-bins.md) <br/> [데이터 조인](join-data.md) <br/> [데이터 정규화](normalize-data.md) <br/> [파티션 및 샘플](partition-and-sample.md)  <br/> [중복 행 제거](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [열 변환 선택](select-columns-transform.md) <br/> [데이터 세트의 열 선택](select-columns-in-dataset.md) <br/> [데이터 분할](split-data.md) |
+| 기능 선택 | 분석 모델을 빌드하는 데 사용할 관련된 유용한 기능의 하위 집합을 선택합니다. | [필터 기반 기능 선택](filter-based-feature-selection.md) <br/> [순열 기능 중요도](permutation-feature-importance.md) |
+| 통계 함수 | 데이터 과학과 관련된 다양한 통계 방법을 제공합니다. | [데이터 요약](summarize-data.md)|
+
+## <a name="machine-learning-algorithms"></a>기계 학습 알고리즘
+
+| 기능 | Description | 모듈 |
+| --- |--- | --- |
+| 회귀 | 값을 예측합니다. | [향상된 의사 결정 트리 회귀](boosted-decision-tree-regression.md) <br/> [의사 결정 포리스트 회귀](decision-forest-regression.md) <br/> [선형 회귀](linear-regression.md)  <br/> [신경망 회귀](neural-network-regression.md)  <br/> |
+| Clustering | 데이터를 그룹화합니다.| [K-Means 클러스터링](k-means-clustering.md)
+| 분류 | 클래스를 예측합니다.  이진 파일(2클래스) 또는 다중 클래스 알고리즘에서 선택합니다.| [다중 클래스 향상된 의사 결정 트리](multiclass-boosted-decision-tree.md) <br/> [다중 클래스 의사 결정 포리스트](multiclass-decision-forest.md) <br/> [다중 클래스 로지스틱 회귀](multiclass-logistic-regression.md)  <br/> [다중 클래스 신경망](multiclass-neural-network.md) <br/> [일대다 모든 다중 클래스](one-vs-all-multiclass.md) <br/> [2클래스 평균 퍼셉트론](two-class-averaged-perceptron.md) <br/>  [2클래스 향상된 의사 결정 트리](two-class-boosted-decision-tree.md)  <br/> [2클래스 의사 결정 포리스트](two-class-decision-forest.md) <br/>  [2클래스 로지스틱 회귀](two-class-logistic-regression.md) <br/> [2클래스 신경망](two-class-neural-network.md) <br/> [2클래스 Support Vector Machine](two-class-support-vector-machine.md) | 
+
+## <a name="modules-for-building-and-evaluating-models"></a>모델 빌드 및 평가를 위한 모듈
+
+| 기능 | Description | 모듈 |
+| --- |--- | --- |
+| 모델 학습 | 알고리즘을 통해 데이터를 실행합니다. |  [클러스터링 모델 학습](train-clustering-model.md) <br/> [모델 학습](train-model.md) <br/> [Pytorch 모델 학습](train-pytorch-model.md) <br/> [모델 하이퍼 매개 변수 튜닝](tune-model-hyperparameters.md) |
+| 모델 채점 및 평가 | 학습된 모델의 정확도를 측정합니다. | [변환 적용](apply-transformation.md) <br/> [클러스터에 데이터 할당](assign-data-to-clusters.md) <br/> [모델 교차 유효성 검사](cross-validate-model.md) <br/> [모델 평가](evaluate-model.md) <br/> [이미지 모델 채점](score-image-model.md) <br/> [모델 채점](score-model.md) |
+| Python 언어 | 코드를 작성하고 이를 모듈에 포함하여 Python을 파이프라인과 통합합니다. | [Python 모델 만들기](create-python-model.md) <br/> [Python 스크립트 실행](execute-python-script.md) |
+| R 언어 | 코드를 작성하고 이를 모듈에 포함하여 R을 파이프라인과 통합합니다. | [R 스크립트 실행](execute-r-script.md) |
+| 텍스트 분석 | 구조화된 텍스트와 구조화되지 않은 텍스트를 모두 사용하기 위한 특수한 계산 도구를 제공합니다. |  [Word를 벡터로 변환](convert-word-to-vector.md) <br/> [텍스트에서 N Gram 기능 추출](extract-n-gram-features-from-text.md) <br/> [기능 해싱](feature-hashing.md) <br/> [텍스트 전처리](preprocess-text.md) <br/> [잠재적 Dirichlet 할당](latent-dirichlet-allocation.md) <br/> [Vowpal Wabbit 모델 점수 매기기](score-vowpal-wabbit-model.md) <br/> [Vowpal Wabbit 모델 학습](train-vowpal-wabbit-model.md)|
+| Computer Vision | 이미지 데이터 전처리 및 이미지 인식 관련 모듈. |  [이미지 변환 적용](apply-image-transformation.md) <br/> [이미지 디렉터리로 변환](convert-to-image-directory.md) <br/> [이미지 변환 시작](init-image-transformation.md) <br/> [이미지 디렉터리 분할](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| 권장 | 권장 사항 모델을 빌드합니다. | [추천 평가](evaluate-recommender.md) <br/> [SVD 추천 점수 매기기](score-svd-recommender.md) <br/> [와이드 및 딥 추천 점수 매기기](score-wide-and-deep-recommender.md)<br/> [SVD 추천 학습](train-SVD-recommender.md) <br/> [와이드 및 딥 추천 학습](train-wide-and-deep-recommender.md)|
+| 이상 감지 | 변칙 검색 모델을 빌드합니다. | [PCA 기반 변칙 검색](pca-based-anomaly-detection.md) <br/> [변칙 검색 모델 학습](train-anomaly-detection-model.md) |
+
+
+## <a name="web-service"></a>웹 서비스
+
+Azure Machine Learning 디자이너에서 실시간 유추에 필요한 [웹 서비스 모듈](web-service-input-output.md)에 대해 알아봅니다.
 
 ## <a name="error-messages"></a>오류 메시지
 
-에 대 한 자세한 합니다 [오류 메시지 및 예외 코드](machine-learning-module-error-codes.md) 모듈을 사용 하 여 Azure Machine Learning 서비스의 시각적 인터페이스에서 발생할 수 있습니다.
+Azure Machine Learning 디자이너에서 모듈을 사용하여 발생할 수 있는 [오류 메시지 및 예외 코드](designer-error-codes.md)에 대해 알아봅니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [자습서: 디자이너에서 모델을 빌드하여 자동 가격 예측](../tutorial-designer-automobile-price-train-score.md)

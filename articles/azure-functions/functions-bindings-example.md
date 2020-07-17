@@ -1,26 +1,19 @@
 ---
-title: Azure Functions 트리거 및 바인딩 예제
-description: Azure 함수 바인딩을 구성 하는 방법을 알아봅니다
-services: functions
-documentationcenter: na
+title: Azure Functions 트리거 및 바인딩 예
+description: Azure 함수 바인딩을 구성 하는 방법 알아보기
 author: craigshoemaker
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/04/2019
-ms.author: v-junlch
-ms.openlocfilehash: 6d5f9b171a4efc5e52d281655de143ac9d40d437
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 02/18/2019
+ms.author: cshoe
+ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74227236"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예제
+# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예
 
-이 문서에 구성 하는 방법을 보여 줍니다.는 [트리거 및 바인딩을](./functions-triggers-bindings.md) Azure Function에서.
+이 문서에서는 Azure 함수에서 [트리거와 바인딩을](./functions-triggers-bindings.md) 구성 하는 방법을 보여 줍니다.
 
 Azure Queue 스토리지에 새 메시지가 나타날 때마다 Azure Table Storage에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue 스토리지 트리거 및 Azure Table Storage 출력 바인딩을 사용하여 구현할 수 있습니다. 
 
@@ -88,7 +81,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 예제
 
-동일 *function.json* JavaScript 함수를 사용 하 여 파일을 사용할 수 있습니다.
+JavaScript 함수를 사용 하 여 파일 *에 대해 동일한function.js* 를 사용할 수 있습니다.
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -108,7 +101,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>클래스 라이브러리 예제
 
-클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 저장소 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 예를 들면 다음과 같습니다.
+클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 스토리지 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -136,10 +129,9 @@ public class Person
 }
 ```
 
-이제 큐에 데이터를 출력 하는 Azure Table storage에 의해 트리거되는 작업 함수입니다.
+이제 Azure 큐에서 트리거되고 Azure Table storage에 데이터를 출력 하는 작동 하는 함수가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Azure Functions 바인딩 식 패턴](./functions-bindings-expressions-patterns.md)
-

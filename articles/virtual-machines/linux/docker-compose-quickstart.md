@@ -1,29 +1,19 @@
 ---
-title: Azure에서 Linux VM에 대한 Docker Compose 사용 | Microsoft Docs
-description: Azure CLI를 사용하여 Linux 가상 머신에 Docker 및 Compose를 설치하고 사용하는 방법
-services: virtual-machines-linux
-documentationcenter: ''
+title: Docker Compose 사용
+description: Azure CLI를 사용 하 여 Linux 가상 컴퓨터에서 Docker를 설치 및 사용 하 고 구성 하는 방법입니다.
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 02ab8cf9-318d-4a28-9d0c-4a31dccc2a84
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 03501ea774cf58a4be88ed9155e5cfdfb99f0379
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474084"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78970299"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Azure에서 다중 컨테이너 애플리케이션 정의 및 실행을 위해 Docker 및 Compose 시작
-[Compose](https://github.com/docker/compose)를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 애플리케이션을 정의할 수 있습니다. 그런 다음, 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 애플리케이션을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 애플리케이션을 설정할 수도 있습니다.
+[작성](https://github.com/docker/compose)을 사용 하면 간단한 텍스트 파일을 사용 하 여 여러 Docker 컨테이너로 구성 된 응용 프로그램을 정의할 수 있습니다. 그런 다음, 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 애플리케이션을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 애플리케이션을 설정할 수도 있습니다.
 
 이 문서는 2019년 2월 14일에 [Azure Cloud Shell](https://shell.azure.com/bash) 및 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 버전 2.0.58을 사용하여 마지막으로 테스트되었습니다.
 

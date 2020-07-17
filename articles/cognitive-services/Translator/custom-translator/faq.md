@@ -1,22 +1,21 @@
 ---
 title: 질문과 대답 - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Custom Translator에 대한 질문과 대답입니다.
-author: rajdeep-in
-manager: christw
+description: 이 문서에는 Azure Cognitive Services 사용자 지정 변환기에 대 한 질문과 대답이 포함 되어 있습니다.
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
-ms.author: v-rada
+ms.date: 05/26/2020
+ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: d3e3d12e572c939fb2ddd5bc671aede434ca7d8a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 2edc5e9e255af321a30521ba1e707eea30d81f73
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760327"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957599"
 ---
-# <a name="frequently-asked-questions"></a>질문과 대답
+# <a name="custom-translator-frequently-asked-questions"></a>사용자 지정 변환기 faq (질문과 대답)
 
 이 문서에는 [Custom Translator](https://portal.customtranslator.azure.ai)에 대해 자주 묻는 질문과 대답이 포함되어 있습니다.
 
@@ -41,7 +40,7 @@ ms.locfileid: "57760327"
 
 ## <a name="how-do-you-access-a-deployed-system"></a>배포된 시스템에는 어떻게 액세스하나요?
 
-배포된 시스템은 CategoryID를 지정하여 Microsoft Translator Text API V3을 통해 액세스할 수 있습니다. Translator Text API에 대한 자세한 정보는 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 확인할 수 있습니다.
+배포 된 시스템은 CategoryID를 지정 하 여 번역기를 통해 액세스할 수 있습니다. Translator에 대 한 자세한 내용은 [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) 웹 페이지에서 찾을 수 있습니다.
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>내 데이터가 이미 정렬된 문장인 경우 정렬 및 문장 분리를 건너뛰려면 어떻게 해야 하나요?
 

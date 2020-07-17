@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: b0a8deb5f656fafde358dbcf2e1a2724f1a84113
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff439083ca9c648ceec95b89b041bb5b60785c91
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61225442"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "77603013"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Linux Virtual Machines 설명서
 
@@ -42,7 +42,7 @@ Azure에서 Linux VM을 배포하고 관리하며 확장하는 방법에 대해 
 - [VM 백업](/azure/virtual-machines/linux/tutorial-backup-vms)
 - [VM 모니터링](/azure/virtual-machines/linux/tutorial-monitoring)
 - [VM에 대한 보안 관리](/azure/virtual-machines/linux/tutorial-azure-security)
-- [Jenkins, Docker 및 GitHub을 사용하여 CI/CD 인프라 만들기](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+- [Jenkins, Docker 및 GitHub을 사용하여 CI/CD 인프라 만들기](/azure/jenkins/tutorial-jenkins-github-docker-cicd)
 
 ## <a name="free-pluralsight-video-training"></a>무료 Pluralsight 동영상 교육
 

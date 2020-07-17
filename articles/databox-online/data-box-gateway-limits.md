@@ -8,17 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d160b0ead1ceb8c41bede20cb389a360d24258f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82561376"
 ---
-# <a name="azure-data-box-gateway-limits"></a>Azure 데이터 상자 게이트웨이 제한
+# <a name="azure-data-box-gateway-limits"></a>Azure Data Box Gateway 제한
 
-Microsoft Azure Data Box Gateway 솔루션을 배포 및 운영할 때 이러한 제한을 고려합니다. 
-
+Microsoft Azure Data Box Gateway 솔루션을 배포 및 운영할 때 이러한 제한을 고려합니다.
 
 ## <a name="data-box-gateway-service-limits"></a>Data Box Gateway 서비스 제한
 
@@ -28,9 +27,9 @@ Microsoft Azure Data Box Gateway 솔루션을 배포 및 운영할 때 이러한
 
 다음 표에서는 Data Box Gateway 디바이스에 대한 제한을 설명합니다.
 
-| 설명 | 값 |
+| Description | 값 |
 |---|---|
-|아니요. 디바이스당 파일 수 |1억 <br> 제한은 2TB 디스크 공간마다 25백만 개 파일로, 최대 한도는 1억 개입니다. |
+|아니요. 디바이스당 파일 수 |1억 <br> 추가 되는 모든 2500만 파일 (1억의 최대 제한)에 대해 2tb의 디스크 공간, 8gb의 RAM 및 4 개의 CPU 코어를 추가 해야 합니다. |
 |아니요. 디바이스당 공유 수 |24 |
 |아니요. Azure Storage 컨테이너당 공유 수 |1 |
 |공유에 기록되는 최대 파일 크기|2TB 가상 디바이스의 경우 최대 파일 크기는 500GB입니다. <br> 최대 파일 크기는 최대 5TB에 도달할 때까지 이전 비율의 데이터 디스크 크기에 따라 증가합니다. |

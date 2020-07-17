@@ -1,19 +1,18 @@
 ---
-title: Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기
-description: Azure Monitor 메트릭 저장소의 Cloud Services에 게스트 OS 메트릭 보내기
+title: Azure Monitor 메트릭 데이터베이스에 클래식 Cloud Services 메트릭 보내기
+description: Azure 클래식 Cloud Services에 대 한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 저장소에 전송 하는 프로세스를 설명 합니다.
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124465"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
@@ -27,25 +26,27 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 이 문서에서 설명하는 프로세스는 Azure Cloud Services의 성능 카운터에서만 작동합니다. 다른 사용자 지정 메트릭에서는 작동하지 않습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독의 [서비스 관리자 또는 공동 관리자](~/articles/billing/billing-add-change-azure-subscription-administrator.md)여야 합니다. 
+- Azure 구독의 [서비스 관리자 또는 공동 관리자](../../cost-management-billing/manage/add-change-subscription-administrator.md)여야 합니다. 
 
 - 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
-## <a name="provision-a-cloud-service-and-storage-account"></a>클라우드 서비스 및 저장소 계정 프로비전 
+- 클라우드 서비스 [는 사용자 지정 메트릭을 지 원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다.
+
+## <a name="provision-a-cloud-service-and-storage-account"></a>클라우드 서비스 및 스토리지 계정 프로비전 
 
 1. 클래식 클라우드 서비스를 만들고 배포합니다. 샘플 클래식 Cloud Services 애플리케이션 및 배포는 [Azure Cloud Services 및 ASP.NET 시작](../../cloud-services/cloud-services-dotnet-get-started.md)에서 확인할 수 있습니다. 
 
-2. 기존 저장소 계정을 사용하거나 새 저장소 계정을 배포할 수 있습니다. 직접 만든 클래식 클라우드 서비스와 동일한 지역에 저장소 계정이 있는 것이 가장 좋습니다. Azure Portal에서 **저장소 계정** 리소스 블레이드로 이동한 다음, **키**를 선택합니다. 저장소 계정 이름과 저장소 계정 키를 적어 둡니다. 이 정보는 이후 단계에서 필요합니다.
+2. 기존 스토리지 계정을 사용하거나 새 스토리지 계정을 배포할 수 있습니다. 직접 만든 클래식 클라우드 서비스와 동일한 지역에 스토리지 계정이 있는 것이 가장 좋습니다. Azure Portal에서 **스토리지 계정** 리소스 블레이드로 이동한 다음, **키**를 선택합니다. 스토리지 계정 이름과 스토리지 계정 키를 적어 둡니다. 이 정보는 이후 단계에서 필요합니다.
 
    ![Storage 계정 키](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기 
 
-[포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) 지침을 사용하여 Azure Active Directory 테넌트에 서비스 주체를 만듭니다. 이 프로세스를 진행하는 동안 다음 사항에 유의하세요. 
+[포털을 사용 하 여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)의 지침을 사용 하 여 Azure Active Directory 테 넌 트에 서비스 주체를 만듭니다. 이 프로세스를 진행하는 동안 다음 사항에 유의하세요. 
 
 - 로그인 URL에 대해 임의 URL을 입력할 수 있습니다.  
 - 이 앱에 대한 새 클라이언트 암호를 만듭니다.  
@@ -122,7 +123,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
     </PerformanceCounters>
 ```
 
-마지막으로, 개인 구성에서 *Azure Monitor 계정* 섹션을 추가합니다. 앞에서 만든 서비스 주체 클라이언트 ID와 비밀을 입력합니다. 
+마지막으로, 프라이빗 구성에서 *Azure Monitor 계정* 섹션을 추가합니다. 앞에서 만든 서비스 주체 클라이언트 ID와 비밀을 입력합니다. 
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
@@ -146,7 +147,7 @@ PowerShell을 시작하고 Azure에 로그인합니다.
 Login-AzAccount 
 ```
 
-다음 명령을 사용하여 앞에서 만든 저장소 계정의 세부 정보를 저장합니다. 
+다음 명령을 사용하여 앞에서 만든 스토리지 계정의 세부 정보를 저장합니다. 
 
 ```powershell
 $storage_account = <name of your storage account from step 3> 
@@ -166,7 +167,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 ```
 
 > [!NOTE] 
-> 여전히 진단 확장 설치 중에 저장소 계정을 제공해야 합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 지정한 저장소 계정에 기록됩니다.  
+> 여전히 진단 확장 설치 중에 스토리지 계정을 제공해야 합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 지정한 스토리지 계정에 기록됩니다.  
 
 ## <a name="plot-metrics-in-the-azure-portal"></a>Azure Portal에서 메트릭 구성 
 
@@ -174,15 +175,15 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
    ![Azure Portal의 메트릭](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
-2. 왼쪽 메뉴에서 **모니터**를 선택합니다.
+2. 왼쪽 메뉴에서 모니터를 선택 **합니다.**
 
 3. **모니터** 블레이드에서 **메트릭 미리 보기** 탭을 선택합니다.
 
 4. 리소스 드롭다운 메뉴에서 클래식 클라우드 서비스를 선택합니다.
 
-5. 네임스페이스 드롭다운 메뉴에서 **azure.vm.windows.guest**를 선택합니다. 
+5. 네임 스페이스 드롭다운 메뉴에서 **azure. v m. w i m**. 
 
-6. 메트릭 드롭다운 메뉴에서 **Memory\Committed Bytes in Use**를 선택합니다. 
+6. 메트릭 드롭다운 메뉴에서 **Memory\committed Bytes In Use**를 선택 합니다. 
 
 차원 필터링 및 분할 기능을 사용하여 특정 역할 또는 역할 인스턴스에서 사용하는 총 메모리를 볼 수 있습니다. 
 

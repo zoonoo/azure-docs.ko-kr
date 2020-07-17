@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60633420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182243"
 ---
 > [!NOTE]
 > SharePoint RBS용 StorSimple 어댑터 구성을 변경하면, Domain Admins 그룹에 속하는 사용자 계정으로 로그온해야 합니다. 또한 중앙 관리와 같은 호스트에서 실행 되는 브라우저에서 구성 페이지에 액세스해야 합니다.
@@ -23,13 +23,13 @@ ms.locfileid: "60633420"
     ![StorSimple 어댑터 구성](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
 3. **StorSimple 어댑터 구성** 페이지에서 다음을 수행합니다.
    
-   1. **경로 편집 사용** 확인란이 선택되었는지 확인합니다.
+   1. **경로 편집 사용** 확인란이 선택되어 있는지 확인합니다.
    2. 텍스트 상자에 BLOB 저장소의 UNC(범용 명명 규칙) 경로를 입력합니다.
       
       > [!NOTE]
       > BLOB 저장소 볼륨은 StorSimple 디바이스에 구성된 iSCSI 볼륨에서 호스팅해야 합니다.
 
-   3. 원격 저장소에 대해 구성하려는 각 콘텐츠 데이터베이스 아래에 있는 **사용** 단추를 클릭합니다.
+   3. 원격 저장소로 구성하려는 각 콘텐츠 데이터베이스 아래에 있는 **사용** 단추를 클릭합니다.
       
       > [!NOTE]
       > BLOB 저장소가 공유되고 모든 WFE(웹 프런트 엔드) 서버에서 연결 가능해야 하며, SharePoint 서버 팜에 대해 구성된 사용자 계정에 공유 액세스 권한이 있어야 합니다.
@@ -40,12 +40,12 @@ ms.locfileid: "60633420"
       
       ![StorSimple 어댑터 사용 또는 사용 안함 구성](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-   4. **업데이트** 단추를 클릭하여 구성을 적용합니다. **업데이트** 단추를 클릭하면 RBS 구성 상태가 모든 WFE 서버에서 업데이트되며, 전체 팜에서 RBS가 사용됩니다. 다음과 같은 메시지가 나타납니다.
+   4. **업데이트** 단추를 클릭하여 구성을 적용합니다. **업데이트** 단추를 클릭하면 RBS 구성 상태가 모든 WFE 서버에서 업데이트되고 전체 팜에서 RBS를 사용할 수 있게 됩니다. 다음과 같은 메시지가 나타납니다.
       
       ![어댑터 구성 메시지](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > 매우 많은(200개 초과) 데이터베이스가 있는 SharePoint 팜에 RBS를 구성하는 경우 SharePoint 중앙 관리 페이지가 시간을 초과할 수 있습니다. 이런 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
+      > 매우 많은 데이터베이스 (200 이상)를 사용 하 여 SharePoint 팜에 대 한 RBS를 구성 하는 경우 SharePoint 중앙 관리 웹 페이지의 시간이 초과 될 수 있습니다. 이 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
 
 4. 구성 확인:
    
@@ -103,7 +103,7 @@ ms.locfileid: "60633420"
       ```
       
       RBS가 올바르게 구성된 경우, 업로드되고 RBS로 성공적으로 표면화된 모든 개체에 대한 SizeOfContentInDB 열에 NULL 값이 나타나야 합니다.
-8. (선택 사항)RBS를 구성하고 모든 BLOB 콘텐츠를 StorSimple 디바이스로 이동한 후, 디바이스에 콘텐츠 데이터베이스를 이동할 수 있습니다. 콘텐츠 데이터베이스를 이동하도록 선택한 경우, 기본 볼륨으로 디바이스에서 콘텐츠 데이터베이스 저장소를 구성하는 것이 좋습니다. 그런 다음, 설정된 SQL Server 모범 사례를 사용하여 콘텐츠 데이터베이스를 StorSimple 디바이스로 마이그레이션합니다. 
+8. (선택 사항)RBS를 구성하고 모든 BLOB 콘텐츠를 StorSimple 디바이스로 이동한 후, 디바이스에 콘텐츠 데이터베이스를 이동할 수 있습니다. 콘텐츠 데이터베이스를 이동하도록 선택한 경우, 기본 볼륨으로 디바이스에서 콘텐츠 데이터베이스 스토리지를 구성하는 것이 좋습니다. 그런 다음, 설정된 SQL Server 모범 사례를 사용하여 콘텐츠 데이터베이스를 StorSimple 디바이스로 마이그레이션합니다. 
    
    > [!NOTE]
    > 콘텐츠 데이터베이스를 디바이스로 이동하면 StorSimple 8000 시리즈 디바이스만 지원합니다(5000 또는 7000 시리즈를 지원하지 않음).
@@ -113,7 +113,7 @@ ms.locfileid: "60633420"
    > [!WARNING]
    > RBS를 사용하도록 설정하지 않은 경우, 콘텐츠 데이터베이스를 StorSimple 디바이스로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
    
-9. 다음 단계 [가비지 수집 구성](#configure-garbage-collection)으로 이동합니다.
+9. 다음 단계인 [가비지 수집 구성](#configure-garbage-collection)으로 이동합니다.
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx

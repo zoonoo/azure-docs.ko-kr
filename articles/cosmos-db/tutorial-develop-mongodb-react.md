@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
-ms.openlocfilehash: ef245c2ef5da2b3dc9780e772a71e8ef896e1aff
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 4efaa90281ddcebf1b800e1016578e38c24be651
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959802"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "69614105"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React 및 Azure Cosmos DB에서 MongoDB 앱 만들기  
 
@@ -34,11 +34,11 @@ ms.locfileid: "56959802"
 
 Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자습서 비디오 시리즈](tutorial-develop-mongodb-nodejs.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * [Node.JS](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>완료된 프로젝트
-[GitHub에서](https://github.com/Azure-Samples/react-cosmosdb) 완성된 응용 프로그램을 가져옵니다.
+[GitHub에서](https://github.com/Azure-Samples/react-cosmosdb) 완성된 애플리케이션을 가져옵니다.
 
 ## <a name="introduction"></a>소개 
 
@@ -54,7 +54,7 @@ Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자�
 
 ## <a name="build-the-ui"></a>UI 빌드
 
-이 비디오에서는 React를 사용하여 응용 프로그램의 UI(사용자 인터페이스)를 만드는 방법을 보여줍니다. 
+이 비디오에서는 React를 사용하여 애플리케이션의 UI(사용자 인터페이스)를 만드는 방법을 보여줍니다. 
 
 > [!NOTE]
 > 이 비디오에서 참조되는 CSS는 [react-cosmosdb GitHub 리포지토리](https://github.com/Azure-Samples/react-cosmosdb/blob/master/src/index.css)에서 찾을 수 있습니다.
@@ -69,7 +69,7 @@ Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자�
 
 ## <a name="read-and-create-heroes-in-the-app"></a>앱에서 Heroes 읽기 및 만들기
 
-이 비디오는 Postman 및 React UI를 사용하여 해당 메서드를 테스트하는 방법뿐만 아니라 Cosmos DB 데이터베이스에서 Heroes를 읽고 만드는 방법을 보여줍니다. 
+이 비디오는 Postman 및 React UI를 사용하여 해당 메서드를 테스트하는 방법뿐만 아니라 Cosmos 데이터베이스에서 Heroes를 읽고 만드는 방법을 보여줍니다. 
 
 > [!VIDEO https://www.youtube.com/embed/AQK9n_8fsQI] 
 

@@ -3,25 +3,25 @@ title: 할당한 애플리케이션이 액세스 패널에 표시되지 않음 |
 description: 애플리케이션이 액세스 패널에 표시되지 않는 문제 해결
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/09/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d16efbd8ea2fa37ac9572e9dc1ba3ef67deaeaf
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 69f5196484b841e8f0de72ce52ae48e00963f6f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784388"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760998"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>할당한 애플리케이션이 액세스 패널에 표시되지 않음
 
@@ -75,7 +75,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com) 을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인 합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -99,7 +99,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 애플리케이션에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -133,11 +133,11 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
     1. **특성 추가**를 클릭합니다. **이름**을 입력하고 드롭다운에서 **값**을 선택합니다.
 
-    2. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
+    2. **저장을 클릭 합니다.** 테이블에 새 특성이 표시됩니다.
 
 13. 애플리케이션의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;애플리케이션 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 SSO를 설정하는 데 필요한 메타데이터 URL 및 인증서가 있습니다.
 
-14. 구성을 저장하려면 **저장**을 클릭합니다.
+14. **저장** 을 클릭 하 여 구성을 저장 합니다.
 
 15. 애플리케이션에 사용자를 할당합니다.
 
@@ -145,7 +145,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 사용자 식별자를 선택하거나 사용자 특성을 추가하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -164,7 +164,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 8. **사용자 특성** 섹션 아래의 **사용자 식별자** 드롭다운에서 사용자의 고유한 식별자를 선택합니다. 사용자를 인증하려면 선택한 옵션이 애플리케이션의 예상 값과 일치해야 합니다.
 
    >[!NOTE] 
-   >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 ID)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
+   >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 ID)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single SIGN-ON SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서를 참조 하세요.
    >
    >
 
@@ -174,13 +174,13 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
    1. **특성 추가**를 클릭합니다. **이름**을 입력하고 드롭다운에서 **값**을 선택합니다.
 
-   2. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
+   2. **저장을 클릭 합니다.** 테이블에 새 특성이 표시됩니다.
 
 #### <a name="download-the-azure-ad-metadata-or-certificate"></a>Azure AD 메타데이터 또는 인증서 다운로드
 
 Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -216,7 +216,7 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -234,7 +234,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 9. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-10. **모드** 드롭다운에서 **SAML 기반 로그온**을 선택합니다.
+10. **모드** 드롭다운에서 **SAML 기반 로그온을** 선택 합니다.
 
 11. **도메인 및 URL**에 필요한 값을 입력합니다. 이러한 값은 애플리케이션 공급업체에서 받아야 합니다.
 
@@ -258,7 +258,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 사용자 식별자를 선택하거나 사용자 특성을 추가하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -277,7 +277,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 8. **사용자 특성** 섹션 아래의 **사용자 식별자** 드롭다운에서 사용자의 고유한 식별자를 선택합니다. 사용자를 인증하려면 선택한 옵션이 애플리케이션의 예상 값과 일치해야 합니다.
 
    >[!NOTE] 
-   >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 ID)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
+   >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 ID)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single SIGN-ON SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서를 참조 하세요.
    >
    >
 
@@ -293,7 +293,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -325,7 +325,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com) 을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인 합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -349,7 +349,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 애플리케이션에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -367,11 +367,11 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 8. **암호 기반 로그온** 모드를 선택합니다.
 
-9. [애플리케이션에 사용자를 할당합니다](#how-to-assign-a-user-to-an-application-directly).
+9. [응용 프로그램에 사용자를 할당](#how-to-assign-a-user-to-an-application-directly)합니다.
 
 10. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 
-### <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
+### <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비-갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
@@ -383,7 +383,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com) 을 열고 **전역 관리자** 또는 **공동 관리자**권한으로 로그인 합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -395,15 +395,15 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 6.  **비갤러리 애플리케이션**을 클릭합니다.
 
-7.  **이름** 텍스트 상자에 애플리케이션의 이름을 입력합니다. **추가**를 선택합니다.
+7.  **이름** 텍스트 상자에 애플리케이션의 이름을 입력합니다. **추가를 선택 합니다.**
 
 짧은 시간 후에 애플리케이션의 구성 창을 볼 수 있습니다.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 애플리케이션 구성
+#### <a name="configure-the-application-for-password-single-sign-on"></a><a name="configure-the-application-for-password-single-sign-on-1"></a>암호 Single Sign-On에 대 한 응용 프로그램 구성
 
 애플리케이션에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1.  [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -423,7 +423,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 9.  **로그온 URL**을 입력합니다. 사용자가 로그인하기 위해 사용자 이름과 암호를 입력하는 URL입니다. URL에서 로그인 필드가 표시되는지 확인합니다.
 
-10. [애플리케이션에 사용자를 할당합니다](#how-to-assign-a-user-to-an-application-directly).
+10. [응용 프로그램에 사용자를 할당](#how-to-assign-a-user-to-an-application-directly)합니다.
 
 11. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 
@@ -455,7 +455,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 6. 문제의 애플리케이션 이름을 **검색**합니다.
 
-7. **사용자 및 그룹**을 클릭합니다.
+7. **사용자 및 그룹**을 클릭 합니다.
 
 8. 사용자가 애플리케이션에 할당되었는지 확인합니다.
 
@@ -465,7 +465,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 애플리케이션에 하나 이상의 사용자를 직접 할당하려면 다음 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한**으로 로그인 합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -509,9 +509,9 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4. 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5. **모든 사용자**를 클릭합니다.
+5. **모든 사용자**를 클릭 합니다.
 
 6. 관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
@@ -529,15 +529,15 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5.  **모든 사용자**를 클릭합니다.
+5.  **모든 사용자**를 클릭 합니다.
 
 6.  관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
 7.  **라이선스**를 클릭하여 사용자가 현재 할당된 라이선스를 봅니다.
 
-8.  **할당** 단추를 클릭합니다.
+8.  **할당** 단추를 클릭 합니다.
 
 9.  사용 가능한 제품 목록에서 **하나 이상의 제품**을 선택합니다.
 
@@ -545,11 +545,11 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 11. **할당** 단추를 클릭하여 이러한 라이선스를 이 사용자에게 할당합니다.
 
-## <a name="problems-related-to-assigning-applications-to-groups"></a>그룹의 애플리케이션 할당과 관련된 문제
+## <a name="problems-related-to-assigning-applications-to-groups"></a>그룹에 애플리케이션 할당과 관련된 문제
 
 사용자는 애플리케이션이 할당된 그룹에 속해 있으므로 액세스 패널에 애플리케이션이 표시될 수 있습니다. 다음은 확인할 몇 가지 방법입니다.
 
--   [사용자의 그룹 멤버 자격 확인](#check-a-users-group-memberships)
+-   [사용자의 그룹 구성원 자격 확인](#check-a-users-group-memberships)
 
 -   [그룹에 애플리케이션을 직접 할당하는 방법](#how-to-assign-an-application-to-a-group-directly)
 
@@ -557,7 +557,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 -   [그룹에 라이선스를 할당하는 방법](#how-to-assign-a-license-to-a-group)
 
-### <a name="check-a-users-group-memberships"></a>사용자의 그룹 멤버 자격 확인
+### <a name="check-a-users-group-memberships"></a>사용자의 그룹 구성원 자격 확인
 
 그룹의 멤버 자격을 확인하려면 다음 단계를 수행합니다.
 
@@ -567,13 +567,13 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4. 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5. **모든 사용자**를 클릭합니다.
+5. **모든 사용자**를 클릭 합니다.
 
 6. 관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7. **그룹**을 클릭합니다.
+7. **그룹**을 클릭 합니다.
 
 8. 사용자가 애플리케이션에 할당된 그룹에 속하는지 확인합니다.
 
@@ -583,7 +583,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 애플리케이션에 하나 이상의 그룹을 직접 할당하려면 다음 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한**으로 로그인 합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -625,13 +625,13 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4. 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
-5. **모든 사용자**를 클릭합니다.
+5. **모든 사용자**를 클릭 합니다.
 
 6. 관심이 있는 사용자를 **검색**하고 **행을 클릭**하여 선택합니다.
 
-7. **그룹**을 클릭합니다.
+7. **그룹**을 클릭 합니다.
 
 8. 특정 그룹의 행을 클릭합니다.
 
@@ -649,7 +649,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹** 을 클릭 합니다.
 
 5.  **모든 그룹**을 클릭합니다.
 
@@ -657,7 +657,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 7.  **라이선스**를 클릭하여 그룹이 현재 할당된 라이선스를 봅니다.
 
-8.  **할당** 단추를 클릭합니다.
+8.  **할당** 단추를 클릭 합니다.
 
 9.  사용 가능한 제품 목록에서 **하나 이상의 제품**을 선택합니다.
 

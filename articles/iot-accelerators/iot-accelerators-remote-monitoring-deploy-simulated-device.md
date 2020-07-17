@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdd2b24e6f833ee0acb229a37c7cd3b8b6f36339
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "66427573"
 ---
 # <a name="deploy-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 배포
 
@@ -31,11 +31,11 @@ ms.locfileid: "59682052"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-이 방법 가이드의 단계를 완료하려면 활성 Azure 구독이 필요합니다.
+이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -88,13 +88,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 컨테이너의 기존 디바이스 모델 파일을 새 위치로 복사합니다. 먼저, 디바이스 시뮬레이션 컨테이너에 대한 컨테이너 ID를 찾습니다.
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     그런 후 디바이스 모델 파일을 가상 머신의 **tmp** 폴더에 복사합니다. 다음 명령은 컨테이너 ID가 c378d6878407이라고 가정합니다. 이 값을 디바이스 시뮬레이션 컨테이너 ID로 바꿉니다.
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     **bash** 창에서 SSH 세션을 열린 상태로 둡니다.
@@ -116,13 +117,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     실행 중인 Docker 컨테이너의 상태 및 해당 컨테이너 ID를 확인하려는 경우 다음 명령을 사용합니다.
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     디바이스 시뮬레이션 컨테이너에서 로그를 확인하려는 경우 다음 명령을 실행합니다. 컨테이너 ID를 디바이스 시뮬레이션 컨테이너의 ID로 바꿉니다.
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## <a name="run-simulation"></a>시뮬레이션 실행
@@ -139,7 +140,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 좀 더 알아보려면 원격 모니터링 솔루션 가속기를 배포된 대로 둡니다.
 
-솔루션 가속기가 더 이상 필요하지 않은 경우 선택한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
+솔루션 가속기가 더 이상 필요 하지 않은 경우 [프로 비전 된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 선택한 다음 **솔루션 삭제**를 클릭 하 여 해당 솔루션을 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/27/2018
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682800"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82203270"
 ---
 # <a name="add-an-api-manually"></a>API를 수동으로 추가
 
@@ -28,7 +27,7 @@ ms.locfileid: "59682800"
 
 이 문서에서는 빈 API를 만들고 [httpbin.org](https://httpbin.org)(공용 테스트 서비스)를 백 엔드 API로 지정합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
@@ -36,25 +35,14 @@ ms.locfileid: "59682800"
 
 ## <a name="create-an-api"></a>API 만들기
 
-1. **API Management**에서 **API**를 선택합니다.
+1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API**를 선택합니다.
 2. 왼쪽 메뉴에서 **+API 추가**를 선택합니다.
-3. 목록에서 **빈 API**를 선택합니다.
-
-    ![빈 API](media/add-api-manually/blank-api.png)
-4. API에 대한 설정을 입력합니다.
-
-    ![설정](media/add-api-manually/settings.png)
-
-    |**Name**|**값**|**설명**|
-    |---|---|---|
-    |**표시 이름**|*빈 API*" |이 이름은 개발자 포털에 표시됩니다.|
-    |**웹 서비스 URL**(선택 사항)| "*https://httpbin.org*"| 모의 API를 만들려는 경우에는 아무 것도 입력할 필요가 없습니다. <br/>이 예에서는 [https://httpbin.org](https://httpbin.org)를 입력합니다. 이것은 공용 테스트 서비스입니다. <br/>자동으로 백 엔드에 매핑되는 API를 가져오려는 경우 [관련 항목](#related-topics) 섹션의 항목 중 하나를 참조하세요.|
-    |**URL 구성표**|"*HTTPS*"|이 경우 백 엔드에 비보안 HTTP 액세스가 있더라도 백 엔드에 대해 보안 HTTPS APIM 액세스를 지정합니다. <br/>이러한 종류의 시나리오(HTTPS-HTTP)를 HTTPS 종단이라고 합니다. 가상 네트워크 내에 API가 있는 경우(HTTPS가 사용되지 않더라도 액세스의 보안이 유지된다는 것을 아는 경우) 이 작업을 수행할 수 있습니다. <br/>일부 CPU 주기를 줄이기 위해 "HTTPS 종단"을 사용하려고 할 수도 있습니다.|
-    |**URL 접미사**|"*hbin*"| 접미사는 이 APIM 인스턴스에서 이 특정 API를 식별하는 이름입니다. 이 APIM 인스턴스 내에서 고유해야 합니다.|
-    |**제품**|"*Unlimited*" |API를 제품에 연결하여 API를 게시합니다. API를 게시하고 개발자가 사용할 수 있게 하려면 제품에 추가합니다. API를 만드는 동안 이 작업을 수행할 수도 있고 나중에 설정할 수도 있습니다.<br/><br/>제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/>개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독할 경우 해당 제품의 모든 API에 적절한 구독 키를 받게 됩니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.<br/><br/> 기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품과 함께 제공됩니다. **Starter** 및 **Unlimited**입니다.| 
+3. 목록에서 **빈 API**를 선택합니다.  
+    ![빈 API](media/add-api-manually/blank-api.png)  
+4. API에 대한 설정을 입력합니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#-import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
 5. **만들기**를 선택합니다.
 
-이때 백 엔드 API의 작업에 매핑되는 APIM의 작업은 없습니다. APIM을 통해서가 아니라 백 엔드를 통해 노출되는 작업을 호출하는 경우 **404**가 표시됩니다.
+이때 백 엔드 API의 작업에 매핑되는 API Management의 작업은 없습니다. API Management를 통해서가 아니라 백 엔드를 통해 노출되는 작업을 호출하는 경우 **404**가 표시됩니다.
 
 >[!NOTE] 
 > 기본적으로 추가한 API가 일부 백 엔드 서비스에 연결되더라도 허용 목록에 추가할 때까지 APIM는 어떤 작업도 공개하지 않습니다. 백 엔드 서비스의 작업을 허용 목록에 추가하려면 백 엔드 작업에 매핑되는 APIM 작업을 만듭니다.
@@ -66,8 +54,8 @@ ms.locfileid: "59682800"
 ### <a name="add-an-operation"></a>작업 추가
 
 1. 이전 단계에서 만든 API를 선택합니다.
-2. **+ 작업 추가**를 클릭합니다.
-3. **URL**에서 **GET**을 선택하고 리소스에 "*/get*"을 입력합니다.
+2. **+작업 추가**를 클릭합니다.
+3. **URL**에서 **GET**을 선택하고 리소스에 " */get*"을 입력합니다.
 4. **표시 이름**으로 "*FetchData*"를 입력합니다.
 5. **저장**을 선택합니다.
 
@@ -88,8 +76,8 @@ Azure Portal에서 작업을 테스트합니다. 또는 **개발자 포털**에�
 ### <a name="add-the-operation"></a>작업 추가
 
 1. 이전 단계에서 만든 API를 선택합니다.
-2. **+ 작업 추가**를 클릭합니다.
-3. **URL**에서 **GET**을 선택하고 리소스에 "*/status/{code}*"를 입력합니다. 필요에 따라 이 매개 변수와 관련된 몇 가지 정보를 제공할 수 있습니다. 예를 들어 **형식**에 대해 "*Number*"를 입력하고 **값**에 대해 “*200*”(기본값)을 입력합니다.
+2. **+작업 추가**를 클릭합니다.
+3. **URL**에서 **GET**을 선택하고 리소스에 " */status/{code}* "를 입력합니다. 필요에 따라 이 매개 변수와 관련된 몇 가지 정보를 제공할 수 있습니다. 예를 들어 **형식**에 대해 "*Number*"를 입력하고 **값**에 대해 “*200*”(기본값)을 입력합니다.
 4. **표시 이름**으로 "GetStatus"를 입력합니다.
 5. **저장**을 선택합니다.
 

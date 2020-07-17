@@ -1,19 +1,20 @@
 ---
-title: 배포 하 고 Azure PowerShell을 사용 하 여 Azure 방화벽 구성
-description: 이 문서에서는 배포 하 고 Azure PowerShell을 사용 하 여 Azure 방화벽을 구성 하는 방법을 알아봅니다.
+title: Azure PowerShell를 사용 하 여 Azure 방화벽 배포 및 구성
+description: 이 문서에서는 Azure PowerShell를 사용 하 여 Azure 방화벽을 배포 하 고 구성 하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
-ms.openlocfilehash: 7c30e0aa0ae9735f5d08e1a2c4d6e6d36d778e27
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.topic: how-to
+ms.openlocfilehash: 50d870590fa6b8351838af9cb91b7be39b8d30db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610662"
 ---
-# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>배포 하 고 Azure PowerShell을 사용 하 여 Azure 방화벽 구성
+# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 방화벽 배포 및 구성
 
 아웃바운드 네트워크 액세스 제어는 전체 네트워크 보안 계획에서 중요한 부분입니다. 예를 들어 웹 사이트에 대한 액세스를 제한할 수 있습니다. 또는 액세스 가능한 아웃바운드 IP 주소 및 포트를 제한할 수 있습니다.
 
@@ -24,7 +25,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 네트워크 트래픽은 서브넷 기본 게이트웨이처럼 방화벽에 네트워크 트래픽을 라우팅할 경우 구성된 방화벽 규칙에 종속됩니다.
 
-이 문서에서는 간편한 배포를 위해 세 개의 서브넷을 사용 하 여 간소화 된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 권장되며 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
+이 문서에서는 쉽게 배포할 수 있도록 세 개의 서브넷이 있는 간소화 된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 권장되며 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
 
 * **AzureFirewallSubnet** - 방화벽은 이 서브넷에 있습니다.
 * **워크로드-SN** - 워크로드 서버는 이 서브넷에 있습니다. 이 서브넷의 네트워크 트래픽은 방화벽을 통해 이동합니다.
@@ -38,17 +39,17 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 네트워크 환경 설정
 > * 방화벽 배포
 > * 기본 경로 만들기
-> * www.google.com 액세스를 허용하도록 애플리케이션 규칙 구성
+> * [www.google.com]\(www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
 > * 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
 > * 방화벽 테스트
 
-원하는 경우이 절차를 사용 하 여 완료할 수 있습니다 합니다 [Azure portal](tutorial-firewall-deploy-portal.md)합니다.
+원하는 경우 [Azure Portal](tutorial-firewall-deploy-portal.md)를 사용 하 여이 절차를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 절차는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 절차를 수행 하려면 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 ## <a name="set-up-the-network"></a>네트워크 설정
 
@@ -56,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹 배포에 대 한 모든 리소스를 포함 합니다.
+리소스 그룹에는 배포에 대 한 모든 리소스가 포함 됩니다.
 
 ```azurepowershell
 New-AzResourceGroup -Name Test-FW-RG -Location "East US"
@@ -64,17 +65,16 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 
 ### <a name="create-a-vnet"></a>VNet 만들기
 
-이 가상 네트워크에는 세 개의 서브넷에 있습니다.
+이 가상 네트워크에는 세 개의 서브넷이 있습니다.
+
+> [!NOTE]
+> AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
 
 ```azurepowershell
-$FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/24
+$FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
 $Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.0/24
 ```
-
-> [!NOTE]
-> AzureFirewallSubnet 서브넷의 최소 크기는 /26입니다.
-
 이제 가상 네트워크를 만듭니다.
 
 ```azurepowershell
@@ -100,7 +100,7 @@ New-AzVm `
     -Size "Standard_DS2"
 ```
 
-공용 IP 주소가 없는 워크 로드 가상 컴퓨터를 만듭니다.
+공용 IP 주소가 없는 워크 로드 가상 머신을 만듭니다.
 메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
 
 ```azurepowershell
@@ -139,7 +139,7 @@ $AzfwPrivateIP
 
 ## <a name="create-a-default-route"></a>기본 경로 만들기
 
-사용 하지 않도록 설정 하는 BGP 경로 전파를 사용 하 여 테이블 만들기
+BGP 경로 전파를 사용 하지 않도록 설정 하 여 테이블을 만듭니다.
 
 ```azurepowershell
 $routeTableDG = New-AzRouteTable `
@@ -177,7 +177,7 @@ $AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0
 $AppRuleCollection = New-AzFirewallApplicationRuleCollection -Name App-Coll01 `
   -Priority 200 -ActionType Allow -Rule $AppRule1
 
-$Azfw.ApplicationRuleCollections = $AppRuleCollection
+$Azfw.ApplicationRuleCollections.Add($AppRuleCollection)
 
 Set-AzFirewall -AzureFirewall $Azfw
 ```
@@ -195,14 +195,14 @@ $NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAdd
 $NetRuleCollection = New-AzFirewallNetworkRuleCollection -Name RCNet01 -Priority 200 `
    -Rule $NetRule1 -ActionType "Allow"
 
-$Azfw.NetworkRuleCollections = $NetRuleCollection
+$Azfw.NetworkRuleCollections.Add($NetRuleCollection)
 
 Set-AzFirewall -AzureFirewall $Azfw
 ```
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>**Srv-Work** 네트워크 인터페이스에 대해 기본 및 보조 DNS 주소 변경
 
-이 절차에서는 테스트 목적으로 서버의 기본 및 보조 DNS 주소를 구성 합니다. 일반적인 Azure Firewall 요구 사항이 아닙니다.
+이 절차에서 테스트를 위해 서버의 기본 및 보조 DNS 주소를 구성 합니다. 일반적인 Azure Firewall 요구 사항이 아닙니다.
 
 ```azurepowershell
 $NIC.DnsSettings.DnsServers.Add("209.244.0.3")
@@ -214,22 +214,22 @@ $NIC | Set-AzNetworkInterface
 
 이제 방화벽이 예상대로 작동하는지 테스트합니다.
 
-1. 에 대 한 개인 IP 주소를 메모 합니다 **Srv 작업** 가상 머신:
+1. **Srv 작업** 가상 머신의 개인 IP 주소를 적어둡니다.
 
    ```
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 원격 데스크톱 연결을 엽니다는 **Srv 작업** 개인 IP 주소 및 로그인 합니다.
+1. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 **Srv-Work** 개인 IP 주소에 대 한 원격 데스크톱 연결을 열고 로그인 합니다.
 
-3. 온 **SRV 작업**PowerShell 창을 열고 다음 명령을 실행 합니다.
+3. **SRV 작업**에서 PowerShell 창을 열고 다음 명령을 실행 합니다.
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   두 명령 모두 방화벽을 통해 DNS 쿼리를 가져오고 있는지를 보여 주는 응답을 반환 해야 합니다.
+   두 명령 모두 응답을 반환 해야 DNS 쿼리가 방화벽을 통해 수신 하 고 있음을 보여 줍니다.
 
 1. 다음 명령을 실행합니다.
 
@@ -241,7 +241,7 @@ $NIC | Set-AzNetworkInterface
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Www.google.com 요청에 성공 하 고 www.microsoft.com 요청이 실패 합니다. 이 방화벽 규칙에 예상 대로 작동 하는지 보여 줍니다.
+   `www.google.com`요청이 성공 하 고 `www.microsoft.com` 요청이 실패 합니다. 이는 방화벽 규칙이 예상 대로 작동 하 고 있음을 보여 줍니다.
 
 이제 방화벽 규칙이 작동하는지 확인했습니다.
 
@@ -250,7 +250,7 @@ $NIC | Set-AzNetworkInterface
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다음 자습서를 위해 방화벽 리소스를 유지 하거나 더 이상 필요한 경우 삭제할 수는 **테스트-FW-RG** 모든 방화벽 관련 리소스를 삭제 하려면 리소스 그룹:
+다음 자습서에 대 한 방화벽 리소스를 유지할 수 있습니다. 또는 더 이상 필요 하지 않은 경우에는 모든 방화벽 관련 리소스를 삭제 하는 **테스트-FW-RG** 리소스 그룹을 삭제 합니다.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name Test-FW-RG

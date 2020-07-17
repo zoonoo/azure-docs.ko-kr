@@ -1,0 +1,147 @@
+- name: 기본 사항 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure 보안 소개
+      href: overview.md
+    - name: 클라우드의 공동 책임
+      href: shared-responsibility.md
+- name: Azure의 워크로드 보호
+  items:
+    - name: 보안 기술 기능
+      href: technical-capabilities.md
+    - name: 기본 제공 보안 컨트롤
+      href: security-controls.md
+- name: Azure 플랫폼 및 인프라
+  items:
+    - name: 인프라 보안
+      href: infrastructure.md
+      items:
+        - name: 물리적 보안
+          href: physical-security.md
+        - name: 가용성
+          href: infrastructure-availability.md
+        - name: 구성 요소 및 경계
+          href: infrastructure-components.md
+        - name: 네트워크 아키텍처
+          displayName: 'ssl, https'
+          href: infrastructure-network.md
+        - name: 프로덕션 네트워크
+          href: production-network.md
+        - name: SQL Database
+          href: infrastructure-sql.md
+        - name: 작업
+          href: infrastructure-operations.md
+        - name: 모니터링
+          href: infrastructure-monitoring.md
+        - name: 무결성
+          href: infrastructure-integrity.md
+        - name: 데이터 보호
+          href: protection-customer-data.md
+    - name: Azure 클라우드에서 격리
+      href: isolation-choices.md
+- name: ID 관리
+  items:
+    - name: 보안 개요
+      href: identity-management-overview.md
+    - name: 모범 사례
+      href: identity-management-best-practices.md
+    - name: 보안 검사 목록
+      href: steps-secure-identity.md
+    - name: 암호 없음 선택
+      href: ad-passwordless.md
+- name: 네트워크 보안
+  items:
+    - name: 보안 개요
+      href: network-overview.md
+    - name: 모범 사례
+      href: network-best-practices.md
+    - name: DDoS Protection
+      href: ddos-best-practices.md
+    - name: 현수 DNS 및 하위 도메인 인수
+      href: subdomain-takeover.md
+    - name: 하이브리드 네트워크 아키텍처 보안
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+- name: IaaS 보안
+  items:
+    - name: Microsoft 맬웨어 방지
+      href: antimalware.md
+    - name: 가상 머신 보안 개요
+      href: virtual-machines-overview.md
+    - name: 모범 사례 - IaaS 워크로드
+      href: iaas.md
+    - name: Azure Marketplace 이미지
+      href: azure-marketplace-images.md
+- name: '데이터 보안, 암호화 및 스토리지'
+  items:
+    - name: 데이터 보안 및 암호화
+      href: encryption-overview.md
+    - name: 디스크 암호화
+      items:
+        - name: 모범 사례
+          href: data-encryption-best-practices.md
+        - name: 미사용 데이터 암호화
+          href: encryption-atrest.md
+        - name: 가상 머신에 대한 Azure Disk Encryption
+          href: azure-disk-encryption-vms-vmss.md
+    - name: 데이터베이스 보안
+      items:
+        - name: 개요
+          href: ../../sql-database/sql-database-security-overview.md
+        - name: 모범 사례
+          href: ../../sql-database/sql-database-security-best-practice.md
+        - name: 보안 검사 목록
+          href: database-security-checklist.md
+    - name: 스토리지 보안 지침
+      href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+    - name: 고객 Lockbox
+      href: customer-lockbox-overview.md
+    - name: 고객 Lockbox에 대한 보안 기준
+      href: customer-lockbox-security-baseline.md
+- name: 애플리케이션
+  items:
+    - name: PaaS
+      href: paas-deployments.md
+      items:
+        - name: PaaS용 Azure App Service
+          href: paas-applications-using-app-services.md
+        - name: PaaS용 Azure Storage
+          href: paas-applications-using-storage.md
+        - name: PaaS용 DB 모범 사례
+          href: paas-applications-using-sql.md
+    - name: Azure Service Fabric 보안
+      href: service-fabric-best-practices.md
+- name: '모니터링, 감사 및 작업'
+  items:
+    - name: Advanced Threat Protection
+      href: threat-detection.md
+    - name: Azure 로깅 및 감사
+      href: log-audit.md
+    - name: 보안 관리 및 모니터링
+      href: management-monitoring-overview.md
+    - name: 원격 관리 향상
+      href: management.md
+    - name: 운영 보안
+      items:
+        - name: 개요
+          href: operational-overview.md
+        - name: 모범 사례
+          href: operational-best-practices.md
+        - name: 보안 검사 목록
+          href: operational-checklist.md
+- name: 리소스
+  items:
+    - name: Azure 보안 서비스
+      href: services-technologies.md
+    - name: 보안 백서
+      href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
+    - name: 모범 사례
+      href: best-practices-and-patterns.md
+    - name: 사이버 보안 컨설팅
+      href: cyber-services.md
+    - name: 보안 이벤트 지원 티켓 로깅
+      href: event-support-ticket.md
+    - name: 펜 테스트
+      href: pen-testing.md
+    - name: Azure 도메인
+      href: azure-domains.md

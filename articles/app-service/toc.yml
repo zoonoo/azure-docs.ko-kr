@@ -33,7 +33,7 @@
       items:
         - name: SQL DB를 사용한 .NET Core
           href: app-service-web-tutorial-dotnetcore-sqldb.md
-        - name: SQL DB를 사용하는 .NET
+        - name: SQL DB를 사용하는 .NET Framework
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: MySQL을 사용하는 PHP
           href: app-service-web-tutorial-php-mysql.md
@@ -47,12 +47,14 @@
       href: app-service-web-tutorial-rest-api.md
     - name: 사용자 지정 도메인 매핑
       href: app-service-web-tutorial-custom-domain.md
-    - name: SSL 인증서 바인딩
-      href: app-service-web-tutorial-custom-ssl.md
+    - name: SSL을 사용하여 도메인 보호
+      href: configure-ssl-bindings.md
     - name: CDN 추가
       href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
     - name: 사용자 인증
       href: app-service-web-tutorial-auth-aad.md
+    - name: 이메일/트윗 보내기
+      href: tutorial-send-email.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -61,25 +63,41 @@
       href: samples-powershell.md
     - name: 리소스 관리자 템플릿
       href: samples-resource-manager-templates.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
-    - name: App Service 작동 방법
-      href: app-service-how-works-readme.md
     - name: App Service 계획
       href: overview-hosting-plans.md
     - name: OS 기능
       href: operating-system-functionality.md
+    - name: 배포 모범 사례
+      href: deploy-best-practices.md
     - name: 보안
-      href: overview-security.md
       items:
+        - name: 권장 사항
+          href: security-recommendations.md
         - name: 인증 및 권한 부여
           href: overview-authentication-authorization.md
         - name: OS 및 런타임 패치
           href: overview-patch-os-runtime.md
-        - name: 보안 특성
-          href: app-service-security-attributes.md
+        - name: 기본 제공 보안 컨트롤
+          href: app-service-security-controls.md
+        - name: 보안 개요
+          href: overview-security.md
+    - name: 네트워킹 기능
+      items:
+        - name: 개요
+          href: networking-features.md
+        - name: 서비스 엔드포인트가 있는 애플리케이션 게이트웨이
+          href: networking/app-gateway-with-service-endpoints.md
+        - name: Private Endpoint
+          href: networking/private-endpoint.md
     - name: 인바운드 및 아웃바운드 IP
       href: overview-inbound-outbound-ips.md
+    - name: 가상 네트워크 통합
+      href: web-sites-integrate-with-vnet.md
     - name: 하이브리드 연결
       href: app-service-hybrid-connections.md
     - name: Traffic Manager 통합
@@ -94,16 +112,26 @@
       items:
         - name: 일반 설정 구성
           href: configure-common.md
+        - name: ASP.NET 구성
+          href: configure-language-dotnet-framework.md
+        - name: ASP.NET Core 구성
+          href: configure-language-dotnetcore.md
+        - name: Node.js 구성
+          href: configure-language-nodejs.md
         - name: PHP 구성
-          href: web-sites-php-configure.md
+          href: configure-language-php.md
         - name: Java 구성
           href: configure-language-java.md
         - name: 온-프레미스 리소스에 연결
           href: web-sites-integrate-with-vnet.md
+        - name: Azure Storage(컨테이너) 구성
+          href: configure-connect-to-azure-storage.md
     - name: Deploy to Azure
       items:
         - name: 앱 배포
           items:
+            - name: 패키지에서 실행
+              href: deploy-run-package.md
             - name: ZIP 또는 WAR 배포
               href: deploy-zip.md
             - name: FTP를 통해 배포
@@ -114,6 +142,8 @@
               href: deploy-continuous-deployment.md
             - name: 로컬 Git에서 배포
               href: deploy-local-git.md
+            - name: GitHub 작업을 사용하여 배포
+              href: deploy-github-actions.md
             - name: 템플릿을 사용하여 배포
               href: deploy-complex-application-predictably.md
         - name: 배포 자격 증명 설정
@@ -127,13 +157,13 @@
         - name: 도메인 구입
           href: manage-custom-dns-buy-domain.md
         - name: Traffic Manager로 도메인 매핑
-          href: web-sites-traffic-manager-custom-domain-name.md
+          href: configure-domain-traffic-manager.md
         - name: 활성 도메인 마이그레이션
           href: manage-custom-dns-migrate-domain.md
     - name: 앱 보안
       items:
-        - name: SSL 인증서 구입
-          href: web-sites-purchase-ssl-web-site.md
+        - name: SSL 인증서 추가
+          href: configure-ssl-certificate.md
         - name: 사용자 인증
           items:
             - name: Azure AD를 사용하여 인증
@@ -146,22 +176,26 @@
               href: configure-authentication-provider-microsoft.md
             - name: Twitter를 사용하여 인증
               href: configure-authentication-provider-twitter.md
+            - name: OpenID Connect 공급자를 사용하여 인증(미리 보기)
+              href: configure-authentication-provider-openid-connect.md
         - name: 고급 인증
           href: app-service-authentication-how-to.md
-        - name: IP 제한
+        - name: 액세스 제한
           href: app-service-ip-restrictions.md
         - name: 관리 ID 사용
           href: overview-managed-identity.md
         - name: Key Vault에서 비밀 참조
           href: app-service-key-vault-references.md
-        - name: 애플리케이션 코드에서 SSL 인증서 사용
-          href: app-service-web-ssl-cert-load.md
+        - name: 코드에서 SSL 인증서 사용
+          href: configure-ssl-certificate-in-code.md
         - name: TLS 상호 인증 구성
           href: app-service-web-configure-tls-mutual-auth.md
+        - name: 사이트 데이터 암호화
+          href: configure-encrypt-at-rest-using-cmk.md
     - name: 앱 크기 조정
       items:
         - name: 서버 용량 강화
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: PremiumV2 계층 구성
           href: app-service-configure-premium-tier.md
         - name: 여러 인스턴스로 규모 확장
@@ -174,6 +208,8 @@
           href: web-sites-monitor.md
         - name: 로그 사용 설정
           href: troubleshoot-diagnostic-logs.md
+        - name: 리소스 이벤트 가져오기
+          href: get-resource-events.md
     - name: 앱 관리
       items:
         - name: 호스팅 계획 관리
@@ -182,12 +218,20 @@
           href: manage-backup.md
         - name: 백업 복원
           href: web-sites-restore.md
-        - name: 스냅숏 복원
+        - name: 스냅샷 복원
           href: app-service-web-restore-snapshots.md
         - name: 앱 복제
           href: app-service-web-app-cloning.md
-        - name: 리소스 이동
-          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
+        - name: 삭제된 App Service 복원
+          href: app-service-undelete.md
+        - name: 다운된 영역에서 복원
+          href: manage-disaster-recovery.md
+    - name: 앱 이동
+      items:
+        - name: 영역 간 이동
+          href: manage-move-across-regions.md
+        - name: 구독 이동
+          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
     - name: 백그라운드 작업 실행
       items:
         - name: WebJob 만들기
@@ -198,28 +242,32 @@
           href: webjobs-sdk-get-started.md
         - name: WebJobs SDK 사용
           href: webjobs-sdk-how-to.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
-      href: /powershell
+      href: /powershell/module/az.websites/#app_service
     - name: REST API
       href: /rest/api/appservice/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.web/allversions
 - name: 리소스
   items:
+    - name: App Service 블로그
+      href: 'https://aka.ms/appserviceblog'
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: 할당량 정보
-      href: '../azure-subscription-service-limits.md#app-service-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Migration Assistant 가이드
+      href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
     - name: 모범 사례
       href: app-service-best-practices.md
     - name: 샘플
@@ -234,6 +282,8 @@
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: 문제 해결
       items:
+        - name: 일시적인 아웃바운드 연결 오류 문제 해결
+          href: troubleshoot-intermittent-outbound-connection-errors.md
         - name: Visual Studio를 사용하여 문제 해결
           href: troubleshoot-dotnet-visual-studio.md
         - name: Node.js 앱 문제 해결

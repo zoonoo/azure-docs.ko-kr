@@ -1,19 +1,19 @@
 ---
-title: 'ExpressRoute에 대해 Azure VNet에 게이트웨이 추가: 포털 | Microsoft Docs'
-description: 이 문서에서는 ExpressRoute에 대해 이미 만들어진 Resource Manager VNet에 가상 네트워크 게이트웨이를 추가하는 과정을 안내합니다.
+title: 'Azure Express 경로: VNet에 게이트웨이 추가: 포털'
+description: 이 문서에서는 Azure Portal를 사용 하 여 이미 생성 된 Express 경로에 대 한 리소스 관리자 VNet에 가상 네트워크 게이트웨이를 추가 하는 과정을 안내 합니다.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 68376751a3c673b2d89d028312f992aec40d4dee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 188d366dafce6ee79a084750b5f7d1fe4140432b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366021"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736376"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "60366021"
 
 ## <a name="create-the-gateway-subnet"></a>게이트웨이 서브넷 만들기
 
-1. [포털](https://portal.azure.com)에서 가상 네트워크 게이트웨이를 만들려는 Resource Manager 가상 네트워크로 이동합니다.
+1. [포털](https://portal.azure.com)에서 가상 네트워크 게이트웨이를 만들려는 리소스 관리자 가상 네트워크로 이동 합니다.
 2. VNet 블레이드의 **설정** 섹션에서 **서브넷**을 클릭하여 서브넷 블레이드를 확장합니다.
 3. **서브넷** 블레이드에서 **+ 게이트웨이 서브넷**을 클릭하여 **서브넷 추가** 블레이드를 엽니다. 
    
@@ -62,15 +62,15 @@ ms.locfileid: "60366021"
 
 ## <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 
-1. 포털의 왼쪽에서 **+** 를 클릭하고 검색에서 'Virtual Network 게이트웨이'를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 클릭합니다. **가상 네트워크 게이트웨이** 블레이드의 아래쪽에서 **만들기**를 클릭합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 블레이드가 열립니다.
+1. 포털의 왼쪽에서를 클릭 **+** 하 고 검색에서 ' Virtual Network 게이트웨이 '를 입력 합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 클릭합니다. **가상 네트워크 게이트웨이** 블레이드의 아래쪽에서 **만들기**를 클릭합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 블레이드가 열립니다.
 2. **가상 네트워크 게이트웨이 만들기** 블레이드에서 가상 네트워크 게이트웨이의 값을 채웁니다.
 
-    ![가상 네트워크 게이트웨이 만들기 블레이드의 필드](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "가상 네트워크 게이트웨이 만들기 블레이드의 필드")
+    ![가상 네트워크 게이트웨이 블레이드 필드 만들기](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "가상 네트워크 게이트웨이 블레이드 필드 만들기")
 3. **이름**: 게이트웨이 이름을 지정합니다. 이는 게이트웨이 서브넷 이름 지정과 동일하지는 않습니다. 만드는 게이트웨이 개체의 이름입니다.
 4. **게이트웨이 유형**: **ExpressRoute**를 선택합니다.
 5. **SKU**: 드롭다운에서 게이트웨이 SKU를 선택합니다.
 6. **위치**: 가상 네트워크가 있는 위치를 가리키도록 **위치** 필드를 조정합니다. 위치에서 가상 네트워크가 있는 지역을 가리키고 있지 않으면 가상 네트워크가 [가상 네트워크 선택] 드롭다운에 나타나지 않습니다.
-7. 이 게이트웨이를 추가할 가상 네트워크를 선택합니다. **가상 네트워크**를 클릭하여 **가상 네트워크 선택** 블레이드를 엽니다. VNet을 선택합니다. VNet이 보이지 않으면 **위치** 필드가 가상 네트워크가 있는 지역을 가리키고 있는지 확인합니다.
+7. 이 게이트웨이를 추가할 가상 네트워크를 선택합니다. Virtual **network** 를 클릭 하 여 **가상 네트워크 선택** 블레이드를 엽니다. VNet을 선택합니다. VNet이 표시 되지 않으면 **위치** 필드에서 가상 네트워크가 있는 지역을 가리키고 있는지 확인 합니다.
 9. 공용 IP 주소를 선택합니다. **공용 IP 주소**를 클릭하여 **공용 IP 주소 선택** 블레이드를 엽니다. **+새로 만들기**를 클릭하여 **공용 IP 주소 만들기** 블레이드를 엽니다. 공용 IP 주소의 이름을 입력합니다. 이 블레이드는 공용 IP 주소를 동적으로 할당할 공용 IP 주소 개체를 만듭니다. **확인**을 클릭하여 이 블레이드에 변경 내용을 저장합니다.
 10. **구독**: 올바른 구독을 선택하는지 확인합니다.
 11. **리소스 그룹**: 이 설정은 선택한 Virtual Network에 의해 결정됩니다.

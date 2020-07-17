@@ -1,33 +1,29 @@
 ---
-title: IBM DB2-Azure Logic Apps에 연결
-description: IBM DB2 REST API 및 Azure Logic Apps로 리소스 관리
+title: IBM DB2 리소스 액세스 및 관리
+description: Azure Logic Apps를 사용 하 여 자동화 된 워크플로를 빌드하여 IBM DB2 리소스를 읽고, 편집 하 고, 업데이트 하 고, 관리 합니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
-ms.topic: article
+ms.reviewer: plarsen, logicappspm
+ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60314234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77651384"
 ---
-# <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 IBM DB2 리소스 관리
+# <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 IBM DB2 리소스 액세스 및 관리
 
-Azure Logic Apps 및 IBM DB2 커넥터를 사용하여 DB2 데이터베이스에 저장된 리소스에 따라 자동화된 작업 및 워크플로를 만들 수 있습니다. 사용자의 워크플로는 데이터베이스의 리소스에 연결하고, 데이터베이스 테이블을 읽고 나열하며, 행을 추가, 변경 및 삭제하는 등의 작업을 수행할 수 있습니다. 논리 앱에 작업을 포함시켜 데이터베이스에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [IBM db2 커넥터](/connectors/db2/)를 사용 하 여 DB2 데이터베이스에 저장 된 리소스에 따라 자동화 된 작업 및 워크플로를 만들 수 있습니다. 사용자의 워크플로는 데이터베이스의 리소스에 연결하고, 데이터베이스 테이블을 읽고 나열하며, 행을 추가, 변경 및 삭제하는 등의 작업을 수행할 수 있습니다. 논리 앱에 작업을 포함시켜 데이터베이스에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다.
 
 이 문서에서는 다양한 데이터베이스 작업을 수행하는 논리 앱을 만드는 방법을 보여 줍니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="supported-platforms-and-versions"></a>지원되는 플랫폼 및 버전
 
-DB2 커넥터는 TCP/IP 네트워크를 통해 원격 DB2 서버와 통신하는 Microsoft 클라이언트를 포함합니다. 이 커넥터를 사용하여 Azure 가상화에서 실행되는 Windows용 IBM Bluemix dashDB 또는 IBM DB2와 같은 클라우드 데이터베이스에 액세스할 수 있습니다. [온-프레미스 데이터 게이트웨이를 설치 및 설정](../logic-apps/logic-apps-gateway-connection.md)한 후 온-프레미스 DB2 데이터베이스에 액세스할 수도 있습니다.
+DB2 커넥터는 TCP/IP 네트워크를 통해 원격 DB2 서버와 통신하는 Microsoft 클라이언트를 포함합니다. 이 커넥터를 사용 하 여 Azure 가상화에서 실행 되는 Windows 용 IBM DB2와 같은 클라우드 데이터베이스에 액세스할 수 있습니다. [온-프레미스 데이터 게이트웨이를 설치 및 설정](../logic-apps/logic-apps-gateway-connection.md)한 후 온-프레미스 DB2 데이터베이스에 액세스할 수도 있습니다.
 
-DRDA(Distributed Relational Database Architecture) SQLAM(SQL Access Manager) 버전 10 및 11을 지원하는 IBM DB2 호환 제품(예: IBM Bluemix dashDB)과 함께 IBM DB2 커넥터에서 지원하는 IBM DB2 플랫폼 및 버전은 다음과 같습니다.
+IBM DB2 커넥터는 DRDA (분산 관계형 데이터베이스 아키텍처) SQLAM (SQL Access Manager) 버전 10 및 11을 지 원하는 IBM DB2 호환 제품과 함께 이러한 IBM DB2 플랫폼 및 버전을 지원 합니다.
 
 | 플랫폼 | 버전 | 
 |----------|---------|
@@ -50,9 +46,9 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 | DELETE를 사용하여 단일 행 삭제 | 행 삭제 |
 |||
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 클라우드 기반 또는 온-프레미스의 IBM DB2 데이터베이스
 
@@ -69,7 +65,7 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 
 1. 트리거 아래에서 **새 단계**를 선택합니다.
 
-1. 검색 상자에서 필터로 “db2”를 입력합니다. 예를 들어 작업 목록에서이 작업을 선택 합니다. **테이블 (미리 보기) 가져오기**
+1. 검색 상자에서 필터로 “db2”를 입력합니다. 이 예제의 경우 작업 목록에서 **테이블 가져오기(미리 보기)** 작업을 선택합니다.
 
    ![작업 선택](./media/connectors-create-api-db2/select-db2-action.png)
 
@@ -83,17 +79,17 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 
 연결을 설정하려면 메시지가 표시될 때 이러한 연결 세부 정보를 입력하고 **만들기**를 선택한 다음, 논리 앱을 저장합니다.
 
-| 자산 | 필수 | 설명 |
+| 속성 | 필수 | 설명 |
 |----------|----------|-------------|
-| **온-프레미스 게이트웨이 통해 연결** | 아닙니다. | 온-프레미스 연결에만 적용됩니다. |
+| **온-프레미스 게이트웨이를 통해 연결** | 아니요 | 온-프레미스 연결에만 적용됩니다. |
 | **연결 이름** | 예 | 연결 이름(예: “MyLogicApp-DB2-connection”) |
-| **서버** | 예 | DB2 서버에 대한 주소 또는 별칭 콜론 포트 번호(예: “myDB2server.cloudapp.net:50000”) <p><p>**참고**: 이 값은 TCP/IP 주소를 나타내는 문자열 또는 콜론과 TCP/IP 포트 번호가 뒤에 붙는 IPv4 또는 IPv6 형식에서 별칭입니다. |
-| **데이터베이스** | 예 | 데이터베이스의 이름 <p><p>**참고**: 이 값은 한 DRDA 관계형 데이터베이스 이름 (RDBNAM)을 나타내는 문자열입니다. <p>- “z/OS용 IBM DB2” 위치로 인식되는 데이터베이스인 z/OS용 DB2에는 16바이트 문자열이 허용됩니다. <br>- “i용 IBM DB2” 관계형 데이터베이스로 인식되는 데이터베이스인 i용 DB2에는 18바이트 문자열이 허용됩니다. <br>- LUW용 DB2에는 8바이트 문자열이 허용됩니다. |
-| **사용자 이름** | 예 | 데이터베이스에 대한 사용자 이름 <p><p>**참고**: 이 값은 특정 데이터베이스를 기반으로 하는 길이 문자열: <p><p>- z/OS용 DB2에는 8바이트 문자열이 허용됩니다. <br>- i용 DB2에는 10바이트 문자열이 허용됩니다. <br>- Linux 또는 UNIX용 DB2에는 8바이트 문자열이 허용됩니다. <br>- Windows용 DB2에는 30바이트 문자열이 허용됩니다. |
+| **Server** | 예 | DB2 서버에 대한 주소 또는 별칭 콜론 포트 번호(예: “myDB2server.cloudapp.net:50000”) <p><p>**참고**: 이 값은 콜론과 TCP/IP 포트 번호가 뒤에 붙는 IPv4 또는 IPv6 형식 중 하나로 구성되어 TCP/IP 주소 또는 별칭을 나타내는 문자열입니다. |
+| **데이터베이스** | 예 | 데이터베이스의 이름 <p><p>**참고**: 이 값은 DRDA 관계형 데이터베이스 이름(RDBNAM)을 나타내는 문자열입니다. <p>- “z/OS용 IBM DB2” 위치로 인식되는 데이터베이스인 z/OS용 DB2에는 16바이트 문자열이 허용됩니다. <br>- “i용 IBM DB2” 관계형 데이터베이스로 인식되는 데이터베이스인 i용 DB2에는 18바이트 문자열이 허용됩니다. <br>- LUW용 DB2에는 8바이트 문자열이 허용됩니다. |
+| **사용자 이름** | 예 | 데이터베이스에 대한 사용자 이름 <p><p>**참고**:이 값은 길이가 특정 데이터베이스를 기반으로 하는 문자열입니다. <p><p>- z/OS용 DB2에는 8바이트 문자열이 허용됩니다. <br>- i용 DB2에는 10바이트 문자열이 허용됩니다. <br>- Linux 또는 UNIX용 DB2에는 8바이트 문자열이 허용됩니다. <br>- Windows용 DB2에는 30바이트 문자열이 허용됩니다. |
 | **암호** | 예 | 데이터베이스의 암호 |
 ||||
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ![클라우드 기반 데이터베이스에 대한 연결 세부 정보](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -103,19 +99,19 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 
 연결을 만들기 전에 온-프레미스 데이터 게이트웨이가 이미 설치되어 있어야 합니다. 그렇지 않은 경우, 연결 설정을 완료할 수 없습니다. 게이트웨이가 설치되어 있는 경우 연결 세부 정보 입력을 진행한 다음, **만들기**를 선택합니다.
 
-| 자산 | 필수 | 설명 |
+| 속성 | 필수 | 설명 |
 |----------|----------|-------------|
-| **온-프레미스 게이트웨이 통해 연결** | 예 | 온-프레미스 연결을 원하는 경우 적용하고 온-프레미스 연결 속성을 보여 줍니다. |
+| **온-프레미스 게이트웨이를 통해 연결** | 예 | 온-프레미스 연결을 원하는 경우 적용하고 온-프레미스 연결 속성을 보여 줍니다. |
 | **연결 이름** | 예 | 연결 이름(예: “MyLogicApp-DB2-connection”) | 
-| **서버** | 예 | DB2 서버에 대한 주소 또는 별칭 콜론 포트 번호(예: “myDB2server:50000”) <p><p>**참고**: 이 값은 TCP/IP 주소를 나타내는 문자열 또는 콜론과 TCP/IP 포트 번호가 뒤에 붙는 IPv4 또는 IPv6 형식에서 별칭입니다. |
-| **데이터베이스** | 예 | 데이터베이스의 이름 <p><p>**참고**: 이 값은 한 DRDA 관계형 데이터베이스 이름 (RDBNAM)을 나타내는 문자열입니다. <p>- “z/OS용 IBM DB2” 위치로 인식되는 데이터베이스인 z/OS용 DB2에는 16바이트 문자열이 허용됩니다. <br>- “i용 IBM DB2” 관계형 데이터베이스로 인식되는 데이터베이스인 i용 DB2에는 18바이트 문자열이 허용됩니다. <br>- LUW용 DB2에는 8바이트 문자열이 허용됩니다. |
-| **인증** | 예 | 연결에 대한 인증 유형(예: “기본”) <p><p>**참고**: Basic 또는 Windows (Kerberos)을 포함 하는 목록에서이 값을 선택 합니다. |
-| **사용자 이름** | 예 | 데이터베이스에 대한 사용자 이름 <p><p>**참고**: 이 값은 특정 데이터베이스를 기반으로 하는 길이 문자열: <p><p>- z/OS용 DB2에는 8바이트 문자열이 허용됩니다. <br>- i용 DB2에는 10바이트 문자열이 허용됩니다. <br>- Linux 또는 UNIX용 DB2에는 8바이트 문자열이 허용됩니다. <br>- Windows용 DB2에는 30바이트 문자열이 허용됩니다. |
+| **Server** | 예 | DB2 서버에 대한 주소 또는 별칭 콜론 포트 번호(예: “myDB2server:50000”) <p><p>**참고**: 이 값은 콜론과 TCP/IP 포트 번호가 뒤에 붙는 IPv4 또는 IPv6 형식 중 하나로 구성되어 TCP/IP 주소 또는 별칭을 나타내는 문자열입니다. |
+| **데이터베이스** | 예 | 데이터베이스의 이름 <p><p>**참고**: 이 값은 DRDA 관계형 데이터베이스 이름(RDBNAM)을 나타내는 문자열입니다. <p>- “z/OS용 IBM DB2” 위치로 인식되는 데이터베이스인 z/OS용 DB2에는 16바이트 문자열이 허용됩니다. <br>- “i용 IBM DB2” 관계형 데이터베이스로 인식되는 데이터베이스인 i용 DB2에는 18바이트 문자열이 허용됩니다. <br>- LUW용 DB2에는 8바이트 문자열이 허용됩니다. |
+| **인증** | 예 | 연결에 대한 인증 유형(예: “기본”) <p><p>**참고**: 기본 또는 Windows(Kerberos)를 포함하는 목록에서 이 값을 선택합니다. |
+| **사용자 이름** | 예 | 데이터베이스에 대한 사용자 이름 <p><p>**참고**:이 값은 길이가 특정 데이터베이스를 기반으로 하는 문자열입니다. <p><p>- z/OS용 DB2에는 8바이트 문자열이 허용됩니다. <br>- i용 DB2에는 10바이트 문자열이 허용됩니다. <br>- Linux 또는 UNIX용 DB2에는 8바이트 문자열이 허용됩니다. <br>- Windows용 DB2에는 30바이트 문자열이 허용됩니다. |
 | **암호** | 예 | 데이터베이스의 암호 |
-| **게이트웨이** | 예 | 설치된 온-프레미스 데이터 게이트웨이의 이름 <p><p>**참고**: Azure 구독 및 리소스 그룹 내에서 모든 설치 된 데이터 게이트웨이 포함 하는 목록에서이 값을 선택 합니다. |
+| **게이트웨이** | 예 | 설치된 온-프레미스 데이터 게이트웨이의 이름 <p><p>**참고**: Azure 구독 및 리소스 그룹 내에 설치된 모든 데이터 게이트웨이를 포함하는 목록에서 이 값을 선택합니다. |
 ||||
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ![온-프레미스 데이터베이스에 대한 연결 세부 정보](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -154,9 +150,9 @@ DB2 데이터베이스 테이블에서 한 개의 레코드를 페치하려면 �
 
 1. 모든 필수 속성(*)에 대한 값을 지정합니다. 테이블을 선택하면 작업이 해당 테이블의 레코드와 관련된 관련 속성을 보여 줍니다.
 
-   | 자산 | 필수 | 설명 |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **테이블 이름** | 예 | 원하는 레코드가 있는 테이블(이 예제에서는 “AREA”) |
+   | **표 이름** | 예 | 원하는 레코드가 있는 테이블(이 예제에서는 “AREA”) |
    | **영역 ID** | 예 | 원하는 레코드의 ID(이 예제에서는 “99999”) |
    ||||
 
@@ -234,15 +230,15 @@ DB2 데이터베이스 테이블에 단일 레코드를 추가하려면 논리 �
 
    이 예제에서 속성은 다음과 같습니다.
 
-   | 자산 | 필수 | 설명 |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **테이블 이름** | 예 | 레코드를 추가할 테이블(예: “AREA”) |
+   | **표 이름** | 예 | 레코드를 추가할 테이블(예: “AREA”) |
    | **영역 ID** | 예 | 추가할 영역에 대한 ID(예: “99999”) |
    | **영역 설명** | 예 | 추가할 영역에 대한 설명(예: “Area 99999”) |
    | **지역 ID** | 예 | 추가할 지역에 대한 ID(예: “102”) |
    |||| 
 
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
    ![테이블 선택](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
@@ -281,16 +277,16 @@ DB2 데이터베이스 테이블에서 단일 레코드를 업데이트하려면
 
    이 예제에서 속성은 다음과 같습니다.
 
-   | 자산 | 필수 | 설명 |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **테이블 이름** | 예 | 레코드를 업데이트할 테이블(예: “AREA”) |
+   | **표 이름** | 예 | 레코드를 업데이트할 테이블(예: “AREA”) |
    | **행 ID** | 예 | 업데이트할 레코드의 ID(예: “99999”) |
    | **영역 ID** | 예 | 새로운 영역 ID(예: “99999”) |
    | **영역 설명** | 예 | 새 영역 설명(“99999 업데이트됨”) |
    | **지역 ID** | 예 | 새로운 지역 ID(예: “102”) |
    ||||
 
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
    ![테이블 선택](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
@@ -329,13 +325,13 @@ DB2 데이터베이스 테이블에서 단일 레코드를 삭제하려면 논�
 
    이 예제에서 속성은 다음과 같습니다.
 
-   | 자산 | 필수 | 설명 |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **테이블 이름** | 예 | 레코드를 삭제할 테이블(예: “AREA”) |
+   | **표 이름** | 예 | 레코드를 삭제할 테이블(예: “AREA”) |
    | **행 ID** | 예 | 삭제할 레코드의 ID(예: “99999”) |
    ||||
 
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
    ![테이블 선택](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
@@ -362,12 +358,10 @@ DB2 데이터베이스 테이블에서 단일 레코드를 삭제하려면 논�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-트리거, 작업 및 커넥터의 OpenAPI에 설명 된 대로 제한 등의 기술 세부 정보에 대 한 (이전의 Swagger) 파일, 참조를 [커넥터의 참조 페이지](/connectors/db2/)합니다.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/db2/)를 참조 하세요.
 
-## <a name="get-support"></a>지원 받기
-
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+> [!NOTE]
+> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

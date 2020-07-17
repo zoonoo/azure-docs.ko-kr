@@ -4,16 +4,16 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 20397339c1675686f2a670dc60899bfd4bd4c3ba
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505900"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050387"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 
-이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅된 통합 런타임은 컴퓨터의 SQL Server에서 Azure Blob Storage로 데이터를 복사하는 구성 요소입니다. 
+이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅 통합 런타임은 머신의 SQL Server에서 Azure SQL Database로 데이터를 복사하는 구성 요소입니다. 
 
 1. 통합 런타임의 이름에 대한 변수를 만듭니다. 고유한 이름을 사용하고 기록해 둡니다. 이 자습서의 뒷부분에서 사용합니다. 
 
@@ -29,12 +29,12 @@ ms.locfileid: "58505900"
    샘플 출력은 다음과 같습니다.
 
    ```json
-    Id                : /subscriptions/<subscription ID>/resourceGroups/ADFTutorialResourceGroup/providers/Microsoft.DataFactory/factories/onpremdf0914/integrationruntimes/myonpremirsp0914
+    Name              : <Integration Runtime name>
     Type              : SelfHosted
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
-    Name              : myonpremirsp0914
-    Description       :
+    ResourceGroupName : <ResourceGroupName>
+    DataFactoryName   : <DataFactoryName>
+    Description       : 
+    Id                : /subscriptions/<subscription ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DataFactory/factories/<DataFactoryName>/integrationruntimes/ADFTutorialIR
     ```
   
 3. 만든 통합 런타임의 상태를 검색하려면 다음 명령을 실행합니다. **State** 속성의 값이 **NeedRegistration**으로 설정되어 있는지 확인합니다. 
@@ -45,21 +45,25 @@ ms.locfileid: "58505900"
 
    샘플 출력은 다음과 같습니다.
 
-   ```json
-   Nodes                     : {}
-   CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption :
-   Version                   :
+   ```json  
+   State                     : NeedRegistration
+   Version                   : 
+   CreateTime                : 9/24/2019 6:00:00 AM
+   AutoUpdate                : On
+   ScheduledUpdateDate       : 
+   UpdateDelayOffset         : 
+   LocalTimeZoneOffset       : 
+   InternalChannelEncryption : 
    Capabilities              : {}
-   ScheduledUpdateDate       :
-   UpdateDelayOffset         :
-   LocalTimeZoneOffset       :
-   AutoUpdate                :
-   ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
+   ServiceUrls               : {eu.frontend.clouddatahub.net}
+   Nodes                     : {}
+   Links                     : {}
+   Name                      : ADFTutorialIR
+   Type                      : SelfHosted
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
-   Name                      : <Integration Runtime name>
-   State                     : NeedRegistration
+   Description               : 
+   Id                        : /subscriptions/<subscription ID>/resourceGroups/<ResourceGroup name>/providers/Microsoft.DataFactory/factories/<DataFactory name>/integrationruntimes/<Integration Runtime name>
    ```
 
 4. 자체 호스팅 통합 런타임을 클라우드의 Azure Data Factory 서비스에 등록하는 데 사용되는 인증 키를 검색하려면 다음 명령을 실행합니다. 
@@ -72,14 +76,15 @@ ms.locfileid: "58505900"
 
    ```json
    {
-       "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
-       "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
+    "AuthKey1": "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
+    "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
    ```    
 
 5. 다음 단계에서 컴퓨터에 설치할 자체 호스팅된 통합 런타임을 등록하는 데 사용되는 키 중 하나를 복사합니다(큰 따옴표 제외).  
 
-## <a name="install-the-integration-runtime"></a>Integration Runtime 설치
+## <a name="install-the-integration-runtime-tool"></a>통합 런타임 도구 설치
+
 1. 컴퓨터에 통합 런타임이 이미 있는 경우 **프로그램 추가/제거**를 사용하여 제거합니다. 
 
 2. 로컬 Windows 컴퓨터에 자체 호스팅된 통합 런타임을 [다운로드](https://www.microsoft.com/download/details.aspx?id=39717)합니다. 설치를 실행합니다.
@@ -92,27 +97,17 @@ ms.locfileid: "58505900"
 
 6. **Microsoft Integration Runtime을 설치할 준비가 됨** 페이지에서 **설치**를 선택합니다.
 
-7. 컴퓨터를 사용하지 않는 동안 절전 또는 최대 절전 모드로 전환되도록 구성하는 것에 대한 경고 메시지가 표시되면 **확인**을 선택합니다.
+7. **Microsoft Integration Runtime 설치 완료** 페이지에서 **마침**을 선택합니다.
 
-8. **전원 옵션** 페이지가 표시되면 닫은 후 설치 페이지로 이동합니다.
-
-9. **Microsoft Integration Runtime 설치 완료** 페이지에서 **마침**을 선택합니다.
-
-10. **통합 런타임(자체 호스팅) 등록** 페이지에 이전 섹션에서 저장한 키를 붙여넣고 **등록**을 선택합니다. 
+8. **통합 런타임(자체 호스팅) 등록** 페이지에 이전 섹션에서 저장한 키를 붙여넣고 **등록**을 선택합니다. 
 
     ![통합 런타임 등록](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
-11. 자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 메시지가 표시됩니다.
+9. **새 통합 런타임(자체 호스팅) 노드** 페이지에서 **마침**을 선택합니다. 
+
+10. 자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 메시지가 표시됩니다.
 
     ![성공적으로 등록되었습니다.](media/data-factory-create-install-integration-runtime/registered-successfully.png)
-
-12. **새 통합 런타임(자체 호스팅) 노드** 페이지에서 **다음**을 선택합니다. 
-
-    ![새 Integration Runtime 노드 페이지](media/data-factory-create-install-integration-runtime/new-integration-runtime-node-page.png)
-
-13. **인트라넷 통신 채널** 페이지에서 **건너뛰기**를 선택합니다. 다중 노드 통합 런타임 환경에서 내부 노드 통신을 보호하기 위한 TLS/SSL 인증을 선택합니다. 
-
-    ![인트라넷 통신 채널 페이지](media/data-factory-create-install-integration-runtime/intranet-communication-channel-page.png)
 
 14. **통합 런타임(자체 호스팅) 등록** 페이지에서 **구성 관리자 시작**을 선택합니다.
 
@@ -136,10 +131,9 @@ ms.locfileid: "58505900"
 
     f. 사용자 이름을 입력합니다.
 
-    g. 사용자 이름 암호를 입력합니다.
+    g. 사용자 이름과 연결된 암호를 입력합니다.
 
     h. 통합 런타임을 SQL Server에 연결할 수 있는지 확인하려면 **테스트**를 선택합니다. 연결이 성공하면 녹색 확인 표시가 나타납니다. 연결이 실패하면 오류 메시지가 나타납니다. 모든 문제를 해결하고 통합 런타임을 SQL Server에 연결할 수 있는지 확인합니다.    
 
     > [!NOTE]
-    > 인증 유형, 서버, 데이터베이스, 사용자 및 암호의 값을 기록해둡니다. 이 자습서의 뒷부분에서 사용됩니다. 
-    
+    > 인증 유형, 서버, 데이터베이스, 사용자 및 암호의 값을 기록해둡니다. 이 자습서의 뒷부분에서 사용됩니다.

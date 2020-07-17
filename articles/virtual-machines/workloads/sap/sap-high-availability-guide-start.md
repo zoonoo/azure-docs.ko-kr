@@ -1,28 +1,26 @@
 ---
-title: SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 | Microsoft Docs
+title: SAP NetWeaver에 대 한 Azure Vm 고가용성 | Microsoft Docs
 description: Azure Virtual Machines의 SAP NetWeaver에 대한 고가용성 가이드입니다.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: jeconnoc
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 1cfcc14a-6795-4cfd-a740-aa09d6d2b817
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 25a0ac9ab349cfe8bef8e33d3f533bc5942e6323
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77623823"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -34,8 +32,8 @@ ms.locfileid: "60935894"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
 [sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
@@ -51,8 +49,9 @@ ms.locfileid: "60935894"
 [sap-suse-ascs-ha-setting-ha-nfs]:high-availability-guide-suse.md#setting-up-a-highly-available-nfs-server
 [sap-suse-ascs-ha-setting-ha-anf]:high-availability-guide-suse-netapp-files.md#setting-up-the-azure-netapp-files-infrastructure
 [sap-suse-ascs-ha-sap-installation]:high-availability-guide-suse.md#prepare-for-sap-netweaver-installation
-[sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation
+[sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md
 [sap-rhel-ascs-ha]:high-availability-guide-rhel.md
+[sap-rhel-ascs-ha-sap-installation-anf]:high-availability-guide-rhel-netapp-files.md
 [high-availability-guide-rhel-glusterfs]:high-availability-guide-rhel-glusterfs.md
 [high-availability-guide-rhel-pacemaker]:high-availability-guide-rhel-pacemaker.md
 
@@ -170,7 +169,7 @@ ms.locfileid: "60935894"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -184,7 +183,7 @@ ms.locfileid: "60935894"
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
-Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산, 스토리지 및 네트워크 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 SAP NetWeaver 기반 ABAP, Java 및 ABAP+Java 스택과 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
+Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 컴퓨팅, 스토리지 및 네트워크 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 SAP NetWeaver 기반 ABAP, Java 및 ABAP+Java 스택과 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 프라이빗 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
 
 이러한 일련의 문서는 다음 내용을 설명합니다.
 
@@ -193,7 +192,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 * Azure Resource Manager 배포 모델을 사용하여 Azure에서 고가용성 SAP 시스템을 배포하기 위한 SAP 설치 단계
 
     > [!IMPORTANT]
-    > SAP 설치를 위해서는 Azure Resource Manager 배포 모델을 사용하는 것이 좋습니다. 이 모델은 클래식 배포 모델에서 사용할 수 없는 다양한 이점을 제공합니다. Azure [배포 모델][virtual-machines-azure-resource-manager-architecture-benefits-arm]에 대해 자세히 알아봅니다.   
+    > SAP 설치를 위해서는 Azure Resource Manager 배포 모델을 사용하는 것이 좋습니다. 이 모델은 클래식 배포 모델에서 사용할 수 없는 다양한 이점을 제공합니다. Azure [배포 모델][virtual-machines-azure-resource-manager-architecture-benefits-arm]에 대해 자세히 알아보세요.   
     >
 * 다음의 SAP 고가용성
   * ![Windows][Logo_Windows]  **Windows**, **WSFC(Windows Server 장애 조치(Failover) 클러스터)** 사용
@@ -203,9 +202,9 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 ## <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 
-**요약:** 이 문서에서는 Azure에서 SAP 시스템의 고가용성 아키텍처를 설명합니다. SAP SPOF(단일 실패 지점)의 고가용성과 Azure 인프라의 고가용성의 중복 구성 요소 및 사양을 해결하는 방법을 논의합니다. 또한 이러한 부분이 SAP 시스템 구성 요소와 어떻게 관련되어 있는지도 알아봅니다. 추가적으로 Windows 및 Linux 사양에 대한 논의도 진행됩니다. 다양한 SAP 고가용성 시나리오에 대해서도 설명됩니다.
+**요약:** 이 문서에서는 Azure의 SAP 시스템에 대한 고가용성 아키텍처에 대해 알아봅니다. SAP SPOF(단일 실패 지점)의 고가용성과 Azure 인프라의 고가용성의 중복 구성 요소 및 사양을 해결하는 방법을 논의합니다. 또한 이러한 부분이 SAP 시스템 구성 요소와 어떻게 관련되어 있는지도 알아봅니다. 추가적으로 Windows 및 Linux 사양에 대한 논의도 진행됩니다. 다양한 SAP 고가용성 시나리오에 대해서도 설명됩니다.
 
-**업데이트 날짜:** 2017년 10월
+**업데이트 됨:** 10 월 2017
 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
 
@@ -214,9 +213,9 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 ## <a name="azure-infrastructure-preparation-for-sap-netweaver-high-availability-deployment"></a>SAP NetWeaver 고가용성 배포를 위한 Azure 인프라 준비
 
-**요약:** 여기에 나열 된이 문서에서는 SAP 설치는 준비 과정에서 Azure 인프라를 배포 하기 위해 취할 수 있는 단계를 설명 합니다. Azure 인프라 배포를 단순화하기 위해 SAP Azure Resource Manager 템플릿을 사용하여 전체 프로세스를 자동화합니다.
+**요약:** 여기에 나열된 문서에서는 SAP 설치 준비 단계에서 Azure 인프라를 배포하기 위해 수행할 수 있는 작업 단계를 살펴봅니다. Azure 인프라 배포를 단순화하기 위해 SAP Azure Resource Manager 템플릿을 사용하여 전체 프로세스를 자동화합니다.
 
-**업데이트 날짜:** 2019 년 3 월
+**업데이트 됨:** 3 월 2019
 
 * ![Windows][Logo_Windows] [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 **공유 디스크**를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
@@ -224,17 +223,17 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 * ![Linux][Logo_Linux] [SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임워크를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비][sap-suse-ascs-ha-setting-ha-nfs]
 
-* ![Linux][Logo_Linux] [Azure NetApp 파일을 사용 하 여 SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 SAP 고가용성을 위한 Azure 인프라 준비][sap-suse-ascs-ha-setting-ha-anf]
+* ![Linux ][Logo_Linux] [Azure netapp 파일을 사용 하 여 SAP ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap 고가용성을 위한 azure 인프라 준비][sap-suse-ascs-ha-setting-ha-anf]
 
-* ![RHEL][Logo_Linux] [RHEL에서 GlusterFS 설정으로 SAP ASCS/SCS 고가용성-위한 Azure 인프라 준비][high-availability-guide-rhel-glusterfs]
+* ![][Logo_Linux] [SAP ASCS/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 GlusterFS 설정][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [RHEL에서 Pacemaker 설정으로 SAP ASCS/SCS 고가용성-위한 Azure 인프라 준비][high-availability-guide-rhel-pacemaker]
+* ![][Logo_Linux] [SAP ASCS/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 Pacemaker 설정][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Azure에 SAP NetWeaver 고가용성 시스템 설치
 
-**요약:** 문서를 있는 단계별 예제는 Windows Server 장애 조치 클러스터링 클러스터 및 Azure에서 Linux 클러스터 프레임 워크에서 고가용성 SAP 시스템의 구성과 설치는 다음과 같습니다.
+**요약:** 여기에 나열된 문서에서는 Azure의 Windows Server 장애 조치(failover) 클러스터링 클러스터 및 Linux 클러스터 프레임워크에서 고가용성 SAP 시스템을 설치하고 구성하는 단계별 예제를 보여줍니다.
 
-**업데이트 날짜:** 2019 년 3 월
+**업데이트 됨:** 3 월 2019
 
 * ![Windows][Logo_Windows] [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 **공유 디스크**를 사용하여 SAP NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-shared-disk]
 
@@ -242,6 +241,9 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 * ![Linux][Logo_Linux] [SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임워크를 사용하여 SAP NetWeaver 고가용성 설치][sap-suse-ascs-ha-sap-installation]
 
-* ![Linux][Logo_Linux] [NetApp Azure Files를 사용 하 여 SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 고가용성 SAP NetWeaver 설치][sap-suse-ascs-ha-sap-installation-anf]
+* ![Linux ][Logo_Linux] [SAP ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap NetWeaver 고가용성 설치 Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
 
-* ![RHEL][Logo_Linux] [설치 SAP NetWeaver ASCS/SCS에 RHEL에서 고가용성 구성][sap-rhel-ascs-ha]
+* ![][Logo_Linux] [RHEL의 고가용성 구성에서 SAP NetWeaver ascs/SCS 설치][sap-rhel-ascs-ha] RHEL
+
+* ![RHEL ][Logo_Linux] [를 사용 하 여 RHEL의 고가용성 구성에서 SAP NetWeaver ascs/SCS 설치 Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
+

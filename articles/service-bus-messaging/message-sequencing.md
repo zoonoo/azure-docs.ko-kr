@@ -1,26 +1,15 @@
 ---
 title: Azure Service Bus 메시지 순서 지정 및 타임스탬프 | Microsoft Docs
-description: 타임스탬프를 통한 Service Bus 메시지 시퀀스 및 순서 유지
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: 이 문서에서는 Azure Service Bus 메시지의 시퀀싱 및 순서 지정 (타임 스탬프 포함)을 유지 하는 방법을 설명 합니다.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 8665d0a1fccecf5521a553a894e2a55e52384ec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: fdb18802e576ad114fd3f783d5efd7bb826a5f94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402721"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341178"
 ---
-# <a name="message-sequencing-and-timestamps"></a>메시지 순서 지정 및 타임스탬프 
+# <a name="message-sequencing-and-timestamps"></a>메시지 순서 지정 및 타임스탬프
 
 순서 지정과 타임스탬프는 수신 또는 탐색된 메시지의 [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) 및 [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) 속성을 통해 모든 Service Bus 엔터티 및 표면에서 항상 사용되는 두 가지 기능입니다.
 

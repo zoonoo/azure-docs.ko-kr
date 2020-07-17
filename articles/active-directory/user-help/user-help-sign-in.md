@@ -1,32 +1,31 @@
 ---
-title: 2 단계 확인 또는 보안 정보-Azure Active Directory 로그인 | Microsoft Docs
+title: ID 인증 정보를 사용하여 로그인 - Azure AD
 description: 보안 정보의 다양한 신원 확인 방법을 사용하여 로그인하는 방법을 알아봅니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: librown
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
-ms.date: 07/30/2018
-ms.author: lizross
-ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: end-user-help
+ms.date: 07/18/2019
+ms.author: curtand
+ms.custom: user-help
+ms.openlocfilehash: c7e2b522d475a49f694a8cb57bf57f62900948b0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472980"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743182"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>2단계 인증 또는 보안 정보를 사용하여 로그인
-2단계 인증 또는 보안 정보를 설정한 후에 지정된 인증 방법을 사용하여 계정에 로그인할 수 있습니다.
+
+2단계 인증 또는 보안 정보를 설정한 후에는 지정된 확인 방법을 사용하여 계정에 로그인할 수 있습니다.
 
 > [!Note]
-> 2단계 인증 방법을 계속 사용하는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서의 지침에 따라 인증 방법을 설정해야 합니다.
-> 
-> 관리자가 보안 정보 환경을 켠 경우 이러한 단계별 문서를 사용하여 인증 방법을 설정해야 합니다.<ul><li>[인증 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)</li><li>[문자 메시지를 사용하도록 보안 정보 설정](security-info-setup-text-msg.md)</li><li>[전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)</li></ul>
+> 2단계 인증 방법을 계속 사용하는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서의 지침에 따라 확인 방법을 설정해야 합니다.
+>
+> 관리자가 보안 정보 환경을 켠 경우 이러한 단계별 문서를 사용하여 확인 방법을 설정해야 합니다.<ul><li>[인증 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)</li><li>[문자 메시지를 사용하도록 보안 정보 설정](security-info-setup-text-msg.md)</li><li>[전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)</li><li>[보안 키로 사용할 보안 정보 설정](security-info-setup-security-key.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>모바일 디바이스에서 인증자 앱 알림을 사용하여 로그인
 
@@ -52,17 +51,37 @@ ms.locfileid: "60472980"
 
 2. 문자 메시지를 열고 문자 메시지의 코드를 **코드 입력** 상자에 입력합니다.
 
-## <a name="sign-in-using-another-verification-method"></a>또 다른 인증 방법을 사용하여 로그인
-어떤 이유로 모르는 경우 기본 로그인 메서드를 사용 하려면, 이전에 인증 방법을 설정한 다른를 사용할 수 있습니다.
+## <a name="sign-in-using-a-security-key-at-the-lock-screen"></a>잠금 화면에서 보안 키를 사용하여 로그인
 
-1. 일반적으로 계정에 로그인 하 고 다음을 선택 합니다 **다른 방식으로 로그인** 링크를 합니다 **2 단계 인증** 페이지.
+1. 보안 키를 등록한 후에는 Windows 10 잠금 화면에서 보안 키 이미지를 선택합니다.
+
+2. 보안 키를 디바이스의 USB 포트에 삽입하고 보안 키 PIN을 사용하여 Windows에 로그인합니다.
+
+    ![Windows 10 잠금 화면에서 보안 키 로그인](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
+
+## <a name="sign-in-using-a-security-key-and-the-microsoft-edge-browser"></a>보안 키와 Microsoft Edge 브라우저를 사용하여 로그인
+
+1. 보안 키를 등록한 후에는 Microsoft Edge 브라우저를 엽니다.
+
+2. 로그인하라는 메시지가 표시되면 보안 키를 디바이스의 USB 포트에 삽입하고 보안 키 PIN을 사용하여 Windows에 로그인합니다.
+
+    ![Microsoft Edge 브라우저를 사용하여 보안 키 로그인](./media/security-info/security-info-edge-security-key.png)
+
+    >[!NOTE]
+    >Microsoft Authenticator 앱을 사용하여 로그인하는 방법에 대한 자세한 [Microsoft Authenticator 앱을 사용하여 계정에 로그인](user-help-auth-app-sign-in.md) 문서를 참조하세요.
+
+## <a name="sign-in-using-another-verification-method"></a>또 다른 인증 방법을 사용하여 로그인
+
+어떤 이유로 기본 로그인 방법을 사용할 수 없는 경우 이전에 설정한 다른 확인 방법을 사용할 수 있습니다.
+
+1. 계정에 정상적으로 로그인한 다음, **2단계 인증** 페이지에서 **다른 방법으로 로그인** 링크를 선택합니다.
 
     ![로그인 인증 방법 변경](media/security-info/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >표시 되지 않는 경우는 **다른 방식으로 로그인** 링크, 즉, 다른 확인 방법을 설정 하지 않은 하 고 계정에 로그인 하는 도움말에 대 한 관리자에 게 문의 해야 합니다. 관리자는 로그인을 해야 하는 데 도움이 됩니다 후 추가 인증 방법을 추가 합니다. 인증 방법 추가에 대한 자세한 내용은 [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md) 문서를 참조하세요.
-    > 
-    >표시 되 면 합니다 **다른 방식으로 로그인** 링크를 하지만 여전히 다른 확인 방법을 표시 되지 않으면 계정에 로그인 하는 도움말에 대 한 관리자에 게 문의 해야 합니다.
+    >**다른 방법으로 로그인** 링크가 보이지 않으면 다른 확인 방법을 설정하지 않았다는 뜻이며, 관리자에게 계정 로그인을 도와 달라고 문의해야 합니다. 관리자의 도움을 받아 로그인한 후에는 확인 방법을 추가합니다. 인증 방법 추가에 대한 자세한 내용은 [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md) 문서를 참조하세요.
+    >
+    >**다른 방법으로 로그인** 링크가 표시되지만 여전히 다른 인증 방법이 보이지 않는 경우 관리자에게 계정 로그인을 도와 달라고 문의해야 합니다.
 
 2. 대체 인증 방법을 선택하고 2단계 인증 프로세스를 계속합니다.
 
@@ -72,7 +91,7 @@ ms.locfileid: "60472980"
 
 - [보안 정보(미리 보기) 개요](user-help-security-info-overview.md) 문서에서 보안 정보에 대해 자세히 알아봅니다.
 
-- [2단계 인증 개요](user-help-two-step-verification-overview.md) 문서에서 2단계 인증에 대해 알아봅니다. 
+- [2단계 인증 개요](user-help-two-step-verification-overview.md) 문서에서 2단계 인증에 대해 알아봅니다.
 
 - 암호를 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정합니다.
 

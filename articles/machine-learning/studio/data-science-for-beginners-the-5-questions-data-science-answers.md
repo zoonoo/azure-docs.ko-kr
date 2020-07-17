@@ -1,6 +1,6 @@
 ---
 title: 초급자를 위한 데이터 과학
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) - Azure
 description: 초급자를 위한 데이터 과학에서는 데이터 과학으로 답변할 수 있는 5가지 질문부터 시작해서 5가지 짧은 비디오를 통해 기본적인 개념을 설명합니다. Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,11 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751393"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930151"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
@@ -66,7 +65,7 @@ ms.locfileid: "60751393"
 
 두 가지 가능한 답변이 있는 질문에 유용합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 * 이 타이어는 다음 1,000마일을 가는 동안 터질까요? 예 또는 아니요?
 * 어떤 방식이 더 많은 고객을 이끌까요? 5달러 쿠폰 또는 25% 할인?
@@ -78,12 +77,12 @@ ms.locfileid: "60751393"
 
 ![변칙 검색 알고리즘: 이것은 이상한가요?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
-신용 카드가 있는 경우 이미 변칙 감지를 통한 혜택을 보고 있는 것입니다. 여러분의 신용 카드 회사는 구매 패턴을 분석하므로 가능한 사기 행위를 여러분에게 경고할 수 있습니다. "이상하게" 요금이 청구되었다면 평소에 물건을 구매하지 않던 매장에서 구매하거나 굉장히 비싼 가격의 상품을 구매해서일 수 있습니다.
+신용 카드가 있는 경우 이미 변칙 검색을 통한 혜택을 보고 있는 것입니다. 여러분의 신용 카드 회사는 구매 패턴을 분석하므로 가능한 사기 행위를 여러분에게 경고할 수 있습니다. "이상하게" 요금이 청구되었다면 평소에 물건을 구매하지 않던 매장에서 구매하거나 굉장히 비싼 가격의 상품을 구매해서일 수 있습니다.
 
 이 질문은 다양한 측면에서 유용할 수 있습니다. 예:
 
 * 자동차에 압력 계기판이 있는 경우 이 압력 계기판에 정상적인 수치가 표시되는지 알고 싶을 수 있습니다.
-* 인터넷을 모니터링하는 경우 다음을 알고 싶습니다. 인터넷의 이 메시지가 정상적인가요?
+* 인터넷을 모니터링하는 경우 다음 사항을 알고 싶습니다. 인터넷의 이 메시지가 정상적인가요?
 
 변칙 감지는 예기치 않거나 비정상적인 이벤트 또는 동작에 플래그를 지정합니다. 어디서 문제점을 찾아내야 할지에 대한 단서를 줍니다.
 
@@ -135,5 +134,5 @@ ms.locfileid: "60751393"
 지금까지 데이터 과학으로 답변할 수 있는 5가지 질문에 대해 알아보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
+* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/overview-what-is-azure-ml)

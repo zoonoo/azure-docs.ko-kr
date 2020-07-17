@@ -1,30 +1,22 @@
 ---
-title: SysRq 및 NMI 호출에 대한 Azure 직렬 콘솔 | Microsoft Docs
+title: SysRq 및 NMI 호출용 Azure 직렬 콘솔
 description: Azure Virtual Machines에서 SysRq 및 NMI 호출에 대한 직렬 콘솔 사용입니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5a97a40ba48db9f73471d5fd778ceb5cb9070964
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5541dec748f31818a0e9485fc0c56b7926ccaae7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81758492"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
 
 ## <a name="system-request-sysrq"></a>시스템 요청(SysRq)
-SysRq는 일련의 미리 정의된 작업을 트리거할 수 있는 Linux 작업 시스템 커널에서 인식되는 키의 시퀀스입니다. 이 명령은 가상 머신 문제 해결 또는 복구 (예를 들어 VM 응답 하지 않는 경우) 기존 관리를 통해 수행할 수 없는 경우에 자주 사용 됩니다. Azure 직렬 콘솔의 SysRq 기능을 사용하면 실제 키보드에서 입력한 문자와 SysRq 키 누르기를 가장합니다.
+SysRq는 일련의 미리 정의된 작업을 트리거할 수 있는 Linux 작업 시스템 커널에서 인식되는 키의 시퀀스입니다. 이러한 명령은 기존 관리를 통해 가상 컴퓨터 문제 해결 또는 복구를 수행할 수 없는 경우 (예: VM이 응답 하지 않는 경우)에 자주 사용 됩니다. Azure 직렬 콘솔의 SysRq 기능을 사용하면 실제 키보드에서 입력한 문자와 SysRq 키 누르기를 가장합니다.
 
 SysRq 시퀀스가 전달되면 커널 구성이 시스템의 응답을 제어하게 됩니다. SysRq의 설정 및 해제에 대한 내용은 *SysRq 관리자 가이드* [텍스트](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq)를 참조하세요.  
 
@@ -52,7 +44,7 @@ SysReq 구성을 영구적으로 유지하려면 다음을 수행하여 모든 S
 ### <a name="command-keys"></a>명령 키 
 위의 SysRq 관리자 가이드에서:
 
-|명령| 함수
+|명령| 기능
 | ------| ----------- |
 |``b``  |   디스크를 동기화 또는 분리하지 않고 시스템을 즉시 재부팅합니다.
 |``c``  |   NULL 포인터 역참조에 의해 시스템 크래시를 수행합니다. 구성된 경우 크래시덤프가 수행됩니다.
@@ -63,7 +55,7 @@ SysReq 구성을 영구적으로 유지하려면 다음을 수행하여 모든 S
 |``h``  |   도움말을 표시합니다(여기에 나열된 것 외에 다른 키도 도움말을 표시하지만 ``h``가 기억하기 쉬움 :-).
 |``i``  |    init를 제외한 모든 프로세스에 SIGKILL을 보냅니다.
 |``j``  |    FIFREEZE ioctl에 의해 중단된 파일시스템을 강제로 “재개합니다”.
-|``k``  |    SAK(보안 액세스 키)가 현재 가상 콘솔에 있는 모든 프로그램을 종료합니다. 참고:  SAK 섹션에서 아래 중요한 설명을 참조하세요.
+|``k``  |    SAK(보안 액세스 키)가 현재 가상 콘솔에 있는 모든 프로그램을 종료합니다. 참고: SAK 섹션에서 아래 중요한 설명을 참조하세요.
 |``l``  |    모든 활성 CPU에 대한 스택 backtrace를 표시합니다.
 |``m``  |    콘솔에 현재 메모리 정보를 덤프합니다.
 |``n``  |    RT 작업을 잘 수행할 수 있도록 하는 데 사용됩니다.
@@ -99,7 +91,7 @@ SysRq의 배포 관련 설명서 및 SysRq “Crash” 명령을 수신하는 �
 - [크래시 로그 수집](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>NMI(마스크 불가능 인터럽트) 
-NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다.  현재, 프로그래머 및 시스템 관리자는 종종 디버그 하거나 응답 하지 않는 시스템 문제를 해결 하려면 메커니즘으로 NMI를 사용 합니다.
+NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다.  현재, 프로그래머 및 시스템 관리자는 종종 응답하지 않는 시스템을 디버그하거나 문제를 해결하기 위한 메커니즘으로 NMI를 사용합니다.
 
 아래 표시된 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure 가상 머신에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다.  운영 체제가 NMI를 수신하는 메모리 덤프를 크래시하고 만들도록 Linux 운영 체제를 구성할 수 있습니다.
 
@@ -111,7 +103,7 @@ NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어
 1. 다음을 실행하여 다시 부팅하거나 sysctl 업데이트 <br>
     `sysctl -p`
 
-`unknown_nmi_panic`, `panic_on_io_nmi` 및 `panic_on_unrecovered_nmi`를 비롯한 Linux 커널 구성에 대한 자세한 내용은 [/proc/sys/kernel/*에 대한 설명서](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt)를 참조하세요. NMI의 배포 관련 설명서 및 NMI를 수신하는 경우 크래시 덤프를 만들도록 Linux를 구성하는 단계는 아래 링크를 참조하세요.
+`unknown_nmi_panic`, `panic_on_io_nmi` 및 `panic_on_unrecovered_nmi`를 비롯한 Linux 커널 구성에 대한 자세한 내용은 [/proc/sys/kernel/에 대한 설명서*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt)를 참조하세요. NMI의 배포 관련 설명서 및 NMI를 수신하는 경우 크래시 덤프를 만들도록 Linux를 구성하는 단계는 아래 링크를 참조하세요.
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [커널 크래시 덤프](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
@@ -130,5 +122,5 @@ NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어
 ## <a name="next-steps"></a>다음 단계
 * 주 직렬 콘솔 Linux 설명서 페이지는 [여기](serial-console.md)에 있습니다.
 * 직렬 콘솔을 사용하여 [GRUB로 부팅하고 단일 사용자 모드로 전환](serial-console-grub-single-user-mode.md)
-* [Windows](../windows/serial-console.md) VM에서도 직렬 콘솔 사용 가능
-* [부트 진단](boot-diagnostics.md)에 대해 자세히 알아보기
+* 직렬 콘솔은 [Windows](../windows/serial-console.md) vm 에서도 사용할 수 있습니다.
+* [부트 진단](boot-diagnostics.md) 에 대 한 자세한 정보

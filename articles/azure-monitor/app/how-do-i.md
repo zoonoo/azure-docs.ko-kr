@@ -1,23 +1,14 @@
 ---
 title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
 description: Application Insights의 FAQ
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bda0091fe06c93150d5b3cae27f278f3fd9a91ea
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60902109"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224471"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -25,9 +16,9 @@ ms.locfileid: "60902109"
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 설정합니다.
 
 ### <a name="email-if-my-site-is-overloaded"></a>내 사이트가 과부하되면 전자 메일로 알림
-[서버 응답 시간](../../azure-monitor/app/alerts.md) 에서 **경고**를 설정합니다. 1-2초 임계값이 적용됩니다.
+[서버 응답 시간](../../azure-monitor/platform/alerts-log.md) 에서 **경고**를 설정합니다. 1-2초 임계값이 적용됩니다.
 
-![](./media/how-do-i/030-server.png)
+![서버 응답 시간에 대 한 경고를 설정 하는 방법을 보여 주는 스크린샷](./media/how-do-i/030-server.png)
 
 응용 프로그램이 오류 코드를 반환하여 부하의 흔적을 표시할 수도 있습니다. **실패한 요청**에 대한 경고를 설정합니다.
 
@@ -35,32 +26,38 @@ ms.locfileid: "60902109"
 
 ### <a name="email-on-exceptions"></a>예외에 대해 메일 보내기
 1. [예외 모니터링 설정](../../azure-monitor/app/asp-net-exceptions.md)
-2. [경고 설정](../../azure-monitor/app/alerts.md) 
+2. [경고 설정](../../azure-monitor/platform/alerts-log.md)
 
 ### <a name="email-on-an-event-in-my-app"></a>내 응용 프로그램에서 이벤트 발생 시 전자 메일로 알림
-특정 이벤트가 발생할 때 전자 메일을 받으려 한다고 가정해 보겠습니다. Application Insights는 이 기능을 직접 제공하지 않지만 [메트릭이 임계값에 도달했을 때](../../azure-monitor/app/alerts.md)경고를 보낼 수 있습니다.
+특정 이벤트가 발생할 때 전자 메일을 받으려 한다고 가정해 보겠습니다. Application Insights는 이 기능을 직접 제공하지 않지만 [메트릭이 임계값에 도달했을 때](../../azure-monitor/platform/alerts-log.md)경고를 보낼 수 있습니다.
 
 경고는 사용자 지정 이벤트는 아니지만 [사용자 지정 메트릭](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)에서 설정할 수 있습니다. 이벤트 발생 시 메트릭 향상을 위한 몇 가지 코드를 작성합니다.
 
-    telemetry.TrackMetric("Alarm", 10);
+```csharp
+telemetry.TrackMetric("Alarm", 10);
+```
 
-또는
+또는:
 
-    var measurements = new Dictionary<string,double>();
-    measurements ["Alarm"] = 10;
-    telemetry.TrackEvent("status", null, measurements);
+```csharp
+var measurements = new Dictionary<string,double>();
+measurements ["Alarm"] = 10;
+telemetry.TrackEvent("status", null, measurements);
+```
 
 경고에는 두 상태가 있기 때문에 경고 종료를 고려할 때 낮은 값을 보내야 합니다.
 
-    telemetry.TrackMetric("Alarm", 0.5);
+```csharp
+telemetry.TrackMetric("Alarm", 0.5);
+```
 
-[메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 에서 차트를 만들어 경고를 확인합니다.
+[메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md) 에서 차트를 만들어 경고를 확인합니다.
 
-![](./media/how-do-i/010-alarm.png)
+![경보를 표시 하기 위해 메트릭 탐색기에서 차트를 만드는 방법을 보여 주는 스크린샷](./media/how-do-i/010-alarm.png)
 
 이제 메트릭이 짧은 기간 동안 중간 값 위로 상승하면 발생하는 경고를 설정합니다.
 
-![](./media/how-do-i/020-threshold.png)
+![메트릭이 짧은 기간 동안 중간 값을 초과 하는 경우 발생 하는 경고를 설정 하는 방법을 보여 주는 스크린샷](./media/how-do-i/020-threshold.png)
 
 평균 기간을 최소로 설정합니다.
 
@@ -74,11 +71,11 @@ ms.locfileid: "60902109"
 * "경고" 및 "정상"에서 모두 전자 메일을 보내므로 원샷 이벤트를 2상태 조건으로 간주할 수 있습니다. 예를 들어, "작업 완료" 이벤트 대신, 작업 시작과 종료 시 전자 메일을 받는 "작업 진행 중"  조건을 적용합니다.
 
 ### <a name="set-up-alerts-automatically"></a>자동 경고 설정
-[PowerShell을 사용하여 새 경고 만들기](../../azure-monitor/app/alerts.md#automation)
+[PowerShell을 사용하여 새 경고 만들기](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>PowerShell을 사용하여 Application Insights 관리
-* [새 리소스 만들기](../../azure-monitor/app/powershell-script-create-resource.md)
-* [새 경고 만들기](../../azure-monitor/app/alerts.md#automation)
+* [새 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
+* [새 경고 만들기](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>서로 다른 버전에서 별도 원격 분석
 
@@ -89,9 +86,9 @@ ms.locfileid: "60902109"
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>백엔드 서버 및 데스크톱 앱 모니터링
 [Windows Server SDK 모듈을 사용합니다](../../azure-monitor/app/windows-desktop.md).
 
-## <a name="visualize-data"></a>데이터 가상화
+## <a name="visualize-data"></a>데이터 시각화
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>여러 앱의 메트릭이 있는 대시보드
-* [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 차트를 사용자 지정하고 즐겨찾기에 저장합니다. Azure 대시보드에 고정합니다.
+* [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 차트를 사용자 지정하고 즐겨찾기에 저장합니다. Azure 대시보드에 고정합니다.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>다른 원본 및 Application Insights의 데이터가 표시된 대시보드
 * [Power BI에 원격 분석을 내보냅니다](../../azure-monitor/app/export-power-bi.md ).
@@ -103,50 +100,59 @@ ms.locfileid: "60902109"
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>익명 또는 인증된 사용자 필터링
-사용자가 로그인할 경우 [인증된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다. 이 작업은 자동으로 수행되지 않습니다.
+사용자가 로그인하는 경우 [인증된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다. 이 작업은 자동으로 수행되지 않습니다.
 
-그런 다음 다음을 수행할 수 있습니다.
+그런 다음 아래의 작업을 수행할 수 있습니다.
 
 * 특정 사용자 ID 검색
 
-![](./media/how-do-i/110-search.png)
+![특정 사용자 Id에 대 한 searchin 옵션을 보여 주는 스크린샷](./media/how-do-i/110-search.png)
 
 * 익명 또는 인증된 사용자에 대해 메트릭 필터링
 
-![](./media/how-do-i/115-metrics.png)
+![익명 또는 인증 된 사용자에 게 metrixs 필터링을 보여 주는 스크린샷](./media/how-do-i/115-metrics.png)
 
 ## <a name="modify-property-names-or-values"></a>속성 이름 또는 값 수정
 [필터](../../azure-monitor/app/api-filtering-sampling.md#filtering)를 만듭니다. 그러면 원격 분석을 수정하거나 필터링한 후 앱에서 Application Insights로 전송할 수 있습니다.
 
-## <a name="list-specific-users-and-their-usage"></a>특정 사용자와 그 사용 방법을 나열 
+## <a name="list-specific-users-and-their-usage"></a>특정 사용자와 그 사용 방법을 나열
 [특정 사용자만 검색](#search-specific-users)하려는 경우 [인증된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다.
 
 사용자가 보는 페이지, 로그인 빈도 등과 같은 데이터와 사용자 목록이 필요한 경우 두 가지 옵션이 있습니다.
 
-* [인증된 사용자 ID를 설정하고](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) [데이터베이스로 내보내고](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 적합한 도구를 사용하여 사용자 데이터를 분석합니다.
-* 사용자 수가 적은 경우, 관심이 있는 데이터를 사용하는 사용자 지정 이벤트나 메트릭을 메트릭 값 또는 이벤트 이름 형태로 보내고 사용자 ID를 속성으로 설정합니다. 페이지 보기를 분석하려면 표준 JavaScript trackPageView 호출을 대체합니다. 서버 측 원격 분석을 분석하려면 원격 분석 이니셜라이저를 사용하여 사용자 ID를 모든 서버 원격 분석에 추가합니다. 그런 다음 메트릭과 사용자 ID에 대한 검색을 필터링 및 분할할 수 있습니다.
+* [인증된 사용자 ID를 설정](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)하고 [데이터베이스로 내보내고](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 적합한 도구를 사용하여 사용자 데이터를 분석합니다.
+* 사용자 수가 적은 경우, 관심이 있는 데이터를 사용하는 사용자 지정 이벤트나 메트릭을 메트릭 값 또는 이벤트 이름 형태로 보내고 사용자 ID를 속성으로 설정합니다. 페이지 보기를 분석하려면 표준 JavaScript trackPageView 호출을 대체합니다. 서버 측 원격 분석을 분석하려면 원격 분석 이니셜라이저를 사용하여 사용자 ID를 모든 서버 원격 분석에 추가합니다. 그런 다음, 메트릭과 사용자 ID에 대한 검색을 필터링 및 분할할 수 있습니다.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Application Insights에 대한 내 앱의 트래픽 줄이기
 * [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 성능 카운터 수집기 등 필요하지 않은 모듈을 모두 사용하지 않도록 설정합니다.
 * SDK에서 [샘플링 및 필터링](../../azure-monitor/app/api-filtering-sampling.md)을 사용합니다.
 * 웹 페이지에서 모든 페이지 뷰에 대해 보고되는 Ajax 호출 수를 제한합니다. 스크립트 조각에서 `instrumentationKey:...` 뒤에 `,maxAjaxCallsPerView:3`(또는 적절한 숫자)을 삽입합니다.
-* [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 계산합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
+* [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 컴퓨팅합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
 
 [가격 책정 및 할당량](../../azure-monitor/app/pricing.md)에 대해 자세히 확인합니다.
 
 ## <a name="disable-telemetry"></a>원격 분석 사용 안 함
 서버로부터 원격 분석의 컬렉션 및 전송을 **동적으로 중지 및 시작** 하려면:
 
+### <a name="aspnet-classic-applications"></a>ASP.NET 클래식 애플리케이션
+
+```csharp
+using  Microsoft.ApplicationInsights.Extensibility;
+
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-    using  Microsoft.ApplicationInsights.Extensibility;
+### <a name="other-applications"></a>다른 애플리케이션
+콘솔 또는 ASP.NET Core 애플리케이션에서 `TelemetryConfiguration.Active` 싱글톤을 사용하지 않는 것이 좋습니다.
+`TelemetryConfiguration` 인스턴스를 직접 만든 경우 `DisableTelemetry`를 `true`로 설정합니다.
 
-    TelemetryConfiguration.Active.DisableTelemetry = true;
-```
+ASP.NET Core 애플리케이션의 경우 [ASP.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection/)을 사용하여 `TelemetryConfiguration` 인스턴스에 액세스할 수 있습니다. [ASP.NET Core 애플리케이션에 대한 ApplicationInsights](../../azure-monitor/app/asp-net-core.md) 문서에서 자세한 내용을 확인하세요.
 
+## <a name="disable-selected-standard-collectors"></a>선택한 표준 수집기 사용 안 함
+표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정할 수 있습니다.
 
-
-**선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정**하려면 [ApplicationInsights.config](../../azure-monitor/app/api-custom-events-metrics.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
+* **ASP.NET 애플리케이션** - [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다.
+* **ASP.NET Core 애플리케이션** - [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)의 원격 분석 모듈 구성 옵션을 따릅니다.
 
 ## <a name="view-system-performance-counters"></a>시스템 성능 카운터 보기
 메트릭 탐색기에서 표시할 수 있는 메트릭 중에는 시스템 성능 카운터 집합이 있습니다. 이름이 **서버** 인 미리 정의된 블레이드에서 그중 몇 가지를 표시합니다.
@@ -159,5 +165,5 @@ ms.locfileid: "60902109"
 * **Unix 서버** - [collectd 설치](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>더 많은 성능 카운터를 표시하려면
-* 먼저 [새 차트를 추가하고](../../azure-monitor/app/metrics-explorer.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
+* 먼저 [새 차트를 추가하고](../../azure-monitor/platform/metrics-charts.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
 * 없으면 [성능 카운터 모듈에서 수집한 집합에 카운터를 추가합니다](../../azure-monitor/app/performance-counters.md).

@@ -1,22 +1,22 @@
 ---
 title: Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
-description: 이 문서에서는 소매 회사에서 변경 피드를 사용하여 사용자 패턴을 파악하고 실시간 데이터 분석 및 시각화를 수행하는 방법에 대해 설명합니다.
+description: 이 문서에서는 소매점 회사에서 변경 피드를 사용 하 여 사용자 패턴을 이해 하 고 실시간 데이터 분석 및 시각화를 수행 하는 방법을 설명 합니다.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 08/12/2018
+ms.topic: how-to
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 379c7913f803c599865df080524da5c3fb1d0e52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ade688c3fe339db864994923d0ff40dfe41b7cb7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60893581"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263010"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
-Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 Azure Cosmos DB 컨테이너에서 해당 레코드를 지속적이고 증분적으로 가져오는 메커니즘입니다. 변경 피드 지원은 컨테이너의 변경 내용을 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 변경 피드에 대한 자세한 내용은 [변경 피드 사용](change-feed.md) 문서를 참조하세요. 
+Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 되는 동안 Azure Cosmos 컨테이너에서 연속 된 레코드의 증분 피드를 가져오는 메커니즘입니다. 변경 피드 지원은 컨테이너의 변경 내용을 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 변경 피드에 대한 자세한 내용은 [변경 피드 사용](change-feed.md) 문서를 참조하세요. 
 
 이 문서에서는 전자상거래 회사에서 변경 피드를 사용하여 사용자 패턴을 파악하고 실시간 데이터 분석 및 시각화를 수행하는 방법에 대해 설명합니다. 사용자가 항목을 조회하거나, 자신의 카트에 항목을 추가하거나, 항목을 구입하는 것과 같은 이벤트를 분석합니다. 이러한 이벤트 중 하나가 발생하면 새 레코드가 만들어지고 변경 피드에서 해당 레코드를 기록합니다. 변경 피드는 회사 성과 및 활동을 분석하는 메트릭을 시각화하는 일련의 단계를 트리거합니다. 시각화할 수 있는 샘플 메트릭에는 수익, 고유 사이트 방문자, 가장 인기 있는 항목 및 카트에 추가하거나 구입한 항목을 비교하여 조회되는 평균 가격이 포함됩니다. 이러한 샘플 메트릭을 통해 전자 상거래 회사는 사이트 인기도를 평가하고 광고 및 가격 전략을 개발하며, 투자할 재고와 관련된 의사 결정을 내릴 수 있습니다.
 
@@ -28,7 +28,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 ## <a name="solution-components"></a>솔루션 구성 요소
 다음 다이어그램에서는 솔루션과 관련된 데이터 흐름과 구성 요소를 나타냅니다.
 
-![프로젝트 시각적 개체](./media/changefeed-ecommerce-solution/project-visual.png)
+:::image type="content" source="./media/changefeed-ecommerce-solution/project-visual.png" alt-text="프로젝트 시각적 개체" border="false":::
  
 1. **데이터 생성:** 데이터 시뮬레이터는 사용자가 항목을 조회하고, 자신의 카트에 항목을 추가하고, 항목을 구입하는 것과 같은 이벤트를 나타내는 소매 데이터를 생성하는 데 사용됩니다. 데이터 생성기를 사용하여 큰 샘플 데이터 집합을 생성할 수 있습니다. 생성된 샘플 데이터에는 다음 형식의 문서가 포함되어 있습니다.
    
@@ -41,19 +41,19 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
    }
    ```
 
-2. **Cosmos DB:** 생성된 데이터는 Azure Cosmos DB 컬렉션에 저장됩니다.  
+2. **Cosmos DB:** 생성 된 데이터는 Azure Cosmos 컨테이너에 저장 됩니다.  
 
-3. **변경 피드:** 변경 피드는 Azure Cosmos DB 컬렉션의 변경 내용을 수신 대기합니다. 새 문서가 컬렉션에 추가될 때마다, 즉 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하는 것과 같은 이벤트가 발생하면 변경 피드에서 [Azure Function](../azure-functions/functions-overview.md)을 트리거합니다.  
+3. **변경 피드:** 변경 피드가 Azure Cosmos 컨테이너에 대 한 변경 내용을 수신 대기 합니다. 새 문서가 컬렉션에 추가될 때마다, 즉 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하는 것과 같은 이벤트가 발생하면 변경 피드에서 [Azure Function](../azure-functions/functions-overview.md)을 트리거합니다.  
 
-4. **Azure Function:** Azure Function은 새 데이터를 처리하여 [Azure Event Hub](../event-hubs/event-hubs-about.md)로 보냅니다.  
+4. **Azure Function:** 새 데이터를 처리하여 [Azure Event Hub](../event-hubs/event-hubs-about.md)로 보냅니다.  
 
-5. **Event Hub:** Azure Event Hub는 이러한 이벤트를 저장하고 추가 분석을 수행하기 위해 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)로 보냅니다.  
+5. **Event Hub:** 이러한 이벤트를 저장하고 추가 분석을 수행하기 위해 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)로 보냅니다.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics는 이벤트를 처리하고 실시간 데이터 분석을 수행하기 위한 쿼리를 정의합니다. 그런 다음, 이 데이터는 [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop)로 보내집니다.  
+6. **Azure Stream Analytics:** 이벤트를 처리하고 실시간 데이터 분석을 수행하기 위한 쿼리를 정의합니다. 그런 다음, 이 데이터는 [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop)로 보내집니다.  
 
-7. **Power BI:** Power BI는 Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
+7. **Power BI:** Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Microsoft.NET Framework 4.7.1 이상
 
@@ -93,7 +93,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
 이제 전자 상거래 사이트 이벤트를 저장할 컬렉션을 만들어 보겠습니다. 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하면, 컬렉션에서 작업("viewed(조회)", "added(추가)" 또는 "purchased(구입)"), 관련 항목의 이름, 관련 항목의 가격 및 관련 사용자 카트의 ID 번호가 포함된 레코드를 받습니다.
 
-1. [Azure Portal](https://portal.azure.com/)로 이동하고, 템플릿 배포를 통해 만들어진 **Azure Cosmos DB 계정**을 찾습니다.  
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 템플릿 배포에 의해 생성 된 **Azure Cosmos DB 계정을** 찾습니다.  
 
 2. **데이터 탐색기** 창에서 **새 컬렉션**을 선택하고 다음 세부 정보로 양식을 채웁니다.  
 
@@ -109,7 +109,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
    * **데이터베이스 ID** 필드에 대해 **기존 항목 사용**을 선택한 다음, **changefeedlabdatabase**를 입력합니다.  
    * **컬렉션 ID** 필드에 대해 **leases**를 입력합니다.  
-   * **저장소 용량**에 대해 **고정**을 선택합니다.  
+   * **스토리지 용량**에 대해 **고정**을 선택합니다.  
    * **처리량** 필드는 기본값으로 설정된 채로 둡니다.  
    * **확인** 단추를 선택합니다.
 
@@ -117,19 +117,19 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Azure Cosmos DB 연결 문자열 가져오기
 
-1. [Azure Portal](https://portal.azure.com/)로 이동하고, 템플릿 배포를 통해 만들어진 **Azure Cosmos DB 계정**을 찾습니다.  
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 템플릿 배포에 의해 생성 된 **Azure Cosmos DB 계정을** 찾습니다.  
 
 2. **키** 창으로 이동하고, [기본 연결 문자열]을 복사하여 랩 전체에서 액세스할 수 있는 메모장이나 다른 문서에 붙여넣습니다. **Cosmos DB 연결 문자열**이라는 레이블을 지정해야 합니다. 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.
 
-### <a name="get-the-storage-account-key-and-connection-string"></a>저장소 계정 키 및 연결 문자열 가져오기
+### <a name="get-the-storage-account-key-and-connection-string"></a>스토리지 계정 키 및 연결 문자열 가져오기
 
-Azure Storage 계정을 사용하면 사용자가 데이터를 저장할 수 있습니다. 이 랩에서는 저장소 계정을 사용하여 Azure Function에서 사용하는 데이터를 저장합니다. 컬렉션이 수정되면 Azure Function이 트리거됩니다.
+Azure Storage 계정을 사용하면 사용자가 데이터를 저장할 수 있습니다. 이 랩에서는 스토리지 계정을 사용하여 Azure Function에서 사용하는 데이터를 저장합니다. 컬렉션이 수정되면 Azure Function이 트리거됩니다.
 
-1. 리소스 그룹으로 돌아가서 이전에 만든 저장소 계정을 엽니다.  
+1. 리소스 그룹으로 돌아가서 이전에 만든 스토리지 계정을 엽니다.  
 
 2. 왼쪽 메뉴에서 **액세스 키**를 선택합니다.  
 
-3. **키 1**에 있는 값을 메모장 또는 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **키**에는 **저장소 키**, **연결 문자열**에는 **저장소 연결 문자열**이라는 레이블을 지정해야 합니다. 이러한 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.  
+3. **키 1**에 있는 값을 메모장 또는 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **키**에는 **스토리지 키**, **연결 문자열**에는 **스토리지 연결 문자열**이라는 레이블을 지정해야 합니다. 이러한 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.  
 
 ### <a name="get-the-event-hub-namespace-connection-string"></a>Event Hub 네임스페이스 연결 문자열 가져오기
 
@@ -143,7 +143,7 @@ Azure Event Hub는 이벤트 데이터를 받고, 저장하고, 처리하고, �
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>변경 피드를 읽도록 Azure Function 설정
 
-Cosmos DB 컬렉션에서 새 문서가 만들어지거나 현재 문서가 수정되면 변경 피드에서 수정된 문서를 컬렉션 변경 기록에 자동으로 추가합니다. 이제 변경 피드를 처리하는 Azure Function을 작성하고 실행합니다. 만든 컬렉션에서 문서가 만들어지거나 수정되면 변경 피드에서 Azure Function을 트리거합니다. 그러면 Azure Function에서 수정된 문서를 Event Hub로 보냅니다.
+새 문서를 만들거나 Cosmos 컨테이너에서 현재 문서를 수정 하면 변경 피드는 해당 수정 된 문서를 컬렉션 변경 내용에 대 한 기록에 자동으로 추가 합니다. 이제 변경 피드를 처리하는 Azure Function을 작성하고 실행합니다. 만든 컬렉션에서 문서가 만들어지거나 수정되면 변경 피드에서 Azure Function을 트리거합니다. 그러면 Azure Function에서 수정된 문서를 Event Hub로 보냅니다.
 
 1. 디바이스에서 복제한 리포지토리로 돌아갑니다.  
 
@@ -169,7 +169,7 @@ Cosmos DB 컬렉션에서 새 문서가 만들어지거나 현재 문서가 수�
 
 3. **컬렉션** 및 **데이터베이스** 이름을 추가합니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabcollection** 및 **changefeedlabdatabase**여야 합니다.
 
-   ![연결 문자열 업데이트](./media/changefeed-ecommerce-solution/update-connection-string.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="연결 문자열 업데이트":::
  
 4. 편집된 모든 파일에 변경 내용을 저장합니다.  
 
@@ -177,19 +177,19 @@ Cosmos DB 컬렉션에서 새 문서가 만들어지거나 현재 문서가 수�
  
 6. 프로그램이 실행될 때까지 기다립니다. 별은 데이터가 들어오고 있다는 것을 의미합니다! 프로그램을 계속 실행합니다. 많은 양의 데이터가 수집되는 것이 중요합니다.  
 
-7. [Azure Portal](https://portal.azure.com/), 리소스 그룹 내의 Cosmos DB 계정, **데이터 탐색기**로 차례로 이동하면 **changefeedlabcollection**에 가져온 임의 데이터가 표시됩니다.
+7. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 리소스 그룹 내의 Cosmos DB 계정으로 이동한 다음 **데이터 탐색기**하려면 **changefeedlabcollection** 에서 가져온 임의 데이터를 확인 합니다.
  
-   ![포털에서 생성된 데이터](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="포털에서 생성된 데이터":::
 
 ## <a name="set-up-a-stream-analytics-job"></a>스트림 분석 작업 설정
 
 Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 수 있도록 완벽하게 관리되는 클라우드 서비스입니다. 이 랩에서는 스트림 분석을 사용하여 Event Hub에서 새 이벤트(예: 항목을 조회하거나 카트에 추가하거나 구입하는 경우)를 처리하고, 해당 이벤트를 실시간 데이터 분석에 통합하고, 시각화를 위해 Power BI로 보냅니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹, **streamjob1**(이전 실습에서 만든 스트림 분석 작업)로 차례로 이동합니다.  
+1. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹으로 이동한 다음 **streamjob1** (prelab에서 만든 스트림 분석 작업)로 이동 합니다.  
 
 2. 아래와 같이 **입력**을 선택합니다.  
 
-   ![입력 만들기](./media/changefeed-ecommerce-solution/create-input.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="입력 만들기":::
 
 3. **+ 스트림 입력 추가**를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Event Hub**를 선택합니다.  
 
@@ -221,7 +221,7 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
 
 8. 그런 다음, **streamjob1**로 돌아가서 **쿼리 편집**을 선택합니다.
 
-   ![쿼리 편집](./media/changefeed-ecommerce-solution/edit-query.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="쿼리 편집":::
  
 9. 다음 쿼리를 쿼리 창에 붙여넣습니다. **AVERAGE PRICE**(평균 가격) 쿼리는 사용자가 조회하는 모든 항목, 자신의 카트에 추가한 모든 항목 및 구입한 모든 항목의 평균 가격을 계산합니다. 이 메트릭은 전자 상거래 회사에서 판매 가격 및 투자할 재고를 결정하는 데 도움이 됩니다. 예를 들어 조회하는 항목의 평균 가격이 구입한 항목의 평균 가격보다 훨씬 높은 경우 회사에서 평균 가격이 낮은 항목을 재고에 추가하도록 선택할 수 있습니다.
 
@@ -250,7 +250,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
  
 5. **데이터 세트**에서 **averagePrice**를 선택한 다음, **다음**을 선택합니다.  
 
-6. **시각화 형식** 필드의 드롭다운 메뉴에서 **묶은 가로 막대형 차트**를 선택합니다. **축** 아래에서 작업을 추가합니다. **범례**는 아무 것도 추가하지 않고 건너뜁니다. 그런 다음, **값**이라는 다음 섹션 아래에서 **avg**를 추가합니다. **다음**을 선택하고, 차트 제목을 지정한 다음, **적용**을 선택합니다. 대시보드에 새 차트가 표시됩니다!  
+6. **시각화 형식** 필드의 드롭다운 메뉴에서 **묶은 가로 막대형 차트**를 선택합니다. **축** 아래에서 작업을 추가합니다. **범례**는 아무 것도 추가하지 않고 건너뜁니다. 그런 다음 **값**이라는 다음 섹션에서 **avg**를 추가 합니다. **다음**을 선택한 다음, 차트 제목을 선택 하 고 **적용**을 선택 합니다. 대시보드에 새 차트가 표시됩니다!  
 
 7. 이제 더 많은 메트릭을 시각화하려면 **streamjob1**로 돌아가서 다음 필드를 통해 세 개의 출력을 추가로 만들 수 있습니다.
 
@@ -314,27 +314,27 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
    샘플 대시보드에서 이러한 차트가 표시되는 방식은 다음과 같습니다.
 
-   ![시각화](./media/changefeed-ecommerce-solution/visualizations.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="가상화":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>선택 사항: 전자 상거래 사이트를 통해 시각화
 
-이제 새 데이터 분석 도구를 사용하여 실제 전자 상거래 사이트에 연결하는 방법을 살펴보겠습니다. 전자 상거래 사이트를 구축하려면 Azure Cosmos DB 데이터베이스를 사용하여 제품 범주(여성, 남성, 남녀 공용) 목록, 제품 카탈로그 및 가장 인기 있는 항목 목록을 저장합니다.
+이제 새 데이터 분석 도구를 사용하여 실제 전자 상거래 사이트에 연결하는 방법을 살펴보겠습니다. 전자 상거래 사이트를 빌드하기 위해 Azure Cosmos 데이터베이스를 사용 하 여 제품 범주 (여자, 남자, 전 성별), 제품 카탈로그 및 가장 인기 있는 항목의 목록을 저장 합니다.
 
-1. [Azure Portal](https://portal.azure.com/), **Cosmos DB 계정**, **데이터 탐색기**로 차례로 다시 이동합니다.  
+1. [Azure Portal](https://portal.azure.com/)으로 다시 이동한 다음 **Cosmos DB 계정**으로 이동한 다음 **데이터 탐색기**합니다.  
 
-   **changefeedlabdatabase** - **products** 및 **categories** 아래에 [고정] 저장소 용량이 있는 두 개의 컬렉션을 추가합니다.
+   **Changefeedlabdatabase**  -  **products** 및 저장소 용량이 고정 된 **범주** 에 두 개의 컬렉션을 추가 합니다.
 
    **changefeedlabdatabase** 아래에 파티션 키로 **topItems** 및 **/Item**이라는 다른 컬렉션을 추가합니다.
 
 2. **topItems** 컬렉션을 선택하고 **배율 및 설정** 아래에서 topItems가 매 30초마다 업데이트되도록 **TTL(Time to live)** 을 **30초**로 설정합니다.
 
-   ![TTL(Time to live)](./media/changefeed-ecommerce-solution/time-to-live.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="TTL(Time to live)":::
 
 3. **topItems** 컬렉션을 가장 자주 구입한 항목으로 채우려면 **streamjob1**로 돌아가서 새 **출력**을 추가합니다. **Cosmos DB**를 선택합니다.
 
 4. 아래와 같이 필수 필드를 채웁니다.
 
-   ![Cosmos 출력](./media/changefeed-ecommerce-solution/cosmos-output.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Cosmos 출력":::
  
 5. 랩의 이전 단계에서 선택적 TOP 5 쿼리를 추가한 경우 5a단계로 진행합니다. 그렇지 않은 경우 5b단계로 진행합니다.
 
@@ -376,7 +376,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 6. **EcommerceWebApp.sln**을 열고, **솔루션 탐색기**에서 **Web.config** 파일로 이동합니다.  
 
-7. `<appSettings>` 블록 내의 **여기에 URI를 입력하십시오** 및 **여기에 기본 키를 입력하십시오**에서 이전에 저장한 **URI**와 **기본 키**를 추가합니다. 그런 다음, **데이터베이스 이름**과 **컬렉션 이름**을 표시된 대로 추가합니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabdatabase** 및 **changefeedlabcollection**여야 합니다.
+7. `<appSettings>` 블록 내의 **여기에 URI를 입력하십시오** 및 **여기에 기본 키를 입력하십시오**에서 이전에 저장한 **URI**와 **기본 키**를 추가합니다. 그런 다음, **데이터베이스 이름**과 **컬렉션 이름**을 표시된 대로 추가합니다. (이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabdatabase** 및 **changefeedlabcollection**이어야 합니다.)
 
    **제품 컬렉션 이름**, **범주 컬렉션 이름** 및 **상위 항목 컬렉션 이름**을 표시된 대로 채웁니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **products, categories 및 topItems**이어야 합니다.  
 
@@ -390,9 +390,8 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 ## <a name="delete-the-resources"></a>리소스 삭제
 
-이 랩에서 만든 리소스를 삭제하려면 [Azure Portal](https://portal.azure.com/)에서 리소스 그룹으로 이동한 다음, 페이지 위쪽의 메뉴에서 **리소스 그룹** 삭제를 선택하고, 제시되는 지침을 따릅니다.
+이 랩 중에 만든 리소스를 삭제 하려면 [Azure Portal](https://portal.azure.com/)의 리소스 그룹으로 이동한 다음 페이지 맨 위에 있는 메뉴에서 **리소스 그룹 삭제** 를 선택 하 고 제공 된 지침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계 
   
 * 변경 피드에 대해 자세히 알아보기 위해 [Azure Cosmos DB에서 변경 피드 지원 사용](change-feed.md)을 참조하세요. 
-* Azure Cosmos DB를 사용하여 의료 기관용 [피드 알림 솔루션 변경](change-feed-hl7-fhir-logic-apps.md)합니다.

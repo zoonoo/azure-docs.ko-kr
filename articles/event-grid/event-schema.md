@@ -1,25 +1,20 @@
 ---
 title: Azure Event Grid 이벤트 스키마
-description: Azure Event Grid를 사용하여 이벤트에 제공되는 속성을 설명합니다.
-services: event-grid
-author: banisadr
-manager: timlt
-ms.service: event-grid
+description: 모든 이벤트에 대해 제공 되는 속성 및 스키마에 대해 설명 합니다.이벤트는 5개의 필수 문자열 속성 집합과 필수 데이터 개체로 구성됩니다.
 ms.topic: reference
-ms.date: 01/20/2019
-ms.author: babanisa
-ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/07/2020
+ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561565"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105883"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 이벤트 스키마
 
-이 문서에서는 모든 이벤트에 존재하는 속성과 스키마를 설명합니다. 이벤트는 5개의 필수 문자열 속성 집합과 필수 데이터 개체로 구성됩니다. 속성은 모든 게시자에서 모든 이벤트에 공통입니다. 데이터 개체에는 각 게시자에만 적용되는 속성이 있습니다. 시스템 항목에 대한 이러한 속성은 Azure Storage 또는 Event Hubs와 같은 리소스 공급자에 따라 다릅니다.
+이 문서에서는 모든 이벤트에 존재하는 속성과 스키마를 설명합니다.이벤트는 5개의 필수 문자열 속성 집합과 필수 데이터 개체로 구성됩니다. 속성은 모든 게시자에서 모든 이벤트에 공통입니다. 데이터 개체에는 각 게시자에만 적용되는 속성이 있습니다. 시스템 항목에 대한 이러한 속성은 Azure Storage 또는 Event Hubs와 같은 리소스 공급자에 따라 다릅니다.
 
-이벤트 원본은 여러 이벤트 개체를 포함할 수 있는 배열의 Azure Event Grid에 이벤트를 전송합니다. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64KB로 제한됩니다. 이벤트 또는 배열이 크기 제한보다 클 경우 응답 **413 페이로드가 너무 큼**을 받습니다.
+이벤트 원본은 여러 이벤트 개체를 포함할 수 있는 배열의 Azure Event Grid에 이벤트를 전송합니다. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 1mb로 제한 됩니다. 이벤트 또는 배열이 크기 제한보다 클 경우 응답 **413 페이로드가 너무 큼**을 받습니다. 작업에는 64KB 단위로 요금이 부과됩니다. 따라서 64KB를 초과하는 이벤트는 여러 이벤트인 것처럼 작업 요금이 발생합니다. 예를 들어 130KB인 이벤트는 별도의 3개 이벤트처럼 작업을 발생시킵니다.
 
 Event Grid는 단일 이벤트가 있는 배열의 구독자에게 이벤트를 보냅니다. 이 동작은 나중에 변경할 수 있습니다.
 
@@ -80,16 +75,16 @@ Event Grid는 단일 이벤트가 있는 배열의 구독자에게 이벤트를 
 
 모든 이벤트에는 다음과 같은 동일한 최상위 수준 데이터가 있습니다.
 
-| 자산 | Type | 설명 |
-| -------- | ---- | ----------- |
-| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| 제목 | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
-| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | object | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
-| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| 속성 | Type | 필수 | Description |
+| -------- | ---- | -------- | ----------- |
+| 토픽 | 문자열 | 아니요, 포함 된 경우 Event Grid 토픽 Azure Resource Manager ID와 정확히 일치 해야 합니다. 포함 되지 않은 경우 Event Grid 이벤트에 스탬프를 제공 합니다. | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| subject | 문자열 | Yes | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| eventType | 문자열 | Yes | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | 문자열 | Yes | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| id | 문자열 | Yes | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | object | No | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
+| dataVersion | 문자열 | 아니요. 하지만 빈 값으로 기록 됩니다. | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | 문자열 | 필수는 아니지만 포함 된 경우 Event Grid 스키마와 정확히 일치 해야 합니다 `metadataVersion` (현재는 `1` ). 포함 되지 않은 경우 Event Grid 이벤트에 스탬프를 제공 합니다. | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성에 대해 자세히 알아보려면 이벤트 원본을 참조하십시오.
 
@@ -99,14 +94,16 @@ Event Grid는 단일 이벤트가 있는 배열의 구독자에게 이벤트를 
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-* [리소스 그룹(관리 작업)](event-schema-resource-groups.md)
+* [리소스 그룹 (관리 작업)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
+* [Azure SignalR](event-schema-azure-signalr.md)
+* [Azure Machine Learning](event-schema-machine-learning.md)
 
 사용자 지정 항목의 경우 이벤트 게시자가 데이터 개체를 결정합니다. 최상위 수준 데이터에는 표준 리소스 정의 이벤트와 동일한 필드가 있어야 합니다.
 
 사용자 지정 항목에 이벤트를 게시할 때 구독자가 이벤트에 관심이 있는지 더 쉽게 알 수 있도록 사용자 이벤트에 대한 제목을 만듭니다. 구독자는 제목을 사용하여 이벤트를 필터링 및 라우팅합니다. 구독자가 해당 경로의 세그먼트를 기준으로 필터링할 수 있도록 이벤트가 발생하는 경로를 제공하는 것을 고려합니다. 구독자는 경로를 통해 이벤트를 제한적이거나 광범위하게 필터링할 수 있습니다. 예를 들어 제목에 `/A/B/C`와 같은 3개의 세그먼트 경로를 제공하는 경우 구독자는 첫 번째 세그먼트 `/A`를 기준으로 필터링하여 광범위한 이벤트 집합을 가져올 수 있습니다. 구독자는 `/A/B/C` 또는 `/A/D/E`와 같은 제목이 있는 이벤트를 가져옵니다. 다른 구독자는 `/A/B`를 기준으로 필터링하여 제한된 이벤트 집합을 얻을 수 있습니다.
 
-경우에 따라 제목에 무엇에 관해서인지 자세한 내용이 포함되어야 합니다. 예를 들어 컨테이너에 파일을 추가할 때 **저장소 계정** 게시자가 제목 `/blobServices/default/containers/<container-name>/blobs/<file>`을 제공하는 경우, 구독자는 경로 `/blobServices/default/containers/testcontainer`를 기준으로 필터링하여 저장소 계정에 다른 컨테이너가 아닌 해당 컨테이너에 대한 모든 이벤트를 가져올 수 있습니다. 또한 구독자는 접미사 `.txt`를 기준으로 필터링 또는 라우팅하여 텍스트 파일로만 작업할 수 있습니다.
+경우에 따라 제목에 무엇에 관해서인지 자세한 내용이 포함되어야 합니다. 예를 들어 컨테이너에 파일을 추가할 때 **스토리지 계정** 게시자가 제목 `/blobServices/default/containers/<container-name>/blobs/<file>`을 제공하는 경우, 구독자는 경로 `/blobServices/default/containers/testcontainer`를 기준으로 필터링하여 스토리지 계정에 다른 컨테이너가 아닌 해당 컨테이너에 대한 모든 이벤트를 가져올 수 있습니다. 또한 구독자는 접미사 `.txt`를 기준으로 필터링 또는 라우팅하여 텍스트 파일로만 작업할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

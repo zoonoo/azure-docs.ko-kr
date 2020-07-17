@@ -1,25 +1,20 @@
 ---
-title: Azure Cloud Shell의 Bash 빠른 시작 | Microsoft Docs
-description: Azure Cloud Shell의 Bash에 대한 빠른 시작
-services: ''
-documentationcenter: ''
+title: Azure Cloud Shell 빠른 시작-Bash
+description: Azure Cloud Shell를 사용 하 여 브라우저에서 Bash 명령줄을 사용 하는 방법을 알아봅니다.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 58d795a5aee79e4149864a79a923ce34950b31d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79458072"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
@@ -29,11 +24,11 @@ ms.locfileid: "60199620"
 > [Azure Cloud Shell의 PowerShell](quickstart-powershell.md) 빠른 시작도 사용할 수 있습니다.
 
 ## <a name="start-cloud-shell"></a>Cloud Shell 시작
-1. Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 시작합니다. <br>
+1. Azure Portal의 위쪽 탐색에서 **Cloud Shell** 를 시작 합니다. <br>
 ![](media/quickstart/shell-icon.png)
 
-2. 구독을 선택하여 저장소 계정 및 Microsoft Azure Files 공유를 만듭니다.
-3. "저장소 만들기"를 선택합니다.
+2. 구독을 선택하여 스토리지 계정 및 Microsoft Azure Files 공유를 만듭니다.
+3. &quot;스토리지 만들기&quot;를 선택합니다.
 
 > [!TIP]
 > 모든 세션에서 Azure CLI에 자동으로 인증됩니다.
@@ -70,7 +65,7 @@ az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> `--generate-ssh-keys`를 사용하면 VM 및 `$Home` 디렉터리에서 공용 및 개인 키를 설정하도록 Azure CLI에 지시하게 됩니다. 기본적으로 키는 `/home/<user>/.ssh/id_rsa` 및 `/home/<user>/.ssh/id_rsa.pub`의 Cloud Shell에 배치됩니다. `.ssh` 폴더는 `$Home`을 유지하는 데 사용되는 연결된 파일 공유의 5GB 이미지에서 유지됩니다.
+> `--generate-ssh-keys`를 사용하면 VM 및 `$Home` 디렉터리에서 공용 및 프라이빗 키를 설정하도록 Azure CLI에 지시하게 됩니다. 기본적으로 키는 `/home/<user>/.ssh/id_rsa` 및 `/home/<user>/.ssh/id_rsa.pub`의 Cloud Shell에 배치됩니다. `.ssh` 폴더는 `$Home`을 유지하는 데 사용되는 연결된 파일 공유의 5GB 이미지에서 유지됩니다.
 
 이 VM의 사용자 이름은 Cloud Shell에서 사용되는 사용자 이름입니다($User@Azure:).
 
@@ -89,7 +84,7 @@ SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니
 
 ## <a name="cleaning-up"></a>정리 
 1. SSH 세션을 종료합니다.
-   ```azurecli-interactive
+   ```
    exit
    ```
 

@@ -1,31 +1,26 @@
 ---
-title: VMware에서 StorSimple Virtual Array 프로비전 | Microsoft Docs
+title: VMware에서 StorSimple 가상 배열 프로 비전
 description: StorSimple Virtual Array 배포 시리즈의 두 번째 자습서에는 VMware에서 가상 디바이스를 프로비전하는 내용이 포함됩니다.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/11/2019
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61419157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76272089"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>개요
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 이 자습서는 VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하고 연결하는 방법을 설명합니다. 이 문서는 Azure Portal 및 Microsoft Azure Government 클라우드에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
 가상 디바이스를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
@@ -37,7 +32,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 시작하기 전에 다음 사항을 확인합니다.
 
 * [StorSimple 가상 배열용 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)의 모든 단계를 완료했습니다.
-* Azure Portal에서 VMware용 가상 디바이스 이미지를 다운로드했습니다. 자세한 내용은 **3단계: 가상 디바이스 이미지 다운로드**([StorSimple Virtual Array를 위한 포털 준비 가이드](storsimple-virtual-array-deploy1-portal-prep.md))를 참조하세요.
+* Azure Portal에서 VMware용 가상 디바이스 이미지를 다운로드했습니다. 자세한 내용은 [StorSimple Virtual Array를 위한 포털 준비 가이드](storsimple-virtual-array-deploy1-portal-prep.md)의 **3단계: 가상 디바이스 이미지 다운로드**를 참조하세요.
 
 ### <a name="for-the-storsimple-virtual-device"></a>StorSimple 가상 디바이스의 경우
 가상 디바이스를 배포하기 전에 다음 사항을 확인해야 합니다.
@@ -62,7 +57,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 2. 하이퍼바이저에서 가상 디바이스를 프로비전합니다.
 3. 가상 디바이스를 시작하고 IP 주소를 가져옵니다.
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1단계: 호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하도록 합니다.
 가상 디바이스를 만들려면 다음이 필요합니다.
 
 * VMware ESXi Server 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 대한 액세스
@@ -73,7 +68,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
   * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나. 디바이스가 최적으로 작동할 수 있도록 허용하는 최소 인터넷 대역폭은 5Mbps입니다.
   * 데이터용 가상 디스크 500GB
 
-## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 디바이스 프로비전
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 디바이스를 프로비전합니다.
 하이퍼바이저에서 가상 디바이스를 프로비전하려면 다음 단계를 수행합니다.
 
 1. 시스템에서 가상 디바이스 이미지를 복사합니다. Azure Portal을 통해 이 가상 이미지를 다운로드합니다.
@@ -87,7 +82,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 3. vSphere 클라이언트 왼쪽 창의 인벤토리 섹션에서 ESXi 서버를 선택합니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image2.png)
-4. ESXi 서버에 VMDK를 업로드합니다. 오른쪽 창의 **구성** 탭으로 이동합니다. **하드웨어** 아래에서 **저장소**를 선택합니다.
+4. ESXi 서버에 VMDK를 업로드합니다. 오른쪽 창의 **구성** 탭으로 이동합니다. **하드웨어** 아래에서 **스토리지**를 선택합니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image3.png)
 5. 오른쪽 창의 **데이터 저장소**아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간이 있어야 합니다.
@@ -105,7 +100,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 9. 새 폴더가 **데이터 저장소 브라우저**의 왼쪽 창에 표시됩니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. 업로드 아이콘 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png)을 클릭하고 **파일 업로드**를 선택합니다.
+10. 업로드 아이콘을 클릭 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) 하 고 **파일 업로드**를 선택 합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. 다운로드한 VMDK 파일을 찾아서 가리킵니다. 두 가지 파일이 있습니다. 업로드할 파일을 선택합니다.
@@ -125,7 +120,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 16. **이름 및 위치** 페이지에서 가상 머신의 이름을 지정합니다. 이 이름은 앞서 8단계에서 지정한 폴더 이름(권장 모범 사례)과 일치해야 합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image17.png)
-17. **저장소** 페이지에서 VM을 프로비전하는 데 사용할 데이터 저장소를 선택합니다.
+17. **스토리지** 페이지에서 VM을 프로비전하는 데 사용할 데이터 스토리지를 선택합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
 18. **Virtual Machine 버전** 페이지에서 **Virtual Machine 버전: 8**을 선택합니다.
@@ -155,19 +150,19 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 26. **고급 옵션** 페이지에서 기본값을 적용하고 **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
-27. **Ready to Complete** (완료 준비) 페이지에서 새 가상 머신과 관련된 모든 설정을 검토합니다. **Edit the virtual machine settings before completion**(완료하기 전에 가상 머신 설정 편집)을 클릭합니다. **계속**을 클릭합니다.
+27. **Ready to Complete** (완료 준비) 페이지에서 새 가상 머신과 관련된 모든 설정을 검토합니다. **Edit the virtual machine settings before completion**(완료하기 전에 가상 머신 설정 편집)을 클릭합니다. **Continue(계속)** 를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
 28. **Virtual Machines 속성** 페이지의 **하드웨어** 탭에서 디바이스 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
-29. **하드웨어 추가** 창이 표시됩니다. **디바이스 유형** 페이지의 **추가할 디바이스 유형 선택**에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
+29. **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **추가할 장치 유형 선택**에서 **하드 디스크**를 선택 하 고 **다음**을 클릭 합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
 30. **디스크 선택** 페이지에서 **새 가상 디스크 만들기**를 선택합니다. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 정보는 [모범 사례 문서](storsimple-ova-best-practices.md)의 크기 조정 섹션을 검토하세요. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
+31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로 비전 할 디스크의 크기에 대 한 자세한 내용은 [모범 사례 문서의](storsimple-ova-best-practices.md)크기 조정 섹션을 참조 하세요. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. **고급 옵션** 페이지에서 기본값을 적용합니다.
@@ -179,7 +174,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **Finish**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. 오른쪽 창에 가상 컴퓨터가 선택된 상태에서 **요약** 탭으로 이동합니다. 가상 머신에 대한 설정을 검토합니다.
+35. 오른쪽 창에서 가상 컴퓨터를 선택한 상태에서 **요약** 탭으로 이동 합니다. 가상 컴퓨터에 대 한 설정을 검토 합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
@@ -188,14 +183,14 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 > [!NOTE]
 > 가상 배열에는 VMware 도구를 설치하지 않는 것이 좋습니다(위에서 프로비전됨). VMware 도구를 설치하면 지원되지 않는 구성이 설정됩니다.
 
-## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3단계: 가상 디바이스 시작 및 IP 가져오기
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3단계: 가상 디바이스를 시작하고 IP를 가져옵니다.
 가상 디바이스를 시작하여 연결하려면 다음 단계를 수행합니다.
 
 #### <a name="to-start-the-virtual-device"></a>가상 디바이스를 시작하려면
-1. 가상 디바이스를 시작합니다. vSphere 구성 관리자의 왼쪽 창에서 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 컴퓨터의 전원이 켜집니다. vSphere 클라이언트의 아래쪽 **최근 태스크** 창에서 상태를 볼 수 있습니다.
+1. 가상 디바이스를 시작합니다. vSphere 구성 관리자의 왼쪽 창에서 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 머신의 전원이 켜집니다. vSphere 클라이언트의 아래쪽 **최근 태스크** 창에서 상태를 볼 수 있습니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
-2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 디바이스가 실행되면 **콘솔** 탭으로 이동합니다. Ctrl+Alt+Delete 키를 눌러서 디바이스에 로그온합니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
+2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 장치가 실행 되 면 **콘솔** 탭으로 이동 합니다. 장치에 로그인 하려면 Ctrl + Alt + Delete를 보냅니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. 보안상의 이유로 디바이스 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.
@@ -235,13 +230,13 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
        >
        >
 
-디바이스가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [1단계: 호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하는지 확인](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
+디바이스가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [1단계: 호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하도록 합니다.](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 
 로컬 웹 UI를 사용하여 초기 구성을 하는 동안 다른 오류가 발생하면 다음 워크플로를 참조하세요.
 
-* 진단 테스트를 실행하여 [웹 UI 설정 문제를 해결](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)합니다.
+* 진단 테스트를 실행 하 여 [웹 UI 설정 문제를 해결](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)합니다.
 * [로그 패키지를 생성하고 로그 파일을 살펴봅니다](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="next-steps"></a>다음 단계

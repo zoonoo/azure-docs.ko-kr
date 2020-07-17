@@ -1,34 +1,34 @@
 ---
-title: .NET-Content Moderator를 사용 하 여 사용 하 여 조정 작업
-titlesuffix: Azure Cognitive Services
-description: Azure Content Moderator에 이미지 또는 텍스트 콘텐츠에 대 한 종단 간 콘텐츠 조정 작업을 시작 하려면 콘텐츠 중재자.NET SDK를 사용 합니다.
+title: .NET을 사용 하 여 중재 작업 사용-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Content Moderator .NET SDK를 사용 하 여 Azure Content Moderator에서 이미지 또는 텍스트 콘텐츠에 대 한 종단 간 콘텐츠 중재 작업을 시작 합니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
-ms.date: 03/18/2019
-ms.author: sajagtap
-ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.topic: conceptual
+ms.date: 10/24/2019
+ms.author: pafarley
+ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757036"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "76294340"
 ---
-# <a name="define-and-use-moderation-jobs-net"></a>정의 및 조정 작업 (.NET)를 사용 합니다.
+# <a name="define-and-use-moderation-jobs-net"></a>중재 작업 정의 및 사용 (.NET)
 
-조정 작업은 특정 유형의 콘텐츠 조정, 워크플로 및 검토의 기능에 대 한 래퍼 역할도합니다. 이 가이드에서는 정보 제공 및 사용 하는 데 코드 샘플을 시작 합니다 [Content Moderator SDK for.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 에:
+중재 작업은 콘텐츠 조정, 워크플로 및 검토 기능을 위한 일종의 래퍼 역할을 합니다. 이 가이드는 [.net 용 CONTENT MODERATOR SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 를 사용 하 여 시작 하는 데 도움이 되는 정보와 코드 샘플을 제공 합니다.
 
 - 검사할 조정 작업을 시작하고 중재자를 위한 검토 만들기
 - 보류 중인 검토의 상태 가져오기
 - 검토의 최종 상태 추적 및 가져오기
-- 검토 결과 콜백 URL로 제출
+- 검토 결과를 콜백 URL에 제출 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 로그인 또는 Content Moderator에서 계정을 만듭니다 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트입니다.
+- Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API 키에서 검토 만들기에 대한 검토 API를 호출할 수 있는지 확인
 
@@ -67,8 +67,7 @@ SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 AP
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -81,7 +80,7 @@ using System.Threading;
 다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다.
 
 > [!IMPORTANT]
-> **AzureRegion** 및 **CMSubscriptionKey** 필드를 해당 지역 식별자 및 구독 키 값으로 업데이트합니다.
+> 끝점 URL 및 구독 키의 값으로 **Azureendpoint** 및 **cmsubscriptionkey** 필드를 업데이트 합니다.
 
 ```csharp
 /// <summary>
@@ -93,16 +92,9 @@ using System.Threading;
 public static class Clients
 {
     /// <summary>
-    /// The region/location for your Content Moderator account,
-    /// for example, westus.
-    /// </summary>
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    /// <summary>
     /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+    private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
     /// <summary>
     /// Your Content Moderator subscription key.
@@ -121,7 +113,7 @@ public static class Clients
         // Create and initialize an instance of the Content Moderator API wrapper.
         ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        client.Endpoint = AzureBaseURL;
+        client.Endpoint = AzureEndpoint;
         return client;
     }
 }
@@ -132,10 +124,10 @@ public static class Clients
 Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가합니다.
 
 > [!NOTE]
-> TeamName 상수를 Content Moderator 구독을 만들 때 사용한 이름으로 설정합니다. [Content Moderator 웹 사이트](https://westus.contentmoderator.cognitive.microsoft.com/)에서 TeamName을 검색합니다.
+> TeamName 상수를 Content Moderator 구독을 만들 때 사용한 이름으로 설정합니다. Content Moderator 웹 사이트에서 TeamName을 검색합니다.
 > 로그인하면 **설정**(톱니 모양) 메뉴에서 **자격 증명**을 선택합니다.
 >
-> 팀 이름은 **API** 섹션에서 **ID** 필드의 값입니다.
+> 팀 이름은 **API** 섹션에서 **Id** 필드의 값입니다.
 
 ```csharp
 /// <summary>
@@ -243,7 +235,7 @@ using (TextWriter writer = new StreamWriter(OutputFile, false))
 > [!NOTE]
 > Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있습니다. 제한을 초과하는 경우 SDK는 429 오류 코드로 예외를 throw합니다.
 >
-> 체험판 계층 키에는 하나의 RPS 속도 제한이 있습니다.
+> 체험 계층 키에는 하나의 RPS 속도 제한이 있습니다.
 
 ## <a name="run-the-program-and-review-the-output"></a>프로그램 실행 및 출력 검토
 

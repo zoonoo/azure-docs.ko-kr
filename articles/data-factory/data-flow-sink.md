@@ -1,92 +1,85 @@
 ---
-title: Azure Data Factory의 데이터 흐름 매핑 기능에서 싱크 변환 설정
-description: 매핑 데이터 흐름에서 싱크 변환을 설정 하는 방법에 알아봅니다.
+title: 데이터 흐름 매핑의 싱크 변환
+description: 데이터 흐름 매핑에서 싱크 변환을 구성 하는 방법에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/03/2019
-ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.custom: seo-lt-2019
+ms.date: 06/03/2020
+ms.openlocfilehash: 49cfc4899379698cab78a5e22fcffacb60636052
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596271"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223638"
 ---
-# <a name="sink-transformation-for-a-data-flow"></a>데이터 흐름에 대 한 변환 싱크
+# <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-데이터 흐름을 변환한 후에 대상 데이터 집합에 데이터를 싱크할 수 있습니다. 싱크 변환에서 대상 출력 데이터에 대 한 데이터 집합 정의 선택 합니다. 데이터 흐름의 요구에 따라 변환 싱크 대부분을 사용할 수 있습니다.
+데이터 변환을 완료 한 후에는 싱크 변환을 사용 하 여 대상 저장소에 데이터를 씁니다. 모든 데이터 흐름에는 하나 이상의 싱크 변환이 필요 하지만 변환 흐름을 완료 하는 데 필요한 만큼의 싱크를 작성할 수 있습니다. 추가 싱크에 쓰려면 새 분기 및 조건부 분할을 통해 새 스트림을 만듭니다.
 
-스키마 드리프트 및 들어오는 데이터의 변경 내용에 대 한 계정에 출력 데이터 집합에 정의 된 스키마 없이 폴더에 출력 데이터를 싱크 합니다. 또한 고려할 수 열 변경에 대 한 소스에서 선택 하 여 **스키마 드리프트 허용** 소스의 합니다. 그런 다음 모든 자동 매핑 싱크에 필드입니다.
+각 싱크 변환은 정확히 하나의 Azure Data Factory 데이터 집합 개체 또는 연결 된 서비스와 연결 됩니다. 싱크 변환은 작성 하려는 데이터의 모양과 위치를 결정 합니다.
 
-![자동 맵 옵션을 포함 하 여 싱크 탭에서 옵션](media/data-flow/sink1.png "1 싱크")
+## <a name="inline-datasets"></a>인라인 데이터 집합
 
-들어오는 모든 필드를 싱크를 켭니다 **자동 지도**합니다. 싱크를 대상으로 하거나 대상 아래에 있는 필드의 이름을 변경 하려면 필드를 선택 하려면 해제 **자동 지도**합니다. 엽니다는 **매핑** 출력 필드를 매핑하는 탭 합니다.
+싱크 변환을 만들 때 싱크 정보가 데이터 집합 개체 내부에 정의 되는지 싱크 변환 내에 정의 되어 있는지 여부를 선택 합니다. 대부분의 형식은 한 경우에만 사용할 수 있습니다. 특정 커넥터를 사용 하는 방법을 알아보려면 적절 한 커넥터 문서를 참조 하세요.
 
-![매핑 탭에서 옵션](media/data-flow/sink2.png "2 싱크")
+인라인 및 데이터 집합 개체에서 형식이 모두 지원 되는 경우 두 가지 이점이 있습니다. 데이터 집합 개체는 복사와 같은 다른 데이터 흐름과 작업에서 활용할 수 있는 재사용 가능한 엔터티입니다. 이러한 기능은 강화 된 스키마를 사용할 때 특히 유용 합니다. 데이터 집합은 Spark를 기반으로 하지 않으며 경우에 따라 싱크 변환에서 특정 설정 또는 스키마 프로젝션을 재정의 해야 할 수도 있습니다.
 
-## <a name="output"></a>출력 
-Azure Blob storage 또는 Data Lake Storage 싱크 형식에 대 한 폴더에 변환된 된 데이터를 출력 합니다. Spark 싱크 변환을 사용 하는 분할 체계를 기반으로 하는 분할 된 출력 데이터 파일을 생성 합니다. 
+유연한 스키마, 일회용 싱크 인스턴스 또는 매개 변수가 있는 싱크를 사용 하는 경우 인라인 데이터 집합을 사용 하는 것이 좋습니다. 싱크가 매우 매개 변수화 된 경우 인라인 데이터 집합을 사용 하 여 "더미" 개체를 만들 수 없습니다. 인라인 데이터 집합은 spark를 기반으로 하며 해당 속성은 데이터 흐름의 기본입니다.
 
-파티션 구성표를 설정할 수 있습니다 합니다 **최적화** 탭 합니다. 단일 파일에 출력을 병합 하는 Data Factory 선택 **단일 파티션**합니다.
+인라인 데이터 집합을 사용 하려면 **싱크 형식** 선택기에서 원하는 형식을 선택 합니다. 싱크 데이터 집합을 선택 하는 대신 연결할 연결 된 서비스를 선택 합니다.
 
-![최적화 탭의 옵션](media/data-flow/opt001.png "싱크 옵션")
+![인라인 데이터 집합](media/data-flow/inline-selector.png "인라인 데이터 집합")
+
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a>지원 되는 싱크 형식
+
+매핑 데이터 흐름은 ELT (추출, 로드, 변환) 접근 방식을 따르며, 모든 Azure의 *준비* 데이터 집합에서 작동 합니다. 현재 원본 변환에 사용할 수 있는 데이터 집합은 다음과 같습니다.
+
+| 커넥터 | 서식 | 데이터 집합/인라인 |
+| --------- | ------ | -------------- |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br> [델타 (미리 보기)](format-delta.md) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br> [델타 (미리 보기)](format-delta.md) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (미리 보기)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure CosmosDB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+
+이러한 커넥터에 해당 하는 설정은 **설정** 탭에 있습니다. 이러한 설정에 대 한 정보 및 데이터 흐름 스크립트 예제는 커넥터 설명서에 있습니다. 
+
+Azure Data Factory는 [90가지의 네이티브 커넥터](connector-overview.md)를 통해 액세스할 수 있습니다. 데이터 흐름에서 다른 원본으로 데이터를 쓰려면 복사 작업을 사용 하 여 지원 되는 싱크에서 해당 데이터를 로드 합니다.
+
+## <a name="sink-settings"></a>싱크 설정
+
+싱크를 추가한 후에는 **싱크** 탭을 통해를 구성 합니다. 여기서 싱크가 쓰는 데이터 집합을 선택 하거나 만들 수 있습니다. 다음은 텍스트 구분 파일 형식에 대 한 여러 가지 싱크 옵션을 설명 하는 비디오입니다.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
+
+![싱크 설정](media/data-flow/sink-settings.png "싱크 설정")
+
+**스키마 드리프트:** [스키마 드리프트](concepts-data-flow-schema-drift.md) 는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 고유 하 게 처리 하는 data factory의 기능입니다. 싱크 데이터 스키마에 정의 된 내용 위에 추가 열을 쓰도록 **허용 schema 드리프트** 를 사용 하도록 설정 합니다.
+
+**스키마 유효성 검사:** 스키마 유효성 검사를 선택 하면 들어오는 원본 스키마의 열을 원본 프로젝션에서 찾을 수 없거나 데이터 형식이 일치 하지 않는 경우 데이터 흐름이 실패 합니다. 이 설정을 사용 하 여 원본 데이터가 정의 된 프로젝션의 계약을 충족 하도록 적용 합니다. 데이터베이스 원본 시나리오에서 열 이름이 나 형식이 변경 되었다는 신호를 보내는 것이 매우 유용 합니다.
 
 ## <a name="field-mapping"></a>필드 매핑
 
-에 **매핑** 탭에 싱크 변환의 오른쪽에 대상으로 왼쪽에 있는 들어오는 열을 매핑할 수 있습니다. 파일에 데이터 흐름을 싱크, 하는 경우 Data Factory 폴더로 새 파일을 항상 작성 합니다. 데이터베이스 데이터 집합에 매핑하는 경우에 설정 하 여이 스키마를 사용 하는 새 테이블을 생성할 수 있습니다 **정책 저장** 하 **덮어쓰기**합니다. 또는 기존 테이블에 새 행을 삽입 하 고 필드를 기존 스키마에 매핑하십시오. 
+선택 변환과 마찬가지로 싱크의 **매핑** 탭에서 들어오는 열 중 어떤 열을 쓸지 결정할 수 있습니다. 기본적으로 데이터베이스가 드리프트 열을 포함 하 여 모든 입력 열이 매핑됩니다. 이를 **자동 매핑**이라고 합니다.
 
-![매핑 탭](media/data-flow/sink2.png "싱크")
+자동 매핑을 해제할 때 고정 열 기반 매핑 또는 규칙 기반 매핑을 추가 하는 옵션이 제공 됩니다. 규칙 기반 매핑을 사용 하면 패턴 일치를 포함 하는 식을 작성할 수 있으며 고정 매핑은 논리적 및 물리적 열 이름을 매핑합니다. 규칙 기반 매핑에 대 한 자세한 내용은 [데이터 흐름 매핑의 열 패턴](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink)을 참조 하세요.
 
-매핑 테이블에서 다중 선택 여러 열을 연결, 여러 열을 사용 중인 또는 여러 행을 동일한 열 이름을 매핑할 수 있습니다.
+## <a name="custom-sink-ordering"></a>사용자 지정 싱크 순서 지정
 
-항상 들어오는 필드 집합에 매핑할 대상 되 고 완전히 유연한 스키마 정의 허용 하도록 선택 **스키마 드리프트 허용**합니다.
+기본적으로 데이터는 비결 정적 순서로 여러 싱크에 기록 됩니다. 변환 논리가 완료 되 고 싱크 순서가 각 실행 마다 다를 수 있으므로 실행 엔진은 데이터를 병렬로 작성 합니다. 싱크 순서를 정확 하 게 지정 하려면 데이터 흐름의 일반 탭에서 **사용자 지정 싱크 순서** 를 사용 하도록 설정 합니다. 사용 하도록 설정 하면 싱크는 오름차순으로 순차적으로 작성 됩니다.
 
-![데이터 집합의 열에 매핑할 필드를 보여 주는 매핑 탭](media/data-flow/multi1.png "여러 옵션")
+![사용자 지정 싱크 순서 지정](media/data-flow/custom-sink-ordering.png "사용자 지정 싱크 순서 지정")
 
-열 매핑을 다시 설정 하려면 선택 **다시 매핑**합니다.
+## <a name="data-preview-in-sink"></a>싱크의 데이터 미리 보기
 
-![싱크 탭](media/data-flow/sink1.png "하나 싱크")
-
-선택 **유효성 검사 스키마** 스키마가 변경 하는 경우 싱크를 실패 합니다.
-
-선택 **폴더를 선택 취소** 싱크 폴더의 내용을 해당 대상 폴더의 대상 파일을 쓰기 전에 자를 합니다.
-
-## <a name="file-name-options"></a>파일 이름 옵션
-
-파일 이름 지정을 설정 합니다. 
-
-   * **기본값**: 일부 기본값을 기반으로 하는 이름 파일에 Spark를 허용 합니다.
-   * **패턴**: 출력 파일에 대 한 패턴을 입력 합니다. 예를 들어 **대출 [n]** loans1.csv, loans2.csv, 등에 만들어집니다.
-   * **파티션당**: 파티션당 하나의 파일 이름을 입력 합니다.
-   * **열에 있는 데이터로**: 출력 파일을 열 값으로 설정 합니다.
-   * **단일 파일에 출력**: 이 옵션을 사용 하 여 ADF는 단일 명명 된 파일에 분할 된 출력 파일을 결합 합니다. 이 옵션을 사용 하려면 데이터 집합 폴더 이름을를 확인 합니다. 또한 주의 하십시오이 병합 작업 노드 크기에 따라 실패할 가능성이 있습니다.
-
-> [!NOTE]
-> 데이터 흐름 실행 활동을 실행 하는 경우에 작업 시작 파일입니다. 데이터 흐름 디버깅 모드로 시작 하지 않습니다.
-
-## <a name="database-options"></a>데이터베이스 옵션
-
-데이터베이스 설정을 선택 합니다.
-
-* **메서드를 업데이트**: 삽입을 허용 하는 기본값은입니다. 명확한 **허용 삽입** 소스의 새 행 삽입을 중지 하려는 경우. 를 upsert를 업데이트 하거나 행을 삭제 하려면 먼저 해당 작업에 대 한 태그 행 alter 행 변환을 추가 합니다. 
-* **테이블을 다시**: 삭제 하거나 데이터 흐름 완료 되기 전에 대상 테이블을 만듭니다.
-* **테이블 자르기**: 완료 되기 전에 대상 테이블에서 모든 행을 제거 합니다.
-* **배치 크기**: 청크에 대한 버킷 쓰기 수를 입력합니다. 이 옵션을 사용 하 여 대량의 데이터 로드에 대 한 합니다. 
-* **준비 사용**: 싱크 데이터 집합으로 Azure 데이터 웨어하우스를 로드 하는 경우 PolyBase를 사용 합니다.
-
-![SQL 싱크 옵션을 보여 주는 설정 탭](media/data-flow/alter-row2.png "SQL 옵션")
-
-> [!NOTE]
-> 데이터 흐름에서 대상 데이터베이스에서 새 테이블 정의 만들려면 Data Factory를 보낼 수 있습니다. 테이블 정의 만들려면 새 테이블 이름을 가진 싱크 변환에서 데이터 집합을 설정 합니다. SQL 데이터 집합 테이블 이름 아래에서 선택 **편집** 새 테이블 이름을 입력 합니다. 그런 다음 싱크 변환 켭니다 **스키마 드리프트 허용**합니다. 설정할 **스키마 가져오기** 하 **None**합니다.
-
-![SQL 데이터 집합 설정, 테이블 이름을 편집 하려면 위치를 보여 주는](media/data-flow/dataset2.png "SQL 스키마")
-
-> [!NOTE]
-> 데이터베이스 싱크에에서 행을 삭제 하거나 업데이트할 때의 키 열을 설정 해야 합니다. 이 설정은 데이터 이동 라이브러리 (DML)에 고유 행을 확인 하려면 alter 행 변형할을 수 있습니다.
+디버그 클러스터에서 데이터 미리 보기를 가져오는 경우 싱크에 데이터가 기록 되지 않습니다. 데이터의 모양에 대 한 스냅숏은 반환 되지만 대상에는 아무것도 기록 되지 않습니다. 싱크에 대 한 데이터 쓰기를 테스트 하려면 파이프라인 캔버스에서 파이프라인 디버그를 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-데이터 흐름을 만들었으므로 이제 추가 된 [파이프라인에 데이터 흐름 작업](concepts-data-flow-overview.md)합니다.
+이제 데이터 흐름을 만들었으므로 [파이프라인에 데이터 흐름 활동](concepts-data-flow-overview.md)을 추가 합니다.

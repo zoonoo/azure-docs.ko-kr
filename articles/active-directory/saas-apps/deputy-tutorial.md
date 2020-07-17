@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b0b3921640ebf6ed21860cfac75ffca195096db
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 798468f1e8ef62f5ccf8cdd451b643ecdbe255bc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57869747"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>자습서: Deputy와 Azure Active Directory 통합
 
@@ -31,10 +32,10 @@ Deputy를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 Azure AD 계정으로 Deputy에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Deputy와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -57,7 +58,7 @@ Deputy의 Azure AD 통합을 구성하려면 갤러리의 Deputy를 관리되는
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -107,45 +108,45 @@ Deputy에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    |  |
-    | ----|
-    | `https://<subdomain>.<region>.au.deputy.com` |
-    | `https://<subdomain>.<region>.ent-au.deputy.com` |
-    | `https://<subdomain>.<region>.na.deputy.com`|
-    | `https://<subdomain>.<region>.ent-na.deputy.com`|
-    | `https://<subdomain>.<region>.eu.deputy.com` |
-    | `https://<subdomain>.<region>.ent-eu.deputy.com` |
-    | `https://<subdomain>.<region>.as.deputy.com` |
-    | `https://<subdomain>.<region>.ent-as.deputy.com` |
-    | `https://<subdomain>.<region>.la.deputy.com` |
-    | `https://<subdomain>.<region>.ent-la.deputy.com` |
-    | `https://<subdomain>.<region>.af.deputy.com` |
-    | `https://<subdomain>.<region>.ent-af.deputy.com` |
-    | `https://<subdomain>.<region>.an.deputy.com` |
-    | `https://<subdomain>.<region>.ent-an.deputy.com` |
-    | `https://<subdomain>.<region>.deputy.com` |
+    ```http
+    https://<subdomain>.<region>.au.deputy.com
+    https://<subdomain>.<region>.ent-au.deputy.com
+    https://<subdomain>.<region>.na.deputy.com
+    https://<subdomain>.<region>.ent-na.deputy.com
+    https://<subdomain>.<region>.eu.deputy.com
+    https://<subdomain>.<region>.ent-eu.deputy.com
+    https://<subdomain>.<region>.as.deputy.com
+    https://<subdomain>.<region>.ent-as.deputy.com
+    https://<subdomain>.<region>.la.deputy.com
+    https://<subdomain>.<region>.ent-la.deputy.com
+    https://<subdomain>.<region>.af.deputy.com
+    https://<subdomain>.<region>.ent-af.deputy.com
+    https://<subdomain>.<region>.an.deputy.com
+    https://<subdomain>.<region>.ent-an.deputy.com
+    https://<subdomain>.<region>.deputy.com
+    ```
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |----|
-    | `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.` |
-    | `https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs` |
+    ```http
+    https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.
+    https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs
+    ```
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![Deputy 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
@@ -173,13 +174,13 @@ Deputy에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="configure-deputy-single-sign-on"></a>Deputy Single Sign-On 구성
 
-1. 다음 URL, [https://(your-subdomain).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config)로 이동합니다. **보안 설정**으로 이동하고 **편집**을 클릭합니다.
+1. `https://(your-subdomain).deputy.com/exec/config/system_config` URL로 이동합니다. **보안 설정**으로 이동하고 **편집**을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/deputy-tutorial/tutorial_deputy_004.png)
+    ![Single Sign-on 구성](./media/deputy-tutorial/tutorial_deputy_004.png)
 
 2. 이 **보안 설정** 페이지에서 아래 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/deputy-tutorial/tutorial_deputy_005.png)
+    ![Single Sign-on 구성](./media/deputy-tutorial/tutorial_deputy_005.png)
     
     a. **소셜 로그인**을 활성화합니다.
    
@@ -214,7 +215,7 @@ Deputy에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -258,7 +259,7 @@ Azure AD 사용자가 Deputy에 로그인할 수 있도록 하려면 Deputy로 �
 
 3. **구성원 추가** 단추를 클릭하고 **단일 구성원 추가**를 클릭합니다.
    
-    ![피플 추가](./media/deputy-tutorial/tutorial_deputy_002.png "피플 추가")
+    ![피플 추가](./media/deputy-tutorial/tutorial_deputy_002.png "구성원 추가")
 
 4. 다음 단계를 수행하고 **저장 및 초대**를 클릭합니다.
    
@@ -272,7 +273,7 @@ Azure AD 사용자가 Deputy에 로그인할 수 있도록 하려면 Deputy로 �
    
     d. **저장 및 초대** 단추를 클릭합니다.
 
-5. AAD 계정 보유자에게 전자 메일이 발송되며 여기에 포함된 링크를 클릭하여 계정을 확인하면 계정이 활성화됩니다. 다른 Deputy 사용자 계정 생성 도구 또는 Deputy가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+5. Azure AD 계정 보유자에게 전자 메일이 발송되며 여기에 포함된 링크를 클릭하여 계정을 확인하면 계정이 활성화됩니다. 다른 Deputy 사용자 계정 생성 도구 또는 Deputy가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

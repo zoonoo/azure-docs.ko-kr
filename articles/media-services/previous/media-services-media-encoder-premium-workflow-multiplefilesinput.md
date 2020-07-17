@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 608ca4bc3b58dd3c718d6239f90260154d2f6c3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: xpouyat
+ms.reviewer: anilmur;juliako
+ms.openlocfilehash: 4a51a67200ec411f0f9362bc92bf7926f221b1f2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465536"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056806"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
 ## <a name="overview"></a>개요
-**미디어 인코더 프리미엄 워크플로** 미디어 프로세서로 작업을 제출할 때 구성 요소 속성을 사용자 지정하고 클립 목록 XML 콘텐츠를 지정하거나 여러 입력 파일을 전송해야 하는 시나리오가 있습니다. 일부 사례:
+**미디어 인코더 프리미엄 워크플로** 미디어 프로세서로 작업을 제출할 때 구성 요소 속성을 사용자 지정하고 클립 목록 XML 콘텐츠를 지정하거나 여러 입력 파일을 전송해야 하는 시나리오가 있습니다. 예는 다음과 같습니다.
 
 * 각 입력 비디오에 대해 런타임에(예: 현재 날짜) 비디오 위에 텍스트 오버레이 및 텍스트 값 설정
 * 클립 목록 XML 사용자 지정(잘라내기 등을 사용/사용하지 않고 하나 이상의 소스 파일 지정)
@@ -82,7 +83,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 **setRuntimeProperties** 가 사용됩니다.
 
-예제:
+예:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -98,7 +99,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ### <a name="property-with-an-xml-value"></a>XML 값이 있는 속성
 XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용하여 캡슐화하세요.
 
-예제:
+예:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -140,7 +141,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 ![작업/편집](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
 
-![자산](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
+![속성](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
 ## <a name="multiple-input-files"></a>여러 입력 파일
 **미디어 인코더 Premium 워크플로** 에 제출하는 각 작업에는 두 개의 자산이 필요합니다.
@@ -268,13 +269,13 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>예제 1: 비디오 위에 이미지 오버레이
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>예 1: 비디오 위에 이미지 오버레이
 
 ### <a name="presentation"></a>프레젠테이션
 비디오를 인코딩하는 동안 로고 이미지를 입력 비디오에 오버레이하는 예를 살펴보겠습니다. 이 예제에서 입력 비디오의 이름은 "Microsoft_HoloLens_Possibilities_816p24.mp4", 로고 이름은 "logo.png"로 지정합니다. 다음 단계를 수행해야 합니다.
 
 * 워크플로 파일로 워크플로 자산 만들기(아래 예제 참조)
-* 다음 두 파일을 포함하는 미디어 자산 만들기: MyInputVideo.mp4(기본 파일) 및 MyLogo.png.
+* 두 파일(기본 파일로 MyInputVideo.mp4 및 MyLogo.png)을 포함하는 미디어 자산 만들기
 * 위의 입력 자산과 함께 미디어 인코더 Premium 워크플로 미디어 프로세서에 작업 보내기 및 다음 구성 문자열 지정
 
 구성:
@@ -330,7 +331,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 ![비디오 데이터 형식 업데이터 및 형식 변환기](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
-*비디오 데이터 형식 업데이터 및 형식 변환기*
+*비디오 데이터 형식 업데이트 프로그램 및 형식 변환기*
 
 ![레이아웃 형식 = 구성 가능한 평면](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
 
@@ -351,7 +352,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 *오버레이 위치*
 
 비디오 스트림을 H.264로 인코딩하려면 AVC 비디오 인코더 및 AAC 인코더 구성 요소를 디자이너 화면에 추가합니다. 핀을 연결합니다.
-AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 선택: 2.0(L, R)을 선택합니다.
+AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)을 선택합니다.
 
 ![오디오 및 비디오 인코더](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -365,7 +366,7 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 선택: 2.0(
 
 출력 파일의 이름을 설정해야 합니다. **파일 출력** 구성 요소를 클릭하고 파일에 대한 식을 다음과 같이 편집합니다.
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4`
 
 ![파일 출력 이름](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
 
@@ -428,7 +429,7 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/)에서 샘플 워크플로를 다운로드할 수 있습니다.
 
-## <a name="example-2--multiple-audio-language-encoding"></a>예제 2: 다중 오디오 언어 인코딩
+## <a name="example-2--multiple-audio-language-encoding"></a>예 2: 다중 오디오 언어 인코딩
 
 다중 오디오 언어 인코딩 워크플로의 예는 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding)에서 제공합니다.
 
@@ -465,11 +466,11 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 * 인코딩된 자산은 다중 언어 오디오 트랙을 포함하며 이러한 트랙을 Azure Media Player에서 선택할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Media Services의 프리미엄 Encoding 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Azure Media Services의 프리미엄 Encoding 사용 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Azure Media Services에서 프리미엄 인코딩을 사용 하는 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media-encoder-premium-workflow)
-* [미디어 인코더 Premium 워크플로 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
+* [Media Encoder Premium Workflow 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
 * [샘플 워크플로 파일](https://github.com/Azure/azure-media-services-samples)
 * [Azure Media Services 탐색기 도구](https://aka.ms/amse)
 

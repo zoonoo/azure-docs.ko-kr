@@ -1,56 +1,69 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD ID 거버넌스 설명서
+### YamlMime:Landing
+title: Azure Active Directory Identity Governance 설명서
+summary: Azure AD(Azure Active Directory) Identity Governance를 사용하면 중요한 자산에 대한 액세스를 보호, 모니터링 및 감사하면서 직원의 생산성을 보장할 수 있습니다.
 metadata:
-  document_id: null
-  title: Azure Active Directory ID 거버넌스 설명서 | Microsoft Docs
-  description: 'ID 수명 주기 거버넌스, 액세스 수명 주기 거버넌스 및 직원 및 파트너에 대한 관리 보호에 대해 알아봅니다.'
-  services: active-directory
-  author: rolyon
-  manager: mtillman
+  author: msaburnley
+  description: 중요한 자산에 대한 액세스를 보호, 모니터링 및 감사하면서 직원 생산성을 보장할 수 있습니다.
+  manager: daveba
+  ms.author: ajburnle
+  ms.collection: na
+  ms.date: 09/14/2019
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: na
   ms.topic: landing-page
-  ms.date: 04/18/2019
-  ms.author: rolyon
-abstract:
-  description: 'Azure AD(Azure Active Directory) ID 거버넌스는 조직에 ID 수명 주기를 관리하고, 액세스 수명 주기를 관리하고, 직원 및 파트너에 대한 관리를 보호하는 기능을 제공합니다.'
-  aside:
-    image:
-      alt: null
-      height: 112
-      src: media/index/video-thumb-identity-governance.png
-      width: 200
-    title: '리소스에 대한 액세스 관리(1:17:24)'
-    href: 'https://www.youtube.com/embed/aY7A0Br8u5M'
-    width: 200
-sections:
-  - title: ID 거버넌스
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/identity-governance-overview">ID 거버넌스란?</a>
-  - title: 권한 관리(미리 보기)
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/entitlement-management-overview">Azure AD 권한 관리란?</a>
-          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-first">자습서 - 첫 번째 액세스 패키지 만들기</a>
-          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-edit">기존 액세스 패키지 편집 및 관리</a>
-  - title: 액세스 검토
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Azure AD 액세스 검토란?</a>
-          - html: <a href="/azure/active-directory/governance/create-access-review">그룹 또는 앱의 액세스 검토 만들기</a>
-          - html: <a href="/azure/active-directory/governance/perform-access-review">그룹 또는 앱의 액세스 검토</a>
-  - title: 사용 약관
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">사용 약관이 필요한가요?</a>
+  services: active-directory
+  ms.openlocfilehash: 98b634b7aba20fc79e2bae15a5786aae4d1a0bd1
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "73173045"
+landingContent:
+- title: ID 거버넌스 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure AD Identity Governance란?
+      url: identity-governance-overview.md
+  - linkListType: video
+    links:
+    - text: 리소스에 대한 액세스 관리
+      url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
+- title: 그룹, 앱 및 사이트에 대한 액세스 수명 주기 관리
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure AD 권한 관리란?
+      url: entitlement-management-overview.md
+  - linkListType: tutorial
+    links:
+    - text: 사용자가 필요한 액세스를 요청할 수 있도록 지원하는 첫 번째 액세스 패키지 만들기
+      url: entitlement-management-access-package-first.md
+  - linkListType: concept
+    links:
+    - text: 위임 및 역할
+      url: entitlement-management-delegate.md
+- title: 그룹, 앱 및 권한 있는 역할에 대한 액세스 다시 인증
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure AD 액세스 검토란?
+      url: access-reviews-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자가 과도한 액세스를 유지하지 않도록 액세스 검토 만들기
+      url: create-access-review.md
+    - text: 그룹 또는 앱에 대한 액세스 검토
+      url: perform-access-review.md
+- title: 권한 있는 역할에 적합한 사용자 설정
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure AD Privileged Identity Management란?
+      url: ../privileged-identity-management/pim-configure.md
+- title: 사용자에게 고지 사항 표시
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자가 앱 사용 시 사용 약관에 동의하도록 요구
+      url: ../conditional-access/terms-of-use.md

@@ -1,42 +1,34 @@
 ---
-title: 'S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: S2S VPN & VNet 간 연결에 대 한 IPsec/IKE 정책
+titleSuffix: Azure VPN Gateway
 description: Azure Resource Manager 및 PowerShell을 사용하여 Azure VPN Gateways로 S2S 또는 VNet 간 연결에 대한 IPsec/IKE 정책을 구성합니다.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 72c597a6258fbe43e718714ab346d3e10cb97463
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 504f4f2b2a0aa1fa8cd654c422e7ce8a00593b21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84985283"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성
 
 이 문서에서는 Resource Manager 배포 모델 및 PowerShell을 사용하여 사이트 간 VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책을 구성하는 단계를 안내합니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="about"></a>Azure VPN Gateway에 대한 IPsec 및 IKE 정책 매개 변수 정보
+
+## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a><a name="about"></a>Azure VPN Gateway에 대한 IPsec 및 IKE 정책 매개 변수 정보
 IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 알고리즘을 지원합니다. 이러한 지원이 어떻게 프레미스 간 및 VNet 간 연결이 준수 또는 보안 요구 사항을 충족하도록 하는 데 도움이 될 수 있는지를 확인하려면 [암호화 요구 사항 및 Azure VPN Gateway 정보](vpn-gateway-about-compliance-crypto.md)를 참조하세요.
 
 이 문서에서는 IPsec/IKE 정책을 만들고 구성하여 새 연결 또는 기존 연결에 적용하기 위한 지침을 제공합니다.
 
-* [1부 - IPsec/IKE 정책을 만들고 설정하는 워크플로](#workflow)
+* [1 부-IPsec/IKE 정책을 만들고 설정 하는 워크플로](#workflow)
 * [2부 - 지원되는 암호화 알고리즘 및 키 수준](#params)
-* [3부 - IPsec/IKE 정책을 사용하여 새 S2S VPN 연결 만들기](#crossprem)
-* [4부 - IPsec/IKE 정책을 사용하여 새 VNet 간 연결 만들기](#vnet2vnet)
+* [3 부-IPsec/IKE 정책을 사용 하 여 새 S2S VPN 연결 만들기](#crossprem)
+* [4 부-IPsec/IKE 정책을 사용 하 여 새 VNet 간 연결 만들기](#vnet2vnet)
 * [5부 - 연결에 대한 IPsec/IKE 정책 관리(만들기, 추가, 제거)](#managepolicy)
 
 > [!IMPORTANT]
@@ -47,7 +39,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 > 3. IKE(주 모드)와 IPsec(빠른 모드) 둘 다에 대한 모든 알고리즘 및 매개 변수를 지정해야 합니다. 부분 정책 지정은 허용되지 않습니다.
 > 4. 해당 VPN 디바이스 공급업체 사양을 참조하여 정책이 해당 온-프레미스 VPN 디바이스에서 지원되는지 확인하세요. 정책이 호환되지 않는 경우 S2S 또는 VNet 간 연결을 설정할 수 없습니다.
 
-## <a name ="workflow"></a>1부 - IPsec/IKE 정책을 만들고 설정하는 워크플로
+## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a><a name ="workflow"></a>1부 - IPsec/IKE 정책을 만들고 설정하는 워크플로
 이 섹션에서는 S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책을 만들고 업데이트하는 워크플로를 설명합니다.
 1. 가상 네트워크 및 VPN Gateway 만들기
 2. 프레미스 간 연결에 대한 로컬 네트워크 게이트웨이 또는 VNet 간 연결에 대한 다른 가상 네트워크 및 게이트웨이 만들기
@@ -59,7 +51,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 ![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
-## <a name ="params"></a>2부 - 지원되는 암호화 알고리즘 및 키 수준
+## <a name="part-2---supported-cryptographic-algorithms--key-strengths"></a><a name ="params"></a>2부 - 지원되는 암호화 알고리즘 및 키 수준
 
 다음 표에는 고객이 구성 가능하도록 지원되는 암호화 알고리즘 및 키 강도가 나와 있습니다.
 
@@ -76,7 +68,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 |  |  |
 
 > [!IMPORTANT]
-> 1. **온-프레미스 VPN 디바이스 구성은 Azure IPsec/IKE 정책에서 지정한 다음과 같은 알고리즘 및 매개 변수와 일치하거나 해당 항목을 포함해야 합니다.**
+> 1. **온-프레미스 VPN 디바이스 구성은 Azure IPsec/IKE 정책에서 지정한 다음 알고리즘 및 매개 변수가 일치하거나 포함해야 합니다.**
 >    * IKE 암호화 알고리즘(기본 모드/1단계)
 >    * IKE 무결성 알고리즘(기본 모드/1단계)
 >    * DH 그룹(기본 모드/1단계)
@@ -109,12 +101,12 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 | 2                         | DHGroup2                 | PFS2         | 1024비트 MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048비트 MODP  |
 | 19                        | ECP256                   | ECP256       | 256비트 ECP    |
-| 20                        | ECP384                   | ECP284       | 384비트 ECP    |
+| 20                        | ECP384                   | ECP384       | 384비트 ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048비트 MODP  |
 
 자세한 내용은 [RFC3526](https://tools.ietf.org/html/rfc3526) 및 [RFC5114](https://tools.ietf.org/html/rfc5114)를 참조하세요.
 
-## <a name ="crossprem"></a>3부 - IPsec/IKE 정책을 사용하여 새 S2S VPN 연결 만들기
+## <a name="part-3---create-a-new-s2s-vpn-connection-with-ipsecike-policy"></a><a name ="crossprem"></a>3부 - IPsec/IKE 정책을 사용하여 새 S2S VPN 연결 만들기
 
 이 섹션에서는 IPsec/IKE 정책을 사용하여 S2S VPN 연결을 만드는 단계를 안내합니다. 다음 단계에서는 다음 다이어그램에 표시된 대로 연결을 만듭니다.
 
@@ -122,14 +114,14 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 S2S VPN 연결을 만드는 자세한 단계별 지침은 [S2S VPN 연결 만들기](vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
 
-### <a name="before"></a>시작하기 전에
+### <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
 
 * Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/overview)를 참조하세요.
 
-### <a name="createvnet1"></a>1단계 - 가상 네트워크, VPN Gateway 및 로컬 네트워크 게이트웨이 만들기
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>1단계 - 가상 네트워크, VPN Gateway 및 로컬 네트워크 게이트웨이 만들기
 
-#### <a name="1-declare-your-variables"></a>1. 변수 선언
+#### <a name="1-declare-your-variables"></a>1. 변수를 선언 합니다.
 
 이 연습에서는 먼저 변수를 선언합니다. 생산을 위해 구성하는 경우 값을 사용자의 값으로 바꾸어야 합니다.
 
@@ -158,7 +150,7 @@ $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. 구독에 연결하고 새 리소스 그룹 만들기
+#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. 구독에 연결 하 고 새 리소스 그룹을 만듭니다.
 
 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
@@ -170,7 +162,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. 가상 네트워크, VPN Gateway 및 로컬 네트워크 게이트웨이 만들기
+#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. 가상 네트워크, VPN gateway 및 로컬 네트워크 게이트웨이 만들기
 
 아래 샘플은 세 개의 서브넷과 VPN Gateway가 있는 가상 네트워크 TestVNet1을 만듭니다. 값을 대체할 때 언제나 게이트웨이 서브넷 이름을 GatewaySubnet라고 명시적으로 지정해야 합니다. 다른 이름을 지정하는 경우 게이트웨이 만들기가 실패합니다.
 
@@ -191,14 +183,14 @@ New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Lo
 New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="s2sconnection"></a>2단계 - IPsec/IKE 정책을 사용하여 S2S VPN 연결 만들기
+### <a name="step-2---create-a-s2s-vpn-connection-with-an-ipsecike-policy"></a><a name="s2sconnection"></a>2단계 - IPsec/IKE 정책을 사용하여 S2S VPN 연결 만들기
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. IPsec/IKE 정책 만들기
 
 다음 샘플 스크립트는 다음 알고리즘 및 매개 변수를 사용하여 IPsec/IKE 정책을 만듭니다.
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS None, SA 수명 14400초 및 102400000KB
+* IPsec: AES256, SHA256, PFS 없음, SA 수명 14400초 및 102400000KB
 
 ```powershell
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
@@ -206,7 +198,7 @@ $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -Dh
 
 IPsec으로 GCMAES를 사용하는 경우 IPsec 암호화 및 무결성 모두에 대해 동일한 GCMAES 알고리즘 및 키 길이를 사용해야 합니다. 위 예제의 경우 GCMAES256 사용 시 해당 매개 변수는 "-IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256"이 됩니다.
 
-#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. IPsec/IKE 정책을 사용하여 S2S VPN 연결 만들기
+#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. IPsec/IKE 정책을 사용 하 여 S2S VPN 연결 만들기
 
 S2S VPN 연결을 만들고 이전에 만든 IPsec/IKE 정책을 적용합니다.
 
@@ -223,7 +215,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG
 > 연결에 IPsec/IKE 정책이 지정되고 나면 Azure VPN Gateway는 해당 특정 연결에 지정된 암호화 알고리즘 및 키 수준으로 된 IPsec/IKE 제안만 보내거나 수락합니다. 연결에 대한 온-프레미스 VPN 디바이스에서 정확한 정책 조합을 사용하거나 수락하는지 확인합니다. 그러지 않으면 S2S VPN 터널이 설정되지 않습니다.
 
 
-## <a name ="vnet2vnet"></a>4부 - IPsec/IKE 정책을 사용하여 새 VNet 간 연결 만들기
+## <a name="part-4---create-a-new-vnet-to-vnet-connection-with-ipsecike-policy"></a><a name ="vnet2vnet"></a>4부 - IPsec/IKE 정책을 사용하여 새 VNet 간 연결 만들기
 
 IPsec/IKE 정책을 사용하여 VNet 간 연결을 만드는 단계는 S2S VPN 연결을 만드는 단계와 유사합니다. 다음 샘플 스크립트는 다음 다이어그램에 표시된 대로 연결을 만듭니다.
 
@@ -231,9 +223,9 @@ IPsec/IKE 정책을 사용하여 VNet 간 연결을 만드는 단계는 S2S VPN 
 
 VNet 간 연결을 만드는 자세한 단계는 [VNet 간 연결 만들기](vpn-gateway-vnet-vnet-rm-ps.md)를 참조하세요. TestVNet1 및 VPN Gateway를 만들고 구성하려면 [3부](#crossprem)를 완료해야 합니다.
 
-### <a name="createvnet2"></a>1단계 - 두 번째 가상 네트워크 및 VPN 게이트웨이 만들기
+### <a name="step-1---create-the-second-virtual-network-and-vpn-gateway"></a><a name="createvnet2"></a>1단계 - 두 번째 가상 네트워크 및 VPN 게이트웨이 만들기
 
-#### <a name="1-declare-your-variables"></a>1. 변수 선언
+#### <a name="1-declare-your-variables"></a>1. 변수를 선언 합니다.
 
 값을 구성에 사용할 값으로 바꾸어야 합니다.
 
@@ -257,7 +249,7 @@ $Connection21 = "VNet2toVNet1"
 $Connection12 = "VNet1toVNet2"
 ```
 
-#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. 새 리소스 그룹에 두 번째 가상 네트워크 및 VPN 게이트웨이 만들기
+#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. 새 리소스 그룹에 두 번째 가상 네트워크 및 VPN gateway 만들기
 
 ```powershell
 New-AzResourceGroup -Name $RG2 -Location $Location2
@@ -290,7 +282,7 @@ S2S VPN 연결과 유사하게 IPsec/IKE 정책을 만든 다음 새 연결에 �
 $ipsecpolicy2 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-#### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. IPsec/IKE 정책을 사용하여 VNet 간 연결 만들기
+#### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. IPsec/IKE 정책을 사용 하 여 VNet 간 연결 만들기
 
 VNet 간 연결을 만들고 만든 IPsec/IKE 정책을 적용합니다. 이 예제에서 두 게이트웨이는 동일한 구독에 있습니다. 따라서 같은 PowerShell 세션에서 같은 IPsec/IKE 정책을 사용하여 두 연결을 만들고 구성할 수 있습니다.
 
@@ -311,7 +303,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 ![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
-## <a name ="managepolicy"></a>5부 - 연결에 대한 IPsec/IKE 정책 업데이트
+## <a name="part-5---update-ipsecike-policy-for-a-connection"></a><a name ="managepolicy"></a>5부 - 연결에 대한 IPsec/IKE 정책 업데이트
 
 마지막 섹션에서는 기존 S2S 또는 VNet 간 연결에 대한 IPsec/IKE 정책을 관리하는 방법을 보여 줍니다. 아래 연습에서는 연결에 대한 다음 작업을 안내합니다.
 
@@ -324,7 +316,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 > [!IMPORTANT]
 > IPsec/IKE 정책은 *표준* 및 *고성능* 경로 기반 VPN 게이트웨이에서만 지원됩니다. 기본 게이트웨이 SKU 또는 정책 기반 VPN 게이트웨이에서는 작동하지 않습니다.
 
-#### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. 연결의 IPsec/IKE 정책 표시
+#### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. 연결의 IPsec/IKE 정책을 표시 합니다.
 
 다음 예제는 연결에 대해 IPsec/IKE 정책을 구성하는 방법을 보여 줍니다. 또한 스크립트는 위의 연습에서 계속됩니다.
 
@@ -348,9 +340,9 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-구성된 IPsec/IKE 정책이 없는 경우 명령(PS> $connection6.policy)을 실행한 결과로 반환되는 내용이 없습니다. 반환되는 내용이 없다고 해서 연결에 대해 IPsec/IKE 정책이 구성되지 않았다는 의미는 아니며, 사용자 지정 IPsec/IKE 정책이 없는 것입니다. 실제 연결은 온-프레미스 VPN 디바이스 및 Azure VPN Gateway 간에 협상된 기본 정책을 사용합니다.
+구성 된 IPsec/IKE 정책이 없는 경우 명령 (PS> $connection 6입니다. 정책 정책) 빈 반환을 가져옵니다. 반환되는 내용이 없다고 해서 연결에 대해 IPsec/IKE 정책이 구성되지 않았다는 의미는 아니며, 사용자 지정 IPsec/IKE 정책이 없는 것입니다. 실제 연결은 온-프레미스 VPN 디바이스 및 Azure VPN Gateway 간에 협상된 기본 정책을 사용합니다.
 
-#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. 연결에 대한 IPsec/IKE 정책 추가 또는 업데이트
+#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. 연결에 대 한 IPsec/IKE 정책 추가 또는 업데이트
 
 연결에 대한 새 정책을 추가하거나 기존 정책을 업데이트하는 단계는 같습니다. 새 정책을 만든 다음 연결에 새 정책을 적용합니다.
 
@@ -390,7 +382,7 @@ DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 
-#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. 연결에서 IPsec/IKE 정책 제거
+#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. 연결에서 IPsec/IKE 정책을 제거 합니다.
 
 연결에서 사용자 지정 정책을 제거하고 나면 Azure VPN Gateway는 [IPsec/IKE 제안의 기본 목록](vpn-gateway-about-vpn-devices.md)으로 되돌려지고 온-프레미스 VPN 디바이스와 다시 협상합니다.
 

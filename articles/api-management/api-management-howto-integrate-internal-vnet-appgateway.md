@@ -1,5 +1,6 @@
 ---
-title: Virtual Network에서 Application Gateway와 함께 Azure API Management를 사용하는 방법 | Microsoft Docs
+title: Application Gateway에서 Virtual Network API Management를 사용 하는 방법
+titleSuffix: Azure API Management
 description: 내부 Virtual Network에서 프론트 엔드로 Application Gateway(WAF)와 함께 Azure API Management를 설정하고 구성하는 방법 알아보기
 services: api-management
 documentationcenter: ''
@@ -10,20 +11,19 @@ ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 08e718739971283418d151bef9ad75333e313d85
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521927"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250433"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
-## <a name="overview"> </a> 개요
+## <a name="overview"></a><a name="overview"> </a> 개요
 
 Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual Network에서 API Management 서비스를 구성할 수 있습니다. Azure Application Gateway는 계층 7 부하 분산 장치를 제공하는 PAAS 서비스입니다. 역방향 프록시 서비스 역할을 하고 제품에 WAF(웹 애플리케이션 방화벽)를 제공합니다.
 
@@ -35,41 +35,41 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 문서에 설명한 단계를 따르려면 다음 항목이 있어야 합니다.
 
-* 활성 Azure 구독.
+* 활성 Azure 구독
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 * 인증서 - API 호스트 이름에 대한 pfx 및 cer, 개발자 포털의 호스트 이름에 대한 pfx입니다.
 
-## <a name="scenario"> </a> 시나리오
+## <a name="scenario"></a><a name="scenario"> </a> 시나리오
 
-이 문서에서는 내부 및 외부 소비자에 대 한 단일 API Management 서비스를 사용 하 여 온-프레미스 둘 다에 대해 단일 프런트 엔드로 작동 하 고 클라우드 Api를 확인 하는 방법을 설명 합니다. Application Gateway에서 사용 가능한 라우팅 기능을 사용하여 외부 소비에 대해 API(예제에서 녹색으로 강조 표시됨)의 하위 집합만을 노출하는 방법을 확인할 수도 있습니다.
+이 문서에서는 내부 및 외부 소비자에 대해 단일 API Management 서비스를 사용 하 고 온-프레미스 및 클라우드 Api에 대 한 단일 프런트 엔드로 작동 하도록 하는 방법을 설명 합니다. Application Gateway에서 사용 가능한 라우팅 기능을 사용하여 외부 소비에 대해 API(예제에서 녹색으로 강조 표시됨)의 하위 집합만을 노출하는 방법을 확인할 수도 있습니다.
 
-첫 번째 설정 예제에서 모든 API는 Virtual Network 내에서만 관리됩니다. 내부 소비자(주황색으로 강조 표시됨)는 모든 내부 및 외부 API에 액세스할 수 있습니다. 트래픽은은 인터넷에 되지 전송 됩니다. 고성능 연결 Expressroute 회로 통해 전달 됩니다.
+첫 번째 설정 예제에서 모든 API는 Virtual Network 내에서만 관리됩니다. 내부 소비자(주황색으로 강조 표시됨)는 모든 내부 및 외부 API에 액세스할 수 있습니다. 트래픽은 인터넷으로 이동 하지 않습니다. 고속 연결은 Express 경로 회로를 통해 제공 됩니다.
 
 ![url 경로](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"> </a> 시작하기 전에
+## <a name="before-you-begin"></a><a name="before-you-begin"> </a> 시작 하기 전에
 
-* Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 설치 지침을 참조 하세요 [Azure PowerShell 설치](/powershell/azure/install-az-ps)합니다. 
+* Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 설치 [Azure PowerShell](/powershell/azure/install-az-ps)에서 설치 지침을 참조 하세요. 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>API Management 및 Application Gateway 간에 통합을 만드는 데 무엇이 필요한가요?
 
 * **백 엔드 서버 풀:** API Management 서비스의 내부 가상 IP 주소입니다.
-* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜, 쿠키 기반 선호도와 같은 설정이 있습니다. 이러한 설정은 풀 내의 모든 서버에 적용됩니다.
-* **프런트 엔드 포트:** 애플리케이션 게이트웨이에서 열려 있는 공용 포트입니다. 이 포트에 도달한 트래픽은 백 엔드 서버 중의 하나로 리디렉션됩니다.
-* **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 값은 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
+* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반 선호도와 같은 설정이 있습니다. 이러한 설정은 풀 내의 모든 서버에 적용됩니다.
+* **프런트 엔드 포트:** Application Gateway에 열려 있는 공용 포트입니다. 이 포트에 도달한 트래픽은 백 엔드 서버 중의 하나로 리디렉션됩니다.
+* **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜 (Http 또는 Https,이 값은 대/소문자 구분) 및 TLS/SSL 인증서 이름 (TLS 오프 로드를 구성 하는 경우)이 있습니다.
 * **규칙:** 규칙은 수신기를 백 엔드 서버 풀에 바인딩합니다.
-* **사용자 지정 상태 프로브:** 기본적으로 Application Gateway는 IP 주소 기반 프로브를 사용하여 BackendAddressPool의 어떤 서버가 활성 상태인지 파악합니다. API Management 서비스는 올바른 호스트 헤더가 있는 요청에만 응답하므로 기본 프로브는 실패합니다. 서비스가 활성 상태이고 요청을 전달해야 한다는 것을 Application Gateway가 결정할 수 있도록 사용자 지정 상태 프로브를 정의해야 합니다.
+* **사용자 지정 상태 프로브:** 기본적으로 Application Gateway는 IP 주소 기반 프로브를 사용 하 여 BackendAddressPool에서 활성 상태인 서버를 파악 합니다. API Management 서비스는 올바른 호스트 헤더가 있는 요청에만 응답하므로 기본 프로브는 실패합니다. 서비스가 활성 상태이고 요청을 전달해야 한다는 것을 Application Gateway가 결정할 수 있도록 사용자 지정 상태 프로브를 정의해야 합니다.
 * **사용자 지정 도메인 인증서:** 인터넷에서 API Management에 액세스하려면 Application Gateway 프런트 엔드 DNS 이름에 대한 해당 호스트 이름의 CNAME을 매핑해야 합니다. 이렇게 하면 API Management에 전달되는 Application Gateway에 전송되는 호스트 이름 헤더 및 인증서를 APIM에서 유효한 것으로 인식할 수 있습니다. 이 예제에서는 백 엔드 및 개발자 포털에 대해 두 개의 인증서를 사용합니다.  
 
-## <a name="overview-steps"> </a> API Management 및 Application Gateway 통합에 필요한 단계
+## <a name="steps-required-for-integrating-api-management-and-application-gateway"></a><a name="overview-steps"> </a> API Management 및 Application Gateway 통합에 필요한 단계
 
 1. Resource Manager에 대한 리소스 그룹을 만듭니다.
 2. Application Gateway에 대한 Virtual Network, 서브넷 및 공용 IP를 만듭니다. API Management에 대한 다른 서브넷을 만듭니다.
@@ -84,7 +84,10 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 이 가이드에서는 Application Gateway를 통해 외부 대상에게 **개발자 포털**도 노출합니다. 개발자 포털의 수신기, 프로브, 설정 및 규칙을 만드는 추가 단계가 필요합니다. 모든 세부 정보는 해당 단계에서 제공됩니다.
 
 > [!WARNING]
-> Azure AD 또는 타사 인증을 사용하는 경우 Application Gateway에서 [쿠키 기반 세션 선호도](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) 기능을 사용하도록 설정하세요.
+> Azure AD 또는 타사 인증을 사용하는 경우 Application Gateway에서 [쿠키 기반 세션 선호도](../application-gateway/features.md#session-affinity) 기능을 사용하도록 설정하세요.
+
+> [!WARNING]
+> Application Gateway WAF가 개발자 포털에서 OpenAPI 사양의 다운로드를 중단 하지 않도록 하려면 방화벽 규칙을 사용 하지 않도록 설정 해야 `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` 합니다.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기
 
@@ -121,7 +124,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Application Gateway에 대한 Virtual Network 및 서브넷 만들기
 
-다음 예제에서는 Resource Manager를 사용하여 Virtual Network를 만드는 방법을 보여 줍니다.
+다음 예제에서는 리소스 관리자를 사용 하 여 Virtual Network을 만드는 방법을 보여 줍니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -147,7 +150,7 @@ $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10
 $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 다음 단계에 대한 서브넷 변수 할당
 
@@ -183,9 +186,12 @@ $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $l
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>API Management에서 사용자 지정 도메인 이름 설정
 
+> [!IMPORTANT]
+> [새 개발자 포털](api-management-howto-developer-portal.md) 을 사용 하려면 다음 단계 외에도 API Management의 관리 끝점에 대 한 연결을 설정 해야 합니다.
+
 ### <a name="step-1"></a>1단계
 
-도메인에 대 한 개인 키를 사용 하 여 인증서의 세부 정보를 사용 하 여 다음 변수를 초기화 합니다. 이 예제에서는 `api.contoso.net` 및 `portal.contoso.net`을 사용합니다.  
+도메인에 대 한 개인 키가 있는 인증서의 세부 정보를 사용 하 여 다음 변수를 초기화 합니다. 이 예제에서는 `api.contoso.net` 및 `portal.contoso.net`을 사용합니다.  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -202,16 +208,19 @@ $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainT
 
 ### <a name="step-2"></a>2단계
 
-만들고 프록시 및 포털에 대 한 호스트 이름 구성 개체를 설정 합니다.  
+프록시 및 포털에 대 한 호스트 이름 구성 개체를 만들고 설정 합니다.  
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
-$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 Set-AzApiManagement -InputObject $apimService
 ```
+
+> [!NOTE]
+> 레거시 개발자 포털 연결을 구성 하려면을 `-HostnameType DeveloperPortal` 으로 바꾸어야 `-HostnameType Portal` 합니다.
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
@@ -229,7 +238,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "public
 
 ### <a name="step-1"></a>1단계
 
-**gatewayIP01**이라는 애플리케이션 게이트웨이 IP 구성을 만듭니다. Application Gateway는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
+**GatewayIP01**이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. Application Gateway는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
 
 ```powershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
@@ -251,7 +260,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
 ```
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 Application Gateway의 인증서가 전달되는 트래픽을 암호화하고 해독하는 데 사용되도록 구성합니다.
 
@@ -262,7 +271,7 @@ $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -Certificate
 
 ### <a name="step-5"></a>5단계
 
-Application Gateway에 대한 HTTP 수신기를 만듭니다. 프런트 엔드 IP 구성, 포트 및 ssl 인증서를 할당합니다.
+Application Gateway에 대한 HTTP 수신기를 만듭니다. 프런트 엔드 IP 구성, 포트 및 TLS/SSL 인증서를 할당 합니다.
 
 ```powershell
 $listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
@@ -271,7 +280,7 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>6단계
 
-API Management 서비스 `ContosoApi` 프록시 도메인 엔드포인트에 사용자 지정 프로브를 만듭니다. 경로 `/status-0123456789abcdef`는 모든 API Management 서비스에서 호스트되는 기본 상태 엔드포인트입니다. `api.contoso.net`을 사용자 지정 프로브 호스트 이름으로 지정하여 SSL 인증서로 보호합니다.
+API Management 서비스 `ContosoApi` 프록시 도메인 엔드포인트에 사용자 지정 프로브를 만듭니다. 경로 `/status-0123456789abcdef`는 모든 API Management 서비스에서 호스트되는 기본 상태 엔드포인트입니다. `api.contoso.net`TLS/SSL 인증서를 사용 하 여 보안을 유지 하려면 사용자 지정 프로브 호스트 이름으로 설정 합니다.
 
 > [!NOTE]
 > 호스트 이름 `contosoapi.azure-api.net`은 서비스 `contosoapi`가 공용 Azure에서 생성될 때 구성된 기본 프록시 호스트 이름입니다.
@@ -284,7 +293,7 @@ $apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -
 
 ### <a name="step-7"></a>7단계
 
-SSL이 활성화된 백 엔드 풀 리소스에 사용할 인증서를 업로드합니다. 위의 4단계에서 제공하는 동일한 인증서입니다.
+TLS 지원 백 엔드 풀 리소스에 사용할 인증서를 업로드 합니다. 위의 4단계에서 제공하는 동일한 인증서입니다.
 
 ```powershell
 $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
@@ -321,7 +330,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Bas
 
 ### <a name="step-11"></a>11단계
 
-Application Gateway의 크기 및 인스턴스 수를 구성합니다. 이 예제에서는 [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md)를 사용하여 API Management 리소스의 보안을 강화합니다.
+Application Gateway의 크기 및 인스턴스 수를 구성합니다. 이 예제에서는 [WAF SKU](../web-application-firewall/ag/ag-overview.md)를 사용하여 API Management 리소스의 보안을 강화합니다.
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -354,14 +363,14 @@ Application Gateway의 DNS 이름은 APIM 프록시 호스트 이름(예: 위의
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-## <a name="summary"> </a> 요약
-Azure API Management를 VNET에 구성 된 온-프레미스 또는 클라우드에서 호스팅되는 여부를 구성 된 모든 Api에 대 한 단일 게이트웨이 인터페이스를 제공 합니다. Application Gateway와 API Management의 통합을 통해 특정 API를 인터넷에 액세스할 수 있도록 선택적으로 유연성을 향상시키고 API Management 인스턴스에 대한 프런트 엔드로 웹 애플리케이션 방화벽을 제공합니다.
+## <a name="summary"></a><a name="summary"> </a> 요약
+VNET에서 구성 된 Azure API Management은 온-프레미스 또는 클라우드에서 호스트 되는지에 관계 없이 구성 된 모든 Api에 대 한 단일 게이트웨이 인터페이스를 제공 합니다. Application Gateway와 API Management의 통합을 통해 특정 API를 인터넷에 액세스할 수 있도록 선택적으로 유연성을 향상시키고 API Management 인스턴스에 대한 프런트 엔드로 웹 애플리케이션 방화벽을 제공합니다.
 
-## <a name="next-steps"> </a> 다음 단계
+## <a name="next-steps"></a><a name="next-steps"> </a> 다음 단계
 * Azure Application Gateway에 대한 자세한 정보
-  * [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
-  * [Application Gateway 웹 애플리케이션 방화벽](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
-  * [경로 기반 라우팅을 사용하는 Application Gateway](../application-gateway/application-gateway-create-url-route-arm-ps.md)
+  * [Application Gateway 개요](../application-gateway/overview.md)
+  * [Application Gateway 웹 애플리케이션 방화벽](../web-application-firewall/ag/ag-overview.md)
+  * [경로 기반 라우팅을 사용하는 Application Gateway](../application-gateway/tutorial-url-route-powershell.md)
 * API Management 및 VNET에 대한 자세한 정보
   * [VNET 내에서만 사용할 수 있는 API Management 사용](api-management-using-with-internal-vnet.md)
   * [VNET에서 API Management 사용](api-management-using-with-vnet.md)

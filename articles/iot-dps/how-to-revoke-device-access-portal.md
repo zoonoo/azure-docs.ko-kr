@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub Device Provisioning 서비스에서 디바이스 등록을 해제하는 방법
-description: Azure IoT Hub Device Provisioning 서비스를 통한 프로비전을 방지하기 위해 디바이스 등록을 해제하는 방법
+title: Azure IoT Hub 장치 프로 비전 서비스에서 장치 등록 해제
+description: 장치를 등록 해제 하 여 DPS (Azure IoT Hub 장치 프로 비전 서비스)를 통한 프로 비전을 방지 하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0dadf0ec248dac01e5cc65779004477bf4afc823
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: af883da67f4e1bc819514e88ff480526e16124db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74974924"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning 서비스에서 디바이스 등록을 해제하는 방법
 
@@ -26,7 +25,7 @@ Device Provisioning Server에 등록하면 디바이스가 [자동 프로비전]
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>개별 등록 항목을 사용하여 디바이스를 차단 목록에 등록
 
-개별 등록은 단일 디바이스에 적용되며, X.509 인증서 또는 SAS 토큰을 증명 메커니즘으로 사용할 수 있습니다(실제 또는 가상 TPM에서). SAS 토큰을 증명 메커니즘으로 사용하는 디바이스는 개별 등록을 통해서만 프로비전할 수 있습니다. 개별 등록이 있는 디바이스를 차단 목록에 추가하려면 해당 등록 항목을 사용하지 않도록 설정하거나 삭제할 수 있습니다. 
+개별 등록은 단일 디바이스에 적용되며, X.509 인증서 또는 SAS 토큰을 증명 메커니즘으로 사용할 수 있습니다(실제 또는 가상 TPM에서). (SAS 토큰을 증명 메커니즘으로 사용 하는 장치는 개별 등록을 통해서만 프로 비전 할 수 있습니다.) 개별 등록이 있는 장치를 블랙 리스트에 포함 하려면 해당 등록 항목을 사용 하지 않도록 설정 하거나 삭제할 수 있습니다. 
 
 해당 등록 항목을 사용하지 않도록 설정하여 디바이스를 일시적으로 차단 목록에 추가하려면: 
 
@@ -60,7 +59,7 @@ X.509 인증서는 일반적으로 신뢰할 수 있는 인증서 체인에 정�
 
 등록 그룹은 동일한 중간 또는 루트 CA에서 서명한 X.509 인증서의 일반적인 증명 메커니즘을 공유하는 디바이스에 대한 항목입니다. 등록 그룹 항목은 중간 또는 루트 CA와 연결된 X.509 인증서로 구성됩니다. 또한 해당 인증서가 인증서 체인에 있는 디바이스에서 공유하는 모든 구성 값(예: 쌍 상태 및 IoT 허브 연결)으로 구성됩니다. 인증서를 차단 목록에 추가하기 위해 등록 그룹을 사용하지 않도록 설정하거나 삭제할 수 있습니다.
 
-해당 등록 그룹을 사용하지 않도록 설정하여 인증서를 일시적으로 차단 목록에 추가하려면  
+해당 등록 그룹을 사용하지 않도록 설정하여 인증서를 일시적으로 차단 목록에 추가하려면 
 
 1. Azure Portal에 로그인하고 왼쪽 메뉴에서 **모든 리소스**를 클릭합니다.
 2. 리소스 목록에서 서명 인증서를 차단 목록에 추가하려는 프로비전 서비스를 선택합니다.
@@ -71,7 +70,7 @@ X.509 인증서는 일반적으로 신뢰할 수 있는 인증서 체인에 정�
    ![포털에서 등록 그룹 항목 사용 해제](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
     
-해당 등록 그룹을 삭제하여 인증서를 영구적으로 차단 목록에 추가하려면 
+해당 등록 그룹을 삭제하여 인증서를 영구적으로 차단 목록에 추가하려면
 
 1. Azure Portal에 로그인하고 왼쪽 메뉴에서 **모든 리소스**를 클릭합니다.
 2. 리소스 목록에서 디바이스를 차단 목록에 추가하려는 프로비전 서비스를 선택합니다.
@@ -88,7 +87,7 @@ X.509 인증서는 일반적으로 신뢰할 수 있는 인증서 체인에 정�
 
 ## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>등록 그룹의 차단 목록에 특정 디바이스 추가
 
-X.509 증명 메커니즘을 구현하는 디바이스는 디바이스의 인증서 체인과 개인 키를 사용하여 인증합니다. 디바이스가 디바이스 프로비전 서비스에 연결하여 인증할 때는 먼저 서비스가 디바이스의 자격 증명에 부합하는 개별 등록을 찾습니다. 그런 다음, 서비스가 등록 그룹을 검색하여 디바이스의 프로비전 가능 여부를 판단합니다. 서비스에서 디바이스에 대해 개별 등록이 사용하지 않도록 설정된 것을 확인하면 디바이스 연결을 차단합니다. 디바이스의 인증서 체인에 중간 또는 루트 CA에 대해 사용되는 등록 그룹이 있더라도 서비스에서는 연결을 차단합니다. 
+X.509 증명 메커니즘을 구현하는 디바이스는 디바이스의 인증서 체인과 프라이빗 키를 사용하여 인증합니다. 디바이스가 디바이스 프로비전 서비스에 연결하여 인증할 때는 먼저 서비스가 디바이스의 자격 증명에 부합하는 개별 등록을 찾습니다. 그런 다음, 서비스가 등록 그룹을 검색하여 디바이스의 프로비전 가능 여부를 판단합니다. 서비스에서 디바이스에 대해 개별 등록이 사용하지 않도록 설정된 것을 확인하면 디바이스 연결을 차단합니다. 디바이스의 인증서 체인에 중간 또는 루트 CA에 대해 사용되는 등록 그룹이 있더라도 서비스에서는 연결을 차단합니다. 
 
 등록 그룹의 개별 디바이스를 차단 목록에 추가하려면 다음 단계를 수행합니다.
 
@@ -104,7 +103,7 @@ X.509 증명 메커니즘을 구현하는 디바이스는 디바이스의 인증
 
 6. **등록 추가** 페이지의 아래쪽으로 스크롤하고 **항목 사용** 스위치에서 **사용 안 함**을 선택한 후 **저장**을 선택합니다. 
 
-    [![사용하지 않도록 설정된 개인 등록 항목을 사용하여 포털에서 디바이스의그룹 등록 해제](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+    [![포털에서 사용 하지 않도록 설정 된 개별 등록 항목을 사용 하 여 그룹 등록에서 장치 사용 안 함](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 등록을 성공적으로 만들면 **개별 등록** 탭에 나열된 사용하지 않도록 설정된 디바이스 등록을 확인할 수 있습니다. 
 

@@ -1,27 +1,25 @@
 ---
-title: 복사 작업을 사용하여 데이터 이동 | Microsoft 문서
+title: 복사 활동을 사용하여 데이터 이동
 description: Data Factory 파이프라인에서 데이터를 이동하는 방법(클라우드 저장소 간/온-프레미스 저장소와 클라우드 저장소 간에 데이터 마이그레이션)에 대해 알아봅니다. 또한 복사 활동을 사용하는 방법을 살펴봅니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60486944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195976"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-data-movement-activities.md)
 > * [버전 2(현재 버전)](../copy-activity-overview.md)
 
@@ -75,19 +73,19 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 > [!NOTE]
 > *가 있는 데이터 저장소는 온-프레미스 또는 Azure IaaS에 있을 수 있으며 온-프레미스/Azure IaaS 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 를 설치해야 합니다.
 
-### <a name="supported-file-formats"></a>지원 파일 형식
+### <a name="supported-file-formats"></a>지원되는 파일 형식
 복사 활동을 사용해서 파일 기반 데이터 저장소 간에 **파일을 있는 그대로 복사**하고, 입력 및 출력 데이터 세트 정의 둘 다에서 [형식 섹션](data-factory-create-datasets.md)을 건너뛸 수 있습니다. 그러면 데이터가 직렬화/역직렬화되지 않고 효율적으로 복사됩니다.
 
-또한 복사 작업에서는 지정된 형식의 파일을 읽고 씁니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate**가 지원됩니다. 자세한 내용은 [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.
+복사 작업은 지정된 형식의 파일에서 읽고 씁니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate**가 지원됩니다. 자세한 내용은 [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.
 
 예를 들어 다음 복사 작업을 수행할 수 있습니다.
 
-* 온-프레미스 SQL Server에서 데이터를 복사하여 ORC 형식으로 Azure Data Lake Store에 씁니다.
+* SQL Server 데이터베이스의 데이터를 복사 하 고 ORC 형식으로 Azure Data Lake Store에 씁니다.
 * 온-프레미스 파일 시스템에서 텍스트(CSV) 형식의 파일을 복사하여 Avro 형식으로 Azure Blob에 씁니다.
 * 온-프레미스 파일 시스템에서 압축된 파일을 복사하고 압축을 푼 다음 Azure Data Lake Store에 씁니다.
 * Azure Blob에서 GZip 압축 텍스트(CSV) 형식의 데이터를 복사하여 Azure SQL Database에 씁니다.
 
-## <a name="global"></a>전역적으로 사용 가능한 데이터 이동
+## <a name="globally-available-data-movement"></a><a name="global"></a>전역적으로 사용 가능한 데이터 이동
 Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만 사용할 수 있습니다. 그러나 복사 작업을 지원하는 서비스는 다음과 같은 지역 및 지리에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 지역별 Data Factory 및 데이터 이동 기능 사용 가능 여부는 [지역별 서비스](https://azure.microsoft.com/regions/#services) 를 참조하세요.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>클라우드 데이터 저장소 간의 데이터 복사
@@ -103,10 +101,10 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | &nbsp; | 미국 중서부 | 미국 중서부 |
 | &nbsp; | 미국 서부 | 미국 서부 |
 | &nbsp; | 미국 서부 2 | 미국 서부 2 |
-| 캐나다 | 캐나다 동부 | 캐나다 중부 |
+| Canada | 캐나다 동부 | 캐나다 중부 |
 | &nbsp; | 캐나다 중부 | 캐나다 중부 |
 | 브라질 | 브라질 남부 | 브라질 남부 |
-| 유럽 | 유럽 북부 | 유럽 북부 |
+| 유럽 | 북유럽 | 북유럽 |
 | &nbsp; | 서유럽 | 서유럽 |
 | 영국 | 영국 서부 | 영국 남부 |
 | &nbsp; | 영국 남부 | 영국 남부 |
@@ -114,9 +112,9 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | &nbsp; | 동아시아 | 동남아시아 |
 | 오스트레일리아 | 오스트레일리아 동부 | 오스트레일리아 동부 |
 | &nbsp; | 오스트레일리아 남동부 | 오스트레일리아 남동부 |
-| 인도 | 중앙 인도 | 중앙 인도 |
-| &nbsp; | 인도 서부 | 중앙 인도 |
-| &nbsp; | 인도 남부 | 중앙 인도 |
+| 인도 | 인도 중부 | 인도 중부 |
+| &nbsp; | 인도 서부 | 인도 중부 |
+| &nbsp; | 인도 남부 | 인도 중부 |
 | 일본 | 일본 동부 | 일본 동부 |
 | &nbsp; | 일본 서부 | 일본 동부 |
 | 한국 | 한국 중부 | 한국 중부 |
@@ -138,7 +136,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 Data Factory 복사 마법사를 사용하면 복사 활동을 포함하는 파이프라인을 만들 수 있습니다. 이 파이프라인에서는 연결된 서비스, 데이터 세트 및 파이프라인에 대한 *JSON 정의를 작성하지 않고도* 지원되는 소스에서 대상으로 데이터를 복사할 수 있습니다. 마법사에 대한 자세한 내용은 [Data Factory 복사 마법사](data-factory-copy-wizard.md) 를 참조하세요.  
 
 ### <a name="by-using-json-scripts"></a>JSON 스크립트 사용
-Azure 포털, Visual Studio 또는 Azure PowerShell에서 Data Factory Editor를 사용하여 복사 활동을 통해 파이프라인에 대한 JSON 정의를 만들 수 있습니다. 그런 다음 해당 정의를 배포하여 Data Factory에서 파이프라인을 만들 수 있습니다. 단계별 지침은 [자습서: Azure Data Factory 파이프라인에서 복사 활동 사용](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)을 참조하세요.    
+Visual Studio에서 Data Factory 편집기를 사용 하거나 Azure PowerShell 하 여 복사 작업을 사용 하 여 파이프라인에 대 한 JSON 정의를 만들 수 있습니다. 그런 다음 해당 정의를 배포하여 Data Factory에서 파이프라인을 만들 수 있습니다. 단계별 지침이 포함된 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 활동 사용](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 을 참조하세요.    
 
 이름, 설명, 입력/출력 테이블, 정책 등의 JSON 속성은 모든 형식의 활동에 사용할 수 있습니다. 활동의 `typeProperties` 섹션에서 사용 가능한 속성은 각 활동 형식에 따라 다릅니다.
 

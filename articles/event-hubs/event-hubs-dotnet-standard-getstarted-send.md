@@ -1,43 +1,37 @@
 ---
-title: 송신 및.NET Core-Azure Event Hubs를 사용 하 여 이벤트 수신 | Microsoft Docs
-description: 이 문서에서는 Azure Event Hubs에 이벤트를 보내는 .NET Core 애플리케이션을 만드는 연습을 제공합니다.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
+title: .NET (이전)을 사용 하 여 Azure Event Hubs에서 이벤트 전송 및 수신
+description: 이 문서에서는 이전 EventHubs 패키지를 사용 하 여 Azure Event Hubs에서 이벤트를 송수신 하는 .NET Core 앱을 만드는 연습을 제공 합니다.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 04/15/2019
-ms.author: shvija
-ms.openlocfilehash: 001abd15c88ae717fa0fb91605b2f0822a38973d
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 06/23/2020
+ms.openlocfilehash: bd8476c89fea94a9d1b4a101841c11137d4dd5be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320791"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>이벤트를 보내거나.NET Core를 사용 하 여 Azure Event Hubs에서 이벤트 수신
-Event Hubs는 연결된 장치 및 애플리케이션에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. Event Hubs에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 애플리케이션 아키텍처의 핵심 구성 요소입니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>.NET Core를 사용 하 여 Azure Event Hubs에서 이벤트 보내기 또는 받기 (EventHubs)
+이 빠른 시작에서는 **EventHubs** .net Core 라이브러리를 사용 하 여 이벤트 허브에서 이벤트를 보내고 받는 방법을 보여 줍니다.
 
-이 자습서에서.NET Core 응용 프로그램을 만드는 방법을 보여 줍니다 C# 이벤트를 보내거나 이벤트 허브에서 이벤트를 수신 합니다. 
+> [!WARNING]
+> 이 빠른 시작에서는 이전 **EventHubs** 패키지를 사용 합니다. 최신 **EventHubs** 라이브러리를 사용 하는 빠른 시작은 [EventHubs 라이브러리를 사용 하 여 이벤트 전송 및 수신](get-started-dotnet-standard-send-v2.md)을 참조 하세요. 이전 라이브러리를 사용 하 여 응용 프로그램을 새 라이브러리로 이동 하려면 [EventHubs에서 EventHubs로 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조 하세요.
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
+## <a name="prerequisites"></a>사전 요구 사항
+Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-- [Microsoft Visual Studio 2019](https://www.visualstudio.com).
+- **Microsoft Azure 구독**. Azure Event Hubs를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
+- [Microsoft Visual Studio 2019](https://www.visualstudio.com)
 - [.NET Core Visual Studio 2015 또는 2017 도구](https://www.microsoft.com/net/core). 
-- **Event Hubs 네임 스페이스를 만들고 event hub**합니다. 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음, 가져옵니다 합니다 **이벤트 허브 네임 스페이스에 대 한 연결 문자열** 문서에서 지침에 따라: [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 해당 연결 문자열은 이 자습서의 뒷부분에서 사용합니다.
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음 문서: [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)의 지침에 따라 **이벤트 허브 네임 스페이스에 대 한 연결 문자열** 을 가져옵니다. 이 빠른 시작의 뒷부분에서 연결 문자열을 사용합니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
-이 섹션에서는 이벤트 허브로 이벤트를 보내도록.NET Core 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다. 
+이 섹션에서는 이벤트 허브로 이벤트를 전송하는 .NET Core 콘솔 애플리케이션을 만드는 방법을 보여줍니다. 
+
+> [!NOTE]
+> [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 빠른 시작의 단계를 수행하여 직접 만들 수 있습니다.
+
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
@@ -47,7 +41,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
-다음 단계에 따라 [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Core 라이브러리 NuGet 패키지를 프로젝트에 추가합니다. 
+다음 [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) 단계를 수행 하 여 .Net Core 라이브러리 NuGet 패키지를 프로젝트에 추가 합니다. 
 
 1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 2. **찾아보기** 탭을 클릭한 다음 "Microsoft.Azure.EventHubs"를 검색하고 **Microsoft.Azure.EventHubs** 패키지를 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
@@ -97,7 +91,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 4. 다음과 같이 `SendMessagesToEventHub`라는 새 메서드를 `Program` 클래스에 추가합니다.
 
     ```csharp
-    // Creates an event hub client and sends 100 messages to the event hub.
+    // Uses the event hub client to send 100 messages to the event hub.
     private static async Task SendMessagesToEventHub(int numMessagesToSend)
     {
         for (var i = 0; i < numMessagesToSend; i++)
@@ -167,7 +161,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
                 Console.ReadLine();
             }
 
-            // Creates an event hub client and sends 100 messages to the event hub.
+            // Uses the event hub client to send 100 messages to the event hub.
             private static async Task SendMessagesToEventHub(int numMessagesToSend)
             {
                 for (var i = 0; i < numMessagesToSend; i++)
@@ -195,9 +189,9 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 6. 프로그램을 실행하고 오류가 없는지 확인합니다.
 
 ## <a name="receive-events"></a>이벤트 수신
-이 섹션에 사용 하 여 이벤트 허브에서 메시지를 수신 하는.NET Core 콘솔 응용 프로그램을 작성 하는 방법을 보여 줍니다 합니다 [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)합니다. [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. 이벤트 프로세서 호스트를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다.
+이 섹션에서는 [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)를 사용 하 여 이벤트 허브에서 메시지를 수신 하는 .net Core 콘솔 응용 프로그램을 작성 하는 방법을 보여 줍니다. [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. 이벤트 프로세서 호스트를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다.
 > [!NOTE]
-> [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName`, `StorageAccountName`, `StorageAccountKey`, `StorageContainerName` 문자열을 이벤트 허브 값으로 대체한 후 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
+> [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)에서이 빠른 시작을 샘플로 다운로드 하 고,, `EventHubConnectionString` , `EventHubName` `StorageAccountName` `StorageAccountKey` 및 문자열을 `StorageContainerName` 이벤트 허브 값으로 바꾸고 실행할 수 있습니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -273,7 +267,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
     using System.Threading.Tasks;
     ```
 
-2. 이벤트 허브 연결 문자열, 이벤트 허브 이름, 저장소 계정 컨테이너 이름, 저장소 계정 이름, 저장소 계정 키의 `Program` 클래스에 상수를 추가합니다. 자리 표시자를 해당 값으로 바꾸어 다음 코드를 추가합니다.
+2. 이벤트 허브 연결 문자열, 이벤트 허브 이름, 스토리지 계정 컨테이너 이름, 스토리지 계정 이름, 스토리지 계정 키의 `Program` 클래스에 상수를 추가합니다. 자리 표시자를 해당 값으로 바꾸어 다음 코드를 추가합니다.
 
     ```csharp
     private const string EventHubConnectionString = "{Event Hubs connection string}";
@@ -367,8 +361,11 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 읽어보세요.
 
+- [RBAC (역할 기반 액세스 제어) 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    이러한 샘플은 이전 **EventHubs** 라이브러리를 사용 하지만, 최신 **EventHubs** 라이브러리를 사용 하 여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용 하 여 샘플을 새 라이브러리로 이동 하려면 [EventHubs에서 EventHubs로 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조 하세요.
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [기능 및 Azure Event Hubs의 용어](event-hubs-features.md)
+- [Azure Event Hubs의 기능 및 용어](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)
 
 

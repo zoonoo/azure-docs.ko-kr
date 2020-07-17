@@ -1,19 +1,18 @@
 ---
-title: 자습서 - Power BI Desktop을 사용하여 Azure Analysis Services에 연결 | Microsoft Docs
+title: 자습서 - Power BI Desktop과 Azure Analysis Services 연결 | Microsoft Docs
 author: minewiskan
-manager: kfile
-description: Power BI Desktop을 사용하여 Azure Analysis Services에 연결하는 방법을 알아봅니다.
+description: Azure Portal에서 Analysis Services 서버 이름을 가져온 다음, Power BI Desktop를 사용하여 서버에 연결하는 방법에 대해 알아봅니다.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 5d021aa7a6d55bb071340ebcd8e7090a4b0c2e2f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188813"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "73572330"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>자습서: Power BI Desktop을 사용하여 연결
 
@@ -24,7 +23,7 @@ ms.locfileid: "54188813"
 > * Power BI Desktop을 사용하여 연결
 > * 기본 보고서 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 서버에 [adventureworks 샘플 모델 데이터베이스를 추가](../analysis-services-create-sample-model.md)합니다.
 - adventureworks 샘플 모델 데이터베이스에 대한 [*읽기*](../analysis-services-server-admins.md) 권한이 있어야 합니다.
@@ -71,4 +70,4 @@ Power BI Desktop에서 서버에 연결하려면 먼저 서버 이름이 필요�
 더 이상 필요하지 않은 경우 보고서를 저장하지 않거나 이를 저장했으면 해당 파일을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Power BI Desktop을 사용하여 서버의 데이터 모델에 연결하고 기본 보고서를 만드는 방법을 알아보았습니다. 데이터 모델을 만드는 방법에 익숙하지 않은 경우 [Adventure Works Internet Sales 테이블 형식 데이터 모델링 자습서](aas-adventure-works-tutorial.md)를 참조하세요.
+이 자습서에서는 Power BI Desktop을 사용하여 서버의 데이터 모델에 연결하고 기본 보고서를 만드는 방법을 알아보았습니다. 데이터 모델을 만드는 방법에 익숙하지 않은 경우 SQL Server Analysis Services 문서의 [Adventure Works Internet Sales 테이블 형식 데이터 모델링 자습서](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)를 참조하세요.

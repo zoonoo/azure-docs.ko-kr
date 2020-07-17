@@ -1,18 +1,14 @@
 ---
-title: 샘플 - ISO 27001 ASE/SQL 워크로드 청사진 - 배포 단계
-description: ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 배포 단계입니다.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 배포
+description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 배포 단계입니다.
+ms.date: 01/13/2020
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6b8f3b753f1dd8cfbc247a77f2004e3c4d3423bb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791014"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75922571"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플 배포
 
@@ -37,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 먼저 샘플을 스타터로 사용하여 환경 내에 새 청사진을 만들어 청사진 샘플을 구현합니다.
 
-1. **모든 서비스**를 선택하고 왼쪽 창에서 **정책**을 검색하여 선택합니다. **정책** 페이지에서 **청사진**을 선택합니다.
+1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
 1. **시작** 페이지 왼쪽에서 _청사진 만들기_ 아래의 **만들기** 단추를 선택합니다.
 
@@ -56,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이제 작업 환경에 청사진 샘플 사본이 만들어졌습니다. 이 청사진 정의는 **초안** 모드로 만들어졌으며 먼저 **게시**해야만 할당하고 배포할 수 있습니다. 청사진 샘플의 사본을 환경 및 필요에 맞게 사용자 지정할 수 있지만, 해당 수정으로 ISO 27001 표준에서 벗어날 수 있습니다.
 
-1. **모든 서비스**를 선택하고 왼쪽 창에서 **정책**을 검색하여 선택합니다. **정책** 페이지에서 **청사진**을 선택합니다.
+1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
 1. 왼쪽 페이지에서 **청사진 정의**를 선택합니다. 필터를 사용하여 청사진 샘플의 사본을 찾은 다음, 선택합니다.
 
@@ -66,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 청사진 샘플 사본이 **게시**되면 저장된 관리 그룹 내의 구독에 할당할 수 있습니다. 이 단계에서는 청사진 샘플 사본의 배포를 고유하게 만들기 위해 매개 변수가 제공됩니다.
 
-1. **모든 서비스**를 선택하고 왼쪽 창에서 **정책**을 검색하여 선택합니다. **정책** 페이지에서 **청사진**을 선택합니다.
+1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
 1. 왼쪽 페이지에서 **청사진 정의**를 선택합니다. 필터를 사용하여 청사진 샘플의 사본을 찾은 다음, 선택합니다.
 
@@ -113,37 +109,37 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 테이블은 청사진 아티팩트 매개 변수의 목록을 제공합니다.
 
-|아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
+|아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
-|Log Analytics 리소스 그룹|리소스 그룹|Name|**잠김** - **조직 이름**을 `-workload-log-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
-|Log Analytics 리소스 그룹|리소스 그룹|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
+|Log Analytics 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-workload-log-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|Log Analytics 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Log Analytics 템플릿|Resource Manager 템플릿|서비스 계층|Log Analytics 작업 영역의 계층을 설정합니다. 기본값은 _PerNode_입니다.|
 |Log Analytics 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
 |Log Analytics 템플릿|Resource Manager 템플릿|위치|Log Analytics 작업 영역을 만드는 데 사용되는 지역입니다. 기본값은 _미국 서부 2_입니다.|
-|네트워크 리소스 그룹|리소스 그룹|Name|**잠김** - **조직 이름**을 `-workload-net-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
-|네트워크 리소스 그룹|리소스 그룹|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
+|네트워크 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-workload-net-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|네트워크 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |네트워크 보안 그룹 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
-|Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Azure Firewall 개인 IP|[Azure Firewall](../../../../firewall/overview.md)의 개인 IP를 구성합니다. _ISO 27001: Shared Services_ 아티팩트 매개 변수 **Azure Firewall 서브넷 주소 접두사**에 정의된 CIDR 표기법의 일부여야 합니다. 기본값은 _10.0.4.4_입니다.|
+|Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Azure Firewall 프라이빗 IP|[Azure Firewall](../../../../firewall/overview.md)의 프라이빗 IP를 구성합니다. _ISO 27001: Shared Services_ 아티팩트 매개 변수 **Azure Firewall 서브넷 주소 접두사**에 정의된 CIDR 표기법의 일부여야 합니다. 기본값은 _10.0.4.4_입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Shared services 구독 ID|워크로드와 Shared Services 간에 VNET 피어링을 사용하도록 설정하는 데 사용되는 값입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Virtual Network 주소 접두사|가상 네트워크에 대한 CIDR 표기법입니다. 기본값은 _10.1.0.0/16_입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|기본 서브넷 주소 접두사|가상 네트워크 기본 서브넷에 대한 CIDR 표기법입니다. 기본값은 _10.1.0.0/16_입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|ADDS IP 주소|첫 번째 ADDS VM의 IP 주소입니다. 이 값은 사용자 지정 VNET DNS로 사용됩니다.|
-|주요 자격 증명 모음 리소스 그룹|리소스 그룹|Name|**잠김** - **조직 이름**을 `-workload-kv-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
-|주요 자격 증명 모음 리소스 그룹|리소스 그룹|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
+|주요 자격 증명 모음 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-workload-kv-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|주요 자격 증명 모음 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|AAD 개체 ID|Key Vault 인스턴스에 액세스해야 하는 계정의 AAD 개체 ID입니다. 기본값은 없으며 비워 둘 수 없습니다. Azure Portal에서 이 값을 찾으려면 _서비스_ 아래에서 "사용자"를 검색하여 선택합니다. _이름_ 상자를 사용하여 계정 이름을 필터링하고 해당 계정을 선택합니다. _사용자 프로필_ 페이지에서 _개체 ID_ 옆의 “복사하려면 클릭” 아이콘을 선택합니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|Key Vault SKU|생성된 Key Vault의 SKU를 지정합니다. 기본값은 _프리미엄_입니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|Azure SQL Server 관리 사용자 이름|Azure SQL Server에 액세스하는 데 사용되는 사용자 이름입니다. **Azure SQL Database 템플릿**의 동일한 속성 값과 일치해야 합니다. 기본값은 _sql-admin-user_입니다.|
-|Azure SQL Database 리소스 그룹|리소스 그룹|Name|**잠김** - **조직 이름**을 `-workload-azsql-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
-|Azure SQL Database 리소스 그룹|리소스 그룹|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
+|Azure SQL Database 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-workload-azsql-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|Azure SQL Database 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리 사용자 이름|Azure SQL Server에 대한 사용자 이름입니다. **Key Vault 템플릿**의 동일한 속성 값과 일치해야 합니다. 기본값은 _sql-admin-user_입니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리자 암호(Key Vault 리소스 ID)|Key Vault의 리소스 ID입니다. "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv"를 사용하고 `{subscriptionId}`를 구독 ID로, `{orgName}`을 **조직 이름** 청사진 매개 변수로 바꿉니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리자 암호(Key Vault 비밀 이름)|SQL Server 관리자의 사용자 이름입니다. **Key Vault 템플릿** 속성 **Azure SQL Server 관리 사용자 이름**의 값과 일치해야 합니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|AAD 관리자 개체 ID|Active Directory 관리자로 할당될 사용자의 AAD 개체 ID입니다. 기본값은 없으며 비워 둘 수 없습니다. Azure Portal에서 이 값을 찾으려면 _서비스_ 아래에서 "사용자"를 검색하여 선택합니다. _이름_ 상자를 사용하여 계정 이름을 필터링하고 해당 계정을 선택합니다. _사용자 프로필_ 페이지에서 _개체 ID_ 옆의 “복사하려면 클릭” 아이콘을 선택합니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|AAD 관리자 로그인|현재 Microsoft 계정(예: live.com 또는 outlook.com)을 관리자로 설정할 수 없습니다. 조직 내의 사용자 및 보안 그룹만 관리자로 설정할 수 있습니다. 기본값은 없으며 비워 둘 수 없습니다. Azure Portal에서 이 값을 찾으려면 _서비스_ 아래에서 "사용자"를 검색하여 선택합니다. _이름_ 상자를 사용하여 계정 이름을 필터링하고 해당 계정을 선택합니다. _사용자 프로필_ 페이지에서 _사용자 이름_을 복사합니다.|
-|App Service Environment 리소스 그룹|리소스 그룹|Name|**잠김** - **조직 이름**을 `-workload-ase-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
-|App Service Environment 리소스 그룹|리소스 그룹|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
+|App Service Environment 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-workload-ase-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|App Service Environment 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |App Service Environment 템플릿|Resource Manager 템플릿|도메인 이름|샘플에서 만든 Active Directory의 이름입니다. 기본값은 _contoso.com_입니다.|
 |App Service Environment 템플릿|Resource Manager 템플릿|ASE 위치|App Service Environment 위치입니다. 기본값은 _미국 서부 2_입니다.|
 |App Service Environment 템플릿|Resource Manager 템플릿|Application Gateway 로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
@@ -158,7 +154,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 청사진 및 사용 방법에 대한 추가 문서:
 
-- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기

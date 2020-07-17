@@ -1,25 +1,26 @@
 ---
-title: 자습서 - Traffic Manager에서 도메인 apex 이름을 지원하기 위해 Azure DNS 별칭 레코드 만들기
+title: '자습서: 도메인 apex 이름을 지원하는 별칭 레코드 만들기 - Traffic Manager'
+titleSuffix: Azure DNS
 description: 이 자습서에서는 Traffic Manager에서 도메인 apex 이름 사용을 지원하도록 Azure DNS 별칭 레코드를 구성하는 방법을 보여 줍니다.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: rohink
+ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530963"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "77149952"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>자습서: Traffic Manager를 사용하여 apex 도메인 이름을 지원하도록 별칭 레코드 구성 
 
 도메인 이름 apex에 대한 별칭 레코드를 만들어 Azure Traffic Manager 프로필을 참조할 수 있습니다. 예를 들어 contoso.com이 있습니다. 리디렉션 서비스를 사용하는 대신, 영역에서 직접 Traffic Manager 프로필을 참조하도록 Azure DNS를 구성합니다. 
 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 호스트 VM 및 네트워크 인프라 만들기.
@@ -28,9 +29,9 @@ ms.locfileid: "57530963"
 > * 별칭 레코드 테스트.
 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 테스트할 Azure DNS에서 호스트할 수 있는 도메인 이름이 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
 
 Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습서: Azure DNS에서 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
@@ -39,7 +40,7 @@ Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습�
 
 ## <a name="create-the-network-infrastructure"></a>네트워크 인프라 만들기
 먼저 웹 서버를 배치할 가상 네트워크 및 서브넷을 만듭니다.
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 왼쪽 위에서 **리소스 만들기**를 선택합니다. 검색 상자에 *리소스 그룹*을 입력하고 **RG-DNS-Alias-TM**이라는 리소스 그룹을 만듭니다.
 3. **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 4. **VNet-Servers**라는 가상 네트워크를 만들고 **RG-DNS-Alias-TM** 리소스 그룹에 배치한 후 서브넷 이름을 **SN-Web**으로 지정합니다.

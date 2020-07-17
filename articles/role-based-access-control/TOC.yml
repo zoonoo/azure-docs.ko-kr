@@ -1,9 +1,9 @@
-- name: Azure 리소스에 대한 RBAC 설명서
+- name: Azure RBAC 설명서
   href: index.yml
   items: null
 - name: 개요
   items:
-    - name: RBAC란?
+    - name: Azure RBAC란?
       href: overview.md
     - name: 다른 역할 이해
       href: rbac-and-directory-admin-roles.md
@@ -11,87 +11,116 @@
   items:
     - name: 사용자에 대한 액세스 권한 보기
       href: check-access.md
+    - name: ARM 템플릿
+      displayName: Resource Manager
+      href: quickstart-role-assignments-template.md
 - name: 자습서
   items:
     - name: 사용자 액세스 권한 부여 - 포털
       href: quickstart-assign-role-user-portal.md
     - name: 사용자 액세스 권한 부여 - PowerShell
       href: tutorial-role-assignments-user-powershell.md
-    - name: 사용자 액세스 권한 부여 - Resource Manager 템플릿
-      displayName: 'ARM, resource manager template'
-      href: tutorial-role-assignments-user-template.md
     - name: 그룹 액세스 권한 부여 - PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: 사용자 지정 역할 만들기 - PowerShell
       href: tutorial-custom-role-powershell.md
     - name: 사용자 지정 역할 만들기 - CLI
       href: tutorial-custom-role-cli.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
-    - name: 역할 정의 이해
-      href: role-definitions.md
-    - name: Azure Resource용 PIM
-      href: pim-azure-resource.md
+    - name: 모범 사례
+      href: best-practices.md
     - name: Azure 관리에 대한 조건부 액세스
       href: conditional-access-azure-management.md
 - name: 방법 가이드
   items:
-    - name: 액세스 관리
+    - name: 역할 정의 나열
+      items:
+        - name: 개요
+          href: role-definitions.md
+        - name: 역할 정의 나열
+          href: role-definitions-list.md
+    - name: 역할 할당 나열
+      items:
+        - name: 포털
+          href: role-assignments-list-portal.md
+        - name: PowerShell
+          href: role-assignments-list-powershell.md
+        - name: CLI
+          href: role-assignments-list-cli.md
+        - name: REST API
+          href: role-assignments-list-rest.md
+    - name: 역할 할당 추가 또는 제거
       items:
         - name: 포털
           href: role-assignments-portal.md
+        - name: 포털 - 게스트 사용자
+          href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: Azure CLI
           href: role-assignments-cli.md
         - name: REST API
           href: role-assignments-rest.md
-        - name: Template
+        - name: ARM 템플릿
+          displayName: Resource Manager
           href: role-assignments-template.md
-    - name: 액세스 거부
+    - name: 거부 할당 목록
       items:
-        - name: 거부 할당
+        - name: 개요
           href: deny-assignments.md
         - name: 포털
           href: deny-assignments-portal.md
+        - name: PowerShell
+          href: deny-assignments-powershell.md
         - name: REST API
           href: deny-assignments-rest.md
-    - name: 사용자 지정 역할
+    - name: 사용자 지정 역할 만들기 또는 업데이트
       items:
         - name: 개요
           href: custom-roles.md
+        - name: 포털
+          href: custom-roles-portal.md
         - name: PowerShell
           href: custom-roles-powershell.md
         - name: Azure CLI
           href: custom-roles-cli.md
         - name: REST API
           href: custom-roles-rest.md
+        - name: ARM 템플릿
+          displayName: Resource Manager
+          href: custom-roles-template.md
     - name: 활동 로그 보기
       href: change-history-report.md
-    - name: 모든 구독을 관리하도록 액세스 권한 상승
+    - name: 액세스 권한 상승
       href: elevate-access-global-admin.md
-    - name: 외부 사용자를 위한 액세스 관리
-      href: role-assignments-external-users.md
     - name: 클래식 관리자
       href: classic-administrators.md
+    - name: 다른 디렉터리로 구독 이전(미리 보기)
+      href: transfer-subscription.md
     - name: 문제 해결
       href: troubleshooting.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 기본 제공 역할
       href: built-in-roles.md
     - name: 리소스 공급자 작업
       href: resource-provider-operations.md
-    - name: RBAC 제한
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+    - name: Azure RBAC 제한
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Azure CLI
       href: /cli/azure/role?view=azure-cli-latest
     - name: REST API
       href: /rest/api/authorization/
-    - name: 리소스 관리자 템플릿
-      displayName: ARM
+    - name: ARM 템플릿
+      displayName: Resource Manager
       items:
         - name: 역할 할당
           href: /azure/templates/microsoft.authorization/roleassignments

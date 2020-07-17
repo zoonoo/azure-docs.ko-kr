@@ -8,12 +8,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81683738"
 ---
 # <a name="understand-the-device-model-schema"></a>디바이스 모델 스키마 이해
 
@@ -39,7 +41,7 @@ ms.locfileid: "65823337"
 
 ## <a name="the-parts-of-the-device-model-schema"></a>디바이스 모델 스키마 파트
 
-냉각기 또는 트럭과 같은 장치 모델 각각은 시뮬레이션 서비스가 시뮬레이션할 수 있는 장치의 종류를 정의합니다. 각 디바이스 모델은 다음 최상위 스키마를 사용하여 JSON 파일에 저장됩니다.
+냉각기 또는 트럭과 같은 디바이스 모델 각각은 시뮬레이션 서비스가 시뮬레이션할 수 있는 디바이스의 종류를 정의합니다. 각 디바이스 모델은 다음 최상위 스키마를 사용하여 JSON 파일에 저장됩니다.
 
 ```json
 {
@@ -79,7 +81,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 다음 섹션에서는 JSON 스키마의 다른 섹션에 대해 설명합니다.
 
-## <a name="simulation"></a>시뮬레이션
+## <a name="simulation"></a>Simulation
 
 `Simulation` 섹션에서는 시뮬레이션된 디바이스의 내부 상태를 정의합니다. 디바이스에서 전송하는 모든 원격 분석 값은 이 디바이스 상태의 일부여야 합니다.
 
@@ -114,9 +116,9 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 시뮬레이션 서비스는 5초마다 **chiller-01-state.js** 파일을 실행하여 디바이스 상태를 업데이트합니다. GitHub의 [scripts 폴더](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts)에서 기본 시뮬레이션된 디바이스의 JavaScript 파일을 볼 수 있습니다. 규칙에 따라 이러한 JavaScript 파일에는 메서드 동작을 구현하는 파일과 구분하기 위해 **-state** 접미사가 있습니다.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>속성
 
-스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예를 들면 다음과 같습니다.
+스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예를 들어:
 
 ```json
 "Properties": {
@@ -164,8 +166,8 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 * 개체 - JSON을 사용하여 직렬화됨
 * 이진 - base64를 사용하여 직렬화됨
 * 텍스트
-* BOOLEAN
-* 정수 
+* 부울
+* 정수
 * Double
 * DateTime
 
@@ -203,12 +205,12 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-시뮬레이션된 장치는 IoT Hub에서 호출된 클라우드-장치 메서드에 응답할 수 있습니다. 디바이스 모델 스키마 파일의 `CloudToDeviceMethods` 섹션은 다음을 수행합니다.
+시뮬레이션된 디바이스는 IoT Hub에서 호출된 클라우드-디바이스 메서드에 응답할 수 있습니다. 디바이스 모델 스키마 파일의 `CloudToDeviceMethods` 섹션은 다음을 수행합니다.
 
 * 시뮬레이션된 디바이스가 응답할 수 있는 메서드를 정의합니다.
 * 실행할 논리를 포함하는 JavaScript 파일을 식별합니다.
 
-시뮬레이션된 장치는 지원하는 메서드 목록을 연결된 IoT Hub에 전송합니다.
+시뮬레이션된 디바이스는 지원하는 메서드 목록을 연결된 IoT Hub에 전송합니다.
 
 디바이스의 동작을 구현하는 JavaScript 파일에 대한 자세한 내용은 [디바이스 모델 동작 이해](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md)를 참조하세요.
 

@@ -1,33 +1,24 @@
 ---
-title: Azure의 Linux VM에서 가상 하드 디스크 확장 | Microsoft Docs
-description: Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크를 확장하는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Linux VM에서 가상 하드 디스크 확장
+description: Azure CLI를 사용 하 여 Linux VM에서 가상 하드 디스크를 확장 하는 방법을 알아봅니다.
 author: roygara
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
+ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 4113d582647b5bea86980824714936d24dafc870
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 27c9a7c2e526a33875402827e2eee2c63943e058
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659732"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
-이 문서에서는 Azure CLI를 사용하여 Linux VM(가상 머신)에서 관리 디스크를 확장하는 방법에 대해 설명합니다. 추가 저장소 공간을 제공하기 위해 [데이터 디스크를 추가](add-disk.md)할 수 있고, 기존 데이터 디스크를 확장할 수도 있습니다. OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 Azure의 Linux VM에서 일반적으로 30GB입니다. 
+이 문서에서는 Azure CLI를 사용하여 Linux VM(가상 머신)에서 관리 디스크를 확장하는 방법에 대해 설명합니다. 추가 스토리지 공간을 제공하기 위해 [데이터 디스크를 추가](add-disk.md)할 수 있고, 기존 데이터 디스크를 확장할 수도 있습니다. OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 Azure의 Linux VM에서 일반적으로 30GB입니다. 
 
 > [!WARNING]
-> 항상 파일 시스템에는 정상 상태, 디스크 파티션 테이블 형식에 새 크기를 지원 되며 데이터 디스크 크기 조정 작업을 수행 하기 전에 백업 되었는지 확인 해야 합니다. 자세한 내용은 [Azure에서 Linux VM 백업](tutorial-backup-vms.md)을 참조하세요. 
+> 항상 파일 시스템이 정상 상태 인지 확인 하 고, 디스크 파티션 테이블 형식이 새 크기를 지원 하며, 디스크 크기 조정 작업을 수행 하기 전에 데이터를 백업 해야 합니다. 자세한 내용은 [Azure에서 Linux VM 백업](tutorial-backup-vms.md)을 참조하세요. 
 
 ## <a name="expand-an-azure-managed-disk"></a>Azure Managed Disk 확장
 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
@@ -36,14 +27,14 @@ ms.locfileid: "65511157"
 
 다음 샘플에서는 예제 매개 변수 이름(예: *myResourceGroup* 및 *myVM*)을 사용자의 고유한 값으로 바꿉니다.
 
-1. VM이 실행되고 있으면 가상 하드 디스크에 대한 작업을 수행할 수 없습니다. [az vm deallocate](/cli/azure/vm#az-vm-deallocate)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM의 할당을 취소합니다.
+1. VM이 실행되고 있으면 가상 하드 디스크에 대한 작업을 수행할 수 없습니다. [az vm deallocate](/cli/azure/vm#az-vm-deallocate)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *Myvm*에서 *MYVM* 이라는 VM의 할당을 취소 합니다.
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > VM 할당을 취소하여 가상 하드 디스크를 확장해야 합니다. `az vm stop`을 사용하여 VM을 중지해도 계산 리소스는 해제되지 않습니다. 계산 리소스를 릴리스하려면 `az vm deallocate`을 사용합니다.
+    > VM 할당을 취소하여 가상 하드 디스크를 확장해야 합니다. `az vm stop`을 사용하여 VM을 중지해도 컴퓨팅 리소스는 해제되지 않습니다. 컴퓨팅 리소스를 릴리스하려면 `az vm deallocate`을 사용합니다.
 
 1. 이제 [az disk list](/cli/azure/disk#az-disk-list)를 사용하여 리소스 그룹에서 Managed Disks 목록을 봅니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*의 Managed Disks 목록을 표시합니다.
 
@@ -113,7 +104,7 @@ ms.locfileid: "65511157"
         1      0.00B  107GB  107GB  ext4
     ```
 
-    c. `resizepart`를 사용하여 파티션을 확장합니다. 파티션 수 *1*과 새 파티션에 대한 크기를 입력합니다.
+    다. `resizepart`를 사용하여 파티션을 확장합니다. 파티션 수 *1*과 새 파티션에 대한 크기를 입력합니다.
 
     ```bash
     (parted) resizepart
@@ -141,7 +132,7 @@ ms.locfileid: "65511157"
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. 데이터 디스크 크기가 조정 된를 확인 하려면 사용 하 여 `df -h`입니다. 다음 출력 예제에서는 데이터 드라이브(*/dev/sdc1*)가 이제 200GB임을 보여 줍니다.
+1. 데이터 디스크가 크기 조정 되었는지 확인 하려면를 사용 `df -h` 합니다. 다음 출력 예제에서는 데이터 드라이브(*/dev/sdc1*)가 이제 200GB임을 보여 줍니다.
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -149,5 +140,5 @@ ms.locfileid: "65511157"
     ```
 
 ## <a name="next-steps"></a>다음 단계
-* 추가 저장소가 필요하면 [Linux VM에 데이터 디스크를 추가](add-disk.md)할 수도 있습니다. 
-* 디스크 암호화에 대한 자세한 내용은 [Azure CLI를 사용하여 Linux VM에서 디스크 암호화](encrypt-disks.md)를 참조하세요.
+* 추가 스토리지가 필요하면 [Linux VM에 데이터 디스크를 추가](add-disk.md)할 수도 있습니다. 
+* 디스크 암호화에 대 한 자세한 내용은 [Linux vm에 대 한 Azure Disk Encryption](disk-encryption-overview.md)를 참조 하세요.

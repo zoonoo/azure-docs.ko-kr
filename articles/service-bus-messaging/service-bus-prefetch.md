@@ -1,24 +1,13 @@
 ---
 title: Azure Service Bus 메시지 프리페치 | Microsoft Docs
-description: Azure Service Bus 메시지를 프리페치하여 성능을 향상시킵니다.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: Azure Service Bus 메시지를 프리페치하여 성능을 향상시킵니다. 응용 프로그램에서 메시지를 요청 하기 전에 로컬 검색에 메시지를 쉽게 사용할 수 있습니다.
 ms.topic: article
-ms.date: 08/30/2018
-ms.author: aschhab
-ms.openlocfilehash: c63e6bf66e4832a1a5b0b5e6fc3dfbbf02d1e490
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125851"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341048"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus 메시지 프리페치
 
@@ -32,7 +21,7 @@ ms.locfileid: "62125851"
 
 이 설정을 [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) 또는 [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) 샘플 설정의 수신 쪽에 쉽게 추가하여 해당 컨텍스트에 미치는 영향을 확인할 수 있습니다.
 
-메시지를 프리페치 버퍼에서 사용할 수 있지만 모든 후속 **Receive**/**ReceiveAsync** 호출은 버퍼에서 즉시 이행되고, 버퍼는 공간이 사용 가능해지면 백그라운드에서 보충됩니다. 배달할 수 있는 메시지가 없으면 수신 작업은 버퍼를 비우고 예상대로 대기하거나 차단됩니다.
+프리페치 버퍼에서 메시지를 사용할 수 있는 동안에는 모든 후속 **수신** / **ReceiveAsync** 호출이 버퍼에서 즉시 충족 되 고 공간을 사용할 수 있게 되 면 버퍼가 백그라운드에서 보충 됩니다. 배달할 수 있는 메시지가 없으면 수신 작업은 버퍼를 비우고 예상대로 대기하거나 차단됩니다.
 
 또한 프리페치는 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 및 [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync) API와도 같은 방식으로 작동합니다.
 

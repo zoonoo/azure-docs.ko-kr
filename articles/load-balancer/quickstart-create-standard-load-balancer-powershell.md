@@ -1,35 +1,35 @@
 ---
-title: '빠른 시작: 표준 Load Balancer 만들기 - Azure PowerShell'
-titlesuffix: Azure Load Balancer
-description: 이 빠른 시작에서는 PowerShell을 사용하여 표준 Load Balancer를 만드는 방법을 보여 줍니다.
+title: '빠른 시작: Load Balancer 만들기 - Azure PowerShell'
+titleSuffix: Azure Load Balancer
+description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Load Balancer를 만드는 방법을 보여 줍니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
-ms.author: kumud
+ms.date: 01/27/2020
+ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 513d3931c31ca94b4089139992bceb6f679caa98
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f169d7694199e496e472a6c32312cf6782270378
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467715"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80247217"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 표준 Load Balancer 만들기
+# <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Load Balancer 만들기
 
 이 빠른 시작에서는 Azure PowerShell을 사용하여 표준 Load Balancer를 만드는 방법을 보여 줍니다. 부하 분산 장치를 테스트하려면 Windows 서버를 실행하는 3대의 VM(가상 머신)을 배포하고 VM 간에 웹앱의 부하를 분산합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer란?](load-balancer-standard-overview.md)을 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *myResourceGroupSLB* 리소스 그룹에 *myPublicIP*라는 공용 IP 주소를 만듭니다.
+인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *myResourceGroupSLB* 리소스 그룹에 *myPublicIP*라는 영역 중복 공용 IP 주소를 만듭니다.
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -56,11 +56,28 @@ $publicIp = New-AzPublicIpAddress `
  -SKU Standard
 ```
 
-## <a name="create-standard-load-balancer"></a>표준 Load Balancer 만들기
+영역 1에서 공용 IP 주소를 만들려면 다음을 사용합니다.
+
+```azurepowershell
+$publicIp = New-AzPublicIpAddress `
+ -ResourceGroupName $rgName `
+ -Name 'myPublicIP' `
+ -Location $location `
+ -AllocationMethod static `
+ -SKU Standard `
+ -zone 1
+```
+
+```-SKU Basic```을 사용하여 기본 공용 IP를 만듭니다. 기본 공용 IP는 **표준** 부하 분산 장치와 호환되지 않습니다. Microsoft는 프로덕션 워크로드용 **표준** 사용을 권장합니다.
+
+> [!IMPORTANT]
+> 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
+
+## <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
 이 섹션에서는 부하 분산 장치에 대해 프런트 엔드 IP 및 백 엔드 주소 풀을 구성한 다음, 표준 Load Balancer를 만듭니다.
 
-### <a name="create-front-end-ip"></a>프런트 엔드 IP 만들기
+### <a name="create-frontend-ip"></a>프런트 엔드 IP 만들기
 
 [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용하여 프런트 엔드 IP를 만듭니다. 다음 예제에서는 *myFrontEnd*라는 프런트 엔드 IP 구성을 만들고 *myPublicIP* 주소를 연결합니다.
 
@@ -105,7 +122,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>NAT 규칙 만들기
 
-[Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig)를 사용하여 NAT 규칙을 만듭니다. 다음 예제에서는 포트 4221 및 4222로 백 엔드 서버에 RDP 연결을 허용하도록 *myLoadBalancerRDP1* 및 *myLoadBalancerRDP2*라는 NAT 규칙을 만듭니다.
+[New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig)를 사용하여 NAT 규칙을 만듭니다. 다음 예제에서는 포트 4221 및 4222로 백 엔드 서버에 RDP 연결을 허용하도록 *myLoadBalancerRDP1* 및 *myLoadBalancerRDP2*라는 NAT 규칙을 만듭니다.
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
@@ -145,6 +162,11 @@ $lb = New-AzLoadBalancer `
   -LoadBalancingRule $rule `
   -InboundNatRule $natrule1,$natrule2,$natrule3
 ```
+
+```-SKU Basic```을 사용하여 기본 Load Balancer를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 사용을 권장합니다.
+
+> [!IMPORTANT]
+> 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 일부 VM을 배포하고 부하 분산 장치를 테스트하려면 지원하는 네트워크 리소스 - 가상 네트워크 및 가상 NIC를 만들어야 합니다. 
@@ -195,6 +217,9 @@ $RdpPublicIP_3 = New-AzPublicIpAddress `
   -AllocationMethod static
 
 ```
+
+```-SKU Basic```을 사용하여 기본 공용 IP를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 사용을 권장합니다.
+
 ### <a name="create-network-security-group"></a>네트워크 보안 그룹 만들기
 가상 네트워크에 대한 인바운드 연결을 정의하는 네트워크 보안 그룹을 만듭니다. 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
 
@@ -356,7 +381,6 @@ Remove-AzResourceGroup -Name myResourceGroupSLB
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 표준 부하 분산 장치를 만들고, 거기에 VM을 연결하고, 부하 분산 장치 트래픽 규칙 및 상태 프로브를 구성한 다음, 부하 분산 장치를 테스트합니다. Azure Load Balancer에 대해 자세히 알아보려면 Azure Load Balancer에 대한 자습서를 계속 진행합니다.
+이 빠른 시작에서는 표준 Load Balancer를 만들고, 거기에 VM을 연결하고, Load Balancer 트래픽 규칙 및 상태 프로브를 구성한 다음, Load Balancer를 테스트합니다. Azure Load Balancer에 대해 자세히 알아보려면 [Azure Load Balancer 자습서](tutorial-load-balancer-standard-public-zone-redundant-portal.md)를 계속 진행하세요.
 
-> [!div class="nextstepaction"]
-> [Azure Load Balancer 자습서](tutorial-load-balancer-basic-internal-portal.md)
+[Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.

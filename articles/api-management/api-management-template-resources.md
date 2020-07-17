@@ -10,16 +10,14 @@ ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689990"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management 템플릿 리소스
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 종류의 리소스를 제공합니다.  
@@ -28,9 +26,11 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 -   [문자 모양 리소스](#glyphs)  
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="strings"></a> 문자열 리소스  
+##  <a name="string-resources"></a><a name="strings"></a>문자열 리소스  
  API Management는 개발자 포털에서 사용할 포괄적인 문자열 리소스 집합을 제공합니다. 이러한 리소스는 API Management에서 지원하는 모든 언어로 지역화되어 있습니다. 기본 템플릿 집합은 개발자 포털에 표시되는 페이지 머리글, 레이블 및 상수 문자열에 대해 이러한 리소스를 사용합니다. 템플릿에서 문자열 리소스를 사용하려면 다음 예제와 같이 문자열 이름 뒤에 리소스 문자열 접두사를 제공합니다.  
   
 ```  
@@ -45,28 +45,28 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ```  
   
-다음 지역화 옵션이 지원 됩니다.
+지원 되는 지역화 옵션은 다음과 같습니다.
 
 | 로캘    | 언어               |
 |-----------|------------------------|
-| "en"      | "영어"              |
-| "cs"      | "Čeština"              |
-| "de"      | "Deutsch"              |
-| "es"      | "Español"              |
-| "fr"      | "Français"             |
-| "hu"      | "Magyar"               |
-| "it"      | "Italiano"             |
-| "ja-JP"   | "日本語"                |
-| "ko"      | "한국어"                |
-| "nl"      | "Nederlands"           |
-| "pl"      | "Polski"               |
+| "en"      | 영어              |
+| 양방향      | "Čeština"              |
+| 취소      | Deutsch              |
+| 찾음      | "Español"              |
+| fr      | "Français"             |
+| hu-hu      | Magyar               |
+| 메서드      | Italiano             |
+| "ja-jp"   | 日 本 語                |
+| "ko"      | 한국어                |
+| nl      | Nederlands           |
+| pl      | Polski               |
 | "pt-br"   | "Português (브라질)"   |
-| "pt-pt"   | "Português (포르투갈)" |
-| "ru"      | "Русский"              |
-| "sv"      | "Svenska"              |
-| "tr"      | "Türkçe"               |
-| "zh-hans" | "中文(简体)"           |
-| "zh-hant" | "中文(繁體)"           |
+| "pt"   | "Português (포르투갈)" |
+| ru      | "Русский"              |
+| sv      | Svenska              |
+| 비교한      | "Türkçe"               |
+| "zh-cn-hans" | "中 文 (简 体)"           |
+| "zh-cn-zh-hant" | "中 文 (繁 體)"           |
 
  개발자 포털 템플릿에서 사용할 수 있는 문자열 리소스에 대해서는 다음 표를 참조하세요. 표에서 보여 주는 문자열 리소스에 대한 접두사로 해당 표의 이름을 사용합니다.  
   
@@ -82,7 +82,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 -   [CommonStrings](#CommonStrings)  
   
--   [설명서](#Documentation)  
+-   [문서](#Documentation)  
   
 -   [ErrorPageStrings](#ErrorPageStrings)  
   
@@ -110,13 +110,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="ApisStrings"></a> ApisStrings  
+###  <a name="apisstrings"></a><a name="ApisStrings"></a>ApisStrings  
   
 |이름|텍스트|  
 |----------|----------|  
 |PageTitleApis|API|  
   
-###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
+###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a>AppDetailsStrings  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -125,29 +125,29 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebApplicationsScreenshotAlt|스크린샷|  
 |WebApplicationsScreenshotsHeader|스크린샷|  
   
-###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
+###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a>ApplicationListStrings  
   
 |이름|텍스트|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|애플리케이션을 제거하시겠습니까?|  
 |WebDevelopersAppNotPublished|게시되지 않음|  
 |WebDevelopersAppNotSubmitted|제출되지 않음|  
-|WebDevelopersAppTableCategoryHeader|Category|  
+|WebDevelopersAppTableCategoryHeader|범주|  
 |WebDevelopersAppTableNameHeader|이름|  
 |WebDevelopersAppTableStateHeader|시스템 상태|  
 |WebDevelopersEditLink|편집|  
 |WebDevelopersRegisterAppLink|애플리케이션 등록|  
 |WebDevelopersRemoveLink|제거|  
-|WebDevelopersSubmitLink|Submit|  
+|WebDevelopersSubmitLink|전송|  
 |WebDevelopersYourApplicationsHeader|애플리케이션|  
   
-###  <a name="AppStrings"></a> AppStrings  
+###  <a name="appstrings"></a><a name="AppStrings"></a>AppStrings  
   
 |이름|텍스트|  
 |----------|----------|  
 |WebApplicationsHeader|애플리케이션|  
   
-###  <a name="CommonResources"></a> CommonResources  
+###  <a name="commonresources"></a><a name="CommonResources"></a>CommonResources  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -158,7 +158,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|Http 요청 본문이 너무 큽니다.|  
   
-###  <a name="CommonStrings"></a> CommonStrings  
+###  <a name="commonstrings"></a><a name="CommonStrings"></a>CommonStrings  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -166,7 +166,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ButtonLabelSave|저장|  
 |GeneralExceptionMessage|오류가 발생했습니다. 일시적인 결함이나 버그일 수 있습니다. 다시 시도하세요.|  
 |NoItemsToDisplay|표시할 항목이 없습니다.|  
-|PagerButtonLabelFirst|처음|  
+|PagerButtonLabelFirst|첫째|  
 |PagerButtonLabelLast|마지막|  
 |PagerButtonLabelNext|다음|  
 |PagerButtonLabelPrevious|이전|  
@@ -178,11 +178,11 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |PasswordTooManyRepetitions|반복이 너무 많습니다.|  
 |PasswordSequenceFound|암호에 시퀀스가 포함되어 있습니다.|  
 |PagerLabelPageSize|페이지 크기|  
-|CurtainLabelLoading|로드 중...|  
+|CurtainLabelLoading|로딩...|  
 |TablePlaceholderNothingToDisplay|선택한 기간과 범위에 대한 데이터가 없습니다.|  
-|ButtonLabelClose|닫습니다|  
+|ButtonLabelClose|닫기|  
   
-###  <a name="Documentation"></a>문서화  
+###  <a name="documentation"></a><a name="Documentation"></a>설명을  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -204,26 +204,26 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebDocumentationTemplatesRequestBody|요청 본문을 지정합니다.|  
 |WebDocumentationTemplatesRequiredParams|다음 필수 매개 변수 값을 지정합니다.|  
 |WebDocumentationTemplatesValuesForPath|경로 매개 변수 값({...}로 표시)을 지정합니다.|  
-|OAuth2AuthorizationEndpointDescription|권한 부여 끝점은 리소스 소유자와 상호 작용하고 권한 부여를 가져오는 데 사용됩니다.|  
-|OAuth2AuthorizationEndpointName|권한 부여 끝점|  
-|OAuth2TokenEndpointDescription|토큰 끝점은 클라이언트에서 권한 부여를 표시하거나 토큰을 새로 고쳐 액세스 토큰을 가져오는 데 사용됩니다.|  
-|OAuth2TokenEndpointName|토큰 끝점|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Description|<p\> 클라이언트에서 리소스 소유자의 user-agent를 권한 끝점으로 전달함으로써 흐름을 시작합니다.  클라이언트는 클라이언트 식별자, 요청된 범위, 로컬 상태 및 액세스가 허용되거나 거부되면 권한 부여 서버에서 user-agent를 다시 보낼 리디렉션 URI를 포함합니다.     </p\>     <p\> 권한 부여 서버는 user-agent를 통해 리소스 소유자를 인증하고 리소스 소유자가 클라이언트의 액세스 요청을 승인 또는 거부하는지 여부를 설정합니다.     </p\>     <p\> 리소스 소유자가 액세스 권한을 부여한다고 가정하면 권한 부여 서버는 이전에 제공된(요청 시 또는 클라이언트 등록 중에) 리디렉션 URI를 사용하여 user-agent를 클라이언트로 다시 리디렉션합니다.  리디렉션 URI에는 인증 코드와 클라이언트에서 이전에 제공한 모든 로컬 상태가 포함됩니다.     </p\>|  
+|OAuth2AuthorizationEndpointDescription|권한 부여 엔드포인트은 리소스 소유자와 상호 작용하고 권한 부여를 가져오는 데 사용됩니다.|  
+|OAuth2AuthorizationEndpointName|권한 부여 엔드포인트|  
+|OAuth2TokenEndpointDescription|토큰 엔드포인트은 클라이언트에서 권한 부여를 표시하거나 토큰을 새로 고쳐 액세스 토큰을 가져오는 데 사용됩니다.|  
+|OAuth2TokenEndpointName|토큰 엔드포인트|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Description|&lt;p\> 클라이언트에서 리소스 소유자의 user-agent를 권한 엔드포인트으로 전달함으로써 흐름을 시작합니다.  클라이언트는 클라이언트 식별자, 요청된 범위, 로컬 상태 및 액세스가 허용되거나 거부되면 권한 부여 서버에서 user-agent를 다시 보낼 리디렉션 URI를 포함합니다.     </p\>     <p\> 권한 부여 서버는 user-agent를 통해 리소스 소유자를 인증하고 리소스 소유자가 클라이언트의 액세스 요청을 승인 또는 거부하는지 여부를 설정합니다.     </p\>     <p\> 리소스 소유자가 액세스 권한을 부여한다고 가정하면 권한 부여 서버는 이전에 제공된(요청 시 또는 클라이언트 등록 중에) 리디렉션 URI를 사용하여 user-agent를 클라이언트로 다시 리디렉션합니다.  리디렉션 URI에는 인증 코드와 클라이언트에서 이전에 제공한 모든 로컬 상태가 포함됩니다.     </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ErrorDescription|<p\> 사용자가 유효하지 않은 액세스 요청을 거부하면 리디렉션에 추가된 다음 매개 변수를 사용하여 클라이언트에 알려줍니다.</p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Name|권한 부여 요청|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_RequestDescription|<p\> OAuth 프로세스를 시작하려면 클라이언트 앱에서 사용자를 권한 부여 끝점으로 보내야 합니다.          권한 부여 끝점에서 사용자는 인증한 후 앱에 대한 액세스 권한을 부여하거나 거부합니다.     </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_RequestDescription|&lt;p\> OAuth 프로세스를 시작하려면 클라이언트 앱에서 사용자를 권한 부여 엔드포인트으로 보내야 합니다.          권한 부여 엔드포인트에서 사용자는 인증한 후 앱에 대한 액세스 권한을 부여하거나 거부합니다.     </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ResponseDescription|<p\> 리소스 소유자가 액세스 권한을 부여한다고 가정하면 권한 부여 서버에서 이전에 제공된(요청 시 또는 클라이언트 등록 중에) 리디렉션 URI를 사용하여 user-agent를 클라이언트로 다시 리디렉션합니다.  리디렉션 URI에는 인증 코드와 클라이언트에서 이전에 제공한 모든 로컬 상태가 포함됩니다. </p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_Description|<p\> 클라이언트는 이전 단계에서 받은 인증 코드를 포함하여 권한 부여 서버의 토큰 끝점에서 액세스 토큰을 요청합니다.  요청할 때 클라이언트에서 권한 부여 서버를 통해 인증합니다.  클라이언트는 확인을 위해 인증 코드를 가져오는 데 사용되는 리디렉션 URI를 포함합니다. </p\> <p\> 권한 부여 서버는 클라이언트를 인증하고, 인증 코드의 유효성을 검사하며, 받은 리디렉션 URI가 (C) 단계에서 클라이언트를 리디렉션하는 데 사용된 URI와 일치하는지 확인합니다.  유효한 경우 권한 부여 서버에서 액세스 토큰 및 선택적으로 새로 고침 토큰으로 다시 응답합니다. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_Description|&lt;p\> 클라이언트는 이전 단계에서 받은 인증 코드를 포함하여 권한 부여 서버의 토큰 엔드포인트에서 액세스 토큰을 요청합니다.  요청할 때 클라이언트에서 권한 부여 서버를 통해 인증합니다.  클라이언트는 확인을 위해 인증 코드를 가져오는 데 사용되는 리디렉션 URI를 포함합니다. </p\> <p\> 권한 부여 서버는 클라이언트를 인증하고, 인증 코드의 유효성을 검사하며, 받은 리디렉션 URI가 (C) 단계에서 클라이언트를 리디렉션하는 데 사용된 URI와 일치하는지 확인합니다.  유효한 경우 권한 부여 서버에서 액세스 토큰 및 선택적으로 새로 고침 토큰으로 다시 응답합니다. </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ErrorDescription|<p\> 요청 클라이언트 인증이 실패하거나 유효하지 않으면 권한 부여 서버에서 HTTP 400(잘못된 요청) 상태 코드로 응답하고(달리 지정하지 않은 경우) 응답에 다음 매개 변수를 포함합니다. </p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_RequestDescription|&lt;p\> 클라이언트에서 UTF-8 문자 인코딩과 함께 HTTP 요청 entity-body에 "application/x-www-form-urlencoded" 형식의 다음 매개 변수를 전달하여 토큰 엔드포인트에 요청합니다. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_RequestDescription|&lt;p\> 클라이언트에서 UTF-8 문자 인코딩과 함께 HTTP 요청 entity-body에 &quot;application/x-www-form-urlencoded&quot; 형식의 다음 매개 변수를 전달하여 토큰 엔드포인트에 요청합니다. </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ResponseDescription|<p\> 권한 부여 서버에서 액세스 토큰과 선택적인 새로 고침 토큰을 발급하고, 200(확인) 상태 코드와 함께 HTTP 응답의 entity-body에 다음 매개 변수를 추가하여 응답을 구성합니다. </p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_Description|<p\> 클라이언트에서 권한 부여 서버를 통해 인증하고 토큰 끝점에서 액세스 토큰을 요청합니다. </p\> <p\> 권한 부여 서버는 클라이언트를 인증하고 유효한 경우 액세스 토큰을 발급합니다. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_Description|&lt;p\> 클라이언트에서 권한 부여 서버를 통해 인증하고 토큰 엔드포인트에서 액세스 토큰을 요청합니다. </p\> <p\> 권한 부여 서버는 클라이언트를 인증하고 유효한 경우 액세스 토큰을 발급합니다. </p\>|  
 |OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ErrorDescription|<p\> 요청이 클라이언트 인증에 실패하거나 유효하지 않으면 권한 부여 서버에서 HTTP 400(잘못된 요청) 상태 코드로 응답하고(달리 지정하지 않은 경우) 응답에 다음 매개 변수를 포함합니다. </p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_RequestDescription|&lt;p\> 클라이언트에서 UTF-8 문자 인코딩과 함께 HTTP 요청 entity-body에 "application/x-www-form-urlencoded" 형식의 다음 매개 변수를 추가하여 토큰 엔드포인트에 요청합니다. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_RequestDescription|&lt;p\> 클라이언트에서 UTF-8 문자 인코딩과 함께 HTTP 요청 entity-body에 &quot;application/x-www-form-urlencoded&quot; 형식의 다음 매개 변수를 추가하여 토큰 엔드포인트에 요청합니다. </p\>|  
 |OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ResponseDescription|<p\> 액세스 토큰 요청이 유효하고 권한이 부여되면 권한 부여 서버에서 액세스 토큰과 선택적인 새로 고침 토큰을 발급하고, 200(확인) 상태 코드와 함께 HTTP 응답의 entity-body에 다음 매개 변수를 추가하여 응답을 구성합니다. </p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_Description|<p\> 클라이언트에서 리소스 소유자의 user-agent를 권한 끝점으로 전달함으로써 흐름을 시작합니다.  클라이언트는 클라이언트 식별자, 요청된 범위, 로컬 상태 및 액세스가 허용되거나 거부되면 권한 부여 서버에서 user-agent를 다시 보낼 리디렉션 URI를 포함합니다. </p\> <p\> 권한 부여 서버는 user-agent를 통해 리소스 소유자를 인증하고 리소스 소유자가 클라이언트의 액세스 요청을 승인 또는 거부하는지 여부를 설정합니다. </p\> <p\> 리소스 소유자가 액세스 권한을 부여한다고 가정하면 권한 부여 서버는 이전에 제공된 리디렉션 URI를 사용하여 user-agent를 클라이언트로 다시 리디렉션합니다.  리디렉션 URI에는 URI 조각에 있는 액세스 토큰이 포함됩니다. </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_Description|&lt;p\> 클라이언트에서 리소스 소유자의 user-agent를 권한 엔드포인트으로 전달함으로써 흐름을 시작합니다.  클라이언트는 클라이언트 식별자, 요청된 범위, 로컬 상태 및 액세스가 허용되거나 거부되면 권한 부여 서버에서 user-agent를 다시 보낼 리디렉션 URI를 포함합니다. </p\> <p\> 권한 부여 서버는 user-agent를 통해 리소스 소유자를 인증하고 리소스 소유자가 클라이언트의 액세스 요청을 승인 또는 거부하는지 여부를 설정합니다. </p\> <p\> 리소스 소유자가 액세스 권한을 부여한다고 가정하면 권한 부여 서버는 이전에 제공된 리디렉션 URI를 사용하여 user-agent를 클라이언트로 다시 리디렉션합니다.  리디렉션 URI에는 URI 조각에 있는 액세스 토큰이 포함됩니다. </p\>|  
 |OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ErrorDescription|<p\> 리소스 소유자가 액세스 요청을 거부하는 경우 또는 누락되거나 유효하지 않은 리디렉션 URI 이외의 다른 이유로 요청이 실패하는 경우 권한 부여 서버는 "application/x-www-form-urlencoded" 형식을 사용하는 리디렉션 URI의 조각 구성 요소에 다음 매개 변수를 추가하여 클라이언트에 알려줍니다. </p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_RequestDescription|<p\> OAuth 프로세스를 시작하려면 클라이언트 앱에서 사용자를 권한 부여 끝점으로 보내야 합니다.      권한 부여 끝점에서 사용자는 인증한 후 앱에 대한 액세스 권한을 부여하거나 거부합니다. </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_RequestDescription|&lt;p\> OAuth 프로세스를 시작하려면 클라이언트 앱에서 사용자를 권한 부여 엔드포인트으로 보내야 합니다.      권한 부여 엔드포인트에서 사용자는 인증한 후 앱에 대한 액세스 권한을 부여하거나 거부합니다. </p\>|  
 |OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ResponseDescription|<p\> 리소스 소유자가 액세스 요청을 승인하는 경우 권한 부여 서버는 "application/x-www-form-urlencoded" 형식을 사용하는 리디렉션 URI의 조각 구성 요소에 다음 매개 변수를 추가하여 액세스 토큰을 발급하고 클라이언트에 전달합니다. </p\>|  
 |OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Description|인증 코드 흐름은 자격 증명의 기밀성을 유지할 수 있는 클라이언트(예: PHP, Java, Python, Ruby, ASP.NET 등을 사용하여 구현된 웹 서버 애플리케이션)에 최적화되어 있습니다.|  
 |OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Name|인증 코드 부여|  
@@ -231,11 +231,11 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |OAuth2Flow_ObtainAuthorization_ClientCredentialsGrant_Name|클라이언트 자격 증명 부여|  
 |OAuth2Flow_ObtainAuthorization_ImplicitGrant_Description|암시적 흐름은 특정 리디렉션 URI를 작동하는 것으로 알려진 자격 증명의 기밀성을 유지할 수 없는 클라이언트에 최적화되어 있습니다. 이러한 클라이언트는 일반적으로 JavaScript와 같은 스크립팅 언어를 사용하는 브라우저에서 구현됩니다.|  
 |OAuth2Flow_ObtainAuthorization_ImplicitGrant_Name|암시적 부여|  
-|OAuth2Flow_ObtainAuthorization_ResourceOwnerPasswordCredentialsGrant_Description|리소스 소유자가 장치 운영 체제 또는 높은 권한이 필요한 애플리케이션과 같은 클라이언트(애플리케이션)와 트러스트 관계가 있는 경우에는 리소스 소유자 암호 자격 증명 흐름이 적합합니다. 이 흐름은 리소스 소유자의 자격 증명(일반적으로 대화 형 양식을 사용하는 사용자 이름 및 암호)을 가져올 수 있는 클라이언트에 적합합니다.|  
+|OAuth2Flow_ObtainAuthorization_ResourceOwnerPasswordCredentialsGrant_Description|리소스 소유자가 디바이스 운영 체제 또는 높은 권한이 필요한 애플리케이션과 같은 클라이언트(애플리케이션)와 트러스트 관계가 있는 경우에는 리소스 소유자 암호 자격 증명 흐름이 적합합니다. 이 흐름은 리소스 소유자의 자격 증명(일반적으로 대화 형 양식을 사용하는 사용자 이름 및 암호)을 가져올 수 있는 클라이언트에 적합합니다.|  
 |OAuth2Flow_ObtainAuthorization_ResourceOwnerPasswordCredentialsGrant_Name|리소스 소유자 암호 자격 증명 부여|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_Description|<p\> 리소스 소유자가 클라이언트에 사용자 이름과 암호를 제공합니다. </p\> <p\> 클라이언트는 리소스 소유자로부터 받은 자격 증명을 포함하여 권한 부여 서버의 토큰 끝점에서 액세스 토큰을 요청합니다.  요청할 때 클라이언트에서 권한 부여 서버를 통해 인증합니다. </p\> <p\> 권한 부여 서버는 클라이언트를 인증하고, 리소스 소유자 자격 증명의 유효성을 검증하며, 유효한 경우 액세스 토큰을 발급합니다. </p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_Description|<p\> 리소스 소유자가 클라이언트에 사용자 이름과 암호를 제공합니다. &lt;/p\> &lt;p\> 클라이언트는 리소스 소유자로부터 받은 자격 증명을 포함하여 권한 부여 서버의 토큰 엔드포인트에서 액세스 토큰을 요청합니다.  요청할 때 클라이언트에서 권한 부여 서버를 통해 인증합니다. </p\> <p\> 권한 부여 서버는 클라이언트를 인증하고, 리소스 소유자 자격 증명의 유효성을 검증하며, 유효한 경우 액세스 토큰을 발급합니다. </p\>|  
 |OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ErrorDescription|<p\> 요청이 클라이언트 인증에 실패하거나 유효하지 않으면 권한 부여 서버에서 HTTP 400(잘못된 요청) 상태 코드로 응답하고(달리 지정하지 않은 경우) 응답에 다음 매개 변수를 포함합니다. </p\>|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_RequestDescription|&lt;p\> 클라이언트에서 UTF-8 문자 인코딩과 함께 HTTP 요청 entity-body에 "application/x-www-form-urlencoded" 형식의 다음 매개 변수를 추가하여 토큰 엔드포인트에 요청합니다. </p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_RequestDescription|&lt;p\> 클라이언트에서 UTF-8 문자 인코딩과 함께 HTTP 요청 entity-body에 &quot;application/x-www-form-urlencoded&quot; 형식의 다음 매개 변수를 추가하여 토큰 엔드포인트에 요청합니다. </p\>|  
 |OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ResponseDescription|<p\> 액세스 토큰 요청이 유효하고 권한이 부여되면 권한 부여 서버에서 액세스 토큰과 선택적인 새로 고침 토큰을 발급하고, 200(확인) 상태 코드와 함께 HTTP 응답의 entity-body에 다음 매개 변수를 추가하여 응답을 구성합니다. </p\>|  
 |OAuth2Step_AccessTokenRequest_Name|액세스 토큰 요청|  
 |OAuth2Step_AuthorizationRequest_Name|권한 부여 요청|  
@@ -271,9 +271,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |OAuth2GrantType_ClientCredentialsGrant_TokenRequest|필수. 값은 반드시 "client_credentials"로 설정해야 합니다.|  
 |OAuth2GrantType_ResourceOwnerPasswordCredentialsGrant_TokenRequest|필수. 값은 반드시 "password"로 설정해야 합니다.|  
 |OAuth2Password_ResourceOwnerPasswordCredentialsGrant_TokenRequest|필수. 리소스 소유자 암호입니다.|  
-|OAuth2RedirectUri_AuthorizationCodeGrant_AuthorizationRequest|옵션. 리디렉션 끝점 URI는 절대 URI여야 합니다.|  
+|OAuth2RedirectUri_AuthorizationCodeGrant_AuthorizationRequest|옵션. 리디렉션 엔드포인트 URI는 절대 URI여야 합니다.|  
 |OAuth2RedirectUri_AuthorizationCodeGrant_TokenRequest|"redirect_uri" 매개 변수가 권한 부여 요청에 포함되어 있고 그 값이 동일해야 하는 경우 필수입니다.|  
-|OAuth2RedirectUri_ImplicitGrant_AuthorizationRequest|옵션. 리디렉션 끝점 URI는 절대 URI여야 합니다.|  
+|OAuth2RedirectUri_ImplicitGrant_AuthorizationRequest|옵션. 리디렉션 엔드포인트 URI는 절대 URI여야 합니다.|  
 |OAuth2RefreshToken_AuthorizationCodeGrant_TokenResponse|옵션. 새 액세스 토큰을 가져오는 데 사용할 수 있는 새로 고침 토큰입니다.|  
 |OAuth2RefreshToken_ClientCredentialsGrant_TokenResponse|옵션. 새 액세스 토큰을 가져오는 데 사용할 수 있는 새로 고침 토큰입니다.|  
 |OAuth2RefreshToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|옵션. 새 액세스 토큰을 가져오는 데 사용할 수 있는 새로 고침 토큰입니다.|  
@@ -325,12 +325,12 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |SectionHeadingRequestParameters|요청 매개 변수|  
 |SectionHeadingRequestUrl|요청 URL|  
 |SectionHeadingResponse|응답|  
-|SectionHeadingRequestHeaders|헤더 요청|  
+|SectionHeadingRequestHeaders|요청 헤더|  
 |FormLabelSubtextOptional|선택 사항|  
 |SectionHeadingCodeSamples|코드 샘플|  
-|TextblockOpenidConnectHeaderDescription|<i\>{0}</i\>에서 가져온 OpenID 연결 ID 토큰입니다. 지원되는 권한 부여 유형: <i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|<i</I에서 가져온 Openid connect Connect ID 토큰 \> {0} \> 입니다. 지원되는 권한 부여 유형: <i\>{1}</i\>.|  
   
-###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
+###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a>ErrorPageStrings  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -348,18 +348,18 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TitlePotentialCause|가능한 원인|  
 |TitlePotentialSolution|단지 일시적인 문제일 수도 있고 몇 가지 작업을 시도해 볼 수도 있습니다.|  
   
-###  <a name="IssuesStrings"></a> IssuesStrings  
+###  <a name="issuesstrings"></a><a name="IssuesStrings"></a>IssuesStrings  
   
 |이름|텍스트|  
 |----------|----------|  
-|WebIssuesIndexTitle|문제|  
+|WebIssuesIndexTitle|Issues|  
 |WebIssuesNoActiveSubscriptions|활성 구독이 없습니다. 문제를 보고하려면 제품을 구독해야 합니다.|  
 |WebIssuesNotSignin|로그인하지 않습니다. {0}하여 문제를 보고하거나 의견을 게시해 주세요.|  
 |WebIssuesReportIssueButton|보고서 문제|  
 |WebIssuesSignIn|로그인|  
 |WebIssuesStatusReportedBy|상태: {0} &#124; {1}이(가) 보고함|  
   
-###  <a name="NotFoundStrings"></a> NotFoundStrings  
+###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a>NotFoundStrings  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -374,12 +374,12 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TitlePotentialCause|가능한 원인|  
 |TitlePotentialSolution|잠재적 솔루션|  
   
-###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
+###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a>ProductDetailsStrings  
   
 |이름|텍스트|  
 |----------|----------|  
 |WebProductsAgreement|{0} 제품을 구독하면 `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`에 동의하는 것입니다.|  
-|WebProductsLegalTermsLink|사용 약관|  
+|WebProductsLegalTermsLink|사용 조건|  
 |WebProductsSubscribeButton|구독|  
 |WebProductsUsageLimitsHeader|사용 제한|  
 |WebProductsYouAreNotSubscribed|이 제품을 구독하고 있습니다.|  
@@ -396,13 +396,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TextblockSubscriptionDescription|새 구독은 다음과 같이 만들어집니다.|  
 |TextblockSubscriptionLimitReached|구독 제한에 도달했습니다.|  
   
-###  <a name="ProductsStrings"></a> ProductsStrings  
+###  <a name="productsstrings"></a><a name="ProductsStrings"></a>ProductsStrings  
   
 |이름|텍스트|  
 |----------|----------|  
 |PageTitleProducts|제품|  
   
-###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
+###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a>ProviderInfoStrings  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -410,7 +410,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TextboxExternalIdentitiesSigninInvitation|또는 다음 계정으로 로그인합니다.|  
 |TextboxExternalIdentitiesSigninInvitationPrimary|로그인에 사용할 계정:|  
   
-###  <a name="SigninResources"></a> SigninResources  
+###  <a name="signinresources"></a><a name="SigninResources"></a>SigninResources  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -422,7 +422,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ValidationErrorSpecificEmailInvalid|메일 ‘{0}’이(가) 잘못되었습니다.|  
 |ValidationErrorPasswordInvalid|암호가 잘못되었습니다. 오류를 수정하고 다시 시도해 보세요.|  
 |PropertyTooShort|{0}이(가) 너무 짧습니다.|  
-|WebAuthenticationAddresserEmailInvalidErrorMessage|잘못된 전자 메일 주소입니다.|  
+|WebAuthenticationAddresserEmailInvalidErrorMessage|메일 주소가 잘못되었습니다.|  
 |ValidationMessageNewPasswordConfirmationRequired|새 암호 확인|  
 |ValidationErrorPasswordConfirmationRequired|암호 확인이 비어 있습니다.|  
 |WebAuthenticationEmailChangeNotice|변경 확인 메일이 {0}(으)로 가는 중입니다. 그 안에 있는 지침에 따라 새 전자 메일 주소를 확인하세요. 전자 메일이 몇 분 내에 받은 편지함에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
@@ -431,9 +431,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationEmailHasBeenRevertedNotice|전자 메일이 이미 있습니다. 요청이 되돌려졌습니다.|  
 |ValidationErrorEmailAlreadyExists|이미 있는 전자 메일|  
 |ValidationErrorEmailInvalid|잘못된 전자 메일 주소|  
-|TextboxLabelEmail|Email|  
-|ValidationErrorEmailRequired|전자 메일은 필수입니다.|  
-|WebAuthenticationErrorNoticeHeader|오류|  
+|TextboxLabelEmail|메일|  
+|ValidationErrorEmailRequired|메일은 필수 사항입니다.|  
+|WebAuthenticationErrorNoticeHeader|Error|  
 |WebAuthenticationFieldLengthErrorMessage|{0}은(는) {1}의 최대 길이여야 합니다.|  
 |TextboxLabelEmailFirstName|이름|  
 |ValidationErrorFirstNameRequired|이름은 필수입니다.|  
@@ -476,13 +476,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ButtonLabelChangePassword|암호 변경|  
 |ButtonLabelChangeAccountInfo|계정 정보 변경|  
 |ButtonLabelCloseAccount|계정 사용 중지|  
-|WebAuthenticationInvalidCaptchaErrorMessage|입력한 텍스트가 그림의 텍스트와 일치하지 않습니다. 나중에 다시 시도하세요.|  
+|WebAuthenticationInvalidCaptchaErrorMessage|입력한 텍스트가 그림의 텍스트와 일치하지 않습니다. 다시 시도하세요.|  
 |ValidationErrorCredentialsInvalid|전자 메일 또는 암호가 잘못되었습니다. 오류를 수정하고 다시 시도해 보세요.|  
 |WebAuthenticationRequestIsNotValid|요청이 잘못되었습니다.|  
 |WebAuthenticationUserIsNotConfirm|로그인을 시도하기 전에 등록을 확인하세요.|  
 |WebAuthenticationInvalidEmailFormated|잘못된 메일: {0}|  
 |WebAuthenticationUserNotFound|사용자를 찾을 수 없음|  
-|WebAuthenticationTenantNotRegistered|계정에 있는이 포털에 액세스할 권한이 없는 Azure Active Directory 테 넌 트에 속합니다.|  
+|WebAuthenticationTenantNotRegistered|계정이이 포털에 액세스할 수 있는 권한이 없는 Azure Active Directory 테 넌 트에 속해 있습니다.|  
 |WebAuthenticationAuthenticationFailed|인증에 실패했습니다.|  
 |WebAuthenticationGooglePlusNotEnabled|인증에 실패했습니다. 애플리케이션에 권한을 부여한 경우 관리자에게 문의하여 Google 인증이 올바르게 구성되었는지 확인하세요.|  
 |ValidationErrorAllowedTenantIsRequired|허용된 테넌트는 필수입니다.|  
@@ -503,10 +503,10 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationNoAadTenantConfigured|서비스에 구성된 Azure Active Directory 테넌트가 없습니다.|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`에 동의합니다.|  
 |TextblockUserRegistrationTermsProvided|`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`을(를) 검토하세요.|  
-|DialogHeadingTermsOfUse|사용 약관|  
+|DialogHeadingTermsOfUse|사용 조건|  
 |ValidationMessageConsentNotAccepted|계속하려면 먼저 사용 약관에 동의해야 합니다.|  
   
-###  <a name="SigninStrings"></a> SigninStrings  
+###  <a name="signinstrings"></a><a name="SigninStrings"></a>SigninStrings  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -518,7 +518,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationSigninTitle|로그인|  
 |WebAuthenticationSignUpNow|지금 등록하십시오.|  
   
-###  <a name="SignupStrings"></a> SignupStrings  
+###  <a name="signupstrings"></a><a name="SignupStrings"></a>SignupStrings  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -528,7 +528,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationSigninNow|지금 로그인|  
 |ButtonLabelSignup|등록|  
   
-###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
+###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a>SubscriptionListStrings  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -551,7 +551,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |PageTitleRenameSubscription|구독 이름 바꾸기|  
 |SubscriptionPropertyLabelName|구독 이름|  
   
-###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
+###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a>SubscriptionStrings  
   
 |이름|텍스트|  
 |----------|----------|  
@@ -562,21 +562,21 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |InformationMessageKeyWasRegenerated|이 키를 다시 생성하시겠습니까?|  
 |ButtonLabelShowKey|표시|  
   
-###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
+###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a>UpdateProfileStrings  
   
 |이름|텍스트|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|프로필 업데이트|  
 |PageTitleUpdateProfile|계정 정보 업데이트|  
   
-###  <a name="UserProfile"></a> UserProfile  
+###  <a name="userprofile"></a><a name="UserProfile"></a>UserProfile  
   
 |이름|텍스트|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|계정 정보 변경|  
 |ButtonLabelChangePassword|암호 변경|  
 |ButtonLabelCloseAccount|계정 사용 중지|  
-|TextboxLabelEmail|Email|  
+|TextboxLabelEmail|메일|  
 |TextboxLabelEmailFirstName|이름|  
 |TextboxLabelEmailLastName|성|  
 |TextboxLabelNotificationsSenderEmail|알림 보낸 사람 전자 메일|  
@@ -593,7 +593,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ValidationMessageSubscriptionNameRequired|구독 이름은 비워 둘 수 없습니다.|  
 |ApiManagementUserLimitReached|이 서비스는 허용되는 최대 사용자 수에 도달했습니다. 더 높은 가격 책정 계층으로 업그레이드하세요.|  
   
-##  <a name="glyphs"></a> 문자 모양 리소스  
+##  <a name="glyph-resources"></a><a name="glyphs"></a>문자 모양 리소스  
  API Management 개발자 포털 템플릿에서는 [부트스트랩의 문자 모양 아이콘](https://getbootstrap.com/components/#glyphicons)(영문)의 문자 표시를 사용할 수 있습니다. 이 문자 표시 집합에는 [Glyphicon](https://glyphicons.com/) Halflings 집합의 글꼴 서식으로 250개 이상의 문자 표시가 포함되어 있습니다. 이 집합의 문자 표시를 사용하려면 다음 구문을 사용합니다.  
   
 ```html  

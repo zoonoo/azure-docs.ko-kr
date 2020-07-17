@@ -1,63 +1,60 @@
 ---
 title: Azure Event Hubs 방화벽 규칙 | Microsoft Docs
 description: 특정 IP 주소에서 Azure Event Hubs로 연결을 차단하도록 방화벽 규칙을 사용합니다.
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: timlt
-ms.service: event-hubs
-ms.devlang: na
-ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
-ms.author: spelluru
-ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/23/2020
+ms.openlocfilehash: fb9fa72af7127224afdcf70ecca1c851e9212c4d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320425"
 ---
-# <a name="use-firewall-rules"></a>방화벽 규칙 사용
+# <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Azure Event Hubs 네임스페이스에 대한 IP 방화벽 규칙 구성
+기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 Event Hubs 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
 
-잘 알려진 특정 사이트에서 Azure Event Hubs만이 액세스 가능한 시나리오의 경우 방화벽 규칙을 사용하면 특정 IPv4 주소에서 시작된 트래픽을 허용하는 규칙을 구성할 수 있습니다. 예를 들어 이 주소는 회사 NAT 게이트웨이의 주소일 것입니다.
-
-## <a name="when-to-use"></a>사용하는 경우
-
-지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 하는 Event Hubs 네임스페이스를 설정하려는 경우 *방화벽 규칙*을 활용하여 다른 IP 주소의 Event Hub 엔드포인트를 차단할 수 있습니다. 예를 들어 [Azure Express Route][express-route]와 함께 Event Hubs를 사용하는 경우 온-프레미스 인프라 IP 주소에서 오는 트래픽을 제한하는 *방화벽 규칙*을 만들 수 있습니다.
-
-## <a name="how-filter-rules-are-applied"></a>필터 규칙이 적용되는 방식
-
-IP 필터 규칙은 Event Hubs 네임스페이스 수준에 적용됩니다. 따라서 해당 규칙은 지원되는 모든 프로토콜을 사용하는 클라이언트의 모든 연결에 적용됩니다.
-
-Event Hubs 네임스페이스에서 허용된 IP 규칙과 일치하지 않는 IP 주소의 연결 시도는 권한이 없는 것으로 거부됩니다. 응답은 IP 규칙을 언급하지 않습니다.
-
-## <a name="default-setting"></a>기본 설정
-
-기본적으로 Event Hubs에 대한 포털의 **IP 필터** 그리드는 비어있습니다. 이러한 기본 설정은 Event Hubs가 모든 IP 주소의 연결을 수락한다는 것을 의미합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다.
-
-## <a name="ip-filter-rule-evaluation"></a>IP 필터 규칙 평가
-
-IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번째 규칙이 수락 또는 거부 작업을 결정합니다.
+이 기능은 잘 알려진 특정 사이트에서만 Azure Event Hub에 액세스할 수 있는 시나리오에서 유용합니다. 방화벽 규칙을 사용하면 특정 IPv4 주소에서 발생하는 트래픽을 허용하도록 규칙을 구성할 수 있습니다. 예를 들어 [Azure Express Route][express-route]와 함께 Event Hubs를 사용하는 경우 온-프레미스 인프라 IP 주소에서 오는 트래픽만 허용하도록 **방화벽 규칙**을 만들 수 있습니다. 
 
 >[!WARNING]
-> 방화벽을 구현하면 다른 Azure 서비스가 Event Hubs와 상호 작용하는 것을 방지할 수 있습니다.
+> IP 필터링을 활성화하면 다른 Azure 서비스가 Event Hubs와 상호 작용하는 것을 방지할 수 있습니다.
 >
-> 신뢰할 수 있는 Microsoft 서비스는 IP 필터링(방화벽)이 구현되는 시점에 지원되지 않으며 곧 제공될 예정입니다.
+> 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks가 구현되는 시점에 지원되지 않습니다.
 >
-> IP 필터링이 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
-> - Azure Monitor
+> Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
+> - Azure Monitor(진단 설정)
 > - Azure Stream Analytics
 > - Azure Event Grid와 통합
 > - Azure IoT Hub 경로
 > - Azure IoT Device Explorer
-> - Azure Data Explorer
 >
-> 아래 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
-> - Azure 웹앱
+> 다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
+> - Azure Web Apps
 > - Azure 기능
 
-### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 방화벽 규칙 만들기
+
+## <a name="ip-firewall-rules"></a>IP 방화벽 규칙
+IP 방화벽 규칙은 Event Hubs 네임스페이스 수준에 적용됩니다. 따라서 해당 규칙은 지원되는 모든 프로토콜을 사용하는 클라이언트의 모든 연결에 적용됩니다. Event Hubs 네임스페이스에서 허용된 IP 규칙과 일치하지 않는 IP 주소의 연결 시도는 권한이 없는 것으로 거부됩니다. 응답은 IP 규칙을 언급하지 않습니다. IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번째 규칙이 수락 또는 거부 작업을 결정합니다.
+
+## <a name="use-azure-portal"></a>Azure Portal 사용
+이 섹션에서는 Azure Portal을 사용하여 Event Hubs 네임스페이스에 대한 IP 방화벽 규칙을 만드는 방법을 보여줍니다. 
+
+1. **Azure Portal**에서 [Event Hubs 네임스페이스](https://portal.azure.com)로 이동합니다.
+2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택합니다. **모든 네트워크** 옵션을 선택하면 이벤트 허브는 모든 IP 주소에서의 연결을 허용합니다. 이 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
+
+    ![방화벽 - 모든 네트워크 옵션 선택됨](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+1. 특정 네트워크 및 IP 주소에 대한 액세스를 제한하려면 **선택한 네트워크** 옵션을 선택합니다. **방화벽** 섹션에서 다음 단계를 수행합니다.
+    1. **클라이언트 IP 주소 추가** 옵션을 선택하여 현재 클라이언트 IP에 네임스페이스에 대한 액세스 권한을 부여합니다. 
+    2. **주소 범위**에 CIDR 표기법으로 특정 IPv4 주소 또는 IPv4 주소 범위를 입력합니다. 
+    3. **신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 바이패스하도록 허용**할지 여부를 지정합니다. 
+
+        > [!WARNING]
+        > **선택한 네트워크** 옵션을 선택하고 IP 주소 또는 주소 범위를 지정하지 않으면 서비스는 모든 네트워크에 들어오는 트래픽을 허용합니다. 
+
+        ![방화벽 - 모든 네트워크 옵션 선택됨](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+3. 도구 모음에서 **저장**을 선택하여 설정을 저장합니다. 포털 알림에 확인이 표시될 때가지 몇 분 정도 기다립니다.
+
+
+## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 
 > [!IMPORTANT]
 > 방화벽 규칙은 Event Hubs의 **표준** 및 **전용** 계층에서 지원됩니다. 기본 계층에서는 지원되지 않습니다.
@@ -72,7 +69,7 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 > 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.
 > Virtual Network 또는 방화벽 규칙을 만들 때 ***"defaultAction"*** 을 변경해야 합니다.
 > 
-> from
+> 원본
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -135,6 +132,7 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
                 "action":"Allow"
             }
           ],
+          "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }
       }
@@ -149,10 +147,10 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 
 Event Hubs에 대한 액세스를 Azure 가상 네트워크로 제한하려면 다음 링크를 참조하세요.
 
-- [Event Hubs의 Virtual Network 서비스 엔드포인트][lnk-vnet]
+- [Event Hubs용 Virtual Network Service 엔드포인트][lnk-vnet]
 
 <!-- Links -->
 
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: event-hubs-service-endpoints.md

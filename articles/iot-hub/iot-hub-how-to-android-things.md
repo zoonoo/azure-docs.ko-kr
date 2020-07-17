@@ -1,18 +1,17 @@
 ---
 title: Azure IoT SDK를 사용하여 Android Things 플랫폼 개발 | Microsoft Docs
 description: 개발자 가이드 - Azure IoT Hub SDK를 사용하여 Android Things에서 솔루션을 개발하는 방법을 알아봅니다.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: yizhon
-ms.openlocfilehash: 8e36cee9857c00fcb618a8491595432fb0fd60fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: robinsh
+ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60400136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78673391"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 Android Things 플랫폼 개발
 
@@ -20,7 +19,7 @@ ms.locfileid: "60400136"
 
 이 자습서에서는 Azure IoT Java SDK를 사용하여 Android Things에서 디바이스 쪽 애플리케이션을 빌드하는 단계를 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Android Things는 Android Things OS를 실행하는 하드웨어를 지원합니다.  Android Things OS를 플래시하는 방법은 [Android Things 설명서](https://developer.android.com/things/get-started/kits#flash-at)를 참조하세요.  키보드, 디스플레이 및 마우스 등과 같은 필수 주변 장치가 연결된 상태에서 Android Things 디바이스가 인터넷에 연결되었는지 확인합니다.  이 자습서에서는 Raspberry Pi 3을 사용합니다.
 
@@ -42,14 +41,14 @@ ms.locfileid: "60400136"
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyAndroidThingsDevice** : 등록된 디바이스에 지정된 이름입니다. MyAndroidThingsDevice를 표시된 것처럼 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 장치 이름을 업데이트한 후 실행해야 합니다.
+   **MyAndroidThingsDevice** : 등록 된 장치에 대해 지정 된 이름입니다. MyAndroidThingsDevice를 표시된 것처럼 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. 가져오려는 Azure Cloud Shell에서 다음 명령을 실행 합니다 *장치 연결 문자열* 방금 등록 한 장치에 대 한 합니다. 대체 `YourIoTHubName` IoT hub에 대해 선택한 이름을 사용 하 여 아래.
+2. Azure Cloud Shell에서 다음 명령을 실행 하 여 방금 등록 한 장치에 대 한 *장치 연결 문자열* 을 가져옵니다. `YourIoTHubName`아래를 IoT hub에 대해 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -65,7 +64,7 @@ ms.locfileid: "60400136"
 
 1. Android Things 애플리케이션을 빌드하는 첫 번째 단계는 Android Things 디바이스에 연결하는 것입니다. Android Things 디바이스를 디스플레이에 연결하고 인터넷에 연결합니다. Android Things는 WiFi에 연결하는 방법에 관한 [설명서](https://developer.android.com/things/get-started/kits)를 제공합니다. 인터넷에 연결한 후 네트워크 아래에 나열된 IP 주소를 기록해 둡니다.
 
-2. [adb](https://developer.android.com/studio/command-line/adb) 도구를 사용하여 위에서 기록한 IP 주소로 Android Things 디바이스에 연결합니다. 터미널에서 이 명령을 사용하여 연결을 다시 한 번 확인합니다. "연결 됨"으로 나열 된 장치가 표시 됩니다.
+2. [adb](https://developer.android.com/studio/command-line/adb) 도구를 사용하여 위에서 기록한 IP 주소로 Android Things 디바이스에 연결합니다. 터미널에서 이 명령을 사용하여 연결을 다시 한 번 확인합니다. 장치가 "연결 됨"으로 표시 되어야 합니다.
 
    ```
    adb devices
@@ -87,7 +86,7 @@ ms.locfileid: "60400136"
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
-IoT Hub를 통해 데이터를 받은 상태 그대로 볼 수 있습니다. IoT Hub CLI 확장은 IoT Hub의 서비스 쪽 **이벤트** 엔드포인트에 연결할 수 있습니다. 이 확장은 시뮬레이트된 디바이스에서 보낸 디바이스-클라우드 메시지를 받습니다. IoT Hub 백 엔드 애플리케이션은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
+IoT Hub를 통해 데이터를 받은 상태 그대로 볼 수 있습니다. IoT Hub CLI 확장은 IoT Hub의 서비스 쪽 **이벤트** 엔드포인트에 연결할 수 있습니다. 이 확장은 시뮬레이트된 디바이스에서 보낸 디바이스-클라우드 메시지를 받습니다. IoT Hub 백 엔드 애플리케이션은 일반적으로 클라우드에서 실행되며 디바이스-클라우드 메시지를 수신하고 처리합니다.
 
 Azure Cloud Shell에서 다음 명령을 실행하고, `YourIoTHubName`을 해당 IoT 허브 이름으로 바꿉니다.
 

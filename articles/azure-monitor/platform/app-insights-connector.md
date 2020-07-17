@@ -1,24 +1,16 @@
 ---
 title: Azure Application Insights 앱 데이터 보기 | Microsoft Docs
 description: Application Insights 커넥터 솔루션을 사용하여 성능 문제를 진단하고 Application Insights를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악할 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.author: magoedte
-ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77665157"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
 
@@ -49,20 +41,20 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 대부분의 다른 Log Analytics 솔루션과 달리 Application Insights 커넥터에 대해서는 데이터가 에이전트별로 수집되지 않습니다. 솔루션에서 사용하는 모든 데이터는 Azure에서 직접 옵니다.
 
-| 연결된 소스 | 지원됨 | 설명 |
+| 연결된 소스 | 지원됨 | Description |
 | --- | --- | --- |
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아닙니다. | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 아닙니다. | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](collect-azure-metrics-logs.md) | 아닙니다. | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
+| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [Azure storage 계정](collect-azure-metrics-logs.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Application Insights 커넥터 정보에 액세스하려면 Azure 구독이 있어야 합니다.
 - 구성된 Application Insights 리소스가 하나 이상 있어야 합니다.
 - Application Insights 리소스 소유자 또는 참가자여야 합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
 2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
@@ -181,9 +173,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="generic-fields"></a>일반 필드
 
-| 자산 | Description |
+| 속성 | 설명 |
 | --- | --- |
-| Type | ApplicationInsights |
+| 형식 | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 레코드 시간 |
 | ApplicationId | Application Insights 앱의 계측 키 |
@@ -193,9 +185,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | ScreenResolution |   |
 | Continent | 요청이 시작된 대륙 |
 | 국가 | 요청이 시작 된 국가/지역 |
-| 시/도 | 요청이 시작된 시/도 또는 로캘 |
+| Province | 요청이 시작된 시/도 또는 로캘 |
 | City | 요청이 시작된 구/군/시 또는 동/면 |
-| isSynthetic | 요청이 사용자에 의해 만들어졌는지 자동화된 방법을 통해 만들어졌는지 나타냅니다. 사용자가 생성한 경우 True, 자동화된 방법인 경우 False입니다. |
+| isSynthetic | 요청이 사용자에 의해 만들어졌는지 자동화된 방법을 통해 만들어졌는지 나타냅니다. True = 자동화 된 방법 또는 false = 사용자 생성 |
 | SamplingRate | 포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
 | SampledCount | 100/(SamplingRate)입니다. 예를 들어 4 =&gt; 25%입니다. |
 | IsAuthenticated | True 또는 False |
@@ -207,7 +199,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="availability-specific-fields"></a>가용성 관련 필드
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | --- | --- |
 | TelemetryType | 가용성 |
 | AvailabilityTestName | 웹 테스트의 이름 |
@@ -232,7 +224,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>예외 관련 필드
 
-| Type | ApplicationInsights |
+| 형식 | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 예외 |
 | ExceptionType | 예외 형식 |
@@ -249,9 +241,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="request-specific-fields"></a>요청 관련 필드
 
-| 자산 | Description |
+| 속성 | 설명 |
 | --- | --- |
-| Type | ApplicationInsights |
+| 형식 | ApplicationInsights |
 | TelemetryType | 요청 |
 | ResponseCode | 클라이언트에 보낸 HTTP 응답 |
 | RequestSuccess | 성공 또는 실패를 표시합니다. True 또는 False입니다. |

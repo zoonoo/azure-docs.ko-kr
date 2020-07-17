@@ -1,52 +1,52 @@
 ---
-title: Azure Site Recovery에서 PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정 | Microsoft Docs
+title: Azure 사이트 복구에서 PowerShell을 사용 하 여 VMware 재해 복구 설정
 description: Azure Site Recovery에서 PowerShell을 사용하여 VMware VM의 재해 복구를 위해 Azure로 복제 및 장애 조치(failover)를 설정하는 방법을 알아봅니다.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.date: 04/08/2019
+ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 5490149f199c2d7887716ceae3f035527ad33961
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280180"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129915"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 
 이 문서에서는 Azure PowerShell을 사용하여 VMware 가상 머신을 Azure로 복제 및 장애 조치(failover)하는 방법을 설명합니다.
 
-다음 방법에 대해 알아봅니다.
+다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - Recovery Services 자격 증명 모음을 만들고 자격 증명 모음 컨텍스트를 설정합니다.
 > - 자격 증명 모음에서 서버 등록 유효성을 검사합니다.
 > - 복제 정책을 포함하여 복제를 설정합니다. vCenter 서버를 추가하고 VM을 검색합니다.
 > - vCenter 서버 추가 및 검색
-> - 복제 데이터를 저장할 저장소 계정을 만들고 VM을 복제합니다.
-> - 장애 조치(failover)를 수행합니다. 장애 조치 설정을 구성 하 고 가상 머신을 복제 하는 것에 대 한 설정을 수행 하십시오.
+> - 복제 로그 나 데이터를 보관할 저장소 계정을 만들고 Vm을 복제 합니다.
+> - 장애 조치(failover)를 수행합니다. 장애 조치 (failover) 설정을 구성 하 고 가상 컴퓨터를 복제 하기 위한 설정을 수행 합니다.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-시작하기 전에 다음을 수행합니다.
+시작하기 전에
 
 - [시나리오 아키텍처 및 구성 요소](vmware-azure-architecture.md)를 이해해야 합니다.
-- 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-azure.md)을 검토합니다.
-- Azure PowerShell을 사용할 `Az` 모듈입니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
+- 모든 구성 요소에 대 한 [지원 요구 사항을](./vmware-physical-azure-support-matrix.md) 검토 합니다.
+- Azure PowerShell `Az` 모듈이 있습니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="log-into-azure"></a>Azure에 로그인
 
-Connect AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
+AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
 
 ```azurepowershell
 Connect-AzAccount
 ```
-VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. Get-AzSubscription cmdlet를 사용 하 여에 대 한 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Azure 구독 선택 AzSubscription cmdlet을 사용 하 여 작업을 선택 합니다.
+VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. AzSubscription cmdlet을 사용 하 여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. AzSubscription cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionName "ASR Test Subscription"
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 설정합니다. 설정이 되면 PowerShell 세션의 후속 Azure Site Recovery 작업은 선택한 자격 증명 모음의 컨텍스트에서 수행됩니다.
 
 > [!TIP]
-> 대부분의 cmdlet에 대 한 편리한 별칭을 사용 하 여 Azure Site Recovery PowerShell 모듈 (Az.RecoveryServices 모듈)에 제공 됩니다. 모듈의 cmdlet 형태가  *\<작업 >-**AzRecoveryServicesAsr**\<개체 >* 형식의 별칭이 고  *\< 작업 >-**ASR**\<개체 >* 합니다. 이 문서에서는 읽기 쉽도록 cmdlet 별칭을 사용합니다.
+> Azure Site Recovery PowerShell 모듈 (Az. RecoveryServices 모듈)은 대부분의 cmdlet에 대 한 별칭을 쉽게 사용할 수 있습니다. 이 모듈의 cmdlet은 * \<Operation> - **AzRecoveryServicesAsr** \<Object> * 형식을 사용 하며 * \<Operation> - **ASR** \<Object> *형식을 사용 하는 동등한 별칭을 가집니다. 사용 편의성을 위해 cmdlet 별칭을 바꿀 수 있습니다.
 
 아래 예에서 $vault 변수의 자격 증명 모음 세부 정보가 PowerShell 세션의 자격 증명 모음 컨텍스트를 지정하는 데 사용됩니다.
 
@@ -118,7 +118,7 @@ Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Set-asrvaultcontext cmdlet 대신 자격 증명 모음 컨텍스트를 설정 가져오기 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용할 수도 하나입니다. 경로는 자격 증명 모음 등록 키 파일을 가져오기 AzRecoveryServicesAsrVaultSettingsFile cmdlet-path 매개 변수로 지정 합니다. 예를 들면 다음과 같습니다.
+Set-asrvaultcontext cmdlet에 대 한 대 안으로 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 자격 증명 모음 등록 키 파일이 있는 경로를 지정 합니다. 예를 들면 다음과 같습니다.
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -138,7 +138,7 @@ Set-asrvaultcontext cmdlet 대신 자격 증명 모음 컨텍스트를 설정 �
 
    ```azurepowershell
    # Verify that the Configuration server is successfully registered to the vault
-   $ASRFabrics = Get-ASRFabric
+   $ASRFabrics = Get-AzRecoveryServicesAsrFabric
    $ASRFabrics.count
    ```
    ```
@@ -201,7 +201,7 @@ Set-asrvaultcontext cmdlet 대신 자격 증명 모음 컨텍스트를 설정 �
 1. *ReplicationPolicy*라는 복제 정책을 만들어서 지정된 속성으로 VMware 가상 머신을 Azure에 복제합니다.
 
    ```azurepowershell
-   $Job_PolicyCreate = New-ASRPolicy -VMwareToAzure -Name "ReplicationPolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
+   $Job_PolicyCreate = New-AzRecoveryServicesAsrPolicy -VMwareToAzure -Name "ReplicationPolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
 
    # Track Job status to check for completion
    while (($Job_PolicyCreate.State -eq "InProgress") -or ($Job_PolicyCreate.State -eq "NotStarted")){
@@ -235,7 +235,7 @@ Set-asrvaultcontext cmdlet 대신 자격 증명 모음 컨텍스트를 설정 �
 2. Azure에서 온-프레미스 VMware 사이트로의 장애 복구(failback)에 사용할 복제 정책을 만듭니다.
 
    ```azurepowershell
-   $Job_FailbackPolicyCreate = New-ASRPolicy -AzureToVMware -Name "ReplicationPolicy-Failback" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
+   $Job_FailbackPolicyCreate = New-AzRecoveryServicesAsrPolicy -AzureToVMware -Name "ReplicationPolicy-Failback" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
    ```
 
    *$Job_FailbackPolicyCreate*의 작업 세부 정보를 사용하여 작업이 완료될 때까지 추적합니다.
@@ -244,15 +244,15 @@ Set-asrvaultcontext cmdlet 대신 자격 증명 모음 컨텍스트를 설정 �
 
    ```azurepowershell
    #Get the protection container corresponding to the Configuration Server
-   $ProtectionContainer = Get-ASRProtectionContainer -Fabric $ASRFabrics[0]
+   $ProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $ASRFabrics[0]
 
    #Get the replication policies to map by name.
-   $ReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy"
-   $FailbackReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy-Failback"
+   $ReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "ReplicationPolicy"
+   $FailbackReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "ReplicationPolicy-Failback"
 
    # Associate the replication policies to the protection container corresponding to the Configuration Server.
 
-   $Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
+   $Job_AssociatePolicy = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
 
    # Check the job status
    while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){
@@ -266,7 +266,7 @@ Set-asrvaultcontext cmdlet 대신 자격 증명 모음 컨텍스트를 설정 �
       Configuration server acts as both the Primary protection container and the recovery protection
       container
    #>
-    $Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
+    $Job_AssociateFailbackPolicy = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
 
    # Check the job status
    while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){
@@ -284,7 +284,7 @@ vCenter Server를 IP 주소 또는 호스트 이름으로 추가합니다. **-po
 ```azurepowershell
 # The $AccountHandles[0] variable holds details of vCenter_account
 
-$Job_AddvCenterServer = New-ASRvCenter -Fabric $ASRFabrics[0] -Name "MyvCenterServer" -IpOrHostName "10.150.24.63" -Account $AccountHandles[0] -Port 443
+$Job_AddvCenterServer = New-AzRecoveryServicesAsrvCenter -Fabric $ASRFabrics[0] -Name "MyvCenterServer" -IpOrHostName "10.150.24.63" -Account $AccountHandles[0] -Port 443
 
 #Wait for the job to complete and ensure it completed successfully
 
@@ -314,9 +314,11 @@ Tasks            : {Adding vCenter server}
 Errors           : {}
 ```
 
-## <a name="create-storage-accounts-for-replication"></a>복제에 사용할 저장소 계정 만들기
+## <a name="create-storage-accounts-for-replication"></a>복제에 사용할 스토리지 계정 만들기
 
-이 단계에서는 복제에 사용할 저장소 계정이 만들어집니다. 이 저장소 계정은 나중에 가상 머신을 복제하는 데 사용됩니다. 저장소 계정을 자격 증명 모음과 동일한 Azure 지역에 만들어야 합니다. 복제에 기존 저장소 계정을 사용하려는 경우 이 단계를 건너뛸 수 있습니다.
+**관리 디스크에 쓰려면 [Powershell Az. RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 을 사용 합니다.** 로그 저장소 계정 만들기만 필요 합니다. 임시 로그를 저장 하는 데 사용 되므로 표준 계정 유형 및 중복성을 사용 하는 것이 LRS 것이 좋습니다. 저장소 계정이 자격 증명 모음과 동일한 Azure 지역에 만들어졌는지 확인 합니다.
+
+2.0.0 보다 오래 된 Az. RecoveryServices 모듈의 버전을 사용 하는 경우 다음 단계를 사용 하 여 저장소 계정을 만듭니다. 이 스토리지 계정은 나중에 가상 머신을 복제하는 데 사용됩니다. 스토리지 계정을 자격 증명 모음과 동일한 Azure 지역에 만들어야 합니다. 복제에 기존 스토리지 계정을 사용하려는 경우 이 단계를 건너뛸 수 있습니다.
 
 > [!NOTE]
 > 온-프레미스 가상 머신을 Premium Storage 계정에 복제하는 동안 표준 스토리지 계정을 추가로 지정해야 합니다(로그 스토리지 계정). 로그 스토리지 계정에는 Premium Storage 대상에 로그가 적용될 때까지 복제 로그가 중간 스토리지로 보관됩니다.
@@ -338,8 +340,9 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 검색된 가상 머신을 보호하려면 다음 세부 정보가 필요합니다.
 
 * 복제할 보호 가능한 항목.
-* 가상 머신을 복제할 대상 저장소 계정. 또한 가상 머신을 Premium Storage 계정으로 보호하기 위해 로그 스토리지가 필요합니다.
-* 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색되어 ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* 및 ***$ProcessServers[1]*** *(ConfigurationServer)* 변수에 저장됩니다.
+* 가상 컴퓨터를 복제할 저장소 계정 (저장소 계정에 복제 하는 경우에만 해당) 
+* 로그 저장소는 premium storage 계정 또는 관리 디스크로 가상 컴퓨터를 보호 하는 데 필요 합니다.
+* 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색되어 ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* 및 ***$ProcessServers[1]*** *(ConfigurationServer)* 변수에 저장됩니다.
 * 모바일 서비스 소프트웨어를 컴퓨터에 강제 설치하는 데 사용할 계정. 사용 가능한 계정 목록은 검색되어 ***$AccountHandles*** 변수에 저장됩니다.
 * 복제에 사용되는 복제 정책에 대한 보호 컨테이너 매핑.
 * 장애 조치(failover)시 가상 머신이 만들어져야 하는 리소스 그룹.
@@ -348,11 +351,11 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 이제 이 테이블에 지정된 설정을 사용하여 다음 가상 머신을 복제합니다.
 
 
-|가상 머신  |프로세스 서버        |Storage 계정              |로그 저장소 계정  |정책           |모바일 서비스 설치를 위한 계정|대상 리소스 그룹  | 대상 가상 네트워크  |대상 서브넷  |
+|가상 머신  |프로세스 서버        |스토리지 계정              |로그 스토리지 계정  |정책           |모바일 서비스 설치를 위한 계정|대상 리소스 그룹  | 대상 가상 네트워크  |대상 서브넷  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
-|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM1       |ConfigurationServer   |해당 없음| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
+|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| 해당 없음                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
 
 ```azurepowershell
@@ -364,26 +367,30 @@ $ResourceGroup = Get-AzResourceGroup -Name "VMwareToAzureDrPs"
 $RecoveryVnet = Get-AzVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
 
 #Get the protection container mapping for replication policy named ReplicationPolicy
-$PolicyMap  = Get-ASRProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
-
-#Get the protectable item corresponding to the virtual machine Win2K12VM1
-$VM1 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "Win2K12VM1"
-
-# Enable replication for virtual machine Win2K12VM1
-# The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
-$Job_EnableReplication1 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $PremiumStorageAccount.Id -LogStorageAccountId $LogStorageAccount.Id -ProcessServer $ProcessServers[0] -Account $AccountHandles[1] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+$PolicyMap  = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
 
 #Get the protectable item corresponding to the virtual machine CentOSVM1
-$VM2 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM1"
+$VM1 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM1"
 
-# Enable replication for virtual machine CentOSVM1
-$Job_EnableReplication2 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM2 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+# Enable replication for virtual machine CentOSVM1 using the Az.RecoveryServices module 2.0.0 onwards to replicate to managed disks
+# The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
+$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+
+# Alternatively, if the virtual machine CentOSVM1 has CMK enabled disks, enable replication using Az module 3.3.0 onwards as below
+# $diskID is the Disk Encryption Set ID to be used for all replica managed disks and target managed disks in the target region
+$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId -DiskEncryptionSetId $diskId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+
+#Get the protectable item corresponding to the virtual machine Win2K12VM1
+$VM2 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "Win2K12VM1"
+
+# Enable replication for virtual machine Win2K12VM1
+$Job_EnableReplication2 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM2 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $PremiumStorageAccount.Id -LogStorageAccountId $LogStorageAccount.Id -ProcessServer $ProcessServers[0] -Account $AccountHandles[1] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
 
 #Get the protectable item corresponding to the virtual machine CentOSVM2
-$VM3 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM2"
+$VM3 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM2"
 
 # Enable replication for virtual machine CentOSVM2
-$Job_EnableReplication3 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM3 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+$Job_EnableReplication3 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM3 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
 
 ```
 
@@ -392,7 +399,7 @@ $Job_EnableReplication3 = New-ASRReplicationProtectedItem -VMwareToAzure -Protec
 가상 머신의 복제 상황 및 복제 상태는 Get-ASRReplicationProtectedItem cmdlet을 사용하여 확인할 수 있습니다.
 
 ```azurepowershell
-Get-ASRReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
+Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
 ```
 FriendlyName ProtectionState                 ReplicationHealth
@@ -415,9 +422,9 @@ Win2K12VM1   Protected                       Normal
 이 예제에서는 가상 머신 *Win2K12VM1*에 대한 장애 조치(failover) 시 만들어지는 가상 머신의 VM 크기를 업데이트하고 장애 조치(failover) 시 가상 머신이 관리 디스크를 사용하도록 지정합니다.
 
 ```azurepowershell
-$ReplicatedVM1 = Get-ASRReplicationProtectedItem -FriendlyName "Win2K12VM1" -ProtectionContainer $ProtectionContainer
+$ReplicatedVM1 = Get-AzRecoveryServicesAsrReplicationProtectedItem -FriendlyName "Win2K12VM1" -ProtectionContainer $ProtectionContainer
 
-Set-ASRReplicationProtectedItem -InputObject $ReplicatedVM1 -Size "Standard_DS11" -UseManagedDisk True
+Set-AzRecoveryServicesAsrReplicationProtectedItem -InputObject $ReplicatedVM1 -Size "Standard_DS11" -UseManagedDisk True
 ```
 ```
 Name             : cafa459c-44a7-45b0-9de9-3d925b0e7db9
@@ -450,14 +457,14 @@ Errors           : {}
    TestFailovervnet = Get-AzVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
 
    #Start the test failover operation
-   $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
+   $TFOJob = Start-AzRecoveryServicesAsrTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
    ```
 2. 테스트 장애 조치(failover) 작업이 완료되면 이름에 *"-Test"* 접미사가 붙은 가상 머신(이 경우 Win2K12VM1-Test)이 Azure에 만들어집니다.
 3. 이제 테스트 장애 조치(failover)된 가상 머신에 연결하여 테스트 장애 조치(failover)의 유효성을 검사할 수 있습니다.
 4. Start-ASRTestFailoverCleanupJob cmdlet을 사용하여 테스트 장애 조치(failover)를 정리합니다. 이 작업은 테스트 장애 조치(failover) 작업의 일환으로 만들어진 가상 머신을 삭제합니다.
 
    ```azurepowershell
-   $Job_TFOCleanup = Start-ASRTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1
+   $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1
    ```
 
 ## <a name="fail-over-to-azure"></a>Azure로 장애 조치(failover)
@@ -467,7 +474,7 @@ Errors           : {}
 1. 장애 조치(failover)에 사용할 복구 지점 목록을 가져옵니다.
    ```azurepowershell
    # Get the list of available recovery points for Win2K12VM1
-   $RecoveryPoints = Get-ASRRecoveryPoint -ReplicationProtectedItem $ReplicatedVM1
+   $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem $ReplicatedVM1
    "{0} {1}" -f $RecoveryPoints[0].RecoveryPointType, $RecoveryPoints[0].RecoveryPointTime
    ```
    ```
@@ -476,7 +483,7 @@ Errors           : {}
    ```azurepowershell
 
    #Start the failover job
-   $Job_Failover = Start-ASRUnplannedFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -Direction PrimaryToRecovery -RecoveryPoint $RecoveryPoints[0]
+   $Job_Failover = Start-AzRecoveryServicesAsrUnplannedFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -Direction PrimaryToRecovery -RecoveryPoint $RecoveryPoints[0]
    do {
            $Job_Failover = Get-ASRJob -Job $Job_Failover;
            sleep 60;
@@ -490,4 +497,4 @@ Errors           : {}
 2. 장애 조치(failover)가 완료되면 장애 조치(failover) 작업을 커밋하고 Azure에서 온-프레미스 VMware 사이트로 역방향 복제를 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-사용 하 여 더 많은 작업을 자동화 하는 방법을 알아봅니다 합니다 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/Az.RecoveryServices)합니다.
+[Azure Site Recovery PowerShell 참조](/powershell/module/Az.RecoveryServices)를 사용 하 여 더 많은 작업을 자동화 하는 방법을 알아봅니다.

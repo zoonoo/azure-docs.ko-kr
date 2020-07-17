@@ -3,22 +3,22 @@ title: 자습서 - PowerShell을 사용하여 기존 가상 네트워크에 배�
 description: PowerShell을 사용하여 전용 HSM을 기존 가상 네트워크에 배포하는 방법을 보여 주는 자습서입니다.
 services: dedicated-hsm
 documentationcenter: na
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.date: 11/11/2019
+ms.author: mbaldwin
+ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521665"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474427"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>자습서 - PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -38,7 +38,7 @@ Azure Dedicated HSM 서비스는 단일 고객이 사용할 수 있는 완전한
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Dedicated HSM은 현재 Azure Portal에서 사용할 수 없으므로 이 서비스와의 모든 상호 작용은 명령줄 또는 PowerShell을 통해 이루어집니다. 이 자습서에서는 Azure Cloud Shell에서 PowerShell을 사용합니다. PowerShell을 처음 사용하는 경우 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)에 있는 시작 지침을 따릅니다.
 
@@ -130,7 +130,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBar
 ![파일 공유](media/tutorial-deploy-hsm-powershell/file-share.png)
 
 파일이 업로드되면 리소스를 만들 수 있습니다.
-새 HSM을 만들기 전에 반드시 갖추어야 하는 일부 필수 리소스가 있습니다. 계산, HSM 및 게이트웨이에 대한 서브넷 범위를 지원하는 가상 네트워크가 있어야 합니다. 다음 명령은 이러한 가상 네트워크를 만드는 요소에 대한 예를 보여줍니다.
+새 HSM을 만들기 전에 반드시 갖추어야 하는 일부 필수 리소스가 있습니다. 컴퓨팅, HSM 및 게이트웨이에 대한 서브넷 범위를 지원하는 가상 네트워크가 있어야 합니다. 다음 명령은 이러한 가상 네트워크를 만드는 요소에 대한 예를 보여줍니다.
 
 ```powershell
 $compute = New-AzVirtualNetworkSubnetConfig `
@@ -217,7 +217,7 @@ ssh 도구를 사용하여 가상 머신에 연결합니다. 이 명령은 다�
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 사용할 암호는 매개 변수 파일의 암호입니다.
-Linux VM에 로그온하면 포털에서 리소스 \<prefix>hsm_vnic에 대해 확인된 사설 IP 주소를 사용하여 HSM에 로그인할 수 있습니다.
+Linux VM에 로그온하면 포털에서 리소스 \<prefix&gt;hsm_vnic에 대해 확인된 개인 IP 주소를 사용하여 HSM에 로그인할 수 있습니다.
 
 ```powershell
 
@@ -245,23 +245,12 @@ ssh를 사용하여 HSM에 연결하는 경우 HSM 디바이스가 작동하도�
 
 ## <a name="delete-or-clean-up-resources"></a>리소스 삭제 또는 정리
 
-HSM 디바이스로만 완료한 경우 리소스로 삭제하고 사용 가능 풀로 반환할 수 있습니다. 이 작업을 수행할 때 확실한 문제는 디바이스에 있는 모든 중요한 고객 데이터입니다. 중요한 고객 데이터를 제거하려면 Gemalto 클라이언트를 사용하여 디바이스를 출고 시 설정으로 초기화해야 합니다. SafeNet Network Luna 7 디바이스에 대한 Gemalto 관리자 가이드를 참조하고 다음 명령을 순서대로 고려해 보세요.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `network interface delete -device eth0`
-4. `network interface delete -device eth1`
-5. `network interface delete -device eth2`
-6. `network interface delete -device eth3`
-7. `my file clear -f`
-8. `my public-key clear -f`
-9. `syslog rotate`
-
+HSM 디바이스로만 완료한 경우 리소스로 삭제하고 사용 가능 풀로 반환할 수 있습니다. 이 작업을 수행할 때 확실한 문제는 디바이스에 있는 모든 중요한 고객 데이터입니다. 디바이스를 "제로화"하는 가장 좋은 방법은 HSM 관리자 암호를 3번 잘못 가져오는 것입니다(참고: 이는 어플라이언스 관리자가 아니라 실제 HSM 관리자임). 핵심 자료를 보호하는 차원에서 디바이스는 초기화 상태가 될 때까지 Azure 리소스로 간주하며, 삭제할 수 없습니다.
 
 > [!NOTE]
 > Gemalto 디바이스 구성과 관련하여 문제가 발생할 경우 [Gemalto 고객 지원팀](https://safenet.gemalto.com/technical-support/)에 연락하시기 바랍니다.
 
-이 리소스 그룹의 리소스를 다 사용한 경우 다음 명령을 사용하여 모두 제거할 수 있습니다.
+Azure에서 HSM 리소스를 제거하려는 경우 다음 명령을 사용하여 "$" 변수를 고유한 매개 변수로 바꿀 수 있습니다.
 
 ```powershell
 
@@ -279,5 +268,5 @@ Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGrou
 * [고가용성](high-availability.md)
 * [물리적 보안](physical-security.md)
 * [네트워킹](networking.md)
-* [모니터링](monitoring.md)
+* [Monitoring](monitoring.md)
 * [지원 가능성](supportability.md)

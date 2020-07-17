@@ -1,46 +1,53 @@
 ---
-title: JavaScript 및 페이지 계약 버전-Azure Active Directory B2C | Microsoft Docs
-description: JavaScript를 사용 하도록 Azure Active Directory B2C에서 페이지 계약 버전을 사용 하는 방법을 알아봅니다.
+title: JavaScript 및 페이지 레이아웃 버전
+titleSuffix: Azure AD B2C
+description: Azure Active Directory B2C에서 JavaScript를 사용 하도록 설정 하 고 페이지 레이아웃 버전을 사용 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: davidmu
+ms.topic: how-to
+ms.date: 02/10/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 91b4b621fc3dcedb52f88372fbfac222a744dbd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cbc0f607af31d0e3b3715e73ddbde19143bd1599
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384144"
 ---
-# <a name="javascript-and-page-contract-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 JavaScript 및 페이지 계약 버전
+# <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 JavaScript 및 페이지 레이아웃 버전
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C 사용자 지정 정책을 확인 하 고 사용자 흐름에서 사용자 인터페이스 요소에 대 한 HTML, CSS 및 JavaScript를 포함 하는 패키지 콘텐츠를 제공 합니다. JavaScript 응용 프로그램을 사용 하려면 요소를 추가 해야 하 [사용자 지정 정책](active-directory-b2c-overview-custom.md) 또는 사용자 흐름에 대 한 포털을 사용 하도록 설정, 페이지 계약을 선택 하 고 사용 하 여 [b2clogin.com](b2clogin.md) 요청에서.
+Azure AD B2C은 사용자 흐름 및 사용자 지정 정책의 사용자 인터페이스 요소에 대 한 HTML, CSS 및 JavaScript를 포함 하는 패키지 콘텐츠 집합을 제공 합니다.
 
-사용 하도록 설정 하려는 경우 [JavaScript](javascript-samples.md) 클라이언트 쪽 코드 해야 되도록에서 JavaScript를 기반으로 하는 요소는 변경할 수 없습니다. 그렇지 않은 경우 변경 내용을 사용자 페이지에 예기치 않은 동작이 발생할 수 있습니다. 이러한 문제를 방지 하려면 페이지 계약의 사용을 적용 하 고 페이지 계약 버전을 지정할 수 있습니다. 이렇게 하면 JavaScript를 기반으로 한 사용자는 모든 콘텐츠 정의 변경할 수 없습니다. JavaScript를 사용 하도록 설정 하지 않으려는 경우에 페이지에 대 한 페이지 계약 버전을 지정할 수 있습니다.
+응용 프로그램에 JavaScript를 사용 하도록 설정 하려면
 
-## <a name="user-flows"></a>사용자 흐름
+* Azure Portal를 사용 하 여 사용자 흐름에서 사용 하도록 설정
+* [페이지 레이아웃](page-layout.md) 선택
+* 요청에서 [b2clogin.com](b2clogin.md) 사용
 
-사용자 흐름 속성에서 JavaScript를 사용하도록 설정할 수 있으며, 이 경우 페이지 계약도 사용됩니다. 그런 후에 다음 섹션에 설명된 대로 페이지 계약 버전을 설정할 수 있습니다.
+[Javascript](javascript-samples.md) 클라이언트 쪽 코드를 사용 하도록 설정 하려는 경우 javascript를 기반으로 하는 요소를 변경할 수 없어야 합니다. 변경할 수 없으면 사용자 페이지에서 예기치 않은 동작이 발생할 수 있습니다. 이러한 문제를 방지 하려면 페이지 레이아웃 사용을 적용 하 고 JavaScript를 기반으로 하는 콘텐츠 정의를 변경할 수 없도록 페이지 레이아웃 버전을 지정 합니다. JavaScript를 사용 하지 않으려는 경우에도 페이지에 대 한 페이지 레이아웃 버전을 지정할 수 있습니다.
 
-![JavaScript 설정 사용](media/user-flow-javascript-overview/javascript-settings.png)
+## <a name="enable-javascript"></a>JavaScript 사용
 
-사용자 흐름의 속성에서 JavaScript를 사용하도록 설정했는지 여부와 관계없이, 사용자 흐름 페이지에 대해 페이지 계약 버전을 지정할 수 있습니다. 사용자 흐름을 열고 **페이지 레이아웃**을 선택합니다. **레이아웃 이름**에서 사용자 흐름 페이지를 선택한 다음, **페이지 계약 버전**을 선택합니다.
+사용자 흐름 **속성**에서 JavaScript를 사용 하도록 설정할 수 있습니다. JavaScript를 사용 하도록 설정 하면 페이지 레이아웃 사용도 적용 됩니다. 그런 다음, 다음 섹션에 설명 된 대로 사용자 흐름에 대 한 페이지 레이아웃 버전을 설정할 수 있습니다.
 
-![JavaScript 설정 사용](media/user-flow-javascript-overview/page-contract-version.png)
+![JavaScript 설정 사용이 강조 표시 된 사용자 흐름 속성 페이지](media/user-flow-javascript-overview/javascript-settings.png)
 
-## <a name="custom-policies"></a>사용자 지정 정책
+## <a name="select-a-page-layout-version"></a>페이지 레이아웃 버전 선택
 
-추가한 사용자 지정 정책에서 JavaScript를 사용 하도록 설정 합니다 **ScriptExecution** 요소를 **RelyingParty** 요소 사용자 지정 정책 파일에서. 자세한 내용은 [Azure Active Directory B2C에서 사용 하기 위해 JavaScript 샘플](javascript-samples.md)합니다.
+사용자 흐름의 속성에서 JavaScript를 사용 하도록 설정할지 여부에 관계 없이 사용자 흐름 페이지에 대 한 페이지 레이아웃 버전을 지정할 수 있습니다. 사용자 흐름을 열고 **페이지 레이아웃**을 선택 합니다. **레이아웃 이름**에서 사용자 흐름 페이지를 선택 하 고 **페이지 레이아웃 버전**을 선택 합니다.
 
-사용자 지정 정책에서 JavaScript를 사용 하면, 여부 페이지에 대 한 페이지 계약 버전을 지정할 수 있습니다. 페이지 계약을 지정 하는 방법에 대 한 자세한 내용은 참조 하세요. [사용자 지정 정책을 사용 하 여 Azure Active Directory B2C에서 페이지에 대 한 계약 선택](page-contract.md)합니다.
+여러 페이지 레이아웃 버전에 대 한 자세한 내용은 [페이지 레이아웃 버전 변경 로그](page-layout.md)를 참조 하세요.
+
+![페이지 레이아웃 버전 드롭다운을 보여 주는 포털의 페이지 레이아웃 설정](media/user-flow-javascript-overview/page-layout-version.png)
+
+[!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Active Directory B2C에서 사용하기 위한 JavaScript 샘플](javascript-samples.md)을 참조하세요.
+Javascript [샘플에서 Azure Active Directory B2C 사용 하기 위한](javascript-samples.md)javascript 사용 예제를 찾을 수 있습니다.

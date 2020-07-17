@@ -1,109 +1,113 @@
 ---
 title: Azure Analysis Services에서 지원되는 데이터 원본 | Microsoft Docs
-description: Azure Analysis Services의 데이터 모델에 지원되는 데이터 원본에 대해 설명합니다.
+description: Azure Analysis Services에서 테이블 형식 1200 이상 데이터 모델에 대해 지원되는 데이터 원본 및 커넥터에 대해 설명합니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506827"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077442"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
-Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표시된 데이터 원본 및 커넥터는 Azure Analysis Services 및 SQL Server Analysis Services에 표시됩니다. 그러나 표시된 일부 데이터 원본 및 커넥터는 Azure Analysis Services에서 지원됩니다. 연결할 수 있는 데이터 원본의 형식은 모델 호환성 수준, 사용 가능한 데이터 커넥터, 인증 형식, 공급자 및 온-프레미스 데이터 게이트웨이 지원과 같은 많은 요인에 따라 달라집니다. 
+Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오기 또는 테이블 가져오기 마법사에 표시된 데이터 원본 및 커넥터는 Azure Analysis Services 및 SQL Server Analysis Services에 표시됩니다. 그러나 표시된 일부 데이터 원본 및 커넥터는 Azure Analysis Services에서 지원됩니다. 연결할 수 있는 데이터 원본의 형식은 모델 호환성 수준, 사용 가능한 데이터 커넥터, 인증 형식 및 온-프레미스 데이터 게이트웨이 지원과 같은 많은 요인에 따라 달라집니다. 다음 표에서는 Azure Analysis Services에 지원되는 데이터 원본에 대해 설명합니다.
 
 ## <a name="azure-data-sources"></a>Azure 데이터 원본
 
-|데이터 소스  |메모리 내  |DirectQuery  |
-|---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예.      |    예      |
-|Azure SQL 데이터 웨어하우스     |   예      |   예.       |
-|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예.       |    아닙니다.      |
-|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예.       |    아닙니다.      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아닙니다.        |
-|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예.       |    아닙니다.      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예.     |   아닙니다.       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아닙니다.       |
+|데이터 원본  |메모리 내  |DirectQuery  |메모 |
+|---------|---------|---------|---------|
+|Azure SQL Database      |   예      |    예      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
+|Azure Synapse Analytics(SQL DW)      |   예      |   예       |<sup>[2](#azprovider)</sup>|
+|Azure Blob Storage      |   예       |    예      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   예       |    예      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  예        |  예        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   예       |    예      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   예       |    예      |<sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     예     |   예       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   예       |   예       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
 ||||
 
-<a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.   
-<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance가 지원됩니다. Managed Instance는 Azure VNet 내에서 개인 IP 주소를 사용하여 실행되므로 온-프레미스 데이터 게이트웨이가 필요합니다.   
-<a name="databricks">3</a> - Spark 커넥터를 사용하는 Azure Databricks는 현재 지원되지 않습니다.   
-<a name="gen2">4</a> - ADLS Gen2는 현재 지원되지 않습니다.
+**참고:**
 
+<a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.  
+<a name="azprovider">2</a> - 테이블 형식 1200 이상 모델에서 *공급자* 데이터 원본으로 지정되면 메모리 내 및 DirectQuery 모델 모두 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL(권장), SQL Server Native Client 11.0 또는 .NET Framework Data Provider for SQL Server가 필요합니다.  
+<a name="azsqlmanaged">3</a> -Azure SQL Managed Instance 지원 됩니다. SQL Managed Instance 개인 IP 주소를 사용 하 여 Azure VNet 내에서 실행 되기 때문에 인스턴스에 대해 공용 끝점을 사용 하도록 설정 해야 합니다. 사용하도록 설정하지 않으면 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)가 필요합니다.  
+<a name="databricks">4</a> - Spark 커넥터를 사용하는 Azure Databricks는 현재 지원되지 않습니다.  
+<a name="gen2">5</a> - ADLS Gen2 커넥터는 현재 지원되지 않지만 Azure Blob Storage 커넥터는 ADLS Gen2 데이터 원본에서 사용할 수 있습니다.
 
-**공급자**   
-Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델은 .NET Framework Data Provider for SQL Server를 사용합니다.
+## <a name="other-data-sources"></a>다른 데이터 원본
 
-## <a name="on-premises-data-sources"></a>온-프레미스 데이터 원본
-
-온-프레미스 데이터 원본 및 Azure AS 서버에 연결하려면 온-프레미스 게이트웨이가 필요합니다. 게이트웨이를 사용하는 경우 64비트 공급자는 필수입니다.
-
-### <a name="in-memory-and-directquery"></a>메모리 내 및 DirectQuery
-
-|데이터 소스 | 메모리 내 공급자 | DirectQuery 공급자 |
-|  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| SQL Server 데이터 웨어하우스 |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| Oracle | OLE DB Provider for Oracle에서 Oracle Data Provider for.NET |.NET용 Oracle Data Provider |
-| Teradata |Teradata용 OLE DB Provider, .NET용 Teradata Data Provider |.NET용 Teradata Data Provider |
+|데이터 원본 | 메모리 내 | DirectQuery |메모   |
+|  --- | --- | --- | --- |
+|Access 데이터베이스     |  예 | 예 |  |
+|Active Directory     |  예 | 예 | <sup>[6](#tab1400b)</sup>  |
+|Analysis Services     |  예 | 예 |  |
+|분석 플랫폼 시스템     |  예 | 예 |  |
+|CSV 파일  |예 | 예 |  |
+|Dynamics 365     |  예 | 예 | <sup>[6](#tab1400b)</sup> |
+|Excel 통합 문서     |  예 | 예 |  |
+|Exchange      |  예 | 예 | <sup>[6](#tab1400b)</sup> |
+|폴더      |예 | 예 | <sup>[6](#tab1400b)</sup> |
+|IBM Informix  |예 | 예 |  |
+|JSON 문서      |  예 | 예 | <sup>[6](#tab1400b)</sup> |
+|이진의 줄      | 예 | 예 | <sup>[6](#tab1400b)</sup> |
+|MySQL 데이터베이스     | 예 | 예 |  |
+|OData 피드      |  예 | 예 | <sup>[6](#tab1400b)</sup> |
+|ODBC 쿼리     | 예 | 예 |  |
+|OLE DB     |   예 | 예 |  |
+|Oracle  | 예  |예  | <sup>[9](#oracle)</sup> |
+|PostgreSQL 데이터베이스   | 예 | 예 | <sup>[6](#tab1400b)</sup> |
+|Salesforce 개체|  예 | 예 | <sup>[6](#tab1400b)</sup> |
+|Salesforce 보고서 |예 | 예 | <sup>[6](#tab1400b)</sup> |
+|SAP HANA     |  예 | 예 |  |
+|SAP Business Warehouse    |  예 | 예 | <sup>[6](#tab1400b)</sup> |
+|SharePoint 목록      |   예 | 예 | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
+|SQL Server |예   | 예  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
+|SQL Server 데이터 웨어하우스 |예   | 예  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
+|Sybase 데이터베이스     |  예 | 예 |  |
+|Teradata | 예  | 예  | <sup>[10](#teradata)</sup> |
+|TXT 파일  |예 | 예 |  |
+|XML 테이블    |  예 | 예 | <sup>[6](#tab1400b)</sup> |
 | | | |
 
-### <a name="in-memory-only"></a>메모리 내 전용
+**참고:**  
+<a name="tab1400b">6</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.  
+<a name="sqlim">7</a> - 테이블 형식 1200 이상 모델에서 *공급자* 데이터 원본으로 지정하는 경우 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL(권장), SQL Server Native Client 11.0 또는 .NET Framework Data Provider for SQL Server를 지정합니다.  
+<a name="instgw">8</a> - MSOLEDBSQL을 데이터 공급자로 지정하는 경우 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 [Microsoft OLE DB Driver for SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server)를 다운로드하여 설치해야 할 수 있습니다.  
+<a name="oracle">9</a> - 테이블 형식 1200 모델의 경우 또는 테이블 형식 1400 이상 모델의 *공급자* 데이터 원본으로 Oracle Data Provider for .NET을 지정합니다.  
+<a name="teradata">10</a> - 테이블 형식 1200 모델의 경우 또는 테이블 형식 1400 이상 모델의 *공급자* 데이터 원본으로 Teradata Data Provider for .NET을 지정합니다.  
+<a name="filesSP">11</a> - 온-프레미스 SharePoint의 파일은 지원되지 않습니다.
 
-|데이터 소스  |  
-|---------|
-|Access 데이터베이스     |  
-|Active Directory<sup>[1](#tab1400b)</sup>     |  
-|Analysis Services     |  
-|분석 플랫폼 시스템     |  
-|CSV 파일  |
-|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
-|Excel 통합 문서     |  
-|Exchange<sup>[1](#tab1400b)</sup>     |  
-|Folder<sup>[1](#tab1400b)</sup>     |
-|IBM Informix<sup>[1](#tab1400b)</sup>(베타) |
-|JSON 문서<sup>[1](#tab1400b)</sup>     |  
-|이진의 줄<sup>[1](#tab1400b)</sup>     | 
-|MySQL 데이터베이스     | 
-|OData 피드<sup>[1](#tab1400b)</sup>     |  
-|ODBC 쿼리     | 
-|OLE DB     |   
-|Postgre SQL Database<sup>[1](#tab1400b)</sup>    | 
-|Salesforce 개체<sup>[1](#tab1400b)</sup> |  
-|Salesforce 보고서<sup>[1](#tab1400b)</sup> |
-|SAP HANA<sup>[1](#tab1400b)</sup>    |  
-|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
-|Sybase 데이터베이스     |  
-|TXT 파일  |
-|XML 테이블<sup>[1](#tab1400b)</sup>    |  
-||
- 
-<a name="tab1400b">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.   
-<a name="filesSP">2</a> -온-프레미스 SharePoint의 파일 지원 되지 않습니다.
+온-프레미스 데이터 원본 및 Azure Analysis Services 서버에 연결하려면 [온-프레미스 게이트웨이](analysis-services-gateway.md)가 필요합니다. 게이트웨이를 사용하는 경우 64비트 공급자는 필수입니다.
 
-## <a name="specifying-a-different-provider"></a>다른 공급자 지정
+## <a name="understanding-providers"></a>공급자 이해
 
-특정 데이터 원본에 연결할 때 Azure Analysis Service의 데이터 모델은 서로 다른 데이터 공급자가 필요할 수 있습니다. 경우에 따라 SQL Server Native Client(SQLNCLI11)와 같은 네이티브 공급자를 사용하여 데이터 원본에 연결하는 테이블 형식 모델은 오류를 반환할 수 있습니다. SQLOLEDB 이외의 네이티브 공급자를 사용하는 경우 **공급자 'SQLNCLI11.1'이 등록되지 않았습니다.** 라는 오류 메시지가 표시될 수 있습니다. 또는 온-프레미스 데이터 원본에 DirectQuery 모델을 연결하고 네이티브 공급자를 사용하는 경우 **OLE DB 행 집합을 만드는 데 오류가 발생했습니다. 'LIMIT' 가까이에 잘못된 구문이 있습니다.** 라는 오류 메시지가 표시될 수 있습니다.
+Visual Studio에서 테이블 형식 1400 이상 모델 프로젝트를 만들 때 기본적으로 **데이터 가져오기**를 사용하여 데이터 원본에 연결할 경우 데이터 공급자를 지정하지 않습니다. 테이블 형식 1400 이상 모델에서는 [파워 쿼리](/power-query/power-query-what-is-power-query) 커넥터를 사용하여 데이터 원본 및 Analysis Services 간의 연결, 데이터 쿼리 및 매시업을 관리합니다. 이와 같은 경우에는 연결 속성 설정이 사용자에게 맞게 설정되어 *구조적* 데이터 원본 연결이라고도 합니다. 그러나 Visual Studio에서 모델 프로젝트에 대한 레거시 데이터 원본을 사용하도록 설정할 수 있습니다. 설정된 경우 **테이블 가져오기 마법사**를 사용하여 테이블 형식 1200 이하 모델에서 *레거시* 또는 *공급자* 데이터 원본으로 일반적으로 지원되는 특정 데이터 원본에 연결할 수 있습니다. 공급자 데이터 원본으로 지정하는 경우 특정 데이터 공급자 및 기타 고급 연결 속성을 지정할 수 있습니다. 예를 들어 기존 데이터 원본으로 SQL Server 데이터 웨어하우스 인스턴스 또는 Azure SQL Database에 연결할 수 있습니다. 그런 다음 OLE DB Driver for SQL Server MSOLEDBSQL 데이터 공급자를 선택할 수 있습니다. 이 경우 OLE DB 데이터 공급자를 선택하면 파워 쿼리 커넥터보다 향상된 성능을 제공할 수 있습니다. 
 
-온-프레미스 SQL Server Analysis Services 테이블 형식 모델을 Azure Analysis Services로 마이그레이션하는 경우 공급자를 변경해야 할 수도 있습니다.
+Visual Studio에서 테이블 가져오기 마법사를 사용하는 경우 데이터 원본에 연결하려면 데이터 공급자가 필요합니다. 기본 데이터 공급자가 선택됩니다. 필요한 경우 데이터 공급자를 변경할 수 있습니다. 선택한 공급자 유형에 따라 성능, 모델의 메모리 내 스토리지 또는 DirectQuery에서 사용 여부 및 모델을 배포하는 Analysis Services 플랫폼이 달라질 수 있습니다.
 
-**공급자를 지정하려면**
+### <a name="specify-provider-data-sources-in-tabular-1400-and-higher-model-projects"></a>테이블 형식 1400 이상 모델 프로젝트에서 공급자 데이터 원본 지정
 
-1. SSDT > **테이블 형식 모델 탐색기** > **데이터 원본**에서 데이터 원본 연결을 마우스 오른쪽 단추로 클릭한 다음 **데이터 원본 편집**을 클릭합니다.
-2. **연결 편집**에서 **고급**을 클릭하여 고급 속성 창을 엽니다.
-3. **고급 속성 설정** > **공급자**에서 적절한 공급자를 선택합니다.
+공급자 데이터 원본을 사용하도록 설정하려면 Visual Studio에서 **도구** > **옵션** > **Analysis Services 테이블 형식** > **데이터 가져오기**를 클릭하고 **레거시 데이터 원본 사용**을 선택합니다.
+
+![레거시 데이터 원본 사용](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
+
+레거시 데이터 원본을 사용하도록 설정하는 경우 **테이블 형식 모델 탐색기**에서 **데이터 원본** > **데이터 원본(레거시)에서 가져오기**를 마우스 오른쪽 단추로 클릭합니다.
+
+![테이블 형식 모델 탐색기의 레거시 데이터 원본](media/analysis-services-datasource/aas-import-legacy-datasources.png)
+
+테이블 형식 1200 모델 프로젝트와 마찬가지로 **테이블 가져오기 마법사**를 사용하여 데이터 원본에 연결합니다. 연결 페이지에서 **고급**을 클릭합니다. **고급 속성 설정**에서 데이터 공급자 및 기타 연결 설정을 지정합니다.
+
+![레거시 데이터 원본 고급 속성](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
 ## <a name="impersonation"></a>가장
-경우에 따라 다른 가장 계정을 지정해야 할 수도 있습니다. Visual Studio(SSDT) 또는 SSMS에서 가장 계정을 지정할 수 있습니다.
+경우에 따라 다른 가장 계정을 지정해야 할 수도 있습니다. Visual Studio 또는 SSMS(SQL Server Management Studio)에서 가장 계정을 지정할 수 있습니다.
 
 온-프레미스 데이터 원본의 경우:
 
@@ -114,7 +118,13 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 
 * SQL 인증을 사용하는 경우 가장은 서비스 계정이어야 합니다.
 
-## <a name="next-steps"></a>다음 단계
-[온-프레미스 게이트웨이](analysis-services-gateway.md)   
-[서버 관리](analysis-services-manage.md)   
+## <a name="oauth-credentials"></a>OAuth 자격 증명
 
+메모리 내 모드를 사용 하는 1400 이상 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure Synapse (이전의 SQL Data Warehouse), Dynamics 365 및 SharePoint 목록은 OAuth 자격 증명을 지원 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대한 시간 제한을 방지하기 위해 OAuth 데이터 원본에 대한 토큰 새로 고침을 관리합니다. 유효한 토큰을 생성하려면 SSMS를 사용하여 자격 증명을 설정합니다.
+
+직접 쿼리 모드는 OAuth 자격 증명에서 지원되지 않습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [온-프레미스 게이트웨이](analysis-services-gateway.md)
+* [서버 관리](analysis-services-manage.md)

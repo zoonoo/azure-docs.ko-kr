@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61443448"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기로 자동 디바이스 관리 패키지 가져오기
@@ -30,11 +30,11 @@ Azure Portal을 사용하여 개발 환경에서 자동 디바이스 관리 구�
 
 1. Azure Portal에서 IoT 디바이스를 개발 및 테스트하는 데 사용할 IoT Hub로 이동합니다. **IoT 디바이스 구성**을 클릭합니다.
 
-    [![IoT 디바이스 구성](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
+    [![IoT 장치 구성](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
 
 1. 사용하려는 구성을 클릭합니다. **디바이스 구성 세부 정보** 페이지가 표시됩니다.
 
-    [![IoT 디바이스 구성 세부 정보](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
+    [![IoT 장치 구성 세부 정보](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
 1. **구성 파일 다운로드**를 클릭합니다.
 
     [![구성 파일 다운로드](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
@@ -47,7 +47,7 @@ Azure Portal을 사용하여 개발 환경에서 자동 디바이스 관리 구�
 
 아래 단계에 따라 자동 디바이스 관리 구성을 솔루션에 패키지로 가져옵니다.
 
-1. 원격 모니터링 웹 UI에서 **패키지** 페이지로 이동합니다.  ![패키지 페이지](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
+1. 원격 모니터링 웹 UI에서 **패키지** 페이지로 이동합니다. ![패키지 페이지](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
 
 1. **+ 새 패키지**를 클릭하고, 패키지 유형으로 **구성**을 선택하고, **찾아보기**를 클릭하여 이전 섹션에서 저장한 **configuration.json** 파일을 선택합니다.
 

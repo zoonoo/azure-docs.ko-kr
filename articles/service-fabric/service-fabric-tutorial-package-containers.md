@@ -1,27 +1,17 @@
 ---
-title: Azure에서 Service Fabric 앱으로 컨테이너 패키징 및 배포 | Microsoft Docs
+title: 컨테이너 패키지 및 배포
 description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 애플리케이션 정의를 생성하고 애플리케이션을 패키지하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/31/2019
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dbd0445f4167485172a2b98cec3bb2b2a47ac20
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668418"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "78252759"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
 
@@ -35,7 +25,7 @@ ms.locfileid: "58668418"
 > * 애플리케이션 배포 및 실행
 > * 애플리케이션 정리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 자습서의 [1부](service-fabric-tutorial-create-container-images.md)에서 만든 Azure Container Registry에 푸시된 컨테이너 이미지가 사용됩니다.
 * Linux 개발 환경을 [설정합니다](service-fabric-tutorial-create-container-images.md).
@@ -93,7 +83,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 애
 Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
 1. 디렉터리를 **TestContainer** 디렉터리로 한 수준 변경(예: *./TestContainer*)
-2. `yo azuresfcontainer:AddService` 실행
+2. `yo azuresfcontainer:AddService`을 실행합니다.
 3. 'azurevoteback' 서비스 이름 지정
 4. Redis - 'alpine:redis'에 대한 컨테이너 이미지 경로 제공
 5. 명령 섹션을 비워 두려면 Enter 키 누름
@@ -124,7 +114,7 @@ Service Fabric이 Azure Container Registry에서 컨테이너 이미지를 끌�
 
 ACR 인스턴스에 로그인합니다. **az acr login** 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -132,7 +122,7 @@ az acr login --name <acrName>
 
 다음으로 컨테이너 레지스트리 암호를 가져오는 다음 명령을 실행합니다. 이 암호는 Service Fabric에서 컨테이너 이미지를 끌어오기 위해 ACR를 사용하여 인증하는 데 사용됩니다.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -209,7 +199,7 @@ Service Fabric이 백 엔드 서비스에 이 DNS 이름을 할당하려면 **Ap
 
 프런트 엔드 서비스는 Redis 인스턴스의 DNS 이름을 가져오기 위해 환경 변수를 참고합니다. 이 환경 변수는 Docker 이미지를 생성하는 데 사용된 Dockerfile에서 이미 정의되었으며 아무 작업도 수행할 필요가 없습니다.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 

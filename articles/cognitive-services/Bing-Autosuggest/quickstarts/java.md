@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Bing Autosuggest REST API 및 Java로 검색 쿼리 제안'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Autosuggest API를 사용하여 실시간으로 검색 용어를 빠르게 제안하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 64b6ed680ba0812322d5796debc5edada19bc926
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1c2da10270747aa09ecbcfdc537df567b4cdfc9
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118836"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929658"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>빠른 시작: Bing Autosuggest REST API 및 Java로 검색 쿼리 제안
 
+이 빠른 시작에 따라 Bing Autosuggest API를 호출하고 JSON 응답을 읽는 방법을 알아봅니다. 이 간단한 Java 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub에](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java) 제공됩니다.
 
-이 빠른 시작을 사용하여 Bing Autosuggest API를 호출하고 JSON 응답을 받습니다. 이 간단한 Java 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)에서 제공됩니다.
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Gson 라이브러리](https://github.com/google/gson)
@@ -44,7 +43,7 @@ ms.locfileid: "58118836"
     import com.google.gson.JsonParser;
     ```
 
-2. 구독 키, API 및 경로 [시장 코드](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes)와 검색 쿼리에 대한 변수를 만듭니다.
+2. 구독 키, API 및 경로 [시장 코드](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)와 검색 쿼리에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용합니다.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -73,7 +72,7 @@ public static String prettify(String json_text) {
 
 1. `get_suggestions()`라는 새 메서드를 만들고 다음 단계를 수행합니다.
 
-   1. API 호스트, 경로 및 검색어 인코딩을 결합하여 요청에 대한 URL을 만듭니다. 추가하기 전에 쿼리를 url로 인코딩합니다. 시장 코드를 `mkt=` 매개 변수에 추가하고 쿼리를 `q=` 매개 변수에 추가하여 쿼리에 대한 매개 변수 문자열을 만듭니다.
+   1. API 호스트, 경로 및 검색어 인코딩을 결합하여 요청에 대한 URL을 생성합니다. 추가하기 전에 쿼리를 url로 인코딩합니다. 시장 코드를 `mkt=` 매개 변수에 추가하고 쿼리를 `q=` 매개 변수에 추가하여 쿼리에 대한 매개 변수 문자열을 만듭니다.
     
       ```java
   
@@ -84,7 +83,7 @@ public static String prettify(String json_text) {
       }
       ```
     
-   2. 위에서 생성한 API 호스트, 경로 및 매개 변수를 사용하여 요청에 대한 새 URL을 만듭니다. 
+   2. 이전 단계에서 생성한 API 호스트, 경로 및 매개 변수를 사용하여 요청에 대한 새 URL을 만듭니다. 
     
        ```java
        //...
@@ -103,7 +102,7 @@ public static String prettify(String json_text) {
        //...
       ```
 
-   4. `StringBuilder`에 대한 API 응답을 읽습니다. 응답을 캡처한 후 `InputStreamReader` 스트림을 닫고 응답을 반환합니다.
+   4. API 응답을 `StringBuilder`에 저장합니다. 응답을 캡처한 후 `InputStreamReader` 스트림을 닫고 응답을 반환합니다.
 
        ```java
        //...
@@ -207,4 +206,4 @@ public static String prettify(String json_text) {
 > [단일 페이지 웹앱 만들기](../tutorials/autosuggest.md)
 
 - [Bing Autosuggest란?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

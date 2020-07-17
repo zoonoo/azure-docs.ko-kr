@@ -1,30 +1,31 @@
 ---
 title: 샘플 데이터 세트 사용
-titleSuffix: Azure Machine Learning Studio
-description: Machine Learning Studio에 포함된 샘플 모델에서 사용되는 데이터 세트를 설명합니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
+titleSuffix: ML Studio (classic) - Azure
+description: Machine Learning Studio(클래식)에 포함된 샘플 모델에서 사용되는 데이터 세트를 설명합니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+ms.topic: sample
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3cd7d880efaa5c69301c25c69d55f4b21dd97242
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321835"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 세트 사용
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 샘플 데이터 세트 사용
+
 [top]: #machine-learning-sample-datasets
 
-Azure Machine Learning Studio에서 새 작업 영역을 만들 때 다양 한 샘플 데이터 집합 및 실험이 기본적으로 포함 됩니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](https://gallery.azure.ai/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
+Azure Machine Learning Studio(클래식)에서 새 작업 영역을 만들 때 다양한 샘플 데이터 세트 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](https://gallery.azure.ai/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
 
 일부 데이터 세트는 Azure Blob Storage에서 사용할 수 있습니다. 이러한 데이터 세트의 경우 다음 표에서 직접 링크가 제공됩니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 세트를 실험에 사용할 수 있습니다.
 
-이러한 샘플 데이터 세트의 나머지는 작업 영역의 **저장된 데이터 세트** 아래에서 확인할 수 있습니다. Machine Learning Studio의 실험 캔버스 왼쪽에 있는 모듈 팔레트에서 찾을 수 있습니다.
+이러한 샘플 데이터 세트의 나머지는 작업 영역의 **저장된 데이터 세트** 아래에서 확인할 수 있습니다. Machine Learning Studio(클래식)의 실험 캔버스 왼쪽에 있는 모듈 팔레트에서 찾을 수 있습니다.
 실험 캔버스로 끌어와 이러한 데이터 세트를 실험에서 사용할 수 있습니다.
 
 ## <a name="datasets"></a>데이터 세트
@@ -169,7 +170,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
   <td>
 미국 운수부 TranStats 데이터 컬렉션에서 가져온 여객기 운항정시성 데이터(<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">정시</a>)
 <p></p>
-데이터 세트는 2013년 4월-10월 기간에 해당합니다. Azure Machine Learning Studio로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
+데이터 세트는 2013년 4월-10월 기간에 해당합니다. Azure Machine Learning Studio(클래식)로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
 <ul>
   <li>데이터 세트는 미국 본토에서 비행이 가장 많은 공항 70곳만을 포함하도록 필터링되었습니다.</li>
   <li>취소된 비행은 15분 초과 지연으로 레이블이 지정되었습니다.</li>
@@ -232,7 +233,7 @@ german.data 파일을 사용한 UCI Statlog(독일 신용 카드) 데이터 세�
 <tr>
   <td>영화 트윗</td>
   <td>
-이 데이터 세트는 Movie Tweetings 데이터 세트의 확장된 버전입니다. 이 데이터 세트에는 잘 구성된 Twitter 트윗에서 추출한 170,000개의 영화 등급이 있습니다. 각 인스턴스는 트 윗을 나타내는 이며 튜플을: 사용자 ID, IMDB 영화 ID, 등급, 타임 스탬프,이 트 윗에 대 한 즐겨찾기 수 및 리 트이 윗의 수입니다. 이 데이터 세트는 A. Said, S. Dooms, B. Loni 및 D. Tikk가 Recommender Systems Challenge 2014를 위해 제공했습니다.
+이 데이터 세트는 Movie Tweetings 데이터 세트의 확장된 버전입니다. 이 데이터 세트에는 잘 구성된 Twitter 트윗에서 추출한 170,000개의 영화 등급이 있습니다. 각 인스턴스는 트윗을 나타내며 사용자 ID, IMDB 영화 ID, 등급, 타임 스탬프, 해당 트윗에 대한 즐겨찾기 수, 해당 트윗의 리트윗 수 등과 같은 튜플입니다. 이 데이터 세트는 A. Said, S. Dooms, B. Loni 및 D. Tikk가 Recommender Systems Challenge 2014를 위해 제공했습니다.
   </td>
 </tr>
 
@@ -302,7 +303,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <p></p>
 <b>관련 조사:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
-여기에서 강철 등급에 대한 유용한 지침을 확인할 수 있습니다. <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
+여기에서 강철 등급에 대한 유용한 지침을 확인할 수 있습니다. <a href="https://www.steamforum.com/pictures/Outokumpu-steel-grades-properties-global-standards.pdf">https://www.steamforum.com/pictures/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -329,7 +330,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 NOAA에서 제공한 시간별 지상 기상 관측(<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">201304부터 201310까지의 병합된 데이터</a>).
 <p></p>
-기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Azure Machine Learning Studio로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
+기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Azure Machine Learning Studio(클래식)로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
 <ul>
   <li>기상 관측소 ID가 해당 공항 ID에 매핑되었습니다.</li>
   <li>비행이 가장 많은 공항 70곳과 연계되지 않은 기상 관측소가 필터링되었습니다.</li>
@@ -344,7 +345,7 @@ NOAA에서 제공한 시간별 지상 기상 관측(<a href="https://az754797.vo
   <td>
 데이터는 XML 데이터로 저장되는 각 S&P 500 회사의 자료에 따라 Wikipedia(<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>)에서 파생됩니다.
 <p></p>
-Azure Machine Learning Studio로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
+Azure Machine Learning Studio(클래식)로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
 <ul>
   <li>각 특정 회사에 대한 텍스트 콘텐츠 추출</li>
   <li>위치 형식 지정 제거</li>
@@ -399,7 +400,7 @@ RCV1-V2 Reuters 뉴스 데이터 세트의 뉴스 기사에 대한 토픽 할당
   <td>
 이 데이터는 KDD Cup 2010 학생 성취도 평가 챌린지(<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">학생 성취도 평가</a>)에서 가져옵니다. 사용된 데이터는 Algebra_2008_2009 학습 집합(Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010)입니다. Algebra I 2008-2009. KDD Cup 2010 교육 데이터 마이닝 챌린지의 챌린지 데이터 세트. <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>에서 찾아보세요.
 <p></p>
-데이터 집합이 다운로드되어 Azure Blob Storage(<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>)에 저장되었고 학생 교육 시스템의 로그 파일을 포함합니다. 제공된 기능에는 문제 ID 및 간략한 설명, 학생 ID, 타임스탬프, 올바른 방법으로 문제를 해결하기 전에 학생이 시도한 횟수가 포함됩니다. 원본 데이터 세트에는 8,900,000개 레코드가 있고 이 데이터 세트는 처음 100,000개 행으로 샘플을 줄였습니다. 데이터 세트에는 숫자, 범주, 타임스탬프 형식의 탭으로 구분된 23개 열이 있습니다.
+데이터 세트이 다운로드되어 Azure Blob Storage(<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>)에 저장되었고 학생 교육 시스템의 로그 파일을 포함합니다. 제공된 기능에는 문제 ID 및 간략한 설명, 학생 ID, 타임스탬프, 올바른 방법으로 문제를 해결하기 전에 학생이 시도한 횟수가 포함됩니다. 원본 데이터 세트에는 8,900,000개 레코드가 있고 이 데이터 세트는 처음 100,000개 행으로 샘플을 줄였습니다. 데이터 세트에는 숫자, 범주, 타임스탬프 형식의 탭으로 구분된 23개 열이 있습니다.
   </td>
 </tr>
 
@@ -408,7 +409,7 @@ RCV1-V2 Reuters 뉴스 데이터 세트의 뉴스 기사에 대한 토픽 할당
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Kickstart 예제를 사용 하 여 실험](sample-experiments.md)
+> [예제로 실험 시작](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

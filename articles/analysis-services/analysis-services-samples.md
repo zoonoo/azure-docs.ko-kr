@@ -1,19 +1,18 @@
 ---
 title: Azure Analysis Services 코드, 프로젝트 및 데이터베이스 샘플 | Microsoft Docs
-description: Azure Analysis Services에 대한 코드, 프로젝트 및 데이터베이스 샘플에 대해 알아봅니다.
+description: 이 문서에서는 Azure Analysis Services에 대 한 코드, 프로젝트 및 데이터베이스 샘플에 대해 자세히 알아볼 수 있는 리소스를 설명 합니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fccf7bb5abafe75017a8df91f1f88a98238c74b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2b06a7ee41a69e32f44c44cdec0da6a47ec4b284
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82731869"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 샘플
 
@@ -27,12 +26,15 @@ GitHub의 [Analysis Services](https://github.com/Microsoft/Analysis-Services) �
 
 GitHub의 [Analysis Services용 Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services)는 가장 일반적으로 사용되는 샘플 테이블 형식 모델 프로젝트입니다. VS 프로젝트 또는 완성된 샘플 테이블 형식 model 데이터베이스를 다운로드할 수 있습니다.
 
+## <a name="sample-database-on-azure"></a>Azure의 샘플 데이터베이스
+
+Azure Synapse Analytics (SQL Data Warehouse)는 프로 비전 된 리소스에 포함할 수 있는 샘플 AdventureWorksDW 데이터베이스를 제공 합니다. 자세히 알아보려면 [빠른 시작: Azure Synapse ANALYTICS SQL 풀 만들기 및 쿼리](/azure/sql-data-warehouse/create-data-warehouse-portal)를 참조 하세요.
 
 ## <a name="sample-databases-on-github"></a>GitHub의 샘플 데이터베이스
 
 GitHub의 이러한 샘플 데이터베이스는 자체 모델을 만들고 테스트하는 데 사용할 수 있습니다. 
 
-[Adventure Works 샘플 데이터베이스](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
+[Adventure Works 샘플 데이터베이스](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)
 
 [Wide World Importers 샘플 데이터베이스](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 
@@ -44,5 +46,5 @@ Azure Portal에 Analysis Services 서버가 있는 경우 빠르고 쉽게 샘�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Adventure Works 자습서](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[놀이 Works 자습서](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
 [Azure 온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)  

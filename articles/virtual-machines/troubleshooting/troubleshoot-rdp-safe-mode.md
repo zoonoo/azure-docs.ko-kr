@@ -4,28 +4,25 @@ description: VM이 안전 모드로 부팅되어 VM에 RDP로 연결할 수 없�
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60319482"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086775"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>VM이 안전 모드로 부팅되어 VM에 RDP로 연결할 수 없음
 
 이 문서에서는 VM이 안전 모드로 부팅하도록 구성되어 Azure Windows VM(Virtual Machines)에 연결할 수 없는 문제 해결 방법을 보여줍니다.
 
-> [!NOTE]
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
 
 ## <a name="symptoms"></a>증상
 
@@ -38,9 +35,9 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 안전 모드에서는 RDP 서비스를 사용할 수 없습니다. VM이 안전 모드로 부팅되면 핵심 시스템 프로그램 및 서비스만 로드됩니다. 이것은 "Safe Boot minimal" 및 "Safe Boot with connectivity"의 두 가지 안전 모드 버전에 적용됩니다.
 
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
-다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
 이 문제를 해결하려면 직렬 컨트롤을 사용하여 일반 모드로 부팅하도록 VM을 구성하거나 복구 VM을 사용하여 [오프라인으로 VM 복구](#repair-the-vm-offline)를 수행합니다.
 
@@ -50,7 +47,9 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
    ). VM에서 직렬 콘솔을 사용하도록 설정되지 않은 경우 [오프라인으로 VM 복구](#repair-the-vm-offline)를 참조하세요.
 2. 부팅 구성 데이터를 확인합니다.
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
     VM이 안전 모드로 부팅하도록 구성된 경우 **Windows 부팅 로더** 섹션 아래에 **safeboot**라는 추가 플래그가 보입니다. **safeboot** 플래그가 보이지 않으면 VM이 현재 안전 모드가 아닙니다. 이 문서는 고객의 시나리오에 적용되지 않습니다.
 
@@ -64,11 +63,15 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 3. VM이 일반 모드로 부팅하도록 **safemoade** 플래그를 삭제합니다.
 
-        bcdedit /deletevalue {current} safeboot
+    ```console
+    bcdedit /deletevalue {current} safeboot
+    ```
 
 4. 부팅 구성 데이터를 검사하여 **safeboot** 플래그가 제거되었는지 확인합니다.
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
 5. VM을 다시 시작한 다음, 문제가 해결되었는지 확인합니다.
 
@@ -76,9 +79,9 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
-1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
+1. [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다.
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
-3. 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3. 디스크가 디스크 관리 콘솔에서 **온라인** 으로 플래그가 지정 되었는지 확인 합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>덤프 로그 및 직렬 콘솔을 사용하도록 설정(선택 사항)
 
@@ -86,7 +89,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 덤프 로그 및 직렬 콘솔을 사용하도록 설정하려면 다음 스크립트를 실행합니다.
 
-1. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**).
+1. 관리자 권한 명령 프롬프트 세션 (**관리자 권한으로 실행**)을 엽니다.
 2. 다음 스크립트를 실행합니다.
 
     이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
@@ -115,10 +118,13 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 #### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Windows를 표준 모드로 부팅되도록 구성합니다.
 
-1. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**).
+1. 관리자 권한 명령 프롬프트 세션 (**관리자 권한으로 실행**)을 엽니다.
 2. 부팅 구성 데이터를 확인합니다. 다음 명령에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
     **\windows** 폴더가 있는 파티션의 식별자 이름을 적어 둡니다. 기본적으로 식별자 이름은 “기본값”입니다.
 
     VM이 안전 모드로 부팅하도록 구성된 경우 **Windows 부팅 로더** 섹션 아래에 **safeboot**라는 추가 플래그가 보입니다. **safeboot** 플래그가 표시되지 않는 경우 이 문서는 시나리오에 적용되지 않습니다.
@@ -127,8 +133,14 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 3. VM이 표준 모드로 부팅되도록 **safeboot** 플래그를 제거합니다.
 
-        bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```console
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```
+
 4. 부팅 구성 데이터를 검사하여 **safeboot** 플래그가 제거되었는지 확인합니다.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
 5. [OS 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md). 그런 다음, 문제가 해결되었는지 확인합니다.

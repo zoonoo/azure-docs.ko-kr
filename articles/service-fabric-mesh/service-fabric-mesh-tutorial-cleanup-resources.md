@@ -1,26 +1,17 @@
 ---
-title: 자습서 - Azure Service Fabric Mesh 리소스 정리 | Microsoft Docs
+title: 자습서 - Azure Service Fabric Mesh 리소스 정리
 description: 더 이상 사용하지 않는 리소스 요금이 부과되지 않도록 Azure Service Fabric Mesh 리소스를 제거하는 방법을 알아봅니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a60c42310f0698b8290e7ba6195eeed44fe0b95e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b8ce3c795bc9ad212331ce1c1f413fe7fd6da909
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815793"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246755"
 ---
 # <a name="tutorial-remove-azure-resources"></a>자습서: Azure 리소스 제거
 
@@ -40,15 +31,15 @@ ms.locfileid: "56815793"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
-* 할 일 앱을 배포하지 않은 경우 [Service Fabric Mesh 웹 응용 프로그램 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)의 지침을 따르세요.
+* 할 일 앱을 배포하지 않은 경우 [Service Fabric Mesh 웹 애플리케이션 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)의 지침을 따르세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서의 마지막 부분입니다. 만든 리소스를 더 이상 사용하지 않는 경우 리소스 요금이 부과되지 않도록 리소스를 삭제하세요. Mesh는 초당 요금이 부과되는 서버리스 서비스이기 때문에 리소스를 삭제하는 것이 특히 중요합니다. Mesh 가격 책정에 대한 자세한 내용은 https://aka.ms/sfmeshpricing에서 확인할 수 있습니다.
+이 자습서의 마지막 부분입니다. 만든 리소스를 더 이상 사용하지 않는 경우 리소스 요금이 부과되지 않도록 리소스를 삭제하세요. Mesh는 초당 요금이 부과되는 서버리스 서비스이기 때문에 리소스를 삭제하는 것이 특히 중요합니다. Mesh 가격 책정에 대한 자세한 내용은 https://aka.ms/sfmeshpricing 에서 확인할 수 있습니다.
 
 Azure의 편리한 점 중 하나는 특정 리소스 그룹에 연결된 리소스를 만들 때 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 모든 리소스가 삭제된다는 것입니다. 따라서 리소스를 하나씩 삭제할 필요가 없습니다.
 
@@ -62,7 +53,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-또는 [포털에서](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups) **sfmeshTutorial1RG** 리소스 그룹을 삭제해도 됩니다. 
+또는 [포털에서](../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups)**sfmeshTutorial1RG** 리소스 그룹을 삭제해도 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -71,4 +62,4 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 * 서비스 간 통신의 다른 예제를 보려면 [투표 앱 샘플](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp)을 탐색하세요.
 * Service Fabric 리소스 모델에 대한 자세한 내용은 [Service Fabric Mesh 리소스 모델](service-fabric-mesh-service-fabric-resources.md)을 참조하세요.
 * Service Fabric Mesh에 대한 자세한 내용은 [Service Fabric Mesh 개요](service-fabric-mesh-overview.md)를 참조하세요.
-* [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에 대해 알아봅니다.
+* [Cloud Shell](../cloud-shell/overview.md)에 대해 알아봅니다.

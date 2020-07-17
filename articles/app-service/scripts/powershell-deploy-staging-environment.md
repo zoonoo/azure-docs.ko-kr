@@ -1,26 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 앱 만들기 및 스테이징 슬롯에 코드 배포 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 웹앱 만들기 및 스테이징 환경에 코드 배포
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: 스테이징 슬롯에 코드 배포'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 스테이징 환경에 코드를 배포하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 27cf0680-c3a9-4a58-9f71-6dec09f6b874
-ms.service: app-service-web
-ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ec0a6fa516c11b443964380b0cfa35769d04b843
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7e8ebe28fa7989997b5d3adfd14c582438a00b1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107415"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74684784"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>웹앱 만들기 및 스테이징 환경에 코드 배포
 
@@ -53,7 +44,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
 | [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | App Service 계획을 수정하여 해당 가격 책정 계층을 변경합니다. |
 | [New-AzWebAppSlot](/powershell/module/az.websites/new-azwebappslot) | 웹앱에 대한 배포 슬롯을 만듭니다. |
-| [Set-AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
+| [집합 AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
 | [Switch-AzWebAppSlot](/powershell/module/az.websites/switch-azwebappslot) | 웹앱의 배포 슬롯을 프로덕션으로 교환합니다. |
 
 ## <a name="next-steps"></a>다음 단계

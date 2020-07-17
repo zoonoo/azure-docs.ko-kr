@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: willzhan;juliako
-ms.openlocfilehash: 5c86a49cd9dc26f724de12ed2e5e77e645e4ab53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: willzhan
+ms.reviewer: juliako
+ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82159406"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 하위 시스템의 하이브리드 디자인 
 
@@ -92,39 +93,43 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 
 ## <a name="scenarios-and-samples"></a>시나리오 및 샘플
 
-이전 섹션의 설명에 따라 다음 5가지 하이브리드 시나리오에서는 각각의 **콘텐츠 키**-**자산 배정 정책** 구성 조합을 사용합니다(마지막 열에 언급된 샘플은 표에 나와 있음).
+이전 섹션의 설명에 따라 다음과 같은 5 가지 하이브리드 시나리오에서는 각 **콘텐츠 키** - **자산 배달 정책** 구성 조합을 사용 합니다 (마지막 열에 언급 된 샘플은 테이블을 따름).
 
-|**콘텐츠 호스팅 및 원본**|**DRM 암호화**|**DRM 라이선스 배달**|**콘텐츠 키 구성**|**자산 배달 정책 구성**|**샘플**|
+|**콘텐츠 호스팅 및 원본**|**DRM 암호화**|**DRM 라이선스 배달**|**콘텐츠 키 구성**|**자산 배달 정책 구성**|**예제**|
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|예|예|샘플 1|
 |AMS|AMS|타사|예|예|샘플 2|
-|AMS|타사|AMS|예|아닙니다.|샘플 3|
-|AMS|타사|외부|아닙니다.|아닙니다.|샘플 4|
-|타사|타사|AMS|예|아닙니다.|    
+|AMS|타사|AMS|예|아니요|샘플 3|
+|AMS|타사|외부|아니요|아니요|샘플 4|
+|타사|타사|AMS|예|아니요|    
 
 샘플에서 PlayReady 보호는 DASH 및 부드러운 스트리밍 모두에서 작동합니다. 아래의 비디오 URL은 부드러운 스트리밍 URL입니다. 해당 DASH URL을 얻으려면 "(format=mpd-time-csf)"를 추가합니다. [azure media test player](https://aka.ms/amtest)를 사용하여 브라우저에서 테스트할 수 있습니다. 그러면 어떤 기술에서 사용할 스트리밍 프로토콜을 구성할 수 있습니다. Windows 10의 IE11 및 Microsoft Edge는 EME를 통해 PlayReady를 지원합니다. 자세한 내용은 [테스트 도구에 대한 세부 정보(영문)](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/)를 참조하세요.
 
 ### <a name="sample-1"></a>샘플 1
 
-* 원본(기본) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
-* PlayReady LA_URL(DASH 및 부드러운 스트리밍): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
-* Widevine LA_URL(DASH): https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4 
-* FairPlay LA_URL(HLS): https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
+* 원본(기본) URL: `https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest` 
+* PlayReady LA_URL(DASH 및 부드러운 스트리밍): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
+* Widevine LA_URL(DASH): `https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4` 
+* FairPlay LA_URL(HLS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8` 
 
 ### <a name="sample-2"></a>샘플 2
 
 * 원본(기본) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* PlayReady LA_URL(DASH 및 부드러운 스트리밍): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
+* PlayReady LA_URL(DASH 및 부드러운 스트리밍): `http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
 
 ### <a name="sample-3"></a>샘플 3
 
 * 원본 URL: https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL(DASH 및 부드러운 스트리밍): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* PlayReady LA_URL(DASH 및 부드러운 스트리밍): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
 
 ### <a name="sample-4"></a>샘플 4
 
 * 원본 URL: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL(DASH 및 부드러운 스트리밍): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+* PlayReady LA_URL(DASH 및 부드러운 스트리밍): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx` 
+
+## <a name="additional-notes"></a>추가적인 참고 사항
+
+* Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
 ## <a name="summary"></a>요약
 

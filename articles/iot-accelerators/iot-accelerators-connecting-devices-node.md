@@ -1,6 +1,6 @@
 ---
 title: Node.js에서 원격 모니터링으로 디바이스 프로비전 - Azure | Microsoft Docs
-description: Node.js로 작성한 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 장치를 연결하는 방법을 설명합니다.
+description: Node.js로 작성한 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: fdb2bed76a8e23a6034a57b3a5f1358c26e9e990
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom: mqtt
+ms.openlocfilehash: 76692c7d923e261d1e3beefa0e2ea76b94282a46
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81683984"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>디바이스를 원격 모니터링 솔루션 가속기에 연결(Node.js)
 

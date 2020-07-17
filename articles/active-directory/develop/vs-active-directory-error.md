@@ -1,51 +1,52 @@
 ---
-title: Azure Active Directory의 연결된 서비스를 사용하여 오류를 진단하는 방법
+title: Azure AD 연결된 서비스를 사용하여 오류 진단(Visual Studio)
 description: Active Directory의 연결된 서비스에서 호환되지 않는 인증 유형 검색
-services: active-directory
 author: ghogen
-manager: douge
-ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
-ms.prod: visual-studio-dev15
+manager: jillfra
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5cefc59a6072a945be493487c09b1cc7f9827475
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830573"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Azure Active Directory의 연결된 서비스를 사용하여 오류 진단
 
-이전 인증 코드를 검색하는 동안 Azure Active Directory 연결 서버에서 호환되지 않는 인증 유형을 검색했습니다.
+이전 인증 코드를 검색하는 동안 Azure Active Directory 연결된 서버에서 호환되지 않는 인증 유형을 검색했습니다.
 
-프로젝트에서 이전 인증 코드를 제대로 감지하려면 프로젝트를 빌드해야 합니다.  이 오류를 표시 하 고 프로젝트에서 이전 인증 코드가 없는 경우 다시 빌드하고 다시 시도 합니다.
+프로젝트에서 이전 인증 코드를 제대로 감지하려면 프로젝트를 다시 빌드해야 합니다. 이 오류가 발생했고 프로젝트에 이전 인증 코드가 없는 경우 다시 작성한 다음, 다시 시도합니다.
 
 ## <a name="project-types"></a>프로젝트 형식
 
-이 연결된 서비스는 프로젝트에 올바른 인증 논리를 삽입할 수 있도록 사용자가 개발 중인 프로젝트 형식을 확인합니다. 파생 되는 모든 컨트롤러 이면 `ApiController` 프로젝트에서 프로젝트에는 프로젝트가 WebAPI 프로젝트로 간주 됩니다. 프로젝트의 `MVC.Controller`에서 파생되는 컨트롤러만 있으면 프로젝트가 MVC 프로젝트로 간주됩니다. 연결된 서비스는 다른 모든 프로젝트 형식을 지원하지 않습니다.
+이 연결된 서비스는 프로젝트에 올바른 인증 논리를 삽입할 수 있도록 사용자가 개발 중인 프로젝트 형식을 확인합니다. 프로젝트의 `ApiController`에서 파생되는 컨트롤러가 있으면 프로젝트가 WebAPI 프로젝트로 간주됩니다. 프로젝트의 `MVC.Controller`에서 파생되는 컨트롤러만 있으면 프로젝트가 MVC 프로젝트로 간주됩니다. 연결된 서비스는 다른 모든 프로젝트 형식을 지원하지 않습니다.
 
 ## <a name="compatible-authentication-code"></a>호환 가능한 인증 코드
 
-또한 연결된 서비스는 이전에 이 서비스로 구성되었거나 이 서비스와 호환되는 인증 설정이 있는지도 확인합니다. 모든 설정이 있는 경우 재진입 사례로 간주에 해당 및 연결 된 서비스가 열릴 설정을 표시 합니다.  일부 설정은 값이 있는 경우에 오류 사례를 간주 합니다.
+또한 연결된 서비스는 이전에 이 서비스로 구성되었거나 이 서비스와 호환되는 인증 설정이 있는지도 확인합니다. 모든 설정이 있는 경우 재진입 사례로 간주되고 연결된 서비스가 열릴 때 해당 설정이 표시됩니다.  설정이 일부만 있으면 오류 사례로 간주됩니다.
 
 MVC 프로젝트에서 이 연결된 서비스는 이전에 서비스를 사용한 결과에 따라 다음과 같은 설정을 확인합니다.
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:AADInstance" value="" />
-    <add key="ida:PostLogoutRedirectUri" value="" />
+```xml
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:AADInstance" value="" />
+<add key="ida:PostLogoutRedirectUri" value="" />
+```
 
-또한 이전 서비스 사용을 결과로 생성 되는 Web API 프로젝트에서 다음 설정에 대 한 연결된 된 서비스 확인 합니다.
+또한 이 연결된 서비스는 이전에 서비스를 사용한 결과에 따라 다음과 같은 Web API 프로젝트 설정을 확인합니다.
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:Audience" value="" />
+```xml
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:Audience" value="" />
+```
 
 ## <a name="incompatible-authentication-code"></a>호환되지 않는 인증 코드
 

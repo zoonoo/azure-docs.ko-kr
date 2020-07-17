@@ -1,25 +1,14 @@
 ---
-title: Linux와 Windows 간의 Azure Service Fabric 차이점 | Microsoft Docs
+title: Linux와 Windows 간의 Azure Service Fabric 차이점
 description: Linux의 Azure Service Fabric과 Windows의 Azure Service Fabric 간의 차이점입니다.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 829a3ea6e8fafa24831f1731e402a3991c0258c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom: sfrev
+ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60719994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75748535"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux와 Windows의 Service Fabric 간의 차이점
 
@@ -31,6 +20,7 @@ ms.locfileid: "60719994"
 * Linux의 FAS(오류 분석 서비스)
 * Service Fabric 서비스에 대한 DNS 서비스(DNS 서비스는 Linux의 컨테이너에 지원됨)
 * 특정 Powershell 명령에 해당하는 CLI 명령(아래 목록은 대부분 독립 실행형 클러스터에만 적용됨)
+* [확장성에 영향을 줄 수 있는 로그 구현의 차이점](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Linux Service Fabric 클러스터에서 작동하지 않는 PowerShell cmdlet
 
@@ -87,12 +77,11 @@ ms.locfileid: "60719994"
 * Stop-ServiceFabricRepairTask
 * Update-ServiceFabricRepairTaskHealthPolicy
 
-
-
 ## <a name="next-steps"></a>다음 단계
+
 * [Linux에서 개발 환경 준비](service-fabric-get-started-linux.md)
 * [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
 * [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
-* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-get-started-eclipse.md)
+* [Eclipse 용 Service Fabric 플러그 인을 사용 하 여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
 * [Linux에서 첫 번째 CSharp 애플리케이션 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Service Fabric CLI를 사용하여 애플리케이션 관리](service-fabric-application-lifecycle-sfctl.md)

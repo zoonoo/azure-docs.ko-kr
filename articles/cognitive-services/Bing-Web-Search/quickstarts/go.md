@@ -8,36 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: b7bf73c2948b302ec8294b7dc2ff2dc8f220c91b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ea8375d1ed999d4b617a9d2a78ec53ad22543ac
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843886"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602190"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>빠른 시작: Bing Web Search REST API 및 Go를 사용하여 웹 검색
 
-이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받아보세요. 이 Go 애플리케이션은 검색 요청을 API에 보내고 응답을 표시합니다. 이 애플리케이션은 Go로 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 빠른 시작을 사용하여 Bing Web Search API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 Go 애플리케이션은 검색 요청을 API에 보내고 JSON 응답을 표시합니다. 이 애플리케이션은 Go로 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+ 이 빠른 시작의 코드 예제에는 외부 종속성이 없는 핵심 라이브러리만 필요합니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
 * [Go 이진 파일](https://golang.org/dl/)
 * 구독 키
 
-이 빠른 시작에는 **핵심** 라이브러리만 필요하며 외부 종속성이 없습니다.  
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="create-a-project-and-import-core-libraries"></a>프로젝트 만들기 및 핵심 라이브러리 가져오기
 
-즐겨찾는 IDE 또는 편집기에서 새 Go 프로젝트를 만듭니다. 그런 다음, 요청하기 위해 `net/http`, 응답을 읽기 위해 `ioutil`, JSON을 처리하기 위해 `time` 및 `encoding/json`, 출력하기 위해 `fmt`를 가져옵니다.
+즐겨찾는 IDE 또는 편집기에서 새 Go 프로젝트를 만듭니다. 그런 다음, 요청하기 위해 `net/http`, 응답을 읽기 위해 `ioutil`, JSON을 처리하기 위해 `time` 및 `encoding/json`, 출력을 인쇄하기 위해 `fmt`를 가져옵니다.
 
 ```go
 package main
@@ -113,7 +111,13 @@ type BingAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>main 함수 선언 및 변수 정의  
 
-이 코드는 main 함수를 선언하고 필요한 변수를 설정합니다. 엔드포인트가 올바른지 확인하고 `token` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `searchTerm` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다.
+이 코드는 main 함수를 선언하고 필요한 변수를 설정합니다. 
+
+1. `endpoint` 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다. 
+
+2. 엔드포인트가 올바른지 확인하고 `token` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. 
+ 
+3. 필요에 따라 `searchTerm`의 값을 바꿔 검색 쿼리를 사용자 지정합니다.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -172,7 +176,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>응답 처리
 
-앞에서 만든 구조체를 기억하고 있나요? 이 구조체를 사용하여 응답 형식을 지정하고, 검색 결과를 출력합니다.
+이전에 만든 구조체를 사용하여 응답의 형식을 지정하고 검색 결과를 인쇄합니다.
 
 ```go
 // Create a new answer.  
@@ -189,7 +193,7 @@ for _, result := range ans.WebPages.Value {
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-마지막 단계는 코드의 유효성을 검사하고 실행하는 것입니다! 자신의 코드와 비교하려면 여기에 있는 완전한 프로그램을 사용하세요.
+마지막 단계는 코드의 유효성을 검사하고 실행하는 것입니다. 자신의 코드와 비교하려면 여기에 있는 완전한 프로그램을 사용하세요.
 
 ```go
 package main
@@ -307,14 +311,13 @@ func main() {
 }
 ```
 
-## <a name="sample-response"></a>샘플 응답  
+## <a name="example-json-response"></a>예제 JSON 응답
 
-Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 `BingAnswer` 구조체를 사용하여 형식이 지정되었으며 `result.Name`와 `result.URL`을 표시합니다.
+Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 `BingAnswer` 구조체를 사용하여 형식이 지정되었으며 `result.Name` 및 `result.URL`을 표시합니다.
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
 Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
-Cognitive Service Try experience | Microsoft Azure || https://azure.microsoft.com/try/cognitive-services/
 What is Microsoft Cognitive Services? | Microsoft Docs || https://docs.microsoft.com/azure/cognitive-services/Welcome
 Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit/
 Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
@@ -326,6 +329,6 @@ Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/m
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Web Search 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

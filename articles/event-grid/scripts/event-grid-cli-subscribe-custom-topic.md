@@ -1,22 +1,15 @@
 ---
 title: Azure CLI 스크립트 샘플 - 사용자 지정 항목 구독 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 사용자 지정 항목 구독
-services: event-grid
-documentationcenter: na
-author: tfitzmac
-ms.service: event-grid
+description: 이 문서에서는 사용자 지정 항목에 대한 Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure CLI 스크립트를 제공합니다.
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: a46c348533468ad037ac092037cb34def2b0405c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.date: 07/08/2020
+ms.openlocfilehash: 4a3cfe132da280d6b33ddfa6c396fd651bdbd7d5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038385"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171264"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 항목에 대한 이벤트 구독
 
@@ -28,7 +21,7 @@ ms.locfileid: "51038385"
 
 미리 보기 샘플 스크립트에는 Event Grid 확장이 필요합니다. 설치하려면 `az extension add --name eventgrid`를 실행합니다.
 
-## <a name="sample-script---stable"></a>샘플 스크립트 - Stable
+## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic/subscribe-to-custom-topic.sh "Subscribe to custom topic")]
 

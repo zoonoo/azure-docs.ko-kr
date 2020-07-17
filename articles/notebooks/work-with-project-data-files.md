@@ -1,26 +1,18 @@
 ---
-title: Azure Notebooks를 사용하는 프로젝트에서 데이터 가져오기 및 내보내기
-description: 외부 리소스의 데이터를 Azure Notebooks 프로젝트로 가져오는 방법 및 프로젝트의 데이터를 내보내는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Azure Notebooks 미리 보기를 사용 하 여 프로젝트로 데이터 가져오기 및 내보내기
+description: 외부 원본에서 Azure Notebooks Preview 프로젝트로 데이터를 가져오는 방법 및 프로젝트에서 데이터를 내보내는 방법에 대해 알아봅니다.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: b522b0bd641d0147518843b11be4cd3a1430ae20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834117"
 ---
-# <a name="work-with-data-files-in-azure-notebook-projects"></a>Azure Notebook 프로젝트에서 데이터 파일 작업
+# <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Azure Notebooks 미리 보기 프로젝트에서 데이터 파일 작업
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 데이터는 많은 Jupyter Notebook, 특히 데이터 과학에 사용되는 Notebook의 핵심 요소입니다. Azure notebooks를 사용하면 간편하게 다양한 소스의 데이터를 프로젝트로 가져와서 Notebook에서 사용할 수 있습니다. 뿐만 아니라 Notebook에서 생성하는 데이터는 프로젝트에 저장되며, 이 데이터를 다운로드하여 다른 곳에 사용할 수 있습니다.
 
@@ -42,11 +34,11 @@ ms.locfileid: "60240397"
 
 1. **업로드** 명령을 선택하고, **URL에서** 또는 **컴퓨터에서** 중에 선택하고, 가져오려는 데이터에 대한 필수 세부 정보를 제공합니다.
 
-   - **URL에서**: **파일 URL** 필드에 원본 주소를 입력하고, **파일 이름** 필드에 프로젝트의 Notebook에 할당할 파일 이름을 입력합니다. **+ 파일 추가**를 선택하여 업로드 목록에 URL을 추가합니다. URL이 더 있으면 이 프로세스를 반복한 다음, **완료**를 선택합니다.
+   - **Url**: 파일 **url** 필드에 원본 주소를 입력 하 고 **파일 이름** 필드에 프로젝트의 노트북에 할당할 파일 이름을 입력 합니다. **+ 파일 추가**를 선택하여 업로드 목록에 URL을 추가합니다. URL이 더 있으면 이 프로세스를 반복한 다음, **완료**를 선택합니다.
 
      ![URL 팝업에서 업로드](media/quickstarts/upload-from-url-popup.png)
 
-   - **컴퓨터에서 업로드**: 파일을 팝업으로 끌어서 놓거나, **파일 선택**을 클릭하고 가져오려는 데이터 파일을 찾아서 선택합니다. 파일을 열고 데이터를 구문 분석하는 것은 Notebook의 코드에 달려 있으므로 파일 수, 파일 형식, 파일 형식을 원하는 대로 끌어서 놓거나 선택할 수 있습니다.
+   - **컴퓨터에서**: 파일을 팝업으로 끌어서 놓거나 **파일 선택**을 선택한 다음 가져올 데이터 파일을 찾아 선택 합니다. 파일을 열고 데이터를 구문 분석하는 것은 Notebook의 코드에 달려 있으므로 파일 수, 파일 형식, 파일 형식을 원하는 대로 끌어서 놓거나 선택할 수 있습니다.
 
      ![컴퓨터에서 업로드 팝업](media/quickstarts/upload-from-computer-popup.png)
 
@@ -54,7 +46,7 @@ ms.locfileid: "60240397"
 
 ### <a name="import-files-from-the-file-menu-in-a-notebook"></a>Notebook의 [파일] 메뉴에서 파일 가져오기
 
-1. 실행 중인 Notebook 내에서 **파일** > **업로드** 명령을 선택합니다.
+1. 실행 중인 노트북 내에서 **파일**  >  **업로드** 명령을 선택 합니다.
 
     ![Notebook 내의 파일 업로드 메뉴 명령](media/file-menu-upload.png)
 
@@ -62,7 +54,7 @@ ms.locfileid: "60240397"
 
 1. 나타나는 **업로드 상태** 팝업의 드롭다운 목록에서 **대상 폴더**를 선택합니다.
 
-    - 세션 폴더(*~/*): 현재 Notebook 세션으로 파일을 업로드하지만, 프로젝트에 파일을 만들지는 않습니다. 세션 폴더는 피어-프로젝트 폴더이지만, 세션이 종료된 후에는 유지되지 않습니다. 코드에서 세션 파일에 액세스하려면 파일 이름의 접두사로 상대 경로 *../* 를 붙입니다.
+    - 세션 폴더 ( *~/* ): 현재 노트북 세션에 파일을 업로드 하지만 프로젝트에 파일을 만들지 않습니다. 세션 폴더는 피어-프로젝트 폴더이지만, 세션이 종료된 후에는 유지되지 않습니다. 코드에서 세션 파일에 액세스하려면 파일 이름의 접두사로 상대 경로 *../* 를 붙입니다.
 
         세션 폴더를 사용하면 실험에 유용하며 장기적으로 필요할 수도 있고 필요하지 않을 수도 있는 파일 때문에 프로젝트가 복잡해지지 않도록 방지할 수 있습니다. 또한 프로젝트의 파일과 이름이 같은 파일을 충돌 없이, 이름을 변경하지 않고 세션 폴더에 업로드할 수 있습니다. 예를 들어 프로젝트에 이미 *data.csv* 버전이 하나 있는데, 다른 버전의 *data.csv*를 실험하려 한다고 가정해 봅시다. 세션 폴더에 파일을 업로드하면 프로젝트의 파일에 있는 데이터 대신 업로드된 파일의 데이터(*../data.csv*를 사용하여 코드에서 참조)를 사용하여 Notebook을 실행할 수 있습니다.
 
@@ -108,7 +100,7 @@ pandas `write_csv` 함수 같은 파일을 만드는 코드를 사용하는 경�
 
 ## <a name="export-files-from-the-data-menu-in-a-notebook"></a>Notebook의 [데이터] 메뉴에서 파일 내보내기
 
-1. **파일** > **다운로드** 메뉴 명령을 선택합니다.
+1. **파일**  >  **다운로드** 메뉴 명령을 선택 합니다.
 
     ![Notebook 내의 데이터 다운로드 메뉴 명령](media/file-menu-download.png)
 

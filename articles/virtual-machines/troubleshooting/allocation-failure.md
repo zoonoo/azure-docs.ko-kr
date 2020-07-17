@@ -3,7 +3,7 @@ title: Azure VM 할당 오류 문제 해결 | Microsoft Docs
 description: Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
 services: virtual-machines
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: felixwu
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
@@ -11,25 +11,24 @@ ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
-ms.author: cjiang
-ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: daberry
+ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83124791"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
 
-VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작하거나 VM의 크기를 조정하는 경우 Microsoft Azure에서 구독에 계산 리소스를 할당합니다. 당사는 고객의 요구를 지원할 수 있는 모든 VM 유형을 항상 제공할 수 있도록 추가 인프라와 기능에 지속적으로 투자하고 있습니다. 하지만 Azure 서비스에 대한 수요가 특정 지역에서 전례 없이 증가하여 리소스 할당 오류가 때때로 발생할 수 있습니다. VM이 다음 오류 코드 및 메시지를 표시하는 동안 해당 지역에서 VM을 만들거나 시작하려고 하면 이런 문제가 발생할 수 있습니다.
+VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작하거나 VM의 크기를 조정하는 경우 Microsoft Azure에서 구독에 컴퓨팅 리소스를 할당합니다. 당사는 고객의 요구를 지원할 수 있는 모든 VM 유형을 항상 제공할 수 있도록 추가 인프라와 기능에 지속적으로 투자하고 있습니다. 하지만 Azure 서비스에 대한 수요가 특정 지역에서 전례 없이 증가하여 리소스 할당 오류가 때때로 발생할 수 있습니다. VM이 다음 오류 코드 및 메시지를 표시하는 동안 해당 지역에서 VM을 만들거나 시작하려고 하면 이런 문제가 발생할 수 있습니다.
 
 **오류 코드**: AllocationFailed 또는 ZonalAllocationFailed
 
-**오류 메시지**: “할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. Https에서 할당 성공 가능성 향상에 대해 자세히 읽기.\//aka.ms/allocation-guidance "
+**오류 메시지**: "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. Https:/aka.ms/allocation-guidance에서 할당 성공 가능성 향상에 대해 자세히 알아보세요. \/
 
 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 해결 방법을 제안합니다.
 
-Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 스택 오버플로에서 Azure 포럼](https://azure.microsoft.com/support/forums/)을 방문합니다. 이러한 포럼이나 Twitter의 @AzureSupport에 문제를 게시할 수 있습니다. 또한 [Azure 지원](https://azure.microsoft.com/support/options/) 사이트에서 지원 받기를 선택하여 Azure 지원 요청을 제출할 수 있습니다.
+이 문서에서 Azure 문제가 해결 되지 않으면 [MSDN에서 azure 포럼](https://azure.microsoft.com/support/forums/)을 방문 하 여 Stack Overflow 합니다. 이러한 포럼이나 Twitter의 @AzureSupport에 문제를 게시할 수 있습니다. 또한 [Azure 지원](https://azure.microsoft.com/support/options/) 사이트에서 지원 받기를 선택하여 Azure 지원 요청을 제출할 수 있습니다.
 
 배포 문제가 있는 고객은 원하는 지역에서 원하는 VM 유형을 사용할 수 있게 될 때까지 임시 해결 방법으로 다음 표의 지침을 고려하는 것이 좋습니다. 
 
@@ -47,7 +46,7 @@ VM 크기를 조정하거나 기존 가용성 집합에 VM을 추가하는 요�
 VM이 다른 가용성 집합에 속할 수 있는 경우에는 동일한 지역의 다른 가용성 집합에 VM을 만듭니다. 그런 다음 새 VM을 동일한 가상 네트워크에 추가할 수 있습니다.
 
 동일한 가용성 집합의 모든 VM을 중지(할당 취소)하고 각 VM을 재시작합니다.
-중지하려면 [리소스 그룹] > [사용자의 리소스 그룹] > [리소스] > [사용자의 가용성 세트] > [Virtual Machines] > [사용자의 가상 머신] > [중지]를 클릭합니다.
+중지하려면 리소스 그룹 > [사용자의 리소스 그룹] > 리소스 > [사용자의 가용성 집합] > Virtual Machines > [사용자의 가상 머신] > 중지를 차례로 클릭합니다.
 모든 VM이 중지된 후 첫 번째 VM을 선택한 다음, 시작을 클릭합니다.
 이 단계에서는 새 할당 시도가 실행되고 용량이 충분히 있는 새 클러스터를 선택할 수 있습니다.
 
@@ -60,7 +59,7 @@ VM이 다른 가용성 집합에 속할 수 있는 경우에는 동일한 지역
 ### <a name="workaround"></a>해결 방법
 
 동일한 가용성 집합의 모든 VM을 중지(할당 취소)하고 각 VM을 재시작합니다.
-중지하려면 [리소스 그룹] > [사용자의 리소스 그룹] > [리소스] > [사용자의 가용성 세트] > [Virtual Machines] > [사용자의 가상 머신] > [중지]를 클릭합니다.
+중지하려면 리소스 그룹 > [사용자의 리소스 그룹] > 리소스 > [사용자의 가용성 집합] > Virtual Machines > [사용자의 가상 머신] > 중지를 차례로 클릭합니다.
 모든 VM이 중지된 후 첫 번째 VM을 선택한 다음, 시작을 클릭합니다.
 그러면 새 할당 시도가 실행되고 용량이 충분히 있는 새 클러스터를 선택할 수 있습니다.
 
@@ -79,15 +78,17 @@ Dv1, DSv1, Av1, D15v2, DS15v2와 같은 이전 VM 시리즈 또는 크기를 사
 
 할당 요청이 큰 경우(500개가 넘는 코어) 다음 섹션의 지침을 참조하여 소규모 배포로 요청을 분할합니다.
 
+[VM을 다시 배포](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows)해 보세요. VM을 다시 배포 하면 VM이 지역 내의 새 클러스터에 할당 됩니다.
+
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>이전 VM 크기의 할당 오류(Av1, Dv1, DSv1, D15v2, DS15v2 등)
 
-Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원하도록 설계된 차세대 하드웨어가 배포됩니다. 이전 시리즈 VM 중 일부는 최신 세대 인프라에서 실행되지 않습니다. 이러한 이유 때문에 레거시 SKU에 대해 때때로 할당 오류가 발생할 수 있습니다. 이 문제를 방지하기 위해 레거시 시리즈 가상 머신을 사용 중인 고객은 다음 권장 사항에 따라 동일한 최신 VM으로 이동하는 것이 좋습니다. 이러한 VM은 최신 하드웨어에 대해 최적화되었으며 더 나은 가격 및 성능을 활용할 수 있도록 합니다. 
+Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원하도록 설계된 차세대 하드웨어가 배포됩니다. 이전 시리즈 VM 중 일부는 최신 세대 인프라에서 실행되지 않습니다. 이러한 이유 때문에 레거시 SKU에 대해 때때로 할당 오류가 발생할 수 있습니다. 이 문제를 방지하려면 레거시 시리즈 가상 머신을 사용하는 경우 다음 권장 사항에 따라 신규 VM으로 이동을 고려하는 것이 좋습니다. 이러한 VM은 최신 하드웨어에 맞게 최적화되어 보다 나은 가격 및 성능의 이점을 활용할 수 있습니다. 
 
-|레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|자세한 정보|
+|레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|추가 정보|
 |----------------------|----------------------------|--------------------|
-|Av1 시리즈|[Av2 시리즈](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 DSv3 시리즈](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Dv1 또는 DSv1 시리즈(D11 - D14)|[Ev3 또는 ESv3 시리즈](../windows/sizes-memory.md#ev3-series)|
+|Av1 시리즈|[Av2 시리즈](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 DSv3 시리즈](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 또는 DSv1 시리즈(D11 - D14)|[Ev3 또는 ESv3 시리즈](../ev3-esv3-series.md)|
 |D15v2 또는 DS15v2|대규모 VM 크기 활용하기 위해 Resource Manager 배포 모델을 사용하는 경우 D16v3/DS16v3 또는 D32v3/DS32v3으로 이동하는 것이 좋습니다. 이러한 항목은 최신 세대 하드웨어에서 실행되도록 설계되었습니다. VM 인스턴스가 단일 고객 전용 하드웨어로 격리되도록 Resource Manager 배포 모델을 사용하는 경우, 최신 세대 하드웨어에서 실행되도록 설계된 신규 격리형 VM 크기인 E64i_v3 또는 E64is_v3으로 이동하는 것이 좋습니다. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>대량 배포(코어 500개 초과)에 대한 할당 실패
@@ -96,7 +97,7 @@ Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원�
 
 ## <a name="background-information"></a>배경 정보
 ### <a name="how-allocation-works"></a>할당의 작동 원리
-Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. 일반적으로 할당 요청은 여러 클러스터에서 시도되지만 할당 요청의 특정한 제약 조건으로 인해 Azure 플랫폼이 하나의 클러스터에만 요청을 시도하게 될 수 있습니다. 이 문서에서는 이를 “클러스터에 고정”이라고 합니다. 아래 다이어그램 1은 여러 클러스터에 시도되는 정상적인 할당의 사례를 보여 줍니다.  다이어그램 2는 기존 클라우드 서비스 CS_1 또는 가용성 집합이 호스트되는 클러스터 2에 고정된 할당의 사례를 보여 줍니다.
+Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. 일반적으로 할당 요청은 여러 클러스터에서 시도되지만 할당 요청의 특정한 제약 조건으로 인해 Azure 플랫폼이 하나의 클러스터에만 요청을 시도하게 될 수 있습니다. 이 문서에서는 이를 “클러스터에 고정”이라고 합니다. 아래 다이어그램 1은 여러 클러스터에 시도되는 정상적인 할당의 사례를 보여 줍니다. 다이어그램 2는 기존 클라우드 서비스 CS_1 또는 가용성 집합이 호스트되는 클러스터 2에 고정된 할당의 사례를 보여 줍니다.
 ![할당 다이어그램](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failures-happen"></a>할당 오류가 발생하는 이유

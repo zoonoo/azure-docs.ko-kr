@@ -1,34 +1,26 @@
 ---
-title: Azure에서 Windows VM 이미지 선택 | Microsoft Docs
+title: Azure Marketplace 이미지 찾기 및 사용
 description: Azure PowerShell을 사용하여 Marketplace VM 이미지의 게시자, 제품, SKU 및 버전을 확인합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
-ms.service: virtual-machines-windows
-ms.devlang: na
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 20fd8a0bfccea579ddef5a605d65f5643d4849bd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: e1ddc354e95185b6b2ba8bcb821fcabd5721c442
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500018"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224250"
 ---
-# <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Marketplace에서 Windows VM 이미지 찾기
+# <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Marketplace에서 VM 이미지 찾기 및 사용
 
-이 문서에서는 Azure PowerShell을 사용하여 Azure Marketplace에서 VM 이미지를 찾는 방법을 설명합니다. 그런 다음, PowerShell, Resource Manager 템플릿 또는 기타 도구를 사용하여 프로그래밍 방식으로 VM을 생성할 때 Marketplace 이미지를 지정할 수 있습니다.
+이 문서에서는 Azure PowerShell을 사용하여 Azure Marketplace에서 VM 이미지를 찾는 방법을 설명합니다. 그런 다음 VM을 만들 때 Marketplace 이미지를 지정할 수 있습니다.
 
 또한 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 상점, [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](../linux/cli-ps-findimage.md)를 사용하여 사용 가능한 이미지와 제품을 찾을 수 있습니다. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -46,10 +38,9 @@ ms.locfileid: "58500018"
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
-| MicrosoftDynamicsNAV |DynamicsNAV |2017 |
-| MicrosoftSharePoint |MicrosoftSharePointServer |2019 |
-| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
-| MicrosoftRServer |RServer-WS2016 |Enterprise |
+| MicrosoftSharePoint |MicrosoftSharePointServer |sp2019 |
+| MicrosoftSQLServer |SQL2019-WS2016 |엔터프라이즈 |
+| MicrosoftRServer |RServer-WS2016 |엔터프라이즈 |
 
 ## <a name="navigate-the-images"></a>이미지 이동
 
@@ -122,7 +113,7 @@ advantys
 ...
 ```
 
-게시자가 *MicrosoftWindowsServer*인 경우:
+*MicrosoftWindowsServer* 게시자의 경우:
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -183,7 +174,7 @@ Resource Manager 템플릿을 사용하여 VM을 배포하는 경우 `imageRefer
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
-### <a name="view-plan-properties"></a>plan 속성 보기
+### <a name="view-plan-properties"></a>플랜 속성 보기
 
 이미지의 구매 계획 정보를 보려면 `Get-AzVMImage` cmdlet을 실행합니다. 출력의 `PurchasePlan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.  
 
@@ -213,7 +204,7 @@ DataDiskImages   : []
 
 ```
 
-아래 예제는 *Data Science Virtual Machine - Windows 2016* 이미지에 유사한 명령을 보여줍니다. 여기에는 `name`, `product` 및 `publisher`와 같은 `PurchasePlan` 속성이 표시됩니다. 일부 이미지에는 `promotion code` 속성도 있습니다. 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
+아래 예제에서는 *Data Science Virtual Machine - Windows 2016* `PurchasePlan` `name` , `product` 및 속성을 포함 하는 Data Science Virtual Machine Windows 2016 이미지에 대 한 유사한 명령을 보여 `publisher` 줍니다. 일부 이미지에는 `promotion code` 속성도 있습니다. 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
@@ -325,7 +316,6 @@ $vmConfig = Set-AzVMSourceImage -VM $vmConfig -PublisherName $publisherName -Off
 
 기본 이미지 정보를 사용하여 `New-AzVM` cmdlet으로 가상 머신을 빠르게 만들려면 [PowerShell을 사용하여 Windows 가상 머신 만들기](quick-create-powershell.md)를 참조하세요.
 
-
-PowerShell 스크립트 예제를 참조하여 [완전히 구성된 가상 머신을 만드세요](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+Azure Marketplace 이미지를 사용 하 여 공유 이미지 갤러리에서 사용자 지정 이미지를 만드는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../marketplace-images.md)을 참조 하세요.
 
 

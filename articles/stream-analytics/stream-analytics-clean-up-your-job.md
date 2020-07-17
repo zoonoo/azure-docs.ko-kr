@@ -1,29 +1,30 @@
 ---
 title: Azure Stream Analytics 작업 정리
 description: 이 문서에서는 Azure Stream Analytics 작업을 삭제하기 위한 여러 가지 방법을 보여줍니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: HT
+ms.openlocfilehash: f078ab217a5c4911fbd132338883504897db899f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588723"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044603"
 ---
-# <a name="clean-up-your-azure-stream-analytics-job"></a>Azure Stream Analytics 작업 정리
+# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Azure Stream Analytics 작업을 중지 하거나 삭제 합니다.
 
-Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 또는 REST API용 Azure SDK를 통해 쉽게 삭제될 수 있습니다. 삭제 된 후에 Stream Analytics 작업을 복구할 수 없습니다.
+Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 용 Azure SDK 또는 REST API를 통해 쉽게 중지 하거나 삭제할 수 있습니다. Stream Analytics 작업을 삭제 한 후에는 복구할 수 없습니다.
 
 >[!NOTE] 
 >Stream Analytics 작업을 중지한 경우 Event Hubs 또는 Azure SQL Database와 같은 입력 및 출력 스토리지에서만 데이터가 유지됩니다. Azure에서 데이터를 제거해야 하는 경우 Stream Analytics 작업의 입력 및 출력 리소스에 대해 제거 프로세스를 수행해야 합니다.
 
 ## <a name="stop-a-job-in-azure-portal"></a>Azure Portal에서 작업 중지
+
+작업을 중지 하면 리소스가 프로 비전 해제 이벤트 처리를 중지 합니다. 이 작업과 관련 된 요금은 중지 됩니다. 그러나 모든 구성이 유지 되 고 나중에 작업을 다시 시작할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
@@ -36,7 +37,10 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 또는 RES
 
 ## <a name="delete-a-job-in-azure-portal"></a>Azure Portal에서 작업 삭제
 
-1. Azure 포털에 로그인합니다. 
+>[!WARNING] 
+>Stream Analytics 작업을 삭제 한 후에는 복구할 수 없습니다.
+
+1. Azure Portal에 로그인합니다. 
 
 2. 기존 Stream Analytics 작업을 찾아서 선택합니다.
 
@@ -49,7 +53,7 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 또는 RES
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-PowerShell을 사용 하는 작업을 중지 하려면 사용 합니다 [중지 AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet. PowerShell을 사용 하는 작업을 삭제 하려면 사용 합니다 [제거 AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet.
+PowerShell을 사용 하 여 작업을 중지 하려면 [AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet을 사용 합니다. PowerShell을 사용 하 여 작업을 삭제 하려면 [AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet을 사용 합니다.
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>.NET용 Azure SDK를 사용하여 작업 중지 또는 삭제
 

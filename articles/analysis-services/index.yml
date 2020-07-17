@@ -1,0 +1,66 @@
+### YamlMime:Landing
+title: Azure Analysis Services 설명서
+summary: 클라우드에서 Analysis Services를 사용하여 데이터 모델링을 설정하는 방법에 대해 알아봅니다. 설명서에서는 표 형식 데이터 모델을 사용하여 엔터프라이즈 BI 솔루션을 만드는 방법을 보여줍니다.
+metadata:
+  title: Azure Analysis Services 설명서 | Microsoft Docs
+  description: Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 모델을 제공하는 완전히 관리되는 PaaS(platform as a service)입니다.
+  ms.service: analysis-services
+  ms.topic: landing-page
+  ms.collection: 
+  author: minewiskan
+  ms.author: owend
+  manager: mtillman
+  ms.date: 10/30/2019
+  ms.openlocfilehash: 8c0d92cc7f50ec72b33d86335291580a477db056
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "78273662"
+landingContent:
+- title: Azure Analysis Services 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Analysis Services란?
+      url: analysis-services-overview.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 서버 만들기 - 포털
+      url: analysis-services-create-server.md
+    - text: 서버 만들기 - PowerShell
+      url: analysis-services-create-powershell.md
+    - text: 서버 방화벽 구성 - 포털
+      url: analysis-services-qs-firewall.md
+- title: 이해
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 인증 및 사용자 권한
+      url: analysis-services-manage-users.md
+    - text: 서비스 사용자를 사용한 자동화
+      url: analysis-services-service-principal.md
+    - text: 온-프레미스 데이터 원본에 연결
+      url: analysis-services-gateway.md
+- title: 관리 및 연결
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 서버 관리자 및 사용자 역할 구성
+      url: tutorials/analysis-services-tutorial-roles.md
+    - text: 포털에서 샘플 모델 추가
+      url: analysis-services-create-sample-model.md
+    - text: Power BI Desktop을 사용하여 연결
+      url: tutorials/analysis-services-tutorial-pbid.md
+- title: 스크립팅 및 API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: PowerShell
+      url: /azure/analysis-services/analysis-services-powershell
+    - text: REST API
+      url: /rest/api/analysisservices/
+    - text: 테이블 형식 모델 스크립팅 언어(TMSL)
+      url: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference

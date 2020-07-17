@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 클러스터에 안전하게 연결 | Microsoft Docs
+title: Azure Service Fabric 클러스터에 안전 하 게 연결
 description: Service Fabric 클러스터에 대한 클라이언트 액세스를 인증하는 방법 및 클라이언트와 클러스터 간의 통신을 보호하는 방법을 설명합니다.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/29/2019
-ms.author: aljo
-ms.openlocfilehash: 42c8fa15c6b1e7c98ae47180bec5cc61236a7c44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89d3598b283a91645f0db648be81c73dffde8b46
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881388"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259244"
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 
@@ -35,15 +24,15 @@ ms.locfileid: "60881388"
 
 클라이언트 인증서는 인증서 및 키 쌍 또는 단일 pem 파일의 두 가지 형태로 지정할 수 있습니다. 암호로 보호되는 PEM 파일의 경우 암호를 입력하라는 메시지가 자동으로 표시됩니다. 클라이언트 인증서를 PFX 파일로 받은 경우 먼저 다음 명령을 사용하여 PFX 파일을 PEM 파일로 변환합니다. 
 
-```bash
+```shell
 openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
 ```
 
 .pfx 파일이 암호로 보호되어 있지 않으면 마지막 매개 변수에 -passin pass:를 사용합니다.
 
-클라이언트 인증서를 pem 파일로 지정하려면 `--pem` 인수에 파일 경로를 지정합니다. 예를 들면 다음과 같습니다.
+클라이언트 인증서를 pem 파일로 지정하려면 `--pem` 인수에 파일 경로를 지정합니다. 예:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
@@ -51,22 +40,22 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 
 인증서, 키 쌍을 지정하려면 `--cert` 및 `--key` 인수를 사용하여 각 파일에 대한 파일 경로를 지정합니다.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-경우에 따라 테스트 또는 개발 클러스터 보안에 사용된 인증서가 인증서 유효성 검사에 실패하는 경우가 있습니다. 인증서 유효성 검사를 무시하려면 `--no-verify` 옵션을 지정합니다. 예를 들면 다음과 같습니다.
+경우에 따라 테스트 또는 개발 클러스터 보안에 사용된 인증서가 인증서 유효성 검사에 실패하는 경우가 있습니다. 인증서 유효성 검사를 무시하려면 `--no-verify` 옵션을 지정합니다. 예:
 
 > [!WARNING]
 > 프로덕션 Service Fabric 클러스터에 연결할 때 `no-verify` 옵션을 사용하지 마세요.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-또한 신뢰할 수 있는 CA 인증서 또는 개별 인증서의 디렉터리 경로를 지정할 수 있습니다. 이러한 경로를 지정하려면 `--ca` 인수를 사용합니다. 예를 들면 다음과 같습니다.
+또한 신뢰할 수 있는 CA 인증서 또는 개별 인증서의 디렉터리 경로를 지정할 수 있습니다. 이러한 경로를 지정하려면 `--ca` 인수를 사용합니다. 예:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
@@ -156,7 +145,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 <a id="connectsecureclusterfabricclient"></a>
 
 ## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>FabricClient API를 사용하여 클러스터에 연결
-Service Fabric SDK는 클러스터 관리를 위해 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 클래스를 제공합니다. FabricClient API를 사용하려면 Microsoft.ServiceFabric NuGet 패키지를 가져옵니다.
+Service Fabric SDK는 클러스터 관리를 위해 [FabricClient](/dotnet/api/system.fabric.fabricclient) 클래스를 제공합니다. FabricClient API를 사용하려면 Microsoft.ServiceFabric NuGet 패키지를 가져옵니다.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>비보안 클러스터에 연결
 
@@ -174,7 +163,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>클라이언트 인증서를 사용하여 보안 클러스터에 연결
 
-클러스터의 노드에는 해당 일반 이름 또는 SAN의 DNS 이름이 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient)에 설정된 [RemoteCommonNames 속성](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials)에 표시되는 유효한 인증서가 있어야 합니다. 이 과정에 따라 클라이언트와 클러스터 노드 간 상호 인증이 가능해집니다.
+클러스터의 노드에는 해당 일반 이름 또는 SAN의 DNS 이름이 [FabricClient](/dotnet/api/system.fabric.fabricclient)에 설정된 [RemoteCommonNames 속성](/dotnet/api/system.fabric.x509credentials)에 표시되는 유효한 인증서가 있어야 합니다. 이 과정에 따라 클라이언트와 클러스터 노드 간 상호 인증이 가능해집니다.
 
 ```csharp
 using System.Fabric;
@@ -242,7 +231,7 @@ catch (Exception e)
 
 다음 예제에서는 Microsoft.IdentityModel.Clients.ActiveDirectory 버전 2.19.208020213을 사용합니다.
 
-AAD 토큰 획득에 대한 자세한 내용은 [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx)를 참조하세요.
+AAD 토큰 획득에 대한 자세한 내용은 [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet)를 참조하세요.
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -355,7 +344,7 @@ AAD로 보호되는 클러스터에 연결하려면 브라우저를 다음으로
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-AAD에 로그인하라는 메시지가 자동으로 표시됩니다.
+AAD를 사용 하 여 로그인 하 라는 메시지가 자동으로 표시 됩니다.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>클라이언트 인증서를 사용하여 보안 클러스터에 연결
 
@@ -371,7 +360,7 @@ AAD에 로그인하라는 메시지가 자동으로 표시됩니다.
 
 클러스터를 보호하려면 적어도 두 개의 인증서(클러스터와 서버 인증서용 한 개 및 클라이언트 액세스용 또 한 개)를 사용해야 합니다.  추가 보조 인증서와 클라이언트 액세스 인증서도 사용하는 것이 좋습니다.  인증서 보안을 사용하여 클라이언트와 클러스터 노드 간 통신을 보호하려면 먼저 클라이언트 인증서를 획득하고 설치해야 합니다. 인증서는 로컬 컴퓨터의 개인(내) 저장소 또는 현재 사용자의 개인 저장소에 설치할 수 있습니다.  클라이언트가 클러스터를 인증할 수 있도록 하려면 서버 인증서의 지문도 필요합니다.
 
-* Windows에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. PowerShell 명령을 사용할 수도 있습니다.
+* Windows: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. PowerShell 명령을 사용할 수도 있습니다.
 
     ```powershell
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -387,12 +376,12 @@ AAD에 로그인하라는 메시지가 자동으로 표시됩니다.
     -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
     ```
 
-* Mac에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
+* Mac: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](service-fabric-cluster-upgrade.md)
-* [Visual Studio에서 Service Fabric 애플리케이션 관리](service-fabric-manage-application-in-visual-studio.md)
+* [Visual Studio에서 Service Fabric 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 * [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)
 * [애플리케이션 보안 및 RunAs](service-fabric-application-runas-security.md)
 * [Service Fabric CLI 시작](service-fabric-cli.md)

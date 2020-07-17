@@ -1,32 +1,22 @@
 ---
-title: Azure VPN Gateways로 항상 사용 가능한 구성의 개요 | Microsoft Docs
+title: 'Azure VPN Gateway: 개요-항상 사용 가능한 게이트웨이 구성'
 description: 이 문서에서는 Azure VPN Gateway를 사용하여 항상 사용 가능한 구성 옵션의 개요를 제공합니다.
 services: vpn-gateway
-documentationcenter: na
-author: WenJason
-manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 09/24/2016
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 09/24/2016
+ms.author: yushwang
+ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60760326"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75779623"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>항상 사용 가능한 크로스-프레미스 및 VNet 간 연결
 이 문서에서는 Azure VPN Gateway를 사용하여 크로스-프레미스 및 VNet 간 연결에 대해 항상 사용 가능한 구성 옵션의 개요를 제공합니다.
 
-## <a name = "activestandby"></a>Azure VPN Gateway 중복 정보
+## <a name="about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>Azure VPN Gateway 중복 정보
 모든 Azure VPN Gateway는 활성-대기 구성 상태에 있는 두 인스턴스로 구성됩니다. 활성 인스턴스에 계획된 유지 관리 또는 계획되지 않은 중단이 발생한 경우 대기 인스턴스가 자동으로 발생(장애 조치)하여 S2S VPN 또는 VNet 간 연결을 다시 시작합니다. 전환하면 짧게 중단이 발생합니다. 계획된 유지 관리의 경우 10-15초 내에 연결을 복원해야 합니다. 계획되지 않은 문제의 경우 연결 복구가 1분에서 최악의 경우 1분 30초로 길어집니다. 게이트웨이에 대한 P2S VPN 클라이언트 연결의 경우 P2S 연결의 연결이 끊어지고 사용자가 클라이언트 컴퓨터에서 다시 연결해야 합니다.
 
 ![활성-대기](./media/vpn-gateway-highlyavailable/active-standby.png)
@@ -38,7 +28,7 @@ ms.locfileid: "60760326"
 * 활성-활성 Azure VPN Gateway
 * 둘의 조합
 
-### <a name = "activeactiveonprem"></a>다중 온-프레미스 VPN 디바이스
+### <a name="multiple-on-premises-vpn-devices"></a><a name = "activeactiveonprem"></a>다중 온-프레미스 VPN 디바이스
 다음 다이어그램에 표시된 대로 다중 VPN 디바이스를 사용하여 온-프레미스 네트워크에서 Azure VPN Gateway에 연결할 수 있습니다.
 
 ![다중 온-프레미스 VPN](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)

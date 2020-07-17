@@ -1,21 +1,17 @@
 ---
-title: Azure Disk Storage에서 애플리케이션 벤치마킹 - 관리형 디스크
+title: Azure 디스크 저장소에서 응용 프로그램 벤치마킹
 description: Azure에서 애플리케이션을 벤치마킹하는 프로세스를 알아봅니다.
-services: virtual-machines-linux,storage
-author: rockboyfor
-ms.author: v-yeche
-origin.date: 01/11/2019
-ms.date: 04/01/2019
-ms.topic: article
+author: roygara
+ms.author: rogarana
+ms.date: 01/11/2019
+ms.topic: how-to
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 21ed4e9a6b1da10d0ae4c276612459506e13d94f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a658bfc0815a03d0f6944d1c42eacdd04397458d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660902"
 ---
 # <a name="benchmarking-a-disk"></a>디스크 벤치마킹
 
@@ -29,7 +25,6 @@ Windows 및 Linux용으로 각각 일반 벤치마킹 도구 Iometer 및 FIO를 
 
 ## <a name="next-steps"></a>다음 단계
 
-고성능을 위한 디자인 문서를 진행합니다. 이 문서에서는 프로토타입을 위한 기존 애플리케이션과 비슷한 검사 목록을 만듭니다. 벤치마킹 도구를 사용하여 작업을 시뮬레이션하고 프로토타입 애플리케이션의 성능을 측정할 수 있습니다. 이렇게 하면 애플리케이션 성능 요구 사항과 일치하거나 능가할 수 있는 디스크 제품을 확인할 수 있습니다. 그런 다음, 프로덕션 애플리케이션에 대해 동일한 지침을 구현할 수 있습니다.
+[고성능을 위한 디자인](premium-storage-performance.md)에 대 한 문서를 진행 합니다.
 
-> [!div class="nextstepaction"]
-> [고성능을 위한 디자인](premium-storage-performance.md) 문서를 참조하세요.
+이 문서에서는 프로토타입에 대 한 기존 응용 프로그램과 유사한 검사 목록을 만듭니다. 벤치마킹 도구를 사용하여 작업을 시뮬레이션하고 프로토타입 애플리케이션의 성능을 측정할 수 있습니다. 이렇게 하면 애플리케이션 성능 요구 사항과 일치하거나 능가할 수 있는 디스크 제품을 확인할 수 있습니다. 그런 다음, 프로덕션 애플리케이션에 대해 동일한 지침을 구현할 수 있습니다.

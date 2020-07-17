@@ -1,33 +1,32 @@
 ---
 title: Azure Files를 배포하는 방법 | Microsoft Docs
 description: Azure Files를 배포하는 방법을 처음부터 끝까지 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6afe54d269d273c6a93e6431e9f1c1af7b18cc0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b9df9375dee59df987cea01a4142a22a78eb533e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510805"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
 
 이 문서의 단계를 수행하기 전에 [Azure Files 배포 계획](storage-files-planning.md)을 읽는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 이미 다음 단계를 완료했다고 가정합니다.
 
-- 원하는 지역에서 원하는 복원력 및 암호화 옵션을 사용하여 Azure Storage 계정을 만들었습니다. 저장소 계정을 만드는 방법에 대한 단계별 지침은 [저장소 계정 만들기](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
+- 원하는 지역에서 원하는 복원력 및 암호화 옵션을 사용하여 Azure Storage 계정을 만들었습니다. 스토리지 계정을 만드는 방법에 대한 단계별 지침은 [스토리지 계정 만들기](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 - Storage 계정에서 원하는 할당량을 사용하여 Azure 파일 공유를 만들었습니다. 파일 공유를 만드는 방법에 대한 단계별 지침은 [파일 공유 만들기](storage-how-to-create-file-share.md)를 참조하세요.
 
 ## <a name="transfer-data-into-azure-files"></a>데이터를 Azure Files로 전송
-온-프레미스에 저장된 파일 공유 같은 기존 파일 공유를 새 Azure 파일 공유로 마이그레이션하려고 할 수 있습니다. 이 섹션에서는 [계획 지침](storage-files-planning.md#data-transfer-method)에서 자세히 설명된 널리 사용되는 여러 메서드를 통해 데이터를 Azure 파일 공유로 이동하는 방법을 보여줍니다.
+온-프레미스에 저장된 파일 공유 같은 기존 파일 공유를 새 Azure 파일 공유로 마이그레이션하려고 할 수 있습니다. 이 섹션에서는 [계획 가이드](storage-files-planning.md#migration) 에 설명 된 다양 한 인기 메서드를 통해 Azure 파일 공유로 데이터를 이동 하는 방법을 보여 줍니다.
 
 ### <a name="azure-file-sync"></a>Azure 파일 동기화
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -64,7 +63,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    한 저장소 계정으로 여러 공유를 지정할 수 있습니다. 자세한 내용은 [데이터 세트 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file)를 참조하세요.
+    한 스토리지 계정으로 여러 공유를 지정할 수 있습니다. 자세한 내용은 [데이터 세트 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
 5. 드라이브 집합 CSV 파일을 만듭니다. 드라이브 집합 CSV 파일에는 온-프레미스 내보내기 에이전트에 사용할 수 있는 디스크가 나열됩니다. 예를 들어 다음 드라이브 집합 CSV 파일에는 온-프레미스 내보내기 작업에 사용되는 `X:`, `Y:` 및 `Z:` 드라이브가 나열됩니다.
 
@@ -75,7 +74,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
     Z,Format,SilentMode,Encrypt,
     ```
     
-    자세한 내용은 [드라이브 집합 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file)를 참조하세요.
+    자세한 내용은 [드라이브 집합 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
 6. [WAImportExport 도구](https://www.microsoft.com/download/details.aspx?id=55280)를 사용하여 하나 이상의 하드 드라이브에 데이터를 복사합니다.
 
@@ -91,7 +90,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
 ### <a name="robocopy"></a>Robocopy
 Robocopy는 Windows 및 Windows Server와 함께 제공되는 잘 알려진 복사 도구입니다. 파일 공유를 로컬로 탑재하고 탑재된 위치를 Robocopy 명령의 대상으로 사용하는 방식으로 Robocopy를 사용하여 데이터를 Azure Files로 전송할 수 있습니다. Robocopy 사용은 매우 간단합니다.
 
-1. [Azure 파일 공유 탑재](storage-how-to-use-files-windows.md). 성능을 최적화하려면 데이터가 포함된 서버에서 로컬로 Azure 파일 공유를 탑재하는 것이 좋습니다. 데이터를 제공하는 파일 서버가 NAS 디바이스인 경우와 같이 일부 경우에는 이 기능을 사용하지 못할 수 있습니다. 이 경우 PC에서 Azure 파일 공유를 탑재하면 됩니다. 이 예제에서 `net use`는 명령줄에서 파일 공유를 탑재하는 데 사용됩니다.
+1. [Azure 파일 공유를 탑재](storage-how-to-use-files-windows.md)합니다. 성능을 최적화하려면 데이터가 포함된 서버에서 로컬로 Azure 파일 공유를 탑재하는 것이 좋습니다. 데이터를 제공하는 파일 서버가 NAS 디바이스인 경우와 같이 일부 경우에는 이 기능을 사용하지 못할 수 있습니다. 이 경우 PC에서 Azure 파일 공유를 탑재하면 됩니다. 이 예제에서 `net use`는 명령줄에서 파일 공유를 탑재하는 데 사용됩니다.
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -108,7 +107,7 @@ Robocopy는 Windows 및 Windows Server와 함께 제공되는 잘 알려진 복�
 ### <a name="azcopy"></a>AzCopy
 AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files 및 Azure Blob Storage에서 복사하도록 디자인된 명령줄 유틸리티입니다. AzCopy 사용은 간단합니다.
 
-1. [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy) 또는 [Windows에서 최신 AzCopy 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
+1. [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy) 또는 [Windows에서 최신 AzCopy 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
 2. 명령줄에서 `azcopy`를 사용하여 데이터를 Azure 파일 공유로 이동합니다. Windows의 구문은 다음과 같습니다. 
 
     ```
@@ -127,7 +126,7 @@ AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files �
 온-프레미스 파일 공유를 바꾸려면 공유가 사용될 컴퓨터에 공유를 미리 탑재하는 것이 좋습니다. 이 작업은 컴퓨터 목록에서 자동으로 수행될 수 있습니다.
 
 > [!Note]  
-> Azure 파일 공유를 탑재하려면 저장소 계정 키를 암호로 사용해야 하므로 신뢰할 수 있는 환경의 탑재만 권장합니다. 
+> Azure 파일 공유를 탑재하려면 스토리지 계정 키를 암호로 사용해야 하므로 신뢰할 수 있는 환경의 탑재만 권장합니다. 
 
 ### <a name="windows"></a>Windows
 PowerShell을 사용하여 여러 PC에서 탑재 명령을 실행할 수 있습니다. 다음 예제에서 `$computers`는 수동으로 채워지지만 자동으로 탑재할 컴퓨터 목록을 생성할 수 있습니다. 예를 들어 이 변수를 Active Directory의 결과로 채울 수 있습니다.

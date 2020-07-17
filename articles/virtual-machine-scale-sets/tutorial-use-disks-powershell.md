@@ -1,27 +1,20 @@
 ---
-title: 자습서 - Azure PowerShell을 사용하여 확장 집합용 디스크 만들기 및 사용 | Microsoft Docs
+title: 자습서 - Azure PowerShell을 사용하여 확장 집합용 디스크 만들기 및 사용
 description: Azure PowerShell을 사용하여 디스크를 추가, 준비, 나열 및 분리하는 방법을 포함하여, 가상 머신 확장 집합이 있는 Managed Disks를 만들고 사용하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: f3b49efa5e28eab2168c9a85d17e39ca7f0fce4a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 5c82f087505c1634dd621252935c4017687340b2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984786"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198235"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 
@@ -34,11 +27,11 @@ ms.locfileid: "55984786"
 > * 디스크 성능
 > * 데이터 디스크 연결 및 준비
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
@@ -52,21 +45,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 | Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
 |----|----|----|
 | [범용](../virtual-machines/windows/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
-| [Compute에 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 576 |
+| [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 576 |
 | [메모리에 최적화](../virtual-machines/windows/sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
 | [Storage에 최적화](../virtual-machines/windows/sizes-storage.md) | L 시리즈 | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N 시리즈 | 1,440 |
+| [GPU](../virtual-machines/windows/sizes-gpu.md) | N 시리즈 | 1440 |
 | [고성능](../virtual-machines/windows/sizes-hpc.md) | A 및 H 시리즈 | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
-애플리케이션을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다.
+애플리케이션을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 스토리지가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다.
 
 ### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
 | Type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
 |----|----|----|
 | [범용](../virtual-machines/windows/sizes-general.md) | A, B 및 D 시리즈 | 64 |
-| [Compute에 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 64 |
+| [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 64 |
 | [메모리에 최적화](../virtual-machines/windows/sizes-memory.md) | D, E, G 및 M 시리즈 | 64 |
 | [Storage에 최적화](../virtual-machines/windows/sizes-storage.md) | L 시리즈 | 64 |
 | [GPU](../virtual-machines/windows/sizes-gpu.md) | N 시리즈 | 64 |
@@ -255,7 +248,7 @@ VM 인스턴스와의 원격 데스크톱 연결 세션을 닫습니다.
 Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
-*VirtualMachineProfile.StorageProfile* 속성 아래에 *DataDisks*의 목록이 표시됩니다. 디스크 크기, 저장소 계층 및 LUN(논리 단위 번호)에 대한 정보가 표시됩니다. 다음 예제 출력에서는 확장 집합에 연결된 세 개의 데이터 디스크에 대해 자세히 설명합니다.
+*VirtualMachineProfile.StorageProfile* 속성 아래에 *DataDisks*의 목록이 표시됩니다. 디스크 크기, 스토리지 계층 및 LUN(논리 단위 번호)에 대한 정보가 표시됩니다. 다음 예제 출력에서는 확장 집합에 연결된 세 개의 데이터 디스크에 대해 자세히 설명합니다.
 
 ```powershell
 DataDisks[0]                            :

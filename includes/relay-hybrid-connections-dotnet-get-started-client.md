@@ -1,10 +1,15 @@
 ---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
 ms.openlocfilehash: 2d6836b2bf667e4170e67a95dc1daad72a769eb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182437"
 ---
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
@@ -13,7 +18,7 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
 ### <a name="add-the-relay-nuget-package"></a>릴레이 NuGet 패키지 추가
 
 1. 마우스 오른쪽 단추로 새로 만든 프로젝트를 클릭한 다음 **NuGet 패키지 관리**를 선택합니다.
-2. **찾아보기**를 선택한 다음 **Microsoft.Azure.Relay**를 검색합니다. 검색 결과에서 **Microsoft Azure Relay**를 선택합니다. 
+2. **찾아보기**를 선택한 다음 **Microsoft.Azure.Relay**를 검색합니다. 검색 결과에서 **Microsoft Azure Relay**를 선택 합니다. 
 3. **설치**을 선택하여 설치를 완료합니다. 대화 상자를 닫습니다.
 
 ### <a name="write-code-to-send-messages"></a>메시지를 보내는 코드 작성
@@ -136,7 +141,7 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
                 // Initiate the connection.
                 var relayConnection = await client.CreateConnectionAsync();
    
-                // Run two conucrrent loops on the connection. One 
+                // Run two concurrent loops on the connection. One 
                 // reads input from the console and then writes it to the connection 
                 // with a stream writer. The other reads lines of input from the 
                 // connection with a stream reader and then writes them to the console. 

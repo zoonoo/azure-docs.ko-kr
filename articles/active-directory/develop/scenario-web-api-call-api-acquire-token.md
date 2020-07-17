@@ -1,36 +1,34 @@
 ---
-title: 웹 API는 호출에는 다른 웹 Api에 (앱 토큰을 획득)-Microsoft id 플랫폼
-description: Web API 호출에는 다른 웹 Api (응용 프로그램에 대 한 토큰 가져오기)를 빌드하는 방법에 알아봅니다.
+title: Web Api를 호출 하는 웹 API에 대 한 토큰을 가져옵니다. Microsoft
+titleSuffix: Microsoft identity platform
+description: 앱에 대 한 토큰을 획득 해야 하는 웹 Api를 호출 하는 web API를 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986e2e0f8a481d61dc870af2548290658b44d2d3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 79f8eb9e804502a7c0e61c18e4998fa05db10278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231104"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80885143"
 ---
-# <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 web API 앱에 대 한 토큰을 획득
+# <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 web API: 응용 프로그램에 대 한 토큰 획득
 
-클라이언트 응용 프로그램을 작성 한 후 개체를 사용 하 여 web API를 호출 하는 데 사용할 수 있는 토큰을 획득 합니다.
+클라이언트 응용 프로그램 개체를 빌드한 후에는이 개체를 사용 하 여 web API를 호출 하는 데 사용할 수 있는 토큰을 가져옵니다.
 
 ## <a name="code-in-the-controller"></a>컨트롤러의 코드
 
-API 컨트롤러를 todolist 붙여진 다운스트림 API 호출의 동작에서 호출 되는 코드의 예는 다음과 같습니다.
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-```CSharp
+API 컨트롤러의 작업에서 호출 되는 코드의 예는 다음과 같습니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
+
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...
@@ -49,11 +47,11 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` 문서의 살펴봤습니다 비슷합니다 [Web API를 호출 하는 web Api-앱 구성](scenario-web-api-call-api-app-configuration.md)합니다. `BuildConfidentialClient()` 인스턴스화합니다 `IConfidentialClientApplication` 하나의 계정에 대 한 정보만 포함 하는 캐시를 사용 하 여 합니다. 계정에서 제공 되는 `GetAccountIdentifier` 메서드.
+`BuildConfidentialClient()`웹 api를 [호출 하는 웹 api](scenario-web-api-call-api-app-configuration.md)의 시나리오와 비슷합니다. 앱 구성. `BuildConfidentialClient()``IConfidentialClientApplication`는 한 계정에 대 한 정보만 포함 하는 캐시로 인스턴스화합니다. 계정은 메서드에서 제공 합니다 `GetAccountIdentifier` .
 
-`GetAccountIdentifier` 메서드는 웹 API는 JWT를 받은 사용자의 id와 연결 된 클레임을 사용 합니다.
+`GetAccountIdentifier`메서드는 WEB API가 JSON Web Token (JWT)를 받은 사용자의 id와 연결 된 클레임을 사용 합니다.
 
-```CSharp
+```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 {
  string userObjectId = GetObjectId(claimsPrincipal);
@@ -69,7 +67,34 @@ public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+API 컨트롤러의 작업에서 호출 되는 코드의 예는 다음과 같습니다. 다운스트림 API Microsoft Graph를 호출 합니다.
+
+```java
+@RestController
+public class ApiController {
+
+    @Autowired
+    MsalAuthHelper msalAuthHelper;
+
+    @RequestMapping("/graphMeApi")
+    public String graphMeApi() throws MalformedURLException {
+
+        String oboAccessToken = msalAuthHelper.getOboToken("https://graph.microsoft.com/.default");
+
+        return callMicrosoftGraphMeEndpoint(oboAccessToken);
+    }
+
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python web API는 클라이언트에서 받은 전달자 토큰의 유효성을 검사 하기 위해 일부 미들웨어를 사용 해야 합니다. Web API는 메서드를 호출 하 여 MSAL Python 라이브러리를 사용 하 여 다운스트림 API에 대 한 액세스 토큰을 가져올 수 있습니다 [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) . MSAL Python을 사용 하 여이 흐름을 보여 주는 샘플은 아직 사용할 수 없습니다.
+
+---
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Web API 호출](scenario-web-api-call-api-call-api.md)
+> [웹 api를 호출 하는 web API: API 호출](scenario-web-api-call-api-call-api.md)

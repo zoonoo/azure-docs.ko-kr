@@ -1,178 +1,122 @@
 ---
 title: Azure Storage에서 정적 웹 사이트 호스팅
 description: 최신 웹 애플리케이션을 호스팅하는 비용 효율적이고 확장 가능한 솔루션을 제공하는 정적 웹 사이트 호스팅입니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.author: normesta
-ms.reviewer: seguler
-ms.date: 04/29/2019
+ms.reviewer: dineshm
+ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: cd1fa71cb2a10c7e61f76bdd224ba6d0f039346f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ccad51d18a5e76f68633103af64e9ba6cc3f19c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148468"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203390"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
-Azure Storage GPv2 계정을 사용하면 *$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.
 
-정적 웹 사이트 호스팅과는 반대로, 서버 쪽 코드에 의존하는 동적 사이트는 [Azure App Service](/azure/app-service/overview)를 사용하여 호스팅하는 것이 가장 좋습니다.
+*$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 사용할 수 있습니다. Azure Storage에서 콘텐츠를 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS(Platform as a service) 서비스를 포함하는 서버리스 아키텍처를 사용할 수 있습니다.
 
-## <a name="how-does-it-work"></a>어떻게 작동합니까?
-저장소 계정에서 정적 웹 사이트를 호스팅하도록 설정하는 경우 기본 파일의 이름을 선택하고 필요에 따라 사용자 지정 404 페이지의 경로를 제공합니다. 기능이 활성화되면 *$web*이라는 컨테이너가 생성됩니다(아직 없는 경우).
-
-*$web* 컨테이너에 포함된 파일은 다음과 같은 특징이 있습니다.
-
-- 익명 액세스 요청을 통해 제공
-- 개체 읽기 작업을 통해서만 사용 가능
-- 대/소문자 구분
-- 다음 패턴을 따르는 공용 웹에서 사용 가능:
-    - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- 다음 패턴을 따르는 Blob Storage 엔드포인트를 통해 사용 가능:
-    - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
-
-Blob Storage 엔드포인트를 사용하여 파일을 업로드합니다. 예를 들어 이 위치에 업로드된 파일은 다음과 같은 특징이 있습니다.
-
-```bash
-https://contoso.blob.core.windows.net/$web/image.png
-```
-
-다음과 같은 위치의 브라우저에서 사용할 수 있습니다.
-
-```bash
-https://contoso.z4.web.core.windows.net/image.png
-```
-
-파일 이름을 입력하지 않으면 선택된 기본 파일 이름이 루트 및 하위 디렉터리에서 사용됩니다. 서버에서 404를 반환하고 관리자가 오류 문서 경로를 제공하지 않으면 기본 404 페이지가 사용자에게 반환됩니다.
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> 파일에 대 한 기본 공용 액세스 수준을 비공개로 설정 되었습니다. 파일은 익명 액세스 요청을 통해 제공 됩니다, 때문에이 설정이 무시 됩니다. 모든 파일에 대 한 공용 액세스 이며 RBAC 권한이 무시 됩니다.
+> 사이트가 서버 쪽 코드에 종속되는 경우 대신 [Azure App Service](/azure/app-service/overview)를 사용합니다.
+범용 v2 Standard storage 계정을 만들어야 합니다. 정적 웹 사이트는 다른 유형의 스토리지 계정에서 사용할 수 없습니다.
 
-## <a name="cdn-and-ssl-support"></a>CDN 및 SSL 지원
+## <a name="setting-up-a-static-website"></a>정적 웹 사이트 설정
 
-정적 웹 사이트 파일을 사용할 수 있도록 사용자 지정 도메인 및 HTTPS를 통해 참조 [HTTPS를 통한 사용자 지정 도메인을 사용 하 여 blob 액세스를 Azure CDN을 사용 하 여](storage-https-custom-domain-cdn.md)입니다. 이 프로세스의 일부로, Blob 엔드포인트와는 반대로 *CDN이 웹 엔드포인트를 가리키도록 지정*해야 합니다. CDN 구성이 즉시 실행되지 않으므로 콘텐츠가 표시될 때까지 잠시 기다려야 합니다.
+정적 웹 사이트 호스팅은 스토리지 계정에서 사용하도록 설정해야 하는 기능입니다.
 
-정적 웹 사이트를 업데이트 하는 경우에 CDN 끝점을 제거 하 여 CDN에 지 서버에 캐시 된 콘텐츠를 선택 취소 해야 합니다. 자세한 내용은 [Azure CDN 엔드포인트 제거](../../cdn/cdn-purge-endpoint.md)를 참조하세요.
+정적 웹 사이트 호스팅을 사용하도록 설정하려면 기본 파일의 이름을 선택한 다음 필요에 따라 사용자 지정 404 페이지의 경로를 제공합니다. 계정에 **$web**이라는 Blob 스토리지 컨테이너가 아직 없는 경우 하나 만듭니다. 이 컨테이너에 사이트의 파일을 추가합니다.
+
+단계별 지침은 [Azure Storage에서 정적 웹 사이트 호스트](storage-blob-static-website-how-to.md)를 참조하세요.
+
+![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
+
+**$web** 컨테이너의 파일은 대/소문자를 구분하고 익명 액세스 요청을 통해 제공되며 읽기 작업을 통해서만 사용할 수 있습니다.
+
+## <a name="uploading-content"></a>콘텐츠 업로드
+
+다음 도구 중 하나를 사용하여 **$web** 컨테이너에 콘텐츠를 업로드할 수 있습니다.
+
+> [!div class="checklist"]
+> * [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
+> * [Azure PowerShell 모듈](storage-blob-static-website-how-to.md?tabs=azure-powershell)
+> * [AZCopy](../common/storage-use-azcopy-v10.md)
+> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+> * [Visual Studio Code 확장](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
+
+## <a name="viewing-content"></a>콘텐츠 보기
+
+사용자는 웹 사이트의 공용 URL을 사용하여 브라우저에서 사이트 콘텐츠를 볼 수 있습니다. Azure Portal, Azure CLI 또는 PowerShell을 사용하여 URL을 찾을 수 있습니다. [웹 사이트 URL 찾기](storage-blob-static-website-how-to.md#portal-find-url)를 참조하세요.
+
+서버에서 404 오류를 반환하는 경우, 웹 사이트를 사용하도록 설정할 때 오류 문서를 지정하지 않았으면, 사용자에게 기본 404 페이지가 반환됩니다.
 
 > [!NOTE]
-> HTTPS는 계정 웹 끝점을 통해 고유 하 게 지원 됩니다. 이 이번에 Azure CDN를 사용이 해야 하는 HTTPS 통해 사용자 지정 도메인을 사용 합니다. 
->
-> HTTPS 통해 웹 끝점을 공용 계정: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)는 정적 웹 사이트에서 지원되지 않습니다.
 
-## <a name="custom-domain-names"></a>사용자 지정 도메인 이름
+### <a name="regional-codes"></a>지역 코드
 
-[Azure Storage 계정에 대한 사용자 지정 도메인 이름을 구성](storage-custom-domain-name.md)하여 사용자 지정 도메인을 통해 정적 웹 사이트를 제공할 수 있습니다. Azure에 도메인을 호스팅하는 방법에 대한 자세한 내용은 [Azure DNS에서 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)를 참조하세요.
+사이트의 URL은 지역 코드를 포함합니다. 예를 들어 URL `https://contosoblobaccount.z22.web.core.windows.net/`에는 지역 코드 `z22`가 포함되어 있습니다.
 
-## <a name="pricing"></a>가격
-정적 웹 사이트 호스팅 사용 하도록 설정 하는 것은 무료입니다. 고객 사용량된 blob 저장소 및 운영 비용에 대 한 요금이 청구 됩니다. Azure Blob Storage에 대한 가격의 자세한 내용은 [Azure Blob Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
+이 코드는 URL에 남아 있어야 하지만 내부용으로만 사용되며 다른 방법으로는 해당 코드를 사용할 필요가 없습니다.
 
-## <a name="quickstart"></a>빠른 시작
+정적 웹 사이트 호스팅을 사용하도록 설정할 때 지정한 인덱스 문서는 사용자가 사이트를 열고 특정 파일을 지정하지 않을 때 표시됩니다(예: `https://contosoblobaccount.z22.web.core.windows.net`).
 
-### <a name="azure-portal"></a>Azure portal
-https://portal.azure.com에서 Azure Portal을 열어서 시작한 후 GPv2 저장소 계정에서 다음 단계를 실행합니다.
+### <a name="secondary-endpoints"></a>보조 엔드포인트
 
-1. **설정**을 클릭합니다.
-2. **정적 웹 사이트**를 클릭합니다.
-3. *인덱스 문서 이름*을 입력합니다. (일반적인 값은 *index.html)*
-4. 선택 사항으로 사용자 지정 404 페이지의 *오류 문서 경로*를 입력합니다. (일반적인 값은 *404.html)*
+[보조 지역의 중복성](../common/storage-redundancy.md#redundancy-in-a-secondary-region)을 설정한 경우 보조 엔드포인트를 사용하여 웹 사이트 콘텐츠에 액세스할 수도 있습니다. 데이터는 보조 지역에 비동기적으로 복제되므로 보조 엔드포인트에서 사용할 수 있는 파일이 기본 엔드포인트에서 사용할 수 있는 파일과 항상 동기화되지는 않습니다.
 
-![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
+## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>웹 컨테이너의 공용 액세스 수준을 설정하는 경우의 영향
 
-다음으로, Azure Portal을 통해 *$web* 컨테이너에 자산을 업로드하거나 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 전체 디렉터리에 업로드합니다. 기능을 활성화할 때 선택한 *인덱스 문서 이름*과 일치하는 파일을 포함합니다.
+**$web** 컨테이너의 공용 액세스 수준을 수정할 수 있습니다. 하지만 이러한 파일은 익명 액세스 요청을 통해 제공되므로 기본 정적 웹 사이트 엔드포인트에는 영향을 주지 않습니다. 이는 모든 파일에 대한 공용(읽기 전용) 액세스를 의미합니다.
 
-마지막으로 웹 엔드포인트로 이동하여 웹 사이트를 테스트합니다.
+다음 스크린샷은 Azure Portal의 공용 액세스 수준 설정을 보여 줍니다.
 
-### <a name="azure-cli"></a>Azure CLI
-저장소 미리 보기 확장 설치:
+![포털에서 공용 액세스 수준을 설정하는 방법을 보여 주는 스크린샷](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
-```azurecli-interactive
-az extension add --name storage-preview
-```
-구독이 여러 개 있는 경우 사용하려는 GPv2 저장소 계정의 구독으로 CLI를 설정합니다.
+기본 정적 웹 사이트 엔드포인트에는 영향을 주지 않지만 공용 액세스 수준 변경은 주 Blob 서비스 엔드포인트에는 영향을 줍니다.
 
-```azurecli-interactive
-az account set --subscription <SUBSCRIPTION_ID>
-```
-기능을 활성화합니다. 대괄호를 포함한 모든 자리 표시자 값을 사용자 고유의 값으로 바꿉니다.
+예를 들어 **$web** 컨테이너의 공용 액세스 수준을 **개인(익명 액세스 없음)** 에서 **Blob(Blob만 익명 읽기 액세스)** 으로 변경하는 경우 기본 정적 웹 사이트 엔드포인트 `https://contosoblobaccount.z22.web.core.windows.net/index.html`에 대한 공용 액세스 수준은 변경되지 않습니다.
 
-```azurecli-interactive
-az storage blob service-properties update --account-name <ACCOUNT_NAME> --static-website --404-document <ERROR_DOCUMENT_NAME> --index-document <INDEX_DOCUMENT_NAME>
-```
-웹 엔드포인트 URL에 대한 쿼리:
+그러나 기본 Blob 서비스 엔드포인트 `https://contosoblobaccount.blob.core.windows.net/$web/index.html`에 대한 공용 액세스가 개인에서 공용으로 변경됩니다. 이제 사용자는 이들 두 엔드포인트 중 하나를 사용하여 해당 파일을 열 수 있습니다.
 
-```azurecli-interactive
-az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
-```
+저장소 계정에 대 한 공용 액세스를 사용 하지 않도록 설정 해도 해당 저장소 계정에서 호스팅되는 정적 웹 사이트에는 영향을 주지 않습니다. 자세한 내용은 [컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성](anonymous-read-access-configure.md)을 참조 하세요.
 
-소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다. 명령에서 *$web* 컨테이너에 대한 참조를 올바르게 이스케이프해야 합니다. 예를 들어, Azure Portal의 CloudShell에서 Azure CLI를 사용하는 경우 다음에 표시된 대로 *$web* 컨테이너를 이스케이프합니다.
+## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>정적 웹 사이트 URL에 사용자 지정 도메인 매핑
 
-```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
-```
+사용자 지정 도메인을 통해 정적 웹 사이트를 사용할 수 있도록 설정할 수 있습니다.
 
-## <a name="deployment"></a>배포
+Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인에 대해 HTTP 액세스를 사용하는 것이 더 쉽습니다. HTTPS를 사용하려면 Azure CDN을 사용해야 합니다. Azure Storage는 기본적으로 사용자 지정 도메인에 대해 HTTPS를 지원하지 않습니다. 단계별 지침은 [Azure Blob Storage 엔드포인트 사용자 지정 도메인 매핑](storage-custom-domain-name.md)을 참조하세요.
 
-저장소 컨테이너에 콘텐츠를 배포하는 데 사용할 수 있는 방법은 다음과 같습니다.
+스토리지 계정이 HTTPS를 통한 [보안 전송을 요구](../common/storage-require-secure-transfer.md)하도록 구성된 경우 사용자는 HTTPS 엔드포인트를 사용해야 합니다.
 
-- [AZCopy](../common/storage-use-azcopy.md)
-- [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-- [Visual Studio Code 확장](https://code.visualstudio.com/tutorials/static-website/getting-started)
+> [!TIP]
+> Azure에서 도메인을 호스트하는 것이 좋습니다. 자세한 내용은 [Azure DNS에서 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)를 참조하세요.
 
-항상 파일을 *$web* 컨테이너로 복사해야 합니다.
+## <a name="adding-http-headers"></a>HTTP 헤더 추가
+
+정적 웹 사이트 기능의 일부로 헤더를 구성할 수 있는 방법은 없습니다. 그러나 Azure CDN을 사용하여 헤더를 추가하고 헤더 값을 추가(또는 덮어쓰기)할 수 있습니다. [Azure CDN에 대한 표준 규칙 엔진 참조](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference)를 참조하세요.
+
+캐싱을 제어하는 데 헤더를 사용하려는 경우 [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](https://docs.microsoft.com/azure/cdn/cdn-caching-rules)를 참조하세요.
+
+## <a name="pricing"></a>가격 책정
+
+정적 웹 사이트 호스팅은 무료로 사용할 수 있습니다. 사이트에서 활용하는 Blob 스토리지 및 운영 비용에 대해서만 요금이 청구됩니다. Azure Blob Storage에 대한 가격의 자세한 내용은 [Azure Blob Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
 ## <a name="metrics"></a>메트릭
 
-정적 웹 사이트 페이지에 메트릭을 사용하려면 **설정** > **모니터링** > **메트릭**을 클릭합니다.
+정적 웹 사이트 페이지에서 메트릭을 사용할 수 있습니다. 메트릭을 사용하도록 설정하면 **$web** 컨테이너의 파일에 대한 트래픽 통계가 메트릭 대시보드에 보고됩니다.
 
-여러 메트릭 API에 연결하여 메트릭 데이터가 생성됩니다. 데이터를 반환하는 멤버에만 집중하기 위해 특정 시간 프레임에 사용된 API 멤버만 포털에 표시됩니다. 필요한 API 멤버를 선택할 수 있도록 가장 먼저 할 일은 시간 프레임을 확장하는 것입니다.
-
-시간 프레임 단추를 클릭하고 **지난 24시간**을 선택한 다음, **적용**을 클릭합니다.
-
-![Azure Storage 정적 웹 사이트 메트릭 시간 범위](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
-
-다음으로, *네임스페이스* 드롭다운에서 **Blob**을 선택합니다.
-
-![Azure Storage 정적 웹 사이트 메트릭 네임스페이스](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
-
-그런 다음, **송신** 메트릭을 선택합니다.
-
-![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
-
-*집계* 선택기에서 **합계**를 선택합니다.
-
-![Azure Storage 정적 웹 사이트 메트릭 집계](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
-
-다음으로, **필터 추가** 단추를 클릭하고 *속성* 선택기에서 **API 이름**을 선택합니다.
-
-![Azure Storage 정적 웹 사이트 메트릭 API 이름](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
-
-마지막으로, *값* 선택기에서 **GetWebContent** 옆에 있는 상자를 선택하여 메트릭 보고서를 채웁니다.
-
-![Azure Storage 정적 웹 사이트 GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
-
-사용하도록 설정되면 *$web* 컨테이너의 파일에 대한 트래픽 통계가 메트릭 대시보드에 보고됩니다.
-
-## <a name="faq"></a>FAQ
-
-**정적 웹 사이트 기능은 모든 유형의 저장소 계정에 사용할 수 있나요?**  
-아니요, 정적 웹 사이트 호스팅은 GPv2 표준 저장소 계정에서만 사용할 수 있습니다.
-
-**Storage VNET 및 방화벽 규칙은 새 웹 엔드포인트에서 지원되나요?**  
-예, 새 웹 엔드포인트는 저장소 계정에 대해 구성된 VNET 및 방화벽 규칙을 따릅니다.
-
-**웹 엔드포인트는 대/소문자를 구분하나요?**  
-예, 웹 엔드포인트는 Blob 엔드포인트처럼 대/소문자를 구분합니다.
-
-**웹 끝점은 HTTP 및 HTTPS를 통해 액세스할 수 있습니다?**
-예, 웹 끝점은 HTTP 및 HTTPS를 통해 액세스할 수 있습니다. 그러나 저장소 계정이 HTTPS를 통해 보안 전송 필요 하도록 구성 된, 경우 다음 사용자가 사용 해야 합니다 HTTPS 끝점입니다. 자세한 내용은 [Azure Storage에서 보안 전송 필요](../common/storage-require-secure-transfer.md)합니다.
+정적 웹 사이트 페이지에서 메트릭을 사용하도록 설정하려면 [정적 웹 사이트 페이지에서 메트릭 사용](storage-blob-static-website-how-to.md#metrics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure CDN을 사용하여 HTTPS를 통한 사용자 지정 도메인으로 Blob 액세스](storage-https-custom-domain-cdn.md)
-* [Blob 또는 웹 엔드포인트에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)
+
+* [Azure Storage에서 정적 웹 사이트 호스트](storage-blob-static-website-how-to.md)
+* [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [첫 번째 서버 없는 웹앱 빌드](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

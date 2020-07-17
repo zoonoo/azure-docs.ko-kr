@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541386"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67181878"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -18,16 +18,16 @@ ms.locfileid: "58541386"
 
 이제 테이블이 준비되었으므로 테이블에서 엔터티 또는 행을 관리하는 방법을 살펴보겠습니다. 
 
-엔터티는 3 개의 시스템 속성을 포함 하 여 최대 255 개의 속성을 포함할 수 있습니다. **PartitionKey**하십시오 **RowKey**, 및 **타임 스탬프**합니다. 삽입 및 업데이트의 값에 대 한 책임이 **PartitionKey** 하 고 **RowKey**합니다. 서버에서 관리 하는 값 **타임 스탬프**를 수정할 수 없습니다. **PartitionKey** 및 **RowKey**가 함께 테이블 내의 모든 엔터티를 고유하게 식별합니다.
+엔터티에는 **PartitionKey**, **Rowkey**및 **Timestamp**의 세 가지 시스템 속성을 포함 하 여 최대 255 개의 속성이 있을 수 있습니다. **PartitionKey** 및 **rowkey**값을 삽입 하 고 업데이트 해야 합니다. 서버는 수정할 수 없는 **타임 스탬프**값을 관리 합니다. **PartitionKey** 및 **RowKey**가 함께 테이블 내의 모든 엔터티를 고유하게 식별합니다.
 
-* **PartitionKey**: 엔터티가 저장 되는 파티션을 결정 합니다.
-* **RowKey**: 파티션 내에서 엔터티를 고유 하 게 식별합니다.
+* **PartitionKey**: 엔터티가 저장되는 파티션을 결정합니다.
+* **RowKey**: 파티션 내에서 엔터티를 고유하게 식별합니다.
 
 엔터티에 대한 사용자 지정 속성을 최대 252개 정의할 수 있습니다. 
 
 ### <a name="add-table-entities"></a>테이블 엔터티 추가
 
-사용 하 여 테이블에 엔터티를 추가 **추가 AzTableRow**합니다. 이 예제에서는 파티션 키를 사용 하 여 값을 사용 하 여 `partition1` 및 `partition2`, 행 키가 주 약어를 같음 및 합니다. 각 엔터티의 속성은 `username` 고 `userid`입니다. 
+**AzTableRow**를 사용 하 여 테이블에 엔터티를 추가 합니다. 이러한 예에서는 값이 인 파티션 키와 `partition1` `partition2` 상태 약어와 동일한 행 키를 사용 합니다. 각 엔터티의 속성은 `username` 및 `userid` 입니다. 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -57,10 +57,10 @@ Add-AzTableRow `
 
 ### <a name="query-the-table-entities"></a>테이블 엔터티 쿼리
 
-사용 하 여 테이블에서 엔터티를 쿼리할 수 있습니다 합니다 **Get AzTableRow** 명령입니다.
+**AzTableRow** 명령을 사용 하 여 테이블의 엔터티를 쿼리할 수 있습니다.
 
 > [!NOTE]
-> Cmdlet **Get-azurestoragetablerowall**를 **Get-azurestoragetablerowbypartitionkey**하십시오 **Get-azurestoragetablerowbycolumnname**, 및  **Get-azurestoragetablerowbycustomfilter** 는 사용 되지 않으며 이후 버전 업데이트에서 제거 됩니다.
+> **AzureStorageTableRowAll**, **AzureStorageTableRowByPartitionKey**, **AzureStorageTableRowByColumnName**및 **AzureStorageTableRowByCustomFilter** cmdlet은 더 이상 사용 되지 않으며 이후 버전 업데이트에서 제거 될 예정입니다.
 
 #### <a name="retrieve-all-entities"></a>모든 엔터티 검색
 
@@ -101,7 +101,7 @@ Get-AzTableRow -table $cloudTable `
 
 이 쿼리는 하나의 레코드를 검색합니다.
 
-|필드|값|
+|필드(field)|값|
 |----|----|
 | userId | 1 |
 | 사용자 이름 | Chris |
@@ -118,7 +118,7 @@ Get-AzTableRow `
 
 이 쿼리는 하나의 레코드를 검색합니다.
 
-|필드|값|
+|필드(field)|값|
 |----|----|
 | userId | 1 |
 | 사용자 이름 | Chris |
@@ -127,7 +127,7 @@ Get-AzTableRow `
 
 ### <a name="updating-entities"></a>엔터티 업데이트 
 
-엔터티를 업데이트하는 세 가지 단계가 있습니다. 먼저, 변경할 엔터티를 검색합니다. 둘째, 엔터티를 변경합니다. 셋째, 사용 하 여 변경 커밋 **업데이트 AzTableRow**합니다.
+엔터티를 업데이트하는 세 가지 단계가 있습니다. 먼저, 변경할 엔터티를 검색합니다. 둘째, 엔터티를 변경합니다. 셋째, **AzTableRow**를 사용 하 여 변경 내용을 커밋합니다.
 
 엔터티를 username = 'Jessie'로 업데이트하면 username = 'Jessie2'가 됩니다. 또한 이 예제에서는 .NET 형식을 사용하여 사용자 지정 필터를 만드는 또 다른 방법을 보여 줍니다.
 
@@ -153,7 +153,7 @@ Get-AzTableRow -table $cloudTable `
 
 결과에서 Jessie2 레코드를 보여 줍니다.
 
-|필드|값|
+|필드(field)|값|
 |----|----|
 | userId | 2 |
 | 사용자 이름 | Jessie2 |
@@ -166,7 +166,7 @@ Get-AzTableRow -table $cloudTable `
 
 #### <a name="deleting-one-entity"></a>하나의 엔터티 삭제
 
-단일 엔터티를 삭제 하려면 해당 엔터티에 대 한 참조를 가져오고로 파이프 **제거 AzTableRow**합니다.
+단일 엔터티를 삭제 하려면 해당 엔터티에 대 한 참조를 가져오고 **AzTableRow**로 파이프 합니다.
 
 ```powershell
 # Set filter.

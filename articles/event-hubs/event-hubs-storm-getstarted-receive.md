@@ -1,35 +1,23 @@
 ---
-title: Apache Storm을 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Apache Storm을 사용하여 Azure Event Hubs에서 이벤트를 수신하는 방법에 대한 정보를 제공합니다.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: java
-ms.devlang: multiple
-ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+title: '빠른 시작: Apache Storm을 사용하여 이벤트 수신 - Azure Event Hubs'
+description: '빠른 시작: 이 문서에서는 Apache Storm을 사용하여 Azure Event Hubs에서 이벤트를 수신하는 방법에 대한 정보를 제공합니다.'
+ms.topic: quickstart
+ms.date: 06/23/2020
+ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343423"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315354"
 ---
-# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>빠른 시작: Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
 
 [Apache Storm](https://storm.incubator.apache.org)은 분산된 실시간 계산 시스템으로, 바인딩되지 않은 데이터 스트림의 안정적인 처리를 간소화합니다. 이 섹션에서는 Azure Event Hubs Storm Spout를 사용하여 Event Hubs에서 이벤트를 수신하는 방법을 보여 줍니다. Apache Storm을 사용하면 다른 노드에 호스트된 여러 프로세스 간에 이벤트를 분할할 수 있습니다. Event Hubs와 Storm을 통합하면 Storm의 Zookeeper 설치를 통해 진행률을 투명하게 확인하고 지속적인 검사점을 관리하여 이벤트 사용이 간소화되고 Event Hubs에서 병렬 수신됩니다.
 
 Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-빠른 시작에서는 시작 하기 전에 **Event Hubs 네임 스페이스를 만들고 event hub**합니다. 사용 된 [Azure portal](https://portal.azure.com) Event Hubs 형식의 네임 스페이스를 만들고 event hub와 통신 해야 하는 응용 프로그램 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 
+## <a name="prerequisites"></a>사전 요구 사항
+이 빠른 시작을 시작하기 전에 **Event Hubs 네임스페이스 및 이벤트 허브를 만듭니다**. [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고, 애플리케이션에서 이벤트 허브와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 
 
 ## <a name="create-project-and-add-code"></a>프로젝트 만들기 및 코드 추가
 
@@ -135,7 +123,7 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
     }
     ```
     
-    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 저장소 서비스에 저장하도록 간단히 확장할 수 있습니다. [이벤트 허브를 사용한 HDInsight Storm 예제]에서도 이와 동일한 방법을 사용하여 Azure Storage 및 Power BI에 데이터를 저장합니다.
+    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 스토리지 서비스에 저장하도록 간단히 확장할 수 있습니다. [이벤트 허브를 사용한 HDInsight Storm 예제]에서도 이와 동일한 방법을 사용하여 Azure Storage 및 Power BI에 데이터를 저장합니다.
 11. 다음 코드를 포함하는 **LogTopology**라는 클래스를 만듭니다.
     
     ```java
@@ -252,7 +240,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[이벤트 허브를 사용한 HDInsight Storm 예제]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[이벤트 허브를 사용한 HDInsight Storm 예제]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 

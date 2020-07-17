@@ -1,24 +1,13 @@
 ---
-title: Azure Batch 풀 삭제 시작 이벤트 | Microsoft Docs
-description: Batch 풀 삭제 시작 이벤트에 대한 참조입니다.
-services: batch
-author: dlepow
-manager: jeconnoc
-ms.assetid: ''
-ms.service: batch
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
-origin.date: 04/20/2017
-ms.date: 05/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: 2352971af3844b56f93c16ebaf6cb23bd5fd8a5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+title: Azure Batch 풀 삭제 시작 이벤트
+description: Batch 풀 삭제 시작 이벤트에 대한 참조입니다. 이 이벤트는 풀 삭제 작업이 시작되면 내보내집니다.
+ms.topic: reference
+ms.date: 04/20/2017
+ms.openlocfilehash: d4fac833b6c77258e48b38838f6b7b133738a6e8
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60774542"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723938"
 ---
 # <a name="pool-delete-start-event"></a>풀 삭제 시작 이벤트
 
@@ -32,8 +21,6 @@ ms.locfileid: "60774542"
 }
 ```
 
-|요소|형식|메모|
+|요소|Type|메모|
 |-------------|----------|-----------|
-|id|String|풀의 ID입니다.|
-
-<!-- Update_Description: update metedata properties -->
+|`id`|String|풀의 ID입니다.|

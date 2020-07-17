@@ -1,28 +1,30 @@
 ---
-title: IIS 인증 및 Azure MFA 서버-Azure Active Directory
+title: IIS 인증 및 Azure MFA 서버 - Azure Active Directory
 description: IIS 인증 및 Azure Multi-Factor Authentication 서버 배포
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2377ca4b929200ecd0a3a7de01dd3a58be6b7863
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415035"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845443"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS 웹앱용 Azure Multi-Factor Authentication 서버 구성
 
 Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하여 Microsoft IIS 웹 애플리케이션과의 통합을 위한 IIS 인증을 사용하도록 설정하고 구성할 수 있습니다. Azure MFA 서버는 Azure Multi-Factor Authentication을 추가하기 위해 IIS 웹 서버에 요청하는 사항을 필터링할 수 있는 플러그인을 설치합니다. IIS 플러그인은 양식 기반 인증 및 통합 Windows HTTP 인증을 지원합니다. 신뢰할 수 있는 IP는 2단계 인증에서 내부 IP 주소를 제외하도록 구성할 수도 있습니다.
 
-![MFA 서버에서 IIS 인증](./media/howto-mfaserver-iis/iis.png)
+> [!IMPORTANT]
+> Microsoft는 2019년 7월 1일부터 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 신규 사용자의 다단계 인증이 필요한 고객은 클라우드 기반 Azure Multi-Factor Authentication을 사용해야 합니다. 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다. 클라우드 기반 Azure Multi-Factor Authentication을 사용하는 경우 Azure MFA(Multi-Factor Authentication) 서버에서 제공하는 IIS 플러그 인에 대한 대안이 없습니다. 대신 AD FS(Active Directory Federation Services)가 포함된 WAP(웹 애플리케이션 프록시) 또는 Azure Active Directory의 애플리케이션 프록시를 사용하세요.
+
+![MFA 서버의 IIS 인증](./media/howto-mfaserver-iis/iis.png)
 
 ## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 양식 기반 IIS 인증 사용
 
@@ -31,7 +33,7 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴에 있는 IIS 인증 아이콘을 클릭합니다.
 2. **양식 기반** 탭을 클릭합니다.
 3. **추가**를 클릭합니다.
-4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색 하려면 로그인 URL을 입력 합니다 (같은 `https://localhost/contoso/auth/login.aspx`) 클릭 및 양식 기반 웹 사이트 대화 상자 내에서 **확인**합니다.
+4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색하려면 양식 기반 웹 사이트 자동 구성 대화 상자 내에서 로그인 URL(예: `https://localhost/contoso/auth/login.aspx`)을 입력하고 **확인**을 클릭합니다.
 5. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 Multi-Factor Authentication을 사용하려는 경우 **Require Azure Multi-Factor Authentication user match**(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 다단계 인증에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 6. 페이지 변수를 자동으로 검색할 수 없는 경우 양식 기반 웹 사이트 자동 구성 대화 상자에서 **수동으로 지정**을 클릭합니다.
 7. Add Form-Based Website(양식 기반 웹 사이트 추가) 대화 상자에서 Submit URL(URL 제출) 필드에 로그인 페이지의 URL을 입력하고 애플리케이션 이름을 입력합니다(선택 사항). 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
@@ -55,7 +57,7 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴에 있는 IIS 인증 아이콘을 클릭합니다.
 2. **HTTP** 탭을 클릭합니다.
 3. **추가**를 클릭합니다.
-4. 기준 URL 추가 대화 상자에서 HTTP 인증이 수행 되는 웹 사이트에 대 한 URL을 입력 (같은 <http://localhost/owa>) 하 고 (선택 사항) 응용 프로그램 이름을 제공 합니다. 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
+4. 기준 URL 추가 대화 상자에서 HTTP 인증이 수행되는 웹 사이트의 URL(예: <http://localhost/owa>)을 입력하고 애플리케이션 이름을 제공합니다(선택 사항). 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 5. 기본값이 충분하지 않으면 유휴 제한 시간 및 최대 세션 시간을 조정합니다.
 6. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 Multi-Factor Authentication을 사용하려는 경우 **Require Azure Multi-Factor Authentication user match**(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 다단계 인증에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 7. 원하는 경우 **쿠키 캐시** 상자를 선택합니다.
@@ -76,4 +78,4 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 1. IIS 인증 섹션에서 **신뢰할 수 있는 IP** 탭을 클릭합니다.
 2. **추가**를 클릭합니다.
 3. 신뢰할 수 있는 IP 추가 대화 상자가 나타나면 **단일 IP**, **IP 범위** 또는 **서브넷** 라디오 단추를 선택합니다.
-4. IP 주소, IP 주소 범위 또는 허용 목록에 추가할 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인**을 클릭합니다. 이제 허용 목록이 추가되었습니다.
+4. 허용되어야 할 IP 주소, IP 주소 범위 또는 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인**을 클릭합니다.

@@ -2,19 +2,19 @@
 title: 프로젝트를 검색, 편집, 삭제하는 방법 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator는 프로젝트를 효율적으로 관리하는 다양한 방법을 제공합니다. 여러 개의 프로젝트를 만들고, 조건에 따라 검색하고, 프로젝트를 편집할 수 있습니다. 프로젝트를 삭제할 수도 있습니다.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
-ms.author: v-rada
+ms.date: 05/26/2020
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a4277e8bbd130588e343019a8b02221593efad52
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 40a0429c4296426042e5baa58c9575ddb195cd7c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772639"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996740"
 ---
 # <a name="search-edit-and-delete-projects"></a>프로젝트 검색, 편집, 삭제
 
@@ -34,12 +34,12 @@ Custom Translator는 프로젝트를 효율적으로 관리하는 다양한 방�
 
     ![프로젝트 검색 필터 옵션](media/how-to/how-to-search-project-filters.png)
 
-3.  필터를 지우고 모든 프로젝트를 보려면 “지우기”를 탭합니다.
+3.  "Clear"를 탭 하 여 모든 프로젝트를 보려면 필터를 선택 취소 합니다.
 
 
 ## <a name="edit-a-project"></a>프로젝트 편집
 
-사용자 지정 변환기 이름 및 프로젝트의 설명을 편집 기능을 제공 합니다. 범주, 소스 언어 및 대상 언어를 사용할 수 없는 같은 다른 프로젝트 메타 데이터 편집 합니다. 다음 단계는 프로젝트를 편집 하는 방법에 설명 합니다.
+사용자 지정 번역기는 프로젝트의 이름 및 설명을 편집 하는 기능을 제공 합니다. 범주, 소스 언어 및 대상 언어와 같은 다른 프로젝트 메타 데이터는 편집할 수 없습니다. 아래 단계에서는 프로젝트를 편집 하는 방법을 설명 합니다.
 
 1.  프로젝트에 커서를 두면 나타나는 연필 아이콘을 클릭합니다.
 

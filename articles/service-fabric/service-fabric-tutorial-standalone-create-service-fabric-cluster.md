@@ -1,30 +1,21 @@
 ---
-title: '자습서: Service Fabric 독립 실행형 클라이언트 설치 - Azure Service Fabric | Microsoft Docs'
+title: Service Fabric 독립 실행형 클라이언트 설치
 description: 이 자습서에서는 이전 자습서 문서에서 만든 클러스터에 Service Fabric 독립 실행형 클라이언트를 설치하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 05/11/2018
+ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 1bcb7f9fadc79db0db17336f07f6d58302433c1f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664032"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75613944"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 설치 및 만들기
 
-Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 애플리케이션을 설치합니다.
+Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS 또는 Azure에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 애플리케이션을 설치합니다.
 
 이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 독립 실행형 클러스터를 만들기 위한 단계를 안내합니다.
 
@@ -37,7 +28,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Windows Server용 Service Fabric 패키지 다운로드
 
-Service Fabric은 독립 실행형 Service Fabric 클러스터를 만드는 설치 패키지를 제공합니다.  로컬 컴퓨터에 [설치 패키지를 다운로드](https://go.microsoft.com/fwlink/?LinkId=730690)합니다.  성공적으로 다운로드되면 EC2 인스턴스에 대한 RDP 연결을 통해 복사하고, 바탕 화면에 붙여넣습니다.
+Service Fabric은 독립 실행형 Service Fabric 클러스터를 만드는 설치 패키지를 제공합니다.  로컬 컴퓨터에 [설치 패키지를 다운로드](https://go.microsoft.com/fwlink/?LinkId=730690)합니다.  성공적으로 다운로드되면 VM에 대한 RDP 연결을 통해 복사하고, 바탕 화면에 붙여넣습니다.
 
 zip 파일을 선택하고 바로 가기 메뉴를 열고 **모두 추출** > **추출**을 선택합니다.  파일을 추출하면 바탕 화면에 zip 파일 이름과 동일한 폴더를 생성합니다.
 
@@ -137,7 +128,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈 2부에서는 다음 방법을 통해 저장소 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 배웠습니다.
+시리즈 2부에서는 다음 방법을 통해 스토리지 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 배웠습니다.
 
 > [!div class="checklist"]
 > * 연결 문자열 구성

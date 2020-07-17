@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Azure 관리 그룹 설명서
+summary: Azure 관리 그룹은 리소스와 구독을 구성하는 데 도움이 됩니다.
+metadata:
+  title: Azure 관리 그룹 설명서
+  description: Azure 관리 그룹은 리소스와 구독을 구성하는 데 도움이 됩니다.
+  ms.service: governance
+  ms.topic: landing-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 06/29/2020
+  ms.openlocfilehash: d27bb0be6698a6b92c459143604ad2ebeb00b728
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85551881"
+landingContent:
+- title: Azure 거버넌스 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure의 관리 서비스 개요
+      url: ../azure-management.md
+- title: Azure 관리 그룹 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 관리 그룹
+      url: ./overview.md
+- title: 리소스 구성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 관리 그룹 만들기
+      url: ./create.md
+    - text: 리소스 관리
+      url: ./manage.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/account/management-group
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources/#resources
+    - text: Azure SDK for .NET
+      url: /dotnet/api/overview/azure/managementgroups
+    - text: JavaScript용 Azure SDK
+      url: /javascript/api/@azure/arm-managementgroups/managementgroups
+    - text: REST (영문)
+      url: /rest/api/resources/managementgroups
+    - text: 리소스 관리자 템플릿
+      url: /azure/templates/microsoft.management/managementgroups

@@ -1,27 +1,17 @@
 ---
-title: Azure의 Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환 - Azure Managed Disks | Microsoft Docs
-description: Resource Manager 배포 모델에서 Azure CLI를 사용하여 Linux VM을 비관리 디스크에서 관리 디스크로 변환하는 방법
-services: virtual-machines-linux
-documentationcenter: ''
+title: Linux VM을 비관리 디스크에서 managed disks로 변환
+description: Azure CLI를 사용 하 여 관리 되지 않는 디스크에서 관리 디스크로 Linux VM을 변환 하는 방법입니다.
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7c1167a6170cdc0b897c57a51c417a9312b6f41a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 072b0e3bcf4da8e2c71082a549d42d105c06ea8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659808"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환
 
@@ -34,9 +24,10 @@ ms.locfileid: "65794146"
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
+* 원래 VHD와 변환 전 VM에서 사용된 스토리지 계정은 삭제되지 않습니다. 이들 작업은 요금이 계속 청구됩니다. 이러한 아티팩트에 대한 요금이 청구되지 않도록 하려면 변환이 완료되었는지 확인한 후 원래 VHD Blob을 삭제합니다. 이러한 연결 되지 않은 디스크를 삭제 하기 위해 확인 해야 하는 경우 연결 되지 않은 [Azure 관리 및 비관리 디스크 찾기 및 삭제](find-unattached-disks.md)문서를 참조 하세요.
 
 ## <a name="convert-single-instance-vms"></a>단일 인스턴스 VM 변환
-이 섹션에서는 단일 인스턴스 Azure VM을 비관리 디스크에서 Managed Disks로 변환하는 방법을 설명합니다. VM이 가용성 집합에 있는 경우 다음 섹션을 참조하세요. 이 프로세스를 사용하여 프리미엄(SSD) 비관리 디스크에서 프리미엄 Managed Disks로 또는 표준(HDD) 비관리 디스크에서 표준 Managed Disks로 변환할 수 있습니다.
+이 섹션에서는 단일 인스턴스 Azure VM을 비관리 디스크에서 Managed Disks로 변환하는 방법을 설명합니다. Vm이 가용성 집합에 있는 경우 다음 섹션을 참조 하세요. 이 프로세스를 사용 하 여 프리미엄 (SSD) 관리 되지 않는 디스크에서 프리미엄 managed disks로 또는 표준 (HDD) 관리 되지 않는 디스크에서 표준 managed disks로 Vm을 변환할 수 있습니다.
 
 1. [az vm deallocate](/cli/azure/vm)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 `myVM`이라는 VM의 할당을 취소합니다.
 
@@ -112,4 +103,4 @@ VM이 중지되고 마이그레이션이 완료된 후 다시 시작됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-저장소 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조하세요.
+저장소 옵션에 대 한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조 하세요.

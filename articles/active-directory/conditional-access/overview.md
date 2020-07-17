@@ -1,95 +1,104 @@
 ---
-title: Azure Active Directory의 조건부 액세스란? | Microsoft Docs
-description: Azure Active Directory의 조건부 액세스를 사용하여 리소스에 액세스하려고 시도하는 사용자에 따른 액세스 여부 및 리소스 액세스 방식을 결정하는 자동 액세스 결정 구현 방법을 알아봅니다.
+title: Azure Active Directory의 조건부 액세스란?
+description: 조건부 액세스가 새로운 ID 중심 제어 평면의 핵심인 이유를 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 05/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1289ba615fea6e6c43b256da6978534d9edc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.custom: contperfq4
+ms.openlocfilehash: fb8687c091e8c34ad1fbae2a50981327b3994b6e
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799388"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051947"
 ---
-# <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스란?
+# <a name="what-is-conditional-access"></a>조건부 액세스란?
 
-보안은 클라우드를 사용하는 조직에서 가장 중요한 문제입니다. 클라우드 보안의 주요 측면은 클라우드 리소스 관리에 사용되는 ID 및 액세스입니다. 모바일 우선, 클라우드 우선 환경에서는 사용자가 다양한 디바이스와 앱을 사용하여 어디서나 조직의 리소스에 액세스할 수 있습니다. 따라서 리소스에 액세스할 수 있는 사람에만 초점을 맞추는 것은 더 이상 충분하지 않습니다. 보안과 생산성 간의 균형을 이루기 위해서는 리소스가 액세스되는 방법도 액세스 제어 결정에 고려해야 합니다. Azure AD(Azure Active Directory) 조건부 액세스를 사용하면 이 요구 사항을 처리할 수 있습니다. 조건부 액세스는 Azure Active Directory의 기능입니다. 조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 구현할 수 있습니다.
+최신 보안 경계는 사용자 및 디바이스 ID를 포함하도록 조직의 네트워크 너머로 확장됩니다. 조직에서는 액세스 제어 결정의 일환으로 이러한 ID 신호를 활용할 수 있습니다. 
 
-1단계 인증이 완료된 후 조건부 액세스 정책이 적용됩니다. 이처럼 조건부 액세스는 DoS(서비스 거부) 공격 같은 시나리오에서 최전방 방어선으로 사용하기 위해 개발된 것은 아니지만, 이러한 이벤트의 신호를 활용하여(예: 로그인 위험 수준, 요청 위치 등) 액세스를 결정할 수 있습니다.  
+조건부 액세스는 Azure Active Directory에서 신호를 주고 결정을 내리고 조직 정책을 적용하기 위해 사용하는 도구입니다. 조건부 액세스는 새로운 ID 중심 제어 평면의 핵심입니다.
 
-![제어](./media/overview/81.png)
+![개념적 조건부 신호 + 적용 여부 결정](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-이 문서에서는 Azure AD의 조건부 액세스에 대한 개념적 개요를 제공합니다.
+가장 간단한 조건부 액세스 정책은 사용자가 리소스에 액세스하려면 작업을 완료해야 하는 if-then 문입니다. 예제: 급여 관리자는 급여 애플리케이션에 액세스하려고 하며, 액세스하려면 다단계 인증을 수행해야 합니다.
 
-## <a name="common-scenarios"></a>일반적인 시나리오
-
-모바일 우선, 클라우드 우선 세계에서 Azure Active Directory는 어디에서나 디바이스, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 장치(BYOD 포함), 기업 네트워크 외 근무 및 타사 SaaS 앱의 확산에 따라 다음과 같이 서로 대립하는 두 가지 목표에 직면하게 되었습니다.
+관리자는 다음과 같은 두 가지 주요 목표에 직면합니다.
 
 - 사용자가 언제 어디서나 생산성을 높일 수 있도록 지원
-- 언제든지 회사 자산 보호
+- 조직의 자산 보호
 
-조건부 액세스 정책을 사용하면 필요한 조건에 따라 올바른 액세스 제어를 적용할 수 있습니다. Azure AD 조건부 액세스를 통해 필요할 때 보안을 강화하고 필요하지 않을 때 사용자를 방해하지 않을 수 있습니다.
+조건부 액세스 정책을 사용하면 필요할 때 적절한 액세스 제어를 적용하여 조직의 보안을 유지하고, 필요하지 않을 때에는 사용자가 원하는 대로 하도록 놔둘 수 있습니다.
 
-다음은 조건부 액세스가 도움이 될 수 있는 몇 가지 일반적인 액세스 문제입니다.
+![개념적 조건부 액세스 프로세스 흐름](./media/overview/conditional-access-overview-how-it-works.png)
 
-- **[로그인 위험](conditions.md#sign-in-risk)**: Azure AD ID 보호에서 로그인 위험을 탐지합니다. 검색된 로그인 위험이 잘못된 작업자를 나타내는 경우 액세스를 제한하려면 어떻게 하나요? 로그인이 합법적 사용자에 의해 수행되었다는 강력한 증거를 확보하려면 어떻게 해야 할까요? 특정 사용자가 앱에 액세스하지 못하게 차단할 만큼 강한 의심이 든다면 어떻게 해야 할까요?  
+1단계 인증이 완료된 후 조건부 액세스 정책이 적용됩니다. 조건부 액세스는 DoS(서비스 거부) 공격 같은 시나리오에서 최전방 방어선으로 사용하기 위해 개발된 것은 아니지만, 이러한 이벤트의 신호를 활용하여 액세스를 결정할 수 있습니다.
 
-- **[네트워크 위치](location-condition.md)**: Azure AD는 어디서나 액세스할 수 있습니다. IT 부서에서 제어하지 않는 네트워크 위치로부터 액세스를 시도하는 경우 어떻게 되나요? 사용자 이름 및 암호 조합을 사용하면 회사 네트워크로부터의 액세스 시도를 위한 ID 증명으로 충분할 수 있습니다. 다른 예기치 않은 국가 또는 지역에서 시작되는 액세스 시도에 대해 보다 강력한 확인 증명을 요구하는 경우 어떻게 되나요? 특정 위치에서의 액세스 시도를 차단하려는 경우 어떻게 되나요?  
+## <a name="common-signals"></a>일반적인 신호
 
-- **[디바이스 관리](conditions.md#device-platforms)**: Azure AD에서 사용자는 모바일 및 개인 디바이스를 포함하여 광범위한 디바이스에서 클라우드 앱에 액세스할 수 있습니다. IT 부서에서 관리하는 디바이스를 사용하여 액세스하도록 요구하는 경우 어떻게 되나요? 사용자 환경의 클라우드 앱에서 특정 디바이스 유형의 액세스를 차단하려는 경우 어떻게 되나요?
+정책 결정을 내릴 때 조건부 액세스에서 고려할 수 있는 일반적인 신호는 다음과 같습니다.
 
-- **[클라이언트 애플리케이션](conditions.md#client-apps)**: 현재, 웹 기반 앱, 모바일 앱, 데스크톱 앱 등의 여러 앱 유형을 사용하여 많은 클라우드 앱에 액세스할 수 있습니다. 알려진 문제를 발생시키는 클라이언트 앱 유형을 사용하여 액세스를 시도하는 경우 어떻게 되나요? 특정 앱 유형에 대해 IT 부서에서 관리하는 디바이스를 요구하는 경우 어떻게 되나요?
+- 사용자 또는 그룹 멤버 자격
+   - 특정 사용자 및 그룹을 정책 대상으로 지정하여 관리자에게 세분화된 액세스 제어 권한을 제공할 수 있습니다.
+- IP 위치 정보
+   - 조직에서는 정책을 결정할 때 사용할 수 있는 신뢰할 수 있는 IP 주소 범위를 만들 수 있습니다. 
+   - 관리자는 전체 국가/지역 IP 범위를 지정하여 해당 범위의 트래픽을 차단하거나 허용할 수 있습니다.
+- 디바이스
+   - 특정 플랫폼이 설치된 디바이스 또는 특정 상태로 표시된 디바이스를 사용하는 사용자는 조건부 액세스 정책을 적용할 때 사용할 수 있습니다.
+- 애플리케이션
+   - 특정 애플리케이션에 액세스하려는 사용자는 다른 조건부 액세스 정책을 트리거할 수 있습니다. 
+- 계산된 실시간 위험 감지
+   - Azure AD ID 보호와 신호를 통합하면 조건부 액세스 정책을 통해 위험한 로그인 동작을 식별할 수 있습니다. 그러면 사용자가 암호를 변경하거나 다단계 인증을 수행하도록 요구하는 정책을 적용하여 사용자의 위험도를 낮추거나 관리자가 수동 작업을 수행할 때까지 액세스를 차단할 수 있습니다.
+- MCAS(Microsoft Cloud App Security)
+   - 사용자 애플리케이션 액세스 및 세션을 실시간으로 모니터링 및 제어하여 클라우드 환경 내에서 수행되는 작업에 대한 액세스를 제어하고 가시성을 높일 수 있습니다.
 
-이러한 질문과 관련 답변은 Azure AD 조건부 액세스에 대한 일반적인 액세스 시나리오를 나타냅니다.
-조건부 액세스는 정책 기반 방법을 사용하여 액세스 시나리오를 처리할 수 있게 해주는 Azure Active Directory의 기능입니다.
+## <a name="common-decisions"></a>일반적인 결정
 
-> [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
+- 액세스 차단
+   - 가장 제한적인 결정
+- 액세스 권한 부여
+   - 가장 제한이 적은 결정에서도 다음 옵션 중 하나 이상을 요구할 수 있습니다.
+      - 다단계 인증 필요
+      - 디바이스를 준수 상태로 표시해야 함
+      - 하이브리드 Azure AD 조인된 디바이스 필요
+      - 승인된 클라이언트 앱 필요
+      - 앱 보호 정책 필요(미리 보기)
 
-## <a name="conditional-access-policies"></a>조건부 액세스 정책
+## <a name="commonly-applied-policies"></a>일반적으로 적용되는 정책
 
-조건부 액세스 정책은 다음 패턴을 사용하는 액세스 시나리오 정의입니다.
+많은 조직은 다음과 같이 [조건부 액세스 정책이 도움을 줄 수 있는 일반적인 액세스 문제](concept-conditional-access-policy-common.md)가 있습니다.
 
-![제어](./media/overview/10.png)
+- 관리자 역할이 할당된 사용자에게 다단계 인증 요구
+- Azure 관리 작업 시 다단계 인증 요구
+- 레거시 인증 프로토콜을 사용하려고 시도하는 사용자의 로그인 차단
+- Azure Multi-Factor Authentication 등록 시 신뢰할 수 있는 위치 요구
+- 특정 위치의 액세스 차단 또는 액세스 권한 부여
+- 위험한 로그인 동작 차단
+- 특정 애플리케이션에는 조직에서 관리 디바이스를 사용하도록 요구
 
-**Then do this**는 정책의 응답을 지정합니다. 조건부 액세스 정책의 목표는 클라우드 앱에 대한 액세스 권한을 부여하지 않는 것입니다. Azure AD에서 클라우드 앱에 대한 액세스 권한 부여는 사용자 할당을 통해 이루어집니다. 조건부 액세스 정책을 사용하면 권한 부여된 사용자(클라우드 앱에 대한 액세스 권한이 부여된 사용자)가 특정 조건에서 클라우드 앱에 액세스할 수 있는 방법을 제어합니다. 응답에서 Multi-Factor Authentication, 관리 디바이스 등의 추가 요구 사항을 적용합니다. Azure AD 조건부 액세스의 컨텍스트에서 정책이 적용하는 요구 사항을 액세스 제어라고 합니다. 가장 제한적인 형태에서는 정책을 통해 액세스를 차단할 수 있습니다. 자세한 내용은 [Azure Active Directory 조건부 액세스의 액세스 제어](controls.md)를 참조하세요.
+## <a name="customer-case-studies"></a>고객 사례 연구
 
-**When this happens**는 정책을 트리거하는 이유를 정의합니다. 이 이유는 충족된 조건 그룹으로 특성화됩니다. Azure AD 조건부 액세스에서는 다음 두 가지 할당 조건이 특수 역할을 수행합니다.
+다른 조직에서 Azure AD 조건부 액세스를 사용하여 자동화된 액세스 제어 결정을 정의하고 구현하는 방법에 대해 알아봅니다. 이러한 고객 요구 사항이 충족되는 방법을 보여 주는 주요 사례는 다음과 같습니다.
 
-- **[사용자](conditions.md#users-and-groups)**: 액세스를 시도하는 사용자(**Who**)입니다.
+* [Wipro는 Microsoft 클라우드 보안 도구를 사용하여 모바일 생산성을 높여 고객 참여를 향상시킵니다.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) 회사에서 Azure AD의 조건부 액세스 정책을 통해 회사의 자체 데이터에 대한 제어를 유지하면서 문서, 리소스 및 애플리케이션을 신뢰할 수 있는 외부 기관(자체의 자격 증명을 사용할 수 있음)과 공유할 수 있었습니다.
+* [Aramex delivery limited - 글로벌 물류 및 운송 회사에서 ID 및 액세스 관리 솔루션을 사용하여 클라우드에 연결된 사무실을 만듭니다](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Aramex의 원격 직원에게 보안 액세스를 보장하는 것이 특히 어려웠습니다. 이 회사는 이제 이러한 원격 직원이 네트워크 외부에서 SaaS 애플리케이션에 액세스할 수 있도록 조건부 액세스를 적용하고 있습니다. 조건부 액세스 규칙은 Multi-Factor Authentication을 적용할지 여부를 결정하여 올바른 사용자에게만 올바른 액세스 권한을 부여합니다.
 
-- **[클라우드 앱](conditions.md#cloud-apps)**: 액세스 시도 대상(**What**)입니다.
+## <a name="license-requirements"></a>라이선스 요구 사항
 
-이러한 두 조건은 조건부 액세스 정책에서 필수입니다. 두 가지 필수 조건 외에도 액세스 시도 방법을 설명하는 추가 조건을 포함할 수 있습니다. 일반적인 예는 회사 네트워크 외부에 있는 모바일 디바이스 또는 위치를 사용하는 경우입니다. 자세한 내용은 [Azure Active Directory 조건부 액세스의 조건](conditions.md)을 참조하세요.
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-조건과 액세스 제어의 조합이 조건부 액세스 정책을 나타냅니다.
-
-![제어](./media/overview/51.png)
-
-Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책은 액세스 시도 방법에 의해 구동되는 클라우드 앱에 대한 액세스 시도에 추가 액세스 제어를 적용하는 것을 목표로 합니다.
-
-정책 기반 방법을 사용하여 클라우드 앱에 대한 액세스를 보호하면 기술 구현에 대해 염려하지 않고 이 문서에 요약된 구조를 사용하여 사용자 환경에 대한 정책 요구 사항을 작성할 수 있습니다.
-
-## <a name="azure-ad-conditional-access-and-federated-authentication"></a>Azure AD 조건부 액세스 및 페더레이션된 인증
-
-조건부 액세스 정책은 [페더레이션된 인증](../../security/azure-ad-choose-authn.md#federated-authentication)에서 원활하게 작동합니다. 이 지원에는 [Azure AD 보고](../reports-monitoring/concept-sign-ins.md)를 통해 활성 사용자 로그인에 정책이 적용되는 방식에 지원되는 모든 조건 및 컨트롤과 가시성이 포함됩니다.
-
-*Azure AD에 페더레이션된 인증*이란 신뢰할 수 있는 인증 서비스가 Azure AD에 대한 사용자 인증을 처리한다는 뜻입니다. 신뢰할 수 있는 인증 서비스의 예로는 AD FS(Active Directory Federation Services) 또는 기타 페더레이션 서비스가 있습니다. 이 구성에서는 기본 사용자 인증이 서비스 수준에서 수행된 다음, Azure AD를 사용하여 개별 애플리케이션에 로그인합니다. Azure AD 조건부 액세스는 사용자가 액세스하는 애플리케이션에 대한 액세스를 부여하기 전에 적용됩니다. 
-
-구성된 조건부 액세스 정책에 다단계 인증이 필요할 경우 Azure AD의 기본값은 Azure MFA를 사용하는 것입니다. MFA에 대해 페디레이션 서비스를 사용할 경우 [PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings)에서 `-SupportsMFA`를 `$true`로 설정하여 페더레이션 서비스로 리디렉션하도록 Azure AD를 구성할 수 있습니다 이 설정은 `wauth= http://schemas.microsoft.com/claims/multipleauthn`을 사용하여 Azure AD에서 발행한 MFA 과제 요청을 지원하는 페더레이션된 인증 서비스에 적용됩니다.
-
-사용자가 페더레이션된 인증 서비스에 로그인한 후 Azure AD는 장치 준수, 승인된 애플리케이션 같은 다른 정책 요구 사항을 처리합니다.
-
-## <a name="license-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 라이선스 요구 사항
-
-조건부 액세스를 사용하려면 Azure AD Premium 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+[Microsoft 365 Business 프리미엄 라이선스](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)가 있는 고객은 조건부 액세스 기능에도 액세스할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 환경에서 조건부 액세스를 구현하는 방법은 [Azure Active Directory에서 조건부 액세스 배포 계획](plan-conditional-access.md)을 참조하세요.
+- [단계별로 조건부 액세스 정책 작성](concept-conditional-access-policies.md)
+- [조건부 액세스 배포 계획](plan-conditional-access.md)
+- [ID 보호에 대한 자세한 정보](../identity-protection/overview-v2.md)
+- [Microsoft Cloud App Security에 대한 자세한 정보](/cloud-app-security/what-is-cloud-app-security)
+- [Microsoft Intune에 대한 자세한 정보](/intune/index)

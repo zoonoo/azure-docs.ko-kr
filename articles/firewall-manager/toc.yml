@@ -1,0 +1,78 @@
+- name: Azure Firewall Manager 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Firewall Manager란?
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 가상 허브 보안 - ARM 템플릿
+      displayName: Resource Manager
+      href: quick-secure-virtual-hub.md
+- name: 자습서
+  items:
+    - name: 가상 허브 보안 - 포털
+      href: secure-cloud-network.md
+    - name: 허브 가상 네트워크 보안 - 포털
+      href: secure-hybrid-network.md
+- name: 개념
+  items:
+    - name: 정책 개요
+      href: policy-overview.md
+    - name: 보안 가상 허브란?
+      href: secured-virtual-hub.md
+    - name: 일반 배포 프로세스
+      href: deployment-overview.md
+    - name: 보안 파트너 공급자
+      href: trusted-security-partners.md
+    - name: IP 그룹
+      href: ip-groups.md
+    - name: 규칙 처리 논리
+      href: rule-processing.md
+    - name: 아키텍처 옵션
+      href: vhubs-and-vnets.md
+    - name: 위협 인텔리전스 설정
+      href: threat-intelligence-settings.md
+    - name: 네트워크 규칙의 FQDN
+      href: fqdn-filtering-network-rules.md
+- name: 방법 가이드
+  items:
+    - name: 보안 파트너 공급자 배포
+      href: deploy-trusted-security-partner.md
+    - name: 방화벽 정책으로 마이그레이션 - PowerShell
+      href: migrate-to-policy.md
+    - name: DNS 설정
+      href: dns-settings.md
+    - name: 여러 공용 IP 배포
+      href: multiple-public-ip-powershell.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/ext/azure-firewall/network/firewall/policy
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/new-azfirewallpolicy
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST (영문)
+      href: /rest/api/virtualnetwork/firewallpolicies
+    - name: Azure 리소스 관리자
+      href: ../azure-resource-manager/management/overview.md
+- name: 리소스
+  items:
+    - name: 작성자 템플릿
+      href: ../azure-resource-manager/templates/template-syntax.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 커뮤니티 템플릿
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'

@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MariaDB에 데이터를 복제합니다.
-description: 이 문서에서는 Azure Database for MariaDB에 대한 입력 데이터 복제를 설명합니다.
+title: 데이터 인 복제-Azure Database for MariaDB
+description: 데이터에서 복제를 사용 하 여 외부 서버에서 Azure Database for MariaDB 서비스로 동기화 하는 방법에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 3/18/2020
+ms.openlocfilehash: 1fbcc1fb27d5e6df4641f79c0d634580f74000b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79532063"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Azure Database for MariaDB에 데이터 복제
 
@@ -20,8 +20,8 @@ ms.locfileid: "61364441"
 ## <a name="when-to-use-data-in-replication"></a>데이터 내부 복제를 사용하는 경우
 데이터 내부 복제 사용을 고려할 주요 시나리오는 다음과 같습니다.
 
-- **하이브리드 데이터 동기화:** 입력 데이터 복제를 사용하면 온-프레미스 서버와 Azure Database for MariaDB 간에 데이터를 동기화할 수 있습니다. 이 동기화는 하이브리드 애플리케이션을 만드는 데 유용합니다. 이 메서드는 기존 로컬 데이터베이스 서버가 있지만 최종 사용자에게 더 가까운 지역으로 데이터를 이동하려는 경우 매력적입니다.
-- **다중 클라우드 동기화:** 복잡한 클라우드 솔루션의 경우 입력 데이터 복제를 사용하여 해당 클라우드에 호스트된 데이터베이스 서비스 및 가상 머신을 포함하여 Azure Database for MariaDB와 다른 클라우드 공급자 간에 데이터를 동기화합니다.
+- **하이브리드 데이터 동기화:** 입력 데이터 복제를 사용하면 온-프레미스 서버와 Azure Databases for MariaDB 간에 데이터를 동기화할 수 있습니다. 이 동기화는 하이브리드 애플리케이션을 만드는 데 유용합니다. 이 메서드는 기존 로컬 데이터베이스 서버가 있지만 최종 사용자에게 더 가까운 지역으로 데이터를 이동하려는 경우 매력적입니다.
+- **다중 클라우드 동기화:** 복잡한 클라우드 솔루션의 경우 입력 데이터 복제를 사용하여 해당 클라우드에 호스팅된 데이터베이스 서비스 및 가상 머신을 포함하여 Azure Database for MariaDB와 다른 클라우드 공급자 간에 데이터를 동기화합니다.
 
 ## <a name="limitations-and-considerations"></a>제한 사항 및 고려 사항
 
@@ -34,10 +34,13 @@ ms.locfileid: "61364441"
 - 각 표에는 기본 키가 있어야 합니다.
 - 마스터 서버는 InnoDB 엔진을 사용해야 합니다.
 - 사용자는 이진 로깅을 구성하고 마스터 서버에서 새 사용자를 만들 수 있는 권한이 있어야 합니다.
+- 마스터 서버에서 SSL을 사용 하도록 설정한 경우 도메인에 제공 된 SSL CA 인증서가 저장 프로시저에 포함 되어 있는지 확인 합니다 `mariadb.az_replication_change_master` . 다음 [예제](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) 와 매개 변수를 참조 하세요 `master_ssl_ca` .
+- 마스터 서버의 IP 주소가 Azure Database for MariaDB 복제본 서버의 방화벽 규칙에 추가되었는지 확인합니다. [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) 또는 [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli)를 사용하여 방화벽 규칙을 업데이트합니다.
+- 마스터 서버를 호스트하는 컴퓨터에서 포트 3306에 대한 인바운드 및 아웃바운드 트래픽을 둘 다 허용하는지 확인합니다.
+- 마스터 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
 
 ### <a name="other"></a>기타
 - 입력 데이터 복제는 범용 및 메모리 최적화 가격 책정 계층에서만 지원됩니다.
-- GTID(전역 트랜잭션 식별자)는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [입력 데이터 복제 설정](howto-data-in-replication.md) 방법을 알아보세요.

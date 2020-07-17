@@ -2,20 +2,20 @@
 title: 포함 파일
 description: 포함 파일
 services: iot-hub
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 01/15/2019
-ms.author: rezas
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 845196c78702c6a94e30554a3346ed776366aac9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6c2b619a5eeef0bc65c90aa5451d78401f3bf7a2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830619"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "68669755"
 ---
 > [!div class="op_single_selector"]
-> * [C#](../articles/iot-hub/quickstart-device-streams-echo-csharp.md)
+> * [.NET](../articles/iot-hub/quickstart-device-streams-echo-csharp.md)
 > * [C](../articles/iot-hub/quickstart-device-streams-echo-c.md)
 > * [Node.JS](../articles/iot-hub/quickstart-device-streams-echo-nodejs.md)

@@ -1,20 +1,14 @@
 ---
-title: Azure 메시징 비교 - Event Grid, Event Hubs, Service Bus
+title: Azure 메시지 서비스 비교
 description: 세 가지 Azure 메시징 서비스인 Azure Event Grid, Event Hubs 및 Service Bus를 설명합니다. 다양한 시나리오에 사용할 서비스를 권장합니다.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: overview
-ms.date: 01/30/2019
-ms.author: spelluru
-ms.custom: seodec18
-ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 07/07/2020
+ms.openlocfilehash: 9c539accbc41f56e4421b9e793c25496987363aa
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540808"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101378"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>세 가지 Azure 메시징 서비스인 Event Grid, Event Hubs 및 Service Bus 중에서 선택합니다.
 
@@ -38,17 +32,17 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 
 시리즈 이벤트는 조건을 보고하며 분석이 가능합니다. 이벤트는 시간 순서가 지정되며 상호 연관됩니다. 소비자는 발생한 결과를 분석하기 위해 순차화된 일련의 이벤트가 필요합니다.
 
-### <a name="message"></a>Message
+### <a name="message"></a>메시지
 
 메시지는 사용되거나 다른 위치에 저장되는 서비스에서 생성된 원시 데이터입니다. 메시지는 메시지 파이프라인을 트리거한 데이터를 포함합니다. 메시지 게시자는 소비자가 메시지를 처리하는 방식에 대한 기대를 합니다. 양측 사이에 계약이 존재합니다. 예를 들어 게시자는 원시 데이터가 포함된 메시지를 보내고 소비자가 이 데이터로부터 파일을 만들고 작업이 완료되면 응답을 보낼 것으로 기대합니다.
 
 ## <a name="comparison-of-services"></a>서비스의 비교
 
-| 서비스 | 목적 | Type | 사용하는 경우 |
+| 서비스 | 목적 | Type | 사용 시기 |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | 사후 프로그래밍 | 이벤트 배포(불연속) | 상태 변경에 대응 |
 | Event Hubs | 빅 데이터 파이프라인 | 이벤트 스트리밍(시리즈) | 원격 분석 및 분산 데이터 스트리밍 |
-| Service Bus | 높은 가치의 엔터프라이즈 메시지 | Message | 주문 처리 및 금융 거래 |
+| Service Bus | 높은 가치의 엔터프라이즈 메시지 | 메시지 | 주문 처리 및 금융 거래 |
 
 ### <a name="event-grid"></a>Event Grid
 
@@ -98,7 +92,7 @@ Service Bus는 조정된 메시징 시스템입니다. 소비하는 주체에서
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요. 
-
+- [Azure의 비동기 메시징 옵션](/azure/architecture/guide/technology-choices/messaging)
 - [이벤트, 데이터 요소 및 메시지 - 데이터에 적합한 Azure 메시지 서비스 선택](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)
 - [Storage 큐 및 Service Bus 큐 - 비교 및 대조](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Event Grid를 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

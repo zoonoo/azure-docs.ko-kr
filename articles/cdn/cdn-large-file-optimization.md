@@ -3,27 +3,27 @@ title: Azure CDN을 통해 대용량 파일 다운로드 최적화
 description: 이 문서에서는 대용량 파일 다운로드를 최적화하는 방법을 설명합니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/01/2018
-ms.author: magattus
-ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 0fb136b6c37c8ef14f85455431fea80099088936
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60636754"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206721"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
 
-인터넷을 통해 배달되는 콘텐츠의 파일 크기는 향상된 기능, 향상된 그래픽, 풍부한 미디어 콘텐츠 등으로 인해 계속 커지고 있습니다. 이러한 확장은 광대역 보급, 더 크고 저렴한 저장 디바이스, 고화질 비디오 확산, 인터넷 연결 디바이스(IoT) 등 여러 가지 요인으로 추진되고 있습니다. 원활하고 즐거운 소비자 환경을 보장하려면 대용량 파일에 대한 빠르고 효율적인 배달 메커니즘이 중요합니다.
+인터넷을 통해 배달되는 콘텐츠의 파일 크기는 향상된 기능, 향상된 그래픽, 풍부한 미디어 콘텐츠 등으로 인해 계속 커지고 있습니다. 이러한 확장은 광대역 보급, 더 크고 저렴한 스토리지 디바이스, 고화질 비디오 확산, 인터넷 연결 디바이스(IoT) 등 여러 가지 요인으로 추진되고 있습니다. 원활하고 즐거운 소비자 환경을 보장하려면 대용량 파일에 대한 빠르고 효율적인 배달 메커니즘이 중요합니다.
 
 대용량 파일을 배달하는 데 있어 몇 가지 과제가 있습니다. 첫째, 애플리케이션에서 모든 데이터를 순차적으로 다운로드하지 않을 수 있기 때문에 대용량 파일을 다운로드하는 평균 시간이 중요할 수 있습니다. 경우에 따라 애플리케이션에서 파일의 처음 부분보다 마지막 부분을 먼저 다운로드할 수 있습니다. 소량의 파일만 요청하거나 사용자가 다운로드를 일시 중지하면 다운로드가 실패할 수 있습니다. 또한 CDN(Content Delivery Network)이 원본 서버에서 전체 파일을 검색할 때까지 다운로드가 지연될 수도 있습니다. 
 
@@ -73,7 +73,7 @@ CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일�
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-standard-from-akamai"></a>Akamai의 Azure CDN 표준을 사용하여 대용량 파일의 배달 최적화
 
-**Akamai의 Azure CDN 표준** 프로필 끝점은 현재 전세계 사용자에게 대용량 파일을 효율적으로 배달하는 기능을 제공합니다. 이 기능은 원본 서버의 부하를 줄이므로 대기 시간을 줄여주며,
+**Akamai의 Azure CDN 표준** 프로필 엔드포인트은 현재 전세계 사용자에게 대용량 파일을 효율적으로 배달하는 기능을 제공합니다. 이 기능은 원본 서버의 부하를 줄이므로 대기 시간을 줄여주며,
 
 대용량 파일 최적화 형식 기능은 네트워크 최적화 및 구성을 설정하여 대용량 파일을 즉각적으로 반응하며 더 빠르게 배달합니다. **Akamai의 Azure CDN 표준**을 통한 일반 웹 배달에서는 파일을 1.8GB 미만으로만 캐시하고, 파일을 최대 150GB까지 터널링(캐시 아님)할 수 있습니다. 대용량 파일 최적화는 파일을 최대 150GB까지 캐시합니다.
 
@@ -104,14 +104,13 @@ CDN 엔드포인트를 만든 후에 특정 기준과 일치하는 모든 파일
 
 CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일을 캐시할 필요는 없습니다. 파일 또는 바이트 범위에 대한 후속 요청은 CDN 캐시에서 제공됩니다. 모든 청크가 CDN에 캐시되지 않으면 프리페치를 사용하여 원본에서 청크를 요청합니다. 이 최적화는 바이트 범위 요청을 지원하기 위해 원본 서버 기능에 의존합니다. 즉, 원본 서버가 바이트 범위 요청을 지원하지 않으면 이 최적화가 수행되지 않습니다.
 
-### <a name="caching"></a>구성
+### <a name="caching"></a>캐싱
 대용량 파일 최적화는 일반 웹 배달과 다른 기본 caching-expiration(캐싱 만료) 시간을 사용합니다. HTTP 응답 코드에 따라 양수 캐싱과 음수 캐싱을 구분합니다. 원본 서버에서 응답의 cache-control 또는 expires 헤더를 통해 만료 시간을 지정하면 CDN에서 해당 값을 사용합니다. 원본 서버에서 지정하지 않고 파일이 이 최적화 형식에 대한 파일 형식 및 파일 크기 조건과 일치하면 CDN에서 대용량 파일 최적화에 대한 기본값을 사용합니다. 그러지 않으면 CDN에서 일반 웹 배달에 대한 기본값을 사용합니다.
 
-
-|    | 일반 웹 | 대용량 파일 최적화 
+| 캐싱  | 일반 웹 | 대용량 파일 최적화 
 --- | --- | --- 
-Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |1일  
-Caching: Negative <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1초 
+캐싱: 긍정 <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |1일  
+캐싱: 부정 <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1초 
 
 ### <a name="deal-with-origin-failure"></a>원본 오류 처리
 

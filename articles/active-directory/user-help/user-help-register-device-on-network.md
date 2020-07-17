@@ -1,25 +1,23 @@
 ---
-title: 조직의 네트워크-Azure Active Directory에서 개인 장치 등록 | Microsoft Docs
+title: 조직의 네트워크 - Azure AD에 개인 디바이스 등록
 description: 조직의 보호된 리소스에 액세스할 수 있도록 조직의 네트워크에서 개인 디바이스를 등록하는 방법을 알아봅니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/04/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 041c8bb6b4de2bbe2cbeb4c1a89e452239ae57bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 68d7b06aa6473a99422d8cfb51f6e3a465933a0f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60473676"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747400"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>조직의 네트워크에 개인 디바이스 등록
 개인 디바이스(일반적으로 휴대폰이나 태블릿)를 조직의 네트워크에 등록합니다. 디바이스가 등록되면 조직의 제한된 리소스에 액세스할 수 있게 됩니다.
@@ -50,7 +48,7 @@ ms.locfileid: "60473676"
 
     ![연결 옵션이 강조 표시된 회사 또는 학교 액세스 화면](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. **회사 또는 학교 계정 추가** 화면에서 회사 또는 학교 계정에 대한 이메일 주소를 입력한 후 **다음**을 선택합니다. 예: alain@contoso.com.
+3. **회사 또는 학교 계정 추가** 화면에서 회사 또는 학교 계정에 대한 이메일 주소를 입력한 후 **다음**을 선택합니다. alain@contoso.com)을 입력합니다.
 
 4. 회사 또는 학교 계정에 로그인한 다음, **로그인**을 선택합니다.
 

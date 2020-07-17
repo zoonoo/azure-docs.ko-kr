@@ -15,7 +15,7 @@
         - name: ID 보호
           tocHref: /azure/active-directory/identity-protection/
           topicHref: /azure/active-directory/identity-protection/
-        - name: 장치
+        - name: 디바이스
           tocHref: /azure/active-directory/devices/
           topicHref: /azure/active-directory/devices/
         - name: 조건부 액세스
@@ -27,6 +27,9 @@
         - name: 개발
           tocHref: /azure/active-directory/develop/
           topicHref: /azure/active-directory/develop/
+        - name: 개발자용 Azure AD
+          tocHref: /azure/active-directory/azuread-dev/
+          topicHref: /azure/active-directory/azuread-dev/
         - name: Privileged Identity Management
           tocHref: /azure/active-directory/privileged-identity-management/
           topicHref: /azure/active-directory/privileged-identity-management/
@@ -51,11 +54,14 @@
         - name: ID 거버넌스
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
+        - name: 애플리케이션 프로비저닝
+          tocHref: /azure/active-directory/app-provisioning/
+          topicHref: /azure/active-directory/app-provisioning/
         - name: 애플리케이션 관리
           tocHref: /azure/active-directory/manage-apps/
           topicHref: /azure/active-directory/manage-apps/
           items:
-            - name: SaaS 응용 프로그램 자습서
+            - name: SaaS 애플리케이션 자습서
               tocHref: /azure/active-directory/saas-apps/
               topicHref: /azure/active-directory/saas-apps/tutorial-list
         - name: 보고 및 모니터링
@@ -74,6 +80,9 @@
         - name: Azure PowerShell
           tocHref: /azure/api-management/scripts/
           topicHref: /azure/api-management/powershell-samples/
+    - name: Avere vFXT for Azure
+      tocHref: /azure/avere-vfxt/
+      topicHref: /azure/avere-vfxt/
     - name: Azure App Configuration
       tocHref: /azure/azure-app-configuration/
       topicHref: /azure/azure-app-configuration/
@@ -93,21 +102,40 @@
         - name: Mobile Apps
           tocHref: /azure/app-service-mobile/
           topicHref: /azure/app-service-mobile/
+    - name: Static Web Apps
+      tocHref: /azure/static-web-apps/
+      topicHref: /azure/static-web-apps/
     - name: Advisor
       tocHref: /azure/advisor/
       topicHref: /azure/advisor/
     - name: Application Gateway
       tocHref: /azure/application-gateway/
       topicHref: /azure/application-gateway/
-    - name: IoT 용 ASC
+    - name: Synapse Analytics
+      tocHref: /azure/synapse-analytics/
+      topicHref: /azure/synapse-analytics/
+    - name: IoT용 ASC
       tocHref: /azure/asc-for-iot/
       topicHref: /azure/asc-for-iot/
     - name: Automation
       tocHref: /azure/automation/
       topicHref: /azure/automation/
-    - name: Azure Blockchain 서비스
-      tocHref: /azure/blockchain/service
-      topicHref: /azure/blockchain/service
+    - name: 인터넷 피어링
+      tocHref: /azure/internet-peering/
+      topicHref: /azure/internet-peering/
+    - name: 블록체인
+      tocHref: /azure/blockchain/
+      topicHref: /azure/blockchain/
+      items:
+        - name: Blockchain Service
+          tocHref: /azure/blockchain/service/
+          topicHref: /azure/blockchain/service/index
+        - name: Blockchain 토큰
+          tocHref: /azure/blockchain/tokens/
+          topicHref: /azure/blockchain/tokens/index
+        - name: Blockchain Workbench
+          tocHref: /azure/blockchain/workbench/
+          topicHref: /azure/blockchain/workbench/
     - name: Azure Databricks
       tocHref: /azure/azure-databricks/
       topicHref: /azure/azure-databricks/
@@ -117,25 +145,38 @@
     - name: Azure Digital Twins
       tocHref: /azure/digital-twins/
       topicHref: /azure/digital-twins/
+    - name: Azure HPC Cache
+      tocHref: /azure/hpc-cache/
+      topicHref: /azure/hpc-cache/
+    - name: Azure Lighthouse
+      tocHref: /azure/lighthouse/
+      topicHref: /azure/lighthouse/
     - name: Azure Monitor
       tocHref: /azure/azure-monitor/
       topicHref: /azure/azure-monitor/
+      items:
+        - name: Application Insights
+          tocHref: /azure/azure-monitor/azure-monitor-app-hub
+          topicHref: /azure/azure-monitor/azure-monitor-app-hub
     - name: Azure Spatial Anchors
       tocHref: /azure/spatial-anchors/
       topicHref: /azure/spatial-anchors/
+    - name: Azure Remote Rendering
+      tocHref: /azure/remote-rendering/
+      topicHref: /azure/remote-rendering/
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
-    - name: Cost Management
-      tocHref: /azure/cost-management/
-      topicHref: /azure/cost-management/
     - name: Functions
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
       items:
         - name: 지속성 함수
           tocHref: /azure/azure-functions/durable/
-          topicHref: /azure/azure-functions/durable/durable-functions-overview
+          topicHref: /azure/azure-functions/durable/
+    - name: Azure Australia
+      tocHref: /azure/azure-australia/
+      topicHref: /azure/azure-australia/
     - name: Azure Government
       tocHref: /azure/azure-government/
       topicHref: /azure/azure-government/
@@ -145,10 +186,13 @@
     - name: Azure NetApp Files
       tocHref: /azure/azure-netapp-files/
       topicHref: /azure/azure-netapp-files/
-    - name: CloudSimple의 Azure VMware 솔루션
+    - name: Azure VMware 솔루션
+      tocHref: /azure/azure-vmware/
+      topicHref: /azure/azure-vmware/
+    - name: Azure VMware Solution by CloudSimple
       tocHref: /azure/vmware-cloudsimple/
       topicHref: /azure/vmware-cloudsimple/
-    - name: Azure Portal 사용자 지정
+    - name: Azure Portal 문서
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
     - name: 사물 인터넷
@@ -161,9 +205,28 @@
         - name: IoT Central
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
+          items:
+            - name: IoT Central
+              tocHref: /azure/iot-central/core/
+              topicHref: /azure/iot-central/core/
+            - name: 에너지 산업용 IoT Central
+              tocHref: /azure/iot-central/energy/
+              topicHref: /azure/iot-central/energy/
+            - name: 정부 기관용 IoT Central
+              tocHref: /azure/iot-central/government/
+              topicHref: /azure/iot-central/government/
+            - name: 의료 산업용 IoT Central
+              tocHref: /azure/iot-central/healthcare/
+              topicHref: /azure/iot-central/healthcare/
+            - name: 소매업용 IoT Central
+              tocHref: /azure/iot-central/retail/
+              topicHref: /azure/iot-central/retail/
         - name: IoT Edge
           tocHref: /azure/iot-edge/
           topicHref: /azure/iot-edge/
+        - name: IoT 플러그 앤 플레이
+          tocHref: /azure/iot-pnp/
+          topicHref: /azure/iot-pnp/
         - name: Azure Digital Twins
           tocHref: /azure/digital-twins/
           topicHref: /azure/digital-twins/
@@ -182,6 +245,19 @@
     - name: 리소스 관리자
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
+      items:
+        - name: 템플릿
+          tocHref: /azure/azure-resource-manager/templates/
+          topicHref: /azure/azure-resource-manager/templates/
+        - name: 관리
+          tocHref: /azure/azure-resource-manager/management/
+          topicHref: /azure/azure-resource-manager/management/
+        - name: Managed Applications
+          tocHref: /azure/azure-resource-manager/managed-applications/
+          topicHref: /azure/azure-resource-manager/managed-applications/
+        - name: Azure 사용자 지정 공급자
+          tocHref: /azure/azure-resource-manager/custom-providers/
+          topicHref: /azure/azure-resource-manager/custom-providers/
     - name: SignalR Service
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -191,9 +267,6 @@
     - name: Azure Stack 사용자
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
-    - name: 지원 가능성
-      tocHref: /azure/azure-supportability/
-      topicHref: /azure/azure-supportability/
     - name: Backup
       tocHref: /azure/backup/
       topicHref: /azure/backup/
@@ -203,27 +276,21 @@
     - name: Batch AI
       tocHref: /azure/batch-ai/
       topicHref: /azure/batch-ai/
-    - name: 청구 + 비용 관리
-      tocHref: /azure/billing/
-      topicHref: /azure/billing/
     - name: Biztalk Services
       tocHref: /azure/biztalk-services/
       topicHref: /azure/biztalk-services/
-    - name: Blockchain Workbench
-      tocHref: /azure/blockchain-workbench/
-      topicHref: /azure/blockchain-workbench/
     - name: Bot 서비스
       tocHref: /azure/bot-service/
       topicHref: /azure/bot-service/
     - name: 캐시
       tocHref: /azure/cache/
       topicHref: /azure/cache/
-    - name: CDN
-      tocHref: /azure/cdn/
-      topicHref: /azure/cdn/
     - name: Cloud Services
       tocHref: /azure/cloud-services/
       topicHref: /azure/cloud-services/
+    - name: Cognitive Search
+      tocHref: /azure/search/
+      topicHref: /azure/search/
     - name: Cognitive Services
       tocHref: /azure/cognitive-services/
       topicHref: /azure/cognitive-services/
@@ -234,36 +301,40 @@
         - name: Anomaly Detector
           tocHref: /azure/cognitive-services/anomaly-detector/
           topicHref: /azure/cognitive-services/anomaly-detector/
-        - name: Bing Autosuggest
-          tocHref: /azure/cognitive-services/Bing-Autosuggest/
-          topicHref: /azure/cognitive-services/Bing-Autosuggest/
-        - name: Bing 사용자 지정 검색
-          tocHref: /azure/cognitive-services/bing-custom-search/
-          topicHref: /azure/cognitive-services/bing-custom-search/
-        - name: Bing Entity Search
-          tocHref: /azure/cognitive-services/bing-entities-search/
-          topicHref: /azure/cognitive-services/bing-entities-search/
-        - name: Bing 이미지 검색
-          tocHref: /azure/cognitive-services/bing-image-search/
-          topicHref: /azure/cognitive-services/bing-image-search/
-        - name: Bing 뉴스 검색
-          tocHref: /azure/cognitive-services/bing-news-search/
-          topicHref: /azure/cognitive-services/bing-news-search/
-        - name: Bing 맞춤법 검사
-          tocHref: /azure/cognitive-services/bing-spell-check/
-          topicHref: /azure/cognitive-services/bing-spell-check/
-        - name: Bing 비디오 검색
-          tocHref: /azure/cognitive-services/Bing-Video-Search/
-          topicHref: /azure/cognitive-services/Bing-Video-Search/
-        - name: Bing Visual Search
-          tocHref: /azure/cognitive-services/bing-visual-search/
-          topicHref: /azure/cognitive-services/bing-visual-search/
-        - name: Bing 웹 검색
-          tocHref: /azure/cognitive-services/bing-web-search/
-          topicHref: /azure/cognitive-services/bing-web-search/
-        - name: Bing Local Business Search
-          tocHref: /azure/cognitive-services/bing-local-business-search/
-          topicHref: /azure/cognitive-services/bing-local-business-search/
+        - name: Bing Search API
+          tocHref: /azure/cognitive-services/bing-web-search
+          topicHref: /azure/cognitive-services/bing-web-search
+          items:
+            - name: Bing Autosuggest
+              tocHref: /azure/cognitive-services/Bing-Autosuggest
+              topicHref: /azure/cognitive-services/Bing-Autosuggest/get-suggested-search-terms
+            - name: Bing 사용자 지정 검색
+              tocHref: /azure/cognitive-services/bing-custom-search
+              topicHref: /azure/cognitive-services/bing-custom-search/overview
+            - name: Bing Entity Search
+              tocHref: /azure/cognitive-services/bing-entities-search
+              topicHref: /azure/cognitive-services/bing-entities-search/overview
+            - name: Bing 이미지 검색
+              tocHref: /azure/cognitive-services/bing-image-search
+              topicHref: /azure/cognitive-services/bing-image-search/overview
+            - name: Bing 뉴스 검색
+              tocHref: /azure/cognitive-services/bing-news-search
+              topicHref: /azure/cognitive-services/bing-news-search/search-the-web
+            - name: Bing 맞춤법 검사
+              tocHref: /azure/cognitive-services/bing-spell-check
+              topicHref: /azure/cognitive-services/bing-spell-check/overview
+            - name: Bing 비디오 검색
+              tocHref: /azure/cognitive-services/Bing-Video-Search
+              topicHref: /azure/cognitive-services/Bing-Video-Search/overview
+            - name: Bing Visual Search
+              tocHref: /azure/cognitive-services/bing-visual-search
+              topicHref: /azure/cognitive-services/bing-visual-search/overview
+            - name: Bing 웹 검색
+              tocHref: /azure/cognitive-services/bing-web-search
+              topicHref: /azure/cognitive-services/bing-web-search/overview
+            - name: Bing Local Business Search
+              tocHref: /azure/cognitive-services/bing-local-business-search
+              topicHref: /azure/cognitive-services/bing-local-business-search/overview
         - name: Computer Vision
           tocHref: /azure/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/computer-vision/
@@ -284,7 +355,7 @@
           topicHref: /azure/cognitive-services/entitylinking/home
         - name: Anomaly Finder
           tocHref: /azure/cognitive-services/labs/anomaly-finder/
-          topicHref: /azure/cognitive-services/labs/anomaly-finder/overview
+          topicHref: /azure/cognitive-services/anomaly-detector/overview
         - name: Conversation Learner
           tocHref: /azure/cognitive-services/labs/conversation-learner/
           topicHref: /azure/cognitive-services/labs/conversation-learner/overview
@@ -318,12 +389,9 @@
         - name: 텍스트 분석
           tocHref: /azure/cognitive-services/text-analytics/
           topicHref: /azure/cognitive-services/text-analytics/
-        - name: Translator Text
+        - name: 변환기
           tocHref: /azure/cognitive-services/translator/
           topicHref: /azure/cognitive-services/translator/
-        - name: Translator Speech
-          tocHref: /azure/cognitive-services/translator-speech/
-          topicHref: /azure/cognitive-services/translator-speech/
         - name: 비디오 인덱서
           tocHref: /azure/cognitive-services/video-indexer/
           topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
@@ -332,10 +400,22 @@
           topicHref: /azure/cognitive-services/web-language-model/home
         - name: 개인 정보 채팅
           tocHref: /azure/cognitive-services/project-personality-chat/
-          topicHref: /azure/cognitive-services/project-personality-chat/overview
+          topicHref: /azure/cognitive-services/qnamaker/overview/overview
         - name: 프로젝트 Acoustics
           tocHref: /azure/cognitive-services/acoustics/
           topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
+        - name: Form Recognizer
+          tocHref: /azure/cognitive-services/form-recognizer/
+          topicHref: /azure/cognitive-services/form-recognizer/
+        - name: Ink Recognizer
+          tocHref: /azure/cognitive-services/Ink-Recognizer/
+          topicHref: /azure/cognitive-services/Ink-Recognizer/
+        - name: Personalizer
+          tocHref: /azure/cognitive-services/personalizer/
+          topicHref: /azure/cognitive-services/personalizer/
+        - name: 몰입형 판독기
+          tocHref: /azure/cognitive-services/immersive-reader/
+          topicHref: /azure/cognitive-services/immersive-reader/
     - name: 커넥터
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
@@ -355,15 +435,15 @@
         - name: DC/OS 및 Swarm
           tocHref: /azure/container-service/dcos-swarm/
           topicHref: /azure/container-service/dcos-swarm/
-        - name: kubernetes
+        - name: Kubernetes
           tocHref: /azure/container-service/kubernetes/
           topicHref: /azure/container-service/kubernetes/
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
-    - name: Data Box 제품군
-      tocHref: /azure/databox-family/
-      topicHref: /azure/databox-family/
+    - name: 스토리지
+      tocHref: /azure/storage/
+      topicHref: /azure/storage/
       items:
         - name: Data Box 오프라인 전송
           tocHref: /azure/databox/
@@ -386,27 +466,12 @@
     - name: 전용 HSM
       tocHref: /azure/dedicated-hsm/
       topicHref: /azure/dedicated-hsm/
-    - name: DevTest Lab
-      tocHref: /azure/devtest-lab/
-      topicHref: /azure/devtest-lab/
-    - name: DNS
-      tocHref: /azure/dns/
-      topicHref: /azure/dns/
-    - name: Event Grid
-      tocHref: /azure/event-grid/
-      topicHref: /azure/event-grid
-    - name: Event Hubs
-      tocHref: /azure/event-hubs/
-      topicHref: /azure/event-hubs/
-    - name: ExpressRoute
-      tocHref: /azure/expressroute/
-      topicHref: /azure/expressroute/
-    - name: 방화벽
-      tocHref: /azure/firewall/
-      topicHref: /azure/firewall/
-    - name: Front Door Service
-      tocHref: /azure/frontdoor/
-      topicHref: /azure/frontdoor/
+    - name: Devtest Labs
+      tocHref: /azure/devtest-labs/
+      topicHref: /azure/devtest-labs/
+    - name: FXT Edge Filer
+      tocHref: /azure/fxt-edge-filer/
+      topicHref: /azure/fxt-edge-filer/
     - name: Genomics
       tocHref: /azure/genomics/
       topicHref: /azure/genomics/
@@ -450,7 +515,7 @@
           topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
         - name: ML 서비스
           tocHref: /azure/hdinsight/r-server
-          topicHref: /azure/hdinsight/r-server-overview
+          topicHref: /azure/hdinsight/r-server/r-server-overview
         - name: Spark
           tocHref: /azure/hdinsight/spark
           topicHref: /azure/hdinsight/spark/apache-spark-overview
@@ -460,33 +525,49 @@
     - name: FHIR용 Azure API
       tocHref: /azure/healthcare-apis
       topicHref: /azure/healthcare-apis
+    - name: 산업용 Azure
+      tocHref: /azure/industry
+      topicHref: /azure/industry
+      items:
+        - name: Azure FarmBeats
+          tocHref: /azure/industry
+          topicHref: /azure/industry
     - name: Jenkins
       tocHref: /azure/jenkins/
       topicHref: /azure/jenkins/
     - name: Key Vault
       tocHref: /azure/key-vault/
-      topicHref: /azure/key-vault/
+      topicHref: /azure/key-vault
+      items:
+        - name: 일반
+          tocHref: /azure/key-vault/general/
+          topicHref: /azure/key-vault/general/
+        - name: 인증서
+          tocHref: /azure/key-vault/certificates/
+          topicHref: /azure/key-vault/certificates/
+        - name: 구성
+          tocHref: /azure/key-vault/keys/
+          topicHref: /azure/key-vault/keys/
+        - name: 비밀
+          tocHref: /azure/key-vault/secrets/
+          topicHref: /azure/key-vault/secrets/
+    - name: Azure Kinect DK
+      tocHref: /azure/kinect-dk/
+      topicHref: /azure/kinect-dk/
     - name: Lab Services
       tocHref: /azure/lab-services/
       topicHref: /azure/lab-services/
-    - name: Load Balancer
-      tocHref: /azure/load-balancer/
-      topicHref: /azure/load-balancer/
     - name: Logic Apps
       tocHref: /azure/logic-apps/
       topicHref: /azure/logic-apps/
     - name: Machine Learning
-      tocHref: /azure/machine-learning/
+      tocHref: /azure/machine-learning
       topicHref: /azure/machine-learning/
       items:
-        - name: 서비스
-          tocHref: /azure/machine-learning/service
-          topicHref: /azure/machine-learning/service/
-          items:
-            - name: 알고리즘 및 모듈 참조
-              tocHref: /azure/machine-learning/algorithm-module-reference
-              topicHref: /azure/machine-learning/algorithm-module-reference/module-reference.md
-        - name: 스튜디오
+        - name: 알고리즘 및 모듈 참조
+          tocHref: /azure/machine-learning/algorithm-module-reference
+          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
+        - name: Studio(클래식)
           tocHref: /azure/machine-learning/studio
           topicHref: /azure/machine-learning/studio/
         - name: Team Data Science Process
@@ -497,10 +578,10 @@
           topicHref: /azure/machine-learning/data-science-virtual-machine/
     - name: Marketplace 소비자
       tocHref: /azure/marketplace-consumer/
-      topicHref: /azure/marketplace-consumer/
+      topicHref: /azure/marketplace/
     - name: Marketplace 게시
       tocHref: /azure/marketplace-publishing/
-      topicHref: /azure/marketplace-publishing/
+      topicHref: /azure/marketplace/marketplace-publishers-guide
     - name: Media Services
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/
@@ -514,12 +595,37 @@
         - name: 비디오 인덱서
           tocHref: /azure/media-services/video-indexer/
           topicHref: /azure/media-services/video-indexer/
+        - name: Azure Media Player
+          tocHref: /azure/media-services/azure-media-player/
+          topicHref: /azure/media-services/azure-media-player/
+        - name: IoT Edge의 Live Video Analytics
+          tocHref: /azure/media-services/live-video-analytics-edge/
+          topicHref: /azure/media-services/live-video-analytics-edge/
+    - name: 메시징 서비스
+      tocHref: /azure/messaging-services/
+      topicHref: /azure/messaging-services/
+      items:
+        - name: Event Grid
+          tocHref: /azure/event-grid/
+          topicHref: /azure/event-grid
+        - name: Event Hubs
+          tocHref: /azure/event-hubs/
+          topicHref: /azure/event-hubs/
+        - name: Service Bus 메시징
+          tocHref: /azure/service-bus-messaging/
+          topicHref: /azure/service-bus-messaging/
+        - name: Azure Relay
+          tocHref: /azure/service-bus-relay/
+          topicHref: /azure/azure-relay/
+    - name: 마이그레이션
+      tocHref: /azure/migrate/
+      topicHref: /azure/migrate/
     - name: Mobile Engagement
       tocHref: /azure/mobile-engagement/
       topicHref: /azure/mobile-engagement/
     - name: Mobile Services
       tocHref: /azure/mobile-services/
-      topicHref: /azure/mobile-services/
+      topicHref: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
     - name: Multi-Factor Authentication
       tocHref: /azure/multi-factor-authentication/
       topicHref: /azure/multi-factor-authentication/
@@ -530,12 +636,67 @@
     - name: MySQL
       tocHref: /azure/mysql/
       topicHref: /azure/mysql/
-    - name: Network Watcher
-      tocHref: /azure/network-watcher/
-      topicHref: /azure/network-watcher/
     - name: 네트워킹
       tocHref: /azure/networking/
-      topicHref: /azure/networking/networking-overview
+      topicHref: /azure/networking/
+      items:
+        - name: Application Gateway
+          tocHref: /azure/application-gateway/
+          topicHref: /azure/application-gateway/
+        - name: Bastion
+          tocHref: /azure/bastion/
+          topicHref: /azure/bastion/
+        - name: CDN
+          tocHref: /azure/cdn/
+          topicHref: /azure/cdn/
+        - name: DNS
+          tocHref: /azure/dns/
+          topicHref: /azure/dns/
+        - name: ExpressRoute
+          tocHref: /azure/expressroute/
+          topicHref: /azure/expressroute/
+        - name: 방화벽
+          tocHref: /azure/firewall/
+          topicHref: /azure/firewall/
+        - name: Firewall Manager
+          tocHref: /azure/firewall-manager/
+          topicHref: /azure/firewall-manager/
+        - name: Front Door Service
+          tocHref: /azure/frontdoor/
+          topicHref: /azure/frontdoor/
+        - name: Internet Analyzer
+          tocHref: /azure/internet-analyzer/
+          topicHref: /azure/internet-analyzer/
+        - name: 인터넷 피어링
+          tocHref: /azure/internet-peering/
+          topicHref: /azure/internet-peering/
+        - name: Load Balancer
+          tocHref: /azure/load-balancer/
+          topicHref: /azure/load-balancer/
+        - name: Network Watcher
+          tocHref: /azure/network-watcher/
+          topicHref: /azure/network-watcher/
+        - name: Private Link
+          tocHref: /azure/private-link/
+          topicHref: /azure/private-link/
+        - name: Peering Service
+          tocHref: /azure/peering-service/
+          topicHref: /azure/peering-service/
+        - name: Traffic Manager
+          tocHref: /azure/traffic-manager/
+          topicHref: /azure/traffic-manager/
+        - name: Virtual Network
+          tocHref: /azure/virtual-network/
+          topicHref: /azure/virtual-network/
+        - name: 가상 WAN
+          tocHref: /azure/virtual-wan/
+          topicHref: /azure/virtual-wan/
+        - name: VPN Gateway
+          tocHref: /azure/vpn-gateway/
+          topicHref: /azure/vpn-gateway/
+        - name: 웹 애플리케이션 방화벽
+          tocHref: /azure/web-application-firewall/
+          topicHref: /azure/web-application-firewall/
     - name: Notebooks
       tocHref: /azure/notebooks/
       topicHref: /azure/notebooks/azure-notebooks-overview
@@ -557,6 +718,9 @@
     - name: Power BI 작업 영역 컬렉션
       tocHref: /azure/power-bi-workspace-collections/
       topicHref: /azure/power-bi-workspace-collections/
+    - name: Private Link
+      tocHref: /azure/private-link/
+      topicHref: /azure/private-link/
     - name: Azure Cache for Redis
       tocHref: /azure/azure-cache-for-redis/
       topicHref: /azure/azure-cache-for-redis/
@@ -565,7 +729,7 @@
       topicHref: /azure/remoteapp/
     - name: 복원력
       tocHref: /azure/resiliency/
-      topicHref: /azure/resiliency/
+      topicHref: /azure/architecture/framework/resiliency/overview
     - name: 역할 기반 액세스 제어
       tocHref: /azure/role-based-access-control/
       topicHref: /azure/role-based-access-control/
@@ -575,27 +739,25 @@
     - name: Scheduler
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: 검색
-      tocHref: /azure/search/
-      topicHref: /azure/search/
     - name: 보안
       tocHref: /azure/security/
       topicHref: /azure/security/
+      items:
+        - name: 기본 사항
+          tocHref: /azure/security/fundamentals/
+          topicHref: /azure/security/fundamentals/
+        - name: 개발
+          tocHref: /azure/security/develop/
+          topicHref: /azure/security/develop/
+        - name: 벤치마크
+          tocHref: /azure/security/benchmarks/
+          topicHref: /azure/security/benchmarks/
     - name: Security Center
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
     - name: Azure Sentinel
       tocHref: /azure/sentinel/
       topicHref: /azure/sentinel/
-    - name: Service Bus
-      tocHref: /azure/service-bus/
-      topicHref: /azure/service-bus/
-    - name: Service Bus 메시징
-      tocHref: /azure/service-bus-messaging/
-      topicHref: /azure/service-bus-messaging/
-    - name: Service Bus Relay
-      tocHref: /azure/service-bus-relay/
-      topicHref: /azure/service-bus-relay/
     - name: Service Fabric
       tocHref: /azure/service-fabric/
       topicHref: /azure/service-fabric/
@@ -605,16 +767,39 @@
     - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
-    - name: SQL Data Warehouse
-      tocHref: /azure/sql-data-warehouse/
-      topicHref: /azure/sql-data-warehouse/
-    - name: SQL Database
-      tocHref: /azure/sql-database/
-      topicHref: /azure/sql-database/
+    - name: 사이트 안정성 엔지니어링
+      tocHref: /azure/site-reliability-engineering/
+      topicHref: /azure/site-reliability-engineering/
+    - name: Synapse Analytics
+      tocHref: /azure/synapse-analytics/
+      topicHref: /azure/synapse-analytics/
+    - name: Azure SQL
+      tocHref: /azure/azure-sql/
+      topicHref: /azure/azure-sql/
+      items:
+        - name: SQL Database
+          tocHref: /azure/azure-sql/database
+          topicHref: /azure/azure-sql/database
+        - name: SQL Managed Instance
+          tocHref: /azure/azure-sql/managed-instance
+          topicHref: /azure/azure-sql/managed-instance
+        - name: Azure VM의 SQL Server
+          tocHref: /azure/azure-sql/virtual-machines
+          topicHref: /azure/azure-sql/virtual-machines
+          items:
+            - name: Windows
+              tocHref: /azure/azure-sql/virtual-machines/windows
+              topicHref: /azure/azure-sql/virtual-machines/windows
+            - name: Linux
+              tocHref: /azure/azure-sql/virtual-machines/linux
+              topicHref: /azure/azure-sql/virtual-machines/linux
+    - name: Azure SQL Edge
+      tocHref: /azure/azure-sql-edge/
+      topicHref: /azure/azure-sql-edge/
     - name: SQL Server Stretch Database
       tocHref: /azure/sql-server-stretch-database/
       topicHref: /azure/sql-server-stretch-database/
-    - name: Storage
+    - name: 스토리지
       tocHref: /azure/storage/
       topicHref: /azure/storage/
       items:
@@ -639,9 +824,6 @@
     - name: Stream Analytics
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
-    - name: Traffic Manager
-      tocHref: /azure/traffic-manager/
-      topicHref: /azure/traffic-manager/
     - name: Virtual Machine Scale Sets
       tocHref: /azure/virtual-machine-scale-sets/
       topicHref: /azure/virtual-machine-scale-sets/
@@ -653,6 +835,9 @@
           tocHref: /azure/virtual-machines/workloads/
           topicHref: /azure/virtual-machines/workloads/workloads
           items:
+            - name: 고성능 컴퓨팅
+              tocHref: /azure/virtual-machines/workloads/hpc/
+              topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
             - name: SAP
               tocHref: /azure/virtual-machines/workloads/sap/
               topicHref: /azure/virtual-machines/workloads/sap/get-started
@@ -679,12 +864,25 @@
             - name: SQL VM
               tocHref: /azure/virtual-machines/windows/sql
               topicHref: /azure/virtual-machines/windows/sql
-    - name: Virtual Network
-      tocHref: /azure/virtual-network/
-      topicHref: /azure/virtual-network/
-    - name: VPN Gateway
-      tocHref: /azure/vpn-gateway/
-      topicHref: /azure/vpn-gateway/
+    - name: 기밀 컴퓨팅
+      tocHref: /azure/confidential-computing/
+      topicHref: /azure/confidential-computing/overview
     - name: Windows Virtual Desktop
       tocHref: /azure/virtual-desktop/
       topicHref: /azure/virtual-desktop/
+    - name: Cost Management 및 청구
+      tocHref: /azure/cost-management-billing/
+      topicHref: /azure/cost-management-billing/
+      items:
+        - name: 시작하기
+          tocHref: /azure/cost-management-billing/understand/
+          topicHref: /azure/cost-management-billing/understand/
+        - name: 비용 및 사용량 관리
+          tocHref: /azure/cost-management-billing/costs/
+          topicHref: /azure/cost-management-billing/costs/
+        - name: 계정 및 구독 관리
+          tocHref: /azure/cost-management-billing/manage/
+          topicHref: /azure/cost-management-billing/manage/
+        - name: 예약
+          tocHref: /azure/cost-management-billing/reservations/
+          topicHref: /azure/cost-management-billing/reservations/

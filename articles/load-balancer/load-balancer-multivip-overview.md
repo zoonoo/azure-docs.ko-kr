@@ -1,26 +1,25 @@
 ---
-title: Azure Load Balancer의 다중 프런트 엔드
-titlesuffix: Azure Load Balancer
-description: Azure Load Balancer의 다중 프런트 엔드에 대한 개요
+title: 다중 프런트 엔드-Azure Load Balancer
+description: 이 학습 경로를 사용 하 여 여러 프런트 엔드에 대 한 개요를 사용 하 여 시작 Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: chkuhtz
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
-ms.author: chkuhtz
-ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/07/2019
+ms.author: allensu
+ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594167"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956375"
 ---
-# <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer의 다중 프런트 엔드
+# <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 여러 프런트 엔드
 
 Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다에서 부하 분산 서비스를 할 수 있습니다. 공용 및 내부 부하 분산 장치 정의를 VM 집합 전반에 대한 부하 분산 흐름에 사용할 수 있습니다.
 
@@ -48,7 +47,7 @@ Azure Load Balancer를 사용하면 동일한 부하 분산 장치 구성에서 
 
 기본 동작을 시작으로 이러한 시나리오를 더 자세히 알아봅니다.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>규칙 유형 #1: 백 엔드 포트 재사용하지 않음
+## <a name="rule-type-1-no-backend-port-reuse"></a>규칙 유형 #1: 백 엔드 포트 재사용하지 않음.
 
 ![녹색과 자주색 프런트 엔드가 포함된 다중 프런트 엔드 설명](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
@@ -99,8 +98,39 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 * 프런트 엔드 1: 프런트 엔드 1의 IP 주소로 구성된 게스트 OS 내 루프백 인터페이스
 * 프런트 엔드 2: 프런트 엔드 2의 IP 주소로 구성된 게스트 OS 내 루프백 인터페이스
 
+백 엔드 풀의 각 VM에 대해 Windows 명령 프롬프트에서 다음 명령을 실행 합니다.
+
+VM에 있는 인터페이스 이름 목록을 가져오려면 다음 명령을 입력 합니다.
+
+```console
+netsh interface show interface 
+```
+
+VM NIC (Azure 관리)의 경우 다음 명령을 입력 합니다.
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(interfacename을이 인터페이스의 이름으로 바꿉니다.)
+
+추가한 각 루프백 인터페이스에 대해 다음 명령을 반복 합니다.
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
+
 > [!IMPORTANT]
 > 루프백 인터페이스에 대한 구성은 게스트 OS 내에서 수행됩니다. 이 구성은 Azure에서 수행하거나 관리하지 않습니다. 이 구성 없이는 규칙이 작동하지 않습니다. 상태 프로브 정의에는 DSR 프런트 엔드를 나타내는 루프백 인터페이스가 아닌 VM의 DIP가 사용됩니다. 따라서 서비스는 DSR 프런트 엔드를 나타내는 루프백 인터페이스에서 제공되는 서비스의 상태를 반영하는 DIP 포트에서 프로브 응답을 제공해야 합니다.
+
 
 이전 시나리오에서와 동일한 프런트 엔드 구성을 가정해 보겠습니다.
 
@@ -113,8 +143,8 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 
 | 규칙 | 프런트 엔드 | 백 엔드 풀에 매핑 |
 | --- | --- | --- |
-| 1 |![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
-| 2 |![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
+| 1 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
+| 2 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
 
 다음 표는 부하 분산 장치에서의 전체 매핑을 보여 줍니다.
 
@@ -127,14 +157,14 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 
 이 예는 대상 포트를 변경하지 않는지 확인합니다. 비록 부동 IP 시나리오이지만 Azure Load Balancer는 또한 백 엔드 대상 포트를 다시 작성하여 프런트 엔드 대상 포트와 다르도록 규칙을 정의하는 것을 지원합니다.
 
-부동 IP 규칙 유형은 여러 부하 분산 장치 구성 패턴의 기초입니다. 현재 사용할 수 있는 한 가지 예로 [Multiple Listeners를 사용한 SQL AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) 구성을 들 수 있습니다. 앞으로 이러한 시나리오 더욱 자세히 설명할 것입니다.
+부동 IP 규칙 유형은 여러 부하 분산 장치 구성 패턴의 기초입니다. 현재 사용할 수 있는 한 가지 예로 [Multiple Listeners를 사용한 SQL AlwaysOn](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) 구성을 들 수 있습니다. 앞으로 이러한 시나리오 더욱 자세히 설명할 것입니다.
 
 ## <a name="limitations"></a>제한 사항
 
 * 다중 프런트 엔드 구성은 IaaS VM에서만 지원됩니다.
-* 부동 IP 규칙을 사용하면 애플리케이션은 아웃바운드 흐름에 대해 기본 IP 구성을 사용해야 합니다. 애플리케이션이 게스트 OS에서 루프백 인터페이스에 구성된 프런트 엔드 IP 주소에 바인딩하는 경우 아웃바운드 흐름을 다시 작성하는 데 Azure의 SNAT를 사용할 수 없으며 흐름이 실패합니다.
+* 부동 IP 규칙을 사용 하는 경우 응용 프로그램은 아웃 바운드 SNAT 흐름에 기본 IP 구성을 사용 해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성 된 프런트 엔드 IP 주소에 바인딩하는 경우 아웃 바운드 흐름을 다시 작성 하는 데 Azure의 아웃 바운드 SNAT를 사용할 수 없으며 흐름이 실패 합니다.  [아웃 바운드 시나리오](load-balancer-outbound-connections.md)를 검토 합니다.
 * 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
+* 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

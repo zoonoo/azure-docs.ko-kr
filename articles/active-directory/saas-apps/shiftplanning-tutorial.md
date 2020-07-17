@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99cc3ea94422ea76a7fb71330fa234a4003f9467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd7cfe93aa39982836944230f860c603c7117ceb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855608"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74233427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>자습서: Azure Active Directory와 Humanity 통합
 
@@ -31,10 +32,10 @@ Humanity를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 * 사용자가 해당 Azure AD 계정으로 Humanity에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Humanity와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -57,7 +58,7 @@ Humanity의 Azure AD 통합을 구성하려면 갤러리의 Humanity를 관리�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -132,7 +133,7 @@ Humanity에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
 
-    ![관리자](./media/shiftplanning-tutorial/iC786619.png "관리자")
+    ![관리자](./media/shiftplanning-tutorial/iC786619.png "Admin")
 3. **통합** 아래에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On](./media/shiftplanning-tutorial/iC786620.png "Single Sign-On")
@@ -174,7 +175,7 @@ Humanity에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -214,11 +215,11 @@ Azure AD 사용자가 Humanity에 로그인할 수 있도록 하려면 Humanity�
 
 2. **Admin**을 클릭합니다.
 
-    ![관리자](./media/shiftplanning-tutorial/iC786619.png "관리자")
+    ![관리자](./media/shiftplanning-tutorial/iC786619.png "Admin")
 
 3. **Staff**를 클릭합니다.
 
-    ![직원](./media/shiftplanning-tutorial/ic786623.png "직원")
+    ![직원](./media/shiftplanning-tutorial/ic786623.png "Staff")
 
 4. **작업** 아래에서 **직원 추가**를 클릭합니다.
 
@@ -228,12 +229,12 @@ Azure AD 사용자가 Humanity에 로그인할 수 있도록 하려면 Humanity�
 
     ![직원 저장](./media/shiftplanning-tutorial/iC786625.png "직원 저장")
 
-    a. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름**, **성** 및 **이메일**을 입력합니다.
+    a. 관련된 텍스트 상자에 프로비저닝할 유효한 Azure AD 계정의 **이름**, **성** 및 **이메일**을 입력합니다.
 
     b. **직원 저장**을 클릭합니다.
 
 > [!NOTE]
-> 다른 Humanity 사용자 계정 생성 도구 또는 Humanity가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 Humanity 사용자 계정 생성 도구 또는 Humanity가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

@@ -1,0 +1,166 @@
+### YamlMime:Hub
+title: Azure Cognitive Services 설명서
+summary: 사용자 요구 사항을 보고 듣고 말하고 이해하고 해석할 수 있도록 앱, 웹 사이트 및 봇에 지원되는 지능적인 알고리즘을 빌드하는 방법을 알아봅니다.
+brand: azure
+metadata:
+  title: Azure Cognitive Services 설명서
+  description: 사용자 요구 사항을 보고 듣고 말하고 이해하고 해석할 수 있도록 앱, 웹 사이트 및 봇에 지원되는 지능적인 알고리즘을 빌드하는 방법을 알아봅니다.
+  ms.service: cognitive-services
+  ms.topic: hub-page
+  author: nitinme
+  ms.author: nitinme
+  manager: nitinme
+  ms.date: 03/24/2020
+  ms.openlocfilehash: 18c854389122c7e05a84ea0fd42b0cd2fd0c4c1c
+  ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/10/2020
+  ms.locfileid: "86224369"
+highlightedContent:
+  items:
+  - title: Cognitive Services란?
+    itemType: overview
+    url: ./welcome.md
+  - title: Docs의 새로운 기능
+    itemType: whats-new
+    url: whats-new-docs.md
+  - title: Cognitive Services 및 기계 학습
+    itemType: concept
+    url: ./cognitive-services-and-machine-learning.md
+  - title: Cognitive Services의 언어 지원
+    itemType: reference
+    url: ./language-support.md
+  - title: Cognitive Services 리소스 만들기
+    itemType: how-to-guide
+    url: ./cognitive-services-apis-create-account.md
+  - title: 컨테이너에서 Cognitive Services 사용
+    itemType: concept
+    url: ./cognitive-services-container-support.md
+  - title: Cognitive Services용 가상 네트워크
+    itemType: architecture
+    url: cognitive-services-virtual-networks.md
+  - title: Cognitive Services 보안
+    itemType: concept
+    url: cognitive-services-security.md
+conceptualContent:
+  items:
+  - title: 시각
+    summary: 사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱싱 및 조정합니다.
+    links:
+    - url: ./computer-vision/index.yml
+      itemType: overview
+      text: Computer Vision
+    - url: ./Custom-Vision-Service/index.yml
+      itemType: overview
+      text: Custom Vision
+    - url: ./face/index.yml
+      itemType: overview
+      text: Face
+    - url: ./form-recognizer/index.yml
+      itemType: overview
+      text: Form Recognizer
+    - url: ./ink-recognizer/index.yml
+      itemType: overview
+      text: Ink Recognizer(미리 보기)
+    - url: ../media-services/video-indexer/index.yml
+      itemType: overview
+      text: 비디오 인덱서
+  - title: 언어
+    summary: 앱에서 사전 구축된 스크립트를 통해 자연어를 처리하고, 감성을 평가하며, 사용자가 원하는 것을 인식하는 방법을 학습하도록 지원하세요.
+    links:
+    - url: ./immersive-reader/index.yml
+      itemType: overview
+      text: 몰입형 리더(미리 보기)
+    - url: ./luis/index.yml
+      itemType: overview
+      text: 언어 이해(LUIS)
+    - url: ./qnamaker/index.yml
+      itemType: overview
+      text: QnA Maker
+    - url: ./text-analytics/index.yml
+      itemType: overview
+      text: 텍스트 분석
+    - url: ./translator/index.yml
+      itemType: overview
+      text: 변환기
+  - title: Speech
+    summary: 음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.
+    links:
+    - url: ./speech-service/index.yml
+      itemType: overview
+      text: Speech Service
+  - title: 의사 결정
+    summary: 합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.
+    links:
+    - url: ./anomaly-detector/index.yml
+      itemType: overview
+      text: Anomaly Detector(미리 보기)
+    - url: ./content-moderator/index.yml
+      itemType: overview
+      text: Content Moderator
+    - url: ./personalizer/index.yml
+      itemType: overview
+      text: Personalizer
+  - title: 검색
+    summary: Bing Search API를 앱에 추가하고, 단일 API 호출을 통해 수십억 개의 웹 페이지, 이미지, 비디오 및 뉴스를 검색하세요.
+    links:
+    - url: ./Bing-web-search/index.yml
+      itemType: overview
+      text: Bing Search API 허브 페이지
+  - title: Cognitive Service 컨테이너
+    summary: 개발자는 Azure Cognitive Services의 컨테이너 지원을 통해 Azure에서 사용할 수 있는 동일한 여러 API를 사용할 수 있으며 Docker 컨테이너에 제공되는 서비스를 유연하게 배포 및 호스트할 수 있습니다.
+    links:
+    - url: ./cognitive-services-container-support.md
+      itemType: overview
+      text: Cognitive Service 컨테이너
+    - url: ./containers/container-reuse-recipe.md
+      itemType: learn
+      text: 재사용할 컨테이너 만들기
+    - url: ./containers/azure-container-instance-recipe.md
+      itemType: how-to-guide
+      text: Azure Container Instance에서 컨테이너 배포 및 실행
+    - url: ./containers/azure-kubernetes-recipe.md
+      itemType: deploy
+      text: Azure Kubernetes Service에 배포
+    - url: ./containers/docker-compose-recipe.md
+      itemType: get-started
+      text: Docker Compose를 사용하여 여러 컨테이너 배포
+    - url: ./containers/container-faq.md
+      itemType: reference
+      text: Cognitive Services 컨테이너 FAQ
+tools:
+  title: SDK(소프트웨어 개발 키트)
+  summary: 선호하는 프로그래밍 언어로 Cognitive Services SDK를 시작하세요.
+  items:
+  - title: C#
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+    url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+  - title: Go
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
+    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+  - title: JavaScript
+    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+    url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+  - title: Python
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+  - title: R
+    imageSrc: https://docs.microsoft.com/media/logos/logo_R.svg
+    url: https://github.com/Azure/AzureCognitive
+additionalContent:
+  sections:
+  - items:
+    - title: 추가 리소스
+      links:
+      - text: Azure CLI
+        url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      - text: PowerShell
+        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+    - title: REST API
+      links:
+      - text: Cognitive Services 관리
+        url: https://docs.microsoft.com/rest/api/cognitiveservices/

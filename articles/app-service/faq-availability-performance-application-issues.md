@@ -1,32 +1,25 @@
 ---
-title: 애플리케이션 성능 FAQ - Azure App Service | Microsoft Docs
-description: Azure App Service의 Web Apps 기능에서 가용성, 성능 및 애플리케이션 문제에 대한 질문과 대답을 확인합니다.
-services: app-service\web
-documentationcenter: ''
+title: 응용 프로그램 성능 Faq
+description: Azure App Service의 가용성, 성능 및 응용 프로그램 문제에 대 한 자주 묻는 질문에 대 한 대답을 확인 하세요.
 author: genlin
-manager: cshepard
-editor: ''
+manager: dcscontentpm
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3dd61ae9298a03ce0cbb9e9a5b143229c15ea9bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82159986"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
 > [!NOTE]
-> 일부는 아래 지침 에서만 작동할 수 있습니다 Windows 또는 Linux App Services. 예를 들어, Linux App Services 기본적으로 64 비트 모드에서 실행 합니다.
+> 아래 지침 중 일부는 Windows 또는 Linux App Services 에서만 작동할 수 있습니다. 예를 들어 Linux App Services는 기본적으로 64 비트 모드로 실행 됩니다.
 >
 
 이 문서에는 [Azure App Service의 Web Apps 기능](https://azure.microsoft.com/services/app-service/web/) 관련 애플리케이션 성능 문제에 대한 FAQ(질문과 대답)가 있습니다.
@@ -39,11 +32,11 @@ ms.locfileid: "65786384"
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>높은 CPU 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다.이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>높은 메모리 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다. 높은 메모리 사용을 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다.이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다.높은 메모리 사용을 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>PowerShell를 사용하여 App Service Web Apps를 어떻게 자동화할 수 있나요?
 
@@ -53,8 +46,8 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 웹앱의 이벤트 로그를 보려면:
 
-1. [Kudu 웹 사이트](https://*yourwebsitename*.scm.azurewebsites.net)에 로그인합니다.
-2. 메뉴에서 **디버그 콘솔** > **CMD**를 선택합니다.
+1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
+2. 메뉴에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.
 3. **LogFiles** 폴더를 선택합니다.
 4. 이벤트 로그를 보려면 **eventlog.xml** 옆에 있는 연필 아이콘을 선택합니다.
 5. 로그를 다운로드하려면 PowerShell cmdlet `Save-AzureWebSiteLog -Name webappname`을 실행합니다.
@@ -63,10 +56,10 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 웹앱의 사용자 모드 메모리 덤프를 캡처하려면:
 
-1. [Kudu 웹 사이트](https://*yourwebsitename*.scm.azurewebsites.net)에 로그인합니다.
+1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
 2. **프로세스 탐색기** 메뉴를 선택합니다.
 3. **w3wp.exe** 프로세스 또는 WebJob 프로세스를 마우스 오른쪽 단추로 클릭합니다.
-4. **Download Memory Dump**(메모리 덤프 다운로드) > **Full Dump**(전체 덤프)를 선택합니다.
+4. **메모리 덤프**  >  **전체 덤프**다운로드를 선택 합니다.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>내 웹앱의 프로세스 수준 정보는 어떻게 볼 수 있나요?
 
@@ -76,7 +69,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
     1. 웹앱에 대한 **프로세스 탐색기**를 선택합니다.
     2. 세부 정보를 확인하려면 **w3wp.exe** 프로세스를 선택합니다.
 *   Kudu 콘솔에서:
-    1. [Kudu 웹 사이트](https://*yourwebsitename*.scm.azurewebsites.net)에 로그인합니다.
+    1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
     2. **프로세스 탐색기** 메뉴를 선택합니다.
     3. **w3wp.exe** 프로세스에 대한 **속성**을 선택합니다.
 
@@ -92,22 +85,23 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>다양한 App Service 계획의 할당량 및 한도에 대한 자세한 내용은 어디서 알아볼 수 있나요?
 
-할당량 및 한도에 대한 자세한 내용은 [App Service 한도](../azure-subscription-service-limits.md#app-service-limits)를 참조하세요. 
+할당량 및 한도에 대한 자세한 내용은 [App Service 한도](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)를 참조하세요. 
 
 ## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>유휴 시간 후 첫 번째 요청에 대한 응답 시간을 어떻게 줄일 수 있나요?
 
 기본적으로 웹앱은 일정 기간 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템이 리소스를 절약할 수 있습니다. 단점은 웹앱이 로드되고 응답 제공을 시작할 수 있도록 웹앱이 언로드된 후 첫 번째 요청에 대한 응답 시간이 더 길어진다는 것입니다. 기본 및 표준 서비스 계획에서 **무중단** 설정을 켜서 항상 앱을 계속 로드할 수 있습니다. 이렇게 하면 앱이 유휴 상태인 후에 로드 시간이 길어지지 않습니다. **무중단** 설정을 변경하려면:
 
 1. Azure Portal에서 웹앱으로 이동합니다.
-2. **애플리케이션 설정**을 선택합니다.
-3. **무중단**에 대해 **켜기**를 선택합니다.
+2. **구성** 선택
+3. **일반 설정**을 선택 합니다.
+4. **무중단**에 대해 **켜기**를 선택합니다.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>실패한 요청 추적을 어떻게 켜나요?
 
 실패한 요청 추적을 켜려면:
 
 1. Azure Portal에서 웹앱으로 이동합니다.
-3. **모든 설정** > **진단 로그**를 선택합니다.
+3. **모든 설정**  >  **진단 로그**를 선택 합니다.
 4. **실패한 요청 추적**에 대해 **켜기**를 선택합니다.
 5. **저장**을 선택합니다.
 6. 웹앱 블레이드에서 **도구**를 선택합니다.
@@ -148,8 +142,8 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
     </tracing>
     ```
 13. 실패한 요청 추적을 다운로드하려면 [Portal](https://portal.azure.com)에서 웹 사이트로 이동합니다.
-15. **도구** > **Kudu** > **이동**을 선택합니다.
-18. 메뉴에서 **디버그 콘솔** > **CMD**를 선택합니다.
+15. **Tools**  >  **Kudu**  >  **Go**를 선택 합니다.
+18. 메뉴에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.
 19. **LogFiles** 폴더를 선택하고 이름이 **W3SVC**로 시작하는 폴더를 선택합니다.
 20. XML 파일을 확인하려면 연필 아이콘을 선택합니다.
 
@@ -161,7 +155,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 또한 64비트 환경에는 기본 또는 표준 서비스 계획이 필요합니다. 무료 및 공유 계획은 항상 32비트 환경에서 실행됩니다.
 
-자세한 내용은 [Azure App Service에서 웹앱 구성](web-sites-configure.md)을 참조하세요.
+자세한 내용은 [Azure App Service에서 웹앱 구성](configure-common.md)을 참조하세요.
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>230초 후 요청 시간이 초과되는 이유는 무엇인가요?
 
@@ -178,9 +172,9 @@ WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에�
 
 ## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>내 웹앱의 파일 구조에서 로그 파일을 찾을 수 없습니다. 어떻게 찾을 수 있나요?
 
-App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스에 대한 LogFiles 및 Data 폴더의 폴더 구조에 영향을 미칩니다. 로컬 캐시가 사용될 경우 하위 폴더는 저장소 LogFiles 및 Data 폴더에 생성됩니다. 하위 폴더에는 명명 패턴 "고유 식별자" + 타임스탬프가 사용됩니다. 각 하위 폴더는 웹앱이 실행 중이거나 실행된 VM 인스턴스에 해당합니다.
+App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스에 대한 LogFiles 및 Data 폴더의 폴더 구조에 영향을 미칩니다. 로컬 캐시가 사용될 경우 하위 폴더는 스토리지 LogFiles 및 Data 폴더에 생성됩니다. 하위 폴더에는 명명 패턴 "고유 식별자" + 타임스탬프가 사용됩니다. 각 하위 폴더는 웹앱이 실행 중이거나 실행된 VM 인스턴스에 해당합니다.
 
-로컬 캐시를 사용 중인지 확인하려면 App Service **애플리케이션 설정** 탭을 확인합니다. 로컬 캐시가 사용되고 있으면 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`이 `Always`로 설정되어 있습니다.
+로컬 캐시를 사용 하 고 있는지 확인 하려면 App Service **응용 프로그램 설정** 탭을 확인 합니다. 로컬 캐시를 사용 하는 경우 앱 설정은 `WEBSITE_LOCAL_CACHE_OPTION` 로 설정 됩니다 `Always` .
 
 로컬 캐시를 사용하고 있지 않고 이 문제가 발생하지 않으면 지원 요청을 제출합니다.
 

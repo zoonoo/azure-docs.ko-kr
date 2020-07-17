@@ -1,25 +1,25 @@
 ---
-title: Translator Text API 언어 메서드
-titlesuffix: Azure Cognitive Services
-description: Translator Text API 언어 메서드를 사용합니다.
+title: Translator 언어 메서드
+titleSuffix: Azure Cognitive Services
+description: 언어 메서드는 변환기의 다른 작업에서 현재 지원 되는 언어 집합을 가져옵니다.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: swmachan
+ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797290"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588601"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: 언어
+# <a name="translator-30-languages"></a>Translator 3.0: 언어
 
-현재 Translator Text API의 다른 작업에서 지원되는 언어 집합을 가져옵니다. 
+변환기의 다른 작업에서 현재 지원 되는 언어 집합을 가져옵니다. 
 
 ## <a name="request-url"></a>요청 URL
 
@@ -34,7 +34,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">쿼리 매개 변수</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
@@ -49,15 +49,15 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>Accept-Language</td>
-    <td>*선택적 요청 헤더*<br/>사용자 인터페이스 문자열에 사용할 언어입니다. 응답에 있는 필드 중 일부는 언어의 이름 또는 지역 이름입니다. 이 매개 변수를 사용하여 이러한 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. 예를 들어 `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.<br/>대상 언어를 지정하지 않거나 지역화를 사용할 수 없는 경우 이름은 영어로 제공됩니다.
+    <td>*선택적 요청 헤더*<br/>사용자 인터페이스 문자열에 사용할 언어입니다. 응답에 있는 필드 중 일부는 언어의 이름 또는 지역 이름입니다. 이 매개 변수를 사용하여 이러한 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. 예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.<br/>대상 언어를 지정하지 않거나 지역화를 사용할 수 없는 경우 이름은 영어로 제공됩니다.
     </td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*선택적 요청 헤더*<br/>요청을 고유하게 식별하는 클라이언트 생성 GUID입니다.</td>
+    <td>*선택적 요청 헤더*<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다.</td>
   </tr>
 </table> 
 
@@ -97,11 +97,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `translation` 속성의 값은 키 값 쌍의 사전입니다. 각 키는 BCP 47 언어 태그입니다. 키는 텍스트를 번역할 수 있는 대상 또는 원본 언어를 식별합니다. 키와 연결된 값은 언어를 설명하는 속성이 있는 JSON 개체입니다.
 
-  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 언어 표시 이름입니다.
+  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 언어 이름을 표시합니다.
 
-  * `nativeName`: 이 언어에 대한 기본 로캘의 언어 표시 이름입니다.
+  * `nativeName`: 이 언어에 기본인 로캘에서 언어 이름을 표시합니다.
 
-  * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
+  * `dir`: 오른쪽에서 왼쪽 언어의 경우 `rtl` 또는 왼쪽에서 오른쪽 언어의 경우 `ltr`인 사전입니다.
 
   예제는 다음과 같습니다.
           
@@ -123,21 +123,21 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `transliteration` 속성의 값은 키 값 쌍의 사전입니다. 각 키는 BCP 47 언어 태그입니다. 키는 하나의 스크립트에서 다른 스크립트로 텍스트를 변환할 수 있는 언어를 식별합니다. 키와 연결된 값은 언어 및 지원되는 해당 언어를 설명하는 속성이 있는 JSON 개체입니다.
 
-  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 언어 표시 이름입니다.
+  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 언어 이름을 표시합니다.
 
-  * `nativeName`: 이 언어에 대한 기본 로캘의 언어 표시 이름입니다.
+  * `nativeName`: 이 언어에 기본인 로캘에서 언어 이름을 표시합니다.
 
-  * `scripts`: 변환 원본 스크립트의 목록입니다. `scripts` 목록의 각 요소에는 다음 속성이 있습니다.
+  * `scripts`: 변환할 스크립트의 목록입니다. `scripts` 목록의 각 요소에는 다음 속성이 있습니다.
 
     * `code`: 스크립트를 식별하는 코드입니다.
 
-    * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 스크립트 표시 이름입니다.
+    * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 스크립트 이름을 표시합니다.
 
-    * `nativeName`: 언어에 대한 기본 로캘의 언어 표시 이름입니다.
+    * `nativeName`: 언어에 기본인 로캘에서 언어 이름을 표시합니다.
 
-    * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
+    * `dir`: 오른쪽에서 왼쪽 언어의 경우 `rtl` 또는 왼쪽에서 오른쪽 언어의 경우 `ltr`인 사전입니다.
 
-    * `toScripts`: 텍스트 변환이 가능한 대상 스크립트 목록입니다. `toScripts` 목록의 각 요소에는 앞에서 설명한 대로 `code`, `name`, `nativeName` 및 `dir` 속성이 있습니다.
+    * `toScripts`: 텍스트를 변환하는 데 사용할 수 있는 스크립트 목록입니다. `toScripts` 목록의 각 요소에는 앞에서 설명한 대로 `code`, `name`, `nativeName` 및 `dir` 속성이 있습니다.
 
   예제는 다음과 같습니다.
 
@@ -188,19 +188,19 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `dictionary` 속성의 값은 키 값 쌍의 사전입니다. 각 키는 BCP 47 언어 태그입니다. 키는 대체 번역 및 백 번역을 사용할 수 있는 언어를 식별합니다. 값은 사용할 수 있는 번역을 포함하는 소스 언어 및 대상 언어를 설명하는 JSON 개체입니다.
 
-  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 소스 언어 표시 이름입니다.
+  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 소스 언어 이름을 표시합니다.
 
-  * `nativeName`: 이 언어에 대한 기본 로캘의 언어 표시 이름입니다.
+  * `nativeName`: 이 언어에 기본인 로캘에서 언어 이름을 표시합니다.
 
-  * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
+  * `dir`: 오른쪽에서 왼쪽 언어의 경우 `rtl` 또는 왼쪽에서 오른쪽 언어의 경우 `ltr`인 사전입니다.
 
-  * `translations`: 소스 언어로 표현된 쿼리의 대체 번역 및 예제가 포함된 언어 목록입니다. `translations` 목록의 각 요소에는 다음 속성이 있습니다.
+  * `translations`: 소스 언어로 표현된 쿼리에 대한 대체 번역 및 예제를 포함한 언어 목록입니다. `translations` 목록의 각 요소에는 다음 속성이 있습니다.
 
-    * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 대상 언어 표시 이름입니다.
+    * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 대상 언어 이름을 표시합니다.
 
-    * `nativeName`: 대상 언어에 대한 기본 로캘의 대상 언어 표시 이름입니다.
+    * `nativeName`: 대상 언어에 기본인 로캘에서 대상 언어 이름을 표시합니다.
 
-    * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
+    * `dir`: 오른쪽에서 왼쪽 언어의 경우 `rtl` 또는 왼쪽에서 오른쪽 언어의 경우 `ltr`인 사전입니다.
     
     * `code`: 대상 언어를 식별하는 언어 코드입니다.
 
@@ -230,7 +230,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>ETag</td>
     <td>지원되는 언어의 요청된 그룹에 대한 엔터티 태그의 현재 값입니다. 보다 효율적인 후속 요청을 위해 클라이언트는 `If-None-Match` 헤더 필드에서 `ETag` 값을 보낼 수 있습니다.
@@ -248,7 +248,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">상태 코드</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>성공.</td>
@@ -259,11 +259,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>400</td>
-    <td>쿼리 매개 변수 중 하나가 누락되었거나 유효하지 않습니다. 다시 시도하기 전에 요청 매개 변수를 수정합니다.</td>
+    <td>쿼리 매개 변수 중 하나가 없거나 잘못되었습니다. 다시 시도하기 전에 요청 매개 변수를 수정합니다.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>서버는 클라이언트 요청 한도 초과 했기 때문에 요청을 거부 합니다.</td>
+    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -275,16 +275,12 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
 </table> 
 
-오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [v3 Translator Text API 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 확인할 수 있습니다. 
+오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 찾을 수 있습니다. 
 
 ## <a name="examples"></a>예
 
 다음 예제에서는 텍스트 번역에 지원되는 언어를 검색하는 방법을 보여줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"
 ```
-
----

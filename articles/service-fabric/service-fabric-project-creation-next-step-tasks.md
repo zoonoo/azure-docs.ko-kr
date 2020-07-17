@@ -1,31 +1,19 @@
 ---
-title: Service Fabric 프로젝트 만들기 다음 단계 | Microsoft Docs
+title: Service Fabric 프로젝트 만들기 다음 단계
 description: Visual Studio에서 방금 만든 애플리케이션 프로젝트에 대해 알아봅니다.  자습서를 사용하여 서비스를 빌드하는 방법을 알아보고 Service Fabric용 서비스 개발에 대해 자세히 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2017
-ms.author: atsenthi
-ms.openlocfilehash: e5371cd3ea9de1993f0f824325f6cbf1e25343d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75349407"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>서비스 패브릭 애플리케이션 및 다음 단계
 Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문서에서는 사용해 볼 만한 자습서, 프로젝트의 구성, 관심을 둘 만한 추가 정보 및 수행할 수 있는 다음 단계에 대해 설명합니다.
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>자습서, 연습 및 샘플 시작하기
-시작할 준비가 되셨습니까?  
+시작할 준비가 되셨나요?  
 
 .NET 애플리케이션 자습서를 진행하세요. ASP.NET Core 프런트 엔드 및 상태 저장 백 엔드로 [앱을 빌드](service-fabric-tutorial-create-dotnet-app.md)하고, [애플리케이션을 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)하고, [CI/CD를 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)하고, [모니터링 및 진단을 설정](service-fabric-tutorial-monitoring-aspnet.md)하는 방법에 대해 알아보세요.
 
@@ -64,7 +52,7 @@ Service Fabric 애플리케이션은 여러 가지 서비스로 구성되며, �
 ## <a name="learn-about-configuring-application-security"></a>애플리케이션 보안 구성에 대해 알아보기
 다른 사용자 계정으로 클러스터에서 실행 중인 애플리케이션을 보호할 수 있습니다. 또한 Service Fabric으로 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 애플리케이션에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 더욱 안전하게 애플리케이션을 실행할 수 있습니다.  [애플리케이션에 대한 보안 정책을 구성](service-fabric-application-runas-security.md)하는 방법을 알아봅니다.
 
-애플리케이션에는 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 중요한 정보가 포함되어 있을 수 있습니다. [애플리케이션에서 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
+애플리케이션에는 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 중요한 정보가 포함되어 있을 수 있습니다. [애플리케이션에서 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
 
 ## <a name="learn-about-the-application-lifecycle"></a>애플리케이션 수명 주기에 대해 알아보기
 다른 플랫폼과 마찬가지로, Service Fabric 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. [이 문서](service-fabric-application-lifecycle.md)에서는 Service Fabric 애플리케이션 수명 주기의 모든 단계에서 여러 역할이 사용되는 방법 및 API에 대한 개요를 제공합니다.

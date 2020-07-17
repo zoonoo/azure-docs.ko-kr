@@ -2,17 +2,16 @@
 title: Azure DNS에서 DNS 레코드 집합 및 레코드 관리
 description: Azure DNS는 도메인을 호스트하는 경우 DNS 레코드 집합 및 레코드를 관리하는 기능을 제공합니다.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/6/2018
-ms.author: victorh
-ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: rohink
+ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61296381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696834"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Azure 포털을 사용하여 DNS 레코드 및 레코드 집합 관리
 
@@ -70,14 +69,14 @@ Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하�
 Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 있습니다. 레코드 집합에서 마지막 레코드를 제거해도 레코드 집합은 삭제되지 않습니다.
 
 1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 레코드를 검색합니다.
-2. 제거하려는 레코드를 클릭합니다. 그런 후 **제거**를 선택합니다.
+2. 제거하려는 레코드를 클릭합니다. 그런 다음 **제거**를 선택 합니다.
 
     ![레코드 제거](./media/dns-operations-recordsets-portal/removerecord500.png)
 
 3. 블레이드의 맨 위에서 **저장** 을 클릭하여 설정을 저장합니다.
 4. 레코드가 제거된 후 **DNS 영역** 블레이드의 레코드 값에 제거 결과가 반영됩니다.
 
-## <a name="delete"></a>레코드 집합 삭제
+## <a name="delete-a-record-set"></a><a name="delete"></a>레코드 집합 삭제
 
 1. 레코드 집합에 대한 **레코드 집합 속성** 블레이드에서 **삭제**를 클릭합니다.
 

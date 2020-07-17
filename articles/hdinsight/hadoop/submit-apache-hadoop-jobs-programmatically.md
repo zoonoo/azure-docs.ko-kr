@@ -1,19 +1,18 @@
 ---
 title: HDInsight에서 Apache Hadoop 작업 제출
-description: Azure HDInsight에서 Apache Hadoop 작업을 제출하는 방법을 알아봅니다.
-ms.reviewer: jasonh
-ms.author: hrasheed
+description: Microsoft .NET SDK, 말아 또는 PowerShell을 사용 하 여 Azure HDInsight에서 Apache Hadoop 작업 제출
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: 48365d8fcb5e95fc9b9fa605321baf28e07eee66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.custom: hdinsightactive
+ms.date: 12/16/2019
+ms.openlocfilehash: 1cdee99378feb381d75edef0d150089132d1bbc2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75435704"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업 제출
 
@@ -25,24 +24,21 @@ HDInsight, curl 또는 Azure PowerShell에 대해 Microsoft.NET SDK를 사용하
 
   - [비대화형 인증 .NET 애플리케이션 만들기](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행](apache-hadoop-use-hive-dotnet-sdk.md)
-  - [HDInsight에서 Apache Hadoop용 .NET SDK를 사용하여 Apache Pig 작업 실행](apache-hadoop-use-pig-dotnet-sdk.md)
   - [HDInsight에서 Apache Hadoop용 .NET SDK를 사용하여 Apache Sqoop 작업 실행](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [HDInsight .NET SDK를 사용하여 MapReduce 작업 실행](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- **curl**:
+- **말아**:
 
   - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행](apache-hadoop-use-hive-curl.md)
-  - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Pig 작업 실행](apache-hadoop-use-pig-curl.md)
   - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Sqoop 작업 실행](apache-hadoop-use-sqoop-curl.md)
   - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 MapReduce 작업 실행](apache-hadoop-use-mapreduce-curl.md)
 
 - **PowerShell**:
 
   - [PowerShell을 사용하여 Apache Hive 쿼리 실행](apache-hadoop-use-hive-powershell.md)
-  - [PowerShell을 사용하여 Apache Pig 작업 실행](apache-hadoop-use-pig-powershell.md)
   - [HDInsight에서 Apache Hadoop과 함께 Apache Sqoop 사용](apache-hadoop-use-sqoop-powershell.md)
   - [PowerShell을 사용하여 HDInsight에서 Apache Hadoop과 함께 MapReduce 작업 실행](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Azure HDInsight 설명서](https://docs.microsoft.com/azure/hdinsight/)

@@ -2,69 +2,75 @@
   href: index.yml
 - name: 개요
   items:
-    - name: IoT Device Provisioning Service 정보
+    - name: IoT Hub Device Provisioning Service란?
       href: about-iot-dps.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 자동 프로비전 설정 - Azure CLI
-      href: quick-setup-auto-provision-cli.md
-    - name: 자동 프로비전 설정 - 포털
-      href: quick-setup-auto-provision.md
-    - name: 자동 프로비전 설정 - 템플릿
-      href: quick-setup-auto-provision-rm.md
-    - name: 시뮬레이트된 디바이스 자동 프로비전
+    - name: DPS 설정
       items:
-        - name: TPM 증명
+        - name: Azure portal
+          href: quick-setup-auto-provision.md
+        - name: Azure CLI
+          href: quick-setup-auto-provision-cli.md
+        - name: Azure RM 템플릿
+          href: quick-setup-auto-provision-rm.md
+    - name: 단일 디바이스 프로비저닝
+      items:
+        - name: 대칭 키 증명
           items:
             - name: C
-              href: quick-create-simulated-device.md
-            - name: 자바
-              href: quick-create-simulated-device-tpm-java.md
-            - name: 'C#'
-              href: quick-create-simulated-device-tpm-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-tpm-node.md
+              href: quick-create-simulated-device-symm-key.md
+            - name: Java
+              href: quick-create-simulated-device-symmetric-key-java.md
             - name: Python
-              href: quick-create-simulated-device-tpm-python.md
-        - name: X.509 증명
+              href: quick-create-device-symmetric-key-python.md
+        - name: X.509 인증서 증명
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
-            - name: 자바
+            - name: Java
               href: quick-create-simulated-device-x509-java.md
-            - name: 'C#'
+            - name: C#
               href: quick-create-simulated-device-x509-csharp.md
             - name: Node.js
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-        - name: 대칭 키 증명
+        - name: 시뮬레이션된 TPM 디바이스 증명
           items:
             - name: C
-              href: quick-create-simulated-device-symm-key.md
-    - name: 프로비전 서비스 API를 사용하여 디바이스 등록
-      items:
-        - name: TPM 증명
-          items:
-            - name: 자바
-              href: quick-enroll-device-tpm-java.md
-            - name: 'C#'
-              href: quick-enroll-device-tpm-csharp.md
+              href: quick-create-simulated-device.md
+            - name: Java
+              href: quick-create-simulated-device-tpm-java.md
+            - name: C#
+              href: quick-create-simulated-device-tpm-csharp.md
             - name: Node.js
-              href: quick-enroll-device-tpm-node.md
+              href: quick-create-simulated-device-tpm-node.md
             - name: Python
-              href: quick-enroll-device-tpm-python.md
-        - name: X.509 증명
+              href: quick-create-simulated-device-tpm-python.md
+    - name: DPS API를 사용하여 디바이스 등록 만들기
+      items:
+        - name: X.509 인증서 증명을 사용하여 그룹 등록
           items:
-            - name: 자바
+            - name: Java
               href: quick-enroll-device-x509-java.md
-            - name: 'C#'
+            - name: C#
               href: quick-enroll-device-x509-csharp.md
             - name: Node.js
               href: quick-enroll-device-x509-node.md
             - name: Python
               href: quick-enroll-device-x509-python.md
+        - name: TPM 증명을 사용하여 개별 디바이스 등록
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+            - name: C#
+              href: quick-enroll-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
+            - name: Python
+              href: quick-enroll-device-tpm-python.md
 - name: 자습서
   items:
     - name: 1 - 클라우드 리소스 설정
@@ -75,11 +81,11 @@
       items:
         - name: C
           href: tutorial-provision-device-to-hub.md
-        - name: 'C#'
+        - name: C#
           href: tutorial-net-provision-device-to-hub.md
     - name: 4 - 여러 허브에 디바이스 프로비전
       href: tutorial-provision-multiple-hubs.md
-    - name: 5 - 그룹 등록 프로비전
+    - name: 5 - 그룹 등록 설정
       href: tutorial-group-enrollments.md
 - name: 개념
   items:
@@ -91,12 +97,18 @@
       href: concepts-device.md
     - name: 보안
       href: concepts-security.md
+    - name: TLS 지원
+      href: tls-support.md
     - name: 서비스
       href: concepts-service.md
+    - name: DPS IP 주소 이해
+      href: iot-dps-understand-ip-address.md
     - name: TPM 증명
       href: concepts-tpm-attestation.md
     - name: 대칭 키 증명
       href: concepts-symmetric-key-attestation.md
+    - name: 디바이스 제조업체를 위한 보안 관행
+      href: concepts-device-oem-security-practices.md
 - name: 방법 가이드
   items:
     - name: IoT Hub에 MXChip IoT DevKit 연결
@@ -123,6 +135,8 @@
           href: how-to-manage-dps-with-cli.md
         - name: 프로비저닝 서비스 API에 대한 액세스 제어
           href: how-to-control-access.md
+        - name: IP 필터링 구성
+          href: iot-dps-ip-filtering.md
     - name: IoT Edge 디바이스 프로비전
       items:
         - name: Linux
@@ -141,7 +155,13 @@
       href: how-to-legacy-device-symm-key.md
     - name: 개발에 SDK 도구 사용
       href: how-to-use-sdk-tools.md
-- name: 참고 자료
+    - name: 디바이스에서 추가 데이터를 보내는 방법
+      href: how-to-send-additional-data.md
+    - name: 문제 해결
+      href: how-to-troubleshoot-dps.md
+    - name: MQTT 프로토콜을 사용하여 DPS와 통신
+      href: iot-dps-mqtt-support.md
+- name: 참조
   items:
     - name: REST API
       href: /rest/api/iot-dps
@@ -157,46 +177,48 @@
       href: 'https://github.com/Azure/azure-iot-sdk-java'
     - name: .NET용 Azure IoT SDK
       href: 'https://github.com/Azure/azure-iot-sdk-csharp'
-- name: 관련 항목
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-IoT
+- name: 리소스
   items:
-    - name: 솔루션
-      items:
-        - name: IoT 솔루션 가속기
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: 플랫폼 서비스
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT 서비스
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning 서비스
+        - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
-        - name: 지도
-          href: /azure/azure-maps
-        - name: 서비스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Microsoft Edge
-      items:
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
         - name: IoT Edge
           href: /azure/iot-edge
-        - name: IoT 장치 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-- name: 리소스
-  items:
-    - name: 'C#(.NET)용 Azure IoT 샘플'
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
-    - name: Node.js용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
-    - name: Java용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
-    - name: Python용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
-    - name: iOS 플랫폼용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
-    - name: Azure IoT Hub
-      href: 'https://azure.microsoft.com/services/iot-hub/'
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Azure IoT SDK
+      items:
+        - name: IoT 서비스 SDK
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        - name: IoT 디바이스 SDK
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Azure IoT 샘플
+      items:
+        - name: C#(.NET)
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+        - name: Node.js
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+        - name: Java
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+        - name: Python
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+        - name: iOS 플랫폼
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: IoT용 Azure Certified 디바이스 카탈로그
       href: 'https://catalog.azureiotsolutions.com/'
     - name: Azure IoT 개발자 센터
@@ -205,20 +227,16 @@
       href: iot-dps-customer-data-requests.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: Device Explorer 도구
-      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: Azure IoT Explorer 도구
+      href: 'https://github.com/Azure/azure-iot-explorer'
     - name: iothub-diagnostics 도구
       href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=iot-hub'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
     - name: 기술 사례 연구
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: 동영상

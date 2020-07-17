@@ -4,7 +4,7 @@ description: Azure VM 간의 연결 문제를 해결하는 방법을 알아봅�
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83841349ec7563231653cd063791e19ae2af4857
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036394"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130676"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Azure VM 간의 연결 문제 해결
 
@@ -81,11 +81,15 @@ VM 앱 또는 서비스가 포트에서 수신 대기하는지 여부를 확인�
 
 **Windows VM**
 
-    netstat –ano
+```console
+netstat –ano
+```
 
 **Linux VM**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - 가상 머신 자체에서 **telnet** 명령을 실행하여 포트를 테스트합니다. 테스트가 실패하는 경우 애플리케이션 또는 서비스가 해당 포트에서 수신 대기하도록 구성되지 않은 것입니다.
 
@@ -93,19 +97,19 @@ VM 앱 또는 서비스가 포트에서 수신 대기하는지 여부를 확인�
 
 일부 시나리오에서 VM은 Azure 외부의 리소스에 종속되어 있는 부하 분산 솔루션 뒤에 배치됩니다. 이러한 시나리오에서 간헐적인 연결 문제가 있는 경우 [SNAT 포트 소모](../load-balancer/load-balancer-outbound-connections.md) 때문일 수 있습니다. 이 문제를 해결하려면 부하 분산 장치 뒤에 있고 NSG 또는 ACL을 사용하여 보안이 유지되는 각 VM에 대해 VIP(또는 클래식의 경우 ILPIP)를 만듭니다. 
 
-### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>6단계: 트래픽이 클래식 VM의 ACL에 의해 차단되는지 여부 확인
+### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>6단계: 트래픽이 클래식 VM의 ACL에 의해 차단되는지 여부
 
 ACL(액세스 제어 목록)은 가상 머신 엔드포인트의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 자세한 내용은 [엔드포인트에서의 ACL 관리](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)를 참조하세요.
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>7단계: 클래식 VM에 대해 엔드포인트가 생성되는지 여부 확인
 
-클래식 배포 모델을 사용하여 Azure에서 만든 모든 VM은 개인 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 머신과 자동으로 통신할 수 있습니다. 그러나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 엔드포인트가 필요합니다. 자세한 내용은 [엔드포인트를 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md)을 참조하세요.
+클래식 배포 모델을 사용하여 Azure에서 만든 모든 VM은 프라이빗 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 머신과 자동으로 통신할 수 있습니다. 그러나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 엔드포인트가 필요합니다. 자세한 내용은 [엔드포인트를 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md)을 참조하세요.
 
-### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>8단계: VM 네트워크 공유에 연결해 보기
+### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>8단계: VM 네트워크 공유에 연결해보기
 
 VM 네트워크 공유에 연결할 수 없으면 VM의 사용할 수 없는 NIC가 문제의 원인일 수 있습니다. 사용할 수 없는 NIC를 삭제하려면 [사용할 수 없는 NIC를 삭제하는 방법](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)을 참조하세요.
 
-### <a name="step-9-check-inter-vnet-connectivity"></a>9단계: Vnet 간 연결 확인
+### <a name="step-9-check-inter-vnet-connectivity"></a>9단계: vNET 간 연결 확인
 
 [Network Watcher IP 흐름 확인](../network-watcher/network-watcher-ip-flow-verify-overview.md) 및 [NSG 흐름 로깅](../network-watcher/network-watcher-nsg-flow-logging-overview.md)을 사용하여 트래픽 흐름을 간섭하는 NSG 또는 UDR이 있는지를 확인합니다. Vnet 간 구성을 [여기](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections)에서 확인할 수 있습니다.
 

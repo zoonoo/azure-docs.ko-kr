@@ -1,19 +1,14 @@
 ---
-title: 빠른 시작 - Azure Container Registry에서 컨테이너 이미지 빌드 및 실행
-description: Azure Container Registry를 사용하여 클라우드에 주문형 컨테이너 이미지를 빌드하고 실행하는 작업을 신속하게 실행합니다.
-services: container-registry
-author: dlepow
-ms.service: container-registry
+title: 빠른 시작 - 컨테이너 이미지 빌드 및 실행
+description: Azure Container Registry를 사용하여 클라우드에 주문형 Docker 컨테이너 이미지를 빌드하고 실행하는 작업을 신속하게 실행합니다.
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 01/31/2020
+ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701559"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753700"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 
@@ -21,7 +16,7 @@ ms.locfileid: "64701559"
 
 이 빠른 시작을 마친 후 ACR 작업의 고급 기능을 더 살펴보세요. 다양한 시나리오를 지원하는 ACR 작업은 코드 커밋 또는 기본 이미지 업데이트를 기반으로 이미지 빌드를 자동화하거나 여러 컨테이너를 병렬로 테스트할 수 있습니다. 
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,23 +37,26 @@ az group create --name myResourceGroup --location eastus
 [az acr create][az-acr-create] 명령을 사용하여 컨테이너 레지스트리를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry008*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry008 --sku Basic
 ```
 
-이 예제에서는 Azure Container Registry에 대해 배우고 있는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 SKU][container-registry-skus]를 참조하세요.
+이 예제에서는 Azure Container Registry에 대해 학습하고 있는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 서비스 계층][container-registry-skus]을 참조하세요.
 
-## <a name="build-an-image-from-a-dockerfile"></a>Dockerfile에서 이미지 빌드
+## <a name="build-and-push-image-from-a-dockerfile"></a>Dockerfile에서 이미지 빌드 및 푸시
 
-이제 Azure Container Registry를 사용하여 이미지를 빌드합니다. 먼저 작업 디렉터리를 만든 후, 다음 콘텐츠를 사용하여 *Dockerfile*이라는 Dockerfile을 만듭니다. 이 예제는 Linux 컨테이너 이미지를 빌드하는 간단한 예제이지만, 여러분만의 표준 Dockerfile을 만들고 다른 플랫폼에 대한 이미지를 빌드할 수도 있습니다.
+이제 Azure Container Registry를 사용하여 이미지를 빌드하고 푸시합니다. 먼저 작업 디렉터리를 만든 다음, `FROM hello-world` 단일 줄로 *Dockerfile*이라는 Dockerfile을 만듭니다. Docker Hub의 `hello-world` 이미지에서 Linux 컨테이너 이미지를 빌드하는 간단한 예제입니다. 사용자 고유의 표준 Dockerfile을 만들고 다른 플랫폼용 이미지를 빌드할 수 있습니다. bash 셸에서 작업하는 경우 다음 명령을 사용하여 Dockerfile을 만듭니다.
 
 ```bash
 echo FROM hello-world > Dockerfile
 ```
 
-[az acr build][az-acr-build] 명령을 실행하여 이미지를 빌드합니다. 성공적으로 빌드된 이미지는 레지스트리로 푸시됩니다. 다음 예제는 `sample/hello-world:v1` 이미지를 푸시합니다. 명령 끝부분의 `.`는 Dockerfile의 위치(이 예에서는 현재 디렉터리)를 설정합니다.
+이미지를 빌드하는 [az acr build][az-acr-build] 명령을 실행합니다. 이미지가 성공적으로 빌드된 후 레지스트리에 푸시합니다. 다음 예제는 `sample/hello-world:v1` 이미지를 빌드하고 푸시합니다. 명령 끝부분에 있는 `.`는 Dockerfile의 위치(이 예에서는 현재 디렉터리)를 설정합니다.
 
 ```azurecli-interactive
-az acr build --image sample/hello-world:v1 --registry myContainerRegistry008 --file Dockerfile . 
+az acr build --image sample/hello-world:v1 \
+  --registry myContainerRegistry008 \
+  --file Dockerfile . 
 ```
 
 빌드 및 푸시가 성공하면 다음과 비슷한 출력이 표시됩니다.
@@ -115,22 +113,16 @@ Run ID: ca8 was successful after 10s
 
 ## <a name="run-the-image"></a>이미지 실행
 
-이제 빌드하여 레지스트리로 푸시한 이미지를 신속하게 실행합니다. 컨테이너 개발 워크플로에서는 이 작업이 이미지를 배포하기 전에 실행하는 유효성 검사 단계일 수도 있습니다.
+이제 빌드하여 레지스트리로 푸시한 이미지를 신속하게 실행합니다. 여기에서 [az acr run][az-acr-run]을 사용하여 컨테이너 명령을 실행합니다. 컨테이너 개발 워크플로에서 이 작업은 이미지를 배포하기 전에 실행하는 유효성 검사 단계이거나 [다단계 YAML 파일][container-registry-tasks-multi-step]에 명령을 포함할 수 있습니다. 
 
-다음 콘텐츠를 사용하여 한 단계 만에 로컬 작업 디렉터리에 *quickrun.yaml* 파일을 만듭니다. *\<acrLoginServer\>* 를 해당 레지스트리의 로그인 서버 이름으로 바꿉니다. 로그인 서버 이름은 *\<registry-name\>.azurecr.io*(모두 소문자) 형식입니다(예: *mycontainerregistry008.azurecr.io*). 이 예제에서는 이전 섹션에서 `sample/hello-world:v1` 이미지를 빌드하여 푸시한 것으로 가정합니다.
-
-```yml
-steps:
-  - cmd: <acrLoginServer>/sample/hello-world:v1
-```
-
-이 예제의 `cmd` 단계는 컨테이너를 기본 구성으로 실행하지만, `cmd`는 추가 `docker run` 매개 변수 또는 심지어 다른 `docker` 명령까지 지원합니다.
-
-다음 명령으로 컨테이너를 실행합니다.
+다음 예제에서는 `$Registry`를 사용하여 명령을 실행하는 레지스트리를 지정합니다.
 
 ```azurecli-interactive
-az acr run --registry myContainerRegistry008 --file quickrun.yaml .
+az acr run --registry myContainerRegistry008 \
+  --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
+
+이 예제의 `cmd` 매개 변수는 컨테이너를 기본 구성으로 실행하지만, `cmd`는 추가 `docker run` 매개 변수 또는 기타 `docker` 명령도 지원합니다.
 
 다음과 유사하게 출력됩니다.
 
@@ -187,10 +179,10 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 ACR 작업의 기능을 사용하여 Azure 내부에서 Docker 컨테이너 이미지를 신속하게 빌드, 푸시 및 실행했습니다. Azure Container Registry 자습서를 계속 진행하여 ACR 작업으로 이미지 빌드 및 업데이트를 자동화하는 방법을 알아보세요.
+이 빠른 시작에서는 ACR 작업의 기능을 사용하여 로컬 Docker를 설치하지 않고 Azure 내에서 기본적으로 Docker 컨테이너 이미지를 신속하게 빌드, 푸시 및 실행했습니다. Azure Container Registry 작업 자습서를 계속 진행하여 ACR 작업으로 이미지 빌드 및 업데이트를 자동화하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry 자습서][container-registry-tutorial-quick-task]
+> [Azure Container Registry 작업 자습서][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -206,10 +198,12 @@ az group delete --name myResourceGroup
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-build]: /cli/azure/acr#az-acr-build
+[az-acr-run]: /cli/azure/acr#az-acr-run
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tasks-overview]: container-registry-tasks-overview.md
+[container-registry-tasks-multi-step]: container-registry-tasks-multi-step.md
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
 [azure-cli-install]: /cli/azure/install-azure-cli

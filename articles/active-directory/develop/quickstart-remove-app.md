@@ -1,28 +1,23 @@
 ---
-title: Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션 제거 | Azure
+title: Microsoft ID 플랫폼을 사용하여 등록된 앱 제거 | Azure
 description: Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션을 제거하는 방법을 살펴봅니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 271fe45082749afc310e8f217e8119d3931c3cac
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 3cc9e4458f14a63bad7f484bc16683248895ede9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413730"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692226"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 등록된 애플리케이션 제거
 
@@ -33,7 +28,7 @@ Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 �
 * 사용자 또는 해당 조직이 작성한 애플리케이션 제거
 * 다른 조직이 작성한 애플리케이션 제거
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 애플리케이션이 등록된 테넌트가 있어야 합니다. [Microsoft ID 플랫폼을 사용하여 애플리케이션을 등록하는 방법](quickstart-register-app.md)을 살펴봅니다.
 

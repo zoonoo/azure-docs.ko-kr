@@ -1,28 +1,18 @@
 ---
-title: Azure Service Fabric 상태 관리 | Microsoft Docs
-description: Service Fabric Reliable Actors 상태에 액세스, 저장 및 제거하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric 상태 관리
+description: Azure Service Fabric 신뢰할 수 있는 행위자의 상태에 액세스, 저장 및 제거 하는 방법과 응용 프로그램을 디자인할 때 고려해 야 할 사항에 대해 알아봅니다.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60725400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75645636"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Reliable Actors 상태에 액세스, 저장 및 제거
-[Reliable Actors](service-fabric-reliable-actors-introduction.md)는 논리와 상태를 모두 캡슐화하고 상태를 안정적으로 유지할 수 있는 단일 스레드 개체입니다. 모든 행위자 인스턴스에는 안정적으로 키/값 쌍을 저장하는 사전 형식의 데이터 구조인 고유한 [상태 관리자](service-fabric-reliable-actors-state-management.md)가 있습니다. 상태 관리자는 상태 제공자에 대한 래퍼입니다. 사용되는 [지속성 설정](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication)에 상관없이 데이터를 저장하는 데 사용할 수 있습니다.
+[Reliable Actors](service-fabric-reliable-actors-introduction.md)는 논리와 상태를 모두 캡슐화하고 상태를 안정적으로 유지할 수 있는 단일 스레드 개체입니다. 모든 행위자 인스턴스에는 키/값 쌍을 안정적으로 저장 하는 사전 유사 데이터 구조와 같은 고유한 [상태 관리자](service-fabric-reliable-actors-state-management.md)가 있습니다. 상태 관리자는 상태 제공자에 대한 래퍼입니다. 사용 되는 [지 속성 설정](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) 에 관계 없이 데이터를 저장 하는 데 사용할 수 있습니다.
 
 상태 관리자 키는 문자열이어야 합니다. 값은 제네릭 및 사용자 지정 형식을 포함한 모든 형식일 수 있습니다. 복제하는 동안 네트워크를 통해 다른 노드로 전송될 수 있기 때문에 상태 관리자에 저장된 값은 데이터 계약을 직렬화 가능해야 하며 행위자의 상태 지속성 설정에 따라 디스크에 기록할 수 있습니다.
 

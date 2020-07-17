@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 시리즈 디바이스 요약 사용 | Microsoft Docs
+title: StorSimple 8000 시리즈 장치에 대 한 서비스 요약 블레이드 사용
 description: StorSimple 서비스 요약 블레이드 및 이 블레이드를 사용하여 StorSimple 솔루션의 상태를 모니터링하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7b4b697b3d27b57212fc59396e1f8111e297d6cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60633143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514951"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 대한 서비스 요약 블레이드 사용
 
@@ -47,7 +46,7 @@ Essentials 영역은 StorSimple 디바이스 관리자를 만든 리소스 그�
 
 ## <a name="storsimple-device-manager-service-summary"></a>StorSimple 디바이스 관리자 서비스 요약
 
-* **경고** 타일에서는 경고 심각도별로 그룹화된 모든 디바이스 간의 모든 활성 경고에 대한 스냅숏을 제공합니다.
+* **경고** 타일에서는 경고 심각도별로 그룹화된 모든 디바이스 간의 모든 활성 경고에 대한 스냅샷을 제공합니다.
 
     ![경고 타일](./media/storsimple-8000-service-dashboard/service-summary4.png)
 
@@ -55,14 +54,14 @@ Essentials 영역은 StorSimple 디바이스 관리자를 만든 리소스 그�
 
     ![경고 타일 클릭](./media/storsimple-8000-service-dashboard/service-summary8.png)
 
-* **용량** 타일에서는 모든 디바이스에서 사용 가능한 총 저장소를 기준으로 모든 디바이스에 프로비전하고 남아있는 기본 저장소를 보여 줍니다. **프로비전**은 사용하도록 준비되고 할당된 저장소의 양을 나타내며 **나머지**는 모든 디바이스에 프로비전될 수 있는 남은 용량을 가리킵니다.
+* **용량** 타일에서는 모든 디바이스에서 사용 가능한 총 스토리지를 기준으로 모든 디바이스에 프로비전하고 남아있는 기본 스토리지를 보여 줍니다. **프로비전**은 사용하도록 준비되고 할당된 스토리지의 양을 나타내며 **나머지**는 모든 디바이스에 프로비전될 수 있는 남은 용량을 가리킵니다.
 
     ![용량 타일](./media/storsimple-8000-service-dashboard/service-summary6.png)
 
     **나머지 계층** 용량은 클라우드를 포함하여 프로비전될 수 있는 사용 가능한 용량인 반면 **나머지 로컬**은 StorSimple 8000 시리즈 디바이스에 연결된 디스크에 남아 있는 용량입니다.
 
 
-* **사용량** 차트에서 디바이스에 대한 관련 메트릭을 볼 수 있습니다. 기본 시간 간격인 지난 7일 동안 디바이스에서 사용된 클라우드 저장소는 물론, 모든 디바이스에 걸쳐 사용되는 기본 저장소도 볼 수 있습니다. 
+* **사용량** 차트에서 디바이스에 대한 관련 메트릭을 볼 수 있습니다. 기본 시간 간격인 지난 7일 동안 디바이스에서 사용된 클라우드 스토리지는 물론, 모든 디바이스에 걸쳐 사용되는 기본 스토리지도 볼 수 있습니다. 
 
     ![사용량 타일](./media/storsimple-8000-service-dashboard/service-summary7.png) 
 

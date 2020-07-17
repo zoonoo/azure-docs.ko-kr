@@ -1,26 +1,19 @@
 ---
-title: 구성 FAQ - Azure App Service | Microsoft Docs
-description: Azure App Service Web Apps 기능의 구성 및 관리 문제에 대한 질문과 대답을 확인합니다.
-services: app-service\web
-documentationcenter: ''
+title: 구성 Faq
+description: Azure App Service에 대 한 구성 및 관리 문제에 대 한 자주 묻는 질문에 대 한 답을 가져옵니다.
 author: genlin
-manager: cshepard
-editor: ''
+manager: dcscontentpm
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82160003"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -30,7 +23,7 @@ ms.locfileid: "56118448"
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>App Service 리소스를 이동하려는 경우 알아야 할 제한 사항이 있나요?
 
-App Service 리소스를 새 리소스 그룹이나 구독으로 이동할 계획인 경우 알아야 할 몇 가지 제한 사항이 있습니다. 자세한 내용은 [App Service 제한 사항](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)을 참조하세요.
+App Service 리소스를 새 리소스 그룹이나 구독으로 이동할 계획인 경우 알아야 할 몇 가지 제한 사항이 있습니다. 자세한 내용은 [App Service 제한 사항](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)을 참조하세요.
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>내 웹앱에 대한 사용자 지정 도메인 이름을 어떻게 사용할 수 있나요?
 
@@ -42,25 +35,25 @@ Azure 웹앱에서 사용자 지정 도메인 이름을 사용하는 방법에 �
 App Service 웹앱에 대한 사용자 지정 도메인을 구매 및 설정하는 방법을 알아보려면 [App Service에서 사용자 지정 도메인 이름 구매 및 구성](manage-custom-dns-buy-domain.md)을 참조하세요.
 
 
-## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>내 웹앱에 대한 기존 SSL 인증서를 어떻게 업로드 및 구성할 수 있나요?
+## <a name="how-do-i-upload-and-configure-an-existing-tlsssl-certificate-for-my-web-app"></a>내 웹 앱에 대 한 기존 TLS/SSL 인증서를 업로드 하 고 구성 어떻게 할까요??
 
-기존 사용자 지정 SSL 인증서를 업로드하고 설정하는 방법을 알아보려면 [Azure 웹앱에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md#upload)을 참조하세요.
+기존 사용자 지정 TLS/SSL 인증서를 업로드 하 고 설정 하는 방법에 대 한 자세한 내용은 [App Service 앱에 TLS/ssl 인증서 추가](configure-ssl-certificate.md)를 참조 하세요.
 
 
-## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Azure에서 내 웹앱에 대한 새 SSL 인증서를 어떻게 구매 및 구성할 수 있나요?
+## <a name="how-do-i-purchase-and-configure-a-new-tlsssl-certificate-in-azure-for-my-web-app"></a>Azure에서 내 웹 앱에 대 한 새 TLS/SSL 인증서를 구매 하 고 구성할 어떻게 할까요? 있나요?
 
-App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 알아보려면 [App Service 앱에 SSL 인증서 추가](web-sites-purchase-ssl-web-site.md)를 참조하세요.
+App Service 웹 앱에 대 한 TLS/SSL 인증서를 구매 하 고 설정 하는 방법을 알아보려면 [App Service 앱에 tls/ssl 인증서 추가](configure-ssl-certificate.md)를 참조 하세요.
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Application Insights 리소스를 어떻게 이동할 수 있나요?
 
 현재 Azure Application Insights에서는 이동 작업을 지원하지 않습니다. 원래 리소스 그룹에 Application Insights 리소스가 포함된 경우 해당 리소스를 이동할 수 없습니다. App Service 앱을 이동할 때 Application Insights 리소스를 포함하는 경우 전체 이동 작업이 실패합니다. 하지만 Application Insights와 App Service 계획의 경우 앱이 제대로 작동하려면 해당 앱과 같은 리소스 그룹에 있지 않아도 됩니다.
 
-자세한 내용은 [App Service 제한 사항](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)을 참조하세요.
+자세한 내용은 [App Service 제한 사항](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)을 참조하세요.
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>어디에서 지침 검사 목록을 찾고 리소스 이동 작업을 알아볼 수 있나요?
 
-[App Service 제한 사항](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)에서는 새 구독 또는 동일한 구독의 새 리소스 그룹으로 리소스를 이동하는 방법을 보여 줍니다. 리소스 이동 검사 목록에 대한 정보를 확인하고, 어떤 서비스가 이동 작업을 지원하는지 알아보고, App Service 제한 사항 및 기타 항목을 자세히 알아볼 수 있습니다.
+[App Service 제한 사항](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)에서는 새 구독 또는 동일한 구독의 새 리소스 그룹으로 리소스를 이동하는 방법을 보여 줍니다. 리소스 이동 검사 목록에 대한 정보를 확인하고, 어떤 서비스가 이동 작업을 지원하는지 알아보고, App Service 제한 사항 및 기타 항목을 자세히 알아볼 수 있습니다.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>내 웹앱에 대한 서버 표준 시간대를 어떻게 설정할 수 있나요?
 
@@ -72,7 +65,7 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
     * 값 = *원하는 표준 시간대*
 3. **저장**을 선택합니다.
 
-허용되는 값은 [기본 표준 시간대](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) 문서에서 **표준 시간대** 열을 참조하세요.
+Windows에서 실행 되는 앱 서비스의 경우 [기본 표준 시간대](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) 문서의 **표준** 시간대 열에서 허용 되는 값을 참조 하세요. Linux에서 실행 되는 앱 서비스에 대해 [TZ 데이터베이스 이름을](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 표준 시간대 값으로 설정 합니다. 다음은 TZ 데이터베이스 이름: 아메리카/Adak의 예입니다.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>내 연속 WebJobs가 때때로 실패하는 이유는 무엇인가요?
 
@@ -91,13 +84,13 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>내 웹앱에 대한 예약되거나 전용인 인바운드 IP 주소를 어떻게 확인하나요?
 
-Azure 앱 웹 사이트에 대해 실행된 인바운드 호출에 대한 전용이거나 예약된 IP 주소를 설정하려면 IP 기반 SSL 인증서를 설치하고 구성합니다.
+Azure 앱 웹 사이트에 대 한 인바운드 호출에 대 한 전용 또는 예약 된 IP 주소를 설정 하려면 IP 기반 TLS/SSL 인증서를 설치 하 고 구성 합니다.
 
 인바운드 호출에 대한 전용이거나 예약된 IP 주소를 사용하려면 App Service 계획이 기본 이상의 서비스 계획에 포함되어야 합니다.
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>다른 곳에서 호스트되는 웹 사이트와 같은 Azure 외부에서 사용하도록 내 App Service Certificate를 내보낼 수 있나요? 
 
-App Service Certificate는 Azure 리소스로 간주합니다. 이 인증서는 Azure 서비스 외부에서 사용할 수 없습니다. Azure 외부에서 사용하도록 인증서를 내보낼 수 없습니다. 자세한 내용은 [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)(App Service Certificate 및 사용자 지정 도메인에 대한 FAQ)를 참조하세요.
+예, Azure 외부에서 사용할 수 있도록 내보낼 수 있습니다. 자세한 내용은 [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)(App Service Certificate 및 사용자 지정 도메인에 대한 FAQ)를 참조하세요.
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>다른 Azure Cloud Services에서 사용하도록 내 App Service Certificate를 내보낼 수 있나요?
 
@@ -112,7 +105,7 @@ App Service Certificate는 Azure 리소스로 간주합니다. 이 인증서는 
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>HTTP 응답에서 헤더를 어떻게 제거할 수 있나요?
 
-HTTP 응답에서 헤더를 제거하려면 사이트의 web.config 파일을 업데이트합니다. 자세한 내용은 [Remove standard server headers on your Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)(Azure Websites에서 표준 서버 헤더 제거)를 참조하세요.
+HTTP 응답에서 헤더를 제거 하려면 사이트의 web.config 파일을 업데이트 합니다. 자세한 내용은 [Remove standard server headers on your Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)(Azure Websites에서 표준 서버 헤더 제거)를 참조하세요.
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>App Service는 PCI Standard 3.0 및 3.1 규격인가요?
 
@@ -132,7 +125,7 @@ PCI DSS 버전 3.1 인증을 적용하려면 TLS(전송 계층 보안) 1.0을 �
 
 WebJob 로그를 검토하려면:
 
-1. [Kudu 웹 사이트](https://*yourwebsitename*.scm.azurewebsites.net)에 로그인합니다.
+1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
 2. WebJob을 선택합니다.
 3. **출력 설정/해제** 단추를 선택합니다.
 4. 출력 파일을 다운로드하려면 **다운로드** 링크를 선택합니다.
@@ -152,12 +145,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 이 예외는 수정된 하이브리드 연결 관리자의 문제로 인해 야기되었습니다. 이 문제를 해결하려면 [하이브리드 연결 관리자를 업데이트](https://go.microsoft.com/fwlink/?LinkID=841308)해야 합니다.
 
-## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>URL 다시 쓰기 규칙을 어떻게 추가하거나 편집할 수 있나요?
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>URL 다시 쓰기 규칙을 추가 어떻게 할까요??
 
-URL 다시 쓰기 규칙을 추가하거나 편집하려면:
-
-1. App Service 웹앱에 연결하도록 IIS(인터넷 정보 서비스) 관리자를 설정합니다. IIS 관리자를 App Service에 연결하는 방법을 알아보려면 [Remote administration of Azure websites by using IIS Manager](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/)(IIS 관리자를 사용하여 Azure Websites 원격 관리)를 참조하세요.
-2. IIS 관리자에서 URL 다시 쓰기 규칙을 추가하거나 편집합니다. URL 다시 쓰기 규칙을 추가하거나 편집하는 방법을 알아보려면 [Create rewrite rules for the URL rewrite module](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)(URL 다시 쓰기 모듈에 대한 다시 쓰기 규칙 만들기)을 참조하세요.
+URL 다시 쓰기 규칙을 추가 하려면 **wwwroot** 폴더에 관련 된 구성 항목을 사용 하 여 web.config 파일을 만듭니다. 자세한 내용은 [Azure 앱 Services: URL 재작성 이해](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)를 참조 하세요.
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>App Service에 대한 인바운드 트래픽을 제어하려면 어떻게 하나요?
 
@@ -170,7 +160,7 @@ App Service Environment를 사용할 경우 [Barracuda 방화벽](https://azure.
 
 ## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>App Service 웹앱에서 포트를 어떻게 차단하나요?
 
-App Service 공유 테넌트 환경에서는 인프라의 특성 때문에 특정 포트를 차단할 수 없습니다. Visual Studio 원격 디버깅을 위해 TCP 포트 4016, 4018 및 4020이 열릴 수도 있습니다.
+App Service 공유 테넌트 환경에서는 인프라의 특성 때문에 특정 포트를 차단할 수 없습니다. Visual Studio 원격 디버깅을 위해 TCP 포트 4020, 4022 및 4024도 열릴 수 있습니다.
 
 App Service Environment에서는 인바운드 및 아웃바운드 트래픽을 완벽하게 제어할 수 있습니다. 네트워크 보안 그룹을 사용하여 특정 포트를 제한하거나 차단할 수 있습니다. App Service Environment에 대한 자세한 내용은 [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/)(App Service Environment 소개)를 참조하세요.
 
@@ -193,15 +183,15 @@ F12 추적을 캡처할 수 있는 두 가지 옵션이 있습니다.
 ### <a name="f12-console-output"></a>F12 콘솔 출력
 
 1. **콘솔** 탭을 선택합니다.
-2. 하나 이상의 항목이 포함된 각 탭에 대해 탭(**오류**, **경고** 또는 **정보**)을 선택합니다. 탭이 선택되지 않은 경우 커서가 탭 아이콘을 벗어나면 탭 아이콘이 회색 또는 검은색으로 표시됩니다.
+2. 하나 이상의 항목이 포함된 각 탭에 대해 탭(**오류**, **경고** 또는 **정보**)을 선택합니다. 탭이 선택 되어 있지 않으면 커서를 커서를 밖으로 이동 하면 탭 아이콘이 회색 이나 검은색입니다.
 3. 창의 메시지 영역을 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
 4. 복사된 텍스트를 파일에 붙여넣고 파일을 저장합니다.
 
-HAR 파일을 보려면 [HAR 뷰어](https://www.softwareishard.com/har/viewer/)를 사용할 수 있습니다.
+HAR 파일을 보려면 [HAR 뷰어](http://www.softwareishard.com/har/viewer/)를 사용할 수 있습니다.
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>App Service 웹앱을 ExpressRoute에 연결된 가상 네트워크에 연결하려고 할 때 오류가 발생하는 이유는 무엇인가요?
 
-Azure 웹앱을 Azure ExpressRoute에 연결된 가상 네트워크에 연결하려고 하면 연결에 실패합니다. 다음과 같은 메시지가 나타납니다. “게이트웨이가 VPN 게이트웨이가 아닙니다.”
+Azure 웹앱을 Azure ExpressRoute에 연결된 가상 네트워크에 연결하려고 하면 연결에 실패합니다. “게이트웨이가 VPN 게이트웨이가 아닙니다.”라는 메시지가 표시됩니다.
 
 현재는 ExpressRoute에 연결된 가상 네트워크에 지점 및 사이트 간 VPN을 연결할 수 없습니다. 동일한 가상 네트워크에 대해 지점 및 사이트 간 VPN 및 ExpressRoute를 함께 사용할 수 없습니다. 자세한 내용은 [ExpressRoute 및 사이트 간 VPN 연결 제한 및 제한 사항](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations)을 참조하세요.
 
@@ -209,11 +199,11 @@ Azure 웹앱을 Azure ExpressRoute에 연결된 가상 네트워크에 연결하
 
 현재 App Service 웹앱을 정적 라우팅(정책 기반) 게이트웨이가 있는 가상 네트워크에 연결하는 기능은 지원되지 않습니다. 대상 가상 네트워크가 이미 있는 경우 동적 라우팅 게이트웨이와의 지점 및 사이트 간 VPN을 사용하도록 설정해야 해당 가상 네트워크를 웹앱에 연결할 수 있습니다. 게이트웨이가 정적 라우팅으로 설정되면 지점 및 사이트 간 VPN을 사용하도록 설정할 수 없습니다. 
 
-자세한 내용은 [Azure 가상 네트워크에 앱 통합](web-sites-integrate-with-vnet.md#getting-started)을 참조하세요.
+자세한 내용은 [Azure 가상 네트워크에 앱 통합](web-sites-integrate-with-vnet.md)을 참조하세요.
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>내 App Service Environment에서 두 명의 작업자를 사용할 수 있는데 하나의 App Service 계획만 만들 수 있는 이유는 무엇인가요?
 
-내결함성을 제공하려면 App Service Environment에서 각 작업자 풀에 하나 이상의 추가 계산 리소스가 필요합니다. 추가 계산 리소스에는 워크로드를 할당할 수 없습니다.
+내결함성을 제공하려면 App Service Environment에서 각 작업자 풀에 하나 이상의 추가 컴퓨팅 리소스가 필요합니다. 추가 컴퓨팅 리소스에는 워크로드를 할당할 수 없습니다.
 
 자세한 내용은 [App Service Environment를 만드는 방법](environment/app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
 
@@ -222,7 +212,7 @@ Azure 웹앱을 Azure ExpressRoute에 연결된 가상 네트워크에 연결하
 경우에 따라 App Service Environment 만들기에 실패합니다. 이 경우 활동 로그에서 다음 오류를 확인할 수 있습니다.
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
-Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period."}}
 ```
 
 이 문제를 해결하려면 다음 중 해당하는 조건이 없는지 확인합니다.
@@ -254,11 +244,11 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>내 App Service 앱에 대한 침투 테스트를 수행하려면 어떻게 하나요?
 
-침투 테스트를 수행하려면 [요청을 제출](https://portal.msrc.microsoft.com/en-us/engage/pentest)합니다.
+침투 테스트를 수행하려면 [요청을 제출](https://portal.msrc.microsoft.com/engage/pentest)합니다.
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Traffic Manager를 사용하는 App Service 웹앱에 대한 사용자 지정 도메인 이름을 구성하려면 어떻게 하나요?
 
-부하 분산을 위해 Azure Traffic Manager를 사용하는 App Service 앱에서 사용자 지정 도메인 이름을 사용하는 방법을 알아보려면 [Traffic Manager를 사용하여 Azure 웹앱에 대한 사용자 지정 도메인 이름 구성](web-sites-traffic-manager-custom-domain-name.md)을 참조하세요.
+부하 분산을 위해 Azure Traffic Manager를 사용하는 App Service 앱에서 사용자 지정 도메인 이름을 사용하는 방법을 알아보려면 [Traffic Manager를 사용하여 Azure 웹앱에 대한 사용자 지정 도메인 이름 구성](configure-domain-traffic-manager.md)을 참조하세요.
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>내 App Service Certificate에 사기 플래그가 지정되었습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
@@ -266,7 +256,7 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
 
 App Service Certificate 구매의 도메인을 확인하는 동안 다음 메시지가 표시될 수 있습니다.
 
-“인증서가 사기성이 있을 수 있다고 플래그 지정되었습니다. 요청을 현재 검토하는 중입니다. 24시간 내에 인증서를 사용할 수 있게 되지 않으면 Azure 지원에 문의하세요.”
+“인증서가 사기성이 있을 수 있다고 플래그 지정되었습니다. 요청을 현재 검토하는 중입니다. 24시간 내에 인증서를 사용할 수 있게 되지 않으면 Azure 지원에 문의하세요."
 
 메시지가 표시되면 이 사기 확인 프로세스를 완료하는 데는 24시간까지 걸릴 수 있습니다. 이 시간 동안 메시지가 계속 표시됩니다.
 
@@ -292,7 +282,7 @@ App Service의 인증 및 권한 부여에 대한 자세한 문서는 다양한 
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>기본 *.azurewebsites.net 도메인을 내 Azure 웹앱의 사용자 지정 도메인으로 리디렉션하려면 어떻게 하나요?
 
-Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가하지만 사용자가 기본 *.azurewebsites.net 도메인에 액세스할 수 없게 하려면 기본 URL을 리디렉션하면 됩니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
+Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가 하 고 사용자가 기본 *. azurewebsites.net 도메인에 액세스할 수 없도록 하려는 경우 기본 URL을 리디렉션할 수 있습니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>App Service에 어떤 .NET 버전이 설치되어 있는지 확인하려면 어떻게 하나요?
 
@@ -324,4 +314,4 @@ Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축�
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>온-프레미스 환경에서 App Service로 마이그레이션하려면 어떻게 하나요?
 
-Windows 및 Linux 웹 서버에서 App Service로 마이그레이션하려면 Azure App Service Migration Assistant를 사용하면 됩니다. 이 마이그레이션 도구는 필요에 따라 Azure에서 웹앱 및 데이터베이스 만들고 나서 콘텐츠를 게시합니다. 자세한 내용은 [Azure App Service Migration Assistant](https://www.migratetoazure.net/)를 참조하세요.
+Windows 및 Linux 웹 서버에서 App Service로 마이그레이션하려면 Azure App Service Migration Assistant를 사용하면 됩니다. 이 마이그레이션 도구는 필요에 따라 Azure에서 웹앱 및 데이터베이스 만들고 나서 콘텐츠를 게시합니다. 자세한 내용은 [Azure App Service Migration Assistant](https://appmigration.microsoft.com/)를 참조하세요.

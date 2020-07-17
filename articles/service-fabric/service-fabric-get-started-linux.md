@@ -1,25 +1,14 @@
 ---
-title: Linux에서 개발 환경 설정 | Microsoft Docs
+title: Linux에서 개발 환경 설정
 description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 애플리케이션을 빌드할 수 있습니다.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 8610feb68e16646c73c132c0577fd3ff198d74b8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470240"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186897"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -31,7 +20,7 @@ ms.locfileid: "65470240"
 
 Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-fabric-application-model.md)을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
 
-이 문서의 단계에서는 기본적으로 Linux에 설치하거나 Service Fabric OneBox 컨테이너 이미지 `microsoft/service-fabric-onebox`를 사용한다고 가정합니다.
+이 문서의 단계에서는 기본적으로 Linux에 설치하거나 Service Fabric OneBox 컨테이너 이미지 `mcr.microsoft.com/service-fabric/onebox:latest`를 사용한다고 가정합니다.
 
 Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 지원되는 Azure Service Fabric CLI(명령줄 인터페이스)를 사용하여 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
 
@@ -40,7 +29,7 @@ Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치�
 
 개발을 위해 이러한 운영 체제 버전이 지원됩니다.
 
-* Ubuntu 16.04(`Xenial Xerus`)
+* Ubuntu 16.04 ( `Xenial Xerus` ), 18.04 ( `Bionic Beaver` )
 
     `apt-transport-https` 패키지가 설치됐는지 확인합니다.
          
@@ -71,47 +60,40 @@ apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치�
 ### <a name="ubuntu"></a>Ubuntu
 
 1. 터미널을 엽니다.
-2. Service Fabric 리포지토리를 원본 목록에 추가합니다.
+
+2. `dotnet`배포에 해당 하는 원본 목록에 리포지토리를 추가 합니다.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. 원본 목록에 `dotnet` 리포지토리를 추가합니다.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. 새로운 Gnu Privacy Guard(GnuPG 또는 GPG) 키를 APT 인증 키(keyring)에 추가합니다.
+3. GnuPG 또는 GPG (새 MS Open Tech Gnu 개인 정보 보호) 키를 APT 인증 프로그램에 추가 합니다.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. APT 인증 키에 공식 Docker GPG 키를 추가합니다.
+4. APT 인증 키에 공식 Docker GPG 키를 추가합니다.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Docker 리포지토리를 설정합니다.
+5. Docker 리포지토리를 설정합니다.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. APT 키링에 Azul JDK 키를 추가하고 해당 리포지토리를 설정합니다.
+6. APT 키링에 Azul JDK 키를 추가하고 해당 리포지토리를 설정합니다.
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. 새로 추가된 리포지토리에 따라 패키지 목록을 새로 고칩니다.
+7. 새로 추가된 리포지토리에 따라 패키지 목록을 새로 고칩니다.
 
     ```bash
     sudo apt-get update
@@ -177,10 +159,10 @@ sudo yum install servicefabricsdkcommon
 
 SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 나온 패키지가 포함됩니다. 
 
- | | DotNetCore | 자바 | Python | NodeJS | 
+ | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | 최신 |
-RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
+**Ubuntu** | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | 최신 |
+**RHEL** | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
 
 ## <a name="set-up-a-local-cluster"></a>로컬 클러스터를 설정합니다.
 설치가 완료된 후에 로컬 클러스터를 시작합니다.
@@ -191,7 +173,7 @@ RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. 웹 브라우저를 열고 [Service Fabric Explorer](http://localhost:19080/Explorer)(`http://localhost:19080/Explorer`)로 이동합니다. 클러스터를 시작하는 경우 Service Fabric Explorer 대시보드가 표시됩니다. 클러스터가 완전히 설치될 때까지 몇 분 정도 걸릴 수 있습니다. 브라우저에서 URL이 열리지 않거나 Service Fabric Explorer에 시스템이 준비되었다고 표시되지 않으면 몇 분 후 다시 시도합니다.
+2. 웹 브라우저를 열고 **Service Fabric Explorer** ()로 이동 `http://localhost:19080/Explorer` 합니다. 클러스터를 시작하는 경우 Service Fabric Explorer 대시보드가 표시됩니다. 클러스터가 완전히 설치될 때까지 몇 분 정도 걸릴 수 있습니다. 브라우저에서 URL이 열리지 않거나 Service Fabric Explorer에 시스템이 준비되었다고 표시되지 않으면 몇 분 후 다시 시도합니다.
 
     ![Linux의 Service Fabric Explorer][sfx-linux]
 
@@ -216,7 +198,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 1. 컴퓨터에서 Node.js 및 npm을 설치합니다.
 
     ```bash
-    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
     sudo apt-get update
     sudo apt-get install nodejs
     ```
@@ -273,11 +255,11 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 > 
 > Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. Java 개발자용 또는 Java EE 개발자용 Eclipse IDE를 설치할 수 있습니다.
 
-1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **도움말** > **Eclipse정보** > **설치 세부 정보**를 차례로 선택하여 설치된 구성 요소의 버전을 확인합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
+1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **Help**  >  **Eclipse 설치 정보에 대 한**도움말을 선택 하 여 설치 된 구성 요소의 버전을 확인  >  **Installation Details**합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
 
-2. Service Fabric 플러그 인을 설치하려면 **도움말** > **새 소프트웨어 설치**를 차례로 선택합니다.
+2. Service Fabric 플러그 인을 설치 하려면 **도움말**  >  **새 소프트웨어 설치**를 선택 합니다.
 
-3. **작업 대상** 상자에서 **https://dl.microsoft.com/eclipse**을 입력합니다.
+3. **작업** 위치 상자에 **https: \/ /dl.microsoft.com/eclipse**를 입력 합니다.
 
 4. **추가**를 선택합니다.
 
@@ -287,7 +269,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 
 6. 설치 단계를 수행합니다. 최종 사용자 라이선스 계약에 동의합니다.
 
-Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **도움말** > **Eclipse 정보** > **설치 세부 정보**를 선택하여 확인합니다. 그런 다음, 설치된 플러그 인 목록에서 Service Fabric을 검색합니다. 최신 버전을 사용할 수 있는 경우 **업데이트**를 선택합니다.
+Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **Help**  >  **Eclipse 설치 정보에 대 한**도움말을 선택 하 여 확인  >  **Installation Details**합니다. 그런 다음 설치 된 플러그 인 목록에서 Service Fabric을 검색 합니다. 최신 버전을 사용할 수 있는 경우 **업데이트** 를 선택 합니다.
 
 자세한 내용은 [Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인](service-fabric-get-started-eclipse.md)을 참조하세요.
 

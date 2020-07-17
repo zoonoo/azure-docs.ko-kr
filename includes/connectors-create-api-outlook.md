@@ -1,15 +1,15 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 187906a912c999142d764de6ad5da3daccf63ba7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.date: 11/03/2016
+ms.openlocfilehash: e42292f7848eba0b4545b713f7bbc491f35fe4a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132823"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789372"
 ---
 1. 검색 상자에 “outlook.com”을 필터로 입력합니다. 이 예제에서는 **새 이메일이 도착하는 경우** 트리거를 선택합니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "50132823"
 
    ![Outlook.com 계정에 로그인](./media/connectors-create-api-outlook/sign-in-outlook.png)  
 
-3. Outlook.com 계정 자격 증명을 선택합니다.
+1. Outlook.com 계정 자격 증명을 선택합니다.
 
    ![로그인 계정 선택](./media/connectors-create-api-outlook/outlook-sign-in.png)  
 

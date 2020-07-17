@@ -1,17 +1,17 @@
 ---
 title: Azure Data Catalog 만들기
-description: Azure Data Catalog를 만드는 방법에 대한 빠른 시작입니다.
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Catalog를 만드는 방법을 설명합니다.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: f00e9eaf56f3973b357792a8d1923a4b5998e0a2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 05/26/2020
+ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997736"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860990"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>빠른 시작: Azure Data Catalog 만들기
 
@@ -19,9 +19,12 @@ Azure Data Catalog는 기업 데이터 자산의 등록 시스템 및 검색 시
 
 이 빠른 시작은 Azure Data Catalog 만들기를 시작하는 데 도움이 됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
+
+> [!Note]
+> Azure 보안 요구 사항으로 인해 Azure Data Catalog는 TLS(전송 계층 보안) 1.2를 강화했습니다. TLS 1.0 및 TLS 1.1이 비활성화되었습니다. 머신이 TLS 1.2용으로 업데이트되지 않은 경우 등록 도구를 실행하는 동안 오류가 발생할 수 있습니다. TLS 1.2에 대해 머신을 업데이트하려면 [전송 계층 보안(1.2) 사용](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2)을 참조하세요.
 
 시작하려면 다음이 필요합니다.
 
@@ -36,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [Azure Portal](https://portal.azure.com) > **리소스 만들기**로 이동하고 **Data Catalog**를 선택합니다.
 
-    ![Data Catalog 만들기](media/data-catalog-get-started/data-catalog-create.png)
+    ![Azure Data Catalog 만들기 단추](media/data-catalog-get-started/data-catalog-create.png)
 
 2. 데이터 카탈로그의 **이름**, 사용하려는 **구독** 및 카탈로그의 **위치**, **가격 책정 계층**을 지정합니다. 그런 다음 **만들기**를 선택합니다.
 
@@ -88,7 +91,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![Azure Data Catalog - Azure 찾아보기](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
 
-     만든 데이터 카탈로그가 표시됩니다.
+    만든 데이터 카탈로그가 표시됩니다.
 
     ![Azure Data Catalog - 목록에서 카탈로그 보기](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 

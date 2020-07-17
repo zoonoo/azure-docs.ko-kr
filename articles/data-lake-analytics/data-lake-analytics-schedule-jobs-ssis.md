@@ -1,27 +1,27 @@
 ---
 title: SSIS를 사용하여 Azure Data Lake Analytics U-SQL 작업 예약
-description: SQL Server Integration Services를 사용하여 U-SQL 작업을 예약하는 방법을 알아봅니다.
+description: SQL Server Integration Services를 사용 하 여 인라인 스크립트를 사용 하거나 U-SQL 쿼리 파일을 사용 하 여 T-SQL 작업을 예약 하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6894486118f69e682353142be04821e1d28440e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cafb657bbb981edddf9d6bbcfc8d390a519804b5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60814670"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121302"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업 예약
 
 이 문서에서는 SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업을 오케스트레이션하고 만드는 방법을 배웁니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure Feature Pack for Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)에서는 Azure Data Lake Analytics 서비스에 연결하는 데 유용한 [Azure Data Lake Analytics 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) 및 [Azure Data Lake Analytics 태스크](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)를 제공합니다. 이 태스크를 사용하려면 다음을 설치해야 합니다.
 
@@ -93,7 +93,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
     
     이 파일 연결을 만들려면
 
-   1. 선택할  **\<새 연결... >** FileConnection 설정에서 합니다.
+   1. **\<New Connection...>** FileConnection 설정에서를 선택 합니다.
    2. **사용 유형**을 **기존 파일**로 설정하고, **파일**을 기존 파일의 파일 경로로 설정합니다.
 
        ![Foreach 루프 컨테이너 구성](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -119,7 +119,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
 
 Azure Feature Pack의 **Azure Blob 다운로드 태스크**를 사용하여 Azure Blob Storage의 U-SQL 파일을 사용할 수 있습니다. 이 방법을 사용하면 클라우드에 있는 스크립트를 사용할 수 있습니다.
 
-단계는 [시나리오 2: Azure Data Lake Store의 U-SQL 파일 사용](#scenario-2-use-u-sql-files-in-azure-data-lake-store)과 비슷합니다. Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+이러한 단계는 [시나리오 2: Azure Data Lake Store에서 U-SQL 파일 사용](#scenario-2-use-u-sql-files-in-azure-data-lake-store)과 비슷합니다. Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 제어 흐름은 아래와 같습니다.
 
@@ -137,7 +137,7 @@ Azure Feature Pack의 **Azure Blob 다운로드 태스크**를 사용하여 Azur
 
     ![로컬 파일에 대한 파일 연결 추가](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-4. **Azure Data Lake Analytics** 태스크를 추가하고 다음을 수행합니다.
+4. **Azure Data Lake Analytics** 작업을 추가 하 고 다음을 수행 합니다.
     1. **SourceType**을 **FileConnection**으로 설정합니다.
     2. **FileConnection**을 방금 만든 파일 연결로 설정합니다.
 
@@ -169,6 +169,5 @@ U-SQL 스크립트에서 U-SQL 변수 값을 동적으로 설정하려는 경우
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure에서 SSIS 패키지 실행](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
-- [Azure Feature Pack for Integration Services(SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
+- [Integration Services에 대한 Azure 기능 팩(SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
 - [Azure Data Factory를 사용하여 U-SQL 작업 예약](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
-

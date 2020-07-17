@@ -1,12 +1,12 @@
 ---
-title: 사용자, 그룹, 라이선스 및 역할 개요 - Azure Active Directory | Microsoft Docs
+title: 사용자, 그룹, 라이선스 및 역할 개요 - Azure AD | Microsoft Docs
 description: Azure Active Directory에서 사용자와 할당된 라이선스, 관리자 역할, 그룹 멤버십 간의 관계
 keywords: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 01/28/2019
+ms.date: 11/08/2019
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775a03a82c1fc432e65ce45309a5af3febb448a9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 8052bb44df6d29e17304763051fa2099009b9701
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428224"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583010"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>사용자, 그룹, 라이선싱 및 대규모 조직에 대한 역할
 
@@ -31,7 +31,7 @@ ms.locfileid: "56428224"
 
 ## <a name="assign-users-to-groups"></a>그룹에 사용자 할당
 
-Azure AD의 그룹을 사용하여 다수의 사용자에게 라이선스를 할당하거나 배포된 엔터프라이즈 앱에 대한 사용자 액세스를 할당합니다. 그룹을 사용하여 Azure AD의 관리자 역할을 할당하거나 SaaS 애플리케이션 또는 SharePoint 사이트와 같은 외부 리소스에 액세스를 부여할 수 있습니다.
+Azure AD의 그룹을 사용하여 다수의 사용자에게 라이선스를 할당하거나 배포된 엔터프라이즈 앱에 대한 사용자 액세스를 할당합니다. 그룹을 사용하여 Azure AD의 글로벌 관리자를 제외한 모든 관리자 역할을 할당하거나 SaaS 애플리케이션 또는 SharePoint 사이트와 같은 외부 리소스에 대한 액세스 권한을 부여할 수 있습니다.
 
 유연성을 높이고 그룹 멤버 자격 관리 작업을 줄이기 위해 Azure AD의 [동적 그룹](groups-create-rule.md)을 사용하여 그룹 멤버 자격을 자동으로 확장 및 축소할 수 있습니다. 하나 이상의 동적 그룹의 멤버인 고유한 각 사용자에 대해 Azure AD Premium P1 라이선스가 필요합니다.
 
@@ -48,11 +48,11 @@ Azure AD에서 사용자가 라이선스를 받은 그룹에 합류하면 해당
 
 ## <a name="delegate-administrator-roles"></a>관리자 역할 대리자
 
-많은 대규모 조직은 사용자가 강력한 글로벌 관리자 역할(예: 애플리케이션을 등록해야 하는 사용자)을 할당하지 않고 업무 작업에 충분한 사용 권한을 얻는 옵션을 원합니다. 다음은 응용 프로그램 관리 작업을 더 세밀하게 분배하는 데 도움이 되는 새 Azure AD 관리자 역할의 예제입니다.
+많은 대규모 조직은 사용자가 강력한 글로벌 관리자 역할(예: 애플리케이션을 등록해야 하는 사용자)을 할당하지 않고 업무 작업에 충분한 사용 권한을 얻는 옵션을 원합니다. 다음은 애플리케이션 관리 작업을 더 세밀하게 분배하는 데 도움이 되는 새 Azure AD 관리자 역할의 예제입니다.
 
  역할 이름 | 사용 권한 요약
  --------- | -------------------
- **애플리케이션 관리자** | 엔터프라이즈 애플리케이션 및 애플리케이션 등록을 추가 및 관리하고 프록시 애플리케이션 설정을 구성할 수 있습니다. 애플리케이션 관리자는 조건부 액세스 정책 및 장치를 볼 수 있지만 이를 관리할 수 없습니다.
+ **애플리케이션 관리자** | 엔터프라이즈 애플리케이션 및 애플리케이션 등록을 추가 및 관리하고 프록시 애플리케이션 설정을 구성할 수 있습니다. 애플리케이션 관리자는 조건부 액세스 정책 및 디바이스를 볼 수 있지만 이를 관리할 수 없습니다.
  **클라우드 애플리케이션 관리자** | 엔터프라이즈 애플리케이션 및 엔터프라이즈 앱 등록을 추가 및 관리할 수 있습니다. 이 역할은 애플리케이션 프록시 설정을 관리할 수 없는 것을 제외하고 애플리케이션 관리자의 모든 사용 권한을 가집니다.
 **애플리케이션 개발자** | 애플리케이션 등록을 추가 및 업데이트할 수 있지만 엔터프라이즈 애플리케이션을 관리하거나 애플리케이션 프록시를 구성할 수 없습니다.
 
@@ -60,7 +60,7 @@ Azure AD에서 사용자가 라이선스를 받은 그룹에 합류하면 해당
 
 ## <a name="assign-app-access"></a>앱 액세스 할당
 
-Azure AD를 사용하여 [Azure AD 테넌트에 배포된 엔터프라이즈 앱](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)에 그룹 액세스를 할당할 수 있습니다. 동적 그룹을 앱에 대한 그룹 할당과 결합하면 조직이 성장함에 따라 사용자 앱 액세스 할당을 자동화할 수 있습니다. 엔터프라이즈 앱에 액세스를 할당하려면 Azure Active Directory Premium P1 또는 Premium P2 라이선스가 필요합니다.
+Azure AD를 사용하여 [Azure AD 조직에 배포된 엔터프라이즈 앱](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)에 그룹 액세스를 할당할 수 있습니다. 동적 그룹을 앱에 대한 그룹 할당과 결합하면 조직이 성장함에 따라 사용자 앱 액세스 할당을 자동화할 수 있습니다. 엔터프라이즈 앱에 액세스를 할당하려면 Azure Active Directory Premium P1 또는 Premium P2 라이선스가 필요합니다.
 
 또한 Azure AD에서는 액세스를 할당하는 앱과 그룹 사이에 흐르는 데이터를 세밀하게 제어할 수 있습니다. [엔터프라이즈 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)에서 앱을 열고 **프로비전**을 선택합니다.
 

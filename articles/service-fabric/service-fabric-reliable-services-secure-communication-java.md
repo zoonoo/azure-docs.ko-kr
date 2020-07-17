@@ -1,28 +1,19 @@
 ---
-title: Azure Service Fabric에서 Java를 통한 서비스 원격 통신 보호 | Microsoft Docs
+title: Java와의 보안 서비스 원격 통신
 description: Azure Service Fabric 클러스터에서 실행되는 Java Reliable Services에서 서비스 원격 기반 통신을 보호하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: b465ab602a14285f8cf40b24ce1dfa9c763fecb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: adefeadf939d398268624343d82c18cbf5ec87cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75609641"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>Java 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-services-secure-communication.md)
+> * [Windows의 c #](service-fabric-reliable-services-secure-communication.md)
 > * [Linux에서 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
@@ -55,7 +46,7 @@ Java 서비스에서 서비스 원격 기능을 사용하는 경우 서비스를
     ```
 2. 수신기 설정 및 보안 자격 증명을 추가합니다.
 
-    서비스 통신을 보호하는 데 사용할 인증서는 클러스터의 모든 노드에 설치해야 합니다. Linux에서 실행 중인 서비스의 경우 인증서를 PEM 형식 파일로 사용할 수 있어야 합니다. 인증서와 개인 키가 포함된 `.pem` 파일 또는 인증서가 포함된 `.crt` 파일 중 하나와 개인 키가 포함된 `.key` 파일입니다. 자세히 알아보려면 [Linux 노드에서 X.509 인증서의 위치 및 형식](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes)을 참조하세요.
+    서비스 통신을 보호하는 데 사용할 인증서는 클러스터의 모든 노드에 설치해야 합니다. Linux에서 실행 중인 서비스의 경우 인증서를 PEM 형식 파일로 사용할 수 있어야 합니다. 인증서와 프라이빗 키가 포함된 `.pem` 파일 또는 인증서가 포함된 `.crt` 파일 중 하나와 프라이빗 키가 포함된 `.key` 파일입니다. 자세히 알아보려면 [Linux 노드에서 X.509 인증서의 위치 및 형식](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes)을 참조하세요.
     
     두 가지 방법으로 수신기 설정 및 보안 자격 증명을 제공할 수 있습니다.
 

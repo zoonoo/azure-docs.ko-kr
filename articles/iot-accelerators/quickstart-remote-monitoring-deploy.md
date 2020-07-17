@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
 ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792504"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "60890163"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 사용해보기
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 시도
 
 이 빠른 시작에서는 Azure IoT 원격 모니터링 솔루션 가속기를 배포하는 방법을 보여줍니다. 이 클라우드 기반 솔루션에서 **대시보드** 페이지를 사용하여 시뮬레이션된 디바이스를 맵에서 시각화하면 **유지 관리** 페이지가 시뮬레이션된 냉각기 디바이스의 압력 경고에 응답합니다. 학습 도구로 또는 고유한 구현을 위한 시작점으로 이 솔루션 가속기를 사용할 수 있습니다.
 

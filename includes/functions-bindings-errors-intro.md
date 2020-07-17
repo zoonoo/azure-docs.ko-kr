@@ -2,28 +2,41 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-origin.date: 09/04/2018
-ms.date: 12/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438155"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77474136"
 ---
-Azure Functions [트리거 및 바인딩](../articles/azure-functions/functions-triggers-bindings.md)은 다양한 Azure 서비스와 통신합니다. 이러한 서비스와 통합하는 경우 기본 Azure 서비스의 API에서 발생하는 오류가 있을 수 있습니다. REST 또는 클라이언트 라이브러리를 사용하여 함수 코드에서 다른 서비스와 통신을 시도하는 경우에도 오류가 발생할 수 있습니다. 데이터 손실을 방지하고 함수의 올바른 작동을 보장하려면 두 가지 원본 중 한 곳에서 오류를 처리하는 것이 중요합니다.
+Azure Functions 발생 하는 오류는 다음 원본 중 하나에서 가져올 수 있습니다.
+
+- 기본 제공 Azure Functions [트리거 및 바인딩](..\articles\azure-functions\functions-triggers-bindings.md) 사용
+- 기본 Azure 서비스의 Api 호출
+- REST 끝점에 대 한 호출
+- 클라이언트 라이브러리, 패키지 또는 타사 Api에 대 한 호출
+
+데이터 또는 누락 된 메시지의 손실을 방지 하기 위해 다음과 같은 견고한 오류 처리 방법을 사용 하는 것이 중요 합니다. 권장 되는 오류 처리 방법에는 다음 작업이 포함 됩니다.
+
+- [Application Insights 사용](../articles/azure-functions/functions-monitoring.md)
+- [구조적 오류 처리 사용](#use-structured-error-handling)
+- [멱 등 성 디자인](../articles/azure-functions/functions-idempotent.md)
+- [재시도 정책 구현](../articles/azure-functions/functions-reliable-event-processing.md) (해당 하는 경우)
+
+### <a name="use-structured-error-handling"></a>구조적 오류 처리 사용
+
+캡처 및 게시 오류는 응용 프로그램의 상태를 모니터링 하는 데 매우 중요 합니다. 함수 코드의 최상위 수준에는 try/catch 블록이 포함 되어야 합니다. Catch 블록에서 오류를 캡처 및 게시할 수 있습니다.
+
+### <a name="retry-support"></a>다시 시도 지원
 
 다음 트리거에는 기본 제공 재시도 지원이 있습니다.
 
-- [Azure Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)
-- [Azure Queue 저장소](../articles/azure-functions/functions-bindings-storage-queue.md)
-- [Azure Service Bus(큐/토픽)](../articles/azure-functions/functions-bindings-service-bus.md)
+* [Azure Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)
+* [Azure Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Azure Service Bus(큐/토픽)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-기본적으로 이러한 트리거는 최대 5번까지 재시도됩니다. 5번째 재시도 후에 이러한 트리거는 특별 [포이즌 큐](../articles/azure-functions/functions-bindings-storage-queue.md#trigger---poison-messages)에 메시지를 씁니다.
+기본적으로이 작업은 다시 시도 요청을 최대 5 회까지 트리거합니다. 5 번째 재시도 후에는 Azure Queue storage와 Azure Service Bus 트리거에서 모두 [포이즌 큐](..\articles\azure-functions\functions-bindings-storage-queue-trigger.md#poison-messages)에 메시지를 씁니다.
 
-다른 함수 트리거는 함수 실행 중 오류가 발생할 때 재시도가 기본 제공되지 않습니다. 함수에 오류가 발생하는 경우 트리거 정보가 손실되지 않도록 하려면, 함수 코드에서 try-catch 블록을 사용하여 오류를 캐치하는 것이 좋습니다. 오류가 발생하면 트리거에 의해 함수로 전달된 정보를 특별 "포이즌" 메시지 큐에 씁니다. 이 방식은 [Blob Storage 트리거](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---poison-blobs)에 사용되는 방식과 동일합니다.
-
-이런 방식으로, 오류로 인해 손실될 수 있는 트리거 이벤트를 캡처하고 저장된 정보를 사용하여 포이즌 큐의 메시지를 처리하는 다른 함수를 사용하여 나중에 트리거 이벤트를 다시 시도할 수 있습니다.  
-
-<!-- ms.date: 12/26/2018 -->
+다른 트리거 또는 바인딩 유형에 대 한 재시도 정책을 수동으로 구현 해야 합니다. 수동 구현에는 [포이즌 메시지 큐](..\articles\azure-functions\functions-bindings-storage-blob-trigger.md#poison-blobs)에 오류 정보를 기록 하는 작업이 포함 될 수 있습니다. 포이즌 큐에 기록 하면 나중에 작업을 다시 시도할 수 있습니다. 이 방식은 Blob Storage 트리거에 사용되는 방식과 동일합니다.

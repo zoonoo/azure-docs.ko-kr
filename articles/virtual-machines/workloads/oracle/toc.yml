@@ -1,7 +1,13 @@
 - name: 개요
   items:
-    - name: Oracle VM의 고려 사항
-      href: oracle-considerations.md
+    - name: Oracle 솔루션 개요
+      href: oracle-overview.md
+    - name: Azure VM의 솔루션
+      href: oracle-vm-solutions.md
+    - name: WebLogic Server Azure 애플리케이션
+      href: oracle-weblogic.md
+    - name: OCI가 포함된 솔루션
+      href: oracle-oci-overview.md
 - name: 빠른 시작
   items:
     - name: Oracle DB 만들기
@@ -10,18 +16,26 @@
   items:
     - name: Oracle ASM 구성
       href: configure-oracle-asm.md
-    - name: Oracle DataGuard 구성
+    - name: Oracle Data Guard 구성
       href: configure-oracle-dataguard.md
     - name: Oracle GoldenGate 구성
       href: configure-oracle-golden-gate.md
 - name: 개념
   items:
+    - name: Oracle 애플리케이션 아키텍처
+      href: oracle-oci-applications.md
+    - name: Oracle 데이터베이스 아키텍처
+      href: oracle-reference-architecture.md
     - name: Oracle DB 설계
       href: oracle-design.md
     - name: Oracle DB에 대한 백업 전략
       href: oracle-backup-recovery.md
     - name: Oracle 재해 복구 옵션
       href: oracle-disaster-recovery.md
+- name: 방법 가이드
+  items:
+    - name: Azure 및 OCI 상호 연결
+      href: configure-azure-oci-networking.md
 - name: 리소스
   items:
     - name: Azure 로드맵

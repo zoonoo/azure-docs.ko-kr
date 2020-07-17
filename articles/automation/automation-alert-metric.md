@@ -1,27 +1,22 @@
 ---
 title: 메트릭 경고를 통해 Azure Automation Runbook 모니터링
-description: 이 문서에서는 메트릭을 기반으로 Azure Automation Runbook을 모니터링하는 단계를 안내합니다.
+description: 이 문서에서는 메트릭에 따라 Runbook을 모니터링하는 방법을 설명합니다.
 services: automation
-ms.service: automation
-author: georgewallace
-ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
-manager: carmonm
-ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 20aaee5b699e9721bf9083030604df1385da1915
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119897"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828749"
 ---
-# <a name="monitoring-runbooks-with-metric-alerts"></a>메트릭 경고로 Runbook 모니터링
+# <a name="monitor-runbooks-with-metric-alerts"></a>메트릭 경고로 Runbook 모니터링
 
 이 문서에서는 Runbook의 완료 상태에 따라 경고를 만드는 방법을 설명합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com 에서 Azure에 로그인
+https://portal.azure.com 에서 Azure에 로그인
 
 ## <a name="create-alert"></a>경고 만들기
 
@@ -38,7 +33,7 @@ Azure Portal에서 Automation 계정으로 이동합니다. **모니터링**에�
    드롭다운에 없는 상태 또는 Runbook에 대해 경고하려면 차원 옆에 있는 **\+** 를 클릭합니다. 그러면 최근에 해당 차원에 대해 전송되지 않은 사용자 지정 값을 입력할 수 있는 대화 상자가 열립니다. 속성에 없는 값을 입력하면 경고가 트리거되지 않습니다.
 
    > [!NOTE]
-   > 이름을 적용 하지 않으면 합니다 **RunbookName** 차원, 숨겨진된 시스템 runbook을 포함 하는 상태 조건을 충족 하는 모든 runbook의 경우 알림을 받습니다.
+   > **RunbookName** 차원에 이름을 적용하지 않으면 상태 조건에 맞는 Runbook이 있는 경우(숨겨진 시스템 Runbook 포함) 경고를 받게 됩니다.
 
 3. **경고 논리** 아래에서 경고의 조건 및 임계값을 정의합니다. 정의한 조건의 미리 보기가 그 아래에 표시됩니다.
 
@@ -71,7 +66,7 @@ Azure Portal에서 Automation 계정으로 이동합니다. **모니터링**에�
 > [!NOTE]
 > 작업 그룹에 이메일 주소를 추가하면 작업 그룹에 주소가 추가되었음을 알리는 알림 이메일이 전송됩니다.
 
-## <a name="notification"></a>알림
+## <a name="receive-notification"></a>알림 수신
 
 경고 조건이 충족되면 작업 그룹은 정의된 작업을 실행합니다. 이 문서의 예제에서는 이메일이 전송됩니다. 다음 이미지는 경고가 트리거된 후 수신하는 이메일의 예제입니다.
 
@@ -81,7 +76,4 @@ Azure Portal에서 Automation 계정으로 이동합니다. **모니터링**에�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서를 계속 진행하여 Automation 계정에 경고를 통합하는 다른 방법을 알아보세요.
-
-> [!div class="nextstepaction"]
-> [경고를 사용하여 Azure Automation Runbook 트리거](automation-create-alert-triggered-runbook.md)
+* 자세한 내용은 [경고를 사용하여 Azure Automation Runbook 트리거](automation-create-alert-triggered-runbook.md)를 참조하세요.

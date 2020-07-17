@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL의 모니터링 및 튜닝 자습서 | Microsoft Docs
-description: 이 자습서는 Azure Database for PostgreSQL의 모니터링 및 튜닝 작업을 안내합니다.
+title: '자습서: 모니터링 및 튜닝 - Azure Database for PostgreSQL - 단일 서버'
+description: 이 자습서는 Azure Database for PostgreSQL의 모니터링 및 튜닝 작업을 안내합니다. - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: f05e0eef7680b08ce116cc0243d944f6a1db597c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536444"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74774740"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>자습서: Azure Database for PostgreSQL의 모니터링 및 튜닝
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>자습서: Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
 
 Azure Database for PostgreSQL에는 서버 성능을 이해하고 개선하는 데 도움이 되는 기능이 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -66,7 +66,7 @@ Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.m
    
    ![Query Performance Insight 대기 통계](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
 
-### <a name="permissions"></a>권한
+### <a name="permissions"></a>사용 권한
 Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자**는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
 
@@ -89,7 +89,7 @@ Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소�
 
 6. 권장 사항을 구현하려면 쿼리 텍스트를 복사하고 선택한 클라이언트에서 실행합니다.
 
-### <a name="permissions"></a>권한
+### <a name="permissions"></a>사용 권한
 성능 권장 사항 기능을 사용하여 분석을 실행하는 데 필요한**소유자** 또는 **참가자** 권한입니다.
 
 ## <a name="next-steps"></a>다음 단계

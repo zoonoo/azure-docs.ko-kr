@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI- sfctl compose| Microsoft Docs
-description: Service Fabric CLI sfctl compose 명령을 설명합니다.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
+title: Azure Service Fabric CLI-sfctl 작성
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. Docker Compose 응용 프로그램에 대 한 명령 목록을 포함 합니다.
+author: jeffj6123
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 1/16/2020
+ms.author: jejarry
+ms.openlocfilehash: e84b35ff3dfa7be0c848a4d7b906c622d9b88914
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837269"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257347"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Docker Compose 애플리케이션을 만들고, 삭제하고, 관리합니다.
@@ -30,8 +21,8 @@ Docker Compose 애플리케이션을 만들고, 삭제하고, 관리합니다.
 | --- | --- |
 | create | Service Fabric 작성 배포를 만듭니다. |
 | list | Service Fabric 클러스터에서 만든 작성 배포의 목록을 가져옵니다. |
-| 제거 | 클러스터에서 기존 Service Fabric 작성 배포를 삭제합니다. |
-| status | Service Fabric 작성 배포에 관한 정보를 가져옵니다. |
+| remove | 클러스터에서 기존 Service Fabric 작성 배포를 삭제합니다. |
+| 상태 | Service Fabric 작성 배포에 관한 정보를 가져옵니다. |
 | 업그레이드 | Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니다. |
 | upgrade-rollback | Service Fabric 클러스터에서 작성 배포 업그레이드 롤백을 시작합니다. |
 | upgrade-status | 이 Service Fabric 작성 배포에 수행된 최신 업그레이드에 대한 세부 정보를 가져옵니다. |
@@ -47,18 +38,18 @@ Service Fabric 작성 배포를 만듭니다.
 | --file-path [필수] | 대상 Docker Compose 파일의 경로입니다. |
 | --encrypted-pass | 컨테이너 레지스트리 암호를 묻는 메시지를 표시하는 대신 이미 암호화된 암호를 사용합니다. |
 | --has-pass | 컨테이너 레지스트리에 대한 암호를 묻는 메시지를 표시합니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 기본값\: 60. |
 | --user | 컨테이너 레지스트리에 연결할 사용자 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-compose-list"></a>sfctl compose list
 Service Fabric 클러스터에서 만든 작성 배포의 목록을 가져옵니다.
@@ -71,17 +62,17 @@ Service Fabric 클러스터에 만들어졌거나 만들어지는 프로세스�
 | --- | --- |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
 | --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-compose-remove"></a>sfctl compose remove
 클러스터에서 기존 Service Fabric 작성 배포를 삭제합니다.
@@ -93,17 +84,17 @@ Service Fabric 클러스터에 만들어졌거나 만들어지는 프로세스�
 |인수|설명|
 | --- | --- |
 | --deployment-name [필수] | 배포의 id입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-compose-status"></a>sfctl compose status
 Service Fabric 작성 배포에 관한 정보를 가져옵니다.
@@ -115,17 +106,17 @@ Service Fabric 클러스터에서 만들어졌거나 만들어지는 과정에 �
 |인수|설명|
 | --- | --- |
 | --deployment-name [필수] | 배포의 id입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
 Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니다.
@@ -146,9 +137,9 @@ Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니�
 | --health-check-retry | 애플리케이션 또는 클러스터가 정상이 아닌지 상태 확인을 수행하는 시도의 시간 간격입니다. |
 | --health-check-stable | 업그레이드가 다음 업그레이드 도메인으로 진행되기 전에 애플리케이션 또는 클러스터가 정상 상태로 유지되어야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
 | --health-check-wait | 업그레이드 도메인을 완료한 후 상태 확인 프로세스를 시작하기 전에 대기하는 시간입니다. |
-| --replica-set-check | 예기치 않은 문제가 있을 때 업그레이드 도메인의 처리를 차단하고 가용성의 손실을 방지하는 최대 시간입니다. <br><br> 이 시간 제한이 만료되면 가용성 손실 문제와 상관없이 업그레이드 도메인 처리가 진행됩니다. 시간 제한은 각 업그레이드 도메인의 시작 시 다시 설정됩니다. 유효한 값은 0과 42949672925 사이입니다. |
+| --replica-set-check | 예기치 않은 문제가 있을 때 업그레이드 도메인의 처리를 차단하고 가용성의 손실을 방지하는 최대 시간입니다. <br><br> 이 시간 제한이 만료되면 가용성 손실 문제와 상관없이 업그레이드 도메인 처리가 진행됩니다. 시간 제한은 각 업그레이드 도메인의 시작 시 다시 설정됩니다. 유효한 값은 0과 42949672925(포함) 사이입니다. |
 | --svc-type-health-map | 서비스의 상태를 평가하는 데 사용된 상태 정책을 설명하는 JSON 인코딩된 개체 목록입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 기본값\: 60. |
 | --unhealthy-app | 오류를 보고하기 전에 허용되는 비정상 애플리케이션의 최대 백분율입니다. <br><br> 예를 들어 애플리케이션의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 애플리케이션의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 애플리케이션이 적어도 하나 있다면 상태는 경고로 평가됩니다. 클러스터에 있는 애플리케이션 인스턴스의 총 수를 비정상 애플리케이션의 수로 나눠 계산합니다. |
 | --upgrade-domain-timeout | FailureAction이 실행되기 전에 각 업그레이드 도메인이 완료해야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
 | --upgrade-kind | 기본값\: Rolling. |
@@ -161,11 +152,11 @@ Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니�
 
 |인수|설명|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose upgrade-rollback
 Service Fabric 클러스터에서 작성 배포 업그레이드 롤백을 시작합니다.
@@ -177,17 +168,17 @@ Service Fabric 작성 배포 업그레이드를 롤백합니다.
 |인수|설명|
 | --- | --- |
 | --deployment-name [필수] | 배포의 id입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-compose-upgrade-status"></a>sfctl compose upgrade-status
 이 Service Fabric 작성 배포에 수행된 최신 업그레이드에 대한 세부 정보를 가져옵니다.
@@ -199,19 +190,19 @@ Service Fabric 작성 배포 업그레이드를 롤백합니다.
 |인수|설명|
 | --- | --- |
 | --deployment-name [필수] | 배포의 id입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI [설정](service-fabric-cli.md)
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
+- Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
+- [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

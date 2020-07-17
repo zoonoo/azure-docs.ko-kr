@@ -5,21 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/18/2019
+ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f72ce02a8655ea97497098dc1412f69e07686861
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3c10ca35ee2f085d4ce41e862a895ff17ff63a0
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320154"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317462"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 엔드포인트를 몇 개까지 지정할 수 있습니까?
 
 게이트웨이 SKU에 따라 다릅니다. 지원되는 연결 수에 대한 자세한 내용은 [게이트웨이 SKU](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku)를 참조하세요.
 
-### <a name="supportedclientos"></a>지점 및 사이트 간 연결에 사용할 수 있는 클라이언트 운영 체제는 무엇인가요?
+### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a><a name="supportedclientos"></a>지점 및 사이트 간 연결에 사용할 수 있는 클라이언트 운영 체제는 무엇인가요?
 
 다음과 같은 클라이언트 운영 체제가 지원됩니다.
 
@@ -29,6 +29,7 @@ ms.locfileid: "60320154"
 * Windows Server 2012(64비트 전용)
 * Windows Server 2012 R2(64비트 전용)
 * Windows Server 2016(64비트 전용)
+* Windows Server 2019(64비트 전용)
 * 윈도우 10
 * Mac OS X 버전 10.11 이상
 * Linux(StrongSwan)
@@ -38,11 +39,13 @@ ms.locfileid: "60320154"
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>지점 및 사이트 간 기능을 사용하여 프록시와 방화벽을 트래버스할 수 있습니까?
 
-Azure에서는 두 가지 형식의 지점 및 사이트 VPN 옵션을 지원합니다.
+Azure에서는 세 가지 형식의 지점 및 사이트 간 VPN 옵션을 지원합니다.
 
-* SSTP(Secure Socket Tunneling Protocol) SSTP는 Microsoft 등록 SSL 기반 솔루션으로 대부분의 방화벽이 443 SSL에서 사용하는 TCP 포트를 열기 때문에 방화벽을 뚫을 수 있습니다.
+* SSTP(Secure Socket Tunneling Protocol) SSTP는 Microsoft 등록 SSL 기반 솔루션으로 대부분의 방화벽이 443 SSL에서 사용하는 아웃바운드 TCP 포트를 열기 때문에 방화벽을 뚫을 수 있습니다.
 
-* IKEv2 VPN IKEv2 VPN은 표준 기반 IPsec VPN 솔루션으로 UDP 포트 500과 4500 및 IP 주소 프로토콜 번호를 사용합니다. 50. 방화벽이 항상 이러한 포트를 열지는 않습니다. 따라서 IKEv2 VPN이 프록시 및 방화벽을 트래버스할 수 없는 가능성이 있습니다.
+* OpenVPN. OpenVPN은 SSL 기반 솔루션으로 대부분의 방화벽이 443 SSL에서 사용하는 아웃바운드 TCP 포트를 열기 때문에 방화벽을 뚫을 수 있습니다.
+
+* IKEv2 VPN IKEv2 VPN은 표준 기반 IPsec VPN 솔루션으로 아웃바운드 UDP 포트 500과 4500 및 IP 주소 프로토콜 번호를 사용합니다. 50. 방화벽이 항상 이러한 포트를 열지는 않습니다. 따라서 IKEv2 VPN이 프록시 및 방화벽을 트래버스할 수 없는 가능성이 있습니다.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>지점 및 사이트 간 연결에 대해 구성된 클라이언트 컴퓨터를 다시 시작하면 VPN이 자동으로 다시 연결됩니까?
 
@@ -56,9 +59,13 @@ Azure에서는 두 가지 형식의 지점 및 사이트 VPN 옵션을 지원합
 
 예. Resource Manager 배포 모델의 경우 게이트웨이에 대한 경로 기반 VPN 형식이 있어야 합니다. 클래식 배포 모델의 경우 동적 게이트웨이가 필요합니다. 고정 라우팅 VPN Gateway 또는 경로 기반 VPN Gateway에 지점 및 사이트 간 연결을 지원하지 않습니다.
 
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>지점 및 사이트 간 클라이언트를 여러 가상 네트워크 게이트웨이에 동시에 연결하도록 구성할 수 있습니까?
+
+사용되는 VPN 클라이언트 소프트웨어에 따라 연결 대상 가상 네트워크 간 또는 클라이언트가 연결되는 네트워크에 충돌하는 주소 공간이 없다면 여러 Virtual Network 게이트웨이에 연결할 수 있습니다.  Azure VPN 클라이언트는 여러 VPN 연결을 지원하지만 한 번에 한 VPN만 연결할 수 있습니다.
+
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>지점 및 사이트 간 클라이언트를 여러 가상 네트워크에 동시에 연결하도록 구성할 수 있습니까?
 
-아니요. 지점 및 사이트 간 클라이언트만이 가상 네트워크 게이트웨이가 있는 VNet의 리소스에 연결할 수 있습니다.
+예, 다른 Vnet와 피어링된 VNet에 배포된 Virtual Network 게이트웨이에 대한 지점 및 사이트 간 연결에는 피어링된 다른 Vnet에 대한 액세스 권한이 있을 수 있습니다.  피어링된 Vnet이 UseRemoteGateway/AllowGatewayTransit 기능을 사용하는 경우 지점 및 사이트 간 클라이언트는 피어링된 이 Vnet에 연결할 수 있습니다.  자세한 내용은 이 [문서](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md)를 참조하세요.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>사이트 간 연결 또는 지점 및 사이트 간 연결을 통해 어느 정도의 처리량을 제공할 수 있습니까?
 
@@ -66,11 +73,11 @@ VPN 터널의 정확한 처리량을 유지하는 것은 어렵습니다. IPsec�
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>SSTP 및/또는 IKEv2를 지원하는 지점 및 사이트 간 연결에 소프트웨어 VPN 클라이언트를 사용할 수 있나요?
 
-아니요. SSTP의 경우 Windows에서 네이티브 VPN 클라이언트를 사용하고 IKEv2의 경우 Mac에서 네이티브 VPN 클라이언트를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제 목록을 참조하세요.
+아니요. SSTP의 경우 Windows에서 네이티브 VPN 클라이언트를 사용하고 IKEv2의 경우 Mac에서 네이티브 VPN 클라이언트를 사용할 수 있습니다. 그러나 모든 플랫폼의 OpenVPN 클라이언트를 사용하여 OpenVPN 프로토콜을 통해 연결할 수 있습니다. 지원되는 클라이언트 운영 체제 목록을 참조하세요.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure는 Windows에서 IKEv2 VPN을 지원합니까?
 
-IKEv2는 Windows 10 및 Server 2016에서 지원됩니다. 그러나 IKEv2를 사용하려면 업데이트를 설치하고 로컬로 레지스트리 키 값을 설정해야 합니다. Windows 10 이전의 OS 버전은 지원 되지 않으며 SSTP만 사용할 수 있습니다 또는 **OpenVPN® 프로토콜**합니다.
+IKEv2는 Windows 10 및 Server 2016에서 지원됩니다. 그러나 IKEv2를 사용하려면 업데이트를 설치하고 로컬로 레지스트리 키 값을 설정해야 합니다. Windows 10 이전의 OS는 지원되지 않으며 SSTP 또는 **OpenVPN® 프로토콜**만 사용할 수 있습니다.
 
 IKEv2에 대해 Windows 10 또는 Server 2016을 준비하려면:
 
@@ -96,3 +103,21 @@ Azure는 P2S VPN에 대해 Windows, Mac 및 Linux를 지원합니다.
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>배포된 Azure VPN Gateway가 이미 있습니다. 여기에서 RADIUS 및/또는 IKEv2 VPN을 사용할 수 있습니까?
 
 예, 사용하는 게이트웨이 SKU에서 RADIUS 및/또는 IKEv2를 지원하는 경우 Powershell 또는 Azure Portal을 사용하여 이미 배포된 게이트웨이에서 이러한 새 기능을 사용할 수 있습니다. 예를 들어 VPN 게이트웨이 기본 SKU는 RADIUS 또는 IKEv2를 지원하지 않습니다.
+
+### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>P2S 연결 구성을 제거하는 방법은 무엇인가요?
+
+Azure CLI 및 PowerShell에서 다음 명령을 사용하여P2S 구성을 제거할 수 있습니다.
+
+#### <a name="azure-powershell"></a>Azure PowerShell
+
+```azurepowershell-interactive
+$gw=Get-AzVirtualNetworkGateway -name <gateway-name>`  
+$gw.VPNClientConfiguration = $null`  
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw`
+```
+
+#### <a name="azure-cli"></a>Azure CLI
+
+```azurecli-interactive
+az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"
+```

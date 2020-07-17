@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor를 사용 하 여 Splunk와 Azure Active Directory 로그 통합 | Microsoft Docs
-description: Azure Monitor를 사용 하 여 SumoLogic과 Azure Active Directory 로그를 통합 하는 방법에 알아봅니다.
+title: Azure Monitor를 사용 하 여 Splunk 통합 | Microsoft Docs
+description: 를 사용 하 여 SumoLogic와 Azure Active Directory 로그를 통합 하는 방법을 알아봅니다 Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,30 +9,32 @@ editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/13/2019
+ms.date: 03/10/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f30e19a351f7b25f995a85cfd566bcba091ac27
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: a17f0a0c9c6a6c8bd466114e98b2b8c6ee5e9f8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597823"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608163"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>방법: Azure Monitor를 사용 하 여 Splunk와 Azure Active Directory 로그 통합
 
 이 문서에서는 Azure Monitor를 사용하여 Splunk와 Azure Active Directory(Azure AD) 로그를 통합하는 방법을 알아봅니다. 먼저 Azure 이벤트 허브에 로그를 라우트한 다음, Splunk와 이벤트 허브를 통합합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능을 사용하려면 다음이 필요합니다.
-* Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](quickstart-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 
-* Splunk용 Azure Monitor 추가 기능입니다. [Splunk 인스턴스를 다운로드 및 구성](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md)합니다.
+
+- Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](quickstart-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 
+
+-  [Splunk에 대 한 추가 Microsoft Azure](https://splunkbase.splunk.com/app/3757/)입니다. 
 
 ## <a name="integrate-azure-active-directory-logs"></a>Azure Active Directory 로그 통합 
 

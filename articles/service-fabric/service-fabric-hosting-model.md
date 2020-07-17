@@ -1,23 +1,16 @@
 ---
-title: Azure Service Fabric 호스팅 모델 | Microsoft Docs
+title: Azure Service Fabric 호스팅 모델
 description: 배포된 Service Fabric 서비스 및 서비스 호스트 프로세스 복제본(또는 인스턴스) 간의 관계에 대해 설명합니다.
-services: service-fabric
-documentationcenter: .net
 author: harahma
-manager: chackdan
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: d2d958a89bff40483e1cd473538f7d1a6971d266
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6c55ab52f4e51ddf2a39e03bed3ea543a6096be
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483632"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247458"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 호스팅 모델
 이 아티클에서는 Azure Service Fabric에서 제공하는 애플리케이션 호스팅 모델을 간략하게 설명하고 **공유 프로세스** 및 **단독 프로세스** 모델 간의 차이점을 설명합니다. 배포된 애플리케이션이 Service Fabric 노드에 표시되는 방식과 서비스 복제본(또는 인스턴스) 및 서비스-호스트 프로세스 간의 관계를 설명합니다.
@@ -118,7 +111,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 > [!NOTE]
 >- 공유 프로세스 호스팅 모델 아래의 지정된 노드에서 지정된 애플리케이션에 대해 *ServicePackage* 복사본 하나만 활성화됩니다. *빈 문자열*과 같은 **ServicePackageActivationId**가 있으며, 배포된 서비스 패키지와 관련된 작업을 수행할 때 지정할 필요가 없습니다. 
 >
-> - 단독 프로세스 호스팅 모델의 경우 지정된 노드에서 지정된 애플리케이션에 대해 하나 이상의 *ServicePackage* 복사본이 활성화될 수 있습니다. 각 활성화의 **ServicePackageActivationId**는 *비어 있지 않으며*, 배포된 서비스 패키지에 관련된 작업을 수행할 때 지정됩니다. 
+> - 단독 프로세스 호스팅 모델의 경우 지정된 노드에서 지정된 애플리케이션에 대해 하나 이상의 *ServicePackage* 복사본이 활성화될 수 있습니다. 각 활성화에는 배포 된 서비스 패키지와 관련 된 작업을 수행 하는 동안 지정 된 *비어 있지 않은* **ServicePackageActivationId**있습니다. 
 >
 > - **ServicePackageActivationId**를 생략하면 기본적으로 *빈 문자열*로 설정됩니다. 공유 프로세스 모델 아래에 활성화된 배포된 서비스 패키지가 있으면 해당 패키지에서 작업이 수행됩니다. 그렇지 않으면 작업이 실패합니다.
 >
@@ -145,7 +138,7 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 애플리
 특정한 경우에 Service Fabric은 *ServicePackage*당 둘 이상의 *ServiceType*을 허용하며 하나의 *CodePackage*는 둘 이상의 *ServiceType*을 등록할 수 있습니다. 다음은 이러한 구성이 유용할만한 몇 가지 시나리오입니다.
 
 - 더 적은 프로세스를 생성하고 프로세스당 더 높은 복제본 밀도를 사용하여 리소스 사용률을 최적화하려고 합니다.
-- 서로 다른 *ServiceTypes*의 복제본이 초기화 또는 메모리 비용이 높은 몇 가지 공통 데이터를 공유해야 합니다.
+- 다른 *Servicetypes* 의 복제본은 초기화 또는 메모리 비용이 높은 몇 가지 공통 데이터를 공유 해야 합니다.
 - 무료 서비스 제품이 있으며, 서비스의 모든 복제본을 동일한 프로세스에 배치하여 리소스 사용률에 제한을 적용하려고 합니다.
 
 단독 프로세스 호스팅 모델은 *ServicePackage*당 여러 *ServiceTypes*가 있는 애플리케이션 모델과 일치하지 않습니다. *ServicePackage*당 여러 *ServiceTypes*가 복제본 간의 리소스 공유를 높이도록 설계되었으며 프로세스당 복제본 고밀도를 지원하기 때문입니다. 단독 프로세스 모델은 이와 다른 결과를 달성하도록 설계되었습니다.
@@ -153,7 +146,7 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 애플리
 다른 *CodePackage*가 각 *ServiceType*을 등록하는 *ServicePackage*당 여러 *ServiceTypes*의 경우를 고려해보세요. 가령, *CodePackages* 2개가 있는 *ServicePackage* 'MultiTypeServicePackage'가 있다고 가정합니다.
 
 - 'MyCodePackageA'는 *ServiceType* 'MyServiceTypeA'를 등록합니다.
-- 'MyCodePackageB'는 *ServiceType* 'MyServiceTypeB'를 등록합니다.
+- *ServiceType* ' MyServiceTypeB '를 등록 하는 ' MyCodePackageB '입니다.
 
 이제 **fabric:/SpecialApp**이라는 애플리케이션을 만든다고 가정하겠습니다. **fabric:/SpecialApp** 내에서 단독 프로세스 모델을 사용하여 다음 두 가지 서비스를 만듭니다.
 
@@ -176,6 +169,10 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 애플리
 
 위 예제에서 'MyCodePackageA'가 'MyServiceTypeA'와 'MyServiceTypeB'를 둘 다 등록하고 'MyCodePackageB'가 없을 경우 중복 *CodePackage*가 실행되지 않는다고 간주할 수 있습니다. 이것이 맞더라도 이 애플리케이션 모델은 단독 프로세스 호스팅 모델과 일치하지 않습니다. 각 복제본을 고유한 전용 프로세스에 배치하려는 경우 동일한 *CodePackage*에서 *ServiceTypes*를 모두 등록할 필요는 없습니다. 대신 고유한 *ServicePackage*에 *ServiceType*을 각각 배치하면 됩니다.
 
+### <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services 및 작업자 포크 하위 프로세스
+
+Service Fabric은 신뢰할 수 있는 서비스 및 이후의 신뢰할 수 있는 작업자 포크 하위 프로세스를 지원하지 않습니다. [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet)를 사용하여 지원되지 않는 하위 프로세스를 등록할 수는 없는데, 취소 토큰은 등록된 프로세스로만 전송되므로 상위 프로세스가 취소 토큰을 수신한 후 하위 프로세스가 닫히지 않으면 업그레이드 오류 등의 많은 문제가 발생하기 때문입니다.
+
 ## <a name="next-steps"></a>다음 단계
 [애플리케이션을 패키지][a4]하고 배포를 준비합니다.
 
@@ -196,16 +193,16 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 애플리
 [a4]: service-fabric-package-apps.md
 [a5]: service-fabric-deploy-remove-applications.md
 
-[r1]: https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-createservice
+[r1]: /rest/api/servicefabric/sfclient-api-createservice
 
-[c1]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync
-[c2]: https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.instancecount
+[c1]: /dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync
+[c2]: /dotnet/api/system.fabric.description.statelessservicedescription.instancecount
 
-[p1]: https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice
-[p2]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicedescription
-[p3]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicePackage
-[p4]: https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricdeployedservicepackagehealthreport
-[p5]: https://docs.microsoft.com/powershell/module/servicefabric/restart-servicefabricdeployedcodepackage
-[p6]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicetype
-[p7]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedreplica
-[p8]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedcodepackage
+[p1]: /powershell/module/servicefabric/new-servicefabricservice
+[p2]: /powershell/module/servicefabric/get-servicefabricservicedescription
+[p3]: /powershell/module/servicefabric/get-servicefabricdeployedservicepackage
+[p4]: /powershell/module/servicefabric/send-servicefabricdeployedservicepackagehealthreport
+[p5]: /powershell/module/servicefabric/restart-servicefabricdeployedcodepackage
+[p6]: /powershell/module/servicefabric/get-servicefabricdeployedservicetype
+[p7]: /powershell/module/servicefabric/get-servicefabricdeployedreplica
+[p8]: /powershell/module/servicefabric/get-servicefabricdeployedcodepackage

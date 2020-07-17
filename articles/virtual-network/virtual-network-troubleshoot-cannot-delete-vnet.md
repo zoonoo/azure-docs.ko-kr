@@ -4,7 +4,7 @@ description: Azure에서 가상 네트워크를 삭제할 수 없는 문제를 �
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4bd143b37e4403d039108b4349b27604b6503e0e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 8942e9180e87552ec64e0e848751f492778c9993
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123028"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131661"
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure의 가상 네트워크를 삭제 하지 못함
+# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure에서 가상 네트워크를 삭제하지 못함
 
-Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 발생할 수 있습니다. 이 문서에서는 이 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다. 
+Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 발생할 수 있습니다. 이 문서에서는 이 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -54,7 +54,7 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 ### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>가상 네트워크에서 애플리케이션 게이트웨이가 실행 중인지 확인
 
-가상 네트워크에 대한 **개요** 페이지로 이동합니다. 애플리케이션 게이트웨이에 대한 **연결된 장치**를 확인합니다.
+가상 네트워크에 대한 **개요** 페이지로 이동합니다. 애플리케이션 게이트웨이에 대한 **연결된 디바이스**를 확인합니다.
 
 ![연결된 디바이스 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
@@ -66,7 +66,7 @@ Active Directory Domain Service가 사용하도록 설정되어 있고 가상 �
 
 ![연결된 디바이스 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-서비스를 사용하지 않도록 설정하려면 [Azure Portal을 사용하여 Azure Active Directory Domain Services 비활성화](../active-directory-domain-services/active-directory-ds-disable-aadds.md)를 참조하세요.
+서비스를 사용하지 않도록 설정하려면 [Azure Portal을 사용하여 Azure Active Directory Domain Services 비활성화](../active-directory-domain-services/delete-aadds.md)를 참조하세요.
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>가상 네트워크가 다른 리소스에 연결되어 있는지 확인
 
@@ -88,7 +88,9 @@ Active Directory Domain Service가 사용하도록 설정되어 있고 가상 �
 
 마이그레이션 상태에 걸려 있는 경우 가상 네트워크를 삭제할 수 없습니다. 다음 명령을 실행하여 마이그레이션 중단한 다음 가상 네트워크를 삭제합니다.
 
-    Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
+```azurepowershell
+Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
+```
 
 ## <a name="next-steps"></a>다음 단계
 

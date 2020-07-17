@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60630612"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512983"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>StorSimple 모니터링 표시기를 사용하여 디바이스 관리
 
@@ -55,13 +55,13 @@ StorSimple 디바이스에는 모듈 및 StorSimple 디바이스의 모듈 및 �
 
 | 시스템 전원 | 모듈 결함 | 논리적 결함 | 경보 | 상태 |
 | --- | --- | --- | --- | --- |
-| 빨간색-주황색 |끄기 |끄기 |N/A |AC 전원 손실, 백업 전원으로 작동 또는 AC 전원 켜기 및 컨트롤러 모듈이 제거되었습니다. |
-| 녹색 |켜기 |켜기 |N/A |ops 패널 전원 켜기(5초) 상태 테스트 |
-| 녹색 |끄기 |끄기 |N/A |전원이 켜짐, 모든 기능이 정상 상태임 |
-| 녹색 |켜기 |N/A |PCM 결함 LED, 팬 결함 LED |모든 PCM 결함, 팬 결함, 온도 초과 또는 미만 |
-| 녹색 |켜기 |N/A |I/O 모듈 LED |모든 컨트롤러 모듈 결함 |
-| 녹색 |켜기 |N/A |N/A |인클로저 논리적 결함 |
-| 녹색 |깜박임 |N/A |컨트롤러 모듈의 모듈 상태 LED. PCM 결함 LED, 팬 결함 LED |알 수 없는 컨트롤러 모듈 유형이 설치됨, I2C 버스 오류, 컨트롤러 모듈 VPD(Vital Product Data) 구성 오류 |
+| 빨간색-주황색 |OFF |OFF |해당 없음 |AC 전원 손실, 백업 전원으로 작동 또는 AC 전원 켜기 및 컨트롤러 모듈이 제거되었습니다. |
+| 녹색 |켜기 |켜기 |해당 없음 |ops 패널 전원 켜기(5초) 상태 테스트 |
+| 녹색 |OFF |OFF |해당 없음 |전원이 켜짐, 모든 기능이 정상 상태임 |
+| 녹색 |켜기 |해당 없음 |PCM 결함 LED, 팬 결함 LED |모든 PCM 결함, 팬 결함, 온도 초과 또는 미만 |
+| 녹색 |켜기 |해당 없음 |I/O 모듈 LED |모든 컨트롤러 모듈 결함 |
+| 녹색 |켜기 |해당 없음 |해당 없음 |인클로저 논리적 결함 |
+| 녹색 |깜박임 |해당 없음 |컨트롤러 모듈의 모듈 상태 LED. PCM 결함 LED, 팬 결함 LED |알 수 없는 컨트롤러 모듈 유형이 설치됨, I2C 버스 오류, 컨트롤러 모듈 VPD(Vital Product Data) 구성 오류 |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>PCM(전원 냉각 모듈) 표시기 LED
 PCM(전원 냉각 모듈) 표시기 LED는 각 PCM 모듈의 기본 인클로저 또는 EBOD 인클로저의 뒷면에서 찾을 수 있습니다. 이 항목에서는 StorSimple 디바이스의 상태를 모니터링하기 위해 다음 LED를 사용하는 방법에 대해 설명합니다.  
@@ -88,24 +88,24 @@ PCM 상태는 LED 패널에 표시됩니다. 디바이스 PCM LED 패널에는 6
 ### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>전원 공급 장치 및 팬의 PCM 표시기 LED
 | 상태 | PCM 정상(녹색) | AC 오류(주황색) | 팬 오류(주황색) | DC 오류(주황색) |
 | --- | --- | --- | --- | --- |
-| AC 전원 없음(인클로저) |끄기 |OFF |OFF |끄기 |
-| AC 전원 없음(이 PCM만 해당) |끄기 |켜기 |끄기 |켜기 |
-| AC 있음 PCM 켜짐-정상 |켜기 |OFF |OFF |끄기 |
-| PCM 오류(팬 오류) |끄기 |끄기 |켜기 |N/A |
-| PCM 결함(과도 진폭, 과전압, 과전류) |끄기 |켜기 |ON |켜기 |
-| PCM(팬이 허용 오차를 벗어남) |켜기 |OFF |끄기 |켜기 |
-| 대기 모드 |깜박임 |끄기 |OFF |끄기 |
-| PCM 펌웨어 다운로드 |끄기 |깜박임 |깜박임 |깜박임 |
+| AC 전원 없음(인클로저) |OFF |OFF |OFF |OFF |
+| AC 전원 없음(이 PCM만 해당) |OFF |켜기 |OFF |켜기 |
+| AC 있음 PCM 켜짐-정상 |켜기 |OFF |OFF |OFF |
+| PCM 오류(팬 오류) |OFF |OFF |켜기 |해당 없음 |
+| PCM 결함(과도 진폭, 과전압, 과전류) |OFF |켜기 |켜기 |켜기 |
+| PCM(팬이 허용 오차를 벗어남) |켜기 |OFF |OFF |켜기 |
+| 대기 모드 |깜박임 |OFF |OFF |OFF |
+| PCM 펌웨어 다운로드 |OFF |깜박임 |깜박임 |깜박임 |
 
 ### <a name="pcm-indicator-leds-for-the-backup-battery"></a>백업 배터리의 PCM 표시기 LED
 | 상태 | 배터리 정상(녹색) | 배터리 결함(주황색) |
 | --- | --- | --- |
-| 배터리 없음 |끄기 |끄기 |
-| 배터리가 있고 충전됨 |켜기 |끄기 |
-| 배터리 충전 중 또는 유지 관리를 위한 방전 |깜박임 |끄기 |
-| 배터리 "소프트" 결함(복구 가능) |끄기 |깜박임 |
-| 배터리 "하드" 결함(복구 불가능) |끄기 |켜기 |
-| 배터리 해제됨 |깜박임 |끄기 |
+| 배터리 없음 |OFF |OFF |
+| 배터리가 있고 충전됨 |켜기 |OFF |
+| 배터리 충전 중 또는 유지 관리를 위한 방전 |깜박임 |OFF |
+| 배터리 "소프트" 결함(복구 가능) |OFF |깜박임 |
+| 배터리 "하드" 결함(복구 불가능) |OFF |켜기 |
+| 배터리 해제됨 |깜박임 |OFF |
 
 ## <a name="pcm-leds-for-the-ebod-enclosure"></a>EBOD 인클로저의 PCM LED
 EBOD 인클로저에 580W PCM이 있으며 추가 배터리는 없습니다. EBOD 인클로저의 PCM 패널에 전원 공급 장치 및 팬을 위한 표시기 LED만 있습니다. 다음 그림에서는 이러한 LED를 보여줍니다.
@@ -116,14 +116,14 @@ EBOD 인클로저에 580W PCM이 있으며 추가 배터리는 없습니다. EBO
 
 | 상태 | PCM 정상(녹색) | AC 오류(주황색) | 팬 오류(주황색) | DC 오류(주황색) |
 | --- | --- | --- | --- | --- |
-| AC 전원 없음(인클로저) |끄기 |OFF |OFF |끄기 |
-| AC 전원 없음(이 PCM만 해당) |끄기 |켜기 |끄기 |켜기 |
-| AC 있음 PCM 켜짐 - 정상 |켜기 |OFF |OFF |끄기 |
-| PCM 오류(팬 오류) |끄기 |끄기 |켜기 |X |
-| PCM 결함(과도 진폭, 과전압, 과전류) |끄기 |켜기 |ON |켜기 |
-| PCM(팬이 허용 오차를 벗어남) |켜기 |OFF |끄기 |켜기 |
-| 대기 모드 |깜박임 |끄기 |OFF |끄기 |
-| PCM 펌웨어 다운로드 |끄기 |깜박임 |깜박임 |깜박임 |
+| AC 전원 없음(인클로저) |OFF |OFF |OFF |OFF |
+| AC 전원 없음(이 PCM만 해당) |OFF |켜기 |OFF |켜기 |
+| AC 있음 PCM 켜짐 - 정상 |켜기 |OFF |OFF |OFF |
+| PCM 오류(팬 오류) |OFF |OFF |켜기 |X |
+| PCM 결함(과도 진폭, 과전압, 과전류) |OFF |켜기 |켜기 |켜기 |
+| PCM(팬이 허용 오차를 벗어남) |켜기 |OFF |OFF |켜기 |
+| 대기 모드 |깜박임 |OFF |OFF |OFF |
+| PCM 펌웨어 다운로드 |OFF |깜박임 |깜박임 |깜박임 |
 
 ## <a name="controller-module-indicator-leds"></a>컨트롤러 모듈 표시기 LED
 StorSimple 디바이스에는 기본 컨트롤러 및 EBOD 컨트롤러 모듈에 대 한 LED가 포함됩니다.   
@@ -160,9 +160,9 @@ StorSimple 디바이스에는 기본 컨트롤러 및 EBOD 컨트롤러 모듈�
 ### <a name="ebod-controller-module-indicator-leds"></a>EBOD 컨트롤러 모듈 표시기 LED
 | 상태 | I/O 모듈 정상(녹색) | I/O 모듈 결함(주황색) | 호스트 포트 활동(녹색) |
 | --- | --- | --- | --- |
-| 컨트롤러 모듈 정상 |켜기 |끄기 |- |
-| 컨트롤러 모듈 결함 |끄기 |켜기 |- |
-| 외부 호스트 포트 연결 없음 |- |- |끄기 |
+| 컨트롤러 모듈 정상 |켜기 |OFF |- |
+| 컨트롤러 모듈 결함 |OFF |켜기 |- |
+| 외부 호스트 포트 연결 없음 |- |- |OFF |
 | 외부 호스트 포트 연결 - 작업 없음 |- |- |켜기 |
 | 외부 호스트 포트 연결 - 작업 |- |- |깜박임 |
 | 컨트롤러 모듈 메타데이터 오류 |깜박임 |- |- |
@@ -179,11 +179,11 @@ StorSimple 디바이스에는 기본 인클로저 및 EBOD 인클로저에 둘 �
 ### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>EBOD 인클로저의 디스크 드라이브 표시기 LED
 | 상태 | 활동 정상 LED(녹색) | 오류 LED(빨간색-주황색) | 연결된 ops 패널 LED |
 | --- | --- | --- | --- |
-| 설치된 드라이브 없음 |끄기 |끄기 |없음 |
+| 설치된 드라이브 없음 |OFF |OFF |없음 |
 | 드라이브 설치됨 및 작동 |활동 시 깜박임 켜기/끄기 |X |없음 |
 | SES(SCSI 인클로저 서비스) 디바이스 ID 집합 |켜기 |깜박임 1초 켜기/1초 끄기 |없음 |
 | SES 디바이스 결함 비트 집합 |켜기 |켜기 |논리적 결함(빨간색) |
-| 전원 제어 회로 오류 |끄기 |켜기 |모듈 결함(빨간색) |
+| 전원 제어 회로 오류 |OFF |켜기 |모듈 결함(빨간색) |
 
 ## <a name="audible-alarms"></a>청각적 경보
 StorSimple 디바이스는 기본 인클로저 및 EBOD 인클로저 둘 다와 관련된 청각적 경보를 포함합니다. 청각적 경보는 두 인클로저의 전면 패널(ops 패널이라고도 함)에 있습니다. 청각적 경보는 결함 조건이 있는 경우를 나타냅니다. 다음 조건에서 경보가 울립니다.  
@@ -200,10 +200,10 @@ StorSimple 디바이스는 기본 인클로저 및 EBOD 인클로저 둘 다와 
 다음 표에서는 다양한 경보 상태를 설명합니다.  
 
 ### <a name="alarm-states"></a>경보 상태
-| 경보 상태 | 액션(Action) | 음소거 단추를 누르면 작업 |
+| 경보 상태 | 작업 | 음소거 단추를 누르면 작업 |
 | --- | --- | --- |
 | S0 |정상 모드: 무음 |경고음 두 번 |
-| S1 |결함 모드: 1 초 켜기/1 초 끄기 |S2 또는 S3으로 전환(설명 참조) |
+| S1 |결함 모드: 1초 켜기/1초 끄기 |S2 또는 S3으로 전환(설명 참조) |
 | S2 |알림 모드: 간헐적 경고음 |없음 |
 | S3 |음소거 모드: 무음 |없음 |
 | S4 |심각한 결함 모드: 경보 지속 |사용할 수 없음: 음소거가 활성화 되어있지 않음 |
@@ -227,22 +227,22 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 | SBB 모듈이 PCM 오류 발견 |오류 |S1 |모듈 결함 |
 | PCM 제거됨 |구성 오류 |없음 |모듈 결함 |
 | 인클로저 구성 오류 |결함 - 중요 |S1 |모듈 결함 |
-| 저온 경보 |Warning |S1 |모듈 결함 |
-| 고온 경보 |Warning |S1 |모듈 결함 |
+| 저온 경보 |경고 |S1 |모듈 결함 |
+| 고온 경보 |경고 |S1 |모듈 결함 |
 | 과열 경보 |결함 - 중요 |S1 |모듈 결함 |
 | I2C 버스 오류 |결함 - 중복 손실 |S1 |모듈 결함 |
 | Ops 패널 통신 오류(I2C) |결함 - 중요 |S1 |모듈 결함 |
 | 컨트롤러 오류 |결함 - 중요 |S1 |모듈 결함 |
 | SBB 인터페이스 모듈 결함 |결함 - 중요 |S1 |모듈 결함 |
 | SBB 인터페이스 모듈 결함 - 남은 기능 모듈 없음 |결함 - 중요 |S4 |모듈 결함 |
-| SBB 인터페이스 모듈 제거됨 |Warning |없음 |모듈 결함 |
+| SBB 인터페이스 모듈 제거됨 |경고 |없음 |모듈 결함 |
 | 드라이브 전원 컨트롤 결함 |경고 - 드라이브 전원 손실 없음 |S1 |모듈 결함 |
 | 드라이브 전원 컨트롤 결함 |결함 - 중요, 드라이브 전원 손실 |S1 |모듈 결함 |
-| 드라이브 제거됨 |Warning |없음 |모듈 결함 |
-| 전원 부족 |Warning |없음 |모듈 결함 |
+| 드라이브 제거됨 |경고 |없음 |모듈 결함 |
+| 전원 부족 |경고 |없음 |모듈 결함 |
 
 ## <a name="next-steps"></a>다음 단계
-[StorSimple 하드웨어 구성 요소 및 상태](storsimple-8000-monitor-hardware-status.md)에 대해 자세히 알아봅니다.
+[StorSimple 하드웨어 구성 요소 및 상태](storsimple-8000-monitor-hardware-status.md)에 대해 자세히 알아보세요.
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png

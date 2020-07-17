@@ -12,19 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: 25f32750b612bb66f23eb19c378f7935689f3a73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705103"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
 
 > [!NOTE]
-> 프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
-> 
 > 중국에서는 이 토픽에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다. 
 
 이 문서에는 **미디어 인코더 Premium 워크플로** 인코더의 공개 미리 보기 버전에서 지원하는 입력 및 출력 파일 형식과 코덱 목록이 포함되어 있습니다.
@@ -35,7 +33,7 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 
 **미디어 인코더 Premium 워크플로** 는 [이](#closed_captioning) 섹션에 설명된 선택 캡션을 지원합니다. 
 
-## <a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
+## <a name="media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
 
 다음 섹션에는 이 미디어 프로세서에서 입력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
@@ -72,7 +70,7 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 * Windows Media 오디오
 * WAV/PCM
 
-## <a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
+## <a name="media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
 
 다음 섹션에는 이 미디어 프로세서에서 출력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
@@ -99,8 +97,6 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 * JPEG 축소판 그림 만들기
 * HEVC(H.265, 8비트 및 10비트, 기본 및 기본 10 프로필)
 
-  HDR 10은 특정 시나리오에서 지원됩니다. 자세한 내용은 mepd@microsoft.com에 문의하세요.
-
 
 ### <a name="output-audio-codecs"></a>출력 오디오 코덱
 
@@ -115,7 +111,7 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 >[!NOTE]
 >Dolby® Digital(AC3)로 인코딩하면 출력은 ISO MP4 파일에만 쓸 수 있습니다.
 
-## <a id="closed_captioning"></a>선택 캡션 지원
+## <a name="support-for-closed-captioning"></a><a id="closed_captioning"></a>선택 캡션 지원
 
 수집 시 **미디어 인코더 Premium 워크플로** 는 다음을 지원합니다.
 
@@ -140,6 +136,9 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다. 
 
+## <a name="need-help"></a>도움 필요 시
+
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)으로 이동하여 지원 티켓을 열 수 있습니다.
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

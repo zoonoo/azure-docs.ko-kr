@@ -1,27 +1,29 @@
 ---
-title: '빠른 시작: Bing Spell Check REST API 및 Ruby로 맞춤법 검사'
-titlesuffix: Azure Cognitive Services
-description: Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
+title: '빠른 시작: REST API 및 Ruby로 맞춤법 검사 - Bing Spell Check'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작을 통해 Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: d488923f38a9c65cb117b4535b50bb9fdff2dbfc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: fae466124244f5d2b04ad6e59681011b9c5ba974
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888851"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993527"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>빠른 시작: Bing Spell Check REST API 및 Ruby로 맞춤법 검사
 
-이 빠른 시작을 통해 Ruby를 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 애플리케이션은 API에 요청을 보내고 인식하지 못한 단어 목록과 제안된 수정 사항을 반환합니다. 이 애플리케이션은 Ruby에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)에 제공됩니다.
+이 빠른 시작을 통해 Ruby를 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+이 애플리케이션은 Ruby에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)에 제공됩니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) 이상.
 
@@ -32,13 +34,17 @@ ms.locfileid: "56888851"
 
 1. 선호하는 편집기 또는 IDE에서 새 Ruby 파일을 만들고, 다음 요구 사항을 추가합니다. 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
     ```
 
-2. 구독 키, 엔드포인트 URI 및 경로에 대한 변수를 만듭니다. `mkt=` 매개 변수를 지역/국가에 추가하고 `&mode`를 `proof` 증명 모드에 추가하여 요청 매개 변수를 만듭니다.
+2. 구독 키, 엔드포인트 URI 및 경로에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다. 요청 매개 변수를 만듭니다.
+
+   1. `=` 연산자를 사용하여 `mkt` 매개 변수에 시장 코드를 할당합니다. 시장 코드는 요청을 수행한 국가/지역의 코드입니다. 
+
+   1. `&` 연산자를 사용하여 `mode` 매개 변수를 추가한 다음, 맞춤법 검사 모드를 할당합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음) 중 하나일 수 있습니다. 
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -59,7 +65,7 @@ ms.locfileid: "56888851"
    })
    ```
 
-2. 위에 생성된 URI를 사용하여 요청을 만듭니다. `Ocp-Apim-Subscription-Key` 헤더에 키를 추가합니다.
+2. 이전에 생성된 URI를 사용하여 요청을 만듭니다. `Ocp-Apim-Subscription-Key` 헤더에 키를 추가합니다.
 
     ```ruby
     request = Net::HTTP::Post.new(uri)
@@ -81,6 +87,14 @@ ms.locfileid: "56888851"
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
+
+## <a name="run-the-application"></a>애플리케이션 실행
+
+프로젝트를 빌드한 후 실행합니다. 명령줄을 사용하는 경우 다음 명령을 사용하여 애플리케이션을 실행합니다.
+
+   ```bash
+   ruby <FILE_NAME>.rb
+   ```
 
 ## <a name="example-json-response"></a>예제 JSON 응답
 
@@ -130,4 +144,4 @@ ms.locfileid: "56888851"
 > [단일 페이지 웹앱 만들기](../tutorials/spellcheck.md)
 
 - [Bing Spell Check API란?](../overview.md)
-- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

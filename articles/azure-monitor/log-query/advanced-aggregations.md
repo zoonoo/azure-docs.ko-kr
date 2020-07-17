@@ -1,24 +1,16 @@
 ---
 title: Azure Monitor 로그 쿼리의 고급 집계 | Microsoft Docs
 description: Azure Monitor 로그 쿼리를 사용할 수 있는 고급 집계 옵션 중 일부를 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 08/16/2018
+ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77662181"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 고급 집계
 
@@ -120,7 +112,7 @@ Heartbeat
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>누락된 bin 처리
-`mvexpand`는 누락된 bin에 대해 기본값을 채워야 할 경우에 사용하면 유용합니다. 예를 들어, 하트비트를 탐색하여 특정 컴퓨터의 가동 시간을 찾는다고 가정합니다. _범주_ 열에 있는 하드비트의 원본을 볼 수도 있습니다. 일반적으로 간단한 summerize 문을 다음과 같이 사용할 수 있습니다.
+의 유용한 응용 프로그램 `mvexpand` 은 누락 된 bin에 대 한의 기본값을 채워야 한다는 것입니다. 예를 들어 하트 비트를 탐색 하 여 특정 컴퓨터의 작동 시간을 찾고 있다고 가정 합니다. _범주_ 열에 있는 하드비트의 원본을 볼 수도 있습니다. 일반적으로 간단한 summerize 문을 다음과 같이 사용할 수 있습니다.
 
 ```Kusto
 Heartbeat
@@ -128,7 +120,7 @@ Heartbeat
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
 
-| Category | TimeGenerated | count_ |
+| 범주 | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | 직접 에이전트 | 2017-06-06T17:00:00Z | 15 |
 | 직접 에이전트 | 2017-06-06T18:00:00Z | 60 |
@@ -144,7 +136,7 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| Category | count_ | TimeGenerated |
+| 범주 | count_ | TimeGenerated |
 |---|---|---|
 | 직접 에이전트 | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
@@ -158,7 +150,7 @@ Heartbeat
 | project Category, TimeGenerated, count_
 ```
 
-| Category | TimeGenerated | count_ |
+| 범주 | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | 직접 에이전트 | 2017-06-06T17:00:00Z | 15 |
 | 직접 에이전트 | 2017-06-06T18:00:00Z | 60 |

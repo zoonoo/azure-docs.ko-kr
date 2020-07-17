@@ -1,29 +1,30 @@
 ---
-title: Azure Active Directory B2C의 ID 환경 프레임워크 스키마에 대한 정수 클레임 변환 예 | Microsoft Docs
-description: Azure Active Directory B2C의 ID 환경 프레임워크 스키마에 대한 정수 클레임 변환 예입니다.
+title: 사용자 지정 정책에 대 한 정수 클레임 변환 예제
+titleSuffix: Azure AD B2C
+description: Azure Active Directory B2C의 IEF (Identity Experience Framework) 스키마에 대 한 정수 클레임 변환 예입니다.
 services: active-directory-b2c
-author: davidmu1
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 20c109f188acfe37292aa31dfe057ced8b73199b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 066a6489e6244369453ec5d9f21d5e1e83fcd6c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694741"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201753"
 ---
 # <a name="integer-claims-transformations"></a>정수 클레임 변환
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure AD(Azure Active Directory) B2C에서 ID 환경 프레임워크 스키마의 정수 클레임 변환을 사용하는 예를 제공합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 Id 경험 프레임 워크 스키마의 정수 클레임 변환을 사용 하는 예제를 제공 합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
 
-## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim 
+## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim
 
 long 데이터 형식을 문자열 데이터 형식으로 변환합니다.
 
@@ -34,7 +35,7 @@ long 데이터 형식을 문자열 데이터 형식으로 변환합니다.
 
 이 예제에서는 값 형식이 long인 `numericUserId` 클레임이 값 형식이 문자열인 `UserId` 클레임으로 변환됩니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="numericUserId" TransformationClaimType="inputClaim" />
@@ -45,10 +46,10 @@ long 데이터 형식을 문자열 데이터 형식으로 변환합니다.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
     - **inputClaim**: 12334(long)
-- 출력 클레임: 
-    - **outputClaim**: "12334"(string)
+- 출력 클레임:
+    - **outputClaim**: "12334"(문자열)
 

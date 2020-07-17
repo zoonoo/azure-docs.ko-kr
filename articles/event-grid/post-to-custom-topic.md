@@ -1,19 +1,14 @@
 ---
 title: 사용자 지정 Azure Event Grid 토픽에 이벤트 게시
-description: Azure Event Grid에 대한 사용자 지정 토픽에 이벤트를 게시하는 방법 설명
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
+description: 이 문서에서는 Azure Event Grid에 대한 사용자 지정 토픽에 이벤트를 게시하는 방법을 설명합니다. 게시 및 이벤트 데이터의 형식을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 07/07/2020
+ms.openlocfilehash: 197d8eb1963300bc6576e664c7c3fd470cf70bb2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182407"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108263"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid에 대한 사용자 지정 토픽에 게시
 
@@ -76,7 +71,10 @@ PowerShell에서 사용자 지정 토픽에 대한 키를 가져오려면 다음
 ]
 ```
 
-이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64KB로 제한됩니다.
+이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64 KB (일반 공급) 또는 1mb (미리 보기)로 제한 됩니다.
+
+> [!NOTE]
+> 최대 64 KB 크기의 이벤트는 GA (일반 공급) Service Level Agreement(서비스 수준 약정) (SLA)에서 다룹니다. 최대 1mb 크기의 이벤트에 대 한 지원은 현재 미리 보기 상태입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 
 
 예를 들어 올바른 이벤트 데이터 스키마는 다음과 같습니다.
 
@@ -94,13 +92,13 @@ PowerShell에서 사용자 지정 토픽에 대한 키를 가져오려면 다음
 }]
 ```
 
-## <a name="response"></a>response
+## <a name="response"></a>응답
 
 항목 엔드포인트에 게시한 후 응답을 수신합니다. 응답은 표준 HTTP 응답 코드입니다. 몇 가지 일반적인 응답은 다음과 같습니다.
 
-|결과  |response  |
+|결과  |응답  |
 |---------|---------|
-|성공  | 200 정상  |
+|Success  | 200 정상  |
 |이벤트 데이터의 형식이 잘못되었습니다. | 400 잘못된 요청 |
 |잘못된 액세스 키 | 401 권한 없음 |
 |잘못된 엔드포인트 | 404 찾을 수 없음 |

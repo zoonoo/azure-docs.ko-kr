@@ -1,24 +1,20 @@
 ---
-title: .NET Core 및 Visual Studio를 사용하여 클라우드에서 Kubernetes 개발 환경 만들기
-titleSuffix: Azure Dev Spaces
+title: 'Kubernetes 개발 공간 만들기: Visual Studio 및 .NET Core'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
-ms.openlocfilehash: e94134a0c7c3b44a2e4734fe1e91a19f3e26851c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
+ms.openlocfilehash: ba90cbc8bc0267f1fba8c9495886bdc8ce2ac5e3
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425766"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995907"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작
+# <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio 및 .NET Core
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 
@@ -30,34 +26,62 @@ ms.locfileid: "59425766"
 > [!Note]
 > **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하세요.
 
+## <a name="install-the-azure-cli"></a>Azure CLI 설치
+Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 개발 환경의 구성은 대부분 클라우드에 저장되며 다른 사용자와 공유할 수 있습니다. 먼저 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 다운로드하고 실행하여 시작합니다.
+
+### <a name="sign-in-to-azure-cli"></a>Azure CLI에 로그인
+Azure에 로그인합니다. 터미널 창에 다음 명령을 입력합니다.
+
+```azurecli
+az login
+```
+
+> [!Note]
+> Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+
+#### <a name="if-you-have-multiple-azure-subscriptions"></a>여러 Azure 구독이 있는 경우...
+다음을 실행하여 구독을 볼 수 있습니다. 
+
+```azurecli
+az account list --output table
+```
+
+*IsDefault*에 대해 *True*가 있는 구독을 찾습니다.
+사용하려는 구독이 없으면 기본 구독을 변경할 수 있습니다.
+
+```azurecli
+az account set --subscription <subscription ID>
+```
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
-1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
-1. **리소스 만들기**를 선택하고 **Kubernetes**를 검색한 후 **Kubernetes Service** > **만들기**를 선택합니다.
+명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역][supported-regions]에 리소스 그룹을 만듭니다.
 
-   *Kubernetes 클러스터 만들기* 양식의 각 머리글 아래에서 다음 단계를 수행하고 선택한 [지역에서 Azure Dev Spaces를 지원](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)하는지 확인합니다.
+```azurecli
+az group create --name MyResourceGroup --location <region>
+```
 
-   - **프로젝트 세부 정보**: Azure 구독과 새로운 또는 기존 Azure 리소스 그룹을 선택합니다.
-   - **클러스터 세부 정보**: AKS 클러스터의 이름, 지역, 버전 및 DNS 이름 접두사를 입력합니다.
-   - **규모**: AKS 에이전트 노드의 VM 크기 및 노드 수를 선택합니다. Azure Dev Spaces를 시작하는 경우 노드 하나만 있으면 모든 기능을 탐색할 수 있습니다. 노드 수는 클러스터 배포 후 언제든지 쉽게 조정할 수 있습니다. AKS 클러스터를 만든 후에는 VM 크기를 변경할 수 없습니다. 하지만 규모를 확장해야 하는 경우 AKS 클러스터를 배포한 후 간단하게 더 큰 VM이 있는 새 AKS 클러스터를 만들고 Dev Spaces를 사용하여 해당 클러스터를 다시 배포하면 됩니다.
+다음 명령을 사용하여 Kubernetes 클러스터를 만듭니다.
 
-   ![Kubernetes 구성 설정](media/common/Kubernetes-Create-Cluster-2.PNG)
+```azurecli
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+```
 
+클러스터를 만드는 데 몇 분이 걸립니다.
 
-   완료되면 **다음: 인증**을 선택합니다.
+### <a name="configure-your-aks-cluster-to-use-azure-dev-spaces"></a>Azure Dev Spaces를 사용하도록 AKS 클러스터 구성
 
-1. RBAC(역할 기반 액세스 제어)에 대해 원하는 설정을 선택합니다. Azure Dev Spaces는 RBAC를 사용하거나 사용하지 않도록 설정한 클러스터를 지원합니다.
+AKS 클러스터를 포함하는 리소스 그룹을 사용하여 다음 Azure CLI 명령 및 AKS 클러스터 이름을 입력합니다. 명령은 Azure Dev Spaces에 대한 지원을 통해 클러스터를 구성합니다.
 
-    ![RBAC 설정](media/common/k8s-RBAC.PNG)
-
-1. **검토 + 만들기**를 선택한 후 완료되면 **만들기**를 선택합니다.
+   ```azurecli
+   az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+   ```
+   
+> [!IMPORTANT]
+> Azure Dev Spaces 구성 프로세스는 클러스터에서 `azds` 네임스페이스를 제거합니다(있는 경우).
 
 ## <a name="get-the-visual-studio-tools"></a>Visual Studio 도구 가져오기
-1. 최신 버전의 [Visual Studio 2017](https://www.visualstudio.com/vs/) 설치
-1. Visual Studio 설치 관리자에서 다음 워크로드가 선택되어 있는지 확인합니다.
-    * ASP.NET 및 웹 개발
-1. [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio) 설치
+Azure Development 워크로드를 사용하여 Windows에 최신 버전의 [Visual Studio 2019](https://www.visualstudio.com/vs/)를 설치합니다.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>컨테이너에서 실행되는 웹앱 만들기
 
@@ -65,7 +89,7 @@ ms.locfileid: "59425766"
 
 ### <a name="create-an-aspnet-web-app"></a>ASP.NET 웹앱 만들기
 
-Visual Studio 2017에서 새 프로젝트를 만듭니다. 현재 프로젝트는 **ASP.NET Core 웹 애플리케이션**이어야 합니다. 프로젝트의 이름을 '**webfrontend**'로 지정합니다.
+Visual Studio에서 새 프로젝트를 만듭니다. 현재 프로젝트는 **ASP.NET Core 웹 애플리케이션**이어야 합니다. 프로젝트의 이름을 '**webfrontend**'로 지정합니다.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -83,7 +107,7 @@ Visual Studio 2017에서 새 프로젝트를 만듭니다. 현재 프로젝트�
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
 
-지금은 **공간** 드롭다운을 기본값인 `default`로 그대로 둡니다. 나중에 이 옵션에 대해 자세히 알아보겠습니다. 공용 엔드포인트를 통해 웹앱에 액세스할 수 있도록 **공용 액세스 가능** 확인란을 선택합니다. 이 설정은 필요한 것은 아니지만 이 연습의 뒷부분에서 몇 가지 개념을 보여주는 데 도움이 될 것입니다. 두 경우 모두 Visual Studio를 사용하여 웹 사이트를 디버깅할 수는 있으니 걱정하지 마세요.
+지금은 **공간** 드롭다운을 기본값 `default`로 둡니다. 나중에 이 옵션에 대해 자세히 알아보겠습니다. 공용 엔드포인트를 통해 웹앱에 액세스할 수 있도록 **공용 액세스 가능** 확인란을 선택합니다. 이 설정은 필요한 것은 아니지만 이 연습의 뒷부분에서 몇 가지 개념을 보여주는 데 도움이 될 것입니다. 두 경우 모두 Visual Studio를 사용하여 웹 사이트를 디버깅할 수는 있으니 걱정하지 마세요.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
@@ -128,9 +152,16 @@ Visual Studio는 개발 환경과 통신하여 애플리케이션을 빌드 및 
 Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아니라, 클라우드의 Kubernetes 환경에서 코드 변경 내용을 신속하고 반복적으로 확인할 수 있게 해주는 것입니다.
 
 ### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
-1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 `<h2>Application uses</h2>`를 읽는 행 70을 `<h2>Hello k8s in Azure!</h2>`로 변경합니다.
-1. 파일을 저장합니다.
-1. 브라우저로 이동하여 페이지를 새로 고칩니다. 웹 페이지에 업데이트된 HTML이 표시되어야 합니다.
+
+
+1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 [`<h2>Application uses</h2>`를 읽는 줄 73](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73)을 다음과 같이 변경합니다. 
+  
+    ```html
+    <h2>Hello k8s in Azure!</h2>`
+    ```
+
+2. 파일을 저장합니다.
+3. 브라우저로 이동하여 페이지를 새로 고칩니다. 웹 페이지에 업데이트된 HTML이 표시되어야 합니다.
 
 어떻게 된 건가요? HTML 및 CSS와 같은 콘텐츠 파일을 편집하는 경우 .NET Core 웹앱에서 다시 컴파일을 수행할 필요가 없기 때문에 활성 F5 세션은 수정된 콘텐츠 파일을 AKS에서 실행 중인 컨테이너에 자동으로 동기화하므로 콘텐츠 편집 내용을 바로 볼 수 있습니다.
 
@@ -150,3 +181,6 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 
 > [!div class="nextstepaction"]
 > [다중 서비스 개발에 대해 알아보기](multi-service-netcore-visualstudio.md)
+
+
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

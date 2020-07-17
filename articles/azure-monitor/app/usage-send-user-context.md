@@ -1,25 +1,16 @@
 ---
-title: Azure Application Insights에서 사용 현황 환경을 활성화하도록 사용자 컨텍스트 ID 보내기 | Microsoft Docs
+title: 활동을 추적하기 위한 사용자 컨텍스트 ID - Azure Application Insights
 description: Application Insights에서 각각에 고유하고 영구적인 ID 문자열을 할당하여 사용자가 서비스를 통해 이동하는 방식을 추적합니다.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: csharp
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 7c458867b89a76a2f19bbd632c8a884c629f5765
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371838"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797692"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 
@@ -30,7 +21,7 @@ Application Insights를 사용하면 제품 사용 현황 도구 집합을 통�
 - [사용자, 세션, 이벤트](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 - [깔때기](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 - [보존](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) 코호트
-- [통합 문서](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [통합 문서](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 
 시간이 지남에 따른 사용자 동작을 추적하기 위해 Application Insights에는 각 사용자 또는 세션에 대한 ID가 필요합니다. 모든 사용자 지정 이벤트 또는 페이지 보기에 다음 ID를 포함합니다.
 
@@ -54,7 +45,7 @@ ID가 사용자에 대한 개인 식별 정보를 포함하는 경우 사용자 
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET 앱: ITelemetryInitializer에 사용자 컨텍스트 설정
 
-[여기](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)에 설명된 대로 원격 분석 이니셜라이저를 만듭니다. 요청 원격 분석을 통해 세션 ID를 전달하고 Context.User.Id 및 Context.Session.Id를 설정합니다.
+[여기](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer)에 설명된 대로 원격 분석 이니셜라이저를 만듭니다. 요청 원격 분석을 통해 세션 ID를 전달하고 Context.User.Id 및 Context.Session.Id를 설정합니다.
 
 이 예제에서는 세션 후에 만료되는 식별자에 대한 사용자 ID를 설정합니다. 가능하면 세션 간에 유지되는 사용자 ID를 사용합니다.
 
@@ -142,4 +133,4 @@ namespace MvcWebRole.Telemetry
     - [사용자, 세션 및 이벤트](usage-segmentation.md)
     - [깔때기](usage-funnels.md)
     - [보존](usage-retention.md)
-    - [통합 문서](../../azure-monitor/app/usage-workbooks.md)
+    - [통합 문서](../../azure-monitor/platform/workbooks-overview.md)

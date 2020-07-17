@@ -1,6 +1,6 @@
 ---
 title: Azure 클래식 Storage 계정, 컨테이너 또는 VHD를 삭제하는 경우 발생하는 오류 문제 해결 | Microsoft Docs
-description: 연결된 VHD가 포함된 저장소 리소스를 삭제할 때 발생하는 문제 해결 방법입니다.
+description: 연결된 VHD가 포함된 스토리지 리소스를 삭제할 때 발생하는 문제 해결 방법입니다.
 services: storage
 author: AngshumanNayakMSFT
 tags: top-support-issue,azure-service-management
@@ -8,12 +8,11 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77915040"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>클래식 스토리지 리소스 삭제 오류 문제 해결
 이 문서에서는 Azure 클래식 Storage 계정, 컨테이너 또는 *.vhd 페이지 Blob 파일을 삭제하려고 할 때 다음 오류 중 하나가 발생할 경우의 문제 해결 지침을 제공합니다. 
@@ -30,6 +29,10 @@ Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/wi
 
 
 ## <a name="steps-while-deleting-a-classic-virtual-machine"></a>클래식 가상 머신 삭제 동안의 단계 
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
 1. 클래식 가상 머신을 삭제합니다.
 2. "디스크" 확인란을 선택한 경우 페이지 Blob *.vhd와 연결된 **디스크 임대**(위의 그림에 표시)가 중단됩니다. 실제 페이지 Blob *.vhd 파일은 스토리지 계정에 여전히 존재합니다.
 ![가상 머신(클래식) "삭제" 오류 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
@@ -61,8 +64,8 @@ Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/wi
 
 > <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
 > 
-> <span style="color:red">Remove-AzureStorageAccount : BadRequest: 스토리지 계정 myclassicaccount에 활성 이미지 및/또는 디스크(예:  
-> myclassicaccount)가 있습니다. 이 저장소 계정을 삭제하려면 이러한 이미지 및/또는 디스크를 제거해야 합니다.</span>
+> <span style="color:red">제거-AzureStorageAccount: BadRequest: Storage 계정 myclassicaccount에 일부 활성 이미지 및/또는 디스크가 있습니다 (예:).  
+> myclassicaccount)가 있습니다. 이 스토리지 계정을 삭제하려면 이러한 이미지 및/또는 디스크를 제거해야 합니다.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>스토리지 컨테이너를 삭제할 수 없음
 
@@ -79,7 +82,7 @@ Azure Portal은 컨테이너의 *.vhd 페이지 blob 파일을 가리키는 "디
 
 > <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
 > 
-> <span style="color:red">Remove-AzureStorageContainer : 원격 서버에서 오류를 반환했습니다. (412) 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다. HTTP 상태 코드: 412 - HTTP 오류 메시지: 현재 컨테이너에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.</span>
+> <span style="color:red">New-azurestoragecontainer: 원격 서버에서 오류를 반환 했습니다. (412) 현재 컨테이너에 임대가 있으며 요청에 임대 ID가 지정 되지 않았습니다.. HTTP 상태 코드: 412-HTTP 오류 메시지: 현재 컨테이너에 임대가 있으며 요청에 임대 ID가 지정 되지 않았습니다.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>vhd를 삭제할 수 없음 
 
@@ -101,7 +104,7 @@ Azure Virtual Machine을 삭제한 후 vhd 파일(페이지 blob)을 삭제하�
 
 > <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
 > 
-> <span style="color:red">Remove-AzureStorageBlob : 원격 서버에서 오류를 반환했습니다. (412) 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다. HTTP 상태 코드: 412 - HTTP 오류 메시지: 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.</span>
+> <span style="color:red">-AzureStorageBlob 제거: 원격 서버에서 오류를 반환 했습니다. (412) 현재 blob에 임대가 있으며 요청에 임대 ID가 지정 되지 않았습니다.. HTTP 상태 코드: 412-HTTP 오류 메시지: 현재 blob에 임대가 있으며 요청에 임대 ID가 지정 되지 않았습니다.</span>
 
 
 ## <a name="resolution-steps"></a>해결 단계:
@@ -110,7 +113,7 @@ Azure Virtual Machine을 삭제한 후 vhd 파일(페이지 blob)을 삭제하�
 Azure Portal에서 다음 단계를 따릅니다.
 1.  [Azure Portal](https://portal.azure.com)로 이동합니다.
 2.  디스크(클래식)로 이동합니다. 
-3.  디스크 탭을 클릭합니다. ![컨테이너 blob "목록" 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  디스크 탭을 클릭 합니다. ![ 컨테이너 blob "목록" 창이 열려 있는 포털의 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  데이터 디스크를 선택한 다음 디스크 삭제를 클릭합니다.
  ![컨테이너 blob "목록" 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)

@@ -1,13 +1,18 @@
 ---
-ms.openlocfilehash: d001d76bca5b9a0837349b6e05b3b0a271ea3a73
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: 66d3397fae24ee2546dae4eb5d7c9d188f9ede99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128525"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "78944153"
 ---
 > [!NOTE]
-> Azure DNS를 사용하여 Azure Web Apps에 대한 사용자 지정 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](../articles/dns/dns-custom-domain.md#app-service-web-apps)을 참조하세요.
+> Azure DNS를 사용하여 Azure App Service에 대한 사용자 지정 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](../articles/dns/dns-custom-domain.md#app-service-web-apps)을 참조하세요.
 >
 >
 

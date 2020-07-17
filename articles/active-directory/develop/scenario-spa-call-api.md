@@ -1,36 +1,31 @@
 ---
-title: 단일 페이지 응용 프로그램 (웹 API 호출)-Microsoft id 플랫폼
-description: 단일 페이지 응용 프로그램 (웹 API 호출 하는 경우)을 빌드하는 방법을 알아봅니다
+title: 웹 API를 호출 하는 단일 페이지 앱 빌드-Microsoft identity platform | Microsoft
+description: 웹 API를 호출 하는 단일 페이지 응용 프로그램을 빌드하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77a4ed01ac55a1153a62c672b33056a543b912ed
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80882134"
 ---
-# <a name="single-page-application---call-a-web-api"></a>단일 페이지 응용 프로그램-web API 호출
+# <a name="single-page-application-call-a-web-api"></a>단일 페이지 응용 프로그램: web API 호출
 
-호출 하는 것이 좋습니다는 `acquireTokenSilent` 메서드를 획득 또는 web API를 호출 하기 전에 액세스 토큰을 갱신 합니다. 토큰을 만든 후에 보호 된 web API를 호출할 수 있습니다.
+`acquireTokenSilent`웹 API를 호출 하기 전에 메서드를 호출 하 여 액세스 토큰을 얻거나 갱신 하는 것이 좋습니다. 토큰이 있으면 보호 된 웹 API를 호출할 수 있습니다.
 
 ## <a name="call-a-web-api"></a>웹 API 호출
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Microsoft Graph API와 같은 웹 API를 호출 하 HTTP 요청에 전달자도 획득 한 액세스 토큰을 사용 합니다. 예를 들면 다음과 같습니다.
+Microsoft Graph API와 같은 웹 API를 호출 하는 HTTP 요청에서 전달자로 획득 된 액세스 토큰을 사용 합니다. 예를 들어:
 
 ```javascript
     var headers = new Headers();
@@ -48,9 +43,11 @@ Microsoft Graph API와 같은 웹 API를 호출 하 HTTP 요청에 전달자도 
         }
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angular"></a>[Angular](#tab/angular)
 
-에 설명 된 대로 합니다 [토큰 섹션을 획득](scenario-spa-acquire-token.md), MSAL Angular 래퍼를 자동으로 자동으로 액세스 토큰을 획득 하 고 Api에 HTTP 요청에 첨부할 HTTP 인터셉터를 활용 합니다.
+MSAL 각도 래퍼는 HTTP 인터셉터를 활용 하 여 자동으로 액세스 토큰을 획득 하 고 Api에 대 한 HTTP 요청에 연결 합니다. 자세한 내용은 [API를 호출 하기 위한 토큰 가져오기](scenario-spa-acquire-token.md)를 참조 하세요.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

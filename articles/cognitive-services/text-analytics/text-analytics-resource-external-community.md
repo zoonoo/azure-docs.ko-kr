@@ -1,21 +1,21 @@
 ---
 title: Text Analytics API에 대한 외부 및 커뮤니티 콘텐츠
 titleSuffix: Azure Cognitive Services
-description: Azure의 Microsoft Cognitive Services Text Analytics API에 대한 파트너 블로그, youtube 비디오, 교육입니다.
+description: 파트너 블로그, YouTube 비디오, Azure Cognitive Services 텍스트 분석 API 학습.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: b46acb2f0fe04c37e73a69a09ee6ede9110864ca
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4cdf58974cd8fa9d7813df7e970caea260409225
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543545"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "78251298"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 외부 및 커뮤니티 콘텐츠
 
@@ -33,7 +33,11 @@ ms.locfileid: "57543545"
 
 + [Dynamics 365 CRM Online을 사용한 감정 분석(MSDN 블로그)](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
 
-+ PowerBI 블로그: Facebook 메시지에서 핵심 구 추출: [1부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) 및 [2부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
++ Power BI 블로그: Facebook 메시지에서 키 문구 추출: [1 부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) 및 [2 부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
+
++ [MS Flow를 사용 하 여 Yammer 그룹에서 의견의 감정 식별 (Microsoft tech community)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
+
+
 
 ## <a name="videos"></a>동영상
 
@@ -49,5 +53,5 @@ ms.locfileid: "57543545"
 
 ## <a name="see-also"></a>참고 항목
 
- [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Azure 텍스트 분석 API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

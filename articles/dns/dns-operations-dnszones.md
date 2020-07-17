@@ -3,22 +3,19 @@ title: Azure DNS에서 DNS 영역 관리 - PowerShell | Microsoft Docs
 description: Azure Powershell을 사용하여 DNS 영역을 관리할 수 있습니다. 이 문서에서는 Azure DNS에서 DNS 영역을 업데이트, 삭제 및 만드는 방법을 설명합니다.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
-ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
+author: rohinkoul
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
-ms.author: victorh
-ms.openlocfilehash: 1ef44c16a8ae3b6254a6cea252501b72ddb24a5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: rohink
+ms.openlocfilehash: d46e2d31c8d6c5a175239c76795359ad64b1abd3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686208"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell을 사용하여 DNS 영역을 관리하는 방법
 
@@ -30,7 +27,7 @@ ms.locfileid: "61293633"
 
 이 문서는 Azure PowerShell을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 플랫폼 간 [Azure CLI](dns-operations-dnszones-cli.md) 또는 Azure Portal을 사용하여 DNS 영역을 관리할 수도 있습니다.
 
-이 가이드에서는 특히 공용 DNS 영역을 다룹니다. Azure PowerShell을 사용하여 Azure DNS에서 사설 영역 관리에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure DNS Private Zones 시작](private-dns-getstarted-powershell.md)을 참조하세요.
+이 가이드에서는 특히 공용 DNS 영역을 다룹니다. Azure PowerShell을 사용하여 Azure DNS에서 프라이빗 영역 관리에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure DNS Private Zones 시작](private-dns-getstarted-powershell.md)을 참조하세요.
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -41,7 +38,7 @@ ms.locfileid: "61293633"
 
 DNS 영역은 `New-AzureRmDnsZone` cmdlet을 사용하여 생성됩니다.
 
-다음 예제에서는 *MyResourceGroup*이라는 리소스 그룹에 *contoso.com*이라는 DNS 영역을 만듭니다.
+다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 *contoso.com* 이라는 DNS 영역을 만듭니다.
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
@@ -53,7 +50,7 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS는 이제 사설 DNS 영역(현재는 공개 미리 보기)도 지원합니다.  사설 DNS 영역에 대해 자세히 알아보려면 [사설 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 사설 DNS 영역을 만드는 방법은 [PowerShell을 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-powershell.md)을 참조하세요.
+Azure DNS는 프라이빗 DNS 영역도 지원합니다.  프라이빗 DNS 영역에 대해 자세히 알아보려면 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 프라이빗 DNS 영역을 만드는 방법은 [PowerShell을 사용하여 Azure DNS 프라이빗 영역 시작](./private-dns-getstarted-powershell.md)을 참조하세요.
 
 ## <a name="get-a-dns-zone"></a>DNS 영역 가져오기
 
@@ -125,7 +122,7 @@ $zone 개체와 함께 `Set-AzureRmDnsZone`을 사용하는 경우 동시 변경
 `Remove-AzureRmDnsZone` cmdlet을 사용하여 DNS 영역을 삭제할 수 있습니다.
 
 > [!NOTE]
-> DNS 영역을 삭제하면 영역 내의 모든 DNS 레코드도 삭제됩니다. 이 작업은 취소할 수 없습니다. DNS 영역을 사용 중인 경우 영역이 삭제되면 영역을 사용하는 서비스가 실패합니다.
+> DNS 영역을 삭제하면 영역 내의 모든 DNS 레코드도 삭제됩니다. 이 작업은 실행 취소할 수 없습니다. DNS 영역을 사용 중인 경우 영역이 삭제되면 영역을 사용하는 서비스가 실패합니다.
 >
 >실수로 영역이 삭제되는 것을 방지하려면 [DNS 영역 및 레코드를 보호하는 방법](dns-protect-zones-recordsets.md)을 참조하세요.
 

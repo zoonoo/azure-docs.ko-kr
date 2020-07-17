@@ -1,25 +1,25 @@
 ---
 title: API 콘솔을 사용하여 이미지 조정 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Azure Content Moderator의 Image Moderation API를 사용하여 이미지 콘텐츠에 대한 검사-검토 조정 워크플로를 시작합니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pafarley
+ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093823"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75448252"
 ---
 # <a name="moderate-images-from-the-api-console"></a>API 콘솔에서 이미지 조정
 
-Azure Content Moderator의 [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)를 사용하여 이미지 콘텐츠에 대한 검사-검토 조정 워크플로를 시작합니다. 조정 작업은 콘텐츠에서 비속어를 검색하여 사용자 지정 및 공유 블랙리스트와 비교합니다.
+Azure Content Moderator의 [이미지 조정 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) 를 사용 하 여 이미지 콘텐츠에 대 한 검사 및 검토 중재 워크플로를 시작 합니다. 중재 작업을 통해 콘텐츠를 검색 하 여 사용자 지정 및 공유 블록 목록과 비교할 수 있습니다.
 
 ## <a name="use-the-api-console"></a>API 콘솔 사용
 온라인 콘솔에서 API를 테스트하려면 구독 키가 필요합니다. 구독 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
@@ -48,7 +48,7 @@ Azure Content Moderator의 [Image Moderation API](https://westus.dev.cognitive.m
 
    ![이미지 시도 - 평가 콘솔 샘플 이미지](images/sample-image.jpg) 
 
-5. **보내기**를 선택합니다.
+5. **보내기**를 선택 합니다.
 
 6. API는 각 분류의 확률 점수를 반환합니다. 또한 이미지가 조건을 충족하는지 확인 결과를 반환합니다(**true** 또는 **false**). 
 
@@ -74,7 +74,7 @@ Image Moderation API를 사용하여 이미지에서 얼굴을 찾을 수 있습
 
    ![이미지 시도 - 얼굴 찾기 샘플 요청](images/try-image-api-face-request.png)
 
-4. **보내기**를 선택합니다. 이 예제에서는 API가 두 얼굴을 찾아서 이미지의 해당 좌표를 반환합니다.
+4. **보내기**를 선택 합니다. 이 예제에서는 API가 두 얼굴을 찾아서 이미지의 해당 좌표를 반환합니다.
 
    ![이미지 시도 - 얼굴 찾기 샘플 응답 콘텐츠 상자](images/try-image-api-face-response.png)
 
@@ -96,10 +96,10 @@ Content Moderator OCR 기능을 사용하여 이미지의 텍스트를 검색할
 
 4. **요청 본문** 상자에서 기본 샘플 이미지를 사용합니다. 이전 섹션에서 사용한 것과 동일한 이미지입니다.
 
-5. **보내기**를 선택합니다. 추출된 텍스트는 JSON으로 표시됩니다.
+5. **보내기**를 선택 합니다. 추출된 텍스트는 JSON으로 표시됩니다.
 
    ![이미지 - OCR 샘플 응답 콘텐츠 상자](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용하거나 [이미지 조정 .NET 빠른 시작](image-moderation-quickstart-dotnet.md)을 시작하여 애플리케이션을 통합합니다.
+코드에서 REST API를 사용 하거나 [.NET SDK 퀵 스타트](dotnet-sdk-quickstart.md) 를 따라 응용 프로그램에 이미지 조정을 추가 합니다.

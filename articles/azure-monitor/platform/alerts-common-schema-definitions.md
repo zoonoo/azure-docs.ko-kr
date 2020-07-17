@@ -1,31 +1,26 @@
 ---
-title: 웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 일반적인 경고 스키마 정의
-description: 웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 일반적인 경고 스키마 정의 이해합니다.
-author: anantr
-services: azure-monitor
-ms.service: azure-monitor
+title: Azure Monitor의 경고 스키마 정의
+description: Azure Monitor에 대한 일반 경고 스키마 정의 이해
+author: ofirmanor
 ms.topic: conceptual
+ms.subservice: alerts
 ms.date: 03/14/2019
-ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445375"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
-이 문서에 설명 합니다 [일반적인 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs) 웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 합니다. 
+이 문서에서는 웹후크, Azure Logic Apps, Azure Functions 및 Azure Automation Runbook을 포함하여 Azure Monitor에 대한 [일반 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs)에 대해 설명합니다. 
 
-## <a name="overview"></a>개요
+모든 경고 인스턴스는 영향을 받은 리소스 및 경고의 원인을 설명합니다. 이러한 인스턴스는 다음 섹션의 공통 스키마에 설명되어 있습니다.
+* **Essentials**: 모든 경고 유형에 공통인 표준화된 필드 세트로, 경고가 발생하는 리소스를 설명하고 추가 공통 경고 메타데이터(예: 심각도 또는 설명)를 설명합니다. 
+* **경고 컨텍스트**: 경고 유형에 따라 달라지는 필드를 사용하여 경고의 원인을 설명하는 필드 세트입니다. 예를 들어 메트릭 경고에는 경고 컨텍스트에 메트릭 이름 및 메트릭 값과 같은 필드가 포함되는 반면, 활동 로그 경고에는 경고를 생성한 이벤트에 대한 정보가 있습니다. 
 
-모든 경고 인스턴스를 설명 **영향을 받은 리소스** 및 **경고를 발생 시킨**, 하며 이러한 인스턴스는 다음 섹션에서 일반적인 스키마에 설명 되어 있습니다.
-* **Essentials**: 집합이 **필드를 표준화**설명 하는 모든 경고 유형에 대해 공통 **어떤 리소스** 경고는에 경고 추가 메타 데이터 (예: 심각도 또는 설명)이 일반적인와 함께 합니다. 
-* **경고 컨텍스트**: 설명 하는 필드의 집합을 **경고의 원인인**, 달라 지는 필드를 사용 하 여 **경고 유형에 따라**합니다. 예를 들어, 있지만 활동 로그 경고는 경고를 생성 하는 이벤트에 대 한 정보는 메트릭 경고 메트릭 이름 및 경고 컨텍스트에 메트릭 값과 같은 필드 해야 합니다. 
-
-##### <a name="sample-alert-payload"></a>샘플 경고 페이로드
+**샘플 경고 페이로드**
 ```json
 {
   "schemaId": "azureMonitorCommonAlertSchema",
@@ -74,25 +69,25 @@ ms.locfileid: "60775749"
 }
 ```
 
-## <a name="essentials-fields"></a>'Essentials' 필드
+## <a name="essentials"></a>기본 정보
 
-| 필드 | 설명|
+| 필드 | Description|
 |:---|:---|
-| alertId | 경고 인스턴스를 고유 하 게 식별 하는 GUID입니다. |
-| alertRule | 경고 인스턴스를 생성 하는 경고 규칙의 이름입니다. |
-| 심각도 | 경고의 심각도입니다. 가능한 값은 다음과 같습니다. Sev0, Sev1, Sev2, Sev3, Sev4 |
-| signalType | 경고 규칙 정의한 신호를 식별 합니다. 가능한 값은 다음과 같습니다. 메트릭, 로그, 활동 로그 |
-| monitorCondition | 경고가 발생할 때 경고의 모니터 조건이 '발생 한'으로 설정 됩니다. 경고 발생의 원인이 된 기본 조건을 지워질 때 모니터 조건이 '해결'로 설정 됩니다.   |
-| monitoringService | 모니터링 서비스 또는 솔루션은 경고를 생성 합니다. 경고 컨텍스트에 대 한 필드는 모니터링 서비스에 의해 지정 됩니다. |
-| alertTargetIds | 경고의 ARM Id 모든 영향을 받는 대상 목록입니다. 로그 경고는 Log Analytics 작업 영역 또는 Application Insights 인스턴스 정의 해당 작업 영역/응용 프로그램입니다. |
-| originAlertId | 모니터링 하는 것이 서비스에서 생성 된 경고 인스턴스 ID입니다. |
-| firedDateTime | Utc에서 경고 인스턴스가 발생 된 날짜 시간 |
-| resolvedDateTime | 경고 인스턴스에 대 한 모니터 조건이 '해결' utc에서로 설정 되었을 때의 날짜 시간입니다. 현재 메트릭 경고에만 적용 됩니다.|
-| description | 경고 규칙에 정의 된 대로 설명 |
-|essentialsVersion| Essentials 섹션에 대 한 버전 번호입니다.|
-|alertContextVersion | AlertContext 섹션에 대 한 버전 번호 |
+| alertId | 경고 인스턴스를 고유하게 식별하는 GUID입니다. |
+| alertRule | 경고 인스턴스를 생성한 경고 규칙의 이름입니다. |
+| 심각도 | 경고 심각도입니다. 가능한 값은 다음과 같습니다. Sev0, Sev1, Sev2, Sev3 또는 Sev4. |
+| signalType | 경고 규칙이 정의된 신호를 식별합니다. 가능한 값은 다음과 같습니다. 메트릭, 로그 또는 활동 로그. |
+| monitorCondition | 경고가 발생할 때 경고의 모니터 조건은 **실행됨**으로 설정됩니다. 경고를 발생시킨 기본 조건이 사라지면 모니터 조건이 **해결됨**으로 설정됩니다.   |
+| monitoringService | 경고를 생성한 모니터링 서비스 또는 솔루션입니다. 경고 컨텍스트의 필드는 모니터링 서비스에 의해 결정됩니다. |
+| alertTargetIds | 경고의 대상에 영향을 주는 Azure Resource Manager ID의 목록입니다. Log Analytics 작업 영역 또는 Application Insights 인스턴스에 정의된 로그 경고의 경우 해당 작업 영역 또는 애플리케이션입니다. |
+| originAlertId | 경고를 생성하는 모니터링 서비스에서 생성한 경고 인스턴스의 ID입니다. |
+| firedDateTime | 경고 인스턴스가 UTC(협정 세계시)로 실행된 날짜 및 시간입니다. |
+| resolvedDateTime | 경고 인스턴스의 모니터 조건이 UTC로 **확인됨**으로 설정된 날짜 및 시간입니다. 현재 메트릭 경고에만 적용됩니다.|
+| description | 경고 규칙에 정의된 설명입니다. |
+|essentialsVersion| 필수 섹션의 버전 번호입니다.|
+|alertContextVersion | `alertContext` 섹션의 버전 번호입니다. |
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "essentials": {
@@ -114,13 +109,13 @@ ms.locfileid: "60775749"
 }
 ```
 
-## <a name="alert-context-fields"></a>'경고 컨텍스트' 필드
+## <a name="alert-context"></a>경고 컨텍스트
 
 ### <a name="metric-alerts"></a>메트릭 경고
 
-#### <a name="monitoringservice--platform"></a>monitoringService = 'Platform'
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -154,57 +149,161 @@ ms.locfileid: "60775749"
 ### <a name="log-alerts"></a>로그 경고
 
 > [!NOTE]
-> 사용자 지정 JSON 옵션을 사용 하 여 기존 로그 경고에 대 한 공통 스키마에서 사용자 지정 유지 되지 않습니다.
+> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludeSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함되지 않은 경우 [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get)와 함께 검색 쿼리를 사용해야 합니다. 
 
-#### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
+#### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
-  "alertContext": {
-      "SearchQuery": "search * \n| where Type == \"Heartbeat\" \n| where Category == \"Direct Agent\" \n| where TimeGenerated > ago(30m) ",
-      "SearchIntervalStartTimeUtc": "3/22/2019 1:36:31 PM",
-      "SearchIntervalEndtimeUtc": "3/22/2019 1:51:31 PM",
-      "ResultCount": 15,
-      "LinkToSearchResults": "https://portal.azure.com#@72f988bf-86f1-41af-91ab-2d7cd011db47/blade/Microsoft_OperationsManagementSuite_Workspace/AnalyticsBlade/initiator/AnalyticsShareLinkToQuery/isQueryEditorVisible/true/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%<subscription ID>%2FresourceGroups%2Fpipelinealertrg%2Fproviders%2FMicrosoft.OperationalInsights%2Fworkspaces%2FINC-OmsAlertRunner%22%7D%5D%7D/query/search%20%2A%20%0A%7C%20where%20Type%20%3D%3D%20%22Heartbeat%22%20%0A%7C%20where%20Category%20%3D%3D%20%22Direct%20Agent%22%20%0A%7C%20where%20TimeGenerated%20%3E%20%28datetime%282019-03-22T13%3A51%3A31.0000000%29%20-%2030m%29%20%20/isQuerybase64Compressed/false/timespanInIsoFormat/2019-03-22T13%3a36%3a31.0000000Z%2f2019-03-22T13%3a51%3a31.0000000Z",
-      "SeverityDescription": "Warning",
-      "WorkspaceId": "2a1f50a7-ef97-420c-9d14-938e77c2a929",
-      "SearchIntervalDurationMin": "15",
-      "AffectedConfigurationItems": [
-        "INC-Gen2Alert"
-      ],
-      "SearchIntervalInMinutes": "15",
-      "Threshold": 10000,
-      "Operator": "Less Than"
+    "alertContext": {
+        "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+        "SearchIntervalStartTimeUtc": "3/22/2019 1:36:31 PM",
+        "SearchIntervalEndtimeUtc": "3/22/2019 1:51:31 PM",
+        "ResultCount": 2,
+        "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+        "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+        "SeverityDescription": "Warning",
+        "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
+        "SearchIntervalDurationMin": "15",
+        "AffectedConfigurationItems": [
+            "INC-Gen2Alert"
+        ],
+        "SearchIntervalInMinutes": "15",
+        "Threshold": 10000,
+        "Operator": "Less Than",
+        "Dimensions": [
+            {
+                "name": "Computer",
+                "value": "INC-Gen2Alert"
+            }
+        ],
+        "SearchResults": {
+            "tables": [
+                {
+                    "name": "PrimaryResult",
+                    "columns": [
+                        {
+                            "name": "$table",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Computer",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        }
+                    ],
+                    "rows": [
+                        [
+                            "Fabrikam",
+                            "33446677a",
+                            "2018-02-02T15:03:12.18Z"
+                        ],
+                        [
+                            "Contoso",
+                            "33445566b",
+                            "2018-02-02T15:16:53.932Z"
+                        ]
+                    ]
+                }
+            ]
+        },
+        "dataSources": [
+            {
+                "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+                "tables": [
+                    "Heartbeat"
+                ]
+            }
+        ]
+    "IncludeSearchResults": "True",
+    "AlertType": "Metric measurement"
     }
 }
 ```
 
-#### <a name="monitoringservice--application-insights"></a>monitoringService = 'Application Insights'
+#### <a name="monitoringservice--application-insights"></a>`monitoringService` = `Application Insights`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
-  "alertContext": {
-      "SearchQuery": "search *",
-      "SearchIntervalStartTimeUtc": "3/22/2019 1:36:33 PM",
-      "SearchIntervalEndtimeUtc": "3/22/2019 1:51:33 PM",
-      "ResultCount": 0,
-      "LinkToSearchResults": "https://portal.azure.com#@72f988bf-86f1-41af-91ab-2d7cd011db47/blade/Microsoft_OperationsManagementSuite_Workspace/AnalyticsBlade/initiator/AnalyticsShareLinkToQuery/isQueryEditorVisible/true/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%<subscription ID>%2FresourceGroups%2FPipeLineAlertRG%2Fproviders%2Fmicrosoft.insights%2Fcomponents%2FWEU-AIRunner%22%7D%5D%7D/query/search%20%2A/isQuerybase64Compressed/false/timespanInIsoFormat/2019-03-22T13%3a36%3a33.0000000Z%2f2019-03-22T13%3a51%3a33.0000000Z",
-      "SearchIntervalDurationMin": "15",
-      "SearchIntervalInMinutes": "15",
-      "Threshold": 10000,
-      "Operator": "Less Than",
-      "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6"
+    "alertContext": {
+        "SearchQuery": "requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
+        "SearchIntervalStartTimeUtc": "3/22/2019 1:36:33 PM",
+        "SearchIntervalEndtimeUtc": "3/22/2019 1:51:33 PM",
+        "ResultCount": 2,
+        "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToFilteredSearchResultsUI": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+        "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+        "SearchIntervalDurationMin": "15",
+        "SearchIntervalInMinutes": "15",
+        "Threshold": 10000,
+        "Operator": "Less Than",
+        "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
+        "Dimensions": [
+            {
+                "name": "IP",
+                "value": "1.1.1.1"
+            }
+        ],
+        "SearchResults": {
+            "tables": [
+                {
+                    "name": "PrimaryResult",
+                    "columns": [
+                        {
+                            "name": "$table",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Timestamp",
+                            "type": "datetime"
+                        }
+                    ],
+                    "rows": [
+                        [
+                            "Fabrikam",
+                            "33446677a",
+                            "2018-02-02T15:03:12.18Z"
+                        ],
+                        [
+                            "Contoso",
+                            "33445566b",
+                            "2018-02-02T15:16:53.932Z"
+                        ]
+                    ]
+                }
+            ],
+            "dataSources": [
+                {
+                    "resourceId": "/subscriptions/a5ea27e2-7482-49ba-90b3-52e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+                    "tables": [
+                        "Heartbeat"
+                    ]
+                }
+            ]
+        },
+        "IncludeSearchResults": "True",
+        "AlertType": "Metric measurement"
     }
 }
 ```
 
 ### <a name="activity-log-alerts"></a>활동 로그 경고
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = ' 활동 로그-관리 '
+#### <a name="monitoringservice--activity-log---administrative"></a>`monitoringService` = `Activity Log - Administrative`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -229,8 +328,177 @@ ms.locfileid: "60775749"
 }
 ```
 
+#### <a name="monitoringservice--activity-log---policy"></a>`monitoringService` = `Activity Log - Policy`
+
+**샘플 값**
+```json
+{
+  "alertContext": {
+    "authorization": {
+      "action": "Microsoft.Resources/checkPolicyCompliance/read",
+      "scope": "/subscriptions/<GUID>"
+    },
+    "channels": "Operation",
+    "claims": "{\"aud\":\"https://management.azure.com/\",\"iss\":\"https://sts.windows.net/<GUID>/\",\"iat\":\"1566711059\",\"nbf\":\"1566711059\",\"exp\":\"1566740159\",\"aio\":\"42FgYOhynHNw0scy3T/bL71+xLyqEwA=\",\"appid\":\"<GUID>\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.windows.net/<GUID>/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"<GUID>\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"<GUID>\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"<GUID>\",\"uti\":\"Miy1GzoAG0Scu_l3m1aIAA\",\"ver\":\"1.0\"}",
+    "caller": "<GUID>",
+    "correlationId": "<GUID>",
+    "eventSource": "Policy",
+    "eventTimestamp": "2019-08-25T11:11:34.2269098+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Warning",
+    "operationName": "Microsoft.Authorization/policies/audit/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "isComplianceCheck": "True",
+      "resourceLocation": "eastus2",
+      "ancestors": "<GUID>",
+      "policies": "[{\"policyDefinitionId\":\"/providers/Microsoft.Authorization/policyDefinitions/<GUID>/\",\"policySetDefinitionId\":\"/providers/Microsoft.Authorization/policySetDefinitions/<GUID>/\",\"policyDefinitionReferenceId\":\"vulnerabilityAssessmentMonitoring\",\"policySetDefinitionName\":\"<GUID>\",\"policyDefinitionName\":\"<GUID>\",\"policyDefinitionEffect\":\"AuditIfNotExists\",\"policyAssignmentId\":\"/subscriptions/<GUID>/providers/Microsoft.Authorization/policyAssignments/SecurityCenterBuiltIn/\",\"policyAssignmentName\":\"SecurityCenterBuiltIn\",\"policyAssignmentScope\":\"/subscriptions/<GUID>\",\"policyAssignmentSku\":{\"name\":\"A1\",\"tier\":\"Standard\"},\"policyAssignmentParameters\":{}}]"
+    },
+    "status": "Succeeded",
+    "subStatus": "",
+    "submissionTimestamp": "2019-08-25T11:12:46.1557298+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---autoscale"></a>`monitoringService` = `Activity Log - Autoscale`
+
+**샘플 값**
+```json
+{
+  "alertContext": {
+    "channels": "Admin, Operation",
+    "claims": "{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn\":\"Microsoft.Insights/autoscaleSettings\"}",
+    "caller": "Microsoft.Insights/autoscaleSettings",
+    "correlationId": "<GUID>",
+    "eventSource": "Autoscale",
+    "eventTimestamp": "2019-08-21T16:17:47.1551167+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Insights/AutoscaleSettings/Scaleup/Action",
+    "operationId": "<GUID>",
+    "properties": {
+      "description": "The autoscale engine attempting to scale resource '/subscriptions/d<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS' from 9 instances count to 10 instances count.",
+      "resourceName": "/subscriptions/<GUID>/resourceGroups/voiceassistancedemo/providers/Microsoft.Compute/virtualMachineScaleSets/alexademo",
+      "oldInstancesCount": "9",
+      "newInstancesCount": "10",
+      "activeAutoscaleProfile": "{\r\n  \"Name\": \"Auto created scale condition\",\r\n  \"Capacity\": {\r\n    \"Minimum\": \"1\",\r\n    \"Maximum\": \"10\",\r\n    \"Default\": \"1\"\r\n  },\r\n  \"Rules\": [\r\n    {\r\n      \"MetricTrigger\": {\r\n        \"Name\": \"Percentage CPU\",\r\n        \"Namespace\": \"microsoft.compute/virtualmachinescalesets\",\r\n        \"Resource\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"ResourceLocation\": \"eastus\",\r\n        \"TimeGrain\": \"PT1M\",\r\n        \"Statistic\": \"Average\",\r\n        \"TimeWindow\": \"PT5M\",\r\n        \"TimeAggregation\": \"Average\",\r\n        \"Operator\": \"GreaterThan\",\r\n        \"Threshold\": 0.0,\r\n        \"Source\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"MetricType\": \"MDM\",\r\n        \"Dimensions\": [],\r\n        \"DividePerInstance\": false\r\n      },\r\n      \"ScaleAction\": {\r\n        \"Direction\": \"Increase\",\r\n        \"Type\": \"ChangeCount\",\r\n        \"Value\": \"1\",\r\n        \"Cooldown\": \"PT1M\"\r\n      }\r\n    }\r\n  ]\r\n}",
+      "lastScaleActionTime": "Wed, 21 Aug 2019 16:17:47 GMT"
+    },
+    "status": "Succeeded",
+    "submissionTimestamp": "2019-08-21T16:17:47.2410185+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---security"></a>`monitoringService` = `Activity Log - Security`
+
+**샘플 값**
+```json
+{
+  "alertContext": {
+    "channels": "Operation",
+    "correlationId": "<GUID>",
+    "eventSource": "Security",
+    "eventTimestamp": "2019-08-26T08:34:14+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Security/locations/alerts/activate/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "threatStatus": "Quarantined",
+      "category": "Virus",
+      "threatID": "2147519003",
+      "filePath": "C:\\AlertGeneration\\test.eicar",
+      "protectionType": "Windows Defender",
+      "actionTaken": "Blocked",
+      "resourceType": "Virtual Machine",
+      "severity": "Low",
+      "compromisedEntity": "testVM",
+      "remediationSteps": "[\"No user action is necessary\"]",
+      "attackedResourceType": "Virtual Machine"
+    },
+    "status": "Active",
+    "submissionTimestamp": "2019-08-26T09:28:58.3019107+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--servicehealth"></a>`monitoringService` = `ServiceHealth`
+
+**샘플 값**
+```json
+{
+  "alertContext": {
+    "authorization": null,
+    "channels": 1,
+    "claims": null,
+    "caller": null,
+    "correlationId": "f3cf2430-1ee3-4158-8e35-7a1d615acfc7",
+    "eventSource": 2,
+    "eventTimestamp": "2019-06-24T11:31:19.0312699+00:00",
+    "httpRequest": null,
+    "eventDataId": "<GUID>",
+    "level": 3,
+    "operationName": "Microsoft.ServiceHealth/maintenance/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "title": "Azure SQL DW Scheduled Maintenance Pending",
+      "service": "SQL Data Warehouse",
+      "region": "East US",
+      "communication": "<MESSAGE>",
+      "incidentType": "Maintenance",
+      "trackingId": "<GUID>",
+      "impactStartTime": "2019-06-26T04:00:00Z",
+      "impactMitigationTime": "2019-06-26T12:00:00Z",
+      "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"East US\"}],\"ServiceName\":\"SQL Data Warehouse\"}]",
+      "impactedServicesTableRows": "<tr>\r\n<td align='center' style='padding: 5px 10px; border-right:1px solid black; border-bottom:1px solid black'>SQL Data Warehouse</td>\r\n<td align='center' style='padding: 5px 10px; border-bottom:1px solid black'>East US<br></td>\r\n</tr>\r\n",
+      "defaultLanguageTitle": "Azure SQL DW Scheduled Maintenance Pending",
+      "defaultLanguageContent": "<MESSAGE>",
+      "stage": "Planned",
+      "communicationId": "<GUID>",
+      "maintenanceId": "<GUID>",
+      "isHIR": "false",
+      "version": "0.1.1"
+    },
+    "status": "Active",
+    "subStatus": null,
+    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00",
+    "ResourceType": null
+  }
+}
+```
+#### <a name="monitoringservice--resource-health"></a>`monitoringService` = `Resource Health`
+
+**샘플 값**
+```json
+{
+  "alertContext": {
+    "channels": "Admin, Operation",
+    "correlationId": "<GUID>",
+    "eventSource": "ResourceHealth",
+    "eventTimestamp": "2019-06-24T15:42:54.074+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Resourcehealth/healthevent/Activated/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "title": "This virtual machine is stopping and deallocating as requested by an authorized user or process",
+      "details": null,
+      "currentHealthStatus": "Unavailable",
+      "previousHealthStatus": "Available",
+      "type": "Downtime",
+      "cause": "UserInitiated"
+    },
+    "status": "Active",
+    "submissionTimestamp": "2019-06-24T15:45:20.4488186+00:00"
+  }
+}
+```
+
+
 ## <a name="next-steps"></a>다음 단계
 
-- [일반 경고 스키마에 자세히 알아보기](https://aka.ms/commonAlertSchemaDocs)
-
+- [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)에 대해 자세히 알아봅니다.
+- [일반 경고 스키마를 사용하여 모든 경고를 처리하는 논리 앱을 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations)을 알아봅니다. 
 

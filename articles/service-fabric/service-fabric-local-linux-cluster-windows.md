@@ -1,36 +1,27 @@
 ---
-title: Windows에서 Azure Service Fabric Linux 클러스터 설정 | Microsoft Docs
+title: Windows에서 Azure Service Fabric Linux 클러스터 설정
 description: 이 문서에서는 Windows 개발 컴퓨터에서 실행되는 Service Fabric Linux 클러스터를 설정하는 방법을 알아봅니다. 이 기능은 크로스 플랫폼 개발에 특히 유용합니다.
-services: service-fabric
-documentationcenter: .net
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: e700250a6ebcdb82f99c1b460a510811d7ceb96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91d055a480748ef012120aac4d329d474491e2c5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60719943"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258580"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Windows 개발자 컴퓨터에서 Linux Service Fabric 클러스터 설정
 
 이 문서에서는 Windows 개발 컴퓨터에 로컬 Linux Service Fabric을 설정하는 방법을 설명합니다. 로컬 Linux 클러스터를 설정하는 경우 Linux 클러스터를 대상으로 하지만 Windows 컴퓨터에서 개발되는 애플리케이션을 빠르게 테스트하는 데 유용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행되지 않습니다. 로컬 Service Fabric 클러스터를 실행하기 위해 미리 구성된 Docker 컨테이너 이미지를 제공합니다. 시작하기 전에 다음 항목이 필요합니다.
 
 * RAM 4GB 이상
 * 최신 버전의 [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker는 Linux 모드에서 실행 되어야 합니다.
+* Docker는 Linux 모드에서 실행되어야 합니다.
 
 >[!TIP]
 > * 공식 Docker [설명서](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions)에서 언급한 단계를 따라 Windows에 Docker를 설치할 수 있습니다. 
@@ -54,7 +45,7 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
 2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `Dockerfile` 파일을 만듭니다.
 
     ```Dockerfile
-    FROM microsoft/service-fabric-onebox
+    FROM mcr.microsoft.com/service-fabric/onebox:latest
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh
     #Generate the local
@@ -95,10 +86,10 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
     >
     >애플리케이션을 특정 포트에서 수신 대기하는 경우 추가 `-p` 태그를 사용하여 포트를 지정해야 합니다. 예를 들어 애플리케이션이 포트 8080에서 수신 대기하는 경우 다음 `-p` 태그를 추가합니다.
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. 잠시 후 클러스터가 시작되면, 다음 명령을 사용하여 로그를 보거나 대시보드로 이동하여 클러스터 상태([http://localhost:19080](http://localhost:19080))를 볼 수 있습니다.
+5. 잠시 후 클러스터가 시작되면, 다음 명령을 사용하여 로그를 보거나 대시보드로 이동하여 클러스터 상태(`http://localhost:19080`)를 볼 수 있습니다.
 
     ```powershell 
     docker logs sftestcluster
@@ -122,7 +113,7 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
  * DNS 서비스가 실행되지 않으며 지원되지 않음 [문제 #132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## <a name="next-steps"></a>다음 단계
-* [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse) 시작
+* [Eclipse](./service-fabric-get-started-eclipse.md) 시작
 * 다른 [Java 샘플](https://github.com/Azure-Samples/service-fabric-java-getting-started) 확인
 
 

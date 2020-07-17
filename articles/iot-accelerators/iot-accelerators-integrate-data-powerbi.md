@@ -1,34 +1,33 @@
 ---
 title: Power BI를 사용하여 원격 모니터링 데이터 시각화 - Azure | Microsoft Docs
-description: 이 자습서에서는 Power BI Desktop과 Cosmos DB를 사용하여 원격 모니터링 솔루션의 데이터를 사용자 지정된 시각화로 통합시킵니다. 이렇게 하면 자신만의 사용자 지정 대시보드를 만들어서 솔루션이 아닌 곳에서 사용자에게 공유할 수 있습니다.
-author: asdonald
+description: 이 자습서에서는 Power BI Desktop 및 Cosmos DB를 사용 하 여 원격 모니터링 솔루션의 데이터를 사용자 지정 된 시각화로 통합 합니다. 이렇게 하면 자신만의 사용자 지정 대시보드를 만들어서 솔루션이 아닌 곳에서 사용자에게 공유할 수 있습니다.
+author: dominicbetts
 manager: hegate
-ms.author: asdonald
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61448134"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74184234"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI를 사용하여 원격 모니터링 데이터 시각화
 
 이 자습서는 CosmosDB의 원격 모니터링 솔루션 데이터를 Power BI에 연결하는 방법을 안내합니다. 이 연결이 설정되면 자신만의 사용자 지정 대시보드를 만들어서 원격 모니터링 솔루션 대시보드에 다시 추가할 수 있습니다. 이러한 작업 흐름을 통해 기본 제공 그래프뿐만 아니라 보다 전문화된 그래프를 만들 수 있습니다. 그런 다음 이 자습서를 사용하여 다른 데이터 스트림과 통합하거나 사용자 지정 대시보드를 작성하여 원격 모니터링 솔루션 외부에서 사용할 수 있습니다. Power BI에서 대시보드를 작성하고 특정 부분을 선택하면 각 패널이 상호 작용할 수 있습니다. 예를 들어 시뮬레이션된 트럭에 대한 정보만 보여주는 필터가 있으면 대시보드의 각 부분이 상호 작용하여 시뮬레이션된 트럭 정보만 표시됩니다. Power BI 이외의 도구를 사용하려는 경우 이 단계를 확장하여 원하는 시각화 도구를 사용하고 Cosmos 데이터베이스 또는 사용자 정의 데이터베이스(설정해 둔 경우)에 연결할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 현재 실행 중인 원격 모니터링 솔루션이 있어야 합니다.
-- [Azure Portal](https://portal.azure.com)에 액세스할 수 있어야 하며 IoT Hub 및 솔루션을 실행 중인 구독이 있어야 합니다.
+- [Azure Portal](https://portal.azure.com) 및 IoT Hub 및 솔루션이 실행 되는 구독에 대 한 액세스 권한이 있어야 합니다.
 - [Power BI 데스크톱](https://powerbi.microsoft.com)이 설치되어 있어야 하며 버전은 상관 없습니다.
 
 
 ## <a name="information-needed-from-azure-portal"></a>Azure Portal에서 필요한 정보
 
-1. [Azure Portal](https://portal.azure.com)로 이동하고 필요한 경우 로그인합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 고 필요한 경우 로그인 합니다.
 
 2. 왼쪽 패널에서 리소스 그룹을 클릭합니다.
 
@@ -51,7 +50,7 @@ ms.locfileid: "61448134"
   
 1. Power BI Desktop 앱을 열고 왼쪽 위 모서리에서 "데이터 가져오기"를 클릭합니다. 
 
-    ![데이터 가져오기](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
+    ![Get Data](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
 2. 데이터를 입력하라는 메시지가 표시되면 "Azure Cosmos DB"를 검색하고 이 커넥터를 선택합니다. 이 커넥터는 기본적으로 Azure IoT 솔루션의 Cosmos 데이터베이스에서 데이터를 바로 끌어옵니다.
   

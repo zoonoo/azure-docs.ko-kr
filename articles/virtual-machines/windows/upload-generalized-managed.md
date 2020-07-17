@@ -1,26 +1,18 @@
 ---
-title: 일반화된 온-프레미스 VHD에서 관리되는 Azure VM 만들기 | Microsoft Docs
+title: 업로드된 일반화된 VHD에서 VM 만들기
 description: 일반화된 VHD를 Azure에 업로드하고 이를 사용하여 Resource Manager 배포 모델에서 새 VM을 만듭니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: b1ad5aa074a7719dbe6000301c8cd04e6e1ad632
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b0947d1cc4e53763c0f31444b8f3d27ba45b19a4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984548"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82096412"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
 
@@ -33,12 +25,10 @@ ms.locfileid: "55984548"
 - Azure에 VHD를 업로드하기 전에 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행해야 합니다.
 - [Managed Disks](managed-disks-overview.md)로 마이그레이션을 시작하기 전에 [Managed Disks로 마이그레이션하기 위한 계획](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)을 검토하세요.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
-
-
+ 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Sysprep을 사용하여 원본 VM 일반화
 
-Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조하세요.
+아직 수행하지 않은 경우 Azure에 VHD를 업로드하기 전에 VM을 Sysprep해야 합니다. Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조하세요.
 
 가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
@@ -57,93 +47,49 @@ Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 �
 6. Sysprep이 완료되면 가상 머신을 종료합니다. VM을 다시 시작하지 않습니다.
 
 
-## <a name="get-a-storage-account"></a>저장소 계정 가져오기
+## <a name="upload-the-vhd"></a>VHD 업로드 
 
-업로드한 VM 이미지를 저장할 Azure의 저장소 계정이 필요합니다. 기존 저장소 계정을 사용하거나 새 계정을 만들 수 있습니다. 
+이제 VHD를 관리 디스크에 바로 업로드할 수 있습니다. 자세한 내용은 [Azure PowerShell을 사용하여 VHD를 Azure에 업로드](disks-upload-vhd-to-managed-disk-powershell.md)를 참조하세요.
 
-VHD를 사용하여 VM의 관리 디스크를 만드는 경우 저장소 계정 위치가 VM을 만들 위치와 동일해야 합니다.
 
-사용 가능한 저장소 계정을 표시하려면 다음을 입력합니다.
 
-```azurepowershell
-Get-AzStorageAccount | Format-Table
+VHD가 관리 디스크에 업로드되면 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)를 사용하여 관리형 디스크를 가져와야 합니다.
+
+```azurepowershell-interactive
+$disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 ```
 
-## <a name="upload-the-vhd-to-your-storage-account"></a>저장소 계정에 VHD 업로드
+## <a name="create-the-image"></a>이미지 만들기
+일반화된 OS 관리형 디스크에서 관리형 이미지를 만듭니다. 다음 값을 사용자 고유의 정보로 바꿉니다.
 
-[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 *C:\Users\Public\Documents\Virtual hard disks\\*의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 스토리지 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 배치되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
+먼저 일부 변수를 설정합니다.
 
 ```powershell
-$rgName = "myResourceGroup"
-$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
+$location = 'East US'
+$imageName = 'myImage'
+$rgName = 'myResourceGroup'
 ```
 
+관리형 디스크를 사용하여 이미지를 만듭니다.
 
-성공하면 다음과 유사한 응답을 얻게 됩니다.
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-이 명령은 네트워크 연결 및 VHD 파일의 크기에 따라 완료하는 데 다소 시간이 걸립니다.
-
-### <a name="other-options-for-uploading-a-vhd"></a>VHD를 업로드하기 위한 기타 옵션
- 
-또한 다음 방법 중 하나를 사용하여 저장소 계정에 VHD를 업로드할 수 있습니다.
-
-- [AZCopy](https://aka.ms/downloadazcopy)
-- [Azure Storage Blob 복사 API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Azure Storage 탐색기 Blob 업로드](https://azurestorageexplorer.codeplex.com/)
-- [저장소 Import/Export 서비스 REST API 참조](https://msdn.microsoft.com/library/dn529096.aspx)
--   예상 업로드 시간이 7일보다 긴 경우 Import/Export 서비스를 사용하는 것이 좋습니다. [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html)를 사용하여 데이터 크기 및 전송 단위로 시간을 예측할 수 있습니다. 
-    Import/Export를 사용하여 표준 저장소 계정을 복사할 수 있습니다. AzCopy와 같은 도구를 사용하여 표준 스토리지에서 Premium Storage 계정으로 복사해야 합니다.
-
-> [!IMPORTANT]
-> AzCopy를 사용하여 VHD를 Azure에 업로드하는 경우, 업로드 스크립트를 실행하기 전에 [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append)를 설정했는지 확인합니다. 대상이 Blob인데 이 옵션을 지정하지 않으면 기본적으로 AzCopy는 블록 Blob를 만듭니다.
-> 
-> 
-
-
-
-## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>업로드된 VHD에서 관리되는 이미지 만들기 
-
-일반화된 OS VHD에서 관리되는 이미지를 만듭니다. 다음 값을 사용자 고유의 정보로 바꿉니다.
-
-
-먼저 일부 매개 변수를 설정합니다.
-
-```powershell
-$location = "East US" 
-$imageName = "myImage"
-```
-
-일반화된 OS VHD를 사용하여 이미지를 만듭니다.
-
-```powershell
+```azurepowershell-interactive
 $imageConfig = New-AzImageConfig `
    -Location $location
 $imageConfig = Set-AzImageOsDisk `
    -Image $imageConfig `
-   -OsType Windows `
    -OsState Generalized `
-   -BlobUri $urlOfUploadedImageVhd `
-   -DiskSizeGB 20
-New-AzImage `
+   -OsType Windows `
+   -ManagedDiskId $disk.Id
+```
+
+이미지를 만듭니다.
+
+```azurepowershell-interactive
+$image = New-AzImage `
    -ImageName $imageName `
    -ResourceGroupName $rgName `
    -Image $imageConfig
 ```
-
 
 ## <a name="create-the-vm"></a>VM 만들기
 
@@ -154,7 +100,7 @@ New-AzImage `
 New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
-    -ImageName $imageName `
+    -Image $image.Id `
     -Location $location `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `

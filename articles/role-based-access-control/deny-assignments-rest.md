@@ -1,6 +1,6 @@
 ---
-title: REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열 - Azure | Microsoft Docs
-description: Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 및 REST API를 사용하여 사용자, 그룹 및 애플리케이션에 대한 거부 할당을 나열하는 방법을 알아봅니다.
+title: REST API를 사용 하 여 Azure deny 할당 나열-Azure RBAC
+description: REST API 및 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 및 응용 프로그램에 대 한 Azure 거부 할당을 나열 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -11,29 +11,28 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 03/13/2019
+ms.topic: how-to
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791914"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열
+# <a name="list-azure-deny-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure deny 할당 나열
 
-[거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이 문서에서는 목록에 REST API를 사용 하는 방법을 설명 할당을 거부 합니다.
+[Azure 거부 할당](deny-assignments.md) 은 사용자가 역할 할당을 통해 액세스 권한을 부여 하는 경우에도 특정 Azure 리소스 작업을 수행 하지 못하도록 차단 합니다. 이 문서에서는 REST API를 사용 하 여 거부 할당을 나열 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 현재 자체 거부 할당을 추가할 수 있는 유일한 방법은 Azure Blueprints를 사용하는 것입니다. 자세한 내용은 [Azure Blueprints 리소스 잠금으로 새 리소스 보호](../governance/blueprints/tutorials/protect-new-resources.md)를 참조하세요.
+> 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 대 한 자세한 내용은 [Azure 거부 할당](deny-assignments.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
+거부 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
-- `Microsoft.Authorization/denyAssignments/read` 대부분의 포함 된 사용 권한 [Azure 리소스에 대 한 기본 제공 역할](built-in-roles.md)입니다.
+- `Microsoft.Authorization/denyAssignments/read`사용 권한은 대부분의 [Azure 기본 제공 역할](built-in-roles.md)에 포함 되어 있습니다.
 
 ## <a name="list-a-single-deny-assignment"></a>단일 거부 할당 나열
 
@@ -45,11 +44,12 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
-    | 범위 | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | 구독 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
+    > [!div class="mx-tableFixed"]
+    > | Scope | 형식 |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{deny-assignment-id}* 를 검색하려는 거부 할당 식별자로 바꿉니다.
 
@@ -69,23 +69,28 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
-    | 범위 | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | 구독 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
+    > [!div class="mx-tableFixed"]
+    > | Scope | 형식 |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{filter}* 를 거부 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다.
 
-    | 필터 | 설명 |
-    | --- | --- |
-    | (필터링 안 함) | 지정된 범위, 그 위 및 그 아래에 있는 모든 거부 할당을 나열합니다. |
-    | `$filter=atScope()` | 지정된 범위 및 그 위에 있는 거부 할당만 나열합니다. 하위 범위에 있는 거부 할당을 포함하지 않습니다. |
-    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | 지정된 이름의 거부 할당을 나열합니다. |
+    > [!div class="mx-tableFixed"]
+    > | Assert | 설명 |
+    > | --- | --- |
+    > | (필터링 안 함) | 지정 된 범위, 위와 아래의 모든 거부 할당을 나열 합니다. |
+    > | `$filter=atScope()` | 지정 된 범위 이상에 대해서만 거부 할당을 나열 합니다. 하위 범위에 있는 거부 할당을 포함하지 않습니다. |
+    > | `$filter=assignedTo('{objectId}')` | 지정 된 사용자 또는 서비스 주체에 대 한 거부 할당을 나열 합니다.<br/>사용자가 거부 할당을 포함 하는 그룹의 구성원 인 경우 해당 거부 할당도 나열 됩니다. 이 필터는 그룹에 대해 전이적입니다. 즉, 사용자가 그룹의 구성원이 고 해당 그룹이 거부 할당이 있는 다른 그룹의 멤버인 경우에도 해당 거부 할당이 나열 됩니다.<br/>이 필터는 사용자 또는 서비스 사용자의 개체 ID만 허용 합니다. 그룹의 개체 ID를 전달할 수 없습니다. |
+    > | `$filter=atScope()+and+assignedTo('{objectId}')` | 지정 된 사용자 또는 서비스 주체와 지정 된 범위에서 거부 할당을 나열 합니다. |
+    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | 지정 된 이름의 거부 할당을 나열 합니다. |
+    > | `$filter=principalId+eq+'{objectId}'` | 지정 된 사용자, 그룹 또는 서비스 사용자에 대 한 거부 할당을 나열 합니다. |
 
 ## <a name="list-deny-assignments-at-the-root-scope-"></a>루트 범위(/)에 있는 거부 할당을 나열합니다.
 
-1. [Azure Active Directory의 전역 관리자에 대한 액세스 권한 상승](elevate-access-global-admin.md)에 설명된 대로 액세스 권한을 상승시킵니다.
+1. [모든 Azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한 상승](elevate-access-global-admin.md)에 설명 된 대로 액세스 권한을 상승 시킵니다.
 
 1. 다음 요청을 사용합니다.
 
@@ -95,15 +100,16 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
 1. *{filter}* 를 거부 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다. 필터가 필요합니다.
 
-    | 필터 | 설명 |
-    | --- | --- |
-    | `$filter=atScope()` | 루트 범위에 대한 거부 할당만 나열합니다. 하위 범위에 있는 거부 할당을 포함하지 않습니다. |
-    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | 지정된 이름의 거부 할당을 나열합니다. |
+    > [!div class="mx-tableFixed"]
+    > | Assert | 설명 |
+    > | --- | --- |
+    > | `$filter=atScope()` | 루트 범위에 대한 거부 할당만 나열합니다. 하위 범위에 있는 거부 할당을 포함하지 않습니다. |
+    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | 지정된 이름의 거부 할당을 나열합니다. |
 
 1. 상승된 액세스 권한을 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 리소스에 대한 거부 할당 이해](deny-assignments.md)
-- [Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승](elevate-access-global-admin.md)
+- [Azure 거부 할당 이해](deny-assignments.md)
+- [모든 Azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한 상승](elevate-access-global-admin.md)
 - [Azure REST API 참조](/rest/api/azure/)

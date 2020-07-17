@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Node.js를 사용하여 Bing Custom Search 엔드포인트 호출 | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Node.js로 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다.
 services: cognitive-services
 author: aahill
@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/04/2018
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 65b0e6e9fb6f04d4536b642fe58da4e6c0f1aa69
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 34d64db9caefd26adc91471ed67e528a6e3196dc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336584"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199831"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Custom Search 엔드포인트 호출
 
-이 빠른 시작을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다. 이 애플리케이션은 JavaScript로 작성되지만 Bing Custom Search API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js)에 제공됩니다.
+이 빠른 시작을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청하는 방법에 대해 알아봅니다. 이 애플리케이션은 JavaScript로 작성되지만 Bing Custom Search API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js)에 제공됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Bing Custom Search 인스턴스 [빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)에서 자세한 내용을 참조하세요.
+- Bing Custom Search 인스턴스 자세한 내용은 [빠른 시작: 첫 번째 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
 
-- [Node.JS](https://www.nodejs.org/)
+- [Node.js JavaScript 런타임](https://www.nodejs.org/).
 
-- [JavaScript 요청 라이브러리](https://github.com/request/request)
+- [JavaScript 요청 라이브러리](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-1. 즐겨 찾는 IDE 또는 편집기에서 새 JavaScript 파일을 만들고 요청 라이브러리에 대해 `require()` 문을 추가합니다. 구독 키, 사용자 지정 구성 ID 및 검색 용어에 대한 변수를 만듭니다. 
+- 즐겨 찾는 IDE 또는 편집기에서 새 JavaScript 파일을 만들고 요청 라이브러리에 대해 `require()` 문을 추가합니다. 구독 키, 사용자 지정 구성 ID 및 검색어에 대한 변수를 만듭니다.
 
     ```javascript
     var request = require("request");
@@ -45,7 +45,7 @@ ms.locfileid: "57336584"
 
 ## <a name="send-and-receive-a-search-request"></a>검색 요청 보내고 받기 
 
-1. 요청에서 전송되는 정보를 저장할 변수를 만듭니다. 검색 용어를 `q=` 쿼리 매개 변수에 추가하고 검색 인스턴스의 사용자 지정 구성 ID를 `customconfig=`에 추가하여 요청 URL을 생성합니다. 매개 변수를 `&` 문자로 분리합니다. 
+1. 요청에서 전송되는 정보를 저장할 변수를 만듭니다. 검색어를 `q=` 쿼리 매개 변수에 추가하고 검색 인스턴스의 사용자 지정 구성 ID를 `customconfig=` 매개 변수에 추가하여 요청 URL을 구성합니다. 매개 변수를 앰퍼샌드(`&`)로 분리합니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```javascript
     var info = {

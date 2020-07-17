@@ -1,32 +1,24 @@
 ---
-title: Notebooks에 로그인
+title: Azure Notebooks 미리 보기에 로그인
 description: Microsoft 계정 또는 회사/학교 계정을 사용하여 Azure Notebooks에 대한 사용자 계정을 구성합니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-ms.assetid: 0d657fcc-26bc-41dd-abf0-3e5cfd66e0e0
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2019
-ms.author: kraigb
-ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 929a21785b5b48c81c2d2016874feed61021d3c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60632142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832188"
 ---
-# <a name="your-user-account-for-azure-notebooks"></a>Azure Notebooks에 대한 사용자 계정
+# <a name="your-user-account-for-azure-notebooks-preview"></a>Azure Notebooks 미리 보기용 사용자 계정
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 사용자 계정에 로그인하여 또는 로그인하지 않고 Azure Notebooks를 사용할 수 있습니다.
 
 - 로그인하지 않을 경우 Notebook을 만들고 실행할 수 있지만 프로젝트의 일부로 Notebook 또는 데이터 파일을 유지할 수는 없습니다. 예를 들어 Azure Notebook에 대한 링크를 받은 사람은 로그인하지 않고 Notebook을 사용할 수 있습니다.
 - 로그인하면 Azure Notebooks가 모든 프로젝트를 계정과 함께 유지합니다. 또한 로그인한 사용자는 사용자 ID를 통해 프로젝트 및 Notebook을 다른 사용자와 공유할 수 있습니다.
-  - Azure Notebooks에 사용되는 계정을 Azure 구독과 연결하면 보다 강력한 서버에서 Notebook을 실행하고, 개인용 Notebook을 만들고, 개별 사용자에 대한 권한을 노트북에 부여하는 등의 추가 혜택을 누릴 수 있습니다.
+- Azure Notebooks에 사용되는 계정을 Azure 구독과 연결하면 보다 강력한 서버에서 Notebook을 실행하고, 프라이빗 Notebook을 만들고, 개별 사용자에 대한 권한을 노트북에 부여하는 등의 추가 혜택을 누릴 수 있습니다.
 
 Azure Notebooks에 로그인하려면 Microsoft 계정 또는 "회사 또는 학교" 계정이 필요합니다. Notebook 페이지의 오른쪽 위에서 **로그인** 명령을 선택하면 계정을 입력하라는 메시지가 표시됩니다.
 
@@ -43,7 +35,7 @@ Microsoft 계정은 Windows, Azure, outlook.com, OneDrive, XBox Live 등의 Micr
 ![새 Microsoft 계정을 만드는 명령](media/accounts/create-new-microsoft-account.png)
 
 > [!Note]
-> 연결 된 계정에 이미 있는 전자 메일 주소를 사용 하 여 새 계정을 만들려는 경우 표시 될 수 있습니다 메시지를 "있습니다 수 없습니다. 여기에서 등록 작업을 사용 하 여 회사 또는 학교 전자 메일 주소입니다. Gmail 이나 yahoo! 같은 개인 전자 메일을 사용 하거나 새 Outlook 전자 메일을 받습니다. " 이 경우 새 계정을 만들지 않고 회사 전자 메일 주소를 로그인을 시도 합니다.
+> 이미 연결된 계정이 있는 이메일 주소로 새 계정을 만들려는 경우 "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." (회사 또는 학교 이메일 주소로 가입할 수 없습니다. Gmail이나 Yahoo! 같은 개인 이메일을 사용하거나 새 Outlook 이메일을 만드세요.)라는 메시지가 표시될 수 있습니다. 이 경우 새 계정을 만들지 않고 회사 이메일 주소로 로그인해 보세요.
 
 자녀 계정의 경우 Azure Notebooks 액세스가 기본적으로 차단됩니다. 자녀 계정으로 로그인하면 아래 오류가 표시됩니다.
 
@@ -61,7 +53,7 @@ Microsoft 계정은 Windows, Azure, outlook.com, OneDrive, XBox Live 등의 Micr
 
 ## <a name="work-or-school-accounts"></a>회사 또는 학교 계정
 
-회사 또는 학교 계정은 조직의 관리자가 Office 365 같은 Microsoft 클라우드 서비스에 멤버 액세스를 사용하기 위해 생성되며, 도메인 조인 컴퓨터의 Windows에 로그인하는 계정으로도 사용됩니다. 회사 또는 학교 계정은 일반적으로 any-user@contoso.com처럼 조직의 이메일 주소를 사용합니다.
+회사 또는 학교 계정은 조직의 구성원이 Microsoft 365와 같은 Microsoft 클라우드 서비스에 액세스 하 고 도메인에 가입 된 컴퓨터에서 Windows에 로그인 하는 데 사용할 수 있도록 하는 조직 관리자가 만듭니다. 회사 또는 학교 계정은 일반적으로 any-user@contoso.com처럼 조직의 이메일 주소를 사용합니다.
 
 Azure Notebooks는 계정의 이메일 주소, 사용자의 브라우저 정보 등의 정보를 수집하거나 사용하므로(하지만 공개하지는 않음) 회사 또는 학교 계정으로 Azure Notebooks에 로그인하려면 관리자의 동의가 필요합니다. (브라우저 데이터는 사용량에 따라 기능을 최적화하는 데 사용됩니다.)
 

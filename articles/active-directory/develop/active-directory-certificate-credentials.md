@@ -1,38 +1,33 @@
 ---
-title: Azure AD의 인증서 자격 증명 | Microsoft Docs
+title: Microsoft ID 플랫폼 인증서 자격 증명
+titleSuffix: Microsoft identity platform
 description: 이 문서에서는 애플리케이션 인증을 위한 인증서 자격 증명의 등록 및 사용에 대해 설명합니다.
 services: active-directory
-documentationcenter: .net
-author: rwike77
+author: hpsin
 manager: CelesteDG
-editor: ''
-ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/24/2018
-ms.author: ryanwi
+ms.topic: conceptual
+ms.date: 12/18/2019
+ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a499ac12bcf6f4aee671eb209b709390ca6139
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 47a35f70251622674205a28af9b7cc64132d0530
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545130"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690277"
 ---
-# <a name="certificate-credentials-for-application-authentication"></a>애플리케이션 인증을 위한 인증서 자격 증명
+# <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명
 
-Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름([v1.0](v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) 및 On-Behalf-Of 흐름([v1.0](v1-oauth2-on-behalf-of-flow.md), [v2.0](v2-oauth2-on-behalf-of-flow.md))에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
+Microsoft ID 플랫폼을 사용하면 애플리케이션에서(예: [OAuth 2.0 클라이언트 자격 증명 부여 흐름 v2.0](v2-oauth2-client-creds-grant-flow.md) 및 [On-Behalf-Of 흐름](v2-oauth2-on-behalf-of-flow.md)에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
 
 애플리케이션이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 애플리케이션에서 소유한 인증서로 서명된 JWT(JSON Web Token) 어설션입니다.
 
 ## <a name="assertion-format"></a>어설션 형식
-어설션을 계산하려면 선택한 언어로 많은 [JSON Web Token](https://jwt.ms/) 라이브러리 중 하나를 사용할 수 있습니다. 토큰에 의해 전달되는 정보는 다음과 같습니다.
+Microsoft ID 플랫폼. 어설션을 계산하려면 선택한 언어로 많은 [JSON Web Token](https://jwt.ms/) 라이브러리 중 하나를 사용할 수 있습니다. 토큰에 의해 전달되는 정보는 다음과 같습니다.
 
 ### <a name="header"></a>헤더
 
@@ -59,7 +54,7 @@ Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: O
 
 ## <a name="example-of-a-decoded-jwt-assertion"></a>디코딩된 JWT 어설션 예제
 
-```
+```JSON
 {
   "alg": "RS256",
   "typ": "JWT",
@@ -71,12 +66,11 @@ Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: O
   "exp": 1484593341,
   "iss": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05",
   "jti": "22b3bb26-e046-42df-9c96-65dbd72c1c81",
-  "nbf": 1484592741,  
+  "nbf": 1484592741,
   "sub": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05"
 }
 .
 "Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
-
 ```
 
 ## <a name="example-of-an-encoded-jwt-assertion"></a>인코딩된 JWT 어설션 예제
@@ -91,22 +85,21 @@ Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: O
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-## <a name="register-your-certificate-with-azure-ad"></a>Azure AD에 인증서 등록
+## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Microsoft ID 플랫폼에 인증서 등록
 
-다음 방법 중 하나를 사용하여 Azure Portal을 통해 Azure AD에서 클라이언트 애플리케이션과 인증서 자격 증명을 연결할 수 있습니다.
+다음 방법 중 하나를 사용하여 Azure Portal을 통해 Microsoft ID 플랫폼에서 클라이언트 애플리케이션과 인증서 자격 증명을 연결할 수 있습니다.
 
 ### <a name="uploading-the-certificate-file"></a>인증서 파일 업로드
 
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
-1. **설정 > 키**를 선택한 다음, **공개 키 업로드**를 선택합니다. 
-2. 업로드하려는 인증서 파일을 선택합니다.
-3. **저장**을 선택합니다. 
-   
-   일단 저장하면 인증서가 업로드되고 지문, 시작 날짜 및 만료 값이 표시됩니다. 
+1. **인증서 및 비밀**을 선택합니다.
+2. **인증서 업로드**를 클릭하고 업로드할 인증서 파일을 선택합니다.
+3. **추가**를 클릭합니다.
+  인증서가 업로드되고 지문, 시작 날짜 및 만료 값이 표시됩니다.
 
 ### <a name="updating-the-application-manifest"></a>애플리케이션 매니페스트 업데이트
 
-인증서가 있을 때 다음을 계산해야 합니다.
+인증서가 있을 때 다음을 컴퓨팅해야 합니다.
 
 - `$base64Thumbprint` - 인증서 해시의 base64 인코딩
 - `$base64Value` - 인증서 원시 데이터의 해시의 base64 인코딩
@@ -114,10 +107,10 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 애플리케이션 매니페스트에서 키를 식별하는 GUID도 제공해야 합니다(`$keyId`).
 
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
-1. 애플리케이션 매니페스트를 엽니다.
+1. **매니페스트**를 선택하여 애플리케이션 매니페스트를 엽니다.
 2. 다음 스키마를 사용해서 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다.
 
-   ```
+   ```JSON
    "keyCredentials": [
        {
            "customKeyIdentifier": "$base64Thumbprint",
@@ -128,10 +121,13 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
        }
    ]
    ```
-3. 애플리케이션 매니페스트에 편집 내용을 저장한 다음, 매니페스트를 Azure AD에 업로드합니다. 
+3. 애플리케이션 매니페스트에 편집 내용을 저장한 다음, 매니페스트를 Microsoft ID 플랫폼에 업로드합니다.
 
    `keyCredentials` 속성은 다중 값이므로 풍부한 키 관리를 위해 여러 인증서를 업로드할 수 있습니다.
-   
+
 ## <a name="code-sample"></a>코드 샘플
 
-[인증서로 디먼 앱에서 Azure AD에 인증](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)의 코드 샘플은 애플리케이션에서 인증에 자체 자격 증명을 사용하는 방법을 보여줍니다. 또한 `New-SelfSignedCertificate` Powershell 명령을 사용하여 [자체 서명된 인증서를 만드는](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) 방법을 보여줍니다. [앱 만들기 스크립트](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md)를 활용 및 사용하여 인증서를 만들고, 지문 등을 계산할 수도 있습니다.
+> [!NOTE]
+> X5T 헤더는 인증서의 해시를 통해 기본 64 문자열로 변환하여 계산해야 합니다. C#에서 이 작업을 수행하는 코드는 `System.Convert.ToBase64String(cert.GetCertHash());`입니다.
+
+코드 샘플 [Microsoft ID 플랫폼을 사용하는 .NET Core 디먼 콘솔 애플리케이션](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)은 인증에 자체 자격 증명을 사용하는 방법을 보여 줍니다. 또한 `New-SelfSignedCertificate` Powershell 명령을 사용하여 [자체 서명된 인증서를 만드는](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) 방법을 보여줍니다. [앱 만들기 스크립트](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md)를 활용 및 사용하여 인증서를 만들고, 지문 등을 계산할 수도 있습니다.

@@ -6,20 +6,20 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: f728baedf9e325f224ce52e64325064f553d2671
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4848bdceef084d587c839f2af93d1ff5a43c850b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60893705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260578"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>HDInsight를 통해 YARN에서 Spark의 Azure Cosmos DB Cassandra API에 액세스
 
-이 문서에서는 spark 셸에서 HDInsight-Spark를 통해 YARN에서 Spark의 Azure Cosmos DB Cassandra API에 액세스하는 방법을 알아봅니다. HDInsight는 HDFS에 대한 개체 저장소를 활용하는 Azure의 Microsoft Hortonworks Hadoop PaaS로, [Spark](../hdinsight/spark/apache-spark-overview.md)를 포함한 여러 유형으로 제공됩니다.  이 문서의 내용은 HDInsight-Spark를 참조하지만, 모든 Hadoop 배포에 적용할 수 있습니다.  
+이 문서에서는 spark 셸에서 HDInsight-Spark를 통해 YARN에서 Spark의 Azure Cosmos DB Cassandra API에 액세스하는 방법을 알아봅니다. HDInsight는 HDFS에 대한 개체 스토리지를 활용하는 Azure의 Microsoft Hortonworks Hadoop PaaS로, [Spark](../hdinsight/spark/apache-spark-overview.md)를 포함한 여러 유형으로 제공됩니다.  이 문서의 내용은 HDInsight-Spark를 참조하지만, 모든 Hadoop 배포에 적용할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Cosmos DB Cassandra API 프로비전](create-cassandra-dotnet.md#create-a-database-account)
 
@@ -29,7 +29,7 @@ ms.locfileid: "60893705"
 
 * [Cassandra API 사용을 위한 코드 샘플 검토](cassandra-spark-generic.md#next-steps)
 
-* [원하는 경우 cqlsh를 사용하여 유효성 검사](cassandra-spark-generic.md##connecting-to-azure-cosmos-db-cassandra-api-from-spark)
+* [원하는 경우 cqlsh를 사용하여 유효성 검사](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
 * **Spark2에서 Cassandra API 구성** - Cassandra용 Spark 커넥터에서는 Spark 컨텍스트의 일부분으로 Cassandra 연결 세부 정보를 초기화해야 합니다. Jupyter Notebook을 시작할 때 spark 세션 및 컨텍스트가 이미 초기화되므로, HDInsight 기본 Jupyter Notebook 시작의 일부로 모든 구성 집합이 완료되지 않는 한 Spark 컨텍스트를 중지하고 다시 초기화하지 않는 것이 좋습니다. 해결 방법은 Cassandra 인스턴스 세부 정보를 Spark2 서비스 구성인 Ambari에 직접 추가하는 것입니다. 이는 Spark2 서비스를 다시 시작해야 하는 클러스터별 일회성 작업입니다.
  

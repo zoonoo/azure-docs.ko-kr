@@ -1,85 +1,103 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Event Grid 설명서
+summary: Azure Event Grid를 사용하여 Azure와 비 Azure 서비스 모두에서 거의 실시간으로 관련 이벤트에 대응하는 방법을 알아봅니다.
 metadata:
-  title: 'Azure Event Grid 설명서 - 자습서, API 참조'
-  description: Azure Event Grid를 사용하여 거의 실시간으로 Azure와 비 Azure 서비스에서 관련된 이벤트에 대응할 수 있습니다.
+  title: Azure Event Grid 설명서
+  description: Azure Event Grid를 사용하여 Azure와 비 Azure 서비스 모두에서 거의 실시간으로 관련 이벤트에 대응하는 방법을 알아봅니다.
   services: event-grid
-  author: czeumault
-  manager: carolz
   ms.service: event-grid
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.date: 08/10/2017
-  ms.author: carolz
-abstract:
-  description: 'Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소비를 허용하는 완전히 관리되는 지능형 이벤트 라우팅 서비스입니다. Azure Event Grid를 사용하여 거의 실시간으로 Azure와 비 Azure 서비스에서 관련된 이벤트에 대응할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Event Grid를 사용하는 방법을 알아봅니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 사용자 지정 이벤트를 만들고 구독하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: Azure CLI
-            href: /azure/event-grid/custom-event-quickstart
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/event-grid/custom-event-quickstart-powershell
-          - image:
-              src: /azure/event-grid/media/index/portal.svg
-            text: Azure Portal
-            href: /azure/event-grid/custom-event-quickstart-portal
-      - type: paragraph
-        text: Blob Storage 이벤트를 라우팅하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: Azure CLI
-            href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 이벤트에 대응하는 애플리케이션을 개발하는 방법을 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">논리 앱을 사용하여 VM에 대한 변경 내용 모니터링</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">업로드된 이미지의 크기 조정</a>
-          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Azure Automation과 Event Grid 통합</a>
-  - title: Microsoft Learn을 통해 기술 쌓기
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure에서 서비스를 느슨하게 연결하는 메시징 모델 선택
-            href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-            image:
-              src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
-              href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-event-grid">더 많은 대화형 학습 보기...</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/az.eventgrid">PowerShell</a></p>
-          - title: REST API
-            html: <p><a href="/rest/api/eventgrid">REST (영문)</a></p>
-          - title: 스키마
-            html: <p><a href="/azure/event-grid/subscription-creation-schema ">구독 스키마</a></p><p><a href="/azure/event-grid/event-schema">이벤트 스키마</a></p>
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 09/06/2019
+  ms.openlocfilehash: 095d94b09ad7cfd6e47e7322401db0bbf6ff8a03
+  ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/15/2020
+  ms.locfileid: "81393213"
+landingContent:
+- title: Event Grid 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Event Grid란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Event Grid 개념
+      url: concepts.md
+    - text: 이벤트 원본
+      url: overview.md#event-sources
+    - text: 이벤트 처리기
+      url: event-handlers.md
+    - text: 이벤트 필터
+      url: event-filtering.md
+- title: 시나리오
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Blob 스토리지 이벤트를 웹 엔드포인트로 라우팅
+      url: blob-event-quickstart-portal.md
+    - text: 이벤트 처리기로서의 Azure Functions
+      url: custom-event-to-function.md
+    - text: 이벤트 처리기로서의 Queue 스토리지
+      url: custom-event-to-queue-storage.md
+    - text: 이벤트 처리기로서의 Event Hubs
+      url: custom-event-to-eventhub.md
+    - text: 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
+      url: custom-event-quickstart-portal.md
+    - text: 프라이빗 컨테이너 레지스트리에서 이벤트 보내기
+      url: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - linkListType: tutorial
+    links:
+    - text: VM 변경 시 이메일 보내기
+      url: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - text: 업로드된 이미지의 크기 조정
+      url: resize-images-on-storage-blob-upload-event.md
+    - text: Automation Runbook 트리거
+      url: ensure-tags-exists-on-new-virtual-machines.md
+    - text: IoT Hub 디바이스 추가 시 이메일 보내기
+      url: publish-iot-hub-events-to-logic-apps.md
+    - text: Service Bus 이벤트에 응답
+      url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - text: 이벤트 허브에서 데이터 스트리밍
+      url: event-grid-event-hubs-integration.md
+    - text: Media Services 이벤트 라우팅
+      url: ..//media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - text: 하이브리드 연결로 라우팅
+      url: custom-event-to-hybrid-connection.md
+- title: 고급 개념
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 및 인증
+      url: security-authentication.md
+    - text: 배달 및 다시 시도
+      url: delivery-and-retry.md
+    - text: 이벤트 도메인
+      url: event-domains.md
+    - text: 지역 재해 복구
+      url: geo-disaster-recovery.md
+  - linkListType: architecture
+    links:
+    - text: 큐 및 이벤트에 대한 참조 아키텍처
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
+- title: 사용자 지정
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
+      url: custom-event-quickstart-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 토픽 만들기
+      url: scripts/event-grid-cli-create-custom-topic.md
+    - text: 사용자 지정 항목 구독
+      url: scripts/event-grid-cli-subscribe-custom-topic.md
+    - text: 사용자 지정 토픽에 게시
+      url: post-to-custom-topic.md
+    - text: Event Grid 스키마에 사용자 지정 필드 매핑
+      url: input-mappings.md

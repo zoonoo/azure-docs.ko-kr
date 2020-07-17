@@ -1,19 +1,18 @@
 ---
-title: 빠른 시작 - Azure Container Instances에 Docker 컨테이너 배포 - CLI
+title: 빠른 시작 - 컨테이너 인스턴스에 Docker 컨테이너 배포 - Azure CLI
 description: 이 빠른 시작에서는 Azure CLI를 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
-services: container-instances
-author: dlepow
-ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.author: danlep
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 8e504a081f8685107871aed920077dd75a70dfa7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.custom:
+- seo-python-october2019
+- seodec18
+- mvc
+ms.openlocfilehash: e5cad7d9141963e5062423545f7e5b94f0575152
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368513"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "78252196"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -21,9 +20,9 @@ Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테
 
 이 빠른 시작에서는 Azure CLI를 사용하여 격리된 Docker 컨테이너를 배포하고 해당 애플리케이션을 정규화된 도메인 이름(FQDN)으로 사용 가능하게 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 컨테이너에서 실행 중인 애플리케이션을 찾아볼 수 있습니다.
 
-![Azure Container Instances에 배포되어 브라우저에 표시된 응용 프로그램][aci-app-browser]
+![브라우저에서 Azure Container Instances에 배포된 앱 보기][aci-app-browser]
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -59,8 +58,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query "{
 
 명령을 실행하면 컨테이너의 FQDN(정규화된 도메인 이름) 및 해당 프로비전 상태가 표시됩니다.
 
-```console
-$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+```output
 FQDN                               ProvisioningState
 ---------------------------------  -------------------
 aci-demo.eastus.azurecontainer.io  Succeeded
@@ -68,7 +66,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 컨테이너의 `ProvisioningState`가 **Succeeded**(성공)이면 브라우저에서 해당 FQDN으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 애플리케이션이 Azure에 성공적으로 배포되었습니다.
 
-![Azure 컨테이너 인스턴스에서 실행되는 애플리케이션을 보여주는 브라우저 스크린샷][aci-app-browser]
+![브라우저에서 Azure Container Instances에 배포된 앱 보기][aci-app-browser]
 
 처음에 애플리케이션이 표시되지 않으면 DNS가 전파되는 동안 잠시 기다린 후에 브라우저를 새로 고쳐야 할 수 있습니다.
 
@@ -84,8 +82,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 출력은 컨테이너의 로그를 표시하며, 브라우저에서 애플리케이션을 볼 때 생성된 HTTP GET 요청을 표시해야 합니다.
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
+```output
 listening on port 80
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:43:53 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
@@ -102,10 +99,9 @@ listening on port 80
 az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
-연결되면 브라우저를 몇 번 새로 고쳐 추가 출력을 생성합니다. 완료되면 `Control+C`를 사용하여 콘솔을 분리합니다. 다음과 비슷한 결과가 나타나야 합니다.
+연결되면 브라우저를 몇 번 새로 고쳐 추가 출력을 생성합니다. 완료되면 `Control+C`를 사용하여 콘솔을 분리합니다. 다음과 비슷한 내용이 출력됩니다.
 
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
+```output
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2019-03-21 17:27:20+00:00) pulling image "mcr.microsoft.com/azuredocs/aci-helloworld"
 (count: 1) (last timestamp: 2019-03-21 17:27:24+00:00) Successfully pulled image "mcr.microsoft.com/azuredocs/aci-helloworld"
@@ -146,7 +142,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 공용 Microsoft 이미지를 사용하여 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 빌드하고 개인 Azure 컨테이너 레지스트리에서 배포하려면 Azure Container Instances 자습서로 계속 진행하세요.
+이 빠른 시작에서는 공용 Microsoft 이미지를 사용하여 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 빌드하고 프라이빗 Azure 컨테이너 레지스트리에서 배포하려면 Azure Container Instances 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서](./container-instances-tutorial-prepare-app.md)
@@ -154,7 +150,7 @@ az group delete --name myResourceGroup
 Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사용하려면 [AKS(Azure Kubernetes Service)][container-service] 빠른 시작을 참조하세요.
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

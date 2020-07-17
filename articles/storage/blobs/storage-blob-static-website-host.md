@@ -1,36 +1,38 @@
 ---
 title: '자습서: Blob Storage에서 정적 웹 사이트 호스트 - Azure Storage'
 description: 정적 웹 사이트를 호스팅하기 위해 스토리지 계정을 구성하고 Azure Storage에 정적 웹 사이트를 배포하는 방법을 알아봅니다.
-services: storage
 author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 1/22/2020
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: seodec18
-ms.openlocfilehash: e3f2dd74d00b36016549cd33d76b866de241d977
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.reviewer: dineshm
+ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148492"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "78330398"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # <a name="tutorial-host-a-static-website-on-blob-storage"></a>자습서: Blob Storage에서 정적 웹 사이트 호스트
 
-이 자습서는 시리즈의 1부입니다. 여기에서는 정적 웹 사이트를 빌드하고 Azure Storage에 배포하는 방법을 알아봅니다. 작업을 완료하면 사용자가 공개적으로 액세스할 수 있는 정적 웹 사이트가 생성됩니다. 
+이 자습서에서는 정적 웹 사이트를 빌드하고 Azure Storage에 배포하는 방법을 알아봅니다. 작업을 완료하면 사용자가 공개적으로 액세스할 수 있는 정적 웹 사이트가 생성됩니다. 
 
-시리즈 1부에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 정적 웹 사이트 호스팅 구성
 > * Hello World 웹 사이트 배포
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+
+> [!NOTE] 
+> 범용 v2 표준 스토리지 계정을 만들어야 합니다. 정적 웹 사이트는 다른 유형의 스토리지 계정에서 사용할 수 없습니다.
 
 이 자습서에서는 프로그래머를 위한 무료 도구인 [Visual Studio Code](https://code.visualstudio.com/download)를 사용하여 정적 웹 사이트를 빌드하고 Azure Storage 계정에 배포합니다.
 
@@ -91,15 +93,13 @@ Visual Studio Code를 설치한 후에 Azure Storage 미리 보기 확장을 설
 
 이제 Visual Studio Code에서는 웹 엔드포인트에 파일을 업로드하고 성공 상태 표시줄을 표시하게 됩니다. 웹 사이트를 시작하여 Azure에서 확인합니다.
 
-![Azure에서 정적 웹 사이트 배포 확인](media/storage-blob-static-website-host/view-static-website-endpoint.png)
-
 이 자습서를 완료하고 정적 웹 사이트를 Azure에 배포했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서의 1부에서는 정적 웹 사이트를 호스팅하기 위해 Azure Storage 계정을 구성하는 방법 및 정적 웹 사이트를 만들고 Azure 엔드포인트에 배포하는 방법을 알아보았습니다.
+이 자습서에서는 정적 웹 사이트를 호스팅하기 위해 Azure Storage 계정을 구성하는 방법 및 정적 웹 사이트를 만들고 Azure 엔드포인트에 배포하는 방법을 알아보았습니다.
 
-이제 2부에서는 Azure CDN을 사용하여 정적 웹 사이트에서 SSL과 함께 사용자 지정 도메인을 구성합니다.
+다음으로 정적 웹 사이트에서 사용자 지정 도메인을 구성하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure CDN을 사용하여 정적 웹 사이트에서 SSL과 함께 사용자 지정 도메인을 사용하도록 설정](storage-blob-static-website-custom-domain.md)
+> [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)

@@ -1,18 +1,16 @@
 ---
 title: Azure Data Catalog에서 지원되는 데이터 원본
-description: 이 문서에서는 현재 지원되는 데이터 원본의 사양을 나열합니다.
-services: data-catalog
+description: 이 문서에서는 Azure Data Catalog에 대해 현재 지원 되는 데이터 원본의 사양을 나열 합니다.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.date: 08/01/2019
+ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65775676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78898158"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
@@ -26,19 +24,11 @@ ms.locfileid: "65775676"
        <td><b>API</b></td>
        <td><b>수동 입력</b></td>
        <td><b>등록 도구</b></td>
-       <td><b>도구에서 열기</b></td>
-       <td><b>참고 사항</b></td>
+       <td><b>열기 도구</b></td>
+       <td><b>참고</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store 디렉터리 (Gen 1만)</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Azure Data Lake Store 파일 (Gen 1만)</td>
+      <td>Azure Data Lake Store directory (Gen 1만 해당)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -46,7 +36,15 @@ ms.locfileid: "65775676"
       <td></td>
     </tr>
     <tr>
-      <td>Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.</td>
+      <td>Azure Data Lake Store 파일 (Gen 1만 해당)</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Azure Blob 스토리지</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -125,7 +123,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 이상 버전.</td>
     </tr>
     <tr>
       <td>Oracle 데이터베이스 뷰</td>
@@ -133,7 +131,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 이상 버전.</td>
     </tr>
     <tr>
       <td>기타(일반 자산)</td>
@@ -152,7 +150,7 @@ ms.locfileid: "65775676"
       <td></td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse 뷰</td>
+      <td>Azure SQL Data Warehouse 뷰</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -165,7 +163,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
@@ -173,7 +171,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 측정값</td>
@@ -181,7 +179,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 테이블</td>
@@ -189,7 +187,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services 보고서</td>
@@ -197,7 +195,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>브라우저</td>
-      <td>기본 모드 서버에만 해당. SharePoint 모드는 지원되지 않음.</td>
+      <td>기본 모드 서버에만 해당. SharePoint 모드는 지원되지 않음. SQL Server 2008 이상 버전에만 해당</td>
     </tr>
     <tr>
       <td>SQL Server 테이블</td>
@@ -205,7 +203,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server 데이터 도구</td>
-      <td></td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>SQL Server 뷰</td>
@@ -213,7 +211,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server 데이터 도구</td>
-      <td></td>
+      <td>2008 이상 버전을 SQL Server 합니다.</td>
     </tr>
     <tr>
       <td>Teradata 테이블</td>
@@ -237,7 +235,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>영어로 작동합니다. 측정값은 지원 되지 않습니다.</td>
+      <td>영어로만 작동 합니다. 측정값이 지원 되지 않습니다.</td>
     </tr>
     <tr>
       <td>SAP HANA 뷰</td>
@@ -451,7 +449,7 @@ ms.locfileid: "65775676"
 <table>
     <tr>
        <td><b>원본 유형</b></td>
-       <td><b>자산 형식</b></td>
+       <td><b>자산 유형</b></td>
        <td><b>개체 유형</b></td>
        <td><b>DSL 구조<b></td>
     </tr>

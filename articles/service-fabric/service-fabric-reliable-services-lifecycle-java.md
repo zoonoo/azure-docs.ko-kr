@@ -1,28 +1,20 @@
 ---
-title: Azure Service Fabric Reliable Services 수명 주기 | Microsoft Docs
-description: Service Fabric Reliable Services의 수명 주기 이벤트에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: java
+title: Azure Service Fabric Reliable Services 수명 주기
+description: 상태 저장 및 상태 비저장 서비스에 대 한 Java를 사용 하 여 Azure Service Fabric Reliable Services 응용 프로그램의 수명 주기 이벤트에 대해 알아봅니다.
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 36c1ff2ace944d84120bf456060c7504170a814c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b86f68126825f146a50ed21edf2acbda2b5181cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772944"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245180"
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services 수명 주기
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-services-lifecycle.md)
+> * [Windows의 c #](service-fabric-reliable-services-lifecycle.md)
 > * [Linux에서 Java](service-fabric-reliable-services-lifecycle-java.md)
 >
 >
@@ -123,7 +115,7 @@ Service Fabric은 다양한 이유로 상태 저장 서비스의 주 복제본�
 
 서비스가 상태 저장 서비스이기 때문에 또한 서비스에 [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)가 사용될 가능성이 높습니다. Service Fabric에서 주 복제본이 강등될 때 처음 발생하는 상황 중 하나는 기본 상태에 대한 쓰기 액세스가 철회되는 것입니다. 그 결과 서비스 수명 주기에 영향을 줄 수 있는 두 번째 문제들이 발생합니다. 컬렉션에서는 타이밍 및 복제본이 이동되거나 종료되는지 여부에 따라 예외를 반환합니다. 이러한 예외를 올바르게 처리하는 것이 중요합니다. 
 
-Service Fabric으로 throw된 예외는 영구적[(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception)이거나 일시적[(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception)입니다. 영구적 예외는 로깅 및 throw해야 합니다. 일시적인 예외는 재시도 논리에 따라 재시도할 수 있습니다.
+Service Fabric에서 throw 되는 예외는 영구 [( `FabricException` )](/java/api/system.fabric.exception) 또는 임시 [( `FabricTransientException` )](/java/api/system.fabric.exception.fabrictransientexception)중 하나입니다. 영구적 예외는 로깅 및 throw해야 합니다. 일시적인 예외는 재시도 논리에 따라 재시도할 수 있습니다.
 
 Reliable Services 테스트 및 유효성 검사 중 중요한 부분은 서비스 수명 주기 이벤트와 함께 `ReliableCollections`를 사용할 때 발생하는 예외를 처리하는 것입니다. 서비스는 항상 부하 상태에서 실행하는 것이 좋습니다. 또한 프로덕션에 배포하기 전에 업그레이드 및 [Chaos 테스트](service-fabric-controlled-chaos.md)를 수행해야 합니다. 이러한 기본 단계는 서비스가 올바르게 구현되고, 수명 주기 이벤트가 올바르게 처리될 수 있도록 보장합니다.
 
@@ -138,4 +130,3 @@ Reliable Services 테스트 및 유효성 검사 중 중요한 부분은 서비�
 ## <a name="next-steps"></a>다음 단계
 * [Reliable Services 소개](service-fabric-reliable-services-introduction.md)
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start-java.md)
-

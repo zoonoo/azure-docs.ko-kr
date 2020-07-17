@@ -1,27 +1,18 @@
 ---
-title: Azure CLI를 사용하여 Linux VM에 데이터 디스크 추가 | Microsoft Docs
+title: Azure CLI를 사용 하 여 Linux VM에 데이터 디스크 추가
 description: Azure CLI를 사용하여 Linux VM에 영구 데이터 디스크를 추가하는 방법 알아보기
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
 manager: twooley
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.topic: article
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
+ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: rogarana
-ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 3f33fb09a4b6c19bae3c02ecc47dae193a3a6cb0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: eb18207c15007820bf93254886ab38a43bc5b48f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658343"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
 이 문서에서는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다.
@@ -35,7 +26,7 @@ VM에 새 빈 데이터 디스크를 추가하려는 경우 [az vm disk attach](
 az vm disk attach \
    -g myResourceGroup \
    --vm-name myVM \
-   --disk myDataDisk \
+   --name myDataDisk \
    --new \
    --size-gb 50
 ```
@@ -47,7 +38,7 @@ az vm disk attach \
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 
-az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
+az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 ```
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Linux VM에 연결하여 새 디스크 탑재
@@ -73,6 +64,9 @@ dmesg | grep SCSI
 [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
+
+> [!NOTE]
+> 배포판에 사용할 수 있는 최신 버전의 fdisk 또는 parted를 사용하는 것이 좋습니다.
 
 여기서 *sdc*는 원하는 디스크입니다. `parted`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이면 GPT 분할을 사용해야 하고, 2TiB 미만이면 MBR 또는 GPT 분할을 사용하면 됩니다. MBR 분할을 사용하는 경우 `fdisk`를 사용할 수 있습니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
 
@@ -123,7 +117,7 @@ The partition table has been altered!
 Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
-사용 된 커널 업데이트를 알아보려면 아래 명령의:
+다음 명령을 사용 하 여 커널을 업데이트 합니다.
 ```
 partprobe 
 ```
@@ -205,10 +199,10 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 >
 > *nofail* 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 Linux에 SSH를 사용할 수 없음](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)(영문)에 설명되어 있는 동작이 발생할 수 있습니다.
 >
-> Azure VM의 직렬 콘솔에서 부팅 오류가 발생 했습니다 fstab을 수정 하는 경우 VM에 대 한 콘솔 액세스에 사용할 수 있습니다. 자세한 내용은 합니다 [직렬 콘솔 설명서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)합니다.
+> Fstab를 수정 하 여 부팅 실패가 발생 한 경우 Azure VM 직렬 콘솔을 사용 하 여 VM에 대 한 콘솔 액세스를 사용할 수 있습니다. 자세한 내용은 [직렬 콘솔 설명서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)에서 확인할 수 있습니다.
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure에서 Linux에 대한 TRIM/UNMAP 지원
-일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 저장소에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.
+일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 스토리지에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
@@ -240,4 +234,4 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 ## <a name="next-steps"></a>다음 단계
 
 * Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](optimization.md) 권장 사항을 검토합니다.
-* 디스크를 추가하여 저장소 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](configure-raid.md)합니다.
+* 디스크를 추가하여 스토리지 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](configure-raid.md)합니다.

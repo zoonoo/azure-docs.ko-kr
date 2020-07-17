@@ -1,36 +1,25 @@
 ---
-title: Batch용 Azure CLI 시작 | Microsoft Docs
+title: Batch용 Azure CLI 시작
 description: Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위한 Batch 명령에 대한 간단한 소개를 봅니다.
-services: batch
-documentationcenter: ''
-author: laurenhughes
-manager: jeconnoc
-editor: ''
-ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
-ms.service: batch
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 07/24/2018
-ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b07045bc0a756c5565356bb0a674188cf84c8785
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782572"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960863"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
 Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. Azure CLI는 명령줄에서 Azure 리소스를 관리하고 관리하는 데 최적화되어 있습니다. Azure CLI를 사용하여 Azure Batch 계정을 관리하고 풀, 작업 및 태스크와 같은 리소스를 관리할 수 있습니다. Azure CLI를 사용하면 Batch API, Azure Portal, Batch PowerShell cmdlet으로 수행하는 여러 동일한 작업을 스크립팅할 수 있습니다.
 
-이 문서에서는 Batch와 함께 [Azure CLI 버전 2.0](https://docs.microsoft.com/cli/azure)을 사용하는 방법에 대해 간략히 설명합니다. Azure에서 CLI를 사용하는 방법에 대한 개요는 [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
+이 문서에서는 Batch와 함께 [Azure CLI 버전 2.0](/cli/azure)을 사용하는 방법에 대해 간략히 설명합니다. Azure에서 CLI를 사용하는 방법에 대한 개요는 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
 
 ## <a name="set-up-the-azure-cli"></a>Azure CLI 설치
 
-[Azure Cloud Shell](../cloud-shell/overview.md)에서 최신 Azure CLI를 실행할 수 있습니다. Azure CLI를 로컬로 설치하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)에서 설명하는 단계를 수행합니다.
+[Azure Cloud Shell](../cloud-shell/overview.md)에서 최신 Azure CLI를 실행할 수 있습니다. Azure CLI를 로컬로 설치하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)에서 설명하는 단계를 수행합니다.
 
 > [!TIP]
 > 서비스 업데이트 및 향상을 최대한 활용하기 위해 Azure CLI 설치를 자주 업데이트하는 것이 좋습니다.
@@ -39,7 +28,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 ## <a name="command-help"></a>명령 도움말
 
-명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 예를 들면 다음과 같습니다.
+명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 다음은 그 예입니다.
 
 * `az` 명령에 대한 도움말을 보려면 `az -h`을 입력합니다.
 * CLI에서 모든 Batch 명령의 목록을 가져오려면 `az batch -h`을 사용합니다.
@@ -62,10 +51,10 @@ Batch와 함께 Azure CLI를 사용하려면 로그인하고 인증해야 합니
 
 Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)에서 자세히 설명하고 있습니다.
 
-1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
-2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 스크립트 또는 애플리케이션에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
+1. [대화형으로 로그인합니다](/cli/azure/authenticate-azure-cli). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
+2. [서비스 주체를 사용하여 로그인합니다](/cli/azure/authenticate-azure-cli). 스크립트 또는 애플리케이션에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
 
-이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login)을 입력합니다.
+이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](/cli/azure/reference-index#az-login)을 입력합니다.
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -80,7 +69,7 @@ az login
 
 ### <a name="log-in-to-your-batch-account"></a>Batch 계정에 로그인
 
-Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를 관리하려면 배치 계정에 로그인하여 인증해야 합니다. Batch 서비스에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login) 명령을 사용합니다. 
+Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를 관리하려면 배치 계정에 로그인하여 인증해야 합니다. Batch 서비스에 로그인하려면 [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령을 사용합니다. 
 
 Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
@@ -92,7 +81,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
     Azure AD의 이점은 RBAC(역할 기반 액세스 제어)를 제공한다는 것입니다. RBAC를 사용하면 사용자의 액세스 권한이 계정 키 소유 여부에 관계 없이 할당된 역할에 따라 달라집니다. 계정 키를 관리하는 대신 RBAC 역할을 관리하고 Azure AD에서 액세스와 인증을 처리하도록 할 수 있습니다.  
 
-     Azure AD를 사용하여 Batch 계정에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login) 명령을 호출합니다. 
+     Azure AD를 사용하여 Batch 계정에 로그인하려면 [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령을 호출합니다. 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -114,7 +103,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Azure Batch CLI 확장 명령 사용
 
-Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작성하지 않고 일괄 작업을 처음부터 끝까지 실행할 수 있습니다. 확장에서 지원하는 Batch 명령은 JSON 템플릿을 사용하여 Azure CLI로 풀, 작업 및 태스크를 만들 수 있습니다. 또한 확장 CLI 명령을 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
+Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작성하지 않고 엔드투엔드 일괄 작업을 실행할 수 있습니다. 확장에서 지원하는 Batch 명령은 JSON 템플릿을 사용하여 Azure CLI로 풀, 작업 및 태스크를 만들 수 있습니다. 또한 확장 CLI 명령을 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
 
 ## <a name="script-examples"></a>스크립트 예제
 
@@ -122,7 +111,7 @@ Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작�
 
 ## <a name="json-files-for-resource-creation"></a>리소스를 만들기 위한 JSON 파일
 
-풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 예를 들면 다음과 같습니다.
+풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 다음은 그 예입니다.
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -152,7 +141,7 @@ az batch task list --job-id job001
 
 다음 표에서는 Batch 서비스에서 지원하는 OData 절을 설명합니다.
 
-| 절 | 설명 |
+| 절 | Description |
 |---|---|
 | `--select-clause [select-clause]` | 각 엔터티에 대한 속성의 하위 집합을 반환합니다. |
 | `--filter-clause [filter-clause]` | 지정된 OData 식과 일치하는 엔터티만 반환합니다. |
@@ -173,10 +162,10 @@ Azure CLI 문제를 해결할 때 도움이 될 수 있는 팁은 다음과 같�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
-* Batch 리소스에 대한 자세한 내용은 [개발자를 위한 Azure Batch 개요](batch-api-basics.md)를 참조하세요.
-* 코드를 작성하지 않고 Batch 템플릿을 사용하여 풀, 작업 및 태스크를 만드는 방법은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
+* [Azure CLI 문서](/cli/azure)를 참조하세요.
+* 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
+* [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)에서 코드를 작성하지 않고 Batch 템플릿을 사용하여 풀, 작업 및 태스크를 만드는 방법을 알아봅니다.
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
-[rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
-[rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
+[rest_api]: /rest/api/batchservice/
+[rest_add_pool]: /rest/api/batchservice/pool/add

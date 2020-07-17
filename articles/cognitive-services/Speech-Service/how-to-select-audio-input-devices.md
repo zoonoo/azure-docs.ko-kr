@@ -1,27 +1,25 @@
 ---
-title: Speech SDK를 사용하여 오디오 입력 디바이스를 선택하는 방법 - Speech Services
+title: Speech SDK를 사용하여 오디오 입력 디바이스를 선택하는 방법
 titleSuffix: Azure Cognitive Services
-description: Speech SDK에서 오디오 입력 디바이스를 선택하는 방법을 알아봅니다.
+description: '시스템에 연결 된 오디오 장치의 Id를 가져와 음성 SDK (c + +, c #, Python, 목표-C, Java, JavaScript)에서 오디오 입력 장치를 선택 하는 방법에 대해 알아봅니다.'
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 2/20/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010382"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74109966"
 ---
-# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Speech SDK를 사용하여 오디오 입력 디바이스 선택
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>방법: 음성 SDK를 사용 하 여 오디오 입력 장치 선택
 
-Speech SDK 버전 1.3.0은 오디오 입력을 선택하는 API를 도입합니다.
-이 문서에서는 시스템에 연결된 오디오 디바이스의 ID를 가져오는 방법을 설명합니다.
-그러면 `AudioConfig` 개체를 통해 오디오 디바이스를 구성하여 Speech SDK에서 이러한 ID를 사용할 수 있습니다.
+Speech SDK 버전 1.3.0은 오디오 입력을 선택하는 API를 도입합니다. 이 문서에서는 시스템에 연결된 오디오 디바이스의 ID를 가져오는 방법을 설명합니다. 그러면 `AudioConfig` 개체를 통해 오디오 디바이스를 구성하여 Speech SDK에서 이러한 ID를 사용할 수 있습니다.
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -46,12 +44,14 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```JavaScript
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
->[!Note]
+
+> [!Note]
 > Node.js에서 실행하는 JavaScript에 대해서는 마이크를 사용할 수 없습니다.
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>데스크톱 애플리케이션용 Windows의 오디오 디바이스 ID
 
 오디오 디바이스 [엔드포인트 ID 문자열](/windows/desktop/CoreAudio/endpoint-id-strings)은 데스크톱 애플리케이션용 Windows의 [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) 개체에서 검색할 수 있습니다.
+
 다음 코드 샘플에서는 C++에서 오디오 디바이스를 열거하는 데 사용하는 방법을 보여 줍니다.
 
 ```cpp
@@ -175,7 +175,8 @@ namespace ConsoleApp
 
 ## <a name="audio-device-ids-on-uwp"></a>UWP의 오디오 디바이스 ID
 
-UWP(유니버설 Windows 플랫폼)에서 오디오 입력 디바이스는 해당 [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) 개체의 `Id()` 속성을 사용하여 가져올 수 있습니다.
+UWP (유니버설 Windows 플랫폼)에서 해당 `Id()` [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) 개체의 속성을 사용 하 여 오디오 입력 장치를 가져올 수 있습니다.
+
 다음 코드 샘플에서는 C++ 및 C#에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 ```cpp
@@ -226,13 +227,16 @@ namespace helloworld {
 ## <a name="audio-device-ids-on-linux"></a>Linux의 오디오 디바이스 ID
 
 디바이스 ID는 표준 ALSA 디바이스 ID를 사용하여 선택됩니다.
+
 시스템에 연결된 입력의 ID는 `arecord -L` 명령의 출력에 포함됩니다.
 또는 [ALSA C 라이브러리](https://www.alsa-project.org/alsa-doc/alsa-lib/)를 사용하여 가져올 수 있습니다.
+
 샘플 ID는 `hw:1,0` 및 `hw:CARD=CC,DEV=0`입니다.
 
 ## <a name="audio-device-ids-on-macos"></a>macOS의 오디오 디바이스 ID
 
 Objective-C에서 구현된 다음 함수는 Mac에 연결된 오디오 디바이스의 이름과 ID 목록을 만듭니다.
+
 `deviceUID` 문자열은 macOS용 Speech SDK에서 디바이스를 식별하는 데 사용됩니다.
 
 ```objc
@@ -361,8 +365,8 @@ CFArrayRef CreateInputDeviceArray()
 
 ## <a name="audio-device-ids-on-ios"></a>iOS의 오디오 디바이스 ID
 
-iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 없습니다.
-그러나 SDK를 사용하는 앱은 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) 프레임워크를 통한 오디오 라우팅에 영향을 줄 수 있습니다.
+iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 없습니다. 그러나 SDK를 사용 하는 앱은 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) 프레임 워크를 통한 오디오 라우팅에 영향을 줄 수 있습니다.
+
 예를 들어 다음 명령은
 
 ```objc

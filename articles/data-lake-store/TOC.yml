@@ -1,5 +1,5 @@
 - name: Data Lake Storage Gen1 설명서
-  href: index.md
+  href: index.yml
 - name: Data Lake Storage Gen2로 전환 설명서
   href: 'https://docs.microsoft.com/azure/storage/data-lake-storage/introduction'
 - name: 개요
@@ -22,13 +22,18 @@
       href: data-lake-store-get-started-powershell.md
     - name: Azure CLI 사용
       href: data-lake-store-get-started-cli-2.0.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 방법
   items:
     - name: 데이터 로드 및 이동
       items:
         - name: Azure Data Factory 사용
           href: ../data-factory/load-azure-data-lake-store.md
-        - name: 스토리지 탐색기 사용
+        - name: Storage Explorer 사용
           href: data-lake-store-in-storage-explorer.md
         - name: AdlCopy 사용
           href: data-lake-store-copy-data-azure-storage-blob.md
@@ -150,7 +155,7 @@
           href: data-lake-store-diagnostic-logs.md
         - name: 고가용성을 위한 계획
           href: data-lake-store-disaster-recovery-guidance.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=data-lake-store'
@@ -158,14 +163,14 @@
       href: /powershell/module/az.datalakestore
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet'
-    - name: 자바
+    - name: Java
       href: 'https://docs.microsoft.com/java/api/overview/azure/datalake?view=azure-java-stable'
     - name: Node.js
       href: 'https://www.npmjs.com/package/azure-arm-datalake-store'
     - name: Python(계정 관리)
-      href: 'https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python'
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store?view=azure-python'
     - name: Python(파일 시스템 관리)
-      href: 'https://azure-datalake-store.readthedocs.io/en/latest'
+      href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
     - name: REST (영문)
       href: /rest/api/datalakestore
     - name: Resource Manager 템플릿
@@ -180,9 +185,9 @@
       href: 'https://blogs.msdn.microsoft.com/azuredatalake/'
     - name: Uservoice에서 사용자 의견 제공
       href: 'https://feedback.azure.com/forums/327234-data-lake'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake'
-    - name: 가격
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-lake-storage.html'
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/data-lake-store/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -1,20 +1,20 @@
 ---
-title: Azure Data Lake Analytics에서 U-SQL 카탈로그 시작
-description: U-SQL 카탈로그를 사용하여 코드와 데이터를 공유하는 방법을 알아봅니다.
+title: Azure Data Lake Analytics에서 U-SQL 카탈로그 사용
+description: U-SQL 카탈로그를 사용하여 코드와 데이터를 공유하는 방법을 알아봅니다. 테이블 반환 함수를 만들고, 뷰를 만들고, 테이블을 만들고, 쿼리 합니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/09/2017
-ms.openlocfilehash: a6faa7037ccbacc0547401dd52bb3b19abd1c474
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78bd7f446b7716031e3eef02639acc8bb729719e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119568"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 카탈로그 시작
 
@@ -24,7 +24,7 @@ ms.locfileid: "60813357"
 
 다음 스크립트는 기본 데이터베이스 및 스키마에 `Searchlog()`라는 TVF를 만듭니다.
 
-```
+```usql
 DROP FUNCTION IF EXISTS Searchlog;
 
 CREATE FUNCTION Searchlog()
@@ -55,7 +55,7 @@ END;
 
 다음 스크립트는 이전 스크립트에서 정의된 TVF를 사용하는 방법을 보여줍니다.
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -76,7 +76,7 @@ OUTPUT @res
 
 다음 스크립트는 기본 데이터베이스 및 스키마에 `SearchlogView`라는 뷰를 만듭니다.
 
-```
+```usql
 DROP VIEW IF EXISTS SearchlogView;
 
 CREATE VIEW SearchlogView AS  
@@ -93,7 +93,7 @@ USING Extractors.Tsv();
 
 다음 스크립트는 정의된 뷰를 사용함을 나타냅니다.
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -113,7 +113,7 @@ OUTPUT @res
 
 다음 스크립트를 사용하여 데이터베이스 하나와 테이블 두 개를 만듭니다.
 
-```
+```usql
 DROP DATABASE IF EXISTS SearchLogDb;
 CREATE DATABASE SearchLogDb;
 USE DATABASE SearchLogDb;
@@ -147,7 +147,7 @@ CREATE TABLE SearchLog2(
 
 테이블에서 읽어 오려면 이전에 사용한 변환 스크립트를 수정합니다.
 
-```
+```usql
 @rs1 =
     SELECT
         Region,
@@ -171,6 +171,6 @@ OUTPUT @res
  >현재는 테이블을 만든 스크립트와 같은 스크립트의 테이블에 SELECT를 실행할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
+* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
-* [Azure Portal을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Azure Portal를 사용 하 여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

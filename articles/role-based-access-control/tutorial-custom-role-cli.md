@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 | Microsoft Docs
-description: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기를 시작합니다.
+title: '자습서: Azure CLI를 사용하여 Azure 사용자 지정 역할 만들기 - Azure RBAC'
+description: 이 자습서에서는 Azure CLI 및 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Azure 사용자 지정 역할 만들기를 시작합니다.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: de1805d91f48b5718ecf293c2b8672ba40fb81a9
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 3efe9670d03a754cc90689c4b66d0843de4e275f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588163"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735507"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
+# <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure 사용자 지정 역할 만들기
 
-[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 자습서에서는 Azure CLI를 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 관리 평면에서 모든 것을 살펴보고 지원 티켓을 열 수도 있습니다.
+Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 이 자습서에서는 Azure CLI를 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 관리 평면에서 모든 것을 살펴보고 지원 티켓을 열 수도 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 사용자 지정 역할 만들기
@@ -34,9 +34,9 @@ ms.locfileid: "56588163"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 - 사용자 지정 역할을 만들 수 있는 권한(예: [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator))
 - [Azure Cloud Shell](../cloud-shell/overview.md) 또는 [Azure CLI](/cli/azure/install-azure-cli)
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [Microsoft.Support 리소스 공급자](resource-provider-operations.md#microsoftsupport)에 대한 작업 목록을 검토합니다. 권한을 만드는 데 사용할 수 있는 작업을 파악하는 데 도움이 됩니다.
 
-    | 작업(Operation) | 설명 |
+    | 작업(Operation) | Description |
     | --- | --- |
     | Microsoft.Support/register/action | 지원 리소스 공급자에 등록합니다. |
     | Microsoft.Support/supportTickets/read | 상태, 심각도, 연락처 세부 정보, 통신 등 지원 티켓 세부 정보를 얻거나 구독의 지원 티켓 목록을 얻습니다. |
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 편집기에서 ReaderSupportRole.json 파일을 열고 다음 JSON을 추가합니다.
 
-    여러 속성에 대한 내용은 [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 참조하세요.
+    여러 속성에 대한 내용은 [Azure 사용자 지정 역할](custom-roles.md)을 참조하세요.
 
     ```json
     {
@@ -269,4 +269,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](custom-roles-cli.md)
+> [Azure CLI를 사용하여 사용자 지정 역할 만들기 또는 업데이트](custom-roles-cli.md)

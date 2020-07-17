@@ -1,6 +1,6 @@
 ---
 title: Video Indexer에서 언어 모델 사용자 지정 - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 이 문서에서는 Video Indexer 언어 모델의 개념과 이를 사용자 지정하는 방법을 간략하게 설명합니다.
 services: media-services
 author: anikaz
@@ -10,16 +10,15 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 516ecd8842e7b673201cc640b283c081a02d2b2f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: d264b0d35be5114d35713f793b771e42449c9230
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799554"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745678"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Video Indexer로 언어 모델 사용자 지정
 
-Video Indexer는 Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/)와 통합을 통해 자동 음성 인식을 지원합니다. 엔진을 적응시킬 어휘가 포함된 도메인의 텍스트인 적응 텍스트를 업로드하여 언어 모델을 사용자 지정할 수 있습니다. 모델을 학습시키면 적응 텍스트에 나타나는 새 단어가 인식되어 기본 발음으로 간주되며 언어 모델은 단어의 새로운 가능한 시퀀스를 학습합니다. 사용자 지정 언어 모델은 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 (간체), 일본어, 러시아어, 포르투갈어 (브라질), 힌디어, 한국어에 대 한 지원 됩니다. 
+Video Indexer는 Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/)와 통합을 통해 자동 음성 인식을 지원합니다. 엔진을 적응시킬 어휘가 포함된 도메인의 텍스트인 적응 텍스트를 업로드하여 언어 모델을 사용자 지정할 수 있습니다. 모델을 학습시키면 적응 텍스트에 나타나는 새 단어가 인식되어 기본 발음으로 간주되며 언어 모델은 단어의 새로운 가능한 시퀀스를 학습합니다. 사용자 지정 언어 모델은 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 러시아어, 포르투갈어, 힌디어 및 한국어에 지원됩니다. 
 
 예제로 “Kubernetes”(Azure Kubernetes Service의 컨텍스트에서)와 같이 매우 구체적인 단어를 사용해 보겠습니다. 해당 단어는 Video Indexer에 처음 사용되므로 “커뮤니티”로 인식됩니다. 모델을 “Kubernetes”로 인식하려면 모델을 학습시켜야 합니다. 다른 경우에는 단어가 있지만 언어 모델은 이러한 단어가 특정 컨텍스트에서 나타날 것이라고 예상하지 않습니다. 예를 들어 “컨테이너 서비스”는 특수화되지 않은 언어 모델이 특정 단어 세트로 인식하는 2단어 시퀀스가 아닙니다.
 

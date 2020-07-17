@@ -1,10 +1,10 @@
 ---
-title: B2B 공동 작업-Azure Active Directory SaaS 앱 구성 | Microsoft Docs
+title: B2B 공동 작업을 위한 SaaS 앱 구성-Azure AD
 description: Azure Active Directory B2B 협업을 위한 코드 및 PowerShell 샘플
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65811951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387353"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 협업용 SaaS 앱 구성
 
@@ -79,9 +79,9 @@ SAML 프로토콜 기반의 페더레이션을 사용하여 사용자의 Azure A
 
 2. 다음 순서로 Single Sign-On을 구성합니다.
 
-   ![Single sign-on 구성 설정을 보여 주는 스크린샷](media/configure-saas-apps/configure-box-sso.png)
+   ![Single Sign-On 구성 설정을 보여 주는 스크린샷](media/configure-saas-apps/configure-box-sso.png)
 
-   a. **로그온 URL** 상자에서 Azure Portal의 Box에 대해 로그온 URL이 적합하게 설정되었는지 확인합니다. 이 URL은 Box.com 테넌트의 URL이며 *https://.box.com* 명명 규칙을 따라야 합니다.  
+   a. **로그온 URL** 상자에서 Azure Portal의 Box에 대해 로그온 URL이 적합하게 설정되었는지 확인합니다. 이 URL은 Box.com 테넌트의 URL이며 명명 규칙을 따라야 합니다 *https://.box.com* .  
    **식별자**는 이 앱에 적용되지 않지만 여전히 필수 필드로 표시됩니다.
 
    b. **사용자 식별자** 상자에 **user.mail**(게스트 계정의 SSO에 대한)을 입력합니다.
@@ -102,8 +102,8 @@ Dropbox 초대 대상자와 마찬가지로 Box 초대 대상자는 Box 앱의 �
 
 Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
-- [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-- [동적 그룹 및 B2B 공동 작업](use-dynamic-groups.md)
-- [B2B 공동 작업 사용자 클레임 매핑](claims-mapping.md)
+- [Azure AD B2B 협업이란?](what-is-b2b.md)
+- [동적 그룹 및 B2B 협업](use-dynamic-groups.md)
+- [B2B 협업 사용자 클레임 매핑](claims-mapping.md)
 - [Office 365 외부 공유](o365-external-user.md)
 

@@ -1,10 +1,10 @@
 ---
 title: Linux VM에 대한 DHCPv6 구성
-titlesuffix: Azure Load Balancer
-description: Linux VM에 대한 DHCPv6를 구성하는 방법
+titleSuffix: Azure Load Balancer
+description: 이 문서에서는 Linux Vm에 대해 DHCPv6을 구성 하는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
-ms.author: kumud
-ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: d8bd62bab627beb70a8fcba276bf8c2eca309c45
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516545"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259736"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
 
@@ -38,45 +38,56 @@ Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으
 
 1. */etc/dhcp/dhclient6.conf* 파일을 편집하고 다음 줄을 추가합니다.
 
-        timeout 10;
+    ```config
+    timeout 10;
+    ```
 
 2. 다음 구성을 사용하여 eth0 인터페이스에 대한 네트워크 구성을 편집합니다.
 
    * **Ubuntu 12.04 및 14.04**에서 */etc/network/interfaces.d/eth0.cfg* 파일을 편집합니다. 
    * **Ubuntu 16.04**에서 */etc/network/interfaces.d/50-cloud-init.cfg* 파일을 편집합니다.
 
-         iface eth0 inet6 auto
-             up sleep 5
-             up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+    ```config
+    iface eth0 inet6 auto
+        up sleep 5
+        up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+    ```
 
 3. IPv6 주소를 갱신합니다.
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-기본 네트워크 구성 메커니즘은 Ubuntu 17.10 부터는 [NETPLAN]( https://netplan.io)합니다.  NETPLAN YAML 구성 파일에이 위치에서 네트워크 구성을 읽고 설치/인스턴스화 시: / {lib,etc,run}/netplan/*.yaml 합니다.
 
-주십시오를 *dhcp6:true* 구성에서 각 이더넷 인터페이스에 대 한 문입니다.  예를 들면 다음과 같습니다.
-  
-        network:
-          version: 2
-          ethernets:
-            eno1:
-              dhcp6: true
+Ubuntu 17.10 부터는 기본 네트워크 구성 메커니즘이 [Netplan]( https://netplan.io)입니다.  설치/인스턴스화 시간에 NETPLAN은이 위치에 있는 YAML 구성 파일의 네트워크 구성을 읽습니다 (예:/{lib).
 
-초기 부팅 시는 netplan 구성을 씁니다/지정된 네트워킹 디먼 NETPLAN에 대 한 참조 정보를 전달 하는 데 장치 제어 해제 실행 "렌더러 네트워크" 참조 https://netplan.io/reference합니다.
+구성의 각 이더넷 인터페이스에 대해 *dhcp6: true* 문을 포함 하십시오.  예:
+
+```config
+network:
+  version: 2
+  ethernets:
+    eno1:
+      dhcp6: true
+```
+
+초기 부팅 중에 netplan "네트워크 렌더러"는/run에 구성을 기록 하 여 NETPLAN에 대 한 참조 정보에 대 한 장치 제어를 지정 된 네트워킹 데몬에 전달 https://netplan.io/reference 합니다 .를 참조 하세요.
  
 ## <a name="debian"></a>Debian
 
 1. */etc/dhcp/dhclient6.conf* 파일을 편집하고 다음 줄을 추가합니다.
 
-        timeout 10;
+    ```config
+    timeout 10;
+    ```
 
 2. */etc/network/interfaces* 파일을 편집하고 다음 구성을 추가합니다.
 
-        iface eth0 inet6 auto
-            up sleep 5
-            up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+    ```config
+    iface eth0 inet6 auto
+        up sleep 5
+        up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+    ```
 
 3. IPv6 주소를 갱신합니다.
 
@@ -88,12 +99,16 @@ Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으
 
 1. */etc/sysconfig/network* 파일을 편집하고 다음 매개 변수를 추가합니다.
 
-        NETWORKING_IPV6=yes
+    ```config
+    NETWORKING_IPV6=yes
+    ```
 
 2. */etc/sysconfig/network-scripts/ifcfg-eth0* 파일을 편집하고 다음 두 개의 매개 변수를 추가합니다.
 
-        IPV6INIT=yes
-        DHCPV6C=yes
+    ```config
+    IPV6INIT=yes
+    DHCPV6C=yes
+    ```
 
 3. IPv6 주소를 갱신합니다.
 
@@ -113,9 +128,11 @@ Azure의 최근 SLES(SUSE Linux Enterprise Server) 및 openSUSE 이미지는 DHC
 
 2. */etc/sysconfig/network/ifcfg-eth0* 파일을 편집하고 다음 매개 변수를 추가합니다.
 
-        DHCLIENT6_MODE='managed'
+    ```config
+    DHCLIENT6_MODE='managed'
+    
 
-3. IPv6 주소를 갱신합니다.
+3. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -127,11 +144,15 @@ Azure의 최근 SLES 및 openSUSE 이미지는 DHCPv6를 사용해 미리 구성
 
 1. */etc/sysconfig/network/ifcfg-eth0* 파일을 편집하고 `#BOOTPROTO='dhcp4'` 매개 변수를 다음 값으로 바꿉니다.
 
-        BOOTPROTO='dhcp'
+    ```config
+    BOOTPROTO='dhcp'
+    ```
 
 2. */etc/sysconfig/network/ifcfg-eth0* 파일에 다음 매개 변수를 추가합니다.
 
-        DHCLIENT6_MODE='managed'
+    ```config
+    DHCLIENT6_MODE='managed'
+    ```
 
 3. IPv6 주소를 갱신합니다.
 
@@ -145,11 +166,13 @@ Azure의 최근 CoreOS 이미지는 DHCPv6를 사용해 미리 구성되었습�
 
 1. */etc/systemd/network/10_dhcp.network* 파일을 편집합니다.
 
-        [Match]
-        eth0
+    ```config
+    [Match]
+    eth0
 
-        [Network]
-        DHCP=ipv6
+    [Network]
+    DHCP=ipv6
+    ```
 
 2. IPv6 주소를 갱신합니다.
 

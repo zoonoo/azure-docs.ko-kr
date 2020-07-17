@@ -1,90 +1,75 @@
 ---
-title: Azure Security Center에서 보안 권장 사항 관리 | Microsoft Docs
+title: Azure Security Center의 보안 권장 사항
 description: 이 문서에서는 Azure Security Center의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
-ms.author: rkarlin
-ms.openlocfilehash: e3b4da1c1d835e9d630c000055af058aa7b45968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 07/29/2019
+ms.author: memildin
+ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791387"
 ---
-# <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Security Center에서 보안 권장 사항 관리
-이 문서에서는 Azure Security Center의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
+# <a name="security-recommendations-in-azure-security-center"></a>Azure Security Center의 보안 권장 사항 
+이 항목에서는 Azure 리소스를 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 확인 하 고 이해 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  이 문서는 단계별 가이드가 아닙니다.
 >
->
 
 ## <a name="what-are-security-recommendations"></a>보안 권장 사항이란?
-Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 권장 사항을 만듭니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다.
 
-## <a name="implementing-security-recommendations"></a>보안 권장 사항 구현
-### <a name="set-recommendations"></a>권장 사항 설정
-[Azure Security Center의 보안 정책 설정](tutorial-security-policy.md)에서 다음을 배울 수 있습니다.
+권장 사항은 리소스를 보호 하기 위해 수행할 작업입니다.
 
-* 보안 정책 구성.
-* 데이터 수집 사용.
-* 보안 정책의 일부로 표시될 권장 사항 선택.
+Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약점을 식별 Security Center 합니다. 그런 다음이를 제거 하는 방법에 대 한 권장 사항을 제공 합니다.
 
-현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/security-overview.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 애플리케이션 방화벽에 중점을 두고 있습니다.  [보안 정책 설정](tutorial-security-policy.md) 은 각 권장 사항 옵션에 대한 설명을 제공합니다.
+각 권장 사항은 다음을 제공 합니다.
 
-### <a name="monitor-recommendations"></a>권장 사항 모니터링
-보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **개요**의 **권장 사항** 타일은 Security Center에서 식별된 권장 사항의 총 수를 알려줍니다.
+- 권장 사항에 대 한 간단한 설명입니다.
+- 권장 사항을 구현 하기 위해 수행할 수정 단계입니다. <!-- In some cases, Quick Fix remediation is available. -->
+- 권장 조치를 수행 하는 데 필요한 리소스
+- **보안 점수에 영향을 줍니다**.이는이 권장 사항을 구현 하는 경우 보안 점수가 적용 되는 금액입니다.
 
-![권장 사항 타일][1]
+## <a name="monitor-recommendations"></a>권장 사항 모니터링<a name="monitor-recommendations"></a>
 
-각 권장 사항에 대한 세부 정보를 보려면 **개요**에서 **권장 사항** 타일을 선택합니다. **권장 사항**이 열립니다.
+Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취약성을 식별 합니다. **개요** 의 **권장 사항** 타일에는 Security Center에서 식별 된 권장 사항의 총 수가 표시 됩니다.
 
-![필터 권장 사항][2]
+![Security center 개요](./media/security-center-recommendations/asc-overview.png)
 
-권장 사항을 필터링할 수 있습니다. 권장 사항을 필터링하려면 **권장 사항** 블레이드에서 **필터**를 선택합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.
+1. **개요**에서 **권장 사항 타일** 을 선택 합니다. **권장 사항** 목록이 열립니다.
 
+      ![권장 사항 보기](./media/security-center-recommendations/view-recommendations.png)
 
-* **권장 사항**: 권장 사항입니다.
-* **보안 점수 영향**:
-* **리소스**: 이 권장 사항이 적용되는 리소스를 나열합니다.
-* **상태 표시줄**:  특정 권장 사항의 심각도를 설명합니다.
-   * **높음 (빨강)**: 중요한 리소스(애플리케이션, VM 또는 네트워크 보안 그룹 등)에 취약점이 있으며 주의가 필요합니다.
-   * **중간 (주황색)**: 취약점이 있으며 중요하지 않은 또는 추가 단계가 프로세스를 완료하거나 취약점을 제거하는 데 필요합니다.
-   * **낮음 (파란색)**: 해결해야 하지만 즉시 조치하지 않아도 되는 취약점이 있습니다. (기본적으로 낮은 권장 사항은 표시되지 않지만 표시하려는 경우 낮은 권장 사항으로 필터링할 수 있습니다.) 
-   * **정상 (녹색)**:
-   * **사용할 수 없습니다 (회색)**:
+    권장 사항을 필터링할 수 있습니다. 권장 사항을 필터링하려면 **권장 사항** 블레이드에서 **필터**를 선택합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.
+
+   * **권장 사항**: 권장 사항.
+   * 보안 **점수 영향**: 보안 권장 사항을 사용 하 여 Security Center에서 생성 되는 점수 이며, 각 권장 사항의 중요 정도를 결정 하는 고급 알고리즘을 적용 합니다. 자세한 내용은 [보안 점수 계산](secure-score-security-controls.md#how-your-secure-score-is-calculated)을 참조 하세요.
+   * **리소스**:이 권장 사항이 적용되는 리소스를 나열합니다.
+   * **상태 표시줄**: 해당 특정 권장 사항의 심각도를 설명 합니다.
+       * **높음 (빨강)**: 의미 있는 리소스 (예: 응용 프로그램, VM 또는 네트워크 보안 그룹)에 대 한 취약성이 있으며 주의가 필요 합니다.
+       * **보통 (주황)**: 취약성을 제거 하거나 프로세스를 완료 하는 데 중요 하지 않거나 추가 단계가 필요 합니다.
+       * **낮음 (파란색)**: 해결 해야 하지만 즉각적인 주의가 필요 하지 않은 취약성이 있습니다. (기본적으로 낮은 권장 사항은 표시되지 않지만 표시하려는 경우 낮은 권장 사항으로 필터링할 수 있습니다.) 
+       * **정상 (녹색)**:
+       * **사용할 수 없음 (회색)**:
+
+1. 각 권장 사항에 대 한 세부 정보를 보려면 권장 사항을 클릭 합니다.
+
+    ![권장 사항 세부 정보](./media/security-center-recommendations/recommendation-details.png)
+
+>[!NOTE] 
+> Azure 리소스에 대 한 [클래식 및 리소스 관리자 배포 모델](../azure-classic-rm.md) 을 참조 하세요.
  
-
-
-> [!NOTE]
-> Azure 리소스의 [클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md) 을 이해하게 됩니다.
-> 
-> 
-> ### <a name="apply-recommendations"></a>권장 사항 적용
-> 모든 권장 사항을 검토한 후에 가장 먼저 적용해야 할 권장 사항을 결정합니다. 심각도 등급을 기본 매개 변수로 사용하여 가장 먼저 적용해야 할 권장 사항을 평가하는 것이 좋습니다.
-
-
-
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 권장 사항을 수정 하는 방법을 알아보려면 다음을 수행 하십시오.
 
-<!--Image references-->
-[1]: ./media/security-center-recommendations/recommendations-tile.png
-[2]: ./media/security-center-recommendations/filter-recommendations.png
+* [권장 사항](security-center-remediate-recommendations.md) 수정-Azure 구독 및 리소스 그룹에 대 한 보안 정책을 구성 하는 방법을 알아봅니다.

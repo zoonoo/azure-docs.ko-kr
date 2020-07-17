@@ -1,23 +1,14 @@
 ---
 title: Azure Application Insights에서 Stream Analytics를 사용하여 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하면 Application Insights에서 내보내는 데이터를 지속적으로 변환, 필터링 및 라우팅할 수 있습니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/04/2018
-ms.author: mbullwin
-ms.openlocfilehash: 58eaec32fee149c845dc77a83763f2fcd8133a06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/08/2019
+ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901379"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224522"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)는 [Application Insights에서 내보낸](export-telemetry.md) 데이터를 처리하는 위한 이상적인 도구입니다. Stream Analytics는 다양한 원본의 데이터를 가져와서 변환하고 필터링한 다음 다양한 싱크로 라우팅할 수 있습니다.
@@ -31,23 +22,23 @@ ms.locfileid: "60901379"
 
 ![SA를 통해 PBI로 내보내기에 대한 블록 다이어그램](./media/export-stream-analytics/020.png)
 
-## <a name="create-storage-in-azure"></a>Azure에서 저장소 만들기
+## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기
 연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
+1. [Azure 포털](https://portal.azure.com)에서 구독에 &quot;클래식&quot; 스토리지 계정을 만듭니다.
    
-   ![Azure Portal에서 새로 만들기, 데이터, 저장소 선택](./media/export-stream-analytics/030.png)
+   ![Azure Portal에서 새로 만들기, 데이터, 스토리지 선택](./media/export-stream-analytics/030.png)
 2. 컨테이너 만들기
    
-    ![새 저장소에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/export-stream-analytics/040.png)
-3. 저장소 액세스 키 복사
+    ![새 스토리지에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/export-stream-analytics/040.png)
+3. 스토리지 액세스 키 복사
    
     스트림 분석 서비스에 대한 입력을 설정하려면 곧 이 키가 필요합니다.
    
-    ![저장소에서 설정, 키를 열고 기본 액세스 키 복사](./media/export-stream-analytics/045.png)
+    ![스토리지에서 설정, 키를 열고 기본 액세스 키 복사](./media/export-stream-analytics/045.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a>Azure 저장소로 연속 내보내기 시작
-[연속 내보내기](export-telemetry.md)는 Application Insights에서 Azure 저장소로 데이터를 이동합니다.
+## <a name="start-continuous-export-to-azure-storage"></a>Azure Storage로 연속 내보내기 시작
+[연속 내보내기](export-telemetry.md)는 Application Insights에서 Azure Storage로 데이터를 이동합니다.
 
 1. Azure 포털에서 애플리케이션에 대해 만든 Application Insights 리소스를 찾습니다.
    
@@ -56,7 +47,7 @@ ms.locfileid: "60901379"
    
     ![설정, 연속 내보내기, 추가를 차례로 선택](./media/export-stream-analytics/060.png)
 
-    이전에 만든 저장소 계정을 선택합니다.
+    이전에 만든 스토리지 계정을 선택합니다.
 
     ![내보내기 대상 설정](./media/export-stream-analytics/070.png)
 
@@ -64,12 +55,12 @@ ms.locfileid: "60901379"
 
     ![이벤트 유형 선택](./media/export-stream-analytics/080.png)
 
-1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 통계 차트가, [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
+1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 통계 차트가, [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
    
-    또한 데이터를 저장소로 내보냅니다. 
-2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/저장소를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
+    또한 데이터를 스토리지로 내보냅니다. 
+2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
    
-    ![](./media/export-stream-analytics/04-data.png)
+    ![보려는 이벤트 유형을 설정 하는 방법을 보여 주는 스크린샷](./media/export-stream-analytics/04-data.png)
    
     애플리케이션 이름 및 계측 키에서 파생된 경로 이름의 공통 부분을 적어 둡니다. 
 
@@ -78,21 +69,21 @@ ms.locfileid: "60901379"
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics 인스턴스 만들기
 [Azure Portal](https://portal.azure.com/)에서 Azure Stream Analytics 서비스를 선택하고 새 Stream Analytics 작업을 만듭니다.
 
-![](./media/export-stream-analytics/SA001.png)
+![Azure Portal에서 Stream Analytics 작업을 만들기 위한 기본 페이지를 보여 주는 스크린샷](./media/export-stream-analytics/SA001.png)
 
-![](./media/export-stream-analytics/SA002.png)
+![새 Stream Analytics 작업을 만들 때 필요한 세부 정보를 보여 주는 스크린샷](./media/export-stream-analytics/SA002.png)
 
 새 작업이 만들어질 때 **리소스로 이동**을 선택합니다.
 
-![](./media/export-stream-analytics/SA003.png)
+![새 Stream Analytics 작업 배포에 성공할 경우 수신 된 메시지를 보여 주는 스크린샷](./media/export-stream-analytics/SA003.png)
 
 ### <a name="add-a-new-input"></a>새 입력 추가
 
-![](./media/export-stream-analytics/SA004.png)
+![Stream Analytics 작업에 입력을 추가 하는 방법을 보여 주는 스크린샷](./media/export-stream-analytics/SA004.png)
 
 연속 내보내기 Blob에서 입력을 가져오도록 설정합니다.
 
-![](./media/export-stream-analytics/SA0005.png)
+![연속 내보내기 blob에서 입력을 수행 하도록 Stream Analytics 작업을 구성 하는 방법을 보여 주는 스크린샷](./media/export-stream-analytics/SA0005.png)
 
 이제 앞에서 기록해 둔 Storage 계정의 기본 액세스 키가 필요합니다. 이 키를 Storage 계정 키로 설정합니다.
 
@@ -100,9 +91,9 @@ ms.locfileid: "60901379"
 
 **날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.**
 
-전위 패턴은 Stream Analytics가 저장소에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
+전위 패턴은 Stream Analytics가 스토리지에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
-    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+`webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}`
 
 이 예제에서:
 
@@ -112,13 +103,13 @@ ms.locfileid: "60901379"
 * `/{date}/{time}` 은 문자로 기록된 패턴입니다.
 
 > [!NOTE]
-> 저장소를 검사하여 올바른 경로를 가져오는지 확인합니다.
+> 스토리지를 검사하여 올바른 경로를 가져오는지 확인합니다.
 > 
 
 ## <a name="add-new-output"></a>새 출력 추가
 이제 작업 > **출력** > **추가**를 선택합니다.
 
-![](./media/export-stream-analytics/SA006.png)
+![Stream Analytics 작업을 선택 하 여 새 출력을 추가 하는 것을 보여 주는 스크린샷](./media/export-stream-analytics/SA006.png)
 
 
 ![새 채널을 선택하고, 출력, 추가, Power BI를 클릭합니다.](./media/export-stream-analytics/SA010.png)
@@ -134,57 +125,54 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 이 쿼리 붙여넣기:
 
 ```SQL
-
-    SELECT
-      flat.ArrayValue.name,
-      count(*)
-    INTO
-      [pbi-output]
-    FROM
-      [export-input] A
-    OUTER APPLY GetElements(A.[event]) as flat
-    GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
+SELECT
+  flat.ArrayValue.name,
+  count(*)
+INTO
+  [pbi-output]
+FROM
+  [export-input] A
+OUTER APPLY GetElements(A.[event]) as flat
+GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 ```
 
 * 내보내기 입력은 스트림 입력에 제공된 별칭입니다.
 * pbi 출력은 정의한 출력 별칭입니다.
-* 이벤트 이름은 중첩된 JSON 배열에 있으므로 [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) 를 사용합니다. 그런 다음 Select는 기간의 해당 이름이 있는 인스턴스의 수의 개수와 함께 이벤트 이름을 선택합니다. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) 절은 요소를 1분의 기간으로 그룹화합니다.
+* 이벤트 이름은 중첩된 JSON 배열에 있으므로 [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) 를 사용합니다. 그런 다음 Select는 기간의 해당 이름이 있는 인스턴스의 수의 개수와 함께 이벤트 이름을 선택합니다. [Group By](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) 절은 요소를 1분의 기간으로 그룹화합니다.
 
 ### <a name="query-to-display-metric-values"></a>메트릭 값을 표시하는 쿼리
+
 ```SQL
-
-    SELECT
-      A.context.data.eventtime,
-      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
-    INTO
-      [pbi-output]
-    FROM
-      [export-input] A
-    OUTER APPLY GetElements(A.context.custom.metrics) as flat
-    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
-
-``` 
+SELECT
+  A.context.data.eventtime,
+  avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
+INTO
+  [pbi-output]
+FROM
+  [export-input] A
+OUTER APPLY GetElements(A.context.custom.metrics) as flat
+GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+```
 
 * 이 쿼리는 이벤트 시간과 메트릭 값을 가져오기 위해 메트릭 원격 분석을 드릴합니다. 메트릭 값은 배열 내부에 있으므로 OUTER APPLY GetElements 패턴을 사용하여 행을 추출합니다. 이 경우 "myMetric"은 메트릭 이름입니다. 
 
 ### <a name="query-to-include-values-of-dimension-properties"></a>차원 속성의 값을 포함하는 쿼리
+
 ```SQL
-
-    WITH flat AS (
-    SELECT
-      MySource.context.data.eventTime as eventTime,
-      InstanceId = MyDimension.ArrayValue.InstanceId.value,
-      BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
-    FROM MySource
-    OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
-    )
-    SELECT
-     eventTime,
-     InstanceId,
-     BusinessUnitId
-    INTO AIOutput
-    FROM flat
-
+WITH flat AS (
+SELECT
+  MySource.context.data.eventTime as eventTime,
+  InstanceId = MyDimension.ArrayValue.InstanceId.value,
+  BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
+FROM MySource
+OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
+)
+SELECT
+  eventTime,
+  InstanceId,
+  BusinessUnitId
+INTO AIOutput
+FROM flat
 ```
 
 * 이 쿼리는 차원 배열에 고정된 인덱스의 특정 차원에 상관없이 차원 속성의 값을 포함합니다.

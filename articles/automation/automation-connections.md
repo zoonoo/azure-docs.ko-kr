@@ -1,125 +1,153 @@
 ---
-title: Azure Automation의 연결 자산
-description: Azure Automation의 연결 자산은 외부 서비스 또는 runbook이나 DSC 구성의 애플리케이션을 연결하는데 필요한 정보를 포함합니다. 이 문서에서는 연결에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 연결을 사용하는 방법을 설명합니다.
+title: Azure Automation에서 연결 관리
+description: 이 문서에서는 외부 서비스 또는 애플리케이션으로의 Azure Automation 연결을 관리하고 Runbook에서 사용하는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
-ms.date: 01/16/2019
+ms.date: 01/13/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: e7dccc4a396d4cf8af1062057c4c3ce6efe978ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: has-adal-ref
+ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074267"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186659"
 ---
-# <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
+# <a name="manage-connections-in-azure-automation"></a>Azure Automation에서 연결 관리
 
-Automation 연결 자산은 외부 서비스 또는 runbook의 애플리케이션이나 DSC 구성 연결에 필요한 정보를 포함합니다. 여기에는 URL 또는 포트와 같은 연결 정보 외에 사용자 이름 및 암호와 같은 인증에 필요한 정보가 포함될 수 있습니다. 연결 값은 여러 변수를 만드는 대신, 특정 애플리케이션에 연결하기 위한 모든 속성을 하나의 자산에 유지합니다. 사용자는 한 위치의 연결에 대한 값을 편집할 수 있고 단일 매개 변수에서 연결 이름을 runbook 이나 DSC구성에 전달할 수 있습니다. 연결에 대한 속성은 **Get-AutomationConnection** 활동을 사용하여 runbook 또는 DSC 구성에 액세스할 수 있습니다. 
+Azure Automation 연결 자산은 다음과 같은 정보를 포함합니다. 이 정보는 Runbook이나 DSC 구성에서 외부 서비스 또는 애플리케이션으로의 연결에 필요합니다. 
 
-연결을 만들 때 *연결 형식*을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 연결은 해당 연결 형식에 정의된 각 속성의 값을 정의합니다. 연결 형식은 통합 모듈의 Azure Automation에 추가되어 있거나 통합 모듈에 연결 형식이 포함되어 있고 이 유형을 Automation 계정으로 가져올 경우 [Azure Automation API](/previous-versions/azure/reference/mt163818(v=azure.100))를 사용하여 만들어집니다. 그렇지 않으면 Automation 연결 형식을 지정하기 위해 메타데이터 파일을 만들어야 합니다.  이와 관련된 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.  
+* 인증에 필요한 정보(사용자 이름, 암호 등)
+* 연결 정보(URL, 포트 등)
+
+연결 자산은 특정 애플리케이션으로 연결하는 데 필요한 모든 속성을 한곳에서 관리해 주므로 변수를 여러 개 만들 필요가 없습니다. 한곳에서 연결의 값을 편집할 수 있고 단일 매개 변수에서 연결 이름을 Runbook이나 DSC 구성으로 전달할 수 있습니다. Runbook이나 구성은 내부 `Get-AutomationConnection` cmdlet을 사용하여 연결의 속성에 액세스합니다.
+
+연결을 만들 때는 연결 형식을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 메타데이터 파일로 통합 모듈을 사용하여 Azure Automation에 연결 형식을 추가할 수 있습니다. 통합 모듈이 연결 형식을 포함하고 Automation 계정으로 가져와진 경우에는 [Azure Automation API](/previous-versions/azure/reference/mt163818(v=azure.100))를 사용하여 연결 형식을 만들 수도 있습니다. 
 
 >[!NOTE]
->Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. 이 키는 시스템에서 관리하는 Key Vault에 저장됩니다. 보안 자산을 저장하기 전에 Key Vault에서 키가 로드된 다음, 자산을 암호화하는 데 사용됩니다. Azure Automation에서 이 프로세스를 관리합니다.
+>Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 키 자격 증명 모음에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 키 자격 증명 모음에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다. 
 
 ## <a name="connection-types"></a>연결 형식
 
-Azure Automation에서는 세 가지 유형의 기본 제공 연결을 사용할 수 있습니다.
+Azure Automation은 다음과 같은 기본 제공 연결 형식을 제공합니다.
 
-* **Azure** - 이 연결을 사용하여 클래식 리소스를 관리할 수 있습니다.
-* **AzureClassicCertificate** - 이 연결은 **AzureClassicRunAs** 계정에 사용됩니다.
-* **AzureServicePrincipal** - 이 연결은 **AzureRunAs** 계정에 사용됩니다.
+* `Azure` - 클래식 리소스를 관리하는 데 사용되는 연결을 나타냅니다.
+* `AzureServicePrincipal` - Azure 실행 계정에서 사용하는 연결을 나타냅니다.
+* `AzureClassicCertificate` - 클래식 Azure 실행 계정에서 사용하는 연결을 나타냅니다.
 
 대부분의 경우 연결 리소스는 [실행 계정](manage-runas-account.md)을 만들 때 생성되므로 별도로 생성할 필요가 없습니다.
 
-## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet
+## <a name="powershell-cmdlets-to-access-connections"></a>연결에 액세스하는 데 사용되는 PowerShell cmdlet
 
-다음 테이블의 cmdlet은 Windows PowerShell을 사용하여 Automation 연결을 만들고 관리하는 데 사용됩니다. Automation runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azure/overview) 의 일부로 전송됩니다.
+다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 연결을 만들고 관리합니다. [Az 모듈](shared-resources/modules.md#az-modules)의 일부로 제공됩니다.
 
-|Cmdlet|설명|
-|:---|:---|
-|[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|연결을 검색합니다. 연결의 필드 값이 있는 해시 테이블을 포함합니다.|
-|[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|새 연결을 만듭니다.|
-|[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|기존 연결을 제거합니다.|
-|[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|기존 연결의 특정 필드 값을 설정합니다.|
-
-## <a name="activities"></a>활동
-
-다음 표의 활동은 runbook 또는 DSC 구성의 연결에 액세스하는데 사용됩니다.
-
-|활동|설명|
+|Cmdlet|Description|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|사용할 연결을 가져옵니다. 연결의 속성이 있는 해시 테이블을 반환합니다.|
+|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|연결에 대한 정보를 검색합니다.|
+|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|새 연결을 만듭니다.|
+|[Remove-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|기존 연결을 제거합니다.|
+|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|기존 연결의 특정 필드 값을 설정합니다.|
 
->[!NOTE] 
->**Get-AutomationConnection**의 -Name 매개 변수에 변수를 사용하면 안 됩니다. 변수를 사용하는 경우 Runbook 또는 DSC 구성과 설계 시의 연결 자산 간의 종속성을 검색하기가 어려워질 수 있기 때문입니다.
+## <a name="internal-cmdlets-to-access-connections"></a>연결에 액세스하는 데 사용되는 내부 cmdlet
 
- 
-## <a name="python2-functions"></a>Python2 함수 
-다음 표의 함수는 Python2 Runbook의 연결에 액세스하는 데 사용됩니다. 
+다음 표에 나와 있는 내부 cmdlet은 Runbook 및 DSC 구성에서 연결에 액세스하는 데 사용됩니다. 이 cmdlet은 전역 모듈 `Orchestrator.AssetManagement.Cmdlets`와 함께 제공됩니다. 자세한 내용은 [내부 cmdlet](shared-resources/modules.md#internal-cmdlets)을 참조하세요.
 
-| 함수 | 설명 | 
-|:---|:---| 
-| automationassets.get_automation_connection | 연결을 검색합니다. 연결의 속성이 있는 사전을 반환합니다. | 
+|내부 cmdlet|Description|
+|---|---|
+|`Get-AutomationConnection` | 연결의 여러 필드 값을 검색하여 [해시 테이블](https://go.microsoft.com/fwlink/?LinkID=324844)로 반환합니다. 이 해시 테이블을 Runbook또는 DSC 구성의 적절한 명령에서 사용할 수 있습니다.|
 
-> [!NOTE] 
-> 자산 함수에 액세스하려면 Python Runbook 맨 위에서 "automationassets" 모듈을 가져와야 합니다.
+>[!NOTE]
+>변수를 `Get-AutomationConnection`의 `Name` 매개 변수와 함께 사용하면 안 됩니다. 변수를 이렇게 사용하면 디자인 타임에 Runbook 또는 DSC 구성과 연결 자산 간의 종속성 검색이 복잡해질 수 있습니다.
 
-## <a name="creating-a-new-connection"></a>새 연결 만들기
+## <a name="python-2-functions-to-access-connections"></a>인증서에 액세스하는 데 사용되는 Python 2 함수
 
-### <a name="to-create-a-new-connection-with-the-azure-portal"></a>Azure 포털을 사용하여 새 연결을 만들려면
+다음 표에 나와 있는 함수는 Python 2 Runbook의 연결에 액세스하는 데 사용됩니다.
 
-1. 자동화 계정에서 **자산** 파트를 클릭하여 **자산** 블레이드를 엽니다.
-2. **연결** 파트를 클릭하여 **연결** 블레이드를 엽니다.
-3. 블레이드의 위쪽에서 **연결 추가** 를 클릭합니다.
-4. **형식** 드롭다운에서 만들려는 연결 형식을 선택합니다. 양식에 해당 특정 형식에 대한 속성이 표시됩니다.
-5. 양식을 완료하고 **만들기** 를 클릭하여 새 연결을 저장합니다.
+| 함수 | Description |
+|:---|:---|
+| `automationassets.get_automation_connection` | 연결을 검색합니다. 연결의 속성이 있는 사전을 반환합니다. |
 
-### <a name="to-create-a-new-connection-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 연결을 만들려면
+> [!NOTE]
+> 자산 함수에 액세스하려면 Python Runbook 맨 위에서 `automationassets` 모듈을 가져와야 합니다.
 
-[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet을 사용하여 Windows PowerShell과의 새 연결을 만듭니다. 이 cmdlet에는 연결 형식에 정의된 각 특성의 값을 정의하는 **해시 테이블** 이 필요한 [ConnectionFieldValues](https://technet.microsoft.com/library/hh847780.aspx) 라는 매개 변수가 있습니다.
+## <a name="create-a-new-connection"></a>새 연결 만들기
 
-Automation [실행 계정](automation-sec-configure-azure-runas-account.md)에 익숙하여 서비스 주체를 통해 Runbook을 인증하는 경우 포털에서 실행 계정을 만드는 대신 제공되는 PowerShell 스크립트에서 다음 샘플 명령을 사용하여 새 연결 자산을 만듭니다.  
+### <a name="create-a-new-connection-with-the-azure-portal"></a>Azure Portal을 사용하여 새 연결 만들기
+
+Azure Portal을 사용하여 새 연결을 만들려면:
+
+1. Automation 계정에서 **공유 리소스** 아래의 **연결**을 클릭합니다.
+2. 연결 페이지에서 **+ 연결 추가**를 클릭합니다.
+4. 새 연결 창의 **형식** 필드에서 만들려는 연결 형식을 선택합니다. 옵션에는 `Azure`, `AzureServicePrincipal` 및 `AzureClassicCertificate`이 있습니다. 
+5. 양식에 선택한 연결 형식의 속성이 표시됩니다. 양식을 완료하고 **만들기** 를 클릭하여 새 연결을 저장합니다.
+
+### <a name="create-a-new-connection-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 연결 만들기
+
+Windows PowerShell에서 `New-AzAutomationConnection` cmdlet을 사용하여 새 연결을 만듭니다. 이 cmdlet에는 연결 형식으로 정의되는 각 속성의 값을 정의하는 해시 테이블이 필요한 `ConnectionFieldValues` 매개 변수가 있습니다.
+
+다음 예제 명령을 포털에서 실행 계정을 만들어서 새 연결 자산을 만드는 방법의 대안으로 사용할 수 있습니다.
 
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
 $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
+New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Automation 계정을 만들 때 기본적으로 **AzureServicePrincipal** 연결 형식과 함께 여러 전역 모듈이 자동으로 포함되어 **AzureRunAsConnection** 연결 자산을 만들 수 있기 때문에 스크립트를 사용하여 연결 자산을 만들 수 있습니다.  새 연결 자산을 만들어 다른 인증 방법으로 서비스 또는 애플리케이션에 연결하려는 경우 아직 연결 형식이 Automation 계정에 정의되어 있지 않기 때문에 실패하게 된다는 것을 명심해야 합니다.  [PowerShell 갤러리](https://www.powershellgallery.com)에서 사용자 지정 또는 모듈에 대해 고유한 연결 형식을 만드는 방법에 대한 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.
-  
-## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>runbook 또는 DSC 구성에서 연결 사용하기
+Automation 계정을 만들면 계정에 기본적으로 여러 개의 전역 모듈과 `AzureRunAsConnection` 연결 자산을 만들기 위한 `AzureServicePrincipal` 연결 형식이 포함됩니다. 새 연결 자산을 만들어 다른 인증 방법으로 서비스 또는 애플리케이션에 연결하려고 시도하면 연결 형식이 아직 Automation 계정에 정의되어 있지 않기 때문에 작업에 실패하게 됩니다. 사용자 지정 모듈을 위해 자체 연결 형식을 만드는 방법에 대한 자세한 내용은 [연결 형식 추가](#add-a-connection-type)를 참조하세요.
 
-**Get-AutomationConnection** cmdlet를 사용하여 runbook 또는 DSC 구성의 연결을 검색합니다.  [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) 활동은 사용할 수 없습니다.  이 활동은 연결의 여러 필드값을 검색하고 runbook 또는 DSC 구성의 적절한 명령과 함께 사용될 수 있는 [해시 테이블](https://go.microsoft.com/fwlink/?LinkID=324844) 로 반환합니다.
+## <a name="add-a-connection-type"></a>연결 형식 추가
 
-### <a name="textual-runbook-sample"></a>텍스트 Runbook 샘플
+Runbook 또는 DSC 구성이 외부 서비스로 연결되는 경우 통합 모듈이라고 하는 [사용자 지정 모듈](shared-resources/modules.md#custom-modules)에 연결 형식을 정의해야 합니다. 이 모듈에는 연결 형식 속성을 지정하는 메타데이터 파일이 있습니다. 이 파일은 압축된 **.zip** 파일의 모듈 폴더 안에 있는 **&lt;ModuleName&gt;-Automation.json**입니다. 이 파일에는 모듈이 나타내는 시스템 또는 서비스에 연결하는 데 필요한 연결 필드가 있습니다. 이 파일을 사용하여 필드 이름, 암호화 상태 및 연결 형식의 선택적 상태를 설정할 수 있습니다. 
 
-다음 샘플 명령에서는 앞에서 언급한 실행 계정을 사용하여 runbook에서 Azure Resource Manager 리소스를 인증하는 방법을 보여 줍니다.  여기서는 자격 증명이 아닌 인증서 기반 서비스 주체를 참조하는 실행 계정을 나타내는 연결 자산을 사용합니다.  
+다음 예제는 **.json** 파일 형식의 템플릿으로, `MyModuleConnection`이라는 사용자 지정 연결 형식의 사용자 이름 및 암호 속성을 정의합니다.
+
+```json
+{
+   "ConnectionFields": [
+   {
+      "IsEncrypted":  false,
+      "IsOptional":  true,
+      "Name":  "Username",
+      "TypeName":  "System.String"
+   },
+   {
+      "IsEncrypted":  true,
+      "IsOptional":  false,
+      "Name":  "Password",
+      "TypeName":  "System.String"
+   }
+   ],
+   "ConnectionTypeName":  "MyModuleConnection",
+   "IntegrationModuleName":  "MyModule"
+}
+```
+
+## <a name="get-a-connection-in-a-runbook-or-dsc-configuration"></a>Runbook 또는 DSC 구성에서 연결 가져오기
+
+내부 `Get-AutomationConnection` cmdlet을 사용하여 Runbook 또는 DSC 구성에서 연결을 검색합니다. 이 cmdlet은 연결에 대한 정보가 아니라 연결 값을 검색하므로 `Get-AzAutomationConnection` cmdlet보다 선호됩니다. 
+
+### <a name="textual-runbook-example"></a>텍스트 Runbook 예
+
+다음 예제에서는 실행 계정을 사용하여 Runbook에서 Azure Resource Manager 리소스를 인증하는 방법을 보여 줍니다. 여기서는 인증서 기반 서비스 주체를 참조하는 실행 계정을 나타내는 연결 자산을 사용합니다.
 
 ```powershell
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
 
-> [!IMPORTANT]
-> **Add-AzureRmAccount**는 이제 **Connect-AzureRMAccount**에 대한 별칭입니다. 라이브러리를 항목을 검색할 때 **Connect-AzureRMAccount**가 표시되지 않는 경우 **Add-AzureRmAccount**를 사용하거나 Automation 계정에서 모듈을 업데이트할 수 있습니다.
+### <a name="graphical-runbook-examples"></a>그래픽 Runbook 예
 
-### <a name="graphical-runbook-samples"></a>그래픽 Runbook 샘플
-
-그래픽 편집기의 라이브러리 창에서 연결을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택하여 **Get-AutomationConnection**를 그래픽 Runbook에 추가합니다.
+내부 `Get-AutomationConnection` cmdlet의 활동을 그래픽 Runbook에 추가할 수 있습니다. 그래픽 편집기의 라이브러리 창에서 연결을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택합니다.
 
 ![캔버스에 추가](media/automation-connections/connection-add-canvas.png)
 
-다음 그림에서는 그래픽 Runbook에서 연결을 사용하는 예제를 보여 줍니다.  이는 텍스트 runbook과 함께 실행 계정을 통해 인증하기 위해 위에서 보여 준 예제와 동일합니다.  이 예제에서는 인증을 위해 연결 개체를 사용하는 **실행 계정 연결 가져오기** 활동에 대해 **상수 값** 데이터 집합을 사용합니다.  ServicePrincipalCertificate 매개 변수 집합에는 단일 개체가 필요하기 때문에 여기서는 [파이프라인 링크](automation-graphical-authoring-intro.md#links-and-workflow)가 사용됩니다.
+다음 이미지에서는 그래픽 Runbook에서 연결 개체를 사용하는 예제를 보여 줍니다. 이 예제에서는 인증을 위해 연결 개체를 사용하는 `Get RunAs Connection` 활동에 대해 `Constant value` 데이터 세트를 사용합니다. `ServicePrincipalCertificate` 매개 변수에는 단일 개체가 필요하기 때문에 여기서는 [파이프라인 링크](automation-graphical-authoring-intro.md#use-links-for-workflow)를 사용합니다.
 
 ![연결 가져오기](media/automation-connections/automation-get-connection-object.png)
 
-### <a name="python2-runbook-sample"></a>Python2 Runbook 샘플
-다음 예제에서는 Python2 Runbook에서 다음 계정으로 실행 연결을 사용하여 인증하는 방법을 보여 줍니다.
+### <a name="python-2-runbook-example"></a>Python 2 Runbook 예제
+
+다음 예제에서는 Python 2 Runbook에서 실행 연결을 사용하여 인증하는 방법을 보여 줍니다.
 
 ```python
 """ Tutorial to show how to authenticate against Azure resource manager resources """
@@ -127,41 +155,43 @@ import azure.mgmt.resource
 import automationassets
 
 def get_automation_runas_credential(runas_connection):
-  """ Returns credentials to authenticate against Azure resoruce manager """
-  from OpenSSL import crypto
-  from msrestazure import azure_active_directory
-  import adal
+    """ Returns credentials to authenticate against Azure resoruce manager """
+    from OpenSSL import crypto
+    from msrestazure import azure_active_directory
+    import adal
 
-  # Get the Azure Automation Run As service principal certificate
-  cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
-  pks12_cert = crypto.load_pkcs12(cert)
-  pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
+    # Get the Azure Automation Run As service principal certificate
+    cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+    pks12_cert = crypto.load_pkcs12(cert)
+    pem_pkey = crypto.dump_privatekey(
+        crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
 
-  # Get Run As connection information for the Azure Automation service principal
-  application_id = runas_connection["ApplicationId"]
-  thumbprint = runas_connection["CertificateThumbprint"]
-  tenant_id = runas_connection["TenantId"]
+    # Get Run As connection information for the Azure Automation service principal
+    application_id = runas_connection["ApplicationId"]
+    thumbprint = runas_connection["CertificateThumbprint"]
+    tenant_id = runas_connection["TenantId"]
 
-  # Authenticate with service principal certificate
-  resource = "https://management.core.windows.net/"
-  authority_url = ("https://login.microsoftonline.com/" + tenant_id)
-  context = adal.AuthenticationContext(authority_url)
-  return azure_active_directory.AdalAuthentication(
-    lambda: context.acquire_token_with_client_certificate(
-      resource,
-      application_id,
-      pem_pkey,
-      thumbprint)
-  )
+    # Authenticate with service principal certificate
+    resource = "https://management.core.windows.net/"
+    authority_url = ("https://login.microsoftonline.com/" + tenant_id)
+    context = adal.AuthenticationContext(authority_url)
+    return azure_active_directory.AdalAuthentication(
+        lambda: context.acquire_token_with_client_certificate(
+            resource,
+            application_id,
+            pem_pkey,
+            thumbprint)
+    )
+
 
 # Authenticate to Azure using the Azure Automation Run As service principal
-runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+runas_connection = automationassets.get_automation_connection(
+    "AzureRunAsConnection")
 azure_credential = get_automation_runas_credential(runas_connection)
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-- [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 검토하여 runbook의 논리 흐름을 지시하고 제어하는 방법을 이해합니다.  
-
-- Azure Automation에서 PowerShell 모듈을 사용하는 방법 및 Azure Automation 내에서 통합 모듈로 작동하도록 고유한 PowerShell 모듈을 만드는 모범 사례에 대한 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.  
-
+* 연결에 액세스하는 데 사용되는 cmdlet에 대한 자세한 내용은 [Azure Automation에서 모듈 관리](shared-resources/modules.md)를 참조하세요.
+* Runbook에 대한 일반적인 정보는 [Azure Automation에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
+* DSC 구성에 대한 자세한 내용은 [State Configuration 개요](automation-dsc-overview.md)를 참조하세요.

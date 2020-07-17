@@ -1,0 +1,37 @@
+### YamlMime:Landing
+title: Azure Scheduler 설명서
+summary: Azure Scheduler는 조만간 사용 중지되고 Azure Logic Apps로 대체됩니다. Scheduler에서 설정한 작업으로 계속 작업하려면 가능한 한 빨리 Azure Logic Apps로 마이그레이션하세요.
+metadata:
+  title: Azure Scheduler 설명서
+  description: 반복적인 애플리케이션 작업 및 일상적인 유지 관리와 같은 자동화된 작업을 생성, 예약 및 실행합니다. Azure Scheduler는 조만간 사용 중지되고 Azure Logic Apps로 대체됩니다. Scheduler에서 설정한 작업으로 계속 작업하려면 가능한 한 빨리 Azure Logic Apps로 마이그레이션하세요.
+  services: scheduler
+  ms.service: scheduler
+  ms.topic: landing-page
+  author: derek1ee
+  ms.author: estfan
+  ms.date: 03/30/2020
+  ms.openlocfilehash: 04be683d3bd3d874efb44685b0d40b8c2d5a9698
+  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/31/2020
+  ms.locfileid: "80422981"
+landingContent:
+- title: 마이그레이션
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Scheduler 정의
+      url: scheduler-intro.md
+    - text: Azure Logic Apps란?
+      url: ../logic-apps/logic-apps-overview.md
+  - linkListType: get-started
+    links:
+    - text: Azure Scheduler 작업을 Azure Logic Apps로 마이그레이션
+      url: migrate-from-scheduler-to-logic-apps.md
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/scheduler/
+    - text: PowerShell
+      url: scheduler-powershell-reference.md

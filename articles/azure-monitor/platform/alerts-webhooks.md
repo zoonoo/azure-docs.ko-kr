@@ -1,21 +1,19 @@
 ---
-title: 웹후크를 사용하여 비 Azure 시스템을 알리도록 클래식 메트릭 경고 설정
+title: Azure Monitor에서 클래식 메트릭 경고를 사용하여 웹후크 호출
 description: Azure 메트릭 경고를 다른 비 Azure 시스템으로 다시 라우팅하는 방법을 알아봅니다.
-author: snehithm
-services: azure-monitor
-ms.service: azure-monitor
+author: harelbr
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345784"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826913"
 ---
-# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>웹후크를 사용하여 비 Azure 시스템을 알리도록 클래식 메트릭 경고 설정
+# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용하여 웹후크 호출
+
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 
 
 이 아티클에서는 Azure 메트릭 경고에 웹후크를 설정하는 방법을 설명합니다. 웹후크에 대한 HTTP POST의 페이로드 형태도 보여 줍니다. Azure 활동 로그 경고(이벤트에 대한 경고)에 대한 설정과 스키마에 대한 자세한 내용은 [Azure 활동 로그 경고에서 웹후크 호출](alerts-log-webhook.md)을 참조하세요.
@@ -27,7 +25,7 @@ Azure 경고는 HTTP POST를 사용하여 JSON 형식의 경고 콘텐츠를 이
 
 ![경고 규칙 추가 창](./media/alerts-webhooks/Alertwebhook.png)
 
-또한 [Azure PowerShell cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), [플랫폼 간 CLI](../../azure-monitor/platform/cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 웹후크 URI에 게시할 경고를 구성할 수 있습니다.
+또한 [Azure PowerShell cmdlet](../samples/powershell-samples.md#create-metric-alerts), [플랫폼 간 CLI](../samples/cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 웹후크 URI에 게시할 경고를 구성할 수 있습니다.
 
 ## <a name="authenticate-the-webhook"></a>웹후크 인증
 웹후크는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 웹후크 URI는 토큰 ID를 사용하여 저장됩니다. 예: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -71,14 +69,14 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 
 | 필드 | 필수 | 고정된 값 집합 | 메모 |
 |:--- |:--- |:--- |:--- |
-| status |Y |Activated, Resolved |설정한 조건을 기반으로 하는 경고에 대한 상태입니다. |
-| context |Y | |경고 컨텍스트입니다. |
+| 상태 |Y |Activated, Resolved |설정한 조건을 기반으로 하는 경고에 대한 상태입니다. |
+| 컨텍스트 |Y | |경고 컨텍스트입니다. |
 | timestamp |Y | |경고가 트리거된 시점의 시간입니다. |
 | id |Y | |모든 경고 규칙에는 고유한 ID가 있습니다. |
-| 이름 |Y | |경고 이름입니다. |
+| name |Y | |경고 이름입니다. |
 | description |Y | |경고에 대한 설명입니다. |
 | conditionType |Y |Metric, Event |metric과 event라는 두 형식의 경고가 지원됩니다. 메트릭 경고는 메트릭 조건을 기반으로 합니다. 이벤트 경고는 활동 로그의 이벤트를 기반으로 합니다. 이 값을 사용하여 경고가 메트릭 또는 이벤트를 기반으로 하는지 확인하세요. |
-| condition |Y | |**conditionType** 값에 기반하여 확인할 특정 필드입니다. |
+| condition(조건) |Y | |**conditionType** 값에 기반하여 확인할 특정 필드입니다. |
 | metricName |메트릭 경고의 경우 | |규칙은 모니터링을 정의하는 메트릭의 이름입니다. |
 | metricUnit |메트릭 경고의 경우 |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |메트릭에 사용되는 단위입니다. [허용되는 값](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx)을 참조하세요. |
 | metricValue |메트릭 경고의 경우 | |경고를 발생시킨 메트릭의 실제 값입니다. |
@@ -93,7 +91,7 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | resourceId |Y | |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceRegion |Y | |영향을 받는 리소스의 지역 또는 위치입니다. |
 | portalLink |Y | |포털 리소스 요약 페이지에 대한 직접 링크입니다. |
-| properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. 예: `Dictionary<String, String>`. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
+| properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. `Dictionary<String, String>`)을 입력합니다. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
 
 > [!NOTE]
 > [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 **properties** 필드만 설정할 수 있습니다.

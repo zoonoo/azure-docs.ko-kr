@@ -1,79 +1,62 @@
 ---
-title: Azure Active Directory의 조건부 액세스 모범 사례 | Microsoft Docs
-description: 조건부 액세스 정책을 구성할 때 알아야 할 사항과 수행하지 않아야 할 사항에 대해 자세히 알아봅니다.
+title: Azure Active Directory의 조건부 액세스에 대 한 모범 사례 | Microsoft Docs
+description: 조건부 액세스 정책을 구성할 때 알아야 할 사항 및 수행 하지 않아야 하는 사항에 대해 알아보세요.
 services: active-directory
-keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
+ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54cb8c3017b2b0a4c476095ba639985fb9418441
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d63cb1d7e2b0086a3d9ef6e3917ebefa11c7ccba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917326"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253378"
 ---
-# <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
+# <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스에 대 한 모범 사례
 
-[Azure AD(Azure Active Directory) 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 이 문서에서는 다음에 대한 정보를 제공합니다.
+[Azure Active Directory (AZURE AD) 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용 하 여 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있습니다. 이 문서에서는 다음에 대한 정보를 제공합니다.
 
 - 알아야 할 사항 
-- 조건부 액세스 정책을 구성할 때 수행하지 말아야 할 사항. 
+- 조건부 액세스 정책을 구성할 때는이 작업을 수행 하지 않아야 합니다. 
 
-이 문서에서는 [Azure Active Directory의 조건부 액세스란?](../active-directory-conditional-access-azure-portal.md)에 간략히 나온 개념 및 용어에 익숙하다고 가정합니다.
+이 문서에서는 [Azure Active Directory의 조건부 액세스 란?](../active-directory-conditional-access-azure-portal.md) 에 설명 된 개념과 용어에 대해 잘 알고 있다고 가정 합니다.
 
-
-
-## <a name="whats-required-to-make-a-policy-work"></a>정책을 작동하는 데 무엇이 필요한가요?
+## <a name="whats-required-to-make-a-policy-work"></a>정책을 작동 하려면 어떻게 해야 하나요?
 
 새 정책을 만들 경우 선택된 사용자, 그룹, 앱 또는 액세스 제어가 없습니다.
 
 ![클라우드 앱](./media/best-practices/02.png)
 
-
 정책이 작동되려면 다음을 구성해야 합니다.
-
 
 | 대상           | 방법                                  | 이유 |
 | :--            | :--                                  | :-- |
-| **클라우드 앱** |하나 이상의 앱을 선택합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있도록 하는 것입니다.|
-| **사용자 및 그룹** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
+| **클라우드 앱** |하나 이상의 앱을 선택합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있도록 하는 것입니다.|
+| **사용자 및 그룹** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당 된 사용자 및 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
 | **액세스 제어** | 하나 이상의 액세스 제어를 선택합니다. | 조건이 충족될 경우 정책 프로세서는 수행할 작업을 알고 있어야 합니다. |
-
-
-
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
+### <a name="how-are-conditional-access-policies-applied"></a>조건부 액세스 정책은 어떻게 적용 되나요?
 
-
-### <a name="how-are-conditional-access-policies-applied"></a>조건부 액세스 정책은 어떻게 적용됩니까?
-
-클라우드 앱에 액세스할 때 둘 이상의 조건부 액세스 정책이 적용될 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에서 MFA를 요구하고 두 번째 정책에서 규정 준수 디바이스를 요구하는 경우 MFA를 통과하고 규정 준수 디바이스를 사용해야 합니다. 
+클라우드 앱에 액세스 하는 경우 조건부 액세스 정책이 둘 이상 적용 될 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에 MFA (multi-factor authentication)가 필요 하 고 다른 정책에 준수 장치가 필요한 경우 MFA를 완료 하 고 규격 장치를 사용 해야 합니다. 
 
 모든 정책은 다음 두 단계로 적용됩니다.
 
-- **첫 번째** 단계에서는 모든 정책이 평가되고 충족되지 않은 모든 액세스 제어가 수집됩니다. 
-
-- **두 번째** 단계에서는 충족되지 않은 요구 사항을 충족시키도록 요구하는 메시지가 표시됩니다. 정책 중 하나에서 액세스를 차단하면 사용자가 차단되고 다른 정책 제어를 충족시키도록 요구하는 메시지는 표시되지 않습니다. 사용자를 차단하는 정책이 없으면 다음 순서에 따라 다른 정책 제어를 충족시키도록 요구하는 메시지가 표시됩니다.
-
-    ![순서](./media/best-practices/06.png)
-    
-    외부 MFA 공급자와 사용 약관이 다음에 나옵니다.
-
-
+- 1단계: 
+   - 세부 정보 수집: 이미 충족 된 정책을 식별 하는 세부 정보를 수집 합니다.
+   - 이 단계에서 장치 준수가 조건부 액세스 정책의 일부인 경우 사용자에 게 인증서 프롬프트가 표시 될 수 있습니다. 이 메시지는 장치 운영 체제가 Windows 10이 아닌 경우 브라우저 앱에 대해 발생할 수 있습니다.
+   - 정책 평가의 1 단계는 [보고서 전용 모드](concept-conditional-access-report-only.md)에서 사용 하도록 설정 된 모든 정책 및 정책에 대해 발생 합니다.
+- 2단계:
+   - 적용: 1 단계에서 수집 된 세부 정보를 고려 하 여 충족 되지 않은 추가 요구 사항을 충족 하도록 사용자를 요청 합니다.
+   - 세션에 결과를 적용 합니다. 
+   - 정책 평가의 2 단계는 사용 하도록 설정 된 모든 정책에 대해 발생 합니다.
 
 ### <a name="how-are-assignments-evaluated"></a>할당은 어떻게 평가됩니까?
 
@@ -84,15 +67,12 @@ ms.locfileid: "64917326"
 - **모든 위치** 포함
 - **모든 신뢰할 수 있는 IP** 제외
 
-
 ### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>Azure AD 관리 포털이 잠긴 경우 어떻게 합니까?
 
-조건부 액세스 정책의 잘못된 설정으로 인해 Azure AD 포털이 잠긴 경우:
+조건부 액세스 정책의 잘못 된 설정으로 인해 Azure AD 포털에서 잠긴 경우:
 
 - 아직 차단되지 않은 조직 내 다른 관리자가 있는지 확인합니다. Azure Portal에 액세스할 수 있는 관리자는 로그인에 영향을 주는 정책을 비활성화할 수 있습니다. 
-
-- 정책을 업데이트할 수 있는 조직의 관리자가 없는 경우 지원 요청을 제출해야 합니다. Microsoft 지원은 액세스를 방지하는 조건부 액세스 정책을 검토하고 업데이트할 수 있습니다.
-
+- 정책을 업데이트할 수 있는 조직의 관리자가 없는 경우 지원 요청을 제출해야 합니다. Microsoft 지원에서 액세스를 차단 하는 조건부 액세스 정책을 검토 하 고 업데이트할 수 있습니다.
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Azure 클래식 포털과 Azure Portal에서 정책을 구성하면 어떻게 됩니까?  
 
@@ -106,44 +86,36 @@ ms.locfileid: "64917326"
 
 Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하고, 사용자에게 액세스 권한을 부여하기 전에 모든 요구 사항이 충족되는지 확인합니다. 액세스 차단은 다른 모든 구성 설정보다 우선합니다. 
 
+### <a name="does-conditional-access-work-with-exchange-activesync"></a>조건부 액세스는 Exchange ActiveSync에서 작동 하나요?
 
-### <a name="does-conditional-access-work-with-exchange-activesync"></a>조건부 액세스가 Exchange ActiveSync에서 작동합니까?
+예, 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 있습니다.
 
-예, 일부를 사용 하 여 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 있습니다 [제한 사항](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync)합니다. 
+SharePoint Online 및 Exchange Online과 같은 일부 클라우드 앱도 레거시 인증 프로토콜을 지원 합니다. 클라이언트 앱이 레거시 인증 프로토콜을 사용 하 여 클라우드 앱에 액세스할 수 있는 경우 Azure AD는이 액세스 시도에 대 한 조건부 액세스 정책을 적용할 수 없습니다. 클라이언트 앱이 정책의 적용을 우회하는 것을 방지하려면 영향을 받는 클라우드 앱에서 최신 인증만을 사용할 수 있는지 확인해야 합니다.
 
-### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Office 365 앱을 사용 하 여 조건부 액세스를 어떻게 구성 해야?
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Office 365 앱을 사용 하 여 조건부 액세스를 구성 하려면 어떻게 해야 하나요?
 
-Office 365 앱을 상호 연결 되는 때문에 일반적으로 할당 앱 함께 정책을 만들 때 사용 하는 것이 좋습니다.
+Office 365 앱이 상호 연결 되어 있기 때문에 정책을 만들 때 일반적으로 사용 되는 앱을 함께 할당 하는 것이 좋습니다.
 
-Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online 및 Office 365 Yammer 일반적인 상호 연결 된 응용 프로그램에 포함 됩니다.
+일반적인 상호 연결 된 응용 프로그램에는 Microsoft Flow, Microsoft Planner, Microsoft 팀, Office 365 Exchange Online, Office 365 SharePoint Online 및 Office 365 Yammer가 포함 됩니다.
 
-세션이 나 태스크의 시작 부분에 대 한 액세스를 제어할 때 multi-factor authentication과 같은 사용자 상호 작용을 필요로 하는 정책을 중요 한 것입니다. 그렇지 않으면 사용자가 앱 내의 일부 작업을 완료할 수 없습니다. 예를 들어 전자 메일 아니라 SharePoint 액세스를 관리 되지 않는 장치에서 multi-factor authentication 인증을 해야 하는 경우 전자 메일에서 작업 하는 사용자는 메시지에 SharePoint 파일을 첨부할 수 없습니다. 자세한 내용은 문서에서 찾을 수 있습니다 [Azure Active Directory 조건부 액세스의 서비스 종속성을 이란?](service-dependencies.md)합니다.
-
-
-
-
+세션이 나 태스크의 시작 부분에서 액세스를 제어 하는 경우 multi-factor authentication과 같은 사용자 상호 작용이 필요한 정책에 중요 합니다. 그렇지 않으면 사용자가 앱 내에서 일부 작업을 완료할 수 없습니다. 예를 들어 관리 되지 않는 장치에서 다단계 인증을 사용 하 여 SharePoint에 액세스 하지만 전자 메일에 액세스 하지 못하는 경우 전자 메일에서 작업 하는 사용자가 SharePoint 파일을 메시지에 연결할 수 없습니다. 자세한 내용은 [Azure Active Directory 조건부 액세스의 서비스 종속성 이란?](service-dependencies.md)문서에서 찾을 수 있습니다.
 
 ## <a name="what-you-should-avoid-doing"></a>금지해야 할 기능
 
-조건부 액세스 프레임 워크는 훌륭한 구성 유연성을 제공합니다. 그러나 훌륭한 유연성은 잘못된 결과를 방지하기 위해 해제하기 전에 각 구성 정책을 신중하게 검토해야 한다는 것을 의미하기도 합니다. 이 컨텍스트에서 **모든 사용자 / 그룹 / 응용 프로그램**등 완전한 집합에 영향을 미치는 할당에 특별한 주의를 기울여야 합니다.
+조건부 액세스 프레임워크는 뛰어난 구성 유연성을 제공합니다. 그러나 훌륭한 유연성은 잘못된 결과를 방지하기 위해 해제하기 전에 각 구성 정책을 신중하게 검토해야 한다는 것을 의미하기도 합니다. 이 컨텍스트에서 **모든 사용자 / 그룹 / 응용 프로그램**등 완전한 집합에 영향을 미치는 할당에 특별한 주의를 기울여야 합니다.
 
 사용자 환경에서 다음과 같은 구성을 피해야 합니다.
-
 
 **모든 사용자에 대한 모든 클라우드 앱:**
 
 - **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
-
 - **호환 디바이스가 필요** - 디바이스를 아직 등록하지 않은 사용자의 경우 이 정책은 Intune 포털에 대한 액세스를 비롯한 모든 액세스를 차단합니다. 등록된 디바이스가 없는 관리자의 경우 이 정책은 정책을 변경하기 위해 Azure Portal로 다시 돌아가지 않도록 차단합니다.
-
 - **도메인 가입 필요** - 이 정책 차단 액세스에도 도메인에 가입된 디바이스가 아직 없는 경우에 조직의 모든 사용자에 대한 액세스를 차단할 가능성이 있습니다.
-
-- **앱 보호 정책 필요** -이 정책 차단 액세스에도 Intune 정책이 없는 경우 조직의 모든 사용자에 대 한 액세스를 차단할 수 있습니다. Intune 앱 보호 정책에는 클라이언트 응용 프로그램을 없는 관리자 인 경우이 정책은 Intune 및 Azure와 같은 포털으로 다시 돌아가지 않도록 차단 합니다.
+- **앱 보호 정책 필요** -이 정책 블록 액세스에는 Intune 정책이 없는 경우 조직의 모든 사용자에 대 한 액세스를 차단할 수도 있습니다. Intune 앱 보호 정책이 있는 클라이언트 응용 프로그램을 사용 하지 않는 관리자의 경우이 정책은 Intune 및 Azure와 같은 포털을 다시 가져올 수 없도록 차단 합니다.
 
 **모든 사용자 경우 모든 클라우드 앱, 모든 디바이스 플랫폼은 다음과 같습니다.**
 
 - **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
-
 
 ## <a name="how-should-you-deploy-a-new-policy"></a>새 정책을 배포하려면 어떻게 해야 합니까?
 
@@ -152,36 +124,28 @@ Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, 
 환경에 대한 새 정책이 준비되면 다음과 같은 단계로 배포합니다.
 
 1. 일부 사용자 집합에 정책을 적용하고 예상 대로 작동하는지 확인합니다. 
-
-2.  더 많은 사용자를 포함하도록 정책을 확장하는 경우가 있습니다. 정책에서 모든 관리자를 계속 제외하여 아직도 액세스 권한이 있는지 확인하고, 변경이 필요한 경우 정책을 업데이트할 수 있습니다.
-
-3. 필요한 경우에만 모든 사용자에게 정책을 적용합니다. 
+1. 더 많은 사용자를 포함하도록 정책을 확장하는 경우가 있습니다. 정책에서 모든 관리자를 계속 제외하여 아직도 액세스 권한이 있는지 확인하고, 변경이 필요한 경우 정책을 업데이트할 수 있습니다.
+1. 필요한 경우에만 모든 사용자에게 정책을 적용합니다. 
 
 모범 사례로, 다음과 같은 사용자 계정을 만듭니다.
 
 - 정책 관리 전용 
 - 모든 정책에서 제외
 
-
 ## <a name="policy-migration"></a>정책 마이그레이션
 
 Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 고려해야 하는 이유는 다음과 같습니다.
 
 - 이전에는 처리할 수 없었던 시나리오를 이제 처리할 수 있습니다.
-
 - 통합하여 관리해야 하는 정책의 수를 줄일 수 있습니다.   
-
-- 중앙의 단일 위치에서 모든 조건부 액세스 정책을 관리할 수 있습니다.
-
+- 모든 조건부 액세스 정책을 하나의 중앙 위치에서 관리할 수 있습니다.
 - Azure 클래식 포털의 사용이 중지됩니다.   
 
-
 자세한 내용은 [Azure Portal에서 클래식 정책 마이그레이션](policy-migration.md)을 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 
 다음을 참조하세요.
 
-- 조건부 액세스 정책을 구성하는 방법: [Azure Active Directory 조건부 액세스를 사용하여 특정 앱에 MFA 요구](app-based-mfa.md)
-- 조건부 액세스 정책을 계획하는 방법: [Azure Active Directory에서 조건부 액세스 배포 계획](plan-conditional-access.md)
+- 조건부 액세스 정책을 구성 하는 방법에 [대 한 자세한 내용은 Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대해 MFA 필요](app-based-mfa.md)를 참조 하세요.
+- 조건부 액세스 정책을 계획 하는 방법 [Azure Active Directory에서 조건부 액세스 배포를 계획 하는 방법](plan-conditional-access.md)을 참조 하세요.

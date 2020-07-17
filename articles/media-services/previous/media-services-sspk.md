@@ -1,6 +1,6 @@
 ---
-title: Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스
-description: Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스를 얻는 방법에 대해 알아보세요.
+title: Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스
+description: Microsoft 부드러운 스트리밍 클라이언트 포팅 키트에 라이선스를 부여 하는 방법에 대해 알아봅니다 &reg; .
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -12,18 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 505def9cde7cddf2ddcc23408fa3159de886167a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7fce1fc529f3af71cac17d8011fe065c6381a419
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677171"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스 
 ## <a name="overview"></a>개요
-Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 포함된 장치 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 적응 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 디바이스 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 디바이스 및 플랫폼 독립적인 구현입니다. 
+Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 포함된 디바이스 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 적응 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 디바이스 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 디바이스 및 플랫폼 독립적인 구현입니다. 
 
 아래 내용은 상위 수준의 아키텍처로, IIS 부드러운 스트리밍 이식 키트 상자는 Microsoft에서 제공하는 부드러운 스트리밍 클라이언트 구현이며 부드러운 스트리밍 콘텐츠 재생을 위한 모든 핵심 논리를 포함합니다. 그런 다음 파트너가 적절한 인터페이스를 구현하여 특정 디바이스 또는 플랫폼에 맞게 이 콘텐츠를 이식합니다. 
 
@@ -71,13 +70,14 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * 각 연도의 최초 10,000대의 디바이스 구현에 대해서는 사용료 없음 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>라이선스 절차 및 SSPK 액세스
-라이선스와 관련해서 궁금한 점이 있으면 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com)으로 메일을 보내 주세요.
+[sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com)모든 라이선스 쿼리에 대해 전자 메일을 보냅니다.
 
-[SSPK 배포 포털](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) 은 등록된 중간 정식 사용자가 액세스할 수 있습니다.
+SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있습니다.
 
-중간 및 최종 SSPK 정식 사용자는 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)를 클릭하세요.
+중간 및 최종 SSPK 정식 라이선스는에 기술 질문을 제출할 수 있습니다 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com) .
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft 부드러운 스트리밍 클라이언트 중간 제품 계약 정식 사용자
+
 * Adroit Business Solutions, Inc
 * Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
@@ -90,10 +90,10 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Fluendo S.A.
+* Guangzhou Shikun
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
-* iWEDIA S.A. 
 * Liberty Global Services BV
 * MediaTek Inc.
 * MStar Co, Ltd
@@ -104,7 +104,6 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technology Electronics(Huizhou) Co., Ltd.
 * Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
@@ -113,51 +112,41 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Microsoft 부드러운 스트리밍 클라이언트 최종 제품 계약 정식 사용자
 * Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Amazon Digital Services, Inc.
-* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Arion Technology, Inc.
-* ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
-* British Sky Broadcasting Limited
-* CastPal Technology Inc., Shenzhen
+* Arcelik A. S
 * Compal Electronics, Inc.
-* Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar Purchasing Corporation
-* Enseo, Inc.
-* FilmFlex 영화 제한
+* EXPRESS 행운 기술 제한
 * Fluendo S.A.
-* FUNAI ELECTRIC CO., LTD
-* Gibson Innovations Limited
-* Haier Information Applicantion S.R.L
-* HANDAN BroadInfoCom Co., Ltd.
+* FUNAI 전기 CO., L T D
 * Hisense International Co., Ltd. 
-* Homecast Co., Ltd
-* Hon Hai Precision Industry Co., Ltd.
-* Infomir GMBH
+* HKC Corporation 제한
+* 홍콩 특별 행정구 Konka
+* Innolux Corporation
+* Innopia 기술, Inc.
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
+* 메가 Fame 전자식 Co. 제한 됨
+* MIRC 전자 제품 제한
 * Nintendo Co., Ltd.
-* Orange SA
-* Saffron Digital Limited
-* Sagemcom Broadband SAS
-* Shenzhen Coship Electronics CO., LTD
+* ONEPLUS 전자 (SHENZHEN) CO.
+* Panasonic Corporation
+* Qingdao Haier Optronics Co., l t d.
+* Shenzhen ATEKO 사진 전기 Co., l t d.
+* Shenzhen Chuangwei-RGB 전자 제품
 * Shenzhen Jiuzhou Electric Co., Ltd
+* Shenzhen KTC 기술 공동., l t d. 
+* Shenzhen Maxmade 기술 Co
+* Shenzhen MTC Co., l t d
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
 * Sky Deutschland Fernsehen GmbH & Co. KG
-* SmarDTV S.A.
+* SMARDTV 글로벌 SAS
 * SoftAtHome
 * Sony Corporation
-* TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
-* Tongfang Global Ltd.
 * Top Victory Investments, Ltd.
-* Toshiba Lifestyle Products & Services Corporation
-* Universal Media Corporation /Slovakia/ s.r.o.
-* VIZIO, Inc.
-* Wistron Corporation
+* UMC 폴란드 sp o.o.
 * ZTE Corporation
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로

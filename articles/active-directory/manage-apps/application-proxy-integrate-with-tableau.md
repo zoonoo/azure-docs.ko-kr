@@ -2,29 +2,29 @@
 title: Azure Active Directory 애플리케이션 프록시 및 Tableau | Microsoft Docs
 description: Azure AD(Azure Active Directory) 애플리케이션 프록시를 사용하여 Tableau 배포에 대해 원격 액세스를 제공하는 방법을 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6df0a0bf21f4be824738d86ac6bdb3c75c9c3564
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783858"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764505"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 애플리케이션 프록시 및 Tableau 
 
 Azure Active Directory 애플리케이션 프록시 및 Tableau를 사용하여 Tableau 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다. 이 아티클에서는 이 시나리오를 구성하는 방법에 대해 설명합니다.  
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 아티클의 시나리오에서는 다음을 가정합니다.
 
@@ -50,7 +50,7 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 **앱을 게시하려면**: 
 
 
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 응용 프로그램 관리자입니다. 
+1. 응용 프로그램 관리자로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다. 
 
 2. **Azure Active Directory &gt; 엔터프라이즈 애플리케이션**을 선택합니다. 
 
@@ -62,7 +62,7 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 
     - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. 예: `https://adventure-works.tableau.com`. 
 
-    - **사전 인증 방법**: Azure Active Directory(권장되지만 필수는 아님) 
+    - **사전 인증 방법**: Azure Active Directory(권장되지만 필수 아님)입니다. 
 
 6. 블레이드의 위쪽에서 **추가**를 선택합니다. 애플리케이션이 추가되고 빠른 시작 메뉴가 열립니다. 
 
@@ -74,7 +74,7 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 
  
 
-## <a name="testing"></a>테스트하는 중 
+## <a name="testing"></a>테스트 
 
 애플리케이션을 테스트할 준비가 되었습니다. Tableau를 게시하는 데 사용되는 외부 URL에 액세스하고 두 애플리케이션에 할당된 사용자 권한으로 로그인합니다.
 

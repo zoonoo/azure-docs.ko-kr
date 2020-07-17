@@ -15,9 +15,7 @@
       href: quickstart-download-audit-report.md
     - name: 명명된 위치 구성
       href: quickstart-configure-named-locations.md
-    - name: Power BI 콘텐츠 팩 설치
-      href: quickstart-install-power-bi-content-pack.md
-    - name: 저장소 계정으로 로그 라우팅
+    - name: 스토리지 계정으로 로그 라우팅
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: 자습서
   items:
@@ -27,6 +25,8 @@
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
 - name: 개념
   items:
+    - name: 보고 및 모니터링 배포 계획
+      href: plan-monitoring-and-reporting.md
     - name: 감사 로그
       href: concept-audit-logs.md
     - name: 로그인 로그
@@ -35,10 +35,12 @@
       href: concept-usage-insights-report.md
     - name: 위험한 로그인
       href: concept-risky-sign-ins.md
-    - name: 위험 이벤트
+    - name: 위험 탐지
       href: concept-risk-events.md
     - name: 위험에 노출된 사용자
       href: concept-user-at-risk.md
+    - name: 프로비저닝 로그
+      href: concept-provisioning-logs.md
     - name: Reporting API
       href: concept-reporting-api.md
     - name: Azure Monitor의 Azure AD 로그
@@ -48,17 +50,17 @@
   items:
     - name: 보고서
       items:
+        - name: Azure AD의 비활성 사용자 계정 관리
+          href: howto-manage-inactive-user-accounts.md
         - name: 활동 보고서 찾기
           href: howto-find-activity-reports.md
         - name: 사용자에 대한 로그인 오류 문제 해결
           href: howto-troubleshoot-sign-in-errors.md
         - name: 위험 플래그가 지정된 사용자 수정
           href: howto-remediate-users-flagged-for-risk.md
-        - name: Azure AD용 Power BI 콘텐츠 팩 보고서 사용
-          href: howto-power-bi-content-pack.md
         - name: Reporting API를 위한 필수 구성 요소 구성
           href: howto-configure-prerequisites-for-reporting-api.md
-        - name: Azure Monitor workbook 사용 방법
+        - name: Azure AD 통합 문서 사용 방법
           href: howto-use-azure-monitor-workbooks.md
     - name: 모니터링
       items:
@@ -82,11 +84,11 @@
           href: troubleshoot-missing-data-download.md
         - name: 보고를 위한 Graph API에 액세스할 수 없음
           href: troubleshoot-graph-api.md
-        - name: Power BI 콘텐츠 팩의 오류
-          href: troubleshoot-content-pack.md
-- name: 참고 자료
+- name: 참조
   expanded: true
   items:
+    - name: 보고용 Azure AD PowerShell cmdlet
+      href: reference-powershell-reporting.md
     - name: 감사 로그 API 참조
       href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
     - name: 로그인 로그 API 참조

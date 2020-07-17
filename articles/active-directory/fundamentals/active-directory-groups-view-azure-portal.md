@@ -1,24 +1,24 @@
 ---
-title: 그룹 및 멤버를 보기 위한 빠른 시작 - Azure Active Directory | Microsoft Docs
+title: 빠른 시작 - 그룹 및 구성원 보기 - Azure AD
 description: 조직의 그룹 및 할당된 멤버를 검색하고 보는 방법을 설명하는 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881013"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "75423010"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -27,9 +27,9 @@ Azure Portal을 사용하여 조직의 기존 그룹 및 그룹 멤버를 볼 �
 
 이 빠른 시작에서는 조직의 모든 기존 그룹을 보고 할당된 멤버를 봅니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음이 필요합니다.
 
 - Azure Active Directory 테넌트를 만듭니다. 자세한 내용은 [Azure Active Directory 포털 액세스 및 새 테넌트 만들기](active-directory-access-create-new-tenant.md)를 참조하세요.
@@ -53,7 +53,7 @@ _MDM policy - West_라는 이름의 새 그룹을 만듭니다. 그룹 만들기
 3. **만들기**를 선택합니다.
 
 ## <a name="create-a-new-user"></a>새 사용자 만들기
-_Alain Charon_이라는 새 사용자를 만듭니다. 사용자는 그룹 멤버로 추가되기 전에 존재해야 합니다. 사용자 만들기에 대한 자세한 내용은 [사용자 추가 또는 삭제 방법](add-users-azure-active-directory.md)을 참조하세요.
+_Alain Charon_이라는 새 사용자를 만듭니다. 사용자는 그룹 멤버로 추가되기 전에 존재해야 합니다. 먼저 "사용자 지정 도메인 이름" 탭을 확인하여 사용자를 만들 확인된 도메인 이름을 가져옵니다. 사용자 만들기에 대한 자세한 내용은 [사용자 추가 또는 삭제 방법](add-users-azure-active-directory.md)을 참조하세요.
 
 1. **Azure Active Directory**, **사용자**를 선택한 다음, **새 사용자**를 선택합니다.
 
@@ -72,7 +72,7 @@ _Alain Charon_이라는 새 사용자를 만듭니다. 사용자는 그룹 멤�
 
 2. **그룹 - 모든 그룹** 페이지에서 **MDM policy - West** 그룹을 검색하여 선택합니다.
 
-3. **MDM policy - West 개요** 페이지의 **관리** 영역에서 **멤버**를 선택합니다.
+3. **MDM 정책 - 서부 개요** 페이지의 **관리** 영역에서 **멤버**를 선택합니다.
 
 4. **멤버 추가**를 선택한 다음, **Alain Charon**을 검색하여 선택합니다.
 

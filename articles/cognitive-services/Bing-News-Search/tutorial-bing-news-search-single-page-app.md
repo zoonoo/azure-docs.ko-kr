@@ -1,22 +1,22 @@
 ---
-title: '자습서: 단일 페이지 웹앱 만들기 - Bing News Search API'
-titlesuffix: Azure Cognitive Services
+title: '자습서: Bing News Search API를 사용하여 단일 페이지 웹앱 만들기'
+titleSuffix: Azure Cognitive Services
 description: 이 자습서를 사용하여 검색 쿼리를 Bing News API에 보낼 수 있는 단일 페이지 웹 애플리케이션을 빌드하고 웹 페이지 내에 결과를 표시합니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 01/10/2019
-ms.author: v-gedod
+ms.date: 06/23/2020
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 29539ba39e724208093910f8fb6fa2d3bc309bda
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9721a00ef1f0df056b3300ababfee0d0d29bbddc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885041"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801277"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
 
@@ -34,11 +34,19 @@ Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련
 > * JavaScript에서 Bing News Search API 호출 수행
 > * Bing News Search API에 검색 옵션 전달
 > * 24시간의 기간, 지난 주, 지난 달 또는 사용 가능한 모든 시간의 임의 유형, 비즈니스, 상태 또는 정책의 네 가지 범주에 해당하는 뉴스 검색 결과 표시
-> * 검색 결과 페이지 표시
+> * 검색 결과 페이징
 > * Bing 클라이언트 ID와 API 구독 키 처리
 > * 발생할 수 있는 오류 처리
 
 자습서 페이지는 완전히 독립적입니다. 즉, 모든 외부 프레임워크, 스타일시트 또는 이미지 파일을 사용하지 않습니다. 이 페이지는 광범위하게 지원되는 JavaScript 언어 기능만 사용하며, 모든 주요 웹 브라우저의 현재 버전에서 작동합니다.
+
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+자습서를 따르려면 Bing Search API에 대한 구독 키가 필요합니다. 아직 없는 경우 만들어야 합니다.
+
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
 
 ## <a name="app-components"></a>앱 구성 요소
 단일 페이지 웹앱과 마찬가지로, 이 자습서 애플리케이션은 다음 세 부분으로 구성되어 있습니다.
@@ -59,9 +67,9 @@ Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련
 
 ## <a name="managing-subscription-key"></a>구독 키 관리
 
-Bing Search API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 저장소를 사용하여 키를 저장합니다. 키가 저장되기 전에 사용자에게 키를 확인하는 메시지가 표시됩니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로 사용자에게 다시 메시지가 표시됩니다.
+Bing Search API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 스토리지를 사용하여 키를 저장합니다. 키가 저장되기 전에 사용자에게 키를 확인하는 메시지가 표시됩니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로 사용자에게 다시 메시지가 표시됩니다.
 
-`localStorage` 개체(일부 브라우저에서만 지원) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다.
+`localStorage` 개체(일부 브라우저에서만 지원) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
 ``` javascript
 // Cookie names for data we store
@@ -101,7 +109,7 @@ HTML `<form>` 태그 `onsubmit`는 `bingWebSearch` 함수를 호출하여 검색
 
 HTML 양식에는 다음 이름의 요소가 포함됩니다.
 
-|요소|설명|
+|요소|Description|
 |-|-|
 | `where` | 검색에 사용되는 지역/국가(위치 및 언어)를 선택하기 위한 드롭다운 메뉴입니다. |
 | `query` | 검색어를 입력하기 위한 텍스트 필드입니다. |
@@ -267,7 +275,7 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> 성공적인 HTTP 요청이 반드시 검색 자체가 성공했음을 의미하는 것은 *아닙니다*. 검색 작업에 오류가 발생하는 경우 Bing News Search API는 200 이외의 HTTP 상태 코드를 반환하고 JSON 응답에 오류 정보를 포함합니다. 또한 요청의 속도가 제한되었으면 API는 빈 응답을 반환합니다.
+> 성공적인 HTTP 요청이 반드시 검색 자체가 성공했음을 의미하는 것은 *아닙니다*. 검색 작업에서 오류가 발생할 경우 Bing News Search API는 200 이외의 HTTP 상태 코드를 반환하고, JSON 응답에 오류 정보를 포함합니다. 또한 요청의 속도가 제한된 경우 API에서 빈 응답을 반환합니다.
 
 위의 두 함수에 포함된 코드는 대부분 오류 처리에만 사용됩니다. 다음 단계에서 오류가 발생할 수 있습니다.
 
@@ -296,7 +304,7 @@ function handleBingResponse() {
         showDiv("sidebar", renderRelatedItems(results.relatedSearches));
 }
 ```
-주 검색 결과는 JSON 응답에서 최상위 수준 `value` 개체로 반환됩니다. 이 결과를 `renderResults()` 함수에 전달하면 결과를 따라 반복되면서 별도 함수가 호출되고 각 항목이 HTML로 렌더링됩니다. 결과 HTML은 `renderSearchResults()`로 반환되고, 여기서 페이지의 `results` 부분에 삽입됩니다.
+주 검색 결과는 JSON 응답에서 최상위 수준 `value` 개체로 반환됩니다. 이 결과를 `renderResults()` 함수에 전달하면 결과를 따라 반복되면서 별도 함수가 호출되고 각 항목이 HTML로 렌더링됩니다. 결과 HTML은 `renderSearchResults()`에 반환되며, 페이지의 `results` 부분에 삽입됩니다.
 
 ```javascript
 function renderResults(items) {
@@ -315,7 +323,7 @@ function renderResults(items) {
 ```
 Bing News Search API는 최대 4가지 종류의 관련 검색을 각각 고유한 최상위 개체에 반환합니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
-|관계|설명|
+|관계|Description|
 |-|-|
 |`pivotSuggestions`|원래 검색에 포함된 중심 단어를 다른 단어로 바꾸는 쿼리입니다. 예를 들어 “red flowers”를 검색하는 경우 중심 단어는 “red”일 수 있고, 중심 제안은 “yellow flowers”일 수 있습니다.|
 |`queryExpansions`|용어를 더 추가하여 원래 검색의 범위를 좁히는 쿼리입니다. 예를 들어 “Microsoft Surface”를 검색하는 경우 쿼리가 “Microsoft Surface Pro”로 확장될 수 있습니다.|
@@ -338,15 +346,15 @@ searchItemRenderers = {
 ```
 렌더러 함수는 다음 매개 변수를 사용할 수 있습니다.
 
-|매개 변수|설명|
+|매개 변수|Description|
 |-|-|
 |`item`| URL 및 해당 설명과 같은 항목의 속성을 포함하는 JavaScript 개체입니다.|
 |`index`| 해당 컬렉션 내에서 결과 항목의 인덱스입니다.|
 |`count`| 검색 결과 항목 컬렉션에 있는 항목 수입니다.|
 
-`index` 및 `count` 매개 변수는 결과에 번호를 지정하고, 컬렉션 시작 또는 끝에 대한 특수 HTML을 생성하고, 특정 개수의 항목 다음에 줄 바꿈을 삽입하는 등의 작업에 사용될 수 있습니다. 렌더러에서 이 기능이 필요하지 않은 경우 이러한 두 매개 변수를 수락할 필요가 없습니다.
+`index` 및 `count` 매개 변수는 결과에 번호를 지정하고, 컬렉션 시작 또는 끝에 대한 특수 HTML을 생성하고, 특정 개수의 항목 다음에 줄 바꿈을 삽입하는 등의 작업에 사용될 수 있습니다. 렌더러에 이 기능이 필요하지 않은 경우 이러한 두 매개 변수를 사용하지 않아도 됩니다.
 
-`news` 렌더러는 다음 javascript 발췌 내용이 나와 있습니다.
+`news` 렌더러는 다음 JavaScript 발췌 내용에 나와 있습니다.
 ```javascript
     // render news story
     news: function (item) {
@@ -381,7 +389,7 @@ searchItemRenderers = {
 > * 이미지와 해당 이미지를 포함하는 페이지에 연결되는 HTML `<a>` 태그를 빌드합니다.
 > * 이미지와 해당 이미지가 있는 사이트에 대한 정보를 표시하는 설명을 빌드합니다.
 
-썸네일 크기는 `<img>` 태그와 썸네일의 URL에 있는 `h` 및 `w` 필드 둘 다에 사용됩니다. 그러면 [Bing 썸네일 서비스](resize-and-crop-thumbnails.md)에서 정확히 해당 크기의 썸네일을 제공합니다.
+썸네일 크기는 `<img>` 태그와 썸네일의 URL에 있는 `h` 및 `w` 필드 둘 다에 사용됩니다. 그러면 [Bing 썸네일 서비스](../bing-web-search/resize-and-crop-thumbnails.md)에서 정확히 해당 크기의 썸네일을 제공합니다.
 
 ## <a name="persisting-client-id"></a>클라이언트 ID 유지
 Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되어야 하는 `X-MSEdge-ClientID` 헤더가 포함될 수 있습니다. 여러 개의 Bing Search API를 사용하는 경우 모두 동일한 클라이언트 ID를 사용해야 합니다(가능한 경우).
@@ -397,19 +405,22 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 > [!NOTE]
 > 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
-개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
+개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 자습서 앱이 클라이언트 ID 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 창에서 다음 명령을 실행합니다.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 변경합니다.
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 다음 항목으로 변경합니다.
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 자습서 앱을 사용하는 동안에는 명령 창을 열어 두세요. 창을 닫으면 프록시가 중지됩니다. 검색 결과 아래의 확장 가능한 HTTP 헤더 섹션에서 여러 `X-MSEdge-ClientID` 헤더를 볼 수 있으며 요청마다 동일한지 확인합니다.
 

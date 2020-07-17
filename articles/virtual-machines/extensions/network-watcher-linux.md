@@ -1,26 +1,24 @@
 ---
-title: Linux용 Azure Network Watcher 에이전트 가상 머신 확장 | Microsoft Docs
+title: Linux 용 Azure Network Watcher 에이전트 가상 머신 확장
 description: 가상 머신 확장을 사용하여 Linux 가상 머신에 Network Watcher를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: gurudennis
-manager: amku
+author: mimckitt
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
-ms.author: dennisg
-ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: mimckitt
+ms.openlocfilehash: 476241ad3d4077f2da0c513e3c989218701232ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743432"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81255756"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 머신 확장
 
@@ -30,13 +28,13 @@ ms.locfileid: "60743432"
 
 이 아티클에서는 Linux용 Network Watcher 에이전트 VM 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다. 에이전트 설치는 VM을 중단하거나, 다시 부팅이 필요하지 않습니다. 배포하는 가상 머신에 확장을 배포할 수 있습니다. 가상 머신이 Azure 서비스에서 배포되는 경우 가상 머신에서 확장 설치의 허용 여부를 결정하는 서비스에 대한 설명서를 확인합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
 Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성될 수 있습니다.
 
-| 배포 | Version |
+| 배포 | 버전 |
 |---|---|
 | Ubuntu | 12+ |
 | Debian | 7 및 8 |
@@ -76,7 +74,7 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성�
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| Name | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
@@ -89,9 +87,11 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="azure-classic-cli-deployment"></a>Azure 클래식 CLI 배포
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 다음 예제에서는 클래식 배포 모델을 통해 배포된 기존 VM에 Network Watcher 에이전트 VM 확장을 배포합니다.
 
-```azurecli
+```console
 azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
@@ -110,24 +110,12 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 Azure Portal 및 Azure CLI를 사용하여 확장 배포 상태에 대한 데이터를 검색할 수 있습니다.
 
-다음 예제에서는 Azure 클래식 CLI를 사용하여 클래식 배포 모델을 통해 배포된 VM에 대한 확장의 배포 상태를 보여 줍니다.
-
-```azurecli
-azure config mode asm
-azure vm extension get myVM1
-```
-확장 실행 출력은 다음 디렉터리에 있는 파일에 기록됩니다.
-
-```
-/var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
-```
-
 다음 예제에서는 Azure CLI를 사용하여 Resource Manager를 통해 배포된 VM에 대한 NetworkWatcherAgentLinux 확장의 배포 상태를 보여 줍니다.
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
 ```
 
-### <a name="support"></a>지원
+### <a name="support"></a>Support(지원)
 
-이 아티클의 어디에서든 도움이 필요한 경우 [Network Watcher 설명서](/azure/network-watcher/)를 참조하거나 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서 든 도움이 필요한 경우 [Network Watcher 설명서](/azure/network-watcher/)를 참조 하거나 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

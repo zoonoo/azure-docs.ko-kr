@@ -1,30 +1,29 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 네트워크 보안 그룹 규칙 추가 | Microsoft Docs
+title: Powershell에서 네트워크 보안 그룹 규칙 추가
 description: Azure PowerShell 스크립트 샘플 - 특정 포트에서 인바운드 트래픽을 허용하는 네트워크 보안 그룹을 추가합니다.
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/28/2017
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 526a568bbcd7249e4f8917e8cdd82a0de71bfb0a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 33ee8028031bf94d69d11b08c347f84db94494a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665001"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75610423"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>인바운드 네트워크 보안 그룹 규칙 추가
 
-이 샘플 스크립트는 포트 8081에서 인바운드 트래픽을 허용하도록 네트워크 보안 그룹 규칙을 만듭니다.  이 스크립트는 클러스터가 위치한 `Microsoft.Network/networkSecurityGroups` 리소스를 가져오고, 새 네트워크 보안 구성 규칙을 만들고, 네트워크 보안 그룹을 업데이트합니다. 필요에 따라 매개 변수를 사용자 지정합니다.
+이 샘플 스크립트는 포트 8081에서 인바운드 트래픽을 허용하도록 네트워크 보안 그룹 규칙을 만듭니다.  이 스크립트는 네트워크 보안 그룹을 가져오고, 새 네트워크 보안 구성 규칙을 만들고, 네트워크 보안 그룹을 업데이트합니다. 필요에 따라 매개 변수를 사용자 지정합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -1,25 +1,13 @@
 ---
-title: Azure Service Bus의 AMQP 1.0 개요 | Microsoft Docs
-description: Azure에서 AMQP(Advanced Message Queuing Protocol) 1.0을 사용하는 방법에 대해 알아봅니다.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
+title: Azure Service Bus의 AMQP 1.0 개요
+description: 개방형 표준 프로토콜인 고급 메시지 큐 프로토콜 (AMQP) Azure Service Bus 지 원하는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 34829482e570354c1ab1e1fd6cec0c96b993cd83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338065"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Service Bus의 AMQP 1.0 지원
 Azure Service Bus 클라우드 서비스와 온-프레미스 [Windows Server용 Service Bus(Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) 둘 다 AMQP(Advanced Message Queueing Protocol) 1.0을 지원합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 애플리케이션을 빌드할 수 있습니다. 다른 언어 및 프레임워크로 빌드된 구성 요소를 사용하며 다른 운영 체제에서 실행되는 애플리케이션을 생성할 수 있습니다. 이러한 구성 요소는 모두 Service Bus에 연결할 수 있으며 구조화된 비즈니스 메시지를 효율적이고 완벽하며 원활하게 교환할 수 있습니다.
@@ -37,9 +25,9 @@ AMQP(Advanced Message Queuing Protocol) 1.0은 이러한 문제로 인해 개발
 AMQP 1.0은 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜로, 여러 플랫폼 간에 상호 운용되는 강력한 메시징 애플리케이션을 만들 수 있습니다. 보안성, 안정성 및 효율성이 뛰어난 방식으로 두 파티 간에 메시지를 전송하는 메커니즘을 정의하는 것이 목표입니다. 메시지는 서로 다른 유형의 발신자와 수신자가 구조화된 비즈니스 메시지를 완벽하게 교환할 수 있는 이식 가능 데이터 표현을 사용하여 자체적으로 인코딩됩니다. 다음은 가장 중요한 기능에 대한 요약입니다.
 
 * **효율성**: AMQP 1.0은 이 프로토콜을 통해 전송되는 프로토콜 지침 및 비즈니스 메시지에 이진 인코딩을 사용하는 연결 지향 프로토콜입니다. 이 프로토콜은 정교한 흐름 제어 구성표에 통합되어 있어 네트워크 및 연결된 구성 요소를 최대로 활용할 수 있습니다. 또한 이 프로토콜은 효율성, 유연성 및 상호 운용성 간의 균형을 유지할 수 있도록 설계되었습니다.
-* **안정성**: AMQP 1.0 프로토콜을 사용하면 자체 유도(fire-and-forget) 방식에서부터 안정적으로 한 번만 승인해서 전송하는 방법까지 다양한 안정성을 보장하여 메시지를 교환할 수 있습니다.
+* **안정성**: AMQP 1.0 프로토콜을 사용하면 자체 유도(fire-and-forget) 방식에서부터 안정적으로 한 번만 승인해서 배달하는 방법까지 다양한 안정성을 보장하여 메시지를 교환할 수 있습니다.
 * **유연성**: AMQP 1.0은 여러 토폴로지를 지원할 수 있는 유연한 프로토콜입니다. 클라이언트 간의 통신, 클라이언트에서 브로커로의 통신 및 브로커 간의 통신에 동일한 프로토콜을 사용할 수 있습니다.
-* **Broker 모델의 독립성**: AMQP 1.0 사양에는 broker에서 사용하는 메시징 모델에 대한 요구 사항이 없습니다. 따라서 기존의 메시징 브로커에 AMQP 1.0 기능을 쉽게 추가할 수 있습니다.
+* **브로커 모델 독립적**: AMQP 1.0 사양에는 broker에서 사용하는 메시징 모델에 대한 요구 사항이 없습니다. 따라서 기존의 메시징 브로커에 AMQP 1.0 기능을 쉽게 추가할 수 있습니다.
 
 ## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 표준
 AMQP 1.0은 ISO 및 IEC에 의해 ISO/IEC 19464:2014로 승인된 국제 표준합니다.
@@ -73,11 +61,11 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
 | 언어 | 라이브러리 |
 | --- | --- |
-| 자바 |Apache Qpid JMS(Java Message Service) 클라이언트<br/>IIT Software SwiftMQ Java 클라이언트 |
+| Java |Apache Qpid JMS(Java Message Service) 클라이언트<br/>IIT Software SwiftMQ Java 클라이언트 |
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
-| C# |AMQP.NET Lite |
+| C# |AMQP .NET Lite |
 
 **그림 2: AMQP 1.0 클라이언트 라이브러리 테이블**
 

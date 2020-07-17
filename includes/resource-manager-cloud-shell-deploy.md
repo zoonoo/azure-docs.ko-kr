@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730493"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74451546"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell에서 템플릿 배포
 
@@ -19,11 +19,11 @@ ms.locfileid: "60730493"
 
 1. Cloud Shell 리소스 그룹을 선택합니다. 이름 패턴은 `cloud-shell-storage-<region>`입니다.
 
-   ![리소스 그룹 선택](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![리소스 그룹 선택](./media/resource-manager-cloud-shell-deploy/select-cloud-shell-resource-group.png)
 
-1. Cloud Shell용 저장소 계정을 선택합니다.
+1. Cloud Shell용 스토리지 계정을 선택합니다.
 
-   ![저장소 계정 선택](./media/resource-manager-cloud-shell-deploy/select-storage.png)
+   ![스토리지 계정 선택](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
 1. **Blob**을 선택합니다.
 

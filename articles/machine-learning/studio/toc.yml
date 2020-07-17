@@ -1,27 +1,26 @@
-- name: Machine Learning Studio 설명서
+- name: Machine Learning Studio(클래식) 설명서
   href: index.yml
 - name: 개요
   expanded: true
   items:
-    - name: Machine Learning Studio
+    - name: Machine Learning Studio(클래식)
       displayName: overview
       href: what-is-ml-studio.md
     - name: ML 제품 비교
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-      maintainContext: true
-- name: 자습서
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
+- name: 빠른 시작
   items:
     - name: 첫 번째 실험 만들기
       displayName: quickstart
       href: create-experiment.md
-    - name: 예측 솔루션 만들기
-      items:
-        - name: 1 - 실험 만들기
-          href: tutorial-part1-credit-risk.md
-        - name: 2 - 학습 및 평가
-          href: tutorial-part2-credit-risk-train.md
-        - name: 3 - 웹 서비스 배포
-          href: tutorial-part3-credit-risk-deploy.md
+- name: 자습서
+  items:
+    - name: '1: 예측 실험 만들기'
+      href: tutorial-part1-credit-risk.md
+    - name: '2: 솔루션 학습 및 평가'
+      href: tutorial-part2-credit-risk-train.md
+    - name: '3: 웹 서비스 배포'
+      href: tutorial-part3-credit-risk-deploy.md
 - name: 샘플
   items:
     - name: 사용 가능한 데이터 세트
@@ -53,15 +52,13 @@
           href: create-workspace.md
         - name: 관리
           href: manage-workspace.md
-        - name: 문제 해결
-          href: troubleshooting-creating-ml-workspace.md
         - name: ARM을 사용하여 배포
           href: deploy-with-resource-manager-template.md
     - name: 학습 데이터 가져오기
       items:
         - name: 데이터 가져오기
           href: import-data.md
-        - name: 온-프레미스 SQL에서 데이터 사용
+        - name: SQL Server의 데이터 사용
           displayName: on-premises
           href: use-data-from-an-on-premises-sql-server.md
     - name: 모델 학습
@@ -85,8 +82,6 @@
               href: algorithm-parameters-optimize.md
             - name: 결과 해석
               href: interpret-model-results.md
-            - name: 디버그
-              href: debug-models.md
         - name: 모델 다시 학습
           items:
             - name: “새” 웹 서비스
@@ -97,26 +92,17 @@
           items:
             - name: R로 시작
               href: r-get-started.md
-            - name: R 스크립트 실행
-              href: extend-your-experiment-with-r.md
             - name: 사용자 지정 R 모듈
               href: custom-r-modules.md
             - name: Python 스크립트 실행
               href: execute-python-scripts.md
     - name: 알고리즘 선택
-      items:
-        - name: 알고리즘 선택
-          href: algorithm-choice.md
-        - name: 알고리즘 치트 시트
-          href: algorithm-cheat-sheet.md
-        - name: 알고리즘 예제
-          displayName: 'infographic, studio basics'
-          href: basics-infographic-with-algorithm-examples.md
+      href: algorithm-choice.md
     - name: 모델 배포
       items:
         - name: 웹 서비스 배포
-          displayName: 'publish, multiple regions'
-          href: publish-a-machine-learning-web-service.md
+          displayName: 'deploy, multiple regions'
+          href: deploy-a-machine-learning-web-service.md
         - name: 작동 방법
           href: model-progression-experiment-to-web-service.md
         - name: 배포 준비
@@ -146,25 +132,18 @@
           href: consuming-from-excel.md
         - name: Excel 추가 기능 사용
           href: excel-add-in-for-web-services.md
-        - name: Batch 풀 사용
-          href: dedicated-capacity-for-bes-jobs.md
-    - name: 사용 사례
-      items:
-        - name: 고객 변동
-          href: azure-ml-customer-churn-scenario.md
-        - name: 정서 분석
-          href: text-analytics-module-tutorial.md
-        - name: Excel에서 Studio로 분석 마이그레이션
-          href: linear-regression-in-azure.md
     - name: 고객 데이터 삭제 및 내보내기
       items:
-        - name: Studio 데이터
+        - name: Studio(클래식) 데이터
           displayName: export
           href: export-delete-personal-data-dsr.md
         - name: 갤러리 데이터
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
-- name: 참고 자료
+        - name: Notebook 다운로드
+          displayName: export
+          href: download-notebooks-data.md
+- name: 참조
   items:
     - name: 알고리즘 및 모듈 참조
       href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
@@ -184,7 +163,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
     - name: '신경망 사용자 지정(Net#)'
       href: azure-ml-netsharp-reference-guide.md

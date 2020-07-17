@@ -1,11 +1,10 @@
 ---
 title: Azure Security Center에 대한 테넌트 수준 가시성 얻기 | Microsoft Docs
-description: Azure Security Center에서 테넌트 수준 가시성 얻기에 대해 알아봅니다.
+description: 이 문서에서는 Azure Active Directory 테 넌 트에 연결 된 모든 구독에 정책을 적용 하 여 규모에 따라 보안 환경을 관리 하는 방법을 설명 합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
@@ -13,17 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
-ms.author: rkarlin
-ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: memildin
+ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045767"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080876"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
-이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
-
+이 문서에서는 Azure Active Directory 테 넌 트에 연결 된 모든 Azure 구독에 보안 정책을 적용 하 여 조직의 보안 상태를 대규모로 관리 하는 방법을 설명 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -50,7 +48,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
     - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. 
     - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.  
 
-      ![생성](./media/security-center-management-groups/create_context_menu.png)  
+      ![만들기](./media/security-center-management-groups/create_context_menu.png)  
 5.  **저장**을 선택합니다.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure Portal에서 관리 그룹 보기
@@ -76,7 +74,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 3. **Azure 리소스에 대한 액세스 관리**에서 스위치를 **예**로 설정합니다.
 
-   ![전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다. - 스크린샷](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Azure 리소스에 대한 액세스 관리 - 스크린샷](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - 스위치를 예로 설정하면 Azure RBAC의 루트 범위(/)에서 사용자 액세스 관리자 역할이 할당됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 스위치는 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
 
@@ -103,7 +101,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
  
 1. **액세스 제어(IAM)**, **역할 할당**을 차례로 클릭합니다.
 
-1. **역할 할당 추가**를 클릭합니다.
+1. **역할 할당 추가**를 클릭 합니다.
 
 1. 할당할 역할과 사용자를 선택한 다음, **저장**을 클릭합니다.  
    
@@ -145,16 +143,16 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. Security Center에서 보려는 모든 구독을 구독 선택기에서 선택해야 합니다.
 
-    ![구독 선택기 스크린 샷](./media/security-center-management-groups/subscription-selector.png)
+    ![구독 선택기 스크린샷](./media/security-center-management-groups/subscription-selector.png)
 
 1. Azure 주 메뉴 아래에서 **모든 서비스**를 선택한 다음, **Security Center**를 선택합니다.
 2. **개요**에 구독 적용 범위 차트가 있습니다.
 
-    ![구독 검사 차트 스크린 샷](./media/security-center-management-groups/security-center-subscription-coverage.png)
+    ![구독 적용 범위 차트 스크린샷](./media/security-center-management-groups/security-center-subscription-coverage.png)
 
 3. **적용 범위**를 클릭하여 적용되는 구독 목록을 봅니다. 
 
-    ![구독 검사 목록 스크린샷](./media/security-center-management-groups/security-center-coverage.png)
+    ![구독 적용 범위 목록 스크린샷](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거 
 RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액세스 관리자 역할에서 스스로를 제거해야 합니다.
@@ -163,13 +161,13 @@ RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액
 
 2. 탐색 목록에서 **Azure Active Directory**를 클릭한 다음, **속성**을 클릭합니다.
 
-3. **전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다.** 에서 스위치를 **아니요**로 설정합니다.
+3. **Azure 리소스에 대 한 액세스 관리**에서 스위치를 **아니요**로 설정 합니다.
 
 4. **Save**를 클릭하여 설정을 저장합니다.
 
 
 
-## <a name="adding-subscriptions-to-a-management-groups"></a>관리 그룹에 구독 추가
+## <a name="adding-subscriptions-to-a-management-group"></a>관리 그룹에 구독 추가
 만든 관리 그룹에 구독을 추가할 수 있습니다. 이러한 단계는 테넌트 수준의 가시성과 글로벌 정책 및 액세스 관리를 얻는 데 필수적이지 않습니다.
 
 1. **관리 그룹** 아래에서 구독을 추가할 관리 그룹을 선택합니다.

@@ -1,32 +1,23 @@
 ---
-title: AWS에서 Service Fabric 클러스터에 대한 인프라 만들기 자습서 - Azure Service Fabric | Microsoft Docs
+title: AWS에서 클러스터에 대한 인프라 만들기
 description: 이 자습서에서는 Service Fabric 클러스터를 실행하는 AWS 인프라를 설정하는 방법에 대해 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: aa50cbe640c928c4113fb64c1b503548a95ee0a9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670271"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75613978"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>자습서: AWS 인프라를 만들어 Service Fabric 클러스터 호스팅하기
 
 Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 애플리케이션을 설치합니다.
 
-이 자습서는 시리즈의 1부입니다. 이 문서에서는 Service Fabric의 독립 실행형 클러스터를 호스팅하는 데 필요한 AWS 리소스를 생성합니다. 후속 문서에서는 Service Fabric 독립 실행형 도무 모음을 설치하고 클러스터에 샘플 응용 프로그램을 설치하고 마지막으로 클러스터를 정리해야 합니다.
+이 자습서는 시리즈의 1부입니다. 이 문서에서는 Service Fabric의 독립 실행형 클러스터를 호스팅하는 데 필요한 AWS 리소스를 생성합니다. 후속 문서에서는 Service Fabric 독립 실행형 도무 모음을 설치하고 클러스터에 샘플 애플리케이션을 설치하고 마지막으로 클러스터를 정리해야 합니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -36,7 +27,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 > * 인스턴스 중 하나에 로그인
 > * Service Fabric에 대한 인스턴스 준비
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 AWS 계정이 필요합니다.  계정이 없는 경우 [AWS 콘솔](https://aws.amazon.com/)로 이동해 계정을 만듭니다.
 
@@ -50,7 +41,7 @@ AWS 콘솔에 로그인 > 검색 상자에 **EC2** 입력 > **클라우드의 EC
 
 ![EC2 인스턴스 선택][aws-ec2instance]
 
-**t2.medium**을 선택한 다음, **다음: 인스턴스 세부 정보 구성**을 선택하고 다음 화면에서 인스턴스 수를 `3`으로 변경한 다음, **고급 세부 정보**를 선택하여 해당 섹션을 확장합니다.
+**t2.medium**을 선택한 후, **다음: 인스턴스 세부 정보 구성**을 선택하고 다음 화면에서 인스턴스 수를 `3`으로 변경한 다음, **고급 세부 정보**를 선택하여 해당 섹션을 확장합니다.
 
 Service Fabric에서 가상 머신을 함께 연결하려면 인프라를 호스팅하는 VM에는 동일한 자격 증명이 있어야 합니다.  일관된 자격 증명을 가져오려면 동일한 도메인에 모두 조인하거나 각 VM에서 동일한 관리자 암호를 설정하는 등의 두 가지 일반적인 방법이 있습니다.  이 자습서의 경우 모두 동일한 암호를 갖도록 EC2 인스턴스를 설정하려면 사용자 데이터 스크립트를 사용합니다.  프로덕션 환경에서 호스트를 Windows 도메인에 조인하는 것이 보다 안전합니다.
 
@@ -110,7 +101,7 @@ Service Fabric에 대한 마지막 두 개의 규칙의 경우 전 세계에 열
 
 인스턴스에 성공적으로 연결한 후 서로 연결이 가능하고 파일을 공유할 수 있는지 유효성을 검사합니다.  모든 인스턴스에 대한 IP 주소를 수집했으면 현재 연결되지 않은 IP 주소 하나를 선택합니다. **시작**으로 이동하여 `cmd`을 입력하고 **명령 프롬프트**를 선택합니다.
 
-이 예제에서는 IP 주소 172.31.21.141에 RDP 연결을 설정했습니다. 그런 다음, 모든 연결 테스트는 다른 IP 주소 172.31.20.163에서 발생합니다.
+이 예제에서는 다음 IP 주소 172.31.21.141에 RDP 연결을 설정했습니다. 모든 연결 테스트는 다른 IP 주소 172.31.20.163에서 일어납니다.
 
 기본 연결 작업의 유효성을 검사 하려면 ping 명령을 사용하세요.
 

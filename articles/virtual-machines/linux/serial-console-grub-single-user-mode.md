@@ -1,25 +1,18 @@
 ---
-title: GRUB 및 단일 사용자 모드용 Azure 직렬 콘솔 | Microsoft Docs
+title: GRUB 및 단일 사용자 모드용 Azure 직렬 콘솔
 description: Azure 가상 머신에서 Grub에 직렬 콘솔 사용
 services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: a249cf96981957de2c445079c0172b9c0c2ce543
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799465"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81758496"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 GRand Unified Bootloader의 약어입니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
@@ -126,7 +119,7 @@ GRUB에 액세스하려면 VM이 부팅되는 동안 'Esc' 키를 길게 누릅�
 1. `GRUB_TIMEOUT` 값을 0이 아닌 값으로 변경합니다.
 1. 원하는 텍스트 편집기에서 `/etc/default/grub`를 엽니다.
 1. `GRUB_HIDDEN_TIMEOUT=1` 줄을 주석으로 처리합니다.
-1. `sudo update-grub` 실행
+1. `sudo update-grub`을 실행합니다.
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu의 단일 사용자 모드
 Ubuntu는 정상적으로 부팅할 수 없는 경우 단일 사용자 모드로 자동으로 전환됩니다. 단일 사용자 모드로 수동으로 전환하려면 다음 지침을 따르세요.
@@ -186,5 +179,5 @@ Oracle Linux에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB으
 ## <a name="next-steps"></a>다음 단계
 * 주 직렬 콘솔 Linux 설명서 페이지는 [여기](serial-console.md)에 있습니다.
 * [NMI 및 SysRq 호출](serial-console-nmi-sysrq.md)에 직렬 콘솔 사용
-* [Windows](../windows/serial-console.md) VM에서도 직렬 콘솔 사용 가능
-* [부트 진단](boot-diagnostics.md)에 대해 자세히 알아보기
+* 직렬 콘솔은 [Windows](../windows/serial-console.md) vm 에서도 사용할 수 있습니다.
+* [부트 진단](boot-diagnostics.md) 에 대 한 자세한 정보

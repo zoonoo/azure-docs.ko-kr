@@ -1,38 +1,37 @@
 ---
 title: '빠른 시작: Bing News Search REST API 및 Go를 사용하여 뉴스 가져오기'
 titleSuffix: Azure Cognitive Services
-description: Bing News Search API에서 뉴스 결과를 가져오는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Go 언어를 사용하여 Bing News Search API를 호출합니다. 결과는 쿼리 문자열로 식별되는 뉴스 원본의 이름 및 URL을 포함합니다.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/21/2019
-ms.author: rosh
-ms.openlocfilehash: 295c32c1e14dc6a69a37040f92d27a6862359228
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 05/22/2020
+ms.author: aahi
+ms.openlocfilehash: e18605b75e4fcfcd8f2793e06801c309f9f23965
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545054"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869282"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>빠른 시작: Bing News Search REST API 및 Go를 사용하여 뉴스 결과 가져오기
 
 이 빠른 시작에서는 Go 언어를 사용하여 Bing News Search API를 호출합니다. 결과는 쿼리 문자열로 식별되는 뉴스 원본의 이름 및 URL을 포함합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * [Go 이진 파일](https://golang.org/dl/)을 설치합니다.
-* 프린터가 깔끔한 결과를 표시하도록 go-spew 라이브러리를 설치합니다.
-    * `$ go get -u https://github.com/davecgh/go-spew` 라이브러리를 설치합니다.
+* 결과를 표시하기 위해 깔끔한 프린터를 사용하려면 go-spew 라이브러리를 설치합니다. 다음(`$ go get -u https://github.com/davecgh/go-spew`) 명령을 사용하여 라이브러리를 설치합니다.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-a-project-and-import-libraries"></a>프로젝트 만들기 및 라이브러리 가져오기
 
-IDE 또는 편집기에서 새 Go 프로젝트를 만듭니다. 그런 다음, 요청하기 위해 `net/http`, 응답을 읽기 위해 `ioutil`, JSON 텍스트 결과를 처리하기 위해 `encoding/json`을 가져옵니다. go-spew 라이브러리는 JSON을 구문 분석하는 데 필요합니다. 
+IDE 또는 편집기에서 새 Go 프로젝트를 만듭니다. 그런 다음, 요청하기 위해 `net/http`, 응답을 읽기 위해 `ioutil`, JSON 텍스트 결과를 처리하기 위해 `encoding/json`, JSON 결과를 구문 분석하기 위해 `go-spew`를 가져옵니다. 
 
-```
+```go
 package main
 
 import (
@@ -47,9 +46,9 @@ import (
 
 ## <a name="create-a-struct-to-format-the-news-search-results"></a>뉴스 검색 결과 형식을 지정하는 구조체 만들기
 
-`NewsAnswer` 구조체는 응답에 제공되는 데이터 형식을 지정합니다. 응답 JSON은 매우 복잡하며 다단계로 이루어져 있습니다.  다음 구현에서는 주요 정보를 설명합니다.
+`NewsAnswer` 구조체는 다중 수준 및 복잡한 응답 JSON에 제공된 데이터의 형식을 지정합니다. 다음 구현에서는 주요 정보를 설명합니다.
 
-```
+```go
 // This struct formats the answer provided by the Bing News Search API.
 type NewsAnswer struct {
     ReadLink       string `json: "readLink"` 
@@ -73,13 +72,13 @@ type NewsAnswer struct {
                 Width   int  `json: "width"`
                 Height  int   `json: "height"`
             } `json: "thumbnail"` 
+            } `json: "image"` 
             Description  string  `json: "description"`
             Provider  []struct   {
                 Type   string    `json: "_type"`
                 Name  string     `json: "name"`
             } `json: "provider"` 
             DatePublished   string   `json: "datePublished"`
-        } `json: "image"` 
     } `json: "value"` 
 }
 
@@ -87,9 +86,9 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>main 함수 선언 및 변수 정의  
 
-다음 코드는 main 함수를 선언하고 필요한 변수를 할당합니다. 엔드포인트가 올바른지 확인하고 `token` 값을 Azure 계정의 유효한 구독 키로 바꿉니다.
+다음 코드는 main 함수를 선언하고 필요한 변수를 할당합니다. 엔드포인트가 올바른지 확인한 다음, `token` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
-```
+```go
 func main() {
     // Verify the endpoint URI and replace the token string with a valid subscription key.  
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
@@ -108,9 +107,9 @@ func main() {
 
 ## <a name="query-and-header"></a>쿼리 및 헤더
 
-쿼리 문자열 및 액세스 키 헤더 추가
+쿼리 문자열 및 액세스 키 헤더를 추가합니다.
 
-```
+```go
 // Add the query to the request.  
 param := req.URL.Query()
 param.Add("q", searchTerm)
@@ -121,11 +120,11 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
 
-## <a name="get-request"></a>Get 요청
+## <a name="get-request"></a>GET 요청
 
-클라이언트를 만들고 Get 요청을 보냅니다. 
+클라이언트를 만들고 GET 요청을 보냅니다. 
 
-```
+```go
 // Instantiate a client.  
 client := new(http.Client)
 
@@ -139,9 +138,9 @@ if err != nil {
 
 ## <a name="send-the-request"></a>요청 보내기
 
-요청을 보내고 `ioutil`을 사용하여 결과를 읽습니다.
+`ioutil`을 사용하여 요청을 보내고 결과를 읽습니다.
 
-```
+```go
 resp, err := client.Do(req)
     if err != nil {
         panic(err)
@@ -151,7 +150,7 @@ resp, err := client.Do(req)
 defer resp.Body.Close()
 
 // Read the results
-resbody, err := ioutil.ReadAll(resp.Body)
+body, err := ioutil.ReadAll(resp.Body)
 if err != nil {
     panic(err)
 }
@@ -160,9 +159,9 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>응답 처리
 
-`Unmarshall` 함수는 News Search API에서 반환한 JSON 텍스트에서 정보를 추출합니다.  그러면 `go-spew` 깔끔한 프린터를 사용하여 결과에서 노드를 표시할 수 있습니다.
+`Unmarshall` 함수는 Bing News Search API가 반환한 JSON 텍스트에서 정보를 추출합니다. 그런 다음, `go-spew` 깔끔한 프린터를 사용하여 결과에서 노드를 표시합니다.
 
-```
+```go
 // Create a new answer object 
 ans := new(NewsAnswer)
 err = json.Unmarshal(body, &ans)
@@ -181,7 +180,7 @@ spew.Dump(result.Name, result.URL)
 
 ## <a name="results"></a>결과
 
-결과는 각 결과의 이름 및 URL을 포함합니다.
+다음 출력에는 각 결과의 이름과 URL이 포함됩니다.
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"

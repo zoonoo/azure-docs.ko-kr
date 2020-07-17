@@ -1,25 +1,13 @@
 ---
-title: Azure Service Fabric에서 상태 저장 서비스에 대한 단위 테스트 개발 | Microsoft Docs
-description: Service Fabric 상태 저장 서비스에 대한 단위 테스트 개발 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: 상태 저장 서비스에 대 한 단위 테스트 개발
+description: 상태 저장 서비스에 대 한 Azure Service Fabric의 단위 테스트와 개발 하는 동안 염두에 두어야 할 특별 고려 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/04/2018
-ms.author: atsenthi
-ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75639839"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>상태 저장 서비스에 대한 단위 테스트 만들기
 Service Fabric 상태 저장 서비스의 단위 테스트는 기본 애플리케이션 또는 도메인별 단위 테스트를 통해 찾지 못할 수 있는 몇 가지 일반적인 실수를 알아냅니다. 상태 저장 서비스에 대한 단위 테스트를 개발하는 경우 유의해야 할 몇 가지 특별한 고려 사항이 있습니다.
@@ -33,10 +21,10 @@ Service Fabric 상태 저장 서비스의 단위 테스트는 기본 애플리�
 ## <a name="the-servicefabricmocks-library"></a>ServiceFabric.Mocks 라이브러리
 버전 3.3.0부터, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/)는 복제본 및 상태 관리의 오케스트레이션을 둘 다 모의하기 위한 API를 제공합니다. 이것은 예제에서 사용됩니다.
 
-[Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
+[Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/) 
+ [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
-*ServiceFabric.Mockss는 Microsoft에서 소유하거나 관리하지 않습니다. 그렇지만 현재 상태 저장 서비스를 단위 테스트하기 위해 Microsoft에서 권장되는 라이브러리입니다.*
+*ServiceFabric은 Microsoft에서 소유 하거나 유지 관리 되지 않습니다. 그러나 현재는 단위 테스트 상태 저장 서비스에 대 한 Microsoft 권장 라이브러리입니다.*
 
 ## <a name="set-up-the-mock-orchestration-and-state"></a>모의 오케스트레이션 및 상태 설정
 테스트 정렬 부분의 일환으로, 모의 복제본 세트 및 상태 관리자가 만들어집니다. 그런 다음, 해당 복제본 세트는 각 복제본에 대한 테스트된 서비스의 인스턴스를 자체적으로 만듭니다. 또한 `OnChangeRole` 및 `RunAsync`와 같은 수명 주기 이벤트를 자체적으로 실행합니다. 모의 상태 관리자는 상태 관리자에 대해 모든 작업이 수행되었는지 확인하며, 실제 상태 관리자와 마찬가지로 실행 및 유지됩니다.

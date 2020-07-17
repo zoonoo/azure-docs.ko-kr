@@ -1,197 +1,221 @@
 ---
-title: 엔터티 추가
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS (Language Understanding) 앱에서 사용자 표현에서 키 데이터를 추출 하는 엔터티를 만듭니다.
+title: 엔터티 추가-LUIS
+description: LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 추출 하는 엔터티를 만듭니다. 추출 된 엔터티 데이터는 클라이언트 응용 프로그램에서 고객 요청을 fullfil 하는 데 사용 됩니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: how-to
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148721"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344478"
 ---
-# <a name="create-entities-without-utterances"></a>발화 없는 엔터티 만들기
+# <a name="add-entities-to-extract-data"></a>데이터를 추출 하는 엔터티 추가
 
-엔터티는 추출하려는 발화 내의 단어 또는 구를 나타냅니다. 엔터티 (장소, 사물, 사용자, 이벤트 또는 개념)와 유사한 개체의 컬렉션을 포함 하 여 클래스를 나타냅니다. 엔터티는 의도와 관련된 정보를 설명하며 앱이 작업을 수행하는 데 꼭 필요한 경우도 있습니다. (앞 이나 뒤)에서 utterance 의도 또는 간격을 추가 하면 엔터티를 만들 수 있습니다를 utterance 의도에 추가 합니다.
+LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 추출 하는 엔터티를 만듭니다. 추출 된 엔터티 데이터는 클라이언트 응용 프로그램에서 고객 요청을 fullfil 하는 데 사용 됩니다.
 
-**엔터티** 페이지의 **엔터티 목록**을 통해 LUIS 앱에서 엔터티를 추가, 편집 또는 삭제할 수 있습니다. LUIS는 두 가지 유형의 주요 엔터티인 [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md) 및 고유한 [사용자 지정 엔터티](luis-concept-entity-types.md#types-of-entities)를 제공합니다.
+엔터티는 추출하려는 발화 내의 단어 또는 구를 나타냅니다. 엔터티는 의도와 관련된 정보를 설명하며 앱이 작업을 수행하는 데 꼭 필요한 경우도 있습니다. 의도에 예제 utterance를 추가 하거나 (before 또는 after) utterance 예제를 의도에 추가 하면 엔터티를 만들 수 있습니다.
 
-기계 학습 엔터티를 만든 후 해당 엔터티에 있는 모든 의도의 모든 예제 utterance 표시 해야 합니다.
+## <a name="plan-entities-then-create-and-label"></a>엔터티 계획, 만들기 및 레이블 만들기
 
-<a name="add-prebuilt-entity"></a>
+기계 학습 엔터티는 예제 길이 발언에서 만들거나 **엔터티** 페이지에서 만들 수 있습니다.
 
-## <a name="add-a-prebuilt-entity-to-your-app"></a>앱에 미리 작성 된 엔터티를 추가 합니다.
+일반적으로 포털에서 기계 학습 엔터티를 만들기 전에 엔터티를 계획 하는 데 시간을 할애 하는 것이 가장 좋습니다. 그런 다음 사용자가 알고 있는 하위 엔터티 및 기능에 대 한 세부 정보를 사용 하 여 예제 utterance에서 machine learning 엔터티를 만듭니다. [없습니다 entity 자습서](tutorial-machine-learned-entity.md) 에서는이 메서드를 사용 하는 방법을 보여 줍니다.
 
-애플리케이션에 추가되는 일반적인 미리 빌드된 엔터티는 *number*와 *datetimeV2*입니다. 
+엔터티를 계획 하는 과정에서 텍스트 일치 엔터티 (예: 미리 작성 된 엔터티, 정규식 엔터티 또는 목록 엔터티)가 필요 하다는 것을 알 수 있습니다. 예 길이 발언에서 레이블을 지정 하기 전에 **엔터티** 페이지에서 만들 수 있습니다.
 
-1. 앱의 **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
- 
-1. **엔터티** 페이지에서 **미리 빌드된 엔터티 추가**를 선택합니다.
+레이블을 지정할 때 개별 엔터티의 레이블을 지정 하 고 부모 기계 학습 엔터티를 만들 수 있습니다. 또는 부모 기계 학습 엔터티로 시작 하 고 자식 엔터티로 분해할 수 있습니다.
 
-1. **미리 빌드된 엔터티 추가** 대화 상자에서 미리 빌드된 엔터티인 **number** 및 **datetimeV2**를 선택합니다. 그런 후 **완료**를 선택합니다.
+> [!TIP]
+>클라이언트 응용 프로그램에서 추출할 때 단어가 사용 되지 않더라도 엔터티를 나타낼 수 있는 모든 단어에 레이블을 지정 합니다.
 
-    ![미리 빌드된 엔터티 추가 대화 상자 스크린샷](./media/add-entities/list-of-prebuilt-entities.png)
+## <a name="when-to-create-an-entity"></a>엔터티를 만들어야 하는 경우
 
-<a name="add-simple-entities"></a>
+엔터티를 계획 한 후에는 기계 학습 엔터티와 하위 엔터티를 만들어야 합니다. 이렇게 하려면 미리 작성 한 엔터티 또는 텍스트 일치 엔터티를 추가 하 여 기계 학습 엔터티에 대 한 기능을 제공 해야 할 수 있습니다. 이러한 작업은 레이블을 지정 하기 전에 모두 수행 해야 합니다.
 
-## <a name="add-simple-entities-for-single-concepts"></a>단일 개념에 대 한 간단한 엔터티를 추가 합니다.
+길이 발언 예제에 대 한 레이블 지정을 시작한 후에는 컴퓨터에서 학습 한 엔터티를 만들거나 목록 엔터티를 확장할 수 있습니다.
 
-단순 엔터티는 단일 개념을 설명합니다. 다음 프로시저를 사용하여 *인적 자원* 또는 *운영*과 같은 회사 부서명을 추출하는 엔터티를 만듭니다.   
+다음 표를 사용 하 여 앱에 각 엔터티 형식을 만들거나 추가할 위치를 파악 합니다.
 
-1. 앱의 **빌드** 섹션을 선택한 다음, 왼쪽 패널에서 **엔터티**를 선택하고 **새 엔터티 만들기**를 선택합니다.
+|엔터티 유형|LUIS 포털에서 엔터티를 만들 위치|
+|--|--|
+|기계 학습 엔터티|엔터티 또는 의도 세부 정보|
+|목록 엔터티|엔터티 또는 의도 세부 정보|
+|정규식 엔터티|엔터티|
+|Pattern.any 엔터티|엔터티|
+|미리 빌드된 엔터티|엔터티|
+|미리 빌드된 도메인 엔터티|엔터티|
 
-1. 팝업 대화 상자의 **엔터티 이름** 상자에 `Location`을 입력하고 **엔터티 형식** 목록에서 **단순**을 선택한 후, **완료**를 선택합니다.
+**엔터티 페이지에서** 모든 엔터티를 만들거나, **의도 세부 정보** 페이지의 예제 utterance에서 엔터티 레이블 지정의 일부로 두 엔터티를 만들 수 있습니다. **의도 세부 정보** 페이지의 utterance 예에서는 엔터티의 _레이블을_ 지정할 수 있습니다.
 
-    이 엔터티를 만든 후 엔터티를 포함하는 예제 발화가 있는 모든 의도로 이동합니다. 예제 발화에서 텍스트를 선택하고 엔터티로 텍스트를 표시합니다. 
 
-    [구 목록](luis-concept-feature.md)은 일반적으로 단순한 엔터티의 신호를 향상시키는 데 사용됩니다.
 
-<a name="add-regular-expression-entities"></a>
+## <a name="how-to-create-a-new-custom-entity"></a>새 사용자 지정 엔터티를 만드는 방법
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>고도로 구조화 된 개념에 대 한 정규식 엔터티를 추가 합니다.
+이 프로세스는 컴퓨터에서 배운 엔터티, 목록 엔터티 및 정규식 엔터티를 위해 작동 합니다.
 
-정규식 엔터티는 제공된 정규식에 따라 발언에서 데이터를 끌어오는 데 사용됩니다. 
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. **엔터티** 페이지를 선택 합니다.
+1. **+ 만들기**를 선택한 다음 엔터티 형식을 선택 합니다.
+1. 엔터티를 계속 구성 하 고 완료 되 면 **만들기** 를 선택 합니다.
 
-1. 앱의 왼쪽 탐색 영역에서 **엔터티**를 선택하고 **새 엔터티 만들기**를 선택합니다.
+## <a name="create-a-machine-learned-entity"></a>컴퓨터에서 배운 엔터티 만들기
 
-1. 팝업 대화 상자의 **엔터티 이름** 상자에 `Human resources form name`를 입력하고 **엔터티 형식** 목록에서 **정규식**을 선택하고 정규식 `hrf-[0-9]{6}`를 입력한 후 **완료**를 선택합니다. 
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
+1. **엔터티 형식 만들기** 대화 상자에서 엔터티의 이름을 입력 하 고 **학습 된 컴퓨터**를 선택 하 고를 선택 합니다. 하위 엔터티를 추가 하려면 **구조 추가**를 선택 합니다. **만들기**를 선택합니다.
 
-    이 정규식 리터럴 문자와 대응 `hrf-`, 인적 자원 폼에는 폼에 다음 6 자리 숫자입니다.
+    > [!div class="mx-imgBorder"]
+    > ![컴퓨터에서 배운 엔터티를 만드는 스크린샷](media/add-entities/machine-learned-entity-with-structure.png)
 
-<a name="add-composite-entities"></a>
+1. 하위 엔터티 **추가**에서 **+** 부모 엔터티 행의을 선택 하 여 하위 엔터티를 추가 합니다.
 
-## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>부모-자식 관계를 그룹화 하려면 복합 엔터티 추가
+    > [!div class="mx-imgBorder"]
+    > ![하위 엔터티를 추가 하는 스크린샷](media/add-entities/machine-learned-entity-with-subentities.png)
 
-복합 엔터티를 만들어 서로 다른 유형의 엔터티 간 관계를 정의할 수 있습니다. 다음 예제에서 엔터티에는 정규식 및 미리 빌드된 이름의 엔터티가 포함됩니다.  
+1. **만들기** 를 선택 하 여 만들기 프로세스를 완료 합니다.
 
-발화 `Send hrf-123456 to John Smith`에서 텍스트 `hrf-123456`는 인적 자원 [정규식](#add-regular-expression-entities)과 일치하고, `John Smith`는 미리 빌드된 엔터티 personName을 통해 추출됩니다. 각 엔터티는 더 큰 부모 엔터티의 일부입니다. 
+## <a name="add-a-feature-to-a-machine-learned-entity"></a>컴퓨터에서 배운 엔터티에 기능 추가
 
-1. 앱에서 **빌드** 섹션의 왼쪽 탐색 영역에서 **엔터티**를 선택한 다음, **미리 빌드된 엔터티 추가**를 선택합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 컴퓨터에서 배운 엔터티를 선택 합니다.
+1. 엔터티 또는 하위 엔터티 행에서 **+ 기능 추가** 를 선택 하 여 기능을 추가 합니다.
+1. 기존 엔터티 및 구 목록에서 선택 합니다.
+1. 기능이 있는 경우에만 엔터티를 추출 해야 하는 경우 `*` 해당 기능에 대해 별표를 선택 합니다.
 
-1. 미리 빌드된 엔터티 **PersonName**을 추가합니다. 지침을 보려면 [미리 빌드된 엔터티 추가](#add-prebuilt-entity)를 참조하세요. 
+    > [!div class="mx-imgBorder"]
+    > ![엔터티에 기능을 추가 하는 스크린샷](media/add-entities/machine-learned-entity-schema-with-features.png)
 
-1. 왼쪽 탐색 영역에서 **엔터티**를 선택하고 **새 엔터티 만들기**를 선택합니다.
+## <a name="create-a-regular-expression-entity"></a>정규식 엔터티 만들기
 
-1. 팝업 대화 상자의 **엔터티 이름** 상자에 `SendHrForm`을 입력한 다음, **엔터티 형식** 목록에서 **복합**을 선택합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
 
-1. **자식 추가**를 선택하여 새 자식을 추가합니다.
+1. **엔터티 형식 만들기** 대화 상자에서 엔터티의 이름을 입력 하 고 **regex**를 선택 하 고 **regex** 필드에 정규식을 입력 한 다음 **만들기**를 선택 합니다.
 
-1. **자식 #1**에서 목록에 있는 **number** 엔터티를 선택합니다.
+    > [!div class="mx-imgBorder"]
+    > ![정규식 엔터티를 만드는 스크린샷](media/add-entities/add-regular-expression-entity.png)
 
-1. **자식 #2**의 목록에서 **인적 자원 양식 이름** 엔터티를 선택합니다. 
-
-1. **완료**를 선택합니다.
-
-<a name="add-pattern-any-entities"></a>
-
-## <a name="add-patternany-entities-to-capture-free-form-entities"></a>자유 형식 엔터티를 캡처할 Pattern.any 엔터티 추가
-
-[Pattern.any](luis-concept-entity-types.md) 엔터티는 의도가 아닌 [패턴](luis-how-to-model-intent-pattern.md)에서만 유효합니다. 이 유형의 엔터티는 LUIS가 다양한 길이 및 단어 선택이 포함된 엔터티의 끝을 찾는 데 도움을 줍니다. 이 엔터티는 패턴에 사용되므로 LUIS는 발화 템플릿에서 엔터티의 끝 위치를 알 수 있습니다.
-
-앱에 `FindHumanResourcesForm` 의도가 있는 경우 추출된 양식 제목이 의도 예측에 방해가 될 수 있습니다. 양식 제목에 있는 단어를 명확하게 하려면 패턴 내에 Pattern.any를 사용합니다. LUIS 예측은 발언에서 시작됩니다. 먼저 발언이 확인되고 엔터티에 대해 일치된 후, 엔터티가 검색되면 패턴이 확인되고 일치됩니다. 
-
-발언 `Where is Request relocation from employee new to the company on the server?`에서 제목이 끝나는 위치와 나머지 발언이 시작되는 위치가 문맥상 명확하지 않으므로 양식 제목을 찾기가 어렵습니다. 제목은 단일 단어, 문장 부호가 포함된 복합 구 및 무의미한 단어 배열을 포함하여 모든 순서의 단어가 될 수 있습니다. 전체 및 정확한 엔터티를 추출할 수 있는 경우 패턴을 사용하여 엔터티를 만들 수 있습니다. 제목이 검색되면 해당 제목이 패턴의 의도이므로 `FindHumanResourcesForm` 의도가 예측됩니다.
-
-1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택한 다음, **새 엔터티 만들기**를 선택합니다.
-
-1. **엔터티 추가** 대화 상자의 **엔터티 이름** 상자에 `HumanResourcesFormTitle`을 입력하고 **Pattern.any**를 **엔터티 형식**으로 선택합니다.
-
-    pattern.any 엔터티를 사용하려면 올바른 중괄호 구문(예: `Where is **{HumanResourcesFormTitle}** on the server?`)을 사용하여 **앱 성능 개선** 섹션의 **패턴** 페이지에서 패턴을 추가합니다.
-
-    Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견하면 [명시적 목록](luis-concept-patterns.md#explicit-lists)을 사용하여 이 문제를 정정합니다. 
-
-<a name="add-a-role-to-pattern-based-entity"></a>
-
-## <a name="add-a-role-to-distinguish-different-contexts"></a>다른 컨텍스트를 구분 하기 위해 역할 추가
-
-역할은 컨텍스트를 기반으로 명명 된 하위 형식입니다. 미리 빌드된 및 기계 학습 되지 않은 엔터티를 포함 하 여 모든 엔터티에서 제공 됩니다. 
-
-역할에 대 한 구문은 **`{Entityname:Rolename}`** 콜론을 역할 이름으로 엔터티 이름 뒤에 위치 합니다. 예: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
-
-1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
-
-1. **새 엔터티 만들기**를 선택합니다. `LocationUsingRoles`의 이름을 입력합니다. **단순** 형식을 선택하고 **완료**를 선택합니다. 
-
-1. 왼쪽 패널에서 **엔터티**를 선택한 다음, 이전 단계에서 만든 새 엔터티 **LocationUsingRoles**을 선택합니다.
-
-1. **역할 이름** 텍스트 상자에 역할 이름 `Origin`을 입력한 후 Enter 키를 누릅니다. 두 번째 역할 이름 `Destination`을 추가합니다. 
-
-    ![Location 엔터티에 Origin 역할을 추가하는 스크린샷](./media/add-entities/roles-enter-role-name-text.png)
 
 <a name="add-list-entities"></a>
 
-## <a name="add-list-entities-for-exact-matches"></a>정확한 일치 항목에 대 한 목록 엔터티를 추가 합니다.
+## <a name="create-a-list-entity"></a>목록 엔터티 만들기
 
-목록 엔터티는 관련 단어의 고정된 폐쇄형 집합을 나타냅니다. 
+목록 엔터티는 관련 단어의 고정된 폐쇄형 집합을 나타냅니다. 작성자가 목록을 변경할 수 있는 반면 LUIS는 목록을 확장 하거나 축소할 수 없습니다. [List entity. json 형식을](reference-entity-list.md#example-json-to-import-into-list-entity)사용 하 여 기존 목록 엔터티로 가져올 수도 있습니다.
 
-인적 자원 앱의 경우 모든 부서의 동의어와 함께 모든 부서의 목록이 있을 수 있습니다. 엔터티를 만들 때 모든 값을 알 필요는 없습니다. 동의어를 포함하는 실제 사용자 발언을 검토한 후에 더 많은 발언을 추가할 수 있습니다.
+다음 목록에서는 정식 이름과 동의어를 보여 줍니다.
 
-1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택한 다음, **새 엔터티 만들기**를 선택합니다.
+|색 목록 항목 이름|색-동의어|
+|--|--|
+|빨강|크림슨, 피, apple, 화재-엔진|
+|파랑|하늘, 코발트|
+|녹색|최소라, 라임|
 
-1. **엔터티 추가** 대화 상자에서 **엔터티 이름** 상자에 `Department`을 입력하고 **엔터티 형식**으로 **List**를 선택합니다. **완료**를 선택합니다.
-  
-1. 목록 엔터티 페이지에서 정규화된 이름을 추가할 수 있습니다. **값** 텍스트 상자에 목록의 부서명(예: `HumanResources`)을 입력한 다음, 키보드에서 Enter 키를 누릅니다. 
+목록 엔터티를 만들려면 절차를 사용 합니다. 목록 엔터티를 만든 후에는 길이 발언 예제에 레이블을 추가할 필요가 없습니다. 목록 항목과 동의어가 정확히 일치 하는 텍스트를 사용 하 여 일치 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
 
-1. 정규화된 값의 오른쪽에 동의어를 입력하고 각 항목을 입력한 후 키보드에서 Enter 키를 누릅니다.
+1. **엔터티 형식 만들기** 대화 상자에서 엔터티 이름 (예:)을 입력 하 `Colors` 고 **목록**을 선택 합니다.
+1. **목록 엔터티 만들기** 대화 상자의 새 하위 목록 **추가 ...** 에서 목록 항목 이름 (예:)을 입력 `Green` 한 다음 동의어를 추가 합니다.
 
-1. 목록에 대해 정규화된 항목을 더 원할 경우 **권장**을 선택하여 [의미 사전](luis-glossary.md#semantic-dictionary)의 옵션을 표시합니다.
+    > [!div class="mx-imgBorder"]
+    > ![엔터티 세부 정보 페이지에서 목록 엔터티로 색 목록을 만듭니다.](media/how-to-add-entities/create-list-entity-of-colors.png)
 
-    ![옵션을 보기 위해 권장 기능을 선택하는 스크린샷](./media/add-entities/hr-list-2.png)
+1. 목록 항목과 동의어를 모두 추가 했으면 **만들기**를 선택 합니다.
 
+    앱에 대 한 변경 그룹을 완료 한 후에는 앱을 **학습** 해야 합니다. 단일 변경 후에는 앱을 학습 하지 마십시오.
 
-1. 권장 목록에서 항목을 선택하여 정규화된 값으로 추가하거나 **모두 추가**를 선택하여 모든 항목을 추가합니다. 
-    다음과 같은 JSON 형식을 사용하여 기존 목록 엔터티로 값을 가져올 수 있습니다.
+    > [!NOTE]
+    > 이 절차에서는 **의도 세부 정보** 페이지의 예제 utterance에서 목록 엔터티를 만들고 레이블을 지정 하는 방법을 보여 줍니다. **엔터티** 페이지에서 동일한 엔터티를 만들 수도 있습니다.
 
-    ```JSON
-    [
-        {
-            "canonicalForm": "Blue",
-            "list": [
-                "navy",
-                "royal",
-                "baby"
-            ]
-        },
-        {
-            "canonicalForm": "Green",
-            "list": [
-                "kelly",
-                "forest",
-                "avacado"
-            ]
-        }
-    ]  
-    ```
+## <a name="add-a-role-for-an-entity"></a>엔터티에 대 한 역할 추가
 
-<a name="change-entity-type"></a>
+역할은 컨텍스트에 따라 엔터티의 이름이 지정 된 하위 형식입니다.
 
-## <a name="do-not-change-entity-type"></a>엔터티 형식을 변경 하지 마세요
+### <a name="add-a-role-to-distinguish-different-contexts"></a>다른 컨텍스트를 구분 하는 역할 추가
 
-LUIS에서는 해당 엔터티를 생성하기 위해 추가 또는 제거할 항목을 잘 모르기 때문에 엔터티의 형식을 변경하도록 허용하지 않습니다. 형식을 변경하기 위해서는 약간 다른 이름을 사용하여 올바른 형식의 새 엔터티를 만드는 것이 좋습니다. 엔터티가 만들어지면 각 발언에서 이전 레이블이 지정된 엔터티 이름을 제거한 후 새 엔터티 이름을 추가합니다. 모든 발언에 레이블이 다시 지정되면 이전 엔터티를 삭제합니다. 
+다음 utterance에는 두 위치가 있으며 각 위치는 및와 같은 단어를 통해 의미 체계를 지정 합니다 `to` `from` .
 
+`Pick up the package from Seattle and deliver to New York City.`
+
+이 절차에서는 미리 작성 `origin` `destination` 된 geographyV2 엔터티에 및 역할을 추가 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
+
+1. **+ 미리 작성 한 엔터티 추가**를 선택 합니다. **GeographyV2** 를 선택한 다음 **완료**를 선택 합니다. 이렇게 하면 미리 빌드된 엔터티가 앱에 추가 됩니다.
+
+    Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견하면 [명시적 목록](reference-pattern-syntax.md#explicit-lists)을 사용하여 이 문제를 정정합니다.
+
+1. **엔터티 페이지 엔터티** 목록에서 새로 추가 된 미리 작성 된 geographyV2 엔터티를 선택 합니다.
+1. 새 역할을 추가 하려면 **+** **역할을 추가 하지 않고**다음을 선택 합니다.
+1. **유형 역할 ...** 텍스트 상자에 역할의 이름을 입력 `Origin` 한 다음 enter 키를 누릅니다. 의 두 번째 역할 이름을 추가 하 `Destination` 고 enter 키를 누릅니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![Location 엔터티에 Origin 역할을 추가하는 스크린샷](media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
+
+    이 역할은 미리 작성 된 엔터티에 추가 되지만 해당 엔터티를 사용 하는 길이 발언에는 추가 되지 않습니다.
+
+### <a name="label-text-with-a-role-in-an-example-utterance"></a>예 utterance에서 역할을 사용 하 여 텍스트 레이블
+
+> [!TIP]
+> 역할은 기계 학습 엔터티의 하위 엔터티로 레이블을 지정 하 여 바꿀 수 있습니다.
+
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. 역할을 사용 하는 예제 길이 발언를 포함 하는 의도 세부 정보 페이지로 이동 합니다.
+1. 역할을 사용 하 여 레이블을 표시 하려면 utterance 예제에서 엔터티 레이블 (텍스트 아래 실선)을 선택 하 고 드롭다운 목록에서 **엔터티 창에서 보기** 를 선택 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![엔터티 팔레트에서 보기 선택의 스크린샷](media/add-entities/view-in-entity-pane.png)
+
+    엔터티 팔레트가 오른쪽에 열립니다.
+
+1. 엔터티를 선택 하 고 팔레트 아래쪽으로 이동 하 여 역할을 선택 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![엔터티 팔레트에서 보기 선택의 스크린샷](media/add-entities/select-role-in-entity-palette.png)
+
+<a name="add-pattern-any-entities"></a>
+<a name="add-a-patternany-entity"></a>
 <a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="create-a-pattern-from-an-example-utterance"></a>예제 utterance에서 패턴을 만들려면
+## <a name="create-a-patternany-entity"></a>패턴 만들기. 모든 엔터티
 
-[의도 또는 엔터티 페이지의 기존 발언에서 패턴 추가](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page)를 참조하세요.
+**패턴입니다. 모든** 엔터티는 [패턴](luis-how-to-model-intent-pattern.md)에서만 사용할 수 있습니다.
 
-## <a name="train-your-app-after-changing-model-with-entities"></a>엔터티가 포함된 모델을 변경한 후 앱 학습
 
-엔터티를 추가, 편집 또는 제거한 후 변경 내용을 엔드포인트 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
+## <a name="do-not-change-entity-type"></a>엔터티 형식 변경 안 함
+
+LUIS에서는 해당 엔터티를 생성하기 위해 추가 또는 제거할 항목을 잘 모르기 때문에 엔터티의 형식을 변경하도록 허용하지 않습니다. 형식을 변경하기 위해서는 약간 다른 이름을 사용하여 올바른 형식의 새 엔터티를 만드는 것이 좋습니다. 엔터티가 만들어지면 각 발언에서 이전 레이블이 지정된 엔터티 이름을 제거한 후 새 엔터티 이름을 추가합니다. 모든 발언에 레이블이 다시 지정되면 이전 엔터티를 삭제합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 
-미리 빌드된 엔터티에 대한 자세한 내용은 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트를 참조하세요. 
+> [!div class="nextstepaction"]
+> [미리 작성된 모델 사용](howto-add-prebuilt-models.md)
 
-JSON 엔드포인트 쿼리 응답에 엔터티가 표시되는 방법에 대한 자세한 내용은 [데이터 추출](luis-concept-data-extraction.md) 참조
+다음에 대해 자세히 알아보세요.
+* [학습](luis-how-to-train.md) 방법
+* [테스트](luis-interactive-test.md) 방법
+* [게시](luis-how-to-publish-app.md) 하는 방법
+* 방법
+    * [개념](luis-concept-patterns.md)
+    * [구문](reference-pattern-syntax.md)
+* [미리 작성 한 엔터티 GitHub 리포지토리](https://github.com/Microsoft/Recognizers-Text)
+* [데이터 추출 개념](luis-concept-data-extraction.md)
 
-의도, 발언 및 엔터티가 추가되어 기본 LUIS 앱이 구성되었습니다. 앱을 [학습](luis-how-to-train.md), [테스트](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)하는 방법을 알아봅니다.
- 
+
+

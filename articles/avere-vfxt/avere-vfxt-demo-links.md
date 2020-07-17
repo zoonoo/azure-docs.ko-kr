@@ -4,31 +4,29 @@ description: Avere vFXT 코드 데모 자습서에 대한 링크를 제공합니
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: 42a2055b9a49d6d9f8f4930cb3704fe581f41724
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 12/19/2019
+ms.author: rohogue
+ms.openlocfilehash: b01bcb743e4ffc110f0182e50630baea288f16d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76153703"
 ---
 # <a name="avere-vfxt-demo-projects"></a>Avere vFXT 데모 프로젝트
 
-샘플 자습서는 [GitHub](https://github.com/Azure/Avere)에서 제공됩니다. 이러한 작은 프로젝트에서는 Avere vFXT for Azure의 주요 기능과 사용 사례를 보여 줍니다. 
+샘플 자습서는 [GitHub](https://github.com/Azure/Avere)에서 제공됩니다. 이러한 작은 프로젝트에서는 Avere vFXT for Azure의 주요 기능과 사용 사례를 보여 줍니다.
 
 ## <a name="video-rendering"></a>비디오 렌더링
 
-* [Azure Batch와 Avere vFXT를 통한 렌더링](https://github.com/Azure/Avere/blob/master/docs/maya_azure_batch_avere_vfxt_demo.md) - Azure Batch와 Avere vFXT 클러스터가 있는 Autodesk Maya를 사용하여 애니메이션 동영상을 생성하는 방법을 시연하는 60분 데모입니다.
+* [Azure Batch 및 Avere vFXT를 사용 하 여 렌더링](https://github.com/Azure/Avere/blob/master/docs/maya_azure_batch_avere_vfxt_demo.md) -Azure Batch 및 Avere vFXT 클러스터와 함께 Autodesk Maya를 사용 하 여 애니메이션 동영상을 생성 하는 방법을 보여 주는 60 분 프로젝트
 
-* [Avere vFXT를 렌더링에 사용하는 이유](https://github.com/Azure/Avere/blob/master/docs/why_avere_for_rendering.md) - Avere vFXT 클러스터가 있거나 없는 NAS의 렌더링 시간을 비교하는 데모입니다. 
-
+* [Avere vFXT를 렌더링에 사용하는 이유](https://github.com/Azure/Avere/blob/master/docs/why_avere_for_rendering.md) -Avere vFXT 클러스터를 사용 하거나 사용 하지 않고 네트워크에 연결 된 저장소의 렌더링 시간을 비교 하는 데모
 
 ## <a name="high-performance-computing"></a>고성능 컴퓨팅
 
-* [Azure VM(Virtual Machine) 부팅 시간 향상에 대한 모범 사례](https://github.com/Azure/Avere/blob/master/docs/azure_vm_provision_best_practices.md) - 수천 개의 계산 클라이언트를 빠르게 구동할 때 Avere vFXT for Azure를 사용하여 부팅 시간을 향상시키는 재현 가능한 테스트입니다.
+* [AZURE VM (가상 머신) 부팅 시간 개선을 위한 모범 사례](https://github.com/Azure/Avere/blob/master/docs/azure_vm_provision_best_practices.md) -Azure 용 Avere vFXT를 사용 하 여 수천 개의 계산 클라이언트를 빠르게 계산할 때 부팅 시간을 개선 하는 재현 가능한 테스트
 
-## <a name="vfxt-performance"></a>vFXT 성능 
+## <a name="vfxt-performance"></a>vFXT 성능
 
 * [vdbench를 사용하여 vFXT 성능 측정](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) - vFXT 메모리 및 디스크 하위 시스템을 테스트하기 위해 중소 규모의 워크로드를 생성하는 기본 테스트 설정입니다.
 

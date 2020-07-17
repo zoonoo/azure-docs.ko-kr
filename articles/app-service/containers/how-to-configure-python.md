@@ -1,26 +1,16 @@
 ---
-title: Python 앱 구성 - Azure App Service
-description: 이 자습서에서는 Linux의 Azure App Service용 Python 앱을 작성하고 구성하는 옵션을 설명합니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Linux Python 앱 구성
+description: 앱에 대해 미리 빌드된 Python 컨테이너를 구성하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: astay;cephalin;kraigb
-ms.custom: seodec18
-ms.openlocfilehash: 7bbbe9629404733a76064d270480a0e162e2612b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.reviewer: astay; kraigb
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: 94398c90f820b0e08ea8d4f0a492d96ba8039631
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919882"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905626"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
@@ -58,9 +48,31 @@ Python 버전을 3.7로 설정하려면 [Cloud Shell](https://shell.azure.com)�
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
 ```
 
+## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
+
+빌드 자동화가 설정된 상태에서 Git 또는 zip 패키지를 사용하여 앱을 배포하는 경우 App Service는 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
+
+1. `PRE_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
+1. `pip install -r requirements.txt`을 실행합니다.
+1. 리포지토리의 루트에 *manage.py*가 있는 경우 *manage.py collectstatic*을 실행합니다. 그러나 `DISABLE_COLLECTSTATIC`을 `true`로 설정하면 이 단계를 건너뜁니다.
+1. `POST_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
+
+`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` 및 `DISABLE_COLLECTSTATIC`은 기본적으로 비어 있는 환경 변수입니다. 빌드 전 명령을 실행하려면 `PRE_BUILD_COMMAND`를 정의합니다. 빌드 후 명령을 실행하려면 `POST_BUILD_COMMAND`를 정의합니다. Django 앱을 빌드할 때 collectstatic 실행을 사용하지 않도록 설정하려면 `DISABLE_COLLECTSTATIC=true`를 설정합니다.
+
+다음 예제에서는 일련의 명령에 대한 두 변수를 쉼표로 구분하여 지정합니다.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+빌드 자동화를 사용자 지정하는 추가 환경 변수는 [Oryx 구성](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md)을 참조하세요.
+
+App Service를 실행하고 Linux에서 Python 앱을 빌드하는 방법에 대한 자세한 내용은 [Oryx 설명서: Python 앱을 검색하고 작성하는 방법](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md)을 참조하세요.
+
 ## <a name="container-characteristics"></a>컨테이너 특성
 
-Linux 기반 App Service에 배포된 Python 앱은 GitHub 리포지토리에 정의된 Docker 컨테이너 [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) 또는 [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0) 내에서 실행됩니다.
+Linux의 App Service에 배포된 Python 앱은 [App Service Python GitHub 리포지토리](https://github.com/Azure-App-Service/python)에 정의된 Docker 컨테이너 내에서 실행됩니다. 버전별 디렉터리 내에서 이미지 구성을 찾을 수 있습니다.
 
 이 컨테이너에는 다음과 같은 특성이 있습니다.
 
@@ -119,7 +131,7 @@ App Service에서 사용자 지정 명령, Django 앱 또는 Flask 앱을 찾지
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
-예를 들어 기본 모듈이 *hello.py*이고 해당 파일의 Flask 앱 개체의 이름이 `myapp`인 Flask 앱이 있는 경우 *\<custom-command>* 는 다음과 같습니다.
+예를 들어 기본 모듈이 *hello.py*이고 해당 파일에서 Flask 앱 개체의 이름이 `myapp`인 Flask 앱이 있는 경우 다음과 같이 *\<custom-command>* 을 따르십시오:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -131,9 +143,9 @@ gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-또한 Gunicorn에 대한 추가 인수(예: `--workers=4`)를 *\<custom-command>* 에 추가할 수도 있습니다. 자세한 내용은 [Gunicorn 실행](https://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
+또한 `--workers=4` 같은 Gunicorn에 대한 추가 인수를 *\<custom-command>* 에 추가할 수도 있습니다. 자세한 내용은 [Gunicorn 실행](https://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
 
-[aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html) 같은 비 Gunicorn 서버를 사용하려면 *\<custom-command>* 를 다음과 같은 항목으로 바꾸면 됩니다.
+[aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html) 같은 비 Gunicorn 서버를 사용하려면 *\<custom-command>* 를 다음과 같은 항목으로 바꾸면 됩니다:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -144,7 +156,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
-App Service에서, 앱 코드 외부에서 [앱 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)을 지정할 수 있습니다. 그런 다음, 표준 [os.environ](https://docs.python.org/3/library/os.html#os.environ) 패턴을 사용하여 액세스할 수 있습니다. 예를 들어 앱 설정 `WEBSITE_SITE_NAME`에 액세스하려면 다음 코드를 사용합니다.
+App Service에서, 앱 코드 외부에서 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음, 표준 [os.environ](https://docs.python.org/3/library/os.html#os.environ) 패턴을 사용하여 액세스할 수 있습니다. 예를 들어 앱 설정 `WEBSITE_SITE_NAME`에 액세스하려면 다음 코드를 사용합니다.
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -163,7 +175,7 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>브라우저에서 SSH 세션 열기
 
@@ -187,7 +199,7 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 > [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
+> [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux FAQ](app-service-linux-faq.md)

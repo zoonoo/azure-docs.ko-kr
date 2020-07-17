@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 001706d63b22899016cc2c45e384597db3d6747f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358831"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: 기존 테넌트가 있는 경우
 Azure AD Connect를 사용하는 방법에 대한 항목 중 대부분은 새 Azure AD 테넌트로 시작하고 여기에는 사용자 또는 다른 개체가 없다고 가정하고 있습니다. 그러나 이미 Azure AD 테넌트로 시작하여 사용자와 다른 개체를 제공한 후에 Connect를 사용하려는 경우 이 문서가 도움이 됩니다.
@@ -34,7 +34,7 @@ Azure AD의 개체는 클라우드(Azure AD) 또는 온-프레미스에서 마�
 Azure AD와 온-프레미스에 있는 사용자를 관리하기 시작했으며 나중에 Connect를 사용하려는 경우 고려해야 할 몇 가지 추가 사항이 있습니다.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Azure AD의 기존 사용자와 동기화
-Azure AD Connect를 설치하고 동기화를 시작할 때 Azure AD 동기화 서비스(Azure AD에서)는 새 개체를 모두 검사하여 일치하는 기존 개체를 찾으려고 합니다. 이 프로세스에는 **userPrincipalName**, **proxyAddresses** 및 **sourceAnchor**/**immutableID**의 세 가지 특성이 사용됩니다. **userPrincipalName** 및 **proxyAddresses**에 대한 일치를 **소프트 일치**라고 하며, **sourceAnchor**에 대한 일치는 **하드 일치**라고 합니다. 기본 전자 메일 주소인 **proxyAddresses** 특성의 경우 **SMTP:** 가 있는 값만 평가에 사용됩니다.
+Azure AD Connect를 설치 하 고 동기화를 시작 하면 azure ad의 Azure AD sync 서비스에서 모든 새 개체를 확인 하 고 일치 하는 기존 개체를 찾으려고 시도 합니다. 이 프로세스에는 **userPrincipalName**, **proxyAddresses** 및 **sourceAnchor**/**immutableID**의 세 가지 특성이 사용됩니다. **userPrincipalName** 및 **proxyAddresses**에 대한 일치를 **소프트 일치**라고 하며, **sourceAnchor**에 대한 일치는 **하드 일치**라고 합니다. 기본 전자 메일 주소인 **proxyAddresses** 특성의 경우 **SMTP:** 가 있는 값만 평가에 사용됩니다.
 
 일치는 Connect에서 나오는 새 개체에 대해서만 평가됩니다. 이러한 특성 중 하나와 일치하도록 기존 개체를 변경하는 경우 오류가 대신 표시됩니다.
 
@@ -60,11 +60,12 @@ Connect를 새로 설치하는 경우 소프트 일치와 하드 일치 사이�
 메일이 설정된 그룹 및 연락처의 경우 proxyAddresses에 따라 소프트 매치를 수행할 수 있습니다. 하드 매치는 사용자 전용의 sourceAnchor/immutableID(PowerShell 사용)만을 업데이트할 수 있으므로 적용되지 않습니다. 메일이 사용되지 않는 그룹의 경우 현재 소프트 매치 또는 하드 매치가 지원되지 않습니다.
 
 ### <a name="admin-role-considerations"></a>관리자 역할 고려 사항
-모든 관리자 역할이 있는 cloud 사용자와 일치 하는에서 신뢰할 수 없는 온-프레미스 사용자를 방지 하려면 Azure AD Connect 관리자 역할이 있는 개체를 사용 하 여 온-프레미스 사용자 개체를 일치 하지 않습니다. 기본적으로 이것이입니다. 문제를 해결 하려면이 동작은 다음을 수행할 수 있습니다.
+신뢰할 수 없는 온-프레미스 사용자가 관리자 역할이 있는 클라우드 사용자와 일치 하지 않도록 하기 위해 Azure AD Connect는 관리 역할이 있는 개체와 온-프레미스 사용자 개체를 일치 시 키 지 않습니다. 이 기능은 기본적으로 설정됩니다. 이 동작을 해결 하려면 다음을 수행할 수 있습니다.
 
 1.  클라우드 전용 사용자 개체에서 디렉터리 역할을 제거 합니다.
-2.  동기화 트리거
-3.  일치 하는 발생 한 후 필요에 따라 디렉터리 역할의 클라우드 사용자 개체에 다시 추가 합니다.
+2.  실패 한 사용자 동기화 시도가 있는 경우 클라우드에서 격리 된 개체를 하드 삭제 합니다.
+3.  동기화를 트리거합니다.
+4.  필요에 따라 일치가 발생 한 후 디렉터리 역할을 클라우드의 사용자 개체에 다시 추가 합니다.
 
 
 

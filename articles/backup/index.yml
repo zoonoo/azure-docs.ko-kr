@@ -1,69 +1,152 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Backup 설명서
+### YamlMime:Landing
+title: Azure Backup 서비스 설명서
+summary: Azure Backup 서비스는 데이터를 백업하고 Microsoft Azure 클라우드에서 복구할 수 있는 간단하고, 안전하며, 비용 효율적인 솔루션을 제공합니다.
 metadata:
-  title: 'Azure Backup 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: 'Azure Backup을 사용하면 온-프레미스 서버, 가상 머신, 가상화된 작업, SQL 서버, SharePoint 서버 등에 대한 데이터를 백업할 수 있습니다. 빠른 시작, 자습서 및 샘플을 사용하여 데이터를 백업하고 복원하는 방법을 알아봅니다.'
-  services: backup
-  author: rayne-wiselman
-  manager: carmonm
+  title: Azure Backup 설명서
+  description: Azure Backup 서비스는 데이터를 백업하고 Microsoft Azure 클라우드에서 복구할 수 있는 간단하고, 안전하며, 비용 효율적인 솔루션을 제공합니다.
   ms.service: backup
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 05/22/2018
-  ms.author: raynew
-abstract:
-  description: 'Azure Backup을 사용하여 온-프레미스 서버, 가상 머신, 가상화된 워크로드, SQL 서버, SharePoint 서버 등에 대한 데이터를 보호합니다. 빠른 시작, 자습서 및 샘플을 사용하여 데이터를 백업하고 복원하는 방법을 알아봅니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Azure에서 Azure 가상 머신을 백업하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Azure Portal
-            href: quick-backup-vm-portal
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: quick-backup-vm-powershell
-          - image:
-              src: 'https://docs.microsoft.com/media/common/cli.svg'
-            text: Azure CLI
-            href: quick-backup-vm-cli
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: Azure 또는 Windows Server에서 가상 머신을 백업하고 복구하는 방법을 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-backup-vm-at-scale">여러 Azure VM 백업</a>
-          - html: <a href="tutorial-restore-disk">디스크 복원 및 복구된 VM 만들기</a>
-          - html: <a href="tutorial-restore-files">Azure에서 Virtual Machine에 파일 복원</a>
-          - html: <a href="tutorial-backup-windows-server-to-azure">Azure에 Windows Server 백업</a>
-          - html: <a href="tutorial-backup-restore-files-windows-server">Azure에서 Windows Server로 파일 복구</a>
-  - title: 샘플
-    items:
-      - type: paragraph
-        text: 다음 샘플을 사용하여 Azure에서 데이터를 보호합니다.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: <p><a href="/powershell/module/az.recoveryservices">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Azure CLI</a></p>
-          - title: Languages
-            html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
-          - title: REST (영문)
-            html: <p><a href="/rest/api/backup/">Azure Backup API 참조</a></p>
+  author: dcurwin
+  ms.author: dacurwin
+  ms.date: 12/01/2019
+  ms.openlocfilehash: 719fb5891fff560ba621b7af88f27387a4f7fce2
+  ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84906958"
+landingContent:
+- title: Azure Backup에 대해 알아보기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Backup이란?
+      url: backup-overview.md
+  - linkListType: concept
+    links:
+    - text: Azure Backup 지원 매트릭스
+      url: backup-support-matrix.md
+    - text: Azure Backup 아키텍처
+      url: backup-architecture.md
+- title: Azure Backup 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal을 사용하여 VM 백업
+      url: quick-backup-vm-portal.md
+    - text: PowerShell을 사용하여 VM 백업
+      url: quick-backup-vm-powershell.md
+    - text: Azure CLI를 사용하여 VM 백업
+      url: quick-backup-vm-cli.md
+    - text: Resource Manager 템플릿을 사용하여 VM 백업
+      url: quick-backup-vm-template.md
+- title: 단계별 자습서 사용해 보기
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure VM 백업
+      url: tutorial-backup-vm-at-scale.md
+    - text: Azure VM의 SQL Server 백업
+      url: tutorial-sql-backup.md
+    - text: Windows Server의 파일 및 폴더 백업
+      url: tutorial-backup-windows-server-to-azure.md
+    - text: Azure VM에서 SAP HANA 데이터베이스 백업
+      url: tutorial-backup-sap-hana-db.md
+- title: Azure Backup의 최신 기능에 대해 알아보기
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Azure Backup의 일시 삭제
+      url: backup-azure-security-feature-cloud.md
+    - text: Azure VM의 SQL Server에서 파일로 복원
+      url: restore-sql-database-azure-vm.md#restore-as-files
+    - text: Azure VM의 SAP HANA 데이터베이스 백업
+      url: backup-azure-sap-hana-database.md
+- title: Azure VM 백업
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure VM 백업 정보
+      url: backup-azure-vms-introduction.md
+    - text: Azure VM Backup의 지원 매트릭스
+      url: backup-support-matrix-iaas.md
+    - text: FAQ - Azure VM 백업
+      url: backup-azure-vm-backup-faq.md
+    - text: Azure VM 백업 관리
+      url: backup-azure-manage-vms.md
+- title: Azure VM의 SQL Server 백업
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure VM의 SQL Server 백업 정보
+      url: backup-azure-sql-database.md
+    - text: FAQ - Azure VM의 SQL Server 백업
+      url: faq-backup-sql-server.md
+    - text: Azure VM의 SQL Server 데이터베이스 백업
+      url: backup-sql-server-database-azure-vms.md
+    - text: 백업한 SQL Server 데이터베이스 관리 및 모니터링
+      url: manage-monitor-sql-database-backup.md
+- title: Azure VM의 SAP HANA 백업
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure VM에서 SAP HANA 데이터베이스 백업
+      url: backup-azure-sap-hana-database.md
+    - text: 백업한 SAP HANA 데이터베이스 관리 및 모니터링
+      url: sap-hana-db-manage.md
+    - text: FAQ - Azure VM의 SAP HANA 데이터베이스 백업
+      url: sap-hana-faq-backup-azure-vm.md
+    - text: Azure VM의 SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
+      url: sap-hana-backup-support-matrix.md
+- title: Azure 파일 공유 백업
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure 파일 공유 백업 및 복원
+      url: backup-afs.md
+    - text: FAQ - Azure Files 백업
+      url: backup-azure-files-faq.md
+- title: MARS(Microsoft Azure Recovery Services) 에이전트를 사용하여 백업
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Backup MARS 에이전트를 사용하여 Windows 머신 백업
+      url: backup-windows-with-mars-agent.md
+    - text: Azure Backup 서비스를 사용하여 MARS 에이전트 백업 관리
+      url: backup-azure-manage-mars.md
+    - text: MARS 에이전트 지원 매트릭스
+      url: backup-support-matrix-mars-agent.md
+    - text: FAQ - MARS 에이전트
+      url: backup-azure-file-folder-backup-faq.md
+- title: MABS(Microsoft Azure Backup Server) 및 DPM을 사용하여 백업
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: MABS 보호 매트릭스
+      url: backup-mabs-protection-matrix.md
+    - text: MABS/DPM 지원 매트릭스
+      url: backup-support-matrix-mabs-dpm.md
+    - text: FAQ - MABS 및 DPM
+      url: backup-azure-dpm-azure-server-faq.md
+    - text: MABS 설치 및 업그레이드
+      url: backup-azure-microsoft-azure-backup.md
+- title: 규모에 맞게 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Policy를 사용하여 규모에 맞게 관리
+      url: backup-azure-auto-enable-backup.md
+    - text: 백업 탐색기를 사용하여 규모에 맞게 모니터링 및 운영
+      url: monitor-azure-backup-with-backup-explorer.md
+    - text: 백업 보고서를 사용하여 규모에 맞게 분석
+      url: configure-reports.md
+- title: Azure Backup 리소스 검색
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Backup 가격 책정
+      url: azure-backup-pricing.md
+    - text: Azure Backup 서비스 업데이트
+      url: https://azure.microsoft.com/updates/?product=backup
+    - text: Azure Backup Microsoft Q&A 질문 페이지
+      url: https://docs.microsoft.com/answers/topics/azure-backup.html

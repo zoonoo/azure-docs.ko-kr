@@ -1,30 +1,24 @@
 ---
-title: Azure 가상 머신 확장 집합을 수직으로 규모 조정 | Microsoft Docs
+title: Azure 가상 머신 확장 집합을 수직으로 규모 조정
 description: Azure Automation을 사용하여 모니터링 경고에 대한 응답으로 Virtual Machine을 수직으로 확장하는 방법
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
-ms.topic: article
+ms.subservice: autoscale
 ms.date: 04/18/2019
-ms.author: manayar
-ms.openlocfilehash: 3846815dabdc9e351f3d8449feb88affb9c6efdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: 597a9e3b018f4ddb68710dff65094f35828b3c4b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803475"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232664"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 수직으로 규모 조정
 
-이 문서에서는 다시 프로비저닝을 사용하거나 사용하지 않고 Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 수직으로 확장하는 방법을 설명합니다. 확장 집합에 있지 않은 VM의 수직 규모 조정에 대해서는 [Azure Automation을 사용하여 Azure 가상 머신을 수직으로 확장](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+이 문서에서는 다시 프로비저닝을 사용하거나 사용하지 않고 Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 수직으로 확장하는 방법을 설명합니다. 
 
 일명 *강화* 및 *규모 축소*라고도 하는 수직 규모 조정이란 워크로드에 따라 가상 머신(VM) 규모를 늘리거나 줄이는 것을 의미합니다. 이 동작을 VM 수가 워크로드에 따라 변경되는 일명 *스케일 아웃* 및 *규모 감축*이라고도 하는 [수평 규모 조정](virtual-machine-scale-sets-autoscale-overview.md)과 비교해 보십시오.
 
@@ -43,9 +37,9 @@ ms.locfileid: "60803475"
 4. Webhook 알림을 사용하여 가상 머신 확장 집합에 경고를 추가합니다.
 
 > [!NOTE]
-> 첫 번째 Virtual Machine의 크기로 인해 확장할 수 있는 크기가 제한될 수 있습니다. 이는 현재 Virtual Machine이 배포된 클러스터에서 다른 크기의 가용성 때문입니다. 이 문서에서 사용된 게시된 자동화 runbook에서는 이 점을 염두에 두고 VM 크기 쌍 이내에서만 확장합니다. 따라서 Standard_D1v2 Virtual Machine이 갑자기 Standard_G5로 확장되거나 Basic_A0으로 축소되지 않습니다. 또한 제한 된 가상 머신 크기 확장/축소는 지원 되지 않습니다. 다음 규모 쌍 범위로 규모 조정하도록 선택할 수 있습니다.
+> 첫 번째 Virtual Machine의 크기로 인해 확장할 수 있는 크기가 제한될 수 있습니다. 이는 현재 Virtual Machine이 배포된 클러스터에서 다른 크기의 가용성 때문입니다. 이 문서에서 사용된 게시된 자동화 runbook에서는 이 점을 염두에 두고 VM 크기 쌍 이내에서만 확장합니다. 따라서 Standard_D1v2 Virtual Machine이 갑자기 Standard_G5로 확장되거나 Basic_A0으로 축소되지 않습니다. 또한 제한된 가상 머신 크기를 확장/축소하는 것은 지원되지 않습니다. 다음 규모 쌍 범위로 규모 조정하도록 선택할 수 있습니다.
 > 
-> | VM 크기 조정 쌍 |  |
+> | VM 크기 조정 쌍 구성원 | 멤버 |
 > | --- | --- |
 > | Basic_A0 |Basic_A4 |
 > | Standard_A0 |Standard_A4 |
@@ -89,7 +83,7 @@ ms.locfileid: "60803475"
 > | Standard_ND6s |Standard_ND24s |
 > | Standard_NV6 |Standard_NV24 |
 > | Standard_NV6s_v2 |Standard_NV24s_v2 |
-> 
+> | Standard_NV12s_v3 |Standard_NV48s_v3 |
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>실행 기능을 사용하여 Azure Automation 계정 만들기
@@ -159,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 경고를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Monitor PowerShell 빠른 시작 샘플](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../azure-monitor/platform/cli-samples.md)
+* [Azure Monitor PowerShell 샘플](../azure-monitor/samples/powershell-samples.md)
+* [Azure Monitor 플랫폼 간 CLI 샘플](../azure-monitor/samples/cli-samples.md)
 
 ## <a name="summary"></a>요약
 

@@ -1,18 +1,16 @@
 ---
-title: 렌더링 기능 - Azure Batch
-description: Azure Batch 렌더링 기능을 사용하는 방법
-services: batch
-ms.service: batch
+title: 렌더링 기능 사용
+description: Azure Batch 렌더링 기능을 사용하는 방법. 직접 또는 클라이언트 애플리케이션 플러그 인에서 호출된 Batch Explorer 애플리케이션을 사용해 보세요.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 2dff44f0b5b4b02c39c4c63f23ff64d55ca9d833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/05/2020
+ms.topic: how-to
+ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337609"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965249"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
 
@@ -21,8 +19,8 @@ ms.locfileid: "60337609"
 * API:
   * Batch API 중 하나를 사용하여 코드를 작성합니다.  개발자는 클라우드나 온-프레미스 여부에 관계없이 Azure Batch 기능을 기존 애플리케이션이나 워크플로에 통합할 수 있습니다.
 * 명령줄 도구:
-  * [Azure 명령줄](https://docs.microsoft.com/cli/azure/) 또는 [PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 사용하여 Batch 사용을 스크립트로 작성할 수 있습니다.
-  * 특히 [Batch CLI 템플릿 지원](https://docs.microsoft.com/azure/batch/batch-cli-templates)을 사용하면 풀을 만들고 작업을 제출하는 것이 훨씬 쉽습니다.
+  * [Azure 명령줄](/cli/azure/) 또는 [PowerShell](/powershell/azure/overview)을 사용하여 Batch 사용을 스크립트로 작성할 수 있습니다.
+  * 특히 [Batch CLI 템플릿 지원](./batch-cli-templates.md)을 사용하면 풀을 만들고 작업을 제출하는 것이 훨씬 쉽습니다.
 * Batch Explorer UI:
   * [Batch Explorer](https://github.com/Azure/BatchLabs)는 Batch 계정의 관리 및 모니터를 지원하는 플랫폼 간 클라이언트 도구입니다.
   * 각각의 렌더링 애플리케이션에 대해 간편하게 풀을 만들고 작업을 제출하는 데 사용할 수 잇는 많은 풀과 작업 템플릿이 제공됩니다.  템플릿 집합은 GitHub에서 액세스할 수 있는 템플릿 파일과 함께 애플리케이션 UI에 나열됩니다.
@@ -34,7 +32,7 @@ ms.locfileid: "60337609"
 
 ## <a name="using-batch-explorer"></a>Batch Explorer 사용
 
-Batch Explorer를 사용하여 렌더링을 수행하는 단계별 자습서는 [Blender 자습서](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)를 참조하세요.
+Batch Explorer를 사용하여 렌더링을 수행하는 단계별 자습서는 [Blender 자습서](./tutorial-rendering-batchexplorer-blender.md)를 참조하세요.
 
 ### <a name="download-and-install"></a>다운로드 및 설치
 
@@ -52,13 +50,14 @@ Batch Explorer에 다양한 템플릿을 사용하면 풀, 작업, 태스크를 
 
 ### <a name="file-system-and-data-movement"></a>파일 시스템 및 데이터 이동
 
-Batch Explorer의 '데이터' 섹션에서는 로컬 파일 시스템과 Azure Storage 계정 간에 파일을 복사할 수 있습니다.
+Batch Explorer의 '데이터' 섹션을 통해 로컬 파일 시스템과 Azure Storage 계정 간에 파일을 복사할 수 있습니다.
 
 ## <a name="client-application-plug-ins"></a>클라이언트 애플리케이션 플러그 인
 
 일부 클라이언트 애플리케이션에는 플러그 인을 사용할 수 있습니다.  플러그 인을 사용하면 풀 및 작업을 애플리케이션에서 직접 만들거나 Batch Explorer를 호출할 수 있습니다.
 
-* [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.8+](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
@@ -66,5 +65,5 @@ Batch Explorer의 '데이터' 섹션에서는 로컬 파일 시스템과 Azure S
 
 Batch 렌더링 예제는 다음 두 자습서를 사용해 보세요.
 
-* [Azure CLI를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Batch ExplorerI를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Azure CLI를 사용한 렌더링](./tutorial-rendering-cli.md)
+* [Batch ExplorerI를 사용한 렌더링](./tutorial-rendering-batchexplorer-blender.md)

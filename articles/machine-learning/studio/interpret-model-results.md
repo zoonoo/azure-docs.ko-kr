@@ -1,31 +1,28 @@
 ---
 title: 모델 결과 해석
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) - Azure
 description: 모델 점수 매기기 출력을 사용하고 시각화하여 알고리즘에 설정된 최적의 매개 변수를 선택하는 방법
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.topic: how-to
+author: likebupt
+ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a99c1d71ed7e718d4d47ba55573a16466f62de5f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867304"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687772"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 결과 해석
-이 토픽에서는 Azure Machine Learning Studio에서 예측 결과를 시각화하고 해석하는 방법을 설명합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
+# <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 모델 결과 해석
 
+이 항목에서는 Azure Machine Learning Studio (클래식)에서 예측 결과를 시각화 하 고 해석 하는 방법에 대해 설명 합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
 
-
-Azure Machine Learning Studio에는 다음 네 가지 주요 기계 학습 모델 종류가 있습니다.
+Azure Machine Learning Studio (클래식)에는 다음과 같은 네 가지 주요 종류의 기계 학습 모델이 있습니다.
 
 * 분류
-* 클러스터링
+* Clustering
 * 회귀
 * 추천 시스템
 
@@ -35,11 +32,11 @@ Azure Machine Learning Studio에는 다음 네 가지 주요 기계 학습 모�
 * 클러스터링을 위한 [클러스터에 할당][assign-to-clusters] 모듈
 * 추천 시스템을 위한 [매치박스 추천 점수 매기기][score-matchbox-recommender]
 
-이 문서에서는 이러한 각 모듈의 예측 결과를 해석하는 방법에 대해 설명합니다. 이러한 모델에 대한 개요는 [Azure Machine Learning Studio에서 알고리즘을 최적화하는 매개 변수를 선택하는 방법](algorithm-parameters-optimize.md)을 참조하세요.
+[ML Studio (클래식)에서 알고리즘을 최적화 하는 매개 변수를 선택](algorithm-parameters-optimize.md)하는 방법을 알아봅니다.
 
-이 항목에서는 예측 해석에 대해 다루지만 모델 평가는 다루지 않습니다. 모델 평가 방법에 대한 자세한 내용은 [Azure Machine Learning Studio에서 모델 성능을 평가하는 방법](evaluate-model-performance.md)을 참조하세요.
+모델을 평가 하는 방법에 대 한 자세한 내용은 [모델 성능을 평가 하는 방법](evaluate-model-performance.md)을 참조 하세요.
 
-Azure Machine Learning Studio를 처음 사용하며, 시작하기 위해 간단한 실험을 만드는 방법에 대한 도움이 필요한 경우 Azure Machine Learning Studio의 [Azure Machine Learning Studio에서 간단한 실험 만들기](create-experiment.md)를 참조하세요.
+ML Studio (클래식)을 처음 접하는 경우 [간단한 실험을 만드는 방법을 알아보세요](create-experiment.md).
 
 ## <a name="classification"></a>분류
 분류 문제의 하위 범주는 다음 두 가지가 있습니다.
@@ -47,12 +44,12 @@ Azure Machine Learning Studio를 처음 사용하며, 시작하기 위해 간단
 * 2클래스에만 문제가 있음(2클래스 또는 이진 분류)
 * 세 개 이상의 클래스에 문제가 있음(다중 클래스 분류)
 
-Azure Machine Learning Studio에는 이러한 각 분류 유형을 다루는 여러 모듈이 있지만 예측 결과를 해석하는 방법은 비슷합니다.
+Azure Machine Learning Studio (클래식)에는 이러한 각 분류 유형을 처리 하는 다양 한 모듈이 있지만 예측 결과를 해석 하는 방법은 비슷합니다.
 
 ### <a name="two-class-classification"></a>2클래스 분류
 **예제 실험**
 
-2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Azure Machine Learning Studio에서 제공하는 아이리스 데이터 세트는 널리 사용되는 [아이리스 데이터 세트](https://en.wikipedia.org/wiki/Iris_flower_data_set)의 하위 집합입니다. 이 집합에는 꽃의 종류가 두 가지(클래스 0과 1)뿐입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
+2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Azure Machine Learning Studio (클래식)에 제공 되는 조리개 데이터 집합은 두 개의 꽃 종류 (클래스 0 및 1)만 포함 하는 인기 있는 [iri 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set) 의 하위 집합입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
 
 ![붓꽃 실험의 스크린샷](./media/interpret-model-results/1.png)
 
@@ -74,7 +71,7 @@ Azure Machine Learning Studio에는 이러한 각 분류 유형을 다루는 여
 
 **웹 서비스 게시**
 
-예측 결과를 철저히 파악하고 판단한 후에는 실험을 웹 서비스로 게시할 수 있습니다. 그러면 다양한 애플리케이션에 실험을 배포하고 호출하여 모든 새 붓꽃에 대한 클래스 예측을 얻을 수 있습니다. 학습 실험을 점수 매기기 실험으로 변경하여 웹 서비스로 게시하는 방법은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요. 이 절차에 따르면 그림 3에 표시된 대로 점수 매기기 실험이 제공됩니다.
+예측 결과를 철저히 파악하고 판단한 후에는 실험을 웹 서비스로 게시할 수 있습니다. 그러면 다양한 애플리케이션에 실험을 배포하고 호출하여 모든 새 붓꽃에 대한 클래스 예측을 얻을 수 있습니다. 학습 실험을 점수 매기기 실험으로 변경 하 여 웹 서비스로 게시 하는 방법을 알아보려면 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조 하세요. 이 절차에 따르면 그림 3에 표시된 대로 점수 매기기 실험이 제공됩니다.
 
 ![점수 매기기 실험의 스크린샷](./media/interpret-model-results/3.png)
 
@@ -115,7 +112,7 @@ Azure Machine Learning Studio에는 이러한 각 분류 유형을 다루는 여
 
 **결과 해석**
 
-왼쪽에 있는 16개의 열이 테스트 집합의 기능 값을 나타냅니다. 클래스 “XX”의 점수가 매겨진 확률이라고 이름이 지정된 열은 2클래스 사례의 점수가 매겨진 확률 열과 같습니다. 해당 항목이 특정 클래스에 속할 확률을 보여줍니다. 예를 들어 첫 번째 항목은 “A”인 0.003571 확률과 “B”인 0.000451 확률 등이 있습니다. 마지막 열(점수가 매겨진 레이블)은 2클래스에서의 점수가 매겨진 레이블과 같습니다. 점수가 매겨진 확률이 가장 높은 클래스를 해당 항목의 예측 클래스로 선택합니다. 예를 들어, 첫 번째 항목에서 가장 큰 확률은 “F”(0.916995)이므로 점수가 매겨진 레이블은 “F”입니다.
+왼쪽에 있는 16개의 열이 테스트 집합의 기능 값을 나타냅니다. 클래스 “XX”의 점수가 매겨진 확률이라고 이름이 지정된 열은 2클래스 사례의 점수가 매겨진 확률 열과 같습니다. 해당 항목이 특정 클래스에 속할 확률을 보여줍니다. 예를 들어 첫 번째 항목에 대해 0.003571 확률은 "A", 0.000451 확률 ("B") 일 수 있습니다. 마지막 열(점수가 매겨진 레이블)은 2클래스에서의 점수가 매겨진 레이블과 같습니다. 점수가 매겨진 확률이 가장 높은 클래스를 해당 항목의 예측 클래스로 선택합니다. 예를 들어 첫 번째 항목에 대해 점수가 가장 큰 확률은 "F" (0.916995) 이므로 점수가 매겨진 레이블은 "F"입니다.
 
 **웹 서비스 게시**
 
@@ -129,7 +126,7 @@ Azure Machine Learning Studio에는 이러한 각 분류 유형을 다루는 여
 
 그림 9. 문자 인식 다중 클래스 분류 문제의 마지막 점수 매기기 실험
 
-웹 서비스를 게시하고 실행한 다음 입력 특징 값을 입력하고 나면 그림 10과 같은 결과가 반환됩니다. 16개의 기능이 추출된 이 필기 문자는 확률이 0.9715인 “T”로 예측됩니다.
+웹 서비스를 게시하고 실행한 다음 입력 특징 값을 입력하고 나면 그림 10과 같은 결과가 반환됩니다. 추출 된 16 개의 기능이 포함 된이 손으로 작성 된 문자는 0.9715 확률이 있는 "T"로 예측 됩니다.
 
 ![점수 매기기 모듈 테스트 해석](./media/interpret-model-results/9_1.png)
 
@@ -174,16 +171,16 @@ Azure Machine Learning Studio에는 이러한 각 분류 유형을 다루는 여
 
 그림 14. 자동차 가격 회귀 문제의 웹 서비스 결과
 
-## <a name="clustering"></a>클러스터링
+## <a name="clustering"></a>Clustering
 **예제 실험**
 
-다시 붓꽃 데이터 집합을 사용하여 클러스터링 실험을 작성하겠습니다. 여기에서는 특징만 보유하고 클러스터링에 사용할 수 있도록 데이터 집합의 클래스 레이블을 필터링할 수 있습니다. 이 붓꽃 사용 사례에서는 학습 프로세스 중에 클러스터의 수를 2로 지정합니다. 즉, 꽃을 2클래스로 클러스터링합니다. 실험은 그림 15에 표시됩니다.
+Iri 데이터 집합을 다시 사용 하 여 클러스터링 실험을 작성 하겠습니다. 여기에서는 특징만 보유하고 클러스터링에 사용할 수 있도록 데이터 집합의 클래스 레이블을 필터링할 수 있습니다. 이 붓꽃 사용 사례에서는 학습 프로세스 중에 클러스터의 수를 2로 지정합니다. 즉, 꽃을 2클래스로 클러스터링합니다. 실험은 그림 15에 표시됩니다.
 
 ![붓꽃 클러스터링 문제 실험](./media/interpret-model-results/15.png)
 
 그림 15. 붓꽃 클러스터링 문제 실험
 
-클러스터링은 학습 데이터 집합에 자체 실측 자료가 없다는 점에서 분류와 다릅니다. 클러스터링은 학습 데이터 집합 인스턴스를 개별 클러스터로 그룹화합니다. 학습 프로세스 중에 모델에서 해당 특징 사이의 차이점을 학습하여 항목의 레이블을 지정합니다. 그런 다음 학습된 모델을 사용하여 나중에 항목을 분류할 수 있습니다. 클러스터링 문제에서 결과의 두 부분에 관심이 있습니다. 첫 번째 부분은 학습 데이터 집합의 레이블을 지정하는 것이고, 두 번째는 학습된 모델을 사용하여 새 데이터 집합을 분류하는 것입니다.
+클러스터링은 학습 데이터 집합에 자체 레이블이 없다는 점에서 분류와 다릅니다. 클러스터링은 학습 데이터 집합 인스턴스를 개별 클러스터로 그룹화합니다. 학습 프로세스 중에 모델에서 해당 특징 사이의 차이점을 학습하여 항목의 레이블을 지정합니다. 그런 다음 학습된 모델을 사용하여 나중에 항목을 분류할 수 있습니다. 클러스터링 문제에서 결과의 두 부분에 관심이 있습니다. 첫 번째 부분은 학습 데이터 집합의 레이블을 지정하는 것이고, 두 번째는 학습된 모델을 사용하여 새 데이터 집합을 분류하는 것입니다.
 
 결과의 첫 번째 부분은 [클러스터링 모델 학습][train-clustering-model] 모듈의 왼쪽 출력 포트를 클릭하고 **시각화**를 클릭하여 시각화할 수 있습니다. 시각화는 그림 16에 표시되어 있습니다.
 
@@ -226,7 +223,7 @@ Azure Machine Learning Studio에는 이러한 각 분류 유형을 다루는 여
 * 고객 특징 데이터
 * 음식점 기능 데이터
 
-Azure Machine Learning Studio의 [매치박스 추천 학습][train-matchbox-recommender] 모듈을 사용하여 여러 가지를 수행할 수 있습니다.
+Azure Machine Learning Studio (클래식)에서 [Matchbox 학습 추천][train-matchbox-recommender] 모듈을 사용 하 여 수행할 수 있는 몇 가지 작업이 있습니다.
 
 * 지정된 사용자와 항목의 등급 예측
 * 지정된 사용자를 위한 항목 추천
@@ -237,7 +234,7 @@ Azure Machine Learning Studio의 [매치박스 추천 학습][train-matchbox-rec
 
 ![매치박스 추천](./media/interpret-model-results/19_1.png)
 
-추천 시스템의 일반적인 Azure Machine Learning Studio 실험은 그림 20과 비슷합니다. 추천 시스템 모듈 사용 방법에 대한 자세한 내용은 [매치박스 추천 학습][train-matchbox-recommender] 및 [매치박스 추천 점수 매기기][score-matchbox-recommender]를 참조하세요.
+추천 시스템에 대 한 일반적인 Azure Machine Learning Studio (클래식) 실험은 그림 20과 같습니다. 추천 시스템 모듈 사용 방법에 대한 자세한 내용은 [매치박스 추천 학습][train-matchbox-recommender] 및 [매치박스 추천 점수 매기기][score-matchbox-recommender]를 참조하세요.
 
 ![추천 시스템 실험](./media/interpret-model-results/20.png)
 
@@ -267,7 +264,7 @@ Azure Machine Learning Studio의 [매치박스 추천 학습][train-matchbox-rec
 
 **지정된 사용자와 관련된 사용자 찾기**
 
-**추천 예측 유형**에서 **관련 사용자**를 선택하여 추천 시스템에서 지정된 사용자와 관련된 사용자를 찾도록 요청합니다. 관련된 사용자는 기본 설정이 비슷한 사용자입니다. 이 시나리오에서 선택할 마지막 매개 변수는 *관련 사용자 선택*입니다. **등급을 지정한 사용자로부터(모델 평가용)** 옵션은 주로 학습 프로세스 중에 모델 평가용으로 사용됩니다. 이 예측 단계에서는 **모든 사용자로부터**를 선택합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 23과 비슷합니다.
+**추천 예측 유형**에서 **관련 사용자**를 선택하여 추천 시스템에서 지정된 사용자와 관련된 사용자를 찾도록 요청합니다. 관련된 사용자는 기본 설정이 비슷한 사용자입니다. 이 시나리오에서 선택할 마지막 매개 변수는 *관련 사용자 선택*입니다. 항목의 **등급을 매긴 사용자의 옵션 (모델 평가의 경우)** 은 주로 학습 프로세스 중에 모델을 평가 하는 데 사용할 수 있습니다. 이 예측 단계에서는 **모든 사용자로부터**를 선택합니다. [매치박스 추천 점수 매기기][score-matchbox-recommender] 출력의 시각화는 그림 23과 비슷합니다.
 
 ![추천 시스템 - 관련 사용자의 점수 매기기 결과](./media/interpret-model-results/23.png)
 

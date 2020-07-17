@@ -1,28 +1,28 @@
 ---
 title: '빠른 시작: Bing Autosuggest REST API 및 Ruby로 검색 쿼리 제안'
-titlesuffix: Azure Cognitive Services
-description: Bing Autosuggest API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+titleSuffix: Azure Cognitive Services
+description: Bing Autosuggest API를 사용하여 실시간으로 검색 용어를 빠르게 제안하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: c7ba0fd34c789735cd92c25a728aec346dc88fcc
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: e9b990f7e79fe0d70a213db5739153fe1e558f3c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009748"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930202"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>빠른 시작: Bing Autosuggest REST API 및 Ruby로 검색 쿼리 제안
 
-이 빠른 시작을 사용하여 Bing Autosuggest API를 호출하고 JSON 응답을 받습니다. 이 간단한 Ruby 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 Ruby에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 빠른 시작에 따라 Bing Autosuggest API를 호출하고 JSON 응답을 읽는 방법을 알아봅니다. 이 간단한 Ruby 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 Ruby에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) 이상.
 
@@ -38,7 +38,7 @@ ms.locfileid: "57009748"
     require 'json'
     ```
 
-2. API 호스트 및 경로에 대한 변수, [시작 코드](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), 부분 검색 쿼리를 만듭니다.
+2. API 호스트 및 경로, [시장 코드](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), 부분 검색 쿼리에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용합니다.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -48,7 +48,7 @@ ms.locfileid: "57009748"
     query = 'sail'
     ```
 
-3. 시장 코드를 `?mkt=` 매개 변수에 추가하고 쿼리를 `&q=` 매개 변수에 추가하여 매개 변수 문자열을 만듭니다. 그런 다음, API 호스트, 경로 및 매개 변수 문자열을 결합하여 요청 URI를 생성합니다.
+3. 시장 코드를 `mkt=` 매개 변수에 추가하고 쿼리를 `q=` 매개 변수에 추가하여 매개 변수 문자열을 만듭니다. 그런 다음, API 호스트, 경로 및 매개 변수 문자열을 결합하여 요청 URI를 생성합니다.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + query
@@ -154,4 +154,4 @@ ms.locfileid: "57009748"
 ## <a name="see-also"></a>참고 항목
 
 - [Bing Autosuggest란?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

@@ -1,24 +1,16 @@
 ---
 title: Azure Log Analytics의 IT Service Management Connector | Microsoft Docs
 description: 이 문서에서는 ITSMC(IT 서비스 관리 커넥터)의 개요 및 이 솔루션을 사용하여 Azure Log Analytics의 ITSM 작업 항목을 중앙에서 모니터링하고 관리하며 모든 문제를 신속하게 해결하는 방법에 대한 정보를 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/24/2018
+author: nolavime
 ms.author: v-jysur
-ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 05/24/2018
+ms.openlocfilehash: b0ae621791fb989fbb1fdab6a045bc8e9707bc74
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395808"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846531"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -40,6 +32,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 -  Azure 경고(메트릭 경고, 활동 로그 경고 및 Log Analytics 경고)에 따라 ITSM 도구에서 작업 항목을 만듭니다.
 -  필요에 따라 인시던트 및 변경 요청 데이터를 ITSM 도구에서 Azure Log Analytics 작업 영역으로 동기화할 수 있습니다.
 
+[약관 및 개인정보처리방침](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9)을 참조하세요.
 
 다음 단계를 통해 ITSM 커넥터를 사용하여 시작하면 됩니다.
 
@@ -62,7 +55,9 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 3. **OMS 작업 영역** 섹션에서 솔루션을 설치하려는 Azure Log Analytics 작업 영역을 선택합니다.
    >[!NOTE]
-   >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
+   > * Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
+   > * ITSM 커넥터는 다음과 같은 지역에서만 Log Analytics 작업 영역에 설치할 수 있습니다. 미국 동부, 미국 서부 2, 미국 중남부, 미국 중서부, Fairfax, 캐나다 중부, 서유럽, 영국 남부, 동남 아시아, 일본 동부, 인도 중부, 동남 오스트레일리아.
+
 4. **OMS 작업 영역 설정** 섹션에서 솔루션 리소스 만들려는 ResourceGroup을 선택합니다.
 
    ![ITSMC 작업 영역](media/itsmc-overview/itsmc-solution-workspace.png)
@@ -71,7 +66,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 5. **만들기**를 클릭합니다.
 
-솔루션 리소스를 배포할 때 창의 오른쪽 상단에 알림이 표시됩니다.
+솔루션 리소스가 배포되면 창의 오른쪽 상단에 알림이 표시됩니다.
 
 
 ## <a name="creating-an-itsm--connection"></a>ITSM 연결 만들기
@@ -80,7 +75,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 연결을 만들려면 ITSM 커넥터 솔루션과의 연결을 허용하도록 ITSM 도구를 준비해야 합니다.  
 
-연결하려는 ITSM 제품에 따라 다음 단계를 사용합니다.
+연결하려는 ITSM 제품이 무엇인지에 따라 다음 단계를 사용하세요.
 
 - [SCSM(System Center Service Manager)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -101,7 +96,7 @@ ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니�
 4. [ITSM 제품/서비스 문서를 사용하여 ITSMC 연결 구성](../../azure-monitor/platform/itsmc-connections.md)에 설명된 대로 연결 설정을 지정합니다.
 
    > [!NOTE]
-   > 
+   >
    > 기본적으로 ITSMC는 24시간 마다 한 번씩 연결의 구성 데이터를 새로 고칩니다. 적용한 편집 내용 또는 템플릿 업데이트에 대해 연결 데이터를 즉시 새로 고치려면 연결 블레이드에서 **동기화** 단추를 클릭합니다.
 
    ![연결 새로 고침](media/itsmc-overview/itsmc-connections-refresh.png)
@@ -139,7 +134,7 @@ ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용
 Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작업 그룹을 사용합니다. 경고가 트리거되면 작업 항목이 ITSM 도구에 만들어지거나 업데이트됩니다.
 
 > [!NOTE]
-> 
+>
 > ITSM 작업의 가격 책정에 대한 자세한 내용은 작업 그룹의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
 
 
@@ -161,7 +156,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 ![Log Analytics 화면](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-자세한 정보: [서비스 맵](../../azure-monitor/insights/service-map.md)
+추가 정보: [서비스 맵](../../azure-monitor/insights/service-map.md)
 
 
 ## <a name="additional-information"></a>추가 정보
@@ -172,13 +167,13 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 다음 정보는 ITSMC에서 수집된 데이터 예제를 보여 줍니다.
 
 > [!NOTE]
-> 
+>
 > Log Analytics로 가져온 작업 항목 형식에 따라 **ServiceDesk_CL**에는 다음 필드가 포함됩니다.
 
 **작업 항목:** **인시던트**  
 ServiceDeskWorkItemType_s="Incident"
 
-**필드**
+**Fields**
 
 - ServiceDeskConnectionName
 - 서비스 데스크 ID
@@ -194,7 +189,7 @@ ServiceDeskWorkItemType_s="Incident"
 - 할당 대상
 - Category
 - 제목
-- 설명
+- Description
 - 만든 날짜
 - 종결한 날짜
 - 해결한 날짜
@@ -206,9 +201,9 @@ ServiceDeskWorkItemType_s="Incident"
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
-**필드**
+**Fields**
 - ServiceDeskConnectionName
-- 서비스 창구 ID
+- 서비스 데스크 ID
 - 만든 사람
 - 종결한 사람
 - 원본
@@ -226,13 +221,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 할당 대상
 - 만든 날짜
 - 종결한 날짜
-- 마지막 수정 날짜
+- 마지막으로 수정한 날짜
 - 요청한 날짜
 - 예상된 시작 날짜
 - 예상된 종료 날짜
 - 작업 시작 날짜
 - 작업 종료 날짜
-- 설명
+- Description
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>ServiceNow 인시던트에 대한 출력 데이터
@@ -253,7 +248,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Title_s|  간단한 설명 |
 | Description_s|  메모 |
 | CreatedDate_t|  열림 |
-| ClosedDate_t| 닫힘|
+| ClosedDate_t| closed|
 | ResolvedDate_t|해결됨|
 | Computer  | 구성 항목 |
 
@@ -279,7 +274,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   예상된 종료 날짜 |
 | WorkStartDate_t  | 실제 시작 날짜 |
 | WorkEndDate_t | 실제 종료 날짜|
-| Description_s | 설명 |
+| Description_s | Description |
 | Computer  | 구성 항목 |
 
 
@@ -289,7 +284,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
    - 각 연결에 대한 사용자 이름, 암호 클라이언트 ID 및 클라이언트 비밀을 올바르게 입력했는지 확인합니다.  
    - 해당 ITSM 제품에 연결하는 데 충분한 권한이 있는지 확인합니다.  
    - Service Manager 연결의 경우  
-   - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터를 사용 하 여 성공적으로 연결 되어를 확인 하려면 설정 설명서에 설명 된 대로 웹 앱 URL을 방문 합니다 [하이브리드 연결](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)합니다.  
+   - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 머신과의 연결이 성공적으로 설정되었는지 확인하려면 [하이브리드 연결](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) 설정 설명서에 안내된 웹앱 URL을 방문합니다.  
 
 2. ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
 3. Log Analytics 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.
@@ -304,7 +299,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="contact-us"></a>문의처
 
-IT Service Management Connector에 대해 질문이나 의견이 있는 경우 [omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com)으로 문의하세요.
+IT Service Management Connector에 대해 질문이나 의견이 있는 경우 [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)으로 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [ITSM 제품/서비스를 IT Service Management Connector에 추가](../../azure-monitor/platform/itsmc-connections.md).

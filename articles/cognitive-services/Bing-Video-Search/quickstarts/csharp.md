@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Bing Video Search REST API 및 C#을 사용하여 비디오 검색'
-titlesuffix: Azure Cognitive Services
+title: '빠른 시작: REST API 및 C#을 사용하여 비디오 검색 - Bing Video Search'
+titleSuffix: Azure Cognitive Services
 description: C#을 통해 Bing Video Search REST API로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
 author: aahill
@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 29d0dc032bd14161674c58d6e502ad77c3bf75e5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9d69d4550a5cd4a162795261b7ab3d8b59b7297
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108783"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848943"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>빠른 시작: Bing Video Search REST API 및 C#을 사용하여 비디오 검색
 
-Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 확인하려면 이 빠른 시작을 사용합니다. 이 간단한 C# 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 애플리케이션은 C#에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 빠른 시작을 사용하여 Bing Video Search API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 C# 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, JSON 응답을 표시합니다. 이 애플리케이션은 C#으로 작성되었지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 이 샘플에 대한 소스 코드는 추가 오류 처리, 기능 및 코드 주석과 함께 [GitHub에서](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+## <a name="prerequisites"></a>사전 요구 사항
+* [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
-* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+* Linux/MacOS를 사용하는 경우 [Mono](https://www.mono-project.com/)를 사용하여 이 애플리케이션을 실행할 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -42,7 +42,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     using System.Collections.Generic;
     ```
 
-2. 구독 키, 엔드포인트 및 검색어에 대한 변수를 추가합니다.
+2. 구독 키, 엔드포인트 및 검색어에 대한 변수를 추가합니다. `uriBase` 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```csharp
     const string accessKey = "enter your key here";
@@ -50,26 +50,27 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     const string searchTerm = "kittens";
     ```
 
-### <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>구조체를 만들어 Bing Video Search API 응답의 형식 지정
+## <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>구조체를 만들어 Bing Video Search API 응답의 형식 지정
 
-1. 이미지 검색 결과 및 JSON 헤더 정보를 포함할 `SearchResult` 구조체를 정의합니다.
+이미지 검색 결과 및 JSON 헤더 정보를 포함할 `SearchResult` 구조체를 정의합니다.
 
-    ```csharp
-    struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
-    ```
+```csharp
+struct SearchResult
+    {
+        public String jsonResult;
+        public Dictionary<String, String> relevantHeaders;
+    }
+```
 
 ## <a name="create-and-handle-a-video-search-request"></a>비디오 검색 요청 만들기 및 처리
 
-`BingVideoSearch` 메서드를 만들어 API 호출을 수행하고 반환 형식을 이전에 만든 `SearchResult` 구조체로 설정합니다. 메서드에서 다음 단계를 수행합니다.
+1. `BingVideoSearch` 메서드를 만들어 API 호출을 수행하고 반환 형식을 이전에 만든 `SearchResult` 구조체로 설정합니다. 
 
-1. 검색 요청의 URI를 생성합니다. 검색어 toSearch는 문자열에 추가되기 전에 형식이 지정되어야 합니다.
+   다음 단계에서 이 메서드에 코드를 추가합니다.
 
-    ```csharp
-    
+1. 검색 요청의 URI를 생성합니다. 문자열에 추가하기 전에 `toSearch` 검색어의 형식을 지정합니다.
+
+    ```csharp    
     static SearchResult BingVideoSearch(string toSearch){
     
         var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
@@ -105,7 +106,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     return searchResult;
     ```
 
-2. 그런 다음, 응답을 출력할 수 있습니다.
+2. 응답을 출력합니다.
 
     ```csharp
     Console.WriteLine(result.jsonResult);

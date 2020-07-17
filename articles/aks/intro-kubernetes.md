@@ -2,28 +2,27 @@
 title: Azure Kubernetes Service 소개
 description: Azure에서 컨테이너 기반 애플리케이션을 배포 및 관리하는 Azure Kubernetes Service의 기능 및 이점을 알아봅니다.
 services: container-service
-author: iainfoulds
-ms.service: container-service
 ms.topic: overview
-ms.date: 03/05/2019
-ms.author: iainfou
+ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 810f887c43b5653513d6848e9b7dd2e7ced070ab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995033"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251334"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
-AKS(Azure Kubernetes Service)를 사용하면 Azure에서 관리되는 Kubernetes 클러스터를 간단하게 배포할 수 있습니다. AKS는 대부분의 부담을 Azure에 오프로딩하여 Kubernetes를 관리하는 복잡성 및 운영 과부하를 감소시킵니다. 호스팅되는 Kubernetes 서비스인 Azure는 상태 모니터링 및 유지 관리 같은 중요 작업을 처리합니다. Kubernetes 마스터는 Azure에서 관리됩니다. 에이전트 노드만 관리하고 유지 관리합니다. 관리되는 Kubernetes 서비스, AKS가 무료이므로 마스터가 아니라 클러스터 내의 에이전트 노드에 대해서만 지불합니다.
+AKS(Azure Kubernetes Service)를 사용하면 Azure에서 관리되는 Kubernetes 클러스터를 간단하게 배포할 수 있습니다. AKS는 대부분의 부담을 Azure에 오프로딩하여 Kubernetes를 관리하는 복잡성 및 운영 과부하를 감소시킵니다. 호스팅되는 Kubernetes 서비스인 Azure는 상태 모니터링 및 유지 관리 같은 중요 작업을 처리합니다. Kubernetes 마스터는 Azure에서 관리됩니다. 에이전트 노드만 관리하고 유지하면 됩니다. 관리되는 Kubernetes 서비스, AKS가 무료이므로 마스터가 아니라 클러스터 내의 에이전트 노드에 대해서만 지불합니다.
 
-Azure CLI 또는 Resource Manager 템플릿 및 Terraform과 같은 템플릿 기반 배포 옵션을 사용하여 Azure Portal에서 AKS 클러스터를 만들 수 있습니다. AKS 클러스터를 배포할 때 Kubernetes 마스터 및 모든 노드가 배포되고 구성됩니다. 배포 프로세스 중에 고급 네트워킹, Azure Active Directory 통합 및 모니터링 등의 추가 기능을 구성할 수도 있습니다.
+Azure CLI 또는 Resource Manager 템플릿 및 Terraform과 같은 템플릿 기반 배포 옵션을 사용하여 Azure Portal에서 AKS 클러스터를 만들 수 있습니다. AKS 클러스터를 배포할 때 Kubernetes 마스터 및 모든 노드가 배포되고 구성됩니다. 배포 프로세스 중에 고급 네트워킹, Azure Active Directory 통합 및 모니터링 등의 추가 기능을 구성할 수도 있습니다. Windows Server 컨테이너는 AKS에서 지원됩니다.
 
 Kubernetes 기본 사항에 대한 자세한 내용은 [AKS의 Kubernetes 핵심 개념][concepts-clusters-workloads]을 참조하세요.
 
-시작하려면 [Azure Portal에서][aks-portal] 또는 [Azure CLI를 사용하여][aks-cli] AKS 빠른 시작을 완료합니다.
+시작하려면 [Azure Portal][aks-portal]이나 [Azure CLI][aks-cli]를 사용하여 AKS 빠른 시작을 완료합니다.
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="access-security-and-monitoring"></a>액세스, 보안 및 모니터링
 
@@ -41,11 +40,11 @@ AKS 클러스터를 보호하려면 [AKS와 Azure Active Directory 통합][aks-a
 
 AKS 클러스터 및 배포된 애플리케이션이 수행되는 방법을 이해하기 위해 컨테이너 상태에 대한 Azure Monitor는 컨테이너, 노드 및 컨트롤러에서 메모리 및 프로세서 메트릭을 수집합니다. 컨테이너 로그를 사용할 수 있으며, [Kubernetes 마스터 로그를 검토][aks-master-logs]할 수도 있습니다. 이 모니터링 데이터는 Azure Log Analytics 작업 영역에 저장되고, Azure Portal, Azure CLI 또는 REST 엔드포인트를 통해 제공됩니다.
 
-자세한 내용은 [Azure Kubernetes Service 컨테이너 상태 모니터링][container-health].을 참조하세요.
+자세한 내용은 [Azure Kubernetes Service 컨테이너 상태 모니터링][container-health]을 참조하세요.
 
-## <a name="cluster-and-node"></a>클러스터 및 노드
+## <a name="clusters-and-nodes"></a>클러스터 및 노드
 
-AKS 노드는 Azure 가상 머신에서 실행됩니다. 저장소를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다.
+AKS 노드는 Azure 가상 머신에서 실행됩니다. 스토리지를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다. AKS는 혼합된 운영 체제 및 Windows Server 컨테이너를 지원하기 위해 여러 노드 풀을 실행하는 Kubernetes 클러스터를 지원합니다. Linux 노드는 사용자 지정된 Ubuntu OS 이미지를 실행하고 Windows 서버 노드는 사용자 지정된 Windows Server 2019 OS 이미지를 실행합니다.
 
 ### <a name="cluster-node-and-pod-scaling"></a>클러스터 노드 및 Pod 크기 조정
 
@@ -65,9 +64,9 @@ AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단�
 
 자세한 내용은 [AKS에서 GPU 사용][aks-gpu]을 참조하세요.
 
-### <a name="storage-volume-support"></a>저장소 볼륨 지원
+### <a name="storage-volume-support"></a>스토리지 볼륨 지원
 
-애플리케이션 워크로드를 지원하기 위해 영구 데이터에 대한 저장소 볼륨을 탑재할 수 있습니다. 정적 및 동적 볼륨을 모두 사용할 수 있습니다. 저장소를 공유하기 위해 연결된 Pod 수에 따라 단일 Pod 액세스에 대한 Azure 디스크 또는 여러 동시 Pod 액세스에 대한 Azure Files 중 하나에서 지원되는 저장소를 사용할 수 있습니다.
+애플리케이션 워크로드를 지원하기 위해 영구 데이터에 대한 스토리지 볼륨을 탑재할 수 있습니다. 정적 및 동적 볼륨을 모두 사용할 수 있습니다. 스토리지를 공유하기 위해 연결된 Pod 수에 따라 단일 Pod 액세스에 대한 Azure 디스크 또는 여러 동시 Pod 액세스에 대한 Azure Files 중 하나에서 지원되는 스토리지를 사용할 수 있습니다.
 
 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
@@ -89,7 +88,7 @@ HTTP 애플리케이션 라우팅 추가 기능을 사용하면 AKS 클러스터
 
 ## <a name="development-tooling-integration"></a>개발 도구 통합
 
-Kubernetes에는 다양한 Visual Studio Code용 개발 및 관리 도구(예: Helm, Draft 및 Kubernetes 확장)가 있습니다. 이러한 도구는 AKS를 사용하여 원활하게 작동합니다.
+Kubernetes에는 다양한 Visual Studio Code용 개발 및 관리 도구(예: Helm 및 Kubernetes 확장)가 있습니다. 이러한 도구는 AKS를 사용하여 원활하게 작동합니다.
 
 또한 Azure Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. 최소한의 구성을 통해 AKS에서 바로 컨테이너를 실행하고 디버그할 수 있습니다. 시작하려면 [Azure Dev Spaces][azure-dev-spaces]를 참조하세요.
 
@@ -97,11 +96,11 @@ Azure DevOps 프로젝트는 기존 코드 및 Git 리포지토리를 Azure로 �
 
 자세한 내용은 [Azure DevOps 프로젝트][azure-devops]를 참조하세요.
 
-## <a name="docker-image-support-and-private-container-registry"></a>Docker 이미지 지원 및 개인 컨테이너 레지스트리
+## <a name="docker-image-support-and-private-container-registry"></a>Docker 이미지 지원 및 프라이빗 컨테이너 레지스트리
 
-AKS는 Docker 이미지 형식을 지원합니다. Docker 이미지의 개인 저장소의 경우 AKS를 ACR(Azure Container Registry)과 통합할 수 있습니다.
+AKS는 Docker 이미지 형식을 지원합니다. Docker 이미지의 프라이빗 스토리지의 경우 AKS를 ACR(Azure Container Registry)과 통합할 수 있습니다.
 
-개인 이미지 저장소를 만들려면 [Azure Container Registry][acr-docs]를 참조하세요.
+프라이빗 이미지 저장소를 만들려면 [Azure Container Registry][acr-docs]를 참조하세요.
 
 ## <a name="kubernetes-certification"></a>Kubernetes 인증
 
@@ -125,7 +124,7 @@ Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아�
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
-[aks-aad]: ./azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
@@ -133,14 +132,14 @@ Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아�
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/azure/devops-project/overview
+[azure-dev-spaces]: ../dev-spaces/index.yml
+[azure-devops]: ../devops-project/overview.md
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
-[container-health]: ../monitoring/monitoring-container-health.md
+[container-health]: ../azure-monitor/insights/container-insights-overview.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md

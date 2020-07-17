@@ -1,21 +1,20 @@
 ---
-title: Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용(미리 보기)
+title: Azure Stream Analytics 작업에서 SQL Database 참조 데이터 사용
 description: 이 문서에서는 Azure Portal 및 Visual Studio에서 Azure Stream Analytics 작업에 대한 참조 데이터 입력으로 SQL Database를 사용하는 방법을 설명합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e00ab059c68d7a3f2288d94894199773cab63ac5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363762"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039299"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용(미리 보기)
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용
 
 Azure Stream Analytics는 참조 데이터 입력 원본으로 Azure SQL Database를 지원합니다. Azure Portal 및 Stream Analytics 도구가 있는 Visual Studio에서 Stream Analytics 작업에 대한 참조 데이터로 SQL Database를 사용할 수 있습니다. 이 문서에서는 두 방법을 수행하는 방법을 모두 보여 줍니다.
 
@@ -41,7 +40,7 @@ Azure Portal을 사용하여 Azure SQL Database를 참조 입력 원본으로 �
 
    ![SQL Database 참조 구성](./media/sql-reference-data/sql-input-config.png)
 
-3. SQL 쿼리 편집기에서 스냅숏 쿼리를 테스트합니다. 자세한 내용은 [Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리](../sql-database/sql-database-connect-query-portal.md)를 참조하세요.
+3. SQL 쿼리 편집기에서 스냅샷 쿼리를 테스트합니다. 자세한 내용은 [Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리](../azure-sql/database/connect-query-portal.md)를 참조하세요.
 
 ### <a name="specify-storage-account-in-job-config"></a>작업 구성에서 스토리지 계정 지정
 
@@ -59,20 +58,18 @@ Visual Studio를 사용하여 Azure SQL Database를 참조 입력 원본으로 �
 
 ### <a name="visual-studio-prerequisites"></a>Visual Studio의 필수 구성 요소
 
-1. Visual Studio 2017을 사용하는 경우 15.8.2 이상으로 업데이트합니다. 16.0 이상은 현재 지원되지 않습니다.
-
-2. [Stream Analytics Tools for Visual Studio를 설치](stream-analytics-tools-for-visual-studio-install.md)합니다. 다음 Visual Studio 버전이 지원됩니다.
+1. [Stream Analytics Tools for Visual Studio를 설치](stream-analytics-tools-for-visual-studio-install.md)합니다. 다음 Visual Studio 버전이 지원됩니다.
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. [Stream Analytics Tools for Visual Studio](stream-analytics-quick-create-vs.md) 빠른 시작을 숙지합니다.
+2. [Stream Analytics Tools for Visual Studio](stream-analytics-quick-create-vs.md) 빠른 시작을 숙지합니다.
 
-4. 저장소 계정을 만듭니다.
+3. 스토리지 계정을 만듭니다.
 
 ### <a name="create-a-sql-database-table"></a>SQL Database 테이블 만들기
 
-SQL Server Management Studio를 사용하여 참조 데이터를 저장할 테이블을 만듭니다. 자세한 내용은 [SSMS를 사용하여 첫 번째 Azure SQL 데이터베이스 디자인](../sql-database/sql-database-design-first-database.md)을 참조하세요.
+SQL Server Management Studio를 사용하여 참조 데이터를 저장할 테이블을 만듭니다. 자세한 내용은 [SSMS를 사용 하 여 첫 번째 Azure SQL Database 디자인](../azure-sql/database/design-first-database-tutorial.md) 을 참조 하세요.
 
 다음 예제에서 사용하는 예제 테이블은 다음 문에서 만들었습니다.
 
@@ -118,11 +115,11 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. 편집기에서 SQL 파일을 열고 SQL 쿼리를 작성합니다.
 
-5. Visual Studio 2017을 사용하며 SQL Server Data Tools를 설치한 경우 **실행**을 클릭하여 쿼리를 테스트할 수 있습니다. SQL Database에 연결하는 데 도움이 되는 마법사 창이 팝업되고 쿼리 결과가 아래쪽 창에 나타납니다.
+5. Visual Studio 2019를 사용하며 SQL Server Data Tools를 설치한 경우 **실행**을 클릭하여 쿼리를 테스트할 수 있습니다. SQL Database에 연결 하는 데 도움이 되는 마법사 창이 표시 되 고 맨 아래 창에 쿼리 결과가 표시 됩니다.
 
 ### <a name="specify-storage-account"></a>스토리지 계정 지정
 
-**JobConfig.json**을 열어 SQL 참조 스냅숏을 저장하기 위한 스토리지 계정을 지정합니다.
+**JobConfig.json**을 열어 SQL 참조 스냅샷을 저장하기 위한 스토리지 계정을 지정합니다.
 
    ![Visual Studio의 Stream Analytics 작업 구성](./media/sql-reference-data/stream-analytics-job-config.png)
 
@@ -132,9 +129,9 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ## <a name="delta-query"></a>델타 쿼리
 
-델타 쿼리를 사용하는 경우 [Azure SQL Database의 temporal 테이블](../sql-database/sql-database-temporal-tables.md)을 사용하는 것이 좋습니다.
+델타 쿼리를 사용하는 경우 [Azure SQL Database의 temporal 테이블](../azure-sql/temporal-tables.md)을 사용하는 것이 좋습니다.
 
-1. Azure SQL Database에서 temporal 테이블을 만듭니다.
+1. Azure SQL Database에서 임시 테이블 만들기
    
    ```SQL 
       CREATE TABLE DeviceTemporal 
@@ -148,9 +145,9 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
       )  
       WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
    ```
-2. 스냅숏 쿼리를 작성합니다. 
+2. 스냅샷 쿼리를 작성합니다. 
 
-   사용 된  **\@snapshotTime** SQL 데이터베이스 temporal 테이블에서 시스템 시간에서 올바른 참조 데이터 집합을 가져오려면 Stream Analytics 런타임 매개 변수입니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅숏 쿼리 예제는 아래에 나와 있습니다.
+   ** \@ SnapshotTime** 매개 변수를 사용 하 여 시스템 시간에 유효한 SQL Database temporal 테이블에서 참조 데이터 집합을 가져오도록 Stream Analytics 런타임에 지시 합니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅샷 쿼리 예제는 아래에 나와 있습니다.
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -159,48 +156,47 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
 2. 델타 쿼리를 작성합니다. 
    
-   모든 삽입 또는 시작 시간을 내에서 삭제 된 SQL database에 행을 검색 하는이 쿼리입니다  **\@deltaStartTime**, 종료 시간  **\@deltaEndTime**합니다. 델타 쿼리는 스냅숏 쿼리와 동일한 열 뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 행이 삽입 되거나 사이 삭제 하는 경우이 열을 정의  **\@deltaStartTime** 하 고  **\@deltaEndTime**합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 
+   이 쿼리는 시작 시간, ** \@ deltastarttime**및 종료 시간 ** \@ deltastarttime**내에서 삽입 되거나 삭제 된 SQL Database의 모든 행을 검색 합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 행이 **\@deltaStartTime**과 **\@deltaEndTime** 사이에 삽입되었는지 또는 삭제되었는지 정의합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 또한 이 쿼리는 SQL Server 쪽에서 **워터마크**를 추가하여 델타 기간의 모든 업데이트가 적절하게 캡처되고 있는지 확인해야 합니다. **워터마크** 없이 델타 쿼리를 사용하면 잘못된 참조 데이터 세트가 사용될 수 있습니다.  
 
-   업데이트된 레코드의 경우 temporal 테이블은 삽입 및 삭제 작업을 캡처하여 목록을 만듭니다. 그러면 Stream Analytics 런타임은 이전 스냅숏에 델타 쿼리 결과를 적용하여 참조 데이터를 최신 상태로 유지합니다. 델타 쿼리 예제는 다음과 같습니다.
+   업데이트된 레코드의 경우 temporal 테이블은 삽입 및 삭제 작업을 캡처하여 목록을 만듭니다. 그러면 Stream Analytics 런타임은 이전 스냅샷에 델타 쿼리 결과를 적용하여 참조 데이터를 최신 상태로 유지합니다. 델타 쿼리 예제는 다음과 같습니다.
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as _watermark_, 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as _watermark_, 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```
  
-   Stream Analytics 런타임은 검사점을 저장하는 델타 쿼리 외에, 스냅숏 쿼리를 주기적으로 실행할 수 있습니다.
+   Stream Analytics 런타임은 검사점을 저장하는 델타 쿼리 외에, 스냅샷 쿼리를 주기적으로 실행할 수 있습니다.
+
+## <a name="test-your-query"></a>쿼리 테스트
+   쿼리가 Stream Analytics 작업에서 참조 데이터로 사용할 예상 데이터 세트를 반환하는지 확인하는 것이 중요합니다. 쿼리를 테스트하려면 포털의 작업 토폴로지 섹션 아래의 입력으로 이동합니다. 그런 다음, SQL Database 참조 입력에서 샘플 데이터를 선택할 수 있습니다. 샘플을 사용할 수 있게 되면 파일을 다운로드하고 반환되는 데이터가 예상대로 작동하는지 확인할 수 있습니다. 개발 및 테스트 반복을 최적화하려면 [Visual Studio용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)를 사용하는 것이 좋습니다. 또한 기본 설정의 다른 도구를 사용하여 먼저 쿼리가 Azure SQL Database에서 올바른 결과를 반환하는지 확인한 다음, Stream Analytics 작업에서 해당 결과를 사용할 수 있습니다. 
 
 ## <a name="faqs"></a>FAQ
 
 **Azure Stream Analytics에서 SQL 참조 데이터 입력을 사용하면 추가 비용이 부과되나요?**
 
-Stream Analytics 작업에 [스트리밍 단위당 비용](https://azure.microsoft.com/pricing/details/stream-analytics/)이 추가로 부과되지 않습니다. 그러나 Stream Analytics 작업이 연결된 Azure Storage 계정이 있어야 합니다. Stream Analytics 작업은 SQL DB를 쿼리하여(작업 시작 및 새로 고침 간격 동안) 참조 데이터 세트를 검색하고, 해당 스냅숏을 스토리지 계정에 저장합니다. 이러한 스냅숏을 저장하면 Azure Storage 계정의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)에서 자세히 설명하는 추가 요금이 발생합니다.
+Stream Analytics 작업에 [스트리밍 단위당 비용](https://azure.microsoft.com/pricing/details/stream-analytics/)이 추가로 부과되지 않습니다. 그러나 Stream Analytics 작업이 연결된 Azure Storage 계정이 있어야 합니다. Stream Analytics 작업은 SQL DB를 쿼리하여(작업 시작 및 새로 고침 간격 동안) 참조 데이터 세트를 검색하고, 해당 스냅샷을 스토리지 계정에 저장합니다. 이러한 스냅샷을 저장하면 Azure Storage 계정의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)에서 자세히 설명하는 추가 요금이 발생합니다.
 
-**참조 데이터 스냅숏이 SQL DB에서 쿼리되고 Azure Stream Analytics 작업에 사용되는지를 어떻게 알 수 있나요?**
+**참조 데이터 스냅샷이 SQL DB에서 쿼리되고 Azure Stream Analytics 작업에 사용되는지를 어떻게 알 수 있나요?**
 
-두 가지 메트릭이 있습니다 (아래에서 메트릭을 Azure Portal) SQL 데이터베이스 참조 데이터 입력의 상태를 모니터링 하는 데 사용할 수 있는 논리적 이름으로 필터링 합니다.
+SQL Database 참조 데이터 입력의 상태를 모니터링 하는 데 사용할 수 있는 논리 이름 (메트릭 Azure Portal)으로 필터링 된 두 가지 메트릭이 있습니다.
 
-   * InputEvents: 이 메트릭은 SQL Database 참조 데이터 세트에서 로드된 레코드 수를 측정합니다.
-   * InputEventBytes: 이 메트릭은 Stream Analytics 작업의 메모리에 로드된 참조 데이터 스냅숏의 크기를 측정합니다. 
+   * InputEvents:이 메트릭은 SQL Database 참조 데이터 집합에서 로드 된 레코드 수를 측정 합니다.
+   * InputEventBytes: 이 메트릭은 Stream Analytics 작업의 메모리에 로드된 참조 데이터 스냅샷의 크기를 측정합니다. 
 
-이러한 두 메트릭을 함께 사용하여 작업이 SQL Database를 쿼리하여 참조 데이터 세트를 가져온 후 메모리에 로드하는지를 유추할 수 있습니다.
+이러한 메트릭의 조합을 사용 하 여 작업에서 참조 데이터 집합을 가져오고 메모리에 로드 하는 SQL Database를 쿼리 하는 경우를 유추할 수 있습니다.
 
 **특수한 유형의 Azure SQL Database가 필요한가요?**
 
 Azure Stream Analytics는 모든 유형의 Azure SQL Database에서 작동합니다. 그러나 참조 데이터 입력에 대해 설정된 새로 고침 빈도가 쿼리 로드에 영향을 미칠 수 있는지 이해해야 합니다. 델타 쿼리 옵션을 사용하려면 Azure SQL Database의 temporal 테이블을 사용하는 것이 좋습니다.
 
-**SQL Database 참조 데이터 입력에서 입력을 샘플링할 수 있나요?**
+**Azure Stream Analytics가 Azure Storage 계정에 스냅샷을 저장하는 이유는 무엇인가요?**
 
-이 기능은 사용할 수 없습니다.
-
-**Azure Stream Analytics가 Azure Storage 계정에 스냅숏을 저장하는 이유는 무엇인가요?**
-
-Stream Analytics는 정확히 한 번의 이벤트 처리 및 한 번 이상의 이벤트 배달을 보장합니다. 일시적 문제가 작업에 영향을 미치는 경우 상태 복원을 위해 약간의 재생이 필요합니다. 재생을 사용하도록 설정하려면 이러한 스냅숏이 Azure Storage 계정에 저장되어 있어야 합니다. 검사점 재생에 대한 자세한 내용은 [Azure Stream Analytics 작업의 검사점 및 재생 개념](stream-analytics-concepts-checkpoint-replay.md)을 참조하세요.
+Stream Analytics는 정확히 한 번의 이벤트 처리 및 한 번 이상의 이벤트 배달을 보장합니다. 일시적 문제가 작업에 영향을 미치는 경우 상태 복원을 위해 약간의 재생이 필요합니다. 재생을 사용하도록 설정하려면 이러한 스냅샷이 Azure Storage 계정에 저장되어 있어야 합니다. 검사점 재생에 대한 자세한 내용은 [Azure Stream Analytics 작업의 검사점 및 재생 개념](stream-analytics-concepts-checkpoint-replay.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

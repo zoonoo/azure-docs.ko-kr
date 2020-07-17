@@ -1,18 +1,14 @@
 ---
-title: 이벤트 도메인을 사용하여 Azure Event Grid에서 대규모 토픽 집합 관리
+title: Azure Event Grid를 사용 하 여 이벤트 도메인으로 이벤트 게시
 description: Azure Event Grid에서 이벤트 도메인을 사용하여 대규모 토픽 집합을 관리하고 토픽에 이벤트를 게시하는 방법을 보여줍니다.
-services: event-grid
-author: banisadr
-ms.service: event-grid
-ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/07/2020
+ms.openlocfilehash: 30a77d98fdb0d5bfd5169174999a0a08742adfd8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561785"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105564"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 
@@ -35,7 +31,7 @@ ms.locfileid: "60561785"
 
 대규모 토픽 집합을 관리하려면 이벤트 도메인을 만듭니다.
 
-Azure CLI의 경우 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -48,8 +44,7 @@ az eventgrid domain create \
   -l <location>
 ```
 
-PowerShell의 경우 다음을 사용합니다.
-
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```azurepowershell-interactive
 # If you have not already installed the module, do it now.
 # This module is required for preview features.
@@ -60,6 +55,7 @@ New-AzureRmEventGridDomain `
   -Name <my-domain-name> `
   -Location <location>
 ```
+---
 
 성공적으로 만들어지면 다음 값이 반환됩니다.
 
@@ -86,6 +82,7 @@ New-AzureRmEventGridDomain `
 
 Event Grid는 도메인 내 다양한 토픽에 대한 특정 사용자 액세스를 할당하는 데 사용할 수 있는 두 가지 기본 제공 역할을 제공합니다. 이러한 역할은 구독을 만들고 삭제할 수 있는 `EventGrid EventSubscription Contributor (Preview)` 및 이벤트 구독을 나열하는 것만 가능한 `EventGrid EventSubscription Reader (Preview)`입니다.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 다음 Azure CLI 명령은 `demotopic1` 토픽에만 이벤트 구독을 만들고 삭제하도록 `alice@contoso.com`을 제한합니다.
 
 ```azurecli-interactive
@@ -95,6 +92,7 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 다음 PowerShell 명령은 `demotopic1` 토픽에만 이벤트 구독을 만들고 삭제하도록 `alice@contoso.com`을 제한합니다.
 
 ```azurepowershell-interactive
@@ -103,6 +101,7 @@ New-AzureRmRoleAssignment `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
+---
 
 Event Grid 작업에 대한 액세스를 관리하는 방법에 대한 자세한 내용은 [Event Grid 보안 및 인증](./security-authentication.md)을 참조하세요.
 
@@ -114,7 +113,7 @@ Event Grid 서비스는 도메인 토픽에 대한 이벤트 구독 만들기 �
 
 일반적으로 이전 섹션에서 액세스 권한을 부여한 사용자가 구독을 만듭니다. 이 문서를 간소화하기 위해 구독을 만듭니다. 
 
-Azure CLI의 경우 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -123,7 +122,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-PowerShell의 경우 다음을 사용합니다.
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -131,6 +130,8 @@ New-AzureRmEventGridSubscription `
   -EventSubscriptionName <event-subscription> `
   -Endpoint https://contoso.azurewebsites.net/api/updates
 ```
+
+---
 
 이벤트를 구독할 테스트 엔드포인트가 필요한 경우 들어오는 이벤트를 표시하는 [미리 빌드된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 언제든지 배포할 수 있습니다. `https://<your-site-name>.azurewebsites.net/api/updates`에서 테스트 웹 사이트에 이벤트를 보낼 수 있습니다.
 
@@ -141,7 +142,7 @@ New-AzureRmEventGridSubscription `
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Event Grid 도메인에 이벤트 게시
 
-도메인에 이벤트를 게시하는 방법은 [사용자 지정 토픽에 게시](./post-to-custom-topic.md)하는 방법과 동일합니다. 그러나 사용자 지정 항목에 게시하는 대신 모든 이벤트를 도메인 엔드포인트에 게시합니다. JSON 이벤트 데이터에서 이벤트를 이동할 항목을 지정합니다. 다음 이벤트 배열을 게시하면 `"id": "1111"`인 이벤트는 `demotopic1` 토픽으로 전송되고 `"id": "2222"`인 이벤트는 `demotopic2` 토픽으로 전송됩니다.
+도메인에 이벤트를 게시 하는 것은 [사용자 지정 토픽에 게시 하](./post-to-custom-topic.md)는 것과 같습니다. 그러나 사용자 지정 항목에 게시하는 대신 모든 이벤트를 도메인 엔드포인트에 게시합니다. JSON 이벤트 데이터에서 이벤트를 이동할 항목을 지정합니다. 다음 이벤트 배열을 게시하면 `"id": "1111"`인 이벤트는 `demotopic1` 토픽으로 전송되고 `"id": "2222"`인 이벤트는 `demotopic2` 토픽으로 전송됩니다.
 
 ```json
 [{
@@ -170,6 +171,7 @@ New-AzureRmEventGridSubscription `
 }]
 ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 Azure CLI로 도메인 엔드포인트를 가져오려면 다음을 사용합니다.
 
 ```azurecli-interactive
@@ -186,6 +188,7 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 PowerShell로 도메인 엔드포인트를 가져오려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
@@ -201,6 +204,7 @@ Get-AzureRmEventGridDomainKey `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
+---
 
 그런 다음, 선호하는 방법으로 HTTP POST를 만들어서 Event Grid 도메인에 이벤트를 게시합니다.
 

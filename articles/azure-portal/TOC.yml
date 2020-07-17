@@ -4,34 +4,81 @@
   items:
     - name: Azure Portal 정보
       href: azure-portal-overview.md
+    - name: Azure Quickstart Center 시작
+      href: azure-portal-quickstart-center.md
     - name: 지원되는 브라우저 및 디바이스
       href: azure-portal-supported-browsers-devices.md
+- name: 빠른 시작
+  items:
+    - name: 포털에서 VM 만들기
+      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - name: 대시보드 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: 개념
   items:
-    - name: Azure 대시보드 만들기 및 공유
-      href: azure-portal-dashboards.md
     - name: 역할 기반 액세스 제어로 대시보드 공유
       href: azure-portal-dashboard-share-access.md
     - name: Azure 대시보드를 프로그래밍 방식으로 만들기
       href: azure-portal-dashboards-create-programmatically.md
 - name: 방법 가이드
   items:
+    - name: Azure Portal 기본 설정 지정
+      href: set-preferences.md
+    - name: 모든 사용자의 비활성 시간 제한 설정
+      href: admin-timeout.md
     - name: 고대비 켜기 및 테마 변경
       href: azure-portal-change-theme-high-contrast.md
     - name: '즐겨찾기 추가, 제거 및 정렬'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: Azure 대시보드 만들기 및 공유
+      href: azure-portal-dashboards.md
     - name: 사용자 지정 markdown 타일 사용
       href: azure-portal-markdown-tile.md
     - name: 사용자 설정 내보내기 또는 삭제
       href: azure-portal-export-delete-settings.md
     - name: Azure Portal 방법 비디오 시리즈
-      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
-- name: 참고 자료
+      href: azure-portal-video-series.md
+    - name: 지원 요청 생성 및 관리
+      items:
+        - name: Azure 지원 요청 만들기
+          href: supportability/how-to-create-azure-support-request.md
+        - name: Azure 지원 요청 관리
+          href: supportability/how-to-manage-azure-support-request.md
+        - name: 할당량 증가 요청
+          items:
+            - name: 컴퓨팅 vCPU 제한 증가
+              items:
+                - name: 리소스 관리자 배포 모델
+                  items:
+                    - name: VM 시리즈 vCPU 제한 증가
+                      href: supportability/per-vm-quota-requests.md
+                    - name: 지역별 총 vCPU 제한 증가
+                      href: supportability/regional-quota-requests.md
+                    - name: 스폿 할당량 제한 증가
+                      href: supportability/low-priority-quota.md
+                - name: 클래식 배포 모델
+                  href: supportability/classic-deployment-model-quota-increase-requests.md
+            - name: 네트워킹 제한 증가
+              href: supportability/networking-quota-requests.md
+    - name: Azure Portal 문제 해결
+      items:
+        - name: 삭제된 대시보드 복구
+          href: recover-shared-deleted-dashboard.md
+        - name: 지역 또는 SKU 구독 문제 해결
+          href: supportability/sku-series-unavailable.md
+        - name: 문제 해결을 위한 브라우저 추적 캡처
+          href: capture-browser-trace.md
+- name: 참조
   items:
     - name: 바로 가기 키
       href: azure-portal-keyboard-shortcuts.md
+    - name: Azure Portal URL 수신 허용 목록
+      href: azure-portal-safelist-urls.md
     - name: Azure 대시보드의 구조
       href: azure-portal-dashboards-structure.md
+    - name: Azure CLI
+      href: /cli/azure/ext/portal/portal
 - name: 리소스
   items:
     - name: Azure 로드맵
@@ -42,7 +89,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
     - name: Azure 비디오
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest'

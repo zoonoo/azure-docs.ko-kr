@@ -1,260 +1,151 @@
 ---
-title: 엔터티 형식
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: '엔터티를 utterance에서 데이터를 추출합니다. 엔터티 형식 제공 예측 가능한 데이터를 추출 합니다. 엔터티는 방법은 두 가지가: 기계 학습 및 비 기계 학습. 표현에서 사용 하는 엔터티의 유형을 알고 있어야 하는 것이 반드시 합니다.'
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+title: 엔터티 형식-LUIS
+description: 엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: diberry
-ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 06/10/2020
+ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141036"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676491"
 ---
-# <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
+# <a name="extract-data-with-entities"></a>엔터티를 사용 하 여 데이터 추출
 
-엔터티를 utterance에서 데이터를 추출합니다. 엔터티 형식 제공 예측 가능한 데이터를 추출 합니다. 엔터티는 방법은 두 가지가: 기계 학습 및 비 기계 학습. 표현에서 사용 하는 엔터티의 유형을 알고 있어야 하는 것이 반드시 합니다. 
+엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
 
-## <a name="entity-compared-to-intent"></a>엔터티 및 의도 비교
+엔터티는 다음과 같은 여러 가지 유형이 있습니다.
 
-엔터티는 추출하려는 발화 내의 단어 또는 구를 나타냅니다. 발화에는 여러 엔터티가 포함되거나 전혀 포함되지 않을 수 있습니다. 클라이언트 응용 프로그램 엔터티를 해당 작업을 수행 하거나 사용자에 게 제공 하려면 여러 선택 항목의 지침으로 사용 해야 합니다. 
+* [machine learning 엔터티](reference-entity-machine-learned-entity.md) -기본 엔터티입니다. 다른 엔터티를 사용 하기 전에이 엔터티 형식으로 스키마를 디자인 해야 합니다.
+* 비 기계어 학습은 정확히 일치 하는 텍스트 일치, 패턴 일치 또는 미리 빌드된 엔터티에의 한 검색에 필요한 [기능](luis-concept-feature.md) 으로 사용 됩니다.
+* [패턴.](#patternany-entity) [패턴](reference-entity-pattern-any.md) 에서 책 제목과 같은 자유 형식 텍스트를 추출 하는 데 사용 됩니다.
 
-엔터티:
-
-* 비슷한 개체 (장소, 사물, 사용자, 이벤트 또는 개념)의 컬렉션을 포함 하 여 클래스를 나타냅니다. 
-* 의도에 관련 된 정보를 설명합니다.
-
-
-예를 들어, News Search 앱에는 뉴스 검색의 키 데이터인 “주제”, “원본”, “키워드” 및 “게시 날짜”와 같은 엔터티가 포함될 수 있습니다. 여행 예약 앱에서는 “위치”, “날짜”, “항공사”, “여행 클래스” 및 “티켓”이 항공편 예약의 주요 정보입니다(“항공편 예약” 의도와 관련됨).
-
-반면, 의도는 전체 발화의 예측을 나타냅니다. 
-
-## <a name="entities-help-with-data-extraction-only"></a>엔터티는 데이터 추출에만 유용함
-
-엔터티를 추출하기 위한 목적으로만 엔터티의 레이블을 지정하거나 표시하면 의도를 예측하는 데 도움이 되지 않습니다.
+기계 학습 엔터티는 가장 넓은 범위의 데이터 추출 선택 항목을 제공 합니다. 비 기계어 학습 엔터티는 텍스트 일치를 통해 작동 하며 기계 학습 엔터티 또는 의도에 대 한 [필수 기능](#design-entities-for-decomposition) 으로 사용 됩니다.
 
 ## <a name="entities-represent-data"></a>데이터를 나타내는 엔터티
 
-엔터티는 발화에서 가져오려는 데이터입니다. 이름, 날짜, 제품 이름 또는 모든 단어 그룹이 될 수 있습니다. 
+엔터티는 utterance에서 가져올 데이터 (예: 이름, 날짜, 제품 이름 또는 단어의 중요 한 그룹)입니다. 발화에는 여러 엔터티가 포함되거나 전혀 포함되지 않을 수 있습니다. 클라이언트 응용 프로그램에서 작업을 수행 하는 데 필요한 데이터가 필요할 _수 있습니다_ .
 
-|발화|엔터티|Data|
+모델의 각 의도에 대해 모든 학습 길이 발언 엔터티에 일관 되 게 레이블을 지정 해야 합니다.
+
+ 사용자 고유의 엔터티를 정의 하거나 미리 작성 된 엔터티를 사용 하 여 [datetimeV2](luis-reference-prebuilt-datetimev2.md), [서 수](luis-reference-prebuilt-ordinal.md), [전자 메일](luis-reference-prebuilt-email.md)및 [전화 번호](luis-reference-prebuilt-phonenumber.md)와 같은 일반적인 개념의 시간을 절약할 수 있습니다.
+
+|발화|엔터티|데이터|
 |--|--|--|
-|Buy 3 tickets to New York|미리 빌드된 숫자<br>Location.Destination|3<br>뉴욕|
-|Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>미리 빌드된 datetimeV2|뉴욕<br>런던<br>March 5, 2018|
+|Buy 3 tickets to New York|미리 빌드된 숫자<br>대상|3<br>뉴욕|
 
-## <a name="entities-are-optional-but-highly-recommended"></a>선택 사항이지만 많이 권장되는 엔터티
 
-의도는 필수인 반면 엔터티는 선택 사항입니다. 앱의 모든 개념에 대해 엔터티를 만들 필요는 없지만 클라이언트 애플리케이션이 작업을 수행하는 데 필요한 개념에 대해서는 만들어야 합니다. 
+### <a name="entities-are-optional-but-recommended"></a>엔터티는 선택 사항 이지만 권장 됩니다.
 
-발화에 봇이 계속 수행해야 하는 세부 정보가 없는 경우, 추가할 필요가 없습니다. 앱이 완성되고 나중에 추가할 수 있습니다. 
+[의도](luis-concept-intent.md) 는 필수 이지만 엔터티는 선택 사항입니다. 앱의 모든 개념에 대 한 엔터티를 만들 필요는 없지만, 클라이언트 응용 프로그램에 데이터가 필요 하거나 엔터티가 다른 엔터티 또는 의도에 대 한 힌트 또는 신호 역할을 수행 하는 경우에만 해당 됩니다.
 
-정보를 사용하는 방법을 잘 모르는 경우, [datetimeV2](luis-reference-prebuilt-datetimev2.md), [서수](luis-reference-prebuilt-ordinal.md), [이메일](luis-reference-prebuilt-email.md) 및 [전화 번호](luis-reference-prebuilt-phonenumber.md)와 같은 몇 가지 일반적인 미리 빌드된 엔터티를 추가합니다.
+응용 프로그램이 개발 되 고 데이터에 대 한 새로운 요구 사항이 확인 되 면 나중에 LUIS 모델에 적절 한 엔터티를 추가할 수 있습니다.
 
-## <a name="label-for-word-meaning"></a>단어 의미에 대한 레이블
+<a name="entity-compared-to-intent"></a>
 
-단어 선택이나 단어 배열은 동일하지만 같은 의미를 나타내지 않는 경우 엔터티로 레이블을 지정하지 마세요. 
+## <a name="entity-represents-data-extraction"></a>엔터티는 데이터 추출을 나타냅니다.
 
-다음 발화에서 단어 `fair`는 동형이의어입니다. 즉, 철자는 동일하지만 의미가 다릅니다.
+엔터티는 _utterance 내의_데이터 개념을 나타냅니다. 의도는 _전체 utterance_을 분류 합니다.
 
-|발화|
-|--|
-|What kind of county fairs are happening in the Seattle area this summer?|
-|Is the current rating for the Seattle review fair?|
+다음 네 가지 길이 발언을 고려 합니다.
 
-이벤트 엔터티에서 모든 이벤트 데이터를 찾도록 하려면 두 번째 발화가 아닌 첫 번째 발화에서 `fair` 단어에 레이블을 지정하세요.
+|발화|예측된 의도|추출 된 엔터티|설명|
+|--|--|--|--|
+|도움말|도움말|-|추출할 항목이 없습니다.|
+|항목 보내기|sendSomething|-|추출할 항목이 없습니다. 모델에는이 컨텍스트에서 추출 하는 데 필요한 기능이 없으며 `something` 받는 사람이 언급 되지 않습니다.|
+|Bob이 있는 메일 보내기|sendSomething|`Bob`, `present`|모델은 미리 작성 된 `Bob` 엔터티의 필수 기능을 추가 하 여 추출 `personName` 합니다. 기계 학습 엔터티를 추출 하는 데 사용 되었습니다 `present` .|
+|Bob에 게 빠졌습니다의 상자를 보냅니다.|sendSomething|`Bob`, `box of chocolates`|두 개의 중요 한 데이터 `Bob` 및는 `box of chocolates` 기계 학습 엔터티에 의해 추출 됩니다.|
 
-## <a name="entities-are-shared-across-intents"></a>의도 간에 공유되는 엔터티
+## <a name="label-entities-in-all-intents"></a>모든 의도에서 엔터티 레이블
 
-엔터티는 의도 간에 공유되며, 단일 의도에 속하지 않습니다. 의도와 엔터티는 의미상 서로 연관될 수 있지만 배타적 관계가 아닙니다.
+엔터티는 예측 의도에 관계 없이 데이터를 추출 합니다. _모든 예제 길이 발언_ 의 레이블을 지정 해야 합니다. `None`의도 하지 않은 엔터티 레이블 지정은 다른 의도에 대해 훨씬 더 많은 교육 길이 발언 있는 경우에도 혼동을 일으킵니다.
 
-"파리행 티켓을 예약해주세요." 발화에서 "파리"는 위치 형식의 엔터티입니다. LUIS는 사용자의 발화에서 언급된 엔터티를 인식하여 클라이언트 애플리케이션이 사용자의 요청을 이행하기 위해 수행할 특정 조치를 선택하는 데 도움을 줍니다.
+## <a name="design-entities-for-decomposition"></a>분해를 위한 엔터티 디자인
 
-## <a name="mark-entities-in-none-intent"></a>None 의도로 엔터티 표시
+기계 학습 엔터티를 사용 하면 분해를 위해 앱 스키마를 디자인 하 여 큰 개념을 하위 엔터티로 나눌 수 있습니다.
 
-**None** 의도를 포함한 모든 의도는 가능하면 엔터티를 표시해야 합니다. 그러면 LUIS는 발화에서 엔터티의 위치와 엔터티 주위에 있는 단어에 대해 보다 자세히 알 수 있습니다. 
+분해를 위한 디자인을 통해 LUIS은 클라이언트 응용 프로그램에 깊이 있는 엔터티 해상도를 반환할 수 있습니다. 이렇게 하면 클라이언트 응용 프로그램이 비즈니스 규칙에 집중 하 고 데이터 확인을 LUIS로 유지할 수 있습니다.
 
-## <a name="entity-status-for-predictions"></a>예측할 엔터티 상태
+기계 학습 엔터티는 예제 길이 발언를 통해 학습 된 컨텍스트를 기반으로 트리거됩니다.
 
-LUIS 포털은 예제 발화의 엔터티가 표시된 엔터티와 다르거나 다른 엔터티와 너무 비슷해서 명확하지 않은 경우 사용자에게 알립니다. 이를 예제 발화에서 빨간색 밑줄로 표시합니다. 
+[**기계 학습 엔터티**](tutorial-machine-learned-entity.md) 는 최상위 수준 추출기. 하위 엔터티는 기계 학습 엔터티의 자식 엔터티입니다.
 
-자세한 내용은 [엔터티 상태 예측](luis-how-to-add-example-utterances.md#entity-status-predictions)을 참조하세요. 
+## <a name="effective-machine-learned-entities"></a>유효한 컴퓨터에서 엔터티를 배웠습니다.
+
+컴퓨터에서 얻은 엔터티를 효과적으로 빌드하려면 다음과 같이 합니다.
+
+* 레이블 지정은 의도에 따라 일치 해야 합니다. 여기에는이 엔터티를 포함 하는 **없음** 의도에서 제공 하는 길이 발언 포함 됩니다. 그렇지 않으면 모델에서 시퀀스를 효과적으로 확인할 수 없습니다.
+* 하위 엔터티를 사용 하 여 컴퓨터에서 엔터티를 학습 한 경우 엔터티 및 하위 엔터티의 다른 주문 및 변형이 레이블이 지정 된 길이 발언에 표시 되는지 확인 합니다. 레이블이 지정 된 예 길이 발언는 유효한 모든 폼을 포함 하 고, 표시 되 고 존재 하지 않으며 utterance 내에서 순서가 지정 된 엔터티를 포함 해야 합니다.
+* 엔터티를 매우 고정 된 집합으로 과잉 맞춤 하는 것을 피해 야 합니다. **과잉 맞춤** 는 모델을 일반화 하지 않고 기계 학습 모델에서 일반적인 문제가 발생 한 경우에 발생 합니다. 이는 앱이 새 데이터에 적절 하 게 작동 하지 않음을 의미 합니다. 또한 앱이 사용자가 제공 하는 제한 된 예를 넘어 일반화할 수 있도록 레이블이 지정 된 예제 길이 발언를 변경 해야 합니다. 표시 된 예제 뿐 아니라 더 많은 개념을 고려 하기 위해 모델에 대 한 변경 내용이 충분 한 하위 엔터티를 다르게 지정 해야 합니다.
+
+<a name="composite-entity"></a>
+<a name="list-entity"></a>
+<a name="patternany-entity"></a>
+<a name="prebuilt-entity"></a>
+<a name="regular-expression-entity"></a>
+<a name="simple-entity"></a>
 
 ## <a name="types-of-entities"></a>엔터티의 형식
 
-LUIS는 다양한 형식의 엔터티를 제공합니다. 데이터를 추출해야 하는 방법 및 추출된 후에 데이터를 표시하는 방법에 따라 엔터티를 선택합니다.
+부모에 대 한 하위 엔터티는 기계 학습 엔터티입니다. 대상는 비 기계어 학습 엔터티를 [기능](luis-concept-feature.md)으로 사용할 수 있습니다.
 
-기계 학습을 사용하여 엔터티를 추출할 수 있습니다. 그러면 LUIS에서 엔터티를 발화에 표시하는 방법에 대해 계속 자세히 알아볼 수 있습니다. 기계 학습을 사용하지 않고 엔터티를 추출할 수 있으며, 그러면 정확한 텍스트 또는 정규식을 일치시킵니다. 혼합 구현을 사용하여 패턴의 엔터티를 추출할 수 있습니다. 
+데이터를 추출해야 하는 방법 및 추출된 후에 데이터를 표시하는 방법에 따라 엔터티를 선택합니다.
 
-엔터티를 추출하면 엔터티 데이터는 정보의 단일 단위로 표시되거나 클라이언트 애플리케이션에서 사용할 수 있는 정보의 단위를 형성하는 다른 엔터티와 결합될 수 있습니다.
+|엔터티 유형|용도|
+|--|--|
+|[**컴퓨터-학습**](tutorial-machine-learned-entity.md)|레이블이 지정 된 예제에서 배운 중첩 된 복잡 한 데이터를 추출 합니다. |
+|[**은**](reference-entity-list.md)|**정확히 일치**하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|
+|[**패턴. 모든**](#patternany-entity)|엔터티 끝을 찾는 엔터티는 자유 형식 이므로 확인 하기 어렵습니다. [패턴](luis-concept-patterns.md)에서만 사용할 수 있습니다.|
+|[**미리 빌드됨**](luis-reference-prebuilt-entities.md)|URL, 전자 메일 등의 특정 종류의 데이터를 추출 하도록 이미 학습 되었습니다. 이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다.|
+|[**정규식**](reference-entity-regular-expression.md)|**정확히 일치**하는 텍스트를 위해 정규식을 사용 합니다.|
 
-|기계 학습|표시할 수 있음|자습서|예<br>response|엔터티 형식|목적|
-|--|--|--|--|--|--|
-|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**복합**](#composite-entity)|엔터티 형식에 관계없이 엔터티 그룹화|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**목록**](#list-entity)|정확한 텍스트 일치 항목을 사용하여 추출된 항목 및 동의어 목록|
-|혼합||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|엔터티의 끝을 확인하기 어려운 엔터티|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**미리 빌드됨**](#prebuilt-entity)|다양한 종류의 데이터를 추출하도록 이미 학습됨|
-|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**정규식**](#regular-expression-entity)|정규식을 사용하여 텍스트 일치|
-|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**단순**](#simple-entity)|단어 또는 구에서 단일 개념 포함|
 
-기계 학습 엔터티만 예제 표현에 표시 해야 합니다. 기계 학습 엔터티는 [엔드포인트 쿼리](luis-concept-test.md#endpoint-testing)를 통해 테스트되고 [엔드포인트 발화를 검토](luis-how-to-review-endoint-utt.md)하는 경우에 가장 적합합니다. 
+## <a name="extraction-versus-resolution"></a>추출 및 해결
 
-Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-model-intent-pattern.md) 템플릿 예제에서 표시되어야 합니다. 
+엔터티는 데이터가 utterance에 표시 될 때 데이터를 추출 합니다. 엔터티는 데이터를 변경 하거나 확인 하지 않습니다. 엔터티가 엔터티에 대 한 유효한 값인 경우 엔터티는 어떤 확인도 제공 하지 않습니다.
 
-혼합 엔터티는 엔터티 검색 방법의 조합을 사용합니다.
+해결 방법에 대 한 해결 방법을 제공 하는 방법이 있지만,이로 인해 응용 프로그램의 기능을 변형 및 실수에 대해 면역으로 제한할 수 있습니다.
 
-## <a name="composite-entity"></a>복합 엔터티
+목록 엔터티 및 정규식 (텍스트 일치) 엔터티를 하위 엔터티에 [필요한 기능](luis-concept-feature.md#required-features) 으로 사용 하 고 추출에 대 한 필터 역할을 할 수 있습니다. 이를 신중 하 게 사용 하 여 앱의 예측 기능을 방해 합니다.
 
-복합 엔터티는 이루어져 미리 작성 된 엔터티를 같은 다른 엔터티를 단순 목록 엔터티와 정규식 있습니다. 개별 엔터티가 전체 엔터티를 형성합니다. 
+## <a name="extracting-contextually-related-data"></a>컨텍스트 관련 데이터 추출
 
-데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.
+Utterance에는 데이터의 의미가 utterance 내의 컨텍스트를 기반으로 하는 두 개 이상의 엔터티가 포함 될 수 있습니다. 예를 들어 원본 및 대상 이라는 두 개의 지리적 위치를 포함 하는 비행을 예약 하는 utterance 있습니다.
 
-* 서로 관련이 있습니다. 
-* 발언의 컨텍스트에서 서로 관련되어 있습니다.
-* 다양한 엔터티 형식을 사용합니다.
-* 클라이언트 애플리케이션에서 정보 단위로 그룹화되고 처리되어야 합니다.
-* 기계 학습을 요구하는 다양한 사용자 발언이 포함됩니다.
+`Book a flight from Seattle to Cairo`
 
-![복합 엔터티](./media/luis-concept-entities/composite-entity.png)
+두 위치는 티켓 구매를 완료 하기 위해 클라이언트 응용 프로그램에서 각 위치의 유형을 알고 있는 방식으로 추출 해야 합니다.
 
-[자습서](luis-tutorial-composite-entity.md)<br>
-[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#composite-entity-data)<br>
+원본 및 대상을 추출 하려면 티켓 주문 기계 학습 엔터티의 일부로 두 개의 하위 엔터티를 만듭니다. 각 하위 엔터티에 대해 geographyV2를 사용 하는 필수 기능을 만듭니다.
 
-## <a name="list-entity"></a>목록 엔터티
+<a name="using-component-constraints-to-help-define-entity"></a>
+<a name="using-subentity-constraints-to-help-define-entity"></a>
 
-목록 엔터티는 동의어와 함께 일련의 고정된 폐쇄형 관련 단어를 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. **권장** 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다. 동일한 값을 갖는 목록 엔터티가 둘 이상 있는 경우, 각 엔터티가 엔드포인트 쿼리에서 반환됩니다. 
+### <a name="using-required-features-to-constrain-entities"></a>필요한 기능을 사용 하 여 엔터티 제한
 
-텍스트 데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.
-
-* 알려진 세트입니다.
-* 집합이 이 엔터티 형식의 최대 LUIS [경계](luis-boundaries.md)를 초과하지 않습니다.
-* 발언의 텍스트가 동의어 또는 정식 이름과 정확히 일치합니다. LUIS는 정확한 텍스트 일치를 벗어나는 목록을 사용하지 않습니다. 형태소 분석, 복수형 및 기타 변형은 목록 엔터티로 확인되지 않습니다. 변형을 관리하려면 선택적인 텍스트 구문이 포함된 [패턴](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance)을 사용하는 것이 좋습니다.
-
-![목록 엔터티](./media/luis-concept-entities/list-entity.png)
-
-[자습서](luis-quickstart-intent-and-list-entity.md)<br>
-[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#list-entity-data)
+[필요한 기능](luis-concept-feature.md) 에 대 한 자세한 정보
 
 ## <a name="patternany-entity"></a>Pattern.any 엔터티
 
-Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해 패턴의 템플릿 발화에서만 사용되는 가변 길이 자리 표시자입니다.  
+패턴입니다. any는 [패턴](luis-concept-patterns.md)에서만 사용할 수 있습니다.
 
-다음과 같은 경우 이 엔터티가 적합합니다.
+<a name="if-you-need-more-than-the-maximum-number-of-entities"></a>
+## <a name="exceeding-app-limits-for-entities"></a>엔터티에 대 한 앱 제한 초과
 
-* 엔터티의 끝이 발화의 나머지 텍스트와 혼동될 수 있는 경우 
-[자습서](luis-tutorial-pattern.md)<br>
-[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#patternany-entity-data)
+[제한](luis-limits.md#model-limits)보다 더 많이 필요한 경우 지원 담당자에 게 문의 하세요. 이렇게 하려면 시스템에 대한 자세한 정보를 수집하고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트로 이동한 다음, **지원**을 선택하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
-**예제**  
-클라이언트 애플리케이션이 제목을 기준으로 도서를 검색하는 경우 pattern.any는 전체 제목을 추출합니다. 이 도서 검색에서 pattern.any를 사용하는 템플릿 발화는 `Was {BookTitle} written by an American this year[?]`입니다. 
+## <a name="entity-prediction-status"></a>엔터티 예측 상태
 
-다음 표에서 각 행에는 두 가지 버전의 발화가 있습니다. 위쪽 발화는 도서 제목 시작 및 종료가 명확하지 않은 경우 LUIS에서 발화를 처음 표시하는 방법입니다. 아래쪽 발화는 추출에 대한 패턴이 있는 경우 LUIS에서 도서 제목을 알아내는 방법입니다. 
-
-|발화|
-|--|
-|' Hat 및 기타 임상 이야기는 American이 올해 저술한 The Man는 잘못 검색 His 아내가?<br>**The Man Who Mistook His Wife for a Hat and Other Clinical Tales**는 올해 미국에서 저술되었나요?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
-
-## <a name="prebuilt-entity"></a>미리 빌드된 엔터티
-
-미리 작성된 엔터티는 이메일, URL 및 전화 번호와 같은 일반적인 개념을 나타태는 기본 제공 형식입니다. 미리 빌드된 엔터티 이름은 예약되어 있습니다. 애플리케이션에 추가된 [미리 빌드된 모든 엔터티](luis-prebuilt-entities.md)가 발화에 위치한 경우 엔드포인트 예측 쿼리에서 반환됩니다. 
-
-다음과 같은 경우 이 엔터티가 적합합니다.
-
-* 데이터는 언어 문화권을 위해 미리 빌드된 엔터티에서 지원되는 일반적인 사용 사례와 일치합니다. 
-
-미리 빌드된 엔터티를 언제든지 추가하고 제거할 수 있습니다.
-
-![Number 미리 빌드된 엔터티](./media/luis-concept-entities/number-entity.png)
-
-[자습서](luis-tutorial-prebuilt-intents-entities.md)<br>
-[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#prebuilt-entity-data)
-
-이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다. 
-
-### <a name="troubleshooting-prebuilt-entities"></a>미리 빌드된 엔터티로 문제 해결
-
-LUIS 포털에서 미리 작성 된 엔터티를 사용자 지정 엔터티를 대신 태그가 지정 되어 있으면이 문제를 해결 하는 방법의 몇 가지 옵션입니다.
-
-앱에 추가 된 미리 작성 된 엔터티는 _항상_ 를 utterance 동일한 텍스트에 대 한 사용자 지정 엔터티 추출 해야 하는 경우에 반환 합니다. 
-
-#### <a name="change-tagged-entity-in-example-utterance"></a>예제 utterance에서 태그가 지정 된 엔터티를 변경 합니다.
-
-미리 작성 된 엔터티를 동일한 텍스트 또는 토큰에 사용자 지정 엔터티로 예제에서는 utterance 텍스트를 선택 하 고 태그가 지정 된 utterance를 바꿉니다. 
-
-자세한 텍스트 또는 사용자 지정 엔터티 보다는 토큰을 사용 하 여 미리 작성 된 엔터티 태그가 지정 되는 몇 가지 방법이 문제를 해결 하는 방법의 사용 해야 합니다.
-
-* [예제 utterance 제거](#remove-example-utterance-to-fix-tagging) 메서드
-* [미리 작성 된 엔터티 제거](#remove-prebuilt-entity-to-fix-tagging) 메서드
-
-#### <a name="remove-example-utterance-to-fix-tagging"></a>태그 지정을 해결 하려면 예제 utterance 제거 
-
-첫 번째 선택 예제 utterance를 제거 하는 것입니다. 
-
-1. 예제 utterance를 삭제 합니다.
-1. 앱을 다시 학습 합니다. 
-1. 뿐만 아니라 단어를 다시 추가 하거나 전체 예제 utterance로 미리 빌드된 엔터티로 표시 된 엔터티, 즉 구를 합니다. 단어 또는 구를 표시 된 미리 작성 된 엔터티도 해야 합니다. 
-1. 예제 utterance에서 엔터티를 선택 합니다 **의도** 페이지 사용자 지정 엔터티를 변경 하 고 다시 학습 합니다. 이 텍스트는 텍스트를 사용 하는 모든 예제 표현에서 미리 빌드된 엔터티로 표시에서 LUIS 이렇게 해야 합니다. 
-1. 전체 원래 예제 utterance 의도를 다시 추가 합니다. 사용자 지정 엔터티는 미리 작성 된 엔터티 대신 표시할 계속 해야 합니다. 사용자 지정 엔터티가 표시 되지 않으면 표현에서 텍스트의 더 많은 예제를 추가 해야 합니다.
-
-#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>태그 지정을 해결 하려면 미리 작성 된 엔터티를 제거 합니다.
-
-1. 앱에서 미리 작성 된 엔터티를 제거 합니다. 
-1. 에 **의도** 페이지에서 예제 utterance에서 사용자 지정 엔터티를 표시 합니다.
-1. 앱을 학습합니다.
-1. 앱으로 다시 미리 작성 된 엔터티를 추가 하 고 앱을 학습 합니다. 이 문제가 해결 미리 작성 된 엔터티 복합 엔터티의 일부가 아닌 것을 가정 합니다.
-
-## <a name="regular-expression-entity"></a>정규식 엔터티 
-
-정규식은 원시 발화 텍스트에 적합합니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  정규식 일치는 토큰 수준이 아니라 문자 수준에서 맞춤법 검사 변경 후에 적용됩니다. 많은 대괄호를 사용하는 것처럼 정규식이 너무 복잡한 경우 모델에 식을 추가할 수 없습니다. 전체가 아니라 일부를 사용 하 여 [.NET Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) 라이브러리입니다. 
-
-다음과 같은 경우 이 엔터티가 적합합니다.
-
-* 데이터는 일관된 변형으로 일관되게 서식이 지정됩니다.
-* 정규식에는 2개 이상의 중첩 수준이 필요하지 않습니다. 
-
-![정규식 엔터티](./media/luis-concept-entities/regex-entity.png)
-
-[자습서](luis-quickstart-intents-regex-entity.md)<br>
-[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
-
-## <a name="simple-entity"></a>단순 엔터티 
-
-단순 엔터티는 단일 개념을 설명하고 기계 학습 컨텍스트에서 학습되는 일반 엔터티입니다. 단준 엔터티 이름이 일반적으로 회사 이름, 제품 이름 또는 이름의 기타 범주와 같은 이름이기 때문에 사용된 이름의 신호를 향상시키기 위해 간단한 엔터티를 사용하는 경우 [구 목록](luis-concept-feature.md)을 추가합니다. 
-
-다음과 같은 경우 이 엔터티가 적합합니다.
-
-* 데이터는 일관되게 형식이 지정되지 않고 동일한 작업을 나타냅니다. 
-
-![단순 엔터티](./media/luis-concept-entities/simple-entity.png)
-
-[자습서](luis-quickstart-primary-and-secondary-data.md)<br/>
-[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#simple-entity-data)<br/>
-
-## <a name="entity-limits"></a>엔터티 제한
-
-모델에 추가할 수 있는 각 엔터티 형식의 수를 파악하려면 [제한](luis-boundaries.md#model-boundaries)을 검토하세요.
-
-## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>최대 엔터티 수보다 더 많이 필요한 경우 
-
-엔터티 역할과 함께에서 복합 엔터티를 사용 해야 합니다.
-
-복합 엔터티는 전체의 일부를 나타냅니다. 예를 들어, PlaneTicketOrder라는 복합 엔터티에는 Airline, Destination, DepartureCity, DepartureDate 및 PlaneTicketClass라는 자식 엔터티가 있을 수 있습니다.
-
-LUIS는 기계 학습화되지 않지만 LUIS 앱에서 고정된 값 목록을 지정할 수 있도록 하는 목록 엔터티 형식도 제공합니다. 목록 엔터티 형식의 제한을 검토하려면 [LUIS 경계](luis-boundaries.md) 참조를 참조하세요. 
-
-이러한 엔터티를 한 것으로 간주 하 고 여전히 제한 보다 많이 필요한 경우 지원에 문의 합니다. 이렇게 하려면 시스템에 대한 자세한 정보를 수집하고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트로 이동한 다음, **지원**을 선택하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 
+LUIS 포털은 엔터티에 utterance 예제에 대해 선택한 엔터티와 다른 엔터티 예측이 있는 경우를 표시 합니다. 이 다른 점수는 현재 학습 된 모델을 기반으로 합니다. 이 정보를 사용 하 여 다음 중 하나 이상을 사용 하 여 학습 오류를 해결할 수 있습니다.
+* 엔터티의 개념을 식별 하는 데 도움이 되는 엔터티의 [기능](luis-concept-feature.md) 을 만듭니다.
+* 엔터티를 사용 하 여 [예제 길이 발언](luis-concept-utterance.md) 및 레이블 추가
+* 엔터티 개념을 식별 하는 데 도움이 될 수 있는 예측 끝점에서 수신 된 길이 발언에 대 한 [활성 학습 제안을 검토](luis-concept-review-endpoint-utterances.md) 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-좋은 [발화](luis-concept-utterance.md)에 대한 개념을 알아보세요. 
+좋은 [발화](luis-concept-utterance.md)에 대한 개념을 알아보세요.
 
 LUIS 앱에 엔터티를 추가하는 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
+
+Machine learning 엔터티를 사용 하 여 utterance에서 구조화 된 데이터를 추출 하는 방법에 대해 알아보려면 [자습서: utterance Language Understanding 엔터티를 사용 하 여 사용자에서 구조화 된 데이터 추출 (LUIS)](tutorial-machine-learned-entity.md) 을 참조 하세요.
+

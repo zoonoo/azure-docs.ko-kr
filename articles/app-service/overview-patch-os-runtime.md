@@ -1,25 +1,14 @@
 ---
-title: OS 및 런타임 패치 주기 - Azure App Service | Microsoft Docs
-description: Azure App Service가 OS 및 런타임을 업데이트하는 방법과 업데이트 공지를 받을 수 있는 방법을 설명합니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: OS 및 런타임 패치 주기
+description: OS 및 런타임, 앱의 런타임 및 패치 수준, 업데이트 공지를 가져오는 방법 Azure App Service 업데이트 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 086f5773a8ae4085a8e5bc0637bdebe5f2df4fb0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78273631"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
 
@@ -61,7 +50,7 @@ Azure는 App Service 리소스를 실행하는 2개의 수준, 즉 물리적 서
 
 ### <a name="new-patch-updates"></a>새 패치 업데이트
 
-.NET, PHP, Java SDK 또는 Tomcat/Jetty 버전에 대한 패치 업데이트는 기존 설치를 새 버전으로 덮어쓰는 방법으로 자동으로 적용됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새 Python 패치 버전은 [사이트 확장](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)을 통해 기본 제공된 Python 설치와 함께 설치될 수 있습니다.
+.NET, PHP, Java SDK 또는 Tomcat/Jetty 버전에 대한 패치 업데이트는 기존 설치를 새 버전으로 덮어쓰는 방법으로 자동으로 적용됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새 Python 패치 버전은 [사이트 확장](https://azure.microsoft.com/blog/azure-web-sites-extensions/)을 통해 기본 제공 python 설치와 함께 수동으로 설치할 수 있습니다.
 
 ### <a name="new-major-and-minor-versions"></a>새 주 버전 및 부 버전
 
@@ -93,13 +82,14 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 | PHP 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `php --version` |
 | 기본 Node.js 버전 | [Cloud Shell](../cloud-shell/overview.md)에서 다음 명령을 실행합니다. <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Python 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `python --version` |  
+| Java 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `java -version` |  
 
 > [!NOTE]  
 > 레지스트리 위치 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`에 액세스합니다. 여기에는 ["KB" 패치](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)에 대한 정보가 저장되고 잠겨집니다.
 >
 >
 
-## <a name="more-resources"></a>추가 리소스
+## <a name="more-resources"></a>기타 참고 자료
 
 [보안 센터: 보안](https://www.microsoft.com/en-us/trustcenter/security)  
 [Azure App Service의 64비트 ASP.NET Core](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

@@ -3,24 +3,20 @@ title: Azure PowerShell 스크립트 샘플 - 2개 가상 네트워크 피어링
 description: Azure PowerShell 스크립트 샘플 - 2개 가상 네트워크 피어링
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
-ms.author: gwallace
-ms.openlocfilehash: 6faf875893092496ee312e93d542d24c30abd1e1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 53af283813500fc93d3e5fb9d4b00a9c3034af2d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "73890199"
 ---
 # <a name="peer-two-virtual-networks"></a>2개 가상 네트워크 피어링
 

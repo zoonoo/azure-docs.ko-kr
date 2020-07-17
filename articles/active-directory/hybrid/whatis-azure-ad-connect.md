@@ -6,27 +6,27 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 02/26/2019
+ms.topic: overview
+ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 1e60c35a32152d4adec72fb507becc0db535036f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784472"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80631716"
 ---
 # <a name="what-is-azure-ad-connect"></a>Azure AD Connect란?
 
 Azure AD Connect는 하이브리드 ID 목표를 충족하고 달성하도록 설계된 Microsoft 도구입니다.  다음과 같은 기능을 제공합니다.
-    
+     
 - [암호 해시 동기화](whatis-phs.md) - 사용자 온-프레미스 AD 암호의 해시를 Azure AD와 동기화하는 로그인 메서드입니다.
 - [통과 인증](how-to-connect-pta.md) - 사용자가 온-프레미스 및 클라우드에서 동일한 암호를 사용할 수 있지만 페더레이션 환경의 추가 인프라가 필요하지 않은 로그인 메서드입니다
 - [페더레이션 통합](how-to-connect-fed-whatis.md) - 페더레이션은 Azure AD Connect의 선택적 부분이며 온-프레미스 AD FS 인프라를 사용하여 하이브리드 환경을 구성하는 데 사용할 수 있습니다. 또한 인증서 갱신 및 추가 AD FS 서버 배포와 같은 AD FS 관리 기능을 제공합니다.
 - [동기화](how-to-connect-sync-whatis.md) - 사용자, 그룹 및 기타 개체를 생성합니다.  뿐만 아니라 온-프레미스 사용자 및 그룹의 ID 정보가 클라우드와 일치하도록 합니다.  이 동기화에는 암호 해시도 포함되어 있습니다.
--   [상태 모니터링](whatis-hybrid-identity-health.md) - Azure AD Connect Health는 강력한 모니터링을 제공하고 Azure Portal에서 중앙 위치를 제공하여 이 작업을 볼 수 있습니다. 
+- [상태 모니터링](whatis-hybrid-identity-health.md) - Azure AD Connect Health는 강력한 모니터링을 제공하고 Azure Portal에서 중앙 위치를 제공하여 이 작업을 볼 수 있습니다. 
 
 
 ![Azure AD Connect의 정의](./media/whatis-hybrid-identity/arch.png)
@@ -37,7 +37,7 @@ Azure AD Connect는 하이브리드 ID 목표를 충족하고 달성하도록 �
 
 Azure AD(Azure Active Directory) Connect Health에서는 온-프레미스 ID 인프라에 대한 강력한 모니터링을 제공합니다. 이 기능을 사용하면 Office 365 및 Microsoft Online Services에 대한 신뢰할 수 있는 연결을 유지 관리할 수 있습니다.  핵심 ID 구성 요소에 대한 모니터링 기능을 통해 이러한 신뢰성을 보장합니다. 또한 이러한 구성 요소에 대한 핵심 데이터 요소에 쉽게 액세스할 수 있습니다.
 
-정보는 [Azure AD Connect Health 포털](https://aka.ms/aadconnecthealth)에 표시됩니다. Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링, 사용 현황 분석, 기타 정보를 확인합니다. Azure AD Connect Health는 핵심 ID 구성 요소의 상태를 한 곳에서 볼 수 있게 해주는 단일 렌즈의 역할을 합니다.
+정보는 [Azure AD Connect Health 포털](https://aka.ms/aadconnecthealth)에 표시됩니다. Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링, 사용량 현황 분석, 기타 정보를 확인합니다. Azure AD Connect Health는 핵심 ID 구성 요소의 상태를 한 곳에서 볼 수 있게 해주는 단일 렌즈의 역할을 합니다.
 
 ![Azure AD Connect Health 정의](./media/whatis-hybrid-identity-health/aadconnecthealth2.png)
 
@@ -64,12 +64,12 @@ AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012,
 |멋진 사용자 환경|Azure Portal에서 대시보드 방식</br>[이메일 경고](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 
 
-## <a name="license-requirements-for-using-azure-ad-connect"></a>Azure AD Connect를 사용 하는 것에 대 한 라이선스 요구 사항
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Azure AD Connect 사용을 위한 라이선스 요구 사항
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
-
-
+## <a name="license-requirements-for-using-azure-ad-connect-health"></a>Azure AD Connect Health 사용을 위한 라이선스 요구 사항
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

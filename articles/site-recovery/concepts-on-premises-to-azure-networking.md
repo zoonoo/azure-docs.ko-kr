@@ -1,87 +1,168 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 재해 복구 및 장애 조치(Failover) 후 연결할 IP 주소 설정 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 온-프레미스에서 재해 복구 및 장애 조치(failover)한 후 Azure VM에 연결할 IP 주소 설정 방법 설명
-services: site-recovery
+title: Azure Site Recovery를 사용 하 여 Azure Vm 온-프레미스 장애 조치 (failover)에 연결
+description: Azure Site Recovery를 사용 하 여 온-프레미스에서 Azure로 장애 조치 (failover) 후 Azure Vm에 연결 하는 방법을 설명 합니다.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770495"
 ---
-# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>장애 조치(failover) 후 연결할 IP 주소 설정
+# <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>온-프레미스에서 장애 조치 (failover) 후 Azure Vm에 연결 
 
-이 문서에서는 Azure로의 복제 및 장애 조치에 [Azure Site Recovery](site-recovery-overview.md)를 사용한 후 Azure VM에 연결하기 위한 네트워킹 요구 사항을 설명합니다.
 
-이 문서에서는 다음에 대해 알아봅니다.
+이 문서에서는 장애 조치 (failover) 후 Azure Vm에 성공적으로 연결할 수 있도록 연결을 설정 하는 방법을 설명 합니다.
+
+온-프레미스 Vm (가상 머신) 및 물리적 서버의 재해 복구를 Azure로 설정 하는 경우 Azure에 컴퓨터를 복제 하는 작업이 시작 [Azure Site Recovery](site-recovery-overview.md) . 그런 다음 중단이 발생 하면 온-프레미스 사이트에서 Azure로 장애 조치 (failover) 할 수 있습니다. 장애 조치 (failover)가 발생 하면 Site Recovery는 복제 된 온-프레미스 데이터를 사용 하 여 Azure Vm을 만듭니다. 재해 복구 계획의 일환으로 장애 조치 (failover) 후 이러한 Azure Vm에서 실행 되는 앱에 연결 하는 방법을 파악 해야 합니다.
+
+이 문서에서는 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 사용할 수 있는 연결 방법
-> * 복제된 Azure VM에 다른 IP 주소를 사용하는 방법
-> * 장애 조치 후 Azure VM에 대해 IP 주소를 유지하는 방법
+> * 장애 조치 (failover) 전에 온-프레미스 컴퓨터를 준비 합니다.
+> * 장애 조치 (failover) 후 Azure Vm 준비. 
+> * 장애 조치 (failover) 후 Azure Vm의 IP 주소를 유지 합니다.
+> * 장애 조치 (failover) 후 Azure Vm에 새 IP 주소를 할당 합니다.
 
-## <a name="connecting-to-replica-vms"></a>복제본 VM에 연결
+## <a name="prepare-on-premises-machines"></a>온-프레미스 컴퓨터 준비
 
-복제 및 장애 조치(failover) 전략을 계획할 경우 주요 질문 중 하나는 장애 조치(failover) 후에 Azure VM에 어떻게 연결하는가입니다. 복제본 Azure VM에 대한 네트워크 전략을 설계할 때 몇 가지 선택 항목이 있습니다.
+Azure Vm에 대 한 연결을 보장 하려면 장애 조치 (failover) 전에 온-프레미스 컴퓨터를 준비 합니다.
 
-- **다른 IP 주소 사용**: 복제된 Azure VM 네트워크에 다른 IP 주소 범위를 사용하도록 선택할 수 있습니다. 이 시나리오에서 VM은 장애 조치(failover) 후에 새 IP 주소를 갖게 되며 DNS 업데이트가 필요합니다.
-- **동일한 IP 주소 유지**: 기본 온-프레미스 사이트에 있는 것과 동일한 IP 주소 범위를 장애 조치(failover) 후 Azure 네트워크에 대해 사용할 수도 있습니다. 동일한 IP 주소를 유지하면 장애 조치(failover) 후 네트워크 관련 문제가 줄어들어 복구가 간소화됩니다. 그러나 Azure에 복제하는 경우 장애 조치 후에 경로를 IP 주소의 새 위치로 업데이트해야 합니다.
+### <a name="prepare-windows-machines"></a>Windows 머신 준비
 
-## <a name="retaining-ip-addresses"></a>IP 주소 유지
+온-프레미스 Windows 머신에서 다음을 수행합니다.
 
-Site Recovery는 Azure에 장애 조치할 경우 서브넷 장애 조치를 사용하여 고정 IP 주소를 유지하는 기능을 제공합니다.
+1. Windows 설정을 구성합니다. 여기에는 정적 영구 경로 또는 WinHTTP 프록시를 제거 하 고 디스크 SAN 정책을 **OnlineAll**로 설정 하는 작업이 포함 됩니다. 다음 지침을 [따르세요](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) .
 
-- 서브넷 장애 조치를 사용하는 경우 특정 서브넷은 사이트 1 또는 사이트 2에 있으며 두 사이트에 동시에 존재하지는 않습니다.
-- 장애 조치(failover) 시 IP 주소 공간을 유지 관리하기 위해 라우터 인프라에 대해 프로그래밍 방식으로 정렬하여 한 사이트에서 다른 사이트로 서브넷을 이동할 수 있습니다.
-- 장애 조치(failover) 중에 서브넷은 연결되어 있는 보호된 VM과 함께 이동합니다. 주요 단점은 오류 발생 시 전체 서브넷을 이동해야 한다는 점입니다.
+2. [이러한 서비스](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)가 실행 중인지 확인합니다.
 
+3. 원격 데스크톱(RDP)을 사용하도록 설정하여 온-프레미스 머신에 대한 원격 연결을 허용합니다. PowerShell을 통해 RDP를 사용하도록 설정하는 방법에 대해 [알아보세요](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings).
+
+4. 장애 조치 (failover) 후 인터넷을 통해 Azure VM에 액세스 하려면 온-프레미스 컴퓨터의 Windows 방화벽에서 공용 프로필의 TCP 및 UDP를 허용 하 고 RDP를 모든 프로필에 대해 허용 되는 앱으로 설정 합니다.
+
+5. 장애 조치 (failover) 후 사이트 간 VPN을 통해 Azure VM에 액세스 하려면 온-프레미스 컴퓨터의 Windows 방화벽에서 도메인 및 개인 프로필에 대 한 RDP를 허용 합니다. RDP 트래픽을 허용 하는 방법에 [대해 알아봅니다](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) .
+6. 장애 조치 (failover)를 트리거할 때 온-프레미스 VM에 보류 중인 Windows 업데이트가 없는지 확인 합니다. 업데이트가 있으면 장애 조치 (failover) 후 업데이트가 Azure VM에 설치를 시작할 수 있으며 업데이트가 완료 될 때까지 VM에 로그인 할 수 없습니다.
+
+### <a name="prepare-linux-machines"></a>Linux 머신 준비
+
+온-프레미스 Linux 머신에서 다음을 수행합니다.
+
+1. 시스템 부팅 시 Secure Shell 서비스가 자동으로 시작되도록 설정되어 있는지 확인합니다.
+2. 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.
+
+
+## <a name="configure-azure-vms-after-failover"></a>장애 조치 (failover) 후 Azure Vm 구성
+
+장애 조치 (failover) 후 생성 된 Azure Vm에서 다음을 수행 합니다.
+
+1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 동일한 공용 IP 주소는 Azure VM에 사용할 수 없습니다. [자세한 정보](../virtual-network/virtual-network-public-ip-address.md)
+2. VM의 NSG(네트워크 보안 그룹) 규칙에서 RDP 또는 SSH 포트로 들어오는 연결을 허용하는지 확인합니다.
+3. [부트 진단](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 을 확인 하 여 VM을 확인 합니다.
+
+
+> [!NOTE]
+> Azure Bastion 서비스는 Azure VM에 대한 프라이빗 RDP 및 SSH 액세스를 제공합니다. 이 서비스에 대해 [자세히 알아보세요](../bastion/bastion-overview.md).
+
+## <a name="set-a-public-ip-address"></a>공용 IP 주소 설정
+
+Azure VM에 공용 IP 주소를 수동으로 할당 하는 대신, Site Recovery [복구 계획](site-recovery-create-recovery-plans.md)에서 스크립트 또는 azure automation runbook을 사용 하 여 장애 조치 (failover) 중에 주소를 할당 하거나 azure Traffic Manager를 사용 하 여 DNS 수준 라우팅을 설정할 수 있습니다. 공용 주소를 설정 하는 방법에 [대해 자세히 알아보세요](concepts-public-ip-address-with-site-recovery.md) .
+
+
+## <a name="assign-an-internal-address"></a>내부 주소 할당
+
+장애 조치 (failover) 후 Azure VM의 내부 IP 주소를 설정 하려면 다음 두 가지 옵션을 사용할 수 있습니다.
+
+- **동일한 ip 주소 유지**: Azure VM에서 온-프레미스 컴퓨터에 할당 된 것과 동일한 ip 주소를 사용할 수 있습니다.
+- **다른 ip 주소 사용**: Azure VM에 다른 ip 주소를 사용할 수 있습니다.
+
+
+## <a name="retain-ip-addresses"></a>IP 주소 유지
+
+Site Recovery를 사용 하면 Azure로 장애 조치 (failover) 할 때 동일한 IP 주소를 유지할 수 있습니다. 동일한 IP 주소를 유지 하면 장애 조치 (failover) 후 잠재적인 네트워크 문제가 방지 되지만 몇 가지 복잡성이 있습니다.
+
+- 대상 Azure VM이 온-프레미스 사이트와 동일한 IP 주소/서브넷을 사용 하는 경우 주소가 겹치므로 사이트 간 VPN 연결 또는 Express 경로를 사용 하 여 서로 연결할 수 없습니다. 서브넷은 고유 해야 합니다.
+- Azure Vm에서 앱을 사용할 수 있도록 장애 조치 (failover) 후 온-프레미스에서 Azure로 연결 해야 합니다. Azure는 확장 된 Vlan을 지원 하지 않으므로 IP 주소를 유지 하려는 경우 온-프레미스 컴퓨터 외에도 전체 서브넷을 장애 조치 (failover) 하 여 Azure로 IP 공간을 이동 해야 합니다.
+- 서브넷 장애 조치 (failover)는 특정 서브넷을 온-프레미스와 Azure에서 동시에 사용할 수 없도록 합니다.
+
+IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
+
+- 복제 된 항목의 Compute & 네트워크 속성에서 온-프레미스 설정을 미러링할 대상 Azure VM에 대 한 네트워크 및 IP 주소를 설정 합니다.
+- 서브넷은 재해 복구 프로세스의 일부로 관리 해야 합니다. 온-프레미스 네트워크와 일치 하는 Azure VNet이 필요 합니다. 그리고 장애 조치 (failover) 후에는 서브넷이 Azure로 이동 하 고 새 IP 주소 위치로 장애 조치 (failover) 네트워크 경로를 수정 해야 합니다.  
 
 ### <a name="failover-example"></a>장애 조치 예제
 
-가상의 회사인 Woodgrove Bank를 사용하여 Azure로 장애 조치하는 예제를 살펴보겠습니다.
+한 가지 예를 살펴보겠습니다.
 
-- Woodgrove Bank는 온-프레미스 사이트에서 해당 비즈니스 앱을 호스트합니다. Azure에서 Mobile Apps를 호스트합니다.
-- 온-프레미스 가장자리 네트워크와 Azure 가상 네트워크 사이에는 VPN 사이트 간 연결이 있습니다. VPN 연결로 인해 Azure의 가상 네트워크가 온-프레미스 네트워크의 확장으로 나타납니다.
-- Woodgrove는 Site Recovery를 사용하여 온-프레미스 워크로드를 Azure로 복제하려고 합니다.
-  - Woodgrove는 하드 코드된 IP 주소에 종속된 앱이 있으므로 Azure로 장애 조치한 이후 해당 앱의 IP 주소를 유지해야 합니다.
-  - Azure에서 실행되는 리소느는 172.16.1.0/24, 172.16.2.0/24 범위의 IP 주소를 사용합니다.
+- 가상의 회사 Woodgrove Bank는 온-프레미스의 비즈니스 앱을 호스트 하 여 Azure에서 모바일 앱을 호스팅합니다.
+- 사이트 간 VPN을 통해 온-프레미스에서 Azure로 연결 합니다. 
+- Woodgrove는 Site Recovery을 사용 하 여 온-프레미스 컴퓨터를 Azure에 복제 합니다.
+- 온-프레미스 앱은 하드 코드 된 IP 주소를 사용 하므로 Azure에서 동일한 IP 주소를 유지 하려고 합니다.
+- 온-프레미스 앱을 실행 하는 컴퓨터는 세 개의 서브넷으로 실행 됩니다.
+    - 192.168.1.0/24.
+    - 192.168.2.0/24
+    - 192.168.3.0/24
+- Azure에서 실행 되는 앱은 Azure VNet **Azure 네트워크** 의 두 서브넷에 있습니다.
+- 172.16.1.0/24
+- 172.16.2.0/24.
 
-![서브넷 장애 조치(failover) 전](./media/site-recovery-network-design/network-design7.png)
+주소를 유지 하기 위해 수행 하는 작업은 다음과 같습니다.
+
+1. 복제를 사용 하도록 설정 하는 경우 컴퓨터가 **Azure 네트워크**에 복제 하도록 지정 합니다.
+2. Azure에서 **복구 네트워크** 를 만듭니다. 이 VNet은 온-프레미스 네트워크에서 192.168.1.0/24 서브넷을 미러링합니다.
+3. Woodgrove는 두 네트워크 간에 [vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 을 설정 합니다. 
+
+    > [!NOTE]
+    > 응용 프로그램 요구 사항에 따라 장애 조치 (failover) 전에 VNet 간 연결을 설정 하거나, Site Recovery [복구 계획](site-recovery-create-recovery-plans.md)에서 수동 단계/스크립팅된 단계/a p a s e automation runbook으로 설정 하거나, 장애 조치 (failover)가 완료 된 후에 설정할 수 있습니다.
+
+4. 장애 조치 (failover) 전에 Site Recovery의 컴퓨터 속성에서는 다음 절차에 설명 된 대로 대상 IP 주소를 온-프레미스 컴퓨터의 주소로 설정 합니다.
+5. 장애 조치 (failover) 후 동일한 IP 주소를 사용 하 여 Azure Vm을 만듭니다. Woodgrove는 VNet 피어 링 (전송 연결 사용)을 사용 하 여 **Azure 네트워크** 에서 **복구 네트워크** vnet에 연결 합니다.
+6. 온-프레미스에서는 192.168.1.0/24가 Azure로 이동 했음을 반영 하기 위해 경로 수정을 비롯 하 여 네트워크를 변경 해야 합니다.  
 
 **장애 조치 전 인프라**
 
-
-Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할 수 있으려면 회사는 다음을 수행해야 합니다.
-
-
-1. 온-프레미스 컴퓨터의 장애 조치 후 Azure VM을 만들 Azure 가상 네트워크를 만듭니다. 애플리케이션이 원활하게 장애 조치(failover)할 수 있도록 온-프레미스 네트워크를 확장해야 합니다.
-2. 장애 조치 전에 Site Recovery의 컴퓨터 속성에서 동일한 IP 주소를 할당합니다. 장애 조치 후 Site Recovery는 이 주소를 Azure VM에 할당합니다.
-3. 장애 조치를 실행하고 동일한 IP 주소로 Azure VM을 만든 후에는 [Vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 사용하여 네트워크에 연결합니다. 이 작업은 스크립팅될 수 있습니다.
-4. 192.168.1.0/24가 이제 Azure로 이동했음을 반영하기 위해 경로를 수정해야 합니다.
+![서브넷 장애 조치(failover) 전](./media/site-recovery-network-design/network-design7.png)
 
 
 **장애 조치 후 인프라**
 
 ![서브넷 장애 조치(failover) 후](./media/site-recovery-network-design/network-design9.png)
 
-#### <a name="site-to-site-connection"></a>사이트 간 연결 
 
-장애 조치 후에는 Vnet 간 연결 외에도 Woodgrove가 사이트 간 VPN 연결을 설정할 수 있습니다.
-- 사이트 간 연결을 설정하는 경우 Azure 네트워크에서는 IP 주소 범위가 온-프레미스 IP 주소 범위와 다른 경우 온-프레미스 위치(로컬-네트워크)에 트래픽을 라우팅할 수 있습니다. 이는 Azure는 확대 서브넷을 지원하지 않기 때문입니다. 따라서 온-프레미스에 서브넷 192.168.1.0/24가 있는 경우 Azure 네트워크에 로컬 네트워크 192.168.1.0/24를 추가할 수 없습니다. 이렇게 예측하는 이유는 Azure가 서브넷에 활성 VM이 없고 해당 서브넷이 재해 복구용으로만 만들어진다는 것을 모르기 때문입니다.
-- Azure 네트워크 외부에서 네트워크 트래픽을 제대로 라우팅할 수 있으려면 네트워크 및 로컬 네트워크의 서브넷이 충돌하지 않아야 합니다.
+### <a name="set-target-network-settings"></a>대상 네트워크 설정 설정
+
+장애 조치 (failover) 전에 대상 Azure VM의 네트워크 설정 및 IP 주소를 지정 합니다.
+
+1.  Recovery Services 자격 증명 모음-> **복제 된 항목**에서 온-프레미스 컴퓨터를 선택 합니다.
+2. 컴퓨터의 **계산 및 네트워크** 페이지에서 **편집**을 클릭 하 여 대상 Azure VM에 대 한 네트워크 및 어댑터 설정을 구성 합니다.
+3. **네트워크 속성**에서 장애 조치 (failover) 후에 Azure VM을 만들 때 Azure VM이 배치 될 대상 네트워크를 선택 합니다.
+4. **네트워크 인터페이스**에서 대상 네트워크에 네트워크 어댑터를 구성 합니다. 기본적으로 Site Recovery은 온-프레미스 컴퓨터에서 검색 된 모든 Nic를 표시 합니다.
+    - 대상 네트워크에서 특정 NIC가 필요 하지 않은 경우 **대상 네트워크 인터페이스 유형** 에서 각 Nic를 **기본**, **보조**또는 **만들기 안 함** 으로 설정할 수 있습니다. 장애 조치 (failover)를 위해 네트워크 어댑터 하나를 기본으로 설정 해야 합니다. 대상 네트워크를 수정 하면 Azure VM의 모든 Nic에 영향을 줍니다.
+    - NIC 이름을 클릭 하 여 Azure VM이 배포 될 서브넷을 지정 합니다.
+    - 대상 Azure VM에 할당 하려는 개인 IP 주소를 사용 하 여 **동적** 을 덮어씁니다. IP 주소를 지정 하지 않으면 Site Recovery는 장애 조치 (failover) 시 서브넷에서 사용 가능한 다음 IP 주소를 NIC에 할당 합니다.
+    - Azure로의 온-프레미스 장애 조치 (failover)에 대 한 Nic 관리에 대해 [자세히 알아보세요](site-recovery-manage-network-interfaces-on-premises-to-azure.md) .
 
 
+## <a name="get-new-ip-addresses"></a>새 IP 주소 가져오기
 
+이 시나리오에서 Azure VM은 장애 조치 (failover) 후에 새 IP 주소를 가져옵니다. 장애 조치 (failover) 후 생성 된 가상 컴퓨터에 대 한 새 IP 주소를 설정 하려면 다음 단계를 참조 하세요.
 
-## <a name="assigning-new-ip-addresses"></a>새 IP 주소 할당
+1. 복제 된 **항목**으로 이동 합니다.
+2. 원하는 Azure virtual machine을 선택 합니다.
+3. **Compute 및 네트워크** 를 선택 하 고 **편집**을 선택 합니다.
 
-이 [블로그 게시물](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)은 장애 조치(failover) 후 IP 주소를 유지할 필요가 없을 때 Azure 네트워킹 인프라를 설정하는 방법을 설명합니다. 애플리케이션 설명으로 시작하여 온-프레미스 및 Azure의 네트워킹을 설정하는 방법을 찾고, 장애 조치(failover)를 실행하는 방법에 대한 정보로 마무리합니다.
+     ![장애 조치 (failover) 네트워킹 구성 사용자 지정](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+
+4. 장애 조치 (Failover) 네트워크 설정을 업데이트 하려면 구성 하려는 NIC에 대해 **편집** 을 선택 합니다. 열린 다음 페이지에서 테스트 장애 조치 (failover) 및 장애 조치 (failover) 위치에 미리 만든 해당 IP 주소를 제공 합니다.
+
+    ![NIC 구성 편집](media/azure-to-azure-customize-networking/nic-drilldown.png)
+
+5. **확인**을 선택합니다.
+
+이제 Site Recovery는 이러한 설정을 적용 하 고, 대상 IP 범위에서 사용할 수 있는 경우 장애 조치 (failover)의 가상 컴퓨터가 해당 IP 주소를 통해 선택한 리소스에 연결 되도록 합니다. 이 시나리오에서는 전체 서브넷을 장애 조치 (failover) 할 필요가 없습니다. 장애 조치 (failover) 된 컴퓨터에서 가상 컴퓨터의 새 IP 주소를 가리키도록 레코드를 업데이트 하려면 DNS 업데이트가 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[장애 조치 실행](site-recovery-failover.md)
+온-프레미스 Active Directory 및 DNS를 Azure로 복제 하는 [방법에 대해 알아봅니다](site-recovery-active-directory.md) .

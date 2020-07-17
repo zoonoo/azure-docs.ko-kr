@@ -1,26 +1,19 @@
 ---
-title: 'VNet-VNet 연결을 사용하여 가상 네트워크를 다른 VNet에 연결: Azure CLI | Microsoft Docs'
+title: 'Vnet 간 연결을 사용 하 여 vnet을 vnet에 연결: Azure CLI'
 description: VNet-VNet 연결 및 Azure CLI를 사용하여 가상 네트워크를 서로 연결합니다.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e93bae91827b2807ef577d7659924a5d37454fa4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987113"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
@@ -32,13 +25,13 @@ ms.locfileid: "60411834"
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure Portal (클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [다양한 배포 모델 간 연결 - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [다양한 배포 모델 간 연결 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
-## <a name="about"></a>VNet 연결 정보
+## <a name="about-connecting-vnets"></a><a name="about"></a>VNet 연결 정보
 
 VNet에 연결하는 방법은 여러 가지가 있습니다. 아래 섹션에서는 가상 네트워크를 연결하는 다양한 방법을 설명합니다.
 
@@ -54,7 +47,7 @@ VNet-VNet 연결 구성은 VNet에 쉽게 연결하기 좋은 방법입니다. V
 
 VNet 피어링을 사용하여 VNet을 연결하는 것이 좋습니다. VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 다른 제약 조건이 있습니다. 또한 [VNet 피어링 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)은 [VNet-VNet VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)과 다르게 계산됩니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
-## <a name="why"></a>VNet-VNet 연결을 만드는 이유
+## <a name="why-create-a-vnet-to-vnet-connection"></a><a name="why"></a>VNet-VNet 연결을 만드는 이유
 
 VNet-VNet 연결을 사용하여 가상 네트워크에 연결하면 좋은 이유는 다음과 같습니다.
 
@@ -68,52 +61,52 @@ VNet-VNet 연결을 사용하여 가상 네트워크에 연결하면 좋은 이�
 
 VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 하면 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
-## <a name="steps"></a>어떤 VNet-VNet 단계를 사용해야 하나요?
+## <a name="which-vnet-to-vnet-steps-should-i-use"></a><a name="steps"></a>어떤 VNet-VNet 단계를 사용해야 하나요?
 
 이 문서에서는 VNet-VNet 연결 단계의 두 가지 다른 집합을 볼 수 있습니다. 한 단계 집합은 [동일한 구독에 상주하는 VNet](#samesub)과 관련이 있고 다른 단계 집합은 [서로 다른 구독에 상주하는 VNet](#difsub)과 관련이 있습니다. 
 
 이 연습에서는 구성을 결합해도 좋고, 사용할 구성만 선택해도 좋습니다. 모든 구성은 VNet-VNet 연결 형식을 사용합니다. 네트워크 트래픽은 서로 직접 연결된 VNet 사이를 흐릅니다. 이 연습에서는 TestVNet4의 트래픽이 TestVNet5로 라우팅되지 않습니다.
 
-* [동일한 구독에 있는 VNet:](#samesub) 이 구성에 대한 단계는 TestVNet1 및 TestVNet4를 사용합니다.
+* [동일한 구독에 상주 하는 vnet:](#samesub) 이 구성에 대 한 단계에서는 TestVNet1 및 TestVNet4를 사용 합니다.
 
   ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [다른 구독에 있는 VNet:](#difsub) 이 구성에 대한 단계는 TestVNet1 및 TestVNet5를 사용합니다.
+* [서로 다른 구독에 상주 하는 vnet:](#difsub) 이 구성에 대 한 단계에서는 TestVNet1 및 TestVNet5를 사용 합니다.
 
   ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
 
-## <a name="samesub"></a>같은 구독에 있는 VNet 연결
+## <a name="connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>같은 구독에 있는 VNet 연결
 
 ### <a name="before-you-begin"></a>시작하기 전에
 
 시작하기 전에 최신 버전의 CLI 명령(2.0 이상)을 설치합니다. CLI 명령을 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-### <a name="Plan"></a>IP 주소 범위 계획
+### <a name="plan-your-ip-address-ranges"></a><a name="Plan"></a>IP 주소 범위 계획
 
 다음 단계에서는 두 개의 가상 네트워크와 해당 게이트웨이 서브넷 및 구성을 만듭니다. 그런 다음 두 VNet 간의 VPN 연결을 만듭니다. 네트워크 구성에 대한 IP 주소 범위를 계획하는 것이 중요합니다. 따라서 VNet 범위 또는 로컬 네트워크 범위가 겹치지 않는지 확인해야 합니다. 이 예에서는 DNS 서버를 포함하지 않습니다. 가상 네트워크의 이름 확인을 원하는 경우 [이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 예제에서 다음 값을 사용합니다.
 
-**TestVNet1에 대한 값:**
+**TestVNet1에 대 한 값:**
 
 * VNet 이름: TestVNet1
 * 리소스 그룹: TestRG1
 * 위치: 미국 동부
-* TestVNet1: 10.11.0.0/16 및 10.12.0.0/16
+* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * 프런트 엔드: 10.11.0.0/24
 * 백 엔드: 10.12.0.0/24
-* 게이트웨이 서브넷: 10.12.255.0/27
+* 게이트웨이 서브넷 = 10.12.255.0/27
 * 게이트웨이 이름: VNet1GW
 * 공용 IP: VNet1GWIP
-* VPNType: 경로 기반
+* VpnType: 경로 기반
 * 연결(1 대 4): VNet1 대 VNet4
 * 연결(1 대 5): VNet1 대 VNet5(예: 다른 구독의 VNet)
 
-**TestVNet4에 대한 값:**
+**TestVNet4에 대 한 값:**
 
 * VNet 이름: TestVNet4
-* TestVNet2: 10.41.0.0/16 및 10.42.0.0/16
+* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 * 프런트 엔드: 10.41.0.0/24
 * 백 엔드: 10.42.0.0/24
 * 게이트웨이 서브넷: 10.42.255.0/27
@@ -121,14 +114,14 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * 위치: 미국 서부
 * 게이트웨이 이름: VNet4GW
 * 공용 IP: VNet4GWIP
-* VPNType: 경로 기반
+* VpnType: 경로 기반
 * 연결: VNet4 대 VNet1
 
-### <a name="Connect"></a>1단계 - 구독에 연결
+### <a name="step-1---connect-to-your-subscription"></a><a name="Connect"></a>1단계 - 구독에 연결
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-numbers-include.md)]
 
-### <a name="TestVNet1"></a>2단계 - TestVNet1 만들기 및 구성
+### <a name="step-2---create-and-configure-testvnet1"></a><a name="TestVNet1"></a>2단계 - TestVNet1 만들기 및 구성
 
 1. 리소스 그룹을 만듭니다.
 
@@ -166,7 +159,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
    ```
 
-### <a name="TestVNet4"></a>3단계 - TestVNet4 만들기 및 구성
+### <a name="step-3---create-and-configure-testvnet4"></a><a name="TestVNet4"></a>3단계 - TestVNet4 만들기 및 구성
 
 1. 리소스 그룹을 만듭니다.
 
@@ -201,11 +194,11 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
    ```
 
-### <a name="createconnect"></a>4단계 - 연결 만들기
+### <a name="step-4---create-the-connections"></a><a name="createconnect"></a>4단계 - 연결 만들기
 
 이제 VPN 게이트웨이가 있는 VNet이 두 개 있습니다. 다음 단계는 가상 네트워크 게이트웨이간에 VPN 게이트웨이 연결을 만드는 것입니다. 위의 예제를 사용했다면 VNet 게이트웨이는 다른 리소스 그룹에 있습니다. 게이트웨이가 다른 리소스 그룹에 있는 경우, 연결할 때 각 게이트웨이의 리소스 ID를 식별하고 지정해야 합니다. VNet이 동일한 리소스 그룹에 있는 경우 리소스 ID를 지정할 필요가 없으므로 [두 번째 지침](#samerg)을 사용할 수 있습니다.
 
-### <a name="diffrg"></a>다른 리소스 그룹에 상주하는 VNet을 연결하려면
+### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a><a name="diffrg"></a>다른 리소스 그룹에 상주하는 VNet을 연결하려면
 
 1. 다음 명령의 출력에서 VNet1GW의 리소스 ID를 가져옵니다.
 
@@ -256,7 +249,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    ```
 5. 연결을 확인합니다. [연결 확인](#verify)을 참조하세요.
 
-### <a name="samerg"></a>동일한 리소스 그룹에 상주하는 VNet을 연결하려면
+### <a name="to-connect-vnets-that-reside-in-the-same-resource-group"></a><a name="samerg"></a>동일한 리소스 그룹에 상주하는 VNet을 연결하려면
 
 1. TestVNet1 대 TestVNet4 연결을 만듭니다. 이 단계에서는 TestVNet1에서 TestVNet4까지 연결을 만듭니다. 예제에 리소스 그룹이 동일하다는 점에 유의하세요. 예제에서 참조된 공유 키도 볼 수 있습니다. 공유 키에 대해 고유한 값을 사용할 수 있지만 공유 키는 두 연결에 모두 일치해야 합니다. 연결을 만드는 데는 시간이 걸립니다.
 
@@ -270,15 +263,15 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    ```
 3. 연결을 확인합니다. [연결 확인](#verify)을 참조하세요.
 
-## <a name="difsub"></a>다른 구독에 있는 VNet 연결
+## <a name="connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>다른 구독에 있는 VNet 연결
 
 이 시나리오에서는 TestVNet1과 TestVNet5를 연결합니다. VNet이 다른 구독에 상주합니다. 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다. 이 구성 단계에서는 TestVNet1을 TestVNet5에 연결하기 위해 VNet 간 연결을 추가합니다.
 
-### <a name="TestVNet1diff"></a>5단계 - TestVNet1 만들기 및 구성
+### <a name="step-5---create-and-configure-testvnet1"></a><a name="TestVNet1diff"></a>5단계 - TestVNet1 만들기 및 구성
 
-이 지침은 이전 섹션의 단계에서 계속됩니다. TestVNet1 및 TestVNet1용 VPN Gateway를 만들고 구성하려면 [1단계](#Connect) 및 [2단계](#TestVNet1)를 완료해야 합니다. 이 구성의 경우 이전 섹션에서 TestVNet4를 만들 필요가 없지만 만든다고 해도 이 단계와 충돌하지 않습니다. 1단계와 2단계를 완료하면 6단계(아래)를 계속 진행합니다.
+이 지침은 이전 섹션의 단계에서 계속됩니다. TestVNet1 및 TestVNet1에 대 한 VPN Gateway를 만들고 구성 하려면 [1 단계](#Connect) 와 [2 단계](#TestVNet1) 를 완료 해야 합니다. 이 구성의 경우 이전 섹션에서 TestVNet4를 만들 필요가 없지만 만든다고 해도 이 단계와 충돌하지 않습니다. 1단계와 2단계를 완료하면 6단계(아래)를 계속 진행합니다.
 
-### <a name="verifyranges"></a>6단계 - IP 주소 범위 확인
+### <a name="step-6---verify-the-ip-address-ranges"></a><a name="verifyranges"></a>6단계 - IP 주소 범위 확인
 
 추가 연결을 만들 때 새 가상 네트워크의 IP 주소 공간이 다른 VNet 범위 또는 로컬 네트워크 게이트웨이 범위와 겹치지 않는지 확인하는 것이 중요합니다. 이 연습에서는 TestVNet5에 대해 다음 값을 사용할 수 있습니다.
 
@@ -287,19 +280,19 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * VNet 이름: TestVNet5
 * 리소스 그룹: TestRG5
 * 위치: 일본 동부
-* TestVNet5: 10.51.0.0/16 및 10.52.0.0/16
+* TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * 프런트 엔드: 10.51.0.0/24
 * 백 엔드: 10.52.0.0/24
 * 게이트웨이 서브넷: 10.52.255.0.0/27
 * 게이트웨이 이름: VNet5GW
 * 공용 IP: VNet5GWIP
-* VPNType: 경로 기반
+* VpnType: 경로 기반
 * 연결: VNet5 대 VNet1
-* ConnectionType: VNet2VNet
+* 연결 유형: VNet 간
 
-### <a name="TestVNet5"></a>7단계 - TestVNet5 만들기 및 구성
+### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>7단계 - TestVNet5 만들기 및 구성
 
-이 단계는 새 구독인 구독5의 상황에서 수행해야 합니다. 이 부분은 구독을 소유한 다른 조직의 관리자가 수행할 수 있습니다. 사용 하 여 구독 간에 전환할 `az account list --all` 계정에 사용할 수 있는 구독을 나열 하려면 다음 사용 하 여 `az account set --subscription <subscriptionID>` 사용 하려는 구독으로 전환 합니다.
+이 단계는 새 구독인 구독5의 상황에서 수행해야 합니다. 이 부분은 구독을 소유한 다른 조직의 관리자가 수행할 수 있습니다. 구독 간에 전환 하려면 계정에 사용할 수 있는 구독을 나열 하려면를 사용 하 고 사용 하려는 `az account list --all` `az account set --subscription <subscriptionID>` 구독으로 전환 하려면를 사용 합니다.
 
 1. 구독 5에 연결되어 있는지 확인한 다음 리소스 그룹을 만듭니다.
 
@@ -336,9 +329,9 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
    ```
 
-### <a name="connections5"></a>8단계 - 연결 만들기
+### <a name="step-8---create-the-connections"></a><a name="connections5"></a>8단계 - 연결 만들기
 
-게이트웨이가 다른 구독에 있으므로 이 단계가 **[구독 1]** 및 **[구독 5]** 로 표시된 두 개의 CLI 세션으로 나뉩니다. 사용 하 여 구독 간에 전환할 `az account list --all` 계정에 사용할 수 있는 구독을 나열 하려면 다음 사용 하 여 `az account set --subscription <subscriptionID>` 사용 하려는 구독으로 전환 합니다.
+게이트웨이가 다른 구독에 있으므로 이 단계가 **[구독 1]** 및 **[구독 5]** 로 표시된 두 개의 CLI 세션으로 나뉩니다. 구독 간에 전환 하려면 계정에 사용할 수 있는 구독을 나열 하려면를 사용 하 고 사용 하려는 `az account list --all` `az account set --subscription <subscriptionID>` 구독으로 전환 하려면를 사용 합니다.
 
 1. **[구독 1]** 로그인하고 구독 1에 연결합니다. 다음 명령을 실행하여 출력에서 게이트웨이의 이름과 ID를 가져옵니다.
 
@@ -362,7 +355,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
    "id:"에 대한 출력을 복사합니다. 전자 메일 또는 다른 방법을 통해 VNet 게이트웨이(VNet5GW)의 ID와 이름을 구독 1 관리자에게 보냅니다.
 
-3. **[구독 1]** 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 공유 키에 대해 고유한 값을 사용할 수 있지만 공유 키는 두 연결에 모두 일치해야 합니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다. 구독 1에 연결해야 합니다.
+3. **[구독 1]** 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 공유 키에 대해 고유한 값을 사용할 수 있지만 공유 키는 두 연결에 모두 일치해야 합니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다.구독 1에 연결해야 합니다.
 
    ```azurecli
    az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
@@ -374,12 +367,12 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l japaneast --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
    ```
 
-## <a name="verify"></a>연결 확인
+## <a name="verify-the-connections"></a><a name="verify"></a>연결 확인
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-## <a name="faq"></a>VNet 간 FAQ
+## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>VNet 간 FAQ
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>다음 단계

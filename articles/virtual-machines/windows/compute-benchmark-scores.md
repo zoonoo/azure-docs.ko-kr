@@ -1,33 +1,28 @@
 ---
-title: Azure Windows VM에 대한 벤치마크 점수 계산 | Microsoft Docs
-description: Windows Server를 실행하는 Azure VM에 대한 SPECint 계산 벤치마크 점수를 비교합니다.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Azure Windows Vm에 대 한 벤치 마크 점수 계산
+description: Windows Server를 실행하는 Azure VM의 SPECint 컴퓨팅 벤치마크 점수를 비교합니다.
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
-ms.author: cynthn;davberg
-ms.openlocfilehash: 041906120ea156a00d272e2d3da15dc5174b6585
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 04/29/2020
+ms.author: cynthn
+ms.reviewer: davberg
+ms.openlocfilehash: c3e0fdc398d3b0b851c6f548119858e6c41a5a19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866295"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82583911"
 ---
-# <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM에 대한 벤치마크 점수 계산
-다음 SPECInt 벤치 마크 점수를 Windows Server를 실행 중인 선택한 Azure Vm에 대 한 계산 성능을 보여 줍니다. [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
+# <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM의 컴퓨팅 벤치마크 점수
+다음 SPECInt 벤치 마크 점수는 Windows Server를 실행 하는 Azure Vm 선택에 대 한 계산 성능을 보여 줍니다. [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
 
 
-## <a name="av2---general-compute"></a>Av2 - 일반 계산
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+## <a name="av2---general-compute"></a>Av2 - 일반 컴퓨팅
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 12 | 14.2 | 0.3 | 
 | Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 13.2 | 0.6 | 
@@ -40,7 +35,7 @@ ms.locfileid: "64866295"
 | Standard_A2m_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 21 | 28.4 | 1.0 | 
 | Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 27 | 56.6 | 1.0 | 
 | Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 13 | 52.8 | 2.0 | 
-| Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 15 | 52.1 | 4.5. | 
+| Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 15 | 52.1 | 4.5 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 17 | 56.4 | 1.8 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 6 | 53.4 | 1.9 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 23 | 57.1 | 3.6 | 
@@ -51,8 +46,15 @@ ms.locfileid: "64866295"
 | Standard_A8m_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 10 | 104.5 | 5.1 | 
 | Standard_A8m_v2 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 13 | 111.6 | 2.3 | 
 
-## <a name="b---burstable"></a>B-버스터 블
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+> [!NOTE]
+> Av2 시리즈 Vm은 다양 한 하드웨어 유형 및 프로세서 (위에 표시 된 것 처럼)에 배포할 수 있습니다. Av2 시리즈 Vm에는 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. 크기는 배포 된 하드웨어에 관계 없이 실행 중인 인스턴스에 대해 상대적으로 일관 된 프로세서 성능을 제공 하도록 제한 됩니다. 그러나 최신 프로세서 최적화를 활용 하는 소프트웨어의 경우 프로세서 유형에 따라 더 많은 변형이 표시 될 수 있습니다.
+
+## <a name="b---burstable"></a>B-기병 양성소
+
+(2019-10-23에서 2019-11-03 PBI로 업데이트 됨: 5604451)
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_B1ms | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 6.3 | 0.2 | 
 | Standard_B1ms | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 47 | 6.4 | 0.2 | 
@@ -63,9 +65,21 @@ ms.locfileid: "64866295"
 | Standard_B4ms | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 43 | 28.3 | 0.7 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 3 | 42.0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 41.4 | 0.9 | 
+| Standard_B12ms | 12 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 또는 v4 | 19 | 58.9 | 2.3 |
+| Standard_B16ms | 16 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 또는 v4 | 18 | 75.4 | 2.1 |
+| Standard_B20ms | 20 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 또는 v4| 2 | 90.6 | 1.3 |
 
-## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - 일반 계산 + Premium Storage
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+>[!NOTE]
+> B 시리즈 Vm은 서로 간에 안정 된 성능 요구 사항이 있는 워크 로드를 위한 것입니다. VM 인스턴스는 기준선 보다 작은 값을 사용 하는 경우 크레딧을 누적 합니다. VM에 크레딧이 누적 되 면 VM은 최대 100%를 사용 하 여 기준선 위로 버스트 하 여 짧은 CPU 버스트 요구 사항을 충족할 수 있습니다. 버스트 시간은 VM 크기 및 시간 기능에 해당 하는 사용 가능한 크레딧을 따라 달라 집니다.  
+>
+> SPEC Int는 일반적으로 사용 가능한 버스트 크레딧을 모두 사용 하는 매우 긴 실행 테스트입니다.  따라서 위의 숫자는 실행 간에 누적 된 버스트 시간을 반영할 수도 있지만 VM의 기준 성능에 더 가깝습니다.  Short, 버스 티, 워크 로드 (B 시리즈에서 일반)는 일반적으로 Ds v3 시리즈의 성능에 가깝습니다.
+
+## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - 일반 컴퓨팅 + Premium Storage
+
+(2019-10-23에서 2019-11-03 PBI로 업데이트 됨: 5604451)
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 40.8 | 2.3 | 
 | Standard_D2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 52 | 43.3 | 2.1 | 
@@ -77,32 +91,42 @@ ms.locfileid: "64866295"
 | Standard_D16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 38 | 298.2 | 4.4. | 
 | Standard_D32s_v3 | 32 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 545.8 | 10.5 | 
 | Standard_D32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 535.6 | 12.6 | 
+| Standard_D32-8s_v3 | 8 |  | Intel (R) Xeon (R) CPU E5-2673 v3 또는 v4 | 6 | 166.0 | 8.8 |
+| Standard_D32-16s_v3 | 16 |  | Intel (R) Xeon (R) CPU E5-2673 v3 또는 v4 | 4 | 300.8 | 6.4 |
+| Standard_D48s_v3 | 48 | 2 | Intel (R) Xeon (R) CPU E5-2673 v3 또는 v4 | 1 | 838.0 | 0.0 |
 | Standard_D64s_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 35 | 1070.6 | 2.4 | 
+| Standard_D64-16s_v3 | 16 |  | Intel (R) Xeon (R) CPU E5-2673 v3 또는 v4 | 4 | 340.0 | 21.4 |
+| Standard_D64-32s_v3 | 32 |  | Intel (R) Xeon (R) CPU E5-2673 v3 또는 v4 | 3 | 592.3 | 1.5 |
 
-## <a name="dv3---general-compute"></a>Dv3 - 일반 계산
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+## <a name="dv3---general-compute"></a>Dv3 - 일반 컴퓨팅
+
+(2019-10-23에서 2019-11-03 PBI로 업데이트 됨: 5604451)
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 38.6 | 1.8 | 
 | Standard_D2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 41.8 | 3.3 | 
 | Standard_D4_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 17 | 77.8 | 1.3 | 
-| Standard_D4_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.7 | 4.5. | 
+| Standard_D4_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.7 | 4.5 | 
 | Standard_D8_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 146.7 | 10.4 | 
 | Standard_D8_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 159.9 | 8.3 | 
 | Standard_D16_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 274.1 | 3.8 | 
 | Standard_D16_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 300.7 | 8.8 | 
 | Standard_D32_v3 | 32 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 549.3 | 11.1 | 
 | Standard_D32_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 7 | 538.6 | 9.4 | 
+| Standard_D48_v3 | 48 |  |  Intel (R) Xeon (R) CPU E5-2673 v3 또는 v4 | 3 | 839.7 | 14.4 |
 | Standard_D64_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1070.6 | 12.4 | 
 
-## <a name="dsv2---storage-optimized"></a>DSv2 - 저장소 최적화
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+## <a name="dsv2---storage-optimized"></a>DSv2 - 스토리지 최적화
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_DS1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 12 | 33.0 | 1.1 | 
 | Standard_DS1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 37 | 33.8 | 2.5 | 
 | Standard_DS2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 33 | 63.9 | 1.7 | 
 | Standard_DS2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 66.6 | 4.8 | 
 | Standard_DS3_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 15 | 125.5 | 3.2 | 
-| Standard_DS3_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 47 | 130.1 | 4.3. | 
+| Standard_DS3_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 47 | 130.1 | 4.3 | 
 | Standard_DS4_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 23 | 235.7 | 6.6 | 
 | Standard_DS4_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 34 | 249.4 | 2.8 | 
 | Standard_DS5_v2 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 11 | 414.9 | 5.1 | 
@@ -121,7 +145,7 @@ ms.locfileid: "64866295"
 | Standard_DS13_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 23 | 248.0 | 2.2 | 
 | Standard_DS13-2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 17 | 65.2 | 3.1 | 
 | Standard_DS13-2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 15 | 72.8 | 3.8 | 
-| Standard_DS13-4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 24 | 126.1 | 4.3. | 
+| Standard_DS13-4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 24 | 126.1 | 4.3 | 
 | Standard_DS13-4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 133.3 | 2.8 | 
 | Standard_DS14_v2 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 22 | 469.5 | 6.9 | 
 | Standard_DS14_v2 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 456.6 | 7.3 | 
@@ -131,8 +155,9 @@ ms.locfileid: "64866295"
 | Standard_DS14-8_v2 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 14 | 247.4 | 10.2 | 
 | Standard_DS15_v2 | 20 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 45 | 546.1 | 10.5 | 
 
-## <a name="dv2---general-compute"></a>Dv2 - 일반 계산
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+## <a name="dv2---general-compute"></a>Dv2 - 일반 컴퓨팅
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 30 | 33.5 | 1.7 | 
 | Standard_D1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 34.7 | 2.5 | 
@@ -156,16 +181,17 @@ ms.locfileid: "64866295"
 | Standard_D15_v2 | 20 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 37 | 558.8 | 8.4 | 
 
 ## <a name="esv3---memory-optimized--premium-storage"></a>Esv3 - 메모리 최적화 + Premium Storage
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 42.5 | 2.2 | 
 | Standard_E4s_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 81.4 | 3.3 | 
 | Standard_E8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 29 | 156.3 | 5.1 | 
 | Standard_E8-2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 57 | 41.8 | 2.6 | 
 | Standard_E8-4s_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.9 | 3.0 | 
-| Standard_E16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 295.7 | 4.5. | 
+| Standard_E16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 295.7 | 4.5 | 
 | Standard_E16-4s_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.7 | 3.8 | 
-| Standard_E16-8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 158.3 | 4.5. | 
+| Standard_E16-8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 158.3 | 4.5 | 
 | Standard_E20s_v3 | 20 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 369.7 | 3.2 | 
 | Standard_E32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 577.9 | 9.4 | 
 | Standard_E32-8s_v3 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 163.4 | 6.8 | 
@@ -175,13 +201,15 @@ ms.locfileid: "64866295"
 | Standard_E64-16s_v3 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 3 | 334.3 | 1.5 | 
 | Standard_E64-32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 592.5 | 4.4. | 
 
-## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3-메모리 Opt + Premium Storage (격리)
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3-Memory Opt + Premium Storage (격리)
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64is_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 1073.9 | 5.7 | 
 
 ## <a name="ev3---memory-optimized"></a>Ev3 - 메모리 최적화
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 41.2 | 2.4 | 
 | Standard_E4_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 43 | 81.4 | 5.3 | 
@@ -192,12 +220,14 @@ ms.locfileid: "64866295"
 | Standard_E64_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 1080.0 | 11.3 | 
 
 ## <a name="eiv3---memory-optimized-isolated"></a>Eiv3-메모리 최적화 (격리)
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64i_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 1081.4 | 11.1 | 
 
 ## <a name="fsv2---compute--storage-optimized"></a>Fsv2 - 컴퓨팅 + 스토리지 최적화
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F2s_v2 | 2 | 1 | Intel(R) Xeon(R) 플래티넘 8168 CPU @ 2.70GHz | 46 | 56.5 | 2.4 | 
 | Standard_F4s_v2 | 4 | 1 | Intel(R) Xeon(R) 플래티넘 8168 CPU @ 2.70GHz | 60 | 110.2 | 4.7 | 
@@ -208,21 +238,23 @@ ms.locfileid: "64866295"
 | Standard_F72s_v2 | 72 | 2 | Intel(R) Xeon(R) 플래티넘 8168 CPU @ 2.70GHz | 29 | 1372.1 | 8.2 | 
 
 ## <a name="fs---compute-and-storage-optimized"></a>Fs - 컴퓨팅 및 스토리지 최적화
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 31 | 33.2 | 1.0 | 
 | Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 35.1 | 2.0 | 
 | Standard_F2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 18 | 63.7 | 1.8 | 
 | Standard_F2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 21 | 66.6 | 3.8 | 
 | Standard_F4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 14 | 128.4 | 2.9 | 
-| Standard_F4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 127.7 | 4.5. | 
+| Standard_F4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 127.7 | 4.5 | 
 | Standard_F8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 11 | 234.9 | 3.7 | 
-| Standard_F8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 19 | 251.2 | 4.5. | 
+| Standard_F8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 19 | 251.2 | 4.5 | 
 | Standard_F16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 413.9 | 3.6 | 
 | Standard_F16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 36 | 471.8 | 7.5 | 
 
 ## <a name="f---compute-optimized"></a>F - 컴퓨팅 최적화
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 15 | 32.8 | 1.8 | 
 | Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 13 | 33.3 | 2.0 | 
@@ -236,8 +268,9 @@ ms.locfileid: "64866295"
 | Standard_F16 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 467.8 | 11.1 | 
 | Standard_F16 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 6 | 472.3 | 13.2 | 
 
-## <a name="gs---storage-optimized"></a>GS - 저장소 최적화
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+## <a name="gs---storage-optimized"></a>GS - 스토리지 최적화
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_GS1 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 63.6 | 4.7 | 
 | Standard_GS2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 122.3 | 6.9 | 
@@ -250,7 +283,7 @@ ms.locfileid: "64866295"
 | Standard_GS5-16 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 447.9 | 4.0 | 
 
 ## <a name="g---compute-optimized"></a>G - 컴퓨팅 최적화
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_G1 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 64.7 | 9.2 | 
 | Standard_G2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 30 | 127.9 | 12.2 | 
@@ -258,18 +291,20 @@ ms.locfileid: "64866295"
 | Standard_G4 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 400.2 | 3.9 | 
 | Standard_G5 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 774.1 | 4.1 | 
 
-## <a name="h---high-performance-compute-hpc"></a>H - HPC(고성능 계산)
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+## <a name="h---high-performance-compute-hpc"></a>H - HPC(고성능 컴퓨팅)
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_H8 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 31 | 296.1 | 1.4 | 
 | Standard_H8m | 8 | 1 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 34 | 295.1 | 1.5 | 
-| Standard_H16 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 19 | 563.5 | 4.3. | 
+| Standard_H16 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 19 | 563.5 | 4.3 | 
 | Standard_H16m | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 19 | 562.9 | 3.3 | 
 | Standard_H16mr | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 18 | 563.6 | 3.7 | 
 | Standard_H16r | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 17 | 562.2 | 4.2 | 
 
-## <a name="ls---storage-optimized"></a>Ls - 저장소 최적화
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+## <a name="ls---storage-optimized"></a>Ls - 스토리지 최적화
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_L4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 122.7 | 6.6 | 
 | Standard_L8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 30 | 223.3 | 7.5 | 
@@ -277,7 +312,8 @@ ms.locfileid: "64866295"
 | Standard_L32s | 32 | 2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 766.1 | 3.5 | 
 
 ## <a name="m---memory-optimized"></a>M - 메모리 최적화
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_M8-2ms | 2 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 15 | 42.1 | 2.1 | 
 | Standard_M8-4ms | 4 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 81.6 | 2.9 | 
@@ -290,7 +326,7 @@ ms.locfileid: "64866295"
 | Standard_M64-32ms | 32 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 586.8 | 5.4 | 
 | Standard_M64m | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1005.5 | 12.3 | 
 | Standard_M64ms | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1012.9 | 12.5 | 
-| Standard_M64s | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1012.5 | 4.5. | 
+| Standard_M64s | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1012.5 | 4.5 | 
 | Standard_M128 | 128 | 4 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 11 | 1777.3 | 15.6 | 
 | Standard_M128-32ms | 32 | 4 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 620.5 | 2.5 | 
 | Standard_M128-64ms | 64 | 4 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1140.8 | 2.9 | 
@@ -306,47 +342,52 @@ ms.locfileid: "64866295"
 | Standard_M8ms | 8 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 158.2 | 5.5 | 
 
 ## <a name="ncsv3---gpu-enabled"></a>NCSv3-GPU 사용
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
-| ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NC6s_v3 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 230.2 | 1.6 | 
-| Standard_NC12s_v3 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 7 | 425.0 | 3.6 | 
-| Standard_NC24rs_v3 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 2 | 811.0 | 4.2 | 
-| Standard_NC24s_v3 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 3 | 809.3 | 2.3 | 
 
-## <a name="ncsv2---gpu-enabled"></a>NCSv2 - GPU Enabled
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NC6s_v2 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 227.0 | 6.2 | 
-| Standard_NC12s_v2 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 9 | 427.3 | 1.3 | 
-| Standard_NC24rs_v2 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 12 | 811.0 | 5.4 | 
-| Standard_NC24s_v2 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 811.5 | 4.4. | 
+| Standard_NC6s_v3 | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 6 | 230.2 | 1.6 | 
+| Standard_NC12s_v3 | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 7 | 425.0 | 3.6 | 
+| Standard_NC24rs_v3 | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 2 | 811.0 | 4.2 | 
+| Standard_NC24s_v3 | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 3 | 809.3 | 2.3 | 
+
+## <a name="ncsv2---gpu-enabled"></a>NCSv2-GPU 사용
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
+| ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
+| Standard_NC6s_v2 | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 227.0 | 6.2 | 
+| Standard_NC12s_v2 | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 9 | 427.3 | 1.3 | 
+| Standard_NC24rs_v2 | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 12 | 811.0 | 5.4 | 
+| Standard_NC24s_v2 | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 811.5 | 4.4. | 
 
 ## <a name="nc---gpu-enabled"></a>NC-GPU 사용
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
-| ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NC6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 27 | 209.6 | 4.4. | 
-| Standard_NC12 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 394.4 | 3.8 | 
-| Standard_NC24 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 751.7 | 3.5 | 
-| Standard_NC24r | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 27 | 752.9 | 3.4 | 
 
-## <a name="nds--gpu-enabled"></a>NDs GPU 사용
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_ND6s | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 8 | 230.1 | 1.2 | 
-| Standard_ND12s | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 426.5 | 1.4 | 
-| Standard_ND24rs | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 10 | 811.4 | 3.5 | 
-| Standard_ND24s | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 812.6 | 4.4. | 
+| Standard_NC6 | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 27 | 209.6 | 4.4. | 
+| Standard_NC12 | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 394.4 | 3.8 | 
+| Standard_NC24 | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 751.7 | 3.5 | 
+| Standard_NC24r | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 27 | 752.9 | 3.4 | 
+
+## <a name="nds--gpu-enabled"></a>NDs-GPU 사용
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
+| ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
+| Standard_ND6s | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 8 | 230.1 | 1.2 | 
+| Standard_ND12s | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 426.5 | 1.4 | 
+| Standard_ND24rs | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 10 | 811.4 | 3.5 | 
+| Standard_ND24s | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 812.6 | 4.4. | 
 
 ## <a name="nv---gpu-enabled"></a>NV-GPU 사용
-| 크기 | vCPU | NUMA 노드 | CPU | 실행 | Avg 기본 요금 | StdDev | 
+
+| 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NV6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 210.5 | 6.1 | 
-| Standard_NV12 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 394.5 | 2.3 | 
-| Standard_NV24 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 26 | 752.2 | 4.4. | 
+| Standard_NV6 | 6 | 1 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 210.5 | 6.1 | 
+| Standard_NV12 | 12 | 1 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 394.5 | 2.3 | 
+| Standard_NV24 | 24 | 2 | Intel (R) Xeon (R) CPU E5-2690 v3 @ 2.60 GHz | 26 | 752.2 | 4.4. | 
 
 ## <a name="about-specint"></a>SPECint 정보
 Windows 번호는 Windows Server에서 [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) 을 실행하여 계산합니다. SPECint는 vCPU당 하나의 복사본과 함께 기본 요율 옵션(SPECint_rate2006)을 사용하여 실행합니다. SPECint은 12번의 별도 테스트로 각기 세 번 실행되도록 구성되며, 각 테스트에서 중간값을 취해 가중치를 주어 종합 점수를 형성합니다. 그런 다음 여러 VM에서 실행하여 평균값을 구합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* 스토리지 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 

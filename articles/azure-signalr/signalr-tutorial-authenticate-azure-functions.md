@@ -1,21 +1,21 @@
 ---
-title: '자습서: Azure Functions를 사용하여 Azure SignalR Service 인증'
+title: '자습서: Azure Functions를 사용한 인증 - Azure SignalR'
 description: 이 자습서에서는 Azure Functions 바인딩을 위해 Azure SignalR Service 클라이언트를 인증하는 방법을 알아봅니다.
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278839"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74158137"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
 
-Azure Functions, App Service 인증 및 SignalR Service를 사용하여 인증 및 개인 메시징이 포함된 대화방을 작성하는 단계별 자습서입니다.
+Azure Functions, App Service 인증 및 SignalR Service를 사용하여 인증 및 프라이빗 메시징이 포함된 대화방을 작성하는 단계별 자습서입니다.
 
 ## <a name="introduction"></a>소개
 
@@ -25,7 +25,7 @@ Azure Functions, App Service 인증 및 SignalR Service를 사용하여 인증 �
 * [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu) - 연결된 채팅 클라이언트에 새 메시지를 브로드캐스트합니다.
 * [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu) - 채팅 클라이언트 UI에 대한 정적 웹 사이트를 호스팅합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 작성하는 데 필요한 소프트웨어는 다음과 같습니다.
 
@@ -45,7 +45,7 @@ Azure Functions, App Service 인증 및 SignalR Service를 사용하여 인증 �
 
 Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미리 만들어야 하는 Azure의 SignalR Service 인스턴스에 액세스합니다.
 
-1. 새 Azure 리소스를 만들려면 **리소스 만들기**(**+**) 단추를 클릭합니다.
+1. 새 Azure 리소스를 만들려면 **리소스 만들기**( **+** ) 단추를 클릭합니다.
 
 1. **SignalR Service**를 검색하여 선택합니다. **만들기**를 클릭합니다.
 
@@ -53,10 +53,10 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
 
 1. 다음 정보를 입력합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 리소스 이름 | SignalR Service 인스턴스에 대한 고유한 이름입니다. |
-    | 리소스 그룹 | 고유한 이름으로 새 리소스 그룹을 만듭니다. |
+    | Resource group | 고유한 이름으로 새 리소스 그룹을 만듭니다. |
     | 위치 | 가까운 위치를 선택합니다. |
     | 가격 책정 계층 | 무료 |
 
@@ -145,11 +145,11 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 함수 앱 폴더 | 주 프로젝트 폴더를 선택합니다. |
-    | Template | HTTP 트리거 |
-    | Name | negotiate |
+    | 템플릿 | HTTP 트리거 |
+    | 속성 | negotiate |
     | 권한 부여 수준 | 익명 |
 
     새 함수가 포함된 **negotiate**라는 폴더가 만들어집니다.
@@ -204,11 +204,11 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 함수 앱 폴더 | 주 프로젝트 폴더를 선택합니다. |
-    | Template | HTTP 트리거 |
-    | Name | SendMessage |
+    | 템플릿 | HTTP 트리거 |
+    | 속성 | SendMessage |
     | 권한 부여 수준 | 익명 |
 
     새 함수가 포함된 **SendMessage**라는 폴더가 만들어집니다.
@@ -295,7 +295,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 ## <a name="deploy-to-azure-and-enable-authentication"></a>Azure에 배포 및 인증을 사용하도록 설정
 
-함수 앱 및 채팅 애플리케이션을 로컬로 실행했습니다. 이제 이러한 앱을 Azure에 배포하고 애플리케이션에서 인증 및 개인 메시징을 사용하도록 설정합니다.
+함수 앱 및 채팅 애플리케이션을 로컬로 실행했습니다. 이제 이러한 앱을 Azure에 배포하고 애플리케이션에서 인증 및 프라이빗 메시징을 사용하도록 설정합니다.
 
 ### <a name="log-into-azure-with-vs-code"></a>VS Code를 사용하여 Azure에 로그인
 
@@ -309,21 +309,21 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니다. Azure Storage의 정적 웹 사이트 기능을 사용하여 채팅 UI용 웹 페이지도 호스팅합니다.
 
-1. Azure Portal에서 새 Azure 리소스를 만들려면 **리소스 만들기**(**+**) 단추를 클릭합니다.
+1. Azure Portal에서 새 Azure 리소스를 만들려면 **리소스 만들기**( **+** ) 단추를 클릭합니다.
 
 1. **스토리지** 범주를 선택한 다음, **스토리지 계정**을 선택합니다.
 
 1. 다음 정보를 입력합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
-    | 구독 | SignalR Service 인스턴스가 포함된 구독 선택 |
-    | 리소스 그룹 | 동일한 리소스 그룹 선택 |
+    | Subscription | SignalR Service 인스턴스가 포함된 구독 선택 |
+    | Resource group | 동일한 리소스 그룹 선택 |
     | 리소스 이름 | 스토리지 계정에 대한 고유한 이름 |
     | 위치 | 다른 리소스와 동일한 위치 선택 |
     | 성능 | Standard |
     | 계정 종류 | StorageV2(범용 V2) |
-    | 복제 | LRS(로컬 중복 저장소) |
+    | 복제 | LRS(로컬 중복 스토리지) |
     | 액세스 계층 | 핫 |
 
 1. **검토 + 만들기**와 **만들기**를 차례로 클릭합니다.
@@ -367,18 +367,18 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 ### <a name="deploy-function-app-to-azure"></a>Azure에 함수 앱 배포
 
-1. VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Azure Functions: Function App에 배포**를 선택합니다.
+1. VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Azure Functions: 함수 앱에 배포**를 선택합니다.
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 배포할 폴더 | 주 프로젝트 폴더를 선택합니다. |
-    | 구독 | 구독 선택 |
-    | 함수 앱 | **새 Function App 만들기**를 선택합니다. |
+    | Subscription | 구독 선택 |
+    | 함수 앱 | **새 함수 앱 만들기**를 선택합니다. |
     | 함수 앱 이름 | 고유한 이름을 입력합니다. |
-    | 리소스 그룹 | SignalR Service 인스턴스와 동일한 리소스 그룹을 선택합니다. |
-    | Storage 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
+    | Resource group | SignalR Service 인스턴스와 동일한 리소스 그룹을 선택합니다. |
+    | 스토리지 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
 
     새 함수 앱이 Azure에 만들어지고 배포가 시작됩니다. 배포가 완료될 때가지 기다립니다.
 
@@ -390,10 +390,10 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
     | 로컬 설정 파일 | local.settings.json |
-    | 구독 | 구독 선택 |
+    | Subscription | 구독 선택 |
     | 함수 앱 | 이전에 배포한 함수 앱을 선택합니다. |
 
 로컬 설정이 Azure의 함수 앱에 업로드됩니다. 기존 설정을 덮어쓸지 묻는 메시지가 표시되면 **모두 예**를 선택합니다.
@@ -415,7 +415,7 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
 1. **요청이 인증되지 않은 경우 수행할 작업**에서 "{이전에 선택한 인증 공급자}를 사용하여 로그인"을 선택합니다.
 
-1. **허용되는 외부 리디렉션 URL**에서 앞에서 적어 둔 저장소 계정 기본 웹 엔드포인트의 URL을 입력합니다.
+1. **허용되는 외부 리디렉션 URL**에서 앞에서 적어 둔 스토리지 계정 기본 웹 엔드포인트의 URL을 입력합니다.
 
 1. 선택한 로그인 공급자에 대한 설명서에 따라 구성을 완료합니다.
 
@@ -439,7 +439,7 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
 1. 파일을 저장합니다.
 
-### <a name="deploy-the-web-application-to-blob-storage"></a>Blob Storage에 웹 응용 프로그램 배포
+### <a name="deploy-the-web-application-to-blob-storage"></a>Blob Storage에 웹 애플리케이션 배포
 
 웹 애플리케이션은 Azure Blob Storage의 정적 웹 사이트 기능을 사용하여 호스팅됩니다.
 
@@ -449,10 +449,10 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
 1. 다음 값을 입력합니다.
 
-    | Name | 값 |
+    | 속성 | 값 |
     |---|---|
-    | 구독 | 구독 선택 |
-    | Storage 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
+    | Subscription | 구독 선택 |
+    | 스토리지 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
     | 배포할 폴더 | **찾아보기**를 선택하고 *content* 폴더를 선택합니다. |
 
 *content* 폴더의 파일이 정적 웹 사이트에 배포됩니다.
@@ -477,13 +477,13 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
 
 ### <a name="try-the-application"></a>애플리케이션 사용해 보기
 
-1. 브라우저에서 저장소 계정의 기본 웹 엔드포인트로 이동합니다.
+1. 브라우저에서 스토리지 계정의 기본 웹 엔드포인트로 이동합니다.
 
 1. **로그인**을 선택하여 선택한 인증 공급자를 통해 인증합니다.
 
 1. 기본 채팅 상자에 공개 메시지를 입력하여 보냅니다.
 
-1. 채팅 기록에서 사용자 이름을 클릭하여 개인 메시지를 보냅니다. 선택한 받는 사람만 이러한 메시지를 받습니다.
+1. 채팅 기록에서 사용자 이름을 클릭하여 프라이빗 메시지를 보냅니다. 선택한 받는 사람만 이러한 메시지를 받습니다.
 
 축하합니다! 실시간 서버리스 채팅 앱을 배포했습니다!
 

@@ -4,38 +4,43 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145400"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "78669323"
 ---
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
-각 요청에 권한 부여 헤더가 필요합니다. 이 표에서는 각 서비스에 대해 지원되는 헤더를 보여 줍니다.
+각 요청에는 인증 헤더가 필요 합니다. 이 표에서는 각 서비스에 대해 지원되는 헤더를 보여 줍니다.
 
 | 지원되는 인증 헤더 | 음성 텍스트 변환 | 텍스트 음성 변환 |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | 예 | 아닙니다. |
-| 권한 부여: 전달자 | 예 | 예 |
+| Ocp-Apim-Subscription-Key | 예 | 예 |
+| Authorization: Bearer | 예 | 예 |
 
-`Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예를 들면 다음과 같습니다.
+`Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 다음은 그 예입니다.
 
-```
+```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-`Authorization: Bearer` 헤더를 사용하는 경우 `issueToken` 엔드포인트에 요청해야 합니다. 이 요청에서는 10분 동안 유효한 액세스 토큰에 대한 구독 키를 교환합니다. 다음 몇 개의 섹션에서는 토큰을 가져오고, 토큰을 사용하고, 토큰을 새로 고치는 방법을 알아보겠습니다.
-
+`Authorization: Bearer` 헤더를 사용하는 경우 `issueToken` 엔드포인트에 요청해야 합니다. 이 요청에서는 10분 동안 유효한 액세스 토큰에 대한 구독 키를 교환합니다. 다음 섹션에서는 토큰을 가져오고 토큰을 사용 하는 방법에 대해 알아봅니다.
 
 ### <a name="how-to-get-an-access-token"></a>액세스 토큰을 가져오는 방법
 
 액세스 토큰을 가져오려면 `Ocp-Apim-Subscription-Key` 및 구독 키를 사용하여 `issueToken` 엔드포인트에 요청해야 합니다.
 
-다음 지역 및 엔드포인트가 지원됩니다.
+끝점 `issueToken` 의 형식은 다음과 같습니다.
 
-[!INCLUDE [](./cognitive-services-speech-service-endpoints-token-service.md)]
+```http
+https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
+```
+
+이 `<REGION_IDENTIFIER>` 테이블에서 구독의 지역과 일치 하는 식별자로 대체 합니다.
+
+[!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
 이 샘플을 사용하여 액세스 토큰 요청을 만듭니다.
 
@@ -57,7 +62,7 @@ Content-Length: 0
 
 이 예제는 액세스 토큰을 가져오는 간단한 PowerShell 스크립트입니다. `YOUR_SUBSCRIPTION_KEY`를 Speech Service 구독 키로 바꿉니다. 사용자 구독과 일치하는 지역에 맞는 엔드포인트를 사용해야 합니다. 이 예제는 현재 미국 서부로 설정되어 있습니다.
 
-```Powershell
+```powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
   'Content-Length'= '0';
@@ -76,7 +81,7 @@ $OAuthToken
 
 cURL은 Linux(Linux용 Windows 하위 시스템)에서 사용할 수 있는 명령줄 도구입니다. 이 cURL 명령은 액세스 토큰을 가져오는 방법을 설명합니다. `YOUR_SUBSCRIPTION_KEY`를 Speech Service 구독 키로 바꿉니다. 사용자 구독과 일치하는 지역에 맞는 엔드포인트를 사용해야 합니다. 이 예제는 현재 미국 서부로 설정되어 있습니다.
 
-```cli
+```console
 curl -v -X POST
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
@@ -88,7 +93,7 @@ curl -v -X POST
 
 이 C# 클래스는 액세스 토큰을 가져오는 방법을 설명합니다. 이 클래스를 인스턴스화할 때 Speech Service 구독 키를 전달합니다. 구독이 미국 서부 지역이 아닌 경우 `FetchTokenUri`의 값을 구독의 지역과 일치하도록 변경합니다.
 
-```cs
+```csharp
 public class Authentication
 {
     public static readonly string FetchTokenUri =
@@ -130,6 +135,7 @@ public class Authentication
 import requests
 
 subscription_key = 'REPLACE_WITH_YOUR_KEY'
+
 
 def get_token(subscription_key):
     fetch_token_url = 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken'

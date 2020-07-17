@@ -8,17 +8,16 @@ manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 09/24/2018
+ms.topic: troubleshooting
+ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d5b35815e42b6c9fa5cbd874c0a58f5285c99539
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355916"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -28,16 +27,15 @@ ms.locfileid: "60381895"
 
 - 경우에 따라 Seamless SSO를 활성화하는 데 최대 30분이 소요될 수 있습니다.
 - 테넌트에서 Seamless SSO를 사용하지 않도록 설정했다가 다시 사용하도록 설정하면, 일반적으로 10시간 동안 유효한 캐시된 Kerberos 티켓이 만료될 때까지 Single Sign-On 환경을 사용할 수 없게 됩니다.
-- Microsoft Edge 브라우저는 지원되지 않습니다.
-- Seamless SSO가 성공하면 사용자에게 **로그인 유지**를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 [SharePoint 및 OneDrive 매핑 시나리오](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec)가 작동하지 않습니다.
+- Seamless SSO가 성공하면 사용자에게 **로그인 유지**를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 [SharePoint 및 OneDrive 매핑 시나리오가](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) 작동 하지 않습니다.
 - 버전 16.0.8730.xxxx 이상의 Office 365 Win32 클라이언트(Outlook, Word, Excel 등)는 비대화형 흐름을 사용하여 지원됩니다. 다른 버전이 지원되지 않습니다. 해당 버전에서 사용자는 암호가 아닌 해당 사용자 이름을 입력하여 로그인합니다. OneDrive의 경우 자동 로그온 환경에 대해 [OneDrive 자동 구성 기능](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894)을 활성화해야 합니다.
-- Firefox의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
+- Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
 - [향상된 보호] 모드가 설정되어 있는 경우 Internet Explorer에서 Seamless SSO가 작동하지 않습니다.
 - iOS 및 Android의 모바일 브라우저에서는 Seamless SSO가 작동하지 않습니다.
 - 사용자가 Active Directory에 있는 여러 그룹의 일부인 경우 사용자의 Kerberos 티켓은 처리하기에 너무 크기 때문에 원활한 SSO에 실패하게 됩니다. Azure AD HTTPS 요청에는 최대 50KB 크기인 헤더가 포함될 수 있습니다. Kerberos 티켓은 쿠키 등 다른 Azure AD 아티팩트(일반적으로 2~5KB)를 수용하는 제한보다 작아야 합니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도하는 것이 좋습니다.
 - 30개 이상의 Active Directory 포리스트를 동기화하는 경우 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-the-feature)하여 해결할 수 있습니다.
-- 로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 Azure AD 서비스 URL( https://autologon.microsoftazuread-sso.com) )을 추가하면 *사용자가 로그인하지 못하도록 차단됩니다*.
-- Seamless SSO는 Kerberos에 대해 **RC4_HMAC_MD5** 암호화 형식을 사용합니다. Active Directory 설정에서 **RC4_HMAC_MD5** 암호화 형식의 사용을 해제하면 Seamless SSO가 차단됩니다. 그룹 정책 관리 편집기 도구에서 **컴퓨터 구성 > Windows 설정 > 보안 설정 > 로컬 정책 > 보안 옵션 > 네트워크 보안: Kerberos에 허용된 암호화 유형 구성**에서 **RC4_HMAC_MD5** 에 대한 정책 값이 **사용**인지 확인합니다. 또한 Seamless SSO는 다른 암호화 형식을 사용할 수 없으므로 **해제됨**인지 확인해야 합니다.
+- `https://autologon.microsoftazuread-sso.com`로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 AZURE AD 서비스 URL ()을 추가 하면 *사용자가 로그인*하지 못하도록 차단 됩니다.
+- 원활한 SSO는 Kerberos에 대 한 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 종류를 지원 합니다. AzureADSSOAcc $ account의 암호화 유형을 AES256_HMAC_SHA1 또는 AES 유형 중 하나를 설정 하 여 보안을 강화 하는 것이 좋습니다. 암호화 유형은 Active Directory 계정의의 msds-primary-computer-Supported Types 특성에 저장 됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.md)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
 
 ## <a name="check-status-of-feature"></a>기능의 상태 확인
 
@@ -55,7 +53,7 @@ ms.locfileid: "60381895"
 
 ![Azure Active Directory 관리 센터: 로그인 보고서](./media/tshoot-connect-sso/sso9.png)
 
-[Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 **Azure Active Directory** > **로그인**으로 차례로 이동한 다음, 특정 사용자의 로그인 활동을 선택합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+**Azure Active Directory**  >  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 Azure Active Directory**로그인** 으로 이동한 다음 특정 사용자의 로그인 활동을 선택 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---
@@ -74,9 +72,9 @@ ms.locfileid: "60381895"
 
 다음 검사 목록을 사용하여 Seamless SSO 문제를 해결합니다.
 
-- Azure AD Connect에서 Seamless SSO 기능을 사용할 수 있는지 확인합니다. 차단된 포트 등과 같은 이유로 기능을 사용할 수 없으면 모든 [필수 구성 요소](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites)가 제대로 갖추어져 있는지 확인합니다.
+- Azure AD Connect에서 Seamless SSO 기능을 사용할 수 있는지 확인합니다. 차단 된 포트로 인해 기능을 사용 하도록 설정할 수 없는 경우 모든 [필수 구성 요소](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) 를 준비 했는지 확인 합니다.
 - 테넌트에서 [Azure AD Join](../active-directory-azureadjoin-overview.md) 및 Seamless SSO를 둘 다 사용하도록 설정한 경우에는 Azure AD Join의 문제는 아닌지 확인합니다. 디바이스가 Azure AD에 등록되고 도메인에 가입된 경우 Azure AD Join의 SSO가 Seamless SSO보다 우선합니다. Azure AD Join의 SSO를 사용하면 "Windows에 연결됨"이라는 로그인 타일이 표시됩니다.
-- Azure AD URL( https://autologon.microsoftazuread-sso.com) )이 사용자의 인트라넷 영역 설정에 속하는지 확인합니다.
+- Azure AD URL ( `https://autologon.microsoftazuread-sso.com` )이 사용자의 인트라넷 영역 설정의 일부 인지 확인 합니다.
 - 회사 디바이스가 Active Directory 도메인에 조인되어 있는지 확인합니다. Seamless SSO가 작동하려면 디바이스가 [Azure AD에 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
 - 사용자가 Active Directory 도메인 계정을 통해 디바이스에 로그온되어 있는지 확인합니다.
 - Seamless SSO가 설정된 Active Directory 포리스트에 사용자의 계정이 있는지 확인합니다.
@@ -114,24 +112,30 @@ ms.locfileid: "60381895"
 ### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>2단계: Seamless SSO를 사용하도록 설정된 Active Directory 포리스트 목록 가져오기
 
 1. PowerShell을 관리자 권한으로 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 메시지가 표시되면 테넌트의 전역 관리자 자격 증명을 입력합니다.
-2. `Get-AzureADSSOStatus`를 호출합니다. 이 명령은 이 기능을 사용하도록 설정된 Active Directory 포리스트 목록("도메인" 목록에 표시됨)을 제공합니다.
+2. `Get-AzureADSSOStatus`을 호출합니다. 이 명령은 이 기능을 사용하도록 설정된 Active Directory 포리스트 목록("도메인" 목록에 표시됨)을 제공합니다.
 
 ### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>3단계: 기능을 설정한 각 Active Directory 포리스트에 대한 Seamless SSO 사용 해제
 
-1. `$creds = Get-Credential`를 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
+1. `$creds = Get-Credential`을 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
    > [!NOTE]
-   > 의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
+   >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식(contoso\johndoe 또는 contoso.com\johndoe)으로 입력해야 합니다. 사용자 이름의 도메인 부분을 사용하여 DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다.
 
-2. `Disable-AzureADSSOForest -OnPremCredentials $creds`를 호출합니다. 이 명령은 이 특정 Active Directory 포리스트에 대한 온-프레미스 도메인 컨트롤러에서 `AZUREADSSOACC` 컴퓨터 계정을 제거합니다.
+   >[!NOTE]
+   >사용되는 도메인 관리자 계정은 보호된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패합니다.
+
+2. `Disable-AzureADSSOForest -OnPremCredentials $creds`을 호출합니다. 이 명령은 이 특정 Active Directory 포리스트에 대한 온-프레미스 도메인 컨트롤러에서 `AZUREADSSOACC` 컴퓨터 계정을 제거합니다.
 3. 기능을 설정한 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>4단계: 각 Active Directory 포리스트에 대한 Seamless SSO 사용 설정
 
-1. `Enable-AzureADSSOForest`를 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
+1. `Enable-AzureADSSOForest`을 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
    > [!NOTE]
-   > 의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
+   >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식(contoso\johndoe 또는 contoso.com\johndoe)으로 입력해야 합니다. 사용자 이름의 도메인 부분을 사용하여 DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다.
+
+   >[!NOTE]
+   >사용되는 도메인 관리자 계정은 보호된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패합니다.
 
 2. 기능을 설정하려는 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
 

@@ -1,71 +1,66 @@
 ---
-title: Azure Security Center에서 App Services 보호 | Microsoft Docs
-description: 이 문서는 Azure Security Center에서 App Services 보호를 시작하는 데 도움이 됩니다.
+title: Azure App Service 웹 앱 및 Api 보호
+description: 이 문서는 Azure Security Center에서 Azure App Service 웹 앱 및 Api를 보호 하기 시작 하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/27/2019
-ms.author: monhaber
-ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.date: 01/27/2019
+ms.author: memildin
+ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62095273"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77616477"
 ---
-# <a name="protect-app-service-with-azure-security-center"></a>Azure Security Center를 통해 App Service 보호
-이 문서에서는 Azure Security Center를 사용하여 App Service 기반으로 실행 중인 애플리케이션을 모니터링 및 보호하는 데 도움이 됩니다.
+# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Azure App Service 웹 앱 및 Api 보호
 
-App Service를 사용하면 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 애플리케이션을 빌드하고 호스팅할 수 있습니다. App Service는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps 또는 Git 리포지토리에서 자동화된 배포를 지원합니다. 
+Azure App Service는 인프라를 관리할 필요 없이 웹 앱 및 Api를 빌드하고 호스팅하기 위한 완전히 관리 되는 플랫폼입니다. 엔터프라이즈 수준의 성능, 보안 및 규정 준수 요구 사항을 충족 하는 관리, 모니터링 및 operational insights를 제공 합니다. 자세한 내용은 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 참조 하세요.
 
-종종 웹 애플리케이션의 취약성은 인터넷의 거의 모든 조직에 대한 공통 및 동적 인터페이스를 가지고 있으므로 공격자들이 종종 이를 악용합니다. App Service 기반으로 실행 중인 애플리케이션에 대한 요청은 각 요청의 해당 애플리케이션을 담당하는 전 세계 Azure 데이터센터에 배포된 여러 게이트웨이를 거칩니다. 
+Azure App Service 계획에 대 한 고급 위협 방지를 사용 하도록 설정 하려면 다음을 수행 해야 합니다.
 
-Azure Security Center는 VM 또는 주문형 인스턴스의 샌드박스에서 App Service를 실행하는 애플리케이션에 대해 평가 및 권장 사항을 실행할 수 있습니다. Security Center는 Azure가 클라우드 공급 기업으로서 보유한 가시성을 활용하여 App Service 내부 로그를 분석하여 종종 여러 대상에서 실행되는 공통적인 웹앱 공격을 모니터링합니다.
+* Azure Security Center의 표준 가격 책정 계층을 구독 합니다.
+* 아래와 같이 App Service 계획을 사용 하도록 설정 합니다. Security Center은 기본적으로 App Service와 통합 되어 배포 및 등록에 대 한 필요성을 제거 합니다. 통합은 투명 합니다.
+* 전용 컴퓨터와 연결 된 App Service 요금제가 있어야 합니다. 지원 되는 요금제는 Basic, Standard, Premium, Isolated 또는 Linux입니다. Security Center은 무료, 공유 또는 소비 계획을 지원 하지 않습니다. 자세한 내용은 [App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/plans/)를 참조 하세요.
 
-공격자가 정찰 단계에서 Azure에서 호스팅되는 여러 웹 사이트에서 취약성을 찾기 위한 검사를 수행하는 동안 Security Center는 클라우드 규모를 활용하여 App Service 애플리케이션에 대한 공격을 식별하고 신종 공격에 집중합니다. Security Center는 분석 및 기계 학습 모델을 사용하여, HTTP를 통해서든 관리 메서드를 통해서든 고객이 애플리케이션과 상호 작용하게 하는 모든 인터페이스를 다룹니다. 또한 Azure에서 당사자 서비스 형태인 Security Center는 이 PaaS에 대한 기본 계산 노드를 다루는 호스트 기반 보안 분석을 제공하는 고유한 입지에 있으므로 Security Center가 이미 악용된 웹 애플리케이션에 대한 공격을 탐지할 수 있습니다.
+App Service 계획을 사용 하도록 설정 하면 Security Center App Service 계획에 포함 된 리소스를 평가 하 고 해당 결과에 따라 보안 권장 사항을 생성 합니다. Security Center App Service를 실행 하는 VM 인스턴스와 관리 인터페이스를 보호 합니다. 또한 App Service에서 실행 중인 앱에서 송수신한 요청 및 응답을 모니터링합니다.
 
-## <a name="prerequisites"></a>필수 조건
-
-App Service를 모니터 및 보호하려면 전용 머신에 연결된 App Service 플랜이 있어야 합니다. 이러한 플랜은 Basic, Standard, Premium, Isolated 또는 Linux입니다. Azure Security Center는 Free, Shared 또는 Consumption 플랜은 지원하지 않습니다. 자세한 내용은 [App Service 플랜](https://azure.microsoft.com/pricing/details/app-service/plans/)을 참조하세요.
-
-## <a name="security-center-protection"></a>Security Center 보호
-
-Azure Security Center는 App Service가 실행 중인 VM 인스턴스와 관리 인터페이스를 보호합니다. 또한 App Service에서 실행 중인 앱에서 송수신한 요청 및 응답을 모니터링합니다.
-
-Security Center는 기본적으로 App Service와 통합되므로 배포 및 탑재 필요 없이 완전 자동 통합이 이루어집니다.
-
+Security Center는 클라우드의 규모와 Azure에서 클라우드 공급자로의 표시 유형을 활용 하 여 일반적인 웹 앱 공격을 모니터링 합니다. 공격자가 정찰 단계에 있는 동안에도 응용 프로그램에 대 한 공격을 검색 하 고 새로운 공격을 식별할 수 Security Center. Azure native Security Center service로 서는이 PaaS의 기본 계산 노드를 포함 하는 호스트 기반 보안 분석을 제공 하는 고유한 위치에도 있으므로 이미 악용 된 웹 응용 프로그램에 대 한 공격을 검색할 Security Center 있습니다. 자세한 내용은 [Azure App Service에 대 한 위협 방지](threat-protection.md#app-services)를 참조 하세요.
 
 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>App Service 모니터링 및 보호 사용
 
-1. Azure에서 Security Center를 선택합니다.
-2. **보안 정책**으로 이동하고 구독을 선택합니다.
-3. 구독 행 마지막에서 **설정 편집**을 클릭합니다.
-4. **가격 책정 계층** 아래에서 **App service** 행을 선택하고 플랜을 **사용**으로 토글합니다.
+1. Azure Portal에서 Security Center를 선택 합니다.
+2. **가격 책정 & 설정** 으로 이동 하 여 구독을 선택 합니다.
+3. **가격 책정 계층** 아래에서 **App service** 행을 선택하고 플랜을 **사용**으로 토글합니다.
 
-![앱 서비스 토글](./media/security-center-app-services/app-services-toggle.png)
+    [![표준 계층 구독에서 앱 서비스를 사용 하도록 설정](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
+
 
 >[!NOTE]
-> 리소스 수량에 나열된 인스턴스 수는 가격 책정 계층 블레이드를 연 시점에서 활성 상태인 App service의 관련 인스턴스 수를 나타냅니다. 이 수는 선택한 크기 조정 옵션에 따라 변경될 수 있으므로 요금이 청구되는 인스턴스 수가 그에 따라 변경됩니다.
+> **리소스 수량** 에 대해 나열 되는 인스턴스 수는 가격 책정 계층 블레이드를 열 때 실행 되는 현재 구독에 대 한 모든 App Service 계획의 총 계산 인스턴스 수를 나타냅니다.
+>
+> Azure App Service는 다양 한 계획을 제공 합니다. App Service 계획은 실행할 웹 앱에 대 한 계산 리소스 집합을 정의 합니다. 이는 기존 웹 호스팅의 서버 팜과 동일 합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다.
+>
+>카운트의 유효성을 검사 하려면 Azure Portal에서 ' App Service 요금제 '로 이동 합니다. 여기서 각 계획에 사용 되는 계산 인스턴스 수를 확인할 수 있습니다. 
+
+
+
+
+
 
 App Service에 대한 모니터링과 권장 사항을 사용하지 않도록 설정하려면 이 프로세스를 반복하고 **App Service** 플랜을 **사용 안 함**으로 토글합니다.
 
 
 
-## <a name="see-also"></a>참고 항목
-이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
+## <a name="see-also"></a>참조
+이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md): Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md): 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
-* [App Services](security-center-virtual-machine-protection.md#app-services):  상태 요약을 사용하여 App Service 환경 목록을 확인합니다.
-* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md): 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/): Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) - Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [앱 서비스](security-center-virtual-machine-protection.md#app-services): 상태 요약이 포함 된 app service environment의 목록을 봅니다.
+* [Azure Security Center에서 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

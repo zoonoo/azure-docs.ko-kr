@@ -4,21 +4,21 @@ description: Azure VM에서 로컬 Linux 암호를 다시 설정하는 단계 �
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "71153566"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Azure VM에서 로컬 Linux 암호를 다시 설정하는 방법
 
@@ -30,11 +30,14 @@ VM에 로그인할 수 없다면 사용한 암호가 잘못되었음을 나타�
 
 ## <a name="manual-password-reset-procedure"></a>수동 암호 다시 설정 프로시저
 
-1.  VM을 삭제하고 연결된 디스크를 유지합니다.
+> [!NOTE]
+> 다음 단계는 관리 되지 않는 디스크가 있는 VM에는 적용 되지 않습니다.
 
-2.  같은 위치에서 다른 임시 VM에 데이터 디스크로 OS 드라이브를 연결합니다.
+1. 영향을 받는 VM의 OS 디스크에 대 한 스냅숏을 만들고 스냅숏에서 디스크를 만든 다음 문제 해결 VM에 디스크를 연결 합니다. 자자세한 내용은 [Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결](troubleshoot-recovery-disks-portal-linux.md)을 참조하세요.
 
-3.  임시 VM에서 상위 사용자가 되는 다음과 같은 SSH 명령을 실행합니다.
+2. 원격 데스크톱을 사용하여 문제 해결 VM에 연결합니다.
+
+3.  문제 해결 VM에서 다음 SSH 명령을 실행 하 여 슈퍼 사용자가 될 수 있습니다.
 
     ```bash
     sudo su
@@ -59,7 +62,7 @@ VM에 로그인할 수 없다면 사용한 암호가 잘못되었음을 나타�
     mkdir /tempmount
     ```
 
-6.  탑재 지점에 OS 디스크를 탑재합니다. 일반적으로 *sdc1* 또는 *sdc2*를 탑재해야 합니다. 이는 손상된 컴퓨터 디스크의 */etc* 디렉터리에 있는 호스팅 파티션에 따라 달라집니다.
+6.  탑재 지점에 OS 디스크를 탑재합니다. 일반적으로 *sdc1* 또는 *sdc2*를 탑재 해야 합니다. 이는 손상 된 컴퓨터 디스크에서 */sing* 디렉터리의 호스팅 파티션에 따라 달라 집니다.
 
     ```bash
     mount /dev/sdc1 /tempmount
@@ -98,12 +101,12 @@ VM에 로그인할 수 없다면 사용한 암호가 잘못되었음을 나타�
     umount /tempmount
     ```
 
-11. 관리 포털에서 디스크를 분리합니다.
+11. Azure Portal에서 문제 해결 VM에서 디스크를 분리합니다.
 
-12. VM을 다시 만듭니다.
+12. [영향을 받는 VM용 OS 디스크를 변경합니다](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## <a name="next-steps"></a>다음 단계
 
 * [OS 디스크를 다른 Azure VM에 연결하여 Azure VM 문제 해결](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Azure CLI: 삭제 하 고 VHD에서 VM을 다시 배포 하는 방법](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI: VHD에서 VM을 삭제하고 다시 배포하는 방법](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

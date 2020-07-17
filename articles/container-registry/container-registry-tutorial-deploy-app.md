@@ -1,23 +1,19 @@
 ---
-title: 자습서 - Azure에서 지리적 복제 Docker 레지스트리에서 앱 배포
+title: 자습서 - 지역 복제 레지스트리에서 배포
 description: 지리적 복제 Azure Container Registry의 컨테이너 이미지를 사용하여 두 개의 다른 Azure 지역에 Linux 기반 웹앱을 배포합니다. 3부로 구성된 시리즈 중 제2부입니다.
-services: container-registry
-author: dlepow
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253836"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74456098"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry에서 웹앱 배포
 
-세 부분으로 이루어진 자습서 시리즈의 두 번째 부분입니다. [1부](container-registry-tutorial-prepare-registry.md)에서 지리적 복제 개인 컨테이너 레지스트리가 작성되었으며 컨테이너 이미지가 원본에서 빌드되어 레지스트리로 푸시되었습니다. 이 문서에서는 서로 다른 두 Azure 지역에 있는 두 웹앱 인스턴스에 컨테이너를 배포하여 지리적 복제 레지스트리의 네트워크-인접 측면을 활용합니다. 그러면 각 인스턴스는 가장 가까운 레지스트리에서 컨테이너 이미지를 가져옵니다.
+세 부분으로 이루어진 자습서 시리즈의 두 번째 부분입니다. [1부](container-registry-tutorial-prepare-registry.md)에서 지리적 복제 프라이빗 컨테이너 레지스트리가 작성되었으며 컨테이너 이미지가 원본에서 빌드되어 레지스트리로 푸시되었습니다. 이 문서에서는 서로 다른 두 Azure 지역에 있는 두 웹앱 인스턴스에 컨테이너를 배포하여 지리적 복제 레지스트리의 네트워크-인접 측면을 활용합니다. 그러면 각 인스턴스는 가장 가까운 레지스트리에서 컨테이너 이미지를 가져옵니다.
 
 이 자습서는 시리즈의 2부입니다.
 
@@ -54,7 +50,11 @@ Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App fo
 | **사이트 이름** | 웹앱에 대한 전역적으로 고유한 이름입니다. 이 예제에서는 `<acrName>-westus` 형식을 사용하여 웹앱이 배포된 레지스트리 및 영역을 쉽게 식별합니다. |
 | **리소스 그룹** | **기존 항목 사용** > `myResourceGroup` |
 | **App Service 계획/위치** | **미국 서부** 영역에 `plan-westus`라는 새 계획을 만듭니다. |
-| **이미지** | `acr-helloworld:v1`
+| **이미지** | `acr-helloworld:v1` |
+| **운영 체제** | Linux |
+
+> [!NOTE]
+> 컨테이너형 앱을 배포하기 위한 새 앱 서비스 계획을 만들 때 애플리케이션을 호스팅하기 위한 기본 계획이 자동으로 선택됩니다. 기본 계획은 운영 체제 설정에 따라 달라집니다.
 
 웹앱을 *미국 서부* 영역에 프로비저닝하려면 **만들기**를 선택합니다.
 
@@ -83,7 +83,8 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 | **사이트 이름** | 웹앱에 대한 전역적으로 고유한 이름입니다. 이 예제에서는 `<acrName>-eastus` 형식을 사용하여 웹앱이 배포된 레지스트리 및 영역을 쉽게 식별합니다. |
 | **리소스 그룹** | **기존 항목 사용** > `myResourceGroup` |
 | **App Service 계획/위치** | **미국 동부** 영역에 `plan-eastus`라는 새 계획을 만듭니다. |
-| **이미지** | `acr-helloworld:v1`
+| **이미지** | `acr-helloworld:v1` |
+| **운영 체제** | Linux |
 
 웹앱을 *미국 동부* 영역에 프로비저닝하려면 **만들기**를 선택합니다.
 

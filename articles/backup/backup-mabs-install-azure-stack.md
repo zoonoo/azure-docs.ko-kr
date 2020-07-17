@@ -1,21 +1,13 @@
 ---
-title: Azure Stack에 Azure Backup Server 설치 | Microsoft Docs
-description: Azure Backup Server를 사용하여 Azure Stack에 워크로드를 백업하거나 보호합니다.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
+title: Azure Stack에 Azure Backup Server 설치
+description: 이 문서에서는 Azure Backup Server를 사용하여 Azure Stack에서 워크로드를 보호하거나 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: raynew
-ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852142"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747445"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -26,6 +18,7 @@ ms.locfileid: "60852142"
 >
 
 ## <a name="azure-backup-server-protection-matrix"></a>Azure Backup Server 보호 매트릭스
+
 Azure Backup Server는 다음과 같은 Azure Stack 가상 머신 워크로드를 보호합니다.
 
 | 보호된 데이터 원본 | 보호 및 복구 |
@@ -47,21 +40,27 @@ Azure Backup Server는 다음과 같은 Azure Stack 가상 머신 워크로드�
 Azure Stack 환경에서 Azure Backup Server를 설치하는 경우 이 섹션의 권장 사항을 고려해야 합니다. 환경에 필수 구성 요소가 있는지 Azure Backup Server 설치 관리자가 검사하지만, 설치하기 전에 미리 준비해 놓으면 시간을 절약할 수 있습니다.
 
 ### <a name="determining-size-of-virtual-machine"></a>가상 머신의 크기 결정
+
 Azure Stack 가상 머신에서 Azure Backup Server를 실행하려면 A2 이상의 크기를 사용합니다. 가상 머신 크기를 선택하는 데 도움이 필요한 경우 [Azure Stack VM 크기 계산기](https://www.microsoft.com/download/details.aspx?id=56832)를 다운로드합니다.
 
 ### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Azure Stack 가상 머신의 가상 네트워크
+
 Azure Stack 워크로드에서 사용되는 모든 가상 머신은 동일한 Azure 가상 네트워크 및 Azure 구독에 속해야 합니다.
 
 ### <a name="azure-backup-server-vm-performance"></a>Azure Backup Server VM 성능
-다른 가상 머신과 공유하는 경우 저장소 계정 크기 및 IOPS 제한이 Azure Backup Server VM 성능에 영향을 줍니다. 이러한 이유로 Azure Backup Server 가상 머신에 대한 별도 저장소 계정을 사용해야 합니다. Azure Backup Server에서 실행되는 Azure Backup 에이전트에는 다음을 위한 임시 저장소가 필요합니다.
+
+다른 가상 머신과 공유하는 경우 스토리지 계정 크기 및 IOPS 제한이 Azure Backup Server VM 성능에 영향을 줍니다. 이러한 이유로 Azure Backup Server 가상 머신에 대한 별도 스토리지 계정을 사용해야 합니다. Azure Backup Server에서 실행되는 Azure Backup 에이전트에는 다음을 위한 임시 스토리지가 필요합니다.
+
 - 고유한 용도(캐시 위치)
 - 클라우드(로컬 준비 영역)에서 복원된 데이터
 
-### <a name="configuring-azure-backup-temporary-disk-storage"></a>Azure Backup 임시 디스크 저장소 구성
-각 Azure Stack 가상 머신에는 `D:\` 볼륨으로 사용자에게 제공되는 임시 디스크 저장소가 제공됩니다. Azure Backup에 필요한 로컬 준비 영역은 `D:\`에 위치하도록 구성할 수 있습니다. 캐시 위치는 `C:\`에 배치할 수 있습니다. 이러한 방식으로 Azure Backup Server 가상 머신에 연결된 데이터 디스크에서 저장소가 떨어지지 않아도 됩니다.
+### <a name="configuring-azure-backup-temporary-disk-storage"></a>Azure Backup 임시 디스크 스토리지 구성
+
+각 Azure Stack 가상 머신에는 `D:\` 볼륨으로 사용자에게 제공되는 임시 디스크 스토리지가 제공됩니다. Azure Backup에 필요한 로컬 준비 영역은 `D:\`에 위치하도록 구성할 수 있습니다. 캐시 위치는 `C:\`에 배치할 수 있습니다. 이러한 방식으로 Azure Backup Server 가상 머신에 연결된 데이터 디스크에서 스토리지가 떨어지지 않아도 됩니다.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>로컬 디스크 및 Azure에 백업 데이터 저장
-Azure Backup Server는 작업 복구를 위해 가상 머신에 연결된 Azure 디스크에 백업 데이터를 저장합니다. 디스크 및 저장소 공간이 가상 머신에 연결되면 Azure Backup Server에서는 저장소를 관리합니다. 백업 데이터 저장소의 크기는 [Azure Stack 가상 머신](/azure-stack/user/azure-stack-storage-overview) 각각에 연결된 디스크의 크기와 수에 따라 달라집니다. 각 Azure Stack VM 크기에는 가상 머신에 연결할 수 있는 디스크의 최대 수가 포함됩니다. 예를 들어 A2는 4개의 디스크입니다. A3은 8개의 디스크입니다. A4는 16개의 디스크입니다. 또한 디스크 크기와 수는 총 백업 저장소 풀을 결정합니다.
+
+Azure Backup Server는 작업 복구를 위해 가상 머신에 연결된 Azure 디스크에 백업 데이터를 저장합니다. 디스크 및 스토리지 공간이 가상 머신에 연결되면 Azure Backup Server에서는 스토리지를 관리합니다. 백업 데이터 스토리지의 크기는 [Azure Stack 가상 머신](/azure-stack/user/azure-stack-storage-overview) 각각에 연결된 디스크의 크기와 수에 따라 달라집니다. 각 Azure Stack VM 크기에는 가상 머신에 연결할 수 있는 디스크의 최대 수가 포함됩니다. 예를 들어 A2는 4개의 디스크입니다. A3은 8개의 디스크입니다. A4는 16개의 디스크입니다. 또한 디스크 크기와 수는 총 백업 스토리지 풀을 결정합니다.
 
 > [!IMPORTANT]
 > 5일 넘게 Azure Backup Server에 연결된 디스크에서 작업 복구(백업) 데이터를 유지**하지** 않아야 합니다.
@@ -70,12 +69,14 @@ Azure Backup Server는 작업 복구를 위해 가상 머신에 연결된 Azure 
 Azure에서 백업 데이터를 저장하면 Azure Stack에서 백업 인프라를 줄일 수 있습니다. 데이터가 5일이 넘으면 Azure에 저장되어야 합니다.
 
 Azure에서 백업 데이터를 저장하려면 Recovery Services 자격 증명 모음을 만들거나 사용합니다. Azure Backup Server 워크로드를 백업하도록 준비할 때 [Recovery Services 자격 증명 모음을 구성](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault)합니다. 구성되면 백업 작업이 실행될 때마다 자격 증명 모음에서 복구 지점이 생성됩니다. 각 Recovery Services 자격 증명 모음은 최대 9999개의 복구 지점을 유지합니다. 만든 복구 지점의 수 및 유지되는 기간에 따라 여러 해 동안 백업 데이터를 유지할 수 있습니다. 예를 들어 매월 복구 지점을 만들고 5년 동안 유지할 수 있습니다.
- 
+
 ### <a name="scaling-deployment"></a>배포 크기 조정
+
 배포의 크기를 조정하려는 경우 다음 옵션을 사용할 수 있습니다.
-  - 강화 - A 시리즈부터 D 시리즈까지 Azure Backup Server 가상 머신의 크기를 늘리고, [Azure Stack 가상 머신 지침당](/azure-stack/user/azure-stack-manage-vm-disks) 로컬 저장소를 늘립니다.
-  - 데이터 오프로드 - Azure에 이전 데이터를 전송하고, Azure Backup Server에 연결된 저장소에 최신 데이터만 유지합니다.
-  - 규모 확장 - Azure Backup Server를 더 추가하여 워크로드를 보호합니다.
+
+- 강화 - A 시리즈부터 D 시리즈까지 Azure Backup Server 가상 머신의 크기를 늘리고, [Azure Stack 가상 머신 지침당](/azure-stack/user/azure-stack-manage-vm-disks) 로컬 스토리지를 늘립니다.
+- 데이터 오프로드 - Azure에 이전 데이터를 전송하고, Azure Backup Server에 연결된 스토리지에 최신 데이터만 유지합니다.
+- 규모 확장 - Azure Backup Server를 더 추가하여 워크로드를 보호합니다.
 
 ### <a name="net-framework"></a>.NET Framework
 
@@ -89,10 +90,11 @@ Azure Backup Server 가상 머신을 도메인에 조인해야 합니다. 관리
 
 Azure Backup Server에 사용할 서버를 선택할 때 Windows Server 2012 R2 Datacenter 또는 Windows Server 2016 Datacenter 갤러리 이미지로 시작하는 것이 좋습니다. [Azure Portal에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서는 권장 가상 머신을 시작하는 방법에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 2코어 및 3.5GB RAM의 A2 Standard입니다.
 
-Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://technet.microsoft.com/library/jj852163.aspx)문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
+Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [MABS용 보호 매트릭스](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 가상 머신에서 실행되도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
+>
 > - 도메인 컨트롤러로 실행하는 컴퓨터
 > - 애플리케이션 서버 역할이 설치된 컴퓨터
 > - Exchange Server를 실행하는 컴퓨터
@@ -102,35 +104,35 @@ Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘�
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
-### <a name="set-storage-replication"></a>저장소 복제 설정
+### <a name="set-storage-replication"></a>스토리지 복제 설정
 
-Recovery Services 자격 증명 모음 저장소 복제를 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 저장소를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 저장소 옵션을 지역 중복 저장소 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
-저장소 복제 설정을 편집하려면
+스토리지 복제 설정을 편집하려면
 
 1. 자격 증명 모음 대시보드 및 설정 메뉴를 열 자격 증명 모음을 선택합니다. **설정** 메뉴가 열리지 않을 경우 자격 증명 모음 대시보드에서 **모든 설정**을 클릭합니다.
-2. **설정** 메뉴에서 **Backup 인프라** > **Backup 구성**을 클릭하여 **Backup 구성** 메뉴를 엽니다. **백업 구성** 메뉴에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다.
+2. **설정** 메뉴에서 **Backup 인프라** > **Backup 구성**을 클릭하여 **Backup 구성** 메뉴를 엽니다. **백업 구성** 메뉴에서 자격 증명 모음에 대한 스토리지 복제 옵션을 선택합니다.
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
 ## <a name="download-azure-backup-server-installer"></a>Azure Backup Server 설치 관리자 다운로드
 
-Azure Backup Server 설치 관리자를 다운로드하는 두 가지 방법이 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=55269)에서 Azure Backup Server 설치 관리자를 다운로드할 수 있습니다. Recovery Services 자격 증명 모음을 구성할 때 Azure Backup Server 설치 관리자를 다운로드할 수도 있습니다. 다음은 Recovery Services 자격 증명 모음을 구성하는 동안 Azure Portal에서 설치 관리자를 다운로드하는 단계입니다.
+Azure Backup Server 설치 관리자를 다운로드하는 두 가지 방법이 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=55269)에서 Azure Backup Server 설치 관리자를 다운로드할 수 있습니다. Recovery Services 자격 증명 모음을 구성할 때 Azure Backup Server 설치 관리자를 다운로드할 수도 있습니다. 다음은 Recovery Services 자격 증명 모음을 구성하는 동안 Azure Portal에서 설치 관리자를 다운로드하는 단계입니다.
 
 1. Azure Stack 가상 머신에서, [Azure Portal에서 Azure 구독에 로그인](https://portal.azure.com/)합니다.
 2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
 
-    ![주 메뉴에서 [모든 서비스] 옵션을 선택합니다.](./media/backup-mabs-install-azure-stack/click-all-services.png)
+    ![주 메뉴에서 모든 서비스 옵션 선택](./media/backup-mabs-install-azure-stack/click-all-services.png)
 
 3. **모든 서비스** 대화 상자에서 *Recovery Services*를 입력합니다. 입력하기 시작하면 입력은 리소스 목록을 필터링합니다. **Recovery Services 자격 증명 모음**이 보이면 선택합니다.
 
     ![모든 서비스 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/all-services.png)
 
-    구독에 Recovery Services 자격 증명 모음 목록이 표시됩니다.
+    구독의 Recovery Services 자격 증명 모음 목록이 표시됩니다.
 
 4. Recovery Services 자격 증명 모음 목록에서 해당 자격 증명 모음을 선택하여 대시보드를 엽니다.
 
-    ![[모든 서비스] 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/rs-vault-dashboard.png)
+    ![모든 서비스 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/rs-vault-dashboard.png)
 
 5. 자격 증명 모음의 [시작] 메뉴에서 **백업**을 클릭하여 [시작] 마법사를 엽니다.
 
@@ -240,7 +242,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    스크래치 위치는 Azure에 백업하는 데 필요합니다. 스크래치 위치의 크기는 Azure에 백업하기로 계획된 데이터의 5% 이상이어야 합니다. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 저장소 풀에 관련된 자세한 내용은 [저장소 풀 및 디스크 저장소 구성](https://technet.microsoft.com/library/hh758075.aspx)을 참조하세요.
+    스크래치 위치는 Azure에 백업하는 데 필요합니다. 스크래치 위치의 크기는 Azure에 백업하기로 계획된 데이터의 5% 이상이어야 합니다. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 스토리지 풀에 대한 자세한 내용은 [데이터 스토리지 준비](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)를 참조하세요.
 
 6. **보안 설정** 화면에서, 제한된 로컬 사용자 계정에 강력한 암호를 제공하고 **다음**을 클릭합니다.
 
@@ -304,12 +306,12 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
     설치가 완료되면 서버 데스크톱에 Azure Backup Server 콘솔 및 Azure Backup Server PowerShell 아이콘이 생성됩니다.
 
-## <a name="add-backup-storage"></a>백업 저장소 추가
+## <a name="add-backup-storage"></a>백업 스토리지 추가
 
-첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 저장소에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [최신 백업 저장소 추가](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801)를 참조합니다.
+첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 스토리지에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [최신 백업 스토리지 추가](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801)를 참조합니다.
 
 > [!NOTE]
-> 데이터를 Azure에 전송하려는 경우에도 백업 저장소를 추가해야 합니다. Azure Backup Server 아키텍처에서, Recovery Services 자격 증명 모음에는 데이터의 *두 번째* 복사본이 보관되고 로컬 저장소에는 첫 번째(및 필수) 백업 복사본이 보관됩니다.
+> 데이터를 Azure에 전송하려는 경우에도 백업 스토리지를 추가해야 합니다. Azure Backup Server 아키텍처에서, Recovery Services 자격 증명 모음에는 데이터의 *두 번째* 복사본이 보관되고 로컬 스토리지에는 첫 번째(및 필수) 백업 복사본이 보관됩니다.
 >
 >
 
@@ -332,7 +334,7 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
 
-방화벽 또는 프록시가 Azure에 대한 액세스를 차단하고 있는 경우 방화벽/프록시 프로필에서 다음 도메인 주소를 허용 목록에 추가해야 합니다.
+방화벽 또는 프록시가 Azure에 대한 액세스를 차단하고 있는 경우 방화벽/프록시 프로필 허용 목록에 다음 도메인 주소를 추가합니다.
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
@@ -340,7 +342,7 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 - \*.microsoftonline.com
 - \*.windows.net
 
-Azure에 대한 연결이 Azure Backup Server로 복원되면 Azure 구독 상태에 따라 수행 가능한 작업이 결정됩니다. 서버가 **연결되면** [네트워크 연결](backup-mabs-install-azure-stack.md#network-connectivity)의 테이블을 사용하여 사용 가능한 작업을 볼 수 있습니다.
+Azure에 대한 연결이 Azure Backup Server로 복원되면 Azure 구독 상태에 따라 수행 가능한 작업이 결정됩니다. 서버가 **연결되면**[네트워크 연결](backup-mabs-install-azure-stack.md#network-connectivity)의 테이블을 사용하여 사용 가능한 작업을 볼 수 있습니다.
 
 ### <a name="handling-subscription-states"></a>구독 상태 처리
 

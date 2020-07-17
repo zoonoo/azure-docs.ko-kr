@@ -13,12 +13,11 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 2919e021d6b70ce82a6ff6b1d1972dd89de95104
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799479"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76990507"
 ---
 # <a name="manage-multiple-tenants"></a>여러 테넌트 관리
 
@@ -45,7 +44,7 @@ ms.locfileid: "65799479"
 * 테넌트당 여러 개의 Video Indexer(및 관련 Media Services) 계정을 사용하므로 관리 작업이 더 어렵습니다.
 
 > [!TIP]
-> [Video Indexer 개발자 포털](https://api-portal.videoindexer.ai/)에서 시스템의 관리 사용자를 만들고 권한 부여 API를 사용하여 테넌트에 관련된 [계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token)을 제공합니다.
+> [Video Indexer 개발자 포털](https://api-portal.videoindexer.ai/)에서 시스템의 관리 사용자를 만들고 권한 부여 API를 사용하여 테넌트에 관련된 [계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token)을 제공합니다.
 
 ## <a name="single-video-indexer-account-for-all-users"></a>모든 사용자에 대해 단일 Video Indexer 계정 사용
 
@@ -68,7 +67,7 @@ ms.locfileid: "65799479"
 
 ## <a name="azure-subscription-per-tenant"></a>테넌트당 Azure 구독 사용 
 
-이 아키텍처를 사용하는 경우 각 테넌트에 고유한 Azure 구독이 있습니다. 테넌트 구독에서 각 사용자에 대한 새 Video Indexer 계정을 만듭니다.
+이 아키텍처를 사용 하는 경우 각 테 넌 트에는 자체 Azure 구독이 있습니다. 테넌트 구독에서 각 사용자에 대한 새 Video Indexer 계정을 만듭니다.
 
 ![테넌트당 Azure 구독 사용](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 

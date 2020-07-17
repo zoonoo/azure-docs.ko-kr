@@ -6,6 +6,8 @@
       href: api-management-key-concepts.md
     - name: API Management 기능 가용성
       href: api-management-features.md
+    - name: AKS에 배포된 마이크로서비스 관리
+      href: api-management-kubernetes.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -32,13 +34,15 @@
     - name: 8 - 여러 버전 추가
       href: api-management-get-started-publish-versions.md
     - name: 9 - 개발자 포털 사용자 지정
-      href: api-management-customize-styles.md
+      href: api-management-howto-developer-portal-customize.md
 - name: 샘플
   items:
     - name: 정책
-      href: policy-samples.md
+      href: ./policies/index.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Azure Policy 기본 제공 기능
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 용어
@@ -49,6 +53,12 @@
           href: api-management-howto-policies.md
         - name: 정책 참조 인덱스
           href: api-management-policies.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
+        - name: 기본 제공 보안 컨트롤
+          href: api-management-security-controls.md
     - name: Subscriptions
       href: api-management-subscriptions.md
     - name: 자동화를 사용하여 관리
@@ -57,8 +67,8 @@
       href: api-management-error-handling-policies.md
     - name: API 가져오기 제한
       href: api-management-api-import-restrictions.md
-    - name: Azure 공통 보안 특성
-      href: api-management-security-attributes.md
+    - name: 자체 호스팅 게이트웨이 개요
+      href: self-hosted-gateway-overview.md
 - name: 방법 가이드
   items:
     - name: API 정의
@@ -73,7 +83,7 @@
           href: restify-soap-api.md
         - name: API 앱 가져오기
           href: import-api-app-as-api.md
-        - name: Function App 가져오기
+        - name: 함수 앱 가져오기
           href: import-function-app-as-api.md
         - name: 논리 앱 가져오기
           href: import-logic-app-as-api.md
@@ -91,6 +101,18 @@
           href: api-management-howto-autoscale.md
         - name: 사용자 지정 도메인 구성
           href: configure-custom-domain.md
+        - name: 여러 Azure 지역에 배포
+          href: api-management-howto-deploy-multi-region.md
+        - name: 자체 호스팅 게이트웨이 프로비전
+          href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Azure Kubernetes Service에 자체 호스팅 게이트웨이 배포
+          href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
+        - name: Kubernetes에 자체 호스팅 게이트웨이 배포
+          href: how-to-deploy-self-hosted-gateway-kubernetes.md
+        - name: Docker에 자체 호스팅 게이트웨이 배포
+          href: how-to-deploy-self-hosted-gateway-docker.md
+        - name: 자체 호스팅 게이트웨이에 대한 사용자 지정 도메인 구성
+          href: api-management-howto-configure-custom-domain-gateway.md
     - name: 캐시
       items:
         - name: 성능 개선을 위해 캐싱 추가
@@ -107,6 +129,8 @@
       items:
         - name: Azure AD로 API 보호
           href: api-management-howto-protect-backend-with-aad.md
+        - name: Azure AD B2C를 사용하여 SPA 백 엔드 API 보호
+          href: howto-protect-backend-frontend-azure-ad-b2c.md
         - name: 가상 네트워크에 연결
           href: api-management-using-with-vnet.md
         - name: 내부 가상 네트워크에 연결
@@ -121,13 +145,11 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: 개발자 환경 사용자 지정
       items:
-        - name: 페이지 콘텐츠 및 레이아웃 수정
-          href: api-management-modify-content-layout.md
-        - name: 템플릿을 사용하여 시스템 페이지 사용자 지정
-          href: api-management-developer-portal-templates.md
-        - name: Azure AD를 사용하는 인증
+        - name: 개발자 포털 이해
+          href: api-management-howto-developer-portal.md
+        - name: Azure AD를 사용하여 인증
           href: api-management-howto-aad.md
-        - name: Azure AD B2C를 사용하는 인증
+        - name: Azure AD B2C를 사용하여 인증
           href: api-management-howto-aad-b2c.md
         - name: 위임된 인증
           href: api-management-howto-setup-delegation.md
@@ -135,6 +157,34 @@
           href: api-management-howto-configure-notifications.md
         - name: 콘솔 OAuth 지원 사용
           href: api-management-howto-oauth2.md
+        - name: 레거시 포털 - 포털 사용자 지정
+          href: api-management-customize-styles.md
+        - name: 레거시 포털 - 페이지 및 레이아웃 수정
+          href: api-management-modify-content-layout.md
+        - name: 레거시 포털 - 템플릿으로 사용자 지정
+          href: api-management-developer-portal-templates.md
+    - name: 레거시 포털 템플릿
+      items:
+        - name: 데이터 모델 참조
+          href: api-management-template-data-model-reference.md
+        - name: 페이지 컨트롤
+          href: api-management-page-controls.md
+        - name: 템플릿
+          href: api-management-developer-portal-templates-reference.md
+        - name: API
+          href: api-management-api-templates.md
+        - name: Products
+          href: api-management-product-templates.md
+        - name: 애플리케이션
+          href: api-management-application-templates.md
+        - name: 문제
+          href: api-management-issue-templates.md
+        - name: 사용자 프로필
+          href: api-management-user-profile-templates.md
+        - name: 페이지
+          href: api-management-page-templates.md
+        - name: 템플릿 리소스
+          href: api-management-template-resources.md
     - name: 정책 정의
       items:
         - name: 정책 설정 또는 편집
@@ -163,38 +213,22 @@
           href: api-management-cross-domain-policies.md
         - name: 변환 정책
           href: api-management-transformation-policies.md
-    - name: 템플릿 참조
-      items:
-        - name: 템플릿
-          href: api-management-developer-portal-templates-reference.md
-        - name: API
-          href: api-management-api-templates.md
-        - name: Products
-          href: api-management-product-templates.md
-        - name: 애플리케이션
-          href: api-management-application-templates.md
-        - name: 문제
-          href: api-management-issue-templates.md
-        - name: 사용자 프로필
-          href: api-management-user-profile-templates.md
-        - name: 페이지
-          href: api-management-page-templates.md
-        - name: 템플릿 리소스
-          href: api-management-template-resources.md
-    - name: 데이터 모델 참조
-      href: api-management-template-data-model-reference.md
-    - name: 페이지 컨트롤
-      href: api-management-page-controls.md
     - name: 프로덕션에서 관리
       items:
+        - name: Power Platform으로 API 내보내기
+          href: export-api-power-platform.md
         - name: 그룹 관리
           href: api-management-howto-create-groups.md
-        - name: 여러 Azure 지역에 배포
-          href: api-management-howto-deploy-multi-region.md
+        - name: IP 주소 검색
+          href: api-management-howto-ip-addresses.md
         - name: Azure Event Hubs에 이벤트 기록
           href: api-management-howto-log-event-hubs.md
         - name: Azure Application Insights를 사용하여 로그 요청
           href: api-management-howto-app-insights.md
+        - name: 자체 호스팅 게이트웨이에 대한 클라우드 메트릭 및 로그 구성
+          href: how-to-configure-cloud-metrics-logs.md
+        - name: 자체 호스팅 게이트웨이에 대한 로컬 메트릭 및 로그 구성
+          href: how-to-configure-local-metrics-logs.md
         - name: 백업/복원을 사용하여 DR 설정
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: 사용자 계정 관리
@@ -203,6 +237,8 @@
           href: api-management-configuration-repository-git.md
         - name: 역할 기반 액세스 제어 사용
           href: api-management-role-based-access-control.md
+        - name: API Management 인스턴스 마이그레이션
+          href: api-management-howto-migrate.md
         - name: Azure 리소스에 대한 관리 ID 사용
           href: api-management-howto-use-managed-service-identity.md
         - name: Service Fabric과 통합
@@ -211,10 +247,10 @@
               href: ../service-fabric/service-fabric-api-management-overview.md
             - name: 자습서
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure PowerShell
-      href: /powershell/azure/overview
+      href: /powershell/module/az.apimanagement/?view=azps-2.6.0
     - name: REST (영문)
       href: /rest/api/apimanagement/
     - name: REST(원본)
@@ -225,7 +261,7 @@
   items:
     - name: FAQ
       href: api-management-faq.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://aka.ms/apimpricing'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
@@ -235,11 +271,13 @@
       href: 'https://aka.ms/apimwish'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt'
-    - name: 스택 오버플로
+    - name: Microsoft Q&A 질문 페이지
+      href: /answers/topics/azure-api-management.html
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-api-management'
     - name: API 디자인 지침
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+      href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: API 구현 지침
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+      href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+    - name: 호스트 이름 오류를 업데이트하지 못하는 문제 해결
+      href: api-management-troubleshoot-cannot-add-custom-domain.md

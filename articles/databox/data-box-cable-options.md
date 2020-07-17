@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: ffabd917eff1c545bba734ab1621b947ee8d9ae9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77920640"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Azure Data Box의 케이블 연결 옵션
 
@@ -39,7 +38,7 @@ ms.locfileid: "58077550"
     - **IP 주소**를 192.168.100.5로 설정
     - **서브넷**을 255.255.255.0으로 설정
 
-3. 다음 주소에서 디바이스의 로컬 웹 UI에 액세스합니다. 192.168.100.10. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
+3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 
 
 ## <a name="transfer-via-data-port-with-static-ips"></a>고정 IP를 사용하여 DATA 포트를 통해 전송
@@ -67,14 +66,14 @@ ms.locfileid: "58077550"
 
      ![2개 포트 설치](media/data-box-cable-options/cabling-2-port-setup.png)
 
-3. 다음 주소에서 디바이스의 로컬 웹 UI에 액세스합니다. 192.168.100.10. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
+3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. 구성한 데이터 포트에 고정 IP를 할당합니다.
 
 ### <a name="option-2---initial-setup-via-separate-computer"></a>옵션 2 - 별도의 컴퓨터를 통한 초기 설치
 
 다음 단계를 수행하여 디바이스에 케이블을 연결합니다.
 
-1. 서버의 RJ45 이더넷 케이블을 구성할 MGMT 포트에 바로 사용합니다.
+1. 구성을 위해 별도의 컴퓨터에서 MGMT 포트로 직접 RJ45 이더넷 케이블을 사용합니다.
 2. DATA 3용 RJ45나 SFP+ 케이블을 통해 서버에 DATA 1 또는 DATA 2를 연결합니다. 성능 향상을 위해 10GbE DATA 1 또는 DATA 2 포트를 사용하는 것이 좋습니다. 데이터 포트는 10GbE 스위치를 통해 데이터가 있는 서버에 연결됩니다.
 3. 디바이스에 연결하는 데 사용할 노트북의 이더넷 어댑터에 다음을 구성합니다.
 
@@ -83,7 +82,7 @@ ms.locfileid: "58077550"
 
      ![스위치를 사용하여 2개 포트 설치](media/data-box-cable-options/cabling-with-static-ip.png)
 
-3. 다음 주소에서 디바이스의 로컬 웹 UI에 액세스합니다. 192.168.100.10. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
+3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. DHCP 서버에서 할당한 IP 주소를 식별합니다.
 
 ## <a name="transfer-via-data-port-with-static-ips-using-a-switch"></a>스위치로 고정 IP를 사용하여 DATA 포트를 통해 전송 
@@ -107,7 +106,7 @@ ms.locfileid: "58077550"
 
      ![스위치를 사용하여 2개 포트 설치](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
-3. 다음 주소에서 디바이스의 로컬 웹 UI에 액세스합니다. 192.168.100.10. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
+3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. 구성한 데이터 포트에 고정 IP를 할당합니다.
 
 

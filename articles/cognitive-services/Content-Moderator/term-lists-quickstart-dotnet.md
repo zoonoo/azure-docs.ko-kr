@@ -1,27 +1,27 @@
 ---
 title: C#-Content Moderator의 사용자 지정 단어 목록에 대해 텍스트 확인
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: C#용 Content Moderator SDK를 사용하여 사용자 지정 용어 목록으로 텍스트를 조정하는 방법
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
-ms.author: sajagtap
-ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 10/24/2019
+ms.author: pafarley
+ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858402"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "72935950"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>빠른 시작: C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
+# <a name="check-text-against-a-custom-term-list-in-c"></a>C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
 
 Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐츠 조정 요구에 적합합니다. 그러나 조직에 관련된 용어에 대해 차단해야 할 수 있습니다. 예를 들어 추가 검토를 위해 경쟁 업체 이름에 태그를 지정할 수 있습니다. 
 
-[.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 텍스트 조정 API와 함께 사용할 사용자 지정 용어 목록을 만들 수 있습니다.
+[.Net 용 CONTENT MODERATOR SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 를 사용 하 여 텍스트 조정 API와 함께 사용할 사용자 지정 약관 목록을 만들 수 있습니다.
 
 이 문서에서는 .NET용 Content Moderator SDK를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
 - 목록을 만듭니다.
@@ -59,8 +59,7 @@ TermLists 프로젝트에 대해 다음 NuGet 패키지를 설치합니다.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -70,10 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator 클라이언트 만들기
 
-다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다.
-
-> [!IMPORTANT]
-> **AzureRegion** 및 **CMSubscriptionKey** 필드를 해당 지역 식별자 및 구독 키 값으로 업데이트합니다.
+다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다. 및 `CMSubscriptionKey` 필드 `AzureEndpoint` 를 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
 
 ```csharp
 /// <summary>
@@ -85,16 +81,9 @@ using System.Threading;
 public static class Clients
 {
     /// <summary>
-    /// The region/location for your Content Moderator account, 
-    /// for example, westus.
-    /// </summary>
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    /// <summary>
     /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+    private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
     /// <summary>
     /// Your Content Moderator subscription key.
@@ -113,15 +102,15 @@ public static class Clients
         // Create and initialize an instance of the Content Moderator API wrapper.
         ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        client.Endpoint = AzureBaseURL;
+        client.Endpoint = AzureEndpoint;
         return client;
     }
 }
 ```
 
-### <a name="add-private-properties"></a>개인 속성 추가
+### <a name="add-private-properties"></a>프라이빗 속성 추가
 
-TermLists 네임스페이스, Program 클래스에 다음 개인 속성을 추가합니다.
+TermLists 네임스페이스, Program 클래스에 다음 프라이빗 속성을 추가합니다.
 
 ```csharp
 /// <summary>
@@ -275,7 +264,7 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 - "text/html", "text/xml", "text/markdown" 또는 "text/plain"일 수 있는 MIME 형식입니다.
 - 차단할 텍스트입니다.
 - 부울 값입니다. 이 필드를 **true**로 설정하여 차단하기 전에 텍스트를 자동으로 고칩니다.
-- 부울 값입니다. 이 필드를 **true**로 설정하여 텍스트에서 PII(개인 식별 가능 정보)를 검색합니다.
+- 부울 값입니다. 텍스트의 개인 데이터를 검색 하려면이 필드를 **true** 로 설정 합니다.
 - 용어 목록 ID입니다.
 
 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)를 참조하세요.
@@ -373,7 +362,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="putting-it-all-together"></a>모든 항목 요약
+## <a name="compose-the-main-method"></a>Main 메서드 작성
 
 **TermLists**네임스페이스, **Program** 클래스에 **Main** 메서드 정의를 추가합니다. 마지막으로, **Program** 클래스 및 **TermLists** 네임스페이스를 닫습니다.
 
@@ -415,9 +404,9 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>애플리케이션을 실행하여 출력 확인
 
-출력은 다음 줄에 있지만 데이터는 다를 수 있습니다.
+콘솔 출력은 다음과 같습니다.
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

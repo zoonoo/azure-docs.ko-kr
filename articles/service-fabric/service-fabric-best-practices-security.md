@@ -1,48 +1,39 @@
 ---
-title: Azure Service Fabric 보안 모범 사례 | Microsoft Docs
-description: Azure Service Fabric 보안에 대한 모범 사례입니다.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric 보안 모범 사례
+description: Azure Service Fabric 클러스터와 응용 프로그램의 보안을 유지 하기 위한 모범 사례 및 디자인 고려 사항입니다.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 3349abfb1b7cf85247b1bb5de8eb53fa09299b74
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136480"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257604"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 
-[Azure 보안 모범 사례](https://docs.microsoft.com/azure/security/)에 대한 자세한 내용은 [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)를 참조하세요.
+[Azure 보안 모범 사례](../security/index.yml)에 대한 자세한 내용은 [Azure Service Fabric 보안 모범 사례](../security/fundamentals/service-fabric-best-practices.md)를 참조하세요.
 
 ## <a name="key-vault"></a>Key Vault
 
-[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)는 Azure Service Fabric 애플리케이션 및 클러스터에 추천되는 비밀 관리 서비스입니다.
+[Azure Key Vault](../key-vault/index.yml)는 Azure Service Fabric 애플리케이션 및 클러스터에 추천되는 비밀 관리 서비스입니다.
 > [!NOTE]
 > Virtual Machine Scale Set에 Key Vault의 인증서/비밀을 Virtual Machine Scale Set 비밀로 배포하는 경우 Key Vault와 Virtual Machine Scale Set를 함께 배치해야 합니다.
 
 ## <a name="create-certificate-authority-issued-service-fabric-certificate"></a>인증 기관에서 발급한 Service Fabric 인증서 만들기
 
-Azure Key Vault 인증서는 만들거나 Key Vault로 가져올 수 있습니다. Key Vault 인증서가 만들어지면 개인 키가 Key Vault 내에 만들어지며 인증서 소유자에게 공개되지 않습니다. Key Vault에 인증서를 만드는 방법은 다음과 같습니다.
+Azure Key Vault 인증서는 만들거나 Key Vault로 가져올 수 있습니다. Key Vault 인증서가 만들어지면 프라이빗 키가 Key Vault 내에 만들어지며 인증서 소유자에게 공개되지 않습니다. Key Vault에 인증서를 만드는 방법은 다음과 같습니다.
 
-- 자체 서명된 인증서를 만들어 공개-개인 키 쌍을 만들고 이를 인증서와 연결합니다. 인증서는 자체 키에 의해 서명됩니다. 
-- 새 인증서를 수동으로 만들어 공개-개인 키 쌍을 만들고 X.509 인증서 서명 요청을 생성합니다. 등록 기관 또는 인증 기관에서 서명 요청에 서명할 수 있습니다. 서명된 x509 인증서를 보류 중인 키 쌍과 병합하여 Key Vault에서 KV 인증서를 완료할 수 있습니다. 이 방법은 더 많은 단계를 필요로 하지만 개인 키가 Key Vault에서 만들어지고 또 Key Vault로 제한되기 때문에 보안이 더욱 강화됩니다. 이 방법을 아래 다이어그램에서 설명합니다. 
+- 자체 서명된 인증서를 만들어퍼블릭-프라이빗 키 쌍을 만들고 이를 인증서와 연결합니다. 인증서는 자체 키에 의해 서명됩니다. 
+- 새 인증서를 수동으로 만들어퍼블릭-프라이빗 키 쌍을 만들고 X.509 인증서 서명 요청을 생성합니다. 등록 기관 또는 인증 기관에서 서명 요청에 서명할 수 있습니다. 서명된 x509 인증서를 보류 중인 키 쌍과 병합하여 Key Vault에서 KV 인증서를 완료할 수 있습니다. 이 방법은 더 많은 단계를 필요로 하지만 프라이빗 키가 Key Vault에서 만들어지고 또 Key Vault로 제한되기 때문에 보안이 더욱 강화됩니다. 이 방법을 아래 다이어그램에서 설명합니다. 
 
-자세한 내용은 [Azure Key Vault 인증서를 만드는 방법](https://docs.microsoft.com/azure/key-vault/create-certificate)을 검토하세요.
+자세한 내용은 [Azure Key Vault 인증서를 만드는 방법](../key-vault/certificates/create-certificate.md)을 검토하세요.
 
 ## <a name="deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets"></a>Service Fabric 클러스터 가상 머신 확장 집합에 Key Vault 인증서 배포
 
-인증서를 함께 배치된 키 자격 증명 모음에서 Virtual Machine Scale Set로 배포하려면 [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) Virtual Machine Scale Set를 사용합니다. Resource Manager 템플릿 속성은 다음과 같습니다.
+인증서를 함께 배치된 키 자격 증명 모음에서 Virtual Machine Scale Set로 배포하려면 [osProfile](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) Virtual Machine Scale Set를 사용합니다. Resource Manager 템플릿 속성은 다음과 같습니다.
 
 ```json
 "secrets": [
@@ -65,7 +56,7 @@ Azure Key Vault 인증서는 만들거나 Key Vault로 가져올 수 있습니�
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Service Fabric 클러스터의 인증서에 ACL(액세스 제어 목록) 적용
 
-[Virtual Machine Scale Set 확장](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) 게시자인 Microsoft.Azure.ServiceFabric은 노드 보안을 구성하는 데 사용됩니다.
+[Virtual Machine Scale Set 확장](/cli/azure/vmss/extension?view=azure-cli-latest) 게시자인 Microsoft.Azure.ServiceFabric은 노드 보안을 구성하는 데 사용됩니다.
 Service Fabric 클러스터 프로세스에 대한 인증서에 ACL을 적용하려면 다음 Resource Manager 템플릿 속성을 사용합니다.
 
 ```json
@@ -79,7 +70,7 @@ Service Fabric 클러스터 프로세스에 대한 인증서에 ACL을 적용하
 
 ## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>일반 이름으로 Service Fabric 클러스터 인증서 보호
 
-인증서 `Common Name`으로 Service Fabric 클러스터를 보호하려면 다음과 같이 [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager 템플릿 속성을 사용합니다.
+인증서 `Common Name`으로 Service Fabric 클러스터를 보호하려면 다음과 같이 [certificateCommonNames](/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager 템플릿 속성을 사용합니다.
 
 ```json
 "certificateCommonNames": {
@@ -96,9 +87,9 @@ Service Fabric 클러스터 프로세스에 대한 인증서에 ACL을 적용하
 > [!NOTE]
 > Service Fabric 클러스터는 호스트의 인증서 저장소에서 찾은 첫 번째 유효한 인증서를 사용합니다. Windows에서는 일반 이름 및 발급자 지문과 일치하는 최신 만료 날짜가 있는 인증서입니다.
 
-*\<YOUR SUBDOMAIN\>.cloudapp.azure.com 또는 \<YOUR SUBDOMAIN\>.trafficmanager.net과 같은 Azure 도메인은 Microsoft에서 소유하고 있습니다. 인증 기관은 인증되지 않은 사용자에게 도메인에 대한 인증서를 발급하지 않습니다. 대부분의 사용자는 인증 기관에서 해당 일반 이름의 인증서를 발급할 수 있도록 등록 기관으로부터 도메인을 구입하거나 권한이 있는 도메인 관리자여야 합니다.
+* \<YOUR SUBDOMAIN\> . Cloudapp.azure.com 또는. trafficmanager.net와 같은 Azure 도메인 \<YOUR SUBDOMAIN\> 은 Microsoft에서 소유 합니다. 인증 기관은 인증되지 않은 사용자에게 도메인에 대한 인증서를 발급하지 않습니다. 대부분의 사용자는 인증 기관에서 해당 일반 이름의 인증서를 발급할 수 있도록 등록 기관으로부터 도메인을 구입하거나 권한이 있는 도메인 관리자여야 합니다.
 
-도메인을 Microsoft IP 주소로 확인하도록 DNS 서비스를 구성하는 방법에 대한 자세한 내용은 [도메인을 호스팅하도록 Azure DNS를 구성하는 방법](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)을 검토하세요.
+도메인을 Microsoft IP 주소로 확인하도록 DNS 서비스를 구성하는 방법에 대한 자세한 내용은 [도메인을 호스팅하도록 Azure DNS를 구성하는 방법](../dns/dns-delegate-domain-azure-dns.md)을 검토하세요.
 
 > [!NOTE]
 > 도메인 이름 서버를 Azure DNS 영역 이름 서버에 위임한 후 다음 두 레코드를 DNS 영역에 추가하세요.
@@ -115,7 +106,7 @@ Service Fabric 클러스터에 대한 사용자 지정 DNS 이름(`"managementEn
 
 Service Fabric 패키지에서 암호화되는 공통 값에는 ACR(Azure Container Registry) 자격 증명, 환경 변수, 설정 및 Azure 볼륨 플러그 인 스토리지 계정 키가 포함됩니다.
 
-[Windows 클러스터에서 암호화 인증서를 설정하고 비밀을 암호화](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows)하려면 다음을 수행합니다.
+[Windows 클러스터에서 암호화 인증서를 설정하고 비밀을 암호화](./service-fabric-application-secret-management-windows.md)하려면 다음을 수행합니다.
 
 비밀을 암호화하기 위한 자체 서명된 인증서를 생성합니다.
 
@@ -131,7 +122,7 @@ New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEnciphermen
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-[Linux 클러스터에서 암호화 인증서를 설정하고 비밀을 암호화](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-linux)하려면 다음을 수행합니다.
+[Linux 클러스터에서 암호화 인증서를 설정하고 비밀을 암호화](./service-fabric-application-secret-management-linux.md)하려면 다음을 수행합니다.
 
 비밀을 암호화하기 위한 자체 서명된 인증서를 생성합니다.
 
@@ -150,13 +141,25 @@ user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 
-보호되는 값이 암호화되면 [Service Fabric 애플리케이션에서 암호화된 비밀을 지정](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application)하고 [서비스 코드에서 암호화된 비밀을 해독](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code)합니다.
+보호되는 값이 암호화되면 [Service Fabric 애플리케이션에서 암호화된 비밀을 지정](./service-fabric-application-secret-management.md#specify-encrypted-secrets-in-an-application)하고 [서비스 코드에서 암호화된 비밀을 해독](./service-fabric-application-secret-management.md#decrypt-encrypted-secrets-from-service-code)합니다.
 
+## <a name="include-certificate-in-service-fabric-applications"></a>Service Fabric 응용 프로그램에 인증서 포함
+
+응용 프로그램에 비밀에 대 한 액세스 권한을 부여 하려면 응용 프로그램 매니페스트에 **SecretsCertificate** 요소를 추가 하 여 인증서를 포함 합니다.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>MSI(관리 서비스 ID)를 사용하여 Azure 리소스에 Service Fabric 애플리케이션 인증
 
-Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work)을 참조하세요.
-Azure Service Fabric 클러스터는 [관리 서비스 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources)를 지원하는 Virtual Machine Scale Sets에서 호스팅됩니다.
-MSI를 인증하는 데 사용할 수 있는 서비스 목록을 가져오려면 [Azure Active Directory 인증을 지원하는 Azure 서비스](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication)를 참조하세요.
+Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
+Azure Service Fabric 클러스터는 [관리 서비스 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)를 지원하는 Virtual Machine Scale Sets에서 호스팅됩니다.
+MSI를 인증하는 데 사용할 수 있는 서비스 목록을 가져오려면 [Azure Active Directory 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
 
 가상 머신 확장 집합 또는 기존 가상 머신 확장 집합을 만드는 동안 시스템 할당 관리 ID를 사용하도록 설정하려면 다음 `"Microsoft.Compute/virtualMachinesScaleSets"` 속성을 선언합니다.
@@ -166,9 +169,9 @@ MSI를 인증하는 데 사용할 수 있는 서비스 목록을 가져오려면
     "type": "SystemAssigned"
 }
 ```
-자세한 내용은 [Azure 리소스에 대한 관리 ID란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity)을 참조하세요.
+자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss.md#system-assigned-managed-identity)을 참조하세요.
 
-[사용자 할당 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity)를 만든 경우 템플릿에서 다음 리소스를 선언하여 가상 머신 확장 집합에 할당합니다. `\<USERASSIGNEDIDENTITYNAME\>`을 직접 만든 사용자 할당 관리 ID의 이름으로 바꿉니다.
+[사용자 할당 관리 ID](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity)를 만든 경우 템플릿에서 다음 리소스를 선언하여 가상 머신 확장 집합에 할당합니다. `\<USERASSIGNEDIDENTITYNAME\>`을 직접 만든 사용자 할당 관리 ID의 이름으로 바꿉니다.
 
 ```json
 "identity": {
@@ -188,7 +191,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-Service Fabric 응용 프로그램 코드에서 [액세스 토큰을 가져올](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) REST 모든 다음과 유사 하 게 하 여 Azure Resource Manager 용:
+Service Fabric 응용 프로그램 코드에서 나머지를 모두 다음과 비슷하게 만들어 Azure Resource Manager에 대 한 [액세스 토큰을 가져옵니다](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) .
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -201,10 +204,29 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Windows 보안 기준
+[기준을 직접 만드는 것이 아니라 Microsoft 보안 기준과 같이 널리 알려져 있고 잘 테스트 된 업계 표준 구성을 구현 하는 것이 좋습니다](/windows/security/threat-protection/windows-security-baselines). Virtual Machine Scale Sets에서 프로 비전 하는 옵션은 Azure DSC (필요한 상태 구성) 확장 처리기를 사용 하 여 Vm이 온라인 상태가 되 면 프로덕션 소프트웨어를 실행 하는 Vm을 구성 하는 것입니다.
+
+## <a name="azure-firewall"></a>Azure Firewall
+[Azure 방화벽은 azure Virtual Network 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 이는 기본 제공 고가용성 및 무제한 클라우드 확장성이 있는 완전 한 상태 저장 방화벽으로 서의 서비스입니다.](../firewall/overview.md) 이를 통해 와일드 카드를 포함 하 여 지정 된 FQDN (정규화 된 도메인 이름) 목록으로 아웃 바운드 HTTP/S 트래픽을 제한할 수 있습니다. 이 기능에는 TLS/SSL 종료가 필요 하지 않습니다. Windows 업데이트에 대 한 [Azure 방화벽 FQDN 태그](../firewall/fqdn-tags.md) 를 활용 하 고 Microsoft Windows 업데이트 끝점에 대 한 네트워크 트래픽을 방화벽을 통해 이동할 수 있도록 하는 것이 좋습니다. [템플릿을 사용 하 여 Azure 방화벽 배포](../firewall/deploy-template.md) 리소스 템플릿 정의에 대 한 샘플을 제공 합니다. Service Fabric 응용 프로그램에 공통적인 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용 하는 것입니다.
+
+- * download.microsoft.com
+- * servicefabric.azure.com
+- *.core.windows.net
+
+이러한 방화벽 규칙은 가상 네트워크에서 허용 되는 대상으로 ServiceFabric 및 Storage를 포함 하는 허용 되는 아웃 바운드 네트워크 보안 그룹을 보완 합니다.
+
+## <a name="tls-12"></a>TLS 1.2
+
+Microsoft [Azure](https://azure.microsoft.com/updates/azuretls12/) 는 모든 고객이 tls (transport layer security) 1.2를 지 원하는 솔루션에 대 한 마이그레이션을 완료 하 고 기본적으로 tls 1.2이 사용 되도록 하는 것을 권장 합니다.
+
+[Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493)를 포함 한 Azure 서비스는 tls 1.0/1.1 프로토콜에 대 한 종속성을 제거 하기 위한 엔지니어링 작업을 완료 했으며, tls 1.2 연결만 수락 하 고 시작 하도록 구성 된 고객에 게 완전 한 지원을 제공 합니다.
+
+고객은 기본적으로 TLS 1.2을 사용 하도록 azure 서비스와 상호 작용 하는 Azure 호스팅 워크 로드 및 온-프레미스 응용 프로그램을 구성 해야 합니다. 특정 TLS 버전을 사용 하도록 [Service Fabric 클러스터 노드 및 응용 프로그램을 구성](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md) 하는 방법은 다음과 같습니다.
 
 ## <a name="windows-defender"></a>Windows Defender 
 
-기본적으로 Windows Defender 바이러스 백신은 Windows Server 2016에 설치됩니다. 자세한 내용은 [Windows Server 2016의 Windows Defender 바이러스 백신](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)을 참조하세요. 사용자 인터페이스가 기본적으로 일부 SKU에 설치되지만 필요하지는 않습니다. Windows Defender에서 발생하는 성능 영향 및 리소스 사용 오버헤드를 줄이고 보안 정책에서 오픈 소스 소프트웨어에 대한 프로세스와 경로를 제외할 수 있도록 하려면, 다음 Virtual Machine Scale Set 확장 Resource Manager 템플릿 속성을 선언하여 검사에서 Service Fabric 클러스터를 제외시킵니다.
+기본적으로 Windows Defender 바이러스 백신은 Windows Server 2016에 설치됩니다. 자세한 내용은 [Windows Server 2016의 Windows Defender 바이러스 백신](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)을 참조하세요. 사용자 인터페이스가 기본적으로 일부 SKU에 설치되지만 필요하지는 않습니다. Windows Defender에서 발생하는 성능 영향 및 리소스 사용 오버헤드를 줄이고 보안 정책에서 오픈 소스 소프트웨어에 대한 프로세스와 경로를 제외할 수 있도록 하려면, 다음 Virtual Machine Scale Set 확장 Resource Manager 템플릿 속성을 선언하여 검사에서 Service Fabric 클러스터를 제외시킵니다.
 
 
 ```json
@@ -236,10 +258,22 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 > [!NOTE]
 > Windows Defender를 사용하지 않는 경우 구성 규칙에 대한 맬웨어 방지 설명서를 참조하세요. Linux에서는 Windows Defender가 지원되지 않습니다.
 
+## <a name="platform-isolation"></a>플랫폼 격리
+기본적으로 Service Fabric 응용 프로그램에는 Service Fabric 런타임 자체에 대 한 액세스 권한이 부여 됩니다. 즉, 응용 프로그램 및 패브릭 파일에 해당 하는 호스트의 파일 경로를 가리키는 [환경 변수](service-fabric-environment-variables-reference.md) , 응용 프로그램별 요청을 수락 하는 프로세스 간 통신 끝점, 패브릭에서 응용 프로그램을 인증 하는 데 사용 해야 하는 클라이언트 인증서를 각기 다른 형식으로 매니페스트 합니다. 서비스에서 신뢰 하지 않는 코드를 대비해 야 하는 경우 명시적으로 필요 하지 않은 경우에는 SF 런타임에 대 한이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 응용 프로그램 매니페스트의 정책 섹션에서 다음 선언을 사용 하 여 런타임에 대 한 액세스를 제거 합니다. 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-* Windows Server를 실행하는 VM 또는 컴퓨터에 클러스터 만들기: [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
-* Linux를 실행하는 VM 또는 컴퓨터에 클러스터 만들기: [Linux 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
+* Windows server를 실행 하는 Vm 또는 컴퓨터에서 클러스터 만들기: [Windows server에 대 한 클러스터 만들기를 Service Fabric](service-fabric-cluster-creation-for-windows-server.md)합니다.
+* Vm 또는 Linux를 실행 하는 컴퓨터에서 클러스터 만들기: [linux 클러스터를 만듭니다](service-fabric-cluster-creation-via-portal.md).
 * [Service Fabric 지원 옵션](service-fabric-support.md)에 대해 알아봅니다.
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

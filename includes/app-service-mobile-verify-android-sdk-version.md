@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 46cfb27b8bde95990d13ec4bca4e96f25cfe9dc5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133121"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "67182718"
 ---
 지속적인 개발로 인해 Android Studio에 설치된 Android SDK가 코드의 버전과 일치하지 않을 수도 있습니다. 이 자습서에서 언급한 Android SDK 버전은 이 문서 작성 시 최신 버전인 26입니다. 버전 번호는 SDK의 새 릴리스가 공개되면 높아질 수 있으며, 사용 가능한 최신 버전을 사용하는 것이 좋습니다.
 
@@ -20,7 +20,7 @@ ms.locfileid: "50133121"
 
 위와 같은 증상 중 하나가 나타나는 경우 Android Studio에 설치된 Android SDK의 버전이 다운로드한 프로젝트의 SDK 대상과 일치하지 않을 수 있습니다. 버전을 확인하려면 다음을 변경하십시오.
 
-1. Android Studio에서 **Tools** > **Android** > **SDK Manager**를 클릭합니다. 최신 버전의 SDK 플랫폼을 설치하지 않은 경우 클릭하여 설치합니다. 버전 번호를 기록해 둡니다.
+1. 안드로이드 스튜디오에서 **도구** > 안드로이드**SDK****관리자를** > 클릭합니다. 최신 버전의 SDK 플랫폼을 설치하지 않은 경우 클릭하여 설치합니다. 버전 번호를 기록해 둡니다.
 
 2. **프로젝트 탐색기** 탭의 **Gradle 스크립트**에서 **build.gradle (Module: app)** 파일을 엽니다. **compileSdkVersion** 및 **targetSdkVersion**이 설치된 최신 SDK 버전으로 설정되어 있는지 확인합니다. `build.gradle`이 다음과 같이 표시될 수 있습니다.
 

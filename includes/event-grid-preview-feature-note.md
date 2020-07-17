@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 85a1579e32b4c216f234f77c76316bedeaea77b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561772"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "66814737"
 ---
 이 기능은 미리 보기 상태입니다. 이 기능을 사용하려면 미리 보기 확장 또는 모듈을 설치해야 합니다.
 
@@ -28,11 +28,9 @@ Azure CLI의 경우 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)이
 
 로컬 설치의 경우:
 
-1. Azure CLI를 로컬로 제거합니다.
-1. Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)을 설치합니다.
-1. 명령 창을 시작합니다.
+1. [Azure CLI를 설치합니다](/cli/azure/install-azure-cli). `az --version`으로 확인하여 최신 버전이 있는지 알아봅니다.
 1. 이전 버전의 확장 `az extension remove -n eventgrid`를 제거합니다.
-1. 확장 `az extension add -n eventgrid` 설치
+1. `az extension add -n eventgrid`를 사용하여 `eventgrid` 확장을 설치합니다.
 
 ### <a name="install-module-for-powershell"></a>PowerShell 모듈 설치
 
@@ -49,8 +47,8 @@ PowerShell의 경우 [AzureRM.EventGrid 모듈](https://www.powershellgallery.co
 
 `-AllowPrerelease` 매개 변수를 사용할 수 없는 경우 다음 단계를 사용합니다.
 
-1. `Install-Module PowerShellGet -Force` 실행
-1. `Update-Module PowerShellGet` 실행
+1. `Install-Module PowerShellGet -Force`을 실행합니다.
+1. `Update-Module PowerShellGet`을 실행합니다.
 1. PowerShell 콘솔 닫기
 1. PowerShell을 관리자로 다시 시작
 1. 모듈 설치 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`

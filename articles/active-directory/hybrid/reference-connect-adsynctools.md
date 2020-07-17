@@ -5,27 +5,43 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 11c9d66f891e8f5d53fc2a965e75f095417d20d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454662"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82184013"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  ADSyncTools PowerShell 참조
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
+
+## <a name="install-the-adsynctools-powershell-module"></a>ADSyncTools PowerShell 모듈을 설치 합니다.
+ADSyncTools PowerShell 모듈을 설치 하려면 다음을 수행 합니다.
+
+1.  관리를 사용 하 여 Windows PowerShell 열기
+2.  다음을 입력 하거나 복사 하 여 붙여넣습니다. 
+    ``` powershell
+    Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
+    ```
+3.  Enter 키를 누릅니다.
+4.  모듈이 설치 되었는지 확인 하려면 다음을 입력 하거나 복사 하 여 붙여넣습니다.
+    ```powershell
+    Get-module AdSyncTools
+    ```
+5.  이제 모듈에 대 한 정보가 표시 됩니다.
+
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>개요
 AD 사용자에서 mS-Ds-ConsistencyGuid를 지웁니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Clear-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
@@ -46,7 +62,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 설정할 AD의 대상 사용자입니다.
@@ -72,7 +88,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ADSyncToolsADModuleLoaded
@@ -95,7 +111,7 @@ PS C:\> {{ Add example code here }}
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Connect-AdSyncDatabase [-Server] <String> [[-Instance] <String>] [[-Database] <String>] [[-UserName] <String>]
@@ -114,7 +130,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-database"></a>-Database
 {{데이터베이스 설명 입력}}
@@ -200,7 +216,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 ConsistencyGuid 보고서를 내보냅니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Export-ADSyncToolsConsistencyGuidMigration [-AlternativeLoginId] [-UserPrincipalName] <String>
@@ -222,7 +238,7 @@ Import-Csv .\AllSyncUsers.csv | Export-ADSyncToolsConsistencyGuidMigration -Outp
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-alternativeloginid"></a>-AlternativeLoginId
 대체 로그인 ID(메일)를 사용합니다.
@@ -293,7 +309,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncSQLBrowserInstances [[-hostName] <String>]
@@ -311,7 +327,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{호스트 이름 설명 입력}}
@@ -333,14 +349,14 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 AD에서 사용자를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>설명
-AD 개체 TO DO: 다중 포리스트 지원을 반환합니다.
+AD 개체(TO DO: 다중 포리스트 지원)를 반환합니다.
 
 ### <a name="examples"></a>예제
 
@@ -354,7 +370,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 ConsistencyGuid를 설정할 AD의 대상 사용자입니다.
@@ -380,7 +396,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 AD 사용자에서 mS-Ds-ConsistencyGuid를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
@@ -401,7 +417,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 설정할 AD의 대상 사용자입니다.
@@ -427,7 +443,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 AD 사용자에서 ObjectGuid를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsObjectGuid [-User] <Object> [<CommonParameters>]
@@ -448,7 +464,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 설정할 AD의 대상 사용자입니다.
@@ -474,7 +490,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 AAD Connect 실행 기록을 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
@@ -495,7 +511,7 @@ Get-ADSyncToolsRunHistory
 Get-ADSyncToolsRunHistory -Days 1
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-days"></a>-Days
 {{일 수 설명 입력}}
@@ -521,14 +537,14 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 SourceAnchor 변경 오류가 있는 사용자를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>설명
-함수는 AAD Connect 실행 기록을 쿼리하고, 다음 오류를 보고하는 모든 사용자를 내보냅니다. "SourceAnchor 특성이 변경되었습니다."
+함수는 AAD Connect 실행 기록을 쿼리 하 고 오류를 보고 하는 모든 사용자를 내보냅니다. "SourceAnchor 특성이 변경 되었습니다."
 
 ### <a name="examples"></a>예제
 
@@ -537,7 +553,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 #Required Parameters
 ```
 
-$sourcePath = Read-Host -Prompt "파일 이름이 "#"\< Source_Path \>인 로그 파일의 경로를 입력합니다." $outputPath = Read-Host -Prompt "파일 이름이 "#"\< Out_Path \>인 출력 파일의 경로를 입력합니다."
+$sourcePath = 읽기-호스트 프롬프트 "파일 이름이" # "인 로그 파일 경로를 입력 합니다." \<Source_Path\> $outputPath = 읽기-호스트-프롬프트 "파일 이름" # "을 (를) 사용 하 여 출력 파일 경로 입력 \<Out_Path\>
  
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
@@ -546,7 +562,7 @@ $sourcePath = Read-Host -Prompt "파일 이름이 "#"\< Source_Path \>인 로그
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-sourcepath"></a>-sourcePath
 {{sourcePath 설명 입력}}
@@ -587,7 +603,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 AAD에서 ImmutableID를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFromRecycleBin]
@@ -609,7 +625,7 @@ Import-ADSyncToolsImmutableIdMigration -OutputFile '.\AllSyncUsers.csv'
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-output"></a>-Output
 출력 CSV 파일입니다.
@@ -651,7 +667,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Invoke-AdSyncDatabaseQuery [-SqlConnection] <SqlConnection> [[-Query] <String>] [<CommonParameters>]
@@ -669,7 +685,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-query"></a>-Query
 {{쿼리 설명 입력}}
@@ -710,7 +726,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 UserCertificate 특성에서 만료된 인증서를 제거하는 스크립트입니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boolean>] [-ObjectClass] <String>
@@ -721,7 +737,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 이 스크립트는 Active Directory 도메인의 대상 조직 구성 단위에서 모든 개체를 가져와서 개체 클래스(User/Computer)를 기준으로 필터링하고, UserCertificate 특성에 있는 만료된 인증서를 모두 삭제합니다.
 기본적으로(BackupOnly 모드) 만료된 인증서만 파일에 백업하고, AD에서는 변경하지 않습니다.
 -BackupOnly $false를 사용하면 이러한 개체에 대한 UserCertificate 특성에 있는 만료된 인증서가 파일로 복사된 후 AD에서 제거됩니다.
-각 인증서는 별도의 파일 이름: ObjectClass_ObjectGUID_CertThumprint.cer로 백업됩니다. 또한 스크립트는 실제로 수행된 작업(건너뜀/내보냄/삭제됨)을 포함하여 유효하거나 만료된 인증서가 있는 모든 사용자를 표시하는 CSV 형식의 로그 파일을 만듭니다.
+각 인증서는 별도의 파일 이름(ObjectClass_ObjectGUID_CertThumprint.cer)으로 백업됩니다. 또한 스크립트는 실제로 수행된 작업(건너뜀/내보냄/삭제됨)을 포함하여 유효하거나 만료된 인증서가 있는 모든 사용자를 표시하는 CSV 형식의 로그 파일을 만듭니다.
 
 ### <a name="examples"></a>예제
 
@@ -739,7 +755,7 @@ Delete Expired Certs from all Computer objects in target OU - Expired Certificat
 
 Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Computers,OU=Corp,DC=Contoso,DC=com" -ObjectClass computer -BackupOnly $false
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-targetou"></a>-TargetOU
 AD 개체를 조회할 대상 OU입니다.
@@ -795,7 +811,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 간단한 설명
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Repair-ADSyncToolsAutoUpgradeState
@@ -821,7 +837,7 @@ Another example of how to use this cmdlet
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Resolve-ADSyncHostAddress [[-hostName] <String>]
@@ -839,7 +855,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{호스트 이름 설명 입력}}
@@ -859,9 +875,9 @@ Accept wildcard characters: False
 ## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>개요
-(할 일) 인증서 파일에서 AD UserCertificate 특성을 복원합니다.
+(할 일) 인증서 파일에서 AD UserCertificate 특성을 복원 합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Restore-ADSyncToolsExpiredCertificates
@@ -887,7 +903,7 @@ Another example of how to use this cmdlet
 ### <a name="synopsis"></a>개요
 AD 사용자에 대한 mS-Ds-ConsistencyGuid를 설정합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Set-ADSyncToolsConsistencyGuid [-User] <Object> [-Value] <Object> [<CommonParameters>]
@@ -908,7 +924,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 ConsistencyGuid를 설정할 AD의 대상 사용자입니다.
@@ -949,7 +965,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 {{개요 입력}}
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Test-ADSyncNetworkPort [[-hostName] <String>] [[-port] <String>]
@@ -967,7 +983,7 @@ PS C:\> {{ Add example code here }}
 
 {{여기에 설명 예제 추가}}
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{호스트 이름 설명 입력}}
@@ -1004,7 +1020,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 AD 가져오기 단계에서 추적 파일을 만듭니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Trace-ADSyncToolsADImport [[-ADConnectorXML] <String>] [[-dc] <String>] [[-rootDN] <String>]
@@ -1026,7 +1042,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectorxml"></a>-ADConnectorXML
 {{ADConnectorXML 설명 입력}}
@@ -1128,7 +1144,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 간단한 설명
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Trace-ADSyncToolsLdapQuery [-Context] <String> [-Server] <String> [-Port] <Int32> [-Filter] <String>
@@ -1150,7 +1166,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-context"></a>-Context
 Param1 도움말 설명입니다.
@@ -1221,7 +1237,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 사용자를 새 ConsistencyGuid(ImmutableId)로 업데이트합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-ImmutableIdGUID] <String>
@@ -1243,7 +1259,7 @@ Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsCons
 Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsConsistencyGuidMigration -Output .\AllSyncUsersTEST-Result2
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-distinguishedname"></a>-DistinguishedName
 DistinguishedName
@@ -1276,7 +1292,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-action"></a>-Action
-액션(Action)
+작업
 
 ```yaml
 Type: String

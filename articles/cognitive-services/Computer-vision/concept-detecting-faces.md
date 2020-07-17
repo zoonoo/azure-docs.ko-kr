@@ -1,7 +1,7 @@
 ---
-title: 얼굴 감지 - Computer Vision
+title: 얼굴 감지-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API의 얼굴 감지 기능에 관련 된 개념에 알아봅니다.
+description: Computer Vision API의 얼굴 감지 기능과 관련 된 개념을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 699192aba87bb009d7dbddddcc9579883bb71db9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d10e4c98d3e2f00e7139063c8263e65ffd015d7c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996155"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80244704"
 ---
 # <a name="face-detection-with-computer-vision"></a>Computer Vision으로 얼굴 감지
 
@@ -111,6 +111,9 @@ Computer Vision은 이미지에서 사람 얼굴을 감지하고 감지된 각 �
 }
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="use-the-api"></a>API 사용
 
-[이미지 분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 참조 설명서를 참조하여 얼굴 감지 기능을 사용하는 방법에 대해 자세히 알아봅니다.
+얼굴 감지 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Faces` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 `"faces"` 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다.
+
+* [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)

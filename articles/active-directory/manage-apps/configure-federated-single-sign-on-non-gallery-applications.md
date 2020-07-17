@@ -1,10 +1,10 @@
 ---
-title: 비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법 | Microsoft Docs
+title: 비 갤러리 앱에 대해 페더레이션된 Single Sign-On를 구성 하는 방법
 description: Azure AD와 통합할 사용자 지정 비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcb77fe257a1b99525d009a1756a473e7e61a5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28af2a51119cd8328f9fa29000ead1622ae5f5e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763553"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
@@ -43,7 +43,7 @@ ms.locfileid: "60291894"
 
 Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -53,7 +53,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 5. **엔터프라이즈 애플리케이션** 창의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
 
-6. **고유한 애플리케이션 추가** 섹션에서 **비갤러리 애플리케이션**을 클릭합니다.
+6. **사용자 고유의 앱 추가** 섹션에서 **비 갤러리 응용 프로그램** 을 클릭 합니다.
 
 7. **이름** 텍스트 상자에 애플리케이션 이름을 입력합니다.
 
@@ -61,7 +61,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 9. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-10. **모드** 드롭다운에서 **SAML 기반 로그온**을 선택합니다.
+10. **모드** 드롭다운에서 **SAML 기반 로그온을** 선택 합니다.
 
 11. **도메인 및 URL**에 필요한 값을 입력합니다. 이러한 값은 애플리케이션 공급업체에서 받아야 합니다.
 
@@ -81,13 +81,13 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 14. 애플리케이션의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;애플리케이션 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 필요한 Azure AD URL과 인증서가 있습니다.
 
-15. [애플리케이션에 사용자를 할당합니다.](#assign-users-to-the-application)
+15. [응용 프로그램에 사용자를 할당 합니다.](#assign-users-to-the-application)
 
 ## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>사용자 식별자를 선택하고 애플리케이션에 보낼 사용자 특성 추가
 
 사용자 식별자를 선택하거나 사용자 특성을 추가하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -106,7 +106,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 8. **사용자 특성** 섹션 아래의 **사용자 식별자** 드롭다운에서 사용자의 고유한 식별자를 선택합니다. 사용자를 인증하려면 선택한 옵션이 애플리케이션의 예상 값과 일치해야 합니다.
 
    >[!NOTE]
-   >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
+   >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single SIGN-ON SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서를 참조 하세요.
    >
    >
 
@@ -122,7 +122,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -140,7 +140,7 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 8. **SAML 서명 인증서** 섹션으로 이동한 다음 **다운로드** 열 값을 클릭합니다. Single Sign-On을 구성해야 할 애플리케이션에 따라 메타데이터 XML이나 인증서를 다운로드하는 옵션이 표시됩니다.
 
-Azure AD에서도 메타데이터를 가져오는 URL을 제공합니다. 응용 프로그램에 관련된 메타데이터 URL을 가져오려면 이 패턴을 따릅니다: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+Azure AD에서도 메타데이터를 가져오는 URL을 제공합니다. 애플리케이션에 관련된 메타데이터 URL을 가져오려면 이 패턴을 따릅니다: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 ## <a name="assign-users-to-the-application"></a>애플리케이션에 사용자 할당
 

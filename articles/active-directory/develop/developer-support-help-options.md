@@ -1,29 +1,22 @@
 ---
-title: Azure AD 앱 개발자를 위한 지원 및 도움말 옵션 | Microsoft Docs
+title: Azure AD 앱 개발자를 위한 지원 및 도움말 옵션
 description: Microsoft ID(Azure Active Directory 및 Microsoft 계정)와 통합되는 애플리케이션을 만들 때 개발과 관련된 질문 및 문제에 대한 지원 및 도움말을 얻는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
-ms.reviewer: jmprieur, dadobali
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c4882e991045b4a79c0ea0a19ad8fedc2fb8892
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.openlocfilehash: ea1afd2ecac8974c0e865e235288da545a9f1244
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80885534"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -52,7 +45,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 ## <a name="use-the-development-support-tools"></a>개발 지원 도구 사용
 
-| Tool  | 설명  |
+| 도구  | 설명  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | ID 또는 액세스 토큰을 붙여넣어 클레임 이름 및 값을 디코드합니다. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |
@@ -65,27 +58,27 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 |구성 요소/영역  | Tags |
 |---------|---------|
-| ADAL 라이브러리 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
-| MSAL 라이브러리     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
-| OWIN 미들웨어  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| ADAL 라이브러리 | [adal](https://stackoverflow.com/questions/tagged/adal) |
+| MSAL 라이브러리     | [msal](https://stackoverflow.com/questions/tagged/msal) |
+| OWIN 미들웨어  | [[azure-active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 | [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
-| 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft 그래프]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
+| 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure-active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
 Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 커뮤니티 구성원이 질문을 빠르게 평가하고 답변할 가능성을 높이려면 다음 지침을 따르세요.
 
-* [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
+* [좋은 질문을 어떻게 할까요?](https://stackoverflow.com/help/how-to-ask)
 * [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 
 라이브러리와 관련된 버그 또는 문제가 있으면 GitHub 리포지토리에서 문제를 제기합니다. 라이브러리는 오픈 소스이므로 끌어오기 요청을 제출할 수도 있습니다.
 
-라이브러리 및 해당 GitHub 리포지토리 목록을 보려면 다음 문서를 참조하세요.
+라이브러리 및 해당 GitHub 리포지토리 목록은 다음을 참조 하세요.
 
-* [ADAL](active-directory-authentication-libraries.md) 라이브러리 및 GitHub 리포지토리
-* [MSAL](reference-v2-libraries.md) 라이브러리 및 GitHub 리포지토리
+* [ADAL (Azure Active Directory Authentication Library)](../azuread-dev/active-directory-authentication-libraries.md) 라이브러리 및 GitHub 리포지토리
+* [MSAL (Microsoft 인증 라이브러리)](reference-v2-libraries.md) 라이브러리 및 GitHub 리포지토리
 
 ## <a name="open-a-support-request"></a>지원 요청 열기
 
@@ -96,9 +89,3 @@ Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를
 * Azure 고객이 아닌 경우 [상용 지원](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial)을 통해 Microsoft 지원 요청을 열 수도 있습니다.
 
 [가상 에이전트](https://support.microsoft.com/contactus/?ws=support)를 사용하여 지원을 받거나 질문할 수도 있습니다.
-
-### <a name="free-chat-support-for-a-limited-time"></a>제한된 시간 동안 체험 채팅 지원
-
-제한된 시간 동안 Microsoft 파트너에게 제공되는 채팅 지원을 사용할 수도 있습니다. Microsoft 파트너가 아닌 경우 [여기](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx)로 이동하여 추가 비용 없이 등록하고 다른 혜택을 얻을 수 있습니다.
-
-회사를 등록한 후에는 [여기서](https://aka.ms/devchat) 채팅 요청을 시작할 수 있습니다.

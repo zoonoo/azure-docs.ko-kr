@@ -1,57 +1,230 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Maps 설명서
+summary: Microsoft Azure Maps는 모든 산업의 개발자에게 강력한 지리 공간적 기능을 제공합니다. 이러한 지리 공간적 기능은 가장 새로운 매핑 데이터로 채워져 있습니다. Azure Maps는 웹 및 모바일 애플리케이션 모두에 사용할 수 있습니다. Azure Maps는 Azure One API 호환 REST API 세트입니다. 다음은 Azure Maps에서 제공하는 서비스(지도, 검색, 라우팅, 트래픽, 모바일, 표준 시간대, 지리적 위치, 지오펜싱, 지도 데이터 및 공간 연산)에 대한 대략적인 개요입니다. 웹 및 Android SDK는 여러 플랫폼에서 개발을 쉽게 하고 유연하게 하며 이식 가능하게 합니다.
 metadata:
-  document_id: null
   title: Azure Maps 설명서 | Microsoft Docs
-  meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
-  author: philmea
-  manager: null
+  description: Azure Maps 및 이를 사용하여 웹 또는 모바일 애플리케이션에 지리 공간적 서비스를 제공하는 방법에 대해 알아봅니다.
   ms.service: azure-maps
-  services: azure-maps
   ms.topic: landing-page
-  ms.date: 02/14/2019
+  author: philmea
   ms.author: philmea
-abstract:
-  description: 'Azure Maps는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및 모바일 애플리케이션에 제공하는 데 사용할 수 있는 최신 지도 데이터가 포함된 강력한 지리 공간적 기능을 제공합니다. Azure Maps는 웹 및 Android SDK와 함께 맵, 검색, 라우팅, 트래픽, 표준 시간대, 지리적 위치, 지오펜싱, 맵 데이터 및 공간 작업을 위한 Azure One API 호환 REST API 세트로, 개발을 쉽고 유연하게 해주며, 여러 플랫폼 간에 이식이 가능하도록 해줍니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Azure Maps를 사용하여 지리 공간 애플리케이션을 만드는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_js.svg'
-            text: 웹앱 만들기
-            href: /azure/azure-maps/quick-demo-map-app
-  - title: 단계별 자습서
-    items:
-      - html: <b>웹 SDK 자습서</b>
-      - type: paragraph
-        text: Azure Maps Web SDK를 사용하여 지리 공간 웹 애플리케이션을 빌드합니다.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/azure-maps/tutorial-search-location">관심 지점 검색</a>
-          - html: <a href="/azure/azure-maps/tutorial-route-location">관심 지점에 대한 경로</a>
-          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">여행 모드별 경로</a>
-          - html: <a href="/azure/azure-maps/tutorial-create-store-locator">저장소 로케이터 만들기</a>
-      - html: <b>REST API 자습서</b>
-      - type: paragraph
-        text: Azure Maps REST 서비스로 호출하는 지리 공간 애플리케이션을 빌드합니다.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/azure-maps/tutorial-geofence">지오펜스 설정</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsW
-        items:
-          - title: JavaScript
-            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">지도 컨트롤</a></p>'
-          - title: REST (영문)
-            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">데이터 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">지리적 위치 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Route Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Search Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">공간 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Timezone Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic Service</a></p>'
+  ms.date: 1/15/2020
+  ms.openlocfilehash: a48aa9c3c18784205f6780bf20d9790f24e56c90
+  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/11/2020
+  ms.locfileid: "86242392"
+landingContent:
+- title: Azure Maps 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Maps란?
+      url: about-azure-maps.md
+  - linkListType: concept
+    links:
+    - text: Azure Maps 적용 범위
+      url: render-coverage.md
+    - text: 지역화 지원
+      url: supported-languages.md
+    - text: 지원되는 맵 스타일
+      url: supported-map-styles.md
+  - linkListType: video
+    links:
+    - text: Azure Maps 소개
+      url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Maps를 사용하여 웹 애플리케이션 만들기
+      url: quick-demo-map-app.md
+  - linkListType: concept
+    links:
+    - text: Maps 계정에 적절한 가격 책정 계층 선택
+      url: choose-pricing-tier.md
+    - text: Azure Maps 인증
+      url: azure-maps-authentication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Maps 계정 관리
+      url: how-to-manage-account-keys.md
+    - text: Azure Maps를 사용한 인증 관리
+      url: how-to-manage-authentication.md
+    - text: Azure Maps 계정 가격 책정 계층 관리
+      url: how-to-manage-pricing-tier.md
+    - text: Azure Maps API 사용 메트릭 보기
+      url: how-to-view-api-usage.md
+- title: Creator를 사용하여 개발
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 실내 맵 개념
+      url: creator-indoor-maps.md
+  - linkListType: tutorial
+    links:
+    - text: Creator를 사용하여 실내 맵 데이터 만들기
+      url: tutorial-creator-indoor-maps.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creator 관리
+      url: how-to-manage-creator.md
+    - text: 실내 맵을 위한 동적 스타일 지정 구현
+      url: indoor-map-dynamic-styling.md
+    - text: Azure Maps 그리기 오류 시각화 도우미 사용
+      url: drawing-error-visualizer.md
+    - text: 실내 맵 모듈 사용
+      url: how-to-use-indoor-module.md
+  - linkListType: reference
+    links:
+    - text: 변환 서비스
+      url: https://docs.microsoft.com/rest/api/maps/conversion
+    - text: 데이터 세트 서비스
+      url: https://docs.microsoft.com/rest/api/maps/dataset
+    - text: 타일 세트 서비스
+      url: https://docs.microsoft.com/rest/api/maps/tileset
+    - text: 기능 상태 세트 서비스
+      url: https://docs.microsoft.com/rest/api/maps/featurestate
+- title: Web SDK를 사용하여 개발
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 웹 지도 컨트롤 시작
+      url: how-to-use-map-control.md
+    - text: Azure Maps 웹 SDK 코드 샘플
+      url: https://azuremapscodesamples.azurewebsites.net/
+    - text: 웹 SDK 지원 브라우저
+      url: supported-browsers.md
+  - linkListType: tutorial
+    links:
+    - text: 관심 지점 검색
+      url: tutorial-search-location.md
+    - text: 관심 지점에 대한 경로
+      url: tutorial-route-location.md
+    - text: 저장소 로케이터 만들기
+      url: tutorial-create-store-locator.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Maps 맵 컨트롤 사용
+      url: how-to-use-map-control.md
+    - text: 그리기 도구 모듈 사용
+      url: set-drawing-options.md
+    - text: 서비스 모듈 사용
+      url: how-to-use-services-module.md
+    - text: 공간 IO 모듈 사용
+      url: how-to-use-spatial-io-module.md
+    - text: 웹 SDK 지원 브라우저
+      url: supported-browsers.md
+  - linkListType: reference
+    links:
+    - text: 지도 컨트롤
+      url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+    - text: 그리기 도구 모듈
+      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+    - text: 서비스 모듈
+      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+    - text: 공간 IO 모듈
+      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
+- title: Android SDK로 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Android 지도 컨트롤 시작
+      url: how-to-use-android-map-control-library.md
+    - text: 요소의 메타데이터 정보 표시
+      url: display-feature-information-android.md
+    - text: 맵에 타일 레이어 추가
+      url: how-to-add-tile-layer-android-map.md
+    - text: 맵에 도형 추가
+      url: how-to-add-shapes-to-android-map.md
+    - text: 트래픽 데이터 표시
+      url: how-to-show-traffic-android.md
+- title: 위치 기반 서비스로 개발
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 확대/축소 수준 및 타일 그리드
+      url: zoom-levels-and-tile-grid.md
+  - linkListType: tutorial
+    links:
+    - text: Azure Notebooks(Python)를 사용한 EV 라우팅
+      url: tutorial-ev-routing.md
+  - linkListType: how-to-guide
+    links:
+    - text: 주소 검색(지오코딩)
+      url: how-to-search-for-address.md
+    - text: Search Service 사용 모범 사례
+      url: how-to-use-best-practices-for-search.md
+    - text: Route Service 사용 모범 사례
+      url: how-to-use-best-practices-for-routing.md
+    - text: 정적 맵에서 사용자 지정 데이터 렌더링
+      url: how-to-render-custom-data.md
+  - linkListType: reference
+    links:
+    - text: Search Service
+      url: https://docs.microsoft.com/rest/api/maps/search
+    - text: Route Service
+      url: https://docs.microsoft.com/rest/api/maps/route
+    - text: Traffic Service
+      url: https://docs.microsoft.com/rest/api/maps/traffic
+    - text: Time Zones Service
+      url: https://docs.microsoft.com/rest/api/maps/timezone
+- title: Spatial Analytics
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Maps Event Grid 통합
+      url: azure-maps-event-grid-integration.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Maps를 사용하여 지오펜스 설정
+      url: tutorial-geofence.md
+    - text: Azure Maps를 사용하여 IoT 공간 분석 구현
+      url: tutorial-iot-hub-maps.md
+  - linkListType: reference
+    links:
+    - text: Data Service
+      url: https://docs.microsoft.com/rest/api/maps/data
+    - text: Spatial Service
+      url: https://docs.microsoft.com/rest/api/maps/spatial
+- title: Power BI를 사용한 공간 분석
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 시작
+      url: power-bi-visual-getting-started.md
+    - text: 레이어 이해
+      url: power-bi-visual-understanding-layers.md
+    - text: 액세스 관리
+      url: power-bi-visual-manage-access.md
+- title: Mobility Service로 개발
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Mobility Service 데이터 구조
+      url: mobility-service-data-structure.md
+  - linkListType: how-to-guide
+    links:
+    - text: 공용 전송 경로 요청
+      url: how-to-request-transit-data.md
+    - text: 실시간 공용 전송 데이터 요청
+      url: how-to-request-real-time-data.md
+  - linkListType: reference
+    links:
+    - text: Mobility Service
+      url: https://docs.microsoft.com/rest/api/maps/mobility
+- title: Weather Service로 개발
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Weather Service 개념
+      url: weather-services-concepts.md
+  - linkListType: tutorial
+    links:
+    - text: Azure Notebooks(Python)를 사용한 날씨 데이터 분석
+      url: weather-service-tutorial.md
+  - linkListType: reference
+    links:
+    - text: Weather Service
+      url: https://docs.microsoft.com/rest/api/maps/weather

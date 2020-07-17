@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/08/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3b87f40d75d4045155e7dd953dc76ffd9de2b34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4dc1754eb8818df894e67c1748517b2e2f4356d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356868"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정
 Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)는 Azure AD Connect의 주요 구성 요소입니다. 온-프레미스 환경과 Azure AD 간의 ID 데이터를 동기화하는 데 관련된 모든 작업을 담당합니다. Azure AD Connect 동기화는 DirSync, Azure AD Sync 및 Azure Active Directory Connector가 구성된 Forefront Identity Manager의 후속 제품입니다.
@@ -59,11 +59,11 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)�
 | **작업 및 UI** | |
 | [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) |[작업](how-to-connect-sync-service-manager-ui-operations.md), [커넥터](how-to-connect-sync-service-manager-ui-connectors.md), [메타버스 디자이너](how-to-connect-sync-service-manager-ui-mvdesigner.md) 및 [메타버스 검색](how-to-connect-sync-service-manager-ui-mvsearch.md) 탭을 포함한 Synchronization Service Manager UI를 설명합니다. |
 | [운영 작업 및 고려 사항](how-to-connect-sync-operations.md) |재해 복구와 같은 운영 문제에 대해 설명합니다. |
-| **방법...** | |
+| **어떻게...** | |
 | [Azure AD 계정 재설정](how-to-connect-azureadaccount.md) |Azure AD Connect 동기화에서 Azure AD로 연결하는 데 사용되는 서비스 계정의 자격 증명을 재설정하는 방법. |
 | **자세한 내용 및 참조** | |
 | [포트](reference-connect-ports.md) |동기화 엔진, 온-프레미스 디렉터리 및 Azure AD 간에 열어야 하는 포트를 나열합니다. |
-| [Azure Active Directory에 동기화된 특성](reference-connect-sync-attributes-synchronized.md) |온-프레미스 AD와 Azure AD 간에 동기화되는 모든 특성을 나열합니다. |
+| [Azure Active Directory로 동기화 되는 특성](reference-connect-sync-attributes-synchronized.md) |온-프레미스 AD와 Azure AD 간에 동기화되는 모든 특성을 나열합니다. |
 | [함수 참조](reference-connect-sync-functions-reference.md) |선언적 프로비전에 사용할 수 있는 모든 함수를 나열합니다. |
 
 ## <a name="additional-resources"></a>추가 리소스

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 62024522fc5211308929153e2614ab6fd95f19b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60333621"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67181926"
 ---
-올바른 정리를 세션 후에 호출 `close()`합니다.
+세션 후 제대로 정리하려면 `close()`를 호출합니다.

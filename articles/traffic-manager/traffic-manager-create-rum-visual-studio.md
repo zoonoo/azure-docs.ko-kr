@@ -1,23 +1,22 @@
 ---
-title: Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Azure Traffic Manager에 보내기 | Microsoft Docs
+title: Visual Studio Mobile Center를 사용 하 여 실제 사용자 측정-Azure Traffic Manager
 description: 실제 사용자 측정을 Traffic Manager에 보내도록 Visual Studio Mobile Center를 사용하여 개발한 모바일 애플리케이션 설정
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: rohink
 ms.custom: ''
-ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 11c5ebfb0fe9cde8da0680ea263052e9380012cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706735"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Traffic Manager에 보내는 방법
 
@@ -28,7 +27,7 @@ Visual Studio Mobile Center를 사용하여 개발한 모바일 애플리케이�
 
 실제 사용자 측정을 구성하려면 RUM 패키지로 키를 가져오고 앱을 계측해야 합니다.
 
-## <a name="step-1-obtain-a-key"></a>1단계: 키를 얻으려면
+## <a name="step-1-obtain-a-key"></a>1단계: 키 가져오기
     
 클라이언트 애플리케이션에서 Traffic Manager로 보낸 측정값은 RUM(실제 사용자 측정) 키라고 하는 고유한 문자열을 사용하여 서비스에 의해 식별됩니다. Azure Portal, REST API 또는 PowerShell/CLI 인터페이스를 사용하여 RUM 키를 가져올 수 있습니다.
 
@@ -40,7 +39,7 @@ Azure Portal을 사용하여 RUM Key를 얻으려면 다음 절차를 수행합�
         
    ![실제 사용자 측정 키 생성](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **그림 1: 실제 사용자 측정 키 생성**
+   **그림 1: 키 생성 실제 사용자 측정**
 
 5. 페이지에는 생성된 RUM 키와 HTML 페이지에 포함되어야 하는 JavaScript 코드 조각이 표시됩니다.
  

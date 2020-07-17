@@ -1,31 +1,31 @@
 ---
-title: 부트스트랩을 사용 하 여 Azure HDInsight 클러스터 구성을 사용자 지정
-description: 프로그래밍 방식으로.Net, PowerShell 및 Resource Manager를 사용 하 여 HDInsight 클러스터 구성을 사용자 지정 하는 방법을 알아봅니다 템플릿.
+title: 부트스트랩을 사용 하 여 Azure HDInsight 클러스터 구성 사용자 지정
+description: .NET, PowerShell 및 리소스 관리자 템플릿을 사용 하 여 프로그래밍 방식으로 HDInsight 클러스터 구성을 사용자 지정 하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 04/19/2019
-ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 04/01/2020
+ms.openlocfilehash: be206b312394eab6367f179872c8c36b7f4f3d44
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203717"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083222"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
-부트스트랩 스크립트를 사용 하면 설치 하 고 Azure HDInsight에서 구성 요소를 프로그래밍 방식으로 구성할 수 있습니다. 
+부트스트랩 스크립트를 사용 하 여 프로그래밍 방식으로 Azure HDInsight의 구성 요소를 설치 및 구성할 수 있습니다.
 
-HDInsight 클러스터가 만들어질 때 구성 파일 설정을 설정 하는 방법은 세 가지가 있습니다.
+HDInsight 클러스터를 만들 때 구성 파일 설정을 설정 하는 방법에는 세 가지가 있습니다.
 
 * Azure PowerShell 사용
 * .NET SDK 사용
 * Azure Resource Manager 템플릿 사용
 
-예를 들어 프로그래밍 방식으로 이러한 메서드를 사용 하면 옵션을 구성할 수 이러한 파일에:
+예를 들어 이러한 프로그래밍 메서드를 사용 하 여 다음 파일의 옵션을 구성할 수 있습니다.
 
 * clusterIdentity.xml
 * core-site.xml
@@ -44,23 +44,22 @@ HDInsight 클러스터가 만들어질 때 구성 파일 설정을 설정 하는
 * yarn-site.xml
 * server.properties(kafka-broker 구성)
 
-만든 시간 동안 HDInsight 클러스터에서 추가 구성 요소 설치에 대 한 내용은 참조 하세요 [사용자 지정 HDInsight 스크립트 동작 (Linux)를 사용 하 여 클러스터](hdinsight-hadoop-customize-cluster-linux.md)합니다.
+만든 시간 동안 HDInsight 클러스터에 추가 구성 요소를 설치 하는 방법에 대 한 자세한 내용은 [스크립트 작업을 사용 하 여 hdinsight 클러스터 사용자 지정 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* PowerShell을 사용 하는 경우는 [Az 모듈](https://docs.microsoft.com/powershell/azure/overview)합니다.
+* PowerShell을 사용하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요합니다.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 다음 PowerShell 코드는 [Apache Hive](https://hive.apache.org/) 구성을 사용자 지정합니다.
 
 > [!IMPORTANT]  
-> 매개 변수 `Spark2Defaults` 사용 해야 할 수 있습니다 [추가-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)합니다. 아래 코드 예제에 표시 된 대로 매개 변수에 빈 값을 전달할 수 있습니다.
-
+> 매개 변수는 `Spark2Defaults` [AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)와 함께 사용 해야 할 수 있습니다. 아래 코드 예제에 표시 된 것 처럼 매개 변수에 빈 값을 전달할 수 있습니다.
 
 ```powershell
 # hive-site.xml configuration
-$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
+$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90s" }
 
 $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
@@ -86,17 +85,10 @@ New-AzHDInsightCluster `
 
 **변경을 확인하려면:**
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **HDInsight 클러스터**를 클릭합니다. 표시되지 않으면 먼저 **모든 서비스**를 클릭합니다.
-3. PowerShell 스크립트를 사용하여 방금 만든 클러스터를 클릭합니다.
-4. 블레이드 맨 위에서 **대시보드** 를 클릭하여 Ambari UI를 엽니다.
-5. 왼쪽 메뉴에서 **Hive** 를 클릭합니다.
-6. **요약**에서 **HiveServer2**를 클릭합니다.
-7. **Configs** 탭을 클릭합니다.
-8. 왼쪽 메뉴에서 **Hive** 를 클릭합니다.
-9. **고급** 탭을 클릭합니다.
-10. 아래로 스크롤한 다음 **고급 hive 사이트**를 확장합니다.
-11. 섹션에서 **hive.metastore.client.socket.timeout** 을 찾습니다.
+1. 로 이동 `https://CLUSTERNAME.azurehdinsight.net/` `CLUSTERNAME` 합니다. 여기서은 클러스터의 이름입니다.
+1. 왼쪽 메뉴에서 **Hive**  >  **Configs**  >  **Advanced**로 이동 합니다.
+1. **고급 hive-사이트**를 확장 합니다.
+1. **Metastore** 를 찾고 값이 **90 년대**인지 확인 합니다.
 
 다른 구성 파일을 사용자 지정하는 추가 샘플:
 
@@ -115,9 +107,11 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 ```
 
 ## <a name="use-net-sdk"></a>.NET SDK 사용
-[.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap)를 참조하세요.
+
+[.Net 용 Azure HDINSIGHT SDK를](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)참조 하세요.
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
+
 Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 
 ```json
@@ -130,47 +124,45 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 }
 ```
 
-![HDInsight Hadoop 사용자 지정 클러스터 부트스트랩 Azure Resource Manager 템플릿](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![Hadoop은 클러스터 부트스트랩 Azure Resource Manager 템플릿을 사용자 지정 합니다.](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>참고 항목
-* [HDInsight의 Apache Hadoop 클러스터 만들기][hdinsight-provision-cluster]에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
-* [HDInsight용 스크립트 작업 스크립트 개발][hdinsight-write-script]
-* [HDInsight 클러스터에서 Apache Spark 설치 및 사용][hdinsight-install-spark]
-* [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
+Spark2에서 구성을 전환 하는 샘플 리소스 관리자 템플릿 코드 조각-기본값은 저장소에서 이벤트 로그를 정기적으로 정리 합니다.  
 
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-write-script]: hdinsight-hadoop-script-actions-linux.md
-[hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+```json
+"configurations": {
+    "spark2-defaults": {
+        "spark.history.fs.cleaner.enabled": "true",
+        "spark.history.fs.cleaner.interval": "7d",
+        "spark.history.fs.cleaner.maxAge": "90d"
+    }
+}
+```
 
+## <a name="see-also"></a>참조
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
+* [HDInsight의 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
+* [HDInsight 용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
+* [HDInsight 클러스터에서 Apache Spark 설치 및 사용](spark/apache-spark-jupyter-spark-sql-use-portal.md)
+* [HDInsight 클러스터에서 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="appendix-powershell-sample"></a>부록: PowerShell 샘플
 
-이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정 합니다. 에 대 한 값을 입력 해야 `$nameToken`, `$httpPassword`, 및 `$sshPassword`합니다.
-
-> [!IMPORTANT]  
-> 에 대 한 값 `DefaultStorageAccount`, 및 `DefaultStorageContainer` 에서 반환 되지 않습니다 [Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) 때 [보안 전송](../storage/common/storage-require-secure-transfer.md) 저장소 계정에서 사용 하도록 설정 됩니다.
-
-> [!WARNING]  
-> 저장소 계정 종류 `BlobStorage` HDInsight 클러스터에 사용할 수 없습니다.
-
+이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정 합니다. , 및에 대 한 값을 입력 해야 `$nameToken` `$httpPassword` `$sshPassword` 합니다.
 
 ```powershell
 ####################################
 # Set these variables
 ####################################
 #region - used for creating Azure service names
-$nameToken = "<ENTER AN ALIAS>" 
+$nameToken = "<ENTER AN ALIAS>"
 #endregion
 
 #region - cluster user accounts
 $httpUserName = "admin"  #HDInsight cluster username
-$httpPassword = '<ENTER A PASSWORD>' 
+$httpPassword = '<ENTER A PASSWORD>'
 
 $sshUserName = "sshuser" #HDInsight ssh user name
-$sshPassword = '<ENTER A PASSWORD>' 
+$sshPassword = '<ENTER A PASSWORD>'
 #endregion
 
 ####################################
@@ -222,6 +214,8 @@ New-AzStorageAccount `
     -Kind StorageV2 `
     -EnableHttpsTrafficOnly 1
 
+# Note: Storage account kind BlobStorage cannot be used as primary storage.
+
 $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
@@ -237,7 +231,7 @@ New-AzStorageContainer `
 ####################################
 # Create a configuration object
 ####################################
-$hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
+$hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90s"}
 
 $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `

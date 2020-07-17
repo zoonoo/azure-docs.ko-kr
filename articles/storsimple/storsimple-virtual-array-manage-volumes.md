@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: caa6a26b-b7ba-4a05-b092-1a79450225cf
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 734dc55cbcd9c7b5eaf6455d63bcb773b7d85367
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513996"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>StorSimple Device Manager 서비스를 사용하여 StorSimple Virtual Array에서 볼륨 관리
 
@@ -33,8 +33,8 @@ StorSimple Device Manager 서비스는 단일 웹 인터페이스에서 StorSimp
 
 StorSimple 볼륨은 다음과 같을 수 있습니다.
 
-* **로컬로 고정 된**: 이러한 볼륨의 데이터가 항상 배열에 유지 되 고 클라우드로 유출 되지 않습니다.
-* **계층화 된**: 이러한 볼륨의 데이터를 클라우드로 분산할 수 있습니다. 계층화된 볼륨을 만들 때 공간의 약 10%는 로컬 계층에 프로비전되고 공간의 90%는 클라우드에 프로비전됩니다. 예를 들어, 1TB 볼륨을 프로비전하는 경우 100GB는 로컬 공간에 상주하고 900GB는 데이터가 계층화될 때 클라우드에서 사용됩니다. 따라서 디바이스의 로컬 공간이 부족하면 로컬 계층에 필요한 10%를 사용할 수 없기 때문에 계층화된 볼륨을 프로비전할 수 없다는 것을 의미합니다.
+* **로컬로 고정**: 이러한 볼륨의 데이터는 항상 배열에 유지되고 클라우드로 분산되지 않습니다.
+* **계층화**: 이러한 볼륨의 데이터를 클라우드로 분산할 수 있습니다. 계층화된 볼륨을 만들 때 공간의 약 10%는 로컬 계층에 프로비전되고 공간의 90%는 클라우드에 프로비전됩니다. 예를 들어, 1TB 볼륨을 프로비전하는 경우 100GB는 로컬 공간에 상주하고 900GB는 데이터가 계층화될 때 클라우드에서 사용됩니다. 따라서 디바이스의 로컬 공간이 부족하면 로컬 계층에 필요한 10%를 사용할 수 없기 때문에 계층화된 볼륨을 프로비전할 수 없다는 것을 의미합니다.
 
 ### <a name="provisioned-capacity"></a>프로비전된 용량
 각 볼륨 유형에 대한 최대 프로비전된 용량에 대해 다음 표를 참조하세요.
@@ -44,17 +44,17 @@ StorSimple 볼륨은 다음과 같을 수 있습니다.
 | 계층화 볼륨의 최소 크기                            | 500GB        |
 | 계층화 볼륨의 최대 크기                            | 5TB          |
 | 로컬로 고정된 볼륨의 최소 크기                    | 50GB         |
-| 로컬로 고정된 볼륨의 최대 크기                    | 500GB        |
+| 로컬로 고정된 볼륨의 최대 크기                    | 200GB        |
 
 ## <a name="the-volumes-blade"></a>볼륨 블레이드
-StorSimple 서비스 요약 블레이드의 **볼륨** 메뉴에서는 지정된 StorSimple 배열의 저장소 볼륨의 목록을 표시하고 관리할 수 있습니다.
+StorSimple 서비스 요약 블레이드의 **볼륨** 메뉴에서는 지정된 StorSimple 배열의 스토리지 볼륨의 목록을 표시하고 관리할 수 있습니다.
 
 ![볼륨 블레이드](./media/storsimple-virtual-array-manage-volumes/volumes-blade.png)
 
 볼륨은 다음과 같은 특성으로 구성됩니다.
 
 * **볼륨 이름** – 설명이 포함된 이름은 고유해야 하며 볼륨을 식별하는 데 도움이 됩니다.
-* **상태** – 온라인 또는 오프라인 상태가 될 수 있습니다. 오프라인인 경우 볼륨은 해당 볼륨을 사용하는 데 액세스가 허용된 초기자(서버)에 보이지 않습니다.
+* **상태** – 온라인 또는 오프라인일 수 있습니다. 오프라인인 경우 볼륨은 해당 볼륨을 사용하는 데 액세스가 허용된 초기자(서버)에 보이지 않습니다.
 * **유형** – 볼륨이 **계층화됨**(기본값) 또는 **로컬로 고정**인지를 나타냅니다.
 * **용량** - 용량은 초기자(서버)가 저장할 수 있는 데이터의 전체 크기에 비해 사용된 데이터의 양을 지정합니다.
 * **Backup** – StorSimple 가상 배열의 경우에 모든 볼륨은 자동으로 백업에서 사용할 수 있습니다.

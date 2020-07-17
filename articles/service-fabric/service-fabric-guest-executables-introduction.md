@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric에 기존 실행 파일 배포 | Microsoft Docs
+title: 기존 실행 파일을 Azure에 패키지 Service Fabric
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/15/2018
-ms.author: aljo
-ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946674"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247390"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric에 배포
 Azure Service Fabric에서 Node.js, Java 또는 C++과 같은 모든 종류의 코드를 서비스로 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 게스트 실행 파일이라고 합니다.
@@ -33,7 +22,7 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 * 상태 모니터링. Service Fabric 상태 모니터링은 애플리케이션이 실행 중인지 감지하고 오류가 있으면 진단 정보를 제공합니다.   
 * 애플리케이션 수명 주기 관리. Service Fabric은 가동 중지 시간 없이 업그레이드를 제공할 뿐 아니라 업그레이드 중에 나쁜 상태 이벤트가 보고되면 이전 버전으로 자동 롤백을 제공합니다.    
 * 밀도. 한 클러스터에서 여러 애플리케이션을 실행할 수 있으므로 애플리케이션을 고유의 하드웨어에서 실행할 필요가 없습니다.
-* 검색 기능: REST를 사용 하 여 서비스를 찾는 다른 클러스터의 Service Fabric Naming 서비스를 호출할 수 있습니다. 
+* 검색 가능성: REST 사용 Service Fabric 명명 서비스를 호출하여 클러스터에서 다른 서비스를 찾을 수 있습니다. 
 
 ## <a name="samples"></a>샘플
 * [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -64,9 +53,9 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 
 ApplicationPackageRoot는 애플리케이션을 정의하는 ApplicationManifest.xml 파일을 포함합니다. 애플리케이션에 포함된 각 서비스에 대한 하위 디렉터리 서비스는 서비스가 필요한 모든 아티팩트를 포함하는 데 사용됩니다. 이러한 하위 디렉터리는 ServiceManifest.xml이며 일반적으로 다음과 같습니다.
 
-* *Code*. 이 디렉터리는 서비스 코드를 포함합니다.
-* *Config*. 이 디렉터리는 런타임에 서비스가 액세스하여 특정 구성 설정을 검색할 수 있는 settings.xml 파일(필요한 경우 다른 파일도 포함)을 포함합니다.
-* *Data*. 서비스에 필요할 수도 있는 추가 로컬 데이터를 저장하는 추가 디렉터리입니다. Data는 사용 후 삭제되는 데이터를 저장하는 용도로만 사용해야 합니다. 예를 들어 장애 조치 중에 서비스를 다시 배치해야 하는 경우 Service Fabric은 변경 내용을 데이터 디렉터리에 복사 또는 복제하지 않습니다.
+* *코드*. 이 디렉터리는 서비스 코드를 포함합니다.
+* *구성*. 이 디렉터리에는 서비스에서 런타임에 액세스 하 여 특정 구성 설정을 검색할 수 있는 Settings.xml 파일 및 필요한 경우 기타 파일이 포함 되어 있습니다.
+* *데이터*. 서비스에 필요할 수도 있는 추가 로컬 데이터를 저장하는 추가 디렉터리입니다. Data는 사용 후 삭제되는 데이터를 저장하는 용도로만 사용해야 합니다. 예를 들어 장애 조치 중에 서비스를 다시 배치해야 하는 경우 Service Fabric은 변경 내용을 데이터 디렉터리에 복사 또는 복제하지 않습니다.
 
 > [!NOTE]
 > `config` 및 `data` 디렉터리가 필요 없으면 만들지 않아도 됩니다.
@@ -76,8 +65,7 @@ ApplicationPackageRoot는 애플리케이션을 정의하는 ApplicationManifest
 ## <a name="next-steps"></a>다음 단계
 관련 정보 및 작업에 대해 다음 문서를 참조하세요.
 * [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)
-* [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
+* [여러 개의 게스트 실행 파일 배포](./service-fabric-deploy-existing-app.md)
 * [Visual Studio를 사용하여 처음으로 게스트 실행 가능 애플리케이션 만들기](quickstart-guest-app.md)
 * 패키징 도구 시험판의 링크를 포함하여 [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
-

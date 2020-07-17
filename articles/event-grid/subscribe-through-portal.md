@@ -1,18 +1,14 @@
 ---
 title: 포털을 통해 Azure Event Grid 구독
-description: 포털을 통해 Event Grid 구독을 만드는 방법을 설명합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
+description: 이 문서에서는 Azure Portal을 사용 하 여 Azure Blob Storage와 같이 지원 되는 원본에 대 한 Event Grid 구독을 만드는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.author: spelluru
-ms.openlocfilehash: b54bc52a2feaf4646d801265ddb273c2c86158ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/07/2020
+ms.openlocfilehash: 2890f57e50e508f85579a2b1198de536fa9a9013
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60823516"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119993"
 ---
 # <a name="subscribe-to-events-through-portal"></a>포털을 통해 이벤트 구독
 
@@ -20,7 +16,7 @@ ms.locfileid: "60823516"
 
 ## <a name="create-event-subscriptions"></a>이벤트 구독 만들기
 
-지원되는 [이벤트 원본](event-sources.md)에 대한 Event Grid 구독을 만들려면 다음 단계를 따르세요. 이 문서에서는 Azure 구독에 대한 Event Grid 구독을 만드는 방법을 설명합니다.
+지원되는 [이벤트 원본](overview.md#event-sources)에 대한 Event Grid 구독을 만들려면 다음 단계를 따르세요. 이 문서에서는 Azure 구독에 대한 Event Grid 구독을 만드는 방법을 설명합니다.
 
 1. **모든 서비스**를 선택합니다.
 

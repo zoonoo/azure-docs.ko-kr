@@ -6,28 +6,28 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d2cc3627222bcd8de5a5cb1b5c83b04c5d4ef880
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123917"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130200"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정
 
 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 항목을 이미 가지고 있다고 가정합니다.
-- [Azure Portal](https://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
+- [Azure Portal](https://portal.azure.com "Azure portal")의 Recovery Services 자격 증명 모음입니다.
 - 구성 서버를 설치할 물리적 컴퓨터
-- 구성 서버를 설치하는 컴퓨터에서 TLS 1.0을 사용하지 않도록 설정 한 경우 TLs 1.2를 사용하도록 설정하고 .NET Framework 버전 4.6 이상이 컴퓨터에 설치되어 있는지(강력한 암호화를 사용하지 않도록 설정하여) 확인합니다. [자세히 알아보기](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- 구성 서버를 설치 하는 컴퓨터에서 TLS 1.0을 사용 하지 않도록 설정한 경우 TLs 1.2을 사용 하도록 설정 하 고 .NET Framework 버전 4.6 이상이 컴퓨터에 설치 되어 있는지 확인 합니다 (강력한 암호화 사용). [자세히 알아보기](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
-다음 테이블에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
+다음 표에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
@@ -36,7 +36,7 @@ ms.locfileid: "62123917"
 ## <a name="choose-your-protection-goals"></a>보호 목표 선택
 
 1. Azure Portal에서 **Recovery Services** 자격 증명 모음 블레이드로 이동한 후 사용자 자격 증명 모음을 선택합니다.
-2. 자격 증명 모음의 **리소스** 메뉴에서 **시작** > **Site Recovery** > **1단계: 인프라 준비** > **보호 목표**를 클릭합니다.
+2. 자격 증명 모음의 **리소스** 메뉴에서 **시작**  >  **Site Recovery**  >  **1 단계: 인프라 준비**  >  **보호 목표**를 클릭 합니다.
 
     ![목표 선택](./media/physical-azure-set-up-source/choose-goals.png)
 3. **보호 목표**에서 **Azure에**를 선택하고 **가상화되지 않음/기타**를 선택한 후 **확인**을 클릭합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "62123917"
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
-1. **원본 준비**에서 구성 서버가 없는 경우 **+구성 서버**를 클릭하여 하나를 추가합니다.
+1. **원본 준비**에서 구성 서버가 없는 경우 **+ 구성 서버** 를 클릭 하 여 하나를 추가 합니다.
 
    ![원본 설정](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. **서버 추가** 블레이드에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "62123917"
 #### <a name="run-azure-site-recovery-unified-setup"></a>Azure Site Recovery 통합 설치 프로그램 실행
 
 > [!TIP]
-> 사용자 컴퓨터의 시스템 클록에서 시간이 현지 시간보다 5분 이상 차이가 날 경우 구성 서버 등록에 실패합니다. 설치를 시작하기 전에 시스템 클록을 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화합니다.
+> 사용자 컴퓨터의 시스템 클록에서 시간이 현지 시간보다 5분 이상 차이가 날 경우 구성 서버 등록에 실패합니다. 설치를 시작 하기 전에 시스템 클록을 [시간 서버](/windows-server/networking/windows-time-service/windows-time-service-top) 와 동기화 합니다.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 

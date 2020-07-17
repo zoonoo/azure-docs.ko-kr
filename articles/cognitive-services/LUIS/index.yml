@@ -1,114 +1,145 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Language Understanding(LUIS) 설명서
+### YamlMime:Landing
+title: LUIS(Language Understanding) 설명서
+summary: Language Understanding을 통해 애플리케이션이 사람의 말에서 원하는 것을 어떻게 이해할 수 있는지 알아봅니다.
 metadata:
-  document_id: null
-  title: 'Language Understanding (LUIS) - 자습서, 빠른 시작, API 참조'
-  description: Language Understanding 서비스를 사용하여 애플리케이션이 사람의 말을 통해 무엇을 원하는지 이해하도록 만드는 방법을 알아봅니다.
-  author: nitinme
-  manager: cgronlun
-  ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2019
+  ms.date: 06/15/2020
   ms.author: nitinme
-abstract:
-  description: LUIS(Language Understanding) 서비스를 사용하면 애플리케이션에서 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다. LUIS는 기계 학습을 사용하여 사용자 입력을 자연어로 받아서 의미를 추출하는 애플리케이션을 개발자가 작성할 수 있도록 합니다.
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/luis-landing-page-video.png
-      width: 250
-    title: 'LUIS의 새로운 기능(18:28)'
-    href: 'https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/luis/what-is-luis
-            html: <p>LUIS(Language Understanding) 서비스에 대해 알아봅니다.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: LUIS란?
-          - href: /azure/cognitive-services/luis/luis-how-plan-your-app
-            html: <p>앱과 관련된 의도 및 엔터티에 대한 개요를 준비합니다.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: LUIS 앱 계획
-          - href: /azure/cognitive-services/luis/luis-concept-best-practices
-            html: <p>LUIS 앱을 만들 때 다음 모범 사례를 사용하세요.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: LUIS 앱에 대한 모범 사례
-  - title: 5분 빠른 시작
-    items:
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/logo_csharp.svg
-          - image:
-              src: media/index/logo_java.svg
-          - image:
-              src: media/index/logo_nodejs.svg
-          - image:
-              src: media/index/logo_python.svg
-        rows:
-          - title: 엔드포인트 API
-            values:
-              - href: luis-get-started-cs-get-intent
-              - href: luis-get-started-java-get-intent
-              - href: luis-get-started-node-get-intent
-              - href: luis-get-started-python-get-intent
-          - title: API 작성
-            values:
-              - href: luis-get-started-cs-add-utterance
-              - href: luis-get-started-java-add-utterance
-              - href: luis-get-started-node-add-utterance
-              - href: luis-get-started-python-add-utterance
-  - title: 단계별 자습서
-    items:
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="luis-quickstart-intents-only">HR(인사 관리) 도메인에 대한 앱 빌드</a>
-          - html: <a href="luis-tutorial-prebuilt-intents-entities">미리 작성된 의도 및 엔터티 추가</a>
-          - html: <a href="luis-quickstart-intents-regex-entity">정규식 엔터티 추가</a>
-          - html: <a href="luis-quickstart-intent-and-list-entity">목록 엔터티 추가</a>
-          - html: <a href="tutorial-entity-roles">엔터티 역할 사용</a>
-          - html: <a href="luis-quickstart-primary-and-secondary-data">단순 엔터티 및 문구 목록 추가</a>
-          - html: <a href="luis-quickstart-intent-and-key-phrase">keyPhrase 엔터티 추가</a>
-          - html: <a href="luis-quickstart-intent-and-sentiment-analysis">감정 분석 추가</a>
-  - title: 샘플
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://aka.ms/luis-code-samples">GitHub의 샘플</a><br/>'
-  - title: 동영상
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" >Azure Friday: 빌드 2018 - Cognitive Services - 언어(LUIS)</a>'
-          - html: '<a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Build 2018 Session - 봇 인텔리전스, 음성 기능 및 NLU 모범 사례</a>'
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST API v2
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092356"> Endpoint API</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2092087"> Authoring API</a></p>'
-          - title: SDK
-            html: '<p><a href="https://aka.ms/luis-endpoint-sdk"> .NET Endpoint SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Authoring SDK</a></p>'
-          - title: PowerShell
-            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Azure CLI</a></p>'
+  author: nitinme
+  ms.service: cognitive-services
+  ms.subservice: language-understanding
+  services: cognitive-services
+  title: LUIS(Language Understanding) 설명서
+  titleSuffix: Azure Cognitive Services
+  description: LUIS(Language Understanding) 서비스를 사용하면 애플리케이션은 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다. LUIS는 기계 학습을 사용하여 사용자 입력을 자연어로 받아서 의미를 추출하는 애플리케이션을 개발자가 작성할 수 있도록 합니다.
+  ms.openlocfilehash: 0d941872670a5bdd559a2760f73cda72773fc887
+  ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/15/2020
+  ms.locfileid: "84791591"
+landingContent:
+- title: LUIS(Language Understanding) 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Language Understanding이란?
+      url: what-is-luis.md
+    - text: LUIS 포털
+      url: https://www.luis.ai
+  - linkListType: concept
+    links:
+    - text: 앱 계획
+      url: luis-how-plan-your-app.md
+    - text: 반복적인 앱 디자인
+      url: luis-concept-app-iteration.md
+    - text: DevOps 사례
+      url: luis-concept-devops-sourcecontrol.md
+  - linkListType: whats-new
+    links:
+    - text: 새로운 기능
+      url: whats-new.md
+  - linkListType: video
+    links:
+    - text: 'Ignite 2019: LUIS를 사용하는 고급 NLU(Natural Language Understanding) 모델'
+      url: https://www.youtube.com/watch?v=JdJEV2jV0_Y
+- title: 의도, 엔터티 및 기능 만들기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 의도
+      url: luis-concept-intent.md
+    - text: 엔터티
+      url: luis-concept-entity-types.md
+    - text: 발언
+      url: luis-concept-utterance.md
+    - text: 구 목록 기능
+      url: luis-concept-feature.md
+  - linkListType: quickstart
+    links:
+    - text: '포털: 새 LUIS 앱 만들기'
+      url: get-started-portal-build-app.md
+    - text: C# SDK 사용
+      url: sdk-authoring.md?pivots=programming-language-csharp
+    - text: Python SDK 사용
+      url: sdk-authoring.md?pivots=programming-language-python
+  - linkListType: how-to-guide
+    links:
+    - text: 새 LUIS 앱 만들기
+      url: luis-how-to-start-new-app.md
+    - text: 예제 발화로 의도 추가
+      url: luis-how-to-add-intents.md
+    - text: 엔터티 추가
+      url: luis-how-to-add-example-utterances.md
+    - text: 구 목록 기능 추가
+      url: luis-how-to-add-features.md
+- title: 버전, 학습, 테스트 및 게시
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 버전 관리
+      url: luis-concept-version.md
+    - text: 대화형 테스트
+      url: luis-concept-test.md
+    - text: 일괄 테스트
+      url: luis-concept-batch-test.md
+  - linkListType: quickstart
+    links:
+    - text: '포털: 예측 엔드포인트에 앱 배포'
+      url: get-started-portal-deploy-app.md
+    - text: SDK 사용
+      url: sdk-authoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: 앱 관리
+      url: luis-how-to-manage-versions.md
+    - text: 대화형 테스트 수행
+      url: luis-interactive-test.md
+    - text: 일괄 처리 테스트 수행
+      url: luis-how-to-batch-test.md
+    - text: 앱 학습
+      url: luis-how-to-train.md
+    - text: 예측 엔드포인트 게시
+      url: luis-how-to-publish-app.md
+- title: 엔드포인트에서 예측 가져오기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: SDK 사용
+      url: sdk-query-prediction-endpoint.md
+  - linkListType: quickstart
+    links:
+    - text: REST를 통해 C# 사용
+      url: luis-get-started-cs-get-intent.md
+    - text: REST를 통해 Go 사용
+      url: luis-get-started-go-get-intent.md
+    - text: REST를 통해 Java 사용
+      url: luis-get-started-java-get-intent.md
+    - text: REST를 통해 Node.js 사용
+      url: luis-get-started-node-get-intent.md
+    - text: REST를 통해 Python 사용
+      url: luis-get-started-python-get-intent.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 개발자 리소스
+      url: developer-reference-resource.md
+    - text: 앱 제한 사항
+      url: luis-limits.md
+    - text: 미리 빌드된 엔터티
+      url: luis-reference-prebuilt-entities.md
+    - text: 사용자 지정 엔터티
+      url: luis-concept-entity-types.md#types-of-entities
+    - text: 미리 빌드된 도메인
+      url: luis-reference-prebuilt-domains.md
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 문제 해결
+      url: troubleshooting.md
+    - text: Stack Overflow에 대한 질문
+      url: https://stackoverflow.com/questions/tagged/LUIS
+    - text: UserVoice를 통한 서비스 영향
+      url: https://cognitive.uservoice.com/forums/551524-luis

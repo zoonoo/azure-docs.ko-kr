@@ -1,5 +1,5 @@
 ---
-title: 'Azure 백 엔드 연결 기능의 상호 운용성: 데이터 평면 분석 | Microsoft Docs'
+title: 'Azure의 상호 운용성: 데이터 평면 분석'
 description: 이 문서에서는 ExpressRoute, 사이트 간 VPN 및 Azure의 가상 네트워크 피어링 간의 상호 운용성을 분석하는 데 사용할 수 있는 테스트 설정의 데이터 평면 분석에 대해 설명합니다.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: f4d94536a8c1b509e0ce435a764e69984b5d415e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 635a8fc5409e18da9529763b06e4a531a36d0156
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60425541"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169207"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Azure 백 엔드 연결 기능의 상호 운용성: 데이터 평면 분석
+# <a name="interoperability-in-azure--data-plane-analysis"></a>Azure의 상호 운용성: 데이터 평면 분석
 
 이 문서에서는 [테스트 설정][Setup]의 데이터 평면 분석에 대해 설명합니다. 테스트 설정의 [테스트 설정 구성][Configuration] 및 [제어 평면 분석][Control-Analysis]을 검토할 수도 있습니다.
 
@@ -29,57 +29,63 @@ ms.locfileid: "60425541"
 
 VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크 브리지 기능을 에뮬레이트합니다. 허브 VNet에서 스포크 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.11.30.4
+  1     2 ms     1 ms     1 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 다음 그림은 Azure Network Watcher의 관점에서 본 허브 VNet과 스포크 VNet의 그래픽 연결 보기입니다.
 
 
-[![1]][1]
+![1][1]
 
 ### <a name="path-to-the-branch-vnet"></a>분기 VNet 경로
 
 허브 VNet에서 분기 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms     1 ms     1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     2 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms     1 ms     1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     2 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 이 경로 추적에서, 첫 번째 홉은 허브 VNet의 Azure VPN Gateway에 있는 VPN 게이트웨이입니다. 두 번째 홉은 분기 VNet의 VPN 게이트웨이입니다. 분기 VNet의 VPN 게이트웨이 IP 주소는 허브 VNet에서 보급되지 않습니다. 세 번째 홉은 분기 VNet 상의 VM입니다.
 
 다음 그림은 Network Watcher의 관점에서 본 분기 VNet과 스포크 VNet의 그래픽 연결 보기입니다.
 
-[![2]][2]
+![2][2]
 
 같은 연결에 대해 다음 그림은 Network Watcher의 그리드 보기를 보여줍니다.
 
-[![3]][3]
+![3][3]
 
 ### <a name="path-to-on-premises-location-1"></a>온-프레미스 위치 1 경로
 
 허브 VNet에서 온-프레미스 위치 1의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     2 ms     2 ms     2 ms  10.2.30.10
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     2 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 이 경로 추적에서, 첫 번째 홉은 MSEE(Microsoft Enterprise Edge Router)로 가는 Azure ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 및 세 번째 홉은 CE(고객 에지) 라우터와 온-프레미스 위치 1 LAN IP입니다. 이러한 IP 주소는 허브 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 1의 VM입니다.
 
@@ -88,16 +94,18 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
 허브 VNet에서 온-프레미스 위치 2의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.1.31.10
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-      1    76 ms    75 ms    75 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
+  1    76 ms    75 ms    75 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-    Trace complete.
+Trace complete.
+```
 
 이 경로 추적에서 첫 번째 홉은 MSEE에 대한 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 2 LAN IP입니다. 이러한 IP 주소는 허브 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 2의 VM입니다.
 
@@ -105,15 +113,17 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
 허브 VNet에서 원격 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    69 ms  10.17.30.4
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 이 경로 추적에서 첫 번째 홉은 MSEE에 대한 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 홉은 원격 VNet의 게이트웨이 IP입니다. 두 번째 홉 IP 범위는 허브 VNet 내에서 보급되지 않습니다. 세 번째 홉은 원격 VNet의 VM입니다.
 
@@ -125,27 +135,31 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
 스포크 VNet에서 허브 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet"></a>분기 VNet 경로
 
 스포크 VNet에서 분기 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms    <1 ms    <1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 이 경로 추적에서, 첫 번째 홉은 허브 VNet의 VPN 게이트웨이입니다. 두 번째 홉은 분기 VNet의 VPN 게이트웨이입니다. 분기 VNet의 VPN 게이트웨이 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 세 번째 홉은 분기 VNet 상의 VM입니다.
 
@@ -153,52 +167,57 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
 스포크 VNet에서 온-프레미스 위치 1의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    24 ms     2 ms     3 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     3 ms     2 ms     2 ms  10.2.30.10
+  1    24 ms     2 ms     3 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     3 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
-이 경로 추적에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 1 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 1의 VM입니다.
+이 경로 추적 첫 번째 홉은 MSEE에 대 한 허브 VNet의 Express 경로 게이트웨이 터널 끝점입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 1 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 1의 VM입니다.
 
 ### <a name="path-to-on-premises-location-2"></a>온-프레미스 위치 2 경로
 
 스포크 VNet에서 온-프레미스 위치 2의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    C:\Users\rb>tracert 10.2.30.10
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+  1    76 ms    75 ms    76 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-      1    24 ms     2 ms     3 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     3 ms     2 ms     2 ms  10.2.30.10
+Trace complete.
+```
 
-    Trace complete.
-
-이 경로 추적에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 2 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 2의 VM입니다.
+이 경로 추적 첫 번째 홉은 MSEE에 대 한 허브 VNet의 Express 경로 게이트웨이 터널 끝점입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 2 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 2의 VM입니다.
 
 ### <a name="path-to-the-remote-vnet"></a>원격 VNet 경로
 
 스포크 VNet에서 원격 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.10.30.133
-      2     *        *        *     Request timed out.
-      3    71 ms    70 ms    70 ms  10.17.30.4
+  1     2 ms     1 ms     1 ms  10.10.30.133
+  2     *        *        *     Request timed out.
+  3    71 ms    70 ms    70 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
-이 경로 추적에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 홉은 원격 VNet의 게이트웨이 IP입니다. 두 번째 홉 IP 범위는 허브/스포크 VNet 내에서 보급되지 않습니다. 세 번째 홉은 원격 VNet의 VM입니다.
+이 경로 추적 첫 번째 홉은 MSEE에 대 한 허브 VNet의 Express 경로 게이트웨이 터널 끝점입니다. 두 번째 홉은 원격 VNet의 게이트웨이 IP입니다. 두 번째 홉 IP 범위는 허브/스포크 VNet 내에서 보급되지 않습니다. 세 번째 홉은 원격 VNet의 VM입니다.
 
 ## <a name="data-path-from-the-branch-vnet"></a>분기 VNet에서 오는 데이터 경로
 
@@ -206,15 +225,17 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
 분기 VNet에서 허브 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 이 경로 추적에서, 첫 번째 홉은 분기 VNet의 VPN 게이트웨이입니다. 두 번째 홉은 허브 VNet의 VPN 게이트웨이입니다. 허브 VNet의 VPN 게이트웨이 IP 주소는 원격 VNet에서 보급되지 않습니다. 세 번째 홉은 허브 VNet 상의 VM입니다.
 
@@ -222,15 +243,17 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
 분기 VNet에서 스포크 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     1 ms    <1 ms     1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     2 ms  10.11.30.4
+  1     1 ms    <1 ms     1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 이 경로 추적에서, 첫 번째 홉은 분기 VNet의 VPN 게이트웨이입니다. 두 번째 홉은 허브 VNet의 VPN 게이트웨이입니다. 허브 VNet의 VPN 게이트웨이 IP 주소는 원격 VNet에서 보급되지 않습니다. 세 번째 홉은 스포크 VNet 상의 VM입니다.
 
@@ -238,17 +261,19 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
 분기 VNet에서 온-프레미스 위치 1의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.2.30.125
-      4     *        *        *     Request timed out.
-      5     3 ms     3 ms     3 ms  10.2.30.10
+  1     1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.2.30.125
+  4     *        *        *     Request timed out.
+  5     3 ms     3 ms     3 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 이 경로 추적에서, 첫 번째 홉은 분기 VNet의 VPN 게이트웨이입니다. 두 번째 홉은 허브 VNet의 VPN 게이트웨이입니다. 허브 VNet의 VPN 게이트웨이 IP 주소는 원격 VNet에서 보급되지 않습니다. 세 번째 홉은 기본 CE 라우터 상의 VPN 터널 종료 지점입니다. 네 번째 홉은 온-프레미스 위치 1의 내부 IP 주소입니다. 이 LAN IP 주소는 CE 라우터 외부에서 보급되지 않습니다. 다섯 번째 홉은 온-프레미스 위치 1의 대상 VM입니다.
 
@@ -256,27 +281,29 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
 제어 평면 분석에서 설명했듯이, 분기 VNet은 네트워크 구성에 따라 온-프레미스 위치 2 또는 원격 VNet에 대한 가시성이 없습니다. 다음 ping 결과는 다음 정보를 확인합니다. 
 
-    C:\Users\rb>ping 10.1.31.10
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Pinging 10.1.31.10 with 32 bytes of data:
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-    C:\Users\rb>ping 10.17.30.4
+C:\Users\rb>ping 10.17.30.4
 
-    Pinging 10.17.30.4 with 32 bytes of data:
+Pinging 10.17.30.4 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.17.30.4:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.17.30.4:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ## <a name="data-path-from-on-premises-location-1"></a>온-프레미스 위치 1에서 오는 데이터 경로
 
@@ -284,17 +311,19 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
 온-프레미스 위치 1에서 허브 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     2 ms     2 ms     2 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     2 ms     2 ms     2 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 아 경로 추적에서, 처음 두 홉은 온-프레미스 네트워크의 일부입니다. 세 번째 홉은 CE 라우터를 지향하는 기본 MSEE 인터페이스입니다. 네 번째 홉은 허브 VNet의 ExpressRoute 게이트웨이입니다. 허브 VNet의 ExpressRoute 게이트웨이 IP 범위는 온-프레미스 네트워크에 보급되지 않습니다. 다섯 번째 홉은 대상 VM입니다.
 
@@ -302,23 +331,25 @@ Network Watcher는 Azure 중심 보기만 제공합니다. 온-프레미스 관�
 
 다음 그림은 ExpressRoute를 통해 허브 VNet 상의 VM에 대해 실행한 온-프레미스 위치 1 VM 연결의 토폴로지 보기입니다.
 
-[![4]][4]
+![4][4]
 
-앞서 설명했듯이, 테스트 설정은 온-프레미스 위치 1과 허브 VNet 간의 ExpressRoute에 대한 백업 연결로 사이트 간 VPN을 사용합니다. 백업 데이터 경로를 테스트하기 위해 온-프레미스 위치 1 기본 CE 라우터와 해당 MSEE 간의 ExpressRoute 연결 장애를 유도해 보겠습니다. ExpressRoute 연결 장애를 유도하기 위해 MSEE를 지향하는 CE 인터페이스를 종료합니다.
+앞서 설명했듯이, 테스트 설정은 온-프레미스 위치 1과 허브 VNet 간의 ExpressRoute에 대한 백업 연결로 사이트 간 VPN을 사용합니다. 백업 데이터 경로를 테스트 하기 위해 온-프레미스 위치 1 기본 CE 라우터 및 해당 MSEE 간에 Express 경로 링크 오류가 발생 하도록 합니다. ExpressRoute 연결 장애를 유도하기 위해 MSEE를 지향하는 CE 인터페이스를 종료합니다.
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 다음 그림은 ExpressRoute 연결이 다운되었을 때 사이트 간 VPN 연결을 통해 허브 VNet 상의 VM에 대해 실행한 온-프레미스 위치 1 VM 연결의 토폴로지 보기입니다.
 
-[![5]][5]
+![5][5]
 
 ### <a name="path-to-the-spoke-vnet"></a>스포크 VNet 경로
 
@@ -326,17 +357,19 @@ Network Watcher는 Azure 중심 보기만 제공합니다. 온-프레미스 관�
 
 ExpressRoute 기본 연결로 다시 돌아가서, 스포크 VNet을 지향하는 데이터 경로 분석을 수행해 보겠습니다.
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     3 ms     2 ms     2 ms  10.11.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     3 ms     2 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 나머지 데이터 경로 분석을 위해 기본 ExpressRoute 1 연결을 불러옵니다.
 
@@ -344,46 +377,52 @@ ExpressRoute 기본 연결로 다시 돌아가서, 스포크 VNet을 지향하�
 
 온-프레미스 위치 1에서 분기 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-on-premises-location-2"></a>온-프레미스 위치 2 경로
 
 [제어 평면 분석][Control-Analysis]에서 설명했듯이, 온-프레미스 위치 1은 네트워크 구성에 따라 온-프레미스 위치 2에 대한 가시성이 없습니다. 다음 ping 결과는 다음 정보를 확인합니다. 
 
-    C:\Users\rb>ping 10.1.31.10
-    
-    Pinging 10.1.31.10 with 32 bytes of data:
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Request timed out.
-    ...
-    Request timed out.
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Request timed out.
+...
+Request timed out.
+
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ### <a name="path-to-the-remote-vnet"></a>원격 VNet 경로
 
 온-프레미스 위치 1에서 원격 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2     2 ms     5 ms     7 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5    69 ms    70 ms    69 ms  10.17.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2     2 ms     5 ms     7 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5    69 ms    70 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ## <a name="data-path-from-on-premises-location-2"></a>온-프레미스 위치 2에서 오는 데이터 경로
 
@@ -391,32 +430,36 @@ ExpressRoute 기본 연결로 다시 돌아가서, 스포크 VNet을 지향하�
 
 온-프레미스 위치 2에서 허브 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.4
-      3    <1 ms    <1 ms    <1 ms  192.168.31.22
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.4
+  3    <1 ms    <1 ms    <1 ms  192.168.31.22
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>스포크 VNet 경로
 
 온-프레미스 위치 2에서 스포크 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Windows\system32>tracert 10.11.30.4
+```console
+C:\Windows\system32>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
-      1    <1 ms    <1 ms     1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.0
-      3    <1 ms    <1 ms    <1 ms  192.168.31.18
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.11.30.4
+Tracing route to 10.11.30.4 over a maximum of 30 hops
+  1    <1 ms    <1 ms     1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.0
+  3    <1 ms    <1 ms    <1 ms  192.168.31.18
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>분기 VNet, 온-프레미스 위치 1 및 원격 VNet 경로
 
@@ -428,29 +471,33 @@ ExpressRoute 기본 연결로 다시 돌아가서, 스포크 VNet을 지향하�
 
 원격 VNet에서 허브 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    65 ms    65 ms    65 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    68 ms  10.10.30.4
+  1    65 ms    65 ms    65 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    68 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>스포크 VNet 경로
 
 원격 VNet에서 스포크 VNet의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    71 ms    69 ms    69 ms  10.11.30.4
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    71 ms    69 ms    69 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>분기 VNet 및 온-프레미스 위치 2 경로
 
@@ -460,17 +507,18 @@ ExpressRoute 기본 연결로 다시 돌아가서, 스포크 VNet을 지향하�
 
 원격 VNet에서 온-프레미스 위치 1의 VM으로 가는 경로 추적 출력은 다음과 같습니다.
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    69 ms    69 ms    69 ms  10.2.30.10
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    69 ms    69 ms    69 ms  10.2.30.10
 
-    Trace complete.
-
+Trace complete.
+```
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>탠덤에서 ExpressRoute 및 사이트 간 VPN 연결
 
@@ -478,7 +526,7 @@ ExpressRoute 기본 연결로 다시 돌아가서, 스포크 VNet을 지향하�
 
 ExpressRoute Microsoft 피어링을 사용하여 온-프레미스 네트워크와 Azure VNet 간에 개인적으로 데이터를 교환하도록 사이트 간 VPN을 구성할 수 있습니다. 이 구성을 사용하면 비밀성, 신뢰성 및 무결성을 유지하며 데이터를 교환할 수 있습니다. 데이터 교환은 재생 방지이기도 합니다. ExpressRoute Microsoft 피어링을 사용하여 터널 모드에서 사이트 간 IPsec VPN을 구성하는 방법에 대한 자세한 내용은 [ExpressRoute Microsoft 피어링을 통한 사이트 간 VPN][S2S-Over-ExR]을 참조하세요. 
 
-Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 제한은 처리량입니다. IPsec 터널을 통한 처리량은 VPN Gateway 용량에 의해 제한됩니다. VPN Gateway 처리량은 ExpressRoute 처리량보다 낮습니다. 이 시나리오에서 매우 안전한 트래픽의 경우 IPsec 터널 및 모든 다른 트래픽의 경우 개인 피어링을 사용하면 ExpressRoute 대역폭 사용량을 최적화하는 데 도움이 될 수 있습니다.
+Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 제한은 처리량입니다. IPsec 터널을 통한 처리량은 VPN Gateway 용량에 의해 제한됩니다. VPN Gateway 처리량은 ExpressRoute 처리량보다 낮습니다. 이 시나리오에서 매우 안전한 트래픽의 경우 IPsec 터널 및 모든 다른 트래픽의 경우 프라이빗 피어링을 사용하면 ExpressRoute 대역폭 사용량을 최적화하는 데 도움이 될 수 있습니다.
 
 ### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>ExpressRoute에 대한 안전한 장애 조치(failover) 경로인 사이트 간 VPN
 
@@ -510,11 +558,11 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "허브 VNet에서 스포크 VNet으로 연결의 Network Watcher 보기"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "허브 VNet에서 분기 VNet으로 연결의 Network Watcher 보기"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "허브 VNet에서 분기 VNet으로 연결의 Network Watcher 그리드 보기"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "ExpressRoute 1을 통한 위치 1 VM에서 허브 VNet으로 연결의 네트워크 성능 모니터 보기"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "사이트 간 VPN을 통한 위치 1 VM에서 허브 VNet으로 연결의 네트워크 성능 모니터 보기"
+[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "허브 VNet에서 스포크 VNet으로의 연결 Network Watcher 보기"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "허브 VNet에서 분기 VNet으로의 연결 Network Watcher 보기"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "허브 VNet에서 분기 VNet으로의 연결에 대 한 Network Watcher 그리드 보기"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Express 경로 1을 통해 위치 1 VM에서 허브 VNet으로의 연결 네트워크 성능 모니터 보기"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "사이트 간 VPN을 통해 위치 1 VM에서 허브 VNet으로의 연결 네트워크 성능 모니터 보기"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

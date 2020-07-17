@@ -1,13 +1,13 @@
 ---
-title: '빠른 시작: 공용 표준 부하 분산 장치 만들기 - Azure CLI'
-titlesuffix: Azure Load Balancer
+title: '빠른 시작: 공용 Load Balancer 만들기 - Azure CLI'
+titleSuffix: Azure Load Balancer
 description: 이 빠른 시작은 Azure CLI를 사용하여 공용 부하 분산 장치를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 tags: azure-resource-manager
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: a98f65db3739cf3f4771df7a2ef864008f7dbaa9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a2d0322436bd91e92a7018552c5827e021ee74e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851508"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 표준 Load Balancer 만들기
 
-이 빠른 시작에서는 표준 부하 분산 장치를 만드는 방법을 보여줍니다. 부하 분산 장치를 테스트하려면 Ubuntu 서버를 실행하는 두 VM(가상 머신)을 배포하고 두 VM 사이에 있는 웹앱의 부하를 분산합니다.
+이 빠른 시작에서는 공용 Load Balancer를 만드는 방법을 보여줍니다. 부하 분산 장치를 테스트하려면 Ubuntu 서버를 실행하는 두 VM(가상 머신)을 배포하고 두 VM 사이에 있는 웹앱의 부하를 분산합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -44,35 +44,49 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --location eastus
 ```
 
-## <a name="create-a-public-standard-ip-address"></a>공용 표준 IP 주소 만들기
+## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-인터넷에서 웹앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) 명령을 사용하여 *myResourceGroupLB*에 *myPublicIP*라는 표준 공용 IP 주소를 만듭니다.
+인터넷에서 웹앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) 명령을 사용하여 *myResourceGroupSLB*에 *myPublicIP*라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
 ```
 
+영역 1에서 공용 IP 주소를 만들려면 다음을 사용합니다.
+
+```azurecli-interactive
+  az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
+```
+
+`-SKU Basic`을 사용하여 기본 공용 IP를 만듭니다. 기본 공용 IP는 **표준** 부하 분산 장치와 호환되지 않습니다. Microsoft는 프로덕션 워크로드용 **표준** 사용을 권장합니다.
+
+> [!IMPORTANT]
+> 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
+
 ## <a name="create-azure-load-balancer"></a>Azure Load Balancer 만들기
 
 이 섹션에서는 다음과 같은 부하 분산 장치 구성 요소를 만들고 구성하는 방법에 대해 자세히 설명합니다.
   - 부하 분산 장치에서 들어오는 네트워크 트래픽을 수신하는 프런트 엔드 IP 풀.
-  - 프런트 엔드 풀에서 부하 분산된 네트워크 트래픽을 전송하는 백 엔드 IP 풀.
+  - 프런트 엔드 풀에서 부하 분산된 네트워크 트래픽을 보내는 백 엔드 IP 풀
   - 백 엔드 VM 인스턴스의 상태를 확인하는 상태 프로브
   - 트래픽이 VM에 분산되는 방법을 정의하는 부하 분산 장치 규칙
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 명령을 사용하여 **myFrontEnd**라는 프런트 엔드 풀, 이전 단계에서 만든 공용 IP 주소 **myPublicIP**와 연결된 **myBackEndPool**이라는 백 엔드 풀을 포함하는 **myLoadBalancer**라는 공용 Azure Load Balancer를 만듭니다.
+[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 명령을 사용하여 **myFrontEnd**라는 프런트 엔드 풀, 이전 단계에서 만든 공용 IP 주소 **myPublicIP**와 연결된 **myBackEndPool**이라는 백 엔드 풀을 포함하는 **myLoadBalancer**라는 공용 Azure Load Balancer를 만듭니다. `--sku basic`을 사용하여 기본 Load Balancer를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 권장합니다.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupSLB \
     --name myLoadBalancer \
-    --sku standard
+    --sku standard \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
-  ```
+```
+
+> [!IMPORTANT]
+> 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
 
 ### <a name="create-the-health-probe"></a>상태 프로브 만들기
 
@@ -119,9 +133,10 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --name myVnet \
     --subnet-name mySubnet
 ```
-###  <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-표준 부하 분산 장치의 경우 네트워크 보안 그룹에 속한 NIC가 백 엔드 주소의 VM에 있어야 합니다. 가상 네트워크에 대한 인바운드 연결을 정의하는 네트워크 보안 그룹을 만듭니다.
+### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
+
+표준 부하 분산 장치의 경우 네트워크 보안 그룹에 속한 NIC가 백 엔드 주소의 VM에 있어야 합니다. 가상 네트워크에 대한 인바운드 연결을 정의하는 네트워크 보안 그룹을 만듭니다. 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
 
 ```azurecli-interactive
   az network nsg create \
@@ -147,39 +162,49 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --access allow \
     --priority 200
 ```
+
 ### <a name="create-nics"></a>NIC 만들기
 
 [az network nic create](/cli/azure/network/nic#az-network-nic-create) 명령을 사용하여 3개의 네트워크 인터페이스를 만들고 공용 IP 주소 및 네트워크 보안 그룹에 연결합니다. 
 
 ```azurecli-interactive
-for i in `seq 1 2`; do
+
   az network nic create \
     --resource-group myResourceGroupSLB \
-    --name myNic$i \
+    --name myNicVM1 \
     --vnet-name myVnet \
     --subnet mySubnet \
     --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
-done
-```
 
+  az network nic create \
+    --resource-group myResourceGroupSLB \
+    --name myNicVM2 \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+  
+  az network nic create \
+    --resource-group myResourceGroupSLB \
+    --name myNicVM3 \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+
+```
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 예제에서는 부하 분산 장치의 백 엔드 서버로 사용될 세 개의 가상 머신을 만듭니다. 또한 부하 분산 장치가 성공적으로 만들어졌는지 확인하기 위해 가상 머신에 NGINX를 설치합니다.
+이 예제에서는 부하 분산 장치의 백 엔드 서버로 사용될 세 개의 가상 머신을 만듭니다. 또한 부하 분산 장치가 성공적으로 만들어졌는지 확인하려면 가상 머신에 NGINX도 설치합니다.
 
-### <a name="create-an-availability-set"></a>가용성 집합 만들기
+기본 공용 IP를 사용하여 기본 Load Balancer를 만드는 경우에는 가상 머신을 추가하는 데 ([az vm availabilityset create](/cli/azure/network/nic)를 사용하여 가용성 집합을 만들어야 합니다. 표준 Load Balancer에는 이 추가 단계가 필요하지 않습니다. Microsoft는 표준 사용을 권장합니다.
 
-[az vm availabilityset create](/cli/azure/network/nic)를 사용하여 가용성 집합을 만듭니다.
-
- ```azurecli-interactive
-  az vm availability-set create \
-    --resource-group myResourceGroupSLB \
-    --name myAvailabilitySet
-```
-
-### <a name="create-two-virtual-machines"></a>두 개의 가상 머신 만들기
+### <a name="create-three-virtual-machines"></a>3개의 가상 머신 만들기
 
 cloud-init 구성 파일을 사용하여 NGINX를 설치하고 Linux 가상 머신에서 'Hello World' Node.js 앱을 실행할 수 있습니다. 현재 셸에서 cloud-init.txt라는 파일을 만들고 다음 구성을 복사하여 셸에 붙여넣습니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사해야 합니다.
 
@@ -223,23 +248,44 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 [az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다.
 
- ```azurecli-interactive
-for i in `seq 1 2`; do
+```azurecli-interactive
+
   az vm create \
     --resource-group myResourceGroupSLB \
-    --name myVM$i \
+    --name myVM1 \
     --availability-set myAvailabilitySet \
-    --nics myNic$i \
+    --nics myNicVM1 \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
     --no-wait
-    done
+   
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM2 \
+    --availability-set myAvailabilitySet \
+    --nics myNicVM2 \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt \
+    --no-wait
+
+   az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM3 \
+    --availability-set myAvailabilitySet \
+    --nics myNicVM3 \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt \
+    --no-wait
+
 ```
+
 VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
@@ -252,19 +298,19 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
-``` 
+```
+
    ![부하 분산 장치 테스트](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거할 수 있습니다.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupSLB
 ```
-## <a name="next-step"></a>다음 단계
-이 빠른 시작에서는 표준 Load Balancer를 만들고, 거기에 VM을 연결하고, 부하 분산 장치 트래픽 규칙 및 상태 프로브를 구성한 다음, 부하 분산 장치를 테스트했습니다. Azure Load Balancer에 대해 자세히 알아보려면 Azure Load Balancer에 대한 자습서를 계속 진행합니다.
 
-> [!div class="nextstepaction"]
-> [Azure Load Balancer 자습서](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+## <a name="next-steps"></a>다음 단계
+이 빠른 시작에서는 표준 Load Balancer를 만들고, 거기에 VM을 연결하고, Load Balancer 트래픽 규칙 및 상태 프로브를 구성한 다음, Load Balancer를 테스트합니다. Azure Load Balancer에 대해 자세히 알아보려면 [Azure Load Balancer 자습서](tutorial-load-balancer-standard-public-zone-redundant-portal.md)를 계속 진행하세요.
 
+[Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.

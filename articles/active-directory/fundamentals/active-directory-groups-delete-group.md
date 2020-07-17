@@ -2,41 +2,40 @@
 title: 그룹 삭제 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory를 사용하여 그룹을 삭제하는 방법에 대한 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9543908aafbb4ecd8f642f766f656f780706a36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: cf309c10dc5924374d8c3a191f6fd11cceb2ac49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604287"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 삭제
 여러 가지 이유로 Azure AD(Azure Active Directory)그룹을 삭제할 수 있지만, 일반적으로 이유는 다음과 같습니다.
 
-- **그룹 유형**을 잘못된 옵션으로 설정함
+- **그룹 유형을** 잘못 된 옵션으로 잘못 설정 합니다.
 
 - 실수로 잘못된 그룹 또는 중복 그룹을 생성함 
 
 - 그룹이 더 이상 필요하지 않음
 
 ## <a name="to-delete-a-group"></a>그룹 삭제
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택한 후 **그룹**을 선택합니다.
+2. **Azure Active Directory**를 선택한 다음, **그룹**을 선택합니다.
 
 3. **그룹 - 모든 그룹** 페이지에서 삭제할 그룹을 검색하여 선택합니다. 이 단계에 **MDM policy - East**를 사용하겠습니다.
 
-    ![그룹-모든 그룹 페이지, 그룹 이름 강조 표시됨](media/active-directory-groups-delete-group/group-all-groups-screen.png)
+    ![그룹 - 그룹 이름이 강조 표시된 모든 그룹 페이지](media/active-directory-groups-delete-group/group-all-groups-screen.png)
 
 4. **MDM policy - East 개요** 페이지에서 **삭제**를 선택합니다.
 

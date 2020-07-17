@@ -1,34 +1,23 @@
 ---
-title: Azure에서 Windows를 실행하는 Service Fabric 클러스터 만들기 | Microsoft Docs
+title: Azure에서 Windows를 실행하는 Service Fabric 클러스터 만들기
 description: 이 자습서에서는 PowerShell을 사용하여 Windows Service Fabric 클러스터를 Azure 가상 네트워크 및 네트워크 보안 그룹에 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/13/2019
-ms.author: aljo
+ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050009"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245044"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Windows를 실행하는 Service Fabric 클러스터 배포
 
-이 자습서는 시리즈의 1부입니다. PowerShell 및 템플릿을 사용하여 Windows를 실행하는 Azure Service Fabric 클러스터를 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 및 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 배포하는 방법에 대해 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는 클라우드에서 클러스터가 실행됩니다. Azure CLI를 사용하는 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
+이 자습서는 시리즈의 1부입니다. PowerShell 및 템플릿을 사용하여 Windows를 실행하는 Azure Service Fabric 클러스터를 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 및 [네트워크 보안 그룹](../virtual-network/virtual-network-vnet-plan-design-arm.md)에 배포하는 방법에 대해 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는 클라우드에서 클러스터가 실행됩니다. Azure CLI를 사용하는 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
 이 자습서는 프로덕션 시나리오를 설명합니다. 테스트를 위해 더 작은 클러스터를 만들려면 [테스트 클러스터 만들기](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)를 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * PowerShell을 사용하여 Azure에서 VNET 만들기
@@ -53,13 +42,13 @@ ms.locfileid: "59050009"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
-* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 설치합니다.
+* [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
 * [Azure 클러스터](service-fabric-azure-clusters-overview.md)에 대한 주요 개념을 검토합니다.
 * 프로덕션 클러스터 배포를 [계획 및 준비](service-fabric-cluster-azure-deployment-preparation.md)합니다.
 
@@ -84,8 +73,8 @@ ms.locfileid: "59050009"
 * 인증서 보안(템플릿 매개 변수에서 구성 가능)
 * [역방향 프록시](service-fabric-reverseproxy.md) 사용
 * [DNS 서비스](service-fabric-dnsservice.md) 사용
-* Bronze의 [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
-* Silver의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
+* Bronze의 [내구성 수준](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
+* Silver의 [안정성 수준](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19000(템플릿 매개 변수에서 구성 가능)
 * HTTP 게이트웨이 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
 
@@ -122,7 +111,7 @@ ms.locfileid: "59050009"
 다른 애플리케이션 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
 
 ### <a name="windows-defender"></a>Windows Defender
-[Windows Defender 바이러스 백신 프로그램](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)은 기본적으로 Windows Server 2016에 설치되어 작동합니다. 사용자 인터페이스는 기본적으로 일부 SKU에 설치되지만 필요하지는 않습니다. 템플릿에 선언된 각 노드 유형/VM 확장 집합에 대해 [Azure VM 맬웨어 방지 확장](/azure/virtual-machines/extensions/iaas-antimalware-windows)을 사용하여 Service Fabric 디렉터리 및 프로세스를 제외합니다.
+[Windows Defender 바이러스 백신 프로그램](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)은 기본적으로 Windows Server 2016에 설치되어 작동합니다. 사용자 인터페이스는 기본적으로 일부 SKU에 설치되지만 필요하지는 않습니다. 템플릿에 선언된 각 노드 유형/VM 확장 집합에 대해 [Azure VM 맬웨어 방지 확장](../virtual-machines/extensions/iaas-antimalware-windows.md)을 사용하여 Service Fabric 디렉터리 및 프로세스를 제외합니다.
 
 ```json
 {
@@ -156,10 +145,10 @@ ms.locfileid: "59050009"
 
 **매개 변수** | **예제 값** | **참고 사항** 
 |---|---|---|
-|adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. [VM에 대한 사용자 이름 요구 사항](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
-|adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다. [VM에 대한 암호 요구 사항](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. [VM에 대한 사용자 이름 요구 사항](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다. [VM에 대한 암호 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)|
 |clusterName|mysfcluster123| 클러스터의 이름입니다. 문자와 숫자만 포함할 수 있습니다. 길이는 3자에서 23자 사이일 수 있습니다.|
-|location|southcentralus| 클러스터의 위치입니다. |
+|위치|southcentralus| 클러스터의 위치입니다. |
 |certificateThumbprint|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 SHA1 지문 값을 입력합니다. 예를 들면 "6190390162C988701DB5676EB81083EA608DCCF3"과 같습니다.</p> |
 |certificateUrlValue|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다. </p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 URL을 입력합니다. 예: "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 원본 자격 증명 모음 값을 입력합니다. 예를 들면 “/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”와 같습니다.</p>|
@@ -167,7 +156,7 @@ ms.locfileid: "59050009"
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Azure Active Directory 클라이언트 인증 설정
 Azure에 호스트된 공용 네트워크에 배포된 Service Fabric 클러스터의 경우 클라이언트-노드 상호 인증에 추천되는 사항은 다음과 같습니다.
 * 클라이언트 ID에 Azure Active Directory를 사용합니다.
-* HTTP 통신의 서버 ID 및 SSL 암호화에 인증서를 사용합니다.
+* HTTP 통신의 서버 ID 및 TLS 암호화에 인증서를 사용합니다.
 
 [클러스터를 만들기](#createvaultandcert) 전에 Service Fabric 클러스터에 대한 클라이언트를 인증하도록 Azure AD(Azure Active Directory)를 설정해야 합니다. 조직(테넌트)에서는 Azure AD를 사용하여 애플리케이션에 대한 사용자 액세스를 관리할 수 있습니다. 
 
@@ -178,12 +167,12 @@ Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer](service-fabr
 
 이 문서에서는 이미 테넌트를 만들었다고 가정합니다. 그렇지 않은 경우 [Azure Active Directory 테넌트를 가져오는 방법](../active-directory/develop/quickstart-create-new-tenant.md)을 참조하세요.
 
-Azure AD를 Service Fabric 클러스터로 구성하는 데 관련된 단계를 간소화하기 위해 Windows PowerShell 스크립트 세트를 만들었습니다. 컴퓨터에 [스크립트를 다운로드](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool)합니다.
+Azure AD를 Service Fabric 클러스터로 구성하는 데 관련된 단계를 간소화하기 위해 Windows PowerShell 스크립트 세트를 만들었습니다. 컴퓨터에 [스크립트를 다운로드](https://github.com/Azure-Samples/service-fabric-aad-helpers)합니다.
 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Azure AD 애플리케이션 만들기 및 역할에 사용자 할당
 두 개의 Azure AD 애플리케이션(웹 애플리케이션 및 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다. 클러스터를 나타내는 애플리케이션이 만들어지면 사용자를 [Service Fabric에서 지원하는 역할](service-fabric-cluster-security-roles.md)(읽기 전용 및 관리자)에 할당합니다.
 
-`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다. 사용자에 대한 사용자 이름과 암호를 지정합니다. 예: 
+`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다. 사용자에 대한 사용자 이름과 암호를 지정합니다. 다음은 그 예입니다.
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -260,7 +249,7 @@ Azure AD 테넌트에 대한 관리자 권한이 있는 계정에 로그인하�
 }
 ```
 
-매개 변수 값을 [azuredeploy.parameters.json][parameters] 매개 변수 파일에 추가합니다. 예: 
+매개 변수 값을 [azuredeploy.parameters.json][parameters] 매개 변수 파일에 추가합니다. 다음은 그 예입니다.
 
 ```json
 "aadTenantId": {
@@ -408,7 +397,7 @@ EventStore 서비스는 Service Fabric의 모니터링 옵션입니다. EventSto
 
 * 개발 또는 테스트의 문제 또는 모니터링 파이프라인을 사용할 위치의 문제 진단
 * 클러스터에 대해 수행하는 관리 작업이 제대로 처리되고 있는지 확인
-* Service Fabric이 특정 엔터티와 상호 작용하는 방법의 “스냅숏” 가져오기
+* Service Fabric이 특정 엔터티와 상호 작용하는 방법의 "스냅샷" 가져오기
 
 
 
@@ -687,7 +676,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 이제 보안 클러스터에 연결할 준비가 되었습니다.
 
-**Service Fabric** PowerShell 모듈은 Service Fabric 클러스터, 응용 프로그램 및 서비스를 관리하기 위한 많은 cmdlet을 제공합니다. [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet을 사용하여 보안 클러스터에 연결합니다. 인증서 SHA1 지문 및 연결 엔드포인트 세부 정보는 이전 단계의 출력에 있습니다.
+**Service Fabric** PowerShell 모듈은 Service Fabric 클러스터, 애플리케이션 및 서비스를 관리하기 위한 많은 cmdlet을 제공합니다. [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet을 사용하여 보안 클러스터에 연결합니다. 인증서 SHA1 지문 및 연결 엔드포인트 세부 정보는 이전 단계의 출력에 있습니다.
 
 이전에 Azure AD 클라이언트 인증을 설정한 경우 다음 명령을 실행합니다. 
 ```powershell
@@ -714,7 +703,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-방금 만든 클러스터는 이 자습서 시리즈의 다른 문서에서 사용합니다. 다음 문서로 바로 이동하지 않는 경우 요금이 발생하지 않도록 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다.
+방금 만든 클러스터는 이 자습서 시리즈의 다른 문서에서 사용합니다. 다음 문서로 바로 이동하지 않는 경우 요금이 발생하지 않도록 [클러스터를 삭제](./service-fabric-tutorial-delete-cluster.md)하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,28 +1,23 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 저장소 계정 액세스 키 회전 | Microsoft Docs
+title: PowerShell을 사용하여 스토리지 계정 액세스 키 회전
+titleSuffix: Azure Storage
 description: Azure Storage 계정을 만들고 나서 해당 계정 액세스 키 중 하나를 검색 및 회전합니다.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
-ms.date: 06/13/2017
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 0aae733f94ab4a217ca41ca3de6df2e5da47df50
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 52ebed3de093f15d8188ee5fec49d75d5a4a206d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244354"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060818"
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>저장소 계정 만들기 및 계정 액세스 키 회전
+# <a name="rotate-storage-account-access-keys-with-powershell"></a>PowerShell을 사용하여 스토리지 계정 액세스 키 회전
 
 이 스크립트는 Azure Storage 계정을 만들고, 새 스토리지 계정의 기본 액세스 키를 표시하고 나서, 키를 갱신(회전)합니다.
 
@@ -34,9 +29,9 @@ ms.locfileid: "56244354"
 
 [!code-powershell[main](../../../powershell_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.ps1 "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>배포 정리
 
-다음 명령을 실행하여 리소스 그룹, 저장소 계정 및 모든 관련된 리소스를 제거합니다.
+다음 명령을 실행하여 리소스 그룹, 스토리지 계정 및 모든 관련된 리소스를 제거합니다.
 
 ```powershell
 Remove-AzResourceGroup -Name rotatekeystestrg
@@ -44,7 +39,7 @@ Remove-AzResourceGroup -Name rotatekeystestrg
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용하여 저장소 계정을 만들고 해당 액세스 키 중 하나를 검색 및 회전합니다. 표에 있는 각 항목은 명령 관련 설명서에 연결됩니다.
+이 스크립트는 다음 명령을 사용하여 스토리지 계정을 만들고 해당 액세스 키 중 하나를 검색 및 회전합니다. 표에 있는 각 항목은 명령 관련 설명서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|

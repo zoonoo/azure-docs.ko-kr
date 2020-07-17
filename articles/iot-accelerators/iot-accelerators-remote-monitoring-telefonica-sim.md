@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61442242"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>원격 모니터링 솔루션에 SIM 데이터 통합
@@ -21,7 +21,7 @@ IoT 디바이스는 어디에서나 데이터 스트림을 보낼 수 있는 SIM
 
 원격 모니터링은 Telefónica IoT Connectivity와의 통합을 기본 제공하기 때문에 해당사의 IoT 연결 플랫폼을 사용하는 고객은 자신의 디바이스 SIM 연결 데이터와 솔루션을 동기화할 수 있습니다. 이 솔루션은 GitHub [리포지토리](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)를 통해 다른 IoT 연결 공급자를 지원하도록 확장될 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 * Telefónica IoT SIM 데이터를 원격 모니터링 솔루션에 통합
 * 실시간 원격 분석 보기
@@ -29,7 +29,7 @@ IoT 디바이스는 어디에서나 데이터 스트림을 보낼 수 있는 SIM
 
 ## <a name="telefnica-iot-integration-setup"></a>Telefonica IoT 통합 설정
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 이 추가 원격 모니터링 기능은 현재 미리 보기로 제공됩니다. 연결 데이터를 Azure 원격 모니터링 솔루션에 동기화하려면 다음 단계를 따릅니다.
 

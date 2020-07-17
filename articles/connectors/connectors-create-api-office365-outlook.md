@@ -1,97 +1,93 @@
 ---
-title: Office 365 Outlook에 연결 - Azure Logic Apps | Microsoft Docs
-description: Office 365 REST API 및 Azure Logic Apps를 사용하여 이메일, 연락처 및 달력 관리
-author: ecfan
-manager: jeconnoc
-ms.author: v-yiso
-origin.date: 10/18/2016
-ms.date: 09/03/2018
-ms.topic: article
-ms.service: logic-apps
+title: Office 365 Outlook 연결
+description: Azure Logic Apps를 사용 하 여 Office 365 Outlook에서 전자 메일, 연락처 및 일정을 관리 하는 작업 및 워크플로 자동화
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 01/08/2020
 tags: connectors
-ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75732707"
 ---
-# <a name="get-started-with-the-office-365-outlook-connector"></a>Office 365 Outlook 커넥터 시작
-Office 365 Outlook 커넥터를 통해 Office 365에서 Outlook과 상호 작용할 수 있습니다. 이 커넥터를 사용하여 연락처 및 일정 항목을 만들기, 편집 및 업데이트하고 전자 메일을 가져오고 보내며 회신할 수도 있습니다.
+# <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Office 365 Outlook에서 이메일, 연락처 및 일정 관리
 
-Office 365 Outlook을 사용하여 다음을 수행합니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [office 365 Outlook 커넥터](/connectors/office365connector/)를 사용 하 여 논리 앱을 빌드하여 office 365 계정을 관리 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 예를 들어 다음과 같은 작업을 자동화할 수 있습니다.
 
-* Office 365 내에서 전자 메일 및 일정 기능을 사용하여 워크플로를 빌드합니다. 
-* 새 전자 메일이 있거나 일정 항목이 업데이트될 때 트리거를 사용하여 워크플로를 시작합니다.
-* 전자 메일을 보내고 새 일정 이벤트를 만드는 등의 작업을 사용합니다. 예를 들어 Salesforce에 새 개체(트리거)가 있는 경우 Office 365 Outlook으로 전자 메일을 보냅니다(작업). 
+* 전자 메일을 가져오고 보내고 회신 합니다. 
+* 일정에서 모임 일정을 예약 합니다.
+* 연락처를 추가 하 고 편집 합니다. 
 
-이 아티클에서는 논리 앱에서 Office 365 Outlook 커넥터를 사용하는 방법을 보여주고, 트리거 및 작업을 나열합니다.
+트리거를 사용 하 여 워크플로를 시작할 수 있습니다. 예를 들어 새 전자 메일이 도착 하는 경우, 일정 항목이 업데이트 될 때 또는 Salesforce와 같은 차이점 서비스에서 이벤트가 발생 하는 경우를 들 수 있습니다. 트리거 이벤트에 응답 하는 동작 (예: 전자 메일 보내기 또는 새 일정 이벤트 만들기)을 사용할 수 있습니다. 
 
 > [!NOTE]
-> 이 버전의 문서는 Logic Apps GA(일반 공급)에 적용됩니다.
-> 
-> 
+> 또는 계정에 대 한 작업을 자동화 하려면 @outlook.com @hotmail.com [Outlook.com 커넥터](../connectors/connectors-create-api-outlook.md)를 사용 합니다.
 
-Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요?](../logic-apps/logic-apps-overview.md) 및 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="connect-to-office-365"></a>Office 365에 연결
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 Office 365 Outlook에 연결하려면 먼저 Office 365 *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 Office 365 Outlook을 사용하는 경우 Office 365 계정에 대한 자격 증명을 입력하여 연결을 만듭니다.
+* [Office 365 계정](https://www.office.com/)
 
-## <a name="create-the-connection"></a>연결 만들기
-> [!INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
-> 
-> 
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
-## <a name="use-a-trigger"></a>트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. 원하는 간격 및 빈도로 서비스의 "폴링"을 트리거합니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+* Office 365 Outlook 계정에 액세스 하려는 논리 앱입니다. Office 365 Outlook 트리거를 사용 하 여 워크플로를 시작 하려면 [빈 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)이 있어야 합니다. 워크플로에 Office 365 Outlook 작업을 추가 하려면 논리 앱에 이미 트리거가 있어야 합니다.
 
-1. 논리 앱에서 트리거 목록을 가져오려면 "office 365"를 입력합니다.  
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-2. **Office 365 Outlook - 예정된 이벤트가 곧 시작될 때**를 선택합니다. 연결이 이미 있는 경우 드롭다운 목록에서 일정을 선택합니다.
-   
-    ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
-   
-    로그인하라는 메시지가 표시되면 로그인 세부 정보를 입력하여 연결을 만듭니다. 이 항목의 [연결 만들기](connectors-create-api-office365-outlook.md#create-the-connection)에서 단계가 나열됩니다. 
-   
-   > [!NOTE]
-   > 이 예제에서는 일정 이벤트가 업데이트되면 논리 앱이 실행됩니다. 이 트리거의 결과를 보려면 텍스트 메시지를 보내는 다른 작업을 추가합니다. 예를 들어 일정 이벤트가 15분 내에 시작되는 경우 텍스트를 보내는 Twilio *메시지 보내기* 작업을 추가합니다. 
-   > 
-   > 
-3. **편집** 단추를 선택하고 **빈도** 및 **간격** 값을 설정합니다. 예를 들어 15분마다 폴링을 트리거하려면 **빈도**를 **분**으로, **간격**을 **15**로 설정합니다. 
-   
-    ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-4. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위 모서리). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
+## <a name="add-a-trigger"></a>트리거 추가
 
-## <a name="use-an-action"></a>작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+[트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts) 는 논리 앱에서 워크플로를 시작 하는 이벤트입니다. 이 예제 논리 앱은 지정 된 간격 및 빈도에 따라 전자 메일 계정에서 업데이트 된 일정 이벤트를 확인 하는 "폴링" 트리거를 사용 합니다.
 
-1. 더하기 기호를 선택합니다. 여러 선택 항목 표시 됩니다. **작업 추가**, **조건 추가**, 또는 중 하나는 **자세한** 옵션입니다.
+1. [Azure Portal](https://portal.azure.com)에서 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
+
+1. 검색 상자에서 필터로 `office 365 outlook`을 입력합니다. 이 예제에서는 **예정 된 이벤트가 곧 시작 될 때를**선택 합니다.
    
-    ![](./media/connectors-create-api-office365-outlook/add-action.png)
-2. **작업 추가**를 선택합니다.
-3. 사용 가능한 모든 작업의 목록을 표시하려면 텍스트 상자에 "office 365"를 입력합니다.
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
-4. 이 예제에서는 **Office 365 Outlook - 연락처 만들기**를 선택했습니다. 연결이 이미 존재하는 경우 **폴더 ID**, **지정된 이름** 및 기타 속성을 선택합니다.  
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
-   
-    연결 정보를 묻는 메시지가 표시되면 연결을 만들기 위한 세부 정보를 입력합니다. 이 항목의 [연결 만들기](connectors-create-api-office365-outlook.md#create-the-connection)에서는 이러한 속성에 대해 설명합니다. 
-   
-   > [!NOTE]
-   > 이 예제에서는 Office 365 Outlook에 새 연락처를 만듭니다. 다른 트리거의 출력을 사용하여 연락처를 만들 수 있습니다. 예를 들어 SalesForce *개체를 만들 때* 트리거를 추가합니다. 그런 다음 SalesForce 필드를 사용하여 Office 365에서 연락처를 만드는 Office 365 Outlook *연락처 만들기* 작업을 추가합니다. 
-   > 
-   > 
-5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위 모서리). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
+   ![트리거를 선택 하 여 논리 앱 시작](./media/connectors-create-api-office365-outlook/office365-trigger.png)
+
+1. 로그인 하 라는 메시지가 표시 되 면 논리 앱이 계정에 연결할 수 있도록 Office 365 자격 증명을 제공 합니다. 그렇지 않고 연결이 이미 있는 경우 트리거의 속성에 대 한 정보를 제공 합니다.
+
+   이 예에서는 트리거가 확인 하는 달력을 선택 합니다. 예를 들면 다음과 같습니다.
+
+   ![트리거의 속성 구성](./media/connectors-create-api-office365-outlook/select-calendar.png)
+
+1. 트리거에서 **빈도** 및 **간격** 값을 설정 합니다. **표준 시간대**와 같은 사용 가능한 다른 트리거 속성을 추가 하려면 **새 매개 변수 추가** 목록에서 해당 속성을 선택 합니다.
+
+   예를 들어 트리거가 15 분 마다 일정을 확인 하도록 하려면 **Frequency** 를 **Minute**로 설정 하 고 **Interval** 을로 설정 `15` 합니다. 
+
+   ![트리거의 빈도 및 간격 설정](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+
+1. 디자이너 도구 모음에서 **저장**을 선택합니다.
+
+이제 트리거가 발생 한 후 실행 되는 작업을 추가 합니다. 예를 들어 일정 이벤트가 15 분 내에 시작 될 때 텍스트를 전송 하는 Twilio **메시지 보내기** 작업을 추가할 수 있습니다.
+
+## <a name="add-an-action"></a>작업 추가
+
+[작업](../logic-apps/logic-apps-overview.md#logic-app-concepts) 은 논리 앱의 워크플로에서 실행 되는 작업입니다. 이 예제 논리 앱은 Office 365 Outlook에서 새 연락처를 만듭니다. 다른 트리거 또는 작업의 출력을 사용 하 여 연락처를 만들 수 있습니다. 예를 들어, **레코드를 만들 때**논리 앱에서 Dynamics 365 트리거를 사용 한다고 가정 합니다. Office 365 Outlook **연락처 만들기** 작업을 추가 하 고 SalesForce 트리거의 출력을 사용 하 여 새 연락처를 만들 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
+
+1. 워크플로의 마지막 단계로 동작을 추가 하려면 **새 단계**를 선택 합니다. 
+
+   단계 사이에 작업을 추가하려면 해당 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+
+1. 검색 상자에서 필터로 `office 365 outlook`을 입력합니다. 이 예제에서는 **연락처 만들기**를 선택 합니다.
+
+   ![논리 앱에서 실행할 작업을 선택 합니다.](./media/connectors-create-api-office365-outlook/office365-actions.png) 
+
+1. 로그인 하 라는 메시지가 표시 되 면 논리 앱이 계정에 연결할 수 있도록 Office 365 자격 증명을 제공 합니다. 그렇지 않고 연결이 이미 존재 하는 경우 작업의 속성에 대 한 정보를 제공 합니다.
+
+   이 예제에서는 작업에서 새 연락처를 만드는 연락처 폴더를 선택 합니다. 예를 들면 다음과 같습니다.
+
+   ![작업 속성 구성](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
+
+   사용 가능한 다른 작업 속성을 추가 하려면 **새 매개 변수 추가** 목록에서 해당 속성을 선택 합니다.
+
+1. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-[커넥터 세부 정보](/connectors/office365connector/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/office365connector/)를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
 
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

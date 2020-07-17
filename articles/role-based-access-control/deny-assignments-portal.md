@@ -1,6 +1,6 @@
 ---
-title: Azure Portal을 사용하여 Azure 리소스에 대한 거부 할당 보기 - Azure | Microsoft Docs
-description: Azure Portal을 사용하여 특정 범위에서 특정 Azure 리소스 작업에 대한 액세스가 거부된 사용자, 그룹, 서비스 주체 및 관리 ID를 보는 방법을 알아봅니다.
+title: Azure Portal를 사용 하 여 Azure deny 할당 나열-Azure RBAC
+description: Azure Portal 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 특정 범위에서 특정 Azure 리소스 작업에 대 한 액세스가 거부 된 사용자, 그룹, 서비스 사용자 및 관리 되는 id를 나열 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,45 +8,44 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790249"
 ---
-# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 리소스에 대한 거부 할당 보기
+# <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure deny 할당 나열
 
-[거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이 문서에서는 Azure Portal을 사용하여 거부 할당을 보는 방법에 대해 설명합니다.
+[Azure 거부 할당](deny-assignments.md) 은 사용자가 역할 할당을 통해 액세스 권한을 부여 하는 경우에도 특정 Azure 리소스 작업을 수행 하지 못하도록 차단 합니다. 이 문서에서는 Azure Portal를 사용 하 여 거부 할당을 나열 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 현재 자체 거부 할당을 추가할 수 있는 유일한 방법은 Azure Blueprints를 사용하는 것입니다. 자세한 내용은 [Azure Blueprints 리소스 잠금으로 새 리소스 보호](../governance/blueprints/tutorials/protect-new-resources.md)를 참조하세요.
+> 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 대 한 자세한 내용은 [Azure 거부 할당](deny-assignments.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
+거부 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
-- `Microsoft.Authorization/denyAssignments/read` 대부분의 포함 된 사용 권한 [Azure 리소스에 대 한 기본 제공 역할](built-in-roles.md)입니다.
+- `Microsoft.Authorization/denyAssignments/read`사용 권한은 대부분의 [Azure 기본 제공 역할](built-in-roles.md)에 포함 되어 있습니다.
 
-## <a name="view-deny-assignments"></a>거부 할당 보기
+## <a name="list-deny-assignments"></a>거부 할당 목록
 
-구독 또는 관리 그룹 범위에서 거부 할당을 보려면 다음 단계를 따릅니다.
+구독 또는 관리 그룹 범위에서 거부 할당을 나열 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 **모든 서비스**를 클릭한 후에 **관리 그룹** 또는 **구독**을 클릭합니다.
 
-1. 보려는 관리 그룹 또는 구독을 클릭하세요.
+1. 나열할 관리 그룹 또는 구독을 클릭 합니다.
 
 1. **액세스 제어(IAM)** 를 클릭합니다.
 
 1. **거부 할당** 탭을 클릭하거나 거부 할당 보기 타일의 **보기** 단추를 클릭합니다.
 
-    이 범위 또는 이 범위로 상속된 거부 할당이 있는 경우 목록으로 표시됩니다.
+    이 범위에 거부 할당이 있거나 이 범위에 상속된 거부 할당이 있으면 나열됩니다.
 
     ![액세스 제어 - 거부 할당 탭](./media/deny-assignments-portal/access-control-deny-assignments.png)
 
@@ -56,10 +55,10 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
     |  |  |
     | --- | --- |
-    | **Name** | 거부 할당의 이름입니다. |
+    | **이름** | 거부 할당의 이름입니다. |
     | **주체 유형** | 사용자, 그룹, 시스템 정의 그룹 또는 서비스 주체입니다. |
-    | **거부됨**  | 거부 할당에 포함된 보안 주체의 이름입니다. |
-    | **Id** | 거부 할당의 고유 식별자입니다. |
+    | **거부**  | 거부 할당에 포함된 보안 주체의 이름입니다. |
+    | **ID** | 거부 할당의 고유 식별자입니다. |
     | **제외된 보안 주체** | 거부 할당에서 제외된 보안 주체가 있는지 여부입니다. |
     | **자식에 적용되지 않음** | 거부 할당이 하위 범위에 상속되는지 여부입니다. |
     | **시스템 보호됨** | 거부 할당이 Azure에서 관리되는지 여부입니다. 현재, 항상 예입니다. |
@@ -67,9 +66,9 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
 1. 사용 가능한 항목에 확인 표시를 추가한 후 **확인**을 클릭하여 선택한 열을 표시합니다.
 
-## <a name="view-details-about-a-deny-assignment"></a>거부 할당에 대한 세부 정보 보기
+## <a name="list-details-about-a-deny-assignment"></a>거부 할당에 대 한 세부 정보 나열
 
-거부 할당에 대한 추가 세부 정보를 보려면 다음 단계를 따릅니다.
+거부 할당에 대 한 추가 세부 정보를 나열 하려면 다음 단계를 따르세요.
 
 1. 이전 섹션에 설명한 대로 **거부 할당** 창을 엽니다.
 
@@ -90,7 +89,7 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
     ![거부 할당 - 거부된 사용 권한](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
-    | 작업 유형 | 설명 |
+    | 동작 유형 | 설명 |
     | --- | --- |
     | **actions**  | 거부된 관리 작업입니다. |
     | **NotActions** | 거부된 관리 작업에서 제외되는 관리 작업입니다. |
@@ -99,7 +98,7 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
     이전 스크린샷에 나온 예의 경우 다음이 유효 권한입니다.
 
-    - 계산 작업을 제외하고 데이터 평면에 있는 모든 스토리지 작업이 거부됩니다.
+    - 컴퓨팅 작업을 제외하고 데이터 평면에 있는 모든 스토리지 작업이 거부됩니다.
 
 1. 거부 할당에 대한 속성을 보려면 **속성**을 클릭합니다.
 
@@ -109,5 +108,5 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 리소스에 대한 거부 할당 이해](deny-assignments.md)
-* [REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열](deny-assignments-rest.md)
+* [Azure 거부 할당 이해](deny-assignments.md)
+* [Azure PowerShell를 사용 하 여 Azure 거부 할당 나열](deny-assignments-powershell.md)

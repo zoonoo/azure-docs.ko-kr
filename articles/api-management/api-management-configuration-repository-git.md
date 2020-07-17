@@ -9,16 +9,15 @@ editor: mattfarm
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b5bf778f06ff0223fd48a1282aadf223ff032b0f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919847"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254846"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -53,11 +52,11 @@ Git 구성 설정을 확인하고 구성하려면 **보안** 메뉴를 클릭하
 ![GIT 사용][api-management-enable-git]
 
 > [!IMPORTANT]
-> 명명 된 값으로 정의 되어 있지 않은 모든 암호 저장소에 저장 됩니다 하 고 사용 하지 않도록 설정 하 고 다시 Git 액세스를 사용 하도록 설정 될 때까지 기록에 유지 됩니다. 명명 된 값 정책 설명에 직접 저장할 필요가 모든 API 구성 및 정책에서 암호를 포함 하 여 상수 문자열 값을 관리 하는 안전한 장소를 제공 합니다. 자세한 내용은 [Azure API Management 정책에서 명명 된 값을 사용 하는 방법을](api-management-howto-properties.md)합니다.
+> 명명된 값으로 정의되지 않은 비밀은 리포지토리에 저장되며 Git 액세스를 사용하지 않도록 설정했다가 다시 사용하도록 설정할 때까지 기록에 남아 있습니다. 명명된 값은 모든 API 구성 및 정책에 대해 비밀을 포함한 상수 문자열 값을 관리하는 안전한 장소를 제공하므로 정책을 정책 설명에 직접 저장할 필요가 없습니다. 자세한 내용은 [Azure API Management 정책에 명명된 값을 사용하는 방법](api-management-howto-properties.md)을 참조하세요.
 >
 >
 
-REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정하는 방법은 [REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정](/rest/api/apimanagement/tenantaccess?EnableGit)을 참조하세요.
+REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정하는 방법은 [REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정](/rest/api/apimanagement/2019-12-01/tenantaccess?EnableGit)을 참조하세요.
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Git 리포지토리에 서비스 구성 저장
 
@@ -69,7 +68,7 @@ REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 �
 
 구성이 리포지토리에 저장된 후 해당 구성을 복제할 수 있습니다.
 
-REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 스냅숏 커밋](/rest/api/apimanagement/tenantaccess?CommitSnapshot)을 참조하세요.
+REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 스냅샷 커밋](/rest/api/apimanagement/2019-12-01/tenantaccess?CommitSnapshot)을 참조하세요.
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>로컬 컴퓨터에 리포지토리 복제
 
@@ -100,7 +99,7 @@ git clone https://username:password@{name}.scm.azure-api.net/
 그래도 오류가 발생하면 명령의 암호 부분에 대해 URL 인코딩을 시도해 보십시오. 이렇게 하는 한 가지 빠른 방법은 Visual Studio를 열고 **직접 실행 창**에서 다음 명령을 실행하는 것입니다. **직접 실행 창**을 열려면 Visual Studio에서 솔루션 또는 프로젝트를 열고(또는 비어 있는 새 콘솔 애플리케이션을 만들고) **디버그** 메뉴에서 **창**, **직접 실행**을 선택합니다.
 
 ```
-?System.NetWebUtility.UrlEncode("password from the Azure portal")
+?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
 사용자 이름 및 리포지토리 위치와 함께 인코딩된 암호를 사용하여 Git 명령을 생성합니다.
@@ -143,13 +142,13 @@ git push
 
 로컬 변경 내용이 커밋되고 서버 리포지토리에 푸시된 후 이를 API Management 서비스 인스턴스에 배포할 수 있습니다.
 
-REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 데이터베이스에 Git 변경 내용 배포](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration)를 참조하세요.
+REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 데이터베이스에 Git 변경 내용 배포](/rest/api/apimanagement/2019-12-01/tenantconfiguration)를 참조하세요.
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>로컬 Git 리포지토리의 파일 및 폴더 구조 참조
 
 로컬 Git 리포지토리의 파일 및 폴더에는 서비스 인스턴스에 관한 구성 정보가 포함되어 있습니다.
 
-| 항목 | 설명 |
+| 항목 | Description |
 | --- | --- |
 | 루트 api 관리 폴더 |서비스 인스턴스에 대한 최상의 구성 포함 |
 | apis 폴더 |서비스 인스턴스의 apis에 대한 구성 포함 |
@@ -173,9 +172,9 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 > [!NOTE]
 > 다음 엔터티는 Git 리포지토리에 포함되지 않으며 Git를 사용하여 구성할 수 없습니다.
 >
-> * [사용자](https://docs.microsoft.com/rest/api/apimanagement/user)
-> * [구독](https://docs.microsoft.com/rest/api/apimanagement/subscription)
-> * [명명 된 값](https://docs.microsoft.com/rest/api/apimanagement/property)
+> * [사용자](/rest/api/apimanagement/2019-12-01/user)
+> * [구독](/rest/api/apimanagement/2019-12-01/subscription)
+> * 명명된 값
 > * 스타일 이외의 개발자 포털 엔터티
 >
 
@@ -223,15 +222,15 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 ### <a name="apis-folder"></a>apis 폴더
 `apis` 폴더에는 다음 항목을 포함한 서비스 인스턴스의 각 API에 대한 폴더가 포함되어 있습니다.
 
-* `apis\<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](https://docs.microsoft.com/rest/api/apimanagement/apis/get)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `apis\<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property)의 `description` 속성에 해당합니다.
-* `apis\<api name>\operations\` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
+* `apis\<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](/rest/api/apimanagement/2019-12-01/apis/get)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `apis\<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](/java/api/com.microsoft.azure.storage.table.entityproperty)의 `description` 속성에 해당합니다.
+* `apis\<api name>\operations\` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](/rest/api/visualstudio/operations/list#operationproperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
 
 ### <a name="groups-folder"></a>groups 폴더
 `groups` 폴더는 서비스 인스턴스에 정의된 각 그룹에 대한 폴더를 포함하고 있습니다.
 
-* `groups\<group name>\configuration.json` - 그룹에 대한 구성입니다. 이는 [특정 그룹 가져오기](https://docs.microsoft.com/rest/api/apimanagement/group/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `groups\<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)의 `description` 속성에 해당합니다.
+* `groups\<group name>\configuration.json` - 그룹에 대한 구성입니다. 이는 [특정 그룹 가져오기](/rest/api/apimanagement/2019-12-01/group/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `groups\<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)의 `description` 속성에 해당합니다.
 
 ### <a name="policies-folder"></a>policies 폴더
 `policies` 폴더에는 서비스 인스턴스에 대한 정책 설명이 포함되어 있습니다.
@@ -250,8 +249,8 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 ### <a name="products-folder"></a>products 폴더
 `products` 폴더는 서비스 인스턴스에 정의된 각 제품에 대한 폴더를 포함하고 있습니다.
 
-* `products\<product name>\configuration.json` - 제품에 대한 구성입니다. 이는 [특정 제품 가져오기](https://docs.microsoft.com/rest/api/apimanagement/product/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `products\<product name>\product.description.html` - 제품에 대한 설명이며 REST API에서 [제품 엔터티](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity)의 `description` 속성에 해당합니다.
+* `products\<product name>\configuration.json` - 제품에 대한 구성입니다. 이는 [특정 제품 가져오기](/rest/api/apimanagement/2019-12-01/product/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `products\<product name>\product.description.html` - 제품에 대한 설명이며 REST API에서 [제품 엔터티](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity)의 `description` 속성에 해당합니다.
 
 ### <a name="templates"></a>템플릿
 `templates` 폴더에는 서비스 인스턴스의 [전자 메일 템플릿](api-management-howto-configure-notifications.md) 에 대한 구성이 포함되어 있습니다.
@@ -263,8 +262,8 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 서비스 인스턴스를 관리하는 다른 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * 다음 PowerShell cmdlet을 사용하여 서비스 인스턴스 관리
-  * [서비스 배포 PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/module/wds)
-  * [서비스 관리 PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+  * [서비스 배포 PowerShell cmdlet 참조](/powershell/module/wds)
+  * [서비스 관리 PowerShell cmdlet 참조](/powershell/azure/servicemanagement/overview)
 * REST API를 사용하여 서비스 인스턴스 관리
   * [API Management REST API 참조](/rest/api/apimanagement/)
 
@@ -282,7 +281,3 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
-
-
-

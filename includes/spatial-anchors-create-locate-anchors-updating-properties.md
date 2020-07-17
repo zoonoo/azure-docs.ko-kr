@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: 8ebb10f955be8f3004fdbdc595ea0fefc0d2b7ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232351"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67181916"
 ---
 ## <a name="update-properties"></a>속성 업데이트
 
-앵커에 대 한 속성을 업데이트 하려면 사용 된 `UpdateAnchorProperties()` 메서드. 두 개 이상의 장치를 동시에 동일한 앵커에 대 한 속성을 업데이트 하려고 하는 경우 낙관적 동시성 모델을 사용 합니다. 즉, 첫 번째 쓰기 승리 합니다.  다른 모든 쓰기 "동시성" 오류가 발생 합니다: 속성의 새로 고침을 다시 시도 하기 전에 필요 합니다.
+앵커에 대한 속성을 업데이트하려면 `UpdateAnchorProperties()` 메서드를 사용합니다. 두 개 이상의 디바이스가 동일한 앵커에 대한 속성을 동시에 업데이트하려고 하면 낙관적 동시성 모델을 사용합니다. 즉, 첫 번째 쓰기가 성공하게 됩니다.  다른 모든 쓰기에는 "동시성" 오류가 발생합니다. 다시 시도하기 전에 속성의 새로 고침이 필요합니다.

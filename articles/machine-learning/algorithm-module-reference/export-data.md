@@ -1,83 +1,58 @@
 ---
-title: 데이터를 내보냅니다. 모듈 참조
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 외부 클라우드 저장소 대상에 실험에서 결과, 중간 데이터 및 작업 데이터를 저장 하려면 Azure Machine Learning 서비스에서 데이터 내보내기 모듈을 사용 하는 방법을 알아봅니다.
+title: '데이터 내보내기: 모듈 참조'
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 데이터 내보내기 모듈을 사용 하 여 파이프라인의 결과, 중간 데이터 및 작업 데이터를 Azure Machine Learning 외부의 클라우드 저장소 대상에 저장 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: c3744803f172edf9fbf2556a12677e8faef370c2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
+ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028322"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79456304"
 ---
-# <a name="export-data-module"></a>내보내기 데이터 모듈
+# <a name="export-data-module"></a>데이터 내보내기 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
-이 모듈을 사용 하 여 Azure Machine Learning 외부 클라우드 저장소 대상에 실험에서 결과, 중간 데이터 및 작업 데이터를 저장 합니다.
+이 모듈을 사용 하 여 파이프라인의 결과, 중간 데이터 및 작업 데이터를 클라우드 저장소 대상에 저장 합니다. 
 
-이 모듈 내보내거나 다음 클라우드 데이터 서비스에 데이터 저장을 지원 합니다.
+이 모듈은 데이터를 다음 클라우드 데이터 서비스로 내보내는 작업을 지원 합니다.
 
+- Azure Blob 컨테이너
+- Azure 파일 공유
+- Azure 데이터 레이크
+- Azure Data Lake Gen2
 
-- **Azure Blob 저장소로 내보내기**: Azure에서 Blob service에 데이터를 저장합니다. Blob service에서 데이터를 공개적으로 공유 또는 보안 된 응용 프로그램 데이터 저장소에 저장 수 있습니다.
+데이터를 내보내기 전에 Azure Machine Learning 작업 영역에 데이터 저장소를 먼저 등록 해야 합니다. 자세한 내용은 [Azure storage 서비스에서 데이터 액세스](../how-to-access-data.md)를 참조 하세요.
 
-  
-## <a name="how-to-configure-export-data"></a>데이터 내보내기 구성 하는 방법
+## <a name="how-to-configure-export-data"></a>내보내기 데이터를 구성 하는 방법
 
-1. 추가 된 **데이터 내보내기** 모듈 인터페이스에서 실험을 합니다. 이 모듈에서 찾을 수 있습니다 합니다 **입력 및 출력** 범주입니다.
+1. 디자이너에서 **데이터 내보내기** 모듈을 파이프라인에 추가 합니다. 이 모듈은 **입력 및 출력** 범주에서 찾을 수 있습니다.
 
-2. 연결 **데이터 내보내기** 내보내려면 데이터가 포함 된 모듈입니다.
+1. 내보낼 데이터를 포함 하는 모듈에 **내보내기 데이터** 를 연결 합니다.
 
-3. 두 번 클릭 **데이터 내보내기** 열려는 합니다 **속성** 창입니다.
+1. **데이터 내보내기** 를 선택 하 여 **속성** 창을 엽니다.
 
-4. 에 대 한 **데이터 대상**, 데이터를 저장할 클라우드 저장소의 유형을 선택 합니다. 이 옵션을 변경 하면 다른 모든 속성이 다시 설정 됩니다. 따라서이 옵션을 먼저 선택 해야!
+1. **데이터 저장소**의 경우 드롭다운 목록에서 기존 데이터 저장소를 선택 합니다. 새 데이터 저장소를 만들 수도 있습니다. [Azure storage 서비스에서 데이터 액세스](../how-to-access-data.md)를 방문 하 여 방법을 확인 합니다.
 
-5. 지정된 된 저장소 계정에 액세스 해야 하는 계정 이름 및 인증 메서드를 제공 합니다.
+1. **출력 다시 생성**확인란은 실행 시 출력을 다시 생성 하기 위해 모듈을 실행할지 여부를 결정 합니다. 
 
-    **Azure Blob Storage로 내보내기** 비공개 미리 보기에서 유일한 옵션입니다. 아래 모듈을 설정 하는 방법을 보여 줍니다.
-    1. Azure blob service는 많은 양의 이진 데이터를 포함 한 데이터를 저장입니다. Blob 저장소의 두 가지가: 공용 blob 및 blob 로그인 자격 증명이 필요 합니다.
+    기본적으로 선택 취소 되어 있습니다. 즉, 모듈이 이전에 동일한 매개 변수를 사용 하 여 실행 되는 경우 시스템은 마지막 실행의 출력을 다시 사용 하 여 실행 시간을 줄입니다. 
 
-    2. 에 대 한 **인증 유형**, 선택 **공용 (SAS)** 저장소 SAS URL을 통해 액세스를 지원 하는지 알고 있는 경우.
+    이 확인란이 선택 되어 있으면 시스템에서 모듈을 다시 실행 하 여 출력을 다시 생성 합니다.
 
-          SAS URL에는 Azure storage 유틸리티를 사용 하 여 생성할 수 있습니다 사용할 수 있는 제한 된 시간에 대 한 URL의 특수 형식입니다.  인증 및 다운로드에 필요한 모든 정보를 포함 합니다.
-
-        에 대 한 **URI**를 입력 하거나 계정과 공개 blob를 정의 하는 전체 URI를 붙여 넣습니다.
-
-        파일 형식으로 CSV 및 TSV 지원 됩니다.
-
-    3. 개인 계정에 대 한 선택 **계정**, 실험을 저장소 계정에 쓸 수 있도록 계정 이름과 계정 키를 제공 합니다.
-
-         - **계정 이름**: 입력 하거나 데이터를 저장 하려는 계정의 이름을 붙여 넣습니다. 예를 들어 저장소 계정의 전체 URL은 `http://myshared.blob.core.windows.net`를 입력 하면 `myshared`합니다.
-
-        - **계정 키**: 계정과 연결 된 저장소 액세스 키를 붙여 넣습니다.
-
-        -  **컨테이너, 디렉터리 또는 blob 경로**: 내보낸된 데이터를 저장할 blob의 이름을 입력 합니다. 예를 들어, 새 blob에 실험의 결과 저장 하 라는 **results01.csv** 컨테이너의 **예측** 명명 된 계정에 **mymldata**에 대 한 전체 URL을 blob 수 `http://mymldata.blob.core.windows.net/predictions/results01.csv`입니다.
-
-            필드에 따라서 **컨테이너, 디렉터리 또는 blob 경로**컨테이너를 지정 하는, 및 blob 이름으로 다음과 같습니다. `predictions/results01.csv`
-
-        - 존재 하지 않는 blob의 이름을 지정 하는 경우 존재, Azure 사용자를 위해 blob을 만듭니다.
-
-       -  기존 blob에 쓸 때 속성을 설정 하 여 blob의 현재 내용을 덮어쓸 수 있는지 지정할 수 있습니다 **Azure blob 저장소 쓰기 모드**합니다. 기본적으로이 속성 설정 **오류**, 동일한 이름의 기존 blob 파일은 발견 될 때마다 오류가 발생 하는지 의미 합니다.
+1. 데이터 저장소에서 데이터가 인 경로를 정의 합니다. 경로가 상대 경로입니다. 빈 경로 또는 URL 경로는 허용 되지 않습니다.
 
 
-    4. 에 대 한 **blob 파일의 파일 형식**, 데이터를 저장 해야 하는 형식을 선택 합니다.
-
-        - **CSV**: 쉼표로 구분 된 값 (CSV)는 기본 저장소 형식입니다. 데이터와 함께 열 머리글을 내보내려면 옵션을 선택 **blob 헤더 행 쓰기**합니다.  Azure Machine Learning에서 사용 되는 쉼표 구분 기호로 분리 된 형식에 대 한 자세한 내용은 참조 하세요. [CSV로 변환](./convert-to-csv.md)합니다.
-
-        - **TSV**: 탭으로 구분 된 값 (TSV) 형식으로 많은 기계 학습 도구와 호환 됩니다. 데이터와 함께 열 머리글을 내보내려면 옵션을 선택 **blob 헤더 행 쓰기**합니다.  
-
+1. **파일 형식**에 대해 데이터를 저장할 형식을 선택 합니다.
  
-    5. **캐시 된 결과 사용 하 여**: 실험을 실행할 때마다 blob 파일에 결과 다시 작성 하지 않으려는 경우이 옵션을 선택 합니다. 실험을 다른 모듈 매개 변수 변경 되지 경우 결과 처음에 모듈 실행 될 때만를 작성 또는 데이터 변경 내용이 있습니다.
-
-    6. 실험을 실행합니다.
+1. 파이프라인을 제출합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-참조를 [사용할 수 있는 모듈 집합](module-reference.md) Azure Machine Learning 서비스입니다. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

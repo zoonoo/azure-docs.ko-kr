@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9f5b535a341956e5675ba96ba9570bd3f2ff3443
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710952"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>동적 DNS를 사용하여 자체 DNS 서버에 호스트 이름 등록
 
@@ -61,7 +60,7 @@ then
 fi
 ```
 
-보안 DDNS 업데이트를 수행하는 데 `nsupdate` 명령도 사용할 수 있습니다. 예를 들어 Bind DNS 서버를 사용하는 경우 공개-개인 키 쌍이 [생성](http://linux.yyz.us/nsupdate/)됩니다. 요청된 서명을 확인할 수 있도록 DNS 서버는 키의 공개 부분으로 [구성](http://linux.yyz.us/dns/ddns-server.html) 됩니다. `nsupdate`에 키 쌍을 제공하려면 `-k` 옵션을 사용하여 DDNS 업데이트 요청이 서명되게 합니다.
+보안 DDNS 업데이트를 수행하는 데 `nsupdate` 명령도 사용할 수 있습니다. 예를 들어 Bind DNS 서버를 사용하는 경우 퍼블릭-프라이빗 키 쌍이 생성(`http://linux.yyz.us/nsupdate/`)됩니다. 요청된 서명을 확인할 수 있도록 DNS 서버는 키의 공개 부분으로 구성(`http://linux.yyz.us/dns/ddns-server.html`)됩니다. `nsupdate`에 키 쌍을 제공하려면 `-k` 옵션을 사용하여 DDNS 업데이트 요청이 서명되게 합니다.
 
 Windows DNS 서버를 사용하는 경우 Kerberos 인증은 `nsupdate`의 `-g` 매개 변수와 함께 사용할 수 있습니다(Windows 버전의 `nsupdate`에서 사용할 수 없음). Kerberos를 사용하려면 `kinit`을 사용하여 자격 증명을 로드합니다. 예를 들어 [keytab 파일](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html))에서 자격 증명을 로드한 다음, `nsupdate -g`은 캐시에서 자격 증명을 선택할 수 있습니다.
 

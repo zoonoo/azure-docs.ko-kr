@@ -1,36 +1,33 @@
 ---
-title: Azure Application Insights로 빠른 시작 | Microsoft Docs
-description: Application Insights를 사용하여 모니터링하도록 ASP.NET Core 웹앱을 빠르게 설정하는 지침을 제공합니다.
-services: application-insights
-keywords: ''
+title: 빠른 시작 ASP.NET Core - Azure Monitor Application Insights
+description: Azure Monitor Application Insights를 사용하여 모니터링하도록 ASP.NET Core 웹앱을 빠르게 설정하는 지침을 제공합니다.
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
-ms.service: application-insights
+ms.date: 06/26/2019
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: eae9dc6447dd8211a3919c52beaea64274fc0ec5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801082"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144857"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 애플리케이션 모니터링 시작
 
 Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다. 또한 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. 
 
-이 빠른 시작은 기존 ASP.NET Core 웹 애플리케이션에 Application Insights SDK를 추가하는 방법을 안내합니다. 
+이 빠른 시작은 기존 ASP.NET Core 웹 애플리케이션에 Application Insights SDK를 추가하는 방법을 안내합니다. Visual Studio를 사용하지 않고 Application Insights를 구성하는 방법에 대해 알아보려면 이 [문서](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)를 체크 아웃하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- [Visual Studio 2017 설치](https://www.visualstudio.com/downloads/)(다음 워크로드 포함)
+- 다음 워크로드로 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)를 설치합니다.
   - ASP.NET 및 웹 개발
   - Azure 개발
-- [.NET Core SDK 2.0 설치](https://www.microsoft.com/net/core)
+- [.NET Core SDK 2.0 설치](https://dotnet.microsoft.com/download)
 - Azure 구독 및 기존 .NET Core 웹 애플리케이션이 필요합니다.
 
 ASP.NET Core 웹 애플리케이션이 없는 경우 단계별 가이드에 따라 [ASP.NET Core 앱을 만들고 Application Insights를 추가](../../azure-monitor/app/asp-net-core.md)할 수 있습니다.
@@ -47,18 +44,20 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 1. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다.
 
-   ![Application Insights 리소스 추가](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 문서를 참조하세요.
 
     구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다.
 
-    | 설정        |  값           | 설명  |
+   | 설정        |  값           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **애플리케이션 유형** | ASP.NET 웹 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
-   | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
-   | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
+   | **이름**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
+   | **리소스 그룹**     | myResourceGroup      | App Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |
+   | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
 2. **만들기**를 클릭합니다.
+
+
 
 ## <a name="configure-app-insights-sdk"></a>Application Insights SDK 구성
 
@@ -70,7 +69,9 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 3. 계정 및 구독을 선택하고 > Azure Portal에서 만든 **기존 리소스**를 선택한 후 > **등록**을 클릭합니다.
 
-4. **디버그** > **디버깅하지 않고 시작**(Ctrl+F5)을 선택하여 응용 프로그램을 시작합니다.
+4. **프로젝트** > **NuGet 패키지 관리** > **패키지 소스: nuget.org** > **업데이트**를 선택하여 Application Insights SDK 패키지를 안정적인 최신 릴리스로 업데이트합니다.
+
+5. **디버그** > **디버깅하지 않고 시작**(Ctrl+F5)을 선택하여 응용 프로그램을 시작합니다.
 
     ![Application Insights 개요 메뉴](./media/dotnetcore-quick-start/3debug.png)
 
@@ -95,34 +96,15 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![상태 개요 타임라인 그래프](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-   **페이지 보기 로드 시간** 차트를 **클라이언트 쪽 원격 분석** 데이터로 채우도록 하려면 이 스크립트를 추적하려는 각 페이지에 추가합니다.
-
-   ```HTML
-   <!-- 
-   To collect user behavior analytics about your application, 
-   insert the following script into each page you want to track.
-   Place this code immediately before the closing </head> tag,
-   and before any other scripts. Your first data will appear 
-   automatically in just a few seconds.
-   -->
-   <script type="text/javascript">
-     var appInsights=window.appInsights||function(config){
-       function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
-       }({
-           instrumentationKey:"<insert instrumentation key>"
-       });
-       
-       window.appInsights=appInsights;
-       appInsights.trackPageView();
-   </script>
-   ```
-
 5. 왼쪽에서 **메트릭**을 클릭합니다. 메트릭 탐색기를 사용하여 리소스의 상태 및 사용률을 조사합니다. **새 차트 추가**를 클릭하여 사용자 지정 보기를 추가로 만들거나, **편집**을 선택하여 기존 차트의 종류, 높이, 색상표, 그룹화 및 메트릭을 수정할 수 있습니다. 예를 들어 메트릭 드롭다운의 “브라우저 페이지 로드 시간”과 집계의 “Avg”를 선택하여 평균 브라우저 페이지 로드 시간을 표시하는 차트를 만들 수 있습니다. Azure 메트릭 탐색기에 대해 자세히 알아보려면 [Azure 메트릭 탐색기 시작](../../azure-monitor/platform/metrics-getting-started.md)을 방문하세요.
 
      ![메트릭 탭: 평균 브라우저 페이지 로드 시간 차트](./media/dotnetcore-quick-start/8metrics.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 테스트를 완료하면 리소스 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.
+
+> [!NOTE]
+> 기존 리소스 그룹을 사용하는 경우 아래 지침이 작동하지 않으므로 개별 Application Insights 리소스를 삭제하기만 하면 됩니다. 리소스 그룹을 삭제할 때마다 해당 그룹의 구성원인 모든 underyling 리소스가 삭제됩니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**과 **myResourceGroup**을 차례로 클릭합니다.
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에 **myResourceGroup**을 입력한 후 **삭제**를 클릭합니다.

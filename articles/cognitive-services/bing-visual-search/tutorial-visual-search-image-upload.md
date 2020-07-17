@@ -1,21 +1,21 @@
 ---
-title: '자습서: 이미지를 업로드하는 방법 - Bing Visual Search'
+title: '자습서: Bing Visual Search API를 사용하여 이미지를 업로드하는 방법'
 titleSuffix: Azure Cognitive Services
-description: 이미지를 Bing에 업로드하여 인사이트를 얻고, 응답을 구문 분석하여 표시하는 프로세스를 분석합니다.
+description: Bing에 이미지를 업로드하고, 이에 대한 인사이트를 얻고, 응답을 표시하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 04/03/2019
+ms.date: 03/31/2020
 ms.author: scottwhi
-ms.openlocfilehash: 42a7db316e844e5dbd09fb75a07e1c7883a9cec9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ecd1ab5e613bb326b65f6aa50f3f85172bc334ac
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011727"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477925"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>자습서: Bing Visual Search API에 이미지 업로드
 
@@ -30,7 +30,7 @@ Bing Visual Search API를 사용하여 업로드하는 이미지와 유사한 �
 > * 웹 애플리케이션에 이미지 검색 결과 표시
 > * API에서 제공되는 다양한 인사이트 살펴보기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 

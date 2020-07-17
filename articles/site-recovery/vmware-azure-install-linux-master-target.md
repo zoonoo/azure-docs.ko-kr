@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 Linux VM 장애 복구(failback)를 위한 마스터 대상 서버 설치
 description: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복구 중에 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버를 설치하는 방법을 알아봅니다.
 author: mayurigupta13
 services: site-recovery
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602061"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130150"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -21,15 +21,15 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 보호된 가상 머신이 Windows 가상 머신인 경우 Windows 마스터 대상이 필요합니다. Linux 가상 머신인 경우 Linux 마스터 대상이 필요합니다. 다음 단계를 읽고 Linux 마스터 대상을 만들고 설치하는 방법에 대해 알아보세요.
 
 > [!IMPORTANT]
-> 9.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
+> 9\.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
 > LVM의 마스터 대상 서버는 지원되지 않습니다.
 
 ## <a name="overview"></a>개요
 이 문서에서는 Linux 마스터 대상을 설치하는 방법의 지침을 제공합니다.
 
-이 문서의 마지막 부분 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 의견이나 질문을 게시할 수 있습니다.
+이 문서의 마지막 부분 또는 [Azure Recovery Services의 Microsoft Q&A 질문 페이지](/answers/topics/azure-site-recovery.html)에 의견이나 질문을 게시할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 마스터 대상을 배포해야 하는 호스트를 선택하려면 기존 온-프레미스 가상 머신에 장애 복구를 수행할 것인지 아니면 새 가상 머신에 장애 복구를 수행할 것인지 결정합니다. 
     * 기존 가상 컴퓨터에서 수행하는 경우 마스터 대상의 호스트가 가상 컴퓨터의 데이터 저장소에 액세스할 수 있어야 합니다.
@@ -37,6 +37,9 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 * 마스터 대상은 프로세스 서버 및 구성 서버와 통신할 수 있는 네트워크에 있어야 합니다.
 * 마스터 대상의 버전이 프로세스 서버 및 구성 서버의 버전과 같거나 그보다 이전 버전이어야 합니다. 예를 들어 구성 서버의 버전이 9.4인 경우 마스터 대상의 버전이 9.4 또는 9.3인 것은 괜찮지만 9.5는 안 됩니다.
 * 마스터 대상은 VMware 가상 머신만 될 수 있고 물리적 서버는 안 됩니다.
+
+> [!NOTE]
+> 마스터 대상 같은 관리 구성 요소에서 Storage vMotion을 설정하지 않아야 합니다. 마스터 대상이 다시 보호 후에 이동되면 VMDK(가상 머신 디스크)를 분리할 수 없습니다. 이 경우, 장애 복구에 실패합니다.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>마스터 대상 서버 만들기에 대한 크기 조정 지침
 
@@ -46,12 +49,12 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
 - **CPU 코어**: 4 코어 이상
 
-다음 지원되는 Ubuntu 커널을 사용할 수 있습니다.
+다음 Ubuntu 커널을 사용할 수 있습니다.
 
 
 |커널 시리즈  |최대 지원  |
 |---------|---------|
-|4.4      |4.4.0-81-제네릭         |
+|4.4.      |4.4.0-81-제네릭         |
 |4.8      |4.8.0-56-제네릭         |
 |4.10     |4.10.0-24-제네릭        |
 
@@ -62,7 +65,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 다음 단계를 통해 Ubuntu 16.04.2 64비트 운영 체제를 설치합니다.
 
-1.   로 이동 합니다 [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), 가장 가까운 미러를 선택 하 고 Ubuntu 16.04.2 최소 64 비트 ISO를 다운로드 합니다.
+1.   [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)로 이동하고 가장 가까운 미러를 선택한 다음, Ubuntu 16.04.2 최소 64비트 ISO를 다운로드합니다.
 DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스템을 시작합니다.
 
 1.  기본 설정 언어로 **영어**를 선택하고 **Enter** 키를 선택합니다.
@@ -83,7 +86,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 1. **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
      ![키보드 구성](./media/vmware-azure-install-linux-master-target/image5.png)
-1. 선택 **영어 (미국)** 국가/지역 키보드 및 선택에 대 한 원본으로 **Enter**합니다.
+1. 키보드의 원산지로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
 1. 키보드 레이아웃으로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
@@ -214,12 +217,11 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 ### <a name="apply-custom-configuration-changes"></a>사용자 지정 구성 변경 내용 적용
 
-사용자 지정 구성 변경 내용을 적용하려면 다음 단계를 따릅니다.
-
+사용자 지정 구성 변경 내용을 적용하려면 루트 사용자 권한으로 다음 단계를 따릅니다.
 
 1. 다음 명령을 실행하여 바이너리를 untar합니다.
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![실행할 명령 스크린샷](./media/vmware-azure-install-linux-master-target/image16.png)
 
@@ -245,7 +247,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. 드라이브를 포맷한 다음, 새 드라이브에서 파일 시스템을 만듭니다. **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**
+3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id> **.
     
     ![파일 시스템](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -262,7 +264,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     
     **Insert** 키를 눌러 파일을 편집하기 시작합니다. 새 줄을 만들고 다음 텍스트를 삽입합니다. 이전 명령에서 강조 표시된 다중 경로 ID에 따라 디스크 다중 경로 ID를 편집합니다.
 
-    **사용 하기 위해 /dev매퍼/\<보존 디스크 다중 경로 id >/mnt 보존 ext4 rw 0 0**
+    **/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
     **Esc** 키를 선택하고 **:wq**(쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
 
@@ -275,16 +277,22 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 > [!NOTE]
 > 마스터 대상 서버를 설치하기 전에 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소에 매핑하는 항목이 가상 머신의 **/etc/hosts** 파일에 포함되어 있는지 확인합니다.
 
-1. 구성 서버의 **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase**에서 암호를 복사합니다. 그리고 다음 명령을 실행하여 같은 로컬 디렉터리에서 **passphrase.txt**로 저장합니다.
+1. 다음 명령을 실행하여 마스터 대상을 설치합니다.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. 구성 서버의 **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase**에서 암호를 복사합니다. 그리고 다음 명령을 실행하여 같은 로컬 디렉터리에서 **passphrase.txt**로 저장합니다.
 
     `echo <passphrase> >passphrase.txt`
 
     예제: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. 구성 서버의 IP 주소를 적어둡니다. 다음 명령을 실행하여 마스터 대상 서버를 설치하고 이 서버를 구성 서버에 등록합니다.
+3. 구성 서버의 IP 주소를 적어둡니다. 다음 명령을 실행 하 여 서버를 구성 서버에 등록 합니다.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -315,16 +323,10 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 1. 구성 서버의 IP 주소를 적어둡니다. 다음 단계에서 필요합니다.
 
-2. 다음 명령을 실행하여 마스터 대상 서버를 설치하고 이 서버를 구성 서버에 등록합니다.
+2. 다음 명령을 실행 하 여 서버를 구성 서버에 등록 합니다.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-    예제: 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      스크립트가 완료될 때까지 기다립니다. 마스터 대상이 성공적으로 등록되면 해당 마스터 대상이 포털의 **Site Recovery 인프라** 페이지에 나열됩니다.
@@ -347,11 +349,15 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 * 마스터 대상 같은 관리 구성 요소에서 Storage vMotion을 설정하지 않아야 합니다. 마스터 대상이 다시 보호 후에 이동되면 VMDK(가상 머신 디스크)를 분리할 수 없습니다. 이 경우, 장애 복구에 실패합니다.
 
-* 마스터 대상에는 가상 머신에 대한 스냅숏이 없어야 합니다. 스냅숏이 있으면 장애 복구에 실패합니다.
+* 마스터 대상에는 가상 머신에 대한 스냅샷이 없어야 합니다. 스냅샷이 있으면 장애 복구에 실패합니다.
 
-* 일부 사용자 지정 NIC 구성 때문에 시작하는 동안 네트워크 인터페이스를 사용할 수 없으며 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의 /etc/sysconfig/network-scripts/ifcfg-eth*에서 다음 속성을 확인합니다.
-    * BOOTPROTO=dhcp
-    * ONBOOT=yes
+* 일부 사용자 지정 NIC 구성 때문에 시작하는 동안 네트워크 인터페이스를 사용할 수 없으며 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의/etc/network/interfaces.에서 다음 속성을 확인 합니다.
+    * auto eth0
+    * iface eth0 inet dhcp <br>
+
+    다음 명령을 사용 하 여 네트워킹 서비스를 다시 시작 합니다. <br>
+
+`sudo systemctl restart networking`
 
 
 ## <a name="next-steps"></a>다음 단계

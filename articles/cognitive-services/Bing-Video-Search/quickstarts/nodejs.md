@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Bing Video Search REST API 및 Node.js를 사용하여 비디오 검색'
-titlesuffix: Azure Cognitive Services
+title: '빠른 시작: REST API 및 Node.js를 사용하여 비디오 검색 - Bing Video Search'
+titleSuffix: Azure Cognitive Services
 description: JavaScript를 통해 Bing Video Search REST API로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
 author: aahill
@@ -8,25 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: a4e3d37b2eb32fa0384986e37781f21b906bed42
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 693b8209498f07928c811fd084eaf259bcbcb5ff
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077312"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849640"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>빠른 시작: Bing Video Search REST API 및 Node.js를 사용하여 비디오 검색
 
-Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 확인하려면 이 빠른 시작을 사용합니다. 이 간단한 JavaScript 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 애플리케이션은 JavaScript에서 작성되고 Node.js를 사용하지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js)에서 사용할 수 있습니다.
+이 빠른 시작을 사용하여 Bing Video Search API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 JavaScript 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, JSON 응답을 표시합니다. 이 애플리케이션은 JavaScript에서 작성되고 Node.js를 사용하지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 
 
-## <a name="prerequisites"></a>필수 조건
+이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js)에서 사용할 수 있습니다.
 
-* [Node.JS](https://nodejs.org/en/download/)
+## <a name="prerequisites"></a>사전 요구 사항
 
-* JavaScript에 대한 요청 모듈
-    * `npm install request`를 사용하여 이 모듈을 설치할 수 있습니다.
+* [Node.js](https://nodejs.org/en/download/).
+
+* JavaScript에 대한 요청 모듈. `npm install request`를 사용하여 이 모듈을 설치합니다.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -39,7 +40,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     let https = require('https');
     ```
 
-2. API 엔드포인트, 구독 키 및 검색어에 대한 변수를 만듭니다.
+2. API 엔드포인트, 구독 키 및 검색어에 대한 변수를 만듭니다. `host` 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -61,39 +62,40 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     };
     ```
     
-   1. `end`가 표시되면 `response.on()`을 사용하여 bing과 관련된 헤더를 저장합니다(`bingapis` 또는 `x-msedge-`로 시작). 그런 다음, `JSON.parse()`를 사용하여 JSON을 구문 분석하고, `JSON.stringify()`를 사용하여 문자열로 변환한 후, 출력합니다.
-
-       ```javascript
-       response.on('end', function () {
-           for (var header in response.headers)
-               // header keys are lower-cased by Node.js
-               if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                    console.log(header + ": " + response.headers[header]);
-           body = JSON.stringify(JSON.parse(body), null, '  ');
-           //JSON Response body
-           console.log(body);
-       });
-       ```
-
-# <a name="create-and-send-the-search-request"></a>검색 요청 만들기 및 보내기
-
-1. `bing_video_search()`라는 함수를 만듭니다. 호스트 이름 및 헤더를 포함한 요청에 대한 매개 변수를 추가합니다. 검색어를 인코딩하고 `?q=` 매개 변수를 통해 경로 매개 변수에 추가합니다. 그런 다음, `req.end()`를 통해 요청을 보냅니다.
+1. 이 함수에서는 `end`가 bing 관련 헤더(`bingapis` 또는 `x-msedge-`부터)를 저장하도록 신호를 받으면 `response.on()`을 사용합니다. `JSON.parse()`를 사용하여 JSON을 구문 분석하고, `JSON.stringify()`를 사용하여 문자열로 변환하고, 출력합니다.
 
     ```javascript
-    let bing_video_search = function (search_term) {
-      console.log('Searching videos for: ' + term);
-      let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + '?q=' + encodeURIComponent(search_term),
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
-        let req = https.request(request_params, response_handler);
-        req.end();
-    }
+    response.on('end', function () {
+        for (var header in response.headers)
+            // header keys are lower-cased by Node.js
+            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                 console.log(header + ": " + response.headers[header]);
+        body = JSON.stringify(JSON.parse(body), null, '  ');
+        //JSON Response body
+        console.log(body);
+    });
     ```
+
+## <a name="create-and-send-the-search-request"></a>검색 요청 만들기 및 보내기
+
+`bing_video_search()`라는 함수를 만듭니다. 호스트 이름 및 헤더를 포함한 요청에 대한 매개 변수를 추가합니다. 검색어를 인코딩하고 `?q=` 매개 변수를 통해 경로 매개 변수에 추가합니다. 그런 다음, `req.end()`를 통해 요청을 보냅니다.
+
+```javascript
+let bing_video_search = function (search_term) {
+  console.log('Searching videos for: ' + term);
+let request_params = {
+    method : 'GET',
+    hostname : host,
+    path : path + '?q=' + encodeURIComponent(search_term),
+    headers : {
+        'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
+    let req = https.request(request_params,
+      response_handler);
+    req.end();
+}
+```
 
 ## <a name="json-response"></a>JSON 응답
 

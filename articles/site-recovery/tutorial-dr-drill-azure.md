@@ -1,24 +1,23 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 재해 복구 드릴 실행 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 재해 복구 드릴을 실행하는 방법에 대해 알아봅니다.
+title: Azure Site Recovery를 사용하여 Azure로 재해 복구 훈련 실행
+description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 재해 복구 훈련을 실행하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358152"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699620"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure에 온-프레미스 머신에 대한 재해 복구 드릴을 실행하는 방법을 설명합니다. 훈련은 데이터 손실 없이 복제 전략의 유효성을 검사합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure에 온-프레미스 머신에 대한 재해 복구 훈련을 실행하는 방법을 설명합니다. 훈련은 데이터 손실 없이 복제 전략의 유효성을 검사합니다.
 
 
 이 문서는 온-프레미스 머신에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 네 번째 자습서입니다.
@@ -31,7 +30,7 @@ ms.locfileid: "59358152"
 > * 단일 머신에 대해 테스트 장애 조치(failover) 실행
 
 > [!NOTE]
-> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 재해 복구 드릴 단계에 대해 자세히 알아보려면 [이 문서를 검토하세요](site-recovery-test-failover-to-azure.md).
+> 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 재해 복구 훈련 단계에 대해 자세히 알아보려면 [이 문서를 검토하세요](site-recovery-test-failover-to-azure.md).
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -48,7 +47,7 @@ ms.locfileid: "59358152"
 
 1. **보호된 항목**에서 **복제된 항목**을 클릭하고 VM을 클릭합니다.
 2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
-3. **계산 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, 가용성 집합 및 관리 디스크 설정을 수정할 수 있습니다.
+3. **컴퓨팅 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, 가용성 집합 및 관리 디스크 설정을 수정할 수 있습니다.
 4. 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
 5. **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
 
@@ -65,7 +64,7 @@ ms.locfileid: "59358152"
 테스트 장애 조치(failover)를 실행하면 다음 상황이 발생합니다.
 
 1. 필수 구성 요소 확인은 장애 조치(failover)에 필요한 모든 조건이 충족되었는지 확인하기 위해 실행합니다.
-2. 장애 조치(failover)는 데이터를 처리하며 이 데이터에서 Azure VM이 만들어질 수 있습니다. 최신 복구 지점을 선택하는 경우 해당 데이터에서 복구 지점이 만들어집니다.
+2. 장애 조치(failover)는 데이터를 처리하며 이 데이터에서 Azure VM이 만들어질 수 있습니다. 최신 복구 시점을 선택하는 경우 해당 데이터에서 복구 시점이 만들어집니다.
 3. 이전 단계에서 처리한 데이터를 사용하여 Azure VM이 만들어집니다.
 
 다음과 같이 테스트 장애 조치(Failover)를 실행합니다.
@@ -88,6 +87,6 @@ ms.locfileid: "59358152"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [VMware VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)
-> [Hyper-V VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](hyper-v-azure-failover-failback-tutorial.md).
-> [물리적 머신에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](physical-to-azure-failover-failback.md)
+> [VMware VM의 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)
+> [Hyper-V VM의 장애 조치(failover) 및 장애 복구(failback) 실행](hyper-v-azure-failover-failback-tutorial.md)
+> [물리적 머신의 장애 조치(failover) 및 장애 복구(failback) 실행](physical-to-azure-failover-failback.md)

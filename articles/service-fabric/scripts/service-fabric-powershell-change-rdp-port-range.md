@@ -2,25 +2,20 @@
 title: Azure PowerShell 스크립트 샘플 - RDP 포트 범위 변경 | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - 배포된 클러스터의 RDP 포트 범위를 변경합니다.
 services: service-fabric
-documentationcenter: ''
-author: aljo-microsoft
-manager: chackdan
-editor: ''
 tags: azure-service-management
-ms.assetid: ''
+author: athinanthny
+ms.author: atsenthi
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: aljo
-ms.custom: mvc
-ms.openlocfilehash: 871fe502a40b4c22f3e57a2f357e940c7f659314
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.custom: sfrev
+ms.openlocfilehash: b3d922cb5a7cdf34e63731ab32f21c94d7b6bca0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663930"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "76025010"
 ---
 # <a name="update-the-rdp-port-range-values"></a>RDP 포트 범위 값 업데이트
 
@@ -28,7 +23,7 @@ ms.locfileid: "58663930"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치합니다. 
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

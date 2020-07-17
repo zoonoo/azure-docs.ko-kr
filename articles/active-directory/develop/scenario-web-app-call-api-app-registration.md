@@ -1,40 +1,35 @@
 ---
-title: 웹 앱 호출 웹 Api (응용 프로그램 등록)-되는 Microsoft id 플랫폼
-description: 웹 앱을 빌드하는 방법을 알아봅니다 호출 웹 Api (응용 프로그램 등록) 되는
+title: 웹 Api를 호출 하는 웹 앱 등록-Microsoft identity platform | Microsoft
+description: 웹 Api를 호출 하는 웹 앱을 등록 하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5becdc287f7cad28aa6c7c07ebc107586e9a2b2a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 8cb7d86bd419563363779c499962c81f0c59e3b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075192"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80881879"
 ---
-# <a name="web-app-that-calls-web-apis---app-registration"></a>웹 앱 등록 Api를 호출 되는 웹 앱
+# <a name="a-web-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 웹 앱: 앱 등록
 
-웹 앱 호출 웹 Api가 사용자 웹 앱에 로그인으로 동일한 등록 되었습니다. 지침에 따라 해야 하므로 [웹 앱 로그인 사용자-앱 등록](scenario-web-app-sign-user-app-registration.md)
+웹 Api를 호출 하는 웹 앱은 사용자를 로그인 하는 웹 앱과 동일한 등록을 갖습니다. 따라서 [사용자에 게 로그인 하는 웹 앱](scenario-web-app-sign-user-app-registration.md)의 지침에 따라 앱을 등록 합니다.
 
-그러나 이후 웹 앱 web Api를 호출 하는 이제 되기 기밀 클라이언트 응용 프로그램입니다. 이유는 약간의 추가 등록 필요: Microsoft id 플랫폼을 사용 하 여 비밀 (클라이언트 자격 증명)을 공유 해야 합니다.
+그러나 웹 앱은 이제 웹 Api를 호출 하므로 기밀 클라이언트 응용 프로그램이 됩니다. 이 때문에 몇 가지 추가 등록이 필요 합니다. 앱은 Microsoft id 플랫폼과 클라이언트 자격 증명 또는 *암호*를 공유 해야 합니다.
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Registration of client secrets](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>API 사용 권한
 
-웹 응용 프로그램에서 로그인 한 사용자를 대신 하 여 Api를 호출합니다. 위임 된 권한을 요청 해야 합니다. 자세한 내용은 참조 하십시오 [웹 Api에 액세스 권한을 추가 합니다.](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+웹 앱은 로그인 한 사용자를 대신 하 여 Api를 호출 합니다. 이렇게 하려면 *위임 된 권한을*요청 해야 합니다. 자세한 내용은 [웹 api에 액세스 하기 위한 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [앱의 코드 구성](scenario-web-app-call-api-app-configuration.md)
+> [웹 API를 호출하는 웹앱: 코드 구성](scenario-web-app-call-api-app-configuration.md)

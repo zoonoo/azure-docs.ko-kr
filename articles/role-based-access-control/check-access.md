@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 Azure Portal을 사용하여 사용자 또는 다른 보안 주체가 Azure 리소스에 대해 갖는 액세스 권한을 보는 방법을 알아봅니다.
+title: 빠른 시작 - 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기 - Azure RBAC
+description: 이 빠른 시작에서는 Azure Portal 및 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자 또는 다른 보안 주체가 Azure 리소스에 대해 갖는 액세스 권한을 보는 방법을 알아봅니다.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9be53aa964e75bab0b90495640537fe927a5af0e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337948"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734164"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>빠른 시작: 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기
 
-[RBAC(역할 기반 액세스 제어)](overview.md)의 **액세스 제어(IAM)** 블레이드를 사용하여 사용자 또는 다른 보안 주체가 Azure 리소스에 대해 갖는 액세스 권한을 볼 수 있습니다. 단, 단일 사용자 또는 다른 보안 주체의 경우 액세스 권한을 빠르게 확인해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 Azure Portal에서 **액세스 권한 확인** 기능을 사용하는 것입니다.
+[Azure RBAC(Azure 역할 기반 액세스 제어)](overview.md)의 **액세스 제어(IAM)** 블레이드를 사용하여 사용자 또는 다른 보안 주체가 Azure 리소스에 대해 갖는 액세스 권한을 볼 수 있습니다. 단, 단일 사용자 또는 다른 보안 주체의 경우 액세스 권한을 빠르게 확인해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 Azure Portal에서 **액세스 권한 확인** 기능을 사용하는 것입니다.
 
 ## <a name="view-role-assignments"></a>역할 할당 보기
 
@@ -54,4 +54,4 @@ ms.locfileid: "56337948"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](quickstart-assign-role-user-portal.md)
+> [자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](quickstart-assign-role-user-portal.md)

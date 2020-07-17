@@ -1,5 +1,6 @@
 ---
-title: Azure API Management에서 개발자 포털의 페이지 콘텐츠 수정 | Microsoft Docs
+title: API Management의 개발자 포털에서 페이지 내용 수정
+titleSuffix: Azure API Management
 description: Azure API Management에서 개발자 포털의 페이지 콘텐츠를 편집하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
@@ -10,16 +11,14 @@ ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: fd9902a83a813daffc52e089e6e8bfc4137c5b8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75430626"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Azure API Management에서 개발자 포털의 페이지 콘텐츠 및 레이아웃 수정
 Azure API Management에는 개발자 포털을 사용자 지정하는 기본적인 방법이 세 가지 있습니다.
@@ -30,7 +29,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="page-structure"> </a>개발자 포털 페이지의 구조
+## <a name="structure-of-developer-portal-pages"></a><a name="page-structure"> </a>개발자 포털 페이지의 구조
 
 개발자 포털은 콘텐츠 관리 시스템을 기반으로 합니다. 모든 페이지의 레이아웃은 위젯이라는 작은 페이지 요소의 집합을 기반으로 작성됩니다.
 
@@ -42,7 +41,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 일상적인 페이지 편집에서 콘텐츠 위젯만 편집하는 경우가 자주 있으며, 이로 인해 각 개별 페이지의 콘텐츠가 달라집니다.
 
-## <a name="modify-layout-widget"> </a>레이아웃 위젯의 콘텐츠 수정
+## <a name="modifying-the-contents-of-a-layout-widget"></a><a name="modify-layout-widget"> </a>레이아웃 위젯의 콘텐츠 수정
 
 개발자 포털은 Azure Portal에서 액세스할 수 있습니다.
 
@@ -55,7 +54,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 이제 개발자 포털 내의 모든 페이지에서 새 머리글을 볼 수 있습니다.
 
-## <a name="next-steps"> </a>다음 단계
+## <a name="next-steps"></a><a name="next-steps"> </a>다음 단계
 * [개발자 포털 전반의 페이지 요소에 사용된 스타일 업데이트][customize-styles]
 * [포털에서 생성된 페이지에 사용된 템플릿 수정][portal-templates](예: API 문서, 제품, 사용자 인증 등)
 

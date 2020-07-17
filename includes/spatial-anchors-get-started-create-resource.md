@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632940"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638981"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Spatial Anchors 리소스 만들기
 
@@ -41,6 +41,10 @@ Azure Portal의 왼쪽 탐색 창에서 **리소스 만들기**를 선택합니�
 그런 다음, 리소스 속성을 볼 수 있습니다. 리소스의 **계정 ID** 값을 텍스트 편집기에 복사합니다. 나중에 필요합니다.
 
    ![리소스 속성](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+
+또한 나중에 필요하므로 리소스의 **계정 도메인** 값을 텍스트 편집기에 복사합니다.
+
+   ![계정 도메인](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
 **설정** 아래에서 **키**를 선택합니다. **기본 키** 값을 텍스트 편집기에 복사합니다. 이 값은 `Account Key`입니다. 나중에 필요합니다.
 

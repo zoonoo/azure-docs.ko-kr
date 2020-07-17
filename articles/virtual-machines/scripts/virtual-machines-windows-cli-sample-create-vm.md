@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - Windows Server VM 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - Windows Server VM 만들기
 description: Azure CLI 스크립트 샘플 - Windows Server VM 만들기
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 0d1fcc081cd19a141df4a10a4be7a1073f5b39e8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1ed4c3c632f832638a63efa4c673db74a62b137b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673720"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459426"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 만들기
 

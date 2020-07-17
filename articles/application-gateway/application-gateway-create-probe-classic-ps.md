@@ -1,26 +1,18 @@
 ---
-title: 사용자 지정 프로브 만들기 - Azure Application Gateway - PowerShell 클래식 | Microsoft Docs
+title: PowerShell을 사용 하 여 사용자 지정 프로브 만들기-Azure 애플리케이션 게이트웨이
 description: 클래식 배포 모델에서 PowerShell을 사용하여 Application Gateway에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.topic: how-to
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861882"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807278"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
 
@@ -32,7 +24,7 @@ ms.locfileid: "58861882"
 이 문서에서는 PowerShell을 사용하여 기존 애플리케이션 게이트웨이에 사용자 지정 프로브를 추가합니다. 사용자 지정 프로브는 특정 상태 확인 페이지를 사용하는 애플리케이션이나 기본 웹 애플리케이션에서 성공적으로 응답을 제공하지 않는 애플리케이션에 유용합니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](application-gateway-create-probe-ps.md) 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행](application-gateway-create-probe-ps.md)하는 방법을 알아봅니다.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -61,11 +53,11 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> *InstanceCount* 의 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 에 대한 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+> *InstanceCount* 의 기본값은 2이 고, 최대값은 10입니다. *GatewaySize* 에 대한 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
 > 
 > 
 
-게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
+게이트웨이가 아직 시작 되지 않았으므로 *Virtualips* 및 *DnsName* 이 빈 상태로 표시 됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
 
 ### <a name="configure-an-application-gateway-by-using-xml"></a>XML을 사용하여 애플리케이션 게이트웨이 구성
 
@@ -144,24 +136,24 @@ Get-AzureApplicationGateway AppGwTest
 > [!IMPORTANT]
 > Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
 
-새 구성 항목 \<Probe\>를 추가하여 사용자 지정 프로브를 구성합니다.
+\<Probe\>사용자 지정 프로브를 구성 하기 위해 새 구성 항목이 추가 됩니다.
 
 구성 매개 변수:
 
 |매개 변수|설명|
 |---|---|
-|**Name** |사용자 지정 프로브에 대한 참조 이름입니다. |
+|**이름** |사용자 지정 프로브에 대한 참조 이름입니다. |
 | **프로토콜** | 사용되는 프로토콜입니다(가능한 값: HTTP 또는 HTTPS).|
-| **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예를 들어, 웹 사이트 http을 사용 하는 경우:\//contoso.com/, 다음 사용자 지정 프로브를 구성할 수 있습니다 "http:\//contoso.com/path/custompath.htm" 프로브를 성공적으로 HTTP에 응답을 검사 합니다.|
+| **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예를 들어 http:/contoso.com/웹 사이트가 있는 경우 \/ 프로브 검사에 대 한 사용자 지정 프로브를 "http: \/ /contoso.com/path/custompath.htm"에 대해 구성 하 여 성공적인 http 응답을 받을 수 있습니다.|
 | **간격** | 프로브 간격 확인을 구성합니다(단위: 초).|
-| **시간 제한** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
+| **Timeout** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
 | **UnhealthyThreshold** | 백 엔드 인스턴스를 *unhealthy*(비정상) 플래그로 지정하는 데 필요한 실패한 HTTP 응답 수입니다.|
 
 프로브 이름은 사용자 지정 프로브 설정에 사용할 백 엔드 풀을 할당하는 \<BackendHttpSettings\> 구성에서 참조합니다.
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>기존 애플리케이션 게이트웨이에 사용자 지정 프로브 추가
 
-애플리케이션 게이트웨이의 현재 구성을 변경하는 데는 다음의 세 단계가 필요합니다. 현재 XML 구성 파일 가져오기, 사용자 지정 프로브 수정 및 새 XML 설정으로 애플리케이션 게이트웨이 구성
+현재 애플리케이션 게이트웨이 구성 변경에 필요한 세 단계는 현재 XML 구성 파일 가져오기, 사용자 지정 프로브 수정 및 새 XML 설정으로 애플리케이션 게이트웨이 구성입니다.
 
 1. `Get-AzureApplicationGatewayConfig`을 사용하여 XML 파일을 가져옵니다. 이 cmdlet은 프로브 설정을 추가하기 위해 수정할 XML 구성을 내보냅니다.
 
@@ -208,7 +200,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>다음 단계
 
-SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 애플리케이션 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
+이전에 SSL(Secure Sockets Layer) (SSL) 오프 로드를 통해 TLS (전송 계층 보안)를 구성 하려는 경우 [tls 오프 로드에 대 한 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조 하세요.
 
 내부 부하 분산 장치에서 사용되도록 애플리케이션 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 애플리케이션 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 

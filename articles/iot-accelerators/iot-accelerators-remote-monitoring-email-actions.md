@@ -1,19 +1,18 @@
 ---
 title: 원격 모니터링 내의 이메일 작업 - Azure | Microsoft Docs
 description: 이 방법 가이드는 새 또는 기존 규칙에 이메일 작업을 추가하는 방법을 보여 줍니다.
-author: asdonald
+author: dominicbetts
 manager: hegate
-ms.author: asdonald
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74168372"
 ---
 # <a name="add-an-email-action"></a>이메일 작업 추가
 
@@ -81,7 +80,7 @@ ms.locfileid: "65466905"
 
 이제 이메일 작업이 적용된 규칙이 사용되도록 설정됩니다. 작업이 트리거될 때마다 새 이메일이 받는 사람에게 전송됩니다.
 
-## Outlook에 로그인 <a name="outlook"></a>
+## <a name="sign-in-to-outlook"></a>Outlook에 로그인 <a name="outlook"></a>
 
 솔루션 가속기에서 이메일 작업을 처음 사용하도록 설정할 경우 Outlook에 로그인해야 합니다. 이 작업은 이메일 알림을 보내는 이메일 계정을 설정합니다.
 
@@ -138,7 +137,7 @@ ms.locfileid: "65466905"
 
    ![Outlook 로그인 성공](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## 이메일 HTML 사용자 지정 <a name="htmledit"></a>
+## <a name="customize-the-email-html"></a>이메일 HTML 사용자 지정 <a name="htmledit"></a>
 
 기본 제공된 원격 모니터링 솔루션 가속기는 작업 이메일에 대한 기본 HTML 템플릿을 제공합니다. 이메일 템플릿은 이메일 작업 설정의 값을 사용합니다. 예를 들면 다음과 같습니다.
 

@@ -1,19 +1,18 @@
 ---
-title: Azure Database for PostgreSQL-단일 서버에 대한 연결 라이브러리
-description: 이 문서에서는 Azure Database for PostgreSQL-단일 서버 쿼리를 쿼리하고 응용 프로그램을 연결하기 위해 코딩할 때 개발자들이 사용할 수 있는 여러 개의 라이브러리 및 드라이버를 설명합니다.
+title: 연결 라이브러리-Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에 연결 하 고 쿼리 하는 응용 프로그램을 코딩할 때 사용할 수 있는 여러 라이브러리와 드라이버에 대해 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 85110126f9bdec225b1644860814cd89832132a1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 2305a02e5b094ec9e98f39363ddbd0c39221ab0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74768897"
 ---
-# <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에 대한 연결 라이브러리
+# <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에 대 한 연결 라이브러리-단일 서버
 이 문서에서는 개발자가 Azure Database for PostgreSQL에 연결하고 쿼리하도록 애플리케이션을 개발하는 데 사용할 수 있는 라이브러리 및 드라이버를 나열합니다.
 
 ## <a name="client-interfaces"></a>클라이언트 인터페이스
@@ -29,10 +28,10 @@ PostgreSQL 서버에 연결하기 위한 대부분의 언어 클라이언트 라
 | Go | [Package pq](https://godoc.org/github.com/lib/pq) | 순수 Go postgres 드라이버 | [설치](https://github.com/lib/pq/blob/master/README.md) |
 | C\#/ .NET | [Npgsql](https://www.npgsql.org/) | ADO.NET 데이터 공급자 | [다운로드](https://www.microsoft.com/net/) |
 | ODBC | [psqlODBC](https://odbc.postgresql.org/) | ODBC 드라이버 | [다운로드](https://www.postgresql.org/ftp/odbc/versions/) |
-| C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | 기본 C 언어 인터페이스 | 포함 |
+| C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | 기본 C 언어 인터페이스 | Included |
 | C++ | [libpqxx](http://pqxx.org/) | 새 스타일 C++ 인터페이스 | [다운로드](http://pqxx.org/download/software/) |
 
 ## <a name="next-steps"></a>다음 단계
 선택한 언어를 사용하여 PostgreSQL용 Azure Database에 연결하고 쿼리하는 방법에 대한 빠른 시작을 읽어보세요.
 
-[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)
+[Python](./connect-python.md)  |  [Node.JS](./connect-nodejs.md)  |  [Java](./connect-java.md)  |  [Ruby](./connect-ruby.md)  |  [PHP](./connect-php.md)  |  [.NET (C #)](./connect-csharp.md)  |  [Go](./connect-go.md)

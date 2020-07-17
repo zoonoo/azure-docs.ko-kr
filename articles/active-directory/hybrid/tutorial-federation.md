@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e3a17eb7fdde6840ce04fb0cbce13ec3f1a121e0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102403"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "80673694"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 단일 AD 포리스트 환경을 클라우드로 페더레이션
 
@@ -27,7 +27,7 @@ ms.locfileid: "58102403"
 
 다음 자습서에서는 페더레이션을 사용하여 하이브리드 ID 환경을 만드는 방법을 설명합니다.  이 환경을 테스트에 사용하거나 하이브리드 ID가 작동하는 방식에 익숙해지기 위해 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 다음은 이 자습서를 완료하는 데 필요한 필수 구성 요소입니다.
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview)가 설치되어 있는 컴퓨터.  [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) 또는 [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) 컴퓨터에서 수행하는 것이 좋습니다.
 - [Azure 구독](https://azure.microsoft.com/free)
@@ -89,11 +89,11 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
 7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
 8. **사용자 지정:  Windows만 설치(고급)** 선택
-9. **다음**을 누릅니다
+9. **다음**을 클릭합니다.
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.
 
 ## <a name="install-active-directory-pre-requisites"></a>Active Directory 필수 구성 요소 설치
-가상 머신을 만들었으므로 이제 Active Directory를 설치하기 전에 몇 가지 작업을 수행해야 합니다.  즉, 가상 머신의 이름을 바꾸고, 고정 IP 주소 및 DNS 정보를 설정하고, 원격 서버 관리 도구를 설치해야 합니다.   다음을 수행합니다.
+가상 머신을 만들었면, Active Directory를 설치하기 전에 몇 가지를 수행해야 합니다.  즉, 가상 머신의 이름을 바꾸고, 고정 IP 주소 및 DNS 정보를 설정하고, 원격 서버 관리 도구를 설치해야 합니다.   다음을 수행합니다.
 
 1. 관리자 권한으로 PowerShell ISE를 엽니다.
 2. `Set-ExecutionPolicy remotesigned`를 실행하고 모든 [A]에서 yes를 입력한 후에  Enter 키를 누릅니다.
@@ -145,7 +145,7 @@ $ForestMode = "WinThreshold"
 $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
-$Password = "Pass1w0rd"
+$Password = ConvertTo-SecureString "Passw0rd" -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -184,7 +184,7 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 ```
 
 ## <a name="create-a-certificate-for-ad-fs"></a>AD FS용 인증서 만들기
-이제 AD FS에서 사용할 SSL 인증서를 만듭니다.  이 인증서는 테스트에만 사용되는 자체 서명된 인증서입니다.  프로덕션 환경에서는 자체 서명된 인증서를 사용하지 않는 것이 좋습니다. 다음을 수행합니다.
+이제 AD FS에서 사용할 TLS/SSL 인증서를 만듭니다.  이 인증서는 테스트에만 사용되는 자체 서명된 인증서입니다.  프로덕션 환경에서는 자체 서명된 인증서를 사용하지 않는 것이 좋습니다. 다음을 수행합니다.
 
 1. 관리자 권한으로 PowerShell ISE를 엽니다.
 2. 다음 스크립트를 실행합니다.

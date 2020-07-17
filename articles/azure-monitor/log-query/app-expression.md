@@ -1,49 +1,42 @@
 ---
 title: Azure Monitor 로그 쿼리의 app() 식 | Microsoft Docs
-description: 앱 식이 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색 하는 Azure Monitor 로그 쿼리에서 사용 됩니다.
-services: log-analytics
-documentationcenter: ''
+description: 앱 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독에 있는 특정 Application Insights 앱에서 데이터를 검색 하기 위해 Azure Monitor 로그 쿼리에서 사용 됩니다.
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 05/09/2019
+ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589243"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83201114"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
 
 `app` 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색하기 위해 Azure Monitor 쿼리에서 사용됩니다. 이 식은 Azure Monitor 로그 쿼리에 애플리케이션 데이터를 포함하고 Application Insights 쿼리를 통해 여러 애플리케이션의 데이터를 쿼리하는 데 유용합니다.
 
+> [!IMPORTANT]
+> 응용 프로그램 () 식은 [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md) 를 사용 하는 경우에는 로그 데이터가 Log Analytics 작업 영역에 저장 되므로 사용 되지 않습니다. Log () 식을 사용 하 여 여러 작업 영역에서 응용 프로그램을 포함 하는 쿼리를 작성 합니다. 동일한 작업 영역에 있는 여러 응용 프로그램의 경우에는 상호 작업 영역 쿼리가 필요 하지 않습니다.
 
+## <a name="syntax"></a>Syntax
 
-## <a name="syntax"></a>구문
-
-`app(`*Identifier*`)`
+`app(`*한정자*`)`
 
 
 ## <a name="arguments"></a>인수
 
-- *식별자*: 아래 표에 있는 형식 중 하나를 사용하여 앱을 식별합니다.
+- *Identifier*: 아래 표에 있는 형식 중 하나를 사용하여 앱을 식별합니다.
 
-| 식별자 | 설명 | 예
+| ID | Description | 예제
 |:---|:---|:---|
-| 리소스 이름 | 사용자가 읽을 수 있는 앱의 이름(즉, “구성 요소 이름”) | app(“fabrikamapp”) |
+| 리소스 이름 | 사람이 읽을 수 있는 앱 이름 ("구성 요소 이름"이 라고도 함) | app(“fabrikamapp”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 앱의 전체 이름 | app(‘AI-Prototype/Fabrikam/fabrikamapp’) |
 | ID | 앱의 GUID | app(“988ba129-363e-4415-8fe7-8cbab5447518”) |
 | Azure 리소스 ID | Azure 리소스의 식별자 |app(“/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp”) |
 
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 
 * 애플리케이션에 대한 읽기 권한이 있어야 합니다.
 * 애플리케이션을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.

@@ -1,6 +1,6 @@
 ---
 title: 연결된 팩터리 토폴로지 구성 - Azure | Microsoft Docs
-description: 연결된 팩터리 솔루션 가속기의 토폴로지를 구성하는 방법입니다.
+description: 이 문서에서는 토폴로지를 포함 하 여 연결 된 팩터리 솔루션 가속기를 구성 하는 방법을 설명 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,11 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "73820125"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
 
@@ -29,7 +28,7 @@ ms.locfileid: "61450026"
 * 테스트 스테이션
 * 포장 스테이션
 
-이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음 내용이 포함됩니다.
+이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](overview-opc-publisher.md)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음 내용이 포함됩니다.
 
 * 현재 전력 소비와 같은 현재 작동 상태
 * 생산된 제품의 수와 같은 프로덕션 정보
@@ -188,7 +187,7 @@ ms.locfileid: "61450026"
   * **CallOpcMethod**: “부모 노드 NodeId” 형식으로 호출할 OPC UA 메서드의 노드 정보 및 매개 변수, 호출할 메서드의 NodeId, OPC UA 서버의 URI매개 변수입니다.
   * **OpenWebPage**: 브라우저 창에 표시할 URL입니다.
 
-`<opc_node_description>`에는 스테이션(OPC UA 서버)의 OPC UA 노드에 대한 정보를 포함합니다. 기존 OPC UA 노드를 나타내지 않지만 연결된 팩터리의 계산 논리에서 저장소로 사용되는 노드도 유효합니다. 해당 속성은 다음과 같습니다.
+`<opc_node_description>`에는 스테이션(OPC UA 서버)의 OPC UA 노드에 대한 정보를 포함합니다. 기존 OPC UA 노드를 나타내지 않지만 연결된 팩터리의 계산 논리에서 스토리지로 사용되는 노드도 유효합니다. 해당 속성은 다음과 같습니다.
 
 * **NodeId**(문자열 형식)
 
@@ -266,10 +265,10 @@ ms.locfileid: "61450026"
 
 * 이름
 * 설명
-* Image
-* Location
-* Units
-* Visible
+* 이미지
+* 위치
+* 단위
+* 표시
 
 ### <a name="internal-topology-tree-addressing"></a>내부 토폴로지 트리 주소 지정
 
@@ -282,7 +281,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 * OPC UA 노드 값은 계산에 포함되어야 합니다.
 * 수치가 원격 분석 값에서 계산되는 방식입니다.
 
-연결된 팩터리는 https://www.oeefoundation.org에서 게시하는 대로 OEE 수식을 사용합니다.
+연결 된 팩터리는에서 게시 된 OEE 수식을 사용 합니다 [http://www.oeefoundation.org](http://www.oeefoundation.org) .
 
 스테이션의 OPC UA 노드 개체를 사용하여 OEE/KPI 계산용으로 태그를 지정할 수 있습니다. **Relevance** 속성은 OPC UA 노드 값을 사용해야 하는 OEE/KPI 수치를 나타냅니다. **OpCode** 속성은 값을 계산에 사용할 방식을 정의합니다.
 
@@ -291,7 +290,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 연결된 팩터리는 간단한 최소/최대 임계값 기반 경고 생성 메커니즘을 지원합니다. 해당 경고에 대한 응답으로 구성할 수 있는 미리 정의된 작업에는 여러 가지가 있습니다. 다음 속성은 이 메커니즘을 제어합니다.
 
 * 최대
-* 최소
+* 최소값
 * MaximumAlertActions
 * MinimumAlertActions
 
@@ -307,7 +306,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
   OPC UA 서버에서 노드 값을 식별합니다. 속성의 형식은 UA OPC 사양에 지정되어야 합니다. 수집된 메시지에서 이 속성은 **NodeId**로 전송됩니다.
 
-원격 분석 데이터가 OPC 게시자를 사용하여 연결된 팩터리로 수집되는 방식에 대한 자세한 내용은 [이](https://github.com/Azure/iot-edge-opc-publisher) GitHub 페이지를 확인하세요.
+원격 분석 데이터를 연결 된 팩터리에 수집 하는 방법에 대 한 자세한 내용은 [OPC 게시자 란?](overview-opc-publisher.md) 을 참조 하세요.
 
 ## <a name="example-how-kpi1-is-calculated"></a>예제: KPI1 계산 방법
 
@@ -340,4 +339,4 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음으로 [연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 게이트웨이 배포](iot-accelerators-connected-factory-gateway-deployment.md)를 학습하는 것이 좋습니다.
+제안 된 다음 단계는 [연결 된 팩터리 솔루션을 사용자 지정](iot-accelerators-connected-factory-customize.md)하는 방법을 설명 하는 것입니다.

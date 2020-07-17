@@ -1,32 +1,23 @@
 ---
-title: Azure에서 Service Fabric 클러스터 모니터링 | Microsoft Docs
+title: Azure에서 Service Fabric 클러스터 모니터링
 description: 이 자습서에서는 Service Fabric 이벤트를 보고, EventStore API를 쿼리하고, 성능 카운터를 모니터링하고, 상태 보고서를 확인하여 클러스터를 모니터링하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/13/2019
+ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5cde4967e85dbdab0b2d7177f9c09836a2082db2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045648"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244967"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 모니터링
 
 모니터링 및 진단은 모든 클라우드 환경에서 워크로드를 개발, 테스트 및 배포하는 데 중요합니다. 이 자습서는 시리즈의 2부로서 이벤트, 성능 카운터 및 상태 보고서를 사용하여 Service Fabric 클러스터를 모니터링하고 진단하는 방법을 보여 줍니다.   자세한 내용은 [클러스터 모니터링](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) 및 [인프라 모니터링](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring)에 대한 개요를 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Service Fabric 이벤트 보기
@@ -45,12 +36,12 @@ ms.locfileid: "59045648"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure PowerShell](/powershell/azure/install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 만듭니다. 
 * 클러스터에 대해 [진단 수집](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor)을 설정합니다.
 * 클러스터에서 [EventStore 서비스](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor)를 사용하도록 설정합니다.
@@ -68,7 +59,7 @@ Service Fabric 분석 솔루션에 액세스하려면 [Azure Portal](https://por
 
 ![Service Fabric 솔루션](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
-다음 이미지에서는 Service Fabric 분석 솔루션의 홈페이지를 보여 줍니다. 이 홈페이지는 클러스터에서 수행되는 작업에 대한 스냅숏 보기를 제공합니다.
+다음 이미지에서는 Service Fabric 분석 솔루션의 홈페이지를 보여 줍니다. 이 홈페이지는 클러스터에서 수행되는 작업에 대한 스냅샷 보기를 제공합니다.
 
 ![Service Fabric 솔루션](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-solution.png)
 
@@ -133,7 +124,7 @@ ServiceFabricOperationalEvent
 | project EventId, EventName = 'NodeUpOperational', TaskName, Computer, EventMessage, TimeGenerated
 | sort by TimeGenerated 
 ``` 
- 
+
 HealthState == 3 (Error)인 상태 보고서를 반환하고, EventMessage 필드에서 추가 속성을 추출합니다.
 
 ```kusto
@@ -200,7 +191,7 @@ ServiceFabricReliableServiceEvent
 | sort by TimeGenerated desc
 ```
 
-일반적으로 배포 및 업그레이드에서 발생하는 서비스 RunAsync가 언제 시작되고 완료되는지에 대한 다양한 이벤트를 볼 수 있습니다.
+일반적으로 배포 및 업그레이드에서 발생하는 서비스 `runasync`가 시작되고 완료되는 시점에 대한 다양한 이벤트를 볼 수 있습니다.
 
 ![Service Fabric 솔루션 Reliable Services](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
 
@@ -484,7 +475,7 @@ Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServ
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Service Fabric 이벤트 보기
@@ -496,5 +487,5 @@ Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServ
 > [!div class="nextstepaction"]
 > [클러스터의 크기 조정](service-fabric-tutorial-scale-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json

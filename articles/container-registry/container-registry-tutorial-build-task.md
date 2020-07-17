@@ -1,25 +1,26 @@
 ---
-title: 자습서 - 컨테이너 이미지 빌드 자동화 - Azure Container Registry 작업
+title: 자습서 - 코드 커밋 시 이미지 빌드
 description: 이 자습서에서는 소스 코드를 Git 리포지토리에 커밋할 때 클라우드에서 컨테이너 이미지 빌드를 자동으로 트리거하도록 Azure Container Registry 작업을 구성하는 방법을 알아봅니다.
-services: container-registry
-author: dlepow
-ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893013"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "78402837"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 컨테이너 이미지 빌드 자동화
 
-ACR 작업은 [빠른 빌드](container-registry-tutorial-quick-task.md) 외에도 *빌드 작업*을 사용하여 자동화된 Docker 컨테이너 이미지 빌드를 지원합니다. 이 자습서에서는 Azure CLI를 사용하여 소스 코드를 Git 리포지토리에 커밋할 때 클라우드에서 이미지 빌드를 자동으로 트리거하는 작업을 만듭니다.
+[빠른 작업](container-registry-tutorial-quick-task.md) 외에, ACR 작업은 소스 코드를 Git 리포지토리로 커밋할 때 클라우드에서 자동화된 Docker 컨테이너 이미지 빌드를 지원합니다. ACR 작업에 지원되는 Git 컨텍스트에는 퍼블릭이나 프라이빗 GitHub 또는 Azure 리포지토리가 포함됩니다.
 
-이 자습서는 시리즈의 2부입니다.
+> [!NOTE]
+> 현재 ACR 작업은 GitHub Enterprise 리포지토리에서 커밋 또는 끌어오기 요청 트리거를 지원하지 않습니다.
+
+이 자습서의 ACR 작업은 소스 코드를 Git 리포지토리로 커밋할 때 Dockerfile에 지정된 단일 컨테이너 이미지를 빌드하고 푸시합니다. YAML 파일을 사용하여 코드 커밋 시 여러 컨테이너를 빌드하고, 푸시하고, 필요에 따라 테스트하는 단계를 정의하는 [다단계 작업](container-registry-tasks-multi-step.md)을 만들려면 [자습서: 소스 코드를 커밋할 때 클라우드에서 다단계 컨테이너 워크플로 실행](container-registry-tutorial-multistep-task.md)을 참조하세요. ACR 작업 개요에 대해서는 [ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화](container-registry-tasks-overview.md)를 참조하세요.
+
+이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * 작업을 만듭니다.
@@ -31,55 +32,19 @@ ACR 작업은 [빠른 빌드](container-registry-tutorial-quick-task.md) 외에�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설치되어 있고 [az login][az-login]을 사용하여 로그인해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
+Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설치되어 있고, [az login][az-login]을 사용하여 로그인해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-### <a name="get-sample-code"></a>샘플 코드 가져오기
-
-이 자습서에서는 [이전 자습서](container-registry-tutorial-quick-task.md)의 단계를 이미 완료했고, 샘플 리포지토리를 포크 및 복제했다고 가정합니다. 아직 완료하지 않은 경우 계속 진행하기 전에 이전 자습서의 [필수 조건](container-registry-tutorial-quick-task.md#prerequisites) 섹션에 있는 단계를 완료하세요.
-
-### <a name="container-registry"></a>컨테이너 레지스트리
-
-이 자습서를 완료하려면 Azure 구독에 Azure 컨테이너 레지스트리가 있어야 합니다. 레지스트리가 필요한 경우 [이전 자습서](container-registry-tutorial-quick-task.md) 또는 [빠른 시작: Azure CLI를 사용하여 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조하세요.
-
-## <a name="overview-of-acr-tasks"></a>ACR 작업 개요
-
-작업은 컨테이너 이미지 소스 코드의 위치와 빌드를 트리거하는 이벤트를 포함하여 자동화된 빌드의 속성을 정의합니다. 작업에 정의된 이벤트(예: Git 리포지토리에 커밋)가 발생하면 ACR 작업이 클라우드에서 컨테이너 이미지 빌드를 시작합니다. 기본적으로 이 작업에 지정된 Azure 컨테이너 레지스트리에 성공적으로 빌드된 이미지를 푸시합니다.
-
-ACR 작업에서 현재 지원하는 트리거는 다음과 같습니다.
-
-* Git 리포지토리에 커밋
-* 기본 이미지 업데이트
-
-이 자습서의 ACR 작업은 Dockerfile에 지정된 단일 컨테이너 이미지를 빌드하고 푸시합니다. 또한 ACR 작업은 [다단계 작업](container-registry-tasks-multi-step.md)을 실행하고, YAML 파일을 사용하여 여러 컨테이너를 빌드하고, 푸시하고, 필요에 따라 테스트하는 단계를 정의할 수 있습니다.
-
-## <a name="create-a-build-task"></a>빌드 작업 만들기
-
-이 섹션에서는 먼저 ACR 작업에서 사용할 GitHub PAT(개인용 액세스 토큰)를 만듭니다. 그런 다음, 코드가 리포지토리의 포크에 커밋될 때 빌드를 트리거하는 작업을 만듭니다.
-
-### <a name="create-a-github-personal-access-token"></a>GitHub 개인용 액세스 토큰 만들기
-
-Git 리포지토리에 커밋할 때 빌드를 트리거하려면 ACR 작업에서 리포지토리에 액세스하기 위해 PAT가 필요합니다. 다음 단계에 따라 GitHub에 PAT를 생성합니다.
-
-1. https://github.com/settings/tokens/new에 있는 GitHub의 PAT 만들기 페이지로 이동합니다.
-1. 토큰에 대한 짧은 **설명**을 입력합니다(예: "ACR 작업 데모").
-1. **repo**(리포지토리) 아래에서 **repo:status** 및 **public_repo**를 사용하도록 설정합니다.
-
-   ![GitHub에 있는 개인용 액세스 토큰 생성 페이지의 스크린샷][build-task-01-new-token]
-
-1. **토큰 생성** 단추를 선택합니다(암호를 확인하라는 메시지가 표시될 수 있음).
-1. 생성된 토큰을 복사하여 **보안 위치**에 저장합니다. 이 토큰은 다음 섹션에서 작업을 정의할 때 사용합니다.
-
-   ![GitHub에 생성된 개인용 액세스 토큰의 스크린샷][build-task-02-generated-token]
-
-### <a name="create-the-build-task"></a>빌드 작업 만들기
+## <a name="create-the-build-task"></a>빌드 작업 만들기
 
 이제 ACR 작업에서 커밋 상태를 읽고 리포지토리에 웹후크를 만들 수 있도록 설정하는 데 필요한 단계를 완료했으므로 리포지토리에 커밋할 때 컨테이너 이미지 빌드를 트리거하는 작업을 만들 수 있습니다.
 
-먼저 이러한 셸 환경 변수를 환경에 적합한 값으로 채웁니다. 이 단계는 반드시 필요한 것이 아니지만, 여러 줄로 된 Azure CLI 명령을 이 자습서에서 좀 더 쉽게 실행할 수 있게 합니다. 이러한 환경 변수를 채우지 않는 경우 명령 예제에서 표시되는 모든 위치에서 각 값을 수동으로 바꿔야 합니다.
+먼저 이러한 셸 환경 변수를 환경에 적합한 값으로 채웁니다. 이 단계는 반드시 필요한 것이 아니지만, 여러 줄로 된 Azure CLI 명령을 이 자습서에서 좀 더 쉽게 실행할 수 있게 합니다. 이러한 환경 변수를 채우지 않는 경우 명령 예제에 나타나는 각 값을 수동으로 바꿔야 합니다.
 
-```azurecli-interactive
+[![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
@@ -93,7 +58,6 @@ az acr task create \
     --name taskhelloworld \
     --image helloworld:{{.Run.ID}} \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file Dockerfile \
     --git-access-token $GIT_PAT
 ```
@@ -103,17 +67,9 @@ az acr task create \
 
 이 작업은 `--context`에 지정된 리포지토리의 *마스터* 분기에 모든 시간 코드를 커밋하도록 지정하고, ACR 작업은 해당 분기의 코드에서 컨테이너 이미지를 빌드합니다. 리포지토리 루트의 `--file`에 지정된 Dockerfile은 이미지를 빌드하는 데 사용됩니다. `--image` 인수는 이미지 태그의 버전 부분에 대해 `{{.Run.ID}}`의 매개 변수화된 값을 지정하여 빌드된 이미지가 특정 빌드와 상호 연결되고 태그가 고유하게 지정되도록 합니다.
 
-성공적인 [az acr task create][az-acr-task-create] 명령의 출력은 다음과 비슷합니다.
+[az acr task create][az-acr-task-create] 명령이 성공하면 다음과 비슷한 출력이 표시됩니다.
 
-```console
-$ az acr task create \
->     --registry $ACR_NAME \
->     --name taskhelloworld \
->     --image helloworld:{{.Run.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
->     --branch master \
->     --file Dockerfile \
->     --git-access-token $GIT_PAT
+```output
 {
   "agentConfiguration": {
     "cpu": 2
@@ -180,9 +136,7 @@ az acr task run --registry $ACR_NAME --name taskhelloworld
 
 기본적으로 `az acr task run` 명령이 실행되면 로그 출력이 콘솔에 스트림됩니다.
 
-```console
-$ az acr task run --registry $ACR_NAME --name taskhelloworld
-
+```output
 2018/09/17 22:51:00 Using acb_vol_9ee1f28c-4fd4-43c8-a651-f0ed027bbf0e as the home volume
 2018/09/17 22:51:00 Setting up Docker configuration...
 2018/09/17 22:51:02 Successfully set up Docker configuration
@@ -254,13 +208,13 @@ Run ID: da2 was successful after 27s
 
 먼저 [리포지토리][sample-repo]의 로컬 복제본이 포함된 디렉터리에 있는지 확인합니다.
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
 다음으로, 다음 명령을 실행하여 새 파일을 만들고, 커밋하고, GitHub에 있는 리포지토리의 포크에 푸시합니다.
 
-```azurecli-interactive
+```console
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
@@ -269,8 +223,7 @@ git push origin master
 
 `git push` 명령을 실행할 때 GitHub 자격 증명을 제공하라는 메시지가 표시될 수 있습니다. GitHub 사용자 이름을 제공하고, 이전에 암호에 대해 만든 PAT(개인용 액세스 토큰)를 입력합니다.
 
-```console
-$ git push origin master
+```azurecli-interactive
 Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
@@ -283,8 +236,7 @@ az acr task logs --registry $ACR_NAME
 
 출력은 다음과 비슷하며, 현재 실행 중이거나 마지막으로 실행된 작업을 보여 줍니다.
 
-```console
-$ az acr task logs --registry $ACR_NAME
+```output
 Showing logs of the last created run.
 Run ID: da4
 
@@ -303,9 +255,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 이 명령의 출력은 다음과 비슷하게 표시됩니다. ACR 작업에서 실행한 실행이 표시되고, 가장 최근 작업에 대한 TRIGGER 열에 "Git Commit"(Git 커밋)이 표시됩니다.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45Z  00:00:44
@@ -326,12 +276,11 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr
-[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
 [az-login]: /cli/azure/reference-index#az-login
 
-<!-- IMAGES -->
-[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
-[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
+
+

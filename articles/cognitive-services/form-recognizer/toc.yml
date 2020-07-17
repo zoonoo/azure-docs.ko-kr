@@ -1,22 +1,55 @@
 - name: Form Recognizer 설명서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Form Recognizer란?
       href: overview.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   expaned: true
   items:
-    - name: 모델 학습 및 데이터 추출
+    - name: 클라이언트 라이브러리 사용
+      href: quickstarts/client-library.md
+    - name: 샘플 레이블 지정 도구 사용
       items:
-        - name: REST API 사용
+        - name: 레이블로 사용자 지정 모델 학습
+          href: quickstarts/label-tool.md
+    - name: REST API 사용
+      items:
+        - name: 레이블 없이 사용자 지정 모델 사용 및 학습
           items:
             - name: cURL
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
+        - name: 레이블로 사용자 지정 모델 사용 및 학습
+          items:
+            - name: Python
+              href: quickstarts/python-labeled-data.md
+        - name: 미리 빌드된 수신 모델 사용
+          items:
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
+        - name: 텍스트 레이아웃 정보 가져오기
+          items:
+            - name: Python
+              href: quickstarts/python-layout.md
+- name: 자습서
+  items:
+    - name: Logic Apps에서 Form Recognizer 사용
+      href: tutorial-form-recognizer-with-logic-apps.md
+    - name: Cognitive Search와 함께 Form Recognizer 사용
+      href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
 - name: 방법 가이드
   items:
+    - name: 학습 데이터 세트 빌드
+      href: build-training-data-set.md
+    - name: 샘플 레이블 지정 도구 배포
+      href: deploy-label-tool.md
     - name: 컨테이너 사용
       items:
         - name: 컨테이너 설치 및 실행
@@ -25,19 +58,41 @@
         - name: 컨테이너 구성
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
-- name: 참고 자료
+        - name: 컨테이너 인스턴스 사용
+          href: deploy-form-recognizer-on-container-instances.md
+    - name: 모델 백업 및 복구
+      href: disaster-recovery.md
+- name: 참조
   items:
-    - name: Form Recognizer API
-      href: 'https://aka.ms/form-recognizer/api'
+    - name: Form Recognizer API v2.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
+    - name: Form Recognizer API v1.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
+    - name: SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/formrecognizer'
+        - name: JavaScript
+          href: 'https://docs.microsoft.com/azure/cognitive-services/form-recognizer/'
 - name: 리소스
   items:
     - name: 가격 책정 및 제한
       href: 'https://go.microsoft.com/fwlink/?linkid=2087258'
     - name: UserVoice
       href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://go.microsoft.com/fwlink/?linkid=2087186'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 국가별 가용성
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
+    - name: 언어 지원
+      href: language-support.md
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: 암호화
+      href: form-recognizer-encryption-of-data-at-rest.md

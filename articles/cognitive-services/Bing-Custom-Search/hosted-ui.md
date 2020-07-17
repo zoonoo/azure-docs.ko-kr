@@ -1,6 +1,6 @@
 ---
 title: Bing Custom Search에 대해 호스트된 UI 구성 | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 Bing Custom Search에 대해 호스트된 UI를 구성하고 통합합니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ec407b7f6baf56f0a2fe724089826d8f9303b85
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084135"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186846"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>호스트된 UI 환경 구성
 
@@ -35,12 +35,10 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
   
 4. 레이아웃을 선택합니다.
 
-    |  |  |
-    |---------|---------|
-    |검색 창 및 결과(기본값)    | 아래 검색 결과와 함께 검색 상자를 표시합니다.         |
-    |결과만     | 검색 상자 없이 검색 결과만 표시합니다. 이 레이아웃을 사용하는 경우 검색 쿼리를 제공해야 합니다(`&q=<query string>`). JavaScript 코드 조각 또는 HTML 엔드포인트 링크로 요청 URL에 쿼리 매개 변수를 추가 합니다.        |
-    |팝오버     | 검색 상자를 제공하고 슬라이딩 오버레이로 검색 결과를 표시합니다.        |
-    
+    - 검색 창 및 결과 (기본값): 아래 검색 결과가 포함 된 검색 상자를 표시 합니다.
+    - 결과만: 검색 상자 없이 검색 결과만 표시 합니다. 이 레이아웃을 사용하는 경우 검색 쿼리를 제공해야 합니다(`&q=<query string>`). JavaScript 코드 조각 또는 HTML 엔드포인트 링크로 요청 URL에 쿼리 매개 변수를 추가 합니다.
+    - 팝업: 검색 상자를 제공 하 고 검색 결과를 슬라이딩 오버레이로 표시 합니다.
+
 5. 색 테마를 선택합니다. **사용자 지정 테마**를 클릭하여 애플리케이션에 맞게 색을 사용자 지정할 수 있습니다. 색을 변경하려면 색의 RGB HEX 값(예: `#366eb8`)을 입력하거나 색 미리 보기를 클릭합니다.
 
    포털의 오른쪽에서 변경 내용을 미리 볼 수 있습니다. **기본값으로 다시 설정**을 클릭하여 변경 내용을 선택한 테마에 대한 기본 색으로 되돌릴 수 있습니다.
@@ -78,7 +76,7 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > 필요에 따라 URL에 다음 쿼리 매개 변수를 추가합니다. 이러한 매개 변수에 대한 자세한 내용은 [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) 참조를 확인하세요.
+  > 필요에 따라 URL에 다음 쿼리 매개 변수를 추가합니다. 이러한 매개 변수에 대한 자세한 내용은 [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 참조를 확인하세요.
   >
   > - q
   > - mkt
@@ -96,55 +94,38 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
 
 ### <a name="web-search-configurations"></a>웹 검색 구성
 
-|  |  |
-|---------|---------|
-|활성화된 웹 결과    | 웹 검색이 사용하도록 설정되었는지 여부를 결정합니다(페이지의 맨 위에 있는 [웹] 탭을 참조).        |
-|자동 제안 사용     | 사용자 지정 자동 제안이 사용하도록 설정되었는지 여부를 결정합니다(추가 비용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) 참조).        |
-|페이지당 웹 결과    | 한 번에 표시할 웹 검색 결과의 수입니다(최댓값은 페이지당 50개 결과임).        |
-|이미지 캡션   | 이미지가 검색 결과와 함께 표시되는지 여부를 결정합니다.|
+- 웹 결과 사용: 웹 검색을 사용 하는지 여부를 결정 합니다 (페이지 맨 위에 웹 탭이 표시 됨).
+- Enable autosuggest: 사용자 지정 autosuggest 사용 되는지 여부를 결정 합니다 (추가 비용에 대 한 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) 참조).
+- 페이지당 웹 결과: 한 번에 표시 되는 웹 검색 결과의 수입니다 (페이지당 최대 50 개 결과).
+- 이미지 캡션: 이미지가 검색 결과와 함께 표시 되는지 여부를 결정 합니다.
 
+**고급 구성 표시**를 클릭 하면 다음과 같은 구성이 표시 됩니다.
 
-**고급 구성 표시**를 클릭하면 다음 구성이 표시됩니다.
-
-
-|  | |
-|---------|---------|
-|단어 강조 표시     | 검색어를 굵게 강조하여 결과를 표시할지 여부를 결정합니다.         |
-|링크 대상    |  사용자가 검색 결과를 클릭할 때 웹 페이지를 새 브라우저 탭(비어 있음) 또는 동일한 브라우저 탭(자체)에서 열지 여부를 결정합니다.        |
+- 단어 강조 표시: 검색 단어를 굵게 표시 하 여 결과를 표시할지 여부를 결정 합니다.
+- 링크 대상: 사용자가 검색 결과를 클릭할 때 새 브라우저 탭 (비어 있음) 또는 동일한 브라우저 탭 (self)에서 웹 페이지를 열지 여부를 결정 합니다.
 
 ### <a name="image-search-configurations"></a>이미지 검색 구성
 
-| | |
-|---------|---------|
-|활성화된 이미지 결과     | 이미지 검색이 사용하도록 설정되었는지 여부를 결정합니다(페이지의 맨 위에 있는 이미지 탭을 참조).            |
-|페이지당 이미지 결과     | 한 번에 표시할 이미지 검색 결과의 수입니다(최댓값은 페이지당 150개 결과임).          |
+- 이미지 결과 사용: 이미지 검색을 사용 하는지 여부를 결정 합니다 (페이지 맨 위에 이미지 탭이 표시 됨).
+- 페이지당 이미지 결과: 한 번에 표시 되는 이미지 검색 결과의 수입니다 (최대값은 페이지당 150 개 결과).
 
 **고급 구성 표시**를 클릭하면 다음 구성이 표시됩니다.  
   
-| | |
-|---------|---------|
-| 필터를 사용하도록 설정     | Bing이 반환하는 이미지를 필터링하는 데 사용자가 사용할 수 있는 필터를 추가합니다. 예를 들어 사용자는 애니메이션 효과가 적용된 GIF에 대한 결과만 필터링할 수 있습니다.|
+- 필터 사용: 사용자가 Bing에서 반환 하는 이미지를 필터링 하는 데 사용할 수 있는 필터를 추가 합니다. 예를 들어 사용자는 애니메이션 효과가 적용된 GIF에 대한 결과만 필터링할 수 있습니다.
 
 ### <a name="video-search-configurations"></a>비디오 검색 구성
 
-|  | |
-|---------|---------|
-|활성화된 비디오 결과     | 비디오 검색이 사용하도록 설정되었는지 여부를 결정합니다(페이지의 맨 위에 있는 비디오 탭을 참조).           |
-|페이지당 비디오 결과   | 한 번에 표시할 비디오 검색 결과의 수입니다(최댓값은 페이지당 150개 결과임).        |
+- 비디오 결과 사용: 비디오 검색을 사용 하는지 여부를 결정 합니다 (페이지 맨 위에 비디오 탭이 표시 됨).
+- 페이지당 비디오 결과: 한 번에 표시 되는 비디오 검색 결과 수 (페이지당 최대 150 개 결과)
 
 **고급 구성 표시**를 클릭하면 다음 구성이 표시됩니다.  
   
-|  | |
-|---------|---------|
-|필터를 사용하도록 설정    | Bing이 반환하는 비디오를 필터링하는 데 사용자가 사용할 수 있는 필터를 추가합니다. 예를 들어, 사용자가 특정 해상도의 비디오 또는 지난 24시간 동안 검색된 비디오에 대해 결과를 필터링할 수 있습니다.          |
+- 필터 사용: 사용자가 Bing에서 반환 하는 비디오를 필터링 하는 데 사용할 수 있는 필터를 추가 합니다. 예를 들어, 사용자가 특정 해상도의 비디오 또는 지난 24시간 동안 검색된 비디오에 대해 결과를 필터링할 수 있습니다.
 
 ### <a name="miscellaneous-configurations"></a>기타 구성
 
-
-| |  |
-|---------|---------|
-|페이지 제목   | 검색 결과 페이지의 제목 영역에 표시되는 텍스트입니다(팝오버 레이아웃용 아님).        |
-|도구 모음 테마    | 검색 결과 페이지에서 제목 영역의 배경색을 결정합니다. |
+- 페이지 제목: 검색 결과 페이지의 제목 영역에 표시 되는 텍스트입니다 (팝업 레이아웃의 경우).
+- 도구 모음 테마: 검색 결과 페이지의 제목 영역에 대 한 배경색을 결정 합니다.
 
 **고급 구성 표시**를 클릭하면 다음 구성이 표시됩니다.  
 
@@ -165,5 +146,5 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [장식 표식을 사용하여 텍스트를 강조 표시](./hit-highlighting.md)
+- [장식 표식을 사용하여 텍스트를 강조 표시](../bing-web-search/hit-highlighting.md)
 - [웹 페이지 페이징](./page-webpages.md)

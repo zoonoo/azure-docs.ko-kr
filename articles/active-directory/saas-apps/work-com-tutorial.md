@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 816f9bfe022b4a00c01c3ee1bc243f87ef56817b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e7a6dc16eef1bb36a5bd6cbf0502a83481230bc0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565940"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67087090"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>자습서: Work.com과 Azure Active Directory 통합
 
@@ -32,10 +32,10 @@ Work.com을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 Work.com에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Work.com과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -58,7 +58,7 @@ Work.com의 Azure AD 통합을 구성하려면 갤러리의 Work.com을 관리�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -134,7 +134,7 @@ Work.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. **설정**으로 이동합니다.
    
-    ![설치](./media/work-com-tutorial/ic794108.png "설치")
+    ![설치](./media/work-com-tutorial/ic794108.png "설치 프로그램")
 
 3. 왼쪽 탐색창의 **관리** 섹션에서 **도메인 관리**를 클릭해 관련된 섹션을 확장한 다음 **내 도메인**을 클릭해 **내 도메인** 페이지를 엽니다. 
    
@@ -148,7 +148,7 @@ Work.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 6. **설정**으로 이동합니다.
     
-    ![설치](./media/work-com-tutorial/ic794108.png "설치")
+    ![설치](./media/work-com-tutorial/ic794108.png "설치 프로그램")
 
 7. **보안 제어** 메뉴를 확장한 다음 **Single Sign-On 설정**을 클릭합니다.
     
@@ -221,7 +221,7 @@ Work.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
   
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -261,7 +261,7 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
 
 2. **설정**으로 이동합니다.
    
-    ![설치](./media/work-com-tutorial/IC794108.png "설치")
+    ![설치](./media/work-com-tutorial/IC794108.png "설치 프로그램")
 
 3. **사용자 관리 \> 사용자**로 이동합니다.
    

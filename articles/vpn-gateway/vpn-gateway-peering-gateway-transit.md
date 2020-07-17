@@ -1,26 +1,20 @@
 ---
-title: '가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성: Azure Resource Manager | Microsoft Docs'
+title: 가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
 description: 가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05df14005bb52d67aed0f616854c7b6b55e6e35d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982895"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
 
@@ -37,9 +31,14 @@ ms.locfileid: "60457410"
 1. 두 가상 네트워크는 Resource Manager 배포 모델을 사용합니다.
 2. 스포크 가상 네트워크는 클래식이며, 게이트웨이를 사용하는 허브 가상 네트워크는 Resource Manager에 있습니다.
 
+
+>[!NOTE]
+> 네트워크의 토폴로지를 변경하고 Windows VPN 클라이언트를 사용하는 경우, 변경 내용을 클라이언트에 적용하기 위해 Windows 클라이언트용 VPN 클라이언트 패키지를 다운로드하여 다시 설치해야 합니다.
+>
+
 ## <a name="requirements"></a>요구 사항
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 이 문서의 예제에서는 다음 리소스를 만들어야 합니다.
 
@@ -54,16 +53,16 @@ ms.locfileid: "60457410"
 2. [동일한 배포 모델로 가상 네트워크 피어링 만들기](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 3. [다른 배포 모델로 가상 네트워크 피어링 만들기](../virtual-network/create-peering-different-deployment-models.md)
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a><a name="permissions"></a>권한
 
 가상 네트워크 피어링을 만드는 데 사용하는 계정에는 필요한 역할 또는 권한이 있어야 합니다. 아래 예에서 허브-RM 및 스포크-클래식이라는 두 가상 네트워크를 피어링하는 경우 계정에는 각 가상 네트워크에 대한 다음과 같은 역할 또는 권한이 있어야 합니다.
     
-|가상 네트워크|배포 모델|역할|권한|
+|가상 네트워크|배포 모델|역할|사용 권한|
 |---|---|---|---|
-|허브-RM|Resource Manager|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |클래식|[클래식 네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|스포크-클래식|Resource Manager|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||클래식|[클래식 네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+|허브-RM|리소스 관리자|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |클래식|[클래식 네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|해당 없음|
+|스포크-클래식|리소스 관리자|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||클래식|[클래식 네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 [기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 및 [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당(Resource Manager만 해당)에 대해 자세히 알아보세요.
 
@@ -162,4 +161,4 @@ Add-AzVirtualNetworkPeering `
 ## <a name="next-steps"></a>다음 단계
 
 * 프로덕션 환경에 사용하기 위한 가상 네트워크 피어링을 만들기 전에 [가상 네트워크 피어링 제약 조건 및 동작](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) 및 [가상 네트워크 피어링 설정](../virtual-network/virtual-network-manage-peering.md#create-a-peering)에 대해 자세히 알아봅니다.
-* 가상 네트워크 피어링 및 게이트웨이 전송을 통해 [허브 및 스포크 네트워크 토폴로지를 만드는](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 방법을 알아봅니다.
+* 가상 네트워크 피어링 및 게이트웨이 전송을 통해 [허브 및 스포크 네트워크 토폴로지를 만드는](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) 방법을 알아봅니다.

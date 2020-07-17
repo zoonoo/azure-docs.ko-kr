@@ -1,25 +1,13 @@
 ---
 title: Service Bus 비동기 메시징 | Microsoft Docs
-description: Azure Service Bus 비동기 메시지에 대한 설명입니다.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
-ms.service: service-bus-messaging
-ms.devlang: na
+description: 큐, 토픽 및 구독과 함께 저장소 및 전달 메커니즘을 통해 비동기를 지 원하는 Azure Service Bus 방법에 대해 알아봅니다.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: b628dd72efe0280e688b602f873a3f01d15ef587
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337790"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>비동기 메시징 패턴 및 고가용성
 
@@ -39,25 +27,25 @@ ms.locfileid: "60531109"
 ## <a name="reliability-in-service-bus"></a>Service Bus의 안정성
 메시지와 엔터티 문제를 처리하는 여러 방법이 있고 이러한 완화 방법을 적절하게 사용하도록 관리하는 지침이 있습니다. 지침을 이해하려면 먼저 Service Bus에서 무엇이 실패할 수 있는지 이해해야 합니다. Azure 시스템의 설계로 인해 이러한 문제는 모두 수명이 짧은 경향이 있습니다. 높은 수준에서 사용할 수 없는 다른 원인은 다음과 같이 나타납니다.
 
-* Service Bus가 의존하는 외부 시스템에서 제한합니다. 제한은 계산 및 스토리지 리소스와의 상호작용에서 발생합니다.
-* Service Bus가 의존하는 시스템에서 발생하는 문제입니다. 예를 들어 저장소의 특정 부분에 문제가 발생할 수 있습니다.
-* 단일 하위 시스템에서 Service Bus의 오류입니다. 이 상황에서 계산 노드는 일관성이 없는 상태일 수 있으며 자체를 다시 시작해야 하며 이는 부하를 다른 노드로 분산하는 모든 엔터티를 발생시킵니다. 단기간 동안 차례로 메시지 처리 속도가 느려질 수 있습니다.
+* Service Bus가 의존하는 외부 시스템에서 제한합니다. 제한은 컴퓨팅 및 스토리지 리소스와의 상호작용에서 발생합니다.
+* Service Bus가 의존하는 시스템에서 발생하는 문제입니다. 예를 들어 스토리지의 특정 부분에 문제가 발생할 수 있습니다.
+* 단일 하위 시스템에서 Service Bus의 오류입니다. 이 상황에서 컴퓨팅 노드는 일관성이 없는 상태일 수 있으며 자체를 다시 시작해야 하며 이는 부하를 다른 노드로 분산하는 모든 엔터티를 발생시킵니다. 단기간 동안 차례로 메시지 처리 속도가 느려질 수 있습니다.
 * Azure 데이터 센터 내에서 Service Bus의 오류입니다. 몇 분 또는 몇 시간 동안 시스템에 연결할 수 없는 "치명적 오류"입니다.
 
 > [!NOTE]
-> 용어 **스토리지**는 Azure Storage 및 SQL Azure를 의미할 수 있습니다.
+> **저장소**라는 용어는 Azure 저장소와 SQL Azure를 모두 의미할 수 있습니다.
 > 
 > 
 
 Service Bus는 이런 문제에 대한 다양한 완화 방법을 포함합니다. 다음 섹션에서는 각 문제 및 해당 완화 방법을 설명합니다.
 
 ### <a name="throttling"></a>제한
-Service Bus로 제한을 사용하면 공동으로 메시지 속도를 관리할 수 있습니다. 각 개별 Service Bus 노드가 여러 엔터티가 있습니다. 이러한 각 엔터티는 CPU, 메모리, 저장소 및 기타 측면에서 시스템에 요청을 만듭니다. 패싯이 정의된 임계값을 초과하는 사용을 감지하면 Service Bus는 지정된 요청을 거부할 수 있습니다. 호출자는 [ServerBusyException][ServerBusyException]을 수신하고 10 초 후에 다시 시도합니다.
+Service Bus로 제한을 사용하면 공동으로 메시지 속도를 관리할 수 있습니다. 각 개별 Service Bus 노드가 여러 엔터티가 있습니다. 이러한 각 엔터티는 CPU, 메모리, 스토리지 및 기타 측면에서 시스템에 요청을 만듭니다. 패싯이 정의된 임계값을 초과하는 사용을 감지하면 Service Bus는 지정된 요청을 거부할 수 있습니다. 호출자는 [ServerBusyException][ServerBusyException]를 수신하고 10 초 후에 다시 시도합니다.
 
 완화 방법으로 코드는 오류를 읽고 적어도 10초 동안 메시지의 다시 시도를 중단해야 합니다. 오류는 고객 애플리케이션의 조각에 발생할 수 있으므로 각 조각이 재시도 논리를 독립적으로 실행한다고 예상됩니다. 코드는 큐 또는 토픽에서 분할을 사용하여 제한될 가능성을 줄일 수 있습니다.
 
 ### <a name="issue-for-an-azure-dependency"></a>Azure 종속성에서 발생하는 문제
-Azure 내의 다른 구성 요소에는 서비스 문제가 있는 경우도 있습니다. 예를 들어 Service Bus가 사용하는 시스템이 업그레이드되는 경우 해당 시스템은 일시적으로 기능이 축소될 수 있습니다. 이러한 유형의 문제를 해결하려면 Service Bus가 정기적으로 완화 방법을 조사하고 구현합니다. 이러한 완화의 부작용도 물론 나타납니다. 예를 들어 저장소에서 발생하는 일시적인 문제를 처리하려면 Service Bus가 일관되 게 작동하도록 메시지 보내기 작업을 허용하는 시스템을 구현합니다. 완화 방법의 특성 상 보낸 메시지는 영향을 받는 큐 또는 구독에 표시되고 수신 작업을 준비하는 데 최대 15분이 걸릴 수 있습니다. 일반적으로 엔터티에는 대부분 이 문제가 발생하지 않습니다. 그러나 Azure 내에서 Service Bus의 엔터티 수를 고려하면 이 완화 방법은 종종 Service Bus 고객의 작은 하위 집합에 필요합니다.
+Azure 내의 다른 구성 요소에는 서비스 문제가 있는 경우도 있습니다. 예를 들어 Service Bus가 사용하는 시스템이 업그레이드되는 경우 해당 시스템은 일시적으로 기능이 축소될 수 있습니다. 이러한 유형의 문제를 해결하려면 Service Bus가 정기적으로 완화 방법을 조사하고 구현합니다. 이러한 완화의 부작용도 물론 나타납니다. 예를 들어 스토리지에서 발생하는 일시적인 문제를 처리하려면 Service Bus가 일관되 게 작동하도록 메시지 보내기 작업을 허용하는 시스템을 구현합니다. 완화 방법의 특성 상 보낸 메시지는 영향을 받는 큐 또는 구독에 표시되고 수신 작업을 준비하는 데 최대 15분이 걸릴 수 있습니다. 일반적으로 엔터티에는 대부분 이 문제가 발생하지 않습니다. 그러나 Azure 내에서 Service Bus의 엔터티 수를 고려하면 이 완화 방법은 종종 Service Bus 고객의 작은 하위 집합에 필요합니다.
 
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>단일 하위 시스템에서 Service Bus 오류
 애플리케이션의 경우 Service Bus의 내부 구성 요소가 일치하지 않는 상황이 발생할 수 있습니다. Service Bus가 이를 감지하는 경우 애플리케이션에서 데이터를 수집하여 상황을 진단하기 위해 지원합니다. 데이터가 수집되면 애플리케이션은 일관 된 상태로 반환하기 위해 다시 시작됩니다. 이 프로세스는 매우 신속하게 발생하고 엔터티가 최대 몇 분 동안 사용 불가 상태로 나타날 수 있지만 일반적인 가동 중지 시간은 훨씬 짧습니다.

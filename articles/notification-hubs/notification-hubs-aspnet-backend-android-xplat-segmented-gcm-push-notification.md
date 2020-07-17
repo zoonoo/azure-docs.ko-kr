@@ -1,11 +1,11 @@
 ---
-title: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 보내기 | Microsoft Docs
 description: Notification Hubs를 사용하여 Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
-editor: spelluru'
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,15 +14,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: af08d3ca6eaa95663b0bb669f6dc82a13df5ab39
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233099"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127299"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 푸시(더 이상 사용되지 않음)
+# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>자습서: Google Cloud Messaging을 사용하여 특정 Android 디바이스에 푸시 알림 보내기(더 이상 사용되지 않음)
 
 > [!WARNING]
 > 2018년 4월 10일 기준으로 Google은 GCM(Google Cloud Messaging)을 더 이상 지원하지 않습니다. GCM 서버 및 클라이언트 API는 더 이상 사용되지 않으며 2019년 5월 29일에 제거될 예정입니다. 자세한 내용은 [GCM 및 FCM 질문과 대답](https://developers.google.com/cloud-messaging/faq)을 참조하세요.
@@ -43,9 +45,9 @@ ms.locfileid: "65233099"
 > * 태그가 지정된 알림 보내기
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다.
+이 자습서는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 알림 허브를 기반으로 합니다. 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 알림 허브를 기반으로 합니다.
 
 ## <a name="add-category-selection-to-the-app"></a>앱에 범주 선택 추가
 
@@ -193,8 +195,8 @@ ms.locfileid: "65233099"
     }
     ```
 
-    이 클래스는 로컬 저장소를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
-4. `MainActivity` 클래스에서 `NotificationHub` 및 `GoogleCloudMessaging`에 대한 개인 필드를 제거하고 `Notifications`에 대한 필드를 추가합니다.
+    이 클래스는 로컬 스토리지를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
+4. `MainActivity` 클래스에서 `NotificationHub` 및 `GoogleCloudMessaging`에 대한 프라이빗 필드를 제거하고 `Notifications`에 대한 필드를 추가합니다.
 
     ```java
     // private GoogleCloudMessaging gcm;
@@ -261,11 +263,11 @@ ms.locfileid: "65233099"
 
     이 메서드는 범주 목록을 만들고 `Notifications` 클래스를 사용하여, 로컬 스토리지에 목록을 저장하고 알림 허브에 해당 태그를 등록합니다. 범주가 변경되면 새 범주로 등록이 다시 생성됩니다.
 
-이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 디바이스의 로컬 저장소에 저장하고 알림 허브에 등록할 수 있습니다.
+이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 디바이스의 로컬 스토리지에 저장하고 알림 허브에 등록할 수 있습니다.
 
 ## <a name="register-for-notifications"></a>알림 등록
 
-다음 단계에서는 로컬 저장소에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다.
+다음 단계에서는 로컬 스토리지에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다.
 
 > [!NOTE]
 > GCM(Google Cloud Messaging)에서 할당하는 registrationId는 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
@@ -276,7 +278,7 @@ ms.locfileid: "65233099"
     notifications.subscribeToCategories(notifications.retrieveCategories());
     ```
 
-    이 코드를 통해 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다.
+    이 코드를 통해 앱이 시작될 때마다 로컬 스토리지에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다.
 2. 그런 후 다음과 같이 `MainActivity` 클래스의 `onStart()` 메서드를 업데이트합니다.
 
     ```java
@@ -305,7 +307,7 @@ ms.locfileid: "65233099"
 
     이 코드는 이전에 저장한 범주의 상태를 기반으로 기본 활동을 업데이트합니다.
 
-이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 디바이스의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
+이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 디바이스의 로컬 스토리지에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
 
 ## <a name="send-tagged-notifications"></a>태그가 지정된 알림 보내기
 

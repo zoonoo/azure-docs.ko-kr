@@ -1,31 +1,23 @@
 ---
-title: Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션
+title: Linux Vm에 대 한 DNS 이름 확인 옵션
 description: Azure IaaS의 Linux 가상 머신에 대한 이름 확인 시나리오(제공된 DNS 서비스, 하이브리드 외부 DNS 및 사용자 고유의 DNS 서버 포함)입니다.
-services: virtual-machines
-documentationcenter: na
 author: RicksterCDN
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127092"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135311"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션
 Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대해 기본적으로 DNS 이름 확인을 제공합니다. Azure에서 호스트하는 가상 머신에서 자체 DNS 서비스를 구성하여 사용자 고유의 DNS 이름 확인 솔루션을 구현할 수 있습니다. 다음 시나리오는 특정 상황에 적합한 솔루션을 선택하는 데 도움이 됩니다.
 
 * [Azure에서 제공하는 이름 확인](#name-resolution-that-azure-provides)
-* [자체 DNS 서버를 사용한 이름 확인](#name-resolution-using-your-own-dns-server)
+* [자체 DNS 서버를 사용 하 여 이름 확인](#name-resolution-using-your-own-dns-server)
 
 어떤 방법으로 이름을 확인할지는 사용하는 가상 머신과 역할 인스턴스가 서로 어떻게 통신해야 하는지에 따라 다릅니다.
 
@@ -34,16 +26,16 @@ Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대
 | **시나리오** | **해결 방법** | **접미사** |
 | --- | --- | --- |
 | 동일한 가상 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure에서 제공하는 이름 확인 |호스트 이름 또는 FQDN(정규화된 도메인 이름) |
-| 서로 다른 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 컴퓨터 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server). |FQDN만 |
-| Azure의 역할 인스턴스 또는 가상 머신에서 온-프레미스 컴퓨터와 서비스 이름 확인 |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server). |FQDN만 |
-| 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인 |해당하는 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달합니다. 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server). |FQDN만 |
-| 내부 IP에 대한 역방향 DNS |[자체 DNS 서버를 사용한 이름 확인](#name-resolution-using-your-own-dns-server) |해당 없음 |
+| 서로 다른 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 컴퓨터 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 사용 하 여 이름 확인](#name-resolution-using-your-own-dns-server)을 참조 하세요. |FQDN만 |
+| Azure의 역할 인스턴스 또는 가상 머신에서 온-프레미스 컴퓨터와 서비스 이름 확인 |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 사용 하 여 이름 확인](#name-resolution-using-your-own-dns-server)을 참조 하세요. |FQDN만 |
+| 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인 |해당하는 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달합니다. 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 사용 하 여 이름 확인](#name-resolution-using-your-own-dns-server)을 참조 하세요. |FQDN만 |
+| 내부 IP에 대한 역방향 DNS |[자체 DNS 서버를 사용 하 여 이름 확인](#name-resolution-using-your-own-dns-server) |해당 없음 |
 
 ## <a name="name-resolution-that-azure-provides"></a>Azure에서 제공하는 이름 확인
 Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크에 있는 가상 머신 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. Azure Resource Manager 기반의 가상 네트워크에서 DNS 접미사는 가상 네트워크에서 일관적이며 FQDN이 필요하지 않습니다. DNS 이름은 NIC(네트워크 인터페이스 카드)와 가상 머신에 모두 할당할 수 있습니다. Azure에서 제공하는 이름 확인은 별도로 구성할 필요가 없지만, 앞의 표에 나온 바와 같이 모든 배포 서비스에 적합한 것은 아닙니다.
 
 ### <a name="features-and-considerations"></a>기능 및 고려 사항
-**기능:**
+**요소**
 
 * Azure에서 제공하는 이름 확인을 사용하기 위해 별도로 구성할 필요가 없습니다.
 * Azure에서 제공하는 이름 확인 서비스는 가용성이 높습니다. 자체 DNS 서버 클러스터를 만들고 관리할 필요가 없습니다.
@@ -51,7 +43,7 @@ Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크
 * 가상 네트워크의 가상 머신 간에 이름 확인이 제공되며 FQDN은 필요 없습니다.
 * 자동으로 생성되는 이름 대신 배포를 가장 잘 설명해주는 호스트 이름을 사용할 수 있습니다.
 
-**고려 사항:**
+**고려 사항**
 
 * Azure에서 만드는 DNS 접미사는 수정할 수 없습니다.
 * 사용자 고유의 레코드를 수동으로 등록할 수 없습니다.
@@ -61,7 +53,7 @@ Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크
 * DNS 쿼리 트래픽은 각 가상 컴퓨터에 대해 제한됩니다. 이 제한은 대부분의 애플리케이션에 영향을 주지 않아야 합니다.  요청 제한이 확인되는 경우 클라이언트쪽 캐싱이 사용하도록 설정되었는지 확인합니다.  자세한 내용은 [Azure에서 제공하는 이름 확인 활용](#getting-the-most-from-name-resolution-that-azure-provides)을 참조하세요.
 
 ### <a name="getting-the-most-from-name-resolution-that-azure-provides"></a>Azure에서 제공하는 이름 확인 활용
-**클라이언트쪽 캐싱:**
+**클라이언트 쪽 캐싱:**
 
 일부 DNS 쿼리는 네트워크를 통해 전송되지 않습니다. 클라이언트쪽 캐싱을 사용하면 대기 시간을 줄이고 로컬 캐시에서 되풀이되는 DNS 쿼리를 확인하여 네트워크 불일치에 대한 복원력을 개선하는 데 도움이 됩니다. DNS 레코드는 레코드 새로 고침에 영향을 주지 않으면서 캐시가 가능한 오랫동안 레코드를 저장할 수 있도록 하는 TTL(Time-To-Live)을 포함하고 있습니다. 결과적으로 클라이언트쪽 캐싱은 대부분의 상황에 적합합니다.
 
@@ -72,14 +64,14 @@ dnsmasq 같은 여러 가지 DNS 캐싱 패키지를 사용할 수 있습니다.
 **Ubuntu(resolvconf 사용)**
   * dnsmasq 패키지를 설치합니다("sudo apt-get install dnsmasq").
 
-**SUSE(netconf 사용)**:
+**SUSE (netconf 사용)**:
 1. dnsmasq 패키지를 설치합니다("sudo zypper install dnsmasq").
 2. dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service").
 3. dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service").
 4. "/etc/sysconfig/network/config"를 편집하고 NETCONFIG_DNS_FORWARDER=""를 "dnsmasq"로 변경합니다.
 5. 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf("netconfig update")를 업데이트합니다.
 
-**Rogue Wave Software의 CentOS(이전의 OpenLogic. NetworkManager 사용)**
+**Rogue Wave 소프트웨어로 CentOS (이전 OpenLogic; NetworkManager 사용)**
 1. dnsmasq 패키지를 설치합니다("sudo yum install dnsmasq").
 2. dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service").
 3. dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service").
@@ -87,11 +79,11 @@ dnsmasq 같은 여러 가지 DNS 캐싱 패키지를 사용할 수 있습니다.
 5. 캐시를 로컬 DNS 확인자로 설정하기 위해 네트워크 서비스("service network restart")를 다시 시작합니다.
 
 > [!NOTE]
-> : 'dnsmasq' 패키지는 Linux에서 사용할 수 있는 많은 DNS 캐시 중 하나입니다. 사용하기 전에 본인의 요구 사항에 적합한지 확인하고 다른 캐시가 설치되어 있지 않은지 확인합니다.
+> : 'dnsmasq' 패키지는 여러 DNS 캐시 중에 Linux에 사용할 수 있는 유일한 캐시입니다. 사용하기 전에 본인의 요구 사항에 적합한지 확인하고 다른 캐시가 설치되어 있지 않은지 확인합니다.
 >
 >
 
-**클라이언트쪽 재시도**
+**클라이언트 쪽 재시도**
 
 DNS는 주로 UDP 프로토콜입니다. UDP 프로토콜은 메시지 배달을 보장하지 않으므로 DNS 프로토콜 자체에서 재시도 논리를 처리합니다. 각 DNS 클라이언트(운영 체제)는 작성자의 기본 설정에 따라 서로 다른 재시도 논리를 나타낼 수 있습니다.
 
@@ -100,19 +92,21 @@ DNS는 주로 UDP 프로토콜입니다. UDP 프로토콜은 메시지 배달을
 
 Linux 가상 컴퓨터에서 현재 설정을 확인하려면 'cat /etc/resolv.conf'에서 'options' 줄을 확인합니다. 예를 들면 다음과 같습니다.
 
-    options timeout:1 attempts:5
+```config-conf
+options timeout:1 attempts:5
+```
 
 resolv.conf 파일은 자동으로 생성되며 편집할 수 없습니다. 'options' 줄을 추가하는 구체적인 단계는 배포판마다 다릅니다.
 
-**Ubuntu**(resolvconf 사용)
-1. options 줄을 '/etc/resolveconf/resolv.conf.d/head'에 추가합니다.
+**Ubuntu** (resolvconf 사용)
+1. 옵션 줄을 '/etc/resolvconf/resolv.conf.d/head '에 추가 합니다.
 2. 'resolvconf -u'를 실행하여 업데이트합니다.
 
 **SUSE**(netconf 사용)
 1. 'timeout:1 attempts:5'를 '/etc/sysconfig/network/config'의 NETCONFIG_DNS_RESOLVER_OPTIONS="" 매개 변수에 추가합니다.
 2. 'netconfig update'를 실행하여 업데이트합니다.
 
-**Rogue Wave Software의 CentOS(이전의 OpenLogic)**(NetworkManager 사용)
+**Rogue Wave 소프트웨어로 CentOS (이전의 OpenLogic)** (networkmanager 사용)
 1. 'RES_OPTIONS="timeout:1 attempts:5"'를 '/etc/sysconfig/network'에 추가합니다.
 2. 'service network restart'를 실행하여 업데이트합니다.
 

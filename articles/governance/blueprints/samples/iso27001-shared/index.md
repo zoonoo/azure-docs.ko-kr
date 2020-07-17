@@ -1,18 +1,14 @@
 ---
-title: 샘플 - ISO 27001 Shared Services 청사진 - 개요
-description: ISO 27001 Shared Services 청사진 샘플에 대한 개요 및 아키텍처입니다.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+title: ISO 27001 Shared Services 청사진 샘플 개요
+description: ISO 27001 Shared Services 청사진 샘플에 대한 개요 및 아키텍처입니다. 이 청사진 샘플은 고객이 특정 ISO 27001 컨트롤을 평가하는 데 도움이 됩니다.
+ms.date: 04/15/2020
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: c54d8aedb9464364f93a087de4bdb00c693a96ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60875162"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81458457"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
 
@@ -20,12 +16,12 @@ ISO 27001 Shared Services 청사진은 ISO 27001 증명에 도움이 되는 일�
 
 [ISO 27001 App Service Environment/SQL Database 워크로드](../iso27001-ase-sql-workload/index.md) 청사진 샘플은 이 샘플을 확장합니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 ISO 27001 Shared Services 청사진 샘플은 VDC(Virtual Datacenter) 방식을 기반으로 여러 워크로드를 호스팅하기 위해 조직에서 사용할 수 있는 Azure의 기반 인프라를 배포합니다.
 VDC는 Microsoft에서 대기업 고객과 함께 사용하는 입증된 참조 아키텍처 세트, 자동화 도구 및 참여 모델입니다. Shared Services 청사진 샘플은 아래 표시된 완전한 네이티브 Azure VDC 환경을 기반으로 합니다.
 
-![ISO 27001 Shared Services 청사진 샘플 디자인](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="ISO 27001 Shared Services 청사진 샘플 디자인" border="false":::
 
 이 환경은 ISO 27001 표준을 기반으로 하는 완전히 모니터링되는 안전한 엔터프라이즈급 공유 서비스 인프라를 제공하는 데 사용되는 여러 가지 Azure 서비스로 구성됩니다. 이 환경은 다음과 같은 요소로 구성됩니다.
 
@@ -38,7 +34,7 @@ VDC는 Microsoft에서 대기업 고객과 함께 사용하는 입증된 참조 
   - 수신 스택 서브넷에 배포된 [Azure Firewall](../../../../firewall/overview.md)을 통해서만 액세스할 수 있는, 관리 용도로 사용되는 Jumpbox 또는 요새 호스트
   - Jumpbox를 통해서만 액세스할 수 있는 ADDS(Active Directory 도메인 서비스) 및 DNS를 실행하는 두 대의 가상 머신, VPN 또는 [ExpressRoute](../../../../expressroute/expressroute-introduction.md) 연결을 통해서만 AD를 복제하도록 구성할 수 있습니다(청사진으로 배포되지 않음).
   - [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) 및 표준 DDoS 보호 사용
-- 공유 서비스 환경에 배포된 VM에 사용되는 비밀을 호스팅하는 데 사용되는 [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) 인스턴스
+- 공유 서비스 환경에 배포된 VM에 사용되는 비밀을 호스팅하는 데 사용되는 [Azure Key Vault](../../../../key-vault/general/overview.md) 인스턴스
 
 이러한 모든 요소는 [Azure 아키텍처 센터 - 참조 아키텍처](/azure/architecture/reference-architectures/)에 게시된 검증된 사례를 따릅니다.
 
@@ -59,7 +55,7 @@ ISO 27001 Shared Services 청사진 샘플에 대한 개요 및 아키텍처를 
 
 청사진 및 사용 방법에 대한 추가 문서:
 
-- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기

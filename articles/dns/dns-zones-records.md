@@ -1,26 +1,20 @@
 ---
-title: DNS 영역 및 레코드 개요-Azure DNS | Microsoft Docs
+title: DNS 영역 및 레코드 개요-Azure DNS
 description: Microsoft Azure DNS에서 DNS 영역 및 레코드 호스팅에 대한 지원 개요.
-services: dns
-documentationcenter: na
-author: vhorne
-manager: jeconnoc
-editor: ''
+author: rohinkoul
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: victorh
-ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: rohink
+ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846845"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
@@ -28,15 +22,15 @@ ms.locfileid: "60563395"
 
 ## <a name="domain-names"></a>도메인 이름
 
-Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름이 단순히 '**.**'인 'root' 도메인에서 시작합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  그 아래에 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인이 있는 DNS 계층 구조의 도메인은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스팅됩니다.
+Domain Name System은 도메인 계층 구조입니다. 계층은 이름이 '**.**' 인 ' root ' 도메인에서 시작 합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  그 아래에 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인이 있는 DNS 계층 구조의 도메인은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스팅됩니다.
 
-도메인 이름 등록 기관은 'contoso.com'과 같은 도메인 이름을 구입할 수 있는 조직입니다.  도메인 이름을 구입할 경우 해당 이름 하의 DNS 계층 구조를 관리할 수 있습니다. 예를 들어, 'www.contoso.com'이라는 이름을 회사 웹 사이트에 사용할 수 있습니다. 등록 기관은 사용자 대신 자체 이름 서버에 도메인을 호스트하거나 사용자가 다른 이름 서버를 지정할 수 있습니다.
+도메인 이름 등록자는와 같은 도메인 이름을 구입할 수 있는 조직입니다 `contoso.com` .  도메인 이름을 구매 하면 이름을 `www.contoso.com` 회사 웹 사이트에 전달할 수 있도록 하는 등의 방법으로 DNS 계층 구조를 제어 하는 권한을 부여 합니다. 등록 기관은 사용자 대신 자체 이름 서버에 도메인을 호스트하거나 사용자가 다른 이름 서버를 지정할 수 있습니다.
 
 Azure DNS는 전 세계적으로 분산된 고가용성 이름 서버 인프라를 제공하므로 조직은 이러한 인프라를 사용하여 도메인을 호스팅할 수 있습니다. Azure에 도메인을 호스팅하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
 
 Azure DNS는 현재 도메인 이름 구입을 지원하지 않습니다. 도메인 이름을 구입하려면 타사 도메인 이름 등록 기관을 이용해야 합니다. 등록 기관은 일반적으로 소액의 연간 요금을 부과합니다. 그런 다음, DNS 레코드의 관리를 위해 Azure DNS에 해당 도메인을 호스트할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md) 을 참조하세요.
 
-## <a name="dns-zones"></a>DNS 영역 
+## <a name="dns-zones"></a>DNS 영역
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -59,7 +53,7 @@ Azure DNS는 [와일드카드 레코드](https://en.wikipedia.org/wiki/Wildcard_
 ### <a name="caa-records"></a>CAA 레코드
 
 CAA 레코드를 사용하면 도메인 소유자가 자신의 도메인에 대한 인증서를 발급할 권한이 있는 CA(인증 기관)를 지정할 수 있습니다. 이렇게 하면 일부 환경에서는 인증서가 착오 발급되는 것을 방지할 수 있습니다. CAA 레코드에는 다음 세 가지 속성이 있습니다.
-* **플래그**: 이 0과 당 특별 한 의미가 있는 중요 한 플래그를 나타내는 데 255 사이의 정수를 [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Flags**: [RFC](https://tools.ietf.org/html/rfc6844#section-3)마다 특별한 의미를 갖는 중요한 플래그를 나타내는 데 사용되는 0과 255 사이의 정수입니다.
 * **Tag**: ASCII 문자열이며 다음 중 하나일 수 있습니다.
     * **issue**: 인증서(모든 유형)를 발급할 권한이 있는 CA를 지정하려는 경우에 사용합니다.
     * **issuewild**: 인증서(와일드카드 인증서만 해당)를 발급할 권한이 있는 CA를 지정하려는 경우에 사용합니다.
@@ -88,6 +82,8 @@ SOA 레코드는 각 영역의 루트(name = '\@')에서 자동으로 생성되�
 
 SOA 레코드에서 'host' 속성(Azure DNS에서 제공한 기본 이름 서버 이름을 참조하도록 사전 구성됨)을 제외한 모든 속성을 수정할 수 있습니다.
 
+SOA 레코드의 영역 일련 번호는 영역에 레코드가 변경 될 때 자동으로 업데이트 되지 않습니다. 필요한 경우 SOA 레코드를 편집 하 여 수동으로 업데이트할 수 있습니다.
+
 ### <a name="spf-records"></a>SPF 레코드
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
@@ -111,13 +107,13 @@ DNS 레코드의 여러 문자열을 TXT 레코드 집합의 여러 TXT 레코�
 
 ## <a name="tags-and-metadata"></a>태그 및 메타데이터
 
-### <a name="tags"></a>태그들
+### <a name="tags"></a>Tags
 
-태그는 이름-값 쌍의 목록으로, Azure Resource Manager에서 리소스에 레이블을 지정하는 데 사용됩니다.  Azure Resource Manager는 태그를 사용하여 Azure 청구서를 필터링하여 표시할 수 있으며 태그가 필요한 정책을 설정할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/resource-group-using-tags.md)을 참조하십시오.
+태그는 이름-값 쌍의 목록으로, Azure Resource Manager에서 리소스에 레이블을 지정하는 데 사용됩니다.  Azure Resource Manager는 태그를 사용하여 Azure 청구서를 필터링하여 표시할 수 있으며 태그가 필요한 정책을 설정할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하십시오.
 
 Azure DNS에서는 DNS 영역 리소스에 Azure Resource Manager 태그를 사용할 수 있으며  아래 설명된 대로 대체 ‘메타데이터’가 DNS 레코드 집합에서 지원되기는 하지만 DNS 레코드 집합의 태그는 지원하지 않습니다.
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>메타데이터
 
 Azure DNS에서는 레코드 집합 태그 대신 '메타데이터'를 사용하여 레코드 집합에 주석을 추가할 수 있습니다.  태그와 유사한 메타데이터를 사용하면 각 레코드 집합에 이름-값 쌍을 연결할 수 있습니다.  이는 각 레코드 집합의 목적을 기록하는 데 유용할 수 있습니다.  태그와 달리, 메타데이터는 Azure 청구서를 필터링하여 표시하는 데 사용할 수 없으며 Azure Resource Manager 정책에서 지정할 수 없습니다.
 
@@ -134,7 +130,7 @@ Azure DNS REST API 수준에서 Etag는 HTTP 헤더를 사용하여 지정됩니
 | 헤더 | 동작 |
 | --- | --- |
 | 없음 |PUT 항상 성공(Etag 검사 안 함) |
-| If-match <etag> |리소스가 있고 Etag가 일치하는 경우에만 PUT 성공 |
+| If-match \<etag> |리소스가 있고 Etag가 일치하는 경우에만 PUT 성공 |
 | If-match * |리소스가 있는 경우에만 PUT 성공 |
 | If-none-match * |리소스가 없는 경우에만 PUT 성공 |
 

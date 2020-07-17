@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Azure Firewall 테스트 환경 만들기
-description: Azure PowerShell 스크립트 샘플 - Azure Firewall 테스트 환경 만들기.
+title: Azure Firewall 테스트 환경 만들기
+description: 이 스크립트 샘플은 방화벽 및 테스트 네트워크 환경을 만듭니다. 이 네트워크에는 세 개의 서브넷이 있는 하나의 VNet(가상 네트워크)이 포함됩니다.
 services: virtual-network
 author: vhorne
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 8/13/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 6e85bd6ec51cff27fed6d0b2d9e73f94325e4d4f
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 6cb0eafce354ba54dd161fee52efe46677ad2765
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500239"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74195879"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Azure Firewall 테스트 환경 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "58500239"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-방화벽은 AzureFirewallSubnet에 있으며, www.microsoft.com에 대한 액세스를 허용하는 단일 규칙이 포함된 애플리케이션 규칙 컬렉션으로 구성됩니다.
+방화벽은 AzureFirewallSubnet에 있으며, `www.microsoft.com`에 대한 액세스를 허용하는 단일 규칙이 포함된 애플리케이션 규칙 컬렉션으로 구성됩니다.
 
 방화벽 규칙이 적용된 방화벽을 통해 ServersSubnet에서 네트워크 트래픽을 가리키는 사용자 정의 경로가 만들어집니다.
 

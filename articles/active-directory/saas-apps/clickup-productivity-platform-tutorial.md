@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 06853edd-e8da-4ad2-a4e6-5555d592cee5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f497955b698d7ca390b40686e94d553a7cd5c948
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282647"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048732"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>자습서: ClickUp Productivity 플랫폼과 Azure Active Directory 통합
 
@@ -30,10 +31,10 @@ Azure AD와 ClickUp Productivity 플랫폼을 통합하면 다음과 같은 이�
 * 사용자가 해당 Azure AD 계정으로 ClickUp Productivity 플랫폼에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ClickUp Productivity 플랫폼과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -56,7 +57,7 @@ ClickUp Productivity 플랫폼의 Azure AD 통합을 구성하려면 갤러리�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -119,7 +120,9 @@ ClickUp Productivity 플랫폼에서 Azure AD Single Sign-On을 구성하려면 
 
 1. 다른 웹 브라우저 창에서 ClickUp Productivity 플랫폼 테넌트에 관리자로 로그인합니다.
 
-2. **사용자 프로필**을 클릭하고 **설정**을 선택합니다.
+2. **사용자 프로필**을 클릭한 다음, **설정**을 선택합니다.
+
+    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/configure1.png)
 
@@ -160,7 +163,7 @@ ClickUp Productivity 플랫폼에서 Azure AD Single Sign-On을 구성하려면 
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -194,7 +197,9 @@ ClickUp Productivity 플랫폼에서 Azure AD Single Sign-On을 구성하려면 
 
 1. 다른 웹 브라우저 창에서 ClickUp Productivity 플랫폼 테넌트에 관리자로 로그인합니다.
 
-2. **사용자 프로필**을 클릭하고 **사용자**를 선택합니다.
+2. **사용자 프로필**을 클릭한 다음, **사람**을 선택합니다.
+   
+    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/user1.png)
 
@@ -203,7 +208,7 @@ ClickUp Productivity 플랫폼에서 Azure AD Single Sign-On을 구성하려면 
     ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
-    > 사용자에게 알림이 전송되고 계정을 활성화하려면 초대를 수락해야 합니다.
+    > 사용자가 알림을 받고 계정을 활성화하려면 초대를 수락해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

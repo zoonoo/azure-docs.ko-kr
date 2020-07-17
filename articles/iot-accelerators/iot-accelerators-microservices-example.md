@@ -8,19 +8,19 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61447627"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>마이크로 서비스 사용자 지정 및 다시 배포
 
-이 자습서에서는 원격 모니터링 솔루션에서 하나의 [마이크로서비스](https://azure.com/microservices)를 편집하고, 마이크로서비스의 이미지를 빌드하고, 이미지를 도커 허브에 배포한 다음, 원격 모니터링 솔루션에서 사용하는 방법을 보여줍니다. 이 개념을 소개하기 위해 자습서는 마이크로 서비스 API를 호출하고 상태 메시지를 "Alive and Well"에서 "New Edits Made Here!"로 변경하는 기본 시나리오를 사용합니다.
+이 자습서에서는 원격 모니터링 솔루션에서 [마이크로 서비스](https://azure.com/microservices) 중 하나를 편집 하 고, 마이크로 서비스 이미지를 빌드하고, 이미지를 docker 허브에 배포한 다음, 원격 모니터링 솔루션에서 사용 하는 방법을 보여 줍니다. 이 개념을 소개하기 위해 자습서는 마이크로 서비스 API를 호출하고 상태 메시지를 "Alive and Well"에서 "New Edits Made Here!"로 변경하는 기본 시나리오를 사용합니다.
 
 원격 모니터링 솔루션은 도커 허브에서 가져온 도커 이미지를 사용하여 빌드된 마이크로 서비스를 사용합니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 >[!div class="checklist"]
 > * 원격 모니터링 솔루션에서 마이크로 서비스 편집 및 빌드
@@ -29,7 +29,7 @@ ms.locfileid: "61447627"
 > * 새로운 도커 이미지 가져오기
 > * 변경 사항 시각화 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 수행하려면 다음이 필요합니다.
 
@@ -144,11 +144,11 @@ ms.locfileid: "61447627"
     ```
 
 3. Postman을 다운로드한 곳을 찾아 엽니다.
-4. Postman에서 GET에 다음 요청을 입력합니다. `http://localhost:8080/iothubmanager/v1/status`. 이제 "상태": "OK: New Edits Made Here!"가 표시됩니다.
+4. Postman에서 GET에 다음 요청을 입력합니다. `http://localhost:8080/iothubmanager/v1/status`. 이제 "Status": "OK: New Edits Made Here!"가 표시됩니다.
 
 ![New Edits Made Here postman 메시지](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="Troubleshoot"></a>문제 해결
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>문제점
 
 문제가 발생하는 경우 로컬 컴퓨터에서 도커 이미지 및 컨테이너 제거를 시도합니다.
 

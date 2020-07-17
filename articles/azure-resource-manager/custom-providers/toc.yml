@@ -1,0 +1,64 @@
+- name: Azure 사용자 지정 공급자 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure 사용자 지정 공급자란?
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 사용자 지정 리소스 공급자 만들기
+      href: create-custom-provider.md
+- name: 자습서
+  items:
+    - name: 사용자 지정 공급자 시작
+      href: tutorial-get-started-with-custom-providers.md
+    - name: Azure Functions 설정
+      href: tutorial-custom-providers-function-setup.md
+    - name: RESTful 엔드포인트 작성
+      href: tutorial-custom-providers-function-authoring.md
+    - name: 사용자 지정 공급자 생성 및 활용
+      href: tutorial-custom-providers-create.md
+    - name: 리소스 확장
+      href: tutorial-resource-onboarding.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
+- name: 개념
+  items:
+    - name: 연결에 대한 Azure Policy
+      href: concepts-built-in-policy.md
+    - name: 리소스 온보딩
+      href: concepts-resource-onboarding.md
+- name: 방법 가이드
+  items:
+    - name: Azure에 사용자 지정 작업 추가
+      href: custom-providers-action-endpoint-how-to.md
+    - name: Azure에 사용자 지정 리소스 추가
+      href: custom-providers-resources-endpoint-how-to.md
+- name: 참조
+  items:
+    - name: 사용자 지정 리소스 프록시 참조
+      href: proxy-resource-endpoint-reference.md
+    - name: 사용자 지정 리소스 캐시 참조
+      href: proxy-cache-resource-endpoint-reference.md
+    - name: 사용자 지정 공급자 RESTful 엔드포인트 참조
+      href: reference-custom-providers-csharp-endpoint.md
+    - name: REST (영문)
+      href: /rest/api/customproviders/
+    - name: Azure CLI
+      href: /cli/azure/ext/custom-providers/custom-providers/
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Resource Manager 템플릿 모범 사례
+      href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-custom-providers'

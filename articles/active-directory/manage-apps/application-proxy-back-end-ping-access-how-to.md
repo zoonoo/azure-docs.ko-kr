@@ -1,27 +1,27 @@
 ---
-title: PingAccess를 사용하도록 애플리케이션 프록시 애플리케이션을 구성하는 방법 | Microsoft Docs
+title: 앱 액세스를 사용 하도록 응용 프로그램 프록시 앱을 구성 하는 방법
 description: PingAccess를 사용하여 애플리케이션 프록시의 이점을 헤더 기반 인증을 사용하는 애플리케이션으로 확장하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d555aaf99470588bb3ed2b328adb3e99f6c4a50e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7cfbca2e7542315b59d741a9e8f6f9eb92af6ebf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783989"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760221"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>PingAccess를 사용하도록 애플리케이션 프록시 애플리케이션을 구성하는 방법
 

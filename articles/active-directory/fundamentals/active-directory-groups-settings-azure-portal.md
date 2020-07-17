@@ -2,32 +2,31 @@
 title: 그룹 정보 편집 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory를 사용하여 그룹 정보를 편집하는 방법에 대한 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/27/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 410570798e468244763c05b3275801427dc4b2fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248799"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604236"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 정보 편집
 
 Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 자격 유형을 업데이트할 뿐 아니라 그룹 설정을 편집할 수 있습니다.
 
 ## <a name="to-edit-your-group-settings"></a>그룹 설정을 편집하려면
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택한 후 **그룹**을 선택합니다.
+2. **Azure Active Directory**를 선택한 다음, **그룹**을 선택합니다.
 
     모든 활성 그룹을 보여 주는 **그룹 - 모든 그룹** 페이지가 나타납니다.
 
@@ -39,7 +38,7 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
 
 4. **MDM policy - West** 그룹을 선택한 후 **관리** 영역에서 **속성**을 선택합니다.
 
-    ![멤버 옵션 및 강조 표시 정보를 사용 하 여 그룹 개요 페이지](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![멤버 옵션과 정보가 강조 표시 된 그룹 개요 페이지](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. 다음을 포함하여 필요에 따라 **일반 설정** 정보를 업데이트합니다.
 
@@ -49,11 +48,11 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
     
     - **그룹 설명.** 기존 그룹 설명을 편집합니다.
 
-    - **그룹 유형.** 그룹이 생성된 후에는 그룹 유형을 변경할 수 없습니다. **그룹 유형**을 변경하려면 그룹을 삭제하고 새 그룹을 만들어야 합니다.
+    - **그룹 유형입니다.** 그룹이 생성된 후에는 그룹 유형을 변경할 수 없습니다. **그룹 유형**을 변경하려면 그룹을 삭제하고 새 그룹을 만들어야 합니다.
     
-    - **멤버 자격 유형.** 멤버 자격 유형을 변경합니다. 사용 가능한 다양한 멤버 자격 유형에 대한 정보는 [방법: Azure Active Directory 포털을 사용하여 기본 그룹 만들기 및 멤버 추가](active-directory-groups-create-azure-portal.md)를 참조하세요.
+    - **멤버 자격 유형입니다.** 멤버 자격 유형을 변경합니다. 사용 가능한 다양 한 멤버 자격 형식에 대 한 자세한 내용은 [방법: 기본 그룹 만들기 및 Azure Active Directory 포털을 사용 하 여 구성원 추가](active-directory-groups-create-azure-portal.md)를 참조 하세요.
     
-    - **개체 ID.** 개체 ID를 변경할 수는 없지만, 개체 ID를 복사하여 그룹용 PowerShell 명령에서 사용할 수 있습니다. PowerShell cmdlet 사용에 대한 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)을 참조하세요.
+    - **개체 ID입니다.** 개체 ID를 변경할 수는 없지만, 개체 ID를 복사하여 그룹용 PowerShell 명령에서 사용할 수 있습니다. PowerShell cmdlet 사용에 대한 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
@@ -70,4 +69,4 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
 
 - [그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 
-- [Azure Active Directory에 Azure 구독 연결 또는 추가](active-directory-how-subscriptions-associated-directory.md)
+- [Azure Active Directory에 Azure 구독을 연결 하거나 추가 합니다.](active-directory-how-subscriptions-associated-directory.md)

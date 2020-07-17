@@ -18,12 +18,20 @@
       href: tutorial-phs-backup.md
 - name: 개념
   items:
+    - name: 하이브리드 ID
+      items:
+        - name: 온-프레미스 워크로드에 대한 클라우드 통제 관리
+          href: cloud-governed-management-for-on-premises.md
+        - name: 강력한 ID 기반을 위한 4단계
+          href: four-steps.md
+        - name: 하이브리드 ID 인증 방법 선택
+          href: choose-ad-authn.md
     - name: Azure AD Connect 및 Connect Health
       items:
         - name: Azure AD Connect 및 Connect Health란?
           href: whatis-azure-ad-connect.md
         - name: 올바른 인증 선택
-          href: 'https://docs.microsoft.com/azure/security/azure-ad-choose-authn'
+          href: 'https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn'
         - name: ID 동기화 및 중복 특성 복원력
           href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: 암호 해시 동기화
@@ -64,6 +72,8 @@
       items:
         - name: Azure AD Connect 동기화란?
           href: how-to-connect-sync-whatis.md
+        - name: Azure ADSync 서비스 계정
+          href: concept-adsync-service-account.md
         - name: Azure AD Connect 동기화 기능
           href: how-to-connect-syncservice-features.md
         - name: Azure AD Connect 동기화 서비스 관리자란?
@@ -96,6 +106,8 @@
           href: how-to-connect-install-express.md
         - name: Azure AD Connect 페더레이션 또는 다른 사용자 지정 설정 설치
           href: how-to-connect-install-custom.md
+        - name: 구성 설정 가져오기 및 내보내기
+          href: how-to-connect-import-export-config.md
         - name: PTA(통과 인증)를 사용하여 Azure AD Connect 설치
           href: how-to-connect-pta-quick-start.md
         - name: Azure AD Connect Health 설치
@@ -140,6 +152,10 @@
               href: plan-migrate-adfs-password-hash-sync.md
             - name: 페더레이션에서 PTA로 마이그레이션
               href: plan-migrate-adfs-pass-through-authentication.md
+            - name: 포리스트 간 그룹 이동
+              href: how-to-connect-migrate-groups.md
+            - name: 단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션
+              href: how-to-connect-staged-rollout.md
         - name: 하이브리드 ID 설계 고려 사항
           items:
             - name: 하이브리드 ID 설계 고려 사항 개요
@@ -172,9 +188,11 @@
               href: plan-hybrid-identity-design-considerations-tools-comparison.md
     - name: Azure AD Connect 관리
       items:
-        - name: 장치 쓰기 저장 사용
+        - name: 디바이스 쓰기 저장 사용
           href: how-to-connect-device-writeback.md
-        - name: 장치 옵션
+        - name: 그룹 쓰기 저장 사용
+          href: how-to-connect-group-writeback.md
+        - name: 디바이스 옵션
           href: how-to-connect-device-options.md
         - name: Azure AD Connect에서 추가 기능
           href: how-to-connect-preview.md
@@ -196,6 +214,8 @@
           href: how-to-connect-pta-quick-start.md
         - name: 통과 인증 FAQ
           href: how-to-connect-pta-faq.md
+        - name: Azure AD Connect "구성 안 함"을 사용하여 PTA를 사용하지 않도록 설정
+          href: how-to-connect-pta-disable-do-not-configure.md
     - name: 페더레이션 서비스 관리
       items:
         - name: Azure AD Connect를 사용하여 페더레이션 관리
@@ -262,6 +282,8 @@
           href: how-to-connect-sync-feature-scheduler.md
         - name: 동기화 규칙 만들기 및 사용자 지정
           href: how-to-connect-create-custom-sync-rule.md
+        - name: Azure AD Connect 동기화 V2 엔드포인트 API
+          href: how-to-connect-sync-endpoint-api-v2.md
         - name: Azure AD Connect 동기화 서비스 관리자
           items:
             - name: 서비스 관리자 작업 탭 관리
@@ -304,7 +326,9 @@
           href: tshoot-connect-attribute-not-syncing.md
         - name: 설치 문제
           href: tshoot-connect-install-issues.md
-- name: 참고 자료
+        - name: UPN 변경
+          href: howto-troubleshoot-upn-changes.md
+- name: 참조
   items:
     - name: 포트 및 프로토콜이 필요한 하이브리드 ID
       href: reference-connect-ports.md
@@ -312,6 +336,8 @@
       href: reference-connect-version-history.md
     - name: Azure AD Connect Health 버전 내역
       href: reference-connect-health-version-history.md
+    - name: Azure AD 통과 인증 에이전트 버전 기록
+      href: reference-connect-pta-version-history.md
     - name: 커넥터 버전 내역
       href: reference-connect-sync-connector-version-history.md
     - name: 계정 및 사용 권한
@@ -320,6 +346,8 @@
       href: reference-connect-faq.md
     - name: Azure AD Connect Health FAQ
       href: reference-connect-health-faq.md
+    - name: Azure Government에 대한 하이브리드 ID 고려 사항
+      href: reference-connect-government-cloud.md
     - name: Azure AD Connect 사용자 개인 정보
       href: reference-connect-user-privacy.md
     - name: Azure AD Connect Health 사용자 개인 정보
@@ -342,3 +370,7 @@
       href: reference-connect-adsynctools.md
     - name: ADConnectivityTools 참조
       href: reference-connect-adconnectivitytools.md
+    - name: msExchUserHoldPolicies 및 cloudMSExchUserHoldPolicies
+      href: reference-connect-msexchuserholdpolicies.md
+    - name: Azure AD Connect 1.4.xx.x 디바이스 누락 이해
+      href: reference-connect-device-disappearance.md

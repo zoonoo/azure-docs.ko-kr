@@ -1,11 +1,10 @@
 ---
-title: Azure Security Center 빠른 시작 - Security Center에 Azure Stack 가상 머신 온보딩 | Microsoft Docs
+title: Azure Stack 가상 머신을 Azure Security Center에 온보딩
 description: 이 빠른 시작에서는 Azure Stack 가상 머신에서 Azure Monitor, Update 및 Configuration Management 가상 머신 확장을 프로비저닝하는 방법을 보여줍니다.
 services: security-center
 documentationcenter: na
-author: pipposera
-manager: dsavage
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
 ms.service: security-center
 ms.devlang: na
@@ -14,20 +13,20 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: fiseraci
-ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.author: memildin
+ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563797"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771158"
 ---
-# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>빠른 시작:  Azure Stack 가상 머신을 Security Center에 온보딩
+# <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>빠른 시작: Azure Stack 가상 머신을 Security Center에 온보딩
 Azure 구독을 온보딩한 후 Azure Stack 마켓플레이스에서 **Azure Monitor, Update 및 Configuration Management** 가상 머신 확장을 추가하여 Azure Stack에서 실행 중인 가상 머신을 보호하도록 Security Center를 설정할 수 있습니다.
 
 이 빠른 시작에서는 Azure Stack에서 실행 중인 가상 머신(Linux 및 Windows 모두 지원)에서 **Azure Monitor, Update 및 Configuration Management** 가상 머신 확장을 추가하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
 
 이 빠른 시작을 수행하려면 Azure 구독이 Security Center의 표준(Standard) 계층에 있어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 30일 동안 추가 비용 없이 Security Center 표준 계층을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
@@ -70,7 +69,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 > **Azure Monitor, Update 및 Configuration Management** 확장이 Marketplace에 나열되지 않으면 사용할 수 있도록 Azure Stack 운영자에게 연락하세요.
 
 6. **설치 확장** 구성 블레이드에서 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여넣습니다.
-7.  필요한 구성 설정을 제공했으면 **확인**을 클릭합니다.
+7. 필요한 구성 설정을 제공했으면 **확인**을 클릭합니다.
 8. 확장 설치가 완료되면 상태가 **프로비전 성공**으로 표시됩니다. Security Center 포털에 가상 머신이 나타나기까지 최대 1시간이 걸릴 수 있습니다.
 
 Windows용 에이전트 설치 및 구성에 대한 자세한 내용은 [Windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)을 참조하세요.
@@ -79,9 +78,9 @@ Linux 에이전트 문제 해결 방법은 [Azure Log Analytics Linux 에이전�
 
 이제 Azure VM과 비 Azure 컴퓨터를 한곳에서 모니터링할 수 있습니다. Azure의 Security Center 포털에서 **컴퓨팅** 아래에 모든 VM 및 컴퓨터의 개요와 권장 사항이 나와 있습니다. Security Center는 보안 경고를 통해서도 이러한 컴퓨터에서 검색된 내용을 표시합니다.
 
-  ![계산 블레이드][6]
+  ![컴퓨팅 블레이드][6]
 
-**계산** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
+**컴퓨팅** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
 
 ![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) 비 Azure 컴퓨터 
 

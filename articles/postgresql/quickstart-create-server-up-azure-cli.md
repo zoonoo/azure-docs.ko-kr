@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: CLI 명령 az postgres up을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기'
+title: '빠른 시작: 서버 만들기 - az postgres up - Azure Database for PostgreSQL - 단일 서버'
 description: Azure CLI(명령줄 인터페이스) up 명령을 사용하여 Azure Database for PostgreSQL - 단일 서버를 만들기 위한 빠른 시작 가이드입니다.
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 49f71c199a2832d763bb3c19d878fade47dfb8e4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 1dd20d94737df3e799876323d2aeb555dcb9a381
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069085"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82146803"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>빠른 시작: Azure CLI 명령인 az postgres up(미리 보기)을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "65069085"
 
 PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI에서 [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 명령을 사용하여 Azure Database for PostgreSQL 서버를 만드는 방법을 보여줍니다. `az postgres up` 명령은 서버를 만드는 것 외에도 샘플 데이터베이스(데이터베이스에 루트 사용자)를 만들고, Azure 서비스에 대한 방화벽을 열고, 클라이언트 컴퓨터에 대한 기본 방화벽 규칙을 만듭니다. 이러한 기본값은 개발 프로세스를 빠르게 진행하는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -62,9 +62,9 @@ resource-group | 시스템 생성 | 새 Azure 리소스 그룹입니다.
 sku-name | GP_Gen5_2 | SKU의 이름입니다. {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 축약형으로 따릅니다. 기본값은 2개의 vCore가 있는 범용 5세대 서버입니다. 계층에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
 backup-retention | 7 | 장기 백업이 보존되는 방법입니다. 단위는 일입니다.
 geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다.
-location | westus2 | 서버에 대한 Azure 위치입니다.
-ssl-enforcement | 사용 안 함 | 이 서버에 ssl을 사용할 것인지 여부를 결정합니다.
-storage-size | 5120 | 서버의 저장소 용량입니다(단위는 메가바이트).
+위치 | westus2 | 서버에 대한 Azure 위치입니다.
+ssl-enforcement | 사용 안 함 | 이 서버에 TLS/SSL을 사용할 것인지 여부를 결정합니다.
+storage-size | 5120 | 서버의 스토리지 용량입니다(단위는 메가바이트).
 버전 | 10 | PostgreSQL 주 버전입니다.
 admin-user | 시스템 생성 | 관리자의 사용자 이름입니다.
 admin-password | 시스템 생성 | 관리자 사용자의 암호입니다.

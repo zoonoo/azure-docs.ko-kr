@@ -2,20 +2,20 @@
 title: ClaimsProviders  - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 ClaimsProvider 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: davidmu1
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+ms.date: 01/29/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ababd7e9f1de33eb8679e583c2db18d2992cfb1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1d1928de8c9731b54966e566d4dddf9c01073d41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699639"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201262"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -23,7 +23,7 @@ ms.locfileid: "64699639"
 
 클레임 공급자에는 [기술 프로필](technicalprofiles.md) 집합이 포함되어 있습니다. 모든 클레임 공급자에는 엔드포인트를 결정하는 하나 이상의 기술 프로필 및 클레임 공급자와 통신하는 데 필요한 프로토콜이 있어야 합니다. 하나의 클레임 공급자가 여러 개의 기술 프로필을 포함할 수 있습니다. 예를 들어, 클레임 공급자가 여러 프로토콜, 다른 기능을 가진 다양한 엔드포인트를 지원하거나 여러 보증 수준에서 다양한 클레임을 해제하므로 여러 기술 프로필을 정의할 수 있습니다. 다른 사용자 경험이 아닌 하나의 사용자 경험에서 중요한 클레임을 해제하기 위해 허용할 수도 있습니다.
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <Domain>Domain name</Domain>
@@ -52,12 +52,12 @@ ms.locfileid: "64699639"
 | 요소 | 발생 수 | 설명 |
 | ------- | ---------- | ----------- |
 | 도메인 | 0:1 | 클레임 공급자의 도메인 이름을 포함하는 문자열입니다. 예를 들어, 클레임 공급자에 Facebook 기술 프로필이 포함된 경우 도메인 이름은 Facebook.com입니다. 이 도메인 이름은 기술 프로필에 의해 대체되지 않는 한, 청구 제공자에 정의된 모든 기술 프로필에 사용됩니다. 도메인 이름은 **domain_hint**에서 참조할 수도 있습니다. 자세한 내용은 [Azure Active Directory B2C를 사용하여 직접 로그인 설정](direct-signin.md) 섹션의 **소셜 공급자로 로그인 리디렉션** 섹션을 참조하세요. |
-| DisplayName | 0:1 | 사용자에게 표시할 수 있는 클레임 공급자의 이름을 포함하는 문자열입니다. |
+| DisplayName | 1:1 | 클레임 공급자의 이름을 포함 하는 문자열입니다. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | 클레임 공급자가 지원하는 기술 프로필 세트입니다. |
 
-**ClaimsProvider** 클레임 공급자에 기술 프로필의 관계를 구성 합니다. 다음 예에서는 Azure Active Directory 기술 프로필을 사용하여 Azure Active Directory 클레임 공급자를 보여 줍니다.
+**ClaimsProvider** 는 기술 프로필이 클레임 공급자와 관련 되는 방식을 구성 합니다. 다음 예에서는 Azure Active Directory 기술 프로필을 사용하여 Azure Active Directory 클레임 공급자를 보여 줍니다.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Azure Active Directory</DisplayName>
   <TechnicalProfiles>
@@ -95,7 +95,7 @@ ms.locfileid: "64699639"
 
 다음 예제는 **Facebook-OAUTH** 기술 프로필을 사용하여 Facebook 클레임 공급자를 보여 줍니다.
 
-```XML
+```xml
 <ClaimsProvider>
   <Domain>facebook.com</Domain>
   <DisplayName>Facebook</DisplayName>

@@ -1,32 +1,19 @@
 ---
 title: Azure Service Fabric Docker Compose 배포 미리 보기
 description: Azure Service Fabric은 Service Fabric을 사용하여 기존 컨테이너를 보다 쉽게 조정할 수 있도록 Docker Compose 형식을 수락합니다. 이 지원은 현재 미리 보기로 제공되고 있습니다.
-services: service-fabric
-documentationcenter: .net
-author: rockboyfor
-manager: digimobile
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-origin.date: 02/23/2018
-ms.date: 04/29/2019
-ms.author: v-yeche
-ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 2/23/2018
+ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60948837"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691291"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric의 Docker Compose 배포 지원(미리 보기)
 
 Docker는 다중 컨테이너 애플리케이션을 정의하기 위해 [docker-compose.yml](https://docs.docker.com/compose) 파일을 사용합니다. Docker에 익숙한 고객이 Azure Service Fabric에서 기존 컨테이너 애플리케이션을 쉽게 조정하도록 하기 위해 플랫폼에 기본적으로 Docker Compose 배포에 대한 미리 보기 지원을 포함했습니다. Service Fabric은 `docker-compose.yml` 파일의 버전 3 이상을 수락할 수 있습니다. 
 
-이 지원은 미리 보기로 제공되므로 Compose 지시문의 하위 집합만 지원됩니다. 예를 들어 애플리케이션 업그레이드는 지원되지 않습니다. 그러나 애플리케이션을 업그레이드하는 대신 항상 제거한 후 배포할 수 있습니다.
+이 지원은 미리 보기로 제공되므로 Compose 지시문의 하위 집합만 지원됩니다.
 
 이 미리 보기를 사용하려면 해당하는 SDK와 함께 Azure Portal을 통해 Service Fabric 런타임 버전 5.7 이상을 사용하여 클러스터를 만듭니다. 
 
@@ -81,37 +68,37 @@ Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
 
 또는 다음 Service Fabric CLI 명령을 사용할 수 있습니다.
 
-```azurecli
+```shell
 sfctl compose create --deployment-name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
 ```
 
 배포를 만든 후 다음 명령을 사용하여 그 상태를 확인할 수 있습니다.
 
-```azurecli
+```shell
 sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
 Compose 배포를 삭제하려면 다음 명령을 사용합니다.
 
-```azurecli
+```shell
 sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 ```
 
 Compose 배포 업그레이드를 시작하려면 다음 명령을 사용합니다.
 
-```azurecli
+```shell
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 Compose 배포 업그레이드를 롤백하려면 다음 명령을 사용합니다.
 
-```azurecli
+```shell
 sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
 업그레이드가 수락되면 다음 명령을 사용하여 업그레이드 진행률을 추적할 수 있습니다.
 
-```azurecli
+```shell
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
@@ -166,5 +153,3 @@ docker-compose.yml 파일은 해당 속성 및 구성을 포함하는 컨테이�
 
 * [Service Fabric 애플리케이션 모델](service-fabric-application-model.md)에 대해 자세히 알아보기
 * [Service Fabric CLI 시작](service-fabric-cli.md)
-
-<!-- Update_Description: wording update -->

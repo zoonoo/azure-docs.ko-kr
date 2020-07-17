@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 574c21dc2713f10513ac296e7db538e20a94c9d6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ecdcd8c6024b3cacb422b556718bbbdbb5d601c2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406525"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67098232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>자습서: LearnUpon과 Azure Active Directory 통합
 
@@ -32,10 +32,10 @@ LearnUpon을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다
 * 사용자가 자신의 Azure AD 계정으로 LearnUpon에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 LearnUpon과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -62,7 +62,7 @@ LearnUpon의 Azure AD 통합을 구성하려면 갤러리의 LearnUpon을 관리
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -135,15 +135,15 @@ LearnUpon에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 1. **설정** 탭을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_06.png)
+    ![Single Sign-on 구성](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
 1. **Single Sign On-SAML**을 클릭한 다음 **일반 설정**을 클릭하여 SAML 설정을 구성합니다.
    
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
+    ![Single Sign-on 구성](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
 1. **일반 설정** 섹션에서 다음 단계를 수행합니다.
    
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
+    ![Single Sign-on 구성](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
     a. **사용**을 선택합니다.
 
@@ -163,11 +163,11 @@ LearnUpon에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 1. **사용자 설정**을 클릭한 후 다음 단계를 수행합니다.
 
-     ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
+     ![Single Sign-on 구성](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
-    a. **이름 식별자 형식** 텍스트 상자에서 사용자 이름이 있는 SAML 어설션의 위치를 알려주는 값을 입력합니다(예: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`).
+    a. **이름 식별자 형식** 텍스트 상자에서 사용자 이름이 있는 SAML 어설션의 위치를 알려주는 값을 입력합니다(예: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`).
   
-    b. **성 식별자 형식** 텍스트 상자에서 사용자 성이 있는 SAML 어설션의 위치를 알려주는 값을 입력합니다(예: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`).
+    b. **성 식별자 형식** 텍스트 상자에서 사용자 성이 있는 SAML 어설션의 위치를 알려주는 값을 입력합니다(예: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`).
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -189,7 +189,7 @@ LearnUpon에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
   
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

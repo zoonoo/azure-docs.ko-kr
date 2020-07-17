@@ -1,21 +1,15 @@
 ---
-title: Azure Blockchain Workbench의 스마트 계약 통합 패턴
-description: Azure Blockchain Workbench의 스마트 계약 통합 패턴 개요입니다.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/09/2019
-ms.topic: article
-ms.service: azure-blockchain
+title: 스마트 계약 통합 패턴-Azure 블록 체인 워크 벤치
+description: Azure Blockchain 워크 벤치 미리 보기의 스마트 계약 통합 패턴 개요.
+ms.date: 11/20/2019
+ms.topic: conceptual
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 6be1d2b1e68c52d45a42027be5f6d69cc2c25adc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254636"
 ---
 # <a name="smart-contract-integration-patterns"></a>스마트 계약 통합 패턴
 
@@ -33,11 +27,11 @@ REST API와 메시징을 통합하면 외부 시스템에서 Azure Blockchain Wo
 
 ## <a name="rest-api-based-integration"></a>REST API 기반 통합
 
-Azure Blockchain Workbench에서 생성된 웹 애플리케이션의 기능은 REST API를 통해 공개됩니다. 기능에는 Azure Blockchain Workbench 업로드, 응용 프로그램 구성 및 관리, 트랜잭션을 분산 원장으로 전송, 응용 프로그램 메타데이터 및 원장 데이터 쿼리가 포함됩니다.
+Azure Blockchain Workbench에서 생성된 웹 애플리케이션의 기능은 REST API를 통해 공개됩니다. 기능에는 Azure Blockchain Workbench 업로드, 애플리케이션 구성 및 관리, 트랜잭션을 분산 원장으로 전송, 애플리케이션 메타데이터 및 원장 데이터 쿼리가 포함됩니다.
 
 REST API는 주로 웹, 모바일 및 봇 애플리케이션과 같은 대화형 클라이언트에 사용됩니다.
 
-이 섹션에서는 분산 원장으로 트랜잭션을 전송하는 REST API의 측면을 중심으로 한 패턴과, Azure Blockchain Workbench *오프 체인* SQL 데이터베이스에서 트랜잭션 관련 데이터를 쿼리하는 패턴에 대해 설명합니다.
+이 섹션에서는 분산 원장에 트랜잭션을 보내는 REST API의 측면에 초점을 맞춘 패턴을 살펴보고 Azure Blockchain 워크 벤치의 *오프 체인* 데이터베이스에서 트랜잭션에 대 한 데이터를 쿼리 하는 패턴을 살펴봅니다.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>외부 시스템에서 분산 원장으로 트랜잭션 전송
 
@@ -180,7 +174,7 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 
 일반적인 통합 시나리오는 스마트 계약의 센서에서 검색된 원격 분석 데이터를 포함합니다. 센서에 의해 전달된 데이터를 기반으로 하여 스마트 계약은 정보에 입각한 작업을 수행하고 계약 상태를 변경할 수 있습니다.
 
-예를 들어 약품을 운반하는 트럭의 온도가 110도까지 상승하면 약품의 효능에 영향을 미칠 수 있으며 공급망에서 감지되고 제거되지 않으면 공공 안전 문제가 발생할 수 있습니다. 운전자가 시간당 161km(100마일)로 자동차 속도를 높이면 센서 정보에 따라 보험 회사가 보험을 취소할 수 있습니다. 자동차가 렌트카인 경우 GPS 데이터는 운전자가 임대 계약서의 적용을 받는 지역을 벗어날 때를 나타내고 벌금을 부과할 수 있습니다.
+예를 들어 약품을 운반하는 트럭의 온도가 110도까지 상승하면 약품의 효능에 영향을 미칠 수 있으며 공급망에서 감지되고 제거되지 않으면 공공 안전 문제가 발생할 수 있습니다. 드라이버가 자동차를 시간당 100 마일으로 가속화 하는 경우 결과 센서 정보는 보험 공급자가 보험을 취소 하는 것을 트리거할 수 있습니다. 자동차가 렌트카인 경우 GPS 데이터는 운전자가 임대 계약서의 적용을 받는 지역을 벗어날 때를 나타내고 벌금을 부과할 수 있습니다.
 
 문제는 이러한 센서가 정기적으로 데이터를 전달할 수 있기 때문에 모든 데이터를 스마트 계약으로 보내는 것이 적절하지 않다는 것입니다. 일반적인 접근 방법은 모든 메시지를 보조 저장소로 전달하는 반면 블록체인으로 전송되는 메시지의 수를 제한하는 것입니다. 예를 들어 정해진 간격으로만 수신되는 메시지를 전달하거나 포함된 값이 스마트 계약에 대해 합의된 범위를 벗어날 때 메시지를 전달합니다. 허용 오차를 벗어나는 값을 확인하면 계약 비즈니스 논리와 관련된 데이터가 수신되고 실행됩니다. 간격을 띄워서 값을 확인하면 센서가 계속 보고 중인지 확인할 수 있습니다. 보다 광범위한 보고, 분석 및 기계 학습을 위해 모든 데이터가 보조 보고 저장소로 전송됩니다. 예를 들어 스마트 계약의 경우 1분마다 GPS에 대한 센서 판독 값을 가져올 필요가 없지만 보고서 또는 매핑 경로에 사용할 흥미로운 데이터를 제공할 수 있습니다.
 
@@ -208,15 +202,15 @@ Azure Blockchain Workbench는 REST 및 메시지 기반 API 외에도 분산 원
 
 데이터 통합은 잘 알려져 있습니다.
 
--   Azure Blockchain Workbench는 응용 프로그램, 워크플로, 계약 및 트랜잭션에 대한 메타데이터를 정상 작동 동작의 일부로 저장합니다.
+-   Azure Blockchain Workbench는 애플리케이션, 워크플로, 계약 및 트랜잭션에 대한 메타데이터를 정상 작동 동작의 일부로 저장합니다.
 -   외부 시스템 또는 도구는 하나 이상의 대화 상자를 제공하여 데이터베이스 서버 이름, 데이터베이스 이름, 인증 유형, 로그인 자격 증명 및 활용할 데이터베이스 뷰와 같은 데이터베이스 관련 정보 수집을 용이하게 합니다.
--   외부 시스템, 서비스, 보고, 개발자 도구 및 엔터프라이즈 생산성 도구에 의한 다운스트림 사용을 용이하게 하기 위해 SQL 데이터베이스 뷰에 대해 쿼리가 작성됩니다.
+-   쿼리는 외부 시스템, 서비스, 보고, 개발자 도구 및 엔터프라이즈 생산성 도구에의 한 다운스트림 소비를 용이 하 게 하기 위해 데이터베이스 뷰에 대해 작성 됩니다.
 
-## <a name="storage-integration"></a>저장소 통합
+## <a name="storage-integration"></a>스토리지 통합
 
 많은 시나리오에서는 증명할 수 있는 파일을 통합해야 할 필요가 있습니다. 여러 이유로 인해 파일을 블록체인에 포함하는 것은 적절하지 않습니다. 대신 일반적인 접근 방식은 파일에 대해 암호화 해시(예: SHA-256)를 수행하고 분산 원장에서 해시를 공유하는 것입니다. 나중에 언제든지 해시를 다시 수행하면 동일한 결과가 반환됩니다. 파일이 수정되면 이미지에서 한 픽셀만 수정되더라도 해시는 다른 값을 반환합니다.
 
-![저장소 통합](./media/integration-patterns/storage-integration.png)
+![스토리지 통합](./media/integration-patterns/storage-integration.png)
 
 패턴은 다음과 같이 구현될 수 있습니다.
 

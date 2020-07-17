@@ -1,25 +1,16 @@
 ---
 title: Azure Service Bus-Event Grid 통합 개요 | Microsoft Docs
-description: Service Bus 메시지 및 Event Grid 통합에 대한 설명
-services: service-bus-messaging
+description: 이 문서에서는 Azure Service Bus 메시지를 Azure Event Grid와 통합 하는 방법에 대해 설명 합니다.
 documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
+author: spelluru
 ms.topic: conceptual
-ms.date: 09/15/2018
-ms.author: aschhab
-ms.openlocfilehash: 9df321980db3a2481f0d8cc007546822fea46f9e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 009e6a1b98e72d9618dc8ed3437d7ea90ab4afac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340570"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -39,7 +30,7 @@ Azure Service Bus가 Azure Event Grid와의 새로운 통합을 시작했습니�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>참가자 액세스 권한이 있는지 확인
-Service Bus 네임스페이스로 이동한 다음, **액세스 제어(IAM)**, **역할 할당**을 차례로 선택합니다. 네임스페이스에 대한 기여자 액세스 권한이 있는지 확인합니다. 
+Service Bus 네임 스페이스로 이동한 후 **액세스 제어 (IAM)** 를 선택 하 고 **역할 할당** 탭을 선택 합니다. 네임 스페이스에 대 한 참가자 액세스 권한이 있는지 확인 합니다. 
 
 ### <a name="events-and-event-schemas"></a>이벤트 및 이벤트 스키마
 
@@ -112,22 +103,22 @@ Service Bus 네임스페이스로 이동한 다음, **액세스 제어(IAM)**, *
 
 ### <a name="use-filters-to-limit-where-you-get-events-from"></a>이벤트를 얻는 장소를 제한하려면 필터 사용
 
-네임스페이스 내부의 특정 큐 또는 특정 구독에 대한 이벤트만 발생시키려는 경우 Event Grid에서 제공하는 *시작 문자* 또는 *끝 문자* 필터를 사용하면 됩니다. 일부 인터페이스에서는 해당 필터를 *사전* 및 *접미사* 필터라고 합니다. 전부는 아니지만 여러 큐 및 구독에 대한 이벤트를 발생시키려는 경우 여러 개의 Event Grid 구독을 만들고 각각에 필터를 제공하면 됩니다.
+네임스페이스 내부의 특정 큐 또는 특정 구독에 대한 이벤트만 발생시키려는 경우 Event Grid에서 제공하는 *시작 문자* 또는 *끝 문자* 필터를 사용하면 됩니다. 일부 인터페이스에서 필터는 *Pre* 및 *Suffix* 필터 라고 합니다. 전부는 아니지만 여러 큐 및 구독에 대한 이벤트를 발생시키려는 경우 여러 개의 Event Grid 구독을 만들고 각각에 필터를 제공하면 됩니다.
 
 ## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Service Bus 네임스페이스에 대한 Event Grid 구독 만들기
 
 세 가지 방법으로 Service Bus 네임스페이스에 대한 Event Grid 구독을 만들 수 있습니다.
 
 * Azure 포털에서 다음을 수행합니다.
-* [Azure CLI](#azure-cli-instructions)에서
-* [PowerShell](#powershell-instructions)에서
+* [Azure CLI](#azure-cli-instructions) 에서
+* [PowerShell](#powershell-instructions) 에서
 
 ## <a name="azure-portal-instructions"></a>Azure Portal 지침
 
 새 Event Grid 구독을 만들려면 다음을 수행합니다.
 1. Azure Portal에서 네임스페이스로 이동합니다.
 2. 왼쪽 창에서 **Event Grid**를 선택합니다. 
-3. **이벤트 구독**을 선택합니다.  
+3. **이벤트 구독**을 선택 합니다.  
 
    다음 이미지는 Event Grid 구독이 있는 네임스페이스를 표시합니다.
 
@@ -139,19 +130,21 @@ Service Bus 네임스페이스로 이동한 다음, **액세스 제어(IAM)**, *
 
 ## <a name="azure-cli-instructions"></a>Azure CLI 지침
 
-먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 그런 다음, **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
+먼저, Azure CLI 버전 2.0 이상이 설치되어 있는지 확인 합니다. [설치 프로그램을 다운로드합니다](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). **Windows + X**를 선택한 다음, 관리자 권한으로 새 PowerShell 콘솔을 엽니다. 또는 Azure Portal 내에서 명령 셸을 사용할 수 있습니다.
 
 다음 코드를 실행합니다.
 
  ```azurecli-interactive
 az login
 
-az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+az account set -s "<Azure subscription name>"
 
-$namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
+namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name "<service bus namespace>" --resource-group "<resource group that contains the service bus namespace>" --query id --output tsv
 
-az eventgrid event-subscription create --resource-id $namespaceid --name “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” --endpoint “<your_function_url>” --subject-ends-with “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
+
+BASH를 사용 하는 경우 
 
 ## <a name="powershell-instructions"></a>PowerShell 지침
 
@@ -168,7 +161,7 @@ Install-Module Az.ServiceBus
 $NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
 mespaceName "<YOUR NAMESPACE NAME>").Id
 
-New-AzEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
 여기서 다른 설치 옵션을 살펴볼 수도 있고 해당 이벤트가 흐르고 있는지 테스트할 수도 있습니다.
@@ -182,8 +175,8 @@ New-AzEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPT
 * [Service Bus](https://docs.microsoft.com/azure/service-bus/)에 대한 자세히 알아봅니다.
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
-[19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png
+[mb]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png
 [8]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid8.png
 [9]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid9.png
 [20]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgridportal.png
-[21]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgridportal2.png
+[일]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgridportal2.png

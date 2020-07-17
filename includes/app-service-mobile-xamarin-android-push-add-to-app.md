@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 3ced8c9fdadf547ec234c6d1bd5f3ddb8af7bc05
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816233"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "67182710"
 ---
 1. `ToDoBroadcastReceiver`(이)라는 프로젝트에서 새 클래스를 만듭니다.
 2. **ToDoBroadcastReceiver** 클래스에 다음 using 문을 추가합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "42816233"
     }
     ```
 
-    위의 코드에서 Google 개발자 포털에서 앱을 프로비전할 때 Google에서 할당한 프로젝트 번호로 *`<PROJECT_NUMBER>`* 을(를) 바꿉니다. 
+    위의 코드에서는 Google 개발자 *`<PROJECT_NUMBER>`* 포털에서 앱을 프로비전할 때 Google에서 할당한 프로젝트 번호로 바꿔야 합니다. 
 
 5. ToDoBroadcastReceiver.cs 프로젝트 파일에서 **PushHandlerService** 클래스를 정의하는 다음 코드를 추가합니다.
 

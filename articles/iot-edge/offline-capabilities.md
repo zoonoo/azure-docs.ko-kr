@@ -2,77 +2,74 @@
 title: 디바이스 오프라인으로 작동 - Azure IoT Edge | Microsoft Docs
 description: IoT Edge 디바이스 및 모듈을 인터넷 연결 없이 오프라인으로 더 오래 작동하는 방법과 IoT Edge를 사용하여 일반 IoT 디바이스를 오프라인으로 작동하는 방법을 이해합니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 01/30/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148110"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725247"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 장치, 모듈 및 자식 장치에 대 한 확장 된 오프 라인 기능 이해
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 디바이스, 모듈 및 자식 디바이스용 확장 오프라인 기능을 이해합니다.
 
-Azure IoT Edge는 IoT Edge 디바이스에서 확장된 오프라인 작업을 지원하고, 비 Edge 자식 디바이스에서도 오프라인 작업을 지원합니다. IoT Edge 디바이스를 IoT Hub에 연결할 수 있는 한, 해당 디바이스 및 자식 디바이스는 일시적으로 인터넷에 연결하여 또는 인터넷 연결 없이 계속 작동할 수 있습니다. 
-
+Azure IoT Edge는 IoT Edge 디바이스에서 확장된 오프라인 작업을 지원하고, 비 IoT Edge 자식 디바이스에서도 오프라인 작업을 지원합니다. IoT Edge 디바이스를 IoT Hub에 연결할 수 있는 한, 해당 디바이스 및 자식 디바이스는 일시적으로 인터넷에 연결하여 또는 인터넷 연결 없이 계속 작동할 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
-IoT Edge 디바이스가 오프라인으로 전환되면 IoT Edge 허브는 세 가지 역할을 맡습니다. 첫째, 업스트림으로 이동하는 모든 메시지를 저장하고 디바이스가 다시 연결될 때까지 보관합니다. 둘째, 모듈 및 자식 디바이스가 계속 작동할 수 있도록 IoT Hub를 대신하여 모듈 및 자식 디바이스를 인증합니다. 셋째, 일반적으로 IoT Hub를 통과하는 자식 디바이스 간 통신을 지원합니다. 
+IoT Edge 디바이스가 오프라인으로 전환되면 IoT Edge 허브는 세 가지 역할을 맡습니다. 첫째, 업스트림으로 이동하는 모든 메시지를 저장하고 디바이스가 다시 연결될 때까지 보관합니다. 둘째, 모듈 및 자식 디바이스가 계속 작동할 수 있도록 IoT Hub를 대신하여 모듈 및 자식 디바이스를 인증합니다. 셋째, 일반적으로 IoT Hub를 통과하는 자식 디바이스 간 통신을 지원합니다.
 
 다음 예제에서는 오프라인 모드에서 작동하는 IoT Edge 시나리오를 보여줍니다.
 
-1. **IoT Edge 디바이스를 구성합니다.**
+1. **디바이스 구성**
 
-   IoT Edge 디바이스는 자동으로 오프라인 기능이 설정됩니다. 이 기능을 다른 IoT 디바이스로 확장하려면 IoT Hub의 디바이스 간에 부모-자식 관계를 선언해야 합니다. 
+   IoT Edge 디바이스는 자동으로 오프라인 기능이 설정됩니다. 이 기능을 다른 IoT 디바이스로 확장하려면 IoT Hub의 디바이스 간에 부모-자식 관계를 선언해야 합니다. 그런 다음 할당된 부모 디바이스를 신뢰하도록 자식 디바이스를 구성하고 게이트웨이인 부모 디바이스를 통해 디바이스-클라우드 통신을 라우팅합니다.
 
-2. **IoT Hub와 동기화합니다.**
+2. **IoT Hub와 동기화**
 
-   적어도 IoT Edge 런타임을 설치한 후 IoT Edge 디바이스를 온라인에 연결하여 IoT Hub와 동기화해야 합니다. 이 동기화에서 IoT Edge 디바이스는 할당된 모든 자식 디바이스에 대한 세부 정보를 얻습니다. 또한 IoT Edge 디바이스는 오프라인 작업을 사용하도록 설정하고 원격 분석 메시지의 로컬 저장소에 대한 설정을 검색하도록 로컬 캐시를 안전하게 업데이트합니다. 
+   적어도 IoT Edge 런타임을 설치한 후 IoT Edge 디바이스를 온라인에 연결하여 IoT Hub와 동기화해야 합니다. 이 동기화에서 IoT Edge 디바이스는 할당된 모든 자식 디바이스에 대한 세부 정보를 얻습니다. 또한 IoT Edge 디바이스는 오프라인 작업을 사용하도록 설정하고 원격 분석 메시지의 로컬 스토리지에 대한 설정을 검색하도록 로컬 캐시를 안전하게 업데이트합니다.
 
-3. **오프라인으로 전환합니다.**
+3. **오프라인으로 전환**
 
-   IoT Hub와의 연결이 끊어진 동안 IoT Edge 디바이스, 배포된 모듈 및 자식 IoT 디바이스는 무기한 작동할 수 있습니다. 모듈과 자식 디바이스는 오프라인 상태에서 IoT Edge 허브로 인증하여 시작 및 다시 시작할 수 있습니다. IoT Hub에 업스트림 바인딩된 원격 분석 데이터는 로컬로 저장됩니다. 모듈 간 통신 또는 자식 IoT 디바이스 간 통신은 직접 메서드 또는 메시지를 통해 유지됩니다. 
+   IoT Hub와의 연결이 끊어진 동안 IoT Edge 디바이스, 배포된 모듈 및 자식 IoT 디바이스는 무기한 작동할 수 있습니다. 모듈과 자식 디바이스는 오프라인 상태에서 IoT Edge 허브로 인증하여 시작 및 다시 시작할 수 있습니다. IoT Hub에 업스트림 바인딩된 원격 분석 데이터는 로컬로 저장됩니다. 모듈 간 통신 또는 자식 IoT 디바이스 간 통신은 직접 메서드 또는 메시지를 통해 유지됩니다.
 
-4. **IoT Hub와 다시 연결하고 다시 동기화합니다.**
+4. **IoT Hub와 다시 연결하고 다시 동기화**
 
-   IoT Hub와의 연결이 복원되면 IoT Edge 디바이스가 다시 동기화됩니다. 로컬에 저장된 메시지는 저장된 순서대로 전달됩니다. 모듈 및 디바이스의 desired 속성과 reported 속성 간 차이가 조정됩니다. IoT Edge 디바이스는 할당된 자식 IoT 디바이스에 변경 내용을 업데이트합니다.
+   IoT Hub와의 연결이 복원되면 IoT Edge 디바이스가 다시 동기화됩니다. 로컬로 저장된 메시지는 IoT Hub로 즉시 전달되지만 연결 속도, IoT Hub 대기 시간 및 관련 요인에 따라 달라집니다. 저장된 순서와 동일한 순서로 전달됩니다.
+
+   모듈 및 디바이스의 desired 속성과 reported 속성 간 차이가 조정됩니다. IoT Edge 디바이스는 할당된 자식 IoT 디바이스에 변경 내용을 업데이트합니다.
 
 ## <a name="restrictions-and-limits"></a>제한 사항 및 제한
 
-이 문서에서 설명한 확장된 오프라인 기능은 [IoT Edge 버전 1.0.4 이상](https://github.com/Azure/azure-iotedge/releases)에서 사용할 수 있습니다. 이보다 낮은 버전은 오프라인 기능 집합을 갖고 있습니다. 확장된 오프라인 기능이 없는 기존 IoT Edge 디바이스는 런타임 버전을 변경하여 업그레이드할 수 없지만, 새 IoT Edge 디바이스 ID를 사용하여 이러한 기능을 획득하도록 다시 구성해야 합니다. 
+이 문서에서 설명한 확장된 오프라인 기능은 [IoT Edge 버전 1.0.7 이상](https://github.com/Azure/azure-iotedge/releases)에서 사용할 수 있습니다. 이보다 낮은 버전은 오프라인 기능 집합을 갖고 있습니다. 확장된 오프라인 기능이 없는 기존 IoT Edge 디바이스는 런타임 버전을 변경하여 업그레이드할 수 없지만, 새 IoT Edge 디바이스 ID를 사용하여 이러한 기능을 획득하도록 다시 구성해야 합니다.
 
-확장된 오프라인 지원은 IoT Hub를 사용할 수 있는 모든 지역(미국 동부 지역 **제외**)에서 사용할 수 있습니다.
+비 IoT Edge 디바이스는 오직 한 대만 자식 디바이스로 추가할 수 있습니다.
 
-비 Edge IoT 디바이스는 오직 한 대만 자식 디바이스로 추가할 수 있습니다. 
+IoT Edge 디바이스 및 할당된 자식 디바이스는 초기 일회성 동기화 후 오프라인으로 무기한 작동할 수 있습니다. 그러나 메시지 스토리지는 TTL(Time to Live) 및 메시지 저장에 사용 가능한 디스크 공간에 따라 달라집니다.
 
-IoT Edge 디바이스 및 할당된 자식 디바이스는 초기 일회성 동기화 후 오프라인으로 무기한 작동할 수 있습니다. 그러나 메시지 저장소는 TTL(Time to Live) 및 메시지 저장에 사용 가능한 디스크 공간에 따라 달라집니다. 
+## <a name="set-up-parent-and-child-devices"></a>부모 및 자식 디바이스 설정
 
-## <a name="set-up-an-iot-edge-device"></a>IoT Edge 디바이스 설정
-
-IoT Edge 디바이스의 확장된 오프라인 기능을 자식 IoT 디바이스로 확장하려면 Azure Portal에서 부모-자식 관계를 선언해야 합니다.
+확장된 오프라인 기능을 자식 IoT 디바이스로 확장하는 IoT Edge 디바이스의 경우 두 단계를 완료해야 합니다. 먼저 Azure Portal에서 부모-자식 관계를 선언합니다. 두 번째로 부모 디바이스와 모든 자식 디바이스 간에 트러스트 관계를 만든 다음 디바이스-클라우드 통신을 게이트웨이인 부모 디바이스를 통해 이동하도록 구성합니다.
 
 ### <a name="assign-child-devices"></a>자식 디바이스 할당
 
-동일한 IoT Hub에 등록된 모든 비 Edge 디바이스는 자식 디바이스가 될 수 있습니다. 부모 디바이스는 여러 자식 디바이스를 가질 수 있지만, 자식 디바이스는 한 부모만 가질 수 있습니다. Edge 장치에 자식 장치를 설정 하는 방법은 세 가지가 있습니다.
+동일한 IoT Hub에 등록된 모든 비 IoT Edge 디바이스는 자식 디바이스가 될 수 있습니다. 부모 디바이스는 여러 자식 디바이스를 가질 수 있지만, 자식 디바이스는 한 부모만 가집니다. 에지 디바이스에 대한 자식 디바이스를 설정하는 옵션으로 Azure Portal, Azure CLI 또는 IoT Hub 서비스 SDK를 사용하는 세 가지 옵션이 있습니다.
 
-#### <a name="option-1-iot-hub-portal"></a>옵션 1: IoT Hub 포털로
+다음 섹션에서는 기존 IoT 디바이스의 IoT Hub에서 부모/자식 관계를 선언하는 방법에 대한 예를 제공합니다. 자식 디바이스에 대한 새 디바이스 ID를 만드는 경우 자세한 내용은 [Azure IoT Hub에 다운스트림 디바이스 인증](how-to-authenticate-downstream-device.md)을 참조하세요.
 
- 새 디바이스를 만들 때나 부모 IoT Edge 디바이스 또는 자식 IoT 디바이스의 디바이스 세부 정보 페이지에서 부모-자식 관계를 관리할 수 있습니다. 
+#### <a name="option-1-iot-hub-portal"></a>옵션 1: IoT Hub 포털
+
+새 디바이스를 만들 때 부모-자식 관계를 선언할 수 있습니다. 또는 기존 디바이스의 경우 부모 IoT Edge 디바이스 또는 자식 IoT 디바이스의 디바이스 세부 정보 페이지에서 관계를 선언할 수 있습니다.
 
    ![IoT Edge 디바이스 세부 정보 페이지에서 자식 디바이스 관리](./media/offline-capabilities/manage-child-devices.png)
 
+#### <a name="option-2-use-the-az-command-line-tool"></a>옵션 2: `az` 명령줄 도구를 사용하세요.
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>옵션 2: 사용 된 `az` 명령줄 도구
+[IoT 확장](https://github.com/azure/azure-iot-cli-extension)(v 0.7.0 이상)에서 [Azure 명령줄 인터페이스](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용하면 [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) 하위 명령으로 부모 자식 관계를 관리할 수 있습니다. 아래 예에서는 쿼리를 사용하여 허브에 있는 모든 비 IoT Edge 디바이스를 IoT Edge 디바이스의 자식 디바이스로 할당합니다.
 
-사용 하 여는 [Azure 명령줄 인터페이스](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 사용 하 여 [IoT 확장](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 이상)를 사용 하 여 부모 자식 관계를 관리할 수 있습니다 합니다 [장치 id](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) 하위 명령을 합니다. 아래 예제에서는 IoT Edge 장치의 자식 장치로 아닌 모든 IoT Edge 허브에서 장치를 할당 하려면 쿼리를 실행 합니다. 
-
-```shell
+```azurecli
 # Set IoT Edge parent device
 egde_device="edge-device1"
 
@@ -90,28 +87,39 @@ az iot hub device-identity add-children \
   --child-list $device_list \
   --hub-name replace-with-hub-name \
   --resource-group replace-with-rg-name \
-  --subscription replace-with-sub-name 
+  --subscription replace-with-sub-name
 ```
 
-수정할 수 있습니다 합니다 [쿼리](../iot-hub/iot-hub-devguide-query-language.md) 장치의 다른 하위 집합을 선택 합니다. 이 명령은 다양 한 장치를 지정 하는 경우 몇 초 정도 걸릴 수 있습니다.
+[쿼리](../iot-hub/iot-hub-devguide-query-language.md)를 수정하여 다른 디바이스의 하위 집합을 선택할 수 있습니다. 대량의 디바이스 집합을 지정하는 경우 이 명령은 몇 초 정도 소요될 수 있습니다.
 
-#### <a name="option-3-use-iot-hub-service-sdk"></a>옵션 3: IoT Hub 서비스 SDK를 사용 합니다. 
+#### <a name="option-3-use-iot-hub-service-sdk"></a>옵션 3: IoT Hub 서비스 SDK 사용
 
-마지막으로 사용 하 여 프로그래밍 방식으로 부모 자식 관계를 관리할 수 있습니다 C#, Java 또는 Node.js IoT Hub 서비스 SDK. 다음은 [자식 장치를 할당 하는 예제](https://aka.ms/set-child-iot-device-c-sharp) 를 사용 하 여는 C# SDK.
+마지막으로 C#, Java 또는 Node.js IoT Hub 서비스 SDK를 사용하여 프로그래밍 방식으로 부모 자식 관계를 관리할 수 있습니다. 다음은 C# SDK를 사용하여 [자식 디바이스를 할당하는 예](https://aka.ms/set-child-iot-device-c-sharp)입니다.
 
-### <a name="specifying-dns-servers"></a>DNS 서버 지정 
+### <a name="set-up-the-parent-device-as-a-gateway"></a>부모 디바이스를 게이트웨이로 설정
 
-견고성을 향상 시키려면 사용자 환경에서 사용할 DNS 서버 주소를 지정할 것이 좋습니다. 하십시오 합니다 [문제 해결 문서에서이 작업을 수행 하는 두 가지](troubleshoot.md#resolution-7)합니다.
+부모/자식 관계를 투명 게이트웨이로 간주할 수 있습니다. 여기서 자식 디바이스는 IoT Hub에서 자체 ID를 갖지만 부모 디바이스를 거쳐 클라우드를 통해 통신합니다. 안전한 통신을 위해 자식 디바이스는 부모 디바이스가 신뢰할 수 있는 원본에서 온 것임을 확인할 수 있어야 합니다. 그렇지 않으면 제3자가 악성 디바이스를 설정하여 부모 디바이스로 가장하고 통신을 가로챌 수 있습니다.
+
+이 트러스트 관계를 만드는 한 가지 방법은 다음 문서에 자세히 설명되어 있습니다.
+
+* [IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성](how-to-create-transparent-gateway.md)
+* [다운스트림(자식) 디바이스를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)
+
+## <a name="specify-dns-servers"></a>DNS 서버 지정
+
+견고성을 향상시키려면 환경에서 사용되는 DNS 서버 주소를 지정하는 것이 좋습니다. IoT Edge에 대한 DNS 서버를 설정하려면 문제 해결 문서의 [Edge 에이전트 모듈이 지속적으로 '빈 구성 파일'을 보고하고 디바이스에서 모듈이 시작되지 않음](troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device)을 참조하세요.
 
 ## <a name="optional-offline-settings"></a>선택적 오프라인 설정
 
-디바이스가 오랜 오프라인 기간 동안 생성한 모든 메시지를 수집하려면 모든 메시지를 저장할 수 있도록 IoT Edge 허브를 구성합니다. 장기 메시지 스토리지를 사용하도록 IoT Edge 허브를 변경하는 두 가지 방법이 있습니다. 첫째, TTL(Time to live) 설정을 늘립니다. 그런 다음, 메시지 스토리지에 대한 추가 디스크 공간을 추가합니다. 
+디바이스가 오프라인으로 전환되는 경우 연결이 다시 설정될 때까지 IoT Edge 부모 디바이스에서 모든 디바이스-클라우드 메시지를 저장합니다. IoT Edge 허브 모듈은 오프라인 메시지의 저장 및 전달을 관리합니다. 오랜 시간 동안 오프라인 상태가 될 수 있는 디바이스의 경우 두 가지 IoT Edge 허브 설정을 구성하여 성능을 최적화합니다.
+
+먼저 IoT Edge 허브가 디바이스를 다시 연결하는 데 충분한 시간 동안 메시지를 유지할 수 있도록 TTL(TIme to live) 설정을 늘립니다. 그런 다음, 메시지 스토리지에 대한 추가 디스크 공간을 추가합니다.
 
 ### <a name="time-to-live"></a>TTL(Time to live)
 
-TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 있는 시간의 양(초)입니다. 기본값은 7200초(2시간)입니다. 최 댓 값 약 2 십억 인 정수 변수의 최대값에 의해서만 제한 됩니다. 
+TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 있는 시간의 양(초)입니다. 기본값은 7200초(2시간)입니다. 최댓값은 정수 변수의 최댓값(약 20억)에 의해서만 제한됩니다.
 
-이 설정은 모듈 쌍에 저장되는 IoT Edge 허브의 desired 속성입니다. Azure Portal의 **고급 Edge 런타임 설정 구성** 섹션에서 또는 배포 매니페스트에서 직접 구성할 수 있습니다. 
+이 설정은 모듈 쌍에 저장되는 IoT Edge 허브의 desired 속성입니다. Azure Portal 또는 배포 매니페스트에서 직접 구성할 수 있습니다.
 
 ```json
 "$edgeHub": {
@@ -125,44 +133,14 @@ TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 �
 }
 ```
 
-### <a name="additional-offline-storage"></a>추가 오프라인 저장소
+### <a name="host-storage-for-system-modules"></a>시스템 모듈의 호스트 스토리지
 
-기본적으로 메시지는 IoT Edge 허브의 컨테이너 파일 시스템에 저장됩니다. 저장소가 오프라인 요구 사항을 처리하기에 충분하지 않은 경우 IoT Edge 디바이스의 로컬 저장소를 전용으로 사용할 수 있습니다. 컨테이너의 스토리지 폴더를 가리키는 IoT Edge 허브에 대한 환경 변수를 만듭니다. 그런 다음, 만들기 옵션을 사용하여 해당 저장소 폴더를 호스트 머신의 폴더에 바인딩합니다. 
-
-**고급 Edge 런타임 설정 구성** 섹션에서 Azure Portal의 IoT Edge 허브 모듈에 대한 환경 변수 및 만들기 옵션을 구성할 수 있습니다. 또는 배포 매니페스트에서 직접 구성할 수도 있습니다. 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": {
-            "HostConfig": {
-                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
-                "PortBindings": {
-                    "8883/tcp": [{"HostPort":"8883"}],
-                    "443/tcp": [{"HostPort":"443"}],
-                    "5671/tcp": [{"HostPort":"5671"}]
-                }
-            }
-        }
-    },
-    "env": {
-        "storageFolder": {
-            "value": "<ModuleStoragePath>"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
-
-`<HostStoragePath>` 및 `<ModuleStoragePath>`를 호스트 및 모듈 저장소 경로로 바꿉니다. 호스트 및 모듈 저장소 경로는 모두 절대 경로여야 합니다. 만들기 옵션에서 호스트 및 모듈 스토리지 경로를 함께 바인딩합니다. 그런 다음, 모듈 스토리지 경로를 가리키는 환경 변수를 만듭니다.  
-
-예를 들어 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]`는 컨테이너에서 **/iotedge/storage/** 디렉터리에 매핑된 사용자의 호스트 시스템의 **/etc/iotedge/storage** 디렉터리를 의미합니다. 또는 Windows 시스템에 대한 또 다른 예로 `"Binds":["C:\\temp:C:\\contemp"]`는 컨테이너에서 **C:\\contemp** 디렉터리에 매핑된 사용자의 호스트 시스템의 **C:\\temp** 디렉터리를 의미합니다. 
-
-또한 [docker 문서](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)에서 만들기 옵션에 대한 자세한 세부 정보를 찾을 수 있습니다.
+메시지 및 모듈 상태 정보는 기본적으로 IoT Edge 허브의 로컬 컨테이너 파일 시스템에 저장됩니다. 특히 오프라인으로 작업하는 경우 안정성을 높이기 위해 호스트 IoT Edge 디바이스에 전용 스토리지를 지정할 수 있습니다. 자세한 내용은 [모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여](how-to-access-host-storage-from-module.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[투명한 게이트웨이](how-to-create-transparent-gateway.md) 시나리오에서 확장된 오프라인 작업을 사용하도록 설정합니다.
+부모/자식 디바이스 연결에 투명 게이트웨이를 설정하는 방법에 대해 자세히 알아봅니다.
+
+* [IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성](how-to-create-transparent-gateway.md)
+* [Azure IoT Hub에 다운스트림 디바이스 인증](how-to-authenticate-downstream-device.md)
+* [다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)

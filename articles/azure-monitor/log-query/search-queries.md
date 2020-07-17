@@ -1,32 +1,18 @@
 ---
 title: Azure Monitor 로그에서 쿼리 검색 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor 로그 쿼리에서 검색 사용을 시작하기 위한 자습서를 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/06/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
-ms.translationtype: MT
+ms.date: 08/06/2018
+ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77660243"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure Monitor 로그에서 쿼리 검색
-
-> [!NOTE]
-> 이 단원을 완료하기 전에 [Azure Monitor 로그 쿼리 시작](get-started-queries.md)을 완료해야 합니다.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Azure Monitor 로그 쿼리는 테이블 이름 또는 검색 명령을 사용하여 시작할 수 있습니다. 이 자습서는 검색 기반 쿼리를 다룹니다. 각 메서드에 대한 이점이 있습니다.
 
 테이블 기반 쿼리는 쿼리의 범위를 지정하여 시작하므로 검색 쿼리보다 효율적인 경향이 있습니다. 검색 쿼리는 덜 구조적이며 이로 인해 열 또는 테이블에서 특정 값을 검색할 때 더 좋은 선택입니다. **search**는 지정된 값에 대해 지정된 테이블 또는 모든 테이블에서 모든 열을 검색할 수 있습니다. 처리되는 데이터의 양은 매우 클 수 있으며 이는 이러한 쿼리를 완료하는 데 시간이 더 오래 걸릴 수 있는 이유이며 매우 큰 결과 집합을 반환할 수 있습니다.
@@ -56,7 +42,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>테이블 및 열 범위 지정
-기본적으로 **search**는 데이터 집합의 모든 열을 평가합니다. 특정 열만을 검색하려면 이 구문을 사용합니다.
+기본적으로 **search**는 데이터 집합의 모든 열을 평가합니다. 특정 열 (아래 예제에서는 명명 된 *원본* )만 검색 하려면 다음 구문을 사용 합니다.
 
 ```Kusto
 search in (Event) Source:"error"
@@ -64,7 +50,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> `:` 대신 `==`를 사용하는 경우 결과는 이 대/소문자 구분에서 *Source* 열에 정확한 값 "error"가 있는 레코드를 포함합니다. 사용 하 여 ':' 레코드를 포함 하는 위치 *소스* 값이 "오류 코드 404" 또는 "Error"입니다.
+> `:` 대신 `==`를 사용하는 경우 결과는 이 대/소문자 구분에서 *Source* 열에 정확한 값 "error"가 있는 레코드를 포함합니다. ': '을 사용 하는 경우 *원본* 에 "오류 코드 404" 또는 "오류"와 같은 값이 있는 레코드가 포함 됩니다.
 
 ## <a name="case-sensitivity"></a>대/소문자 구분
 기본적으로 용어 검색은 대/소문자를 구분하지 않으므로 "dns"를 검색하면 "DNS", "dns" 또는 "Dns"와 같은 결과가 발생할 수 있습니다. 대/소문자를 구분하여 검색하려면 `kind` 옵션을 사용합니다.

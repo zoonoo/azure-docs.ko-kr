@@ -1,5 +1,6 @@
 ---
-title: Azure PowerShell 샘플 | Microsoft Docs
+title: Azure PowerShell 샘플
+titleSuffix: Azure API Management
 description: Azure API Management에 사용 가능한 Azure PowerShell 스크립트에 대해 자세히 알아봅니다.
 services: api-management
 documentationcenter: ''
@@ -9,17 +10,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: a3e0300fdc2ce67d508f8caccbaa5fcbc37e2182
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34526c53757690353ff3756b12ad9f8a5250bb0c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859514"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75442318"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>API Management에 대한 Azure PowerShell 샘플
 

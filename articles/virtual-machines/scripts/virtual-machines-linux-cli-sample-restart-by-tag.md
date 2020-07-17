@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - VM 다시 시작 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - VM 다시 시작
 description: Azure CLI 스크립트 샘플 - 태그 및 ID로 VM 다시 시작
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
-editor: tysonn
+author: cynthn
+manager: gwallace
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: allclark
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 94845573461d99fda9318f303d822abb6ca3f257
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: cac918f369a10a8084cdc7d0c66d5c0c4c400cc2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751143"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81458542"
 ---
 # <a name="restart-vms"></a>VM 다시 시작
 
@@ -33,13 +32,13 @@ ms.locfileid: "55751143"
 
 첫 번째 방법에서는 리소스 그룹의 모든 VM을 다시 시작합니다.
 
-```bash
+```azurecli
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
 두 번째 방법에서는 `az resource list` 및 필터를 사용하여 태그가 지정된 VM을 리소스로 가져온 후 해당 VM을 다시 시작합니다.
 
-```bash
+```azurecli
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
@@ -77,7 +76,7 @@ az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Mic
 
 스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete -n myResourceGroup --no-wait --yes
 ```
 

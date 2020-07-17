@@ -1,90 +1,100 @@
 ---
-title: Azure Automation 개요
-description: Azure Automation을 사용하여 인프라 및 애플리케이션의 수명 주기를 자동화하는 방법을 알아봅니다.
+title: Azure Automation에 대한 소개
+description: 이 문서에서는 Azure Automation이 무엇인지와 이를 사용하여 인프라 및 애플리케이션의 수명 주기를 자동화하는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
-keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽
+keywords: Azure Automation, DSC, PowerShell, State Configuration, 업데이트 관리, 변경 내용 추적, DSC, 인벤토리, Runbook, Python, 그래픽
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434056"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186183"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
-Azure Automation은 Azure 및 비Azure 환경에서 일관된 관리를 제공하는 클라우드 기반 자동화 및 구성 서비스를 제공합니다. 프로세스 자동화, 업데이트 관리 및 구성 기능으로 구성됩니다. Azure Automation은 작업과 리소스의 배포, 조작 및 서비스 해제를 수행하는 동안 완벽한 제어를 제공합니다.
-이 문서에서는 Azure Automation에 대한 간단한 개요 및 몇 가지 일반적인 질문에 대한 답변을 제공합니다. 다양한 기능에 대한 자세한 내용은 이 개요의 링크를 방문하세요.
+Azure Automation은 Azure 및 Azure 이외의 환경에서 일관된 관리를 지원하는 클라우드 기반 자동화 및 구성 서비스를 제공하며, 프로세스 자동화, 구성 관리, 업데이트 관리, 공유 기능 및 이기종 기능으로 구성됩니다. Automation을 통해 워크로드와 리소스를 배포하고, 운영하고, 서비스를 해제하는 동안 완벽한 제어가 가능합니다.
 
-## <a name="azure-automation-capabilities"></a>Azure Automation 기능
+![Automation 기능](media/automation-overview/automation-overview.png)
 
-![Automation 기능 개요](media/automation-overview/automation-overview.png)
+## <a name="process-automation"></a>프로세스 Automation
 
-### <a name="process-automation"></a>프로세스 자동화
+Azure Automation의 프로세스 Automation을 사용하면 빈번하고, 시간이 오래 걸리고, 오류가 발생하기 쉬운 클라우드 관리 작업을 자동화할 수 있습니다. 이러한 서비스를 통해 비즈니스 가치를 높이는 작업에 집중할 수 있습니다. 또한 오류를 줄이고 효율성을 높여 운영 비용을 낮출 수 있습니다. 프로세스 자동화 운영 환경은 [Azure Automation에서 Runbook 실행](automation-runbook-execution.md)에 자세히 설명되어 있습니다.
 
-Azure Automation은 빈번하고, 시간 소모적이며, 오류가 발생하기 쉬운 클라우드 관리 작업을 자동화할 수 있는 기능을 제공합니다. 이 자동화를 사용하면 비즈니스 가치를 창출하는 작업에 집중할 수 있습니다. 또한 오류를 줄이고 효율성을 높여 운영 비용을 낮출 수 있습니다. Azure 서비스와 종단 간 프로세스를 배포, 구성 및 관리하는 데 필요한 다른 공용 시스템을 통합할 수 있습니다. 이 서비스를 사용하면 PowerShell 또는 Python에서 [Runbook을 그래픽으로 만들](automation-runbook-types.md) 수 있습니다. 하이브리드 Runbook 작업자를 사용하면 온-프레미스 환경에서 오케스트레이션하여 관리를 통합할 수 있습니다. [웹후크](automation-webhooks.md)는 ITSM, DevOps 및 모니터링 시스템에서 자동화를 트리거하여 요청을 수행하고 지속적인 업데이트 및 작업을 보장할 수 있는 방법을 제공합니다.
+프로세스 자동화는 Azure 서비스와 엔드투엔드 프로세스를 배포, 구성 및 관리하는 데 필요한 다른 공용 시스템을 통합하도록 지원합니다. 이 서비스를 사용하면 PowerShell에서 또는 Python을 사용하여 그래픽으로 [Runbook](automation-runbook-types.md)을 만들 수 있습니다. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 사용하면 온-프레미스 환경 전체에서 오케스트레이션하여 관리를 통합할 수 있습니다. [웹후크](automation-webhooks.md)를 사용하면 ITSM, DevOps 및 모니터링 시스템에서 자동화를 트리거하여 요청을 수행하고 지속적인 업데이트 및 작업을 보장할 수 있습니다. 
 
-### <a name="configuration-management"></a>구성 관리
+## <a name="configuration-management"></a>구성 관리
 
-Azure Automation [DSC(Desired State Configuration)](automation-dsc-overview.md)는 엔터프라이즈 환경에 필요한 서비스를 제공하는 PowerShell DSC에 대한 클라우드 기반 솔루션입니다. Azure Automation에서 DSC 리소스를 관리하고 Azure 클라우드의 DSC 끌어오기 서버에서 가상 또는 실제 머신에 구성을 적용합니다. 노드가 할당된 구성에서 벗어난 경우와 같이 중요한 이벤트를 알려주는 풍부한 보고서를 제공합니다. 클라우드 또는 온-프레미스의 실제 및 가상 머신, Windows 또는 Linux에서 컴퓨터 구성을 모니터링하고 자동으로 업데이트할 수 있습니다.
+Azure Automation의 구성 관리를 통해 다음과 같은 두 가지 기능에 액세스할 수 있습니다.
 
-설치된 애플리케이션 및 다른 구성 항목에 대한 가시성을 위해 게스트 내 리소스에 대한 인벤토리를 가져올 수 있습니다. 풍부한 보고 및 검색 기능을 사용하여 운영 체제 내에 구성된 설정을 이해하는 데 도움이 되는 자세한 정보를 빠르게 찾을 수 있습니다. 서비스, 디먼, 소프트웨어, 레지스트리 및 파일의 변경 내용을 추적하여 문제의 원인을 빠르게 식별할 수 있습니다. 또한 DSC를 사용하면 환경에서 원하지 않는 변경이 발생한 경우를 진단하고 경고할 수 있습니다.
+* 변경 내용 추적 및 인벤토리
+* Azure Automation 상태 구성
 
-### <a name="update-management"></a>업데이트 관리
+### <a name="change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리
 
-Azure Automation을 사용하여 하이브리드 환경에서 Windows 및 Linux 시스템을 업데이트합니다. Azure, 온-프레미스 및 기타 클라우드에서 업데이트 준수에 대한 가시성을 얻을 수 있습니다. 정의된 유지 관리 기간 내에서 업데이트 설치를 오케스트레이션하기 위한 배포 일정을 만들 수 있습니다. 업데이트를 컴퓨터에 설치하지 않는 경우 해당 업데이트를 배포에서 제외할 수 있습니다.
+변경 내용 추적 및 인벤토리는 변경 추적 및 인벤토리 기능을 결합하여 가상 머신 및 서버 인프라 변경 내용을 추적할 수 있도록 합니다. 이 서비스는 사용자 환경에서 서비스, 디먼, 소프트웨어, 레지스트리 및 파일에 변경한 내용을 추적하는 기능을 지원하기 때문에 원하지 않는 변경 내용을 진단하고 경고를 생성할 수 있습니다. 인벤토리 지원을 사용하면 게스트 내 리소스를 쿼리하여 설치된 애플리케이션 및 기타 구성 항목을 볼 수 있습니다. 이 기능에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리](change-tracking.md)를 참조하세요.
 
-### <a name="shared-resources"></a>공유 리소스
+### <a name="azure-automation-state-configuration"></a>Azure Automation 상태 구성
+
+[Azure Automation State Configuration](automation-dsc-overview.md)은 엔터프라이즈 환경에 필요한 서비스를 제공하는 PowerShell DSC(Desired State Configuration)에 대한 클라우드 기반 기능입니다. 이 기능을 사용하면 Azure Automation에서 DSC 리소스를 관리하고 Azure 클라우드의 DSC 끌어오기 서버에서 가상 머신이나 실제 머신에 구성을 적용할 수 있습니다. 
+
+## <a name="update-management"></a>업데이트 관리
+
+Azure Automation에는 하이브리드 환경의 Windows 및 Linux 시스템용 [업데이트 관리](automation-update-management.md) 기능이 포함되어 있습니다. 업데이트 관리는 Azure와 기타 클라우드 및 온-프레미스에서 업데이트 규정 준수에 대한 가시성을 제공합니다. 이 기능을 사용하면 정의한 유지 관리 기간 내에 업데이트 설치를 오케스트레이션하는 예약된 배포를 만들 수 있습니다. 특정 머신에 업데이트를 설치하지 않아야 하는 경우에는 업데이트 관리 기능을 사용하여 배포에서 제외할 수 있습니다.
+
+## <a name="shared-capabilities"></a>공유 기능
+
+Azure Automation은 다양한 공유 기능을 제공하며, 여기에는 공유 리소스, 역할 기반 액세스 제어, 유연한 일정 예약, 소스 제어 통합, 감사 및 태그 지정 기능이 포함됩니다.
+
+### <a name="shared-resources"></a><a name="shared-resources"></a>공유 리소스
 
 Azure Automation은 대규모 환경을 더 쉽게 자동화하고 구성할 수 있게 하는 일단의 공유 리소스로 구성됩니다.
 
-* **[일정](automation-schedules.md)** - 미리 정의된 시간에 자동화를 트리거하기 위해 서비스에서 사용됩니다.
-* **[모듈](automation-integration-modules.md)** - 모듈은 Azure 및 다른 시스템을 관리하는 데 사용됩니다. Microsoft, 타사, 커뮤니티 또는 정의된 사용자 지정 cmdlet 및 DSC 리소스를 Automation 계정으로 가져옵니다.
-* **[모듈 갤러리](automation-runbook-gallery.md)** - Runbook을 보고 Automation 계정으로 가져오기 위한 PowerShell 갤러리의 네이티브 통합입니다.
-* **[Python 2 패키지](python-packages.md)** - Python Runbook에서 사용할 Automation 계정에 Python 2 패키지를 추가합니다.
-* **[자격 증명](automation-credentials.md)** - 런타임에 Runbook 및 구성에서 사용할 수 있는 중요한 정보를 안전하게 저장합니다.
-* **[연결](automation-connections.md)** - 연결 리소스의 시스템에 연결할 때 일반 정보가 포함된 정보의 이름/값 쌍을 저장합니다. 연결은 런타임에 사용하기 위해 모듈 작성자가 Runbook 및 구성에 정의합니다.
-* **[인증서](automation-certificates.md)** - 런타임에 저장하고 사용할 수 있으므로 인증 및 배포된 리소스의 보호에 사용할 수 있습니다.
-* **[변수](automation-variables.md)** - Runbook 및 구성에서 사용할 수 있는 콘텐츠를 보관하는 방법을 제공합니다. Runbook과 이를 참조하는 구성을 수정하지 않고도 값을 변경할 수 있습니다.
-
-### <a name="source-control-integration"></a>소스 제어 통합
-
-Azure Automation에는 Runbook 또는 구성이 원본 제어 시스템에 체크 인될 수 있는 코드로 구성을 승격하는 [원본 제어와 통합](source-control-integration.md) 기능이 있습니다.
+* **[일정](./shared-resources/schedules.md)** - 미리 정의한 시간에 자동화 작업을 트리거합니다.
+* **[모듈](./shared-resources/modules.md)** - Azure 및 기타 시스템을 관리합니다. Microsoft, 타사, 커뮤니티, 사용자 정의 cmdlet 및 DSC 리소스에 대한 Automation 계정으로 모듈을 가져올 수 있습니다.
+* **[모듈 갤러리](automation-runbook-gallery.md)** - PowerShell 갤러리와 네이티브 통합을 지원하기 때문에 Runbook을 볼 수 있고 Automation 계정으로 가져올 수 있습니다. 갤러리를 사용하면 PowerShell 갤러리 및 Microsoft 스크립트 센터에서 프로세스를 빠르게 통합하고 제작할 수 있습니다.
+* **[Python 2 패키지](python-packages.md)** - Automation 계정에 대해 Python 2 Runbook을 지원합니다.
+* **[자격 증명](./shared-resources/credentials.md)** - Runbook 및 구성이 런타임 시 사용할 수 있는 중요한 정보를 안전하게 저장합니다.
+* **[연결](automation-connections.md)** - 시스템 연결을 위한 공통 정보의 이름 값 쌍을 저장합니다. 런타임 시 사용할 Runbook 및 구성의 연결은 모듈 작성자가 정의합니다.
+* **[인증서](./shared-resources/certificates.md)** - 런타임 시 Runbook 또는 DSC 구성이 액세스하는 경우 배포된 리소스을 보호하고 인증하는 데 사용되는 정보를 정의합니다. 
+* **[변수](./shared-resources/variables.md)** - Runbook 및 구성 전체에서 사용할 수 있는 콘텐츠를 보관합니다. Runbook과 이를 참조하는 구성을 수정하지 않고도 변수 값을 변경할 수 있습니다.
 
 ### <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-Azure Automation은 Automation 계정 및 해당 리소스의 액세스를 제어하는 역할 기반 액세스 제어를 지원합니다. Automation 계정, Runbook 및 작업의 구성 RBAC를 자세히 알아보려면 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
+Azure Automation은 RBAC(역할 기반 액세스 제어)를 지원하여 자동화 계정 및 해당 리소스에 대한 액세스를 제어합니다. Automation 계정, Runbook 및 작업에서 RBAC를 구성하는 방법을 자세히 알아보려면 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
 
-### <a name="windows-and-linux"></a>Windows 및 Linux
+### <a name="source-control-integration"></a>소스 제어 통합
 
-Azure Automation은 하이브리드 클라우드 환경과 Windows 및 Linux에서도 작동하도록 설계되었습니다. 배포된 작업 및 실행 중인 운영 체제를 일관되게 자동화하고 구성하는 방법을 제공합니다.
+Azure Automation은 [소스 제어 통합](source-control-integration.md)을 지원합니다. 이 기능은 구성을 코드로 승격하며, 이렇게 하면 Runbook 또는 구성을 소스 제어 시스템에 체크인할 수 있습니다.
 
-### <a name="community-gallery"></a>커뮤니티 갤러리
+## <a name="heterogeneous-support-windows-and-linux"></a>이기종 지원(Windows 및 Linux)
 
-Runbook 및 모듈에 대한 [Automation 갤러리](automation-runbook-gallery.md)를 탐색하여 PowerShell 갤러리 및 Microsoft 스크립트 센터에서 프로세스를 빠르게 통합하고 제작할 수 있습니다.
+Automation은 하이브리드 클라우드 환경과 Windows 및 Linux 시스템에서도 작동하도록 설계되었습니다. 배포된 워크로드와 워크로드를 실행하는 운영 체제를 자동화하고 구성하는 일관된 방법을 제공합니다.
 
 ## <a name="common-scenarios-for-automation"></a>일반적인 자동화 시나리오
 
-Azure Automation은 인프라와 애플리케이션의 수명 주기 전체를 관리합니다. 조직에서 작업을 제공하고 유지 관리하는 방법에 대한 지식을 시스템에 전송합니다. PowerShell, DSC(Desired State Configuration), Python 및 그래픽 Runbook과 같은 공용 언어로 작성합니다. 대상 지정, 보고 및 준수를 위해 배포되는 리소스에 대한 전체 인벤토리를 가져옵니다. 잘못된 구성이 발생하고 운영 준수를 향상시킬 수 있는 변경 내용을 식별합니다.
+Azure Automation은 인프라와 애플리케이션의 수명 주기 전반에 걸친 관리를 지원합니다. 일반적인 시나리오는 다음과 같습니다.
 
-* **리소스 빌드/배포** - Runbook 및 Azure Resource Manager 템플릿을 사용하여 하이브리드 환경에서 VM을 배포합니다. Jenkins 및 Azure DevOps와 같은 개발 도구에 통합합니다.
-* **VM 구성** - 인프라 및 애플리케이션에 대해 원하는 구성을 사용하여 Windows 및 Linux 컴퓨터를 평가하고 구성합니다.
-* **모니터** - 문제의 원인이 되는 컴퓨터의 변경 내용을 식별하고 관리 시스템으로 수정하거나 에스컬레이션합니다.
-* **보호** - 보안 경고가 발생하면 VM을 격리합니다. 게스트 내 요구 사항을 설정합니다.
-* **제어** - 팀에 대한 역할 기반 액세스 제어를 설정합니다. 사용되지 않는 리소스를 복구합니다.
+* **Runbook 작성** - PowerShell, PowerShell Workflow, 그래픽, Python 2 및 DSC Runbook을 공용 언어로 작성합니다. 
+* **리소스 빌드 및 배포** - Runbook 및 Azure Resource Manager 템플릿을 사용하여 하이브리드 환경 전반에 가상 머신을 배포합니다. Jenkins 및 Azure DevOps와 같은 개발 도구에 통합합니다.
+* **VM 구성** - 인프라 및 애플리케이션에 대해 구성을 사용하여 Windows 및 Linux 머신을 평가하고 구성합니다.
+* **지식 공유** - 조직에서 워크로드를 제공하고 유지 관리하는 방법에 대한 지식을 시스템에 전달합니다. 
+* **인벤토리 검색** - 배포된 리소스의 대상 지정, 보고 및 규정 준수에 대한 전체 인벤토리를 가져옵니다. 
+* **변경 내용 찾기** - 잘못된 구성을 유발할 수 있는 변경 내용을 식별하여 운영 규정 준수를 향상시킵니다.
+* **모니터링** - 문제를 유발하는 머신 변경 내용을 격리하여 수정하거나 관리 시스템에 에스컬레이션합니다.
+* **보호** - 보안 경고가 발생하면 머신을 격리합니다. 게스트 내 요구 사항을 설정합니다.
+* **거버넌스** - 팀을 위한 RBAC를 설정합니다. 사용되지 않는 리소스를 복구합니다.
 
-## <a name="pricing-for-automation"></a>Automation 가격
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
-Azure Automation에 대한 가격은 [가격](https://azure.microsoft.com/pricing/details/automation/) 페이지에서 검토할 수 있습니다.
+## <a name="pricing-for-azure-automation"></a>Azure Automation에 대한 가격 책정
+
+Azure Automation과 관련된 가격은 [가격 책정](https://azure.microsoft.com/pricing/details/automation/) 페이지에서 검토할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Automation 계정 만들기](automation-quickstart-create-account.md)
-

@@ -1,32 +1,21 @@
 ---
-title: Azure에서 Service Fabric 클러스터 크기 조정 | Microsoft Docs
-description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 크기를 조정하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Azure에서 Service Fabric 클러스터 크기 조정
+description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 크기를 확장 및 축소하는 방법과 남은 리소스를 정리하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/19/2019
-ms.author: aljo
+ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278703"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257107"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
 이 자습서는 이 시리즈의 세 번째 파트로, 기존 클러스터를 확장 및 축소하는 방법을 보여 줍니다. 이 내용을 완료하면 클러스터를 크기 조정하는 방법과 남은 리소스를 정리하는 방법을 알게 됩니다.  Azure에서 실행되는 클러스터의 크기를 조정하는 방법에 대한 자세한 내용은 [Service Fabric 클러스터 크기 조정](service-fabric-cluster-scaling.md)을 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 노드 추가 및 제거(규모 확장 및 규모 감축)
@@ -44,12 +33,12 @@ ms.locfileid: "59278703"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure PowerShell](/powershell/azure/install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
 
 ## <a name="important-considerations-and-guidelines"></a>중요 고려 사항 및 지침
@@ -68,14 +57,14 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 * 프로덕션 워크로드를 실행하는 주 노드 유형에는 Gold 또는 Silver의 [내구성 수준][durability]이 있어야 하며 항상 5개 이상의 노드가 있어야 합니다.
 * 상태 저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다.
 * 상태 비저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 둘 이상의 노드가 있어야 합니다.
-* [내구성 수준][durability]이 Gold 또는 Silver인 모든 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다.
+* [내구성 수준][durability]이 골드 또는 실버인 모든 노드 형식에는 항상 5개 이상의 노드가 있어야 합니다.
 * 주 노드 유형의 크기를 축소(노드 제거)하는 경우 인스턴스 수를 [안정성 수준][reliability]에 필요한 것보다 적게 줄이면 안 됩니다.
 
 자세한 내용은 [클러스터 용량 지침](service-fabric-cluster-capacity.md)을 참조하세요.
 
 ## <a name="export-the-template-for-the-resource-group"></a>리소스 그룹에 대한 템플릿 내보내기
 
-보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)가 만들어지고 리소스 그룹이 설정되면 리소스 그룹에 대한 Resource Manager 템플릿을 내보냅니다. 템플릿을 내보내면 템플릿에 전체 인프라가 모두 포함되어 있으므로 클러스터와 해당 리소스의 향후 배포를 자동화할 수 있습니다.  템플릿 내보내기에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Resource Manager 리소스 그룹 관리](/azure/azure-resource-manager/manage-resource-groups-portal)를 참조하세요.
+보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)가 만들어지고 리소스 그룹이 설정되면 리소스 그룹에 대한 Resource Manager 템플릿을 내보냅니다. 템플릿을 내보내면 템플릿에 전체 인프라가 모두 포함되어 있으므로 클러스터와 해당 리소스의 향후 배포를 자동화할 수 있습니다.  템플릿 내보내기에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Resource Manager 리소스 그룹 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에서 클러스터가 포함된 리소스 그룹(이 자습서를 따르는 경우 **sfclustertutorialgroup**)으로 이동합니다. 
 
@@ -91,11 +80,11 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 
 ### <a name="update-the-template"></a>템플릿 업데이트
 
-가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우, 클러스터에는 3개의 노드 유형과 각 노드 유형의 노드 수가 설정되는 3개의 매개 변수(*nt0InstanceCount*, *nt1InstanceCount* 및 *nt2InstanceCount*)가 있습니다.  예를 들어 *nt1InstanceCount* 매개 변수는 두 번째 노드 유형에 대한 인스턴스 수 및 연결되는 가상 머신 확장 집합의 VM 수를 설정합니다.
+가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우 클러스터에는 3개의 노드 유형과 각 노드 유형의 노드 수가 설정되는 3개의 매개 변수(*nt0InstanceCount*, *nt1InstanceCount* 및 *nt2InstanceCount*)가 있습니다.  예를 들어 *nt1InstanceCount* 매개 변수는 두 번째 노드 유형에 대한 인스턴스 수 및 연결되는 가상 머신 확장 집합의 VM 수를 설정합니다.
 
 따라서 *nt1InstanceCount*의 값을 업데이트하여 두 번째 노드 유형의 노드 수를 변경합니다.  한 노드 유형의 노드 수는 100개를 초과할 수 없습니다.  상태 저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다. 상태 비저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 둘 이상의 노드가 있어야 합니다.
 
-Bronze [내구성 수준][durability]의 노드 유형에서 노드를 확장하거나 제거하려는 경우 [해당 노드의 상태를 수동으로 제거](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set)해야 합니다.  Silver 및 Gold 내구성 계층의 경우 이러한 단계는 플랫폼에서 자동으로 수행됩니다.
+Bronze [내구성 수준][durability]의 노드 유형에서 노드를 확장하거나 제거하려는 경우 [해당 노드의 상태를 수동으로 제거](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set)해야 합니다.  Silver 및 Gold 내구성 계층의 경우 이러한 단계는 플랫폼에서 자동으로 수행됩니다.
 
 ### <a name="deploy-the-updated-template"></a>업데이트된 템플릿 배포
 모든 변경 내용은 *template.json* 및 *parameters.json* 파일에 저장됩니다.  업데이트된 템플릿을 배포하려면 다음 명령을 실행합니다.
@@ -104,7 +93,7 @@ Bronze [내구성 수준][durability]의 노드 유형에서 노드를 확장하
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 또는 다음 Azure CLI 명령을 실행합니다.
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -810,7 +799,7 @@ Azure에서 실행되는 Service Fabric 클러스터에 정의된 모든 노드 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 또는 다음 Azure CLI 명령을 실행합니다.
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -844,19 +833,18 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>노드 리소스 증가 
-Service Fabric 클러스터가 만들어지면 클러스터 노드 유형을 수직으로 확장하거나(노드의 리소스 변경) 노드 유형 VM의 운영 체제를 업그레이드할 수 있습니다.  
+Service Fabric 클러스터를 생성한 후 원래 노드 유형을 새 노드 유형(업데이트된 VM SKU 또는 OS 이미지)으로 바꾸어 클러스터 노드 유형을 수직으로 확장(노드의 리소스 변경)하거나 노드 유형 VM의 운영 체제를 업그레이드할 수 있습니다. 자세한 내용은 [Azure Service Fabric 노드 형식 스케일 업](service-fabric-scale-up-node-type.md)을 참조하세요.
 
-> [!WARNING]
-> Silver 이상 내구성에서 실행되지 않으면 확장 집합/노드 유형의 VM SKU를 변경하지 않는 것이 좋습니다. VM SKU의 크기를 변경하는 것은 데이터를 파괴하는 내부 인프라 작업입니다. 이러한 변경을 지연하거나 모니터링하는 기능이 없으면 이러한 작업으로 인해 상태 저장 서비스에 대해 데이터 손실이 발생하거나 상태 비저장 워크로드의 경우에도 예기치 못한 다른 작동 문제가 발생할 수 있습니다.
+> [!IMPORTANT]
+> 위험한 작업이며 지원되지 않는 VM SKU 또는 OS 이미지의 내부 변경을 시도하지 마세요.
 
-> [!WARNING]
-> 위험하고 지원되지 않는 주 노드 유형의 VM SKU는 변경하지 않는 것이 좋습니다.  더 큰 클러스터 용량이 필요한 경우 더 많은 VM 인스턴스 또는 추가 노드 유형을 추가할 수 있습니다.  가능하지 않은 경우 새 클러스터를 만들고 이전 클러스터에서 [애플리케이션 상태를 복원](service-fabric-reliable-services-backup-restore.md)할 수 있습니다(해당하는 경우).  가능하지 않은 경우 [주 노드 유형의 VM SKU를 변경](service-fabric-scale-up-node-type.md)할 수 있습니다.
+이것이 불가능한 경우 새 클러스터를 만들고 구 클러스터에서 [애플리케이션 상태를 복원](service-fabric-reliable-services-backup-restore.md)할 수 있습니다(해당하는 경우). 시스템 서비스 상태를 복원할 필요는 없습니다. 애플리케이션을 새 클러스터에 배포하면 다시 만들어집니다. 클러스터에서 상태 비저장 애플리케이션을 실행한 경우에만 애플리케이션을 새 클러스터에 배포하기만 하면 되며 복원은 필요하지 않습니다.
 
 ### <a name="update-the-template"></a>템플릿 업데이트
 
 가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우 클러스터에는 세 개의 노드 유형이 있습니다.  
 
-두 번째 노드 유형의 VM 크기는 *vmNodeType1Size* 매개 변수에서 설정됩니다.  *vmNodeType1Size* 매개 변수 값을 Standard_D2_V2에서 각 VM 인스턴스의 리소스가 두 배 크기인 [Standard_D3_V2](/azure/virtual-machines/windows/sizes-general#dv2-series)로 변경합니다.
+두 번째 노드 유형의 VM 크기는 *vmNodeType1Size* 매개 변수에서 설정됩니다.  *vmNodeType1Size* 매개 변수 값을 Standard_D2_V2에서 각 VM 인스턴스의 리소스가 두 배 크기인 [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md)로 변경합니다.
 
 이러한 세 노드 유형 모두에 대한 VM SKU는 *vmImageSku* 매개 변수에서 설정됩니다.  다시 말하지만, 노드 유형의 VM SKU를 변경하는 경우 주의해야 하며 주 노드 유형에는 추천되지 않습니다.
 
@@ -867,13 +855,13 @@ Service Fabric 클러스터가 만들어지면 클러스터 노드 유형을 수
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 또는 다음 Azure CLI 명령을 실행합니다.
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 노드 추가 및 제거(규모 확장 및 규모 감축)
@@ -884,19 +872,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 > [!div class="nextstepaction"]
 > [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-nd 규모 감축))
-> * 노드 유형 추가 및 제거(규모 확장 및 규모 감축)
-> * 노드 리소스 증가(강화)
-
-이제 다음 자습서로 넘어가서 클러스터 런타임을 업그레이드하는 방법을 알아보겠습니다.
-> [!div class="nextstepaction"]
-> [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

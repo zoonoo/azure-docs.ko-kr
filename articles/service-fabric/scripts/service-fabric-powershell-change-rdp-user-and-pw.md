@@ -1,26 +1,25 @@
 ---
-title: Azure PowerShell Script 샘플 - RDP 사용자 이름 및 암호 업데이트 | Microsoft Docs
+title: PowerShell에서 RDP 사용자 이름 및 암호 업데이트
 description: Azure PowerShell 스크립트 샘플 - 특정 노트 유형의 모든 Service Fabric 클러스터 노드에 대해 RDP 사용자 이름과 암호를 업데이트합니다.
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1528ce03f548c70d20d8f7af0238019305f01f2e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b7f229162ed745408121d898f5af516d22a0c039
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660819"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984932"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>클러스터 VM의 관리자 사용자 이름과 암호를 업데이트합니다.
 
@@ -43,6 +42,10 @@ Service Fabric 클러스터의 각 [노드 유형](../service-fabric-cluster-nod
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | 클러스터 노드 유형의 속성을 가져옵니다(가상 머신 확장 집합).   |
 | [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| 가상 머신 확장 집합에 확장을 추가합니다.|
 | [업데이트 AzVmss](/powershell/module/az.compute/update-azvmss)|가상 머신 확장 집합의 상태를 로컬 VMSS 개체의 상태로 업데이트합니다.|
+
+## <a name="duration"></a>Duration
+
+예를 들어 5개의 노드가 있는 단일 노드 형식은 사용자 이름 또는 암호를 변경하는 데 45~60분이 걸릴 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

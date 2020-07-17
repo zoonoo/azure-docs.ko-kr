@@ -1,114 +1,113 @@
 ---
-title: Azure App Service 진단 개요 | Microsoft Docs
-description: App Service 진단 사용 하 여 앱을 사용 하 여 문제를 해결 하는 방법에 대해 알아봅니다.
+title: 진단 및 해결 도구
+description: Azure Portal의 진단 및 해결 도구를 사용 하 여 Azure App Service에서 앱 문제를 해결 하는 방법에 대해 알아봅니다.
 keywords: App Service, Azure App Service, 진단, 지원, 웹앱, 문제 해결, 자가 진단
-services: app-service
-documentationcenter: ''
 author: jen7714
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65539909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81869939"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
 
-웹 애플리케이션을 실행할 때 500개 오류부터 사용자가 사이트의 작동이 중단되었음을 알리는 사용자에 이르기까지 발생할 수 있는 문제에 대비해야 합니다. App Service 진단은 앱 구성이 필요 없는 문제 해결 하는 데는 지능적인 대화형 환경입니다. 앱을 사용 하 여 문제를 실행 하 고 수행 하는 경우 App Service 진단 무엇이 더 쉽고 빠르게 문제를 해결 하 고 문제를 해결 하는 데 적합 한 정보로 안내 하는 요소입니다.
+웹 애플리케이션을 실행할 때 500개 오류부터 사용자가 사이트의 작동이 중단되었음을 알리는 사용자에 이르기까지 발생할 수 있는 문제에 대비해야 합니다. App Service 진단은 구성이 필요 없는 앱 문제를 해결 하는 데 도움이 되는 지능적인 대화형 환경입니다. 앱에서 문제가 발생 하는 경우 App Service 진단은 문제를 보다 쉽고 빠르게 해결 하 고 해결 하는 데 적합 한 정보를 안내해 주는 문제를 해결 합니다.
 
-경우에이 환경을 가장 유용한 경우 문제가 발생 하는 앱을 사용 하 여 지난 24 시간 동안 모든 진단 그래프가 항상 사용할 분석할 수 있도록 합니다.
+최근 24 시간 이내에 앱에 문제가 있는 경우에는이 환경이 가장 유용 하지만 모든 진단 그래프가 항상 분석에 사용할 수 있습니다.
 
 App Service 진단은 Windows의 앱 뿐만 아니라 [Linux/컨테이너](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service 환경](https://docs.microsoft.com/azure/app-service/environment/intro) 및 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)의 앱에도 작용합니다.
 
 ## <a name="open-app-service-diagnostics"></a>App Service 진단 열기
 
-App Service 진단에 액세스 하려면 App Service 웹 앱 또는 App Service Environment에서로 이동 합니다 [Azure portal](https://portal.azure.com)합니다. 왼쪽 탐색 메뉴에서 **문제 진단 및 해결**을 클릭합니다.
+App Service 진단에 액세스 하려면 App Service 웹 앱으로 이동 하거나 [Azure Portal](https://portal.azure.com)에서 App Service Environment 합니다. 왼쪽 탐색 메뉴에서 **문제 진단 및 해결**을 클릭합니다.
 
-Azure functions의 위쪽 탐색 모음에 함수 앱으로 이동, 클릭 **플랫폼 기능**, 선택한 **진단 및 문제 해결** 에서 **리소스관리** 섹션입니다.
+Azure Functions의 경우 함수 앱으로 이동 하 고, 상단 탐색에서 **플랫폼 기능**을 클릭 하 고, **리소스 관리** 섹션에서 **문제 진단 및 해결** 을 선택 합니다.
 
-App Service 진단 홈 페이지에서 각 홈 페이지 타일에서 키워드를 사용 하 여 앱을 사용 하 여 문제를 설명 하는 범주를 선택할 수 있습니다. 또한이 페이지를 찾을 수 있습니다 **진단 도구** Windows 앱에 대 한 합니다. 참조 [진단 도구 (Windows 앱)에 해당](#diagnostic-tools-only-for-windows-app)합니다.
+App Service 진단 홈페이지에서 각 홈페이지 타일의 키워드를 사용 하 여 앱에 대 한 문제를 가장 잘 설명 하는 범주를 선택할 수 있습니다. 또한이 페이지에서는 Windows 앱에 대 한 **진단 도구** 를 찾을 수 있습니다. [진단 도구 (Windows 앱에만 해당)](#diagnostic-tools-only-for-windows-app)를 참조 하세요.
 
-![홈 페이지](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+![홈페이지](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> 앱이 다운 되거나 느리게 수행 되는 경우 [프로 파일링 추적을 수집](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) 하 여 문제의 근본 원인을 식별할 수 있습니다. 프로 파일링은 경량 이며 프로덕션 시나리오를 위해 설계 되었습니다.
+>
 
 ## <a name="interactive-interface"></a>대화형 인터페이스
 
-앱의 문제를 가장 잘 부합 하는 홈 페이지 범주를 선택 하면 App Service 진단 대화형 인터페이스를 지니는, 수 안내 진단 하 고 앱을 사용 하 여 문제를 해결 합니다. 관심 있는 문제 범주에 속하는 전체 진단 보고서를 보려면 지니는 제공한 타일 바로 가기를 사용할 수 있습니다. 타일 바로 가기를 진단 메트릭에 액세스할 수 있는 직접적인 방법을 제공 합니다.
+앱의 문제에 가장 잘 맞는 홈 페이지 범주를 선택 하면 App Service 진단의 대화형 인터페이스인 Genie를 사용 하 여 앱의 문제를 진단 하 고 해결 하는 과정을 안내할 수 있습니다. Genie에서 제공 하는 타일 바로 가기를 사용 하 여 관심 있는 문제 범주의 전체 진단 보고서를 볼 수 있습니다. 타일 바로 가기를 통해 진단 메트릭에 직접 액세스할 수 있습니다.
 
 ![타일 바로 가기](./media/app-service-diagnostics/tile-shortcuts-2.png)
 
-이러한 타일을 클릭 하면 타일에 설명 된 문제와 관련 된 항목의 목록을 볼 수 있습니다. 이러한 항목은 전체 보고서에서 주목할 만한 정보 조각을 제공합니다. 추가로 문제를 조사 하려면 다음이 항목 중 하나에서 클릭할 수 있습니다. 또한을 클릭할 수 있습니다 **전체 보고서 보기** 단일 페이지에 있는 모든 항목을 소개 합니다.
+이러한 타일을 클릭 한 후 타일에 설명 된 문제와 관련 된 항목의 목록을 볼 수 있습니다. 이러한 토픽에서는 전체 보고서에서 주목할 만한 정보 조각을 제공합니다. 이러한 항목 중 하나를 클릭 하 여 문제를 자세히 조사할 수 있습니다. 또한 **전체 보고서 보기** 를 클릭 하 여 단일 페이지의 모든 항목을 탐색할 수 있습니다.
 
-![주제](./media/app-service-diagnostics/application-logs-insights-3.png)
+![토픽](./media/app-service-diagnostics/application-logs-insights-3.png)
 
 ![전체 보고서 보기](./media/app-service-diagnostics/view-full-report-4.png)
 
 ## <a name="diagnostic-report"></a>진단 보고서
 
-항목을 클릭 하 여 문제를 자세히 조사 하려면을 선택 하면 종종 그래프 및 markdown을 사용 하 여 보완 항목에 대 한 자세한 세부 정보를 볼 수 있습니다. 진단 보고서는 앱을 사용 하 여 문제를 정확히 찾아내기 위한 강력한 도구를 수 있습니다.
+항목을 클릭 하 여 문제를 자세히 조사 하도록 선택한 후에는 종종 그래프 및 markmark로 보완 되는 항목에 대 한 자세한 정보를 볼 수 있습니다. 진단 보고서는 앱 문제를 어설션 매크로나 하는 강력한 도구 일 수 있습니다.
 
 ![진단 보고서](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 
 ## <a name="health-checkup"></a>상태 검사
 
-앱을 사용 하 여 무엇이 알지 하거나 문제를 해결 하려면 위치를 알 수 없는 경우 상태 검사는 시작 하는 것이 좋습니다. 상태 검사는 정상 및 문제를 조사 하려면 찾으려는 위치를 알려주는 문제를 지적 하는 빠른 대화형 개요를 제공 하도록 응용 프로그램을 분석 합니다. 지능적인 대화형 인터페이스는 문제 해결 프로세스를 통해 지침을 제공합니다. Windows 앱 및 웹 앱 진단 아래쪽에 대 한 상태 검사 지니는 환경과 통합 되어 Linux 앱에 대 한 보고서입니다.
+앱에 무엇이 잘못 되었는지 알지 못하거나 문제 해결을 시작할 위치를 모르는 경우 상태 점검을 시작 하는 것이 좋습니다. 상태 점검은 응용 프로그램을 분석 하 여 정상 및 잘못 된 기능을 설명 하는 빠르고 대화형 개요를 제공 하 고 문제를 조사할 위치를 알려 줍니다. 지능적인 대화형 인터페이스는 문제 해결 프로세스를 통해 지침을 제공합니다. 상태 점검은 Windows 앱에 대 한 Genie 환경 및 Linux 앱에 대 한 웹 앱 다운 진단 보고서와 통합 됩니다.
 
 ### <a name="health-checkup-graphs"></a>상태 점검 그래프
 
-상태 검사에 네 개의 다른 그래프가 있습니다.
+상태 점검에는 네 가지 그래프가 있습니다.
 
-- **요청 및 오류:** HTTP 서버 오류와 함께 최근 24 시간 동안의 요청 수를 보여 주는 그래프입니다.
-- **앱 성능:** 다양 한 백분위 수 그룹에 대 한 지난 24 시간 응답 시간을 보여 주는 그래프입니다.
-- **CPU 사용량:** 지난 24 시간 동안 인스턴스당 전체 백분율 CPU 사용량을 보여 주는 그래프입니다.  
-- **메모리 사용량:** 지난 24 시간 동안 인스턴스당 백분율 전체 실제 메모리 사용량을 보여 주는 그래프입니다.
+- **요청 및 오류:** HTTP 서버 오류와 함께 최근 24 시간 동안 수행 된 요청 수를 표시 하는 그래프입니다.
+- **앱 성능:** 여러 백분위 수 그룹의 최근 24 시간 동안 응답 시간을 표시 하는 그래프입니다.
+- **CPU 사용량:** 최근 24 시간 동안의 인스턴스당 전체 CPU 사용량을 표시 하는 그래프입니다.  
+- **메모리 사용량:** 지난 24 시간 동안 인스턴스당 전체 실제 메모리 사용량을 표시 하는 그래프입니다.
 
 ![상태 검사](./media/app-service-diagnostics/health-checkup-6.png)
 
-### <a name="investigate-application-code-issues-only-for-windows-app"></a>(Windows 앱)에 해당 응용 프로그램 코드 문제를 조사 합니다.
+### <a name="investigate-application-code-issues-only-for-windows-app"></a>응용 프로그램 코드 문제 조사 (Windows 앱에만 해당)
 
-많은 앱 문제가 애플리케이션 코드의 문제와 관련되어 있으므로 App Service 진단은 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)와 통합되어 예외 및 종속성 문제를 강조 표시하고, 선택된 작동 중단 시간과의 상관 관계를 표시합니다. Application Insights는 별도로 사용 하도록 설정 해야 합니다.
+많은 앱 문제가 애플리케이션 코드의 문제와 관련되어 있으므로 App Service 진단은 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)와 통합되어 예외 및 종속성 문제를 강조 표시하고, 선택된 작동 중단 시간과의 상관 관계를 표시합니다. Application Insights은 별도로 사용 하도록 설정 해야 합니다.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 
-Application Insights 예외 및 종속성을 보려면 선택 합니다 **웹 앱 중단** 또는 **느린 웹 앱** 타일 바로 가기.
+Application Insights 예외 및 종속성을 보려면 **웹 앱 다운** 또는 **웹 앱 저속** 타일 바로 가기를 선택 합니다.
 
-### <a name="troubleshooting-steps-only-for-windows-app"></a>(Windows 앱)에 문제 해결 단계
+### <a name="troubleshooting-steps-only-for-windows-app"></a>문제 해결 단계 (Windows 앱에만 해당)
 
-문제는 지난 24 시간 동안 특정 문제 범주를 사용 하 여 감지 되 면 전체 진단 보고서를 볼 수 있으며 App Service 진단 보다 문제 해결 도움말 및 자세한 단계별된 환경의 다음 단계를 확인 하도록 요구할 수 있습니다.
+최근 24 시간 이내에 특정 문제 범주를 사용 하 여 문제를 발견 한 경우 전체 진단 보고서를 볼 수 있으며, App Service 진단에서 보다 단계별 경험을 위해 더 많은 문제 해결 통지 및 다음 단계를 확인 하 라는 메시지가 표시 될 수 있습니다.
 
 ![Application Insights 및 문제 해결 및 다음 단계](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
 
-## <a name="diagnostic-tools-only-for-windows-app"></a>진단 도구 (Windows 앱)에 해당
+## <a name="diagnostic-tools-only-for-windows-app"></a>진단 도구 (Windows 앱에만 해당)
 
-진단 도구는 응용 프로그램을 조사 하는 도움말 코드 문제, 속도 저하, 연결 문자열 및 기타 정보는 고급 진단 도구를 포함 합니다. 고 지 원하는 사전 도구 CPU 사용량, 요청 및 메모리를 사용 하 여 문제를 완화 합니다.
+진단 도구에는 응용 프로그램 코드 문제, 속도 저하, 연결 문자열 등을 조사 하는 데 도움이 되는 고급 진단 도구가 포함 되어 있습니다. 그리고 CPU 사용량, 요청 및 메모리와 관련 된 문제를 완화 하는 데 도움이 되는 사전 자동 도구입니다.
 
-### <a name="proactive-cpu-monitoring"></a>사전 CPU 모니터링
+### <a name="proactive-cpu-monitoring"></a>자동 관리 CPU 모니터링
 
-사전 CPU 모니터링 앱에 대 한 앱 또는 자식 프로세스 높은 CPU 리소스를 소비 하는 경우 작업을 수행 하는 쉽고 자동 관리 방법을 제공 합니다. 예기치 않은 문제에 대 한 실제 원인의 찾을 때까지 높은 CPU 문제를 일시적으로 완화 하기 위해 사용자 고유의 CPU 임계값 규칙을 설정할 수 있습니다.
+자동 관리 CPU 모니터링을 통해 앱 또는 앱에 대 한 자식 프로세스가 높은 CPU 리소스를 사용 하는 경우 작업을 쉽게 수행할 수 있습니다. 예기치 않은 문제에 대 한 실제 원인이 발견 될 때까지 cpu 임계값 규칙을 일시적으로 완화 하도록 사용자 고유의 CPU 임계값 규칙을 설정할 수 있습니다. 자세한 내용은 [CPU 문제가 발생 하기 전에](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html)이를 완화 하는 방법을 참조 하세요.
 
-![사전 CPU 모니터링](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
+![자동 관리 CPU 모니터링](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### <a name="proactive-auto-healing"></a>자동 관리 자동 복구
+### <a name="auto-healing-and-proactive-auto-healing"></a>자동 복구 및 자동 복구 자동 복구
 
-사전 CPU 모니터링와 같은 자동 관리 자동 복구는 앱의 예기치 않은 동작을 완화 하는 편리 하 고 사전 대응적인 접근 방식을 제공 합니다. 요청 수, 느린 요청, 메모리 제한 및 HTTP 상태 코드 완화 작업 트리거를 기반으로 사용자 고유의 규칙을 설정할 수 있습니다. 이 도구는 문제에 대 한 실제 원인의 찾을 때까지 예기치 않은 동작인을 일시적으로 완화 하기 위해 사용할 수 있습니다. 자동 관리 자동 복구에 대 한 자세한 내용은 방문 [app service 진단에서 환경을 복구 새 자동 발표](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+자동 복구는 응용 프로그램에 예기치 않은 동작이 있을 때 수행할 수 있는 완화 작업입니다. 요청 수, 저속 요청, 메모리 제한 및 HTTP 상태 코드에 따라 사용자 고유의 규칙을 설정 하 여 완화 작업을 트리거할 수 있습니다. 이 도구를 사용 하 여 근본 원인을 찾을 때까지 예기치 않은 동작을 일시적으로 완화할 수 있습니다. 자세한 내용은 [app service diagnostics에서 새로운 자동 치료 환경 발표](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html)를 참조 하세요.
 
-![자동 관리 자동 복구](./media/app-service-diagnostics/proactive-auto-healing-10.png)
+![자동 복구](./media/app-service-diagnostics/auto-healing-10.png)
 
-## <a name="change-analysis"></a>변경 분석
+자동 관리 CPU 모니터링과 마찬가지로 자동 복구는 응용 프로그램의 예기치 않은 동작을 완화 하기 위한 턴 키 솔루션입니다. 자동 복구는 앱이 복구할 수 없는 상태에 있는 것으로 확인 App Service 때 앱을 다시 시작 합니다. 자세한 내용은 [자동 치료 소개](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html)를 참조 하세요.
 
-빠른 개발 환경에서 경우도 앱에 대 한 모든 변경 내용을 추적 및 비정상 동작을 발생 시킨 변경에만 pinpoint 사용 하기가 어렵습니다. 변경 분석 문제 해결 경험을 용이 하 게 하려면 앱에 대 한 변경 내용에 범위를 좁힐 수 있습니다. 와 같은 변경 분석 진단 보고서에 포함 된 **응용 프로그램이 크래시 되** 동시 다른 메트릭을 사용할 수 있도록 합니다.
+## <a name="navigator-and-change-analysis-only-for-windows-app"></a>탐색기 및 변경 분석 (Windows 앱에만 해당)
 
-![변경 분석 기본 페이지](./media/app-service-diagnostics/change-analysis-default-page-11.png)
+연속 통합을 사용 하 고 앱에 많은 종속성이 있는 규모가 많은 팀에서 비정상 동작을 야기 하는 특정 변경 내용을 정확 하 게 파악 하기 어려울 수 있습니다. 탐색기를 사용 하면 앱의 종속성 맵과 동일한 구독의 모든 리소스를 자동으로 렌더링 하 여 앱의 토폴로지에 대 한 가시성을 얻을 수 있습니다. 탐색기를 사용 하면 앱 및 해당 종속성의 통합 된 변경 내용 목록을 볼 수 있으며 비정상 동작을 야기 하는 변경 내용에 대해 범위를 좁힐 수 있습니다. 홈 페이지 타일 **탐색기** 를 통해 액세스할 수 있으며 처음 사용 하기 전에 활성화 해야 합니다. 자세한 내용은 [탐색기를 사용 하 여 앱의 종속성에 대 한 가시성 가져오기](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html)를 참조 하세요.
 
-![Diff 보기](./media/app-service-diagnostics/diff-view-12.png)
+![탐색기 기본 페이지](./media/app-service-diagnostics/navigator-default-page-11.png)
 
-변경 분석 기능을 사용 하기 전에 사용 하도록 설정 해야 합니다. 변경 분석에 대 한 자세한 내용은 방문 [App Service 진단의 새로운 변경 분석 환경 발표](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html)합니다.
+![Diff 뷰](./media/app-service-diagnostics/diff-view-12.png)
+
+앱 변경 내용에 대 한 변경 분석은 타일 바로 가기를 통해 액세스할 수 있으며, **응용 프로그램 변경** 및 **응용** 프로그램의 **가용성 및 성능 저하** 를 통해 다른 메트릭과 동시에 사용할 수 있습니다. 기능을 사용 하려면 먼저 해당 기능을 사용 하도록 설정 해야 합니다. 자세한 내용은 [App Service 진단에서 새로운 변경 분석 환경 발표](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html)를 참조 하세요.
+
+제목에 "[Diag]"를 추가 하 여 [UserVoice](https://feedback.azure.com/forums/169385-web-apps) 에서 질문이 나 의견을 게시 합니다.

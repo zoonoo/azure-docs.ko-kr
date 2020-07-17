@@ -1,22 +1,21 @@
 ---
-title: 단어 맞춤 정보 - Translator Text API
-titlesuffix: Azure Cognitive Services
-description: Translator Text API에서 단어 맞춤 정보를 받습니다.
+title: 단어 맞춤-번역기
+titleSuffix: Azure Cognitive Services
+description: 맞춤 정보를 받으려면 Translate 메서드를 사용하고 선택 사항인 includeAlignment 매개 변수를 포함합니다.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.custom: seodec18
-ms.openlocfilehash: cc795d6b164a97351ec8806c6b7c8bed0c0c1266
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 05/26/2020
+ms.author: swmachan
+ms.openlocfilehash: 7288087bfe7d2a7bb03ce8a99831ad8b7f5b549f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793992"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995618"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>단어 맞춤 정보를 받는 방법
 
@@ -28,7 +27,7 @@ ms.locfileid: "59793992"
 
 [[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
-맞춤 문자열 예제: “0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21”.
+맞춤 문자열 예: “0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21”.
 
 즉, 콜론은 시작 및 끝 인덱스를 구분하고, 대시는 언어를 구분하고, 공백은 단어를 구분합니다. 한 단어는 다른 언어의 0개, 1개 또는 여러 단어와 정렬될 수 있고, 정렬된 단어가 비연속적일 수도 있습니다. 맞춤 정보를 사용할 수 없는 경우 Alignment 요소가 비어 있습니다. 이 경우에는 메서드가 오류를 반환하지 않습니다.
 
@@ -38,7 +37,7 @@ ms.locfileid: "59793992"
 * 다른 모든 언어에서 영어로(중국어 간체, 중국어 번체 및 라트비아어에서 영어로 번역하는 경우 제외)
 * 일본어에서 한국어로 또는 한국어에서 일본어로. 문장이 미리 준비된 번역인 경우에는 맞춤 정보가 표시되지 않습니다. 미리 준비된 번역의 예로 “테스트입니다.”, “당신을 사랑합니다.”, 기타 빈도가 높은 문장 등이 있습니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 예제 JSON
 

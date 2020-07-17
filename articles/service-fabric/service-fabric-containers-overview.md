@@ -1,25 +1,14 @@
 ---
-title: Service Fabric 및 컨테이너 개요 | Microsoft Docs
+title: Service Fabric 및 컨테이너 개요
 description: Service Fabric 및 마이크로 서비스 애플리케이션 배포를 위한 컨테이너 사용에 대한 개요. 이 문서는 컨테이너를 사용하는 방법과 Service Fabric에서 사용할 수 있는 기능에 대한 개요를 제공합니다.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/8/2018
-ms.author: aljo
-ms.openlocfilehash: 5a45f14e5ac1da5152f320bd92b1ebb42be1d214
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881427"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259238"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 및 컨테이너
 
@@ -35,8 +24,8 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 
 지금 바로 Service Fabric에서 컨테이너를 시험해보려면 빠른 시작, 자습서 또는 샘플을 사용합니다.  
 
-[빠른 시작: Service Fabric Linux 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers-linux.md)  
-[빠른 시작: Service Fabric Windows 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers.md)  
+[빠른 시작: Service Fabric에 Linux 컨테이너 애플리케이션 배포](service-fabric-quickstart-containers-linux.md)  
+[빠른 시작: Service Fabric에 Windows 컨테이너 애플리케이션 배포](service-fabric-quickstart-containers.md)  
 [기존 .NET 앱 컨테이너화](service-fabric-host-app-in-a-container.md)  
 [Service Fabric 컨테이너 샘플](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -44,14 +33,14 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 
 컨테이너는 실행할 애플리케이션에 대한 변경이 불가능한 환경을 제공하여 안정적으로 다양한 컴퓨팅 환경에서 애플리케이션을 실행하는 문제를 해결합니다. 컨테이너는 컨테이너 내에서 소프트웨어를 실행하는 데 필요한 모든 것이 포함된 자체 격리된 '상자'에 라이브러리 및 구성 파일 같은 애플리케이션과 해당 종속성 모두를 래핑합니다. 컨테이너가 어디에서 실행되든 컨테이너 내부의 애플리케이션에는 올바른 버전의 해당 종속 라이브러리, 모든 구성 파일 및 실행에 필요한 다른 항목 등 실행에 필요한 모든 항목이 항상 포함돼 있습니다.
 
-컨테이너는 커널 바로 위에서 실행되며 파일 시스템 및 기타 리소스에 대한 격리된 뷰를 갖습니다. 컨테이너의 애플리케이션에는 다른 애플리케이션 또는 해당 컨테이너의 외부 프로세스에 대한 정보가 없습니다. 각 애플리케이션, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제의 자체적으로 격리된 뷰에 대해 전체, 개인 액세스 권한이 있는 컨테이너 내에서 실행됩니다. 다양한 컴퓨팅 환경에서 실행하는 데 필요한 모든 애플리케이션의 종속성을 쉽게 제공하는 것 외에 Service Fabric에서 컨테이너를 사용하며, 그렇지 않은 경우 프로세스에서 서비스를 실행하는 이점 중 중요한 것은 보안 및 리소스 격리입니다.
+컨테이너는 커널 바로 위에서 실행되며 파일 시스템 및 기타 리소스에 대한 격리된 뷰를 갖습니다. 컨테이너의 애플리케이션에는 다른 애플리케이션 또는 해당 컨테이너의 외부 프로세스에 대한 정보가 없습니다. 각 애플리케이션, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제의 자체적으로 격리된 뷰에 대해 전체, 프라이빗 액세스 권한이 있는 컨테이너 내에서 실행됩니다. 다양한 컴퓨팅 환경에서 실행하는 데 필요한 모든 애플리케이션의 종속성을 쉽게 제공하는 것 외에 Service Fabric에서 컨테이너를 사용하며, 그렇지 않은 경우 프로세스에서 서비스를 실행하는 이점 중 중요한 것은 보안 및 리소스 격리입니다.
 
 가상 머신에 비해 컨테이너는 다음과 같은 이점이 있습니다.
 
-* **소형**: 컨테이너는 효율성을 높이기 위해 단일 저장소 공간, 레이어 버전 및 업데이트를 사용 합니다.
-* **빠른**: 컨테이너를 시작할 수 있도록 훨씬 더 빠르게-일반적으로 초에서 전체 운영 체제를 부팅할 필요가 없습니다.
-* **이식성**: 컨테이너 화 된 응용 프로그램 이미지는 클라우드, 온-프레미스로 가상 컴퓨터 내에서 또는 실제 컴퓨터에서 직접 실행에 이식할 수 있습니다.
-* **리소스 거 버 넌 스**: 컨테이너는 호스트에서 사용할 수 있는 물리적 리소스를 제한할 수 있습니다.
+* **소규모**: 컨테이너는 효율성을 높이기 위해 단일 스토리지 공간, 레이어 버전 및 업데이트를 사용합니다.
+* **신속성**: 컨테이너는 전체 운영 체제를 부팅할 필요가 없으므로 일반적으로 몇 초 내로 훨씬 빨리 시작할 수 있습니다.
+* **이식성**: 컨테이너화된 애플리케이션 이미지는 클라우드 내, 온-프레미스에서, 가상 머신 내부 또는 실제 컴퓨터에서 바로 실행하도록 이식될 수 있습니다.
+* **리소스 관리**: 컨테이너는 호스트에서 사용할 수 있는 물리적 리소스를 제한할 수 있습니다.
 
 ### <a name="container-types-and-supported-environments"></a>컨테이너 유형 및 지원되는 환경
 
@@ -76,11 +65,11 @@ Windows 기반 자습서는 [ Windows에서 첫 번째 Service Fabric 컨테이�
 
 다음은 컨테이너가 적합한 일반적인 예입니다.
 
-* **IIS 리프트 앤 시프트**: 기존 넣을 수 있습니다 [ASP.NET MVC](https://www.asp.net/mvc) 마이그레이션하는 대신 컨테이너에서 앱이 ASP.NET Core로 합니다. 이러한 ASP.NET MVC 앱은 IIS(인터넷 정보 서비스)에 따라 다릅니다. 이러한 애플리케이션을 미리 만든 IIS 이미지의 컨테이너 이미지로 패키징하고 Service Fabric을 사용하여 배포할 수 있습니다. Windows 컨테이너에 대한 자세한 내용은 [Windows Server의 컨테이너 이미지](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)를 참조하세요.
+* **IIS 리프트 및 시프트**: 기존 [ASP.NET MVC](https://www.asp.net/mvc) 앱을 ASP.NET Core로 마이그레이션하지 않고 컨테이너에 넣을 수 있습니다. 이러한 ASP.NET MVC 앱은 IIS(인터넷 정보 서비스)에 따라 다릅니다. 이러한 애플리케이션을 미리 만든 IIS 이미지의 컨테이너 이미지로 패키징하고 Service Fabric을 사용하여 배포할 수 있습니다. Windows 컨테이너에 대한 자세한 내용은 [Windows Server의 컨테이너 이미지](/virtualization/windowscontainers/quick-start/quick-start-windows-server)를 참조하세요.
 
-* **컨테이너 및 Service Fabric 마이크로 서비스 혼합**: 기존 컨테이너 이미지를 애플리케이션의 일부에 사용합니다. 예를 들어, 애플리케이션의 웹 프런트 엔드에 [NGINX 컨테이너](https://hub.docker.com/_/nginx/) 를 사용하고 상태 저장 서비스를 보다 집약적인 백 엔드 계산에 사용합니다.
+* **컨테이너와 Service Fabric 마이크로 서비스의 혼합**: 기존 컨테이너 이미지를 애플리케이션의 일부에 사용합니다. 예를 들어, 애플리케이션의 웹 프런트 엔드에 [NGINX 컨테이너](https://hub.docker.com/_/nginx/) 를 사용하고 상태 저장 서비스를 보다 집약적인 백 엔드 계산에 사용합니다.
 
-* **"시끄러운 이웃" 서비스의 영향을 줄이는**: 서비스 호스트에서 사용 하는 리소스를 제한 하려면 컨테이너의 리소스 거 버 넌 스 기능을 사용할 수 있습니다. 서비스는 많은 리소스를 소비하고 다른 서비스의 성능에 영향을 미칠 수 있는 경우(예: 장기적으로 실행되는 쿼리 같은 연산), 리소스 관리를 사용하는 컨테이너에 이 서비스를 넣는 것이 좋습니다.
+* **"시끄러운 이웃" 서비스의 영향 감소**: 컨테이너의 리소스 관리 기능을 사용하여 호스트에 서비스가 사용하는 리소스를 제한합니다. 서비스는 많은 리소스를 소비하고 다른 서비스의 성능에 영향을 미칠 수 있는 경우(예: 장기적으로 실행되는 쿼리 같은 연산), 리소스 관리를 사용하는 컨테이너에 이 서비스를 넣는 것이 좋습니다.
 
 ## <a name="service-fabric-support-for-containers"></a>컨테이너에 대한 Service Fabric 지원
 
@@ -101,7 +90,7 @@ Service Fabric은 다음과 같은 컨테이너화된 마이크로 서비스로 
 * 컨테이너에 보안 자격 증명을 설정하는 기능
 * 컨테이너에 대한 다른 네트워킹 모드의 선택
 
-Azure Kubernetes Service를 사용하여 Kubernetes 클러스터 만드는 방법, Azure Container Registry에서 개인 Docker 레지스트리 만드는 방법 등 Azure에서 컨테이너 지원에 대한 포괄적인 개요는 [컨테이너용 Azure](https://docs.microsoft.com/azure/containers/)를 참조하세요.
+Azure Kubernetes Service를 사용하여 Kubernetes 클러스터 만드는 방법, Azure Container Registry에서 프라이빗 Docker 레지스트리 만드는 방법 등 Azure에서 컨테이너 지원에 대한 포괄적인 개요는 [컨테이너용 Azure](../containers/index.yml)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -109,6 +98,6 @@ Azure Kubernetes Service를 사용하여 Kubernetes 클러스터 만드는 방�
 
 [Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기](service-fabric-get-started-containers-linux.md)  
 [Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기](service-fabric-get-started-containers.md)  
-[Windows 컨테이너에 대한 자세한 내용](https://docs.microsoft.com/virtualization/windowscontainers/about/)
+[Windows 컨테이너에 대한 자세한 내용](/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

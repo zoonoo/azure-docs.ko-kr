@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: e154bb4f-faab-4d92-a593-900c3ddc9595
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1dfc1b0e0576402624bfe62de0e206d9bd7cd1b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bad0d7adfd77dff53b1582e63a91f2cd87a9233d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507622"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>StorSimple Device Manager를 사용하여 StorSimple Virtual Array에 대한 액세스 제어 레코드 관리
 
@@ -67,7 +67,7 @@ ACR을 추가하려면 다음 단계를 수행합니다.
 2. **액세스 제어 레코드** 블레이드에서 **추가**를 클릭합니다.
 3. **ACR 추가** 블레이드에서 다음을 수행합니다.
    
-    1. ACR의 **이름** 을 지정합니다.
+    1. ACR의 **이름**을 입력합니다.
     
     2. **iSCSI 초기자 이름**에서 Windows 호스트의 IQN 이름을 제공합니다. Windows Server 호스트의 IQN을 가져오려면 다음을 수행합니다.
    

@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - DSC를 사용하는 IIS로 Windows Server 2016 VM 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - DSC를 사용하는 IIS로 Windows Server 2016 VM 만들기
 description: Azure CLI 스크립트 샘플 - DSC를 사용하는 IIS로 Windows Server 2016 VM 만들기
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -16,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: 3c818a7459a54b01cfdaa7315aff8e4194d3849c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ac0c895f471a6d201c51e2c75ba938dc3b15c3a8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670694"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459562"
 ---
 # <a name="create-a-vm-with-iis-using-dsc"></a>DSC를 사용하는 IIS로 VM 만들기
 

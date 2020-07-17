@@ -1,36 +1,26 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - GitHub 지속적인 배포를 사용하여 앱 만들기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - GitHub의 연속 배포를 사용하여 웹앱 만들기
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: GitHub에서 지속적으로 배포'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 GitHub에서 CI/CD로 앱을 만드는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
-ms.service: app-service-web
-ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7cd0366ff350995a1edf13476b4ad671d3bd3d3d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: eee6ac9f9c469f9e1a9344ab4a30626c219d7836
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114334"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74685162"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>GitHub의 연속 배포를 사용하여 웹앱 만들기
 
-이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 GitHub 리포지토리의 연속 배포를 설정합니다. 연속 배포를 사용하지 않는 GitHub 배포는 [웹앱 만들기 및 GitHub의 코드 배포](powershell-deploy-github.md)를 참조하세요.
+이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음, GitHub 리포지토리의 [연속 배포](../deploy-continuous-deployment.md)를 설정합니다. 연속 배포를 사용하지 않는 GitHub 배포는 [웹앱 만들기 및 GitHub의 코드 배포](powershell-deploy-github.md)를 참조하세요.
 
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 또한 다음 사항을 확인합니다.
 
-- `az login` 명령을 사용하여 Azure와 연결했습니다.
-- 애플리케이션 코드는 사용자가 소유한 공용 또는 개인 GitHub 리포지토리에 있습니다.
-- [GitHub 계정에서 액세스 토큰을 만들](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)었습니다.
+- 애플리케이션 코드는 사용자가 소유한 공용 또는 프라이빗 GitHub 리포지토리에 있습니다. 자동 빌드를 가져오려면 [리포지토리 준비](../deploy-continuous-deployment.md#prepare-your-repository) 테이블에 따라 리포지토리를 구성합니다.
+- [GitHub 계정에서 개인용 액세스 토큰을 만들](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)었습니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -55,7 +45,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
-| [Set-AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
+| [집합 AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,32 +1,29 @@
 ---
-title: Azure Data Factory Mapping Data Flow 새 분기 변환
-description: Azure Data Factory Mapping Data Flow 새 분기 변환
+title: 매핑 데이터 흐름의 여러 분기
+description: 여러 분기를 사용 하는 매핑 데이터 흐름에서 데이터 스트림 복제
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/12/2019
-ms.openlocfilehash: 9fac78f21f2f128ccb040e176891c33d39bf2820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom: seo-lt-2019; seo-dt-2019
+ms.date: 01/08/2020
+ms.openlocfilehash: daebd6a4a00d82706ceda68f94736f21b8fe5a84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61349152"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81606405"
 ---
-# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Azure Data Factory Mapping Data Flow 새 분기 변환
+# <a name="creating-a-new-branch-in-mapping-data-flow"></a>매핑 데이터 흐름에서 새 분기 만들기
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-![분기 옵션](media/data-flow/menu.png "메뉴")
+동일한 데이터 스트림에 대해 여러 작업 및 변환 집합을 수행 하는 새 분기를 추가 합니다. 새 분기를 추가 하는 것은 여러 싱크에 대해 동일한 소스를 사용 하거나 자체 조인 데이터를 함께 사용 하려는 경우에 유용 합니다.
 
-분기는 데이터 흐름의 현재 데이터 스트림을 사용하고 다른 스트림에 복제합니다. 새 분기를 사용하여 동일한 데이터 스트림에 대해 여러 개의 작업 및 변환 세트를 수행할 수 있습니다.
+다른 변환과 유사 하 게 변환 목록에서 새 분기를 추가할 수 있습니다. 분기 하려는 변환 뒤에 기존 변환이 있는 경우에만 **새 분기** 를 작업으로 사용할 수 있습니다.
 
-예제: 데이터 흐름에 선택한 열 세트 및 데이터 형식 변환을 사용한 원본 변환이 있습니다. 해당 원본 바로 뒤에 파생 열을 배치합니다. 파생 열에서 이름과 성을 결합하여 새로운 “전체 이름” 필드를 만드는 새 필드를 만들었습니다.
+![새 분기 추가](media/data-flow/new-branch2.png "새 분기 추가")
 
-한 행에서 변환 세트와 싱크를 사용하여 새 스트림을 처리하고, 새 분기를 사용하여 해당 스트림의 복사본을 만든 다음, 다른 변환 세트로 동일한 데이터를 변환할 수 있습니다. 복사된 데이터를 별도의 분기로 변환하면 이후에 해당 데이터를 별도의 위치로 싱크할 수 있습니다.
+아래 예제에서 데이터 흐름은 taxi 여행 데이터를 읽고 있습니다. 일과 공급 업체 모두에 의해 집계 된 출력이 필요 합니다. 동일한 원본에서 읽는 두 개의 개별 데이터 흐름을 만드는 대신 새 분기를 추가할 수 있습니다. 이러한 방식으로 두 집계가 동일한 데이터 흐름의 일부로 실행 될 수 있습니다. 
 
-> [!NOTE]
-> “새 분기”는 분기하려는 현재 위치 뒤에 후속 변환이 있는 경우에만 + 변환 메뉴에 동작으로 표시됩니다. 즉, 선택 후 다른 변환을 추가할 때까지는 “새 분기” 옵션이 끝에 표시되지 않습니다.
-
-![분기](media/data-flow/branch2.png "분기 2")
+![새 분기 추가](media/data-flow/new-branch.png "새 분기 추가")

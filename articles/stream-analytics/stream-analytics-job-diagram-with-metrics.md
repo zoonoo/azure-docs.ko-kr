@@ -1,20 +1,18 @@
 ---
 title: Azure Stream Analytics의 데이터 기반 디버깅
 description: 이 문서에서는 Azure Portal의 작업 다이어그램과 메트릭을 사용하여 Azure Stream Analytics 작업의 문제를 해결하는 방법에 대해 설명합니다.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: 4a6d359b27b9a2e52d71ed5f8547041645147605
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdb3c5c12af8e9022f5babc84126badda890dce5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479969"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044484"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>작업 다이어그램을 사용하여 데이터 기반 디버그
 
@@ -66,7 +64,7 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .** 을 선택합니다.
 ### <a name="are-there-any-errors-in-the-input"></a>입력에 오류가 있습니까?
 
 *   **InputEventsEventDataNullTotal**은 null 데이터가 있는 이벤트의 개수입니다.
-*   **InputEventsSerializerErrorsTotal**은 올바르게 deserialize할 수 없는 이벤트의 개수입니다.
+*   **InputEventsSerializerErrorsTotal**은 올바르게 역직렬화할 수 없는 이벤트의 개수입니다.
 *   **InputEventsDegradedTotal**은 deserialization이 아닌 다른 문제가 있는 이벤트의 개수입니다.
  
 ### <a name="are-events-being-dropped-or-adjusted"></a>이벤트 삭제되거나 조정됩니까?
@@ -81,11 +79,11 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .** 을 선택합니다.
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요. 
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics 소개](stream-analytics-introduction.md)
 * [Stream Analytics 시작](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)
-* [Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

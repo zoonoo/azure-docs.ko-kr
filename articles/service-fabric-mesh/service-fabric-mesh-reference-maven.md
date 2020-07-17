@@ -1,24 +1,19 @@
 ---
-title: Azure Service Fabric Mesh Maven 참조 | Microsoft Docs
+title: Azure Service Fabric 메시 Maven 참조
 description: Service Fabric Mesh에 대한 Maven 플러그 인을 사용하는 방법에 대한 참조를 포함합니다.
-services: service-fabric-mesh
-keywords: maven에서 java, cli
 author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
-ms.service: service-fabric-mesh
-manager: subramar
-ms.openlocfilehash: 08e842f5b91bd0ca5f8e8b2a7866f3f9a689ac28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bcc3fb7c6c3adce0997d0960c4d98227089b048b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60811623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75459010"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Service Fabric Mesh에 대한 Maven 플러그 인
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Java SDK
 - Maven
@@ -39,6 +34,9 @@ ms.locfileid: "60811623"
 ### `azure-sfmesh:addgateway`
 - `appresources` 폴더에서 제공된 게이트웨이 이름을 사용하여 `gateway` YAML을 생성합니다. 
 
+#### `azure-sfmesh:addvolume`
+- `volume`폴더에 제공 된 볼륨 이름을 사용 하 여 yaml을 생성 `appresources` 합니다.
+
 ### `azure-sfmesh:addsecret`
 - `appresources` 폴더에서 제공된 비밀 이름을 사용하여 `secret` YAML을 생성합니다. 
 
@@ -54,7 +52,7 @@ ms.locfileid: "60811623"
 - Azure Service Fabric 클러스터에 모든 리소스를 배포합니다.
  
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용량
 
 Maven Java 앱에서 Maven 플러그 인을 사용하려면 pom.xml 파일에 다음 코드 조각을 추가합니다.
 
@@ -96,7 +94,7 @@ mvn azure-sfmesh:init -DapplicationName=helloworldserver
 아래 명령을 실행하여 네트워크 리소스 YAML을 만듭니다. 
 
 ```cmd
-mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.4/22
+mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
 - `network_helloworldservicenetwork`라고 명명된 `servicefabric->appresources`번 폴더에서 네트워크 YAML을 만듭니다.

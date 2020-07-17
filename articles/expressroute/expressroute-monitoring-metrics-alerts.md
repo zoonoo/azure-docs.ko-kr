@@ -1,19 +1,18 @@
 ---
-title: 모니터링, 메트릭 및 경고 - Azure ExpressRoute | Microsoft Docs
+title: 'Azure Express 경로: 모니터링, 메트릭 및 경고'
 description: 이 페이지에서는 ExpressRoute 모니터링에 대한 정보를 제공합니다.
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 11/30/2018
+ms.topic: how-to
+ms.date: 08/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6622a6e9f6865dbbafa145d6773440599b0c2777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738909"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -23,21 +22,90 @@ ms.locfileid: "60364710"
 >**클래식 메트릭**을 사용하면 좋지 않습니다.
 >
 
-## <a name="circuit-metrics"></a>회로 메트릭
+## <a name="expressroute-metrics"></a>Express 경로 메트릭
 
-**메트릭**으로 이동하려면 모니터링할 회로에 대한 ExpressRoute 페이지를 클릭합니다. **모니터링**에서 **메트릭**을 볼 수 있습니다. BitsInPerSecond 또는 BitsOutPerSecond 및 집계를 선택합니다. 경우에 따라 피어링당 메트릭을 표시하는 분할을 적용할 수도 있습니다.
+**메트릭을**보려면 *Azure Monitor* 페이지로 이동 하 여 *메트릭*을 클릭 합니다. **Express** 경로 메트릭을 보려면 리소스 유형 *express 경로 회로*를 기준으로 필터링 합니다. **Global Reach** 메트릭을 보려면 리소스 유형 *express 경로 회로* 를 기준으로 필터링 하 고 Global Reach 사용 하도록 설정 된 express 경로 회로 리소스를 선택 합니다. Express 경로 **직접** 메트릭을 보려면 *express 경로 포트*를 기준으로 리소스 종류를 필터링 합니다. 
+
+메트릭을 선택 하면 기본 집계가 적용 됩니다. 필요에 따라 분할을 적용할 수 있습니다 .이 경우 다른 차원의 메트릭이 표시 됩니다.
+
+### <a name="available-metrics"></a>사용 가능한 메트릭
+|**메트릭**|**범주**|**개 차원**|**기능**|
+| --- | --- | --- | --- |
+|ARP 가용성|가용성|<ui><li>피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형 (비공개/공용/Microsoft)</ui></li>|ExpressRoute|
+|Bgp 가용성|가용성|<ui><li> 피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형</ui></li>|ExpressRoute|
+|BitsInPerSecond|트래픽|<ui><li> 피어 링 유형 (Express 경로)</ui></li><ui><li>링크 (Express 경로 직접)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|트래픽| <ui><li>피어 링 유형 (Express 경로)</ui></li><ui><li> 링크 (Express 경로 직접) | <ui><li>ExpressRoute<ui><li>Express 경로 직접</ui></li> |
+|GlobalReachBitsInPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
+|GlobalReachBitsOutPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
+|AdminState|실제 연결|링크|ExpressRoute Direct|
+|LineProtocol|실제 연결|링크|ExpressRoute Direct|
+|RxLightLevel|실제 연결|<ui><li>링크</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
+|TxLightLevel|실제 연결|<ui><li>링크</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
+>[!NOTE]
+>*GlobalGlobalReachBitsInPerSecond* 및 *GlobalGlobalReachBitsOutPerSecond* 를 사용 하는 것은 하나 이상의 Global Reach 연결이 설정 된 경우에만 표시 됩니다.
+>
+
+## <a name="circuits-metrics"></a>회로 메트릭
+
+### <a name="bits-in-and-out---metrics-across-all-peerings"></a>모든 피어 링에서의 비트 및 외부 메트릭
+
+지정 된 Express 경로 회로의 모든 피어 링에서 메트릭을 볼 수 있습니다.
 
 ![회로 메트릭](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## <a name="metrics-per-peering"></a>피어링당 메트릭
+### <a name="bits-in-and-out---metrics-per-peering"></a>비트 and Out-피어 링 당 메트릭
 
-개인, 공용 및 Microsoft 피어링에 대한 메트릭을 비트/초 단위로 볼 수 있습니다.
+프라이빗, 공용 및 Microsoft 피어링에 대한 메트릭을 비트/초 단위로 볼 수 있습니다.
 
 ![피어링당 메트릭](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
+### <a name="bgp-availability---split-by-peer"></a>BGP 가용성-피어로 분할  
+
+피어 링 및 피어 (기본 및 보조 Express 경로 라우터)에서 BGP의 실시간 가용성을 확인할 수 있습니다. 이 대시보드는 개인 피어 링에 대 한 기본 BGP 세션과 개인 피어 링에 대 한 두 번째 BGP 세션을 보여 줍니다. 
+
+![피어 당 BGP 가용성](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
+
+### <a name="arp-availability---split-by-peering"></a>ARP 가용성-피어 링으로 분할  
+
+피어 링 및 피어 (기본 및 보조 Express 경로 라우터)에서 [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) 의 실시간 가용성을 확인할 수 있습니다. 이 대시보드는 두 피어에서 개인 피어 링 ARP 세션을 보여 주지만 피어 링에서 Microsoft 피어 링을 완료 합니다. 두 피어에서 기본 집계 (평균)를 활용 했습니다.  
+
+![피어 당 ARP 가용성](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
+
+## <a name="expressroute-direct-metrics"></a>Express 경로 직접 메트릭
+
+### <a name="admin-state---split-by-link"></a>상태 관리-링크로 분할
+Express 경로 직접 포트 쌍의 각 링크에 대 한 관리자 상태를 볼 수 있습니다.
+
+![er 직접 관리 상태](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+
+### <a name="bits-in-per-second---split-by-link"></a>초당 비트 수-링크로 분할
+Express 경로 직접 포트 쌍의 두 링크에서 초당 비트 수를 볼 수 있습니다. 
+
+![초당 er direct 비트 수](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
+
+### <a name="bits-out-per-second---split-by-link"></a>초 당 비트 아웃-링크로 분할
+Express 경로 직접 포트 쌍의 두 링크에서 초당 비트를 볼 수도 있습니다. 
+
+![er direct 비트/초](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+
+### <a name="line-protocol---split-by-link"></a>줄 프로토콜-링크로 분할
+Express 경로 직접 포트 쌍의 각 링크에서 줄 프로토콜을 볼 수 있습니다.
+
+![er direct line 프로토콜](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
+
+### <a name="rx-light-level---split-by-link"></a>Rx 라이트 수준-링크로 분할
+각 포트에 대해 Rx 라이트 수준 (Express 경로 다이렉트 포트가 **수신**하는 광원 수준)을 볼 수 있습니다. 정상 Rx light 수준은 일반적으로-10에서 0 dBm 사이입니다.
+
+![er direct line Rx Light 수준](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+
+### <a name="tx-light-level---split-by-link"></a>Tx 라이트 수준-링크로 분할
+각 포트에 대해 Tx light 수준 (Express 경로 직접 포트가 **전송**하는 광원 수준)을 볼 수 있습니다. 정상적인 Tx light 수준은 일반적으로-10에서 0 dBm 사이의 범위에 속합니다.
+
+![er direct line Rx Light 수준](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute 게이트웨이 연결(비트/초)
 
-![게이트웨이 연결](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) 
+![게이트웨이 연결](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>ExpressRoute 게이트웨이 연결에 대한 경고
 

@@ -1,30 +1,32 @@
 ---
 title: 데이터 없음 문제 해결 - .NET용 Application Insights
 description: Azure Application Insights에서 데이터를 볼 수 없나요? 여기를 참조하세요.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.author: mbullwin
-ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.date: 05/21/2020
+ms.openlocfilehash: 3f1c4a741bf092ab89638fdca130a52d96318157
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471845"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221037"
 ---
-# <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
+# <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
+
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
 *Application Insights에서 내 앱이 생성하는 이벤트의 일부만 표시됩니다.*
 
 * 동일한 부분이 일관되게 표시되는 경우 적응 [샘플링](../../azure-monitor/app/sampling.md)때문일 것입니다. 이러한 사항을 확인하려면 개요 블레이드에서 검색을 열고 요청 또는 다른 이벤트의 인스턴스를 확인합니다. 속성 섹션의 아래쪽에서 "..."를 클릭하여 전체 속성 세부 정보를 표시합니다. 요청 수가 1보다 크면 샘플링이 작동 중인 것입니다.
 * 그렇지 않은 경우 요금제의 [데이터 속도 제한](../../azure-monitor/app/pricing.md#limits-summary) 에 도달한 것일 수 있습니다. 이러한 제한은 분당으로 적용됩니다.
+
+*무작위로 데이터 손실이 발생합니다.*
+
+* [원격 분석 채널](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)에서 데이터 손실이 발생하는지 확인합니다.
+
+* 원격 분석 채널 [GitHub 리포지토리](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)의 알려진 문제를 확인합니다.
+
+*앱이 중지될 때 콘솔 앱 또는 웹앱에서 데이터 손실이 발생합니다.*
+
+* SDK 채널은 버퍼에 원격 분석을 유지하고 일괄 처리로 보냅니다. 애플리케이션이 종료되는 경우 [Flush()](api-custom-events-metrics.md#flushing-data)를 명시적으로 호출해야 할 수 있습니다. `Flush()` 동작은 사용되는 실제 [채널](telemetry-channels.md#built-in-telemetry-channels)에 따라 달라집니다.
 
 ## <a name="no-data-from-my-server"></a>내 서버에서 데이터 없음
 *웹 서버에 이 앱을 설치했지만 지금 원격 분석이 표시되지 않습니다. 내 개발 컴퓨터에서 문제 없이 작동했습니다.*
@@ -36,15 +38,15 @@ ms.locfileid: "65471845"
 
 * [상태 모니터 문제 해결](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)을 참조하세요.
 
-## <a name="q01"></a>Visual Studio에 'Application Insights 추가' 옵션이 없음
+## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Visual Studio에 'Application Insights 추가' 옵션이 없음
 *Solution Explorer에서 기존 프로젝트를 마우스 오른쪽 단추로 클릭할 때 Application Insights 옵션이 표시되지 않습니다.*
 
 * 이 도구가 모든 유형의 .NET 프로젝트를 지원하지는 않습니다. 웹 및 WCF 프로젝트는 지원됩니다. 데스크톱 또는 서비스 애플리케이션 같은 기타 프로젝트 유형은 여전히 [수동으로 프로젝트에 Application Insights SDK를 추가](../../azure-monitor/app/windows-desktop.md)할 수 있습니다.
 * [Visual Studio 2013 업데이트 3 이후](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs)가 설치되어 있는지 확인하세요. Application Insights SDK를 제공하는 개발자 분석 도구가 사전 설치되어 제공됩니다.
 * **도구**, **확장 및 업데이트**를 차례로 선택하고 **개발자 분석 도구**가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
-* 새 프로젝트 대화 상자를 열고 ASP.NET 웹 애플리케이션을 선택합니다. Application Insights 옵션이 보이면 도구가 설치된 것입니다. 그렇지 않은 경우 제거 하 고 Developer Analytics Tools 다시 설치 해 보십시오.
+* 새 프로젝트 대화 상자를 열고 ASP.NET 웹 애플리케이션을 선택합니다. Application Insights 옵션이 보이면 도구가 설치된 것입니다. 옵션이 보이지 않으면 Developer Analytics Tools를 제거한 후 다시 설치해 보세요.
 
-## <a name="q02"></a>Application Insights 추가 실패
+## <a name="adding-application-insights-failed"></a><a name="q02"></a>Application Insights 추가 실패
 *기존 프로젝트에 Application Insights를 추가하려고 할 때 오류 메시지가 표시됩니다.*
 
 가능한 원인:
@@ -58,14 +60,13 @@ ms.locfileid: "65471845"
 * 올바른 Azure 계정의 로그인 자격 증명을 입력했는지 확인하세요.
 * 브라우저에서 [Azure 포털](https://portal.azure.com)에 대한 액세스 권한이 있는지 확인합니다. 설정을 열고 제한이 있는지 확인합니다.
 * [Application Insights를 기존 프로젝트에 추가](../../azure-monitor/app/asp-net.md): 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 "Application Insights 추가"를 선택합니다.
-* 여전히 작동하지 않는 경우 [수동 절차](../../azure-monitor/app/windows-services.md) 에 따라 포털에서 리소스에 추가한 다음 SDK를 프로젝트에 추가합니다.
 
-## <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
+## <a name="i-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
 Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어댑터에 문제가 있을 수 있습니다.
 
 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Application Insights > Application Insights 구성**을 차례로 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하도록 초대하는 대화 상자가 표시됩니다.
 
-## <a name="NuGetBuild"></a> 빌드 서버에 "NuGet 패키지가 없음"
+## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> 빌드 서버에 "NuGet 패키지가 없음"
 *개발 컴퓨터에서 디버깅을 수행하면 모든 것이 정상적으로 빌드되지만 빌드 서버에서는 NuGet 오류가 발생합니다.*
 
 [NuGet 패키지 복원](https://docs.nuget.org/Consume/Package-Restore) 및 [자동 패키지 복원](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore)을 참조하세요.
@@ -85,7 +86,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 * **도구**, **확장 및 업데이트**를 차례로 선택하고 **개발자 분석 도구**가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
 * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **Application Insights > Application Insights 구성** 명령이 보이면 그 명령을 사용하여 Application Insights 서비스의 리소스에 프로젝트를 연결합니다.
 
-그렇지 않으면 프로젝트 형식 개발자 분석 도구에서 직접 지원 되지 않습니다. 원격 분석을 보려면 [Azure Portal](https://portal.azure.com)에 로그인하고, 왼쪽의 탐색 모음에서 Application Insights를 선택하고, 애플리케이션을 선택합니다.
+그렇지 않으면 프로젝트가 Developer Analytics Tools에서 바로 지원되지 않는 유형입니다. 원격 분석을 보려면 [Azure Portal](https://portal.azure.com)에 로그인하고, 왼쪽의 탐색 모음에서 Application Insights를 선택하고, 애플리케이션을 선택합니다.
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>Visual Studio에서 Application Insights를 열면 '액세스 거부' 오류
 *'Application Insights 열기' 메뉴 명령을 실행하면 Azure Portal로 이동되지만 '액세스 거부' 오류가 발생합니다.*
@@ -119,11 +120,11 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
   요약 차트 몇 개가 보일 것입니다. 요약 차트를 클릭하면 세부 정보를 수 있습니다.
 * Visual Studio에서 앱을 디버깅하는 동안 Application Insights 단추를 클릭합니다.
 
-## <a name="q03"></a> 서버 데이터 없음(데이터가 하나도 없음)
+## <a name="no-server-data-or-no-data-at-all"></a><a name="q03"></a> 서버 데이터 없음(데이터가 하나도 없음)
 *앱을 실행한 다음, Microsoft Azure에서 Application Insights 서비스를 열었지만, 모든 차트에 '수집하는 방법을 알아보세요...' 또는 '구성되지 않았습니다' 메시지가 표시됩니다.* 또는 *페이지 보기와 사용자 데이터만 표시되고 서버 데이터는 표시되지 않습니다.*
 
 * Visual Studio의 디버그 모드에서 애플리케이션을 실행합니다(F5). 애플리케이션을 사용하여 원격 분석을 생성합니다. Visual Studio 출력 창에서 기록된 이벤트를 볼 수 있는지 확인합니다.  
-  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+  ![Visual Studio의 디버그 모드에서 응용 프로그램을 실행 하는 것을 보여 주는 스크린샷](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Application Insights 포털에서 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 엽니다. 일반적으로 데이터는 여기에 처음으로 나타납니다.
 * 새로고침 단추를 클릭합니다. 블레이드 자체는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 시간 범위가 커지면 새로 고침 간격이 길어집니다.
 * 계측 키가 일치하는지 확인합니다. Application Insights 포털에서 내 앱의 기본 블레이드로 이동한 다음 **기본 정보** 드롭다운 목록에서 **계측 키**를 확인합니다. 그런 다음, Visual Studio의 프로젝트에서 ApplicationInsights.config를 열고 `<instrumentationkey>`를 찾습니다. 두 키가 같은지 확인합니다. 같이 않으면  
@@ -135,7 +136,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 * `TelemetryClient`인스턴스 또는 `TelemetryContext`의 계측 키가 변경될 수 있는 코드를 [서버 쪽 SDK](../../azure-monitor/app/api-custom-events-metrics.md)에 작성했습니까? 또는 너무 촘촘하게 걸러내는 [필터 또는 샘플링 구성](../../azure-monitor/app/api-filtering-sampling.md)을 작성했습니까?
 * ApplicationInsights.config를 편집한 경우 [TelemetryInitializers 및 TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md)의 구성을 신중하게 확인합니다. 형식 또는 매개 변수를 잘못 명명하면 SDK에서 빈 데이터를 보내게 될 수 있습니다.
 
-## <a name="q04"></a>페이지 보기, 브라우저, 사용량에 데이터 없음
+## <a name="no-data-on-page-views-browsers-usage"></a><a name="q04"></a>페이지 보기, 브라우저, 사용량에 데이터 없음
 *서버 응답 시간 및 서버 요청 차트에는 데이터가 보이는데 페이지 보기 로드 시간, 브라우저 또는 사용량 블레이드에는 데이터가 없습니다.*
 
 데이터는 웹 페이지의 스크립트에서 비롯됩니다. 
@@ -157,7 +158,6 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 * Windows Server 2008: 다음 업데이트를 설치했는지 확인합니다. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
-* [상태 블로그](https://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
 * 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>기대한 모든 데이터가 표시되지 않는 경우
@@ -170,7 +170,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 2018년 2월 5일에 클라이언트 IP 주소의 로깅이 제거되었다고 발표했습니다. 이 조치는 지리적 위치에 영향을 주지 않습니다.
 
 > [!NOTE]
-> IP 주소의 처음 3개의 8진수가 필요하면 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)를 사용하여 사용자 지정 특성을 추가할 수 있습니다.
+> IP 주소의 처음 3개의 8진수가 필요하면 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer)를 사용하여 사용자 지정 특성을 추가할 수 있습니다.
 > 2018년 2월 5일 이전에 수집된 데이터에는 영향을 주지 않습니다.
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>사용자 원격 분석에 잘못된 지리적 데이터
@@ -206,7 +206,9 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 ### <a name="net-core"></a>.NET Core
 
-1. 설치 합니다 [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) NuGet에서 패키지 있습니다. 설치한 버전이 현재 설치된 `Microsoft.ApplicationInsights` 버전과 같아야 합니다.
+1. NuGet에서 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지를 설치합니다. 설치한 버전이 현재 설치된 `Microsoft.ApplicationInsights` 버전과 같아야 합니다.
+
+Microsoft.ApplicationInsights.AspNetCore의 최신 버전은 2.8.2이며 Microsoft ApplicationInsights 버전 2.11.2를 참조합니다. 따라서 설치할 Microsoft.AspNet.ApplicationInsights.HostingStartup의 버전은 2.11.2입니다.
 
 2. `Startup.cs` 클래스의 `ConfigureServices` 메서드를 수정합니다.
 
@@ -224,5 +226,38 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 4. 완료되면 이러한 변경 내용을 되돌립니다.
 
+
+## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a> PerfView를 사용하여 로그 수집
+[PerfView](https://github.com/Microsoft/perfview)는 여러 원본에서 진단 정보를 수집하고 시각화하여 CPU, 메모리 및 기타 문제를 격리하는 데 도움이 되는 무료 진단 및 성능 분석 도구입니다.
+
+Application Insights SDK 로그 EventSource는 PerfView에서 캡처할 수 있는 자체 문제 해결 로그입니다.
+
+로그를 수집하려면 PerfView를 다운로드하고 다음 명령을 실행합니다.
+```cmd
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
+```
+
+필요에 따라 다음 매개 변수를 수정할 수 있습니다.
+- **MaxCollectSec**. PerfView가 무기한 실행되고 서버의 성능에 영향을 주지 않도록 하려면 이 매개 변수를 설정합니다.
+- **OnlyProviders**. SDK에서만 로그를 수집하려면 이 매개 변수를 설정합니다. 특정 조사에 따라 이 목록을 사용자 지정할 수 있습니다. 
+- **NoGui**. GUI 없이 로그를 수집하려면 이 매개 변수를 설정합니다.
+
+
+자세한 내용은,
+- [PerfView를 사용하여 성능 추적 기록](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)
+- [Application Insights 이벤트 원본](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+
+## <a name="collect-logs-with-dotnet-trace"></a>dotnet-trace를 사용하여 로그 수집
+
+문제 해결을 위해 로그를 수집하는 다른 방법은 [`dotnet-trace`](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-trace)이며 Linux 기반 환경에 특히 유용할 수 있습니다.
+
+```bash
+dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
+```
+
+## <a name="how-to-remove-application-insights"></a>Application Insights 제거 방법
+
+제거 [문서](../../azure-monitor/app/remove-application-insights.md)에서 제공하는 단계를 수행하여 Visual Studio에서 Application Insights를 제거하는 방법에 대해 알아봅니다.
+
 ## <a name="still-not-working"></a>여전히 작동하지 않습니다.
-* [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+* [Application Insights에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-monitor.html)

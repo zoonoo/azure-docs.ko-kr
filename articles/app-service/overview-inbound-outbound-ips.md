@@ -1,25 +1,14 @@
 ---
-title: 인바운드/아웃바운드 IP 주소 - Azure App Service | Microsoft Docs
-description: 인바운드 및 아웃바운드 IP 주소가 App Service에서 어떻게 사용되는지와 앱에 필요한 정보를 찾는 방법에 대해 설명합니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: 인바운드/아웃 바운드 IP 주소
+description: Azure App Service에서 인바운드 및 아웃 바운드 IP 주소를 사용 하는 방법, 변경 될 때 그리고 앱에 대 한 주소를 찾는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 04/20/2018
-ms.author: cephalin
+ms.date: 06/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81537630"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -33,11 +22,19 @@ ms.locfileid: "60835297"
 
 - 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다.
 - 리소스 그룹 _및_ 지역 조합에서 마지막 앱을 삭제하고 다시 만듭니다.
-- 기존 SSL 바인딩을 삭제합니다(예: 인증서 갱신 기간) ([인증서 갱신](app-service-web-tutorial-custom-ssl.md#renew-certificates) 참조).
+- 인증서 갱신 중과 같은 기존 TLS 바인딩을 삭제 합니다 ( [인증서 갱신](configure-ssl-certificate.md#renew-certificate)참조).
 
-## <a name="get-static-inbound-ip"></a>고정 인바운드 IP 가져오기
+## <a name="find-the-inbound-ip"></a>인바운드 IP 찾기
 
-경우에 따라 앱에 대해 고정 전용 IP 주소를 사용하고자 할 수 있습니다. 고정 인바운드 IP 주소를 얻으려면 [IP 기반 SSL 바인딩](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate)을 구성해야 합니다. 실제로 앱을 보호하는 SSL 기능이 필요하지 않은 경우 이 바인딩에 대한 자체 서명된 인증서를 업로드할 수도 있습니다. IP 기반 SSL 바인딩에서는 인증서가 자체 IP 주소에 바인딩되므로 App Service는 고정 IP 주소를 프로비전하여 이를 구현합니다. 
+로컬 터미널에서 다음 명령을 실행 하기만 하면 됩니다.
+
+```bash
+nslookup <app-name>.azurewebsites.net
+```
+
+## <a name="get-a-static-inbound-ip"></a>고정 인바운드 IP 가져오기
+
+경우에 따라 앱에 대해 고정 전용 IP 주소를 사용하고자 할 수 있습니다. 고정 인바운드 IP 주소를 가져오려면 [사용자 지정 도메인에 보안](configure-ssl-bindings.md#secure-a-custom-domain)을 설정 해야 합니다. 실제로 앱을 보호 하는 데 TLS 기능이 필요 하지 않은 경우이 바인딩에 대 한 자체 서명 된 인증서를 업로드할 수도 있습니다. IP 기반 TLS 바인딩에서 인증서는 IP 주소 자체에 바인딩되므로 App Service는 고정 IP 주소를 프로 비전 하 여이를 수행 합니다. 
 
 ## <a name="when-outbound-ips-change"></a>아웃바운드 IP가 변경되는 경우
 
@@ -45,11 +42,11 @@ ms.locfileid: "60835297"
 
 더 낮은 계층(**Basic**, **Standard** 및 **Premium**)과 **Premium V2** 계층 사이에서 앱의 규모를 조정하는 경우 앱에 대한 아웃바운드 IP 주소 집합이 변경됩니다.
 
-앱이 사용할 수를 검색 하 여 가격 책정 계층에 관계 없이 모든 가능한 아웃 바운드 IP 주소 집합을 찾을 수 있습니다 합니다 `possibleOutboundIPAddresses` 속성 또는 합니다 **추가 아웃 바운드 IP 주소** 필드에 **속성**  블레이드에서 Azure portal에서 합니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
+가격 책정 계층에 관계 없이 응용 프로그램에서 사용할 수 있는 모든 아웃 바운드 IP 주소 집합을 찾을 수 있습니다 .이는 `possibleOutboundIpAddresses` Azure Portal의 **속성** 블레이드에서 속성 또는 **추가 아웃 바운드 ip 주소** 필드를 검색 합니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
 
 ## <a name="find-outbound-ips"></a>아웃바운드 IP 찾기
 
-Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성**을 클릭합니다. 에 나열 되는 **아웃 바운드 IP 주소** 필드입니다.
+Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성**을 클릭합니다. 이러한 필드는 **아웃 바운드 IP 주소** 필드에 나열 됩니다.
 
 [Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 
@@ -61,7 +58,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-찾으려는 _모든_ 가격 책정 계층에 관계 없이 앱에 대 한 아웃 바운드 IP 주소 수 클릭 **속성** 앱의 왼쪽 탐색 창에서. 에 나열 되는 **아웃 바운드 IP 주소 추가** 필드입니다.
+가격 책정 계층에 관계 없이 앱에 대해 가능한 _모든_ 아웃 바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색에서 **속성** 을 클릭 합니다. **추가 아웃 바운드 IP 주소** 필드에 나열 됩니다.
 
 [Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 

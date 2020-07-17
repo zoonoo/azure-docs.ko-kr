@@ -1,31 +1,25 @@
 ---
 title: Azure Functions Event Grid의 로컬 디버깅
 description: Event Grid 이벤트에 의해 트리거되는 Azure Functions를 로컬로 디버그하는 방법 알아보기
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
-keywords: azure functions, 함수, 서버리스 아키텍처
-ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d57b230ceecc8e676eea6a1ab0855761e78f723b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428264"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242749"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid 트리거 로컬 디버깅
 
-이 문서에서는 저장소 계정에서 발생하는 Azure Event Grid 이벤트를 처리하는 로컬 함수를 디버그하는 방법을 설명합니다. 
+이 문서에서는 스토리지 계정에서 발생하는 Azure Event Grid 이벤트를 처리하는 로컬 함수를 디버그하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 기존 함수 앱 만들기 또는 사용
-- 기존 저장소 계정 만들기 또는 사용
+- 기존 스토리지 계정 만들기 또는 사용
 - [ngrok](https://ngrok.com/)를 다운로드하여 Azure에서 로컬 함수를 호출하도록 허용
 
 ## <a name="create-a-new-function"></a>새 함수 만들기
@@ -62,13 +56,13 @@ ngrok http -host-header=localhost 7071
 
 *ngrok*가 실행될 때 생성된 **HTTPS** URL을 복사합니다. 이 값은 Event Grid 이벤트 엔드포인트를 구성할 때 사용됩니다.
 
-## <a name="add-a-storage-event"></a>저장소 이벤트 추가
+## <a name="add-a-storage-event"></a>스토리지 이벤트 추가
 
-Azure Portal을 열고 저장소 계정으로 이동한 후 **이벤트** 옵션을 클릭합니다.
+Azure Portal을 열고 스토리지 계정으로 이동한 후 **이벤트** 옵션을 클릭합니다.
 
-![저장소 계정 이벤트 추가](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
+![스토리지 계정 이벤트 추가](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-*이벤트* 창에서 **이벤트 구독** 단추를 클릭합니다. *이벤트 구독* 창에서 *엔드포인트 유형* 드롭다운을 클릭하고 **웹후크**를 선택합니다.
+*이벤트* 창에서 **이벤트 구독** 단추를 클릭합니다. *이벤트 구독* 창에서 *끝점 유형* 드롭다운을 클릭 하 고 **웹 후크**를 선택 합니다.
 
 ![구독 유형 선택](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
@@ -89,7 +83,7 @@ Azure Portal을 열고 저장소 계정으로 이동한 후 **이벤트** 옵션
 
 ## <a name="upload-a-file"></a>파일 업로드
 
-이제 로컬 함수에서 처리할 Event Grid 이벤트를 트리거하기 위해 저장소 계정에 파일을 업로드할 수 있습니다. 
+이제 로컬 함수에서 처리할 Event Grid 이벤트를 트리거하기 위해 스토리지 계정에 파일을 업로드할 수 있습니다. 
 
 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 열고 스토리지 계정에 연결합니다. 
 
@@ -97,19 +91,19 @@ Azure Portal을 열고 저장소 계정으로 이동한 후 **이벤트** 옵션
 - 마우스 오른쪽 단추를 클릭하고 **BLOB 컨테이너 만들기** 선택
 - 컨테이너 이름을 **test**로 지정
 - *test* 컨테이너 선택
-- **업로드** 단추 클릭
-- **파일 업로드** 클릭
+- **업로드** 단추를 클릭 합니다.
+- **파일 업로드** 를 클릭 합니다.
 - 파일을 선택하고 BLOB 컨테이너에 업로드
 
 ## <a name="debug-the-function"></a>함수 디버그
 
-Event Grid가 저장소 컨테이너에 새 파일이 업로드된 것을 인식하면 로컬 함수에서 중단점이 적중됩니다.
+Event Grid가 스토리지 컨테이너에 새 파일이 업로드된 것을 인식하면 로컬 함수에서 중단점이 적중됩니다.
 
 ![ngrok 시작](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서 만든 리소스를 정리하려면 저장소 계정에서 **test** 컨테이너를 삭제합니다.
+이 문서에서 만든 리소스를 정리하려면 스토리지 계정에서 **test** 컨테이너를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,30 +9,29 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415885"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75768533"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>요청 추적을 사용하여 API 디버그
 
 이 자습서에서는 API 디버깅 및 문제 해결에 도움을 주기 위해 요청 처리를 검사하는 방법을 설명합니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 호출 추적
 
 ![API 검사기](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
@@ -48,10 +47,12 @@ ms.locfileid: "50415885"
 4. **GetSpeakers** 작업을 선택합니다.
 5. 값이 **true**로 설정된 **Ocp-Apim-Trace**라는 HTTP 헤더를 포함해야 합니다.
 
-    > [!NOTE]
-    > Ocp-Apim-Subscription-Key가 자동으로 채워지지 않는 경우 개발자 포털로 이동하여 프로필 페이지에 키를 노출하면 이 값을 가져올 수 있습니다.
+   > [!NOTE]
+   > * Ocp-Apim-Subscription-Key가 자동으로 채워지지 않는 경우 개발자 포털로 이동하여 프로필 페이지에 키를 노출하면 이 값을 가져올 수 있습니다.
+   > * Ocp-Apim-Trace HTTP 헤더 사용 시 추적을 가져오려면 구독 키에 대한 **추적 허용** 설정을 활성화해야 합니다. **추적 허용** 설정을 구성하려면 왼쪽 메뉴의 **API Management**에서 **구독**을 선택합니다.
+   >   ![API Management 구독 창에서 추적 허용](media/api-management-howto-api-inspector/allowtracing.png)
 
-6. **"보내기"** 를 클릭하여 API 호출을 수행합니다. 
+6. **보내기**를 클릭하여 API 호출을 수행합니다. 
 7. 호출이 완료될 때까지 기다립니다. 
 8. **API 콘솔**의 **추적** 탭으로 이동합니다. **인바운드**, **백 엔드**, **아웃바운드** 링크 중 하나를 클릭하여 자세한 추적 정보로 이동할 수 있습니다.
 
@@ -66,7 +67,7 @@ ms.locfileid: "50415885"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 호출 추적

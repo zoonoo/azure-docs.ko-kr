@@ -32,7 +32,7 @@
       href: ../../media-services/video-indexer/video-indexer-create-new.md
     - name: 애플리케이션에 위젯 포함
       href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Video Indexer API
       href: 'https://api-portal.videoindexer.ai/'

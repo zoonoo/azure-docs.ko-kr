@@ -1,23 +1,23 @@
 ---
-title: PostgreSQL-Azure CLI를 사용 하 여 단일 서버에 대 한 서버 로그 액세스 및 구성
-description: 이 문서에는 구성 및 PostgreSQL-Azure CLI 명령줄을 사용 하 여 단일 서버에 대 한 Azure Database에서 서버 로그에 액세스 하는 방법을 설명 합니다.
+title: 로그 관리-Azure CLI-Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 서버 로그 (.log 파일)를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 4702db31ffeb15481584b9638f5be1aa640ff39e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 1346d1402b46088ce0bed015c723cf817d982317
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067204"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118106"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
 Azure CLI(명령줄 인터페이스)를 사용하여 PostgreSQL 서버 오류 로그를 다운로드할 수 있습니다. 그러나 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for PostgreSQL 서버](quickstart-create-server-database-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 명령줄 유틸리티 또는 브라우저의 Azure Cloud Shell
@@ -25,7 +25,7 @@ Azure CLI(명령줄 인터페이스)를 사용하여 PostgreSQL 서버 오류 �
 ## <a name="configure-logging"></a>로깅 구성
 쿼리 로그 및 오류 로그에 액세스하도록 서버를 구성할 수 있습니다. 오류 로그에는 자동 진공, 연결 및 검사점 정보가 포함될 수 있습니다.
 1. 로깅을 설정합니다.
-2. 쿼리 로깅을 사용하려면 **log\_statement** 및 **log\_min\_duration\_statement**를 업데이트합니다.
+2. 쿼리 로깅을 사용하려면 **log\_statement** 및 **log\_min\_duration\_statement**를 업데이트합니다.
 3. 보존 기간을 업데이트합니다.
 
 자세한 내용은 [서버 구성 매개 변수 사용자 지정](howto-configure-server-parameters-using-cli.md)을 참조하세요.
@@ -45,5 +45,5 @@ az postgres server-logs list --resource-group myresourcegroup --server mydemoser
 az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="next-steps"></a>다음 단계
-- 서버 로그에 대한 자세한 내용은 [PostgreSQL용 Azure Database의 서버 로그](concepts-server-logs.md)를 참조하세요.
+- 서버 로그에 대해 자세히 알아보려면 [Azure Database for PostgreSQL의 서버 로그](concepts-server-logs.md)를 참조 하세요.
 - 서버 매개 변수에 대한 자세한 내용은 [Azure CLI를 사용하여 서버 구성 매개 변수 사용자 지정](howto-configure-server-parameters-using-cli.md)을 참조하세요.

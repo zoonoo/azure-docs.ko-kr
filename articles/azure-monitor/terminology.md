@@ -1,32 +1,28 @@
 ---
 title: Azure Monitor 용어 업데이트 | Microsoft Docs
 description: Azure 모니터링 서비스의 최근 용어 변경을 설명합니다.
-author: bwren
-manager: carmonm
-editor: tysonn
-services: azure-monitor
-documentationcenter: azure-monitor
-ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/18/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 10/08/2019
+ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61086751"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691819"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor 이름 지정 및 용어 변경
 Azure 고객을 위한 모니터링 간소화를 위해 다양한 서비스가 통합되면서 Azure Monitor가 최근 상당히 변화되었습니다. 이 문서에서는 Azure Monitor 설명서의 이름 및 용어 변경 내용을 설명합니다.
+
+## <a name="october-2019---diagnostic-log-to-resource-log"></a>10 월 2019-리소스 로그에 대 한 진단 로그
+실제로 수집 되는 항목에 맞게 "진단 로그"가 "리소스 로그"로 변경 되었습니다. "진단 설정" 이라는 용어는 동일 하 게 유지 됩니다.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>2019년 2월 - Log Analytics 용어
 Azure Monitor에 다양한 서비스를 통합한 후 다음 단계로, Azure Monitor 서비스와 다른 구성 요소를 잘 설명하기 위해 설명서의 용어가 수정되었습니다. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Azure Monitor 로그 데이터는 여전히 Log Analytics 작업 영역에 저장되며 동일한 Log Analytics 서비스에 의해 수집되고 분석됩니다. 다만, 여러 위치에서 _Log Analytics_라는 용어를 _Azure Monitor_ 로그로 변경하고 있습니다. 이 용어에는 Azure Monitor의 역할이 보다 잘 반영되고 [Azure Monitor에서 더 나은 일관성 메트릭](platform/data-platform-metrics.md)을 제공합니다.
+Azure Monitor 로그 데이터는 여전히 Log Analytics 작업 영역에 저장되며 동일한 Log Analytics 서비스에 의해 수집되고 분석됩니다. 다만, 여러 위치에서 _Log Analytics_라는 용어를 _Azure Monitor_ 로그로 변경하고 있습니다. 이 용어는 Azure Monitor의 역할을 반영 하 고 [Azure Monitor의 메트릭과](platform/data-platform-metrics.md)더 나은 일관성을 제공 합니다.
 
 이제 로그 분석(_log analytics_)이라는 용어는 쿼리를 작성하여 실행하고 로그 데이터를 분석하는 데 사용되는 Azure Portal의 페이지에 주로 적용됩니다. 이것은 [메트릭 탐색기](platform/metrics-charts.md)와 기능적으로 동일하며 메트릭 데이터를 분석하는 데 사용되는 Azure Portal의 페이지입니다.
 

@@ -1,13 +1,17 @@
 ---
+title: 법적 고 지 사항
+description: Azure 설명서에 대 한 법적 고 지 사항
+author: SyntaxC4
+ms.author: cfowler
 ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
-ms.openlocfilehash: 2b1fc99fe179187c6431d9a999628db76885e553
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b68d521ba3ec678dad49273f0bd2fdfa5ceabee1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "72750417"
 ---
 # <a name="legal-notices"></a>법적 고지 사항
 
@@ -15,9 +19,9 @@ Microsoft 및 모든 참가자는 사용자에게 [Creative Commons Attribution 
 
 설명서에서 참조되는 Microsoft, Windows, Microsoft Azure 및/또는 기타 Microsoft 제품 및 서비스는 미국 및/또는 다른 국가에서 Microsoft의 상표 또는 등록된 상표일 수 있습니다.
 이 프로젝트에 대한 라이선스는 사용자가 Microsoft 이름, 로고 또는 상표를 사용할 권한을 부여하지 않습니다.
-Microsoft의 일반 상표 지침은 [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653)을 참조하세요.
+Microsoft의 일반적인 상표 지침은에서 찾을 수 있습니다 [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653) .
 
-개인정보처리방침은 [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/) 참조
+개인 정보는 다음 위치에서 찾을 수 있습니다.[https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 
 Microsoft와 모든 참가자는 암시적으로 예약 금반언 또는 기타 방식으로 해당하는 저작권, 특허, 또는 상표 하에 다른 모든 권리를 가집니다.
 

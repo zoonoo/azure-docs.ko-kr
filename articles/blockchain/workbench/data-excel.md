@@ -1,21 +1,15 @@
 ---
 title: Microsoft Excel에서 Azure Blockchain Workbench 데이터 사용
-description: Microsoft Excel에서 Azure Blockchain Workbench SQL DB 데이터를 로드하고 보는 방법을 알아봅니다.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/09/2019
-ms.topic: article
-ms.service: azure-blockchain
+description: Microsoft Excel에서 Azure Blockchain 워크 벤치 미리 보기 SQL DB 데이터를 로드 하 고 보는 방법에 대해 알아봅니다.
+ms.date: 09/05/2019
+ms.topic: how-to
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 215d8b8fbc49e9f38dc89655981edce37984163a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 4dd941abdded6a93510f4a71119769cd73855bcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510663"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253548"
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Microsoft Excel로 Azure Blockchain Workbench 데이터 보기
 
@@ -33,7 +27,7 @@ Blockchain Workbench 데이터베이스에 연결하려면:
 2. **데이터** 탭에서 **데이터 가져오기**를 선택합니다.
 3. **Azure에서**를 선택하고 **Azure SQL Database에서**를 선택합니다.
 
-   ![Azure SQL 데이터베이스에 연결](./media/data-excel/connect-sql-db.png)
+   ![Azure SQL Database에 연결](./media/data-excel/connect-sql-db.png)
 
 4. **SQL Server 데이터베이스** 대화 상자에서:
 

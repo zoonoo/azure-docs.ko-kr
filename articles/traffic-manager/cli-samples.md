@@ -3,7 +3,7 @@ title: Traffic Manager에 대한 Azure CLI 샘플 | Microsoft Docs
 description: Azure CLI 샘플
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: rohinkoul
 manager: twooley
 ms.service: virtual-network
 ms.devlang: na
@@ -11,13 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 10/23/2018
-ms.author: kumud
-ms.openlocfilehash: 6bff7bc2b8bfc5ef280c5782945fbc7932f800f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: rohink
+ms.openlocfilehash: 3b14cf2058f425f650d827e10ef0ca77f1278b55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76938008"
 ---
 # <a name="azure-cli-samples-for-traffic-manager"></a>Traffic Manager에 대한 Azure CLI 샘플
 

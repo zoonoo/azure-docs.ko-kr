@@ -1,0 +1,65 @@
+- name: Azure Static Web Apps 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Static Web Apps 정보
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 첫 번째 정적 웹앱 빌드
+      href: getting-started.md
+- name: 개념
+  items:
+    - name: Azure Functions를 통한 API 지원
+      href: apis.md
+    - name: 경로
+      href: routes.md
+    - name: 인증 및 권한 부여
+      href: authentication-authorization.md
+    - name: 사용자 정보 액세스
+      href: user-information.md
+    - name: 사전 프로덕션 환경에서 끌어오기 요청 검토
+      href: review-publish-pull-requests.md
+    - name: 사용자 지정 도메인
+      href: custom-domain.md
+    - name: 빌드 및 워크플로 구성
+      href: github-actions-workflow.md
+- name: 방법 가이드
+  items:
+    - name: 로컬 개발 설정
+      href: local-development.md
+    - name: API 추가
+      href: add-api.md
+    - name: 앱 설정 구성
+      href: application-settings.md
+    - name: 프런트 엔드 프레임워크 및 라이브러리 구성
+      href: front-end-frameworks.md
+- name: 자습서
+  items:
+    - name: 정적 사이트 생성기에서 게시
+      items:
+        - name: Gatsby
+          href: publish-gatsby.md
+        - name: Hugo
+          href: publish-hugo.md
+        - name: VuePress
+          href: publish-vuepress.md
+        - name: Jekyll
+          href: publish-jekyll.md
+    - name: 프레임워크에서 배포
+      items:
+        - name: Next.js
+          href: deploy-nextjs.md
+        - name: Nuxt.js
+          href: deploy-nuxtjs.md
+- name: 리소스
+  items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      items:
+        - name: 'Angular, React, Svelte 또는 Vue JavaScript 앱 및 API 게시'
+          href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Gatsby를 사용하여 정적 웹앱 생성 및 게시
+          href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - name: 할당량
+      href: quotas.md

@@ -1,10 +1,10 @@
 ---
-title: '자습서: 가용성 영역 간 Load Balancer VM - Azure Portal'
-titlesuffix: Azure Load Balancer
+title: '자습서: 가용성 영역 간에 VM 부하 분산 - Azure Portal'
+titleSuffix: Azure Load Balancer
 description: 이 자습서는 Azure Portal을 사용하여 가용성 영역 간 VM 부하 분산을 위한 영역 중복 프런트 엔드가 있는 표준 Load Balancer를 만드는 방법을 설명합니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 912307e6509ea66be887838e875076b7a895ca94
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888158"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057010"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
-부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서는 가용성 영역 간 VM의 부하를 분산하는 공용 표준 Load Balancer를 만드는 단계를 설명합니다. 이를 통해 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다. 영역 중복에서 하나 이상의 가용성 영역이 실패할 수 있고 지역에서 한 영역이 정상으로 유지되는 한 데이터 경로는 유효합니다. 다음 방법에 대해 알아봅니다.
+부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서는 가용성 영역 간 VM의 부하를 분산하는 공용 표준 Load Balancer를 만드는 단계를 설명합니다. 이를 통해 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다. 영역 중복에서 하나 이상의 가용성 영역이 실패할 수 있고 지역에서 한 영역이 정상으로 유지되는 한 데이터 경로는 유효합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 표준 Load Balancer 만들기
@@ -54,10 +54,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 구독               | 구독을 선택합니다.    |    
-    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLBAZ*를 입력합니다.|
+    | Subscription               | 구독을 선택합니다.    |    
+    | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLBAZ*를 입력합니다.|
     | Name                   | *myLoadBalancer*                                   |
-    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | 지역         | **서유럽**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **표준**을 선택합니다.                          |
     | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
@@ -69,16 +69,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 지역에 대해 다른 영역에 가상 네트워크, 가상 머신을 만든 다음, 영역 중복 부하 분산 장치를 테스트하기 위한 IIS를 가상 머신에 설치합니다. 따라서 한 영역이 실패하면 같은 영역의 VM에 대한 상태 검색이 실패하고 트래픽은 다른 영역의 VM에서 계속하여 처리됩니다.
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-백 엔드 서버를 배포하기 위한 가상 네트워크를 만듭니다.
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
-1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 클릭하고 가상 네트워크에 대해 다음 값을 입력합니다.
-    - *myVNet* - 가상 네트워크의 이름입니다.
-    - *myResourceGroupLBAZ* - 기존 리소스 그룹의 이름입니다.
-    - *myBackendSubnet* - 서브넷 이름입니다.
-2. **만들기**를 클릭하여 가상 네트워크를 만듭니다.
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-    ![가상 네트워크 만들기](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLBAZ(기존 리소스 그룹 선택) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | 서유럽      |
+| **\<IPv4-address-space>**   | 10.0.0.0/16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0/24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
@@ -136,9 +140,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - *myNetworkSecurityGroup* - 네트워크 보안 그룹(방화벽)의 이름입니다.
 5. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 6. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
-  
-   ![가상 머신 만들기](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
-
 7. 1-6단계를 사용하여 영역 2에서 이름이 *VM2*인 두 번째 VM, 영역 3에서 세 번째 VM, 가상 네트워크 *myVnet*, 서브넷 *myBackendSubnet*, 네트워크 보안 그룹 **myNetworkSecurityGroup*을 만듭니다.
 
 ### <a name="install-iis-on-vms"></a>VM에 IIS 설치
@@ -215,6 +216,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
     - *myBackendPool* - 백 엔드 풀의 이름으로 입력합니다.
     - *myHealthProbe* - 상태 프로브의 이름으로 입력합니다.
 4. **확인**을 클릭합니다.
+    
     
     ![부하 분산 규칙 추가](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

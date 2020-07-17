@@ -1,42 +1,32 @@
 ---
-title: Windows Server용 Azure Hybrid Benefit | Microsoft Docs
+title: Windows Server의 Azure 하이브리드 혜택
 description: Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: ''
-author: xujing
-manager: jeconnoc
-editor: ''
-ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
+author: xujing-ms
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
-ms.author: xujing-ms
-ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.author: xujing
+ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81869575"
 ---
-# <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit
+# <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server의 Azure 하이브리드 혜택
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 머신을 실행하여 비용을 절감할 수 있습니다. Windows OS를 사용하여 새 가상 머신을 배포하려면 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
 
-> [!Important]
-> 각 2개 프로세서 라이선스 또는 각 16코어 라이선스 집합이 있으면 최대 8코어 인스턴스 두 개 또는 최대 16코어 인스턴스 한 개를 받을 수 있습니다. Standard Edition 라이선스에 대한 Azure Hybrid Benefit은 온-프레미스 또는 Azure에서 한 번만 사용할 수 있습니다. Datacenter Edition 혜택은 온-프레미스와 Azure 모두에서 동시에 사용할 수 있습니다.
->
+각 2개 프로세서 라이선스 또는 각 16코어 라이선스 집합이 있으면 최대 8코어 인스턴스 두 개 또는 최대 16코어 인스턴스 한 개를 받을 수 있습니다. Standard Edition 라이선스에 대한 Azure Hybrid Benefit은 온-프레미스 또는 Azure에서 한 번만 사용할 수 있습니다. Datacenter Edition 혜택은 온-프레미스와 Azure 모두에서 동시에 사용할 수 있습니다.
 
-> [!Important]
-> Windows Server OS를 실행하는 모든 VM을 통해 Windows Server용 Azure Hybrid Benefit의 사용은 SQL Server 또는 타사 마켓플레이스 소프트웨어와 같은 추가 소프트웨어가 포함된 VM을 포함하여 모든 지역에서 지원됩니다. 
->
+Windows Server OS를 실행하는 모든 VM을 통해 Windows Server용 Azure Hybrid Benefit의 사용은 SQL Server 또는 타사 마켓플레이스 소프트웨어와 같은 추가 소프트웨어가 포함된 VM을 포함하여 모든 지역에서 지원됩니다. 
 
-> [!NOTE]
-> 클래식 Vm의 경우에 배포에서 새 VM 온-프레미스 사용자 지정 이미지 지원 됩니다. 이 문서에서 지원되는 기능을 활용하려면 먼저 클래식 VM을 리소스 관리자 모델로 마이그레이션해야 합니다.
->
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+## <a name="classic-vms"></a>클래식 VM
+
+클래식 Vm의 경우 온-프레미스 사용자 지정 이미지에서 새 VM 배포만 지원 됩니다. 이 문서에서 지원되는 기능을 활용하려면 먼저 클래식 VM을 리소스 관리자 모델로 마이그레이션해야 합니다.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+ 
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit 사용 방법
 몇 가지 방법으로 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다.
@@ -74,7 +64,7 @@ az vm create \
     --license-type Windows_Server
 ```
 
-### <a name="template"></a>Template
+### <a name="template"></a>템플릿
 Resource Manager 템플릿 내에서 `licenseType` 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있음
 ```json
 "properties": {
@@ -171,7 +161,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit을 통해 새 Virtual Machine 확장 집합을 배포
-가상 머신 확장 집합 Resource Manager 템플릿 내에서 추가 매개 변수 `licenseType`을 VirtualMachineProfile 속성 내에서 지정해야 합니다. 만드는 동안이 작업을 수행 하거나 ARM 템플릿, PowerShell, Azure CLI 또는 REST를 통해 설정 하 여 확장에 대 한 업데이트할 수 있습니다.
+가상 머신 확장 집합 Resource Manager 템플릿 내에서 추가 매개 변수 `licenseType`을 VirtualMachineProfile 속성 내에서 지정해야 합니다. ARM 템플릿, PowerShell, Azure CLI 또는 REST를 통해 확장 집합에 대 한 만들기 또는 업데이트 중에이 작업을 수행할 수 있습니다.
 
 다음 예제에서는 Windows Server 2016 Datacenter 이미지를 통해 ARM 템플릿을 사용합니다.
 ```json
@@ -197,9 +187,9 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 확장 집합을 업데이트하는 자세한 방법은 [가상 머신 확장 집합 수정](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) 방법에 대해 자세히 알아보면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 하이브리드 혜택을 사용하여 비용을 절감하는 방법](https://azure.microsoft.com/pricing/hybrid-use-benefit/)에 대해 자세히 알아봅니다.
+- Azure 하이브리드 혜택를 사용 하 여 [비용을 절감 하는 방법](https://azure.microsoft.com/pricing/hybrid-use-benefit/) 에 대해 자세히 알아보세요.
 - [Azure Hybrid Benefit에 대한 질문과 대답](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)을 자세히 알아봄
 - [Windows Server용 Azure 하이브리드 혜택 라이선스 세부 지침](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)에 대해 자세히 알아봅니다.
 - [Windows Server용 Azure 하이브리드 혜택 및 Azure Site Recovery를 사용하여 애플리케이션을 Azure로 훨씬 간편하게 마이그레이션하는 방법](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)에 대해 자세히 알아봅니다.
 - [다중 테넌트 호스팅 권한으로 Azure에서 Windows 10](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)에 대해 자세히 알아봅니다.
-- [Resource Manager 템플릿 사용](../../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
+- [리소스 관리자 템플릿 사용](../../azure-resource-manager/management/overview.md) 에 대 한 자세한 정보

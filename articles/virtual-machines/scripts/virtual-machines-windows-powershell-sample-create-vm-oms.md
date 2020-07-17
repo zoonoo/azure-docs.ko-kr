@@ -1,27 +1,25 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Azure Monitor 로그 | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - Azure Monitor 로그
 description: Azure PowerShell 스크립트 샘플 - Azure Monitor 로그
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 11ae92770f712f2e809824d9caf5981f435b25a9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 651705407b6cc371d5b6db2662460e3a3ee7b6d4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541522"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81460837"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>PowerShell을 사용하여 Azure Monitor VM 만들기 
 
@@ -29,7 +27,7 @@ ms.locfileid: "57541522"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
 
 ## <a name="sample-script"></a>샘플 스크립트
 

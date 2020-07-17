@@ -1,51 +1,103 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: 애플리케이션 관리 설명서
+summary: Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Microsoft 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.
 metadata:
-  title: Azure AD 애플리케이션 관리 설명서 - Azure Active Directory
-  description: Azure Active Directory를 사용하여 애플리케이션을 관리 및 배포하는 방법을 알아봅니다.
-  services: active-directory
-  author: barbkess
-  manager: daveba
-  layout: LandingPage
-  ms.assetid: null
+  title: 애플리케이션 관리 설명서
+  description: Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Microsoft 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.
   ms.service: active-directory
+  ms.subservice: app-mgmt
+  ms.workload: identity
   ms.topic: landing-page
-  ms.date: 09/14/2018
-  ms.author: barbkess
-abstract:
-  description: 'Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Office 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: 'Azure AD를 사용하여 애플리케이션에 대한 액세스 보호(1:47)'
-    href: 'https://youtu.be/BSUuXXcJKCk/'
-    width: 250
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Azure Active Directory를 통해 액세스하는 사용자에 대한 애플리케이션을 추가하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
-            text: 애플리케이션 추가
-            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
-            text: 애플리케이션 보기
-            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 애플리케이션에 간단하고 안전한 로그인 프로세스를 사용하도록 설정하는 방법을 알아봅니다.
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Saas 애플리케이션 자습서</a>'
-          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Single Sign-on 구성</a>
+  ms.date: 10/10/2019
+  author: msmimart
+  ms.author: mimart
+  manager: celested
+  ms.openlocfilehash: ed81c8d5eda3a9db84d85d79b10c0a5ab76705a4
+  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85339203"
+landingContent:
+- title: 애플리케이션 관리 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 애플리케이션 관리란?
+      url: what-is-application-management.md
+    - text: SaaS 앱 자습서
+      url: /azure/active-directory/saas-apps/
+- title: 클라우드 앱 및 Single Sign-On 관리
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Single Sign-On 이해
+      url: what-is-single-sign-on.md
+    - text: 최종 사용자 환경
+      url: end-user-experiences.md
+  - linkListType: quickstart
+    links:
+    - text: 갤러리 앱 추가
+      url: add-application-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: 비갤러리 앱 추가
+      url: add-non-gallery-app.md
+    - text: Single Sign-On 구성
+      url: configure-single-sign-on-non-gallery-applications.md
+    - text: 앱에 사용자 또는 그룹 할당
+      url: assign-user-or-group-access-portal.md
+- title: 사용자 및 그룹을 앱에 프로비저닝
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 애플리케이션 프로비저닝이란?
+      url: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
+  - linkListType: tutorial
+    links:
+    - text: SaaS 앱 프로비저닝 자습서
+      url: /azure/active-directory/saas-apps/
+  - linkListType: how-to-guide
+    links:
+    - text: 앱을 빌드하나요? 프로비저닝에 SCIM 사용(앱 프로비저닝 설명서)
+      url: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+    - text: 갤러리 앱을 추가하나요? 프로비저닝에 구성(앱 프로비저닝 설명서)
+      url: /azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal
+- title: 애플리케이션 프록시를 사용하여 온-프레미스 앱 게시
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 애플리케이션 프록시란?
+      url: what-is-application-proxy.md
+  - linkListType: concept
+    links:
+    - text: 애플리케이션 프록시 계획
+      url: application-proxy-deployment-plan.md
+  - linkListType: tutorial
+    links:
+    - text: 온-프레미스 앱 추가
+      url: application-proxy-add-on-premises-application.md
+  - linkListType: how-to-guide
+    links:
+    - text: 프록시 서버를 사용하여 커넥터 구성
+      url: application-proxy-configure-connectors-with-proxy-servers.md
+    - text: 사용자 지정 홈페이지 구성
+      url: application-proxy-configure-custom-home-page.md
+  - linkListType: deploy
+    links:
+    - text: 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
+      url: application-proxy-integrate-with-remote-desktop-services.md
+    - text: Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
+      url: application-proxy-integrate-with-sharepoint-server.md
+- title: 앱 제공 컨트롤러 및 네트워크를 사용하여 레거시 앱 보호
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 레거시 앱에 대한 보안 하이브리드 액세스(클라우드 및 온-프레미스)
+      url: secure-hybrid-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: F5 Big-IP APM을 사용하여 앱 보호
+      url: https://aka.ms/f5-hybridaccessguide
+    - text: Zscaler ZPA를 사용하여 앱 보호
+      url: https://aka.ms/zscaler-hybridaccessguide

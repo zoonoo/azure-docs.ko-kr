@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: rloutlaw
-ms.openlocfilehash: 67ae9eec4e6cd4fc7697e54dfd74c5e0c8f1f59c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.author: routlaw
+ms.openlocfilehash: 7e78a8dfdf902c4c2548e0521a79d67716987791
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832086"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Azure 애플리케이션에 Node.js 모듈 사용
-이 문서에서는 Azure에서 호스트되는 애플리케이션에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 또한 응용 프로그램에서 특정 버전의 모듈을 사용하고 Azure를 통해 네이티브 모듈을 사용하도록 하는 방법에 대한 지침을 제공합니다.
+이 문서에서는 Azure에서 호스트되는 애플리케이션에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 또한 애플리케이션에서 특정 버전의 모듈을 사용하고 Azure를 통해 네이티브 모듈을 사용하도록 하는 방법에 대한 지침을 제공합니다.
 
 Node.js 모듈, **package.json** 및 **npm-shrinkwrap.json** 파일 사용법을 이미 잘 알고 있는 경우 다음 정보를 통해 이 문서에서 설명하는 내용의 요약을 빠르게 확인할 수 있습니다.
 
@@ -32,8 +32,8 @@ Node.js 모듈, **package.json** 및 **npm-shrinkwrap.json** 파일 사용법을
 
 > [!NOTE]
 > Azure Virtual Machines에 대해서는 이 문서에서 다루지 않습니다. VM의 배포 환경은 Virtual Machine에서 호스트되는 운영 체제에 따라 달라지기 때문입니다.
-> 
-> 
+>
+>
 
 ## <a name="nodejs-modules"></a>Node.js 모듈
 모듈은 애플리케이션의 특정 기능을 제공하는 로드 가능한 JavaScript 패키지입니다. 모듈은 일반적으로 **npm** 명령줄 도구를 사용하여 설치되지만, http 모듈과 같은 일부 모듈은 핵심 Node.js 패키지의 일부로 제공됩니다.
@@ -63,12 +63,12 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 
 > [!NOTE]
 > Azure App Service에 배포할 때는 <b>package.json</b> 파일이 네이티브 모듈을 참조하는 경우 Git를 사용하는 애플리케이션을 게시하면 다음 예제와 유사한 오류가 발생할 수 있습니다.
-> 
+>
 > npm ERR! module-name@0.6.0 설치: 'node-gyp configure build'
-> 
+>
 > npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
-> 
-> 
+>
+>
 
 ### <a name="using-a-npm-shrinkwrapjson-file"></a>npm-shrinkwrap.json 파일 사용
 **npm-shrinkwrap.json** 파일은 **package.json** 파일의 모듈 버전 관리 제한 사항을 해결하기 위한 것입니다. **package.json** 파일은 최상위 모듈에 대한 버전만 포함하는 반면, **npm-shrinkwrap.json** 파일은 전체 모듈 종속성 체인에 대한 버전 요구 사항을 포함합니다.
@@ -77,17 +77,17 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 
 > [!NOTE]
 > Azure App Service에 배포할 때는 <b>npm-shrinkwrap.json</b> 파일이 네이티브 모듈을 참조하는 경우 Git를 사용하는 애플리케이션을 게시하면 다음 예제와 유사한 오류가 발생할 수 있습니다.
-> 
+>
 > npm ERR! module-name@0.6.0 설치: 'node-gyp configure build'
-> 
+>
 > npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
-이제 Azure에서 Node.js 모듈을 사용하는 방법을 익혔습니다. [Node.js 버전 지정](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [Node.js 웹앱 빌드 및 배포](app-service/app-service-web-get-started-nodejs.md) 방법 및 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/)을 알아보겠습니다.
+이제 Azure에서 Node.js 모듈을 사용하는 방법을 익혔습니다. [Node.js 버전 지정](https://github.com/squillace/nodejs-microservice), [Node.js 웹앱 빌드 및 배포](app-service/app-service-web-get-started-nodejs.md) 방법 및 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/)을 알아보겠습니다.
 
-자세한 내용은 [Node.js 개발자 센터](/nodejs/azure/)를 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](/azure/developer/javascript/)를 참조하세요.
 
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md

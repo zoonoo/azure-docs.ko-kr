@@ -1,26 +1,18 @@
 ---
-title: Azure의 Jupyter 노트에서 패키지 설치
-description: Azure에서 실행되는 Jupyter 노트 내에서 Python, R 및 F# 패키지를 설치하는 방법
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-ms.assetid: 6f089c12-128b-4dbd-96e3-1320d37eeba4
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Jupyter 노트북에서 패키지 설치-Azure Notebooks 미리 보기
+description: 'Azure에서 실행 되는 Jupyter 노트북 내에서 Python, R 및 F # 패키지를 설치 하는 방법에 대해 알아봅니다.'
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 504158f248cde3a399475cdec99de3e6a4ebfcc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43d38c9f3a4b0095967ab3e103ea729ec86ea2bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598020"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831219"
 ---
-# <a name="install-packages-from-within-a-notebook"></a>노트 내에서 패키지 설치
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>Azure Notebooks 미리 보기 내에서 패키지 설치
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 [프로젝트 수준에서 노트 환경](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)을 구성할 수 있지만 개별 노트 내에서 직접 패키지를 설치할 수 있습니다.
 
@@ -66,12 +58,22 @@ F#의 패키지는 코드 셀 내에서 Paket 종속성 관리자를 호출하�
 
 ```fsharp
 Paket.Package
-[ "MathNet.Numerics"
-"MathNet.Numerics.FSharp"
-]
+  [ "MathNet.Numerics"
+    "MathNet.Numerics.FSharp"
+  ]
+```
+
+그런 다음 Paket 생성기를 로드 합니다.
+```fsharp
+#load "Paket.Generated.Refs.fsx"
+```
+
+라이브러리를 엽니다.
+```fsharp
+open MathNet.Numerics
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 - [방법: 프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
-- [방법: 슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)
+- [방법: 슬라이드 쇼 표시](present-jupyter-notebooks-slideshow.md)

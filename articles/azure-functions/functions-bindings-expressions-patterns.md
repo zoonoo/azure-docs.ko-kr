@@ -1,26 +1,20 @@
 ---
-title: Azure Functions 바인딩 식 및 패턴
-description: 일반적인 패턴을 기반으로 하는 다른 Azure Functions 바인딩 식을 만드는 방법을 알아봅니다.
-services: functions
-documentationcenter: na
+title: 바인딩 식 및 패턴 Azure Functions
+description: 일반적인 패턴을 기반으로 다양 한 Azure Functions 바인딩 식을 만드는 방법을 알아봅니다.
 author: craigshoemaker
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/20/2019
-ms.author: v-junlch
-ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/18/2019
+ms.author: cshoe
+ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261072"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
 
-가장 강력한 기능 중 하나 [트리거 및 바인딩](./functions-triggers-bindings.md) 됩니다 *바인딩 식*합니다. *function.json* 파일에서 그리고 함수 매개 변수 및 코드에서 다양한 원본의 값을 확인하는 식을 사용할 수 있습니다.
+[트리거와 바인딩의](./functions-triggers-bindings.md) 가장 강력한 기능 중 하나는 *바인딩 식*입니다. *function.json* 파일에서 그리고 함수 매개 변수 및 코드에서 다양한 원본의 값을 확인하는 식을 사용할 수 있습니다.
 
 대부분의 식은 중괄호로 래핑하여 식별됩니다. 예를 들어 큐 트리거 함수에서 `{queueTrigger}`는 큐 메시지 텍스트를 확인합니다. blob 출력 바인딩에 대한 `path` 속성이 `container/{queueTrigger}`이고 함수가 큐 메시지 `HelloWorld`에 의해 트리거되는 경우 `HelloWorld`라는 blob이 만들어집니다.
 
@@ -43,7 +37,8 @@ ms.locfileid: "61437874"
 
 함수를 로컬로 실행 중인 경우 앱 설정 값은 *local.settings.json* 파일에서 가져옵니다.
 
-트리거 및 바인딩의 `connection` 속성은 특수한 경우이며, 백분율 기호 없이 앱 설정으로 값을 자동 확인합니다. 
+> [!NOTE]
+> `connection`트리거와 바인딩의 속성은 특수 한 경우 이며 백분율 기호 없이 앱 설정으로 값을 자동으로 확인 합니다. 
 
 다음 예제는 `%input-queue-name%` 앱 설정을 사용하여 트리거할 큐를 정의하는 Azure Queue Storage 트리거입니다.
 
@@ -137,13 +132,25 @@ public static void Run(
 
 ```
 
-또한 확장과 같은 파일 이름 부분에 대한 식을 만들 수 있습니다. Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자세한 내용은 [저장소 blob 바인딩 참조](functions-bindings-storage-blob.md)를 확인하세요.
+파일 이름 부분에 대 한 식을 만들 수도 있습니다. 다음 예제에서 함수는 패턴과 일치 하는 파일 이름에 대해서만 트리거됩니다.`anyname-anyfile.csv`
+
+```json
+{
+    "name": "myBlob",
+    "type": "blobTrigger",
+    "direction": "in",
+    "path": "testContainerName/{date}-{filetype}.csv",
+    "connection": "OrderStorageConnection"
+}
+```
+
+Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자세한 내용은 [스토리지 blob 바인딩 참조](functions-bindings-storage-blob.md)를 확인하세요.
 
 ## <a name="trigger-metadata"></a>트리거 메타데이터
 
 트리거가 제공한 데이터 페이로드(예: 함수를 트리거한 큐 메시지의 콘텐츠) 이외에 많은 트리거가 추가 메타데이터 값을 제공합니다. 이러한 값은 C# 및 F#에서 입력 매개 변수로 사용하거나 JavaScript에서 `context.bindings` 개체의 속성으로 사용할 수 있습니다. 
 
-예를 들어 Azure Queue 저장소 트리거는 다음 속성을 지원합니다.
+예를 들어 Azure Queue storage 트리거는 다음 속성을 지원합니다.
 
 * QueueTrigger - 유효한 문자열인 경우 트리거 메시지 내용
 * DequeueCount
@@ -173,7 +180,7 @@ public static void Run(
   ]
 ```
 
-각 트리거의 메타데이터 속성은 해당 참조 문서에서 자세히 설명되어 있습니다. 예를 들어 [큐 트리거 메타데이터](functions-bindings-storage-queue.md#trigger---message-metadata)를 참조하세요. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  
+각 트리거의 메타데이터 속성은 해당 참조 문서에서 자세히 설명되어 있습니다. 예를 들어 [큐 트리거 메타데이터](functions-bindings-storage-queue-trigger.md#message-metadata)를 참조하세요. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  
 
 ## <a name="json-payloads"></a>JSON 페이로드
 
@@ -206,7 +213,7 @@ public static void Run(
 }
 ```
 
-이렇게 하려면 C# 및 F#에서 다음 예제와 같이 deserialize할 필드를 정의하는 클래스가 필요합니다.
+이렇게 하려면 C# 및 F#에서 다음 예제와 같이 역직렬화할 필드를 정의하는 클래스가 필요합니다.
 
 ```csharp
 using System.Net;
@@ -291,7 +298,7 @@ public class BlobName
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{rand-guid}"
+  "path": "my-output-container/{rand-guid}.txt"
 }
 ```
 
@@ -304,7 +311,7 @@ public class BlobName
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{DateTime}"
+  "path": "my-output-container/{DateTime}.txt"
 }
 ```
 ## <a name="binding-at-runtime"></a>런타임에 바인딩
@@ -313,6 +320,4 @@ C# 및 기타 .NET 언어에서는 *function.json* 및 특성의 바인딩과 �
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Azure 함수 반환 값을 사용 하 여](./functions-bindings-return-value.md)
-
-<!-- Update_Description: link update -->
+> [Azure Function 반환 값 사용](./functions-bindings-return-value.md)

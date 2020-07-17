@@ -1,26 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - Azure Cache for Redis 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Azure Cache for Redis를 만듭니다.
-services: cache
-documentationcenter: ''
+title: Azure Cache for Redis 만들기 - Azure CLI
+description: 이 Azure CLI 코드 샘플에서는 az redis delete 명령을 사용하여 Azure Cache for Redis 인스턴스를 만드는 방법을 보여줍니다.
 author: yegu-ms
-manager: jhubbard
-editor: ''
 tags: azure-service-management
-ms.assetid: afd7f6e0-9297-4c98-a95e-597be939cef7
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.topic: sample
 ms.date: 08/30/2017
 ms.author: yegu
-ms.openlocfilehash: f4900242c9b6e5eecd5364d74bfcd8e2bc4efb2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 79b749c0d02a21c1225ee0d046d73ed3fdd98904
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60607751"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75411309"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>Azure Cache for Redis 만들기
 

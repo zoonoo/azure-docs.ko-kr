@@ -1,25 +1,24 @@
 ---
 title: Azure Stream Analytics에서 작업 모니터링 이해
 description: 이 문서에서는 Azure Portal에서 Azure Stream Analytics 작업을 모니터링하는 방법을 설명합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/07/2018
+ms.topic: how-to
+ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 43dd8be998e0f8f3b5a2b783c6a01d5b5ef3da12
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f0932104c55e705c76a8d2b086edf828caf60520
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506919"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044093"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
 
 ## <a name="introduction-the-monitor-page"></a>소개: 모니터 페이지
-Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결하는 데 사용할 수 있는 핵심 성과 메트릭을 표시합니다. 이러한 메트릭을 보려면 메트릭을 보려고 하는 Stream Analytics 작업으로 이동하고 개요 페이지에서 **모니터링** 섹션을 봅니다.  
+Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결하는 데 사용할 수 있는 주요 성능 메트릭을 표시합니다. 이러한 메트릭을 보려면 메트릭을 보려고 하는 Stream Analytics 작업으로 이동하고 개요 페이지에서 **모니터링** 섹션을 봅니다.  
 
 ![Stream Analytics 작업 모니터링 링크](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
@@ -38,12 +37,12 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 | 기능 요청      | Azure Machine Learning 함수(있는 경우)에 대한 호출 수입니다. |
 | 입력 역직렬화 오류       | 역직렬화할 수 없는 입력 이벤트 수입니다.  |
 | 입력 이벤트 바이트      | Stream Analytics 작업이 받은 데이터의 양(바이트)입니다. 입력 소스로 전송되는 이벤트의 유효성을 검사하는 데 사용할 수 있습니다. |
-| 입력 이벤트           | 입력 이벤트에서 역직렬화된 레코드 수입니다. 이 개수는 deserialization 오류가 발생 하는 들어오는 이벤트를 포함 하지 않습니다. |
-| 수신된 입력 원본       | 작업에서 받은 메시지의 수입니다. 이벤트 허브에 대 한 메시지는 단일 EventData 됩니다. Blob에 대 한 메시지는 단일 blob을 됩니다. 입력 원본 deserialization을 수행 하기 전에 계산 된 note 하십시오. Deserialization 오류가 있는 경우에 입력된 소스 입력된 이벤트 보다 클 수 있습니다. 그렇지 않은 경우 각 메시지에는 여러 이벤트가 포함 될 수 있으므로 입력 이벤트 보다 작거나 수 있습니다. |
+| 입력 이벤트           | 입력 이벤트에서 역직렬화된 레코드 수입니다. 역직렬화 오류가 발생하는 수신 이벤트는 이 수에 포함되지 않습니다. 내부 복구 및 자체 조인과 같은 시나리오에서 Stream Analytics가 동일한 이벤트를 여러 번 수집할 수 있습니다. 따라서 작업에 간단한 '통과' 쿼리가 있는 경우 입력 이벤트와 출력 이벤트 메트릭이 일치하지 않도록 하는 것이 좋습니다. |
+| 수신된 입력 원본       | 작업에 수신된 메시지 수입니다. Event Hub의 경우 메시지는 단일 EventData입니다. Blob의 경우 메시지는 단일 Blob입니다. 역직렬화 전에 입력 원본이 계산됩니다. 역직렬화 오류가 발생하면 입력 원본이 입력 이벤트보다 클 수 있습니다. 그렇지 않으면 각 메시지에 여러 입력 이벤트가 포함될 수 있으므로 입력 이벤트보다 작거나 같을 수 있습니다. |
 | 늦은 입력 이벤트      | 구성된 지연 도착 허용 시간보다 늦게 도착한 이벤트입니다. [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)에 대해 자세히 알아봅니다. |
 | 순서 비지정 이벤트    | 이벤트 순서 지정 정책에 기반하여 조정된 타임스탬프를 받거나 삭제된 순서가 정해지지 않은 수신 이벤트의 수입니다. 잘못된 순서 허용 시간 설정의 구성에 의해 영향을 받을 수 있습니다. |
 | 출력 이벤트          | Stream Analytics 작업이 출력 대상에 보낸 데이터의 양입니다(이벤트 수). |
-| 런타임 오류         | (이벤트를 수집 하거나 결과 출력 하는 동안 발견 된 오류 제외) 하는 쿼리 처리와 관련 된 오류의 총 수 |
+| 런타임 오류         | 쿼리 처리와 관련된 총 오류 수(이벤트 수집 또는 결과 출력 중에 발견된 오류 제외) |
 | SU % 사용률       | 작업의 크기 조정 탭에서 작업에 할당한 스트리밍 단위의 사용률입니다. 이 표시가 80% 이상에 도달하면 이벤트 처리가 지연되거나 진행을 중단할 가능성이 큽니다. |
 | 워터마크 지연       | 작업에 있는 모든 출력의 모든 파티션에서 발생하는 최대 워터마크 지연입니다. |
 
@@ -60,12 +59,11 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 이 시간은 작업의 최신 출력에 대한 애플리케이션 시간(즉, 이벤트 데이터의 타임스탬프를 사용한 시간)입니다.
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

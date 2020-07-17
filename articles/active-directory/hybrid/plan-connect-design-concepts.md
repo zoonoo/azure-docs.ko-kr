@@ -17,12 +17,11 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698600"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
 이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
@@ -95,7 +94,6 @@ Azure AD Connect(버전 1.1.524.0 이상)는 이제 ms-DS-ConsistencyGuid를 sou
   > 최신 버전의 Azure AD Connect(1.1.524.0 이상)만 새로 설치하는 동안 sourceAnchor로 ConsistencyGuid 사용을 지원합니다.
 
 ### <a name="how-to-enable-the-consistencyguid-feature"></a>ConsistencyGuid 기능을 사용하도록 설정하는 방법
-현재 이 기능은 새 Azure AD Connect를 설치하는 중에만 사용하도록 설정할 수 있습니다.
 
 #### <a name="express-installation"></a>기본 설치
 Azure AD Connect를 기본 모드로 설치하는 경우 Azure AD Connect 마법사에서 다음 논리를 사용하여 sourceAnchor 특성으로 사용할 가장 적절한 AD 특성을 자동으로 결정합니다.
@@ -120,7 +118,7 @@ Azure AD Connect를 사용자 지정 모드로 설치하는 경우 Azure AD Conn
 
 ![사용자 지정 설치 - sourceAnchor 구성](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| 설정 | 설명 |
+| Setting | Description |
 | --- | --- |
 | Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 [기본 설치에서 사용된 것과 동일한 sourceAnchor 특성 선택 논리](#express-installation)를 적용합니다. 기본 설치와 마찬가지로 사용자 정의 설치가 완료되면 마법사에서 원본 앵커 특성으로 선택된 특성을 사용자에게 알려줍니다. |
 | 특정 특성 | 기존 AD 특성을 sourceAnchor 특성으로 지정하려면 이 옵션을 선택합니다. |
@@ -141,7 +139,7 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
 3. Azure AD 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
 
-4. Azure AD Connect 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 애플리케이션이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. 계속하려면 **다음** 을 클릭합니다.
+4. Azure AD Connect 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 애플리케이션이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음** 을 클릭하여 계속합니다.
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 4단계](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -157,7 +155,7 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
 ![기존 배포에 대해 ConsistencyGuid 사용 - 오류](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- 사용 하 여 Azure AD Connect 마법사를 다시 시작 하 여 오류를 무시할 수 인 경우 특정 특성이 다른 기존 응용 프로그램에서 사용 되지 않습니다 하는 **/SkipLdapSearch** 스위치를 지정 합니다. 이렇게 하려면 명령 프롬프트 창에서 다음 명령을 실행합니다.
+ 다른 기존 응용 프로그램에서 특성을 사용 하지 않는 것이 확실 한 경우 **/SkipLdapSearch** 스위치가 지정 된 상태에서 Azure AD Connect 마법사를 다시 시작 하 여 오류를 표시 하지 않을 수 있습니다. 이렇게 하려면 명령 프롬프트 창에서 다음 명령을 실행합니다.
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -171,7 +169,7 @@ Azure AD Connect 외부에서 AD FS를 관리하거나 타사 페더레이션 �
 ![타사 페더레이션 구성](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>기존 배포에 새 디렉터리 추가
-활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 애플리케이션에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 사용 하 여 Azure AD Connect 마법사를 다시 시작 하 여 오류를 무시할 수 인 경우 기존 응용 프로그램에서 특성을 사용 하지는 특정 합니다 **/SkipLdapSearch** 위에서 설명한 것 처럼 지정 된 스위치 또는 사용자에 게 문의 해야 자세한 내용은 지원 합니다.
+활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 애플리케이션에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 응용 프로그램에서 특성을 사용 하지 않는 것이 확실 한 경우 위에 설명 된 **/SkipLdapSearch** 스위치를 사용 하 여 Azure AD Connect 마법사를 다시 시작 하거나, 자세한 내용을 보려면 지원 담당자에 게 문의 하 여 오류를 표시 하지 않을 수 있습니다.
 
 ![기존 배포에 새 디렉터리 추가](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

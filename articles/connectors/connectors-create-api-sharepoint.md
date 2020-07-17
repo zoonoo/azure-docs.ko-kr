@@ -1,22 +1,17 @@
 ---
-title: Azure Logic Apps에서 SharePoint에 연결 | Microsoft Docs
+title: Azure Logic Apps에서 SharePoint에 연결
 description: Azure Logic Apps를 사용하여 온-프레미스에서 SharePoint Online 또는 SharePoint Server의 리소스를 모니터링 및 관리하는 작업 및 워크플로 자동화
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+tags: connectors
+ms.openlocfilehash: 06dfca4fc59ba6ff32714d7a92b0d4a65e262de5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60450746"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826012"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SharePoint 리소스 모니터링 및 관리
 
@@ -37,9 +32,9 @@ Azure Logic Apps 및 SharePoint 커넥터를 사용하여 온-프레미스의 Sh
 트리거를 사용하여 SharePoint에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. 논리 앱에서 작업을 사용하여 SharePoint에서 다양한 작업을 수행할 수 있습니다. 또한 다른 작업에서 SharePoint 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 SharePoint에서 정기적으로 파일을 인출하는 경우 Slack 커넥터를 사용하여 팀에 메시지를 보낼 수 있습니다.
 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * SharePoint 사이트 주소 및 사용자 자격 증명
 
@@ -70,9 +65,9 @@ Azure Logic Apps 및 SharePoint 커넥터를 사용하여 온-프레미스의 Sh
    작업 목록에서 원하는 작업을 선택합니다.
 
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
-1. 로그인하라는 메시지가 표시되면 필요한 연결 정보를 입력합니다. SharePoint Server를 사용 하는 경우 선택 해야 **온-프레미스 데이터 게이트웨이 통해 연결**합니다. 작업을 완료하면 **만들기**를 선택합니다.
+1. 로그인하라는 메시지가 표시되면 필요한 연결 정보를 입력합니다. SharePoint Server를 사용하는 경우 **온-프레미스 데이터 게이트웨이를 통해 연결**을 선택해야 합니다. 작업을 완료하면 **만들기**를 선택합니다.
 
 1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
 
@@ -82,7 +77,7 @@ Azure Logic Apps 및 SharePoint 커넥터를 사용하여 온-프레미스의 Sh
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

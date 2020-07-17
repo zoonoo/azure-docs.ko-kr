@@ -1,30 +1,25 @@
 ---
-title: Azure Logic Apps에서 Twilio에 연결 | Microsoft Docs
+title: Azure Logic Apps에서 Twilio에 연결
 description: Azure Logic Apps를 사용하여 Twilio 계정을 통해 글로벌 SMS, MMS 및 IP 메시지를 관리하는 작업 및 워크플로 자동화
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+tags: connectors
+ms.openlocfilehash: bb7be1815364b3def9b22e50454dceabd17e6150
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104904"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829650"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Twilio에서 메시지 관리
 
 Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 메시지를 포함한 Twilio의 메시지를 가져오기, 전송 및 나열하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 이러한 작업을 사용하여 Twilio 계정으로 작업을 수행할 수 있습니다. 또한 다른 작업에서 Twilio 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 메시지가 도착하면 Slack 커넥터를 사용하여 메시지 콘텐츠를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * [Twilio](https://www.twilio.com/)에서: 
 
@@ -45,7 +40,7 @@ Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
 1. 경로를 선택합니다. 
 
@@ -54,7 +49,7 @@ Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 
        또는
 
      * 작업을 추가하려는 단계 사이에서, 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-     표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+     표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
      
        검색 상자에서 필터로 “twilio”를 입력합니다. 
        작업 목록에서 원하는 작업을 선택합니다.
@@ -73,7 +68,7 @@ Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문하려면 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

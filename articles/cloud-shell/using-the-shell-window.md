@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
-ms.openlocfilehash: 2511f2c8fb706e232cde9ee4c02c7f8114bd3a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60200703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "70860313"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Azure Cloud Shell 창 사용
 
@@ -41,38 +40,38 @@ Azure Cloud Shell 도구 모음에서 환경 선택기를 사용하여 Bash 및 
 ![텍스트 크기](media/using-the-shell-window/text-size.png)
 
 ## <a name="change-the-font"></a>글꼴 변경
-창의 왼쪽 상단에서 설정 아이콘을 클릭 한 다음 "글꼴" 옵션 위로 하 고 원하는 글꼴을 선택 합니다.  선택 사항이 세션 전반에서 유지됩니다.
-![Font](media/using-the-shell-window/text-font.png)
+창의 왼쪽 위에 있는 설정 아이콘을 클릭 하 고 "글꼴" 옵션을 마우스로 가리킨 다음 원하는 글꼴을 선택 합니다.  선택 사항이 세션 전반에서 유지됩니다.
+![글꼴](media/using-the-shell-window/text-font.png)
 
 ## <a name="upload-and-download-files"></a>파일 업로드 및 다운로드
-창의 왼쪽 맨 위에 있는 업로드/다운로드 파일 아이콘을 클릭 업로드 또는 다운로드를 선택 합니다.  
+창의 왼쪽 위에 있는 파일 업로드/다운로드 아이콘을 클릭 한 다음 업로드 또는 다운로드를 선택 합니다.  
 ![파일 업로드/다운로드](media/using-the-shell-window/uploaddownload.png)
-* 파일 업로드를 사용 하 여 팝업, 로컬 컴퓨터에 파일을 찾아 하 고, 원하는 파일을 선택 하 고, "열기" 단추를 클릭 합니다.  에 업로드할 파일을 `/home/user` 디렉터리입니다.
-* 파일을 다운로드 하는 것에 대 한 팝업 창에 정규화 된 파일 경로 입력 하 고 "다운로드" 단추를 선택 합니다.  
+* 파일을 업로드 하려면 팝업을 사용 하 여 로컬 컴퓨터의 파일을 찾아 원하는 파일을 선택 하 고 "열기" 단추를 클릭 합니다.  파일이 디렉터리에 업로드 됩니다 `/home/user` .
+* 파일을 다운로드 하려면 팝업 창에 정규화 된 파일 경로를 입력 하 고 (기본적 `/home/user` 으로 표시 되는 디렉터리 아래의 경로) "다운로드" 단추를 선택 합니다.  
 > [!NOTE] 
-> 파일 및 파일 경로 대/소문자 구분 Cloud Shell에서. Double에 대/소문자 구분 파일 경로 확인 합니다.
+> Cloud Shell에서 파일 및 파일 경로는 대/소문자를 구분 합니다. 파일 경로에서 대/소문자를 다시 확인 합니다.
 
 ## <a name="open-another-cloud-shell-window"></a>다른 Cloud Shell 창을 엽니다.
-Cloud Shell 별도 프로세스로 존재 하도록 각 세션을 허용 하 여 브라우저 탭에서 여러 개의 동시 세션 수 있습니다.
+Cloud Shell은 각 세션이 별도의 프로세스로 존재 하도록 허용 하 여 브라우저 탭에서 여러 동시 세션을 사용 하도록 설정 합니다.
 세션을 종료하는 경우 동일한 컴퓨터에서 실행하더라도 각 프로세스가 독립적으로 실행되므로 각 세션 창을 개별적으로 종료해야 합니다.  
-창의 왼쪽 맨 위에 새 세션 열기 아이콘을 클릭 합니다. 기존 컨테이너에 연결 하는 다른 세션에는 새 탭이 열립니다.
+창의 왼쪽 위에서 새 세션 열기 아이콘을 클릭 합니다. 기존 컨테이너에 연결 된 다른 세션이 있는 새 탭이 열립니다.
 ![새 세션 열기](media/using-the-shell-window/newsession.png)
 
 ## <a name="cloud-shell-editor"></a>Cloud Shell 편집기
-* 참조 된 [Azure Cloud Shell 편집기를 사용 하 여](using-cloud-shell-editor.md) 페이지입니다.
+* [Azure Cloud Shell 편집기 사용](using-cloud-shell-editor.md) 페이지를 참조 하세요.
 
 ## <a name="web-preview"></a>웹 미리 보기
-위쪽에서 웹 미리 보기 아이콘을 클릭 "구성"을 선택 창의 왼쪽에, 원하는 포트를 엽니다.  선택 하거나 "Open port"만 포트를 엽니다 또는 "열고" 포트를 열고 새 탭의 포트를 미리 봅니다.  
+창의 왼쪽 위에서 웹 미리 보기 아이콘을 클릭 하 고, "구성"을 선택 하 고, 원하는 포트를 지정 하 여 엽니다.  "포트 열기"를 선택 하 여 포트를 열거나 "열기 및 찾아보기"를 선택 하 여 포트를 열고 새 탭에서 포트를 미리 봅니다.  
 ![웹 미리 보기](media/using-the-shell-window/preview.png)  
 <br>
 ![포트 구성](media/using-the-shell-window/preview-configure.png)  
-창의 왼쪽 맨 위에 웹 미리 보기 아이콘을 클릭 "미리 보기 포트..." 선택 새 탭에서 열려 있는 포트를 미리 보려면. 창의 왼쪽 맨 위에 웹 미리 보기 아이콘을 클릭 "포트 닫기..." 선택 열려 있는 포트를 닫습니다.  
-![미리 보기/포트 닫기](media/using-the-shell-window/preview-options.png)
+창의 왼쪽 위에서 웹 미리 보기 아이콘을 클릭 하 고 "미리 보기 포트 ..."를 선택 합니다. 새 탭에서 열린 포트를 미리 보려면 창의 왼쪽 위에서 웹 미리 보기 아이콘을 클릭 하 고 "포트 닫기 ..."를 선택 합니다. 열려 있는 포트를 닫습니다.  
+![미리 보기/닫기 포트](media/using-the-shell-window/preview-options.png)
 
 ## <a name="minimize--maximize-cloud-shell-window"></a>Cloud Shell 창 최소화 및 최대화
 창을 숨기려면 창의 오른쪽 위에 있는 최소화 아이콘을 클릭합니다. 숨기기를 취소하려면 Cloud Shell 아이콘을 다시 클릭합니다.
 창을 최대 높이로 설정하려면 최대화 아이콘을 클릭합니다. 창을 이전 크기로 복원하려면 복원 아이콘을 클릭합니다.  
-![창을 최대화 또는 최소화](media/using-the-shell-window/minmax.png)
+![창 최소화 또는 최대화](media/using-the-shell-window/minmax.png)
 
 ## <a name="copy-and-paste"></a>복사 및 붙여넣기
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
@@ -88,5 +87,5 @@ Cloud Shell 별도 프로세스로 존재 하도록 각 세션을 허용 하 여
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
-[Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md)
+[Cloud Shell 빠른 시작의 Bash](quickstart.md) <br>
+[Cloud Shell 빠른 시작의 PowerShell](quickstart-powershell.md)

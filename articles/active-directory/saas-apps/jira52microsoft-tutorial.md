@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8cb048964830f62fe483da63d24356f46538b7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d3b304bb35ea69906fc9576f45733134387be1b9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501402"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67099510"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>자습서: JIRA SAML SSO by Microsoft(V5.2)와 Azure Active Directory 통합
 
@@ -32,14 +32,14 @@ JIRA SAML SSO by Microsoft(V5.2)를 Azure AD와 통합하면 다음과 같은 �
 * 사용자가 해당 Azure AD 계정으로 JIRA SAML SSO by Microsoft(V5.2)에 자동으로 로그인(Single Sign-On) 되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 Atlassian JIRA 서버와 함께 Microsoft Azure Active Directory 계정을 사용하여 Single Sign-On을 사용하도록 설정합니다. 이러한 방식으로 모든 조직 사용자는 Azure AD 자격 증명을 사용하여 JIRA 애플리케이션에 로그인할 수 있습니다. 이 플러그 인은 페더레이션에 대해 SAML 2.0을 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 JIRA SAML SSO by Microsoft(V5.2)와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -66,7 +66,7 @@ JIRA SAML SSO by Microsoft(V5.2)와 Azure AD의 통합을 구성하려면 다음
 * JIRA는 6.0에서 7.12도 지원합니다. 자세한 내용을 보려면 [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)를 클릭하세요.
 
 > [!NOTE]
-> JIRA도 Linux Ubuntu 버전 16.04를 지원합니다.
+> JIRA 플러그 인도 Ubuntu 버전 16.04에서 작동한다는 점에 유의하세요.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -84,7 +84,7 @@ JIRA SAML SSO by Microsoft(V5.2)가 Azure AD에 통합되도록 구성하려면 
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -132,11 +132,11 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
     ![JIRA SAML SSO by Microsoft (V5.2) 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<domain:port>/plugins/servlet/saml/auth`
+    a. **로그인 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다. `https://<domain:port>/`
+    b. **식별자** 텍스트 상자에서 `https://<domain:port>/` 패턴을 사용하는 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<domain:port>/plugins/servlet/saml/auth`
+    다. **회신 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 명명된 URL인 경우 포트는 선택 사항입니다. 이러한 값은 JIRA 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
@@ -151,23 +151,23 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
 2. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon1.png)
+    ![Single Sign-on 구성](./media/jira52microsoft-tutorial/addon1.png)
 
 3. 추가 기능 탭 섹션에서 **추가 기능 관리**를 클릭합니다.
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon7.png)
+    ![Single Sign-on 구성](./media/jira52microsoft-tutorial/addon7.png)
 
 4. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=56521)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다. 플러그 인 다운로드에는 [Microsoft 서비스 계약](https://www.microsoft.com/servicesagreement/)이 적용됩니다.
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon12.png)
+    ![Single Sign-on 구성](./media/jira52microsoft-tutorial/addon12.png)
 
 5. 플러그 인이 설치되면 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon13.png)
+    ![Single Sign-on 구성](./media/jira52microsoft-tutorial/addon13.png)
 
 6. 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon52.png)
+    ![Single Sign-on 구성](./media/jira52microsoft-tutorial/addon52.png)
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.
@@ -214,7 +214,7 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. 예: BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. BrittaSimon@contoso.com)을 입력합니다.
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
@@ -250,7 +250,7 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
 Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 하려면 해당 사용자를 JIRA 온-프레미스 서버로 프로비저닝해야 합니다.
 
-**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
 1. JIRA 온-프레미스 서버에 관리자로 로그인합니다.
 
@@ -290,6 +290,6 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

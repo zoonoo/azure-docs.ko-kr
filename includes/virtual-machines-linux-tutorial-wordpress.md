@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 76a080d40721fa78ad703f77f6dbe7a3363ab77e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227424"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "68857438"
 ---
 ## <a name="install-wordpress"></a>WordPress 설치
 
@@ -37,7 +37,7 @@ MySQL 및 PHP를 사용하도록 WordPress를 구성합니다.
 sudo sensible-editor wordpress.sql
 ```
 
-다음 명령을 추가하여 *yourPassword*에 대한 데이터베이스 암호를 원하는 암호로 바꿉니다(다른 값을 변경하지 않고 둠). 이전에 암호 강도의 유효성을 검사하는 MySQL 보안 정책을 설정한 경우 암호가 강도 요구 사항에 부합해야 합니다.  파일을 저장합니다.
+다음 명령을 추가하여 *yourPassword*에 대한 데이터베이스 암호를 원하는 암호로 바꿉니다(다른 값을 변경하지 않고 둠). 이전에 암호 강도의 유효성을 검사하는 MySQL 보안 정책을 설정한 경우 암호가 강도 요구 사항에 부합해야 합니다. 파일을 저장합니다.
 
 ```sql
 CREATE DATABASE wordpress;
@@ -45,7 +45,6 @@ GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
 ON wordpress.*
 TO wordpress@localhost
 IDENTIFIED BY 'yourPassword';
-FLUSH PRIVILEGES;
 ```
 
 다음 명령을 실행하여 데이터베이스를 만듭니다.

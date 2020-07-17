@@ -1,25 +1,16 @@
 ---
-title: Eclipse에서 Azure Service Fabric 애플리케이션 디버그 | Microsoft Docs
+title: Eclipse에서 응용 프로그램 디버그
 description: 로컬 개발 클러스터의 Eclipse에서 개발하고 디버그하여 서비스의 안정성과 성능을 향상시킵니다.
-services: service-fabric
-documentationcenter: .net
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f2361bf76bd4f9d297fbe541b950840f13966cc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393591"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246404"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eclipse를 사용하여 Java Service Fabric 애플리케이션 디버그
 > [!div class="op_single_selector"]
@@ -50,5 +41,5 @@ ms.locfileid: "60393591"
 
 ### <a name="next-steps"></a>다음 단계
 
-* [Linux Azure Diagnostics를 사용하여 로그 수집](service-fabric-diagnostics-how-to-setup-lad.md).
-* [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
+* [Linux Azure Diagnostics를 사용하여 로그 수집](./service-fabric-diagnostics-event-aggregation-lad.md).
+* [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

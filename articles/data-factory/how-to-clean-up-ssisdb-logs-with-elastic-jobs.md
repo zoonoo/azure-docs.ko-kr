@@ -1,31 +1,31 @@
 ---
-title: Azure Elastic Database 작업을 사용하여 SSISDB 로그 정리 | Microsoft Docs
+title: Azure Elastic Database 작업을 사용하여 SSISDB 로그 정리
 description: 이 문서에서는 이를 위해 존재하는 저장 프로시저를 트리거하기 위해 Azure Elastic Database 작업을 사용하여 SSISDB 로그를 정리하는 방법을 설명합니다.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 1afc40bd601c06def57ae59797d31a5edf4095bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7a4a1a839282618e9723e5fc916770a789fc32b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61345563"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187622"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Azure Elastic Database 작업을 사용하여 SSISDB 로그 정리
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 Azure Elastic Database 작업을 사용하여 SQL Server Integration Services 카탈로그 데이터베이스 `SSISDB`에 대한 로그를 정리하는 저장 프로시저를 트리거하는 방법을 설명합니다.
 
 Elastic Database 작업은 데이터베이스 또는 데이터베이스 그룹에 대한 작업을 쉽게 자동화하고 실행시키는 Azure 서비스입니다. Azure Portal, Transact-SQL, PowerShell 또는 REST API를 사용하여 이러한 작업을 예약하고, 실행하고, 모니터링할 수 있습니다. 탄력적 데이터베이스 작업을 사용하여 일회성으로 또는 일정에 따라 로그 정리를 위한 저장 프로시저를 트리거합니다. 지나친 데이터베이스 부하를 방지하기 위해 SSISDB 리소스 사용량을 기준으로 일정 간격을 선택할 수 있습니다.
 
-자세한 내용은 [Elastic Database 작업을 사용하여 데이터베이스 그룹 관리](../sql-database/elastic-jobs-overview.md)를 참조하세요.
+자세한 내용은 [Elastic Database 작업을 사용하여 데이터베이스 그룹 관리](../azure-sql/database/elastic-jobs-overview.md)를 참조하세요.
 
 다음 섹션에서는 저장 프로시저 `[internal].[cleanup_server_retention_window_exclusive]`를 트리거하는 방법을 설명합니다. 해당 프로시저는 관리자가 설정한 보존 기간을 벗어나는 SSISDB 로그를 제거합니다.
 
@@ -33,7 +33,7 @@ Elastic Database 작업은 데이터베이스 또는 데이터베이스 그룹�
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-다음 샘플 PowerShell 스크립트는 SSISDB 로그 정리를 위한 저장 프로시저를 트리거하는 새 탄력적 작업을 만듭니다. 자세한 내용은 [PowerShell을 사용하여 탄력적 작업 에이전트 만들기](../sql-database/elastic-jobs-powershell.md)를 참조하세요.
+다음 샘플 PowerShell 스크립트는 SSISDB 로그 정리를 위한 저장 프로시저를 트리거하는 새 탄력적 작업을 만듭니다. 자세한 내용은 [PowerShell을 사용하여 탄력적 작업 에이전트 만들기](../azure-sql/database/elastic-jobs-powershell-create.md)를 참조하세요.
 
 ### <a name="create-parameters"></a>매개 변수 만들기
 
@@ -41,7 +41,7 @@ Elastic Database 작업은 데이터베이스 또는 데이터베이스 그룹�
 # Parameters needed to create the Job Database
 param(
 $ResourceGroupName = $(Read-Host "Please enter an existing resource group name"),
-$AgentServerName = $(Read-Host "Please enter the name of an existing Azure SQL server(for example, yhxserver) to hold the SSISDBLogCleanup job database"),
+$AgentServerName = $(Read-Host "Please enter the name of an existing logical SQL server(for example, yhxserver) to hold the SSISDBLogCleanup job database"),
 $SSISDBLogCleanupJobDB = $(Read-Host "Please enter a name for the Job Database to be created in the given SQL Server"),
 # The Job Database should be a clean,empty,S0 or higher service tier. We set S0 as default.
 $PricingTier = "S0",
@@ -52,7 +52,7 @@ $SSISDBLogCleanupAgentName = $(Read-Host "Please enter a name for your new Elast
 # Parameters needed to create the job credential in the Job Database to connect to SSISDB
 $PasswordForSSISDBCleanupUser = $(Read-Host "Please provide a new password for SSISDBLogCleanup job user to connect to SSISDB database for log cleanup"),
 # Parameters needed to create a login and a user in the SSISDB of the target server
-$SSISDBServerEndpoint = $(Read-Host "Please enter the name of the target Azure SQL server which contains SSISDB you need to cleanup, for example, myserver") + '.database.windows.net',
+$SSISDBServerEndpoint = $(Read-Host "Please enter the name of the target logical SQL server which contains SSISDB you need to cleanup, for example, myserver") + '.database.windows.net',
 $SSISDBServerAdminUserName = $(Read-Host "Please enter the target server admin username for SQL authentication"),
 $SSISDBServerAdminPassword = $(Read-Host "Please enter the target server admin password for SQL authentication"),
 $SSISDBName = "SSISDB",
@@ -191,7 +191,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
     SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
     SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
     ```
-4. SSISDB 데이터베이스에 대한 적절한 사용 권한을 부여합니다. SSISDB 로그 정리를 성공적으로 실행하기 위해 SSISDB 카탈로그에는 저장 프로시저에 대한 적절한 사용 권한이 있어야 합니다. 자세한 지침은 [로그인 관리](../sql-database/sql-database-manage-logins.md)를 참조하세요.
+4. SSISDB 데이터베이스에 대한 적절한 사용 권한을 부여합니다. SSISDB 로그 정리를 성공적으로 실행하기 위해 SSISDB 카탈로그에는 저장 프로시저에 대한 적절한 사용 권한이 있어야 합니다. 자세한 지침은 [로그인 관리](../azure-sql/database/logins-create-manage.md)를 참조하세요.
 
     ```sql
     -- Connect to the master database in the target server including SSISDB 

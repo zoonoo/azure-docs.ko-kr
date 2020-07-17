@@ -12,20 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61416342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79267535"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 프로비전
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>개요
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 이 자습서에서는 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템의 StorSimple 가상 배열을 프로비전하는 방법을 설명합니다. 이 문서는 Azure Portal 및 Microsoft Azure Government 클라우드에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
 가상 배열을 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
@@ -37,7 +39,7 @@ ms.locfileid: "61416342"
 시작하기 전에 다음 사항을 확인합니다.
 
 * [StorSimple 가상 배열용 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)의 모든 단계를 완료했습니다.
-* Azure Portal에서 Hyper-V용 가상 배열 이미지를 다운로드했습니다. 자세한 내용은 **3단계: 가상 어레이 이미지 다운로드**([StorSimple Virtual Array를 위한 포털 준비 가이드](storsimple-virtual-array-deploy1-portal-prep.md))를 참조하세요.
+* Azure Portal에서 Hyper-V용 가상 배열 이미지를 다운로드했습니다. 자세한 내용은 [StorSimple 가상 배열을 위한 포털 준비 가이드](storsimple-virtual-array-deploy1-portal-prep.md)의 **3단계: 가상 배열 이미지 다운로드**를 참조하세요.
 
   > [!IMPORTANT]
   > StorSimple 가상 배열에서 실행되는 소프트웨어는 StorSimple 디바이스 관리자 서비스와 함께 사용해야 합니다.
@@ -80,7 +82,7 @@ ms.locfileid: "61416342"
 * 네트워크 인터페이스 하나
 * 시스템 데이터용 가상 디스크 500GB
 
-## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 배열 프로비저닝
+## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 배열 프로비전
 하이퍼바이저에서 디바이스를 프로비전하려면 다음 단계를 수행합니다.
 
 #### <a name="to-provision-a-virtual-array"></a>가상 배열을 프로비전하려면
@@ -140,7 +142,7 @@ ms.locfileid: "61416342"
 18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 정보는 [모범 사례 문서](storsimple-ova-best-practices.md)의 크기 조정 섹션을 검토하세요. **다음**을 클릭합니다.
+19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로 비전 할 디스크의 크기에 대 한 자세한 내용은 [모범 사례 문서의](storsimple-ova-best-practices.md)크기 조정 섹션을 참조 하세요. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침**을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.
@@ -185,7 +187,7 @@ ms.locfileid: "61416342"
 7. `Get-HcsIpAddress` 명령을 사용하여 가상 배열에 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
-8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하세요.
+8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하십시오.
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
@@ -205,13 +207,13 @@ ms.locfileid: "61416342"
        >
        >
 
-디바이스가 최소 구성 요구 사항을 충족하지 못하면 아래 표시된 배너 텍스트에 다음 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. 1단계: 호스트 시스템이 최소 가상 배열 요구 사항을 충족하는지 확인의 최소 구성 요구 사항을 참조합니다.
+디바이스가 최소 구성 요구 사항을 충족하지 못하면 아래 표시된 배너 텍스트에 다음 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. 1단계: 호스트 시스템이 최소 가상 배열 요구 사항을 충족하는지 확인에서 최소 구성 요구 사항을 참조하세요.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 
 로컬 웹 UI를 사용하여 초기 구성을 하는 동안 다른 오류가 발생하면 다음 워크플로를 참조하세요.
 
-* 진단 테스트를 실행하여 [웹 UI 설정 문제를 해결](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)합니다.
+* 진단 테스트를 실행 하 여 [웹 UI 설정 문제를 해결](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)합니다.
 * [로그 패키지를 생성하고 로그 파일을 살펴봅니다](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,19 +1,19 @@
 ---
 title: OPC 자격 증명 모음이란? - Azure | Microsoft Docs
-description: OPC 자격 증명 모음 개요
+description: 이 문서는 OPC 자격 증명 모음에 대한 개요를 제공합니다. 클라우드 내 OPC UA 애플리케이션에 대한 인증서 수명 주기를 구성, 등록 및 관리할 수 있습니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 99dfcaeb1ef5b52e6827f1b3ac65d6201557a8fb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 66a322d4f60d9553a68207136ae609c1f9b50dbc
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783520"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "73826211"
 ---
 # <a name="what-is-opc-vault"></a>OPC 자격 증명 모음이란?
 
@@ -30,3 +30,10 @@ OPC 자격 증명 모음에는 인증서 레지스트리, 스토리지 및 수�
 다음 다이어그램은 전체 OPC 자격 증명 모음 아키텍처를 보여줍니다.
 
 ![OPC 자격 증명 모음 아키텍처](media/overview-opc-vault-architecture/opc-vault.png)
+
+## <a name="next-steps"></a>다음 단계
+
+이제 OPC Vault와 그 용도에 대해 파악했으므로, 권장되는 단계는 다음과 같습니다.
+
+> [!div class="nextstepaction"]
+> [OPC Vault 아키텍처](overview-opc-vault-architecture.md)

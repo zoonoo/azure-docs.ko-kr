@@ -1,32 +1,30 @@
 ---
-title: B2B 게스트 사용자의 일회성 암호 인증 - Azure Active Directory | Microsoft Docs
+title: B2B 게스트 사용자의 일회용 암호 인증 - Azure AD
 description: 메일 일회성 암호를 사용하여 Microsoft 계정을 사용하지 않고 B2B 게스트 사용자를 인증하는 방법입니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 04/08/2019
+ms.topic: how-to
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 577f370c3be0f232be4e6628dd6754c4164ab93f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 714e4484c71b995bee186a2d94dc45c7ff82c50d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551306"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>메일 일회성 암호 인증(미리 보기)
 
-|     |
-| --- |
-| 메일 일회성 암호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+> [!NOTE]
+> 메일 일회성 암호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 문서에서는 B2B 게스트 사용자에 게 전자 메일 (일회성 암호) 인증을 사용 하도록 설정 하는 방법을 설명 합니다. 메일 일회성 암호 기능은 B2B 게스트 사용자가 Azure AD, Microsoft 계정(MSA) 또는 Google 페더레이션과 같은 다른 수단을 통해 인증할 수 없을 때 해당 사용자를 인증합니다. 일회성 암호 인증을 사용하면 Microsoft 계정을 만들 필요가 없습니다. 게스트 사용자는 초대를 사용하거나 공유 리소스에 액세스할 때 메일 주소로 전송되는 임시 코드를 요청할 수 있습니다. 그런 다음, 이 코드를 입력하여 로그인을 계속합니다.
+이 문서에서는 B2B 게스트 사용자에게 이메일 일회용 암호 인증을 사용하도록 설정하는 방법을 설명합니다. 메일 일회성 암호 기능은 B2B 게스트 사용자가 Azure AD, Microsoft 계정(MSA) 또는 Google 페더레이션과 같은 다른 수단을 통해 인증할 수 없을 때 해당 사용자를 인증합니다. 일회성 암호 인증을 사용하면 Microsoft 계정을 만들 필요가 없습니다. 게스트 사용자는 초대를 사용하거나 공유 리소스에 액세스할 때 메일 주소로 전송되는 임시 코드를 요청할 수 있습니다. 그런 다음, 이 코드를 입력하여 로그인을 계속합니다.
 
 이 기능은 현재 미리 보기로 제공됩니다(아래 [미리 보기에 옵트인](#opting-in-to-the-preview) 참조). 미리 보기 후에 이 기능은 기본적으로 모든 테넌트에 대해 켜집니다.
 
@@ -36,11 +34,11 @@ ms.locfileid: "65785271"
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>일회성 암호 게스트 사용자를 위한 사용자 환경
 일회성 암호 인증을 사용하면 게스트 사용자가 직접 링크를 클릭하거나 초대 메일을 사용하여 초대를 사용할 수 있습니다. 두 경우 모두 코드가 게스트 사용자의 메일 주소로 전송된다는 메시지가 브라우저에 표시됩니다. 게스트 사용자가 **코드 보내기**를 선택합니다.
  
-   ![송신 코드 단추를 보여 주는 스크린샷](media/one-time-passcode/otp-send-code.png)
+   ![코드 보내기 단추를 보여주는 스크린샷](media/one-time-passcode/otp-send-code.png)
  
 암호가 사용자의 메일 주소로 전송됩니다. 사용자가 메일에서 암호를 검색하고 브라우저 창에 입력합니다.
  
-   ![Enter 코드 페이지를 보여 주는 스크린샷](media/one-time-passcode/otp-enter-code.png)
+   ![코드 입력 페이지를 보여주는 스크린샷](media/one-time-passcode/otp-enter-code.png)
  
 이제 게스트 사용자가 인증되었고 공유 리소스를 보거나 로그인을 계속할 수 있습니다. 
 
@@ -56,15 +54,15 @@ ms.locfileid: "65785271"
 
 초대할 때 초대를 받는 사용자가 일회성 암호 인증을 사용할 것이라는 표시는 없습니다. 그러나 게스트 사용자가 로그인할 때 다른 인증 방법을 사용할 수 없다면 일회성 암호 인증이 대체 방법이 됩니다. 
 
-**Azure Active Directory** > **조직 관계** > **다른 조직의 사용자**로 이동하여 Azure Portal에서 일회성 암호로 인증하는 게스트 사용자를 볼 수 있습니다.
+**Azure Active Directory** > **사용자**로 이동하여 Azure Portal에서 일회용 암호로 인증하는 게스트 사용자를 볼 수 있습니다.
 
-![원본 값이 OTP (일회성 암호) 사용자를 보여 주는 스크린샷](media/one-time-passcode/otp-users.png)
+![OTP의 원본 값을 사용하는 일회용 암호 사용자를 보여주는 스크린샷](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > 사용자가 일회성 암호를 사용하고 나중에 MSA, Azure AD 계정 또는 기타 페더레이션 계정을 얻을 경우 일회성 암호를 사용하여 계속 인증됩니다. 인증 방법을 업데이트하려면 해당 게스트 사용자 계정을 삭제하고 사용자를 다시 초대하면 됩니다.
 
-### <a name="example"></a>예
-게스트 사용자 alexdoe@gmail.com이 Google 페더레이션이 설정되지 않은 Fabrikam에 초대되었습니다. Alex는 Microsoft 계정이 없습니다. 인증을 위해 일회성 암호를 받게 됩니다.
+### <a name="example"></a>예제
+게스트 사용자 alexdoe@gmail.com이 Google 페더레이션이 설정되지 않은 Fabrikam에 초대되었습니다. Alex는 Microsoft 계정이 없습니다. 인증을 위해 일회용 암호를 받게 됩니다.
 
 ## <a name="opting-in-to-the-preview"></a>미리 보기에 옵트인 
 옵트인 작업을 적용하는 데 몇 분 정도 걸릴 수 있습니다. 적용된 후에는 위의 조건을 충족하는 새로 초대된 사용자만 일회성 암호 인증을 사용합니다. 이전에 초대를 사용한 게스트 사용자는 동일한 인증 방법을 계속 사용합니다.
@@ -72,8 +70,7 @@ ms.locfileid: "65785271"
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Azure AD 포털을 사용하여 옵트인하려면
 1.  Azure AD 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  탐색 창에서 **Azure Active Directory**를 선택합니다.
-3.  **관리**에서 **조직 관계**를 선택합니다.
-4.  **설정**을 선택합니다.
+3.  **외부 ID** > **외부 협업 설정**을 선택합니다.
 5.  **게스트에 메일 일회용 암호 사용(미리 보기)** 에서 **예**를 선택합니다.
  
 ### <a name="to-opt-in-using-powershell"></a>PowerShell을 사용하여 옵트인하려면
@@ -139,8 +136,7 @@ $currentpolicy -ne $null
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Azure AD 포털을 사용하여 미리 보기를 끄려면
 1.  Azure AD 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  탐색 창에서 **Azure Active Directory**를 선택합니다.
-3.  **관리**에서 **조직 관계**를 선택합니다.
-4.  **설정**을 선택합니다.
+3.  **외부 ID** > **외부 협업 설정**을 선택합니다.
 5.  **게스트에 메일 일회용 암호 사용(미리 보기)** 에서 **아니요**를 선택합니다.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>PowerShell을 사용하여 미리 보기를 끄려면

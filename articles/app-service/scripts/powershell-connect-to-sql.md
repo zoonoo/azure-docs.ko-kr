@@ -1,31 +1,21 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - SQL Database에 앱 연결 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - SQL Database에 App Service 앱 연결
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: 'PowerShell: SQL Database에 연결'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱을 SQL Database에 연결하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
-ms.service: app-service
-ms.devlang: multiple
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: d0c38b69d8cb2fda85a85fd27f0a5b26da51b699
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9086e00e4b6caf89ab249bbf25ca03a6f068ba49
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106208"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248300"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database"></a>SQL Database에 App Service 앱 연결
+# <a name="connect-an-app-service-app-to-sql-database"></a>SQL Database에 App Service 앱 연결
 
-이 시나리오에서는 Azure SQL 데이터베이스 및 App Service 앱을 만드는 방법을 알아봅니다. 그런 다음, 앱 설정을 사용하여 SQL Database를 앱에 연결합니다.
+이 시나리오에서는 Azure SQL Database 및 App Service 앱에서 데이터베이스를 만드는 방법을 알아봅니다. 그런 다음, 앱 설정을 사용하여 데이터베이스를 앱에 연결합니다.
 
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다.
 
@@ -33,7 +23,7 @@ ms.locfileid: "56106208"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to a SQL database")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to SQL Database")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
@@ -52,8 +42,8 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | App Service 앱을 만듭니다. |
-| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | SQL Database 서버를 만듭니다. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | SQL Database 서버에 대한 방화벽 규칙을 만듭니다. |
+| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | 서버를 만듭니다. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | 서버 수준 방화벽 규칙을 만듭니다. |
 | [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | 데이터베이스 또는 Elastic Database를 만듭니다. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | App Service 앱의 구성을 수정합니다. |
 

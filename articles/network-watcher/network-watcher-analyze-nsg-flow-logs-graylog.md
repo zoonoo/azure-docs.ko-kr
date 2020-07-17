@@ -3,24 +3,23 @@ title: Azure 네트워크 보안 그룹 흐름 로그 분석 - Graylog | Microso
 description: Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
+author: damendo
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
-ms.author: mareat
-ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: damendo
+ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737430"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -75,7 +74,7 @@ Logstash는 JSON 형식의 흐름 로그를 흐름 튜플 수준으로 평면화
    sudo touch /etc/logstash/conf.d/logstash.conf
    ```
 
-3. 파일에 다음 내용을 추가합니다. 강조 표시된 값을 변경하여 저장소 계정 세부 정보를 반영합니다.
+3. 파일에 다음 내용을 추가합니다. 강조 표시된 값을 변경하여 스토리지 계정 세부 정보를 반영합니다.
 
    ```
     input {

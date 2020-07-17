@@ -1,20 +1,15 @@
 ---
-title: 포함 파일
-description: 포함 파일
-services: cost-management
 author: bandersmsft
-ms.service: cost-management
+ms.author: banders
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 09/17/2018
-ms.author: banders
-manager: dougeby
-ms.custom: include file
-ms.openlocfilehash: 1ffa56caebf16b588dffaba249a844915f9f44c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa23e7f47517ea7cec76faa9ffec1a6456927aa5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027292"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75500166"
 ---
 ## <a name="view-cost-data"></a>비용 데이터 보기
 
@@ -46,7 +41,7 @@ Azure Cost Management by Cloudyn에서는 모든 클라우드 리소스 데이�
 
 ![리소스 종류](./media/cost-management-create-account-view-data/actual-cost-04.png)
 
-리소스 종류를 마우스 오른쪽 단추로 클릭하고 **비용 엔터티**를 선택하여 리소스를 사용한 비용 엔터티 및 서비스를 봅니다. 다음 예제 이미지에서 로컬 중복 저장소는 리소스 유형으로 설정되어 있습니다. Contoso|Azure/Storage에서 $15.65를 사용했습니다. Engineering|Azure Storage에서 $164.25를 사용했습니다. Shared Infrastructure|Azure/Storage에서 $116.58를 사용했습니다. 서비스의 총 비용은 $296입니다.
+리소스 종류를 마우스 오른쪽 단추로 클릭하고 **비용 엔터티**를 선택하여 리소스를 사용한 비용 엔터티 및 서비스를 봅니다. 다음 예제 이미지에서 로컬 중복 스토리지는 리소스 유형으로 설정되어 있습니다. Contoso|Azure/Storage에서 $15.65를 사용했습니다. Engineering|Azure Storage에서 $164.25를 사용했습니다. Shared Infrastructure|Azure/Storage에서 $116.58를 사용했습니다. 서비스의 총 비용은 $296입니다.
 
 ![비용 엔터티 및 서비스](./media/cost-management-create-account-view-data/actual-cost-05.png)
 

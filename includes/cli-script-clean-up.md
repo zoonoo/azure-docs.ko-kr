@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.openlocfilehash: 9e983e0afd8d01f214ed24925b354247d1821c3f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331262"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "67181963"
 ---
 ## <a name="clean-up-deployment"></a>배포 정리
 

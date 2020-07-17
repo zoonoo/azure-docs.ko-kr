@@ -1,21 +1,19 @@
 ---
 title: PowerShell cmdlet을 사용하여 Azure IoT Hub 만들기 | Microsoft Docs
-description: PowerShell cmdlet을 사용하여 IoT Hub를 만드는 방법입니다.
+description: PowerShell cmdlet을 사용 하 여 리소스 그룹을 만든 다음 리소스 그룹에서 IoT hub를 만드는 방법에 대해 알아봅니다. 허브를 제거 하는 방법에 대해서도 알아봅니다.
 author: robinsh
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
-ms.openlocfilehash: 6462673f6c3992aacbaee168eafc6bdb1b2fa944
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 9c49f7ac744ee516aefc1571d50264132035ba8a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "73890596"
 ---
-# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>새로 만들기-AzIotHub cmdlet을 사용 하 여 IoT hub 만들기
+# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>AzIotHub cmdlet을 사용 하 여 IoT hub 만들기
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -42,7 +40,7 @@ Login-AzAccount
 
 IoT Hub를 배포할 리소스 그룹이 필요합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다.
 
-IoT hub에 대 한 리소스 그룹을 만들려면 사용 합니다 [새로 만들기-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) 명령입니다. 이 예에서는 **미국 동부** 지역에 **MyIoTRG1**이라는 리소스 그룹을 만듭니다.
+IoT hub에 대 한 리소스 그룹을 만들려면 [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) 명령을 사용 합니다. 이 예에서는 **미국 동부** 지역에 **MyIoTRG1**이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
@@ -50,7 +48,7 @@ New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-이전 단계에서 만든 리소스 그룹에 IoT hub를 만들려면 사용 합니다 [새로 만들기-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) 명령 합니다. 이 예제에서는 **미국 동부** 지역에 **MyTestIoTHub**라는 **S1** 허브를 만듭니다.
+이전 단계에서 만든 리소스 그룹에 IoT hub를 만들려면 [AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) 명령을 사용 합니다. 이 예제에서는 **미국 동부** 지역에 **MyTestIoTHub**라는 **S1** 허브를 만듭니다.
 
 ```azurepowershell-interactive
 New-AzIotHub `
@@ -64,7 +62,7 @@ IoT 허브의 이름은 전역적으로 고유해야 합니다.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-사용 하 여 구독에 있는 모든 IoT hub를 나열할 수 있습니다 합니다 [Get AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/Get-azIotHub) 명령:
+[AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/Get-azIotHub) 명령을 사용 하 여 구독의 모든 IoT hub를 나열할 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzIotHub
@@ -72,7 +70,7 @@ Get-AzIotHub
 
 이 예제에서는 이전 단계에서 만든 S1 표준 IoT Hub를 보여 줍니다.
 
-사용 하 여 IoT hub를 삭제할 수 있습니다 합니다 [제거 AzIotHub](https://docs.microsoft.com/powershell/module/az.iothub/remove-aziothub) 명령:
+[AzIotHub](https://docs.microsoft.com/powershell/module/az.iothub/remove-aziothub) 명령을 사용 하 여 IoT hub를 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzIotHub `
@@ -80,7 +78,7 @@ Remove-AzIotHub `
     -Name MyTestIoTHub
 ```
 
-또는 리소스 그룹을 제거할 수 있습니다 하 고 리소스를 모두 포함 된 사용 하는 [제거 AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) 명령:
+또는 [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) 명령을 사용 하 여 리소스 그룹 및 리소스 그룹에 포함 된 모든 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyIoTRG1
@@ -92,7 +90,7 @@ Remove-AzResourceGroup -Name MyIoTRG1
 
 * [IoT 허브 작업을 다른 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.iothub/)
 
-* [IoT Hub 리소스 공급자 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+* [리소스 공급자 REST API를 IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource)합니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

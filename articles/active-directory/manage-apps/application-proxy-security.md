@@ -3,25 +3,25 @@ title: Azure AD 애플리케이션 프록시에 대한 보안 고려 사항 | Mi
 description: Azure AD 애플리케이션 프록시를 사용하는 경우 보안 고려 사항 설명
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
-ms.author: mimart
+ms.date: 03/13/2020
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7bb07fa00babb00d1b2af03f89ae6857cb79f5f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13b020f633adc2e2286cc14b01c6d248fc2c1e3e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759891"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -47,7 +47,7 @@ Azure AD 애플리케이션 프록시는 모든 인증에 Azure AD STS(보안 �
 
 네트워크 연결이 설정되기 전에 다양한 정책 제어를 적용합니다.
 
-[조건부 액세스](../conditional-access/overview.md)를 사용하면 백 엔드 애플리케이션에 액세스할 수 있는 트래픽에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
+[조건부 액세스](../conditional-access/concept-conditional-access-cloud-apps.md)를 사용하면 사용자가 애플리케이션에 액세스할 수 있는 방법에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
 
 또한 조건부 액세스를 사용하여 Multi-Factor Authentication 정책을 구성하고 사용자 인증에 또 다른 보안 계층을 추가할 수 있습니다. 또한 [액세스](https://docs.microsoft.com/cloud-app-security/access-policy-aad) 및 [세션](https://docs.microsoft.com/cloud-app-security/session-policy-aad) 정책을 사용하여 Azure AD 조건부 액세스를 통해 애플리케이션을 Microsoft Cloud App Security로 라우팅하면 실시간 모니터링 및 제어를 제공할 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure AD 애플리케이션 프록시가 역방향 프록시이기 때문에 백
 
 최첨단 보안 보호를 가져옵니다.
 
-애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 Microsoft Security Response Center 및 Digital Crimes Unit에서 제공하는 데이터를 통해 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용할 수 있습니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 보호를 제공합니다. 로그인 시도 하는 위험 수준이 높은 확인 하려면 여러 요인을 고려 수행 합니다. 이러한 요소에는 감염 디바이스 플래그,네트워크 익명화, 불규칙 또는 임의 위치 등이 포함됩니다.
+애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 Microsoft Security Response Center 및 Digital Crimes Unit에서 제공하는 데이터를 통해 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용할 수 있습니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 보호를 제공합니다. 어떤 로그인 시도가 위험이 높은지 판단하기 위해 여러 요소를 고려합니다. 이러한 요소에는 감염 디바이스 플래그,네트워크 익명화, 불규칙 또는 임의 위치 등이 포함됩니다.
 
 SIEM(보안 정보 및 이벤트 관리) 시스템과 통합을 위해 이러한 많은 보고서 및 이벤트가 API를 통해 제공됩니다.
 
@@ -81,15 +81,11 @@ SIEM(보안 정보 및 이벤트 관리) 시스템과 통합을 위해 이러한
 
 Azure AD 애플리케이션 프록시에 의해 게시된 애플리케이션의 보안을 개선하기 웹 크롤러 로봇이 애플리케이션을 인덱싱하고 보관하지 못하도록 합니다. 웹 크롤러 로봇이 게시된 앱에 대한 로봇 설정을 검색하려 할 때마다 애플리케이션 프록시는 `User-agent: * Disallow: /`를 포함하는 robots.txt 파일로 응답합니다.
 
-### <a name="ddos-prevention"></a>DDOS 방지
+#### <a name="azure-ddos-protection-service"></a>Azure DDoS 보호 서비스
 
-애플리케이션 프록시를 ㅌ오해 게시된 애플리케이션은 서비스 분산 거부(DDOS) 공격으로부터 보호됩니다.
+애플리케이션 프록시를 통해 게시된 애플리케이션은 DDoS(서비스 분산 거부) 공격으로부터 보호됩니다. **Azure DDoS 보호**는 Azure 리소스를 서비스 거부 공격으로부터 보호하기 위해 Azure 플랫폼과 함께 제공되는 서비스입니다. **기본** 서비스 계층이 자동으로 활성화되어 일반적인 네트워크 수준 공격에 대한 실시간 완화 및 상시 트래픽 모니터링 기능을 제공합니다. Azure Virtual Network 리소스에 맞게 특별히 조정된 추가 완화 기능을 제공하는 **표준** 계층도 사용할 수 있습니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)를 참조하세요.
 
-애플리케이션 프록시 서비스는 애플리케이션 및 네트워크에 도달하려 시도한 트래픽의 크기를 모니터링합니다. 애플리케이션 원격 액세스를 요청하는 디바이스 수가 급증하면 Microsoft가 네트워크에 대한 액세스를 제한합니다. 
-
-Microsoft는 개별 애플리케이션과 구독에 대한 트래픽 패턴을 모두 감시합니다. 한 애플리케이션이 일반 요청보다 많은 요청을 받으면 해당 애플리케이션에 대한 액세스 요청이 잠시 거부됩니다. 전체 구독에서 일반 요청보다 많은 요청을 받으면 모든 앱에 대한 요청이 거부됩니다. 이 예방 조치는 원격 액세스 요청에 의한 애플리케이션 서비스 과부하를 방지하므로 온-프레미스 사용자가 앱 액세스를 유지할 수 있습니다. 
-
-## <a name="under-the-hood"></a>내부 살펴보기
+## <a name="under-the-hood"></a>기본적인 이해
 
 Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 
@@ -103,7 +99,7 @@ Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 * 사용자는 게시된 애플리케이션에 액세스합니다.
 
 >[!NOTE]
->모든 통신은 SSL을 통해 발생하고 항상 커넥터에서 애플리케이션 프록시 서비스로 이루어집니다. 서비스는 아웃바운드 전용입니다.
+>모든 통신은 TLS를 통해 발생하고 항상 커넥터에서 애플리케이션 프록시 서비스로 이루어집니다. 서비스는 아웃바운드 전용입니다.
 
 커넥터는 거의 모든 호출에 대해 애플리케이션 프록시 서비스를 인증하는 데 클라이언트 인증서를 사용합니다. 이 프로세스에 대한 유일한 예외는 클라이언트 인증서가 설정되는 초기 설치 단계입니다.
 
@@ -150,7 +146,7 @@ Azure AD를 사용하여 사전 인증하도록 앱을 구성한 경우 사용�
 
 3. 애플리케이션 프록시는 토큰이 올바른 애플리케이션으로 발행되었는지 확인합니다. 토큰이 Azure AD에 의해 서명되었는지, 아직 유효한 기간 내에 있는지를 확인하는 등 다른 확인 작업도 수행합니다.
 
-4. 애플리케이션 프록시는 암호화된 인증 쿠키를 설정하여 애플리케이션에 대한 인증이 발생했음을 나타냅니다. 쿠키에는 Azure AD의 토큰 및 인증 기준이 되는 사용자 이름과 같은 다른 데이터를 기반으로 하는 만료 타임스탬프가 포함됩니다. 쿠키는 애플리케이션 프록시 서비스에만 알려진 개인 키를 사용하여 암호화됩니다.
+4. 애플리케이션 프록시는 암호화된 인증 쿠키를 설정하여 애플리케이션에 대한 인증이 발생했음을 나타냅니다. 쿠키에는 Azure AD의 토큰 및 인증 기준이 되는 사용자 이름과 같은 다른 데이터를 기반으로 하는 만료 타임스탬프가 포함됩니다. 쿠키는 애플리케이션 프록시 서비스에만 알려진 프라이빗 키를 사용하여 암호화됩니다.
 
 5. 애플리케이션 프록시는 사용자를 원래 요청된 URL로 다시 리디렉션합니다.
 

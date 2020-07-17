@@ -1,25 +1,18 @@
 ---
-title: App Service Environment가 강제 터널링되도록 구성 - Azure
-description: 아웃바운드 트래픽이 강제 터널링될 때 App Service Environment가 작동하도록 설정
-services: app-service
-documentationcenter: na
+title: 강제 터널링 구성
+description: 가상 네트워크에서 아웃바운드 트래픽이 강제 터널링될 때 App Service Environment가 작동하도록 설정하는 방법을 알아봅니다.
 author: ccompy
-manager: stefsch
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389297"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830862"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 
@@ -46,7 +39,7 @@ Azure Virtual Network에서 라우팅은 LPM(Longest Prefix Match)을 기반으�
 
 Azure 가상 네트워크가 ExpressRoute를 통해 구성된 경우에도 인터넷에 직접 액세스해 ASE를 사용하려면 다음을 수행할 수 있습니다.
 
-* 0.0.0.0/0을 보급하도록 ExpressRoute를 구성합니다. 기본적으로 ExpressRoute는 온-프레미스의 모든 아웃바운드 트래픽을 라우팅합니다.
+* 0\.0.0.0/0을 보급하도록 ExpressRoute를 구성합니다. 기본적으로 ExpressRoute는 온-프레미스의 모든 아웃바운드 트래픽을 라우팅합니다.
 * 그리고 주소 접두사가 0.0.0.0/0이며 다음 홉 형식이 인터넷인 UDR을 만들어 ASE 서브넷에 적용합니다.
 
 이러한 두 가지 사항을 변경하면 App Service Environment 서브넷에서 발생하는 인터넷용 트래픽이 ExpressRoute 연결로 강제 전송되지 않습니다.
@@ -56,7 +49,7 @@ Azure 가상 네트워크가 ExpressRoute를 통해 구성된 경우에도 인�
 > [!IMPORTANT]
 > UDR에 정의된 경로는 ExpressRoute 구성을 통해 보급된 경로보다 우선하도록 충분히 구체적이어야 합니다. 이전 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용합니다. 따라서 더 구체적인 주소 범위를 사용하는 경로 보급 알림으로 인해 주소 범위가 잘못 재정의될 가능성이 있습니다.
 >
-> 공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 App Service Environment가 지원되지 않습니다. 공용 피어링이 구성된 ExpressRoute 구성은 Microsoft에서 경로 보급 알림을 받습니다. 보급 알림에는 대규모 Microsoft Azure 주소 범위 집합이 포함되어 있습니다. 개인 피어링 경로에서 주소 범위를 교차 보급하는 경우 App Service Environment 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 라우팅됩니다. 이 네트워크 흐름은 App Service Environment에서 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로의 교차 보급 경로를 중지합니다. 다른 솔루션은 App Service Environment가 강제 터널 구성에서 작동하도록 설정하는 것입니다.
+> 공용 피어링 경로에서 프라이빗 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 App Service Environment가 지원되지 않습니다. 공용 피어링이 구성된 ExpressRoute 구성은 Microsoft에서 경로 보급 알림을 받습니다. 보급 알림에는 대규모 Microsoft Azure 주소 범위 집합이 포함되어 있습니다. 프라이빗 피어링 경로에서 주소 범위를 교차 보급하는 경우 App Service Environment 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 라우팅됩니다. 이 네트워크 흐름은 App Service Environment에서 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 프라이빗 피어링 경로로의 교차 보급 경로를 중지합니다. 다른 솔루션은 App Service Environment가 강제 터널 구성에서 작동하도록 설정하는 것입니다.
 
 ![직접 인터넷 액세스][1]
 
@@ -67,7 +60,7 @@ BGP 경로를 무시하도록 ASE 서브넷을 구성할 수 있습니다.  BGP 
 BGP 경로를 무시하도록 ASE 서브넷을 구성하려면:
 
 * UDR이 없는 경우 만들고 ASE 서브넷에 할당합니다.
-* Azure Portal에서 ASE 서브넷에 할당된 경로 테이블에 대한 UI를 엽니다.  구성을 선택합니다.  BGP 경로 전파를 사용 안 함으로 설정합니다.  저장을 클릭합니다. 이 기능을 해제하는 방법에 대한 설명서는 [경로 테이블 만들기][routetable] 문서에 있습니다.
+* Azure Portal에서 ASE 서브넷에 할당된 경로 테이블에 대한 UI를 엽니다.  구성을 선택합니다.  가상 네트워크 게이트웨이 경로 전파를 사용 안 함으로 설정합니다.  저장을 클릭합니다. 이 기능을 해제하는 방법에 대한 설명서는 [경로 테이블 만들기][routetable] 문서에 있습니다.
 
 모든 BGP 경로를 무시하도록 ASE 서브넷을 구성하면 앱이 더 이상 온-프레미스에 연결할 수 없습니다. 앱이 온-프레미스 리소스에 액세스할 수 있도록 하려면 ASE 서브넷에 할당된 UDR을 편집하고 온-프레미스 주소 범위에 대한 경로를 추가합니다. 다음 홉 형식은 가상 네트워크 게이트웨이로 설정되어야 합니다. 
 
@@ -102,35 +95,39 @@ Azure Storage로 이동하는 트래픽을 제외하고 ASE에서 모든 아웃�
 
 3. App Service Environment에서 인터넷으로의 모든 아웃바운드 트래픽에 사용될 주소를 가져옵니다. 온-프레미스에서 트래픽을 라우팅하는 경우 이러한 주소는 NAT 또는 게이트웨이 IP입니다. App Service Environment 아웃바운드 트래픽을 NVA를 통해 라우팅하려면 송신 주소는 NVA의 공용 IP입니다.
 
-4. _기존 App Service Environment에서 송신 주소를 설정하려면_ resource.azure.com으로 이동한 다음, Subscription/\<구독 ID>/resourceGroups/\<ASE 리소스 그룹>/providers/Microsoft.Web/hostingEnvironments/\<ASE 이름>으로 이동합니다. 그러면 App Service Environment를 설명하는 JSON을 볼 수 있습니다. 상단에 **읽기/쓰기**가 표시되는지 확인합니다. **편집**을 선택합니다. 아래로 스크롤하십시오. **userWhitelistedIpRanges** 값을 **null**에서 다음과 같은 값으로 변경합니다. 송신 주소 범위로 설정할 주소를 사용합니다. 
+4. _기존 App Service Environment에서 송신 주소를 설정하려면_ resources.azure.com으로 이동하여 Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>로 이동합니다. 그러면 App Service Environment를 설명하는 JSON을 볼 수 있습니다. 상단에 **읽기/쓰기**가 표시되는지 확인합니다. **편집**을 선택합니다. 아래로 스크롤하십시오. **userWhitelistedIpRanges** 값을 **null**에서 다음과 같은 값으로 변경합니다. 송신 주소 범위로 설정할 주소를 사용합니다. 
 
-        "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
+    ```json
+    "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
+    ```
 
    맨 위에서 **PUT**을 선택합니다. 이 옵션은 App Service Environment에서 크기 조정 작업을 트리거하고 방화벽을 조정합니다.
 
 _송신 주소를 사용하여 ASE를 만들려면_ [템플릿을 사용하여 App Service Environment 만들기][template]의 지침을 따르고 적절한 템플릿을 풀다운합니다.  "속성" 블록이 아니라 azuredeploy.json 파일에서 “리소스” 섹션을 편집하고 해당 값을 지닌 **userWhitelistedIpRanges**에 대해 선을 포함합니다.
 
-    "resources": [
-      {
+```json
+"resources": [
+    {
         "apiVersion": "2015-08-01",
         "type": "Microsoft.Web/hostingEnvironments",
         "name": "[parameters('aseName')]",
         "kind": "ASEV2",
         "location": "[parameters('aseLocation')]",
         "properties": {
-          "name": "[parameters('aseName')]",
-          "location": "[parameters('aseLocation')]",
-          "ipSslAddressCount": 0,
-          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
-          "dnsSuffix" : "[parameters('dnsSuffix')]",
-          "virtualNetwork": {
-            "Id": "[parameters('existingVnetResourceId')]",
-            "Subnet": "[parameters('subnetName')]"
-          },
-        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+            "name": "[parameters('aseName')]",
+            "location": "[parameters('aseLocation')]",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+            "dnsSuffix" : "[parameters('dnsSuffix')]",
+            "virtualNetwork": {
+                "Id": "[parameters('existingVnetResourceId')]",
+                "Subnet": "[parameters('subnetName')]"
+            },
+            "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
         }
-      }
-    ]
+    }
+]
+```
 
 이러한 변경은 ASE에서 직접 Azure Storage에 트래픽을 전송하며 ASE의 VIP 이외의 추가 주소에서 Azure SQL에 액세스를 허용합니다.
 

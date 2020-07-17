@@ -1,57 +1,53 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Machine Learning Studio 설명서
+### YamlMime:Landing
+title: Azure Machine Learning Studio(클래식) 설명서
+summary: Machine Learning Studio(클래식)는 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용할 수 있는 끌어서 놓기 도구입니다.
 metadata:
-  title: 'Azure Machine Learning Studio 설명서 - 자습서, 참조 | Microsoft Docs'
-  description: 'Machine Learning Studio는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용할 수 있는 공동 끌어서 놓기 도구입니다. 자습서, 비디오 및 예제 모델에서 Studio를 사용하여 기계 학습 모델을 빌드하고 배포하는 방법을 보여 줍니다.'
+  title: Machine Learning Studio(클래식) 설명서 - Azure
+  description: Machine Learning Studio(클래식)는 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용할 수 있는 끌어서 놓기 도구입니다.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: studio
   ms.topic: landing-page
+  ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.date: 02/24/2019
-abstract:
-  description: 'Azure Machine Learning Studio는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용되는 공동 끌어서 놓기 도구입니다. 자습서, 비디오 및 예제 모델에서 Studio를 사용하여 기계 학습 모델을 빌드하고 배포하는 방법을 보여 줍니다.'
-sections:
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 모델을 만들고 배포하는 과정을 설정하는 확장된 자습서를 따르세요.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="create-experiment">첫 번째 Studio 실험 만들기</a>
-          - html: <a href="tutorial-part1-credit-risk">신용 위험에 대한 예측 솔루션 만들기 및 배포</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: <p><a href="powershell-module">PowerShell 모듈</a></p>
-          - title: 모듈
-            html: '<p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">알고리즘 및 모듈 참조</a></p>'
-          - title: REST (영문)
-            html: '<p><a href="https://docs.microsoft.com/rest/api/machinelearning/">REST 관리 API</a></p><p><a href="web-service-error-codes">웹 서비스 오류 코드</a></p>'
-  - title: Azure Machine Learning 기술 추가 정보
-    items:
-      - type: paragraph
-        text: Azure Machine Learning에서 사용할 수 있는 다른 기술은 다음과 같습니다.
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure Machine Learning 서비스
-            href: /azure/machine-learning/service/
-            image:
-              src: media/index/i_machine-learning.svg
-              href: /azure/machine-learning/service/
-          - title: 데이터 과학 Virtual Machine
-            href: /azure/machine-learning/data-science-virtual-machine/
-            image:
-              src: media/index/virtual-machines.svg
-              href: /azure/machine-learning/data-science-virtual-machine/
+  ms.date: 03/05/2020
+  ms.openlocfilehash: 02d90dc6781fe39e92d97d64697cc2ee32b04b31
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "78331495"
+landingContent:
+- title: Studio(클래식) 시작
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Studio(클래식)란?
+      url: what-is-ml-studio.md
+    - text: 첫 번째 ML 실험 만들기
+      url: create-experiment.md
+    - text: 예측 솔루션 만들기
+      url: tutorial-part1-credit-risk.md
+- title: 참조 콘텐츠 탐색
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: PowerShell 모듈
+      url: powershell-module.md
+    - text: 알고리즘 및 모듈
+      url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
+    - text: REST 관리 API
+      url: https://docs.microsoft.com/rest/api/machinelearning/
+    - text: 웹 서비스 오류 코드
+      url: web-service-error-codes.md
+- title: Azure ML 기술 추가 정보
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Machine Learning
+      url: /azure/machine-learning/
+    - text: 데이터 과학 Virtual Machine
+      url: /azure/machine-learning/data-science-virtual-machine
+    - text: ML 제품 비교
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context

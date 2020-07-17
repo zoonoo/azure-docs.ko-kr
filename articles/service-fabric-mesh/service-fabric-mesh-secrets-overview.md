@@ -1,20 +1,15 @@
 ---
-title: Azure Service Fabric Mesh 애플리케이션 비밀 저장 및 사용 | Microsoft Docs
-description: Service Fabric Mesh 비밀을 저장하고 사용합니다.
-services: service-fabric-mesh
-keywords: secrets
-author: v-steg
-ms.author: v-steg
+title: Azure Service Fabric 메시 응용 프로그램 비밀 저장 및 사용
+description: Service Fabric Mesh에서는 비밀을 Azure 리소스로 지원합니다. Service Fabric 메시 응용 프로그램을 사용 하 여 암호를 저장 하 고 관리 하는 방법은 다음과 같습니다.
+author: erikadoyle
+ms.author: edoyle
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: 4268356db5f46e92862e19d6391cfe5a94511270
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: da4eaa34840f14714616b85e24fd62cf65602b84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76277631"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Service Fabric Mesh 애플리케이션 비밀
 Service Fabric Mesh에서는 비밀을 Azure 리소스로 지원합니다. Service Fabric Mesh 비밀은 스토리지 연결 문자열, 암호, 안전하게 저장하고 전송되어야 하는 기타 값 등 중요한 텍스트 정보일 수 있습니다.

@@ -1,55 +1,47 @@
 ---
-title: Microsoft 웹 응용 프로그램 방화벽 데이터를 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
-description: Microsoft 웹 응용 프로그램 방화벽 데이터 Azure Sentinel를 연결 하는 방법에 알아봅니다.
-services: sentinel
-documentationcenter: na
-author: rkarlin
+title: Azure 센티널에 웹 응용 프로그램 방화벽 데이터 연결
+description: Microsoft 웹 응용 프로그램 방화벽 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
+author: yelevin
 manager: rkarlin
-editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
-ms.service: sentinel
-ms.devlang: na
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2019
-ms.author: rkarlin
-ms.openlocfilehash: 99c553145f0a600826e48bec437449f278b74fbf
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.date: 09/23/2019
+ms.author: yelevin
+ms.openlocfilehash: a5cef16694fa2cfae036152d22cfa4473956fc72
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77588181"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Microsoft 웹 응용 프로그램 방화벽에서 데이터 연결
 
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-Azure Application Gateway의 Microsoft 웹 응용 프로그램 방화벽 (WAF)의 로그를 스트리밍할 수 있습니다. 이 WAF 교차 사이트 스크립팅, SQL 주입 등 일반적인 웹 취약점 으로부터 응용 프로그램을 보호 하 고 가양성을 줄이는 규칙을 사용자 지정할 수 있습니다. Azure Sentinel에 Microsoft 웹 응용 프로그램 방화벽 로그를 스트리밍하려면 다음이 지침을 따릅니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+Azure 애플리케이션 게이트웨이의 Microsoft 웹 응용 프로그램 방화벽 (WAF)에서 로그를 스트리밍할 수 있습니다. 이 WAF는 SQL 삽입 및 교차 사이트 스크립팅 같은 일반적인 웹 취약점 으로부터 응용 프로그램을 보호 하 고 가양성을 줄이기 위해 규칙을 사용자 지정할 수 있도록 합니다. Microsoft 웹 응용 프로그램 방화벽 로그를 Azure 센티널로 스트리밍하려면 다음 지침을 따르세요.
 
-- 기존 응용 프로그램 게이트웨이 리소스
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+- 기존 application gateway 리소스
 
 ## <a name="connect-to-microsoft-web-application-firewall"></a>Microsoft 웹 응용 프로그램 방화벽에 연결
 
-Microsoft 웹 응용 프로그램 방화벽에 이미 있는 경우 기존 게이트웨이 리소스가 있는지 확인 합니다.
-Microsoft 웹 응용 프로그램 방화벽을 배포 하 고 데이터 가져오기, 경고 데이터를 쉽게 수행할 수 되 면 Azure Sentinel로 스트림할 수 있습니다.
+Microsoft 웹 응용 프로그램 방화벽이 이미 있는 경우 기존 게이트웨이 리소스가 있는지 확인 합니다.
+Microsoft 웹 응용 프로그램 방화벽을 배포 하 고 데이터를 가져오면 경고 데이터를 쉽게 Azure 센티널로 스트리밍할 수 있습니다.
     
-1. Sentinel Azure portal에서 선택 **데이터 커넥터**합니다.
-1. 데이터 커넥터 페이지에서 선택 합니다 **WAF** 바둑판식으로 배열 합니다.
-1. 로 이동 [Application Gateway 리소스](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) WAF를 선택 합니다.
-    1. 선택 **진단 설정**합니다.
-    1. 선택 **진단 설정 추가 +** 테이블 아래에 있습니다.
-    1. 에 **진단 설정** 페이지에서 입력을 **이름** 선택한 **Log Analytics에 보내기**합니다.
-    1. 아래 **Log Analytics 작업 영역** Azure Sentinel 작업 영역을 선택 합니다.
-    1. 분석 하려는 로그 유형을 선택 합니다. 좋습니다. ApplicationGatewayAccessLog 및 ApplicationGatewayFirewallLog 합니다.
-1. Log Analytics에서 관련 스키마를 사용 하 여 Microsoft 웹 응용 프로그램 방화벽 경고를 검색할 **AzureDiagnostics**합니다.
+1. Azure 센티널 포털에서 **데이터 커넥터**를 선택 합니다.
+1. 데이터 커넥터 페이지에서 **Waf** 타일을 선택 합니다.
+1. [Application Gateway 리소스로](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways)이동한   후 waf를 선택 합니다.
+    1. **진단 설정**을 선택합니다.
+    1. 테이블에서 **+ 진단 설정 추가** 를 선택 합니다.
+    1. **진단 설정** 페이지에서 **이름을** 입력 하 고 **Log Analytics 보내기를**선택 합니다.
+    1. **Log Analytics 작업 영역** 에서 Azure 센티널 작업 영역을 선택 합니다.
+    1. 분석 하려는 로그 유형을 선택 합니다. ApplicationGatewayAccessLog 및 ApplicationGatewayFirewallLog를 권장 합니다.
+1. Microsoft 웹 응용 프로그램 방화벽 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Azurediagnostics**를 검색 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel Microsoft 웹 응용 프로그램 방화벽 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
-- 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
+이 문서에서는 Microsoft 웹 응용 프로그램 방화벽을 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.

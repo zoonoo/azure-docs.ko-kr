@@ -1,5 +1,5 @@
 ---
-title: 경고를 사용하여 원격 모니터링 솔루션에서 디바이스 문제 해결 자습서 - Azure | Microsoft Docs
+title: 원격 모니터링 솔루션에서 경고 사용 - Azure | Microsoft Docs
 description: 이 자습서에서는 경고를 사용하여 원격 모니터링 솔루션 가속기에 연결된 디바이스의 문제를 확인하고 해결하는 방법을 보여줍니다.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451726"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "73890914"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>자습서: 디바이스 문제 해결 및 수정
 
@@ -22,7 +22,7 @@ ms.locfileid: "54451726"
 
 Contoso는 필드에서 새로운 **프로토타입** 디바이스를 테스트하고 있습니다. Contoso 운영자로서 테스트하는 동안 **프로토타입** 디바이스가 대시보드에서 온도 경고를 예기치 않게 트리거하는 것을 알게 됩니다. 이제 이 결함이 있는 **프로토타입** 디바이스의 동작을 조사하고 문제를 해결해야 합니다.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 >[!div class="checklist"]
 > * 디바이스의 경고 조사

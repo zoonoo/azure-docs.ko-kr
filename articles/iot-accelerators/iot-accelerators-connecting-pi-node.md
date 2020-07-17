@@ -1,6 +1,6 @@
 ---
-title: Node.js에서 원격 모니터링으로 Raspberry Pi 프로비전 - Azure | Microsoft Docs
-description: Node.js에 작성된 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 장치를 연결하는 방법을 설명합니다.
+title: Raspberry Pi를 원격 모니터링 솔루션에 연결 - Node.js - Azure | Microsoft Docs
+description: Node.js에 작성된 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 20d50ac4ac4a1919077ebe67bb529e2dc5abf187
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom: mqtt
+ms.openlocfilehash: 9335c45688752ea41801e988157740f4170cfcb4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61449695"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81683955"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스 연결(Node.js)
 
@@ -86,7 +86,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     cd remotemonitoring
     ```
 
-1. 샘플 앱을 완료해야 하는 패키지를 다운로드하고 설치하려면 다음 명령을 실행합니다.
+1. 샘플 앱을 완료하는 데 필요한 패키지를 다운로드하고 설치하려면 다음 명령을 실행합니다.
 
     ```sh
     npm install async azure-iot-device azure-iot-device-mqtt

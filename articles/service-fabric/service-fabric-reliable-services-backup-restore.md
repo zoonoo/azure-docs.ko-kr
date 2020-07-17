@@ -1,25 +1,16 @@
 ---
-title: Service Fabric Backup 및 복원 | Microsoft Docs
-description: 서비스 패브릭 Backup 및 복원에 관한 개념 설명서
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric 백업 및 복원
+description: 안정적인 상태 저장 서비스 및 Reliable Actors의 백업 구성에 대 한 서비스인 Service Fabric 백업 및 복원에 대 한 개념 설명서입니다.
 author: mcoskun
-manager: chackdan
-editor: subramar,zhol
-ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf004b913c032d8a121bf4d508adf4cf9be1c7f9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60723877"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253323"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Reliable Services 및 Reliable Actors 백업 및 복원
 Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고가용성을 유지하는 고가용성 플랫폼입니다.  따라서 클러스터의 한 노드에서 오류가 발생해도 서비스를 지속적으로 사용할 수 있습니다. 많은 경우 플랫폼에서 제공하는 이러한 기본 제공 중복성으로 충분하지만 어떤 경우에는 서비스를 위해 (외부 저장소에) 데이터를 백업하는 것이 바람직합니다.
@@ -44,7 +35,7 @@ Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고�
 Backup/복원 기능을 사용하면 Reliable Services API에 구축된 서비스로 백업을 만들고 복원할 수 있습니다. 플랫폼에서 제공하는 백업 API를 사용하면 읽기 또는 쓰기 작업을 차단하지 않고 서비스 파티션 상태를 백업할 수 있습니다. 복원 API를 사용하면 선택한 백업에서 서비스 파티션의 상태를 복원할 수 있습니다.
 
 ## <a name="types-of-backup"></a>Backup 유형
-백업 옵션은 두 가지입니다. 전체 및 증분.
+백업 옵션에는 전체 및 증분이라는 두 가지가 있습니다.
 전체 백업은 검사점 및 모든 로그 레코드처럼 복제본의 상태를 다시 만드는 데 필요한 모든 데이터를 포함하는 백업입니다.
 전체 백업은 검사점 및 로그를 포함하므로 자체적으로 복원할 수 있습니다.
 
@@ -69,11 +60,11 @@ Backup/복원 기능을 사용하면 Reliable Services API에 구축된 서비�
 백업을 시작하려면 서비스에서 상속된 `BackupAsync` 멤버 함수를 호출해야 합니다.  
 Backup은 주 복제본에서만 수행되며 상태 쓰기 권한을 부여해야 합니다.
 
-아래와 같이 `BackupAsync`는 `BackupDescription` 개체를 가져오며, 여기서는 `Func<< BackupInfo, CancellationToken, Task<bool>>>` 콜백 함수뿐만 아니라 전체 또는 증분 백업도 지정할 수 있습니다. 이 함수는 백업 폴더를 로컬로 만들 때 호출되고 일부 외부 저장소로 이동할 준비가 되어 있습니다.
+아래와 같이 `BackupAsync`는 `BackupDescription` 개체를 가져오며, 여기서는 `Func<< BackupInfo, CancellationToken, Task<bool>>>` 콜백 함수뿐만 아니라 전체 또는 증분 백업도 지정할 수 있습니다. 이 함수는 백업 폴더를 로컬로 만들 때 호출되고 일부 외부 스토리지로 이동할 준비가 되어 있습니다.
 
 ```csharp
 
-BackupDescription myBackupDescription = new BackupDescription(backupOption.Incremental,this.BackupCallbackAsync);
+BackupDescription myBackupDescription = new BackupDescription(BackupOption.Incremental,this.BackupCallbackAsync);
 
 await this.BackupAsync(myBackupDescription);
 
@@ -106,7 +97,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 
 위의 예제에서 `ExternalBackupStore`는 Azure Blob Storage와의 인터페이스에 사용되는 샘플 클래스이고, `UploadBackupFolderAsync`는 폴더를 압축하여 Azure Blob Storage에 배치하는 메서드입니다.
 
-다음 사항에 유의하세요.
+다음 사항에 유의합니다.
 
   - 특정 시점에서 처리 중인 복제본 당 하나의 백업 작업만이 존재할 수 있습니다. 한 번에 둘 이상의 `BackupAsync` 호출은 처리 중인 백업을 하나로 제한하기 위해 `FabricBackupInProgressException`이 발생됩니다(throw).
   - 백업 진행 중에 복제본 장애 조치가 발생하면 백업이 완료되지 않을 수 있습니다. 따라서 장애 조치가 완료되면 서비스에서 필요에 따라 `BackupAsync`를 호출하여 백업을 다시 시작해야 합니다.
@@ -158,7 +149,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 > 
 
 ## <a name="deleted-or-lost-service"></a>서비스 삭제 또는 손상
-서비스가 제거된 경우 데이터 복원에 앞서 서비스를 다시 만들어야 합니다.  데이터의 원활한 복원을 위해 파티션 구성표 등과 같은 동일한 구성의 서비스를 만드는 것이 좋습니다.  서비스가 작동되면 이 서비스의 모든 파티션에서 데이터를 복원하는 API(위의`OnDataLossAsync`)를 호출해야 합니다. 이를 수행하기 위한 한 가지 방법은 모든 파티션에서 [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)를 사용하는 것입니다.  
+서비스가 제거된 경우 데이터 복원에 앞서 서비스를 다시 만들어야 합니다.  데이터의 원활한 복원을 위해 파티션 구성표 등과 같은 동일한 구성의 서비스를 만드는 것이 좋습니다.  서비스가 작동되면 이 서비스의 모든 파티션에서 데이터를 복원하는 API(위의`OnDataLossAsync`)를 호출해야 합니다. 이를 수행하기 위한 한 가지 방법은 모든 파티션에서 [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient?view=azure-dotnet#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_)를 사용하는 것입니다.  
 
 이 시점부터는 앞의 시나리오와 같은 방식으로 구현됩니다. 각 파티션이 외부 저장소로부터 최신 관련 백업을 복원해야 합니다. 한 가지 주의할 점은 런타임이 동적으로 파티션 ID를 생성하기 대문에 파티션 ID가 변경될 수 있다는 사실입니다. 따라서 서비스가 각 파티션에서 복원할 정확한 최신 백업을 식별할 수 있게 적합한 파티션 정보 및 서비스 이름을 저장해야 합니다.
 
@@ -175,7 +166,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 
 이제 "삭제되거나 손실된 서비스" 섹션의 단계를 사용하여 버그가 있는 코드로 손상되기 이전의 상태로 서비스 상태를 복원할 수 있습니다.
 
-다음 사항에 유의하세요.
+다음 사항에 유의합니다.
 
   - 복원할 때 복원 중인 백업이 데이터 손실 이전의 파티션 상태보다 오래된 것일 가능성이 있습니다. 이 때문에 가능한 많은 데이터를 복구하기 위한 마지막 수단으로만 복원해야 합니다.
   - 백업 폴더 경로와 백업 폴더 내 파일 경로를 나타내는 문자열은 FabricDataRoot 경로 및 애플리케이션 형식 이름의 길이에 따라 255자보다 길 수 있습니다. 이로 인해 `Directory.Move`와 같은 일부 .NET 메서드에서 `PathTooLongException` 예외가 발생(throw)될 수 있습니다. 한 가지 해결 방법은 `CopyFile`과 같은 kernel32 API를 직접 호출하는 것입니다.
@@ -243,7 +234,7 @@ class MyCustomActorService : ActorService
 > 
 > 
 
-## <a name="under-the-hood-more-details-on-backup-and-restore"></a>내부 살펴보기: 백업 및 복원에 대한 자세한 내용 
+## <a name="under-the-hood-more-details-on-backup-and-restore"></a>내부 살펴보기: 백업 및 복원에 대한 자세한 내용
 다음은 백업 및 복원에 대한 자세한 내용입니다.
 
 ### <a name="backup"></a>Backup
@@ -267,6 +258,5 @@ Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관
   - [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
   - [Reliable Services 알림](service-fabric-reliable-services-notifications.md)
   - [Reliable Services 구성](service-fabric-reliable-services-configuration.md)
-  - [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   - [Azure Service Fabric에서 정기적인 백업 및 복원](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
-

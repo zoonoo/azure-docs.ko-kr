@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61489100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182408"
 ---
 #### <a name="to-configure-and-register-the-device"></a>디바이스를 구성 및 등록하려면
 
@@ -20,7 +20,7 @@ ms.locfileid: "61489100"
 3. 디바이스에 설정하려는 언어를 선택하라는 메시지가 표시됩니다. 언어를 지정하고 **Enter**를 누릅니다.
 
 4. 표시되는 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
-     5~12단계를 완료하여 디바이스에 필요한 최소 네트워크 설정을 구성합니다. **이러한 구성 단계는 디바이스의 활성 컨트롤러에서 수행해야 합니다.**  직렬 콘솔 메뉴는 배너 메시지에 컨트롤러 상태를 나타냅니다. 활성 컨트롤러에 연결되지 않은 경우 연결을 끊고 활성 컨트롤러에 연결합니다.
+     5~12단계를 완료하여 디바이스에 필요한 최소 네트워크 설정을 구성합니다. **이러한 구성 단계는 디바이스의 활성 컨트롤러에서 수행해야 합니다.** 직렬 콘솔 메뉴는 배너 메시지에 컨트롤러 상태를 나타냅니다. 활성 컨트롤러에 연결되지 않은 경우 연결을 끊고 활성 컨트롤러에 연결합니다.
 
 5. 명령 프롬프트에 암호를 입력합니다. 기본 디바이스 암호는 **Password1**입니다.
 
@@ -109,7 +109,7 @@ ms.locfileid: "61489100"
 14. Azure Portal로 돌아가 다음 단계를 완료합니다.
     
     1. StorSimple 디바이스 관리자 서비스로 이동합니다.
-    2. **디바이스**를 클릭합니다.
+    2. **장치**를 클릭합니다.
     3. 테이블 형식 디바이스 목록에서 상태를 조회하여 디바이스가 서비스에 성공적으로 연결되었는지 확인합니다. 디바이스 상태는 **설정할 준비 완료**여야 합니다.
        
         ![StorSimple 디바이스 페이지](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup2.png)

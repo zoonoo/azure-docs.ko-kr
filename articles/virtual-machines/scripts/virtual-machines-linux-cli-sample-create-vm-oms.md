@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - Azure Monitor를 사용하여 Linux VM 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - Azure Monitor를 사용하여 Linux VM 만들기
 description: Azure CLI 스크립트 샘플 - Azure Monitor를 사용하여 Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -16,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6aed5f40d689fc84c82f37760e78fc7c3fe94dd1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 211d81b2ceec985844ed7abf7b8fc4d3e30dcca5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535624"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459936"
 ---
 # <a name="monitor-a-vm-with-azure-monitor"></a>Azure Monitor를 사용하여 VM 모니터링
 

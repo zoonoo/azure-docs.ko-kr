@@ -1,0 +1,60 @@
+### YamlMime:Landing
+title: Azure Data Share 설명서
+summary: Azure Data Share는 타사 조직과 데이터를 공유하기 위한 안전하고 안정된 서비스입니다.
+metadata:
+  title: Azure Data Share
+  description: Azure Data Share는 타사 조직과 데이터를 공유하기 위한 안전하고 안정된 서비스입니다.
+  services: data-share
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.collection: collection
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 09/13/2019
+  ms.openlocfilehash: 66350050a84617b789c6a73c38170dc25dad331d
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "73802896"
+landingContent:
+- title: Azure Data Share 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Data Share란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Azure Data Share 개념
+      url: terminology.md
+    - text: Azure Data Share의 역할 및 요구 사항
+      url: concepts-roles-permissions.md
+- title: 데이터 공유
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure Data Share를 사용하여 데이터 공유
+      url: share-your-data.md
+    - text: Azure Data Share를 사용하여 데이터 수락 및 받기
+      url: subscribe-to-data-share.md
+  - linkListType: how-to-guide
+    links:
+    - text: 데이터 세트 매핑 구성
+      url: how-to-configure-mapping.md
+    - text: 데이터 세트 추가
+      url: how-to-add-datasets.md
+- title: 모니터링 및 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Data Share 모니터링
+      url: how-to-monitor.md
+    - text: 일반적인 문제 해결
+      url: data-share-troubleshoot.md
+    - text: 데이터 세트 추가
+      url: how-to-add-datasets.md
+    - text: 초대 삭제
+      url: how-to-delete-invitation.md
+    - text: 공유 구독 철회
+      url: how-to-revoke-share-subscription.md

@@ -3,29 +3,23 @@ title: Cloud Services 역할에 대한 통신 | Microsoft Docs
 description: Cloud Services의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 엔드포인트(http, https, tcp, udp)가 있을 수 있습니다.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
+author: tgore03
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: tagore
+ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75386343"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure에서 역할 인스턴스에 통신 사용
 클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 엔드포인트**라고 하고, 내부 연결을 **내부 엔드포인트**라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 엔드포인트를 만듭니다.
 
 ## <a name="input-endpoint"></a>입력 엔드포인트
-입력 엔드포인트가 외부에 포트를 표시하려는 경우에 사용됩니다. 엔드포인트에 대한 외부 및 내부 포트에 적용되는 엔드포인트의 프로토콜 종류 및 형식을 지정합니다. 원할 경우 [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) 특성을 사용하여 엔드포인트에 다른 내부 포트를 지정할 수 있습니다.
+입력 엔드포인트가 외부에 포트를 표시하려는 경우에 사용됩니다. 엔드포인트에 대한 외부 및 내부 포트에 적용되는 엔드포인트의 프로토콜 종류 및 형식을 지정합니다. 원할 경우 [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) 특성을 사용하여 엔드포인트에 다른 내부 포트를 지정할 수 있습니다.
 
 입력 엔드포인트는 **http, https, tcp, udp**와 같은 프로토콜을 사용할 수 있습니다.
 
@@ -372,4 +366,7 @@ namespace WorkerRole1
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 서비스 [모델](cloud-services-model-and-package.md)에 대해 더 읽습니다.
+
+
+
 

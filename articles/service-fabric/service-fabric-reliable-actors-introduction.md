@@ -1,25 +1,16 @@
 ---
-title: Service Fabric Reliable Actors 개요 | Microsoft Docs
-description: Service Fabric Reliable Actors 프로그래밍 모델에 대해 설명합니다.
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric Reliable Actors 개요
+description: 가상 행위자 패턴을 기반으로 하는 Service Fabric Reliable Actors 프로그래밍 모델을 소개 합니다.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c534ba54ccea78759628f554707271934ddc9a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60727208"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258488"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 알아보기
 Reliable Actors는 [가상의 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 애플리케이션 프레임워크입니다. Reliable Actors API는 Service Fabric에서 보장하는 확장성과 안정성을 바탕으로 단일 스레드 프로그래밍 모델을 제공합니다.
@@ -37,7 +28,7 @@ Service Fabric Reliable Actors는 행위자 디자인 패턴을 구현한 것입
 * I/O 작업 실행으로 인한 예측할 수 없는 지연을 이유로 행위자 인스턴스가 호출자를 차단하지 않는 경우
 
 ## <a name="actors-in-service-fabric"></a>Service Fabric 내에서의 행위자
-Service Fabric의 행위자는 Reliable Actors 프레임 워크에서 구현 됩니다. 맨 위에 행위자 패턴 기반 응용 프로그램 프레임 워크 [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)합니다. 작성하는 각 Reliable Actor 서비스는 실제로 분할되고, 상태가 유지되는 Reliable Service입니다.
+Service Fabric 내에서의 행위자는 Reliable Actors 프레임워크, 즉, [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)에 기반한 행위자 패턴을 기반으로 한 애플리케이션 프레임워크에서 구현됩니다. 작성하는 각 Reliable Actor 서비스는 실제로 분할되고, 상태가 유지되는 Reliable Service입니다.
 
 .NET 개체가 .NET 형식의 인스턴스인 것과 동일하게 모든 행위자는 행위자 형식의 인스턴스로 정의됩니다. 예를 들어, 계산기의 기능을 구현하는 행위자 형식이 있을 수 있으며 클러스터 전체에 걸쳐 다양한 노드에 배포되는 해당 형식의 여러 행위자가 있을 수 있습니다. 이러한 각 행위자는 행위자 ID에 의해 고유하게 식별됩니다.
 
@@ -146,7 +137,7 @@ Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간�
 ## <a name="next-steps"></a>다음 단계
 첫 번째 Reliable Actors 서비스를 빌드하여 시작합니다.
    * [.NET에서 Reliable Actors 시작](service-fabric-reliable-actors-get-started.md)
-   * [Java에서 Reliable Actors 시작](service-fabric-reliable-actors-get-started-java.md)
+   * [Java에서 Reliable Actors 시작](./service-fabric-create-your-first-linux-application-with-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

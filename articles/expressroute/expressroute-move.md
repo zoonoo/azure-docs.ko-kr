@@ -1,19 +1,18 @@
 ---
-title: '클래식에서 Resource Manager로 회로 이동 - ExpressRoute: Azure | Microsoft Docs'
+title: 'Express 경로: 클래식에서 Azure Resource Manager로 회로 이동'
 description: 클래식 모델과 Resource Manager 배포 모델 간 연결 개요
 services: expressroute
 author: ganesr
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.custom: seodec18
-ms.openlocfilehash: dfa2bbc735a79555da0421f64ca644adbd7a1701
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6fb087e0faecc51b44b5b796fed29756356e669
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738822"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 이 문서에서는 Azure ExpressRoute 회로를 클래식에서 Azure Resource Manager 배포 모델로 이동하는 것에 대해 간략히 설명합니다.
@@ -40,7 +39,7 @@ ExpressRoute 회로가 리소스 관리자 배포 모델로 이동한 후에는 
 * 클래식 배포 모델에 대한 액세스는 ExpressRoute 회로의 **allowClassicOperations** 매개 변수에 의해 제어됩니다.
 
 > [!IMPORTANT]
-> [서비스 제한](../azure-subscription-service-limits.md) 페이지에 문서화된 모든 할당량이 적용됩니다. 예를 들어 표준 회로는 클래식 및 리소스 관리자 배포 모델 간에 최대 10개의 가상 네트워크 링크/연결을 포함할 수 있습니다.
+> [서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md) 페이지에 문서화된 모든 할당량이 적용됩니다. 예를 들어 표준 회로는 클래식 및 리소스 관리자 배포 모델 간에 최대 10개의 가상 네트워크 링크/연결을 포함할 수 있습니다.
 > 
 > 
 
@@ -60,7 +59,7 @@ ExpressRoute 회로의 **allowClassicOperations** 매개 변수를 설정하여 
 
 그렇지만 **allowClassicOperations**를 TRUE로 설정하면 다음 클래식 작업을 수행할 수 없습니다.
 
-* Azure 개인, Azure 공용 및 Microsoft 피어링에 대한 BGP(Border Gateway Protocol) 피어링 만들기/업데이트/가져오기/삭제
+* Azure 프라이빗, Azure 공용 및 Microsoft 피어링에 대한 BGP(Border Gateway Protocol) 피어링 만들기/업데이트/가져오기/삭제
 * ExpressRoute 회로 삭제
 
 ## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>클래식과 리소스 관리자 배포 모델 간의 통신
@@ -88,7 +87,7 @@ ExpressRoute 회로는 클래식 및 리소스 관리자 배포 모델 간의 �
 * 클래식 배포 모델에서 ExpressRoute 회로의 수명 주기를 관리합니다.
 * 클래식 배포 모델에 대한 역할 기반 Access Control(RBAC) 지원 클래식 배포 모델에서 회로에 대한 RBAC 제어를 수행할 수 없습니다. 구독의 모든 관리자/공동 관리자는 가상 네트워크를 회로에 연결하거나 연결을 끊을 수 있습니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동](expressroute-howto-move-arm.md)에서 설명한 지침을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계

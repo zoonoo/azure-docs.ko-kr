@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 658fd9178495f14274c85eab2129c9dcd3be7693
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164927"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182234"
 ---
 | **제한 식별자** | **제한** | **설명** |
 | --- | --- | --- |
 | 총 용량(클라우드 포함) |가상 디바이스당 최대 64TB |전체 StorSimple 가상 배열을 다른 빈 배열에 장애 조치(Failover)할 수 있습니다. 동일한 디바이스를 복원하려는 경우 이 작업을 완료하기에 충분한 공간이 디바이스에 있는지 확인합니다. 32TB을 초과한 후에는 동일한 디바이스에 복원할 수 없습니다. |
-| 디바이스당 저장소 계정 자격 증명의 최대 수 |1 | |
+| 디바이스당 스토리지 계정 자격 증명의 최대 수 |1 | |
 | 볼륨/공유 최대 수 |16 | |
 | 계층화 공유의 최소 크기 |500GB | |
 | 계층화 볼륨의 최소 크기 |500GB | |

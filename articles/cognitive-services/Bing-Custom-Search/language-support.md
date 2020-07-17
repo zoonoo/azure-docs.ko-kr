@@ -10,22 +10,22 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790236"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310583"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
 
 Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다.
 
-선택 사항이지만, 요청에서 결과를 가져올 지역/국가를 식별하는 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) 쿼리 매개 변수를 지정해야 합니다. 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)를 참조하세요.
+선택 사항이지만, 요청에서 결과를 가져올 지역/국가를 식별하는 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) 쿼리 매개 변수를 지정해야 합니다. 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)를 참조하세요.
 
-`cc` 쿼리 매개 변수를 사용하여 국가/지역을 지정할 수 있습니다. 국가/지역을 지정하는 경우 `Accept-Language` 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원되는 언어는 국가/지역마다 다르며, **지역/국가** 표에서 각 국가/지역에 대해 제공됩니다.
+`cc` 쿼리 매개 변수를 사용하여 국가/지역을 지정할 수 있습니다. 국가/지역을 지정하는 경우 `Accept-Language` 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원 되는 언어는 국가/지역에 따라 다릅니다. 이러한 설정은 **시장** 테이블의 각 국가/지역에 대해 제공 됩니다.
 
-`Accept-Language` 헤더 및 `setLang` 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. 자세한 내용은 [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage)를 참조하세요.
+`Accept-Language` 헤더 및 `setLang` 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. 자세한 내용은 [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage)를 참조하세요.
 
 ## <a name="countriesregions"></a>국가/지역
 
@@ -42,7 +42,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |핀란드|FI|
 |프랑스|FR|
 |독일|DE|
-|홍콩 특별 행정구|HK|
+|홍콩 특별행정구|HK|
 |인도|IN|
 |인도네시아|ID|
 |이탈리아|IT|
@@ -58,7 +58,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |포르투갈|PT|
 |필리핀|PH|
 |러시아|RU|
-|사우디 아라비아|SA|
+|사우디아라비아|SA|
 |남아프리카|ZA|
 |스페인|ES|
 |스웨덴|SE|
@@ -86,12 +86,12 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별 행정구|중국어 번체|zh-HK|
+|홍콩 특별행정구|중국어(번체)|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|한국|한국어|en-US|
+|한국|한국어|ko-KR|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|
@@ -102,14 +102,14 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |포르투갈|포르투갈어|pt-PT|
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
-|사우디 아라비아|아랍어|ar-SA|
+|사우디아라비아|아랍어|ar-SA|
 |남아프리카|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
 |스위스|프랑스어|fr-CH|
 |스위스|독일어|de-CH|
-|대만|중국어 번체|zh-TW|
+|대만|중국어(번체)|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
 |미국|영어|en-US|
-|미국|스페인어|es (미국)|
+|미국|스페인어|es-US|

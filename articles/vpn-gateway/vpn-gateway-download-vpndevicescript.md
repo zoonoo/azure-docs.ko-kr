@@ -1,19 +1,19 @@
 ---
-title: 'S2S VPN 연결용 VPN 디바이스 구성 스크립트 다운로드: Azure Resource Manager | Microsoft Docs'
+title: S2S VPN 연결에 대한 VPN 디바이스 구성 스크립트 다운로드
 description: 이 문서에서는 Azure Resource Manager를 사용하여 Azure VPN Gateway와의 S2S VPN 연결에 대한 VPN 디바이스 구성 스크립트를 다운로드하는 과정을 안내합니다.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: yushwang
 manager: rossort
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: e17d17484ea9caf735fd717b1e58b85e798df87b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996311"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983209"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>S2S VPN 연결에 대한 VPN 디바이스 구성 스크립트 다운로드
 
@@ -21,11 +21,11 @@ ms.locfileid: "57996311"
 
 ![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
 
-다음 장치는 사용 가능한 스크립트를 포함하고 있습니다.
+다음 디바이스는 사용 가능한 스크립트를 포함하고 있습니다.
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
-## <a name="about"></a>VPN 디바이스 구성 스크립트 정보
+## <a name="about-vpn-device-configuration-scripts"></a><a name="about"></a>VPN 디바이스 구성 스크립트 정보
 
 크로스-프레미스 VPN 연결은 Azure VPN Gateway, 온-프레미스 VPN 디바이스 및 이 둘을 연결하는 IPsec S2S VPN 터널로 구성됩니다. 일반적인 워크플로에는 다음 단계가 포함됩니다.
 
@@ -77,7 +77,7 @@ Azure VPN Gateway, 로컬 네트워크 게이트웨이 및 이 둘을 연결하�
 
 ## <a name="download-the-configuration-script-using-azure-powershell"></a>Azure PowerShell을 사용하여 구성 스크립트 다운로드
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 또한 다음 예제와 같이 Azure PowerShell을 사용하여 구성 스크립트를 다운로드할 수 있습니다.
 

@@ -1,20 +1,18 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 4/10/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e28104e1c795e093fda6457d9f86265312f540be
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 8f5793a132684ab71405278a2866bce7a72968fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76279407"
 ---
 > [!IMPORTANT]
-> Azure Functions 런타임 미리 보기 2 버전만 지원 Azure Functions 런타임의 1.x 합니다. 이 미리 보기 기능 버전을 지원 하도록 업데이트 되지 않습니다는 런타임과 없습니다 이후 업데이트 2.x을 계획 합니다. Azure 외부에서 Azure Functions 런타임을 호스트 하는 경우 고려해 야 [KEDA 사용 하 여 Kubernetes에서 Azure Functions를 사용 하 여](../articles/azure-functions/functions-kubernetes-keda.md)
+> Azure Functions 런타임 preview 2는 Azure Functions 런타임의 버전 1.x만 지원 합니다. 이 미리 보기 기능은 버전 2.x 이상의 런타임을 지원 하도록 업데이트 되지 않으며 향후 업데이트가 예정 되어 있지 않습니다. Azure 외부에서 Azure Functions 런타임을 호스팅해야 하는 경우 KEDA를 사용 [하 여 Kubernetes에서 Azure Functions를 사용 하](../articles/azure-functions/functions-kubernetes-keda.md) 는 것이 좋습니다.

@@ -1,20 +1,14 @@
 ---
-title: Blob Storage 이벤트를 웹 엔드포인트에 전송 - 포털 | Microsoft Docs
-description: Azure Event Grid 및 Azure Portal을 사용하여 Blob Storage 계정을 만들고 해당 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다.
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 10/17/2018
+title: '빠른 시작: Blob 스토리지 이벤트를 웹 엔드포인트에 전송 - 포털'
+description: '빠른 시작: Azure Event Grid 및 Azure Portal을 사용하여 Blob Storage 계정을 만들고 해당 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다.'
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
-ms.openlocfilehash: a0043ca886bf6c92ab26d76b3678bf8a2764846a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fe942a4daa877088bd354352aa994e4e283f9be5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098528"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103639"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅
 
@@ -26,33 +20,56 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 ![결과 보기](./media/blob-event-quickstart-portal/view-results.png)
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 1. Blob Storage를 만들려면 **리소스 만들기**를 선택합니다. 
 
-   ![리소스 만들기](./media/blob-event-quickstart-portal/create-resource.png)
+1. 사용할 수 있는 옵션을 필터링하려면 **스토리지**를 선택하고, **스토리지 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
 
-1. 사용할 수 있는 옵션을 필터링하려면 **저장소**를 선택하고, **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
+   ![스토리지 선택](./media/blob-event-quickstart-portal/create-storage.png)
 
-   ![저장소 선택](./media/blob-event-quickstart-portal/create-storage.png)
+   이벤트를 구독하려면 범용 v2 스토리지 계정 또는 Blob Storage 계정을 만듭니다.
+   
+1. **스토리지 계정 만들기** 페이지에서 다음 단계를 수행합니다.
+    1. Azure 구독을 선택합니다. 
+    2. **리소스 그룹**의 경우 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다. 
+    3. 스토리지 계정의 이름을 입력합니다. 
+    4. **검토 + 만들기**를 선택합니다. 
 
-1. 이벤트를 구독하려면 범용 v2 스토리지 계정 또는 Blob Storage 계정을 만듭니다. 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 를 참조하세요.
+       ![시작 단계](./media/blob-event-quickstart-portal/provide-blob-values.png)    
+    5. **검토 + 만들기** 페이지에서 설정을 검토하고 **만들기**를 선택합니다. 
 
-   ![시작 단계](./media/blob-event-quickstart-portal/provide-blob-values.png)
+        >[!NOTE]
+        > **StorageV2(범용 v2)** 및 **BlobStorage** 종류의 스토리지 계정만 이벤트 통합을 지원합니다. **스토리지(범용 v1)** 는 Event Grid와의 통합을 지원하지 *않습니다*.
 
 ## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 
 Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 일반적으로 엔드포인트는 이벤트 데이터를 기반으로 작업을 수행합니다. 이 빠른 시작을 간소화하기 위해 이벤트 메시지를 표시하는 [미리 작성된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 배포합니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
 
-1. **Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
+1. **Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. 
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+2. **사용자 지정 배포** 페이지에서 다음 단계를 수행합니다. 
+    1. **리소스 그룹**에서 스토리지 계정을 만들 때 생성된 것과 동일한 리소스 그룹을 선택합니다. 자습서를 완료한 후 리소스 그룹을 삭제하면 더 쉽게 정리할 수 있습니다.  
+    2. **사이트 이름**에 웹앱의 이름을 입력합니다.
+    3. **호스팅 계획 이름**에 웹앱을 호스팅하는 데 사용할 App Service 계획의 이름을 입력합니다.
+    4. **위에 명시된 사용 약관에 동의함** 확인란을 선택합니다. 
+    5. **구매**를 선택합니다. 
 
-1. 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공된 후 실행하는지 확인하려면 웹앱을 봅니다. 웹 브라우저에서 `https://<your-site-name>.azurewebsites.net`으로 이동합니다.
+       ![배포 매개 변수](./media/blob-event-quickstart-portal/template-deploy-parameters.png)
+1. 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 포털에서 경고(벨 아이콘)를 선택하고 **리소스 그룹으로 이동**을 선택합니다. 
 
-1. 참조하는 사이트에 이벤트가 아직 게시되지 않았습니다.
+    ![경고 - 리소스 그룹으로 이동](./media/blob-event-quickstart-portal/navigate-resource-group.png)
+4. **리소스 그룹** 페이지의 리소스 목록에서 자신이 만든 웹앱을 선택합니다. 이 목록에는 App Service 계획과 스토리지 계정도 표시됩니다. 
+
+    ![웹 사이트 선택](./media/blob-event-quickstart-portal/resource-group-resources.png)
+5. 웹앱의 **App Service** 페이지에서 URL을 선택하여 웹 사이트로 이동합니다. URL은 `https://<your-site-name>.azurewebsites.net` 형식이어야 합니다.
+    
+    ![웹 사이트로 이동](./media/blob-event-quickstart-portal/web-site.png)
+
+6. 사이트가 보이지만 사이트에 이벤트가 아직 게시되지 않았음을 확인합니다.
 
    ![새 사이트 보기](./media/blob-event-quickstart-portal/view-site.png)
 
@@ -62,15 +79,23 @@ Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시�
 
 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이벤트를 보낼 위치를 알립니다.
 
-1. 포털에서 Blob Storage 및 **이벤트**를 차례로 선택합니다.
-
-   ![이벤트 선택](./media/blob-event-quickstart-portal/select-events.png)
-
-1. 이벤트 뷰어 앱에 이벤트를 보내려면 엔드포인트에 대한 웹 후크를 사용합니다. **추가 옵션** 및 **웹 후크**를 차례로 합니다.
+1. 포털에서 앞서 만든 Azure Storage 계정으로 이동합니다. 왼쪽 메뉴에서 **모든 리소스**를 선택하고 스토리지 계정을 선택합니다. 
+2. **스토리지 계정** 페이지의 왼쪽 메뉴에서 **이벤트**를 선택합니다. 
+1. **추가 옵션** 및 **웹 후크**를 차례로 합니다. 엔드포인트에 대한 웹 후크를 사용하여 뷰어 앱에 이벤트를 보냅니다. 
 
    ![웹 후크 선택](./media/blob-event-quickstart-portal/select-web-hook.png)
+3. **이벤트 구독 만들기** 페이지에서 다음 단계를 수행합니다. 
+    1. 이벤트 구독에 대한 이벤트 **이름**을 입력합니다.
+    2. **시스템 항목**의 **이름**을 입력합니다. 시스템 항목에 대한 자세한 내용은 [시스템 항목 개요](system-topics.md)를 참조하십시오.
 
-1. 이벤트 구독은 Blob Storage에 대한 값으로 미리 채워집니다. 웹 후크 엔드포인트의 경우 웹앱의 URL을 제공하고 `api/updates`를 홈 페이지 URL에 추가합니다. 구독에 이름을 지정합니다. 완료되면 **만들기**를 선택합니다.
+       ![이벤트 구독 및 시스템 항목의 이름 입력](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
+    2. **엔드포인트 유형**으로 **웹후크**를 선택합니다. 
+
+       ![웹후크 엔드포인트 유형 선택](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
+4. **엔드포인트**에서 **엔드포인트 선택**을 클릭하고 웹앱의 URL을 입력한 후 홈페이지 URL(예: `https://spegridsite.azurewebsites.net/api/updates`)에 `api/updates`를 추가한 다음, **선택 확인**을 선택합니다.
+
+   ![엔드포인트 선택 확인](./media/blob-event-quickstart-portal/confirm-endpoint-selection.png)
+5. 이제 **이벤트 구독 만들기** 페이지에서 **만들기**를 선택하여 이벤트 구독을 만듭니다. 
 
    ![로그 선택](./media/blob-event-quickstart-portal/create-subscription.png)
 
@@ -84,11 +109,11 @@ Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시�
 
 파일을 업로드하여 Blob Storage에 대한 이벤트를 트리거합니다. 파일에는 특정 콘텐츠가 필요하지 않습니다. 문서에서는 testfile.txt라는 파일이 있다고 해도 모든 파일을 사용할 수 있다고 가정합니다.
 
-1. Blob Storage의 경우 **Blob**을 선택합니다.
+1. Azure Portal에서 Blob Storage 계정으로 이동하고 **개요** 페이지에서 **컨테이너**를 선택합니다.
 
    ![Blob 선택](./media/blob-event-quickstart-portal/select-blobs.png)
 
-1. **+컨테이너**를 선택합니다. 컨테이너에 이름을 지정하고 모든 액세스 수준을 사용합니다.
+1. **+컨테이너**를 선택합니다. 컨테이너에 이름을 지정하고 모든 액세스 수준을 사용한 후 **만들기**를 선택합니다. 
 
    ![컨테이너 추가](./media/blob-event-quickstart-portal/add-container.png)
 
@@ -96,39 +121,15 @@ Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시�
 
    ![컨테이너 선택](./media/blob-event-quickstart-portal/select-container.png)
 
-1. 파일을 업로드하려면 **업로드**를 선택합니다.
+1. 파일을 업로드하려면 **업로드**를 선택합니다. **Blob 업로드** 페이지에서 테스트를 위해 업로드할 파일을 찾아 선택한 다음, 해당 페이지에서 **업로드**를 선택합니다. 
 
    ![업로드 선택](./media/blob-event-quickstart-portal/upload-file.png)
 
 1. 테스트 파일을 찾아서 업로드합니다.
 
-1. 이벤트를 트리거했고 Event Grid가 구독할 때 구성한 엔드포인트로 메시지를 보냈습니다. 웹앱을 본 다음, Blob 이벤트를 수신했다고 알립니다. 
+1. 이벤트를 트리거했고 Event Grid가 구독할 때 구성한 엔드포인트로 메시지를 보냈습니다. 메시지는 JSON 형식이며 하나 이상의 이벤트가 있는 배열을 포함합니다. 다음 예제에서 JSON 메시지는 이벤트가 1개 있는 배열을 포함합니다. 웹앱을 확인한 다음, **Blob 생성** 이벤트를 수신했다고 알립니다. 
 
-   ```json
-   {
-    "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
-    "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
-    "eventType": "Microsoft.Storage.BlobCreated",
-    "eventTime": "2018-06-25T22:50:41.1823131Z",
-    "id": "89a2f9da-c01e-00bb-13d6-0c599506e4e3",
-    "data": {
-      "api": "PutBlockList",
-      "clientRequestId": "41341a9b-e977-4a91-9000-c64125039047",
-      "requestId": "89a2f9da-c01e-00bb-13d6-0c5995000000",
-      "eTag": "0x8D5DAEE13C8F9ED",
-      "contentType": "text/plain",
-      "contentLength": 4,
-      "blobType": "BlockBlob",
-      "url": "https://demoblob0625.blob.core.windows.net/eventcontainer/testfile.txt",
-      "sequencer": "00000000000000000000000000001C24000000000004712b",
-      "storageDiagnostics": {
-        "batchId": "ef633252-32fd-464b-8f5a-0d10d68885e6"
-      }
-    },
-    "dataVersion": "",
-    "metadataVersion": "1"
-   }
-   ```
+   ![Blob 생성 이벤트](./media/blob-event-quickstart-portal/blob-created-event.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

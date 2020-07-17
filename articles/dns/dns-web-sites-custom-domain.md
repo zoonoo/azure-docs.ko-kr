@@ -2,17 +2,17 @@
 title: 자습서 - 웹앱에 대한 사용자 지정 Azure DNS 레코드 만들기
 description: 이 자습서에서는 Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인 DNS 레코드를 만듭니다.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: d2cb0ef904935d1736c23aeaf23030da99e41a71
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: rohink
+ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665953"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "76939107"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
@@ -29,7 +29,7 @@ ms.locfileid: "58665953"
 
 Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP 주소가 변경되면 A 레코드를 수동으로 업데이트해야 합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 사용자 지정 도메인에 대한 A 및 TXT 레코드 만들기
@@ -39,11 +39,11 @@ Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP
 > * 사용자 지정 호스트 이름 테스트
 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -175,7 +175,7 @@ set-AzWebApp `
 > [!NOTE]
 > `http://` 접두사가 포함되었는지 확인합니다. 포함되지 않으면 브라우저가 URL을 예측하려고 시도할 수 있습니다.
 
-두 URL이 동일한 페이지를 표시할 것입니다. 예: 
+두 URL이 동일한 페이지를 표시할 것입니다. 다음은 그 예입니다.
 
 ![Contoso 앱 서비스](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 
@@ -186,7 +186,7 @@ set-AzWebApp `
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure DNS 서설 영역을 만드는 방법을 알아봅니다.
+Azure DNS 프라이빗 영역을 만드는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [PowerShell을 사용하여 Azure DNS 사설 영역 시작](private-dns-getstarted-powershell.md)
+> [PowerShell을 사용하여 Azure DNS 프라이빗 영역 시작](private-dns-getstarted-powershell.md)

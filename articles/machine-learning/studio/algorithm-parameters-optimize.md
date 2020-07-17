@@ -1,47 +1,46 @@
 ---
 title: 알고리즘 최적화
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다.
+titleSuffix: ML Studio (classic) - Azure
+description: Azure Machine Learning Studio (클래식)에서 알고리즘에 대해 최적의 매개 변수 집합을 선택 하는 방법에 대해 설명 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+ms.topic: how-to
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 6dc9476f603d5664b7ea23489042b69f86647cf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 52853bb14b49d429100dabeffc46661289f55c84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711207"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 알고리즘을 최적화하는 매개 변수 선택
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 알고리즘을 최적화하는 매개 변수 선택
 
-이 항목에서는 Azure Machine Learning Studio에서 알고리즘에 맞는 하이퍼 매개 변수 집합을 선택하는 방법을 설명합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택*이라고 합니다.
+이 항목에서는 Azure Machine Learning Studio (클래식)에서 알고리즘에 대 한 적절 한 하이퍼 매개 변수 집합을 선택 하는 방법에 대해 설명 합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택*이라고 합니다.
 
 
 
-모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. 기계 학습에서는 교차 유효성 검사가 모델 선택에 가장 널리 사용되는 방법 중 하나이며, Azure Machine Learning Studio의 기본 모델 선택 메커니즘입니다. Azure Machine Learning Studio에서는 R과 Python을 둘 다 지원하므로 언제든지 R 또는 Python을 사용하여 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
+모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. 기계 학습에서 교차 유효성 검사는 모델 선택에 가장 널리 사용 되는 방법 중 하나 이며 Azure Machine Learning Studio (클래식)의 기본 모델 선택 메커니즘입니다. Azure Machine Learning Studio (클래식)에서 R과 Python을 모두 지원 하기 때문에 항상 R 또는 Python을 사용 하 여 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
 
 최상의 매개 변수 집합을 찾는 프로세스는 4단계로 구성됩니다.
 
-1. **매개 변수 공간 정의**: 알고리즘의 경우 먼저 고려할 정확한 매개 변수 값을 결정합니다.
+1. **매개 변수 공간 정의**: 먼저 알고리즘에 대해 고려할 정확한 매개 변수 값을 결정합니다.
 2. **교차 유효성 검사 설정 정의**: 데이터 세트에 대해 교차 유효성 검사 접기를 선택하는 방법을 결정합니다.
 3. **메트릭 정의**: 최상의 매개 변수 집합(예: 정확도, 평균 제곱근 오차, 정밀도, 재현율 또는 f-score)을 결정하는 데 사용할 메트릭을 결정합니다.
 4. **학습, 평가 및 비교**: 매개 변수 값의 각 고유한 조합에 대해 정의한 오류 메트릭을 기반으로 교차 유효성 검사를 수행합니다. 평가 및 비교 후에 최고 성능 모델을 선택할 수 있습니다.
 
-다음 이미지는 Azure Machine Learning Studio에서 이 작업을 수행하는 방법을 보여 줍니다.
+다음 이미지는 Azure Machine Learning Studio (클래식)에서이를 달성할 수 있는 방법을 보여 줍니다.
 
 ![최상의 매개 변수 집합 찾기](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>매개 변수 공간 정의
-모델 초기화 단계에서 매개 변수 집합을 정의할 수 있습니다. 모든 기계 학습 알고리즘의 매개 변수 창에는 두 가지 강사 모드(*단일 매개 변수* 및 *매개 변수 범위*)가 있습니다. 매개 변수 범위 모드를 선택합니다. 매개 변수 범위 모드에서는 각 매개 변수에 대한 여러 값을 입력할 수 있습니다. 텍스트 상자에서 쉼표로 구분된 값을 입력할 수 있습니다.
+모델 초기화 단계에서 매개 변수 집합을 정의할 수 있습니다. 모든 Machine Learning 알고리즘의 매개 변수 창에는 두 가지 강사 모드(*단일 매개 변수* 및 *매개 변수 범위*)가 있습니다. 매개 변수 범위 모드를 선택합니다. 매개 변수 범위 모드에서는 각 매개 변수에 대한 여러 값을 입력할 수 있습니다. 텍스트 상자에서 쉼표로 구분된 값을 입력할 수 있습니다.
 
 ![2클래스 향상된 의사 결정 트리, 단일 매개 변수](./media/algorithm-parameters-optimize/fig2.png)
 
- 또는 **범위 작성기 사용**을 사용하여 그리드의 최대 및 최소 요소 수와 생성할 총 요소 수를 정의할 수 있습니다. 기본적으로 매개 변수 값은 선형 눈금으로 생성됩니다. 그러나 **로그 규모** 상자를 선택한 경우에는 로그 규모에서 값이 생성됩니다(즉, 인접 요소의 비율이 차이가 나지 않고 일정함). 정수 매개 변수의 경우 하이픈을 사용하여 범위를 정의할 수 있습니다. 예를 들어, "1-10"은 1에서 10(모두 포함) 사이의 모든 정수가 매개 변수 집합을 형성함을 의미합니다. 혼합 모드도 지원됩니다. 예를 들어, "1-10, 20, 50"으로 설정된 매개 변수는 정수 1-10, 20, 50을 포함합니다.
+ 또는 **범위 작성기 사용**을 사용하여 그리드의 최대 및 최소 요소 수와 생성할 총 요소 수를 정의할 수 있습니다. 기본적으로 매개 변수 값은 선형 눈금으로 생성됩니다. 그러나 **로그 규모** 상자를 선택한 경우에는 로그 규모에서 값이 생성됩니다(즉, 인접 요소의 비율이 차이가 나지 않고 일정함). 정수 매개 변수의 경우 하이픈을 사용하여 범위를 정의할 수 있습니다. 예를 들어 "1-10"은 1과 10 사이의 모든 정수 (둘 다 포함)가 매개 변수 집합을 형성 함을 의미 합니다. 혼합 모드도 지원됩니다. 예를 들어 "1-10, 20, 50"로 설정 된 매개 변수는 정수 1-10, 20 및 50을 포함 합니다.
 
 ![2클래스 향상된 의사 결정 트리, 매개 변수 범위](./media/algorithm-parameters-optimize/fig3.png)
 

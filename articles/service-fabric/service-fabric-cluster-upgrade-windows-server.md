@@ -1,32 +1,23 @@
 ---
-title: Azure Service Fabric 독립 실행형 클러스터의 버전 업그레이드 | Microsoft Docs
+title: 독립 실행형 클러스터의 버전 업그레이드
 description: 독립 실행형 Service Fabric 클러스터를 실행하는 Azure Service Fabric 코드를 업그레이드합니다.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 29d034be5999d0bc3f0a244cfa7a5658a4ecce32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31712ce4f661b13802d9a0f2d798c1fe87fdebf3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711386"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260996"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 Service Fabric 버전 업그레이드 
 
 최신 시스템에서 업그레이드 기능은 제품의 장기적인 성공을 위한 핵심적 요소입니다. Azure 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다. 이 문서에서는 독립 실행형 클러스터에서 실행되는 Service Fabric의 버전을 업그레이드하는 방법을 설명합니다.
 
 > [!NOTE]
-> 클러스터가 지원되는 Service Fabric 버전을 항상 실행하는지 확인합니다. Microsoft에서 새로운 버전의 Service Fabric 릴리스를 발표하면 이전 버전은 해당 발표일로부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 발표됩니다. 그러면 해당 시점에 새로운 릴리스를 선택할 수 있습니다.
+> 클러스터가 지원되는 Service Fabric 버전을 항상 실행하는지 확인합니다. Microsoft에서 새로운 버전의 Service Fabric 릴리스를 발표하면 이전 버전은 해당 발표일로부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 [Service Fabric 팀 블로그](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)에서 발표됩니다. 그러면 해당 시점에 새로운 릴리스를 선택할 수 있습니다.
 >
 >
 
@@ -75,7 +66,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     다음과 유사한 결과가 표시됩니다.
 
     ![Service Fabric 버전 가져오기][getfabversions]
-3. [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade) Windows PowerShell 명령을 사용하여 사용 가능한 버전으로 클러스터 업그레이드를 시작합니다.
+3. [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade) Windows PowerShell 명령을 사용하여 사용 가능한 버전으로 클러스터 업그레이드를 시작합니다.
 
     ```powershell
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <codeversion#> -Monitored -FailureAction Rollback
@@ -90,7 +81,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Get-ServiceFabricClusterUpgrade
     ```
 
-    클러스터 상태 정책이 충족되지 않으면 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령에 대한 사용자 지정 상태 정책을 지정하려면 [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade)에 대한 설명서를 참조하세요.
+    클러스터 상태 정책이 충족되지 않으면 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령에 대한 사용자 지정 상태 정책을 지정하려면 [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade)에 대한 설명서를 참조하세요.
 
     롤백을 일으킨 문제를 수정한 후 이전과 동일한 단계에 따라 업그레이드를 다시 시작합니다.
 
@@ -98,7 +89,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 클러스터 노드가 인터넷을 통해 [Microsoft 다운로드 센터](https://download.microsoft.com)에 연결되어 있지 않으면 이러한 단계를 사용하여 클러스터를 지원되는 버전으로 업그레이드합니다.
 
 > [!NOTE]
-> 인터넷에 연결되어 있지 않은 클러스터를 실행하는 경우 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)를 모니터링하여 새 릴리스를 확인해야 합니다. 시스템에는 새 릴리스를 알리는 클러스터 상태 경고가 표시되지 않습니다.  
+> 인터넷에 연결되어 있지 않은 클러스터를 실행하는 경우 [Service Fabric 팀 블로그](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)를 모니터링하여 새 릴리스를 확인해야 합니다. 시스템에는 새 릴리스를 알리는 클러스터 상태 경고가 표시되지 않습니다.  
 >
 >
 
@@ -113,7 +104,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 "fabricClusterAutoupgradeEnabled": false,
 ```
 
-자세한 사용 방법은 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell 명령을 참조하세요. 구성 업그레이드를 시작하기 전에 JSON에서 'clusterConfigurationVersion'을 업데이트해야 합니다.
+자세한 사용 방법은 [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell 명령을 참조하세요. 구성 업그레이드를 시작하기 전에 JSON에서 'clusterConfigurationVersion'을 업데이트해야 합니다.
 
 ```powershell
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
@@ -121,7 +112,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 ### <a name="cluster-upgrade-workflow"></a>클러스터 업그레이드 워크플로
 
-1. 클러스터의 노드 중 하나에서 [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade)를 실행하고 *TargetCodeVersion*을 적어둡니다.
+1. 클러스터의 노드 중 하나에서 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)를 실행하고 *TargetCodeVersion*을 적어둡니다.
 
 2. 인터넷에 연결된 컴퓨터에서 다음을 실행하여 현재 버전과 호환 가능한 모든 업그레이드 버전을 나열하고, 연결된 다운로드 링크에서 해당 패키지를 다운로드합니다.
 
@@ -148,7 +139,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
     ```
 6. 사용 가능한 버전으로의 클러스터 업그레이드를 시작합니다.
 
@@ -164,14 +155,14 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Get-ServiceFabricClusterUpgrade
     ```
 
-    클러스터 상태 정책이 충족되지 않으면 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령에 대한 사용자 지정 상태 정책을 지정하려면 [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade)에 대한 설명서를 참조하세요.
+    클러스터 상태 정책이 충족되지 않으면 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령에 대한 사용자 지정 상태 정책을 지정하려면 [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade)에 대한 설명서를 참조하세요.
 
     롤백을 일으킨 문제를 수정한 후 이전과 동일한 단계에 따라 업그레이드를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)
 * 일부 [Service Fabric 클러스터 설정](service-fabric-cluster-fabric-settings.md)을 사용자 지정합니다.
-* [클러스터를 확장 및 축소합니다](service-fabric-cluster-scale-up-down.md).
+* [클러스터를 확장 및 축소합니다](service-fabric-cluster-scale-in-out.md).
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

@@ -1,25 +1,17 @@
 ---
-title: StorSimple 8000 시리즈 지원 패키지 만들기 | Microsoft Docs
+title: StorSimple 8000 시리즈 지원 패키지 만들기
 description: StorSimple 8000 시리즈 디바이스용 지원 패키지를 만들고, 암호 해독 및 편집하는 방법을 알아봅니다.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481870"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182018"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
 
@@ -76,10 +68,10 @@ Export-HcsSupportPackage cmdlet으로 다음 매개 변수를 사용할 수 있�
 | --- | --- | --- |
 | `-Path` |필수 |지원 패키지가 배치된 네트워크 공유 폴더의 위치를 제공하는 데 사용합니다. |
 | `-EncryptionPassphrase` |필수 |지원 패키지를 암호화하기 위해 암호를 제공하는 데 사용합니다. |
-| `-Credential` |옵션 |네트워크 공유 폴더에 대한 액세스 자격 증명을 제공하는 데 사용합니다. |
-| `-Force` |옵션 |암호화 암호 확인 단계를 건너뛰는 데 사용합니다. |
-| `-PackageTag` |옵션 |지원 패키지가 배치된 *경로* 의 디렉터리를 지정하는 데 사용합니다. 기본값은 [디바이스 이름]-[현재 날짜 및 시간: yyyy-MM-dd-HH-mm-ss]입니다. |
-| `-Scope` |옵션 |**클러스터** (기본값)로 지정하여 두 컨트롤러에 대한 지원 패키지를 만듭니다. 현재 컨트롤러에 대해서만 패키지를 만들려면 **컨트롤러**를 지정합니다. |
+| `-Credential` |선택 사항 |네트워크 공유 폴더에 대한 액세스 자격 증명을 제공하는 데 사용합니다. |
+| `-Force` |선택 사항 |암호화 암호 확인 단계를 건너뛰는 데 사용합니다. |
+| `-PackageTag` |선택 사항 |지원 패키지가 배치된 *경로* 의 디렉터리를 지정하는 데 사용합니다. 기본값은 [디바이스 이름]-[현재 날짜 및 시간: yyyy-MM-dd-HH-mm-ss]입니다. |
+| `-Scope` |선택 사항 |두 컨트롤러 모두에 대해 지원 패키지를 만들려면 **Cluster**(기본값)로 지정합니다. 현재 컨트롤러에 대한 패키지만 만들려면 **Controller**를 지정합니다. |
 
 ## <a name="edit-a-support-package"></a>지원 패키지 편집
 
@@ -106,9 +98,11 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
     ![지원 패키지 편집](./media/storsimple-8000-create-manage-support-package/IC750706.png)
 5. 암호화 암호에 대한 메시지가 표시 되는 경우 지원 패키지를 만들 때 사용한 암호를 입력합니다.
    
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
-   
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Open-HcsSupportPackage at command pipeline position 1
+
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 6. 로그 파일이 들어 있는 폴더로 이동합니다. 이제 로그 파일의 압축을 해제하고 암호를 해독했기 때문에 원본 파일 확장명을 가질 수 있습니다. 이러한 파일을 수정하여 볼륨 이름 및 디바이스 IP 주소와 같은 고객 관련 정보를 제거하고 파일을 저장합니다.
 7. 파일을 닫아서 Gzip으로 압축한 다음 AES-256으로 암호화합니다. 네트워크를 통해 지원 패키지를 전송하는 경우 보안 및 속도를 위해서 이렇게 합니다. 파일을 압축하고 암호화하려면 다음을 입력합니다.
    
@@ -117,33 +111,37 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
     ![지원 패키지 편집](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. 메시지가 표시되면 수정된 지원 패키지에 암호화 암호를 제공합니다.
    
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Close-HcsSupportPackage at command pipeline position 1
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 9. Microsoft 지원 요청 시 공유할 수 있도록 새 암호를 적어둡니다.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>예제: 지원 패키지를 암호로 보호 된 공유에 파일 편집
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>예: 암호로 보호된 공유에 대한 지원 패키지에서 파일 편집
 
 다음 예제에서는 지원 패키지의 암호를 해독하고 편집 및 다시 암호화하는 방법을 보여 줍니다.
 
-        PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
+```powershell
+PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
-        PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
+cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
+cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32>
+```
 
 ## <a name="next-steps"></a>다음 단계
 

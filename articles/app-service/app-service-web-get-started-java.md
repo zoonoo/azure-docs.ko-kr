@@ -1,222 +1,197 @@
 ---
-title: Java 웹앱 만들기 - Azure App Service
-description: 기본 Java 앱을 배포하여 App Service에서 웹앱을 실행하는 방법을 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: rmcmurray
-manager: routlaw
-editor: ''
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: java
+title: '빠른 시작: Windows에서 Java 앱 만들기'
+description: 몇 분 안에 Windows의 Azure App Service에 첫 번째 Java Hello World를 배포합니다. Azure Web App Plugin for Maven을 사용하면 Java 앱을 편리하게 배포할 수 있습니다.
+keywords: azure, 앱 서비스, 웹앱, windows, java, maven, 빠른 시작
+author: msangapu-msft
+ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
+ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/26/2018
-ms.author: cephalin;robmcm
-ms.custom: seodec18
-ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 05/29/2019
+ms.author: jafreebe
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: d8f03d714ab44dc01d9e138a63a89892ead60fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007358"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249468"
 ---
-# <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>빠른 시작: Windows의 App Service에서 Java 앱 만들기
 
-[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Eclipse IDE for Java EE Developers](https://www.eclipse.org/)를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여 줍니다.
+> [!NOTE]
+> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux에서 Java 웹앱 만들기](./containers/quickstart-java.md)를 참조하세요.
+>
 
-> [!IMPORTANT]
-> Linux의 Azure App Service는 관리형 Tomcat, Java SE 및 WildFly 제품을 사용하여 Linux에서 Java 웹앱을 호스트팅하는 옵션이기도 합니다. Linux에서 App Service를 시작하려는 경우 [빠른 시작: Linux의 App Service에서 Java 앱 만들기](containers/quickstart-java.md)를 참조하세요.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)과 함께 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 Java 웹 보관(WAR) 파일을 배포하는 방법을 보여줍니다.
 
-이 빠른 시작을 완료하면 웹 브라우저에서 애플리케이션을 봤을 때 다음 그림과 같이 표시됩니다.
-
-!["Hello Azure!" 예제 웹앱](./media/app-service-web-get-started-java/browse-web-app-1.png)
+> [!NOTE]
+> IntelliJ 및 Eclipse와 같은 인기 있는 IDE를 사용하여 동일한 작업을 수행할 수도 있습니다. [Azure Toolkit for IntelliJ 빠른 시작](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) 또는 [Azure Toolkit for Eclipse 빠른 시작](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)에서 유사한 문서를 확인하세요.
+>
+![Azure App Service에서 실행 중인 샘플 앱](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
->
-> 이 빠른 시작의 단계에서는 Eclipse IDE를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여주지만, IntelliJ IDEA Ultimate Edition 또는 Community Edition을 사용할 수 있습니다. 자세한 내용은 [IntelliJ를 사용하여 Azure용 Hello World 웹앱 만들기](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)를 참조하세요.
->
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="create-a-java-app"></a>Java 앱 만들기
 
-이 빠른 시작을 완료하려면 다음을 설치합니다.
+Cloud Shell 프롬프트에서 다음 Maven 명령을 실행하여 `helloworld`라는 새 앱을 만듭니다.
 
-* 무료 <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. 이 빠른 시작은 Eclipse Neon을 사용합니다.
-* <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Eclipse용 Azure 도구 키트</a>.
-
-> [!NOTE]
->
-> 이 빠른 시작의 단계를 완료하려면 Eclipse용 Azure 도구 키트를 사용하여 Azure 계정에 로그인해야 합니다. 이렇게 하려면 [Eclipse용 Azure 도구 키트에 대한 Azure 로그인 지침](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions)을 참조하세요.
->
-
-## <a name="create-a-dynamic-web-project-in-eclipse"></a>Eclipse에서 동적 웹 프로젝트 만들기
-
-Eclipse에서 **파일** > **새로 만들기** > **동적 웹 프로젝트**를 선택합니다.
-
-**새 동적 웹 프로젝트** 대화 상자에서 프로젝트의 이름을 **MyFirstJavaOnAzureWebApp**으로 지정하고 **마침**을 선택합니다.
-   
-![새 동적 웹 프로젝트 대화 상자](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
-
-### <a name="add-a-jsp-page"></a>JSP 페이지 추가
-
-프로젝트 탐색기 표시되지 않으면 복원합니다.
-
-![Eclipse용 Java EE 작업 영역](./media/app-service-web-get-started-java/pe.png)
-
-프로젝트 탐색기에서 **MyFirstJavaOnAzureWebApp** 프로젝트를 확장합니다.
-**WebContent**를 마우스 오른쪽 단추로 클릭한 다음 **새로 만들기** > **JSP 파일**을 선택합니다.
-
-![프로젝트 탐색기에서 새 JSP 파일에 대한 메뉴](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
-
-**새 JSP 파일** 대화 상자에서:
-
-* 파일 이름을 **index.jsp**로 지정합니다.
-* **마침**을 선택합니다.
-
-  ![새 JSP 파일 대화 상자](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
-
-index.jsp 파일에서 `<body></body>` 요소를 다음 태그로 바꿉니다.
-
-```jsp
-<body>
-<h1><% out.println("Hello Azure!"); %></h1>
-</body>
+```bash
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
-변경 내용을 저장합니다.
+그런 다음, 작업 디렉터리를 프로젝트 폴더로 변경합니다.
 
-> [!NOTE]
->
-> 누락된 Java Servlet 클래스를 참조하는 첫 번째 줄에서 오류가 발생하는 경우 무시해도 됩니다.
-> 
-> ![Benign Java servlet 오류](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
->
-
-## <a name="publish-the-web-app-to-azure"></a>Azure에 웹앱 게시
-
-프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **Azure** > **Azure 웹앱으로 게시**를 선택합니다.
-
-![Azure 웹앱으로 게시 상황에 맞는 메뉴](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
-
-**Azure 로그인** 대화 상자가 나타나면 자격 증명을 입력하기 위해 [Eclipse용 Azure 도구 키트에 대한 Azure 로그인 지침](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) 아티클의 단계를 따라야 합니다.
-
-### <a name="deploy-web-app-dialog-box"></a>웹앱 배포 대화 상자
-
-Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니다.
-
-**만들기**를 선택합니다.
-
-![웹앱 배포 대화 상자](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
-
-### <a name="create-app-service-dialog-box"></a>App Service 만들기 대화 상자
-
-기본 값으로 **App Service 만들기** 대화 상자가 나타납니다. 다음 이미지에 표시된 숫자 **170602185241**은 대화 상자에 따라 달라집니다.
-
-![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/cas1.png)
-
-**App Service 만들기** 대화 상자에서:
-
-* 웹앱의 고유한 이름을 입력하거나 생성된 이름을 그대로 사용합니다. 이 이름은 Azure에서 고유해야 합니다. 이름은 웹앱에 대한 URL 주소의 일부입니다. 예: 웹앱 이름이 **MyJavaWebApp**이면 URL은 *myjavawebapp.azurewebsites.net*입니다.
-* 이 빠른 시작에서는 기본 웹 컨테이너를 유지합니다.
-* Azure 구독을 선택합니다.
-* **App Service 계획** 탭에서:
-
-  * **새로 만들기**: App Service 계획의 이름인 기본값을 유지합니다.
-  * **위치**: **유럽 서부** 또는 인접 위치를 선택합니다.
-  * **가격 책정 계층**: 무료 옵션을 선택합니다. 기능의 경우 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 참조하세요.
-
-    ![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-### <a name="resource-group-tab"></a>리소스 그룹 탭
-
-**리소스 그룹** 탭을 선택합니다. 리소스 그룹에 대해 기본 생성된 값을 유지합니다.
-
-![리소스 그룹 탭](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
-
-[!INCLUDE [resource-group](../../includes/resource-group.md)]
-
-**만들기**를 선택합니다.
-
-<!--
-### The JDK tab
-
-Select the **JDK** tab. Keep the default, and then select **Create**.
-
-![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
--->
-
-Azure 도구 키트는 웹앱을 만들고 진행률 대화 상자를 표시합니다.
-
-![App Service 만들기 진행률 대화 상자](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
-
-### <a name="deploy-web-app-dialog-box"></a>웹앱 배포 대화 상자
-
-**웹앱 배포** 대화 상자에서 **루트에 배포**를 선택합니다. 앱 서비스가 *wingtiptoys.azurewebsites.net*에 있는데 이 루트에 배포하지 않으면 **MyFirstJavaOnAzureWebApp** 웹앱이 *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*에 배포됩니다.
-
-![웹앱 배포 대화 상자](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
-
-대화 상자는 Azure, JDK 및 웹 컨테이너 선택 영역을 표시합니다.
-
-**배포**를 선택하여 Azure에 웹앱을 게시합니다.
-
-게시 작업을 마치면 **Azure 활동 로그** 대화 상자에서 **게시됨** 링크를 선택합니다.
-
-![Azure 활동 로그 대화 상자](./media/app-service-web-get-started-java/aal.png)
-
-축하합니다! Azure에 웹앱을 배포했습니다. 
-
-!["Hello Azure!" 예제 웹앱](./media/app-service-web-get-started-java/browse-web-app-1.png)
-
-## <a name="update-the-web-app"></a>웹앱 업데이트
-
-샘플 JSP 코드를 다른 메시지로 변경합니다.
-
-```jsp
-<body>
-<h1><% out.println("Hello again Azure!"); %></h1>
-</body>
+```bash
+cd helloworld
 ```
 
-변경 내용을 저장합니다.
+## <a name="configure-the-maven-plugin"></a>Maven 플러그 인 구성
 
-프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Azure** > **Azure 웹앱으로 게시**를 선택합니다.
+Azure App Service에 대한 배포 프로세스는 Azure CLI에서 Azure 자격 증명을 자동으로 적용할 수 있습니다. Azure CLI가 설치되어 있지 않으면 Maven 플러그 인은 Oauth 또는 디바이스 로그인으로 로그인합니다. 필요한 경우 [Maven 플러그 인으로 인증](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)에 대한 세부 정보를 확인합니다.
 
-**웹앱 배포** 대화 상자가 표시되고 이전에 만든 앱 서비스를 보여 줍니다. 
+명령 프롬프트에서 다음 maven 명령을 실행하여 배포를 구성하고 첫 번째 단계에서 **windows** OS에 대해 **'2'** 를 선택한 후, **확인(Y/N)** 프롬프트가 표시될 때까지 **ENTER**를 눌러 기본 구성을 승인한 다음, **'y'** 를 누르면 구성이 완료됩니다. 
 
-> [!NOTE] 
-> 게시할 때마다 **루트에 배포**를 선택합니다. 
-> 
+```bash
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
+```
 
-웹앱을 선택하고 변경 사항을 게시하는 **배포**를 선택합니다.
+샘플 프로세스는 다음과 같습니다.
 
-**게시** 링크가 표시되는 경우 웹앱으로 이동하도록 선택하고 변경 사항을 확인합니다.
+```console
+~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< example.demo:helloworld >-----------------------
+[INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helloworld ---
+[WARNING] The plugin may not work if you change the os of an existing webapp.
+Define value for OS(Default: Linux):
+1. linux [*]
+2. windows
+3. docker
+Enter index to use: 2
+Define value for javaVersion(Default: 1.8): 
+1. 1.7
+2. 1.7.0_191_ZULU
+3. 1.7.0_51
+4. 1.7.0_71
+5. 1.7.0_80
+6. 1.8 [*]
+7. 1.8.0_102
+8. 1.8.0_111
+9. 1.8.0_144
+10. 1.8.0_172
+11. 1.8.0_172_ZULU
+12. 1.8.0_181
+13. 1.8.0_181_ZULU
+14. 1.8.0_202
+15. 1.8.0_202_ZULU
+16. 1.8.0_25
+17. 1.8.0_60
+18. 1.8.0_73
+19. 1.8.0_92
+20. 11
+21. 11.0.2_ZULU
+Enter index to use:
+Define value for webContainer(Default: tomcat 8.5): 
+1. jetty 9.1
+2. jetty 9.1.0.20131115
+3. jetty 9.3
+4. jetty 9.3.13.20161014
+5. tomcat 7.0
+6. tomcat 7.0.50
+7. tomcat 7.0.62
+8. tomcat 8.0
+9. tomcat 8.0.23
+10. tomcat 8.5 [*]
+11. tomcat 8.5.20
+12. tomcat 8.5.31
+13. tomcat 8.5.34
+14. tomcat 8.5.37
+15. tomcat 8.5.6
+16. tomcat 9.0
+17. tomcat 9.0.0
+18. tomcat 9.0.12
+19. tomcat 9.0.14
+20. tomcat 9.0.8
+Enter index to use:
+Please confirm webapp properties
+AppName : helloworld-1590394316693
+ResourceGroup : helloworld-1590394316693-rg
+Region : westeurope
+PricingTier : PremiumV2_P1v2
+OS : Windows
+Java : 1.8
+WebContainer : tomcat 8.5
+Deploy to slot : false
+Confirm (Y/N)? :
+[INFO] Saving configuration to pom.
+```
 
-## <a name="manage-the-web-app"></a>웹앱 관리
+> [!NOTE]
+> 이 문서에서는 WAR 파일에 패키지된 Java 앱만 사용합니다. 플러그 인에서 JAR 웹 애플리케이션도 지원됩니다. [Linux 기반 App Service에 Java SE JAR 파일 배포](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 방문하여 직접 확인해 보세요.
 
-만든 웹앱을 보려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
+`pom.xml`을 열어 업데이트된 구성을 확인합니다.
 
-왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+```bash
+code pom.xml
+```
 
-![리소스 그룹으로 포털 탐색](media/app-service-web-get-started-java/rg.png)
+필요한 경우 App Service에 대한 구성을 pom 파일에서 직접 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
-리소스 그룹을 선택합니다. 페이지에서 이 빠른 시작에서 만든 리소스를 보여 줍니다.
+ 속성 | 필수 | Description | 버전
+---|---|---|---
+`<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
+`<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+
+`<appName>` | true | 웹앱의 이름입니다. | 0.1.0+
+`<region>` | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **westeurope**). [지원되는 지역](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
+`<pricingTier>` | false | 웹앱에 대한 가격 책정 계층입니다. 기본값은 **P1V2**입니다.| 0.1.0+
+`<runtime>` | true | 런타임 환경 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
+`<deployment>` | true | 배포 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 
-![리소스 그룹](media/app-service-web-get-started-java/rg2.png)
+> [!div class="nextstepaction"]
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
 
-웹앱을 선택합니다(이전 이미지에서 **webapp-170602193915**).
+## <a name="deploy-the-app"></a>앱 배포
 
-**개요** 페이지가 나타납니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 다른 구성을 보여 줍니다. 
+Azure App Service에 대한 배포 프로세스는 Azure CLI의 계정 자격 증명을 사용합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)합니다.
 
-![Azure Portal의 App Service 페이지](media/app-service-web-get-started-java/web-app-blade.png)
+```azurecli
+az login
+```
+그런 후, 다음 명령을 사용하여 Java 앱을 Azure에 배포할 수 있습니다.
 
-[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
+```bash
+mvn package azure-webapp:deploy
+```
+
+배포가 완료되면 웹 브라우저에서 다음 URL을 사용하여 배포된 애플리케이션으로 이동합니다(예: `http://<webapp>.azurewebsites.net/`).
+
+![Azure App Service에서 실행 중인 샘플 앱](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
+
+**축하합니다.** Windows의 App Service에 첫 번째 Java 앱이 배포되었습니다.
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>다음 단계
+> [!div class="nextstepaction"]
+> [Java를 사용하여 Azure SQL Database에 연결](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Java를 사용하여 Azure DB for MySQL에 연결](/azure/mysql/connect-java)
+
+> [!div class="nextstepaction"]
+> [Java를 사용하여 Azure DB for PostgreSQL에 연결](/azure/postgresql/connect-java)
+
+> [!div class="nextstepaction"]
+> [Java 개발자 리소스용 Azure](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인 매핑](app-service-web-tutorial-custom-domain.md)
+
+> [!div class="nextstepaction"]
+> [Azure용 Maven 플러그 인에 대한 자세한 정보](https://github.com/microsoft/azure-maven-plugins)

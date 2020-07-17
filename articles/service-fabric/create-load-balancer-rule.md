@@ -1,31 +1,20 @@
 ---
 title: 클러스터에 대한 Azure Load Balancer 규칙 만들기
 description: Azure Service Fabric 클러스터에 대한 포트를 열도록 Azure Load Balancer를 구성합니다.
-services: service-fabric
-documentationcenter: na
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: aljo
-ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 049afb88b5552c92294180069b54d49574a410fa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786136"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259046"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
 Azure Service Fabric 클러스터를 사용하여 배포한 부하 분산 장치는 트래픽을 노드에서 실행되는 앱으로 보냅니다. 다른 포트를 사용하도록 앱을 변경하면 Azure Load Balancer에서 해당 포트를 노출(또는 다른 포트로 라우팅)해야 합니다.
 
-Azure에 Service Fabric 클러스터를 배포한 경우 부하 분산 장치가 자동으로 만들어집니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/load-balancer-get-started-internet-portal.md)을 참조하세요.
+Azure에 Service Fabric 클러스터를 배포한 경우 부하 분산 장치가 자동으로 만들어집니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/quickstart-load-balancer-standard-public-portal.md)을 참조하세요.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -36,7 +25,7 @@ Service Fabric 애플리케이션 **ServiceManifest.xml** 구성 파일은 애�
 
 ## <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-Load Balancer 규칙은 인터넷 연결 포트를 열고 애플리케이션에서 사용하는 내부 노드의 포트에 트래픽을 전달합니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/load-balancer-get-started-internet-portal.md)을 참조하세요.
+Load Balancer 규칙은 인터넷 연결 포트를 열고 애플리케이션에서 사용하는 내부 노드의 포트에 트래픽을 전달합니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/quickstart-load-balancer-standard-public-portal.md)을 참조하세요.
 
 Load Balancer 규칙을 만들려면 다음 정보를 수집해야 합니다.
 
@@ -71,7 +60,7 @@ Azure CLI 명령에는 다음 표에 설명되어 있는 몇 가지 매개 변�
 
 
 >[!NOTE]
->Azure CLI를 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-cli.md)를 참조하세요.
+>Azure CLI를 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)를 참조하세요.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -107,8 +96,8 @@ $lb | Set-AzLoadBalancer
 `New-AzLoadBalancerRuleConfig` 명령과 관련해서 `-FrontendPort`는 부하 분산 장치가 외부 연결을 위해 노출하는 포트이고 `-BackendPort`는 Service Fabric 앱이 수신 대기하는 포트입니다.
 
 >[!NOTE]
->PowerShell을 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-ps.md)를 참조하세요.
+>PowerShell을 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대해 자세히 알아보세요 [Service Fabric의 네트워킹](service-fabric-patterns-networking.md).rvice fabric-패턴 networking.md).
+[Service Fabric의 네트워킹](service-fabric-patterns-networking.md)에 대해 자세히 알아봅니다.

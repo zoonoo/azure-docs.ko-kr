@@ -1,21 +1,21 @@
 ---
-title: Localization - Azure Active Directory B2C | Microsoft Docs
+title: 지역화-Azure Active Directory B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책의 Localization 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: davidmu1
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+ms.date: 04/20/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2291bdd270a15c4932d79b124616400d2667c891
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 69368ecd7234912bcaf5eb606545f62ddb7b30a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204186"
 ---
 # <a name="localization"></a>지역화
 
@@ -26,7 +26,7 @@ ms.locfileid: "64705855"
 - 정책에서 지원되는 언어의 명시적 목록을 설정하고 기본 언어를 선택합니다.
 - 언어별 문자열 및 컬렉션을 제공합니다.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -39,25 +39,25 @@ ms.locfileid: "64705855"
 
 **Localization** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
-| Enabled | 아닙니다. | 가능한 값은 `true` 또는 `false`입니다. |
+| 사용 | 아니요 | 가능한 값은 `true` 또는 `false`입니다. |
 
 **Localization** 요소에는 다음 XML 요소가 포함됩니다.
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| SupportedLanguages | 1:n | 지원되는 언어 목록입니다. | 
+| SupportedLanguages | 1:n | 지원되는 언어 목록입니다. |
 | LocalizedResources | 0:n | 지역화된 리소스 목록입니다. |
 
 ## <a name="supportedlanguages"></a>SupportedLanguages
 
 **SupportedLanguages** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | DefaultLanguage | 예 | 지역화된 리소스의 기본값으로 사용할 언어입니다. |
-| MergeBehavior | 아닙니다. | 동일한 식별자를 가진, 부모 정책에 있는 모든 ClaimType과 함께 병합되는 값의 열거형 값입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 부모 정책에 지정된 컬렉션의 끝에 데이터 컬렉션을 추가하도록 지정합니다. `Prepend` 값은 부모 정책에 지정된 컬렉션 앞에 데이터 컬렉션을 추가하도록 지정합니다. `ReplaceAll` 값은 부모 정책에 정의된 데이터 컬렉션을 무시하고 현재 정책에 정의된 데이터를 대신 사용하도록 지정합니다. |
+| MergeBehavior | 아니요 | 동일한 식별자를 가진, 부모 정책에 있는 모든 ClaimType과 함께 병합되는 값의 열거형 값입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 부모 정책에 지정된 컬렉션의 끝에 데이터 컬렉션을 추가하도록 지정합니다. `Prepend` 값은 부모 정책에 지정된 컬렉션 앞에 데이터 컬렉션을 추가하도록 지정합니다. `ReplaceAll` 값은 부모 정책에 정의된 데이터 컬렉션을 무시하고 현재 정책에 정의된 데이터를 대신 사용하도록 지정합니다. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
@@ -65,13 +65,13 @@ ms.locfileid: "64705855"
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| SupportedLanguage | 1:n | RFC 5646 - 언어 식별 태그를 기준으로 언어 태그를 준수하는 콘텐츠를 표시합니다. | 
+| SupportedLanguage | 1:n | RFC 5646 - 언어 식별 태그를 기준으로 언어 태그를 준수하는 콘텐츠를 표시합니다. |
 
 ## <a name="localizedresources"></a>LocalizedResources
 
 **LocalizedResources** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 지역화된 리소스를 고유하게 식별하는 데 사용되는 식별자입니다. |
 
@@ -94,7 +94,7 @@ ms.locfileid: "64705855"
 
 **LocalizedCollection** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | ElementType | 예 | 정책 파일의 ClaimType 요소 또는 사용자 인터페이스 요소를 참조합니다. |
 | ElementId | 예 | **ElementType**이 ClaimType으로 설정된 경우 사용하는 ClaimsSchema 섹션에 이미 정의된 클레임 유형에 대한 참조를 포함하는 문자열입니다. |
@@ -108,14 +108,15 @@ ms.locfileid: "64705855"
 
 **Item** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
-| Text | 예 | 사용자 인터페이스에서 이 옵션에 대해 사용자에게 표시되어야 하는 사용자에게 친숙한 표시 문자열입니다. |
+| 텍스트 | 예 | 사용자 인터페이스에서 이 옵션에 대해 사용자에게 표시되어야 하는 사용자에게 친숙한 표시 문자열입니다. |
 | 값 | 예 | 이 옵션 선택과 연결된 문자열 클레임 값입니다. |
+| SelectByDefault | 아니요 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
 
 다음 예제는 **LocalizedCollections** 요소의 사용을 보여 줍니다. 각각 영어와 스페인어로 된 두 개의 **LocalizedCollection** 요소를 포함합니다. 둘 다 영어 및 스페인어 항목 목록을 사용하여 `Gender` 클레임의 **Restriction** 컬렉션을 설정합니다.
 
-```XML
+```xml
 <LocalizedResources Id="api.selfasserted.en">
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
@@ -131,7 +132,6 @@ ms.locfileid: "64705855"
       <Item Text="Masculino" Value="M" />
     </LocalizedCollection>
 </LocalizedCollections>
-
 ```
 
 ### <a name="localizedstrings"></a>LocalizedStrings
@@ -144,226 +144,197 @@ ms.locfileid: "64705855"
 
 **LocalizedString** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
-| ElementType | 예 | 정책의 클레임 유형 요소 또는 사용자 인터페이스 요소에 대한 참조입니다. 가능한 값은 `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate` 등입니다. `ClaimType` 값은 StringId에 지정된 대로 클레임 특성 중 하나를 지역화하는 데 사용됩니다. `UxElement` 값은 StringId에 지정된 대로 사용자 인터페이스 요소 중 하나를 지역화하는 데 사용됩니다. `ErrorMessage` 값은 StringId에 지정된 대로 시스템 오류 메시지 중 하나를 지역화하는 데 사용됩니다. `Predicate` 값은 StringId에 지정된 대로 [Predicate](predicates.md) 오류 메시지 중 하나를 지역화하는 데 사용됩니다. `InputValidation` 값은 StringId에 지정된 대로 [PredicateValidation](predicates.md) 그룹 오류 메시지 중 하나를 지역화하는 데 사용됩니다. |
-| ElementId | 예 | **ElementType**이 `ClaimType`, `Predicate` 또는 `InputValidation`으로 설정된 경우 이 요소는 ClaimsSchema 섹션에 이미 정의된 클레임 유형에 대한 참조를 포함합니다. | 
+| ElementType | 예 | 가능한 값: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [inputvalidation](#inputvalidation)또는 [UxElement](#uxelement).   | 
+| ElementId | 예 | **ElementType** 을, 또는로 설정 하면 `ClaimType` `Predicate` `InputValidation` 이 요소는 ClaimsSchema 섹션에 이미 정의 된 클레임 형식에 대 한 참조를 포함 합니다. |
 | StringId | 예 | **ElementType**이 `ClaimType`으로 설정된 경우 이 요소는 클레임 유형의 특성에 대한 참조를 포함합니다. 가능한 값은 `DisplayName`, `AdminHelpText` 또는 `PatternHelpText`입니다. `DisplayName` 값은 클레임 표시 이름을 설정하는 데 사용됩니다. `AdminHelpText` 값은 클레임 사용자의 도움말 텍스트 이름을 설정하는 데 사용됩니다. `PatternHelpText` 값은 클레임 패턴 도움말 텍스트를 설정하는 데 사용됩니다. **ElementType**이 `UxElement`로 설정된 경우 이 요소는 사용자 인터페이스 요소의 특성에 대한 참조를 포함합니다. **ElementType**이 `ErrorMessage`로 설정된 경우 이 요소는 오류 메시지의 식별자를 지정합니다. `UxElement` 식별자의 전체 목록은 [지역화 문자열 ID](localization-string-ids.md)를 참조하세요.|
 
+## <a name="elementtype"></a>ElementType
 
-다음 예제는 지역화된 등록 페이지를 보여 줍니다. 처음 세 개의 **LocalizedString** 값은 클레임 특성을 설정합니다. 세 번째 값은 계속 단추의 값을 변경합니다. 마지막 값은 오류 메시지를 변경합니다.
+지역화할 정책의 클레임 형식, 클레임 변환 또는 사용자 인터페이스 요소에 대 한 ElementType 참조입니다.
 
-```XML
-<LocalizedResources Id="api.selfasserted.en">
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
-```
+| 지역화할 요소 | ElementType | ElementId |StringId |
+| --------- | -------- | ----------- |----------- |
+| Id 공급자 이름 |`ClaimsProvider`| | Claim이상 변경 요소의 ID입니다.|
+| 클레임 유형 특성|`ClaimType`|클레임 유형 이름| 지역화할 클레임의 특성입니다. 가능한 값은 `AdminHelpText` , `DisplayName` , `PatternHelpText` 및 `UserHelpText` 입니다.|
+|오류 메시지|`ErrorMessage`||오류 메시지의 ID입니다. |
+|지역화 된 문자열을 클레임에 복사 합니다.|`GetLocalizedStringsTra nsformationClaimType`||출력 클레임의 이름입니다.|
+|조건자 사용자 메시지|`Predicate`|조건자 이름| 지역화할 조건자의 특성입니다. 가능한 값은 `HelpText` 입니다.|
+|조건자 그룹 사용자 메시지|`InputValidation`|PredicateValidation 요소의 ID입니다.|PredicateGroup 요소의 ID입니다. 조건자 그룹은 ElementId에 정의 된 대로 조건자 유효성 검사 요소의 자식 이어야 합니다.|
+|사용자 인터페이스 요소 |`UxElement` | | 지역화할 사용자 인터페이스 요소의 ID입니다.|
 
-다음 예제는 ID가 `IsLengthBetween8And64`인 **Predicate**의 지역화된 **UserHelpText**를 보여 줍니다. 그리고 ID가 `StrongPassword`인 **PredicateValidation**에서 ID가 `CharacterClasses`인 **PredicateGroup**의 지역화된 **UserHelpText**를 보여 줍니다.
+## <a name="examples"></a>예
 
-```XML
-<PredicateValidation Id="StrongPassword">
-  <PredicateGroups>
-    ...
-    <PredicateGroup Id="CharacterClasses">
-    ...
-    </PredicateGroup>
-  </PredicateGroups>
-</PredicateValidation>
+### <a name="claimsprovider"></a>ClaimsProvider
 
-...
+ClaimsProvider 값은 클레임 공급자 표시 이름 중 하나를 지역화 하는 데 사용 됩니다. 
 
-<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
+```xml
+<OrchestrationStep Order="2" Type="ClaimsExchange">
   ...
-</Predicate>
-...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
+  </ClaimsExchanges>
+</OrchestrationStep>
 
-
-<LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
-
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>              
 ```
 
-## <a name="set-up-localization"></a>지역화 설정
+다음 예제에서는 클레임 공급자의 표시 이름을 지역화 하는 방법을 보여 줍니다.
 
-이 문서에서는 사용자 경험에 대한 정책에서 여러 로캘 또는 언어를 지원하는 방법을 보여 줍니다. 지역화에는 세 단계가 필요합니다. 지원되는 언어의 명시적 목록을 설정하고, 언어별 문자열 및 컬렉션을 제공하고, 페이지의 ContentDefinition을 편집합니다.
-
-### <a name="set-up-the-explicit-list-of-supported-languages"></a>지원되는 언어의 명시적 목록 설정
-
-**BuildingBlocks** 요소 아래에 지원되는 언어 목록이 포함된 **지역화** 요소를 추가합니다. 다음 예제는 영어(기본값) 및 스페인어 둘 다에 대한 지역화 지원을 정의하는 방법을 보여 줍니다.
-
-```XML
-<Localization Enabled="true">
-  <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
-    <SupportedLanguage>en</SupportedLanguage>
-    <SupportedLanguage>es</SupportedLanguage>
-  </SupportedLanguages>
-</Localization>
+```xml
+<LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="GoogleExchange">Google</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="LinkedInExchange">LinkedIn</LocalizedString>
 ```
 
-### <a name="provide-language-specific-strings-and-collections"></a>언어별 문자열 및 컬렉션 제공 
+### <a name="claimtype"></a>ClaimType
 
-**SupportedLanguages** 요소를 닫은 후 **Localization** 요소 내부에 **LocalizedResources** 요소를 추가합니다. 각 페이지(콘텐츠 정의) 및 지원하려는 모든 언어에 대해 **LocalizedResources** 요소를 추가합니다. 영어, 스페인어 및 프랑스어의 통합 등록 또는 로그인 페이지, 등록 및 MFA(다단계 인증) 페이지를 사용자 지정하려면 다음 **LocalizedResources** 요소를 추가합니다.  
-- 통합 등록 또는 로그인 페이지, 영어 `<LocalizedResources Id="api.signuporsignin.en">`
-- 통합 등록 또는 로그인 페이지, 스페인어 `<LocalizedResources Id="api.signuporsignin.es">`
-- 통합 등록 또는 로그인 페이지, 프랑스어 `<LocalizedResources Id="api.signuporsignin.fr">` 
-- 등록, 영어 `<LocalizedResources Id="api.localaccountsignup.en">`
-- 등록, 스페인어 `<LocalizedResources Id="api.localaccountsignup.es">`
-- 등록, 프랑스어 `<LocalizedResources Id="api.localaccountsignup.fr">`
-- MFA, 영어 `<LocalizedResources Id="api.phonefactor.en">`
-- MFA, 스페인어 `<LocalizedResources Id="api.phonefactor.es">`
-- MFA, 프랑스어 `<LocalizedResources Id="api.phonefactor.fr">`
+ClaimType 값은 클레임 특성 중 하나를 지역화 하는 데 사용 됩니다. 
 
-각 **LocalizedResources** 요소에는 다중 **LocalizedStrings** 요소가 있는 필수 **LocalizedStrings** 요소와 다중 **LocalizedCollection** 요소가 있는 **LocalizedCollections** 요소가 모두 포함됩니다.  다음 예제는 등록 페이지 영어 지역화를 추가합니다. 
-
-참고: 이 예제는 `Gender` 및 `City` 클레임 유형에 대한 참조를 작성합니다. 이 예제를 사용하려면 해당 클레임을 정의해야 합니다. 자세한 내용은 [ClaimsSchema](claimsschema.md)를 참조하세요.
-
-```XML
-<LocalizedResources Id="api.localaccountsignup.en">
-
- <LocalizedCollections>
-   <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-      <Item Text="Female" Value="F" />
-      <Item Text="Male" Value="M" />
-    </LocalizedCollection>
-   <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-      <Item Text="New York" Value="NY" />
-      <Item Text="Paris" Value="Paris" />
-      <Item Text="London" Value="London" />
-    </LocalizedCollection>
-  </LocalizedCollections>
-
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
+```xml
+<ClaimType Id="email">
+  <DisplayName>Email Address</DisplayName>
+  <DataType>string</DataType>
+  <UserHelpText>Email address that can be used to contact you.</UserHelpText>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
 ```
 
-스페인어 등록 페이지 지역화입니다.
+다음 예제에서는 전자 메일 클레임 형식의 DisplayName, UserHelpText 및 PatternHelpText 특성을 지역화 하는 방법을 보여 줍니다.
 
-```XML
-<LocalizedResources Id="api.localaccountsignup.es">
-
- <LocalizedCollections>
-   <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-      <Item Text="Femenino" Value="F" />
-      <Item Text="Masculino" Value="M" />
-    </LocalizedCollection>
-   <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-      <Item Text="Nueva York" Value="NY" />
-      <Item Text="París" Value="Paris" />
-      <Item Text="Londres" Value="London" />
-    </LocalizedCollection>
-  </LocalizedCollections>
-
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
+```xml
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
 ```
 
-### <a name="edit-the-contentdefinition-for-the-page"></a>페이지에 대한 ContentDefinition 편집 
+### <a name="errormessage"></a>ErrorMessage
 
-지역화하려는 각 페이지에 대해 **ContentDefinition**에서 찾을 언어 코드를 지정합니다.
+ErrorMessage 값은 시스템 오류 메시지 중 하나를 지역화 하는 데 사용 됩니다. 
 
-다음 예제에서는 영어(en) 및 스페인어(es) 사용자 지정 문자열이 등록 페이지에 추가됩니다. 각 **LocalizedResourcesReference**의 **LocalizedResourcesReferenceId**는 해당 로캘과 동일하지만 임의 문자열을 식별자로 사용할 수 있습니다. 각 언어 및 페이지 조합에 대해 이전에 만든 해당 **LocalizedResources**를 가리킵니다.
-
-```XML
-<ContentDefinition Id="api.localaccountsignup">
-...
-  <LocalizedResourcesReferences MergeBehavior="Prepend">
-    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-    <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
-  </LocalizedResourcesReferences>
-</ContentDefinition>
+```xml
+<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+  <Metadata>
+    <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+    <Item Key="UserMessageIfClaimsPrincipalAlreadyExists">You are already registered, please press the back button and sign in instead.</Item>
+  </Metadata>
+  ...
+</TechnicalProfile>
 ```
 
-다음 예제는 최종 XML을 보여 줍니다.
+다음 예제에서는 UserMessageIfClaimsPrincipalAlreadyExists 오류 메시지를 지역화 하는 방법을 보여 줍니다.
 
-```XML
-<BuildingBlocks>
-  <ContentDefinitions>
-    <ContentDefinition Id="api.localaccountsignup">
-      <!-- Other content definitions elements... -->
-      <LocalizedResourcesReferences MergeBehavior="Prepend">
-         <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-         <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
-      </LocalizedResourcesReferences>
-    </ContentDefinition>
-    <!-- More content definitions... -->
-  </ContentDefinitions>
 
-  <Localization Enabled="true">
-
-    <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
-      <SupportedLanguage>en</SupportedLanguage>
-      <SupportedLanguage>es</SupportedLanguage>
-      <!-- More supported language... -->
-    </SupportedLanguages>
-
-    <LocalizedResources Id="api.localaccountsignup.en">
-      <LocalizedCollections>
-        <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-          <Item Text="Female" Value="F" />
-          <Item Text="Male" Value="M" />
-          <!-- More items... -->
-        </LocalizedCollection>
-        <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-          <Item Text="New York" Value="NY" />
-          <Item Text="Paris" Value="Paris" />
-          <Item Text="London" Value="London" />
-        </LocalizedCollection>
-        <!-- More localized collections... -->
-      </LocalizedCollections>
-      <LocalizedStrings>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-      <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-        <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-        <!-- More localized strings... -->
-      </LocalizedStrings>
-    </LocalizedResources>
-
-    <LocalizedResources Id="api.localaccountsignup.es">
-      <LocalizedCollections>
-       <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-          <Item Text="Femenino" Value="F" />
-          <Item Text="Masculino" Value="M" />
-        </LocalizedCollection>
-        <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-          <Item Text="Nueva York" Value="NY" />
-          <Item Text="París" Value="Paris" />
-          <Item Text="Londres" Value="London" />
-        </LocalizedCollection>
-      </LocalizedCollections>
-      <LocalizedStrings>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
-        <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
-      </LocalizedStrings>
-    </LocalizedResources>
-    <!-- More localized resources... -->
-  </Localization>
-</BuildingBlocks>
+```xml
+<LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
 ```
 
+### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
+
+GetLocalizedStringsTransformationClaimType 값은 지역화 된 문자열을 클레임에 복사 하는 데 사용 됩니다. 자세한 내용은 [GetLocalizedStringsTransformation 클레임 변환](string-transformations.md#getlocalizedstringstransformation) 을 참조 하세요.
 
 
+```xml
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
 
+다음 예제에서는 GetLocalizedStringsTransformation 클레임 변환의 출력 클레임을 지역화 하는 방법을 보여 줍니다.
+
+```xml
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+```
+
+### <a name="predicate"></a>Predicate
+
+조건자 값은 [조건자](predicates.md) 오류 메시지 중 하나를 지역화 하는 데 사용 됩니다. 
+
+```xml
+<Predicates>
+  <Predicate Id="LengthRange" Method="IsLengthRange"  HelpText="The password must be between 6 and 64 characters.">
+    <Parameters>
+      <Parameter Id="Minimum">6</Parameter>
+      <Parameter Id="Maximum">64</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">a-z</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Uppercase" Method="IncludesCharacters" HelpText="an uppercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">A-Z</Parameter>
+    </Parameters>
+  </Predicate>
+</Predicates>
+```
+
+다음 예제에서는 조건자 도움말 텍스트를 지역화 하는 방법을 보여 줍니다.
+
+```xml
+<LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
+```
+
+### <a name="inputvalidation"></a>InputValidation
+
+InputValidation 값은 [PredicateValidation](predicates.md) group 오류 메시지 중 하나를 지역화 하는 데 사용 됩니다. 
+
+```xml
+<PredicateValidations>
+  <PredicateValidation Id="CustomPassword">
+    <PredicateGroups>
+      <PredicateGroup Id="LengthGroup">
+        <PredicateReferences MatchAtLeast="1">
+          <PredicateReference Id="LengthRange" />
+        </PredicateReferences>
+      </PredicateGroup>
+      <PredicateGroup Id="CharacterClasses">
+        <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+        <PredicateReferences MatchAtLeast="3">
+          <PredicateReference Id="Lowercase" />
+          <PredicateReference Id="Uppercase" />
+          <PredicateReference Id="Number" />
+          <PredicateReference Id="Symbol" />
+        </PredicateReferences>
+      </PredicateGroup>
+    </PredicateGroups>
+  </PredicateValidation>
+</PredicateValidations>
+```
+
+다음 예에서는 조건자 유효성 검사 그룹 도움말 텍스트를 지역화 하는 방법을 보여 줍니다.
+
+```xml
+<LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
+```
+
+### <a name="uxelement"></a>UxElement
+
+UxElement 값은 사용자 인터페이스 요소 중 하나를 지역화 하는 데 사용 됩니다. 다음 예제에서는 계속 및 취소 단추를 지역화 하는 방법을 보여 줍니다.
+
+```xml
+<LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+<LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+## <a name="next-steps"></a>다음 단계
+
+지역화 예제는 다음 문서를 참조 하세요.
+
+- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 언어 사용자 지정](custom-policy-localization.md)
+- [Azure Active Directory B2C에서 사용자 흐름을 사용 하 여 언어 사용자 지정](user-flow-language-customization.md)

@@ -1,26 +1,23 @@
 ---
 title: AKS(Azure Kubernetes Service)에서 OpenFaaS 사용
-description: AKS(Azure Kubernetes Service)에서 OpenFaaS 배포 및 사용
-services: container-service
+description: AKS (Azure Kubernetes Service) 클러스터에서 OpenFaaS를 배포 하 고 사용 하 여 컨테이너에서 서버를 사용 하지 않는 기능을 빌드하는 방법에 대해 알아봅니다.
 author: justindavies
-manager: jeconnoc
-ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 5ed6e0b21b00ede3f78a102fd004e5706ae3cea5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80631465"
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 
-[OpenFaaS] [ open-faas] 는 컨테이너를 사용 하 여 서버 리스 functions를 빌드하기 위한 프레임 워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
+[Openfaas][open-faas] 는 컨테이너를 사용 하 여 서버 리스 함수를 빌드하기 위한 프레임 워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
@@ -29,11 +26,13 @@ ms.locfileid: "60464887"
 * 개발 시스템에 설치된 Azure CLI.
 * 시스템에 설치된 Git 명령줄 도구
 
-## <a name="add-the-openfaas-helm-chart-repo"></a>OpenFaaS helm 차트 리포지토리 추가
+## <a name="add-the-openfaas-helm-chart-repo"></a>OpenFaaS 투구 차트 리포지토리 추가
 
-OpenFaaS 모든 최신 변경 내용으로 최신 상태로 유지 하는 자체 helm 차트를 유지 관리 합니다.
+브라우저에서 [https://shell.azure.com](https://shell.azure.com)으로 이동하여 Azure Cloud Shell을 엽니다.
 
-```azurecli-interactive
+OpenFaaS는 모든 최신 변경 내용으로 최신 상태를 유지 하기 위해 자체 투구 차트를 유지 관리 합니다.
+
+```console
 helm repo add openfaas https://openfaas.github.io/faas-netes/
 helm repo update
 ```
@@ -44,13 +43,13 @@ helm repo update
 
 OpenFaaS 시스템 및 함수에 대 한 네임 스페이스를 만듭니다.
 
-```azurecli-interactive
+```console
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-OpenFaaS UI 포털 및 REST API에 대 한 암호를 생성 합니다.
+OpenFaaS UI 포털에 대 한 암호를 생성 하 고 REST API 합니다.
 
-```azurecli-interactive
+```console
 # generate a random password
 PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1)
 
@@ -59,13 +58,13 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-사용 하 여 비밀의 값을 가져올 수 있습니다 `echo $PASSWORD`합니다.
+를 사용 하 여 암호 값을 가져올 수 있습니다 `echo $PASSWORD` .
 
-여기에서 우리가 만든 암호를 OpenFaaS 게이트웨이의 클라우드 LoadBalancer 통해 인터넷에 노출 되는 기본 인증을 사용 하도록 설정 하려면 helm 차트에서 사용 됩니다.
+여기에서 만든 암호는 고객 지원 장치를 통해 인터넷에 노출 되는 OpenFaaS 게이트웨이에서 기본 인증을 사용 하도록 설정 하기 위해 투구 차트에서 사용 됩니다.
 
 OpenFaaS에 대한 Helm 차트는 복제된 리포지토리에 포함됩니다. 이 차트를 사용하여 OpenFaaS를 AKS 클러스터에 배포합니다.
 
-```azurecli-interactive
+```console
 helm upgrade openfaas --install openfaas/openfaas \
     --namespace openfaas  \
     --set basic_auth=true \
@@ -73,9 +72,9 @@ helm upgrade openfaas --install openfaas/openfaas \
     --set serviceType=LoadBalancer
 ```
 
-출력
+출력:
 
-```
+```output
 NAME:   openfaas
 LAST DEPLOYED: Wed Feb 28 08:26:11 2018
 NAMESPACE: openfaas
@@ -103,13 +102,13 @@ kubectl get service -l component=gateway --namespace openfaas
 
 출력
 
-```console
+```output
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
 gateway            ClusterIP      10.0.156.194   <none>         8080/TCP         7m
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이동합니다(이 예제에서 `http://52.186.64.52:8080`). 로그인 하 라는 메시지가 표시 됩니다. 암호를 페치 하려면 입력 `echo $PASSWORD`합니다.
+OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이동합니다(이 예제에서 `http://52.186.64.52:8080`). 로그인 하 라는 메시지가 표시 됩니다. 암호를 페치 하려면를 입력 `echo $PASSWORD` 합니다.
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -119,11 +118,11 @@ OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이�
 brew install faas-cli
 ```
 
-설정 `$OPENFAAS_URL` 위에서 찾은 공용 ip입니다.
+`$OPENFAAS_URL`을 위에서 찾은 공용 IP로 설정 합니다.
 
 Azure CLI를 사용 하 여 로그인 합니다.
 
-```azurecli-interactive
+```console
 export OPENFAAS_URL=http://52.186.64.52:8080
 echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
@@ -138,13 +137,13 @@ echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 Curl을 사용하여 함수를 호출합니다. 다음 예제의 IP 주소를 OpenFaas 게이트웨이의 IP 주소로 바꿉니다.
 
-```azurecli-interactive
+```console
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 ```
 
-출력
+출력:
 
-```console
+```output
  _   _      _ _            _
 | | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
@@ -199,32 +198,32 @@ COSMOS=$(az cosmosdb list-connection-strings \
 
 필요한 경우 MongoDB 도구를 설치합니다. 다음 예제에서는 brew를 사용하여 이러한 도구를 설치합니다. 기타 옵션은 [MongoDB 설명서][install-mongo]를 참조하세요.
 
-```azurecli-interactive
+```console
 brew install mongodb
 ```
 
 데이터베이스에 데이터를 로드합니다.
 
-```azurecli-interactive
+```console
 mongoimport --uri=$COSMOS -c plans < plans.json
 ```
 
-출력
+출력:
 
-```console
+```output
 2018-02-19T14:42:14.313+0000    connected to: localhost
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
 
 다음 명령을 실행하여 함수를 만듭니다. `-g` 인수 값을 OpenFaaS 게이트웨이 주소로 업데이트합니다.
 
-```azurecli-interctive
+```console
 faas-cli deploy -g http://52.186.64.52:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV=$COSMOS
 ```
 
 해당 기능이 배포되면 함수에 새로 만든 OpenFaaS 엔드포인트가 표시됩니다.
 
-```console
+```output
 Deployed. 202 Accepted.
 URL: http://52.186.64.52:8080/function/cosmos-query
 ```
@@ -235,7 +234,7 @@ curl을 사용하여 함수를 테스트합니다. OpenFaaS 게이트웨이 주�
 curl -s http://52.186.64.52:8080/function/cosmos-query
 ```
 
-출력
+출력:
 
 ```json
 [{"ID":"","Name":"two_person","FriendlyName":"","PortionSize":"","MealsPerWeek":"","Price":72,"Description":"Our basic plan, delivering 3 meals per week, which will feed 1-2 people."}]
@@ -247,7 +246,7 @@ OpenFaaS UI 내에서 함수를 테스트할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-암호를 사용 하 여 자동 크기 조정 및 메트릭 보기 집합을 사용자 고유의 GitHub 봇, 만드는 방법 등을 다루는 실습을 통해 OpenFaaS 워크샵을 알아볼 계속할 수 있습니다.
+사용자 고유의 GitHub 봇을 만들고, 비밀을 사용 하 고, 메트릭을 표시 하 고, 자동으로 크기를 조정 하는 방법과 같은 주제를 다루는 실습 교육 집합을 통해 OpenFaaS 워크샵을 계속 익힐 수 있습니다.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

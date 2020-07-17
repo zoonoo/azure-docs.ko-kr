@@ -1,7 +1,6 @@
 ---
-title: Azure DevOps를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포
+title: CI/CD 및 Azure DevOps를 사용하여 Azure Stream Analytics 작업 배포
 description: 이 문서에서는 Azure DevOps Services를 사용하여 CI/CD로 Stream Analytics 작업을 배포하는 방법을 설명합니다.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -9,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e05e4eab8bd3c307334b62df00dc03e56ce60ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727590"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75354426"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>자습서: Azure Pipelines를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포
 이 자습서에서는 Azure Pipelines를 사용하여 Azure Stream Analytics 작업의 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 프로젝트에 소스 제어 추가
@@ -27,11 +26,11 @@ ms.locfileid: "56727590"
 > * Azure Pipelines에서 릴리스 파이프라인 만들기
 > * 애플리케이션 자동 배포 및 업그레이드
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음이 필요합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 저장소 및 처리** 워크로드를 설치합니다.
+* [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 스토리지 및 처리** 워크로드를 설치합니다.
 * [Visual Studio에서 Stream Analytics 프로젝트](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs)를 만듭니다.
 * [Azure DevOps 조직](https://visualstudio.microsoft.com/team-services/)을 만듭니다.
 
@@ -79,13 +78,13 @@ Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지�
     
     ![DevOps의 템플릿 옵션에서 빈 프로세스 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
-3. **트리거** 아래에서 **지속적인 통합 사용** 트리거 상태를 확인하여 연속 통합을 사용하도록 설정합니다.  **저장 및 큐**를 선택하여 수동으로 빌드를 시작합니다. 
+3. **트리거** 아래에서 **지속적인 통합 사용** 트리거 상태를 확인하여 지속적인 통합을 사용하도록 설정합니다.  **저장 및 큐**를 선택하여 수동으로 빌드를 시작합니다. 
     
     ![지속적인 통합 사용 트리거 상태](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
 4. 빌드는 푸시 또는 체크인할 때도 트리거됩니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후에는 애플리케이션을 클러스터에 배포하는 릴리스 파이프라인을 정의해야 합니다. 빌드 파이프라인 옆의 줄임표를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
 
-5.  **작업**에서 **에이전트 큐**로 "호스트된"을 입력합니다.
+5.  **작업**에서 **에이전트 큐**로 "Hosted"를 입력합니다.
     
     ![작업 메뉴에서 에이전트 큐 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
@@ -117,10 +116,10 @@ Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지�
     
     |**설정**  |**제안 값**  |
     |---------|---------|
-    |구독  |  구독을 선택합니다.   |
-    |조치  |  리소스 그룹을 만들기 또는 업데이트   |
+    |Subscription  |  구독을 선택합니다.   |
+    |작업  |  리소스 그룹을 만들기 또는 업데이트   |
     |리소스 그룹  |  리소스 그룹 이름을 입력합니다.   |
-    |Template  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.json   |
+    |템플릿  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.json   |
     |템플릿 매개 변수  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.parameters.json   |
     |템플릿 매개 변수 재정의  | 텍스트 상자에 재정의할 템플릿 매개 변수를 입력합니다. 예: –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). 이 속성은 선택 사항이지만 키 매개 변수를 재정의하지 않으면 빌드에 오류가 발생합니다.    |
     
@@ -152,7 +151,7 @@ Azure DevOps Services에 변경 내용을 푸시하면 빌드가 자동으로 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용되는 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 자습서에서 만든 리소스를 모두 삭제합니다.
+더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 자습서에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.

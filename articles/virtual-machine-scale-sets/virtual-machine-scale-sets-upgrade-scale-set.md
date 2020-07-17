@@ -1,26 +1,19 @@
 ---
-title: Azure 가상 머신 확장 집합 수정 | Microsoft Docs
+title: Azure 가상 머신 확장 집합 수정
 description: REST API, Azure PowerShell 및 Azure CLI로 Azure 가상 머신 확장 집합을 수정 및 업데이트하는 방법 알아보기
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
-ms.author: manayar
-ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.subservice: management
+ms.date: 03/10/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83121017"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -93,7 +86,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
     ```
 
-- [resources.azure.com](https://resources.azure.com) 또는 언어별 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용할 수도 있습니다.
+- [Resources.azure.com](https://resources.azure.com) 또는 언어별 [azure sdk](https://azure.microsoft.com/downloads/) 를 사용할 수도 있습니다.
 
 정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI의 압축된 샘플 출력입니다.
 
@@ -181,13 +174,13 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
     Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI에서 [az vmss get-instance-view](/cli/azure/vmss)
+- [Az vmss get instance-view](/cli/azure/vmss) 를 사용 하 여 Azure CLI
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- [resources.azure.com](https://resources.azure.com) 또는 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용할 수도 있습니다.
+- [Resources.azure.com](https://resources.azure.com) 또는 [azure sdk](https://azure.microsoft.com/downloads/) 를 사용할 수도 있습니다.
 
 정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI의 압축된 샘플 출력입니다.
 
@@ -316,9 +309,9 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - 언어별 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용할 수도 있습니다.
 
 >[!NOTE]
-> Service Fabric 클러스터는 *자동* 모드만 사용할 수 있지만 업데이트는 다르게 처리됩니다. 자세한 내용은 [Service Fabric 응용 프로그램 업그레이드](../service-fabric/service-fabric-application-upgrade.md)합니다.
+> Service Fabric 클러스터는 *자동* 모드만 사용할 수 있지만 업데이트는 다르게 처리 됩니다. 자세한 내용은 [Service Fabric 응용 프로그램 업그레이드](../service-fabric/service-fabric-application-upgrade.md)를 참조 하세요.
 
-업그레이드 정책을 따르지 않는 전역 확장 집합 속성에 대한 한 가지 유형의 수정 작업이 있습니다. 확장 집합 OS 프로필(예: 관리자 사용자 이름 및 암호)을 변경하면 API 버전 *2017-12-01* 이상에서만 변경됩니다. 이러한 변경은 확장 집합 모델이 변경된 후에 만들어지는 VM에만 적용됩니다. 기존 VM을 최신 상태로 유지하려면 각 VM을 “이미지로 다시 설치”해야 합니다. 다음을 통해 VM을 이미지로 다시 설치할 수 있습니다.
+업그레이드 정책을 따르지 않는 전역 확장 집합 속성에 대한 한 가지 유형의 수정 작업이 있습니다. 확장 집합 OS 및 데이터 디스크 프로필의 변경 내용 (예: 관리자 사용자 이름 및 암호)은 API 버전 *2017-12-01* 이상 에서만 변경할 수 있습니다. 이러한 변경은 확장 집합 모델이 변경된 후에 만들어지는 VM에만 적용됩니다. 기존 VM을 최신 상태로 유지하려면 각 VM을 “이미지로 다시 설치”해야 합니다. 다음을 통해 VM을 이미지로 다시 설치할 수 있습니다.
 
 - REST API에서 [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage), 아래 참조:
 
@@ -349,7 +342,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - 가용성 영역
 - 이미지 참조 게시자
 - 이미지 참조 제공
-- 관리되는 OS 디스크 저장소 계정 형식
+- 관리되는 OS 디스크 스토리지 계정 형식
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>현재 값에 따라서만 변경할 수 있는 속성
 현재 값을 따른다는 점을 제외하고, 일부 속성을 변경할 수 있습니다. 이러한 속성은 다음과 같습니다.
@@ -370,7 +363,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ## <a name="scenarios"></a>시나리오
 
 ### <a name="application-updates"></a>애플리케이션 업데이트
-애플리케이션이 확장을 통해 확장 집합에 배포되는 경우, 확장 구성을 업데이트하면 업그레이드 정책에 따라 애플리케이션이 업데이트됩니다. 예를 들어, 새 버전의 스크립트를 사용자 지정 스크립트 확장에서 실행되도록 하려면 새 스크립트를 가리키도록 *fileUris* 속성을 업데이트할 수 있습니다. 경우에 따라, 확장 구성이 변경되지 않더라도 강제로 업데이트하려고 할 수 있습니다(예: 스크립트의 URI를 변경하지 않고 스크립트 업데이트). 이러한 경우 업데이트를 강제로 수행하도록 *forceUpdateTag*를 수정할 수 있습니다. Azure 플랫폼에서는 이 속성을 해석하지 않습니다. 값을 변경해도 확장이 실행되는 방식에 영향을 미치지 않습니다. 변경하면 확장이 강제로 다시 실행되기만 합니다. *forceUpdateTag*에 대한 자세한 내용은 [확장에 대한 REST API 설명서](/rest/api/compute/virtualmachineextensions/createorupdate)를 참조하세요. *forceUpdateTag*는 사용자 지정 스크립트 확장뿐만 아니라 모든 확장에서 사용할 수 있습니다.
+애플리케이션이 확장을 통해 확장 집합에 배포되는 경우, 확장 구성을 업데이트하면 업그레이드 정책에 따라 애플리케이션이 업데이트됩니다. 예를 들어 사용자 지정 스크립트 확장에서 실행할 스크립트의 새 버전이 있는 경우 새 스크립트를 가리키도록 *Fileuris* 속성을 업데이트할 수 있습니다. 경우에 따라, 확장 구성이 변경되지 않더라도 강제로 업데이트하려고 할 수 있습니다(예: 스크립트의 URI를 변경하지 않고 스크립트 업데이트). 이러한 경우 업데이트를 강제로 수행 하도록 *Forceupdatetag* 를 수정할 수 있습니다. Azure 플랫폼에서는 이 속성을 해석하지 않습니다. 값을 변경해도 확장이 실행되는 방식에 영향을 미치지 않습니다. 변경하면 확장이 강제로 다시 실행되기만 합니다. *Forceupdatetag*에 대 한 자세한 내용은 [확장에 대 한 REST API 설명서](/rest/api/compute/virtualmachineextensions/createorupdate)를 참조 하세요. *forceUpdateTag*는 사용자 지정 스크립트 확장뿐만 아니라 모든 확장에서 사용할 수 있습니다.
 
 애플리케이션을 사용자 지정 이미지를 통해 배포하는 것도 일반적입니다. 이 시나리오는 다음 섹션에서 설명됩니다.
 
@@ -453,7 +446,7 @@ Azure Load Balancer가 있는 확장 집합이 있으며 Azure Load Balancer를 
     ```
 
 >[!NOTE]
-> 이러한 명령은 확장 집합에 IP 구성 및 Load Balancer가 하나만 있다고 가정합니다. 여러 개 있는 경우, *0*이 아닌 목록 인덱스를 사용해야 할 수 있습니다.
+> 이러한 명령은 확장 집합에 IP 구성 및 Load Balancer가 하나만 있다고 가정합니다. 여러 개가 있는 경우 *0*이 아닌 목록 인덱스를 사용 해야 할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

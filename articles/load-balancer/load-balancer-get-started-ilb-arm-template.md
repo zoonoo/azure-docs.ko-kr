@@ -1,24 +1,24 @@
 ---
 title: 내부 Load Balancer 만들기 - Azure 템플릿
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 리소스 관리자에서 템플릿을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 6cbde9d0d53cdd688c39381978bd338c66d5688e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.author: allensu
+ms.openlocfilehash: 7e8f34f3d68a957dbd5bb13b69f751184d224e2c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671678"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961118"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>템플릿을 사용하여 내부 부하 분산 장치 만들기
 
@@ -27,8 +27,6 @@ ms.locfileid: "56671678"
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -45,7 +43,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. 매개 변수 파일을 로컬 디스크에 다운로드합니다.
 3. 파일을 편집하고 저장합니다.
-4. 실행 합니다 **새로 만들기-AzResourceGroupDeployment** 템플릿을 사용 하 여 리소스 그룹을 만드는 cmdlet입니다.
+4. **AzResourceGroupDeployment** cmdlet을 실행 하 여 템플릿을 사용 하 여 리소스 그룹을 만듭니다.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -57,21 +55,23 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 
 Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
-2. 아래와 같이 **azure config mode** 명령을 실행하여 Resource Manager 모드로 전환합니다.
+1. Azure CLI 사용한 적이 없는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조 하 고 Azure 계정 및 구독을 선택 하는 지점까지 지침을 따릅니다.
+2. [https://shell.azure.com](https://shell.azure.com)으로 이동하여 브라우저에서 Cloud Shell을 엽니다. 아래와 같이 **azure config mode** 명령을 실행하여 Resource Manager 모드로 전환합니다.
 
-    ```azurecli-interactive
+    ```console
     azure config mode arm
     ```
 
     다음은 위의 명령에 대해 예상된 출력입니다.
 
-        info:    New mode is arm
+    ```output
+    info:    New mode is arm
+    ```
 
 3. 매개 변수 파일을 열고 해당 내용을 선택한 후 컴퓨터의 파일에 저장합니다. 이 예에서는 매개 변수 파일을 *parameters.json*에 저장했습니다.
 4. 위에서 다운로드하여 수정한 템플릿과 매개 변수 파일로 **azure group deployment create** 명령을 실행하여 새 내부 부하 분산 장치를 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
-    ```azurecli
+    ```console
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
     ```
 

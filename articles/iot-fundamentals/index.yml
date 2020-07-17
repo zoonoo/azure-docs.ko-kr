@@ -1,0 +1,179 @@
+### YamlMime:Hub
+title: Azure IoT 설명서
+summary: Azure IoT(사물 인터넷)는 수십억 개의 IoT 자산을 연결, 모니터링 및 제어하는 Microsoft 관리 클라우드 서비스의 모음입니다.
+brand: azure
+metadata:
+  title: Azure IoT 설명서
+  description: Azure IoT(사물 인터넷)는 수십억 개의 IoT 자산을 연결, 모니터링 및 제어하는 Microsoft 관리 클라우드 서비스의 모음입니다.
+  ms.service: iot-fundamentals
+  ms.topic: hub-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 09/04/2019
+  ms.openlocfilehash: 08b54d7ae3217f9b9f7715ba2ccb3fe1a290cc05
+  ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86147117"
+highlightedContent:
+  items:
+  - title: Azure IoT란?
+    itemType: overview
+    url: ../iot-fundamentals/iot-introduction.md
+  - title: Azure IoT용 VS Code 도구 설치
+    itemType: download
+    url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+  - title: Azure CLI for Azure IoT를 사용하여 빌드 시작
+    itemType: reference
+    url: https://docs.microsoft.com/en-us/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest
+  - title: Azure IoT 코드 샘플 찾아보기
+    itemType: overview
+    url: https://docs.microsoft.com/samples/browse/?term=iot
+  - title: Azure IoT 배포 보안 유지
+    itemType: concept
+    url: ../iot-fundamentals/security-recommendations.md
+  - title: Azure IoT 참조 아키텍처
+    itemType: architecture
+    url: https://docs.microsoft.com/azure/architecture/reference-architectures/iot/
+  - title: Microsoft Learn의 Azure IoT
+    itemType: learn
+    url: https://docs.microsoft.com/learn/browse/?products=azure&term=iot
+  - title: 지원 및 도움말 옵션
+    itemType: how-to-guide
+    url: ../iot-fundamentals/iot-support-help.md
+conceptualContent:
+  title: IoT 솔루션 빌드 시작
+  summary: Azure IoT는 클라우드 및 에지 IoT 플랫폼과 완전 관리형 IoT 솔루션을 제공합니다.
+  items:
+  - title: 자체 IoT 클라우드 솔루션 빌드
+    links:
+    - url: ../iot-hub/about-iot-hub.md
+      itemType: overview
+      text: Azure IoT Hub란?
+    - url: ../iot-hub/quickstart-send-telemetry-cli.md
+      itemType: quickstart
+      text: 디바이스에서 원격 분석 데이터 보내기
+    - url: ../iot-hub/quickstart-control-device-node.md
+      itemType: quickstart
+      text: 클라우드에서 디바이스 제어
+    footerLink:
+      url: ../iot-hub/index.yml
+      text: 자세히 보기
+  - title: 완전 관리형 IoT 솔루션 배포
+    links:
+    - url: ../iot-central/core/overview-iot-central.md
+      itemType: overview
+      text: Azure IoT Central이란?
+    - url: ../iot-central/core/quick-deploy-iot-central.md
+      itemType: quickstart
+      text: IoT Central 애플리케이션 만들기
+    - url: ../iot-central/core/tutorial-connect-device-nodejs.md
+      itemType: tutorial
+      text: 디바이스 연결
+    footerLink:
+      url: ../iot-central/core/index.yml
+      text: 자세히 보기
+  - title: 미리 빌드된 IoT 솔루션 사용자 지정
+    links:
+    - url: ../iot-accelerators/about-iot-accelerators.md
+      itemType: overview
+      text: Azure IoT 솔루션 가속기란?
+    - url: ../iot-accelerators/quickstart-remote-monitoring-deploy.md
+      itemType: quickstart
+      text: 원격 모니터링 솔루션 사용
+    - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
+      itemType: quickstart
+      text: 연결된 팩터리 솔루션 사용
+    footerLink:
+      url: ../iot-accelerators/index.yml
+      text: 자세히 보기
+  - title: 에지 디바이스에서 클라우드 인텔리전스 실행
+    links:
+    - url: ../iot-edge/about-iot-edge.md
+      itemType: overview
+      text: Azure IoT Edge란?
+    - url: ../iot-edge/quickstart-linux.md
+      itemType: quickstart
+      text: Linux 디바이스에 IoT Edge 모듈 배포
+    - url: ../iot-edge/quickstart.md
+      itemType: quickstart
+      text: Windows 디바이스에 IoT Edge 모듈 배포
+    footerLink:
+      url: ../iot-edge/index.yml
+      text: 자세히 보기
+  - title: 연결된 스마트 인프라 만들기
+    links:
+    - url: ../digital-twins/about-digital-twins.md
+      itemType: overview
+      text: Azure Digital Twins란?
+    - url: ../digital-twins/quickstart-view-occupancy-dotnet.md
+      itemType: quickstart
+      text: 건물에서 빈 방 찾기
+    - url: ../digital-twins/tutorial-facilities-setup.md
+      itemType: tutorial
+      text: 사무실 건물 모니터링
+    footerLink:
+      url: ../digital-twins/index.yml
+      text: 자세히 보기
+  - title: 규모에 맞게 디바이스를 안전하게 프로비저닝
+    links:
+    - url: ../iot-dps/about-iot-dps.md
+      itemType: overview
+      text: Azure IoT Hub Device Provisioning Service란?
+    - url: ../iot-dps/quick-setup-auto-provision-cli.md
+      itemType: quickstart
+      text: 서비스 설정
+    - url: ../iot-dps/quick-create-simulated-device.md
+      itemType: quickstart
+      text: TPM 디바이스 프로비저닝
+    footerLink:
+      url: ../iot-dps/index.yml
+      text: 자세히 보기
+  - title: 디바이스 데이터 탐색 및 분석
+    links:
+    - url: ../time-series-insights/time-series-insights-update-overview.md
+      itemType: overview
+      text: Azure Time Series Insights란?
+    - url: ../time-series-insights/time-series-quickstart.md
+      itemType: quickstart
+      text: Time Series Insights 탐색
+    - url: ../time-series-insights/tutorial-create-tsi-sample-spa.md
+      itemType: tutorial
+      text: Time Series Insights 웹앱 만들기
+    footerLink:
+      url: ../time-series-insights/index.yml
+      text: 자세히 보기
+  - title: 기업 내 이동성 활성화
+    links:
+    - url: ../azure-maps/about-azure-maps.md
+      itemType: overview
+      text: Azure Maps란?
+    - url: ../azure-maps/quick-demo-map-app.md
+      itemType: quickstart
+      text: 대화형 검색 맵 만들기
+    - url: ../azure-maps/tutorial-route-location.md
+      itemType: tutorial
+      text: 관심 지점에 대한 경로
+    footerLink:
+      url: ../azure-maps/index.yml
+      text: 자세히 보기
+tools:
+  title: Azure IoT SDK
+  summary: Azure IoT SDK에 대한 참조 설명서
+  items:
+  - title: C용 Azure IoT SDK 참조
+    imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
+    url: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
+  - title: Python용 Azure IoT SDK(미리 보기)
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    url: https://github.com/Azure/azure-iot-sdk-python
+  - title: Node.js용 Azure IoT SDK 참조
+    imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+    url: https://docs.microsoft.com/javascript/api/overview/azure/iot-hub?view=azure-node-latest
+  - title: Java용 Azure IoT SDK 참조
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
+  - title: .NET용 Azure IoT SDK 참조
+    imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
+    url: https://docs.microsoft.com/dotnet/api/overview/azure/iot?view=azure-dotnet

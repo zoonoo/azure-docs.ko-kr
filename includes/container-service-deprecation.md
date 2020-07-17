@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: c7a34256bff46247ed6c97bc2931942f631bbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60430661"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "67182755"
 ---
 > [!WARNING]
 >  **ACS(Azure Container Service)는 더 이상 사용되지 않습니다. 새로운 특징 또는 기능이 ACS에 추가되지 않을 예정입니다. 모든 API, 포털 환경, CLI 명령 및 설명서가 더 이상 사용되지 않는다고 표시됩니다.**

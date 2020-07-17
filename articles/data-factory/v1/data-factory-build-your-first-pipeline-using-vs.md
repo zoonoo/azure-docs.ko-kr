@@ -1,30 +1,27 @@
 ---
-title: 첫 번째 데이터 팩터리(Visual Studio) 빌드 | Microsoft Docs
+title: 첫 번째 데이터 팩터리(Visual Studio) 빌드
 description: 이 자습서에서는 Visual Studio를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.custom: vs-azure
-ms.tgt_pltfrm: na
 ms.topic: tutorial
+ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: bf7bfa6ec405841934cd068cbc90c2b071fc0afc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483068"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022098"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>자습서: Visual Studio를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
@@ -32,7 +29,7 @@ ms.locfileid: "58483068"
 
 
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [빠른 시작: Azure Data Factory를 사용하여 데이터 팩터리 만들기](../quickstart-create-data-factory-dot-net.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용하는 경우 [빠른 시작: Azure Data Factory를 사용하여 데이터 팩터리 만들기](../quickstart-create-data-factory-dot-net.md)를 참조하세요.
 
 이 자습서에서는 Visual Studio를 사용하여 Azure Data Factory를 만드는 방법을 보여 줍니다. 데이터 팩터리 프로젝트 템플릿을 사용하여 Visual Studio 프로젝트를 만들고 JSON 형식으로 데이터 팩터리 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 정의한 다음, 이 엔터티를 이러한 클라우드에 게시하고 배포합니다. 
 
@@ -44,13 +41,13 @@ ms.locfileid: "58483068"
 > 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
 
-## <a name="walkthrough-create-and-publish-data-factory-entities"></a>연습: Data Factory 엔터티 만들기 및 게시
+## <a name="walkthrough-create-and-publish-data-factory-entities"></a>연습: 데이터 팩터리 엔터티 만들기 및 게시
 이 연습 일부로 수행하는 단계는 다음과 같습니다.
 
-1. 두 개의 연결된 서비스를 만듭니다. **AzureStorageLinkedService1** 및 **HDInsightOnDemandLinkedService1**을 만듭니다. 
+1. 2개의 연결된 서비스인 **AzureStorageLinkedService1** 및 **HDInsightOnDemandLinkedService1**을 만듭니다. 
    
     이 자습서에서는 Hive 작업의 입력 및 출력 데이터가 모두 동일한 Azure Blob Storage에 있습니다. 주문형 HDInsight 클러스터를 사용하여 출력 데이터를 생성하는 기존 입력 데이터를 처리합니다. 입력 데이터를 처리할 준비가 된 경우 런타임 시 주문형 HDInsight 클러스터가 Azure Data Factory에 의해 자동으로 만들어집니다. 런타임 시 데이터 팩터리 서비스가 연결할 수 있도록 데이터 저장소 또는 계산을 데이터 팩터리에 연결해야 합니다. 따라서 AzureStorageLinkedService1을 사용하여 Azure Storage 계정을 데이터 팩터리에 연결하고 HDInsightOnDemandLinkedService1을 사용하여 주문형 HDInsight 클러스터를 연결합니다. 만들려는 데이터 팩터리 또는 기존 데이터 팩터리를 게시할 때 이름을 지정합니다.  
-2. 두 개의 데이터 세트, **InputDataset** 및 **OutputDataset**을 만듭니다. 이것은 Azure Blob Storage에 저장된 입출력 데이터를 나타냅니다. 
+2. Azure Blob Storage에 저장된 입출력 데이터를 나타내는 2개의 데이터 세트인 **InputDataset** 및 **OutputDataset**을 만듭니다. 
    
     이러한 데이터 세트 정의는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하세요. InputDataset의 경우 Blob 컨테이너(adfgetstarted)와 입력 데이터와 함께 Blob을 포함하는 폴더(inptutdata)를 지정합니다. OutputDataset의 경우 Blob 컨테이너(adfgetstarted)와 출력 데이터를 포함하는 폴더(partitioneddata)를 지정합니다. 구조, 가용성 및 정책과 같은 기타 속성도 지정합니다.
 3. **MyFirstPipeline**이라는 파이프라인을 만듭니다. 
@@ -59,7 +56,7 @@ ms.locfileid: "58483068"
 4. **DataFactoryUsingVS**라는 데이터 팩터리를 만듭니다. 데이터 팩터리 및 모든 Data Factory 엔터티(연결된 서비스, 테이블 및 파이프라인)를 배포합니다.
 5. 파이프라인을 게시한 후에 모니터링하려면 Azure Portal 블레이드 및 모니터링 및 관리 앱을 사용합니다. 
   
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -68,7 +65,7 @@ ms.locfileid: "58483068"
 3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
    * Visual Studio 2013 또는 Visual Studio 2015
    * Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
-   * Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. 다음 단계를 수행하여 플러그 인을 업데이트할 수도 있습니다. 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트**를 클릭합니다.
+   * Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트**를 클릭하여 플러그 인을 업데이트할 수도 있습니다.
 
 이제 Visual Studio를 사용하여 Azure Data Factory를 만들어 보겠습니다.
 
@@ -79,12 +76,12 @@ ms.locfileid: "58483068"
     ![새 프로젝트 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 3. 프로젝트의 **이름**, **위치**, **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
 
-    ![Controllers\HomeController.cs](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+    ![솔루션 탐색기](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ### <a name="create-linked-services"></a>연결된 서비스 만들기
-이 단계에서는 두 개의 연결된 서비스 **Azure Storage** 및 **주문형 HDInsight**를 만듭니다. 
+이 단계에서는 두 가지 연결된 서비스 **Azure Storage** 및 **주문형 HDInsight**를 만듭니다. 
 
-Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage 계정을 데이터 팩터리에 연결합니다. 데이터 팩터리 서비스는 런타임 시 Azure storage에 연결하기 위해 연결된 서비스 설정에서 연결 문자열을 사용합니다. 이 저장소는 파이프라인의 입력 및 출력 데이터와 Hive 작업에서 사용한 Hive 스크립트 파일을 보유합니다. 
+Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage 계정을 데이터 팩터리에 연결합니다. 데이터 팩터리 서비스는 런타임 시 Azure storage에 연결하기 위해 연결된 서비스 설정에서 연결 문자열을 사용합니다. 이 스토리지는 파이프라인의 입력 및 출력 데이터와 Hive 작업에서 사용한 Hive 스크립트 파일을 보유합니다. 
 
 입력 데이터를 처리할 준비가 된 경우 런타임 시 HDInsight 클러스터가 주문형 HDInsight 연결된 서비스를 사용하여 자동으로 만들어집니다. 클러스터의 처리가 완료되고 지정된 시간 동안 유휴 상태를 유지한 후에 삭제됩니다. 
 
@@ -95,7 +92,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 1. 솔루션 탐색기에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
 2. **새 항목 추가** 대화 상자의 목록에서 **Azure Storage 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다.
     ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
     ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. **AzureStorageLinkedService1.json** 파일을 저장합니다.
 
@@ -122,22 +119,22 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    자산 | 설명
+    속성 | Description
     -------- | ----------- 
-    ClusterSize | HDInsight Hadoop 클러스터의 크기를 지정합니다.
-    TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
+    clusterSize | HDInsight Hadoop 클러스터의 크기를 지정합니다.
+    timeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
     linkedServiceName | HDInsight Hadoop 클러스터에 의해 생성되는 로그를 저장하는데 사용될 스토리지 계정을 지정합니다. 
 
     > [!IMPORTANT]
     > HDInsight 클러스터는 JSON(linkedServiceName)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(timeToLive)가 없는 경우 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
     > 
-    > 온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp` 패턴을 따릅니다. [Microsoft 스토리지 탐색기](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
+    > 온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp` 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
 
     JSON 속성에 대한 자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. 
 4. **HDInsightOnDemandLinkedService1.json** 파일을 저장합니다.
 
 ### <a name="create-datasets"></a>데이터 세트 만들기
-이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 **AzureStorageLinkedService1** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다.   
+이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 **AzureStorageLinkedService1** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 세트은 입력 및 출력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다.   
 
 #### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 1. **솔루션 탐색기**에서 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
@@ -171,12 +168,12 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-    자산 | 설명 |
+    속성 | Description |
     -------- | ----------- |
-    형식 |Azure Blob Storage에 데이터가 있기 때문에 형식 속성은 **AzureBlob**으로 설정됩니다.
+    type |Azure Blob Storage에 데이터가 있기 때문에 형식 속성은 **AzureBlob**으로 설정됩니다.
     linkedServiceName | 이전에 만든 AzureStorageLinkedService1을 가리킵니다.
     fileName |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일을 선택합니다. 이 경우에 input.log만 처리됩니다.
-    형식 | 로그 파일이 텍스트 형식이므로 TextFormat을 사용합니다. |
+    type | 로그 파일이 텍스트 형식이므로 TextFormat을 사용합니다. |
     columnDelimiter | 로그 파일의 열은 쉼표(`,`)로 구분됩니다.
     frequency/interval | 월 및 간격을 설정한 빈도가 1인 경우 입력 조각은 매월 제공됩니다.
     external | 작업의 입력 데이터가 파이프라인에서 생성되지 않는 경우 이 속성은 true로 설정됩니다. 이 속성은 입력 데이터 세트에서만 지정됩니다. 첫 번째 작업의 입력 데이터 세트의 경우 항상 true로 설정합니다.
@@ -217,14 +214,14 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 4. **OutputDataset.json** 파일을 저장합니다.
 
 ### <a name="create-pipeline"></a>파이프라인 만들기
-지금까지 Azure Storage 연결된 서비스와 입력 및 출력 데이터 세트를 만들었습니다. 이제 **HDInsightHive** 작업이 포함된 파이프라인을 만듭니다. Hive 작업에 대한 **입력**을 **AzureBlobInput**으로 설정하고 작업에 대한 **출력**을 **AzureBlobOutput**으로 설정합니다. 입력 데이터 세트의 조각이 매월(빈도: 월, 간격: 1) 제공되고 출력 조각도 매월 생성됩니다. 
+지금까지 Azure Storage 연결된 서비스와 입력 및 출력 데이터 세트를 만들었습니다. 이제 **HDInsightHive** 작업이 포함된 파이프라인을 만듭니다. Hive 작업에 대한 **입력**을 **AzureBlobInput**으로 설정하고 작업에 대한 **출력**을 **AzureBlobOutput**으로 설정합니다. 입력 데이터 세트의 조각은 매월 사용 가능(빈도: 월, 간격: 1)하고 출력 조각도 매월 생성됩니다. 
 
 1. **솔루션 탐색기**에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. 목록에서 **Hive 변환 파이프라인**을 선택하고 **추가**를 클릭합니다.
 3. **JSON**을 다음 코드 조각으로 바꿉니다.
 
     > [!IMPORTANT]
-    > `<storageaccountname>`을 저장소 계정 이름으로 바꿉니다.
+    > `<storageaccountname>`을 스토리지 계정 이름으로 바꿉니다.
 
     ```json
     {
@@ -272,7 +269,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     ```
 
     > [!IMPORTANT]
-    > `<storageaccountname>`을 저장소 계정 이름으로 바꿉니다.
+    > `<storageaccountname>`을 스토리지 계정 이름으로 바꿉니다.
 
     JSON 코드 조각은 단일 작업(Hive 작업)으로 구성된 파이프라인을 정의합니다. 이 작업은 주문형 HDInsight 클러스터에서 입력 데이터를 처리하여 출력 데이터를 생성하는 Hive 스크립트를 실행합니다. 파이프라인 JSON의 작업 섹션에서는 **HDInsightHive**로 설정된 형식을 가진 배열에 하나의 작업만이 표시됩니다. 
 
@@ -284,7 +281,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다. 데이터 세트가 매월 생성되도록 구성했으므로 파이프라인에서 한 번만 조각이 생성됩니다(매월 시작 및 종료 날짜가 동일하기 때문).
 
-    작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 계산에 대해 Hive 스크립트가 실행되도록 지정합니다.
+    작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 컴퓨팅에 대해 Hive 스크립트가 실행되도록 지정합니다.
 4. **HiveActivity1.json** 파일을 저장합니다.
 
 ### <a name="add-partitionweblogshql-and-inputlog-as-a-dependency"></a>partitionweblogs.hql 및 input.log 종속성으로 추가
@@ -306,7 +303,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     ![게시 - 새 데이터 팩터리 설정](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
 
    1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
-   2. 데이터 팩터리의 고유한 **이름** 을 입력합니다. 예를 들면 다음과 같습니다. **DataFactoryUsingVS09152016**. 이름은 전역적으로 고유해야 합니다.
+   2. 데이터 팩터리의 고유한 **이름** 을 입력합니다. 예: **DataFactoryUsingVS09152016** 이름은 전역적으로 고유해야 합니다.
    3. **구독** 필드에서 올바른 구독을 선택합니다. 
         > [!IMPORTANT]
         > 모든 구독이 표시되지 않으면 구독의 관리자 또는 공동 관리자인 계정을 사용하여 로그인했는지 확인합니다.
@@ -326,7 +323,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
 염두해 둘 중요한 사항은 다음과 같습니다.
 
-- 만약 **이 구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.** 라는 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
+- **구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.** 라는 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
     - Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다.
         ```powershell   
         Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -348,7 +345,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
    1. **더 많은 서비스**를 클릭하고 **데이터 팩터리**를 클릭합니다.
        
         ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
-   2. 데이터 팩터리의 이름(예: **DataFactoryUsingVS09152016**)을 데이터 팩터리 목록에서 선택합니다.
+   2. 데이터 팩터리의 목록에서 데이터 팩터리의 이름을 선택합니다(예: **DataFactoryUsingVS09152016**).
    
        ![데이터 팩터리 선택](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 2. 데이터 팩터리에 대한 홈페이지에서 **다이어그램**을 클릭합니다.
@@ -415,7 +412,7 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 -  데이터 팩터리는 앞의 JSON으로 사용자에게 **Linux 기반** HDInsight 클러스터를 만들어 줍니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 - HDInsight 클러스터는 JSON(linkedServiceName)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(timeToLive)가 없는 경우 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
     
-    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft 스토리지 탐색기](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
+    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
 - 현재 출력 데이터 세트가 일정을 결정하므로 작업이 출력을 생성하지 않는 경우 출력 데이터 세트를 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 세트 만들기를 건너뛸 수 있습니다. 
 - 이 자습서에서는 Azure Data Factory를 사용하여 데이터를 복사하는 방법을 표시하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
@@ -475,7 +472,7 @@ Azure Storage 연결 서비스에 대한 다음 JSON 정의를 고려해야 합�
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:<Azure sql server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }
@@ -546,7 +543,7 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 배포할 때 구성 파일의 값은 엔터티가 Azure Data Factory 서비스에 배포되기 전에 JSON 파일에서 속성 값을 설정하는 데 사용됩니다.   
 
 ## <a name="use-azure-key-vault"></a>Azure Key Vault 사용
-연결 문자열과 같은 중요한 데이터를 코드 리포지토리에 커밋하는 것은 보안 정책에 위배되는 경우가 종종 있습니다. Azure Key Vault에 중요 정보를 저장하고 Data Factory 엔터티를 게시하면서 사용하는 방법에 대한 자세한 내용은 GitHub의 [ADF 보안 게시](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish)(영문) 샘플을 참조하세요. Visual Studio에 대한 보안 게시 확장을 통해 비밀이 Key Vault에 저장되도록 하고 이에 대한 참조만 연결된 서비스/배포 구성에 지정하도록 할 수 있습니다. 이러한 참조는 Data Factory 엔터티를 Azure에 게시할 때 확인됩니다. 그런 다음 이러한 파일을 비밀을 노출하지 않고 원본 리포지토리에 커밋할 수 있습니다.
+연결 문자열과 같은 중요한 데이터를 코드 리포지토리에 커밋하는 것은 보안 정책에 위배되는 경우가 종종 있습니다. Azure Key Vault에 중요 정보를 저장하고 Data Factory 엔터티를 게시하면서 사용하는 방법에 대한 자세한 내용은 GitHub의 [ADF 보안 게시](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish)(영문) 샘플을 참조하세요. Visual Studio에 대한 보안 게시 확장을 통해 비밀이 Key Vault에 저장되도록 하고 이에 대한 참조만 연결된 서비스/배포 구성에 지정하도록 할 수 있습니다. 이러한 참조는 Data Factory 엔터티를 Azure에 게시할 때 확인됩니다. 그런 다음 이러한 파일을 비밀을 노출하지 않고 원본 리포지토리에 커밋할 수 있습니다.
 
 ## <a name="summary"></a>요약
 이 자습서에서는 HDInsight hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데 Azure 데이터 팩터리를 만들었습니다. Azure 포털에서 다음 단계를 수행하기 위해 데이터 팩터리 편집기를 사용했습니다.  
@@ -566,7 +563,7 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 
 ## <a name="see-also"></a>참고 항목
 
-| 항목 | 설명 |
+| 항목 | Description |
 |:--- |:--- |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 데이터 기반 워크플로를 활용하는 방법을 이해하는 데 도움이 됩니다. |
 | [데이터 세트](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |

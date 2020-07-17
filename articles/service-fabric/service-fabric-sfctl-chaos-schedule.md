@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI- sfctl chaos schedule | Microsoft Docs
-description: Service Fabric CLI sfctl schedule 명령을 설명합니다.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
+title: Azure Service Fabric CLI-sfctl 비정상 일정
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 비정상 일정에 대 한 명령 목록을 포함 합니다.
+author: jeffj6123
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: dc3dd06b5feac1f66598cd65fa79f447a1bbd9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 1/16/2020
+ms.author: jejarry
+ms.openlocfilehash: dd911574cd37c18e3043cfc2482bd1fcd5f3857b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837507"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260846"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 chaos schedule을 가져오고 설정합니다.
@@ -28,7 +19,7 @@ chaos schedule을 가져오고 설정합니다.
 
 |명령|설명|
 | --- | --- |
-| get | Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져옵니다. |
+| Get | Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져옵니다. |
 | set | Chaos에서 사용되는 일정을 설정합니다. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos schedule get
@@ -40,22 +31,22 @@ Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져
 
 |인수|설명|
 | --- | --- |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
 Chaos에서 사용되는 일정을 설정합니다.
 
-Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공된 입력 일정의 버전은 서버의 Chaos Schedule 버전과 일치해야 합니다. 제공된 버전이 서버의 버전과 일치하지 않는 경우 Chaos Schedule은 업데이트되지 않습니다. 제공된 버전이 서버의 버전과 일치하는 경우 Chaos Schedule이 업데이트되고 서버의 Chaos Schedule 버전은 1단위로 증분하고 2,147,483,647 다음에 0으로 다시 래핑합니다. 이 호출이 만들어질 때 Chaos가 실행되는 경우 호출에 실패합니다.
+Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공 된 버전이 서버에 있는 버전과 일치 하는 경우 비정상 일정이 업데이트 됩니다. 비정상 상황 일정을 업데이트 하는 경우 서버의 버전이 1 씩 증가 합니다. 서버에 있는 버전은 너무 많은 숫자에 도달 하면 0으로 다시 래핑합니다. 이 호출이 만들어질 때 Chaos가 실행되는 경우 호출에 실패합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -65,24 +56,25 @@ Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공
 | --expiry-date-utc | Chaos를 예약하는 데 Schedule을 사용하여 중지할 시기에 대한 날짜 및 시간입니다.  기본값\: 9999-12-31T23\:59\:59.999Z. |
 | --jobs | Chaos를 실행할 시기 및 Chaos와 함께 실행할 매개 변수를 나타내는 ChaosScheduleJobs의 JSON 인코딩된 목록입니다. |
 | --start-date-utc | Chaos를 예약하는 데 Schedule을 사용하여 시작할 시기에 대한 날짜 및 시간입니다.  기본값\: 1601-01-01T00\:00\:00.000Z. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 기본값\: 60. |
 | --version | Schedule의 버전 번호입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
-| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
-| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
-다음 명령은 Chaos를 1일 24시간, 주 7일 실행하는 2016-01-01에 시작하여 2038-01-01에 만료되는 일정을 설정합니다(현재 일정에 버전 0이 있다고 가정). Chaos는 해당 시간에 대해 클러스터에서 예약됩니다.
-
-    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
+다음 명령은 Chaos를 1일 24시간, 주 7일 실행하는 2016-01-01에 시작하여 2038-01-01에 만료되는 일정을 설정합니다(현재 일정에 버전 0이 있다고 가정).
+Chaos는 해당 시간에 대해 클러스터에서 예약됩니다.
+```
+sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
     --chaos-parameters-dictionary
     [
     {
@@ -143,8 +135,10 @@ Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공
         ]
     }
     ]
+```
+
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI [설정](service-fabric-cli.md)
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
+- Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
+- [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

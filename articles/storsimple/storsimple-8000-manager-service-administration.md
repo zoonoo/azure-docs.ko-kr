@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8d8e3b9058b753dc2a6da35878449c94399225e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60723309"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508047"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 관리
 
@@ -60,7 +60,7 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 | 볼륨에 대한 백업 목록</br>백업 세트를 선택합니다.</br>백업 세트 삭제 |[백업 관리](storsimple-8000-manage-backup-catalog.md) |
 | 볼륨 복제 |[볼륨 복제](storsimple-8000-clone-volume-u2.md) |
 | 백업 세트 복원 |[백업 세트 복원](storsimple-8000-restore-from-backup-set-u2.md) |
-| Storage 계정 정보</br>저장소 계정 추가</br>저장소 계정 편집</br>저장소 계정 삭제</br>저장소 계정의 키 회전 |[저장소 계정 관리](storsimple-8000-manage-storage-accounts.md) |
+| Storage 계정 정보</br>스토리지 계정 추가</br>스토리지 계정 편집</br>스토리지 계정 삭제</br>스토리지 계정의 키 회전 |[스토리지 계정 관리](storsimple-8000-manage-storage-accounts.md) |
 | 대역폭 템플릿 정보</br>대역폭 템플릿 추가</br>대역폭 템플릿 편집</br>대역폭 템플릿 삭제</br>기본 대역폭 템플릿 사용</br>지정된 시간에 시작되는 하루 종일 대역폭 템플릿 만들기 |[대역폭 템플릿 관리](storsimple-8000-manage-bandwidth-templates.md) |
 | 액세스 제어 레코드 정보</br>액세스 제어 레코드 만들기</br>액세스 제어 레코드 편집</br>액세스 제어 레코드 삭제 |[액세스 제어 레코드 관리](storsimple-8000-manage-acrs.md) |
 | 작업 세부 정보 보기</br>작업 취소 |[작업 관리](storsimple-8000-manage-jobs-u2.md) |
@@ -70,7 +70,7 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 | 볼륨 추가</br>볼륨 수정</br>볼륨을 오프라인으로 전환</br>볼륨 삭제</br>볼륨 모니터링 |[볼륨 관리](storsimple-8000-manage-volumes-u2.md) |
 | 디바이스 설정 수정</br>시간 설정 수정</br>DNS.md 설정 수정</br>네트워크 인터페이스 구성 |[StorSimple 디바이스에 대한 디바이스 구성 수정](storsimple-8000-modify-device-config.md) |
 | 웹 프록시 설정 보기 |[디바이스에 대한 웹 프록시 구성](storsimple-8000-configure-web-proxy.md) |
-| 디바이스 관리자 암호 수정</br>StorSimple 스냅숏 관리자 암호 수정 |[StorSimple 암호 변경](storsimple-8000-change-passwords.md) |
+| 디바이스 관리자 암호 수정</br>StorSimple 스냅샷 관리자 암호 수정 |[StorSimple 암호 변경](storsimple-8000-change-passwords.md) |
 | 원격 관리 구성 |[StorSimple 디바이스에 원격으로 연결](storsimple-8000-remote-connect.md) |
 | 경고 설정 구성 |[StorSimple 경고 보기 및 관리](storsimple-8000-manage-alerts.md) |
 | StorSimple 디바이스에 대한 CHAP 구성 |[StorSimple 디바이스에 대한 CHAP 구성](storsimple-configure-chap.md) |

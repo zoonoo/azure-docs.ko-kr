@@ -4,7 +4,7 @@ description: Azure의 네트워크 가상 어플라이언스 문제를 해결하
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 353ab1f15a6df8700a9abda22233dc052aa10095
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526659"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130707"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
@@ -42,7 +42,7 @@ Microsoft Azure에서 타사 NVA(네트워크 가상 어플라이언스)를 사�
 - NVA의 트래픽을 보내는 가상 네트워크 서브넷의 UDR
 - NVA 내의 라우팅 테이블 및 NVA(예를 들어 NIC1에서 NIC2로)
 - NVA NIC를 추적하여 네트워크 트래픽 수신 및 전송 확인
-- 표준 SKU 및 공용 Ip를 사용 하는 경우에 NVA로 라우팅되도록 트래픽을 허용 하도록 만든 NSG 및 규칙을 명시적 이어야 합니다.
+- 표준 SKU 및 공용 Ip를 사용 하는 경우 NSG가 생성 되 고 트래픽이 NVA로 라우팅될 수 있도록 하는 명시적 규칙이 있어야 합니다.
 
 ## <a name="basic-troubleshooting-steps"></a>기본 문제 해결 단계
 
@@ -74,9 +74,16 @@ PowerShell 사용
 3. **EnableIPForwarding** 속성을 확인합니다.
 4. IP 전달을 사용하도록 설정되지 않은 경우 다음 명령을 실행하여 사용하도록 설정합니다.
 
-   $nic2 Get AzNetworkInterface-ResourceGroupName = <ResourceGroupName> -이름 <NicName> $nic2 합니다. EnableIPForwarding = 1 집합 AzNetworkInterface NetworkInterface $nic2 실행: $nic2 #and 예상 된 출력을 확인 합니다. EnableIPForwarding: NetworkSecurityGroup true: null
+   ```powershell
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   $nic2.EnableIPForwarding = 1
+   Set-AzNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
 
-**표준 SKU Pubilc IP를 사용 하는 경우 NSG에 대 한 확인** 표준 SKU 및 공용 Ip를 사용할 때 있어야 만든 NSG 및 규칙을 명시적 nva는 트래픽을 허용 하도록 합니다.
+**STANDARD SKU PUBILC IP를 사용 하는 경우 NSG 확인** 표준 SKU 및 공용 Ip를 사용 하는 경우 NVA에 대 한 트래픽을 허용 하는 NSG 및 명시적 규칙을 만들어야 합니다.
 
 **트래픽을 NVA로 라우팅할 수 있는지 확인**
 
@@ -96,18 +103,22 @@ PowerShell 사용
 
     Windows의 경우:
 
-        netstat -an
+    ```console
+   netstat -an
+    ```
 
     Linux의 경우:
 
-        netstat -an | grep -i listen
+    ```console
+   netstat -an | grep -i listen
+    ```
 2. NVA 소프트웨어에서 사용하는 TCP 포트가 결과에 나타나지 않으면 이 포트에 도달하는 트래픽에 응답하도록 NVA 및 VM에서 애플리케이션을 구성해야 합니다. [필요에 따라 NVA 공급업체에 문의하세요](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ## <a name="check-nva-performance"></a>NVA 성능 확인
 
 ### <a name="validate-vm-cpu"></a>VM CPU 유효성 검사
 
-CPU 사용량이 100%에 가까운, 경우에 네트워크 패킷 삭제에 영향을 주는 문제를 발생할 수 있습니다. VM은 Azure Portal에서 특정 시간대의 평균 CPU 사용량을 보고합니다. CPU가 급증하는 시간에 게스트 VM의 어떤 프로세스 때문에 CPU 사용량이 높아지는지 확인하고, 가능하다면 사용량을 줄입니다. 또한 VM 크기를 좀 더 큰 SKU로 조정하거나, 가상 머신 확장 집합의 경우 인스턴스 수를 늘리거나 CPU 사용량에 따라 자동으로 크기를 조정하도록 설정해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
+CPU 사용량이 100%에 근접 한 경우 네트워크 패킷 삭제에 영향을 주는 문제가 발생할 수 있습니다. VM은 Azure Portal에서 특정 시간대의 평균 CPU 사용량을 보고합니다. CPU가 급증하는 시간에 게스트 VM의 어떤 프로세스 때문에 CPU 사용량이 높아지는지 확인하고, 가능하다면 사용량을 줄입니다. 또한 VM 크기를 좀 더 큰 SKU로 조정하거나, 가상 머신 확장 집합의 경우 인스턴스 수를 늘리거나 CPU 사용량에 따라 자동으로 크기를 조정하도록 설정해야 합니다. 이러한 문제 중 하나에 대해 필요한 경우 [NVA 공급 업체에 지원을 문의 하세요](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ### <a name="validate-vm-network-statistics"></a>VM 네트워크 통계 유효성 검사
 
@@ -120,13 +131,13 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 
 1. 동시 네트워크 추적을 캡처하려면 다음 명령을 실행합니다.
 
-   **Windows에 대 한**
+   **Windows의 경우**
 
-   캡처를 시작 하는 netsh trace = yes tracefile=c:\server_IP.etl 시나리오 = netconnection
+   netsh trace start capture = yes tracefile = c:\ server_IP. .etl 시나리오 = netconnection
 
-   **For Linux**
+   **Linux의 경우**
 
-   sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
+   sudo tcpdump-s0-i eth0-X-w vmtrace. 캡
 
 2. 원본 VM에서 대상 VM으로 **PsPing** 또는 **Nmap**을 사용합니다(예: `PsPing 10.0.0.4:80` 또는 `Nmap -p 80 10.0.0.4`).
 3. [네트워크 모니터](https://www.microsoft.com/download/details.aspx?id=4865) 또는 tcpdump를 사용하여 대상 VM에서 네트워크 추적을 엽니다. `IPv4.address==10.0.0.4 (Windows netmon)` 또는 `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4`처럼(Linux인 경우) **PsPing** 또는 **Nmap**을 실행한 원본 VM의 IP에 대한 디스플레이 필터를 적용합니다.

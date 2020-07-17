@@ -21,37 +21,50 @@
           href: event-hubs-quickstart-cli.md
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
-        - name: Azure Resource Manager 템플릿
+        - name: ARM 템플릿
+          displayName: Resource Manager
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: 이벤트 보내기 및 받기
       items:
-        - name: .NET Core
-          href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: .NET Framework
-          href: event-hubs-dotnet-framework-getstarted-send.md
-        - name: 자바
-          href: event-hubs-java-get-started-send.md
-        - name: Python
-          href: event-hubs-python-get-started-send.md
-        - name: Node.js
-          href: event-hubs-node-get-started-send.md
+        - name: .NET(Azure.Messaging.EventHubs)
+          href: get-started-dotnet-standard-send-v2.md
+        - name: Java(azure-messaging-eventhubs)
+          href: get-started-java-send-v2.md
+        - name: Python(azure-eventhub 버전 5)
+          href: get-started-python-send-v2.md
+        - name: JavaScript(azure/event-hubs 버전 5)
+          href: get-started-node-send-v2.md
         - name: Go
           href: event-hubs-go-get-started-send.md
         - name: C(보내기 전용)
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm(받기 전용)
           href: event-hubs-storm-getstarted-receive.md
+    - name: 송신 및 수신 이벤트(이전 버전/패키지)
+      items:
+        - name: .NET(Microsoft.Azure.EventHubs)
+          href: event-hubs-dotnet-standard-getstarted-send.md
+        - name: Java(azure-eventhubs)
+          href: event-hubs-java-get-started-send.md
+        - name: Python(azure-eventhub 버전 1)
+          href: event-hubs-python-get-started-send.md
+        - name: JavaScript(azure/event-hubs 버전 2)
+          href: event-hubs-node-get-started-send.md
+        - name: .NET Framework(Microsoft.ServiceBus)
+          href: event-hubs-dotnet-framework-getstarted-send.md
     - name: 이벤트 캡처
       items:
         - name: Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정
           href: event-hubs-capture-enable-through-portal.md
         - name: Resource Manager 템플릿을 사용하여 Event Hubs 캡처를 사용하도록 설정
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-        - name: Python을 사용하여 Event Hubs 데이터 캡처
+        - name: Python을 사용하여 캡처된 데이터 읽기(azure-eventhub 버전 5)
+          href: get-started-capture-python-v2.md
+        - name: Python을 사용하여 캡처된 데이터 읽기(azure-eventhub 버전 1)
           href: event-hubs-capture-python.md
     - name: Apache Kafka용 Event Hubs로 스트리밍
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-    - name: 전용 Event Hubs 클러스터 만들기
+    - name: 전용 클러스터 만들기
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: 자습서
   items:
@@ -59,111 +72,217 @@
       href: event-hubs-tutorial-visualize-anomalies.md
     - name: SQL Data Warehouse에서 캡처된 데이터 저장
       href: store-captured-data-data-warehouse.md
+    - name: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리
+      href: event-hubs-kafka-stream-analytics.md
     - name: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
       maintainContext: true
-    - name: Event Hubs 네임스페이스에서 Virtual Networks 통합 및 방화벽 사용
-      href: event-hubs-tutorial-virtual-networks-firewalls.md
-    - name: Apache Kafka용 Event Hubs
-      items:
-        - name: Apache Kafka 지원 이벤트 허브에서 Kafka broker 미러링
-          href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Apache Kafka 지원 이벤트 허브에 Apache Spark 연결
-          href: event-hubs-kafka-spark-tutorial.md
-        - name: Apache Kafka 지원 이벤트 허브에 Apache Flink 연결
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Kafka 지원 이벤트 허브를 사용하여 Apache Kafka 연결 통합(미리 보기)
-          href: event-hubs-kafka-connect-tutorial.md
-        - name: Apache Kafka 지원 이벤트 허브에 Akka 스트림 연결
-          href: event-hubs-kafka-akka-streams-tutorial.md
 - name: 샘플
-  href: event-hubs-samples.md
+  items:
+    - name: 코드 샘플
+      href: event-hubs-samples.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
-    - name: Event Hubs 기능
+    - name: Event Hubs 용어
       href: event-hubs-features.md
-    - name: 이벤트 프로세서 호스트 개요
+    - name: 이벤트 프로세서 호스트(레거시 SDK)
       href: event-hubs-event-processor-host.md
-    - name: 프로그래밍 가이드
-      href: event-hubs-programming-guide.md
-    - name: Azure 리소스용 관리 서비스 ID
-      href: event-hubs-managed-service-identity.md
-    - name: 역할 기반 액세스 제어(미리 보기)
-      href: event-hubs-role-based-access-control.md
-    - name: 지리적 재해 복구 및 지역에서 복제
-      href: event-hubs-geo-dr.md
-    - name: 인증 및 보안 모델 개요
-      href: event-hubs-authentication-and-security-model-overview.md
+    - name: 이벤트 프로세서(최신 SDK)
+      href: event-processor-balance-partition-load.md
     - name: 가용성 및 일관성
       href: event-hubs-availability-and-consistency.md
+    - name: 확장성
+      href: event-hubs-scalability.md
+    - name: 지리적 재해 복구
+      items:
+        - name: 지리적 재해 복구 및 지역에서 복제
+          href: event-hubs-geo-dr.md
+    - name: 보안
+      items:
+        - name: 권한 부여
+          items:
+            - name: Azure Event Hubs에 대한 액세스 권한 부여
+              href: authorize-access-event-hubs.md
+            - name: Azure Active Directory를 사용하여 액세스 권한 부여
+              href: authorize-access-azure-active-directory.md
+            - name: 공유 액세스 서명을 사용하여 액세스 권한 부여
+              href: authorize-access-shared-access-signature.md
+        - name: 인증
+          items:
+            - name: Azure Active Directory를 사용하여 인증
+              items:
+                - name: 관리 ID로 인증
+                  href: authenticate-managed-identity.md
+                - name: 애플리케이션에서 인증
+                  href: authenticate-application.md
+            - name: 공유 액세스 서명 인증
+              href: authenticate-shared-access-signature.md
+        - name: 네트워크 보안
+          href: network-security.md
+        - name: 기본 제공 보안 컨트롤
+          href: event-hubs-security-controls.md
+        - name: 보안 기준
+          href: security-baseline.md
     - name: AMQP 1.0 프로토콜 가이드
       href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
       maintainContext: true
 - name: 방법 가이드
   items:
-    - name: 'Python을 사용하여 이벤트 보내기, 받기 및 캡처'
-      href: event-hubs-python.md
-    - name: 진단 로그 설정
-      href: event-hubs-diagnostic-logs.md
-    - name: Apache Kafka용 Event Hubs
+    - name: 지역 간 이동
+      href: move-across-regions.md
+    - name: 동적으로 파티션 추가
+      href: dynamically-add-partitions.md
+    - name: Azure Stack Hub에서 Blob Storage를 검사점 저장소로 사용
+      href: use-blob-storage-checkpoint-store-azure-stack-hub.md
+    - name: Azure Service Manager(클래식) API에서 Resource Manager API로 마이그레이션
+      href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+    - name: 개발
       items:
-        - name: Apache Kafka 지원 이벤트 허브 만들기
-          href: event-hubs-create-kafka-enabled.md
-        - name: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리
-          href: event-hubs-kafka-stream-analytics.md
-    - name: 관리
+        - name: Event Hubs 연결 문자열 가져오기
+          href: event-hubs-get-connection-string.md
+        - name: 다른 프로토콜을 사용하여 애플리케이션 간에 이벤트 교환
+          href: event-hubs-exchange-events-different-protocols.md
+        - name: 프로그래밍 가이드
+          items:
+            - name: .NET(Azure.Messaging.EventHubs)
+              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md'
+            - name: Java(azure-messaging-eventhubs)
+              href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
+            - name: Python(azure-eventhub 버전 5)
+              href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md'
+            - name: JavaScript(azure/event-hubs 버전 5)
+              href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md'
+            - name: .NET(Microsoft.Azure.EventHubs)
+              href: event-hubs-programming-guide.md
+    - name: 데이터 처리
       items:
-        - name: Azure Monitoring을 사용하여 Event Hubs 모니터링
-          href: event-hubs-metrics-azure-monitor.md
-        - name: Event Hubs 관리 라이브러리
-          href: event-hubs-management-libraries.md
-    - name: Event Hubs 연결 문자열 가져오기
-      href: event-hubs-get-connection-string.md
-    - name: Java 개발
+        - name: Azure Stream Analytics를 사용하여 데이터 처리
+          href: process-data-azure-stream-analytics.md
+    - name: Spring 프레임워크와 통합
       items:
         - name: Spring Cloud 스트림 바인더 앱 만들기
           href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+          maintainContext: true
         - name: Apache Kafka용 Spring Boot Starter 사용
           href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+          maintainContext: true
+    - name: Apache Kafka와 통합
+      items:
+        - name: Event Hubs용 kafka 개발자 가이드
+          href: apache-kafka-developer-guide.md
+        - name: Event Hubs용 kafka 마이그레이션 가이드
+          href: apache-kafka-migration-guide.md
+        - name: Event Hubs용 kafka 문제 해결 가이드
+          href: apache-kafka-troubleshooting-guide.md
+        - name: 이벤트 허브에서 Kafka broker 미러링
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: 이벤트 허브에 Apache Spark 연결
+          href: event-hubs-kafka-spark-tutorial.md
+        - name: 이벤트 허브에 Apache Flink 연결
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: 허브와 Apache Kafka 연결 통합(미리 보기)
+          href: event-hubs-kafka-connect-tutorial.md
+        - name: 이벤트 허브에 Akka Streams 연결
+          href: event-hubs-kafka-akka-streams-tutorial.md
+        - name: FAQ - Kafka용 Event Hubs
+          href: apache-kafka-frequently-asked-questions.md
+    - name: 관리 및 모니터링
+      items:
+        - name: Azure Monitoring을 사용하여 Event Hubs 모니터링
+          href: event-hubs-metrics-azure-monitor.md
+        - name: 진단 로그 설정
+          href: event-hubs-diagnostic-logs.md
+        - name: Event Hubs를 사용하여 Azure Diagnostics 데이터 스트리밍
+          href: event-hubs-streaming-azure-diags-data.md
+        - name: 처리량 단위 규모를 자동으로 조정
+          href: event-hubs-auto-inflate.md
+        - name: Event Hubs 관리 라이브러리
+          href: event-hubs-management-libraries.md
+    - name: 보안
+      items:
+        - name: IP 방화벽 구성
+          href: event-hubs-ip-filtering.md
+        - name: 가상 네트워크 서비스 엔드포인트 구성
+          href: event-hubs-service-endpoints.md
+        - name: 프라이빗 엔드포인트 구성
+          href: private-link-service.md
+        - name: 고객 관리형 키 구성
+          href: configure-customer-managed-key.md
     - name: 문제 해결
       items:
-        - name: 예외
+        - name: 연결 문제 해결
+          href: troubleshooting-guide.md
+        - name: 인증 및 권한 부여 문제 해결
+          href: troubleshoot-authentication-authorization.md
+        - name: Event Hubs용 kafka 문제 해결 가이드
+          href: apache-kafka-troubleshooting-guide.md
+        - name: .NET 예외
           href: event-hubs-messaging-exceptions.md
-    - name: 방화벽 사용
-      href: event-hubs-ip-filtering.md
-    - name: 가상 네트워크 서비스 엔드포인트 사용
-      href: event-hubs-service-endpoints.md
-    - name: 처리량 단위 규모를 자동으로 조정
-      href: event-hubs-auto-inflate.md
-    - name: Event Hubs를 사용하여 Azure Diagnostics 데이터 스트리밍
-      href: event-hubs-streaming-azure-diags-data.md
-    - name: 다른 프로토콜을 사용하여 애플리케이션 간에 이벤트 교환
-      href: event-hubs-exchange-events-different-protocols.md
-    - name: Spring Cloud 스트림 바인더 애플리케이션 만들기
-      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
-      maintainContext: true
-- name: 참고 자료
+        - name: Resource Manager 예외
+          href: resource-manager-exceptions.md
+- name: 참조
   items:
-    - name: 자바
-      items:
-        - name: com.microsoft.azure.eventhubs
-          href: /java/api/com.microsoft.azure.eventhubs
-        - name: com.microsoft.azure.eventprocessorhost
-          href: /java/api/com.microsoft.azure.eventprocessorhost
+    - name: SDK
+      href: sdks.md
     - name: .NET
       items:
-        - name: Microsoft.Azure.EventHubs
-          href: /dotnet/api/microsoft.azure.eventhubs
-        - name: Microsoft.Azure.EventHubs.Processor
-          href: /dotnet/api/microsoft.azure.eventhubs.processor
-        - name: Microsoft.ServiceBus.Messaging
-          href: /dotnet/api/microsoft.servicebus.messaging
-        - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
-          href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-        - name: Microsoft.Azure.Management.EventHub
+        - name: 클라이언트 라이브러리
+          items:
+            - name: Microsoft.Azure.Event Hubs에서 Azure.Messaging.EventHubs로 마이그레이션
+              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md'
+            - name: Azure.Messaging.EventHubs(최신)
+              href: /dotnet/api/azure.messaging.eventhubs
+            - name: Microsoft.Azure.EventHubs(레거시)
+              href: /dotnet/api/microsoft.azure.eventhubs
+            - name: Microsoft.ServiceBus.Messaging(레거시)
+              href: /dotnet/api/microsoft.servicebus.messaging
+        - name: 관리 라이브러리
           href: /dotnet/api/microsoft.azure.management.eventhub
-    - name: Node.js
-      href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+    - name: Java
+      items:
+        - name: 클라이언트 라이브러리
+          items:
+            - name: azure-eventhubs에서 azure-messaging-eventhubs로 마이그레이션
+              href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md'
+            - name: azure-messaging-eventhubs(최신)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-eventhubs/5.0.0-beta.6/index.html'
+            - name: azure-eventhubs(레거시)
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-stable
+        - name: 관리 라이브러리
+          href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
+    - name: Python
+      items:
+        - name: azure-eventhub 버전 1에서 버전 5로 마이그레이션
+          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md'
+        - name: 클라이언트 라이브러리
+          items:
+            - name: azure-eventhub 버전 5
+              href: /python/api/azure-eventhub/?view=azure-python
+            - name: azure-eventhub 버전 1
+              href: /python/api/azure-eventhub/?view=azure-python-previous
+        - name: 관리 라이브러리
+          href: /python/api/overview/azure/event-hub?view=azure-python
+    - name: JavaScript
+      items:
+        - name: azure/eventhubs 버전 2에서 버전 5로 마이그레이션
+          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
+        - name: 클라이언트 라이브러리
+          items:
+            - name: azure/eventhubs 버전 5
+              href: /javascript/api/@azure/event-hubs/?view=azure-node-latest
+            - name: azure/eventhubs 버전 2
+              href: /javascript/api/@azure/event-hubs/?view=azure-node-legacy
+        - name: 관리 라이브러리
+          href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
+    - name: Go
+      items:
+        - name: 클라이언트 라이브러리
+          href: 'https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc'
+        - name: 관리 라이브러리
+          href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc'
     - name: REST (영문)
       href: /rest/api/eventhub
     - name: Resource Manager 템플릿
@@ -178,13 +297,13 @@
       href: event-hubs-faq.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/event-hubs/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=event-hubs'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-eventhub'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=event-hubs'

@@ -1,25 +1,23 @@
 ---
-title: Stackify Retrace Azure Linux 에이전트 확장 | Microsoft Docs
+title: Azure Linux 에이전트 확장 Stackify
 description: Linux 가상 머신에 Stackify Retrace Linux 에이전트를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: darinhoward
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
-ms.author: roiyz
-ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: akjosh
+ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79253794"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 에이전트 확장
 
@@ -38,13 +36,13 @@ Retrace는 단일 플랫폼에서 모든 환경에 걸쳐 다음 기능을 모�
 
 이 확장은 Retrace용 Linux 에이전트에 대한 설치 경로를 제공합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제 
 
 Retrace 에이전트를 실행할 수 있는 Linux 배포판은 다음과 같습니다.
 
-| 배포 | Version |
+| 배포 | 버전 |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS, 16.10 및 17.04 |
 | Debian | 7.9+ 및 8.2+, 9 |
@@ -151,7 +149,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-`Set-AzVMExtension` 명령을 사용하여 Stackify Retrace Linux 에이전트 가상 머신 확장을 기존 가상 머신에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 개인 구성을 PowerShell 해시 테이블에 저장해야 합니다.
+`Set-AzVMExtension` 명령을 사용하여 Stackify Retrace Linux 에이전트 가상 머신 확장을 기존 가상 머신에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 프라이빗 구성을 PowerShell 해시 테이블에 저장해야 합니다.
 
 확장에는 `environment` 및 `activationKey`가 필요합니다.
 

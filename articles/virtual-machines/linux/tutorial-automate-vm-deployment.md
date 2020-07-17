@@ -1,27 +1,25 @@
 ---
-title: 자습서 - Azure의 클라우드로 Linux VM 사용자 지정 | Microsoft Docs
+title: 자습서 - Azure의 cloud-init를 사용하여 Linux VM 사용자 지정
 description: 이 자습서에서는 cloud-init 및 Key Vault를 사용하여 Azure에서 처음 부팅 시 Linux VM을 사용자 지정하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d2a6568b0d62c880a688160cf981fb33083ae02e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539363"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81461483"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>자습서 - cloud-init를 사용하여 첫 번째 부팅 시 Azure에서 Linux 가상 머신을 사용자 지정하는 방법
 
@@ -34,8 +32,6 @@ ms.locfileid: "58539363"
 > * Key Vault를 사용하여 안전하게 인증서 저장
 > * cloud-init를 사용하여 NGINX 배포 자동화
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="cloud-init-overview"></a>Cloud-init 개요
@@ -45,21 +41,23 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
 
 당사는 파트너와 협력하여 파트너가 Azure에 제공하는 이미지에 cloud-init를 포함하고 이러한 이미지에서 cloud-init가 작동하도록 설정하고 있습니다. 다음 표에서는 Azure 플랫폼 이미지에서 현재 cloud-init 가용성을 간략하게 설명합니다.
 
-| Alias | 게시자 | 제안 | SKU | 버전 |
+| 게시자 | 제안 | SKU | 버전 | cloud-init 준비 여부 |
 |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |최신 |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |최신 |
-| CoreOS |CoreOS |CoreOS |Stable |최신 |
-| | OpenLogic | CentOS | 7-CI | 최신 |
-| | RedHat | RHEL | 7-RAW-CI | 최신 |
+|Canonical |UbuntuServer |18.04-LTS |최신 |예 | 
+|Canonical |UbuntuServer |16.04-LTS |최신 |예 | 
+|Canonical |UbuntuServer |14.04.5-LTS |최신 |예 |
+|CoreOS |CoreOS |Stable |최신 |예 |
+|OpenLogic 7.6 |CentOS |7-CI |최신 |미리 보기 |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |예 |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |미리 보기 |
 
 
 ## <a name="create-cloud-init-config-file"></a>cloud-init 구성 파일 만들기
 cloud-init의 실제 동작을 확인하려면 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행하는 VM을 만듭니다. 다음 cloud-init 구성은 필요한 패키지를 설치하고 Node.js 앱을 만든 다음 앱을 초기화하고 시작합니다.
 
-현재 셸에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
+bash 프롬프트 또는 Cloud Shell에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여넣습니다. 예를 들어 `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용 가능한 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
-```yaml
+```bash
 #cloud-config
 package_upgrade: true
 packages:
@@ -110,12 +108,12 @@ VM을 만들려면 먼저 [az group create](/cli/azure/group#az-group-create)를
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-이제 [az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init.txt* 구성의 전체 경로를 제공합니다. 다음 예제에서는 *myAutomatedVM*이라는 VM을 만듭니다.
+이제 [az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init.txt* 구성의 전체 경로를 제공합니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVM \
+    --name myAutomatedVM \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -127,7 +125,7 @@ VM을 만들고 패키지를 설치하고 앱을 시작하는 데 몇 분 정도
 웹 트래픽이 VM에 도달하도록 허용하려면 [az vm open-port](/cli/azure/vm#az-vm-open-port)를 사용하여 인터넷에서 포트 80을 엽니다.
 
 ```azurecli-interactive
-az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
+az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAutomatedVM
 ```
 
 ## <a name="test-web-app"></a>Web App 테스트
@@ -166,7 +164,7 @@ az keyvault create \
 az keyvault certificate create \
     --vault-name $keyvault_name \
     --name mycert \
-    --policy "$(az keyvault certificate get-default-policy)"
+    --policy "$(az keyvault certificate get-default-policy --output json)"
 ```
 
 
@@ -178,14 +176,14 @@ secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm secret format --secret "$secret")
+vm_secret=$(az vm secret format --secret "$secret" --output json)
 ```
 
 
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>NGINX를 보호할 cloud-init 구성 만들기
 VM을 만들 때 인증서와 키는 보호되는 */var/lib/waagent/* 디렉터리에 저장됩니다. VM에 인증서 추가 및 NGINX 구성을 자동화하기 위해 이전 예제에서 업데이트된 cloud-init 구성을 사용할 수 있습니다.
 
-*cloud-init-secured.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다. 다시, Cloud Shell을 사용하는 경우 로컬 컴퓨터가 아닌 해당 위치에서 cloud-init 구성 파일을 만듭니다. `sensible-editor cloud-init-secured.txt`를 사용하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
+*cloud-init-secured.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다. Cloud Shell을 사용하는 경우 로컬 머신이 아닌 해당 위치에서 cloud-init 구성 파일을 만듭니다. 예를 들어 `sensible-editor cloud-init-secured.txt`를 입력하여 파일을 만들고 사용 가능한 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
 ```yaml
 #cloud-config
@@ -242,7 +240,7 @@ runcmd:
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVMSecured \
+    --name myVMWithCerts \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -257,7 +255,7 @@ VM을 만들고 패키지를 설치하고 앱을 시작하는 데 몇 분 정도
 ```azurecli-interactive
 az vm open-port \
     --resource-group myResourceGroupAutomate \
-    --name myVMSecured \
+    --name myVMWithCerts \
     --port 443
 ```
 
@@ -272,7 +270,7 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 cloud-init를 사용하여 처음 부팅할 때 VM을 구성했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 cloud-init를 사용하여 처음 부팅할 때 VM을 구성했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * cloud-init 구성 파일 만들기

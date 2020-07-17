@@ -1,27 +1,18 @@
 ---
-title: Linux에서 ASP.NET Core 앱 만들기 - Azure App Service | Microsoft Docs
-description: 몇 분 안에 Linux의 App Service에 첫 번째 .NET Core Hello World 앱을 배포합니다.
+title: '빠른 시작: Linux ASP.NET Core 앱 실행'
+description: 첫 번째 ASP.NET Core 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service에서 Linux 앱을 시작하세요.
 keywords: azure app service, 웹앱, dotnet, core, linux, oss
-services: app-service
-documentationCenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
-ms.service: app-service
-ms.workload: web
 ms.tgt_pltfrm: linux
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
-ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: da4d246e098751f650eb6315de3794ad957884d6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.date: 04/22/2020
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 1eeb5bbd4b10ef660a50f40d6c1300b0ca214561
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543896"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82206676"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Linux의 App Service에서 ASP.NET Core 앱 만들기
 
@@ -37,12 +28,12 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 문서의 단계를 수�
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 * <a href="https://git-scm.com/" target="_blank">Git 설치</a>
-* <a href="https://www.microsoft.com/net/core/" target="_blank">.NET Core 설치</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">최신 .NET Core 3.1 SDK 설치</a>
 
 ## <a name="create-the-app-locally"></a>로컬로 앱 만들기
 
@@ -95,10 +86,10 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-새로 만든 앱으로 이동합니다. _&lt;app name>_ 을 앱 이름으로 바꿉니다.
+새로 만든 앱으로 이동합니다. _&lt;app-name>_ 을 앱 이름으로 바꿉니다.
 
 ```bash
-http://<app name>.azurewebsites.net
+https://<app-name>.azurewebsites.net
 ```
 
 새로운 앱은 다음과 같아야 합니다.
@@ -107,34 +98,32 @@ http://<app name>.azurewebsites.net
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-```bash
-Counting objects: 22, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (18/18), done.
-Writing objects: 100% (22/22), 51.21 KiB | 3.94 MiB/s, done.
-Total 22 (delta 1), reused 0 (delta 0)
+<pre>
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 285 bytes | 95.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '741f16d1db'.
-remote: Generating deployment script.
-remote: Project file path: ./hellodotnetcore.csproj
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment.
-remote: ...............................................................................................
-remote:   Restoring packages for /home/site/repository/hellodotnetcore.csproj...
-remote: ....................................
-remote:   Installing System.Xml.XPath 4.0.1.
-remote:   Installing System.Diagnostics.Tracing 4.1.0.
-remote:   Installing System.Threading.Tasks.Extensions 4.0.0.
-remote:   Installing System.Reflection.Emit.ILGeneration 4.0.1.
-remote:   ...
-remote: Finished successfully.
-remote: Running post deployment command(s)...
+remote: Preparing deployment for commit id 'd6b54472f7'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
+remote:
+remote: Oryx Version      : 0.2.20200114.13, Commit: 204922f30f8e8d41f5241b8c218425ef89106d1d, ReleaseTagName: 20200114.13
+remote: Build Operation ID: |imoMY2y77/s=.40ca2a87_
+remote: Repository Commit : d6b54472f7e8e9fd885ffafaa64522e74cf370e1
+.
+.
+.
 remote: Deployment successful.
-To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
- * [new branch]      master -> master
-```
+remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
+To https://&lt;app-name&gt;.scm.azurewebsites.net:443/&lt;app-name&gt;.git
+   d87e6ca..d6b5447  master -> master
+</pre>
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
@@ -177,11 +166,11 @@ git push azure master
 
 ![Azure 앱에 대한 포털 탐색](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 
+앱의 [개요] 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 
 
 ![Azure Portal의 App Service 페이지](media/quickstart-dotnetcore/portal-app-overview.png)
 
-왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
+왼쪽 메뉴에는 앱을 구성할 수 있는 여러 페이지가 표시됩니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services의 LiveEvent 대기 시간 | Microsoft Docs
-description: 이 토픽에서는 LiveEvent 대기 시간에 대해 간략히 설명하고 짧은 대기 시간을 설정하는 방법을 보여줍니다.
+title: Azure Media Services에서 대기 시간이 짧은 라이브 설정 | Microsoft Docs
+description: 이 항목에서는 대기 시간이 짧은 라이브 설정에 대해 간략하게 설명 하 고 짧은 대기 시간을 설정 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,21 +13,21 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702783"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232460"
 ---
-# <a name="live-event-latency-in-media-services"></a>Media Services의 라이브 이벤트 대기 시간
+# <a name="live-event-low-latency-settings"></a>라이브 이벤트 낮은 대기 시간 설정
 
 이 문서에서는 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)에서 짧은 대기 시간을 설정하는 방법을 보여줍니다. 또한 다양한 플레이어에서 짧은 대기 시간 설정을 사용하는 경우 표시되는 일반적인 결과에 대해 설명합니다. 그 결과는 CDN 및 네트워크 대기 시간에 따라 다릅니다.
 
-새로운 **LowLatency** 기능을 사용하려면 **LiveEvent**에서 **StreamOptionsFlag**를 **LowLatency**로 설정할 수 있습니다. HLS 재생에 대한 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 만들 때 [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls)를 1로 설정합니다. 스트림이 실행되면 [Azure Media Player](https://ampdemo.azureedge.net/)(AMP) 데모 페이지를 사용할 수 있으며, 재생 옵션을 설정하여 "짧은 대기 시간 추론 프로필"을 사용할 수 있습니다.
+새로운 **LowLatency** 기능을 사용하려면 **LiveEvent**에서 **StreamOptionsFlag**를 **LowLatency**로 설정할 수 있습니다. HLS 재생에 대한 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 만들 때 [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls)를 1로 설정합니다. 스트림이 실행 되 면 [Azure Media Player](https://ampdemo.azureedge.net/) (AMP 데모 페이지)를 사용 하 고 재생 옵션을 "짧은 대기 시간 추론 프로필"을 사용 하도록 설정할 수 있습니다.
 
 > [!NOTE]
-> 현재 Azure Media Player에서 LowLatency HeuristicProfile 용인지 CSF 또는 CMAF 형식으로 사용 하 여 MPEG DASH 프로토콜에서 스트림을 재생 (예를 들어 `format=mdp-time-csf` 또는 `format=mdp-time-cmaf`). 
+> 현재 Azure Media Player의 LowLatency HeuristicProfile은 CSF 또는 CMAF 형식 (예: 또는)을 사용 하 여 MPEG-2 프로토콜의 스트림을 재생 하기 위한 것입니다 `format=mdp-time-csf` `format=mdp-time-cmaf` . 
 
 다음 .NET 예제에서는 **LiveEvent**에서 **LowLatency**를 설정하는 방법을 보여줍니다.
 
@@ -52,7 +52,7 @@ LiveEvent liveEvent = new LiveEvent(
         );
 ```                
 
-전체 목록을 참조하세요. [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+전체 예제 [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126)을 참조하세요.
 
 ## <a name="live-events-latency"></a>라이브 이벤트 대기 시간
 
@@ -62,15 +62,15 @@ LiveEvent liveEvent = new LiveEvent(
 
 ||2초 GOP 짧은 대기 시간 사용|1초 GOP 짧은 대기 시간 사용|
 |---|---|---|
-|AMP의 DASH|10초|8초|
-|기본 iOS 플레이어의 HLS|14초|10초|
+|**AMP의 DASH**|10초|8초|
+|**기본 iOS 플레이어의 HLS**|14초|10초|
 
 ### <a name="live-encoding"></a>라이브 인코딩
 
 ||2초 GOP 짧은 대기 시간 사용|1초 GOP 짧은 대기 시간 사용|
 |---|---|---|
-|AMP의 DASH|14초|10초|
-|기본 iOS 플레이어의 HLS|18초|13초|
+|**AMP의 DASH**|14초|10초|
+|**기본 iOS 플레이어의 HLS**|18초|13초|
 
 > [!NOTE]
 > 로컬 네트워크 조건에 따라 또는 CDN 캐싱 계층을 도입하여 엔드투엔드 대기 시간이 달라질 수 있습니다. 정확한 구성을 테스트해야 합니다.

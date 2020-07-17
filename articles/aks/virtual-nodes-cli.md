@@ -1,28 +1,27 @@
 ---
-title: AKS(Azure Kubernetes Service)에서 Azure CLI를 사용하여 가상 노드 만들기
+title: Azure CLI를 사용 하 여 가상 노드 만들기
+titleSuffix: Azure Kubernetes Service
 description: Azure CLI를 통해 가상 노드를 사용하여 Pod를 실행하는 AKS(Azure Kubernetes Service) 클러스터를 만드는 방법을 알아봅니다.
 services: container-service
-author: iainfoulds
 ms.topic: conceptual
-ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 7631a2d6aef2efedf30c0b9015913c89949d4c29
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.custom: references_regions
+ms.openlocfilehash: 8806390fe772491b629276b21734947a149d67e4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506950"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250688"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
-AKS(Azure Kubernetes Service) 클러스터에서 애플리케이션 워크로드 크기를 신속하게 조정하려면 가상 노드를 사용할 수 있습니다. 가상 노드를 사용하면 Pod를 신속하게 프로비전할 수 있으며, 실행 시간(초) 단위로 요금이 청구됩니다. Kubernetes 클러스터 자동 크기 조정기가 추가 Pod를 실행하는 VM 컴퓨팅 노드를 배포할 때까지 기다릴 필요가 없습니다. 가상 노드에 Linux pod 및 노드를 사용 하 여 에서만 지원 됩니다.
+AKS(Azure Kubernetes Service) 클러스터에서 애플리케이션 워크로드 크기를 신속하게 조정하려면 가상 노드를 사용할 수 있습니다. 가상 노드를 사용하면 Pod를 신속하게 프로비전할 수 있으며, 실행 시간(초) 단위로 요금이 청구됩니다. Kubernetes 클러스터 자동 크기 조정기가 추가 Pod를 실행하는 VM 컴퓨팅 노드를 배포할 때까지 기다릴 필요가 없습니다. 가상 노드는 Linux Pod 및 노드에서만 지원됩니다.
 
 이 문서에서는 가상 네트워크 리소스 및 AKS 클러스터를 만들고 구성한 후 가상 노드를 사용하도록 설정하는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 *고급* 네트워킹을 사용하여 만든 AKS 클러스터에만 작동합니다. 기본적으로 AKS 클러스터는 *기본* 네트워킹을 사용하여 만듭니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
+가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 *고급* 네트워킹을 사용하여 만든 AKS 클러스터에만 작동합니다. 기본적으로 AKS 클러스터는 *기본* 네트워킹을 사용하여 만듭니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
 
 이전에 ACI를 사용하지 않은 경우 구독에서 서비스 공급자를 등록합니다. 다음 예제와 같이 [az provider list][az-provider-list] 명령을 사용하여 ACI 공급자 등록의 상태를 확인할 수 있습니다.
 
@@ -32,10 +31,10 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 
 *Microsoft.ContainerInstance* 공급자는 다음 예제 출력에 나온 대로 *Registered*로 보고됩니다.
 
-```
-Namespace                    RegistrationState
----------------------------  -------------------
-Microsoft.ContainerInstance  Registered
+```output
+Namespace                    RegistrationState    RegistrationPolicy
+---------------------------  -------------------  --------------------
+Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
 공급자가 *NotRegistered*로 표시되는 경우 다음 예제에 나온 대로 [az provider register][az-provider-register]를 사용하여 공급자를 등록합니다.
@@ -46,29 +45,30 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-지역 가상 노드 배포에 대 한 지원 됩니다.
+가상 노드 배포에 대해 지원되는 지역은 다음과 같습니다.
 
-* 오스트레일리아 동부 (australiaeast)
-* 미국 중부 (centralus)
+* 오스트레일리아 동부(australiaeast)
+* 미국 중부(centralus)
 * 미국 동부(eastus)
-* 미국 동부 2 (eastus2)
-* 일본 동부 (japaneast)
+* 미국 동부 2(eastus2)
+* 일본 동부(japaneast)
 * 북유럽(northeurope)
-* 동남 아시아 (southeastasia)
-* 미국 중서부 (westcentralus)
+* 동남 아시아(southeastasia)
+* 미국 중서부(westcentralus)
 * 유럽 서부(westeurope)
 * 미국 서부(westus)
 * 미국 서부 2(westus2)
 
 ## <a name="known-limitations"></a>알려진 제한 사항
-가상 노드 기능은 ACI의 기능 집합에 따라 크게 달라 집니다. 가상 노드에 다음 시나리오는 아직 지원 되지 않습니다.
+가상 노드 기능은 ACI의 기능 집합에 따라 크게 달라집니다. [Azure Container Instances에 대 한 할당량 및 제한](../container-instances/container-instances-quotas.md)외에도 다음 시나리오는 가상 노드에서 아직 지원 되지 않습니다.
 
-* 끌어오기 ACR 이미지에 서비스 주체를 사용합니다. [해결 방법](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) 사용 하 여 [Kubernetes 비밀](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [가상 네트워크 제한 사항](../container-instances/container-instances-vnet.md) VNet 피어 링, Kubernetes 네트워크 정책 및 네트워크 보안 그룹을 사용 하 여 인터넷에 아웃 바운드 트래픽을 포함 합니다.
-* Init 컨테이너
+* 서비스 주체를 사용하여 ACR 이미지를 끌어옵니다. [해결 방법](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry)은 [Kubernetes 비밀](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)을 사용하는 것입니다.
+* [Virtual Network 제한 사항](../container-instances/container-instances-vnet.md)에는 VNet 피어링, Kubernetes 네트워크 정책 및 네트워크 보안 그룹이 있는 인터넷으로의 아웃바운드 트래픽이 포함됩니다.
+* 초기화 컨테이너
 * [호스트 별칭](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [인수](../container-instances/container-instances-exec.md#restrictions) ACI에서 exec에 대 한
-* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 가상 노드에 pod를 배포 하지 것입니다
+* ACI의 exec에 대한 [인수](../container-instances/container-instances-exec.md#restrictions)
+* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets)는 가상 노드에 Pod를 배포하지 않습니다.
+* 가상 노드는 Linux Pod 예약을 지원합니다. 오픈 소스 [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) 공급자를 수동으로 설치하여 Windows Server 컨테이너를 ACI로 예약할 수 있습니다.
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
@@ -80,7 +80,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -109,11 +109,11 @@ az network vnet subnet create \
     --address-prefixes 10.241.0.0/16
 ```
 
-## <a name="create-a-service-principal"></a>서비스 주체 만들기
+## <a name="create-a-service-principal-or-use-a-managed-identity"></a>서비스 주체 만들기 또는 관리 id 사용
 
-AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. Azure CLI 또는 포털에서 이 서비스 주체를 자동으로 생성하거나 추가 사용 권한을 미리 만고 할당할 수 있습니다.
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. Azure CLI 또는 포털에서 이 서비스 주체를 자동으로 생성하거나 추가 사용 권한을 미리 만고 할당할 수 있습니다. 또는 서비스 주체 대신 사용 권한에 대해 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
-[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 주체를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다.
+[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -121,7 +121,7 @@ az ad sp create-for-rbac --skip-assignment
 
 다음 예제와 유사하게 출력됩니다.
 
-```
+```output
 {
   "appId": "bef76eb3-d743-4a97-9534-03e9388811fc",
   "displayName": "azure-cli-2018-11-21-18-42-00",
@@ -157,7 +157,7 @@ az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다. `<subnetId>`를 이전 단계에서 가져온 ID로 바꾼 후 `<appId>` 및 `<password>`를 다음으로 바꿉니다. 
+[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다. 을 `<subnetId>` 이전 단계에서 가져온 ID로 바꾸고,을 `<appId>` `<password>` 이전 섹션에서 수집한 값으로 바꿉니다.
 
 ```azurecli-interactive
 az aks create \
@@ -173,9 +173,9 @@ az aks create \
     --client-secret <password>
 ```
 
-몇 분 후 명령이 완료되고 클러스터에 대해 JSON 형식 정보가 반환됩니다.
+몇 분 후에 명령이 완료되고 클러스터에 대한 JSON 형식의 정보가 반환됩니다.
 
-## <a name="enable-virtual-nodes-addon"></a>가상 노드 추가 기능을 사용 하도록 설정
+## <a name="enable-virtual-nodes-addon"></a>가상 노드 추가 기능 사용
 
 가상 노드를 사용하도록 설정하려면 이제 [az aks enable-addons][az-aks-enable-addons] 명령을 사용합니다. 다음 예제에서는 이전 단계에서 만든 *myVirtualNodeSubnet*이라는 서브넷을 사용합니다.
 
@@ -203,9 +203,7 @@ kubectl get nodes
 
 다음 예제 출력은 생성된 단일 VM 노드를 보여준 후 Linux용 가상 노드 *virtual-node-aci-linux*를 보여 줍니다.
 
-```
-$ kubectl get nodes
-
+```output
 NAME                          STATUS    ROLES     AGE       VERSION
 virtual-node-aci-linux        Ready     agent     28m       v1.11.2
 aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
@@ -246,7 +244,7 @@ spec:
         effect: NoSchedule
 ```
 
-[kubectl create][kubectl-apply] 명령을 사용하여 애플리케이션을 실행합니다.
+[kubectl apply][kubectl-apply] 명령을 사용하여 애플리케이션을 실행합니다.
 
 ```console
 kubectl apply -f virtual-node.yaml
@@ -254,9 +252,11 @@ kubectl apply -f virtual-node.yaml
 
 `-o wide` 인수와 [kubectl get pods][kubectl-get] 명령을 사용하여 Pod 및 예약된 노드 목록을 출력합니다. `aci-helloworld` Pod는 `virtual-node-aci-linux` 노드에서 예약되었습니다.
 
+```console
+kubectl get pods -o wide
 ```
-$ kubectl get pods -o wide
 
+```output
 NAME                            READY     STATUS    RESTARTS   AGE       IP           NODE
 aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
 ```
@@ -264,14 +264,14 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Pod에는 가상 노드에 사용하도록 위임된 Azure 가상 네트워크 서브넷의 내부 IP 주소가 할당됩니다.
 
 > [!NOTE]
-> Azure Container Registry에 저장된 이미지를 사용하는 경우 [Kubernetes 비밀을 구성하고 사용합니다][acr-aks-secrets]. 가상 노드의 현재 제한은 통합된 Azure를 사용할 수 없다는 점입니다 AD 서비스 주체 인증 합니다. 비밀을 사용하지 않으면 가상 노드에서 예약된 Pod가 시작되지 않고 오류 `HTTP response status code 400 error code "InaccessibleImage"`가 보고됩니다.
+> Azure Container Registry에 저장된 이미지를 사용하는 경우 [Kubernetes 비밀을 구성하고 사용][acr-aks-secrets]합니다. 가상 노드의 현재 제한 사항은 통합 Azure AD 서비스 주체 인증을 사용할 수 없다는 것입니다. 비밀을 사용하지 않으면 가상 노드에서 예약된 Pod가 시작되지 않고 오류 `HTTP response status code 400 error code "InaccessibleImage"`가 보고됩니다.
 
 ## <a name="test-the-virtual-node-pod"></a>가상 노드 Pod 테스트
 
 가상 노드에서 실행되는 Pod를 테스트하려면 웹 클라이언트를 사용하여 데모 애플리케이션으로 이동합니다. Pod에는 내부 IP 주소가 할당되므로 AKS 클러스터의 다른 Pod에서 이 연결을 신속하게 테스트할 수 있습니다. 테스트 Pod를 만들고 여기에 터미널 세션을 연결합니다.
 
 ```console
-kubectl run -it --rm virtual-node-test --image=debian
+kubectl run --generator=run-pod/v1 -it --rm testvk --image=debian
 ```
 
 `apt-get`을 사용하여 Pod에 `curl`을 설치합니다.
@@ -280,7 +280,7 @@ kubectl run -it --rm virtual-node-test --image=debian
 apt-get update && apt-get install -y curl
 ```
 
-이제 *http://10.241.0.4* 같은 `curl`을 사용하여 Pod 주소에 액세스합니다. 앞의 `kubectl get pods` 명령에서 본 내부 IP 주소를 입력합니다.
+이제 *http://10.241.0.4* 같은 `curl` 을 사용하여 Pod 주소에 액세스합니다. 앞의 `kubectl get pods` 명령에서 본 내부 IP 주소를 입력합니다.
 
 ```console
 curl -L http://10.241.0.4
@@ -288,9 +288,7 @@ curl -L http://10.241.0.4
 
 다음과 같이 축소된 예제 출력처럼 데모 애플리케이션이 표시됩니다.
 
-```
-$ curl -L 10.241.0.4
-
+```output
 <html>
 <head>
   <title>Welcome to Azure Container Instances!</title>
@@ -304,13 +302,15 @@ $ curl -L 10.241.0.4
 
 가상 노드를 더 이상 사용하지 않으려면 [az aks disable-addons][az aks disable-addons] 명령을 사용하여 사용하지 않도록 설정할 수 있습니다. 
 
-먼저 가상 노드를 실행 하는 helloworld pod를 삭제 합니다.
+필요한 경우으로 이동 [https://shell.azure.com](https://shell.azure.com) 하 여 브라우저에서 Azure Cloud Shell를 엽니다.
 
-```azurecli-interactive
+먼저, `aci-helloworld` 가상 노드에서 실행 중인 pod를 삭제 합니다.
+
+```console
 kubectl delete -f virtual-node.yaml
 ```
 
-다음 예제 명령은 Linux 가상 노드를 비활성화합니다.
+다음 예제 명령은 Linux 가상 노드를 사용 하지 않도록 설정 합니다.
 
 ```azurecli-interactive
 az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
@@ -334,25 +334,19 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
-# Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
-
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 노드에서 Pod를 예약하고 비공개 내부 IP 주소를 할당했습니다. 그 대신 서비스 배포를 만들고 부하 분산 장치 또는 수신 컨트롤러를 통해 Pod로 트래픽을 라우팅할 수도 있습니다. 자세한 내용은 [AKS에서 기본 수신 컨트롤러 만들기][aks-basic-ingress]를 참조하세요.
+이 문서에서는 가상 노드에서 Pod를 예약하고 프라이빗 내부 IP 주소를 할당했습니다. 그 대신 서비스 배포를 만들고 부하 분산 장치 또는 수신 컨트롤러를 통해 Pod로 트래픽을 라우팅할 수도 있습니다. 자세한 내용은 [AKS에서 기본 수신 컨트롤러 만들기][aks-basic-ingress]를 참조하세요.
 
 가상 노드는 종종 AKS에서 크기 조정 솔루션의 구성 요소 중 하나입니다. 크기 조정 솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Kubernetes 수평 방향 Pod 자동 크기 조정기 사용][aks-hpa]
 - [Kubernetes 클러스터 자동 크기 조정기 사용][aks-cluster-autoscaler]
-- [가상 노드에 대해 자동 크기 조정 샘플 확인][virtual-node-autoscale]
+- [가상 노드에 대한 자동 크기 조정 샘플 체크 아웃][virtual-node-autoscale]
 - [Virtual Kubelet 오픈 소스 라이브러리에 대해 자세히 알아보기][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
@@ -363,6 +357,7 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET 
 [aks-github]: https://github.com/azure/aks/issues
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
+[acr-aks-secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
@@ -379,8 +374,7 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET 
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks disable-addons]: /cli/azure/aks#az-aks-disable-addons
 [aks-hpa]: tutorial-kubernetes-scale.md
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret

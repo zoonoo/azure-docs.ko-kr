@@ -1,6 +1,6 @@
 ---
 title: Bing Custom Search API란?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Custom Search API를 사용하면 관심 있는 토픽에 대한 맞춤형 검색 경험을 만들 수 있습니다.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 03/4/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: e788da047cb0567fc00f27130621a2f21e575dc4
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337739"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434581"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Bing Custom Search API란?
 
@@ -23,20 +23,20 @@ Bing Custom Search API를 사용하면 관심 있는 토픽에 대한 맞춤형 
 
 ## <a name="features"></a>기능
 
-|기능  |설명  |
+|기능  |Description  |
 |---------|---------|
 |[사용자 지정 실시간 검색 제안](define-custom-suggestions.md)     | 사용자 유형의 드롭다운 목록으로 표시할 수 있는 검색 제안을 제공합니다.       | 
 |[사용자 지정 이미지 검색 환경](get-images-from-instance.md)     | 사용자가 사용자 지정 검색 인스턴스에 지정된 도메인 및 웹 사이트에서 이미지를 검색할 수 있습니다.        |        
 |[사용자 지정 비디오 검색 환경](get-videos-from-instance.md)     | 사용자가 사용자 지정 검색 인스턴스에 지정된 도메인 및 사이트에서 비디오를 검색할 수 있습니다.        |    
 |[사용자 지정 검색 인스턴스 공유](share-your-custom-search.md)     | 팀 멤버와 공유하여 검색 인스턴스를 공동으로 편집하고 테스트합니다.        | 
-|[애플리케이션 및 웹 사이트에 대한 UI 구성](hosted-ui.md)     | 팀 멤버와 공유하여 검색 인스턴스를 공동으로 편집하고 테스트합니다.        | 
+|[애플리케이션 및 웹 사이트에 대한 UI 구성](hosted-ui.md)     | JavaScript 코드 조각으로 웹 페이지 및 웹 애플리케이션에 쉽게 통합할 수 있는 호스트된 UI를 제공합니다.        | 
 ## <a name="workflow"></a>워크플로
 
 [Bing Custom Search 포털](https://customsearch.ai)을 사용하여 사용자 지정된 검색 인스턴스를 만들 수 있습니다. 포털을 사용하면 Bing에서 검색 또는 검색하지 않으려는 도메인, 웹 사이트 및 웹 페이지를 지정하는 사용자 지정 검색 인스턴스를 만들 수 있습니다. 또한 포털을 사용하여 검색 환경을 미리 보고 API가 제공하는 검색 순위를 조정하며 필요할 경우 검색 가능한 사용자 인터페이스를 구성하여 웹 사이트 및 애플리케이션에서 렌더링할 수 있습니다.
 
 검색 인스턴스를 만든 후 Bing Custom Search API를 호출하여 웹 사이트 또는 애플리케이션에 검색 인스턴스(및 필요할 경우 사용자 인터페이스)를 통합할 수 있습니다.
 
-![API를 통해 Bing Custom Search에 연결할 수 있음을 보여 주는 이미지](media/BCS-Overview.png "Bing Custom Search 작동 방식")
+![API를 통해 Bing 사용자 지정 검색에 연결할 수 있음을 보여주는 이미지](media/BCS-Overview.png "Bing Custom Search 작동 방식.")
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -47,10 +47,14 @@ Bing Custom Search API를 사용하면 관심 있는 토픽에 대한 맞춤형 
 
 서비스 및 애플리케이션에서 결과를 사용하려면 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 반드시 읽어보세요.
 
+[Bing Search API 허브 페이지](../bing-web-search/search-the-web.md)를 방문하여 사용 가능한 다른 API를 살펴보세요.
+
 각 사용자 지정 검색 엔드포인트에 대한 참조 콘텐츠를 숙지합니다. 참조에는 검색 결과를 요청하는 데 사용할 엔드포인트, 헤더 및 쿼리 매개 변수가 포함됩니다. 응답 개체의 정의도 포함됩니다.
 
-- [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
-- [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
-- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
-- [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
+
+- [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
 

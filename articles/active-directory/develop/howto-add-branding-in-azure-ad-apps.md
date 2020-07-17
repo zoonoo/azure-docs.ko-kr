@@ -1,35 +1,30 @@
 ---
-title: 애플리케이션에 대한 브랜딩 지침 | Microsoft Docs
+title: 앱 브랜딩 지침 | Azure
+titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드
 services: active-directory
-documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
-editor: ''
-ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e62d24ea56e00b49c32c00136db858ecd0f778
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c11bbe4aab064c8c1f32cf273cd3e0b6c2a3ae8f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173777"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478198"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
 Azure AD(Azure Active Directory)를 사용하여 애플리케이션을 개발하는 경우 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 애플리케이션 등록 및 로그인에 사용하려는 고객을 안내해야 합니다.
 
-이 문서에서는 다음에 대해 알아봅니다.
+이 문서에서는 다음을 수행합니다.
 
 - Microsoft에서 관리하는 두 종류의 사용자 계정과 애플리케이션에서 Azure AD 계정을 가리키는 방법에 대해 알아봅니다.
 - 앱에서 사용할 Microsoft 로고를 추가하는 데 필요한 작업을 확인합니다.
@@ -60,7 +55,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 앱의 등록 경로와 로그인 경로가 별도로 제공될 수 있으며, 다음 섹션에서는 두 시나리오에 대한 시각적인 지침을 제공합니다.
 
-**앱에서 최종 사용자 가입을 지원하는 경우(예: 평가판 또는 프리미엄 모델)**: 사용자가 회사 또는 개인 계정을 사용하여 앱에 액세스하는 데 사용할 수 있는 **로그인** 단추를 표시할 수 있습니다. 사용자가 처음으로 앱에 액세스할 때 Azure AD에서 동의하도록 요구하는 메시지가 표시됩니다.
+**최종 사용자 등록을 지원하는 앱의 경우(예: 평가판 또는 프리미엄(freemium) 모델)**: 사용자가 회사 또는 개인 계정을 사용하여 앱에 액세스하는 데 사용할 수 있는 **로그인** 단추를 표시할 수 있습니다. 사용자가 처음으로 앱에 액세스할 때 Azure AD에서 동의하도록 요구하는 메시지가 표시됩니다.
 
 **관리자만 동의할 수 있는 권한을 요구하는 앱 또는 조직 라이선스가 필요한 앱의 경우**: 관리 취득과 사용자 로그인을 분리합니다. **"이 앱 가져오기" 단추**는 관리자에게 로그인하도록 리디렉션한 다음, 해당 조직의 사용자를 대신하여 동의하도록 요청합니다. 그러면 앱에 최종 사용자 동의 확인 프롬프트를 사용하지 않는 혜택이 추가됩니다.
 
@@ -68,19 +63,19 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 "앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](quickstart-v1-integrate-apps-with-azure-ad.md) 문서에서 설명합니다.
 
-관리자가 앱에 동의한 후에는 사용자의 Office 365 앱 시작 관리자 환경(와플 및 [https://portal.office.com/myapps](https://portal.office.com/myapps)에서 액세스 가능)에 앱을 추가할 수 있습니다. 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
+관리자는 앱에 동의한 후 사용자의 Office 365 앱 시작 관리자 환경에 추가 하도록 선택할 수 있습니다 (와플 및에서 액세스할 수 있음 [https://portal.office.com/myapps](https://portal.office.com/myapps) ). 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
 
-![애플리케이션 종류 및 시나리오](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Microsoft 로고 및 텍스트 "내 조직에 추가"를 표시하는 단추](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들면 다음과 같습니다.
+그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들어:
 
-> *이미 Office 365 또는Microsoft의 다른 비즈니스 서비스를 사용하는 경우 조직의 데이터에 대한 <your_app_name> 액세스 권한을 부여하면 됩니다. 이렇게 하면 사용자들이 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
+> *이미 Office 365 또는 Microsoft의 다른 비즈니스 서비스를 사용 하는 경우 조직의 데이터에 대 한 액세스> your_app_name <부여할 수 있습니다. 이렇게 하면 사용자가 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 
 공식 Microsoft 로고를 앱에서 사용하기 위해 다운로드하려면 사용할 이미지를 마우스 오른쪽 단추로 클릭한 다음, 컴퓨터에 저장합니다.
 
 | 자산                                | PNG 형식 | SVG 형식 |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft 로고  | ![Microsoft 로고 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Microsoft 로고 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+| Microsoft 로고  | ![PNG 형식으로 다운로드할 수 있는 Microsoft 로고](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![SVG 형식으로 다운로드할 수 있는 Microsoft 로고](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>로그인에 대한 시각적 지침
 
@@ -92,22 +87,22 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 다음 다이어그램은 앱에서 자산을 사용하는 경우 Microsoft 권장 검토를 보여줍니다. 검토는 "Microsoft에 로그인" 또는 짧은 "로그인" 버전에 적용합니다.
 
-![Microsoft로 로그인 검토](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+!["Microsoft에 로그인" 검토 표시](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 공식 이미지를 앱에서 사용하기 위해 다운로드하려면 사용할 이미지를 마우스 오른쪽 단추로 클릭한 다음, 컴퓨터에 저장합니다.
 
 | 자산                                | PNG 형식 | SVG 형식 |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft로 로그인(어두운 테마)  | ![로그인 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Microsoft로 로그인 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
-| Microsoft로 로그인(밝은 테마) | ![로그인 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Microsoft로 로그인 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
-| 로그인(어두운 테마)                 | ![로그인 단문 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![로그인 단문 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
-| 로그인(밝은 테마)                | ![로그인 단문 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![로그인 단문 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
+| Microsoft로 로그인(어두운 테마)  | ![다운로드할 수 있는 "Microsoft에 로그인" 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![다운로드 가능한 "Microsoft에 로그인" 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Microsoft로 로그인(밝은 테마) | ![다운로드할 수 있는 "Microsoft에 로그인" 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![다운로드 가능한 "Microsoft에 로그인" 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| 로그인(어두운 테마)                 | ![다운로드할 수 있는 "로그인" 단문 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![다운로드할 수 있는 "로그인" 단문 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| 로그인(밝은 테마)                | ![다운로드할 수 있는 "로그인" 단문 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![다운로드할 수 있는 "로그인" 단문 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 ## <a name="branding-dos-and-donts"></a>브랜딩 관련 할 일과 하지 말아야 할 일
 
 **권장** 최종 사용자가 단추를 사용할 수 있는지 여부를 인식할 수 있도록, 추가 설명을 제공하기 위해 "회사 또는 학교 계정"을 "Microsoft에 로그인" 단추와 함께 사용합니다. **권장 안 함** "엔터프라이즈 계정", "비즈니스 계정" 또는 "회사 계정"과 같은 다른 용어는 사용하지 않습니다.
 
-**권장 안 함** "Office 365 ID" 또는 "Azure ID"를 사용하지 않습니다. Office 365는 인증을 위해 Azure AD를 사용하지 않는 Microsoft 소비자 서비스의 이름이기도 합니다.
+"Office 365 ID" 또는 "Azure ID"를 사용 **하지 마세요** . Office 365는 인증을 위해 Azure AD를 사용하지 않는 Microsoft 소비자 서비스의 이름이기도 합니다.
 
 **권장 안 함** Microsoft 로고를 변경하지 않습니다.
 
@@ -115,4 +110,4 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 ## <a name="navigation-dos-and-donts"></a>탐색 관련 할 일과 하지 말아야 할 일
 
-**권장** 사용자가 로그아웃한 후 다른 사용자 계정으로 전환하는 방법을 제공합니다. 대부분의 사람들은 Microsoft/Facebook/Google/Twitter의 단일 개인 계정을 가지고 있지만, 사람들은 종종 여러 조직과 연결됩니다. 여러 명의 로그인한 사용자에 대한 지원이 곧 제공됩니다.
+사용자가 로그아웃하여 다른 사용자 계정으로 전환할 수 있는 방법을 **제공합니다**. 대부분의 사람들은 Microsoft/Facebook/Google/Twitter의 단일 개인 계정을 가지고 있지만, 사람들은 종종 여러 조직과 연결됩니다. 여러 명의 로그인한 사용자에 대한 지원이 곧 제공됩니다.

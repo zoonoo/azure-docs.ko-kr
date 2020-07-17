@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5612a6949e75fac57d1c83fbc168489a9f7cb1db
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a421ca9ab8efc69775966504fa393be9efba04
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897132"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>자습서: Huddle과 Azure Active Directory 통합
 
@@ -31,10 +32,10 @@ Huddle을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 Huddle에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Huddle과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -57,7 +58,7 @@ Huddle의 Azure AD 통합을 구성하려면 갤러리의 Huddle을 관리되는
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -110,149 +111,146 @@ Huddle에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다.
 
-    | | |
-    |--|--|
-    | `https://login.huddle.net`|
-    | `https://login.huddle.com`|
-    | |
+    ```http
+    https://login.huddle.net
+    https://login.huddle.com
+    ```
 
     b. **회신 URL** 텍스트 상자에 URL을 입력합니다.
 
-    | | |
-    |--|--|
-    | `https://login.huddle.net/saml/browser-sso`|
-    | `https://login.huddle.com/saml/browser-sso`|
-    | `https://login.huddle.com/saml/idp-initiated-sso`|
-    | |
+    ```http
+    https://login.huddle.net/saml/browser-sso
+    https://login.huddle.com/saml/browser-sso
+    https://login.huddle.com/saml/idp-initiated-sso
+    ```
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![Huddle 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | | |
-    |--|--|
-    | `https://<customsubdomain>.huddle.com`|
-    | `https://us.huddle.com`|
-    | |
+    ```http
+    https://<customsubdomain>.huddle.com
+    https://us.huddle.com
+        ```
 
     > [!NOTE]
-    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Huddle 클라이언트 지원 팀](https://huddle.zendesk.com)에 문의하세요.
+    > The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Huddle Client support team](https://huddle.zendesk.com) to get this value.
 
-6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-    ![인증서 다운로드 링크](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
-7. **Huddle 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+7. On the **Set up Huddle** section, copy the appropriate URL(s) as per your requirement.
 
-    ![구성 URL 복사](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-    a. 로그인 URL
+    a. Login URL
 
-    b. Azure AD 식별자
+    b. Azure Ad Identifier
 
-    다. 로그아웃 URL
+    c. Logout URL
 
-### <a name="configure-huddle-single-sign-on"></a>Huddle Single Sign-On 구성
+### Configure Huddle Single Sign-On
 
-**Huddle** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Huddle 지원 팀](https://huddle.zendesk.com/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+To configure single sign-on on **Huddle** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Huddle support team](https://huddle.zendesk.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!NOTE]
-> Single Sign-on은 Huddle 지원팀에서 사용할 수 있어야 합니다. 구성이 완료되면 알림을 받아 볼 수 있습니다.
+> Single sign-on needs to be enabled by the Huddle support team. You get a notification when the configuration has been completed.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### Create an Azure AD test user
 
-이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-    !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. Select **New user** at the top of the screen.
 
-    ![새 사용자 단추](common/new-user.png)
+    ![New user Button](common/new-user.png)
 
-3. 사용자 속성에서 다음 단계를 수행합니다.
+3. In the User properties, perform the following steps.
 
-    ![사용자 대화 상자](common/user-properties.png)
+    ![The User dialog box](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. In the **Name** field enter **BrittaSimon**.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
-    d. **만들기**를 클릭합니다.
+    d. Click **Create**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+### Assign the Azure AD test user
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Huddle에 대한 액세스 권한을 부여합니다.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Huddle.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Huddle**을 차례로 선택합니다.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Huddle**.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Huddle**을 선택합니다.
+2. In the applications list, select **Huddle**.
 
-    ![애플리케이션 목록의 Huddle 링크](common/all-applications.png)
+    ![The Huddle link in the Applications list](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. In the menu on the left, select **Users and groups**.
 
-    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![할당 추가 창](common/add-assign-user.png)
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-### <a name="create-huddle-test-user"></a>Huddle 테스트 사용자 만들기
+### Create Huddle test user
 
-Azure AD 사용자가 Huddle에 로그인할 수 있도록 하려면 Huddle로 프로비전되어야 합니다. Huddle의 경우 프로비전은 수동 작업입니다.
+To enable Azure AD users to log in to Huddle, they must be provisioned into Huddle. In the case of Huddle, provisioning is a manual task.
 
-**사용자 프로비전을 구성하려면 다음 단계를 수행합니다.**
+**To configure user provisioning, perform the following steps:**
 
-1. **Huddle** 회사 사이트에 관리자 권한으로 로그인합니다.
+1. Log in to your **Huddle** company site as administrator.
 
-2. **작업 영역**을 클릭합니다.
+2. Click **Workspace**.
 
-3. **피플 \> 피플 초대**를 클릭합니다.
+3. Click **People \> Invite People**.
 
-    ![사람](./media/huddle-tutorial/ic787838.png "사람")
+    ![People](./media/huddle-tutorial/ic787838.png "People")
 
-4. **새 초대 만들기** 섹션에서 다음 단계를 수행합니다.
+4. In the **Create a new invitation** section, perform the following steps:
   
-    ![새 초대](./media/huddle-tutorial/ic787839.png "새 초대")
+    ![New Invitation](./media/huddle-tutorial/ic787839.png "New Invitation")
   
-    a. **함께할 사람을 초대하려면 팀 선택** 목록에서 **팀**을 선택합니다.
+    a. In the **Choose a team to invite people to join** list, select **team**.
 
-    b. 프로비전할 유효한 Azure AD 계정의 **메일 주소**를 **Enter email address for people you'd like to invite**(초대할 사람의 메일 주소 입력) 텍스트 상자에 입력합니다.
+    b. Type the **Email Address** of a valid Azure AD account you want to provision in to **Enter email address for people you'd like to invite** textbox.
 
-    다. **초대**를 클릭합니다.
+    c. Click **Invite**.
 
     > [!NOTE]
-    > Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
+    > The Azure AD account holder will receive an email including a link to confirm the account before it becomes active.
 
 > [!NOTE]
-> 다른 Huddle 사용자 계정 생성 도구 또는 Huddle이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비전할 수 있습니다.
+> You can use any other Huddle user account creation tools or APIs provided by Huddle to provision Azure AD user accounts.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트
+### Test single sign-on
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-액세스 패널에서 Huddle 타일을 클릭하면 SSO를 설정한 Huddle에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+When you click the Huddle tile in the Access Panel, you should be automatically signed in to the Huddle for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>추가 리소스
+## Additional Resources
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

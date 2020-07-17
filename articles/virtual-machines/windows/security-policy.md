@@ -1,25 +1,19 @@
 ---
-title: Azure의 Windows VM에서 보안 적용 및 정책 사용 | Microsoft Docs
-description: Azure의 Windows 및 가상 머신에서 보안 및 정책에 대해 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Azure에서 Vm에 대 한 보안 및 사용 정책
+description: Azure의 가상 컴퓨터에 대 한 보안 및 정책에 대해 알아봅니다.
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: ce8429934157bacde8e709165cf2f35c98d2bb15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4910acd99abd6059de40e67a1b1629259c8215cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82099413"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Azure에서 보안 적용 및 정책 사용
 

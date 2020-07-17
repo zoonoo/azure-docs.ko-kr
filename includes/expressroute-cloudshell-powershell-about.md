@@ -1,29 +1,28 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
-services: vpn-gateway
+services: expressroute
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: expressroute
 ms.topic: include
-ms.date: 02/21/2019
+ms.date: 12/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f446ec6bce138a072a214a9e9cd7880ad215ad3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 446a3b786686d96f68d2d0a09d00a75e176a7661
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364754"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218147"
 ---
-이 문서에서는 PowerShell cmdlet을 사용합니다. Cmdlet을 실행 하려면 Azure Cloud Shell을 사용할 수 있습니다. Azure Cloud Shell은 공용 Azure 도구가 사전 설치 되어 있고 계정을 사용 하 여 사용 하도록 구성 된 무료 대화형 셸입니다. **복사**를 클릭하여 코드를 복사하고, Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다. Cloud Shell을 시작하는 몇 가지 방법이 있습니다.
+Azure PowerShell 또는 CLI를 로컬로 설치 하는 대신 Azure Cloud Shell를 사용 하 여 대부분의 PowerShell cmdlet 및 CLI 명령을 실행할 수 있습니다. Azure Cloud Shell는 일반적인 Azure tools를 미리 설치 하 고 계정에서 사용 하도록 구성 된 무료 대화형 셸입니다.
+Azure Cloud Shell에서 이 문서에 포함된 코드를 실행하려면 Cloud Shell 세션을 열고 코드 블록의 **복사** 단추를 사용하여 코드를 복사한 다음, Windows 및 Linux에서는 __Ctrl+Shift+V__, macOS에서는 __Cmd+Shift+V__를 사용하여 Cloud Shell 세션에 붙여 넣습니다. 붙여넣은 텍스트는 자동으로 실행 되지 않으므로 **enter** 키를 눌러 코드를 실행 합니다.
 
-|  |   |
+Cloud Shell을 시작하는 몇 가지 방법이 있습니다.
+
+| 옵션 | 링크 |
 |-----------------------------------------------|---|
-| 코드 블록의 오른쪽 위 모서리에서 **사용**을 클릭합니다.  | ![이 문서의 Cloud Shell](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
+| 코드 블록의 오른쪽 위 모서리에서 **사용**을 클릭합니다. | ![이 문서의 Cloud Shell](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
 | 브라우저에서 Cloud Shell을 엽니다. | [![https://shell.azure.com/powershell](./media/vpn-gateway-cloud-shell-powershell/launchcloudshell.png)](https://shell.azure.com/powershell) |
 | Azure Portal의 오른쪽 위 모서리에 있는 메뉴에서 **Cloud Shell** 단추를 클릭합니다. | [![포털의 Cloud Shell](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
-
-**PowerShell을 로컬로 실행**
-
-또한 설치 하 고 컴퓨터에 Azure PowerShell cmdlet을 로컬로 실행할 수 있습니다. PowerShell cmdlet은 자주 업데이트 됩니다. 최신 버전을 실행 하지 않는 경우 지침에 지정 된 값이 실패할 수 있습니다. 로컬로 실행 하는 PowerShell의 버전을 확인 하려면 사용 된 `Get-Module -ListAvailable Az` cmdlet. 를 설치 하거나 업데이트를 참조 하세요 [Azure PowerShell 모듈을 설치](/powershell/azure/install-az-ps)합니다.

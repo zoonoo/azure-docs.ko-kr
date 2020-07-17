@@ -3,23 +3,20 @@ title: Azure PowerShell을 사용하여 Azure DNS의 DNS 레코드 관리 | Micr
 description: Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다. 레코드 집합 및 레코드 작업에 대한 모든 PowerShell 명령입니다.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
-ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
+author: rohinkoul
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: victorh
-ms.openlocfilehash: fedab8cc45fff6d7830f67e7a23786b5952f83a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.author: rohink
+ms.openlocfilehash: 07776e0361b8221cf3aca9f06c66478aa6127f53
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701769"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
@@ -46,7 +43,7 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 ## <a name="create-a-new-dns-record"></a>새 DNS 레코드 만들기
 
-새 레코드가 기존 레코드와 이름 및 형식이 똑같은 경우 [기존 레코드 집합에 추가](#add-a-record-to-an-existing-record-set)해야 합니다. 새 레코드가 기존 레코드와 이름 및 형식이 다른 경우 새 레코드 집합을 만들어야 합니다. 
+새 레코드의 이름과 형식이 기존 레코드와 동일한 경우 [기존 레코드 집합에 추가](#add-a-record-to-an-existing-record-set)해야 합니다. 새 레코드가 기존 레코드와 이름 및 형식이 다른 경우 새 레코드 집합을 만들어야 합니다. 
 
 ### <a name="create-a-records-in-a-new-record-set"></a>새 레코드 집합에서 ‘A’ 레코드 만들기
 
@@ -230,7 +227,7 @@ $recordsets = Get-AzDnsRecordSet -Zone $zone
     Set-AzDnsRecordSet -RecordSet $rs
     ```
 
-`Set-AzDnsRecordSet`을 사용하여 Azure DNS의 기존 레코드 집합 및 포함된 모든 레코드를 지정된 레코드 집합으로 *바꿉니다*. [Etag 검사](dns-zones-records.md#etags)를 사용하여 동시 변경 내용을 덮어쓰지 않도록 합니다. 선택적 `-Overwrite` 스위치를 사용하여 이러한 검사를 무시할 수 있습니다.
+을 사용하여 Azure DNS의 기존 레코드 집합 및 포함된 모든 레코드를 지정된 레코드 집합으로 `Set-AzDnsRecordSet` *바꿉니다*. [Etag 검사](dns-zones-records.md#etags)를 사용하여 동시 변경 내용을 덮어쓰지 않도록 합니다. 선택적 `-Overwrite` 스위치를 사용하여 이러한 검사를 무시할 수 있습니다.
 
 이 작업 시퀀스를 *파이프*할 수도 있습니다. 즉, 레코드 집합 개체를 매개 변수로 전달하는 대신 파이프를 통해 전달합니다.
 

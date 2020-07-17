@@ -1,26 +1,25 @@
 ---
-title: Azure 빠른 시작 - Azure Portal을 사용하여 Azure Storage에 큐 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure Portal을 사용하여 큐를 만듭니다. 그런 다음, Azure Portal에서 메시지를 추가하고, 메시지의 속성을 보고, 메시지를 큐에서 제거합니다.
-services: storage
+title: '빠른 시작: 포털에서 Azure Storage 큐 만들기'
+description: Azure Portal을 사용하여 큐를 만듭니다. 그런 다음, Azure Portal을 사용하여 메시지를 추가하고, 메시지 속성을 보고, 메시지를 큐에서 제거합니다.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 03/06/2019
 ms.author: mhopkins
-ms.reviewer: cbrooks
-ms.openlocfilehash: 3b355aa2f3fd5e381ca922ada1444dd281fe74ec
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 03/06/2019
+ms.service: storage
+ms.subservice: queues
+ms.topic: quickstart
+ms.reviewer: dineshm
+ms.openlocfilehash: af3f812c8018f059f26c29cd373714e4ab3c8a49
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138266"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808962"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 큐를 만들어서 메시지 추가하기
 
 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure Storage에 큐를 만들고 메시지를 큐에 추가하고 제거하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -28,7 +27,7 @@ ms.locfileid: "65138266"
 
 Azure Portal에서 큐를 만들려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 새 저장소 계정으로 이동합니다.
+1. Azure Portal의 새 스토리지 계정으로 이동합니다.
 2. 스토리지 계정의 왼쪽 메뉴에서 **큐 서비스** 섹션이 나올 때까지 스크롤한 다음, **큐**를 선택합니다.
 3. **+ 큐** 단추를 선택합니다.
 4. 새 큐의 이름을 입력합니다. 큐 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다.

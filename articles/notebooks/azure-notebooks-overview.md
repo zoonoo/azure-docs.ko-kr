@@ -1,28 +1,20 @@
 ---
-title: Azure Notebooks 개요
-description: 설정 또는 구성이 필요하지 않은 경우 무료 Azure Notebooks 서비스를 사용하여 클라우드에서 Jupyter Notebook을 실행합니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Notebooks 미리 보기 개요
+description: 설정 또는 구성이 필요하지 않은 경우 무료 Azure Notebooks 미리 보기 서비스를 사용하여 클라우드에서 Jupyter Notebook을 실행합니다.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.author: kraigb
-ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280114"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85831406"
 ---
-# <a name="overview-of-azure-notebooks"></a>Azure Notebooks 개요
+# <a name="overview-of-azure-notebooks-preview"></a>Azure Notebooks 미리 보기 개요
 
-Azure Notebooks는 무료 호스티드 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. [Jupyter](https://jupyter.org/)(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 공유 가능한 단일 캔버스인 *Notebook*(jupyter.org의 이미지 허가)으로 손쉽게 결합할 수 있습니다.
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks는 무료 호스트 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. [Jupyter](https://jupyter.org/)(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 *Notebook*(jupyter.org의 이미지 허가)이라는 공유 가능한 단일 캔버스로 손쉽게 결합할 수 있습니다.
 
 [![Jupyter Notebook의 예제](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
@@ -111,7 +103,7 @@ Azure Notebooks에 대한 질문을 논의하려면 [GitHub 리포지토리](htt
 
   - [Notebook 만들기 및 실행](tutorial-create-run-jupyter-notebook.md  )
 
-- 방법 문서:
+- 방법 문서는 다음과 같습니다.
   
   - [프로젝트 만들기 및 복제](create-clone-jupyter-notebooks.md)
   - [프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
@@ -119,4 +111,4 @@ Azure Notebooks에 대한 질문을 논의하려면 [GitHub 리포지토리](htt
   - [슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)
   - [데이터 파일 작업](work-with-project-data-files.md)
   - [데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)
-  - [Azure Machine Learning Services 사용](use-machine-learning-services-jupyter-notebooks.md)
+  - [Azure Machine Learning 사용](use-machine-learning-services-jupyter-notebooks.md)

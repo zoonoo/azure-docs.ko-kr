@@ -1,27 +1,20 @@
 ---
-title: 자습서 - Azure 가상 머신 확장 집합 만들기 및 관리 | Microsoft Docs
+title: 자습서 - Azure 가상 머신 확장 집합 만들기 및 관리
 description: Azure CLI를 사용하여 인스턴스를 시작하고 중지하는 방법, 확장 집합 용량을 변경하는 방법 등의 몇 가지 일반적인 관리 작업과 함께 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: ff4a2b9cb66013900b5b9969a4281d1a20d9c122
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751024"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736444"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합 만들기 및 관리
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -33,7 +26,7 @@ ms.locfileid: "55751024"
 > * 수동으로 확장 집합 크기 조정
 > * 일반적인 확장 집합 관리 작업 수행
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -77,7 +70,7 @@ az vmss list-instances \
 
 다음 예제 출력에서는 확장 집합의 두 VM 인스턴스를 보여 줍니다.
 
-```bash
+```output
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  c059be0c-37a2-497a-b111-41272641533c
@@ -108,7 +101,7 @@ az vmss list-instance-connection-info \
 
 다음 예제 출력에서는 NAT 규칙에서 트래픽을 전달하는 인스턴스 이름, 부하 분산 장치의 공용 IP 주소 및 포트 번호를 보여 줍니다.
 
-```bash
+```output
 {
   "instance 1": "13.92.224.66:50001",
   "instance 3": "13.92.224.66:50003"
@@ -117,13 +110,13 @@ az vmss list-instance-connection-info \
 
 SSH를 첫 번째 VM 인스턴스에 연결합니다. 앞의 명령과 같이 `-p` 매개 변수를 사용하여 공용 IP 주소와 포트 번호를 지정합니다.
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 VM 인스턴스에 로그인한 후 필요에 따라 일부 구성 변경을 수동으로 수행할 수 있습니다. 지금은 정상적으로 SSH 세션을 닫습니다.
 
-```bash
+```console
 exit
 ```
 
@@ -137,7 +130,7 @@ az vm image list --output table
 
 다음 예제 출력에서는 Azure에서 가장 일반적인 VM 이미지를 보여 줍니다. 확장 집합을 만들 때 *UrnAlias*를 사용하여 이러한 일반 이미지 중 하나를 지정할 수 있습니다.
 
-```bash
+```output
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
@@ -161,7 +154,7 @@ az vm image list --offer CentOS --all --output table
 
 압축된 다음 출력에서는 사용할 수 있는 CentOS 7.3 이미지 중 일부를 보여 줍니다.
 
-```azurecli-interactive 
+```output
 Offer    Publisher   Sku   Urn                                 Version
 -------  ----------  ----  ----------------------------------  -------------
 CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20161221   7.3.20161221
@@ -173,6 +166,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 ```
 
 특정 이미지를 사용하는 확장 집합을 배포하려면 *Urn* 열의 값을 사용합니다. 이미지를 지정할 때 이미지 버전 번호는 최신 버전의 배포를 선택하도록 *latest*로 대체될 수 있습니다. 다음 예제에서는 CentOS 7.3 이미지의 최신 버전을 지정하기 위해 `--image` 인수를 사용합니다.
+
+> [!IMPORTANT]
+> *최신* 이미지 버전을 사용하는 것이 좋습니다. 배포 시 사용할 수 있는 최신 버전의 이미지를 사용하려면 '최신'을 지정합니다. '최신'을 사용하더라도 배포 시간이 지나면 새 버전을 사용할 수 있게 되는 경우에도 VM 이미지가 자동으로 업데이트되지 않습니다.
 
 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
 
@@ -187,15 +183,15 @@ az vmss create \
 
 
 ## <a name="understand-vm-instance-sizes"></a>VM 인스턴스 크기 이해
-VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 있는 계산 리소스(예: CPU, GPU, 메모리)의 양이 결정됩니다. 확장 집합의 VM 인스턴스 크기는 예상 작업에 맞게 적절히 조정되어야 합니다.
+VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 있는 컴퓨팅 리소스(예: CPU, GPU, 메모리)의 양이 결정됩니다. 확장 집합의 VM 인스턴스 크기는 예상 작업에 맞게 적절히 조정되어야 합니다.
 
 ### <a name="vm-instance-sizes"></a>VM 인스턴스 크기
 다음 표에서는 일반적인 VM 크기를 사용 사례로 분류하고 있습니다.
 
-| Type                     | 일반적인 크기           |    설명       |
+| Type                     | 일반적인 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
-| [Compute에 최적화](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
+| [컴퓨팅 최적화](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
 | [메모리에 최적화](../virtual-machines/linux/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 | [Storage에 최적화](../virtual-machines/linux/sizes-storage.md)      | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
 | [GPU](../virtual-machines/linux/sizes-gpu.md)          | NV, NC            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
@@ -210,7 +206,7 @@ az vm list-sizes --location eastus --output table
 
 출력은 압축된 다음 예제와 비슷하며, 각 VM 크기에 할당된 리소스를 보여 줍니다.
 
-```azurecli-interactive
+```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  4          3584  Standard_DS1_v2                       1           1047552                    7168
@@ -273,7 +269,7 @@ az vmss show \
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-중지된 VM 인스턴스는 할당된 상태로 유지되며 계산 요금이 계속 발생합니다. 대신 VM 인스턴스의 할당을 취소하고 저장소 요금만 발생하도록 하려면 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *1* 인스턴스를 중지하고 할당을 취소합니다.
+중지된 VM 인스턴스는 할당된 상태로 유지되며 컴퓨팅 요금이 계속 발생합니다. 대신 VM 인스턴스의 할당을 취소하고 스토리지 요금만 발생하도록 하려면 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *1* 인스턴스를 중지하고 할당을 취소합니다.
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: d5ecfcd249dd07dc94b3b17ea0a7a7de3559c681
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407949"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "71950415"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>자습서: TOPdesk - Public과 Azure Active Directory 통합
 
@@ -31,10 +31,10 @@ TOPdesk - Public을 Azure AD와 통합하면 다음과 같은 이점이 제공�
 * 사용자가 자신의 Azure AD 계정으로 TOPdesk - Public에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 TOPdesk - Public과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -57,7 +57,7 @@ TOPdesk - Public이 Azure AD에 통합되도록 구성하려면 갤러리의 TOP
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -120,8 +120,10 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     d. **로그인 URL** 텍스트 상자에서 `https://<companyname>.topdesk.net` 패턴을 사용하여 URL을 입력합니다.
 
-    e. **식별자** 텍스트 상자에서 `https://<companyname>.topdesk.net/tas/public/login/verify` 패턴을 사용하여 URL을 입력합니다.
-
+    e. **식별자 URL** 텍스트 상자의 TOPdesk 구성에서 검색할 수 있는 TOPdesk 메타데이터 URL을 입력합니다. `https://<companyname>.topdesk.net/saml-metadata/<identifier>` 패턴을 사용해야 합니다.
+    
+    f. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<companyname>.topdesk.net/tas/public/login/verify`
+    
     > [!NOTE] 
     > **식별자**와 **회신 URL** 값이 자동으로 채워지지 않으면 수동으로 입력해야 합니다. 식별자의 경우 앞서 언급한 패턴을 따르고 회신 URL은 이 자습서의 뒷부분에 설명되어 있는 **TOPdesk - Public Single Sign-On 구성** 섹션에서 가져옵니다. **로그온 URL** 값은 실제가 아니므로 이 값은 실제 로그온 URL로 업데이트해야 합니다. 이 값을 얻으려면 [TOPdesk - Public 클라이언트 지원 팀](https://help.topdesk.com/saas/enterprise/user/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
@@ -169,7 +171,7 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
    
 6. 인증서 파일을 만들려면 다음 단계를 수행하십시오.
     
-    ![인증서](./media/topdesk-public-tutorial/ic790606.png "인증서")
+    ![MSSQLSERVER에 대한 프로토콜 속성](./media/topdesk-public-tutorial/ic790606.png "인증서")
     
     a. Azure Portal에서 다운로드한 메타데이터 파일을 엽니다.
     
@@ -181,7 +183,7 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 7. **공용** 섹션에서 **추가**를 클릭합니다.
     
-    ![SAML 로그인](./media/topdesk-public-tutorial/ic790625.png "SAML 로그인")
+    ![SAML 로그인](./media/topdesk-public-tutorial/ic790625.png "공용")
 
 8. **SAML 구성 도우미** 대화 상자 페이지에서 다음 단계를 수행합니다.
     
@@ -193,7 +195,7 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     다. TOPdesk 지원팀에서 받은 로고 파일을 업로드하려면 **로고 아이콘**에서 **찾아보기**를 클릭합니다.
 
-    d. **사용자 이름 특성** 텍스트 상자에서 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
+    d. **사용자 이름 특성** 텍스트 상자에서 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
 
     e. **이름 표시** 텍스트 상자에 구성할 이름을 입력합니다.
 
@@ -219,7 +221,7 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
   
     b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -259,7 +261,7 @@ Azure AD 사용자가 TOPdesk - Public에 로그인할 수 있도록 하려면 T
 
 2. 위쪽 메뉴에서 **TOPdesk \> 새로 만들기 \> 지원 파일 \> 사람** 순으로 클릭합니다.
    
-    ![사람](./media/topdesk-public-tutorial/ic790628.png "사람")
+    ![Person](./media/topdesk-public-tutorial/ic790628.png "Person")
 
 3. 새로운 사용자 대화 상자에서 다음 단계를 수행합니다.
    

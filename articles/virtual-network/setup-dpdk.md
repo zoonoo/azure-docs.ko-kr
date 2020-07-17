@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/27/2018
+ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ec117172a367d014f634106b5d2405892b80ffa7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689268"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
 
@@ -33,20 +32,20 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 
 ## <a name="benefit"></a>혜택
 
-**더 높은 패킷 / 초 (PPS)**: 커널 및 사용자 공간 패킷 기록 제어를 우회 컨텍스트 스위치를 제거 하 여 주기 수를 줄입니다. 또한 Azure Linux 가상 머신에서 초당 처리 패킷 속도를 향상시킵니다.
+**더 많은 초당 패킷 수(PPS)** : 커널을 무시하고 사용자 공간에서 패킷을 제어하면 컨텍스트 스위치를 제거하여 주기 횟수를 줄입니다. 또한 Azure Linux 가상 머신에서 초당 처리 패킷 속도를 향상시킵니다.
 
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-다음 배포는 Azure Gallery에서 지원됩니다.
+다음 배포는 Azure Marketplace에서 지원됩니다.
 
-| Linux OS     | 커널 버전        |
-|--------------|----------------       |
-| Ubuntu 16.04 | 4.15.0-1015-azure     |
-| Ubuntu 18.04 | 4.15.0-1015-azure     |
-| SLES 15      | 4.12.14-5.5-azure     |
-| RHEL 7.5     | 3.10.0-862.9.1.el7    |
-| CentOS 7.5   | 3.10.0-862.3.3.el7    |
+| Linux OS     | 커널 버전               | 
+|--------------|---------------------------   |
+| Ubuntu 16.04 | 4.15.0-1014-azure+           | 
+| Ubuntu 18.04 | 4.15.0-1014-azure+           |
+| SLES 15 SP1  | 4.12.14-8.27-azure+          | 
+| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
+| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
 
 **사용자 지정 커널 지원**
 
@@ -56,7 +55,7 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 
 모든 Azure 지역에서는 DPDK를 지원합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 가속 네트워킹을 사용하면 Linux 가상 머신을 사용하도록 설정해야 합니다. 가상 머신에는 관리를 위한 하나의 인터페이스가 포함된 적어도 두 개 이상의 네트워크 인터페이스가 있어야 합니다. [가속 네트워킹을 사용하는 Linux 가상 머신을 만드는](create-vm-accelerated-networking-cli.md) 방법에 대해 알아봅니다.
 
@@ -73,6 +72,7 @@ sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev lib
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
+sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
 sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
@@ -85,7 +85,7 @@ sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
 yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
 ```
 
-### <a name="sles-15"></a>SLES 15
+### <a name="sles-15-sp1"></a>SLES 15 SP1
 
 **Azure 커널**
 
@@ -107,7 +107,7 @@ zypper \
 
 ## <a name="set-up-the-virtual-machine-environment-once"></a>가상 머신 환경 설정(한 번)
 
-1. [최신 DPDK 다운로드](https://core.dpdk.org/download). Azure에는 버전 18.02 이상이 필요합니다.
+1. [최신 DPDK 다운로드](https://core.dpdk.org/download). Azure에는 18.11 LTS 또는 19.11 LTS 버전이 필요합니다.
 2. `make config T=x86_64-native-linuxapp-gcc`로 기본 구성을 빌드합니다.
 3. `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`로 생성된 구성에서 Mellanox PMD를 사용하도록 설정합니다.
 4. `make`를 사용하여 컴파일합니다.
@@ -119,32 +119,30 @@ zypper \
 
 1. Hugepage
 
-   * 모든 numanode에 대해 한 번씩, 다음 명령을 실행하여 hugepage를 구성합니다.
+   * 각각의 numa 노드에 대해 한 번씩, 다음 명령을 실행하여 hugepage를 구성합니다.
 
      ```bash
-     echo 1024 | sudo tee
-     /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
+     echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
    * `mkdir /mnt/huge`를 사용하여 탑재할 디렉터리를 만듭니다.
    * `mount -t hugetlbfs nodev /mnt/huge`를 사용하여 hugepage를 탑재합니다.
    * `grep Huge /proc/meminfo`를 사용하여 hugepage가 예약되었는지 확인합니다.
 
-     > [!NOTE]
-     > DPDK에 대한 [지침](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)을 따라 부팅 시 hugepage가 예약되도록 grub 파일을 수정할 방법이 있습니다. 지침은 페이지 맨 아래에 있습니다. Azure Linux 가상 머신에서 사용하는 경우 다시 부팅 시에 hugepage를 예약하려면 대신 **/etc/config/grub.d**에서 파일을 수정합니다.
+     > [참고] DPDK에 대한 [지침](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)을 따라 부팅 시 hugepage가 예약되도록 grub 파일을 수정할 방법이 있습니다. 지침은 페이지 맨 아래에 있습니다. Azure Linux 가상 머신에서 사용하는 경우 다시 부팅 시에 hugepage를 예약하려면 대신 **/etc/config/grub.d**에서 파일을 수정합니다.
 
-2. MAC 및 IP 주소: 사용 하 여 `ifconfig –a` 네트워크 인터페이스의 MAC 및 IP 주소를 봅니다. *VF* 네트워크 인터페이스 및 *NETVSC* 네트워크 인터페이스에는 동일한 MAC 주소가 있지만 *NETVSC* 네트워크 인터페이스에만 IP 주소가 있습니다. NETVSC 인터페이스는 NETVSC 인터페이스의 슬레이브 인터페이스로 실행됩니다.
+2. MAC 및 IP 주소: `ifconfig –a`를 사용하여 네트워크 인터페이스의 MAC 및 IP 주소를 확인합니다. *VF* 네트워크 인터페이스 및 *NETVSC* 네트워크 인터페이스에는 동일한 MAC 주소가 있지만 *NETVSC* 네트워크 인터페이스에만 IP 주소가 있습니다. *VF* 인터페이스는 *NETVSC* 인터페이스의 하위 인터페이스로 실행됩니다.
 
 3. PCI 주소
 
    * `ethtool -i <vf interface name>`을 사용하여 *VF*에 사용할 PCI 주소를 찾습니다.
-   * *eth0*이 가속 네트워킹을 사용하도록 설정한 경우 testpmd가 *eth0*에 대한 VF pci 디바이스를 실수로 넘겨받지 않도록 해야 합니다. DPDK 애플리케이션이 실수로 관리 네트워크 인터페이스를 넘겨받아 SSH 연결 손실을 초래한 경우 직렬 콘솔을 사용하여 DPDK 애플리케이션을 중지합니다. 또는 직렬 콘솔을 사용하여 가상 머신을 중지 또는 시작할 수도 있습니다.
+   * *eth0*이 가속 네트워킹을 사용하도록 설정한 경우 testpmd가 *eth0*에 대한 *VF* pci 디바이스를 실수로 넘겨받지 않도록 해야 합니다. DPDK 애플리케이션이 실수로 관리 네트워크 인터페이스를 넘겨받아 SSH 연결 손실을 초래한 경우 직렬 콘솔을 사용하여 DPDK 애플리케이션을 중지합니다. 또는 직렬 콘솔을 사용하여 가상 머신을 중지 또는 시작할 수도 있습니다.
 
 4. `modprobe -a ib_uverbs`로 다시 부팅할 때마다 *ibuverbs*를 로드합니다. SLES 15의 경우만 `modprobe -a mlx4_ib`로 *mlx4_ib*를 로드합니다.
 
 ## <a name="failsafe-pmd"></a>Failsafe PMD
 
-DPDK 애플리케이션은 Azure에서 공개되는 failsafe PMD에서 실행되어야 합니다. 애플리케이션이 직접 VF PMD에서 실행되는 경우 일부 패킷이 가상 인터페이스에 표시되므로 VM을 대상으로 한 **모든** 패킷을 수신하지는 않습니다. 
+DPDK 애플리케이션은 Azure에서 공개되는 failsafe PMD에서 실행되어야 합니다. 애플리케이션이 직접 *VF* PMD에서 실행되는 경우 일부 패킷이 가상 인터페이스에 표시되므로 VM을 대상으로 한 **모든** 패킷을 수신하지는 않습니다. 
 
 Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케이션이 대상으로 지정된 모든 패킷을 수신하게 됩니다. 또한 호스트에 서비스가 제공될 때 VF가 호출되더라도 애플리케이션은 DPDK 모드에서 계속 실행됩니다. Failsafe PMD에 대한 자세한 내용은 [Failsafe 폴링 모드 드라이버 라이브러리](https://doc.dpdk.org/guides/nics/fail_safe.html)를 참조하세요.
 
@@ -152,7 +150,7 @@ Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케�
 
 루트 모드에서 testpmd를 실행하려면 *testpmd* 명령 전에 `sudo`를 사용합니다.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>기본: 온전성을 검사 failsafe 어댑터 초기화
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>기본: 정상 여부 검사, failsafe 어댑터 초기화
 
 1. 단일 포트 testpmd 애플리케이션을 시작하려면 다음 명령을 실행합니다.
 
@@ -180,7 +178,7 @@ Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케�
 
 이전 명령은 testpmd에 권장되는 대화형 모드로 *testpmd*를 시작합니다.
 
-### <a name="basic-single-sendersingle-receiver"></a>기본: 단일 발신자/단일 수신기
+### <a name="basic-single-sendersingle-receiver"></a>기본: 단일 발신자/단일 수신자
 
 다음 명령은 초당 패킷 통계를 주기적으로 인쇄합니다.
 

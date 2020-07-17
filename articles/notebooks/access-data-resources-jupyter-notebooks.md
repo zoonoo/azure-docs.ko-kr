@@ -1,26 +1,19 @@
 ---
-title: Azure의 Jupyter Notebook에서 데이터 리소스 액세스
-description: Jupyter Notebook에서 파일, REST API, 데이터베이스 및 다른 Azure Storage 리소스에 액세스하는 방법입니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Jupyter 노트북에서 데이터 액세스-Azure Notebooks 미리 보기
+description: Jupyter 노트북에서 파일, REST Api, 데이터베이스 및 다른 Azure Storage 리소스에 액세스 하는 방법에 대해 알아봅니다.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: tracking-python
+ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60634349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833488"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Notebook에서 클라우드 데이터 액세스
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Jupyter Notebook에서 흥미로운 작업을 하려면 데이터가 필요합니다. 데이터는 실제로 Notebook의 핵심 요소입니다.
 
@@ -42,18 +35,18 @@ import requests
 data_url = 'https://data.cityofnewyork.us/resource/gkne-dk5s.json'
 
 # General data request; include other API keys and credentials as needed in the data argument
-response = requests.get(data_url, data={"limit" : "20"})
+response = requests.get(data_url, data={"limit": "20"})
 
 if response.status_code == 200:
     dataframe_rest2 = pandas.DataFrame.from_records(response.json())
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Azure SQL 데이터베이스
+## <a name="azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance
 
-pyodbc 또는 pymssql 라이브러리 지원으로 SQL Server 데이터베이스를 액세스할 수 있습니다.
+Pyodbc 또는 pymssql 라이브러리의 도움을 받아 SQL Database 또는 SQL Managed Instance의 데이터베이스에 액세스할 수 있습니다.
 
-[Python을 사용하여 Azure SQL 데이터베이스 쿼리](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python)는 AdventureWorks 데이터를 포함하는 데이터베이스를 만드는 방법에 대한 지침을 제공하고 해당 데이터를 쿼리하는 방법을 보여 줍니다. 동일한 코드는 이 문서에 대한 샘플 Notebook에 표시됩니다.
+[Python을 사용 하 여 AZURE SQL database를 쿼리하면](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) AdventureWorks 데이터를 포함 하는 SQL Database에서 데이터베이스를 만드는 방법에 대 한 지침을 제공 하 고 해당 데이터를 쿼리 하는 방법을 보여 줍니다. 동일한 코드는 이 문서에 대한 샘플 Notebook에 표시됩니다.
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -71,7 +64,7 @@ Azure Cosmos DB는 JSON 문서에 대해 완벽하게 인덱싱된 NoSQL 스토�
 - [Python 사용하여 SQL API 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
 - [Azure Cosmos DB의 MongoDB API를 사용하여 Flask 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Python 및 Gremlin API를 사용하여 그래프 데이터베이스 만들기](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [Python 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
+- [Python 및 Azure Cosmos DB를 사용 하 여 Cassandra 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Python 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
 Cosmos DB로 작업할 때 [Azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/) 라이브러리를 사용할 수 있습니다.
@@ -80,12 +73,12 @@ Cosmos DB로 작업할 때 [Azure-cosmosdb-table](https://pypi.org/project/azure
 
 Azure는 사용할 수 있는 많은 다른 데이터베이스 형식을 제공 합니다. 아래 문서에서는 Python에서 해당 데이터베이스에 액세스하기 위한 지침을 제공합니다.
 
-- [Azure Database for PostgreSQL Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [빠른 시작: Python으로 Azure Redis Cache사용](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database for MySQL: Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Azure 데이터 팩터리](https://azure.microsoft.com/services/data-factory/)
+- [PostgreSQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [빠른 시작: Azure Redis Cache를 Python과 함께 사용](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [MySQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Azure Data Factory 복사 마법사](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 프로젝트 데이터 파일을 사용하여 작업](work-with-project-data-files.md)
+- [방법: 프로젝트 데이터 파일 작업](work-with-project-data-files.md)

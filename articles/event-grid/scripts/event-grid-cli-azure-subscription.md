@@ -1,22 +1,15 @@
 ---
 title: Azure CLI 스크립트 샘플 - Azure 구독에 가입 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Azure 구독에 가입
-services: event-grid
-documentationcenter: na
-author: tfitzmac
-ms.service: event-grid
+description: 이 문서에서는 Azure CLI를 사용하여 Azure Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure CLI 스크립트를 제공합니다.
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: 9d1aa53ede323c2bb536c74eeaaba9fd28b01712
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.date: 07/08/2020
+ms.openlocfilehash: 04d69d440dc971908b1fe2931721c50e671cd7d9
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037535"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171400"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Azure CLI를 사용하여 Azure 구독에 대한 이벤트 구독
 

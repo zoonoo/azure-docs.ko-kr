@@ -1,24 +1,23 @@
 ---
-title: 다른 그룹에서 그룹 추가 또는 제거 - Azure Active Directory | Microsoft Docs
+title: 다른 그룹에서 그룹 추가 또는 제거-Azure AD
 description: Azure Active Directory를 사용하여 다른 그룹에서 그룹을 추가하거나 제거하는 방법에 대한 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/19/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68b6c1e037992930a70630b0d218cc98beba931d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2abddefebdf58b6c4f82bd6e6e882e3cb5d16023
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604304"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 다른 그룹에서 그룹 추가 또는 제거
 이 문서는 Azure Active Directory를 사용하여 다른 그룹에서 그룹을 추가 및 제거하는 데 도움이 됩니다.
@@ -30,7 +29,7 @@ ms.locfileid: "60249257"
 기존 보안 그룹을 다른 기존 그룹(중첩 그룹이라고도 함)에 추가하여 멤버 그룹(하위 그룹) 및 부모 그룹을 만들 수 있습니다. 멤버 그룹은 부모 그룹의 특성과 속성을 상속하므로 구성 시간이 절약됩니다.
 
 >[!Important]
->다음 작업은 현재 지원되지 않습니다.<ul><li>온-프레미스 Active Directory와 동기화되는 그룹에 그룹 추가</li><li>Office 365 그룹에 보안 그룹 추가</li><li>보안 그룹 또는 다른 Office 365 그룹에 Office 365 그룹 추가</li><li>중첩된 그룹에 앱 할당</li><li>중첩된 그룹에 라이선스 적용</li></ul>
+>다음 작업은 현재 지원되지 않습니다.<ul><li>온-프레미스 Active Directory와 동기화되는 그룹에 그룹 추가</li><li>Office 365 그룹에 보안 그룹 추가</li><li>보안 그룹 또는 다른 Office 365 그룹에 Office 365 그룹 추가</li><li>중첩된 그룹에 앱 할당</li><li>중첩된 그룹에 라이선스 적용</li><li>중첩 시나리오에서 배포 그룹 추가</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>그룹을 다른 그룹의 멤버로 추가하려면
 
@@ -49,15 +48,11 @@ ms.locfileid: "60249257"
 
     **MDM 정책 - 서부** 그룹은 이제 [MDM 정책 - 모든 조직] 그룹의 모든 속성과 구성을 상속하는 **MDM 정책 - 모든 조직** 그룹의 멤버입니다.
 
-    ![다른 그룹에 그룹을 추가하여 그룹 멤버 만들기](media/active-directory-groups-membership-azure-portal/add-group-membership.png)
+    ![다른 그룹에 그룹을 추가하여 그룹 멤버 만들기](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
 
 5. **MDM 정책 - 서부 - 그룹 멤버 자격** 페이지를 검토하여 그룹 및 멤버 관계를 확인합니다.
 
-    ![부모 그룹을 보여 주는 MDM 정책 - 서부 - 그룹 멤버 자격 페이지](media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-
 6. 그룹 및 멤버 관계에 대한 자세한 내용을 보려면 그룹 이름(**MDM 정책 - 모든 조직**)을 선택하고 **MDM 정책 - 서부** 페이지 세부 정보를 살펴봅니다.
-
-    ![멤버 및 그룹 세부 정보가 모두 표시된 그룹 멤버 페이지](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
 ## <a name="remove-a-group-from-another-group"></a>다른 그룹에서 그룹 제거
 다른 보안 그룹에서 기존 보안 그룹을 제거할 수 있습니다. 그러나 그룹을 제거하면 멤버에 대해 상속된 특성과 속성도 제거됩니다.
@@ -67,12 +62,9 @@ ms.locfileid: "60249257"
 
 2. **MDM 정책 - 서부 개요** 페이지에서 **그룹 멤버 자격**을 선택합니다.
 
-    ![MDM 정책 - 서부 개요 페이지](media/active-directory-groups-membership-azure-portal/group-membership-overview.png)
-
 3. **MDM 정책 - 서부 그룹 멤버 자격** 페이지에서 **MDM 정책 - 모든 조직** 그룹을 선택한 다음, **MDM 정책 - 서부** 페이지 세부 정보에서 **제거**를 선택합니다.
 
     ![멤버 및 그룹 세부 정보가 모두 표시된 그룹 멤버 페이지](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
-
 
 ## <a name="additional-information"></a>추가 정보
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.

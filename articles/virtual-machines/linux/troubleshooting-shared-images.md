@@ -1,27 +1,20 @@
 ---
-title: Azure에서 공유된 이미지를 사용하여 문제 해결 | Microsoft Docs
-description: 공유 이미지 갤러리 문제 해결 방법을 알아보세요.
-services: virtual-machine-windows
-documentationcenter: virtual-machine-scale-sets
-author: axayjo
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
+title: Azure의 공유 이미지 관련 문제 해결
+description: 공유 이미지 갤러리 문제 해결 방법을 설명합니다.
+author: cynthn
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: ''
+ms.subservice: imaging
+ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 04/25/2019
-ms.author: akjosh; cynthn
-ms.custom: ''
-ms.openlocfilehash: 5e8ff00090b3556eadceb3a64423736d8c876dca
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/04/2019
+ms.author: cynthn
+ms.reviewer: akjosh
+ms.openlocfilehash: 2c9776d41584900598133ef6d361b96f0b892094
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150276"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82790952"
 ---
 # <a name="troubleshooting-shared-image-galleries"></a>공유 이미지 갤러리 문제 해결
 

@@ -3,25 +3,23 @@ title: Azure에서 Windows VM 배포 문제 해결 | Microsoft Docs
 description: Azure에서 새 Windows 가상 머신 생성 시 Resource Manager 배포 문제 해결
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
-manager: jeconnoc
+author: DavidCBerry13
+manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f18fbabe52c9170cde70900933ce96a3a6400c7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123859"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83120966"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure에서 새 Windows VM 생성 시 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -36,7 +34,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 ## <a name="collect-activity-logs"></a>활동 로그 선택
 문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 활동 로그를 수집합니다. 다음 링크에는 수행할 프로세스에 대한 자세한 내용이 포함되어 있습니다.
 
-[배포 작업 보기](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)
 
 [활동 로그를 보고 Azure 리소스 관리](../../resource-group-audit.md)
 
@@ -48,7 +46,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 
 **업로드 오류:**
 
-**N<sup>1</sup>:** OS가 일반화된 Windows이고 특수화된 것으로 업로드된다면, VM이 OOBE 화면에서 중단되면서 프로비전 시간 제한 오류가 발생합니다.
+**N<sup>1</sup>:** OS가 일반화된 Windows이고 특수화된 것으로 업로드된다면, VM이 OOBE 화면에서 중단되면서 프로비전 시간 초과 오류가 발생합니다.
 
 **N<sup>2</sup>:** OS가 특수화된 Windows이고 일반화된 것으로 업로드된다면, 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행되기 때문에 VM이 OOBE 화면에서 중단되면서 프로비전 실패 오류가 발생합니다.
 
@@ -58,7 +56,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 
 **캡처 오류:**
 
-**N<sup>3</sup>:** OS가 일반화된 Windows이고 특수화된 것으로 캡처된다면, 원본 VM이 일반화된 것으로 표시되어 사용할 수 없기 때문에 프로비전 시간 제한 오류가 발생합니다.
+**N<sup>3</sup>:** OS가 일반화된 Windows이고 특수화된 것으로 캡처된다면, 원본 VM이 일반화된 것으로 표시되어 사용할 수 없기 때문에 프로비전 시간 초과 오류가 발생합니다.
 
 **N<sup>4</sup>:** OS가 특수화된 Windows이고 일반화된 것으로 캡처된다면, 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행되기 때문에 프로비전 실패 오류가 발생합니다. 또한, 원본 VM이 일반화된 것으로 표시되기 때문에 사용할 수 없습니다.
 
@@ -69,16 +67,16 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>문제: 사용자 지정/갤러리/마켓플레이스 이미지, 할당 오류
 이 오류는 요청되는 VM 크기를 지원할 수 없거나 요청을 수용할 여유 공간이 없는 클러스터에 새 VM 요청이 고정된 상황에서 발생합니다.
 
-**원인 1:** 클러스터가 요청된 VM 크기를 지원할 수 없습니다.
+**원인 1:** 클러스터가 요청한 VM 크기를 지원할 수 없습니다.
 
 **해결 방법 1:**
 
 * 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
 * 요청한 VM의 크기를 변경할 수 없으면:
   * 가용성 집합의 VM을 모두 중지합니다.
-    **리소스 그룹** > *사용자의 리소스 그룹* > **리소스** > *사용자의 가용성 집합* > **Virtual Machines** > *사용자의 가상 머신* > **중지**를 클릭합니다.
+    리소스 **그룹**리소스  >  *그룹 리소스를*클릭 하 여  >  **Resources**  >  *가용성 집합에서*  >  **Virtual Machines**  >  *가상 컴퓨터를*  >  **중지**Virtual Machines 합니다.
   * VM을 모두 중지한 후에, 원하는 크기로 VM을 새로 만듭니다.
-  * 먼저 VM을 시작한 후에 중지된 각각의 VM을 선택하고 **시작**을 클릭합니다.
+  * 먼저 새 VM을 시작한 다음 중지 된 각 Vm을 선택 하 고 **시작**을 클릭 합니다.
 
 **원인 2:** 클러스터에 여유 리소스가 없습니다.
 

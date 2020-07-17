@@ -1,36 +1,35 @@
 ---
-author: wesmc7777
+author: yegu-ms
 ms.service: redis-cache
 ms.topic: include
-origin.date: 11/09/2018
-ms.date: 12/25/2018
-ms.author: v-junlch
-ms.openlocfilehash: 8ebf5ddfa118e0aeadeab0c00a981871a4b5708e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 11/09/2018
+ms.author: yegu
+ms.openlocfilehash: 61e93e3700b9a396d2ac4fdcbb51fc5c874cf9cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "68286262"
 ---
 .NET 애플리케이션은 **StackExchange.Redis** 캐시 클라이언트를 사용할 수 있습니다. 이는 캐시 클라이언트 애플리케이션의 구성을 단순화하는 NuGet 패키지를 사용하여 Visual Studio에서 구성할 수 있습니다. 
 
 > [!NOTE]
-> 자세한 내용은 [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) GitHub 페이지 및 [StackExchange.Azure Cache for Redis 클라이언트 설명서](http://github.com/StackExchange/StackExchange.Redis#documentation)를 참조하세요.
+> 자세한 내용은 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) GitHub 페이지 및 [StackExchange.Azure Cache for Redis 클라이언트 설명서](https://github.com/StackExchange/StackExchange.Redis#documentation)를 참조하세요.
 >
 >
 
-StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 애플리케이션을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 
+StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 클라이언트 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 
 
-![NuGet 패키지 관리](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
+![NuGet 패키지 관리](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
 검색 텍스트 상자에 **StackExchange.Redis** 또는 **StackExchange.Redis.StrongName**을 입력하고 결과에서 원하는 버전을 선택한 후 **설치**를 클릭합니다.
 
 > [!NOTE]
-> 강력한 이름의 **StackExchange.Redis** 클라이언트 라이브러리 버전을 사용하려면 **StackExchange.Redis.StrongName**을 선택하고 그렇지 않으면 **StackExchange.Redis**를 선택합니다.
+> 강력한 이름 버전의 **StackExchange.Redis** 클라이언트 라이브러리를 사용하려면 **StackExchange.Redis.StrongName**을 선택하고 그렇지 않으면 **StackExchange.Redis**를 선택합니다.
 >
 >
 
-![StackExchange.Redis NuGet 패키지](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
+![StackExchange.Redis NuGet 패키지](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
 NuGet 패키지는 클라이언트 애플리케이션이 StackExchange.Azure Cache for Redis 클라이언트를 사용하여 Azure Cache for Redis에 액세스하는 데 필요한 어셈블리 참조를 다운로드하고 추가합니다.
 
@@ -44,5 +43,3 @@ NuGet 패키지는 클라이언트 애플리케이션이 StackExchange.Azure Cac
 ```
 Install-Package StackExchange.Redis
 ```
-
-<!-- ms.date: 12/25/2018 -->

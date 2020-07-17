@@ -1,5 +1,5 @@
 ---
-title: 단일 AD FS-Azure 사용 하 여 여러 Azure AD 페더레이션
+title: 단일 AD FS를 사용 하 여 여러 Azure AD 페더레이션-Azure
 description: 이 문서에서는 하나의 AD FS를 통해 Azure AD를 페더레이션하는 방법에 대해 설명합니다.
 keywords: 페더레이션, ADFS, AD FS, 다중 테넌트, 단일 AD FS, 단일 ADFS, 다중 테넌트 페더레이션, 다중 포리스트 ADFS, AAD 연결, 페더레이션, 테넌트 간 페더레이션
 services: active-directory
@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c8d0e8301fe5443e548dd35a6b6058e8c7a409d0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137827"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849890"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
 
@@ -54,16 +54,20 @@ contoso.com Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipl
  
 도메인 페더레이션 설정의 발급자가 "http\://contoso.com/adfs/services/trust"로 변경되고, Azure AD 신뢰 당사자 트러스트에서 UPN 접미사를 기반으로 하는 올바른 issuerId 값을 발급하도록 발급 클레임 규칙이 추가됩니다.
  
-## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>3단계: AD FS와 fabrikam.com의 페더레이션
+## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>3단계: AD FS로 fabrikam.com 페더레이션
  
 Azure AD PowerShell 세션에서 다음 단계를 수행합니다. fabrikam.com 도메인이 포함된 Azure Active Directory에 연결합니다.
 
-    Connect-MsolService
+```powershell
+Connect-MsolService
+```
 fabrikam.com 관리되는 도메인을 페더레이션된 도메인으로 변환합니다.
 
-    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```powershell
+Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```
  
 위의 작업에서는 동일한 AD FS를 통해 fabrikam.com 도메인을 페더레이션합니다. 두 도메인 모두에 대해 Get-MsolDomainFederationSettings를 사용하여 도메인 설정을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Active Directory와 Azure Active Directory 연결](whatis-hybrid-identity.md)
+[Azure Active Directory를 사용 하 여 Active Directory 연결](whatis-hybrid-identity.md)

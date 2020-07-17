@@ -1,25 +1,14 @@
 ---
-title: Azure Service Bus 메시징 엔터티 자동 전달 | Microsoft Docs
-description: Service Bus 큐 또는 구독을 다른 큐 또는 토픽에 연결하는 방법
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
-ms.service: service-bus-messaging
-ms.devlang: na
+title: 자동 전달 Azure Service Bus 메시징 엔터티
+description: 이 문서에서는 Azure Service Bus 큐 또는 구독을 다른 큐 또는 토픽에 연결 하는 방법을 설명 합니다.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/23/2020
+ms.openlocfilehash: 28c3e8985f12163e871fa4de5fb6cc92d68110b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337745"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>자동 전달을 사용한 Service Bus 엔터티 연결
 
@@ -48,8 +37,10 @@ namespaceManager.CreateSubscription(srcSubscription));
 Alice가 휴가를 가면 ERP 토픽이 아닌 그녀의 개인 큐가 채워집니다. 이러한 경우 영업 담당자가 메시지를 확인하지 못하기 때문에 어떤 ERP 토픽도 할당량에 도달하지 못합니다.
 
 > [!NOTE]
-> 자동 전달에는 설치 되 면 AutoDeleteOnIdle 대상에 대 한 값 데이터 형식의 최대값을 자동으로 설정 됩니다.
-> 이렇게 메시지를 전달할 대상 항상 인지 확인 합니다.
+> 자동 전달 설정 된 경우 **원본 및 대상 모두** 에서 autodeleteonidle의 값이 자동으로 데이터 형식의 최대값으로 설정 됩니다.
+> 
+>   - 원본 측에서 자동 전달 수신 작업으로 작동 합니다. 따라서 자동 전달 설정 된 원본은 절대 "유휴" 상태가 아닙니다.
+>   - 대상 측에서는 메시지를 전달할 대상이 항상 있는지 확인 하기 위해이 작업이 수행 됩니다.
 
 ## <a name="autoforwarding-considerations"></a>자동 전달 관련 고려 사항
 
@@ -59,7 +50,7 @@ Alice가 휴가를 가면 ERP 토픽이 아닌 그녀의 개인 큐가 채워집
 
 Service Bus는 전달된 각 메시지당 하나의 작업을 요청합니다. 예를 들어 각각 다른 큐나 토픽으로 메시지를 자동 전달하도록 구성된 구독이 20개인 토픽에 메시지를 보내는 경우 모든 첫 번째 수준 구독이 메시지 복사본을 수신한다면 21개 작업에 해당하는 대금이 청구됩니다.
 
-다른 큐나 토픽에 연결될 구독을 만들려면 구독을 만든 사람에게 원본과 대상 엔터티에 대한 **관리** 권한이 있어야 합니다. 원본 토픽에 메시지를 보낼 때는 원본 토픽에 대한 **보내기** 권한만 있으면 됩니다.
+다른 큐 나 토픽에 연결 된 구독을 만들려면 구독을 만든 사람에 게 원본과 대상 엔터티 모두에 대 한 **관리** 권한이 있어야 합니다. 원본 토픽에 메시지를 보낼 때는 원본 토픽에 대한 **보내기** 권한만 있으면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -72,7 +63,7 @@ Service Bus는 전달된 각 메시지당 하나의 작업을 요청합니다. �
 Service Bus 성능 향상에 대한 자세한 내용은 다음을 참조하세요. 
 
 * [Service Bus 메시징을 사용한 성능 향상의 모범 사례](service-bus-performance-improvements.md)
-* [분할된 메시징 엔터티][Partitioned messaging entities]
+* [분할 된 메시징 엔터티][Partitioned messaging entities].
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo

@@ -1,30 +1,34 @@
 ---
-title: HeadPose 얼굴 사각형에 맞게 사용
+title: HeadPose 특성 사용
 titleSuffix: Azure Cognitive Services
-description: 자동으로 얼굴 사각형을 회전 HeadPose 특성을 사용 하는 방법에 알아봅니다.
+description: HeadPose 특성을 사용하여 자동으로 얼굴 사각형을 회전시키거나 비디오 피드에서 머리 제스처를 감지하는 방법을 알아봅니다.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
-ms.date: 04/26/2019
+ms.topic: sample
+ms.date: 05/29/2019
 ms.author: pafarley
-ms.openlocfilehash: ddc5bc522c0d3ac258581f2a48a5c3b755302f01
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 534846044770d66ec5171ad4f61de921d2d5d194
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576524"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "76169796"
 ---
-# <a name="use-the-headpose-attribute-to-adjust-the-face-rectangle"></a>얼굴 사각형에 맞게 HeadPose 특성을 사용 합니다.
+# <a name="use-the-headpose-attribute"></a>HeadPose 특성 사용
 
-이 가이드에서는 얼굴 개체의 사각형을 회전하기 위해 감지된 얼굴 특성 HeadPose를 사용합니다. 이 가이드에서 샘플 코드인 [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 샘플 앱에서.NET SDK를 사용 합니다.
+이 가이드에서는 감지된 얼굴의 HeadPose 특성을 사용하여 몇 가지 주요 시나리오를 활성화하는 방법을 알아봅니다.
 
-각 감지된 얼굴과 함께 반환된 얼굴 사각형은 이미지에서 얼굴의 크기와 위치를 표시합니다. 기본적으로 사각형은 이미지에 항상 맞추어집니다(각 면은 완벽하게 수평 및 수직). 각진 얼굴 프레이밍에 대해서는 비효율적일 수 있습니다. 프로그래밍 방식으로 이미지에서 얼굴을 자르려면, 자르기 위해 사각형을 회전하는 것이 유용합니다.
+## <a name="rotate-the-face-rectangle"></a>얼굴 사각형 회전
 
-## <a name="explore-the-sample-code"></a>샘플 코드 탐색
+감지된 모든 얼굴과 함께 반환되는 얼굴 사각형은 이미지에 있는 얼굴의 위치와 크기를 표시합니다. 기본적으로 사각형은 항상 이미지와 맞춥니다(측면은 세로 및 가로임). 이는 기울어진 얼굴을 프레이밍하는 데 비효율적일 수 있습니다. 이미지에서 얼굴을 프로그래밍 방식으로 자르려면 사각형을 회전하여 자르는 것이 좋습니다.
 
-프로그래밍 방식으로 HeadPose 특성을 사용하여 얼굴 사각형을 회전할 수 있습니다. 얼굴을 감지([얼굴을 감지하는 방법](HowtoDetectFacesinImage.md) 참조)하는 경우 이 특성을 지정하게 되면, 나중에 쿼리할 수 있습니다. [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 앱에서 다음 메서드는 **DetectedFace** 개체의 목록을 가져오고 **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** 개체의 목록을 반환합니다. 여기서 **Face** 는 업데이트된 사각형 좌표를 포함하여 얼굴 데이터를 저장하는 사용자 지정 클래스입니다. 에 대 한 새 값은 계산 **위쪽**, **왼쪽**를 **너비**, 및 **높이**, 새 필드와 **FaceAngle**회전을 지정 합니다.
+[Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 샘플 앱은 HeadPose 특성을 사용하여 감지된 얼굴 사각형을 회전시킵니다.
+
+### <a name="explore-the-sample-code"></a>샘플 코드 탐색
+
+HeadPose 특성을 사용하여 얼굴 사각형을 프로그래밍 방식으로 회전시킬 수 있습니다. 얼굴을 감지할 때 이 특성을 지정하면([얼굴 감지 방법](HowtoDetectFacesinImage.md) 참조) 나중에 이를 쿼리할 수 있습니다. [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 앱의 다음 메서드는 **DetectedFace** 개체 목록을 가져와서 **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** 개체 목록을 반환합니다. 여기서 **Face**는 업데이트된 사각형 좌표를 포함하여 얼굴 데이터를 저장하는 사용자 지정 클래스입니다. **top**, **left**, **width** 및 **height**에 대한 새 값이 계산되며, 새 **FaceAngle** 필드에서 회전을 지정합니다.
 
 ```csharp
 /// <summary>
@@ -102,9 +106,9 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 }
 ```
 
-## <a name="display-the-updated-rectangle"></a>업데이트된 사각형 표시
+### <a name="display-the-updated-rectangle"></a>업데이트된 사각형 표시
 
-여기에서 반환된 **Face** 개체를 사용하여 표시할 수 있습니다. [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) 의 다음 줄은 이 데이터로부터 새 사각형이 렌더링되는 방법을 보여줍니다.
+여기서는 반환된 **Face** 개체를 표시에 사용할 수 있습니다. [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml)의 다음 줄에서는 새 사각형이 이 데이터에서 렌더링되는 방법을 보여 줍니다.
 
 ```xaml
  <DataTemplate>
@@ -116,6 +120,17 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 </DataTemplate>
 ```
 
+## <a name="detect-head-gestures"></a>머리 제스처 감지
+
+HeadPose 변경을 실시간으로 추적하여 머리 끄덕임 및 흔들기와 같은 머리 제스처를 감지할 수 있습니다. 이 기능을 사용자 지정 활동성 감지기로 사용할 수 있습니다.
+
+활동성 감지는 주체가 이미지 또는 비디오 표현이 아니라 실제 사람인지 확인하는 작업입니다. 머리 제스처 감지기는 특히 사람의 이미지 표현과는 달리 활동성을 확인하는 데 도움이 되는 한 가지 방법으로 사용할 수 있습니다.
+
+> [!CAUTION]
+> 머리 제스처를 실시간으로 감지하려면 Face API를 높은 속도로 호출해야 합니다(초당 2회 이상). 체험 계층(f0) 구독이 있는 경우 이 방법을 사용할 수 없습니다. 유료 계층 구독이 있는 경우 머리 제스처 감지에 대한 빠른 API 호출에 드는 비용이 계산되었는지 확인합니다.
+
+머리 제스처 감지에 대한 작업 예제는 GitHub의 [Face HeadPose 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample)을 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-회전된 얼굴 사각형의 작업 예제는 GitHub의 [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF)앱을 참조합니다. [Face API HeadPose 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) 앱은 다양한 머리 이동(고개를 끄떡이는, 머리를 흔드는)을 감지하기 위해 실시간으로 HeadPose 특성을 추적 하는 앱입니다.
+회전된 얼굴 사각형에 대한 작업 예제는 GitHub의 [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 앱을 참조하세요. 또는 HeadPose 특성을 실시간으로 추적하여 머리 움직임을 감지하는 [Face HeadPose 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) 앱을 참조하세요.

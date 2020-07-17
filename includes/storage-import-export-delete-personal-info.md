@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure-policy
 author: craigshoemaker
@@ -9,11 +9,11 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182416"
 ---
 ## <a name="deleting-personal-information"></a>개인 정보 삭제
 
@@ -23,7 +23,7 @@ ms.locfileid: "61478793"
 
 - 담당자 이름
 - 전화 번호
-- Email
+- 메일
 - 주소
 - City
 - 우편 번호
@@ -43,6 +43,6 @@ ms.locfileid: "61478793"
   - [Azure Portal](https://portal.azure.com)에 로그인합니다.
   - *설정* 아이콘 ![Azure 설정 아이콘](media/storage-import-export-delete-personal-info/azure-settings-icon.png)을 클릭합니다.
   - *모든 설정 내보내기*를 클릭합니다(현재 설정을 `.json` 파일에 저장).
-  - *모든 설정 및 개인 대시보드 삭제*를 클릭하여 저장된 연락처 정보를 포함하는 모든 설정을 삭제합니다.
+  - *모든 설정 및 프라이빗 대시보드 삭제*를 클릭하여 저장된 연락처 정보를 포함하는 모든 설정을 삭제합니다.
 
 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.

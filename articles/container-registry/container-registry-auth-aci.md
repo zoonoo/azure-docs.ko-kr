@@ -1,25 +1,19 @@
 ---
-title: Azure Container Instances의 Azure Container Registry를 사용하여 인증
-description: Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
-services: container-registry
-author: rockboyfor
-ms.service: container-registry
+title: Container Instances에서 액세스
+description: Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 프라이빗 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 ms.topic: article
-origin.date: 04/23/2018
-ms.date: 03/25/2019
-ms.author: v-yeche
-ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 04/23/2018
+ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61333587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74456509"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure Container Instances의 Azure Container Registry를 사용하여 인증
 
-Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Azure Container Registry에서 개인 컨테이너 레지스트리에 액세스 권한을 제공할 수 있습니다.
+Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Azure Container Registry에서 프라이빗 컨테이너 레지스트리에 액세스 권한을 제공할 수 있습니다.
 
-이 문서에서는 레지스트리에 대한 *풀* 권한으로 Azure AD 서비스 주체를 만들고 구성하는 방법을 알아봅니다. 그런 다음 인증을 위해 서비스 주체를 사용하여 개인 레지스트리에서 이미지를 풀하는 ACI(Azure Container Instances)에서 컨테이너를 시작합니다.
+이 문서에서는 레지스트리에 대한 *풀* 권한으로 Azure AD 서비스 주체를 만들고 구성하는 방법을 알아봅니다. 그런 다음, 인증을 위해 서비스 주체를 사용하여 프라이빗 레지스트리에서 이미지를 풀하는 ACI(Azure Container Instances)에서 컨테이너를 시작합니다.
 
 ## <a name="when-to-use-a-service-principal"></a>서비스 주체를 사용하는 경우
 
@@ -35,12 +29,12 @@ Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Azure Containe
 
 서비스 주체를 사용하여 Azure Container Instances에서 컨테이너를 시작하려면 `--registry-username`에 대한 ID와 `--registry-password`에 대한 암호를 지정합니다.
 
-```azurecli
+```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.cn/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.cn \
+    --image mycontainerregistry.azurecr.io/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.io \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```
@@ -57,7 +51,7 @@ GitHub에서 Azure CLI에 대한 이전 샘플 스크립트 및 Azure PowerShell
 다음 문서에는 서비스 주체 및 ACR 작업에 대한 추가 세부 정보가 포함되어 있습니다.
 
 * [서비스 주체로 Azure Container Registry 인증](container-registry-auth-service-principal.md)
-* [AKS(Azure Kubernetes Service)의 Azure Container Registry를 사용하여 인증](container-registry-auth-aks.md)
+* [AKS(Azure Kubernetes Service)의 Azure Container Registry를 사용하여 인증](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

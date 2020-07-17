@@ -1,53 +1,70 @@
 ---
 title: Azure 메트릭 탐색기의 고급 기능
-description: Azure Monitor 메트릭 탐색기의 고급 기능에 대해 알아보기
+description: Azure Monitor의 고급 기능에 대해 알아봅니다 메트릭 탐색기
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82980901"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
 > [!NOTE]
-> 이 문서에서는 메트릭 탐색기의 기본 기능을 사용 하 여 잘 알고 있다고 가정 합니다. 새 사용자를 첫 번째 메트릭 차트를 만들고 참조 하는 방법을 알아 보 려 [Azure 메트릭 탐색기를 사용 하 여 시작](metrics-getting-started.md)합니다.
+> 이 문서에서는 사용자가 메트릭 탐색기의 기본 기능에 대해 잘 알고 있다고 가정 합니다. 새 사용자 인 경우 첫 번째 메트릭 차트를 만드는 방법을 알아보려면 [Azure 메트릭 탐색기 시작](metrics-getting-started.md)을 참조 하세요.
 
 ## <a name="metrics-in-azure"></a>Azure의 메트릭
 
-[Azure Monitor의 메트릭](data-platform-metrics.md)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭을 사용 하 여 응용 프로그램에서 Azure로 전송 됩니다 반면 합니다 [사용자 지정 이벤트 및 메트릭 용 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 [Windows Azure 진단 (WAD) 확장](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), 또는 [Azure REST API 모니터링](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)합니다.
+[Azure Monitor의 메트릭](data-platform-metrics.md)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트 및 메트릭](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [WINDOWS Azure 진단 (WAD) 확장](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)에 대 한 Application Insights API를 사용 하 여 응용 프로그램에서 Azure로 전송 되거나 [REST API Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)됩니다.
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>여러 메트릭 및 차트를 사용 하 여 뷰 만들기
 
-한 번에 여러 메트릭 차트를 표시 또는 여러 메트릭을 줄을 그릴 차트를 만들 수 있습니다. 이 기능을 사용 하면 수 있습니다.
+여러 메트릭 선을 그리거나 여러 메트릭 차트를 한 번에 표시 하는 차트를 만들 수 있습니다. 이 기능을 사용 하면 다음을 수행할 수 있습니다.
 
-- 상관 관계를 지정 관련된 메트릭의 방법을 값을 확인 하려면 동일한 그래프에는 다른 관련이
-- 다른 인접에서 측정 단위를 사용 하 여 메트릭을 표시합니다
-- 시각적으로 집계 하 고 여러 리소스의 메트릭을 비교합니다
+- 동일한 그래프에서 관련 메트릭의 상관 관계를 설정 하 여 한 값이 다른 값과 관련 된 방식을 확인 합니다.
+- 가까운 근접에서 여러 측정 단위가 포함 된 메트릭 표시
+- 여러 리소스의 메트릭을 시각적으로 집계 하 고 비교
 
-예를 들어 5 개의 저장소 계정을 있고 서로 되는 총 공간을 확인 하려는 시간에서 특정 지점에서 개별 및 모든 값의 합계를 보여 주는 (누적된) 영역형 차트를 만들면 됩니다.
+예를 들어 5 개의 저장소 계정이 있고 그 사이에 사용 되는 총 공간을 확인 하려는 경우 특정 시점에 모든 값의 개별 및 합계를 표시 하는 (누적) 영역형 차트를 만들 수 있습니다.
 
-### <a name="multiple-metrics-on-the-same-chart"></a>동일한 차트에 여러 메트릭
+### <a name="multiple-metrics-on-the-same-chart"></a>동일한 차트의 여러 메트릭
 
-먼저 [새 차트를 만들려면](metrics-getting-started.md#create-your-first-metric-chart)합니다. 클릭 **메트릭을 추가** 하 고 다른 메트릭을 같은 차트에 추가 하는 단계를 반복 합니다.
+먼저 [새 차트를 만듭니다](metrics-getting-started.md#create-your-first-metric-chart). **메트릭 추가** 를 클릭 하 고 단계를 반복 하 여 동일한 차트에 다른 메트릭을 추가 합니다.
 
    > [!NOTE]
    > 일반적으로 하나의 차트에서 다른 단위의 측정값(예: "밀리초" 및 "킬로바이트") 또는 크게 다른 규모를 갖는 메트릭을 사용하지 않습니다. 대신, 여러 차트를 사용하는 것이 좋습니다. [차트 추가] 단추를 클릭하여 메트릭 탐색기에서 여러 개의 차트를 만듭니다.
 
-### <a name="multiple-charts"></a>여러 개의 차트
+### <a name="multiple-charts"></a>여러 차트
 
-클릭 합니다 **차트 추가** 하 고 다른 메트릭을 사용 하 여 다른 차트를 만듭니다.
+**차트 추가** 를 클릭 하 고 다른 메트릭을 사용 하 여 다른 차트를 만듭니다.
 
-### <a name="order-or-delete-multiple-charts"></a>여러 차트를 삭제 하거나 다시 정렬
+### <a name="order-or-delete-multiple-charts"></a>여러 차트 순서 또는 삭제
 
-를 주문 하거나 여러 차트를 삭제 하려면 줄임표를 클릭 ( **...**  ) 차트 메뉴를 열고 적절 한 메뉴 항목의 기호 **위로**를 **아래로 이동**, 또는 **삭제**합니다.
+여러 차트를 정렬 하거나 삭제 하려면 줄임표 ( **...** ) 기호를 클릭 하 여 차트 메뉴를 열고 **위로 이동**, **아래로 이동**또는 **삭제**의 적절 한 메뉴 항목을 선택 합니다.
+
+## <a name="changing-aggregation"></a>집계 변경
+
+차트에 메트릭을 추가 하면 메트릭 탐색기가 자동으로 해당 기본 집계를 미리 선택 합니다. 기본 시나리오에서는 기본값이 적합 하지만 다른 집계를 사용 하 여 메트릭에 대 한 추가 정보를 얻을 수 있습니다. 차트에서 다른 집계를 보려면 메트릭 탐색기에서 해당 집계를 처리 하는 방법을 이해 해야 합니다. 
+
+메트릭은 해당 기간 동안 캡처된 일련의 측정값 (또는 "메트릭 값")입니다. 차트를 그리면 선택 된 메트릭의 값이 *시간 세분화*에 대해 개별적으로 집계 됩니다. [메트릭 탐색기 시간 선택 패널을 사용 하 여](metrics-getting-started.md#select-a-time-range)시간 수준 크기를 선택 합니다. 시간 수준을 명시적으로 선택 하지 않으면 현재 선택한 시간 범위에 따라 시간 세분성이 자동으로 선택 됩니다. 시간 수준을 결정 한 후에는 각 시간 수준 간격 중에 캡처된 메트릭 값을 집계 하 여 차트에 배치 합니다 .이 값은 시간당 하나의 포인트 포인트입니다.
+
+예를 들어 **지난 24 시간** 동안 **평균** 집계를 사용 하 여 **서버 응답 시간** 메트릭을 보여 주는 차트가 있다고 가정 합니다.
+
+- 시간 세분성이 30 분으로 설정 된 경우 차트는 48 집계 datapoints에서 그려집니다 (예: 꺾은선형 차트는 차트 그림 영역에서 48 점을 연결). 즉, 시간당 24 시간 x 2 datapoints입니다. 각 포인트는 관련 30 분 동안 발생 한 서버 요청에 대해 캡처된 모든 응답 시간의 *평균* 을 나타냅니다.
+- 시간 세분성을 15 분으로 전환 하면 96 집계 datapoints을 얻게 됩니다.  즉, 시간당 24 시간 x 4 datapoints.
+
+메트릭 탐색기에서 사용할 수 있는 5 가지 기본 통계 집계 유형은 **Sum**, **Count**, **Min**, **Max**및 **Average**입니다. **합계** 집계를 **합계** 집계 라고도 합니다. 많은 메트릭에 대해 메트릭 탐색기는 완전히 관련이 없고 사용할 수 없는 집계를 숨깁니다.
+
+- **합계** – 집계 간격에 대해 캡처된 모든 값의 합계입니다.
+- **Count** – 집계 간격에 대해 캡처된 측정 수입니다. 메트릭은 항상 값 1을 **사용 하 여** 캡처되는 경우 **Count** 와 같습니다. 이는 메트릭이 고유 이벤트의 수를 추적할 때 일반적 이며, 각 측정은 하나의 이벤트를 나타냅니다 (즉, 새 요청이 들어올 때마다 메트릭 레코드를 실행 하는 코드를 발생 시키는 경우).
+- **평균** – 집계 간격에 대해 캡처된 메트릭 값의 평균
+- **Min** – 집계 간격에 대해 캡처된 가장 작은 값입니다.
+- **Max** – 집계 간격에 대해 캡처된 가장 큰 값입니다.
 
 ## <a name="apply-filters-to-charts"></a>차트에 필터 적용
 
@@ -61,11 +78,11 @@ ms.locfileid: "60256912"
 
    ![메트릭 이미지](./media/metrics-charts/00006.png)
 
-3. 차트를 그릴 때 포함하려는 차원 값을 선택합니다(이 예제에서는 성공적인 저장소 트랜잭션을 필터링하도록 표시함).
+3. 차트를 그릴 때 포함하려는 차원 값을 선택합니다(이 예제에서는 성공적인 스토리지 트랜잭션을 필터링하도록 표시함).
 
    ![메트릭 이미지](./media/metrics-charts/00007.png)
 
-4. 필터 값을 선택한 후에 필터 선택기를 닫으려면 바깥쪽을 클릭합니다. 이제 차트에서는 실패한 저장소 트랜잭션 수를 보여줍니다.
+4. 필터 값을 선택한 후에 필터 선택기를 닫으려면 바깥쪽을 클릭합니다. 이제 차트에서는 실패한 스토리지 트랜잭션 수를 보여줍니다.
 
    ![메트릭 이미지](./media/metrics-charts/00008.png)
 
@@ -82,7 +99,7 @@ ms.locfileid: "60256912"
 1. 차트 위쪽의 **분할 적용**을 클릭합니다.
  
    > [!NOTE]
-   > 여러 메트릭 차트를 사용 하 여 분할을 사용할 수 없습니다. 또한 단일 차트에 적용 하는 하나의 분할 차원 이지만 여러 필터 할 수 있습니다.
+   > 여러 메트릭이 있는 차트에서는 분할을 사용할 수 없습니다. 또한 여러 필터를 포함할 수 있지만 하나의 분할 차원만 단일 차트에 적용 됩니다.
 
 2. 차트를 분할하려는 차원을 선택합니다.
 
@@ -111,6 +128,16 @@ Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 
 
 > [!WARNING]
 > 일정 기간 동안 다양한 개수나 합계(이에 따라 사용 개수, 합계, 최소값 또는 최대 집계)를 추적하는 차트의 Y축 경계를 잠그려면 일반적으로 자동 기본값을 사용하지 않고 고정 시간 세분성을 지정해야 합니다. 사용자가 브라우저 창 크기를 조정하거나 화면 해상도를 변경할 때 시간 세분성이 자동으로 수정되면 차트의 값이 변경되므로 이 설정이 필요합니다. 시간 세분성의 변경 결과는 차트 모양에 영향을 주고 Y축 범위의 현재 선택이 무효화됩니다.
+
+## <a name="change-colors-of-chart-lines"></a>차트 선의 색 변경
+
+차트를 구성한 후에는 기본 색상표에서 차트 선에 색이 자동으로 할당 됩니다. 이러한 색을 변경할 수 있습니다.
+
+차트 선의 색을 변경 하려면 차트에 해당 하는 범례의 색이 지정 된 막대를 클릭 합니다. 색 선택 대화 상자가 열립니다. 색 선택기를 사용 하 여 선의 색을 구성 합니다.
+
+차트 색이 구성 된 후에는 차트를 대시보드에 고정할 때 해당 색이 그대로 유지 됩니다. 다음 섹션에서는 차트를 고정 하는 방법을 보여 줍니다.
+
+![메트릭 이미지](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>대시보드에 차트 고정
 

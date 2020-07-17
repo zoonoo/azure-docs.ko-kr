@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182012"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
 
@@ -30,7 +30,7 @@ ms.locfileid: "60118729"
     },
 ```
 
-이 매개 변수 (Basic, Standard 또는 Premium)에 대 한 허용 되는 값을 정의 하 고 값을 지정 하는 경우 기본 값 (Basic)을 할당 하는 템플릿입니다. Basic은 최대 53GB를 사용할 수 있는 다양한 크기의 단일 노드를 제공합니다. Standard는 최대 53GB를 사용할 수 있으며 99.9%의 SLA를 제공하는 다양한 크기의 2-노드 주/복제본을 제공합니다.
+템플릿은이 매개 변수에 허용 되는 값 (기본, 표준 또는 프리미엄)을 정의 하 고, 값이 지정 되지 않은 경우 기본값 (기본)을 할당 합니다. Basic은 최대 53GB를 사용할 수 있는 다양한 크기의 단일 노드를 제공합니다. Standard는 최대 53GB를 사용할 수 있으며 99.9%의 SLA를 제공하는 다양한 크기의 2-노드 주/복제본을 제공합니다.
 
 ### <a name="cacheskufamily"></a>cacheSKUFamily
 
@@ -54,7 +54,7 @@ SKU 제품군입니다.
 
 새 Azure Cache for Redis 인스턴스의 크기입니다.
 
-기본 및 표준 제품군:
+기본 및 표준 제품군의 경우:
 
 ```json
     "cacheSKUCapacity": {
@@ -75,16 +75,16 @@ SKU 제품군입니다.
     }
 ```
 
-프리미엄 값 캐시 용량 정의 1에서 6으로 0에서 5 대신 실행 허용 되는 값을 제외 하 고 동일 합니다.
+허용 되는 값이 0에서 6이 아닌 1에서 5 사이에 실행 되는 경우를 제외 하 고 Premium value cache 용량은 동일 하 게 정의 됩니다.
 
-템플릿 (0 ~ 6 기본 및 표준 제품군에 대 한; 프리미엄 제품군에 대해 1-5)이 매개이 변수에 허용 되는 정수 값을 정의 합니다. 없는 값을 지정 하는 경우 템플릿을 Basic 및 Standard, Premium 1에 대 한 기본값은 0 할당 합니다.
+템플릿은이 매개 변수에 허용 되는 정수 값을 정의 합니다 (기본 및 표준 제품군의 경우 0 ~ 6, 프리미엄 패밀리의 경우 1 ~ 5). 값을 지정 하지 않으면 템플릿에서 Basic 및 Standard에 대해 기본값인 0을 할당 하 고 Premium에는 1을 할당 합니다.
 
 값은 다음 캐시 크기에 해당 합니다.
 
-| Value | 기본 및 표준<br>캐시 크기 | Premium<br>캐시 크기 |
+| 값 | Basic 및 Standard<br>캐시 크기 | Premium<br>캐시 크기 |
 | :---: | :------------------------------: | :-------------------: |
-| 0     | 250MB (기본값)                 | 해당 없음                   |
-| 1     | 1 GB                             | 6GB (기본값)        |
+| 0     | 250 MB (기본값)                 | 해당 없음                   |
+| 1     | 1GB                             | 6gb (기본값)        |
 | 2     | 2.5GB                           | 13GB                 |
 | 3     | 6GB                             | 26GB                 |
 | 4     | 13GB                            | 53GB                 |

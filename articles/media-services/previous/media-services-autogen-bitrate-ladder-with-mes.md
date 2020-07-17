@@ -1,6 +1,6 @@
 ---
-title: Azure Media Encoder Standard를 사용하여 비트 전송률 사다리 자동 생성 | Microsoft Docs
-description: 이 항목에서는 MES(Media Encoder Standard)를 사용하여 입력 해상도 및 비트 전송률을 기반으로 비트 전송률 사다리를 자동 생성하는 방법을 보여 줍니다. 입력 해상도 및 비트 전송률은 초과되지 않습니다. 예를 들어, 입력이 3Mbps에서 720p이고 출력이 최적 시 720p로 유지되는 경우 3Mbps보다 낮은 전송률로 시작됩니다.
+title: Media Encoder Standard를 사용 하 여 비트 전송률 사다리 자동 생성-Azure | Microsoft Docs
+description: 이 항목에서는 MES(Media Encoder Standard)를 사용하여 입력 해상도 및 비트 전송률을 기반으로 비트 전송률 사다리를 자동 생성하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: bbaf4d490fcebb4cd741a9b83ffc5d7e85699755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61224347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74896012"
 ---
-#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Azure Media Encoder Standard를 사용하여 비트 전송률 사다리 자동 생성  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Media Encoder Standard를 사용 하 여 비트 전송률 사다리 자동 생성  
 
 ## <a name="overview"></a>개요
 
@@ -34,7 +33,7 @@ ms.locfileid: "61224347"
 
 스트리밍을 수행하고 점진적 다운로드를 위한 MP4 파일을 생성하기 위해 원본 비디오를 인코딩하려는 경우에는 인코딩 작업을 만들 때 "콘텐츠 적응 다중 비트 전송률 MP4" 사전 설정을 사용해야 합니다. **콘텐츠 적응 다중 비트 전송률 MP4** 사전 설정을 사용할 때도 MES 인코더는 위에서 설명한 것과 동일한 인코딩 논리를 적용합니다. 그러나 이 경우 출력 자산에는 오디오와 비디오가 인터리빙되는 MP4 파일이 포함됩니다. 이러한 MP4 파일 중 하나(예: 비트 전송률이 가장 높은 버전)를 점진적 다운로드 파일로 사용할 수 있습니다.
 
-## <a id="encoding_with_dotnet"></a>Media Services .NET SDK를 사용하여 Encoding
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Media Services .NET SDK를 사용하여 Encoding
 
 다음 코드 예제에서는 Media Services .NET SDK를 사용하여 다음 작업을 수행합니다.
 
@@ -47,9 +46,9 @@ ms.locfileid: "61224347"
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```
 using System;
@@ -167,7 +166,7 @@ namespace AdaptiveStreamingMESPresest
 }
 ```
 
-## <a id="output"></a>출력
+## <a name="output"></a><a id="output"></a>출력
 
 이 섹션에서는 **적응 스트리밍** 사전 설정으로 인코딩한 결과로 MES에 의해 생성된 출력 계층의 세 가지 예를 보여 줍니다. 
 
@@ -183,7 +182,7 @@ namespace AdaptiveStreamingMESPresest
 |5|270|480|720|
 |6|180|320|380|
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 높이가 "720"이고 프레임 속도가 "23.970"인 원본은 5개의 비디오 계층을 생성합니다.
 
 |계층|높이|너비|비트 전송률(kbps)|
@@ -194,7 +193,7 @@ namespace AdaptiveStreamingMESPresest
 |4|270|480|600|
 |5|180|320|320|
 
-### <a name="example-3"></a>예 3
+### <a name="example-3"></a>예제 3
 높이가 "360"이고 프레임 속도가 "29.970"인 원본은 3개의 비디오 계층을 생성합니다.
 
 |계층|높이|너비|비트 전송률(kbps)|
@@ -208,6 +207,6 @@ namespace AdaptiveStreamingMESPresest
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [Media Services Encoding 개요](media-services-encode-asset.md)
 

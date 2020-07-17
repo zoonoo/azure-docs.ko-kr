@@ -1,35 +1,24 @@
 ---
-title: 앱 복원 - Azure App Service
-description: 백업에서 앱을 복원하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: 백업에서 앱 복원
+description: 백업에서 앱을 복원하는 방법에 대해 알아봅니다. 특정 연결 된 데이터베이스는 하나의 작업으로 앱과 함께 복원할 수 있습니다.
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74689241"
 ---
 # <a name="restore-an-app-in-azure"></a>Azure에서 앱 복원
 이 문서에서는 이전에 백업한 [Azure App Service](../app-service/overview.md)에서 앱을 복원하는 방법을 보여 줍니다([Azure에서 앱 백업](manage-backup.md) 참조). 요청 시 연결된 데이터베이스와 함께 앱을 이전 상태로 복원하거나, 원래 앱의 백업 중 하나를 기반으로 하여 새 앱을 만들 수 있습니다. Azure App Service는 백업 및 복원을 위해 다음과 같은 데이터베이스를 지원합니다.
-- [SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [MySQL 인앱](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
-백업에서 복원하는 방식은 **표준** 및 **프리미엄** 계층에서 실행되는 앱에 사용할 수 있습니다. 앱 확장에 대한 자세한 내용은 [Azure에서 앱 확장](web-sites-scale.md)을 참조하세요. **프리미엄** 계층을 사용하면 **표준** 계층보다 더 많은 매일 백업을 수행할 수 있습니다.
+백업에서 복원하는 방식은 **표준** 및 **프리미엄** 계층에서 실행되는 앱에 사용할 수 있습니다. 앱 확장에 대한 자세한 내용은 [Azure에서 앱 확장](manage-scale-up.md)을 참조하세요. **프리미엄** 계층을 사용하면 **표준** 계층보다 더 많은 매일 백업을 수행할 수 있습니다.
 
 <a name="PreviousBackup"></a>
 
@@ -43,7 +32,7 @@ ms.locfileid: "60832514"
    
     **앱 백업** 옵션에는 현재 앱의 모든 기존 백업을 표시하며 백업 중 하나를 쉽게 선택할 수 있습니다.
     **스토리지** 옵션을 사용하면 구독의 기존 Azure Storage 계정 및 컨테이너에서 백업 ZIP 파일을 선택할 수 있습니다.
-    다른 앱의 백업을 복원하려는 경우 **저장소** 옵션을 사용합니다.
+    다른 앱의 백업을 복원하려는 경우 **스토리지** 옵션을 사용합니다.
 3. 그런 다음 **복원 대상**에서 앱 복원 대상을 지정합니다.
    
     ![](./media/web-sites-restore/022ChooseDestination1.png)
@@ -64,10 +53,10 @@ ms.locfileid: "60832514"
 
 <a name="StorageAccount"></a>
 
-## <a name="download-or-delete-a-backup-from-a-storage-account"></a>저장소 계정에서 백업 다운로드 또는 삭제
-1. Azure Portal의 기본 **찾아보기** 페이지에서 **Storage 계정**을 선택합니다. 기존 저장소 계정 목록이 표시됩니다.
-2. 다운로드 또는 삭제하려는 백업을 포함하는 저장소 계정을 선택합니다. 저장소 계정에 대한 페이지가 표시됩니다.
-3. 저장소 계정 페이지에서 원하는 컨테이너를 선택합니다.
+## <a name="download-or-delete-a-backup-from-a-storage-account"></a>스토리지 계정에서 백업 다운로드 또는 삭제
+1. Azure Portal의 기본 **찾아보기** 페이지에서 **Storage 계정**을 선택합니다. 기존 스토리지 계정 목록이 표시됩니다.
+2. 다운로드 또는 삭제하려는 백업을 포함하는 스토리지 계정을 선택합니다. 스토리지 계정에 대한 페이지가 표시됩니다.
+3. 스토리지 계정 페이지에서 원하는 컨테이너를 선택합니다.
    
     ![컨테이너 보기][ViewContainers]
 4. 다운로드 또는 삭제하려는 백업 파일을 선택합니다.

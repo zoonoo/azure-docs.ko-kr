@@ -1,11 +1,16 @@
 ---
-ms.openlocfilehash: 861536a4a35b3ce95c7b87d77a7f0cf4bc38c81e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+author: robinsh
+ms.author: robinsh
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.openlocfilehash: 3c5bb3548c4b8d8aef2935a272aac18c3d18ee25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82506421"
 ---
 > [!IMPORTANT]
-> IoT Hub가 DNS 엔드포인트로 공개적으로 검색할 수 있게 되므로 이름을 지정하는 동안 중요한 정보를 피해야 합니다.
+> IoT 허브는 DNS 엔드포인트로 공개적으로 검색될 수 있기 때문에 이름을 지정할 때 민감하거나 개인을 식별할 수 있는 정보는 입력하지 마십시오.
 >

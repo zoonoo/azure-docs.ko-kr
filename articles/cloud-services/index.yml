@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Azure Cloud Services 설명서
+summary: Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드 애플리케이션 및 API를 호스트하고 실행하는 방법에 대해 알아봅니다. 가상 머신 호스트를 관리하고 소프트웨어를 구성, 패치 및 설치하는 방법을 보여줍니다.
+metadata:
+  title: Azure Cloud Services 설명서
+  description: Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드 애플리케이션 및 API를 호스트하고 실행하는 방법을 설명합니다.
+  ms.service: cloud-services
+  service: cloud-services
+  ms.topic: landing-page
+  author: tgore03
+  ms.author: tagore
+  ms.date: 03/06/2020
+  ms.openlocfilehash: 11699a28ab3b5863812c9c171428896aeaaefec1
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "78943189"
+landingContent:
+- title: Cloud Services 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cloud Services란?
+      url: cloud-services-choose-me.md
+  - linkListType: video
+    links:
+    - text: Cloud Services 비디오 라이브러리
+      url: https://azure.microsoft.com/documentation/videos/index/?services=cloud-services
+- title: 시작하기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: ASP.NET
+      url: cloud-services-dotnet-get-started.md
+    - text: Python for Visual Studio
+      url: cloud-services-python-ptvs.md
+- title: 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: PHP 웹 및 작업자 역할 만들기
+      url: ../cloud-services-php-create-web-role.md
+    - text: Node.js 애플리케이션 빌드 및 배포
+      url: cloud-services-nodejs-develop-deploy-app.md
+    - text: Express를 사용하여 Node.js 웹 애플리케이션 빌드 및 배포
+      url: cloud-services-nodejs-develop-deploy-express-app.md
+- title: 배포
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 포털에서 클라우드 서비스 만들기 및 배포
+      url: cloud-services-how-to-create-deploy-portal.md
+    - text: PowerShell에서 빈 클라우드 서비스 컨테이너 만들기
+      url: cloud-services-powershell-create-cloud-container.md
+- title: 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 일반적인 관리 작업
+      url: cloud-services-how-to-manage-portal.md
+    - text: 클라우드 서비스 구성
+      url: cloud-services-how-to-configure-portal.md

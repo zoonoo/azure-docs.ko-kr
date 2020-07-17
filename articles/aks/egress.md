@@ -1,18 +1,16 @@
 ---
-title: AKS(Azure Kubernetes Service)의 송신 트래픽용 고정 IP 주소
+title: 송신 트래픽에 고정 IP 사용
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽용으로 고정 공용 IP 주소를 만들어 사용하는 방법을 알아봅니다.
 services: container-service
-author: iainfoulds
-ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: 6612d801804cdd1e092b50977230f24b378e64ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466429"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205785"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 송신 트래픽에 고정 공용 IP 주소 사용
 
@@ -22,9 +20,12 @@ ms.locfileid: "60466429"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure cli 버전 2.0.59 또는 나중에 설치 하 고 구성한 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+
+> [!IMPORTANT]
+> 이 문서에서는 단일 노드 풀로 *기본* SKU 부하 분산 장치를 사용 합니다. *기본* SKU 부하 분산 장치는 여러 노드 풀에서 지원 되지 않으므로이 구성은 여러 노드 풀에 사용할 수 없습니다. *표준* SKU 부하 분산 장치를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 공용 표준 LOAD BALANCER 사용 (AKS)][slb] 을 참조 하세요.
 
 ## <a name="egress-traffic-overview"></a>송신 트래픽 개요
 
@@ -34,7 +35,7 @@ AKS 클러스터의 아웃바운드 트래픽은 [Azure Load Balancer 규칙][ou
 
 ## <a name="create-a-static-public-ip"></a>고정 공용 IP 만들기
 
-AKS에서 사용할 고정 공용 IP 주소를 만들 때는 **노드** 리소스 그룹에서 IP 주소 리소스를 만들어야 합니다. [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
+[az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -95,7 +96,7 @@ spec:
 kubectl apply -f egress-service.yaml
 ```
 
-이 서비스는 Azure Load Balancer에서 새 프런트 엔드 IP를 구성합니다. 다른 IP를 구성하지 않은 경우에는 **모든** 송신 트래픽에 이 주소가 사용되어야 합니다. Azure Load Balancer에 여러 주소가 구성되어 있는 경우에는 Load Balancer의 첫 번째 IP가 송신에 사용됩니다.
+이 서비스는 Azure Load Balancer에서 새 프런트 엔드 IP를 구성합니다. 다른 IP를 구성하지 않은 경우에는 **모든** 송신 트래픽에 이 주소가 사용되어야 합니다. Azure Load Balancer에 여러 주소가 구성 된 경우 이러한 공용 IP 주소는 아웃 바운드 흐름의 후보가 되며 하나는 임의로 선택 됩니다.
 
 ## <a name="verify-egress-address"></a>송신 주소 확인
 
@@ -136,3 +137,4 @@ Azure Load Balancer에 공용 IP 주소가 여러 개 유지되지 않도록 하
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[slb]: load-balancer-standard.md

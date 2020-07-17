@@ -1,27 +1,20 @@
 ---
-title: Azure에서 StorSimple 8000 디바이스 관리자 서비스에 새 인증 사용 | Microsoft Docs
+title: Device Manager에서 StorSimple 8000에 대 한 Azure AD 인증
 description: 서비스에 AAD 기반 인증을 사용하고, 새 등록 키를 생성하고, 디바이스의 수동 등록을 수행하는 방법을 설명합니다.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b16132c24d35ee2c9902fa2b21c44416d8376b4d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309873"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77470907"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>StorSimple에 새 인증 사용
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>개요
 
@@ -60,9 +53,9 @@ StorSimple 8000 시리즈 디바이스를 사용하는 경우 다음 테이블�
 
 | 실행 중인 디바이스| 수행할 작업                                    |
 |--------------------------|------------------------|
-| 업데이트 5 이상을 실행 중이고 디바이스가 오프라인 상태입니다. <br> URL이 허용 목록에 없다는 경고가 표시됩니다.|1. 인증 URL을 포함하도록 방화벽 규칙을 수정합니다. [인증 URL](#url-changes-for-aad-authentication)을 참조하세요.<br>2. [서비스에서 AAD 등록 키를 받습니다](#aad-based-registration-keys).<br>3. [StorSimple 8000 시리즈 디바이스의 Windows PowerShell 인터페이스에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. `Redo-DeviceRegistration` cmdlet을 사용하여 Windows PowerShell을 통해 디바이스를 등록합니다. 이전 단계에서 얻은 키를 제공합니다.|
-| 업데이트 5 이상을 실행 중이고 디바이스가 온라인 상태입니다.| 별도의 작업이 필요 없습니다.                                       |
-| 업데이트 4 이상을 실행 중이고 디바이스가 오프라인 상태입니다. |1. 인증 URL을 포함하도록 방화벽 규칙을 수정합니다.<br>2. [카탈로그 서버를 통해 업데이트 5를 다운로드합니다](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [핫픽스 메서드를 통해 업데이트 5를 적용합니다](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [서비스에서 AAD 등록 키를 받습니다](#aad-based-registration-keys).<br>5. [StorSimple 8000 시리즈 디바이스의 Windows PowerShell 인터페이스에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. `Redo-DeviceRegistration` cmdlet을 사용하여 Windows PowerShell을 통해 디바이스를 등록합니다. 이전 단계에서 얻은 키를 제공합니다.|
+| 업데이트 5 이상을 실행 중이고 디바이스가 오프라인 상태입니다. <br> URL이 허용 목록에 없다는 경고가 표시됩니다.|1. 인증 URL을 포함 하도록 방화벽 규칙을 수정 합니다. [인증 URL](#url-changes-for-aad-authentication)을 참조하세요.<br>2. [서비스에서 AAD 등록 키를 가져옵니다](#aad-based-registration-keys).<br>3. [StorSimple 8000 시리즈 장치의 Windows PowerShell 인터페이스에 연결](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)합니다.<br>4. `Redo-DeviceRegistration` cmdlet을 사용 하 여 Windows PowerShell을 통해 장치를 등록 합니다. 이전 단계에서 얻은 키를 제공합니다.|
+| 업데이트 5 이상을 실행 중이고 디바이스가 온라인 상태입니다.| 사용자가 조치할 필요는 없습니다.                                       |
+| 업데이트 4 이상을 실행 중이고 디바이스가 오프라인 상태입니다. |1. 인증 URL을 포함 하도록 방화벽 규칙을 수정 합니다.<br>2. [카탈로그 서버를 통해 업데이트 5를 다운로드](storsimple-8000-install-update-5.md#download-updates-for-your-device)합니다.<br>3. [핫픽스 메서드를 통해 업데이트 5를 적용](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix)합니다.<br>4. [서비스에서 AAD 등록 키를 가져옵니다](#aad-based-registration-keys).<br>5. [StorSimple 8000 시리즈 장치의 Windows PowerShell 인터페이스에 연결](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)합니다. <br>6. `Redo-DeviceRegistration` cmdlet을 사용 하 여 Windows PowerShell을 통해 장치를 등록 합니다. 이전 단계에서 얻은 키를 제공합니다.|
 | 업데이트 4 이상을 실행 중이고 디바이스가 온라인 상태입니다. |인증 URL을 포함하도록 방화벽 규칙을 수정합니다.<br> Azure Portal을 통해 업데이트 5를 설치합니다.              |
 | 업데이트 5 이전 버전으로 공장 재설정.      |디바이스에서 이전 소프트웨어를 실행하는 동안 포털에 AAD 기반 등록 키가 표시됩니다. 디바이스에서 업데이트 4 또는 이전 버전을 실행하는 경우 이전 시나리오의 단계를 따릅니다.              |
 
@@ -81,7 +74,7 @@ AAD 서비스 등록 키를 생성하려면 다음 단계를 수행합니다.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>AAD 서비스 등록 키를 생성하려면
 
-1. **StorSimple 디바이스 관리자**에서 **관리 &gt;****키**로 이동합니다. 검색 창을 사용하여 _키_를 검색할 수도 있습니다.
+1. **StorSimple 디바이스 관리자**에서 **관리 &gt;** **키**로 이동합니다. 검색 창을 사용하여 _키_를 검색할 수도 있습니다.
     
 2. **키 생성**을 클릭합니다.
 

@@ -1,17 +1,18 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: fe726986b3f93ab3bb447b8973727a658ac1c706
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.date: 11/03/2016
+ms.openlocfilehash: 96943405f3fce02b8a07158f797dd204eb4bb8e2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133339"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789697"
 ---
-### <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
+
 * [GoogleDrive](https://www.google.com/drive/) 계정  
 
 논리 앱에서 GoogleDrive 계정을 사용하려면 먼저 GoogleDrive 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure Portal의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.  

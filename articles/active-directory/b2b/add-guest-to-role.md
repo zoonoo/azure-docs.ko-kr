@@ -1,10 +1,10 @@
 ---
-title: 역할-Azure Active Directory에 B2B 공동 작업 사용자 추가 | Microsoft Docs
+title: B2B 공동 작업 사용자를 역할에 추가-Azure Active Directory
 description: Azure Active Directory의 역할에 게스트 사용자 추가
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cb195fd3fbf668afe436d3247767d2cc998281a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5e9983c265fcc032908424f747066f8f348771f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387374"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에서 파트너 조직의 사용자에게 권한 부여
 
@@ -37,5 +37,5 @@ Azure AD(Azure Active Directory) B2B 협업 사용자가 디렉터리에 게스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-- [B2B 공동 작업 사용자 속성](user-properties.md)
+- [Azure AD B2B 협업이란?](what-is-b2b.md)
+- [B2B 협업 사용자 속성](user-properties.md)

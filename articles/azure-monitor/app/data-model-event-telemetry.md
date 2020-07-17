@@ -1,29 +1,20 @@
 ---
 title: Azure Application Insights 원격 분석 데이터 모델 - 이벤트 원격 분석 | Microsoft Docs
 description: 이벤트 원격 분석을 위한 Azure Application Insights 데이터 모델
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 8e519e5a5e5fe6b893fa5663e1426630f46f885f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bd8b2581f7642f6825aaf0d1b51c8e94d4333d33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60900853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77671885"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>이벤트 원격 분석: Application Insights 데이터 모델
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 이벤트 원격 분석 항목을 만들어 애플리케이션에서 발생한 이벤트를 나타낼 수 있습니다. 일반적으로 이 작업은 단추 클릭 또는 주문 체크 아웃과 같은 사용자 조작입니다. 초기화 또는 구성 업데이트 같은 애플리케이션 수명 주기 이벤트일 수도 있습니다. 
 
-의미상 이벤트는 요청과 상호 관련되거나 그렇지 않을 수 있습니다. 하지만 제대로 사용될 경우 이벤트 원격 분석은 요청이나 추적보다 더 중요합니다. 이벤트는 비즈니스 원격 분석을 나타내며, 별도의 덜 공격적인 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)의 대상이어야 합니다.
+의미상 이벤트는 요청과 상호 관련되거나 그렇지 않을 수 있습니다. 하지만 제대로 사용될 경우 이벤트 원격 분석은 요청이나 추적보다 더 중요합니다. 이벤트는 비즈니스 원격 분석을 나타내며 별도의 저렴 한 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)을 적용 해야 합니다.
 
 ## <a name="name"></a>이름
 

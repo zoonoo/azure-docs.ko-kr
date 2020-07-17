@@ -1,50 +1,54 @@
 ---
-title: Azure Data Factory를 사용 하 여 제어 테이블을 사용 하 여 대량 데이터베이스 복사 | Microsoft Docs
-description: 솔루션 템플릿을 사용 하 여 Azure Data Factory를 사용 하 여 원본 테이블의 파티션 목록을 저장할 테이블을 외부 컨트롤을 사용 하 여 데이터베이스에서 데이터를 대량으로 복사 하는 방법에 알아봅니다.
+title: 제어 테이블을 사용하여 데이터베이스에서 대량 복사
+description: 외부 제어 테이블을 사용하여 Azure Data Factory에서 원본 테이블의 파티션 목록을 저장하는 방식으로 솔루션 템플릿을 사용하여 데이터베이스에서 데이터를 대량으로 복사하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: c4224693642e8c9f76deedc0c8ad8586e122cc23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46e81242c1fba463f547015a244650ae6e574580
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60635448"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629085"
 ---
-# <a name="bulk-copy-from-a-database-with-a-control-table"></a>제어 테이블이 있는 데이터베이스에서 대량 복사
+# <a name="bulk-copy-from-a-database-with-a-control-table"></a>제어 테이블을 사용하여 데이터베이스에서 대량 복사
 
-Oracle Server 나 Netezza, Teradata, SQL Server에서 데이터 웨어하우스 로부터 Azure SQL Data Warehouse로 데이터를 복사, 여러 테이블에서 엄청난 양의 데이터를 로드 해야 합니다. 일반적으로 데이터를 단일 테이블에서 병렬로 여러 스레드를 사용 하 여 행을 로드할 수 있도록 각 테이블에 분할할 수 해야 합니다. 이 문서에서는 이러한 시나리오에서 사용할 템플릿을 설명 합니다.
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
- >! 소수의 비교적 작은 데이터 볼륨을 사용 하 여 테이블에서 SQL Data Warehouse로 데이터 복사 하려는 경우 것이 보다 효율적으로 사용할 합니다 [Azure Data Factory 데이터 복사 도구](copy-data-tool.md)합니다. 이 문서에 설명 된 파일은 해당 시나리오에 필요한 것 보다 더입니다.
+Oracle Server, Netezza, Teradata 또는 SQL Server의 데이터 웨어하우스 데이터를 Azure SQL Data Warehouse에 복사하려면 여러 테이블에서 대량의 데이터를 로드해야 합니다. 일반적으로 단일 테이블에서 여러 스레드를 병렬 처리하여 행을 로드할 수 있도록 각 테이블에 데이터를 분할해야 합니다. 이 문서에서는 이러한 시나리오에서 사용할 템플릿을 설명합니다.
+
+ >!NOTE 비교적 작은 데이터 볼륨이 포함된 적은 수의 테이블에서 SQL Data Warehouse로 데이터를 복사하려는 경우 [Azure Data Factory 데이터 복사 도구](copy-data-tool.md)를 사용하는 것이 더 효율적입니다. 이 문서에서 설명하는 템플릿은 해당 시나리오에 필요한 것 이상의 기능을 제공합니다.
 
 ## <a name="about-this-solution-template"></a>이 솔루션 템플릿 정보
 
-이 템플릿은 외부 제어 테이블에서 복사할 원본 데이터베이스 파티션의 목록을 검색 합니다. 원본 데이터베이스의 각 파티션에 대해 반복 하 고 대상에 데이터를 복사 합니다.
+이 템플릿은 외부 제어 테이블에서 복사할 원본 데이터베이스 파티션의 목록을 검색합니다. 그런 다음, 원본 데이터베이스의 각 파티션을 반복하고 대상에 데이터를 복사합니다.
 
 이 템플릿은 다음 세 가지 작업을 포함합니다.
-- **조회** 외부 제어 테이블에서 있는지 데이터베이스 파티션의 목록을 검색 합니다.
-- **ForEach** 파티션 목록 조회 작업에서 가져오고 각 파티션을 복사 작업을 반복 합니다.
-- **복사** 대상 저장소를 원본 데이터베이스 저장소의 각 파티션에 복사 합니다.
+- **조회**는 외부 제어 테이블에서 데이터베이스 파티션 목록을 검색합니다.
+- **ForEach**는 조회 작업에서 파티션 목록을 가져오고 각 파티션을 복사 작업으로 반복합니다.
+- **복사**는 원본 데이터베이스 저장소의 각 파티션을 대상 저장소로 복사합니다.
 
-이 템플릿은 다음 5개의 매개 변수를 정의합니다.
-- *Control_Table_Name* 가 원본 데이터베이스에 대 한 파티션 목록 저장 하는 외부 컨트롤 테이블입니다.
-- *Control_Table_Schema_PartitionID* 각 파티션 ID를 저장 하는 외부 제어 테이블에서 열 이름의 이름 파티션 ID 원본 데이터베이스의 각 파티션에 대해 고유한 지 확인 합니다.
-- *Control_Table_Schema_SourceTableName* 가 원본 데이터베이스에서 각 테이블 이름을 저장 하는 외부 컨트롤 테이블입니다.
-- *Control_Table_Schema_FilterQuery* 원본 데이터베이스의 각 파티션에 데이터를 활용 하려면 필터 쿼리를 저장 하는 컨트롤 외부 테이블의 열 이름입니다. 예를 들어 연도별로 데이터를 분할 하는 경우 각 행에 저장 된 쿼리 유사할 수 있습니다 ' 선택 * datasource에서 여기서 LastModifytime > = ' 2015-01-01 00시: 00 '과 LastModifytime < = ' 2015-12-31 23:59:59.999 ' '.
-- *Data_Destination_Folder_Path* 를 대상 저장소에 데이터가 복사 되는 위치 경로입니다. 이 매개 변수에 대상이 있는 경우 선택 하는 파일 기반 저장소에 표시 됩니다. 대상 저장소로 SQL Data Warehouse를 선택 하면이 매개 변수가 필요 하지 않습니다. 있지만 테이블 이름 및 SQL Data Warehouse에서 스키마를 원본 데이터베이스에서 항목 동일 이어야 합니다.
+템플릿은 다음 매개 변수를 정의합니다.
+- *Control_Table_Name*은 원본 데이터베이스에 대한 파티션 목록을 저장하는 외부 제어 테이블입니다.
+- *Control_Table_Schema_PartitionID*는 각 파티션 ID를 저장하는 외부 제어 테이블의 열 이름입니다. 파티션 ID가 원본 데이터베이스의 각 파티션에서 고유한지 확인합니다.
+- *Control_Table_Schema_SourceTableName*은 원본 데이터베이스의 각 테이블 이름을 저장하는 외부 제어 테이블입니다.
+- *Control_Table_Schema_FilterQuery*는 원본 데이터베이스의 각 파티션에서 데이터를 가져오는 필터 쿼리를 저장하는 외부 제어 테이블의 열 이름입니다. 예를 들어 연도를 기준으로 데이터를 분할한 경우 각 행에 저장된 쿼리는 ‘select * from datasource where LastModifytime >= “2015-01-01 00:00:00” and LastModifytime <= “2015-12-31 23:59:59.999”’와 유사할 수 있습니다.
+- *Data_Destination_Folder_Path*는 데이터가 대상 저장소에 복사되는 경로입니다(선택한 대상이 "파일 시스템" 또는 "Azure Data Lake Storage Gen1"인 경우에 해당). 
+- *Data_Destination_Container*는 대상 저장소에서 데이터가 복사 되는 루트 폴더 경로입니다. 
+- *Data_Destination_Directory*는 대상 저장소에 데이터가 복사되는 루트 아래의 디렉터리 경로입니다. 
+
+대상 저장소의 경로를 정의하는 마지막 세 매개 변수는 선택한 대상이 파일 기반 스토리지인 경우에만 표시됩니다. "Azure Synapse Analytics(이전의 SQL DW)"를 대상 저장소로 선택하는 경우 이러한 매개 변수는 필요하지 않습니다. 그러나 SQL Data Warehouse의 테이블 이름과 스키마가 원본 데이터베이스와 같아야 합니다.
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
-1. 대량 복사의 원본 데이터베이스 파티션 목록을 저장 하는 SQL Server 또는 Azure SQL Database에서 제어 테이블을 만듭니다. 다음 예제에서는 5 개의 파티션을의 경우 원본 데이터베이스 에 대 한 3 개 파티션은 합니다 *datasource_table*, 고 두 개는 합니다 *project_table*합니다. 열 *LastModifytime* 테이블의 데이터를 분할 하는 데 사용 됩니다 *datasource_table* 원본 데이터베이스에서. 첫 번째 파티션에 읽는 데 사용 되는 쿼리는 ' 선택 * datasource_table에서 여기서 LastModifytime > = ' 2015-01-01 00시: 00 '과 LastModifytime < = ' 2015-12-31 23:59:59.999 ' '입니다. 다른 파티션에서 데이터를 읽을 수는 비슷한 쿼리를 사용할 수 있습니다.
+1. 대량 복사를 위해 원본 데이터베이스 파티션 목록을 저장할 제어 테이블을 SQL Server 또는 Azure SQL Database에 만듭니다. 다음 예제에서는 원본 데이터베이스에 5개의 파티션이 있습니다. 3개의 파티션은 *datasource_table*에 대한 것이고, 2개는 *project_table*에 대한 것입니다. *LastModifytime* 열은 원본 데이터베이스에서 *datasource_table* 테이블의 데이터를 분할하는 데 사용됩니다. 첫 번째 파티션을 읽는 데 사용되는 쿼리는 ‘select * from datasource_table where LastModifytime >= “2015-01-01 00:00:00” and LastModifytime <= “2015-12-31 23:59:59.999”’입니다. 유사한 쿼리를 사용하여 다른 파티션에서 데이터를 읽을 수도 있습니다.
 
      ```sql
             Create table ControlTableForTemplate
@@ -64,35 +68,33 @@ Oracle Server 나 Netezza, Teradata, SQL Server에서 데이터 웨어하우스 
             (5, 'project_table','select * from project_table where ID >= 1000 and ID < 2000');
     ```
 
-2. 로 이동 합니다 **데이터베이스에서 대량 복사** 템플릿. 만들기는 **새로 만들기** 1 단계에서 만든 컨트롤 외부 테이블에 연결 합니다.
+2. **데이터베이스에서 대량 복사** 템플릿으로 이동합니다. 1단계에서 만든 외부 제어 테이블에 대한 **새** 연결을 만듭니다.
 
     ![제어 테이블에 대한 새 연결 만들기](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
 
-3. 만들기는 **새로 만들기** 데이터를 복사 하는 원본 데이터베이스에 연결 합니다.
+3. 데이터를 복사하는 원본 데이터베이스에 대해 **새** 연결을 만듭니다.
 
-     ![원본 데이터베이스에 대한 새 연결 만들기](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    ![원본 데이터베이스에 대한 새 연결 만들기](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
-4. 만들기는 **새로 만들기** 데이터를 복사 하는 대상 데이터 연결을 저장 합니다.
+4. 데이터를 복사하는 대상 데이터 저장소에 대해 **새** 연결을 만듭니다.
 
     ![대상 저장소에 대한 새 연결 만들기](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
-5. 선택 **이 템플릿을 사용 하 여**입니다.
+5. **이 템플릿 사용**을 선택합니다.
 
-    ![이 템플릿 사용](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
-    
-6. 다음 예제에서와 같이 파이프라인에 표시 됩니다.
+6. 다음 예제와 같이 파이프라인이 표시됩니다.
 
     ![파이프라인 검토](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
 
-7. 선택 **디버그**를 입력 합니다 **매개 변수**를 선택한 후 **마침**합니다.
+7. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.
 
-    ![클릭 * * 디버그 * *](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    ![**디버그** 클릭](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
 
-8. 다음 예제와 유사한 결과가 표시 됩니다.
+8. 결과는 다음 예제와 유사합니다.
 
     ![결과 검토](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (선택 사항) 데이터 대상으로 SQL Data Warehouse를 선택한 경우 SQL Data Warehouse Polybase에서 필요에 따라 스테이징을 위해 Azure Blob storage에 연결을 입력 해야 합니다. Blob storage에 컨테이너를 만든 이미 있는지 확인 합니다.
+9. (선택 사항) "Azure Synapse Analytics(이전의 SQL DW)"를 데이터 대상으로 선택한 경우 SQL Data Warehouse Polybase에 필요한 대로, 스테이징을 위해 Azure Blob 스토리지에 대한 연결을 시작해야 합니다. 이 템플릿은 Blob 스토리지에 대한 컨테이너 경로를 자동으로 생성합니다. 파이프라인이 실행된 후 컨테이너를 만들었는지 확인합니다.
     
     ![Polybase 설정](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

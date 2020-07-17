@@ -1,21 +1,21 @@
 ---
 title: '자습서: 사용자 지정 검색 웹 페이지 만들기 - Bing Custom Search'
-titlesuffix: Azure Cognitive Services
-description: 사용자 지정 검색 인스턴스를 구성하고 웹 페이지에 통합하는 방법을 설명합니다.
+titleSuffix: Azure Cognitive Services
+description: 이 자습서를 통해 사용자 지정 Bing 검색 인스턴스를 구성하고 웹 페이지에 통합하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921938"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
 
@@ -32,10 +32,10 @@ Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검�
 > - 고정된 항목 추가
 > - 웹 페이지에 사용자 지정 검색 통합
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- 자습서를 따르려면 Bing Custom Search API에 대한 구독 키가 필요합니다.  키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)를 참조하세요.
-- Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다.
+- 자습서를 따르려면 Bing Custom Search API에 대한 구독 키가 필요합니다.  키를 가져오려면 Azure Portal에서 [Bing Custom Search 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch).
+- Visual Studio 2017 이상이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다.
 
 ## <a name="create-a-custom-search-instance"></a>사용자 지정 검색 인스턴스 만들기
 
@@ -60,11 +60,11 @@ Bing Custom Search 인스턴스를 만들려면
 
 특정 웹 사이트 또는 URL의 결과를 포함하려면 **활성** 탭에 추가합니다.
 
-1.  **구성** 페이지에서 **활성** 탭을 클릭하고 검색에 포함할 웹 사이트 하나 이상의 URL을 입력합니다.
+1. **구성** 페이지에서 **활성** 탭을 클릭하고 검색에 포함할 웹 사이트 하나 이상의 URL을 입력합니다.
 
     ![정의 편집기 활성 탭 스크린샷](../media/customSrchEditor.png)
 
-2.  인스턴스가 결과를 반환하는지 확인하려면 오른쪽 미리 보기 창에 쿼리를 입력합니다. Bing은 인덱싱된 공용 웹 사이트에 대해서만 결과를 반환합니다.
+2. 인스턴스가 결과를 반환하는지 확인하려면 오른쪽 미리 보기 창에 쿼리를 입력합니다. Bing은 인덱싱된 공용 웹 사이트에 대해서만 결과를 반환합니다.
 
 ## <a name="add-blocked-entries"></a>차단된 항목 추가
 
@@ -103,7 +103,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
   
    ![호스트된 UI 색 테마 선택 스크린샷](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-   웹 앱과 더 효율적으로 통합하기 위해 색 테마를 미세 조정해야 하는 경우 **테마 사용자 지정**을 클릭합니다. 레이아웃 테마에는 일부 색 구성만 적용됩니다. 색을 변경하려면 해당 텍스트 상자에 색의 RGB HEX 값(예: #366eb8)을 입력합니다. 또는 색 단추를 클릭하고 적합한 음영을 클릭합니다. 색을 선택할 때는 항상 접근성을 고려해야 합니다.
+   웹앱과 더 효율적으로 통합되도록 색 테마를 미세 조정해야 하는 경우 **사용자 지정 테마**를 클릭합니다. 레이아웃 테마에는 일부 색 구성만 적용됩니다. 색을 변경하려면 해당 텍스트 상자에 색의 RGB HEX 값(예: #366eb8)을 입력합니다. 또는 색 단추를 클릭하고 적합한 음영을 클릭합니다. 색을 선택할 때는 항상 접근성을 고려해야 합니다.
   
    ![호스트된 UI 색 테마 사용자 지정 스크린샷](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
@@ -116,7 +116,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
 
    ![호스트된 UI 고급 구성 단계 스크린샷](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. 드롭다운 목록에서 구독 키를 선택합니다. 구독 키를 수동으로 입력할 수도 있습니다. 키를 가져오는 방법에 대한 정보는 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)를 참조하세요.  
+5. 드롭다운 목록에서 구독 키를 선택합니다. 구독 키를 수동으로 입력할 수도 있습니다.
   
    ![호스트된 UI 추가 구성 단계 스크린샷](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -130,7 +130,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
 - 옵션 1: 제공된 JavaScript 코드 조각을 애플리케이션에 통합합니다.
 - 옵션 2: 제공된 HTML 엔드포인트를 사용합니다.
 
-이 자습서의 나머지 부분에서는 **옵션 1: Javascript 코드 조각**을 설명합니다.  
+이 자습서의 나머지 부분에서는 **옵션 1: JavaScript 코드 조각**을 설명합니다.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Visual Studio 솔루션 설정
 

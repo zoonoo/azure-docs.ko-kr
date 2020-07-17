@@ -1,5 +1,5 @@
 ---
-title: 이미지에 콘텐츠 태그 적용 - Computer Vision
+title: 콘텐츠 태그-Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API의 이미지 태그 지정 기능과 관련된 개념에 대해 알아봅니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 887f6d9163f800ecbe8a5ab9a0715fd171f1d3d9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311072"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80244514"
 ---
 # <a name="applying-content-tags-to-images"></a>이미지에 콘텐츠 태그 적용
 
@@ -83,6 +83,13 @@ Computer Vision에서는 수천 개의 인식할 수 있는 개체, 생물, 경�
 }
 ```
 
+## <a name="use-the-api"></a>API 사용
+
+태깅 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Tags` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 `"tags"` 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다.
+
+* [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>다음 단계
 
-[이미지 분류](concept-categorizing-images.md) 및 [이미지 설명](concept-describing-images.md)에 대한 개념을 알아봅니다.
+이미지 [분류](concept-categorizing-images.md) 및 [이미지 설명](concept-describing-images.md)의 관련 개념에 대해 알아봅니다.

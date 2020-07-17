@@ -1,28 +1,27 @@
 ---
-title: Microsoft Azure Cloud Services FAQ에 대한 연결 및 네트워킹 문제 | Microsoft Docs
+title: 연결 및 네트워킹 문제
+titleSuffix: Azure Cloud Services
 description: 이 문서는 Microsoft Azure Cloud Services의 연결 및 네트워킹에 대한 질문과 대답을 나열합니다.
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77019403"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>연결 및 Azure Cloud Services에 대 한 네트워킹 문제: FAQ(질문과 대답)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 연결 및 네트워킹 문제: FAQ(질문과 대답)
 
 이 문서는 [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 연결 및 네트워킹에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md)를 참조하세요.
 
@@ -43,7 +42,7 @@ ms.locfileid: "61432962"
 자세한 내용은 [ICMP 대신 포트 ping을 사용하여 Azure VM 연결 테스트](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/)를 참조하세요.
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>알 수 없는 IP 주소로부터 클라우드 서비스에 대한 악의적 공격을 의미하는 수천 번의 적중을 수신하지 않도록 방지하려면 어떻게 할까요?
-Azure는 DDoS(distributed denial-of-service) 공격에 대해 플랫폼 서비스를 보호하기 위해 다중 계층 네트워크 보안을 구현합니다. Azure DDoS 방어 시스템은 Azure의 연속 모니터링 프로세스의 일부이며 침투 테스트를 통해 지속적으로 개선됩니다. 이 DDoS 방어 시스템은 외부에서의 공격뿐만 아니라 다른 Azure 테넌트에서의 공격에 대응하도록 설계되었습니다. 자세한 내용은 [Azure 네트워크 보안](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf)을 참조하세요.
+Azure는 DDoS(distributed denial-of-service) 공격에 대해 플랫폼 서비스를 보호하기 위해 다중 계층 네트워크 보안을 구현합니다. Azure DDoS 방어 시스템은 Azure의 연속 모니터링 프로세스의 일부이며 침투 테스트를 통해 지속적으로 개선됩니다. 이 DDoS 방어 시스템은 외부에서의 공격뿐만 아니라 다른 Azure 테넌트에서의 공격에 대응하도록 설계되었습니다. 자세한 내용은 [Azure 네트워크 보안](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf)을 참조 하세요.
 
 또한 일부 특정 IP 주소를 선택적으로 차단하는 시작 작업을 만들 수 있습니다. 자세한 내용은 [특정 IP 주소 차단](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)을 참조하세요.
 
@@ -65,14 +64,14 @@ RDP 설정에 구성된 만료 날짜를 바이패스하면 “이 사용자 계
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 사용자 지정 URL로 리디렉션하려면 어떻게 해야 하나요?
 
-IIS의 URL 다시 쓰기 모듈을 사용하여 클라우드 서비스의 기본 URL(예를 들어 \*.cloudapp.net)에 들어오는 트래픽을 일부 사용자 지정 이름/URL로 리디렉션할 수 있습니다. URL 재작성 모듈은 기본적으로 웹 역할에서 사용 하 고 해당 규칙은 응용 프로그램의 web.config에 구성 되므로 항상 재부팅/이미지로 다시 설치에 관계 없이 VM에서 사용할 수 있습니다. 자세한 내용은 다음을 참조 하세요.
+IIS의 URL 다시 쓰기 모듈을 사용하여 클라우드 서비스의 기본 URL(예를 들어 \*.cloudapp.net)에 들어오는 트래픽을 일부 사용자 지정 이름/URL로 리디렉션할 수 있습니다. URL 재작성 모듈은 기본적으로 웹 역할에서 사용 하도록 설정 되 고 해당 규칙은 응용 프로그램의 web.config에서 구성 되므로 재부팅/다시 이미지에 관계 없이 VM에서 항상 사용할 수 있습니다. 자세한 내용은 다음을 참조 하세요.
 
 - [URL 다시 쓰기 모듈에 대한 다시 쓰기 규칙 만들기](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [기본 링크 제거](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 차단하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 
-기본 URL/클라우드 서비스의 이름에 들어오는 트래픽을 방지할 수 있습니다(예를 들어 \*.cloudapp.net). 다음에 표시된 대로 클라우드 서비스 정의(*.csdef) 파일의 사이트 바인딩 구성에서 사용자 지정 DNS 이름(예: www.MyCloudService.com)으로 호스트 헤더를 설정합니다.
+기본 URL/클라우드 서비스의 이름에 들어오는 트래픽을 방지할 수 있습니다(예를 들어 \*.cloudapp.net). \.표시 된 대로 클라우드 서비스 정의 (* .csdef) 파일의 사이트 바인딩 구성에서 호스트 헤더를 사용자 지정 DNS 이름 (예: www MyCloudService.com)으로 설정 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -101,12 +100,12 @@ IIS의 URL 다시 쓰기 모듈을 사용하여 클라우드 서비스의 기본
 
 클라우드 서비스의 공용 IP 주소(VIP로 알려짐)가 절대 바뀌지 않아 몇 가지 특정 클라이언트에 의해 관례적으로 허용 목록에 추가되도록 하려면 이에 연결된 예약 IP가 있어야 합니다. 또는 배포를 삭제하는 경우 Azure에서 제공되는 가상 IP가 사용자의 구독에서 할당이 취소됩니다. VIP 교환 작업에 성공하려면 프로덕션 및 스테이징 슬롯 모두에 대해 예약된 개별 IP가 필요합니다. 없는 경우 교환 작업이 실패합니다. IP 주소를 예약하고 클라우드 서비스에 연결하려면 다음 문서를 참조하세요.
 
-- [기존 클라우드 서비스의 IP 주소 예약](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [서비스 구성 파일을 사용하여 클라우드 서비스에 예약된 IP 연결](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+- [기존 클라우드 서비스의 IP 주소 예약](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+- [서비스 구성 파일을 사용 하 여 클라우드 서비스에 예약 된 IP 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-역할 인스턴스가 둘 이상 있는 경우 클라우드 서비스와 RIP를 연결 가동 중지 시간이 발생 하지 않아야 합니다. 또는 Azure 데이터 센터 IP 범위 허용 목록에 추가할을 수 있습니다. 모든 Azure IP 범위를 찾을 수 있습니다 합니다 [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=41653)합니다.
+역할에 대한 인스턴스가 둘 이상이면 클라우드 서비스와 RIP를 연결했을 때 가동 중지 시간이 발생하지 않아야 합니다. 또는 Azure 데이터 센터의 IP 범위를 허용 목록에 추가할 수 있습니다. 모든 Azure IP 범위는 [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에서 찾을 수 있습니다.
 
-이 파일에는 Azure 데이터 센터에서 사용되는 IP 주소 범위(계산, SQL 및 스토리지 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 .xml 파일을 다운로드하여 사이트에서 필요한 변경 작업을 수행하세요. Azure ExpressRoute 사용자는 매월 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되고 있음을 알 수 있습니다.
+이 파일에는 Azure 데이터 센터에서 사용되는 IP 주소 범위(컴퓨팅, SQL 및 스토리지 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 .xml 파일을 다운로드하여 사이트에서 필요한 변경 작업을 수행하세요. Azure ExpressRoute 사용자는 매월 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되고 있음을 알 수 있습니다.
 
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>클라우드 서비스와 Azure Resource Manager 가상 네트워크를 사용하려면 어떻게 해야 하나요?
 

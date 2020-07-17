@@ -1,27 +1,26 @@
 ---
-title: Azure Linux VM 에이전트 개요 | Microsoft Docs
+title: Azure Linux VM 에이전트 개요
 description: Linux 에이전트(waagent)를 설치 및 구성하여 가상 머신과 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: roiyz
+ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800221"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186829"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 
@@ -32,7 +31,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 > 
 > 
 
-* **이미지 프로비전**
+* **이미지 프로 비전**
   
   * 사용자 계정 만들기
   * SSH 인증 유형 구성
@@ -61,7 +60,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 * **VM 확장**
   
   * 소프트웨어 및 구성 자동화를 사용하도록 Microsoft 및 Partner에서 작성된 구성 요소를 Linux VM(IaaS)에 삽입
-  * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)에서 VM 확장 참조 구현
+  * VM 확장 참조 구현[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>통신
 플랫폼에서 에이전트로의 정보 흐름은 다음 두 채널을 통해 진행됩니다.
@@ -73,7 +72,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 다음 시스템은 테스트를 거쳐 Azure Linux 에이전트와 동작하는 것으로 알려져 있습니다.
 
 > [!NOTE]
-> [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)에서 설명한 대로 Microsoft Azure 플랫폼에서 지원되는 시스템의 공식 목록에서 이 목록은 달라질 수 있습니다.
+> 이 목록은 여기에 설명 된 대로 Microsoft Azure 플랫폼에서 지원 되는 시스템의 공식 목록과 다를 수 있습니다.[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -108,12 +107,12 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 ## <a name="command-line-options"></a>명령줄 옵션
 ### <a name="flags"></a>플래그
-* 자세한 정보: 지정 된 명령의 자세한 정도 증가
-* 강제 합니다. 일부 명령에 대 한 대화형 확인 건너뛰기
+* verbose: 지정한 명령의 세부 정보 표시를 늘립니다.
+* force: 일부 명령의 대화형 확인을 건너뜁니다.
 
 ### <a name="commands"></a>명령
-* 도움말: 지원 되는 명령 및 플래그를 나열합니다.
-* 프로 비전을 해제 합니다. 시스템을 정리 하 고 다시 프로 비전에 대 한 적절 한 확인 하려고 시도 합니다. 삭제되는 작업은 다음과 같습니다.
+* help: 지원되는 명령 및 플래그를 나열합니다.
+* deprovision: 시스템을 정리하고 다시 프로비전하는 데 적합하도록 만듭니다. 삭제되는 작업은 다음과 같습니다.
   
   * 모든 SSH 호스트 키(구성 파일에서 Provisioning.RegenerateSshHostKeyPair가 'y'인 경우)
   * /etc/resolv.conf의 Nameserver 구성
@@ -126,45 +125,45 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 > 
 > 
 
-* deprovision + user: -Deprovision (위)에서 모든 작업을 수행 합니다. 마지막 프로 비전 된 사용자 계정 (/var/lib/waagent에서 얻은)를 삭제 및 데이터를 연결 합니다. Azure에서 이전에 프로비전한 이미지의 프로비전을 해제하여 이미지를 캡처하고 다시 사용할 수 있도록 하는 경우에 이 매개 변수를 사용합니다.
-* 버전: Waagent의 버전을 표시
-* serialconsole: TtyS0을 표시 하려면 GRUB 구성 (첫 번째 직렬 포트)을 부팅 콘솔로 합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
-* daemon: 플랫폼 상호 작용을 관리 하는 디먼으로 waagent를 실행 합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
-* 시작: Waagent를 백그라운드 프로세스로 실행
+* deprovision+user: -deprovision(위)의 모든 작업을 수행하고, 마지막으로 프로비전한 사용자 계정(/var/lib/waagent에서 가져옴) 및 연결된 데이터도 삭제합니다. Azure에서 이전에 프로비전한 이미지의 프로비전을 해제하여 이미지를 캡처하고 다시 사용할 수 있도록 하는 경우에 이 매개 변수를 사용합니다.
+* version: waagent의 버전을 표시합니다.
+* serialconsole: ttyS0(첫 번째 직렬 포트)을 부팅 콘솔로 표시하도록 GRUB를 구성합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
+* daemon: waagent를 디먼으로 실행하여 플랫폼 조작을 관리합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
+* start: waagent를 백그라운드 프로세스로 실행
 
 ## <a name="configuration"></a>구성
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 구성 파일 샘플을 보여 줍니다.
 
-    ```
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.AllowResetSysUser=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
-    AutoUpdate.Enabled=y
-    ```
+```config
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.AllowResetSysUser=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+AutoUpdate.Enabled=y
+```
 
 설명된 다양한 구성 옵션은 다음과 같습니다. 구성 옵션으로 Boolean, String 또는 Integer의 세 가지 형식이 있습니다. 부울 구성 옵션은 "y" 또는 "n"으로 지정할 수 있습니다. "None" 특수 키워드는 아래에서 자세히 설명한 대로 일부 문자열 형식 구성 항목에 사용할 수 있습니다.
 
 **Provisioning.Enabled:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -176,14 +175,14 @@ Default: y
 > 
 
 **Provisioning.DeleteRootPassword:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 설정한 경우 /etc/shadow 파일의 루트 암호가 프로비전 프로세스 중 삭제됩니다.
 
 **Provisioning.RegenerateSshHostKeyPair:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -192,42 +191,42 @@ Default: y
 새로운 키 쌍의 암호화 종류는 Provisioning.SshHostKeyPairType 항목으로 구성할 수 있습니다. 일부 배포에서는 SSH 디먼이 다시 시작될 때(예: 재부팅 시) 누락된 모든 암호화 종류에 대한 SSH 키 쌍을 다시 만듭니다.
 
 **Provisioning.SshHostKeyPairType:**  
-```
+```txt
 Type: String  
 Default: rsa
 ```
 이 옵션은 가상 머신의 SSH 디먼에서 지원하는 암호화 알고리즘 형식으로 설정할 수 있습니다. 일반적으로 지원되는 값은 "rsa", "dsa" 및 "ecdsa"입니다. Windows의 "putty.exe"는 "ecdsa"를 지원하지 않습니다. 따라서 Windows에서 putty.exe를 사용하여 Linux 배포에 연결하려면 "rsa" 또는 "dsa"를 사용합니다.
 
 **Provisioning.MonitorHostName:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 이 옵션을 설정하면 waagent에서 호스트 이름("hostname" 명령으로 반환됨) 변경에 대해 Linux 가상 머신을 모니터링하고, 변경 내용을 반영하도록 이미지의 네트워킹 구성을 자동으로 업데이트합니다. 이름 변경을 DNS 서버로 푸시하기 위해 가상 머신에서 네트워킹이 다시 시작됩니다. 이로 인해 인터넷 연결이 잠시 끊깁니다.
 
 **Provisioning.DecodeCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 이 옵션을 설정하면 waagent에서 Base64의 CustomData를 디코딩합니다.
 
 **Provisioning.ExecuteCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 이 옵션을 설정하면 waagent에서 프로비전 후에 CustomData를 실행합니다.
 
 **Provisioning.AllowResetSysUser**
-```
+```txt
 Type: Boolean
 Default: n
 ```
 이 옵션을 사용하면 시스템 사용자의 암호를 다시 설정할 수 있습니다. 기본값은 사용 안 함입니다.
 
 **Provisioning.PasswordCryptId**  
-```
+```txt
 Type: String  
 Default: 6
 ```
@@ -238,91 +237,91 @@ Default: 6
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-```
+```txt
 Type: String  
 Default: 10
 ```
 암호 해시를 생성할 때 사용되는 임의 salt의 길이입니다.
 
 **ResourceDisk.Format:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 이 옵션을 설정하면 사용자가 "ResourceDisk.Filesystem"에서 요청한 파일 시스템 형식이 "ntfs" 이외의 형식인 경우 waagent에서 플랫폼이 제공한 리소스 디스크를 포맷하고 탑재합니다. 단일 Linux 파티션 형식(83)이 디스크에서 사용할 수 있게 됩니다. 이 파티션이 성공적으로 탑재될 수 있으면 포맷되지 않습니다.
 
 **ResourceDisk.Filesystem:**  
-```
+```txt
 Type: String  
 Default: ext4
 ```
 이 옵션은 리소스 디스크의 파일 시스템 유형을 지정합니다. 지원되는 값은 Linux 배포에 따라 달라집니다. 문자열이 X이면 mkfs.X가 Linux 이미지에 표시됩니다. 일반적으로 SLES 11 이미지는 'ext3'을 사용해야 합니다. 여기에서 FreeBSD 이미지는 'ufs2'를 사용해야 합니다.
 
 **ResourceDisk.MountPoint:**  
-```
+```txt
 Type: String  
 Default: /mnt/resource 
 ```
 이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다. 리소스 디스크는 *임시* 디스크이며, VM의 프로비전을 해제할 때 비울 수 있습니다.
 
 **ResourceDisk.MountOptions**  
-```
+```txt
 Type: String  
 Default: None
 ```
 mount -o 명령에 전달될 디스크 탑재 옵션을 지정합니다. 쉼표로 구분된 값 목록입니다(예: 'nodev,nosuid'). 자세한 내용은 mount(8)를 참조하세요.
 
 **ResourceDisk.EnableSwap:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 설정한 경우 스왑 파일(/swapfile)이 리소스 디스크에 만들어져서 시스템 스왑 공간에 추가됩니다.
 
-**ResourceDisk.SwapSizeMB:**  
-```
+**ResourceDisk:**  
+```txt
 Type: Integer  
 Default: 0
 ```
 스왑 파일의 크기(MB)입니다.
 
 **Logs.Verbose:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 설정한 경우 로그에 대한 세부 정보 표시가 향상됩니다. waagent에서 /var/log/waagent.log에 로그하고, logrotate 시스템 기능을 활용하여 로그를 순환시킵니다.
 
 **OS.EnableRDMA**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 이 옵션을 설정하면 에이전트에서 기본 하드웨어의 펌웨어 버전과 일치하는 RDMA 커널 드라이버를 설치하고 로드하려고 시도합니다.
 
 **OS.RootDeviceScsiTimeout:**  
-```
+```txt
 Type: Integer  
 Default: 300
 ```
 이 설정은 OS 디스크 및 데이터 드라이브에서 SCSI 시간 제한을 초 단위로 구성합니다. 설정하지 않은 경우 시스템 기본값이 사용됩니다.
 
 **OS.OpensslPath:**  
-```
+```txt
 Type: String  
 Default: None
 ```
 이 설정은 암호화 작업에 사용할 openssl 이진 파일에 대한 대체 경로를 지정하는 데 사용할 수 있습니다.
 
 **HttpProxy.Host, HttpProxy.Port**  
-```
+```txt
 Type: String  
 Default: None
 ```
 이 옵션을 설정하면 에이전트에서 이 프록시 서버를 사용하여 인터넷에 액세스합니다. 
 
 **AutoUpdate.Enabled**
-```
+```txt
 Type: Boolean
 Default: y
 ```
@@ -336,14 +335,14 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 * **Provisioning.Enabled** 프로비전 작업을 수행하기 위해 cloud-init을 사용하는 Ubuntu 클라우드 이미지에서 기본값은 "n"입니다.
 * 다음 구성 매개 변수는 cloud-init을 사용하여 리소스 디스크와 swap 공간을 관리하는 Ubuntu 클라우드 이미지에 적용되지 않습니다.
   
-  * **ResourceDisk.Format**
-  * **ResourceDisk.Filesystem**
-  * **ResourceDisk.MountPoint**
-  * **ResourceDisk.EnableSwap**
+  * **ResourceDisk. 형식**
+  * **ResourceDisk. 파일 시스템**
+  * **ResourceDisk. 탑재 지점**
+  * **ResourceDisk**
   * **ResourceDisk.SwapSizeMB**
 
 * 프로비전 중에 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 스왑 공간을 구성하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
   
   * [Ubuntu Wiki: Swap 파티션 구성](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Azure Virtual Machine에 사용자 지정 데이터 삽입](../windows/classic/inject-custom-data.md)
+  * [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](../windows/classic/inject-custom-data.md)
 

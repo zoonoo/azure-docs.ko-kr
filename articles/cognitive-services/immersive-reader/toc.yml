@@ -1,0 +1,53 @@
+- name: 몰입형 판독기 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: 몰입형 판독기란?
+      href: Overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 클라이언트 라이브러리 사용
+      href: ./quickstarts/client-libraries.md
+- name: 자습서
+  items:
+    - name: 몰입형 판독기(Android) 시작
+      href: tutorial-android.md
+    - name: 몰입형 판독기(iOS) 시작
+      href: tutorial-ios.md
+    - name: 몰입형 판독기(Python) 시작
+      href: tutorial-python.md
+    - name: 여러 몰입형 판독기 리소스 사용
+      href: tutorial-multiple-resources.md
+- name: 사용 방법
+  items:
+    - name: 몰입형 판독기 리소스 만들기
+      href: how-to-create-immersive-reader.md
+    - name: 쿠키 정책 설정
+      href: how-to/set-cookie-policy.md
+    - name: 수학 표시
+      href: how-to/display-math.md
+    - name: HTML 콘텐츠를 사용하여 몰입형 판독기 시작
+      href: how-to-launch-with-html.md
+    - name: 몰입형 판독기 사용자 지정 단추
+      href: how-to-customize-launch-button.md
+    - name: 인증 토큰 캐시
+      href: how-to-cache-token.md
+    - name: 소리 내어 읽기 구성
+      href: how-to-configure-read-aloud.md
+    - name: 번역 구성
+      href: how-to-configure-translation.md
+    - name: 사용자 기본 설정 저장
+      href: how-to-store-user-preferences.md
+- name: 참조
+  items:
+    - name: JavaScript SDK
+      href: reference.md
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: 언어 지원
+      href: language-support.md
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

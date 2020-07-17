@@ -1,32 +1,57 @@
 ---
-title: Azure Application Insights에서 Java 추적 로그 탐색 | Microsoft Docs
+title: Azure 애플리케이션 Insights에서 Java 추적 로그 살펴보기
 description: Application Insights에서 검색 Log4J 또는 Logback 추적 검색
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: mbullwin
-ms.openlocfilehash: 614f9a44f7c699be38906ac00e12f523490ce112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 05/18/2019
+ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60900496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77657217"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 살펴보고 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
 
-## <a name="install-the-java-sdk"></a>Java SDK 설치
+> [!TIP]
+> 응용 프로그램에 대해 Application Insights 계측 키를 한 번만 설정 하면 됩니다. Java 스프링과 같은 프레임 워크를 사용 하는 경우 앱 구성의 다른 위치에 키를 이미 등록 했을 수 있습니다.
+
+## <a name="using-the-application-insights-java-agent"></a>Application Insights Java 에이전트 사용
+
+기본적으로 Application Insights Java 에이전트는 수준 이상에서 수행 된 로깅을 자동으로 캡처합니다 `WARN` .
+
+파일을 사용 하 여 캡처한 로깅 임계값을 변경할 수 있습니다 `AI-Agent.xml` .
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn>
+         <Logging threshold="info"/>
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
+```
+
+다음 파일을 사용 하 여 Java 에이전트의 로깅 캡처를 사용 하지 않도록 설정할 수 있습니다 `AI-Agent.xml` .
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn>
+         <Logging enabled="false"/>
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
+```
+
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>또는 Java 에이전트를 사용 하는 것과는 달리 아래 지침을 따를 수 있습니다.
+
+### <a name="install-the-java-sdk"></a>Java SDK 설치
 
 아직 수행하지 않은 경우 지침을 다라 [Java용 Application Insights SDK][java]를 설치합니다.
 
-## <a name="add-logging-libraries-to-your-project"></a>프로젝트에 로깅 라이브러리 추가
+### <a name="add-logging-libraries-to-your-project"></a>프로젝트에 로깅 라이브러리 추가
 *프로젝트에 적합한 방법을 선택합니다.*
 
 #### <a name="if-youre-using-maven"></a>Maven을 사용하는 경우...
@@ -107,7 +132,7 @@ ms.locfileid: "60900496"
 | Log4J v1.2 |[Log4J v1.2 어펜더 Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
-## <a name="add-the-appender-to-your-logging-framework"></a>로깅 프레임워크에 어펜더 추가
+### <a name="add-the-appender-to-your-logging-framework"></a>로깅 프레임워크에 어펜더 추가
 추적 가져오기를 시작하려면 관련 코드 조각을 Log4J 및 Logback 구성 파일과 병합합니다. 
 
 *Logback*

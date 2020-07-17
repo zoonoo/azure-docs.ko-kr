@@ -2,19 +2,19 @@
 title: 모델 훈련 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 모델 훈련은 번역 모델을 빌드할 때 중요한 단계입니다. 훈련은 사용자가 훈련에 대해 선택한 문서를 바탕으로 이루어집니다.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
-ms.author: v-rada
+ms.date: 05/26/2020
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2045041a9ee4872e4510e5ee0deba258b0342557
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c29a0b8b429705bb0315c37fc6fe63eb8d77511f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437291"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996706"
 ---
 # <a name="train-a-model"></a>모델 학습
 
@@ -26,19 +26,19 @@ ms.locfileid: "58437291"
 
 2.  프로젝트의 [데이터] 탭에 프로젝트 언어 쌍에 대한 관련 문서가 모두 표시됩니다. 모델 훈련에 사용할 문서를 수동으로 선택합니다. 이 화면에서 훈련, 튜닝, 테스트 문서를 선택할 수 있습니다. 또는 훈련 세트만 선택하고 튜닝 세트와 테스트 세트는 Custom Translator가 생성하도록 할 수도 있습니다.
 
-    -  문서 이름: 문서 이름입니다.
+    -  문서 이름: 문서의 이름입니다.
 
-    -  페어링: 이 문서가 병렬 문서인지 단일어 문서인지를 나타냅니다. 현재 단일어 문서에는 훈련이 지원되지 않습니다.
+    -  페어링: 병렬 문서인지 단일어 문서인지를 나타냅니다. 현재 단일어 문서에는 훈련이 지원되지 않습니다.
 
-    -  문서 유형: 학습, 튜닝, 테스트 또는 사전일 수 있습니다.
+    -  문서 유형: 훈련, 튜닝, 테스트 또는 사전일 수 있습니다.
 
     -  언어 쌍: 프로젝트의 원본 언어와 대상 언어를 보여 줍니다.
 
-    -  원본 문장: 원본 파일에서 추출한 문장의 개수를 표시합니다.
+    -  원본 문장: 원본 파일에서 추출 된 문장의 수를 표시 합니다.
 
-    -  대상 문장: 대상 파일에서 추출한 문장의 개수를 표시합니다.
+    -  대상 문장: 대상 파일에서 추출 된 문장의 수를 표시 합니다.
 
-    ![모델 훈련](media/how-to/how-to-train-model.png)
+    ![모델 학습](media/how-to/how-to-train-model.png)
 
 3.  훈련 단추를 클릭합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "58437291"
     ![모델 훈련 페이지](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->사용자 지정 변환기에에서 언제 든 지 작업 영역 내에서 10 개의 동시 학습을 지원합니다.
+>사용자 지정 변환기는 언제 든 지 작업 영역 내에서 10 개의 동시 학습 지원 합니다.
 
 
 ## <a name="edit-a-model"></a>모델 편집

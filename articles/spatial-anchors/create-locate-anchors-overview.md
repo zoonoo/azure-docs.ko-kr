@@ -1,19 +1,19 @@
 ---
-title: Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법 | Microsoft Docs
+title: 앵커 만들기 및 찾기 개요
 description: Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법에 대해 자세히 설명합니다.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 780c3da24d20418919670f09aa064003e3d96b90
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: f406edb42204e7ffc94bcbfa1e22b269aea67b32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629675"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "74270451"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors"></a>Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법
 

@@ -1,24 +1,13 @@
 ---
-title: Azure Service Bus 메시지 만료 | Microsoft Docs
-description: Azure Service Bus 메시지의 만료 및 TTL(Time to Live)
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Service Bus-메시지 만료
+description: 이 문서에서는 Azure Service Bus 메시지의 만료 및 라이브 시간에 대해 설명 합니다. 이러한 기한이 지나면 메시지가 더 이상 배달 되지 않습니다.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: ca789be91e835576ec06a422bdbbbf25eb775dac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341209"
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 
@@ -26,7 +15,7 @@ ms.locfileid: "65800270"
 
 큐 및 토픽이 주로 애플리케이션 또는 애플리케이션 부분의 부분 실행 컨텍스트에서 사용되는 개발 및 테스트 환경에서는 다음 테스트 실행이 새로 시작될 수 있게 표준 테스트 메시지를 자동으로 가비지 수집되도록 할 수 있습니다.
 
-모든 개별 메시지에 대한 만료는 상대적 기간을 지정하는 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 시스템 속성을 설정하여 제어할 수 있습니다. 만료는 메시지가 엔터티 큐에 추가될 때 절대 인스턴스가 됩니다. 이때 [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) 속성 값은 [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)입니다. broker 저장 메시지의 TTL(Time to Live) 설정은 현재 수신 중인 클라이언트가 없는 경우 강제 적용되지 않습니다.
+모든 개별 메시지에 대한 만료는 상대적 기간을 지정하는 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 시스템 속성을 설정하여 제어할 수 있습니다. 만료는 메시지가 엔터티 큐에 추가될 때 절대 인스턴스가 됩니다. 이때 [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) 속성 값은 [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)입니다. 조정 된 메시지에 대 한 TTL (time-to-live) 설정은 적극적으로 수신 대기 중인 클라이언트가 없는 경우에는 적용 되지 않습니다.
 
 **ExpiresAtUtc** 인스턴트 후에 메시지는 검색할 수 없게 됩니다. 만료는 현재 배달 잠금 처리된 메시지에는 영향을 주지 않습니다. 이러한 메시지는 계속 정상적으로 처리됩니다. 잠금이 만료되거나 메시지가 중단되면 만료가 즉시 적용됩니다.
 
@@ -37,9 +26,9 @@ ms.locfileid: "65800270"
 큐 또는 토픽에 전송된 모든 메시지는 [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) 속성을 사용해서 엔터티 수준에서 설정되는 기본 만료를 따릅니다. 이러한 기본 만료는 메시지 생성 동안 포털에서 설정되며 나중에 조정될 수 있습니다. [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)가 명시적으로 설정되지 않은 엔터티로 보낸 모든 메시지에는 기본 만료가 사용됩니다. 기본 만료는 **TimeToLive** 값의 최대값으로도 사용됩니다. **TimeToLive** 만료가 기본값보다 더 긴 메시지는 큐에 추가되기 전에 자동으로 **defaultMessageTimeToLive** 값으로 조정됩니다.
 
 > [!NOTE]
-> 기본값 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 조정 된 메시지에 대 한 값 [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) 달리 지정 되지 않은 경우.
+> 조정 된 메시지에 대 한 기본 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 값은 [TimeSpan입니다.](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) 달리 지정 되지 않은 경우 Max입니다.
 >
-> 메시징 엔터티 (큐 및 토픽)에 대 한 기본 만료 시간은 수도 [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) Service Bus 표준 및 프리미엄 계층에 대 한 합니다.  기본 계층에 대 한 기본 만료 시간은 14 일입니다.
+> 메시징 엔터티 (큐 및 토픽)의 경우 기본 만료 시간은 [TimeSpan입니다.](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) Service Bus standard 및 premium 계층의 경우 Max입니다.  기본 계층의 경우 기본 만료 시간은 14 일입니다.
 
 만료된 메시지는 [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) 속성을 설정하거나 포털에서 해당 확인란을 선택하여 [배달 못 한 메시지 큐](service-bus-dead-letter-queues.md)로 선택적으로 이동할 수 있습니다. 이 옵션을 사용하지 않도록 설정하면 만료된 메시지가 삭제됩니다. 배달 못 한 메시지 큐로 이동되는 만료된 메시지는 브로커가 사용자 속성 섹션에 저장하는 [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) 속성(이 경우 [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq))을 평가하여 다른 배달 못 한 메시지와 구분할 수 있습니다.
 
@@ -70,7 +59,7 @@ Service Bus 큐, 토픽 및 구독을 임시 엔터티로 생성할 수 있습�
     - 큐 업데이트 없음  
     - 예약된 메시지 없음  
     - Browse/Peek 없음 
-- 주제  
+- 토픽  
     - 전송 없음  
     - 토픽 업데이트 없음  
     - 예약된 메시지 없음 

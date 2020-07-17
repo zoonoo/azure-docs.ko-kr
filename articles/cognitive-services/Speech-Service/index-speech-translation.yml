@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: 음성 번역 설명서
+summary: 음성 서비스에서 음성 번역을 사용 하면 실시간 다중 언어 음성-음성 음성 변환 및 오디오 스트림 음성-텍스트 변환이 가능 합니다.
+metadata:
+  title: 음성 번역 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: trevorbye
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 04/13/2020
+  ms.author: trbye
+  ms.openlocfilehash: 8fa1b62b193fff2a0ca8f4825ece228f156e5318
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800840"
+landingContent:
+- title: 음성 번역 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 음성 번역이란?
+      url: speech-translation.md
+    - text: 음성 번역 기본 사항
+      url: speech-translation-basics.md
+    - text: 음성 CLI를 사용 하 여 코드 없이 음성 변환
+      url: spx-overview.md
+  - linkListType: quickstart
+    links:
+    - text: 음성을 텍스트로 변환
+      url: quickstarts/translate-speech-to-text.md
+    - text: 음성을 여러 대상 언어로 번역
+      url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - text: 음성 통역
+      url: quickstarts/translate-speech-to-speech.md
+- title: 음성 번역을 사용 하 여 개발
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 실시간으로 음성 변환
+      url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
+  - linkListType: tutorial
+    links:
+    - text: REST API를 사용하여 텍스트 변환 및 합성
+      url: ../translator/tutorial-build-flask-app-translation-synthesis.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 언어 지원
+      url: language-support.md#speech-translation
+    - text: 음성 번역 FAQ
+      url: https://www.microsoft.com/translator/business/faq/
+    - text: 음성 번역 가격
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

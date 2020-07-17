@@ -1,24 +1,16 @@
 ---
 title: Log Analytics 스마트 분석 예제 | Microsoft Docs
 description: Log Analytics의 스마트 분석 기능을 사용하여 사용자 활동을 분석하는 예제입니다.
-services: log-analytics
-documentationcenter: ''
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/15/2019
 ms.author: bwren
-ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 01/15/2019
+ms.openlocfilehash: 51584ccf5f845be8a06b1e049cae11e636edef11
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77659835"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Log Analytics 스마트 분석 예제
 이 문서에는 Log Analytics의 스마트 분석 기능을 사용하여 사용자 활동을 분석하는 예제가 포함되어 있습니다. 이 예제를 사용하여 Application Insights에서 모니터링되는 사용자 고유의 애플리케이션을 분석하거나, 다른 데이터에 대한 유사한 분석을 위해 이러한 쿼리의 개념을 사용할 수 있습니다. 

@@ -1,19 +1,19 @@
 ---
 title: 원격 모니터링에 연결된 디바이스 일괄 관리 - Azure | Microsoft Docs
 description: 이 자습서에서는 원격 모니터링 솔루션에 연결된 디바이스를 일괄적으로 관리하는 방법을 알아봅니다.
-author: aditidugar
+author: Philmea
 manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: adugar
-ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: philmea
+ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799043"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "77565581"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>자습서: 연결된 디바이스 일괄 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "59799043"
 
 Contoso의 운영자는 디바이스 그룹을 새 펌웨어 버전으로 구성해야 합니다. 각 디바이스에서 펌웨어를 개별적으로 업데이트할 필요가 없습니다. 디바이스 그룹의 펌웨어를 업데이트하려면 원격 모니터링 솔루션 가속기에서 디바이스 그룹 및 자동 디바이스 관리를 사용합니다. 디바이스 그룹에 추가된 모든 디바이스는 디바이스가 온라인 상태가 되는 즉시 최신 펌웨어를 얻습니다.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 >[!div class="checklist"]
 > * 디바이스 그룹 만들기
@@ -39,13 +39,13 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 수행하려면 Azure 구독에서 원격 모니터링 솔루션 가속기의 배포된 인스턴스가 필요합니다.
 
 원격 모니터링 솔루션 가속기를 아직 배포하지 않은 경우 [클라우드 기반 원격 모니터링 솔루션 배포](quickstart-remote-monitoring-deploy.md) 빠른 시작을 완료해야 합니다.
 
-펌웨어 파일을 호스팅하려면 Azure 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나 구독에 [새 스토리지 계정을 만들](../storage/common/storage-quickstart-create-account.md) 수 있습니다.
+펌웨어 파일을 호스팅하려면 Azure 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나 구독에 [새 스토리지 계정을 만들](../storage/common/storage-account-create.md) 수 있습니다.
 
 이 자습서에서는 [IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) 디바이스를 샘플 디바이스로 사용합니다.
 
@@ -123,7 +123,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 
 Azure 스토리지 계정을 사용하여 클라우드에서 새 펌웨어 파일을 호스팅합니다.
 
-1. Azure Portal의 저장소 계정으로 이동합니다. [서비스] 섹션에서 **Blob**을 선택합니다. 펌웨어 파일을 저장할 **firmware**라는 공용 컨테이너를 만듭니다.
+1. Azure Portal의 스토리지 계정으로 이동합니다. [서비스] 섹션에서 **Blob**을 선택합니다. 펌웨어 파일을 저장할 **firmware**라는 공용 컨테이너를 만듭니다.
 
     ![폴더 만들기](media/iot-accelerators-remote-monitoring-bulk-configuration-update/blob-folder.png)
 
@@ -228,7 +228,7 @@ Azure 스토리지 계정을 사용하여 클라우드에서 새 펌웨어 파�
 
     |옵션|값|
     |---|---|
-    |이름|펌웨어 업데이트 배포|
+    |속성|펌웨어 업데이트 배포|
     |패키지 유형|디바이스 구성|
     |구성 유형|펌웨어|
     |패키지|firmware-update.json|

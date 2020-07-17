@@ -1,57 +1,53 @@
 ---
-title: PIM-Azure Active Directory에서에서 Azure 리소스 역할에 대 한 액세스 검토 | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스를 검토 하는 방법에 알아봅니다.
+title: PIM에서 Azure 리소스 역할에 대 한 액세스 검토-Azure AD | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스를 검토 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: curtand
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: pim
-ms.date: 03/30/2018
-ms.author: rolyon
+ms.date: 11/08/2019
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 8091890d174ae68f012a6ec24685a0e705100f8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743680"
 ---
-# <a name="review-access-to-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대 한 액세스를 검토 합니다.
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기업에서는 Azure의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 
+# <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 액세스 검토
 
-관리 역할에 할당된 경우 조직의 권한 있는 역할 관리자가 작업에 해당 역할이 여전히 필요한지 정기적으로 확인하도록 요청할 수 있습니다. 링크가 포함된 메일을 받거나 [Azure 포털](https://portal.azure.com)로 바로 이동할 수 있습니다. 할당된 역할을 자체 검토하려면 이 문서의 단계를 따릅니다.
+PIM (Privileged Identity Management) 액세스 검토는 Azure Active Directory (Azure AD)에서 권한 있는 역할에 대 한 액세스를 보호 하는 데 도움이 됩니다. 이 문서에서는 Azure AD 액세스 검토에서 권한 있는 역할 할당 검토를 완료 하는 단계를 설명 합니다.
+
+관리 역할에 할당 된 경우 관리자에 게 액세스 검토를 완료 하 여 역할에 대 한 요구 사항을 확인 해야 할 수 있습니다. 확인 요청은 링크를 포함 하는 전자 메일을 보내거나 [Azure Portal](https://portal.azure.com)를 확인할 수 있습니다.
 
 액세스 검토에 관심이 있는 권한 있는 역할 관리자인 경우 [액세스 검토를 시작하는 방법](pim-resource-roles-start-access-review.md)에서 자세한 내용을 참조하세요.
 
-## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management 애플리케이션 추가
-[Azure Portal](https://portal.azure.com/)에서 Azure AD(Active Directory) PIM 애플리케이션을 사용하여 검토를 수행할 수 있습니다. 포털에 애플리케이션이 없는 경우 다음 단계에 따라 시작하세요.
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 오른쪽 위에서 사용자 이름을 선택하고 작동할 디렉터리를 선택합니다.
-3. **모든 서비스**를 선택하고 **필터** 상자를 사용하여 *Azure AD Privileged Identity Management*를 검색합니다.
-4. **대시보드에 고정**을 선택하고 **만들기**를 선택합니다. PIM 애플리케이션이 열립니다.
-
 ## <a name="approve-or-deny-access"></a>액세스 승인 또는 거부
-액세스를 승인하거나 거부할 때, 단지 검토자에게 이 역할을 사용할지를 알리는 것입니다. 역할을 유지하려면 **승인**을, 또는 더 이상 액세스를 필요로 하지 않는 경우 **거부**를 선택합니다. 검토자가 결과를 적용하는 경우에만 상태가 변경됩니다.
+
+이 역할을 사용 하는지 여부에 따라 액세스를 승인 하거나 거부할 수 있습니다. 역할을 유지하려면 **승인**을, 또는 더 이상 액세스를 필요로 하지 않는 경우 **거부**를 선택합니다. 검토자가 결과를 적용 한 후에만 상태가 변경 됩니다.
 
 액세스 검토를 찾아 완료하려면 다음 단계를 수행합니다.
-1. Azure AD PIM 애플리케이션을 찾습니다.
-2. **액세스 검토** 블레이드를 선택합니다.
 
-   ![액세스 검토 블레이드를 선택한 PIM 애플리케이션의 스크린샷](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. **Azure Active Directory** 를 선택 하 고 **Privileged Identity Management**를 엽니다.
+1. **액세스 검토**를 선택 합니다.
 
-3. 완료할 검토를 선택합니다. 
-4. **승인** 또는 **거부**를 선택합니다. **이유 설명** 상자에 결정 이유를 입력해야 할 수도 있습니다.
+   ![액세스 검토 블레이드가 선택 된 Privileged Identity Management 응용 프로그램의 스크린샷](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
+
+1. 완료할 검토를 선택합니다.
+1. **승인** 또는 **거부**를 선택 합니다. **이유 제공 상자**에 필요한 경우 결정에 대 한 비즈니스 근거를 입력 합니다.
 
    ![세부 정보 검토 페이지의 스크린샷](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 내 Azure AD 역할의 액세스 검토 수행](pim-how-to-perform-security-review.md)
+- [Privileged Identity Management에서 내 Azure AD 역할에 대 한 액세스 검토를 수행 합니다.](pim-how-to-perform-security-review.md)

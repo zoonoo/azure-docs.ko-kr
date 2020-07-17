@@ -1,32 +1,23 @@
 ---
-title: Azure의 클러스터에 Service Fabric 앱 배포 | Microsoft Docs
-description: Visual Studio에서 애플리케이션을 클러스터에 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Azure의 클러스터에 Service Fabric 앱 배포
+description: Visual Studio에서 새로 만든 Azure Service Fabric 클러스터에 기존 애플리케이션을 배포하는 방법을 알아봅니다.
+author: athinanthny
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/14/2019
-ms.author: aljo,mikhegn
+ms.date: 07/22/2019
+ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 451cfde133955b987b97bc2447724d2e00010892
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4cd21669b30b8ec83d6a0538c90d4cec5cafe32a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667381"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244993"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 애플리케이션 배포
 
 이 자습서는 시리즈의 2부입니다. 이 자습서는 Azure의 새 클러스터에 Azure Service Fabric 애플리케이션을 배포하는 방법을 보여줍니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * 클러스터 만들기
 > * Visual Studio를 사용하여 원격 클러스터에 애플리케이션 배포
@@ -39,13 +30,16 @@ ms.locfileid: "58667381"
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
+* [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
+
+> [!NOTE]
+> 체험 계정은 가상 머신을 만들기 위한 요구 사항을 충족하지 못할 수 있습니다. 그러면 자습서가 완료되지 않습니다. 또한 회사 또는 학교 이외의 계정에는 클러스터와 연결된 keyvault에서 인증서를 만드는 동안 사용 권한 문제가 발생할 수 있습니다. 인증서 생성과 관련된 오류가 발생하면 포털을 사용하여 대신 클러스터를 만듭니다. 
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 샘플 다운로드
 
@@ -59,7 +53,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 
-이제 해당 애플리케이션이 준비되면 Service Fabric 클러스터를 만든 다음, 클러스터에 애플리케이션을 배포합니다. [Service Fabric 클러스터](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다.
+이제 해당 애플리케이션이 준비되면 Service Fabric 클러스터를 만든 다음, 클러스터에 애플리케이션을 배포합니다. [Service Fabric 클러스터](./service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다.
 
 이 자습서에서는 Visual Studio IDE에서 새로운 3개의 노드 테스트 클러스터를 만든 다음, 해당 클러스터에 애플리케이션을 게시합니다. 프로덕션 클러스터 만들기에 대한 정보는 [클러스터 자습서 만들기 및 관리](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요. [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) 또는 [Azure CLI](./scripts/cli-create-cluster.md) 스크립트를 사용하거나 [Azure Resource Manager 템플릿](service-fabric-tutorial-create-vnet-and-windows-cluster.md)에서 [Azure Portal](https://portal.azure.com)을 통해 이전에 만든 기존 클러스터에 애플리케이션을 배포할 수도 있습니다.
 
@@ -86,7 +80,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ![클러스터 만들기](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-**인증서** 탭에서 클러스터 인증서에 대한 암호 및 출력 경로를 입력합니다. 자체 서명된 인증서가 PFX 파일로 만들어지고 지정된 출력 경로에 저장됩니다.  인증서는 노드-노드 및 클라이언트-노드 보안에 사용됩니다.  자체 서명된 인증서를 프로덕션 클러스터에 사용해서는 안 됩니다.  이 인증서는 클러스터를 사용하여 인증하고 애플리케이션을 배포하기 위해 Visual Studio에서 사용됩니다. **인증서 가져오기**를 선택하여 컴퓨터의 CurrentUser\내 인증서 저장소에 PFX를 설치합니다.  **다음**을 클릭합니다.
+**인증서** 탭에서 클러스터 인증서에 대한 암호 및 출력 경로를 입력합니다. 자체 서명된 인증서가 PFX 파일로 만들어지고 지정된 출력 경로에 저장됩니다.  인증서는 노드-노드 및 클라이언트-노드 보안에 사용됩니다.  자체 서명된 인증서를 프로덕션 클러스터에 대해서는 사용하지 마세요.  이 인증서는 클러스터를 사용하여 인증하고 애플리케이션을 배포하기 위해 Visual Studio에서 사용됩니다. **인증서 가져오기**를 선택하여 컴퓨터의 CurrentUser\내 인증서 저장소에 PFX를 설치합니다.  **다음**을 클릭합니다.
 
 ![클러스터 만들기](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
@@ -109,7 +103,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 **게시**를 선택합니다.
 
-애플리케이션이 배포되면 브라우저를 열고 **:8080** 앞에 클러스터 주소를 입력합니다. 또는 구성된 다른 포트가 있는 경우 해당 포트를 입력합니다. 예는 `http://mytestcluster.southcentral.cloudapp.azure.com:8080`입니다. Azure의 클러스터에서 애플리케이션이 실행 중인 것이 보입니다. 투표 웹 페이지에서 투표 옵션 및 이러한 옵션 중 하나 이상에 대한 투표를 추가하거나 삭제합니다.
+애플리케이션이 배포되면 브라우저를 열고 **:8080** 앞에 클러스터 주소를 입력합니다. 또는 구성된 다른 포트가 있는 경우 해당 포트를 입력합니다. 예제는 `http://mytestcluster.southcentral.cloudapp.azure.com:8080`입니다. Azure의 클러스터에서 애플리케이션이 실행 중인 것이 보입니다. 투표 웹 페이지에서 투표 옵션 및 이러한 옵션 중 하나 이상에 대한 투표를 추가하거나 삭제합니다.
 
 ![Service Fabric 투표 샘플](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 

@@ -1,52 +1,54 @@
 ---
-title: '빠른 시작: Bing Visual Search REST API 및 Ruby를 사용하여 이미지 인사이트 가져오기'
+title: '빠른 시작: REST API 및 Ruby를 사용하여 이미지 인사이트 가져오기 - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: 이미지를 Bing Visual Search API에 업로드하고 이미지에 대한 인사이트를 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
-ms.author: rosh
-ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/22/2020
+ms.author: aahi
+ms.openlocfilehash: 20c5ef930af8cc279f63432e9e3a14a0767ca592
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786000"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870349"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>빠른 시작: Bing Visual Search REST API 및 Ruby를 사용하여 이미지 인사이트 가져오기
 
-이 빠른 시작에서는 Ruby 프로그래밍 언어를 사용하여 Bing Visual Search를 호출하고 결과를 표시합니다. POST 요청은 이미지를 API 엔드포인트에 업로드합니다. 결과는 업로드된 이미지와 비슷한 이미지의 URL과 설명 정보를 포함합니다.
+이 빠른 시작을 통해 Ruby 프로그래밍 언어를 사용하여 Bing Visual Search API를 처음 호출합니다. POST 요청은 API 엔드포인트에 이미지를 업로드합니다. 결과는 업로드된 이미지와 비슷한 이미지의 URL과 설명 정보를 포함합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작을 실행하려면
+* [Ruby 2.4 이상](https://www.ruby-lang.org/en/downloads/)을 설치합니다.
+* 구독 키를 가져오세요.
 
-* [Ruby 2.4 이상 설치](https://www.ruby-lang.org/en/downloads/)을 설치합니다.
-* 구독 키를 가져옵니다.
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="project-and-required-modules"></a>프로젝트 및 필수 모듈
 
-IDE 또는 편집기에서 새 Ruby 프로젝트를 만듭니다. `net/http`, `uri` 및 `json`을 가져와 결과의 JSON 텍스트를 처리합니다. `base64` 라이브러리는 파일 이름 문자열을 인코딩하는 데 사용됩니다. 
+IDE 또는 편집기에서 새 Ruby 프로젝트를 만듭니다. `net/http`, `uri` 및 `json`을 가져와 결과의 JSON 텍스트를 처리합니다. 파일 이름 문자열을 인코딩하는 `base64` 라이브러리를 가져옵니다. 
 
-```
+```ruby
 require 'net/https'
 require 'uri'
 require 'json'
 require 'base64'
-
 ```
 
 ## <a name="define-variables"></a>변수 정의
 
-다음 코드는 필수 변수를 할당합니다. 엔드포인트가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 구독 키로 바꿉니다.  `batchNumber`는 POST 데이터의 선행 및 후행 경계에 필요한 GUID입니다.  `fileName` 변수는 POST에 대한 이미지 파일을 식별합니다.  `if`는 유효한 구독 키에 대한 테스트를 차단합니다.
+다음 코드는 main 함수를 선언하고 필요한 변수를 할당합니다. 
 
-```
+1. 엔드포인트가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. 
+2. `batchNumber`의 경우 POST 데이터의 선행 및 후행 경계에 필요한 GUID를 할당합니다. 
+3. `fileName`의 경우 POST에 사용할 이미지 파일을 할당합니다. 
+4. `if` 블록을 사용하여 유효한 구독 키를 테스트합니다.
+
+```ruby
 accessKey = "ACCESS-KEY"
 uri  = "https://api.cognitive.microsoft.com"
 path = "/bing/v7.0/images/visualsearch"
@@ -63,40 +65,40 @@ end
 
 ## <a name="form-data-for-post-request"></a>POST 요청에 대한 양식 데이터
 
-POST에 대한 이미지 데이터는 선행 및 후행 경계로 둘러싸여 있습니다. 다음 함수로 해당 경계를 설정합니다.
+1. 선행 및 후행 경계를 통해 이미지 데이터를 POST로 묶습니다. 다음 함수로 해당 경계를 설정합니다.
 
-```
-def BuildFormDataStart(batNum, fileName)
-    startBoundary = "--batch_" + batNum
-    return startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + "\"" + fileName + "\"" + "\r\n\r\n"   
-end
+   ```ruby
+   def BuildFormDataStart(batNum, fileName)
+       startBoundary = "--batch_" + batNum
+       return startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + "\"" + fileName + "\"" + "\r\n\r\n"    
+   end
 
-def BuildFormDataEnd(batNum)
-    return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
-end
-```
+   def BuildFormDataEnd(batNum)
+       return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
+   end
+   ```
 
-다음으로, 엔드포인트 URI 및 POST 본문을 포함할 배열을 생성합니다.  이전 함수를 사용하여 시작 경계를 배열로 로드합니다. 배열로 이미지 파일을 읽어옵니다. 그런 다음, 끝 경계를 배열로 읽어옵니다.
+2. 엔드포인트 URI 및 POST 본문을 포함할 배열을 생성합니다. 이전 함수를 사용하여 시작 경계를 배열로 로드합니다. 이미지 파일을 배열로 읽은 다음, 끝 경계를 배열로 읽습니다.
 
-```
-uri = URI(uri + path)
-print uri
-print "\r\n\r\n"
+   ```ruby
+   uri = URI(uri + path)
+   print uri
+   print "\r\n\r\n"
 
-post_body = []
+   post_body = []
 
-post_body << BuildFormDataStart(batchNumber, fileName)
+   post_body << BuildFormDataStart(batchNumber, fileName)
 
-post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
+   post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
-post_body << BuildFormDataEnd(batchNumber)
-```
+   post_body << BuildFormDataEnd(batchNumber)
+   ```
 
 ## <a name="create-the-http-request"></a>HTTP 요청 만들기
 
-`Ocp-Apim-Subscription-Key` 헤더를 설정합니다.  요청 만들기 그런 다음, 헤더 및 콘텐츠 형식을 할당합니다. 이전에 만든 POST 본문을 요청에 조인합니다.
+`Ocp-Apim-Subscription-Key` 헤더를 설정합니다. 요청을 만든 다음, 헤더 및 콘텐츠 형식을 할당합니다. 이전에 만든 POST 본문을 요청에 조인합니다.
 
-```
+```ruby
 header = {'Ocp-Apim-Subscription-Key': accessKey}
 request = Net::HTTP::Post.new(uri)  # , 'ImageKnowledge' => 'ImageKnowledge'
 
@@ -108,9 +110,9 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>요청 및 응답
 
-Ruby는 요청을 보내고 다음 코드 줄을 포함하는 응답을 가져옵니다.
+Ruby는 요청을 보내고 다음 코드를 포함하는 응답을 가져옵니다.
 
-```
+```ruby
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
    http.request(request)
 end
@@ -121,7 +123,7 @@ end
 
 응답의 헤더를 인쇄하고 JSON 라이브러리를 사용하여 출력의 서식을 지정합니다.
 
-```
+```ruby
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
     if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
@@ -134,11 +136,11 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ```
 
-## <a name="results"></a>결과
+## <a name="json-response"></a>JSON 응답
 
 다음 JSON은 출력의 세그먼트입니다.
 
-```
+```JSON
 Relevant Headers:
 
 bingapis-traceid: 6E19E78D4FEC4A61AB4F85977EEDB8E6
@@ -284,5 +286,5 @@ JSON Response:
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Visual Search 개요](../overview.md)
-> [Visual Search 단일 페이지 웹앱 만들기](../tutorial-bing-visual-search-single-page-app.md)
+> [Bing Visual Search API란?](../overview.md)
+> [Visual Search 단일 페이지 웹앱 빌드](../tutorial-bing-visual-search-single-page-app.md)

@@ -10,14 +10,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381198"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850971"
 ---
-# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell 참조
+# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncConfig.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
 
 
@@ -26,7 +26,7 @@ ms.locfileid: "60381198"
 ### <a name="synopsis"></a>개요
 각 AD 커넥터에 구성된 계정 이름과 도메인을 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncADConnectorAccount
@@ -47,7 +47,7 @@ Get-ADSyncADConnectorAccount
 ### <a name="synopsis"></a>개요
 권한 상속을 사용하지 않도록 설정된 AD 개체를 가져옵니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncObjectsWithInheritanceDisabled [-SearchBase] <String> [[-ObjectClass] <String>] [<CommonParameters>]
@@ -59,27 +59,26 @@ SearchBase 매개 변수에서 시작하여 AD에서 검색하고, ObjectClass �
 ### <a name="examples"></a>예제
 
 #### <a name="example-1"></a>예제 1
+' Contoso ' 도메인에서 사용 하지 않도록 설정 된 개체를 찾습니다. 기본적으로 ' organizationalUnit ' 개체만 반환 됩니다.
 ```
-Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
+```
 
 #### <a name="example-2"></a>예제 2
+' Contoso ' 도메인에서 상속을 사용할 수 없는 ' 사용자 ' 개체를 찾습니다.
 ```
-Find 'user' objects with disabled inheritance in 'Contoso' domain
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
+```
 
 #### <a name="example-3"></a>예제 3
+OU에서 상속을 사용할 수 없는 모든 유형의 개체 찾기
 ```
-Find all types of objects with disabled inheritance in a OU
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
+```
 
-### <a name="parameters"></a>매개 변수
+
+
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-searchbase"></a>-SearchBase
 AD 도메인 DistinguishedName 또는 FQDN일 수 있는 LDAP 쿼리에 대한 SearchBase입니다.
@@ -97,7 +96,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-objectclass"></a>-ObjectClass
-'*'(모든 개체 클래스), 'user', 'group', 'container' 등일 수 있는 검색할 개체의 클래스입니다. 기본적으로 이 함수는 'organizationalUnit' 개체 클래스를 검색합니다.
+검색할 개체의 클래스 (개체 클래스의 경우), ' user ', ' group ', ' container ' 등이 될 수 있습니다. 기본적으로이 함수는 ' organizationalUnit ' 개체 클래스를 검색 합니다.
 
 ```yaml
 Type: String
@@ -120,7 +119,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 기본 읽기 권한을 위해 Active Directory 포리스트 및 도메인을 초기화합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -176,7 +175,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,
 Set-ADSyncBasicReadPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Azure AD Connect 동기화에서 디렉터리의 개체를 관리하는 데 사용하거나 사용할 Active Directory 계정의 이름입니다.
@@ -293,7 +292,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 Exchange 하이브리드 기능을 위해 Active Directory 포리스트 및 도메인을 초기화합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -343,7 +342,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=Azu
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Azure AD Connect 동기화에서 디렉터리의 개체를 관리하는 데 사용하거나 사용할 Active Directory 계정의 이름입니다.
@@ -460,7 +459,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 Exchange 메일 공용 폴더 기능을 위해 Active Directory 포리스트 및 도메인을 초기화합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -505,7 +504,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN 'CN=ADConnec
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Azure AD Connect 동기화에서 디렉터리의 개체를 관리하는 데 사용하거나 사용할 Active Directory 계정의 이름입니다.
@@ -622,7 +621,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 mS-DS-ConsistencyGuid 기능을 위해 Active Directory 포리스트 및 도메인을 초기화합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -666,7 +665,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN 'CN=ADConnector,O
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Azure AD Connect 동기화에서 디렉터리의 개체를 관리하는 데 사용하거나 사용할 Active Directory 계정의 이름입니다.
@@ -783,7 +782,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 암호 해시 동기화를 위해 Active Directory 포리스트 및 도메인을 초기화합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -817,7 +816,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName 'ADConnector' -ADC
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Azure AD Connect 동기화에서 디렉터리의 개체를 관리하는 데 사용할 Active Directory 계정의 이름입니다.
@@ -904,7 +903,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 Azure AD의 암호 쓰기 저장을 위해 Active Directory 포리스트 및 도메인을 초기화합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -952,7 +951,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Azure AD Connect 동기화에서 디렉터리의 개체를 관리하는 데 사용하거나 사용할 Active Directory 계정의 이름입니다.
@@ -1071,7 +1070,7 @@ Accept wildcard characters: False
 일반적인 예는 AAD Connect에서 자동으로 만든 AD Connect 계정(MSOL)입니다.
 이 계정에는 모든 도메인에 대한 복제 권한이 있지만 보호되지 않으므로 쉽게 손상될 수 있습니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential>
@@ -1081,28 +1080,19 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 ### <a name="description"></a>설명
 Set-ADSyncRestrictedPermissions 함수는 제공된 계정에 대한 권한을 강화합니다.
 권한 강화에 포함되는 단계는 다음과 같습니다.
-1.
-지정된 개체에서 상속을 사용하지 않도록 설정합니다.
-2.
-특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다.
+1. 지정된 개체에서 상속을 사용하지 않도록 설정합니다.
+2. 특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다.
 SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
-3.
-다음과 같은 특정 권한을 할당합니다.
+3. 다음과 같은 특정 권한을 할당합니다.
 
-        Type    Name                                        Access              Applies To
-        =============================================================================================
-        Allow   SYSTEM                                      Full Control        This object
-        Allow   Enterprise Admins                           Full Control        This object
-        Allow   Domain Admins                               Full Control        This object
-        Allow   Administrators                              Full Control        This object
-
-        Allow   Enterprise Domain Controllers               List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
-
-        Allow   Authenticated Users                         List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
+   | Type | 속성 | 액세스 권한 | 적용 대상 |
+   |------|------|--------|------------|
+   | 허용 | SYSTEM | 모든 권한 | 이 개체 |
+   | Allow | 엔터프라이즈 관리자 | 모든 권한 | 이 개체 |
+   | Allow | 도메인 관리자 | 모든 권한 | 이 개체 | 
+   | Allow | 관리자 | 모든 권한 | 이 개체 |
+   | Allow | 엔터프라이즈 도메인 컨트롤러 | 내용 보기 <br> 모든 속성 읽기 <br> 읽기 권한 | 이 개체 |
+   | Allow | 인증된 사용자 | 내용 보기 <br> 모든 속성 읽기 <br> 읽기 권한 | 이 개체 |
 
 ### <a name="examples"></a>예제
 
@@ -1111,7 +1101,7 @@ SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 Set-ADSyncRestrictedPermissions -ADConnectorAccountDN "CN=TestAccount1,CN=Users,DC=Contoso,DC=com" -Credential $(Get-Credential)
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
 권한을 강화해야 하는 Active Directory 계정의 DistinguishedName입니다.
@@ -1131,7 +1121,7 @@ Accept wildcard characters: False
 
 #### <a name="-credential"></a>-Credential
 ADConnectorAccountDN 계정에 대한 권한을 제한하는 데 필요한 권한이 있는 관리자 자격 증명입니다. 일반적으로 엔터프라이즈 또는 도메인 관리자입니다. 계정 조회 오류를 방지하려면 관리자 계정의 정규화된 도메인 이름을 사용합니다.
-예제: CONTOSO\admin
+예: CONTOSO\admin
 
 ```yaml
 Type: PSCredential
@@ -1200,7 +1190,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 Azure AD의 그룹 쓰기 저장을 위해 Active Directory 포리스트 및 도메인을 초기화합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -1245,7 +1235,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Azure AD Connect 동기화에서 디렉터리의 개체를 관리하는 데 사용하거나 사용할 Active Directory 계정의 이름입니다.
@@ -1362,7 +1352,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>개요
 지정된 AD 개체의 권한을 표시합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>SYNTAX
 
 ```
 Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
@@ -1379,7 +1369,7 @@ ADobjectDN은 DistinguishedName 형식으로 제공해야 합니다.
 Show-ADSyncADObjectPermissions -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
 {{ADobjectDN 설명 입력}}

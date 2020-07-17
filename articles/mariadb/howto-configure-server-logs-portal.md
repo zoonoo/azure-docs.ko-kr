@@ -1,25 +1,24 @@
 ---
-title: Azure Portal에서 Azure Database for MariaDB에 대한 서버 로그 구성 및 액세스
-description: 이 문서에서는 Azure Portal에서 Azure Database for MariaDB의 서버 로그를 구성하고 액세스하는 방법을 설명합니다.
-author: rachel-msft
-ms.author: raagyema
+title: 저속 쿼리 로그 액세스-Azure Portal-Azure Database for MariaDB
+description: 이 문서에서는 Azure Portal에서 Azure Database for MariaDB의 저속 쿼리 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4ff2fbd5976a8e203bbc43a87b31ddb1bed63402
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: how-to
+ms.date: 4/13/2020
+ms.openlocfilehash: a2642ebbad7c8d7a2e092a6e00929e32b72b52d8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61040655"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104982"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Azure Portal에서 서버 로그 구성 및 액세스
+# <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Azure Portal에서 민 데이터베이스의 저속 쿼리 로그에 대 한 Azure 데이터베이스 구성 및 액세스
 
-Azure Portal에서 [Azure Database for MariaDB 서버 로그](concepts-server-logs.md)를 구성, 나열 및 다운로드할 수 있습니다.
+Azure Portal에서 [Azure Database for MariaDB 저속 쿼리 로그](concepts-server-logs.md) 를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
-이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
-- [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-portal.md)
+## <a name="prerequisites"></a>필수 구성 요소
+이 문서의 단계를 수행 하려면 [Azure Database for MariaDB 서버가](quickstart-create-mariadb-server-database-using-azure-portal.md)있어야 합니다.
 
 ## <a name="configure-logging"></a>로깅 구성
 느린 쿼리 로그에 대한 액세스를 구성합니다. 
@@ -28,41 +27,62 @@ Azure Portal에서 [Azure Database for MariaDB 서버 로그](concepts-server-lo
 
 2. Azure Database for MariaDB 서버를 선택합니다.
 
-3. 사이드바의 **모니터링** 섹션에서 **서버 로그**를 선택합니다. 
-   ![서버 로그 선택, 클릭하여 구성](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
+3. 사이드바의 **모니터링** 섹션에서 **서버 로그**를 선택 합니다. 
+   ![서버 로그 옵션의 스크린샷](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
-4. 서버 매개 변수를 보려면 제목 **로그를 사용하도록 설정하고 로그 매개 변수를 구성하려면 여기를 클릭합니다**를 선택합니다.
+4. 서버 매개 변수를 보려면 로그를 **사용 하도록 설정 하 고 로그 매개 변수를 구성 하려면 여기를 클릭**하십시오 .를 선택 합니다.
 
-5. "slow_query_log"를 "ON"으로 설정하는 것을 포함하여 조정해야 하는 매개 변수를 변경합니다. 이 세션에서 변경할 내용은 모두 자주색으로 강조 표시되어 있습니다. 
+5. **Slow_query_log** **를 켜기로 설정**합니다.
 
-   매개 변수를 변경한 다음 **저장**을 클릭합니다. 또는 변경 사항을 **취소**할 수 있습니다.
+6. **Log_output**사용 하 여 로그를 출력할 위치를 선택 합니다. 로컬 저장소 및 Azure Monitor 진단 로그 모두에 로그를 전송 하려면 **파일**을 선택 합니다. 
 
-   ![저장 또는 제거 클릭](./media/howto-configure-server-logs-portal/3-save-discard.png)
+7. 필요한 다른 매개 변수를 변경 합니다. 
 
-6. **서버 매개 변수** 페이지에서 **닫기 단추**(X 아이콘)를 클릭하여 로그 목록으로 돌아갑니다.
+8. **저장**을 선택합니다. 
+
+   :::image type="content" source="./media/howto-configure-server-logs-portal/3-save-discard.png" alt-text="저속 쿼리 로그 매개 변수 및 저장의 스크린샷":::
+
+**서버 매개 변수** 페이지에서 페이지를 닫아 로그 목록으로 돌아갈 수 있습니다.
 
 ## <a name="view-list-and-download-logs"></a>목록 보기 및 로그 다운로드
-로깅이 시작되면 사용 가능한 로그 목록을 보고 서버 로그 창에서 개별 로그 파일을 다운로드할 수 있습니다. 
+로깅이 시작 된 후 사용 가능한 쿼리 로그의 목록을 보고 개별 로그 파일을 다운로드할 수 있습니다. 
 
 1. Azure Portal을 엽니다.
 
 2. Azure Database for MariaDB 서버를 선택합니다.
 
-3. 사이드바의 **모니터링** 섹션에서 **서버 로그**를 선택합니다. 이 페이지에는 다음과 같이 로그 파일 목록이 표시됩니다.
+3. 사이드바의 **모니터링** 섹션에서 **서버 로그**를 선택 합니다. 이 페이지에는 로그 파일의 목록이 표시 됩니다.
 
-   ![로그 목록](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
+   ![로그 목록이 강조 표시 된 서버 로그 페이지의 스크린샷](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > 로그의 명명 규칙은 **mysql-slow-< your server name>-yyyymmddhh.log**입니다. 파일 이름에 사용된 날짜와 시간은 로그가 발행된 시간입니다. 로그 파일은 24시간마다 또는 7.5GB마다 회전됩니다(먼저 해당되는 쪽).
+   > 로그의 명명 규칙은 **mysql-slow-< your server name>-yyyymmddhh.log**입니다. 파일 이름에 사용 되는 날짜와 시간은 로그가 발급 된 시간입니다. 로그 파일은 24 시간 또는 7.5 GB 마다 회전 됩니다.
 
-4. 필요한 경우 **검색 상자**를 사용하여 날짜/시간을 기준으로 특정 로그로 신속하게 범위를 좁힙니다. 로그의 이름이 검색됩니다.
+4. 필요한 경우 검색 상자를 사용 하 여 날짜 및 시간에 따라 특정 로그에 빠르게 범위를 좁힙니다. 로그의 이름이 검색됩니다.
 
-5. 다음과 같이 테이블 행의 각 로그 파일 옆에 있는 **다운로드** 단추(아래쪽 화살표 아이콘)를 사용하여 개별 로그 파일을 다운로드합니다.
+5. 개별 로그 파일을 다운로드 하려면 테이블 행의 각 로그 파일 옆에 있는 아래쪽 화살표 아이콘을 선택 합니다.
 
-   ![다운로드 아이콘을 클릭합니다.](./media/howto-configure-server-logs-portal/5-download.png)
+   ![아래쪽 화살표 아이콘이 강조 표시 된 서버 로그 페이지의 스크린샷](./media/howto-configure-server-logs-portal/5-download.png)
+
+## <a name="set-up-diagnostic-logs"></a>진단 로그 설정
+
+1. 사이드바의 **모니터링** 섹션에서 **진단 설정**  >  **진단 설정 추가**를 선택 합니다.
+
+   ![진단 설정 옵션의 스크린샷](./media/howto-configure-server-logs-portal/add-diagnostic-setting.png)
+
+1. 진단 설정 이름을 제공 합니다.
+
+1. 저속 쿼리 로그를 보낼 데이터 싱크 (저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역)를 지정 합니다.
+
+1. 로그 형식으로 **MySqlSlowLogs** 를 선택 합니다.
+![진단 설정 구성 옵션의 스크린샷](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
+
+1. 저속 쿼리 로그를 파이프 하도록 데이터 싱크를 구성한 후 **저장**을 선택 합니다.
+![저장이 강조 표시 된 진단 설정 구성 옵션의 스크린샷](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
+
+1. 구성 된 데이터 싱크에서 탐색 하 여 느리게 쿼리 로그에 액세스 합니다. 로그가 표시 되는 데 최대 10 분이 소요 될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- Azure Database for MariaDB의 [서버 로그](concepts-server-logs.md)에 대해 자세히 알아봅니다.
-- 매개 변수 정의 및 로깅에 대한 자세한 내용은 [로그](https://mariadb.com/kb/en/library/slow-query-log-overview/)의 MariaDB 설명서를 참조하세요.
-
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+- 느리게 쿼리 로그를 프로그래밍 방식으로 다운로드 하는 방법을 알아보려면 [CLI에서 느리게 쿼리 로그 액세스](howto-configure-server-logs-cli.md) 를 참조 하세요.
+- Azure Database for MariaDB의 [저속 쿼리 로그](concepts-server-logs.md) 에 대해 자세히 알아보세요.
+- 매개 변수 정의 및 로깅에 대 한 자세한 내용은 [로그](https://mariadb.com/kb/en/library/slow-query-log-overview/)의 MariaDB 설명서를 참조 하십시오.

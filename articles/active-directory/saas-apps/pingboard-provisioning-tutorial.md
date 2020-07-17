@@ -1,11 +1,10 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Pingboard 구성 | Microsoft Docs'
+title: '자습서: Azure AD에 대 한 사용자 프로 비전'
 description: 사용자 계정을 Pingboard에 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: sakula
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,26 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser
-ms.reviewer: asmalser
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60902753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77061278"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Pingboard 구성
 
 이 자습서의 목적은 Azure AD(Azure Active Directory)에서 Pingboard로 사용자 계정을 프로비전 및 프로비전 해제할 수 있도록 하기 위해 수행해야 하는 단계를 보여주는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * Azure AD 테넌트
-* Pingboard 테넌트 [Pro 계정](https://pingboard.com/pricing)
+* 가는 보드 테 넌 트 [Pro 계정](https://pingboard.com/pricing)
 * 관리자 권한이 있는 Pingboard의 사용자 계정
 
 > [!NOTE]
@@ -76,7 +73,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
     b. 관리자 계정을 사용하여 [Pingboard](https://pingboard.com/)에 로그인합니다.
 
-    다. **추가 기능** > **통합** > **Azure Active Directory**를 선택합니다.
+    다. Azure Active Directory **Add-Ons**  >  **통합**추가 기능  >  **Azure Active Directory**을 선택 합니다.
 
     d. **구성** 탭으로 가서 **Azure에서 사용자 프로비전 사용**을 선택합니다.
 
@@ -84,24 +81,24 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 Pingboard 앱에 연결할 수 있는지 테스트합니다. 연결에 실패하면 Pingboard 계정에 관리자 권한이 있는지 테스트하고 **연결 테스트** 단계를 다시 시도합니다.
 
-1. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 메일**에 입력합니다. 아래 확인란을 선택합니다.
+1. 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 전자 메일**에 입력 합니다. 아래 확인란을 선택합니다.
 
 1. **저장**을 선택합니다.
 
-1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Pingboard에 동기화**를 선택합니다.
+1. **매핑** 섹션 아래에서 **사용자에 게 Azure Active Directory 사용자와 동기화 보드를 동기화**합니다 .를 선택 합니다.
 
-1. **특성 매핑** 섹션에서 Azure AD에서 Pingboard로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Pingboard의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../manage-apps/customize-application-attributes.md)을 참조하세요.
+1. **특성 매핑** 섹션에서 Azure AD에서 Pingboard로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Pingboard의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../app-provisioning/customize-application-attributes.md)을 참조하세요.
 
 1. Pingboard에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
 1. **저장**을 선택하여 Pingboard에 할당된 사용자의 초기 동기화를 시작합니다.
 
-초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인합니다. 로그는 Pingboard 앱에서 프로비저닝 서비스가 수행하는 모든 작업을 설명합니다.
+초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비저닝 활동 로그를 확인합니다. 로그는 Pingboard 앱에서 프로비저닝 서비스가 수행하는 모든 작업을 설명합니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-on 구성](pingboard-tutorial.md)

@@ -1,34 +1,39 @@
 ---
-title: ExpressRoute Direct 구성 - Azure | Microsoft Docs
-description: 이 페이지는 ExpressRoute 직접 구성 하도록 도와줍니다.
+title: 'Azure Express 경로: Express 경로 직접 구성'
+description: 이 페이지는 Express 경로 다이렉트를 구성 하는 데 도움이 됩니다.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 02/25/2019
+ms.topic: how-to
+ms.date: 01/22/2020
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d028baef8898ce8d45fa8e2e142a58a1ae3300c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365080"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736257"
 ---
-# <a name="how-to-configure-expressroute-direct"></a>ExpressRoute 직접 구성 하는 방법
+# <a name="how-to-configure-expressroute-direct"></a>Express 경로 다이렉트를 구성 하는 방법
 
-ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. 자세한 내용은 [ExpressRoute Direct Connect 정보](expressroute-erdirect-about.md)를 참조하세요.
+ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. 자세한 내용은 [ExpressRoute Direct 정보](expressroute-erdirect-about.md)를 참조하세요.
 
-## <a name="resources"></a>리소스 만들기
+## <a name="create-the-resource"></a><a name="resources"></a>리소스 만들기
 
 1. Azure에 로그인하고 구독을 선택합니다. ExpressRoute Direct 리소스와 ExpressRoute 회로가 동일한 구독에 있어야 합니다.
 
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-2. ExpressRoute Direct가 지원되는 모든 위치를 나열합니다.
+   
+2. Expressrouteportslocation 및 expressrouteport Api에 액세스 하려면 구독을 Microsoft. 네트워크에 다시 등록 합니다.
+
+   ```powershell
+   Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
+   ```   
+3. ExpressRoute Direct가 지원되는 모든 위치를 나열합니다.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -61,7 +66,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-3. 위에 나열된 위치에 사용 가능한 대역폭이 있는지 확인
+4. 위에 나열된 위치에 사용 가능한 대역폭이 있는지 확인
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -83,7 +88,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
                           }
                         ]
    ```
-4. 위에서 선택한 위치를 기준으로 ExpressRoute Direct 리소스 만들기
+5. 위에서 선택한 위치를 기준으로 ExpressRoute Direct 리소스 만들기
 
    ExpressRoute Direct는 QinQ 및 Dot1Q VLAN 캡슐화를 둘 다 지원합니다. QinQ를 선택한 경우 ExpressRoute Direct 리소스 전체에서 고유하게 식별되는 S-Tag가 각 ExpressRoute 회로에 동적으로 할당됩니다. 회로의 각 C-Tag는 회로에서 고유해야 하지만 ExpressRoute Direct 전체에서 고유할 필요는 없습니다.  
 
@@ -150,7 +155,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
    Circuits                   : []
    ```
 
-## <a name="state"></a>링크의 관리 상태 변경
+## <a name="change-admin-state-of-links"></a><a name="state"></a>링크의 관리 상태 변경
 
   이 프로세스를 사용하여 계층 1 테스트를 수행하고 각 교차 연결이 1차 및 2차 포트에 대한 각 라우터에 제대로 패치되도록 합니다.
 1. ExpressRoute Direct 세부 정보를 가져옵니다.
@@ -163,10 +168,10 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
    링크[0]은 1차 포트이고 링크[1]은 2차 포트입니다.
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **예제 출력:**
@@ -218,15 +223,17 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
    Circuits                   : []
    ```
 
-   `AdminState = “Disabled”`로 동일한 절차를 사용하여 포트 작동을 중단합니다.
+   `AdminState = "Disabled"`로 동일한 절차를 사용하여 포트 작동을 중단합니다.
 
-## <a name="circuit"></a>회로 만들기
+## <a name="create-a-circuit"></a><a name="circuit"></a>회로 만들기
 
 기본적으로 ExpressRoute Direct 리소스가 있는 구독에서 10개의 회로를 만들 수 있습니다. 이 제한은 지원 서비스에서 늘릴 수 있습니다. 사용자는 프로비전된 대역폭과 사용된 대역폭을 둘 다 추적할 책임이 있습니다. 프로비전된 대역폭은 ExpressRoute Direct 리소스에 있는 모든 회로의 대역폭 합계이고, 사용된 대역폭은 기본 물리적 인터페이스의 물리적 사용량입니다.
 
-위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 다음과 같습니다. 40Gbps 및 100Gbps.
+위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 40Gbps 및 100Gbps입니다.
 
-표준 또는 프리미엄 회로를 만들 수 있습니다. 표준 회로는 비용에 포함되지만, 프리미엄 회로는 선택한 대역폭을 기준으로 비용이 부과됩니다. ExpressRoute Direct에서는 무제한이 지원되지 않으므로 데이터 통신 연결로만 회로를 만들 수 있습니다.
+지역, 표준 또는 프리미엄 일 **수 있습니다.**
+
+Unlimiteddata는 Express 경로 직접 지원 되지 않으므로 무제한으로 사용할 **수 있어야 합니다** .
 
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
@@ -270,4 +277,4 @@ ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-ExpressRoute Direct에 대한 자세한 내용은 [개요](expressroute-erdirect-about.md)를 참조하세요.
+Express 경로 직접에 대 한 자세한 내용은 [개요](expressroute-erdirect-about.md)를 참조 하세요.

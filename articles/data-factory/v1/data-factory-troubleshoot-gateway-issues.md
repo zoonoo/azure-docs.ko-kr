@@ -1,23 +1,22 @@
 ---
-title: 데이터 관리 게이트웨이 문제 해결 | Microsoft Docs
+title: 데이터 관리 Gateway 문제 해결
 description: 데이터 관리 게이트웨이와 관련된 문제를 해결하기 위한 팁을 제공합니다.
 services: data-factory
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61252440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319070"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
 이 문서에서는 데이터 관리 게이트웨이 사용과 관련된 문제 해결에 대한 정보를 제공합니다.
@@ -25,7 +24,7 @@ ms.locfileid: "61252440"
 > [!NOTE]
 > 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
-게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 이동하는 연습은 [온-프레미스와 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
+게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 게이트웨이를 사용 하 여 SQL Server 데이터베이스에서 Microsoft Azure Blob storage로 데이터를 이동 하는 연습은 [온-프레미스와 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조 하세요.
 
 ## <a name="failed-to-install-or-register-gateway"></a>게이트웨이를 설치하거나 등록하지 못함
 ### <a name="1-problem"></a>1. 문제
@@ -50,7 +49,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 게이트웨이가 컴퓨터에 이미 설치되어 있습니다.
 
 #### <a name="resolution"></a>해결 방법
-컴퓨터에서 기존 게이트웨이를 제거하고 **이 컴퓨터에 바로 설치** 링크를 다시 클릭합니다.
+컴퓨터에서 기존 게이트웨이를 제거 하 고 **이 컴퓨터에 직접 설치** 링크를 다시 클릭 합니다.
 
 ### <a name="3-problem"></a>3. 문제
 새 게이트웨이를 등록할 때 이 오류가 표시될 수 있습니다.
@@ -168,7 +167,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 #### <a name="resolution"></a>해결 방법
 게이트웨이를 다시 온라인으로 가져오려면 다음 단계를 따릅니다.
 
-1. 게이트웨이 컴퓨터와 회사 방화벽에서 IP 주소 아웃바운드 규칙을 허용합니다. 다음과 같은 Windows 이벤트 로그에서 IP 주소를 찾을 수 있습니다(ID == 401). 액세스 권한 XX.XX.XX.XX:9350에 의해 숨겨진 소켓에 액세스를 시도했습니다.
+1. 게이트웨이 컴퓨터와 회사 방화벽에서 IP 주소 아웃바운드 규칙을 허용합니다. “Windows 이벤트 로그(ID == 401): XX.XX.XX.XX:9350 액세스 권한에 의해 숨겨진 소켓에 액세스를 시도했습니다.”에서 IP 주소를 찾을 수 있습니다.
 1. 게이트웨이에 프록시 설정 구성 자세한 내용은 프록시 서버 고려 사항 섹션을 참조하세요.
 1. 게이트웨이 컴퓨터의 Windows 방화벽 및 회사 방화벽 모두에서 5671 및 9350-9354 아웃바운드 포트를 사용하도록 설정합니다. 자세한 내용은 포트 및 방화벽 섹션을 참조하세요. 이 단계는 선택 사항이지만 성능을 고려하여 권장됩니다.
 
@@ -197,7 +196,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 ![데이터베이스에 연결할 수 없음](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
 
 #### <a name="cause"></a>원인
-게이트웨이 컴퓨터에서 SSL 인증서가 손실되었을 수 있습니다. 게이트웨이에서 현재 SSL 암호화에 사용되는 인증서를 로드할 수 없습니다. 다음 메시지와 비슷한 오류 메시지가 이벤트 로그에 표시될 수도 있습니다.
+게이트웨이 컴퓨터에서 TLS/SSL 인증서가 손실 되었을 수 있습니다. 게이트웨이 컴퓨터에서 현재 TLS 암호화에 사용 되는 인증서를 로드할 수 없습니다. 다음 메시지와 비슷한 오류 메시지가 이벤트 로그에 표시될 수도 있습니다.
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
@@ -206,10 +205,10 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 
 1. 데이터 관리 게이트웨이 구성 관리자를 시작합니다.
 2. **설정** 탭으로 전환합니다.  
-3. **변경** 단추를 클릭하여 SSL 인증서를 변경합니다.
+3. **변경** 단추를 클릭 하 여 TLS/SSL 인증서를 변경 합니다.
 
    ![인증서 변경 단추](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
-4. 새 인증서를 SSL 인증서로 선택합니다. 사용자 또는 다른 조직에서 만든 SSL 인증서를 사용할 수 있습니다.
+4. TLS/SSL 인증서로 새 인증서를 선택 합니다. 사용자 또는 조직에서 생성 한 모든 TLS/SSL 인증서를 사용할 수 있습니다.
 
    ![인증서 지정](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
@@ -223,9 +222,9 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 이 오류는 여러 가지 이유로 발생할 수 있으며 그에 따라 완화하는 방법이 달라집니다.
 
 #### <a name="resolution"></a>해결 방법
-SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 클라이언트 쪽의 TCP/1433 포트를 통한 아웃바운드 TCP 연결을 허용합니다.
+SQL 데이터베이스에 연결 하기 전에 데이터 관리 게이트웨이 클라이언트 쪽에서 포트 TCP/1433을 통한 아웃 바운드 TCP 연결을 허용 합니다.
 
-대상 데이터베이스가 Azure SQL 데이터베이스인 경우 Azure에 대한 SQL Server 방화벽 설정도 확인합니다.
+대상 데이터베이스가 Azure SQL Database에 있는 경우 Azure에 대 한 SQL Server 방화벽 설정도 확인 합니다.
 
 온-프레미스 데이터 저장소에 대한 연결을 테스트하려면 다음 섹션을 참조하세요.
 
@@ -233,7 +232,7 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
 데이터 저장소 연결 또는 드라이버 관련 오류가 표시되면 다음 단계를 수행합니다.
 
 1. 게이트웨이 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자를 시작합니다.
-2. **진단** 탭으로 전환합니다.
+2. **진단** 탭으로 전환 합니다.
 3. **연결 테스트**에서 게이트웨이 그룹 값을 추가합니다.
 4. **연결 테스트**를 클릭하여 연결 정보와 자격 증명을 사용하여 게이트웨이 컴퓨터에서 온-프레미스 데이터 원본에 연결할 수 있는지 확인합니다. 드라이버를 설치한 후에 계속 연결 테스트가 실패하는 경우 최신 변경 내용을 반영하도록 게이트웨이를 다시 시작합니다.
 
@@ -280,7 +279,7 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
 Windows 이벤트 로그에서 자세한 게이트웨이 로그 정보를 확인할 수 있습니다.
 
 1. Windows **이벤트 뷰어**를 시작합니다.
-2. **애플리케이션 및 서비스 로그** > **데이터 관리 게이트웨이** 폴더에서 로그를 찾습니다.
+2. **응용 프로그램 및 서비스 로그**  >  **데이터 관리 게이트웨이** 폴더에서 로그를 찾습니다.
 
    게이트웨이 관련 문제를 해결할 때는 이벤트 뷰어에서 오류 수준 이벤트를 찾아봅니다.
 

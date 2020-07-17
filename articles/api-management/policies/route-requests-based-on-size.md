@@ -1,5 +1,6 @@
 ---
-title: Azure API Managment 정책 샘플 - 본문 크기에 따라 요청 라우팅 | Microsoft Docs
+title: 샘플 API management 정책-메시지 본문 크기에 따른 경로 요청
+titleSuffix: Azure API Management
 description: Azure API Managment 정책 샘플 - 본문 크기에 따라 요청을 라우팅하는 방법을 보여줍니다.
 services: api-management
 documentationcenter: ''
@@ -9,16 +10,14 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 7656401115cc370d6eee60fb9bddb9bcd92e4201
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8cee2c13386a076f0321619754468cfc1e9fb31c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60860947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75442422"
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>본문 크기에 따라 요청 라우팅
 

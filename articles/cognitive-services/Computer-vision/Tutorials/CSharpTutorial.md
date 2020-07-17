@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004026"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983607"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>샘플: C#으로 이미지 처리 앱 탐색
 
@@ -28,12 +28,15 @@ Computer Vision을 사용하는 기본 Windows 애플리케이션을 탐색합�
 > * 샘플 앱 실행 및 다양한 시나리오 수행을 위한 상호 작용
 > * 샘플 앱에 포함된 다양한 시나리오 탐색
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 샘플 앱을 탐색하기 전에 다음 필수 조건을 충족하는지 확인합니다.
 
 * [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 이상이 있어야 합니다.
-* Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+    * 애플리케이션을 Computer Vision 서비스에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
 ## <a name="get-the-sample-app"></a>샘플 앱 가져오기
 
@@ -79,16 +82,16 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
 1. 샘플 앱이 표시되면 탐색 창에서 **구독 키 관리**를 선택하여 구독 키 관리 페이지를 표시합니다.
    ![구독 키 관리 페이지](../Images/Vision_UI_Subscription.PNG)  
 1. **구독 키**에 구독 키를 입력합니다.
-1. **엔드포인트**의 구독 키에 대한 Computer Vision 리소스에서 `/vision/v1.0`은 생략한 채로 엔드포인트 URL을 입력합니다.  
-   예를 들어, Computer Vision 평가판의 구독 키를 사용하는 경우 미국 중서부 Azure 지역에 대한 다음 엔드포인트 URL을 입력합니다. `https://westcentralus.api.cognitive.microsoft.com`
+1. **엔드포인트**에 엔드포인트 URL을 입력합니다.  
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. 다음에 샘플 앱을 실행할 때 구독 키 및 엔드포인트 URL을 입력하지 않도록 하려면 **설정 저장**을 선택하여 구독 키 및 엔드포인트 URL을 사용자 컴퓨터에 저장합니다. 이전에 저장된 구독 키 및 엔드포인트 URL을 삭제하려면 **설정 삭제**를 선택합니다.
 
    > [!NOTE]
-   > 샘플 앱은 구독 키 및 엔드포인트 URL을 저장하는 데 격리된 저장소 및 `System.IO.IsolatedStorage`를 사용합니다.
+   > 샘플 앱은 구독 키 및 엔드포인트 URL을 저장하는 데 격리된 스토리지 및 `System.IO.IsolatedStorage`를 사용합니다.
 
 1. 탐색 창의 **시나리오 선택**에서 현재 샘플 앱에 포함된 시나리오 중 하나를 선택합니다.  
 
-   | 시나리오 | 설명 |
+   | 시나리오 | Description |
    |----------|-------------|
    |이미지 분석 | [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 작업을 사용하여 로컬 또는 원격 이미지를 분석합니다. 분석에 사용할 시각적 기능 및 언어를 선택하고 이미지 및 결과를 모두 볼 수 있습니다.  |
    |도메인 모델을 사용한 이미지 분석 | [도메인 특정 모델 나열](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) 작업을 사용하여 선택할 수 있는 도메인 모델을 나열하고, [도메인 특정 콘텐츠 인식](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) 작업을 사용하여 선택한 도메인 모델을 통해 로컬 또는 원격 이미지를 분석합니다. 또한 분석에 사용할 언어를 선택할 수 있습니다. |
@@ -310,4 +313,4 @@ Computer Vision 샘플 앱에 포함된 다른 시나리오와 달리, 이 시�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Face API 시작](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Face 서비스 시작](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

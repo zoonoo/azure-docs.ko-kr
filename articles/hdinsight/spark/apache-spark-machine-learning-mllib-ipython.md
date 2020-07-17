@@ -1,43 +1,44 @@
 ---
 title: HDInsight의 Spark MLlib를 사용한 Machine Learning 예제 - Azure
 description: 로지스틱 회귀를 통해 분류를 사용하여 데이터 세트를 분석하는 Machine Learning 앱을 만드는 데 Spark MLlib를 사용하는 방법에 대해 알아봅니다.
-keywords: Spark Machine Learning, Spark Machine Learning 예제
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 02/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: 31755dcc247ea3be5fb38249afd98dc72dcbc544
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.topic: how-to
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, tracking-python
+ms.date: 04/27/2020
+ms.openlocfilehash: fc5b4843d54c4edd8f0a29393fb6b41468d6a595
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717121"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084599"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib을 사용하여 Machine Learning 애플리케이션 빌드 및 데이터 세트 분석
 
-Apache Spark [MLlib](https://spark.apache.org/mllib/)을 사용하여 오픈 데이터 세트에 대한 간단한 예측 분석을 수행하는 Machine Learning 애플리케이션을 만드는 방법을 알아봅니다. Spark의 기본 제공 Machine Learning 라이브러리에서 이 예제는 로지스틱 회귀를 통해 *분류*를 사용합니다. 
+Apache Spark MLlib를 사용 하 여 기계 학습 응용 프로그램을 만드는 방법에 대해 알아봅니다. 응용 프로그램은 열려 있는 데이터 집합에 대 한 예측 분석을 수행 합니다. Spark의 기본 제공 Machine Learning 라이브러리에서 이 예제는 로지스틱 회귀를 통해 *분류*를 사용합니다.
 
-MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learning 작업에 유용한 여러 유틸리티를 제공하는 코어 Spark 라이브러리입니다.
+MLlib는 다음과 같은 기계 학습 작업에 유용한 여러 유틸리티를 제공 하는 코어 Spark 라이브러리입니다.
 
 * 분류
 * 회귀
-* 클러스터링
-* 항목 모델링
+* Clustering
+* 모델링
 * SVD(특이값 분해) 및 PCA(주성분 분석)
 * 가설 테스트 및 샘플 통계 계산
 
 ## <a name="understand-classification-and-logistic-regression"></a>분류 및 로지스틱 회귀의 이해
-널리 사용되는 Machine Learning 작업인 *분류*는 입력 데이터를 범주로 정렬하는 프로세스입니다. 사용자가 제공하는 입력 데이터에 "레이블"을 할당하는 방법을 파악하는 분류 알고리즘 작업입니다. 예를 들어 입력으로 주식 정보를 받아서 판매할 주식과 보유할 주식의 두 가지 범주로 주식을 나누는 Machine Learning 알고리즘을 고려합니다.
+
+널리 사용되는 Machine Learning 작업인 *분류*는 입력 데이터를 범주로 정렬하는 프로세스입니다. 사용자가 제공 하는 입력 데이터에 "레이블"을 할당 하는 방법을 파악 하는 분류 알고리즘의 작업입니다. 예를 들어 주식 정보를 입력으로 허용 하는 기계 학습 알고리즘을 생각해 볼 수 있습니다. 그런 다음은 주식을 판매 해야 하는 주식 및 유지 해야 하는 주식 이라는 두 가지 범주로 주식을 나눕니다.
 
 로지스틱 회귀는 분류에 사용되는 알고리즘입니다. Spark의 로지스틱 회귀 API는 *이진 분류*또는 입력 데이터를 두 그룹 중 하나로 분류하는 데 유용합니다. 로지스틱 회귀에 대한 자세한 내용은 [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression)를 참조하세요.
 
-요약하자면, 로지스틱 회귀 프로세스는 입력 벡터가 한 그룹 또는 다른 그룹에 속할 확률을 예측할 수 있는 *로지스틱 함수* 를 만듭니다.  
+요약 하자면 로지스틱 회귀 프로세스는 *로지스틱 함수*를 생성 합니다. 함수를 사용 하 여 입력 벡터가 한 그룹 또는 다른 그룹에 속하는 확률을 예측 합니다.  
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>식품 검사 데이터에 대한 예측 분석 예제
-이 예제에서는 [시카고 데이터 포털](https://data.cityofchicago.org/)을 통해 획득한 식품 검사 데이터(**Food_Inspections1.csv**)에 대한 예측 분석을 수행하기 위해 Spark를 사용합니다. 이 데이터 세트에는 각 식품 회사에 대한 정보, 발견된 위반 사항(있는 경우), 검사 결과를 포함하여 시카고에서 수행한 식품 회사 검사에 대한 정보가 포함되어 있습니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 저장소 계정에서 이미 사용할 수 있습니다.
+
+이 예제에서는 Spark를 사용 하 여 음식 검사 데이터 (**Food_Inspections1.csv**)에 대 한 몇 가지 예측 분석을 수행 합니다. [시카고 데이터 포털의 도시](https://data.cityofchicago.org/)를 통해 얻은 데이터 이 데이터 집합은 시카고에서 수행 된 음식 설정 검사에 대 한 정보를 포함 합니다. 각 설정에 대 한 정보, 발견 된 위반 (있는 경우) 및 검사 결과를 포함 합니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 스토리지 계정에서 이미 사용할 수 있습니다.
 
 아래 단계에서는 음식 검사에 합격 또는 불합격하는 조건을 볼 수 있는 모델을 개발할 것입니다.
 
@@ -45,7 +46,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 
-2. 이 애플리케이션에 필요한 형식을 가져옵니다. 복사 하 고 빈 셀에 다음 코드를 붙여넣은 다음 키를 누릅니다 **SHIFT + ENTER**합니다.
+2. 이 애플리케이션에 필요한 형식을 가져옵니다. 다음 코드를 복사 하 여 빈 셀에 붙여넣은 다음 **shift + enter**를 누릅니다.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -55,11 +56,12 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
     from pyspark.sql.functions import UserDefinedFunction
     from pyspark.sql.types import *
     ```
-    PySpark 커널로 인해 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 
+
+    PySpark 커널 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행 하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다.
 
 ## <a name="construct-the-input-dataframe"></a>입력 데이터 프레임 구축
 
-원시 데이터가 CSV 형식이기 때문에 Spark 컨텍스트를 사용하여 파일을 메모리에 구조화되지 않은 데이터로 가져온 다음, Python의 CSV 라이브러리를 사용하여 데이터의 각 줄을 구문 분석할 수 있습니다.
+Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조화 되지 않은 텍스트로 끌어옵니다. 그런 다음 Python의 CSV 라이브러리를 사용 하 여 데이터의 각 줄을 구문 분석 합니다.
 
 1. 다음 줄을 실행하여 입력 데이터를 가져오고 구문 분석하여 RDD(복원 분산 데이터 세트)를 만듭니다.
 
@@ -71,7 +73,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
         value = csv.reader(sio).next()
         sio.close()
         return value
-    
+
     inspections = sc.textFile('/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                     .map(csvParse)
     ```
@@ -104,9 +106,9 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
         '(41.97583445690982, -87.7107455232781)']]
     ```
 
-    출력을 보면 입력 파일의 스키마를 알 수 있습니다. 파일에는 모든 회사의 이름, 회사의 종류, 주소, 검사 데이터 및 위치가 포함되어 있습니다. 
+    출력을 보면 입력 파일의 스키마를 알 수 있습니다. 모든 설정의 이름 및 설정의 유형을 포함 합니다. 또한 주소, 검사 데이터 및 위치도 다른 항목 중에서 선택할 수 있습니다.
 
-3. 다음 코드를 실행하여 예측 분석에 유용한 몇 개 열이 포함된 데이터 프레임(*df*) 및 임시 테이블(*CountResults*)을 만듭니다. `sqlContext`는 구조화된 데이터에서 변환을 수행하는 데 사용할 수 있습니다. 
+3. 다음 코드를 실행하여 예측 분석에 유용한 몇 개 열이 포함된 데이터 프레임(*df*) 및 임시 테이블(*CountResults*)을 만듭니다. `sqlContext`는 구조화 된 데이터에 대 한 변환을 수행 하는 데 사용 됩니다.
 
     ```PySpark
     schema = StructType([
@@ -114,12 +116,12 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
     StructField("name", StringType(), False),
     StructField("results", StringType(), False),
     StructField("violations", StringType(), True)])
-    
+
     df = spark.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
     df.registerTempTable('CountResults')
     ```
 
-    데이터 프레임에서 관심이 있는 네 개의 열은 **id**, **name**, **results** 및 **violations**입니다.
+    데이터 프레임에서 관심 있는 네 개의 열은 **ID**, **이름**, **결과**및 **위반**입니다.
 
 4. 다음 코드를 실행하여 데이터의 작은 예제를 가져옵니다.
 
@@ -178,8 +180,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
     ![SQL 쿼리 출력](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL 쿼리 출력")
 
-
-3. 또한 데이터 시각화를 구성하는 데 사용되는 라이브러리인 [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib)를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` 매직으로 시작해야 합니다. 그러면 코드가 Jupyter 서버에서 로컬로 실행됩니다.
+3. 또한 데이터 시각화를 구성하는 데 사용되는 라이브러리인 Matplotlib를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` 매직으로 시작해야 합니다. 이 작업을 수행 하면 코드가 Jupyter 서버에서 로컬로 실행 됩니다.
 
     ```PySpark
     %%local
@@ -193,24 +194,20 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
     plt.axis('equal')
     ```
 
-    출력은 다음과 같습니다.
-
-    ![Spark Machine Learning 애플리케이션 출력 - 5개의 고유한 검사 결과를 포함하는 원형 차트](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark Machine Learning 결과 출력")
-
-    음식 검사 결과를 예측하려면 위반을 기반으로 모델을 개발해야 합니다. 로지스틱 회귀는 이진 분류 방법이므로 결과 데이터를 두 가지 범주로 그룹화할 수 있습니다. **불합격** 및 **합격**:
+    음식 검사 결과를 예측하려면 위반을 기반으로 모델을 개발해야 합니다. 로지스틱 회귀는 이진 분류 방법이므로 결과 데이터를 두 가지 범주, 즉 **불합격** 및 **합격**으로 그룹화할 수 있습니다.
 
    - 합격
        - 합격
        - 조건부 합격
-   - 불합격
-       - 불합격
+   - 실패
+       - 실패
    - 취소
        - 회사를 찾을 수 없음
        - 폐업
 
-     결과가 다른 데이터(“회사를 찾을 수 없음” 또는 “폐업”)는 유용하지 않으며, 어찌됐건 결과의 매우 작은 비율을 구성합니다.
+     다른 결과 ("회사를 찾을 수 없음" 또는 "비즈니스 외")가 포함 된 데이터는 유용 하지 않으며 결과의 작은 비율을 구성 합니다.
 
-4. 다음 코드를 실행하여 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환합니다. 이 예에서 `0.0`의 레이블은 불합격, `1.0`의 레이블은 합격, `-1.0`의 레이블은 앞의 두 결과를 제외한 기타 결과를 나타냅니다. 
+4. 다음 코드를 실행하여 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환합니다. 이 경우의 레이블은 `0.0` 실패를 나타내고,의 레이블은 `1.0` 성공을 나타내며,의 레이블은 `-1.0` 이러한 두 결과 외에 일부 결과를 나타냅니다.
 
     ```PySpark
     def labelForResults(s):
@@ -238,11 +235,11 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>입력 데이터 프레임으로 로지스틱 회귀 모델 만들기
 
-마지막 작업은 레이블이 지정된 데이터를 로지스틱 회귀로 분석할 수 있는 형식으로 변환하는 것입니다. 로지스틱 회귀 알고리즘에 대한 입력은 *레이블-기능 벡터 쌍*의 집합이어야 하며, 여기서 “기능 벡터”는 입력 지점을 나타내는 숫자의 벡터입니다. 따라서 반구조화되고 자유로운 형식의 주석이 많이 포함된 "위반" 열을 컴퓨터가 쉽게 이해할 수 있는 실수 배열로 변환해야 합니다.
+마지막 작업은 레이블이 지정 된 데이터를 변환 하는 것입니다. 로지스틱 회귀로 분석할 수 있는 형식으로 데이터를 변환 합니다. 로지스틱 회귀 알고리즘에 대 한 입력은 *레이블-기능 벡터 쌍*의 집합 이어야 합니다. 여기서 "기능 벡터"는 입력 지점을 나타내는 숫자의 벡터입니다. 따라서 반 구조화 되 고 자유 텍스트의 많은 주석을 포함 하는 "위반" 열을 변환 해야 합니다. 열을 컴퓨터가 쉽게 이해할 수 있는 실수 배열로 변환 합니다.
 
-자연 언어를 처리하기 위한 표준 기계 학습 접근 방법 중 하나는 고유한 각 단어에 "인덱스"를 할당한 다음 각 인덱스의 값이 해당 단어의 상대 빈도를 텍스트 문자열에 포함하도록 기계 학습 알고리즘에 벡터를 보내는 것입니다.
+자연어를 처리 하는 한 가지 표준 기계 학습 방법은 각각의 고유한 단어를 "인덱스"에 할당 하는 것입니다. 그런 다음 기계 학습 알고리즘에 벡터를 전달 합니다. 각 인덱스의 값이 텍스트 문자열에 있는 해당 단어의 상대적 빈도를 포함 합니다.
 
-MLlib은 이 작업을 간단하게 수행할 수 있는 방법을 제공합니다. 첫째, 각 문자열에서 개별 단어를 가져오기 위해 각 위반 문자열을 "토큰화"합니다. 그런 다음 `HashingTF`을 사용하여 모델을 생성하는 로지스틱 회귀 알고리즘에 전달될 수 있는 기능 벡터로 각 토큰 집합을 변환합니다. "파이프라인"를 사용하여 이 모든 단계를 차례로 수행합니다.
+MLlib는이 작업을 수행 하는 쉬운 방법을 제공 합니다. 첫째, 각 문자열에서 개별 단어를 가져오기 위해 각 위반 문자열을 "토큰화"합니다. 그런 다음 `HashingTF`을 사용하여 모델을 생성하는 로지스틱 회귀 알고리즘에 전달될 수 있는 기능 벡터로 각 토큰 집합을 변환합니다. "파이프라인"를 사용하여 이 모든 단계를 차례로 수행합니다.
 
 ```PySpark
 tokenizer = Tokenizer(inputCol="violations", outputCol="words")
@@ -255,7 +252,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>다른 데이터 세트를 사용하여 모델 평가
 
-앞에 만든 모델을 사용하여 관찰된 위반을 기반으로 새 검사의 결과를 *예측* 할 수 있습니다. **Food_Inspections1.csv** 데이터 세트에서 이 모델을 학습했습니다. 두 번째 데이터 세트인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 집합(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 저장소 컨테이너에 있습니다.
+이전에 만든 모델을 사용 하 여 새 검사 결과를 *예측할* 수 있습니다. 예측은 관찰 된 위반을 기반으로 합니다. **Food_Inspections1.csv** 데이터 세트에서 이 모델을 학습했습니다. 두 번째 데이터 세트인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 세트(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 스토리지 컨테이너에 있습니다.
 
 1. 다음 코드를 실행하여 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만듭니다. 이 조각은 데이터 프레임을 기반으로 **Predictions**라는 임시 테이블도 만듭니다.
 
@@ -269,7 +266,7 @@ model = pipeline.fit(labeledData)
     predictionsDf.columns
     ```
 
-    다음과 유사한 출력이 표시됩니다.
+    다음 텍스트와 같은 출력이 표시 됩니다.
 
     ```
     ['id',
@@ -289,8 +286,9 @@ model = pipeline.fit(labeledData)
     predictionsDf.take(1)
     ```
 
-   테스트 데이터 집합에 첫 번째 항목에 대한 예측이 있습니다.
-1. `model.transform()` 메서드는 스키마가 같은 모든 새 데이터에 동일한 변환 방법을 적용하여 데이터 분류 방법에 대한 예측에 도달합니다. 몇 가지 간단한 통계를 수행하여 예측의 정확도를 알아볼 수 있습니다.
+   테스트 데이터 집합의 첫 번째 항목에 대 한 예측이 있습니다.
+
+1. `model.transform()` 메서드는 스키마가 같은 모든 새 데이터에 동일한 변환 방법을 적용하여 데이터 분류 방법에 대한 예측에 도달합니다. 몇 가지 통계를 수행 하 여 예측의 의미를 파악할 수 있습니다.
 
     ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
@@ -302,16 +300,17 @@ model = pipeline.fit(labeledData)
     print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
     ```
 
-    출력은 다음과 같이 표시됩니다.
+    출력은 다음 텍스트와 비슷합니다.
 
     ```
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
 
-    Spark에서 로지스틱 회귀를 사용하면 영어로 된 위반 설명과 특정 회사의 음식 검사 합격 또는 불합격 가능성 사이의 관계를 정확하게 예측하는 모델을 얻을 수 있습니다.
+    Spark에서 로지스틱 회귀를 사용 하면 위반 설명 간의 관계에 대 한 모델이 영어로 제공 됩니다. 지정 된 비즈니스에서 음식 검사를 통과 하거나 실패 하는지 여부를 지정 합니다.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>예측의 시각적 표현 만들기
+
 이제 이 테스트 결과의 이유를 파악하는 데 도움이 되는 최종 시각화를 만들 수 있습니다.
 
 1. 먼저 이전에 만든 **Predictions** 임시 테이블에서 여러 예측 및 결과를 추출합니다. 다음 쿼리는 출력을 *true_positive*, *false_positive*, *true_negative* 및 *false_negative*로 구분합니다. 아래 쿼리에서는 `-q`를 사용하여 시각화를 해제하고 `%%local` 매직에서 사용할 수 있는 데이터 프레임으로 출력을 저장(`-o`를 사용하여)합니다.
@@ -352,33 +351,16 @@ model = pipeline.fit(labeledData)
 
     다음 출력이 표시됩니다.
 
-    ![Spark Machine Learning 애플리케이션 출력 - 실패한 식품 검사의 원형 차트 비율.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark Machine Learning 결과 출력")
+    ![Spark machine learning 응용 프로그램 출력-실패 한 음식 검사의 원형 차트 백분율입니다.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning 결과 출력")
 
     이 차트에서 "긍정" 결과는 불합격한 음식 검사를 참조하는 반면, 부정 결과는 합격한 검사를 참조합니다.
 
 ## <a name="shut-down-the-notebook"></a>Notebook 종료
-애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. 그러면 Notebook을 종료하고 닫습니다.
 
-## <a name="seealso"></a>참고 항목
+애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. 그러면 Notebook이 종료된 후 닫힙니다.
+
+## <a name="next-steps"></a>다음 단계
+
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
-
-### <a name="scenarios"></a>시나리오
-* [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
-* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](apache-spark-create-standalone-application.md)
-* [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>도구 및 확장
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
-* [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>리소스 관리
-* [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
-* [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)
+* [Azure HDInsight를 사용 하 여 심층 학습 모델 Microsoft Cognitive Toolkit](apache-spark-microsoft-cognitive-toolkit.md)

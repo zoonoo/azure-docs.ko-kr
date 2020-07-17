@@ -1,26 +1,17 @@
 ---
-title: Azure에서 Service Fabric 클러스터에 Java 앱 배포 | Microsoft Docs
+title: Azure의 Service Fabric 클러스터에 Java 앱 배포
 description: 이 자습서에서는 Azure Service Fabric 클러스터에 Java Service Fabric 애플리케이션을 배포하는 방법을 알아봅니다.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: aa7f77299750a969bf936a3ed9b6ae76653a90c4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 672f8916749362e7145799bdefa3bbd628fc9116
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526693"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244823"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
 
@@ -41,12 +32,12 @@ ms.locfileid: "59526693"
 > * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Mac](service-fabric-get-started-mac.md) 또는 [Linux](service-fabric-get-started-linux.md)용 Service Fabric SDK 설치
 * [Python 3 설치](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -60,15 +51,15 @@ ms.locfileid: "59526693"
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
 
-2. Azure 계정에 로그인합니다.
+2. Azure 계정에 로그인
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 3. 리소스를 만들려면 사용하려는 Azure 구독 설정
 
-    ```bash
+    ```azurecli
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
@@ -82,7 +73,7 @@ ms.locfileid: "59526693"
 
     위의 명령은 나중에 사용하기 위해 확인해야 하는 다음 정보를 반환합니다.
 
-    ```
+    ```output
     Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
     Certificate URL: https://<name>.vault.azure.net/secrets/<cluster-dns-name-for-certificate>/<guid>
     Certificate Thumbprint: <THUMBPRINT>
@@ -90,7 +81,7 @@ ms.locfileid: "59526693"
 
 5. 로그를 저장하는 스토리지 계정에 대한 리소스 그룹 만들기
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name teststorageaccountrg
@@ -98,7 +89,7 @@ ms.locfileid: "59526693"
 
 6. 생산될 로그를 저장하는 데 사용될 스토리지 계정 만들기
 
-    ```bash
+    ```azurecli
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
 
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
@@ -110,13 +101,13 @@ ms.locfileid: "59526693"
 
 8. 계정 SAS URL을 복사하고 Service Fabric 클러스터를 만들 때 사용하기 위해 따로 보관해 둡니다. 다음 URL과 유사합니다.
 
-    ```
+    ```output
     ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Event Hub 리소스를 포함하는 리소스 그룹을 만듭니다. Event Hubs는 Service Fabric에서 ELK 리소스를 실행하는 서버로 메시지를 보내는 데 사용됩니다.
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name testeventhubsrg
@@ -124,7 +115,7 @@ ms.locfileid: "59526693"
 
 10. 다음 명령을 사용하여 Event Hubs 리소스를 만듭니다. 지시에 따라 namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule 및 receiveAuthorizationRule에 대한 세부 정보를 입력합니다.
 
-    ```bash
+    ```azurecli
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
@@ -167,7 +158,7 @@ ms.locfileid: "59526693"
 
     반환된 JSON에서 **sr** 필드 값을 복사합니다. **sr** 필드 값은 EventHubs에 대한 SAS 토큰입니다. 다음 URL은 **sr** 필드의 예제입니다.
 
-    ```bash
+    ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
@@ -194,7 +185,7 @@ ms.locfileid: "59526693"
 
 14. Service Fabric 클러스터를 만들려면 다음 명령 실행
 
-    ```bash
+    ```azurecli
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 
@@ -208,7 +199,7 @@ ms.locfileid: "59526693"
     </Certificates>
     ```
 
-2. 이 클러스터에 애플리케이션을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 개인 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 개인 키가 있는 PEM 파일을 생성합니다. 
+2. 이 클러스터에 애플리케이션을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 프라이빗 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 프라이빗 키가 있는 PEM 파일을 생성합니다. 
 
     ```bash
     openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
@@ -226,11 +217,11 @@ ms.locfileid: "59526693"
     ./install.sh
     ```
 
-5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 https://testlinuxcluster.westus.cloudapp.azure.com:19080 에 입력합니다. 이 엔드포인트에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 애플리케이션이 클러스터에 설치됐음을 알립니다.
+5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 `https://testlinuxcluster.westus.cloudapp.azure.com:19080` 에 입력합니다. 이 엔드포인트에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 애플리케이션이 클러스터에 설치됐음을 알립니다.
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. 애플리케이션에 액세스하려면 https://testlinuxcluster.westus.cloudapp.azure.com:8080 에 입력
+6. 애플리케이션에 액세스하려면 `https://testlinuxcluster.westus.cloudapp.azure.com:8080` 에 입력
 
     ![Voting App Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 
@@ -242,7 +233,7 @@ ms.locfileid: "59526693"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure에서 보안 Linux 클러스터 만들기

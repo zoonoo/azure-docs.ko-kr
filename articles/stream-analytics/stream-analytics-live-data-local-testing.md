@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics for Visual Studio를 사용하여 라이브 데이터 테스트
 description: 라이브 스트리밍 데이터를 사용하여 Azure Stream Analytics 작업을 로컬로 테스트하는 방법을 알아봅니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea55d2f96a87503d43a69d288ce85dcff32a39ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe1caca11ec0a3d89ddae140d00cd3556b9d3d89
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479833"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044467"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Azure Stream Analytics Tools for Visual Studio를 사용하여 로컬로 라이브 데이터 테스트(미리 보기)
 
@@ -24,7 +23,7 @@ Azure Stream Analytics Tools for Visual Studio를 사용하면 Azure Event Hub, 
 
 지원되는 로컬 테스트 옵션은 다음과 같습니다.
 
-|**입력**  |**출력**  |**작업 유형**  |
+|**Input**  |**출력**  |**작업 유형**  |
 |---------|---------|---------|
 |정적 로컬 데이터   |  정적 로컬 데이터   |   클라우드/에지 |
 |라이브 입력 데이터   |  정적 로컬 데이터   |   클라우드 |
@@ -39,7 +38,6 @@ Azure Stream Analytics Tools for Visual Studio를 사용하면 Azure Event Hub, 
 2. 라이브 데이터를 테스트하려면 드롭다운 상자에서 **클라우드 입력 사용**을 선택합니다.
 
    ![Azure Stream Analytics Visual Studio 라이브 클라우드 입력](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
-
 
 3. **시작 시간**을 설정하여 작업에서 입력 데이터 처리를 시작할 시기를 정의합니다. 정확한 결과를 보장하려면 작업이 입력 데이터를 미리 읽어야 할 수도 있습니다. 기본 시간은 현재 시간에서 30분 전으로 설정됩니다.
 
@@ -65,7 +63,6 @@ Azure Stream Analytics Tools for Visual Studio를 사용하면 Azure Event Hub, 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [Visual Studio용 Azure Stream Analytics 도구 설치](stream-analytics-tools-for-visual-studio-install.md)
+* [Visual Studio 용 Azure Stream Analytics 도구를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
 * [Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트](stream-analytics-vs-tools-local-run.md)
 * [Visual Studio를 사용하여 Azure Stream Analytics 작업 보기](stream-analytics-vs-tools.md)

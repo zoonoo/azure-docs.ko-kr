@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c5e22c14d0df46ddac9a503f43df8d54c3c93d5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61244232"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964756"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법 
 
@@ -281,7 +281,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 
 위의 모든 예제는 이미지만을 생성하는 인코딩 작업을 전송하는 방법을 설명했지만 미리 보기 생성으로 동영상/오디오 인코딩을 결합할 수도 있습니다. 다음 JSON 및 XML 사전 설정은 **Media Encoder Standard**에서 인코딩하는 동안 미리 보기를 생성하도록 합니다.
 
-### <a id="json"></a>JSON 사전 설정
+### <a name="json-preset"></a><a id="json"></a>JSON 사전 설정
 스키마에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
 
 ```json
@@ -346,7 +346,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
     }
 ```
 
-### <a id="xml"></a>XML 사전 설정
+### <a name="xml-preset"></a><a id="xml"></a>XML 사전 설정
 스키마에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
 
 ```csharp
@@ -401,16 +401,19 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
     </Preset>   
 ```
 
-## <a id="code_sample"></a>.NET을 사용하여 동영상 인코드 및 미리 보기 생성
+## <a name="encode-video-and-generate-thumbnail-with-net"></a><a id="code_sample"></a>.NET을 사용하여 동영상 인코드 및 미리 보기 생성
 
 다음 코드 예제에서는 Media Services .NET SDK를 사용하여 다음 작업을 수행합니다.
 
 * 인코딩 작업을 만듭니다.
 * 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
 * 미리 보기를 생성하는 데 필요한 정보 및 Encoding 기본 설정이 포함된 기본 설정 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 또는 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)을 로드합니다. 이 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 또는 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)을 파일에 저장하고 다음 코드를 사용하여 파일을 로드할 수 있습니다.
-  
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the XML (or JSON) from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
+
 * 작업에 단일 인코딩을 추가합니다. 
 * 인코딩할 입력 자산을 지정합니다.
 * 인코딩된 자산을 포함하는 출력 자산을 만듭니다.
@@ -552,8 +555,8 @@ namespace EncodeAndGenerateThumbnails
 * Jpg/Png/BmpImage 요소에는 Start, Step 및 Range 문자열 특성이 있으며, 이러한 특성은 다음과 같이 해석될 수 있습니다.
   
   * 음수가 아닌 정수인 경우 프레임 번호(예: "Start": "120")
-  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%") 또는
-  * HH:MM:SS... 형식. 예: “Start”: "00:01:00"
+  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%")
+  * HH:MM:SS... 형식. 예: “Start” : “00:01:00”
     
     표기법을 원하는 대로 혼용하거나 일치시킬 수 있습니다.
     
@@ -571,6 +574,6 @@ namespace EncodeAndGenerateThumbnails
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [Media Services Encoding 개요](media-services-encode-asset.md)
 

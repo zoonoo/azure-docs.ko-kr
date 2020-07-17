@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67109286"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 인시던트 대응 요구 사항 확인
 대규모 또는 중간 규모 조직에서는 대개 [보안 인시던트 대응](https://technet.microsoft.com/library/cc700825.aspx) 을 준비하여 IT가 인시던트의 수준에 따라 동작을 취합니다. ID 관리 시스템은 대상에 대해 특정 동작을 수행한 사용자를 식별하는 데 사용될 수 있기 때문에 인시던트 대응 프로세스에서 중요한 구성 요소입니다. 하이브리드 ID 솔루션은 IT에서 활용할 수 있는 모니터링 및 보고 기능을 제공하여 잠재적인 위협을 식별하고 완화하는 작업을 수행해야 합니다. 일반적인 인시던트 대응 계획에서 계획의 일부를 다음과 같은 단계로 해야 합니다.
@@ -50,14 +50,14 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
 * 회사가 다른 디바이스에서 사용자의 의심스러운 로그인 시도를 식별해야 합니까?
 * 회사가 잠재적으로 공격에 노출된 사용자의 자격 증명을 검색해야 합니까?
 * 회사가 사용자의 액세스 및 동작을 감사해야 합니까?
-* 사용자가 자신의 암호를 재설정하는 경우 회사가 알아야 합니까?
+* 사용자가 자신의 암호를 재설정 하는 경우 회사에서 알고 있어야 하나요?
 
 ## <a name="policy-enforcement"></a>정책 적용
 손상 제어 및 위험 감소 단계 동안 잠재적 공격의 실제 및 잠재적인 영향을 신속하게 줄이는 것이 중요합니다. 이 시점에서 수행할 동작은 주 및 부 동작 간의 차이를 만들 수 있습니다. 정확한 대응은 조직 및 직면하는 공격의 특성에 따라 달라집니다. 초기 평가에서 계정이 손상되었다고 결론을 얻은 경우 이 계정을 차단하는 정책을 적용해야 합니다. ID 관리 시스템이 활용되는 하나의 예입니다. 진행 중인 인시던트에 반응하기 위해 정책이 어떻게 적용될지를 고려하는 동안 아래의 질문을 사용하여 하이브리드 ID 솔루션을 설계하도록 합니다.
 
 * 필요한 경우 회사가 네트워크 액세스에서 사용자를 블록하는 정책이 준비되어 있습니까?
   * 그렇다면 현재 솔루션이 채택하려는 하이브리드 ID 관리 시스템과 통합됩니까?
-* 회사가 격리된 사용자에 대해 조건부 액세스를 적용해야 합니까? 
+* 회사에서 격리 된 사용자에 대 한 조건부 액세스를 적용 해야 하나요? 
 
 > [!NOTE]
 > 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다.  질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
@@ -67,6 +67,6 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
 ## <a name="next-steps"></a>다음 단계
 [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md)
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
 

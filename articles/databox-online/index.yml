@@ -1,39 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Data Box 설명서 - 온라인 전송
+### YamlMime:Landing
+title: Azure Stack Edge 및 Azure Data Box Gateway 설명서 - 온라인 전송
+summary: Azure Data Box Gateway 및 Azure Stack Edge 디바이스를 사용하여 네트워크를 통해 고성능 데이터를 전송합니다. 클라우드 아카이브, 재해 복구를 위해 또는 클라우드 규모에서 데이터를 처리하도록 데이터를 보내려면 Data Box Gateway를 선택합니다. 데이터를 Azure로 이동하기 전에 필터링, 분석 및 변환을 수행하려면 Azure Stack Edge를 사용합니다. Azure Data Box Edge는 최근 Azure Stack Edge로 재브랜드되었습니다.
 metadata:
-  title: '네트워크를 통해 Azure로 데이터를 전송하는 방법에 대한 Data Box Gateway, Data Box Edge 설명서'
-  description: Data Box Edge 및 Data Box Gateway를 사용하여 빠르고 저렴하고 신뢰할 수 있는 방법으로 네트워크를 통해 Azure로 빠르게 데이터를 전송하세요.
+  title: Azure Stack Edge 및 Azure Data Box Gateway 설명서 - 온라인 전송
+  description: Azure로 네트워크 데이터 전송을 통해 고성능을 발휘하기 위한 Data Box Gateway, Azure Stack Edge (재브랜드된 Data Box Edge) 설명서입니다.
   services: databox
-  author: alkohli
-  manager: twooley
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/25/2019
+  ms.collection: collection
+  author: alkohli
   ms.author: alkohli
-abstract:
-  description: 'Azure Data Box 제품군을 통해 수백 테라바이트의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure에 전송할 수 있습니다. Data Box Edge 및 Data Box Gateway 디바이스를 사용하여 네트워크를 통해 빠르게 데이터를 전송하세요.<p>클라우드 아카이브, 재해 복구를 위해 또는 클라우드 규모에서 데이터를 처리하도록 데이터를 보내려면 Data Box Gateway를 선택합니다.  데이터를 Azure로 이동할 때 필터링, 분석 및 변환을 수행하려면 Data Box Edge를 사용합니다.</p><p>Microsoft 자습서에서 네트워크 기반 전송에 Data Box Gateway 및 Data Box Edge를 활용하는 방법을 알아봅니다.</p>'
-sections:
-  - title: 자습서
-    items:
-      - type: paragraph
-        text: <b>Data Box Gateway의 경우</b>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="data-box-gateway-deploy-prep">Azure Data Box Gateway 배포 준비</a>
-          - html: <a href="data-box-gateway-deploy-provision-hyperv">Provision Azure Data Box Gateway in Hyper-V</a>(Hyper-V에서 Azure Data Box Gateway 프로비전)
-          - html: <a href="data-box-gateway-deploy-provision-vmware">Provision Azure Data Box Gateway in VMware</a>(VMware에서 Azure Data Box Gateway 프로비전)
-          - html: '<a href="data-box-gateway-deploy-connect-setup-activate">Connect, set up, activate Azure Data Box Gateway</a>(Azure Data Box Gateway 연결, 설정, 활성화)'
-          - html: <a href="data-box-gateway-deploy-add-shares">Azure Data Box Gateway를 통해 데이터 전송</a>.
-      - type: paragraph
-        text: <b>Data Box Edge의 경우</b>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="data-box-edge-deploy-prep">Azure Data Box Edge 배포 준비</a>
-          - html: <a href="data-box-edge-deploy-install">Azure Data Box Edge 설치</a>
-          - html: '<a href="data-box-edge-deploy-connect-setup-activate">Azure Data Box Gateway 연결, 설정, 활성화</a>'
-          - html: <a href="data-box-edge-deploy-add-shares">Azure Data Box Edge를 통해 데이터 전송</a>.
-          - html: <a href="data-box-edge-deploy-configure-compute">를 통해 데이터 전송</a>.
+  ms.date: 11/04/2019
+  ms.openlocfilehash: bf4f5d7589bdf9ae9b456f7dbe24c8d5fc02afaf
+  ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/29/2020
+  ms.locfileid: "82562358"
+landingContent:
+- title: Azure Stack Edge 및 Data Box Gateway 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Data Box Gateway란?
+      url: data-box-gateway-overview.md
+    - text: Azure Stack Edge란?
+      url: azure-stack-edge-overview.md
+  - linkListType: architecture
+    links:
+    - text: Azure 데이터 전송 옵션 선택
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+    - text: 네트워크 또는 오프라인 전송 사용
+      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+  - linkListType: whats-new
+    links:
+    - text: 1905 릴리스 정보
+      url: data-box-gateway-1905-release-notes.md
+- title: 요구 사항 및 제한 사항
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Data Box Gateway 요구 사항
+      url: data-box-gateway-system-requirements.md
+    - text: Azure Stack Edge 요구 사항
+      url: azure-stack-edge-system-requirements.md
+    - text: Data Box Gateway 제한 사항
+      url: data-box-gateway-limits.md
+    - text: Azure Stack Edge 제한 사항
+      url: azure-stack-edge-limits.md
+- title: 배포
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Data Box Gateway
+      url: data-box-gateway-deploy-prep.md
+    - text: Azure Stack Edge
+      url: azure-stack-edge-deploy-prep.md
+- title: 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: C# Edge 컴퓨팅 모듈
+      url: azure-stack-edge-create-iot-edge-module.md
+  - linkListType: download
+    links:
+    - text: 샘플 - Azure Stack Edge용 C#
+      url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
+- title: 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box Gateway 공유
+      url: data-box-gateway-manage-shares.md
+    - text: Azure Stack Edge 공유
+      url: azure-stack-edge-manage-shares.md
+    - text: Edge 컴퓨팅
+      url: azure-stack-edge-manage-compute.md
+    - text: Edge 컴퓨팅 네트워크
+      url: azure-stack-edge-extend-compute-access-modules.md
+- title: 문제 해결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box Gateway
+      url: data-box-gateway-troubleshoot.md
+    - text: Azure Stack Edge
+      url: azure-stack-edge-troubleshoot.md
+    - text: Edge 컴퓨팅 모듈
+      url: azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules
+    - text: Azure Stack Edge 반환 또는 바꾸기
+      url: azure-stack-edge-return-device.md
+    - text: 지원 티켓 열기
+      url: azure-stack-edge-contact-microsoft-support.md

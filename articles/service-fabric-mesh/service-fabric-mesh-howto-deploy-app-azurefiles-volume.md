@@ -1,34 +1,36 @@
 ---
-title: Service Fabric Mesh 애플리케이션에서 Azure Files 기반 볼륨 사용 | Microsoft Docs
+title: Service Fabric 메시 앱에서 Azure Files 기반 볼륨 사용
 description: Azure CLI를 사용하여 서비스 내부에 Azure Files 기반 볼륨을 탑재하여 Azure Service Fabric Mesh 애플리케이션에 상태를 저장하는 방법을 알아봅니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa078f17768d4885403f2f3e3d6b91251f0aaced
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419376"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260108"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Service Fabric Mesh 애플리케이션에서 Azure Files 기반 볼륨 사용 
 
 이 문서에서는 Service Fabric Mesh 애플리케이션 서비스에 Azure Files 기반 볼륨을 탑재하는 방법을 설명합니다.  Azure Files 볼륨 드라이버는 서비스 상태를 유지하기 위해 컨테이너에 Azure Files 공유를 탑재하는 데 사용되는 Docker 볼륨 드라이버입니다. 볼륨은 범용 파일 스토리지를 제공하며 이를 통해 일반 디스크 I/O 파일 API를 사용하여 파일을 읽고 쓸 수 있습니다.  볼륨 및 애플리케이션 데이터를 저장하기 위한 옵션에 대한 자세한 내용은 [상태 저장](service-fabric-mesh-storing-state.md)을 참조하세요.
 
-서비스에 볼륨을 탑재하려면 Service Fabric Mesh 애플리케이션에 볼륨 리소스를 만든 다음, 사용자 서비스에서 해당 볼륨을 참조합니다.  볼륨 리소스를 선언하고 서비스 리소스에서 참조하는 작업은 [YAML 기반 리소스 파일](#declare-a-volume-resource-and-update-the-service-resource-yaml) 또는 [JSON 기반 배포 템플릿](#declare-a-volume-resource-and-update-the-service-resource-json)에서 수행할 수 있습니다. 볼륨을 탑재하기 전에 먼저 Azure Storage 계정을 만들고 [Azure Files에 파일 공유](/azure/storage/files/storage-how-to-create-file-share)를 만듭니다.
+서비스에 볼륨을 탑재하려면 Service Fabric Mesh 애플리케이션에 볼륨 리소스를 만든 다음, 사용자 서비스에서 해당 볼륨을 참조합니다.  볼륨 리소스를 선언하고 서비스 리소스에서 참조하는 작업은 [YAML 기반 리소스 파일](#declare-a-volume-resource-and-update-the-service-resource-yaml) 또는 [JSON 기반 배포 템플릿](#declare-a-volume-resource-and-update-the-service-resource-json)에서 수행할 수 있습니다. 볼륨을 탑재하기 전에 먼저 Azure Storage 계정을 만들고 [Azure Files에 파일 공유](../storage/files/storage-how-to-create-file-share.md)를 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> **WINDOWS RS5 개발 컴퓨터에 대 한 배포의 알려진 문제:** Azurefile 볼륨의 탑재를 방지 하는 RS5 Windows 컴퓨터에 Powershell cmdlet SmbGlobalMapping에 대 한 오픈 버그가 있습니다. 다음은 AzureFile 기반 볼륨이 로컬 개발 컴퓨터에 탑재 될 때 발생 하는 샘플 오류입니다.
+```
+Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
+There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
+Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
+```
+문제에 대 한 해결 방법은 1) 아래 명령을 Powershell 관리자로 실행 하 고 2) 컴퓨터를 다시 부팅 하는 것입니다.
+```powershell
+PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
+```
 
 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 문서를 완료할 수 있습니다. 
 
@@ -74,8 +76,8 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 
 [Azure Portal](https://portal.azure.com)에서 이러한 값을 찾을 수도 있습니다.
 * `<storageAccountName>` - **스토리지 계정** 아래에서 파일 공유를 만들 때 사용한 스토리지 계정 이름입니다.
-* `<storageAccountKey>` - **저장소 계정**에서 저장소 계정을 선택한 다음, **액세스 키**를 선택하고 **key1** 아래의 값을 사용합니다.
-* `<fileShareName>` - **저장소 계정**에서 저장소 계정을 선택한 다음, **파일**을 선택합니다. 사용할 이름은 만든 파일 공유의 이름입니다.
+* `<storageAccountKey>` - **스토리지 계정**에서 스토리지 계정을 선택한 다음, **액세스 키**를 선택하고 **key1** 아래의 값을 사용합니다.
+* `<fileShareName>` - **스토리지 계정**에서 스토리지 계정을 선택한 다음, **파일**을 선택합니다. 사용할 이름은 만든 파일 공유의 이름입니다.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>볼륨 리소스 선언 및 서비스 리소스 업데이트(JSON)
 

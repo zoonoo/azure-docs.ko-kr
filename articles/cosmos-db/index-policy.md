@@ -1,42 +1,49 @@
 ---
 title: Azure Cosmos DB 인덱싱 정책
-description: 구성 하 고 인덱싱 정책을 자동 인덱싱 및 Azure Cosmos DB의 성능 향상에 대 한 기본값을 변경 하는 방법에 알아봅니다.
-author: ThomasWeiss
+description: Azure Cosmos DB의 자동 인덱싱 및 성능 향상을 위해 기본 인덱싱 정책을 구성 하 고 변경 하는 방법에 대해 알아봅니다.
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.author: thweiss
-ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.author: tisande
+ms.openlocfilehash: a335da61fac914368b4044a97582ef0060f5de4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636328"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
-Azure Cosmos DB에서는 모든 컨테이너에는 컨테이너의 항목을 인덱싱해야 하는 방법을 결정 하는 인덱싱 정책을 있습니다. 기본 인덱싱 정책에 대 한를 새로 만든 컨테이너 인덱스 문자열 또는 숫자에 대해 범위 인덱스를 적용 하는 모든 항목의 모든 속성 및 공간 인덱스의 모든 GeoJSON 개체에 대 한 Point 형식입니다. 이 옵션을 사용 하면 인덱싱 및 인덱스 관리를 사전에 대 한 염려 없이 높은 쿼리 성능을 얻을 수 있습니다.
+Azure Cosmos DB 모든 컨테이너에는 컨테이너의 항목을 인덱싱하는 방법을 지정 하는 인덱싱 정책이 있습니다. 새로 만든 컨테이너에 대 한 기본 인덱싱 정책은 모든 항목의 모든 속성을 인덱싱합니다. 모든 문자열 또는 숫자에 대 한 범위 인덱스를 적용 하 고 Point 형식의 GeoJSON 개체에 대 한 공간 인덱스를 적용 합니다. 이를 통해 인덱싱 및 인덱스 관리를 사전에 고려 하지 않고도 높은 쿼리 성능을 얻을 수 있습니다.
 
-상황에 따라 요구 사항에 맞게 이러한 자동 동작을 재정의 하는 것이 좋습니다. 설정 하 여 컨테이너의 인덱싱 정책을 사용자 지정할 수 있습니다 해당 *인덱싱 모드*를 포함 하거나 제외 하 고 *속성 경로*합니다.
+사용자 요구 사항에 맞게 이 자동 동작을 재정의할 수 있는 상황이 있습니다. *인덱싱 모드*를 설정 하 여 컨테이너의 인덱싱 정책을 사용자 지정 하 고 *속성 경로*를 포함 하거나 제외할 수 있습니다.
+
+> [!NOTE]
+> 이 문서에서 설명 하는 인덱싱 정책 업데이트 방법은 Azure Cosmos DB의 SQL (Core) API에만 적용 됩니다.
 
 ## <a name="indexing-mode"></a>인덱싱 모드
 
-Azure Cosmos DB는 두 가지 인덱싱 모드를 지원합니다.
+Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
-- **일관성**: 컨테이너의 인덱싱 정책을 일관성으로 설정 된 경우 인덱스 만들기, 업데이트 또는 항목을 삭제 하는 대로 동기적으로 업데이트 됩니다. 즉, 읽기 쿼리의 일관성 되도록 합니다 [계정에 대해 구성 된 일관성](consistency-levels.md)합니다.
+- **일관성**: 항목이 생성, 업데이트 또는 삭제 될 때 인덱스가 동기적으로 업데이트 됩니다. 즉, 읽기 쿼리의 일관성은 [계정에 대해 구성 된 일관성](consistency-levels.md)이 됩니다.
+- **없음**: 컨테이너에서 인덱싱을 사용할 수 없습니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 이를 사용 하 여 대량 작업의 성능을 향상 시킬 수도 있습니다. 대량 작업이 완료 되 면 인덱스 모드를 일관 된 상태로 설정 하 고 완료 될 때까지 [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) 를 사용 하 여 모니터링할 수 있습니다.
 
-- **없음**: 컨테이너의 인덱싱 정책을 None으로 설정 하는 경우 해당 컨테이너에서 효과적으로 비활성화 됩니다 인덱싱. 이 컨테이너 보조 인덱스 없이 순수 키-값 저장소로 사용 되는 경우 일반적으로 사용 됩니다. 대량 삽입 작업 속도 유용할 수 있습니다.
+> [!NOTE]
+> Azure Cosmos DB는 지연 인덱싱 모드도 지원 합니다. 지연 인덱싱은 엔진이 다른 작업을 수행 하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행 합니다. 이로 인해 **일치 하지 않거나 불완전** 한 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택 하면 안 됩니다. 6 월 2020에는 새 컨테이너를 지연 인덱싱 모드로 설정 하는 것이 더 이상 허용 되지 않는 변경 내용이 도입 되었습니다. Azure Cosmos DB 계정에 이미 지연 인덱싱이 있는 컨테이너가 하나 이상 포함 되어 있는 경우이 계정은 변경에서 자동으로 제외 됩니다. [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의 하 여 예외를 요청할 수도 있습니다.
 
-## <a name="including-and-excluding-property-paths"></a>포함 및 제외 속성 경로
+기본적으로 인덱싱 정책은로 설정 됩니다 `automatic` . `automatic`인덱싱 정책에서 속성을로 설정 하 여 구현 `true` 합니다. 이 속성을로 설정 `true` 하면 Azure CosmosDB가 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
 
-사용자 지정 인덱싱 정책을 명시적으로 포함 하거나 인덱싱에서 제외할는 속성 경로 지정할 수 있습니다. 인덱싱된 경로의 수를 최적화 하 여 저장소 컨테이너에서 사용을 줄일 수 있으며 쓰기 작업의 대기 시간을 개선할 수 있습니다. 이러한 경로 다음 정의 된 [인덱싱 개요 섹션에서 설명 하는 방법을](index-overview.md#from-trees-to-property-paths) 다음 내용을 추가 하 여:
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>속성 경로 포함 및 제외
 
-- 스칼라 값 (문자열 또는 숫자)으로 이어지는 경로 끝나는 `/?`
-- 배열에서 요소를 통해 함께 사항은 합니다 `/[]` 표기법 (of `/0`, `/1` 등.)
-- `/*` 와일드 카드를 사용 하 여 노드 아래의 모든 요소를 연결할 수 있습니다
+사용자 지정 인덱싱 정책은 명시적으로 포함 되거나 인덱싱에서 제외 되는 속성 경로를 지정할 수 있습니다. 인덱싱되는 경로 수를 최적화 하 여 컨테이너에서 사용 되는 저장소의 양을 줄이고 쓰기 작업의 대기 시간을 높일 수 있습니다. 이러한 경로는 [인덱싱 개요 섹션에 설명 된 방법](index-overview.md#from-trees-to-property-paths) 에 따라 다음과 같이 추가 됩니다.
 
-동일한 예를 다시 수행 합니다.
+- 스칼라 값 (문자열 또는 숫자)으로 시작 하는 경로는 다음으로 끝납니다.`/?`
+- 배열의 요소는 `/[]` 표기법 (대신)을 통해 함께 처리 됩니다 `/0` `/1` .
+- `/*`와일드 카드를 사용 하 여 노드 아래의 모든 요소를 일치 시킬 수 있습니다.
 
+동일한 예제를 다시 수행 합니다.
+
+```
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -48,90 +55,228 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원합니다.
             { "city": "Athens" }
         ]
     }
+```
 
-- 합니다 `headquarters`의 `employees` 경로가 `/headquarters/employees/?`
-- 합니다 `locations`' `country` 경로가 `/locations/[]/country/?`
-- 아래에 있는 모든 항목에 대 한 경로 `headquarters` 는 `/headquarters/*`
+- `headquarters`의 `employees` 경로는입니다.`/headquarters/employees/?`
 
-경로 명시적으로 인덱싱 정책에 포함 하는 경우 또한 해당 경로 각 인덱스 형식에이 인덱스에 적용 됩니다. 데이터 형식에 대 한 인덱스 유형을 적용할 정의할 수 있습니다.
+- `locations`' `country` 경로는입니다.`/locations/[]/country/?`
 
-| 인덱스 유형 | 허용 되는 대상 데이터 형식 |
-| --- | --- |
-| 범위 | 문자열 또는 숫자 |
-| 공간 | 점, LineString 또는 다각형 |
+- 아래의 모든 항목에 대 한 경로는 `headquarters` 입니다.`/headquarters/*`
 
-예를 들어 우리가 포함 될 수 있습니다는 `/headquarters/employees/?` 경로 지정 및는 `Range` 둘 다에 대 한 인덱스를 해당 경로에 적용 해야 `String` 및 `Number` 값.
+예를 들어 경로를 포함할 수 있습니다 `/headquarters/employees/?` . 이 경로는 employees 속성을 인덱싱하는 것을 보장 하지만이 속성 내에서 중첩 된 추가 JSON은 인덱싱하지 않습니다.
 
-### <a name="includeexclude-strategy"></a>전략 포함/제외 합니다.
+## <a name="includeexclude-strategy"></a>포함/제외 전략
 
-모든 인덱싱 정책에 루트 경로 포함 하도록 `/*` 를 포함 또는 제외 된 경로 합니다.
+모든 인덱싱 정책은 루트 경로를 `/*` 포함 된 경로 또는 제외 된 경로로 포함 해야 합니다.
 
-- 인덱싱할 필요가 없는 경로 선택적으로 제외할 루트 경로 포함 합니다. 이 권장 되는 방법으로 Azure Cosmos DB를 사전에 모델을 추가할 수 있는 새 속성을 인덱싱할 수 있습니다.
-- 선택적으로 인덱싱해야 하는 경로 포함 하려면 루트 경로 제외 합니다.
+- 인덱싱할 필요가 없는 경로를 선택적으로 제외 하려면 루트 경로를 포함 합니다. 이 방법은 모델에 추가할 수 있는 새 속성을 사전에 인덱싱할 Azure Cosmos DB 있도록 하는 권장 방법입니다.
+- 인덱싱할 필요가 있는 경로를 선택적으로 포함 하려면 루트 경로를 제외 합니다.
 
-- 포함 하는 일반 문자를 사용 하 여 경로 대 한: 영숫자 문자 및 _ (밑줄), 큰따옴표 (예를 들어, "/ 경로 /?")는 경로 문자열을 이스케이프 필요가 없습니다. 기타 특수 문자를 사용 하 여 경로 큰따옴표는 경로 문자열을 이스케이프 해야 (예를 들어, "/\"경로 abc\"/?"). 경로에 특수 문자를 예상 하는 경우 보안에 대 한 모든 경로 이스케이프할 수 있습니다. 기능적으로 하지 않는 것 간 차이 및 특수 문자가 있는 뿐 모든 경로 이스케이프 합니다.
+- 영숫자 문자 및 _ (밑줄)를 포함 하는 일반 문자를 포함 하는 경로의 경우 큰따옴표를 기준으로 경로 문자열을 이스케이프할 필요가 없습니다 (예: "/path/?"). 다른 특수 문자를 포함 하는 경로의 경우 큰따옴표 앞뒤에 경로 문자열을 이스케이프 해야 합니다 (예: "/ \" 경로-abc \" /?"). 경로에 특수 문자가 필요한 경우 안전을 위해 모든 경로를 이스케이프할 수 있습니다. 모든 경로와 특수 문자를 포함 하는 모든 경로를 이스케이프 하는 경우에는 차이점이 없습니다.
 
-참조 [이 섹션에서는](how-to-manage-indexing-policy.md#indexing-policy-examples) 인덱싱 정책 예제에 대 한 합니다.
+- `_etag`인덱싱에 대 한 포함 된 경로에 etag를 추가 하지 않는 한 시스템 속성은 기본적으로 인덱싱에서 제외 됩니다.
+
+- 인덱싱 모드를 **일관**되 게 설정 하면 시스템 속성 `id` 및 `_ts` 가 자동으로 인덱싱됩니다.
+
+경로를 포함 하거나 제외 하는 경우 다음과 같은 특성이 발생할 수 있습니다.
+
+- `kind`또는 중 하나일 수 있습니다 `range` `hash` . 범위 인덱스 기능은 해시 인덱스의 모든 기능을 제공 하므로 범위 인덱스를 사용 하는 것이 좋습니다.
+
+- `precision`는 포함 된 경로에 대 한 인덱스 수준에서 정의 된 숫자입니다. 값은 `-1` 최대 전체 자릿수를 나타냅니다. 이 값을 항상로 설정 하는 것이 좋습니다 `-1` .
+
+- `dataType`또는 중 하나일 수 있습니다 `String` `Number` . 이는 인덱싱되는 JSON 속성의 형식을 나타냅니다.
+
+지정 하지 않으면 이러한 속성의 기본값이 다음과 같이 지정 됩니다.
+
+| **속성 이름**     | **기본값** |
+| ----------------------- | -------------------------------- |
+| `kind`   | `range` |
+| `precision`   | `-1`  |
+| `dataType`    | `String` 및 `Number` |
+
+경로를 포함 하 고 제외 하는 인덱싱 정책 예제는 [이 섹션](how-to-manage-indexing-policy.md#indexing-policy-examples) 을 참조 하세요.
+
+## <a name="includeexclude-precedence"></a>포함/제외 우선 순위
+
+포함 된 경로와 제외 된 경로에 충돌이 있는 경우 보다 정확한 경로가 우선 적용 됩니다.
+
+예를 들면 다음과 같습니다.
+
+**포함 된 경로**:`/food/ingredients/nutrition/*`
+
+**제외 된 경로**:`/food/ingredients/*`
+
+이 경우 포함 된 경로는 보다 정확 하기 때문에 제외 된 경로 보다 우선 적용 됩니다. 이러한 경로를 기반으로 하는 `food/ingredients` 경로 또는 중첩 된 내의 모든 데이터는 인덱스에서 제외 됩니다. 예외는 포함 된 경로 () 내의 데이터 `/food/ingredients/nutrition/*` 입니다 .이는 인덱싱됩니다.
+
+다음은 Azure Cosmos DB의 포함 및 제외 경로 우선 순위에 대 한 몇 가지 규칙입니다.
+
+- 더 깊은 경로는 보다 정밀한 경로 보다 더 정확 합니다. 예를 들어 `/a/b/?` 는 보다 정확 `/a/?` 합니다.
+
+- 는 `/?` 보다 정확 `/*` 합니다. 예를 들어 `/a/?` 보다 정확 하 게를 사용 하는 것이 `/a/*` `/a/?` 우선 합니다.
+
+- 경로는 `/*` 포함 된 경로 또는 제외 된 경로 여야 합니다.
+
+## <a name="spatial-indexes"></a>공간 인덱스
+
+인덱싱 정책에 공간 경로를 정의 하는 경우 ```type``` 해당 경로에 적용 해야 하는 인덱스를 정의 해야 합니다. 공간 인덱스에 사용할 수 있는 형식은 다음과 같습니다.
+
+* 요소
+
+* 다각형
+
+* MultiPolygon
+
+* LineString
+
+기본적으로 Azure Cosmos DB는 공간 인덱스를 만들지 않습니다. 공간 SQL 기본 제공 함수를 사용 하려면 필요한 속성에 공간 인덱스를 만들어야 합니다. 공간 인덱스를 추가 하는 인덱싱 정책 예제는 [이 섹션](geospatial.md) 을 참조 하세요.
 
 ## <a name="composite-indexes"></a>복합 인덱스
 
-쿼리에 `ORDER BY` 두 개 이상의 속성에 복합 인덱스는 필요 합니다. 다중에서 복합 인덱스만 사용 되는 현재 `ORDER BY` 쿼리 합니다. 기본적으로 복합 인덱스가 정의 되지 않았습니다 있어야 [복합 인덱스를 추가할](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) 필요에 따라 합니다.
+두 개 이상의 속성이 있는 절이 있는 쿼리에는 `ORDER BY` 복합 인덱스가 필요 합니다. 복합 인덱스를 정의 하 여 여러 개의 같음 및 범위 쿼리의 성능을 향상 시킬 수도 있습니다. 기본적으로 복합 인덱스는 정의 되지 않으므로 필요에 따라 [복합 인덱스를 추가](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) 해야 합니다.
 
-복합 인덱스를 정의한 다음 항목을 지정 합니다.
+포함 되거나 제외 된 경로와 달리 와일드 카드를 사용 하 여 경로를 만들 수 없습니다 `/*` . 모든 복합 경로에는 `/?` 지정할 필요가 없는 경로 끝에 암시적이 있습니다. 복합 경로에는 스칼라 값이 포함 되 고이 값은 복합 인덱스에 포함 됩니다.
 
-- 두 개 이상의 속성 경로입니다. 속성 경로 시퀀스는 문제를 정의 합니다.
+복합 인덱스를 정의 하는 경우 다음을 지정 합니다.
+
+- 두 개 이상의 속성 경로입니다. 속성 경로가 정의 되는 순서입니다.
+
 - 순서 (오름차순 또는 내림차순)입니다.
 
-복합 인덱스를 사용 하는 경우 다음 고려 사항은 사용 됩니다.
+> [!NOTE]
+> 복합 인덱스를 추가 하는 경우 새 복합 인덱스 추가가 완료 될 때까지 쿼리에서 기존 범위 인덱스를 활용 합니다. 따라서 복합 인덱스를 추가 하는 경우 성능 향상을 즉시 관찰할 수 없습니다. [Sdk 중 하나를 사용 하 여](how-to-manage-indexing-policy.md)인덱스 변환의 진행률을 추적할 수 있습니다.
 
-- 복합 인덱스 경로 ORDER BY 절에 있는 속성의 시퀀스를 일치 하지 않으면, 다음 복합 인덱스를 지원할 수 없는 쿼리
+### <a name="order-by-queries-on-multiple-properties"></a>여러 속성에 대 한 ORDER BY 쿼리:
 
-- 복합 인덱스 경로 (오름차순 또는 내림차순)의 순서 ORDER BY 절의 순서를 동일 해야 합니다.
+두 개 이상의 속성이 있는 절이 있는 쿼리에 복합 인덱스를 사용 하는 경우 다음 사항을 고려해 야 합니다 `ORDER BY` .
 
-- 복합 인덱스는 또한 모든 경로에 반대 순서를 사용 하 여 ORDER BY 절을 지원합니다.
+- 복합 인덱스 경로가 절의 속성 시퀀스와 일치 하지 않는 경우 `ORDER BY` 복합 인덱스는 쿼리를 지원할 수 없습니다.
 
-복합 인덱스 속성에 정의 되어 있는 다음 예제에서는 a, b 및 c:
+- 복합 인덱스 경로 (오름차순 또는 내림차순)의 순서는 절의와도 일치 해야 합니다 `order` `ORDER BY` .
 
-| **복합 인덱스**     | **샘플 `ORDER BY` 쿼리**      | **인덱스를 지원 합니까?** |
+- 복합 인덱스는 `ORDER BY` 모든 경로에서 순서가 반대인 절도 지원 합니다.
+
+복합 인덱스가 속성 이름, age 및 _ts에 정의 된 다음 예를 살펴보세요.
+
+| **복합 인덱스**     | **예제 `ORDER BY` 쿼리**      | **복합 인덱스에서 지원 되나요?** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
-| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
+| ```(name ASC, age ASC)```    | ```SELECT * FROM c ORDER BY c.name DESC, c.age DESC``` | ```Yes```            |
+| ```(name ASC, age ASC)```     | ```SELECT * FROM c ORDER BY c.name ASC, c.age DESC``` | ```No```             |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC, timestamp ASC``` | ```Yes```            |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC``` | ```No```            |
 
-필요한 모든 제공할 수 있습니다 있도록 인덱싱 정책 사용자 지정 해야 `ORDER BY` 쿼리 합니다.
+필요한 모든 쿼리를 제공할 수 있도록 인덱싱 정책을 사용자 지정 해야 합니다 `ORDER BY` .
+
+### <a name="queries-with-filters-on-multiple-properties"></a>여러 속성에 대한 필터가 있는 쿼리
+
+쿼리가 둘 이상의 속성에 대 한 필터를 포함 하는 경우 이러한 속성에 대 한 복합 인덱스를 만드는 것이 유용할 수 있습니다.
+
+예를 들어 다음 쿼리는 두 속성에 대 한 같음 필터를 포함 합니다.
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+```
+
+(Name ASC, age ASC)에서 복합 인덱스를 활용할 수 있는 경우이 쿼리는 더 효율적이 고 시간을 적게 차지 하며 더 적게 사용 됩니다.
+
+범위 필터를 사용 하는 쿼리는 복합 인덱스를 사용 하 여 최적화할 수도 있습니다. 그러나이 쿼리에는 단일 범위 필터만 있을 수 있습니다. 범위 필터 `>` 에는,, `<` `<=` , `>=` 및 `!=` 가 포함 됩니다. 범위 필터는 복합 인덱스에서 마지막으로 정의 되어야 합니다.
+
+같음 필터와 범위 필터를 모두 사용 하는 다음 쿼리를 살펴보십시오.
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+```
+
+이 쿼리는 (name ASC, age ASC)의 복합 인덱스를 사용 하 여 더 효율적입니다. 그러나 복합 인덱스에서 같음 필터를 먼저 정의 해야 하므로 쿼리는 (age ASC, name ASC)에 복합 인덱스를 사용 하지 않습니다.
+
+여러 속성에 대 한 필터가 있는 쿼리에 대 한 복합 인덱스를 만들 때 다음 사항을 고려해 야 합니다.
+
+- 쿼리의 필터에 있는 속성은 복합 인덱스의 속성과 일치 해야 합니다. 속성이 복합 인덱스에 있지만 쿼리에 필터로 포함 되지 않은 경우 쿼리는 복합 인덱스를 사용 하지 않습니다.
+- 쿼리에 복합 인덱스에서 정의 되지 않은 추가 속성이 필터에 있는 경우 복합 인덱스와 범위 인덱스의 조합을 사용 하 여 쿼리를 계산 합니다. 범위 인덱스를 사용 하는 경우 보다 덜 필요 합니다.
+- 속성에 범위 필터 ( `>` ,, `<` , 또는)가 있는 경우 `<=` `>=` `!=` 이 속성은 복합 인덱스에서 마지막으로 정의 되어야 합니다. 쿼리에 둘 이상의 범위 필터가 있는 경우 복합 인덱스를 사용 하지 않습니다.
+- 여러 필터를 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때 `ORDER` 복합 인덱스의는 결과에 영향을 주지 않습니다. 이 속성은 선택 사항입니다.
+- 여러 속성에서 필터를 사용 하 여 쿼리에 대 한 복합 인덱스를 정의 하지 않은 경우에도 쿼리는 성공적으로 수행 됩니다. 그러나 복합 인덱스를 사용 하 여 쿼리 비용을 줄일 수 있습니다.
+
+복합 인덱스가 속성 이름, 나이 및 타임 스탬프에 정의 되어 있는 다음 예제를 고려 합니다.
+
+| **복합 인덱스**     | **예제 쿼리**      | **복합 인덱스에서 지원 되나요?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
+| ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
+| ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
+| ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+
+### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>필터 및 ORDER BY 절이 포함된 쿼리
+
+쿼리가 하나 이상의 속성에 대해 필터링 하 고 ORDER BY 절에서 다른 속성을 갖는 경우 필터의 속성을 절에 추가 하면 도움이 될 수 있습니다 `ORDER BY` .
+
+예를 들어 필터의 속성을 ORDER BY 절에 추가 하면 다음 쿼리를 다시 작성 하 여 복합 인덱스를 활용할 수 있습니다.
+
+범위 인덱스를 사용 하 여 쿼리:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+```
+
+복합 인덱스를 사용 하 여 쿼리:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+```
+
+동일한 패턴 및 쿼리 최적화는 여러 개의 같음 필터를 사용 하는 쿼리에 대해 일반화 될 수 있습니다.
+
+범위 인덱스를 사용 하 여 쿼리:
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+```
+
+복합 인덱스를 사용 하 여 쿼리:
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+```
+
+다음은 필터 및 절을 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때 사용 하는 고려 사항입니다 `ORDER BY` .
+
+* 쿼리가 속성을 필터링 하는 경우 이러한 속성은 먼저 절에 포함 되어야 합니다 `ORDER BY` .
+* 한 속성에 대 한 필터와 다른 속성을 사용 하는 별도의 절이 있는 쿼리에 복합 인덱스를 정의 하지 않으면 `ORDER BY` 쿼리는 성공 합니다. 그러나 특히 절의 속성에 높은 카디널리티가 있는 경우 복합 인덱스를 사용 하 여 쿼리의 사용 비용을 줄일 수 있습니다 `ORDER BY` .
+* 여러 속성을 포함 하는 쿼리에 대해서도 복합 인덱스를 만들 때의 모든 고려 사항은 `ORDER BY` 계속 적용 됩니다.
+
+
+| **복합 인덱스**                      | **예제 `ORDER BY` 쿼리**                                  | **복합 인덱스에서 지원 되나요?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
+| ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
+| ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
 
 ## <a name="modifying-the-indexing-policy"></a>인덱싱 정책 수정
 
-컨테이너의 인덱싱 정책을 언제 든 지 업데이트할 수 있습니다 [Azure portal 또는 지원 되는 Sdk 중 하나를 사용 하 여](how-to-manage-indexing-policy.md)입니다. 인덱싱 정책에 대 한 업데이트 트리거 (따라서 추가 저장소 공간이 없습니다 작업 중에 사용 됨) 온라인 상태이 고 현재 위치에서 수행 되는 새 쿼리와 이전 인덱스에서 변환 합니다. 이전 정책의 인덱스 쓰기 가용성 또는 컨테이너에서 프로 비전 된 처리량에 영향을 주지 않고 새 정책에 효율적으로 변환 됩니다. 인덱스 변환 비동기 작업의 경우 이며 완료 하는 데 걸리는 시간 프로 비전된 된 처리량, 항목의 수와 크기에 따라 달라 집니다. 
+컨테이너의 인덱싱 정책은 [Azure Portal 또는 지원 되는 sdk 중 하나를 사용 하](how-to-manage-indexing-policy.md)여 언제 든 지 업데이트할 수 있습니다. 인덱싱 정책에 대 한 업데이트는 이전 인덱스에서 새 인덱스로의 변환을 트리거합니다 .이는 온라인 및 현재 상태에서 수행 됩니다. 즉, 작업 중에 추가 저장소 공간이 사용 되지 않습니다. 이전 정책의 인덱스는 컨테이너에 프로 비전 된 처리량 또는 쓰기 가용성에 영향을 주지 않고 새 정책으로 효율적으로 변환 됩니다. 인덱스 변환은 비동기 작업이 며 완료 하는 데 걸리는 시간은 프로 비전 된 처리량, 항목 수 및 크기에 따라 달라 집니다.
 
 > [!NOTE]
-> 진행 중인 인덱싱을 다시 수행 하는 동안 쿼리는 일치 하는 모든 결과 반환 하지 않을 수 및 모든 오류를 반환 하지 않아도 됩니다. 즉, 인덱스 변환이 완료 될 때까지 쿼리 결과가 일관 되지 않을 수 있습니다. 인덱스 변환의 진행률을 추적할 수 있기 [Sdk 중 하나를 사용 하 여](how-to-manage-indexing-policy.md)입니다.
+> 범위나 공간 인덱스를 추가 하는 동안 쿼리는 일치 하는 모든 결과를 반환 하지 않을 수 있으며 오류를 반환 하지 않고이를 수행 합니다. 즉, 인덱스 변환이 완료 될 때까지 쿼리 결과가 일관 되지 않을 수 있습니다. [Sdk 중 하나를 사용 하 여](how-to-manage-indexing-policy.md)인덱스 변환의 진행률을 추적할 수 있습니다.
 
-새 인덱싱 정책의 모드는 Consistent로 설정 됩니다, 경우에 인덱스 변환이 진행 중인 동안 없는 다른 인덱싱 정책 변경을 적용할 수 있습니다. None (인덱스를 삭제는 즉시)을 인덱싱 정책의 모드를 설정 하 여 실행 중인 인덱스 변환을 취소할 수 있습니다.
+새 인덱싱 정책 모드를 일관 되 게 설정 하면 인덱스 변환이 진행 되는 동안 다른 인덱싱 정책 변경 내용을 적용할 수 없습니다. 인덱싱 정책의 모드를 None으로 설정 하 여 실행 중인 인덱스 변환을 취소할 수 있습니다. 그러면 인덱스가 즉시 삭제 됩니다.
 
 ## <a name="indexing-policies-and-ttl"></a>인덱싱 정책 및 TTL
 
-합니다 [Time to Live (TTL) 기능](time-to-live.md) 인덱싱을 설정 된 컨테이너에서 활성화 되도록 해야 합니다. 이는 다음을 의미합니다.
+[Ttl (time-to-live) 기능](time-to-live.md) 을 사용 하려면 설정 된 컨테이너에서 인덱싱이 활성화 되어야 합니다. 이는 다음을 의미합니다.
 
-- 인덱싱 모드를 None으로 설정 되어 있는 컨테이너에서 TTL을 활성화할 수 없는
-- TTL가 활성화 하는 컨테이너에서 None으로 인덱싱 모드를 설정 하는 것이 불가능 합니다.
+- 인덱싱 모드가 None으로 설정 된 컨테이너에서는 TTL을 활성화할 수 없습니다.
+- TTL이 활성화 된 컨테이너에서는 인덱싱 모드를 None으로 설정할 수 없습니다.
 
-여기서 속성 경로가 없는 인덱싱할 하지만 TTL이 필요한 시나리오에서 사용 하 여 인덱싱 정책을 사용할 수 있습니다.
+속성 경로를 인덱싱하지 않아도 되지만 TTL이 필요한 시나리오의 경우 다음과 같은 인덱싱 정책을 사용할 수 있습니다.
 
-- 일관성을 설정 하는 인덱싱 모드 및
-- 포함된 경로 및
-- `/*` 경로로 제외 합니다.
-
-## <a name="obsolete-attributes"></a>사용 되지 않는 특성
-
-인덱싱 정책을 사용 하 여 작업을 하는 경우 이제 사용 되지 않는 다음 특성을 발생할 수 있습니다.
-
-- `automatic` 부울 인덱싱 정책의 루트에서 정의 됩니다. 이제 무시 되 고 설정할 수 있는 `true`사용 중인 도구가 필요한 경우.
-- `precision` 숫자로 포함된 경로 대 한 인덱스 수준에서 정의 됩니다. 이제 무시 되 고 설정할 수 있는 `-1`사용 중인 도구가 필요한 경우.
-- `hash` 이제 범위 종류도 대체 되는 인덱스 종류입니다.
+- 일관적인로 설정 된 인덱싱 모드
+- 포함 된 경로 없음
+- `/*`제외 된 유일한 경로입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

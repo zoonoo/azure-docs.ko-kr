@@ -1,6 +1,6 @@
 ---
 title: Media Services 및 Apple FairPlay 라이선스 지원 - Azure | Microsoft Docs
-description: 이 항목에서는 Apple FairPlay 라이선스를 간략히 요구 사항 및 구성 합니다.
+description: 이 항목에서는 Apple FairPlay 라이선스 요구 사항 및 구성에 대 한 개요를 제공 합니다.
 author: juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6d4b7ba842d08723b90a4f2491d9e79e68dd932e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a3516d96e397944adcd31628a561a243e178c2d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733575"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183038"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay 라이선스 요구 사항 및 구성 
 
@@ -35,7 +35,7 @@ Media Services를 사용하여 **Apple FairPlay**로 암호화된 HLS 콘텐츠�
 * Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. 이미 Media Services로 KSM(키 보안 모듈)을 구현했고 최종 FPS 패키지를 요청하고 있음을 명시합니다. 최종 FPS 패키지에는 인증을 생성하고 ASK(애플리케이션 비밀 키)를 얻기 위한 지침이 있습니다. ASK를 사용하여 FairPlay를 구성합니다.
 * Media Services 키/라이선스 전송 쪽에서 다음 항목을 설정해야 합니다.
 
-    * **AC(앱 인증서)**: 개인 키가 포함된 .pfx 파일입니다. 이 파일을 만들고 암호로 암호화합니다. .pfx 파일은 Base64 형식이어야 합니다.
+    * **AC(앱 인증서)**: 프라이빗 키가 포함된 .pfx 파일입니다. 이 파일을 만들고 암호로 암호화합니다. .pfx 파일은 Base64 형식이어야 합니다.
 
         다음 단계에서는 FairPlay에 대한 .pfx 인증서 파일을 생성하는 방법을 설명합니다.
 
@@ -45,7 +45,7 @@ Media Services를 사용하여 **Apple FairPlay**로 암호화된 HLS 콘텐츠�
         2. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .cer 파일이 .pem 파일로 변환됩니다.
 
             "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
-        3. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .pem 파일이 개인 키가 있는 .pfx 파일로 변환됩니다. OpenSSL에서 .pfx 파일에 대한 암호를 묻습니다.
+        3. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .pem 파일이 프라이빗 키가 있는 .pfx 파일로 변환됩니다. OpenSSL에서 .pfx 파일에 대한 암호를 묻습니다.
 
             "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
             
@@ -54,13 +54,16 @@ Media Services를 사용하여 **Apple FairPlay**로 암호화된 HLS 콘텐츠�
     
 * FPS 클라이언트 쪽에서 다음을 설정해야 합니다.
 
-  * **AC(앱 인증서)**: 운영 체제에서 일부 페이로드를 암호화하는 데 사용하는 공개 키가 포함된 .cer/.der 파일입니다. 플레이어에 필요하기 때문에 Media Services에서 이에 대해 알고 있어야 합니다. 키 배달 서비스는 해당 개인 키를 사용하여 암호를 해독합니다.
+  * **AC(앱 인증서)**: 운영 체제에서 일부 페이로드를 암호화하는 데 사용하는 공개 키가 포함된 .cer/.der 파일입니다. 플레이어에 필요하기 때문에 Media Services에서 이에 대해 알고 있어야 합니다. 키 배달 서비스는 해당 프라이빗 키를 사용하여 암호를 해독합니다.
 
 * FairPlay 암호화된 스트림을 재생하려면 먼저 실제 ASK를 받은 다음 실제 인증서를 생성합니다. 이 프로세스에서는 다음 세 가지 요소를 모두 만듭니다.
 
   * .der 파일
   * .pfx 파일
   * .pfx에 대한 암호
+  
+> [!NOTE]
+> 패키지 또는 키 배달 중에 Azure Media Services 인증서 만료 날짜를 확인 하지 않습니다. 인증서가 만료 된 후에도 계속 작동 합니다.
 
 ## <a name="fairplay-and-player-apps"></a>FairPlay 및 플레이어 앱
 
@@ -108,7 +111,7 @@ private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOpti
         RentalAndLeaseKeyType =
                 ContentKeyPolicyFairPlayRentalAndLeaseKeyType
                 .PersistentUnlimited,
-        RentalDuration = 2249
+        RentalDuration = 2249 // in seconds
     };
 
     return fairPlayConfiguration;

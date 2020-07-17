@@ -1,0 +1,146 @@
+- name: 소매업용 Azure IoT Central 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure IoT Central을 사용하여 소매업 솔루션 빌드
+      href: overview-iot-central-retail.md
+- name: 자습서
+  items:
+    - name: 스토어 내 분석 체크 아웃
+      items:
+        - name: 1 - 소매업 애플리케이션 만들기
+          href: tutorial-in-store-analytics-create-app.md
+        - name: 2 - 운영자 대시보드 사용자 지정
+          href: tutorial-in-store-analytics-customize-dashboard.md
+        - name: 3 - 데이터 내보내기 및 인사이트 시각화
+          href: tutorial-in-store-analytics-export-data-visualize-insights.md
+    - name: 스마트 재고 관리
+      items:
+        - name: 스마트 재고 관리 애플리케이션 만들기
+          href: tutorial-iot-central-smart-inventory-management.md
+    - name: 연결된 물류
+      items:
+        - name: 연결된 물류 애플리케이션 만들기
+          href: tutorial-iot-central-connected-logistics.md
+    - name: 디지털 배포 센터
+      items:
+        - name: 디지털 배포 센터 애플리케이션 만들기
+          href: tutorial-iot-central-digital-distribution-center.md
+    - name: 마이크로 주문 처리 센터
+      items:
+        - name: 마이크로 풀필먼트 센터 애플리케이션 만들기
+          href: tutorial-micro-fulfillment-center.md
+- name: 개념
+  items:
+    - name: 연결된 물류 앱 템플릿의 아키텍처
+      href: architecture-connected-logistics.md
+    - name: 디지털 배포 센터 앱 템플릿의 아키텍처
+      href: architecture-digital-distribution-center.md
+    - name: 스마트 재고 관리 앱 템플릿의 아키텍처
+      href: architecture-smart-inventory-management.md
+    - name: 스토어 분석 아키텍처
+      href: store-analytics-architecture.md
+    - name: 마이크로 처리 센터 앱 템플릿 아키텍처
+      href: architecture-micro-fulfillment-center.md
+    - name: 연결
+      href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: 애플리케이션 템플릿이란?
+      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+- name: 방법 가이드
+  items:
+    - name: 디바이스 연결
+      items:
+        - name: MXChip IoT DevKit 준비 및 연결
+          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Rigado Cascade 500 준비 및 연결
+          href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: RuuviTag 디바이스 준비 및 연결
+          href: ../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Azure CLI를 사용하여 디바이스 연결 모니터링
+          href: ../core/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: 디바이스 관리
+      items:
+        - name: 디바이스 관리
+          href: ../core/howto-manage-devices.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 작업 실행
+          href: ../core/howto-run-a-job.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 버전 디바이스 템플릿
+          href: ../core/howto-version-device-template.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: 모니터링 및 분석
+      items:
+        - name: 디바이스 데이터 분석
+          href: ../core/howto-create-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 규칙에서 웹후크 만들기
+          href: ../core/howto-create-webhooks.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: 작업 및 확장성
+      items:
+        - name: 연속 데이터 내보내기 구성
+          href: ../core/howto-export-data.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 사용자 지정 규칙 만들기
+          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Databricks를 사용하여 사용자 지정 분석 만들기
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: 관리
+      items:
+        - name: 애플리케이션 설정 변경
+          href: ../core/howto-administer.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 애플리케이션 내보내기
+          href: ../core/howto-use-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 사용자 및 역할 관리
+          href: ../core/howto-manage-users-roles.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 청구 관리
+          href: ../core/howto-view-bill.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 애플리케이션 UI 사용자 지정
+          href: ../core/howto-customize-ui.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 대시보드에 타일 추가
+          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Azure Portal에서 관리
+          href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Azure CLI에서 관리
+          href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Azure PowerShell에서 관리
+          href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: CSP 포털에서 관리
+          href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: 개인 설정
+      items:
+        - name: Azure IoT Central 개인 대시보드 만들기
+          href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 개인 기본 설정 관리
+          href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: 라이브 채팅 토글
+          href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+- name: 리소스
+  items:
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Azure IoT SDK
+      items:
+        - name: IoT 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: IoT 디바이스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+    - name: 고객 데이터 요청
+      href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: 지원되는 브라우저
+      href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Azure IoT Central(레거시 템플릿)
+      href: 'https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central'

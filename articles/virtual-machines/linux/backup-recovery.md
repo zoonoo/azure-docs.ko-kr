@@ -1,26 +1,16 @@
 ---
-title: Linux Azure VM을 위한 백업 옵션 개요 | Microsoft Docs
+title: Linux Vm에 대 한 백업 옵션 개요
 description: Linux Azure 가상 머신을 위한 백업 옵션의 개요입니다.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.devlang: na
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 09/13/2017
 ms.author: cynthn
-ms.openlocfilehash: dcb96b73b93dae759c06995152d032271dbf9234
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: feb7a60fbdcd48c21126b9108cf85cf54917e330
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543713"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78969301"
 ---
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신을 위한 백업 및 복원 옵션
 

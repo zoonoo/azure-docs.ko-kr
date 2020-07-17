@@ -1,36 +1,33 @@
 ---
-title: Azure 리소스의 배열 속성에 대해 작성자 정책
-description: 배열 매개 변수를 만들고, 언어 식을 배열에 대 한 규칙을 만들, [*] 별칭을 평가 하는 데 Azure Policy 정의 규칙을 사용 하 여 기존 배열에 요소를 추가 알아봅니다.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/06/2019
-ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+title: 리소스의 배열 속성에 대한 작성자 정책
+description: 배열 매개 변수 및 배열 언어 식을 사용하고, [*] 별칭을 평가하고, Azure Policy 정의 규칙을 사용하여 요소를 추가하는 방법을 알아봅니다.
+ms.date: 05/20/2020
+ms.topic: how-to
+ms.openlocfilehash: f3d30f76d555386e5ab8041a0b8cc82b5b60e28e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498766"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684247"
 ---
-# <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대해 작성자 정책
+# <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대한 작성자 정책
 
-Azure Resource Manager 속성은 일반적으로 문자열 및 부울으로 정의 됩니다. 1 대 다 관계가 존재 하는 경우 복합 속성을 배열로 대신 정의 됩니다. Azure Policy에 배열은 여러 가지 방법으로 사용 됩니다.
+Azure Resource Manager 속성은 일반적으로 문자열 및 부울로 정의됩니다. 일 대 다 관계가 있는 경우 복합 속성이 배열로 대신 정의됩니다. Azure Policy에서는 배열이 여러 가지 방법으로 사용됩니다.
 
-- 형식의 [definition 매개 변수](../concepts/definition-structure.md#parameters), 여러 옵션을 제공
-- 부분을 [정책 규칙](../concepts/definition-structure.md#policy-rule) 조건을 사용 하 여 **에서** 또는 **notIn**
-- 평가 하는 정책 규칙의 일부를 [ \[ \* \] 별칭](../concepts/definition-structure.md#understanding-the--alias) 와 같은 특정 시나리오를 평가 하 **None**를 **모든**, 또는  **모든**
-- 에 [효과 추가](../concepts/effects.md#append) 바꾸거나 기존 배열에 추가 하려면
+- 여러 옵션을 제공하기 위한 [정의 매개 변수](../concepts/definition-structure.md#parameters) 유형
+- **in** 또는 **notIn** 조건을 사용하는 [정책 규칙](../concepts/definition-structure.md#policy-rule)의 일부
+- [\[\*\] 별칭](../concepts/definition-structure.md#understanding-the--alias)을 평가하는 정책 규칙의 일부:
+  - **없음**, **임의** 또는 **모두** 같은 시나리오
+  - **count**를 사용하는 복잡한 시나리오
+- 기존 배열을 바꾸거나 기존 배열에 추가하는 [추가 효과](../concepts/effects.md#append)
 
-이 문서에서는 Azure Policy로 사용 하 여 각를 설명 하 고 몇 가지 예제 정의 제공 합니다.
+이 문서에서는 Azure Policy의 각 사용법을 설명하고 몇 가지 예제 정의를 제공합니다.
 
 ## <a name="parameter-arrays"></a>매개 변수 배열
 
-### <a name="define-a-parameter-array"></a>매개 변수 배열을 정의 합니다.
+### <a name="define-a-parameter-array"></a>매개 변수 배열 정의
 
-둘 이상의 값이 필요한 경우 정책 유연성을 허용 배열 매개 변수를 정의 합니다.
-이 정책 정의 매개 변수는 단일 위치를 사용 하면 **allowedLocations** 이며 기본값 _eastus2_:
+매개 변수를 배열로 정의하면 둘 이상의 값이 필요한 경우 유연한 정책이 가능합니다.
+이 정책 정의를 사용하면 매개 변수 **allowedLocations**에 단일 위치를 사용할 수 있으며 기본값은 _eastus2_입니다.
 
 ```json
 "parameters": {
@@ -46,9 +43,9 @@ Azure Resource Manager 속성은 일반적으로 문자열 및 부울으로 정�
 }
 ```
 
-로 **형식** 되었습니다 _문자열_경우 하나의 값을 설정할 수 있습니다만, 정책을 할당 합니다. 이 정책에 할당 된 경우 리소스 범위에서 단일 Azure 지역 내 에서만 허용 됩니다. 대부분의 정책 정의 허용 하는 등의 승인 된 옵션의 목록을 허용 해야 합니다. _eastus2_하십시오 _eastus_, 및 _westus2_합니다.
+**type**이 _string_이었으므로 정책을 할당할 때 하나의 값만 설정할 수 있습니다. 이 정책이 할당되면 범위의 리소스가 단일 Azure 지역 내에서만 허용됩니다. 대부분의 정책 정의는 _eastus2_, _eastus_ 및 _westus2_ 허용 같은 승인된 옵션 목록을 허용해야 합니다.
 
-여러 옵션을 허용 하도록 정책 정의 만들려면 사용 합니다 _배열_ **형식**합니다. 동일한 정책은 다음과 같이 다시 작성할 수 있습니다.
+여러 옵션을 허용하는 정책 정의를 만들려면 _array_ **type**을 사용합니다. 동일한 정책을 다음과 같이 다시 작성할 수 있습니다.
 
 ```json
 "parameters": {
@@ -71,17 +68,17 @@ Azure Resource Manager 속성은 일반적으로 문자열 및 부울으로 정�
 ```
 
 > [!NOTE]
-> 정책 정의 저장 합니다 **형식** 매개 변수에서 속성을 변경할 수 없습니다.
+> 정책 정의를 저장한 후에는 매개 변수의 **type** 속성을 변경할 수 없습니다.
 
-이 새 매개 변수 정의 정책 할당 중 둘 이상의 값을 사용합니다. 배열 속성을 사용 하 여 **allowedValues** 정의 할당 하는 동안 사용 가능한 값 추가 됩니다. 미리 정의 된 선택 목록으로 제한 합니다. 이용 **allowedValues** 선택 사항입니다.
+이 새 매개 변수 정의는 정책 할당 중에 둘 이상의 값을 사용합니다. **allowedValues**라는 배열 속성을 정의하면 할당 중에 사용 가능한 값이 미리 정의된 옵션 목록으로 추가 제한됩니다. **allowedValues** 사용은 선택 사항입니다.
 
-### <a name="pass-values-to-a-parameter-array-during-assignment"></a>매개 변수 배열을 할당 하는 동안 값 전달
+### <a name="pass-values-to-a-parameter-array-during-assignment"></a>할당 중에 매개 변수 배열에 값 전달
 
-Azure portal의 매개 변수를 통해 정책을 할당할 때 **형식** _배열_ 단일 텍스트 상자로 표시 됩니다. 힌트를 "; 사용 라는 값을 구분 합니다. (예: 런던; New York) ". 허용 된 위치 값을 전달할 _eastus2_를 _eastus_, 및 _westus2_ 매개 변수에 다음 문자열을 사용 합니다.
+Azure Portal을 통해 정책을 할당하는 경우 **type** _array_의 매개 변수가 단일 텍스트 상자로 표시됩니다. 힌트에는 "값을 구분하려면 ;을 사용하세요. (예: 런던;뉴욕)"라고 표시됩니다. _eastus2_, _eastus_ 및 _westus2_의 허용되는 위치 값을 매개 변수에 전달하려면 다음 문자열을 사용합니다.
 
 `eastus2;eastus;westus2`
 
-Azure CLI, Azure PowerShell 또는 REST API를 사용 하는 경우 매개 변수 값의 형식과가 다릅니다. 값 매개 변수의 이름을 포함 하는 JSON 문자열을 통해 전달 됩니다.
+Azure CLI, Azure PowerShell 또는 REST API를 사용하는 경우 매개 변수 값의 형식이 다릅니다. 값은 매개 변수의 이름도 포함하는 JSON 문자열을 통해 전달됩니다.
 
 ```json
 {
@@ -95,18 +92,18 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용 하는 경우 매개 변�
 }
 ```
 
-각 SDK를 사용 하 여이 문자열을 사용 하려면 다음 명령을 사용 합니다.
+각 SDK에서 이 문자열을 사용하려면 다음 명령을 사용합니다.
 
-- Azure CLI: 명령 [az 정책 할당 만들기](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 매개 변수를 사용 하 여 **매개 변수**
-- Azure PowerShell: Cmdlet [새로 만들기-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) 매개 변수를 사용 하 여 **PolicyParameter**
-- REST API: 에 _배치_ [만듭니다](/rest/api/resources/policyassignments/create) 값으로 요청 본문의 일부로 작업을 **properties.parameters** 속성
+- Azure CLI: **params** 매개 변수가 지정된 [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 명령
+- Azure PowerShell: **PolicyParameter** 매개 변수가 지정된 [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) cmdlet
+- REST API: 요청 본문에 **properties.parameters** 속성 값으로 포함된 _PUT_ [create](/rest/api/resources/policyassignments/create) 작업
 
 ## <a name="policy-rules-and-arrays"></a>정책 규칙 및 배열
 
 ### <a name="array-conditions"></a>배열 조건
 
-정책 규칙이 [조건을](../concepts/definition-structure.md#conditions) 는 _배열_
-**형식** 매개 변수의 사용할 수 있습니다 사용 하 여 제한 됩니다 `in` 및 `notIn`합니다. 조건 사용 하 여 다음 정책 정의 수행할 `equals` 예를 들어:
+매개 변수의 _array_
+**type**을 사용할 수 있는 정책 규칙 [조건](../concepts/definition-structure.md#conditions)은 `in` 및 `notIn`으로 제한됩니다. `equals` 조건을 사용하는 다음 정책 정의를 예로 들어 보겠습니다.
 
 ```json
 {
@@ -134,20 +131,20 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용 하는 경우 매개 변�
 }
 ```
 
-이 오류 메시지와 같은 오류 시키는 Azure 포털을 통해이 정책 정의 만들기 하려고 합니다.
+Azure Portal을 통해 이 정책 정의를 만들려고 하면 다음 오류 메시지와 같은 오류가 발생합니다.
 
-- "'{GUID}' 정책은 없습니다 매개 변수화 할 유효성 검사 오류가 발생 합니다. 정책 매개 변수가 제대로 정의 되어 있는지 확인 하세요. 내부 예외 ' 언어 식 '[parameters('allowedLocations')]'의 결과 형식이 'Array' 평가 필요한 형식은 'String' '. "
+- "유효성 검사 오류로 인해 '{GUID}' 정책을 매개 변수화할 수 없습니다. 정책 매개 변수가 제대로 정의되어 있는지 확인하세요. '언어 식 '[parameters('allowedLocations')]'의 평가 결과가 'Array' 유형입니다. 올바른 유형은 'String'입니다.'라는 내부 예외가 발생했습니다."
 
-예상 **형식** 조건의 `equals` 됩니다 _문자열_합니다. 이후 **allowedLocations** 로 정의 됩니다 **형식** _배열_, 정책 엔진 언어 식을 계산 하 고 오류를 throw 합니다. 사용 하 여는 `in` 및 `notIn` 조건과 정책 엔진은 합니다 **형식** _배열_ 언어 식에서. 이 오류를 해결 하려면 변경할 `equals` 하나로 `in` 또는 `notIn`합니다.
+`equals` 조건의 올바른 **type**은 _string_입니다. **allowedLocations**가 **type** _array_로 정의되었으므로 정책 엔진이 언어 식을 평가하고 오류를 throw합니다. `in` 및 `notIn` 조건을 사용하면 정책 엔진이 언어 식에서 **type** _array_를 예상합니다. 이 오류 메시지를 해결하려면 `equals`를 `in` 또는 `notIn`으로 변경하세요.
 
 ### <a name="evaluating-the--alias"></a>[*] 별칭 평가
 
-있는 별칭 **[\*]** 이름에 연결 된 표시를 **형식** 는 _배열_. 전체 배열 값을 평가 하는 대신 **[\*]** 배열의 각 요소를 평가할 수 있도록 합니다. 세 가지 시나리오에는이 항목 평가 당이 유용 합니다. None, Any, 및 모든
+이름에 **\[\*\]** 가 연결된 별칭은 **type**이 _array_임을 의미합니다. 전체 배열의 값을 계산하는 대신 **\[\*\]** 를 사용하면 배열의 각 요소 사이에 논리적 AND를 사용하여 해당 요소를 개별적으로 평가할 수 있습니다. 이러한 항목별 평가가 유용한 세 가지 표준 시나리오는 일치하는 요소가 _없음_, _임의_ 또는 _모두_인 경우입니다. 복잡한 시나리오의 경우 [count](../concepts/definition-structure.md#count)를 사용합니다.
 
-정책 엔진 트리거를 **효과** 에서 **한 다음** 경우에만 **경우** 규칙이 true로 평가 합니다.
-이 사실은 컨텍스트에서 서 알아야 **[\*]** 배열의 각 개별 요소를 평가 합니다.
+정책 엔진은 **이때** 정책이 true인 **경우**에만 **효과**를 트리거합니다.
+이 사실은 **\[\*\]** 가 배열의 각 개별 요소를 평가하는 방법을 이해하는 데 중요합니다.
 
-아래 시나리오 테이블에 대 한 예제 정책 규칙:
+아래 시나리오 테이블의 정책 규칙 예:
 
 ```json
 "policyRule": {
@@ -166,7 +163,7 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용 하는 경우 매개 변�
 }
 ```
 
-합니다 **ipRules** 배열 아래 시나리오 테이블에는 다음과 같습니다.
+아래 시나리오 테이블의 **ipRules** 배열은 다음과 같습니다.
 
 ```json
 "ipRules": [
@@ -181,35 +178,35 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용 하는 경우 매개 변�
 ]
 ```
 
-각 조건은 아래 예에 대 한 대체 `<field>` 사용 하 여 `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`입니다.
+아래의 각 조건 예에서 `<field>`는 `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`로 바꿉니다.
 
-다음 결과 예제 정책 규칙 조건 및 위의 기존 값 배열을 결합 합니다.
+다음 결과는 이 조건 및 예제 정책 규칙과 상기 기존 값 배열의 조합에 대한 결과입니다.
 
-|조건 |결과 |설명 |
-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |아무 작업도 수행 |배열 요소 하나를 false로 평가 (127.0.0.1! = 127.0.0.1) true로 개와 (127.0.0.1! 192.168.1.1 =) 이므로 **notEquals** 조건은 _false_ 및 효과 트리거되지 않습니다. |
-|`{<field>,"notEquals":"10.0.4.1"}` |정책 적용 |두 배열 요소를 true로 평가 (10.0.4.1! = 127.0.0.1 및 10.0.4.1! = 192.168.1.1) 이므로 **notEquals** 조건은 _true_ 효과 트리거됩니다. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |정책 적용 |True로 계산 되는 배열 요소가 하나 (127.0.0.1 127.0.0.1 = =) 및 false로 (127.0.0.1 192.168.1.1 = =) 이므로 **Equals** 조건은 _false_합니다. True로 계산 되는 논리 연산자 (**되지** _false_) 이므로 효과 트리거됩니다. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |정책 적용 |배열 요소 둘 다 false로 계산 됩니다 (10.0.4.1 = = 127.0.0.1 및 10.0.4.1 192.168.1.1 = =) 이므로 **Equals** 조건은 _false_합니다. True로 계산 되는 논리 연산자 (**되지** _false_) 이므로 효과 트리거됩니다. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |정책 적용 |배열 요소 하나를 false로 평가 (127.0.0.1! = 127.0.0.1) true로 개와 (127.0.0.1! = 192.168.1.1) 이므로 **notEquals** 조건은 _false_합니다. True로 계산 되는 논리 연산자 (**되지** _false_) 이므로 효과 트리거됩니다. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |아무 작업도 수행 |두 배열 요소를 true로 평가 (10.0.4.1! = 127.0.0.1 및 10.0.4.1! = 192.168.1.1) 이므로 **notEquals** 조건은 _true_합니다. False로 계산 되는 논리 연산자 (**되지** _true_) 이므로 효과 트리거되지 않습니다. |
-|`{<field>,"Equals":"127.0.0.1"}` |아무 작업도 수행 |True로 계산 되는 배열 요소가 하나 (127.0.0.1 127.0.0.1 = =) 및 false로 (127.0.0.1 192.168.1.1 = =) 이므로 **Equals** 조건은 _false_ 효과 트리거되지 및 합니다. |
-|`{<field>,"Equals":"10.0.4.1"}` |아무 작업도 수행 |두 배열 요소를 false로 평가 (10.0.4.1 = = 127.0.0.1 및 10.0.4.1 192.168.1.1 = =) 이므로 **Equals** 조건은 _false_ 및 효과 트리거되지 않습니다. |
+|조건 |결과 | 시나리오 |설명 |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |없음 |일치 항목 없음 |한 배열 요소가 false(127.0.0.1 != 127.0.0.1)로 평가되고, 한 배열 요소는 true(127.0.0.1 != 192.168.1.1)로 평가되므로 **notEquals** 조건이 _false_이고 효과는 트리거되지 않습니다. |
+|`{<field>,"notEquals":"10.0.4.1"}` |정책 효과 |일치 항목 없음 |두 배열 요소가 true(10.0.4.1 != 127.0.0.1 및 10.0.4.1 != 192.168.1.1)로 평가되므로 **notEquals** 조건이 _true_이고 효과가 트리거됩니다. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |정책 효과 |하나 이상 일치 |한 배열 요소가 false(127.0.0.1 != 127.0.0.1)로 평가되고, 한 배열 요소는 true(127.0.0.1 != 192.168.1.1)로 평가되므로 **notEquals** 조건이 _false_입니다. 논리 연산자가 true(_false_ **아님**)로 평가되므로 효과가 트리거됩니다. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |없음 |하나 이상 일치 |두 배열 요소가 true(10.0.4.1 != 127.0.0.1 및 10.0.4.1 != 192.168.1.1)로 평가되므로 **notEquals** 조건이 _true_입니다. 논리 연산자가 false(_true_ **아님**)로 평가되므로 효과가 트리거되지 않습니다. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |정책 효과 |일부만 일치 |한 배열 요소가 true(127.0.0.1 == 127.0.0.1)로 평가되고, 한 배열 요소는 false(127.0.0.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_입니다. 논리 연산자가 true(_false_ **아님**)로 평가되므로 효과가 트리거됩니다. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |정책 효과 |일부만 일치 |두 배열 요소가 false(10.0.4.1 == 127.0.0.1 및 10.0.4.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_입니다. 논리 연산자가 true(_false_ **아님**)로 평가되므로 효과가 트리거됩니다. |
+|`{<field>,"Equals":"127.0.0.1"}` |없음 |모두 일치 |한 배열 요소가 true(127.0.0.1 == 127.0.0.1)로 평가되고, 한 배열 요소는 false(127.0.0.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_이고 효과는 트리거되지 않습니다. |
+|`{<field>,"Equals":"10.0.4.1"}` |없음 |모두 일치 |두 배열 요소가 false(10.0.4.1 == 127.0.0.1 및 10.0.4.1 == 192.168.1.1)로 평가되므로 **Equals** 조건이 _false_이고 효과는 트리거되지 않습니다. |
 
 ## <a name="the-append-effect-and-arrays"></a>추가 효과 및 배열
 
-[효과 추가](../concepts/effects.md#append) 경우에 따라 다르게 동작 합니다 **details.field** 는 **[\*]** 여부 별칭입니다.
+[추가 효과](../concepts/effects.md#append)는 **details.field**가 **\[\*\]** 별칭인지 여부에 따라 다르게 동작합니다.
 
-- 하지 않은 경우는 **[\*]** 별칭을 추가 사용 하 여 배열 전체를 대체 합니다 **값** 속성
-- 경우는 **[\*]** 추가 별칭을 추가 합니다 **값** 속성을 기존 배열 또는 새 배열을 만듭니다
+- **\[\*\]** 별칭이 아닐 경우 추가 효과는 전체 배열을 **값** 속성으로 바꿉니다.
+- **\[\*\]** 별칭일 경우 추가 효과는 **값** 속성을 기존 배열에 추가하거나 새 배열을 만듭니다.
 
-자세한 내용은 참조는 [예제 추가](../concepts/effects.md#append-examples)합니다.
+자세한 내용은 [추가 예제](../concepts/effects.md#append-examples)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
-- [Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
+- [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 생성](programmatically-create.md)하는 방법을 이해합니다.
-- [비준수 리소스를 수정](remediate-resources.md)하는 방법을 알아봅니다.
+- [규정 비준수 리소스를 수정](remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

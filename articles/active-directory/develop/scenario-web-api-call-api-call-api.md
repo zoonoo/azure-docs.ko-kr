@@ -1,38 +1,35 @@
 ---
-title: 웹 API를 호출 하는 웹 Api (Api 호출)-Microsoft id 플랫폼
-description: Web API는 호출 다운스트림 웹 Api (web API 호출)를 빌드하는 방법을 알아봅니다.
+title: 웹 Api를 호출 하는 web API-Microsoft id 플랫폼 | Microsoft
+description: Web Api를 호출 하는 web API를 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cd093cc68a21558dc326221eeaa8c034c24f1c2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 6bbd24978891efd147b0c317c1746d13961ce5e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80885092"
 ---
-# <a name="web-api-that-calls-web-apis---call-an-api"></a>웹 Api를 호출 하는 웹 API는 API를 호출 합니다.
+# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>웹 api를 호출 하는 web API: API 호출
 
-토큰을 만든 후에 보호 된 web API를 호출할 수 있습니다. ASP.NET/ASP.NET Core web API 컨트롤러에서 수행 됩니다.
+토큰이 있으면 보호 된 웹 API를 호출할 수 있습니다. 웹 API의 컨트롤러에서이 작업을 수행 합니다.
 
 ## <a name="controller-code"></a>컨트롤러 코드
 
-에 표시 된 예제 코드를 연속 다음과 같습니다 [web API 호출 보호 된 web Api-토큰을 확보](scenario-web-api-call-api-acquire-token.md)라는 API 컨트롤러의 작업을 todolist 붙여진 다운스트림 API를 호출 합니다.
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-토큰을 획득 한 후 사용 전달자 토큰으로 다운스트림 API를 호출 합니다.
+다음 코드는 web Api를 호출 하는 web API에 표시 되는 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
 
-```CSharp
+토큰을 가져온 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
+
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...
@@ -49,7 +46,7 @@ private async Task GetTodoList(bool isAppStarting)
  }
 ...
 
-// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+// After the token has been returned by Microsoft Authentication Library (MSAL), add it to the HTTP authorization header before making the call to access the To Do list service.
 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
 // Call the To Do list service.
@@ -58,7 +55,36 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+다음 코드는 web Api를 호출 하는 web API에 표시 되는 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. 다운스트림 API MS Graph를 호출 합니다.
+
+토큰을 가져온 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
+
+```Java
+private String callMicrosoftGraphMeEndpoint(String accessToken){
+    RestTemplate restTemplate = new RestTemplate();
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+
+    headers.set("Authorization", "Bearer " + accessToken);
+
+    HttpEntity<String> entity = new HttpEntity<>(null, headers);
+
+    String result = restTemplate.exchange("https://graph.microsoft.com/v1.0/me", HttpMethod.GET,
+            entity, String.class).getBody();
+
+    return result;
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+MSAL Python을 사용 하 여이 흐름을 보여 주는 샘플은 아직 사용할 수 없습니다.
+
+---
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [프로덕션으로 이동](scenario-web-api-call-api-production.md)
+> [웹 Api를 호출 하는 web API: 프로덕션으로 이동](scenario-web-api-call-api-production.md)

@@ -9,40 +9,40 @@ editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a14249f28da15f04a214c2a1cb4bd415fb59ce9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356630"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다. Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
 
 >[!NOTE]
-> 모든 버전의 Azure AD Connect에서 현재 버전으로 업그레이드 하려면 현재 지원 됩니다. ADSync 또는 DirSync 전체 업그레이드가 지원 되지 않습니다 및 스윙 마이그레이션을 필요 합니다.  DirSync에서 업그레이드 하려는 경우 참조 [에서 Azure AD 동기화 도구 (DirSync) 업그레이드](how-to-dirsync-upgrade-get-started.md) 또는 [스윙 마이그레이션](#swing-migration) 섹션입니다.  </br>실제로 매우 오래 된 버전에서 고객이 직접 Azure AD Connect와 관련 된 문제를 발생할 수 있습니다. 몇 년 동안 프로덕션 환경에 있던 서버 일반적으로 여러 패치를 적용 하며이 중 일부에 대해 설명할 수 있습니다.  12-18 개월 내에 업그레이드 하지 않은 고객 스윙 업그레이드를 고려해 야는 일반적으로이 가장 보수적인 이상 위험한 옵션 대신 합니다.
+> 현재 버전의 Azure AD Connect에서 현재 버전으로 업그레이드할 수 있습니다. DirSync 또는 ADSync의 전체 업그레이드는 지원 되지 않으며 스윙 마이그레이션은 필요 합니다.  DirSync에서 업그레이드 하려면 [AZURE AD sync 도구 (dirsync)](how-to-dirsync-upgrade-get-started.md) 또는 [스윙 Migration](#swing-migration) 섹션에서 업그레이드를 참조 하세요.  </br>실제로는 매우 이전 버전의 고객에 게 Azure AD Connect와 직접적인 관련이 없는 문제가 발생할 수 있습니다. 몇 년간 프로덕션 환경에 있었던 서버에는 일반적으로 여러 개의 패치가 적용 되어 있으며 이러한 서버 모두에 대해 고려할 수 있는 것은 아닙니다.  일반적으로 12-18 개월 이내에 업그레이드 되지 않은 고객은 가장 보수적인이 고 위험 하지 않은 옵션인 스윙 업그레이드를 고려해 야 합니다.
 
 DirSync에서 업그레이드하려는 경우 대신 [Azure AD 동기화 도구(DirSync)에서 업그레이드](how-to-dirsync-upgrade-get-started.md) 를 참조하세요.
 
 Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 전략이 있습니다.
 
-| 방법 | 설명 |
+| 메서드 | 설명 |
 | --- | --- |
 | [자동 업그레이드](how-to-connect-install-automatic-upgrade.md) |빠른 설치를 사용하는 고객에게 가장 쉬운 방법입니다. |
-| [전체 업그레이드](#in-place-upgrade) |단일 서버가 있는 경우 동일한 서버에 설치된 항목에 대해 전체 업그레이드를 수행할 수 있습니다. |
+| [현재 위치 업그레이드](#in-place-upgrade) |단일 서버가 있는 경우 동일한 서버에 설치된 항목에 대해 전체 업그레이드를 수행할 수 있습니다. |
 | [스윙 마이그레이션](#swing-migration) |두 개의 서버가 있는 경우 서버 중 하나를 새 릴리스 또는 구성으로 준비하고, 준비가 완료되면 활성 서버를 변경할 수 있습니다. |
 
 사용 권한 정보는 [업그레이드에 필요한 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
 
 > [!NOTE]
-> 새 Azure AD Connect 서버를 사용하여 변경 내용을 Azure AD에 동기화하기 시작하면 DirSync 또는 Azure AD Sync를 사용하도록 롤백하지 않아야 합니다. Azure AD Connect에서 DirSync 및 Azure AD Sync를 포함하여 레거시 클라이언트로 다운그레이드하는 기능은 지원되지 않으며 Azure AD에서 데이터 손실 등의 문제가 발생할 수 있습니다.
+> 새 Azure AD Connect 서버를 사용 하도록 설정 하 여 Azure AD에 대 한 변경 내용 동기화를 시작한 후 DirSync 또는 Azure AD Sync를 사용 하 여 롤백하지 않아야 합니다. DirSync 및 Azure AD Sync를 포함 하 여 Azure AD Connect를 레거시 클라이언트로 다운 그레이드 하는 것은 지원 되지 않으며 Azure AD에서 데이터 손실 등의 문제가 발생할 수 있습니다.
 
 ## <a name="in-place-upgrade"></a>전체 업그레이드
 전체 업그레이드는 Azure AD Sync 또는 Azure AD Connect에서 이동하는 경우에 작동합니다. FIM(Forefront Identity Manager) + Azure AD 커넥터를 사용하는 솔루션이거나 DirSync에서 이동하는 경우에는 작동하지 않습니다.
@@ -75,7 +75,7 @@ Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQ
 3. Azure AD Connect의 이전 릴리스에서 업그레이드하는 경우 스테이징 서버를 최신 버전으로 업그레이드합니다. Azure AD Sync에서 전환하는 경우 스테이징 서버에 Azure AD Connect를 설치합니다.
 4. 동기화 엔진에서 전체 가져오기를 실행하고 준비 서버에서 전체 동기화를 실행합니다.
 5. [서버의 구성 확인](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server)에서 "확인" 아래의 단계를 사용하여 새 구성으로 인해 예기치 않은 변경이 발생하지 않았는지 확인합니다. 올바르지 않은 항목이 있을 경우 단계를 따라 수정하고, 가져오기 및 동기화를 실행하고, 데이터가 올바르게 될 때까지 확인합니다.
-6. 스테이징 서버를 활성 서버로 전환합니다. 이는 [서버의 구성 확인](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server)에서 마지막 단계인 "활성 서버 전환" 단계입니다.
+6. 스테이징 서버를 활성 서버로 전환합니다. 이는 [서버의 구성 확인](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server)에서 "활성 서버 전환"의 마지막 단계입니다.
 7. Azure AD Connect를 업그레이드하는 경우 이제 준비 모드의 서버를 최신 릴리스로 업그레이드합니다. 이전과 동일한 단계에 따라 데이터 및 구성을 업그레이드합니다. Azure AD Sync에서 업그레이드 한 경우, 이제 이전 서버를 끄고 서비스 해제를 할 수 있습니다.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>활성 서버에서 스테이징 서버로 사용자 지정 구성 이동
@@ -93,7 +93,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 사용자 지정 동기화 규칙을 이동하려면 다음을 수행합니다.
 
 1. 활성 서버에서 **동기화 규칙 편집기** 를 엽니다.
-2. 사용자 지정 규칙을 선택합니다. **내보내기**를 클릭합니다. 그러면 메모장 창이 열립니다. PS1 확장명으로 임시 파일을 저장합니다. 이렇게하면 PowerShell 스크립트가 됩니다. PS1 파일을 스테이징 서버에 복사합니다.  
+2. 사용자 지정 규칙을 선택합니다. 클릭 **내보내기**합니다. 그러면 메모장 창이 열립니다. PS1 확장명으로 임시 파일을 저장합니다. 이렇게하면 PowerShell 스크립트가 됩니다. PS1 파일을 스테이징 서버에 복사합니다.  
    ![동기화 규칙 내보내기](./media/how-to-upgrade-previous-version/exportrule.png)
 3. 스테이징 서버에서는 커넥터 GUID가 다르므로 변경해야 합니다. GUID를 가져오려면 **동기화 규칙 편집기**를 시작하여 동일한 연결된 시스템을 나타내는 기본 규칙 중 하나를 선택하고 **내보내기**를 클릭합니다. PS1 파일의 GUID를 스테이징 서버의 GUID로 바꿉니다.
 4. PowerShell 프롬프트에서 PS1 파일을 실행합니다. 스테이징 서버에 사용자 지정 동기화 규칙이 만들어집니다.
@@ -104,7 +104,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
 업그레이드 후 즉시 재정의를 수행하지 않으려는 경우도 있을 수 있습니다. 예를 들어 많은 동기화된 개체가 있고 이러한 동기화 단계를 업무 시간 후에 수행하려고 합니다. 이러한 재정의를 제거하려면
 
-1. 업그레이드 중에 **구성이 완료되면 동기화 프로세스를 시작합니다.** 옵션을 **선택 취소**합니다. 이렇게 하면 동기화 스케줄러가 비활성화되며, 재정의가 제거되기 전에 동기화 주기가 자동으로 수행되지 않습니다.
+1. 업그레이드 하는 동안 **구성이 완료 되 면 동기화 프로세스 시작**옵션을 **선택 취소** 합니다. 이렇게 하면 동기화 스케줄러가 비활성화되며, 재정의가 제거되기 전에 동기화 주기가 자동으로 수행되지 않습니다.
 
    ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
@@ -142,7 +142,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
 이전 버전에서 Azure AD Connect를 업그레이드할 때 업그레이드 시작 시 다음 오류가 발생할 수 있습니다. 
 
-![오류](./media/how-to-upgrade-previous-version/error1.png)
+![Error](./media/how-to-upgrade-previous-version/error1.png)
 
 이 오류는 식별자가 b891884f-051e-4a83-95af-2544101c9083인 Azure Active Directory Connect가 현재 Azure AD Connect 구성에 없기 때문에 발생합니다. 이러한 경우인지 확인하려면 PowerShell 창을 열고 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`를 실행합니다.
 
@@ -168,4 +168,4 @@ At line:1 char:1
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.
+[Azure Active Directory와 온-프레미스 id 통합](whatis-hybrid-identity.md)에 대해 자세히 알아보세요.

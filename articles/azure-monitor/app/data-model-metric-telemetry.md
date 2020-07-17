@@ -1,23 +1,14 @@
 ---
-title: Azure Application Insights 원격 분석 데이터 모델 - 메트릭 원격 분석 | Microsoft Docs
+title: 메트릭 원격 분석에 대 한 데이터 모델-Azure 애플리케이션 정보
 description: 메트릭 원격 분석을 위한 Azure Application Insights 데이터 모델
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60900463"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77671973"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>메트릭 원격 분석: Application Insights 데이터 모델
 
@@ -49,15 +40,15 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 
 단일 측정 값입니다. 집계의 개별 측정값의 합계입니다.
 
-## <a name="count"></a>카운트
+## <a name="count"></a>개수
 
 집계된 메트릭의 메트릭 가중치입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
-## <a name="min"></a>Min
+## <a name="min"></a>최소값
 
 집계된 메트릭의 최소값입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
-## <a name="max"></a>max
+## <a name="max"></a>최대값
 
 집계된 메트릭의 최대값입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 

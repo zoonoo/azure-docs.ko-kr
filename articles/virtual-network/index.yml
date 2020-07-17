@@ -1,105 +1,176 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Virtual Network 설명서
+summary: Azure Virtual Network를 사용하는 방법에 대해 알아봅니다. 빠른 시작, 자습서, 예제 등에서는 가상 네트워크를 배포하고, 트래픽 필터링 및 라우팅을 제어하고, 가상 네트워크를 다른 가상 네트워크에 연결하는 방법을 보여줍니다.
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: 'Virtual Network 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
-  meta.description: 'Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.'
+  title: Azure Virtual Network 설명서 - 자습서, 빠른 시작, API 참조
+  description: Azure Virtual Network를 사용하는 방법에 대해 알아봅니다. 빠른 시작, 자습서, 예제 등에서는 가상 네트워크를 배포하고, 트래픽 필터링 및 라우팅을 제어하고, 가상 네트워크를 다른 가상 네트워크에 연결하는 방법을 보여줍니다.
   services: virtual-network
-  author: KumudD
-  manager: twooley
   ms.service: virtual-network
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/23/2018
+  ms.collection: collection
+  author: KumudD
   ms.author: kumud
-abstract:
-  description: 'Azure Virtual Network를 사용하는 방법에 대해 알아봅니다. 빠른 시작, 자습서, 예제 등에서는 가상 네트워크를 배포하고, 트래픽 필터링 및 라우팅을 제어하고, 가상 네트워크를 다른 가상 네트워크에 연결하는 방법을 보여줍니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: '가상 네트워크를 만들고, 여기에 가상 컴퓨터를 배포한 다음, 가상 컴퓨터 및 인터넷 간에 통신하는 방법에 대해 알아봅니다.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-network/media/index/portal.svg'
-            text: Azure portal
-            href: /azure/virtual-network/quick-create-portal
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-network/media/index/powershell.svg'
-            text: Azure PowerShell
-            href: /azure/virtual-network/quick-create-powershell
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-network/media/index/cli.svg'
-            text: Azure CLI
-            href: /azure/virtual-network/quick-create-cli
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 가상 네트워크를 만들고 연결하고 라우팅 및 필터링을 제어하는 방법에 대해 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/virtual-network/tutorial-filter-network-traffic">네트워크 트래픽 필터링</a>
-          - html: <a href="/azure/virtual-network/tutorial-create-route-table-portal">네트워크 트래픽 라우팅</a>
-          - html: <a href="/azure/virtual-network/tutorial-restrict-network-access-to-resources">리소스에 대한 네트워크 액세스 제한</a>
-          - html: <a href="/azure/virtual-network/tutorial-connect-virtual-networks-portal">가상 네트워크 연결</a>
-  - title: Microsoft Learn을 통해 기술 쌓기
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: "\_Azure 네트워킹 소개"
-            href: /learn/modules/intro-to-azure-networking/
-            image:
-              src: /learn/achievements/intro-to-azure-networking.svg
-              href: /learn/modules/intro-to-azure-networking/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure">더 많은 대화형 학습 보기...</a>
-  - title: 무료 Pluralsight 동영상 교육
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure 관리자
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-          - title: Azure 솔루션 설계자
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-          - title: AWS 관리자용 Azure 관리
-            href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-  - title: 샘플
-    items:
-      - type: paragraph
-        text: 일반 작업에 대한 스크립트 샘플입니다.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/virtual-network/cli-samples">Azure CLI</a>
-          - html: <a href="/azure/virtual-network/powershell-samples">PowerShell</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: '<p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/network">Azure CLI</a></p>'
-          - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/overview/azure/network">Java</a></p><p><a href="/javascript/api/overview/azure/virtual-network">Node.JS</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
-          - title: REST (영문)
-            html: <p><a href="/rest/api/virtual-network/">REST API 참조</a></p>
+  ms.date: 08/28/2019
+  ms.openlocfilehash: a6c0bee32fbeb50c1eef0a9625706bcee9e1ae17
+  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82086473"
+landingContent:
+- title: Virtual Network 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Virtual Network란?
+      url: virtual-networks-overview.md
+  - linkListType: concept
+    links:
+    - text: 가상 네트워크 FAQ
+      url: virtual-networks-overview.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 가상 네트워크 만들기
+      url: quick-create-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: 가상 네트워크 만들기, 변경 또는 삭제
+      url: manage-virtual-network.md
+    - text: 서브넷 추가, 변경 또는 삭제
+      url: virtual-network-manage-subnet.md
+- title: 네트워크 트래픽 보안
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 네트워크 보안 그룹
+      url: security-overview.md
+    - text: 애플리케이션 보안 그룹
+      url: security-overview.md#application-security-groups
+    - text: 가상 네트워크 서비스 엔드포인트
+      url: virtual-network-service-endpoints-overview.md
+    - text: 가상 네트워크 보안 FAQ
+      url: virtual-networks-faq.md#security
+  - linkListType: tutorial
+    links:
+    - text: 네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링
+      url: tutorial-filter-network-traffic.md
+    - text: 서비스 엔드포인트를 사용하여 네트워크 액세스 제한
+      url: tutorial-restrict-network-access-to-resources.md
+    - text: 애플리케이션 보안 그룹으로 작업
+      url: manage-network-security-group.md#work-with-application-security-groups
+  - linkListType: learn
+    links:
+    - text: Azure 리소스에 대한 액세스 보호 및 격리
+      url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
+  - linkListType: video
+    links:
+    - text: Azure Private Link를 사용하여 Azure PaaS 리소스에 안전하게 액세스
+      url: https://www.youtube.com/watch?v=PWKM5KXjWno
+- title: 가상 네트워크 연결
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 가상 네트워크 피어링
+      url: virtual-network-peering-overview.md
+    - text: 가상 네트워크 피어링 FAQ
+      url: virtual-networks-faq.md#vnet-peering
+  - linkListType: tutorial
+    links:
+    - text: 가상 네트워크 피어링을 사용하여 VNet 연결
+      url: tutorial-connect-virtual-networks-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: 동일한 배포 모델 - 동일한 구독
+      url: tutorial-connect-virtual-networks-powershell.md
+    - text: 동일한 배포 모델 - 다른 구독
+      url: create-peering-different-subscriptions.md
+    - text: 다른 배포 모델 - 동일한 구독
+      url: create-peering-different-deployment-models.md
+    - text: 다른 배포 모델 - 다른 구독
+      url: create-peering-different-deployment-models-subscriptions.md
+  - linkListType: learn
+    links:
+    - text: 피어링을 사용하여 가상 네트워크 간 통신
+      url: https://docs.microsoft.com/learn/modules/integrate-vnets-with-vnet-peering
+- title: 네트워크 트래픽 라우팅
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 경로 테이블을 사용하여 네트워크 트래픽 라우팅
+      url: virtual-networks-udr-overview.md
+  - linkListType: tutorial
+    links:
+    - text: 네트워크 트래픽 라우팅 - 포털
+      url: tutorial-create-route-table-portal.md
+- title: IP 주소 만들기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: IP 주소 유형 및 할당 방법
+      url: virtual-network-ip-addresses-overview-arm.md
+  - linkListType: how-to-guide
+    links:
+    - text: 공용 IP 주소 만들기, 변경 또는 삭제
+      url: virtual-network-public-ip-address.md
+    - text: VM에 공용 IP 주소 추가
+      url: associate-public-ip-address-vm.md
+    - text: 고정 IP 주소를 사용하여 VM 만들기
+      url: virtual-network-deploy-static-pip-arm-portal.md
+    - text: VM의 고정 개인 IP 주소 구성
+      url: virtual-networks-static-private-ip-arm-pportal.md
+    - text: VM에 여러 IP 주소 할당
+      url: virtual-network-multiple-ip-addresses-powershell.md
+- title: 가상 네트워크용 IPv6 만들기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure 가상 네트워크용 IPv6란?
+      url: ipv6-overview.md
+  - linkListType: deploy
+    links:
+    - text: IPV6 이중 스택 애플리케이션 배포 - 표준 Load Balancer
+      url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+    - text: IPV6 이중 스택 애플리케이션 배포 - 기본 Load Balancer
+      url: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+- title: 가상 네트워크 모니터링
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 가상 네트워크 TAP(터미널 액세스 지점)
+      url: virtual-network-tap-overview.md
+    - text: 가상 네트워크 TAP FAQ
+      url: virtual-networks-faq.md#virtual-network-tap
+  - linkListType: how-to-guide
+    links:
+    - text: 가상 네트워크 TAP 만들기
+      url: tutorial-tap-virtual-network-cli.md
+- title: IP 서비스 관리
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: IP 주소 유형 및 할당 방법
+      url: virtual-network-ip-addresses-overview-arm.md
+    - text: Azure 가상 네트워크용 IPv6란?
+      url: ipv6-overview.md
+    - text: 공용 IP 주소 접두사
+      url: public-ip-address-prefix.md
+  - linkListType: how-to-guide
+    links:
+    - text: 공용 IP 주소 만들기, 변경 또는 삭제
+      url: virtual-network-public-ip-address.md
+    - text: IPV6 이중 스택 애플리케이션 배포
+      url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+    - text: 공용 IP 주소 접두사 만들기, 변경 또는 삭제
+      url: manage-public-ip-address-prefix.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network
+    - text: REST (영문)
+      url: /rest/api/virtual-network

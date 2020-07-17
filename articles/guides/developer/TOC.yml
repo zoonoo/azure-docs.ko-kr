@@ -3,7 +3,7 @@
     - name: 개발자 가이드
       href: azure-developer-guide.md
     - name: SDK 및 도구
-      href: 'https://docs.microsoft.com/azure/index#pivot=sdkstools'
+      href: 'https://aka.ms/azsdkpackages'
 - name: 빠른 시작
   items:
     - name: Web Apps
@@ -12,7 +12,7 @@
       items:
         - name: Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal'
-        - name: ' Windows'
+        - name: Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal'
     - name: 서버를 사용하지 않음
       href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function'
@@ -38,7 +38,7 @@
       items:
         - name: Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm'
-        - name: ' Windows'
+        - name: Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm'
     - name: Azure 연결 기능 만들기
       href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function'
@@ -83,7 +83,7 @@
     - name: 계획
       items:
         - name: 웹 애플리케이션 아키텍처
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: VM 아키텍처
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/'
         - name: 온-프레미스 네트워크에 연결
@@ -127,7 +127,7 @@
     - name: 확장
       items:
         - name: 웹 및 모바일 앱
-          href: 'https://docs.microsoft.com/azure/app-service/web-sites-scale'
+          href: 'https://docs.microsoft.com/azure/app-service/manage-scale-up'
         - name: 가상 머신
           href: 'https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview'
         - name: 마이크로서비스 앱
@@ -135,7 +135,7 @@
     - name: 보안
       items:
         - name: 웹 및 모바일 앱
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl'
+          href: 'https://docs.microsoft.com/azure/app-service/configure-ssl-bindings'
     - name: Backup
       items:
         - name: 웹 및 모바일 앱
@@ -160,7 +160,7 @@
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss'
         - name: Windows VM 크기 조정
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss'
-- name: 참고 자료
+- name: 참조
   items:
     - name: REST (영문)
       href: 'https://docs.microsoft.com/rest/api/'
@@ -168,14 +168,14 @@
       items:
         - name: .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=834925'
-        - name: 자바
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/'
         - name: Node.js
           href: 'https://azure.github.io/azure-sdk-for-node/'
         - name: PHP
           href: 'https://github.com/Azure/azure-sdk-for-php/blob/master/README.md'
         - name: Python
-          href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/'
+          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/README.md'
         - name: Ruby
           href: 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md'
     - name: 명령줄 인터페이스
@@ -189,7 +189,7 @@
 - name: 리소스
   items:
     - name: Azure 한도 및 할당량
-      href: ../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
+      href: ../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
     - name: Azure 지역
       href: 'https://azure.microsoft.com/regions/'
     - name: Azure 로드맵

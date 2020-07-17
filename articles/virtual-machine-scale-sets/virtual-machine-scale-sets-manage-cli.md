@@ -1,26 +1,19 @@
 ---
-title: Azure CLI를 사용하여 Virtual Machine Scale Sets 관리 | Microsoft Docs
+title: Azure CLI를 사용하여 가상 머신 확장 집합 관리
 description: 인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure CLI 명령입니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: management
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: b49182ebdcc93c4a51a55f27c3e0bf7a45307b7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 2742b0b73d4143159fd1ed1338988b01a2171041
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618084"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124332"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 관리
 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure CLI 명령의 일부를 설명합니다.
@@ -100,7 +93,7 @@ az vmss scale \
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-중지된 VM은 할당된 상태를 유지하고 계속 계산 요금을 부과합니다. 대신 VM의 할당을 취소하고 저장소 요금만을 부과하려는 경우 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 여러 VM의 할당을 취소하려면 각 인스턴스 ID를 공백으로 구분합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 중지하고 할당을 취소합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+중지된 VM은 할당된 상태를 유지하고 계속 컴퓨팅 요금을 부과합니다. 대신 VM의 할당을 취소하고 스토리지 요금만을 부과하려는 경우 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 여러 VM의 할당을 취소하려면 각 인스턴스 ID를 공백으로 구분합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 중지하고 할당을 취소합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0

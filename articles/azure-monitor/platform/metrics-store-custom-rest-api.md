@@ -1,19 +1,17 @@
 ---
-title: REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
+title: REST API를 사용 하 여 Azure Monitor 메트릭 데이터베이스로 메트릭 보내기
 description: REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: aa842979bf86410e9dab97d6209f336eb6b02bd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77662267"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
 
@@ -94,17 +92,17 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
 1. 구독 또는 리소스 그룹에 대한 메트릭을 Azure 리소스로 실행할 수 없습니다. 
 1. 20분 이상 경과된 메트릭을 저장소에 저장할 수 없습니다. 메트릭 저장소는 경고 및 실시간 차트 작성에 최적화되어 있습니다. 
 2. 차원 이름 수는 값과 일치해야 하고, 그 반대의 경우도 마찬가지입니다. 값을 확인합니다. 
-2. 사용자 지정 메트릭을 지원하지 않는 지역에 대해 메트릭을 내보내는 경우가 발생할 수 있습니다. [지원되는 지역](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions)을 참조하세요. 
+2. 사용자 지정 메트릭을 지원하지 않는 지역에 대해 메트릭을 내보내는 경우가 발생할 수 있습니다. [지원 되는 지역](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions)을 참조 하세요. 
 
 
 
 ## <a name="view-your-metrics"></a>메트릭 보기 
 
-1. Azure 포털에 로그인합니다. 
+1. Azure Portal에 로그인합니다. 
 
 1. 왼쪽 메뉴에서 **모니터**를 선택합니다. 
 
-1. **모니터** 페이지에서 **메트릭**을 선택합니다. 
+1. **모니터** 페이지에서 **메트릭**을 선택 합니다. 
 
    ![메트릭 선택](./media/metrics-store-custom-rest-api/metrics.png) 
 

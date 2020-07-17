@@ -3,91 +3,185 @@
 - name: 개요
   items:
     - name: Azure Migrate 정보
-      href: migrate-overview.md
+      href: migrate-services-overview.md
+    - name: 새로운 기능
+      href: whats-new.md
+    - name: 일반적인 질문
+      items:
+        - name: 일반
+          href: resources-faq.md
+        - name: Azure Migrate 어플라이언스
+          href: common-questions-appliance.md
+        - name: Server Assessment 도구/종속성 분석
+          href: common-questions-discovery-assessment.md
+        - name: 서버 마이그레이션 도구
+          href: common-questions-server-migration.md
 - name: 자습서
   items:
-    - name: VMware VM 검색 및 평가
-      href: tutorial-assessment-vmware.md
+    - name: VMware VM 평가 및 마이그레이션
+      items:
+        - name: VMware 평가 및 마이그레이션 준비
+          href: tutorial-prepare-vmware.md
+        - name: VMware VM 마이그레이션 평가
+          href: tutorial-assess-vmware.md
+        - name: VMware VM 마이그레이션
+          items:
+            - name: VMware VM 마이그레이션 옵션 정보
+              href: server-migrate-overview.md
+            - name: 에이전트 없는 마이그레이션을 사용하여 VMware VM 마이그레이션
+              href: tutorial-migrate-vmware.md
+            - name: 에이전트 기반 마이그레이션을 사용하여 VMware VM 마이그레이션
+              href: tutorial-migrate-vmware-agent.md
+    - name: Hyper-V VM 평가 및 마이그레이션
+      items:
+        - name: Hyper-V 평가 및 마이그레이션 준비
+          href: tutorial-prepare-hyper-v.md
+        - name: Hyper-V VM 마이그레이션 평가
+          href: tutorial-assess-hyper-v.md
+        - name: Hyper-V VM 마이그레이션
+          href: tutorial-migrate-hyper-v.md
+    - name: 물리적 서버 평가 및 마이그레이션
+      items:
+        - name: 평가 및 마이그레이션을 위한 물리적 서버 준비
+          href: tutorial-prepare-physical.md
+        - name: 물리적 서버 평가
+          href: tutorial-assess-physical.md
+        - name: 물리적 서버 마이그레이션
+          href: tutorial-migrate-physical-virtual-machines.md
+    - name: AWS VM 평가 및 마이그레이션
+      items:
+        - name: 'AWS(Amazon Web Services) VM을 검색, 평가 및 Azure로 마이그레이션'
+          href: tutorial-migrate-aws-virtual-machines.md
+    - name: 마이그레이션을 위해 가져온 서버 평가
+      items:
+        - name: 마이그레이션을 위해 가져온 서버 평가
+          href: tutorial-assess-import.md
 - name: 개념
   items:
-    - name: 수집기 정보
-      href: concepts-collector.md
-    - name: 수집기 버전 업그레이드
-      href: concepts-collector-upgrade.md
-    - name: 평가 계산
+    - name: Azure Migrate를 사용하여 마이그레이션 계획 빌드
+      href: concepts-migration-planning.md
+    - name: 지원 매트릭스
+      items:
+        - name: 일반 지원
+          href: migrate-support-matrix.md
+        - name: VMware 평가 지원
+          href: migrate-support-matrix-vmware.md
+        - name: VMware 마이그레이션 지원
+          href: migrate-support-matrix-vmware-migration.md
+        - name: Hyper-V 평가 지원
+          href: migrate-support-matrix-hyper-v.md
+        - name: Hyper-V 마이그레이션 지원
+          href: migrate-support-matrix-hyper-v-migration.md
+        - name: 물리적 서버 평가 지원
+          href: migrate-support-matrix-physical.md
+        - name: 물리적 서버 마이그레이션 지원
+          href: migrate-support-matrix-physical-migration.md
+        - name: Azure Migrate 어플라이언스 요구 사항
+          href: migrate-appliance.md
+        - name: 복제 어플라이언스 요구 사항
+          href: migrate-replication-appliance.md
+    - name: Azure Migrate 어플라이언스 아키텍처
+      href: migrate-appliance-architecture.md
+    - name: Hyper-V 마이그레이션 아키텍처
+      href: hyper-v-migration-architecture.md
+    - name: VMware 에이전트 기반 마이그레이션 아키텍처
+      href: agent-based-migration-architecture.md
+    - name: Azure VM 평가 개요
       href: concepts-assessment-calculation.md
-    - name: 종속성 시각화 정보
+    - name: AVS 평가 개요
+      href: concepts-azure-vmware-solution-assessment-calculation.md
+    - name: 평가 모범 사례
+      href: best-practices-assessment.md
+    - name: 종속성 분석 개요
       href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
-    - name: 마이그레이션 모범 사례
+    - name: Azure Migrate 프로젝트 만들기 및 관리
+      href: create-manage-projects.md
+    - name: 처음 도구 추가
+      href: how-to-add-tool-first-time.md
+    - name: ISV 도구/Movere로 작업 준비
+      href: prepare-isv-movere.md
+    - name: 평가 도구 추가
+      href: how-to-assess.md
+    - name: Azure Migrate 어플라이언스 배포
       items:
-        - name: 마이그레이션 이후 관리 및 보안에 대한 모범 사례
-          href: migrate-best-practices-security-management.md
-        - name: 마이그레이션 이후 네트워킹에 대한 모범 사례
-          href: migrate-best-practices-networking.md
-        - name: 마이그레이션 이후 비용 및 크기 조정에 대한 모범 사례
-          href: migrate-best-practices-costs.md
-    - name: Contoso 마이그레이션 시리즈
-      items:
-        - name: 1. Contoso-마이그레이션 개요
-          href: contoso-migration-overview.md
-        - name: 2. Contoso-Azure 인프라 배포
-          href: contoso-migration-infrastructure.md
-        - name: 3. Contoso-Azure로 마이그레이션할 온-프레미스 리소스 평가
-          href: contoso-migration-assessment.md
-        - name: 4. Contoso-Azure VM 및 Azure SQL Database Managed Instance에서 앱 다시 호스트
-          href: contoso-migration-rehost-vm-sql-managed-instance.md
-        - name: 5. Contoso-Azure VM에서 앱 다시 호스트
-          href: contoso-migration-rehost-vm.md
-        - name: 6. Contoso-Azure VM 및 Azure SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트
-          href: contoso-migration-rehost-vm-sql-ag.md
-        - name: 7. Contoso-Azure VM에서 Linux 앱 다시 호스트
-          href: contoso-migration-rehost-linux-vm.md
-        - name: 8. Contoso-Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트
-          href: contoso-migration-rehost-linux-vm-mysql.md
-        - name: 9. Contoso-Azure Web Apps 및 Azure SQL Database에서 앱 리팩터링
-          href: contoso-migration-refactor-web-app-sql.md
-        - name: 10. Contoso-Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링
-          href: contoso-migration-refactor-linux-app-service-mysql.md
-        - name: 11. Contoso-Azure DevOps Services로 TFS 마이그레이션
-          href: contoso-migration-tfs-vsts.md
-        - name: 12. Contoso-Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경
-          href: contoso-migration-rearchitect-container-sql.md
-        - name: 13. Contoso-Azure에서 앱 다시 빌드
-          href: contoso-migration-rebuild.md
-        - name: 14. Contoso-마이그레이션 크기 조정
-          href: contoso-migration-scale.md
-    - name: 대규모 환경 검색 및 평가
-      href: how-to-scale-assessment.md
-    - name: 컴퓨터 그룹화
+        - name: 템플릿을 사용하여 어플라이언스 배포(VMware)
+          href: how-to-set-up-appliance-vmware.md
+        - name: 템플릿을 사용하여 어플라이언스 배포(Hyper-V)
+          href: how-to-set-up-appliance-hyper-v.md
+        - name: 스크립트를 사용하여 어플라이언스 배포(VMware/Hyper-V)
+          href: deploy-appliance-script.md
+        - name: 물리적 서버용 어플라이언스 배포
+          href: how-to-set-up-appliance-physical.md
+        - name: Azure Government에서 어플라이언스 배포
+          href: deploy-appliance-script-government.md
+    - name: VMware VM에 대한 검색 범위 제한
+      href: set-discovery-scope.md
+    - name: 애플리케이션/역할/기능 검색
+      href: how-to-discover-applications.md
+    - name: 평가할 컴퓨터 그룹화
       href: how-to-create-a-group.md
-    - name: 컴퓨터 종속성을 사용하여 컴퓨터 그룹화
+    - name: 머신 종속성 분석(에이전트 기반)
       href: how-to-create-group-machine-dependencies.md
-    - name: 그룹 종속성을 사용하여 그룹 상세 검색
-      href: how-to-create-group-dependencies.md
+    - name: 머신 종속성 분석(에이전트 없음)
+      href: how-to-create-group-machine-dependencies-agentless.md
+    - name: Azure VM 평가 만들기
+      href: how-to-create-assessment.md
+    - name: AVS 평가 만들기
+      href: how-to-create-azure-vmware-solution-assessment.md
+    - name: SQL Server 데이터베이스 평가
+      href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
     - name: 평가 사용자 지정
       href: how-to-modify-assessment.md
-    - name: 평가 후 컴퓨터 마이그레이션
-      href: how-to-get-migration-tool.md
-    - name: 많은 수의 VM의 마이그레이션 자동화
-      href: how-to-migrate-at-scale.md
+    - name: 마이그레이션 도구 추가
+      href: how-to-migrate.md
+    - name: VMware VM을 SSE 및 CMK로 암호화된 Azure VM으로 마이그레이션
+      href: how-to-migrate-vmware-vms-with-cmk-disks.md
+    - name: Windows 2003 서버 마이그레이션 준비
+      href: prepare-windows-server-2003-migration.md
+    - name: 마이그레이션을 위한 머신 준비
+      href: prepare-for-migration.md
+    - name: Azure Migrate 프로젝트 삭제
+      href: how-to-delete-project.md
+    - name: 이전 버전을 사용하여 작업
+      href: migrate-v1.md
+    - name: 규모 평가 및 마이그레이션
+      items:
+        - name: 다수의 VMware VM 평가
+          href: scale-vmware-assessment.md
+        - name: 다수의 Hyper-V VM 평가
+          href: scale-hyper-v-assessment.md
+        - name: 다수의 물리적 서버 평가
+          href: scale-physical-assessment.md
+        - name: 많은 수의 VM의 마이그레이션 자동화
+          href: how-to-migrate-at-scale.md
+        - name: 마이그레이션 예제(Contoso 시리즈)
+          href: contoso-migration-overview.md
+- name: 문제 해결
+  items:
     - name: Azure Migrate 문제 해결
-      href: troubleshooting-general.md
+      href: troubleshoot-general.md
+    - name: Azure Migrate 프로젝트 문제 해결
+      href: troubleshoot-project.md
+    - name: Azure Migrate 어플라이언스/검색 문제 해결
+      href: troubleshoot-appliance-discovery.md
+    - name: 평가/종속성 시각화 문제 해결
+      href: troubleshoot-assessment.md
 - name: 리소스
   items:
-    - name: FAQ
-      href: resources-faq.md
+    - name: CAF(클라우드 채택 프레임워크)에 마이그레이션
+      href: /azure/cloud-adoption-framework/migrate/
     - name: REST API
-      href: 'https://docs.microsoft.com/rest/api/migrate/'
+      href: /rest/api/migrate/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.migrate/allversions
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-migrate/'
     - name: UserVoice
       href: 'https://aka.ms/AzureMigrateUservoice'
-    - name: 포럼
-      href: 'https://aka.ms/AzureMigrateForum'
+    - name: Microsoft Q&A 질문 페이지
+      href: /answers/topics/azure-migrate.html
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/tag/azure-migrate/'
     - name: Azure Migrate

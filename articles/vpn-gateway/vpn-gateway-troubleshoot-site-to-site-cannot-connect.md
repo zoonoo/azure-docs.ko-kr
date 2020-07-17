@@ -1,25 +1,18 @@
 ---
-title: Azure 사이트 간 VPN 연결에서 연결할 수 없는 문제 해결 | Microsoft Docs
+title: 'TitleSuffix에 연결할 수 없는 Azure 사이트 간 VPN 연결 문제 해결: Azure VPN Gateway'
 description: 갑자기 작동 중단되어 다시 연결할 수 없는 사이트 간 VPN 연결 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: cshepard
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 01729971169011002fa4231f043f82f105f81cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458181"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037837"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>문제 해결: Azure 사이트 간 VPN 연결에서 연결할 수 없고 작동이 중지됨
 
@@ -57,7 +50,7 @@ Azure VPN 연결에 대한 공유 키를 보려면 다음 방법 중 하나를 �
 
 1. 만든 VPN 게이트웨이 사이트 간 연결로 이동합니다.
 
-2. **설정** 섹션에서 **공유 키**를 클릭합니다.
+2. **설정** 섹션에서 **공유 키**를 클릭 합니다.
     
     ![공유 키](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
@@ -67,13 +60,17 @@ Azure VPN 연결에 대한 공유 키를 보려면 다음 방법 중 하나를 �
 
 Azure Resource Manager 배포 모델:
 
-    Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```azurepowershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```
 
 클래식 배포 모델:
 
-    Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```azurepowershell
+Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계. VPN 피어 IP 확인
+### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계: VPN 피어 IP 확인
 
 -   Azure의 **로컬 네트워크 게이트웨이** 개체에 있는 IP 정의가 온-프레미스 디바이스 IP와 일치해야 합니다.
 -   온-프레미스 디바이스에 설정된 Azure 게이트웨이 IP 정의는 Azure 게이트웨이 IP와 일치해야 합니다.
@@ -102,7 +99,10 @@ Azure Resource Manager 배포 모델:
 2. 인증서 경고를 클릭합니다.
 3. 응답이 수신되면 VPN 게이트웨이가 정상으로 간주됩니다. 응답을 수신하지 못하면 게이트웨이가 정상이 아니거나 게이트웨이 서브넷에 문제를 일으키는 NSG가 있는 것입니다. 다음 텍스트는 샘플 응답입니다.
 
-    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">기본 인스턴스: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>8단계: 온-프레미스 VPN 디바이스에 PFS(Perfect Forward Secrecy) 기능이 사용하도록 설정되어 있는지 확인
 
@@ -110,5 +110,5 @@ PFS(Perfect Forward Secrecy) 기능은 연결 끊김 문제를 일으킬 수 있
 
 ## <a name="next-steps"></a>다음 단계
 
--   [가상 네트워크에 대한 사이트 간 연결 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [가상 네트워크에 대 한 사이트 간 연결 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [사이트 간 VPN 연결에 대한 IPsec/IKE 정책 구성](vpn-gateway-ipsecikepolicy-rm-powershell.md)

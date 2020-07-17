@@ -1,32 +1,30 @@
 ---
-title: Azure 디바이스 프로비전 서비스 SDK를 사용하여 디바이스 등록 관리 | Microsoft Docs
-description: IoT Hub Device Provisioning 서비스에서 서비스 SDK를 사용하여 디바이스 등록을 관리하는 방법
-author: yzhong94
-ms.author: yizhon
+title: Azure DPS Sdk를 사용 하 여 장치 등록 관리
+description: 서비스 Sdk를 사용 하 여 IoT Hub Device Provisioning Service (DPS)에서 장치 등록을 관리 하는 방법
+author: robinsh
+ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
-ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627272"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74975077"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Azure Device Provisioning Service SDK로 디바이스 등록을 관리하는 방법
 *디바이스 등록*은 특정 시점에 Device Provisioning Service에 등록할 수 있는 단일 디바이스 또는 디바이스 그룹의 레코드를 만듭니다. 등록 레코드에는 원하는 IoT Hub를 포함하여 해당 등록의 일부로 해당 디바이스에 대한 초기 원하는 구성을 포함합니다. 이 문서에서는 Azure IoT 프로비전 서비스 SDK를 사용하여 프로그래밍 방식으로 프로비전 서비스에 대한 디바이스 등록을 관리하는 방법을 보여줍니다.  SDK는 Azure IoT SDK와 같은 리포지토리의 GitHub에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * 디바이스 프로비전 서비스 인스턴스의 연결 문자열 가져오기
 * 사용되는 [증명 메커니즘](concepts-security.md#attestation-mechanism)에 대한 디바이스 보안 아티팩트를 가져옵니다.
-    * [**TPM(신뢰할 수 있는 플랫폼 모듈)**](/azure/iot-dps/concepts-security#trusted-platform-module):
-        * 개별 등록: 물리적 디바이스 또는 TPM 시뮬레이터의 등록 ID 및 TPM 인증 키.
+    * [**TPM (신뢰할 수 있는 플랫폼 모듈)**](/azure/iot-dps/concepts-security#trusted-platform-module):
+        * 개별 등록: 물리적 디바이스 또는 TPM 시뮬레이터의 등록 ID 및 TPM 인증 키
         * 등록 그룹은 TPM 증명에 적용되지 않습니다.
     * [**X.509**](/azure/iot-dps/concepts-security):
-        * 개별 등록: 물리적 디바이스 또는 SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) 에뮬레이터의 [리프 인증서](/azure/iot-dps/concepts-security).
-        * 등록 그룹: 물리적 디바이스에서 디바이스 인증서를 생성하는 데 사용하는 [CA/루트 인증서](/azure/iot-dps/concepts-security#root-certificate) 또는 [중간 인증서](/azure/iot-dps/concepts-security#intermediate-certificate).  SDK DICE 에뮬레이터에서 생성할 수도 있습니다.
+        * 개별 등록: 물리적 디바이스 또는 SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) 에뮬레이터의 [리프 인증서](/azure/iot-dps/concepts-security)
+        * 등록 그룹: 물리적 디바이스에서 디바이스 인증서를 생성하는 데 사용하는 [CA/루트 인증서](/azure/iot-dps/concepts-security#root-certificate) 또는 [중간 인증서](/azure/iot-dps/concepts-security#intermediate-certificate)  SDK DICE 에뮬레이터에서 생성할 수도 있습니다.
 * 정확한 API 호출은 언어 차이로 인해 달라질 수 있습니다. 자세한 내용은 GitHub에 제공하는 샘플을 검토하세요.
    * [Java 프로비전 서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Node.js 프로비전 서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -49,7 +47,7 @@ ms.locfileid: "60627272"
     
     1. TPM 또는 X.509일 수 있는 ```attestation``` 메커니즘을 선택합니다.
         1. **TPM**: 물리적 디바이스 또는 TPM 시뮬레이터의 인증 키를 입력으로 사용하면 서비스 SDK API ```TpmAttestation```을 호출하여 등록에 대한 증명을 만들 수 있습니다. 
-        2. **X.509**: 클라이언트 인증서를 입력으로 사용하면 서비스 SDK API ```X509Attestation.createFromClientCertificate```를 호출하여 등록에 대한 증명을 만들 수 있습니다.
+        2. **X.509**: 클라이언트 인증서를 입력으로 사용 하 여 서비스 SDK API ```X509Attestation.createFromClientCertificate``` 를 호출 하 여 등록에 대 한 증명을 만들 수 있습니다.
     2. 만든 ```attestation```을 사용하는 새 ```IndividualEnrollment``` 변수 및 고유한 ```registrationId```를 사용자 디바이스에 있거나 TPM 시뮬레이터에서 생성된 입력으로 만듭니다.  필요에 따라 ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```와 같은 매개 변수를 설정할 수 있습니다.
     3. ```IndividualEnrollment```를 통해 백엔드 애플리케이션에서 서비스 SDK API ```createOrUpdateIndividualEnrollment```를 호출하여 개별 등록을 만듭니다.
 
@@ -63,7 +61,7 @@ ms.locfileid: "60627272"
 * **개별 등록**:
     1. 서비스 SDK API ```getIndividualEnrollment```을 통해 우선 프로비전 서비스에서 최신 등록을 가져옵니다.
     2. 필요에 따라 최신 등록의 매개 변수를 수정합니다. 
-    3. 최신 등록을 사용하면서 서비스 SDK API ```createOrUpdateIndividualEnrollment```를 호출하여 등록 항목을 업데이트합니다.
+    3. 최신 등록을 사용하면서 서비스 SDK API ```createOrUpdateIndividualEnrollment```을 호출하여 등록 항목을 업데이트합니다.
 * **그룹 등록**:
     1. 서비스 SDK API ```getEnrollmentGroup```을 통해 우선 프로비전 서비스에서 최신 등록을 가져옵니다.
     2. 필요에 따라 최신 등록의 매개 변수를 수정합니다.

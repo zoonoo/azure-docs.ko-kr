@@ -4,40 +4,142 @@
   items:
     - name: 가상 WAN 정보
       href: virtual-wan-about.md
+    - name: Architecture
+      items:
+        - name: Virtual WAN으로 마이그레이션
+          href: migrate-from-hub-spoke-topology.md
+        - name: 글로벌 전송 네트워크 아키텍처
+          href: virtual-wan-global-transit-network-architecture.md
+        - name: SD-WAN 연결 아키텍처
+          href: sd-wan-connectivity-architecture.md
+        - name: 중국과 상호 연결
+          href: interconnect-china.md
 - name: 자습서
   items:
     - name: 사이트 간 연결 만들기
       href: virtual-wan-site-to-site-portal.md
+    - name: 사용자 VPN(지점 및 사이트 간) 연결 만들기
+      href: virtual-wan-point-to-site-portal.md
     - name: ExpressRoute 연결 만들기
       href: virtual-wan-expressroute-portal.md
-    - name: 지점 및 사이트 간 연결 만들기
-      href: virtual-wan-point-to-site-portal.md
 - name: 개념
   items:
+    - name: 원격으로 작업
+      items:
+        - name: 원격 작업 지원
+          href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+        - name: Virtual WAN 활용
+          href: work-remotely-support.md
     - name: 위치 및 파트너
-      href: virtual-wan-locations-partners.md
-    - name: 글로벌 전송 네트워크 아키텍처
-      href: virtual-wan-global-transit-network-architecture.md
-    - name: Virtual WAN의 Office 365 제어판
-      href: virtual-wan-office365-overview.md
+      items:
+        - name: 허브 위치 및 파트너
+          href: virtual-wan-locations-partners.md
+        - name: 파트너를 위한 자동화 지침
+          href: virtual-wan-configure-automation-providers.md
+    - name: 가격 책정 개념
+      href: pricing-concepts.md
+    - name: 라우팅
+      items:
+        - name: 가상 허브 라우팅 정보
+          href: about-virtual-hub-routing.md
+        - name: 시나리오
+          items:
+            - name: 보편적 연결(Any-to-Any)
+              href: scenario-any-to-any.md
+            - name: VNet 격리
+              href: scenario-isolate-vnets.md
+            - name: VNet 격리 - 사용자 지정
+              href: scenario-isolate-vnets-custom.md
+            - name: 공유 서비스 VNet
+              href: scenario-shared-services-vnet.md
+            - name: NVA를 통한 라우팅
+              href: scenario-route-through-nva.md
+            - name: NVA를 통한 라우팅 - 사용자 지정(미리 보기)
+              href: scenario-route-through-nvas-custom.md
+            - name: Azure Firewall - Interhub(미리 보기)
+              href: scenario-route-between-hubs-firewall.md
+            - name: Azure Firewall - 사용자 지정
+              href: scenario-route-between-vnets-firewall.md
+    - name: 사이트 간
+      items:
+        - name: IPsec 정책 정보
+          href: virtual-wan-ipsec.md
+        - name: 여러 ISP 링크 - Azure 경로 선택
+          href: path-selection-multiple-links.md
 - name: 방법 가이드
   items:
-    - name: 가상 허브에서 NVA로 트래픽 라우팅
+    - name: 가상 WAN SKU 업그레이드
+      href: upgrade-virtual-wan.md
+    - name: ExpressRoute
       items:
-        - name: Azure portal
-          href: virtual-wan-route-table-portal.md
-        - name: Azure PowerShell
-          href: virtual-wan-route-table.md
-    - name: Virtual WAN 파트너 - 자동화
-      href: virtual-wan-configure-automation-providers.md
-- name: 참고 자료
+        - name: ExpressRoute 연결 만들기
+          href: virtual-wan-expressroute-portal.md
+        - name: ExpressRoute 암호화 구성
+          href: vpn-over-expressroute.md
+    - name: 사이트 간
+      items:
+        - name: 사이트 간 연결 만들기
+          href: virtual-wan-site-to-site-portal.md
+        - name: 가상 네트워크 게이트웨이를 Virtual WAN에 연결
+          href: connect-virtual-network-gateway-vwan.md
+        - name: 사용자 지정 IPsec 정책 구성
+          href: virtual-wan-custom-ipsec-portal.md
+    - name: 사용자 VPN(지점 및 사이트 간)
+      items:
+        - name: 사용자 VPN 연결 만들기
+          href: virtual-wan-point-to-site-portal.md
+        - name: 인증서 생성
+          href: certificates-point-to-site.md
+        - name: Azure AD 테넌트 구성
+          href: openvpn-azure-ad-tenant.md
+        - name: 클라이언트 프로필
+          href: about-vpn-profile-download.md
+        - name: 글로벌 및 허브 기반 프로필
+          href: global-hub-profile.md
+        - name: OpenVPN 클라이언트 구성
+          href: howto-openvpn-clients.md?
+        - name: Always On VPN 사용자 터널 구성
+          href: howto-always-on-user-tunnel.md
+        - name: Always On VPN 디바이스 터널 구성
+          href: howto-always-on-device-tunnel.md
+        - name: MFA(Multi-Factor Authentication) 사용
+          href: openvpn-azure-ad-mfa.md
+        - name: Azure AD 인증 구성
+          href: virtual-wan-point-to-site-azure-ad.md
+        - name: Windows 10용 Azure VPN Client 구성
+          href: openvpn-azure-ad-client.md
+        - name: 다중 애플리케이션 Azure AD 인증 구성
+          href: openvpn-azure-ad-tenant-multi-app.md
+    - name: 라우팅
+      items:
+        - name: 가상 허브 라우팅을 구성하는 방법
+          href: how-to-virtual-hub-routing.md
+        - name: 가상 허브 유효 경로를 보는 방법
+          href: effective-routes-virtual-hub.md
+        - name: 가상 허브에서 NVA로 트래픽 라우팅(레거시)
+          items:
+            - name: Azure portal
+              href: virtual-wan-route-table-nva-portal.md
+            - name: Azure PowerShell
+              href: virtual-wan-route-table-nva.md
+    - name: 보안
+      items:
+        - name: 허브에 Azure Firewall 설치
+          href: howto-firewall.md
+    - name: 모니터링
+      items:
+        - name: 로그 및 메트릭
+          href: logs-metrics.md
+- name: 참조
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#networking'
+      href: /powershell/module/az.network#networking
     - name: REST (영문)
       href: /rest/api/azure
     - name: Azure CLI
       href: /cli/azure/ext/virtual-wan
+    - name: Python SDK
+      href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: 리소스
   items:
     - name: FAQ
@@ -47,8 +149,8 @@
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: 구독 및 서비스 한도
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-    - name: 가격
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

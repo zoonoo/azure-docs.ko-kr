@@ -1,85 +1,60 @@
 ---
-title: Azure Cosmos DB Table API에 대 한 azure Resource Manager 템플릿
-description: Azure Resource Manager 템플릿 만들기 및 Azure Cosmos DB Table API를 구성 하려면 사용 합니다.
+title: Azure Cosmos DB Table API용 Resource Manager 템플릿
+description: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Table API를 만들고 구성합니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/06/2019
+ms.topic: how-to
+ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 33e47d67365e76142d5b584d49d8e7265445bf03
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c77c917cf6063b787dc2972f5ee7db3329e0e743
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077607"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028149"
 ---
-# <a name="create-azure-cosmos-db-table-api-resources-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 Azure Cosmos DB Table API 리소스 만들기
+# <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Table API 리소스 관리
 
-Azure Resource Manager 템플릿을 사용 하는 Azure Cosmos DB Table API 리소스를 만드는 방법에 알아봅니다. 다음 예제에서는에서 Azure Cosmos DB 테이블 API는 [Azure 빠른 시작 템플릿](https://aka.ms/table-arm-qs)합니다. 이 서식 파일에 400 RU/s 처리량을 사용 하 여 한 테이블을 사용 하 여 테이블 API에 대 한 Azure Cosmos 계정이 만들어집니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 배포 및 관리하는 방법을 알아봅니다.
 
-다음은 템플릿의 복사본입니다.
+이 문서에는 Table API 계정에 대해서만 예제가 있으며 다른 API 형식 계정에 대한 예제를 찾으려면 [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [SQL](manage-sql-with-resource-manager.md) 문서의 Azure Cosmos DB API를 통해 Azure Resource Manager 템플릿 사용을 참조하세요.
 
-[!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
+> [!IMPORTANT]
+>
+> * 계정 이름은 44자(모두 소문자)로 제한됩니다.
+> * 처리량 값을 변경하려면 업데이트된 RU/s로 템플릿을 다시 배포합니다.
+> * Azure Cosmos 계정에 위치를 추가하거나 제거하면 다른 속성을 동시에 수정할 수 없습니다. 이러한 작업은 별도로 수행해야 합니다.
 
-## <a name="deploy-via-powershell"></a>PowerShell을 통해 배포
+아래의 Azure Cosmos DB 리소스를 만들려면 다음 예제 템플릿을 새 json 파일에 복사합니다. 필요에 따라 이름 및 값이 다른 동일한 리소스의 여러 인스턴스를 배포할 때 매개 변수 json 파일을 만들 수 있습니다. [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) 및 [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md)를 비롯한 Azure Resource Manager 템플릿을 배포할 수 있는 여러 가지 방법이 있습니다.
 
-PowerShell을 사용 하 여 Resource Manager 템플릿을 배포 하려면 **복사본** 선택한 스크립트 **사용해** 를 Azure Cloud shell을 엽니다. 스크립트를 붙여 넣으려면 셸을 마우스 오른쪽 단추로 클릭 **붙여**:
+> [!TIP]
+> Table API를 사용할 때 공유 처리량을 활성화하려면 Azure Portal에서 계정 수준 처리량을 사용하도록 설정합니다.
 
-```azurepowershell-interactive
+<a id="create-autoscale"></a>
 
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$accountName = Read-Host -Prompt "Enter the account name"
-$location = Read-Host -Prompt "Enter the location (i.e. westus2)"
-$primaryRegion = Read-Host -Prompt "Enter the primary region (i.e. westus2)"
-$secondaryRegion = Read-Host -Prompt "Enter the secondary region (i.e. eastus2)"
-$tableName = Read-Host -Prompt "Enter the table name"
+## <a name="azure-cosmos-account-for-table-with-autoscale-throughput"></a>자동 크기 조정 처리량을 사용하는 Table용 Azure Cosmos 계정
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-table/azuredeploy.json" `
-    -primaryRegion $primaryRegion `
-    -secondaryRegion $secondaryRegion `
-    -tableName $tableName
+이 템플릿은 자동 크기 조정 처리량을 사용하는 단일 테이블이 있는 Table API에 대한 Azure Cosmos 계정을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
- (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
-```
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table-autoscale%2Fazuredeploy.json)
 
-Azure Cloud shell에서 로컬에 설치 된 버전 대신 PowerShell 사용 하려는 경우 필요가 [설치](/powershell/azure/install-az-ps) Azure PowerShell 모듈. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-table-autoscale/azuredeploy.json":::
 
-이전 예제에서는 GitHub에 저장 된 템플릿을 참조 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
+<a id="create-manual"></a>
 
+## <a name="azure-cosmos-account-for-table-with-standard-provisioned-throughput"></a>표준 프로비전된 처리량을 사용하는 Table용 Azure Cosmos 계정
 
-## <a name="deploy-via-azure-cli"></a>Azure CLI를 통해 배포
+이 템플릿은 표준 처리량을 사용하는 단일 테이블이 있는 Table API에 대한 Azure Cosmos 계정을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
-Azure CLI를 사용 하 여 Resource Manager 템플릿을 배포 하려면 **복사본** 선택한 스크립트 **사용해** 를 Azure Cloud shell을 엽니다. 스크립트를 붙여 넣으려면 셸을 마우스 오른쪽 단추로 클릭 **붙여**:
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table%2Fazuredeploy.json)
 
-```azurecli-interactive
-read -p 'Enter the Resource Group name: ' resourceGroupName
-read -p 'Enter the location (i.e. westus2): ' location
-read -p 'Enter the account name: ' accountName
-read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
-read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
-read -p 'Enter the table name: ' tableName
-
-az group create --name $resourceGroupName --location $location
-az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-table/azuredeploy.json \
-   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion tableName=$tableName
-
-az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
-```
-
-`az cosmosdb show` 명령은 프로 비전 된 후 새로 만든된 Azure Cosmos 계정을 보여 줍니다. Cloud Shell을 사용 하는 대신 로컬에 설치 된 버전의 Azure CLI를 사용 하려는 경우 [Azure 명령줄 인터페이스 (CLI)](/cli/azure/) 문서.
-
-이전 예제에서는 GitHub에 저장 된 템플릿을 참조 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
-
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-table/azuredeploy.json":::
 
 ## <a name="next-steps"></a>다음 단계
 
 다음은 몇 가지 추가 리소스입니다.
 
-- [Azure Resource Manager 설명서](/azure/azure-resource-manager/)
-- [Azure Cosmos DB 리소스 공급자 스키마](/azure/templates/microsoft.documentdb/allversions)
-- [Azure Cosmos DB 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [일반적인 Azure Resource Manager 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Azure Resource Manager 설명서](/azure/azure-resource-manager/)
+* [Azure Cosmos DB 리소스 공급자 스키마](/azure/templates/microsoft.documentdb/allversions)
+* [Azure Cosmos DB 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [일반적인 Azure Resource Manager 배포 오류 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)

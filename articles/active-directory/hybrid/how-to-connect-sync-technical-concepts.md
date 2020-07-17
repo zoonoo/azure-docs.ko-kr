@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 251d156afbd367e83945397760a6afe98a1cfb98
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356936"
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 동기화: 기술 개념
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: 기술 개념
 이 문서에서는 [아키텍처 이해](how-to-connect-sync-technical-concepts.md)항목을 요약합니다.
 
 Azure AD Connect 동기화는 견고한 메타 디렉터리 동기화 플랫폼상에 빌드됩니다.
@@ -43,7 +43,7 @@ MIIS, ILM 및 FIM을 바탕으로 구성된 Azure Active Directory 동기화 서
 ## <a name="connector"></a>커넥터
 연결된 디렉터리와 통신하는 데 사용되는 코드 모듈을 커넥터(이전의 MA(관리 에이전트))라고 합니다.
 
-이러한 작업은 Azure AD Connect 동기화를 실행하는 컴퓨터에 설치됩니다. 커넥터는 특수 에이전트의 배포에 의존하지 않고 원격 시스템 프로토콜을 사용하여 대화할 수 있는 에이전트 없는 기능을 제공합니다. 따라서 특히 중요한 애플리케이션 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
+이러한 컴퓨터는 Azure AD Connect 동기화를 실행 하는 컴퓨터에 설치 됩니다. 커넥터는 특수화 된 에이전트의 배포에 의존 하는 대신 원격 시스템 프로토콜을 사용 하 여 사용 하는 에이전트 없는 기능을 제공 합니다. 따라서 특히 중요한 애플리케이션 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
 
 위 그림에서 커넥터는 커넥터 공간와 동의어 이지만 외부 시스템과의 모든 통신을 포함합니다.
 

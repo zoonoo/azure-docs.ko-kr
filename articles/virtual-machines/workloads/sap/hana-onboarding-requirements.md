@@ -3,23 +3,21 @@ title: Azure(대규모 인스턴스)의 SAP HANA에 대한 온보딩 요구 사�
 description: Azure(대규모 인스턴스)에서 SAP HANA에 대한 온보딩 요구 사항입니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: jeconnoc
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679054"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77617013"
 ---
 # <a name="onboarding-requirements"></a>온보딩 요구 사항
 
@@ -33,7 +31,7 @@ ms.locfileid: "60679054"
 
 **네트워크 연결**
 
-- Azure에 대한 온-프레미스 간 ExpressRoute: 온-프레미스 데이터 센터를 Azure에 연결하려면 ISP에서 최소한 1Gbps 연결을 주문해야 합니다. HANA 대규모 인스턴스 단위와 Azure 간 연결에도 ExpressRoute 기술을 사용합니다. HANA 대규모 인스턴스 장치와 Azure 간의 ExpressRoute 연결은 이 특정 ExpressRoute 회로의 모든 데이터 수신 및 송신 요금을 포함하여 HANA 대규모 인스턴스 장치의 가격에 포함됩니다. 따라서 고객으로 발생 하지 비용이 온-프레미스와 Azure 간에 ExpressRoute 링크 초과 합니다.
+- 온-프레미스와 Azure 간의 ExpressRoute: 온-프레미스 데이터 센터를 Azure에 연결하려면 ISP에서 1Gbps 이상의 연결을 요청해야 합니다. HANA 대규모 인스턴스 단위와 Azure 간 연결에도 ExpressRoute 기술을 사용합니다. HANA 대규모 인스턴스 장치와 Azure 간의 ExpressRoute 연결은 이 특정 ExpressRoute 회로의 모든 데이터 수신 및 송신 요금을 포함하여 HANA 대규모 인스턴스 장치의 가격에 포함됩니다. 따라서 고객은 온-프레미스와 Azure 간의 Express 경로 링크 외에 추가 비용이 발생 하지 않습니다.
 
 **운영 체제**
 

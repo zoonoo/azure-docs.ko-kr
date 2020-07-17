@@ -2,8 +2,8 @@
 title: HSM 물리적 보안 - Azure Dedicated HSM | Microsoft Docs
 description: 데이터 센터 내 Azure Dedicated HSM 디바이스의 물리적 보안에 대한 정보
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,13 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 6fe0557aa90ec3345d4ca0c3d9292cab3435bb2f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.author: mbaldwin
+ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "70881034"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Azure Dedicated HSM 물리적 보안
 
@@ -49,7 +48,7 @@ Microsoft 엔지니어가 HSM 디바이스에서 사용하는 랙에 액세스�
 
 ## <a name="logical-level-security-considerations"></a>논리 수준 보안 고려 사항
 
-HSM은 고객이 만든 가상 네트워크에 프로비전됩니다. 이 가상 네트워크는 고객의 비공개 IUP 주소 공간입니다.  이 구성은 중요한 논리 네트워크 수준 격리를 제공하고 고객만 액세스할 수 있도록 보장합니다. 즉, 모든 논리 수준 보안 제어는 고객의 책임입니다.
+HSM은 고객이 만든 가상 네트워크에 프로비전됩니다. 이 가상 네트워크는 고객의 개인 IUP 주소 공간입니다.  이 구성은 중요한 논리 네트워크 수준 격리를 제공하고 고객만 액세스할 수 있도록 보장합니다. 즉, 모든 논리 수준 보안 제어는 고객의 책임입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -58,5 +57,5 @@ HSM은 고객이 만든 가상 네트워크에 프로비전됩니다. 이 가상
 * [고가용성](high-availability.md)
 * [네트워킹](networking.md)
 * [지원 가능성](supportability.md)
-* [모니터링](monitoring.md)
+* [Monitoring](monitoring.md)
 * [배포 아키텍처](deployment-architecture.md)

@@ -1,25 +1,13 @@
 ---
 title: Azure Service Bus SQLFilter 구문 참조 | Microsoft Docs
-description: SQLFilter 문법에 대한 세부 정보입니다.
-services: service-bus-messaging
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
+description: 이 문서에서는 SQLFilter 문법에 대 한 세부 정보를 제공 합니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341590"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 구문
 
@@ -60,13 +48,13 @@ ms.locfileid: "60591800"
   
 ## <a name="arguments"></a>인수  
   
--   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys` 값은 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user`는 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
+-   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys`값은 `<property_name>` 이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user``<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
   
 ## <a name="remarks"></a>설명
 
 존재하지 않는 시스템 속성에 대한 액세스 시도는 오류이지만 존재하지 않는 사용자 속성에 대한 액세스 시도는 오류가 아닙니다. 대신, 존재하지 않는 사용자 속성은 알 수 없는 값;으로 내부적으로 평가됩니다. 알 수 없는 값은 연산자 평가 중에 특별히 처리됩니다.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -108,7 +96,7 @@ ms.locfileid: "60591800"
 "Contoso & Northwind"  
 ```  
   
-## <a name="pattern"></a>패턴  
+## <a name="pattern"></a>pattern  
   
 ```  
 <pattern> ::=  
@@ -119,11 +107,11 @@ ms.locfileid: "60591800"
   
 `<pattern>`은 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대한 패턴으로 사용됩니다.      다음 와일드 카드 문자를 포함할 수 있습니다.  
   
--   `%`:  0개 이상의 문자로 된 문자열입니다.  
+-   `%`: 0개 이상의 문자입니다.  
   
 -   `_`: 단일 문자입니다.  
   
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
   
 ```  
 <escape_char> ::=  
@@ -172,7 +160,7 @@ ms.locfileid: "60591800"
     0.5E-2  
     ```  
   
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
   
 ```  
 <boolean_constant> :=  
@@ -183,7 +171,7 @@ ms.locfileid: "60591800"
 
 Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은 `System.Boolean`으로 저장됩니다.  
   
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
   
 ```  
 <string_constant>  
@@ -193,7 +181,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 
 문자열 상수는 작은따옴표로 묶으며 유효한 유니코드 문자를 포함합니다. 문자열 상수에 포함된 작은따옴표는 두 개의 작은따옴표로 표시됩니다.  
   
-## <a name="function"></a>함수  
+## <a name="function"></a>function  
   
 ```  
 <function> :=  
@@ -239,11 +227,11 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
   `[NOT] LIKE`에서 알 수 없음 평가:  
   
-- 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 피연산자가 **알 수 없음**으로 평가 되는 경우 결과를 **알 수**없습니다.  
   
   `[NOT] IN`에서 알 수 없음 평가:  
   
-- 왼쪽 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 왼쪽 피연산자가 **알 수 없음**으로 평가 되는 경우 결과를 **알 수**없습니다.  
   
   **AND** 연산자에서 알 수 없음 평가:  
   

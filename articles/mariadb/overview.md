@@ -1,22 +1,22 @@
 ---
-title: Azure Database for MariaDB 관계형 데이터베이스 서비스 개요
-description: Azure Database for MariaDB 관계형 데이터베이스 서비스에 대해 대략적으로 알아봅니다.
+title: 개요 - Azure Database for MariaDB
+description: MySQL 커뮤니티 버전을 기반으로 하는 Microsoft 클라우드의 관계형 데이터베이스 서비스인 Azure Database for MariaDB 서비스에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/20/2019
-ms.openlocfilehash: a5d00c24531099e66afcb6ccf07cfdf99abd28d1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 3/18/2020
+ms.openlocfilehash: 84fd24890495e7278c69c2f83c7182fd65f86791
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295150"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "79535564"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Azure Database for MariaDB란?
 
-Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/)(GPLv2 라이선스에 따라 사용 가능) 데이터베이스 엔진 10.2를 기반으로 합니다.
+Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/)(GPLv2 라이선스에 따라 사용 가능) 데이터베이스 엔진 버전 10.2 및 10.3을 기반으로 합니다.
 
 Azure Database for MariaDB에서는 다음과 같은 기능을 제공합니다.
 
@@ -41,7 +41,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>몇 초 이내 성능 및 규모 조정
 
-MariaDB용 Azure Database 서비스는 다음과 같은 여러 서비스 계층을 제공합니다. 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 각 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 다양한 성능 및 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은  [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
+MariaDB용 서비스는 기본, 범용 및 메모리 최적화와 같은 몇 가지 서비스 계층을 제공합니다. 각 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 다양한 성능 및 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은  [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
@@ -53,11 +53,7 @@ Azure에서는 Microsoft에서 관리하는 데이터 센터로 구성된 글로
 
 ## <a name="secure-your-data"></a>데이터 보호
 
-Azure 데이터베이스는 Azure Database for MariaDB가 가지고 있는 데이터 보안의 전통을 이어갑니다. Azure Database for MariaDB는 액세스를 제한하고, 미사용 및 이동 중인 데이터를 보호하며, 모니터 작업을 지원하는 기능을 제공합니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://www.microsoft.com/en-us/trustcenter/security)를 방문하세요.
-
-Azure Database for MariaDB 서비스는 미사용 데이터에 대해 스토리지 암호화를 사용하고 FIPS 140-2를 준수합니다. 백업 데이터를 포함하여 데이터가 디스크에서 암호화됩니다. 쿼리를 실행할 때 엔진에서 만든 임시 파일은 디스크에서 암호화되지 않습니다. 이 서비스는 Azure Storage 암호화에 포함된 AES 256비트 암호화를 사용합니다. 키는 시스템에서 관리됩니다. 저장소 암호화는 항상 켜져 있고 해제할 수 없습니다.
-
-기본적으로 Azure Database for MariaDB 서비스는 네트워크를 통해 이동하는 데이터에 대해 [SSL 연결 보안 ](./concepts-ssl-connection-security.md)을 요구하도록 구성됩니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다. 필요에 따라 클라이언트 응용 프로그램이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL 요구 사항을 사용하지 않도록 설정할 수 있습니다.
+Azure 데이터베이스는 Azure Database for MariaDB가 가지고 있는 데이터 보안의 전통을 이어갑니다. Azure Database for MariaDB는 액세스를 제한하고, 미사용 및 이동 중인 데이터를 보호하며, 모니터 작업을 지원하는 기능을 제공합니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://www.microsoft.com/trustcenter/security)를 방문하세요. Azure Database for MariaDB 보안 기능에 대한 자세한 내용은 [보안 개요](concepts-security.md)를 참조하세요.
 
 ## <a name="contacts"></a>연락처
 

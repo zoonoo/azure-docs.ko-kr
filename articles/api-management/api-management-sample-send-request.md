@@ -12,15 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/15/2016
-ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/15/2016
+ms.author: apimpm
+ms.openlocfilehash: ac5f6b4d2d197bbd4f4aff9236837eab062b4a63
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557940"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243310"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
 Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API Management 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.
@@ -28,7 +27,7 @@ Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게
 [로깅, 모니터링 및 분석에 대한 Azure 이벤트 허브 서비스](api-management-log-to-eventhub-sample.md)와 상호 작용하는 방법은 이전에 살펴보았습니다. 이 문서에서는 외부 HTTP 기반 서비스와 상호 작용할 수 있도록 하는 정책을 보여 줍니다. 이러한 정책은 원격 이벤트를 트리거하거나 원래 요청 및 응답을 몇 가지 방식으로 조작하는 데 사용할 정보를 검색하는 데에 사용할 수 있습니다.
 
 ## <a name="send-one-way-request"></a>일방-요청-보내기
-아마도 가장 간단한 외부 상호 작용은 외부 서비스가 일종의 중요한 이벤트 알림을 받을 수 있도록 하는 자체 유도 스타일의 요청일 것입니다. 제어 흐름 정책 `choose`는 관심이 있는 모든 유형의 조건을 검색하는 데 사용될 수 있습니다.  조건을 만족하는 경우 [send-one-way-request](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) 정책을 사용하여 외부 HTTP 요청을 만들 수 있습니다. Hipchat 및 Slack과 같은 메시징 시스템에 대한 요청이나 SendGrid 및 MailChimp와 같은 메일 API, 또는 PagerDuty와 같은 중요한 지원 인시던트일 수 있습니다. 이러한 메시징 시스템에는 모두 호출될 수 있는 간단한 HTTP API가 있습니다.
+아마도 가장 간단한 외부 상호 작용은 외부 서비스가 일종의 중요한 이벤트 알림을 받을 수 있도록 하는 자체 유도 스타일의 요청일 것입니다. 제어 흐름 정책 `choose`는 관심이 있는 모든 유형의 조건을 검색하는 데 사용될 수 있습니다.  조건을 만족하는 경우 [send-one-way-request](./api-management-advanced-policies.md#SendOneWayRequest) 정책을 사용하여 외부 HTTP 요청을 만들 수 있습니다. Hipchat 및 Slack과 같은 메시징 시스템에 대한 요청이나 SendGrid 및 MailChimp와 같은 메일 API, 또는 PagerDuty와 같은 중요한 지원 인시던트일 수 있습니다. 이러한 메시징 시스템에는 모두 호출될 수 있는 간단한 HTTP API가 있습니다.
 
 ### <a name="alerting-with-slack"></a>Slack에 경고
 다음 예제에서는 HTTP 응답 상태 코드가 500 이상인 경우 Slack 대화방에 메시지를 보내는 방법을 보여줍니다. 500 범위 오류는 API의 클라이언트가 자체로 해결할 수 없는 백 엔드 API에 문제가 있음을 나타냅니다. 일반적으로 API Management 부분에 일종의 개입이 필요합니다.  
@@ -63,7 +62,7 @@ Slack에는 인바운드 웹 후크가 있습니다. 인바운드 웹 후크를 
 ![Slack 웹 후크](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>자체 유도로 충분합니까?
-자체 유도 스타일의 요청을 사용할 때 장단점이 있습니다. 어떤 이유가 있는 경우 요청이 실패한 다음 실패가 보고되지 않습니다. 이 특정 상황에서는 보조 오류 보고 시스템이 가진 복잡성 및 응답을 기다리는 추가 성능 비용이 보장됩니다. 응답을 확인하는 데 중요한 시나리오의 경우 [전송-요청](/azure/api-management/api-management-advanced-policies#SendRequest) 정책이 더 효율적입니다.
+자체 유도 스타일의 요청을 사용할 때 장단점이 있습니다. 어떤 이유가 있는 경우 요청이 실패한 다음 실패가 보고되지 않습니다. 이 특정 상황에서는 보조 오류 보고 시스템이 가진 복잡성 및 응답을 기다리는 추가 성능 비용이 보장됩니다. 응답을 확인하는 데 중요한 시나리오의 경우 [전송-요청](./api-management-advanced-policies.md#SendRequest) 정책이 더 효율적입니다.
 
 ## <a name="send-request"></a>전송-요청
 `send-request` 정책을 사용하면 복잡한 처리 기능을 수행하는 외부 서비스를 사용할 수 있고 이후 정책 처리에 사용할 수 있는 API 관리 서비스에 데이터를 반환할 수 있습니다.
@@ -102,6 +101,10 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 `response-variable-name` 특성은 반환된 응답의 액세스를 제공하는 데 사용됩니다. 이 속성에 정의된 이름은 `context.Variables` 사전에 키로 사용하여 `IResponse` 개체에 액세스할 수 있습니다.
 
 응답 개체에서 본문을 검색할 수 있고 RFC 7622는 응답이 JSON 개체를 해야 하며 API Management에 최소한 부울 값인 `active`라는 속성을 포함해야 한다고 알립니다. `active` 가 true인 경우 토큰이 유효한 것으로 간주됩니다.
+
+또는 토큰이 유효한 지 여부를 나타내는 "활성" 필드가 권한 부여 서버에 포함 되지 않은 경우 Postman과 같은 도구를 사용 하 여 유효한 토큰에 설정 된 속성을 확인 합니다. 예를 들어 유효한 토큰 응답에 "expires_in" 라는 속성이 포함 된 경우이 속성 이름이 권한 부여 서버 응답에 있는지 확인 합니다.
+
+Condition = "@ ((IResponse) context 인 경우 <합니다. Variables ["tokenstate"]). Body.As <JObject> (). 속성 ("expires_in") = = null) ">
 
 ### <a name="reporting-failure"></a>오류 보고
 `<choose>` 정책을 사용하여 토큰이 유효한지 감지할 수 있으며 그럴 경우 401 응답을 반환합니다.
@@ -210,7 +213,7 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 이러한 요청은 순서대로 실행되며 이는 가장 좋은 방법은 아닙니다. 
 
 ### <a name="responding"></a>응답
-복합 응답을 생성하려면 [반환-응답](/azure/api-management/api-management-advanced-policies#ReturnResponse) 정책을 사용할 수 있습니다. `set-body` 요소는 속성으로 포함 된 모든 구성 요소 표현을 사용하여 새 `JObject`을 생성하도록 식을 사용할 수 있습니다.
+복합 응답을 생성하려면 [반환-응답](./api-management-advanced-policies.md#ReturnResponse) 정책을 사용할 수 있습니다. `set-body` 요소는 속성으로 포함 된 모든 구성 요소 표현을 사용하여 새 `JObject`을 생성하도록 식을 사용할 수 있습니다.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -284,5 +287,3 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 
 ## <a name="summary"></a>요약
 Azure API Management 서비스는 HTTP 트래픽에 선택적으로 적용할 수 있는 유연한 정책을 제공하고 백 엔드 서비스의 컴퍼지션을 사용할 수 있습니다. 함수, 확인, 유효성 검사 기능의 경고를 통해 API 게이트웨이를 개선하거나 여러 백 엔드 서비스를 기반으로 새 복합 리소스를 만들 경우 `send-request` 및 관련된 정책은 새로운 가능성을 엽니다.
-
-

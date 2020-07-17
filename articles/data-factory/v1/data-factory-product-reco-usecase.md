@@ -3,22 +3,20 @@ title: 데이터 팩터리 사용 사례 - 제품 추천
 description: Azure Data Factory 및 기타 서비스로 구현한 사용 사례에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 02d6c11e3880f69f5020fb51f90a72c3233e2f25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195878"
 ---
 # <a name="use-case---product-recommendations"></a>사용 사례 - 제품 추천
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.
@@ -42,7 +40,7 @@ Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구�
 ## <a name="solution-overview"></a>솔루션 개요
 이 사용 사례 예에서는 실제 Azure 사용자가 [HDInsight](https://azure.microsoft.com/services/hdinsight/) 및 [Power BI](https://powerbi.microsoft.com/)를 포함한 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 해결 및 구현했습니다.
 
-이 온라인 소매점은 전체 워크플로에서 Azure Blob 저장소, 온-프레미스 SQL server, Azure SQL DB 및 관계형 데이터 마트를 데이터 저장소 옵션으로 사용합니다.  Blob 저장소는 고객 정보, 고객 동작 데이터 및 제품 정보 데이터를 포함합니다. 제품 정보 데이터는 SQL 데이터 웨어하우스에 온-프레미스로 저장된 제품 브랜드 정보와 제품 카탈로그를 포함합니다. 
+온라인 소매점은 Azure Blob 저장소, 온-프레미스 SQL Server, Azure SQL Database 및 관계형 데이터 마트를 워크플로 전체의 데이터 저장소 옵션으로 사용 합니다.  Blob 저장소는 고객 정보, 고객 동작 데이터 및 제품 정보 데이터를 포함합니다. 제품 정보 데이터는 SQL 데이터 웨어하우스에 온-프레미스로 저장된 제품 브랜드 정보와 제품 카탈로그를 포함합니다. 
 
 사용자가 웹 사이트에서 카탈로그의 제품을 탐색하는 동안, 모든 데이터가 결합되고 제품 추천 시스템에 공급되어 고객 관심사 및 작업을 토대로 개인 설정된 추천을 제공합니다. 고객은 또한 전체 웹 사이트 사용 패턴에 따라 어떤 사용자와도 관련은 없지만 그들이 보고 있는 제품과 관련될 수 있는 제품도 보게 됩니다.
 
@@ -52,7 +50,7 @@ Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구�
 
 이 예에서 기계 학습에 사용되는 권장 시스템은 [Apache Mahout](https://mahout.apache.org/)의 공개 소스 기계 학습 권장 플랫폼입니다.  모든 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 또는 사용자 지정 모델을 시나리오에 적용할 수 있습니다.  Mahout 모델은 전체 사용 패턴을 기반으로 웹 사이트에 있는 항목 간의 유사성을 예측하고 개별 사용자에 따라 개인 설정된 권장을 생성하는 데 사용됩니다.
 
-마지막으로, 개인 설정된 제품 추천의 결과 집합이 소매점 웹 사이트에서 사용되도록 관계형 데이터 마트로 이동됩니다.  결과 집합은 Blob Storage에서도 다른 응용 프로그램으로 직접 액세스할 수 있으며 다른 소비자 및 사용 사례를 위한 추가 스토리지로 이동할 수 있습니다.
+마지막으로, 개인 설정된 제품 추천의 결과 집합이 소매점 웹 사이트에서 사용되도록 관계형 데이터 마트로 이동됩니다.  결과 집합은 Blob Storage에서도 다른 애플리케이션으로 직접 액세스할 수 있으며 다른 소비자 및 사용 사례를 위한 추가 스토리지로 이동할 수 있습니다.
 
 ## <a name="benefits"></a>이점
 제품 추천 전략을 최적화하고 비즈니스 목표에 부합하도록 한다면 이 솔루션은 온라인 소매점의 머천다이징 및 마케팅 목표를 충족합니다. 또한 제품 추천 워크플로를 효율적이고 안정적이며 비용 효율적인 방식으로 운영 및 관리할 수 있습니다. 이 방법에서는 자신의 모델을 쉽게 업데이트하고 클릭-판매 변환 성공을 측정한 결과에 따라 효율성을 미세하게 조정할 수 있습니다. Azure Data Factory를 사용하면 시간과 비용이 많이 드는 수동 클라우드 리소스 관리를 중단하고 주문형 클라우드 리소스 관리로 전환할 수 있습니다. 따라서 시간, 비용을 절약하고 솔루션 배포 시간을 단축할 수 있습니다. 데이터 계보 뷰 및 작업 서비스 상태를 직관적인 데이터 팩터리 모니터링과 Azure 포털에서 제공되는 관리 UI로 손쉽게 시각화하고 문제 해결할 수 있습니다. 이제 이러한 솔루션을 예약 및 관리할 수 있으므로 완료된 데이터를 안정적으로 생성하고 사용자에게 전달할 수 있으며 데이터 및 처리 종속성이 사용자의 개입 없이 자동으로 관리됩니다.

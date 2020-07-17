@@ -1,55 +1,243 @@
 ---
-title: Azure Data Factory의 복사 작업 내결함성 | Microsoft Docs
-description: 복사 중에 호환되지 않는 행을 건너뛰어 Azure Data Factory 복사 작업에 내결함성을 추가하는 방법을 알아봅니다.
+title: Azure Data Factory의 복사 작업 내결함성
+description: 복사 중에 호환되지 않는 데이터를 건너뛰어 Azure Data Factory 복사 작업에 내결함성을 추가하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: ''
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: ef0bb3716a32a0f25b90e74bc44d7291c146b431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60808820"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130775"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [현재 버전](copy-activity-fault-tolerance.md)
 
-Azure Data Factory의 복사 작업은 원본 및 싱크 데이터 저장소 간에 데이터를 복사할 때 호환되지 않는 행을 처리하는 2가지 방법을 제공합니다.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-- 호환되지 않는 데이터가 나타날 때 복사 작업을 중단하고 실패한 것으로 처리할 수 있습니다(기본 동작).
-- 내결함성을 추가하고 호환되지 않는 데이터 행을 건너뛰어 모든 데이터를 계속 복사할 수 있습니다. 또한 Azure Blob Storage 또는 Azure Data Lake Store에 호환되지 않는 행을 기록할 수 있습니다. 그런 후 로그를 검토하여 실패의 원인을 파악하고, 데이터 원본에서 데이터를 수정하고, 복사 작업을 다시 시도할 수 있습니다.
+원본 저장소에서 대상 저장소로 데이터를 복사하는 경우 Azure Data Factory 복사 작업이 데이터 이동 중에 오류가 발생하여 중단되지 않도록 특정 수준의 내결함성을 제공합니다. 예를 들어 대상 데이터베이스에서 기본 키가 생성되었지만 원본 데이터베이스에 기본 키가 정의되어 있지 않은 경우 원본 저장소에서 대상 저장소로 수백만 개의 행을 복사합니다. 원본에서 대상으로 중복 행을 복사하는 경우 대상 데이터베이스에서 PK 위반 오류가 발생합니다. 현재 복사 작업은 이러한 오류를 처리하는 두 가지 방법을 제공합니다. 
+- 오류가 발생하면 복사 작업을 중단할 수 있습니다. 
+- 내결함성을 사용하여 호환되지 않는 데이터를 건너뛰고 나머지 항목을 계속 복사할 수 있습니다. 예를 들어 이 경우에는 중복된 행을 건너뜁니다. 또한 복사 작업 내에서 세션 로그를 사용하도록 설정하여 건너뛴 데이터를 로깅할 수 있습니다. 
 
-## <a name="supported-scenarios"></a>지원되는 시나리오
-복사 작업은 호환되지 않는 데이터의 검색, 건너뛰기 및 로깅에 대한 다음 세 가지 시나리오를 지원합니다.
+## <a name="copying-binary-files"></a>이진 파일 복사 
+
+ADF는 이진 파일을 복사할 때 다음과 같은 내결함성 시나리오를 지원합니다. 다음 시나리오에서 복사 작업을 중단하거나 나머지 항목을 계속 복사하도록 선택할 수 있습니다.
+
+1. ADF를 통해 복사할 파일을 다른 애플리케이션에서 동시에 삭제하고 있습니다.
+2. 이러한 파일 또는 폴더의 ACL에서 ADF에 구성된 연결 정보보다 높은 권한 수준을 요구하기 때문에 일부 특정 폴더 또는 파일에서 ADF의 액세스를 허용하지 않습니다.
+3. ADF에 데이터 일관성 확인 설정을 사용하도록 설정하면 원본 및 대상 저장소 간에 하나 이상의 파일이 일치하는 것으로 확인되지 않습니다.
+
+### <a name="configuration"></a>구성 
+스토리지 저장소 간에 이진 파일을 복사하는 경우 다음과 같이 내결함성을 사용하도록 설정할 수 있습니다. 
+
+```json
+"typeProperties": { 
+    "source": { 
+        "type": "BinarySource", 
+        "storeSettings": { 
+            "type": "AzureDataLakeStoreReadSettings", 
+            "recursive": true 
+            } 
+    }, 
+    "sink": { 
+        "type": "BinarySink", 
+        "storeSettings": { 
+            "type": "AzureDataLakeStoreWriteSettings" 
+        } 
+    }, 
+    "skipErrorFile": { 
+        "fileMissing": true, 
+        "fileForbidden": true, 
+        "dataInconsistency": true 
+    }, 
+    "validateDataConsistency": true, 
+    "logStorageSettings": { 
+        "linkedServiceName": { 
+            "referenceName": "ADLSGen2", 
+            "type": "LinkedServiceReference" 
+            }, 
+        "path": "sessionlog/" 
+     } 
+} 
+```
+속성 | Description | 허용되는 값 | 필수
+-------- | ----------- | -------------- | -------- 
+skipErrorFile | 데이터 이동 중에 건너뛸 오류 유형을 지정하는 속성 그룹입니다. | | 예
+fileMissing | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 파일을 건너뛸지 여부를 결정할 수 있습니다. 그러면 ADF가 복사하는 동안 다른 애플리케이션에서 건너뛴 파일을 삭제합니다. <br/> -True: 다른 애플리케이션에서 삭제할 파일을 건너뛰어 나머지 항목을 복사하려고 합니다. <br/> -False: 데이터 이동 중에 원본 저장소에서 파일이 삭제되면 복사 작업을 중단하려고 합니다. <br/>이 속성은 기본적으로 true로 설정됩니다. | True(기본값) <br/>False | 예
+fileForbidden | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 사용하여 특정 파일을 건너뛸지 여부를 결정합니다. 이러한 파일 또는 폴더의 ACL은 ADF에 구성된 연결보다 높은 수준의 권한을 요구합니다. <br/> -True: 파일을 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 폴더 또는 파일에 대한 권한 문제가 발생하면 복사 작업을 중단하려고 합니다. | True <br/>False(기본값) | 예
+dataInconsistency | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 원본 및 대상 저장소 간에 일치하지 않는 데이터를 건너뛸지 여부를 결정합니다. <br/> -True: 일치하지 않는 데이터를 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 일치하지 않는 데이터가 발견되면 복사 작업을 중단하려고 합니다. <br/>이 속성은 validateDataConsistency를 True로 설정한 경우에만 유효합니다. | True <br/>False(기본값) | 예
+logStorageSettings  | 건너뛴 개체 이름을 로깅하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
+linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 예
+경로 | 로그 파일의 경로입니다. | 로그 파일을 저장하는 데 사용할 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
+
+> [!NOTE]
+> 다음은 이진 파일을 복사할 때 복사 작업에서 내결함성을 사용 하기 위한 필수 구성 요소입니다.
+> 원본 저장소에서 삭제 되는 특정 파일을 건너뛰는 경우:
+> - 원본 데이터 집합 및 싱크 데이터 집합은 이진 형식 이어야 하며 압축 형식은 지정할 수 없습니다. 
+> - 지원 되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, 파일 시스템, FTP, SFTP, Amazon S3, Google Cloud Storage 및 HDFS입니다.
+> - 원본 데이터 집합에서 여러 파일을 지정 하는 경우에만 폴더, 와일드 카드 또는 파일 목록이 될 수 있습니다. 복사 작업은 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 집합에서 대상으로 복사할 단일 파일이 지정 된 경우 오류가 발생 하면 복사 작업이 실패 합니다.
+>
+> 원본 저장소에서 액세스를 사용할 수 없을 때 특정 파일을 건너뛰는 경우:
+> - 원본 데이터 집합 및 싱크 데이터 집합은 이진 형식 이어야 하며 압축 형식은 지정할 수 없습니다. 
+> - 지원 되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 및 HDFS입니다.
+> - 원본 데이터 집합에서 여러 파일을 지정 하는 경우에만 폴더, 와일드 카드 또는 파일 목록이 될 수 있습니다. 복사 작업은 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 집합에서 대상으로 복사할 단일 파일이 지정 된 경우 오류가 발생 하면 복사 작업이 실패 합니다.
+>
+> 원본 및 대상 저장소 간에 일치 하지 않는 것으로 확인 되는 특정 파일을 건너뛰는 경우:
+> - 데이터 일관성 문서에서 자세한 내용을 볼 [수 있습니다.](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency)
+
+### <a name="monitoring"></a>모니터링 
+
+#### <a name="output-from-copy-activity"></a>복사 작업의 출력
+각 복사 작업 실행의 출력을 통해 읽고 쓰고 건너뛰는 파일 수를 가져올 수 있습니다. 
+
+```json
+"output": {
+            "dataRead": 695,
+            "dataWritten": 186,
+            "filesRead": 3,  
+            "filesWritten": 1, 
+            "filesSkipped": 2, 
+            "throughput": 297,
+            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "dataConsistencyVerification": 
+           { 
+                "VerificationResult": "Verified", 
+                "InconsistentData": "Skipped" 
+           } 
+        }
+
+```
+
+#### <a name="session-log-from-copy-activity"></a>복사 작업의 세션 로그
+
+건너뛴 파일 이름을 로깅하도록 구성할 경우 이 경로(`https://[your-blob-account].blob.core.windows.net/[path-if-configured]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`)에서 로그 파일을 확인할 수 있습니다. 
+
+로그 파일은 csv 파일이어야 합니다. 로그 파일의 스키마는 다음과 같습니다.
+
+열 | Description 
+-------- | -----------  
+타임스탬프 | ADF에서 파일을 건너뛴 타임스탬프입니다.
+Level | 이 항목의 로그 수준입니다. 파일 건너뛰기를 표시하는 항목의 경우 ‘경고’ 수준입니다.
+OperationName | 각 파일에 대한 ADF 복사 활동 동작입니다. 건너뛸 파일을 지정하는 경우 ‘FileSkip’입니다.
+OperationItem | 건너뛸 파일 이름입니다.
+메시지 | 파일을 건너뛰는 이유를 설명하는 추가 정보입니다.
+
+로그 파일의 예는 다음과 같습니다. 
+```
+Timestamp,Level,OperationName,OperationItem,Message 
+2020-03-24 05:35:41.0209942,Warning,FileSkip,"bigfile.csv","File is skipped after read 322961408 bytes: ErrorCode=UserErrorSourceBlobNotExist,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=The required Blob is missing. ContainerName: https://transferserviceonebox.blob.core.windows.net/skipfaultyfile, path: bigfile.csv.,Source=Microsoft.DataTransfer.ClientLibrary,'." 
+2020-03-24 05:38:41.2595989,Warning,FileSkip,"3_nopermission.txt","File is skipped after read 0 bytes: ErrorCode=AdlsGen2OperationFailed,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=ADLS Gen2 operation failed for: Operation returned an invalid status code 'Forbidden'. Account: 'adlsgen2perfsource'. FileSystem: 'skipfaultyfilesforbidden'. Path: '3_nopermission.txt'. ErrorCode: 'AuthorizationPermissionMismatch'. Message: 'This request is not authorized to perform this operation using this permission.'. RequestId: '35089f5d-101f-008c-489e-01cce4000000'..,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Operation returned an invalid status code 'Forbidden',Source=,''Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message='Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message=Operation returned an invalid status code 'Forbidden',Source=Microsoft.DataTransfer.ClientLibrary,',Source=Microsoft.DataTransfer.ClientLibrary,'." 
+```
+위의 로그에서 ADF가 bigfile.csv를 복사할 때 다른 애플리케이션이 이 파일을 삭제했기 때문에 이 파일을 건너뛴 것을 알 수 있습니다. 그리고 3_nopermission.txt를 건너뛴 이유는 권한 문제로 인해 ADF가 이 파일에 액세스할 수 없었기 때문입니다.
+
+
+## <a name="copying-tabular-data"></a>테이블 형식 데이터 복사 
+
+### <a name="supported-scenarios"></a>지원되는 시나리오
+복사 작업은 호환되지 않는 테이블 형식 데이터의 검색, 건너뛰기 및 로깅에 대한 다음 세 가지 시나리오를 지원합니다.
 
 - **원본 데이터 형식 및 싱크 원시 형식 간의 비호환성** 
 
-    예를 들면 다음과 같습니다. 3개의 INT 형식 열을 포함하는 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 123,456,789와 같은 숫자 데이터를 포함하는 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 그러나 123,456, abc와 같은 숫자가 아닌 값을 포함하는 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
+    다음은 그 예입니다.  3개의 INT 형식 열을 포함하는 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 123,456,789와 같은 숫자 데이터를 포함하는 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 그러나 123,456, abc와 같은 숫자가 아닌 값을 포함하는 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 - **원본과 싱크 간의 열 수 불일치**
 
-    예를 들면 다음과 같습니다. 6개의 열이 포함된 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 6개의 열이 포함된 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 6개보다 많거나 적은 열을 포함하는 CSV 파일 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
+    다음은 그 예입니다.  6개의 열이 포함된 스키마 정의를 사용하여 Blob Storage에 있는 CSV 파일의 데이터를 SQL Database로 복사합니다. 6개의 열이 포함된 CSV 파일 행은 싱크 저장소에 성공적으로 복사됩니다. 6개를 초과하는 많은 열을 포함하는 CSV 파일 행은 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 - **SQL Server/Azure SQL 데이터베이스/Azure Cosmos DB에 쓸 때 기본 키 위반**.
 
-    예를 들면 다음과 같습니다. SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
+    다음은 그 예입니다.  SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 >[!NOTE]
 >- PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하려면 복사 작업에서 "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)"를 통해 거부 정책을 지정하여 PolyBase의 네이티브 내결함성 설정을 구성하세요. PolyBase와 호환되지 않는 행을 계속해서 아래와 같이 정상적으로 Blob 또는 ADLS로 리디렉션할 수 있습니다.
 >- [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
+>- [SQL 싱크의 저장 프로시저](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
+
+### <a name="configuration"></a>구성
+다음 예제에서는 복사 작업에서 호환되지 않는 행을 건너뛰도록 구성하기 위한 JSON 정의를 제공합니다.
+
+```json
+"typeProperties": { 
+    "source": { 
+        "type": "AzureSqlSource" 
+    }, 
+    "sink": { 
+        "type": "AzureSqlSink" 
+    }, 
+    "enableSkipIncompatibleRow": true, 
+    "logStorageSettings": { 
+    "linkedServiceName": { 
+        "referenceName": "ADLSGen2", 
+        "type": "LinkedServiceReference" 
+        }, 
+    "path": "sessionlog/" 
+    } 
+}, 
+```
+
+속성 | 설명 | 허용되는 값 | 필수
+-------- | ----------- | -------------- | -------- 
+enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 아니요
+logStorageSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
+linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 아니요
+경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
+
+### <a name="monitor-skipped-rows"></a>건너뛴 행 모니터링
+복사 작업 실행이 완료되면 복사 작업 출력에서 건너뛴 행의 수를 볼 수 있습니다.
+
+```json
+"output": {
+            "dataRead": 95,
+            "dataWritten": 186,
+            "rowsCopied": 9,
+            "rowsSkipped": 2,
+            "copyDuration": 16,
+            "throughput": 0.01,
+            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "errors": []
+        },
+
+```
+
+호환되지 않는 행을 로깅하도록 구성할 경우 이 경로(`https://[your-blob-account].blob.core.windows.net/[path-if-configured]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`)에서 로그 파일을 확인할 수 있습니다. 
+
+로그 파일은 csv 파일입니다. 로그 파일의 스키마는 다음과 같습니다.
+
+열 | Description 
+-------- | -----------  
+타임스탬프 | ADF에서 호환되지 않는 행을 건너뛴 타임스탬프입니다.
+Level | 이 항목의 로그 수준입니다. 이 항목이 건너뛴 행을 표시하는 경우 '경고' 수준입니다.
+OperationName | 각 행에 대한 ADF 복사 작업 동작입니다. 호환되지 않는 특정 행을 건너뛰었음을 지정하는 경우 'TabularRowSkip'입니다.
+OperationItem | 원본 데이터 저장소에서 건너뛴 행입니다.
+메시지 | 이 특정 행이 호환되지 않는 이유를 보여 주는 추가 정보입니다.
 
 
-## <a name="configuration"></a>구성
+로그 파일 내용의 예는 다음과 같습니다.
+
+```
+Timestamp, Level, OperationName, OperationItem, Message
+2020-02-26 06:22:32.2586581, Warning, TabularRowSkip, """data1"", ""data2"", ""data3""," "Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'." 
+2020-02-26 06:22:33.2586351, Warning, TabularRowSkip, """data4"", ""data5"", ""data6"",", "Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4)." 
+```
+
+위의 샘플 로그 파일을 보면 원본 저장소에서 대상 저장소로 형식을 변환할 때 발생하는 문제로 인해 "data1, data2, data3"이라는 행을 건너뛴 것을 알 수 있습니다. 원본 저장소에서 대상 저장소로의 PK 위반 문제로 인해 "data4, data5, data6"라는 또 다른 행도 건너뛰었습니다. 
+
+
+## <a name="copying-tabular-data-legacy"></a>테이블 형식 데이터 복사(레거시):
+
+다음은 테이블 형식 데이터만 복사하기 위해 내결함성을 설정하는 레거시 방법입니다. 새 파이프라인이나 활동을 만드는 경우에는 [여기](#copying-tabular-data)에서 시작하는 것이 좋습니다.
+
+### <a name="configuration"></a>구성
 다음 예제에서는 복사 작업에서 호환되지 않는 행을 건너뛰도록 구성하기 위한 JSON 정의를 제공합니다.
 
 ```json
@@ -71,14 +259,14 @@ Azure Data Factory의 복사 작업은 원본 및 싱크 데이터 저장소 간
 }
 ```
 
-자산 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True <br/>False(기본값) | 아닙니다.
-redirectIncompatibleRowSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 아닙니다.
-linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties)의 연결된 서비스입니다. | `AzureStorage` 또는 `AzureDataLakeStore` 형식 연결된 서비스의 이름은 로그 파일을 저장하는 데 사용하려는 인스턴스를 참조합니다. | 아닙니다.
-경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아닙니다.
+enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 예
+redirectIncompatibleRowSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 아니요
+linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties)의 연결된 서비스입니다. | `AzureStorage` 또는 `AzureDataLakeStore` 형식의 연결된 서비스 이름은 사용자가 로그 파일을 저장하는 데 사용하려는 인스턴스를 참조합니다. | 예
+경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아니요
 
-## <a name="monitor-skipped-rows"></a>건너뛴 행 모니터링
+### <a name="monitor-skipped-rows"></a>건너뛴 행 모니터링
 복사 작업 실행이 완료되면 복사 작업 출력에서 건너뛴 행의 수를 볼 수 있습니다.
 
 ```json

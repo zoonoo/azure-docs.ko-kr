@@ -1,31 +1,21 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Azure 구독에 가입 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - Azure 구독에 가입
-services: event-grid
-documentationcenter: na
-author: tfitzmac
-manager: timlt
-ms.service: event-grid
+title: Azure PowerShell - Azure 구독에 가입
+description: 이 문서에서는 Azure 구독에 대한 Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure PowerShell 스크립트를 제공합니다.
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: 3d3d7a864bf6941dfb0bf7496b291639e7e5ea6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 07/08/2020
+ms.openlocfilehash: 7540c8eb181e064c5df5372a4bc9b27ebe16bf56
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180554"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171247"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Azure PowerShell을 사용하여 Azure 구독에 대한 이벤트 구독
 
 이 스크립트는 Azure 구독에 대한 이벤트에 대한 Event Grid 구독을 만듭니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-미리 보기 샘플 스크립트에는 Event Grid 모듈이 필요합니다. 설치하려면 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`를 실행합니다.
 
 ## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 
@@ -34,6 +24,8 @@ ms.locfileid: "58180554"
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
 
 ## <a name="sample-script---preview-module"></a>샘플 스크립트 - 미리 보기 모듈
+
+이 미리 보기 샘플 스크립트에는 Event Grid 모듈이 필요합니다. 설치하려면 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`를 실행합니다.
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 

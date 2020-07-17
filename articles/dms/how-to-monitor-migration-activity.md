@@ -1,24 +1,23 @@
 ---
-title: Azure Database Migration Service를 사용하여 마이그레이션 작업 모니터링 | Microsoft Docs
+title: 마이그레이션 작업 모니터링-Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 마이그레이션 작업을 모니터링하는 방법을 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 02/20/2020
+ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532787"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77648515"
 ---
-# <a name="monitor-migration-activity"></a>마이그레이션 작업 모니터링
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 마이그레이션 작업 모니터링
 이 문서에서는 데이터베이스 수준 및 테이블 수준 모두에서 마이그레이션의 진행률을 모니터링하는 방법을 알아봅니다.
 
 ## <a name="monitor-at-the-database-level"></a>데이터베이스 수준에서 모니터링
@@ -41,12 +40,12 @@ ms.locfileid: "60532787"
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3" class="ActivityStatus"><strong>활동 상태</strong></td>
+      <td rowspan="3" class="ActivityStatus"><strong>작업 상태</strong></td>
       <td>실행 중</td>
       <td>마이그레이션 작업이 실행 중입니다.</td>
     </tr>
     <tr>
-      <td>Succeeded</td>
+      <td>성공</td>
       <td>마이그레이션 작업이 문제 없이 성공했습니다.</td>
     </tr>
     <tr>
@@ -54,7 +53,7 @@ ms.locfileid: "60532787"
       <td>마이그레이션이 실패했습니다. 전체 오류 메시지에 대한 마이그레이션 세부 정보에서 ‘오류 세부 정보 참조’ 링크를 선택합니다.</td>
     </tr>
     <tr>
-      <td rowspan="4" class="Status"><strong>상태</strong></td>
+      <td rowspan="4" class="Status"><strong>Status</strong></td>
       <td>초기화 중</td>
       <td>DMS가 마이그레이션 파이프라인을 설정하고 있습니다.</td>
     </tr>
@@ -93,7 +92,7 @@ ms.locfileid: "60532787"
     </tr>
     <tr>
       <td rowspan="1" class="duration"><strong>Duration</strong></td>
-      <td>N/A</td>
+      <td>해당 없음</td>
       <td>초기화 중인 마이그레이션 작업부터 완료된 마이그레이션 또는 오류가 발생한 마이그레이션까지의 총 시간입니다.</td>
     </tr>
      </tbody>
@@ -108,7 +107,7 @@ ms.locfileid: "60532787"
 
 다음 테이블에서는 테이블 수준 세부 사항에 표시된 필드를 설명합니다.
 
-| 필드 이름        | 설명       |
+| 필드 이름        | Description       |
 | ------------- | ------------- |
 | **완료된 전체 부하**      | 전체 데이터 로드를 완료한 테이블의 수입니다. |
 | **전체 부하 큐 대기**      | 전체 부하에 대한 큐에 대기 중인 테이블 수입니다.      |
@@ -129,14 +128,14 @@ ms.locfileid: "60532787"
 
 다음 테이블은 테이블 수준 마이그레이션 진행률에 표시된 필드를 설명합니다.
 
-| 필드 이름        | 설명       |
+| 필드 이름        | Description       |
 | ------------- | ------------- |
 | **상태 - 동기화 중**      | 지속적인 동기화가 실행 중입니다. |
 | **삽입**      | 대상에 적용된 행의 CDC 삽입 수입니다.      |
-| **업데이트** | 대상에 적용된 행의 CDC 업데이트 수입니다.      |
+| **Update** | 대상에 적용된 행의 CDC 업데이트 수입니다.      |
 | **삭제**      | 대상에 적용된 행의 CDC 삭제 수입니다. |
 | **적용된 합계**      | 대상에 적용된 행의 전체 CDC 업데이트, 삽입 및 삭제 수입니다. |
-| **데이터 오류** | 이 테이블에서 발생한 데이터 오류의 수입니다. 몇 가지 오류 예제는 다음과 같습니다. *511: 행 크기 %d은(는) 허용되는 최대 행 크기 %d보다 크므로 만들 수 없습니다. 8114: 데이터 형식 %ls을(를) %ls(으)로 변환하는 동안 오류가 발생했습니다.*  고객은 오류 세부 정보를 보려면 Azure 대상의 dms_apply_exceptions 테이블에서 쿼리해야 합니다.    |
+| **데이터 오류** | 이 테이블에서 발생한 데이터 오류의 수입니다. 오류의 예에는 *511: 최대 허용 행 크기 %d보다 큰 %d 크기의 행을 만들 수 없음, 8114: %ls에서 %ls로의 데이터 형식 변환 오류*가 있습니다.  고객은 오류 세부 정보를 보려면 Azure 대상의 dms_apply_exceptions 테이블에서 쿼리해야 합니다.    |
 
 > [!NOTE]
 > 적용된 삽입, 업데이트 및 삭제의 CDC 값 및 합계는 데이터베이스가 중단되거나 마이그레이션이 다시 시작되는 경우 감소할 수 있습니다.

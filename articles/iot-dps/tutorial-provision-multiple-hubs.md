@@ -1,24 +1,23 @@
 ---
-title: Azure IoT Hub Device Provisioning Service를 사용하여 부하가 분산된 IoT Hub 간 디바이스 프로비전 | Microsoft Docs
-description: Azure Portal에서 부하가 분산된 IoT Hub에 Device Provisioning Service 자동 디바이스 프로비저닝
-author: sethmanheim
-ms.author: sethm
-ms.date: 09/05/2017
+title: 자습서 - Azure IoT Hub Device Provisioning Service를 사용하여 부하가 분산된 허브에서 디바이스 프로비전
+description: 이 자습서에서는 DPS(Device Provisioning Service)가 Azure Portal의 부하가 분산된 IoT 허브에서 자동 디바이스 프로비저닝을 활성화하는 방법을 보여줍니다.
+author: wesmc7777
+ms.author: wesmc
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 887bda92a1165a3dd17e9105e921a5df9e0c5534
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61248167"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74976743"
 ---
-# <a name="provision-devices-across-load-balanced-iot-hubs"></a>부하가 분산된 IoT Hub 간 디바이스 프로비전
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>자습서: 부하가 분산된 IoT Hub 간 디바이스 프로비전
 
-이 자습서에서는 Device Provisioning Service를 사용하여 부하가 분산된 여러 IoT Hub에 대해 디바이스를 프로비전하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Device Provisioning Service를 사용하여 부하가 분산된 여러 IoT Hub에 대해 디바이스를 프로비전하는 방법을 보여 줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 디바이스를 프로비전 
@@ -28,7 +27,7 @@ ms.locfileid: "61248167"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 이전 [허브에 디바이스 프로비전](tutorial-provision-device-to-hub.md) 자습서를 토대로 작성되었습니다.
 
@@ -49,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 할당 정책은 IoT Hub에 디바이스를 할당하는 방법을 결정하는 Device Provisioning Service 설정입니다. 세 가지의 지원되는 할당 정책이 있습니다. 
 
 1. **최소 대기 시간**: 디바이스에 대한 대기 시간이 가장 짧은 허브에 기반하여 해당 디바이스가 IoT Hub로 프로비저닝됩니다.
-2. **동일 가중 배포**(기본값): 연결된 IoT Hub에서 디바이스를 프로비저닝하는 가능성이 동일합니다. 기본 설정입니다. 디바이스를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다. 
+2. **동일 가중 배포**(기본값): 연결된 IoT Hub에서 디바이스를 프로비저닝하는 가능성이 동일합니다. 이 값은 기본 설정입니다. 디바이스를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다. 
 3. **등록 목록을 통해 정적 구성**: 등록 목록에 지정된 원하는 IoT Hub는 Device Provisioning Service 수준 할당 정책보다 우선 순위가 높습니다.
 
 할당 정책을 설정하려면 다음 단계를 수행합니다.
@@ -70,7 +69,7 @@ Device Provisioning Service가 해당 허브에 디바이스를 등록할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 디바이스를 프로비전 
@@ -81,5 +80,5 @@ Device Provisioning Service가 해당 허브에 디바이스를 등록할 수 �
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Bind an existing custom SSL certificate to Azure Web Apps]()
 -->

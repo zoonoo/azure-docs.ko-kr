@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517781"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564200"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>자습서: VMware에서 Azure Data Box Gateway 프로비저닝
 
@@ -21,9 +21,9 @@ ms.locfileid: "58517781"
 
 이 자습서는 VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에서 Data Box Gateway를 프로비전하는 방법을 설명합니다. 
 
-가상 디바이스를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
+가상 디바이스를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 호스트가 최소 디바이스 요구 사항을 충족하는지 확인
@@ -33,7 +33,7 @@ ms.locfileid: "58517781"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 디바이스를 프로비전하기 위한 필수 조건은 다음과 같습니다.
 
@@ -91,7 +91,7 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
 
    ![로그인 페이지](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
-3. ESXi 서버에 VMDK를 업로드합니다. 탐색기 창에서 **저장소**를 선택합니다.
+3. ESXi 서버에 VMDK를 업로드합니다. 탐색기 창에서 **스토리지**를 선택합니다.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
@@ -136,7 +136,7 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
 
     ![이름과 OS 이름 및 위치 선택 페이지](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
-15. **저장소 선택** 페이지에서 VM을 프로비전하는 데 사용할 데이터 저장소를 선택합니다. **다음**을 클릭합니다.
+15. **스토리지 선택** 페이지에서 VM을 프로비전하는 데 사용할 데이터 스토리지를 선택합니다. **다음**을 클릭합니다.
 
     ![스토리지 선택 페이지](./media/data-box-gateway-deploy-provision-vmware/image12.png)
 16. **사용자 지정 설정** 페이지에서 설정는 **CPU**를 4로 설정하고, **메모리**를 8192MB(이상)으로 설정하고, **하드 디스크 1**을 2TB(이상)으로 설정합니다. 추가할 **SCSI 하드 디스크**를 선택합니다. 이 경우에는 LSI 논리 SAS이었습니다. **정적 IDE 디스크는 지원되지 않습니다.** **하드 디스크 1**은 가상 데이터 디스크입니다. 프로비전한 후에는 디스크를 축소할 수 없습니다. 디스크를 축소하려고 하면 디바이스의 모든 로컬 데이터가 손실됩니다. 
@@ -145,7 +145,7 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
 
     같은 페이지에서 **하드 디스크 추가**를 클릭한 다음, **기존 하드 디스크**를 선택합니다. 데이터 저장소에 VMDK 파일을 선택합니다. 그러면 OS 디스크가 추가됩니다. 
 
-     !설정 사용자 지정 페이지[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![설정 사용자 지정 페이지](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     **새 하드 디스크**가 표시될 때까지 아래로 스크롤하고 확장하여 설정을 봅니다. **가상 디바이스 노드**를 **IDE 컨트롤러 0**으로 설정합니다.
 

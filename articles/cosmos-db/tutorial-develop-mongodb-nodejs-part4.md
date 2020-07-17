@@ -1,6 +1,5 @@
 ---
-title: Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Cosmos 계정 만들기
-titleSuffix: Azure Cosmos DB
+title: Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기(1부)
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 4부
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 8320204f75e583dae0449f83e7c38f6638371c2a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ec6165ba8ab33beba0b50d6b589b3d31269d7b1e
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035124"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114438"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Cosmos 계정 만들기
 
@@ -32,7 +31,7 @@ ms.locfileid: "54035124"
 
 > [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 자습서의 이 부분을 시작하기 전에 자습서 [3부](tutorial-develop-mongodb-nodejs-part3.md)의 단계를 완료했는지 확인합니다. 
 
@@ -45,7 +44,7 @@ ms.locfileid: "54035124"
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
 > [!TIP]
-> 이 자습서에서는 응용 프로그램을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
+> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 애플리케이션을 가져올 수 있습니다.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 
@@ -65,11 +64,11 @@ Cosmos DB Azure 계정을 만들면:
 1. Azure Cosmos DB 로고를 클릭합니다. ![Azure Portal의 Azure Cosmos DB 아이콘](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) 왼쪽 모음에서 모든 Azure Cosmos DB를 표시합니다.
 1. 방금 만든 Azure Cosmos DB 계정을 클릭하고, **개요** 탭을 선택하고, 아래로 스크롤하여 데이터베이스가 위치한 맵을 봅니다. 
 
-    ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Azure Portal의 새 Azure Cosmos DB 계정":::
 
 4. 왼쪽 탐색 창에서 아래로 스크롤하고 **데이터를 전역적으로 복제** 탭을 클릭하면 복제 가능한 다른 영역을 볼 수 있는 맵을 표시합니다. 예를 들어, 오스트레일리아 동남부 또는 오스트레일리아 동부를 클릭하고 오스트레일리아에 데이터를 복제할 수 있습니다. [Azure Cosmos DB를 사용하여 전역적으로 데이터를 배포하는 방법](distribute-data-globally.md)에서 전역 복제에 대해 자세히 알아볼 수 있습니다. 지금은 이전 인스턴스 및 복제할 시기를 유지하겠습니다.
 
-    ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Azure Portal의 새 Azure Cosmos DB 계정":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,20 +1,17 @@
 ---
 title: Azure 빠른 시작 - Azure Automation Runbook 만들기 | Microsoft Docs
-description: Azure Automation Runbook을 만드는 방법을 알아봅니다.
+description: 이 문서는 Azure Automation 계정 만들기를 시작하는 데 도움이 됩니다.
 services: automation
-author: csand-msft
-ms.author: csand
 ms.date: 02/05/2019
 ms.topic: quickstart
-ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 2f6dcbba8da314798b2e8de12a9fc5bf55f67a4a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0717a7ac3cc663ff68ba96864aa5d37732337ca5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750276"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836739"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Azure Automation Runbook 만들기
 
@@ -24,9 +21,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure에 로그인
+https://portal.azure.com 에서 Azure에 로그인합니다.
 
-## <a name="create-runbook"></a>runbook 만들기
+## <a name="create-the-runbook"></a>Runbook 만들기
 
 먼저 Runbook을 만듭니다. 이 빠른 시작에서 만든 샘플 Runbook은 기본적으로 `Hello World`를 출력합니다.
 
@@ -34,18 +31,18 @@ https://portal.azure.com에서 Azure에 로그인
 
 1. **프로세스 자동화** 아래에서 **Runbook**을 클릭합니다. Runbook 목록이 표시됩니다.
 
-1. 목록 위쪽의 **Runbook 추가** 단추를 클릭합니다. **Runbook 추가** 페이지에서 **빨리 만들기**를 선택합니다.
+1. 목록의 맨 위에 있는 **Runbook 만들기**를 클릭합니다.
 
-1. Runbook **이름**으로 "Hello-World"를 입력하고, **Runbook 형식**으로 **PowerShell**을 선택합니다. **만들기**를 클릭합니다.
+1. **이름** 필드에서 `Hello-World`를 Runbook 이름으로 입력하고**Runbook 형식** 필드에서 **PowerShell**을 선택합니다. 
 
    ![페이지에서 Automation Runbook에 대한 정보 입력](./media/automation-quickstart-create-runbook/automation-create-runbook-configure.png)
 
-1. Runbook이 만들어지고 **PowerShell Runbook 편집** 페이지가 열립니다.
+1. **만들기**를 클릭합니다. Runbook이 만들어지고 PowerShell Runbook 편집 페이지가 열립니다.
 
     ![Runbook 편집기에서 PowerShell 스크립트 작성](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
-1. 편집 창에 다음 코드를 입력하거나 복사하여 붙여넣습니다. 기본값인 "World"가 포함된 "Name"이라는 선택적 입력 매개 변수를 만들고, 이 입력 값을 사용하는 문자열을 출력합니다.
-   
+1. 편집 창에 다음 코드를 입력하거나 복사하여 붙여넣습니다. 기본값인 `World`가 포함된 `Name`이라는 선택적 입력 매개 변수를 만들고, 이 입력 값을 사용하는 문자열을 출력합니다.
+
    ```powershell-interactive
    param
    (
@@ -62,17 +59,17 @@ https://portal.azure.com에서 Azure에 로그인
 
 ## <a name="test-the-runbook"></a>Runbook 테스트
 
-Runbook이 만들어지면 이 Runbook을 테스트하여 작동하는지 확인합니다.
+Runbook이 만들어지면 이 Runbook을 테스트하여 작동하는지 확인해야 합니다.
 
-1. **테스트 창**을 클릭하여 **테스트** 페이지를 엽니다.
+1. **테스트 창** 을 클릭하여 테스트 창을 엽니다.
 
 1. **이름**에 대한 값을 입력하고 **시작**을 클릭합니다. 테스트 작업이 시작되고 작업 상태와 출력이 표시됩니다.
 
     ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-test-runbook.png)
 
-1. 오른쪽 위 모서리에서 **X**를 클릭하여 **테스트** 페이지를 닫습니다. 나타나는 팝업에서 **확인**을 선택합니다.
+1. 오른쪽 위 모서리에서 **X**를 클릭하여 테스트 창을 닫습니다. 나타나는 팝업에서 **확인**을 선택합니다.
 
-1. **PowerShell Runbook 편집** 페이지에서 **게시**를 클릭하여 이 Runbook을 계정의 공식적인 Runbook 버전으로 게시합니다.
+1. PowerShell Runbook 편집 페이지에서 **게시**를 클릭하여 이 Runbook을 계정의 공식적인 Runbook 버전으로 게시합니다.
 
    ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
@@ -80,7 +77,7 @@ Runbook이 만들어지면 이 Runbook을 테스트하여 작동하는지 확인
 
 Runbook이 게시되면 개요 페이지가 표시됩니다.
 
-1. Runbook 개요 페이지에서 **시작**을 클릭하여 이 Runbook에 대한 **Runbook 시작** 구성 페이지를 엽니다.
+1. Runbook 개요 페이지에서 **시작**을 클릭하여 이 Runbook에 대한 Runbook 시작 구성 페이지를 엽니다.
 
    ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png)
 
@@ -88,7 +85,7 @@ Runbook이 게시되면 개요 페이지가 표시됩니다.
 
    ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
-1. **작업 상태**가 **실행 중** 또는 **완료됨**이면 **출력**을 클릭하여 **출력** 창을 열고 Runbook 출력을 봅니다.
+1. 작업 상태가 `Running` 또는 `Completed`이면 **출력**을 클릭하여 출력 창을 열고 Runbook 출력을 봅니다.
 
    ![Runbook 테스트 작업](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
@@ -101,5 +98,4 @@ Runbook이 게시되면 개요 페이지가 표시됩니다.
 이 빠른 시작에서는 Runbook을 작성, 편집, 테스트 및 게시하고 Runbook 작업을 시작했습니다. Automation Runbook에 대해 자세히 일아보려면 Automation에서 만들고 사용할 수 있는 다양한 Runbook 형식에 대한 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Automation 방법 - Runbook 형식](./automation-runbook-types.md)
-
+> [Azure Automation Runbook 형식](./automation-runbook-types.md)

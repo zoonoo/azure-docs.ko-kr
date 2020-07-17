@@ -1,19 +1,15 @@
 ---
-title: 자습서 - 클라우드에 컨테이너 이미지 빌드 - Azure Container Registry 작업
+title: 자습서 - 빠른 컨테이너 이미지 빌드
 description: 이 자습서에서는 ACR 작업(Azure Container Registry 작업)을 사용하여 Azure에서 Docker 컨테이너 이미지를 빌드한 다음, Azure Container Instances에 배포하는 방법을 알아봅니다.
-services: container-registry
-author: dlepow
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893710"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "78398505"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
@@ -34,19 +30,19 @@ ms.locfileid: "58893710"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설치되어 있고 [az login][az-login]을 사용하여 로그인해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
+Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설치되어 있고, [az login][az-login]을 사용하여 로그인해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="github-account"></a>GitHub 계정
 
-아직 계정이 없는 경우 https://github.com에서 계정을 만듭니다. 이 자습서 시리즈에서는 GitHub 리포지토리를 사용하여 ACR 작업에서 자동화된 이미지 빌드를 보여 줍니다.
+아직 계정이 없는 경우  https://github.com 에서 계정을 만듭니다. 이 자습서 시리즈에서는 GitHub 리포지토리를 사용하여 ACR 작업에서 자동화된 이미지 빌드를 보여 줍니다.
 
 ### <a name="fork-sample-repository"></a>샘플 리포지토리 포크
 
 다음으로, GitHub UI를 사용하여 샘플 리포지토리를 GitHub 계정에 포크합니다. 이 자습서에서는 리포지토리의 원본에서 컨테이너 이미지를 빌드하고, 다음 자습서에서는 커밋을 리포지토리의 포크에 푸시하여 자동화된 작업을 시작합니다.
 
-https://github.com/Azure-Samples/acr-build-helloworld-node 리포지토리를 포크합니다.
+[https://github.com/Azure-Samples/acr-build-helloworld-node](https://github.com/Azure-Samples/acr-build-helloworld-node ) 리포지토리를 포크합니다.
 
 ![GitHub에 있는 포크 단추(강조 표시됨)의 스크린샷][quick-build-01-fork]
 
@@ -56,13 +52,13 @@ https://github.com/Azure-Samples/acr-build-helloworld-node 리포지토리를 �
 
 `git`을 사용하여 리포지토리를 복제하고, **\<your-github-username\>** 을 GitHub 사용자 이름으로 바꿉니다.
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 소스 코드가 포함된 디렉터리를 입력합니다.
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -74,9 +70,11 @@ cd acr-build-helloworld-node
 
 이제 소스 코드를 머신으로 가져왔으므로 다음 단계에 따라 컨테이너 레지스트리를 만들고, ACR 작업을 사용하여 컨테이너 이미지를 빌드합니다.
 
-이 시리즈의 자습서에서는 샘플 명령을 더 쉽게 실행하기 위해 셸 환경 변수를 사용합니다. 다음 명령을 실행하여 `ACR_NAME` 변수를 설정합니다. **\<registry-name\>** 을 새 컨테이너 레지스트리에 대한 고유한 이름으로 바꿉니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 자습서에서 만드는 다른 리소스는 이 이름을 기반으로 하므로 이 첫 번째 변수만 수정해야 합니다.
+이 시리즈의 자습서에서는 샘플 명령을 더 쉽게 실행하기 위해 셸 환경 변수를 사용합니다. 다음 명령을 실행하여 `ACR_NAME` 변수를 설정합니다. **\<registry-name\>** 을 새 컨테이너 레지스트리에 대한 고유한 이름으로 바꿉니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 소문자만 포함하고, 5-50자의 영숫자를 포함해야 합니다. 자습서에서 만드는 다른 리소스는 이 이름을 기반으로 하므로 이 첫 번째 변수만 수정해야 합니다.
 
-```azurecli-interactive
+[![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 
@@ -97,8 +95,7 @@ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 
 [az acr build][az-acr-build] 명령의 출력은 다음과 비슷합니다. Azure에 대한 소스 코드("context") 업로드 및 ACR 작업이 클라우드에서 실행하는 `docker build` 작업의 세부 정보를 확인할 수 있습니다. ACR 작업에서 `docker build`를 사용하여 이미지를 빌드하므로 ACR 작업을 즉시 사용하기 위해 Dockerfile을 변경할 필요가 없습니다.
 
-```console
-$ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
+```output
 Packing source code into tar file to upload...
 Sending build context (4.813 KiB) to ACR...
 Queued a build with build ID: da1
@@ -227,7 +224,7 @@ Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
 
 ### <a name="deploy-a-container-with-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
-서비스 주체 자격 증명이 Azure Key Vault 비밀로 저장되므로, 애플리케이션 및 서비스에서 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
+서비스 주체 자격 증명이 Azure Key Vault 비밀로 저장되므로, 애플리케이션 및 서비스에서 해당 자격 증명을 사용하여 프라이빗 레지스트리에 액세스할 수 있습니다.
 
 다음 [az container create][az-container-create] 명령을 실행하여 컨테이너 인스턴스를 배포합니다. 이 명령은 Azure Key Vault에 저장된 서비스 주체의 자격 증명을 사용하여 컨테이너 레지스트리를 인증합니다.
 
@@ -246,17 +243,7 @@ az container create \
 
 `--dns-name-label` 값은 Azure 내에서 고유해야 하므로, 이전 명령은 컨테이너 레지스트리의 이름을 컨테이너의 DNS 이름 레이블에 추가합니다. 명령의 출력에는 컨테이너의 FQDN(정규화된 도메인 이름)이 표시됩니다. 예를 들면 다음과 같습니다.
 
-```console
-$ az container create \
->     --resource-group $RES_GROUP \
->     --name acr-tasks \
->     --image $ACR_NAME.azurecr.io/helloacrtasks:v1 \
->     --registry-login-server $ACR_NAME.azurecr.io \
->     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
->     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
->     --dns-name-label acr-tasks-$ACR_NAME \
->     --query "{FQDN:ipAddress.fqdn}" \
->     --output table
+```output
 FQDN
 ----------------------------------------------
 acr-tasks-myregistry.eastus.azurecontainer.io
@@ -274,8 +261,7 @@ az container attach --resource-group $RES_GROUP --name acr-tasks
 
 `az container attach` 출력은 먼저 이미지를 가져와서 시작할 때 컨테이너의 상태를 표시한 다음, 로컬 콘솔의 STDOUT 및 STDERR을 컨테이너의 STDOUT 및 STDERR에 바인딩합니다.
 
-```console
-$ az container attach --resource-group $RES_GROUP --name acr-tasks
+```output
 Container 'acr-tasks' is in state 'Running'...
 (count: 1) (last timestamp: 2018-08-22 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrtasks:v1"
 (count: 1) (last timestamp: 2018-08-22 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrtasks:v1"

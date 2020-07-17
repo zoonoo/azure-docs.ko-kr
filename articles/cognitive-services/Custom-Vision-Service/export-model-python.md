@@ -1,37 +1,38 @@
 ---
 title: '자습서: Python으로 TensorFlow 모델 실행 - Custom Vision Service'
-titlesuffix: Azure Cognitive Services
-description: Python으로 TensorFlow 모델을 실행합니다.
+titleSuffix: Azure Cognitive Services
+description: Python으로 TensorFlow 모델을 실행합니다. 이 문서는 Custom Vision 서비스의 이미지 분류 프로젝트에서 내보낸 모델에만 적용됩니다.
 services: cognitive-services
-author: areddish
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/21/2019
-ms.author: areddish
-ms.openlocfilehash: 1e4c08c1e1f9c32c7c397cf187ad2ef91a25c59d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.custom: tracking-python
+ms.openlocfilehash: 46ed55e5d6a9156d9ea7909925e92d6c39c8e89d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350457"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609576"
 ---
-# <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python에서 TensorFlow 모델 실행
+# <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python으로 TensorFlow 모델 실행
 
 Custom Vision Service에서 [TensorFlow 모델을 내보낸](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) 후에 이 빠른 시작을 참조하여 이 모델을 로컬로 사용하여 이미지를 분류하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이 자습서는 이미지 분류 프로젝트에서 내보낸 모델에만 적용됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 사용하려면 다음을 수행해야 합니다.
 
 - Python 2.7+ 또는 Python 3.5+ 중 하나를 설치합니다.
 - pip를 설치합니다.
 
-다음으로 다음과 같은 패키지를 설치해야 합니다.
+다음으로, 다음과 같은 패키지를 설치해야 합니다.
 
 ```
 pip install tensorflow
@@ -48,7 +49,7 @@ pip install opencv-python
 import tensorflow as tf
 import os
 
-graph_def = tf.GraphDef()
+graph_def = tf.compat.v1.GraphDef()
 labels = []
 
 # These are set to the default names from exported models, update as needed.
@@ -56,7 +57,7 @@ filename = "model.pb"
 labels_filename = "labels.txt"
 
 # Import the TF graph
-with tf.gfile.GFile(filename, 'rb') as f:
+with tf.io.gfile.GFile(filename, 'rb') as f:
     graph_def.ParseFromString(f.read())
     tf.import_graph_def(graph_def, name='')
 
@@ -68,7 +69,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>예측을 위해 이미지 준비
 
-예측하기에 적절한 형태가 되도록 이미지를 준비하기 위한 몇 가지 단계가 있습니다. 다음 단계는 학습 동안 수행되는 이미지 조작을 모방한 것입니다.
+예측을 위한 이미지를 준비하기 위해 수행해야 하는 몇 가지 단계가 있습니다. 다음 단계는 학습 동안 수행되는 이미지 조작을 모방한 것입니다.
 
 ### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>파일 열기 및 BGR 색 공간에 이미지 만들기
 
@@ -88,7 +89,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="deal-with-images-with-a-dimension-1600"></a>1600보다 큰 차원으로 이미지 처리
+### <a name="handle-images-with-a-dimension-1600"></a>1600보다 큰 차원으로 이미지 처리
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -116,7 +117,7 @@ augmented_image = resize_to_256_square(max_square_image)
 
 ```Python
 # Get the input size of the model
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
     input_tensor_shape = sess.graph.get_tensor_by_name('Placeholder:0').shape.as_list()
 network_input_size = input_tensor_shape[1]
 
@@ -130,6 +131,7 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 ```Python
 def convert_to_opencv(image):
     # RGB -> BGR conversion is performed as well.
+    image = image.convert('RGB')
     r,g,b = np.array(image).T
     opencv_image = np.array([b,g,r]).transpose()
     return opencv_image
@@ -179,7 +181,7 @@ def update_orientation(image):
 output_layer = 'loss:0'
 input_node = 'Placeholder:0'
 
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
     try:
         prob_tensor = sess.graph.get_tensor_by_name(output_layer)
         predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })

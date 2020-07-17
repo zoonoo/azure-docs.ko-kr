@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04-08-2019
+ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ddc09d3d2475afe9be90cf1d5585697b9c36cf
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: be4edfe3262ab74d903384eb00c0282acc7a3299
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565583"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81867423"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>자습서: SpringCM과 Azure Active Directory 통합
 
@@ -32,10 +32,10 @@ SpringCM과 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 SpringCM에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 SpringCM과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -58,7 +58,7 @@ SpringCM의 Azure AD 통합을 구성하려면 갤러리의 SpringCM을 관리�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -135,7 +135,7 @@ SpringCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 1. ID 공급자 구성 섹션에서 다음 단계를 수행합니다.
    
-    ![ID 공급자 구성](./media/spring-cm-tutorial/ic797052.png "ID 공급자 구성")
+    ![ID 공급자 구성](./media/spring-cm-tutorial/ic797052.png "Id 공급자 구성")
     
     a. 다운로드한 Azure Active Directory 인증서를 업로드하려면 **발급자 인증서 선택** 또는 **발급자 인증서 변경**을 클릭합니다.
     
@@ -167,7 +167,7 @@ SpringCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
   
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -202,7 +202,7 @@ SpringCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 Azure Active Directory 사용자가 SpringCM에 로그인하려면 SpringCM에 프로비저닝되어야 합니다. SpringCM의 경우 프로비전은 수동 작업입니다.
 
 > [!NOTE]
-> 자세한 내용은 [SpringCM 사용자 만들기 및 편집](https://knowledge.springcm.com/create-and-edit-a-springcm-user)을 참조하세요. 
+> 자세한 내용은 [SpringCM 사용자 만들기 및 편집](http://community.springcm.com/s/article/Create-and-Edit-a-SpringCM-User-1619481053)을 참조하세요. 
 
 **사용자 계정을 SpringCM에 프로비전하려면 다음 단계를 수행합니다.**
 
@@ -225,7 +225,7 @@ Azure Active Directory 사용자가 SpringCM에 로그인하려면 SpringCM에 �
 1. **저장**을 클릭합니다.
 
    > [!NOTE]
-   > 다른 SpringCM 사용자 계정 생성 도구 또는 SpringCM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+   > 다른 SpringCM 사용자 계정 생성 도구 또는 SpringCM이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

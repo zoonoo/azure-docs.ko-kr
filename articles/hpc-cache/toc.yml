@@ -1,0 +1,60 @@
+- name: Azure HPC Cache 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure HPC Cache란?
+      href: hpc-cache-overview.md
+- name: 개념
+  items:
+    - name: 집계형 네임스페이스 계획
+      href: hpc-cache-namespace.md
+- name: 방법 가이드
+  items:
+    - name: 사전 요구 사항
+      href: hpc-cache-prereqs.md
+    - name: 캐시 만들기
+      href: hpc-cache-create.md
+    - name: 스토리지 추가
+      items:
+        - name: 스토리지 대상 추가
+          href: hpc-cache-add-storage.md
+        - name: 스토리지 대상으로 데이터 이동(필요한 경우)
+          items:
+            - name: 새 Blob 스토리지 사전 로드
+              href: hpc-cache-ingest.md
+            - name: 대체 데이터 수집 방법
+              items:
+                - name: 병렬 복사를 사용하여 캐시 채우기
+                  href: hpc-cache-ingest-parallelcp.md
+                - name: msrsync를 사용하여 캐시 채우기
+                  href: hpc-cache-ingest-msrsync.md
+                - name: 수동 파일 복사를 사용하여 캐시 채우기
+                  href: hpc-cache-ingest-manual.md
+        - name: 스토리지 대상 편집
+          href: hpc-cache-edit-storage.md
+    - name: 캐시에 연결
+      href: hpc-cache-mount.md
+    - name: 캐시 관리
+      href: hpc-cache-manage.md
+    - name: 옵션 설정 구성
+      href: configuration.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/ext/hpc-cache/hpc-cache
+- name: 리소스
+  items:
+    - name: 지원 티켓 열기
+      href: hpc-cache-support-ticket.md
+    - name: Blob 스토리지 계정 방화벽 설정 해결
+      href: hpc-cache-blob-firewall-fix.md
+    - name: NFS 스토리지 대상 생성 문제 해결
+      href: troubleshoot-nas.md
+    - name: 지역 가동 중단에서 복구
+      href: hpc-region-recovery.md
+    - name: 고객 관리 암호화 키 사용
+      href: customer-keys.md
+    - name: Azure HPC Cache에서 Azure NetApp Files 사용
+      href: hpc-cache-netapp.md
+    - name: 동영상
+      href: 'https://azure.microsoft.com/resources/videos/index/?service=hpc-cache'

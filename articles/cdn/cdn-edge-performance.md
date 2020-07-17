@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61070097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887712"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Microsoft Azure CDN에서 에지 노드 성능 분석
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -91,7 +91,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 | % 원격 바이트 - No Cache 구성 |원본 서버에서 바이패스 캐시 기능(HTTP 규칙 엔진)의 결과로 캐시되지 않을 CDN(에지 서버)으로 제공된 트래픽의 백분율을 나타냅니다. |
 | % 원격 바이트 - 만료된 캐시 |오래된 콘텐츠 유효성 재검사의 결과로 원본 서버에서 CDN(에지 서버)으로 제공된 트래픽의 백분율을 나타냅니다. |
 
-#### <a name="usage-metrics"></a>사용 현황 메트릭
+#### <a name="usage-metrics"></a>사용량 메트릭
 이러한 메트릭의 목적은 다음 비용 절감 측정값에 대한 폭넓은 이해를 제공하는 것입니다.
 
 * CDN을 통해 운영 비용 최소화
@@ -171,7 +171,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 | 사용자 에이전트 |CDN을 통해 콘텐츠를 요청하는 상위 10개의 사용자 에이전트를 표시하는 막대 그래프를 포함합니다. 일반적으로 사용자 에이전트는 웹 브라우저, 미디어 플레이어 또는 휴대폰 브라우저입니다. 상위 100개 사용자 에이전트에 대한 통계가 이 차트 바로 아래 표시됩니다. |
 | 참조 페이지 |CDN을 통해 액세스된 콘텐츠에 대한 상위 10개 참조 페이지를 표시하는 막대 그래프를 포함합니다. 일반적으로 참조 페이지는 콘텐츠를 연결하는 웹 페이지 또는 리소스의 URL입니다. 상위 100개 참조 페이지에 대한 자세한 정보가 그래프 아래에 제공됩니다. |
 | 압축 형식 |요청된 자산이 에지 서버에 의해 압축되는지 여부를 자세히 분석한 도넛형 차트를 포함합니다. 압축된 자산의 백분율이 사용된 압축 형식별로 자세히 분석됩니다. 각 압축 형식 및 상태에 대한 자세한 정보가 그래프 아래에 제공됩니다. |
-| 파일 형식 |사용자 계정에 대한 CDN을 통해 요청된 상위 10개 파일 형식을 표시하는 막대 그래프를 포함합니다. 이 보고서의 목적에 따라 파일 형식은 자산의 파일 이름 확장명 및 인터넷 미디어 형식(예: .html \[text/html\], .htm \[text/html\], .aspx \[text/html\] 등)으로 정의됩니다. 상위 100개 파일 형식에 대한 자세한 정보가 그래프 아래에 제공됩니다. |
+| 파일 유형 |사용자 계정에 대한 CDN을 통해 요청된 상위 10개 파일 형식을 표시하는 막대 그래프를 포함합니다. 이 보고서의 목적에 따라 파일 형식은 자산의 파일 이름 확장명 및 인터넷 미디어 형식(예: .html \[text/html\], .htm \[text/html\], .aspx \[text/html\] 등)으로 정의됩니다. 상위 100개 파일 형식에 대한 자세한 정보가 그래프 아래에 제공됩니다. |
 | 고유한 파일 |지정된 기간 동안 특정 날짜에 요청된 총 고유 자산 수를 나타내는 그래프를 포함합니다. |
 | 토큰 인증 요약 |요청된 자산이 토큰 기반 인증으로 보호되는지에 대한 빠른 개요를 제공하는 원형 차트를 포함합니다. 보호된 자산은 시도한 인증의 결과에 따라 차트에 표시됩니다. |
 | 토큰 인증 거부 세부 정보 |토큰 기반 인증으로 인해 거부된 상위 10개 요청을 볼 수 있는 막대 그래프를 포함합니다. |
@@ -183,7 +183,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 | 502 오류 |502 잘못된 게이트웨이 응답 코드가 발생하는 상위 10개 요청을 확인할 수 있는 막대 그래프를 포함합니다. 502 잘못된 게이트웨이 응답 코드는 서버와 HTTP 프록시 사이 HTTP 프로토콜 오류가 발생하는 경우 발생합니다. CDN의 경우 502 잘못된 게이트웨이 응답 코드는 일반적으로 고객 원본 서버가 에지 서버로 유효하지 않은 응답을 반환하는 경우 발생합니다. 구문 분석할 수 없거나 완료되지 않은 응답은 유효하지 않습니다. |
 | 5xx 오류 |500 범위의 응답 코드가 발생하는 상위 10개 요청을 확인할 수 있는 막대 그래프를 포함합니다.  이 보고서에서 제외되는 항목은 502 잘못된 게이트웨이 및 504 게이트웨이 시간 초과 응답 코드입니다. |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure CDN 개요](cdn-overview.md)
 * [Microsoft Azure CDN의 실시간 통계](cdn-real-time-stats.md)
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)

@@ -1,26 +1,19 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 웹앱 백업 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 웹앱 백업
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell: 앱 백업'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱을 백업하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: fc755f82-ca3e-4532-b251-690b699324d6
-ms.service: app-service-web
-ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: f1f08ca8517d01a6d72f1f8a18514ea3f851ff14
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.custom: mvc, seodec18
+ms.openlocfilehash: c17cfcd2e55b98be9d86a73f6388d921336f993b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587908"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057672"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>PowerShell을 사용하여 웹앱 백업
 
@@ -50,7 +43,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Storage 계정을 만듭니다. |
-| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Azure 저장소 컨테이너를 만듭니다. |
+| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Azure Storage 컨테이너를 만듭니다. |
 | [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Azure Storage 컨테이너에 대한 SAS 토큰을 생성합니다.  |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |

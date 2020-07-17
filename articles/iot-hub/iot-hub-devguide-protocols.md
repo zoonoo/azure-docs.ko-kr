@@ -8,12 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 433e4160972a06ee3652410e062f6602e9ca6767
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82996914"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>참조 - 통신 프로토콜 선택
 
@@ -37,18 +39,18 @@ IoT Hub를 사용하면 디바이스가 디바이스 쪽 통신에 다음 프로
 
 디바이스 측 통신용 프로토콜을 선택할 때는 다음 사항을 고려해야 합니다.
 
-* **클라우드-장치 패턴**. HTTPS에는 서버 푸시를 구현하는 효율적인 방법이 없습니다. 이와 같이 HTTPS를 사용하는 경우 디바이스는 클라우드-디바이스 메시지에 IoT Hub를 폴링합니다. 이 방법은 디바이스와 IoT Hub 모두에 비효율적입니다. 현재 HTTPS 지침에 따르면 각 디바이스는 25분 이상 간격으로 메시지를 폴링해야 합니다. MQTT 및 AMQP는 클라우드-장치 메시지를 받을 때 서버 푸시를 지원합니다. 따라서 IoT Hub의 메시지가 디바이스에 즉시 푸시될 수 있습니다. 전달 대기 시간이 중요한 경우 MQTT 또는 AMQP는 가장 사용하기 적합한 프로토콜입니다. 드물게 연결되는 디바이스의 경우 HTTPS도 작동합니다.
+* **클라우드-디바이스 패턴**. HTTPS에는 서버 푸시를 구현하는 효율적인 방법이 없습니다. 이와 같이 HTTPS를 사용하는 경우 디바이스는 클라우드-디바이스 메시지에 IoT Hub를 폴링합니다. 이 방법은 디바이스와 IoT Hub 모두에 비효율적입니다. 현재 HTTPS 지침에 따르면 각 디바이스는 25분 이상 간격으로 메시지를 폴링해야 합니다. MQTT 및 AMQP는 클라우드-디바이스 메시지를 받을 때 서버 푸시를 지원합니다. 따라서 IoT Hub의 메시지가 디바이스에 즉시 푸시될 수 있습니다. 전달 대기 시간이 중요한 경우 MQTT 또는 AMQP는 가장 사용하기 적합한 프로토콜입니다. 드물게 연결되는 디바이스의 경우 HTTPS도 작동합니다.
 
-* **현장 게이트웨이**. MQTT 및 HTTPS를 사용하는 경우 동일한 TLS 연결을 사용하여 여러 디바이스(각각 디바이스별 자격 증명 보유)를 연결할 수 없습니다. 연결된 각 디바이스에 대해 필드 게이트웨이와 IoT Hub 간에 하나의 TLS 연결이 필요한 [필드 게이트웨이 시나리오](iot-hub-devguide-endpoints.md#field-gateways)의 경우 이러한 프로토콜이 최적의 방법은 아닙니다.
+* **필드 게이트웨이**. MQTT 및 HTTPS는 TLS 연결당 단일 장치 id (장치 ID 및 자격 증명)만 지원 합니다. 이러한 이유로 이러한 프로토콜은 단일 또는 업스트림 연결의 풀에서 여러 장치 id를 사용 하 여 IoT Hub에 대 한 멀티플렉싱 메시지가 필요한 [필드 게이트웨이 시나리오](iot-hub-devguide-endpoints.md#field-gateways) 에 대해 지원 되지 않습니다. 이러한 게이트웨이는 업스트림 트래픽에 대해 AMQP와 같은 연결 당 여러 장치 id를 지 원하는 프로토콜을 사용할 수 있습니다.
 
 * **낮은 리소스 디바이스**. MQTT 및 HTTPS 라이브러리는 AMQP 라이브러리보다 적은 공간을 차지합니다. 이와 같이 디바이스에 리소스가 제한되어 있으면(예: 1MB RAM보다 작음) 이러한 프로토콜은 사용할 수 있는 유일한 프로토콜 구현일 수도 있습니다.
 
-* **네트워크 통과**. 표준 AMQP 프로토콜은 포트 5671을 사용하고 MQTT는 8883 포트에서 수신 대기합니다. 이러한 포트를 사용하면 비 HTTPS 프로토콜에 근접한 네트워크에서 문제를 일으킬 수 있습니다. 이 시나리오에서 WebSockets를 통한 MQTT, WebSockets를 통한 AMQP 및 HTTPS를 사용합니다.
+* **네트워크 통과**. 표준 AMQP 프로토콜은 포트 5671을 사용하고 MQTT는 8883 포트에서 수신 대기합니다. 이러한 포트를 사용 하면 HTTPS가 아닌 프로토콜로 닫히는 네트워크에서 문제가 발생할 수 있습니다. 이 시나리오에서 WebSockets를 통한 MQTT, WebSockets를 통한 AMQP 및 HTTPS를 사용합니다.
 
 * **페이로드 크기**. MQTT 및 AMQP는 바이너리 프로토콜로, HTTPS보다 더 많이 압축된 페이로드를 발생합니다.
 
 > [!WARNING]
-> HTTPS를 사용하는 경우 각 디바이스는 25분 이상마다 클라우드-디바이스에 대해 폴링합니다. 그렇지만 개발하는 동안에는 25분 보다 좀 더 자주 폴링을 하도록 할 수도 있습니다.
+> HTTPS를 사용 하는 경우 각 장치는 25 분 마다 한 번만 클라우드-장치 메시지를 폴링합니다. 개발 시, 원하는 경우 각 장치에서 더 자주 폴링할 수 있습니다.
 
 ## <a name="port-numbers"></a>포트 번호
 

@@ -1,33 +1,25 @@
 ---
-title: Azure Monitor의 용량 및 성능 솔루션 | Microsoft Docs
-description: 모니터 용량 및 성능 솔루션을 사용 하 여 Hyper-v 서버의 용량을 이해할 수 있도록 합니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Azure Monitor에서 용량 및 성능 솔루션 Microsoft Docs
+description: 모니터의 용량 및 성능 솔루션을 사용 하 여 Hyper-v 서버의 용량을 이해 하는 데 도움을 줍니다.
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.author: magoedte
-ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77666946"
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>(사용 되지 않음) 용량 및 성능 솔루션을 사용 하 여 Hyper-v 가상 머신 용량 계획
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션을 사용 하 여 Hyper-v 가상 머신 용량 계획 (사용 되지 않음)
 
 ![용량 및 성능 기호](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
 > 용량 및 성능 솔루션은 더 이상 사용되지 않습니다.  솔루션을 이미 설치한 고객은 계속해서 솔루션을 사용할 수 있지만, 새 작업 영역에는 용량 및 성능 솔루션을 추가할 수 없습니다.
 
-모니터에서 Hyper-v 서버의 용량을 이해할 수 있도록 용량 및 성능 솔루션을 사용할 수 있습니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
+모니터의 용량 및 성능 솔루션을 사용 하 여 Hyper-v 서버의 용량을 이해 하는 데 도움을 줍니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
 
 솔루션:
 
@@ -46,19 +38,19 @@ ms.locfileid: "62101917"
 
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | 지원 | 설명 |
+| 연결된 소스 | Support(지원) | 설명 |
 |---|---|---|
 | [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아닙니다.    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
+| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
 | [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
-| [Azure 저장소 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure 저장소는 용량 및 성능 데이터를 포함하지 않습니다.|
+| [Azure storage 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Windows 또는 Operations Manager 에이전트는 가상 머신이 아닌 Windows Server 2012 이상의 Hyper-V 호스트에 설치해야 합니다.
 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 단계를 수행하여 용량 및 성능 솔루션을 작업 영역에 추가합니다.
 
@@ -124,7 +116,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 다음 표는 이 솔루션에서 수집하고 계산한 용량 및 성능 데이터에 대한 샘플 로그 검색을 제공합니다.
 
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:--- |:--- |
 | 모든 호스트 메모리 구성 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | 모든 VM 메모리 구성 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |

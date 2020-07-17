@@ -1,0 +1,101 @@
+### YamlMime:Landing
+title: Azure 보안 기본 사항 설명서
+summary: 모범 사례 및 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법을 알아봅니다.
+metadata:
+  title: Azure 보안 기본 사항 설명서
+  description: Azure에서 클라우드 솔루션을 보호하는 방법을 알아봅니다.
+  services: security
+  ms.service: security
+  ms.subservice: fundamentals
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 10/28/2019
+  ms.openlocfilehash: 62a0bc67624c27ccd8185edb8be1a8cb3f16a9b1
+  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/10/2020
+  ms.locfileid: "81115235"
+landingContent:
+- title: Azure 보안 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 보안 소개
+      url: overview.md
+    - text: 보안 기술 기능
+      url: technical-capabilities.md
+  - linkListType: concept
+    links:
+    - text: Microsoft는 Azure 인프라를 보호하는 방법
+      url: infrastructure.md
+- title: 시작하기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 클라우드의 공동 책임
+      url: shared-responsibility.md
+    - text: 보안 서비스 및 기술
+      url: services-technologies.md
+    - text: 기본 제공 보안 컨트롤
+      url: security-controls.md
+- title: 위협 완화
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Security Center
+      url: ../../security-center/security-center-intro.md
+  - linkListType: concept
+    links:
+    - text: 관리 및 모니터링
+      url: management-monitoring-overview.md
+    - text: 고급 위협 검색
+      url: threat-detection.md
+- title: 클라우드 솔루션을 보호하기 위한 모범 사례
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 네트워크 보안
+      url: network-best-practices.md
+    - text: IaaS 워크로드
+      url: iaas.md
+    - text: ID 관리 및 액세스 제어
+      url: identity-management-best-practices.md
+    - text: PaaS 배포
+      url: paas-deployments.md
+    - text: 데이터 보안 및 암호화
+      url: data-encryption-best-practices.md
+    - text: 운영 보안
+      url: operational-best-practices.md
+- title: Azure 리소스 보호
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 휴지 상태의 암호화
+      url: encryption-atrest.md
+    - text: 데이터 보호
+      url: database-security-overview.md
+    - text: 네트워크 보안
+      url: network-overview.md
+    - text: 가상 머신 보안
+      url: virtual-machines-overview.md
+    - text: ID 관리 보안
+      url: identity-management-overview.md
+  - linkListType: learn
+    links:
+    - text: 클라우드 애플리케이션 보호
+      url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps/
+- title: 보안 기술 빌드
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 네트워크 보안 구현
+      url: https://docs.microsoft.com/learn/paths/implement-network-security
+    - text: ID 및 액세스 관리
+      url: https://docs.microsoft.com/learn/paths/manage-identity-and-access
+    - text: 리소스 관리 보안 구현
+      url: https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security
+    - text: 가상 머신 호스트 보안 구현
+      url: https://docs.microsoft.com/learn/paths/implement-host-security

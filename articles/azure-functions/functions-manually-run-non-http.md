@@ -1,20 +1,15 @@
 ---
 title: HTTP 이외 트리거 Azure Functions를 수동으로 실행
 description: HTTP 요청을 사용하여 HTTP 이외 트리거 Azure Functions 실행
-services: functions
-keywords: ''
 author: craigshoemaker
-manager: jeconnoc
-ms.service: azure-functions
-ms.topic: tutorial
-ms.date: 12/12/2018
+ms.topic: article
+ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 61bece83697a4907a7bf3c881003f4da9b0e8a84
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83121780"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>HTTP 이외 트리거 함수를 수동으로 실행
 
@@ -26,7 +21,7 @@ ms.locfileid: "55466891"
 
 ## <a name="define-the-request-location"></a>요청 위치 정의
 
-HTTP 이외 트리거 함수를 실행하려면 Azure에 함수를 실행하는 요청을 보낼 방법이 필요합니다. 이 요청에 사용된 URL은 특정 형식을 사용합니다.
+HTTP가 아닌 트리거 함수를 실행하려면 Azure에 해당 함수를 실행하기 위한 요청을 보낼 방법이 필요합니다. 이 요청에 사용된 URL은 특정 형식을 사용합니다.
 
 ![요청 위치를 정의합니다. 함수 이름 + 폴더 경로 + 호스트 이름](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 
@@ -41,11 +36,17 @@ Azure에 대한 요청에서 함수의 마스터 키와 함께 Postman의 요청
 
 ## <a name="get-the-functions-master-key"></a>함수의 마스터 키 가져오기
 
-Azure Portal에서 해당 함수로 이동하고 **관리**를 클릭하고 **호스트 키** 섹션을 찾습니다. *_master* 행에서 **복사** 단추를 클릭하여 마스터 키를 클립보드에 복사합니다.
+1. Azure Portal에서 함수로 이동 하 여 **함수 키**를 선택 합니다. 그런 다음 복사 하려는 함수 키를 선택 합니다. 
 
-![함수 관리 화면에서 마스터 키 복사](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="복사할 마스터 키를 찾습니다." border="true":::
 
-마스터 키를 복사한 후에 코드 파일 창으로 돌아가려면 함수 이름을 클릭합니다. 다음으로, **로그** 탭을 클릭합니다. Postman에서 함수를 수동으로 실행하는 경우 여기에 기록된 함수의 메시지가 표시됩니다.
+1. **키 편집** 섹션에서 키 값을 클립보드에 복사한 다음 **확인**을 선택 합니다.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="마스터 키를 클립보드에 복사 합니다." border="true":::
+
+1. *_Master* 키를 복사한 후 **코드 + 테스트**를 선택 하 고 **로그**를 선택 합니다. Postman에서 함수를 수동으로 실행하는 경우 여기에 기록된 함수의 메시지가 표시됩니다.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="로그를 확인 하 여 마스터 키 테스트 결과를 확인 합니다." border="true":::
 
 > [!CAUTION]  
 > 함수 앱에서는 마스터 키를 통해 높은 권한이 부여되므로, 이 키를 제3자와 공유하거나 애플리케이션에 배포해서는 안 됩니다.
@@ -55,27 +56,27 @@ Azure Portal에서 해당 함수로 이동하고 **관리**를 클릭하고 **�
 Postman을 열고 다음 단계를 수행합니다.
 
 1. **URL 텍스트 상자에서 요청 위치**를 입력합니다.
-2. HTTP 메서드가 **POST**.로 설정되었는지 확인합니다.
-3. **헤더** 탭을 **클릭**합니다.
-4. **x-functions-key**를 첫 번째 **키**로 입력하고 클립보드의 마스터 키를 **값** 상자에 붙여넣습니다.
-5. **Content-type**을 두 번째 **키**로 입력하고 **application/json**을 **값**으로 입력합니다.
+1. HTTP 메서드가 **POST**.로 설정되었는지 확인합니다.
+1. **Headers** 탭을 선택합니다.
+1. 첫 번째 키로 **x-함수 키** 를 입력 하 고 클립보드의 마스터 키를 값으로 붙여넣습니다.
+1. **Content-type** 을 두 번째 키로 입력 하 고 **application/json** 을 값으로 입력 합니다.
 
-    ![Postman 헤더 설정](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Postman headers 설정입니다." border="true":::
 
-6. **본문** 탭을 **클릭**합니다.
-7. **{ "input": "test" }** 를 요청의 본문으로 입력합니다.
+1. **본문** 탭을 선택합니다.
+1. 요청 본문으로 **{"input": "test"}** 를 입력 합니다.
 
-    ![Postman 본문 설정](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body 설정입니다." border="true":::
 
-8. **보내기**를 클릭합니다.
+1. **보내기**를 선택합니다.
+        
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Postman을 사용 하 여 요청을 보냅니다." border="true":::
 
-    ![Postman을 사용하여 요청 보내기](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    그런 다음, Postman은 **202 수락됨**이라는 상태를 보고합니다.
 
-그런 다음, Postman은 **202 수락됨**이라는 상태를 보고합니다.
+1. 다음으로, Azure Portal에서 해당 함수로 돌아갑니다. 로그를 검토 하면 함수에 대 한 수동 호출에서 들어오는 메시지가 표시 됩니다.
 
-다음으로, Azure Portal에서 해당 함수로 돌아갑니다. *로그* 창을 찾으면 함수에 대한 수동 호출에서 들어오는 메시지가 표시됩니다.
-
-![수동 호출의 함수 로그 결과](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="로그를 확인 하 여 마스터 키 테스트 결과를 확인 합니다." border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

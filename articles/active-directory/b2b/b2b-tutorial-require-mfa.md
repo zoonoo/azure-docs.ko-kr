@@ -1,6 +1,6 @@
 ---
-title: '자습서: B2B의 다단계 인증 - Azure Active Directory | Microsoft Docs'
-description: Azure AD B2B를 사용하여 외부 사용자 및 파트너 조직과 공동 작업할 경우 MFA(다단계 인증)를 요구하는 방법을 알아봅니다.
+title: 자습서 - B2B용 다단계 인증 - Azure AD
+description: 이 자습서에서는 Azure AD B2B를 사용하여 외부 사용자 및 파트너 조직과 협업할 때 MFA(다단계 인증)를 요구하는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d83cad9c6681a9d1c852c3d874028ceb6913344f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790141"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74420585"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>자습서: B2B 게스트 사용자에 다단계 인증 적용
 
-외부 B2B 게스트 사용자와 공동 작업하는 경우 MFA(다단계 인증) 정책으로 앱을 보호하는 것이 좋습니다. 이렇게 하면 외부 사용자가 사용자 이름과 암호만으로는 리소스에 액세스할 수 없습니다. Azure AD(Azure Active Directory)에서는 액세스에 MFA가 필요한 조건부 액세스 정책을 사용하여 이 목표를 달성할 수 있습니다. 조직의 멤버에게 MFA 정책을 사용하는 것과 같은 방법으로 MFA 정책을 테넌트, 앱 또는 개별 게스트 사용자 수준에서 적용할 수 있습니다.
+외부 B2B 게스트 사용자와 공동 작업하는 경우 MFA(다단계 인증) 정책으로 앱을 보호하는 것이 좋습니다. 이렇게 하면 외부 사용자가 사용자 이름과 암호만으로는 리소스에 액세스할 수 없습니다. Azure AD(Azure Active Directory)에서는 액세스를 위해 MFA가 필요한 조건부 액세스 정책을 사용하여 이 목표를 달성할 수 있습니다. 조직의 멤버에게 MFA 정책을 사용하는 것과 같은 방법으로 MFA 정책을 테넌트, 앱 또는 개별 게스트 사용자 수준에서 적용할 수 있습니다.
 
 예제:
 
@@ -41,13 +41,13 @@ ms.locfileid: "59790141"
 > * 조건부 액세스 정책을 테스트합니다.
 > * 테스트 사용자 및 정책을 정리합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서의 시나리오를 완료하려면 다음이 필요합니다.
 
- - 조건부 액세스 정책 기능을 포함하는 **Azure AD Premium Edition에 대한 액세스**. MFA를 적용하려면 Azure AD 조건부 액세스 정책을 만들어야 합니다. 파트너에게 MFA 기능이 있는지 여부에 관계없이 MFA 정책은 조직에서 항상 적용됩니다. 조직에 대한 MFA를 설정할 경우 게스트 사용자를 위해 충분한 Azure AD Premium 라이선스를 보유하고 있는지 확인해야 합니다. 
+ - 조건부 액세스 정책 기능을 포함하는 **Azure AD Premium Edition에 대한 액세스 권한**. MFA를 적용하려면 Azure AD 조건부 액세스 정책을 만들어야 합니다. 파트너에게 MFA 기능이 있는지 여부에 관계없이 MFA 정책은 조직에서 항상 적용됩니다. 조직에 대한 MFA를 설정할 경우 게스트 사용자를 위해 충분한 Azure AD Premium 라이선스를 보유하고 있는지 확인해야 합니다. 
  - 게스트 사용자로 테넌트 디렉터리에 추가하고 로그인하는 데 사용할 수 있는 **유효한 외부 메일 계정**. 게스트 계정을 만드는 방법을 잘 모르는 경우 [Azure Portal에서 B2B 게스트 사용자 추가](add-users-administrator.md)를 참조하세요.
 
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Azure AD에서 테스트 게스트 사용자 만들기
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2.  로그인 자격 증명만 사용하여 Azure Portal에 액세스할 수 있습니다. 추가 인증이 필요하지 않습니다.
 3.  로그아웃합니다.
 
-## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>MFA가 필요한 조건부 액세스 정책을 만듭니다.
+## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>MFA가 필요한 조건부 액세스 정책 만들기
 1.  [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
 2.  Azure Portal에서 **Azure Active Directory**를 선택합니다. 
 3.  **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스**를 선택합니다.
@@ -81,7 +81,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 7.  **사용자 및 그룹** 페이지에서 **사용자 및 그룹 선택**을 선택한 후 **모든 게스트 사용자(미리 보기)** 를 선택합니다.
 
     ![선택한 모든 게스트 사용자를 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-policy-6.png)
-9.  **완료**를 선택합니다.
+9.  **완료** 를 선택합니다.
 10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱**을 선택합니다.
 11. **클라우드 앱** 페이지에서 **앱 선택**을 선택한 후 **선택**을 선택합니다.
 

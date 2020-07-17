@@ -1,84 +1,111 @@
 ---
-title: 검색 상자-Azure Search에서에서 제안 사항 및 자동 완성 기능 추가
-description: 확인 기를 만들고 사용 하 여 완료 된 단어 또는 구 검색 상자에 입력 하는 요청을 공식화 하 여 Azure Search의 미리 입력 쿼리 작업을 사용 합니다.
-manager: pablocas
-author: mrcarter8
-services: search
-ms.service: search
-ms.devlang: NA
+title: 검색 상자에 자동 완성 및 제안 추가
+titleSuffix: Azure Cognitive Search
+description: 완성 된 용어나 구를 사용 하 여 검색 상자를 자동으로 자동 완성 하는 요청을 확인 기 하 고 작성 하 여 Azure Cognitive Search에서 검색 형식 쿼리 작업을 사용 하도록 설정 합니다. 제안 된 일치 항목을 반환할 수도 있습니다.
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: mcarter
-ms.custom: seodec2018
-ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.date: 04/15/2020
+ms.openlocfilehash: 004f1ea55bcda68485d8b11ed472b6cab2ca7545
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562494"
 ---
-# <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Azure Search 응용 프로그램에 제안 사항 또는 자동 완성 기능 추가
+# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
 
-이 문서의 사용 방법 알아보기 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 검색---입력할 때 동작을 지 원하는 강력한 검색 상자를 빌드할 수 있습니다.
+검색 형식은 사용자가 시작한 쿼리의 생산성을 개선 하는 일반적인 기술입니다. Azure Cognitive Search에서는이 환경이 *자동 완성*을 통해 지원 되며,이는 부분 입력 ("microsoft"로 "마이크로" 완료)을 기반으로 용어 또는 구를 완료 합니다. 또 다른 양식은 *제안*: 일치 하는 문서의 짧은 목록 (세부 정보 페이지에 연결할 수 있도록 ID가 있는 책 제목 반환)입니다. 인덱스의 일치 항목에 대 한 자동 완성 및 제안이 모두 예측 됩니다. 서비스는 결과를 0으로 반환 하는 쿼리를 제공 하지 않습니다.
 
-+ *제안* 제안 결과가 입력할 때 각 제안이 지금까지 입력 한 내용을 일치 하는 인덱스에서 단일 결과 생성 합니다. 
+Azure Cognitive Search에서 이러한 환경을 구현 하려면 다음이 필요 합니다.
 
-+ *자동 완성* "완료" 단어 또는 구 사용자가 현재 입력입니다. 결과 반환 하는 대신 실행할 결과 반환할 수 있습니다 하는 쿼리를 완료 합니다. 제안 사항이 있는 경우와 마찬가지로 완료 된 단어 또는 구 쿼리에서 않음에서 서술 된 인덱스에서 일치 항목을 합니다. 서비스는 인덱스에 0 개 결과 반환 하는 쿼리를 제공 하지 않습니다.
++ 백 엔드에서 *확인 기* 입니다.
++ 요청에 대 한 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 또는 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) API를 지정 하는 *쿼리입니다* .
++ 클라이언트 앱에서 검색 형식 상호 작용을 처리 하는 *UI 컨트롤* 입니다. 이 목적을 위해 기존 JavaScript 라이브러리를 사용 하는 것이 좋습니다.
 
-다운로드 하 고 샘플 코드 실행할 수 **DotNetHowToAutocomplete** 이러한 기능을 평가 합니다. 채워진 미리 작성 된 인덱스를 대상으로 하는 샘플 코드 [NYCJobs 데모 데이터](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)입니다. NYCJobs 인덱스에 포함 되어는 [Suggester 구문을](index-add-suggesters.md), 제안 또는 자동 완성을 사용 하 여에 대 한 요구 사항인 합니다. 샌드박스 서비스에서 호스트 되는 준비 된 인덱스를 사용할 수 있습니다 또는 [고유한 인덱스를 채우지](#configure-app) NYCJobs 샘플 솔루션에서 데이터 로더를 사용 합니다. 
+Azure Cognitive Search에서 자동 완성 쿼리와 제안 된 결과가 검색 인덱스에서 검색 되 고 확인 기에 등록 한 선택한 필드에서 검색 됩니다. 확인 기는 인덱스의 일부 이며 쿼리를 완료 하거나 결과를 제안 하거나 둘 다 수행 하는 내용을 제공 하는 필드를 지정 합니다. 인덱스를 만들고 로드할 때 확인 기 데이터 구조는 내부적으로 생성 되어 부분 쿼리를 일치 시키는 데 사용 되는 접두사를 저장 합니다. 제안에 대해 고유한 필드를 선택 하거나 최소한의 반복을 선택 하지 않는 것이 좋습니다. 자세한 내용은 [Create a 확인 기](index-add-suggesters.md)을 참조 하세요.
 
-합니다 **DotNetHowToAutocomplete** 샘플에서는 제안 및 둘 다에 자동 완성 기능을 모두 보여 줍니다. C# 및 JavaScript 언어 버전입니다. C#개발자는 ASP.NET MVC 기반 응용 프로그램을 단계별로 실행할 수는 [Azure Search.NET SDK](https://aka.ms/search-sdk)합니다. 자동 완성 및 제안 된 쿼리 호출 하기 위한 논리는 HomeController.cs 파일에 있습니다. JavaScript 개발자에 대 한 직접 호출을 포함 하는 IndexJavaScript.cshtml에서 동일한 쿼리 논리를 찾을 수 합니다 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)합니다. 
+이 문서의 나머지 부분에서는 쿼리와 클라이언트 코드에 대해 집중적으로 설명 합니다. JavaScript 및 c #을 사용 하 여 핵심 사항을 설명 합니다. REST API 예제는 각 작업을 간결 하 게 표시 하는 데 사용 됩니다. 종단 간 코드 샘플에 대 한 링크는 [다음 단계](#next-steps)를 참조 하세요.
 
-프런트 엔드 사용자 환경을 기반으로 두 언어 버전에 대해 합니다 [jQuery UI](https://jqueryui.com/autocomplete/) 하 고 [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) 라이브러리입니다. 이러한 라이브러리 빌드 제안 및 자동 완성을 지 원하는 검색 상자를 사용 합니다. 검색 상자에 수집 된 입력은 HomeController.cs 또는 IndexJavaScript.cshtml에 정의 된 대로 제안과 같은 자동 완성 작업을 사용 하 여 쌍을 이룹니다.
+## <a name="set-up-a-request"></a>요청 설정
 
-이 연습에서는 다음 작업을 안내합니다.
+요청 요소에는 검색 형식 Api, 부분 쿼리 및 확인 기 중 하나가 포함 됩니다. 다음 스크립트는 REST API 자동 완성을 사용 하 여 요청의 구성 요소를 보여 줍니다.
 
-> [!div class="checklist"]
-> * 제안 된 일치 항목 또는 자동 완성 사용 약관에 대 한 JavaScript 및 문제 요청에서 검색 입력된 상자 구현
-> * C#를 HomeController.cs에서 제안 사항 및 자동 완성 동작을 정의 합니다.
-> * JavaScript에서 동일한 기능을 제공 하는 직접 REST Api를 호출 합니다.
-
-## <a name="prerequisites"></a>필수 조건
-
-Azure Search 서비스를 준비 된 NYCJobs 데모 인덱스를 호스트 하는 라이브 샌드박스 서비스를 사용 하는 솔루션 이므로이 연습의 선택 사항입니다. 이 예제에서는 사용자 고유의 search 서비스에서 실행 하려는 경우 참조 [NYC 작업 구성 인덱스](#configure-app) 지침에 대 한 합니다.
-
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
-
-* 다운로드 합니다 [DotNetHowToAutoComplete 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)합니다.
-
-샘플은 포괄적인, 포괄적 제안, 자동 완성, 패싯 탐색 및 클라이언트 쪽 캐싱 전체 설명은 샘플에서 제공 하는 기능에 대 한 주석을 확인 하 고 추가 정보를 검토 해야 합니다.
-
-## <a name="run-the-sample"></a>샘플 실행
-
-1. 오픈 **AutocompleteTutorial.sln** Visual Studio에서. 솔루션에는 NYC 작업 데모 인덱스에 대 한 연결을 사용 하 여 ASP.NET MVC 프로젝트를 포함합니다.
-
-2. 원하는 브라우저에서 F5를 눌러 프로젝트를 실행하고 페이지를 로드합니다.
-
-맨 위에 C# 또는 JavaScript를 선택하는 옵션이 표시됩니다. C# 옵션은 브라우저에서 HomeController를 호출 하 고 Azure Search.NET SDK를 사용 하 여 결과 검색 합니다. 
-
-브라우저에서 직접 Azure Search REST API를 호출하는 JavaScript 옵션입니다. 이 옵션은 컨트롤러를 흐름 밖으로 꺼내기 때문에 일반적으로 성능이 눈에 띄게 높습니다. 요구 사항 및 언어 기본 설정에 부합하는 옵션을 선택할 수 있습니다. 각각에 대한 지침이 있는 페이지에 몇 가지 자동 완성 예제가 있습니다. 예제마다 테스트해볼 수 있는 몇 가지 권장 샘플 텍스트가 있습니다.  
-
-각 검색 상자에 몇 자 입력해보고 결과를 확인합니다.
-
-## <a name="search-box"></a>검색 상자
-
-둘 다에 대해 C# JavaScript 버전에서 검색 상자 구현을 정확히 동일 합니다. 
-
-엽니다는 **Index.cshtml** 폴더 \Views\Home 코드를 보려면 아래에 있는 파일:
-
-```html
-<input class="searchBox" type="text" id="example1a" placeholder="search">
+```http
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
+{
+  "search": "minecraf",
+  "suggesterName": "sg"
+}
 ```
 
-이 스타일 지정, JavaScript 및 자리 표시자 텍스트에서 참조 하는 ID에 대 한 클래스를 사용 하 여 간단한 입력된 텍스트 상자입니다.  매직은 포함 된 JavaScript입니다.
+**SuggesterName** 는 용어 또는 제안을 완료 하는 데 사용 되는 확인 기 인식 필드를 제공 합니다. 특히, 필드 목록은 일치 결과 중에서 명확한 선택 항목을 제공 하는 항목으로 구성 되어야 합니다. 컴퓨터 게임을 판매 하는 사이트에서이 필드는 게임 타이틀이 될 수 있습니다.
 
-C# 언어 샘플 Index.cshtml에서 활용 하 여 JavaScript를 사용 합니다 [jQuery UI 자동 완성 라이브러리](https://jqueryui.com/autocomplete/)합니다. 이 라이브러리는 추천 단어를 검색 하는 MVC 컨트롤러에 대 한 비동기 호출 하 여 검색 상자에 자동 완성 환경을 추가 합니다. JavaScript 언어 버전은 IndexJavaScript.cshtml입니다. 검색 표시줄 뿐만 아니라 Azure search REST API 호출에 대 한 아래 스크립트를 포함합니다.
+**검색** 매개 변수는 JQuery 자동 완성 컨트롤을 통해 쿼리 요청에 문자를 공급 하는 부분 쿼리를 제공 합니다. 위의 예제에서 "minecraf"는 컨트롤이 전달 했을 수 있는 항목에 대 한 정적 그림입니다.
 
-JQuery UI 자동 완성 함수를 제안에 대 한 요청을 전달를 호출 하는 첫 번째 예제에서는 JavaScript 코드를 살펴보겠습니다.
+Api는 부분 쿼리에 최소 길이 요구 사항을 적용 하지 않습니다. 문자는 한 문자이 하 여야 합니다. 그러나 jQuery 자동 완성은 최소 길이를 제공 합니다. 일반적으로 2 ~ 3 자 이상입니다.
+
+일치 항목은 입력 문자열의 모든 위치에서 시작 됩니다. "빠른 갈색 fox"를 고려 하 여 "the", "quick", "갈색" 또는 "fox"의 부분 버전에서는 "rown" 또는 "황소"와 같은 부분 사용 약관이 일치 하지 않습니다. 또한 각 일치 항목은 다운스트림 확장의 범위를 설정 합니다. "빠른 br"의 부분 쿼리는 "빠른 갈색" 또는 "빠른 이동 (quick)"에서 일치 하지만 "" 갈색 "또는" 이동 "은" 빠른 "앞에 오는 경우를 제외 하 고 모두 일치 합니다.
+
+### <a name="apis-for-search-as-you-type"></a>검색을 위한 Api (입력 형식)
+
+REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
+
++ [제안 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
++ [자동 완성 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
++ [SuggestWithHttpMessagesAsync 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [AutocompleteWithHttpMessagesAsync 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
+
+## <a name="structure-a-response"></a>응답 구성
+
+자동 완성 및 제안에 대 한 응답은 패턴에 대해 예측할 수 있습니다. [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete#response) 은 단어를 인출할 수 있도록 용어와 문서 ID [를 반환 합니다](https://docs.microsoft.com/rest/api/searchservice/suggestions#response) . 그러면 문서를 인출할 수 있습니다 ( [조회 문서](https://docs.microsoft.com/rest/api/searchservice/lookup-document) API를 사용 하 여 세부 정보 페이지에 대 한 특정 문서 페치).
+
+응답은 요청에 대 한 매개 변수로 모양이 지정 됩니다. 자동 완성을 위해 [**autocompleteMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) 를 설정 하 여 텍스트 완성이 한 두 항에서 발생 하는지 여부를 확인 합니다. 제안에 대해 선택한 필드에 따라 응답의 내용이 결정 됩니다.
+
+제안 사항을 위해 중복을 방지 하기 위해 응답을 구체화 하거나 관련 되지 않은 결과를 표시 하는 것이 좋습니다. 결과를 제어 하려면 요청에 추가 매개 변수를 포함 합니다. 다음 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
+
+| 매개 변수 | 사용량 |
+|-----------|-------|
+| **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드를 선택 `$select=GameTitle` 합니다 (). |
+| **searchFields** | 특정 필드에 대 한 쿼리를 제한 합니다. |
+| **$filter** | 결과 집합에 일치 조건 ()을 적용 `$filter=Category eq 'ActionAdventure'` 합니다. |
+| **$top** | 결과를 특정 숫자 ()로 제한 `$top=5` 합니다.|
+
+## <a name="add-user-interaction-code"></a>사용자 상호 작용 코드 추가
+
+쿼리 용어를 자동으로 채우거 나 일치 하는 링크 목록을 삭제 하려면 사용자 상호 작용 코드 (일반적으로 JavaScript)를 사용 해야 합니다 .이 코드는 자동 완성 또는 Azure Search 인식 인덱스에 대 한 제안 쿼리와 같은 외부 소스의 요청을 사용할 수 있습니다.
+
+이 코드를 기본적으로 작성할 수 있지만 기존 JavaScript 라이브러리의 함수를 사용 하는 것이 훨씬 쉽습니다. 이 문서에서는 두 가지 (제안 및 자동 완성 용)를 보여 줍니다. 
+
++ [자동 완성 위젯 (JQUERY UI)](https://jqueryui.com/autocomplete/) 은 제안 예제에서 사용 됩니다. 검색 상자를 만든 다음 자동 완성 위젯을 사용 하는 JavaScript 함수에서 검색 상자를 참조할 수 있습니다. 위젯의 속성은 원본 (자동 완성 또는 제안 함수), 작업을 수행 하기 전의 최소 입력 문자 길이 및 위치 지정을 설정 합니다.
+
++ [XDSoft 자동 완성 플러그](https://xdsoft.net/jqplugins/autocomplete/) 인은 자동 완성 예제에 사용 됩니다.
+
+이러한 라이브러리를 사용하여 제안과 자동 완성을 모두 지원하는 검색 상자를 빌드합니다. 검색 상자에 수집 된 입력은 제안 및 자동 완성 작업과 쌍을 이룹니다.
+
+## <a name="suggestions"></a>제안
+
+이 섹션에서는 검색 상자 정의부터 시작 하 여 제안 된 결과를 구현 하는 과정을 안내 합니다. 또한이 문서에서 참조 하는 첫 번째 JavaScript 자동 완성 라이브러리를 호출 하는 방법과 스크립트를 보여 줍니다.
+
+### <a name="create-a-search-box"></a>검색 상자 만들기
+
+[JQUERY UI 자동 완성 라이브러리](https://jqueryui.com/autocomplete/) 및 c #의 MVC 프로젝트를 가정 하 고, **Index. Cshtml** 파일에서 JavaScript를 사용 하 여 검색 상자를 정의할 수 있습니다. 라이브러리는 MVC 컨트롤러에 대 한 비동기 호출을 수행 하 여 제안을 검색 하 고 검색 상자에 검색 형식 상호 작용을 추가 합니다.
+
+\Views\Home 폴더 아래의 **Index. cshtml** 에서 검색 상자를 만드는 줄은 다음과 같을 수 있습니다.
+
+```html
+<input class="searchBox" type="text" id="searchbox1" placeholder="search">
+```
+
+이 예제는 스타일 지정에 대한 클래스, JavaScript에서 참조할 ID 및 자리 표시자 텍스트가 있는 간단한 입력 텍스트 상자입니다.  
+
+동일한 파일 내에서 검색 상자를 참조 하는 JavaScript를 포함 합니다. 다음 함수는 부분 용어 입력에 따라 제안 된 일치 문서를 요청 하는 제안 API를 호출 합니다.
 
 ```javascript
 $(function () {
-    $("#example1a").autocomplete({
+    $("#searchbox1").autocomplete({
         source: "/home/suggest?highlights=false&fuzzy=false&",
         minLength: 3,
         position: {
@@ -89,82 +116,31 @@ $(function () {
 });
 ```
 
-위의 코드는 jQuery UI 자동 완성 "example1a" 입력된 상자에 대 한 구성 페이지 로드 시 브라우저에서 실행 됩니다.  `minLength: 3`은 검색 상자에 3자 이상이 입력되었을 때만 권장 사항을 표시하도록 합니다.  원본 값이 중요합니다.
+는 `source` 검색 상자 아래에 표시할 항목 목록을 가져오는 JQUERY UI 자동 완성 기능을 제공 합니다. 이 프로젝트는 MVC 프로젝트 이므로 쿼리 제안을 반환 하는 논리를 포함 하는 **HomeController.cs** 의 **제안** 함수를 호출 합니다. 또한 이 함수는 강조 표시, 유사 일치, 용어를 제어하는 몇 가지 매개 변수도 전달합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
 
-```javascript
-source: "/home/suggest?highlights=false&fuzzy=false&",
-```
+는 `minLength: 3` 검색 상자에 세 개 이상의 문자가 있는 경우에만 권장 사항이 표시 되도록 합니다.
 
-위의 줄 위치 검색 상자에서 표시할 항목의 목록을 가져오려면 jQuery UI 자동 완성 함수에 알려줍니다. MVC 프로젝트 이므로 쿼리 제안 (다음 섹션에서 제안 하는 방법에 대 한 자세한 내용은)를 반환 하는 것에 대 한 논리가 포함 된 HomeController.cs에서 제안 함수를 호출 합니다. 이 함수는 또한 컨트롤 강조 표시, 유사 항목 일치 및 용어에는 몇 가지 매개 변수를 전달 합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
+### <a name="enable-fuzzy-matching"></a>유사 항목 일치 사용
 
-### <a name="extending-the-sample-to-support-fuzzy-matching"></a>샘플을 확장하여 유사 일치 지원
-
-유사 항목 검색을 사용하면 사용자가 검색 상자에 단어 철자를 틀리게 입력하더라도 가까운 일치를 기준으로 결과를 가져올 수 있습니다. 필수는 미리 입력 환경의 견고성 크게 개선 합니다. 소스 줄을 변경하여 유사 일치를 사용하도록 테스트해 보겠습니다.
-
-다음 줄을
-
-```javascript
-source: "/home/suggest?highlights=false&fuzzy=false&",
-```
-
-다음과 같이 변경합니다.
+유사 항목 검색을 사용하면 사용자가 검색 상자에 단어 철자를 틀리게 입력하더라도 가까운 일치를 기준으로 결과를 가져올 수 있습니다. 편집 거리는 1입니다. 즉, 사용자 입력과 일치 하는 문자 사이에는 한 문자의 최대 차이가 있을 수 있습니다. 
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=true&",
 ```
 
-F5를 눌러 애플리케이션을 시작합니다.
+### <a name="enable-highlighting"></a>강조 표시 사용
 
-"execative" 등의 항목을 입력하면 입력한 글자가 정확히 일치하지 않더라도 "executive"에 대한 결과가 불러지는 것을 확인합니다.
-
-### <a name="jquery-autocomplete--backed-by-azure-search-autocomplete"></a>Azure Search 자동 완성에서 jQuery 자동 완성 지원
-
-지금 UX 코드 검색을 중심에 제안으로 노출 되지 않도록 되었습니다. 다음 코드 블록을 Azure Search 자동 완성에 대 한 요청을 전달 jQuery UI 자동 완성 함수 (줄 91에 index.cshtml)를 보여 줍니다.
+강조 표시는 입력에 해당 하는 결과의 문자에 글꼴 스타일을 적용 합니다. 예를 들어 부분 입력이 "마이크로" 이면 결과는 **마이크로**소프트, **마이크로**범위 등으로 표시 됩니다. 강조 표시는 제안 함수를 사용 하 여 인라인으로 정의 된 HighlightPreTag 및 HighlightPostTag 매개 변수를 기반으로 합니다.
 
 ```javascript
-$(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
-    // $.autocomplete -> $.autocompleteInline
-    $("#example2").autocompleteInline({
-        appendMethod: "replace",
-        source: [
-            function (text, add) {
-                if (!text) {
-                    return;
-                }
-
-                $.getJSON("/home/autocomplete?term=" + text, function (data) {
-                    if (data && data.length > 0) {
-                        currentSuggestion2 = data[0];
-                        add(data);
-                    }
-                });
-            }
-        ]
-    });
-
-    // complete on TAB and clear on ESC
-    $("#example2").keydown(function (evt) {
-        if (evt.keyCode === 9 /* TAB */ && currentSuggestion2) {
-            $("#example2").val(currentSuggestion2);
-            return false;
-        } else if (evt.keyCode === 27 /* ESC */) {
-            currentSuggestion2 = "";
-            $("#example2").val("");
-        }
-    });
-});
+source: "/home/suggest?highlights=true&fuzzy=true&",
 ```
 
-## <a name="c-example"></a>C# 예제
+### <a name="suggest-function"></a>제안 함수
 
-이제 웹 페이지의 JavaScript 코드를 검토 했습니다 살펴보겠습니다 합니다 C# 실제로 Azure Search.NET SDK를 사용 하 여 제안 된 일치 항목을 검색 하는 서버 쪽 컨트롤러 코드입니다.
+C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController.cs** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [DocumentsOperationsExtensions 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)를 기반으로 합니다.
 
-엽니다는 **HomeController.cs** 컨트롤러 디렉터리 아래에 있는 파일입니다. 
-
-가장 먼저 알 수 있듯이 호출 되는 클래스의 맨 위에 있는 메서드인지 `InitSearch`합니다. 이 항목은 Azure Search 서비스에 대해 인증된 HTTP 인덱스 클라이언트가 만듭니다. 자세한 내용은 [.NET 응용 프로그램에서 Azure Search를 사용 하는 방법을](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)합니다.
-
-41 줄에 Suggest 함수로를 확인할 수 있습니다. 기반이 되는 [DocumentsOperationsExtensions.Suggest 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)합니다.
+`InitSearch`메서드는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)을 참조 하세요.
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -174,6 +150,8 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
     // Call suggest API and return results
     SuggestParameters sp = new SuggestParameters()
     {
+        Select = HotelName,
+        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
         Top = 5
     };
@@ -196,9 +174,50 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-Suggest 함수에는 적중 강조 표시를 반환할지 또는 검색어 이력과 함께 유사 일치를 사용할지 결정하는 두 매개 변수가 있습니다. 메서드를 [SuggestParameters 개체](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), 제안 API에 전달 되는 합니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
+Suggest 함수에는 적중 강조 표시를 반환할지 또는 검색어 이력과 함께 유사 일치를 사용할지 결정하는 두 매개 변수가 있습니다. 메서드는 제안 API에 전달 되는 [SuggestParameters 개체](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet)를 만듭니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
 
-69 번 줄에서 자동 완성 기능을 확인할 수 있습니다. 기반이 되는 [DocumentsOperationsExtensions.Autocomplete 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet)합니다.
+## <a name="autocomplete"></a>자동 완성
+
+지금까지 검색 UX 코드는 제안을 중심으로 합니다. 다음 코드 블록은 XDSoft jQuery UI 자동 완성 함수를 사용 하 여 Azure Cognitive Search 자동 완성에 대 한 요청을 전달 하는 자동 완성 기능을 보여 줍니다. 제안과 마찬가지로 c # 응용 프로그램에서는 사용자 상호 작용을 지 원하는 코드가 **인덱스 cshtml**로 이동 합니다.
+
+```javascript
+$(function () {
+    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
+    // $.autocomplete -> $.autocompleteInline
+    $("#searchbox1").autocompleteInline({
+        appendMethod: "replace",
+        source: [
+            function (text, add) {
+                if (!text) {
+                    return;
+                }
+
+                $.getJSON("/home/autocomplete?term=" + text, function (data) {
+                    if (data && data.length > 0) {
+                        currentSuggestion2 = data[0];
+                        add(data);
+                    }
+                });
+            }
+        ]
+    });
+
+    // complete on TAB and clear on ESC
+    $("#searchbox1").keydown(function (evt) {
+        if (evt.keyCode === 9 /* TAB */ && currentSuggestion2) {
+            $("#searchbox1").val(currentSuggestion2);
+            return false;
+        } else if (evt.keyCode === 27 /* ESC */) {
+            currentSuggestion2 = "";
+            $("#searchbox1").val("");
+        }
+    });
+});
+```
+
+### <a name="autocomplete-function"></a>자동 완성 함수
+
+자동 완성은 [DocumentsOperationsExtensions 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet)를 기반으로 합니다. 제안과 마찬가지로이 코드 블록은 **HomeController.cs** 파일로 이동 합니다.
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -213,7 +232,7 @@ public ActionResult AutoComplete(string term)
     };
     AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-    // Conver the Suggest results to a list that can be displayed in the client.
+    // Convert the Suggest results to a list that can be displayed in the client.
     List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
     return new JsonResult
     {
@@ -223,101 +242,12 @@ public ActionResult AutoComplete(string term)
 }
 ```
 
-자동 완성 함수는 검색 용어 입력 합니다. 메서드를 [AutoCompleteParameters 개체](https://docs.microsoft.com/rest/api/searchservice/autocomplete)합니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
-
-(선택 사항) Suggest 함수의 시작 부분에 중단점을 추가하고 코드를 단계별로 확인합니다. 메서드에서 반환 된 결과로 변환 되는 방법을 SDK에서 반환 된 응답을 확인 합니다.
-
-페이지의 다른 예제 패싯 자동 완성 결과의 클라이언트쪽 캐싱을 지원 하 고 적중 항목 강조 표시를 추가 하려면 동일한 패턴을 따릅니다. 각각을 검토하여 작동 방식과 검색 환경에서의 활용 방법을 살펴봅니다.
-
-## <a name="javascript-example"></a>JavaScript 예제
-
-Javascript 자동 완성 기능 및 제안을 구현의 원본으로 URI를 사용 하 여 인덱스 및 작업을 지정 하는 REST API를 호출 합니다. 
-
-JavaScript 구현은 검토 하려면 엽니다 **IndexJavaScript.cshtml**합니다. JQuery UI 자동 완성 함수는 검색 용어 입력을 수집, 검색 상자에도 사용을 검색 하려면 Azure Search에 대 한 비동기 호출 일치를 제안 하거나 용어 완료를 확인 합니다. 
-
-첫 번째 예제의 JavaScript 코드를 살펴보겠습니다.
-
-```javascript
-$(function () {
-    $("#example1a").autocomplete({
-        source: function (request, response) {
-        $.ajax({
-            type: "POST",
-            url: suggestUri,
-            dataType: "json",
-            headers: {
-                "api-key": searchServiceApiKey,
-                "Content-Type": "application/json"
-            },
-            data: JSON.stringify({
-                top: 5,
-                fuzzy: false,
-                suggesterName: "sg",
-                search: request.term
-            }),
-                success: function (data) {
-                    if (data.value && data.value.length > 0) {
-                        response(data.value.map(x => x["@@search.text"]));
-                    }
-                }
-            });
-        },
-        minLength: 3,
-        position: {
-            my: "left top",
-            at: "left-23 bottom+10"
-        }
-    });
-});
-```
-
-이 코드를, Home 컨트롤러를 호출하는 위의 에제와 비교해 보면 몇 가지 유사점을 확인할 수 있습니다.  `minLength` 및 `position`에 대한 자동 완성 구성은 정확히 동일합니다. 
-
-여기서 큰 변화는 소스입니다. Home 컨트롤러의 제안 메서드를 호출 하는 대신 REST 요청을 JavaScript 함수에서 생성 되 고 Ajax를 사용 하 여 실행. 그러면 응답이 "성공" 처리되고 소스로 사용됩니다.
-
-REST 호출 Uri를 사용 하 여 지정할 수 있는지 여부를 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 또는 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) API 호출이 수행 되 합니다. 다음 Uri는 9 및 10 줄에 각각입니다.
-
-```javascript
-var suggestUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/suggest?api-version=" + apiVersion;
-var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/autocomplete?api-version=" + apiVersion;
-```
-
-148 줄에서 호출 하는 스크립트를 찾을 수 있습니다는 `autocompleteUri`합니다. 첫 번째 호출은 `suggestUri` 39 줄에 표시 됩니다.
-
-> [!Note]
-> JavaScript에서 REST 서비스를 호출 하는 제공 되는 REST api를 편리 하 게 설명을 위해 여기 있지만 모범 사례 또는 권장으로 해석 될 수 없습니다. API 키 및 끝점을 스크립트에 포함 된 스크립트에 해당 값을 읽을 수 있는 모든 사용자에 게 서비스 공격 거부가까지 서비스를 엽니다. 학습 목적으로 JavaScript를 사용 하는 안전 하 고 하는 동안 아마도 무료 서비스를 호스트 하는 인덱스의 권장 Java를 사용 하 여 또는 C# 프로덕션 코드에서 인덱싱 및 쿼리 작업에 대 한 합니다. 
-
-<a name="configure-app"></a>
-
-## <a name="configure-nycjobs-to-run-on-your-service"></a>서비스에서 실행 된 NYCJobs 구성
-
-지금까지 호스 티 드 NYCJobs 데모 인덱스를 사용 했습니다. 전체 하려는 경우 모든 인덱스를 포함 하 여 코드에 대 한 가시성을 만들고 고유한 검색 서비스에서 인덱스를 로드 하려면 다음이 지침을 따릅니다.
-
-1. [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 예제에 대 한 무료 서비스를 사용할 수 있습니다. 
-
-   > [!Note]
-   > 체험 Azure Search 서비스를 사용하는 경우 세 가지 인덱스로 제한됩니다. NYCJobs 데이터 로더는 두 개의 인덱스를 만듭니다. 서비스에 새 인덱스를 허용하는 공간이 있는지 확인합니다.
-
-1. 다운로드 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 샘플 코드입니다.
-
-1. NYCJobs 샘플 코드의 DataLoader 폴더를 엽니다 **DataLoader.sln** Visual Studio에서.
-
-1. Azure Search 서비스에 대 한 연결 정보를 추가 합니다. DataLoader 프로젝트 안에서 App.config를 열고 Azure Search 서비스 및 Azure Search Service API 키에 맞게 TargetSearchServiceName 및 TargetSearchServiceApiKey appSettings를 변경합니다. 이 정보는 Azure Portal에서 찾을 수 있습니다.
-
-1. F5 키를 눌러 두 개의 인덱스를 만들고 NYCJob 샘플 데이터를 가져오는 응용 프로그램을 시작 합니다.
-
-1. 오픈 **AutocompleteTutorial.sln** 에서 Web.config를 편집 합니다 **AutocompleteTutorial** 프로젝트. SearchServiceName 및 SearchServiceApiKey 값 검색 서비스에 대 한 유효한 값으로 변경 합니다.
-
-1. F5 키를 눌러 애플리케이션을 실행합니다. 샘플 웹 앱이 기본 브라우저에서 열립니다. 환경은 샌드박스 버전과 동일, 인덱스 및 데이터 서비스에서 호스팅됩니다.
+Autocomplete 함수는 검색 용어 입력을 사용합니다. 이 메서드는 [AutoCompleteParameters 개체](https://docs.microsoft.com/rest/api/searchservice/autocomplete)를 만듭니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 예제에서는 검색 상자 자동 완성 기능 및 제안을 지를 구축 하기 위한 기본 단계를 보여 줍니다. ASP.NET MVC 응용 프로그램을 빌드 및 Azure Search.NET SDK 또는 REST API를 사용 하 여 추천 단어를 검색할 수 있습니다 하는 방법을 살펴보았습니다.
+다음 링크를 따라 포괄적인 검색 환경을 보여 주는 종단 간 지침 또는 코드를 참조 하세요. 두 코드 예제 모두에는 제안 및 자동 완성의 하이브리드 구현이 포함 됩니다.
 
-다음 단계로, 제안 및 자동 완성 검색 환경을 통합을 시도 합니다. 다음 참조 문서를 사용 하는 데 도움이 됩니다.
-
-> [!div class="nextstepaction"]
-> [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
-> [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
-> [Create Index REST API에서 패싯 인덱스 특성](https://docs.microsoft.com/rest/api/searchservice/create-index)
-
++ [자습서: c #에서 첫 번째 앱 만들기 (3 단원)](tutorial-csharp-type-ahead-and-suggestions.md)
++ [C # 코드 샘플: azure-검색-dotnet-samples/create-first-app/3-추가 형식 미리/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
++ [REST side-by-side 코드 샘플을 사용 하는 c # 및 JavaScript](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

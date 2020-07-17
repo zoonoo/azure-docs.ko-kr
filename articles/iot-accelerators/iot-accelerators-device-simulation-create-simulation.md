@@ -10,17 +10,17 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180707"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61448561"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>자습서: IoT 디바이스 시뮬레이션 만들기 및 실행
 
 이 자습서에서는 디바이스 시뮬레이션을 사용하여 하나 이상의 시뮬레이션된 디바이스를 사용하는 새 IoT 시뮬레이션을 만들고 실행합니다.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 >[!div class="checklist"]
 > * 모든 활성 및 과거 시뮬레이션 보기
@@ -30,7 +30,7 @@ ms.locfileid: "58180707"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 실행하려면 Azure 구독에서 디바이스 시뮬레이션의 배포된 인스턴스가 필요합니다.
 

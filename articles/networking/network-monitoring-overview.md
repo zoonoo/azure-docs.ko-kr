@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor에서 네트워크 모니터링에 대 한 로그 | Microsoft Docs
+title: Azure Monitor 로그의 네트워크 모니터링 정보 | Microsoft Docs
 description: 클라우드, 온-프레미스 및 하이브리드 환경에 걸친 네트워크를 관리하는, NPM을 비롯한 네트워크 모니터링 솔루션의 개요입니다.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: monitoring-and-diagnostics
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ajaycode
-ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.author: agummadi
+ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620424"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67672172"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -37,11 +37,11 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 성능 모니터, ExpressRoute 모니터 및 서비스 연결 모니터는 NPM 내의 모니터링 기능이며 아래에 설명되어 있습니다.
 
-## <a name="performance-monitor"></a>성능 모니터
+## <a name="performance-monitor"></a>성능 모니터링
 
 성능 모니터는 NPM의 일부이며 클라우드, 하이브리드 및 온-프레미스 환경에 대한 네트워크 모니터링입니다. 원격 분기와 지사, 상점 위치, 데이터 센터 및 클라우드 전반의 네트워크 연결을 모니터링할 수 있습니다. 사용자가 불만을 제기하기 전에 네트워크 문제를 감지할 수 있습니다. 주요 이점은 다음과 같습니다.
 
-* 여러 서브넷에서 손실 및 대기 시간 모니터링 및 경고 설정
+* 다양한 서브넷에서 손실 및 대기 시간 모니터링, 경고 설정
 * 네트워크의 모든 경로(중복 경로 포함) 모니터링
 * 복제하기 어려운 일시적 및 특정 시점의 네트워크 문제 해결
 * 성능 저하를 야기한 네트워크의 특정 세그먼트 확인
@@ -51,15 +51,15 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Monitor 로그에는 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
+* [Azure Monitor 로그에서 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
 * [사용 사례](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 * 제품 업데이트:
-  * [2017 년 2 월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
-  * [2017 년 8 월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+  * [2017년 2월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
+  * [2017년 8월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
-ExpressRoute를 위한 NPM은 Azure 개인 피어링 및 Microsoft 피어링 연결에 대한 종합적인 ExpressRoute 모니터링을 제공합니다. ExpressRoute를 통해 지사와 Azure 간의 E2E 연결 및 성능을 모니터링할 수 있습니다. 주요 기능은 다음과 같습니다.
+ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어링 연결에 대한 종합적인 ExpressRoute 모니터링을 제공합니다. ExpressRoute를 통해 지사와 Azure 간의 E2E 연결 및 성능을 모니터링할 수 있습니다. 주요 기능은 다음과 같습니다.
 
 * 구독에 연결된 ER 회로의 자동 검색
 * 온-프레미스에서 클라우드 애플리케이션까지 네트워크 토폴로지 검색
@@ -70,7 +70,7 @@ ExpressRoute를 위한 NPM은 Azure 개인 피어링 및 Microsoft 피어링 연
 
 ![전체 지역의 트래픽을 보여주는 지역 지도](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 * [ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)
 * [블로그 게시물](https://aka.ms/NPMExRmonitorGA)
@@ -79,14 +79,14 @@ ExpressRoute를 위한 NPM은 Azure 개인 피어링 및 Microsoft 피어링 연
 
 서비스 연결 모니터링을 사용하면 이제 애플리케이션의 연결을 테스트하고, 온-프레미스, 통신 회사 네트워크 및 클라우드/개인 데이터 센터에서 성능 병목 상태를 검색할 수 있습니다.
 
-* 애플리케이션에 대한 종단 간 네트워크 연결 모니터링
+* 애플리케이션에 대한 엔드투엔드 네트워크 연결 모니터링
 * 애플리케이션 전달을 네트워크 성능과 연결, 사용자와 애플리케이션 간의 경로에 따라 성능 저하의 정확한 위치를 감지
 * 전 세계 여러 사용자 위치에서 애플리케이션 연결 테스트
 * 비즈니스 및 SaaS 애플리케이션에 대한 네트워크 대기 시간 및 패킷 손실 파악
 * 잘못된 애플리케이션 성능을 일으킬 수 있는 네트워크상 핫 스폿 확인
 * Microsoft Office 365, Dynamics 365, Skype for Business 및 기타 Microsoft 서비스를 위한 기본 테스트를 사용하여 Office 365 애플리케이션에 대한 연결 가능성 모니터링
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 * [서비스 엔드포인트를 모니터링하기 위한 네트워크 성능 모니터 구성](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [블로그 게시물](https://aka.ms/svcendptmonitor)
@@ -94,7 +94,7 @@ ExpressRoute를 위한 NPM은 Azure 개인 피어링 및 Microsoft 피어링 연
 ## <a name="traffic-analytics"></a>트래픽 분석
 트래픽 분석은 클라우드 네트워크에서 사용자 및 애플리케이션 작업에 대한 가시성을 제공하는 클라우드 기반 솔루션입니다. NSG 흐름 로그는 다음에 대한 자세한 정보를 제공하도록 분석됩니다.
 
-* Azure와 인터넷, 공용 클라우드 지역, VNET 및 서브넷 사이의 네트워크를 통한 트래픽 흐름
+* Azure와 인터넷, 퍼블릭 클라우드 지역, VNET 및 서브넷 사이의 네트워크를 통한 트래픽 흐름
 * 스니퍼나 전용 흐름 수집기가 필요 없는 네트워크상의 애플리케이션 및 프로토콜
 * 상위 토커, 대화량이 많은 애플리케이션, 클라우드의 VM 대화, 트래픽 핫스폿
 * VNET, 중요한 비즈니스 서비스와 애플리케이션 간의 상호 관계 트래픽의 원본 및 대상

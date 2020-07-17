@@ -1,45 +1,182 @@
 ---
-title: Azure Maps로 액세스 가능한 애플리케이션 만들기 | Microsoft Docs
-description: Azure Maps를 사용하여 액세스 가능한 애플리케이션을 작성하는 방법
+title: Azure Maps를 사용하여 액세스 가능한 맵 애플리케이션 만들기 | Microsoft Azure Maps
+description: 이 문서에서는 Microsoft Azure Maps를 사용하여 내게 필요한 옵션 기능이 있는 애플리케이션을 빌드하는 방법을 알아봅니다.
 services: azure-maps
-keywords: ''
-author: chgennar
-ms.author: chgennar
-ms.date: 09/17/2018
-ms.topic: article
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/10/2019
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.openlocfilehash: ef948b4dca3d3800a81ac52f3a73beee2558d21c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: cpendleton
+ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769705"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242375"
 ---
 # <a name="building-an-accessible-application"></a>액세스 가능한 애플리케이션 작성
 
-이 문서에서는 화면 판독기에서 사용할 수 있는 지도 애플리케이션을 작성하는 방법을 보여줍니다.
+인터넷 사용자의 20% 이상이 액세스 가능한 웹 애플리케이션을 필요로 합니다. 따라서 애플리케이션은 모든 사용자가 쉽게 사용할 수 있도록 설계해야 합니다. 접근성은 완료해야 하는 일련의 작업이 아닌 전반적인 사용자 환경의 일부로 봐야 합니다. 애플리케이션 접근성이 좋을수록 더 많은 사용자가 사용할 수 있습니다. 
 
-## <a name="understand-the-code"></a>코드 이해
+맵과 같은 풍부한 대화형 콘텐츠로 제공되는 경우 몇 가지 일반적인 접근성 고려 사항은 다음과 같습니다.
+- 웹 애플리케이션을 보는 데 어려움이 있는 사용자를 위해 화면 읽기 프로그램을 지원합니다.
+- 마우스, 터치 및 키보드 등 다양한 방법으로 웹 애플리케이션과 상호 작용하고 탐색할 수 있습니다.
+- 색 대비를 통해 색이 혼합 되지 않고 서로 구분 하기 어렵습니다. 
 
-<iframe height='500' scrolling='no' title='액세스 가능한 애플리케이션 만들기' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>액세스 가능한 애플리케이션 만들기</a>를 참조하세요.
-</iframe>
+Azure Maps Web SDK는 다음과 같이 다양한 내게 필요한 옵션 기능을 제공합니다.
+- 맵이 이동할 때와 사용자가 컨트롤 또는 팝업에서 초점을 맞출 때 화면 읽기 프로그램 설명
+- 마우스, 터치 및 키보드 지원
+- 로드맵 스타일에서 액세스 가능한 색 대비 지원
+- 고대비 지원
 
-맵에는 손쉬운 사용 기능이 미리 구축되어 있습니다. 사용자는 키보드를 사용하여 맵을 탐색할 수 있습니다. 화면 판독기가 실행 중이면 맵 상태 변경 내용 알림이 사용자에게 표시됩니다.
-예를 들어 맵을 이동하거나 확대/축소하면 맵 변경 내용 알림이 사용자에게 표시됩니다. 기본 지도에 추가되는 모든 정보에는 화면 판독기 사용자를 위한 텍스트 정보가 있어야 합니다.
+모든 Microsoft 제품에 대한 전체 접근성 규칙 세부 정보는 [여기](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/)에서 찾을 수 있습니다. "Azure Maps Web"을 검색하여 Azure Maps Web SDK 전용 문서를 찾습니다. 
 
-[팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) 사용이 이런 기능을 구현하는 한가지 방법입니다. 위의 검색 예에서는 지도에 배치된 모든 핀에 대한 텍스트 정보 팝업이 지도에 추가됩니다. [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)의 [attach](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#attach) 메서드를 사용하면 맵에 팝업을 시각적으로 표시하지 않고도 화면 판독기에서 팝업을 볼 수 있습니다.
+## <a name="navigating-the-map"></a>맵 탐색
+
+여러 가지 방식으로 맵을 확대/축소, 이동, 회전 및 피치할 수 있습니다. 다음에서 맵을 탐색하는 다양한 방법을 자세히 설명합니다.
+
+**맵 확대/축소**
+
+- 마우스를 사용하여 맵을 두 번 클릭하면 한 수준 확대됩니다.
+- 마우스를 사용하여 휠을 스크롤하여 맵을 확대/축소합니다.
+- 터치 스크린을 사용하여 두 손가락으로 맵을 터치하고 두 손가락을 모으면 축소되고 두 손가락을 넓히면 확대됩니다.
+- 터치 스크린을 사용하여 맵을 두 번 탭하면 한 수준 확대됩니다.
+- 맵에 초점을 맞춘 상태에서 더하기 기호(`+`) 또는 등호(`=`)를 사용하여 한 수준 확대합니다.
+- 맵에 초점을 맞춘 상태에서 빼기 기호, 하이픈(`-`) 또는 밑줄(`_`)을 사용하여 한 수준을 축소합니다.
+- 마우스, 터치 또는 키보드 Tab/Enter 키로 확대/축소 컨트롤을 사용합니다.
+- 맵에서 `Shift` 단추를 누른 상태에서 왼쪽 마우스 단추를 누른 채 바깥쪽으로 끌어서 영역을 그리면 맵이 확대됩니다.
+- 여러 터치 패드를 사용 하 여 두 손가락을 위쪽으로 끌어 축소 하거나 축소 하 여 확대 합니다.
+
+**맵 이동**
+
+- 마우스를 사용하여 맵에서 왼쪽 마우스 단추를 누른 채 원하는 방향으로 끕니다.
+- 터치 스크린을 사용하여 맵을 터치하고 원하는 방향으로 끕니다.
+- 맵에 초점을 맞춘 상태에서 화살표 키를 사용하여 맵을 이동합니다.
+
+**맵 회전**
+
+- 마우스를 사용하여 맵에서 오른쪽 마우스 단추를 누른 채 왼쪽 또는 오른쪽으로 끕니다. 
+- 터치 스크린을 사용하여 두 손가락으로 맵을 터치하고 회전합니다.
+- 맵에 초점을 맞춘 상태에서 Shift 키와 왼쪽 또는 오른쪽 화살표 키를 사용합니다.
+- 마우스, 터치 또는 키보드 Tab/Enter 키로 회전 컨트롤을 사용합니다.
+
+**맵 피치**
+
+- 마우스를 사용하여 맵에서 오른쪽 마우스 단추를 누른 채 위쪽 또는 아래쪽으로 끕니다. 
+- 터치 스크린을 사용하여 맵을 두 손가락으로 터치하고 위쪽 또는 아래쪽으로 함께 끕니다.
+- 맵에 초점을 맞춘 상태에서 Shift 키와 위쪽 또는 아래쪽 화살표 키를 사용합니다. 
+- 마우스, 터치 또는 키보드 Tab/Enter 키로 피치 제어를 사용합니다.
+
+## <a name="change-the-map-style"></a>맵 스타일 변경
+
+모든 개발자가 모든 가능한 맵 스타일을 애플리케이션에서 사용할 수 있도록 하려는 것은 아닙니다. 개발자가 맵의 스타일 선택 컨트롤을 표시하는 경우 사용자는 마우스, 터치 또는 키보드 Tab 또는 Enter 키를 사용하여 맵 스타일을 변경할 수 있습니다. 개발자는 맵 스타일 선택 컨트롤에서 사용할 맵 스타일을 지정할 수 있습니다. 또한 개발자는 맵 스타일을 프로그래밍 방식으로 설정하고 변경할 수 있습니다.
+
+**고대비 사용**
+
+- 맵 컨트롤이 로드되면 고대비를 사용하는지 여부와 브라우저에서 지원하는지 여부를 확인합니다.
+- 맵 컨트롤은 장치의 고대비 모드를 모니터링하지 않습니다. 장치 모드가 변경되어도 맵은 변경되지 않습니다. 따라서 사용자가 페이지를 새로 고쳐 맵을 다시 로드해야 합니다.
+- 고대비가 검색되면 맵 스타일이 자동으로 고대비로 전환되고 모든 기본 제공 컨트롤은 고대비 스타일을 사용합니다. 예를 들어 ZoomControl, PitchControl, CompassControl, StyleControl 및 기타 기본 제공 컨트롤은 고대비 스타일을 사용합니다.
+- 고대비 유형에는 밝은 유형과 어두운 유형, 두 가지가 있습니다. 맵 컨트롤에서 고대비 유형을 검색할 수 있는 경우에는 맵의 동작이 적절하게 조정됩니다. 밝은 유형인 경우 grayscale_light 맵 스타일이 로드됩니다. 형식을 검색할 수 없거나 진한 경우 high_contrast_dark 스타일이 로드 됩니다.
+- 사용자 지정 컨트롤을 만드는 경우 기본 제공 컨트롤이 고대비 스타일을 사용하는지 확인하는 데 유용합니다. 개발자는 css 클래스를 맵 컨테이너 분류에 추가하여 확인할 수 있습니다. 추가되는 css 클래스는 `high-contrast-dark` 및 `high-contrast-light`입니다. JavaScript를 사용하여 확인하려면 다음을 사용합니다.
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-dark")
+```
+
+또는 다음을 사용합니다.
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-light")
+```
+
+## <a name="keyboard-shortcuts"></a>바로 가기 키
+
+맵에는 맵 사용을 용이하게 하는 다양한 바로 가기 키가 제공됩니다. 이러한 바로 가기 키는 맵에 포커스가 있을 때 작동합니다.
+
+| 키      | 작업                            |
+|----------|-----------------------------------|
+| `Tab` | 맵에서 컨트롤 및 팝업을 탐색합니다. |
+| `ESC` | 맵의 모든 요소에서 최상위 맵 요소로 포커스를 이동합니다. |
+| `Ctrl` + `Shift` + `D` | 화면 읽기 프로그램 세부 정보 수준을 설정/해제합니다.  |
+| 왼쪽 화살표 키 | 맵을 왼쪽으로 100픽셀 이동 |
+| 오른쪽 화살표 키 | 맵을 오른쪽으로 100픽셀 이동 |
+| 아래쪽 화살표 키 | 맵을 아래쪽으로 100픽셀 이동 |
+| 위쪽 화살표 키 | 맵을 위쪽으로 100픽셀 이동 |
+| `Shift` + 위쪽 화살표 | 맵 피치 10도씩 증가 |
+| `Shift` + 아래쪽 화살표 | 맵 피치 10도씩 감소 |
+| `Shift` + 오른쪽 화살표 | 맵을 시계 방향으로 15도 회전 |
+| `Shift` + 왼쪽 화살표 | 맵을 시계 반대 방향으로 15도 회전 |
+| 더하기 기호(`+`) 또는 <sup>*</sup>등호(`=`) | 확대 |
+| 빼기 기호, 하이픈(`-`) 또는 <sup>*</sup>밑줄(`_`) | 축소 | 
+| 맵에서 `Shift` + 마우스 끌기로 영역 그리기 | 영역 확대 |
+
+<sup>*</sup> 이러한 바로 가기 키는 일반적으로 키보드에서 동일한 키를 공유합니다. 이러한 바로 가기는 사용자 환경을 향상시키기 위해 추가되었습니다. 사용자가 shift 키를 사용 하는지 아니면 이러한 바로 가기 키가 아닌 경우에도 중요 하지 않습니다.
+
+## <a name="screen-reader-support"></a>화면 읽기 프로그램 지원
+
+사용자는 키보드를 사용하여 맵을 탐색할 수 있습니다. 화면 판독기가 실행 중이면 맵 상태 변경 내용 알림이 사용자에게 표시됩니다. 예를 들어 맵을 이동하거나 확대/축소하면 맵 변경 내용 알림이 사용자에게 표시됩니다. 기본적으로 맵은 맵 중심의 확대/축소 수준과 좌표를 제외한 간단한 설명을 제공합니다. 사용자는 바로 가기 키 `Ctrl` + `Shift` + `D`를 사용하여 이러한 설명의 세부 수준을 설정/해제할 수 있습니다.
+
+기본 지도에 추가되는 모든 정보에는 화면 판독기 사용자를 위한 텍스트 정보가 있어야 합니다. [ARIA(액세스할 수 있으며 풍부한 인터넷 애플리케이션)](https://www.w3.org/WAI/standards-guidelines/aria/), alt 및 제목 특성(해당하는 경우)을 추가해야 합니다. 
+
+## <a name="make-popups-keyboard-accessible"></a>팝업 키보드를 액세스할 수 있도록 설정
+
+표식 또는 기호는 맵의 위치를 나타내는 데 사용되는 경우가 많습니다. 위치에 대한 추가 정보는 일반적으로 사용자가 표식과 상호 작용할 때 팝업에 표시됩니다. 대부분의 애플리케이션에서 사용자가 표식을 클릭하거나 탭하면 팝업이 표시됩니다. 그러나 클릭 및 탭 동작은 사용자가 각각 마우스 및 터치 스크린을 사용해야 합니다. 키보드를 사용하는 경우에는 팝업을 액세스할 수 있도록 하는 것이 좋습니다. 각 데이터 요소에 대한 팝업을 만들고 맵에 추가하여 이 기능을 구현할 수 있습니다. 
+
+다음 예에서는 기호 계층을 사용하여 맵에 관심 지점을 로드하고 각 관심 지점에 대해 팝업을 맵에 추가합니다. 각 팝업 참조는 각 데이터 요소의 속성에 저장됩니다. 표식을 클릭하는 경우와 같이 표식에 대해서도 검색할 수 있습니다. 맵에 포커스가 있을 때 사용자가 맵에서 Tab 키를 누르면 각 팝업을 단계별로 계속할 수 있습니다.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='액세스 가능한 애플리케이션 만들기' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>액세스 가능한 애플리케이션 만들기</a>를 참조하세요. </iframe>
+
+<br/>
+
+## <a name="additional-accessibility-tips"></a>추가 접근성 팁
+
+웹 매핑 애플리케이션에 더 쉽게 액세스할 수 있도록 하는 몇 가지 추가 팁은 다음과 같습니다.
+
+- 맵에 많은 대화형 포인트 데이터를 표시하는 경우에는 복잡하게 표시하지 않고 클러스터링을 사용하는 것이 좋습니다. 
+- 텍스트/기호와 배경색 간의 색 대비율이 4.5:1 이상이어야 합니다.
+- 화면 읽기 프로그램(ARIA, alt 및 제목 특성) 메시지를 짧고 의미 있는 설명으로 유지합니다. 불필요한 전문 용어 및 머리글자어를 피합니다.
+- 화면 읽기 프로그램에 전송된 메시지를 최적화하여 사용자가 쉽게 이해할 수 있는 의미 있는 정보를 간단하게 제공합니다. 예를 들어 맵 이동과 같이 화면 읽기 프로그램을 높은 빈도로 업데이트하려는 경우 다음 사항을 고려합니다.
+    - 맵 이동이 완료될 때까지 기다렸다가 화면 읽기 프로그램을 업데이트합니다.
+    - 업데이트를 몇 초에 한 번으로 제한합니다. 
+    - 메시지를 논리적인 방식으로 결합합니다. 
+- 정보를 전달하는 유일한 방법으로 색을 사용하지 않습니다. 텍스트, 아이콘 또는 패턴을 사용하여 색을 보완하거나 바꿉니다. 몇 가지 고려할 사항:
+    - 거품형 계층을 사용하여 데이터 요소 간의 상대 값을 표시하는 경우, 각 거품의 반지름 크기를 조정하는 방법 또는 거품에 색을 지정하는 방법(또는 둘 다)을 사용할 수 있습니다. 
+    - 삼각형, 별 및 사각형과 같은 다른 메트릭 범주에 대해 서로 다른 아이콘을 사용하여 기호 계층을 사용하는 것이 좋습니다. 기호 계층을 사용하면 아이콘 크기를 조정할 수도 있습니다. 텍스트 레이블도 표시할 수 있습니다.
+    - 선 데이터를 표시하는 경우 너비를 사용하여 두께나 크기를 나타낼 수 있습니다. 대시 배열 패턴을 사용하여 다양한 줄 범주를 나타낼 수 있습니다. 기호 계층은 선을 따라 아이콘을 오버레이하는 줄과 조합하여 사용할 수 있습니다. 화살표 아이콘을 사용하면 선의 흐름이나 방향을 효과적으로 표시할 수 있습니다.
+    - 다각형 데이터를 표시하는 경우에는 줄무늬와 같은 패턴을 색의 대안으로 사용할 수 있습니다. 
+- 시각 장애가 있는 사용자의 경우 열 지도, 타일 계층 및 이미지 레이어와 같은 일부 시각화에 액세스할 수 없습니다. 몇 가지 고려할 사항:
+    - 맵에 추가될 때 계층에 표시되는 내용이 화면 읽기 프로그램에서 설명하도록 합니다. 예를 들어 날씨 레이더 타일 계층이 표시되는 경우 화면 읽기 프로그램에서 "날씨 레이더 데이터가 맵에 오버레이됩니다"라고 알려 주도록 합니다.
+- 마우스로 가리켜서 작동하는 기능 수를 제한합니다. 키보드 또는 터치 장치를 사용하여 애플리케이션과 상호 작용하는 사용자는 이러한 기능에 액세스할 수 없습니다. 클릭할 수 있는 아이콘, 링크 및 단추와 같은 대화형 콘텐츠는 마우스 가리키기 스타일을 유지하는 것이 좋습니다.
+- 키보드를 사용하여 애플리케이션을 탐색해 보세요. 탭 정렬이 논리적인지 확인합니다.
+- 바로 가기 키를 만드는 경우 키를 두 개 이하로 제한해 보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서 사용된 팝업 클래스 및 메서드에 대해 자세히 알아봅니다.
+웹 SDK 모듈의 접근성에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [그리기 도구 접근성](drawing-tools-interactions-keyboard-shortcuts.md)
 
-추가 코드 샘플을 확인해 보세요.
+Microsoft Learn을 사용하여 액세스할 수 있는 앱을 개발하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [코드 샘플 페이지](https://aka.ms/AzureMapsSamples)
+> [작업 접근성 디지털 배지 학습 경로](https://ready.azurewebsites.net/learning/track/2940)
+
+다음과 같은 유용한 접근성 도구를 살펴봅니다.
+> [!div class="nextstepaction"]
+> [액세스할 수 있는 앱 개발](https://developer.microsoft.com/windows/accessible-apps)
+
+> [!div class="nextstepaction"]
+> [WAI-ARIA 개요](https://www.w3.org/WAI/standards-guidelines/aria/)
+
+> [!div class="nextstepaction"]
+> [WAVE(웹 접근성 평가 도구)](https://wave.webaim.org/)
+
+> [!div class="nextstepaction"]
+> [WebAim 색 대비 검사기](https://webaim.org/resources/contrastchecker/)
+
+> [!div class="nextstepaction"]
+> [커피 비전 시뮬레이터 없음](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US)

@@ -1,34 +1,32 @@
 ---
-title: Microsoft 365 워크로드용 관리자 역할 콘텐츠 - Azure AD | Microsoft Docs
-description: Azure Active Directory에서 Microsoft 365 워크로드의 관리자 역할용 콘텐츠 및 API 참조를 확인할 수 있습니다.
+title: Microsoft 365 서비스에서 관리자 역할 문서-Azure AD | Microsoft Docs
+description: Azure Active Directory에서 Microsoft 365 services의 관리자 역할에 대 한 콘텐츠 및 API 참조를 찾습니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 01/24/2019
+ms.topic: reference
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7460c3a7d957634d14186d313994c65d89fa4a32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 79e3ed41ad3038cf66d61c25292ebad55c2b5e92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468184"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731700"
 ---
-# <a name="administrator-roles-for-microsoft-365-workloads"></a>Microsoft 365 워크로드용 관리자 역할
+# <a name="administrator-roles-for-microsoft-365-services"></a>Microsoft 365 services에 대 한 관리자 역할
 
 Azure AD의 관리 역할을 사용해 Microsoft 365의 모든 제품을 관리할 수 있습니다. 제품과 관련된 추가 역할이 제공되는 제품도 있습니다. 각 제품에서 지원하는 역할에 대한 내용은 아래 표를 참조하세요. 위임 문제와 관련한 일반 설명은 [Azure Active Directory의 역할 위임 계획](roles-concept-delegation.md)에서 확인할 수 있습니다.
 
 ## <a name="where-to-find-content"></a>콘텐츠를 확인할 수 있는 위치
 
-Microsoft 365 워크로드 | 역할 콘텐츠 | API 콘텐츠
+Microsoft 365 서비스 | 역할 콘텐츠 | API 콘텐츠
 ---------------------- | ------------------ | -----------------
 Office 365 및 Microsoft 365 비즈니스 플랜의 관리자 역할 | [Office 365 관리자 역할](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | 사용할 수 없음
 Azure AD(Azure Active Directory) 및 Azure AD ID 보호| [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
@@ -42,7 +40,7 @@ Azure Information Protection | [Azure AD 관리자 역할](directory-assign-admi
 Microsoft Cloud App Security | [역할 기반 액세스 제어](https://docs.microsoft.com/cloud-app-security/manage-admins) | [API 참조](https://docs.microsoft.com/cloud-app-security/api-tokens) 
 Azure Advanced Threat Protection | [Azure ATP 역할 그룹](https://docs.microsoft.com/azure-advanced-threat-protection/atp-role-groups) | 사용할 수 없음
 Windows Defender Advanced Threat Protection | [Windows Defender ATP 역할 기반 액세스 제어](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/rbac-windows-defender-advanced-threat-protection) | 사용할 수 없음
-권한 있는 ID 관리 | [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
+Privileged Identity Management | [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Intune | [Intune 역할 기반 액세스 제어](https://docs.microsoft.com/intune/role-based-access-control) | [그래프 API](https://docs.microsoft.com/graph/api/resources/intune-rbac-conceptual?view=graph-rest-beta)<br>[역할 할당 가져오기](https://docs.microsoft.com/graph/api/intune-rbac-roledefinition-list?view=graph-rest-beta)
 Managed Desktop | [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 

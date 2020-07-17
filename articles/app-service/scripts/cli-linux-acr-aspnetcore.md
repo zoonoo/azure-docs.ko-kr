@@ -1,27 +1,20 @@
 ---
-title: Azure CLI 스크립트 샘플 - Azure Container Registry에서 ASP.NET Core 앱 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Azure Container Registry의 App Service에서 Docker 컨테이너에 ASP.NET Core 앱 만들기
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: ACR에서 ASP.NET Core 앱 만들기'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 ACR에서 Linux ASP.NET Core 앱을 만드는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/13/2018
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: c05572d4962eca042a807be3eec94462d0830e1b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 64177d00b302f9df8a0b28067031bd7cc1b3a156
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653376"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057765"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Azure Container Registry의 App Service에서 Docker 컨테이너에 ASP.NET Core 앱 만들기
 

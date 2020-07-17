@@ -1,35 +1,31 @@
 ---
-title: 웹 서비스 로깅 - Azure Machine Learning Studio | Microsoft Docs
-description: Machine Learning Studio 웹 서비스에 대해 로깅을 사용하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다.
+title: 웹 서비스 로깅 사용
+titleSuffix: ML Studio (classic) - Azure
+description: Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅을 사용 하도록 설정 하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다.
 services: machine-learning
-documentationcenter: ''
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705834"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio 웹 서비스에 대해 로깅 사용
-이 문서에서는 Machine Learning Studio 웹 서비스의 로깅 기능을 설명합니다. 로깅은 오류 번호 및 메시지 외에 Machine Learning Studio API 호출 문제를 해결하는 데 유용한 추가 정보를 제공합니다.  
+# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅 사용
+
+이 문서에서는 Machine Learning Studio (클래식) 웹 서비스의 로깅 기능에 대 한 정보를 제공 합니다. 로깅은 오류 번호 및 메시지 외에도 Machine Learning Studio (클래식) Api에 대 한 호출 문제를 해결 하는 데 도움이 될 수 있는 추가 정보를 제공 합니다.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>웹 서비스에서 로깅을 사용하도록 설정하는 방법
 
-[Azure Machine Learning Studio 웹 서비스](https://services.azureml.net) 포털에서 로깅을 사용하도록 설정합니다. 
+[Azure Machine Learning Studio (클래식) 웹 서비스](https://services.azureml.net) 포털에서 로깅을 사용 하도록 설정 합니다. 
 
-1. [https://services.azureml.net](https://services.azureml.net)에서 Azure Machine Learning Studio 웹 서비스 포털에 로그인합니다. 클래식 웹 서비스의 경우 Machine Learning Studio에서 Machine Learning Studio 웹 서비스 페이지에 있는 **새 웹 서비스 환경**을 클릭하여 포털로 가져올 수도 있습니다.
+1. 에서 Azure Machine Learning Studio (클래식) 웹 서비스 포털에 로그인 [https://services.azureml.net](https://services.azureml.net) 합니다. 클래식 웹 서비스의 경우 Studio (클래식)의 Machine Learning Studio (클래식) 웹 서비스 페이지에서 **새 웹 서비스 환경** 을 클릭 하 여 포털로 이동할 수도 있습니다.
 
    ![새 웹 서비스 환경 링크](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -51,7 +47,7 @@ ms.locfileid: "60345638"
 
    모든 웹 서비스 로그는 웹 서비스와 연결된 스토리지 계정에 있는 **ml-diagnostics**이라는 blob 컨테이너에 저장됩니다. 새 웹 서비스의 경우 이 컨테이너는 처음 웹 서비스에 액세스할 때 만들어집니다. 클래식 웹 서비스의 경우 이 컨테이너가 없는 경우 하나 만들어야 합니다. 
 
-   1. [Azure Portal](https://portal.azure.com)에서 웹 서비스와 연결된 저장소 계정으로 이동합니다.
+   1. [Azure Portal](https://portal.azure.com)에서 웹 서비스와 연결된 스토리지 계정으로 이동합니다.
 
    2. **Blob Service**에서 **컨테이너**를 클릭합니다.
 
@@ -61,13 +57,13 @@ ms.locfileid: "60345638"
 
 > [!TIP]
 >
-> 클래식 웹 서비스의 경우 Machine Learning Studio에서 웹 서비스 대시보드는 로깅을 사용하도록 전환할 수 있습니다. 그러나 이제 로깅은 웹 서비스 포털을 통해 관리되므로 이 문서에 설명된 대로 포털을 통해 로깅을 사용하도록 설정해야 합니다. 이미 Studio에서 로그인을 사용하도록 설정한 경우 웹 서비스 포털에서 로깅을 사용하지 않도록 설정하고 다시 활성화합니다.
+> 기존 웹 서비스의 경우 Machine Learning Studio (클래식)의 웹 서비스 대시보드에 로깅을 사용 하도록 설정 하는 스위치가 있습니다. 그러나 이제 로깅은 웹 서비스 포털을 통해 관리되므로 이 문서에 설명된 대로 포털을 통해 로깅을 사용하도록 설정해야 합니다. 이미 Studio (클래식)에서 로깅을 사용 하도록 설정한 경우에는 웹 서비스 포털에서 로깅을 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 합니다.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>로깅 활성화의 효과
-로깅을 사용하도록 설정하면 웹 서비스 엔드포인트의 진단 및 오류가 사용자 작업 영역과 연결된 Azure Storage 계정의 **ml-diagnostics** blob 컨테이너에 로깅됩니다. 이 컨테이너는 이 저장소 계정과 연결된 모든 작업 영역의 모든 웹 서비스 엔드포인트에 대한 모든 진단 정보를 포함합니다.
+로깅을 사용 하도록 설정 하면 웹 서비스 끝점의 진단 및 오류가 사용자 작업 영역과 연결 된 Azure Storage 계정의 **ml 진단** blob 컨테이너에 기록 됩니다. 이 컨테이너는 이 스토리지 계정과 연결된 모든 작업 영역의 모든 웹 서비스 엔드포인트에 대한 모든 진단 정보를 포함합니다.
 
-Azure Storage 계정을 살펴보는 데 사용할 수 있는 여러 도구 중 하나를 통해 로그를 볼 수 있습니다. 가장 쉬운 방법은 Azure Portal에서 저장소 계정으로 이동한 다음, **컨테이너**를 클릭하고 컨테이너 **ml-diagnostics**를 클릭하는 것입니다.  
+Azure Storage 계정을 살펴보는 데 사용할 수 있는 여러 도구 중 하나를 통해 로그를 볼 수 있습니다. 가장 쉬운 방법은 Azure Portal에서 스토리지 계정으로 이동한 다음, **컨테이너**를 클릭하고 컨테이너 **ml-diagnostics**를 클릭하는 것입니다.  
 
 ## <a name="log-blob-detail-information"></a>Blob 세부 정보 기록
 컨테이너의 각 blob은 정확히 다음 작업 중 하나에 대한 진단 정보를 포함합니다.

@@ -1,22 +1,21 @@
 ---
-title: Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전 | Microsoft Docs
-description: Azure IoT Hub Device Provisioning Service를 사용하여 단일 IoT Hub에 디바이스를 프로비전
+title: 자습서 - Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
+description: 이 자습서에서는 Azure IoT Hub DPS(Device Provisioning Service)를 사용하여 단일 IoT 허브에 디바이스를 프로비저닝하는 방법을 보여줍니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/12/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9ff134b0747e78773c95fac7ceab4cddd61c601d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227017"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74975043"
 ---
-# <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 디바이스를 프로비전
+# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>자습서: Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 디바이스를 프로비전
 
 이전 자습서에서 Device Provisioning Service에 연결하기 위해 디바이스를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 자동 프로비전 및 **_등록 목록_** 을 사용하는 단일 IoT Hub에 디바이스를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
@@ -25,7 +24,7 @@ ms.locfileid: "58227017"
 > * 디바이스 시작
 > * 디바이스가 등록되어 있는지 확인
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 계속 진행하려면 [Azure IoT Hub Device Provisioning Service를 사용하여 프로비전하도록 디바이스를 설정](./tutorial-set-up-device.md) 자습서의 설명에 따라 디바이스를 구성해야 합니다.
 
@@ -92,7 +91,7 @@ TPM 및 X.509 증명을 사용하여 시뮬레이션된 디바이스 예제가 C
 자세한 내용은 디바이스 클라이언트 프로비전 샘플 [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)를 참조하세요. 이 샘플은 TPM, X.509 인증서 및 대칭 키를 사용하여 시뮬레이션된 디바이스를 프로비전하는 방법을 보여줍니다. 다시 [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) 및 [대칭 키](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) 증명 빠른 시작을 참조하여 샘플 사용 방법에 대한 단계별 지침을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 디바이스 등록

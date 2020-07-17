@@ -1,22 +1,15 @@
 ---
 title: Azure Functions에 대한 Notification Hubs 바인딩
 description: Azure Functions에서 Azure 알림 허브 바인딩을 사용하는 방법을 파악합니다.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f500e7cac7a049152057f7fc7c3349fb028a31a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438198"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85444542"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
 
@@ -27,7 +20,7 @@ Azure Notification Hubs는 사용할 PNS(플랫폼 알림 서비스)에 대해 �
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google에 [메시징 GCM (Google Cloud)를 위해 FCM Firebase Cloud Messaging () 사용 되지 않는](https://developers.google.com/cloud-messaging/faq)합니다. 이 출력 바인딩은 FCM을 지원 하지 않습니다. FCM을 사용 하 여 알림을 보내려면 다음을 사용 합니다 [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) 함수 또는 사용 하 여에서 직접 [템플릿 알림을](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)합니다.
+> Google은 [FCM (Firebase Cloud Messaging)를 위해 GCM (Google Cloud Messaging)을 사용 하지 않습니다](https://developers.google.com/cloud-messaging/faq). 이 출력 바인딩은 FCM을 지원 하지 않습니다. FCM를 사용 하 여 알림을 보내려면 함수에서 직접 [FIREBASE API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) 를 사용 하거나 [템플릿 알림을](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)사용 합니다.
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
@@ -35,9 +28,9 @@ Notification Hubs는 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
-이 바인딩은 Functions 2.x에서 사용할 수 없습니다.
+이 바인딩은 함수 2.x 이상에서 사용할 수 없습니다.
 
 ## <a name="example---template"></a>예제 - 템플릿
 
@@ -249,19 +242,19 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 특성의 생성자 매개 변수 및 속성은 [구성](#configuration) 섹션에 설명되어 있습니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
-다음 테이블에서는 *function.json* 파일 및 `NotificationHub` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+다음 표에서는 *function.js* 파일 및 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다 `NotificationHub` .
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** |해당 없음| "notificationHub"로 설정해야 합니다. |
-|**direction** |해당 없음| "out"으로 설정해야 합니다. | 
+|**type** |해당 없음| `notificationHub`로 설정해야 합니다. |
+|**direction** |해당 없음| `out`로 설정해야 합니다. | 
 |**name** |해당 없음| 알림 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**tagExpression** |**TagExpression** | 태그 식을 사용하면 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 디바이스에 배달하도록 지정할 수 있습니다.  자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요. |
 |**hubName** | **HubName** | Azure Portal에서 알림 허브 리소스의 이름입니다. |
-|**연결** | **ConnectionStringSetting** | Notification Hubs 연결 문자열을 포함하는 앱 설정의 이름입니다.  연결 문자열은 알림 허브의 *DefaultFullSharedAccessSignature* 값으로 설정해야 합니다. 이 문서의 뒷부분에 나오는 [연결 문자열 설정](#connection-string-setup)을 참조하세요.|
-|**platform** | **플랫폼** | platform 속성은 알림의 대상으로 지정된 클라이언트 플랫폼을 나타냅니다. 기본적으로 출력 바인딩에서 platform 속성을 생략하면 템플릿 알림을 사용하여 Azure Notification Hub에 구성된 플랫폼을 대상으로 지정할 수 있습니다. 일반적으로 Azure 알림 허브 알림에서 템플릿을 사용하여 플랫폼 간 알림을 보내는 방법에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요. **platform**을 설정한 경우 다음 값 중 하나여야 합니다. <ul><li><code>apns</code>&mdash;Apple Push Notification Service. APNS에 대한 알림 허브를 구성하고 클라이언트 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Azure Notification Hubs를 사용하여 iOS에 푸시 알림 보내기](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md)를 참조하세요.</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). ADM에 대한 Notification Hubs를 구성하고 Kindle 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Kindle 앱에 대한 Notification Hubs 시작](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md)을 참조하세요.</li><li><code>wns</code>&mdash;Windows 플랫폼을 대상으로 하는 [Windows 푸시 알림 서비스](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) Windows Phone 8.1 이상도 WNS에서 지원됩니다. 자세한 내용은 [Windows 유니버설 플랫폼 앱용 Notification Hubs 시작](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)을 참조하세요.</li><li><code>mpns</code>&mdash;[Microsoft 푸시 알림 서비스](/previous-versions/windows/apps/ff402558(v=vs.105)). 이 플랫폼은 Windows Phone 8 및 이전 Windows Phone 플랫폼을 지원합니다. 자세한 내용은 [Windows Phone에서 Azure Notification Hubs를 사용하여 푸시 알림 보내기](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)를 참조하세요.</li></ul> |
+|**connection** | **ConnectionStringSetting** | Notification Hubs 연결 문자열을 포함하는 앱 설정의 이름입니다.  연결 문자열은 알림 허브의 *DefaultFullSharedAccessSignature* 값으로 설정해야 합니다. 이 문서의 뒷부분에 나오는 [연결 문자열 설정](#connection-string-setup)을 참조하세요.|
+|**platform** | **플랫폼** | platform 속성은 알림의 대상으로 지정된 클라이언트 플랫폼을 나타냅니다. 기본적으로 출력 바인딩에서 platform 속성을 생략하면 템플릿 알림을 사용하여 Azure Notification Hub에 구성된 플랫폼을 대상으로 지정할 수 있습니다. 일반적으로 Azure 알림 허브 알림에서 템플릿을 사용하여 플랫폼 간 알림을 보내는 방법에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요. **platform**을 설정한 경우 다음 값 중 하나여야 합니다. <ul><li><code>apns</code>&mdash;Apple Push Notification Service. APNS에 대 한 알림 허브를 구성 하 고 클라이언트 앱에서 알림을 받는 방법에 대 한 자세한 내용은 [Azure Notification Hubs를 사용 하 여 iOS에 푸시 알림 보내기](../notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md)를 참조 하세요.</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). ADM에 대한 Notification Hubs를 구성하고 Kindle 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Kindle 앱에 대한 Notification Hubs 시작](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md)을 참조하세요.</li><li><code>wns</code>&mdash;Windows 플랫폼을 대상으로 하는 [Windows 푸시 알림 서비스](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) Windows Phone 8.1 이상도 WNS에서 지원됩니다. 자세한 내용은 [Windows 유니버설 플랫폼 앱용 Notification Hubs 시작](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)을 참조하세요.</li><li><code>mpns</code>&mdash;[Microsoft 푸시 알림 서비스](/previous-versions/windows/apps/ff402558(v=vs.105)). 이 플랫폼은 Windows Phone 8 및 이전 Windows Phone 플랫폼을 지원합니다. 자세한 내용은 [Windows Phone에서 Azure Notification Hubs를 사용하여 푸시 알림 보내기](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)를 참조하세요.</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -302,7 +295,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참조 |
+| 바인딩 | 참고 |
 |---|---|
 | 알림 허브 | [운영 가이드](https://docs.microsoft.com/rest/api/notificationhubs/) |
 

@@ -1,26 +1,19 @@
 ---
-title: Azure 가상 머신 확장 집합에 확장 시퀀스 사용 | Microsoft Docs
+title: Azure 가상 머신 확장 집합에서 확장 시퀀싱 사용
 description: 가상 머신 확장 집합에 여러 개의 확장을 배포할 때 확장 프로비전 시퀀스를 지정하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: drewm
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: extensions
 ms.date: 01/30/2019
-ms.author: manayar
-ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83121034"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>가상 머신 확장 집합의 확장 프로비전 시퀀스 지정
 Azure 가상 머신 확장 집합은 배포 후 구성 및 관리, 모니터링, 보안 등의 기능을 제공합니다. 프로덕션 배포는 일반적으로 VM 인스턴스에 대해 구성된 여러 개의 확장 조합을 사용하여 원하는 결과를 얻습니다.
@@ -29,7 +22,7 @@ Azure 가상 머신 확장 집합은 배포 후 구성 및 관리, 모니터링,
 
 이 문서에서는 가상 머신 확장 집합의 VM 인스턴스에 대해 구성할 확장의 시퀀스 지정 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다.
 -   Azure 가상 머신 [확장](../virtual-machines/extensions/overview.md)
 -   가상 머신 확장 집합 [수정](virtual-machine-scale-sets-upgrade-scale-set.md)
@@ -192,7 +185,7 @@ PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/provider
 기존 확장 집합 인스턴스에 대한 변경 내용은 다음 [업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) 시 적용됩니다.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet을 사용하여 확장 집합 모델 정의에 애플리케이션 상태 확장을 추가합니다. 확장 시퀀스를 지정하려면 Az PowerShell 1.2.0 이상을 사용해야 합니다.
+[Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet을 사용하여 애플리케이션 상태 확장을 확장 집합 모델 정의에 추가합니다. 확장 시퀀스를 지정하려면 Az PowerShell 1.2.0 이상을 사용해야 합니다.
 
 다음 예제에서는 Windows 기반 확장 집합의 확장 집합 모델에 있는 `extensionProfile`에 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)을 추가합니다. 확장 집합에 이미 정의된 [사용자 지정 스크립트 확장](../virtual-machines/extensions/custom-script-windows.md)을 프로비전한 후 애플리케이션 상태 확장이 프로비전됩니다.
 
@@ -249,7 +242,7 @@ az vmss extension set \
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>종속성이 있는 확장을 추가할 수 없나요?
 1. provisionAfterExtensions에 지정된 확장이 확장 집합 모델에 정의되어 있는지 확인합니다.
-2. 순환 종속성이 발생하지 않는지 확인합니다. 예를 들어 다음 시퀀스는 허용되지 않습니다. ExtensionA -> ExtensionB -> ExtensionC -> ExtensionA
+2. 순환 종속성이 발생하지 않는지 확인합니다. 예를 들어 다음 시퀀스는 허용 되지 않습니다. ExtensionA-> Extensiona-> Extensiona-> ExtensionA
 3. 종속성이 있는 확장의 확장 “properties” 아래에 “settings” 속성이 있는지 확인합니다. 예를 들어 ExtentionB가 ExtensionA 이후에 프로비전되어야 하는 경우 ExtensionA의 ExtensionA “properties” 아래에 “settings” 필드가 있어야 합니다. 확장에 필수 설정이 없는 경우 비어 있는 “settings” 속성을 지정할 수 있습니다.
 
 ### <a name="not-able-to-remove-extensions"></a>확장을 제거할 수 없나요?

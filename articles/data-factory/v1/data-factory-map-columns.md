@@ -1,23 +1,22 @@
 ---
-title: Azure Data Factory에서 데이터 세트 열 매핑 | Microsoft Docs
+title: Azure Data Factory의 데이터 집합 열 매핑
 description: 원본 열을 대상 열에 매핑하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60238125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318878"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>원본 데이터 세트 열을 대상 데이터 세트 열에 매핑
 > [!NOTE]
@@ -40,7 +39,7 @@ ms.locfileid: "60238125"
 > 다음 샘플은 Azure SQL 및 Azure Blob에 대한 것이지만, 직사각 데이터 세트를 지원하는 모든 데이터 저장소에 적용할 수 있습니다. 예에서 관련 데이터 원본의 데이터를 가리키도록 데이터 세트와 연결 서비스를 조정합니다.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>예제 1 – Azure SQL에서 Azure Blob으로의 열 매핑
-이 예제에서 입력 테이블에는 구조가 있고 그 구조가 Azure SQL 데이터베이스에 있는 SQL 테이블을 가리킵니다.
+이 샘플에서 입력 테이블에는 구조가 있고 Azure SQL Database의 SQL 테이블을 가리킵니다.
 
 ```json
 {
@@ -138,7 +137,7 @@ File Storage에서 Blob Storage로 복사할 경우 기본 Blob 형식은 블록
 ```
 **열 매핑 흐름:**
 
-![열 매핑 흐름 ](./media/data-factory-map-columns/column-mapping-flow.png)
+![열 매핑 흐름](./media/data-factory-map-columns/column-mapping-flow.png)
 
 ## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>예제 2 – SQL 쿼리를 사용하여 Azure SQL에서 Azure Blob로 열 매핑
 이 예제에서는 단순히 “structure” 섹션에서 테이블 이름과 열 이름을 지정하는 대신 SQL 쿼리를 사용하여 Azure SQL의 데이터를 추출합니다. 
@@ -177,7 +176,7 @@ File Storage에서 Blob Storage로 복사할 경우 기본 Blob 형식은 블록
 
 **열 매핑 흐름**
 
-![열 매핑 흐름 - 2 ](./media/data-factory-map-columns/column-mapping-flow-2.png)
+![열 매핑 흐름 - 2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
 ## <a name="next-steps"></a>다음 단계
 복사 작업 사용에 대한 자습서 문서를 참조하세요. 

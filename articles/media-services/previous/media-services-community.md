@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 11902e363428a45bc158a99d251343e13b62540d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61245124"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836433"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services 커뮤니티  
 
@@ -40,7 +39,7 @@ ms.locfileid: "61245124"
 
 ### <a name="twitter"></a>Twitter
 
-[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter 핸들을 사용하여 Microsoft에 문의하거나 Twitter에서 업데이트를 팔로우합니다.  [@AzureSupport](https://twitter.com/azuresupport) twitter 핸들을 사용하여 Twitter에서 지원을 요청할 수 있습니다.  
+[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter 핸들을 사용하여 Microsoft에 문의하거나 Twitter에서 업데이트를 팔로우합니다. [@AzureSupport](https://twitter.com/azuresupport) twitter 핸들을 사용하여 Twitter에서 지원을 요청할 수 있습니다.  
 
 ### <a name="online-forums"></a>온라인 포럼
 
@@ -48,24 +47,16 @@ ms.locfileid: "61245124"
 
 현재, MSDN은 Media Services 팀의 기본 커뮤니티 포럼입니다.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
 
 또한 이 팀은 Stack Overflow에서 'azure-media-services' 태그가 지정된 질문을 모니터링합니다.
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## <a name="contact-the-team"></a>팀에 문의
+## <a name="need-help"></a>도움 필요 시
 
-기본 전자 메일은 azure Media Services: **amshelp\@microsoft.com**합니다.
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)으로 이동하여 지원 티켓을 열 수 있습니다.
 
-다음 표에 기능 하위 팀의 전자 메일이 나열되어 있습니다.
+## <a name="next-steps"></a>다음 단계
 
-| 기능 | Email |
-| --- | --- |
-| Azure 미디어 분석 |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure 미디어 탐색기 |amse@microsoft.com |
-| Workflow Designer |mepd@microsoft.com |
-| 파일 스트리밍 및 패키징 |amsstreaming@microsoft.com |
-| 라이브 스트리밍 및 패키징 |amslived@microsoft.com |
-
+[개요](media-services-overview.md)

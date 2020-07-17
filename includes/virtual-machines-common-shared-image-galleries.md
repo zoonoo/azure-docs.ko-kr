@@ -1,156 +1,164 @@
 ---
 title: 포함 파일
 description: 포함 파일
-services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/06/2019
-ms.author: akjosh; cynthn
+ms.date: 07/08/2020
+ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546733"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221642"
 ---
-공유 이미지 갤러리는 사용자 지정 관리형 VM 이미지를 기준으로 구조와 조직을 구축하는 데 사용할 수 있는 서비스입니다. 공유 이미지 갤러리를 제공합니다.
+공유 이미지 갤러리는 이미지에 대 한 구조와 조직을 구축 하는 데 도움이 되는 서비스입니다. Shared Image Galleries는 다음을 제공합니다.
 
-- 이미지의 글로벌 복제를 관리 합니다.
-- 버전 관리 및 관리 간소화 하기 위해 이미지의 그룹화 합니다.
-- 가용성 영역을 지 원하는 지역에서 영역 중복 저장소 (ZRS) 계정으로 항상 사용 가능한 이미지를 확인 합니다. ZRS는 영역 오류에 대 한 더 나은 복원 력을 제공합니다.
-- 구독 간에 및 RBAC를 사용 하 여 테 넌 트 간에 공유 합니다.
+- 글로벌 이미지 복제
+- 보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화
+- 가용성 영역을 지원하는 지역의 ZRS(영역 중복 스토리지) 계정이 포함된 고가용성 이미지. ZRS는 영역 장애 발생 시 보다 나은 복원력을 제공합니다.
+- 프리미엄 스토리지 지원(Premium_LRS)
+- RBAC를 사용하여 구독 간에, 심지어 AD(Active Directory) 테넌트 간에 공유
+- 각 지역에서 이미지 복제본으로 배포 스케일링
 
 공유 이미지 갤러리를 사용하면 조직 내의 여러 사용자, 서비스 주체 또는 AD 그룹에게 이미지를 공유할 수 있습니다. 배포의 크기를 더 빠르게 조정하기 위해 여러 지역에 공유 이미지를 복제할 수 있습니다.
 
-관리되는 이미지는 이미지를 만드는 방법에 따라 전체 VM(연결된 데이터 디스크 포함) 또는 OS 디스크의 사본입니다. 이미지에서 VM을 만드는 경우 이미지의 VHD 복사본을 사용하여 새 VM의 디스크를 만듭니다. 관리되는 이미지는 저장소에 유지되며 새 VM을 만들 때 계속 반복해서 사용할 수 있습니다.
+이미지는 생성 방식에 따라 완전한 VM(연결된 데이터 디스크 포함)의 복사본일 수도 있고 단순한 OS 디스크의 복사본일 수도 있습니다. 이미지에서 VM을 만드는 경우 이미지의 VHD 복사본을 사용하여 새 VM의 디스크를 만듭니다. 이미지는 스토리지에 유지되며 새 VM을 만들 때 계속 반복해서 사용할 수 있습니다.
 
-많은 수의 관리 되는 이미지를 유지 관리 해야 하 고 회사 전체에서 사용할 수 있도록 하려는 경우에 손쉽게 이미지를 공유할 수 있는 리포지토리로 공유 이미지 갤러리를 사용할 수 있습니다. 
+유지할 이미지가 굉장히 많고 회사 전체에서 이미지를 사용할 수 있게 만들려면 Shared Image Gallery를 리포지토리로 사용하면 됩니다. 
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
 
-| Resource | 설명|
+| 리소스 | Description|
 |----------|------------|
-| **관리되는 이미지** | 단독으로 사용 하거나를 만드는 데 사용 될 수 있는 기본 이미지를 **이미지 버전** 이미지 갤러리에서. 관리되는 이미지는 일반화된 VM에서 생성됩니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
+| **이미지 원본** | 이는 이미지 갤러리에서 **이미지 버전**을 만드는 데 사용할 수 있는 리소스입니다. 이미지 원본은 [일반화 되거나 특수화](#generalized-and-specialized-images)된 기존 Azure VM이 될 수 있습니다. 즉, 다른 이미지 갤러리의 관리 되는 이미지, 스냅숏, VHD 또는 이미지 버전을 사용할 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
-| **이미지 정의** | 이미지는 갤러리 내에서 정의 되 고 이미지 및 조직 내에서 사용 하기 위한 요구 사항에 대 한 정보를 전달 합니다. 이미지의 Windows 또는 Linux, 최소 및 최대 메모리 요구 사항 인지 여부와 같은 정보를 포함 하 고 릴리스 수 있습니다. 이미지의 형식 정의입니다. |
+| **이미지 정의** | 이미지 정의는 갤러리 내에 생성되고, 내부적으로 사용하기 위해 충족해야 할 요구 사항과 이미지에 대한 정보를 전달합니다. 여기에는 이미지가 Windows인지, Linux인지 여부, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함됩니다. 이미지의 형식 정의입니다. |
 | **이미지 버전** | **이미지 버전**은 갤러리를 사용하는 경우 VM을 만들 때 사용합니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 관리되는 이미지와 마찬가지로 **이미지 버전**을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다. |
 
 <br>
-
 
 ![갤러리에서 한 이미지의 여러 버전을 보유하는 방법을 보여주는 그래픽](./media/shared-image-galleries/shared-image-gallery.png)
 
 ## <a name="image-definitions"></a>이미지 정의
 
-이미지 정의 이미지의 버전에 대 한 논리적 그룹화입니다. 이미지 정의 대 한 이미지를 작성 하는 이유는, 어떤 OS에 대 한 것이 정보와 이미지를 사용 하는 방법에 대 한 정보를 보유 합니다. 이미지를 정의 하는 모든 특정 이미지를 만드는 관련 세부 정보에 대 한 계획과 같습니다. VM 이미지 정의 아니라 정의에서 생성 하는 이미지 버전을 배포 하지 마세요.
+이미지 정의는 이미지 버전의 논리적 그룹화입니다. 이미지 정의에는 이미지를 만든 이유, 이미지가 사용되는 OS, 이미지 사용에 대한 기타 정보가 포함되어 있습니다. 이미지 정의는 이미지 만들기와 관련하여 모든 세부 정보에 대한 계획과 비슷합니다. 이미지 정의가 아닌 정의에서 만든 이미지 버전의 VM을 배포합니다.
 
-
--조합에 사용 되는 각 이미지 정의 대 한 세 개의 매개 변수가 **게시자**, **제공** 하 고 **SKU**합니다. 이러한 특정 이미지 정의를 찾으려면 사용 됩니다. 3개 값을 모두 공유하지는 않으면서 1개 또는 2개의 값을 공유하는 이미지 버전을 사용할 수 있습니다.  예를 들어 다음은 3개의 이미지 정의와 해당 값입니다.
+각 이미지 정의에는 **Publisher**, **Offer**, **SKU**의 세 가지 매개 변수가 있으며 이러한 매개 변수를 조합해서 사용합니다. 세 매개 변수는 특정 이미지 정의를 찾는 데 사용됩니다. 3개 값을 모두 공유하지는 않으면서 1개 또는 2개의 값을 공유하는 이미지 버전을 사용할 수 있습니다.  예를 들어 다음은 3개의 이미지 정의와 해당 값입니다.
 
 |이미지 정의|게시자|제안|SKU|
 |---|---|---|---|
-|myImage1|Contoso|금융|백 엔드|
-|myImage2|Contoso|금융|프런트 엔드|
-|myImage3|테스트하는 중|금융|프런트 엔드|
+|myImage1|Contoso|재무|백 엔드|
+|myImage2|Contoso|재무|프런트 엔드|
+|myImage3|테스트|재무|프런트 엔드|
 
-이러한 세 가지 정의는 모두 고유한 값 세트를 갖습니다. 형식을 지정 하는 방법을 현재 게시자, 제안 및 SKU에 대 한 비슷합니다 [Azure Marketplace 이미지](../articles/virtual-machines/windows/cli-ps-findimage.md) Marketplace 이미지의 최신 버전을 가져오려면 Azure PowerShell에서. 이러한 값에는 고유한 각 이미지 정의 해야 합니다.
+이러한 세 가지 정의는 모두 고유한 값 세트를 갖습니다. 형식은 최신 버전의 Marketplace 이미지를 가져오기 위해 Azure PowerShell에서 [Azure Marketplace 이미지](../articles/virtual-machines/windows/cli-ps-findimage.md)의 게시자, 제품 및 SKU를 지정하는 방법과 비슷합니다. 각 이미지 정의에는 이와 같이 고유한 값 세트가 필요합니다.
 
-다음은 리소스를 더 쉽게 추적할 수 있도록 이미지 정의에 설정할 수 있는 다른 매개 변수입니다.
+다음은 리소스를 보다 쉽게 추적할 수 있도록 이미지 정의에 대해 설정할 수 있는 다른 매개 변수입니다.
 
-* 일반화 된 또는 특수화 된 있지만 일반화 된 OS 상태를 설정할 수 있습니다-운영 체제 상태는 현재 지원 합니다. Sysprep에 대 한 Windows를 사용 하 여 일반화 된 Vm에서 이미지를 만들어야 합니다 또는 `waagent -deprovision` Linux에 대 한 합니다.
-* Windows 또는 Linux 운영 체제-수 있습니다.
-* 설명-이미지 정의가 존재 하는 이유에서 더 자세한 정보를 제공 하는 사용 하 여 설명 합니다. 예를 들어 응용 프로그램이 미리 설치 된 프런트 엔드 서버 이미지 정의 사용할 수 있습니다.
-* 특정 이미지 정의에 최종 사용자 사용권 계약을 가리키도록 Eula-사용할 수 있습니다.
-* 개인정보취급방침 및 릴리스 정보-릴리스 정보 및 개인정보 처리 방침이 Azure storage에 저장 하 고 이미지 정의의 일부로 해당 항목에 액세스 하기 위한 URI를 제공 합니다.
-* 수명 종료 날짜-automation를 사용 하 여 이전 이미지 정의 삭제할 수 있도록 이미지 정의에 수명 종료 날짜를 연결 합니다.
-* 태그-이미지 정의 만들 때 태그를 추가할 수 있습니다. 태그에 대 한 자세한 내용은 참조 하세요. [태그를 사용 하 여 리소스를 구성 하려면](../articles/azure-resource-manager/resource-group-using-tags.md)
-* 최소 및 최대 vCPU 및 메모리 권장 사항-이미지 vCPU 및 메모리 권장 사항에 연결할 수 있습니다 정보 이미지 정의에.
-* 허용 되지 않는 디스크 형식의-VM에 대 한 저장소 요구 사항에 대 한 정보를 제공할 수 있습니다. 예를 들어 이미지를 표준 HDD 디스크에 적합 하지 않습니다 하는 경우 추가한 허용 안 함 목록에 있습니다.
+* 운영 체제 상태 - OS 상태를 [일반화 또는 특수화](#generalized-and-specialized-images)로 설정할 수 있습니다.
+* 운영 체제 - Windows 또는 Linux입니다.
+* 설명 - 설명을 사용하여 이미지 정의가 존재하는 이유를 자세히 알려줍니다. 예를 들어 애플리케이션이 미리 설치된 프런트 엔드 서버의 이미지 정의가 있을 수 있습니다.
+* Eula - 이미지 정의와 관련된 최종 사용자 사용권 계약을 가리키는 데 사용할 수 있습니다.
+* 개인정보처리방침 및 릴리스 정보 - 릴리스 정보와 개인정보처리방침을 Azure 스토리지에 저장하고 이미지 정의 과정에서 액세스할 수 있도록 URI를 제공합니다.
+* 수명 종료 데이터 - 수명 종료 날짜를 이미지 정의에 연결하면 오래된 이미지 정의를 자동으로 삭제할 수 있습니다.
+* 태그 - 이미지 정의를 만들 때 태그를 추가할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](../articles/azure-resource-manager/management/tag-resources.md)을 참조하세요.
+* 최소/최대 vCPU 및 메모리 권장 사항 - 이미지에 대한 vCPU 및 메모리 권장 사항이 있는 경우 해당 정보를 이미지 정의에 연결할 수 있습니다.
+* 허용되지 않는 디스크 유형 - VM의 스토리지 요구 사항에 대한 정보를 제공할 수 있습니다. 예를 들어 이미지가 표준 HDD 디스크에 적합하지 않은 경우 허용되지 않는 유형 목록에 추가합니다.
+* Hyper-V 생성 - 이미지가 1세대 또는 2세대 Hyper-V VHD 중 무엇으로 만들었는지 지정할 수 있습니다.
+* Marketplace 이미지 (, 및)에 대 한 계획 정보 `-PurchasePlanPublisher ` 를 구입 `-PurchasePlanName` `-PurchasePlanProduct` 합니다. 구매 계획 정보에 대 한 자세한 내용은 [Azure Marketplace에서 이미지 찾기](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) 및 이미지를 [만들 때 Azure Marketplace 구매 계획 정보 제공](../articles/virtual-machines/marketplace-images.md)을 참조 하세요.
 
+## <a name="generalized-and-specialized-images"></a>일반화 이미지와 특수화 이미지
+
+Shared Image Gallery는 두 가지 운영 체제 상태를 지원합니다. 일반적으로 이미지를 만드는 데 사용되는 VM을 일반화한 후 이미지를 가져와야 합니다. 일반화는 VM에서 머신 및 사용자 관련 정보를 제거하는 프로세스입니다. Windows의 경우 Sysprep 도구가 사용됩니다. Linux의 경우 [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` 또는 `-deprovision+user` 매개 변수를 사용할 수 있습니다.
+
+특수화 VM은 머신 관련 정보와 계정을 제거하는 프로세스를 거치지 않았습니다. 또한 특수화 이미지로 만든 VM에는 `osProfile`이 연결되지 않습니다. 즉, 특수화 이미지는 이점도 있지만 몇 가지 제한이 있습니다.
+
+- 특수화 이미지로 만든 VM과 확장 집합은 더 빠르게 작동할 수 있습니다. 이러한 이미지는 이미 첫 번째 부팅을 거친 원본으로 만들기 때문에 이러한 이미지로 만든 VM은 더 빠르게 부팅됩니다.
+- VM에 로그인하는 데 사용할 수 있는 계정은 해당 VM이 생성된 특수화 이미지를 사용하여 만드는 VM에서도 사용할 수 있습니다.
+- VM은 이미지를 가져온 VM의 **컴퓨터 이름**을 사용합니다. 충돌을 방지하려면 컴퓨터 이름을 변경해야 합니다.
+- `osProfile`은 `secrets`를 사용하여 중요한 정보를 VM에 전달하는 방식을 결정합니다. 이로 인해 KeyVault, WinRM 및 `osProfile`의 `secrets`를 사용하는 기타 기능을 사용할 때 문제가 발생할 수 있습니다. 경우에 따라 MSI(관리되는 서비스 ID)를 사용하여 이러한 제한을 해결할 수도 있습니다.
 
 ## <a name="regional-support"></a>국가별 지원
 
-원본 지역 아래 표에 나열 됩니다. 모든 공용 지역을 대상 지역의 수는 있지만 구독 허용 목록에 오스트레일리아 중부 및 오스트레일리아 중부 2에 복제 해야 합니다. 허용 목록 포함을 요청하려면 https://www.microsoft.com/en-au/central-regions-eligibility/로 이동합니다.
-
-
-| 원본 지역 |
-|---------------------|-----------------|------------------|-----------------|
-| 오스트레일리아 중부   | 미국 중부 EUAP | 한국 중부    | 영국 남부 2      |
-| 오스트레일리아 중부 2 | 동아시아       | 한국 남부      | 영국 서부         |
-| 오스트레일리아 동부      | 미국 동부         | 미국 중북부 | 미국 중서부 |
-| 오스트레일리아 남동부 | 미국 동부 2       | 유럽 북부     | 서유럽     |
-| 브라질 남부        | 미국 동부 2 EUAP  | 미국 중남부 | 인도 서부      |
-| 캐나다 중부      | 프랑스 중부  | 인도 남부      | 미국 서부         |
-| 캐나다 동부         | 프랑스 남부    | 동남아시아   | 미국 서부         |
-| 중앙 인도       | 일본 동부      | 영국 북부         | 미국 서부 2       |
-| 미국 중부          | 일본 서부      | 영국 남부         |                 |
-
-
+모든 공용 지역은 대상 지역이 될 수 있지만, 오스트레일리아 중부 및 오스트레일리아 중부 2에 복제하려면 구독이 허용 목록에 포함되어 있어야 합니다. 허용 목록 포함을 요청하려면 https://azure.microsoft.com/global-infrastructure/australia/contact/ 로 이동합니다.
 
 ## <a name="limits"></a>제한 
 
-공유 이미지 갤러리를 사용 하 여 리소스를 배포 하기 위한 구독 당 제한이 있습니다.
-- 지역당 구독 당 100 공유 이미지 갤러리
-- 지역당 구독 당 1,000 이미지 정의
-- 지역당 구독 당 10,000 이미지 버전
+Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한이 있습니다.
+- 구독마다, 지역마다 공유 이미지 갤러리 100개
+- 구독마다, 지역마다 이미지 정의 1,000개
+- 구독마다, 지역마다 이미지 버전 10,000개
+- 구독마다, 지역마다 이미지 버전 복제본 10개
+- 이미지에 연결된 모든 디스크는 크기가 1TB 이하여야 합니다.
 
-자세한 내용은 [제한에 대 한 리소스 사용량 확인](https://docs.microsoft.com/azure/networking/check-usage-against-limits) 현재 사용량을 확인 하는 방법에 대 한 예제입니다.
+자세한 내용은 현재 사용량을 확인하는 방법에 대한 [제한을 기준으로 리소스 사용량 확인](https://docs.microsoft.com/azure/networking/check-usage-against-limits) 예제를 참조하세요.
  
-
 ## <a name="scaling"></a>확장
 공유 이미지 갤러리를 사용하면 Azure에서 이미지를 보관하도록 하려는 복제본 수를 지정할 수 있습니다. 이렇게 하면 VM 배포를 여러 복제본으로 확대함으로써 단일 복제본 과부하로 인해 인스턴스 생성 처리가 제한될 가능성을 줄일 수 있으므로 다중 VM 배포 시나리오에 도움이 됩니다.
 
+이제 Shared Image Gallery를 사용하면 가상 머신 확장 집합에 최대 1,000개의 VM 인스턴스를 배포할 수 있습니다(관리형 이미지는 600개까지). 이미지 복제본은 보다 나은 배포 성능, 안정성 및 일관성을 제공합니다.  지역에 필요한 규모에 따라 각 대상 지역에 서로 다른 복제본 수를 설정할 수 있습니다. 각 복제본은 이미지의 전체 복사본이기 때문에 이렇게 하면 복제본을 추가할 때마다 선형적으로 배포를 확장할 수 있습니다. 두 개의 이미지 또는 지역이 똑같지는 않지만, 지역에서 복제본을 사용하는 방법에 대한 일반적인 지침은 다음과 같습니다.
+
+- VMSS(Virtual Machine Scale Sets)가 아닌 배포의 경우 - 동시에 20개의 VM을 만들 때마다 복제본 하나를 유지하는 것이 좋습니다. 예를 들어 한 지역에서 동일한 이미지를 사용하여 동시에 120개의 VM을 만드는 경우 이미지 복제본을 6개 이상 유지하는 것이 좋습니다. 
+- VMSS(Virtual Machine Scale Sets) 배포의 경우 - 최대 600개 인스턴스를 배포하는 확장 집합마다 하나 이상의 복제본을 유지하는 것이 좋습니다. 예를 들어 한 지역에서 동일한 이미지를 사용하여 동시에 5개의 확장 집합을 만들고 확장 집합마다 VM 600개를 배포하는 경우 이미지 복제본을 5개 이상 유지하는 것이 좋습니다. 
+
+이미지 크기, 콘텐츠, OS 형식 등의 요소를 감안하여 항상 복제본 수를 초과 프로비저닝하는 것이 좋습니다.
+
 ![이미지를 확장하는 방법을 보여 주는 그래픽](./media/shared-image-galleries/scaling.png)
 
+## <a name="make-your-images-highly-available"></a>고가용성 이미지 만들기
+
+[Azure ZRS(영역 중복 스토리지)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/)는 지역에서 가용성 영역에 문제가 발생할 때 복원력을 제공합니다. 이제 Shared Image Gallery가 일반 공급되므로, 가용성 영역을 지원하는 지역의 ZRS 계정에 이미지를 저장하도록 선택할 수 있습니다. 
+
+각 대상 지역의 계정 유형을 선택할 수도 있습니다. 기본 스토리지 계정 유형은 Standard_LRS지만, 가용성 영역이 지원되는 지역에는 Standard_ZRS를 선택할 수 있습니다. [여기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)서 지역별 ZRS 가용성을 확인하세요.
+
+![ZRS를 보여주는 그래픽](./media/shared-image-galleries/zrs.png)
 
 ## <a name="replication"></a>복제
 공유 이미지 갤러리를 사용하여 다른 Azure 지역에 이미지를 자동으로 복제할 수도 있습니다. 조직에 적합한 방식으로 각 공유 이미지 버전을 여러 지역에 복제할 수 있습니다. 한 가지 예는 다중 지역에서 최신 이미지를 항상 복제하는 것이지만 이전 버전은 모두 1개 지역에서만 사용 가능합니다. 공유 이미지 버전의 스토리지 비용을 절약하는 데 도움이 될 수 있습니다. 
 
-공유 이미지 버전이 복제되는 지역은 생성 시간 후 업데이트할 수 있습니다. 여러 지역에 복제하는 데 걸리는 시간은 복사되는 데이터의 양과 버전이 복제되는 지역 수에 따라 다릅니다. 경우에 따라 몇 시간이 걸릴 수 있습니다. 복제가 진행 중일 때 지역별 복제 상태를 볼 수 있습니다. 영역의 이미지 복제가 완료 되 면 VM 또는 지역에 해당 이미지 버전을 사용 하 여 확장 집합을 배포할 수 있습니다.
+공유 이미지 버전이 복제되는 지역은 생성 시간 후 업데이트할 수 있습니다. 여러 지역에 복제하는 데 걸리는 시간은 복사되는 데이터의 양과 버전이 복제되는 지역 수에 따라 다릅니다. 경우에 따라 몇 시간이 걸릴 수 있습니다. 복제가 진행 중일 때 지역별 복제 상태를 볼 수 있습니다. 한 지역에서 이미지 복제가 완료되면 해당 지역에서 해당 이미지 버전을 사용하여 VM 또는 확장 집합을 배포할 수 있습니다.
 
 ![이미지를 복제하는 방법을 보여 주는 그래픽](./media/shared-image-galleries/replication.png)
 
+## <a name="access"></a>액세스 권한
 
-## <a name="access"></a>Access
+Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스이므로 기본 제공되는 네이티브 Azure RBAC 컨트롤을 사용하여 공유할 수 있습니다. RBAC를 사용하면 이러한 리소스를 다른 사용자, 서비스 주체 및 그룹과 공유할 수 있습니다. 리소스가 생성된 테넌트 외부의 개별 리소스에 대한 액세스를 공유할 수도 있습니다. 사용자에게 공유 이미지 버전에 대한 액세스 권한이 부여되면 사용자는 VM 또는 Virtual Machine Scale Set를 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
 
-공유 이미지 갤러리, 공유 이미지 및 공유 이미지 버전은 모두 리소스이므로 기본 제공되는 네이티브 Azure RBAC 컨트롤을 사용하여 공유할 수 있습니다. RBAC를 사용 하 여 다른 사용자, 서비스 사용자 및 그룹에 이러한 리소스를 공유할 수 있습니다. 테 넌 트 내에서 만들어진 외부에서 개인에 대 한 액세스도 공유할 수 있습니다. 사용자는 공유 이미지 버전에 대 한 액세스, VM 또는 가상 머신 확장 집합을 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
-
-| 공유한 항목     | 공유 이미지 갤러리 | 공유 이미지 | 공유 이미지 버전 |
+| 공유한 항목     | 공유 이미지 갤러리 | 이미지 정의 | 이미지 버전 |
 |----------------------|----------------------|--------------|----------------------|
-| 공유 이미지 갤러리 | 예.                  | 예          | 예.                  |
-| 공유 이미지         | 아닙니다.                   | 예          | 예.                  |
-| 공유 이미지 버전 | 아닙니다.                   | 아니요           | 예.                  |
+| 공유 이미지 갤러리 | 예                  | 예          | 예                  |
+| 이미지 정의     | 예                   | 예          | 예                  |
 
-최상의 환경을 위해 갤러리 수준에서 공유 하는 것이 좋습니다. RBAC에 대 한 자세한 내용은 참조 하세요. [RBAC를 사용 하 여 Azure 리소스에 대 한 액세스 관리](../articles/role-based-access-control/role-assignments-portal.md)합니다.
+최상의 환경을 위해 갤러리 수준에서 공유하는 것이 좋습니다. 개별 이미지 버전을 공유하는 것은 좋지 않습니다. RBAC에 대한 자세한 내용은 [RBAC를 사용하여 Azure 리소스에 대한 액세스 관리](../articles/role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-이미지도 공유할 수 있습니다, 대규모 다중 테 넌 트 앱 등록을 사용 하 여 테 넌 트. 테 넌 트 간에 이미지를 공유 하는 방법에 대 한 자세한 내용은 참조 하세요. [갤러리 VM 이미지를 Azure 테 넌 트에서 공유](../articles/virtual-machines/linux/share-images-across-tenants.md)합니다.
+다중 테넌트 앱 등록을 사용하여 테넌트 간에도 이미지를 대규모로 공유할 수 있습니다. 테넌트 간에 이미지를 공유하는 방법에 대한 자세한 내용은 [Azure 테넌트 간에 갤러리 VM 이미지 공유](../articles/virtual-machines/linux/share-images-across-tenants.md)를 참조하세요.
 
 ## <a name="billing"></a>결제
 공유 이미지 갤러리 서비스 사용에 대한 추가 비용은 없습니다. 다음 리소스에 대한 비용이 청구됩니다.
-- 공유 이미지 버전 저장 시 스토리지 비용. 비용은 이미지 버전의 복제본의 수 및 버전에 복제 됩니다 지역 수에 따라 달라 집니다. 예를 들어 2 이미지 있고 3 개 지역에 복제는 모두 다음 있습니다 변경 됩니다 크기에 따라 6 관리 되는 디스크에 대 한 합니다. 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)합니다.
-- 복제 된 지역에 원본 지역에서 첫 번째 이미지 버전의 복제를 위한 네트워크 송신 요금입니다. 추가 비용이 없습니다 되므로 지역 내의 후속 복제본 처리 됩니다. 
+- 공유 이미지 버전 저장 시 스토리지 비용. 비용은 이미지 버전의 복제본 수와 버전이 복제되는 지역 수에 따라 달라집니다. 예를 들어 이미지가 2개 있고 둘 다 3개 지역에 복제되는 경우 이미지 크기에 따라 관리 디스크 6개의 요금이 청구됩니다. 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.
+- 이미지 버전을 원본 지역에서 복제된 지역으로 처음 복제할 때 발생하는 네트워크 송신 요금. 후속 복제본은 지역 내에서 처리되므로 추가 비용이 없습니다. 
 
-## <a name="updating-resources"></a>리소스를 업데이트하는 중
+## <a name="updating-resources"></a>리소스 업데이트
 
-를 만든 후 이미지 갤러리 리소스에 일부 변경 가능 합니다. 으로 제한 됩니다.
+이미지 갤러리 리소스를 만든 후 변경할 수 있습니다. 다음과 같은 제한이 있습니다.
  
 공유 이미지 갤러리:
 - 설명
 
 이미지 정의:
 - 권장 vCPU
-- 권장 되는 메모리
-- 설명
+- 권장 메모리
+- Description
 - 수명 주기 끝
 
 이미지 버전:
 - 지역 복제본 수
 - 대상 지역
-- 최신에서 제외
+- 최신 항목에서 제외
 - 수명 주기 끝
-
 
 ## <a name="sdk-support"></a>SDK 지원
 
@@ -158,9 +166,9 @@ ms.locfileid: "65546733"
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.JS](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Node.JS](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/go/azure/)
+- [Go](https://docs.microsoft.com/azure/go/)
 
 ## <a name="templates"></a>템플릿
 
@@ -173,97 +181,114 @@ ms.locfileid: "65546733"
 
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 
-**Q.** 구독 간에 모든 공유 이미지 갤러리 리소스를 나열하는 방법은 무엇인가요? 
- 
- a. Azure Portal에서 액세스할 수 있는 구독 간에 공유 이미지 갤러리 리소스를 모두 나열하려면 아래 단계를 따르세요.
+* [구독 간에 모든 Shared Image Gallery 리소스를 나열하는 방법은 무엇인가요?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
+* [기존 이미지를 Shared Image Gallery로 이동할 수 있나요?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
+* [특수화 디스크로 이미지 버전을 만들 수 있나요?](#can-i-create-an-image-version-from-a-specialized-disk)
+* [Shared Image Gallery 리소스를 만든 후 다른 구독으로 이동할 수 있나요?](#can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created)
+* [Azure 중국 21Vianet, Azure 독일, Azure Government Cloud 등의 클라우드 간에 이미지 버전을 복제할 수 있나요?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
+* [이미지 버전을 구독 간에 복제할 수 있나요?](#can-i-replicate-my-image-versions-across-subscriptions)
+* [Azure AD 테넌트 간에 이미지 버전을 공유할 수 있나요?](#can-i-share-image-versions-across-azure-ad-tenants)
+* [대상 지역 간에 이미지 버전을 복제하려면 얼마나 걸리나요?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
+* [원본 지역과 대상 지역의 차이점은 무엇인가요?](#what-is-the-difference-between-source-region-and-target-region)
+* [이미지 버전을 만드는 동안 원본 영역을 지정하는 방법은 무엇인가요?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
+* [각 지역에 만들 이미지 버전 복제본 수를 지정하는 방법은 무엇인가요?](#how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region)
+* [이미지 정의 및 이미지 버전을 만드는 위치와 다른 위치에 Shared Image Gallery를 만들 수 있나요?](#can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
+* [Shared Image Gallery 사용 요금은 얼마인가요?](#what-are-the-charges-for-using-the-shared-image-gallery)
+* [Shared Image Gallery와 이미지 정의 및 이미지 버전을 만들려면 어떤 API 버전을 사용해야 하나요?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
+* [이미지 버전으로 공유 VM 또는 Virtual Machine Scale Set를 만들려면 어떤 API 버전을 사용해야 하나요?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+* [관리형 이미지를 사용하여 만든 Virtual Machine Scale Set가 Shared Image Gallery 이미지를 사용하도록 업데이트할 수 있나요?]
+
+### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>구독 간에 모든 공유 이미지 갤러리 리소스를 나열하는 방법은 무엇인가요?
+
+Azure Portal에서 액세스할 수 있는 구독 간에 Shared Image Gallery 리소스를 모두 나열하려면 아래 단계를 따르세요.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-1. **모든 리소스**로 이동합니다.
+1. 페이지를 아래로 스크롤하고 **모든 리소스**를 선택합니다.
 1. 모든 리소스를 나열하려는 모든 구독을 선택합니다.
-1. **전용 갤러리** 형식의 리소스를 찾습니다.
- 
-   이미지 정의 및 이미지 버전을 확인하려면 **숨겨진 형식 표시**도 선택해야 합니다.
- 
-   사용 권한이 있는 구독 간에 공유 이미지 갤러리 리소스를 나열하려면 Azure CLI에서 다음 명령을 사용하세요.
+1. **Shared Image Gallery** 형식의 리소스를 찾습니다.
+  
+사용 권한이 있는 구독 간에 공유 이미지 갤러리 리소스를 나열하려면 Azure CLI에서 다음 명령을 사용하세요.
 
-   ```bash
+```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
-   ```
+```
 
+자세한 내용은 [Azure CLI](../articles/virtual-machines/update-image-resources-cli.md) 또는 [PowerShell](../articles/virtual-machines/update-image-resources-powershell.md)을 사용하여 **갤러리 리소스 관리**를 참조하세요.
 
-**Q.** 기존 이미지를 공유 이미지 갤러리로 이동할 수 있나요?
+### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>기존 이미지를 공유 이미지 갤러리로 이동할 수 있나요?
  
- a. 예. 가지고 있는 이미지의 유형에 따라 3가지 시나리오가 있습니다.
+예. 가지고 있는 이미지의 유형에 따라 3가지 시나리오가 있습니다.
 
- 시나리오 1: 관리형 이미지가 있는 경우 해당 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다.
+ 시나리오 1: 관리형 이미지가 있는 경우 해당 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 자세한 내용은 [Azure CLI](../articles/virtual-machines/image-version-managed-image-cli.md) 또는 [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md)을 사용하여 **관리형 이미지를 이미지 버전으로 마이그레이션**을 참조하세요.
 
- 시나리오 2: 범용 비관리 이미지가 있는 경우 해당 이미지에서 관리형 이미지를 만든 다음 관리형 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 
+ 시나리오 2: 비관리형 이미지가 있는 경우 해당 이미지에서 관리형 이미지를 만든 다음, 관리형 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 
 
- 시나리오 3: 로컬 파일 시스템에 VHD가 있는 경우 VHD를 업로드하고 관리형 이미지를 만들어야 합니다. 그리고 나면 해당 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다.
-- Windows VM의 VHD일 경우 [일반화된 VHD 업로드](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)를 참조하세요.
+ 시나리오 3: 로컬 파일 시스템에 VHD가 있는 경우 VHD를 관리형 이미지에 업로드한 다음, 해당 이미지로 이미지 정의와 이미지 버전을 만들 수 있습니다.
+
+- Windows VM의 VHD인 경우 [VHD 업로드](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)를 참조하세요.
 - Linux VM용 VHD일 경우 [VHD 업로드](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)를 참조하세요.
 
+### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>특수한 디스크에서 이미지 버전을 만들 수 있나요?
 
-**Q.** 특수한 디스크에서 이미지 버전을 만들 수 있나요?
+예,는 [CLI](../articles/virtual-machines/vm-specialized-image-version-cli.md), [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md)또는 API를 사용 하 여 특수화 된 이미지에서 VM을 만들 수 있습니다. 
 
- a. 아니요. 현재는 특수한 디스크를 이미지로 지원하지 않습니다. 특수한 디스크가 있는 경우 새로운 VM에 특수한 디스크를 연결하여 [VHD에서 VM을 생성](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk)해야 합니다. 실행 중인 VM이 있다면 [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) 또는 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images)에서 관리되는 이미지를 만드는 지침을 따라야 합니다. 일반화된 관리되는 이미지가 있을 경우 공유 이미지 설명 및 이미지 버전을 만드는 프로세스를 시작할 수 있습니다.
+### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Shared Image Gallery 리소스를 만든 후 다른 구독으로 이동할 수 있나요?
 
- 
-**Q.** 공유 이미지 갤러리 리소스를 만든 후 다른 구독으로 이동할 수 있나요?
+아니요, Shared Image Gallery 리소스를 다른 구독으로 이동할 수는 없습니다. [Azure CLI](../articles/virtual-machines/image-version-another-gallery-cli.md) 또는 [PowerShell](../articles/virtual-machines/image-version-another-gallery-powershell.md)을 사용하여 갤러리의 이미지 버전을 다른 지역에 복제하거나 다른 갤러리의 이미지를 복사할 수 있습니다.
 
- a. 아니요. 공유 이미지 갤러리 리소스를 다른 구독으로 이동할 수는 없습니다. 그러나 필요에 따라 갤러리의 이미지 버전을 다른 지역으로 복제할 수는 있습니다.
+### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Azure 중국 21Vianet, Azure 독일, Azure Government Cloud 등의 클라우드 간에 이미지 버전을 복제할 수 있나요?
 
-**Q.** Azure China 21Vianet, Azure Germany 및 Azure Government Cloud 등 클라우드 간에 내 이미지 버전을 복제할 수 있나요? 
+아니요, 클라우드 간에 이미지 버전을 복제할 수는 없습니다.
 
- a. 아니요, 클라우드 간에 이미지 버전을 복제할 수는 없습니다.
+### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>내 이미지 버전을 구독 간에 복제할 수 있나요?
 
-**Q.** 내 이미지 버전을 구독 간에 복제할 수 있나요? 
+아니요. 구독에서 지역 간에 이미지 버전을 복제하고 RBAC를 통해 다른 구독에서 사용할 수 있습니다.
 
- a. 아니요. 구독에서 지역 간에 이미지 버전을 복제하고 RBAC를 통해 다른 구독에서 사용할 수 있습니다.
+### <a name="can-i-share-image-versions-across-azure-ad-tenants"></a>Azure AD 테넌트 간에 이미지 버전을 공유할 수 있나요? 
 
-**Q.** Azure AD 테넌트 간에 이미지 버전을 공유할 수 있나요? 
+예, RBAC를 사용하여 테넌트 간에 개별 버전을 공유할 수 있습니다. 그러나 대규모로 공유하려면 [PowerShell](../articles/virtual-machines/windows/share-images-across-tenants.md) 또는 [CLI](../articles/virtual-machines/linux/share-images-across-tenants.md)를 사용하여 "Azure 테넌트 간에 갤러리 이미지 공유"를 참조하세요.
 
- a. 예, 테 넌 트에서 공유할 개인에 게 RBAC를 사용할 수 있습니다. "Azure 테 넌 트에서 공유 갤러리 이미지"를 사용 하 여 참조 규모가 든 공유할 수 있지만 [PowerShell](../articles/virtual-machines/windows/share-images-across-tenants.md) 하거나 [CLI](../articles/virtual-machines/linux/share-images-across-tenants.md)합니다.
+### <a name="how-long-does-it-take-to-replicate-image-versions-across-the-target-regions"></a>대상 지역 간에 이미지 버전을 복제하려면 얼마나 걸리나요?
 
+이미지 버전 복제 시간은 이미지의 크기와 이미지가 복제되는 지역 수에 따라 크게 달라집니다. 그러나 최상의 결과를 얻으려면 이미지를 작게 유지하고 원본 지역과 대상 지역을 가깝게 유지하는 것이 가장 좋습니다. -ReplicationStatus 플래그를 사용하여 복제의 상태를 확인할 수 있습니다.
 
-**Q.** 대상 지역 간에 이미지 버전을 복제하려면 얼마나 걸리나요?
+### <a name="what-is-the-difference-between-source-region-and-target-region"></a>원본 지역과 대상 지역 사이의 차이점은 무엇인가요?
 
- a. 이미지 버전 복제 시간은 이미지의 크기와 이미지가 복제되는 지역 수에 따라 크게 달라집니다. 그러나 최상의 결과를 얻으려면 이미지를 작게 유지하고 원본 지역과 대상 지역을 가깝게 유지하는 것이 가장 좋습니다. -ReplicationStatus 플래그를 사용하여 복제의 상태를 확인할 수 있습니다.
+원본 지역은 이미지 버전이 생성되는 지역이며, 대상 지역은 이미지 버전의 복사본이 저장되는 지역입니다. 각 이미지 버전에 하나의 원본 지역만 사용할 수 있습니다. 또한 이미지 버전을 만들 때 원본 지역 위치를 대상 지역 중 하나로 전달하세요.
 
+### <a name="how-do-i-specify-the-source-region-while-creating-the-image-version"></a>이미지 버전을 만드는 동안 원본 영역을 지정하는 방법은 무엇인가요?
 
-**Q.** 원본 지역과 대상 지역 사이의 차이점은 무엇인가요?
+이미지 버전을 만들 때 CLI의 **--location** 태그와 PowerShell의 **-Location** 태그를 사용하여 원본 지역을 지정할 수 있습니다. 이미지 버전을 만들려면 기본 이미지로 사용 중인 관리되는 이미지가 이미지 버전을 만들려는 위치와 동일한 위치에 있는지 확인하세요. 또한 이미지 버전을 만들 때 원본 지역 위치를 대상 지역 중 하나로 전달하세요.  
 
- a. 원본 지역은 이미지 버전이 생성되는 지역이며, 대상 지역은 이미지 버전의 복사본이 저장되는 지역입니다. 각 이미지 버전에 하나의 원본 지역만 사용할 수 있습니다. 또한 이미지 버전을 만들 때 원본 지역 위치를 대상 지역 중 하나로 전달하세요.  
+### <a name="how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region"></a>각 지역에 만들 이미지 버전 복제본 수를 지정하는 방법은 무엇인가요?
 
-
-**Q.** 이미지 버전을 만드는 동안 원본 영역을 지정하는 방법은 무엇인가요?
-
- a. 이미지 버전을 만들 때 CLI의 **--location** 태그와 PowerShell의 **-Location** 태그를 사용하여 원본 지역을 지정할 수 있습니다. 이미지 버전을 만들려면 기본 이미지로 사용 중인 관리되는 이미지가 이미지 버전을 만들려는 위치와 동일한 위치에 있는지 확인하세요. 또한 이미지 버전을 만들 때 원본 지역 위치를 대상 지역 중 하나로 전달하세요.  
-
-
-**Q.** 각 지역에 만들 이미지 버전 복제본 수를 지정하는 방법은 무엇인가요?
-
- a. 각 지역에 만들 이미지 버전 복제본 수를 지정하는 방법은 두 가지가 있습니다.
+각 지역에 만들 이미지 버전 복제본 수를 지정하는 방법은 두 가지가 있습니다.
  
 1. 지역당 만들려는 복제본의 수를 지정하는 지역당 복제본 수. 
 2. 지역당 복제본 수가 지정되지 않은 경우 지역당 기본 개수인 일반적인 복제본 수입니다. 
 
-지역 복제본 수를 지정 하려면 해당 지역에서 만들려는 복제본의 수와 함께 위치를 전달 합니다. 예를 들어 "South Central US=2"를 전달할 수 있습니다. 
+지역당 복제본 수를 지정하려면 다음과 같이 해당 지역에 만들려는 복제본 수와 위치를 전달합니다. 예를 들어 "South Central US=2"를 전달할 수 있습니다. 
 
 각 위치에 지역당 복제본 수가 지정되지 않은 경우 기본 복제본 수가 일반적인 복제본 수로 지정됩니다. 
 
 CLI에서 일반적인 복제본 수를 지정하려면 `az sig image-version create` 명령에 **--replica-count** 인수를 사용합니다.
 
+### <a name="can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>이미지 정의 및 이미지 버전을 만드는 위치와 다른 위치에 Shared Image Gallery를 만들 수 있나요?
 
-**Q.** 이미지 정의 및 이미지 버전을 만들려는 위치와 다른 위치에 공유 이미지 갤러리를 만들 수 있나요?
+예, 구성할 수 있습니다. 하지만 리소스 그룹, Shared Image Gallery, 이미지 정의 및 이미지 버전을 같은 위치에 유지하는 것이 좋습니다.
 
- a. 예, 구성할 수 있습니다. 그러나 모범 사례로 좋습니다 동일한 위치에 리소스 그룹, 공유 이미지 갤러리에서 이미지 정 및 이미지 버전을 유지할 수 있습니다.
+### <a name="what-are-the-charges-for-using-the-shared-image-gallery"></a>공유 이미지 갤러리 사용 요금은 얼마인가요?
 
+공유 이미지 갤러리 서비스 사용 요금은 없습니다(단, 이미지 버전을 저장할 때 발생하는 스토리지 요금과 원본 지역에서 대상 지역으로 이미지 버전을 복제할 때 발생하는 네트워크 송신 요금 제외).
 
-**Q.** 공유 이미지 갤러리 사용 요금은 얼마인가요?
+### <a name="what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version"></a>Shared Image Gallery와 이미지 정의 및 이미지 버전을 만들려면 어떤 API 버전을 사용해야 하나요?
 
- a. 공유 이미지 갤러리 서비스 사용 요금은 없습니다(단, 이미지 버전을 저장할 때 발생하는 저장소 요금과 원본 지역에서 대상 지역으로 이미지 버전을 복제할 때 발생하는 네트워크 송신 요금 제외).
+공유 이미지 갤러리, 이미지 정의 및 이미지 버전으로 작업하려면 API 버전 2018-06-01을 사용하는 것이 좋습니다. ZRS(영역 중복 스토리지)에는 버전 2019-03-01 이상이 필요합니다.
 
-**Q.** 이미지 버전에서 공유 이미지 갤러리, 이미지 정의, 이미지 버전, VM/VMSS를 만들려면 어떤 API 버전을 사용해야 하나요?
+### <a name="what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>이미지 버전으로 공유 VM 또는 Virtual Machine Scale Set를 만들려면 어떤 API 버전을 사용해야 하나요?
 
- a. 이미지 버전을 사용한 VM 및 Virtual Machine Scale Set 배포의 경우 API 버전 2018-04-01 이상을 사용하는 것이 좋습니다. 공유 이미지 갤러리, 이미지 정의 및 이미지 버전으로 작업하려면 API 버전 2018-06-01을 사용하는 것이 좋습니다. 영역 중복 저장소 (ZRS) 필요 2019-03-01 버전 이상.
+이미지 버전을 사용한 VM 및 Virtual Machine Scale Set 배포의 경우 API 버전 2018-04-01 이상을 사용하는 것이 좋습니다.
+
+### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>관리형 이미지를 사용하여 만든 Virtual Machine Scale Set가 Shared Image Gallery 이미지를 사용하도록 업데이트할 수 있나요?
+
+예, OS 유형, Hyper-V 생성 및 데이터 디스크 레이아웃이 이미지 간에 일치한다면 확장 집합 이미지 참조를 관리형 이미지에서 Shared Image Gallery 이미지로 업데이트할 수 있습니다. 

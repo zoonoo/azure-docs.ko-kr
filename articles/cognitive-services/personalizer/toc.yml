@@ -6,27 +6,45 @@
     - name: Personalizer란?
       href: what-is-personalizer.md
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
+    - name: 새로운 기능
+      href: whats-new.md
+      displayName: 'release notes, service updates, videos'
 - name: 빠른 시작
   items:
-    - name: 피드백 루프 만들기 및 사용
-      href: csharp-quickstart-commandline-feedback-loop.md
-      displayName: 'code, sample, quickstart, c#'
+    - name: SDK 사용
+      href: sdk-learning-loop.md
+- name: 자습서
+  items:
+    - name: 웹앱 추가
+      href: tutorial-use-personalizer-web-app.md
+    - name: Azure Notebook 사용
+      href: tutorial-use-azure-notebook-generate-loop-data.md
+      displayName: 'jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency'
 - name: 개념
   items:
     - name: Personalizer의 작동 원리
       href: how-personalizer-works.md
       displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
-    - name: Personalizer는 어디서 사용할 수 있나요?
+    - name: Personalizer를 사용하는 위치
       href: where-can-you-use-personalizer.md
       displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: 용어
+      href: terminology.md
     - name: 윤리 및 사용 책임
       href: ethics-responsible-use.md
       displayName: 'best practice, design'
     - name: 기본 개념
       items:
-        - name: '기능: 작업 및 컨텍스트'
+        - name: 기능 작업 및 컨텍스트
           href: concepts-features.md
-          displayName: 'action, context, feature, namespace, JSON, best practice, set'
+          displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
+        - name: 학습 정책
+          href: concept-active-learning.md
+          displayName: 'active, inactive'
+        - name: 실습생 모드
+          href: concept-apprentice-mode.md
+        - name: 활성 및 비활성 이벤트
+          href: concept-active-inactive-events.md
         - name: 보상
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -40,16 +58,24 @@
         - name: 오프라인 평가
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+        - name: 기능 평가
+          href: concept-feature-evaluation.md
+    - name: 확장성 및 성능
+      href: concepts-scalability-performance.md
 - name: 방법 가이드
   items:
-    - name: Personalizer 만들기 및 구성
+    - name: Personalizer 리소스 만들기
+      href: how-to-create-resource.md
+    - name: Personalizer 구성
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy'
-    - name: 분석
-      items:
-        - name: 오프라인 평가
-          href: how-to-offline-evaluation.md
-- name: 참고 자료
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: 실습생 모드 사용
+      href: how-to-learning-behavior.md
+    - name: 모델 및 학습 설정 관리
+      href: how-to-manage-model.md
+    - name: 오프라인 평가를 사용하여 분석
+      href: how-to-offline-evaluation.md
+- name: 참조
   items:
     - name: 샘플
       href: 'https://go.microsoft.com/fwlink/?linkid=2092083'
@@ -57,19 +83,43 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
     - name: SDK
       items:
-        - name: .Net SDK 참조
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
-        - name: NuGet 패키지
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: .NET
+          items:
+            - name: 참조
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet'
+            - name: NuGet 패키지
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: Go
+          items:
+            - name: SDK)
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer'
+        - name: Node.js
+          items:
+            - name: 참조
+              href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest'
+            - name: NPM
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
+        - name: Python
+          items:
+            - name: 참조
+              href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python'
+            - name: Pypi 패키지
+              href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: 리소스
   items:
+    - name: 문제 해결
+      href: troubleshooting.md
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: 암호화
+      href: personalizer-encryption-of-data-at-rest.md
     - name: Azure 로드맵
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://go.microsoft.com/fwlink/?linkid=2092154'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/personalizer'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/921562-personalizer'

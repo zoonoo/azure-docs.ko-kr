@@ -1,13 +1,11 @@
 ---
-title: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 앱에 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android로 푸시 알림 보내기 | Microsoft Docs
 description: 이 자습서에서 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
 keywords: 푸시 알림,푸시알림,android 푸시 알림
-author: jwargo
-manager: patniko
-editor: spelluru
-ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
+author: sethmanheim
+manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -15,13 +13,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 929977913fdbf0c6f59d69ec536a2638bca7b97c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 3f2ad007ff0e1012f957c718d125b2e5b2e40964
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232730"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249241"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시(더 이상 사용되지 않음)
 
@@ -41,7 +41,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 > [!IMPORTANT]
 > 이 항목에서는 GCM(Google Cloud Messaging)을 사용한 푸시 알림을 보여 줍니다. Google의 FCM(Firebase Cloud Messaging)을 사용하는 경우 [Azure Notification Hubs 및 FCM을 사용하여 Android에 푸시 알림 보내기](notification-hubs-android-push-notification-google-fcm-get-started.md)를 참조하세요.
 
-이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted)서 다운로드할 수 있습니다.
+이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp)서 다운로드할 수 있습니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -51,7 +51,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 > * 알림 허브에 앱 연결
 > * 앱 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 * [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
@@ -74,7 +74,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 이제 알림 허브가 GCM과 작동하도록 구성되었으며, 푸시 알림을 받고 보내도록 앱을 등록하기 위한 연결 문자열이 있습니다.
 
-## <a id="connecting-app"></a>알림 허브에 앱 연결
+## <a name="connect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>알림 허브에 앱 연결
 
 ### <a name="create-a-new-android-project"></a>새 Android 프로젝트 만들기
 
@@ -110,7 +110,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 ### <a name="updating-the-projects-androidmanifestxml"></a>프로젝트의 AndroidManifest.xml 업데이트
 
-1. GCM을 지원하기 위해, 코드에 [Google 인스턴스 ID API](https://developers.google.com/instance-id/)를 사용하여 [등록 토큰 가져오기](https://developers.google.com/cloud-messaging/android/client#sample-register)에 사용되는 인스턴스 ID 수신기 서비스를 구현합니다. 이 자습서에서 클래스 이름은 `MyInstanceIDService`입니다.
+1. GCM을 지원하기 위해, 코드에 [Google 인스턴스 ID API](https://developers.google.com/instance-id/)를 사용하여 [등록 토큰 가져오기](https://developers.google.com/cloud-messaging/)에 사용되는 인스턴스 ID 수신기 서비스를 구현합니다. 이 자습서에서 클래스 이름은 `MyInstanceIDService`입니다.
 
     AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일의 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
   
@@ -144,7 +144,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     ```
 4. `</application>` 태그 아래에 다음 필수 GCM 권한을 추가합니다. `<your package>`를 `AndroidManifest.xml` 파일 맨 위에 있는 패키지 이름으로 바꿉니다.
 
-    이러한 권한에 대한 자세한 내용은 [Android용 GCM 클라이언트 앱 설치](https://developers.google.com/cloud-messaging/android/client#manifest)를 참조하세요.
+    이러한 권한에 대한 자세한 내용은 [Android용 GCM 클라이언트 앱 설치](https://developers.google.com/cloud-messaging/)를 참조하세요.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -282,7 +282,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     import android.widget.Toast;
     import android.content.Intent;
     ```
-5. 클래스의 맨 위에 다음과 같은 private 멤버를 추가합니다. 이 코드는 [Google 권장 사항에 따라 Google Play Services의 가용성을 확인](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)합니다.
+5. 클래스의 맨 위에 다음과 같은 프라이빗 멤버를 추가합니다. 이 코드는 [Google 권장 사항에 따라 Google Play Services의 가용성을 확인](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)합니다.
 
     ```java
     public static MainActivity mainActivity;

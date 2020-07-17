@@ -1,57 +1,73 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: API Management 설명서
+summary: API Management를 사용하여 API를 대규모로 안전하게 외부, 파트너 및 직원 개발자에게 게시하는 방법에 대해 알아봅니다. 어디에든 호스트된 기존 백 엔드 서비스를 위한 최신 API 게이트웨이를 만들고 관리하는 방법을 보여줍니다.
 metadata:
-  title: 'Azure API Management 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: 'API Management를 사용하여 API를 대규모로 안전하게 외부, 파트너 및 직원 개발자에게 게시하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 어디서든지 호스팅되는 기존 백 엔드 서비스에 대한 최신 API 게이트웨이를 만들고 관리하는 방법을 보여 줍니다.'
+  title: API Management 설명서
+  description: API Management를 사용하여 API를 대규모로 안전하게 외부, 파트너 및 직원 개발자에게 게시하는 방법에 대해 알아봅니다. 어디에든 호스트된 기존 백 엔드 서비스를 위한 최신 API 게이트웨이를 만들고 관리하는 방법을 보여줍니다.
   services: api-management
-  author: czeumault
-  manager: carolz
   ms.service: api-management
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
-  ms.author: carolz
-abstract:
-  description: 'API Management를 사용하여 API를 대규모로 안전하게 외부, 파트너 및 직원 개발자에게 게시하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 어디서든지 호스팅되는 기존 백 엔드 서비스에 대한 최신 API 게이트웨이를 만들고 관리하는 방법을 보여 줍니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: API Management 인스턴스를 만듭니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: 인스턴스 만들기 - 포털
-            href: /azure/api-management/get-started-create-service-instance
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg'
-            text: 인스턴스 만들기 - PowerShell
-            href: /azure/api-management/powershell-create-service-instance
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: API Management를 관리하는 방법을 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/api-management/import-and-publish">첫 번째 API 가져오기 및 게시</a>
-          - html: <a href="/azure/api-management/api-management-howto-add-products">제품 생성 및 게시</a>
-          - html: <a href="/azure/api-management/mock-api-responses">모의 API 응답 만들기</a>
-          - html: <a href="/azure/api-management/transform-api">API 변환 및 보호</a>
-          - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">게시된 API 모니터링</a>
-          - html: <a href="/azure/api-management/api-management-howto-api-inspector">요청 추적을 사용하여 API 디버그</a>
-          - html: <a href="/azure/api-management/api-management-get-started-revise-api">수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행</a>
-          - html: <a href="/azure/api-management/api-management-get-started-publish-versions">여러 버전의 API 게시</a>
-          - html: <a href="/azure/api-management/api-management-customize-styles">개발자 포털 페이지의 스타일 사용자 지정</a>
-  - title: 샘플
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/api-management/policy-samples">정책</a>
-          - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>
+  author: georgewallace
+  ms.author: gwallace
+  ms.date: 03/08/2020
+  ms.openlocfilehash: a1c16e8dd2a9b00e726dd527137bde4c059edae2
+  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/11/2020
+  ms.locfileid: "86243021"
+landingContent:
+- title: API Management 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: API Management란?
+      url: api-management-key-concepts.md
+    - text: 기능 사용 가능 여부
+      url: api-management-features.md
+- title: 인스턴스 만들기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure portal
+      url: get-started-create-service-instance.md
+    - text: Azure PowerShell
+      url: powershell-create-service-instance.md
+- title: API Management 관리
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1. 첫 번째 API 가져오기 및 게시
+      url: import-and-publish.md
+    - text: 2. 제품 만들기 및 게시
+      url: api-management-howto-add-products.md
+    - text: 3. 모의 API 응답
+      url: mock-api-responses.md
+    - text: 4. API 변환 및 보호
+      url: transform-api.md
+    - text: 5. 게시된 API 모니터링
+      url: api-management-howto-use-azure-monitor.md
+    - text: 6. 요청 추적을 사용하여 API 디버그
+      url: api-management-howto-api-inspector.md
+    - text: 7. 수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행
+      url: api-management-get-started-revise-api.md
+    - text: 8. 여러 버전의 API 게시
+      url: api-management-get-started-publish-versions.md
+    - text: 9. 개발자 포털 페이지의 스타일 사용자 지정
+      url: api-management-customize-styles.md
+- title: 샘플
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: 정책
+      url: ./policies/index.md
+    - text: Azure PowerShell
+      url: powershell-samples.md
+    - text: Azure Policy 기본 제공 기능
+      url: ./policy-samples.md
+- title: Architecture
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: 기본 엔터프라이즈 통합
+      url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration

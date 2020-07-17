@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 공동 작업 사용자 클레임 매핑-| Microsoft Docs
+title: B2B 공동 작업 사용자 클레임 매핑-Azure Active Directory
 description: Azure AD(Azure Active Directory) B2B 사용자용 SAML 토큰에 발급된 사용자 클레임을 사용자 지정합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,18 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edb18c31f40de3358ad987be4a9c67ed3a5079e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 3508865d9f89501cf70e09087c6a609beb6662b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65811925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74273196"
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Azure Active Directory의 B2B 협업 사용자 클레임 매핑
 
 Azure AD(Azure Active Directory)에서는 B2B 협업 사용자에 대해 SAML 토큰에 발급된 클레임을 사용자 지정할 수 있습니다. 사용자가 애플리케이션에 인증할 때 Azure AD는 고유하게 식별하는 사용자에 대한 정보(또는 클레임)를 포함하는 앱에 SAML 토큰을 발급합니다. 기본적으로 사용자의 사용자 이름, 전자 메일 주소, 이름 및 성을 포함합니다.
 
-[Azure Portal](https://portal.azure.com)에서는 SAML 토큰으로 애플리케이션에 전송된 클레임을 보거나 편집할 수 있습니다. 설정에 액세스하려면 **Azure Active Directory** > **엔터프라이즈 애플리케이션** &gt; Single Sign-On용으로 구성된 애플리케이션 &gt; **Single Sign-On**을 선택합니다. SAML 토큰 설정은 **사용자 특성** 섹션을 참조하세요.
+[Azure Portal](https://portal.azure.com)에서는 SAML 토큰으로 애플리케이션에 전송된 클레임을 보거나 편집할 수 있습니다. 설정에 액세스 하려면 **Azure Active Directory**  >  **single sign-on**을 > Single Sign-On 하도록 구성 된 응용 프로그램 > Azure Active Directory**엔터프라이즈 응용 프로그램** 을 선택 합니다. SAML 토큰 설정은 **사용자 특성** 섹션을 참조하세요.
 
 ![UI에 SAML 토큰 특성 표시](media/claims-mapping/view-claims-in-saml-token.png)
 

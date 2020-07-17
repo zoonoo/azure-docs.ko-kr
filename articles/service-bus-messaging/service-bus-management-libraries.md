@@ -1,25 +1,15 @@
 ---
 title: Azure Service Bus 관리 라이브러리 | Microsoft Docs
-description: .NET에서 Service Bus 네임스페이스 및 메시징 엔터티 관리
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
+description: 이 문서에서는 Azure Service Bus 관리 라이브러리를 사용 하 여 Service Bus 네임 스페이스 및 엔터티를 동적으로 프로 비전 하는 방법을 설명 합니다.
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/05/2018
-ms.author: aschhab
-ms.openlocfilehash: d6c2cd813e96b40fc9f95785a1fd28e324a0437b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/23/2020
+ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61315881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341708"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
 
@@ -32,15 +22,15 @@ Azure Service Bus 관리 라이브러리는 Service Bus 네임스페이스 및 �
 * 토픽 만들기, 업데이트, 삭제
 * 구독 만들기, 업데이트, 삭제
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Service Bus 관리 라이브러리 사용을 시작하려면 Azure AD(Azure Active Directory) 서비스로 인증해야 합니다. Azure AD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
 
-* [Azure Portal을 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Azure Portal를 사용 하 여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체를 만듭니다.](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-이러한 자습서는 관리 라이브러리를 통해 인증에 사용되는 `AppId`(클라이언트 ID), `TenantId` 및 `ClientSecret`(인증 키)를 제공합니다. 실행하려는 리소스 그룹에 대한 **소유자** 권한이 있어야 합니다.
+이러한 자습서는 관리 라이브러리를 통해 인증에 사용되는 `AppId`(클라이언트 ID), `TenantId` 및 `ClientSecret`(인증 키)를 제공합니다. 실행 하려는 리소스 그룹에 대 한 [**Azure Service Bus 이상의 데이터 소유자**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) 또는 [**참가자**](/azure/role-based-access-control/built-in-roles#contributor) 권한이 있어야 합니다.
 
 ## <a name="programming-pattern"></a>프로그래밍 패턴
 
@@ -50,7 +40,7 @@ Service Bus 리소스를 조작하는 패턴은 일반 프로토콜을 따릅니
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
-   var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
+   var result = await context.AcquireTokenAsync("https://management.azure.com/", new ClientCredential(clientId, clientSecret));
    ```
 2. `ServiceBusManagementClient` 개체를 만듭니다.
 
@@ -76,7 +66,95 @@ Service Bus 리소스를 조작하는 패턴은 일반 프로토콜을 따릅니
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="complete-code-to-create-a-queue"></a>큐를 만들기 위한 전체 코드
+Service Bus 큐를 만드는 전체 코드는 다음과 같습니다. 
 
-* [.NET 관리 샘플](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus API 참조](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+```csharp
+using System;
+using System.Threading.Tasks;
+
+using Microsoft.Azure.Management.ServiceBus;
+using Microsoft.Azure.Management.ServiceBus.Models;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Rest;
+
+namespace SBusADApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            CreateQueue().GetAwaiter().GetResult();
+        }
+
+        private static async Task CreateQueue()
+        {
+            try
+            {
+                var subscriptionID = "<SUBSCRIPTION ID>";
+                var resourceGroupName = "<RESOURCE GROUP NAME>";
+                var namespaceName = "<SERVICE BUS NAMESPACE NAME>";
+                var queueName = "<NAME OF QUEUE YOU WANT TO CREATE>";
+
+                var token = await GetToken();
+
+                var creds = new TokenCredentials(token);
+                var sbClient = new ServiceBusManagementClient(creds)
+                {
+                    SubscriptionId = subscriptionID,
+                };
+
+                var queueParams = new SBQueue();
+
+                Console.WriteLine("Creating queue...");
+                await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, queueName, queueParams);
+                Console.WriteLine("Created queue successfully.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not create a queue...");
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+
+        private static async Task<string> GetToken()
+        {
+            try
+            {
+                var tenantId = "<AZURE AD TENANT ID>";
+                var clientId = "<APPLICATION/CLIENT ID>";
+                var clientSecret = "<CLIENT SECRET>";
+
+                var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
+
+                var result = await context.AcquireTokenAsync(
+                    "https://management.azure.com/",
+                    new ClientCredential(clientId, clientSecret)
+                );
+
+                // If the token isn't a valid string, throw an error.
+                if (string.IsNullOrEmpty(result.AccessToken))
+                {
+                    throw new Exception("Token result is empty!");
+                }
+
+                return result.AccessToken;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not get a token...");
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+
+    }
+}
+```
+
+> [!IMPORTANT]
+> 전체 예제는 [GitHub의 .net 관리 샘플](https://github.com/Azure-Samples/service-bus-dotnet-management/)을 참조 하세요. 
+
+## <a name="next-steps"></a>다음 단계
+[Microsoft.Azure.Management.ServiceBus API 참조](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

@@ -5,30 +5,74 @@
   items:
     - name: Azure Active Directory란?
       href: active-directory-whatis.md
+    - name: ADDS와 Azure AD 비교
+      href: active-directory-compare-azure-ad-to-ad.md
     - name: Azure Active Directory의 새로운 기능
       href: whats-new.md
+    - name: Microsoft 365 Government의 새로운 기능
+      href: whats-new-microsoft-365-government.md
+    - name: Azure AD의 새로운 기능 보관
+      href: whats-new-archive.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 포털에 액세스 및 테넌트 만들기
       href: active-directory-access-create-new-tenant.md
     - name: 할당된 멤버를 사용하여 그룹 보기
       href: active-directory-groups-view-azure-portal.md
 - name: 개념
+  expanded: true
   items:
-    - name: ID 보안 점수
-      href: identity-secure-score.md
-    - name: 그룹 및 액세스 관리
-      href: active-directory-manage-groups.md
-    - name: 그룹 기반 라이선스
-      href: active-directory-licensing-whatis-azure-portal.md
-    - name: Azure AD 아키텍처
-      href: active-directory-architecture.md
-    - name: 기본 사용자 사용 권한
-      href: users-default-permissions.md
-    - name: '배포 30, 90 이상'
-      href: active-directory-deployment-checklist-p2.md
-    - name: EU에 대한 ID 데이터 저장
-      href: active-directory-data-storage-eu.md
+    - name: 보안
+      items:
+        - name: MFA 사용
+          href: concept-fundamentals-mfa-get-started.md
+        - name: 보안 기본값
+          href: concept-fundamentals-security-defaults.md
+        - name: 레거시 인증 차단
+          href: concept-fundamentals-block-legacy-authentication.md
+        - name: ID 보안 점수
+          href: identity-secure-score.md
+        - name: 원격 작업자 보안
+          href: concept-secure-remote-workers.md
+        - name: 지속적인 액세스 평가
+          href: concept-fundamentals-continuous-access-evaluation.md
+    - name: 그룹 및 사용자
+      items:
+        - name: 그룹 및 액세스 관리
+          href: active-directory-manage-groups.md
+        - name: 그룹 기반 라이선스
+          href: active-directory-licensing-whatis-azure-portal.md
+        - name: 기본 사용자 사용 권한
+          href: users-default-permissions.md
+    - name: Architecture
+      items:
+        - name: Azure AD 아키텍처
+          href: active-directory-architecture.md
+    - name: 배포 가이드
+      items:
+        - name: '배포 30, 90 이상'
+          href: active-directory-deployment-checklist-p2.md
+        - name: Azure Active Directory 배포 계획
+          href: active-directory-deployment-plans.md
+    - name: 데이터 스토리지
+      items:
+        - name: 유럽에 대한 ID 데이터 스토리지
+          href: active-directory-data-storage-eu.md
+        - name: 오스트레일리아 및 뉴질랜드의 ID 데이터 스토리지
+          href: active-directory-data-storage-australia-newzealand.md
+    - name: Azure AD 작업 참조
+      items:
+        - name: 소개
+          href: active-directory-ops-guide-intro.md
+        - name: ID 및 액세스 관리
+          href: active-directory-ops-guide-iam.md
+        - name: 인증 관리
+          href: active-directory-ops-guide-auth.md
+        - name: ID 거버넌스
+          href: active-directory-ops-guide-govern.md
+        - name: 작업
+          href: active-directory-ops-guide-ops.md
 - name: 방법 가이드
   expanded: true
   items:
@@ -42,6 +86,8 @@
           href: add-custom-domain.md
         - name: 회사 브랜딩 추가
           href: customize-branding.md
+        - name: '''로그인 상태를 유지하시겠습니까?'' 구성'
+          href: keep-me-signed-in.md
         - name: Azure 구독 연결
           href: active-directory-how-subscriptions-associated-directory.md
         - name: 개인 정보 추가
@@ -60,6 +106,8 @@
           href: active-directory-groups-settings-azure-portal.md
         - name: 그룹 소유자 추가 또는 제거
           href: active-directory-accessmanagement-managing-group-owners.md
+        - name: 그룹을 사용하여 리소스에 대한 액세스 관리
+          href: active-directory-manage-groups.md
     - name: 사용자
       items:
         - name: 새 사용자 추가 또는 삭제
@@ -74,13 +122,10 @@
           href: license-users-groups.md
         - name: 삭제한 사용자 복원
           href: active-directory-users-restore.md
-- name: 리소스
+- name: 문제 해결
+  expanded: true
   items:
     - name: Azure Active Directory에 대한 지원 받기
       href: active-directory-troubleshooting-support-howto.md
     - name: Azure Active Directory FAQ
       href: active-directory-faq.md
-    - name: Azure Active Directory 배포 계획
-      href: active-directory-deployment-plans.md
-    - name: Azure AD의 새로운 기능 보관
-      href: whats-new-archive.md

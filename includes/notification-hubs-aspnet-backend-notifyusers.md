@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874301"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "77192503"
 ---
 ## <a name="create-the-webapi-project"></a>WebAPI 프로젝트 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "60874301"
 
 - **클라이언트 인증**: 클라이언트 요청을 인증하고 사용자를 요청과 연결하는 메시지 처리기를 추가합니다.
 - **WebAPI 백 엔드를 사용하여 알림 등록**: 클라이언트 디바이스에서 알림을 받을 수 있도록 새 등록을 처리하는 컨트롤러를 추가합니다. 인증된 사용자 이름은 [태그](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md)로 등록에 자동으로 추가됩니다.
-- **클라이언트에 알림 보내기**: 사용자가 태그와 연결된 디바이스 및 클라이언트로 보안 푸시를 트리거할 수 있는 방법을 제공하는 컨트롤러를 추가합니다.
+- **클라이언트로 알림 보내기**: 사용자가 태그와 연결된 디바이스 및 클라이언트로 보안 푸시를 트리거할 수 있는 방법을 제공하는 컨트롤러를 추가합니다.
 
 다음 작업을 수행하여 새 ASP.NET WebAPI 백 엔드를 만듭니다.
 
@@ -108,7 +108,7 @@ ms.locfileid: "60874301"
                 string user = authorizationUserAndPwd.Split(':')[0];
                 string password = authorizationUserAndPwd.Split(':')[1];
 
-                if (verifyUserAndPwd(user, password))
+                if (VerifyUserAndPwd(user, password))
                 {
                     // Attach the new principal object to the current HttpContext object
                     HttpContext.Current.User =
@@ -123,7 +123,7 @@ ms.locfileid: "60874301"
             return base.SendAsync(request, cancellationToken);
         }
 
-        private bool verifyUserAndPwd(string user, string password)
+        private bool VerifyUserAndPwd(string user, string password)
         {
             // This is not a real authentication scheme.
             return user == password;
@@ -158,7 +158,7 @@ ms.locfileid: "60874301"
 
 3. 결과 목록에서 **Microsoft Azure Notification Hubs**를 선택한 다음 **설치**를 선택합니다. 설치를 완료한 다음, NuGet 패키지 관리자 창을 닫습니다.
 
-    이 작업은 [Microsoft.Azure.Notification Hubs NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용하는 Azure Notification Hubs SDK에 대한 참조를 추가합니다.
+    이 작업은 [Microsoft.Azure.Notification Hubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용하는 Azure Notification Hubs SDK에 대한 참조를 추가합니다.
 
 4. 알림을 보내는 데 사용되는 알림 허브와의 연결을 나타내는 새 클래스 파일을 만듭니다. 솔루션 탐색기에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 선택합니다. 새 클래스 이름을 **Notifications.cs**로 지정한 후 **추가**를 선택하여 클래스를 생성합니다.
 
@@ -170,7 +170,7 @@ ms.locfileid: "60874301"
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. `Notifications` 클래스 정의를 다음 코드로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure Portal](http://portal.azure.com)에서 제공)으로 바꿉니다.
+6. `Notifications` 클래스 정의를 다음 코드로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure Portal](https://portal.azure.com)에서 제공)으로 바꿉니다.
 
     ```csharp
     public class Notifications
@@ -185,6 +185,9 @@ ms.locfileid: "60874301"
         }
     }
     ```
+    > [!IMPORTANT]
+    > 허브의 **이름**과 **DefaultFullSharedAccessSignature**를 입력하고 계속 진행합니다. 
+    
 7. 다음으로 **RegisterController**라는 새 컨트롤러를 만듭니다. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **컨트롤러**를 차례로 선택합니다.
 
 8. **웹 API 2 컨트롤러 - 비어 있음**을 선택한 다음 **추가**를 선택합니다.

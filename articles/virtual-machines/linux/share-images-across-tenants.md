@@ -1,30 +1,33 @@
 ---
-title: 갤러리 이미지를 Azure의 테 넌 트에서 공유 | Microsoft Docs
-description: 공유 이미지 갤러리를 사용 하 여 Azure 테 넌 트에서 VM 이미지를 공유 하는 방법에 알아봅니다.
-services: virtual-machines-linux
-author: cynthn
-manager: jeconnoc
-ms.service: virtual-machines-linux
+title: Azure에서 테 넌 트 간에 갤러리 이미지 공유
+description: 공유 이미지 갤러리를 사용 하 여 Azure 테 넌 트 간에 VM 이미지를 공유 하는 방법을 알아봅니다.
+author: axayjo
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
-ms.date: 04/05/2019
-ms.author: cynthn
-ms.openlocfilehash: 1578ba840c6dca93feb68754863439811d7ef099
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.topic: how-to
+ms.date: 05/04/2019
+ms.author: akjosh
+ms.reviewer: cynthn
+ms.openlocfilehash: 6560bf452f04ae5d88168b8d3fad300feb90b16f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158732"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220527"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Azure 테 넌 트에서 VM 이미지 갤러리 공유
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Azure 테 넌 트 간에 갤러리 VM 이미지 공유
+
+공유 이미지 갤러리를 사용 하면 RBAC를 사용 하 여 이미지를 공유할 수 있습니다. RBAC를 사용 하 여 테 넌 트 내에서 이미지를 공유 하 고 테 넌 트 외부의 사용자도 공유할 수 있습니다. 이 간단한 공유 옵션에 대 한 자세한 내용은 [갤러리 공유](/azure/virtual-machines/linux/shared-images-portal#share-the-gallery)를 참조 하세요.
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
+> [!IMPORTANT]
+> 포털을 사용 하 여 다른 azure 테 넌 트의 이미지에서 VM을 배포할 수 없습니다. 테 넌 트 간에 공유 되는 이미지에서 VM을 만들려면 Azure CLI 또는 [Powershell](../windows/share-images-across-tenants.md)을 사용 해야 합니다.
 
 ## <a name="create-a-vm-using-azure-cli"></a>Azure CLI를 사용 하 여 VM 만들기
 
-AppID, 앱 키 및 테 넌 트 1의 ID를 사용 하 여 1 테 넌 트의 서비스 주체에 로그인 합니다. 사용할 수 있습니다 `az account show --query "tenantId"` 에 필요한 경우 테 넌 트 Id를 가져옵니다.
+AppID, 앱 키 및 테 넌 트 1의 ID를 사용 하 여 테 넌 트 1에 대 한 서비스 주체를 로그인 합니다. `az account show --query "tenantId"`필요한 경우를 사용 하 여 테 넌 트 id를 가져올 수 있습니다.
 
 ```azurecli-interactive
 az account clear
@@ -32,14 +35,14 @@ az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 1 ID>
 az account get-access-token 
 ```
  
-2 appID, 앱 키 및 테 넌 트 2의 ID를 사용 하 여 테 넌 트의 서비스 주체에 로그인 합니다.
+AppID, 앱 키 및 테 넌 트 2의 ID를 사용 하 여 테 넌 트 2에 대 한 서비스 주체를 로그인 합니다.
 
 ```azurecli-interactive
 az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>'
 az account get-access-token
 ```
 
-VM을 만듭니다. 예제에서 정보를 사용자 고유의로 바꿉니다.
+VM을 만듭니다. 예제의 정보를 사용자 고유의으로 바꿉니다.
 
 ```azurecli-interactive
 az vm create \

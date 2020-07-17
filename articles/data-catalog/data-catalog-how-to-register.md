@@ -1,19 +1,16 @@
 ---
 title: Azure Data Catalog에서 데이터 원본 등록
 description: 이 문서는 등록 중에 추출된 메타데이터 필드를 포함하여 Azure Data Catalog에 데이터 원본을 등록하는 방법을 강조 표시합니다.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 57b9a040b875c584b126e2062e4938b37875a31b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 08/01/2019
+ms.openlocfilehash: 0c5fdac7df41fec3a6206dbd78af74b7f1b58c7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "68736316"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본 등록
 ## <a name="introduction"></a>소개
@@ -47,7 +44,7 @@ Azure Data Catalog는 기업 데이터 원본의 등록 시스템 및 검색 역
 ## <a name="include-previews"></a>미리 보기 포함
 기본적으로 데이터 원본으로부터 추출된 메타데이터만 데이터 카탈로그 서비스에 복사되지만 여기에 포함되는 데이터 샘플을 볼 수 있을 때 데이터 원본을 보다 쉽게 이해할 수 있습니다.
 
-데이터 카탈로그 데이터 원본 등록 도구를 사용하여 사용자는 등록되는 각각의 테이블과 뷰에 있는 데이터의 스냅숏 미리 보기를 포함시킬 수 있습니다. 사용자가 등록 과정에서 미리 보기를 포함시키기로 선택하면 등록 도구는 각 테이블과 뷰에서 최대 20개의 레코드를 포함합니다. 그 후 스냅숏은 구조적 메타데이터 및 설명이 포함된 메타데이터와 함께 카탈로그에 복사됩니다.
+데이터 카탈로그 데이터 원본 등록 도구를 사용하여 사용자는 등록되는 각각의 테이블과 뷰에 있는 데이터의 스냅샷 미리 보기를 포함시킬 수 있습니다. 사용자가 등록 과정에서 미리 보기를 포함시키기로 선택하면 등록 도구는 각 테이블과 뷰에서 최대 20개의 레코드를 포함합니다. 그 후 스냅샷은 구조적 메타데이터 및 설명이 포함된 메타데이터와 함께 카탈로그에 복사됩니다.
 
 > [!NOTE]
 > 다수의 열을 포함하는 넓은 테이블은 미리 보기의 레코드가 20개 미만이 될 수 있습니다.

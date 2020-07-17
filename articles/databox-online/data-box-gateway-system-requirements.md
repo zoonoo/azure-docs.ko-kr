@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82562443"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Azure 데이터 상자 Gateway 시스템 요구 사항
+# <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway 시스템 요구 사항
 
-이 문서에서는 Microsoft Azure Data Box Gateway 솔루션 및 Azure Data Box Gateway에 연결하는 클라이언트에 대한 중요한 시스템 요구 사항을 설명합니다. Data Box Gateway를 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
+이 문서에서는 Microsoft Azure Data Box Gateway 솔루션 및 Azure Data Box Gateway에 연결하는 클라이언트에 대한 중요한 시스템 요구 사항을 설명합니다. Data Box Gateway를 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다. 
 
 Data Box Gateway 가상 디바이스의 시스템 요구 사항은 다음과 같습니다.
 
@@ -29,7 +29,7 @@ Data Box Gateway 가상 디바이스의 시스템 요구 사항은 다음과 같
 
 Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으로 사용하여 다음과 같은 가상 디바이스를 프로비전할 수 있습니다.
 
-| 사양                                          | 설명              |
+| 사양                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | 가상 프로세서(코어)   | 최소 4개 |
 | 메모리  | 최소 8GB|
@@ -48,18 +48,18 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 
 ## <a name="supported-virtualization-platforms-for-device"></a>디바이스에 지원되는 가상화 플랫폼
 
-| **운영 체제/플랫폼**  |**버전**   |**참고 사항**  |
+| **운영 체제/플랫폼**  |**버전**   |**참고**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware 도구는 지원되지 않습니다.         |
 
 
-## <a name="supported-storage-accounts"></a>지원되는 저장소 계정
+## <a name="supported-storage-accounts"></a>지원되는 스토리지 계정
 
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
 
-## <a name="supported-storage-types"></a>지원되는 저장소 형식
+## <a name="supported-storage-types"></a>지원되는 스토리지 형식
 
 [!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
@@ -75,7 +75,7 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 
 ## <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
 
-네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Data Box Gateway 장치 및 Data Box Gateway 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 Data Box Gateway에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Data Box Gateway 디바이스 및 Data Box Gateway 서비스는 Azure Service Bus, Azure Active Directory Access Control, 스토리지 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 Data Box Gateway에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
 
 Data Box Gateway 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 

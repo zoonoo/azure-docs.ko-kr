@@ -1,0 +1,12 @@
+- name: 릴리스 정보
+  href: 'https://github.com/Azure/azure-remote-rendering/releases'
+- name: 문제 해결
+  href: troubleshoot.md
+- name: 지원
+  href: support.md
+- name: 제품 사용자 의견 제공
+  href: 'https://feedback.azure.com/forums/928696-azure-remote-rendering'
+- name: Stack Overflow
+  href: 'https://stackoverflow.com/questions/tagged/azure-remote-rendering'
+- name: 도구
+  href: tools/toc.yml

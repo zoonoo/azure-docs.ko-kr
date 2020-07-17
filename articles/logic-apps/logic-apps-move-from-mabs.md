@@ -1,22 +1,20 @@
 ---
-title: BizTalk Services에서 Azure Logic Apps로 앱 이동 | Microsoft Docs
-description: Azure BizTalk Services(MABS)에서 Azure Logic Apps로 마이그레이션
+title: BizTalk Services에서 Azure Logic Apps로 앱 마이그레이션
+description: Microsoft Azure BizTalk Services (MABS)에서 Azure Logic Apps 앱 및 솔루션을 이동 하는 방법
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61321253"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76905444"
 ---
-# <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services에서 Azure Logic Apps로 마이그레이션
+# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services에서 Azure Logic Apps 앱 및 솔루션 마이그레이션
 
 MABS(Microsoft Azure BizTalk Services)가 사용 중지됩니다. MABS 통합 솔루션을 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 이동하려면 이 문서의 지침을 따릅니다. 
 
@@ -33,7 +31,7 @@ BizTalk Services는 다음 두 하위 서비스로 구성됩니다.
 
 다음 표에서는 BizTalk Services 기능을 Logic Apps에 매핑하고 있습니다.
 
-| BizTalk Services   | Logic Apps            | 목적                      |
+| BizTalk Services   | Logic Apps            | 용도                      |
 | ------------------ | --------------------- | ---------------------------- |
 | 커넥터          | 커넥터             | 데이터 보내기 및 받기   |
 | 브리지             | 논리 앱             | 파이프라인 프로세서           |
@@ -52,7 +50,7 @@ BizTalk Services에는 여러 종류의 아티팩트가 있습니다.
 
 ## <a name="connectors"></a>커넥터
 
-BizTalk Services 커넥터를 사용하면 HTTP 기반 요청/응답과 상호 작용할 수 있게 하는 양방향 브리지를 포함하여 브리지에서 데이터를 보내고 받을 수 있습니다. Logic Apps는 동일한 용어를 사용하고, 광범위한 기술과 서비스에 연결하여 동일한 목적을 수행하는 180개 이상의 커넥터를 가지고 있습니다. 예를 들어 OneDrive, Office365, Dynamics CRM 등과 같은 클라우드 SaaS 및 PaaS 서비스에 사용할 수 있는 커넥터와 BizTalk Services용 BizTalk 어댑터 서비스를 대체하는 온-프레미스 데이터 게이트웨이를 통해 온-프레미스 시스템에 사용할 수 있는 커넥터가 있습니다. BizTalk Services의 원본은 FTP, SFTP 및 Service Bus 큐 또는 토픽 구독으로 제한됩니다.
+BizTalk Services 커넥터를 사용하면 HTTP 기반 요청/응답과 상호 작용할 수 있게 하는 양방향 브리지를 포함하여 브리지에서 데이터를 보내고 받을 수 있습니다. Logic Apps는 동일한 용어를 사용 하며 광범위 한 기술 및 서비스에 연결 하 여 동일한 용도를 제공 하는 수백 개의 커넥터를 포함 합니다. 예를 들어 OneDrive, Office365, Dynamics CRM 등과 같은 클라우드 SaaS 및 PaaS 서비스에 사용할 수 있는 커넥터와 BizTalk Services용 BizTalk 어댑터 서비스를 대체하는 온-프레미스 데이터 게이트웨이를 통해 온-프레미스 시스템에 사용할 수 있는 커넥터가 있습니다. BizTalk Services의 원본은 FTP, SFTP 및 Service Bus 큐 또는 토픽 구독으로 제한됩니다.
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
@@ -106,7 +104,7 @@ BizTalk Services 처리에서 보강 단계는 받은 데이터와 관련된 메
 
 BizTalk Services를 사용하면 사용자 고유의 어셈블리에 업로드된 [사용자 지정 코드를 실행](https://msdn.microsoft.com/library/azure/dn232389.aspx)할 수 있습니다. 이 기능은 [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) 인터페이스에 의해 구현됩니다. 브리지의 각 단계에는 이 인터페이스를 구현하기 위해 만든 .NET 형식을 제공하는 두 개의 속성(On Enter Inspector 및 On Exit Inspector)이 있습니다. 사용자 지정 코드를 사용하면 데이터에 대해 더 복잡한 처리를 수행할 수 있으며, 일반적인 비즈니스 논리를 수행하는 어셈블리에서 기존 코드를 다시 사용할 수 있습니다. 
 
-Logic Apps는 사용자 지정 코드를 실행 하는 두 가지를 제공 합니다. Azure Functions 및 API 앱입니다. Azure Functions는 Logic Apps에서 만들고 호출할 수 있습니다. [Azure Functions를 통해 Logic Apps에 대한 사용자 지정 코드 추가 및 실행](../logic-apps/logic-apps-azure-functions.md)을 참조하세요. Azure App Service의 일부인 API Apps를 사용하여 고유한 트리거 및 작업을 만듭니다. [Logic Apps에서 사용할 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md)에 대해 자세히 알아보세요. 
+Logic Apps는 사용자 지정 코드를 실행하는 두 가지 기본 방법인 Azure Functions 및 API Apps를 제공합니다. Azure Functions는 Logic Apps에서 만들고 호출할 수 있습니다. [Azure Functions를 통해 Logic Apps에 대한 사용자 지정 코드 추가 및 실행](../logic-apps/logic-apps-azure-functions.md)을 참조하세요. Azure App Service의 일부인 API Apps를 사용하여 고유한 트리거 및 작업을 만듭니다. [Logic Apps에서 사용할 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md)에 대해 자세히 알아보세요. 
 
 BizTalk Services에서 호출하는 어셈블리에 사용자 지정 코드가 있는 경우, 이 코드를 Azure Functions로 이동하거나 구현하는 항목에 따라 API Apps를 사용하여 사용자 지정 API를 만들 수 있습니다. 예를 들어 Logic Apps에 커넥터가 없는 다른 서비스를 래핑하는 코드가 있는 경우, API App을 만들고 API App이 논리 앱 내에서 제공하는 작업을 사용합니다. 도우미 함수 또는 라이브러리가 있는 경우 Azure Functions가 가장 적합할 수 있습니다.
 
@@ -126,7 +124,7 @@ BizTalk Services와는 달리 이러한 작업은 전송 프로토콜에서 분�
 
 ## <a name="manage-and-monitor"></a>관리 및 모니터링
 
-BizTalk Services의 전용 포털에서 문제를 모니터링하고 해결할 수 있는 추적 기능을 제공했습니다. Logic Apps는 [Azure Portal](../logic-apps/logic-apps-monitor-your-logic-apps.md)을 통해 더 풍부한 추적 및 모니터링 기능을 제공하며, 이동 중인 경우에는 사물을 주시하는 모바일 앱을 포함합니다.
+BizTalk Services의 전용 포털에서 문제를 모니터링하고 해결할 수 있는 추적 기능을 제공했습니다. Logic Apps은 [Azure Portal에서 논리 앱을 모니터링](../logic-apps/monitor-logic-apps.md)하기 위한 보다 풍부한 추적 및 모니터링 기능을 제공 하며, 이동 중에는 관심을 유지 하기 위한 모바일 앱을 포함 합니다.
 
 ## <a name="high-availability"></a>고가용성
 

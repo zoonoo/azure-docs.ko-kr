@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: rothja
 ms.service: virtual-machines-sql
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
-ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: e0ff4e91ed55a37e710a5655e7da9ec76b7d1dd5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84014702"
 ---
 ## <a name="next-steps"></a>다음 단계
 
@@ -18,15 +17,15 @@ Azure Key Vault 통합을 설정한 후에는 SQL VM에서 SQL Server 암호화�
 
 여러 형태의 암호화를 이용할 수 있습니다.
 
-* [TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [암호화된 백업](https://msdn.microsoft.com/library/dn449489.aspx)
-* [CLE(열 수준 암호화)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption)
+* [암호화된 백업](/sql/relational-databases/backup-restore/backup-encryption)
+* [CLE(열 수준 암호화)](/sql/t-sql/functions/cryptographic-functions-transact-sql)
 
 다음 Transact-SQL 스크립트는 이러한 각 영역에 대한 예를 제공합니다.
 
 ### <a name="prerequisites-for-examples"></a>예에 대한 필수 조건
 
-각 예제는 두 가지 필수 조건을 기반으로 합니다. 하나는 주요 자격 증명 모음의 비대칭 키인 **CONTOSO_KEY**이고, 다른 하나는 AKV 통합 기능을 통해 생성되는 자격 증명인 **Azure_EKM_TDE_cred**입니다. 다음 Transact-SQL 명령은 예를 실행하기 위한 필수 구성 요소를 설치합니다.
+각 예제는 **CONTOSO_KEY** 이라는 주요 자격 증명 모음의 비대칭 키와 **Azure_EKM_cred**라는 AKV 통합 기능으로 만든 자격 증명 이라는 두 가지 필수 조건을 기반으로 합니다. 다음 Transact-SQL 명령은 예를 실행하기 위한 필수 구성 요소를 설치합니다.
 
 ``` sql
 USE master;
@@ -34,14 +33,16 @@ GO
 
 --create credential
 --The <<SECRET>> here requires the <Application ID> (without hyphens) and <Secret> to be passed together without a space between them.
-CREATE CREDENTIAL sysadmin_ekm_cred
+CREATE CREDENTIAL Azure_EKM_cred
     WITH IDENTITY = 'keytestvault', --keyvault
     SECRET = '<<SECRET>>'
 FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
 
+
 --Map the credential to a SQL login that has sysadmin permissions. This allows the SQL login to access the key vault when creating the asymmetric key in the next step.
 ALTER LOGIN [SQL_Login]
-ADD CREDENTIAL sysadmin_ekm_cred;
+ADD CREDENTIAL Azure_EKM_cred;
+
 
 CREATE ASYMMETRIC KEY CONTOSO_KEY
 FROM PROVIDER [AzureKeyVault_EKM_Prov]
@@ -141,10 +142,8 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 이러한 암호화 기능을 사용하는 방법에 대한 자세한 내용은 [SQL Server 암호화 기능과 함께 EKM 사용](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM)을 참조하세요.
 
-이 문서의 단계는 Azure 가상 머신에서 이미 SQL Server가 실행되고 있는 것으로 가정합니다. 아직 실행하고 있지 않다면 [Azure에서 SQL Server 가상 머신 프로비전](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. Azure VM에서 SQL Server 실행과 관련된 기타 참고 자료는 [Azure Virtual Machines의 SQL Server 개요](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-<!--Update_Description: wording update, update link-->
+이 문서의 단계는 Azure 가상 머신에서 이미 SQL Server가 실행되고 있는 것으로 가정합니다. 아직 실행하고 있지 않다면 [Azure에서 SQL Server 가상 머신 프로비전](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md)을 참조하세요. Azure VM에서 SQL Server 실행과 관련된 기타 참고 자료는 [Azure Virtual Machines의 SQL Server 개요](../articles/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요.

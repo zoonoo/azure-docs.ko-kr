@@ -10,18 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1860b788b9f33a6a2ec806be68a67aa2df10cbd4
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.custom: tracking-python
+ms.openlocfilehash: 733eec452501a829d0162b91aca9ece191d68914
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65914264"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611427"
 ---
-# <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Insights 토큰을 사용 하 여 이미지에 대 한 통찰력을 제공 합니다.
+# <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Insights 토큰을 사용 하 여 이미지에 대 한 통찰력 얻기
 
-Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보를 반환합니다. 이미지의 URL, 인사이트 토큰을 사용하거나 이미지를 업로드하여 이미지를 제공할 수 있습니다. 이러한 옵션에 대한 내용은 [Bing Visual Search API란?](overview.md)을 참조하세요. 이 문서에서는 인사이트 토큰 사용을 보여 줍니다. 정보를 얻을 이미지를 업로드 하는 방법을 보여 주는 예제는 빠른 시작을 참조 하세요 ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
+Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보를 반환합니다. 이미지의 URL, 인사이트 토큰을 사용하거나 이미지를 업로드하여 이미지를 제공할 수 있습니다. 이러한 옵션에 대 한 자세한 내용은 [Bing Visual Search API?](overview.md)을 참조 하세요. 이 문서에서는 인사이트 토큰 사용을 보여 줍니다. 정보를 얻기 위해 이미지를 업로드 하는 방법을 보여 주는 예제는 빠른 시작 ([c #](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [Node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md))을 참조 하세요.
 
-이미지 토큰 또는 URL를 Bing Visual Search로 보내는 경우 다음은 양식 데이터는 POST의 본문에 포함 해야 합니다. 양식 데이터를 포함 해야 합니다는 `Content-Disposition` 헤더를 설정 해야 해당 `name` "knowledgeRequest" 매개 변수입니다. 에 대 한 세부 정보에 대 한는 `imageInfo` 개체는 요청을 참조 하세요.
+이미지 토큰 또는 URL Bing Visual Search를 전송 하는 경우 다음은 게시물 본문에 포함 해야 하는 양식 데이터를 보여줍니다. 양식 데이터는 헤더를 포함 해야 `Content-Disposition` 하며 해당 `name` 매개 변수를 "knowledgeRequest"로 설정 해야 합니다. 개체에 대 한 자세한 `imageInfo` 내용은 다음 요청을 참조 하십시오.
 
 ```json
 {
@@ -43,7 +44,7 @@ Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보�
 }
 ```
 
-이 문서의 예제에서는 인사이트 토큰을 사용하는 방법을 보여 줍니다. Insights 토큰을 가져오기는 `Image` 는 /images 개체/API 응답을 검색 합니다. Insights 토큰 가져오기에 대 한 자세한 내용은 [Bing Image Search API 란?](../Bing-Image-Search/overview.md)합니다.
+이 문서의 예제에서는 인사이트 토큰을 사용하는 방법을 보여 줍니다. `Image`/IMAGES/SEARCH API 응답의 개체에서 insights 토큰을 가져옵니다. Insights 토큰을 가져오는 방법에 대 한 자세한 내용은 [Bing Image Search API 이란?](../Bing-Image-Search/overview.md)을 참조 하세요.
 
 ```
 --boundary_1234-abcd
@@ -58,21 +59,22 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-인사이트 토큰을 사용하는 예제를 보려면 [C#](#use-with-c) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python)을 참조하세요.
+Insights 토큰을 사용 하는 예제는 [c #](#use-with-c)  |  [Java](#use-with-java)  |  [Node.js](#use-with-nodejs)  |  [Python](#use-with-python)을 참조 하세요.
 
-## <a name="use-with-c"></a>사용C#
+## <a name="use-with-c"></a>C와 함께 사용 #
 
-### <a name="c-prerequisites"></a>C#필수 구성 요소
+### <a name="c-prerequisites"></a>C # 필수 조건
 
-- 모든 버전의 [Visual Studio 2019](https://www.visualstudio.com/downloads/) Windows에서 실행 되는이 코드를 가져오려고 합니다.
-- Azure 구독. 이 빠른 시작에서 사용할 수는 [무료 평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키입니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독이 있으면 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Bing Search 리소스를 만들고, "  target="_blank"> Azure Portal에서 Bing Search 리소스를 만들어 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 키와 끝점을 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Windows에서 실행 되는이 코드를 가져오는 모든 버전의 [Visual Studio 2019](https://www.visualstudio.com/downloads/) 입니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
 이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
 1. Visual Studio에서 콘솔 솔루션을 만듭니다.
-2. 이 빠른 시작의 코드를 사용 하 여 Program.cs의 내용을 대체 합니다.
+2. Program.cs의 내용을이 빠른 시작에 표시 된 코드로 바꿉니다.
 3. `accessKey` 값을 구독 키로 바꿉니다.
 4. `insightsToken` 값을 /images/search 응답의 인사이트 토큰으로 바꿉니다.
 5. 프로그램을 실행합니다.
@@ -235,16 +237,18 @@ namespace VisualSearchInsightsToken
 
 ## <a name="use-with-java"></a>Java와 함께 사용
 
-### <a name="java-prerequisites"></a>Java 필수 구성 요소
+### <a name="java-prerequisites"></a>Java 필수 조건
 
-- 사용 해야 합니다 [JDK 7 또는 8](https://aka.ms/azure-jdks) 컴파일 및이 코드를 실행 합니다. 즐겨찾기를 갖지만 텍스트 편집기만 사용 해도 충분 하는 경우 Java IDE를 사용할 수 있습니다.
-- 이 빠른 시작에서 사용할 수는 [무료 평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키입니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독이 있으면 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Bing Search 리소스를 만들고, "  target="_blank"> Azure Portal에서 Bing Search 리소스를 만들어 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 키와 끝점을 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* 이 코드를 컴파일하고 실행 하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks) 입니다. 즐겨찾기를 사용 하는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기는 충분 합니다.
+
 
 ## <a name="run-the-java-application"></a>Java 응용 프로그램 실행
 
 이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
-1. 다운로드 하거나 설치 합니다 [Gson Java 라이브러리](https://github.com/google/gson)합니다. Maven 통해 Gson 가져올 수도 있습니다.
+1. [Gson Java 라이브러리](https://github.com/google/gson)를 다운로드 하거나 설치 합니다. Maven를 통해 Gson을 가져올 수도 있습니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만듭니다.
 3. `VisualSearch.java`라는 파일에 제공되는 코드를 추가합니다.
 4. `subscriptionKey` 값을 구독 키로 바꿉니다.
@@ -347,12 +351,13 @@ public class InsightsToken {
 }
 ```
 
-## <a name="use-with-nodejs"></a>Node.js 사용
+## <a name="use-with-nodejs"></a>Node.js와 함께 사용
 
-### <a name="nodejs-prerequisites"></a>Node.js 필수 구성 요소
+### <a name="nodejs-prerequisites"></a>필수 조건 Node.js
 
-- 있어야 [Node.js 6](https://nodejs.org/en/download/) 이 코드를 실행 합니다.
-- 이 빠른 시작에서 사용할 수는 [무료 평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키입니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독이 있으면 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Bing Search 리소스를 만들고, "  target="_blank"> Azure Portal에서 Bing Search 리소스를 만들어 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 키와 끝점을 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* 이 코드를 실행 하려면 [6Node.js](https://nodejs.org/en/download/) 있어야 합니다.
 
 ## <a name="run-the-javascript-application"></a>JavaScript 응용 프로그램 실행
 
@@ -411,12 +416,13 @@ function requestCallback(err, res, body) {
 }
 ```
 
-## <a name="use-with-python"></a>Python 사용
+## <a name="use-with-python"></a>Python과 함께 사용
 
-### <a name="python-prerequisites"></a>Python 필수 구성 요소
+### <a name="python-prerequisites"></a>Python 필수 조건
 
-- 있어야 [Python 3](https://www.python.org/) 이 코드를 실행 합니다.
-- 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독이 있으면 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Bing Search 리소스를 만들고, "  target="_blank"> Azure Portal에서 Bing Search 리소스를 만들어 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 키와 끝점을 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* 이 코드를 실행 하려면 [Python 3](https://www.python.org/) 이 있어야 합니다.
 
 ## <a name="run-the-python-application"></a>Python 응용 프로그램 실행
 
@@ -434,7 +440,8 @@ function requestCallback(err, res, body) {
 # Run the following in a command console window
 # pip3 install requests
 
-import requests, json
+import requests
+import json
 
 BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
 
@@ -449,10 +456,11 @@ insightsToken = 'ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simi
 formData = '{"imageInfo":{"imageInsightsToken":"' + insightsToken + '"}}'
 
 
-file = {'knowledgeRequest' : (None, formData)}
+file = {'knowledgeRequest': (None, formData)}
+
 
 def main():
-    
+
     try:
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
@@ -467,7 +475,6 @@ def print_json(obj):
     print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
 
 
-
 # Main execution
 if __name__ == '__main__':
     main()
@@ -476,7 +483,6 @@ if __name__ == '__main__':
 ## <a name="next-steps"></a>다음 단계
 
 [Visual Search 단일 페이지 웹앱 만들기](tutorial-bing-visual-search-single-page-app.md)  
-[Bing Visual Search API 란?](overview.md)  
-[Try Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
-[평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[이미지-비주얼 검색](https://aka.ms/bingvisualsearchreferencedoc)
+[Bing Visual Search API란?](overview.md)  
+[Cognitive Services 체험하기](https://aka.ms/bingvisualsearchtryforfree)  
+[이미지-Visual Search](https://aka.ms/bingvisualsearchreferencedoc)

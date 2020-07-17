@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 사이트에 VMM 클라우드의 Hyper-V VM 복제에 대한 테스트 결과 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 VMM을 사용 하 여 보조 사이트로 Hyper-v VM 복제 테스트
 description: 이 문서에서는 Azure Site Recovery를 사용하여 보조 사이트에 VMM 클라우드의 Hyper-V VM 복제에 대한 성능 테스트에 대해 정보를 제공합니다.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "73663183"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제에 대한 테스트 결과
 
@@ -43,7 +42,7 @@ ms.locfileid: "60363552"
 
 ## <a name="primary-server-performance"></a>기본 서버 성능
 
-* Hyper-V 복제본(Site Recovery에 사용됨)은 주 서버의 최소 저장소 오버헤드로 로그 파일에 변경 내용을 비동기적으로 추적합니다.
+* Hyper-V 복제본(Site Recovery에 사용됨)은 주 서버의 최소 스토리지 오버헤드로 로그 파일에 변경 내용을 비동기적으로 추적합니다.
 * Hyper-V 복제본은 추적을 위해 IOPS 오버헤드를 최소화하도록 자체 관리되는 메모리 캐시를 활용합니다. 메모리에서 VHDX에 쓰기를 저장하고 복구 사이트로 로그를 보내기 전에 해당 로그 파일에 이를 플러시합니다. 쓰기가 미리 결정된 제한에 도달하는 경우에도 디스크 플러시가 발생합니다.
 * 아래 Graph는 복제에 대한 안정적인 상태 IOPS 오버헤드를 보여줍니다. 복제로 인한 IOPS 오버헤드는 약 5%로 상당히 낮음을 볼 수 있습니다.
 
@@ -59,7 +58,7 @@ Hyper-V 복제본에는 최소 CPU 오버헤드가 있습니다. Graph에서 볼
 
 ## <a name="secondary-server-performance"></a>보조 서버 성능
 
-Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 저장소 작업의 수를 최적화합니다. Graph는 복구 서버에서 메모리 사용량을 요약합니다. 표시되는 메모리 오버헤드는 Hyper-V 서버에서 설치된 총 메모리에 비해 복제를 통해 사용되는 메모리의 비율입니다.
+Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 스토리지 작업의 수를 최적화합니다. Graph는 복구 서버에서 메모리 사용량을 요약합니다. 표시되는 메모리 오버헤드는 Hyper-V 서버에서 설치된 총 메모리에 비해 복제를 통해 사용되는 메모리의 비율입니다.
 
 ![보조 결과](./media/hyper-v-vmm-performance-results/IC744916.png)
 
@@ -100,27 +99,27 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 * 기본 사이트에는 470개의 가상 머신을 실행하는 5개의 Hyper-V 서버를 포함하는 클러스터가 있습니다.
 * VM은 다른 작업을 수행하며 모두 Site Recovery 보호가 설정되어 있습니다.
-* 클러스터 노드에 대한 저장소는 iSCSI SAN을 통해 제공됩니다. 모델 – Hitachi HUS130.
+* 클러스터 노드에 대한 스토리지는 iSCSI SAN을 통해 제공됩니다. 모델 – Hitachi HUS130.
 * 각 클러스터는 서버의 각각 1Gbps인 네트워크 카드(NIC)가 4개 있습니다.
-* 네트워크 카드 중 2개는 iSCSI 개인 네트워크에 연결되며 다른 2개는 외부 엔터프라이즈 네트워크에 연결됩니다. 외부 네트워크 중 하나는 클러스터 통신 전용으로 예약됩니다.
+* 네트워크 카드 중 2개는 iSCSI 프라이빗 네트워크에 연결되며 다른 2개는 외부 엔터프라이즈 네트워크에 연결됩니다. 외부 네트워크 중 하나는 클러스터 통신 전용으로 예약됩니다.
 
 ![기본 하드웨어 요구 사항](./media/hyper-v-vmm-performance-results/IC744922.png)
 
 | 서버 | RAM | 모델 | 프로세서 | 프로세서 수 | NIC | 소프트웨어 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 클러스터의 Hyper-V 서버:  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25는 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| 클러스터의 Hyper-V 서버: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 has 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | VMM 서버 |2 | | |2 |1Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>보조 사이트
 
 * 보조 사이트는 6개의 노드 장애 조치 클러스터가 있습니다.
-* 클러스터 노드에 대한 저장소는 iSCSI SAN을 통해 제공됩니다. 모델 – Hitachi HUS130.
+* 클러스터 노드에 대한 스토리지는 iSCSI SAN을 통해 제공됩니다. 모델 – Hitachi HUS130.
 
 ![기본 하드웨어 사양](./media/hyper-v-vmm-performance-results/IC744923.png)
 
 | 서버 | RAM | 모델 | 프로세서 | 프로세서 수 | NIC | 소프트웨어 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 클러스터의 Hyper-V 서버:  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2.30GHz |2 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| 클러스터의 Hyper-V 서버: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2.30GHz |2 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | VMM 서버 |2 | | |2 |1Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
@@ -131,13 +130,13 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 * 시뮬레이션을 위해 표에 요약된 워크로드 특성과 함께 [IOMeter](http://www.iometer.org) 를 사용합니다.
 * 모든 IOMeter 프로파일은 작업에 대한 최악의 쓰기 패턴을 시뮬레이션하기 위해 임의의 바이트를 쓰도록 설정됩니다.
 
-| 워크로드 | I/O 크기(KB) | 액세스 % | 쓰기 % | 미해결 I/O | I/O 패턴 |
+| 작업 | I/O 크기(KB) | 액세스 % | 쓰기 % | 미해결 I/O | I/O 패턴 |
 | --- | --- | --- | --- | --- | --- |
-| 파일 서버 |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |모두 100% 임의 |
-| SQL Server(볼륨 1) SQL Server(볼륨 2) |864 |100%100% |70%0% |88 |100% 임의 100% 순차 |
+| 파일 서버 |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |모두 100% 임의 |
+| SQL Server(볼륨 1)<br />SQL Server (볼륨 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% 임의<br />100% 순차 |
 | Exchange |32 |100% |67% |8 |100% 임의 |
-| 워크스테이션/VDI |464 |66%34% |70%95% |11 |둘 다 100% 임의 |
-| 웹 파일 서버 |4864 |33%34%33% |95%95%95% |888 |모두 75% 임의 |
+| 워크스테이션/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |둘 다 100% 임의 |
+| 웹 파일 서버 |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |모두 75% 임의 |
 
 ### <a name="vm-configuration"></a>VM 구성
 
@@ -159,7 +158,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 * Site Recovery는 온-프레미스 간 보호로 구성됨
 * VMM 서버에는 Hyper-V 클러스터 서버 및 해당 VM을 비롯하여 4개의 클라우드로 구성됩니다.
 
-| 기본 VMM 클라우드 | 보호된 VM | 복제 빈도 | 추가 복구 지점 |
+| 기본 VMM 클라우드 | 보호되는 VM | 복제 빈도 | 추가 복구 지점 |
 | --- | --- | --- | --- |
 | PrimaryCloudRpo15m |142 |15분 |없음 |
 | PrimaryCloudRpo30s |47 |30초 |없음 |
@@ -175,10 +174,10 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 | CPU |\Processor(_Total)\% 프로세서 시간 |
 | 사용 가능한 메모리 |\Memory\사용 가능한 MB |
 | IOPS |\PhysicalDisk(_Total)\디스크 전송/초 |
-| VM 읽기(IOPS) 작업/초 |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
-| VM 쓰기(IOPS) 작업/초 |\Hyper-V Virtual Storage Device(\<VHD>)\Write Operations/S |
-| VM 읽기 처리량 |\Hyper-V Virtual Storage Device(\<VHD>)\Read Bytes/sec |
-| VM 쓰기 처리량 |\Hyper-V Virtual Storage Device(\<VHD>)\Write Bytes/sec |
+| VM 읽기(IOPS) 작업/초 |\Hyper-V 가상 스토리지 디바이스(\<VHD>)\읽기 작업/초 |
+| VM 쓰기(IOPS) 작업/초 |\Hyper-V 가상 스토리지 디바이스(\<VHD>)\쓰기 작업/초 |
+| VM 읽기 처리량 |\Hyper-V 가상 스토리지 디바이스(\<VHD>)\읽기 바이트/초 |
+| VM 쓰기 처리량 |\Hyper-V 가상 스토리지 디바이스(\<VHD>)\쓰기 바이트/초 |
 
 ## <a name="next-steps"></a>다음 단계
 

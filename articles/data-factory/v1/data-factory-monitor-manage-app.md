@@ -1,28 +1,27 @@
 ---
-title: 데이터 파이프라인 모니터링 및 관리 - Azure | Microsoft Docs
+title: 데이터 파이프라인 모니터링 및 관리-Azure
 description: 모니터링 및 관리 앱을 사용하여 Azure Data Factory 및 파이프라인을 모니터링하고 관리하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60826750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846900"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
-> * [Azure 포털/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
+> * [Azure Portal/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
 > * [모니터링 및 관리 앱 사용](data-factory-monitor-manage-app.md)
 >
 >
@@ -59,7 +58,7 @@ ms.locfileid: "60826750"
 이러한 단계를 테스트할 데이터 팩터리 애플리케이션이 없는 경우 자습서: [데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 수행합니다.
 
 ## <a name="understand-the-monitoring-and-management-app"></a>모니터링 및 관리 앱 이해
-왼쪽에는 다음과 같은 세 가지 탭이 있습니다. **리소스 탐색기**, **모니터링 보기** 및 **경고**. 첫 번째 탭(**리소스 탐색기**)은 기본적으로 선택됩니다.
+왼쪽에 **리소스 탐색기**, **Monitoring Views**(모니터링 뷰) 및 **경고**라는 세 개의 탭이 있습니다. 첫 번째 탭(**리소스 탐색기**)은 기본적으로 선택됩니다.
 
 ### <a name="resource-explorer"></a>리소스 탐색기
 다음이 표시됩니다.
@@ -109,7 +108,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 ![파이프라인 열기 메뉴](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-열린 파이프라인 뷰에서 파이프라인의 모든 작업이 표시됩니다. 이 예제에는 다음과 같은 하나의 작업만 있습니다. 복사 작업. 
+열린 파이프라인 뷰에서 파이프라인의 모든 작업이 표시됩니다. 이 예제에서는 하나의 작업, 복사 작업만이 있습니다. 
 
 ![열린 파이프라인](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
@@ -145,7 +144,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 ![활동 기간 탐색기 왼쪽/오른쪽 화살표](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-다이어그램 보기 하단에는 다음과 같은 단추가 표시됩니다. 확대, 축소, 크기에 맞게, 100% 확대/축소, 레이아웃 잠금. **Lock layout**(레이아웃 잠금) 단추는 다이어그램 뷰에서 테이블 및 파이프라인을 실수로 이동하지 않도록 방지합니다. 기본적으로 해제된 상태입니다. 기능을 해제하고 다이어그램에서 엔터티를 이동할 수 있습니다. 해제한 경우 마지막 단추를 사용하여 테이블 및 파이프라인을 자동으로 배치할 수 있습니다. 마우스 휠을 사용하여 확대하거나 축소할 수도 있습니다.
+다이어그램 뷰의 아래쪽에 확대, 축소, 크기에 맞게, 100% 표시, 레이아웃 잠금 단추가 표시됩니다. **Lock layout**(레이아웃 잠금) 단추는 다이어그램 뷰에서 테이블 및 파이프라인을 실수로 이동하지 않도록 방지합니다. 기본적으로 해제된 상태입니다. 기능을 해제하고 다이어그램에서 엔터티를 이동할 수 있습니다. 해제한 경우 마지막 단추를 사용하여 테이블 및 파이프라인을 자동으로 배치할 수 있습니다. 마우스 휠을 사용하여 확대하거나 축소할 수도 있습니다.
 
 ![다이어그램 뷰 확대/축소 명령](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -160,7 +159,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 <table>
 <tr>
-    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">설명</th>
+    <th align="left">상태</th><th align="left">Substatus</th><th align="left">설명</th>
 </tr>
 <tr>
     <td rowspan="8">대기</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
@@ -169,7 +168,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>DatasetDependencies</td><td>업스트림 종속성이 준비되지 않습니다.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>계산 리소스를 사용할 수 없습니다.</td>
+<td>ComputeResources</td><td>컴퓨팅 리소스를 사용할 수 없습니다.</td>
 </tr>
 <tr>
 <td>ConcurrencyLimit</td> <td>모든 활동 인스턴스는 다른 작업 창을 실행하고 있습니다.</td>
@@ -178,7 +177,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>ActivityResume</td><td>활동이 일시 중지되어 재개될 때까지 활동 기간을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>Retry</td><td>활동 실행을 다시 시도 중입니다.</td>
+<td>재시도</td><td>활동 실행을 다시 시도 중입니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 아직 시작되지 않았습니다.</td>
@@ -197,7 +196,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>활동 기간이 사용자 작업으로 인해 취소되었습니다.</td>
+<td>취소됨</td><td>활동 기간이 사용자 작업으로 인해 취소되었습니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 실패했습니다.</td>
@@ -208,7 +207,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>Ready</td><td>-</td><td>작업 창을 사용할 준비가 되었습니다.</td>
 </tr>
 <tr>
-<td>생략</td><td>-</td><td>활동 기간이 처리되지 않습니다.</td>
+<td>건너뜀</td><td>-</td><td>활동 기간이 처리되지 않습니다.</td>
 </tr>
 <tr>
 <td>없음</td><td>-</td><td>활동 기간이 다른 상태와 함께 존재하는 데 사용되었지만 다시 설정되었습니다.</td>
@@ -271,7 +270,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 ![활동 기간 목록 열 메뉴](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-다음을 수행할 수 있습니다.
+사용할 수 있는 기능은 다음과 같습니다.
 
 * 오름차순으로 정렬.
 * 내림차순으로 정렬.
@@ -287,10 +286,10 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 ## <a name="perform-batch-actions"></a>배치 작업 수행
 ### <a name="rerun-selected-activity-windows"></a>선택한 작업 창 다시 실행
-활동 기간을 선택하고 첫 번째 명령 모음 단추의 아래쪽 화살표를 클릭한 다음 **다시 실행** / **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행)을 선택합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
+작업 창을 선택 하 고, 첫 번째 명령 모음 단추에 대해 아래쪽 화살표를 클릭 하 **Rerun**고,  /  **파이프라인에서 업스트림으로 다시 실행**을 선택 합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
     ![작업 창 다시 실행](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-또한 목록에서 여러 개의 작업 창을 선택하고 동시에 다시 실행할 수 있습니다. 상태를 기준으로 작업 창을 필터링(예: **실패**)한 다음, 작업 창에 실패를 일으키는 문제를 해결한 후에 실패한 작업 창을 다시 실행할 수 있습니다. 목록에서 작업 창을 필터링하는 자세한 내용은 다음 섹션을 참조합니다.  
+또한 목록에서 여러 개의 작업 창을 선택하고 동시에 다시 실행할 수 있습니다. 상태를 기준으로 활동 기간을 필터링(예: **실패**)한 다음, 활동 기간에 실패를 일으키는 문제를 해결한 후에 실패한 활동 기간을 다시 실행할 수 있습니다. 목록에서 작업 창을 필터링하는 자세한 내용은 다음 섹션을 참조합니다.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>여러 파이프라인 일시 중지/다시 시작
 Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 수 있습니다. 명령 모음 단추(아래 이미지에 빨간색 사각형으로 강조 표시됨)를 사용하여 일시 중지/다시 시작할 수 있습니다.

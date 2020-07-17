@@ -1,23 +1,18 @@
 ---
-title: Windows용 Azure Diagnostics 확장 | Microsoft Docs
+title: Windows 용 Azure 진단 확장
 description: Azure Diagnostics 확장을 사용하여 Azure Windows VM 모니터링
-services: virtual-machines-windows
-documentationcenter: ''
 author: johnkemnetz
 manager: ashwink
-editor: ''
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 58c520ecbaf764140748167e458c301ab56de375
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1d38a3cac5525de6835bbb0f9873cbd0636d44a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81869667"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure Diagnostics 확장
 
@@ -25,7 +20,7 @@ ms.locfileid: "60232872"
 
 Azure Diagnostics VM 확장을 사용하면 Windows VM에서 모니터링 데이터(예: 성능 카운터 및 이벤트 로그)를 수집할 수 있습니다. 수집하려는 데이터와 데이터를 저장할 위치(예: Azure Storage 계정 또는 Azure Event Hub)를 세분화하여 지정할 수 있습니다. 이 데이터를 사용하여 Azure Portal에서 차트를 작성하거나 메트릭 경고를 만들 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -37,7 +32,7 @@ Azure Diagnostics 확장은 대상 가상 머신이 인터넷에 연결되어 �
 
 ## <a name="extension-schema"></a>확장 스키마
 
-[Azure Diagnostics 확장 스키마 및 속성 값은 이 문서에 설명되어 있습니다.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
+[Azure Diagnostics 확장 스키마 및 속성 값은 이 문서에 설명되어 있습니다.](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
 
 ## <a name="template-deployment"></a>템플릿 배포
 
@@ -61,7 +56,7 @@ az vm extension set \
 
 `Set-AzVMDiagnosticsExtension` 명령을 사용하여 Azure Diagnostics 확장을 기존 가상 머신에 추가할 수 있습니다. [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정](ps-extensions-diagnostics.md)을 참조하세요.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ```powershell
@@ -92,4 +87,4 @@ Azure Diagnostics 확장에 대한 보다 포괄적인 문제 해결 가이드�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Diagnostics 확장에 대해 자세히 알아보기](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [확장 스키마 및 버전 검토](../../azure-monitor/platform/diagnostics-extension-schema.md)
+* [확장 스키마 및 버전 검토](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)

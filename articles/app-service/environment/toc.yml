@@ -46,7 +46,7 @@
       href: forced-tunnel-support.md
     - name: 방화벽 통합
       href: firewall-integration.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 관리 주소
       href: management-addresses.md
@@ -83,7 +83,7 @@
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: 할당량 정보
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: 모범 사례

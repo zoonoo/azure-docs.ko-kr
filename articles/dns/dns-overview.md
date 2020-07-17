@@ -1,17 +1,17 @@
 ---
 title: Azure DNS란?
 description: Microsoft Azure의 DNS 호스팅 서비스 개요입니다. Microsoft Azure에 도메인을 호스트하세요.
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
-ms.author: victorh
-ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.author: rohink
+ms.openlocfilehash: 1543c0daae7d637730a5f8f9da2305423ba7f84e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339463"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "76932396"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
@@ -49,11 +49,11 @@ DNS 요금 청구는 Azure에서 호스팅되는 DNS 영역의 수와 수신되�
 
 도메인과 레코드는 Azure Portal, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 사용하여 관리할 수 있습니다. 자동 DNS 관리가 필요한 애플리케이션은 REST API 및 SDK를 사용하여 서비스와 통합할 수 있습니다.
 
-## <a name="customizable-virtual-networks-with-private-domains"></a>개인 도메인을 사용하여 사용자 지정할 수 있는 가상 네트워크
+## <a name="customizable-virtual-networks-with-private-domains"></a>프라이빗 도메인을 사용하여 사용자 지정할 수 있는 가상 네트워크
 
-Azure DNS는 개인 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 이 기능을 통해 현재 Azure에서 제공하는 이름 대신 사용자 고유의 사용자 지정 도메인 이름을 개인 가상 네트워크에 사용할 수 있습니다.
+Azure DNS는 프라이빗 DNS 도메인도 지원합니다. 이 기능을 통해 현재 Azure에서 제공하는 이름 대신 사용자 고유의 사용자 지정 도메인 이름을 프라이빗 가상 네트워크에 사용할 수 있습니다.
 
-자세한 내용은 [개인 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요.
+자세한 내용은 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요.
 
 ## <a name="alias-records"></a>별칭 레코드
 

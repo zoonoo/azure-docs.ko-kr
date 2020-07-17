@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6da21e9aa3b3b4cafec71a4d1881b9eb32b4dedc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356222"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>문제 해결: Azure AD Connect 설치 문제
 
@@ -41,23 +41,23 @@ ms.locfileid: "60454794"
 
 ### <a name="common-issues"></a>**일반적인 문제**
 
-* [온-프레미스 Active Directory를 사용 하 여 연결 문제](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools)합니다.
+* [온-프레미스 Active Directory의 연결 문제](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools)
 
 * [온라인 Azure Active Directory 연결 문제](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity)
 
-* [온-프레미스 Active Directory를 통한 권한 문제](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account)합니다.
+* [온-프레미스 Active Directory에 대 한 사용 권한 문제](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account)
 
 ## <a name="recommended-documents"></a>**권장되는 문서**
-* [Azure AD Connect에 대한 필수 구성 요소](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
+* [Azure AD Connect에 대한 필수 조건](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
 * [Azure AD Connect에 사용할 설치 유형 선택](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation)
 * [기본 설정을 사용하여 Azure AD Connect 시작](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-express)
 * [Azure AD Connect의 사용자 지정 설치](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)
-* [Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) 문서 참조).
-* [Azure AD Connect: 준비 서버란?](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server)
+* [Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version)
+* [Azure AD Connect: 준비 서버 란?](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server)
 * [ADConnectivityTool PowerShell 모듈이란?](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-adconnectivitytools)
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
+- [동기화를 Azure AD Connect](how-to-connect-sync-whatis.md)합니다.
 - [하이브리드 ID란?](whatis-hybrid-identity.md)
 
 

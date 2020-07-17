@@ -15,19 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712499"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services에서 Azure Functions 개발
 
-이 문서에서는 Media Services를 사용하여 Azure Functions 만들기를 시작하는 방법을 보여 줍니다. 이 문서에 정의된 Azure 함수는 새 MP4 파일에 대한 저장소 계정 컨테이너 **input**을 모니터링합니다. 파일이 저장소 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토하려면 **Azure Functions** 섹션에서 [개요](../../azure-functions/functions-overview.md) 및 기타 항목을 참조하세요.
+이 문서에서는 Media Services를 사용하여 Azure Functions 만들기를 시작하는 방법을 보여 줍니다. 이 문서에 정의된 Azure 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input**을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토하려면 **Azure Functions** 섹션에서 [개요](../../azure-functions/functions-overview.md) 및 기타 항목을 참조하세요.
 
 Azure Media Services를 사용하는 기존 Azure Functions를 탐색하고 배포하려는 경우 [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)를 확인하세요. 이 리포지토리는 Blob Storage에서 직접 콘텐츠를 수집하고 Blob Storage에 콘텐츠를 인코딩 및 작성하는 데 관련된 워크플로를 표시하는 데 Media Services를 사용하는 예제를 포함합니다. 또한 WebHooks 및 Azure 큐를 통해 작업 알림을 모니터링하는 방법의 예도 포함되어 있습니다. [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) 리포지토리의 예제를 기반으로 함수를 개발할 수도 있습니다. 함수를 배포하려면 **Azure에 배포** 단추를 누릅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [체험 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 - AMS(Azure Media Services) 계정에서 작업을 수행하거나 Media Services에서 보낸 이벤트를 수신 대기하는 Azure Functions를 만들려는 경우 [여기](media-services-portal-create-account.md)에 설명한 대로 AMS 계정을 만들어야 합니다.
@@ -46,13 +45,13 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 이 문서에 정의된 함수는 앱 설정에 다음 환경 변수가 있다고 가정합니다.
 
-**AMSAADTenantDomain**: Azure AD 테넌트 엔드포인트. AMS API 연결에 대한 자세한 내용은 [이](media-services-use-aad-auth-to-access-ams-api.md) 문서를 참조하세요.
+**AMSAADTenantDomain**: Azure AD 테넌트 엔드포인트입니다. AMS API 연결에 대한 자세한 내용은 [이](media-services-use-aad-auth-to-access-ams-api.md) 문서를 참조하세요.
 
-**AMSRESTAPIEndpoint**:  REST API 엔드포인트를 나타내는 URI입니다. 
+**AMSRESTAPIEndpoint**: REST API 엔드포인트를 나타내는 URI입니다. 
 
 **AMSClientId**: Azure AD 애플리케이션 클라이언트 ID입니다.
 
-**AMSClientSecret**: Azure AD 애플리케이션 클라이언트 비밀입니다.
+**AMSClientSecret**: Azure AD 애플리케이션 클라이언트 암호입니다.
 
 **StorageConnection**: Media Services 계정과 연결된 계정의 스토리지 연결입니다. 이 값은 **function.json** 파일 및 **run.csx** 파일(아래 설명 참조)에서 사용됩니다.
 
@@ -64,19 +63,19 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 2. **C#** 언어 및 **데이터 처리** 시나리오를 선택합니다.
 3. **BlobTrigger** 템플릿을 선택합니다. 이 함수는 Blob이 **input** 컨테이너에 업로드될 때마다 트리거됩니다. **input** 이름은 다음 단계에서 **Path**에 지정됩니다.
 
-    ![업로드](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. **BlobTrigger**를 선택하면 페이지에 몇 개의 추가 컨트롤이 표시됩니다.
 
-    ![업로드](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. **만들기**를 클릭합니다. 
 
-## <a name="files"></a>파일
+## <a name="files"></a>Files
 
 Azure Function은 이 섹션에 설명된 코드 파일 및 기타 파일과 연결됩니다. Azure Portal을 사용하여 함수를 만들 경우 **function.json** 및 **run.csx**가 자동으로 만들어집니다. **project.json** 파일을 추가하고 업로드해야 합니다. 이 섹션의 나머지 부분에서는 각 파일을 간략하게 설명하고 해당 정의를 표시합니다.
 
-![업로드](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
@@ -126,7 +125,7 @@ project.json에 다음과 같은 정의를 추가합니다.
     
 ### <a name="runcsx"></a>run.csx
 
-함수에 대한 C# 코드입니다.  아래 정의된 함수는 새 MP4 파일에 대한 저장소 계정 컨테이너 **input**(경로에 지정됨)을 모니터링합니다. 파일이 저장소 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다.
+함수에 대한 C# 코드입니다.  아래 정의된 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input**(경로에 지정됨)을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다.
     
 이 섹션에 정의된 예제는 다음을 보여 줍니다. 
 
@@ -135,7 +134,7 @@ project.json에 다음과 같은 정의를 추가합니다.
 
 실제 시나리오에서는 작업 진행률을 추적한 다음 인코딩된 자산을 게시할 가능성이 높습니다. 자세한 내용은 [Azure 웹후크를 사용하여 Media Services 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)을 참조하세요. 더 많은 예제는 [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)를 참조하세요.  
 
-기존 run.csx 파일의 내용을 다음 코드로 바꿉니다. 함수를 정의했으면 **저장 및 실행**을 클릭합니다.
+기존 run.csx 파일의 콘텐츠를 다음 코드로 바꿉니다. 함수 정의를 완료하면 **저장 및 실행**을 클릭합니다.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -330,10 +329,10 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 ## <a name="test-your-function"></a>함수 테스트
 
-함수를 테스트하려면 연결 문자열에 지정한 저장소 계정의 **input** 컨테이너에 MP4 파일을 업로드해야 합니다.  
+함수를 테스트하려면 연결 문자열에 지정한 스토리지 계정의 **input** 컨테이너에 MP4 파일을 업로드해야 합니다.  
 
 1. **StorageConnection** 환경 변수에 지정된 스토리지 계정을 선택합니다.
-2. **Blob**을 클릭합니다.
+2. **Blob**을 클릭 합니다.
 3. **+ 컨테이너**를 클릭합니다. 컨테이너 **입력**의 이름을 지정합니다.
 4. **업로드**를 눌러 업로드하려는 .mp4 파일을 찾습니다.
 

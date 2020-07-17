@@ -1,21 +1,18 @@
 ---
 title: Azure Storage에서 대량의 임의 데이터 다운로드 | Microsoft Docs
 description: Azure SDK를 사용하여 Azure Storage 계정에서 대량의 임의 데이터를 다운로드하는 방법에 대해 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 1a3d1325edeac098b04ce0e25d4a545cb885761e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187737"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75372094"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Azure Storage에서 대량의 임의 데이터 다운로드
 
@@ -28,7 +25,7 @@ ms.locfileid: "65187737"
 > * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 이전 스토리지 자습서: [Azure Storage에 대량의 임의 데이터를 병렬로 업로드][previous-tutorial]를 완료해야 합니다.
 
@@ -42,7 +39,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="update-the-application"></a>애플리케이션 업데이트
 
-이전 자습서에서는 저장소 계정에 파일만 업로드했습니다. 텍스트 편집기에서 `D:\git\storage-dotnet-perf-scale-app\Program.cs` 파일을 엽니다. `Main` 메서드를 다음 샘플로 바꿉니다. 이 예제에서는 업로드 작업을 주석 처리하고, 완료 시 다운로드 작업 및 저장소 계정의 콘텐츠를 삭제하는 작업의 주석을 제거합니다.
+이전 자습서에서는 스토리지 계정에 파일만 업로드했습니다. 텍스트 편집기에서 `D:\git\storage-dotnet-perf-scale-app\Program.cs` 파일을 엽니다. `Main` 메서드를 다음 샘플로 바꿉니다. 이 예제에서는 업로드 작업을 주석 처리하고, 완료 시 다운로드 작업 및 스토리지 계정의 콘텐츠를 삭제하는 작업의 주석을 제거합니다.
 
 ```csharp
 public static void Main(string[] args)
@@ -98,13 +95,13 @@ dotnet build
 dotnet run
 ```
 
-응용 프로그램은 **storageconnectionstring**에 지정된 스토리지 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
-다음 표에서는 다운로드된 각 Blob에 대해 정의된 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet)를 보여 줍니다.
+애플리케이션은 **storageconnectionstring**에 지정된 스토리지 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
+다음 표에서는 다운로드된 각 Blob에 대해 정의된 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions)를 보여 줍니다.
 
-|자산|값|설명|
+|속성|값|Description|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 이 속성은 업로드된 콘텐츠의 MD5 해시를 검사하지 않도록 설정합니다. MD5 유효성 검사를 사용하지 않으면 더 빠른 전송이 생성됩니다. 그러나 전송 중인 파일의 유효성 또는 무결성을 확인하지 않습니다. |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 이 속성은 MD5 해시를 계산하고 저장할지를 결정합니다.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| 이 속성은 업로드된 콘텐츠의 MD5 해시를 검사하지 않도록 설정합니다. MD5 유효성 검사를 사용하지 않으면 더 빠른 전송이 생성됩니다. 그러나 전송 중인 파일의 유효성 또는 무결성을 확인하지 않습니다. |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| 이 속성은 MD5 해시를 계산하고 저장할지를 결정합니다.   |
 
 `DownloadFilesAsync` 작업은 다음 예제에 표시됩니다.
 
@@ -192,7 +189,7 @@ private static async Task DownloadFilesAsync()
 
 ### <a name="validate-the-connections"></a>연결 유효성 검사
 
-파일을 다운로드하는 동안 저장소 계정에 대한 동시 연결 수를 확인할 수 있습니다. `Command Prompt`를 열고 `netstat -a | find /c "blob:https"`를 입력합니다. 이 명령은 `netstat`를 사용하여 현재 열린 연결 수를 표시합니다. 다음 예제는 자습서를 직접 실행할 때 표시되는 것과 유사한 출력을 보여 줍니다. 예제에서 볼 수 있듯이 저장소 계정에서 무작위 파일을 다운로드할 때 280개가 넘는 연결이 열려 있었습니다.
+파일을 다운로드하는 동안 스토리지 계정에 대한 동시 연결 수를 확인할 수 있습니다. `Command Prompt`를 열고 `netstat -a | find /c "blob:https"`를 입력합니다. 이 명령은 `netstat`를 사용하여 현재 열린 연결 수를 표시합니다. 다음 예제는 자습서를 직접 실행할 때 표시되는 것과 유사한 출력을 보여 줍니다. 예제에서 볼 수 있듯이 스토리지 계정에서 무작위 파일을 다운로드할 때 280개가 넘는 연결이 열려 있었습니다.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -203,7 +200,7 @@ C:\>
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈 3부에서는 다음 방법을 통해 저장소 계정에서 대량의 임의 데이터를 다운로드하는 방법에 대해 배웠습니다.
+시리즈 3부에서는 다음 방법을 통해 스토리지 계정에서 대량의 임의 데이터를 다운로드하는 방법에 대해 배웠습니다.
 
 > [!div class="checklist"]
 > * 애플리케이션 실행

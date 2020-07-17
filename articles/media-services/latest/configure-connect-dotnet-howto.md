@@ -1,6 +1,6 @@
 ---
-title: .NET-Azure Media Services v3 API에 연결
-description: .NET으로 Media Services v3 API에 연결 하는 방법에 알아봅니다.
+title: Azure Media Services v3 API에 연결 - .NET
+description: 이 문서에서는 .NET을 사용하여 Media Services v3 API에 연결하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,63 +11,66 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736142"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201125"
 ---
-# <a name="connect-to-media-services-v3-api---net"></a>.NET으로 Media Services v3 API에 연결
+# <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API에 연결 - .NET
 
-이 아티클에서 Azure Media Services v3.NET SDK에 연결 하는 서비스 보안 주체 로그인 메서드를 사용 하 여 합니다.
+이 문서에서는 서비스 사용자 로그인 메서드를 사용하여 Azure Media Services v3 .NET SDK에 연결하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- [Media Services 계정 만들기](create-account-cli-how-to.md) Media Services 계정 이름과 리소스 그룹 이름을 기억해 두어야
-- .NET 개발에 사용 하려는 하는 도구를 설치 합니다. 이 문서의 단계를 사용 하는 방법을 보여 줍니다 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)합니다. Visual Studio Code를 사용 하 여 참조 하세요 [사용 C# ](https://code.visualstudio.com/docs/languages/csharp)합니다. 또는 다른 코드 편집기를 사용할 수 있습니다.
+- [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다.
+- .NET 개발에 사용하려는 도구를 설치합니다. 이 문서의 단계에서는 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 사용하는 방법을 보여 줍니다. Visual Studio Code를 사용할 수 있습니다. [C# 작업](https://code.visualstudio.com/docs/languages/csharp)을 참조하세요. 또는 다른 코드 편집기를 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토합니다.
 
 ## <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
 1. Visual Studio를 시작합니다. 
-1. **파일** 메뉴에서 클릭 **새로 만들기** > **프로젝트**합니다. 
-1. 만들기는 **.NET Core** 콘솔 응용 프로그램입니다.
+1. **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 클릭합니다. 
+1. **.NET Core** 콘솔 애플리케이션을 만듭니다.
 
-이 항목에서는 샘플 앱을 대상으로 `netcoreapp2.0`입니다. 코드에서는 '비동기 기본'부터 사용할 수 있는 C# 7.1 합니다. 이 참조 하세요 [블로그](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) 대 한 자세한 내용은 합니다.
+이 항목의 샘플 앱은 `netcoreapp2.0`을 대상으로 합니다. 이 코드에서는 C# 7.1부터 사용할 수 있는 'async main'을 사용합니다. 자세한 내용은 [이 블로그](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/)를 참조하세요.
 
 ## <a name="add-required-nuget-packages"></a>필요한 NuGet 패키지 추가
 
-1. Visual Studio에서 선택 **도구가** > **NuGet 패키지 관리자** > **NuGet 관리자 콘솔**합니다.
-2. 에 **패키지 관리자 콘솔** 창을 사용 하 여 `Install-Package` 다음 NuGet 패키지를 추가 하는 명령입니다. 예: `Install-Package Microsoft.Azure.Management.Media`.
+1. Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **NuGet 관리자 콘솔**을 선택합니다.
+2. **패키지 관리자 콘솔** 창에서 `Install-Package` 명령을 사용하여 다음 NuGet 패키지를 추가합니다. `Install-Package Microsoft.Azure.Management.Media`)을 입력합니다.
 
-|패키지|설명|
+|패키지|Description|
 |---|---|
-|`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>확인 하려면 최신 Azure Media Services 패키지를 사용 하 고 있는지 검사 하십시오 [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media)합니다.|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|NET 용 Azure SDK에 대 한 ADAL 인증 라이브러리|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|환경 변수 및 로컬 JSON 파일에서 구성 값 읽기|
-|`Microsoft.Extensions.Configuration.Json`|환경 변수 및 로컬 JSON 파일에서 구성 값 읽기
+|`Microsoft.Azure.Management.Media`|Azure Media Services SDK <br/>최신 Azure Media Services 패키지를 사용하고 있는지 확인하려면 [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media)를 확인하세요.|
+|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|NET용 Azure SDK에 대한 ADAL 인증 라이브러리|
+|`Microsoft.Extensions.Configuration.EnvironmentVariables`|환경 변수 및 로컬 JSON 파일에서 구성 값을 읽습니다.|
+|`Microsoft.Extensions.Configuration.Json`|환경 변수 및 로컬 JSON 파일에서 구성 값을 읽습니다.
 |`WindowsAzure.Storage`|Storage SDK|
 
-## <a name="create-and-configure-the-app-settings-file"></a>만들기 및 앱 설정 파일을 구성 합니다.
+## <a name="create-and-configure-the-app-settings-file"></a>앱 설정 파일 만들기 및 구성
 
-### <a name="create-appsettingsjson"></a>Appsettings.json 만들기
+### <a name="create-appsettingsjson"></a>appsettings.json 만들기
 
-1. 이동 go **일반적인** > **텍스트 파일**합니다.
-1. "Appsettings.json" 이름을 지정 합니다.
-1. "변경 된 내용만 복사".json 파일의 "출력 디렉터리로 복사" 속성을 설정 (되도록 응용 프로그램 게시 하는 경우에 액세스할 수)입니다.
+1. **일반** > **텍스트 파일**로 이동합니다.
+1. "appsettings.json"으로 이름을 지정합니다.
+1. .json 파일의 "출력 디렉터리로 복사" 속성을 "변경된 내용만 복사"로 설정하여 애플리케이션이 게시될 때 액세스할 수 있도록 합니다.
 
-### <a name="set-values-in-appsettingsjson"></a>Appsettings.json의 값 설정
+### <a name="set-values-in-appsettingsjson"></a>appsettings.json의 값 설정
 
-실행 합니다 `az ams account sp create` 에 설명 된 대로 명령을 [Api에 액세스](access-api-cli-how-to.md)합니다. 이 명령은 "appsettings.json"에 복사 해야 하는 json을 반환 합니다.
+[액세스 API](access-api-cli-how-to.md)에 설명된 대로 `az ams account sp create` 명령을 실행합니다. 명령은 "appsettings.json"에 복사해야 하는 json을 반환합니다.
  
 ## <a name="add-configuration-file"></a>구성 파일 추가
 
-편의 위해 "appsettings.json"의 값을 읽는 역할을 하는 구성 파일을 추가 합니다.
+편의상 "appsettings.json"에서 값을 읽는 구성 파일을 추가합니다.
 
-1. 프로젝트에 새.cs 클래스를 추가 합니다. 이름을 `ConfigWrapper`로 지정합니다. 
-1. 이 파일에 다음 코드를 붙여 넣습니다 (이 예제에서는 네임 스페이스를 있다고 가정은 `ConsoleApp1`).
+1. 프로젝트에 새 .cs 클래스를 추가합니다. 이름을 `ConfigWrapper`로 지정합니다. 
+1. 이 파일에 다음 코드를 붙여넣습니다(이 예제에서는 네임스페이스가 `ConsoleApp1`인 것으로 가정).
 
 ```csharp
 using System;
@@ -140,7 +143,7 @@ namespace ConsoleApp1
 
 ## <a name="connect-to-the-net-client"></a>.NET 클라이언트에 연결
 
-.NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만들어야 합니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 아래 코드 GetCredentialsAsync 함수는 로컬 구성 파일에 제공 된 자격 증명에 따라 ServiceClientCredentials 개체를 만듭니다.
+.NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만들어야 합니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 아래 코드에서 GetCredentialsAsync 함수는 로컬 구성 파일에 제공된 자격 증명에 따라 ServiceClientCredentials 개체를 만듭니다.
 
 1. `Program.cs`를 엽니다.
 1. 다음 코드를 붙여 넣습니다.
@@ -204,7 +207,7 @@ namespace ConsoleApp1
             //// ClientAssertionCertificate
             //// ApplicationTokenProvider.LoginSilentWithCertificateAsync
 
-            // Use ApplicationTokenProvider.LoginSilentAsync to get a token using a service principal with symetric key
+            // Use ApplicationTokenProvider.LoginSilentAsync to get a token using a service principal with symmetric key
             ClientCredential clientCredential = new ClientCredential(config.AadClientId, config.AadSecret);
             return await ApplicationTokenProvider.LoginSilentAsync(config.AadTenantId, clientCredential, ActiveDirectoryServiceSettings.Azure);
         }
@@ -239,4 +242,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>참고 항목
 
-[.NET 참조](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [.NET 참조](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* 더 많은 코드 예제는 [.NET SDK 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet) 리포지토리를 참조하세요.

@@ -1,23 +1,23 @@
 ---
-title: Translator Text API 사전 예제 메서드
-titlesuffix: Azure Cognitive Services
-description: Translator Text API 사전 예제 메서드를 사용합니다.
+title: Translator 사전 예제 메서드
+titleSuffix: Azure Cognitive Services
+description: Translator 사전 예제 메서드는 컨텍스트에서 사전의 용어를 사용 하는 방법을 보여 주는 예제를 제공 합니다.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: d48349b802023d9a05bf14898440837b7793715d
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.date: 01/21/2020
+ms.author: swmachan
+ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578274"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592511"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: 사전 예제
+# <a name="translator-30-dictionary-examples"></a>Translator 3.0: 사전 예제
 
 사전의 용어가 컨텍스트에서 사용되는 방식을 보여 주는 예제를 제공합니다. 이 작업은 [사전 조회](./v3-0-dictionary-lookup.md)와 함께 사용됩니다.
 
@@ -33,45 +33,20 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-<table width="100%">
-  <th width="20%">쿼리 매개 변수</th>
-  <th>설명</th>
-  <tr>
-    <td>api-version</td>
-    <td>*필수 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
-  </tr>
-  <tr>
-    <td>from</td>
-    <td>*필수 매개 변수*입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.</td>
-  </tr>
-  <tr>
-    <td>to</td>
-    <td>*필수 매개 변수*입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.</td>
-  </tr>
-</table>
+| 쿼리 매개 변수 | Description |
+| --------- | ----------- |
+| api-version <img width=200/> | **필수 매개 변수**입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
+| 원본 | **필수 매개 변수**입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. |
+| 다음으로 변경: | **필수 매개 변수**입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.  | 
 
 요청 헤더에는 다음이 포함됩니다.
 
-<table width="100%">
-  <th width="20%">헤더</th>
-  <th>설명</th>
-  <tr>
-    <td>인증 헤더</td>
-    <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
-  </tr>
-  <tr>
-    <td>콘텐츠 형식</td>
-    <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*필수 요청 헤더*<br/>요청 본문의 길이입니다.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*선택 사항*입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
-  </tr>
-</table> 
+| 헤더  | Description |
+| ------ | ----------- |
+| 인증 헤더 <img width=200/>  | **필수 요청 헤더**<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
+| 콘텐츠 형식 | **필수 요청 헤더**<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다. |
+| Content-Length   | **필수 요청 헤더**<br/>요청 본문의 길이입니다. |
+| X-ClientTraceId   | **선택 사항입니다**.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다. |
 
 ## <a name="request-body"></a>요청 본문
 
@@ -110,9 +85,9 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
     * `sourceSuffix`: 완전한 예제를 만들기 위해 `sourceTerm` 값 _뒤에_ 연결할 문자열입니다. 공백 문자는 필요한 위치에 이미 있으므로 추가하지 않도록 합니다. 이 값은 빈 문자열일 수 있습니다.
 
-    * `targetPrefix`: `sourcePrefix`과 비슷하지만 대상에 사용되는 문자열입니다.
+    * `targetPrefix`: `sourcePrefix`와 비슷하지만 대상에 사용되는 문자열입니다.
 
-    * `targetTerm`: `sourceTerm`과 비슷하지만 대상에 사용되는 문자열입니다.
+    * `targetTerm`: `sourceTerm`와 비슷하지만 대상에 사용되는 문자열입니다.
 
     * `targetSuffix`: `sourceSuffix`와 비슷하지만 대상에 사용되는 문자열입니다.
 
@@ -123,13 +98,9 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 이 예제에서는 영어 용어 `fly` 및 해당 스페인어 번역 `volar`로 구성된 쌍의 예제를 조회하는 방법을 보여 줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
-
----
 
 응답 본문은 다음과 같습니다(명확히 나타내기 위해 축약됨).
 

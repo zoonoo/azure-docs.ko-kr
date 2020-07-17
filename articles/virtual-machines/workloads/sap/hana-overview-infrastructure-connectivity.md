@@ -3,23 +3,21 @@ title: Azure의 SAP HANA(대규모 인스턴스)에 대한 인프라 및 연결 
 description: Azure의 SAP HANA(대규모 인스턴스)를 사용하도록 필수 연결 인프라를 구성합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: jeconnoc
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
-ms.author: rclaus
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d8bbe2fc218004116177c4c9d95777d9ec57503
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60477300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77616913"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>SAP HANA(대규모 인스턴스) 배포 
 
@@ -32,11 +30,12 @@ Microsoft는 HANA 대규모 인스턴스 단위를 배포하기 위해 다음 �
 - 비즈니스 연락처 정보(이메일 주소 및 전화 번호 포함)
 - 기술 담당자 정보(이메일 주소 및 전화 번호 포함)
 - 기술 네트워킹 담당자 정보(이메일 주소 및 전화 번호 포함)
-- Azure 배포 지역(예: 미국 서부, 오스트레일리아 동부 또는 유럽 북부)
+- Azure 배포 지역(예: 미국 서부, 오스트레일리아 동부 또는 북유럽)
 - Azure의 SAP HANA(대규모 인스턴스) SKU(구성)
 - 모든 Azure 배포 지역의 경우:
     - Azure 가상 네트워크를 HANA 대규모 인스턴스에 연결하는 ER-P2P 연결에 대한 /29 IP 주소 범위
     - HANA 대규모 인스턴스 서버 IP 풀에 사용되는 /24 CIDR 블록
+    - [Global Reach express](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 경로를 사용 하 여 온-프레미스에서 Hana 대량 인스턴스 단위나 다른 AZURE 지역의 Hana large instance 단위 간 라우팅을 사용 하도록 설정 하는 경우 다른/29 IP 주소 범위를 예약 해야 합니다. 이 특정 범위는 이전에 정의한 다른 IP 주소 범위와 겹칠 수 없습니다.
 - HANA 대규모 인스턴스에 연결하는 모든 Azure 가상 네트워크의 가상 네트워크 주소 공간 특성에 사용된 IP 주소 범위 값
 - 각 HANA 대규모 인스턴스 시스템에 대한 데이터:
   - 원하는 호스트 이름 - 정규화된 도메인 이름이 이상적.
@@ -50,7 +49,7 @@ Microsoft는 HANA 대규모 인스턴스 단위를 배포하기 위해 다음 �
 
 Microsoft에서 배포한 후에 다음 순서를 사용하여 HANA 대규모 인스턴스에 연결합니다.
 
-1. [Azure VM을 HANA 대규모 인스턴스에 연결](hana-connect-azure-vm-large-instances.md)
-2. [VNet을 HANA 대규모 인스턴스 ExpressRoute에 연결](hana-connect-vnet-express-route.md)
+1. [HANA large instances에 Azure Vm 연결](hana-connect-azure-vm-large-instances.md)
+2. [HANA large instances Express 경로에 VNet 연결](hana-connect-vnet-express-route.md)
 3. [추가 네트워크 요구 사항(옵션)](hana-additional-network-requirements.md)
 

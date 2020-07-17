@@ -1,25 +1,15 @@
 ---
-title: Service Fabric Cluster Resource Manager - 애플리케이션 그룹 | Microsoft Docs
+title: Service Fabric 클러스터 리소스 관리자-응용 프로그램 그룹
 description: Service Fabric 클러스터 리소스 관리자에서 애플리케이션 그룹 기능 개요
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75452145"
 ---
 # <a name="introduction-to-application-groups"></a>애플리케이션 그룹 소개
 Service Fabric의 Cluster Resource Manager는 일반적으로 부하([메트릭](service-fabric-cluster-resource-manager-metrics.md)을 통해 표시됨)를 클러스터 전체에 균등하게 분산하여 클러스터 리소스를 관리합니다. Service Fabric은 클러스터에서 노드의 용량과 [용량](service-fabric-cluster-resource-manager-cluster-description.md)을 통해 전체적으로 클러스터를 관리합니다. 메트릭과 용량은 다양한 워크로드에 잘 적용되지만 서로 다른 Service Fabric 애플리케이션 인스턴스를 과도하게 사용하는 패턴은 때때로 추가 요구 사항을 가져옵니다. 예를 들어 다음을 원할 수 있습니다.
@@ -37,7 +27,7 @@ Service Fabric의 Cluster Resource Manager는 일반적으로 부하([메트릭]
 
 <center>
 
-![최대 노드 수를 정의 하는 응용 프로그램 인스턴스][Image1]
+![최대 노드 수를 정의하는 애플리케이션 인스턴스][Image1]
 </center>
 
 왼쪽 예제에서 애플리케이션에는 정의된 최대 노드 수가 없으며 세 가지 서비스가 있습니다. Cluster Resource Manager는 클러스터에서 최상의 균형을 달성하기 위해 6개의 사용 가능한 노드에 모든 복제본을 분산했습니다(기본 동작). 오른쪽 예제에서는 동일한 애플리케이션이 3개의 노드로 제한된 것을 확인할 수 있습니다.
@@ -108,7 +98,7 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 - 애플리케이션 인스턴스 내의 서비스 수가 매번 변경되는 경우 
 - 서비스가 존재하지만 리소스를 사용하지 않고 있는 경우 
 
-응용 프로그램 인스턴스에 대 한 리소스를 예약 필요 두 개의 추가 매개 변수를 지정 합니다. *MinimumNodes* 고 *NodeReservationCapacity*
+애플리케이션 인스턴스에 대해 리소스를 예약하려면 2개의 추가 매개 변수 *MinimumNodes* 및 *NodeReservationCapacity*를 지정해야 합니다.
 
 - **MinimumNodes** - 애플리케이션 인스턴스를 실행해야 하는 노드의 최소 수를 정의합니다.  
 - **NodeReservationCapacity** - 이 설정은 애플리케이션에 대한 메트릭을 기준으로 합니다. 해당 값은 해당 애플리케이션의 서비스가 실행되는 모든 노드에서 애플리케이션용으로 예약된 메트릭 크기입니다.
@@ -119,7 +109,7 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 
 <center>
 
-![예약 된 용량을 정의 하는 응용 프로그램 인스턴스][Image2]
+![예약된 용량을 정의하는 애플리케이션 인스턴스][Image2]
 </center>
 
 왼쪽 예에서 애플리케이션은 정의된 애플리케이션 용량이 없습니다. Cluster Resource Manager는 기본 규칙에 따라 모든 항목의 균형을 유지합니다.
@@ -180,13 +170,13 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 ApplicationLoad 쿼리는 애플리케이션에 대해 지정된 애플리케이션 성능에 대한 기본 정보를 반환합니다. 이 정보에는 최소 노드와 최대 노드 정보 및 애플리케이션이 현재 사용하고 있는 노드 수가 포함됩니다. 다음을 비롯한 각 애플리케이션 부하 메트릭에 대한 정보도 포함합니다.
 
-* 메트릭 이름: 메트릭의 이름입니다.
-* 예약 용량: 이 응용 프로그램에 대 한 클러스터에 예약 된 클러스터 용량입니다.
-* 응용 프로그램 부하: 이 응용 프로그램 자식 복제본의 총 부하입니다.
-* 응용 프로그램 용량: 최대 응용 프로그램 부하의 값을 허용 합니다.
+* 메트릭 이름: 메트릭의 이름.
+* 예약 용량: 이 애플리케이션에 대한 클러스터에 예약된 클러스터 용량.
+* 애플리케이션 부하: 이 애플리케이션 자식 복제본의 총 부하.
+* 애플리케이션 용량: 애플리케이션 부하의 허용되는 최대값.
 
 ## <a name="removing-application-capacity"></a>애플리케이션 용량 삭제
-애플리케이션 용량 매개 변수가 애플리케이션에 대해 설정되면 업데이트 애플리케이션 API 또는 PowerShell cmdlet을 사용하여 제거할 수 있습니다. 예를 들면 다음과 같습니다.
+애플리케이션 용량 매개 변수가 애플리케이션에 대해 설정되면 업데이트 애플리케이션 API 또는 PowerShell cmdlet을 사용하여 제거할 수 있습니다. 예를 들어:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity
@@ -213,9 +203,9 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 ## <a name="next-steps"></a>다음 단계
 - 서비스 구성에 대한 자세한 내용은 [서비스 구성에 대한 자세한 정보](service-fabric-cluster-resource-manager-configure-services.md)에서 알아봅니다.
 - 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
-- 처음부터 시작 및 [서비스 패브릭 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)
+- 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
 - 메트릭이 일반적으로 작동하는 방식에 대한 자세한 내용은 [서비스 패브릭 부하 메트릭](service-fabric-cluster-resource-manager-metrics.md)
-- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 확인하세요.
+- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대 한 자세한 내용은 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md) 문서를 참조 하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png

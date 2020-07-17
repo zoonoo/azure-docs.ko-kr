@@ -2,24 +2,23 @@
 title: 배포 아키텍처 - Azure Dedicated HSM | Microsoft Docs
 description: 애플리케이션 아키텍처의 일부로 Azure Dedicated HSM을 사용할 때 생각해야 하는 기본적인 설계 고려 사항
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.author: barclayn
-ms.openlocfilehash: f078df7677e771d131f15056ac4a54a58a3134bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 02/05/2020
+ms.author: mbaldwin
+ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60912291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77048560"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure 전용 HSM 배포 아키텍처
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure Dedicated HSM 배포 아키텍처
 
 Azure Dedicated HSM은 Azure에서 암호화 키 스토리지를 제공합니다. 엄격한 보안 요구 사항을 충족합니다. 다음에 해당하는 고객은 Azure Dedicated HSM을 사용하면 혜택을 얻을 수 있습니다.
 
@@ -35,7 +34,11 @@ HSM은 Microsoft의 데이터 센터에 분산되며 고가용성 솔루션의 �
 * 미국 중남부
 * 동남아시아
 * 동아시아
-* 유럽 북부
+* 인도 중부
+* 인도 남부
+* 일본 동부
+* 일본 서부
+* 북유럽
 * 서유럽
 * 영국 남부
 * 영국 서부
@@ -57,7 +60,7 @@ Dedicated HSM 기반 솔루션의 디자인 요소로는 위치/대기 시간, �
 
 ## <a name="distributed-application-support"></a>분산 애플리케이션 지원
 
-Dedicated HSM 디바이스는 일반적으로 키 저장 및 키 검색 작업을 수행해야 하는 애플리케이션을 지원하기 위해 배포됩니다. Dedicated HSM 디바이스에는 독립 애플리케이션을 지원하기 위한 10개의 파티션이 있습니다. 디바이스 위치는 서비스를 사용해야 하는 모든 애플리케이션의 전체적인 관점을 기반으로 해야 합니다.
+Dedicated HSM 디바이스는 일반적으로 키 스토리지 및 키 검색 작업을 수행해야 하는 애플리케이션을 지원하기 위해 배포됩니다. Dedicated HSM 디바이스에는 독립 애플리케이션을 지원하기 위한 10개의 파티션이 있습니다. 디바이스 위치는 서비스를 사용해야 하는 모든 애플리케이션의 전체적인 관점을 기반으로 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -69,4 +72,4 @@ Dedicated HSM 디바이스는 일반적으로 키 저장 및 키 검색 작업�
 * [물리적 보안](physical-security.md)
 * [네트워킹](networking.md)
 * [지원 가능성](supportability.md)
-* [모니터링](monitoring.md)
+* [Monitoring](monitoring.md)

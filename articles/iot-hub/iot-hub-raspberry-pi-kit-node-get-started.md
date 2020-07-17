@@ -1,21 +1,20 @@
 ---
-title: Raspberry Pi-클라우드(Node.js) - Raspberry Pi를 Azure IoT Hub에 연결 | Microsoft Docs
-description: 설정 하 고이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Raspberry Pi에 대 한 Azure IoT Hub에 Raspberry Pi를 연결 하는 방법을 알아봅니다.
+title: 클라우드에서 Azure IoT Hub에 Raspberry Pi 연결 (Node.js)
+description: Raspberry Azure IoT Hub Pi를 설정 하 고 Raspberry Pi에 연결 하 여이 자습서에서 Azure 클라우드 플랫폼으로 데이터를 전송 하는 방법에 대해 알아봅니다.
 author: wesmc7777
-manager: philmea
+manager: eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 03/13/2020
 ms.author: wesmc
-ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: 3175956e35603cc4ad3a938f3d316c0af8f2d227
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81640524"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -51,7 +50,7 @@ ms.locfileid: "65597264"
 
 * Raspberry Pi 2 또는 Raspberry Pi 3 보드.
 
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 * Pi에 연결할 모니터, USB 키보드 및 마우스.
 
@@ -82,11 +81,7 @@ ms.locfileid: "65597264"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>IoT 허브에서 새 디바이스 등록
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
@@ -98,16 +93,13 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
 
-   a. [Raspbian Stretch를 다운로드합니다](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)(.zip 파일).
-
-   > [!WARNING]
-   > 위의 링크를 사용하여 `raspbian-2017-07-5` zip 이미지를 다운로드하십시오. 최신 버전의 Raspbian 이미지에는 Wiring-Pi Node와 관련된 몇 가지 알려진 문제점이 있으며 이로 인해 다음 단계에서 오류가 발생할 수 있습니다.
+   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/) (.zip 파일).
 
    b. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 
 2. microSD 카드에 Raspbian을 설치합니다.
 
-   a. [Etcher SD 카드 버너 유틸리티를 다운로드하여 설치합니다](https://etcher.io/).
+   a. [ETCHER SD 카드 버너 유틸리티를 다운로드 하 여 설치](https://etcher.io/)합니다.
 
    b. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
 
@@ -123,9 +115,9 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Pi를 모니터, 키보드 및 마우스에 연결합니다.
 
-2. Pi를 시작한 다음 Raspbian를 사용 하 여 로그인 `pi` 사용자 이름으로 및 `raspberry` 암호로 합니다.
+2. Pi를 시작한 다음를 사용자 이름으로,를 암호로 사용 하 여 Raspbian에 로그인 `pi` `raspberry` 합니다.
 
-3. Raspberry 아이콘 > **기본 설정** > **Raspberry Pi 구성**을 클릭합니다.
+3. Raspberry 아이콘 > **기본 설정**  >  **Raspberry Pi 구성**을 클릭 합니다.
 
    ![Raspbian 기본 설정 메뉴](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -138,11 +130,11 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ### <a name="connect-the-sensor-to-pi"></a>Pi에 센서 연결
 
-실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뛰세요](#connect-pi-to-the-network).
+실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뜁니다](#connect-pi-to-the-network).
 
 ![Raspberry Pi와 센서 연결](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
-BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 디바이스에서 클라우드로 메시지를 보내면 LED가 깜박입니다. 
+BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 디바이스에서 클라우드로 메시지를 보내면 LED가 깜박입니다.
 
 센서 핀의 경우 다음 배선을 사용합니다.
 
@@ -155,7 +147,7 @@ BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 디�
 | LED VDD(18F 핀)        | GPIO 24(18 핀)       | 흰색 케이블   |
 | LED GND(17F 핀)        | GND(20 핀)           | 검은색 케이블   |
 
-참조용으로 [Raspberry Pi 2 및 3 핀 매핑](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi)을 보려면 클릭하세요.
+참조에 대 한 [Raspberry Pi 2 & 3 핀 매핑](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) 을 보려면 클릭 합니다.
 
 BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 보여야 합니다.
 
@@ -163,7 +155,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
 ### <a name="connect-pi-to-the-network"></a>네트워크에 Pi 연결
 
-마이크로 USB 케이블 및 전원 공급 장치를 사용하여 Pi를 켭니다. 이더넷 케이블을 사용하여 Pi를 유선 네트워크에 연결하거나 [Raspberry Pi Foundation의 지침](https://www.raspberrypi.org/learning/software-guide/wifi/)에 따라 Pi를 무선 네트워크에 연결합니다. Pi가 네트워크에 성공적으로 연결된 후 [Pi의 IP 주소](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)를 적어 두어야 합니다.
+마이크로 USB 케이블 및 전원 공급 장치를 사용하여 Pi를 켭니다. 이더넷 케이블을 사용하여 Pi를 유선 네트워크에 연결하거나 [Raspberry Pi Foundation의 지침](https://www.raspberrypi.org/documentation/configuration/wireless/)에 따라 Pi를 무선 네트워크에 연결합니다. Pi가 네트워크에 성공적으로 연결된 후 [Pi의 IP 주소](https://www.raspberrypi.org/documentation/remote-access/ip-address.md)를 적어 두어야 합니다.
 
 ![유선 네트워크에 연결](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
@@ -177,8 +169,8 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Raspberry Pi에 연결합니다.
 
    **Windows 사용자**
-  
-   a. Windows용 [PuTTY](https://www.putty.org/)를 다운로드 및 설치합니다. 
+
+   a. Windows용 [PuTTY](https://www.putty.org/)를 다운로드 및 설치합니다.
 
    b. 호스트 이름(또는 IP 주소) 섹션에 Pi의 IP 주소를 복사하고 연결 형식으로 SSH를 선택합니다.
 
@@ -199,7 +191,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    node -v
    ```
 
-   버전이 10.x 보다 낮은, Node.js가 없는 Pi에서 최신 버전을 설치 합니다.
+   버전이 10. x 보다 낮거나 Pi에 Node.js 없는 경우 최신 버전을 설치 합니다.
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
@@ -209,14 +201,14 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 3. 샘플 애플리케이션을 복제합니다.
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
+   git clone https://github.com/Azure-Samples/azure-iot-samples-node.git
    ```
 
 4. 샘플의 모든 패키지를 설치합니다. 설치에는 Azure IoT 디바이스 SDK, BME280 센서 라이브러리 및 배선 Pi 라이브러리가 포함되어 있습니다.
 
    ```bash
-   cd iot-hub-node-raspberrypi-client-app
-   sudo npm install
+   cd azure-iot-samples-node/iot-hub/Tutorials/RaspberryPiApp
+   npm install
    ```
 
    > [!NOTE]
@@ -230,11 +222,13 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    nano config.json
    ```
 
-   ![구성 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![Config 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    이 파일에는 사용자가 구성할 수 있는 두 개 항목이 있습니다. 첫 번째는 클라우드로 전송되는 두 메시지 사이의 시간 간격(밀리초)을 정의하는 `interval`입니다. 두 번째는 시뮬레이트된 센서 데이터의 사용 여부에 대한 부울 값인 `simulatedData`입니다.
 
    **센서가 없는 경우**`simulatedData` 값을 `true`로 설정하여 샘플 애플리케이션에서 시뮬레이션된 센서 데이터를 만들어서 사용하게 합니다.
+
+   *참고:이 자습서에 사용 된 i2c 주소는 기본적으로 0x77입니다. 구성에 따라 0 x 5 일 수도 있습니다. i2c 오류가 발생 하는 경우 값을 118로 변경 하 고 더 잘 작동 하는지 확인 하십시오. 센서에서 사용 하는 주소를 확인 하려면 `sudo i2cdetect -y 1` raspberry pi에서 셸에서를 실행 합니다.*
 
 2. Control-O > Enter > Control-X를 입력하여 저장하고 종료합니다.
 
@@ -253,14 +247,14 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ![출력 - Raspberry Pi에서 IoT Hub로 전송된 센서 데이터](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>허브에서 수신한 메시지 읽기
+## <a name="read-the-messages-received-by-your-hub"></a>허브에서 받은 메시지 읽기
 
-장치에서 IoT hub에서 수신한 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 참조 하세요 [for Visual Studio Code 장치 및 IoT Hub 간에 메시지를 받고 보내는 데 사용 하 여 Azure IoT 도구](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)합니다.
+장치에서 IoT hub가 받은 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 [Azure IoT Tools를 사용 하 여 장치와 IoT Hub 간에 메시지 보내기 및 받기 Visual Studio Code](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)을 참조 하세요.
 
-장치에서 보낸 데이터를 처리 하는 방법을 더 보려면, 다음 섹션을 진행 합니다.
+장치에서 전송 되는 데이터를 처리 하는 방법에 대 한 자세한 내용은 다음 섹션을 계속 진행 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-샘플 애플리케이션을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다.
+샘플 응용 프로그램을 실행 하 여 센서 데이터를 수집 하 고이를 IoT hub로 보냅니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

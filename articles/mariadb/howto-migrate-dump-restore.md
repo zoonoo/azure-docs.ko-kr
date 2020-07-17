@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MariaDB에서 덤프 및 복원을 사용하여 MariaDB 데이터베이스 마이그레이션
+title: 덤프 및 복원을 사용 하 여 마이그레이션-Azure Database for MariaDB
 description: 이 문서에서는 mysqldump, MySQL Workbench 및 PHPMyAdmin과 같은 도구를 사용하여 Azure Database for MariaDB에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: bcb76fcbba02bf53b48cc462e3dad8f264db02ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: how-to
+ms.date: 2/27/2020
+ms.openlocfilehash: 674622e6210c3cceda5af3b53bf4ba1851f7179b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60745952"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118854"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MariaDB Database를 Azure Database for MariaDB로 마이그레이션
 이 문서에서는 Azure Database for MariaDB에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명
@@ -22,10 +22,10 @@ ms.locfileid: "60745952"
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for MariaDB 서버 만들기 - Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) 명령줄 유틸리티가 컴퓨터에 설치되어 있어야 함
-- 명령 덤프 및 복원을 수행할 MySQL Workbench [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/), Toad, Navicat 또는 타사 MySQL 도구
+- 덤프 및 복원 명령을 수행할 MySQL Workbench [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/) 또는 다른 타사 MySQL 도구.
 
 ## <a name="use-common-tools"></a>일반 도구 사용
-MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 및 도구를 사용하여 Azure Database for MariaDB에 원격으로 연결하고 데이터를 복원합니다. 인터넷에 연결된 클라이언트 머신에서 이러한 도구를 사용하여 Azure Database for MariaDB에 연결합니다. 최상의 보안을 위해 SSL 암호화 연결을 사용하려면 [Azure Database for MariaDB에서 SSL 연결 구성](concepts-ssl-connection-security.md)도 참조하세요. Azure Database for MariaDB로 마이그레이션할 때 덤프 파일을 특수한 클라우드 위치로 이동할 필요가 없습니다. 
+MySQL 워크 벤치 또는 mysqldump와 같은 일반적인 유틸리티와 도구를 사용 하 여 데이터를 원격으로 연결 하 고 Azure Database for MariaDB에 복원 합니다. 인터넷에 연결된 클라이언트 머신에서 이러한 도구를 사용하여 Azure Database for MariaDB에 연결합니다. 최상의 보안을 위해 SSL 암호화 연결을 사용하려면 [Azure Database for MariaDB에서 SSL 연결 구성](concepts-ssl-connection-security.md)도 참조하세요. Azure Database for MariaDB로 마이그레이션할 때 덤프 파일을 특수한 클라우드 위치로 이동할 필요가 없습니다. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>덤프 및 복원을 위한 일반적인 사용
 몇 가지 일반적인 시나리오에서 mysqldump 및 mysqlpump와 같은 MySQL 유틸리티를 사용하여 데이터베이스를 Azure Database for MariaDB로 덤프 및 로드할 수 있습니다. 
@@ -33,7 +33,7 @@ MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 �
 <!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - 전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용합니다. 많은 양의 데이터를 이동하거나 실시간 사이트 또는 애플리케이션에 대한 서비스 중단을 최소화하려는 경우 이 권장 사항이 유지됩니다. 
--  데이터베이스의 모든 테이블이 데이터를 Azure Database for MariaDB로 로드할 때 InnoDB 저장소 엔진을 사용해야 합니다. Azure Database for MariaDB는 InnoDB 저장소 엔진만을 지원하므로 대체 저장소 엔진을 지원하지 않습니다. 테이블이 다른 저장소 엔진으로 구성된 경우 Azure Database for MariaDB로 마이그레이션하기 전에 해당 테이블을InnoDB 엔진 형식으로 변환합니다.
+-  데이터베이스의 모든 테이블이 데이터를 Azure Database for MariaDB로 로드할 때 InnoDB 스토리지 엔진을 사용해야 합니다. Azure Database for MariaDB는 InnoDB 스토리지 엔진만을 지원하므로 대체 스토리지 엔진을 지원하지 않습니다. 테이블이 다른 스토리지 엔진으로 구성된 경우 Azure Database for MariaDB로 마이그레이션하기 전에 해당 테이블을InnoDB 엔진 형식으로 변환합니다.
    예를 들어 MyISAM 테이블을 사용하는 WordPress 또는 WebApp이 있는 경우 Azure Database for MariaDB로 복원하기 전에 InnoDB 형식으로 마이그레이션하여 먼저 해당 테이블을 변환합니다. `ENGINE=InnoDB` 절을 사용하여 새 테이블을 만들 때 사용되는 엔진을 설정한 다음 복원 전에 데이터를 호환되는 테이블로 전송합니다. 
 
    ```sql
@@ -44,7 +44,7 @@ MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 �
 ## <a name="performance-considerations"></a>성능 고려 사항
 성능을 최적화하려면 큰 데이터베이스를 덤프할 때 이러한 고려 사항을 숙지합니다.
 -   데이터베이스를 덤프할 때 mysqldump에서 `exclude-triggers` 옵션을 사용합니다. 데이터 복원 중 발생하는 트리거 명령을 방지하기 위해 덤프 파일에서 트리거를 제외합니다. 
--   `single-transaction` 옵션을 사용하여 트랜잭션 격리 모드를 REPEATABLE READ로 설정하고 데이터를 덤프하기 전에 START TRANSACTION SQL 문을 서버로 보냅니다. 단일 트랜잭션 내에서 많은 테이블을 덤프하면 복원 중 저장소가 추가로 소비됩니다. LOCK TABLES는 보류 중인 트랜잭션을 암시적으로 커밋되도록 하기 때문에 `single-transaction` 옵션과 `lock-tables` 옵션은 상호 배타적입니다. 대형 테이블을 덤프하려면 `single-transaction` 옵션을 `quick` 옵션과 결합합니다. 
+-   `single-transaction` 옵션을 사용하여 트랜잭션 격리 모드를 REPEATABLE READ로 설정하고 데이터를 덤프하기 전에 START TRANSACTION SQL 문을 서버로 보냅니다. 단일 트랜잭션 내에서 많은 테이블을 덤프하면 복원 중 스토리지가 추가로 소비됩니다. LOCK TABLES는 보류 중인 트랜잭션을 암시적으로 커밋되도록 하기 때문에 `single-transaction` 옵션과 `lock-tables` 옵션은 상호 배타적입니다. 대형 테이블을 덤프하려면 `single-transaction` 옵션을 `quick` 옵션과 결합합니다. 
 -   여러 VALUE 목록을 포함하는 `extended-insert` 여러 행 구문을 사용합니다. 그러면 덤프 파일이 작아지고 파일을 다시 로드할 때 삽입 속도가 빨라집니다.
 -  데이터가 기본 키 순서로 스크립팅되도록 데이터베이스를 덤프할 때 mysqldump에서 `order-by-primary` 옵션을 사용합니다.
 -   로드 전에 외래 키 제약 조건을 비활성화하려면 데이터를 덤프할 때 mysqldump에서 `disable-keys` 옵션을 사용합니다. 외래 키 검사 비활성화는 성능 향상을 제공합니다. 제약 조건을 활성화하고 참조 무결성을 확인하도록 로드 후 데이터를 확인합니다.
@@ -79,13 +79,9 @@ $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
 ```
-서버의 모든 데이터베이스를 한 번에 백업하려면 --all-databases 옵션을 사용해야 합니다.
-```bash
-$ mysqldump -u root -p --all-databases > alldb_backup.sql 
-```
 
 ## <a name="create-a-database-on-the-target-server"></a>대상 서버에서 데이터베이스 만들기
-데이터를 마이그레이션하려는 대상 Azure Database for MariaDB 서버에서 빈 데이터베이스를 만듭니다. MySQL Workbench, Toad 또는 Navicat과 같은 도구를 사용하여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
+데이터를 마이그레이션하려는 대상 Azure Database for MariaDB 서버에서 빈 데이터베이스를 만듭니다. MySQL Workbench와 같은 도구를 사용하여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
 
 연결하려면 Azure Database for MariaDB의 **개요**에서 연결 정보를 찾습니다.
 

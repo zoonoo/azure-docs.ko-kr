@@ -10,18 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: HT
+ms.openlocfilehash: b2a0a0527ffaedacbabcf19435fbc1772b632816
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579124"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707500"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>컨테이너가 Azure Virtual Network 기능을 사용하도록 설정
 
@@ -53,7 +52,7 @@ Pod가 인터넷에 액세스할 수 있도록, 플러그인은 Pod의 인터넷
 
 ## <a name="limits"></a>제한
 
-플러그 인은 가상 머신당 최대 250개의 Pod를 지원하고 가상 네트워크에서 최대 16,000개의 Pod를 지원합니다. 이러한 제한은 [Azure Kubernetes Service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits)에 따라 다릅니다.
+플러그 인은 가상 머신당 최대 250개의 Pod를 지원하고 가상 네트워크에서 최대 16,000개의 Pod를 지원합니다. 이러한 제한은 [Azure Kubernetes Service](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits)에 따라 다릅니다.
 
 ## <a name="using-the-plug-in"></a>플러그 인 사용
 

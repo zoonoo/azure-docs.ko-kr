@@ -1,56 +1,79 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Lab Services 및 Azure DevTest Labs 설명서
+### YamlMime:Landing
+title: Azure Lab Services 설명서
+summary: Azure Lab Services를 사용하여 클라우드에 팀 또는 학생들을 위한 개발, 테스트, 해커톤(hackathon) 또는 클래스룸 랩을 빠르게 설정하는 방법을 알아봅니다.
 metadata:
-  title: 'Azure Lab Services 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: 'Azure Lab Services를 사용하여 클라우드에 팀 또는 학생들을 위한 개발, 테스트, 해커톤(hackathon) 또는 클래스룸 랩을 빠르게 설정하는 방법을 알아봅니다. Azure 자습서, 샘플 등에서는 랩을 만들고, 관리하고, 보호하는 방법을 보여 줍니다.'
+  title: Azure Lab Services 설명서
+  description: Azure Lab Services를 사용하여 클라우드에 팀 또는 학생들을 위한 개발, 테스트, 해커톤(hackathon) 또는 클래스룸 랩을 빠르게 설정하는 방법을 알아봅니다.
   services: lab-services
-  author: spelluru
-  manager: null
   ms.service: lab-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.date: 04/06/2018
+  ms.collection: collection
+  author: spelluru
   ms.author: spelluru
-abstract:
-  description: 'Azure Lab Services를 사용하여 클라우드에 팀 또는 학생들을 위한 개발, 테스트, 해커톤(hackathon) 또는 클래스룸 랩을 빠르게 설정하는 방법을 알아봅니다. Azure 자습서, 샘플 등에서는 랩을 만들고, 관리하고, 보호하는 방법을 보여 줍니다.'
-sections:
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: Azure Lab Services를 사용하여 <b>클래스룸 랩</b>을 만들고 사용하는 방법을 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-lab-account">랩 계정 설정</a>
-          - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab">클래스룸 랩 설정</a>
-          - html: <a href="/azure/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab">클래스룸 랩 액세스</a>
-      - type: paragraph
-        text: Azure DevTest Labs를 사용하여 <b>랩</b>을 만들고 사용하는 방법에 대해 알아보세요.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/lab-services/tutorial-create-custom-lab">랩 설정</a>
-          - html: <a href="/azure/lab-services/tutorial-use-custom-lab">랩 액세스</a>
-  - title: 샘플
-    items:
-      - type: paragraph
-        text: 다음 샘플을 사용하여 Lab Services 작업을 수행합니다.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates">Resource Manager 템플릿</a>'
-          - html: <a href="/azure/lab-services/samples-cli">Azure CLI</a>
-          - html: <a href="/azure/lab-services/samples-powershell">Azure PowerShell</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: '<p><a href="/cli/azure/lab">Azure CLI</a></p><p><a href="/powershell/module/az.devtestlabs/#devtest_labs">Azure PowerShell</a></p>'
-          - title: REST (영문)
-            html: <p><a href="/rest/api/dtl">REST API</a></p>
+  ms.date: 06/26/2020
+  ms.openlocfilehash: 9101d40182f3321dbe791bd700a26a782f6c697c
+  ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/26/2020
+  ms.locfileid: "85445120"
+landingContent:
+- title: 대략적인 개요
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Lab Services 및 DevTest Labs 정보
+      url: ../devtest-labs/lab-services-overview.md?toc=%2fazure%2fevent-grid%2fclassroom-labs%2ftoc.json
+    - text: 클래스룸 랩 정보
+      url: classroom-labs-overview.md
+  - linkListType: concept
+    links:
+    - text: 클래스룸 랩 개념
+      url: classroom-labs-concepts.md
+- title: 랩 계정
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 랩 계정 설정
+      url: tutorial-setup-lab-account.md
+  - linkListType: how-to-guide
+    links:
+    - text: 랩 계정 만들기 및 관리
+      url: how-to-manage-lab-accounts.md
+    - text: 랩 계정 구성
+      url: how-to-configure-lab-accounts.md
+- title: 클래스룸 랩 설정
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 클래스룸 랩 설정
+      url: tutorial-setup-classroom-lab.md
+  - linkListType: how-to-guide
+    links:
+    - text: 클래스룸 랩 만들기 및 관리
+      url: how-to-manage-lab-accounts.md
+    - text: 템플릿 설정, 사용자 지정 및 게시
+      url: how-to-create-manage-template.md
+    - text: 가상 머신 풀 설정 및 관리
+      url: how-to-set-virtual-machine-passwords.md
+    - text: 랩 사용자 추가 및 관리
+      url: how-to-configure-student-usage.md
+    - text: 일정 만들기 및 관리
+      url: how-to-create-schedules.md
+- title: 클래스룸 랩 사용
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 클래스룸 랩 액세스
+      url: tutorial-connect-virtual-machine-classroom-lab.md
+  - linkListType: how-to-guide
+    links:
+    - text: Linux VM용 원격 데스크톱 연결 사용
+      url: how-to-use-remote-desktop-linux-student.md
+- title: 참조 콘텐츠 탐색
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST (영문)
+      url: /rest/api/labservices/

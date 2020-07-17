@@ -1,36 +1,29 @@
 ---
 title: Azure Log Analytics 경고로 이벤트에 응답 | Microsoft Docs
 description: 이 자습서는 Log Analytics의 경고를 통해 작업 영역의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.
-services: log-analytics
-documentationcenter: log-analytics
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: tutorial
+author: bwren
+ms.author: bwren
 ms.date: 10/05/2018
-ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 6521688e595230951e0753fd67c2bf9b02e0a6ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8af1acb67961de105e5bf5900d7b10c437cb30d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102149"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835872"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Azure Monitor 경고로 이벤트에 응답
 Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보를 식별할 수 있습니다. 경고는 정기적으로 로그 검색을 자동으로 실행하는 경고 규칙에 의해 작성되며 로그 검색 결과가 특정 기준과 일치하면 경고 레코드가 만들어지며 자동 응답을 수행하도록 구성할 수 있습니다.  이 자습서는 [Log Analytics 데이터의 대시보드 만들기 및 공유](tutorial-logs-dashboards.md) 자습서와 이어집니다.   
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 경고 규칙 만들기
 > * 이메일 알림을 보내도록 작업 그룹 구성
 
-이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](../../azure-monitor/learn/quick-collect-azurevm.md) 기존 가상 머신이 있어야 합니다.  
+이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](quick-collect-azurevm.md) 기존 가상 머신이 있어야 합니다.  
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
@@ -76,4 +69,4 @@ Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보�
 미리 빌드된 Log Analytics 스크립트 샘플을 보려면 이 링크를 따릅니다.  
 
 > [!div class="nextstepaction"]
-> [Log Analytics 스크립트 샘플](../../azure-monitor/platform/powershell-samples.md)
+> [Log Analytics 스크립트 샘플](../samples/powershell-samples.md)

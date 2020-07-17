@@ -4,41 +4,41 @@ description: Azure Cosmos DB의 API for MongoDB를 사용하여 Azure Cosmos DB�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 12/26/2018
+ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: d0f61afaba094a1e499a91f9937a31554438759e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5f4a90859831e6134530b94dfa80c11eb740301a
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042175"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113316"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 
-[Azure Cosmos DB](introduction.md)는 업무에 중요한 애플리케이션에 대한 Microsoft의 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 [업계 최고의 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)로 지원되는 [턴키 전역 분산](distribute-data-globally.md), 전 세계적으로 [처리량 및 저장소의 탄력적인 확장](partition-data.md), 99번째 백분위수의 1자리 수 밀리초 크기 대기 시간, 보장된 고가용성을 제공합니다. Azure Cosmos DB는 사용자가 스키마 및 인덱스 관리를 처리하지 않아도 되도록 [데이터를 자동으로 인덱싱](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다. 또한 다중 모델 방식이며, 문서, 키-값, 그래프 및 열 형식 데이터 모델을 지원합니다. 기본적으로 SQL API를 사용하여 Cosmos DB와 상호 작용할 수 있습니다. 또한 Cosmos DB 서비스는 Cassandra, MongoDB, Gremlin 및 Azure Table Storage를 비롯한 일반 NoSQL API를 위한 유선 프로토콜을 구현합니다. 따라서 고객은 익숙한 NoSQL 클라이언트 드라이버 및 도구를 사용하여 Cosmos 데이터베이스와 상호 작용할 수 있습니다.
+[Azure Cosmos DB](introduction.md)는 업무에 중요한 애플리케이션에 대한 Microsoft의 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 [업계 최고의 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)로 지원되는 [턴키 전역 분산](distribute-data-globally.md), 전 세계적으로 [처리량 및 스토리지의 탄력적인 확장](partition-data.md), 99번째 백분위수의 1자리 수 밀리초 크기 대기 시간, 보장된 고가용성을 제공합니다. Azure Cosmos DB는 사용자가 스키마 및 인덱스 관리를 처리하지 않아도 되도록 [데이터를 자동으로 인덱싱](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다. 또한 다중 모델 방식이며, 문서, 키-값, 그래프 및 열 형식 데이터 모델을 지원합니다. 기본적으로 SQL API를 사용하여 Cosmos DB와 상호 작용할 수 있습니다. 또한 Cosmos DB 서비스는 Cassandra, MongoDB, Gremlin 및 Azure Table Storage를 비롯한 일반 NoSQL API를 위한 유선 프로토콜을 구현합니다. 따라서 고객은 익숙한 NoSQL 클라이언트 드라이버 및 도구를 사용하여 Cosmos 데이터베이스와 상호 작용할 수 있습니다.
 
 ## <a name="wire-protocol-compatibility"></a>유선 프로토콜 호환성
 
 Cosmos DB는 Cassandra, MongoDB, Gremlin 및 Azure Table Storage를 비롯한 일반 NoSQL 데이터베이스를 위한 유선 프로토콜을 구현합니다. 기본적으로 Cosmos DB 내에서 유선 프로토콜을 직접, 효율적으로 구현하므로 NoSQL 데이터베이스의 기존 클라이언트 SDK, 드라이버 및 도구가 Cosmos DB와 투명하게 상호 작용할 수 있습니다. Cosmos DB는 NoSQL 데이터베이스에 유선 호환 API를 제공하기 위해 데이터베이스의 소스 코드를 사용하지 않습니다.
 
-기본적으로 Azure Cosmos DB의 API for MongoDB는 MongoDB의 유선 프로토콜 버전 3.2와 호환됩니다. 유선 프로토콜 버전 3.4에 추가된 기능 또는 쿼리 연산자는 현재 미리 보기로 제공됩니다. 이러한 프로토콜 버전을 이해하는 모든 MongoDB 클라이언트 드라이버는 기본적으로 Cosmos DB에 연결할 수 있어야 합니다.
+기본적으로 Azure Cosmos DB의 API for MongoDB를 사용하여 만든 새 계정은 MongoDB의 유선 프로토콜 버전 3.6과 호환됩니다. 이 프로토콜 버전을 이해하는 모든 MongoDB 클라이언트 드라이버는 기본적으로 Cosmos DB에 연결할 수 있어야 합니다.
 
-![Azure Cosmos DB의 API for MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+:::image type="content" source="./media/mongodb-introduction/cosmosdb-mongodb.png" alt-text="Azure Cosmos DB의 MongoDB API" border="false":::
 
 ## <a name="key-benefits"></a>주요 이점
 
 전역적으로 배포되는 완전 관리형 Database as a Service인 Cosmos DB의 주요 이점은 [여기](introduction.md)에 설명되어 있습니다. 또한 인기 있는 NoSQL API의 유선 프로토콜을 기본적으로 구현하는 Cosmos DB는 다음과 같은 혜택을 제공합니다.
 
-* 애플리케이션 논리의 상당 부분을 유지하면서도 애플리케이션을 Cosmos DB로 간편하게 마이그레이션할 수 있습니다.
-* 계속해서 애플리케이션의 이식성을 유지하고 클라우드 공급업체에 종속되지 않습니다.
+* 애플리케이션 논리의 상당 부분을 유지하면서 애플리케이션을 Cosmos DB로 쉽게 마이그레이션합니다.
+* 클라우드 공급업체와 관계없이 애플리케이션을 이식 가능한 상태로 계속 유지합니다.
 * Cosmos DB 기반의 일반 NoSQL API에 업계 최고 수준의 재정적 지원이 포함된 SLA를 제공합니다.
 * 요구 사항에 따라 프로비전된 처리량 및 스토리지 크기를 탄력적으로 조정하여 필요한 처리량 및 스토리지에 대한 요금만 지불하면 됩니다. 이를 통해 상당한 비용을 절감할 수 있습니다.
 * 다중 마스터 복제를 사용한 턴키, 글로벌 배포.
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>Cosmos DB의 API for MongoDB
 
-빠른 시작에 따라 Cosmos 계정을 만들고, Azure Cosmos DB를 사용하도록 기존 MongoDB 애플리케이션을 마이그레이션하거나 새로 빌드합니다.
+빠른 시작에 따라 Azure Cosmos 계정을 만들고, Azure Cosmos DB를 사용하도록 기존 MongoDB 애플리케이션을 마이그레이션하거나 새로 빌드합니다.
 
 * [기존 MongoDB Node.js 웹앱 마이그레이션](create-mongodb-nodejs.md)
 * [Azure Cosmos DB의 API for MongoDB 및 .NET SDK를 사용하여 웹앱 빌드](create-mongodb-dotnet.md)

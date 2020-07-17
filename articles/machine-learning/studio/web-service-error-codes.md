@@ -1,37 +1,32 @@
 ---
-title: REST API 오류 코드 - Azure Machine Learning Studio | Microsoft Docs
+title: REST API 오류 코드
+titleSuffix: ML Studio (classic) - Azure
 description: 이러한 오류 코드는 Azure Machine Learning 웹 서비스의 작업에서 반환될 수 있습니다.
 keywords: ''
 services: machine-learning
-documentationcenter: ''
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 8e91d0cd68997dee9bb00cceeaa6b697f6644ee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8030e44e85958495714f441303461722b6b96bf4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736567"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84115447"
 ---
-# <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Azure Machine Learning Studio REST API 오류 코드
- 
-다음 오류 코드는 Azure Machine Learning Studio 웹 서비스의 작업에서 반환될 수 있습니다.
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (클래식) REST API 오류 코드
+
+Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 작업에 의해 반환 되는 오류 코드는 다음과 같습니다.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument(HTTP 상태 코드 400)
  
 잘못된 인수가 제공되었습니다.
  
-이 오류 클래스는 어딘가에 제공된 인수가 잘못되었다는 의미입니다. 웹 서비스에 전달된 내용에 대한 Azure Storage의 위치 또는 자격 증명일 수 있습니다. 구체적으로 어떤 인수가 잘못되었는지 진단하려면 "세부 정보" 섹션의 오류 "코드" 필드를 살펴보세요.
+이 오류 클래스는 어딘가에 제공된 인수가 잘못되었다는 의미입니다. 웹 서비스에 전달된 내용에 대한 Azure Storage의 위치 또는 자격 증명일 수 있습니다. "세부 정보" 섹션의 오류 "코드" 필드를 확인 하 여 잘못 된 특정 인수를 진단 하십시오.
  
 | 오류 코드 | 사용자 메시지 |
 | ---------- |--------------|
@@ -69,7 +64,7 @@ ms.locfileid: "60736567"
 | MissingWebServicePackage | 웹 서비스 패키지가 제공되지 않았습니다. 유효한 웹 서비스 패키지를 제공하고 다시 시도하세요. |
 | MissingWorkspaceId | 작업 영역 ID가 제공되지 않았습니다. 유효한 작업 영역 ID를 제공하고 다시 시도하세요. |
 | ModelConfigurationInvalid | 모델 패키지에 모델 구성이 잘못되었습니다. 모델 구성에 출력 엔드포인트 정의, std 오류 엔드포인트, std 출력 엔드포인트가 포함되었는지 확인하고 다시 시도하세요. |
-| ModelPackageIdInvalid | 모델 패키지 ID가 잘못되었습니다. 모델 패키지 ID가 올바른지 확인하고 다시 시도하세요. |
+| ModelPackageIdInvalid | 모델 패키지 Id가 잘못 되었습니다. 모델 패키지 Id가 올바른지 확인 한 후 다시 시도 하십시오. |
 | RequestBodyInvalid | 요청 본문이 제공되지 않았거나 요청 본문을 역직렬화하는 동안 오류가 발생했습니다. |
 | RequestIsEmpty | 요청이 제공되지 않았습니다. 유효한 요청을 제공하고 다시 시도하세요. |
 | UnexpectedParameter | 예기치 않은 매개 변수가 제공되었습니다. 모든 매개 변수 이름의 철자가 올바른지, 예상된 매개 변수가 전달되는지 확인하고 다시 시도하세요. |
@@ -213,7 +208,7 @@ ms.locfileid: "60736567"
  
 ## <a name="internalerrorsystemlowonmemory-http-status-code-500"></a>InternalErrorSystemLowOnMemory(HTTP 상태 코드 500)
  
-실행에 내부 오류가 발생했습니다. 시스템 메모리가 부족합니다. 나중에 다시 시도하세요.
+실행에 내부 오류가 발생했습니다. 시스템 메모리가 부족합니다. 다시 시도하세요.
  
  
 ## <a name="modelpackageformaterror-http-status-code-500"></a>ModelPackageFormatError(HTTP 상태 코드 500)

@@ -1,26 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - 앱 만들기 및 FTP를 사용하여 파일 배포 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - App Service 앱 만들기 및 FTP를 사용하여 파일 배포
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: FTP를 사용하여 앱 파일 배포'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱을 만들고 FTP로 파일을 배포하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: sample
 ms.topic: sample
 ms.date: 12/12/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 7bca306911dc72a2f8ec31d2ac80f99b4925c9fd
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.custom: mvc, seodec18
+ms.openlocfilehash: ccef4443661f9227163b2bbe9cd8a6475f856caa
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634289"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044887"
 ---
 # <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>Azure CLI를 사용하여 App Service 앱 만들기 및 FTP를 통해 파일 배포
 

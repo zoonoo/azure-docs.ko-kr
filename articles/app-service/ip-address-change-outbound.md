@@ -1,22 +1,14 @@
 ---
-title: 아웃바운드 IP 주소 변경 준비 - Azure App Service
+title: 아웃 바운드 IP 주소 변경 준비
 description: 아웃바운드 IP 주소를 변경하려는 경우 앱이 변경 후 작업을 계속할 수 있도록 수행할 작업에 대해 알아봅니다.
-services: app-service\web
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ac62217af096653d61a79ff29ae352c8e950f8af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2be4bc92dde278b054bd04f412f937440027ece7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61269781"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74671674"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>아웃바운드 IP 주소 변경 준비하는 방법
 
@@ -26,7 +18,7 @@ Azure App Service 앱의 아웃바운드 IP 주소가 변경된다는 알림을 
 
 * 옵션 1: App Service 앱이 IP 필터링, 명시적 포함 목록 또는 라우팅 또는 방화벽과 같은 아웃바운드 트래픽의 특별 처리를 사용하지 않는 경우 아무런 조치도 필요하지 않습니다.
 
-* 옵션 2: 앱이 아웃바운드 IP 주소(아래 예제 참조)에 대해 특별 처리를 하는 경우 기존 IP 주소가 표시되는 어디에나 새 아웃바운드 IP 주소를 추가합니다. 기존 IP 주소를 바꾸지 마세요. 다음 섹션의 지침을 따르면 새 아웃바운드 IP 주소를 찾을 수 있습니다.
+* 옵션 2: 앱이 아웃 바운드 IP 주소(아래 예제 참조)에 대해 특별 처리를 하는 경우 기존 IP 주소가 표시되는 어디에나 새 아웃바운드 IP 주소를 추가합니다. 기존 IP 주소를 바꾸지 마세요. 다음 섹션의 지침을 따르면 새 아웃바운드 IP 주소를 찾을 수 있습니다.
 
   예를 들어 아웃 바운드 IP 주소가 앱 외부의 방화벽에 명시적으로 포함될 수 있거나, 외부 결제 서비스에 앱에 대한 아웃바운드 IP 주소를 포함하는 허용된 목록이 있을 수 있습니다. 앱 외부 어디든 목록에서 아웃바운드 주소를 구성하는 경우 변경해야 합니다.
 

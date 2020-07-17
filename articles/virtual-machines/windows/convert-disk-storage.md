@@ -1,42 +1,34 @@
 ---
-title: Azure를 변환할 표준에서 프리미엄 또는 표준에는 프리미엄 디스크 저장소 관리 | Microsoft Docs
-description: Azure PowerShell을 사용 하 여 프리미엄 또는 표준으로 프리미엄을 표준에서 디스크를 관리 하는 Azure를 변환 하는 방법.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Standard 및 premium SSD 간에 관리 디스크 저장소 변환
+description: Azure PowerShell를 사용 하 여 Azure managed disks를 Standard에서 Premium 또는 Premium으로 변환 하는 방법을 설명 합니다.
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 4d43311ece7cb72e9f4abb3f8a18f3550fe48f71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660682"
 ---
-# <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 저장소 형식 업데이트
+# <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 스토리지 형식 업데이트
 
-네 가지 방법으로 Azure에 대 한 관리 디스크: Ultra azure 디스크 저장소, 프리미엄 SSD, 표준 SSD 및 표준 HDD입니다. 가동 성능 요구 사항에 따라 이러한 저장소 유형 간에 전환할 수 있습니다. 이 기능은 관리 되지 않는 디스크에 대 한 지원 되지 않습니다. 쉽게 수행할 수 있습니다 하지만 [비관리 디스크를 관리 디스크로 변환](convert-unmanaged-to-managed-disks.md) 디스크 유형 간에 전환할 수 있습니다.
+Azure managed disks에는 Azure ultra Ssd (미리 보기), 프리미엄 SSD, 표준 SSD 및 표준 HDD의 네 가지 디스크 유형이 있습니다. 성능 요구 사항에 따라 세 가지 GA 디스크 유형 (프리미엄 SSD, 표준 SSD 및 표준 HDD) 간을 전환할 수 있습니다. 아직 또는에서 ultra SSD로 전환할 수 없습니다. 새 항목을 배포 해야 합니다.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+이 기능은 관리 되지 않는 디스크에 대해 지원 되지 않습니다. 하지만 관리 [되지 않는 디스크를 관리 디스크로 쉽게 변환](convert-unmanaged-to-managed-disks.md) 하 여 디스크 유형 간에 전환할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+ 
 
-* 변환에는 가상 머신 (VM)를 다시 시작 해야, 하므로 기존 유지 관리 기간 동안 디스크 저장소의 마이그레이션을 예약 해야 합니다.
-* 먼저 디스크를 관리 되지 않는 경우 [관리 되는 디스크로 변환](convert-unmanaged-to-managed-disks.md) 저장소 옵션 간에 전환할 수 있도록 합니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Premium 및 Standard 간 VM의 모든 관리 디스크를 전환 합니다.
+* 변환 하려면 VM (가상 컴퓨터)을 다시 시작 해야 하므로 기존 유지 관리 기간 동안에는 디스크 저장소의 마이그레이션을 예약 해야 합니다.
+* 디스크가 관리 되지 않는 경우 먼저 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md) 하 여 저장소 옵션 간을 전환할 수 있습니다.
 
-이 예제에서는 Premium storage로 표준 또는 Premium에서 Standard storage에서 모든 VM의 디스크를 변환 하는 방법을 보여 줍니다. 프리미엄 Managed Disks를 사용하려면 VM이 Premium Storage를 지원하는 [VM 크기](sizes.md)를 사용해야 합니다. 또한 이 예제에서는 Premium Storage를 지원하는 크기로 전환합니다.
+## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>프리미엄 및 표준 간에 VM의 모든 관리 디스크 전환
+
+이 예제에서는 모든 VM의 디스크를 표준에서 프리미엄 저장소로 또는 프리미엄에서 표준 저장소로 변환 하는 방법을 보여 줍니다. 프리미엄 managed disks를 사용 하려면 VM이 Premium storage를 지 원하는 [vm 크기](sizes.md) 를 사용 해야 합니다. 또한 이 예제에서는 Premium Storage를 지원하는 크기로 전환합니다.
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -70,18 +62,17 @@ foreach ($disk in $vmDisks)
 {
     if ($disk.ManagedBy -eq $vm.Id)
     {
-        $diskUpdateConfig = New-AzDiskUpdateConfig –AccountType $storageType
-        Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
-        -DiskName $disk.Name
+        $disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+        $disk | Update-AzDisk
     }
 }
 
 Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Standard와 Premium 간에 개별 관리 되는 디스크를 전환 합니다.
+## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Standard와 Premium 간에 개별 관리 디스크 전환
 
-개발/테스트 워크 로드에 대 한 비용을 줄이기 위해 표준 및 프리미엄 디스크의 혼합이 좋습니다. 더 나은 성능이 필요로 하는 디스크에만 업그레이드를 선택할 수 있습니다. 이 예제에서는 Premium storage로 표준 또는 프리미엄 계층에서 표준 저장소 계층에서 단일 VM 디스크를 변환 하는 방법을 보여 줍니다. 프리미엄 Managed Disks를 사용하려면 VM이 Premium Storage를 지원하는 [VM 크기](sizes.md)를 사용해야 합니다. 이 예제에는 Premium storage를 지 원하는 크기로 전환 하는 방법을 보여 줍니다.
+개발/테스트 워크 로드의 경우 비용을 줄이기 위해 표준 및 프리미엄 디스크를 혼합 하 여 사용할 수 있습니다. 더 나은 성능이 필요한 디스크만 업그레이드 하도록 선택할 수 있습니다. 이 예제에서는 단일 VM 디스크를 표준에서 프리미엄 저장소로 또는 프리미엄에서 표준 저장소로 변환 하는 방법을 보여 줍니다. 프리미엄 managed disks를 사용 하려면 VM이 Premium storage를 지 원하는 [vm 크기](sizes.md) 를 사용 해야 합니다. 또한이 예제에서는 Premium storage를 지 원하는 크기로 전환 하는 방법을 보여 줍니다.
 
 ```azurepowershell-interactive
 
@@ -109,31 +100,30 @@ $vm.HardwareProfile.VmSize = $size
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
-## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Azure portal에서 Premium으로 표준에서 관리 디스크 변환
+## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Azure Portal에서 관리 되는 디스크를 표준에서 프리미엄으로 변환
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. VM 목록에서 선택 **가상 머신** 포털에서 합니다.
-3. VM 중지 되지 않는 경우 선택할 **중지** VM의 맨 위에 있는 **개요** 창 및 vm이 중지 대기 합니다.
-3. VM에 대 한 창에서 선택 **디스크** 합니다.
+2. 포털의 **가상 머신** 목록에서 VM을 선택 합니다.
+3. VM이 중지 되지 않은 경우 VM **개요** 창 맨 위에서 **중지** 를 선택 하 고 vm이 중지 될 때까지 기다립니다.
+3. VM에 대 한 창의 메뉴에서 **디스크** 를 선택 합니다.
 4. 변환 하려는 디스크를 선택 합니다.
-5. 선택 **구성** 합니다.
-6. 변경 된 **계정 유형** 에서 **표준 HDD** 하 **Premium SSD**합니다.
-7. 클릭 **저장할**, 디스크 창을 닫습니다.
+5. 메뉴에서 **구성** 을 선택 합니다.
+6. **계정 유형을** **표준 HDD** 에서 **프리미엄 SSD**로 변경 합니다.
+7. **저장**을 클릭 하 고 디스크 창을 닫습니다.
 
-디스크 형식을 변환 하 여 즉각적 이며 변환 후 VM을 다시 시작할 수 있습니다.
+디스크 유형 변환이 즉각적입니다. 변환 후 VM을 시작할 수 있습니다.
 
-## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>간의 표준 HDD 및 SSD 표준 관리 디스크를 전환 합니다. 
+## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>표준 HDD와 표준 SSD 간에 관리 디스크 전환 
 
-이 예제에서는 표준 표준 SSD HDD 또는 표준 HDD로 SSD를 표준에서 단일 VM 디스크를 변환 하는 방법을 보여 줍니다.
+이 예제에서는 단일 VM 디스크를 표준 HDD에서 표준 SSD 또는 표준 SSD에서 표준 HDD로 변환 하는 방법을 보여 줍니다.
 
 ```azurepowershell-interactive
 
@@ -154,13 +144,12 @@ Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Nam
 $vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-[스냅숏](snapshot-copy-managed-disk.md)을 사용하여 VM의 읽기 전용 복사본을 만듭니다.
+[스냅샷](snapshot-copy-managed-disk.md)을 사용하여 VM의 읽기 전용 복사본을 만듭니다.

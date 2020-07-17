@@ -1,0 +1,82 @@
+### YamlMime:Landing
+title: 음성 도우미 설명서
+summary: 음성 도우미는 음성 서비스를 사용 하 여 개발자가 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다.
+metadata:
+  title: 음성 도우미 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: trevorbye
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 03/10/2020
+  ms.author: trbye
+  ms.openlocfilehash: 4fae88de9ad6c48e8079fc7d9ff2d7527d9e7208
+  ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85299384"
+landingContent:
+- title: 음성 도우미 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 음성 도우미란?
+      url: voice-assistants.md
+    - text: 사용자 지정 명령 앱 이란?
+      url: custom-commands.md
+    - text: Direct Line Speech란?
+      url: direct-line-speech.md
+  - linkListType: reference
+    links:
+    - text: 음성 도우미 FAQ
+      url: faq-voice-assistants.md
+    - text: 음성 도우미 가격
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+  - linkListType: get-started
+    links:
+    - text: Azure 구독에 샘플 음성 도우미 빌드 및 배포 (GitHub)
+      url: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
+- title: 사용자 지정 명령을 사용 하 여 개발
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 사용자 지정 명령을 사용하여 음성 도우미 만들기
+      url: quickstart-custom-commands-application.md
+  - linkListType: how-to-guide
+    links:
+    - text: 간단한 명령을 사용 하 여 응용 프로그램 만들기
+      url: how-to-custom-commands-create-application-with-simple-commands.md
+    - text: 명령에 매개 변수 추가
+      url: how-to-custom-commands-add-parameters-to-commands.md
+    - text: 매개 변수 및 수정 프롬프트에 유효성 검사 추가
+      url: how-to-custom-commands-add-parameter-configuration.md
+    - text: Speech SDK를 사용 하 여 통합
+      url: how-to-custom-commands-setup-speech-sdk.md
+    - text: Azure DevOps를 사용 하 여 사용자 지정 명령 앱에 대 한 연속 배포 설정
+      url: how-to-custom-commands-deploy-cicd.md
+- title: 직접 라인 음성으로 개발
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: C#(UWP)
+      url: quickstart-voice-assistant-csharp-uwp.md
+    - text: Java(Windows, macOS, Linux)
+      url: quickstart-voice-assistant-java-jre.md
+    - text: Java(Android)
+      url: quickstart-voice-assistant-java-android.md
+  - linkListType: tutorial
+    links:
+    - text: 음성 SDK를 사용하여 봇에서 음성을 사용하도록 설정
+      url: tutorial-voice-enable-your-bot-speech-sdk.md
+- title: 사용자 지정 키워드를 사용 하 여 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 키워드 만들기
+      url: speech-devices-sdk-create-kws.md
+  - linkListType: reference
+    links:
+    - text: 사용자 지정 키워드 명명 지침
+      url: speech-devices-sdk-kws-guidelines.md

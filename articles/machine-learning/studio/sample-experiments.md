@@ -1,27 +1,29 @@
 ---
-title: Kickstart 예제에서 실험
-titleSuffix: Azure Machine Learning Studio
-description: 기계 학습 실험 예제를 사용하여 Azure AI Gallery 및 Microsoft Azure Machine Learning Studio를 통해 새 실험을 만드는 방법에 대해 알아봅니다.
+title: 예제에서 실험 시작
+titleSuffix: ML Studio (classic) - Azure
+description: 기계 학습 실험 예제를 사용하여 Azure AI Gallery 및 Microsoft Azure Machine Learning Studio(클래식)를 통해 새 실험을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+ms.topic: sample
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: f88323069ed23f4a038ffa4a030b1c4d4541ec42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 79251257e38c9a9b59f759192d3d536185396291
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460388"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706021"
 ---
-# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery의 작업 예제에서 Azure Machine Learning Studio 실험 만들기
+# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery의 작업 예제에서 Azure Machine Learning Studio(클래식) 실험 만들기
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 처음부터 기계 학습 실험을 만드는 대신 [Azure AI Gallery](https://gallery.azure.ai/)의 예제 실험으로 시작하는 방법에 대해 알아봅니다. 예제를 사용하여 고유의 기계 학습 솔루션을 직접 빌드할 수 있습니다.
 
-갤러리에는 Machine Learning 커뮤니티에서 공유하는 예제뿐 아니라 Microsoft Azure Machine Learning Studio 팀의 예제 실험도 있습니다. 실험에 대한 질문을 하거나 의견을 게시할 수도 있습니다.
+갤러리에는 Machine Learning 커뮤니티에서 공유하는 예제뿐 아니라 Microsoft Azure Machine Learning Studio(클래식) 팀의 예제 실험도 있습니다. 실험에 대한 질문을 하거나 의견을 게시할 수도 있습니다.
 
 갤러리를 사용하는 방법에 대해 알아보려면 [초보자를 위한 데이터 과학](data-science-for-beginners-the-5-questions-data-science-answers.md) 시리즈의 3분짜리 비디오 [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)를 참조하세요.
 
@@ -48,20 +50,14 @@ ms.locfileid: "61460388"
 
     ![예제 실험](./media/sample-experiments/example-experiment.png)
 
-    > [!NOTE]
-    > 처음으로 Machine Learning Studio에서 실험을 여는 경우 Azure 구독을 무료로 사용해보거나 구입할 수 있습니다. [Machine Learning Studio 무료 평가판과 유료 서비스 알아보기](https://azure.microsoft.com/pricing/details/machine-learning/)
-    >
-    >
-
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>예제를 템플릿으로 사용하여 새 실험 만들기
-갤러리 예제를 템플릿으로 사용하여 Machine Learning Studio에서 새 실험을 만들 수도 있습니다.
+갤러리 예제를 템플릿으로 사용하여 Machine Learning Studio(클래식)에서 새 실험을 만들 수도 있습니다.
 
 1. Microsoft 계정 자격 증명을 사용하여 [Studio](https://studio.azureml.net)에 로그인한 다음 **새로 만들기**를 클릭하여 새 실험을 만듭니다.
 2. 예제 콘텐츠를 찾아서 하나를 클릭합니다.
 
-예제 실험을 템플릿으로 사용하여 Machine Learning Studio 작업 영역에 새로운 실험이 생성됩니다.
+예제 실험을 템플릿으로 사용하여 Machine Learning Studio(클래식) 작업 영역에 새로운 실험이 생성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [다양한 소스에서 데이터 가져오기](import-data.md)
-* [Machine Learning의 R 언어용 빠른 시작 자습서](r-quickstart.md)
-* [Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)
+* [Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)

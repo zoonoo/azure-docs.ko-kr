@@ -1,27 +1,19 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 수동으로 웹앱 크기 조정 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 수동으로 웹앱 크기 조정
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell: 수동으로 웹앱 크기 조정'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱을 수동으로 크기 조정하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
-ms.service: app-service
-ms.devlang: multiple
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 0699bc284233f259fc345b9b2b97b9dda8820454
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cb0af65f938baf24b2af574b21e09e099b70ba85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491938"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060292"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>PowerShell을 사용하여 수동으로 웹앱 크기 조정
 

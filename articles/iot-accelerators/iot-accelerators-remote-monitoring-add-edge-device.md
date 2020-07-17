@@ -8,25 +8,25 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: d34ac159a216c5c77214b4c8b799a233c3671235
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61447373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "72965382"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT Edge 디바이스 추가
 
 솔루션 가속기에 [IoT Edge](../iot-edge/about-iot-edge.md) 디바이스를 추가하려면 다음 두 단계를 완료합니다.
 
-1. 에 지 장치를 추가 합니다 **Device Explorer** 원격 모니터링 솔루션 가속기 웹 UI에서에서 페이지입니다.
+1. 원격 모니터링 솔루션 가속기 웹 UI의 **Device Explorer** 페이지에서에 지 장치를 추가 합니다.
 1. Edge 디바이스에 IoT Edge 런타임을 설치합니다.
 
 ## <a name="add-the-iot-edge-device"></a>IoT Edge 디바이스 추가
 
 IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려면 웹 UI의 **Device Explorer** 페이지로 이동하고 **+새 디바이스**를 클릭합니다.
 
-**새 디바이스** 패널에서 **IoT Edge 디바이스**를 선택합니다. 다른 설정의 경우 기본값을 그대로 둡니다. 그런 다음 **적용**을 클릭합니다.
+**새 디바이스** 패널에서 **IoT Edge 디바이스**를 선택합니다. 다른 설정의 경우 기본값을 그대로 둡니다. 그런 다음 **적용**을 클릭 합니다.
 
 ![IoT Edge 디바이스 추가](media/iot-accelerators-remote-monitoring-add-edge-device/addedgedevice.png)
 
@@ -34,11 +34,11 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
 
 솔루션 가속기에서 IoT Hub 인스턴스에 직접 IoT Edge 디바이스를 등록할 수도 있습니다. 이러한 방법 가이드 중 하나를 수행하기 전에 솔루션 가속기에서 IoT Hub의 이름을 알고 있어야 합니다.
 
-- [Azure Portal에서 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-register-device-portal.md)
-- [Azure CLI를 사용하여 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-register-device-cli.md)
-- [Visual Studio Code에서 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-register-device-vscode.md)
+- [Azure Portal에서 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-register-device.md#register-in-the-azure-portal)
+- [Azure CLI를 사용하여 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-register-device.md#register-with-the-azure-cli)
+- [Visual Studio Code에서 새 Azure IoT Edge 디바이스 등록](../iot-edge/how-to-register-device.md#register-with-visual-studio-code)
 
-에 나열 된 원격 모니터링 솔루션 가속기에서 IoT hub와 직접 장치를 등록할 때 합니다 **Device Explorer** 웹 UI에서에서 페이지입니다.
+원격 모니터링 솔루션 가속기에서 IoT hub에 직접 장치를 등록 하는 경우 웹 UI의 **Device Explorer** 페이지에 나열 됩니다.
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge 런타임 설치
 

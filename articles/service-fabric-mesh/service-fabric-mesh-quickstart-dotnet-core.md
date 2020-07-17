@@ -1,30 +1,21 @@
 ---
-title: 빠른 시작 - 웹앱을 Azure Service Fabric Mesh에 배포 | Microsoft Docs
+title: 빠른 시작 - Azure Service Fabric Mesh에 웹앱 배포
 description: 이 빠른 시작에서는 Visual Studio를 사용하여 ASP.NET Core 웹 사이트를 만들고 Azure Service Fabric Mesh에 게시하는 방법을 보여 줍니다.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804920"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "75459074"
 ---
-# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>빠른 시작: Azure Service Fabric Mesh에 웹앱 만들기 및 배포
+# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>빠른 시작: 웹앱 만들기 및 Azure Service Fabric Mesh에 배포
 
-Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다.
+Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다.
 
 이 빠른 시작에서는 ASP.NET Core 웹앱으로 구성된 새 Service Fabric Mesh 애플리케이션을 만들어 로컬 개발 클러스터에서 실행한 다음, Azure에서 실행되도록 게시합니다.
 
@@ -36,7 +27,7 @@ Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우, 시작하
 
 Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 를 선택합니다.
 
-**새 프로젝트** 대화 상자의 맨 위에 있는 **검색** 상자에 `mesh`를 입력합니다. **Service Fabric Mesh 응용 프로그램** 템플릿을 선택합니다. 템플릿이 표시되지 않는 경우, [개발 환경 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)에 설명된 대로 Mesh SDK 및 VS 도구 미리 보기를 설치했는지 확인합니다. 
+**새 프로젝트** 대화 상자의 맨 위에 있는 **검색** 상자에 `mesh`를 입력합니다. **Service Fabric Mesh 애플리케이션** 템플릿을 선택합니다. 템플릿이 표시되지 않는 경우, [개발 환경 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)에 설명된 대로 Mesh SDK 및 VS 도구 미리 보기를 설치했는지 확인합니다. 
 
 **이름** 상자에 **ServiceFabricMesh1**을 입력하고, **위치** 상자에서 프로젝트의 파일이 저장될 위치의 폴더 경로를 설정합니다.
 
@@ -78,7 +69,7 @@ Azure 계정과 구독을 선택합니다. **위치**를 선택합니다. 이 �
 
 **리소스 그룹**에서 **\<새 리소스 그룹 만들기...>** 를 선택합니다. **리소스 그룹 만들기** 대화 상자가 나타납니다. **리소스 그룹 이름** 및 **위치**를 설정합니다.  이 빠른 시작에서는 **미국 동부** 위치를 사용하고 그룹 이름을 **sfmeshTutorial1RG**로 지정합니다. 조직에 동일한 구독을 사용하는 여러 사람이 있는 경우, 고유한 리소스 그룹 이름을 선택합니다.  **만들기**를 클릭하여 리소스 그룹을 만들고 게시 대화 상자로 돌아갑니다.
 
-![Visual Studio Service Fabric Mesh 새 리소스 그룹 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
 **Service Fabric 애플리케이션 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...&gt;** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다. 이 빠른 시작에서는 **미국 동부**를 사용합니다. 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 드롭다운에서 선택합니다. **SKU**를 **기본**으로 설정하고 **만들기**를 클릭하여 게시 대화 상자로 돌아갑니다.
 
@@ -99,7 +90,7 @@ The application was deployed successfully and it can be accessed at http://...
 
 웹 브라우저를 열고 URL로 이동하여 Azure에서 실행되는 웹 사이트를 확인합니다.
 
-![Service Fabric Mesh 웹 응용 프로그램 실행](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
+![Service Fabric Mesh 웹 애플리케이션 실행](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -118,6 +109,6 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric Mesh 응용 프로그램을 만들고 배포하는 방법을 자세히 알아보려면 자습서를 계속 진행합니다.
+Service Fabric Mesh 애플리케이션을 만들고 배포하는 방법을 자세히 알아보려면 자습서를 계속 진행합니다.
 > [!div class="nextstepaction"]
 > [다중 서비스 웹 애플리케이션 만들기, 디버그 및 Service Fabric Mesh에 배포](service-fabric-mesh-tutorial-create-dotnetcore.md)

@@ -1,5 +1,5 @@
 ---
-title: 저장소 계정에서 Azure Media Services 자산으로 Blob 복사 | Microsoft Docs
+title: 스토리지 계정에서 Azure Media Services 자산으로 Blob 복사 | Microsoft Docs
 description: 이 토픽에서는 기존 Blob을 Media Services 자산에 복사하는 방법을 보여 줍니다. 이 예제에서는 Azure Media Services .NET SDK Extensions를 사용합니다.
 services: media-services
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 15d2f16b2c4133e40c7f77390e83504397c47980
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a1da207a295b40f8d455635d687083bf69e90fdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67068903"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>기존 Blob을 Media Services 자산으로 복사
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
-이 문서에서는 [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/)를 사용하여 저장소 계정에서 새로운 AMS(Azure Media Services) 자산으로 Blob을 복사하는 방법을 보여줍니다.
+이 문서에서는 [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/)를 사용하여 스토리지 계정에서 새로운 AMS(Azure Media Services) 자산으로 Blob을 복사하는 방법을 보여줍니다.
 
 Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨테이너의 콘텐츠를 변경하려고 하면 안 됩니다.
 
@@ -38,11 +38,11 @@ Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨
 문서에는 두 개의 코드 예제가 나와 있습니다.
 
 1. 한 AMS 계정의 자산에 있는 Blob을 다른 AMS 계정의 새 자산으로 복사합니다.
-2. 일부 저장소 계정에서 AMS 계정의 새 자산으로 Blob을 복사합니다.
+2. 일부 스토리지 계정에서 AMS 계정의 새 자산으로 Blob을 복사합니다.
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>두 AMS 계정 간에 Blob 복사  
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 두 개의 Media Services 계정이 필요합니다. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 문서를 참조하세요.
 
@@ -52,7 +52,7 @@ Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨
 ### <a name="set-up-your-project"></a>프로젝트 설정
 
 1. [.NET을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명된 대로 개발 환경을 설정합니다. 
-2. appSettings 섹션을 .config 파일에 추가하고 Media Services 계정, 대상 저장소 계정 및 원본 자산 ID에 따라 값을 업데이트합니다.  
+2. appSettings 섹션을 .config 파일에 추가하고 Media Services 계정, 대상 스토리지 계정 및 원본 자산 ID에 따라 값을 업데이트합니다.  
 
 ```xml
 <appSettings>
@@ -158,9 +158,9 @@ namespace CopyExistingBlobsIntoAsset
 }
 ```
 
-## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>저장소 계정의 Blob을 AMS 계정으로 복사 
+## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>스토리지 계정의 Blob을 AMS 계정으로 복사 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - Blob를 복사할 Storage 계정 한 개가 필요합니다.
 - Blob를 복사해 넣을 AMS 계정 한 개가 필요합니다.
@@ -168,7 +168,7 @@ namespace CopyExistingBlobsIntoAsset
 ### <a name="set-up-your-project"></a>프로젝트 설정
 
 1. [.NET을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명된 대로 개발 환경을 설정합니다. 
-2. appSettings 섹션을 .config 파일에 추가하고 원본 저장소 및 대상 AMS 계정에 기반한 값을 업데이트합니다.
+2. appSettings 섹션을 .config 파일에 추가하고 원본 스토리지 및 대상 AMS 계정에 기반한 값을 업데이트합니다.
 
 ```xml
 <appSettings>
@@ -185,9 +185,9 @@ namespace CopyExistingBlobsIntoAsset
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>일부 저장소 계정에서 AMS 계정의 새 자산으로 Blob을 복사합니다.
+### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>일부 스토리지 계정에서 AMS 계정의 새 자산으로 Blob을 복사합니다.
 
-다음 코드는 저장소 계정에서 Media Services 자산으로 Blob을 복사합니다. 
+다음 코드는 스토리지 계정에서 Media Services 자산으로 Blob을 복사합니다. 
 
 >[!NOTE]
 >다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
@@ -311,7 +311,7 @@ namespace CopyExistingBlobsIntoAsset
             // set the .ism file to be the primary file. 
             // If we, for example, copied an .mp4, then the mp4 would be the primary file. 
             var ismAssetFile = asset.AssetFiles.ToList().
-                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray().FirstOrDefault();
+                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
             // The following code assigns the first .ism file as the primary file in the asset.
             // An asset should have one .ism file.  

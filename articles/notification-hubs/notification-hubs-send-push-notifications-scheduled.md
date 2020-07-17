@@ -4,24 +4,25 @@ description: 이 항목에서는 Azure Notification Hubs로 예약된 알림 사
 services: notification-hubs
 documentationcenter: .net
 keywords: 푸시 알림, 푸시 알림, 푸시 알림 예약
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 6b718c75-75dd-4c99-aee3-db1288235c1a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
-ms.openlocfilehash: af0de9e8c18644f4ae200f6546c0dd0a41320f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/04/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457688"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "71213010"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>방법: 예약된 알림 보내기
 
@@ -29,9 +30,9 @@ ms.locfileid: "61457688"
 
 
 ## <a name="schedule-your-notifications"></a>알림 예약
-알림을 보내는 경우 다음 예제와 같이 Notification Hubs SDK에서 [`ScheduledNotification` 클래스](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx)를 사용합니다.
+알림을 보낼 때 다음 예제와 같이 Notification Hubs SDK의 [ `ScheduledNotification` 클래스](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) 를 사용 하면 됩니다.
 
-```c#
+```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
 var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 ```
@@ -39,7 +40,7 @@ var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2
 ## <a name="cancel-scheduled-notifications"></a>예약된 알림 취소
 또한 해당 notificationId를 사용하여 이전에 예약된 알림을 취소할 수 있습니다.
 
-```c#
+```csharp
 await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 ```
 
@@ -52,5 +53,5 @@ await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
  - [등록된 모든 디바이스에 알림 푸시](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
  - [특정 디바이스에 알림 푸시](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
  - [지역화된 알림 푸시](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
- - [특정 사용자에 알림 푸시](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
- - [위치 기반 알림 푸시](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+ - [특정 사용자에게 푸시 알림](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
+ - [위치 기반 푸시 알림](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

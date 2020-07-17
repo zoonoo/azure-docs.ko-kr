@@ -1,24 +1,23 @@
 ---
 title: 여러 IP 구성의 부하 분산 - Azure Portal
-titlesuffix: Azure Load Balancer
-description: 기본 및 보조 IP 구성에서 부하 분산.
+titleSuffix: Azure Load Balancer
+description: 이 문서에서는 Azure Portal를 사용 하 여 기본 및 보조 IP 구성에서 부하 분산에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803628"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 
@@ -42,7 +41,7 @@ ms.locfileid: "60591708"
 - Azure Load Balancer는 각 웹 사이트에 하나씩 두 개의 프런트 엔드 IP 주소를 노출하는 데 사용됩니다. 프런트 엔드 주소는 트래픽을 각 웹 사이트의 각 IP 구성에 분산하는 데 사용됩니다.
 - 프런트 엔드 IP 주소와 백 엔드 풀 IP 주소 모두에 동일한 포트 번호가 사용됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시나리오 예제에서는 다음과 같이 구성된 **contosofabrikam**이라는 리소스 그룹이 있다고 가정합니다.
 
@@ -88,7 +87,7 @@ ms.locfileid: "60591708"
 
 1. Azure Portal https://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
 
-2. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다. 다음 **만들기**를 선택합니다.
+2. 화면 왼쪽 위에서 **리소스 만들기**  >  **네트워킹**  >  **Load Balancer**를 선택 합니다. 다음 **만들기**를 선택합니다.
 
 3. **부하 분산 장치 만들기**에 부하 분산 장치의 이름을 입력합니다. 이 시나리오에는 **mylb**라는 이름이 사용됩니다.
 
@@ -124,7 +123,7 @@ ms.locfileid: "60591708"
 
 6. 프런트 엔드 IP 주소의 이름(예: **contosofe** 또는 **fabrikamfe**)을 입력합니다.
 
-7. <a name="step3-7"></a>**IP 주소**를 선택합니다. **공용 IP 주소 선택**에서 프런트 엔드에 대한 IP 주소(**PublicIP1** 또는 **PublicIP2**)를 선택합니다.
+7. <a name="step3-7"></a>**IP 주소**를 선택 합니다. **공용 IP 주소 선택**에서 프런트 엔드에 대한 IP 주소(**PublicIP1** 또는 **PublicIP2**)를 선택합니다.
 
 8. 이 섹션의 <a href="#step3-3">3단계</a>에서 <a href="#step3-7">7단계</a>까지 반복하여 두 번째 프런트 엔드 IP 주소를 만듭니다.
 
@@ -138,7 +137,7 @@ ms.locfileid: "60591708"
 
 2. 백 엔드 풀을 추가할 부하 분산 장치(**mylb**)를 선택합니다.
 
-3. **설정**에서 **백 엔드 풀**을 선택합니다. 백 엔드 풀의 이름(예: **contosopool** 또는 **fabrikampool**)을 입력합니다. 다음 창에서 위쪽에 있는 **추가**를 선택합니다. 
+3. **설정**아래에서 **백 엔드 풀**을 선택 합니다. 백 엔드 풀의 이름(예: **contosopool** 또는 **fabrikampool**)을 입력합니다. 다음 창에서 위쪽에 있는 **추가**를 선택합니다. 
 
 4. **Associated to**(연결 대상)에서 **가용성 집합**을 선택합니다.
 
@@ -172,7 +171,7 @@ ms.locfileid: "60591708"
 
 각 웹 사이트(contoso.com 및 fabrikam.com)에 대한 부하 분산 규칙을 구성합니다.
     
-1. <a name="step6-1"></a>**설정**에서 **부하 분산 규칙**을 선택합니다. 다음 창에서 위쪽에 있는 **추가**를 선택합니다. 
+1. <a name="step6-1"></a>**설정**아래에서 **부하 분산 규칙**을 선택 합니다. 다음 창에서 위쪽에 있는 **추가**를 선택합니다. 
 
 2. **이름**에 부하 분산 규칙의 이름(예: contoso.com의 경우 **HTTPc** 또는 fabrikam.com의 경우 **HTTPf**)을 입력합니다.
 
@@ -182,7 +181,7 @@ ms.locfileid: "60591708"
 
 5. **부동 IP(Direct Server Return)** 의 경우 **사용 안 함**을 선택합니다.
 
-6. <a name="step6-6"></a>**확인**을 선택합니다.
+6. <a name="step6-6"></a>**확인을**선택 합니다.
 
 7. 이 섹션의 <a href="#step6-1">1단계</a>에서 <a href="#step6-6">6단계</a>까지 반복하여 두 번째 부하 분산 장치 규칙을 만듭니다.
 
@@ -194,4 +193,4 @@ ms.locfileid: "60591708"
 
 ## <a name="next-steps"></a>다음 단계
 - Azure에서 부하 분산 서비스를 결합하는 방법에 대한 자세한 내용은 [Azure에서 부하 분산 서비스 사용](../traffic-manager/traffic-manager-load-balancing-azure.md)을 참조하세요.
-- 다양 한 유형의 로그를 사용 하 여 부하 분산 장치에서 문제를 해결 하는 방법을 알아봅니다 [Azure Monitor는 Azure Load Balancer에 대 한 로그](../load-balancer/load-balancer-monitor-log.md)합니다.
+- 다른 유형의 로그를 사용 하 여 [Azure Load Balancer에 대 한 Azure Monitor 로그](../load-balancer/load-balancer-monitor-log.md)에서 부하 분산 장치를 관리 하 고 문제를 해결 하는 방법에 대해 알아봅니다.

@@ -1,25 +1,18 @@
 ---
-title: Azure의 Linux VM에 대한 수명 주기 및 상태 | Microsoft Docs
-description: VM이 언제든지 있을 수 있는 다양한 상태에 대한 설명을 포함하여 Azure에 있는 Linux VM의 수명 주기에 대해 간략히 설명합니다.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Azure에서 Linux VM의 수명 주기 및 상태
+description: 언제 든 지 VM이 있을 수 있는 다양 한 상태에 대 한 설명을 포함 하 여 Azure의 VM 수명 주기에 대 한 개요입니다.
+services: virtual-machines
 author: shandilvarun
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.service: virtual-machines-linux
-ms.devlang: na
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: d7341c40b8a130b81e61277daf306f7a900d24ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c1452252e6cbd7b741c14c2ea52728ba144c65a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81757863"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>가상 머신 수명 주기 및 상태
 

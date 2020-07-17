@@ -9,23 +9,22 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b683910180e597cb8cbfa642bb2d9ac3200b42ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912123"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255033"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>여러 버전의 API 게시 
 
-모든 API 호출자가 정확히 같은 버전을 사용하기가 어려운 경우가 있습니다. 최신 버전으로 업그레이드하려는 호출자는 이해하기 쉬운 방식을 사용하여 업그레이드를 수행하기를 원할 것입니다. Azure API Management에서 **버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)을 참조하세요.
+모든 API 호출자가 정확히 같은 버전을 사용하기가 어려운 경우가 있습니다. 최신 버전으로 업그레이드하려는 호출자는 이해하기 쉬운 방식을 사용하여 업그레이드를 수행하기를 원할 것입니다. Azure API Management에서 **버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://azure.microsoft.com/blog/versions-revisions/)을 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 기존 API에 새 버전 추가
@@ -35,7 +34,7 @@ ms.locfileid: "50912123"
 
 ![개발자 포털에 표시되는 버전](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
@@ -46,7 +45,7 @@ ms.locfileid: "50912123"
 ![API 상황에 맞는 메뉴 - 버전 추가](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
 1. API 목록에서 **데모 회의 API**를 선택합니다.
-2. 옆에 있는 상황에 맞는 메뉴(**...**)를 선택합니다.
+2. 옆에 있는 상황에 맞는 메뉴( **...** )를 선택합니다.
 3. **+ 버전 추가**를 선택합니다.
 
 > [!TIP]
@@ -95,15 +94,14 @@ Azure API Management에서는 호출자가 원하는 API 버전을 지정하도�
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>개발자 포털을 검색하여 버전 확인
 
 1. 상단 메뉴에서 **개발자 포털**을 선택합니다.
-2. **API**를 선택합니다. **데모 회의 API**에 **원본** 및 **v1** 버전이 표시됩니다.
-3. **v1**을 선택합니다.
-4. 목록에서 첫 번째 작업의 **요청 URL**을 확인합니다. API URL 경로에 **v1**이 포함되어 있습니다.
-
-    ![API 상황에 맞는 메뉴 - 버전 추가](media/api-management-getstarted-publish-versions/developer_portal.png)
+2. **API**를 선택하고 **데모 회의 API**를 클릭합니다.
+3. API 이름 옆에 여러 버전이 있는 드롭다운이 표시됩니다.
+4. **v1**을 선택합니다.
+5. 목록에서 첫 번째 작업의 **요청 URL**을 확인합니다. API URL 경로에 **v1**이 포함되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 기존 API에 새 버전 추가

@@ -1,0 +1,76 @@
+### YamlMime:Landing
+title: 인터넷 피어링 설명서
+summary: Microsoft와의 인터넷 피어링에 대해 알아봅니다.
+metadata:
+  title: 인터넷 피어링 설명서
+  titleSuffix: Azure
+  description: Microsoft와의 피어링에 대해 알아봅니다.
+  services: internet-peering
+  ms.service: internet-peering
+  ms.topic: landing-page
+  author: prmitiki
+  ms.author: prmitiki
+  ms.date: 11/27/2019
+  ms.openlocfilehash: df16eb3da78608660ce9fb279f3258dc0879cdb4
+  ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84247090"
+landingContent:
+- title: 인터넷 피어링 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 인터넷 피어링 정보
+      url: overview.md
+    - text: 인터넷 피어링과 Peering Service
+      url: overview-peering-service.md
+  - linkListType: concept
+    links:
+    - text: 피어링 정책
+      url: policy.md
+    - text: Microsoft와의 피어링을 설정하기 위한 필수 조건
+      url: prerequisites.md
+    - text: 인터넷 피어링 FAQ
+      url: faqs.md
+- title: 시작하기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 포털을 사용하여 피어 ASN을 Azure 구독에 연결
+      url: howto-subscription-association-portal.md
+- title: Exchange 피어링
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exchange 피어링 연습
+      url: walkthrough-exchange-all.md
+    - text: 포털을 사용하여 Exchange 피어링 만들기 또는 수정
+      url: howto-exchange-portal.md
+    - text: 포털을 사용하여 레거시 Exchange 피어링을 Azure 리소스로 변환
+      url: howto-legacy-exchange-portal.md
+    - text: 포털을 사용하여 경로 서버와 Exchange 피어링 만들기 또는 수정
+      url: how-to-exchange-route-server-portal.md
+- title: 직접 피어링
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 직접 피어링 연습
+      url: walkthrough-direct-all.md
+    - text: 포털을 사용하여 직접 피어링 만들기 또는 수정
+      url: howto-direct-portal.md
+    - text: 포털을 사용하여 레거시 직접 피어링을 Azure 리소스로 변환
+      url: howto-legacy-direct-portal.md
+- title: Peering Service
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Peering Service FAQ
+      url: service-faqs.md
+  - linkListType: how-to-guide
+    links:
+    - text: Peering Service 파트너 연습
+      url: walkthrough-peering-service-all.md
+    - text: 포털을 사용하여 직접 피어링에 Peering Service 사용 설정
+      url: howto-peering-service-portal.md

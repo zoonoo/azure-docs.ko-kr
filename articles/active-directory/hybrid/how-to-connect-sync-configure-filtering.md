@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60243245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357769"
 ---
-# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화: 필터링 구성
+# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype 등의 Office 365 워크로드를 사용하면 완전한 전체 주소 목록이 도움이 되므로 모든 사람에게 메일을 보내거나 호출할 수 있습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
 
 경우에 따라 기본 구성에 일부 변경을 수행해야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
@@ -36,7 +36,7 @@ ms.locfileid: "60243245"
 이 문서에서는 다양한 필터링 방법을 구성하는 방법을 설명합니다.
 
 > [!IMPORTANT]
-> Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 동작 중 하나는 Azure AD Connect 동기화의 불일치하거나 지원되지 않는 상태가 될 수 있습니다. 결과적으로, Microsoft는 해당 배포에 대해 기술 지원을 제공할 수 없습니다.
+> Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 작업을 수행 하면 Azure AD Connect 동기화 상태가 일치 하지 않거나 지원 되지 않는 상태가 될 수 있습니다. 따라서 Microsoft는 이러한 배포에 대 한 기술 지원을 제공할 수 없습니다.
 
 ## <a name="basics-and-important-notes"></a>기본 사항 및 중요 참고 사항
 Azure AD Connect 동기화에서 언제든지 필터링을 사용할 수 있습니다. 디렉터리 동기화의 기본 구성으로 시작하고 필터링을 구성하는 경우 필터링된 개체는 Azure AD에 더 이상 동기화되지 않습니다. 이 변경으로 인해 Azure AD에서 이전에 동기화되었지만 그 후에 필터링된 개체는 Azure AD에서 삭제됩니다.
@@ -45,9 +45,9 @@ Azure AD Connect 동기화에서 언제든지 필터링을 사용할 수 있습�
 
 필터링은 동시에 많은 개체를 제거할 수 있으므로 모든 변경 사항을 Azure AD로 내보내기 전에 새 필터가 올바른지 확인하려고 합니다. 구성 단계를 완료한 후 변경 사항을 Azure AD로 내보내 적용하기 전에 [확인 단계](#apply-and-verify-changes)를 수행하는 것이 좋습니다.
 
-실수로 많은 개체를 삭제하는 것을 방지하기 위해 “[실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md)” 기능이 기본적으로 설정되어 있습니다. 필터링으로 인해 많은 개체를 삭제하는 경우(기본적으로 500개) 이 문서의 단계를 따라 삭제 작업을 Azure AD에 진행해야 합니다.
+실수로 많은 개체를 삭제 하는 것을 방지 하기 위해 "[실수로 인 한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md)" 기능은 기본적으로 설정 되어 있습니다. 필터링으로 인해 많은 개체를 삭제하는 경우(기본적으로 500개) 이 문서의 단계를 따라 삭제 작업을 Azure AD에 진행해야 합니다.
 
-2015년 11월([1.0.9125](reference-connect-version-history.md#1091250)) 전 빌드를 사용하고, 필터 구성을 변경하고, 암호 해시 동기화를 사용하려면 구성을 완료한 다음, 모든 암호를 전체 동기화 트리거해야 합니다. 암호 전체 동기화 트리거하는 방법에 대한 단계는 [모든 암호의 전체 동기화 트리거](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords)를 참조하세요. 빌드 1.0.9125 이상일 경우 정기적인 **전체 동기화** 작업이 암호가 동기화되어야 하는지, 이 추가 단계가 더 이상 필요하지 않은지도 계산합니다.
+2015년 11월([1.0.9125](reference-connect-version-history.md#1091250)) 전 빌드를 사용하고, 필터 구성을 변경하고, 암호 해시 동기화를 사용하려면 구성을 완료한 다음, 모든 암호를 전체 동기화 트리거해야 합니다. 암호 전체 동기화를 트리거하는 방법에 대 한 단계는 [모든 암호의 전체 동기화 트리거](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords)를 참조 하세요. 빌드 1.0.9125 이상일 경우 정기적인 **전체 동기화** 작업이 암호가 동기화되어야 하는지, 이 추가 단계가 더 이상 필요하지 않은지도 계산합니다.
 
 필터링 오류로 인해 **사용자** 개체가 Azure AD에서 의도치 않게 삭제된 경우에 필터링 구성을 제거하고 Azure AD에 사용자 개체를 다시 만들 수 있습니다. 그런 다음 디렉터리를 다시 동기화할 수 있습니다. 이 작업을 통해 사용자가 Azure AD의 휴지통에서 복원됩니다. 그러나 다른 개체 형식을 삭제 취소할 수 없습니다. 예를 들어 보안 그룹을 실수로 삭제하고 ACL에 리소스로 사용한 경우 그룹 및 해당 ACL은 복구할 수 없습니다.
 
@@ -70,8 +70,8 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 
 1. **시작** 메뉴에서 **작업 Scheduler**를 시작합니다.
 2. **작업 Scheduler 라이브러리** 바로 아래에서 **Azure AD Sync Scheduler**라는 작업을 찾아 마우스 오른쪽 단추로 클릭하고 **사용 안 함**을 선택합니다.  
-   ![작업 Scheduler](./media/how-to-connect-sync-configure-filtering/taskscheduler.png)  
-3. 이제 구성을 변경하고 **Synchronization Service Manager** 콘솔에서 수동으로 동기화 엔진을 실행할 수 있습니다.
+   ![작업 스케줄러](./media/how-to-connect-sync-configure-filtering/taskscheduler.png)  
+3. 이제 구성 변경을 수행 하 고 **Synchronization Service Manager** 콘솔에서 수동으로 동기화 엔진을 실행할 수 있습니다.
 
 필터링 변경을 모두 완료한 후 돌아와서 해당 작업을 **사용**으로 다시 설정해야 합니다.
 
@@ -80,7 +80,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 
 * [**그룹 기반**](#group-based-filtering): 단일 그룹 기반의 필터링은 설치 마법사를 사용하여 초기 설치 시에만 구성할 수 있습니다.
 * [**도메인 기반**](#domain-based-filtering): 이 옵션을 사용하면 Azure AD로 동기화할 도메인을 선택할 수 있습니다. 또한 Azure AD Connect 동기화를 설치한 후 온-프레미스 인프라를 변경하는 경우 동기화 엔진 구성에서 도메인을 추가하고 제거할 수 있습니다.
-* [**OU(조직 구성 단위) 기반**](#organizational-unitbased-filtering): 이 옵션을 사용하면 Azure AD로 동기화할 OU를 선택할 수 있습니다. 이 옵션은 선택된 OU의 모든 개체 형식에 대해 설정됩니다.
+* [**조직 구성 단위(OU) 기반**](#organizational-unitbased-filtering): 이 옵션을 사용하면 Azure AD로 동기화하는 OU를 선택할 수 있습니다. 이 옵션은 선택된 OU의 모든 개체 형식에 대해 설정됩니다.
 * [**특성 기반**](#attribute-based-filtering): 이 옵션을 사용하면 개체의 특성 값을 기반으로 개체를 필터링할 수 있습니다. 또한 다른 개체 형식별로 다르게 필터링할 수 있습니다.
 
 동시에 여러 필터링 옵션을 사용할 수 있습니다. 예를 들어 OU 기반 필터링을 사용하여 하나의 OU에 개체만 포함시킬 수 있습니다. 동시에 특성 기반 필터링을 사용하여 추가로 개체를 필터링할 수 있습니다. 여러 필터링 메서드를 사용하면 필터는 필터 간 논리적 “AND”를 사용합니다.
@@ -99,17 +99,17 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 3. [변경 사항을 적용하고 확인합니다](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>동기화할 도메인을 선택합니다.
-두 가지 방법으로 동기화 할 도메인을 선택 합니다.
-    - 동기화 서비스를 사용 하 여
-    - Azure AD Connect 마법사를 사용합니다.
+동기화 할 도메인을 선택 하는 방법에는 다음 두 가지가 있습니다.
+    - 동기화 서비스 사용
+    - Azure AD Connect 마법사 사용.
 
 
-#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>동기화 서비스를 사용 하 여 동기화 할 도메인 선택
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>동기화 서비스를 사용 하 여 동기화 할 도메인을 선택 합니다.
 도메인 필터를 설정하려면 다음 단계를 수행합니다.
 
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
-2. **시작** 메뉴에서 **동기화 서비스**를 시작합니다.
-3. **커넥터**를 선택하고 **커넥터** 목록에서 **Active Directory Domain Services** 형식을 가진 커넥터를 선택합니다. **작업**에서 **속성**을 선택합니다.  
+2. **시작** 메뉴에서 **동기화 서비스** 를 시작 합니다.
+3. 커넥터 **를 선택 하**고 **커넥터** 목록에서 **Active Directory Domain Services**유형의 커넥터를 선택 합니다. **작업**에서 **속성**을 선택합니다.  
    ![커넥터 속성](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. **디렉터리 파티션 구성**을 클릭합니다.
 5. **디렉터리 파티션 선택** 목록에서 필요에 따라 도메인을 선택 및 선택 취소합니다. 동기화하려는 파티션만 선택되어 있는지 확인합니다.  
@@ -119,15 +119,15 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 6. 완료하면 **확인**을 클릭하여 **속성** 대화 상자를 닫습니다. 포리스트에서 도메인을 제거한 경우 도메인이 제거되었다는 메시지가 팝업되고 해당 구성은 정리됩니다.
 7. 실행 프로필을 계속 조정합니다.
 
-#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Azure AD Connect 마법사를 사용 하 여 동기화 할 도메인 선택
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Azure AD Connect 마법사를 사용 하 여 동기화 할 도메인을 선택 합니다.
 도메인 필터를 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure AD Connect 마법사를 시작 합니다.
-2.  클릭 **구성**합니다.
-3.  선택 **동기화 옵션 사용자 지정** 누릅니다 **다음**합니다.
+1.  Azure AD Connect 마법사 시작
+2.  **구성**을 클릭합니다.
+3.  **동기화 옵션 사용자 지정** 을 선택 하 고 **다음**을 클릭 합니다.
 4.  Azure AD 자격 증명 입력
-5.  에 **연결 된 디렉터리** 화면 클릭 **다음**합니다.
-6.  에 **도메인 및 OU 필터링 페이지** 클릭 **새로 고침**합니다.  새 도메인 형식이 잘못 표시 하 고 삭제 된 도메인 사라집니다.
+5.  **연결 된 디렉터리** 화면에서 **다음**을 클릭 합니다.
+6.  **도메인 및 OU 필터링 페이지** 에서 **새로 고침**을 클릭 합니다.  이제 새 도메인이 표시 되지 않으며 삭제 된 도메인이 사라집니다.
    ![파티션](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>실행 프로필 업데이트
@@ -144,7 +144,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 3. 각 프로필에 대해 **추가된** 도메인과 **제거된** 도메인을 조정합니다.
     1. 각각의 5개 프로필에 대해 **추가된** 각 도메인에 다음 단계를 수행합니다.
         1. 실행 프로필을 선택하고 **새 단계**를 클릭합니다.
-        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. 그런 후 **Next** 를 클릭합니다.  
+        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. **다음**을 클릭합니다.  
         ![커넥터 실행 프로필 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. **커넥터 구성** 페이지의 **파티션** 드롭다운 메뉴에서 도메인 필터에 추가한 파티션의 이름을 선택합니다.  
         ![커넥터 실행 프로필 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  
@@ -155,7 +155,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
         ![커넥터 실행 프로필 4](./media/how-to-connect-sync-configure-filtering/runprofilesdeletestep.png)  
     3. 변경 내용을 확인합니다. 동기화하려는 각 도메인이 각 실행 프로필의 단계로 나열된 것이어야 합니다.
 4. **실행 프로필 구성** 대화 상자를 닫으려면 **확인**을 클릭합니다.
-5.  구성을 완료하려면 **전체 가져오기** 및 **델타 동기화**를 실행해야 합니다. [변경 사항 적용 및 확인](#apply-and-verify-changes) 섹션을 계속 읽습니다.
+5.  구성을 완료 하려면 **전체 가져오기** 및 **델타 동기화**를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 
 ## <a name="organizational-unitbased-filtering"></a>조직 구성 단위 기반 필터링
 도메인 기반 필터링을 변경하는 기본 방법은 설치 마법사를 실행하여 [도메인 및 OU 필터링](how-to-connect-install-custom.md#domain-and-ou-filtering)을 변경하는 것입니다. 설치 마법사는 이 항목에 설명된 모든 작업을 자동화합니다.
@@ -165,8 +165,8 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 조직 구성 단위 기반 필터링을 구성하려면 다음 단계를 수행합니다.
 
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
-2. **시작** 메뉴에서 **동기화 서비스**를 시작합니다.
-3. **커넥터**를 선택하고 **커넥터** 목록에서 **Active Directory Domain Services** 형식을 가진 커넥터를 선택합니다. **작업**에서 **속성**을 선택합니다.  
+2. **시작** 메뉴에서 **동기화 서비스** 를 시작 합니다.
+3. 커넥터 **를 선택 하**고 **커넥터** 목록에서 **Active Directory Domain Services**유형의 커넥터를 선택 합니다. **작업**에서 **속성**을 선택합니다.  
    ![커넥터 속성](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. **디렉터리 파티션 구성**을 클릭하고 구성하려는 도메인을 선택한 후 **컨테이너**를 클릭합니다.
 5. 메시지가 표시되면 온-프레미스 Active Directory에 대한 읽기 권한으로 모든 자격 증명을 제공합니다. 대화 상자에 미리 채워져 있는 사용자일 필요는 없습니다.
@@ -177,9 +177,9 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
    * 디바이스 쓰기 저장 기능을 사용하도록 설정한 경우 **RegisteredDevices** OU를 선택해야 합니다. 그룹 쓰기 저장 등 다른 쓰기 저장 기능을 사용하는 경우 이러한 위치를 선택해야 합니다.
    * 사용자, iNetOrgPersons, 그룹, 연락처 및 컴퓨터가 있는 다른 OU를 선택합니다. 그림에서 이러한 모든 OU가 ManagedObjects OU에 있습니다.
    * 그룹 기반 필터링을 사용하는 경우 그룹이 위치한 OU가 포함되어야 합니다.
-   * 필터링 구성을 완료한 후에 추가된 새로운 OU를 동기화할지 여부를 구성할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
+   * 필터링 구성을 완료한 후에 추가된 새로운 OU를 동기화할지 여부를 구성할 수 있습니다. 자세한 내용은 다음 섹션을 참조하십시오.
 7. 완료하면 **확인**을 클릭하여 **속성** 대화 상자를 닫습니다.
-8. 구성을 완료하려면 **전체 가져오기** 및 **델타 동기화**를 실행해야 합니다. [변경 사항 적용 및 확인](#apply-and-verify-changes) 섹션을 계속 읽습니다.
+8. 구성을 완료 하려면 **전체 가져오기** 및 **델타 동기화**를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 
 ### <a name="synchronize-new-ous"></a>새 OU 동기화
 필터링을 구성한 후 생성된 새 OU는 기본적으로 동기화되어 있습니다. 이 상태는 선택된 확인란으로 표시됩니다. 일부 하위 OU를 선택 취소할 수도 있습니다. 이 작업을 수행하려면 파랑 확인란(기본 상태)이 흰색이 될 때까지 상자를 클릭합니다. 그런 다음 동기화하지 않으려는 하위 OU를 선택 취소합니다.
@@ -216,7 +216,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 
 인바운드 필터링에서 **범위** 기능을 사용하여 개체를 동기화할지 여부를 확인합니다. 여기서 해당 조직의 요구 사항에 맞게 조정합니다. 범위 모듈에 동기화 규칙이 범위에 있는지 확인하는 **그룹** 및 **절**이 있습니다. 그룹에 하나 이상의 절이 포함됩니다. 여러 절 간에는 논리적 “AND”가 있으며 여러 그룹 간에는 논리적 “OR”이 있습니다.
 
-예:   
+예:  
 ![범위](./media/how-to-connect-sync-configure-filtering/scope.png)  
 **(department = IT) OR (department = Sales AND c = US)** 로 표시됩니다.
 
@@ -229,7 +229,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
 2. **시작** 메뉴에서 **동기화 규칙 편집기**를 시작합니다.
-3. **인바운드**가 선택되어 있는지 확인하고 **새 규칙 추가**를 클릭합니다.
+3. **인바운드** 가 선택 되어 있는지 확인 하 고 **새 규칙 추가**를 클릭 합니다.
 4. "*In from AD – User DoNotSyncFilter*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택하고, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. **우선 순위**에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 50)을 입력한 후 **다음**을 클릭합니다.  
    ![인바운드 1 설명](./media/how-to-connect-sync-configure-filtering/inbound1.png)  
 5. **범위 지정 필터**에서 **그룹 추가**를 클릭하고 **절 추가**를 클릭합니다. **특성**에서 **ExtensionAttribute15**를 선택합니다. **연산자**가 **EQUAL**로 설정되어 있는지 확인하고 **값** 상자에 값 **NoSync**를 입력합니다. **다음**을 클릭합니다.  
@@ -237,7 +237,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 6. **조인**을 비워두고 **다음**을 클릭합니다.
 7. **변환 추가**를 클릭하고 **상수**로 **FlowType**을 선택하고 **대상 특성**으로 **cloudFiltered**로 선택합니다. **소스** 텍스트 상자에서 **True**를 입력합니다. **추가** 를 클릭하여 규칙을 저장합니다.  
    ![인바운드 3 변환](./media/how-to-connect-sync-configure-filtering/inbound3.png)
-8. 구성을 완료하려면 **전체 동기화**를 실행해야 합니다. [변경 사항 적용 및 확인](#apply-and-verify-changes) 섹션을 계속 읽습니다.
+8. 구성을 완료 하려면 **전체 동기화**를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 
 #### <a name="positive-filtering-only-sync-these"></a>긍정 필터링: "다음만 동기화"
 긍정 필터링을 표현하는 것은 회의실과 같이 동기화가 명확하지 않은 개체도 고려해야 하므로 더 어려울 수 있습니다. 또한 기본 규칙 **AD에서 - 사용자 참가**의 기본 필터도 재정의됩니다. 사용자 지정 필터를 만들 때는 Azure AD Connect의 중요 한 시스템 개체, 복제 충돌 개체, 특별한 사서함 및 서비스 계정을 포함하지 않도록 해야 합니다.
@@ -248,7 +248,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
 2. **시작** 메뉴에서 **동기화 규칙 편집기**를 시작합니다.
-3. **인바운드**가 선택되어 있는지 확인하고 **새 규칙 추가**를 클릭합니다.
+3. **인바운드** 가 선택 되어 있는지 확인 하 고 **새 규칙 추가**를 클릭 합니다.
 4. "*In from AD – User Sales sync*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택하고, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. **우선 순위**에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 51)을 입력한 후 **다음**을 클릭합니다.  
    ![인바운드 4 설명](./media/how-to-connect-sync-configure-filtering/inbound4.png)  
 5. **범위 지정 필터**에서 **그룹 추가**를 클릭하고 **절 추가**를 클릭합니다. **특성**에서 **부서**를 선택합니다. 연산자가 **EQUAL**로 설정되어 있는지 확인하고 **값** 상자에 값 **Sales**를 입력합니다. **다음**을 클릭합니다.  
@@ -263,7 +263,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 10. **조인**을 비워두고 **다음**을 클릭합니다.
 11. **변환 추가**를 클릭하고 **FlowType**으로 **상수**를 선택하고 **대상 특성**으로 **cloudFiltered**를 선택합니다. **소스** 상자에 **True**를 입력합니다. **추가** 를 클릭하여 규칙을 저장합니다.  
     ![인바운드 3 변환](./media/how-to-connect-sync-configure-filtering/inbound3.png)  
-12. 구성을 완료하려면 **전체 동기화**를 실행해야 합니다. [변경 사항 적용 및 확인](#apply-and-verify-changes) 섹션을 계속 읽습니다.
+12. 구성을 완료 하려면 **전체 동기화**를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 
 필요에 따라 동기화에 더 많은 개체를 포함하는 첫 번째 형식의 규칙을 더 많이 만들 수 있습니다.
 
@@ -278,9 +278,9 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 4. 사용하는 Connect의 버전에 따라 **Out to AAD – User Join** 또는 **Out to AAD - User Join SOAInAD**라는 규칙을 찾고 **편집**을 클릭합니다.
 5. 팝업에서 **예** 를 선택하여 규칙의 복사본을 만듭니다.
 6. **설명** 페이지에서 50과 같은 사용하지 않는 값으로 **우선 순위**를 변경합니다.
-7. 왼쪽 탐색에서 **범위 지정 필터**를 클릭한 다음 **절 추가**를 클릭합니다. **특성**에서 **메일**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**, 형식  **\@contoso.com**를 클릭 하 고 **절 추가**합니다. **특성**에서 **userPrincipalName**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**, 형식  **\@contoso.com**합니다.
+7. 왼쪽 탐색에서 **범위 지정 필터**를 클릭한 다음 **절 추가**를 클릭합니다. **특성**에서 **메일**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에 ** \@ contoso.com**를 입력 한 다음 **절 추가**를 클릭 합니다. **특성**에서 **userPrincipalName**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에 ** \@ contoso.com**를 입력 합니다.
 8. **저장**을 클릭합니다.
-9. 구성을 완료하려면 **전체 동기화**를 실행해야 합니다. [변경 사항 적용 및 확인](#apply-and-verify-changes) 섹션을 계속 읽습니다.
+9. 구성을 완료 하려면 **전체 동기화**를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 
 ## <a name="apply-and-verify-changes"></a>변경 사항을 적용하고 확인합니다
 구성을 변경한 후 이 변경 사항을 시스템에 이미 있는 개체에 적용해야 합니다. 또한 현재 동기화 엔진에 없는 개체를 처리할 수 있어야 합니다(동기화 엔진은 원본 시스템을 다시 읽어 해당 콘텐츠를 확인해야 합니다).
@@ -291,14 +291,14 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 
 다음 단계를 수행합니다.
 
-1. **시작** 메뉴에서 **동기화 서비스**를 시작합니다.
+1. **시작** 메뉴에서 **동기화 서비스** 를 시작 합니다.
 2. **커넥터**를 선택합니다. **커넥터** 목록에서 이전에 구성을 변경한 커넥터를 선택합니다. **작업**에서 **실행**을 선택합니다.  
    ![커넥터 실행](./media/how-to-connect-sync-configure-filtering/connectorrun.png)  
 3. **실행 프로필**에서 이전 섹션에서 언급된 작업을 선택합니다. 두 작업을 실행해야 할 경우 첫 번째 작업이 완료된 후 두 번째 작업을 실행합니다. (선택한 커넥터의 경우 **상태** 열은 **Idle**입니다.)
 
 동기화 후 모든 변경 사항을 내보낼 준비가 됩니다. Azure AD에서 실제로 변경하기 전에 모든 변경 사항이 올바른지 확인하려고 합니다.
 
-1. 명령 프롬프트를 시작하고 `%Program Files%\Microsoft Azure AD Sync\bin`로 이동합니다.
+1. 명령 프롬프트를 시작하고 `%ProgramFiles%\Microsoft Azure AD Sync\bin`로 이동합니다.
 2. `csexport "Name of Connector" %temp%\export.xml /f:x`을 실행합니다.  
    동기화 서비스에 커넥터의 이름이 있습니다. Azure AD에 "contoso.com – AAD"와 유사한 이름이 있습니다.
 3. `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`을 실행합니다.
@@ -317,7 +317,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 2. **작업 Scheduler 라이브러리** 바로 아래에서 **Azure AD Sync Scheduler**라는 작업을 찾아 마우스 오른쪽 단추로 클릭하고 **사용**을 선택합니다.
 
 ## <a name="group-based-filtering"></a>그룹 기반 필터링
-[사용자 지정 설치](how-to-connect-install-custom.md#sync-filtering-based-on-groups)를 사용하여 Azure AD Connect를 처음 설치하면 그룹 기반 필터링을 구성할 수 있습니다. 이 방식은 소수의 개체만 동기화되는 파일럿 배포를 위해 사용됩니다. 그룹 기반 필터링을 사용하지 않도록 설정하면 다시 사용하도록 설정할 수 없습니다. 사용자 지정 구성에서 그룹 기반 필터링을 사용하는 것은 *지원되지 않습니다*. 설치 마법사를 통해 이 기능을 구성하는 것만 지원됩니다. 파일럿을 완료한 다음 이 항목의 다른 필터링 옵션 중 하나를 사용하는 것이 좋습니다. 그룹 기반 필터링과 함께 OU 기반 필터링을 사용하는 경우 그룹 및 멤버 개체가 있는 OU가 포함되어야 합니다.
+[사용자 지정 설치](how-to-connect-install-custom.md#sync-filtering-based-on-groups)를 사용 하 여 Azure AD Connect를 처음 설치할 때 그룹 기반 필터링을 구성할 수 있습니다. 이 방식은 소수의 개체만 동기화되는 파일럿 배포를 위해 사용됩니다. 그룹 기반 필터링을 사용하지 않도록 설정하면 다시 사용하도록 설정할 수 없습니다. 사용자 지정 구성에서 그룹 기반 필터링을 사용하는 것은 *지원되지 않습니다*. 설치 마법사를 통해 이 기능을 구성하는 것만 지원됩니다. 파일럿을 완료한 다음 이 항목의 다른 필터링 옵션 중 하나를 사용하는 것이 좋습니다. 그룹 기반 필터링과 함께 OU 기반 필터링을 사용하는 경우 그룹 및 멤버 개체가 있는 OU가 포함되어야 합니다.
 
 여러 AD 포리스트를 동기화할 경우 각 AD 커넥터에 서로 다른 그룹을 지정하여 그룹 기반 필터링을 구성할 수 있습니다. 하나의 AD 포리스트에서 사용자를 동기화하려고 하는데 이 사용자가 다른 AD 포리스트에 해당 개체를 하나 이상 갖고 있는 경우, 사용자 개체와 해당하는 모든 개체가 그룹 기반 필터링 범위 내에 있는지 확인해야 합니다. 예:
 

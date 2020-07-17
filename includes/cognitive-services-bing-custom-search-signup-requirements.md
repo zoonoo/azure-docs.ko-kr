@@ -3,12 +3,22 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/13/2018
-ms.openlocfilehash: a36415b10111787ad3e6b3302703bfa97d2294dd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 05/08/2020
+ms.openlocfilehash: f4c59cb24f0bbc131ace8a56d8530e7894ecfecf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740690"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85806119"
 ---
-Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)을 만들 수 있습니다. 계속하기 전에 평가판을 활성화한 후에 제공된 액세스 키 또는 Azure 대시보드에서 유료 구독 키가 필요합니다.
+## <a name="create-an-azure-resource"></a>Azure 리소스 만들기
+
+다음 Azure 리소스 중 하나를 만들어 Bing Custom Search API 사용을 시작합니다.
+
+### <a name="bing-custom-search-resource"></a>[Bing Custom Search 리소스](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch)
+   * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.
+   * 평가판 가격 책정 계층을 사용하여 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드합니다.
+
+### <a name="multi-service-resource"></a>[다중 서비스 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
+   * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.  
+   * 여러 Cognitive Services에서 애플리케이션에 동일한 키와 엔드포인트를 사용합니다.

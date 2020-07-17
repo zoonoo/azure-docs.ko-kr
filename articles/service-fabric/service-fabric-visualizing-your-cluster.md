@@ -1,29 +1,20 @@
 ---
-title: Azure Service Fabric Explorer를 사용하여 클러스터 시각화 | Microsoft Docs
+title: Azure Service Fabric Explorer를 사용 하 여 클러스터 시각화
 description: Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 애플리케이션 및 노드를 검사 및 관리하기 위한 애플리케이션입니다.
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 358ebfa601ff8e4d2fb6ae91e51516cb0a933af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716577"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256257"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
-SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 응용 프로그램입니다.
+SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 애플리케이션입니다.
 
 ## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer 다운로드
 
@@ -46,7 +37,7 @@ Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>클러스터에서 Service Fabric Explorer 실행
 
-Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작 하려면 클러스터의 HTTP 관리 끝점에서 이동 브라우저용-예: https:\//clusterFQDN:19080 합니다.
+Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작 하려면 모든 브라우저에서 클러스터의 HTTP 관리 끝점 (예: https: \/ /Clusterfqdn: 19080)으로 이동 합니다.
 
 개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
 
@@ -56,12 +47,12 @@ Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포�
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 연결
-Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인트(FQDN/IP) 및 HTTP 관리 엔드포인트 포트(기본적으로 19080)가 필요합니다. 예를 들어 https\:/ / mysfcluster.westus.cloudapp.azure.com:19080 합니다. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
+Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인트(FQDN/IP) 및 HTTP 관리 엔드포인트 포트(기본적으로 19080)가 필요합니다. 예: https \: //mysfcluster.westus.cloudapp.azure.com:19080. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
 
 ### <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 인증서 또는 AAD(Azure Active Directory)를 사용하여 서비스 패브릭 클라이언트에 대한 클라이언트 액세스를 제어할 수 있습니다.
 
-보안 클러스터에 연결하려는 경우 클러스터의 구성에 따라 클라이언트 인증서를 제시하거나 AAD를 사용하여 로그인해야 합니다.
+보안 클러스터에 연결 하려는 경우 클러스터의 구성에 따라 클라이언트 인증서를 제공 하거나 AAD를 사용 하 여 로그인 해야 합니다.
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>서비스 패브릭 탐색기 레이아웃 이해
 왼쪽의 트리를 사용하여 서비스 패브릭 탐색기를 탐색할 수 있습니다. 트리의 루트에서 클러스터 대시보드는 애플리케이션 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다.
@@ -92,7 +83,7 @@ Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인�
 ## <a name="actions"></a>작업
 Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
 
-예를 들어 애플리케이션 인스턴스를 삭제하려면 왼쪽 트리에서 애플리케이션을 선택한 다음 **작업** > **애플리케이션 삭제**로 이동하여 로컬 클러스터에서 Service Fabric 탐색기를 시작할 수 있습니다.
+예를 들어 응용 프로그램 인스턴스를 삭제 하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 **작업**  >  **응용 프로그램 삭제**를 선택 합니다.
 
 ![Service Fabric Explorer에서 애플리케이션 삭제][sfx-delete-application]
 
@@ -113,7 +104,7 @@ Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및
 >
 
 ## <a name="event-store"></a>EventStore
-EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사용할 수 있는 Service Fabric 플랫폼 이벤트를 제공하는 기능입니다. 이벤트 시간을 기반으로 각 엔터티(예: 노드, 서비스, 애플리케이션 및 쿼리)에 대해 클러스터에서 진행 중인 작업에 대한 스냅숏 보기를 볼 수 있습니다. 또한 EventStore에 대한 자세한 내용은 [EventStore 개요](service-fabric-diagnostics-eventstore.md)에서 참조할 수 있습니다.   
+EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사용할 수 있는 Service Fabric 플랫폼 이벤트를 제공하는 기능입니다. 이벤트 시간을 기반으로 각 엔터티(예: 노드, 서비스, 애플리케이션 및 쿼리)에 대해 클러스터에서 진행 중인 작업에 대한 스냅샷 보기를 볼 수 있습니다. 또한 EventStore에 대한 자세한 내용은 [EventStore 개요](service-fabric-diagnostics-eventstore.md)에서 참조할 수 있습니다.   
 
 ![EventStore][sfx-eventstore]
 
@@ -123,16 +114,36 @@ EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사�
 >[!NOTE]
 >Service Fabric 버전 6.4부터 EventStore API는 Azure에서만 실행되는 Windows 클러스터에 제공됩니다. 이 기능을 Linux 및 독립 실행형 클러스터에도 이식하려고 노력하고 있습니다.
 
+## <a name="image-store-viewer"></a>Image Store 뷰어
+이미지 저장소 뷰어는 파일/폴더 제거와 함께 이미지 저장소의 현재 콘텐츠를 보고 파일 및 폴더 정보를 가져올 수 있도록 하는 기본 Image Store 사용 하는 경우 제공 되는 기능입니다.
 
+![서비스 패브릭 탐색기 클러스터 맵][sfx-imagestore]
+
+## <a name="backup-and-restore"></a>Backup 및 복원
+Service Fabric Explorer는 [백업 및 복원과](./service-fabric-reliable-services-backup-restore.md)상호 작용 하는 기능을 제공 합니다. SFX에서 백업 및 복원 기능을 확인 하려면 고급 모드를 사용 하도록 설정 해야 합니다.
+
+![고급 모드 사용][0]
+ 
+다음과 같은 작업을 수행할 수 있습니다.
+
+* 백업 정책을 만들고, 편집 하 고, 삭제 합니다.
+* 응용 프로그램, 서비스 또는 파티션에 대해 백업을 사용 하거나 사용 하지 않도록 설정 합니다.
+* 응용 프로그램, 서비스 또는 파티션에 대 한 백업을 일시 중단 하 고 다시 시작 합니다.
+* 파티션의 백업을 트리거하고 추적 합니다.
+* 파티션에 대 한 복원을 트리거하고 추적 합니다.
+
+백업 및 복원 서비스에 대 한 자세한 내용은 [REST API 참조](/rest/api/servicefabric/sfclient-index-backuprestore)를 참조 하세요.
 ## <a name="next-steps"></a>다음 단계
-* [Visual Studio에서 Service Fabric 애플리케이션 관리](service-fabric-manage-application-in-visual-studio.md)
+* [Visual Studio에서 Service Fabric 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 * [PowerShell을 사용하여 Service Fabric 애플리케이션 배포](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
-[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
-[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
-[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
-[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
-[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-map.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/sfx-application-tree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/sfx-service-essentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/sfx-delete-application.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
+[sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
+[0]: ./media/service-fabric-backuprestoreservice/advanced-mode.png

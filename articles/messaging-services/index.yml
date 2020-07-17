@@ -1,0 +1,171 @@
+### YamlMime:Hub
+title: Azure 메시징 서비스 설명서
+summary: Azure Event Grid, Azure Event Hubs, Azure Service Bus 및 Azure Relay를 사용하여 이벤트 메시지를 전달하는 방법을 알아봅니다.
+brand: azure
+metadata:
+  title: Azure 메시징 서비스 설명서
+  description: Azure Event Grid, Azure Event Hubs, Azure Service Bus 및 Azure Relay를 사용하여 이벤트 메시지를 전달하는 방법을 알아봅니다.
+  services: multiple
+  ms.service: multiple
+  ms.topic: hub-page
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 03/15/2020
+  ms.openlocfilehash: f70bdf831d5b65aab9d6d01f88122d1a0fdd9957
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83200393"
+highlightedContent:
+  items:
+  - title: Azure 메시징 서비스 간 선택
+    itemType: overview
+    url: ../event-grid/compare-messaging-services.md
+  - title: Event Grid란?
+    itemType: overview
+    url: ../event-grid/overview.md
+  - title: Event Hubs란?
+    itemType: overview
+    url: ../event-hubs/event-hubs-about.md
+  - title: Service Bus란?
+    itemType: overview
+    url: ../service-bus-messaging/service-bus-messaging-overview.md
+  - title: 릴레이란?
+    itemType: overview
+    url: ../azure-relay/relay-what-is-it.md
+conceptualContent:
+  items:
+  - title: 경로 이벤트
+    links:
+    - url: ../event-grid/blob-event-quickstart-portal.md
+      itemType: quickstart
+      text: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅
+    - url: ../event-grid/custom-event-to-function.md
+      itemType: quickstart
+      text: Event Grid를 사용하여 Azure 함수로 사용자 지정 이벤트 라우팅
+    - url: ../event-grid/custom-event-quickstart-portal.md
+      itemType: quickstart
+      text: Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
+    footerLink:
+      url: ../event-grid/index.yml
+      text: 자세히 보기
+  - title: 이벤트 허브 만들기
+    links:
+    - url: ../event-hubs/event-hubs-create.md
+      itemType: quickstart
+      text: Azure Portal을 사용하여 이벤트 허브 만들기
+    - url: ../event-hubs/event-hubs-quickstart-cli.md
+      itemType: quickstart
+      text: Azure CLI를 사용하여 이벤트 허브 만들기
+    footerLink:
+      url: ../event-hubs/index.yml
+      text: 자세히 보기
+  - title: Apache Kafka와 통합
+    links:
+    - url: ../event-hubs/event-hubs-for-kafka-ecosystem-overview.md
+      itemType: overview
+      text: Apache Kafka용 Event Hubs란?
+    - url: ../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md
+      itemType: quickstart
+      text: Apache Kafka용 Event Hubs로 스트리밍
+    footerLink:
+      url: ../event-hubs/index.yml
+      text: 자세히 보기
+  - title: 이벤트 보내기 및 받기
+    links:
+    - url: ../event-hubs/get-started-dotnet-standard-send-v2.md
+      itemType: quickstart
+      text: .NET Core를 사용하여 Azure Event Hubs에서 이벤트 보내기 및 받기
+    - url: ../event-hubs/event-hubs-java-get-started-send.md
+      itemType: quickstart
+      text: Java를 사용하여 Azure Event Hubs로 이벤트 보내기 또는 받기
+    - url: ../event-hubs/get-started-python-send-v2.md
+      itemType: quickstart
+      text: Python을 사용하여 Event Hubs로 이벤트 보내기 또는 받기
+    footerLink:
+      url: ../event-hubs/index.yml
+      text: 자세히 보기
+  - title: 이벤트 캡처
+    links:
+    - url: ../event-hubs/event-hubs-dedicated-overview.md
+      itemType: overview
+      text: Azure Blob Storage 또는 Azure Data Lake Storage에서 이벤트 캡처
+    - url: ../event-hubs/event-hubs-capture-enable-through-portal.md
+      itemType: quickstart
+      text: Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정
+    footerLink:
+      url: ../event-hubs/index.yml
+      text: 자세히 보기
+  - title: 이벤트 처리
+    links:
+    - url: ../event-hubs/event-hubs-tutorial-visualize-anomalies.md
+      itemType: tutorial
+      text: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
+    - url: ../event-hubs/event-hubs-kafka-stream-analytics.md
+      itemType: tutorial
+      text: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리
+    footerLink:
+      url: ../event-hubs/index.yml
+      text: 자세히 보기
+  - title: 큐 만들기
+    links:
+    - url: ../service-bus-messaging/service-bus-quickstart-portal.md
+      itemType: quickstart
+      text: Azure Portal을 사용하여 Service Bus 큐 만들기
+    - url: ../service-bus-messaging/service-bus-quickstart-cli.md
+      itemType: quickstart
+      text: Azure CLI를 사용하여 Service Bus 큐 만들기
+    footerLink:
+      url: ../service-bus-messaging/index.yml
+      text: 자세히 보기
+  - title: 토픽 및 구독 만들기
+    links:
+    - url: ../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md
+      itemType: quickstart
+      text: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 하나 이상의 구독 만들기
+    - url: ../service-bus-messaging/service-bus-resource-manager-namespace-topic.md
+      itemType: quickstart
+      text: 템플릿을 사용하여 토픽 및 구독이 있는 Service Bus 네임스페이스 만들기
+    footerLink:
+      url: ../service-bus-messaging/index.yml
+      text: 자세히 보기
+  - title: 메시지 보내기 및 받기 - 큐
+    links:
+    - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
+      itemType: concept
+      text: Azure Storage 큐와 Service Bus 큐 비교
+    - url: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+      itemType: quickstart
+      text: Service Bus 큐 시작
+    - url: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
+      itemType: quickstart
+      text: Java에서 Azure Service Bus 큐를 사용하여 메시지 보내기 및 받기
+    footerLink:
+      url: ../service-bus-messaging/index.yml
+      text: 자세히 보기
+  - title: 메시지 게시 및 구독
+    links:
+    - url: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
+      itemType: quickstart
+      text: Service Bus 큐 항목 시작
+    - url: ../service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions.md
+      itemType: quickstart
+      text: Java에서 Service Bus 토픽 및 구독 사용
+    - url: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+      itemType: quickstart
+      text: Python에서 Service Bus 토픽 및 구독 사용
+    footerLink:
+      url: ../service-bus-messaging/index.yml
+      text: 자세히 보기
+  - title: 하이브리드 연결
+    links:
+    - url: ../azure-relay/relay-hybrid-connections-dotnet-get-started.md
+      itemType: tutorial
+      text: .NET에서 Relay 하이브리드 연결 WebSockets 시작
+    - url: ../azure-relay/relay-hybrid-connections-http-requests-dotnet-get-started.md
+      itemType: tutorial
+      text: .NET에서 Relay 하이브리드 연결 HTTP 요청 시작
+    footerLink:
+      url: ../azure-relay/index.yml
+      text: 자세히 보기

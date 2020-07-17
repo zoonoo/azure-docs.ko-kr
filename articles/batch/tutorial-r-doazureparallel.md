@@ -1,36 +1,30 @@
 ---
 title: Azure Batch를 사용한 병렬 R 시뮬레이션
 description: 자습서 - R doAzureParallel 패키지를 사용하여 Azure Batch에서 몬테카를로 재무 시뮬레이션을 실행하는 단계별 지침
-services: batch
-author: laurenhughes
-manager: jeconnoc
-ms.assetid: ''
-ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 557e7d9a35f012d65977d3e0654b55b15ff1e28f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106443"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418180"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>자습서: Azure Batch를 사용하여 병렬 R 시뮬레이션 실행 
 
 R 세션에서 Azure Batch를 직접 사용할 수 있는 간단한 R 패키지인 [doAzureParallel](https://www.github.com/Azure/doAzureParallel)을 사용하여 병렬 R 작업을 규모에 맞게 실행합니다. doAzureParallel 패키지는 인기 있는 [foreach](https://cran.r-project.org/web/packages/foreach/index.html) R 패키지를 기반으로 하여 빌드되었습니다. doAzureParallel은 foreach 루프의 각 반복을 수행하여 Azure Batch 태스크로 제출합니다.
 
-이 자습서에서는 RStudio 내에서 직접 Batch 풀을 배포하고 Azure Batch에서 병렬 R 작업을 실행하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 RStudio 내에서 직접 Batch 풀을 배포하고 Azure Batch에서 병렬 R 작업을 실행하는 방법을 보여 줍니다. 다음 방법을 알아봅니다.
  
 
 > [!div class="checklist"]
-> * doAzureParallel을 설치하고 배치 계정 및 저장소 계정에 액세스하도록 구성
+> * doAzureParallel을 설치하고 배치 계정 및 스토리지 계정에 액세스하도록 구성
 > * R 세션에 대한 병렬 백 엔드로 Batch 풀 만들기
 > * 풀에서 병렬 시뮬레이션 샘플 실행
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 설치된 [R](https://www.r-project.org/) 배포(예:[ Microsoft R Open](https://mran.microsoft.com/open)). R 버전 3.3.1 이상을 사용합니다.
 
@@ -68,7 +62,7 @@ library(doAzureParallel)
 generateCredentialsConfig("credentials.json") 
 ``` 
 
-이 파일을 배치 계정 및 저장소 계정의 이름과 키로 채웁니다. `githubAuthenticationToken` 설정은 변경하지 않고 그대로 둡니다.
+이 파일을 배치 계정 및 스토리지 계정의 이름과 키로 채웁니다. `githubAuthenticationToken` 설정은 변경하지 않고 그대로 둡니다.
 
 완료되면 자격 증명 파일은 다음과 비슷합니다. 
 
@@ -110,13 +104,13 @@ generateClusterConfig("cluster.json")
 * 각 노드의 두 코어를 모두 활용하려면 `maxTasksPerNode`를 *2*로 늘립니다.
 * `dedicatedNodes`를 *0*으로 설정하면 Batch에 사용할 수 있는 우선 순위가 낮은 VM을 시도할 수 있습니다. `lowPriorityNodes`의 `min`을 *5*로, `max`를 *10*으로 설정하거나, 필요한 경우 더 작은 숫자를 선택합니다. 
 
-나머지 설정에 대한 기본값은 그대로 두고 파일을 저장합니다. 다음과 유사하게 나타납니다.
+나머지 설정에 대한 기본값은 그대로 두고 파일을 저장합니다. 결과는 다음과 비슷합니다.
 
 ```json
 {
   "name": "myPoolName",
   "vmSize": "Standard_D2_v2",
-  "maxTasksPerNode": 4,
+  "maxTasksPerNode": 2,
   "poolSize": {
     "dedicatedNodes": {
       "min": 0,
@@ -138,7 +132,7 @@ generateClusterConfig("cluster.json")
 }
 ```
 
-이제 클러스터를 만듭니다. Batch는 풀을 즉시 만들지만, 계산 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 클러스터를 사용할 수 있게 되면 R 세션에 대한 병렬 백 엔드로 등록합니다. 
+이제 클러스터를 만듭니다. Batch는 풀을 즉시 만들지만, 컴퓨팅 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 클러스터를 사용할 수 있게 되면 R 세션에 대한 병렬 백 엔드로 등록합니다. 
 
 ```R
 # Create your cluster if it does not exist; this takes a few minutes
@@ -260,7 +254,7 @@ stopCluster(cluster)
 이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> doAzureParallel을 설치하고 배치 계정 및 저장소 계정에 액세스하도록 구성
+> doAzureParallel을 설치하고 배치 계정 및 스토리지 계정에 액세스하도록 구성
 > * R 세션에 대한 병렬 백 엔드로 Batch 풀 만들기
 > * 풀에서 병렬 시뮬레이션 샘플 실행
 

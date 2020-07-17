@@ -1,27 +1,20 @@
 ---
-title: 자습서 - Azure CLI를 사용하여 확장 집합용 디스크 만들기 및 사용 | Microsoft Docs
+title: 자습서 - Azure CLI를 사용하여 확장 집합용 디스크 만들기 및 사용
 description: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 관리 디스크를 만들고 사용하는 방법(디스크를 추가, 준비, 나열 및 분리하는 방법 포함)을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751160"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198266"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -33,7 +26,7 @@ ms.locfileid: "55751160"
 > * 디스크 성능
 > * 데이터 디스크 연결 및 준비
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -51,26 +44,15 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 | Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
 |----|----|----|
 | [범용](../virtual-machines/linux/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
-| [Compute에 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 576 |
+| [컴퓨팅 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 576 |
 | [메모리에 최적화](../virtual-machines/linux/sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
 | [Storage에 최적화](../virtual-machines/linux/sizes-storage.md) | L 시리즈 | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | N 시리즈 | 1,440 |
+| [GPU](../virtual-machines/linux/sizes-gpu.md) | N 시리즈 | 1440 |
 | [고성능](../virtual-machines/linux/sizes-hpc.md) | A 및 H 시리즈 | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
-애플리케이션을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다.
-
-### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
-| Type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
-|----|----|----|
-| [범용](../virtual-machines/linux/sizes-general.md) | A, B 및 D 시리즈 | 64 |
-| [Compute에 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 64 |
-| [메모리에 최적화](../virtual-machines/linux/sizes-memory.md) | D, E, G 및 M 시리즈 | 64 |
-| [Storage에 최적화](../virtual-machines/linux/sizes-storage.md) | L 시리즈 | 64 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | N 시리즈 | 64 |
-| [고성능](../virtual-machines/linux/sizes-hpc.md) | A 및 H 시리즈 | 64 |
-
+애플리케이션을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 스토리지가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 2개의 데이터 디스크를 가상 머신당 최대 64개의 디스크에 연결할 수 있습니다.
 
 ## <a name="vm-disk-types"></a>VM 디스크 유형
 Azure는 두 가지 유형의 디스크를 제공합니다.
@@ -154,7 +136,7 @@ az vmss list-instance-connection-info \
 
 다음 예제와 같이 사용자 고유의 공용 IP 주소와 포트 번호를 사용하여 첫 번째 VM 인스턴스에 연결합니다.
 
-```azurecli-interactive
+```console
 ssh azureuser@52.226.67.166 -p 50001
 ```
 
@@ -206,7 +188,7 @@ sudo df -h
 
 다음 예제 출력에서는 세 개 디스크의 파일 시스템이 */datadisks* 아래에 올바르게 탑재되었음을 보여 줍니다.
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        30G  1.3G   28G   5% /
 /dev/sdb1        50G   52M   47G   1% /mnt
@@ -234,7 +216,7 @@ az vmss show \
   --query virtualMachineProfile.storageProfile.dataDisks
 ```
 
-디스크 크기, 저장소 계층 및 LUN(논리 단위 번호)에 대한 정보가 표시됩니다. 다음 예제 출력에서는 확장 집합에 연결된 세 개의 데이터 디스크에 대해 자세히 설명합니다.
+디스크 크기, 스토리지 계층 및 LUN(논리 단위 번호)에 대한 정보가 표시됩니다. 다음 예제 출력에서는 확장 집합에 연결된 세 개의 데이터 디스크에 대해 자세히 설명합니다.
 
 ```json
 [

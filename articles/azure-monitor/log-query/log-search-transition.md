@@ -1,23 +1,16 @@
 ---
 title: Azure Log Analytics에서 데이터 확인 및 분석 | Microsoft Docs
 description: Log Analytics 로그 검색 사용자가 Azure Monitor 로그 쿼리 환경을 사용하도록 지원합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/16/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 01/16/2019
+ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77670137"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Log Analytics 로그 검색에서 Azure Monitor 로그로 전환
 Log Analytics의 로그 검색은 Azure Monitor 로그를 분석하기 위한 새로운 환경으로 바뀌었습니다. 로그 검색 페이지는 이제 Azure Portal의 **Log Analytics 작업 영역**에 있는 **로그(클래식)** 메뉴 항목을 통해 계속 액세스할 수 있지만 이 페이지는 2019년 2월 15일에 제거될 예정입니다. 이 문서에서는 두 환경 간의 차이점을 설명하여 로그 검색에서 전환할 수 있도록 지원합니다. 
@@ -59,7 +52,7 @@ Azure Monitor 로그에서 현재 쿼리를 저장하려면 **저장**을 선택
 
 ![로그 검색 드릴다운](media/log-search-transition/drilldown-search.png)
 
-Azure Monitor 로그에서 이러한 기록을 반환하도록 쿼리를 수정해야 합니다. 결과의 행 중 하나를 확장하고 값 옆의 **+** 를 클릭하여 해당 값을 쿼리에 추가합니다. 그런 다음, **요약** 명령을 주석으로 처리하고 쿼리를 다시 실행합니다.
+Azure Monitor 로그에서 이러한 기록을 반환하도록 쿼리를 수정해야 합니다. 결과에서 행 중 하나를 확장 하 고 값 옆에 있는를 클릭 **+** 하 여 쿼리에 추가 합니다. 그런 다음, **요약** 명령을 주석으로 처리하고 쿼리를 다시 실행합니다.
 
 ![Azure Monitor 로그 드릴다운](media/log-search-transition/drilldown-logs.png)
 

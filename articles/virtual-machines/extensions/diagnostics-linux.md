@@ -1,38 +1,38 @@
 ---
-title: Azure Compute - Linux 진단 확장 | Microsoft Docs
+title: Azure Compute - Linux 진단 확장
 description: Azure에서 실행 중인 Linux VM에서 메트릭 및 로그 이벤트를 수집하도록 Azure LAD(Linux 진단 확장)를 구성하는 방법입니다.
 services: virtual-machines-linux
-author: abhijeetgaiha
-manager: sankalpsoni
+author: axayjo
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: agaiha
-ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: akjosh
+ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298959"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
 이 문서에서는 3.0 이상 버전의 Linux 진단 확장에 대해 설명합니다.
 
 > [!IMPORTANT]
-> 2.3 이하 버전에 대한 내용은 [이 문서](../linux/classic/diagnostic-extension-v2.md)를 참조하세요.
+> 2\.3 이하 버전에 대한 내용은 [이 문서](../linux/classic/diagnostic-extension-v2.md)를 참조하세요.
 
 ## <a name="introduction"></a>소개
 
 Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Linux VM의 상태를 모니터링할 수 있습니다. 제공되는 기능은 다음과 같습니다.
 
-* VM에서 시스템 성능 메트릭을 수집하여 지정된 저장소 계정의 특정 테이블에 저장합니다.
-* syslog에서 로그 이벤트를 검색하여 지정된 저장소 계정의 특정 테이블에 저장합니다.
+* VM에서 시스템 성능 메트릭을 수집하여 지정된 스토리지 계정의 특정 테이블에 저장합니다.
+* syslog에서 로그 이벤트를 검색하여 지정된 스토리지 계정의 특정 테이블에 저장합니다.
 * 사용자가 수집 및 업로드된 데이터 메트릭을 사용자 지정할 수 있도록 설정합니다.
 * 사용자가 수집 및 업로드된 이벤트의 심각도 수준과 syslog 기능을 사용자 지정할 수 있도록 설정합니다.
-* 사용자가 지정된 저장소 테이블에 지정된 로그 파일을 업로드할 수 있도록 설정합니다.
-* 지정된 저장소 계정의 JSON 형식 Blob 및 임의 EventHub 엔드포인트로 메트릭과 로그 이벤트 전송을 지원합니다.
+* 사용자가 지정된 스토리지 테이블에 지정된 로그 파일을 업로드할 수 있도록 설정합니다.
+* 지정된 스토리지 계정의 JSON 형식 Blob 및 임의 EventHub 엔드포인트로 메트릭과 로그 이벤트 전송을 지원합니다.
 
 이 확장은 Azure 배포 모델 모두에서 작동합니다.
 
@@ -49,20 +49,40 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 
 다운로드 가능한 구성은 예로 든 것일 뿐입니다. 사용자 요구 사항에 맞게 수정합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="supported-linux-distributions"></a>지원되는 Linux 배포
+
+Linux 진단 확장은 다음의 배포와 버전을 지원합니다. 배포 및 버전 목록은 Azure에서 보증하는 Linux 공급업체 이미지에만 적용됩니다. 타사 BYOL 및 BYOS 이미지(예: 어플라이언스)는 일반적으로 Linux 진단 확장에 대해 지원되지 않습니다.
+
+Debian 7과 같이 주 버전만 나와 있는 배포는 모든 부 버전에 대해서도 지원됩니다. 특정 부 버전을 지정할 경우, 해당 부 버전만 지원됩니다. "+"가 추가되어 있으면 지정된 버전 이상의 부 버전이 지원됩니다.
+
+지원되는 배포판 및 버전:
+
+- Ubuntu 18.04, 16.04, 14.04
+- CentOS 7, 6.5 이상
+- Oracle Linux 7, 6.4 이상
+- OpenSUSE 13.1 이상
+- SUSE Linux Enterprise Server 12
+- Debian 9, 8, 7
+- RHEL 7, 6.7 이상
+
+### <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
-* **Azure CLI**. 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+* **Azure CLI** 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
-* 데이터를 저장할 기존 Azure 구독 및 기존 저장소 계정
-* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions에 있습니다.
+* 데이터를 저장할 기존 Azure 구독 및 기존 스토리지 계정
 
 ### <a name="sample-installation"></a>샘플 설치
 
-처음 세 줄에 올바른 매개 변수를 입력한 다음 루트로 이 스크립트를 실행합니다.
+> [!NOTE]
+> 샘플 중 하나에 대해 실행 하기 전에 첫 번째 섹션의 변수에 올바른 값을 입력 합니다. 
 
-```bash
-# Set your Azure VM diagnostic parameters correctly below
+이 예제에서 다운로드된 샘플 구성은 표준 데이터 집합을 수집하고 이를 테이블 스토리지로 보냅니다. 샘플 구성의 URL과 해당 내용은 변경될 수 있습니다. 대부분의 경우, 포털 설정 JSON 파일을 다운로드하고 필요에 따라 수정하면 매번 해당 URL을 다운로드하지 않고도 구성한 템플릿 또는 자동화에서 구성 파일의 사용자 지정 버전을 사용합니다.
+
+#### <a name="azure-cli-sample"></a>Azure CLI 샘플
+
+```azurecli
+# Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
 my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
@@ -89,7 +109,33 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-샘플 구성의 URL과 해당 내용은 변경될 수 있습니다. 포털 설정 JSON 파일의 복사본을 다운로드하고 요구 사항에 맞게 사용자 지정합니다. 템플릿 또는 자동화를 생성할 때마다 해당 URL을 다운로드하는 대신 고유한 복사본을 사용해야 합니다.
+#### <a name="powershell-sample"></a>PowerShell 샘플
+
+```powershell
+$storageAccountName = "yourStorageAccountName"
+$storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
+$vmName = "yourVMName"
+$VMresourceGroup = "yourVMResourceGroupName"
+
+# Get the VM object
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
+
+# Get the public settings template from GitHub and update the templated values for storage account and resource ID
+$publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
+$publicSettings = $publicSettings.Replace('__DIAGNOSTIC_STORAGE_ACCOUNT__', $storageAccountName)
+$publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
+
+# If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
+
+# Generate a SAS token for the agent to use to authenticate with the storage account
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+
+# Build the protected settings (storage account SAS token)
+$protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
+
+# Finally install the extension with the settings built above
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0 
+```
 
 ### <a name="updating-the-extension-settings"></a>확장 설정 업데이트
 
@@ -109,13 +155,13 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 * 자동 부 버전 업그레이드를 사용하도록 설정하여 확장을 설치합니다.
   * 클래식 배포 모델 VM에서는 Azure XPLAT CLI 또는 Powershell을 통해 확장을 설치하는 경우 버전으로 '3.*'를 지정합니다.
   * Azure Resource Manager 배포 모델 VM에서는 VM 배포 템플릿에 '"autoUpgradeMinorVersion": true'를 포함합니다.
-* LAD 3.0에 대해 새 저장소 계정 또는 다른 저장소 계정을 사용합니다. LAD 2.3과 LAD 3.0 간에 다음과 같은 몇 가지 사소한 비호환성 문제가 있어 계정 공유에 문제가 발생합니다.
+* LAD 3.0에 대해 새 스토리지 계정 또는 다른 스토리지 계정을 사용합니다. LAD 2.3과 LAD 3.0 간에 다음과 같은 몇 가지 사소한 비호환성 문제가 있어 계정 공유에 문제가 발생합니다.
   * LAD 3.0은 syslog 이벤트를 이름이 다른 테이블에 저장합니다.
   * `builtin` 메트릭에 대한 counterSpecifier 문자열이 LAD 3.0에서 다릅니다.
 
 ## <a name="protected-settings"></a>보호 설정
 
-이 구성 정보 집합에는 공용 보기로부터 보호해야 하는 중요한 정보(예: 저장소 자격 증명)가 포함되어 있습니다. 이러한 설정은 확장에 의해 전송되어 암호화된 형태로 저장됩니다.
+이 구성 정보 집합에는 공용 보기로부터 보호해야 하는 중요한 정보(예: 스토리지 자격 증명)가 포함되어 있습니다. 이러한 설정은 확장에 의해 전송되어 암호화된 형태로 저장됩니다.
 
 ```json
 {
@@ -127,21 +173,19 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 }
 ```
 
-이름 | 값
+Name | 값
 ---- | -----
-storageAccountName | 확장에 의해 데이터가 기록될 저장소 계정의 이름입니다.
-storageAccountEndPoint | (선택 사항) 저장소 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 공용 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 저장소 계정을 사용하려면 이 값을 적절하게 설정합니다.
+storageAccountName | 확장에 의해 데이터가 기록될 스토리지 계정의 이름입니다.
+storageAccountEndPoint | (선택 사항) 스토리지 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 퍼블릭 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 스토리지 계정을 사용하려면 이 값을 적절하게 설정합니다.
 storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨테이너 및 개체(`srt='co'`)에 적용할 수 있고, 추가, 생성, 나열, 업데이트 및 쓰기 권한(`sp='acluw'`)을 부여하는 [계정 SAS 토큰](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/)입니다. 앞에 물음표(?)를 포함하지 *마세요*.
-mdsdHttpProxy | (선택 사항) 지정된 저장소 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
+mdsdHttpProxy | (선택 사항) 지정된 스토리지 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
 sinksConfig | (선택 사항) 메트릭 및 이벤트를 전달할 수 있는 대체 대상의 세부 정보입니다. 확장에서 지원되는 각 데이터 싱크의 특정 세부 정보는 다음에 나오는 섹션에 설명되어 있습니다.
 
-
-> [!NOTE]
-> Azure 배포 템플릿을 사용하여 확장을 배포할 때는 저장소 계정 및 SAS 토큰을 미리 만든 후 템플릿에 전달해야 합니다. 단일 템플릿에서 VM, 저장소 계정 배포와 확장 구성을 함께 수행할 수 없습니다. 템플릿 내에서 SAS 토큰을 만드는 방식은 현재 지원되지 않습니다.
+Resource Manager 템플릿에서 SAS 토큰을 받으려면 **listAccountSas** 함수를 사용합니다. 예제 템플릿은 [목록 함수 예제](../../azure-resource-manager/templates/template-functions-resource.md#list-example)를 참조하세요.
 
 Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다.
 
-1. 확장에서 쓰게 할 범용 저장소 계정을 선택합니다.
+1. 확장에서 쓰게 할 범용 스토리지 계정을 선택합니다.
 1. 왼쪽 메뉴의 설정 부분에서 "공유 액세스 서명"을 선택합니다.
 1. 앞에서 설명한 대로 적절한 섹션을 만듭니다.
 1. "SAS 생성" 단추를 클릭합니다.
@@ -169,8 +213,8 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 
 요소 | 값
 ------- | -----
-이름 | 확장 구성의 다른 위치에서 이 싱크를 참조하는 데 사용되는 문자열입니다.
-형식 | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
+name | 확장 구성의 다른 위치에서 이 싱크를 참조하는 데 사용되는 문자열입니다.
+type | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
 
 Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형 EventHub 및 JsonBlob을 지원합니다.
 
@@ -195,11 +239,11 @@ Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형 EventHub 및 Js
 
 2018년 1월 1일 UTC 자정까지 SAS 제품을 만든 경우 sasURL 값은 다음과 같을 수 있습니다.
 
-```url
+```https
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Event Hubs에 대한 SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [이 웹 페이지](../../event-hubs/event-hubs-authentication-and-security-model-overview.md)를 참조하세요.
+Event Hubs에 대한 SAS 토큰을 생성하고 검색하는 방법에 대한 자세한 내용은 [이 웹 페이지](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell)를 참조하세요.
 
 #### <a name="the-jsonblob-sink"></a>JsonBlob 싱크
 
@@ -231,8 +275,8 @@ JsonBlob 싱크로 전달되는 데이터는 Azure Storage의 Blob에 저장됩�
 
 요소 | 값
 ------- | -----
-StorageAccount | 확장에 의해 데이터가 기록될 저장소 계정의 이름입니다. [보호 설정](#protected-settings)에서 지정된 이름과 동일해야 합니다.
-mdsdHttpProxy | (선택 사항) [보호 설정](#protected-settings)에서와 동일해야 합니다. 공용 값은 개인 값(설정된 경우)으로 재정의됩니다. [보호 설정](#protected-settings)에서 비밀(예: 암호)을 포함하는 프록시 설정을 배치합니다.
+StorageAccount | 확장에 의해 데이터가 기록될 스토리지 계정의 이름입니다. [보호 설정](#protected-settings)에서 지정된 이름과 동일해야 합니다.
+mdsdHttpProxy | (선택 사항) [보호 설정](#protected-settings)에서와 동일해야 합니다. 공용 값은 프라이빗 값(설정된 경우)으로 재정의됩니다. [보호 설정](#protected-settings)에서 비밀(예: 암호)을 포함하는 프록시 설정을 배치합니다.
 
 남아 있는 요소는 다음 섹션에 자세히 설명되어 있습니다.
 
@@ -254,7 +298,7 @@ mdsdHttpProxy | (선택 사항) [보호 설정](#protected-settings)에서와 �
 
 요소 | 값
 ------- | -----
-eventVolume | (선택 사항) 저장소 테이블 내에서 만든 파티션의 수를 제어합니다. `"Large"`, `"Medium"` 또는 `"Small"` 중 하나여야 합니다. 지정하지 않으면 기본값 `"Medium"`입니다.
+eventVolume | (선택 사항) 스토리지 테이블 내에서 만든 파티션의 수를 제어합니다. `"Large"`, `"Medium"` 또는 `"Small"` 중 하나여야 합니다. 지정하지 않으면 기본값 `"Medium"`입니다.
 sampleRateInSeconds | (선택 사항) 원시(집계되지 않은) 메트릭 컬렉션 간의 기본 간격입니다. 지원되는 가장 작은 샘플 속도는 15초입니다. 지정하지 않으면 기본값 `15`입니다.
 
 #### <a name="metrics"></a>메트릭
@@ -271,7 +315,7 @@ sampleRateInSeconds | (선택 사항) 원시(집계되지 않은) 메트릭 컬�
 
 요소 | 값
 ------- | -----
-ResourceId | VM 또는 VM이 속한 가상 머신 확장 집합의 Azure Resource Manager 리소스 ID입니다. JsonBlob 싱크가 구성에 사용되는 경우 이 설정도 지정해야 합니다.
+resourceId | VM 또는 VM이 속한 가상 머신 확장 집합의 Azure Resource Manager 리소스 ID입니다. JsonBlob 싱크가 구성에 사용되는 경우 이 설정도 지정해야 합니다.
 scheduledTransferPeriod | 집계 메트릭이 계산되어 Azure Metrics로 전송되는 빈도이며 IS 8601 시간 간격으로 표시됩니다. 최소 전송 기간은 60초, 즉 PT1M입니다. 하나 이상의 scheduledTransferPeriod를 지정해야 합니다.
 
 performanceCounters 섹션에 지정된 메트릭 샘플은 15초마다 또는 카운터에 명시적으로 정의된 샘플 속도로 수집됩니다. 예제와 같이 여러 scheduledTransferPeriod 빈도가 나타날 경우 각 집계는 독립적으로 계산됩니다.
@@ -312,16 +356,16 @@ performanceCounters 섹션에 지정된 메트릭 샘플은 15초마다 또는 �
 요소 | 값
 ------- | -----
 sinks | (선택 사항) LAD가 집계된 메트릭 결과를 보내는 쉼표로 구분된 싱크 이름 목록입니다. 모든 집계된 메트릭은 나열된 각 싱크에 게시됩니다. [sinksConfig](#sinksconfig)를 참조하세요. 예: `"EHsink1, myjsonsink"`.
-형식 | 메트릭의 실제 공급자를 식별합니다.
+type | 메트릭의 실제 공급자를 식별합니다.
 class | "counter"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counter | "class"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counterSpecifier | Azure Metrics 네임스페이스 내에서 특정 메트릭을 식별합니다.
-condition | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 `builtin` 메트릭 정의를 참조하세요.
+condition(조건) | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 `builtin` 메트릭 정의를 참조하세요.
 sampleRate | 이 메트릭의 원시 샘플이 수집되는 속도를 설정하는 IS 8601 간격입니다. 설정하지 않은 경우 컬렉션 간격은 [sampleRateInSeconds](#ladcfg) 값으로 설정됩니다. 지원되는 최소 샘플 속도는 15초(PT15S)입니다.
 단위 | 문자열 "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond" 중 하나여야 합니다. 메트릭에 대한 단위를 정의합니다. 수집된 데이터의 소비자는 수집된 데이터 값이 이 단위와 일치할 것으로 예상합니다. LAD는 이 필드를 무시합니다.
 displayName | Azure Metrics에서 이 데이터에 연결되는 레이블(연결된 로캘 설정에서 지정된 언어)입니다. LAD는 이 필드를 무시합니다.
 
-counterSpecifier는 임의의 식별자입니다. Azure Portal 차트 및 경고 기능과 같이 메트릭의 소비자는 counterSpecifier를 메트릭 또는 메트릭 인스턴스를 식별하는 "키"로 사용합니다. `builtin` 메트릭의 경우 `/builtin/`으로 시작하는 counterSpecifier 값을 사용하는 것이 좋습니다. 특정 메트릭 인스턴스를 수집하는 경우 counterSpecifier 값에 인스턴스 식별자를 연결하는 것이 좋습니다. 일부 사례:
+counterSpecifier는 임의의 식별자입니다. Azure Portal 차트 및 경고 기능과 같이 메트릭의 소비자는 counterSpecifier를 메트릭 또는 메트릭 인스턴스를 식별하는 "키"로 사용합니다. `builtin` 메트릭의 경우 `/builtin/`으로 시작하는 counterSpecifier 값을 사용하는 것이 좋습니다. 특정 메트릭 인스턴스를 수집하는 경우 counterSpecifier 값에 인스턴스 식별자를 연결하는 것이 좋습니다. 몇 가지 예는 다음과 같습니다.
 
 * `/builtin/Processor/PercentIdleTime` - 모든 vCPU의 평균 유휴 시간
 * `/builtin/Disk/FreeSpace(/mnt)` - /mnt 파일 시스템의 사용 가능한 공간
@@ -386,8 +430,8 @@ minSeverity | syslog 심각도 수준입니다(예: "LOG\_ERR" 또는 "LOG\_INFO
 
 요소 | 값
 ------- | -----
-namespace | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation)가 구현한 "root/scx"입니다.
-쿼리 | 실행될 OMI 쿼리입니다.
+네임스페이스 | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](https://github.com/Microsoft/SCXcore)가 구현한 "root/scx"입니다.
+Query | 실행될 OMI 쿼리입니다.
 테이블 | (선택 사항) 지정된 스토리지 계정의 Azure Storage 테이블입니다([보호 설정](#protected-settings) 참조).
 frequency | (선택 사항) 쿼리 실행 간격(초)입니다. 기본값은 300(5분)이고 최소값은 15초입니다.
 sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는 쉼표로 구분된 추가 싱크 이름 목록입니다. 이러한 원시 샘플의 집계는 확장 또는 Azure Metrics에서 계산되지 않습니다.
@@ -397,6 +441,9 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 ### <a name="filelogs"></a>fileLogs
 
 로그 파일의 캡처를 제어합니다. LAD는 파일에 작성된 새 텍스트 줄을 캡처하여 테이블 행 및/또는 지정된 싱크(JsonBlob 또는 EventHub)에 기록합니다.
+
+> [!NOTE]
+> fileLogs는 라는 하위 구성 요소에 의해 캡처됩니다 `omsagent` . FileLogs를 수집 하려면 `omsagent` 사용자에 게 지정한 파일에 대 한 읽기 권한과 해당 파일에 대 한 경로의 모든 디렉터리에 대 한 실행 권한이 있는지 확인 해야 합니다. `sudo su omsagent -c 'cat /path/to/file'`을 (를) 설치한 후를 실행 하 여이를 확인할 수 있습니다.
 
 ```json
 "fileLogs": [
@@ -410,7 +457,7 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 
 요소 | 값
 ------- | -----
-file | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다.
+파일 | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다. ' Omsagent ' 사용자 계정에는 파일 경로에 대 한 읽기 권한이 있어야 합니다.
 테이블 | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 스토리지 계정의 Azure Storage 테이블입니다.
 sinks | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 싱크 이름 목록입니다.
 
@@ -502,7 +549,7 @@ TransfersPerSecond | 초당 읽기 또는 쓰기 작업
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 파일 시스템에서 집계된 값을 얻을 수 있습니다. `"condition": 'Name="/mnt"'`로 설정하면 특정 탑재된 파일 시스템(예: "/mnt")에 대한 값을 얻을 수 있습니다. 
 
-**참고**: JSON 대신 Azure Portal을 사용 하는 경우 올바른 조건 필드 형식은 Name ='/ mnt'
+**참고**: JSON 대신 Azure Portal을 사용할 경우, 올바른 조건 필드 형식은 Name='/mnt'입니다.
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>디스크 클래스의 기본 제공 메트릭
 
@@ -523,25 +570,38 @@ WriteBytesPerSecond | 초당 쓴 바이트 수
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 디스크에서 집계된 값을 얻을 수 있습니다. 특정 디바이스(예: /dev/sdf1)에 대한 정보를 얻으려면 `"condition": "Name=\\"/dev/sdf1\\""`를 설정합니다.
 
-## <a name="installing-and-configuring-lad-30-via-cli"></a>CLI를 통해 LAD 3.0 설치 및 구성
+## <a name="installing-and-configuring-lad-30"></a>3.0 설치 및 구성
 
-PrivateConfig.json 파일에 보호 설정이 있고 PublicConfig.json에 공용 구성 정보가 있다고 가정하고 다음 명령을 실행합니다.
+### <a name="azure-cli"></a>Azure CLI
+
+보호 된 설정이 ProtectedSettings.js파일에 있고 공용 구성 정보가 PublicSettings.js에 있는 경우 다음 명령을 실행 합니다.
 
 ```azurecli
-az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-명령은 Azure CLI의 Azure 리소스 관리 모드(arm)를 사용한다고 가정합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](https://docs.microsoft.com/azure/xplat-cli-connect)를 참조하세요.
+이 명령은 Azure CLI의 ARM (Azure 리소스 관리) 모드를 사용 하 고 있다고 가정 합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](https://docs.microsoft.com/azure/xplat-cli-connect)를 참조하세요.
+
+### <a name="powershell"></a>PowerShell
+
+보호 된 설정이 `$protectedSettings` 변수에 있고 공용 구성 정보가 변수에 있는 경우 `$publicSettings` 다음 명령을 실행 합니다.
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+```
 
 ## <a name="an-example-lad-30-configuration"></a>LAD 3.0 구성 예제
 
-이전 정의를 기반으로 몇 가지 설명이 포함된 샘플 LAD 3.0 확장 구성이 나와 있습니다. 이 샘플을 사례에 적용하려면 사용자 고유의 저장소 계정 이름, 계정 SAS 토큰 및 EventHubs SAS 토큰을 사용해야 합니다.
+이전 정의를 기반으로 몇 가지 설명이 포함된 샘플 LAD 3.0 확장 구성이 나와 있습니다. 이 샘플을 사례에 적용하려면 사용자 고유의 스토리지 계정 이름, 계정 SAS 토큰 및 EventHubs SAS 토큰을 사용해야 합니다.
 
-### <a name="privateconfigjson"></a>PrivateConfig.json
+> [!NOTE]
+> Azure CLI 또는 PowerShell을 사용 하 여를 설치 하는지 여부에 따라 공개 및 보호 된 설정을 제공 하는 방법은 서로 다릅니다. Azure CLI 사용 하는 경우 위의 샘플 명령과 함께 사용 하려면 다음 설정을 ProtectedSettings.js설정 하 고 PublicSettings.js합니다. PowerShell을 사용 하는 경우를 실행 하 여 및에 설정을 저장 `$protectedSettings` `$publicSettings` `$protectedSettings = '{ ... }'` 합니다.
 
-개인 설정은 다음을 구성합니다.
+### <a name="protected-settings"></a>보호 설정
 
-* 저장소 계정
+다음 보호 된 설정 구성:
+
+* 스토리지 계정
 * 일치하는 계정 SAS 토큰
 * 여러 싱크(SAS 토큰이 있는 EventHubs 또는 JsonBlob)
 
@@ -587,7 +647,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 }
 ```
 
-### <a name="publicconfigjson"></a>PublicConfig.json
+### <a name="public-settings"></a>공용 설정
 
 공용 설정으로 LAD는 다음을 수행합니다.
 
@@ -604,8 +664,8 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 ```json
 {
   "StorageAccount": "yourdiagstgacct",
-  "sampleRateInSeconds": 15,
   "ladCfg": {
+    "sampleRateInSeconds": 15,
     "diagnosticMonitorConfiguration": {
       "performanceCounters": {
         "sinks": "MyMetricEventHub,MyJsonMetricsBlob",
@@ -692,14 +752,14 @@ Azure Portal을 사용하여 성능 데이터를 보거나 경고를 설정합�
 
 `performanceCounters` 데이터는 항상 Azure Storage 테이블에 저장됩니다. Azure Storage API는 다양한 언어 및 플랫폼에 사용할 수 있습니다.
 
-JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)에서 명명된 저장소 계정의 Blob에 저장됩니다. Azure Blob Storage API를 사용하여 Blob 데이터를 사용할 수 있습니다.
+JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)에서 명명된 스토리지 계정의 Blob에 저장됩니다. Azure Blob Storage API를 사용하여 Blob 데이터를 사용할 수 있습니다.
 
 또한 다음 UI 도구를 사용하여 Azure Storage의 데이터에 액세스할 수 있습니다.
 
 * Visual Studio 서버 탐색기.
-* [Microsoft Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com/ "Azure Storage 탐색기").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")가 있어야 합니다.
 
-Microsoft Azure Storage 탐색기의 이 스냅숏 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
+Microsoft Azure Storage Explorer의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 
 ![이미지](./media/diagnostics-linux/stg_explorer.png)
 

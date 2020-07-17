@@ -1,24 +1,22 @@
 ---
-title: Visual Studio를 사용하여 로컬에서 Azure Stream Analytics 쿼리 테스트
+title: Visual Studio에서 로컬로 테스트 Azure Stream Analytics 쿼리
 description: 이 문서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 쿼리를 로컬로 테스트하는 방법을 설명합니다.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: 1b86085a76f5ff87147db9dbd0a584784f5e4a2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa1d8ff0743399d96436f33426ebc4c4ab4a29f6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308491"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045640"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
-Visual Studio용 Azure Stream Analytics 도구를 사용하여 같은 데이터로 Stream Analytics 작업을 로컬로 테스트할 수 있습니다.
+Visual Studio 용 Azure Stream Analytics 도구를 사용 하 여 샘플 데이터 또는 [라이브 데이터](stream-analytics-live-data-local-testing.md)를 사용 하 여 Stream Analytics 작업을 로컬로 테스트할 수 있습니다. 
 
 이 [빠른 시작](stream-analytics-quick-create-vs.md)을 통해 Visual Studio를 사용하여 Stream Analytics 작업을 만드는 방법을 알아보세요.
 
@@ -44,7 +42,7 @@ Azure Stream Analytics 프로젝트에서 **Script.asaql**을 두 번 클릭하�
    
 쿼리 편집기에서 **로컬로 실행**을 선택합니다. 또는 F5 키를 눌러도 됩니다.
    
-![로컬에서 실행](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
+![로컬로 실행](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
 Visual Studio에서 바로 출력을 테이블 형식으로 볼 수 있습니다.
 
@@ -60,9 +58,9 @@ Visual Studio에서 바로 출력을 테이블 형식으로 볼 수 있습니다
    
 
 ### <a name="sample-input"></a>샘플 입력
-입력 원본에서 로컬 파일로 샘플 입력 데이터를 수집할 수도 있습니다. 입력 구성 파일을 마우스 오른쪽 단추로 클릭하고 **샘플 데이터**를 선택합니다. 
+입력 원본에서 로컬 파일로 샘플 입력 데이터를 수집할 수도 있습니다. 입력 구성 파일을 마우스 오른쪽 단추로 클릭 하 고 **샘플 데이터**를 선택 합니다. 
 
-![샘플 데이터](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
+![데이터 샘플링](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
 Event Hubs 또는 IoT Hub에서만 데이터 스트리밍을 샘플링할 수 있습니다. 다른 입력 원본은 지원되지 않습니다. 팝업 대화 상자에서 로컬 경로를 입력하여 샘플 데이터를 저장하고 **샘플**을 선택합니다.
 
@@ -74,7 +72,8 @@ Event Hubs 또는 IoT Hub에서만 데이터 스트리밍을 샘플링할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
+* [빠른 시작: Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
 * [Visual Studio를 사용하여 Azure Stream Analytics 작업 보기](stream-analytics-vs-tools.md)
-* [빠른 시작: Visual Studio를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [자습서: Azure DevOps를 사용 하 여 CI/CD를 사용 하 여 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Azure Stream Analytics Tools for Visual Studio를 사용하여 로컬로 라이브 데이터 테스트(미리 보기)](stream-analytics-live-data-local-testing.md)
+* [자습서: Azure DevOps를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발](stream-analytics-tools-for-visual-studio-cicd.md)

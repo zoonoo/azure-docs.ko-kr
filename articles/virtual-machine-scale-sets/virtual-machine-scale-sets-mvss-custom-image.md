@@ -1,33 +1,26 @@
 ---
-title: Azure 확장 집합 템플릿에서 사용자 지정 이미지 참조 | Microsoft Docs
+title: Azure 확장 집합 템플릿에서 사용자 지정 이미지 참조
 description: 기존 Azure Virtual Machine Scale Set 템플릿에 사용자 지정 이미지를 추가하는 방법 알아보기
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: drewm
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: cynthn
+ms.author: cynthn
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: imaging
 ms.date: 04/26/2018
-ms.author: manayar
-ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.reviewer: akjosh
+ms.custom: akjosh
+ms.openlocfilehash: 5ed9ee79dde73e738417031b928a675ea913179c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869104"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124910"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 사용자 지정 이미지 추가
 
-이 문서를 수정 하는 방법을 보여 줍니다 합니다 [기본 확장 집합 템플릿](virtual-machine-scale-sets-mvss-start.md) 사용자 지정 이미지에서 배포 하도록 합니다.
+이 문서에서는 사용자 지정 이미지에서 배포할 [기본 확장 집합 템플릿](virtual-machine-scale-sets-mvss-start.md)을 수정하는 방법을 보여 줍니다.
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
-에 [이전 문서](virtual-machine-scale-sets-mvss-start.md) 기본 확장 집합 템플릿을 작성 합니다. 이제 이전 템플릿을 사용 하 여 하 고 수정 하 여 사용자 지정 이미지에서 확장 집합을 배포 하는 템플릿을 만듭니다.  
+[이전 문서](virtual-machine-scale-sets-mvss-start.md)에서 기본 확장 집합 템플릿을 만들었습니다. 이제 이전 템플릿을 사용하고 수정하여 사용자 지정 이미지에서 확장 집합을 배포하는 템플릿을 만듭니다.  
 
 ### <a name="creating-a-managed-disk-image"></a>Managed Disk 이미지 만들기
 
@@ -51,7 +44,7 @@ ms.locfileid: "64869104"
    "variables": {},
 ```
 
-다음으로 `sourceImageVhdUri` URI에 있는 일반화된 Blob을 기준으로 하는 Managed Disk 이미지에 해당하는 `Microsoft.Compute/images` 형식의 리소스를 추가합니다. 이 이미지는 사용되는 확장 집합과 동일한 하위 지역에 있어야 합니다. 이미지의 속성에서 OS 운영 체제, blob의 위치(`sourceImageVhdUri` 매개 변수) 및 저장소 계정 유형을 지정합니다.
+다음으로 `sourceImageVhdUri` URI에 있는 일반화된 Blob을 기준으로 하는 Managed Disk 이미지에 해당하는 `Microsoft.Compute/images` 형식의 리소스를 추가합니다. 이 이미지는 사용되는 확장 집합과 동일한 하위 지역에 있어야 합니다. 이미지의 속성에서 OS 운영 체제, blob의 위치(`sourceImageVhdUri` 매개 변수) 및 스토리지 계정 유형을 지정합니다.
 
 ```diff
    "resources": [
@@ -97,15 +90,11 @@ ms.locfileid: "64869104"
 
 확장 집합 `storageProfile`의 `imageReference`에서, 플랫폼 이미지의 게시자, 제품, SKU 및 버전을 지정하는 대신, `Microsoft.Compute/images` 리소스의 `id`를 지정합니다.
 
-```diff
+```json
          "virtualMachineProfile": {
            "storageProfile": {
              "imageReference": {
--              "publisher": "Canonical",
--              "offer": "UbuntuServer",
--              "sku": "16.04-LTS",
--              "version": "latest"
-+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
              }
            },
            "osProfile": {

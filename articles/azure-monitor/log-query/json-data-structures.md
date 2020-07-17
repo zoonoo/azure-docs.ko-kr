@@ -1,29 +1,21 @@
 ---
 title: Azure Monitor 로그 쿼리에서 문자열 작업 | Microsoft Docs
-description: 이 문서에서는 Azure portal에서 Azure Monitor Log Analytics를 사용 하 여 쿼리 및 Azure Monitor의 로그 데이터를 분석 하는 자습서를 제공 합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: 이 문서에서는 Azure Portal에서 Azure Monitor Log Analytics를 사용 하 여 Azure Monitor의 로그 데이터를 쿼리하고 분석 하는 방법에 대 한 자습서를 제공 합니다.
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 08/16/2018
+ms.openlocfilehash: f792820b7b0dff20e647031410ba87ac26c2495a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80672964"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 JSON 및 데이터 구조 사용
 
 > [!NOTE]
-> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 하 고 [Azure Monitor 로그 쿼리를 사용 하 여 시작](get-started-queries.md) 이 단원을 완료 하기 전에 합니다.
+> 이 단원을 완료 하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 을 완료 하 고 [Azure Monitor 로그 쿼리를 시작](get-started-queries.md) 해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -32,7 +24,7 @@ ms.locfileid: "60519636"
 ## <a name="working-with-json-strings"></a>JSON 문자열 사용
 알려진 경로의 특정 JSON 요소에 액세스하려면 `extractjson`을 사용합니다. 이 함수에는 다음 규칙을 사용하는 경로 식이 필요합니다.
 
-- 루트 폴더를 나타내려면 _$_ 를 사용합니다.
+- _$_ 루트 폴더를 참조 하려면
 - 다음 예제와 같이 인덱스 및 요소를 나타내려면 대괄호 또는 점 표기법을 사용합니다.
 
 
@@ -55,13 +47,13 @@ print hosts_report
 요소가 하나만 있으면 점 표기법만 사용해도 됩니다.
 
 ```Kusto
-let hosts_report='{"location":"North_DC", "status":"running", "rate":5}';
+let hosts_report=dynamic({"location":"North_DC", "status":"running", "rate":5});
 print hosts_report 
 | extend status = hosts_report.status
 ```
 
 
-## <a name="working-with-objects"></a>개체 사용
+## <a name="working-with-objects"></a>개체 작업
 
 ### <a name="parsejson"></a>parsejson
 JSON 구조에서 여러 요소에 액세스하려면 동적 개체로 액세스하는 것이 더 쉽습니다. 텍스트 데이터를 동적 개체로 캐스팅하려면 `parsejson`을 사용합니다. 동적 형식으로 변환되면 추가 함수를 사용하여 데이터를 분석할 수 있습니다.

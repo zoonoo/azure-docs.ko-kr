@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 98a160b361e316c87e61855825c2cc36fdbb06d1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009934"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81870293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>자습서: Rackspace SSO와 Azure Active Directory 통합
 
@@ -31,10 +31,10 @@ Rackspace SSO를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 * 사용자가 자신의 Azure AD 계정을 사용하여 Rackspace SSO(Single Sign-On)에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Rackspace SSO와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -57,7 +57,7 @@ Rackspace SSO가 Azure AD로 통합되도록 구성하려면 Rackspace SSO를 �
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -65,7 +65,7 @@ Rackspace SSO가 Azure AD로 통합되도록 구성하려면 Rackspace SSO를 �
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **Rackspace SSO**를 입력하고, 결과 패널에서 **Rackspace SSO**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **Rackspace SSO**를 입력하고, 결과 패널에서 **Rackspace SSO**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 Rackspace SSO](common/search-new-app.png)
 
@@ -155,7 +155,7 @@ Rackspace SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
   
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -187,7 +187,7 @@ Rackspace SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 ### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Rackspace 제어판에서 특성 매핑 설정
 
-Rackspace는 **특성 매핑 정책**을 사용하여 Single Sign-On 사용자에게 Rackspace 역할 및 그룹을 할당합니다. **특성 매핑 정책**은 Azure AD SAML 클레임을 Rackspace에 필요한 사용자 구성으로 변환합니다. 추가 설명서는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/)에서 확인할 수 있습니다. 몇 가지 고려할 사항:
+Rackspace는 **특성 매핑 정책**을 사용하여 Single Sign-On 사용자에게 Rackspace 역할 및 그룹을 할당합니다. **특성 매핑 정책**은 Azure AD SAML 클레임을 Rackspace에 필요한 사용자 구성으로 변환합니다. 추가 설명서는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/)에서 확인할 수 있습니다. 몇 가지 고려할 사항:
 
 * Azure AD 그룹을 사용하여 다양한 수준의 Rackspace 액세스 권한을 할당하려면 Azure **Rackspace SSO** Single Sign-On 설정에서 그룹 클레임을 사용하도록 설정해야 합니다. 그러면 **특성 매핑 정책**을 사용하여 해당 그룹을 원하는 Rackspace 역할 및 그룹에 일치시킵니다.
 
@@ -226,7 +226,7 @@ mapping:
 > [!TIP]
 > 정책 파일을 편집할 때 반드시 YAML 구문의 유효성을 검사하는 텍스트 편집기를 사용해야 합니다.
 
-더 많은 예제는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/)를 참조하세요.
+더 많은 예제는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/)를 참조하세요.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

@@ -1,27 +1,16 @@
 ---
-title: Azure CLI를 사용한 Linux VM 크기 조정 방법 | Microsoft Docs
+title: Azure CLI를 사용 하 여 Linux VM의 크기를 조정 하는 방법
 description: VM 크기를 변경하여 Linux 가상 머신의 규모를 확장하거나 축소하는 방법
-services: virtual-machines-linux
-documentationcenter: na
-author: mikewasson
-manager: jeconnoc
-editor: ''
-tags: ''
-ms.assetid: e163f878-b919-45c5-9f5a-75a64f3b14a0
+author: DavidCBerry13
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/10/2017
-ms.author: mwasson
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bd8136c61a277e730c07c8789afd1bf3214bd7c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.author: daberry
+ms.openlocfilehash: cf2716ce5d24aa86e32f6f521134590c671d5011
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83120983"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Azure CLI를 사용하여 Linux 가상 머신 크기 조정 
 
@@ -56,7 +45,7 @@ VM의 크기를 조정하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)�
    > VM의 할당이 취소되면 VM에 할당된 모든 동적 IP 주소도 해제됩니다. OS 및 데이터 디스크는 영향을 받지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-확장성을 높이기 위해서는 여러 VM 인스턴스를 실행하고 규모를 확장합니다. 자세한 내용은 [Virtual Machine Scale Set에서 Linux 컴퓨터 자동 확장][scale-set]을 참조하세요. 
+추가 확장성을 위해 여러 VM 인스턴스를 실행 하 고 규모를 확장 합니다. 자세한 내용은 [Virtual Machine Scale Set에서 Linux 컴퓨터 자동 크기 조정][scale-set]을 참조 하세요. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 데이터 액세스 제어-Azure | Microsoft Docs
+title: 원격 모니터링 데이터 액세스 제어 - Azure | Microsoft Docs
 description: 이 문서에서는 원격 모니터링 솔루션 가속기에서 Time Series Insights 원격 분석 데이터 탐색기에 대한 액세스 제어를 구성하는 방법에 대한 정보를 제공합니다.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65827174"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Time Series Insights 원격 분석 데이터 탐색기에 대한 액세스 제어 구성
@@ -39,10 +39,10 @@ ms.locfileid: "65827174"
     ![Time Series Insights 소스 관리 - 추가](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access2.png)
 
 6. **역할 선택**을 선택합니다. 사용자에 대한 적절한 액세스 역할을 선택합니다.
-   - 사용자가 참조 데이터를 변경하고 저장된 쿼리 및 큐브 뷰를 환경의 다른 사용자와 공유할 수 있게 허용하려면 **참가자**를 선택합니다. 
-   - 또는 사용자가 환경의 데이터를 쿼리하고 개인(공유되지 않는) 쿼리를 환경에 저장할 수 있게 허용하려면 **읽기 권한자**를 선택합니다.
+   - 사용자가 참조 데이터를 변경 하 고 저장 된 쿼리 및 큐브 뷰를 환경의 다른 사용자와 공유할 수 있게 하려면 **참가자** 를 선택 합니다. 
+   - 그렇지 않으면 **판독기** 를 선택 하 여 환경의 사용자가 데이터를 쿼리하고 환경에 개인 (공유 되지 않음) 쿼리를 저장 하도록 허용 합니다.
 
-     **확인**을 선택하여 역할 선택을 확인합니다.
+     **확인** 을 선택 하 여 역할 선택을 확인 합니다.
 
      ![Time Series Insights 소스 관리 - 사용자 선택](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access3.png)
 

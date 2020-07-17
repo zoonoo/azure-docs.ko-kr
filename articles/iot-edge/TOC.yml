@@ -7,9 +7,9 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Linux 장치에 코드 배포
+    - name: Linux 디바이스에 코드 배포
       href: quickstart-linux.md
-    - name: Windows 장치에 코드 배포
+    - name: Windows 디바이스에 코드 배포
       href: quickstart.md
 - name: 자습서
   items:
@@ -27,13 +27,13 @@
               href: tutorial-c-module.md
             - name: Windows 디바이스용 C 모듈
               href: tutorial-c-module-windows.md
-        - name: 'C#'
+        - name: C#
           items:
-            - name: 'Linux 디바이스용 C# 모듈'
+            - name: Linux 디바이스용 C# 모듈
               href: tutorial-csharp-module.md
-            - name: 'Windows 디바이스용 C# 모듈'
+            - name: Windows 디바이스용 C# 모듈
               href: tutorial-csharp-module-windows.md
-        - name: 자바
+        - name: Java
           href: tutorial-java-module.md
         - name: Node.js
           href: tutorial-node-module.md
@@ -43,14 +43,30 @@
       items:
         - name: Azure Functions를 사용하여 데이터 필터링
           href: tutorial-deploy-function.md
-        - name: ASA를 사용하여 평균 찾기
+        - name: Azure Stream Analytics를 사용하여 평균 찾기
           href: tutorial-deploy-stream-analytics.md
-        - name: Azure Machine Learning Service를 사용하여 데이터 채점
+        - name: Azure Machine Learning을 사용하여 데이터 점수 매기기
           href: tutorial-deploy-machine-learning.md
         - name: Custom Vision을 사용하여 이미지 분류
           href: tutorial-deploy-custom-vision.md
         - name: SQL을 사용하여 데이터 로컬에 저장
           href: tutorial-store-data-sql-server.md
+    - name: 4. 에지에 기계 학습 엔드투엔드 예제
+      items:
+        - name: 소개
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: 개발 머신 및 Azure 서비스 설정
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: 시뮬레이션된 디바이스 데이터 생성
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: Azure Machine Learning 모델 학습 및 배포
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: 투명 게이트웨이 구성
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: IoT Edge 모듈 생성 및 배포
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: 투명 게이트웨이를 통해 IoT Hub에 데이터 보내기
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: 개념
   items:
     - name: IoT Edge 런타임
@@ -75,7 +91,7 @@
           href: module-deployment-monitoring.md
     - name: 오프라인 기능
       href: offline-capabilities.md
-    - name: IoT Edge 장치를 게이트웨이로
+    - name: IoT Edge 디바이스를 게이트웨이로
       href: iot-edge-as-gateway.md
     - name: 보안
       items:
@@ -94,73 +110,101 @@
 - name: 방법 가이드
   items:
     - name: IoT Edge 디바이스 등록
-      items:
-        - name: Azure portal
-          href: how-to-register-device-portal.md
-        - name: Azure CLI
-          href: how-to-register-device-cli.md
-        - name: Visual Studio Code
-          href: how-to-register-device-vscode.md
+      href: how-to-register-device.md
     - name: IoT Edge 설치 및 관리
       items:
-        - name: Linux X64
+        - name: Linux
           href: how-to-install-iot-edge-linux.md
-        - name: Linux ARM32
-          href: how-to-install-iot-edge-linux-arm.md
-        - name: Windows X64
+        - name: Windows
           href: how-to-install-iot-edge-windows.md
-        - name: Windows X64의 Linux 컨테이너
+        - name: Windows의 Linux 컨테이너
           href: how-to-install-iot-edge-windows-with-linux.md
         - name: Windows Server VM
           href: how-to-install-iot-edge-windows-server-vm.md
         - name: Ubuntu VM
           href: how-to-install-iot-edge-ubuntuvm.md
-        - name: kubernetes
+        - name: Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
+        - name: 디바이스 인증서 관리
+          href: how-to-manage-device-certificates.md
+        - name: 테스트 인증서 만들기
+          href: how-to-create-test-certificates.md
         - name: 런타임 버전 업데이트
           href: how-to-update-iot-edge.md
     - name: DPS와 함께 큐 자동 프로비전
       items:
-        - name: Linux
-          href: how-to-auto-provision-simulated-device-linux.md
-        - name: ' Windows'
-          href: how-to-auto-provision-simulated-device-windows.md
-    - name: 사용자 지정 모듈 개발 및 디버그
+        - name: TPM 증명
+          items:
+            - name: Linux
+              href: how-to-auto-provision-simulated-device-linux.md
+            - name: Windows
+              href: how-to-auto-provision-simulated-device-windows.md
+        - name: X.509 인증서 증명
+          href: how-to-auto-provision-x509-certs.md
+        - name: 대칭 키 증명
+          href: how-to-auto-provision-symmetric-keys.md
+    - name: 사용자 지정 모듈 개발
       items:
-        - name: Visual Studio 2017
+        - name: Visual Studio 2019를 사용하여 개발
           href: how-to-visual-studio-develop-module.md
-        - name: Visual Studio Code
+        - name: Visual Studio Code를 사용하여 개발
           href: how-to-vs-code-develop-module.md
+        - name: 모듈 createOptions 구성
+          items:
+            - name: createOptions 이해 및 사용
+              href: how-to-use-create-options.md
+            - name: 모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
+              href: how-to-access-host-storage-from-module.md
     - name: 모듈 배포
       items:
-        - name: Azure portal
-          href: how-to-deploy-modules-portal.md
-        - name: Azure CLI
-          href: how-to-deploy-modules-cli.md
-        - name: Visual Studio Code
-          href: how-to-deploy-modules-vscode.md
-    - name: 대규모 배포 및 모니터링
+        - name: 개별 디바이스에 배포
+          items:
+            - name: Azure portal
+              href: how-to-deploy-modules-portal.md
+            - name: Azure CLI
+              href: how-to-deploy-modules-cli.md
+            - name: Visual Studio Code
+              href: how-to-deploy-modules-vscode.md
+        - name: 대규모 배포
+          items:
+            - name: Azure portal
+              href: how-to-deploy-at-scale.md
+            - name: Azure CLI
+              href: how-to-deploy-cli-at-scale.md
+            - name: Visual Studio Code
+              href: how-to-deploy-vscode-at-scale.md
+    - name: 배포 모니터링 및 진단
       items:
-        - name: Azure portal
-          href: how-to-deploy-monitor.md
-        - name: Azure CLI
-          href: how-to-deploy-monitor-cli.md
+        - name: IoT Edge 배포 모니터링
+          href: how-to-monitor-iot-edge-deployments.md
+        - name: 모듈 쌍 모니터링
+          href: how-to-monitor-module-twins.md
+        - name: EdgeAgent 직접 메서드
+          href: how-to-edgeagent-direct-method.md
     - name: IoT Edge 디바이스를 게이트웨이로 사용
       items:
         - name: 투명 게이트웨이 구성
           href: how-to-create-transparent-gateway.md
-        - name: 다운스트림 장치 연결
+        - name: 다운스트림 디바이스 인증
+          href: how-to-authenticate-downstream-device.md
+        - name: 다운스트림 디바이스 연결
           href: how-to-connect-downstream-device.md
         - name: Modbus 프로토콜 게이트웨이
           href: deploy-modbus-gateway.md
     - name: 프록시 지원 구성
       href: how-to-configure-proxy-support.md
-    - name: 에지에 데이터 저장
+    - name: IoT Edge의 Azure Blob Storage
       items:
-        - name: IoT Edge의 Azure Blob Storage
+        - name: 에지에 있는 Blob 스토리지 이해
           href: how-to-store-data-blob.md
         - name: Blob 스토리지 모듈 배포
           href: how-to-deploy-blob.md
+    - name: IoT Edge의 Azure SQL Edge
+      items:
+        - name: 에지의 Azure SQL 이해
+          href: ../azure-sql-edge/overview.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+        - name: Azure SQL Edge 모듈 배포
+          href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: DevOps 도구로 관리
       items:
         - name: Azure DevOps Projects
@@ -170,70 +214,74 @@
         - name: Jenkins용 IoT Edge 플러그 인
           href: how-to-devops-plugins.md
     - name: 문제 해결
-      href: troubleshoot.md
-- name: 관련 항목
-  items:
-    - name: 솔루션
       items:
-        - name: IoT 솔루션 가속기
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: 플랫폼 서비스
+        - name: 표준 진단 단계
+          href: troubleshoot.md
+        - name: 일반적인 오류 해결
+          href: troubleshoot-common-errors.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-IoT
+- name: 리소스
+  items:
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT 서비스
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning 서비스
+        - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
-        - name: 지도
-          href: /azure/azure-maps
-        - name: 서비스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Azure IoT Edge
-      items:
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
         - name: IoT Edge
           href: /azure/iot-edge
-        - name: IoT 장치 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-- name: 리소스
-  items:
-    - name: 'C#(.NET)용 Azure IoT 샘플'
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
-    - name: Node.js용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
-    - name: Java용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
-    - name: Python용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
-    - name: iOS 플랫폼용 Azure IoT 샘플
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
-    - name: IoT용 Azure Certified 장치 카탈로그
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Azure IoT SDK
+      items:
+        - name: IoT 서비스 SDK
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        - name: IoT 디바이스 SDK
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Azure IoT 샘플
+      items:
+        - name: C#(.NET)
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+        - name: Node.js
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+        - name: Java
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+        - name: Python
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+        - name: iOS 플랫폼
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: IoT용 Azure Certified 디바이스 카탈로그
       href: 'https://catalog.azureiotsolutions.com/'
     - name: Azure IoT 개발자 센터
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: VS Code용 Azure IoT Edge
-      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge'
-    - name: VS Code용 Azure IoT Hub Toolkit
-      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit'
-    - name: DeviceExplorer 도구
-      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: VS Code용 Azure IoT Tools
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools'
+    - name: Azure IoT Explorer 도구
+      href: 'https://github.com/Azure/azure-iot-explorer'
     - name: iothub-diagnostics 도구
       href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge'
-    - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/iot-edge/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
+      href: 'https://azure.microsoft.com/updates/?product=iot-edge'
     - name: 기술 사례 연구
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: 동영상
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-edge'

@@ -1,33 +1,23 @@
 ---
-title: Linux를 실행하는 가상 머신에 LVM 구성 | Microsoft Docs
+title: Linux를 실행 하는 가상 머신에서 LVM 구성
 description: Azure에서 Linux에 LVM을 구성하는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: na
-author: szarkos
-manager: jeconnoc
-editor: tysonn
-tag: azure-service-management,azure-resource-manager
-ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
+author: gbowerman
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2018
-ms.author: szark
+ms.author: guybo
 ms.subservice: disks
-ms.openlocfilehash: 08f98775360b8c0a82f68f322053cb71f0e79af3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9a3498939ddf57e2520a140ff693a30de913fae0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739083"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658285"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 LVM 구성
 이 문서에서는 Azure 가상 컴퓨터의 LVM(논리 볼륨 관리자)을 구성하는 방법을 설명합니다. Azure VM에서 OS 디스크 또는 데이터 디스크에 LVM을 사용할 수 있지만, 기본적으로 대부분의 클라우드 이미지는 OS 디스크에서 LVM이 구성되지 않습니다. 아래 단계에서는 데이터 디스크에 LVM을 구성하는 방법을 중점적으로 다룹니다.
 
 ## <a name="linear-vs-striped-logical-volumes"></a>선형 및 스트라이프 논리 볼륨 비교
-LVM을 사용하여 단일 저장소 볼륨에 여러 실제 디스크를 결합할 수 있습니다. 기본적으로 LVM은 일반적으로 선형 논리 볼륨을 만듭니다. 즉, 실제 저장소가 함께 연결되어 있습니다. 이 경우 일반적으로 읽기/쓰기 작업은 단일 디스크로만 전송됩니다. 반면 읽기 및 쓰기가 볼륨 그룹에 포함된 여러 디스크에 분산되는 스트라이프 논리 볼륨을 만들 수도 있습니다(RAID0과 유사). 성능상의 이유로 논리 볼륨을 스트라이프하여 읽기 및 쓰기가 연결된 모든 데이터 디스크를 사용하는 것이 좋습니다.
+LVM을 사용하여 단일 스토리지 볼륨에 여러 실제 디스크를 결합할 수 있습니다. 기본적으로 LVM은 일반적으로 선형 논리 볼륨을 만듭니다. 즉, 실제 스토리지가 함께 연결되어 있습니다. 이 경우 일반적으로 읽기/쓰기 작업은 단일 디스크로만 전송됩니다. 반면 읽기 및 쓰기가 볼륨 그룹에 포함된 여러 디스크에 분산되는 스트라이프 논리 볼륨을 만들 수도 있습니다(RAID0과 유사). 성능상의 이유로 논리 볼륨을 스트라이프하여 읽기 및 쓰기가 연결된 모든 데이터 디스크를 사용하는 것이 좋습니다.
 
 이 문서에는 여러 개의 데이터 디스크를 단일 볼륨 그룹으로 결합한 다음 스트라이프 논리 볼륨을 만드는 방법을 설명합니다. 아래 단계는 대부분의 배포로 작업하도록 일반화되어 있습니다. 대부분의 경우 Azure의 LVM을 관리하기 위한 유틸리티 및 워크플로는 다른 환경과 근본적으로 다릅니다. 늘 그렇듯이, 특정 배포로 LVM을 사용하는 설명서 및 모범 사례의 경우 Linux 공급업체에도 문의하시기 바랍니다.
 
@@ -154,7 +144,7 @@ LVM을 사용하여 단일 저장소 볼륨에 여러 실제 디스크를 결합
     ```
 
 ## <a name="trimunmap-support"></a>TRIM/UNMAP 지원
-일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이러한 작업은 Azure에 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 알리는 데 표준 저장소에서 주로 유용합니다. 큰 파일을 만들고 삭제하는 경우 페이지를 삭제하여 비용을 절감할 수 있습니다.
+일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이러한 작업은 Azure에 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 알리는 데 표준 스토리지에서 주로 유용합니다. 큰 파일을 만들고 삭제하는 경우 페이지를 삭제하여 비용을 절감할 수 있습니다.
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
@@ -173,7 +163,7 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
     # sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+    **RHEL, CentOS 및 Oracle Linux**
 
     ```bash 
     # sudo yum install util-linux

@@ -13,16 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;juliako;
-ms.openlocfilehash: 0fcacf68f4b41ed8945a6a40d7da125aef499947
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: juliako
+ms.reviewer: milanga
+ms.openlocfilehash: 1b85cffe497ad0b374edb18a1089412da839cdf8
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825539"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231848"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기  
+
+> [!NOTE]
+> **Azure Media Video Thumbnails** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
+
 ## <a name="overview"></a>개요
+
 **Azure 미디어 비디오 미리 보기** MP(미디어 프로세서)를 사용하여 긴 비디오의 요약만 미리 보려는 고객에게 유용한 비디오 요약을 만들 수 있습니다. 예를 들어 고객은 미리 보기를 가리키면 나타나는 짧은 "요약 비디오"를 원할 수 있습니다. 구성 기본 설정을 통해 **Azure 미디어 비디오 미리 보기** 의 매개 변수를 조정하면 MP의 강력한 장면 감지 및 연결 기술을 사용하여 알고리즘 방식으로 설명이 포함된 하위 클립을 생성할 수 있습니다.  
 
 **Azure 미디어 비디오 미리 보기** MP는 현재 미리 보기 상태입니다.
@@ -55,16 +61,16 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| outputAudio |결과 비디오에 오디오를 포함할지 여부를 지정합니다. <br/>허용되는 값은 다음과 같습니다. True 또는 False입니다. 기본값은 True입니다. |
-| fadeInFadeOut |개별 동작 미리 보기 간에 페이드 전환이 사용되는지 여부를 지정합니다.  <br/>허용되는 값은 다음과 같습니다. True 또는 False입니다.  기본값은 True입니다. |
+| outputAudio |결과 비디오에 오디오를 포함할지 여부를 지정합니다. <br/>허용되는 값은 True 또는 False입니다. 기본값은 True입니다. |
+| fadeInFadeOut |개별 동작 미리 보기 간에 페이드 전환이 사용되는지 여부를 지정합니다.  <br/>허용되는 값은 True 또는 False입니다.  기본값은 True입니다. |
 | maxMotionThumbnailDurationInSecs |전체 결과 비디오의 길이를 지정하는 정수입니다.  기본값은 원본 비디오의 지속 시간에 따라 다릅니다. |
 
 다음 표에서는 **maxMotionThumbnailInSecs** 가 사용되지 않은 경우의 기본 지속 시간을 설명합니다.
 
-|  |  |  |
+|  | Small | 많은 |
 | --- | --- | --- |
-| 비디오 지속 시간 |d < 3분 |3분 < d < 15분 |
-| 미리 보기 지속 시간 |15초(장면 2~3개) |30초(장면 3~5개) |
+| **비디오 지속 시간** |d < 3분 |3분 < d < 15분 |
+| **미리 보기 지속 시간** |15초(장면 2~3개) |30초(장면 3~5개) |
 
 다음 JSON은 사용 가능한 매개 변수를 설정합니다.
 
@@ -101,9 +107,9 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```csharp
     using System;

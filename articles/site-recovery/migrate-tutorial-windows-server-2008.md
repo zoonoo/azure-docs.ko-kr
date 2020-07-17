@@ -1,24 +1,23 @@
 ---
-title: Azure Site Recovery를 사용하여 온-프레미스 Windows Server 2008 서버에서 Azure로 마이그레이션 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 Windows Server 2008 서버를 Azure로 마이그레이션
 description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 Windows Server 2008 머신을 Azure로 마이그레이션하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5de6ba8ab64797da24039718ca7f2c0b88d1d33d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881344"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "73936133"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 
-이 자습서에서는 Azure Site Recovery를 사용하여 Windows Server 2008 또는 2008 R2를 실행하는 온-프레미스 서버에서 Azure로 마이그레이션하는 방법을 보여줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Site Recovery를 사용하여 Windows Server 2008 또는 2008 R2를 실행하는 온-프레미스 서버에서 Azure로 마이그레이션하는 방법을 보여줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 마이그레이션을 위한 온-프레미스 환경 준비
@@ -29,6 +28,9 @@ ms.locfileid: "58881344"
 > * Azure로 장애 조치(failover) 및 마이그레이션 완료
 
 제한 사항 및 알려진 문제 섹션에서는 Windows Server 2008 머신을 Azure로 마이그레이션하는 동안 발생할 수 있는 알려진 문제에 대한 일부 제한 사항 및 해결 방법을 나열합니다. 
+
+> [!NOTE]
+> 이제 Azure Migrate 서비스를 사용하여 온-프레미스에서 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/migrate-services-overview.md).
 
 
 ## <a name="supported-operating-systems-and-environments"></a>지원되는 운영 체제 및 환경
@@ -44,7 +46,7 @@ ms.locfileid: "58881344"
 > - 마이그레이션하기 전에 최신 서비스 팩 및 Windows 업데이트가 설치되어 있는지 확인합니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 [VMware 및 물리적 서버 마이그레이션](vmware-azure-architecture.md) 또는 [Hyper-V 가상 머신 마이그레이션](hyper-v-azure-architecture.md)에 대한 Azure Site Recovery 아키텍처를 검토하는 것이 좋습니다. 
 
@@ -59,7 +61,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
 - 구성 서버, 추가 프로세스 서버 및 Windows Server 2008 SP2 서버를 마이그레이션하는 데 사용되는 모바일 서비스는 Azure Site Recovery 소프트웨어의 버전 9.19.0.0 이상을 실행해야 합니다.
 
-- 애플리케이션 일치 복구 지점 및 다중 VM 일관성 기능은 Windows Server 2008 SP2를 실행하는 서버의 복제에 대해 지원되지 않습니다. Windows Server 2008 SP2 서버는 크래시 일치 복구 지점으로 마이그레이션되어야 합니다. 기본적으로 5분마다 크래시 일치 복구 지점이 생성됩니다. 구성된 애플리케이션 일치 스냅숏 빈도로 복제 정책을 사용하면 애플리케이션 일치 복구 지점의 부족으로 인해 복제 상태가 위험으로 전환될 수 있습니다. 거짓 긍정을 방지하려면 복제 정책에서 애플리케이션 일치 스냅숏 빈도를 "꺼짐"으로 설정합니다.
+- 애플리케이션 일치 복구 지점 및 다중 VM 일관성 기능은 Windows Server 2008 SP2를 실행하는 서버의 복제에 대해 지원되지 않습니다. Windows Server 2008 SP2 서버는 크래시 일치 복구 지점으로 마이그레이션되어야 합니다. 기본적으로 5분마다 크래시 일치 복구 지점이 생성됩니다. 구성된 애플리케이션 일치 스냅샷 빈도로 복제 정책을 사용하면 애플리케이션 일치 복구 지점의 부족으로 인해 복제 상태가 위험으로 전환될 수 있습니다. 거짓 긍정을 방지하려면 복제 정책에서 애플리케이션 일치 스냅샷 빈도를 "꺼짐"으로 설정합니다.
 
 - 마이그레이션되는 서버에는 작업할 모바일 서비스에 대한 .NET Framework 3.5 서비스 팩 1이 있어야 합니다.
 
@@ -113,21 +115,21 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
 1. **인프라 준비** > **대상**을 클릭하고 사용하려는 Azure 구독을 선택합니다.
 2. 리소스 관리자 배포 모델을 지정합니다.
-3. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다.
+3. Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다.
 
 
 ## <a name="set-up-a-replication-policy"></a>복제 정책 설정
 
-1. 새 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** > **+복제 정책**을 클릭합니다.
+1. 새 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** >  **+복제 정책**을 클릭합니다.
 2. **복제 정책 만들기**에서 정책 이름을 지정합니다.
-3. **RPO 임계값**에서 RPO(복구 지점 목표) 제한을 지정합니다. 복제 RPO가 이 제한을 초과하면 경고가 생성됩니다.
-4. **복구 지점 보존**에서 각 복구 지점에 대해 지속될 보존 시간을 시간 단위로 지정합니다. 복제된 서버는 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다. Premium Storage에 복제된 컴퓨터의 경우 최대 24시간 보존이 지원되고 표준 스토리지에 복제된 경우 72시간 보존이 지원됩니다.
-5. **앱 일치 스냅숏 빈도**에서 **꺼짐**을 지정합니다. **확인** 을 클릭하여 정책을 만듭니다.
+3. **RPO 임계값**에서 RPO(복구 목표 시점) 제한을 지정합니다. 복제 RPO가 이 제한을 초과하면 경고가 생성됩니다.
+4. **복구 시점 보존**에서 각 복구 시점에 대해 지속될 보존 시간을 시간 단위로 지정합니다. 복제된 서버는 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다. Premium Storage에 복제된 컴퓨터의 경우 최대 24시간 보존이 지원되고 표준 스토리지에 복제된 경우 72시간 보존이 지원됩니다.
+5. **앱 일치 스냅샷 빈도**에서 **꺼짐**을 지정합니다. **확인** 을 클릭하여 정책을 만듭니다.
 
 정책은 구성 서버와 자동으로 연결됩니다.
 
 > [!WARNING]
-> 복제 정책의 앱 일치 스냅숏 빈도 설정에서 **꺼짐**을 지정합니다. Windows Server 2008을 실행하는 서버를 복제하는 동안 크래시 일관성 복구 지점만 지원됩니다. 앱 일치 스냅숏 빈도에 대해 다른 값을 지정하면 앱 일치 복구 지점의 부족으로 인해 서버의 복제 상태가 위험으로 전환되어 잘못된 경고가 발생합니다.
+> 복제 정책의 앱 일치 스냅샷 빈도 설정에서 **꺼짐**을 지정합니다. Windows Server 2008을 실행하는 서버를 복제하는 동안 크래시 일관성 복구 시점만 지원됩니다. 앱 일치 스냅샷 빈도에 대해 다른 값을 지정하면 앱 일치 복구 시점의 부족으로 인해 서버의 복제 상태가 위험으로 전환되어 잘못된 경고가 발생합니다.
 
    ![복제 정책 만들기](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
@@ -153,7 +155,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 마이그레이션할 컴퓨터에 대해 장애 조치(Failover)를 실행합니다.
 
 1. **설정** > **복제된 항목**에서 컴퓨터 > **장애 조치(Failover)** 를 클릭합니다.
-2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 최신 복구 지점을 선택합니다.
+2. **장애 조치(Failover)** 에서 장애 조치할 **복구 시점**을 선택합니다. 최신 복구 시점을 선택합니다.
 3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 서버를 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 4. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.
 5. **복제된 항목**에서 서버를 마우스 오른쪽 단추로 클릭하고 **마이그레이션 완료**를 클릭합니다. 다음을 수행합니다.

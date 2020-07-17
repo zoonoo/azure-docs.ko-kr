@@ -1,18 +1,13 @@
 ---
-title: Azure Container Registry 다단계 작업을 통해 이미지 작성, 테스트 및 패치 자동화
-description: 클라우드에서 컨테이너 이미지를 빌드하고, 테스트하고, 패치하기 위한 작업 기반 워크플로를 제공하는 Azure Container Registry의 ACR 작업 기능인 다단계 작업에 대해 소개합니다.
-services: container-registry
-author: dlepow
-ms.service: container-registry
+title: 이미지를 작성 하 고 테스트 & 패치를 실행 하는 다단계 작업
+description: 클라우드의 컨테이너 이미지를 빌드, 테스트 및 패치 하는 작업 기반 워크플로를 제공 하는 Azure Container Registry의 ACR 작업 기능인 다단계 작업을 소개 합니다.
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: danlep
-ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78399705"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR 작업에서 다단계 작성, 테스트 및 패치 작업 실행
 
@@ -30,7 +25,7 @@ ms.locfileid: "60829585"
 1. 테스트에 통과하면 Helm 차트 보관 패키지 빌드
 1. 새 Helm 차트 보관 패키지를 사용하여 `helm upgrade` 수행
 
-모든 단계는 Azure 내에서 수행됩니다. 즉, Azure 계산 리소스가 작업을 수행하므로 인프라 관리를 별도로 수행할 필요가 없습니다. Azure Container Registry를 제외하면 사용한 리소스에 대한 요금만 지불하면 됩니다. 가격 정보는 [Azure Container Registry pricing][pricing]의 **Container Build** 섹션을 참조하세요.
+모든 단계는 Azure 내에서 수행됩니다. 즉, Azure 컴퓨팅 리소스가 작업을 수행하므로 인프라 관리를 별도로 수행할 필요가 없습니다. Azure Container Registry를 제외하면 사용한 리소스에 대한 요금만 지불하면 됩니다. 가격 정보는 [Azure Container Registry pricing][pricing]의 **Container Build** 섹션을 참조하세요.
 
 
 ## <a name="common-task-scenarios"></a>일반 작업 시나리오
@@ -47,43 +42,43 @@ ms.locfileid: "60829585"
 
 ACR 작업의 다단계 작업은 YAML 파일 내에서 일련의 단계로 정의됩니다. 각 단계는 이전 단계 하나 이상의 정상 완료에 따른 종속성을 지정할 수 있습니다. 사용 가능한 작업 단계 유형은 다음과 같습니다.
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): 친숙 한를 사용 하 여 하나 이상의 컨테이너 이미지 빌드 `docker build` 시리즈 또는 병렬로 구문입니다.
-* [`push`](container-registry-tasks-reference-yaml.md#push): 빌드된 이미지를 컨테이너 레지스트리로 푸시하십시오. Azure Container Registry 등의 개인 레지스트리와 공용 Docker 허브가 모두 지원됩니다.
+* [`build`](container-registry-tasks-reference-yaml.md#build): 익숙한 구문이 나 병렬를 사용 하 여 하나 이상의 컨테이너 이미지 `docker build` 를 빌드합니다.
+* [`push`](container-registry-tasks-reference-yaml.md#push): 빌드된 이미지를 컨테이너 레지스트리에 푸시합니다. Azure Container Registry 등의 프라이빗 레지스트리와 공용 Docker 허브가 모두 지원됩니다.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd): 실행 중인 작업의 컨텍스트 내에서 함수로 작동할 수 있도록 컨테이너를 실행 합니다. 컨테이너의 `[ENTRYPOINT]`에 매개 변수를 전달하고 env, detach 및 흔히 사용되는 기타 `docker run` 매개 변수와 같은 속성을 지정할 수 있습니다. `cmd` 단계 유형에서는 컨테이너를 동시에 실행하면서 단위 및 기능 테스트를 수행할 수 있습니다.
 
 다음 코드 조각은 이러한 작업 단계 형식을 결합하는 방법을 보여줍니다. 다중 단계 작업은 다음과 유사한 YAML 파일을 사용하여 Dockerfile에서 단일 이미지를 빌드하고 레지스트리에 푸시하는 방법처럼 간단할 수 있습니다.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - build: -t $Registry/hello-world:$ID .
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 더 복잡한 경우 이 가상의 다단계 정의에는 Helm을 빌드하고, 테스트하고, 패키징하고, 배포하기 위한 단계가 포함됩니다(컨테이너 레지스트리 및 Helm 리포지토리 구성이 표시되지 않음).
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - id: build-web
-    build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    build: -t $Registry/hello-world:$ID .
     when: ["-"]
   - id: build-tests
-    build -t {{.Run.Registry}}/hello-world-tests ./funcTests
+    build -t $Registry/hello-world-tests ./funcTests
     when: ["-"]
   - id: push
-    push: ["{{.Run.Registry}}/helloworld:{{.Run.ID}}"]
+    push: ["$Registry/helloworld:$ID"]
     when: ["build-web", "build-tests"]
   - id: hello-world-web
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+    cmd: $Registry/helloworld:$ID
   - id: funcTests
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+    cmd: $Registry/helloworld:$ID
     env: ["host=helloworld:80"]
-  - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
-  - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
+  - cmd: $Registry/functions/helm package --app-version $ID -d ./helm ./helm/helloworld/
+  - cmd: $Registry/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image=$Registry/helloworld:$ID
 ```
 
-몇 가지 시나리오의 경우 전체 다단계 작업 YAML 파일 및 Dockerfile은 [작업 예제][task-examples]를 참조하세요.
+여러 시나리오에 대 한 다단계 작업 YAML 파일 및 Dockerfiles의 [작업 예](container-registry-tasks-samples.md) 를 참조 하세요.
 
 ## <a name="run-a-sample-task"></a>샘플 작업 실행
 
@@ -99,8 +94,11 @@ az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.co
 
 작업을 실행하면 출력에는 YAML 파일에 정의된 각 단계의 진행률이 표시됩니다. 다음 출력에서 단계는 `acb_step_0` 및 `acb_step_1`로 표시됩니다.
 
-```console
-$ az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```azurecli
+az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```
+
+```output
 Sending context to registry: myregistry...
 Queued a run with ID: yd14
 Waiting for an agent...
@@ -154,7 +152,7 @@ Git 커밋 또는 기본 이미지 업데이트 시의 자동화된 작성 작�
 다단계 작업 참조 및 예제는 아래 문서에서 확인할 수 있습니다.
 
 * [작업 참조](container-registry-tasks-reference-yaml.md) - 작업 단계 유형, 해당 속성 및 사용법을 확인할 수 있습니다.
-* [작업 예제][task-examples] - 다양한 복잡도의 여러 시나리오에 사용 가능한 예제 `task.yaml` 파일이 제공됩니다.
+* [작업](container-registry-tasks-samples.md) 예- `task.yaml` 간단 하 고 복잡 한 여러 시나리오에 대 한 예제 및 Docker 파일.
 * [Cmd 리포지토리](https://github.com/AzureCR/cmd) - ACR 작업에 대한 명령인 컨테이너의 컬렉션입니다.
 
 <!-- IMAGES -->

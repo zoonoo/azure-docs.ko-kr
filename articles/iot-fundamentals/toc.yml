@@ -1,18 +1,24 @@
 - name: Azure 사물 인터넷
-  href: index.md
+  href: index.yml
 - name: 개요
   items:
     - name: 소개
       href: iot-introduction.md
+    - name: 올바른 IoT 솔루션 선택
+      href: iot-solution-options.md
     - name: Azure IoT 서비스 및 기술
       href: iot-services-and-technologies.md
+    - name: 지원 및 도움말 옵션
+      href: iot-support-help.md
 - name: 보안
   items:
-    - name: 보안 아키텍처
-      href: iot-security-architecture.md
-    - name: 보안 모범 사례
-      href: iot-security-best-practices.md
-    - name: 안전한 배포
-      href: iot-security-deployment.md
+    - name: 권장 사항
+      href: security-recommendations.md
     - name: 처음부터 보안을 고려
       href: iot-security-ground-up.md
+    - name: 보안 모범 사례
+      href: iot-security-best-practices.md
+    - name: 보안 아키텍처
+      href: iot-security-architecture.md
+    - name: 안전한 배포
+      href: iot-security-deployment.md

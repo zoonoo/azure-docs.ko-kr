@@ -1,22 +1,18 @@
 ---
-title: .NET Core 및 VS Code를 사용하여 클라우드에서 Kubernetes 개발 공간 만들기
-titleSuffix: Azure Dev Spaces
+title: 'Kubernetes 개발 공간 만들기: Visual Studio Code 및 .NET Core'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
+description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 4c759462d603a35e738f76a505abd04b832afc3f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426344"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240547"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure Dev Spaces에서 .NET Core를 사용하여 시작
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 .NET Core
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 
@@ -33,7 +29,7 @@ Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 
 ### <a name="sign-in-to-azure-cli"></a>Azure CLI에 로그인
 Azure에 로그인합니다. 터미널 창에 다음 명령을 입력합니다.
 
-```cmd
+```azurecli
 az login
 ```
 
@@ -43,27 +39,28 @@ az login
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>여러 Azure 구독이 있는 경우...
 다음을 실행하여 구독을 볼 수 있습니다. 
 
-```cmd
-az account list
+```azurecli
+az account list --output table
 ```
-JSON 출력에서 `isDefault: true`이 포함된 구독을 찾습니다.
+
+*IsDefault*에 대해 *True*가 있는 구독을 찾습니다.
 사용하려는 구독이 없으면 기본 구독을 변경할 수 있습니다.
 
-```cmd
+```azurecli
 az account set --subscription <subscription ID>
 ```
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
-명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)에 리소스 그룹을 만듭니다.
+명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역][supported-regions]에 리소스 그룹을 만듭니다.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location <region>
 ```
 
 다음 명령을 사용하여 Kubernetes 클러스터를 만듭니다.
 
-```cmd
+```azurecli
 az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
@@ -73,7 +70,7 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-key
 
 AKS 클러스터를 포함하는 리소스 그룹을 사용하여 다음 Azure CLI 명령 및 AKS 클러스터 이름을 입력합니다. 명령은 Azure Dev Spaces에 대한 지원을 통해 클러스터를 구성합니다.
 
-   ```cmd
+   ```azurecli
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
    
@@ -84,7 +81,7 @@ AKS 클러스터를 포함하는 리소스 그룹을 사용하여 다음 Azure C
 Kubernetes 디버깅과 같은 다양한 기능은 VS Code를 사용하는 .NET Core 및 Node.js 개발자가 사용할 수 있습니다.
 
 1. [VS Code](https://code.visualstudio.com/Download)가 없으면 이를 설치합니다.
-1. [VS Azure Dev Spaces 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)을 다운로드하여 설치합니다. 확장의 Marketplace 페이지 및 VS Code에서 [설치]를 한 번 클릭합니다. 
+1. [VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 및 [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) 확장을 다운로드하여 설치합니다. 각 확장에 대해 확장의 Marketplace 페이지에서 설치를 클릭하고 VS Code에서 다시 설치를 클릭합니다.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>컨테이너에서 실행되는 웹앱 만들기
 
@@ -101,12 +98,15 @@ Kubernetes 디버깅과 같은 다양한 기능은 VS Code를 사용하는 .NET 
 1. 이 명령을 실행합니다(**webfrontend**가 현재 폴더인지 확인).
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 Azure CLI의 `azds prep` 명령은 기본 설정으로 Docker 및 Kubernetes 자산을 생성합니다.
 * `./Dockerfile`은 앱의 컨테이너 이미지 및 원본 코드가 빌드되는 방법을 설명하고 컨테이너 내에서 실행됩니다.
 * `./charts/webfrontend` 아래의 [Helm 차트](https://docs.helm.sh)는 Kubernetes에 컨테이너를 배포하는 방법을 설명합니다.
+
+> [!TIP]
+> 프로젝트의 [Dockerfile 및 Helm 차트](how-dev-spaces-works-prep.md#prepare-your-code)는 Azure Dev Spaces에서 코드를 빌드하고 실행하는 데 사용되지만 프로젝트를 빌드하고 실행하는 방법을 변경하려면 이러한 파일을 수정할 수 있습니다.
 
 지금은 이러한 파일의 전체 컨텐츠를 이해할 필요가 없습니다. 언급할 가치가 있지만 **코드 자산으로 동일한 Kubernetes 및 Docker 구성을 개발에서 프로덕션까지 사용할 수 있으므로 서로 다른 환경에서 더 나은 일관성을 제공합니다.**
  
@@ -130,22 +130,46 @@ azds up
 > `up` 명령을 처음 실행할 때는 이러한 단계가 오래 걸리지만 후속 실행은 더 빨라집니다.
 
 ### <a name="test-the-web-app"></a>웹앱 테스트
-콘솔 출력에서 `up` 명령으로 생성된 공용 URL에 대한 정보를 검색합니다. 다음과 같은 형식입니다. 
+콘솔 출력에서 *애플리케이션 시작* 메시지를 검색하여 `up` 명령이 완료되었음을 확인합니다.
 
 ```
-(pending registration) Service 'webfrontend' port 'http' will be available at <url>
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Microsoft (R) Build Engine version 15.9.20+g88f5fadfbe for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.dll
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.Views.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.94
+[...]
+webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
+webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-브라우저 창에서 이 URL을 열고 웹앱 로드를 확인합니다. 컨테이너가 실행될 때 `stdout` 및 `stderr` 출력이 터미널 창으로 스트리밍됩니다.
+`up` 명령의 출력에서 서비스의 공용 URL을 식별합니다. `.azds.io`로 끝납니다. 위의 예제에서 공용 URL은 `http://webfrontend.1234567890abcdef1234.eus.azds.io/`입니다.
+
+웹앱을 보려면 브라우저에서 공용 URL을 엽니다. 또한 웹앱을 조작할 때 `stdout` 및 `stderr` 출력이 *azds trace* 터미널 창으로 스트리밍됩니다. HTTP 요청이 시스템을 통과할 때 추적 정보도 표시됩니다. 이를 통해 개발하는 동안 복잡한 다중 서비스 호출을 보다 쉽게 추적할 수 있습니다. Dev Spaces에서 추가된 계측은 이 요청 추적을 제공합니다.
+
+![AZDS 추적 터미널 창](media/get-started-netcore/azds-trace.png)
+
 
 > [!Note]
-> 첫 번째 실행 시 공용 DNS를 준비하는 데 몇 분 정도 걸릴 수 있습니다. 공용 URL이 확인되지 않으면 콘솔 출력에 표시되는 `http://localhost:<portnumber>` URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 AKS에서 실행되고 있습니다. 편의상 로컬 컴퓨터에서 서비스와 쉽게 상호 작용할 수 있도록 Azure Dev Spaces는 Azure에서 실행되는 컨테이너에 대한 임시 SSH 터널을 만듭니다. DNS 레코드 준비되면 돌아와서 나중에 공용 URL을 시도해볼 수 있습니다.
+> 공용 URL 외에도 콘솔 출력에 표시되는 `http://localhost:<portnumber>` URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 AKS에서 실행되고 있습니다. Azure Dev Spaces는 Kubernetes *포트 전달* 기능을 사용하여 localhost 포트를 AKS에서 실행 중인 컨테이너에 매핑합니다. 로컬 컴퓨터에서 서비스 조작이 용이해집니다.
 
 ### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
 Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아니라, 클라우드의 Kubernetes 환경에서 코드 변경 내용을 신속하고 반복적으로 확인할 수 있게 해주는 것입니다.
 
-1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 `<h2>Application uses</h2>`를 읽는 행 70을 `<h2>Hello k8s in Azure!</h2>`로 변경합니다.
+1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 [`<h2>Application uses</h2>`를 읽는 줄 73](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73)을 다음과 같이 변경합니다. 
+
+    ```html
+    <h2>Hello k8s in Azure!</h2>
+    ```
+
 1. 파일을 저장합니다. 잠시 후, 터미널 창에 실행 중인 컨테이너의 파일이 업데이트되었다는 메시지가 표시됩니다.
 1. 브라우저로 이동하여 페이지를 새로 고칩니다. 웹 페이지에 업데이트된 HTML이 표시되어야 합니다.
 
@@ -160,7 +184,6 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 1. 터미널 창에서 `azds up`를 실행합니다. 
 
 이 명령은 컨테이너 이미지를 다시 빌드하고 Helm 차트를 다시 배포합니다. 실행 중인 애플리케이션에서 코드 변경 내용을 적용하려면 웹앱의 정보 메뉴로 이동합니다.
-
 
 하지만 코드 개발에 사용할 수 있는 *훨씬 더 빠른 방법*이 있으며, 이에 대해서는 다음 섹션에서 살펴볼 예정입니다. 
 
@@ -199,11 +222,11 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 `up` 명령과 마찬가지로 코드가 개발 환경에 동기화되고 컨테이너가 빌드되어 Kubernetes에 배포됩니다. 물론 이번에는 디버거가 원격 컨테이너에 연결됩니다.
 
 > [!Tip]
-> VS Code 상태 표시줄에 클릭 가능한 URL이 표시됩니다.
+> VS Code 상태 표시줄이 주황색으로 바뀌면 디버거가 연결되었음을 나타냅니다. 사이트를 여는 데 사용할 수 있는 클릭 가능한 URL도 표시됩니다.
 
 ![](media/common/vscode-status-bar-url.png)
 
-예를 들어 `Controllers/HomeController.cs` 원본 파일의 `Index()` 함수 내에서 서버 측 코드 파일에 중단점을 설정합니다. 브라우저 페이지를 새로 고치면 중단점에 도달합니다.
+예를 들어 `Controllers/HomeController.cs` 원본 파일의 `About()` 함수 내에서 서버 측 코드 파일에 중단점을 설정합니다. 브라우저 페이지를 새로 고치면 중단점에 도달합니다.
 
 코드가 로컬에서 실행되는 경우처럼 호출 스택, 지역 변수, 예외 정보 등과 같은 디버그 정보에 대한 전체 액세스 권한이 있습니다.
 
@@ -218,9 +241,9 @@ public IActionResult About()
 }
 ```
 
-파일을 저장하고, **디버그 작업 창**에서 **새로 고침** 단추를 클릭합니다. 
+파일을 저장하고, **디버그 작업 창**에서 **다시 시작** 단추를 클릭합니다. 
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 코드 편집이 완료될 때마다 상당한 시간이 소요되는 새 컨테이너 이미지 다시 빌드 및 다시 배포 작업을 수행하는 대신 Azure Dev Spaces는 기존 컨테이너 내에서 코드를 점진적으로 다시 컴파일하여 더 빠른 편집/디버그 루프를 제공합니다.
 
@@ -232,3 +255,6 @@ public IActionResult About()
 
 > [!div class="nextstepaction"]
 > [다중 서비스 개발에 대해 알아보기](multi-service-netcore.md)
+
+
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

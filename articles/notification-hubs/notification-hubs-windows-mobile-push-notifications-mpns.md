@@ -1,12 +1,12 @@
 ---
-title: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs를 사용하여 Windows Phone 앱에 푸시 알림 보내기 | Microsoft Docs
 description: 이 자습서에서는 Azure Notification Hubs를 사용하여 Windows Phone 8 또는 Windows Phone 8.1 Silverlight 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
 keywords: 푸시 알림, 푸시 알림, windows phone 푸시
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,15 +15,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: df42a0e2fcc8c139c7a2b6ecfa78ce1780fe54ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 2a2db9f7342b984a8c539a345f8e5038caf5ff85
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843572"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170278"
 ---
-# <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시
+# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -34,14 +36,14 @@ ms.locfileid: "57843572"
 > [!NOTE]
 > Notification Hubs Windows Phone SDK에서는 Windows Phone 8.1 Silverlight 앱에서의 WNS(Windows 푸시 알림 서비스) 사용을 지원하지 않습니다. Windows Phone 8.1 Silverlight 앱에서 MPNS 대신 WNS를 사용하려면 REST API를 사용하는 [Notification Hubs - Windows Phone Silverlight 자습서]를 따릅니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 알림 허브 만들기
 > * Windows Phone 애플리케이션 만들기
 > * 알림 테스트 보내기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 * [모바일 개발 구성 요소가 있는 Visual Studio 2015 Express](https://www.visualstudio.com/vs/older-downloads/)
@@ -82,8 +84,11 @@ ms.locfileid: "57843572"
     ![Visual Studio - NuGet 패키지 관리자][20]
 4. App.xaml.cs 파일을 열고 다음 `using` 문을 추가합니다.
 
-        using Microsoft.Phone.Notification;
-        using Microsoft.WindowsAzure.Messaging;
+    ```csharp
+    using Microsoft.Phone.Notification;
+    using Microsoft.WindowsAzure.Messaging;
+    ```
+
 5. `App.xaml.cs`에서 `Application_Launching` 메서드 맨 위에 다음 코드를 추가합니다.
 
     ```csharp
@@ -175,4 +180,4 @@ ms.locfileid: "57843572"
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [toast catalog]: https://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: https://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
-[Notification Hubs - Windows Phone Silverlight 자습서]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
+[Notification Hubs - Windows Phone Silverlight 자습서]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari

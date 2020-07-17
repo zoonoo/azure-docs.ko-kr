@@ -2,22 +2,24 @@
 title: Azure Portal을 사용하여 Azure 알림 허브 만들기 | Microsoft Docs
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure 알림 허브를 만드는 방법을 알아봅니다.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
-ms.author: jowargo
-ms.openlocfilehash: 62e72f27e48f7bf220901f4eb36090f926724a2a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: 3aeeb989d15dc74849c85fa58cbefa891809f3c5
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314052"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80347081"
 ---
-# <a name="create-an-azure-notification-hub-in-the-azure-portal"></a>Azure Portal을 사용하여 Azure 알림 허브 만들기 
+# <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 알림 허브 만들기 
 Azure Notification Hubs는 모든 백 엔드(클라우드 또는 온-프레미스)에서 모든 플랫폼(iOS, Android, Windows, Kindle, Baidu 등)에 알림을 보낼 수 있도록 하는 사용하기 쉬운 스케일 아웃 푸시 엔진을 제공합니다. 서비스에 대한 자세한 내용은 [Azure Notification Hubs란?](notification-hubs-push-notification-overview.md)을 참조하세요.
 
 이 빠른 시작에서는 Azure Portal에서 알림 허브를 만듭니다. 첫 번째 섹션에서는 해당 네임스페이스의 Notification Hubs 네임스페이스 및 허브를 만드는 단계가 나옵니다. 두 번째 섹션에서는 기존 Notification Hubs 네임스페이스에서 알림 허브를 만드는 단계가 나옵니다. 

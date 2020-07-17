@@ -1,25 +1,14 @@
 ---
-title: Service Fabric 서비스 분할 | Microsoft Docs
-description: Service Fabric 상태 저장 서비스를 분할하는 방법을 설명합니다. 파티션을 사용하면 로컬 머신에 데이터가 저장되므로 데이터와 계산을 함께 확장할 수 있습니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
-ms.service: service-fabric
-ms.devlang: dotnet
+title: 서비스 패브릭 서비스 분할
+description: Service Fabric 상태 저장 서비스를 분할하는 방법을 설명합니다. 파티션을 사용하면 로컬 머신에 데이터가 스토리지되므로 데이터와 컴퓨팅을 함께 확장할 수 있습니다.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
-ms.author: atsenthi
-ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e395fc31550dfdbedf963db0d648191453d016b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711888"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045419"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
@@ -32,11 +21,11 @@ ms.locfileid: "60711888"
 
 ![상태 비저장 서비스](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-실제로 두 종류의 상태 비저장 서비스 솔루션이 있습니다. 첫 번째는 Azure SQL 데이터베이스처럼 외부적으로 상태를 유지하는 서비스(세션 정보 및 데이터를 저장하는 웹 사이트처럼)입니다. 두 번째는 모든 영구적 상태를 관리하지 않는 계산 전용 서비스(예: 계산기 또는 이미지 미리 보기)입니다.
+실제로 두 종류의 상태 비저장 서비스 솔루션이 있습니다. 첫 번째는 Azure SQL Database의 데이터베이스 (예: 세션 정보 및 데이터를 저장 하는 웹 사이트)와 같이 외부에서 상태를 유지 하는 서비스입니다. 두 번째는 모든 영구적 상태를 관리하지 않는 계산 전용 서비스(예: 계산기 또는 이미지 미리 보기)입니다.
 
 두 경우 모두 상태 비저장 서비스 분할은 매우 드문 시나리오이며 확장성 및 가용성은 일반적으로 더 많은 인스턴스를 추가하여 이루어집니다. 상태 비저장 서비스 인스턴스에 대한 여러 파티션을 고려하려는 경우는 특별한 라우팅 요청을 충족해야 하는 때입니다.
 
-한 예로 특정 범위의 ID가 있는 사용자가 특정한 서비스 인스턴스로만 제공되어야 하는 경우 고려합니다. 상태 비저장 서비스를 분할할 수 있는 경우의 다른 예는 분할된 SQL 데이터베이스와 같은 실제로 분할된 백 엔드가 있는 경우와 데이터베이스 분할에 작성하거나 백 엔드에서 사용되므로 동일한 분할 정보가 필요한 상태 비저장 서비스 내에서 다른 준비 작업을 수행해야 하는 서비스 인스턴스를 제어하려는 경우입니다. 이러한 유형의 시나리오는 다른 방법으로 해결될 수 있으며 서비스 분할이 반드시 필요하지 않습니다.
+한 예로 특정 범위의 ID가 있는 사용자가 특정한 서비스 인스턴스로만 제공되어야 하는 경우 고려합니다. 상태 비저장 서비스를 분할할 수 있는 또 다른 예는 진정한 분할 된 백 엔드가 있는 경우 (예: SQL Database의 분할 된 데이터베이스), 데이터베이스 분할에 써야 하는 서비스 인스턴스를 제어 하려는 경우, 또는 상태 비저장 서비스 내에서 백 엔드에서 사용 되는 것과 동일한 분할 정보를 요구 하는 다른 준비 작업을 수행 하는 경우입니다. 이러한 유형의 시나리오는 다른 방법으로 해결될 수 있으며 서비스 분할이 반드시 필요하지 않습니다.
 
 이 연습의 나머지 부분에서는 상태 저장 서비스에 중점을 둡니다.
 
@@ -55,11 +44,11 @@ Service Fabric은 파티션 상태(데이터)에 최상의 방법을 제공하�
 결과적으로 클라이언트의 요청이 컴퓨터 간에 분산되므로 확장이 달성되고 애플리케이션의 전체 성능이 향상되며 데이터의 청크에 대한 액세스의 경합이 줄어듭니다.
 
 ## <a name="plan-for-partitioning"></a>분할에 대한 계획
-서비스를 구현하기 전에 확장하는 데 필요한 분할 전략을 항상 고려해야 합니다. 여러 가지 방법이 있지만 모든 방법은 애플리케이션이 달성해야 하는 것에 집중합니다. 이 문서의 컨텍스트에 대해 몇 가지 더 중요한 측면을 생각해 봅시다.
+서비스를 구현 하기 전에 규모를 확장 하는 데 필요한 분할 전략을 항상 고려해 야 합니다. 여러 가지 방법이 있지만 모든 응용 프로그램이 구현 해야 하는 작업에 중점을 둡니다. 이 문서의 컨텍스트에 대해 몇 가지 더 중요한 측면을 생각해 봅시다.
 
 첫 단계로 분할되어야 하는 상태의 구조에 대해 생각하는 것이 좋습니다.
 
-간단한 예를 살펴봅시다. County 전체 설문 조사에 대 한 서비스를 빌드 하려는 경우에 군에 있는 각 도시에 대 한 파티션을 만들 수 있습니다. 그런 다음 그 도시에 해당하는 파티션에 있는 도시에 속한 모든 사람의 투표 결과를 저장할 수 있습니다. 그림 3은 사람과 거주하는 도시의 집합을 보여 줍니다.
+간단한 예를 살펴봅시다. 관할지 전체 폴링에 대 한 서비스를 빌드하는 경우 관할지의 각 도시에 대 한 파티션을 만들 수 있습니다. 그런 다음 그 도시에 해당하는 파티션에 있는 도시에 속한 모든 사람의 투표 결과를 저장할 수 있습니다. 그림 3은 사람과 거주하는 도시의 집합을 보여 줍니다.
 
 ![간단한 파티션](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -84,7 +73,7 @@ Service Fabric은 파티션 상태(데이터)에 최상의 방법을 제공하�
 
 * 네트워크 대역폭 제한
 * 시스템 메모리 제한
-* 디스크 저장소 제한
+* 디스크 스토리지 제한
 
 그렇다면 실행 중인 클러스터에 리소스 제약이 발생하는 경우 어떻게 됩니까? 단순히 새 요구 사항에 맞게 클러스터를 확장할 수 있습니다.
 
@@ -126,7 +115,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
 > 
 > 
 
-1. **Visual Studio** > **파일** > **새로 만들기** > **프로젝트**를 엽니다.
+1. **Visual Studio**  >  **파일**  >  **새**  >  **프로젝트**를 엽니다.
 2. **새 프로젝트** 대화 상자에서 Service Fabric 애플리케이션을 선택합니다.
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
 4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 이름을 "Alphabet.Processing"으로 지정합니다.
@@ -163,9 +152,9 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
    
     이 서비스의 여러 복제본은 동일한 컴퓨터에서 호스팅될 수 있으므로 이 주소가 복제본에 고유해야 합니다. 이 때문에 URL에 파티션 ID와 복제본 ID가 있습니다. HttpListener는 URL 접두사가 고유하기만 하면 동일한 포트에서 여러 주소를 수신할 수 있습니다.
    
-    추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. 여기서 '+'는 IP, FQDN, localhost 등의 사용 가능한 모든 호스트에서 복제본이 수신 대기할 수 있도록 주소로 사용됩니다. 아래 코드는 예제를 보여 줍니다.
+    추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. ' + '는 사용 가능한 모든 호스트 (IP, FQDN, localhost 등)에서 수신 대기 하는 주소로 사용 됩니다. 아래 코드는 예제를 보여 줍니다.
    
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
          return new[] { new ServiceReplicaListener(context => this.CreateInternalListener(context))};
@@ -193,7 +182,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     수신 대기 URL이 HttpListener에 제공됩니다. 게시된 URL은 서비스 검색에 사용되는 서비스 패브릭 이름 명명 서비스에 게시된 URL입니다. 클라이언트는 해당 검색 서비스를 통해 이 주소에 대해 요청합니다. 클라이언트가 가져오는 주소에 연결하려면 노드의 실제 IP 또는 FQDN이 필요합니다. 따라서 아래와 같이 '+'를 노드의 IP 또는 FQDN으로 바꿔야 합니다.
 9. 마지막 단계는 아래와 같이 서비스에 처리 논리를 추가하는 것입니다.
    
-    ```CSharp
+    ```csharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         string output = null;
@@ -249,7 +238,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     ```
 13. Web 클래스의 ServiceInstanceListeners 컬렉션을 반환해야 합니다. 다시 간단한 HttpCommunicationListener를 구현하도록 선택할 수 있습니다.
     
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[] {new ServiceInstanceListener(context => this.CreateInputListener(context))};
@@ -265,7 +254,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     ```
 14. 이제 처리 논리를 구현해야 합니다. HttpCommunicationListener는 요청이 들어올 때 `ProcessInputRequest` 를 호출합니다. 따라서 계속해서 아래 코드를 추가합니다.
     
-    ```CSharp
+    ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         String output = null;
@@ -311,7 +300,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     
     단계 별로 안내하겠습니다. 코드는 쿼리 문자열 매개 변수 `lastname` 의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는 16진수 값에서 `A` 의 16진수 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
     
-    ```CSharp
+    ```csharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
@@ -320,19 +309,19 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     이 예제에서 파티션당 하나의 파티션 키를 가진 26개의 파티션을 사용합니다.
     그런 다음 `servicePartitionResolver` 개체의 `ResolveAsync` 메서드를 사용하여 이 키에 대한 서비스 파티션 `partition`을 가져옵니다. `servicePartitionResolver` 는 다음으로 정의됩니다.
     
-    ```CSharp
+    ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
     `ResolveAsync` 메서드는 매개 변수로 서비스 URI, 파티션 키 및 취소 토큰을 사용합니다. 처리 서비스의 서비스 URI는 `fabric:/AlphabetPartitions/Processing`입니다. 그런 다음 파티션의 엔드포인트를 가져옵니다.
     
-    ```CSharp
+    ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
     마지막으로 엔드포인트 URL 및 쿼리 문자열을 작성하고 처리 서비스를 호출합니다.
     
-    ```CSharp
+    ```csharp
     JObject addresses = JObject.Parse(ep.Address);
     string primaryReplicaAddress = (string)addresses["Endpoints"].First();
     
@@ -359,9 +348,6 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서 확인할 수 있습니다.
-
-## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services 및 작업자 포크 하위 프로세스
-Service Fabric은 신뢰할 수 있는 서비스 및 이후의 신뢰할 수 있는 작업자 포크 하위 프로세스를 지원하지 않습니다. [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet)를 사용하여 지원되지 않는 하위 프로세스를 등록할 수는 없는데, 취소 토큰은 등록된 프로세스로만 전송되므로 상위 프로세스가 취소 토큰을 수신한 후 하위 프로세스가 닫히지 않으면 업그레이드 오류 등의 많은 문제가 발생하기 때문입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하십시오.

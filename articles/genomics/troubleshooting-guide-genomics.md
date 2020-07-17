@@ -1,36 +1,35 @@
 ---
-title: 'Microsoft Genomics: 문제 해결 가이드 | Microsoft Docs'
-titleSuffix: Azure
-description: 문제 해결 전략에 대해 자세히 알아봅니다.
+title: 문제 해결 가이드
+titleSuffix: Microsoft Genomics
+description: 오류 메시지 및 문제 해결 방법을 비롯 하 여 Microsoft Genomics 사용에 대 한 문제 해결 전략에 대해 알아봅니다.
 keywords: 문제 해결, 오류, 디버깅
-services: microsoft-genomics
+services: genomics
 author: ruchir
-editor: jasonwhowell
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790507"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82100909"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
 Microsoft Genomics 서비스 MSGEN을 사용할 때 발생할 수 있는 일반적인 문제를 위한 몇 가지 문제 해결 팁입니다.
 
  문제 해결과 관련이 없는 FAQ의 경우 [일반적인 질문](frequently-asked-questions-genomics.md)을 참조하세요.
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>1단계: 워크플로와 연결 된 오류 코드 찾기
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>1단계: 워크플로와 연결된 오류 코드 찾기
 
 다음을 통해 워크플로와 연결된 오류 메시지를 찾을 수 있습니다.
 
 1. `msgen status` 명령줄 사용 및 입력
 2. standardoutput.txt의 콘텐츠 검사
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. `msgen status` 명령줄 사용
+### <a name="1-using-the-command-line-msgen-status"></a>1. 명령줄 사용`msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -82,7 +81,7 @@ msgen 실행 파일과 동일한 경로에 있는 config.txt 파일 및 워크�
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2.  standardoutput.txt의 콘텐츠 검사 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. standardoutput.txt의 내용을 검토 합니다. 
 질문의 워크플로에 대한 출력 컨테이너를 찾습니다. MSGEN은 모든 워크플로를 실행한 후 `[workflowfilename].logs.zip` 폴더를 만듭니다. 폴더의 압축을 풀어 해당 콘텐츠를 확인합니다.
 
 * outputFileList.txt - 워크플로 중에 생성된 출력 파일의 목록입니다.
@@ -93,14 +92,14 @@ msgen status -w 1001 -f "config.txt"
 문제 해결을 위해 standardoutput.txt의 콘텐츠를 검사하고 나타나는 오류 메시지를 기록합니다.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>2단계: 일반적인 오류에 대 한 권장된 단계를 시도 하세요.
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>2단계: 일반적인 오류에 대한 권장되는 단계를 시도합니다.
 
 이 섹션에서는 Microsoft Genomics 서비스(msgen)에서 출력되는 일반적인 오류와 이를 해결하는 데 사용할 수 있는 전략에 대해 간략히 설명합니다. 
 
 Microsoft Genomics 서비스(msgen)는 다음 두 종류의 오류를 throw할 수 있습니다.
 
-1. 내부 서비스 오류: 내부 매개 변수 또는 입력된 파일을 수정 하 여 확인할 수 없는 서비스에 있는 오류입니다. 경우에 따라 워크플로를 다시 전송하면 이러한 오류를 해결할 수도 있습니다.
-2. 입력된 오류: 파일 형식 수정 또는 올바른 인수를 사용 하 여 확인할 수 있는 오류입니다.
+1. 내부 서비스 오류: 매개 변수 또는 입력 파일 수정으로는 해결할 수 없는 서비스 내부의 오류입니다. 경우에 따라 워크플로를 다시 전송하면 이러한 오류를 해결할 수도 있습니다.
+2. 입력 오류: 올바른 인수 사용 및 파일 형식 수정으로 해결할 수 있는 오류입니다.
 
 ### <a name="1-internal-service-errors"></a>1. 내부 서비스 오류
 

@@ -1,5 +1,6 @@
 ---
-title: Azure API 관리 정책 샘플 - 로깅을 위해 Stackify에 오류 보내기 | Microsoft Docs
+title: 샘플 API management 정책-로깅을 위해 Stackify에 오류 보내기
+titleSuffix: Azure API Management
 description: Azure API 관리 정책 샘플 - 로깅을 위해 Stackify에 오류를 보내도록 오류 로깅 정책을 추가하는 방법을 보여줍니다.
 services: api-management
 documentationcenter: ''
@@ -9,16 +10,14 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 07cc83830fe2d467c611622bb66dfbb8c9429c2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6662761df005211729dffb16282b8e0a8e2a8444
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60860541"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75442449"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>로깅을 위해 Stackify에 오류 보내기
 

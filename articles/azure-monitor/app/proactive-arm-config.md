@@ -1,37 +1,30 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 Azure Application Insights 스마트 검색 규칙 설정 구성 | Microsoft Docs
+title: 스마트 검색 규칙 설정-Azure 애플리케이션 정보
 description: Azure Resource Manager 템플릿을 사용하여 Azure Application Insights 스마트 검색 규칙의 관리 및 구성 자동화
-services: application-insights
-documentationcenter: ''
-author: harelbr
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.reviewer: mbullwin
+author: harelbr
 ms.author: harelbr
-ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/26/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80294913"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
-[Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Application Insights의 스마트 검색 규칙을 관리하고 구성할 수 있습니다.
+[Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 Application Insights의 스마트 검색 규칙을 관리하고 구성할 수 있습니다.
 이 방법은 Azure Resource Manager 자동화를 사용하여 새 Application Insights 리소스를 배포하거나 기존 리소스의 설정을 수정할 때 사용할 수 있습니다.
 
 ## <a name="smart-detection-rule-configuration"></a>스마트 검색 규칙 구성
 
 스마트 검색 규칙에 대한 다음 설정을 구성할 수 있습니다.
-- 규칙을 사용하도록 설정된 경우(기본값은 **true**.)
-- 항목이 검색되었을 때 구독 소유자, 참가자 및 읽기 권한자에게 이메일을 보내야 하는 경우(기본값은 **true**.)
+- 규칙이 사용 되 면이 고, 기본값은 **true**입니다.
+- 검색이 검색 될 때 구독의 [모니터링 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [모니터링 참여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 역할에 연결 된 사용자에 게 전자 메일을 보내야 하는 경우 (기본값은 **true**입니다.)
 - 항목이 검색되었을 때 알림을 받아야 하는 추가 메일 수신인
-- * _미리 보기_로 표시된 스마트 검색 규칙에는 이메일 구성을 사용할 수 없습니다.
+    -  _미리 보기로_표시 된 스마트 검색 규칙에는 전자 메일 구성을 사용할 수 없습니다.
 
 Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이제 스마트 검색 규칙 구성은 Application Insights 리소스 내부에서 **ProactiveDetectionConfigs**라고 하는 내부 리소스로 제공됩니다.
 유연성을 극대화하기 위해 고유한 알림 설정을 사용하여 각 스마트 검색 규칙을 구성할 수 있습니다.
@@ -136,12 +129,13 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
 
 ```
 
+
 ## <a name="smart-detection-rule-names"></a>스마트 검색 규칙 이름
 
 아래 표에는 포털에 나타나는 스마트 검색 규칙 이름과 Azure Resource Manager 템플릿에서 사용해야 하는 내부 이름이 정리되어 있습니다.
 
 > [!NOTE]
-> 미리 보기로 표시된 스마트 검색 규칙은 이메일 알림을 지원하지 않습니다. 따라서 이러한 규칙에 대해 활성화된 속성만 설정할 수 있습니다. 
+> _미리 보기로_ 표시 된 스마트 검색 규칙은 전자 메일 알림을 지원 하지 않습니다. 따라서 이러한 규칙에 대해 _enabled_ 속성만 설정할 수 있습니다. 
 
 | Azure Portal 규칙 이름 | 내부 이름
 |:---|:---|
@@ -154,18 +148,45 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
 | 예외 볼륨의 비정상적인 증가(미리 보기) | extension_exceptionchangeextension |
 | 잠재적인 메모리 누수 검색됨(미리 보기) | extension_memoryleakextension |
 | 잠재적인 보안 문제 검색됨(미리 보기) | extension_securityextensionspackage |
-| 리소스 사용률 문제 검색됨(미리 보기) | extension_resourceutilizationextensionspackage |
+| 일일 데이터 볼륨의 비정상적인 증가 (미리 보기) | extension_billingdatavolumedailyspikeextension |
 
-## <a name="who-receives-the-classic-alert-notifications"></a>누가 (클래식) 경고 알림을 받나요?
+### <a name="failure-anomalies-alert-rule"></a>오류 비정상 경고 규칙
 
-이 섹션은 스마트 검색 클래식 경고에만 적용되며, 원하는 수신자만 알림을 받도록 경고 알림을 최적화하는 데 도움이 됩니다. [클래식 경고](../platform/alerts-classic.overview.md)와 새 경고 환경 간의 차이점에 대해 자세히 알아보려면 [경고 개요 문서](../platform/alerts-overview.md)를 참조하세요. 현재 스마트 검색 경고는 클래식 경고 환경만 지원합니다. 한 가지 예외는 [Azure 클라우드 서비스의 스마트 감지 경고](./proactive-cloud-services.md)입니다. Azure 클라우드 서비스의 스마트 감지 경고에 대한 경고 알림을 제어하려면 [작업 그룹](../platform/action-groups.md)을 사용합니다.
-
-* 스마트 검색/클래식 경고 알림에는 특정 수신자를 사용하는 것이 좋습니다.
-
-* 스마트 검색 경고의 경우 **대량/그룹** 확인란 옵션을 사용하도록 설정하면 구독에서 소유자, 기여자 또는 읽기 권한자 역할의 사용자에게 경고가 전송됩니다. 실제로 구독의 Application Insights 리소스에 대한 액세스 권한이 있는 _모든_ 사용자가 범위에 포함되며 알림을 받습니다. 
+이 Azure Resource Manager 템플릿에서는 심각도가 2 인 오류 비정상 경고 규칙을 구성 하는 방법을 보여 줍니다. 이 새 버전의 오류 비정상 경고 규칙은 새 Azure 경고 플랫폼의 일부 이며, [클래식 경고](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)사용 중지 프로세스의 일부로 사용 중지 중인 클래식 버전을 대체 합니다.
 
 > [!NOTE]
-> 현재 **대량/그룹** 확인란 옵션을 사용하고 있고 사용 안 함으로 설정하는 경우에는 변경 내용을 되돌릴 수 없습니다.
+> 오류 비정상은 글로벌 서비스 이므로 규칙 위치가 글로벌 위치에 만들어집니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Failure Anomalies - my-app",
+            "location": "global", 
+            "properties": {
+                  "description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls.",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                  "id": "FailureAnomaliesDetector"
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> 이 Azure Resource Manager 템플릿은 오류 비정상 경고 규칙에 고유 하며이 문서에 설명 된 다른 클래식 스마트 검색 규칙과 다릅니다. 오류 이상 상태를 수동으로 관리 하려는 경우에는 Azure Monitor 경고에서 수행 되는 반면 다른 모든 스마트 검색 규칙은 UI의 스마트 검색 창에서 관리 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

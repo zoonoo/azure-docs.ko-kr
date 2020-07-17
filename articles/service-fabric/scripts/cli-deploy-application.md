@@ -3,27 +3,25 @@ title: Azure Service Fabric CLI(sfctl) 스크립트 배포 샘플
 description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에 애플리케이션 배포
 services: service-fabric
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+author: athinanthny
+manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
-origin.date: 04/16/2018
-ms.date: 04/29/2019
-ms.author: v-yeche
+ms.date: 04/16/2018
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: f3ab32101a46c1044954f2efe88ac05ab81af24a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff40dc62b4dcd622156a78518bbdcb6b9b430644
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622001"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75526603"
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 배포
+# <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Service Fabric CLI를 사용하여 Service Fabric 클러스터에 애플리케이션 배포
 
 이 샘플 스크립트는 클러스터 이미지 저장소에 애플리케이션 패키지를 복사하고, 애플리케이션 유형을 클러스터에 등록하고, 해당 애플리케이션 유형에서 애플리케이션 인스턴스를 만듭니다. 이때 기본 서비스도 만들어집니다.
 
@@ -31,33 +29,7 @@ ms.locfileid: "60622001"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-```sh
-#!/bin/bash
-
-# Select cluster
-sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
-
-# Upload the application files to the image store
-# (note the last folder name, Debug in this example)
-sfctl application upload \
-    --path  C:\Code\svcfab-vs\svcfab-vs\pkg\Debug \
-    --show-progress
-
-# Register the application (manifest files) from the image store
-# (Note the last folder from the previous command is used: Debug)
-sfctl application provision \
-    --application-type-build-path Debug \
-    --timeout 500
-
-# Create an instance of the registered application and 
-# auto deploy any defined services
-sfctl application create \
-    --app-name fabric:/MyApp \
-    --app-type MyAppType \
-    --app-version 1.0.0
-
-```
+[!code-sh[main](../../../cli_scripts/service-fabric/deploy-application/deploy-application.sh "Deploy an application to a cluster")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -68,5 +40,3 @@ sfctl application create \
 자세한 내용은 [Service Fabric CLI 설명서](../service-fabric-cli.md)를 참조하세요.
 
 Azure Service Fabric에 대한 추가 Service Fabric CLI 샘플은 [Service Fabric CLI 샘플](../samples-cli.md)에서 확인할 수 있습니다.
-
-<!--Update_Description: update meta properties, update link -->

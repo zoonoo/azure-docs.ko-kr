@@ -1,23 +1,13 @@
 ---
 title: Linux에서 Java 웹앱 성능 모니터링 - Azure | Microsoft Docs
 description: Application Insights용 CollectD 플러그 인을 통해 Java 웹 사이트의 확장된 애플리케이션 성능 모니터링.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
-ms.author: mbullwin
-ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 03/14/2019
+ms.openlocfilehash: 62a723dad7e9f6c2bfdabde159968d507d2d5d41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60897753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81537528"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
 
@@ -37,7 +27,7 @@ Linux 시스템 성능 메트릭을[Application Insights](../../azure-monitor/ap
 Linux 서버 컴퓨터에서:
 
 1. [collectd](https://collectd.org/) 5.4.0 버전 또는 그 이상을 설치합니다.
-2. [Application Insights collectd 기록기 플러그 인](https://aka.ms/aijavasdk)을 다운로드합니다. 버전 번호를 메모합니다.
+2. [Application Insights collectd 기록기 플러그 인](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal)을 다운로드합니다. 버전 번호를 메모합니다.
 3. 플러그인JAR를 `/usr/share/collectd/java`에 복사합니다.
 4. 편집 `/etc/collectd/collectd.conf`:
    * [Java 플러그인](https://collectd.org/wiki/index.php/Plugin:Java) 사용하도록 설정 합니다.
@@ -91,7 +81,7 @@ Linux 서버 컴퓨터에서:
 Collectd를 해당 [설명서](https://collectd.org/wiki/index.php/First_steps)에 따라서 다시 시작합니다.
 
 ## <a name="view-the-data-in-application-insights"></a>Application Insights에서 데이터 보기
-Application Insights 리소스를 엽니다 [메트릭 차트를 추가한][metrics], 사용자 지정 범주에서 보려는 메트릭을 선택 합니다.
+Application Insights 리소스에서 메트릭을 열고 [차트를 추가][metrics]하 여 사용자 지정 범주에서 보려는 메트릭을 선택 합니다.
 
 기본적으로 메트릭을 수집한 모든 호트스 컴퓨터의 메트릭이 집계됩니다. 차트 세부 정보 블레이드에서 호스트마다 메트릭을 보려면 그룹화를 설정하고 CollectD 호스트별로 그룹화를 선택합니다.
 
@@ -103,7 +93,7 @@ Application Insights 리소스를 엽니다 [메트릭 차트를 추가한][metr
 * 구성 파일을 편집합니다. 
 * `<Plugin ApplicationInsightsWriter>`에서 다음과 같은 지시문 줄을 추가 합니다.
 
-| 지시문 | 결과 |
+| 지시문 | 영향 |
 | --- | --- |
 | `Exclude disk` |`disk` 플러그인에 의해 수집된 모든 데이터를 제외 |
 | `Exclude disk:read,write` |`disk` 플러그인에서 `read`과 `write`라고 명명된 원본을 제외합니다. |
@@ -114,7 +104,7 @@ Application Insights 리소스를 엽니다 [메트릭 차트를 추가한][metr
 *포털에 데이터가 표시되지 않습니다.*
 
 * [검색][diagnostic]을 열고 원시 이벤트가 도착했는지 확인합니다. 때로는 메트릭 탐색기에 나타날 때 시간이 오래 걸립니다.
-*  [나가는 데이터에 대한 방화벽 예외를 설정](../../azure-monitor/app/ip-addresses.md)
+* [나가는 데이터에 대한 방화벽 예외를 설정](../../azure-monitor/app/ip-addresses.md)
 * Application insights 플러그 인에서 추적을 사용할 수 있습니다. `<Plugin ApplicationInsightsWriter>`에서 이 줄 추가:
   * `SDKLogger true`
 * 터미널을 열고 세부정보 표시 모드를 시작하여 어떤 문제가 보고되었는지 확인합니다.
@@ -124,7 +114,7 @@ Application Insights 리소스를 엽니다 [메트릭 차트를 추가한][metr
 
 Application Insights 쓰기 플러그 인이 특정 읽기 플러그 인과 호환되지 않습니다. 경우에 따라 일부 플러그 인은 Application Insights 플러그 인에서 부동 소수점 숫자를 예상하는 위치로 “NaN”를 전송합니다.
 
-증상: 수집된 로그에 “AI: ... SyntaxError: 예기치 않은 token N"을 포함하는 오류가 표시됩니다.
+증상: collectd 로그에 "AI: ... SyntaxError: 예기치 않은 토큰 N ".
 
 해결 방법: 문제 쓰기 플러그 인에 의해 수집된 데이터를 제외합니다. 
 
@@ -137,6 +127,6 @@ Application Insights 쓰기 플러그 인이 특정 읽기 플러그 인과 호�
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 
 

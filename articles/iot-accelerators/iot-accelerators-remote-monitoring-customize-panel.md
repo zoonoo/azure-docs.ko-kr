@@ -1,20 +1,19 @@
 ---
-title: 원격 모니터링 솔루션 UI-Azure에 패널 추가 | Microsoft Docs
+title: 원격 모니터링 솔루션 UI에 패널 추가 - Azure | Microsoft Docs
 description: 이 문서에서는 원격 모니터링 솔루션 가속기 웹 UI의 대시보드에 새 패널을 추가하는 방법을 보여 줍니다.
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/05/2018
-ms.date: 11/26/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61447066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82187231"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI의 대시보드에 사용자 지정 패널 추가
 
@@ -25,7 +24,7 @@ ms.locfileid: "61447066"
 
 이 문서의 예제 패널은 기존 대시보드 페이지에 표시됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
@@ -46,6 +45,7 @@ ms.locfileid: "61447066"
 
 **examplePanel.js**
 
+[!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 **src/walkthrough/components/pages/dashboard/panels/examplePanel** 폴더를 **src/components/pages/dashboard/panels** 폴더에 복사합니다.
 
@@ -90,10 +90,10 @@ import {
 npm start
 ```
 
-이전 명령은 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)에서 UI를 로컬로 실행합니다. **대시보드** 페이지로 이동하여 새 패널을 확인합니다.
+이전 명령은 `http://localhost:3000/dashboard`에서 UI를 로컬로 실행합니다. **대시보드** 페이지로 이동하여 새 패널을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 원격 모니터링 솔루션 가속기의 웹 UI에서 대시보드를 추가하거나 사용자 지정하는 데 용이하게 사용할 수 있는 리소스에 대해 알아보았습니다.
 
-원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조하세요.
+원격 모니터링 솔루션 가속기에 대 한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조 하세요.

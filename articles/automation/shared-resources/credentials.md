@@ -1,88 +1,94 @@
 ---
-title: Azure Automation의 자격 증명 자산
-description: Azure Automation의 자격 증명 자산은 runbook 또는 DSC 구성을 통해 액세스 되는 리소스를 인증하는 보안 자격 증명을 포함합니다. 이 문서에서는 자격 증명 자산을 만들고 runbook 또는 DSC 구성에 사용하는 방법을 설명합니다.
+title: Azure Automation에서 자격 증명 관리
+description: 이 문서에서는 자격 증명 자산을 만들고 Runbook 또는 DSC 구성에 사용하는 방법을 설명합니다.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
-ms.date: 04/12/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6465fd069e73a571e0671d528f5d0b4da4602dc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499464"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187407"
 ---
-# <a name="credential-assets-in-azure-automation"></a>Azure Automation의 자격 증명 자산
+# <a name="manage-credentials-in-azure-automation"></a>Azure Automation에서 자격 증명 관리
 
-Automation 자격 증명 자산은 사용자 이름과 암호 같은 보안 자격 증명을 포함 하는 개체를 보유 합니다. Runbook과 DSC 구성은 인증을 위해 PSCredential 개체를 허용하는 cmdlet을 사용할 수 있고, 일부 애플리케이션 또는 인증이 필요한 서비스에 제공하기 위해 PSCredential 개체의 사용자 이름과 암호를 추출할 수 있습니다. 자격 증명의 속성은 Azure Automation에 안전하게 저장되며 [Get-AutomationPSCredential](#activities) 활동을 통해 runbook과 DSC 구성에서 액세스할 수 있습니다.
+Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자격 증명을 포함하는 개체를 보유합니다. Runbook 및 DSC 구성에서는 인증을 위해 [PSCredential](/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) 개체를 수락하는 cmdlet을 사용합니다. 또는 인증이 필요한 일부 애플리케이션이나 서비스에 제공할 `PSCredential` 개체의 사용자 이름과 암호를 추출할 수 있습니다. 
+
+>[!NOTE]
+>Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 Key Vault에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다. 
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-> [!NOTE]
-> Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. 이 키는 Key Vault에 저장됩니다. 보안 자산을 저장하기 전에 Key Vault에서 키가 로드된 다음, 자산을 암호화하는 데 사용됩니다.
+## <a name="powershell-cmdlets-used-to-access-credentials"></a>자격 증명에 액세스하는 데 사용되는 PowerShell cmdlet
 
-## <a name="azure-classic-powershell-cmdlets"></a>Azure 클래식 PowerShell cmdlet
+다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 자격 증명을 만들고 관리합니다. [Az 모듈](modules.md#az-modules)의 일부로 제공됩니다.
 
-다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다.  일부분으로 제공 합니다 [Azure PowerShell 모듈](/powershell/azure/overview), Automation runbook과 DSC 구성에 사용할 수 있는 합니다.
-
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential) |자격 증명 자산에 대한 정보를 검색합니다. **Get-AutomationPSCredential** 활동에서는 자격 증명 자체만 검색할 수 있습니다. |
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |새 Automation 자격 증명을 만듭니다. |
-| [Remove-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Automation 자격 증명을 제거합니다. |
-| [Set-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |기존 Automation 자격 증명에 대한 속성을 설정합니다. |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |자격 증명에 대한 메타데이터를 포함하는 [CredentialInfo](/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) 개체를 검색합니다. Cmdlet은 `PSCredential` 개체 자체를 검색하지 않습니다.  |
+| [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |새 Automation 자격 증명을 만듭니다. |
+| [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Automation 자격 증명을 제거합니다. |
+| [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |기존 Automation 자격 증명에 대한 속성을 설정합니다. |
 
-## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
+## <a name="other-cmdlets-used-to-access-credentials"></a>자격 증명에 액세스하는 데 사용되는 기타 cmdlet
 
-AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다.  일부분으로 제공 합니다 [AzureRM.Automation 모듈](/powershell/azure/overview), Automation runbook과 DSC 구성에 사용할 수 있는 합니다.
+다음 표의 cmdlet은 Runbook 및 DSC 구성에서 자격 증명에 액세스하는 데 사용됩니다. 
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 |:--- |:--- |
-| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |자격 증명 자산에 대한 정보를 검색합니다. 이 PSCredential 개체를 반환 하지 않습니다.  |
-| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |새 Automation 자격 증명을 만듭니다. |
-| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Automation 자격 증명을 제거합니다. |
-| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |기존 Automation 자격 증명에 대한 속성을 설정합니다. |
+| `Get-AutomationPSCredential` |Runbook 또는 DSC 구성에 사용하는 `PSCredential` 개체를 가져옵니다. `Get-AzAutomationCredential` cmdlet은 자격 증명 정보만 검색하기 때문에 대개 이 [내부 cmdlet](modules.md#internal-cmdlets)을 대신 사용합니다. 이 정보는 일반적으로 다른 cmdlet에 전달하는 데 유용하지 않습니다. |
+| [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |사용자 이름 및 암호에 대한 프롬프트로 자격 증명을 가져옵니다. 이 cmdlet은 기본 Microsoft.PowerShell.Security 모듈의 일부입니다. [기본 모듈](modules.md#default-modules)을 참조하세요.|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | 자격 증명을 만듭니다. 이 cmdlet은 기본 Azure 모듈의 일부입니다. [기본 모듈](modules.md#default-modules)을 참조하세요.|
 
-## <a name="activities"></a>활동
+코드에서 `PSCredential` 개체를 검색하려면 `Orchestrator.AssetManagement.Cmdlets` 모듈을 가져와야 합니다. 자세한 내용은 [Azure Automation에서 모듈 관리](modules.md)를 참조하세요.
 
-다음 표의 활동은 runbook과 DSC 구성의 자격 증명에 액세스하는데 사용됩니다.
-
-| 활동 | 설명 |
-|:--- |:--- |
-| Get-AutomationPSCredential |Runbook 또는 DSC 구성에 사용하는 자격 증명을 가져옵니다. [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) 개체를 반환합니다. |
+```azurepowershell
+Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
+```
 
 > [!NOTE]
-> Get-AutomationPSCredential의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
+> `Get-AutomationPSCredential`의 `Name` 매개 변수에는 변수를 사용하면 안 됩니다. 변수를 사용하면 디자인 타임에 Runbook 또는 DSC 구성과 자격 증명 자산 간의 종속성 검색이 복잡해질 수 있습니다.
 
-## <a name="python2-functions"></a>Python2 함수
+## <a name="python-2-functions-that-access-credentials"></a>자격 증명에 액세스하는 Python 2 함수
 
-다음 표의 함수는 Python2 Runbook의 자격 증명에 액세스하는 데 사용됩니다.
+다음 표의 함수는 Python 2 Runbook의 자격 증명에 액세스하는 데 사용됩니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 |:---|:---|
-| automationassets.get_automation_credential | 자격 증명 자산에 대한 정보를 검색합니다. |
+| `automationassets.get_automation_credential` | 자격 증명 자산에 대한 정보를 검색합니다. |
 
 > [!NOTE]
-> 자산 함수에 액세스하려면 Python Runbook 맨 위에서 "automationassets" 모듈을 가져와야 합니다.
+> 자산 함수에 액세스하려면 Python Runbook 맨 위에서 `automationassets` 모듈을 가져옵니다.
 
-## <a name="creating-a-new-credential-asset"></a>새 자격 증명 자산 만들기
+## <a name="create-a-new-credential-asset"></a>새 자격 증명 자산 만들기
 
-### <a name="to-create-a-new-credential-asset-with-the-azure-portal"></a>Azure 포털을 사용하여 새 자격 증명 자산을 만들려면
+Microsoft Azure Portal 또는 Windows PowerShell을 사용하여 새 자격 증명 자산을 만들 수 있습니다.
+
+### <a name="create-a-new-credential-asset-with-the-azure-portal"></a>Microsoft Azure Portal을 사용하여 새 자격 증명 자산 만들기
 
 1. Automation 계정으로 **공유 리소스** 아래에서 **자격 증명**을 선택합니다.
-1. **자격 증명 추가**를 클릭합니다.
-1. 양식을 완료하고 **만들기** 를 클릭하여 새 자격 증명을 저장합니다.
+1. **자격 증명 추가**를 선택합니다.
+2. 새 자격 증명 창에서 이름 지정 표준에 따라 적절한 자격 증명 이름을 입력합니다. 
+3. **사용자 이름** 필드에 액세스 ID를 입력합니다. 
+4. 두 암호 필드 모두에 비밀 액세스 키를 입력합니다.
+
+    ![새 자격 증명 만들기](../media/credentials/credential-create.png)
+
+5. 다단계 인증 확인란이 선택되어 있으면 선택을 취소합니다. 
+6. **만들기** 를 클릭하여 새 자격 증명 자산을 저장합니다.
 
 > [!NOTE]
-> 다단계 인증을 사용하는 사용자 계정은 Azure Automation에서 사용할 수 없습니다.
+> 다단계 인증을 사용하는 사용자 계정은 Azure Automation에서 지원되지 않습니다.
 
-### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 자격 증명 자산을 만들려면
+### <a name="create-a-new-credential-asset-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 자격 증명 자산 만들기
 
-다음 명령 예제에서는 새 자동화 자격 증명을 만드는 방법을 보여 줍니다. 먼저 이름 및 암호를 사용하여 PSCredential 개체를 만든 다음 이를 사용하여 자격 증명 자산을 만듭니다. 또는 **Get-Credential** cmdlet을 사용하여 이름 및 암호를 입력하라는 메시지를 표시할 수 있습니다.
+다음 예제에서는 새 Automation 자격 증명 자산을 만드는 방법을 보여줍니다. 먼저 이름 및 암호를 사용하여 `PSCredential` 개체를 만든 다음, 이를 사용하여 자격 증명 자산을 만듭니다. 대신 `Get-Credential` cmdlet을 사용하여 사용자에게 이름과 암호를 입력하라는 메시지를 표시할 수 있습니다.
 
 ```powershell
 $user = "MyDomain\MyUser"
@@ -91,16 +97,19 @@ $cred = New-Object –TypeName System.Management.Automation.PSCredential –Argu
 New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 ```
 
-## <a name="using-a-powershell-credential"></a>PowerShell 자격 증명 사용
+## <a name="get-a-credential-asset"></a>자격 증명 자산 가져오기
 
-**Get-AutomationPSCredential** 활동을 사용하여 runbook 또는 DSC 구성의 자격 증명 자산을 검색합니다. 그러면 PSCredential 매개 변수가 필요한 활동 또는 cmdlet에서 사용할 수 있는 [PSCredential 개체](/dotnet/api/system.management.automation.pscredential) 가 반환됩니다. 자격 증명 개체의 속성을 검색하여 개별적으로 사용할 수도 있습니다. 이 개체에는 사용자 이름 및 보안 암호에 대한 속성이 있으며, **GetNetworkCredential** 메서드를 사용하여 보안되지 않은 버전의 암호를 제공하는 [NetworkCredential](/dotnet/api/system.net.networkcredential) 개체를 반환할 수도 있습니다.
+Runbook 또는 DSC 구성은 내부 `Get-AutomationPSCredential` cmdlet을 사용하여 자격 증명 자산을 검색합니다. 이 cmdlet은 자격 증명이 필요한 cmdlet에 사용할 수 있는 `PSCredential` 개체를 가져옵니다. 자격 증명 개체의 속성을 검색하여 개별적으로 사용할 수도 있습니다. 개체에는 사용자 이름과 보안 암호에 대한 속성이 있습니다. 
 
 > [!NOTE]
-> **Get-azurermautomationcredential** 반환 하지 않는 한 **PSCredential** 인증에 사용할 수 있습니다. 만 자격 증명에 대 한 정보를 제공합니다. Runbook에서 자격 증명을 사용 해야 하는 경우 사용 해야 합니다 **Get-automationpscredential** 를 검색 하는 **PSCredential** 개체입니다.
+> `Get-AzAutomationCredential` cmdlet은 인증에 사용할 수 있는 `PSCredential` 개체를 검색하지 않습니다. 자격 증명에 대한 정보만 제공합니다. Runbook에서 자격 증명을 사용해야 하는 경우 `Get-AutomationPSCredential`을 사용하여 `PSCredential` 개체로 검색해야 합니다.
 
-### <a name="textual-runbook-sample"></a>텍스트 Runbook 샘플
+또는 [GetNetworkCredential](/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) 메서드를 사용하여 보안되지 않은 버전의 암호를 나타내는 [NetworkCredential](/dotnet/api/system.net.networkcredential) 개체를 검색할 수 있습니다.
 
-다음 명령 예제에서는 Runbook에서 PowerShell 자격 증명을 사용하는 방법을 보여 줍니다. 이 예제에서는 자격 증명을 검색하고 해당 사용자 이름 및 암호를 변수에 할당합니다.
+### <a name="textual-runbook-example"></a>텍스트 Runbook 예제
+
+다음 예제에서는 Runbook에서 PowerShell 자격 증명을 사용하는 방법을 보여줍니다. 자격 증명을 검색하고 해당 사용자 이름과 암호를 변수에 할당합니다.
+
 
 ```azurepowershell
 $myCredential = Get-AutomationPSCredential -Name 'MyCredential'
@@ -109,36 +118,38 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-사용 하 여 Azure에 인증 자격 증명을 사용할 수도 있습니다 [Connect-azurermaccount](/powershell/module/azurerm.profile/connect-azurermaccount)합니다. 대부분의 상황을 사용할지는 [실행 계정](../manage-runas-account.md) 검색 하 고 [Get-automationconnection](../automation-connections.md)합니다.
+자격 증명을 사용하여 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.3.0)로 Azure에 인증할 수도 있습니다. 대부분의 경우 [실행 계정](../manage-runas-account.md)을 사용하고 [Get-AzAutomationConnection](../automation-connections.md)으로 연결을 검색해야 합니다.
+
 
 ```azurepowershell
-$myCred = Get-AutomationPSCredential -Name 'MyCredential`
+$myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password
 
 $myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$password)
 
-Connect-AzureRmAccount -Credential $myPsCred
+Connect-AzAccount -Credential $myPsCred
 ```
 
-### <a name="graphical-runbook-sample"></a>그래픽 Runbook 샘플
+### <a name="graphical-runbook-example"></a>그래픽 Runbook 예제
 
-그래픽 편집기의 라이브러리 창에서 자격 증명을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택하여 **Get-AutomationPSCredential**를 그래픽 Runbook에 추가합니다.
+그래픽 편집기의 라이브러리 창에서 자격 증명을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택하여 내부 `Get-AutomationPSCredential` cmdlet에 대한 활동을 그래픽 Runbook에 추가할 수 있습니다.
 
 ![캔버스에 자격 증명 추가](../media/credentials/credential-add-canvas.png)
 
-다음 그림에서는 그래픽 Runbook에서 자격 증명을 사용하는 예제를 보여 줍니다.  이 예에 설명 된 대로 Azure 리소스에 runbook에 대 한 인증을 제공 되는 [Azure AD 사용자 계정으로 Runbook 인증](../automation-create-aduser-account.md)합니다.  첫 번째 활동에서는 Azure 구독에 액세스할 수 있는 자격 증명을 검색합니다.  그런 다음 **Add-AzureAccount** 활동에서 이 자격 증명을 사용하여 이후의 모든 활동에 대한 인증을 제공합니다.  [Get-AutomationPSCredential](../automation-graphical-authoring-intro.md#links-and-workflow) 에는 단일 개체가 필요하기 때문에 여기에서는 **파이프라인 링크** 를 사용합니다.  
+다음 그림에서는 그래픽 Runbook에서 자격 증명을 사용하는 예제를 보여 줍니다. 이 경우 자격 증명은 [Azure Automation에서 Microsoft Azure Active Directory를 사용하여 Azure에 인증](../automation-use-azure-ad.md)에 설명된 대로 Runbook에 대한 인증을 Azure 리소스에 제공합니다. 첫 번째 활동에서는 Azure 구독에 액세스할 수 있는 자격 증명을 검색합니다. 그런 다음, 계정 연결 활동에서 이 자격 증명을 사용하여 이후의 모든 활동에 대한 인증을 제공합니다. `Get-AutomationPSCredential`에는 단일 개체가 필요하기 때문에 [파이프라인 링크](../automation-graphical-authoring-intro.md#use-links-for-workflow)가 여기에 사용됩니다.  
 
 ![캔버스에 자격 증명 추가](../media/credentials/get-credential.png)
 
-## <a name="using-a-powershell-credential-in-dsc"></a>DSC에서 PowerShell 자격 증명을 사용
+## <a name="use-credentials-in-a-dsc-configuration"></a>DSC 구성에서 자격 증명 사용
 
-Azure Automation에서 DSC 구성을 사용 하 여 자격 증명 자산을 참조할 수 있습니다 **Get-automationpscredential**, 자격 증명 자산도 전달할 수의 매개 변수를 통해 원하는 경우. 자세한 내용은 [Azure Automation DSC에서 구성을 컴파일](../automation-dsc-compile.md#credential-assets)을 참조하세요.
+Azure Automation의 DSC 구성은 `Get-AutomationPSCredential`을 사용하여 자격 증명 자산에서 작동할 수 있지만 매개 변수를 통해 자격 증명 자산을 전달할 수도 있습니다. 자세한 내용은 [Azure Automation DSC에서 구성을 컴파일](../automation-dsc-compile.md#credential-assets)을 참조하세요.
 
-## <a name="using-credentials-in-python2"></a>Python2에서 자격 증명 사용
+## <a name="use-credentials-in-a-python-2-runbook"></a>Python 2 Runbook에서 자격 증명 사용
 
-다음 샘플에서는 Python2 Runbook의 자격 증명에 액세스하는 예제를 보여 줍니다.
+다음 예제에서는 Python 2 Runbook의 자격 증명에 액세스하는 예를 보여줍니다.
+
 
 ```python
 import automationassets
@@ -152,8 +163,6 @@ print cred["password"]
 
 ## <a name="next-steps"></a>다음 단계
 
-* 그래픽 작성 링크에 대해 자세히 알아보려면 [그래픽 작성 링크](../automation-graphical-authoring-intro.md#links-and-workflow)
-* 자동자동화가 포함된 다양한 메서드를 이해하려면 [Azure Automation 보안](../automation-security-overview.md)
-* 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](../automation-first-runbook-graphical.md)
-* PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](../automation-first-runbook-textual.md)
-* Python2 Runbook을 시작하려면 [내 첫 번째 Python2 Runbook](../automation-first-runbook-textual-python2.md)을 참조하세요. 
+* 인증서에 액세스하는 데 사용되는 cmdlet에 대한 자세한 내용은 [Azure Automation에서 모듈 관리](modules.md)를 참조하세요.
+* Runbook에 대한 일반적인 정보는 [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)을 참조하세요.
+* DSC 구성에 대한 자세한 내용은 [Azure Automation State Configuration 개요](../automation-dsc-overview.md)를 참조하세요. 

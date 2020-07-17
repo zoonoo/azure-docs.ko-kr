@@ -6,31 +6,49 @@
       href: overview.md
 - name: 빠른 시작
   items:
-    - name: 특정 앱에 대한 MFA 필요
-      href: app-based-mfa.md
     - name: 사용 약관 허용 필요
       href: require-tou.md
-    - name: 세션 위험이 감지되면 액세스 차단
-      href: app-sign-in-risk.md
 - name: 자습서
   items:
-    - name: 클래식 MFA 정책 마이그레이션
-      href: policy-migration-mfa.md
+    - name: Azure Multi-Factor Authentication 필요
+      href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: 개념
   expanded: false
   items:
-    - name: 기준 보호 정책
-      href: concept-baseline-protection.md
-    - name: 조건
-      href: conditions.md
-    - name: 위치 조건
-      href: location-condition.md
-    - name: 컨트롤
-      href: controls.md
+    - name: 일반 조건부 액세스 정책
+      href: concept-conditional-access-policy-common.md
+    - name: 조건부 액세스 정책 구성 요소
+      href: concept-conditional-access-policies.md
+    - name: 할당
+      items:
+        - name: 개요
+          href: concept-conditional-access-users-groups.md
+        - name: 클라우드 앱 또는 작업
+          href: concept-conditional-access-cloud-apps.md
+        - name: 조건
+          href: concept-conditional-access-conditions.md
+    - name: 액세스 제어
+      items:
+        - name: 허용
+          href: concept-conditional-access-grant.md
+        - name: 세션
+          href: concept-conditional-access-session.md
+    - name: 인사이트 및 보고
+      href: howto-conditional-access-insights-reporting.md
+    - name: 보고서 전용 모드
+      href: concept-conditional-access-report-only.md
     - name: 서비스 종속성
       href: service-dependencies.md
+    - name: 위치 조건
+      href: location-condition.md
     - name: What if 도구
       href: what-if-tool.md
+    - name: 사용자 지정 컨트롤
+      href: controls.md
+    - name: 클래식 정책 마이그레이션
+      href: policy-migration.md
+    - name: 기준 보호 정책
+      href: concept-baseline-protection.md
 - name: 방법 가이드
   expanded: true
   items:
@@ -38,49 +56,77 @@
       href: plan-conditional-access.md
     - name: 모범 사례
       href: best-practices.md
-    - name: 기준 정책
+    - name: 일반 조건부 액세스 정책
       items:
-        - name: 관리자에 대해 MFA 요구
-          href: howto-baseline-protect-administrators.md
-        - name: 최종 사용자 보호
-          href: howto-baseline-protect-end-users.md
         - name: 레거시 인증 차단
-          href: howto-baseline-protect-legacy-auth.md
-        - name: 서비스 관리를 위해 MFA 요구
-          href: howto-baseline-protect-azure.md
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: 관리자용 MFA 필요
+          href: howto-conditional-access-policy-admin-mfa.md
+        - name: Azure 관리용 MFA 필요
+          href: howto-conditional-access-policy-azure-management.md
+        - name: 모든 사용자용 MFA 필요
+          href: howto-conditional-access-policy-all-users-mfa.md
+        - name: 위험 기반 조건부 액세스 로그인
+          href: howto-conditional-access-policy-risk.md
+        - name: 사용자 위험 기반 조건부 액세스
+          href: howto-conditional-access-policy-risk-user.md
+        - name: 보안 정보 등록 보호
+          href: howto-conditional-access-policy-registration.md
+        - name: 위치별 액세스 차단
+          href: howto-conditional-access-policy-location.md
+        - name: 준수 디바이스 필요
+          href: howto-conditional-access-policy-compliant-device.md
+        - name: 액세스 차단
+          href: howto-conditional-access-policy-block-access.md
     - name: 레거시 인증 차단
       href: block-legacy-authentication.md
-    - name: 클래식 정책 마이그레이션
-      href: policy-migration.md
-    - name: 로그인 빈도 및 브라우저 지속성 컨트롤
-      href: howto-conditional-access-session-lifetime.md
     - name: 승인된 클라이언트 앱 필요
       href: app-based-conditional-access.md
     - name: 앱 보호 정책 필요
       href: app-protection-based-conditional-access.md
     - name: 관리 디바이스 필요
       href: require-managed-devices.md
-    - name: MFA 등록을 위해 신뢰할 수 있는 네트워크 필요
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: 신뢰할 수 없는 네트워크의 액세스 시도에 대한 MFA 필요
       href: untrusted-networks.md
     - name: 사용 약관 필요
       href: terms-of-use.md
-- name: 참고 자료
+    - name: 보고서 전용 모드 구성
+      href: howto-conditional-access-report-only.md
+    - name: 로그인 빈도 및 브라우저 지속성 컨트롤
+      href: howto-conditional-access-session-lifetime.md
+    - name: 클래식 정책 마이그레이션
+      href: policy-migration-mfa.md
+    - name: 문제 해결
+      items:
+        - name: 로그인 문제 해결
+          href: troubleshoot-conditional-access.md
+        - name: What If 도구를 사용하여 문제 해결
+          href: troubleshoot-conditional-access-what-if.md
+        - name: FAQ
+          href: faqs.md
+- name: 참조
   items:
-    - name: 기술 참조
-      href: technical-reference.md
+    - name: 베타 Graph API
+      items:
+        - name: conditionalAccessPolicy API
+          href: /graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta
+        - name: namedLocation API
+          href: /graph/api/resources/namedlocation?view=graph-rest-beta
+        - name: countryNamedLocation API
+          href: /graph/api/resources/countrynamedlocation?view=graph-rest-beta
+        - name: ipNamedLocation API
+          href: /graph/api/resources/ipnamedlocation?view=graph-rest-beta
 - name: 리소스
   items:
     - name: Azure 피드백 포럼
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
-    - name: 가격
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

@@ -1,11 +1,10 @@
 ---
 title: Azure Security Center에서 파일 무결성 모니터링 | Microsoft Docs
-description: " Azure Security Center에서 파일 무결성 모니터링을 사용하도록 설정하는 방법을 알아봅니다. "
+description: 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -13,16 +12,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
-ms.author: monhaber
-ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: memildin
+ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628284"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
+
+
+## <a name="availability"></a>가용성
+
+- 릴리스 상태: **일반 공급**
+- 필수 역할: **작업 영역 소유자** 는 FIM을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대 한 Azure 역할](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)을 참조 하세요. **판독기** 가 결과를 볼 수 있습니다.
+- 클라우드:
+    - ✔ 상용 클라우드
+    - ✔ US Gov 클라우드
+    - ✘ 중국 .Gov/기타 .Gov
+
 
 ## <a name="what-is-fim-in-security-center"></a>Security Center의 FIM이란?
 변경 모니터링이라고도 하는 FIM(파일 무결성 모니터링)은 공격을 나타낼 수 있는 변경에 대해 운영 체제, 애플리케이션 소프트웨어 및 다른 요소의 파일과 레지스트리를 검사합니다. 비교 메서드는 파일의 현재 상태가 파일의 마지막 검사와 다른지 확인하는 데 사용됩니다. 이 비교를 활용하여 파일에 대해 유효하거나 의심스러운 수정 사항이 있는지 확인할 수 있습니다.
@@ -38,15 +47,47 @@ Security Center에서는 모니터링할 엔터티를 권장하며 FIM을 쉽게
 > [!NOTE]
 > FIM(파일 무결성 모니터링) 기능은 Windows/Linux 컴퓨터 및 VM에서 작동하며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
 
-FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용 해야는 **변경 내용 추적** 종류의 리소스 **솔루션**합니다. 데이터 수집 빈도 정보를 참조 하세요 [데이터 컬렉션 세부 정보 변경 내용 추적](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) Azure 변경 내용 추적에 대 한 합니다.
+FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용 하도록 설정 하면 **솔루션**형식 **변경 내용 추적** 리소스가 있습니다. 데이터 수집 빈도에 대한 자세한 내용은 Azure 변경 내용 추적의 [변경 내용 추적 데이터 수집 세부 정보](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details)를 참조하세요.
 
 > [!NOTE]
-> 제거 하는 경우는 **변경 내용 추적** 리소스 있습니다 모니터링 Security Center에서 기능 파일 무결성도 해제 됩니다.
+> **변경 내용 추적** 리소스를 제거 하는 경우 Security Center 에서도 파일 무결성 모니터링 기능을 사용 하지 않도록 설정 합니다.
 
 ## <a name="which-files-should-i-monitor"></a>어떤 파일을 모니터링해야 할까요?
 모니터링할 파일을 선택할 때 시스템 및 애플리케이션에 중요한 파일을 고려해야 합니다. 계획 없이 변경할 것으로 예상되지 않는 파일을 선택합니다. 애플리케이션이나 운영 체제(예: 로그 파일 및 텍스트 파일)에서 자주 변경되는 파일을 선택하면 공격을 식별하기 어렵게 만드는 노이즈가 많이 발생합니다.
 
-Security Center에서는 파일 및 레지스트리 변경 내용이 포함된 알려진 공격 패턴에 따라 기본적으로 모니터링해야 하는 파일을 사용하는 것이 좋습니다.
+Security Center는 알려진 공격 패턴을 기준으로 모니터링할 권장 항목 목록을 제공 합니다. 여기에는 파일 및 Windows 레지스트리 키가 포함 됩니다. 모든 키는 HKEY_LOCAL_MACHINE (테이블의 "HKLM") 아래에 있습니다.
+
+|**Linux 파일**|**Windows 파일**|**Windows 레지스트리 키**|
+|:----|:----|:----|
+|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/*.|C:\config.sys|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini \boot|
+|/usr/bin|C:\Windows\system.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows|
+|/usr/sbin|C:\Windows\win.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/bin|C:\Windows\regedit.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell 폴더|
+|/sbin|C:\Windows\System32\userinit.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell 폴더|
+|/boot|C:\Windows\explorer.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run|
+|/usr/local/bin|C:\Program Files\Microsoft Security Client\msseces.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce|
+|/usr/local/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|/opt/bin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices|
+|/opt/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|경우/etc/init.d 그리고||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/cron.hourly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini \boot|
+|/etc/cron.daily||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Windows|
+|/etc/cron.weekly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/etc/cron.monthly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Shell 폴더|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\User Shell 폴더|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServices|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|||HKLM\SYSTEM\CurrentControlSet\Control\hivelist|
+|||HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\DomainProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
 ## <a name="using-file-integrity-monitoring"></a>파일 무결성 모니터링 사용
 1. **Security Center** 대시보드를 엽니다.
@@ -86,15 +127,14 @@ Security Center에서는 파일 및 레지스트리 변경 내용이 포함된 �
 
 > [!NOTE]
 > 언제든지 설정을 변경할 수 있습니다. 자세한 내용은 아래의 모니터링되는 엔터티 편집을 참조하세요.
->
->
+
 
 ## <a name="view-the-fim-dashboard"></a>FIM 대시보드 보기
 FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** 대시보드가 표시됩니다. 작업 영역에서 FIM을 사용하도록 설정한 후이거나 FIM이 이미 사용되는 **파일 무결성 모니터링** 창에서 작업 영역을 선택하면 FIM 대시보드가 열립니다.
 
 ![파일 무결성 모니터링 대시보드][6]
 
-작업 영역에 대한 FIM 대시보드에서 표시하는 항목은 다음과 같습니다.
+작업 영역에 대 한 FIM 대시보드에는 다음과 같은 세부 정보가 표시 됩니다.
 
 - 작업 영역에 연결된 총 컴퓨터 수
 - 선택한 기간 동안 발생한 총 변경 횟수
@@ -110,7 +150,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 - 선택한 기간 동안 발생한 총 변경 횟수
 - 파일 변경 또는 레지스트리 변경으로 인한 총 변경 횟수에 대한 분석
 
-검색 필드에서 컴퓨터 이름을 입력하거나 [컴퓨터] 탭 아래에 나열된 컴퓨터를 선택하면 **로그 검색**이 열립니다. 로그 검색은 컴퓨터에 대해 선택한 기간 동안 변경된 모든 내용을 표시합니다. 자세한 내용을 확인하려면 변경 내용을 펼칠 수 있습니다.
+**로그 검색** 은 검색 필드에 컴퓨터 이름을 입력 하거나 컴퓨터 탭에 나열 된 컴퓨터를 선택 하면 열립니다. 로그 검색은 컴퓨터에 대해 선택한 기간 동안 수행 된 모든 변경 내용을 표시 합니다. 자세한 내용을 확인하려면 변경 내용을 펼칠 수 있습니다.
 
 ![로그 검색][8]
 
@@ -133,7 +173,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
    ![설정][11]
 
-   **작업 영역 구성**이 열리고 세 개의 탭 **Windows 레지스트리**, **Windows 파일** 및 **Linux 파일**이 표시됩니다. 각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. Security Center에서는 나열된 각 엔터티에 대해 FIM을 사용하거나(true) 사용하지 않도록(false) 설정되었는지를 식별합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
+   **Windows 레지스트리**, **Windows 파일** 및 **Linux 파일**의 세 가지 탭을 표시하는 **작업 영역 구성**이 열립니다. 각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. Security Center에서는 나열된 각 엔터티에 대해 FIM을 사용하거나(true) 사용하지 않도록(false) 설정되었는지를 식별합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
    ![작업 영역 구성][12]
 
@@ -200,14 +240,10 @@ FIM을 사용하지 않도록 설정할 수 있습니다. FIM은 Azure 변경 �
 4. **제거**를 선택하여 사용하지 않도록 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Security Center에서 FIM(파일 무결성 모니터링)을 사용하는 방법에 대해 알아보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Security Center에서 FIM (파일 무결성 모니터링)을 사용 하는 방법을 배웠습니다. Security Center에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
-* [보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
+* [보안 정책 설정](tutorial-security-policy.md) --Azure 구독 및 리소스 그룹에 대 한 보안 정책을 구성 하는 방법을 알아봅니다.
 * [보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항을 통해 Azure 리소스를 보호하는 방법을 알아봅니다.
-* [보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 알아봅니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/)-- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->

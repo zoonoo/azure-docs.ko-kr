@@ -1,68 +1,105 @@
 ---
-title: -Azure Search 인덱스에 미리 입력 쿼리를 추가 합니다.
-description: 확인 기를 만들고 쿼리 용어를 autosuggested 또는 자동 완성을 호출 하는 요청을 공식화 하 여 Azure Search의 미리 입력 쿼리 작업을 사용 합니다.
-ms.date: 05/02/2019
-services: search
-ms.service: search
+title: 제안기 만들기
+titleSuffix: Azure Cognitive Search
+description: 자동 완성 또는 자동 제안 쿼리 용어를 호출 하는 확인 기 및 공식화 요청을 만들어 Azure Cognitive Search에서 미리 입력 쿼리 작업을 사용 하도록 설정 합니다.
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
-ms.manager: cgronlun
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.date: 04/21/2020
+ms.openlocfilehash: 2a0798ee923624aef9f29c1e9cc30f38b55770a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521879"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565322"
 ---
-# <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Azure Search의 미리 입력에 대 한 인덱스를 확인 기 추가
+# <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
-A **suggester** 의 구조 이며는 [Azure Search 인덱스](search-what-is-an-index.md) "검색---입력할 때" 환경을 지 원하는 합니다. 이 미리 입력 쿼리 입력을 사용 하도록 설정 하려는 필드의 목록을 포함 합니다. 인덱스 내에서 동일한 확인 기 이러한 두 가지 미리 입력 변형 중 하나 또는 모두를 지원: *자동 완성* 단어 또는 구를 입력 하는 완료 *제안* 결과의 짧은 목록을 제공 합니다. 
+Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-is-an-index.md)에 추가 된 **확인 기** 구문을 통해 사용 하도록 설정 됩니다. 확인 기는 두 가지 환경을 지원 합니다. *자동 완성*은 전체 용어 쿼리를 위한 부분 입력을 완료 하 고,는 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
 
-다음 스크린샷은 두 미리 입력 기능을 보여 줍니다. 이 Xbox 검색 페이지에서 자동 완성 항목을 이동할 수 해당 쿼리에 대 한 새 검색 결과 페이지 반면 제안 특정 게임에 대 한 페이지로 이동 하는 실제 결과 있습니다. 자동 완성 검색 표시줄에서 하나의 항목을 제한할 수도 있고 여기에 표시 된 것과 같은 목록을 제공할 수 있습니다. 제안 사항이 있는 경우 최상의 결과 설명 하는 문서의 일부를 발생할 수 있습니다.
+[C #에서 첫 번째 앱 만들기](tutorial-csharp-type-ahead-and-suggestions.md) 의 다음 스크린샷은 두 가지를 모두 보여 줍니다. 자동 완성 기능을 사용 하는 경우 "내"에서 "휴먼"를 마무리 하는 잠재적인 용어 제안 사항은 최소 검색 결과입니다. 호텔 이름과 같은 필드는 인덱스에서 일치 하는 호텔 검색 문서를 나타냅니다. 제안 사항을 위해 설명 정보를 제공 하는 모든 필드를 표시할 수 있습니다.
 
-![자동 완성 및 제안 된 쿼리 비교 visual](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Visual 자동 완성 및 제안 된 쿼리 비교")
+![자동 완성 및 제안 된 쿼리를 시각적으로 비교](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "자동 완성 및 제안 된 쿼리를 시각적으로 비교")
 
-Azure Search에서 이러한 동작을 구현 하는 인덱스 및 쿼리 구성 요소입니다. 
+이러한 기능은 개별적으로 또는 함께 사용할 수 있습니다. Azure Cognitive Search에서 이러한 동작을 구현 하기 위해 인덱스 및 쿼리 구성 요소가 있습니다. 
 
-+ 인덱스 구성 요소는 확인 기는 합니다. Suggester를 만들려면 포털, REST API 또는.NET SDK를 사용할 수 있습니다. 
++ 인덱스에서 확인 기를 인덱스에 추가 합니다. 포털, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)또는 [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)를 사용할 수 있습니다. 이 문서의 나머지 부분에서는 확인 기를 만드는 방법에 대해 집중적으로 설명 합니다.
 
-+ 쿼리 구성 요소에는 쿼리 요청 (제안 또는 자동 완성 작업)에 지정 된 동작입니다. 
++ 쿼리 요청에서 [아래에 나열 된 api](#how-to-use-a-suggester)중 하나를 호출 합니다.
 
-검색---입력할 때 지원 필드 별로에 사용 됩니다. 원하는 환경을 스크린샷에 표시 된 것과 비슷한 경우 동일한 검색 솔루션 내에서 모두 미리 입력 동작을 구현할 수 있습니다. 두 요청 대상 합니다 *문서* 특정 인덱스 및 응답의 컬렉션을 사용자가 최소한 세 개의 입력된 문자열을 제공한 후에 반환 됩니다.
+검색 형식 지원은 문자열 필드에 대 한 필드 기준으로 설정 됩니다. 스크린샷에 표시 된 것과 비슷한 환경을 원할 경우 동일한 검색 솔루션 내에서 형식 미리 동작을 구현할 수 있습니다. 두 요청은 특정 인덱스의 *문서* 컬렉션을 대상으로 하 고 사용자가 적어도 3 개의 문자 입력 문자열을 제공한 후 응답이 반환 됩니다.
 
-## <a name="create-a-suggester"></a>제안기 만들기
+## <a name="what-is-a-suggester"></a>확인 기 무엇 인가요?
 
-Suggester에 몇 가지 속성으로 주로를 사용할 수 있도록 하는 미리 입력 환경을 필드의 컬렉션입니다. 예를 들어 여행 앱은 목적지, 도시 및 명소에 대한 자동 완성(typeahead) 검색을 사용하도록 설정할 수도 있습니다. 따라서 fields 컬렉션에는 세 개의 필드가 모두가 이동 됩니다.
+확인 기는 부분 쿼리에 일치 하는 접두사를 저장 하 여 검색 형식 동작을 지 원하는 내부 데이터 구조입니다. 토큰화 된 용어와 마찬가지로 접두사는 확인 기 fields 컬렉션에 지정 된 각 필드에 대해 하나씩 반전 된 인덱스에 저장 됩니다.
 
-Suggester를 만들려면 인덱스 스키마에 하나를 추가 합니다. 인덱스에서 하나의 확인 기를 사용할 수 있습니다 (특히, suggesters 컬렉션에 suggester). 
+## <a name="define-a-suggester"></a>확인 기 정의
 
-### <a name="use-the-rest-api"></a>REST API 사용
+확인 기를 만들려면 [인덱스 스키마](https://docs.microsoft.com/rest/api/searchservice/create-index) 에 하나를 추가 하 고 [각 속성을 설정](#property-reference)합니다. 확인 기를 만드는 가장 좋은 시기는이를 사용할 필드를 정의 하는 경우입니다.
 
-REST API를 통해 확인 기를 추가할 수 있습니다 [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) 하거나 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)합니다. 
++ 문자열 필드만 사용
+
++ 필드에 기본 표준 Lucene 분석기 ( `"analyzer": null` ) 또는 [언어 분석기](index-add-language-analyzers.md) (예:)를 사용 합니다. `"analyzer": "en.Microsoft"`
+
+### <a name="choose-fields"></a>필드 선택
+
+확인 기에는 여러 속성이 있지만 주로 검색 기능을 사용 하도록 설정 하는 문자열 필드 모음이 있습니다. 각 인덱스 마다 하나의 확인 기 있습니다. 따라서 확인 기 목록에는 제안과 자동 완성 모두에 콘텐츠를 제공 하는 모든 필드가 포함 되어야 합니다.
+
+추가 콘텐츠는 장기적으로 완료 될 수 있으므로 더 큰 필드 풀에서 자동 완성 혜택을 얻을 수 있습니다.
+
+반면에 제안 사항은 필드를 선택 하는 경우 더 나은 결과를 생성 합니다. 제안에는 검색 문서에 대 한 프록시가 있으므로 단일 결과를 가장 잘 나타내는 필드를 사용할 수 있습니다. 여러 일치 항목을 구분 하는 이름, 제목 또는 기타 고유 필드가 가장 잘 작동 합니다. 필드가 반복 되는 값으로 구성 된 경우 제안 사항은 동일한 결과로 구성 되며 사용자는 어떤 항목을 클릭할 지 알지 못합니다.
+
+검색에 사용 되는 환경을 모두 만족 시키려면 자동 완성에 필요한 모든 필드를 추가한 다음 **$select**, **$top**, **$filter**및 **searchfields** 를 사용 하 여 제안에 대 한 결과를 제어 합니다.
+
+### <a name="choose-analyzers"></a>분석기 선택
+
+분석기를 선택 하면 필드를 토큰화 하 고 그 다음에 접두사를 붙일 방법이 결정 됩니다. 예를 들어 "상황에 맞는"와 같은 하이픈을 사용 하는 문자열의 경우 언어 분석기를 사용 하면 "컨텍스트", "중요", "상황에 맞는" 등의 토큰 조합이 발생 합니다. 표준 Lucene 분석기를 사용 했지만 하이픈을 넣은 문자열이 존재 하지 않습니다. 
+
+분석기를 평가할 때는 [텍스트 분석 API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) 를 사용 하 여 용어가 토큰화 되는 방법에 대 한 통찰력을 얻고 이후 접두사를 접두사로 사용 하는 방법을 고려 인덱스를 작성 한 후에는 문자열에 대해 다양 한 분석기를 시도 하 여 토큰 출력을 볼 수 있습니다.
+
+[사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [미리 정의 된 분석기](index-add-custom-analyzers.md#predefined-analyzers-reference) (표준 Lucene 제외)를 사용 하는 필드는 잘못 된 결과를 방지 하기 위해 명시적으로 허용 되지 않습니다.
+
+> [!NOTE]
+> 분석기 제약 조건을 해결 해야 하는 경우, 예를 들어 특정 쿼리 시나리오에 키워드 또는 ngram 분석기가 필요한 경우 동일한 콘텐츠에 대해 두 개의 개별 필드를 사용 해야 합니다. 이렇게 하면 필드 중 하나에 확인 기를 사용할 수 있고 다른 하나는 사용자 지정 분석기 구성으로 설정할 수 있습니다.
+
+### <a name="when-to-create-a-suggester"></a>확인 기를 만들어야 하는 경우
+
+확인 기를 만드는 가장 좋은 시기는 필드 정의를 만드는 것입니다.
+
+기존 필드를 사용 하 여 확인 기를 만들려고 하면 API에서이를 허용 하지 않습니다. 두 개 이상의 문자 조합에서 부분 용어를 전체 용어와 함께 토큰화 하는 경우 인덱싱을 수행 하는 동안 접두사가 생성 됩니다. 기존 필드가 이미 토큰화 된 경우 확인 기에 추가 하려면 인덱스를 다시 작성 해야 합니다. 자세한 내용은 [Azure Cognitive Search 인덱스를 다시 작성 하는 방법](search-howto-reindex.md)을 참조 하세요.
+
+## <a name="create-using-rest"></a>REST를 사용 하 여 만들기
+
+REST API에서 [Create index](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [Update index](https://docs.microsoft.com/rest/api/searchservice/update-index)를 통해 확인 기를 추가 합니다. 
 
   ```json
   {
-    "name": "hotels",
+    "name": "hotels-sample-index",
     "fields": [
       . . .
+          {
+              "name": "HotelName",
+              "type": "Edm.String",
+              "facetable": false,
+              "filterable": false,
+              "key": false,
+              "retrievable": true,
+              "searchable": true,
+              "sortable": false,
+              "analyzer": "en.microsoft",
+              "indexAnalyzer": null,
+              "searchAnalyzer": null,
+              "synonymMaps": [],
+              "fields": []
+          },
     ],
     "suggesters": [
       {
         "name": "sg",
         "searchMode": "analyzingInfixMatching",
-        "sourceFields": ["hotelName", "category"]
+        "sourceFields": ["HotelName"]
       }
     ],
     "scoringProfiles": [
@@ -70,23 +107,22 @@ REST API를 통해 확인 기를 추가할 수 있습니다 [Create Index](https
     ]
   }
   ```
-Suggester를 만든 후 추가 합니다 [제안 API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 또는 [자동 완성 API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 기능을 호출 하 여 쿼리 논리에 있습니다.
 
-### <a name="use-the-net-sdk"></a>.NET SDK 사용
+## <a name="create-using-net"></a>.NET을 사용 하 여 만들기
 
-C#에서 정의 [Suggester 개체](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)합니다. `Suggesters` 컬렉션 이지만 하나씩만 사용할 수 있습니다. 
+C #에서 [확인 기 개체](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)를 정의 합니다. `Suggesters`는 컬렉션 이지만 하나의 항목만 사용할 수 있습니다. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 {
     var definition = new Index()
     {
-        Name = "hotels",
+        Name = "hotels-sample-index",
         Fields = FieldBuilder.BuildForType<Hotel>(),
         Suggesters = new List<Suggester>() {new Suggester()
             {
                 Name = "sg",
-                SourceFields = new string[] { "HotelId", "Category" }
+                SourceFields = new string[] { "HotelName", "Category" }
             }}
     };
 
@@ -97,41 +133,44 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ## <a name="property-reference"></a>속성 참조
 
-확인 기에 대 한 주의할 점이 점 (확인 기는 요청에 대 한 이름으로 참조 됩니다.) 이름는 searchMode (현재 하나만, "analyzingInfixMatching"), 및 미리 입력이 사용 되는 필드의 목록입니다. 
-
-확인기를 정의하는 속성은 다음과 같습니다.
-
-|자산      |설명      |
+|속성      |설명      |
 |--------------|-----------------|
-|`name`        |확인 기의 이름입니다. 호출할 때 suggester의 이름을 사용 합니다 [제안 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 하거나 [자동 완성 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)합니다.|
-|`searchMode`  |후보 구를 검색하는 데 사용되는 전략입니다. 현재 지원되는 모드는 `analyzingInfixMatching`뿐입니다. 이 모드에서는 문장 시작 부분이나 중간에서 유동적 구 일치를 수행합니다.|
-|`sourceFields`|제안 내용의 원본인 하나 이상의 필드 목록입니다. 형식이 `Edm.String` 및 `Collection(Edm.String)`인 필드만 제안 원본으로 사용할 수 있습니다. 또한 사용자 지정 언어 분석기가 설정되지 않은 필드만 사용할 수 있습니다.<p/>드롭다운 목록 또는 검색 표시줄에서 완료 된 문자열 인지를 예상 하 고 적절 한 응답을 하는 필드에만 지정 합니다.<p/>호텔 이름 정밀도 있기 때문에 적합 합니다. 설명 및 설명 같은 세부 정보 표시 필드는 답답한입니다. 마찬가지로, 범주 / 태그 등의 반복 필드는 떨어집니다. 예제에서는 포함 "category" 그래도 여러 필드를 포함할 수 있는지를 보여 줍니다. |
+|`name`        |제안기의 이름입니다.|
+|`searchMode`  |후보 구를 검색하는 데 사용되는 전략입니다. 현재 지원 되는 모드는 `analyzingInfixMatching` 현재 단어의 시작 부분에서 일치 하는입니다.|
+|`sourceFields`|제안 내용의 원본인 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 에서 명명 된 분석기 여야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
 
-## <a name="when-to-create-a-suggester"></a>Suggester를 만들어야 하는 경우
+<a name="how-to-use-a-suggester"></a>
 
-인덱스 다시 작성, 확인 기는 및에서 지정 된 필드를 방지 하려면 `sourceFields` 동시에 만들어야 합니다.
+## <a name="use-a-suggester"></a>확인 기 사용
 
-기존 필드에 포함 된 여기서 기존 인덱스에 확인 기를 추가 하는 경우 `sourceFields`, 필드 정의 근본적으로 변경 및 다시 빌드가 필요 합니다. 자세한 내용은 [Azure Search 인덱스를 다시 작성 하는 방법을](search-howto-reindex.md)합니다.
+확인 기가 쿼리에 사용 됩니다. 확인 기을 만든 후에는 다음과 같은 Api 중 하나를 호출 하 여 검색을 입력 합니다.
 
-## <a name="how-to-use-a-suggester"></a>Suggester를 사용 하는 방법
++ [제안 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
++ [자동 완성 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
++ [SuggestWithHttpMessagesAsync 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [AutocompleteWithHttpMessagesAsync 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
-에서 설명한 대로 제안 된 쿼리, 자동 완성, 또는 둘 다 suggester를 사용할 수 있습니다. 
+검색 응용 프로그램에서 클라이언트 코드는 [JQUERY UI 자동 완성](https://jqueryui.com/autocomplete/) 같은 라이브러리를 활용 하 여 부분 쿼리를 수집 하 고 일치 하는 항목을 제공 해야 합니다. 이 작업에 대 한 자세한 내용은 [클라이언트 코드에 자동 완성 또는 제안 된 결과 추가](search-autocomplete-tutorial.md)를 참조 하세요.
 
-Suggester 작업에서는 요청에 대해 참조 됩니다. 예를 들어 위한 GET REST 호출에서 하나를 지정 `suggest` 또는 `autocomplete` 문서 컬렉션에 있습니다. Rest의 경우 suggester를 만든 후 사용 합니다 [제안 API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 또는 [자동 완성 API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 쿼리 논리에서입니다.
+API 사용법은 다음 REST API 자동 완성 호출에 설명 되어 있습니다. 이 예제에서는 두 가지 내용 있습니다. 첫째, 모든 쿼리와 마찬가지로 작업은 인덱스의 문서 컬렉션에 대해 수행 되 고 쿼리는 **검색** 매개 변수를 포함 하며이 경우 부분 쿼리를 제공 합니다. 두 번째로, 요청에 **suggesterName** 를 추가 해야 합니다. 인덱스에 확인 기가 정의 되어 있지 않으면 자동 완성 또는 제안에 대 한 호출이 실패 합니다.
 
-For.NET을 사용 하 여 [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) 하거나 [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)합니다.
+```http
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
+{
+  "search": "minecraf",
+  "suggesterName": "sg"
+}
+```
 
-두 요청을 보여 주는 예제를 참조 하세요 [Azure Search에서 자동 완성 기능 및 제안을 추가 하는 것에 대 한 예제](search-autocomplete-tutorial.md)합니다.
+## <a name="sample-code"></a>예제 코드
 
-## <a name="sample-code"></a>샘플 코드
++ [C #에서 첫 번째 앱 만들기 (3 단원-검색 형식 추가)](tutorial-csharp-type-ahead-and-suggestions.md) 샘플은 확인 기 생성, 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플은 샌드박스 Azure Cognitive Search 서비스에서 실행 되며 미리 로드 된 호텔 인덱스를 사용 하므로 F5 키를 눌러 응용 프로그램을 실행 하면 됩니다. 구독 또는 로그인이 필요 하지 않습니다.
 
-[DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) 샘플 모두 포함 C# 및 Java 코드는 확인 기 생성, 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 
-
-샌드박스 Azure Search 서비스를 사용 하며 미리 로드 된 인덱스를 갖도록 모든 작업을 수행 하는 실행 하려면 F5 키를 누릅니다. 구독 또는 로그인 필요 없습니다.
++ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) 는 c # 및 Java 코드를 모두 포함 하는 이전 샘플입니다. 또한 확인 기 생성, 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플에서는 호스팅된 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 샘플 데이터를 사용 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 예제를 요청은 작성 하는 방법을 참조 하세요.를 사용 하는 것이 좋습니다.
+요청을 공식화 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
-> [제안 사항 및 자동 완성 예제](search-autocomplete-tutorial.md) 
+> [클라이언트 코드에 자동 완성 및 제안 추가](search-autocomplete-tutorial.md) 

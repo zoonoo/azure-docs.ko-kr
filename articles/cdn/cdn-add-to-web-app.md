@@ -3,24 +3,24 @@ title: 자습서 - Azure App Service 웹앱에 Azure CDN 추가 | Microsoft Docs
 description: 이 자습서에서는 CDN(Content Delivery Network)가 Azure App Service 웹앱에 추가되어 전 세계의 고객에게 가까운 서버에서 정적 파일을 캐시하고 제공합니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 18054e47a987a7e79e9083b6f7a2f20b059c7f28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602820"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81254617"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>자습서: Azure App Service 웹앱에 Azure CDN 추가
 
@@ -38,7 +38,7 @@ ms.locfileid: "53602820"
 > * 쿼리 문자열을 사용하여 캐시된 버전 제어
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -72,11 +72,11 @@ DSA(동적 사이트 가속)에 대한 CDN 엔드포인트를 최적화하려는
 
 ![포털에서 프로필 및 엔드포인트 만들기](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
-| 설정 | 제안 값 | 설명 |
+| 설정 | 제안 값 | Description |
 | ------- | --------------- | ----------- |
 | **CDN 프로필** | myCDNProfile | CDN 프로필은 동일한 가격 책정 계층을 가진 CDN 엔드포인트의 컬렉션입니다. |
 | **가격 책정 계층** | Standard Akamai | [가격 책정 계층](cdn-features.md)은 공급자 및 사용 가능한 기능을 지정합니다. 이 자습서에서는 *Standard Akamai*를 사용합니다. |
-| **CDN 엔드포인트 이름** | azureedge.net 도메인에서 고유한 이름 | 도메인 *&lt;endpointname&gt;*.azureedge.net에서 캐시된 리소스에 액세스합니다.
+| **CDN 엔드포인트 이름** | azureedge.net 도메인에서 고유한 이름 | 도메인 *&lt;endpointname&gt;* .azureedge.net에서 캐시된 리소스에 액세스합니다.
 
 **만들기**를 선택하여 CDN 프로필을 만듭니다.
 

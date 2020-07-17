@@ -1,90 +1,119 @@
 ---
 title: Azure Diagnostics 확장 개요
 description: 클라우드 서비스, 가상 머신 및 서비스 패브릭에서 디버깅, 성능 측정, 모니터링, 트래픽 분석을 위해 Azure 진단 사용
-author: rboucher
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 02/13/2019
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 02/14/2020
+ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236240"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635960"
 ---
-# <a name="what-is-azure-diagnostics-extension"></a>Azure Diagnostics 확장이란?
-Azure Diagnostics 확장은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 하는 Azure 내의 에이전트입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. 현재 Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric이 지원됩니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](../../azure-monitor/overview.md)를 참조하세요.
+# <a name="azure-diagnostics-extension-overview"></a>Azure Diagnostics 확장 개요
+Azure Diagnostics 확장은 가상 머신을 포함한 Azure 컴퓨팅 리소스에서 모니터링 데이터를 수집하는 [Azure Monitor의 에이전트](agents-overview.md)입니다. 이 문서에서는 지원하는 특정 기능과, 설치 및 구성 옵션을 포함한 Azure Diagnostics 확장의 개요를 제공합니다. 
 
-## <a name="linux-agent"></a>Linux 에이전트
-[Linux 버전의 확장](../../virtual-machines/extensions/diagnostics-linux.md)은 Linux를 실행하는 Virtual Machines에 사용할 수 있습니다. 수집되는 통계 및 동작은 Windows 버전에 따라 다릅니다.
+> [!NOTE]
+> Azure Diagnostics 확장은 컴퓨팅 리소스의 게스트 운영 체제에서 모니터링 데이터를 수집하는 데 사용할 수 있는 에이전트 중 하나입니다. 다른 에이전트에 대한 설명과 요구 사항에 맞는 에이전트를 선택하기 위한 지침은 [Azure Monitor 에이전트의 개요](agents-overview.md)를 참조하세요.
 
-## <a name="data-you-can-collect"></a>수집할 수 있는 데이터
-Azure Diagnostics 확장은 다음과 같은 유형의 데이터를 수집할 수 있습니다.
+## <a name="primary-scenarios"></a>기본 시나리오
+Diagnostics 확장에서 처리하는 주요 시나리오는 다음과 같습니다.
 
-| 데이터 원본 | 설명 |
-| --- | --- |
-| 성능 카운터 메트릭 |운영 체제 및 사용자 지정 성능 카운터 |
-| 애플리케이션 로그 |애플리케이션에서 작성한 메시지 추적 |
-| Windows 이벤트 로그 |Windows 이벤트 로깅 시스템으로 전송된 정보 |
-| .NET EventSource 로그 |.NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 클래스를 사용하여 이벤트를 작성하는 코드 |
-| IIS 로그 |IIS 웹 사이트에 대한 정보 |
-| [매니페스트 기반 ETW 로그](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |모든 프로세스에서 생성된 ETW(Windows용 이벤트 추적) 이벤트.(1) |
-| 크래시 덤프(로그) |애플리케이션 작동이 중단된 경우 프로세스 상태에 대한 정보 |
-| 사용자 지정 오류 로그 |애플리케이션 또는 서비스에서 생성한 로그 |
-| Azure 진단 인프라 로그 |Azure Diagnostics 자체에 대한 정보 |
+- Azure Monitor 메트릭에 게스트 메트릭을 수집합니다.
+- 보관을 위해 게스트 로그 및 메트릭을 Azure Storage로 보냅니다.
+- Azure 외부로 보내기 위해 게스트 로그 및 메트릭을 Azure Event Hubs로 보냅니다.
 
-(1) ETW 공급자 목록을 가져오려면 정보를 수집할 머신의 콘솔 창에서 `c:\Windows\System32\logman.exe query providers`를 실행합니다.
 
-## <a name="data-storage"></a>데이터 저장소
-확장은 해당 데이터를 지정한 [Azure Storage 계정](diagnostics-extension-to-storage.md)에 저장합니다.
+## <a name="comparison-to-log-analytics-agent"></a>Log Analytics 에이전트 비교
+Azure Monitor의 Log Analytics 에이전트를 사용하여 가상 머신의 게스트 운영 체제에서도 모니터링 데이터를 수집할 수 있습니다. 요구 사항에 따라 둘 중 하나 또는 모두를 사용하도록 선택할 수 있습니다. Azure Monitor 에이전트의 상세 비교는 [Azure Monitor 에이전트 개요](agents-overview.md)를 참조하세요. 
 
-이 데이터를 [Application Insights](../../azure-monitor/app/cloudservices.md)에 보낼 수도 있습니다. 
+고려해야 할 주요 차이점은 다음과 같습니다.
 
-또 다른 옵션은 [이벤트 허브](../../event-hubs/event-hubs-about.md)로 스트리밍하는 것입니다. 그런 다음, 이벤트 허브를 통해 데이터를 비 Azure 모니터링 서비스에 보낼 수 있습니다.
-
-Azure Monitor 메트릭 시계열 데이터베이스에 데이터를 보낼 수도 있습니다. 지금은 성능 카운터에만 이 싱크가 적용됩니다. 싱크를 통해 성능 카운터를 사용자 지정 메트릭으로 보낼 수 있습니다. 이 기능은 미리 보기 상태입니다. Azure Monitor 싱크는 다음을 지원합니다.
-* [Azure Monitor 메트릭 API](https://docs.microsoft.com/rest/api/monitor/)를 통해 Azure Monitor로 보낸 모든 성능 카운터 검색
-* Azure Monitor의 [메트릭 경고](../../azure-monitor/platform/alerts-overview.md)를 통해 Azure Monitor로 보낸 모든 성능 카운터에 대해 경고
-* 성능 카운터의 와일드카드 연산자를 메트릭에 대한 “인스턴스” 차원으로 처리.  예를 들어 “LogicalDisk(\*)/DiskWrites/sec” 카운터를 수집한 경우 “인스턴스” 차원을 기준으로 필터링 및 분할하여 VM의 각 논리 디스크(C:)에 대해 Disk Writes/sec를 그리거나 경고할 수 있습니다.
-
-이 싱크를 구성하는 방법을 자세히 알아보려면 [Azure 진단 스키마 문서](diagnostics-extension-schema-1dot3.md)를 참조하세요.
+- Azure Diagnostics 확장은 Azure Virtual Machines에만 사용할 수 있습니다. Log Analytics 에이전트는 Azure, 다른 클라우드 환경 및 온-프레미스의 가상 머신에 사용할 수 있습니다.
+- Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](data-platform-metrics.md)(Windows만 해당) 및 Event Hubs에 데이터를 보냅니다. Log Analytics 에이전트는 데이터를 [Azure Monitor 로그](data-platform-logs.md)에 수집합니다.
+- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM용 Azure Monitor](../insights/vminsights-overview.md) 및 [Azure Security Center](/azure/security-center/)등의 기타 서비스에 필요합니다.
 
 ## <a name="costs"></a>비용
-위의 옵션 중 각 비용이 발생할 수 있습니다. 예기치 않은 청구서가 발생 하지 않도록 조사 해야 합니다.  Application Insights에서 이벤트 허브와 Azure Storage가 수집을 사용 하 여 연결 된 별도 비용 및 시간으로 저장 합니다. 특히 Azure Storage는 데이터가 영구적으로 비용을 절감 하려면 특정 시간 기간 후 오래 된 데이터를 제거 해야 할 수 있습니다.    
+Azure Diagnostic 확장에 대한 비용은 없지만 데이터 수집에 대한 요금이 발생할 수 있습니다. 데이터를 수집하는 대상에 대한 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)를 확인하세요.
 
-## <a name="versioning-and-configuration-schema"></a>버전 관리 및 구성 스키마
-[Azure 진단 버전 기록 및 스키마](diagnostics-extension-schema.md)를 참조하세요.
+## <a name="data-collected"></a>수집되는 데이터
+다음 표에서는 Windows 및 Linux 진단 확장에서 수집할 수 있는 데이터를 나열합니다.
 
+### <a name="windows-diagnostics-extension-wad"></a>WAD(Windows 진단 확장)
+
+| 데이터 원본 | Description |
+| --- | --- |
+| Windows 이벤트 로그   | Windows 이벤트 로그의 이벤트 |
+| 성능 카운터 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값 |
+| IIS 로그             | 게스트 운영 체제에서 실행되는 IIS 웹 사이트에 대한 사용 정보 |
+| 애플리케이션 로그 전송 사용     | 애플리케이션에서 작성한 추적 메시지 |
+| .NET EventSource 로그 |.NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 클래스를 사용하여 이벤트를 작성하는 코드 |
+| [매니페스트 기반 ETW 로그](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |모든 프로세스에서 생성된 Windows용 이벤트 추적 이벤트 |
+| 크래시 덤프(로그)   | 애플리케이션 작동이 중단된 경우 프로세스 상태에 대한 정보 |
+| 파일 기반 로그    | 애플리케이션 또는 서비스에서 생성된 로그입니다. |
+| 에이전트 진단 로그 | Azure Diagnostics 자체에 대한 정보 |
+
+
+### <a name="linux-diagnostics-extension-lad"></a>LAD(Linux 진단 확장)
+
+| 데이터 원본 | Description |
+| --- | --- |
+| syslog | Linux 이벤트 로깅 시스템으로 전송되는 이벤트   |
+| 성능 카운터  | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값 |
+| 로그 파일 | 파일 기반 로그에 전송된 항목  |
+
+## <a name="data-destinations"></a>데이터 대상
+Windows 및 Linux용 Azure 진단 확장은 항상 데이터를 Azure Storage 계정에 수집합니다. 이 데이터가 수집되는 특정 테이블 및 Blob 목록은 [WAD(Windows Azure Diagnostics) 확장](diagnostics-extension-windows-install.md) 및 [Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](../../virtual-machines/extensions/diagnostics-linux.md)을 참조하세요.
+
+하나 이상의 *데이터 싱크*를 구성하여 다른 추가 대상에 데이터를 보냅니다. 다음 섹션에서는 Windows 및 Linux 진단 확장에 사용할 수 있는 싱크를 나열합니다.
+
+### <a name="windows-diagnostics-extension-wad"></a>WAD(Windows 진단 확장)
+
+| 대상 | Description |
+|:---|:---|
+| Azure Monitor 메트릭 | 성능 데이터를 Azure Monitor 메트릭에 수집합니다. [Azure Monitor 메트릭 데이터베이스에 게스트 OS 메트릭 보내기](collect-custom-metrics-guestos-resource-manager-vm.md)를 참조하세요.  |
+| 이벤트 허브(영문) | Azure Event Hubs를 사용하여 Azure 외부로 데이터를 보냅니다. [Event Hubs에 Azure Diagnostics 데이터 스트리밍](diagnostics-extension-stream-event-hubs.md) 참조 |
+| Azure Storage Blob | 테이블 외에도 Azure Storage의 Blob에 데이터를 씁니다. |
+| Application Insights | VM에서 실행되는 애플리케이션의 데이터를 Application Insights에 수집하여 다른 애플리케이션 모니터링과 통합합니다. [Application Insights에 진단 데이터 보내기](diagnostics-extension-to-application-insights.md)를 참조하세요. |
+
+보통은 Log Analytics 에이전트를 사용하지만, Log Analytics 작업 영역에 스토리지의 WAD 데이터를 수집하여 Azure Monitor Logs를 통해 분석할 수도 있습니다. 데이터를 Log Analytics 작업 영역으로 직접 보낼 수 있고 추가 기능을 제공하는 솔루션과 인사이트를 지원합니다.  [Azure Storage에서 Azure 진단 로그 수집](diagnostics-extension-logs.md)을 참조하세요. 
+
+
+### <a name="linux-diagnostics-extension-lad"></a>LAD(Linux 진단 확장)
+LAD는 Azure Storage의 테이블에 데이터를 씁니다. 다음 표의 싱크를 지원합니다.
+
+| 대상 | Description |
+|:---|:---|
+| 이벤트 허브(영문) | Azure Event Hubs를 사용하여 Azure 외부로 데이터를 보냅니다. |
+| Azure Storage Blob | 테이블 외에도 Azure Storage의 Blob에 데이터를 씁니다. |
+| Azure Monitor 메트릭 | LAD와 함께 Telegraf 에이전트를 설치합니다. [InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집](collect-custom-metrics-linux-telegraf.md)을 참조하세요.
+
+
+## <a name="installation-and-configuration"></a>설치 및 구성
+진단 확장은 Azure에서 [가상 머신 확장](../../virtual-machines/extensions/overview.md)으로 구현되므로 Resource Manager 템플릿, PowerShell 및 CLI를 사용한 동일한 설치 옵션을 지원합니다. 가상 머신 확장 설치 및 유지 관리에 대한 일반 세부 사항은 [Windows용 가상 머신 확장 및 기능](../../virtual-machines/extensions/features-windows.md) 및 [Linux용 가상 머신 확장 및 기능](../../virtual-machines/extensions/features-linux.md)을 참조하세요.
+
+Azure Portal의 가상 머신 메뉴에 있는 **모니터링** 섹션의 **진단 설정**에서 Windows 및 Linux 진단 확장을 설치 및 구성할 수도 있습니다.
+
+Windows 및 Linux용 진단 확장을 설치 및 구성하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+- [WAD(Windows Azure Diagnostics) 확장 설치 및 구성](diagnostics-extension-windows-install.md)
+- [Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](../../virtual-machines/extensions/diagnostics-linux.md)
+
+## <a name="other-documentation"></a>기타 문서
+
+###  <a name="azure-cloud-service-classic-web-and-worker-roles"></a>Azure Cloud Service(클래식) 웹 및 작업자 역할
+- [클라우드 서비스 모니터링 소개](../../cloud-services/cloud-services-how-to-monitor.md)
+- [Azure Cloud Services에서 Azure Diagnostics 사용](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+- [Azure Cloud Services용 Application Insights](../app/cloudservices.md)<br>[Azure Diagnostics로 Cloud Services 애플리케이션의 흐름 추적](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md) 
+
+### <a name="azure-service-fabric"></a>Azure Service Fabric
+- [로컬 머신 개발 설정에서의 모니터링 및 진단 서비스](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 ## <a name="next-steps"></a>다음 단계
-진단을 수집할 서비스를 선택하고 다음 문서를 사용하여 시작합니다. 특정 작업에 대한 참조로 일반 Azure 진단 링크를 사용합니다.
 
-## <a name="cloud-services-using-azure-diagnostics"></a>Azure Diagnostics를 사용하는 Cloud Services
-* Visual Studio를 사용하는 경우 시작하려면 [Visual Studio를 사용하여 Cloud Services 애플리케이션 추적](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)을 참조하세요. 그렇지 않은 경우 다음을 참조하세요.
-* [Azure 진단을 사용하여 클라우드 서비스를 모니터링하는 방법](../../cloud-services/cloud-services-how-to-monitor.md)
-* [Cloud Services 애플리케이션에서 Azure 진단 설정](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-고급 항목의 경우 다음을 참조하세요.
-
-* [Cloud Services용 Application Insights에서 Azure 진단 사용](../../azure-monitor/app/cloudservices.md)
-* [Azure 진단으로 Cloud Services 애플리케이션의 흐름 추적](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [PowerShell을 사용하여 Cloud Services에 진단 설정](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-## <a name="virtual-machines"></a>Virtual Machines
-* Visual Studio를 사용하는 경우 시작하려면 [Visual Studio를 사용하여 Azure Virtual Machines 추적](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)을 참조하세요. 그렇지 않은 경우 다음을 참조하세요.
-* [Azure Virtual Machine에서 Azure 진단 설정](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
-
-고급 항목의 경우 다음을 참조하세요.
-
-* [PowerShell을 사용하여 Azure Virtual Machines에서 진단 설정](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 기능으로 Windows 가상 머신 만들기](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-## <a name="service-fabric"></a>Service Fabric
-[서비스 패브릭 애플리케이션 모니터링](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)에서 시작합니다. 이 문서를 사용하면 왼쪽의 탐색 트리에서 다른 여러 서비스 패브릭 진단 문서를 사용할 수 있습니다.
-
-## <a name="general-articles"></a>일반 문서
-* [Azure 진단에서 성능 카운터 사용](../../cloud-services/diagnostics-performance-counters.md)에 대해 알아봅니다.
+* [Azure Diagnostics에서 성능 카운터 사용](../../cloud-services/diagnostics-performance-counters.md)에 대해 알아봅니다.
 * 진단을 시작하거나 Azure 스토리지 테이블에서 데이터를 찾는 데 문제가 있는 경우 [Azure Diagnostics 문제 해결](diagnostics-extension-troubleshooting.md)을 참조하세요.
 

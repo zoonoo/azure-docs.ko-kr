@@ -1,20 +1,20 @@
 ---
-title: Ruby에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
+title: Ruby에서 Azure Cosmos DB Table API 및 Azure Table Storage 사용
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: ruby
 ms.topic: sample
 ms.date: 04/05/2018
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 3603455674485a505a7dbc969554a881947940ae
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7994b478321c925b3eab73291a109d50b9066fef
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036259"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "76770870"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Ruby에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "54036259"
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
@@ -40,7 +40,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 Table REST 서비스와 
 2. 명령 창에서 **gem install azure-storage-table**을 입력하여 gem 및 종속성을 설치합니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
-주로 사용하는 텍스트 편집기에서 저장소를 사용할 Ruby 파일의 맨 위에 다음을 추가합니다.
+주로 사용하는 텍스트 편집기에서 스토리지를 사용할 Ruby 파일의 맨 위에 다음을 추가합니다.
 
 ```ruby
 require "azure/storage/table"
@@ -54,7 +54,7 @@ Azure.config.storage_account_name = "<your Azure Storage account>"
 Azure.config.storage_access_key = "<your Azure Storage access key>"
 ```
 
-Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러한 값을 가져오려면
+Azure 포털의 클래식 또는 Resource Manager 스토리지 계정에서 이러한 값을 가져오려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 Storage 계정으로 이동합니다.
@@ -96,7 +96,7 @@ azure_table_service.insert_entity("testtable", entity)
 
 * **update_entity():** 기존 엔터티를 바꿔서 업데이트합니다.
 * **merge_entity():** 새 속성 값을 기존 엔터티에 병합하여 기존 엔터티를 업데이트합니다.
-* **insert_or_merge_entity():** 기존 엔터티를 바꾸어서 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
+* **insert_or_merge_entity():** 기존 엔터티를 바꿔서 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
 * **insert_or_replace_entity():** 새 속성 값을 기존 엔터티에 병합하여 기존 엔터티를 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
 
 다음 예제에서는 **update_entity()** 를 사용하여 엔터티를 업데이트하는 방법을 보여 줍니다.
@@ -168,7 +168,7 @@ azure_table_service.delete_table("testtable")
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Ruby 개발자 센터](https://azure.microsoft.com/develop/ruby/)
 * [Ruby용 Microsoft Azure Storage Table 클라이언트 라이브러리](https://github.com/azure/azure-storage-ruby/tree/master/table) 
 

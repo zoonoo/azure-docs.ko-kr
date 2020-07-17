@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services 작업 오류 코드 (인코딩 및 분석) | Microsoft Docs
-description: 이 문서에서는 작업 오류 코드 참조 항목에 연결 하 고 관련된 항목에 대 한 유용한 링크를 제공 합니다.
+title: Azure Media Services 작업 (인코딩 및 분석) 오류 코드 | Microsoft Docs
+description: 이 문서에서는 작업 오류 코드 참조 항목에 연결 하 고 관련 항목에 대 한 유용한 링크를 제공 합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9443a50d130e6542672eb143bcb56d04d63959a4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d66347bc5510189b1d947b4c6b00345b0a56c3f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80582212"
 ---
 # <a name="media-services-job-error-codes"></a>Media Services 작업 오류 코드
 
-이 항목에 대 한 자세한 설명은 REST 참조 문서에 연결 [작업](transforms-jobs-concept.md) 오류 코드 및 메시지입니다.
+이 항목에서는 [작업](transforms-jobs-concept.md) 오류 코드 및 메시지에 대 한 자세한 설명을 위해 REST 참조 문서에 연결 합니다.
 
 ## <a name="job-error-codes"></a>작업 오류 코드
 
-다음 REST 문서에 대 한 자세한 설명 제공 [오류 코드를 작업](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)합니다.
+다음 REST 문서에서는 [작업 오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)에 대 한 자세한 설명을 제공 합니다.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
@@ -36,8 +36,8 @@ ms.locfileid: "65235715"
 
 - [스트리밍 끝점 오류 코드](streaming-endpoint-error-codes.md)
 - [Azure Media Services 개념](concepts-overview.md)
-- [할당량 및 제한 사항](limits-quotas-constraints.md)
+- [할당량 및 제한](limits-quotas-constraints.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-[예:.NET을 사용 하 여 ApiException에서 오류 코드 및 메시지에 액세스](configure-connect-dotnet-howto.md#connect-to-the-net-client)
+[예: .NET을 사용 하 여 ApiException에서 ErrorCode 및 메시지 액세스](configure-connect-dotnet-howto.md#connect-to-the-net-client)

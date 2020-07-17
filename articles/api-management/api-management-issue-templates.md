@@ -10,16 +10,15 @@ ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656718"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846847"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management의 문제 템플릿
 Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 선택한 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
@@ -31,9 +30,11 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.  
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="IssueList"></a> 문제 목록  
+##  <a name="issue-list"></a><a name="IssueList"></a>문제 목록  
  **문제 목록** 템플릿을 통해 개발자 포털에서 문제 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![문제 목록 개발자 포털](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM 문제 목록 개발자 포털")  
@@ -93,17 +94,17 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `Issue list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [paging-control](api-management-page-controls.md#paging-control)  
+-   [페이징-컨트롤](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>데이터 모델  
   
-|자산|Type|설명|  
+|속성|형식|설명|  
 |--------------|----------|-----------------|  
 |`Issues`|[문제](api-management-template-data-model-reference.md#Issue) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 문제입니다.|  
 |`Paging`|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|애플리케이션 컬렉션에 대한 페이징 정보입니다.|  
-|`IsAuthenticated`|부울|현재 사용자가 개발자 포털에 로그인했는지 여부입니다.|  
-|`CanReportIssues`|부울|현재 사용자에게 문제를 접수할 권한이 있는지 여부입니다.|  
-|`Search`|문자열|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
+|`IsAuthenticated`|boolean|현재 사용자가 개발자 포털에 로그인했는지 여부입니다.|  
+|`CanReportIssues`|boolean|현재 사용자에게 문제를 접수할 권한이 있는지 여부입니다.|  
+|`Search`|string|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

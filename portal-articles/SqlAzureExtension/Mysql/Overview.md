@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 2ff389f52da0db4e394e8f6a6c37955a5f0c3861
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60475755"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "64691371"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>MySQL용 Azure 데이터베이스 설명서
 
@@ -31,7 +31,7 @@ MySQL용 Azure 데이터베이스는 오픈 소스 MySQL 서버 엔진을 기반
 데이터베이스를 설계하고 앱을 개발하는 방법을 알아봅니다.
 
 - 데이터베이스 설계: [Azure Portal](/azure/mysql/tutorial-design-database-using-portal) |  [Azure CLI](/azure/mysql/tutorial-design-database-using-cli)
-- 웹앱 만들기: [Wordpress - 포털](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP - Azure CLI](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
+- Web App 만들기: [WordPress - 포털](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP - Azure CLI](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
 
 ## <a name="samples"></a>샘플 
 

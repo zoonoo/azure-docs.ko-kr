@@ -1,6 +1,6 @@
 ---
 title: 이미지 범주 분류 - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services의 Computer Vision API에 대한 86개 분류 범주를 가져옵니다.
 services: cognitive-services
 author: KellyDF
@@ -11,14 +11,14 @@ ms.topic: reference
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995951"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "68565748"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>컴퓨터 비전 86 범주 분류
+# <a name="computer-vision-86-category-taxonomy"></a>Computer Vision 86-범주 분류
 
 abstract_
 

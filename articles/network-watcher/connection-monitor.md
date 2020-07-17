@@ -1,10 +1,9 @@
 ---
-title: 네트워크 통신 모니터링 - 자습서 - Azure Portal | Microsoft Docs
-description: Azure Network Watcher의 연결 모니터 기능이 있는 두 가상 머신 간의 네트워크 통신을 모니터링하는 방법을 알아봅니다.
+title: 자습서 - Azure Portal을 사용하여 네트워크 통신 모니터링
+description: 이 자습서에서는 Azure Network Watcher의 연결 모니터 기능이 있는 두 가상 머신 간의 네트워크 통신을 모니터링하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: aa62c06d0c12a42d34ef9b13b8b4533d197d8d19
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715808"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "76834657"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 가상 머신 간의 네트워크 통신 모니터링
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 개의 가상 머신 간의 네트워크 통신 모니터링
 
-VM(가상 머신)과 다른 VM과 같은 엔드포인트 간의 통신의 성공은 조직에 대해 중요할 수 있습니다. 경우에 따라 통신을 중단할 수 있는 구성 변경 내용이 도입됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+VM(가상 머신)과 다른 VM과 같은 엔드포인트 간의 통신의 성공은 조직에 대해 중요할 수 있습니다. 경우에 따라 통신을 중단할 수 있는 구성 변경 내용이 도입됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 두 대의 VM 만들기
@@ -46,16 +45,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="create-the-first-vm"></a>첫 번째 VM 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **+ 리소스 만들기**를 선택합니다.
-2. **계산**을 선택한 다음, 운영 체제를 선택합니다. 이 자습서에서는 **Windows Server 2016 Datacenter**를 사용합니다.
+2. **컴퓨팅**을 선택한 다음, 운영 체제를 선택합니다. 이 자습서에서는 **Windows Server 2016 Datacenter**를 사용합니다.
 3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **확인**을 선택합니다.
 
     |설정|값|
     |---|---|
-    |Name|myVm1|
+    |속성|myVm1|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 구독을 선택합니다.|
-    |리소스 그룹| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
+    |Subscription| 구독을 선택합니다.|
+    |Resource group| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
 
 4. VM에 대한 크기를 선택한 다음, **선택**을 선택합니다.
@@ -74,10 +73,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |단계|설정|값|
 |---|---|---|
 | 1 | **Ubuntu Server** 버전 선택 |                                                                         |
-| 3 | Name                                  | myVm2                                                                   |
+| 3 | 속성                                  | myVm2                                                                   |
 | 3 | 인증 유형                   | SSH 공개 키를 붙여넣거나 **암호**를 선택하고 암호를 입력합니다. |
-| 3 | 리소스 그룹                        | **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.                 |
-| 6 | 확장                            | **Linux용 네트워크 에이전트**                                             |
+| 3 | Resource group                        | **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.                 |
+| 6 | 확장                            | **Linux용 Network Watcher 에이전트**                                             |
 
 VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기 전에 VM이 배포를 완료하도록 기다립니다.
 
@@ -93,7 +92,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 
     | 설정                  | 값               |
     | ---------                | ---------           |
-    | Name                     | myVm1-myVm2(22)     |
+    | 속성                     | myVm1-myVm2(22)     |
     | 원본                   |                     |
     | 가상 머신          | myVm1               |
     | 대상              |                     |
@@ -150,9 +149,9 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
     | 설정                 | 값          |
     | ---                     | ---            |
     | 대상 포트 범위 | 22             |
-    | 조치                  | 거부           |
+    | 작업                  | 거부           |
     | 우선 순위                | 100            |
-    | Name                    | DenySshInbound |
+    | 속성                    | DenySshInbound |
 
 5. 연결 모니터가 60초 간격으로 조사하므로 몇 분 정도를 대기한 다음, 포털의 왼쪽에서 **Network Watcher** 및 **연결 모니터**를 선택한 다음, **myVm1-myVm2(22)** 모니터링을 다시 선택합니다. 다음 그림에 나와 있는 대로 결과가 이제 달라집니다.
 
@@ -160,7 +159,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 
     **myvm2529** 네트워크 인터페이스의 상태 열에 빨간색 느낌표 아이콘을 확인할 수 있습니다.
 
-6. 상태가 변경된 이유를 알아보려면 이전 그림에서 10.0.0.5를 선택합니다. 연결 모니터에서 다음과 같은 통신 실패 이유를 알려줍니다. *UserRule_DenySshInbound 네트워크 보안 그룹 규칙으로 인해 트래픽이 차단되었습니다*.
+6. 상태가 변경된 이유를 알아보려면 이전 그림에서 10.0.0.5를 선택합니다. 연결 모니터는 통신 오류에 대한 이유가 *다음 네트워크 보안 그룹 규칙에 의해 차단된 트래픽: UserRule_DenySshInbound*임을 알립니다.
 
     누군가가 4단계에서 만든 보안 규칙을 구현했음을 모르는 경우 규칙이 통신 문제를 일으키는 연결 모니터로부터 알아봅니다. 그런 다음, VM 간의 통신을 복원하려면 규칙을 변경하거나, 재정의하거나, 제거할 수 있습니다.
 

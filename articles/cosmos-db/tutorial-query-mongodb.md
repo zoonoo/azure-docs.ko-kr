@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 쿼리
-description: Azure Cosmos DB의 API for MongoDB를 사용하여 데이터를 쿼리하는 방법을 알아봅니다.
-author: rimman
-ms.author: rimman
+description: MongoDB 셸 명령을 사용하여 Azure Cosmos DB의 API for MongoDB에서 데이터를 쿼리하는 방법 알아보기
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8bdd88652019ceb48cfd9f05d1009271f5b7a8c7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848951"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 쿼리
 
@@ -58,17 +58,20 @@ ms.locfileid: "54042991"
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a>예제 쿼리 1 
+## <a name="example-query-1"></a><a id="examplequery1"></a>예제 쿼리 1 
 
 위의 샘플 가족 문서를 고려해 볼 때 다음 쿼리에서는 ID 필드가 `WakefieldFamily`와 일치하는 문서를 반환합니다.
 
 **쿼리**
-    
-    db.families.find({ id: "WakefieldFamily"})
+
+```bash
+db.families.find({ id: "WakefieldFamily"})
+```
 
 **결과**
 
-    {
+```json
+{
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
     "parents": [
@@ -106,19 +109,23 @@ ms.locfileid: "54042991"
     },
     "creationDate": 1431620462,
     "isRegistered": false
-    }
+}
+```
 
-## <a id="examplequery2"></a>예제 쿼리 2 
+## <a name="example-query-2"></a><a id="examplequery2"></a>예제 쿼리 2 
 
 다음 쿼리에서는 가족의 모든 자식을 반환합니다. 
 
 **쿼리**
-    
-    db.families.find( { id: "WakefieldFamily" }, { children: true } )
+
+```bash 
+db.families.find( { id: "WakefieldFamily" }, { children: true } )
+``` 
 
 **결과**
 
-    {
+```json
+{
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
       {
@@ -138,28 +145,37 @@ ms.locfileid: "54042991"
         "grade": 8
       }
     ]
-    }
+}
+```
 
-
-## <a id="examplequery3"></a>예제 쿼리 3 
+## <a name="example-query-3"></a><a id="examplequery3"></a>예제 쿼리 3 
 
 다음 쿼리는 등록된 모든 가족을 반환합니다. 
 
 **쿼리**
-    
-    db.families.find( { "isRegistered" : true })
-**결과** 문서가 반환되지 않습니다. 
 
-## <a id="examplequery4"></a>예제 쿼리 4
+```bash
+db.families.find( { "isRegistered" : true })
+``` 
+
+**결과**
+
+문서가 반환되지 않습니다. 
+
+## <a name="example-query-4"></a><a id="examplequery4"></a>예제 쿼리 4
 
 다음 쿼리는 등록되지 않은 모든 가족을 반환합니다. 
 
 **쿼리**
-    
-    db.families.find( { "isRegistered" : false })
+
+```bash
+db.families.find( { "isRegistered" : false })
+``` 
+
 **결과**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -193,18 +209,22 @@ ms.locfileid: "54042991"
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
-## <a id="examplequery5"></a>예제 쿼리 5
+## <a name="example-query-5"></a><a id="examplequery5"></a>예제 쿼리 5
 
 다음 쿼리는 등록되지 않았고 거주 지역(주)이 NY인 가족을 모두 반환합니다. 
 
 **쿼리**
-    
-     db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+
+```bash
+db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+``` 
 
 **결과**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -238,19 +258,22 @@ ms.locfileid: "54042991"
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
-
-## <a id="examplequery6"></a>예제 쿼리 6
+## <a name="example-query-6"></a><a id="examplequery6"></a>예제 쿼리 6
 
 다음 쿼리에서는 자식(children)의 학년(grade)이 8인 모든 가족을 반환합니다.
 
 **쿼리**
-  
-     db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+
+```bash
+db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+```
 
 **결과**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -284,14 +307,17 @@ ms.locfileid: "54042991"
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
-## <a id="examplequery7"></a>예제 쿼리 7
+## <a name="example-query-7"></a><a id="examplequery7"></a>예제 쿼리 7
 
 다음 쿼리에서는 children 배열의 크기가 3인 모든 가족을 반환합니다.
 
 **쿼리**
-  
-      db.Family.find( {children: { $size:3} } )
+
+```bash
+db.Family.find( {children: { $size:3} } )
+```
 
 **결과**
 

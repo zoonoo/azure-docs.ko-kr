@@ -1,23 +1,24 @@
 ---
-title: Azure Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
-description: 이 문서에서는 Azure Traffic Manager를 사용하여 지리적 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
+title: 자습서 - Azure Traffic Manager를 사용하여 지리적 트래픽 라우팅 구성
+description: 이 자습서에서는 Azure Traffic Manager를 사용하여 지리적 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
 services: traffic-manager
-author: kumudd
+author: rohinkoul
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumud
-ms.openlocfilehash: 47cc56aac7d3e0147ef8577aac19776c6cacf7a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: rohink
+ms.openlocfilehash: 3eb3f354d51833e55f405ed35679f1a5882c057a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884158"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "76938800"
 ---
-# <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
+# <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>자습서: Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
 
 지리적 트래픽 라우팅 방법을 사용하면 요청이 발생하는 지리적 위치를 기반으로 특정 엔드포인트에 트래픽을 보낼 수 있습니다. 이 자습서는 이 라우팅 방법을 사용하여 Traffic Manager 프로필을 만들고, 특정 지역에서 트래픽을 받도록 엔드포인트를 구성하는 방법을 보여 줍니다.
 
@@ -26,7 +27,7 @@ ms.locfileid: "60884158"
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다. 아직 계정이 없는 경우 [1개월 무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
 2. **리소스 만들기** > **네트워킹** > **Traffic Manager 프로필** > **만들기**를 클릭합니다.
 4. **Traffic Manager 프로필 만들기**에서 다음을 수행합니다.
-    1. 사용자의 프로필에 사용할 이름을 제공합니다. 이 이름은 trafficmanager.net 영역 내에서 고유해야 합니다. DNS 이름을 사용 하면 Traffic Manager 프로필에 액세스 하려면 `<profilename>.trafficmanager.net`합니다.
+    1. 사용자의 프로필에 사용할 이름을 제공합니다. 이 이름은 trafficmanager.net 영역 내에서 고유해야 합니다. Traffic Manager 프로필에 액세스하려면 `<profilename>.trafficmanager.net` DNS 이름을 사용합니다.
     2. **지리적** 라우팅 방법을 선택합니다.
     3. 이 프로필에서 만들려는 구독을 선택합니다.
     4. 기존 리소스 그룹을 사용하거나 이 프로필에서 대체할 새 리소스 그룹을 만듭니다. 새 리소스 그룹을 만드는 경우 **리소스 그룹 위치** 드롭다운을 사용하여 리소스 그룹의 위치를 지정합니다. 이 설정은 리소스 그룹의 위치를 나타내며 전역적으로 배포되는 Traffic Manager 프로필에는 영향을 미치지 않습니다.
@@ -37,7 +38,7 @@ ms.locfileid: "60884158"
 ## <a name="add-endpoints"></a>엔드포인트 추가
 
 1. 포털의 검색 창에서 직접 만든 Traffic Manager 프로필 이름을 검색하고 결과가 표시되면 클릭합니다.
-2. Traffic Manager에서 **설정** -> **끝점**으로 이동합니다.
+2. Traffic Manager에서 **설정** -> **엔드포인트**으로 이동합니다.
 3. **추가**를 클릭하여 **엔드포인트 추가**를 표시합니다.
 3. **추가**를 클릭하고 표시되는 **엔드포인트 추가**에서 다음과 같이 정보를 입력합니다.
 4. 추가하려는 엔드포인트의 형식에 따라 **형식**을 선택합니다. 프로덕션에 사용되는 지리적 라우팅 프로필의 경우 둘 이상의 엔드포인트가 있는 자식 프로필을 포함하는 중첩 엔드포인트 형식을 사용하는 것이 좋습니다. 자세한 내용은 [지리적 트래픽 라우팅 방법에 대한 FAQ](traffic-manager-FAQs.md)를 참조하세요.

@@ -1,19 +1,14 @@
 ---
 title: 자동 크기 조정 공통 메트릭
 description: Cloud Services, Virtual Machines 및 Web Apps의 자동 크기 조정에 일반적으로 사용되는 메트릭에 대해 알아봅니다.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76845568"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
 
@@ -23,7 +18,7 @@ Azure Monitor 자동 크기 조정을 사용하여 원격 분석 데이터(메�
 
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)에만 적용됩니다. 다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
 
-## <a name="compute-metrics-for-resource-manager-based-vms"></a>Resource Manager 기반 VM용 메트릭 계산
+## <a name="compute-metrics-for-resource-manager-based-vms"></a>Resource Manager 기반 VM용 메트릭 컴퓨팅
 기본적으로 Resource Manager 기반 Virtual Machines 및 Virtual Machine Scale Sets는 기본(호스트 수준) 메트릭을 내보냅니다. 또한 Azure VM 및 VMSS용 진단 데이터 수집을 구성하면 Azure 진단 확장은 게스트 OS 성능 카운터(일반적으로 "게스트 OS 메트릭"이라고 함)도 내보냅니다.  자동 크기 조정 규칙에서 이러한 모든 메트릭을 사용합니다.
 
 `Get MetricDefinitions` API/PoSH/CLI를 사용하여 VMSS 리소스에 사용할 수 있는 메트릭을 볼 수 있습니다.
@@ -40,7 +35,7 @@ VM 규모 집합을 사용 중인데 특정 메트릭이 목록에 표시되지 
 - [Resource Manager 기반 Windows 및 Linux VM용 호스트 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Resource Manager 기반 Windows 및 Linux VM Scale Sets용 호스트 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>게스트 OS 메트릭 Resource Manager 기반 Windows VM
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>리소스 관리자 기반 Windows Vm에 대 한 게스트 OS 메트릭
 Azure에서 VM을 만들 때 진단 확장을 사용하여 진단을 사용하도록 설정합니다. 진단 확장을 사용하여 VM 내에서 가져온 메트릭 집합을 내보냅니다. 즉, 기본적으로 내보내지 않도록 메트릭의 자동 크기 조정을 해제할 수 있습니다.
 
 PowerShell에서 다음 명령을 사용하여 메트릭 목록을 생성할 수 있습니다.
@@ -56,10 +51,10 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \Processor(_Total)\% 프로세서 시간 |백분율 |
 | \Processor(_Total)\% 시스템 시간 |백분율 |
 | \Processor(_Total)\% 사용자 시간 |백분율 |
-| \Processor Information(_Total)\Processor Frequency |카운트 |
-| \System\Processes |카운트 |
-| \Process(_Total)\Thread Count |카운트 |
-| \Process(_Total)\Handle Count |카운트 |
+| \Processor Information(_Total)\Processor Frequency |개수 |
+| \System\Processes |개수 |
+| \Process(_Total)\Thread Count |개수 |
+| \Process(_Total)\Handle Count |개수 |
 | \Memory\% 사용 중인 커밋된 바이트 |백분율 |
 | \Memory\Available Bytes |바이트 |
 | \Memory\Committed Bytes |바이트 |
@@ -75,11 +70,11 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk(_Total)\Disk Bytes/sec |초당 바이트 수 |
 | \PhysicalDisk(_Total)\Disk Read Bytes/sec |초당 바이트 수 |
 | \PhysicalDisk(_Total)\Disk Write Bytes/sec |초당 바이트 수 |
-| \PhysicalDisk(_Total)\Avg. 디스크 큐 길이 |카운트 |
-| \PhysicalDisk(_Total)\Avg. 디스크 읽기 큐 길이 |카운트 |
-| \PhysicalDisk(_Total)\Avg. 디스크 쓰기 큐 길이 |카운트 |
+| \PhysicalDisk (_Total) \Avg. Disk Queue Length |개수 |
+| \PhysicalDisk (_Total) \Avg. Disk 읽기 큐 길이 |개수 |
+| \PhysicalDisk (_Total) \Avg. Disk Write Queue Length |개수 |
 | \LogicalDisk(_Total)\% 사용 가능한 공간 |백분율 |
-| \LogicalDisk(_Total)\Free Megabytes |카운트 |
+| \LogicalDisk(_Total)\Free Megabytes |개수 |
 
 ### <a name="guest-os-metrics-linux-vms"></a>게스트 OS 메트릭 Linux VM
 Azure에서 VM을 만들 때 진단 확장을 사용하여 기본적으로 진단을 사용하도록 설정합니다.
@@ -123,18 +118,18 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk\AverageReadTime |초 |
 | \PhysicalDisk\AverageWriteTime |초 |
 | \PhysicalDisk\AverageTransferTime |초 |
-| \PhysicalDisk\AverageDiskQueueLength |카운트 |
+| \PhysicalDisk\AverageDiskQueueLength |개수 |
 | \NetworkInterface\BytesTransmitted |바이트 |
 | \NetworkInterface\BytesReceived |바이트 |
-| \NetworkInterface\PacketsTransmitted |카운트 |
-| \NetworkInterface\PacketsReceived |카운트 |
+| \NetworkInterface\PacketsTransmitted |개수 |
+| \NetworkInterface\PacketsReceived |개수 |
 | \NetworkInterface\BytesTotal |바이트 |
-| \NetworkInterface\TotalRxErrors |카운트 |
-| \NetworkInterface\TotalTxErrors |카운트 |
-| \NetworkInterface\TotalCollisions |카운트 |
+| \NetworkInterface\TotalRxErrors |개수 |
+| \NetworkInterface\TotalTxErrors |개수 |
+| \NetworkInterface\TotalCollisions |개수 |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>일반적으로 사용되는 웹(서버 팜) 메트릭
-Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에는 사용 가능한 서버 팜(Web Apps) 메트릭이 나열되어 있습니다.
+## <a name="commonly-used-app-service-server-farm-metrics"></a>일반적으로 사용 되는 App Service (서버 팜) 메트릭
+Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에서는 사용 가능한 App Service (서버 팜) 메트릭을 나열 합니다.
 
 ### <a name="web-apps-metrics"></a>Web Apps 메트릭
 PowerShell에서 다음 명령을 사용하여 Web Apps 메트릭 목록을 생성할 수 있습니다.
@@ -149,25 +144,25 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | --- | --- |
 | CpuPercentage |백분율 |
 | MemoryPercentage |백분율 |
-| DiskQueueLength |카운트 |
-| HttpQueueLength |카운트 |
+| DiskQueueLength |개수 |
+| HttpQueueLength |개수 |
 | BytesReceived |바이트 |
 | BytesSent |바이트 |
 
 ## <a name="commonly-used-storage-metrics"></a>일반적으로 사용되는 Storage 메트릭
-저장소 큐의 메시지 수인 저장소 큐 길이의 크기를 조정할 수 있습니다. 저장소 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
+스토리지 큐의 메시지 수인 스토리지 큐 길이의 크기를 조정할 수 있습니다. 스토리지 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
 
-Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 저장소 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
+Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 스토리지 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
 
 예를 들어 클래식 Storage 계정을 사용하면 자동 크기 조정 설정 metricTrigger는 다음을 포함합니다.
 
 ```
 "metricName": "ApproximateMessageCount",
- "metricNamespace": "",
- "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
-(클래식이 아닌) 저장소 계정의 경우 metricTrigger는 다음을 포함합니다.
+(클래식이 아닌) 스토리지 계정의 경우 metricTrigger는 다음을 포함합니다.
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -178,10 +173,10 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
 ## <a name="commonly-used-service-bus-metrics"></a>자주 사용되는 Service Bus 메트릭
 Service Bus 큐의 메시지 수인 Service Bus 큐 길이의 크기를 조정할 수 있습니다. Service Bus 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
 
-VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 저장소 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
+VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 스토리지 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
 
 ```
-"metricName": "MessageCount",
+"metricName": "ApproximateMessageCount",
  "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```

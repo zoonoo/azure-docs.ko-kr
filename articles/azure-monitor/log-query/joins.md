@@ -1,29 +1,21 @@
 ---
 title: Azure Monitor 로그 쿼리에서 조인 | Microsoft Docs
 description: 이 문서는 Azure Monitor 쿼리 언어에서 조인을 사용하는 방법에 대한 단원을 포함합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 08/16/2018
+ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520104"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77670205"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 조인
 
 > [!NOTE]
-> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 하 고 [Azure Monitor 로그 쿼리](get-started-queries.md) 이 단원을 완료 하기 전에 합니다.
+> 이 단원을 완료 하기 전에 [Azure Monitor Log Analytics](get-started-portal.md) 및 [Azure Monitor 로그 쿼리](get-started-queries.md) 시작을 완료 해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -46,7 +38,7 @@ SecurityEvent
 
 이 예제에서는 모든 로그인 이벤트에 대해 첫 번째 데이터 세트가 필터링됩니다. 그런 후 모든 로그아웃 이벤트를 필터링하는 두 번째 데이터 세트와 조인됩니다. 에상되는 열은 _Computer_, _Account_, _TargetLogonId_ 및 _TimeGenerated_입니다. 데이터 세트는 공유 열 _TargetLogonId_를 통해 상호 연관됩니다. 출력은 상관 관계마다 하나의 레코드로 표시되며, 로그인 및 로그아웃 시간이 모두 포함됩니다.
 
-두 데이터 세트에 동일한 이름의 열이 있는 경우 오른쪽 데이터 세트의 열에 인덱스 번호가 지정됩니다. 따라서 이 예제의 결과는 왼쪽 테이블의 값을 포함하는 _TargetLogonId_와 오른쪽 테이블의 값을 포함하는  _TargetLogonId1_으로 표시됩니다. 이 경우 두 번째 _TargetLogonId1_ 열은 `project-away` 연산자를 사용하여 제거되었습니다.
+두 데이터 세트에 동일한 이름의 열이 있는 경우 오른쪽 데이터 세트의 열에 인덱스 번호가 지정됩니다. 따라서 이 예제의 결과는 왼쪽 테이블의 값을 포함하는 _TargetLogonId_와 오른쪽 테이블의 값을 포함하는 _ TargetLogonId1_으로 표시됩니다. 이 경우 두 번째 _TargetLogonId1_ 열은 `project-away` 연산자를 사용하여 제거되었습니다.
 
 > [!NOTE]
 > 성능 향상을 위해 `project` 연산자를 사용하여 조인된 데이터 집합의 관련 열만 유지합니다.

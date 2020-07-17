@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60242337"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144711"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
 
@@ -39,12 +39,15 @@ ms.locfileid: "60242337"
 
 Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 Azure AD Connect를 통해 사용하도록 설정할 수 있습니다. 이 기능을 사용하도록 설정하는 동안 발생하는 단계는 다음과 같습니다.
 
-- 컴퓨터 계정 (`AZUREADSSOACC`) 온-프레미스 Active Directory (AD) (Azure AD Connect를 사용 하 여) Azure AD에 동기화 하는 각 AD 포리스트에 만들어집니다.
-- 또한 Azure AD 로그인 프로세스 중에 사용할 다양 한 Kerberos 서비스 사용자 이름 (Spn) 만들어집니다.
-- 컴퓨터 계정의 Kerberos 암호 해독 키가 Azure AD와 안전하게 공유됩니다. 여러 AD 포리스트 경우 컴퓨터 계정은 각각 고유한 자체 Kerberos 암호 해독 키를 해야 합니다.
+- 컴퓨터 계정 ( `AZUREADSSOACC` )은 Azure AD Connect를 사용 하 여 AZURE ad에 동기화 하는 각 ad 포리스트의 온-프레미스 Active Directory (ad)에 만들어집니다.
+- 또한 Azure AD 로그인 프로세스 중에 사용 하기 위해 다양 한 Kerberos Spn (서비스 사용자 이름)이 생성 됩니다.
+- 컴퓨터 계정의 Kerberos 암호 해독 키가 Azure AD와 안전하게 공유됩니다. AD 포리스트가 여러 개인 경우 각 컴퓨터 계정에 고유한 Kerberos 암호 해독 키가 있습니다.
 
 >[!IMPORTANT]
-> `AZUREADSSOACC` 보안상 강력 하 게 보호 해야 하는 컴퓨터 계정입니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에서 Kerberos 위임을 해제 되 고 Active Directory에 없는 다른 계정 대 한 위임 권한이 있는지 확인 합니다 `AZUREADSSOACC` 컴퓨터 계정... 실수로 인 한 삭제 로부터 안전 하 게 하는 경우 및 도메인 관리자만 액세스할 수 있는 컴퓨터 계정에는 OU (조직 단위)를 저장 합니다. 또한으로 컴퓨터 계정의 Kerberos 암호 해독 키를 중요 한 정보로으로 처리 되어야 합니다. 적어도 30일마다 `AZUREADSSOACC` 컴퓨터 계정의 [Kerberos 암호 해독 키를 롤오버](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)하는 것이 좋습니다.
+> `AZUREADSSOACC`보안상의 이유로 컴퓨터 계정을 강력 하 게 보호 해야 합니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에 대 한 Kerberos 위임이 사용 하지 않도록 설정 되어 있고 Active Directory의 다른 계정에 컴퓨터 계정에 대 한 위임 권한이 있는지 확인 하십시오. `AZUREADSSOACC` 실수로 삭제 되는 것이 안전 하 고 도메인 관리자만 액세스할 수 있는 조직 구성 단위 (OU)에 컴퓨터 계정을 저장 합니다. 컴퓨터 계정의 Kerberos 암호 해독 키도 중요 한 것으로 간주 됩니다. 적어도 30일마다 `AZUREADSSOACC` 컴퓨터 계정의 [Kerberos 암호 해독 키를 롤오버](how-to-connect-sso-faq.md)하는 것이 좋습니다.
+
+>[!IMPORTANT]
+> 원활한 SSO는 Kerberos에 대 한 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 종류를 지원 합니다. AzureADSSOAcc $ account의 암호화 유형을 AES256_HMAC_SHA1 또는 AES 유형 중 하나를 설정 하 여 보안을 강화 하는 것이 좋습니다. 암호화 유형은 Active Directory 계정의의 msds-primary-computer-Supported Types 특성에 저장 됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.md)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
 
 설정이 완료되면 Seamless SSO는 IWA(Windows 통합 인증)를 사용하는 다른 로그인과 동일한 방식으로 작동합니다.
 
@@ -52,12 +55,12 @@ Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 
 
 웹 브라우저의 로그인 흐름은 다음과 같습니다.
 
-1. 사용자가 회사 네트워크의 도메인 가입 회사 장치에서 웹 애플리케이션(예: Outlook 웹앱 https://outlook.office365.com/owa/))에 액세스하려고 합니다.
+1. 사용자가 회사 네트워크의 도메인 가입 회사 디바이스에서 웹 애플리케이션(예: Outlook 웹앱 https://outlook.office365.com/owa/))에 액세스하려고 합니다.
 2. 사용자가 아직 로그인하지 않은 경우 해당 사용자는 Azure AD 로그인 페이지로 리디렉션됩니다.
 3. 사용자는 자신의 사용자 이름을 Azure AD 로그인 페이지에 입력합니다.
 
    >[!NOTE]
-   >[특정 애플리케이션](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso)의 경우 2-3단계를 건너뜁니다.
+   >[특정 애플리케이션](./how-to-connect-sso-faq.md)의 경우 2-3단계를 건너뜁니다.
 
 4. Azure AD는 백그라운드에서 JavaScript를 사용하여 401 권한 없음 응답을 통해 브라우저에 Kerberos 티켓을 제공합니다.
 5. 그런 다음 브라우저는 Active Directory에서 Azure AD를 나타내는 `AZUREADSSOACC` 컴퓨터 계정에 대한 티켓을 요청합니다.
@@ -77,8 +80,8 @@ Seamless SSO는 편의적인 기능입니다. 이는 SSO가 실패하면 로그�
 
 네이티브 클라이언트의 로그인 흐름은 다음과 같습니다.
 
-1. 사용자가 회사 네트워크의 도메인 가입 회사 장치에서 네이티브 애플리케이션(예: Outlook 클라이언트)에 액세스하려고 합니다.
-2. 사용자가 아직 로그인되지 않은 경우 네이티브 애플리케이션은 장치의 Windows 세션에서 사용자의 사용자 이름을 검색합니다.
+1. 사용자가 회사 네트워크의 도메인 가입 회사 디바이스에서 네이티브 애플리케이션(예: Outlook 클라이언트)에 액세스하려고 합니다.
+2. 사용자가 아직 로그인되지 않은 경우 네이티브 애플리케이션은 디바이스의 Windows 세션에서 사용자의 사용자 이름을 검색합니다.
 3. 앱은 Azure AD에 사용자 이름을 전송하고, 테넌트의 WS-Trust MEX 엔드포인트를 검색합니다. 이 WS-Trust 엔드포인트는 Seamless SSO 기능에 의해 단독으로 사용되며 Azure AD에서 WS-Trust 프로토콜의 일반적인 구현이 아닙니다.
 4. 그런 후 WS-Trust MEX 엔드포인트를 쿼리하여 통합된 인증 엔드포인트를 사용할 수 있는지 확인합니다. 통합 인증 엔드포인트는 Seamless SSO 기능에 의해 단독으로 사용됩니다.
 5. 4단계가 성공하면 Kerberos 챌린지가 발급됩니다.
@@ -96,6 +99,6 @@ Seamless SSO는 편의적인 기능입니다. 이는 SSO가 실패하면 로그�
 ## <a name="next-steps"></a>다음 단계
 
 - [**빠른 시작**](how-to-connect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.
-- [**FAQ(질문과 대답)**](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
+- [**FAQ(질문과 대답)** ](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.

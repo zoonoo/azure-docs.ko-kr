@@ -1,6 +1,6 @@
 ---
-title: 메트릭 및 Azure 프런트 도어 서비스에서 로그를 모니터링 합니다. | Microsoft Docs
-description: 이 문서에서는 다양 한 메트릭과 Azure 프런트 도어 서비스가 지 원하는 액세스 로그에 설명
+title: Azure Front 도어에서 메트릭 및 로그 모니터링 | Microsoft Docs
+description: 이 문서에서는 Azure Front 도어가 지 원하는 다양 한 메트릭 및 액세스 로그에 대해 설명 합니다.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,86 +11,101 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736811"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322305"
 ---
-# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>메트릭 및 Azure 프런트 도어 서비스에서 로그를 모니터링합니다.
+# <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Azure 전면 도어에서 메트릭 및 로그 모니터링
 
-Azure 프런트 도어 서비스를 사용 하면 다음과 같은 방법으로 리소스를 모니터링할 수 있습니다.
+Azure Front 도어를 사용 하 여 다음과 같은 방법으로 리소스를 모니터링할 수 있습니다.
 
-- **메트릭**. 현재 Application Gateway는 성능 카운터를 보여주는 7개 메트릭을 제공합니다.
-- **로그**합니다. 활동 및 진단 로그는 성능, 액세스 및 기타 데이터를 저장 하거나 모니터링을 위해 리소스에서 사용할 수 있습니다.
+- **메트릭**. Azure 전면 도어에는 현재 성능 카운터를 볼 수 있는 7 개의 메트릭이 있습니다.
+- **로그**. 활동 및 진단 로그를 사용 하면 모니터링 목적으로 리소스에서 성능, 액세스 및 기타 데이터를 저장 하거나 사용할 수 있습니다.
 
 ### <a name="metrics"></a>메트릭
 
-메트릭은 포털에서 성능 카운터를 볼 수 있도록 하는 특정 Azure 리소스에 대 한 기능입니다. 다음은 첫 번째 관문 메트릭을 사용할 수 있습니다.
+메트릭은 포털에서 성능 카운터를 볼 수 있는 특정 Azure 리소스에 대 한 기능입니다. 다음은 사용 가능한 전방 도어 메트릭입니다.
 
 | 메트릭 | 메트릭 표시 이름 | 단위 | 차원 | 설명 |
 | --- | --- | --- | --- | --- |
-| RequestCount | 요청 수 | 카운트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 제공하는 클라이언트 요청 수  |
+| RequestCount | 요청 수 | 개수 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 제공하는 클라이언트 요청 수  |
 | RequestSize | 요청 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 클라이언트에서 Front Door로, 요청으로 전송된 바이트 수 |
 | ResponseSize | 응답 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 클라이언트로, 응답으로 전송된 바이트 수 |
-| TotalLatency | 총 대기 시간 | 밀리초 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 클라이언트는 첫 번째 관문에서 마지막 응답 바이트를 승인할 때까지 첫 번째 관문에서 받은 클라이언트 요청의 시간 계산 합니다. |
-| BackendRequestCount | 백 엔드 요청 수 | 카운트 | HttpStatus</br>HttpStatusGroup</br>백 엔드 | Front Door에서 백 엔드로 전송된 요청 수 |
+| TotalLatency | 총 대기 시간 | 밀리초 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 프런트 도어에서 클라이언트가 마지막 응답 바이트를 승인할 때까지 Front 도어가 받은 클라이언트 요청에서 계산 된 시간입니다. |
+| BackendRequestCount | 백 엔드 요청 수 | 개수 | HttpStatus</br>HttpStatusGroup</br>백 엔드 | Front Door에서 백 엔드로 전송된 요청 수 |
 | BackendRequestLatency | 백 엔드 요청 대기 시간 | 밀리초 | 백 엔드 | Front Door에서 백 엔드의 마지막 응답 바이트를 받을 때까지 Front Door에서 백 엔드로 요청이 전송될 때 계산된 시간 |
 | BackendHealthPercentage | 백 엔드 상태 비율 | 백분율 | 백 엔드</br>BackendPool | Front Door에서 백 엔드로 성공한 상태 프로브의 비율 |
-| WebApplicationFirewallRequestCount | 웹 애플리케이션 방화벽 요청 수 | 카운트 | PolicyName</br>RuleName</br>액션(Action) | Front Door의 애플리케이션 계층 보안에 의해 처리된 클라이언트 요청 수 |
+| WebApplicationFirewallRequestCount | 웹 애플리케이션 방화벽 요청 수 | 개수 | PolicyName</br>RuleName</br>작업 | Front Door의 애플리케이션 계층 보안에 의해 처리된 클라이언트 요청 수 |
 
-## <a name="activity-log"></a>활동 로그
+## <a name="activity-logs"></a><a name="activity-log"></a>활동 로그
 
-활동 로그 프런트 도어 서비스에서 수행 된 작업에 대 한 정보를 제공 합니다. 또한 결정 합니다 누가, 및에 대 한 쓰기 작업 (put, post 또는 delete) 프런트 도어 서비스에서 수행 된 시기입니다.
+활동 로그는 Front 문에 대해 수행 된 작업에 대 한 정보를 제공 합니다. 또한 전방 도어에서 수행 되는 모든 쓰기 작업 (put, post 또는 delete)에 대 한 내용, 사용자 및 시기를 결정 합니다.
 
 >[!NOTE]
->활동 로그는 읽기 (get) 작업을 포함 하지 않습니다. 또한 이러한 Azure portal 또는 원래 관리 API를 사용 하 여 수행할 작업을 포함 하지 않습니다.
+>활동 로그에는 읽기 (get) 작업이 포함 되지 않습니다. 또한 Azure Portal 또는 원래 관리 API를 사용 하 여 수행 하는 작업을 포함 하지 않습니다.
 
-액세스 활동 프런트 도어 서비스 또는 Azure Monitor에서 Azure 리소스의 모든 로그를 기록합니다. 활동 로그를 보려면
+Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로그에 액세스 합니다. 활동 로그를 보려면
 
-1. 첫 번째 관문 인스턴스를 선택 합니다.
-2. 선택 **활동 로그**합니다.
+1. 프런트 도어 인스턴스를 선택 합니다.
+2. **활동 로그**를 선택 합니다.
 
     ![활동 로그](./media/front-door-diagnostics/activity-log.png)
 
-3. 필터링 된 범위를 선택 하 고 선택한 **적용**합니다.
+3. 필터링 범위를 선택한 다음 **적용**을 선택 합니다.
 
-## <a name="diagnostic-logging"></a>진단 로그
-진단 로그는 작업 및 감사 및 문제해결에 대 한 중요 한 오류에 대 한 풍부한 정보를 제공 합니다. 진단 로그는 활동 로그에서 다릅니다.
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>진단 로그
+진단 로그는 감사 및 문제 해결에 중요 한 작업 및 오류에 대 한 다양 한 정보를 제공 합니다. 진단 로그는 활동 로그와 다릅니다.
 
-활동 로그는 Azure 리소스에서 수행 된 작업에 대 한 정보를 제공 합니다. 진단 로그는 리소스에서 수행 하는 작업에 대 한 정보를 제공 합니다. 자세한 내용은 [Azure Monitor 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)합니다.
+활동 로그는 Azure 리소스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 진단 로그는 리소스에서 수행한 작업에 대 한 통찰력을 제공 합니다. 자세한 내용은 [Azure Monitor 진단 로그](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
 
 ![진단 로그](./media/front-door-diagnostics/diagnostic-log.png)
 
-첫 번째 관문 서비스에 대 한 진단 로그를 구성:
+프런트 도어에 대 한 진단 로그를 구성 하려면:
 
-1. Azure 프런트 도어 서비스를 선택 합니다.
+1. Azure Front 도어를 선택 합니다.
 
-2. 선택할 **진단 설정**합니다.
+2. **진단 설정**을 선택 합니다.
 
-3. **진단 켜기**를 선택합니다. 저장소 계정에 대 한 메트릭과 함께 진단 로그 보관 하 고, 이벤트 허브로 스트림 또는 Azure Monitor 로그로 보낼 합니다.
+3. **진단 켜기**를 선택합니다. 진단 로그를 메트릭과 함께 저장소 계정에 보관 하거나, 이벤트 허브로 스트림 하거나 Azure Monitor 로그에 보냅니다.
 
-첫 번째 관문 서비스는 현재 진단 로그 (시간 단위로 일괄 처리)를 제공 합니다. 진단 로그는 다음 스키마를 갖는 각 항목으로 개별 API 요청을 제공 합니다.
+앞 도어는 현재 진단 로그 (일괄 처리 시간)를 제공 합니다. 진단 로그는 각 항목에 대해 다음 스키마를 갖는 개별 API 요청을 제공 합니다.
 
-| 자산  | 설명 |
+| 속성  | 설명 |
 | ------------- | ------------- |
-| ClientIp | 요청한 클라이언트의 IP 주소입니다. |
-| ClientPort | 요청한 클라이언트의 IP 포트입니다. |
+| BackendHostname | 요청을 백 엔드에 전달 하는 경우이 필드는 백 엔드의 호스트 이름을 나타냅니다. 요청이 리디렉션 되었거나 지역 캐시로 전달 된 경우 (라우팅 규칙에 캐싱이 설정 된 경우)이 필드는 비어 있습니다. |
+| CacheStatus | 캐싱 시나리오의 경우이 필드는 POP에서 캐시 적중/누락을 정의 합니다. |
+| ClientIp | 요청한 클라이언트의 IP 주소입니다. 요청에 X로 전달 된 헤더가 있는 경우 클라이언트 IP는 동일한에서 선택 됩니다. |
+| ClientPort | 요청을 수행한 클라이언트의 IP 포트입니다. |
 | HttpMethod | 요청에서 사용된 HTTP 메서드 |
-| HttpStatusCode | 프록시에서 반환 된 HTTP 상태 코드입니다. |
-| HttpStatusDetails | 요청에 대 한 상태 결과입니다. 상태 참조 테이블에서이 문자열 값의 의미를 찾을 수 있습니다. |
-| HttpVersion | 요청 또는 연결의 형식입니다. |
-| RequestBytes | 크기 (바이트)을 요청 헤더 및 요청 본문을 포함 하 여 HTTP 요청 메시지입니다. |
+| HttpStatusCode | 프록시에서 반환된 HTTP 상태 코드입니다. |
+| HttpStatusDetails | 요청의 결과 상태입니다. 이 문자열 값의 의미는 상태 참조 테이블에서 찾을 수 있습니다. |
+| HttpVersion | 요청 또는 연결의 유형입니다. |
+| POP | 요청이 배치는 가장자리의 짧은 이름입니다. |
+| RequestBytes | 요청 헤더 및 요청 본문을 포함하여 HTTP 요청 메시지의 크기(바이트)입니다. |
 | RequestUri | 받은 요청의 URI |
-| ResponseBytes | 응답으로 백 엔드 서버에서 보낸 바이트 수입니다.  |
-| RoutingRuleName | 요청 일치 하는 라우팅 규칙의 이름입니다. |
-| SecurityProtocol | 암호화 되지 않은 경우 null을 요청에서 사용 하는 TLS/SSL 프로토콜 버전입니다. |
-| TimeTaken | 시간 (밀리초)에 해당 작업에 걸린 시간의 길이입니다. |
-| UserAgent | 클라이언트에서 사용한 브라우저 종류 |
-| TrackingReference | 첫 번째 관문에서 제공한 요청을 식별 하는 고유한 참조 문자열 Azure Xref 헤더로 클라이언트로 전송 합니다. 특정 요청에 대 한 액세스 로그에 정보를 검색 하는 데 필요 합니다. |
+| ResponseBytes | 백 엔드 서버에서 응답으로 보낸 바이트 수입니다.  |
+| RoutingRuleName | 요청이 일치 하는 라우팅 규칙의 이름입니다. |
+| RulesEngineMatchNames | 요청에서 일치 하는 규칙의 이름입니다. |
+| SecurityProtocol | 요청에 사용되는 TLS/SSL 프로토콜 버전이거나, 암호화가 없는 경우 null입니다. |
+| SentToOriginShield | 첫 번째 환경에 캐시 누락이 있고 요청이 지역 캐시로 전송 되었는지 여부를 나타내는 부울 필드입니다. 라우팅 규칙이 리디렉션 이거나 캐싱이 설정 되지 않은 경우이 필드를 무시 합니다. |
+| TimeTaken | 작업에 걸린 시간(밀리초)입니다. |
+| TrackingReference | Front Door에서 제공하는 요청을 식별하는 고유한 참조 문자열로, 클라이언트에 X-Azure-Ref 헤더로 전송됩니다. 특정 요청의 액세스 로그에서 세부 정보를 검색하는 데 필요합니다. |
+| UserAgent | 클라이언트에서 사용한 브라우저 유형입니다. |
+
+**참고:** 다양 한 라우팅 구성 및 트래픽 동작의 경우 backendHostname, cacheStatus, sentToOriginShield 및 POP 필드와 같은 일부 필드는 다른 값으로 응답할 수 있습니다. 아래 표에서는 다양 한 값을 설명 하 고 이러한 필드는 다양 한 시나리오에 대해 설명 합니다.
+
+| 시나리오 | 로그 항목 수 | POP | BackendHostname | SentToOriginShield | CacheStatus |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | False | CONFIG_NOCACHE |
+| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | False | 리 |
+| 캐싱이 설정 된 라우팅 규칙입니다. Edge POP에서 캐시 누락이 있지만 부모 캐시 POP에서 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 비어 있음 | 1. True</br>2. False | 1. 누락</br>2. PARTIAL_HIT |
+| 캐싱이 설정 된 라우팅 규칙입니다. Edge 및 부모 캐시 POP에서 캐시 누락 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 캐시를 채우는 데 도움이 되는 백 엔드 | 1. True</br>2. False | 1. 누락</br>2. 누락 |
+
 
 ## <a name="next-steps"></a>다음 단계
 
-- [첫 번째 관문 프로필 만들기](quickstart-create-front-door.md)
-- [첫 번째 관문의 작동 원리](front-door-routing-architecture.md)
+- [Front Door 프로필 만들기](quickstart-create-front-door.md)
+- [프런트 도어 작동 방법](front-door-routing-architecture.md)

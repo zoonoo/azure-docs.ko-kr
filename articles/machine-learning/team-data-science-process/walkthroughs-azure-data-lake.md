@@ -3,20 +3,19 @@ title: Azure Data Lake에서 U-SQL을 사용하여 분석 - Team Data Science Pr
 description: 예측 분석을 수행하기 위해 Azure Data Lake에서 U-SQL의 사용을 안내하는 예제입니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b0599317d09a1757b3c86372cb7ed8ea78d4cdd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2e5eb0acd2a94f7726fbacefbe6e1022c8cebae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60804702"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75864182"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>U-SQL을 사용하여 Azure Data Lake 데이터 과학 연습
 
@@ -27,11 +26,11 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-u-sql-with-azure-data-lake"></a>Azure Data Lake와 함께 U-SQL을 사용하여 택시 팁 예측
 
-[데이터 과학에 Azure Data Lake 사용](data-lake-walkthrough.md) 연습에서는 고객이 팁을 지불할지 여부를 예측하기 위해 NYC Taxi 데이터 세트 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여 줍니다. 
+[데이터 과학을 위한 Azure Data Lake 사용](data-lake-walkthrough.md) 연습은 Azure Data Lake를 사용 하 여 데이터 탐색 및 이진 분류 작업을 수행 하는 방법을 보여 줍니다.  데이터는 NYC taxi 데이터 집합의 샘플입니다.  이 태스크는 고객이 팁을 지불할 지 여부를 예측 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Team Data Science Process를 구성하는 주요 구성의 논의는 [Team Data Science Process 개요](overview.md)를 참조하세요.
+팀 데이터 과학 프로세스에 대 한 개요는 [팀 데이터 과학 프로세스 개요](overview.md)를 참조 하세요.
 
-데이터 과학 프로젝트를 구성하는 데 사용할 수 있는 Team Data Science Process 수명 주기의 논의는 [Team Data Science Process 수명 주기](lifecycle.md)를 참조하세요. 수명 주기는 일반적으로 프로젝트가 실행될 때 시작부터 끝까지 따라야 하는 단계를 간략하게 설명합니다. 
+팀 데이터 과학 프로세스 수명 주기에 대 한 설명은 [팀 데이터 과학 프로세스 수명 주기](lifecycle.md)를 참조 하세요. 이 수명 주기는 프로젝트가 실행 될 때 일반적으로 수행 하는 단계를 간략하게 설명 합니다. 

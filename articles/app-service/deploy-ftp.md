@@ -1,26 +1,17 @@
 ---
-title: FTP/S를 사용하여 콘텐츠 배포 - Azure App Service | Microsoft Docs
-description: FTP 또는 FTPS를 사용하여 Azure App Service에 앱을 배포하는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: FTP/S를 사용 하 여 콘텐츠 배포
+description: FTP 또는 FTPS를 사용하여 Azure App Service에 앱을 배포하는 방법을 알아봅니다. 암호화 되지 않은 FTP를 사용 하지 않도록 설정 하 여 웹 사이트 보안 향상
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2018
-ms.author: cephalin;dariac
+ms.date: 09/18/2019
+ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81532593"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
 
@@ -30,26 +21,32 @@ ms.locfileid: "62130112"
 
 ## <a name="open-ftp-dashboard"></a>FTP 대시보드 열기
 
-[Azure Portal](https://portal.azure.com)에서 앱의 [리소스 페이지](../azure-resource-manager/manage-resources-portal.md#manage-resources)를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색 하 고 선택 합니다.
 
-FTP 대시보드를 열려면 **배포 센터** > **FTP** > **대시보드**를 클릭합니다.
+    ![App services를 검색 합니다.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-![FTP 대시보드 열기](./media/app-service-deploy-ftp/open-dashboard.png)
+2. 배포 하려는 웹 앱을 선택 합니다.
+
+    ![앱을 선택 합니다.](media/app-service-continuous-deployment/select-your-app.png)
+
+3. **Deployment Center**  >  **FTP**  >  **대시보드**를 선택 합니다.
+
+    ![FTP 대시보드 열기](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>FTP 연결 정보 가져오기
 
-FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 자격 증명을 복사합니다.
+FTP 대시보드에서 **복사** 를 선택 하 여 FTPS 끝점 및 앱 자격 증명을 복사 합니다.
 
 ![FTP 정보 복사](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 각 앱에 고유하기 때문에 사용자 앱에 배포하려면 **앱 자격 증명**을 사용하는 것이 좋습니다. 단, **사용자 자격 증명**을 클릭하는 경우 구독에서 모든 App Service 앱에 대한 FTP/S 로그인에 사용할 수 있는 사용자 수준의 자격 증명을 설정할 수 있습니다.
 
 > [!NOTE]
-> 다음 형식으로 사용자 이름을 requirers 사용자 수준 자격 증명을 사용 하 여 FTP/FTPS 끝점 인증: 
+> 사용자 수준 자격 증명을 사용하여 FTP/FTPS 엔드포인트를 인증하려면  형식의 사용자 이름이 필요합니다. 
 >
 >`<app-name>\<user-name>`
 >
-> 사용자 수준 자격 증명은 사용자와 특정 리소스 하지에 연결 된, 이후 사용자 이름 적합 한 앱 끝점으로의 로그인 작업을이 형식 이어야 합니다.
+> 사용자 수준 자격 증명은 특정 리소스가 아니라 사용자에게 연결되므로 로그인 작업을 올바른 앱 엔드포인트로 보내려면 사용자 이름이 이 형식이어야 합니다.
 >
 
 ## <a name="deploy-files-to-azure"></a>Azure에 파일 배포
@@ -70,11 +67,11 @@ FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 �
 
 ## <a name="enforce-ftps"></a>FTPS 적용
 
-보안 향상을 위해 SSL을 통한 FTP만 허용해야 합니다. FTP 배포를 사용하지 않을 경우 FTP 및 FTPS를 둘 다 사용하지 않도록 설정할 수도 있습니다.
+보안 강화를 위해 TLS/SSL을 통해 FTP를 허용 해야 합니다. FTP 배포를 사용하지 않을 경우 FTP 및 FTPS를 둘 다 사용하지 않도록 설정할 수도 있습니다.
 
-[Azure Portal](https://portal.azure.com)의 앱 리소스 페이지에서 왼쪽 탐색 창에 있는 **앱 설정**을 선택합니다.
+[Azure Portal](https://portal.azure.com)의 앱 리소스 페이지에서 왼쪽 탐색 영역에 있는 **구성**  >  **일반 설정** 을 선택 합니다.
 
-암호화되지 않은 FTP를 사용하지 않도록 설정하려면 **FTPS만**을 선택합니다. FTP 및 FTPS를 둘 다 완전히 사용하지 않도록 설정하려면 **사용 안 함**을 선택합니다. 완료되면 **저장**을 클릭합니다. **FTPS만** 사용하는 경우 웹앱의 **SSL 설정** 블레이드로 이동하여 TLS 1.2 이상을 적용해야 합니다. TLS 1.0 및 1.1은 **FTPS만**으로 지원되지 않습니다.
+암호화 되지 않은 FTP를 사용 하지 않도록 설정 하려면 **ftp 상태** **에서만 FTPS** 를 선택 합니다. FTP와 FTPS를 모두 사용 하지 않도록 설정 하려면 **사용 안 함**을 선택 합니다. 완료되면 **저장**을 클릭합니다. **FTPS만**사용 하는 경우에는 웹 앱의 **tls/SSL 설정** 블레이드로 이동 하 여 tls 1.2 이상을 적용 해야 합니다. TLS 1.0 및 1.1은 **FTPS만**으로 지원되지 않습니다.
 
 ![FTP/S 사용 안 함](./media/app-service-deploy-ftp/disable-ftp.png)
 
@@ -89,7 +86,7 @@ FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 �
 ## <a name="troubleshoot-ftp-deployment"></a>FTP 배포 문제 해결
 
 - [FTP 배포 문제를 어떻게 해결할 수 있나요?](#how-can-i-troubleshoot-ftp-deployment)
-- [FTP를 수행할 수 없으며 코드를 게시할 수 없습니다. 이 문제는 어떻게 해결할 수 있나요?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [FTP를 수행할 수 없으며 내 코드를 게시할 수 없습니다. 문제를 해결 하려면 어떻게 해야 하나요?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [수동 모드를 통해 Azure App Service에서 FTP에 연결하려면 어떻게 해야 하나요?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>FTP 배포 문제를 어떻게 해결할 수 있나요?
@@ -115,6 +112,6 @@ Azure App Service는 활성 및 수동 모드를 통한 연결을 모두 지원�
 
 고급 배포 시나리오에 대해서는 [Git를 사용하여 Azure에 배포](deploy-local-git.md)를 시도하세요. Azure로의 Git 기반 배포를 수행하면 버전 제어, 패키지 복원, MSBuild 등을 수행할 수 있습니다.
 
-## <a name="more-resources"></a>추가 리소스
+## <a name="more-resources"></a>기타 참고 자료
 
 * [Azure App Service 배포 자격 증명](deploy-configure-credentials.md)

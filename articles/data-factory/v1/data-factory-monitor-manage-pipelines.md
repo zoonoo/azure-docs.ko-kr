@@ -1,28 +1,25 @@
 ---
-title: Azure Portal 및 PowerShell을 사용하여 파이프라인 모니터링 및 관리| Microsoft Docs
+title: Azure Portal 및 PowerShell을 사용 하 여 파이프라인 모니터링 및 관리
 description: Azure Portal과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "73666976"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
-> * [Azure 포털/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
+> * [Azure Portal/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
 > * [모니터링 및 관리 앱 사용](data-factory-monitor-manage-app.md)
 
 > [!NOTE]
@@ -98,7 +95,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>DatasetDependencies</td><td>업스트림 종속성이 준비되지 않습니다.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>계산 리소스를 사용할 수 없습니다.</td>
+<td>ComputeResources</td><td>컴퓨팅 리소스를 사용할 수 없습니다.</td>
 </tr>
 <tr>
 <td>ConcurrencyLimit</td> <td>모든 활동 인스턴스는 다른 조각을 실행하고 있습니다.</td>
@@ -107,7 +104,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>ActivityResume</td><td>활동이 일시 중지되어 재개될 때까지 조각을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>다시 시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
+<td>재시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 아직 시작되지 않았습니다.</td>
@@ -126,7 +123,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>이 조각은 사용자 동작으로 취소되었습니다.</td>
+<td>취소됨</td><td>이 조각은 사용자 동작으로 취소되었습니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 실패했습니다.</td>
@@ -137,7 +134,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>Ready</td><td>-</td><td>조각을 사용할 준비가 되었습니다.</td>
 </tr>
 <tr>
-<td>생략</td><td>없음</td><td>조각이 처리되고 있지 않습니다.</td>
+<td>건너뜀</td><td>없음</td><td>조각이 처리되고 있지 않습니다.</td>
 </tr>
 <tr>
 <td>없음</td><td>-</td><td>다른 상태와 함께 존재하기 위해 사용되는 조각이지만, 재설정되었습니다.</td>
@@ -163,7 +160,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 ![상태 다이어그램](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-데이터 팩터리의 데이터 세트 상태 전환 흐름은 대기 중 -> 진행 중/진행 중(유효성 검사 중) -> 준비/실패입니다.
+데이터 팩터리의 데이터 세트 상태 전환 흐름에는 Waiting(대기)-&gt; In-Progress/In-Progress (Validating)(진행 중/진행 중(확인 중)) -&gt; Ready/Failed(준비/실패)가 포함됩니다.
 
 조각은 **Waiting**(대기) 상태로 시작하여 실행 전에 사전 조건이 충족되기를 기다립니다. 그런 다음 작업은 실행을 시작하고 조각은 **In-Progress**(진행 중) 상태가 됩니다. 작업 실행이 성공 또는 실패할 수 있습니다. 조각은 실행 결과에 따라 **Ready**(준비) 또는 **Failed**(실패)로 표시됩니다.
 
@@ -175,12 +172,12 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 > [!NOTE] 
 > 다이어그램 보기는 파이프라인 일시 중지 및 다시 시작을 지원하지 않습니다. 사용자 인터페이스를 사용하려는 경우 모니터링 및 관리 애플리케이션을 사용합니다. 애플리케이션 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요. 
 
-일시 중지/일시 중단할 수 있습니다 파이프라인 사용 하 여 합니다 **Suspend AzDataFactoryPipeline** PowerShell cmdlet. 이 cmdlet은 문제가 해결될 때까지 파이프라인을 실행하지 않으려는 경우 유용합니다. 
+**AzDataFactoryPipeline** PowerShell cmdlet을 사용 하 여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 이 cmdlet은 문제가 해결될 때까지 파이프라인을 실행하지 않으려는 경우 유용합니다. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -191,7 +188,7 @@ Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrec
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -215,30 +212,30 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
    ![오류가 있는 데이터 조각](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
 3. **작업 실행 세부 정보** 블레이드에서 HDInsight 처리와 관련된 파일을 다운로드할 수 있습니다. Status/stderr에 대한 **다운로드**를 클릭하여 오류에 대한 세부 정보를 포함하는 오류 로그 파일을 다운로드합니다.
 
-   ![오류가 있는 작업 실행 세부 정보 블레이드 ](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
+   ![오류가 있는 작업 실행 세부 정보 블레이드](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>PowerShell을 사용한 오류 디버그
 1. **PowerShell**을 시작합니다.
-2. 실행 합니다 **Get AzDataFactorySlice** 하 여 조각과 해당 상태를 확인 합니다. 조각의 상태가 **실패**로 표시됩니다.        
+2. **AzDataFactorySlice** 명령을 실행 하 여 조각과 해당 상태를 확인 합니다. 조각의 상태가 **실패**로 표시됩니다.        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    **StartDateTime**을 파이프라인의 시작 시간으로 바꿉니다. 
-3. 이제 실행 합니다 **Get AzDataFactoryRun** 작업에 대 한 세부 정보를 가져오려는 cmdlet은 조각에 대해 실행 합니다.
+3. 이제 **AzDataFactoryRun** cmdlet을 실행 하 여 조각에 대 한 작업 실행에 대 한 세부 정보를 가져옵니다.
 
     ```powershell   
     Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    예를 들면 다음과 같습니다.
+    예를 들어:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -269,7 +266,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. 실행할 수 있습니다 합니다 **저장 AzDataFactoryLog** 출력에서 참조를 사용 하 여 로그 파일을 다운로드 하는 Id 값을 사용 하 여 cmdlet는 **-DownloadLogsoption** cmdlet에 대 한 합니다.
+5. 출력에서 표시 되는 Id 값을 사용 하 여 **AzDataFactoryLog** cmdlet을 실행 하 고 cmdlet에 **-downloadlogsoption 옵션** 를 사용 하 여 로그 파일을 다운로드할 수 있습니다.
 
     ```powershell
     Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
@@ -280,7 +277,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 > [!IMPORTANT]
 > 모니터링 및 관리 앱을 사용하여 오류를 해결하고 실패한 조각을 다시 실행하는 것이 더 쉽습니다. 애플리케이션 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요. 
 
-### <a name="use-the-azure-portal"></a>Azure 포털 사용
+### <a name="use-the-azure-portal"></a>Azure Portal 사용
 파이프라인에서 실패에 대한 문제를 해결하고 디버그한 후에는 오류 조각으로 이동하고 명령 모음의 **실행** 단추를 클릭하여 실패한 항목을 다시 실행할 수 있습니다.
 
 ![실패한 조각 다시 실행](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
@@ -290,7 +287,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 ![오류 수정 및 유효성 검사](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell 사용
-사용 하 여 오류를 다시 실행할 수 있습니다 합니다 **집합 AzDataFactorySliceStatus** cmdlet. 참조 된 [집합 AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) 구문과 cmdlet에 대 한 기타 세부 정보에 대 한 항목입니다.
+**AzDataFactorySliceStatus** cmdlet을 사용 하 여 실패를 다시 실행할 수 있습니다. Cmdlet에 대 한 구문 및 기타 세부 정보는 [AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) 항목을 참조 하세요.
 
 **예제:**
 
@@ -311,7 +308,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![새 경고 만들기](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  **경고 조건**을 정의합니다. (**리소스 종류별로 필터링**에서 **데이터 팩터리**를 선택해야 합니다.) 또한 **차원**에 대한 값을 지정할 수도 있습니다.
+3.  **경고 조건**을 정의합니다. ( **리소스 유형별 필터** 필드에서 **데이터 팩터리** 를 선택 해야 합니다.) **차원**에 대 한 값을 지정할 수도 있습니다.
 
     ![경고 조건 정의 - 대상 선택](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 

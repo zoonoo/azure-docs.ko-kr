@@ -1,27 +1,29 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 마이그레이션 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 온-프레미스 머신 마이그레이션
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터를 마이그레이션하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ccf83bacedb667e52e9865b6d451641faa0ac414
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357983"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131192"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure로 온-프레미스 머신을 마이그레이션하는 방법을 설명합니다. 일반적으로 Site Recovery는 온-프레미스 머신 및 Azure VM의 재해 복구를 관리 및 오케스트레이션하는 데 사용됩니다. 하지만 마이그레이션에도 사용할 수 있습니다. 마이그레이션은 재해 복구와 동일한 단계를 따르지만 한 가지 예외가 있습니다. 마이그레이션에서는 온-프레미스 사이트에서 머신 장애 조치(fail-over)를 수행하는 것이 마지막 단계입니다. 재해 복구와 달리 마이그레이션 시나리오에서는 온-프레미스로 장애 복구할 수 없습니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure로 온-프레미스 머신을 마이그레이션하는 방법을 설명합니다. 
+
+> [!TIP]
+> 이제 Azure Site Recovery 서비스 대신 Azure Migrate를 사용하여 온-프레미스 머신을 Azure로 마이그레이션해야 합니다. [자세히 알아보기](../migrate/migrate-services-overview.md).
 
 
-이 자습서는 온-프레미스 VM 및 물리적 서버를 Azure로 마이그레이션하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
+이 자습서는 온-프레미스 VM 및 물리적 서버를 Azure로 마이그레이션하는 방법을 보여 줍니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 마이그레이션의 원본 및 대상 환경 설정
@@ -32,8 +34,7 @@ ms.locfileid: "59357983"
 
 
 > [!TIP]
-> Azure Migrate 서비스는 이제 VMware VM을 Azure로 마이그레이션하는 데 사용되는 새로운 에이전트리스 환경의 미리 보기를 제공합니다. [자세히 알아보기](https://aka.ms/migrateVMs-signup).
-
+> 이제 Azure Migrate 서비스를 사용하여 온-프레미스 서버를 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/migrate-services-overview.md)
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -46,7 +47,7 @@ ms.locfileid: "59357983"
 2. 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 서버를 준비합니다. 물리적 머신을 마이그레이션하는 경우 아무것도 준비할 필요가 없습니다. [지원 매트릭스](vmware-physical-azure-support-matrix.md)를 확인하기만 하면 됩니다.
 
 
-## <a name="select-a-replication-goal"></a>복제 목표 선택
+## <a name="select-a-protection-goal"></a>보호 목표 선택
 
 복제할 대상과 복제할 위치를 선택합니다.
 1. **Recovery Services 자격 증명 모음** > 자격 증명 모음을 클릭합니다.
@@ -103,7 +104,7 @@ Hyper-V | [복제 활성화](hyper-v-azure-tutorial.md#enable-replication)<br/><
 마이그레이션할 컴퓨터에 대해 장애 조치(Failover)를 실행합니다.
 
 1. **설정** > **복제된 항목**에서 컴퓨터 > **장애 조치(Failover)** 를 클릭합니다.
-2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 최신 복구 지점을 선택합니다.
+2. **장애 조치(Failover)** 에서 장애 조치할 **복구 시점**을 선택합니다. 최신 복구 시점을 선택합니다.
 3. 암호화 키 설정은 이 시나리오와 관련이 없습니다.
 4. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 가상 머신을 종료하려고 시도합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 5. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.
@@ -118,7 +119,7 @@ Hyper-V | [복제 활성화](hyper-v-azure-tutorial.md#enable-replication)<br/><
 > [!WARNING]
 > **진행 중인 장애 조치(failover)는 취소하지 마세요**. 장애 조치(failover)가 시작되기 전에 VM 복제가 중지됩니다. 진행 중인 장애 조치(failover)를 취소하면 장애 조치(failover)가 중지되지만 VM은 다시 복제되지 않습니다.
 
-일부 시나리오에서는 장애 조치(Failover)를 위해서는 추가 처리가 필요하며 이러한 작업을 완료하는 데는 약 8~10분이 소요됩니다. 물리적 서버, VMware Linux 컴퓨터, DHCP 서비스가 사용되도록 설정되지 않은 VMware VM과 부팅 드라이버인 storvsc, vmbus, storflt, intelide, atapi가 없는 VMware VM의 경우 테스트 장애 조치(Failover)가 더 오래 걸릴 수 있습니다.
+일부 시나리오에서는 장애 조치(failover)를 위해서는 추가 처리가 필요하며 이러한 작업을 완료하는 데는 약 8~10분이 소요됩니다. 물리적 서버, VMware Linux 컴퓨터, DHCP 서비스가 사용되도록 설정되지 않은 VMware VM과 부팅 드라이버인 storvsc, vmbus, storflt, intelide, atapi가 없는 VMware VM의 경우 테스트 장애 조치(Failover)가 더 오래 걸릴 수 있습니다.
 
 ## <a name="after-migration"></a>마이그레이션 후
 
@@ -131,21 +132,21 @@ Hyper-V | [복제 활성화](hyper-v-azure-tutorial.md#enable-replication)<br/><
 
 - 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다. 
 - 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
-- [Azure VM 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)는 Azure Fabric Controller와 VM 간 상호 작용을 관리합니다. 이는 Azure Backup, Site Recovery, Azure Security 같은 일부 Azure 서비스에 필요합니다.
+- [Azure VM 에이전트](../virtual-machines/extensions/agent-windows.md)는 Azure Fabric Controller와 VM 간 상호 작용을 관리합니다. 이는 Azure Backup, Site Recovery, Azure Security 같은 일부 Azure 서비스에 필요합니다.
     - VMware 머신과 물리적 서버를 마이그레이션하는 경우 모바일 서비스 설치 관리자는 Windows 머신에 사용 가능한 Azure VM 에이전트를 설치합니다. Linux VM에서는 장애 조치(failover) 후 에이전트를 설치하는 것이 좋습니다.
-    - Azure VM을 보조 지역으로 마이그레이션하는 경우 마이그레이션 전에 VM에서 Azure VM 에이전트를 프로비전해야 합니다.
+    - Azure VM을 보조 지역으로 마이그레이션하는 경우 마이그레이션 전에 VM에서 Azure VM 에이전트를 프로비저닝해야 합니다.
     - Hyper-V VM을 Azure로 마이그레이션하는 경우 마이그레이션 후에 Azure VM에 Azure VM 에이전트를 설치합니다.
 - VM에서 Site Recovery 공급자/에이전트를 수동으로 제거합니다. VMware VM 또는 물리적 서버를 마이그레이션하는 경우 VM에서 모바일 서비스를 제거합니다.
 - 복원력 개선:
-    - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기](../backup/quick-backup-vm-portal.md).
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](azure-to-azure-quickstart.md).
 - 보안 강화:
-    - Azure Security Center [Just-In-Time 관리]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 통해 인바운드 트래픽 액세스를 잠그고 제한합니다.
-    - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
-    - [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
+    - Azure Security Center [Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 통해 인바운드 트래픽 액세스를 잠그고 제한합니다.
+    - [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
+    - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ )에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/ )를 방문하세요.
 - 모니터링 및 관리 앱:
-    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview)를 배포하는 것이 좋습니다.
+    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../cost-management-billing/cloudyn/overview.md)를 배포하는 것이 좋습니다.
 
 ### <a name="post-migration-steps-on-premises"></a>온-프레미스의 마이그레이션 후 단계
 
@@ -159,7 +160,7 @@ Hyper-V | [복제 활성화](hyper-v-azure-tutorial.md#enable-replication)<br/><
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 온-프레미스 VM을 Azure VM으로 마이그레이션했습니다. Now
+이 자습서에서는 온-프레미스 VM을 Azure VM으로 마이그레이션했습니다. 지금
 
 > [!div class="nextstepaction"]
 > 보조 Azure 지역에 Azure VM의 [재해 복구를 설정](azure-to-azure-replicate-after-migration.md)합니다.

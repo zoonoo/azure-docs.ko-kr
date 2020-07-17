@@ -2,22 +2,22 @@
 title: HBase .NET SDK 사용 - Azure HDInsight
 description: HBase.NET SDK를 사용하여 테이블을 만들고 삭제하며 데이터 읽기 및 쓰기를 할 수 있습니다.
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 12/13/2017
-ms.author: ashishth
-ms.openlocfilehash: 707869880c5df619def2d707264b59e22e03c521
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 12/02/2019
+ms.openlocfilehash: 9d03a201711488b1c0a3f4f2bab0981f83374a5d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720307"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085585"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase 용.NET SDK를 사용 합니다.
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase 용 .NET SDK 사용
 
-[Apache HBase](apache-hbase-overview.md) 데이터와 함께 작동 하려면 두 가지 기본 옵션을 제공 합니다. [Apache Hive 쿼리와 HBase's RESTful API에 대 한 호출](apache-hbase-tutorial-get-started-linux.md)합니다. `curl`명령 또는 이와 유사한 유틸리티를 사용하여 REST API로 직접 작업할 수 있습니다.
+[Apache HBase](apache-hbase-overview.md)는 데이터 작업을 위한 두 가지 주요 선택 항목인 [Apache Hive 쿼리와 HBase의 RESTful API 호출](apache-hbase-tutorial-get-started-linux.md)을 제공합니다. `curl`명령 또는 이와 유사한 유틸리티를 사용하여 REST API로 직접 작업할 수 있습니다.
 
 C# 및 .NET 애플리케이션의 경우 [.NET용 Microsoft HBase REST 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.HBase.Client/)가 HBase REST API 기반 클라이언트 라이브러리를 제공합니다.
 
@@ -25,7 +25,9 @@ C# 및 .NET 애플리케이션의 경우 [.NET용 Microsoft HBase REST 클라이
 
 HBase .NET SDK는 다음 명령으로 Visual Studio **NuGet 패키지 관리자 콘솔**에서 설치할 수 있는 NuGet 패키지로 제공됩니다.
 
-    Install-Package Microsoft.HBase.Client
+```console
+Install-Package Microsoft.HBase.Client
+```
 
 ## <a name="instantiate-a-new-hbaseclient-object"></a>새 HBaseClient 개체 인스턴스화
 
@@ -58,7 +60,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-새 테이블에는 두 개의 열 패밀리, T1과 T2가 있습니다. 열 패밀리는 다른 HFiles에 별도로 저장되므로 자주 쿼리된 데이터에 대한 별도의 열 패밀리가 있는 것이 합리적입니다. 다음의 [데이터 삽입](#insert-data) 예제에서는 열이 T1 열 패밀리에 추가됩니다.
+이 새 테이블에는 두 개의 열 패밀리 t1 및 t2가 있습니다. 열 패밀리는 다른 HFiles에 별도로 저장되므로 자주 쿼리된 데이터에 대한 별도의 열 패밀리가 있는 것이 합리적입니다. 다음의 [데이터 삽입](#insert-data) 예제에서는 열이 T1 열 패밀리에 추가됩니다.
 
 ## <a name="delete-a-table"></a>테이블 삭제
 
@@ -112,11 +114,11 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase는 데이터 형식이 다음처럼 표시되도록 [Cloud BigTable](https://cloud.google.com/bigtable/)을 구현합니다.
+HBase는 [Cloud BigTable](https://cloud.google.com/bigtable/)을 구현 하므로 데이터 형식은 다음 이미지와 같습니다.
 
-![클러스터 사용자 역할이 있는 사용자](./media/apache-hbase-rest-sdk/table.png)
+![Apache HBase 샘플 데이터 출력](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
-## <a name="select-data"></a>데이터를 선택합니다.
+## <a name="select-data"></a>데이터 선택
 
 HBase 테이블에서 데이터를 읽으려면 테이블 이름과 행 키를 `CellSet`를 반환하는 `GetCellsAsync` 메서드로 전달합니다.
 

@@ -1,0 +1,65 @@
+### YamlMime:Landing
+title: Azure 사용자 지정 공급자 설명서
+summary: Azure 환경을 확장하는 사용자 지정 API 정의
+metadata:
+  title: Azure 사용자 지정 공급자 설명서
+  description: Azure 사용자 지정 공급자는 사용자 지정 API를 정의할 수 있게 해주는 Azure의 확장성 플랫폼입니다.
+  ms.service: azure-custom-providers
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+  ms.openlocfilehash: 4a778d56aa3d7440715cdd792827b9c4a2837e65
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "75648347"
+landingContent:
+- title: Azure 사용자 지정 공급자 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 사용자 지정 공급자란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 사용자 지정 공급자 연결을 위한 Azure Policy
+      url: concepts-built-in-policy.md
+    - text: 리소스 온보딩 개요
+      url: concepts-resource-onboarding.md
+- title: 사용자 지정 공급자 만들기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 사용자 지정 리소스 공급자 만들기
+      url: create-custom-provider.md
+  - linkListType: tutorial
+    links:
+    - text: 사용자 지정 공급자 시작
+      url: tutorial-get-started-with-custom-providers.md
+    - text: Azure Functions 설정
+      url: tutorial-custom-providers-function-setup.md
+    - text: RESTful 엔드포인트 작성
+      url: tutorial-custom-providers-function-authoring.md
+    - text: 사용자 지정 공급자 생성 및 활용
+      url: tutorial-custom-providers-create.md
+    - text: 리소스 확장
+      url: tutorial-resource-onboarding.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure에 사용자 지정 작업 추가
+      url: custom-providers-action-endpoint-how-to.md
+    - text: Azure에 사용자 지정 리소스 추가
+      url: custom-providers-resources-endpoint-how-to.md
+- title: 예
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 사용자 지정 리소스 프록시 참조
+      url: proxy-resource-endpoint-reference.md
+    - text: 사용자 지정 리소스 캐시 참조
+      url: proxy-cache-resource-endpoint-reference.md
+    - text: 사용자 지정 공급자 RESTful 엔드포인트 참조
+      url: reference-custom-providers-csharp-endpoint.md

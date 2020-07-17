@@ -1,0 +1,11 @@
+- name: 사이트 안정성 엔지니어링 문서
+  href: ../index.yml
+- name: 리소스
+  expanded: true
+  items:
+    - name: SRE 서적
+      href: books.md
+    - name: SRE 이벤트
+      href: events.md
+    - name: SRE 링크 컬렉션 및 다이제스트
+      href: links.md

@@ -1,33 +1,87 @@
 ---
-title: Azure Data Factory Mapping Data Flow 열 패턴
-description: Azure Data Factory Mapping Data Flow 열 패턴은 기본 스키마 메타데이터와 관계없이 데이터 흐름의 필드를 변환하기 위한 일반화된 템플릿 패턴을 만드는 데 사용됩니다.
+title: Azure Data Factory 매핑 데이터 흐름의 열 패턴
+description: Azure Data Factory 매핑 데이터 흐름에서 열 패턴을 사용 하 여 일반화 된 데이터 변환 패턴 만들기
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: 53d3300ea11a86c34909ba6ce0fd6c8c0c38b4b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 10/21/2019
+ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61269718"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81606128"
 ---
-# <a name="azure-data-factory-mapping-data-flow-concepts"></a>Azure Data Factory Mapping Data Flow 개념
+# <a name="using-column-patterns-in-mapping-data-flow"></a>매핑 데이터 흐름에서 열 패턴 사용
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-하드 코드된 열 이름 대신 패턴을 기준으로 템플릿 열을 만들 수 있도록 “열 패턴” 아이디어를 지원하는 Azure Data Factory Data Flow 변환도 있습니다. 식 작성기 내에서 이 기능을 사용하여 정확한 특정 필드 이름을 요구하는 대신 변환을 위한 열 일치에 사용할 패턴을 정의할 수 있습니다. 패턴은 수신 원본 필드가 자주 변경되는 경우, 특히 텍스트 파일 또는 NoSQL 데이터베이스에서 열을 변경하는 경우에 유용합니다. 이를 “스키마 드리프트”라고도 합니다.
+여러 매핑 데이터 흐름 변환을 사용 하면 하드 코드 된 열 이름 대신 패턴을 기반으로 템플릿 열을 참조할 수 있습니다. 이러한 일치를 *열 패턴*이라고 합니다. 정확한 필드 이름을 요구 하는 대신 이름, 데이터 형식, 스트림 또는 위치에 따라 열을 일치 시키는 패턴을 정의할 수 있습니다. 열 패턴이 유용한 두 가지 시나리오는 다음과 같습니다.
+
+* 들어오는 원본 필드가 텍스트 파일 또는 NoSQL 데이터베이스에서 열을 변경 하는 경우와 같이 자주 변경 되는 경우 이 시나리오를 [스키마 드리프트](concepts-data-flow-schema-drift.md)라고 합니다.
+* 많은 열 그룹에서 일반적인 작업을 수행 하려는 경우 예를 들어 열 이름에 ' total '이 포함 된 모든 열을 double로 캐스팅 하려고 합니다.
+
+열 패턴은 현재 파생 열, 집계, 선택 및 싱크 변환에서 사용할 수 있습니다.
+
+## <a name="column-patterns-in-derived-column-and-aggregate"></a>파생 열 및 집계의 열 패턴
+
+집계 변환의 파생 열 또는 집계 탭에 열 패턴을 추가 하려면 기존 열의 오른쪽에 있는 더하기 아이콘을 클릭 합니다. **열 패턴 추가**를 선택 합니다. 
+
+![열 패턴](media/data-flow/columnpattern.png "열 패턴")
+
+[식 작성기](concepts-data-flow-expression-builder.md) 를 사용 하 여 일치 조건에 입력 합니다. 열의,, 및를 기반으로 하는 열과 일치 하는 부울 식을 만듭니다 `name` `type` `stream` `position` . 이 패턴은 조건이 true를 반환 하는 열, 데이터베이스가 드리프트 또는 defined 열에 영향을 줍니다.
+
+일치 조건 아래의 두 식 상자는 영향을 받는 열의 새 이름과 값을 지정 합니다. `$$`를 사용 하 여 일치 하는 필드의 기존 값을 참조 합니다. 왼쪽 식 상자는 이름을 정의 하 고 오른쪽 식 상자는 값을 정의 합니다.
 
 ![열 패턴](media/data-flow/columnpattern2.png "열 패턴")
 
-열 패턴은 스키마 드리프트 시나리오와 일반 시나리오 둘 다를 처리하는 데 유용합니다. 각 열 이름을 완전히 알 수 없는 상황에 적합합니다. 열 이름과 열 데이터 형식에 패턴 일치를 적용하고 `name` & `type` 패턴과 일치하는 데이터 스트림의 필드에 대해 해당 작업을 수행할 변환 식을 작성할 수 있습니다.
+위의 열 패턴은 double 형식의 모든 열을 일치 시키고 일치 하는 항목 마다 하나의 집계 열을 만듭니다. 새 열의 이름은 일치 하는 열 이름이 ' _total '과 (와) 연결 되어 있습니다. 새 열의 값은 반올림 되어 기존 double 값의 집계 된 합계입니다.
 
-패턴을 허용하는 변환에 식을 추가하는 경우 “열 패턴 추가”를 선택합니다. 열 패턴을 사용하면 스키마 드리프트 열 일치 패턴이 허용됩니다.
+일치 조건이 올바른지 확인 하기 위해 **검사** 탭에서 정의 된 열의 출력 스키마 유효성을 검사 하거나 **데이터 미리 보기** 탭에서 데이터의 스냅숏을 가져올 수 있습니다. 
 
-템플릿 열 패턴을 빌드할 때는 식에 `$$`를 사용하여 입력 데이터 스트림에서 일치된 각 필드에 대한 참조를 나타냅니다.
+![열 패턴](media/data-flow/columnpattern3.png "열 패턴")
 
-식 작성기 regex 함수 중 하나를 사용하는 경우 나중에 $1, $2, $3...을 사용하여 regex 식에서 일치된 하위 패턴을 참조할 수 있습니다.
+## <a name="rule-based-mapping-in-select-and-sink"></a>Select 및 sink의 규칙 기반 매핑
 
-열 패턴 시나리오의 예는 일련의 수신 필드에 SUM을 사용하는 경우입니다. 집계 SUM 계산은 집계 변환에 있습니다. “정수”와 일치하는 필드 형식의 모든 일치 항목을 SUM한 다음, $$를 사용하여 각 일치 항목을 식에서 참조할 수 있습니다.
+원본에서 열을 매핑하고 변환을 선택 하는 경우 고정 매핑 또는 규칙 기반 매핑을 추가할 수 있습니다. 열에 대 한,, 및을 기준으로 일치 시킵니다 `name` `type` `stream` `position` . 고정 및 규칙 기반 매핑의 모든 조합을 사용할 수 있습니다. 기본적으로 50 개 이상의 열을 포함 하는 모든 프로젝션은 모든 열에서 일치 하는 규칙 기반 매핑으로 기본 설정 되며 입력 이름을 출력 합니다. 
+
+규칙 기반 매핑을 추가 하려면 **매핑 추가** 를 클릭 하 고 **규칙 기반 매핑을**선택 합니다.
+
+![규칙 기반 매핑](media/data-flow/rule2.png "규칙 기반 매핑")
+
+각 규칙 기반 매핑에는 두 개의 입력이 필요 합니다. 두 개의 입력이 필요 합니다. 일치 하는 조건과 각 매핑된 열의 이름을 입력 해야 합니다. 두 값은 모두 [식 작성기](concepts-data-flow-expression-builder.md)를 통해 입력 됩니다. 왼쪽 식 상자에 부울 일치 조건을 입력 합니다. 오른쪽 식 상자에서 일치 하는 열을 매핑할 대상을 지정 합니다.
+
+![규칙 기반 매핑](media/data-flow/rule-based-mapping.png "규칙 기반 매핑")
+
+`$$`구문을 사용 하 여 일치 하는 열의 입력 이름을 참조 합니다. 위의 이미지를 예로 들 수 있습니다. 예를 들어, 사용자는 이름이 6 자 보다 짧은 모든 문자열 열에 대해 일치 하는 것으로 가정 합니다. 들어오는 열의 이름을 지정 하는 경우 `test` 식에서 `$$ + '_short'` 열의 이름을 바꿉니다 `test_short` . 이 매핑이 있는 유일한 매핑이 면 해당 조건을 충족 하지 않는 모든 열이 출력 된 데이터에서 삭제 됩니다.
+
+패턴은 데이터베이스가 드리프트 및 정의 된 열 모두와 일치 합니다. 규칙에 따라 매핑되는 정의 된 열을 확인 하려면 규칙 옆에 있는 안경 아이콘을 클릭 합니다. 데이터 미리 보기를 사용 하 여 출력을 확인 합니다.
+
+### <a name="regex-mapping"></a>Regex 매핑
+
+아래쪽 펼침 단추를 클릭 하면 regex 매핑 조건을 지정할 수 있습니다. Regex 매핑 조건은 지정 된 regex 조건과 일치 하는 모든 열 이름과 일치 합니다. 표준 규칙 기반 매핑과 함께 사용할 수 있습니다.
+
+![규칙 기반 매핑](media/data-flow/regex-matching.png "규칙 기반 매핑")
+
+위의 예제는 regex 패턴이 `(r)` 나 소문자 r을 포함 하는 모든 열 이름에 일치 합니다. 표준 규칙 기반 매핑과 유사 하 게 일치 하는 모든 열은 구문을 사용 하 여 오른쪽의 조건에 따라 변경 됩니다 `$$` .
+
+### <a name="rule-based-hierarchies"></a>규칙 기반 계층
+
+정의 된 프로젝션에 계층이 있는 경우 규칙 기반 매핑을 사용 하 여 계층 하위 열을 매핑할 수 있습니다. 일치 조건 및 하위 열을 매핑하려는 복합 열을 지정 합니다. 오른쪽에 지정 된 ' 이름 ' 규칙을 사용 하 여 일치 하는 모든 하위 열이 출력 됩니다.
+
+![규칙 기반 매핑](media/data-flow/rule-based-hierarchy.png "규칙 기반 매핑")
+
+위의 예는 복합 열의 모든 하위 열에서 일치 합니다 `a` . `a`에는 두 개의 하위 열 및가 포함 되어 있습니다 `b` `c` . 출력 스키마는 두 개의 열을 포함 `b` 하 고 `c` ' Name as ' 조건은입니다 `$$` .
+
+## <a name="pattern-matching-expression-values"></a>패턴 일치 식 값입니다.
+
+* `$$`런타임에 각 일치 항목의 이름 또는 값으로 변환 합니다.
+* `name`들어오는 각 열의 이름을 나타냅니다.
+* `type`들어오는 각 열의 데이터 형식을 나타냅니다.
+* `stream`각 스트림 또는 흐름의 변환과 관련 된 이름을 나타냅니다.
+* `position`데이터 흐름에서 열의 서 수 위치입니다.
+
+## <a name="next-steps"></a>다음 단계
+* 데이터 변환에 대 한 매핑 데이터 흐름 [식 언어](data-flow-expression-functions.md) 에 대 한 자세한 정보
+* [싱크 변환](data-flow-sink.md) 에서 열 패턴을 사용 하 고 규칙 기반 매핑을 사용 하 여 [변환 선택](data-flow-select.md)

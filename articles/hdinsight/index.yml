@@ -1,87 +1,232 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure HDInsight 설명서
+summary: Azure HDInsight는 클라우드에서 Apache Spark, Apache Hive, Apache Kafka, Apache HBase 등을 실행할 수 있는 관리형 Apache Hadoop 서비스입니다.
 metadata:
-  title: 'Azure HDInsight 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: 'HDInsight의 Apache Hadoop에 대해 알아봅니다. 설명서에서는 Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase 등을 사용하여 빅 데이터를 처리하고, 분석하며, 인사이트를 얻는 방법을 보여줍니다.'
+  title: Azure HDInsight
+  description: Azure HDInsight는 Apache Spark, Apache Hive, Apache Kafka, Apache HBase 등을 실행할 수 있는 관리형 Apache Hadoop 클라우드 서비스입니다.
   services: hdinsight
-  author: hrasheed-msft
-  ms.author: hrasheed
   ms.service: hdinsight
   ms.topic: landing-page
-  ms.date: 03/26/2019
-abstract:
-  description: 'Azure HDInsight를 사용하여 스트리밍 또는 기록 데이터를 분석하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm 및 Microsoft Machine Learning Server와 같은 가장 인기 있는 오픈 소스 프레임워크를 사용하여 클러스터를 만들고, 빅 데이터를 처리 및 분석하며, 솔루션을 개발하는 방법을 보여줍니다.<p>Azure HDInsight는 엔터프라이즈를 위한 관리형의 전체 스펙트럼 오픈 소스 분석 서비스입니다. HDInsight는 대량 데이터를 쉽고 빠르며 비용 효율적으로 처리할 수 있도록 하는 클라우드 서비스입니다. HDInsight는 또한 추출, 변환 및 로드(ETL), 데이터 웨어하우징, Machine Learning, IoT와 같은 광범위한 시나리오를 지원합니다.</p>'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: HDInsight의 Apache Kafka(17분 19초)
-    href: 'https://azure.microsoft.com/resources/videos/azure-friday-apache-kafka-on-hdinsight-ga/'
-    width: 250
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: HDInsight 클러스터를 만들고 작업을 실행하는 방법을 알아봅니다.
-      - type: list
-        style: icon64
-        items:
-          - image:
-              src: media/index/hadoop_r.svg
-            text: Apache Hadoop
-            href: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal
-          - image:
-              src: media/index/spark_r.svg
-            text: Apache Spark
-            href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal
-          - image:
-              src: media/index/kafka_r.svg
-            text: Apache Kafka
-            href: /azure/hdinsight/kafka/apache-kafka-get-started
-          - image:
-              src: media/index/hbase_r.svg
-            text: Apache HBase
-            href: /azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux
-          - image:
-              src: media/index/hive_r.svg
-            text: 대화형 쿼리
-            href: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
-          - image:
-              src: media/index/storm_r.svg
-            text: Apache Storm
-            href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
-          - image:
-              src: media/index/ml-server_r.svg
-            text: ML 서비스
-            href: /azure/hdinsight/r-server/r-server-get-started
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 다양한 시나리오에서 Azure HDInsight를 사용하는 방법을 알아봅니다.
-      - type: list
-        style: unordered
-        items:
-          - html: 'Apache Hadoop&#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">ETL 작업 수행</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">주문형 클러스터 만들기</a>'
-          - html: 'Apache Spark&#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">대화형 쿼리 실행</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">데이터 시각화</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">기계 학습</a>'
-          - html: 'Apache Kafka&#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Kafka를 통한 구조적 스트리밍</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">HDInsight의 Storm에서 사용</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Kafka 생산자 및 소비자 API 사용</a>'
-          - html: 'Apache HBase&#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">VNET에 HBase 클러스터 만들기</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Apache Phoenix 사용</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Spark에 연결</a>'
-          - html: '대화형 쿼리&#58; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">직접 쿼리를 사용하여 Power BI에 연결</a>'
-          - html: 'Apache Storm&#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Java에서 Storm 토폴로지 만들기</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">HDInsight에서 Storm 토폴로지 배포</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Storm에서 Data Lake Storage에 쓰기</a>'
-          - html: 'ML 서비스 &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Visual Studio용 R 도구 사용</a>'
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 도구
-            html: '<p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">HDInsight IntelliJ 도구</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">HDInsight Eclipse 도구</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode">HDInsight VSCode 도구</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">HDInsight Visual Studio 도구</a></p>'
-          - title: 명령줄
-            html: <p><a href="/powershell/module/az.hdinsight">Azure PowerShell</a></p>
-          - title: Languages
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET(Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET(HBase)</a></p>'
-          - title: REST (영문)
-            html: '<p><a href="https://docs.microsoft.com/rest/api/hdinsight/">REST API</a></p><p><a href="https://docs.microsoft.com/rest/api/hdinsightspark/">REST API(Spark)</a></p>'
+  ms.collection: collection
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 02/27/2020
+  ms.openlocfilehash: c32ca826eb7ebbc773d86a8cfae65cdd4984bcd0
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "78192730"
+landingContent:
+- title: HDInsight 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure HDInsight란?
+      url: ./hdinsight-overview.md
+  - linkListType: learn
+    links:
+    - text: Azure HDInsight를 사용하여 분석 솔루션 빌드
+      url: https://docs.microsoft.com/learn/paths/build-oss-analytical-solutions-az-hdinsight/
+  - linkListType: concept
+    links:
+    - text: HDInsight 구성 요소 및 버전
+      url: ./hdinsight-component-versioning.md
+    - text: 올바른 VM 크기 선택
+      url: ./hdinsight-selecting-vm-size.md
+    - text: HDInsight 지원 VM 유형
+      url: ./hdinsight-supported-node-configuration.md
+    - text: 스토리지 옵션 비교
+      url: ./hdinsight-hadoop-compare-storage-options.md
+  - linkListType: tutorial
+    links:
+    - text: HDInsight 클러스터 설정
+      url: ./hdinsight-hadoop-provision-linux-clusters.md
+    - text: Data Lake Store Gen2를 사용하여 클러스터 만들기
+      url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
+  - linkListType: whats-new
+    links:
+    - text: 사용자 지정 Ambari DB
+      url: ./hdinsight-custom-ambari-db.md
+    - text: '자동 크기 조정: Hadoop 클러스터 자동 크기 조정'
+      url: ./hdinsight-autoscale-clusters.md
+    - text: HDInsight를 통한 모니터링
+      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+    - text: HDInsight 4.0으로 Apache Hive 테이블 마이그레이션
+      url: ./interactive-query/apache-hive-migrate-workloads.md
+- title: Apache Spark
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Apache Spark란?
+      url: ./spark/apache-spark-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal에서 Apache Spark 클러스터 만들기
+      url: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
+  - linkListType: concept
+    links:
+    - text: Spark 작업 최적화
+      url: ./spark/apache-spark-perf.md
+  - linkListType: tutorial
+    links:
+    - text: Spark용 Scala Maven 애플리케이션 만들기
+      url: ./spark/apache-spark-create-standalone-application.md
+    - text: 데이터 로드 및 Apache Spark 쿼리 실행
+      url: ./spark/apache-spark-load-data-run-query.md
+    - text: Apache Spark를 사용하여 Apache HBase 쿼리
+      url: ./hdinsight-using-spark-query-hbase.md
+    - text: Power BI를 사용하여 Spark 데이터 분석
+      url: ./spark/apache-spark-use-bi-tools.md
+- title: Apache Hadoop
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Apache Hadoop이란?
+      url: ./hadoop/apache-hadoop-introduction.md
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal에서 Apache Hadoop 클러스터 만들기
+      url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
+  - linkListType: concept
+    links:
+    - text: 규모에 맞게 Hadoop ETL
+      url: ./hadoop/apache-hadoop-etl-at-scale.md
+    - text: Hadoop을 클라우드로 마이그레이션
+      url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
+    - text: Hadoop 클러스터 용량 계획
+      url: ./hdinsight-capacity-planning.md
+  - linkListType: tutorial
+    links:
+    - text: Apache Hadoop에 Excel 연결
+      url: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
+    - text: Azure Monitor 로그를 사용하여 Hadoop 모니터링
+      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+    - text: Ambari UI를 사용하여 Hadoop 클러스터 모니터링 및 관리
+      url: ./hdinsight-hadoop-manage-ambari.md
+- title: Apache Kafka
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Apache Kafka란?
+      url: ./kafka/apache-kafka-introduction.md
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal에서 Apache Kafka 클러스터 만들기
+      url: ./kafka/apache-kafka-get-started.md
+  - linkListType: concept
+    links:
+    - text: Kafka REST 프록시
+      url: ./kafka/rest-proxy.md
+    - text: 3.6을 4.0으로 마이그레이션
+      url: ./kafka/migrate-versions.md
+    - text: Kafka 성능 최적화
+      url: ./kafka/apache-kafka-performance-tuning.md
+    - text: Kafka 확장성
+      url: ./kafka/apache-kafka-scalability.md
+    - text: Kafka 고가용성
+      url: ./kafka/apache-kafka-high-availability.md
+  - linkListType: tutorial
+    links:
+    - text: Kafka 생산자 및 소비자 API 사용
+      url: ./kafka/apache-kafka-producer-consumer-api.md
+    - text: Apache Kafka를 사용한 Apache Spark 구조적 스트림
+      url: ./hdinsight-apache-kafka-spark-structured-streaming.md
+    - text: 재해 복구를 위한 Kafka 미러링
+      url: ./kafka/apache-kafka-mirroring.md
+    - text: 인증을 위한 Kafka SSL 설정
+      url: ./kafka/apache-kafka-ssl-encryption-authentication.md
+- title: Apache HBase
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Apache HBase란?
+      url: ./hbase/apache-hbase-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Apache Phoenix를 사용하여 HBase 쿼리
+      url: ./hbase/apache-hbase-query-with-phoenix.md
+  - linkListType: concept
+    links:
+    - text: Apache HBase에 대한 가속화된 쓰기
+      url: ./hbase/apache-hbase-accelerated-writes.md
+    - text: Apache Phoenix 모범 사례
+      url: ./hbase/apache-hbase-phoenix-performance.md
+  - linkListType: tutorial
+    links:
+    - text: Azure HDInsight에서 Apache HBase 사용
+      url: ./hbase/apache-hbase-tutorial-get-started-linux.md
+    - text: HBase를 새 버전으로 마이그레이션
+      url: ./hbase/apache-hbase-migrate-new-version.md
+- title: 대화형 쿼리
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 대화형 쿼리란?
+      url: ./interactive-query/apache-interactive-query-get-started.md
+  - linkListType: quickstart
+    links:
+    - text: Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행
+      url: ./interactive-query/hdinsight-connect-hive-zeppelin.md
+  - linkListType: concept
+    links:
+    - text: Hive 쿼리 최적화
+      url: ./hdinsight-hadoop-optimize-hive-query.md
+    - text: Hive를 ETL 도구로 사용
+      url: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
+  - linkListType: tutorial
+    links:
+    - text: Apache Hive를 사용하여 비행 데이터 분석
+      url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+    - text: Hive 웨어하우스 커넥터를 사용하여 Spark 및 Hive 연결
+      url: ./interactive-query/apache-hive-warehouse-connector.md
+    - text: DirectQuery를 사용하여 Hive Power BI와 Hive 연결
+      url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+- title: 엔터프라이즈 준비
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: HDInsight 보안 개요
+      url: ./domain-joined/hdinsight-security-overview.md
+  - linkListType: concept
+    links:
+    - text: 가상 네트워크 계획
+      url: ./hdinsight-plan-virtual-network-deployment.md
+    - text: 'Active Directory의 Hadoop: Enterprise Security Package'
+      url: ./domain-joined/apache-domain-joined-architecture.md
+    - text: Hadoop 클러스터 자동 크기 조정
+      url: ./hdinsight-autoscale-clusters.md
+    - text: 온-프레미스 클러스터를 클라우드로 마이그레이션
+      url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
+  - linkListType: tutorial
+    links:
+    - text: Azure ADDS를 사용한 엔터프라이즈 보안 설정
+      url: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
+- title: ML 서비스
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: HDInsight의 ML Services란?
+      url: ./r-server/r-server-overview.md
+  - linkListType: quickstart
+    links:
+    - text: ML Services 클러스터에서 R 스크립트 실행
+      url: ./r-server/machine-learning-services-quickstart-job-rstudio.md
+  - linkListType: tutorial
+    links:
+    - text: Spark 컴퓨팅 컨텍스트에서 R 사용
+      url: ./r-server/ml-services-tutorial-spark-compute.md
+- title: Apache Storm
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Apache Storm의 정의
+      url: ./storm/apache-storm-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Apache Storm 토폴로지 만들기
+      url: ./storm/apache-storm-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Apache Storm를 사용하여 HDFS에 쓰기
+      url: ./storm/apache-storm-write-data-lake-store.md

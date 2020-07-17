@@ -1,24 +1,21 @@
 ---
-title: 텍스트 분할 인식 검색 기술 - Azure Search
-description: Azure Search 보강 파이프라인의 길이에 따라 텍스트를 텍스트의 페이지나 청크로 나눕니다.
-services: search
-manager: pablocas
+title: 텍스트 분할 인식 기술
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search에서 AI 보강 파이프라인의 길이에 따라 텍스트를 청크 또는 텍스트 페이지로 나눕니다.
+manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 78ed2fab81bfb1562125135c5901a2de395c3843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 06/17/2020
+ms.openlocfilehash: 52aaeb01fef551eee350c6db662c2690ef7b3e78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981951"
 ---
-#   <a name="text-split-cognitive-skill"></a>텍스트 분할 인식 기술
+# <a name="text-split-cognitive-skill"></a>텍스트 분할 인식 기술
 
 **분할 텍스트** 기술은 텍스트를 텍스트의 청크로 나눕니다. 텍스트를 문장으로 또는 특정 길이의 페이지로 나눌 것인지 여부를 지정할 수 있습니다. 이 기술은 다른 기술 다운스트림에서 최대 텍스트 길이 요구 사항이 있는 경우 특히 유용합니다. 
 
@@ -32,25 +29,25 @@ Microsoft.Skills.Text.SplitSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | 설명 |
+| 매개 변수 이름     | Description |
 |--------------------|-------------|
-| textSplitMode      | "페이지" 또는 "문장" 중 하나 | 
-| maximumPageLength | TextSplitMode가 "페이지"로 설정되는 경우 이는 `String.Length`에 의해 측정된 대로 최대 페이지 길이를 참조합니다. 최소값은 100입니다.  textSplitMode가 "pages"로 설정된 경우 알고리즘은 텍스트를 최대 "maximumPageLength" 크기의 청크로 분할하려고 합니다. 이 경우 알고리즘은 청크 크기가 "maximumPageLength"보다 약간 더 작을 수 있게 문장 경계에서 문장을 나누기 위해 최선을 다합니다. | 
-| defaultLanguageCode   | (선택 사항) 다음 언어 코드 `da, de, en, es, fi, fr, it, ko, pt` 중 하나입니다. 기본값은 영어(en)입니다. 고려할 사항은 다음과 같습니다.<ul><li>languagecode-countrycode 형식을 전달하는 경우 형식의 languagecode 부분만 사용됩니다.</li><li>언어가 이전 목록에 없는 경우 분할 기술은 문자를 경계로 텍스트를 나눕니다.</li><li>언어 코드를 제공하면 중국어, 일본어, 한국어 등 비공간 언어에 대해 단어를 반으로 줄이지 못하게 하는 데 유용합니다.</li></ul>  |
+| `textSplitMode`    | "페이지" 또는 "문장" 중 하나 | 
+| `maximumPageLength` | TextSplitMode가 "페이지"로 설정되는 경우 이는 `String.Length`에 의해 측정된 대로 최대 페이지 길이를 참조합니다. 최소값은 300입니다.  textSplitMode가 "pages"로 설정된 경우 알고리즘은 텍스트를 최대 "maximumPageLength" 크기의 청크로 분할하려고 합니다. 이 경우 알고리즘은 청크 크기가 "maximumPageLength"보다 약간 더 작을 수 있게 문장 경계에서 문장을 나누기 위해 최선을 다합니다. | 
+| `defaultLanguageCode` | (선택 사항) 다음 언어 코드 `da, de, en, es, fi, fr, it, ko, pt` 중 하나입니다. 기본값은 영어(en)입니다. 고려할 사항은 다음과 같습니다.<ul><li>languagecode-countrycode 형식을 전달하는 경우 형식의 languagecode 부분만 사용됩니다.</li><li>언어가 이전 목록에 없는 경우 분할 기술은 문자를 경계로 텍스트를 나눕니다.</li><li>중국어, 일본어, 한국어 등의 비 공백 언어의 경우 단어를 절반으로 자르는 것을 방지 하는 데 언어 코드를 제공 하는 것이 유용 합니다.</li><li>언어를 모르는 경우 (즉, 입력 텍스트를 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)분할 해야 하는 경우) 영어 (en)의 기본값은 충분 해야 합니다. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 매개 변수 이름       | 설명      |
+| 매개 변수 이름       | Description      |
 |----------------------|------------------|
-| text  | 하위 문자열로 분할될 텍스트입니다. |
-| languageCode  | (선택 사항) 문서에 대한 언어 코드입니다.  |
+| `text`    | 하위 문자열로 분할될 텍스트입니다. |
+| `languageCode`    | (선택 사항) 문서에 대한 언어 코드입니다. 언어를 모르는 경우 (즉, 입력 텍스트를 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)분할 해야 하는 경우)이 입력을 제거 하는 것이 안전 합니다.  |
 
 ## <a name="skill-outputs"></a>기술 출력 
 
-| 매개 변수 이름     | 설명 |
+| 매개 변수 이름     | Description |
 |--------------------|-------------|
-| textItems | 추출된 하위 문자열의 배열입니다. |
+| `textItems`   | 추출된 하위 문자열의 배열입니다. |
 
 
 ##  <a name="sample-definition"></a>샘플 정의
@@ -88,7 +85,7 @@ Microsoft.Skills.Text.SplitSkill
         {
             "recordId": "1",
             "data": {
-                "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia…",
+                "text": "This is a the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia…",
                 "languageCode": "en"
             }
         },
@@ -135,5 +132,5 @@ Microsoft.Skills.Text.SplitSkill
 
 ## <a name="see-also"></a>참고 항목
 
-+ [미리 정의된 기술](cognitive-search-predefined-skills.md)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기본 제공 기술](cognitive-search-predefined-skills.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

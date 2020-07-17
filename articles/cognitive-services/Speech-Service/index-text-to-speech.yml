@@ -1,0 +1,68 @@
+### YamlMime:Landing
+title: 텍스트 음성 변환 설명서
+summary: 음성 서비스에서 음성 텍스트를 음성으로 변환 하면 응용 프로그램, 도구 또는 장치에서 텍스트를 사람이 비슷한 합성 음성으로 변환할 수 있습니다.
+metadata:
+  title: 텍스트 음성 변환 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: trevorbye
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 03/10/2020
+  ms.author: trbye
+  ms.openlocfilehash: 8a58079f44fb4d78c2d3f652a5f3b61dae9c8991
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800808"
+landingContent:
+- title: 텍스트 음성 변환
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 텍스트 음성 변환이란?
+      url: text-to-speech.md
+    - text: 음성 합성 기초
+      url: text-to-speech-basics.md
+    - text: 코드 없이 텍스트 음성 변환에 음성 CLI 사용
+      url: spx-overview.md
+  - linkListType: quickstart
+    links:
+    - text: 스피커로 음성 합성
+      url: quickstarts/text-to-speech.md
+    - text: 오디오 파일로 음성 합성
+      url: quickstarts/text-to-speech-audio-file.md
+    - text: 긴 형식의 오디오로 음성 합성
+      url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+- title: 텍스트 음성 변환
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: SSML을 사용하여 합성 향상
+      url: speech-synthesis-markup.md
+    - text: REST를 사용하여 음성 목록 가져오기(Python)
+      url: quickstart-python-get-text-to-speech-voices.md
+    - text: REST을 사용하여 텍스트 음성 변환(Python)
+      url: quickstart-python-text-to-speech.md
+  - linkListType: concept
+    links:
+    - text: Custom Voice 시작
+      url: how-to-custom-voice.md
+    - text: Custom Voice 모델 만들기 및 사용
+      url: how-to-custom-voice-create-voice.md
+    - text: Custom Voice 게이팅
+      url: concepts-gating-overview.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 표준 음성 지원
+      url: language-support.md#standard-voices
+    - text: 인공 신경망 음성 지원
+      url: language-support.md#neural-voices
+    - text: SSML 음성 집합
+      url: speech-ssml-phonetic-sets.md
+    - text: 텍스트 음성 변환 가격 책정
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

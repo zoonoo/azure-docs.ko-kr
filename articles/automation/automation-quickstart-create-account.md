@@ -1,45 +1,49 @@
 ---
 title: Azure 빠른 시작 - Azure Automation 계정 만들기 | Microsoft Docs
-description: Azure Automation 계정을 만들고 Runbook을 실행하는 방법을 알아봅니다.
+description: 이 문서는 Azure Automation 계정을 만들고 Runbook을 실행하는 데 도움이 됩니다.
 services: automation
-author: csand-msft
-ms.author: csand
 ms.date: 04/04/2019
 ms.topic: quickstart
-ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 89f32499d02978294398aae7be21f63b5d6aa028
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a07c6ac524aa213519ace1ae204ac2d76db802aa
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919820"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836705"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 
-Azure Automation 계정은 Azure 포털을 통해 만들 수 있습니다. 이 방법은 Automation 계정 및 관련 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Automation 계정을 만들고 계정에서 Runbook을 실행하는 방법을 안내합니다.
+여러 리소스에 대한 액세스를 허용하는 브라우저 기반 사용자 인터페이스인 Azure Portal을 사용하여 Azure를 통해 Azure Automation 계정을 만들 수 있습니다. 하나의 Automation 계정으로 해당 테넌트의 모든 영역과 구독 전반의 리소스를 관리할 수 있습니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 빠른 시작에서는 Automation 계정을 만들고 계정에서 Runbook을 실행하는 방법을 안내합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com 에서 Azure에 로그인
+[Azure에 로그인](https://portal.azure.com)합니다.
 
 ## <a name="create-automation-account"></a>Automation 계정 만들기
 
-1. Azure의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 클릭합니다.
+1. Azure 계정의 이름을 선택합니다. Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다. 삭제된 Automation 계정의 이름은 즉시 사용할 수 없습니다.
 
-1. **관리 도구**를 선택한 다음, **Automation**을 선택합니다.
+    > [!NOTE]
+    > 사용자 인터페이스에 입력된 계정 이름은 변경할 수 없습니다. 
 
-1. 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 아티팩트를 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기**에서 **예**를 선택합니다. Automation 계정을 만들 때 이름을 선택한 후에는 변경할 수 없습니다. *Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다. 삭제된 Automation 계정에 대한 이름을 즉시 사용할 수 있습니다.* 하나의 Automation 계정으로 해당 테넌트의 모든 영역과 구독 전반의 리소스를 관리할 수 있습니다. 완료되면 **만들기**를 클릭하여 Automation 계정 배포를 시작합니다.
+2. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
+
+3. **IT 및 관리 도구**를 선택한 다음, **Automation**을 선택합니다.
+
+4. 선택한 계정 이름을 포함한 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 아티팩트를 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기**에서 **예**를 선택합니다. 정보 입력이 완료되면 **만들기**를 클릭하여 Automation 계정 배포를 시작합니다.
 
     ![페이지에서 Automation 계정에 대한 정보 입력](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > Automation Account를 배포할 수 있는 위치의 업데이트된 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all)을 참조하세요.
+    > Automation 계정을 배포할 수 있는 위치의 업데이트된 목록은 [지역별로 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all)을 참조하세요.
 
-1. 배포가 완료되면 **모든 서비스**를 클릭하고, **Automation 계정**을 선택하고, 만든 Automation 계정을 선택합니다.
+5. 배포가 완료되면 **모든 서비스**를 클릭합니다.
+
+6. **Automation 계정**을 선택한 다음, 사용자가 만든 Automation 계정을 선택합니다.
 
     ![Automation 계정 개요](./media/automation-quickstart-create-account/automation-account-overview.png)
 
@@ -55,16 +59,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
     ![Runbook 개요](./media/automation-quickstart-create-account/automation-tutorial-script-runbook-overview.png)
 
-1. **시작**을 클릭하고 **Runbook 시작** 페이지에서 **확인**을 클릭하여 Runbook을 시작합니다.
+1. **시작**을 클릭하고 Runbook 시작 페이지에서 **확인**을 클릭하여 Runbook을 시작합니다.
 
     ![Runbook 작업 페이지](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-1. **작업 상태**가 **실행 중**이 되면 **출력** 또는 **모든 로그**를 클릭하여 Runbook 작업 출력을 확인합니다. 이 자습서 Runbook의 경우 출력은 Azure 리소스 목록입니다.
+1. 작업 상태가 `Running`이 되면 **출력** 또는 **모든 로그**를 클릭하여 Runbook 작업 출력을 확인합니다. 이 자습서 Runbook의 경우 출력은 Azure 리소스 목록입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 Automation 계정을 배포하고, Runbook 작업을 시작하고, 작업 결과를 확인했습니다. Azure Automation에 대한 자세한 내용을 알아보려면 첫 번째 Runbook을 만드는 빠른 시작으로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Automation 빠른 시작 - Runbook 만들기](./automation-quickstart-create-runbook.md)
+> [Automation 빠른 시작 - Azure Automation Runbook 만들기](./automation-quickstart-create-runbook.md)
 

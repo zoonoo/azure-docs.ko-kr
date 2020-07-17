@@ -1,5 +1,5 @@
 ---
-title: 복사 마법사를 사용하여 데이터를 쉽게 복사 - Azure | Microsoft Docs
+title: 복사 마법사를 사용 하 여 데이터를 쉽게 복사-Azure
 description: Data Factory 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요.
 services: data-factory
 documentationcenter: ''
@@ -9,29 +9,28 @@ editor: ''
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ce40d1a46a6448e678a8a86812d08e9013310d7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487932"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086911"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사를 사용하여 데이터를 쉽게 복사 또는 이동
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
 
 
-Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 시나리오의 첫 번째 단계인 데이터 수집 프로세스를 용이하게 합니다. Azure Data Factory Copy Wizard를 진행할 때는 연결된 서비스, 데이터 세트 및 파이프라인에 대한 JSON 정의를 이해할 필요가 없습니다. 그러나 마법사의 모든 단계를 완료한 후 선택한 데이터 원본에서 선택한 대상으로 데이터를 복사하는 파이프라인이 자동으로 생성됩니다. 또한 Copy Wizard를 사용하면 작성 당시에 수집 중인 데이터의 유효성을 검사할 수 있으므로 특히 데이터 원본에서 데이터를 처음 수집하는 경우 많은 시간이 절약됩니다. 복사 마법사를 시작하려면 Data Factory 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
+Azure Data Factory Copy Wizard는 일반적으로 엔드투엔드 데이터 통합 시나리오의 첫 번째 단계인 데이터 수집 프로세스를 용이하게 합니다. Azure Data Factory Copy Wizard를 진행할 때는 연결된 서비스, 데이터 세트 및 파이프라인에 대한 JSON 정의를 이해할 필요가 없습니다. 그러나 마법사의 모든 단계를 완료한 후 선택한 데이터 원본에서 선택한 대상으로 데이터를 복사하는 파이프라인이 자동으로 생성됩니다. 또한 Copy Wizard를 사용하면 작성 당시에 수집 중인 데이터의 유효성을 검사할 수 있으므로 특히 데이터 원본에서 데이터를 처음 수집하는 경우 많은 시간이 절약됩니다. 복사 마법사를 시작하려면 Data Factory 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
 
 ![복사 마법사](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
 ## <a name="an-intuitive-wizard-for-copying-data"></a>데이터를 복사할 수 있는 직관적인 마법사
-이 마법사를 사용하면 다양한 원본에서 대상으로 몇 분만에 데이터를 쉽게 이동할 수 있습니다. 마법사를 거친 후 종속 Data Factory 엔터티(연결된 서비스 및 데이터 세트)와 함께 복사 작업이 있는 파이프라인이 자동으로 생성됩니다. 파이프라인을 만드는 데 필요한 추가 단계가 없습니다.   
+이 마법사를 사용하면 다양한 원본에서 대상으로 데이터를 몇 분만에 쉽게 이동할 수 있습니다. 마법사를 거친 후 종속 Data Factory 엔터티(연결된 서비스 및 데이터 세트)와 함께 복사 작업이 있는 파이프라인이 자동으로 생성됩니다. 파이프라인을 만드는 데 필요한 추가 단계는 없습니다.   
 
 ![데이터 원본 선택](./media/data-factory-copy-wizard/select-data-source-page.png)
 
@@ -40,7 +39,7 @@ Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 �
 > 
 > 
 
-이 마법사는 처음부터 빅 데이터를 염두에 두고 설계되었습니다. Copy Data Wizard를 사용하여 수백 개의 폴더, 파일 또는 테이블을 이동하는 Data Factory 파이프라인을 간단하고 효율적으로 만들 수 있습니다. 이 마법사는 자동 데이터 미리 보기, 스키마 캡처 및 매핑, 데이터 필터링을 지원합니다. 
+이 마법사는 처음부터 빅 데이터를 염두에 두고 설계되었습니다. Copy Data Wizard를 사용하여 수백 개의 폴더, 파일 또는 테이블을 이동하는 Data Factory 파이프라인을 간단하고 효율적으로 만들 수 있습니다. 이 마법사는 자동 데이터 미리 보기, 스키마 캡처 및 매핑, 데이터 필터링이라는 세 가지 기능을 지원합니다. 
 
 ## <a name="automatic-data-preview"></a>자동 데이터 미리 보기
 복사 마법사를 사용하면 선택한 데이터 원본에서 데이터의 일부를 검토하여 데이터가 복사하려는 올바른 데이터인지 여부를 확인할 수 있습니다. 또한 원본 데이터가 텍스트 파일에 있는 경우 복사 마법사는 텍스트 파일을 구문 분석하여 행 및 열 구분 기호와 스키마를 자동으로 파악합니다. 
@@ -55,9 +54,9 @@ Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 �
 ![스키마 매핑](./media/data-factory-copy-wizard/schema-mapping.png)
 
 ## <a name="filtering-data"></a>데이터 필터링
-마법사를 통해 대상/싱크 데이터 저장소에 복사해야 하는 데이터만 선택하도록 원본 데이터를 필터링할 수 있습니다. 필터링하면 싱크 데이터 저장소에 복사할 데이터의 양이 줄어들기 때문에 복사 작업의 처리량이 향상됩니다. 마법사에서는 SQL 쿼리 언어를 사용하여 관계형 데이터베이스의 데이터를 필터링하거나 [Data Factory 함수 및 변수](data-factory-functions-variables.md)를 사용하여 Azure blob 폴더의 파일을 필터링할 수 있는 유연한 방법을 제공합니다.   
+마법사를 통해 대상/싱크 데이터 저장소에 복사해야 하는 데이터만 선택하도록 원본 데이터를 필터링할 수 있습니다. 필터링하면 싱크 데이터 저장소에 복사할 데이터 양이 줄고 이에 따라 복사 작업의 처리량이 향상됩니다. 마법사에서는 SQL 쿼리 언어를 사용하여 관계형 데이터베이스의 데이터를 필터링하거나 [Data Factory 함수 및 변수](data-factory-functions-variables.md)를 사용하여 Azure blob 폴더의 파일을 필터링할 수 있는 유연한 방법을 제공합니다.   
 
-### <a name="filtering-of-data-in-a-database"></a>데이터베이스의 데이터 필터링
+### <a name="filtering-of-data-in-a-database"></a>데이터베이스 데이터 필터링
 이 예제에서 SQL 쿼리는 `Text.Format` 함수 및 `WindowStart` 변수를 사용합니다. 
 
 ![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
@@ -67,12 +66,14 @@ Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 �
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 
-    2016/03/01/01
-    2016/03/01/02
-    2016/03/01/03
-    ...
+```text
+2016/03/01/01
+2016/03/01/02
+2016/03/01/03
+...
+```
 
-**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016**을 **{year}** 로, **03**을 **{month}** 로, **01**을 **{day}** 로, **02**를 **{hour}** 로 바꾸고 탭을 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
+**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016** 을 **{year}** 로, **03** 을 **{month}** 로, **01** 을 **{Day}** 로, **02** 를 **{hour}** 로 바꾸고 tab 키를 누릅니다. 이러한 네 가지 변수에 대 한 형식을 선택 하는 드롭다운 목록이 표시 됩니다.
 
 ![시스템 변수 사용](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 

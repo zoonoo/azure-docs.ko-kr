@@ -1,25 +1,25 @@
 ---
 title: 잉크 인식기 API에 대 한 언어 및 지역 지원
 titleSuffix: Azure Cognitive Services
-description: 목록 잉크 인식기 API에서 지원 되는 자연 언어입니다.
+description: 잉크 인식기 API에서 지원 되는 일반 언어 목록입니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7e5c1c74a3659be855b3f846c16672d0d73b9de4
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026787"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309699"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>잉크 인식기 API에 대 한 언어 및 지역 지원
 
-이 문서는 잉크 인식기 API에 대 한 지원 되는 언어를 설명 합니다. 다음 언어로 작성 된 콘텐츠를 디지털 잉크 해석 하 고 API에 의해 처리 될 수 있습니다.
+이 문서에서는 잉크 인식기 API에 대해 지원 되는 언어에 대해 설명 합니다. 다음 언어로 작성 된 디지털 잉크 콘텐츠는 API를 통해 해석 되 고 처리 될 수 있습니다.
 
 ## <a name="supported-languages"></a>지원되는 언어
 
@@ -54,7 +54,7 @@ ms.locfileid: "65026787"
 | 이탈리아어(이탈리아)                            |     `it-IT`     |
 | 일본어                                   |     `ja-JP`     |
 | 키냐르완다어                                |     `rw-RW`     |
-| 스와힐리어(케냐)                          |     `sw-KE`     |
+| 스와힐리어 (케냐)                          |     `sw-KE`     |
 | 한국어                                     |     `ko-KR`     |
 | 룩셈부르크어                              |     `lb-LU`     |
 | 말레이어(브루나이)                  |     `ms-BN`     |
@@ -70,13 +70,13 @@ ms.locfileid: "65026787"
 | 러시아어                                    |     `ru-RU`     |
 | 스코틀랜드 게일어                            |     `gd-GB`     |
 | 북부 소토어                           |    `nso-ZA`     |
-| 세르비아어(키릴 자모, 보스니아 헤르체고비나) |  `sr-Cyrl-BA`   |
-| 세르비아어(키릴 자모, 몬테네그로)             |  `sr-Cyrl-ME`   |
+| 세르비아어 (키릴 자모, 보스니아 헤르체고비나) |  `sr-Cyrl-BA`   |
+| 세르비아어 (키릴 자모, 몬테네그로)             |  `sr-Cyrl-ME`   |
 | 세르비아어(키릴 자모, 세르비아)                 |  `sr-Cyrl-RS`   |
 | 세르비아어 (라틴 문자, 보스니아 헤르체고비나)    |  `sr-Latn-BA`   |
-| 세르비아어(라틴 문자, 몬테네그로)                |  `sr-Latn-ME`   |
+| 세르비아어 (라틴 문자, 몬테네그로)                |  `sr-Latn-ME`   |
 | 세르비아어(라틴 문자, 세르비아)                    |  `sr-Latn-RS`   |
-| 세츠와나어(남아프리카)                    |     `tn-ZA`     |
+| 세츠와나어 (남아프리카 공화국)                    |     `tn-ZA`     |
 | 슬로바키아어                                     |     `sk-SK`     |
 | 슬로베니아어                                  |     `sl-SI`     |
 | 스페인어(아르헨티나)                        |     `es-AR`     |
@@ -86,10 +86,10 @@ ms.locfileid: "65026787"
 | 터키어                                    |     `tr-TR`     |
 | 웨일스어                                      |     `cy-GB`     |
 | 월로프어                                      |     `wo-SN`     |
-| 반투어(남아프리카)                                      |     `xh-ZA`     |
+| 코사어                                      |     `xh-ZA`     |
 | 줄루어                                       |     `zu-ZA`     |
 
 ## <a name="see-also"></a>참고 항목
 
-* [잉크 인식기 API 란 무엇 인가요?](overview.md)
-* [디지털 잉크 스트로크 잉크 인식기 API 보내기](concepts/send-ink-data.md)
+* [Ink Recognizer API란?](overview.md)
+* [잉크 인식기 API에 디지털 잉크 스트로크 보내기](concepts/send-ink-data.md)

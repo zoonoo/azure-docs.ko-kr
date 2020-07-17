@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: virtual-machines
 author: shandilvarun
@@ -9,11 +9,11 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67182142"
 ---
 Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 수 있는 여러 상태를 거칩니다. 이 아티클은 이러한 상태를 설명하고, 고객에게 인스턴스 사용량에 요금이 청구된 경우 특히 강조 표시하려고 합니다. 
 
@@ -32,7 +32,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 시스템 상태
 </th>
 <th>
-설명
+Description
 </th>
 <th>
 인스턴스 사용량 청구
@@ -71,7 +71,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
  ]</code><br>
 </td>
 <td>
-<p><b>청구됨</b></p>
+<p><b>청구</b></p>
 </td>
 </tr>
 <tr>
@@ -89,12 +89,12 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
  ]</code><br>
 </td>
 <td>
-<p><b>청구됨</b></p>
+<p><b>청구</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>중지</b></p>
+<p><b>중지됨</b></p>
 </td>
 <td>
 <p>게스트 OS 내에서 또는 PowerOff API를 사용하여 VM이 종료되었습니다.</p>
@@ -178,7 +178,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 <p><b>상태</b></p>
 </td>
 <td width="366">
-<p>설명</p>
+<p>Description</p>
 </td>
 </tr>
 <tr>
@@ -196,7 +196,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 </tr>
 <tr>
 <td width="162">
-<p><b>업데이트 중</b></p>
+<p><b>업데이트</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>

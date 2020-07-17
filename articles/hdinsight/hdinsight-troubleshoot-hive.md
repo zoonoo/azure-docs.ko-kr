@@ -3,24 +3,22 @@ title: Azure HDInsight를 사용한 Hive 문제 해결
 description: Apache Hive 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
 keywords: Azure HDInsight, Hive, FAQ, 문제 해결 가이드, 일반적인 질문
 ms.service: hdinsight
-author: dharmeshkakadia
-ms.author: dharmeshkakadia
-ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: 43886a132f2f3cf75f0ec7a0b2dc0680a0f69589
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712488"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75895228"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hive 문제 해결
 
 Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 사항 및 해결 방법을 알아봅니다.
 
-
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hive metastore를 내보내고 다른 클러스터로 가져오려면 어떻게 하나요?
-
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hive 메타스토어를 내보내고 다른 클러스터로 가져오려면 어떻게 하나요?
 
 ### <a name="resolution-steps"></a>해결 단계:
 
@@ -36,16 +34,15 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 
 3. alltables.sql 파일을 새 HDInsight 클러스터에 복사하고 다음 명령을 실행합니다.
 
-   ```apache
-   hive -f alltables.sql
-   ```
+    ```apache
+    hive -f alltables.sql
+    ```
 
-해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다른 경우 변경 내용을 반영하도록 생성된 alltables.sql 파일을 수동으로 편집할 수 있습니다.
+해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다르면 생성 된 파일을 수동으로 편집 `alltables.sql` 하 여 변경 내용을 반영할 수 있습니다.
 
-### <a name="additional-reading"></a>추가 참조 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 ## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>클러스터에서 Hive 로그를 찾으려면 어떻게 하나요?
 
@@ -56,25 +53,24 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 2. Hive 클라이언트 로그를 보려면 다음 명령을 사용합니다.
 
    ```apache
-   /tmp/<username>/hive.log 
+   /tmp/<username>/hive.log
    ```
 
-3. Hive metastore 로그를 보려면 다음 명령을 사용합니다.
+3. Hive 메타스토어 로그를 보려면 다음 명령을 사용합니다.
 
    ```apache
-   /var/log/hive/hivemetastore.log 
+   /var/log/hive/hivemetastore.log
    ```
 
-4. Hiveserver 로그를 보려면 다음 명령을 사용합니다.
+4. Hive 서버 로그를 보려면 다음 명령을 사용 합니다.
 
    ```apache
-   /var/log/hive/hiveserver2.log 
+   /var/log/hive/hiveserver2.log
    ```
 
-### <a name="additional-reading"></a>추가 참조 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 ## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>클러스터에서 특정 구성으로 Hive 셸을 시작하려면 어떻게 하나요?
 
@@ -83,7 +79,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 1. Hive 셸을 시작할 때 구성 키-값 쌍을 지정합니다. 자세한 내용은 [더 보기](#additional-reading-end)를 참조하세요.
 
    ```apache
-   hive -hiveconf a=b 
+   hive -hiveconf a=b
    ```
 
 2. Hive 셸에서 모든 유효 구성을 나열하려면 다음 명령을 사용합니다.
@@ -95,23 +91,21 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    예를 들어 다음 명령을 사용하여 콘솔에서 디버그 로깅이 사용하도록 설정된 상태로 Hive 셸을 시작합니다.
 
    ```apache
-   hive -hiveconf hive.root.logger=ALL,console 
+   hive -hiveconf hive.root.logger=ALL,console
    ```
 
-### <a name="additional-reading"></a>추가 참조 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)(Hive 구성 속성)
 
-
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>클러스터 중요 경로에서 Apache Tez DAG 데이터를 분석하려면 어떻게 하나요?
-
+## <a name="how-do-i-analyze-apache-tez-dag-data-on-a-cluster-critical-path"></a><a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>클러스터 중요 경로에서 Apache Tez DAG 데이터를 분석하려면 어떻게 하나요?
 
 ### <a name="resolution-steps"></a>해결 단계:
- 
+
 1. 클러스터에 중요한 그래프에서 Apache Tez DAG(방향성 비순환 그래프)를 분석하려면 SSH를 사용하여 HDInsight 클러스터에 연결합니다. 자세한 내용은 [더 보기](#additional-reading-end)를 참조하세요.
 
 2. 명령 프롬프트에서 다음 명령을 실행합니다.
-   
+
    ```apache
    hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
    ```
@@ -133,46 +127,45 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
     - **SlowNodeAnalyzer**: DAG에 노드 정보를 출력합니다.
     - **SlowTaskIdentifier**: DAG에 느린 작업 정보를 출력합니다.
     - **SlowestVertexAnalyzer**: DAG에 가장 느린 꼭지점 정보를 출력합니다.
-    - **SpillAnalyzer**: DAG에 분산 정보를 출력합니다.
+    - **SlowNodeAnalyzer**: DAG에 분산 정보를 출력합니다.
     - **TaskConcurrencyAnalyzer**: DAG에 작업 동시성 정보를 출력합니다.
-    - **VertexLevelCriticalPathAnalyzer**: DAG의 꼭짓점 수준에서 중요 경로를 찾습니다.
+    - **VertexLevelCriticalPathAnalyzer**: DAG에서 꼭짓점 수준의 중요 경로를 찾습니다.
 
-
-### <a name="additional-reading"></a>추가 참조 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-
 ## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>클러스터에서 Tez DAG 데이터를 다운로드하려면 어떻게 하나요?
-
 
 #### <a name="resolution-steps"></a>해결 단계:
 
 Tez DAG 데이터를 수집하는 방법에는 다음 두 가지가 있습니다.
 
 - 명령줄에서:
- 
+
     SSH를 사용하여 HDInsight 클러스터에 연결합니다. 명령 프롬프트에서 다음 명령을 실행합니다.
 
   ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId> 
+  hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId>
   ```
 
 - Ambari Tez 보기 사용:
-   
-  1. Ambari로 이동합니다. 
-  2. 오른쪽 위 구석의 타일 아이콘 아래에 있는 Tez 보기로 이동합니다. 
+
+  1. Ambari로 이동합니다.
+  2. 오른쪽 위 구석의 타일 아이콘 아래에 있는 Tez 보기로 이동합니다.
   3. 보려는 DAG를 선택합니다.
   4. **데이터 다운로드**를 선택합니다.
 
-### <a name="additional-reading-end"></a>추가 참조 자료
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>추가 참조 항목
 
 [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
+## <a name="next-steps"></a>다음 단계
 
-### <a name="see-also"></a>관련 항목
-[Azure HDInsight를 사용하여 문제 해결](hdinsight-troubleshoot-guide.md)
+문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
+- [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 
+- [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-
+- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

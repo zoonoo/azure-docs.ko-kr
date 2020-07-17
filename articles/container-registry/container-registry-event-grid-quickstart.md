@@ -1,21 +1,16 @@
 ---
-title: 빠른 시작 - Event Grid로 Azure Container Registry 이벤트 전송
+title: 빠른 시작-Event Grid로 이벤트 보내기
 description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Grid 이벤트를 활성화한 다음, 애플리케이션 예제에 컨테이너 이미지 push 및 delete 이벤트를 전송합니다.
-services: container-registry
-author: dlepow
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: danlep
 ms.custom: seodec18
-ms.openlocfilehash: f5c075942a29968ea57c684cd817e578df951989
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "78403242"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리에서 Event Grid에 이벤트 보내기
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리의 이벤트를 Event Grid으로 보내기
 
 Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소비를 제공하는 완전히 관리되는 이벤트 라우팅 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 컨테이너 레지스트리를 만들고, 레지스트리 이벤트를 구독한 다음, 샘플 웹 애플리케이션을 배포하여 이벤트를 수신합니다. 마지막으로, 컨테이너 이미지 `push` 및 `delete` 이벤트를 트리거하고 애플리케이션 예제에서 이벤트 페이로드를 봅니다.
 
@@ -23,7 +18,7 @@ Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소
 
 ![수신된 이벤트 세 개로 샘플 웹 애플리케이션을 렌더링하는 웹 브라우저][sample-app-01]
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -114,7 +109,7 @@ az eventgrid event-subscription create \
 
 구독이 완료되면 다음과 비슷한 출력이 표시되어야 합니다.
 
-```JSON
+```json
 {
   "destination": {
     "endpointBaseUrl": "https://eventgridviewer.azurewebsites.net/api/updates",
@@ -153,8 +148,7 @@ az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://githu
 
 ACR Tasks가 이미지를 빌드하고 푸시하는 동안에는 다음과 유사한 출력이 표시되어야 합니다. 다음 샘플 출력은 너무 길어서 일부분이 잘렸습니다.
 
-```console
-$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+```output
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -176,8 +170,7 @@ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 빌드한 이미지의 "v1" 태그가 다음과 유사한 출력으로 표시되어야 합니다.
 
-```console
-$ az acr repository show-tags --name $ACR_NAME --repository myimage
+```output
 [
   "v1"
 ]
@@ -193,10 +186,9 @@ az acr repository delete --name $ACR_NAME --image myimage:v1
 
 매니페스트와 관련 이미지 삭제를 확인하는 다음과 유사한 출력이 표시되어야 합니다.
 
-```console
-$ az acr repository delete --name $ACR_NAME --image myimage:v1
+```output
 This operation will delete the manifest 'sha256:f15fa9d0a69081ba93eee308b0e475a54fac9c682196721e294b2bc20ab23a1b' and all the following images: 'myimage:v1'.
-Are you sure you want to continue? (y/n): y
+Are you sure you want to continue? (y/n): 
 ```
 
 ## <a name="view-registry-events"></a>레지스트리 이벤트 보기
@@ -207,7 +199,7 @@ Are you sure you want to continue? (y/n): y
 
 ![ImagePushed 및 ImageDeleted 이벤트가 있는 샘플 앱을 보여주는 웹 브라우저][sample-app-03]
 
-축하합니다! `ImagePushed` 및 `ImageDeleted` 이벤트를 보면 레지스트리가 Event Grid로 이벤트를 보내고 있고, Event Grid가 이러한 이벤트를 웹앱 엔드포인트로 전달하고 있습니다.
+지금까지 `ImagePushed` 및 `ImageDeleted` 이벤트를 보면 레지스트리가 Event Grid로 이벤트를 보내고 있고, Event Grid가 이러한 이벤트를 웹앱 엔드포인트로 전달하고 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

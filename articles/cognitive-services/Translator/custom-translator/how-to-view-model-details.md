@@ -2,25 +2,25 @@
 title: 모델 세부 정보 보기 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 프로젝트의 모델 탭에는 모델 이름, 모델 상태, BLEU 점수, 학습, 튜닝, 문장 수 테스트와 같은 각 모델의 세부 정보가 표시됩니다.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
-ms.author: v-rada
+ms.date: 05/26/2020
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 13f3d88ad69d2acc64b9a6469415eceaf22fa491
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 56d947a6b2d236a04f2b71421a235120a9f02c76
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764391"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994192"
 ---
 # <a name="view-model-details"></a>모델 세부 정보 보기
 
 프로젝트의 모델 탭에 해당 프로젝트의 모든 모델이 표시됩니다. 해당 프로젝트에 대해 학습된 모든 모델이 이 탭에는 나열됩니다.
 
-프로젝트에서 각 모델에 대해 다음이 정보가 표시 됩니다.
+프로젝트의 각 모델에 대해 이러한 세부 정보가 표시 됩니다.
 
 1.  모델 이름: 지정된 모델의 모델 이름을 표시합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "57764391"
 
     -  Undeployed: 성공적으로 완료된 모델의 배포 취소 프로세스를 지정합니다.
 
-    -  Training Failed: 학습이 실패했음을 알립니다. 학습 오류가 발생한 경우 학습 작업을 다시 시도합니다. 오류가 지속되면 알려주세요. 실패한 모델을 삭제하지 마십시오.
+    -  Training Failed: 실패한 학습을 지정합니다. 학습 오류가 발생한 경우 학습 작업을 다시 시도합니다. 오류가 지속되면 알려주세요. 실패한 모델을 삭제하지 마십시오.
 
     - DataProcessingFailed: 모델에 속한 하나 이상의 문서에 대해 실패한 데이터 처리를 지정합니다.
 
@@ -54,11 +54,11 @@ ms.locfileid: "57764391"
 
 6.  튜닝 문장 수: 튜닝 세트로 사용된 총 문장 수를 표시합니다.
 
-7.  학습 문장 수: 테스트 세트로 사용된 총 문장 수를 표시합니다.
+7.  테스트 문장 수: 테스팅 세트로 사용된 총 문장 수를 표시합니다.
 
 8.  Mono 문장 수: Mono 세트로 사용된 총 문장 수를 표시합니다.
 
-9.  배포 작업 단추: 성공적으로 훈련된 모델에는 (아직 배포되지 않은 경우) “배포” 단추가 표시됩니다. 모델이 배포되면 “배포 취소” 단추가 표시됩니다.
+9.  배포 작업 단추: 성공적으로 학습 된 모델의 경우 배포 되지 않은 경우 "배포" 단추를 표시 합니다. 모델을 배포 하는 경우 "배포 취소" 단추가 표시 됩니다.
 
 10. 삭제: 모델을 삭제하려는 경우 이 단추를 사용할 수 있습니다. 모델을 삭제해도 해당 모델을 만드는 데 사용된 문서는 삭제되지 않습니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "57764391"
 
 학습이 완료되면 세부 정보 페이지에서 학습에 대한 세부 정보를 검토할 수 있습니다. 프로젝트를 선택하고, 모델 탭을 찾아 선택한 후 모델을 선택합니다.
 
-모델 페이지에는 두 개의 탭 학습 세부 정보 및 테스트가 있습니다.
+모델 페이지에 학습 세부 정보 및 테스트라는 두 개의 탭이 있습니다.
 
 1.  **학습 세부 정보:** 이 탭에는 학습에 사용되는 문서 목록이 표시됩니다.
 

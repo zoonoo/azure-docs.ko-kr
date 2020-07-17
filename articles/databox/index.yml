@@ -1,44 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Data Box 설명서 - 오프라인 전송
+summary: 시간이나 네트워크, 비용이 제한되는 경우 오프라인 데이터 전송을 위해 Azure Data Box 디바이스를 사용하세요. 데이터 크기에 따라 Data Box Disk, Data Box 또는 Data Box Heavy를 선택합니다.
 metadata:
   title: Azure Data Box 설명서 - 오프라인 전송
-  description: '시간이나 네트워크, 비용이 제한되는 경우 Azure로 오프라인 데이터 전송을 위해 Data Box 디바이스를 사용하세요.'
+  description: 시간이나 네트워크, 비용이 제한되는 경우 Azure로 오프라인 데이터 전송을 위해 Data Box 디바이스를 사용하세요.
   services: databox
-  author: alkohli
-  manager: twooley
   ms.service: databox
   ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 01/09/2019
+  ms.collection: collection
+  author: alkohli
   ms.author: alkohli
-abstract:
-  description: 'Azure Data Box 제품군을 통해 수백 테라바이트의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure에 전송할 수 있습니다. 시간이나 네트워크, 비용이 제한되는 경우 오프라인 데이터 전송을 위해 Data Box 디바이스를 사용하세요.<p>데이터 크기에 따라 Data Box Disk, Data Box 또는 Data Box Heavy<SUP>미리 보기</SUP>를 선택합니다. 디바이스마다 Azure로의 전송은 4개의 간단한 단계로 이루어집니다. 4개의 단계는 주문, 수령, 디바이스에 데이터 복사, Azure로 디바이스 반환입니다. Azure 데이터 센터에서는 데이터가 업로드된 후 지워집니다.</p><p>빠른 시작 및 자습서를 통해 오프라인 데이터 전송에 Data Box를 활용하는 방법을 알아봅니다.</p>'
-sections:
-  - title: 빠른 시작
-    items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Azure Portal에서 Data Box 설정
-            href: /azure/databox/data-box-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Azure Portal에서 Data Box Disk 설정
-            href: /azure/databox/data-box-disk-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Data Box Heavy<SUP>미리 보기</SUP> 등록
-            href: '/azure/databox/data-box-heavy-overview#sign-up'
-  - title: 자습서
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Data Box
-            html: <p><a href="/azure/databox/data-box-deploy-ordered">Azure Data Box 주문</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Azure Data Box 케이블 연결 및 장치 연결</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Azure Data Box에 데이터 복사</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Azure Data Box 반환 및 업로드 확인</a></p>
-          - title: Data Box Disk의 경우
-            html: '<p><a href="/azure/databox/data-box-disk-deploy-ordered">Azure Data Box Disk 주문</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Azure Data Box Disk 열기, 연결, 잠금 해제</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Azure Data Box Disk에 데이터 복사</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Azure Data Box Disk 반환 및 업로드 확인</a></p>'
+  ms.date: 08/16/2019
+  ms.openlocfilehash: 2c42ee93804eb1e0e24b0b67925a092cc8517ceb
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "69650368"
+landingContent:
+- title: Data Box 제품군 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Data Box란?
+      url: data-box-overview.md
+    - text: Data Box 디스크란?
+      url: data-box-disk-overview.md
+    - text: Data Box Heavy란?
+      url: data-box-heavy-overview.md
+  - linkListType: architecture
+    links:
+    - text: Azure 데이터 전송 옵션 선택
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Data Box 설정
+      url: data-box-quickstart-portal.md
+    - text: Data Box Disk 설정
+      url: data-box-disk-quickstart-portal.md
+    - text: Data Box Heavy 설정
+      url: data-box-heavy-quickstart-portal.md
+  - linkListType: learn
+    links:
+    - text: Data Box를 사용하여 오프라인으로 데이터 가져오기
+      url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
+- title: 요구 사항 보기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Data Box
+      url: data-box-system-requirements.md
+    - text: Data Box Disk의 경우
+      url: data-box-disk-system-requirements.md
+    - text: Data Box Heavy의 경우
+      url: data-box-heavy-system-requirements.md
+- title: 순서, 설정, 복사, 반환
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Data Box
+      url: data-box-deploy-ordered.md
+    - text: Data Box Disk
+      url: data-box-disk-deploy-ordered.md
+    - text: Data Box Heavy
+      url: data-box-heavy-deploy-ordered.md
+- title: 디바이스 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure의 Data Box
+      url: data-box-portal-admin.md
+    - text: Azure의 Data Box Disk
+      url: data-box-portal-ui-admin.md
+    - text: Azure의 Data Box Heavy
+      url: data-box-portal-admin.md
+- title: 문제 해결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box
+      url: data-box-troubleshoot.md
+    - text: Data Box Disk
+      url: data-box-disk-troubleshoot.md
+    - text: Data Box Heavy
+      url: data-box-troubleshoot.md
+    - text: Data Box FAQ를 통해
+      url: data-box-faq.md
+    - text: Data Box Disk FAQ를 통해
+      url: data-box-disk-faq.md
+    - text: 지원 티켓 열기
+      url: data-box-disk-contact-microsoft-support.md

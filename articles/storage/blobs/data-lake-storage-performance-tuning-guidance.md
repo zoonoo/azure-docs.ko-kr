@@ -1,22 +1,21 @@
 ---
-title: Azure Data Lake Storage Gen2 성능 튜닝 지침 | Microsoft Docs
+title: 성능 최적화 Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Azure Data Lake Storage Gen2의 성능 튜닝에 대한 지침입니다.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 6f831dd0cde4641eb48f3c23e010f8c5e8aa3fa2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: bf22ce87ed3d535a7c1bd03a8d7f747bee3ab13a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939366"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106393"
 ---
-# <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Azure Data Lake Storage Gen2의 성능 튜닝
+# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>성능을 위해 Azure Data Lake Storage Gen2 최적화
 
 Azure Data Lake Storage Gen2는 I/O 집약적 분석 및 데이터 이동에 대한 높은 처리량을 지원합니다.  Data Lake Storage Gen2에서 최상의 성능을 얻으려면 사용 가능한 모든 처리량(초당 읽거나 쓸 수 있는 데이터 양)을 사용해야 합니다.  이를 위해 최대한 많은 읽기와 쓰기를 병렬로 수행합니다.
 
@@ -47,7 +46,7 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 | 도구               | 설정     | 자세한 정보                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m(mapper)   | [링크](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [링크](../../data-factory/copy-activity-performance.md)                          |
+| Azure 데이터 팩터리| parallelCopies    | [링크](../../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m(mapper)    |   [링크](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>데이터 집합 구성
@@ -66,13 +65,13 @@ Hive 워크로드의 경우 시계열 데이터의 파티션 정리를 통해 �
 
 시계열 데이터를 수집하는 이러한 파이프라인은 파일 및 폴더에 대해 구조적 명명을 사용하여 파일을 배치하는 경우가 많습니다. 다음은 날짜별로 구성된 데이터에서 매우 일반적으로 나타나는 예입니다.
 
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+*\DataSet\YYYY\MM\DD\ datafile_YYYY_MM_DD tsv*
 
 datetime 정보가 폴더 및 파일 이름 둘 다에 나타납니다.
 
 날짜 및 시간의 일반적인 패턴은 다음과 같습니다.
 
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+*\DataSet\YYYY\MM\DD\HH\mm\ datafile_YYYY_MM_DD_HH_mm tsv*
 
 앞에서 설명했듯이, 더 큰 파일 크기와 각 폴더에 포함된 적절한 파일 수의 요건에 맞는 폴더 및 파일 구성을 선택해야 합니다.
 
@@ -94,15 +93,15 @@ datetime 정보가 폴더 및 파일 이름 둘 다에 나타납니다.
 ### <a name="general-considerations-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 일반적인 고려 사항
 
 * **HDInsight 버전.** 최상의 성능을 얻으려면 HDInsight의 최신 릴리스를 사용합니다.
-* **지역.** Data Lake Storage Gen2 계정을 HDInsight 클러스터와 동일한 지역에 배치합니다.  
+* **영역만.** Data Lake Storage Gen2 계정을 HDInsight 클러스터와 동일한 지역에 배치합니다.  
 
 HDInsight 클러스터는 헤드 노드 두 개와 일부 작업자 노드로 구성됩니다. 각 작업자 노드는 VM 유형에 의해 결정되는 특정 개수의 코어와 메모리를 제공합니다.  작업을 실행할 때 YARN은 사용 가능한 메모리와 코어를 할당하여 컨테이너를 만드는 리소스 협상자입니다.  각 컨테이너는 작업을 완료하는 데 필요한 태스크를 실행합니다.  태스크를 신속하게 처리하기 위해 컨테이너가 병렬로 실행됩니다. 따라서 최대한 많은 병렬 컨테이너를 실행하여 성능을 향상합니다.
 
 HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너 수를 늘리고 사용 가능한 모든 처리량을 이용할 수 있습니다.  
 
-* **물리적 계층**
+* **실제 계층**
 * **YARN 계층**
-* **워크로드 계층**
+* **워크 로드 계층**
 
 ### <a name="physical-layer"></a>물리적 계층
 
@@ -132,7 +131,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 위의 일반적인 지침 외에도 각 애플리케이션마다 특정 애플리케이션에 대해 튜닝할 수 있는 다른 매개 변수가 있습니다. 아래 표에는 각 애플리케이션에 대한 성능 튜닝을 시작하기 위한 몇 가지 매개 변수 및 링크가 나와 있습니다.
 
-| 워크로드 | 작업을 설정하는 매개 변수 |
+| 작업 | 작업을 설정하는 매개 변수 |
 |----------|------------------------|
 | [HDInsight의 Spark](data-lake-storage-performance-tuning-spark.md) | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [HDInsight의 Hive](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |

@@ -1,5 +1,5 @@
 ---
-title: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법
+title: 자습서`:` 관리 ID를 사용하여 Azure Data Lake Store에 액세스 - Windows - Azure AD
 description: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여주는 자습서입니다.
 services: active-directory
 documentationcenter: ''
@@ -12,31 +12,39 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd03ccdab6a7120dc59e42ab62c1d3b2d1e5bc3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c03f78341b7521267f8aaf72d58ebd4c912949ce
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444690"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75977872"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM에 Azure Data Lake Store에 대한 액세스 권한 부여
 > * VM ID를 사용하여 액세스 토큰 가져오기 및 Azure Data Lake Store에 액세스하는 데 사용하기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>VM에 Azure Data Lake Store에 대한 액세스 권한 부여
+
+
+## <a name="enable"></a>사용
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>액세스 권한 부여
 
 이제 Azure Data Lake Store에 있는 파일 및 폴더에 대한 VM 액세스 권한을 부여할 수 있습니다.  이 단계에서는 기존 Data Lake Store를 사용하거나 새로 만들 수 있습니다.  Azure Portal을 사용하여 새 Data Lake Store를 만들려면 이 [Azure Data Lake Store 빠른 시작](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)에 따르세요. [Azure Data Lake Store 설명서](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)에서 Azure CLI 및 Azure PowerShell을 사용하는 빠른 시작도 있습니다.
 
@@ -56,7 +64,7 @@ Data Lake Store에서 새 폴더를 만들고, 해당 폴더에서 파일을 읽
 
 VM의 시스템 할당 관리 ID는 사용자가 만든 폴더에 있는 파일에서 모든 작업을 수행할 수 있습니다.  Data Lake Store에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Data Lake Store의 액세스 제어](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control)에서 이 문서를 참고하세요.
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>VM의 시스템 할당 관리 ID를 사용하여 액세스 토큰 가져오기 및 Azure Data Lake Store 파일 시스템을 호출하는 데 사용하기
+## <a name="access-data"></a>데이터 액세스
 
 Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 Azure 리소스에 대한 관리 ID를 사용하여 획득한 액세스 토큰을 직접 수락할 수 있습니다.  Data Lake Store 파일 시스템에 인증하려면 "Bearer &lt;ACCESS_TOKEN_VALUE&gt;" 형식의 권한 부여 헤더에 있는 Data Lake Store 파일 시스템 엔드포인트에 Azure AD에서 발급한 액세스 토큰을 보냅니다.  Azure AD 인증을 위한 Data Lake Store 지원에 대한 자세한 내용을 보려면 [Azure Active Directory를 사용하여 Data Lake Store 인증](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)을 참고하세요.
 
@@ -173,6 +181,12 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 Azur
    ```
 
 다른 Data Lake Store 파일 시스템 API를 사용하여 파일을 추가하고, 다운로드할 수 있습니다.
+
+
+## <a name="disable"></a>사용 안 함
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>다음 단계
 

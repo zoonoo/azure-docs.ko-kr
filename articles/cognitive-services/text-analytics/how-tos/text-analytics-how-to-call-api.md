@@ -1,36 +1,35 @@
 ---
 title: 텍스트 분석 API 호출
-titlesuffix: Azure Cognitive Services
-description: 텍스트 분석 REST API를 호출하는 방법을 알아봅니다.
+titleSuffix: Azure Cognitive Services
+description: 이 문서에서는 Azure Cognitive Services Text Analytics REST API 및 Postman을 호출 하는 방법을 설명 합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011255"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561018"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
-**텍스트 분석 API** 호출은 어떤 언어로도 작성 가능한 HTTP POST/GET 호출입니다. 이 문서에서는 REST 및 [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)을 사용하여 주요 개념을 보여 줍니다.
+**텍스트 분석 API** 호출은 어떤 언어로도 작성 가능한 HTTP POST/GET 호출입니다. 이 문서에서는 REST 및 [Postman](https://www.postman.com/downloads/)을 사용하여 주요 개념을 보여 줍니다.
 
 각 요청에는 액세스 키 및 HTTP 엔드포인트를 포함해야 합니다. 엔드포인트는 등록 시 선택한 지역, 서비스 URL 및 요청에 사용되는 리소스를 지정합니다(`sentiment`, `keyphrases`, `languages` 및 `entities`). 
 
 다시 말하지만 Text Analytics는 상태 비저장 서비스이므로 관리할 데이터 자산이 없습니다. 텍스트는 업로드되고, 수신된 후 분석됩니다. 그러면 결과가 호출 애플리케이션에 즉시 반환됩니다.
 
-> [!Tip]
-> 1번 호출하여 API의 작동 방식을 보려는 경우 [API 문서 페이지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)에서 사용할 수 있는 기본 제공 **API 테스트 콘솔**에서 POST 요청을 보낼 수 있습니다. 설치할 필요는 없으며, 액세스 키 및 JSON 문서를 요청에 붙여 넣기만 하면 됩니다. 
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-Text Analytics API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)과 Cognitive Services에 가입할 때 생성된 [엔드포인트 및 액세스 키](text-analytics-how-to-access-key.md)가 있어야 합니다. 
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 <a name="json-schema"></a>
 
@@ -40,11 +39,11 @@ Text Analytics API를 사용하는 [Cognitive Services API 계정](https://docs.
 
 현재 모든 Text Analytics석 작업(감정, 핵심 구, 언어 감지 및 엔터티 식별)을위 해 동일한 문서를 제출할 수 있습니다. (스키마는 추후에 분석별로 달라질 수 있습니다.)
 
-| 요소 | 유효한 값 | Required? | 사용 현황 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. 언어 코드, 핵심 구 및 감정 점수가 요청의 각 ID에 대해 생성됩니다.|
-|`text` | 구조화 되지 않은 원시 텍스트, 최대 5,120 자입니다. | 필수 | 언어 감지의 경우 텍스트를 어떤 언어로도 나타낼 수 있습니다. 감정 분석, 핵심 구 추출 및 엔터티 식별의 경우 텍스트는 [지원되는 언어](../text-analytics-supported-languages.md)로 작성되어야 합니다. |
-|`language` | [지원되는 언어](../text-analytics-supported-languages.md)의 2자리 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 코드 | 다름 | 감정 분석, 핵심 구 추출 및 엔터티 연결의 경우 필수. 언어 감지의 경우 옵션 제외해도 오류는 발생하지 않지만 분석 효과가 약해집니다. 언어 코드는 사용자가 제공한 `text`와 일치해야 합니다. |
+|`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 언어 감지의 경우 텍스트를 어떤 언어로도 나타낼 수 있습니다. 감정 분석, 핵심 구 추출 및 엔터티 식별의 경우 텍스트는 [지원되는 언어](../text-analytics-supported-languages.md)로 작성되어야 합니다. |
+|`language` | [지원되는 언어](../text-analytics-supported-languages.md)의 2자리 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 코드 | 상황에 따라 다름 | 감정 분석, 핵심 구 추출 및 엔터티 연결의 경우 필수. 언어 감지의 경우 옵션 제외해도 오류는 발생하지 않지만 분석 효과가 약해집니다. 언어 코드는 사용자가 제공한 `text`와 일치해야 합니다. |
 
 제한에 대한 자세한 내용은 [Text Analytics 개요 > 데이터 제한](../overview.md#data-limits)을 참조하세요. 
 
@@ -87,7 +86,7 @@ Text Analytics API를 사용하는 [Cognitive Services API 계정](https://docs.
   + [엔터티 인식](text-analytics-how-to-entity-linking.md)  
 
 
-6. **보내기**를 클릭하여 요청을 제출합니다. 분당 최대 100개의 요청을 제출할 수 있습니다. 
+6. **보내기**를 클릭하여 요청을 제출합니다. 분당 보낼 수 있는 요청 수와 초에 대 한 자세한 내용은 개요의 [데이터 제한](../overview.md#data-limits) 섹션을 참조 하세요.
 
    Postman에서 응답은 아래의 다음 창에 단일 JSON 문서로 표시되며, 각 문서 ID 항목이 요청에 제공됩니다.
 
@@ -99,4 +98,4 @@ Text Analytics API를 사용하는 [Cognitive Services API 계정](https://docs.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [언어 감지](text-analytics-how-to-language-detection.md)
+> [언어 검색](text-analytics-how-to-language-detection.md)

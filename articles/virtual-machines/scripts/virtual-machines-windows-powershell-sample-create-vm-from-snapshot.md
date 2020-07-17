@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 스냅숏에서 VM 만들기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 스냅숏에서 VM 만들기
+title: 스냅샷에서 VM 만들기 - PowerShell 샘플
+description: Azure PowerShell 스크립트 샘플 - 스냅샷에서 VM 만들기
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: ramankumarlive
@@ -9,27 +9,26 @@ editor: ramankum
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 88ac53c864ffe8922fc5c1b36bca326d63430e22
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fb10f6c2d8109d240840faf5fa864176c89f24e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989034"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "75368324"
 ---
-# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>PowerShell를 사용하여 스냅숏에서 가상 컴퓨터 만들기
+# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>PowerShell를 사용하여 스냅샷에서 가상 컴퓨터 만들기
 
-이 스크립트는 OS 디스크의 스냅숏에서 가상 머신을 만듭니다. 
+이 스크립트는 OS 디스크의 스냅샷에서 가상 머신을 만듭니다. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -45,11 +44,11 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용하여 스냅숏 속성을 가져오고 스냅숏에서 관리 디스크를 만들며 VM을 만듭니다. 테이블에 있는 각 항목은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용하여 스냅샷 속성을 가져오고 스냅샷에서 관리 디스크를 만들며 VM을 만듭니다. 테이블에 있는 각 항목은 명령에 해당하는 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot) | 스냅숏 이름을 사용하여 스냅숏을 가져옵니다. |
+| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot) | 스냅샷 이름을 사용하여 스냅샷을 가져옵니다. |
 | [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) | 디스크 구성을 만듭니다. 이 구성은 디스크 만들기 프로세스에서 사용됩니다. |
 | [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) | 관리 디스크를 만듭니다. |
 | [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | VM 구성을 만듭니다. 이 구성은 VM 이름, 운영 체제 및 관리자 자격 증명 등의 정보를 포함합니다. 이 구성은 VM을 만드는 중에 사용됩니다. |

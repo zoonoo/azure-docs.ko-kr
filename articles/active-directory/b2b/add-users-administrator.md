@@ -1,26 +1,26 @@
 ---
-title: Azure Portal에서 B2B 협업 사용자 - Azure Active Directory | Microsoft Docs
+title: Azure Portal에서 B2B 협업 사용자 추가 - Azure AD
 description: 관리자가 Azure AD(Azure Active Directory) B2B 협업을 사용하여 파트너 조직에서 해당 디렉터리에 게스트 사용자를 추가할 수 있는 방법을 보여줍니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 04/11/2019
+ms.topic: how-to
+ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66b3e68ff2199c6a8bf4da9e02caaf93ee69342b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387425"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 협업 사용자를 Azure Portal에 추가
 
-제한 된 관리자 디렉터리 역할 중 하나에 할당 된 사용자로 B2B 공동 작업 사용자를 초대 하려면 Azure portal을 사용할 수 있습니다. 게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 초대할 수 있습니다. 다음 방법 중 하나를 통해 사용자를 초대한 후 초대된 사용자의 계정은 *게스트*의 사용자 유형으로 Azure AD(Azure Active Directory)에 추가됩니다. 게스트 사용자는 리소스에 액세스하려면 해당 초대를 사용해야 합니다.
+제한된 관리자 디렉터리 역할이 할당된 사용자로서 Azure Portal을 사용하여 B2B 협업 사용자를 초대할 수 있습니다. 게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 초대할 수 있습니다. 다음 방법 중 하나를 통해 사용자를 초대한 후 초대된 사용자의 계정은 *게스트*의 사용자 유형으로 Azure AD(Azure Active Directory)에 추가됩니다. 게스트 사용자는 리소스에 액세스하려면 해당 초대를 사용해야 합니다. 사용자 초대는 만료되지 않습니다.
 
 게스트 사용자를 디렉터리에 추가한 후에 게스트 사용자에게 공유 앱에 대한 직접 링크를 보낼 수 있습니다. 또는 게스트 사용자는 초대 이메일에서 상환 URL을 클릭할 수 있습니다. 상환 프로세스에 대한 자세한 내용은 [B2B 협업 초대 상환](redemption-experience.md)을 참조하세요.
 
@@ -29,30 +29,31 @@ ms.locfileid: "65812822"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-게스트를 초대할 수 있도록 조직의 외부 공동 작업 설정이 구성 되어 있는지 확인 합니다. 기본적으로 모든 사용자 및 관리자 게스트를 초대할 수 있습니다. 하지만 사용자 또는 게스트를 초대할 관리자가 특정 유형의 방지 하려면 조직의 외부 공동 작업 정책을 구성할 수 있습니다. 보기 및 이러한 정책을 설정 하는 방법을 알아보려면 참조 [B2B 외부 공동 작업을 사용 하도록 설정 하 고 게스트를 초대할 수 있는 사용자 관리](delegate-invitations.md)합니다.
+게스트를 초대할 수 있도록 조직의 외부 협업 설정이 구성되어 있는지 확인합니다. 기본적으로 모든 사용자와 관리자는 게스트를 초대할 수 있습니다. 그러나 조직의 외부 협업 정책은 특정 유형의 사용자 또는 관리자가 게스트를 초대하지 못하도록 구성될 수 있습니다. 이러한 정책을 보고 설정하는 방법에 대한 자세한 내용은 [B2B 외부 협업 및 게스트를 초대할 수 있는 사용자 관리](delegate-invitations.md)를 참조하세요.
 
 ## <a name="add-guest-users-to-the-directory"></a>디렉터리에 게스트 사용자 추가
 
 B2B 협업 사용자를 디렉터리에 추가하려면 다음 단계를 수행합니다.
 
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 제한 된 관리자 디렉터리 역할 또는 게스트 초대자 역할에 할당 된 사용자로 합니다.
-2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
+1. 제한된 관리자 디렉터리 역할 또는 게스트 초대자 역할에 할당된 사용자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 모든 페이지에서 **Azure Active Directory**를 검색하고 선택합니다.
 3. **관리**에서 **사용자**를 선택합니다.
 4. **새 게스트 사용자**를 선택합니다.
 
-   ![새 게스트 사용자의 UI 내 위치 표시](./media/add-users-administrator/NewGuestUser-Directory.png) 
+   ![새 게스트 사용자의 UI 내 위치 표시](./media/add-users-administrator/new-guest-user-in-all-users.png) 
  
-   > [!NOTE]
-   > **조직 관계** 페이지에서 **새 게스트 사용자** 옵션을 사용할 수도 있습니다. **Azure Active Directory**의 **관리** 아래에서 **조직 관계**를 선택합니다.
-
-5. **사용자 이름**에서 외부 사용자의 이메일 주소를 입력합니다. 필요에 따라 환영 메시지가 포함됩니다. 예를 들면 다음과 같습니다.
-
-   ![새 게스트 사용자의 UI 내 위치 표시](./media/add-users-administrator/InviteGuest.png) 
+5. **새 사용자** 페이지에서 **사용자 초대**를 선택하고 게스트 사용자 정보를 추가합니다. 
 
     > [!NOTE]
     > 그룹 이메일 주소는 지원되지 않습니다. 개인용 이메일 주소를 입력하세요. 또한 일부 이메일 공급 기업에서는 수신함 필터링 등을 지원하기 위해 사용자가 이메일 주소에 더하기 기호(+) 및 추가 텍스트를 추가하는 것을 허용합니다. 그러나 Azure AD는 현재 이메일 주소에서 더하기 기호를 지원하지 않습니다. 배달 문제를 방지하려면 @ 기호 뒤에 오는 모든 문자 및 더하기 기호를 생략합니다.
 
-6. **초대**를 선택하여 게스트 사용자에게 자동으로 초청을 발송합니다. 
+   - **이름.** 게스트 사용자의 이름 및 성입니다.
+   - **메일 주소(필수)** . 게스트 사용자의 메일 주소입니다.
+   - **개인 메시지(선택 사항)** 게스트 사용자에 대한 개인 환영 메시지를 포함합니다.
+   - **그룹**: 하나 이상의 기존 그룹에 게스트 사용자를 추가하거나 나중에 이 작업을 수행할 수 있습니다.
+   - **디렉터리 역할**: 사용자에 대한 Azure AD 관리 권한이 필요한 경우 Azure AD 역할에 추가할 수 있습니다. 
+
+7. **초대**를 선택하여 게스트 사용자에게 자동으로 초청을 발송합니다. 
  
 초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.
 
@@ -60,10 +61,10 @@ B2B 협업 사용자를 디렉터리에 추가하려면 다음 단계를 수행�
 ![게스트 사용자 유형의 B2B 사용자 표시](./media/add-users-administrator/GuestUserType.png)  
 
 ## <a name="add-guest-users-to-a-group"></a>그룹에 게스트 사용자 추가
-그룹에 B2B 공동 작업 사용자를 수동으로 추가 해야 할 경우 다음이 단계를 수행 합니다.
+B2B 협업 사용자를 그룹에 수동으로 추가할 필요가 있는 경우 다음 단계를 수행합니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
+2. 모든 페이지에서 **Azure Active Directory**를 검색하고 선택합니다.
 3. **관리**에서 **그룹**을 선택합니다.
 4. 그룹을 선택합니다(또는 **새 그룹**을 클릭하여 새 그룹을 만듭니다). B2B 게스트 사용자가 그룹에 포함된다는 것을 그룹 설명에 포함하는 것이 좋습니다.
 5. **구성원**을 선택합니다. 
@@ -77,10 +78,10 @@ B2B 협업 사용자를 디렉터리에 추가하려면 다음 단계를 수행�
 
 ## <a name="add-guest-users-to-an-application"></a>애플리케이션에 게스트 사용자 추가
 
-응용 프로그램에 B2B 공동 작업 사용자를 추가 하려면 다음이 단계를 수행 합니다.
+B2B 협업 사용자를 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
+2. 모든 페이지에서 **Azure Active Directory**를 검색하고 선택합니다.
 3. **관리**에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 4. 게스트 사용자를 추가하려는 애플리케이션을 선택 합니다.
 5. 애플리케이션의 대시보드에서 **총 사용자 수**를 선택하여 **사용자 및 그룹** 창을 엽니다.
@@ -108,13 +109,13 @@ B2B 협업 사용자를 디렉터리에 추가하려면 다음 단계를 수행�
 게스트 사용자가 초대를 아직 사용하지 않은 경우 초대 이메일을 다시 보낼 수 있습니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
+2. 모든 페이지에서 **Azure Active Directory**를 검색하고 선택합니다.
 3. **관리**에서 **사용자**를 선택합니다.
 5. 사용자 계정을 선택합니다.
 6. **관리**에서 **프로필**을 선택합니다.
 7. 사용자가 초대를 아직 수락하지 않은 경우 **초대 다시 보내기** 옵션을 사용할 수 있습니다. 다시 보내려면 이 단추를 선택합니다.
 
-   ![사용자 프로필에서 초대 옵션 다시 보내기](./media/add-users-administrator/Resend-Invitation.png)
+   ![사용자 프로필에서 초대 옵션 다시 보내기](./media/add-users-administrator/b2b-user-resend-invitation.png)
 
 > [!NOTE]
 > 사용자를 특정 앱으로 인도하는 초대를 다시 보내는 경우 새 초대에 담긴 링크는 대신에 사용자를 최상위 액세스 패널로 이동시킨다는 것을 이해합니다.

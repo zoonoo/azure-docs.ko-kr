@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450436"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "67080494"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 팩터리 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
 
@@ -39,7 +39,7 @@ ms.locfileid: "61450436"
 
 ## <a name="data-sources"></a>데이터 원본
 
-연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 표시합니다. 기본 설치는 공장 시뮬레이션을 실행하는 여러 OPC UA 서버를 포함합니다. [게이트웨이 통해 솔루션에 연결][lnk-connect-cf]하는 사용자 고유의 OPC UA 서버를 추가할 수 있습니다.
+연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 표시합니다. 기본 설치는 공장 시뮬레이션을 실행하는 여러 OPC UA 서버를 포함합니다. [게이트웨이를 통해 연결] [.lnk-connect-cf] 하는 고유한 OPC UA 서버를 솔루션에 추가할 수 있습니다.
 
 대시보드에서 연결된 OPC UA 서버가 솔루션에 보낼 수 있는 데이터 항목을 찾아볼 수 있습니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "61450436"
 
     ![게시된 항목][img-published]
 
-1. 솔루션의 *관리자*는 데이터 항목을 게시하여 연결된 팩터리 솔루션에 제공되도록 선택할 수 있습니다. 관리자는 OPC UA 서버에서 데이터 항목의 값을 변경하고 메서드를 호출할 수도 있습니다.
+1. 솔루션의 *관리자* 는 데이터 항목을 게시 하 여 연결 된 팩터리 솔루션에서 사용할 수 있도록 선택할 수 있습니다. 관리자는 OPC UA 서버에서 데이터 항목의 값을 변경하고 메서드를 호출할 수도 있습니다.
 
 ## <a name="map-the-data"></a>데이터 매핑
 
@@ -71,7 +71,7 @@ ms.locfileid: "61450436"
 
 ## <a name="deploy-the-changes"></a>변경 내용 배포
 
-**ContosoTopologyDescription.json** 파일에 대한 변경이 끝나면 연결된 팩터리 솔루션을 Azure 계정에 다시 배포해야 합니다.
+파일 **의ContosoTopologyDescription.js** 를 변경한 후에는 연결 된 팩터리 솔루션을 Azure 계정에 다시 배포 해야 합니다.
 
 **azure-iot-connected-factory** 리포지토리에는 솔루션을 다시 빌드하고 배포하는 데 사용할 수 있는 **build.ps1** PowerShell 스크립트가 포함되어 있습니다.
 
@@ -79,9 +79,7 @@ ms.locfileid: "61450436"
 
 다음 문서를 참조하여 연결된 팩터리 솔루션 가속기에 대해 자세히 알아봅니다.
 
-* [연결된 팩터리 솔루션 가속기 연습][lnk-rm-walkthrough]
-* [연결된 팩터리에 대한 게이트웨이 배포][lnk-connect-cf]
-* [Azureiotsolutions.com 사이트에 대 한 권한][lnk-permissions]
+* [azureiotsolutions.com 사이트에 대한 사용 권한][lnk-permissions]
 * [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)
 * [FAQ][lnk-faq]
 
@@ -93,7 +91,5 @@ ms.locfileid: "61450436"
 [img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-accelerators-permissions.md
 [lnk-faq]: iot-accelerators-faq.md

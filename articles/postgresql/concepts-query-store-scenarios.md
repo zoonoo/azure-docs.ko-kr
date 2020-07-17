@@ -1,23 +1,22 @@
 ---
-title: Azure Database for PostgreSQL의 쿼리 저장소 사용 시나리오
-description: 이 문서에서는 Azure Database for PostgreSQL의 쿼리 저장소에 대한 몇 가지 시나리오를 설명합니다.
+title: 쿼리 저장소 시나리오-Azure Database for PostgreSQL 단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 쿼리 저장소에 대 한 몇 가지 시나리오에 대해 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: 873462354b70d13e56ca108c3257031ef34873f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 5/6/2019
+ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74768353"
 ---
 # <a name="usage-scenarios-for-query-store"></a>쿼리 저장소 사용 시나리오
 
-**적용 대상:** Azure Database for PostgreSQL 9.6 및 10
+**적용 대상:** Azure Database for PostgreSQL-단일 서버 버전 9.6, 10, 11
 
-예측 가능한 작업 로드 성능을 추적하고 유지 관리하는 것이 중요한 매우 다양한 시나리오에서 쿼리 저장소를 사용할 수 있습니다. 다음 예제를 살펴보세요. 
+예측 가능한 작업 로드 성능을 추적하고 유지 관리하는 것이 중요한 매우 다양한 시나리오에서 쿼리 저장소를 사용할 수 있습니다. 다음과 같은 예를 고려할 수 있습니다. 
 - 비용이 많이 드는 상위 쿼리 식별 및 조정 
 - A/B 테스트 
 - 업그레이드 중에 성능을 안정적으로 유지 

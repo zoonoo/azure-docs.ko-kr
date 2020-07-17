@@ -7,7 +7,8 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882793"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "73152996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>자습서: AnswerHub와 Azure Active Directory 통합
 
@@ -34,7 +35,7 @@ AnswerHub와 Azure AD를 통합하면 이러한 이점이 제공됩니다.
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 AnswerHub와 Azure AD의 통합을 구성하려면 다음이 필요합니다.
 
@@ -80,7 +81,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 2. [AnswerHub Single Sign-On 구성](#configure-answerhub-single-sign-on) - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. Britta Simon이라는 [Azure AD 테스트 사용자를 만듭니다](#create-an-azure-ad-test-user).
 4. [Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user) - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. [AnswerHub 테스트 사용자 만들기](#create-answerhub-test-user) - Azure AD 테스트 사용자에 해당하고 연결됩니다.
+5. Azure AD 테스트 사용자에 해당하고 연결되는 AnswerHub 테스트 사용자를 만듭니다.
 6. [Single Sign-On 테스트](#test-single-sign-on) - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -184,8 +185,8 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 상자에 **brittasimon@<yourcompanydomain.extension>** 을 입력합니다.  
-    예: BrittaSimon@contoso.com
+    b. **사용자 이름** 상자에 **brittasimon\@<yourcompanydomain.extension>** 을 입력합니다.  
+    BrittaSimon@contoso.com)을 입력합니다.
 
     다. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
 
@@ -193,7 +194,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Britta Simon에게 AnswerHub에 대한 액세스를 허용하여 Azure AD Single Sign-On을 사용하도록 설정합니다.
+이 섹션에서는 사용자 Britta Simon에게 AnswerHub에 대한 액세스 권한을 부여하여 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
 **Azure AD 테스트 사용자를 할당하려면:**
 

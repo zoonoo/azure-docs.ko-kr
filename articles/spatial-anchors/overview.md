@@ -1,5 +1,5 @@
 ---
-title: Azure Spatial Anchors 개요 | Microsoft Docs
+title: Azure Spatial Anchors 개요
 description: Azure Spatial Anchors가 플랫폼 간 혼합 현실 환경을 개발하는 데 어떻게 도움이 되는지 알아봅니다.
 author: craigktreasure
 manager: aliemami
@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2451922f0eb49a5ccee036db72eb046760287dca
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 361a75c2e5951dc540830efd6be057753402daf1
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628872"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006101"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Azure Spatial Anchors 개요
 
@@ -26,7 +26,7 @@ Azure Spatial Anchors를 시작합니다. Azure Spatial Anchors는 공간 인식
 
 Spatial Anchors가 설정된 몇 가지 예제 사용 사례는 다음과 같습니다.
 
-- [다중 사용자 환경](tutorials/tutorial-share-anchors-across-devices.md). Spatial Anchors를 통해 동일한 장소에 있는 사람들은 다중 사용자 혼합 현실 애플리케이션에 쉽게 참여할 수 있습니다. 예를 들어, 두 명의 사람이 가상 체스 보드를 테이블에 배치하여 혼합 현실 체스 게임을 시작할 수 있습니다. 그런 다음, 테이블에서 디바이스를 가리켜서 가상 체스 보드를 보고 함께 상호 작용할 수 있습니다.
+- [다중 사용자 환경](tutorials/tutorial-share-anchors-across-devices.md). Azure Spatial Anchors를 통해 동일한 장소에 있는 사람은 다중 사용자 혼합 현실 애플리케이션에 쉽게 참여할 수 있습니다. 예를 들어, 두 명의 사람이 가상 체스 보드를 테이블에 배치하여 혼합 현실 체스 게임을 시작할 수 있습니다. 그런 다음, 테이블에서 디바이스를 가리켜서 가상 체스 보드를 보고 함께 상호 작용할 수 있습니다.
 
 - [방법 찾기](concepts/anchor-relationships-way-finding.md). 개발자는 Spatial Anchors를 함께 연결하여 이들 간의 관계를 만들 수도 있습니다. 예를 들어, 앱에는 사용자가 작업을 완료하기 위해 반드시 상호 작용해야 하는 두 개 이상의 관심 지점이 있는 환경이 포함될 수 있습니다. 이러한 관심 지점은 연결된 방식으로 만들 수 있습니다. 나중에 사용자가 다단계 작업을 완료하면 앱은 현재 주변의 앵커를 요청하여 사용자를 작업의 다음 단계로 리디렉션할 수 있습니다.
 
@@ -36,10 +36,16 @@ Azure Spatial Anchors는 지원되는 디바이스 플랫폼에 대한 관리 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Spatial Anchors를 사용하여 첫 번째 앱을 만듭니다.
+Azure Spatial Anchors를 사용하여 첫 번째 앱을 만듭니다.
 
 > [!div class="nextstepaction"]
-> [Unity](unity-overview.yml)
+> [Unity(HoloLens)](quickstarts/get-started-unity-hololens.md)
+
+> [!div class="nextstepaction"]
+> [Unity(iOS)](quickstarts/get-started-unity-ios.md)
+
+> [!div class="nextstepaction"]
+> [Unity(Android)](quickstarts/get-started-unity-android.md)
 
 > [!div class="nextstepaction"]
 > [iOS](quickstarts/get-started-ios.md)
@@ -49,3 +55,9 @@ Spatial Anchors를 사용하여 첫 번째 앱을 만듭니다.
 
 > [!div class="nextstepaction"]
 > [HoloLens](quickstarts/get-started-hololens.md)
+
+> [!div class="nextstepaction"]
+> [Xamarin(Android)](quickstarts/get-started-xamarin-android.md)
+
+> [!div class="nextstepaction"]
+> [Xamarin(iOS)](quickstarts/get-started-xamarin-ios.md)

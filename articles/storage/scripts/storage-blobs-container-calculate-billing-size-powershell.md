@@ -2,25 +2,19 @@
 title: Azure PowerShell 스크립트 샘플 - Blob 컨테이너 총 청구 크기 계산 | Microsoft Docs
 description: 요금 청구를 위해 Azure Blob Storage에 있는 컨테이너의 총 크기를 계산합니다.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: 02b4cfcc6d88430701f653665269532a4eb7092f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 12b32256c91dfcf93ca55eeb348cc78613ba860e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799255"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067096"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Blob 컨테이너의 총 청구 크기 계산
 
@@ -37,11 +31,11 @@ ms.locfileid: "59799255"
 
 Blob 컨테이너의 전체 크기에는 컨테이너 자체의 크기와 컨테이너 아래 모든 Blob의 크기가 포함됩니다.
 
-다음 섹션은 Blob 컨테이너 및 Blob에 대한 저장소 용량을 계산하는 방법을 설명합니다. 다음 섹션에서 Len(X)는 문자열의 문자 수를 의미합니다.
+다음 섹션은 Blob 컨테이너 및 Blob에 대한 스토리지 용량을 계산하는 방법을 설명합니다. 다음 섹션에서 Len(X)는 문자열의 문자 수를 의미합니다.
 
 ### <a name="blob-containers"></a>Blob 컨테이너
 
-다음 계산은 Blob 컨테이너당 소비되는 저장소 양을 계산하는 방법을 설명합니다.
+다음 계산은 Blob 컨테이너당 소비되는 스토리지 양을 계산하는 방법을 설명합니다.
 
 ```
 48 bytes + Len(ContainerName) * 2 bytes +
@@ -60,9 +54,9 @@ For-Each Signed Identifier[512 bytes]
 
 ### <a name="blobs"></a>Blob
 
-다음 계산은 Blob당 소비되는 저장소 양을 계산하는 방법을 보여줍니다.
+다음 계산은 Blob당 소비되는 스토리지 양을 계산하는 방법을 보여줍니다.
 
-* 블록 Blob(기본 Blob 또는 스냅숏):
+* 블록 Blob(기본 Blob 또는 스냅샷):
 
    ```
    124 bytes + Len(BlobName) * 2 bytes +
@@ -72,7 +66,7 @@ For-Each Signed Identifier[512 bytes]
    SizeInBytes(data in uncommitted data blocks)
    ```
 
-* 페이지 Blob(기본 Blob 또는 스냅숏):
+* 페이지 Blob(기본 Blob 또는 스냅샷):
 
    ```
    124 bytes + Len(BlobName) * 2 bytes +
@@ -91,8 +85,8 @@ For-Each Signed Identifier[512 bytes]
     - Content-Language
     - Content-Encoding
     - Content-MD5
-    - 권한
-    - 스냅숏 정보
+    - 사용 권한
+    - 스냅샷 정보
     - 임대
     - 일부 시스템 메타데이터
 
@@ -106,7 +100,7 @@ For-Each Signed Identifier[512 bytes]
   * 커밋된 블록과 커밋되지 않은 블록에 있는 데이터의 크기.
 
     >[!NOTE]
-    >스냅숏이 사용되면 이 크기에 기본 또는 스냅숏 Blob에 대한 고유 데이터만 포함됩니다. 커밋되지 않은 블록이 일주일 후에 사용되지 않았다면 가비지 수집됩니다. 그 후 그것들은 청구에 포함되지 않습니다.
+    >스냅샷이 사용되면 이 크기에 기본 또는 스냅샷 Blob에 대한 고유 데이터만 포함됩니다. 커밋되지 않은 블록이 일주일 후에 사용되지 않았다면 가비지 수집됩니다. 그 후 그것들은 청구에 포함되지 않습니다.
 
 * 페이지 Blob의 경우:
   * 데이터 시간이 12바이트인 비연속적인 페이지 범위의 수. **GetPageRanges** API를 호출할 때 표시되는 고유한 페이지 범위의 수입니다.
@@ -114,7 +108,7 @@ For-Each Signed Identifier[512 bytes]
   * 저장된 모든 페이지의 데이터 크기(바이트).
 
     >[!NOTE]
-    >스냅숏이 사용되면 이 크기에 기본 BLOB 또는 계산된 스냅숏 BLOB에 대한 고유 페이지만 포함됩니다.
+    >스냅샷이 사용되면 이 크기에 기본 Blob 또는 계산된 스냅샷 Blob에 대한 고유 페이지만 포함됩니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

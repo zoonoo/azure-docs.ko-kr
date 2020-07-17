@@ -1,158 +1,177 @@
 ---
-title: 이벤트 기반 워크플로 또는 작업 만들기 - Azure Logic Apps | Microsoft Docs
-description: 웹후크 및 Azure Logic Apps를 사용하여 이벤트 기반 워크플로 또는 작업 자동화
+title: 이벤트 대기 및 응답
+description: Azure Logic Apps를 사용 하 여 서비스 끝점의 이벤트를 기반으로 트리거, 일시 중지 및 다시 시작 하는 워크플로를 자동화 합니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
-ms.topic: article
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 03/06/2020
 tags: connectors
-ms.date: 07/21/2016
-ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "80656291"
 ---
-# <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>웹후크 및 Azure Logic Apps를 사용하여 이벤트 기반 워크플로 또는 작업 만들기
+# <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 웹 후크를 사용 하 여 자동화 된 이벤트 기반 워크플로 만들기 및 실행
 
-웹후크 동작 및 트리거를 사용하여 다음 작업을 수행하기 위한 흐름을 시작, 일시 중지 및 계속할 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 http Webhook 커넥터를 사용 하면 논리 앱을 빌드하여 HTTP 또는 HTTPS 끝점에서 발생 하는 특정 이벤트를 기반으로 대기 및 실행 되는 워크플로를 자동화할 수 있습니다. 예를 들어 워크플로를 트리거하기 전에 특정 이벤트를 대기 하 고 해당 끝점을 정기적으로 확인 하거나 *폴링하* 는 대신 지정 된 작업을 실행 하 여 서비스 끝점을 모니터링 하는 논리 앱을 만들 수 있습니다.
 
-* 항목이 수신되자마자 [Azure 이벤트 허브](https://github.com/logicappsio/EventHubAPI)에서 트리거
-* 워크플로를 계속하기 전에 승인을 대기합니다.
+몇 가지 예제 이벤트 기반 워크플로는 다음과 같습니다.
 
-[웹후크를 지원하는 사용자 지정 API를 만드는 방법](../logic-apps/logic-apps-create-api-app.md)에 대해 자세히 알아봅니다.
+* 논리 앱 실행을 트리거하기 전에 [Azure 이벤트 허브](https://github.com/logicappsio/EventHubAPI) 에서 항목이 도착할 때까지 기다립니다.
+* 워크플로를 계속 하기 전에 승인을 기다립니다.
 
-## <a name="use-the-webhook-trigger"></a>웹후크 트리거 사용
+## <a name="how-do-webhooks-work"></a>웹 후크는 어떻게 작동 하나요?
 
-[*트리거*](../connectors/apis-list.md)는 논리 앱에서 워크플로를 시작하는 이벤트입니다. 웹 후크 트리거는 이벤트를 기반으로 하는 새 항목에 대 한 폴링에 종속 되지 않습니다. 웹 후크 트리거를 통해 논리 앱을 저장 하는 경우 또는 사용 안 함 상태에서 논리 앱을 변경 하면 웹 후크 트리거 *구독* 지정한 서비스에 등록 하 여 끝점을 *콜백URL* 해당 서비스 또는 끝점을 사용 하 여 합니다. 트리거는 다음 필요에 따라 논리 앱을 실행 하는 URL을 사용 합니다. 같은 합니다 [요청 트리거](connectors-native-reqres.md), 예상한 이벤트가 발생 하면 즉시 논리 앱에서 발생 합니다. 트리거가 *구독 취소* 에서 논리 앱을 설정 하는 사용 하지 않도록 설정 하도록이 변경한 경우 또는 트리거를 제거 하 고 논리 앱을 저장 합니다.
+HTTP 웹 후크 트리거는 이벤트 기반 이므로 정기적으로 새 항목을 확인 하거나 폴링하는 데 의존 하지 않습니다. 웹 후크 트리거로 시작 하는 논리 앱을 저장 하거나 논리 앱을 사용 안 함에서 사용으로 변경 하는 경우 웹 후크 트리거는 해당 서비스 또는 끝점에 *콜백 URL* 을 등록 하 여 특정 서비스나 끝점을 *구독* 합니다. 그런 다음 트리거는 해당 서비스 또는 끝점이 논리 앱 실행을 시작 하는 URL을 호출 하기를 기다립니다. [요청 트리거와](connectors-native-reqres.md)마찬가지로 논리 앱은 지정 된 이벤트가 발생할 때 즉시 발생 합니다. 트리거를 제거 하 고 논리 앱을 저장 하거나 논리 앱을 사용에서 사용 안 함으로 변경 하면 서비스 또는 끝점에서 *구독을 구독* 취소 합니다.
 
-논리 앱 디자이너에서 HTTP 트리거를 설정하는 방법을 보여 주는 예제는 다음과 같습니다. 이러한 단계에서는 [Logic Apps에서 사용되는 웹후크 구독 및 구독 취소 패턴](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 
+HTTP 웹 후크 작업은 또한 이벤트 기반 이며, 해당 서비스 또는 끝점에 *콜백 URL* 을 등록 하 여 특정 서비스 또는 끝점을 *구독* 합니다. 웹 후크 작업은 논리 앱의 워크플로를 일시 중지 하 고 논리 앱이 실행을 다시 시작 하기 전에 서비스 또는 끝점이 URL을 호출할 때까지 대기 합니다. 이 경우 작업 논리 앱은 서비스 또는 끝점에서 *구독* 을 취소 합니다.
 
-**웹후크 트리거를 사용하려면**
+* Webhook 작업이 성공적으로 완료 되 면
+* 응답을 기다리는 동안 논리 앱 실행을 취소 하는 경우
+* 논리 앱 시간이 초과 되기 전에
 
-1. **HTTP 웹후크** 트리거를 논리 앱의 첫 번째 단계로 추가합니다.
-2. 웹후크 구독 및 구독 취소 호출에 대한 매개 변수를 입력합니다.
+예를 들어 Office 365 Outlook 커넥터의 [**승인 전자 메일 보내기**](connectors-create-api-office365-outlook.md) 작업은이 패턴을 따르는 웹 후크 작업의 예입니다. 웹 후크 작업을 사용 하 여이 패턴을 모든 서비스로 확장할 수 있습니다.
 
-   이 단계는 [HTTP 동작](connectors-native-http.md) 형식과 동일한 패턴을 따릅니다.
+> [!NOTE]
+> Logic Apps는 HTTP 웹 후크 트리거 또는 작업으로 콜백할 때 TLS (전송 계층 보안) 1.2을 적용 합니다. TLS 핸드셰이크 오류가 표시 되 면 TLS 1.2을 사용 하는지 확인 합니다. 들어오는 호출의 경우 지원되는 암호 그룹은 다음과 같습니다.
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-     ![HTTP 트리거](./media/connectors-native-webhook/using-trigger.png)
+자세한 내용은 다음 항목을 참조하세요.
 
-3. 하나 이상의 동작을 추가합니다.
-4. **저장**을 클릭하여 논리 앱을 게시합니다. 이 단계를 수행하면 이 Logic App을 트리거하는 데 필요한 콜백 URL을 사용하여 구독 엔드포인트가 호출됩니다.
-5. 서비스에서 콜백 URL에 댛 `HTTP POST` 를 수행할 때마다 논리 앱이 실행됩니다(논리 앱에는 요청에 전달된 모든 데이터가 포함됨).
+* [HTTP Webhook 트리거 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [웹후크 및 구독](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
+* [Webhook을 지 원하는 사용자 지정 Api 만들기](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="use-the-webhook-action"></a>웹후크 동작 사용
+## <a name="prerequisites"></a>사전 요구 사항
 
-[ *동작* ](../connectors/apis-list.md) 는 정의 된 작업 및 논리 앱 워크플로 통해 실행 합니다. 논리 앱 웹 후크 작업, 해당 작업을 실행 하는 경우 *구독* 지정한 서비스에 등록 하 여 끝점을 *콜백 URL* 해당 서비스 또는 끝점을 사용 하 여 합니다. 웹 후크 동작을 한 다음 해당 서비스가 실행 되는 논리 앱 다시 시작 하기 전에 URL을 호출 될 때까지 대기 합니다. 논리 앱 서비스 또는 이러한 경우에는 끝점에서 구독 취소: 
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 웹 후크 동작을 성공적으로 완료 되 면
-* 논리 앱 실행 응답을 기다리는 동안 취소 되 면
-* 앱 제한 논리 전에
+* 논리 앱에서 웹 후크 [트리거에](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) 대 한 webhook 구독 및 구독 취소 패턴을 지 원하는 이미 배포 된 끝점 또는 API에 대 한 URL 및 [논리 앱의](../logic-apps/logic-apps-create-api-app.md#webhook-actions) 웹 후크 작업 적절 한 경우
 
-예를 들어 합니다 [ **승인 전자 메일 보내기** ](connectors-create-api-office365-outlook.md) 작업은이 패턴을 따르는 웹 후크 동작의 예입니다. 이 패턴을 웹후크 동작을 통해 서비스로 확장할 수 있습니다. 
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-논리 앱 디자이너에서 웹후크 동작을 설정하는 방법을 보여 주는 예제는 다음과 같습니다. 이러한 단계에서는 [Logic Apps에서 사용되는 웹후크 구독 및 구독 취소 패턴](../logic-apps/logic-apps-create-api-app.md#webhook-actions)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 
+* 대상 끝점에서 특정 이벤트를 대기 하려는 논리 앱입니다. HTTP Webhook 트리거로 시작 하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). HTTP Webhook 작업을 사용 하려면 원하는 트리거를 사용 하 여 논리 앱을 시작 합니다. 이 예제에서는 첫 번째 단계로 HTTP 트리거를 사용 합니다.
 
-**웹후크 동작을 추가하려면**
+## <a name="add-an-http-webhook-trigger"></a>HTTP Webhook 트리거 추가
 
-1. **다음 단계** > **동작 추가**를 선택합니다.
+이 기본 제공 트리거는 대상 서비스의 구독 끝점을 호출 하 고 대상 서비스에 콜백 URL을 등록 합니다. 그런 다음 논리 앱은 대상 서비스가 `HTTP POST` 콜백 URL에 요청을 보낼 때까지 대기 합니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 해당 요청에 있는 모든 데이터를 워크플로로 전달 합니다.
 
-2. 검색 상자에 "웹후크"를 입력하여 **HTTP 웹후크** 동작을 찾습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
-    ![쿼리 동작 선택](./media/connectors-native-webhook/using-action-1.png)
+1. 디자이너의 검색 상자에 필터로를 입력 `http webhook` 합니다. **트리거** 목록에서 **HTTP Webhook** 트리거를 선택 합니다.
 
-3. 웹후크 구독 및 구독 취소 호출에 대한 매개 변수를 입력합니다.
+   ![HTTP Webhook 트리거를 선택 합니다.](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-   이 단계는 [HTTP 동작](connectors-native-http.md) 형식과 동일한 패턴을 따릅니다.
+   이 예에서는 `HTTP Webhook trigger` 단계가 보다 설명적인 이름을 갖도록 트리거의 이름을로 바꿉니다. 또한 나중에이 예제에서는 HTTP Webhook 작업을 추가 하 고 두 이름이 모두 고유 해야 합니다.
 
-     ![쿼리 동작 완료](./media/connectors-native-webhook/using-action-2.png)
-   
-   런타임 시 논리 앱은 해당 단계에 도달한 후 구독 엔드포인트를 호출합니다.
+1. 구독 및 구독 취소 호출에 사용할 [HTTP Webhook 트리거 매개 변수에](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) 대 한 값을 제공 합니다.
 
-4. **저장**을 클릭하여 논리 앱을 게시합니다.
+   이 예제에서 트리거는 구독 및 구독 취소 작업을 수행할 때 사용할 메서드, Uri 및 메시지 본문을 포함 합니다.
 
-## <a name="technical-details"></a>기술 세부 정보
+   ![HTTP Webhook 트리거 매개 변수 입력](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-웹후크가 지원하는 트리거 및 동작에 대한 자세한 내용은 다음과 같습니다.
+   | 속성 | 필수 | 설명 |
+   |----------|----------|-------------|
+   | **Subscription-메서드** | 예 | 대상 끝점을 구독할 때 사용할 메서드입니다. |
+   | **구독-URI** | 예 | 대상 끝점을 구독 하는 데 사용할 URL입니다. |
+   | **구독-본문** | 아니요 | 구독 요청에 포함할 메시지 본문입니다. 이 예에는 논리 앱 `@listCallbackUrl()` 의 콜백 url을 검색 하는 식을 사용 하 여 논리 앱 인 구독자를 고유 하 게 식별 하는 콜백 url이 포함 되어 있습니다. |
+   | **구독 취소-메서드** | 아니요 | 대상 끝점에서 구독을 해제할 때 사용할 메서드입니다. |
+   | **구독 취소-URI** | 아니요 | 대상 끝점에서 구독을 취소 하는 데 사용할 URL입니다. |
+   | **구독 취소-본문** | 아니요 | 구독 취소 요청에 포함할 선택적 메시지 본문입니다. <p><p>**참고**:이 속성은 함수 사용을 지원 하지 않습니다 `listCallbackUrl()` . 그러나 트리거는 `x-ms-client-tracking-id` `x-ms-workflow-operation-name` 대상 서비스가 구독자를 고유 하 게 식별 하는 데 사용할 수 있는 및 헤더를 자동으로 포함 하 고 보냅니다. |
+   ||||
 
-## <a name="webhook-triggers"></a>웹후크 트리거
+1. 다른 트리거 속성을 추가 하려면 **새 매개 변수 추가** 목록을 엽니다.
 
-| 액션(Action) | 설명 |
-| --- | --- |
-| HTTP 웹후크 |필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 논리 앱을 실행합니다. |
+   ![트리거 속성 추가](./media/connectors-native-webhook/http-webhook-trigger-add-properties.png)
 
-### <a name="trigger-details"></a>트리거 세부 정보
+   예를 들어 인증을 사용 해야 하는 경우 **구독 인증** 및 **구독 취소 인증** 속성을 추가할 수 있습니다. HTTP Webhook에 사용할 수 있는 인증 유형에 대 한 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요.
 
-#### <a name="http-webhook"></a>HTTP 웹후크
+1. 트리거가 발생할 때 실행되는 작업을 사용하여 논리 앱의 워크플로를 계속해서 작성합니다.
 
-필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 논리 앱을 실행합니다.
-*는 필수 필드를 의미합니다.
+1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
-| 표시 이름 | 속성 이름 | 설명 |
-| --- | --- | --- |
-| 구독 메서드* |메서드 |구독 요청에 사용할 HTTP 메서드 |
-| 구독 URI* |uri |구독 요청에 사용할 HTTP URI |
-| 구독 취소 메서드* |메서드 |구독 취소 요청에 사용할 HTTP 메서드 |
-| 구독 취소 URI* |uri |구독 취소 요청에 사용할 HTTP URI |
-| 구독 본문 |body |구독의 HTTP 요청 본문 |
-| 구독 헤더 |headers |구독의 HTTP 요청 헤더 |
-| 구독 인증 |인증 |구독에 사용할 HTTP 인증 자세한 내용은 [HTTP 커넥터를 참조](connectors-native-http.md#authentication)하세요. |
-| 구독 취소 본문 |본문 |구독 취소의 HTTP 요청 본문 |
-| 구독 취소 헤더 |headers |구독 취소의 HTTP 요청 헤더 |
-| 구독 취소 인증 |authentication |구독 취소에 사용할 HTTP 인증 자세한 내용은 [HTTP 커넥터를 참조](connectors-native-http.md#authentication)하세요. |
+   논리 앱을 저장 하면 대상 서비스에서 구독 끝점을 호출 하 고 콜백 URL을 등록 합니다. 그런 다음 논리 앱은 대상 서비스가 `HTTP POST` 콜백 URL에 요청을 보낼 때까지 대기 합니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 해당 요청에 있는 모든 데이터를 워크플로로 전달 합니다. 이 작업이 성공적으로 완료 되 면 트리거가 끝점에서 구독을 취소 하 고 논리 앱에서 남은 워크플로를 계속 합니다.
 
-**출력 세부 정보**
+## <a name="add-an-http-webhook-action"></a>HTTP Webhook 작업 추가
 
-웹후크 요청
+이 기본 제공 작업은 대상 서비스의 구독 끝점을 호출 하 고 대상 서비스에 콜백 URL을 등록 합니다. 그러면 논리 앱이 일시 중지 되 고 대상 서비스가 콜백 URL에 요청을 보낼 때까지 대기 `HTTP POST` 합니다. 이 이벤트가 발생 하면 작업은 요청에 있는 모든 데이터를 워크플로로 전달 합니다. 작업이 성공적으로 완료 되 면 끝점에서 구독을 취소 하 고 논리 앱에서 남은 워크플로를 계속 실행 합니다.
 
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| headers |object |웹후크 요청 헤더 |
-| 본문 |object |웹후크 요청 개체 |
-| 상태 코드 |int |웹후크 요청 상태 코드 |
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-## <a name="webhook-actions"></a>웹후크 작업
+   이 예제에서는 첫 번째 단계로 HTTP Webhook 트리거를 사용 합니다.
 
-| 액션(Action) | 설명 |
-| --- | --- |
-| HTTP 웹후크 |필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 워크플로 단계를 다시 시작합니다. |
+1. HTTP Webhook 작업을 추가 하려는 단계에서 **새 단계**를 선택 합니다.
 
-### <a name="action-details"></a>작업 세부 정보
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
-#### <a name="http-webhook"></a>HTTP 웹후크
+1. 디자이너의 검색 상자에 필터로를 입력 `http webhook` 합니다. **작업** 목록에서 **HTTP Webhook** 작업을 선택 합니다.
 
-필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 워크플로 단계를 다시 시작합니다.
-*는 필수 필드를 의미합니다.
+   ![HTTP Webhook 작업 선택](./media/connectors-native-webhook/select-http-webhook-action.png)
 
-| 표시 이름 | 속성 이름 | 설명 |
-| --- | --- | --- |
-| 구독 메서드* |메서드 |구독 요청에 사용할 HTTP 메서드 |
-| 구독 URI* |uri |구독 요청에 사용할 HTTP URI |
-| 구독 취소 메서드* |메서드 |구독 취소 요청에 사용할 HTTP 메서드 |
-| 구독 취소 URI* |uri |구독 취소 요청에 사용할 HTTP URI |
-| 구독 본문 |body |구독의 HTTP 요청 본문 |
-| 구독 헤더 |headers |구독의 HTTP 요청 헤더 |
-| 구독 인증 |인증 |구독에 사용할 HTTP 인증 자세한 내용은 [HTTP 커넥터를 참조](connectors-native-http.md#authentication)하세요. |
-| 구독 취소 본문 |본문 |구독 취소의 HTTP 요청 본문 |
-| 구독 취소 헤더 |headers |구독 취소의 HTTP 요청 헤더 |
-| 구독 취소 인증 |authentication |구독 취소에 사용할 HTTP 인증 자세한 내용은 [HTTP 커넥터를 참조](connectors-native-http.md#authentication)하세요. |
+   이 예에서는 단계에 보다 설명적인 이름을 포함 하도록 동작의 이름을 "HTTP Webhook 작업"으로 바꿉니다.
 
-**출력 세부 정보**
+1. Http webhook 작업 매개 변수에 대 한 값을 제공 합니다 .이 매개 변수는 [Http webhook 트리거 매개 변수와](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)비슷하며 구독 및 구독 취소 호출에 사용할 수 있습니다.
 
-웹후크 요청
+   이 예제에서 작업은 구독 및 구독 취소 작업을 수행할 때 사용할 메서드, Uri 및 메시지 본문을 포함 합니다.
 
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| headers |object |웹후크 요청 헤더 |
-| 본문 |object |웹후크 요청 개체 |
-| 상태 코드 |int |웹후크 요청 상태 코드 |
+   ![HTTP Webhook 작업 매개 변수 입력](./media/connectors-native-webhook/http-webhook-action-parameters.png)
+
+   | 속성 | 필수 | 설명 |
+   |----------|----------|-------------|
+   | **Subscription-메서드** | 예 | 대상 끝점을 구독할 때 사용할 메서드입니다. |
+   | **구독-URI** | 예 | 대상 끝점을 구독 하는 데 사용할 URL입니다. |
+   | **구독-본문** | 아니요 | 구독 요청에 포함할 메시지 본문입니다. 이 예에는 논리 앱 `@listCallbackUrl()` 의 콜백 url을 검색 하는 식을 사용 하 여 논리 앱 인 구독자를 고유 하 게 식별 하는 콜백 url이 포함 되어 있습니다. |
+   | **구독 취소-메서드** | 아니요 | 대상 끝점에서 구독을 해제할 때 사용할 메서드입니다. |
+   | **구독 취소-URI** | 아니요 | 대상 끝점에서 구독을 취소 하는 데 사용할 URL입니다. |
+   | **구독 취소-본문** | 아니요 | 구독 취소 요청에 포함할 선택적 메시지 본문입니다. <p><p>**참고**:이 속성은 함수 사용을 지원 하지 않습니다 `listCallbackUrl()` . 그러나이 작업은 `x-ms-client-tracking-id` `x-ms-workflow-operation-name` 대상 서비스가 구독자를 고유 하 게 식별 하는 데 사용할 수 있는 및 헤더를 자동으로 포함 하 고 보냅니다. |
+   ||||
+
+1. 다른 작업 속성을 추가 하려면 **새 매개 변수 추가** 목록을 엽니다.
+
+   ![작업 속성 추가](./media/connectors-native-webhook/http-webhook-action-add-properties.png)
+
+   예를 들어 인증을 사용 해야 하는 경우 **구독 인증** 및 **구독 취소 인증** 속성을 추가할 수 있습니다. HTTP Webhook에 사용할 수 있는 인증 유형에 대 한 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요.
+
+1. 마치면 논리 앱을 저장해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+
+   이제이 작업이 실행 되 면 논리 앱은 대상 서비스에서 구독 끝점을 호출 하 고 콜백 URL을 등록 합니다. 그러면 논리 앱이 워크플로를 일시 중지 하 고 대상 서비스에서 `HTTP POST` 콜백 URL에 요청을 보낼 때까지 대기 합니다. 이 이벤트가 발생 하면 작업은 요청에 있는 모든 데이터를 워크플로로 전달 합니다. 작업이 성공적으로 완료 되 면 끝점에서 구독을 취소 하 고 논리 앱에서 남은 워크플로를 계속 실행 합니다.
+
+## <a name="connector-reference"></a>커넥터 참조
+
+트리거와 유사 하 게 트리거와 동작 매개 변수에 대 한 자세한 내용은 [HTTP Webhook 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)를 참조 하세요.
+
+### <a name="output-details"></a>출력 세부 정보
+
+다음은이 정보를 반환 하는 HTTP Webhook 트리거 또는 작업의 출력에 대 한 자세한 정보입니다.
+
+| 속성 이름 | Type | 설명 |
+|---------------|------|-------------|
+| headers | 개체 | 요청의 헤더 |
+| 본문 | object | JSON 개체 | 요청의 본문 콘텐츠가 포함된 개체 |
+| 상태 코드 | int | 요청의 상태 코드 |
+|||
+
+| 상태 코드 | Description |
+|-------------|-------------|
+| 200 | 확인 |
+| 202 | 수락됨 |
+| 400 | 잘못된 요청 |
+| 401 | 권한 없음 |
+| 403 | 사용할 수 없음 |
+| 404 | 찾을 수 없음 |
+| 500 | 내부 서버 오류. 알 수 없는 오류 발생. |
+|||
 
 ## <a name="next-steps"></a>다음 단계
 
-* [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [다른 커넥터 찾기](apis-list.md)
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

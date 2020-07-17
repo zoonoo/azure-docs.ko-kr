@@ -1,5 +1,5 @@
-- name: Azure Storage 설명서
-  href: /azure/storage/
+- name: Azure Files 설명서
+  href: index.yml
 - name: 개요
   expanded: true
   items:
@@ -15,7 +15,7 @@
       href: storage-how-to-use-files-powershell.md
     - name: 파일 공유 만들기 - CLI
       href: storage-how-to-use-files-cli.md
-    - name: 파일 공유 만들기 - Storage 탐색기
+    - name: 파일 공유 만들기 - Storage Explorer
       href: storage-how-to-use-files-storage-explorer.md
 - name: 자습서
   items:
@@ -23,66 +23,64 @@
       href: storage-sync-files-extend-servers.md
 - name: 개념
   items:
-    - name: Azure Files 정보
-      href: storage-files-planning.md
-    - name: Azure 파일 동기화 정보
-      href: storage-sync-files-planning.md
-    - name: 클라우드 계층화 정보
-      href: storage-sync-cloud-tiering.md
-    - name: 저장소 계정 정보
-      href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: 중복
+    - name: Azure 파일
       items:
-        - name: Azure Storage 복제
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: LRS(로컬 중복 저장소)
-          href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 영역 중복 저장소
-          href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 지역 중복 저장소
-          href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure 파일 공유 스냅숏
-      href: storage-snapshots-files.md
+        - name: Azure Files 배포에 대한 계획
+          href: storage-files-planning.md
+        - name: ID 기반 인증 및 권한 부여
+          href: storage-files-active-directory-overview.md
+        - name: 직접 액세스를 위한 네트워킹 고려 사항
+          href: storage-files-networking-overview.md
+        - name: 실수로 인한 데이터 삭제 방지
+          href: storage-files-prevent-file-share-deletion.md
+        - name: 미사용 암호화
+          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 고객 관리형 키로 미사용 데이터 암호화
+          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 재해 복구 및 장애 조치(Failover)
+          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure 파일 공유 스냅샷
+          href: storage-snapshots-files.md
+        - name: 개발
+          items:
+            - name: 동시성 관리
+              href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: 공유 키 인증
+              href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
+            - name: SAS(공유 액세스 서명)
+              href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 모니터링 및 문제 해결
+          items:
+            - name: '모니터링, 진단 및 문제 해결'
+              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Azure Monitor의 메트릭
+              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: 새 메트릭으로 마이그레이션
+              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: 스토리지 분석 메트릭(클래식)
+              href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Azure 파일 동기화
+      items:
+        - name: Azure 파일 동기화 배포에 대한 계획
+          href: storage-sync-files-planning.md
+        - name: 하이브리드 액세스를 위한 네트워킹 고려 사항
+          href: storage-sync-files-networking-overview.md
+        - name: 클라우드 계층화 정보
+          href: storage-sync-cloud-tiering.md
     - name: 확장성 및 성능 대상
       href: storage-files-scale-targets.md
-    - name: 보안
-      items:
-        - name: Azure Storage 보안
-          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 스토리지 계정 암호화
-          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: SMB를 통한 Azure AD 인증
-          href: storage-files-active-directory-overview.md
-        - name: 규정 준수 제안
-          href: ../common/storage-compliance-offerings.md
-    - name: 개발
-      items:
-        - name: 동시성 관리
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 공유 키 인증
-          href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-        - name: SAS(공유 액세스 서명)
-          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: 모니터링 및 문제 해결
-      items:
-        - name: '모니터링, 진단 및 문제 해결'
-          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure Monitor의 메트릭
-          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 새 메트릭으로 마이그레이션
-          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 스토리지 분석 메트릭(클래식)
-          href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: 재해 복구 및 장애 조치(Failover)
-      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: 규정 준수 제안
+      href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: FAQ
       href: storage-files-faq.md
 - name: 방법 가이드
   items:
     - name: 생성
       items:
-        - name: 표준 파일 공유 만들기
+        - name: 파일 공유 만들기
           href: storage-how-to-create-file-share.md
+        - name: 대량 파일 공유 사용
+          href: storage-files-how-to-create-large-file-share.md
         - name: 프리미엄 파일 공유 만들기
           href: storage-how-to-create-premium-fileshare.md
     - name: 배포
@@ -91,8 +89,8 @@
           href: storage-files-deployment-guide.md
         - name: Azure 파일 동기화 배포
           href: storage-sync-files-deployment-guide.md
-        - name: 파일 동기화 프록시 및 방화벽 설정 구성
-          href: storage-sync-files-firewall-and-proxy.md
+        - name: 프리미엄 파일 공유 기능이 있는 FCI SQL Server
+          href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 탑재
       items:
         - name: Windows에서 Azure Files 사용
@@ -101,37 +99,99 @@
           href: storage-how-to-use-files-linux.md
         - name: macOS에서 Azure Files 사용
           href: storage-how-to-use-files-mac.md
+    - name: 네트워크
+      items:
+        - name: Azure 파일
+          items:
+            - name: Azure Files 네트워크 엔드포인트 구성
+              href: storage-files-networking-endpoints.md
+            - name: Azure Files에 대한 DNS 전달 구성
+              href: storage-files-networking-dns.md
+        - name: Azure 파일 동기화
+          items:
+            - name: Azure 파일 동기화 네트워크 엔드포인트 구성
+              href: storage-sync-files-networking-endpoints.md
+            - name: 파일 동기화 프록시 및 방화벽 설정 구성
+              href: storage-sync-files-firewall-and-proxy.md
+        - name: 사이트 간 VPN 구성
+          href: storage-files-configure-s2s-vpn.md
+        - name: Windows에서 지점 및 사이트 간 VPN 구성
+          href: storage-files-configure-p2s-vpn-windows.md
+        - name: Linux에서 지점 및 사이트 간 VPN 구성
+          href: storage-files-configure-p2s-vpn-linux.md
     - name: 관리
       items:
         - name: Azure 파일 동기화로 서버 등록
           href: storage-sync-files-server-registration.md
         - name: Azure 파일 동기화 서버 엔드포인트 추가
           href: storage-sync-files-server-endpoint.md
+        - name: 일시 삭제 사용
+          href: storage-files-enable-soft-delete.md
         - name: Azure 독립 클라우드에서 스토리지 관리
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 데이터 복제 방법 변경
+          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 계정 장애 조치(failover) 시작
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 데이터 중복성 관리
+          items:
+            - name: 데이터 복제 방법 변경
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: 고가용성 애플리케이션 디자인
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 재해 복구 관리
+          items:
+            - name: 마지막 동기화 시간 속성 확인
+              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: 계정 장애 조치(failover) 시작
+              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: 승인하기
+      items:
+        - name: 온-프레미스 AD DS 인증 및 권한 부여 사용
+          items:
+            - name: AD DS 개요
+              href: storage-files-identity-auth-active-directory-enable.md
+            - name: AD DS 인증 사용
+              href: storage-files-identity-ad-ds-enable.md
+            - name: 공유 수준 권한 할당
+              href: storage-files-identity-ad-ds-assign-permissions.md
+            - name: 디렉터리/파일 수준 권한 할당
+              href: storage-files-identity-ad-ds-configure-permissions.md
+            - name: 파일 공유 탑재
+              href: storage-files-identity-ad-ds-mount-file-share.md
+            - name: 암호 업데이트
+              href: storage-files-identity-ad-ds-update-password.md
+        - name: Azure AD DS 인증 및 권한 부여 사용
+          href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: 모니터
       items:
         - name: Azure 파일 동기화 모니터링
           href: storage-sync-files-monitoring.md
     - name: 마이그레이션
       items:
-        - name: Azure 파일 동기화로 마이그레이션
-          href: storage-sync-offline-data-transfer.md
-        - name: Azure Storage의 데이터 이동
-          href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Windows에서 AzCopy
-          href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Linux에서 AzCopy
-          href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure 파일 공유로 마이그레이션
+          href: storage-files-migration-overview.md
+        - name: 하이브리드 배포 대상
+          items:
+            - name: Azure DataBox를 사용하여 대량 데이터를 Azure 파일 동기화로 마이그레이션
+              href: storage-sync-offline-data-transfer.md
+            - name: Azure 파일 동기화를 사용하여 Linux에서 하이브리드 파일 서버로 마이그레이션
+              href: storage-files-migration-linux-hybrid.md
+            - name: Azure 파일 동기화를 사용하여 온-프레미스 NAS에서 하이브리드 파일 서버로 마이그레이션
+              href: storage-files-migration-nas-hybrid.md
+        - name: StorSimple에서
+          items:
+            - name: StorSimple 8100 및 8600 마이그레이션 가이드
+              href: storage-files-migration-storsimple-8000.md
+            - name: StorSimple 1200 마이그레이션 가이드
+              href: storage-files-migration-storsimple-1200.md
     - name: 개발
       items:
         - name: 연결 문자열 구성
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-files.md
-        - name: 자바
+        - name: Java
           href: storage-java-how-to-use-file-storage.md
         - name: C++
           href: storage-c-plus-plus-how-to-use-files.md
@@ -139,14 +199,38 @@
           href: storage-python-how-to-use-file-storage.md
     - name: 보안
       items:
+        - name: 스토리지 계정에 대한 암호화 키 관리
+          items:
+            - name: 계정에 대한 암호화 키 모델 확인
+              href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: 고객 관리 암호화 키 구성
+              items:
+                - name: 포털
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 스토리지 계정에 인프라 암호화 사용
+          href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json
         - name: 방화벽 및 가상 네트워크 구성
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 보안 전송 필요
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: SMB를 통한 Azure AD 인증 사용
-          href: storage-files-active-directory-enable.md
-        - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
-          href: ../common/storage-security-tls.md
+        - name: TLS(전송 계층 보안) 구성
+          items:
+            - name: 스토리지 계정에 대한 최소 TLS 버전 구성
+              href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: 클라이언트 애플리케이션에 대한 TLS 구성
+              href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: 전송
+      items:
+        - name: 시작 - AzCopy
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 파일과 함께 사용
+          href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: '구성, 최적화, 문제 해결 - AzCopy'
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 문제 해결
       items:
         - name: Windows에서 Azure Files 문제 해결
@@ -157,46 +241,12 @@
           href: storage-troubleshooting-files-performance.md
         - name: Azure 파일 동기화 문제 해결
           href: storage-sync-files-troubleshoot.md
-- name: 참고 자료
+        - name: Azure Files 삭제 문제 해결
+          href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+- name: 참조
   items:
-    - name: PowerShell
-      href: /powershell/module/azure.storage
-    - name: Azure CLI
-      href: /cli/azure/storage
-    - name: .NET
-      items:
-        - name: 'Blob, 큐, 테이블 및 파일'
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
-        - name: 데이터 이동
-          href: /dotnet/api/microsoft.azure.storage.datamovement
-        - name: 리소스 관리자
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
-    - name: 자바
-      items:
-        - name: 'Blob, 큐, 테이블 및 파일'
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client'
-    - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
-    - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
-    - name: REST (영문)
-      items:
-        - name: 'Blob, 큐, 테이블 및 파일'
-          href: /rest/api/storageservices
-        - name: 리소스 공급자
-          href: /rest/api/storagerp
-        - name: Import/Export
-          href: /rest/api/storageimportexport
+    - name: Azure 파일 공유 스토리지 참조
+      href: ../files/reference.md
     - name: Resource Manager 템플릿
       displayName: arm
       href: /azure/templates/microsoft.storage/allversions
@@ -204,55 +254,65 @@
       href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=file'
 - name: 리소스
   items:
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Azure 업데이트
+      href: 'https://azure.microsoft.com/updates/?category=storage'
     - name: Azure 파일 동기화 릴리스 정보
       href: storage-files-release-notes.md
-    - name: Azure Storage 클라이언트 도구
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: 스택 오버플로
+    - name: Azure Storage 포럼
+      href: 'https://docs.microsoft.com/answers/products/azure?product=storage'
+    - name: Stack Overflow의 Azure Storage
       href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: 포럼
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
-    - name: 요금 계산기
+    - name: Azure Storage 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/storage/'
+    - name: Azure 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
-    - name: Azure Storage 탐색기
+    - name: NuGet 패키지(.NET)
       items:
-        - name: Storage 탐색기
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Storage 탐색기 릴리스 정보
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Storage 탐색기 문제 해결
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 저장소 탐색기 접근성
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: NuGet 패키지
-      items:
-        - name: Azure Storage 공용 클라이언트 라이브러리
+        - name: Microsoft.Azure.Storage.Common(버전 11.x)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
-        - name: Azure Files 스토리지 클라이언트 라이브러리
+        - name: Azure.Storage.Common(버전 12.x - 미리 보기)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
+        - name: Microsoft.Azure.Storage.File(버전 11.x)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.File/'
-        - name: Azure Storage 데이터 이동 라이브러리
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Azure.Storage.File(버전 12.x - 미리 보기)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Files/'
         - name: Azure 구성 관리자
           href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+        - name: Azure Storage 데이터 이동 라이브러리
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Storage Resource 공급자 라이브러리
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/'
     - name: 소스 코드
       items:
         - name: .NET
           items:
-            - name: 'Blob, 큐 및 파일'
-              href: 'https://github.com/Azure/azure-storage-net'
-            - name: 데이터 이동
-              href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: 스토리지 리소스 공급자
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
-        - name: 자바
-          href: 'https://github.com/Azure/azure-storage-java'
-        - name: C++
-          href: 'https://github.com/Azure/azure-storage-cpp'
+            - name: Azure Storage 클라이언트 라이브러리
+              items:
+                - name: 버전 12.x(미리 보기)
+                  href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
+                - name: 버전 11.x 및 이전 버전
+                  href: 'https://github.com/Azure/azure-storage-net'
+            - name: 데이터 이동 라이브러리
+              href: 'https://github.com/Azure/azure-storage-net-data-movement'
+            - name: Storage Resource 공급자 라이브러리
+              href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
+        - name: Java
+          items:
+            - name: Azure Storage 클라이언트 라이브러리 버전 12.x(미리 보기)
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
+            - name: Azure Storage 클라이언트 라이브러리 버전 8.x 및 이전 버전
+              href: 'https://github.com/Azure/azure-storage-java'
+        - name: Node.js
+          items:
+            - name: Azure Storage 클라이언트 라이브러리 버전 12.x(미리 보기)
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
+            - name: Azure Storage 클라이언트 라이브러리 버전 10.x
+              href: 'https://github.com/Azure/azure-storage-node'
         - name: Python
-          href: 'https://github.com/Azure/azure-storage-python'
+          items:
+            - name: Azure Storage 클라이언트 라이브러리 버전 12.x(미리 보기)
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
+            - name: Azure Storage 클라이언트 라이브러리 버전 2.1
+              href: 'https://github.com/Azure/azure-storage-python'

@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3af2e849aa6658e539b0b5bdbda4428cc28e5ce5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887234"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 통계
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "60334632"
 * [연결](#connections)
 
 ## <a name="accessing-real-time-stats"></a>실시간 통계에 액세스
-1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동 합니다.
    
     ![CDN 프로필 블레이드](./media/cdn-real-time-stats/cdn-profile-blade.png)
 2. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
@@ -84,13 +84,13 @@ HTTP 상태 코드의 목록은 그래프 바로 위에 표시됩니다. 이 목
 
 특정 상태 코드에 대해 기록된 데이터를 임시로 숨길 수 있습니다.  그래프 바로 아래 범례에서 숨길 상태 코드를 클릭합니다. 상태 코드는 그래프에서 즉시 숨겨집니다. 해당 상태 코드를 다시 클릭하면 해당 옵션이 다시 표시됩니다.
 
-## <a name="connections"></a>연결
+## <a name="connections"></a>Connections
 ![연결 그래프](./media/cdn-real-time-stats/cdn-connections.png)
 
 이 그래프는 에지 서버에 설정된 연결 수를 나타냅니다. CDN을 통과하는 자산에 대한 각 요청은 연결을 발생시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [Azure CDN에서 실시간 경고](cdn-real-time-alerts.md)
-*  [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-*  [사용 패턴](cdn-analyze-usage-patterns.md)
+* [Azure CDN에서 실시간 경고](cdn-real-time-alerts.md)
+* [고급 HTTP 보고서](cdn-advanced-http-reports.md)
+* [사용 패턴](cdn-analyze-usage-patterns.md) 분석
 

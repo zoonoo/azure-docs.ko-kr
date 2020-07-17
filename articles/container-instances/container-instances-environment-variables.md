@@ -1,26 +1,22 @@
 ---
-title: Azure Container Instances에서 환경 변수 설정
+title: 컨테이너 인스턴스에서 환경 변수 설정
 description: Azure Container Instances에서 실행하는 컨테이너에서 환경 변수를 설정하는 방법 알아보기
-services: container-instances
-author: dlepow
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: danlep
-ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994778"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169768"
 ---
-# <a name="set-environment-variables-in-container-instances"></a>Container instances에서 환경 변수를 설정 합니다.
+# <a name="set-environment-variables-in-container-instances"></a>컨테이너 인스턴스에서 환경 변수 설정
 
 컨테이너 인스턴스에서 환경 변수를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 이는 `docker run`에 대한 `--env` 명령줄 인수와 유사합니다. 
 
-컨테이너에서 환경 변수를 설정하려면 컨테이너 인스턴스를 만들 때 지정합니다. 이 아티클에서 사용 하 여 컨테이너를 시작할 때 환경 변수를 설정 하는 예제는 [Azure CLI](#azure-cli-example)를 [Azure PowerShell](#azure-powershell-example), 및 [Azure portal](#azure-portal-example)합니다. 
+컨테이너에서 환경 변수를 설정하려면 컨테이너 인스턴스를 만들 때 지정합니다. 이 문서에서는 [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)및 [Azure Portal](#azure-portal-example)를 사용 하 여 컨테이너를 시작할 때 환경 변수를 설정 하는 예제를 보여 줍니다. 
 
-예를 들어, Microsoft를 실행 하는 경우 [aci wordcount] [ aci-wordcount] 컨테이너 이미지는 다음 환경 변수를 지정 하 여 해당 동작을 수정할 수 있습니다.
+예를 들어 Microsoft [aci-wordcount][aci-wordcount] container 이미지를 실행 하는 경우 다음 환경 변수를 지정 하 여 동작을 수정할 수 있습니다.
 
 *NumWords*: STDOUT으로 전송된 단어 수입니다.
 
@@ -32,7 +28,7 @@ ms.locfileid: "59994778"
 
 ## <a name="azure-cli-example"></a>Azure CLI 예제
 
-기본 출력을 확인 합니다 [aci wordcount] [ aci-wordcount] 컨테이너에이 사용 하 여 먼저 실행 [az 컨테이너 만들기] [ az-container-create] 명령 (no 지정 된 환경 변수):
+[Wordcount][aci-wordcount] 컨테이너의 기본 출력을 보려면 다음 [az container create][az-container-create] 명령을 사용 하 여 먼저 실행 합니다 (지정 된 환경 변수 없음).
 
 ```azurecli-interactive
 az container create \
@@ -42,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-출력을 수정하려면 *NumWords* 및 *MinLength* 변수에 대한 값을 지정하여 추가된 `--environment-variables` 인수로 두 번째 컨테이너를 시작합니다. (이 예제에서는 Bash 셸 또는 Azure Cloud Shell에서 CLI를 실행하고 있다고 가정합니다. Windows 명령 프롬프트를 사용하는 경우 `--environment-variables "NumWords"="5" "MinLength"="8"`과 같이 큰 따옴표를 사용하여 변수를 지정합니다.)
+출력을 수정 하려면 추가 된 인수를 사용 하 여 두 번째 컨테이너를 시작 하 고 `--environment-variables` *NumWords* 및 *MinLength* 변수의 값을 지정 합니다. (이 예제에서는 Bash 셸 또는 Azure Cloud Shell에서 CLI를 실행하고 있다고 가정합니다. Windows 명령 프롬프트를 사용하는 경우 `--environment-variables "NumWords"="5" "MinLength"="8"`과 같이 큰 따옴표를 사용하여 변수를 지정합니다.)
 
 ```azurecli-interactive
 az container create \
@@ -62,8 +58,8 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 
 컨테이너의 출력은 환경 변수를 설정하여 두 번째 컨테이너의 스크립트 동작을 수정한 방법을 보여줍니다.
 
-```console
-azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
+**mycontainer2**
+```output
 [('the', 990),
  ('and', 702),
  ('of', 628),
@@ -74,8 +70,10 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
  ('my', 441),
  ('in', 399),
  ('HAMLET', 386)]
+```
 
-azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer2
+**mycontainer2**
+```output
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),
@@ -87,7 +85,7 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 PowerShell에서 환경 변수를 설정하는 것은 CLI와 유사하지만 `-EnvironmentVariable` 명령줄 인수를 사용합니다.
 
-먼저 시작 합니다 [aci wordcount] [ aci-wordcount] 이 사용 하 여 기본 구성에서 컨테이너 [새로 만들기-AzContainerGroup] [ new-Azcontainergroup] 명령:
+먼저이 [AzContainerGroup][new-Azcontainergroup] 명령을 사용 하 여 기본 구성에서 [aci wordcount][aci-wordcount] 컨테이너를 시작 합니다.
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -96,7 +94,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-다음을 실행 하 고 있습니다. [새로 만들기-AzContainerGroup] [ new-Azcontainergroup] 명령입니다. 이 명령은 배열 변수, `envVars`를 채운 후 *NumWords* 및 *MinLength* 환경 변수를 지정합니다.
+이제 다음 [AzContainerGroup][new-Azcontainergroup] 명령을 실행 합니다. 이 명령은 배열 변수, `envVars`를 채운 후 *NumWords* 및 *MinLength* 환경 변수를 지정합니다.
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -108,7 +106,7 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-두 컨테이너의 상태가 되 면 *Terminated* (사용 하 여 [Get AzContainerInstanceLog] [ azure-instance-log] 상태를 확인 하려면), 로그를 사용 하 여 끌어오기는 [ Get-AzContainerInstanceLog] [ azure-instance-log] 명령입니다.
+컨테이너 상태가 모두 *종료* 되 면 ( [AzContainerInstanceLog][azure-instance-log] 를 사용 하 여 상태 확인) [AzContainerInstanceLog][azure-instance-log] 명령을 사용 하 여 로그를 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -143,15 +141,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Azure Portal 예제
 
-Azure portal에서 컨테이너를 시작 하는 경우 환경 변수 설정 지정에 **고급** 컨테이너를 만들 때 페이지입니다.
+Azure Portal에서 컨테이너를 시작할 때 환경 변수를 설정 하려면 컨테이너를 만들 때 **고급** 페이지에서 지정 합니다.
 
-1. 에 **고급** 페이지에서 설정 된 **다시 시작 정책** 를 *실패 시*
-2. 아래 **환경 변수**를 입력 `NumWords` 값을 사용 하 여 `5` 첫 번째 변수에 입력 `MinLength` 값을 사용 하 여 `8` 두 번째 변수에 대 한 합니다. 
-1. 선택 **검토 + 만들기** 확인 하 고 다음 컨테이너를 배포 합니다.
+1. **고급** 페이지에서 *실패 시* **다시 시작 정책을** 로 설정 합니다.
+2. **환경 변수**에서 `NumWords` 첫 번째 변수에 값으로을 입력 `5` 하 고 `MinLength` `8` 두 번째 변수에 값을 입력 합니다. 
+1. **검토 + 만들기** 를 선택 하 여 컨테이너를 확인 한 다음 배포 합니다.
 
 ![환경 변수 사용 단추 및 텍스트 상자를 표시하는 포털 페이지][portal-env-vars-01]
 
-아래에 있는 컨테이너의 로그를 보려면 **설정을** 선택 **컨테이너**, 한 다음 **로그**합니다. 이전 CLI 및 PowerShell 섹션에서 표시된 출력과 유사하게 스크립트의 동작이 환경 변수에서 수정된 방법을 볼 수 있습니다. 각각이 8개 문자의 최소 길이로 5개의 단어만 표시됩니다.
+컨테이너의 로그를 보려면 **설정** 에서 **컨테이너**, **로그**를 차례로 선택 합니다. 이전 CLI 및 PowerShell 섹션에서 표시된 출력과 유사하게 스크립트의 동작이 환경 변수에서 수정된 방법을 볼 수 있습니다. 각각이 8개 문자의 최소 길이로 5개의 단어만 표시됩니다.
 
 ![컨테이너 로그 출력을 표시하는 포털][portal-env-vars-02]
 
@@ -168,7 +166,7 @@ Azure portal에서 컨테이너를 시작 하는 경우 환경 변수 설정 지
 다음 코드 조각이 포함된 `secure-env.yaml` 파일을 만듭니다.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: securetest
 properties:
@@ -240,7 +238,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>다음 단계
 
-여러 컨테이너로 큰 데이터 세트를 처리하는 일괄 처리와 같은 작업 기반 시나리오는 런타임 시 사용자 지정 환경 변수를 활용할 수 있습니다. 작업 기반 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 참조 하세요. [다시 시작 정책을 사용 하 여 컨테이너 화 된 작업을 실행할](container-instances-restart-policy.md)합니다.
+여러 컨테이너로 큰 데이터 세트를 처리하는 일괄 처리와 같은 작업 기반 시나리오는 런타임 시 사용자 지정 환경 변수를 활용할 수 있습니다. 작업 기반 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 [컨테이너 화 된 작업을 다시 시작 정책으로 실행](container-instances-restart-policy.md)을 참조 하세요.
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

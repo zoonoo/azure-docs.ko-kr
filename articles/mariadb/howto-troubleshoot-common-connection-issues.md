@@ -1,18 +1,17 @@
 ---
-title: Azure Database for MariaDB에 대한 연결 문제 해결 | Microsoft Docs
-description: Azure Database for MariaDB에 대한 연결 문제를 해결하는 방법을 알아봅니다.
-keywords: MariaDB 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
-author: jan-eng
-ms.author: janeng
+title: 연결 문제 해결-Azure Database for MariaDB
+description: 다시 시도 해야 하는 일시적인 오류, 방화벽 문제 및 중단을 포함 하 여 Azure Database for MariaDB에 대 한 연결 문제를 해결 하는 방법에 대해 알아봅니다.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: f5c5a980a99bac3bf02eaaf9c072861ca753d449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: troubleshooting
+ms.date: 3/18/2020
+ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82101453"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 연결 문제 해결
 
@@ -24,7 +23,7 @@ ms.locfileid: "61038499"
 * 일부 Azure Database for MariaDB 리소스에서 최대 제한 도달
 * 서비스 인프라 관련 문제
 * 서비스에서 유지 관리 수행 중
-* vCores 수를 조정하거나 다른 서비스 계층으로 이동하여 서버의 계산 할당 변경
+* vCores 수를 조정하거나 다른 서비스 계층으로 이동하여 서버의 컴퓨팅 할당 변경
 
 일반적으로 Azure Database for MariaDB에 대한 연결 문제는 다음과 같이 분류할 수 있습니다.
 
@@ -48,14 +47,14 @@ ms.locfileid: "61038499"
 
 * 방화벽 구성: Azure Database for MariaDB 서버 또는 클라이언트 쪽 방화벽에서 연결을 차단하고 있습니다.
 * 클라이언트 쪽 네트워크 재구성: 새 IP 주소 또는 프록시 서버가 추가되었습니다.
-* 사용자 오류: 예를 들어, 있습니다 수 잘못 입력 했을 연결 문자열 또는 누락 된 서버 이름과 같이 연결 매개 변수  *\@servername* 사용자 이름에는 접미사입니다.
+* 사용자 오류: 예를 들어 연결 문자열의 서버 이름 또는 사용자 이름에 누락 된 * \@ servername* 접미사가 포함 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 
-1. 클라이언트 IP 주소를 허용하도록 [방화벽 규칙](howto-manage-firewall-portal.md) 을 설정합니다. 임시 테스트 용도로만 목적으로만 0.0.0.0을 시작 IP 주소로 사용하고 255.255.255.255를 끝 IP 주소로 사용하여 방화벽 규칙을 설정합니다. 이렇게 하면 서버가 모든 IP 주소로 열립니다. 이렇게 해서 연결 문제가 해결되면 이 규칙을 제거하고 적절하게 제한된 IP 주소 또는 주소 범위에 대해 방화벽 규칙을 만듭니다.
+1. 클라이언트 IP 주소를 허용 하도록 [방화벽 규칙](howto-manage-firewall-portal.md) 을 설정 합니다. 임시 테스트 용도로만 목적으로만 0.0.0.0을 시작 IP 주소로 사용하고 255.255.255.255를 끝 IP 주소로 사용하여 방화벽 규칙을 설정합니다. 이렇게 하면 서버가 모든 IP 주소로 열립니다. 이렇게 해서 연결 문제가 해결되면 이 규칙을 제거하고 적절하게 제한된 IP 주소 또는 주소 범위에 대해 방화벽 규칙을 만듭니다.
 2. 클라이언트와 인터넷 간의 모든 방화벽에서 아웃바운드 연결을 위해 3306 포트가 열려 있는지 확인합니다.
 3. 연결 문자열 및 기타 연결 설정을 확인합니다. [Azure Database for MariaDB에 애플리케이션을 연결하는 방법](howto-connection-string.md)을 검토합니다.
-4. 대시보드에서 서비스 상태를 확인합니다. 지역 가동 중단이 있다고 생각되는 경우 새 영역으로 복구하는 단계는 [Azure Database for MariaDB의 비즈니스 연속성 개요](concepts-business-continuity.md)를 참조하세요.
+4. 대시보드에서 서비스 상태를 확인합니다. 지역 가동 중단이 있다고 생각 되는 경우 새 지역으로 복구 하는 단계는 [Azure Database for MariaDB의 비즈니스 연속성 개요](concepts-business-continuity.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

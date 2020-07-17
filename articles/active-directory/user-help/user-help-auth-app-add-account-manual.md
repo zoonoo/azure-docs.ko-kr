@@ -2,24 +2,23 @@
 title: 수동으로 앱에 계정 추가 - Azure Active Directory | Microsoft Docs
 description: 2단계 인증을 위해 Microsoft Authenticator 앱에 계정을 수동으로 추가하는 방법을 설명합니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3838234f9f65fcf91f8de33e3d7196aa13f2b903
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474284"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741729"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>수동으로 앱에 계정 추가
+
 카메라가 QR 코드를 캡처할 수 없는 경우에는 2단계 인증을 위해 Microsoft Authenticator 앱에 계정 정보를 수동으로 추가할 수 있습니다. 회사 또는 학교 계정과 비 Microsoft 계정도 수동으로 추가할 수 있습니다.
 
 계정에 제공된 코드는 대/소문자를 구분하지 않고 Microsoft Authenticator 앱에 추가할 때 공백이 없어야 합니다.
@@ -30,7 +29,7 @@ ms.locfileid: "60474284"
 ## <a name="add-your-work-or-school-account"></a>회사 또는 학교 계정 추가
 
 1. 컴퓨터에서 **모바일 앱 구성** 페이지의 **코드** 및 **URL** 정보를 기록해 둡니다. 코드와 URL을 볼 수 있도록 이 페이지를 열어 둡니다.
-    
+
     ![QR 코드를 제공하는 화면](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
 2. Microsoft Authenticator 앱을 열고 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
@@ -38,7 +37,7 @@ ms.locfileid: "60474284"
 3. **그렇지 않은 경우 수동으로 코드 입력**을 선택합니다.
 
     ![QR 코드를 스캔하는 화면](./media/user-help-auth-app-add-account-manual/auth-app-manual-code.png)
-   
+
 4. 1단계에서 **코드** 및 **URL**을 입력한 다음, **마침**을 선택합니다.
 
     ![코드와 URL을 입력하기 위한 화면](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
@@ -78,6 +77,7 @@ ms.locfileid: "60474284"
     >2단계 인증 및 Facebook 계정에 대한 자세한 내용은 [2단계 인증의 정의와 작동 방식](https://www.facebook.com/help/148233965247823)을 참조하세요.
 
 ## <a name="add-your-amazon-account"></a>Amazon 계정 추가
+
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Amazon 계정을 추가할 수 있습니다.
 
 1. 컴퓨터의 **코드를 받을 방법 선택** 페이지에서 QR 코드와 함께 표시된 **바코드를 스캔할 수 없음**을 선택합니다.
@@ -103,6 +103,6 @@ ms.locfileid: "60474284"
 
 - 앱에 계정을 추가한 후에는 디바이스에서 Microsoft Authenticator 앱을 사용하여 로그인할 수 있습니다. 자세한 내용은 [앱을 사용하여 로그인](user-help-auth-app-sign-in.md)을 참조하세요.
 
-- 개인 Microsoft 계정에 대 한 확인 코드를 시작 하는 데 문제가 있는 경우 참조를 **확인 코드 문제 해결** 섹션을 [Microsoft 계정 보안 정보 및 확인 코드](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) 문서.
+- 개인 Microsoft 계정에 대한 확인 코드를 가져오는 데 문제가 있는 경우 **Microsoft 계정 보안 정보 및 확인 코드** 문서에서 [확인 코드 문제 해결](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 섹션을 참조하세요.
 
 - iOS를 실행하는 디바이스의 경우에는 계정 자격 증명 및 관련 앱 설정(예: 계정 순서)을 클라우드에 백업할 수도 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 통한 백업 및 복구](user-help-auth-app-backup-recovery.md)를 참조하세요.

@@ -1,35 +1,24 @@
 ---
-title: Linux의 App Service에 대한 SSH 지원 - Azure | Microsoft Docs
-description: Linux의 Azure App Service에서 SSH 사용에 대해 자세히 알아봅니다.
+title: Linux 컨테이너에 대 한 SSH 액세스
+description: Azure App Service에서 Linux 컨테이너에 대 한 SSH 세션을 열 수 있습니다. 사용자 지정 Linux 컨테이너는 사용자 지정 이미지를 수정 하 여 지원 됩니다.
 keywords: azure app service, 웹앱, linux, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 18d10afc9132c81c2dcfbb1aa17ded81a21336ca
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780039"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695830"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
-[SSH(Secure Shell)](https://wikipedia.org/wiki/Secure_Shell)는 주로 명령줄 터미널에서 원격으로 관리 명령을 실행하는 데 사용합니다. Linux의 App Service는 새 웹앱의 런타임 스택에 사용되는 기본 제공 Docker 이미지가 있는 앱 컨테이너에 SSH 지원을 제공합니다. 
+[SSH(Secure Shell)](https://wikipedia.org/wiki/Secure_Shell)는 주로 명령줄 터미널에서 원격으로 관리 명령을 실행하는 데 사용합니다. Linux의 App Service는 앱 컨테이너에 SSH 지원을 제공 합니다. 
 
-![런타임 스택](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
-
-사용자 지정 Docker 이미지의 경우 사용자 지정 이미지에서 SSH 서버를 구성하여 지원합니다.
+![Linux App Service SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 SSH 및 SFTP를 사용하여 로컬 개발 컴퓨터에서 직접 컨테이너에 연결할 수도 있습니다.
 
@@ -39,7 +28,7 @@ SSH 및 SFTP를 사용하여 로컬 개발 컴퓨터에서 직접 컨테이너�
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>사용자 지정 Docker 이미지를 사용한 SSH 지원 사용
 
-참조 [구성 SSH 사용자 지정 컨테이너에서](configure-custom-container.md#enable-ssh)합니다.
+[사용자 지정 컨테이너에서 SSH 구성을](configure-custom-container.md#enable-ssh)참조 하세요.
 
 ## <a name="open-ssh-session-from-remote-shell"></a>원격 셸에서 SSH 세션 열기
 
@@ -51,7 +40,7 @@ TCP 터널링을 사용하여 인증된 WebSocket 연결을 통해 개발 컴퓨
 
 시작하려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치해야 합니다. Azure CLI를 설치하지 않고 작동 방식을 확인하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 엽니다. 
 
-[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. 지정할  _\<구독 id >_,  _\<그룹-이름 >_ 고 \_앱에 대 한 < 앱 이름 > _.
+[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. _\<subscription-id>_ _\<group-name>_ \_ \<app-name> 앱에 대해, 및 _를 지정 합니다.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
@@ -62,7 +51,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 명령 출력은 SSH 세션을 여는 데 필요한 정보를 제공합니다.
 
-```
+```output
 Port 21382 is open
 SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
@@ -70,20 +59,20 @@ Start your favorite client and connect to port 21382
 
 로컬 포트를 사용하여 사용자가 선택한 클라이언트를 통해 컨테이너가 있는 SSH 세션을 엽니다. 다음 예제에서는 기본 [ssh](https://ss64.com/bash/ssh.html) 명령을 사용합니다.
 
-```azurecli-interactive
+```bash
 ssh root@127.0.0.1 -p <port>
 ```
 
 메시지가 표시되면 `yes`을 입력하여 연결을 계속합니다. 그러면 암호를 입력하라는 메시지가 나타납니다. 앞부분에 표시된 `Docker!`을 사용합니다.
 
-```
+```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
 인증되면 세션 시작 화면이 표시되어야 합니다.
 
-```
+```output
   _____
   /  _  \ __________ _________   ____
  /  /_\  \___   /  |  \_  __ \_/ __ \
@@ -99,7 +88,7 @@ A P P   S E R V I C E   O N   L I N U X
 
 [top](https://ss64.com/bash/top.html) 명령을 다시 실행합니다. 프로세스 목록에서 앱의 프로세스를 확인할 수 있어야 합니다. 아래 예제 출력에서는 `PID 263`이 있는 출력입니다.
 
-```
+```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
 CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
 Load average: 0.07 0.04 0.08 4/765 45738
@@ -123,7 +112,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
+[Azure 포럼](https://docs.microsoft.com/answers/topics/azure-webapps.html)에 질문 및 문제를 게시할 수 있습니다.
 
 컨테이너용 웹앱에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -131,4 +120,4 @@ Load average: 0.07 0.04 0.08 4/765 45738
 * [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-docker-go.md)
 * [Linux의 Azure App Service에서 .NET Core 사용](quickstart-dotnetcore.md)
 * [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
-* [Containers용 Azure App Service Web App 관련 FAQ](app-service-linux-faq.md)
+* [Azure App Service Web App for Containers FAQ](app-service-linux-faq.md)

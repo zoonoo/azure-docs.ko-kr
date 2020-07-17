@@ -1,26 +1,22 @@
 ---
-title: Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙 처리
+title: Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙
 description: 이 문서에서는 Azure Stream Analytics를 사용하여 Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙이 있는 경고 솔루션을 얻는 방법을 설명합니다.
-services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
-manager: digimobile
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 08/20/2018
-ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: how-to
+ms.date: 04/30/2018
+ms.openlocfilehash: 215835bf7f1e6676adba6541da70dcb86fc3500c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761729"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039044"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙 처리
 이 문서에서는 Azure Stream Analytics를 사용하여 Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙을 사용하는 경고 솔루션을 얻는 방법을 설명합니다.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>시나리오: 조정 가능한 규칙 임계값 기반 경고
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>시나리오: 조정 가능한 규칙 임계값에 따른 경고
 들어오는 스트리밍 이벤트가 특정 값에 도달했거나, 들어오는 스트리밍 이벤트를 기준으로 하는 집계 값이 특정 임계값을 초과할 경우 출력으로 경고를 생성해야 할 수 있습니다. 고정되고 미리 결정된 정적 임계값에 값을 비교하는 Stream Analytics 쿼리는 간단히 설정할 수 있습니다. 고정 임계값은 단순 숫자 비교(보다 큼, 보다 작음 및 같음)를 사용하여 스트리밍 쿼리 구문으로 하드 코드될 수 있습니다.
 
 어떤 경우에는 임계값이 변경될 때마다 쿼리 구문을 편집하지 않아도 되도록, 임계값을 구성하는 것이 더 쉬워야 할 수 있습니다. 각 종류의 디바이스에서 서로 다른 임계값을 갖는 같은 쿼리로 다양한 디바이스 또는 사용자를 처리해야 하는 경우도 있습니다. 
@@ -47,6 +43,7 @@ Stream Analytics 작업에 대한 참조 데이터 입력을 사용하여 경고
 - 규칙에는 나중에 `AVGGREATEROREQUAL`의 쿼리 구문에서 동적으로 해석되는 **연산자** 필드가 있습니다. 
 - 규칙은 `C1` 값을 갖는 특정 차원 키 `2`의 데이터를 필터링합니다. 다른 필드는 빈 문자열로, 이벤트 필드를 기준으로 입력 스트림을 필터링하지 않을 것임을 나타냅니다. 필요에 따라 일치하는 다른 필드를 필터링하도록 추가 CPU 규칙을 설정할 수 있습니다.
 - 모든 열을 출력 경고 이벤트에 포함해야 하는 것은 아닙니다. 이 경우 스트림에 있는 이벤트 데이터의 필드 번호 2가 정식 출력 이벤트에 포함될 것임을 나타내기 위해 `includedDim` 키 번호 `2`가 `TRUE`로 설정됩니다. 다른 필드는 경고 출력에 포함되지 않지만 필드 목록을 조정할 수 있습니다.
+
 
 ```json
 {
@@ -292,4 +289,3 @@ HAVING
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
-<!--Update_Description: updat meta properties, wording update-->

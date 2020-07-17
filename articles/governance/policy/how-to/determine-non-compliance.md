@@ -1,53 +1,48 @@
 ---
 title: 규정 비준수의 원인 확인
-description: 리소스를 호환 되지 않는 경우 여러 가지 가능한 이유가 있습니다. 비 호환성을 일으킨 원인을 확인 하는 방법을 알아봅니다.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 04/26/2019
-ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+description: 리소스가 규정 비준수인 경우 여러 가지 원인이 있을 수 있습니다. 규정 비준수를 일으킨 원인을 확인하는 방법을 알아보세요.
+ms.date: 07/06/2020
+ms.topic: how-to
+ms.openlocfilehash: d548f5b9db141eb6aed5984c43f00543d0228f31
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868695"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970776"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
-Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 사용 하 여 미준수 규칙의 부분을 이해 하는 것이 유용 합니다. 변경 내용 변경와 호환 되도록 이전에 규격이 리소스를 이해 하는 것이 유용 합니다. 두 가지 방법으로이 정보를 찾을 수 있습니다.
+Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 리소스가 호환되지 않는 규칙의 부분을 이해하는 것이 도움이 됩니다. 또한 이전 준수 리소스를 규정 비준수로 만든 변경 내용을 이해하는 것도 유용합니다. 이 정보를 찾는 방법에는 두 가지가 있습니다.
 
-> [!div class="checklist"]
-> - [준수 세부 정보](#compliance-details)
-> - [변경 내용 (미리 보기)](#change-history-preview)
+- [준수 세부 정보](#compliance-details)
+- [변경 기록(미리 보기)](#change-history)
 
 ## <a name="compliance-details"></a>준수 세부 정보
 
-해당 리소스에 대 한 준수 세부 정보에서 사용할 리소스를 호환 되지 않는 경우는 **정책 준수** 페이지입니다. 규정 준수 세부 정보 창에는 다음 정보가 포함 됩니다.
+리소스가 규정 비준수인 경우 해당 리소스에 대한 준수 세부 정보는 **정책 준수** 페이지에서 사용할 수 있습니다. 준수 세부 정보 창에는 다음 정보가 포함됩니다.
 
-- 이름, 형식, 위치 및 리소스 ID와 같은 리소스 세부 정보
-- 준수 상태 및 현재 정책 할당에 대 한 마지막 평가의 타임 스탬프
-- 목록을 _이유가_ 비준수에 대 한는 리소스
+- 이름, 유형, 위치 및 리소스 ID와 같은 리소스 세부 정보
+- 현재 정책 할당에 대한 마지막 평가의 준수 상태 및 타임스탬프
+- 리소스 규정 비준수에 대한 _이유_ 목록
 
 > [!IMPORTANT]
-> 에 대 한 준수 세부 정보를 _규격이 아닌_ 리소스 표시 속성의 현재 값을 해당 리소스에 대해 사용자에 게 **읽을** 작업을 합니다 **형식** 의 리소스입니다. 예를 들어 경우는 _규격이 아닌_ 리소스가 **microsoft.compute/virtualmachines** 는 사용자가를 **Microsoft.Compute/virtualMachines/read** 작업입니다. 사용자에 게 필요한 작업을 하는 경우 액세스 오류가 표시 됩니다.
+> _규정 비준수_ 리소스에 대한 준수 세부 정보에는 해당 리소스에 대한 현재 속성 값이 표시되므로 사용자에게 리소스 **형식**에 대한 **읽기** 작업이 있어야 합니다. 예를 들어 _규정 비준수_ 리소스가 **Microsoft.Compute/virtualMachines**인 경우 사용자에게 **Microsoft.Compute/virtualMachines/read** 작업이 있어야 합니다. 사용자에게 필요한 작업이 없는 경우 액세스 오류가 표시됩니다.
 
-규정 준수 세부 정보를 보려면 다음을 수행 합니다.
+준수 세부 정보를 보려면 다음 단계를 수행합니다.
 
 1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
-1. 에 **개요** 또는 **준수** 페이지에서 정책을 선택 합니다는 **준수 상태** 즉 _규격이 아닌_합니다.
+1. **개요** 또는 **준수** 페이지에서 _규정 비준수_인 **준수 상태**에서 정책을 선택합니다.
 
-1. 아래는 **리소스 규정 준수** 탭의 **정책 준수** 페이지에서 마우스 오른쪽 단추로 클릭 하거나 리소스의 줄임표를 선택를 **준수 상태** 즉  _호환 되지 않는_합니다. 선택한 **준수 세부 정보를 보려면**합니다.
+1. **정책 준수** 페이지의 **리소스 준수** 탭에서 _규정 비준수_인 **준수 상태**에서 리소스의 줄임표를 마우스 오른쪽 단추로 클릭하거나 선택합니다. 그런 다음, **준수 세부 정보 보기**를 선택합니다.
 
-   ![규정 준수 세부 정보 보기 옵션](../media/determine-non-compliance/view-compliance-details.png)
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="준수 세부 정보 보기 옵션" border="false":::
 
-1. 합니다 **준수 세부 정보** 현재 정책 할당 된 리소스의 최신 평가의 정보를 창에 표시 됩니다. 이 예제에서는 필드 **Microsoft.Sql/servers/version** 것 _12.0_ 예상 하는 정책을 정의 하는 동안 _14.0_합니다. 여러 가지 이유로 리소스 비준수를 각이 창에 나열 됩니다.
+1. **준수 세부 정보** 창에는 현재 정책 할당에 대한 리소스의 최신 평가 정보가 표시됩니다. 이 예제에서 **Microsoft.Sql/servers/version** 필드는 _12.0_으로 확인되며 정책 정의는 _14.0_으로 예상됩니다. 여러 가지 이유로 리소스가 규정 비준수인 경우 각각이 이 창에 나열됩니다.
 
-   ![비준수에 대 한 이유와 준수 세부 정보 창](../media/determine-non-compliance/compliance-details-pane.png)
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="준수 세부 정보 창 및 규정 비준수에 대한 이유" border="false":::
 
-   에 **auditIfNotExists** 또는 **deployIfNotExists** 세부 정보를 포함 하는 정책 정의 **details.type** 속성과 선택적 속성입니다. 목록에 대해서 [auditIfNotExists 속성](../concepts/effects.md#auditifnotexists-properties) 하 고 [deployIfNotExists 속성](../concepts/effects.md#deployifnotexists-properties)합니다. **마지막으로 리소스를 평가** 에서 관련 리소스를 **세부 정보** 정의의 섹션입니다.
+   **auditIfNotExists** 또는 **deployIfNotExists** 정책 정의의 경우 세부 정보는 **details.type** 속성 및 선택적 속성을 포함합니다. 목록은 [auditIfNotExists 속성](../concepts/effects.md#auditifnotexists-properties) 및 [deployIfNotExists 속성](../concepts/effects.md#deployifnotexists-properties)을 참조하세요. **마지막으로 평가된 리소스**는 정의의 **세부 정보** 섹션에서 관련된 리소스입니다.
 
    예제 부분 **deployIfNotExists** 정의:
 
@@ -74,79 +69,68 @@ Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 �
    }
    ```
 
-   ![규정 준수 세부 정보 창-* ifNotExists](../media/determine-non-compliance/compliance-details-pane-existence.png)
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="준수 세부 정보 창 - *ifNotExists" border="false":::
 
 > [!NOTE]
-> 속성 값은 데이터를 보호 하는 _비밀_ 현재 값을 별표를 표시 합니다.
+> 데이터를 보호하기 위해 속성 값이 _비밀_이면 현재 값이 별표를 표시합니다.
 
-이러한 세부 정보 리소스를 현재 비준수 이유를 설명 하지만 때 변경 된 비준수 상태가 되도록를 발생 시킨 리소스에 표시 되지 않습니다. 해당 정보를 참조 하세요 [변경 내용 (미리 보기)](#change-history-preview) 아래.
+이러한 세부 정보는 리소스가 현재 규정 비준수인 이유를 설명하지만 규정 비준수가 되도록 만든 리소스가 변경된 경우를 표시하지 않습니다. 해당 정보는 아래 [변경 기록(미리 보기)](#change-history)을 참조하세요.
 
-### <a name="compliance-reasons"></a>규정 준수
+### <a name="compliance-reasons"></a>준수 이유
 
-다음 표에 각 가능한 매핑합니다 _이유_ 책임을 [조건](../concepts/definition-structure.md#conditions) 정책 정의에:
+다음 행렬에서는 가능한 각 _이유_를 정책 정의의 책임 있는 [조건](../concepts/definition-structure.md#conditions)에 매핑합니다.
 
 |이유 | 조건 |
 |-|-|
-|현재 값은 대상 값을 키로 포함해야 합니다. |containsKey 또는 **되지** notContainsKey |
-|현재 값은 대상 값을 포함해야 합니다. |포함 하거나 **되지** notContains |
-|현재 값은 대상 값과 같아야 합니다. |같음 또는 **되지** notEquals |
+|현재 값은 대상 값을 키로 포함해야 합니다. |containsKey 또는 notContainsKey **아님** |
+|현재 값은 대상 값을 포함해야 합니다. |contains 또는 notContains **아님** |
+|현재 값은 대상 값과 같아야 합니다. |equals 또는 notEquals **아님** |
+|현재 값은 대상 값보다 작아야 합니다. |less 또는 greaterOrEquals **아님** |
+|현재 값은 대상 값보다 크거나 같아야 합니다. |greaterOrEquals 또는 less **아님** |
+|현재 값은 대상 값보다 커야 합니다. |greater 또는 lessOrEquals **아님** |
+|현재 값은 대상 값보다 작거나 같아야 합니다. |lessOrEquals 또는 greater **아님** |
 |현재 값이 있어야 합니다. |exists |
-|현재 값은 대상 값에 있어야 합니다. |또는 **되지** notIn |
-|현재 값은 대상 값과 같아야 합니다. |같은 또는 **되지** notLike |
-|현재 값은 대/소문자를 구분하며 대상 값과 일치해야 합니다. |일치 하거나 **되지** notMatch |
-|현재 값은 대/소문자를 구분하지 않으며 대상 값과 일치해야 합니다. |matchInsensitively 또는 **되지** notMatchInsensitively |
-|현재 값은 대상 값을 키로 포함할 수 없습니다. |notContainsKey 또는 **되지** containsKey|
-|현재 값은 대상 값을 포함할 수 없습니다. |notContains 또는 **되지** 포함 |
-|현재 값은 대상 값과 같을 수 없습니다. |notEquals 또는 **되지** 같음 |
-|현재 값이 없어야 합니다. |**하지** 존재  |
-|현재 값이 대상 값에 포함될 수 없습니다. |notIn 또는 **되지** 에서 |
-|현재 값은 대상 값과 같을 수 없습니다. |notLike 또는 **되지** 같은 |
-|현재 값은 대/소문자를 구분하며 대상 값과 일치할 수 없습니다. |notMatch 또는 **되지** 일치 |
-|현재 값은 대/소문자를 구분하지 않으며 대상 값과 일치할 수 없습니다. |notMatchInsensitively 또는 **되지** matchInsensitively |
-|정책 정의에 적용 세부 정보와 일치 하는 관련된 리소스가 없습니다. |에 정의 된 형식의 리소스 **then.details.type** 에 정의 된 리소스에 관련 된 합니다 **경우** 부분 정책 규칙이 존재 하지 않습니다. |
+|현재 값이 대상 값에 포함되어야 합니다. |in 또는 notIn **아님** |
+|현재 값은 대상 값과 같아야 합니다. |like 또는 notLike **아님** |
+|현재 값은 대/소문자를 구분하며 대상 값과 일치해야 합니다. |match 또는 notMatch **아님** |
+|현재 값은 대/소문자를 구분하지 않으며 대상 값과 일치해야 합니다. |matchInsensitively 또는 notMatchInsensitively **아님** |
+|현재 값은 대상 값을 키로 포함할 수 없습니다. |notContainsKey 또는 containsKey **아님**|
+|현재 값은 대상 값을 포함할 수 없습니다. |notContains 또는 contains **아님** |
+|현재 값은 대상 값과 같을 수 없습니다. |notEquals 또는 equals **아님** |
+|현재 값이 없어야 합니다. |exists **아님**  |
+|현재 값이 대상 값에 포함될 수 없습니다. |notIn 또는 in **아님** |
+|현재 값은 대상 값과 같을 수 없습니다. |notLike 또는 like **아님** |
+|현재 값은 대/소문자를 구분하며 대상 값과 일치할 수 없습니다. |notMatch 또는 match **아님** |
+|현재 값은 대/소문자를 구분하지 않으며 대상 값과 일치할 수 없습니다. |notMatchInsensitively 또는 matchInsensitively **아님** |
+|정책 정의의 효과 세부 정보와 일치하는 관련 리소스가 없습니다. |**then.details.type**에서 정의되고 정책 규칙의 **if** 부분에 정의된 리소스와 관련된 유형의 리소스가 존재하지 않습니다. |
 
-## <a name="compliance-details-for-guest-configuration"></a>게스트 구성에 대 한 준수 세부 정보
+## <a name="compliance-details-for-guest-configuration"></a>게스트 구성에 대한 준수 세부 정보
 
-에 대 한 _감사_ 정책에는 _게스트 구성_ 범주 VM 내에서 평가 하는 여러 설정이 있을 수 있습니다 및 설정별 정보를 확인 해야 합니다. 예를 들어, 설치 된 응용 프로그램 목록과 할당 상태에 대 한 감사 하는 경우 _규격이 아닌_, 누락 되는 특정 응용 프로그램을 확인 해야 합니다.
+_게스트 구성_ 범주의 _auditIfNotExists_ 정책의 경우 VM 내에서 여러 설정이 평가될 수 있으며, 설정별 세부 정보를 확인해야 합니다. 예를 들어 암호 정책 목록에 대한 감사를 수행하고 그 중 하나에만 _규정 비준수_ 상태가 있는 경우 준수하지 않는 특정 암호 정책 및 이유를 알아야 합니다.
 
-또한 VM에 직접 로그인에 액세스 하지 못할 수 있지만 이유는 VM에 대해 보고할 필요가 _규격이 아닌_합니다. 예를 들어 Vm 올바른 도메인에 가입 하 고 보고 세부 정보에서 현재 도메인 구성원 자격을 포함을 감사할 수 있습니다.
+또한 VM에 직접 로그인할 수 있는 액세스 권한이 없을 수도 있지만 VM이 _규정 비준수_인 이유를 보고해야 합니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
+정책 준수 세부 정보를 보기 위해 위의 섹션에서 설명한 것과 동일한 단계를 수행하여 시작합니다.
 
-1. 에 **개요** 또는 **준수** 페이지에서 게스트 구성 정책 정의 포함 하는 모든 이니셔티브에 대 한 정책 할당을 선택 된 _규격이 아닌_.
+준수 세부 정보 창 보기에서 **마지막으로 평가된 리소스** 링크를 클릭합니다.
 
-1. 선택는 _감사_ 이니셔티브의 정책입니다 _비준수_합니다.
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="auditIfNotExists 정의 세부 정보 보기" border="false":::
 
-   ![감사 정의 세부 정보 보기](../media/determine-non-compliance/guestconfig-audit-compliance.png)
+**게스트 할당** 페이지에는 사용 가능한 모든 준수 세부 정보가 표시됩니다. 뷰의 각 행은 머신 내에서 수행된 평가를 나타냅니다. **Reason** 열에서 게스트 할당이 _규정 비준수_인 이유를 설명하는 구가 표시됩니다. 예를 들어 암호 정책을 감사하는 경우 **Reason** 열에 각 설정에 대한 현재 값을 포함한 텍스트가 표시됩니다.
 
-1. 에 **리소스 준수** 탭에서 다음 정보를 제공 합니다.
-
-   - **이름** -게스트 구성 할당의 이름입니다.
-   - **부모 리소스** -가상 컴퓨터에는 _규격이 아닌_ 선택한 게스트 구성 할당에 대 한 상태입니다.
-   - **리소스 종류** - _guestConfigurationAssignments_ 전체 이름입니다.
-   - **마지막 평가 시간** -대상 가상 컴퓨터의 상태에 대 한 Azure Policy에는 게스트 구성 서비스가 알림을 마지막 시간입니다.
-
-   ![정책 준수 세부 정보를 봅니다.](../media/determine-non-compliance/guestconfig-assignment-view.png)
-
-1. 게스트 구성 할당 이름을 선택 합니다 **이름** 열려면 열을 **리소스 준수** 페이지.
-
-1. 선택 된 **보기 리소스** 열리는 페이지의 맨 위에 있는 단추를 **게스트 할당** 페이지입니다.
-
-합니다 **게스트 할당** 모든 규정 준수 세부 정보 페이지에 표시 됩니다. 뷰에서 각 행에는 가상 머신 내에서 수행 된 평가 나타냅니다. 에 **이유** 열, 게스트 할당 인 이유를 설명 하는 _비준수_ 표시 됩니다. 예를 들어 Vm을 도메인에 가입 되어야 해야는 감사를 **이유** 열에는 현재 도메인 구성원 자격을 포함 하 여 텍스트 표시 됩니다.
-
-![정책 준수 세부 정보를 봅니다.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="준수 세부 정보 보기" border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-또한 Azure PowerShell에서 준수 세부 정보를 볼 수 있습니다. 먼저 게스트 구성 모듈을 설치 했는지 확인 합니다.
+Azure PowerShell에서 준수 세부 정보를 확인할 수도 있습니다. 우선 게스트 구성 모듈이 설치되어 있는지 확인합니다.
 
 ```azurepowershell-interactive
 Install-Module Az.GuestConfiguration
 ```
 
-다음 명령을 사용 하는 VM에 대 한 모든 게스트 할당의 현재 상태를 볼 수 있습니다.
+다음 명령을 사용하여 VM에 대한 모든 게스트 할당의 현재 상태를 볼 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
@@ -159,7 +143,7 @@ Audit that an application is installed inside Windows VMs                 {[Inst
 Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
 ```
 
-만 보려는 합니다 _이유_ VM 이유를 설명 하는 구를 _규격이 아닌_, 이유 자식 속성을 반환 합니다.
+VM이 _규정 비준수_인 이유를 설명하는 _이유_ 구만 보려면 Reason 자식 속성만 반환합니다.
 
 ```azurepowershell-interactive
 Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
@@ -169,10 +153,10 @@ Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname
 The following applications are not installed: '<name>'.
 ```
 
-가상 컴퓨터에 대 한 범위에서 게스트 할당에 대 한 준수 내역을 출력할 수도 있습니다. 이 명령의 출력은 VM에 대 한 각 보고서의 세부 정보를 포함합니다.
+머신 범위에서 게스트 할당에 대한 준수 기록을 출력할 수도 있습니다. 이 명령의 출력에는 VM의 각 보고서에 대한 세부 정보가 포함됩니다.
 
 > [!NOTE]
-> 출력에는 많은 양의 데이터를 반환할 수 있습니다. 것이 좋습니다 출력을 변수에 저장할 수 있습니다.
+> 출력은 많은 양의 데이터를 반환할 수 있습니다. 변수에 출력을 저장하는 것이 좋습니다.
 
 ```azurepowershell-interactive
 $guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
@@ -187,7 +171,7 @@ PolicyDisplayName                                                         Compli
 <truncated>
 ```
 
-이 보기를 간소화 하려면 사용 합니다 **ShowChanged** 매개 변수입니다. 이 명령의 출력에는 다음에 규정 준수 상태가 변경 되는 보고서만 포함 됩니다.
+이 뷰를 간소화하려면 **ShowChanged** 매개 변수를 사용합니다. 이 명령의 출력에는 준수 상태 변경을 수행한 보고서만 포함됩니다.
 
 ```azurepowershell-interactive
 $guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
@@ -203,34 +187,34 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>변경 내용 (미리 보기)
+## <a name="change-history-preview"></a><a name="change-history"></a>변경 기록(미리 보기)
 
-새의 일부로 **공개 미리 보기**를 지 원하는 모든 Azure 리소스에 대 한 변경 기록의 지난 14 일간 사용할 [모드 삭제 완료](../../../azure-resource-manager/complete-mode-deletion.md)합니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 탐지는 리소스 관리자 속성을 추가, 제거 또는 변경할 때 트리거됩니다.
+새 **공개 미리 보기**의 일부로, [전체 모드 삭제](../../../azure-resource-manager/templates/complete-mode-deletion.md)를 지원하는 모든 Azure 리소스에 대해 지난 14일 간의 변경 기록을 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 내용 검색은 Azure Resource Manager 속성이 추가, 제거 또는 변경 될 때 트리거됩니다.
 
 1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
-1. 에 **개요** 또는 **준수** 페이지에서 정책을 선택 합니다 **준수 상태**합니다.
+1. **개요** 또는 **준수** 페이지에서 **준수 상태**에 있는 정책을 선택합니다.
 
-1. 아래는 **리소스 규정 준수** 탭을 **정책 준수** 페이지, 리소스를 선택 합니다.
+1. **정책 준수** 페이지의 **리소스 준수** 탭에서 리소스를 선택합니다.
 
 1. **리소스 준수** 페이지에서 **변경 기록(미리 보기)** 탭을 선택합니다. 검색된 변경 목록이 표시됩니다(있는 경우).
 
-   ![규정 준수 리소스 페이지에서 정책 변경 기록 탭](../media/determine-non-compliance/change-history-tab.png)
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="리소스 준수 페이지의 Azure Policy 변경 기록 탭" border="false":::
 
-1. 검색된 변경 중 하나를 선택합니다. _visual diff_ 리소스가 표시 됩니다에 대 한 합니다 **변경 내용** 페이지입니다.
+1. 검색된 변경 중 하나를 선택합니다. 리소스의 _시각적 차이_는 **변경 기록** 페이지에 표시됩니다.
 
-   ![정책 변경 기록을 변경 기록 페이지의 시각적 Diff](../media/determine-non-compliance/change-history-visual-diff.png)
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="변경 기록 페이지의 Azure Policy 변경 기록 시각적 차이" border="false":::
 
-_시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩니다. 검색 된 변경 내용은 리소스의 현재 호환성 상태 관련이 있을 수 있습니다.
+_시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩니다. 검색된 변경 내용이 리소스의 현재 호환 상태와 관련되어 있지 않을 수 있습니다.
 
-변경 기록 데이터가 제공한 [Azure 리소스 그래프](../../resource-graph/overview.md)합니다. Azure portal 외부에서이 정보를 쿼리, 참조 [리소스 변경 내용을 가져오려면](../../resource-graph/how-to/get-resource-changes.md)합니다.
+변경 기록 데이터는 [Azure Resource Graph](../../resource-graph/overview.md)에 의해 제공됩니다. Azure Portal 외부에서 이 정보를 쿼리하려면 [리소스 변경 내용 가져오기](../../resource-graph/how-to/get-resource-changes.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 예제를 검토 [Azure Policy 샘플](../samples/index.md)합니다.
-- [Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
+- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
+- [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](programmatically-create.md)합니다.
-- 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](getting-compliance-data.md)합니다.
-- 설명 하는 방법 [비준수 리소스를 수정](remediate-resources.md)합니다.
-- 사용 하 여 관리 그룹은 검토 [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.
+- [프로그래밍 방식으로 정책을 생성하는](programmatically-create.md) 방법을 이해합니다.
+- [규정 준수 데이터를 가져오는](get-compliance-data.md) 방법을 알아봅니다.
+- [규정 비준수 리소스를 수정](remediate-resources.md)하는 방법을 알아봅니다.
+- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

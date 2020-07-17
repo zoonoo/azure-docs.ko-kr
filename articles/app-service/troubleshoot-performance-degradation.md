@@ -1,28 +1,17 @@
 ---
-title: 성능 저하 문제 해결 - Azure App Service | Microsoft Docs
-description: 이 문서에서는 Azure App Service의 느린 앱 성능 문제를 해결하는 데 도움을 줍니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 성능 저하 문제 해결
+description: 앱 동작 모니터링, 데이터 수집 및 문제 완화를 비롯하여 Azure App Service에서 앱 성능 저하 문제를 해결하는 방법에 대해 알아봅니다.
 tags: top-support-issue
 keywords: 웹앱 성능, 느린 앱, 앱 느림
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128452"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170769"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 앱 성능 문제 해결
 이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)의 느린 앱 성능 문제를 해결하는 데 도움을 줍니다.
@@ -49,9 +38,9 @@ ms.locfileid: "62128452"
 
 [App Service](overview.md)는 각 단계별로 다양한 옵션을 제공합니다.
 
-<a name="observe" />
+<a name="observe"></a>
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. 애플리케이션 작동을 관찰 및 감시 
+### <a name="1-observe-and-monitor-application-behavior"></a>1. 애플리케이션 작동을 관찰 및 감시
 #### <a name="track-service-health"></a>서비스 상태를 추적합니다.
 Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 경고를 표시합니다. [Azure Portal](https://portal.azure.com/)에서 서비스의 상태를 추적할 수 있습니다. 자세한 내용은 [서비스 상태 추적](../monitoring-and-diagnostics/insights-service-health.md)을 참조하세요.
 
@@ -82,7 +71,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 설정하려면 [Azure App Service에서 앱 모니터링](web-sites-monitor.md)을 참조하세요.
 
-또한, 엔드포인트 모니터링의 비디오에 대해서는 [Azure Websites 가동 및 끝 점 모니터링 - 스테판 스차코우(Stefan Schackow)](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 를 참조하세요.
+또한, 엔드포인트 모니터링의 비디오에 대해서는 [Azure 웹 사이트 가동 및 엔드포인트 모니터링 - 스테판 스차코우(Stefan Schackow)](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 를 참조하세요.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>확장을 사용하여 애플리케이션 성능 모니터링
 *사이트 확장*을 사용하여 애플리케이션 성능을 모니터링할 수도 있습니다.
@@ -94,7 +83,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)도 사용할 수 있는 성능 모니터링 사이트 확장입니다. Application Insights를 사용하려면 SDK를 통해 코드를 다시 빌드합니다. 추가 데이터에 대한 액세스를 제공하는 확장을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다. 자세한 내용은 [웹 애플리케이션의 성능 모니터링](../azure-monitor/app/web-monitor-performance.md)을 참조하세요.
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### <a name="2-collect-data"></a>2. 데이터 수집
 App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅할 수 있도록 진단 기능을 제공합니다. 이 정보는 웹 서버 진단 및 애플리케이션 진단으로 구분됩니다.
@@ -145,24 +134,24 @@ Kudu가 제공하는 것은 다음과 같습니다.
 * 진단 덤프
 * Powershell cmdlet 및 기본 DOS 명령을 실행할 수 있는 콘솔을 디버깅합니다.
 
-Kudu의 또 다른 유용한 기능은 애플리케이션에 첫 번째 예외가 발생할 경우, 메모리 덤프를 만들기 위해 Kudu와 SysInternal 도구 Procdump를 사용할 수 있습니다. 메모리 덤프는 프로세스의 스냅숏이며 앱의 더욱 복잡한 문제를 해결하는 데 많은 도움을 줍니다.
+Kudu의 또 다른 유용한 기능은 애플리케이션에 첫 번째 예외가 발생할 경우, 메모리 덤프를 만들기 위해 Kudu와 SysInternal 도구 Procdump를 사용할 수 있습니다. 메모리 덤프는 프로세스의 스냅샷이며 앱의 더욱 복잡한 문제를 해결하는 데 많은 도움을 줍니다.
 
 Kudu에서 사용 가능한 기능에 대한 자세한 내용은 [사용자가 꼭 알아야 할 Azure DevOps 온라인 도구](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)를 참조하세요.
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### <a name="3-mitigate-the-issue"></a>3. 문제 완화
 #### <a name="scale-the-app"></a>앱 크기 조정
 Azure App Service에서 성능과 처리량의 증가를 위해 사용자가 실행하는 애플리케이션의 크기를 조정할 수 있습니다. 앱을 확장하려면 두 가지 작업이 필요합니다. App Service 계획을 상위 가격 책정 계층으로 변경해야 하고, 상위 가격 책정 계층으로 전환한 후에 특정 설정을 구성해야 합니다.
 
-크기 조정에 대한 자세한 내용은 [Azure App Service에서 앱 크기 조정](web-sites-scale.md)을 참조하세요.
+크기 조정에 대한 자세한 내용은 [Azure App Service에서 앱 크기 조정](manage-scale-up.md)을 참조하세요.
 
 또한 둘 이상의 인스턴스에서 애플리케이션을 실행할 수 있습니다. 크기 확장은 더 많은 처리 기능을 제공할 뿐만 아니라, 어느 정도의 내결함성을 제공합니다. 하나의 인스턴스에서 프로세스가 다운되면, 또 다른 인스턴스에서 계속 요청을 처리합니다.
 
 수동 또는 자동으로 크기를 조정할 수 있습니다.
 
 #### <a name="use-autoheal"></a>AutoHeal를 사용
-AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure Portal 내에서 직접 앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작을 수행하게 해줍니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이러한 설정은 없으면 응용 프로그램이.NET 앱을 동일한 방식으로 작동 됩니다.
+AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure Portal 내에서 직접 앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작을 수행하게 해줍니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이러한 설정은 애플리케이션이 .NET 앱이 아니더라도 같은 방식으로 작동됩니다.
 
 자세한 내용은 [Auto-Healing Azure Websites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
 

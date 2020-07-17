@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84b94240431026020d3de793d56853a7d92a6f14
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463847"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057979"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 가져오기
 > [!div class="op_single_selector"]
@@ -35,23 +35,25 @@ Media Services에서 미디어 프로세서는 미디어 콘텐츠 인코딩, �
 
 미디어 프로세스 목록은 다음 항목에서 제공됩니다.
 
-* [Encoding 미디어 프로세서](scenarios-and-availability.md#encoding-media-processors)
+* [미디어 프로세서 인코딩](scenarios-and-availability.md#encoding-media-processors)
 * [분석 미디어 프로세서](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-media-processor"></a>미디어 프로세서 가져오기
 
 다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 Media Services에 연결](media-services-use-aad-auth-to-access-ams-api.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
 
-    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-    {
-        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+```csharp
+private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+{
+    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-        if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+    if (processor == null)
+    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-        return processor;
-    }
+    return processor;
+}
+```
 
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로

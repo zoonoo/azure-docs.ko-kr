@@ -1,24 +1,16 @@
 ---
 title: Azure Monitor의 성능 카운터 수집 및 분석 | Microsoft Docs
 description: 성능 카운터는 Windows 및 Linux 에이전트에서 성능을 분석하기 위해 Azure Monitor에 의해 수집됩니다.  이 문서는 Windows 및 Linux 에이전트에 대한 성능 카운터 컬렉션을 구성하는 방법과, 작업 영역에 저장하는 방식에 대한 자세한 내용과, Azure Portal에서 분석하는 방법을 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
-ms.author: magoedte
-ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205746"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955491"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  Azure Monitor는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
@@ -48,8 +40,8 @@ Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스
 
     명명된 인스턴스에서 SQL Server 성능 카운터를 수집할 때 모든 명명된 인스턴스 카운터는 *MSSQL$* 로 시작하며 인스턴스 이름이 이어집니다.  예를 들어 명명된 SQL 인스턴스 INST2의 경우 데이터베이스 성능 개체에서 모든 데이터베이스에 대한 로그 캐시 적중률 카운터를 수집하려면 `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`를 지정합니다.
 
-2. **+** 를 클릭하거나 **Enter**를 눌러서 카운터를 목록에 추가합니다.
-3. 카운터를 추가할 때에는 해당 **샘플 간격**에 기본적으로 10초가 사용됩니다.  수집된 성능 데이터의 저장소 요구 사항을 줄이려면 높은 값으로, 최대 1800초(30분)까지 값을 변경할 수 있습니다.
+2. **+** **Enter** 키를 눌러 카운터를 목록에 추가 합니다.
+3. 카운터를 추가할 때에는 해당 **샘플 간격**에 기본적으로 10초가 사용됩니다.  수집된 성능 데이터의 스토리지 요구 사항을 줄이려면 높은 값으로, 최대 1800초(30분)까지 값을 변경할 수 있습니다.
 4. 카운터 추가를 완료했으면 화면 맨 위에서 **저장** 단추를 눌러서 구성을 저장합니다.
 
 ### <a name="linux-performance-counters"></a>Linux 성능 카운터
@@ -60,22 +52,24 @@ Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스
 
 1. 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다.  Linux 에이전트에서, 구성 파일은 Fluentd 데이터 수집기로 전송됩니다.  각 Linux 에이전트에서 이 파일을 수동으로 수정하려면, *Apply below configuration to my Linux machines*(아래 구성을 내 Linux 컴퓨터에 적용) 확인란 선택을 해제하고 아래 지침을 따릅니다.
 2. 텍스트 상자에 *object(instance)\counter* 형식으로 카운트 이름을 입력합니다.  입력을 시작하면 일치하는 공용 카운터 목록이 나타납니다.  목록에서 카운터를 선택하거나 원하는 항목을 입력할 수 있습니다.  
-3. **+** 를 클릭하거나 **Enter**를 눌러서 카운터를 개체의 다른 카운터 목록에 추가합니다.
-4. 개체에 대한 모든 카운터에는 동일한 **샘플 간격**이 사용됩니다.  기본값은 10초입니다.  수집된 성능 데이터의 저장소 요구 사항을 줄이려면 이 값을 최대 1800초(30분)까지 변경할 수 있습니다.
+3. **+** 개체에 대 **Enter** 한 다른 카운터 목록에 카운터를 추가 하려면 클릭 하거나 enter 키를 누릅니다.
+4. 개체에 대한 모든 카운터에는 동일한 **샘플 간격**이 사용됩니다.  기본값은 10초입니다.  수집된 성능 데이터의 스토리지 요구 사항을 줄이려면 이 값을 최대 1800초(30분)까지 변경할 수 있습니다.
 5. 카운터 추가를 완료했으면 화면 맨 위에서 **저장** 단추를 눌러서 구성을 저장합니다.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>구성 파일에서 Linux 성능 카운터 구성
-Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux 에이전트의 구성 파일을 편집하는 옵션도 있습니다.  수집할 성능 메트릭은 **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**의 구성으로 제어됩니다.
+Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux 에이전트의 구성 파일을 편집하는 옵션도 있습니다.  수집할 성능 메트릭은 **/etc/opt/microsoft/omsagent/workspace \<workspace id\> /srv\omsagentfilea**의 구성에 의해 제어 됩니다.
 
 수집할 성능 메트릭의 각 개체나 범주는 구성 파일 내에 단일 `<source>` 요소로 정의되어야 합니다. 구문은 아래와 같은 패턴을 따릅니다.
 
-    <source>
-      type oms_omi  
-      object_name "Processor"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+```xml
+<source>
+    type oms_omi  
+    object_name "Processor"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 
 이 요소의 매개 변수를 다음 테이블에서 설명합니다.
@@ -96,8 +90,8 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | 논리 디스크 | % 사용 가능한 공간 |
 | 논리 디스크 | % 사용된 Inodes |
 | 논리 디스크 | % 사용된 공간 |
-| 논리 디스크 | 디스크 읽기 바이트/초  |
-| 논리 디스크 | 디스크 읽기/초  |
+| 논리 디스크 | 디스크 읽기 바이트/초 |
+| 논리 디스크 | 디스크 읽기/초 |
 | 논리 디스크 | 디스크 전송/초 |
 | 논리 디스크 | 디스크 쓰기 바이트/초 |
 | 논리 디스크 | 디스크 쓰기/초 |
@@ -126,10 +120,10 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | 물리적 디스크 | 평균 디스크 초/전송 |
 | 물리적 디스크 | 평균 디스크 초/쓰기 |
 | 물리적 디스크 | 물리적 디스크 바이트/초 |
-| Process | Pct 권한이 부여된 시간 |
-| Process | Pct 사용자 시간 |
-| Process | 사용된 메모리 KB |
-| Process | 가상 공유 메모리 |
+| 프로세스 | Pct 권한이 부여된 시간 |
+| 프로세스 | Pct 사용자 시간 |
+| 프로세스 | 사용된 메모리 KB |
+| 프로세스 | 가상 공유 메모리 |
 | 프로세서 | % DPC 시간 |
 | 프로세서 | % 유휴 시간 |
 | 프로세서 | % 인터럽트 시간 |
@@ -149,49 +143,51 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 
 다음은 성능 메트릭에 대한 기본 구성입니다.
 
-    <source>
-      type oms_omi
-      object_name "Physical Disk"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+```xml
+<source>
+    type oms_omi
+    object_name "Physical Disk"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Logical Disk"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+<source>
+    type oms_omi
+    object_name "Logical Disk"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Processor"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Processor"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 30s
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Memory"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Memory"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 ## <a name="data-collection"></a>데이터 수집
-Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모든 성능 카운터를 지정된 샘플 간격으로 수집합니다.  데이터는 집계되지 않으며 구독에서 지정한 기간 동안 모든 로그 쿼리 보기에서 원시 데이터를 사용할 수 있습니다.
+Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모든 성능 카운터를 지정된 샘플 간격으로 수집합니다.  데이터는 집계 되지 않으며, log analytics 작업 영역에 지정 된 기간 동안 모든 로그 쿼리 보기에서 원시 데이터를 사용할 수 있습니다.
 
 ## <a name="performance-record-properties"></a>성능 레코드 속성
 성능 레코드에는 **Perf**라는 type과 다음 테이블의 속성이 포함됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터입니다. |
 | CounterName |성능 카운터의 이름입니다. |
-| CounterPath |카운터의 전체 경로이며 형식은 \\\\\<Computer>\\object(instance)\\counter입니다. |
+| CounterPath |Form \\ \\ \<Computer> \\ 개체 (인스턴스) 카운터에 있는 카운터의 전체 경로 \\ 입니다. |
 | CounterValue |카운터의 숫자 값입니다. |
 | InstanceName |이벤트 인스턴스의 이름입니다.  인스턴스가 없으면 비어 있게 됩니다. |
 | ObjectName |성능 개체의 이름입니다. |
@@ -199,22 +195,22 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 | TimeGenerated |데이터가 샘플링된 날짜와 시간입니다. |
 
 ## <a name="sizing-estimates"></a>예상 크기 조정
- 10초 간격으로 특정 카운터가 수집되는 양은 인스턴스당 일별 약 1MB입니다.  다음 수식을 사용하여 특정 카운터의 저장소 요구 사항을 예측할 수 있습니다.
+ 10초 간격으로 특정 카운터가 수집되는 양은 인스턴스당 일별 약 1MB입니다.  다음 수식을 사용하여 특정 카운터의 스토리지 요구 사항을 예측할 수 있습니다.
 
-    1 MB x (number of counters) x (number of agents) x (number of instances)
+> 1mb x (카운터 수) x (에이전트 수) x (인스턴스 수)
 
 ## <a name="log-queries-with-performance-records"></a>성능 레코드를 통한 로그 쿼리
 다음 표에서는 성능 레코드를 검색하는 로그 쿼리의 다양한 예제를 제공합니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:--- |:--- |
 | Perf |모든 성능 데이터 |
 | Perf &#124; where Computer == "MyComputer" |특정 컴퓨터의 모든 성능 데이터 |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |특정 컴퓨터에 대한 모든 성능 데이터 |
-| 성능 &#124; 여기서 ObjectName "프로세서" 고 CounterName = = "% Processor Time" 및 InstanceName = = "_Total" = = &#124; 요약 AVGCPU 컴퓨터별 avg (countervalue) = |모든 컴퓨터의 평균 CPU 사용률 |
-| 성능 &#124; 여기서 CounterName = = "% Processor Time" &#124; summarize AggregatedValue = 컴퓨터별 max(CounterValue) |모든 컴퓨터의 최대 CPU 사용률 |
-| 성능 &#124; 여기서 ObjectName = = "LogicalDisk" and CounterName = = "Current Disk Queue Length" and 컴퓨터 "MyComputerName" = = &#124; summarize AggregatedValue = instancename avg (countervalue) |지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
-| Perf &#124; where CounterName == "Disk Transfers/sec" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |
+| ObjectName = = "Processor" 및 CounterName = = "% Processor Time" 및 InstanceName = = "_Total" &#124; 컴퓨터 별로 AVGCPU = avg (CounterValue)를 요약 하는 성능 &#124; |모든 컴퓨터의 평균 CPU 사용률 |
+| CounterName = = "% Processor Time" &#124; 컴퓨터 별로 AggregatedValue = max (CounterValue)를 요약 하는 성능 &#124; |모든 컴퓨터의 최대 CPU 사용률 |
+| ObjectName = = "논리 디스크" 및 CounterName = = "Current Disk Queue Length" 및 Computer = = "MyComputerName" &#124; 요약 AggregatedValue = avg (CounterValue) by InstanceName &#124; |지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
+| 성능 &#124; 여기서 CounterName = = "Disk transfer/sec" &#124; AggregatedValue = 백분위 수 (CounterValue, 95)를 컴퓨터별로 요약 합니다. |모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |모든 컴퓨터에서 시간별 평균 CPU 사용량 |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | 특정 컴퓨터에 대한 % 백분율 카운터당 시간별 70백분위수 |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |특정 컴퓨터의 시간별 평균, 최소, 최대, 75백분위수 CPU 사용량 |

@@ -1,31 +1,25 @@
 ---
-title: Azure Active Directory 테넌트 만들기 | Microsoft Docs
+title: Azure Active Directory 테넌트 만들기
 description: Azure AD 테넌트를 만들어 애플리케이션 등록 및 빌드에 사용하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/05/2019
-ms.author: celested
-ms.reviewer: dadobali
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/12/2020
+ms.author: ryanwi
+ms.reviewer: jmprieur
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
+ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108664"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256699"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>빠른 시작: 개발 환경 설정
+# <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테넌트 설정
 
 Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microsoft 365 환경 및 ID를 대상으로 하는 앱을 빌드할 수 있습니다. Microsoft ID 플랫폼 사용을 시작하려면 앱을 등록 및 관리하고, Microsoft 365 데이터에 액세스하고, 사용자 지정 조건부 액세스 및 테넌트 제한을 배포할 수 있는 Azure AD 테넌트라고도 하는 환경에 액세스해야 합니다.
 
@@ -40,7 +34,7 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 * 회사 및 학교(Azure AD 계정) 또는 Microsoft 계정(예: outlook.com 및 live.com)
 * 소셜 및 로컬 계정(Azure AD B2C)
 
-빠른 시작은 빌드하려는 앱의 유형에 따라 두 가지 시나리오로 나뉩니다. ID 형식 대상 지정에 도움이 더 필요한 경우 [Microsoft ID 플랫폼 정보](about-microsoft-identity-platform.md)를 살펴보세요.
+빠른 시작은 빌드하려는 앱의 유형에 따라 두 가지 시나리오로 나뉩니다.
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>회사 및 학교 계정 또는 개인 Microsoft 계정
 
@@ -62,7 +56,7 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 
 ### <a name="create-a-new-azure-ad-tenant"></a>새 Azure AD 테넌트 만들기
 
-Azure AD 테넌트가 없거나 개발을 위한 새 테넌트를 만들려는 경우 [디렉터리 만들기 환경](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)을 따릅니다. 새 테넌트를 만들려면 다음 정보를 제공해야 합니다.
+아직 Azure AD 테넌트가 없거나 개발을 위한 새 테넌트를 만들려면 [빠른 시작](../fundamentals/active-directory-access-create-new-tenant.md)을 참조하거나 [디렉터리 만들기 환경](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)을 따르세요. 새 테넌트를 만들려면 다음 정보를 제공해야 합니다.
 
 - **조직 이름**
 - **초기 도메인** - *.onmicrosoft.com의 일부가 됩니다. 나중에 더 도메인을 사용자 지정할 수 있습니다.
@@ -77,6 +71,6 @@ Azure AD 테넌트가 없거나 개발을 위한 새 테넌트를 만들려는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* 코딩 빠른 시작을 시도하고 사용자 인증을 시작합니다. 
-* 더 자세한 코드 샘플은 설명서의 **자습서** 섹션을 참조하세요.
-* 클라우드에 앱을 배포하시겠습니까? [Azure에 컨테이너 배포](https://docs.microsoft.com/azure/index#pivot=products&panel=containers)를 참조하세요. 
+* [앱을 등록](quickstart-register-app.md)하고 Microsoft ID 플랫폼과 통합합니다. 
+* [인증의 기본 사항](authentication-scenarios.md)에 대해 알아봅니다.
+* 구독과 Azure AD 테넌트 간의 관계에 대한 자세한 내용은 [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.

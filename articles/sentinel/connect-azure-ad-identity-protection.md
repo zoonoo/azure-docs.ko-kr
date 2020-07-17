@@ -1,55 +1,45 @@
 ---
-title: Azure AD Id 보호 데이터를 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
-description: Azure AD Id 보호 데이터를 Azure Sentinel 연결 하는 방법에 알아봅니다.
-services: sentinel
-documentationcenter: na
-author: rkarlin
+title: Azure 센티널에 Azure AD ID 보호 데이터 연결
+description: Azure AD ID 보호에서 Azure 센티널로 로그 및 경고를 스트리밍하 여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선 하는 방법에 대해 알아봅니다.
+author: yelevin
 manager: rkarlin
-editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
-ms.service: sentinel
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2019
-ms.author: rkarlin
-ms.openlocfilehash: 10dc31e21f20618450de6d99b3fce40d63272d31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
+ms.topic: how-to
+ms.date: 06/24/2020
+ms.author: yelevin
+ms.openlocfilehash: 69ab76bf213653ea10db8dfd181b615a7e0f47b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564473"
 ---
-# <a name="connect-data-from-azure-ad-identity-protection"></a>Azure AD Id 보호에서 데이터 연결
+# <a name="connect-data-from-azure-active-directory-azure-ad-identity-protection"></a>Azure Active Directory (Azure AD) Id 보호의 데이터 연결
 
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+[Azure AD ID 보호](../active-directory/identity-protection/overview-identity-protection.md) 에서 azure 센티널로 로그를 스트리밍하 여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Azure Active Directory Identity Protection 위험 사용자, 위험 검색 및 취약성에 대 한 통합 보기를 제공 하며, 위험을 즉시 수정 하 고 향후 이벤트를 자동 수정 하도록 정책을 설정할 수 있습니다. 이 서비스는 고객 id를 보호 하는 Microsoft의 경험을 바탕으로 구축 되었으며 하루에 130억 대 이상의 로그에서 발생 하는 신호의 정확성을 향상 시킵니다. 
 
-로그를 스트리밍하려면 [Azure AD Id 보호](https://docs.microsoft.com/azure/information-protection/reports-aip) Azure 대시보드 보기, 사용자 지정 경고를 만들고, 조사가 향상 Sentinel로 스트림 경고를 Azure Sentinel에 합니다. Azure Active Directory Id 보호 위험을 즉시 수정 하 고 나중에 이벤트가 자동으로 해결 하는 정책을 설정 하는 기능을 사용 하 여 위험 사용자, 위험 이벤트 및 취약성에 통합된 된 뷰를 제공 합니다. 서비스는 고객 id를 보호 하는 Microsoft의 경험을 토대로 구축 되었으며에서 신호를 하루 13 십억 로그인 바탕으로 해 놀라울 정도의 정확성. 
+## <a name="prerequisites"></a>사전 요구 사항
 
-
-## <a name="prerequisites"></a>필수 조건
-
-- 있어야는 [Azure Active Directory Premium P1 또는 P2 라이선스](https://azure.microsoft.com/pricing/details/active-directory/)
-- 전역 관리자 또는 보안 관리자 권한이 있는 사용자
+- [Azure AD Premium P2 구독이](https://azure.microsoft.com/pricing/details/active-directory/)있어야 합니다.
+- 전역 관리자 또는 보안 관리자 권한이 있는 사용자가 있어야 합니다.
 
 
-## <a name="connect-to-azure-ad-identity-protection"></a>Azure AD Id 보호 연결
+## <a name="connect-to-azure-ad-identity-protection"></a>Azure AD ID 보호에 연결
 
-Azure AD Id 보호에 이미 있는 경우 인지 확인 [네트워크에서 사용 하도록 설정](../active-directory/identity-protection/enable.md)합니다.
-Azure AD Identity Protection을 배포 하 고 데이터 가져오기, 경고 데이터를 쉽게 수행할 수 있으면 Azure Sentinel로 스트림할 수 있습니다.
+Azure AD Premium P2 구독이 있는 경우 Azure AD ID 보호 포함 됩니다. [정책을 사용 하도록 설정](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 하 고 경고를 생성 하는 경우 경고 데이터를 쉽게 Azure 센티널로 스트리밍할 수 있습니다.
 
+1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음 **Azure AD ID 보호** 타일을 클릭 합니다.
 
-1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure AD Id 보호** 바둑판식으로 배열 합니다.
+1. **연결** 을 클릭 하 여 Azure 센티널로 Azure AD ID 보호 이벤트 스트리밍을 시작 합니다.
 
-2. 클릭 **Connect** Azure Sentinel에 Azure AD Id 보호 이벤트를 스트리밍하기 시작 합니다.
+1. Azure AD ID 보호 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Securityalert**를 검색 합니다.
 
-
-6. Log Analytics에서 관련 스키마를 사용 하 여 Azure AD Id 보호 경고, 검색 **IdentityProtectionLogs_CL**합니다.
+커넥터를 테스트 하려는 경우 검색을 [시뮬레이트하여](../active-directory/identity-protection/howto-identity-protection-simulate-risk.md) Azure 센티널로 스트리밍되는 샘플 경고를 생성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel에 Azure AD Id 보호를 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
-- 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
+
+이 문서에서는 Azure AD ID 보호를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.

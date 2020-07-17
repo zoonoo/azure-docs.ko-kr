@@ -8,27 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b8ca320b802ea81604aab08ee3aeb39df5781afd
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.custom: tracking-python
+ms.openlocfilehash: d13d349978df30b3e2aa7a8646223c37ba272241
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630017"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84985644"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>빠른 시작: Face REST API 및 Python을 사용하여 이미지에서 얼굴 감지
 
-이 빠른 시작에서는 Python과 함께 Azure Face REST API를 사용하여 이미지에서 사람의 얼굴을 검색합니다. 이 스크립트는 얼굴 주위에 프레임을 그리고 이미지에 성별 및 연령 정보를 겹쳐서 표시합니다.
+이 빠른 시작에서는 이미지에서 사람 얼굴을 감지하기 위해 Python과 함께 Azure Face REST API를 사용합니다. 이 스크립트는 얼굴 주위에 프레임을 그리고 이미지에 성별 및 연령 정보를 겹쳐서 표시합니다.
 
 ![얼굴 주위에 사각형이 그려져 있고 이미지에 연령 및 성별이 표시된 남자와 여자](../images/labelled-faces-python.png)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+    * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
 ## <a name="run-the-jupyter-notebook"></a>Jupyter Notebook 실행
 
@@ -41,33 +45,37 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 또는 다음 단계를 통해 명령줄에서 빠른 시작을 실행할 수 있습니다.
 
 1. 다음 코드를 텍스트 편집기에 복사합니다.
-1. 필요한 경우 코드에서 다음 내용을 변경합니다.
+1. 필요한 경우 코드에서 다음과 같이 변경합니다.
     1. `subscription_key`의 값을 구독 키로 바꿉니다.
-    1. 필요한 경우 `face_api_url` 값을 구독 키가 제공된 Azure 지역의 Face API 리소스에 대한 엔드포인트 URL로 바꿉니다.
+    1. Face API 리소스의 엔드포인트 URL이 포함되도록 `face_api_url` 값을 편집합니다.
     1. 필요에 따라 `image_url` 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `detect-face.py`
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예들 들어 `detect-face.py`입니다.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python detect-face.py`
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예들 들어 `python detect-face.py`입니다.
 
 ```python
 import requests
+import json
 
+# set to your own subscription key value
 subscription_key = None
 assert subscription_key
 
-face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
+# replace <My Endpoint String> with the string from your endpoint URL
+face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
 
 image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
 
-headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
-    
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+
 params = {
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
     'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
 }
 
-response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
+response = requests.post(face_api_url, params=params,
+                         headers=headers, json={"url": image_url})
 print(json.dumps(response.json()))
 ```
 

@@ -1,22 +1,15 @@
 ---
-title: Azure CLI 스크립트 샘플 - 리소스 그룹 구독 및 리소스로 필터링 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 리소스 그룹 구독 및 리소스로 필터링
-services: event-grid
-documentationcenter: na
-author: tfitzmac
-ms.service: event-grid
+title: Azure CLI - 리소스 그룹 구독 및 리소스로 필터링
+description: 이 문서에서는 리소스에 대한 Event Grid 이벤트를 구독하고 리소스를 필터링하는 방법을 보여주는 샘플 Azure CLI 스크립트를 제공합니다.
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: bc058baa01021f94cf5906dd492153a8d367cc90
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.date: 07/08/2020
+ms.openlocfilehash: 11935866f37dfaae15f25dac6deeace4e89547fc
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51033982"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171298"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>리소스 그룹에 대한 이벤트를 구독하고 Azure CLI를 사용하여 리소스 필터링
 

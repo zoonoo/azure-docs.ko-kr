@@ -1,24 +1,14 @@
 ---
-title: Azure Batch 풀 삭제 완료 이벤트 | Microsoft Docs
-description: Batch 풀 삭제 완료 이벤트에 대한 참조입니다.
-services: batch
-author: dlepow
-manager: jeconnoc
-ms.assetid: ''
-ms.service: batch
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
-origin.date: 04/20/2017
-ms.date: 05/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+title: Azure Batch 풀 삭제 완료 이벤트
+description: Batch 풀 삭제 완료 이벤트에 대한 참조입니다. 이 이벤트는 풀 삭제 작업이 완료되면 내보내집니다.
+ms.topic: reference
+ms.date: 04/20/2017
+ms.openlocfilehash: f00d32fd5e4eb49fddf4975a9b64ce792d0226dd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775766"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962461"
 ---
 # <a name="pool-delete-complete-event"></a>풀 삭제 완료 이벤트
 
@@ -34,13 +24,11 @@ ms.locfileid: "60775766"
 }
 ```
 
-|요소|형식|메모|
+|요소|Type|메모|
 |-------------|----------|-----------|
-|id|String|풀의 ID입니다.|
-|startTime|DateTime|풀 삭제가 시작된 시간입니다.|
-|endTime|DateTime|풀 삭제가 완료된 시간입니다.|
+|`id`|String|풀의 ID입니다.|
+|`startTime`|DateTime|풀 삭제가 시작된 시간입니다.|
+|`endTime`|DateTime|풀 삭제가 완료된 시간입니다.|
 
 ## <a name="remarks"></a>설명
-풀 크기 조정 작업의 상태 및 오류 코드에 대한 자세한 내용은 [계정에서 풀 삭제](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account)를 참조하세요.
-
-<!-- Update_Description: update metedata properties -->
+풀 크기 조정 작업의 상태 및 오류 코드에 대한 자세한 내용은 [계정에서 풀 삭제](/rest/api/batchservice/delete-a-pool-from-an-account)를 참조하세요.

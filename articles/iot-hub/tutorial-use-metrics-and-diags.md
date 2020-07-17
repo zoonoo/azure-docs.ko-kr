@@ -1,20 +1,21 @@
 ---
-title: Azure IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용 | Microsoft Docs
-description: Azure IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
+title: Azure IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
+description: Azure IoT 허브를 사용하여 메트릭 및 진단 로그를 설정하고 사용하는 방법을 알아봅니다. 이렇게 하면 허브에서 발생할 수 있는 문제를 진단하는 데 도움이 되는 분석 데이터를 제공합니다.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
-ms.custom: mvc
-ms.openlocfilehash: 8bcc72cf151b085c7f65b6c600a49642cd330bac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.custom:
+- mvc
+- mqtt
+ms.openlocfilehash: 3eda4cd8dc10bd9128186b2ff4f8d6ac0254fe5d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248490"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81770608"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>자습서: IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -35,13 +36,16 @@ ms.locfileid: "54248490"
 > * 경고가 발생될 때까지 앱 실행 
 > * 메트릭 결과를 보고 진단 로그를 확인합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 - [Visual Studio](https://www.visualstudio.com/)를 설치합니다. 
 
 - 이메일을 받을 수 있는 이메일 계정입니다.
+
+- 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 자습서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -51,11 +55,11 @@ ms.locfileid: "54248490"
 
 다음과 같은 단계가 필요합니다.
 
-1. [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 
+1. [리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 
 
 2. IoT Hub를 만듭니다.
 
-3. Standard_LRS 복제본을 사용하여 표준 V1 저장소 계정을 만듭니다.
+3. Standard_LRS 복제본을 사용하여 표준 V1 스토리지 계정을 만듭니다.
 
 4. 허브에 메시지를 보내는 시뮬레이션된 디바이스에 사용할 디바이스 ID를 만듭니다. 테스트 단계에 대한 키를 저장합니다.
 
@@ -70,7 +74,7 @@ ms.locfileid: "54248490"
 # This is the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that don't have to be globally unique.
 # The resources that have to have unique names are named in the script below
@@ -121,12 +125,12 @@ az iot hub device-identity show --device-id $iotDeviceName \
 >확장을 업데이트하는 명령은 다음과 같습니다. 이를 Cloud Shell 인스턴스에서 실행합니다.
 >
 >```cli
->az extension update --name azure-cli-iot-ext
+>az extension update --name azure-iot
 >```
 
 ## <a name="enable-the-diagnostic-logs"></a>진단 로그 활성화 
 
-[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)는 새 IoT Hub를 만들 때 기본적으로 비활성화됩니다. 이 섹션에서는 허브에 대한 진단 로그를 사용하도록 설정합니다.
+[진단 로그](../azure-monitor/platform/platform-logs-overview.md)는 새 IoT Hub를 만들 때 기본적으로 비활성화됩니다. 이 섹션에서는 허브에 대한 진단 로그를 사용하도록 설정합니다.
 
 1. 첫째, 아직 포털의 허브에서 수행하지 않은 경우 **리소스 그룹**을 클릭하고 Contoso 리소스의 리소스 그룹을 클릭합니다. 표시되는 리소스 목록에서 허브를 선택합니다. 
 
@@ -141,7 +145,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 4. 이제 **진단 켜기**를 클릭합니다. 진단 설정 창이 표시됩니다. 진단 로그 설정의 이름을 “진단 허브”로 지정합니다.
 
-5. **저장소 계정에 보관**을 선택합니다. 
+5. **스토리지 계정에 보관**을 선택합니다. 
 
    ![스토리지 계정에 보관하는 진단 설정을 보여주는 스크린샷.](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
 
@@ -210,7 +214,7 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
     다음 필드를 입력합니다.
 
-    **이름**: *telemetry-messages*와 같은 경고 규칙의 이름을 입력합니다.
+    **Name**: *telemetry-messages*와 같은 경고 규칙의 이름을 입력합니다.
 
     **설명**: *1000개의 원격 분석 메시지를 보낸 경우 경고*와 같이 경고에 대한 설명을 입력합니다. 
 
@@ -240,7 +244,7 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
    **클래식 경고 보기** 화면에서 **메트릭 경고 추가(클래식)** 를 클릭한 다음, **규칙 추가** 창에서 이러한 필드를 입력합니다.
 
-   **이름**: *number-of-messages-used*와 같은 경고 규칙의 이름을 입력합니다.
+   **Name**: *number-of-messages-used*와 같은 경고 규칙의 이름을 입력합니다.
 
    **설명**: *할당량에 근접할 때 경고*와 같이 경고에 대한 설명을 입력합니다.
 
@@ -274,7 +278,7 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
 앞서 스크립트 설정 섹션에서 IoT 디바이스를 사용하여 시뮬레이션하도록 디바이스를 설정했습니다. 이 섹션에서는 IoT Hub로 디바이스-클라우드 메시지를 전송하는 디바이스를 시뮬레이션하는 .NET 콘솔 앱을 다운로드합니다.  
 
-[IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에 대한 솔루션을 다운로드합니다. 이 링크는 여러 애플리케이션을 사용한 리포지토리를 다운로드합니다. 원하는 솔루션은 iot-hub/Tutorials/Routing/SimulatedDevice/에 있습니다.
+[IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에 대한 솔루션을 다운로드합니다. 이 링크는 여러 애플리케이션을 사용한 리포지토리를 다운로드합니다. 원하는 솔루션은 iot-hub/Tutorials/Routing/에 있습니다.
 
 솔루션 파일(SimulatedDevice.sln)을 두 번 클릭하여 Visual Studio에서 코드를 연 다음, Program.cs를 엽니다. `{iot hub hostname}`을 IoT Hub 호스트 이름으로 대체합니다. IoT Hub 호스트 이름의 형식은 **{iot-hub-name}.azure-devices.net**입니다. 이 자습서의 경우 허브 호스트 이름은 **ContosoTestHub.azure-devices.net**입니다. 다음으로, `{device key}`를 이전에 시뮬레이션된 디바이스를 설정할 때 저장했던 디바이스 키로 대체합니다. 
 
@@ -298,7 +302,7 @@ await Task.Delay(10);
 
 ### <a name="see-the-metrics-in-the-portal"></a>포털에서 메트릭 확인
 
-대시보드에서 메트릭을 엽니다. 시간 단위를 *1분*으로 하고 시간 값을 *지난 30분*으로 변경합니다. 차트의 아래쪽에 최신 숫자와 함께 전송된 원격 분석 메시지와 사용된 전체 메시지 수가 차트에 표시됩니다. 
+대시보드에서 메트릭을 엽니다. 시간 단위를 *1분*으로 하고 시간 값을 *지난 30분*으로 변경합니다. 차트의 아래쪽에 최신 숫자와 함께 전송된 원격 분석 메시지와 사용된 전체 메시지 수가 차트에 표시됩니다.
 
    ![메트릭을 보여주는 스크린샷.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -385,4 +389,4 @@ az group delete --name $resourceGroup
 IoT 디바이스의 상태를 관리하는 방법에 대해 알아보려면 다음 자습서로 이동합니다. 
 
 > [!div class="nextstepaction"]
-[백 엔드 서비스에서 디바이스 구성](tutorial-device-twins.md)
+> [백 엔드 서비스에서 디바이스 구성](tutorial-device-twins.md)

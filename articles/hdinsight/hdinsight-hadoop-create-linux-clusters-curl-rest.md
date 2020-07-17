@@ -2,18 +2,18 @@
 title: Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기 - Azure
 description: Azure REST API에 Azure Resource Manager 템플릿을 제출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/02/2018
-ms.author: hrasheed
-ms.openlocfilehash: acf121c2954b3f324682578dd3ab2b4d8b1f63f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 12/10/2019
+ms.openlocfilehash: 75eda1720e80a886ca0efb2d1f4204416a5b55f8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707343"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083341"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기
 
@@ -23,17 +23,14 @@ Azure Resource Manager 템플릿 및 Azure REST API를 사용하여 HDInsight �
 
 Azure REST API를 사용하면 HDInsight 클러스터 등과 같은 새 리소스 생성을 포함하여 Azure 플랫폼에서 호스트되는 관리 작업을 수행할 수 있습니다.
 
-> [!IMPORTANT]  
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
 > [!NOTE]  
 > 이 문서의 단계는 [curl(https://curl.haxx.se/)](https://curl.haxx.se/) 유틸리티를 사용하여 Azure REST API와 통신합니다.
 
 ## <a name="create-a-template"></a>템플릿 만들기
 
-Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 리소스를 설명하는 JSON 문서입니다(예: HDInsight). 이 템플릿 기반 접근 방식을 사용하면 하나의 템플릿에서 HDInsight에 필요한 리소스를 정의할 수 있습니다.
+Azure Resource Manager 템플릿은 **리소스 그룹 및 해당 리소스 그룹** 의 모든 리소스 (예: HDInsight)를 설명 하는 JSON 문서입니다. 이 템플릿 기반 접근 방식을 사용 하면 하나의 템플릿에서 HDInsight에 필요한 리소스를 정의할 수 있습니다.
 
-다음 JSON 문서는 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)의 템플릿과 매개 변수 파일의 병합기로, 암호를 사용하여 SSH 사용자 계정을 보호하는 Linux 기반 클러스터를 만듭니다.
+다음 JSON 문서는의 템플릿과 매개 변수 파일의 병합기로 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password) , 암호를 사용 하 여 SSH 사용자 계정을 보호 하는 Linux 기반 클러스터를 만듭니다.
 
    ```json
    {
@@ -148,7 +145,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
                                "name": "headnode",
                                "targetInstanceCount": "2",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}" 
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -161,7 +158,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
                                "name": "workernode",
                                "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}"
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -215,7 +212,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 >
 > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
-## <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
+## <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
 
 [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)의 단계에 따라 `az login` 명령을 사용하여 구독에 연결합니다.
 
@@ -226,7 +223,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 
 1. 명령줄에서 다음 명령을 사용하여 Azure 구독을 나열합니다.
 
-   ```bash
+   ```azurecli
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
@@ -234,7 +231,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 
 2. 다음 명령을 사용하여 Azure Active Directory에서 애플리케이션을 만듭니다.
 
-   ```bash
+   ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
@@ -247,7 +244,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 
 3. 다음 명령을 수행하여 **App ID**를 사용해 서비스 주체를 만듭니다.
 
-   ```bash
+   ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
@@ -255,7 +252,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 
 4. **개체 ID** 값을 사용하여 **소유자** 역할을 서비스 주체에 할당합니다. 또한 이전에 받은 **구독 ID**를 사용합니다.
 
-   ```bash
+   ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 
@@ -346,16 +343,15 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 ## <a name="troubleshoot"></a>문제 해결
 
-HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](./hdinsight-hadoop-customize-cluster-linux.md#access-control)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
+HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용 하 여 클러스터 작업을 수행 하는 방법을 알아보세요.
 
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop 클러스터
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase 클러스터

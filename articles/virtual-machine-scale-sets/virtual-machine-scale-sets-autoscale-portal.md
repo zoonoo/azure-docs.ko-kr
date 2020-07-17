@@ -1,26 +1,19 @@
 ---
-title: Azure Portal에서 가상 머신 확장 집합 자동 크기 조정 | Microsoft Docs
+title: Azure Portal에서 가상 머신 확장 집합 자동 크기 조정
 description: Azure Portal을 사용하여 가상 머신 확장 집합에 대한 자동 크기 조정 규칙을 만드는 방법
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
+ms:service: virtual-machine-scale-sets
+ms.subservice: autoscale
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618881"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124944"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 가상 머신 확장 집합의 크기를 자동으로 조정
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다.
@@ -28,7 +21,7 @@ ms.locfileid: "60618881"
 이 문서에서는 Azure Portal에서 확장 집합의 VM 인스턴스 성능을 모니터링하는 자동 크기 조정 규칙을 만드는 방법을 보여줍니다. 이러한 자동 크기 조정 규칙은 성능 메트릭에 따라 VM 인스턴스 수를 늘리거나 줄일 수 있습니다. [Azure PowerShell](tutorial-autoscale-powershell.md) 또는 [Azure CLI](tutorial-autoscale-cli.md)를 사용하여 이러한 단계를 완료할 수도 있습니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 자동 크기 조정 규칙을 만들려면 기존 가상 머신 확장 집합이 필요합니다. 확장 집합은 [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하여 만들 수 있습니다.
 
 
@@ -55,7 +48,7 @@ ms.locfileid: "60618881"
     | *연산자*             | 메트릭 데이터를 임계값과 비교하는 데 사용되는 연산자입니다.                                                     | 초과   |
     | *임계값*            | 자동 크기 조정 규칙이 작업을 트리거하도록 하는 백분율입니다.                                                 | 70             |
     | *Duration*             | 메트릭과 임계값을 비교하기 전에 모니터링하는 기간입니다.                                   | 10분     |
-    | *작업*            | 규칙이 적용될 때 확장 집합이 확장 또는 감축되어야 하는지 및 어떤 증분이 기준인지를 정의합니다.                        | 다음을 기준으로 백분율 늘이기 |
+    | *연산*            | 규칙이 적용될 때 확장 집합이 확장 또는 감축되어야 하는지 및 어떤 증분이 기준인지를 정의합니다.                        | 다음을 기준으로 백분율 늘이기 |
     | *인스턴스 수*       | 규칙이 트리거되면 VM 인스턴스의 백분율을 변경해야 합니다.                                            | 20             |
     | *정지(분)*  | 자동 크기 조정 작업이 적용될 시간을 주기 위해 규칙을 다시 적용하기 전에 대기할 시간입니다. | 5분      |
 
@@ -67,7 +60,7 @@ ms.locfileid: "60618881"
 
 
 ## <a name="create-a-rule-to-automatically-scale-in"></a>자동 규모 감축 규칙 만들기
-저녁이나 주말에는 애플리케이션 수요가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 수요를 충족하는 데 필요한 수의 인스턴스만 실행하므로 확장 집합 실행 비용을 줄입니다.
+저녁이나 주말에는 애플리케이션 수요가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 수요를 충족하는 데 필요한 수의 인스턴스만 실행하므로 확장 집합의 실행 비용을 줄입니다.
 
 1. 다시 **규칙 추가**를 선택합니다.
 2. 평균 CPU 로드가 10분간 30% 미만일 경우 확장 집합의 VM 인스턴스 수를 줄이는 규칙을 만듭니다. 규칙이 트리거되면 VM 인스턴스 수가 20% 감소합니다.
@@ -76,9 +69,9 @@ ms.locfileid: "60618881"
     
     | 매개 변수              | 설명                                                                                                          | 값          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *연산자*             | 메트릭 데이터를 임계값과 비교하는 데 사용되는 연산자입니다.                                                      | 다음보다 적음   |
+    | *연산자*             | 메트릭 데이터를 임계값과 비교하는 데 사용되는 연산자입니다.                                                      | 보다 작음   |
     | *임계값*            | 자동 크기 조정 규칙이 작업을 트리거하도록 하는 백분율입니다.                                                 | 30             |
-    | *작업*            | 규칙이 적용될 때 확장 집합이 확장 또는 감축되어야 하는지 및 어떤 증분이 기준인지를 정의합니다.                         | 다음을 기준으로 백분율 줄이기 |
+    | *연산*            | 규칙이 적용될 때 확장 집합이 확장 또는 감축되어야 하는지 및 어떤 증분이 기준인지를 정의합니다.                         | 다음을 기준으로 백분율 줄이기 |
     | *인스턴스 수*       | 규칙이 트리거되면 VM 인스턴스의 백분율을 변경해야 합니다.                                             | 20             |
 
 3. 규칙을 만들려면 **추가**를 선택합니다.
@@ -127,7 +120,7 @@ VM 인스턴스의 수 및 상태를 확인하려면 확장 집합 창의 왼쪽
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법을 배웠습니다. 수직으로 크기를 조정하여 VM 인스턴스 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 머신 확장 집합을 사용하여 수직으로 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 참조하세요.
+이 문서에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법을 배웠습니다. 또한 수직으로 크기를 조정하여 VM 인스턴스의 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 머신 확장 집합을 사용하여 수직으로 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 참조하세요.
 
 VM 인스턴스 관리 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 가상 머신 확장 집합 관리](virtual-machine-scale-sets-windows-manage.md)를 참조하세요.
 

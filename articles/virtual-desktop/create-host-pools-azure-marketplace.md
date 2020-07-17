@@ -1,128 +1,194 @@
 ---
-title: Azure Marketplace를 통해 Windows Virtual Desktop 미리 보기 호스트 풀 만들기 - Azure
-description: Azure Marketplace를 통해 Windows Virtual Desktop 미리 보기 호스트 풀을 만드는 방법입니다.
+title: Windows Virtual Desktop 호스트 풀 - Azure Portal - Azure
+description: Azure Portal을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 04/30/2020
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+manager: lizross
+ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236803"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362937"
 ---
-# <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
-
-호스트 풀은 Windows Virtual Desktop 미리 보기 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
-
-이 문서에서는 Microsoft Azure Marketplace 제품을 사용하여 Windows Virtual Desktop 테넌트 내에서 호스트 풀을 만드는 방법을 설명합니다. 여기에는 Windows Virtual Desktop에서 호스트 풀 만들기, Azure 구독에서 VM으로 리소스 그룹 만들기, 그러한 VM을 Active Directory 도메인에 조인하기 및 VM을 Windows Virtual Desktop에 등록하기가 포함됩니다.
-
-시작하기 전에 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 없는 경우).
-
-## <a name="sign-in-to-azure"></a>Azure에 로그인
-
-[https://portal.azure.com](<https://portal.azure.com>) 에서 Azure Portal에 로그인합니다.
-
-## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>새 호스트 풀을 프로비저닝하기 위해 Azure Marketplace 제품 실행
-
-새 호스트 풀을 프로비저닝하기 위해 Azure Marketplace 제품을 실행하려면 다음을 수행합니다.
-
-1. **+** 또는 **+ 리소스 만들기**를 선택합니다.
-2. Marketplace 검색 창에 **Windows Virtual Desktop**을 입력합니다.
-3. **Windows Virtual Desktop - 호스트 풀 프로비전**을 선택한 다음, **만들기** 선택합니다.
-
-지침에 따라 적절한 블레이드에 대한 정보를 입력합니다.
-
-### <a name="basics"></a>기본 사항
-
-기본 사항 블레이드에서 수행해야 하는 내용은 다음과 같습니다.
-
-1. Windows Virtual Desktop 테넌트 내에서 고유한 호스트 풀의 이름을 입력합니다.
-2. 사용자 데스크톱에 적합한 옵션을 선택합니다. **예**를 선택하는 경우 이 호스트 풀에 연결하는 각 사용자가 가상 머신에 영구적으로 할당됩니다.
-3. Windows Virtual Desktop 클라이언트에 로그인하고 Azure Marketplace 제품이 완료된 후 데스크톱에 액세스할 수 있는 사용자의 목록을 쉼표로 구분된 형식으로 입력합니다. 예를 들어 user1@contoso.com 및 user2@contoso.com 액세스를 할당하려면 “user1@contoso.com,user2@contoso.com”을 입력합니다.
-4. **새로 만들기**를 선택하고 새 리소스 그룹의 이름을 입력합니다.
-5. **위치**의 경우 Active Directory 서버에 연결되어 있는 가상 네트워크와 동일한 위치를 선택합니다.
-6. **확인**을 선택합니다.
-
-### <a name="configure-virtual-machines"></a>가상 머신 구성
-
-가상 머신 구성 블레이드의 경우:
-
-1. 기본값을 그대로 적용하거나 VM의 수 및 크기를 사용자 지정합니다.
-2. 가상 머신의 이름에 사용할 접두사를 입력합니다. 예를 들어, “prefix”라는 이름을 입력하는 경우 가상 머신은 “prefix-0”, “prefix-1” 등으로 불립니다.
-3. **확인**을 선택합니다.
-
-### <a name="virtual-machine-settings"></a>가상 머신 설정
-
-가상 머신 설정 블레이드의 경우:
-
-1. **이미지 원본**을 선택하고 해당 이미지 원본을 찾고 저장할 방법에 대한 적절한 정보를 입력합니다. 관리형 디스크를 사용하지 않으려면 .vhd 파일이 포함된 스토리지 계정을 선택합니다.
-2. Active Directory 도메인에 VM을 조인하는 도메인 계정에 대한 사용자 계정 이름 및 암호를 입력합니다. 이 동일한 사용자 이름과 암호는 로컬 계정으로 가상 머신에서 생성됩니다. 이러한 로컬 계정은 나중에 다시 설정할 수 있습니다.
-3. Active Directory 서버에 연결되어 있는 가상 네트워크를 선택한 다음, 가상 머신을 호스트하는 서브넷을 선택합니다.
-4. **확인**을 선택합니다.
-
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Windows Virtual Desktop 미리 보기 테넌트 정보
-
-Windows Virtual Desktop 테넌트 정보 블레이드의 경우:
-
-1. 사용자의 테넌트를 포함하는 테넌트 그룹에 사용할 **Windows Virtual Desktop 테넌트 그룹 이름**을 입력합니다. 계획된 특정 테넌트 그룹 이름이 없다면 기본값을 그대로 유지합니다.
-2. 이 호스트 풀을 만들 테넌트에 사용할 **Windows Virtual Desktop 테넌트 이름**을 입력합니다.
-3. Windows Virtual Desktop 테넌트 RDS 소유자로 인증하는 데 사용할 자격 증명 유형을 지정합니다. [PowerShell 자습서를 사용하여 서비스 주체 및 역할 할당 만들기](./create-service-principal-role-powershell.md)를 완료했으면 **서비스 주체**를 선택합니다. 이제 서비스 주체를 포함하는 Azure Active Directory의 **Azure AD 테넌트 ID**를 입력해야 합니다.
-4. 테넌트 관리자 계정에 사용할 자격 증명을 입력합니다. 암호 자격 증명을 사용하는 서비스 주체만 지원됩니다.
-5. **확인**을 선택합니다.
-
-## <a name="complete-setup-and-create-the-virtual-machine"></a>설치 완료 및 가상 머신 만들기
-
-마지막 두 블레이드의 경우:
-
-1. **요약** 블레이드에서 설치 정보를 검토합니다. 변경해야 할 경우 계속하기 전에 적절한 블레이드로 돌아가서 해당 내용을 변경합니다. 정보가 올바르면 **확인**을 선택합니다.
-2. **구입** 블레이드에서 Azure Marketplace에서 구매하기에 관한 추가 정보를 검토합니다.
-3. **만들기**를 선택하여 호스트 풀을 배포합니다.
-
-만들 VM 개수에 따라 이 프로세스를 완료하는 데 30분 이상 걸릴 수 있습니다.
-
-## <a name="optional-assign-additional-users-to-the-desktop-application-group"></a>(선택 사항) 데스크톱 애플리케이션 그룹에 추가 사용자 할당
-
-Azure Marketplace 제품이 완료된 후, 가상 머신에서 전체 세션 테스트를 시작하기 전에 데스크톱 애플리케이션 그룹에 추가 사용자를 할당할 수 있습니다. Azure Marketplace 제품에 이미 기본 사용자를 추가했고 더 추가하고 싶지 않다면 이 섹션을 건너뛸 수 있습니다.
-
-데스크톱 애플리케이션 그룹에 사용자를 할당하려면 먼저 PowerShell 창을 열어야 합니다. 그 후, 다음 두 개의 cmdlet을 입력해야 합니다.
-
-다음 cmdlet을 실행하여 Windows Virtual Desktop 환경에 로그인합니다.
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-다음 cmdlet을 사용하여 Azure Marketplace 제품에 지정한 Windows Virtual Desktop 테넌트 그룹에 컨텍스트를 설정합니다. Azure Marketplace 제품에서 Windows Virtual Desktop 테넌트 그룹 값을 기본값으로 유지하는 경우 이 단계를 건너뛸 수 있습니다.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
-```
-
-이러한 두 가지를 수행했으면 다음 cmdlet을 사용하여 데스크톱 애플리케이션 그룹에 사용자를 추가할 수 있습니다.
-
-```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
-```
-
-사용자의 UPN은 Azure Active Directory의 사용자 ID와 일치해야 합니다(예: user1@contoso.com). 여러 사용자를 추가하려는 경우 각 사용자에 대해 이 cmdlet을 실행해야 합니다.
-
-이러한 단계를 완료하면 데스크톱 애플리케이션 그룹에 추가된 사용자가 지원되는 원격 데스크톱 클라이언트를 사용하여 Windows Virtual Desktop에 로그인하고 세션 데스크톱에 대한 리소스를 확인할 수 있습니다.
-
-현재 지원되는 클라이언트는 다음과 같습니다.
-
-- [Windows 7 및 Windows 10용 원격 데스크톱 클라이언트](connect-windows-7-and-10.md)
-- [Windows Virtual Desktop 웹 클라이언트](connect-web.md)
+# <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
 >[!IMPORTANT]
->Azure에서 Windows Virtual Desktop 환경의 보안을 유지하도록 돕기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Windows Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 사용하는 것이 좋습니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 사용하여 2020년 봄 업데이트에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop 2019년 가을 릴리스를 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md)를 참조하세요. Windows Virtual Desktop Fall 2019로 만든 개체는 Azure Portal로 관리할 수 없습니다.
+>
+> Windows Virtual Desktop 2020 봄 업데이트는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+호스트 풀은 Windows Virtual Desktop 환경 내에서 하나 이상의 동일한 VM(가상 머신) 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
+
+이 문서에서는 Azure Portal을 통해 Windows Virtual Desktop 환경에 대한 호스트 풀을 만들기 위한 설정 프로세스를 안내합니다. 이 방법은 Windows Virtual Desktop에 호스트 풀을 만들고, Azure 구독에서 VM으로 구성된 리소스 그룹을 만들고, 해당 VM을 Azure AD(Active Directory) 도메인에 조인하고, VM을 Windows Virtual Desktop에 등록하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+호스트 풀을 만들려면 다음 매개 변수를 입력해야 합니다.
+
+- VM 이미지 이름
+- VM 구성
+- 도메인 및 네트워크 속성
+- Windows Virtual Desktop 호스트 풀 속성
+
+또한 다음 사항을 알고 있어야 합니다.
+
+- 사용하려는 이미지의 원본이 있는 위치. Azure 갤러리에서 가져온 이미지인가요, 아니면 사용자 지정 이미지인가요?
+- 도메인 조인 자격 증명
+
+또한 Microsoft.DesktopVirtualization 리소스 공급자를 등록했는지 확인합니다. 아직 수행하지 않은 경우 **구독**으로 이동하여 구독 이름을 선택한 다음, **Azure 리소스 공급자**를 선택합니다.
+
+Azure Resource Manager 템플릿을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 경우 Azure 갤러리, 관리 이미지 또는 비관리 이미지에서 가상 머신을 만들 수 있습니다. VM 이미지를 만드는 방법에 대한 자세한 내용은 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](../virtual-machines/windows/prepare-for-upload-vhd-image.md) 및 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요.
+
+Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 후에 다음 지침을 수행해야 합니다.
+
+## <a name="begin-the-host-pool-setup-process"></a>호스트 풀 설정 프로세스 시작
+
+새 호스트 풀 만들기를 시작하려면 다음을 수행합니다.
+
+1. [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.
+
+2. 검색 창에서 **Windows Virtual Desktop**을 입력한 다음, [서비스] 아래에서 **Windows Virtual Desktop**을 찾아서 선택합니다.
+
+3. **Windows Virtual Desktop** 개요 페이지에서 **호스트 풀 만들기**를 선택합니다.
+
+4. **기본** 탭의 [프로젝트 세부 정보] 아래에서 올바른 구독을 선택합니다.
+
+5. **새로 만들기**를 선택하여 새 리소스 그룹을 만들거나 드롭다운 메뉴에서 기존 리소스 그룹을 선택합니다.
+
+6. 호스트 풀에 대한 고유한 이름을 입력합니다.
+
+7. [위치] 필드의 드롭다운 메뉴에서 호스트 풀을 만들려는 지역을 선택합니다.
+   
+   선택한 지역과 연결된 Azure 지역은 이 호스트 풀 및 관련 개체에 대한 메타데이터가 저장되는 위치입니다. 서비스 메타데이터를 저장하려는 지리적 위치 내의 지역을 선택해야 합니다.
+
+     > [!div class="mx-imgBorder"]
+     > ![미국 동부 위치가 선택된 위치 필드를 보여주는 Azure Portal의 스크린샷. 필드 옆에는 "메타데이터가 미국 동부에 저장됩니다."라는 텍스트가 있습니다.](media/portal-location-field.png)
+
+8. [호스트 풀 유형] 아래에서 호스트 풀이 **개인** 또는 **풀링됨**인지를 선택합니다.
+
+    - **개인**을 선택하는 경우 [할당 유형] 필드에서 **자동** 또는 **직접**을 선택합니다.
+
+      > [!div class="mx-imgBorder"]
+      > ![할당 유형 필드 드롭다운 메뉴의 스크린샷. 사용자가 자동을 선택했습니다.](media/assignment-type-field.png)
+
+9. **풀링됨**을 선택하는 경우 다음 정보를 입력합니다.
+
+     - **최대 세션 제한**에 대해 단일 세션 호스트로 부하가 분산되도록 하려는 최대 사용자 수를 입력합니다.
+     - **부하 분산 알고리즘**에 대해 사용 패턴에 따라 [너비 우선] 또는 [깊이 우선] 중 하나를 선택합니다.
+
+       > [!div class="mx-imgBorder"]
+       > !["풀링됨"이 선택된 할당 유형 필드의 스크린샷. 사용자가 부하 분산 드롭다운 메뉴에서 커서로 너비 우선 위를 가리키고 있습니다.](media/pooled-assignment-type.png)
+
+10. 완료되면 **다음: VM 세부 정보**를 선택합니다.
+
+11. 가상 머신을 이미 만들어 새 호스트 풀에서 사용하려는 경우 **아니요**를 선택합니다. 새 가상 머신을 만들어 새 호스트 풀에 등록하려면 **예**를 선택합니다.
+
+이제 첫 번째 부분이 완료되었으므로 VM을 만드는 설정 프로세스의 다음 부분으로 이동하겠습니다.
+
+## <a name="virtual-machine-details"></a>가상 머신 세부 정보
+
+이제 첫 번째 단계가 완료되었으므로 VM을 설정해야 합니다.
+
+호스트 풀 설정 프로세스 내에서 가상 머신을 설정하려면 다음을 수행합니다.
+
+1. [리소스 그룹] 아래에서 가상 머신을 만들려는 리소스 그룹을 선택합니다. 이는 호스트 풀에 사용한 것과 다른 리소스 그룹일 수 있습니다.
+
+2. 가상 머신을 만들려는 **가상 머신 지역**을 선택합니다. 호스트 풀에 대해 선택한 지역과 같거나 다를 수 있습니다.
+
+3. 다음으로, 만들려는 가상 머신의 크기를 선택합니다. 기본 크기를 그대로 유지하거나 **크기 변경**을 선택하여 크기를 변경할 수 있습니다. 표시되는 창에서 **크기 변경**을 선택하는 경우 워크로드에 적합한 가상 머신의 크기를 선택합니다.
+
+4. [VM 수] 아래에서 호스트 풀에 대해 만들려는 VM 수를 제공
+
+    >[!NOTE]
+    >설정 프로세스는 호스트 풀을 설정하는 동안 최대 400개의 VM을 만들 수 있으며, 각 VM 설정 프로세스에서 4개의 개체를 리소스 그룹에 만듭니다. 만들기 프로세스는 구독 할당량을 확인하지 않으므로 입력하는 VM 수가 리소스 그룹 및 구독에 대한 Azure VM 및 API 제한 내에 있는지 확인합니다. 호스트 풀 만들기가 완료되면 VM을 더 추가할 수 있습니다.
+
+5. 그런 다음, **이름 접두사**를 제공하여 설정 프로세스에서 만드는 가상 머신의 이름을 지정합니다. 접미사는 0부터 시작하는 숫자가 포함된 `-`입니다.
+
+6. 다음으로, 가상 머신을 만드는 데 사용해야 하는 이미지를 선택합니다. **갤러리** 또는 **스토리지 Blob** 중 하나를 선택할 수 있습니다.
+
+    - **갤러리**를 선택하는 경우 드롭다운 메뉴에서 다음과 같은 추천 이미지 중 하나를 선택합니다.
+
+      - Windows 10 Enterprise 다중 세션 버전 1909 + Microsoft 365 Apps for Enterprise – 1세대
+      - Windows 10 Enterprise 다중 세션 버전 1909 – 1세대
+      - Windows Server 2019 Datacenter – 1세대
+
+     원하는 이미지가 표시되지 않으면 **모든 이미지 및 디스크 찾아보기**를 선택합니다. 그러면 갤러리의 다른 이미지 또는 Microsoft 및 다른 게시자가 제공한 이미지를 선택할 수 있습니다.
+
+     > [!div class="mx-imgBorder"]
+     > ![Microsoft의 이미지 목록이 표시된 Marketplace의 스크린샷.](media/marketplace-images.png)
+
+     **내 항목**으로 이동하여 이미 업로드한 사용자 지정 이미지를 선택할 수도 있습니다.
+
+     > [!div class="mx-imgBorder"]
+     > ![내 항목 탭의 스크린샷.](media/my-items.png)
+
+    - **스토리지 Blob**을 선택하는 경우 Hyper-V 또는 Azure VM을 통해 고유한 이미지 빌드를 활용할 수 있습니다. 스토리지 Blob에 있는 이미지의 위치를 URI로 입력하면 됩니다.
+
+7. VM에서 사용할 OS 디스크의 종류(표준 SSD, 프리미엄 SSD 또는 표준 HDD)를 선택합니다.
+
+8. [네트워크 및 보안] 아래에서 사용자가 만든 가상 머신을 배치하려는 가상 네트워크 및 서브넷을 선택합니다. 가상 네트워크 내의 가상 머신을 도메인에 조인해야 하므로 가상 네트워크에서 도메인 컨트롤러에 연결할 수 있는지 확인합니다. 다음으로, 공용 IP를 가상 머신에 사용할지 여부를 선택합니다. 개인 IP가 더 안전하므로 **아니요**를 선택하는 것이 좋습니다.
+
+9. 원하는 보안 그룹의 종류(**기본** , **고급**  또는 **없음**)를 선택합니다.
+
+    **기본**을 선택하는 경우 인바운드 포트를 열지 여부를 선택해야 합니다. **예**를 선택하는 경우 인바운드 연결을 허용하는 표준 포트의 목록에서 선택합니다.
+
+    >[!NOTE]
+    >보안을 강화하려면 퍼블릭 인바운드 포트를 열지 않는 것이 좋습니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![드롭다운 메뉴의 사용 가능한 포트 목록을 보여주는 보안 그룹 페이지의 스크린샷.](media/available-ports.png)
+    
+    **고급**을 선택하는 경우 이미 구성한 기존 네트워크 보안 그룹을 선택합니다.
+
+10. 그런 다음, 가상 머신을 특정 도메인 및 조직 구성 단위에 조인할지 여부를 선택합니다. **예**를 선택하는 경우 조인할 도메인을 지정합니다. 가상 머신을 배치하려는 특정 조직 구성 단위를 추가할 수도 있습니다.
+
+11. [관리자 계정] 아래에서 선택한 가상 네트워크의 Active Directory 도메인 관리자에 대한 자격 증명을 입력합니다.
+
+12. **작업 영역**을 선택합니다.
+
+이제 호스트 풀을 설정하는 다음 단계로서 앱 그룹을 작업 영역에 등록할 준비가 되었습니다.
+
+## <a name="workspace-information"></a>작업 영역 정보
+
+호스트 풀 설정 프로세스는 기본적으로 데스크톱 애플리케이션 그룹을 만듭니다. 호스트 풀이 의도한 대로 작동하려면 이 앱 그룹을 사용자 또는 사용자 그룹에 게시해야 하고 해당 앱 그룹을 작업 영역에 등록해야 합니다. 
+
+데스크톱 앱 그룹을 작업 영역에 등록하려면 다음을 수행합니다.
+
+1. **예**를 선택합니다.
+
+   **아니요**를 선택하는 경우 나중에 앱 그룹을 등록할 수 있지만 호스트 풀이 제대로 작동하도록 가능한 한 빨리 작업 영역을 등록하는 것이 좋습니다.
+
+2. 다음으로, 새 작업 영역을 만들지 아니면 기존 작업 영역에서 선택할지를 선택합니다. 호스트 풀과 동일한 위치에 만든 작업 영역에만 앱 그룹을 등록할 수 있습니다.
+
+3. 필요에 따라 **태그**를 선택할 수 있습니다.
+
+    여기서는 관리자가 작업을 더 쉽게 수행할 수 있도록 태그를 추가하여 개체를 메타데이터로 그룹화할 수 있습니다.
+
+4. 완료되면 **검토 + 만들기**를 선택합니다. 
+
+     >[!NOTE]
+     >검토 + 만들기 유효성 검사 프로세스에서는 암호가 보안 표준을 충족하는지 또는 아키텍처가 올바른지 확인하지 않으므로 이러한 항목 중 하나에 문제가 있는지 직접 확인해야 합니다. 
+
+5. 배포 정보를 검토하여 모든 것이 올바르게 표시되는지 확인합니다. 완료되면 **만들기**를 선택합니다. 그러면 배포 프로세스가 시작되어 다음과 같은 개체가 만들어집니다.
+
+     - 새 호스트 풀
+     - 데스크톱 앱 그룹
+     - 작업 영역(만들도록 선택한 경우)
+     - 데스크톱 앱 그룹을 등록하도록 선택한 경우 등록이 완료됩니다.
+     - 가상 머신(가상 머신을 만들도록 선택한 경우 도메인에 조인되어 새 호스트 풀에 등록됨)
+     - 구성에 기반한 Azure 리소스 관리 템플릿에 대한 다운로드 링크
+
+그러면 모든 작업이 완료되었습니다!
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 호스트 풀을 만들고 해당 데스크톱에 액세스하도록 사용자를 할당했으므로 RemoteApps를 사용하여 호스트 풀을 채울 수 있습니다. Windows Virtual Desktop에서 앱을 관리하는 방법에 대한 자세한 내용은 앱 그룹 관리 자습서를 참조하세요.
+이제 호스트 풀이 만들어졌으므로 이 풀을 RemoteApp 프로그램으로 채울 수 있습니다. Windows Virtual Desktop에서 앱을 관리하는 방법에 대해 자세히 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
 > [앱 그룹 관리 자습서](./manage-app-groups.md)

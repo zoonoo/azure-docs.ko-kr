@@ -1,11 +1,10 @@
 ---
-title: Azure CLI 스크립트 샘플 - 운영 체제 디스크 탑재 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - 운영 체제 디스크 탑재
 description: Azure CLI 스크립트 샘플 - 운영 체제 디스크 탑재
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -16,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6f2d4c9a7871e0917b33407605abe1389eb4420e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f15beeee2c5843506f0bf89b4c6d66d77826e152
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753608"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81459893"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>VM 운영 체제 디스크 문제 해결
 
@@ -43,7 +42,7 @@ ms.locfileid: "55753608"
 |---|---|
 | [az vm show](https://docs.microsoft.com/cli/azure/vm) | 가상 머신 목록을 반환합니다. 이 경우 가상 컴퓨터 운영 체제 디스크를 반환하는 데 쿼리 옵션이 사용됩니다. 그러면 이 값이 변수 이름 'uri'에 추가됩니다. |
 | [az vm delete](https://docs.microsoft.com/cli/azure/vm) | 가상 머신을 삭제합니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 가상 컴퓨터를 만듭니다.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 가상 머신을 만듭니다.  |
 | [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | 디스크를 가상 머신에 연결합니다. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | 가상 컴퓨터의 IP 주소를 반환합니다. |
 

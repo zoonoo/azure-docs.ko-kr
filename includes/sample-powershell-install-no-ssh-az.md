@@ -1,16 +1,17 @@
 ---
-author: sptramer
-ms.service: azure-powershell
 ms.topic: include
-ms.date: 02/13/2019
-ms.author: sttramer
-ms.openlocfilehash: f72b9a9738bf44711051947d9422047f4c1f7c7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 06/05/2019
+author: mikefrobbins
+ms.author: mirobb
+manager: barbkess
+ms.openlocfilehash: 32a725f6f84a1a79df9b1211d95ecb2ac530aa07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85378534"
 ---
-이 샘플에는 Azure PowerShell이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 
+이 샘플에는 Azure PowerShell이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다.
+설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 
 
-`Connect-AzAccount`를 실행하여 Azure와 연결합니다. 
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 실행하여 Azure에 연결합니다. 

@@ -1,26 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 로컬 Git 리포지토리에서 앱을 만들어 배포 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 웹앱 만들기 및 Git 리포지토리의 코드 배포
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: 로컬 Git 리포지토리에서 배포'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 로컬 Git 리포지토리에서 코드를 배포하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
-ms.service: app-service-web
-ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8103777b85d8e11416811c694103c58755f1a23a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7355f2730cc54ca027e20c48e989e9f28dac7487
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114436"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "74684832"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>웹앱 만들기 및 로컬 Git 리포지토리의 코드 배포
 

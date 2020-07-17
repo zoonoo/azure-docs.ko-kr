@@ -1,19 +1,19 @@
 ---
-title: '가상 네트워크를 회로에 연결 - ExpressRoute: Azure Portal | Microsoft Docs'
-description: Azure ExpressRoute 회로에 VNet을 연결합니다. 작업 단계
+title: 'Express 경로: 회로에 VNet 연결: Azure Portal'
+description: Azure Express 경로 회로에 VNet을 연결 합니다. 작업 단계
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 12/07/2018
+ms.topic: how-to
+ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4ed99d69d1c2389e73c215bccfd6112895e791d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365593"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737073"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "60365593"
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> * [PowerShell(클래식)](expressroute-howto-linkvnet-classic.md)
+> * [PowerShell (클래식)](expressroute-howto-linkvnet-classic.md)
 > 
 
 이 문서에서는 Azure Portal을 사용하여 Azure ExpressRoute 회로에 가상 네트워크를 연결하는 연결을 만들 수 있습니다. Azure ExpressRoute 회로에 연결한 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다.
@@ -32,8 +32,8 @@ ms.locfileid: "60365593"
 
 * 활성화된 ExpressRoute 회로가 있어야 합니다.
   * 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-portal-resource-manager.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다.
-  * 회로에 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-portal-resource-manager.md)을 참조하세요.
-  * Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 종단 간 연결을 사용하도록 작동 중이어야 합니다.
+  * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 피어 링 및 라우팅 지침은 [express 경로 회로에 대 한 피어 링 만들기 및 수정](expressroute-howto-routing-portal-resource-manager.md) 문서를 참조 하세요.
+  * Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
   * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 만듭니다](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute의 가상 네트워크 게이트웨이는 GatewayType으로 VPN이 아닌 'ExpressRoute'를 사용합니다.
 
 * 최대 10개의 가상 네트워크를 표준 ExpressRoute 회로에 연결할 수 있습니다. 표준 ExpressRoute 회로를 사용하는 경우 모든 가상 네트워크는 동일한 지역에 있어야 합니다.
@@ -52,15 +52,16 @@ ms.locfileid: "60365593"
 
 ### <a name="to-create-a-connection"></a>연결을 만들려면
 
-1. ExpressRoute 회로 및 Azure 개인 피어링이 성공적으로 구성되었는지 확인합니다. [ExpressRoute 회로 만들기](expressroute-howto-circuit-arm.md) 및 [라우팅 구성](expressroute-howto-routing-arm.md)의 지침을 따릅니다. ExpressRoute 회로가 다음 이미지와 같이 표시됩니다.
+1. ExpressRoute 회로 및 Azure 프라이빗 피어링이 성공적으로 구성되었는지 확인합니다. [Express 경로 회로 만들기](expressroute-howto-circuit-arm.md) 의 지침에 따라 [express 경로 회로에 대 한 피어 링을 만들고 수정](expressroute-howto-routing-arm.md)합니다. ExpressRoute 회로가 다음 이미지와 같이 표시됩니다.
 
-   ![ExpressRoute 회로 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
-2. 이제 연결 프로비전을 시작하여 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결할 수 있습니다. **연결** > **추가**를 클릭하여 **연결 추가** 페이지를 연 다음 값을 구성합니다.
+   [![ExpressRoute 회로 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "회로 보기")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
+2. 이제 연결 프로비전을 시작하여 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결할 수 있습니다. **연결**  >  **추가** 를 클릭 하 여 **연결 추가** 페이지를 연 다음 값을 구성 합니다.
 
-   ![연결 추가 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
+   [![연결 추가 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "연결 추가 스크린샷")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. 연결이 성공적으로 구성되면 연결 개체가 연결에 대한 정보를 표시합니다.
 
    ![연결 개체 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+
 
 ## <a name="connect-a-vnet-to-a-circuit---different-subscription"></a>회로에 VNet 연결 - 다른 구독
 
@@ -70,7 +71,7 @@ ms.locfileid: "60365593"
 
 - 큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다.
 - 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다.
-- 단일 부서(이 예제에서: IT)는 ExpressRoute 회로를 소유할 수 있습니다. 다른 Azure Active Directory 테넌트 및 기업계약 등록에 연결된 구독을 포함하여 조직 내 다른 구독에서 ExpressRoute 회로 및 해당 회로와 연결된 권한 부여를 사용할 수 있습니다.
+- 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 다른 Azure Active Directory 테넌트 및 기업계약 등록에 연결된 구독을 포함하여 조직 내 다른 구독에서 ExpressRoute 회로 및 해당 회로와 연결된 권한 부여를 사용할 수 있습니다.
 
   > [!NOTE]
   > 전용 회로에 대한 연결 및 대역폭 요금은 ExpressRoute 회로 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
@@ -95,7 +96,7 @@ ms.locfileid: "60365593"
 
 1. ExpressRoute 페이지에서 **권한 부여**를 클릭한 다음, 권한 부여에 대한 **이름**을 입력하고 **저장**을 클릭합니다.
 
-   ![인증](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+   ![권한 부여](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. 구성이 저장되면 **리소스 ID** 및 **권한 부여 키**를 복사합니다.
 
    ![인증 키](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
@@ -121,7 +122,7 @@ ms.locfileid: "60365593"
 
    ![기본 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. **설정** 페이지에서 **가상 네트워크 게이트웨이**를 선택하고 **권한 부여 사용** 확인란을 선택합니다.
-6. **권한 부여 키** 및 **피어 회로 URI**를 입력한 후 연결 이름을 지정합니다. **확인**을 클릭합니다.
+6. **권한 부여 키** 및 **피어 회로 URI**를 입력한 후 연결 이름을 지정합니다. **확인**을 클릭합니다. **피어 회로 URI** 는 express 경로 회로의 리소스 ID입니다 .이는 Express 경로 회로의 속성 설정 창에서 찾을 수 있습니다.
 
    ![설정 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. **요약** 페이지에서 정보를 검토하고 **확인**을 클릭합니다.

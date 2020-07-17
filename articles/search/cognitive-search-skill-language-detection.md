@@ -1,58 +1,54 @@
 ---
-title: 언어 감지 인식 검색 기술 - Azure Search
-description: 구조화되지 않은 텍스트를 평가하고 각 레코드에 대해 Azure Search 보강 파이프라인에서 분석의 강도를 나타내는 점수로 언어 식별자를 반환합니다.
-services: search
-manager: pablocas
+title: 언어 감지 인식 기술
+titleSuffix: Azure Cognitive Search
+description: 비구조적 텍스트를 평가 하 고 각 레코드에 대해 Azure Cognitive Search AI 보강 파이프라인의 분석 강도를 나타내는 점수가 포함 된 언어 식별자를 반환 합니다.
+manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: a076eee9818f294a8e5c4b10cebbcb9e5a55d80c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 06/17/2020
+ms.openlocfilehash: bac2f86f4134cc8d22e9f388b46bc76ab2d0e5ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080799"
 ---
 #   <a name="language-detection-cognitive-skill"></a>언어 감지 인식 기술
 
-합니다 **언어 감지** 기술 입력된 텍스트의 언어를 검색 하 고 요청에 제출 된 모든 문서에 대 한 단일 언어 코드를 보고 합니다. 언어 코드는 분석의 강도를 나타내는 점수와 쌍을 이룹니다. 이 기술은 Cognitive Services의 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)에서 제공하는 기계 학습 모델을 사용합니다.
+**언어 감지** 기술은 입력 텍스트의 언어를 검색 하 고 요청에 제출 된 모든 문서에 대해 단일 언어 코드를 보고 합니다. 언어 코드는 분석의 강도를 나타내는 점수와 쌍을 이룹니다. 이 기술은 Cognitive Services의 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)에서 제공하는 기계 학습 모델을 사용합니다.
 
 이 기능은 텍스트 언어를 다른 기술에 대한 입력으로 제공해야 할 경우 특히 유용합니다(예를 들어 [감정 분석 기술](cognitive-search-skill-sentiment.md) 또는 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)).
 
-언어 감지는 수를 초과 하는 Bing의 자연어 처리 라이브러리를 활용의 [지원 되는 언어 및 지역](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) Text Analytics에 대해 나열 합니다. 언어의 정확한 목록을, 게시 되지 않지만 모든 널리 음성 언어, plus 변형, 언어 및 일부 지역 및 문화적 언어를 포함 합니다. 덜 사용 되는 언어로 표현 된 콘텐츠를 만든 경우 [언어 검색 API 사용해 보기](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 확인 코드를 반환 합니다. 검색할 수 없는 언어에 대 한 응답은 `unknown`합니다.
+언어 검색은 Text Analytics에 대해 나열 된 [지원 되는 언어 및 지역](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) 수를 초과 하는 Bing의 자연어 처리 라이브러리를 활용 합니다. 언어에 대 한 정확한 목록은 게시 되지 않지만 널리 쓰이는 모든 언어, 변형, 언어 및 일부 지역 및 문화 언어를 포함 합니다. 자주 사용 하지 않는 언어로 표현 된 콘텐츠가 있는 경우 [언어 감지 API를 사용해](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 서 코드를 반환 하는지 확인할 수 있습니다. 감지할 수 없는 언어에 대한 응답은 `unknown`입니다.
 
 > [!NOTE]
-> 확장 하면 범위 처리의 빈도 늘려 더 많은 문서를 추가 하거나 자세한 AI 알고리즘에 추가 해야 합니다 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술 실행은 기존 부과 [종 량 Cognitive Services 가격 이동](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다. 에 설명 된 대로 이미지 추출 가격을 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)합니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에 설명되어 있습니다.
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>데이터 제한
-레코드의 최대 크기는 `String.Length`에 의해 측정된 대로 50,000자여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용할 수 있습니다.
+레코드의 최대 크기는 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)에 의해 측정된 대로 50,000자여야 합니다. 언어 검색 기술에 전송 하기 전에 데이터를 분할 해야 하는 경우 [텍스트 분할 기술을](cognitive-search-skill-textsplit.md)사용할 수 있습니다.
 
 ## <a name="skill-inputs"></a>기술 입력
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력     | 설명 |
+| 입력     | Description |
 |--------------------|-------------|
-| text | 분석할 텍스트입니다.|
+| `text` | 분석할 텍스트입니다.|
 
 ## <a name="skill-outputs"></a>기술 출력
 
 | 출력 이름    | 설명 |
 |--------------------|-------------|
-| languageCode | 식별된 언어에 대한 ISO 6391 언어 코드입니다. 예: "en". |
-| LanguageName | 언어의 이름입니다. 예: "영어". |
-| score에 대한 임계값 수준 보기 | 0과 1 사이의 값입니다. 언어를 올바르게 식별하는 가능성입니다. 문장에 언어를 혼합하는 경우 점수는 1보다 작을 수 있습니다.  |
+| `languageCode` | 식별된 언어에 대한 ISO 6391 언어 코드입니다. 예: "en". |
+| `languageName` | 언어의 이름입니다. 예: "영어". |
+| `score` | 0과 1 사이의 값입니다. 언어를 올바르게 식별하는 가능성입니다. 문장에 언어를 혼합하는 경우 점수는 1보다 작을 수 있습니다.  |
 
 ##  <a name="sample-definition"></a>샘플 정의
 
@@ -139,5 +135,5 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="see-also"></a>참고 항목
 
-+ [미리 정의된 기술](cognitive-search-predefined-skills.md)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기본 제공 기술](cognitive-search-predefined-skills.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

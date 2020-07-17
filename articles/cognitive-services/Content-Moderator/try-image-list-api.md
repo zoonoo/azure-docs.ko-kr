@@ -1,25 +1,25 @@
 ---
 title: 사용자 지정 목록 및 API 콘솔을 사용하여 이미지 조정 - Content Moderator
-titlesuffix: Azure Content Moderator
+titleSuffix: Azure Content Moderator
 description: Azure Content Moderator의 목록 관리 API를 사용하여 사용자 지정 이미지 목록을 만듭니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 7efa5114a903ba88010ec44f2f1038331df62948
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pafarley
+ms.openlocfilehash: 0035d367017c92bd151c27e14d744ef41eace069
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075700"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800151"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 이미지 목록을 사용하여 조정
 
-Azure Content Moderator에서 [목록 관리 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)를 사용하여 사용자 지정 이미지 목록을 만듭니다. 이미지 조정 API와 함께 사용자 지정 이미지 목록을 사용합니다. 이미지 조정 작업이 이미지를 평가합니다. 사용자 지정 목록을 만드는 경우 작업은 사용자 지정 목록의 이미지와 비교합니다. 사용자 지정 목록을 사용하여 이미지를 차단하거나 허용할 수 있습니다.
+Azure Content Moderator의 [목록 관리 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) 를 사용 하 여 사용자 지정 이미지 목록을 만듭니다. 이미지 조정 API와 함께 사용자 지정 이미지 목록을 사용합니다. 이미지 조정 작업이 이미지를 평가합니다. 사용자 지정 목록을 만드는 경우 작업은 사용자 지정 목록의 이미지와 비교합니다. 사용자 지정 목록을 사용하여 이미지를 차단하거나 허용할 수 있습니다.
 
 > [!NOTE]
 > 최대 **5개 이미지 목록**으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
@@ -77,15 +77,17 @@ Azure Content Moderator에서 [목록 관리 API](https://westus.dev.cognitive.m
 
 6. 키-값 쌍 자리 표시자를 사용하여 목록에 보다 설명적인 메타데이터를 지정합니다.
 
-       {
-          "Name": "MyExclusionList",
-          "Description": "MyListDescription",
-          "Metadata": 
-          {
+    ```json
+    {
+        "Name": "MyExclusionList",
+        "Description": "MyListDescription",
+        "Metadata": 
+        {
             "Category": "Competitors",
             "Type": "Exclude"
-          }
-       }
+        }
+    }
+    ```
 
    키-값 쌍으로 실제 이미지가 아닌 목록 메타데이터를 추가합니다.
  

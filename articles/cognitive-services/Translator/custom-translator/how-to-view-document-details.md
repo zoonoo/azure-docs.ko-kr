@@ -2,19 +2,19 @@
 title: 문서 세부 사항 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 문서 목록 페이지는 작업 영역에 포함된 처음 10개의 문서를 보여 줍니다. 각 문서의 이름, 페어링, 유형, 언어, 업로드 타임스탬프, 문서를 업로드한 사용자의 메일 주소가 표시됩니다.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
-ms.author: v-rada
+ms.date: 05/26/2020
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d380c8bcdcb4954901df0b460269493c5be0a6de
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22c982babbed1322e97127379be75e7b070ed81f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777391"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994245"
 ---
 # <a name="view-document-details"></a>문서 세부 정보 보기
 
@@ -22,7 +22,7 @@ ms.locfileid: "57777391"
 
 개별 문서를 클릭하여 문서 세부 사항 페이지를 봅니다. 문서 세부 사항 페이지에 문서에서 추출된 문장 목록이 표시됩니다.
 
-- 기본적으로 드롭다운 필드에서 “소스” 언어가 선택되어 있지만, 대상 언어의 문장이 표시되도록 토글할 수 있습니다.
+- 기본적으로 드롭다운 필드에서 "원본" 언어가 선택 되어 있지만 대상 언어의 문장을 표시 하도록 전환할 수 있습니다.
 - 기본적으로 페이지당 20개의 문장이 표시됩니다. 페이지 매김 컨트롤을 사용하여 페이지 사이를 이동할 수 있습니다.
 
 ![문서 세부 사항](media/how-to/how-to-view-document-details.png)

@@ -1,24 +1,16 @@
 ---
 title: Azure Monitor 로그 쿼리의 유용한 연산자 | Microsoft Docs
 description: Azure Monitor 로그 쿼리에서 다양한 시나리오에 사용할 일반 함수입니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 08/21/2018
+ms.openlocfilehash: ff63b9b7027e99c70971230936ed98186c2208e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61424141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75397717"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 유용한 연산자
 
@@ -26,7 +18,7 @@ ms.locfileid: "61424141"
 
 ## <a name="useful-operators"></a>유용한 연산자
 
-Category                                |관련 분석 함수
+범주                                |관련 분석 함수
 ----------------------------------------|----------------------------------------
 선택 영역 및 열 별칭            |`project`, `project-away`, `extend`
 임시 테이블 및 상수          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 
@@ -41,7 +33,7 @@ Category                                |관련 분석 함수
 정렬, 순서                             |`sort`, `order` 
 동적 개체(JSON 및 배열)         |`parsejson()` <br> `makeset()`, `makelist()` <br> `split()`, `arraylength()` <br> `zip()`, `pack()`
 논리 연산자                       |`and`, `or`, `iff(condition, value_t, value_f)` <br> `binary_and()`, `binary_or()`, `binary_not()`, `binary_xor()`
-Machine Learning                        |`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
+기계 학습                        |`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
 
 
 ## <a name="next-steps"></a>다음 단계

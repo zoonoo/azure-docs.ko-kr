@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 18f76ea4acc99038939a2653bb66875154529126
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232401"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67181896"
 ---
-처리기에서 비동기 작업을 실행 해야 할 경우 토큰을 요청 하 여 설정이 연기할 수 있습니다는 `deferral` 개체 및 그런 다음, 다음 예제와 같이 완료 합니다.
+처리기에서 비동기 작업을 실행해야 하는 경우 다음 예제와 같이 `deferral` 개체를 요청한 다음, 이를 완료하여 토큰 설정을 연기할 수 있습니다.

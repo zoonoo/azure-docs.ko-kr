@@ -1,46 +1,39 @@
 ---
-title: Azure Functions를 사용하여 데이터베이스 정리 작업 수행 | Microsoft Docs
+title: Azure Functions를 사용 하 여 데이터베이스 정리 작업 수행
 description: Azure Functions를 사용하여 Azure SQL Database에 연결하여 행을 주기적으로 정리하는 작업을 예약합니다.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 10/02/2019
+ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254279"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 
-이 문서에서는 Azure Functions를 사용하여 Azure SQL Database 인스턴스에 연결되는 예약된 작업을 만드는 방법을 보여줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 C# 함수는 Visual Studio 2017에서 미리 정의된 타이머 트리거 템플릿을 기반으로 생성됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
+이 문서에서는 Azure Functions를 사용 하 여 Azure SQL Database 또는 Azure SQL Managed Instance에 연결 하는 예약 된 작업을 만드는 방법을 보여 줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 c # 함수는 Visual Studio 2019의 미리 정의 된 타이머 트리거 템플릿을 기반으로 생성 됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. Azure SQL Managed Instance의 경우 Azure Functions에서 연결할 수 있도록 [공용 끝점을 설정](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
 
 C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)를 참고해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-+ [Visual Studio를 사용하여 첫 번째 함수 만들기](functions-create-your-first-function-visual-studio.md) 문서의 단계를 완료하여 버전 2.x 런타임을 대상으로 하는 로컬 함수 앱을 만듭니다. 또한 프로젝트를 Azure의 함수 앱에 게시했어야 합니다.
++ [Visual Studio를 사용 하 여 첫 번째 함수 만들기](functions-create-your-first-function-visual-studio.md) 문서의 단계를 완료 하 여 버전 2.x 또는 이후 버전의 런타임을 대상으로 하는 로컬 함수 앱을 만듭니다. 또한 프로젝트를 Azure의 함수 앱에 게시했어야 합니다.
 
-+ 이 문서은 AdventureWorksLT 샘플 데이터베이스의 **SalesOrderHeader** 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령을 보여줍니다. AdventureWorksLT 샘플 데이터베이스를 만들려면 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서의 단계를 완료합니다.
++ 이 문서은 AdventureWorksLT 샘플 데이터베이스의 **SalesOrderHeader** 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령을 보여줍니다. AdventureWorksLT 샘플 데이터베이스를 만들려면 [Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)문서의 단계를 완료 합니다.
 
-+ 이 빠른 시작 에서 사용하는 컴퓨터의 공용 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-get-started-portal-firewall.md)을 추가해야 합니다. 이 규칙은 로컬 컴퓨터에서 SQL 데이터베이스 인스턴스에 액세스할 수 있어야 합니다.  
++ 이 빠른 시작 에서 사용하는 컴퓨터의 공용 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-get-started-portal-firewall.md)을 추가해야 합니다. 이 규칙은 로컬 컴퓨터에서 SQL Database 인스턴스에 액세스할 수 있어야 합니다.  
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-[Azure Portal에서 Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 완료하면 만든 데이터베이스에 대한 연결 문자열을 가져와야 합니다.
+[Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 완료할 때 만든 데이터베이스에 대 한 연결 문자열을 가져와야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 선택합니다.
 
-1. **설정** 아래에서 **연결 문자열**을 선택하고, 전체 **ADO.NET** 연결 문자열을 복사합니다.
+1. **설정** 아래에서 **연결 문자열**을 선택하고, 전체 **ADO.NET** 연결 문자열을 복사합니다. Azure SQL Managed Instance 공용 끝점에 대 한 연결 문자열을 복사 합니다.
 
     ![ADO.NET 연결 문자열을 복사합니다.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -50,7 +43,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 이전에 Azure에 앱을 게시했어야 합니다. 아직 이렇게 수행하지 않은 경우 [함수 앱을 Azure에 게시](functions-develop-vs.md#publish-to-azure)합니다.
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **게시** > **애플리케이션 설정 관리...** 를 선택합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**  >  **Azure App Service 설정 편집**을 선택 합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
 
     ![함수 앱에 대한 애플리케이션 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -62,9 +55,9 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 ## <a name="add-the-sqlclient-package-to-the-project"></a>프로젝트에 SqlClient 패키지 추가
 
-SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니다. 이 데이터 액세스 라이브러리는 SQL 데이터베이스에 연결하는 데 필요합니다.
+SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니다. 이 데이터 액세스 라이브러리는 SQL Database에 연결 하는 데 필요 합니다.
 
-1. Visual Studio 2017에서 로컬 함수 앱 프로젝트를 엽니다.
+1. Visual Studio 2019에서 로컬 함수 앱 프로젝트를 엽니다.
 
 1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **NuGet 패키지 관리**를 선택합니다.
 
@@ -80,7 +73,7 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 
 ## <a name="add-a-timer-triggered-function"></a>타이머 트리거 함수 추가
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가** > **새 Azure 함수**를 선택합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **Add**  >  **새 Azure 함수**추가를 선택 합니다.
 
 1. **Azure Functions** 템플릿을 선택하여 새 항목의 이름을 `DatabaseCleanup.cs`와 같이 지정하고, **추가**를 선택합니다.
 
@@ -127,7 +120,7 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 
     첫 번째 실행에서 32개 행의 데이터를 업데이트해야 합니다. 다음 실행은 데이터 행을 업데이트하지 않습니다. 따라서 SalesOrderHeader 테이블 데이터를 변경하지 않으면 `UPDATE` 문에 의해 더 많은 행이 선택됩니다.
 
-[이 함수를 게시](functions-develop-vs.md#publish-to-azure)하려는 경우 `TimerTrigger` 특성을 15초 간격보다 적절한 [cron 일정](functions-bindings-timer.md#cron-expressions)으로 변경해야 합니다.
+[이 함수를 게시](functions-develop-vs.md#publish-to-azure)하려는 경우 `TimerTrigger` 특성을 15초 간격보다 적절한 [cron 일정](functions-bindings-timer.md#ncrontab-expressions)으로 변경해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -140,5 +133,5 @@ Functions에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 + [Azure Functions 개발자 참조](functions-reference.md)  
    함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
-+ [Azure Functions 테스트](functions-test-a-function.md)  
++ [테스트 Azure Functions](functions-test-a-function.md)  
   함수를 테스트하는 다양한 도구와 기법을 설명합니다.  

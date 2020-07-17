@@ -1,12 +1,12 @@
 ---
-title: Azure Notification Hubs 및 Bing 공간 데이터가 있는 지역 구분 푸시 알림 | Microsoft Docs
+title: Azure Notification Hubs 및 Bing Spatial Data를 사용하여 푸시 알림 보내기 | Microsoft Docs
 description: 이 자습서에서는 Azure Notification Hubs 및 Bing 공간 데이터로 위치 기반 푸시 알림을 전달하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
 keywords: 푸시 알림, 푸시 알림
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,15 +15,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 0abe443521b928dd087e23b5491635b02cd832e8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118309"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592029"
 ---
-# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>자습서: Azure Notification Hubs 및 Bing 공간 데이터가 있는 위치 기반 알림 푸시
+# <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>자습서: Notification Hubs 및 Bing Spatial Data를 사용하여 위치 기반 푸시 알림 보내기
 
 이 자습서에서는 Azure Notification Hubs 및 Bing 공간 데이터로 위치 기반 푸시 알림을 전달하는 방법을 알아봅니다.
 
@@ -35,7 +37,7 @@ ms.locfileid: "58118309"
 > * 백 엔드 설정
 > * UWP(유니버설 Windows 플랫폼) 앱에서 푸시 알림 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 * [Visual Studio 2015 업데이트 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 이상([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409))
@@ -85,7 +87,7 @@ ms.locfileid: "58118309"
 
     ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
-    **쿼리 URL**은 장치가 현재 위치의 경계 내에 있는지 여부를 확인하기 위해 쿼리를 실행할 수 있는 엔드포인트입니다. 이 검사를 수행하려면 추가된 다음 매개 변수를 사용하여 쿼리 URL에 대한 가져오기 호출을 실행합니다.
+    **쿼리 URL**은 디바이스가 현재 위치의 경계 내에 있는지 여부를 확인하기 위해 쿼리를 실행할 수 있는 엔드포인트입니다. 이 검사를 수행하려면 추가된 다음 매개 변수를 사용하여 쿼리 URL에 대한 가져오기 호출을 실행합니다.
 
     ```text
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
@@ -187,7 +189,7 @@ ms.locfileid: "58118309"
         }
     }
     ```
-6. 응용 프로그램을 실행하고 사용자의 위치에 액세스할 수 있도록 허용합니다.
+6. 애플리케이션을 실행하고 사용자의 위치에 액세스할 수 있도록 허용합니다.
 
     ![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
 7. 애플리케이션이 시작되면 **출력** 창에서 좌표를 볼 수 있어야 합니다.
@@ -215,7 +217,7 @@ ms.locfileid: "58118309"
 
 ## <a name="set-up-the-backend"></a>백 엔드 설정
 
-1. [GitHub에서 .NET 백 엔드 샘플](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)을 다운로드합니다.
+1. [GitHub에서 .NET 백 엔드 샘플](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)을 다운로드합니다.
 2. 다운로드가 완료되면 `NotifyUsers` 폴더를 연 다음, Visual Studio에서 `NotifyUsers.sln` 파일을 엽니다.
 3. `AppBackend` 프로젝트를 **시작 프로젝트** 로 설정하고 시작합니다.
 
@@ -346,7 +348,7 @@ ms.locfileid: "58118309"
     ```
 
     > [!NOTE]
-    > `POST_URL`을 배포된 웹 응용 프로그램의 위치로 설정합니다. 이제 로컬에서 실행해도 되지만 공용 버전을 배포할 경우 외부 공급자로 호스트해야 합니다.
+    > `POST_URL`을 배포된 웹 애플리케이션의 위치로 설정합니다. 이제 로컬에서 실행해도 되지만 공용 버전을 배포할 경우 외부 공급자로 호스트해야 합니다.
 2. 푸시 알림을 위해 UWP 앱을 등록합니다. Visual Studio에서 **프로젝트** > **저장** > **스토어와 앱 연결**을 선택합니다.
 
     ![](./media/notification-hubs-geofence/vs-associate-with-store.png)

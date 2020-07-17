@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/25/2018
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db5dbef2b57fb89b33ea116d0373184cdade0ac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356766"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 동기화 서비스 기능
 
@@ -62,7 +62,7 @@ Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |내보내는 동안 전체 개체가 실패한 것이 아니라 또 다른 개체의 복제본인 경우 특성을 격리시킬 수 있습니다. |
 | 암호 해시 동기화 |[Azure AD Connect 동기화로 암호 해시 동기화 구현](how-to-connect-password-hash-synchronization.md) |
 |통과 인증|[Azure Active Directory 통과 인증으로 사용자 로그인](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[미리 보기: 그룹 쓰기 저장](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |그룹 쓰기 저장|
 | UserWriteback |현재 지원되지 않습니다. |
 
 ## <a name="duplicate-attribute-resiliency"></a>중복 특성 복원력
@@ -89,14 +89,16 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 ## <a name="synchronize-userprincipalname-updates"></a>UserPrincipalName 업데이트 동기화
 
-경험상 다음 조건이 모두 충족되지 않으면 온-프레미스에서 동기화 서비스를 사용하여 UserPrincipalName 특성에 대한 업데이트는 차단되었습니다.
+이전에는 다음 조건이 모두 충족되지 않으면 온-프레미스에서 동기화 서비스를 사용한 UserPrincipalName 특성 업데이트가 차단되었습니다.
 
 * 사용자가 관리됨(페더레이션되지 않음)
 * 사용자에게 라이선스가 할당되지 않음
 
-자세한 내용은 [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않음](https://support.microsoft.com/kb/2523192)을 참조하세요.
+> [!NOTE]
+> 2019년 3월부터 페더레이션된 사용자 계정에 대한 UPN 변경 내용을 동기화할 수 있습니다.
+> 
 
-이 기능을 사용 하면 변경 된 온-프레미스 이며 암호 해시 동기화 또는 통과 인증을 사용 하는 경우 userPrincipalName 업데이트 동기화 엔진이 있습니다. 페더레이션을 사용하는 경우 이 기능은 지원되지 않습니다.
+이 기능을 사용하도록 설정하면 userPrincipalName이 변경된 온-프레미스이고 암호 해시 동기화 또는 통과 인증을 사용하는 경우 동기화 엔진이 이를 업데이트할 수 있습니다.
 
 이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 이 기능을 사용하도록 설정했는지 확인할 수 있습니다.  
 

@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2016
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9f6e5b606caa661429a3c4d4a53e2021d57730aa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698940"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>StorSimple 가상 배열에 StorSimple 디바이스 관리자 서비스 배포
+
 ## <a name="overview"></a>개요
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 디바이스에 연결됩니다. 서비스를 만든 후에 브라우저에서 실행되는 Microsoft Azure Portal에서 이러한 디바이스를 관리하는 데 사용할 수 있습니다. 하나의 중앙 위치에서 StorSimple 디바이스 관리자 서비스에 연결된 모든 디바이스를 모니터링하여 관리 부담을 최소화할 수 있습니다.
 
@@ -40,10 +42,10 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 서비스를 만들려면:
 
 * 엔터프라이즈 계약을 사용하여 구독
-* 활성 Microsoft Azure 저장소 계정
+* 활성 Microsoft Azure Storage 계정
 * 액세스 관리에 사용되는 청구 정보
 
-또한 서비스를 만들 때 저장소 계정을 생성하도록 선택할 수 있습니다.
+또한 서비스를 만들 때 스토리지 계정을 생성하도록 선택할 수 있습니다.
 
 하나의 서비스로 여러 디바이스를 관리할 수 있습니다. 하지만 하나의 디바이스는 여러 서비스로 확장할 수 없습니다. 대규모 엔터프라이즈는 서로 다른 구독, 조직 또는 배포 위치와 동작하는 여러 서비스 인스턴스를 가질 수 있습니다.
 
@@ -67,7 +69,7 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 
 #### <a name="to-delete-a-service"></a>서비스를 삭제하려면
 
-1. **모든 리소스**로 이동합니다. StorSimple 디바이스 관리자 서비스를 검색합니다. 삭제하려는 서비스를 선택합니다.
+1. **모든 리소스**로 이동 합니다. StorSimple 디바이스 관리자 서비스를 검색합니다. 삭제하려는 서비스를 선택합니다.
    
     ![삭제할 서비스 선택](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
 2. 서비스 대시보드로 이동하여 서비스에 연결된 디바이스가 없는지 확인합니다. 이 서비스에 등록된 디바이스가 없는 경우 효과에 대한 배너 메시지가 나타납니다. **삭제**를 클릭합니다.
@@ -91,7 +93,7 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 서비스 등록 키를 가져오려면 다음 단계를 수행합니다.
 
 #### <a name="to-get-the-service-registration-key"></a>서비스 등록 키를 가져오려면
-1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;****키**로 이동합니다.
+1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;** **키**로 이동합니다.
    
    ![키 블레이드](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. **키** 블레이드에서 서비스 등록 키가 표시됩니다. 복사 아이콘을 사용하여 등록 키를 복사합니다. 
@@ -104,7 +106,7 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 서비스 등록 키를 다시 생성하려 다음 단계를 수행합니다.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>서비스 등록 키를 다시 생성하려면
-1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;****키**로 이동합니다.
+1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;** **키**로 이동합니다.
    
    ![키 블레이드](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. **키** 블레이드에서 **다시 생성**을 클릭합니다.
@@ -120,6 +122,6 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
    이 서비스에 새 디바이스 등록을 위해 이 키를 복사하고 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* StorSimple 가상 배열 [시작](storsimple-virtual-array-deploy1-portal-prep.md) 방법에 대해 알아봅니다.
+* StorSimple 가상 배열을 [시작](storsimple-virtual-array-deploy1-portal-prep.md) 하는 방법에 대해 알아봅니다.
 * [StorSimple 디바이스 관리](storsimple-ova-web-ui-admin.md)방법에 대해 알아봅니다.
 

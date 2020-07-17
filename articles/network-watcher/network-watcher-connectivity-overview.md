@@ -3,22 +3,19 @@ title: Azure Network Watcher 연결 문제 해결 소개 | Microsoft Docs
 description: 이 페이지는 Network Watcher 연결 문제 해결 기능에 대한 개요를 제공합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.author: damendo
+ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708946"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Azure Network Watcher의 연결 문제 해결 소개
 
@@ -27,11 +24,11 @@ Network Watcher의 연결 문제 해결 기능은 가상 머신에서 VM(가상 
 > [!IMPORTANT]
 > 연결 문제 해결은 문제를 해결하는 VM에 `AzureNetworkWatcherExtension` VM 확장이 설치되어 있어야 합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 방문하세요. 확장은 대상 엔드포인트에서 필요하지 않습니다.
 
-## <a name="response"></a>response
+## <a name="response"></a>응답
 
 다음 테이블에 연결 문제 해결이 실행 완료되었을 때 반환되는 속성이 나와 있습니다.
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
 |ConnectionStatus     | 연결 확인의 상태입니다. 가능한 결과는 **연결 가능** 및 **연결 불가능**입니다.        |
 |AvgLatencyInMs     | 연결 확인 중 평균 대기 시간(밀리초)입니다. (검사 상태가 연결 가능인 경우에만 표시됩니다.)        |
@@ -46,9 +43,9 @@ Network Watcher의 연결 문제 해결 기능은 가상 머신에서 VM(가상 
 |Hops[].ResourceId | 홉이 Azure 리소스인 경우 홉의 ResourceID입니다. 인터넷 리소스인 경우 ResourceID는 **Internet**입니다. |
 |Hops[].NextHopIds | 수행된 다음 홉의 고유 식별자입니다.|
 |Hops[].Issues | 해당 홉에서 검사 중 발생한 문제의 컬렉션입니다. 문제가 없는 경우 값은 비어 있습니다.|
-|Hops[].Issues[].Origin | 현재 홉에서 문제가 발생한 경우입니다. 가능한 값은 다음과 같습니다.<br/> **인바운드** - 문제가 이전 홉부터 현재 홉까지 링크에 있습니다.<br/>**아웃바운드** - 문제가 현재 홉부터 다음 홉까지 링크에 있습니다.<br/>**로컬** - 문제가 현재 홉에 있습니다.|
+|Hops[].Issues[].Origin | 현재 홉에서 문제가 발생한 경우입니다. 가능한 값은<br/> **인바운드** - 문제가 이전 홉부터 현재 홉까지 링크에 있습니다.<br/>**아웃바운드** - 문제가 현재 홉부터 다음 홉까지 링크에 있습니다.<br/>**로컬** - 문제가 현재 홉에 있습니다.|
 |Hops[].Issues[].Severity | 감지된 문제의 심각도입니다. 가능한 값은 **Error** 및 **Warning**입니다. |
-|Hops[].Issues[].Type |발견된 문제의 형식입니다. 가능한 값은 다음과 같습니다. <br/>**CPU**<br/>**메모리**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Hops[].Issues[].Type |발견된 문제의 형식입니다. 가능한 값은 <br/>**CPU**<br/>**메모리**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
 |Hops[].Issues[].Context |발견된 문제에 관한 세부 정보입니다.|
 |Hops[].Issues[].Context[].key |반환된 키 값 쌍의 키입니다.|
 |Hops[].Issues[].Context[].value |반환된 키 값 쌍의 값입니다.|
@@ -74,7 +71,7 @@ Network Watcher의 연결 문제 해결 기능은 가상 머신에서 VM(가상 
 
 연결 문제 해결은 연결에 대한 오류 형식을 반환합니다. 다음 테이블에 반환된 현재 오류 형식의 목록이 나와 있습니다.
 
-|Type  |설명  |
+|형식  |설명  |
 |---------|---------|
 |CPU     | 높은 CPU 사용률       |
 |메모리     | 높은 메모리 사용률       |

@@ -1,30 +1,30 @@
 ---
 title: 사용자 지정 용어 목록을 사용하여 텍스트 조정 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 목록 관리 API를 사용하여 텍스트 조정 API와 함께 사용할 사용자 지정 용어 목록을 만드는 방법을 설명합니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 28029fe92a207dba85e2ab5a22c08879b7172925
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pafarley
+ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105780"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800043"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 용어 목록을 사용하여 조정
 
 Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐츠 조정 요구에 적합합니다. 그러나 조직에 관련된 용어에 대해 차단해야 할 수 있습니다. 예를 들어 추가 검토를 위해 경쟁 업체 이름에 태그를 지정할 수 있습니다. 
 
-[목록 관리 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)를 사용하여 텍스트 조정 API와 함께 사용할 사용자 지정 용어 목록을 만듭니다. **텍스트 - 차단** 작업은 텍스트에서 욕설을 검색하고 사용자 지정 및 공유 블랙리스트에 대해 텍스트를 비교합니다.
+[목록 관리 api](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) 를 사용 하 여 텍스트 중재 api에 사용할 사용자 지정 약관 목록을 만듭니다. 텍스트 **화면** 작업은 텍스트에서 비속어를 검색 하 고 텍스트를 사용자 지정 및 공유 블록 목록과 비교 합니다.
 
 > [!NOTE]
-> 최대 **5개 용어 목록**으로 제한되고, 각 목록이 **10,000개 용어를 초과하지 않아야** 합니다.
+> 최대 **5개 용어 목록**으로 제한되고, 각 목록은 **10,000개 용어를 초과하지 않아야** 합니다.
 >
 
 목록 관리 API를 사용하여 다음 작업을 수행할 수 있습니다.
@@ -38,7 +38,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 
 ## <a name="use-the-api-console"></a>API 콘솔 사용
 
-온라인 콘솔에서 API를 시험 사용할 수 있으려면 먼저 구독 키가 필요합니다. 이 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
+온라인 콘솔에서 API를 테스트하려면 구독 키가 필요합니다. 이 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
 
 ## <a name="refresh-search-index"></a>검색 인덱스 새로 고침
 
@@ -77,15 +77,17 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 
 5. 키-값 쌍 자리 표시자를 사용하여 목록에 보다 설명적인 메타데이터를 지정합니다.
 
-       {
-          "Name": "MyExclusionList",
-          "Description": "MyListDescription",
-          "Metadata": 
-          {
-             "Category": "Competitors",
-             "Type": "Exclude"
-          }
-       }
+    ```json
+    {
+        "Name": "MyExclusionList",
+        "Description": "MyListDescription",
+        "Metadata": 
+        {
+            "Category": "Competitors",
+            "Type": "Exclude"
+        }
+    }
+    ```
 
    키-값 쌍으로 실제 용어가 아닌 목록 메타데이터를 추가합니다.
  

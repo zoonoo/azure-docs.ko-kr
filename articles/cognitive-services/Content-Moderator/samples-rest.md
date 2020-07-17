@@ -1,7 +1,7 @@
 ---
 title: 코드 샘플 - Content Moderator, C#
-titlesuffix: Azure Cognitive Services
-description: REST API 호출을 통해 애플리케이션에서 Content Moderator를 사용합니다.
+titleSuffix: Azure Cognitive Services
+description: REST API 호출을 통해 애플리케이션에서 Azure Cognitive Services Content Moderator 기능 기반 샘플을 사용합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 9448cb2279b78143007f460c17427d91dfa397c7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: df0b17509dfb11fb18a591c70e9060973459a24c
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878377"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "73744304"
 ---
 # <a name="content-moderator-rest-samples-in-c"></a>C#의 Content Moderator REST 샘플
 

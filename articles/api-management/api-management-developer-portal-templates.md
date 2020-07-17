@@ -1,5 +1,6 @@
 ---
-title: 템플릿을 사용하여 Azure API Management 개발자 포털 사용자 지정 | Microsoft Docs
+title: 템플릿을 사용 하 여 API Management 개발자 포털 사용자 지정
+titleSuffix: Azure API Management
 description: 템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
@@ -10,16 +11,14 @@ ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75430782"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법
 
@@ -31,11 +30,13 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 템플릿은 시스템에서 생성된 개발자 포털 페이지(예: API 문서, 제품, 사용자 인증 등)의 콘텐츠를 사용자 지정하는 데 사용됩니다. [DotLiquid](http://dotliquidmarkup.org/) 구문 및 제공된 지역화 문자열 리소스, 아이콘 및 페이지 컨트롤을 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="developer-portal-templates-overview"></a>개발자 포털 템플릿 개요
 
-관리자로 로그인되어 있는 동안 **개발자 포털**에서 템플릿을 편집합니다. 여기로 이동하려면 우선 Azure Portal을 열고 API Management 인스턴스의 서비스 도구 모음에서 **개발자 포털**을 클릭하세요.
+관리자로 로그인되어 있는 동안 **개발자 포털**에서 템플릿을 편집합니다. 이를 가져오려면 먼저 Azure Portal를 열고 API Management 인스턴스의 서비스 도구 모음에서 **개발자 포털** 을 클릭 합니다.
 
 개발자 포털 템플릿에 액세스하려면 왼쪽의 사용자 지정 아이콘을 클릭하여 사용자 지정 메뉴를 표시한 다음 **템플릿**을 클릭합니다.
 
@@ -45,7 +46,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![개발자 포털 템플릿][api-management-templates-menu]
 
-템플릿을 클릭하면 해당 템플릿을 통해 사용자 지정할 수 있는 개발자 포털 페이지로 이동합니다. 이 예제에서는 **제품 목록** 템플릿이 표시됩니다. **제품 목록** 템플릿은 빨간색 사각형으로 표시된 화면 영역을 제어합니다.
+템플릿을 클릭하면 해당 템플릿을 통해 사용자 지정할 수 있는 개발자 포털 페이지로 이동합니다. 이 예제에서는 **제품 목록** 템플릿이 표시 됩니다. **제품 목록** 템플릿은 빨간색 사각형으로 표시된 화면 영역을 제어합니다.
 
 ![제품 목록 템플릿][api-management-developer-portal-templates-overview]
 
@@ -63,7 +64,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![템플릿 데이터 모델][api-management-template-data]
 
-이전 예제에는 다음 예제와 같이 **템플릿 데이터** 창에 표시된 데이터에서 가져온 두 개의 제품이 개발자 포털에 표시되어 있습니다.
+앞의 예제에는 다음 예제와 같이 **템플릿 데이터** 창에 표시 되는 데이터에서 검색 된 두 개의 제품이 개발자 포털에 표시 됩니다.
 
 ```json
 {
@@ -160,7 +161,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![템플릿 되돌리기][api-management-revert-template]
 
-**예** 를 클릭하여 확인합니다.
+**예**를 클릭하여 확인합니다.
 
 ![Confirm][api-management-revert-template-confirm]
 
@@ -173,7 +174,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![템플릿 되돌리기][api-management-reset-template]
 
-**예** 를 클릭하여 확인합니다.
+**예**를 클릭하여 확인합니다.
 
 ![Confirm][api-management-reset-template-confirm]
 

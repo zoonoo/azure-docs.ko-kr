@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: damaerte
 ms.openlocfilehash: bbf6c1f3049265961559ea34c8b748b2b4d263b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60614304"
 ---
 # <a name="embed-azure-cloud-shell"></a>Azure Cloud Shell 포함
@@ -31,7 +31,7 @@ Cloud Shell을 포함하면 개발자 및 콘텐츠 작성자가 전용 URL, [sh
 
 큰 크기 단추
 
-[![큰 시작](https://shell.azure.com/images/launchcloudshell@2x.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+[![대량 실행](https://shell.azure.com/images/launchcloudshell@2x.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
 ## <a name="how-to"></a>방법
 

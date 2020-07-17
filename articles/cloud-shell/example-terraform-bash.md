@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포 | Microsoft Docs
-description: Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포
+title: Azure Cloud Shell에서 Terraform을 사용 하 여 배포 Microsoft Docs
+description: Azure Cloud Shell에서 Terraform을 사용 하 여 배포
 services: Azure
 documentationcenter: ''
 author: tomarchermsft
@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: a08a4e7df6cf0493ab1aa6aced1abf888a61072a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79458157"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포
-이 문서에서는 Terraform [AzureRM 공급자](https://www.terraform.io/docs/providers/azurerm/index.html)로 리소스 그룹을 만드는 과정을 안내합니다. 
+이 문서에서는 Terraform [AzureRM 공급자](https://www.terraform.io/docs/providers/azurerm/index.html)로 리소스 그룹을 만드는 과정을 안내합니다.
 
-[Hashicorp Terraform](https://www.terraform.io/)은 API를 선언적 구성 파일로 체계화하는 공개 소스 도구로, 팀 구성원간에 공유하여 편집, 검토 및 버전 관리할 수 있습니다. Microsoft AzureRM 공급자는 AzureRM API를 통해 Azure Resource Manager에서 지원하는 리소스와 상호 작용하는 데 사용됩니다. 
+[Hashicorp Terraform](https://www.terraform.io/)은 API를 선언적 구성 파일로 체계화하는 공개 소스 도구로, 팀 구성원간에 공유하여 편집, 검토 및 버전 관리할 수 있습니다. Microsoft AzureRM 공급자는 AzureRM API를 통해 Azure Resource Manager에서 지원하는 리소스와 상호 작용하는 데 사용됩니다.
 
 ## <a name="automatic-authentication"></a>자동 인증
 Terraform은 기본적으로 Cloud Shell의 Bash에 설치됩니다. 또한 Cloud Shell은 기본 Azure CLI 구독을 자동으로 인증하여 Terraform Azure 모듈을 통해 리소스를 배포합니다.
@@ -147,7 +146,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ### <a name="verify-deployment-with-azure-cli"></a>Azure CLI로 배포 확인
 리소스가 프로비저닝에 성공했는지 확인하려면 `az group show -n myRgName`을 실행합니다.
 
-```azcliinteractive
+```azurecli-interactive
 az group show -n myRgName
 ```
 

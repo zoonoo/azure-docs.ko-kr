@@ -1,25 +1,24 @@
 ---
 title: Azure IoT Hub Device Provisioning Service의 서비스 개념 | Microsoft Docs
-description: Device Provisioning 서비스 및 IoT Hub를 사용하는 디바이스에 해당하는 서비스 프로비전 개념을 설명합니다.
+description: 장치 프로 비전 서비스 (DPS) 및 IoT Hub를 사용 하는 장치에 대 한 서비스 프로 비전 개념 설명
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60745811"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "79285215"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning Service 개념
 
 IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터치 디바이스 프로비저닝을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. Device Provisioning 서비스를 사용하여 안전하고 확장 가능한 방식으로 수백만 개의 디바이스를 [자동 프로비전](concepts-auto-provisioning.md)할 수 있습니다.
 
-디바이스 프로비전은 두 부분의 프로세스로 구성됩니다. 첫 번째 부분은 디바이스를 *등록*함으로써 디바이스와 IoT 솔루션 간 초기 연결을 설정하는 것입니다. 두 번째 부분은 솔루션의 특정 요구 사항에 따라 디바이스에 적절한 *구성*을 적용하는 것입니다. 두 단계가 수행되고 나면 디바이스가 완벽히 *프로비전된* 것입니다. Device Provisioning Service는 두 단계를 모두 자동화하여 디바이스에 원활한 프로비전 환경을 제공합니다.
+디바이스 프로비전은 두 부분의 프로세스로 구성됩니다. 첫 번째 부분은 장치를 *등록* 하 여 장치와 IoT 솔루션 간의 초기 연결을 설정 하는 것입니다. 두 번째 부분은 솔루션의 특정 요구 사항에 따라 디바이스에 적절한 *구성*을 적용하는 것입니다. 두 단계가 수행되고 나면 디바이스가 완벽히 *프로비전된* 것입니다. Device Provisioning Service는 두 단계를 모두 자동화하여 디바이스에 원활한 프로비전 환경을 제공합니다.
 
 이 문서는 *서비스* 관리에 가장 적합한 프로비전 개념의 개요를 제공합니다. 이 문서는 배포를 위해 디바이스를 준비하는 [클라우드 설치 단계](about-iot-dps.md#cloud-setup-step)에 관련된 사람에게 가장 적합합니다.
 
@@ -57,7 +56,7 @@ Device Provisioning 서비스에는 다음 두 가지 유형의 등록을 지원
 
 ### <a name="enrollment-group"></a>등록 그룹
 
-등록 그룹은 특정 증명 메커니즘을 공유하는 디바이스의 그룹입니다. 등록 그룹의 모든 디바이스는 동일한 루트 CA 또는 중간 CA(인증 기관)에서 서명된 X.509 인증서를 제공합니다. 등록 그룹은 X.509 증명 메커니즘만 사용할 수 있습니다. 등록 그룹 이름 및 인증서 이름은 영숫자, 소문자여야 하며 하이픈을 포함할 수 있습니다.
+등록 그룹은 특정 증명 메커니즘을 공유하는 디바이스의 그룹입니다. 등록 그룹은 x.509 뿐만 아니라 대칭을 모두 지원 합니다. X.509 등록 그룹의 모든 장치는 동일한 루트 또는 중간 CA (인증 기관)에서 서명 된 x.509 인증서를 제공 합니다. 대칭 키 등록 그룹의 각 장치는 그룹 대칭 키에서 파생 된 SAS 토큰을 제공 합니다. 등록 그룹 이름 및 인증서 이름은 영숫자, 소문자여야 하며 하이픈을 포함할 수 있습니다.
 
 > [!TIP]
 > 원하는 초기 구성을 공유하는 다수의 디바이스 또는 동일한 테넌트로 이동하는 디바이스에 대한 등록 그룹을 사용하는 것이 좋습니다.

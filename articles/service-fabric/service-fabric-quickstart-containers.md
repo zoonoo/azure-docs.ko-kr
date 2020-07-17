@@ -1,32 +1,22 @@
 ---
-title: Azure의 Service Fabric에서 Windows 컨테이너 앱 만들기 | Microsoft Docs
+title: Azure의 Service Fabric에서 Windows 컨테이너 앱 만들기
 description: 이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/31/2019
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051549"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260508"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 애플리케이션에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server Core 2016 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너 배포에 대해 설명합니다. [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참고하여 Linux 컨테이너를 배포합니다.
+Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 애플리케이션에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server Core 2016 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너를 배포합니다. Linux 컨테이너를 배포하려면 [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참조하세요.
 
 ![IIS default web page][iis-default]
 
@@ -40,24 +30,24 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구속([체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있음)
 * 다음을 실행하는 개발 컴퓨터
-  * Visual Studio 2015 또는 Visual Studio 2017.
+  * Visual Studio 2019 또는 Windows 2019
   * [Service Fabric SDK 및 도구](service-fabric-get-started.md)
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Visual Studio에서 Docker 이미지 컨테이너 패키징
 
 Service Fabric SDK 및 도구는 컨테이너를 Service Fabric 클러스터에 배포할 수 있는 서비스 템플릿을 제공합니다.
 
-"관리자" 권한으로 Visual Studio를 시작합니다.  **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+"관리자" 권한으로 Visual Studio를 시작합니다.  **File** > **New** > **Project**를 선택합니다.
 
-**Service Fabric 애플리케이션**을 선택하고 "MyFirstContainer"라는 이름을 지정하고 **확인**을 클릭합니다.
+**Service Fabric 애플리케이션**을 선택하고 "MyFirstContainer"라는 이름을 지정하고 **만들기**를 클릭합니다.
 
 **호스트된 컨테이너 및 애플리케이션** 템플릿에서 **컨테이너**를 선택합니다.
 
-**이미지 이름**에 "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016", [Windows Server Core 서버 및 IIS 기본 이미지](https://hub.docker.com/r/microsoft-windows-servercore-iis)를 입력합니다.
+**이미지 이름**에 "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016", [Windows Server Core 서버 및 IIS 기본 이미지](https://hub.docker.com/_/microsoft-windows-servercore-iis)를 입력합니다.
 
 포트 80의 서비스로 들어오는 요청이 컨테이너의 포트 80에 매핑되도록 컨테이너 포트와 호스트 포트 간 매핑을 구성합니다.  **컨테이너 포트**를 "80"으로, **호스트 포트**를 "80"으로 설정합니다.  
 
@@ -77,14 +67,14 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-서비스 매니페스트는 nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`에 대한 하나의 이미지만을 계속해서 지정합니다.
+서비스 매니페스트는 nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`에 대한 하나의 이미지만을 계속해서 지정합니다.
 
 또한 *ApplicationManifest.xml* 파일에서 **PasswordEncrypted**를 **false**로 변경합니다. Docker Hub에 있는 공개 컨테이너 이미지의 경우 계정 및 암호가 비어 있으므로 암호화를 해제합니다. 빈 암호를 암호화하면 빌드 오류가 발생하기 때문입니다.
 
@@ -100,13 +90,13 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
 
 다음 스크립트를 실행하기 전에 PowerShell에서 `Connect-AzAccount`를 실행하여 Azure와의 연결을 설정합니다.
 
-다음 스크립트를 클립보드에 복사하고 **Windows PowerShell ISE**를 엽니다.  빈 Untitled1.ps1 창에 내용을 붙여넣습니다. 그런 다음, 스크립트의 `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd` 등의 변수에 값을 지정합니다.  스크립트를 실행하기 전에 `certfolder`에 지정한 디렉터리가 존재해야 합니다.
+다음 스크립트를 클립보드에 복사하고 **Windows PowerShell ISE**를 엽니다.  빈 Untitled1.ps1 창에 내용을 붙여넣습니다. 그런 다음, 스크립트의 `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd` 등의 변수에 대한 값을 제공합니다.  스크립트를 실행하기 전에 `certfolder`에 지정한 디렉터리가 존재해야 합니다.
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
-변수에 값을 지정했으면 **F5** 키를 눌러 스크립트를 실행합니다.
+변수에 대한 값을 제공했으면 **F5** 키를 눌러서 스크립트를 실행합니다.
 
-스크립트가 실행되고 클러스터가 생성되면 출력에서 `ClusterEndpoint`를 찾아보세요. 예: 
+스크립트가 실행되고 클러스터가 생성되면 출력에서 `ClusterEndpoint`를 찾아보세요. 다음은 그 예입니다.
 
 ```powershell
 ...
@@ -142,7 +132,7 @@ Thumbprint                                Subject
 
 솔루션 탐색기에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [게시] 대화 상자가 나타납니다.
 
-위의 `Import-PfxCertificate` 명령을 실행할 때 PowerShell 창에서 **CN=** 다음에 콘텐츠를 복사하고 `19000` 포트를 추가합니다. 예: `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000` 이를 **연결 엔드포인트** 필드에 복사합니다. 이 값은 이후 단계에서 필요하므로 기억해 두세요.
+위의 `Import-PfxCertificate` 명령을 실행할 때 PowerShell 창에서 **CN=** 다음에 콘텐츠를 복사하고 `19000` 포트를 추가합니다. `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`)을 입력합니다. 이를 **연결 엔드포인트** 필드에 복사합니다. 이 값은 이후 단계에서 필요하므로 기억해 두세요.
 
 **고급 연결 매개 변수**를 클릭하고 연결 매개 변수 정보를 확인합니다.  *FindValue* 및 *ServerCertThumbprint* 값은 이전 단계에서 `Import-PfxCertificate`를 실행할 때 설치한 인증서의 지문과 일치해야 합니다.
 
@@ -158,7 +148,7 @@ Thumbprint                                Subject
 
 ## <a name="clean-up"></a>정리
 
-클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다.
+클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](./service-fabric-tutorial-delete-cluster.md)하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

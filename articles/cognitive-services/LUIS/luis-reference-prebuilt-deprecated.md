@@ -1,6 +1,6 @@
 ---
-title: 사용되지 않는 미리 빌드된 엔터티
-titleSuffix: Azure
+title: 사용 되지 않는 미리 작성 한 엔터티-LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 더 이상 사용되지 않는 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 02/28/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 653fbd65e5ccfbc65781f2332b35d10237f718d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795103"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "78270668"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>LUIS 앱의 사용되지 않는 미리 빌드된 엔터티
 다음과 같은 미리 빌드된 엔터티는 더 이상 사용되지 않으므로 새 LUIS 앱에 추가될 수 없습니다.
@@ -43,7 +43,7 @@ ms.locfileid: "59795103"
 **Encyclopedia**는 `en-US` 로캘에서만 사용할 수 있습니다.
 
 #### <a name="encyclopedia-subtypes"></a>Encyclopedia 하위 유형
-다음 표에 Encyclopedia 기본 제공 엔터티에는 100개 이상의 하위 형식이 포함됩니다. 또한 encyclopedia 엔터티는 종종 여러 형식에 매핑됩니다. 예를 들어, 쿼리 Ronald Reagan은 다음 결과를 제공합니다. 
+다음 표에는 Encyclopedia 기본 제공 엔터티의 하위 유형이 100가지 넘게 포함되어 있습니다. 또한 encyclopedia 엔터티는 여러 유형에 매핑되기도 합니다. 예를 들어, 쿼리 Ronald Reagan은 다음 결과를 제공합니다.
 
 ```json
 {
@@ -163,5 +163,5 @@ ms.locfileid: "59795103"
 
 ## <a name="next-steps"></a>다음 단계
 
-[dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) 엔터티 및 [number](luis-reference-prebuilt-number.md)에 대해 알아봅니다. 
+[dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) 엔터티 및 [number](luis-reference-prebuilt-number.md)에 대해 알아봅니다.
 

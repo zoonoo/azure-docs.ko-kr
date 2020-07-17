@@ -1,5 +1,5 @@
 ---
-title: 앱 게시
+title: 앱 게시-LUIS
 titleSuffix: Azure Cognitive Services
 description: 활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 애플리케이션에 적용하세요.
 services: cognitive-services
@@ -8,57 +8,87 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/08/2019
+ms.topic: how-to
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e9c8b607b1dc3f7f67ee1fdad353d15023318947
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873142"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340694"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
-활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 애플리케이션에 적용하세요. 
-
-<a name="publish-your-trained-app-to-an-http-endpoint"></a>
+활성 LUIS 앱 빌드, 학습 및 테스트를 마치면 클라이언트 응용 프로그램에서 끝점에 게시 하 여 사용할 수 있도록 설정 합니다.
 
 ## <a name="publishing"></a>게시
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. 엔드포인트에 게시하려면 맨 위 오른쪽 패널에서 **게시**를 선택하세요.
 
-엔드포인트에 게시하려면 맨 위 오른쪽 패널에서 **게시**를 선택하세요. 
+    ![오른쪽 위에 있는 게시 단추 탐색 모음](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-![위쪽, 오른쪽 탐색 모음](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
+1. 게시 된 예측 끝점에 대 한 설정을 선택 하 고 **게시**를 선택 합니다.
 
-팝업 창이 표시되면 올바른 슬롯(스테이징 또는 프로덕션)을 선택합니다. 두 게시 슬롯을 사용하면 게시된 엔드포인트에 2가지 다른 버전이 있거나 2가지 다른 엔드포인트에 같은 버전이 있을 수 있습니다. 
+    ![게시 설정을 선택 하 고 게시 단추를 선택 합니다.](./media/luis-how-to-publish-app/publish-pop-up.png)
 
-앱은 LUIS 포털에 추가된 LUIS 리소스와 관련된 모든 지역에 게시됩니다. 예를 들어, [www.luis.ai](https://www.luis.ai)에서 만든 앱의 경우 **westus**에서 LUIS 리소스를 만든 후 앱에 리소스로 추가하면 이 앱은 해당 지역에 게시됩니다. LUIS 지역에 대한 자세한 내용은 [지역](luis-reference-regions.md)을 참조하세요.
- 
-![게시 팝업 창](./media/luis-how-to-publish-app/publish-pop-up.png)
+### <a name="publishing-slots"></a>슬롯 게시
 
-앱이 성공적으로 게시되면 브라우저 위쪽에 녹색 성공 알림이 표시됩니다. 또한 녹색 알림 표시줄에는 엔드포인트에 대한 링크도 포함되어 있습니다. 
+팝업 창이 표시 되 면 올바른 슬롯을 선택 합니다.
 
-![엔드포인트에 대한 링크가 있는 팝업 창 게시](./media/luis-how-to-publish-app/publish-success.png)
+* 스테이징
+* 프로덕션
 
-엔드포인트 URL이 필요한 경우 링크를 선택하세요. 또한 맨 위 메뉴에서 **관리**를 선택하여 엔드포인트 URL로 이동한 다음, 왼쪽 메뉴에서 **키 및 엔드포인트**를 선택할 수도 있습니다. 
+두 게시 슬롯을 모두 사용 하면 게시 된 끝점에서 두 가지 다른 버전의 앱을 사용할 수 있거나 두 개의 서로 다른 끝점에서 동일한 버전을 사용할 수 있습니다.
+
+### <a name="publishing-regions"></a>게시 지역
+
+앱은 **Manage**  ->  **[Azure 리소스](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** 관리 페이지에서 LUIS 포털에 추가 된 LUIS 예측 끝점 리소스와 연결 된 모든 지역에 게시 됩니다.
+
+예를 들어 [www.luis.ai](https://www.luis.ai)에서 만든 앱의 경우, **westus** 및 **에서는 EASTUS**의 두 지역에서 luis 리소스를 만들고 앱에 리소스로 추가 하는 경우 앱이 두 지역에 모두 게시 됩니다. LUIS 지역에 대한 자세한 내용은 [지역](luis-reference-regions.md)을 참조하세요.
+
+> [!TIP]
+> 작성 지역이 3 개 있습니다. 게시 하려는 지역에서 제작 해야 합니다. 모든 지역에 게시 해야 하는 경우 3 개 제작 지역 모두에서 제작 프로세스 및 결과 학습 된 모델을 관리 해야 합니다.
+
 
 ## <a name="configuring-publish-settings"></a>게시 설정 구성
 
-맨 위 오른쪽 탐색에서 **관리**를 선택한 다음, **게시 설정**을 선택하여 게시 설정을 구성합니다. 
+슬롯을 선택 하 고 다음에 대 한 게시 설정을 구성 합니다.
 
-![게시 설정](./media/luis-how-to-publish-app/publish-settings.png)
+* 정서 분석
+* [맞춤법 수정](luis-tutorial-bing-spellcheck.md) -v2 예측 끝점만
+* 음성 초기화
 
-### <a name="publish-after-enabling-sentiment-analysis"></a>감정 분석을 사용하도록 설정한 후 게시
+게시 한 후에는 **관리** 섹션의 **게시 설정** 페이지에서 이러한 설정을 검토할 수 있습니다. 모든 게시를 사용 하 여 설정을 변경할 수 있습니다. 게시를 취소 하면 게시 중에 적용 한 변경 내용도 취소 됩니다.
+
+### <a name="when-your-app-is-published"></a>앱이 게시 되는 경우
+
+앱이 성공적으로 게시 되 면 브라우저 맨 위에 성공 알림이 표시 됩니다. 알림에는 끝점에 대 한 링크도 포함 되어 있습니다.
+
+엔드포인트 URL이 필요한 경우 링크를 선택하세요. 상단 메뉴에서 **관리** 를 선택 하 고 왼쪽 메뉴에서 **Azure 리소스** 를 선택 하 여 끝점 url로 이동할 수도 있습니다.
+
+## <a name="sentiment-analysis"></a>정서 분석
 
 <a name="enable-sentiment-analysis"></a>
 
-감정 분석을 사용하면 LUIS에서 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)와 통합되어 감정 및 핵심 구 분석을 제공할 수 있습니다. 
+감정 분석을 사용하면 LUIS에서 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)와 통합되어 감정 및 핵심 구 분석을 제공할 수 있습니다.
 
-Text Analytics 키를 제공할 필요는 없으며, 이 서비스에 대한 비용은 사용자의 Azure 계정에 부과되지 않습니다. 이 설정을 선택하면 지속됩니다. 
+Text Analytics 키를 제공할 필요는 없으며, 이 서비스에 대한 비용은 사용자의 Azure 계정에 부과되지 않습니다.
 
-감정 데이터는 데이터의 긍정적(1에 가까움) 또는 부정적(0에 가까움) 감정을 나타내는 1과 0 사이의 점수입니다. `positive`, `neutral` 및 `negative`의 감정 레이블은 지원되는 문화를 따릅니다. 현재 영어만 감정 레이블을 지원합니다. 
+감정 데이터는 데이터의 긍정적(1에 가까움) 또는 부정적(0에 가까움) 감정을 나타내는 1과 0 사이의 점수입니다. `positive`, `neutral` 및 `negative`의 감정 레이블은 지원되는 문화를 따릅니다. 현재 영어만 감정 레이블을 지원합니다.
 
-감정 분석에서 JSON 엔드포인트의 응답에 대한 자세한 내용은 [감정 분석](luis-concept-data-extraction.md#sentiment-analysis)을 참조하세요.
+감정 분석에서 JSON 엔드포인트의 응답에 대한 자세한 내용은 [감정 분석](luis-reference-prebuilt-sentiment.md)을 참조하세요.
+
+## <a name="spelling-correction"></a>맞춤법 교정
+
+[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+
+LUIS 사용자 utterance 예측 이전에 맞춤법을 수정 했습니다. 응답에서 맞춤법을 포함 하 여 원래 utterance의 변경 내용을 볼 수 있습니다.
+
+## <a name="speech-priming"></a>음성 초기화
+
+Speech 준비는 텍스트를 음성으로 변환 하기 전에 음성 서비스로 LUIS 모델을 보내는 프로세스입니다. 이를 통해 음성 서비스는 모델에 대해 음성 변환을 보다 정확 하 게 제공할 수 있습니다. 이를 통해 한 번의 음성 통화를 수행 하 고 LUIS 응답을 LUIS 하 여 한 번 호출에서 봇 음성 및 요청을 수행할 수 있습니다. 전반적인 대기 시간을 줄여 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

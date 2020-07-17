@@ -1,26 +1,24 @@
 ---
-title: Azure 가상 머신 확장 및 기능 | Microsoft Docs
+title: Azure 가상 머신 확장 및 기능
 description: Azure VM 확장 및 Azure 가상 머신에서 이 확장을 사용하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
-ms.author: roiyz
-ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 09/12/2019
+ms.author: akjosh
+ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60617999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74072970"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
 Azure VM(Azure 가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화 작업을 제공하는 작은 애플리케이션이며, 기존 이미지를 사용하여 배포의 일부로 사용자 지정함으로써 사용자 지정 이미지를 작성하는 업무에서 벗어나게 할 수 있습니다.
@@ -51,9 +49,33 @@ VM에 직접 연결하여 확장을 설치하거나 삭제할 필요가 없습�
 ## <a name="anything-else-i-should-be-thinking-about-for-extensions"></a>확장에 대해 고려해야 할 다른 사항은 무엇인가요?
 확장은 몇 가지 요구 사항이 있는 애플리케이션과 같은 애플리케이션을 설치하고, 확장에 지원되는 Windows 및 Linux OS 목록이 있으며, Azure VM 에이전트를 설치해야 합니다. 일부 개별 VM 확장 애플리케이션에는 엔드포인트 액세스와 같은 자체 환경 필수 구성 요소가 있을 수 있습니다.
 
+## <a name="troubleshoot-extensions"></a>확장 문제 해결
+
+각 확장에 대 한 문제 해결 정보는 확장에 대 한 개요의 **문제 해결 및 지원** 섹션에서 찾을 수 있습니다. 다음은 사용할 수 있는 문제 해결 정보 목록입니다.
+
+| 네임스페이스 | 문제 해결 |
+|-----------|-----------------|
+| dependencyagent. dependencyagentlinux | [Linux에 대 한 Azure Monitor 종속성](agent-dependency-linux.md#troubleshoot-and-support) |
+| dependencyagent. dependencyagentwindows | [Windows에 대 한 Azure Monitor 종속성](agent-dependency-windows.md#troubleshoot-and-support) |
+| microsoft. azure. azurediskencryptionforlinux | [Linux에 대 한 Azure Disk Encryption](azure-disk-enc-linux.md#troubleshoot-and-support) |
+| microsoft. azure. azurediskencryption | [Windows용 Azure Disk Encryption](azure-disk-enc-windows.md#troubleshoot-and-support) |
+| microsoft. customscriptextension | [Windows 용 사용자 지정 스크립트](custom-script-windows.md#troubleshoot-and-support) |
+| microsoft ostcextensions. customscriptforlinux | [Linux 용 필요한 상태 구성](dsc-linux.md#troubleshoot-and-support) |
+| microsoft. powershell dsc | [Windows에 필요한 상태 구성](dsc-windows.md#troubleshoot-and-support) |
+| microsoft. hpccompute | [Linux용 NVIDIA GPU 드라이버 확장](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| microsoft. hpccompute | [Windows 용 NVIDIA GPU 드라이버 확장](hpccompute-gpu-windows.md#troubleshoot-and-support) |
+| iaasantimalware. | [Windows 용 맬웨어 방지 확장](iaas-antimalware-windows.md#troubleshoot-and-support) |
+| enterprisecloud를 모니터링 합니다. | [Linux에 대 한 Azure Monitor](oms-linux.md#troubleshoot-and-support)
+| enterprisecloud. microsoftmonitoringagent | [Windows에 대 한 Azure Monitor](oms-windows.md#troubleshoot-and-support) |
+| stackify. linuxagent. stackifylinuxagentextension | [Linux 용 Stackify 조사](stackify-retrace-linux.md#troubleshoot-and-support) |
+| vmaccessforlinux. ostcextensions | [Linux에 대 한 암호 다시 설정 (VMAccess)](vmaccess.md#troubleshoot-and-support) |
+| vmsnapshot | [Linux에 대 한 스냅숏](vmsnapshot-linux.md#troubleshoot-and-support) |
+| vmsnapshot | [Windows 용 스냅숏](vmsnapshot-windows.md#troubleshoot-and-support) |
+
+
 ## <a name="next-steps"></a>다음 단계
 * Linux 에이전트 및 확장의 작동 방식에 대한 자세한 내용은 [Linux용 Azure VM 확장 및 기능](features-linux.md)을 참조하세요.
 * Windows 게스트 에이전트 및 확장의 작동 방식에 대한 자세한 내용은 [Windows용 Azure VM 확장 및 기능](features-windows.md)을 참조하세요.  
-* Windows 게스트 에이전트를 설치 하려면 [Azure Windows Virtual Machine 에이전트 개요](agent-windows.md)합니다.  
-* Linux 에이전트를 설치 하려면 [Azure Linux Virtual Machine 에이전트 개요](agent-linux.md)합니다.  
+* Windows 게스트 에이전트를 설치 하려면 [Azure Windows 가상 머신 에이전트 개요](agent-windows.md)를 참조 하세요.  
+* Linux 에이전트를 설치 하려면 [Azure Linux Virtual Machine 에이전트 개요](agent-linux.md)를 참조 하세요.  
 

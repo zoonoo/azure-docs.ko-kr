@@ -1,34 +1,28 @@
 ---
-title: Windows용 Azure N 시리즈 GPU 드라이버 설정 | Microsoft Docs
+title: Windows 용 Azure N 시리즈 NVIDIA GPU 드라이버 설치
 description: Azure에서 Windows Server 또는 Windows를 실행하는 N 시리즈 VM용 NVIDIA GPU 드라이버를 설정하는 방법입니다.
-services: virtual-machines-windows
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f3950c34-9406-48ae-bcd9-c0418607b37d
+author: vikancha-MSFT
+manager: jkabat
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: cynthn
+ms.author: vikancha
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6f0d79e773ac7b79c79e4be6206fe39928cd0a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 5dfcb4abc7a6859955bc36fad2cee893a78c79cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127787"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84726568"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치 
 
-Windows를 실행하는 Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA GPU 드라이버를 설치해야 합니다. [NVIDIA GPU 드라이버 확장](../extensions/hpccompute-gpu-windows.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](../extensions/hpccompute-gpu-windows.md)를 참조하세요.
+NVIDIA GPU가 지원하는 Azure N 시리즈 VM의 GPU 기능을 활용하려면 NVIDIA GPU 드라이버를 설치해야 합니다. [NVIDIA GPU 드라이버 확장](../extensions/hpccompute-gpu-windows.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](../extensions/hpccompute-gpu-windows.md)를 참조하세요.
 
-GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되는 운영 체제, 드라이버 및 설치 및 확인 단계를 제공합니다. [Linux VM](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
+NVIDIA GPU 드라이버를 수동으로 설치 하도록 선택 하는 경우이 문서에서 지원 되는 운영 체제, 드라이버 및 설치 및 확인 단계를 제공 합니다. [Linux VM](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
 
-기본 사양, 저장소 용량 및 디스크 세부 정보는 [GPU Windows VM 크기](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
+기본 사양, 스토리지 용량 및 디스크 세부 정보는 [GPU Windows VM 크기](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
 
 [!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
@@ -41,6 +35,8 @@ GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되�
 VM에서는 GRID 드라이버 설치 후 다시 시작해야 합니다. CUDA 드라이버 설치 후에는 다시 시작할 필요가 없습니다.
 
 ## <a name="verify-driver-installation"></a>드라이버 설치 확인
+
+Nvidia 제어판은 그리드 드라이버 설치로만 액세스할 수 있습니다. Verda 드라이버를 설치한 경우에는 Nvidia 제어판이 표시 되지 않습니다.
 
 디바이스 관리자에서 드라이버 설치를 확인할 수 있습니다. 다음 예제에서는 Azure NC VM에서 Tesla K80 카드의 성공적인 구성을 보여 줍니다.
 
@@ -62,7 +58,7 @@ GPU 디바이스 상태를 쿼리하려면 드라이버와 함께 설치된 명�
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  자세한 내용은 [Windows용 가상 머신 확장 및 기능](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+  자세한 내용은 [Windows용 가상 머신 확장 및 기능](extensions-features.md)을 참조하세요.
 
 RDMA 네트워크는 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) 또는 Intel MPI 5.x를 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 
 

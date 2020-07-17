@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 05/07/2018
 ms.author: wolfma
 ms.openlocfilehash: 22507b7432a200a5c24c7063ca644b1b82eb5481
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020622"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "67182497"
 ---
-| path | 설명 |
+| 경로 | Description |
 |:-----|:----|
-| `license.md` | 라이선스
+| `license.md` | License
 | `ThirdPartyNotices.md` | 타사 고지 사항
 | `REDIST.txt` | 재배포 고지 사항
 | `include` | C 및 C++에 필요한 헤더 파일

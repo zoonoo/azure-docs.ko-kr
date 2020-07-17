@@ -1,21 +1,21 @@
 ---
 title: OPC 쌍이란? - Azure | Microsoft Docs
-description: OPC 쌍 개요
+description: 이 문서는 OPC 쌍에 대한 개요를 제공합니다. OPC 쌍은 REST API를 통한 산업용 디바이스의 검색, 등록 및 원격 제어를 제공합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 91448f55f0ebb88ba6c685b960ece9d91cb98e25
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496815"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "73826233"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Azure IoT OPC(Open Platform Communications) 디바이스 관리란?
+# <a name="what-is-opc-twin"></a>OPC 쌍이란?
 
 OPC 쌍은 Azure IoT Edge 및 IoT Hub를 사용하여 클라우드와 팩터리 네트워크를 연결하는 마이크로서비스로 구성되어 있습니다. OPC 쌍은 REST API를 통한 산업용 디바이스의 검색, 등록 및 원격 제어를 제공합니다. OPC 쌍은 OPC UA(OPC 통합 아키텍처) SDK가 필요하지 않고, 프로그래밍 언어 중립적이며, 서버리스 워크플로에 포함될 수 있습니다. 이 문서에서는 몇 가지 OPC 쌍 사용 사례를 설명합니다.
 
@@ -28,7 +28,7 @@ OPC 쌍을 사용하면 팩터리 운영자는 팩터리 네트워크를 검사�
 ### <a name="simple-control"></a>간단한 제어
 OPC 쌍을 사용하면 팩터리 운영자는 이벤트에 반응하고 클라우드에서 작업 머신을 자동 또는 수동으로 즉시 재구성할 수 있습니다. OPC 쌍은 OPC UA 서버에서 서비스를 호출하고, 변수의 읽기/쓰기뿐만 아니라 해당 주소 공간을 찾아보고, 메서드를 실행하는 REST API를 제공합니다. 예를 들어, 보일러는 온도 KPI를 사용하여 생산 라인을 제어합니다. 온도 센서는 OPC 게시자를 사용하여 데이터의 변경 내용을 게시합니다. 팩터리 운영자는 온도가 임계값에 도달했다는 경고를 받습니다. 생산 라인은 자동으로 OPC 쌍을 통해 온도를 내립니다. 팩터리 운영자는 온도가 내려갔다는 알림을 받습니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 인증 및 간단한 개발자 환경에 간단한 OPC 쌍을 사용할 수 있습니다.
 
 ### <a name="simple-authentication"></a>간단한 인증 
@@ -42,4 +42,4 @@ OPC 쌍은 REST API를 통해 모든 프로그래밍 언어로 작성한 애플�
 이제 OPC 쌍과 그 용도에 대해 파악했으므로, 권장되는 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [OPC 자격 증명 모음이란?](overview-opc-twin-architecture.md)
+> [OPC 자격 증명 모음이란?](overview-opc-vault.md)

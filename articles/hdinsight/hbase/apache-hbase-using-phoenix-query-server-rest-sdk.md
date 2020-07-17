@@ -1,23 +1,23 @@
 ---
 title: Phoenix Query Server REST SDK - Azure HDInsight
 description: Azure HDInsight에서 Phoenix Query Server를 위한 REST SDK를 설치 및 사용합니다.
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 12/04/2017
-ms.openlocfilehash: 1f468cac29579d8748f61a47b548a67d36ff8279
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 01/01/2020
+ms.openlocfilehash: 93136286dc14a5c7c69fe8c17829eddabddbfacf
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695961"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080060"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
-[Apache Phoenix](https://phoenix.apache.org/)는 [Apache HBase](apache-hbase-overview.md) 기반의 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 [SQLLine](apache-hbase-phoenix-squirrel-linux.md)과 같은 SSH 도구를 통해 HBase에서 SQL 유사 쿼리를 사용할 수 있습니다. 또한 Phoenix는 클라이언트 통신을 위한 2개의 전송 메커니즘인 JSON과 프로토콜 버퍼를 지원하는 씬 클라이언트인 PQS(Phoenix Query Server)라는 HTTP 서버를 제공합니다. 프로토콜 버퍼는 기본 메커니즘으로, JSON보다 좀 더 효율적인 통신을 제공합니다.
+[Apache Phoenix](https://phoenix.apache.org/)는 [Apache HBase](apache-hbase-overview.md) 기반의 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 [SQLLine](apache-hbase-query-with-phoenix.md)과 같은 SSH 도구를 통해 HBase에서 SQL 유사 쿼리를 사용할 수 있습니다. 또한 Phoenix는 클라이언트 통신을 위한 2개의 전송 메커니즘인 JSON과 프로토콜 버퍼를 지원하는 씬 클라이언트인 PQS(Phoenix Query Server)라는 HTTP 서버를 제공합니다. 프로토콜 버퍼는 기본 메커니즘으로, JSON보다 좀 더 효율적인 통신을 제공합니다.
 
 이 문서에서는 PQS REST SDK를 사용하여 테이블을 만들고, 행을 개별적으로 및 대량으로 Upsert하고, SQL 문을 사용하여 데이터를 선택하는 방법을 설명합니다. 예제에서는 [Apache Phoenix Query Server용 Microsoft .NET 드라이버](https://www.nuget.org/packages/Microsoft.Phoenix.Client)를 사용합니다. 이 SDK는 직렬화 형식에 대해 프로토콜 버퍼를 독점적으로 사용하는 [Apache Calcite Avatica](https://calcite.apache.org/avatica/) API에서 빌드되었습니다.
 
@@ -27,7 +27,9 @@ ms.locfileid: "64695961"
 
 Apache Phoenix Query Server용 Microsoft .NET 드라이버는 다음 명령으로 Visual Studio **NuGet 패키지 관리자 콘솔**에서 설치할 수 있는 NuGet 패키지로 제공됩니다.
 
-    Install-Package Microsoft.Phoenix.Client
+```console
+Install-Package Microsoft.Phoenix.Client
+```
 
 ## <a name="instantiate-new-phoenixclient-object"></a>새 PhoenixClient 개체 인스턴스화
 
@@ -71,7 +73,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 다음은 중요한 일부 속성입니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | -- | -- |
 | AutoCommit | `autoCommit`이 Phoenix 트랜잭션에 사용되도록 설정되어 있는지 여부를 나타내는 부울입니다. |
 | ReadOnly | 연결이 읽기 전용인지 여부를 나타내는 부울입니다. |
@@ -84,7 +86,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 | 격리 값 | 설명 |
 | -- | -- |
-| 0 | 트랜잭션이 지원되지 않습니다. |
+| 0 | 트랜잭션은 지원 되지 않습니다. |
 | 1 | 더티 읽기, 반복 불가능 읽기 및 가상 읽기가 발생할 수 있습니다. |
 | 2 | 더티 읽기는 금지되지만 반복 불가능 읽기 및 가상 읽기는 발생할 수 있습니다. |
 | 4 | 더티 읽기 및 반복 불가능 읽기는 금지되지만 가상 읽기는 발생할 수 있습니다. |
@@ -94,7 +96,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 다른 RDBMS와 마찬가지로 HBase는 데이터를 테이블에 저장합니다. Phoenix는 기본 키 및 열 형식을 정의하면서, 표준 SQL 쿼리를 사용하여 새 테이블을 만듭니다.
 
-이 예제 및 모든 후속 예제는 [새 PhoenixClient 개체 인스턴스화](#instantiate-new-phoenixclient-object)에 정의된 대로 인스턴스화된 `PhoenixClient` 개체를 사용합니다.
+이 예제 및 이후의 모든 예제에서는 `PhoenixClient` [새 PhoenixClient 개체 인스턴스화](#instantiate-new-phoenixclient-object)에 정의 된 대로 인스턴스화된 개체를 사용 합니다.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -170,7 +172,7 @@ finally
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-테이블의 `StateProvince` 열 값은 후속 선택 작업에서 사용됩니다.
+`StateProvince`이후 select 작업에서 테이블의 열 값이 사용 됩니다.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,7 +279,7 @@ finally
 }
 ```
 
-insert 문을 실행하기 위한 구조체는 새 테이블을 만드는 것과 비슷합니다. `try` 블록 끝에서 트랜잭션이 명시적으로 커밋됩니다. 이 예제에서는 insert 트랜잭션을 300번 반복합니다. 다음 예제에서는 좀 더 효율적인 일괄 처리 삽입 프로세스를 보여 줍니다.
+insert 문을 실행하기 위한 구조체는 새 테이블을 만드는 것과 비슷합니다. 블록의 끝에 `try` 트랜잭션이 명시적으로 커밋됩니다. 이 예제에서는 insert 트랜잭션을 300번 반복합니다. 다음 예제에서는 좀 더 효율적인 일괄 처리 삽입 프로세스를 보여 줍니다.
 
 ## <a name="batch-insert-data"></a>데이터 삽입 일괄 처리
 
@@ -393,7 +395,7 @@ finally
 
 하나의 테스트 환경에서 300개의 새 레코드를 개별적으로 삽입하는 데 약 2분이 소요되었습니다. 반면, 300개 레코드를 일괄로 삽입하는 데는 6초만 필요했습니다.
 
-## <a name="select-data"></a>데이터를 선택합니다.
+## <a name="select-data"></a>데이터 선택
 
 이 예제에서는 하나의 연결을 다시 사용해서 여러 쿼리를 실행하는 방법을 보여 줍니다.
 
@@ -494,7 +496,7 @@ finally
 
 `select` 문의 출력은 다음과 같은 결과를 나타냅니다.
 
-```
+```output
 id0 first0
 id1 first1
 id10 first10
@@ -537,7 +539,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="next-steps"></a>다음 단계
 
 * [HDInsight의 Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
 * [Apache HBase REST SDK 사용](apache-hbase-rest-sdk.md)

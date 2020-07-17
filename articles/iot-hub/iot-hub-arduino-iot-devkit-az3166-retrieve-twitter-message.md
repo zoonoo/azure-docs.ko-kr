@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 464e2c14fa238160ca198b9f1c8a9808e70933f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60779838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560972"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색
 
@@ -27,10 +27,10 @@ ms.locfileid: "60779838"
 * DevKit을 Wi-Fi에 연결.
 * 개발 환경 준비.
 
-활성 Azure 구독. 아직 구독이 없으면 다음 방법 중 하나를 통해 등록할 수 있습니다.
+활성화된 Azure 구독. 아직 구독이 없으면 다음 방법 중 하나를 통해 등록할 수 있습니다.
 
 * [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
-* MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
+* MSDN 또는 Visual Studio 구독자 인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 청구
 
 ## <a name="open-the-project-folder"></a>프로젝트 폴더 열기
 
@@ -52,7 +52,7 @@ ms.locfileid: "60779838"
 왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **ShakeShake**를 선택합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다. MXCHIP AZ3166 섹션을 볼 수 없다면 디바이스가 제대로 연결되었는지 확인하고 Visual Studio Code를 다시 시작합니다.  
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-명령 팔레트에서 샘플 프로젝트를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 클릭하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
+명령 팔레트에서 샘플 프로젝트를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 클릭하여 명령 팔레트를 열고, **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
@@ -92,7 +92,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 1. `Ctrl+P`를 사용하여 `task device-upload`를 실행합니다.
 
-2. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 다음을 수행합니다.
+2. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이를 수행하려면:
 
    * A 단추를 길게 누르기
 
@@ -126,7 +126,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 ### <a name="arduino-application-initializing"></a>Arduino 애플리케이션 초기화 중...
 
-![Arduino 응용 프로그램 초기화 중](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)
+![Arduino 애플리케이션 초기화 중](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)
 
 ### <a name="press-a-to-shake"></a>흔들려면 A 단추 누르기...
 
@@ -196,8 +196,6 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
 2. [Azure Portal](https://portal.azure.com/)에서 사용자가 만든 Azure Functions 앱을 찾아 다시 시작합니다.
 
    ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
-
-### <a name="feedback"></a>사용자 의견
 
 다른 문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 지원 채널을 사용하여 문의해주세요.
 

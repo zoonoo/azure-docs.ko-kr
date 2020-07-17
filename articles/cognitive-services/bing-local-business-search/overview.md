@@ -1,26 +1,27 @@
 ---
-title: Bing Local Business Search API란? | Microsoft Docs
+title: Bing Local Business Search API란?
 titleSuffix: Azure Cognitive Services
 description: Bing Local Business Search API는 애플리케이션에서 검색 쿼리를 기반으로 로컬 장소 및 비즈니스에 대한 정보를 찾을 수 있게 해주는 RESTful 서비스입니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh
-ms.openlocfilehash: 3cc9ed4dd108e76da6430a450876b709be514356
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.subservice: bing-local-business
+ms.topic: overview
+ms.date: 03/24/2020
+ms.author: aahi
+ms.openlocfilehash: 685ee0c616234563981e55f14213e424daae32f5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796761"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611274"
 ---
 # <a name="what-is-bing-local-business-search"></a>Bing Local Business Search란?
 Bing Local Business Search API는 애플리케이션에서 검색 쿼리를 기반으로 로컬 비즈니스에 대한 정보를 찾을 수 있게 해주는 RESTful 서비스입니다. 예를 들어 `q=<business-name> in Redmond, Washington` 또는 `q=Italian restaurants near me`입니다. 
 
 ## <a name="features"></a>기능
-| 기능 | 설명 |  
+| 기능 | Description |  
 | -- | -- | 
 | [로컬 비즈니스 및 위치 찾기](quickstarts/local-quickstart.md) | Bing Local Business Search API는 쿼리에서 지역화된 결과를 가져옵니다. 결과에는 비즈니스 웹 사이트 URL과 표시 텍스트, 전화 번호 및 지리적 위치가 포함됩니다. GPS 좌표, 도시, 주소 |  
 | [지리적 경계를 사용하여 로컬 결과 필터링](specify-geographic-search.md) | 검색 매개 변수로 좌표를 추가하여 원형 영역 또는 사각형 경계 상자로 지정된 특정 지리적 영역으로 결과를 제한합니다. | 
@@ -29,15 +30,15 @@ Bing Local Business Search API는 애플리케이션에서 검색 쿼리를 기�
 ## <a name="workflow"></a>워크플로
 HTTP 요청을 수행하고 JSON 응답을 구문 분석할 수 있는 모든 프로그래밍 언어에서 Bing Local Business Search API를 호출합니다. 이 서비스는 REST API를 사용하여 액세스할 수 있습니다.
  
-1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들 수 있습니다](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).   
-2. URL은 `q=""` 쿼리 매개 변수에 대한 검색어를 인코딩합니다. 예를 들면 `q=nearby+restaurant` 또는 `q=nearby%20restaurant`과 같습니다. 필요한 경우 페이지 매김도 설정합니다. 
+1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들 수 있습니다](https://azure.microsoft.com/free/cognitive-services/).   
+2. URL은 `q=""` 쿼리 매개 변수에 대한 검색어를 인코딩합니다. 예를 들어 `q=nearby+restaurant` 또는 `q=nearby%20restaurant`입니다. 필요한 경우 페이지 매김도 설정합니다. 
 3. [Bing Local Business Search API로 요청](quickstarts/local-quickstart.md)을 보냅니다. 
-4. JSON 응답을 구문 분석합니다. 
+4. JSON 응답 구문 분석 
 
 > [!NOTE]
-> 현재 Local Business Search는 `en-US` 시장만 지원합니다. 
-> [!NOTE]
-> 현재 Local Business Search는 Autosuggest를 지원하지 않습니다. 
+> 현재 Local Business Search: 
+> * `en-US` 시장만 지원합니다. 
+> * Bing Autosuggest를 지원하지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 - [쿼리 및 응답](local-search-query-response.md)

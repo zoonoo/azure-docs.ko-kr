@@ -1,23 +1,22 @@
 ---
-title: Azure Search .NET SDK 버전 3으로 업그레이드 - Azure Search
+title: Azure Search .NET SDK 버전 3으로 업그레이드
+titleSuffix: Azure Cognitive Search
 description: 이전 버전에서 Azure Search .NET SDK 버전 3으로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
+manager: nitinme
 author: brjohnstmsft
-manager: jlembicz
-services: search
-ms.service: search
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: d41c2b541bf80448d180a1d081c255e5bf754e5e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/04/2019
+ms.openlocfilehash: 10e6d0a183afdda2bf89014bb72f58d03a3013ec
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147327"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171893"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
+# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
 
 <!--- DETAILS in the word doc
 cosmosdb
@@ -26,7 +25,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-버전 2.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 3으로 애플리케이션을 업그레이드할 수 있습니다.
+버전 2.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용하는 경우 이 문서를 통해 버전 3으로 애플리케이션을 업그레이드할 수 있습니다.
 
 예제를 비롯하여 SDK에 대한 보다 일반적인 연습은 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
@@ -42,9 +41,9 @@ Azure Search .NET SDK 버전 3에는 이전 버전에서 변경된 사항이 일
 ## <a name="whats-new-in-version-3"></a>버전 3의 새로운 기능
 Azure Search .NET SDK 버전 3은 Azure Search REST API의 최신 일반 공급 버전, 특히 2016-09-01을 대상으로 합니다. 이 버전이 있으면 다음을 비롯한 많은 Azure Search의 새 기능을 .NET 애플리케이션에서 사용할 수 있습니다.
 
-* [사용자 지정 분석기](https://aka.ms/customanalyzers)
+* [사용자 지정 분석기](index-add-custom-analyzers.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) 및 [Azure Table Storage](search-howto-indexing-azure-tables.md) 인덱서 지원
-*  [필드 매핑](search-indexer-field-mappings.md)
+* [필드 매핑](search-indexer-field-mappings.md)
 * 인덱스 정의, 인덱서 및 데이터 원본의 안전한 동시 업데이트를 가능하게 하는 Etag 지원
 * 모델 클래스를 데코레이트하고 새 `FieldBuilder` 클래스를 사용하여 인덱스 필드 정의를 선언적으로 지원
 * .NET Core와 .NET 이식 가능 프로필 111에 대한 지원
@@ -58,7 +57,9 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 빌드가 실패하면 다음과 같은 빌드 오류가 표시됩니다.
 
-    Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft.Azure.Search.ISearchIndexClient' to 'Microsoft.Azure.Search.SearchIndexClient'. An explicit conversion exists (are you missing a cast?)
+```output
+Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft.Azure.Search.ISearchIndexClient' to 'Microsoft.Azure.Search.SearchIndexClient'. An explicit conversion exists (are you missing a cast?)
+```
 
 다음은 이러한 빌드 오류를 수정하는 단계입니다. 오류의 원인 및 해결 방법에 대한 자세한 내용은 [버전 3의 주요 변경 내용](#ListOfChanges)을 참조하세요.
 
@@ -74,7 +75,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 ### <a name="indexesgetclient-return-type"></a>Indexes.GetClient 반환 형식
 `Indexes.GetClient` 메서드에는 새 반환 형식이 있습니다. 이전에는 `SearchIndexClient`를 반환했으나 버전 2.0-preview에서는 `ISearchIndexClient`로 변경되었으며 이 변경 내용이 버전 3에도 제공됩니다. 따라서 `ISearchIndexClient`의 모의 구현을 반환하여 단위 테스트를 위한 `GetClient` 메서드를 모의할 수 있습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -90,7 +91,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ### <a name="analyzername-datatype-and-others-are-no-longer-implicitly-convertible-to-strings"></a>AnalyzerName, DataType 등은 더 이상 암시적으로 문자열로 변환될 수 없습니다.
 Azure Search .NET SDK에는 `ExtensibleEnum`에서 파생된 여러 형식이 있습니다. 이전에는 이러한 형식이 모두 `string` 형식으로 암시적으로 변환될 수 있었습니다. 그러나 이러한 클래스의 `Object.Equals` 구현에서 버그가 발견되었으며 버그 수정을 위해 이러한 암시적 변환을 사용하지 않도록 설정해야 했습니다. `string`로의 명시적 변환은 여전히 허용됩니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -148,6 +149,6 @@ index.Analyzers = new Analyzer[]
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-SDK에 대한 귀하의 피드백을 환영합니다! 우리에 게 도움 요청에 문제가 있는 경우 자유롭게 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)합니다. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
+SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생 하는 경우 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대 한 도움을 요청 하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
 
 Azure Search를 이용해 주셔서 감사합니다!
