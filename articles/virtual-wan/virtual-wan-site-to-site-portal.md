@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562999"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220612"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -87,17 +87,7 @@ ms.locfileid: "85562999"
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>허브에 VNet 연결
 
-이 단계에서는 허브와 VNet 간에 연결을 만듭니다. 연결하려는 각 VNet에 대해 이 단계를 반복합니다.
-
-1. 가상 WAN에 대한 페이지에서 **가상 네트워크 연결**을 클릭합니다.
-2. 가상 네트워크 연결 페이지에서 **+연결 추가**를 클릭합니다.
-3. **연결 추가** 페이지에서 다음 필드를 채웁니다.
-
-    * **연결 이름** - 연결의 이름을 지정합니다.
-    * **허브** - 이 연결과 연결할 허브를 선택합니다.
-    * **구독** - 구독을 확인합니다.
-    * **가상 네트워크** - 이 허브에 연결할 가상 네트워크를 선택합니다. 가상 네트워크에는 기존의 가상 네트워크 게이트웨이를 사용할 수 없습니다.
-4. **확인**을 클릭하여 가상 네트워크 연결을 만듭니다.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="download-vpn-configuration"></a><a name="device"></a>VPN 구성 다운로드
 
@@ -262,7 +252,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 * VPN Gateway 공용 IP 주소(Azure에서 할당)
 * VPN Gateway 개인 IP 주소(Azure에서 할당)
 * VPN Gateway 기본 BGP IP 주소(Azure에서 할당)
-* 사용자 지정 BGP IP 주소에 대한 구성 옵션: 이 필드는 APIPA(자동 개인 IP 주소 지정)용으로 예약되어 있습니다. Azure는 169.254.21.* 및 169.254.22.* 범위에서 BGP IP를 지원합니다.
+* 사용자 지정 BGP IP 주소에 대한 구성 옵션: 이 필드는 APIPA(자동 개인 IP 주소 지정)용으로 예약되어 있습니다. Azure는 169.254.21.* 및 169.254.22.* 범위에서 BGP IP를 지원합니다. Azure는 이러한 범위에서 BGP 연결을 허용하지만 기본 BGP IP를 사용하여 연결을 다이얼링합니다.
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="구성 보기" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 

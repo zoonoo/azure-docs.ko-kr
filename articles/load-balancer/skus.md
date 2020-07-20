@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: faf77411abca63516b00ac953bc7203da69f3ca9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d08d7a81fddfe70593c31ac3ebd2191679ea1220
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854098"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206366"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU
 
@@ -34,19 +34,19 @@ Azure Load Balancer에는 두 가지 특색 또는 SKU가 있습니다.
 
 | | 표준 Load Balancer | 기본 Load Balancer |
 | --- | --- | --- |
-| [백 엔드 풀 크기](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | 최대 1000개 인스턴스를 지원합니다. | 최대 300개 인스턴스를 지원합니다. |
-| 백 엔드 풀 엔드포인트 | 단일 가상 네트워크에 있는 가상 머신 또는 가상 머신 확장 집합 | 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 머신. |
-| [상태 프로브](./load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [상태 프로브 다운 동작](./load-balancer-custom-probe-overview.md#probedown) | TCP 연결은 인스턴스 프로브 __및__ 모든 프로브가 다운되어 있을 때 그대로 유지됩니다. | TCP 연결은 인스턴스 프로브가 다운되어 있을 때 그대로 유지됩니다. 모든 프로브가 다운되면 모든 TCP 연결이 종료됩니다. |
-| 가용성 영역 | 인바운드 및 아웃바운드 트래픽에 대한 영역 중복 및 영역 프런트 엔드가 있습니다. | 사용할 수 없음 |
-| 진단 | [Azure Monitor 다차원 메트릭](./load-balancer-standard-diagnostics.md) | [Azure Monitor 로그](./load-balancer-monitor-log.md) |
-| HA 포트 | [내부 Load Balancer에 사용 가능](./load-balancer-ha-ports-overview.md) | 사용할 수 없음 |
-| 기본적으로 보안 적용 | 네트워크 보안 그룹에서 허용하지 않는 한 인바운드 흐름으로 종결됩니다. VNet에서 내부 부하 분산 장치에 대한 내부 트래픽은 허용됩니다. | 기본적으로 엽니다. 네트워크 보안 그룹 옵션입니다. |
-| 아웃바운드 규칙 | [선언적 아웃바운드 NAT 구성](./load-balancer-outbound-rules-overview.md) | 사용할 수 없음 |
-| 유휴 상태의 TCP 재설정 | [모든 규칙에서 사용 가능](./load-balancer-tcp-reset.md) | 사용할 수 없음 |
-| [여러 프론트 엔드](./load-balancer-multivip-overview.md) | 인바운드 및 [아웃바운드](./load-balancer-outbound-connections.md) | 인바운드 전용 |
-| 관리 작업 | 대부분 작업을 30초 이내에 수행 | 일반적으로 60-90+초 |
-| SLA | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | 사용할 수 없음 | 
+| **[백 엔드 풀 크기](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | 최대 1000개 인스턴스를 지원합니다. | 최대 300개 인스턴스를 지원합니다. |
+| **백 엔드 풀 엔드포인트** | 단일 가상 네트워크에 있는 가상 머신 또는 가상 머신 확장 집합 | 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 머신. |
+| **[상태 프로브](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[상태 프로브 다운 동작](./load-balancer-custom-probe-overview.md#probedown)** | TCP 연결은 인스턴스 프로브 __및__ 모든 프로브가 다운되어 있을 때 그대로 유지됩니다. | TCP 연결은 인스턴스 프로브가 다운되어 있을 때 그대로 유지됩니다. 모든 프로브가 다운되면 모든 TCP 연결이 종료됩니다. |
+| **가용성 영역** | 인바운드 및 아웃바운드 트래픽에 대한 영역 중복 및 영역 프런트 엔드가 있습니다. | 사용할 수 없음 |
+| **진단** | [Azure Monitor 다차원 메트릭](./load-balancer-standard-diagnostics.md) | [Azure Monitor 로그](./load-balancer-monitor-log.md) |
+| **HA 포트** | [내부 Load Balancer에 사용 가능](./load-balancer-ha-ports-overview.md) | 사용할 수 없음 |
+| **기본적으로 보안 적용** | 네트워크 보안 그룹에서 허용하지 않는 한 인바운드 흐름으로 종결됩니다. VNet에서 내부 부하 분산 장치에 대한 내부 트래픽은 허용됩니다. | 기본적으로 엽니다. 네트워크 보안 그룹 옵션입니다. |
+| **아웃바운드 규칙** | [선언적 아웃바운드 NAT 구성](./load-balancer-outbound-rules-overview.md) | 사용할 수 없음 |
+| **유휴 상태의 TCP 재설정** | [모든 규칙에서 사용 가능](./load-balancer-tcp-reset.md) | 사용할 수 없음 |
+| **[여러 프론트 엔드](./load-balancer-multivip-overview.md)** | 인바운드 및 [아웃바운드](./load-balancer-outbound-connections.md) | 인바운드 전용 |
+| **관리 작업** | 대부분 작업을 30초 이내에 수행 | 일반적으로 60-90+초 |
+| **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | 사용할 수 없음 | 
 
 자세한 내용은 [Load Balancer 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)을 참조하세요. 표준 Load Balancer 세부 내용은 [개요](load-balancer-standard-overview.md), [가격](https://aka.ms/lbpricing) 및 [SLA](https://aka.ms/lbsla)를 참조하세요.
 

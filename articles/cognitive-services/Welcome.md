@@ -10,16 +10,18 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 2906734a37fbb5516596d456386929c11c8dc1e4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6272d050e6a71032f32c72be696d8c3918fc3d61
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588295"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223757"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
 Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학 기술이나 지식 없이도 지능형 애플리케이션을 빌드하는 데 도움이 되도록 사용할 수 있는 API, SDK 및 서비스입니다. 개발자는 Azure Cognitive Services를 통해 애플리케이션에 인식 기능을 손쉽게 추가할 수 있습니다. Azure Cognitive Services의 목표는 개발자가 보고, 듣고, 말하고, 이해하고, 추론까지 할 수 있는 애플리케이션을 만들도록 지원하는 것입니다. Azure Cognitive Services 내의 서비스 카탈로그는 5가지 주요 핵심 요소인 Vision, Speech, Language, Web Search 및 Decision으로 분류될 수 있습니다.
+
+새로운 기능 및 업데이트된 Cognitive Services 설명서를 보시겠습니까? [Cognitive Services 문서의 새로운 기능](whats-new-docs.md)을 확인하세요.
 
 ## <a name="vision-apis"></a>Vision API
 
@@ -78,17 +80,13 @@ Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator는 불쾌감을 주거나, 원치 않거나, 위험한 콘텐츠를 모니터링하는 프로세스를 제공합니다.|
 |[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer를 사용하면 사용자의 실시간 동작을 통해 학습함으로써 사용자에게 표시할 최상의 환경을 선택할 수 있습니다.|
 
-## <a name="use-free-trials"></a>평가판 사용
-
-[평가판 등록](https://azure.microsoft.com/try/cognitive-services/ "등록 도움말")은 한통의 이메일과 간단한 몇 가지 단계만 수행하면 됩니다. 아직 없는 경우 Microsoft 계정이 필요합니다. 요청된 각 API에 대해 고유한 키 쌍을 받게 됩니다. 두 번째는 단지 스페어입니다. 비밀 키는 누구와도 공유하지 마세요. 평가판은 초당 또는 분당 트랜잭션 수 및 월간 사용량 측면에서 속도 제한이 있습니다. 트랜잭션은 단순히 API 호출입니다. 제한을 해제하려면 유료 계층으로 업그레이드할 수 있습니다.
-
 ## <a name="subscription-management"></a>구독 관리
 
 Microsoft 계정으로 로그인하면 [내 구독](https://www.microsoft.com/cognitive-services/subscriptions "내 구독")에 액세스하여 사용하는 제품, 나머지 할당량 및 구독에 추가 제품을 추가하는 기능을 보여줄 수 있습니다.
 
 ## <a name="upgrade-to-unlock-limits"></a>제한을 해제하려면 업그레이드
 
-모든 API에는 사용량 및 처리량 제한이 포함된 평가판 요금제가 있습니다.  유료 제품을 사용하고 Azure Portal에서 서비스를 배포할 때 적절한 가격 책정 계층 옵션을 선택하면 이러한 제한을 늘릴 수 있습니다. [제품 및 가격 책정에 대해 자세히 알아봅니다](https://azure.microsoft.com/pricing/details/cognitive-services/ "제품 및 가격 책정"). 신용 카드 및 전화번호로 Azure 구독자 계정을 설정해야 합니다. 특별한 요구 사항이 있거나 단지 판매에 관해 상담하려는 경우 가격 책정 페이지 상단에 있는 “문의” 단추를 클릭하세요.
+모든 API에는 사용량 및 처리량 제한이 포함된 체험 계층이 있습니다.  유료 제품을 사용하고 Azure Portal에서 서비스를 배포할 때 적절한 가격 책정 계층 옵션을 선택하면 이러한 제한을 늘릴 수 있습니다. [제품 및 가격 책정에 대해 자세히 알아봅니다](https://azure.microsoft.com/pricing/details/cognitive-services/ "제품 및 가격 책정"). 신용 카드 및 전화번호로 Azure 구독자 계정을 설정해야 합니다. 특별한 요구 사항이 있거나 단지 판매에 관해 상담하려는 경우 가격 책정 페이지 상단에 있는 “문의” 단추를 클릭하세요.
 
 ## <a name="regional-availability"></a>국가별 가용성
 

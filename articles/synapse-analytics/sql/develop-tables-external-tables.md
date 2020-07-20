@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c795e6077bc5a7b755a388a6f50848ad6094d48
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 070d933394b19ea38a9632f25909812943f7bff8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921806"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255833"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -101,10 +101,9 @@ LOCATION = `'<prefix>://<path>'` - 외부 데이터 원본에 대한 연결 프�
 | 외부 데이터 원본        | 위치 접두사 | 위치 경로                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
 | Azure Blob Storage          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
-|                             | `https`         | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
-| Azure Data Lake Store Gen 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
-| Azure Data Lake Store Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
-|                             | `https`         | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
+| Azure Blob Storage          | `http[s]`       | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
+| Azure Data Lake Store Gen 1 | `http[s]`       | `<storage_account>.azuredatalakestore.net/webhdfs/v1` |
+| Azure Data Lake Store Gen 2 | `http[s]`       | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
 
 `https:` 접두사를 통해 경로에 하위 폴더를 사용할 수 있습니다.
 
@@ -203,7 +202,7 @@ FORMAT_TYPE = [ PARQUET | DELIMITEDTEXT] - 외부 데이터의 형식을 지정�
 - PARQUET - Parquet 형식을 지정합니다.
 - DELIMITEDTEXT - 필드 종결자라고도 하는 열 구분 기호가 있는 텍스트 형식을 만듭니다.
 
-FIELD_TERMINATOR = *field_terminator* - 분리된 텍스트 파일에만 적용됩니다. 필드 종결자는 구분 기호로 분리된 텍스트 파일의 각 필드(열)의 끝을 표시하는 하나 이상의 문자를 지정합니다. 기본값은 파이프 문자('|')입니다.
+FIELD_TERMINATOR = *field_terminator* - 분리된 텍스트 파일에만 적용됩니다. 필드 종결자는 구분 기호로 분리된 텍스트 파일의 각 필드(열)의 끝을 표시하는 하나 이상의 문자를 지정합니다. 기본값은 파이프 문자(|)입니다.
 
 예제:
 

@@ -4,12 +4,12 @@ description: 이 자습서에서는 ACR 작업(Azure Container Registry 작업)�
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78398505"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259495"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "78398505"
 
 Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설치되어 있고, [az login][az-login]을 사용하여 로그인해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="github-account"></a>GitHub 계정
 
@@ -50,7 +50,7 @@ Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설
 
 리포지토리가 포크되면 포크를 복제하고 로컬 복제가 포함된 디렉터리를 입력합니다.
 
-`git`을 사용하여 리포지토리를 복제하고, **\<your-github-username\>** 을 GitHub 사용자 이름으로 바꿉니다.
+`git`을 사용하여 리포지토리를 복제하고 **\<your-github-username\>** 를 GitHub 사용자 이름으로 바꿉니다.
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -70,7 +70,7 @@ cd acr-build-helloworld-node
 
 이제 소스 코드를 머신으로 가져왔으므로 다음 단계에 따라 컨테이너 레지스트리를 만들고, ACR 작업을 사용하여 컨테이너 이미지를 빌드합니다.
 
-이 시리즈의 자습서에서는 샘플 명령을 더 쉽게 실행하기 위해 셸 환경 변수를 사용합니다. 다음 명령을 실행하여 `ACR_NAME` 변수를 설정합니다. **\<registry-name\>** 을 새 컨테이너 레지스트리에 대한 고유한 이름으로 바꿉니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 소문자만 포함하고, 5-50자의 영숫자를 포함해야 합니다. 자습서에서 만드는 다른 리소스는 이 이름을 기반으로 하므로 이 첫 번째 변수만 수정해야 합니다.
+이 시리즈의 자습서에서는 샘플 명령을 더 쉽게 실행하기 위해 셸 환경 변수를 사용합니다. 다음 명령을 실행하여 `ACR_NAME` 변수를 설정합니다. **\<registry-name\>** 를 새 컨테이너 레지스트리에 대한 고유한 이름으로 바꿉니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 소문자만 포함하고, 5-50자의 영숫자를 포함해야 합니다. 자습서에서 만드는 다른 리소스는 이 이름을 기반으로 하므로 이 첫 번째 변수만 수정해야 합니다.
 
 [![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
@@ -176,7 +176,7 @@ ACR 작업은 기본적으로 성공적으로 빌드된 이미지를 레지스�
 
 #### <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 
-[Azure Key Vault](/azure/key-vault/)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
+[Azure Key Vault](../key-vault/index.yml)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
 
 ```azurecli-interactive
 AKV_NAME=$ACR_NAME-vault

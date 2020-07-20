@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f06387ea317029f5648ab0884cea80262e8640a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159952"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245010"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
@@ -32,7 +32,7 @@ ms.locfileid: "82159952"
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * 애플리케이션에 대한 모니터링 및 진단 설정
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
@@ -102,7 +102,7 @@ Application Insights에는 시나리오에 따라 사용할 수 있는 두 개�
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. 나타나는 *변경 내용 미리 보기* 대화 상자에서 **확인**을 클릭하고, *라이선스 승인*에 동의합니다. 서비스에 NuGet 추가가 완료됩니다.
 6. 이제 두 서비스에서 원격 분석 이니셜라이저를 설정해야 합니다. 이렇게 하려면 *VotingWeb.cs* 및 *VotingData.cs*를 엽니다. 둘 다에 대해 다음 두 단계를 수행합니다.
-    1. 다음과 같이 각 *\<ServiceName>.cs*의 맨 위에서 기존 *using* 문 뒤에 *using* 문 2개를 추가합니다.
+    1. 다음과 같이 각 *\<ServiceName>.cs*의 맨 위에서 기존 *using* 문 뒤에 *using* 문 두 개를 추가합니다.
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
@@ -268,4 +268,4 @@ public async Task<IActionResult> Delete(string name)
 
 * [Service Fabric에서 모니터링 및 진단 추가 탐색](service-fabric-diagnostics-overview.md)
 * [Application Insights를 사용한 Service Fabric 이벤트 분석](service-fabric-diagnostics-event-analysis-appinsights.md)
-* Application Insights에 대한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/application-insights/)를 참조하세요.
+* Application Insights에 대한 자세한 내용은 [Application Insights 설명서](/azure/application-insights/)를 참조하세요.

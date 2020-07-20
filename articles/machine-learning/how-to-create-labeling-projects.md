@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025185"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146541"
 ---
-# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>데이터 레이블 지정 프로젝트(미리 보기) 만들기 및 레이블 내보내기 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -144,7 +144,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 >[!NOTE]
 > 레이블 지정자는 1-9 숫자 키를 사용하여 처음 9개의 레이블을 선택할 수 있습니다.
 
-## <a name="use-ml-assisted-labeling"></a>ML 지원 레이블 지정 사용
+## <a name="use-ml-assisted-labeling-preview"></a>ML 지원 레이블 지정 사용(미리 보기)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 

@@ -7,25 +7,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707687"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206221"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
-Microsoft Azure Data Box 클라우드 솔루션을 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 보낼 수 있습니다. 사용자에게 전용 Data Box 스토리지 디바이스를 배송하여 안전한 데이터 전송을 더욱 빠르게 실현시켜 드립니다. 각 스토리지 디바이스는 사용 가능한 최대 스토리지 용량이 80TB이며, 지역 이동 통신 사업자를 통해 사용자의 데이터 센터에 수송됩니다. 디바이스는 운송 중에 데이터를 안전하게 보호하기 위해 견고하게 포장됩니다.
+Microsoft Azure Data Box 클라우드 솔루션을 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 주고 받을 수 있습니다. 사용자에게 전용 Data Box 스토리지 디바이스를 배송하여 안전한 데이터 전송을 더욱 빠르게 실현시켜 드립니다. 각 스토리지 디바이스는 사용 가능한 최대 스토리지 용량이 80TB이며, 지역 이동 통신 사업자를 통해 사용자의 데이터 센터에 수송됩니다. 디바이스는 운송 중에 데이터를 안전하게 보호하기 위해 견고하게 포장됩니다.
 
-Azure Portal을 통해 Data Box 디바이스를 주문할 수 있습니다. 디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정할 수 있습니다. 서버에서 디바이스로 데이터를 복사하고 디바이스를 다시 Azure에 배송합니다. Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 엔드투엔드 추적됩니다.
+Azure Portal을 통해 Data Box 디바이스를 주문하여 Azure에서 데이터를 가져오거나 내보낼 수 있습니다. 디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정할 수 있습니다. 데이터를 가져오거나 내보낼지 여부에 따라 서버에서 디바이스로 데이터를 복사하거나 그 반대로 데이터를 복사하여 디바이스를 Azure에 다시 제공합니다. 데이터를 Azure로 가져오는 경우 Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 엔드투엔드 추적됩니다.
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 
 ## <a name="use-cases"></a>사용 사례
 
-Data Box는 네트워크 연결에 제한이 없는 시나리오에서 40TB 이상 데이터 크기를 전송하는 데 아주 적합합니다. 데이터 이동은 일회성 전송, 정기적 전송 또는 초기 대량 데이터 전송 후의 정기적 전송일 수 있습니다. Data Box를 데이터 전송에 사용할 수 있는 다양한 시나리오는 다음과 같습니다.
+Data Box는 네트워크 연결에 제한이 없는 시나리오에서 40TB 이상 데이터 크기를 전송하는 데 아주 적합합니다. 데이터 이동은 일회성 전송, 정기적 전송 또는 초기 대량 데이터 전송 후의 정기적 전송일 수 있습니다. 
+
+Data Box를 사용하여 데이터를 Azure로 가져올 수 있는 다양한 시나리오는 다음과 같습니다.
 
  - **일회성 마이그레이션** - 대량의 온-프레미스 데이터를 Azure로 이동하는 경우입니다. 
      - 온라인 미디어 라이브러리를 만들기 위해 오프라인 테이프에서 Azure로 미디어 라이브러리를 이동합니다.
@@ -35,20 +39,29 @@ Data Box는 네트워크 연결에 제한이 없는 시나리오에서 40TB 이�
  - **초기 대량 전송** - Data Box(초기값)를 사용하여 초기 대량 전송을 수행한 후에 네트워크를 통해 증분 전송이 수행되는 경우입니다. 
      - 예를 들어, 초기 대량 기록 백업을 Azure로 이동하는 데 Commvault 및 Data Box와 같은 백업 솔루션 파트너가 사용됩니다. 완료되면 증분 데이터가 Azure Storage로 네트워크를 통해 전송됩니다.
 
-- **정기적 업로드** - 대량의 데이터를 정기적으로 생성하고 Azure로 이동해야 하는 경우입니다. 예를 들어 에너지를 탐사할 때 석유 굴착 장치와 풍력 발전 시설에서 비디오 콘텐츠를 생성하는 경우가 있습니다.      
+- **정기적 업로드** - 대량의 데이터를 정기적으로 생성하고 Azure로 이동해야 하는 경우입니다. 예를 들어 에너지를 탐사할 때 석유 굴착 장치와 풍력 발전 시설에서 비디오 콘텐츠를 생성하는 경우가 있습니다. 
+
+Data Box를 사용하여 데이터를 Azure에서 내보낼 수 있는 다양한 시나리오는 다음과 같습니다.
+
+- **재해 복구** - Azure의 데이터 복사본이 온-프레미스 네트워크로 복원되는 경우 이는 일반적으로 대량의 Azure 데이터를 Data Box로 내보내는 재해 복구 시나리오의 경우에 수행됩니다. 그러면 Microsoft는 이 Data Box를 제공하고 데이터는 단기간 내에 온-프레미스에서 복원됩니다. 
+
+- **보안 요구 사항** - 정부 또는 보안 요구 사항으로 인해 Azure에서 데이터를 내보낼 수 있어야 하는 경우 예를 들어 Azure Storage는 미국 비밀 및 상위 비밀 클라우드에서 사용할 수 있으며 Data Box를 사용하여 Azure에서 데이터를 내보낼 수 있습니다. 
+
+- **온-프레미스 또는 다른 클라우드 서비스 공급자로 다시 마이그레이션** - 모든 데이터를 온-프레미스 또는 다른 클라우드 서비스 공급자로 다시 이동하려면 Data Box를 통해 데이터를 내보내 워크로드를 마이그레이션합니다.
+
 
 ## <a name="benefits"></a>이점
 
 Data Box는 네트워크에 거의 영향을 주지 않으면서 대량의 데이터를 Azure로 이동할 수 있도록 설계되었습니다. 이 솔루션에는 다음과 같은 이점이 있습니다.
 
-- **속도** - Data Box는 1Gbps 또는 10Gbps 네트워크 인터페이스를 사용하여 80TB의 데이터를 Azure로 이동합니다.
+- **속도** - Data Box는 1Gbps 또는 10Gbps 네트워크 인터페이스를 사용하여 80TB의 데이터를 Azure 내외부로 이동합니다.
 
 - **보안** - Data Box에는 디바이스, 데이터 및 서비스에 대한 보안 보호 기능이 기본적으로 제공됩니다.
   - 디바이스는 나사 변조 방지 및 변조 방지 스티커로 보호되어 견고하게 포장됩니다. 
   - 디바이스의 데이터는 항상 AES 256비트 암호화로 보호됩니다.
   - 디바이스는 Azure Portal에 제공된 암호로만 잠금 해제할 수 있습니다.
   - 서비스는 Azure 보안 기능으로 보호됩니다.
-  - 데이터가 Azure에 업로드되면 디바이스의 디스크는 NIST 800-88r1 표준에 따라 완전히 초기화됩니다.
+  - 가져오기 순서를 위해 데이터가 Azure에 업로드되면 디바이스의 디스크는 NIST 800-88r1 표준에 따라 완전히 초기화됩니다. 내보내기 순서의 경우 디바이스가 Azure 데이터 센터에 도달하면 디스크가 지워집니다.
     
     자세한 내용은 [Azure Data Box 보안 및 데이터 보호](data-box-security.md)를 참조하세요.
 
@@ -65,6 +78,7 @@ Data Box 디바이스에는 이 릴리스의 다음과 같은 기능이 있습�
 | 스토리지 용량                                        | 100TB 디바이스 - RAID 5 보호 후 사용 가능한 용량 80TB|
 | 전력 소요량                                            | 전원 공급 장치는 정격 700W입니다. <br> 일반적으로 장치는 375W를 소비합니다.|
 | 네트워크 인터페이스                                      | 1 GbE 인터페이스 2개 - MGMT, DATA 3. <br> MGMT - 관리용, 사용자 구성 불가능, 초기 설치에 사용됨 <br> DATA3 - 데이터용, 구성 가능, 기본적으로 동적임 <br> MGMT 및 DATA 3은 10GbE로 사용할 수도 있음 <br> 10GbE 인터페이스 2개 - DATA 1, DATA 2 <br> 모두 데이터용으로, 동적(기본값) 또는 정적으로 구성할 수 있음 |
+| 데이터 전송                                      | 가져오기 및 내보내기가 모두 지원됩니다.  |
 | 데이터 전송 미디어                                     | RJ45, SFP+ 구리 10GbE 이더넷  |
 | 보안                                                | 조작 방지 사용자 지정 나사를 사용한 견고한 디바이스 포장 <br> 디바이스의 하단에 변조 방지 스티커 부착|
 | 데이터 전송 속도                                      | 10GbE 네트워크 인터페이스를 통해 하루 최대 80TB        |
@@ -93,7 +107,7 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 
 ## <a name="the-workflow"></a>워크플로
 
-일반적인 흐름에 포함되는 단계는 다음과 같습니다.
+일반적인 가져오기 흐름에 포함되는 단계는 다음과 같습니다.
 
 1. **주문** - Azure Portal에서 주문을 만들고, 배송 정보를 제공하고, 데이터에 대한 대상 Azure Storage 계정을 만듭니다. 디바이스가 사용 가능 상태가 되면 Azure에서 배송 추적 ID를 사용하여 디바이스를 준비 및 배송합니다.
 
@@ -107,13 +121,32 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 
 이 과정에서 모든 상태 변경에 대해 이메일을 통해 알림을 받습니다. 세부적인 흐름에 대한 자세한 내용은 [Azure Portal에서 Data Box 배포](data-box-deploy-ordered.md)로 이동하세요.
 
+
+일반적인 내보내기 흐름에 포함되는 단계는 다음과 같습니다.
+
+1. **순서** - Azure Portal에서 내보내기 순서를 만들고, 배송 정보를 제공하고, 데이터에 대한 원본 Azure 스토리지 계정을 만듭니다. 디바이스를 사용할 수 있는 경우 Azure는 디바이스를 준비합니다. 데이터가 Azure Storage 계정에서 Data Box로 복사됩니다. 데이터 복사가 완료되면 Microsoft는 배송 추적 ID와 함께 디바이스를 제공합니다.
+
+2. **수신** - 디바이스가 배송되면 네트워크 및 전원 공급을 위해 디바이스를 지정된 케이블을 사용하여 연결합니다. 디바이스를 켜고 연결합니다. 데이터를 복사할 호스트 컴퓨터에서 디바이스 네트워크를 구성하고 공유를 탑재합니다.
+
+3. **데이터 복사** - Data Box 공유에서 온-프레미스 데이터 서버로 데이터를 복사합니다.
+
+4. **반환** - 디바이스가 준비되면 전원을 끈 상태로 Azure 데이터 센터로 다시 배송합니다.
+
+5. **데이터 지우기** - 디바이스 디스크는 NIST(National Institute of Standard and Technology) 지침에 따라 안전하게 지워집니다.
+
+내보내기 프로세스 전체에서 모든 상태 변경에 대해 이메일을 통해 알림을 받습니다. 세부적인 흐름에 대한 자세한 내용은 [Azure Portal에서 Data Box 배포](data-box-deploy-export-ordered.md)로 이동하세요.
+
 ## <a name="region-availability"></a>지역 가용성
 
 Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/지역 및 데이터를 전송하는 대상 Azure 스토리지 계정에 따라 데이터를 전송할 수 있습니다. 
 
-- **서비스 가용성** - 지역 가용성에 대한 정보는 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요. Data Box는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
+### <a name="for-import"></a>가져오기의 경우
 
-- **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 서비스를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.  
+- **서비스 가용성** - 가져오기 또는 내보내기 순서에 Data Box를 사용하는 경우 지역 가용성에 대한 정보를 가져오려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요. Data Box의 내보내기 기능은 현재 미리 보기로 제공됩니다. 
+
+    가져오기 순서의 경우 Data Box는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요. 
+
+- **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 서비스를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

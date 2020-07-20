@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 850144e4835b43e219fa059bbc1c92bb3ef412f4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c74b5ba5101dae9165898aeb4f265d449988ecab
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200509"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205246"
 ---
 ::: zone target="docs"
 
@@ -38,21 +38,23 @@ ms.locfileid: "83200509"
 > * Data Box 케이블 연결
 > * Data Box에 연결
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 완료했습니다.
-2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다. 
+1. Azure Data Box에 대한 주문을 배치했습니다.
+    - 가져오기 순서는 [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 완료했습니다.
+    - 내보내기 순서는 [자습서: Azure Data Box 주문](data-box-deploy-export-ordered.md)을 참조하세요.
+1. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다. 
     - 현재 레이블 아래의 디바이스에 부착된 투명 주머니에 배송 레이블이 있습니다. 반품 발송 시 사용할 수 있으므로 이 레이블을 안전하게 보관하세요.
     - 유럽의 일부 지역은 상자에 패키징된 디바이스를 받을 수 있습니다. 디바이스를 개봉한 후에는 반품 배송에 대비해 상자를 보관해 두세요.
-3. [Data Box 안전 지침](data-box-safety.md)을 검토했습니다.
-4. 100TB 스토리지 디바이스에 사용할 하나의 접지식 전원 코드를 수취했습니다.
-5. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
+1. [Data Box 안전 지침](data-box-safety.md)을 검토했습니다.
+1. 100TB 스토리지 디바이스에 사용할 하나의 접지식 전원 코드를 수취했습니다.
+1. Data Box에서 데이터를 복사(가져오기 순서)하거나 데이터를 복사(내보내기 순서)하는 데 사용되는 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
     - [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
     - 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없는 경우 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다. 
-6. Data Box를 놓을 평평한 표면이 있어야 합니다. 표준 랙 선반에 디바이스를 놓으려면 데이터 센터 랙에 7U 슬롯이 있어야 합니다. 디바이스는 랙에 평평하게 놓거나 똑바로 세울 수 있습니다.
-7. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 준비해 둔 상태여야 합니다.
+1. Data Box를 놓을 평평한 표면이 있어야 합니다. 표준 랙 선반에 디바이스를 놓으려면 데이터 센터 랙에 7U 슬롯이 있어야 합니다. 디바이스는 랙에 평평하게 놓거나 똑바로 세울 수 있습니다.
+1. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 준비해 둔 상태여야 합니다.
     - 하나 이상의 10GbE SFP+ 2축 동 또는 SFP+ 광섬유 케이블(DATA 1, DATA 2 네트워크 인터페이스에 사용). Data Box에는 PCI Express 3.0 네트워크 인터페이스가 있는 Mellanox ConnectX®-3 Pro EN 이중 포트 10GBASE-T 어댑터가 있으므로 이 인터페이스와 호환되는 케이블이 작동합니다. 예를 들어, CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M 케이블을 내부 테스트에 사용했습니다. 자세한 내용은 [Mellanox의 지원되는 케이블 및 스위치 목록](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)을 참조하세요.
     - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
     - RJ-45 CAT 6A 1개 또는 RJ-45 CAT 6 네트워크 케이블 1개(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
@@ -135,7 +137,7 @@ ms.locfileid: "83200509"
 
 데이터 네트워크 인터페이스가 구성되면 DATA 1 - DATA 3 인터페이스의 아무 IP 주소를 사용하여 `https://<IP address of a data network interface>`에서 로컬 웹 UI에 액세스할 수 있습니다. 
 
-디바이스 설정이 완료되면 디바이스 공유에 연결하여 컴퓨터의 데이터를 디바이스로 복사할 수 있습니다. 
+디바이스 설정이 완료되면 디바이스 공유에 연결하고 데이터를 복사할 수 있습니다. 
 
 ::: zone-end
 
@@ -143,7 +145,7 @@ ms.locfileid: "83200509"
 
 ## <a name="connect-your-device"></a>디바이스 연결
 
-1. 디바이스 암호를 확인하려면 **Azure Portal**에서 [일반 &gt; 디바이스 정보](https://portal.azure.com)로 이동합니다.
+1. 디바이스 암호를 확인하려면 [Azure Portal](https://portal.azure.com)에서 **일반 &gt; 디바이스 정보**로 이동합니다.
 2. Data Box에 연결하는 데 사용 중인 컴퓨터의 이더넷 어댑터에서 고정 IP 주소 192.168.100.5 및 서브넷 255.255.255.0을 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다. 
 3. Azure Portal에서 암호를 사용하여 로그인합니다. 웹 사이트의 보안 인증서 문제를 나타내는 오류가 표시됩니다. 브라우저별 지침에 따라 웹 페이지로 이동합니다.
 4. 기본적으로 10Gbps 또는 1Gbps 데이터 인터페이스의 네트워크 설정은 DHCP로 구성됩니다. 필요한 경우 이 인터페이스를 정적으로 구성하고 IP 주소를 제공할 수 있습니다. 
@@ -161,10 +163,15 @@ ms.locfileid: "83200509"
 > * Data Box 케이블 연결
 > * Data Box에 연결
 
-Data Box에서 데이터를 복사하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+데이터를 복사하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Data Box에 데이터 복사](./data-box-deploy-copy-data.md)
+> [가져오기 순서를 위해 데이터를 Azure Data Box에 복사](./data-box-deploy-copy-data.md)
+
+또는
+
+> [!div class="nextstepaction"]
+> [내보내기 순서를 위해 데이터를 Azure Data Box에 복사](./data-box-deploy-export-copy-data.md)
 
 ::: zone-end
 

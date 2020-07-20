@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/07/2020
+ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125807"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248614"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -87,47 +87,7 @@ Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같
 >[!NOTE]
 >Azure 구독이 필요한 경우에는 [1개월 평가판에 가입](https://azure.microsoft.com/free/)하면 됩니다. Azure 평가판 버전을 사용하는 경우 Windows Server Active Directory와 Azure Active Directory가 동기화 상태를 유지하도록 Azure AD Domain Services를 사용해야 합니다.
 
-Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL에 대한 액세스 권한이 있어야 합니다.
-
-|주소|아웃바운드 TCP 포트|목적|서비스 태그|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|서비스 트래픽|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|에이전트 및 SXS 스택 업데이트|AzureCloud|
-|*.core.windows.net|443|에이전트 트래픽|AzureCloud|
-|\*.servicebus.windows.net|443|에이전트 트래픽|AzureCloud|
-|prod.warmpath.msftcloudes.com|443|에이전트 트래픽|AzureCloud|
-|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
-|kms.core.windows.net|1688|Windows 정품 인증|인터넷|
-|wvdportalstorageblob.blob.core.windows.net|443|Azure Portal 지원|AzureCloud|
-
->[!IMPORTANT]
->이제 Windows Virtual Desktop에서 FQDN 태그를 지원합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](../firewall/protect-windows-virtual-desktop.md)를 참조하세요.
->
->서비스 문제를 방지하기 위해 URL 대신 FQDN 태그를 사용하는 것이 좋습니다. 나열된 URL과 태그는 Windows Virtual Desktop 사이트 및 리소스에만 해당됩니다. Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함되지 않습니다.
-
-다음 표에는 Azure 가상 머신에서 액세스할 수 있는 선택적 URL이 나열되어 있습니다.
-
-|주소|아웃바운드 TCP 포트|목적|서비스 태그|
-|---|---|---|---|
-|*.microsoftonline.com|443|Microsoft Online Services에 대한 인증|None|
-|*.events.data.microsoft.com|443|원격 분석 서비스|None|
-|www.msftconnecttest.com|443|OS가 인터넷에 연결되어 있는지 검색합니다.|None|
-|*.prod.do.dsp.mp.microsoft.com|443|Windows 업데이트|None|
-|login.windows.net|443|Microsoft Online Services, Microsoft 365에 로그인|None|
-|*.sfx.ms|443|OneDrive 클라이언트 소프트웨어에 대한 업데이트|None|
-|*.digicert.com|443|인증서 해지 확인|None|
-
-
->[!NOTE]
->Windows Virtual Desktop에는 현재 네트워크 트래픽을 허용하도록 허용 목록화할 수 있는 IP 주소 범위 목록이 없습니다. 현재 특정 URL의 허용 목록만 지원합니다.
->
->필수 Azure Active Directory 관련 URL을 비롯한 Office 관련 URL 목록은 [Office 365 URL 및 IP 주소 범위](/office365/enterprise/urls-and-ip-address-ranges)를 참조하세요.
->
->서비스 트래픽과 관련된 URL에는 와일드카드 문자(*)를 사용해야 합니다. 에이전트 관련 트래픽에 *를 사용하지 않으려는 경우 와일드 카드 없이 URL을 찾는 방법은 다음과 같습니다.
->
->1. Windows Virtual Desktop 호스트 풀에 가상 머신을 등록합니다.
->2. **이벤트 뷰어**를 열고 **Windows 로그** > **애플리케이션** > **WVD-Agent**로 이동하여 이벤트 ID 3702를 찾습니다.
->3. 이벤트 ID 3702 아래에 있는 URL을 허용 목록으로 지정합니다. 이벤트 ID 3702 아래의 URL은 지역별로 다릅니다. 가상 머신을 배포하려는 각 지역에 대한 관련 URL을 사용하여 허용 목록 프로세스를 반복해야 합니다.
+Windows Virtual Desktop 배포가 의도한 대로 작동하도록 차단해야 하는 URL 목록은 [Safe URL 목록](safe-url-list.md)을 참조하세요.
 
 Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션으로 구성됩니다. 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국에 상주합니다. 따라서 미국으로 데이터가 전송될 수 있습니다.
 
@@ -141,7 +101,7 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 
 다음 원격 데스크톱 클라이언트는 Windows Virtual Desktop을 지원합니다.
 
-* [Windows Desktop](connect-windows-7-and-10.md)
+* [Windows Desktop](connect-windows-7-10.md)
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
@@ -153,20 +113,7 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 > [!IMPORTANT]
 > Windows Virtual Desktop은 현재 Windows Store에서 원격 데스크톱 클라이언트를 지원하지 않습니다. 이 클라이언트에 대한 지원은 향후 릴리스에 추가될 예정입니다.
 
-원격 데스크톱 클라이언트에는 다음 URL에 액세스할 수 있어야 합니다.
-
-|주소|아웃바운드 TCP 포트|목적|클라이언트|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|서비스 트래픽|모두|
-|\*.servicebus.windows.net|443|데이터 문제 해결|모두|
-|go.microsoft.com|443|Microsoft FWLinks|모두|
-|aka.ms|443|Microsoft URL 단축기|모두|
-|docs.microsoft.com|443|설명서|모두|
-|privacy.microsoft.com|443|개인정보처리방침|모두|
-|query.prod.cms.rt.microsoft.com|443|클라이언트 업데이트|Windows Desktop|
-
->[!IMPORTANT]
->이러한 URL을 여는 것은 신뢰할 수 있는 클라이언트 환경을 위해 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 클라이언트 사이트 및 리소스에만 해당하고 Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
+원격 클라이언트를 사용하기 위해 차단을 해제해야 하는 URL에 대한 자세한 내용은 [Safe URL 목록](safe-url-list.md)을 참조하세요.
 
 ## <a name="supported-virtual-machine-os-images"></a>지원되는 가상 머신 OS 이미지
 

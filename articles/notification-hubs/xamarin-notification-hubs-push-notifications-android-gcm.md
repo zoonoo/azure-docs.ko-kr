@@ -17,12 +17,12 @@ ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: 06be9e7c4ce41ff01494ecef84a800b52db6b82e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 5f1d12081591b180acca8ee35ecc5a5bf202211e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308135"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223944"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>자습서: Notification Hubs를 사용하여 Xamarin.Android 앱에 푸시 알림 보내기
 
@@ -60,7 +60,7 @@ ms.locfileid: "84308135"
 2. Google Firebase 콘솔에서 적어둔 **서버 키**를 입력합니다.
 3. 도구 모음에서 **저장**을 선택합니다.
 
-    ![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+    ![Google G C M F C M 옵션이 강조 표시되고 빨간색으로 표시된 Azure Portal의 Notification Hub 스크린샷.](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 알림 허브가 FCM과 작동하도록 구성되었으며, 알림을 받고 푸시 알림을 보내기 위해 앱을 등록하는 연결 문자열이 있습니다.
 

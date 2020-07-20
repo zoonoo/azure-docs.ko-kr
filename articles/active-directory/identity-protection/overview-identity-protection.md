@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27adab85f684143db29e248739492b68af869404
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59f83c7896ca371809d9103489b140ae73d5a42d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647343"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256659"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
 
@@ -94,7 +94,7 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| 기능 | 세부 정보 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| 기능 | 세부 정보 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Office 365 앱 |
 | --- | --- | --- | --- | --- |
 | 위험 정책 | 사용자 위험 정책(ID 보호를 통해) | 예 | 예 | 예 |
 | 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해) | 예 | 예 | 예 |

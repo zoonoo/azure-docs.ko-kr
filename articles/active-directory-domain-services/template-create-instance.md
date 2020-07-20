@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 01/14/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: d826a40073d243193f87d90ab80333b491a203b2
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734218"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223009"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Active Directory Domain Services 관리형 도메인 만들기
 
 Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Directory와 완전히 호환되는 도메인 조인, 그룹 정책, LDAP, Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다. 이러한 도메인 서비스는 도메인 컨트롤러를 직접 배포, 관리 및 패치하지 않고 사용할 수 있습니다. Azure AD DS는 기존 Azure AD 테넌트와 통합됩니다. 이러한 통합을 통해 사용자는 회사 자격 증명을 사용하여 로그인할 수 있으며, 기존 그룹과 사용자 계정을 사용하여 리소스에 대한 액세스를 보호할 수 있습니다.
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure AD DS를 사용하도록 설정하는 방법을 보여줍니다. 지원 리소스는 Azure PowerShell을 사용하여 생성됩니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 관리되는 도메인을 만드는 방법을 보여줍니다. 지원 리소스는 Azure PowerShell을 사용하여 생성됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -51,7 +51,7 @@ Azure AD DS 관리형 도메인을 만들 때 DNS 이름을 지정합니다. 이
 >
 > 환경의 다른 서비스에 대한 일부 추가 DNS 레코드를 만들거나 환경의 기존 DNS 네임스페이스 사이에 조건부 DNS 전달자를 만들어야 할 수 있습니다. 예를 들어 루트 DNS 이름을 사용 중인 사이트를 호스트하는 웹 서버를 실행하는 경우 추가 DNS 항목이 필요한 명명 충돌이 있을 수 있습니다.
 >
-> 이러한 자습서 및 방법 문서에서는 *aaddscontoso.com*의 사용자 지정 도메인이 간단한 예제로 사용됩니다. 모든 명령에서 사용자 고유의 도메인 이름을 지정하세요.
+> 이 샘플 및 방법 문서에서는 *aaddscontoso.com*의 사용자 지정 도메인이 간단한 예제로 사용됩니다. 모든 명령에서 사용자 고유의 도메인 이름을 지정하세요.
 
 다음 DNS 이름 제한도 적용됩니다.
 
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 *AAD DC Administrators* 그룹을 만든 상태에서 [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet을 사용하여 그룹에 사용자를 추가합니다. 먼저 [Get-AzureADGroup][Get-AzureADGroup] cmdlet을 사용하여 *AAD DC Administrators* 그룹을 가져온 다음, [Get-AzureADUser][Get-AzureADUser] cmdlet을 사용하여 원하는 사용자의 개체 ID를 가져옵니다.
 
-다음 예에서 사용자 개체 ID는 UPN이 `admin@aaddscontoso.onmicrosoft.com`인 계정입니다. 이 사용자 계정을 *AAD DC Administrators* 그룹에 추가하려는 사용자의 UPN으로 바꿉니다.
+다음 예에서 사용자 개체 ID는 UPN이 `admin@contoso.onmicrosoft.com`인 계정입니다. 이 사용자 계정을 *AAD DC Administrators* 그룹에 추가하려는 사용자의 UPN으로 바꿉니다.
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -98,7 +98,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -124,9 +124,9 @@ Resource Manager 리소스 정의의 일환으로 다음 구성 매개 변수가
 | 매개 변수               | 값 |
 |-------------------------|---------|
 | domainName              | 이름 지정 접두사 및 충돌과 관련된 이전 사항을 고려한 관리되는 도메인의 DNS 도메인 이름입니다. |
-| filteredSync            | Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그룹을 *모두* 동기화하거나 특정 그룹으로만 *범위가 지정된* 동기화를 수행할 수 있습니다. 사용자와 그룹을 모두 동기화하도록 선택하면 나중에 범위가 지정된 동기화만 수행하도록 선택할 수 없습니다.<br /> 범위가 지정된 동기화에 대한 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화][scoped-sync]를 참조하세요.|
-| notificationSettings    | 관리되는 도메인에서 생성된 경고가 있으면 이메일 알림을 보낼 수 있습니다. <br />Azure 테넌트의 전역 관리자와 *AAD DC Administrators* 그룹의 멤버에게는 이 알림을 *Enabled*로 설정할 수 있습니다.<br /> 필요하면, 주의가 필요한 경고가 있을 때 알림을 받을 수신자를 추가할 수 있습니다.|
-| domainConfigurationType | 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 사용자 포리스트를 만들기 위해 *domainConfiguration* 값을 지정할 필요가 없습니다.<br /> *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 리소스 포리스트는 현재 미리 보기로 제공됩니다. 값을 *ResourceTrusting*으로 설정하여 리소스 포리스트를 만듭니다.<br />온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.|
+| filteredSync            | Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그룹을 *모두* 동기화하거나 특정 그룹으로만 *범위가 지정된* 동기화를 수행할 수 있습니다.<br /><br /> 범위가 지정된 동기화에 대한 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화][scoped-sync]를 참조하세요.|
+| notificationSettings    | 관리되는 도메인에서 생성된 경고가 있으면 이메일 알림을 보낼 수 있습니다. <br /><br />Azure 테넌트의 전역 관리자와 *AAD DC Administrators* 그룹의 멤버에게는 이 알림을 *Enabled*로 설정할 수 있습니다.<br /><br /> 필요하면, 주의가 필요한 경고가 있을 때 알림을 받을 수신자를 추가할 수 있습니다.|
+| domainConfigurationType | 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 사용자 포리스트를 만들기 위해 *domainConfiguration* 값을 지정할 필요가 없습니다.<br /><br /> *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 리소스 포리스트는 현재 미리 보기로 제공됩니다. 값을 *ResourceTrusting*으로 설정하여 리소스 포리스트를 만듭니다.<br /><br />온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.|
 
 다음 압축 매개 변수 정의는 이러한 값이 선언되는 방법을 보여줍니다. *aaddscontoso.com*이라는 사용자 포리스트가 생성되어 Azure AD의 모든 사용자가 관리되는 도메인에 동기화됩니다.
 
@@ -331,7 +331,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateFile
 
 * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
     * DNS를 구성하려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 DNS 설정을 자동으로 구성하라는 메시지가 표시됩니다.
-* 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 [Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)합니다.
+* 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 [Azure AD DS에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

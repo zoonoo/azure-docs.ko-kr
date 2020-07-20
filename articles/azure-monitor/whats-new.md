@@ -5,17 +5,96 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 04/06/2020
-ms.openlocfilehash: 561767b6857f4b52b3ee1eb17fedd51ad409ee29
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 07/08/2020
+ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462977"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203765"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
 이 문서에는 새롭거나 크게 업데이트된 Azure Monitor 문서가 나열되어 있습니다. 지난 달의 문서 업데이트가 포함되도록 매월 첫째 주에 새로 고쳐집니다.
+
+## <a name="june-2020"></a>2020년 6월
+
+### <a name="general"></a>일반
+- [Azure Monitor 배포](platform/deploy-scale.md) - 새 문서.
+- [Azure Monitor 고객 관리형 키](platform/customer-managed-keys.md) - 업데이트된 billingtype 속성. PowerShell 명령이 추가되었습니다.
+
+### <a name="agents"></a>에이전트
+- [Log Analytics 에이전트 개요](platform/log-analytics-agent.md) - Python 2 요구 사항이 추가되었습니다.
+
+### <a name="alerts"></a>경고
+- [대상 리소스가 다른 Azure 지역으로 이동할 때 경고 규칙 또는 작업 규칙을 업데이트하는 방법](platform/alerts-resource-move.md) - 새 문서.
+- [Azure 메트릭 경고 문제 해결](platform/alerts-troubleshoot-metric.md) - 새 문서.
+- [Azure Monitor에서 로그 경고 문제 해결](platform/alerts-troubleshoot-metric.md) - 새 문서.
+  
+### <a name="application-insights"></a>Application Insights
+- [JavaScript 웹앱용 Azure Application Insights](app/javascript.md) - JavaScript SDK 섹션으로 업데이트합니다. 로드 오류를 보고하도록 코드 조각을 업데이트했습니다.
+- [프로필 및 스냅샷 디버거에 대한 BYOS(사용자 고유의 스토리지 가져오기) 구성](app/profiler-bring-your-own-storage.md) - 새 문서.
+- [OpenCensus Python을 사용하여 Azure Application Insights에서 들어오는 요청 추적](app/opencensus-python-request.md) - OpenCensus에 대한 로깅 및 구성을 업데이트했습니다.
+- [Azure Application Insights를 사용하여 라이브 ASP.NET 웹앱 모니터링](app/monitor-performance-live-website-now.md) - 상태 모니터 v1의 사용 중단 날짜가 업데이트되었습니다.
+- [Azure Application Insights를 사용하여 Node.js 서비스 모니터링](app/nodejs.md) - 이전 버전 및 SDK 구성에서 마이그레이션을 비롯한 여러 업데이트
+- [Azure Monitor(미리 보기)를 사용하여 Python 애플리케이션 모니터링](app/opencensus-python.md) - Azure Monitor 내보내기 구성에 대한 섹션을 추가했습니다.
+- [코드 변경 없이 앱 모니터링 - Azure Monitor Application Insights에 대한 자동 계측](app/codeless-overview.md) - 새 문서.
+- [JavaScript 웹 애플리케이션에 대한 SDK 로드 실패 문제 해결](app/javascript-sdk-load-failure.md) - 새 문서.
+
+### <a name="containers"></a>컨테이너
+- [하이브리드 Kubernetes 클러스터 모니터링을 중지하는 방법](insights/container-insights-optout-hybrid.md) - Arc 지원 Kubernetes에 대한 섹션을 추가했습니다.
+- [컨테이너에 대한 Azure Monitor를 사용하여 Azure Arc 지원 Kubernetes 클러스터 구성](insights/container-insights-enable-arc-enabled-clusters.md) - 새 문서.
+- [컨테이너에 대한 Azure Monitor를 사용하여 Azure Red Hat OpenShift v4.x 구성](insights/container-insights-azure-redhat4-setup.md) - 필수 구성 요소가 업데이트되었습니다.
+- [컨테이너 Live Data에 대한 Azure Monitor 설정(미리 보기)](insights/container-insights-livedata-setup.md) - Azure 미국 정부에서 사용할 수 없는 기능에 대한 정보가 제거되었습니다.
+
+### <a name="insights"></a>자세한 정보
+- [FAQ - Azure의 네트워크 성능 모니터 솔루션](insights/network-performance-monitor-faq.md) - ExpressRoute 모니터에 대한 FAQ가 추가되었습니다.
+
+### <a name="logs"></a>로그
+- [Azure Log Analytics 작업 영역 삭제 및 복구](platform/delete-workspace.md) - PowerShell 명령이 추가되었습니다. 문제 해결이 업데이트되었습니다.
+- [Azure Monitor에서 Log Analytics 작업 영역 관리](platform/manage-access.md) - RBAC 섹션에 허용되지 않는 테이블에 대한 예제가 추가되었습니다.
+- [Azure Monitor 로그의 사용량 및 비용 관리](platform/manage-cost-storage.md) - 데이터 크기 계산에 대한 추가 세부 정보. 데이터 볼륨 경고 구성을 업데이트했습니다. Azure Sentinel에서 수집한 보안 데이터에 대한 세부 정보. 데이터 캡에 대한 설명.
+- [Azure Logic Apps와 Power Automate로 Azure Monitor 로그 사용](platform/logicapp-flow-connector.md) - 연결선 제한이 추가되었습니다.
+
+### <a name="metrics"></a>메트릭
+- [리소스 종류별 Azure Monitor 지원 메트릭](platform/metrics-supported.md) - SQL Server 메트릭이 업데이트되었습니다.
+
+
+### <a name="platform-logs"></a>플랫폼 로그
+
+- [진단 설정에 대한 Resource Manager 템플릿 샘플](samples/resource-manager-diagnostic-settings.md) - 활동 로그 진단 설정 수정.
+- [Azure Portal을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기](learn/quick-collect-activity-log-portal.md) - 새 문서.
+- [Azure Resource Manager 템플릿을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기](learn/quick-collect-activity-log-arm.md) - 새 문서.
+
+#### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>플랫폼 로그 콘텐츠 재구성 및 통합의 새로운 문서 및 업데이트된 문서
+- [스토리지 계정에 Azure 리소스 로그 보관](platform/resource-logs-collect-storage.md)
+- [Azure 활동 로그 이벤트 스키마](platform/activity-log-schema.md)
+- [Azure 활동 로그](platform/activity-log.md)
+- [Azure Monitor CLI 샘플](samples/cli-samples.md)
+- [Azure Monitor PowerShell 샘플](samples/powershell-samples.md)
+- [Azure Monitoring REST API 연습](platform/rest-api-walkthrough.md)
+- [Azure 리소스 로그 지원 서비스 및 스키마](platform/diagnostic-logs-schema.md)
+- [Azure 리소스 로그](platform/resource-logs.md)
+- [Azure Monitor에서 Azure 활동 로그 수집 및 분석](platform/activity-log-collect.md)
+- [Log Analytics 작업 영역에서 Azure 리소스 로그 수집](platform/resource-logs-collect-workspace.md)
+- [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](platform/diagnostic-settings.md)
+- [Azure 활동 로그 내보내기](platform/activity-log-export.md)
+- [Azure 플랫폼 로그 개요](platform/platform-logs-overview.md)
+- [이벤트 허브로 Azure 플랫폼 로그 스트림](platform/resource-logs-stream-event-hubs.md)
+- [Azure Monitor에서 Azure 활동 로그 이벤트 보기](platform/activity-log-view.md)
+
+### <a name="virtual-machines"></a>가상 머신
+- [Azure Portal에서 VM용 Azure Monitor 사용](insights/vminsights-enable-single-vm.md) - Azure Arc를 포함하도록 업데이트되었습니다.
+- [VM용 Azure Monitor 사용 개요](insights/vminsights-enable-overview.md) - Azure Arc를 포함하도록 업데이트되었습니다.
+- [VM용 Azure Monitor란?](insights/vminsights-overview.md) - Azure Arc를 포함하도록 업데이트되었습니다.
+
+
+### <a name="visualizations"></a>시각화
+- [Azure Monitor 통합 문서 데이터 원본](platform/workbooks-data-sources.md) - 경고 및 사용자 지정 엔드포인트 섹션이 추가되었습니다.
+- [Azure Monitor 통합 문서 기반 인사이트 문제 해결](insights/troubleshoot-workbooks.md) - 새 문서.
+- [Log Analytics 대시보드 시각화 업그레이드](log-query/dashboard-upgrade.md) - 새 문서.
+
+
 
 ## <a name="may-2020"></a>2020년 5월
 

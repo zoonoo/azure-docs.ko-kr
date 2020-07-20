@@ -11,16 +11,16 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 86b39beb2958194f7c86409c5d78992616234b05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769904"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252575"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행
 
-수동 장애 조치는 고객이 해당 허브의 작업을 주 지역에서 해당 Azure 지역 쌍을 이루는 지역으로 [장애 조치](https://en.wikipedia.org/wiki/Failover)할 수 있는 IoT Hub 서비스의 기능입니다. 수동 장애 조치는 지역 재해 또는 확장된 서비스 중단 발생 시 수행될 수 있습니다. 프로덕션에서 실행 중인 기능보다 테스트 IoT Hub를 사용하는 것이 좋지만 재해 복구 기능을 테스트하기 위해 계획된 장애 조치를 수행할 수도 있습니다. 수동 장애 조치 기능은 추가 비용 없이 고객에게 제공됩니다.
+수동 장애 조치는 고객이 해당 허브의 작업을 주 지역에서 해당 Azure 지역 쌍을 이루는 지역으로 [장애 조치](https://en.wikipedia.org/wiki/Failover)할 수 있는 IoT Hub 서비스의 기능입니다. 수동 장애 조치는 지역 재해 또는 확장된 서비스 중단 발생 시 수행될 수 있습니다. 프로덕션에서 실행 중인 기능보다 테스트 IoT Hub를 사용하는 것이 좋지만 재해 복구 기능을 테스트하기 위해 계획된 장애 조치를 수행할 수도 있습니다. 수동 장애 조치(failover) 기능은 2017년 5월 18일 이후에 생성된 IoT 허브에 대해 추가 비용 없이 고객에게 제공됩니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "81769904"
 > * 장애 복구를 수행하여 기본 위치에 IoT Hub의 작업을 반환합니다. 
 > * 허브가 올바른 위치에서 올바르게 실행 중인지 확인합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

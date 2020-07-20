@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 598df2f0a1e9badebbb1bf8e7ec0f93ff98d55ce
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 08f7554ed9648df8b225fe9f205ee13b0f693c44
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341777"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170567"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -67,7 +67,7 @@ Azure Load Balancer는 OSI(Open Systems Interconnect) 모델의 계층 4에서 �
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>기본적으로 보안 적용
 
 표준 Load Balancer는 해당 코어의 제로 신뢰 네트워크 보안 모델을 기반으로 합니다. 기본적으로 보호되는 표준 Load Balancer는 가상 네트워크의 일부입니다. 가상 네트워크는 격리된 프라이빗 네트워크입니다.  즉, 네트워크 보안 그룹에서 열지 않는 한 표준 Load Balancers 및 표준 공용 IP 주소는 인바운드 흐름으로 닫힙니다. NSG는 허용된 트래픽을 명시적으로 허용하는 데 사용됩니다.  서브넷에 NSG가 없거나 가상 머신 리소스의 NIC가 없으면 트래픽이 이 리소스에 도달하도록 허용되지 않습니다. NSG에 대한 개요와 NSG를 시나리오에 적용하는 방법을 자세히 알아보려면 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
-기본 Load Balancer는 기본적으로 인터넷에 열려 있습니다.
+기본 Load Balancer는 기본적으로 인터넷에 열려 있습니다. 또한 Load Balancer에는 고객 데이터가 저장되지 않습니다.
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
 

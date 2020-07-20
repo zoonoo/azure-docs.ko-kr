@@ -17,12 +17,12 @@ ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 273827e68a81e87dcff15760f0b400b2d5ce8723
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80126871"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220867"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>자습서: Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 특정 디바이스에 알림 보내기
 
@@ -42,7 +42,7 @@ ms.locfileid: "80126871"
 > * 태그가 지정된 알림 보내기
 > * 앱 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서는 [자습서: Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-fcm-get-started.md) 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-fcm-get-started.md)
 
@@ -117,7 +117,7 @@ ms.locfileid: "80126871"
 
     `main_activity.xml` 그래픽 레이아웃은 다음 이미지와 같이 표시되어야 합니다.
 
-    ![][A1]
+    ![주 작업 X M L 그래픽 레이아웃의 모양을 표시하는 에뮬레이터의 스크린샷.][A1]
 3. `MainActivity` 클래스와 동일한 패키지에서 `Notifications` 클래스를 만듭니다.
 
     ```java

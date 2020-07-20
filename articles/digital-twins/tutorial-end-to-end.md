@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: faad1f812fc5c2cde6847a5208ee4b385f28ab3e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391930"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206567"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>엔드투엔드 솔루션 빌드
 
@@ -205,8 +205,9 @@ IoT 허브에 지정한 이름을 저장합니다. 나중에 필요합니다.
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Azure Portal: 이벤트 구독 만들기":::
 
-다음과 같이 필드를 채웁니다.
+다음과 같이 필드를 입력합니다(기본적으로 채워진 필드는 언급되지 않음).
 * *이벤트 구독 정보* > **이름**: 이벤트 구독 이름을 지정합니다.
+* *항목 세부 정보* > **시스템 항목 이름**: 시스템 항목에 사용할 이름을 지정합니다. 
 * *이벤트 유형* > **이벤트 유형 필터**: 메뉴 옵션에서 *디바이스 원격 분석*을 선택합니다.
 * *엔드포인트 정보* > **엔드포인트 유형**: 메뉴 옵션에서 *Azure 함수*를 선택합니다.
 * *엔드포인트 정보* > **엔드포인트**: *엔드포인트 선택* 링크를 누릅니다. 그러면 *Azure 함수 선택* 창이 열립니다. :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Azure Portal 이벤트 구독: Azure 함수 선택" border="false":::
@@ -361,11 +362,9 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Azure Portal: Event Grid 이벤트 구독":::
 
-이 이벤트 구독을 만드는 단계는 이 자습서의 앞부분에서 IoT Hub에 첫 번째 Azure 함수를 구독할 때와 비슷합니다. 차이점은 이번에는 수신 대기할 이벤트 유형으로 *디바이스 원격 분석*을 지정할 필요가 없으며 다른 Azure 함수에 연결한다는 것입니다.
+이 이벤트 구독을 만드는 단계는 이 자습서의 앞부분에서 IoT Hub에 첫 번째 Azure 함수를 구독할 때와 비슷합니다. 이번에는 수신 대기할 이벤트 유형으로 *디바이스 원격 분석*을 지정할 필요가 없으며 다른 Azure 함수에 연결합니다.
 
-다음은 다시 구독 단계입니다.
-
-*이벤트 구독 만들기* 페이지에서 다음과 같이 필드를 입력합니다.
+*이벤트 구독 만들기* 페이지에서 다음과 같이 필드를 입력합니다(기본적으로 채워진 필드는 언급되지 않음).
 * *이벤트 구독 정보* > **이름**: 이벤트 구독 이름을 지정합니다.
 * *엔드포인트 정보* > **엔드포인트 유형**: 메뉴 옵션에서 *Azure 함수*를 선택합니다.
 * *엔드포인트 정보* > **엔드포인트**: *엔드포인트 선택* 링크를 누릅니다. 그러면 *Azure 함수 선택* 창이 열립니다.

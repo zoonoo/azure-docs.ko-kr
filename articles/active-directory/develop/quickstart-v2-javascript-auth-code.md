@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 0ba4531ed15630a8887cb7be843a00ba23a439cc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0eaa4a828716f1a52161726e768acc817d1fde17
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682041"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134183"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 JavaScript SPA에서 액세스 토큰을 가져옵니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "83682041"
 
 이 빠른 시작에서는 인증 코드 흐름과 함께 MSAL.js 2.0을 사용합니다. 암시적 흐름과 함께 MSAL.js 1.0을 사용하는 비슷한 빠른 시작은 [빠른 시작: JavaScript 단일 페이지 앱에서 사용자 로그인](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.JS](https://nodejs.org/en/download/)
@@ -115,7 +115,7 @@ ms.locfileid: "83682041"
 > - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
 > - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com/`을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)를 참조하세요.
 > - `Enter_the_Tenant_info_here`는 다음 중 하나로 설정됩니다.
->   - 애플리케이션에서 *이 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**으로 바꿉니다. `contoso.microsoft.com`)을 입력합니다.
+>   - 애플리케이션에서 *이 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**으로 바꿉니다. 예들 들어 `contoso.microsoft.com`입니다.
 >   - 애플리케이션에서 *모든 조직 디렉터리의 계정*을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >   - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정*을 지원하는 경우 이 값을 `common`으로 바꿉니다. **이 빠른 시작**에 대해 `common`을 사용합니다.
 >   - *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 `consumers`로 바꿉니다.
@@ -181,7 +181,7 @@ Node.js를 사용하여 웹 서버에서 프로젝트 실행:
 
 ### <a name="how-the-sample-works"></a>샘플 작동 방법
 
-:::image type="content" source="media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="단일 페이지 애플리케이션의 권한 부여 코드 흐름을 보여 주는 다이어그램":::
+![단일 페이지 애플리케이션의 인증 코드 흐름을 보여주는 다이어그램.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
 ### <a name="msaljs"></a>msal.js
 

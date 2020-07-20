@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513806"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245333"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>자습서: Azure Machine Learning을 사용하여 사용자 지정 기술 빌드 및 배포 
 
@@ -29,6 +29,9 @@ Azure Machine Learning에서 양상 기반 감정 모델을 학습하기 위해 
 > * 모델을 학습시키고 Azure Kubernetes 클러스터에 배포
 > * AI 보강 파이프라인을 배포된 모델에 연결
 > * 배포된 모델의 출력을 사용자 지정 기술로 수집
+
+> [!IMPORTANT] 
+> 이 기술은 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 현재 .NET SDK는 지원되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

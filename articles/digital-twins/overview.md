@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1d86749a4e6071213ba5e229765bb6391affb199
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737124"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257998"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 **Azure Digital Twins**는 전체 환경의 포괄적인 디지털 모델을 만들 수 있도록 하는 IoT 플랫폼입니다. 이러한 환경에는 건물, 공장, 농장, 에너지 네트워크, 철로, 경기장 - 심지어 도시 전체가 포함될 수 있습니다. 이러한 디지털 모델을 사용하 여 더 나은 제품, 최적화된 작업, 비용 절감 및 혁신적인 고객 환경을 구동하는 정보를 얻을 수 있습니다.
 
@@ -46,6 +43,12 @@ DTDL은 [IoT PnP(플러그 앤 플레이)](../iot-pnp/overview-iot-plug-and-play
 ### <a name="live-execution-environment"></a>라이브 실행 환경
 
 Azure Digital Twins의 디지털 모델은 실제 세계의 실시간, 최신 표현입니다. 사용자 지정 DTDL 모델에서 관계를 사용하 여 사용자 환경을 나타내는 **실시간 그래프**에 쌍을 연결합니다.
+
+샘플 애플리케이션 [**Azure Digital Twins 탐색기**](https://github.com/Azure-Samples/digital-twins-explorer)의 도움을 통해 Azure Digital Twins 그래프의 시각화를 볼 수 있습니다.
+
+샘플 시각화의 모양은 다음과 같습니다.
+
+:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="디지털 쌍을 나타내는 노드의 그래프를 보여주는 Azure Digital Twins 탐색기 샘플 애플리케이션의 스크린샷" lightbox="media/includes/azure-digital-twins-explorer.png":::
 
 Azure Digital Twins는 그래프를 데이터 처리 및 비즈니스 논리와 함께 최신 상태로 유지 하기 위한 다양한 **이벤트 시스템**을 제공합니다. [Azure Functions](../azure-functions/functions-overview.md)등의 외부 계산 리소스를 연결하여 이 데이터 처리를 유연하고 사용자 지정된 방식으로 처리할 수 있습니다.
 

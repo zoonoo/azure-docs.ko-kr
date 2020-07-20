@@ -1,16 +1,16 @@
 ---
 title: 원격으로 렌더링된 모델 보기
 description: Azure Remote Rendering의 "Hello World" 자습서에서는 Azure에서 원격으로 렌더링된 모델을 보는 방법을 보여 줍니다.
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: f0b9bf1c7e085efd86f70f8246214d366265036a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bd9e9b6754c8626a8d858b9832a8e3547b72352d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85566786"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231910"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>자습서: 원격으로 렌더링된 모델 보기
 
@@ -101,7 +101,7 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
 1. **Clear flags(플래그 지우기)** 를 *Solid Color(단색)* 로 설정합니다.
 
-1. 전체(255) 알파(A)를 사용하여 **Background(배경)** 를 *Black(검은색)* (#000000)으로 설정합니다.
+1. 완전 투명(0) 알파(A)를 사용하여 **Background(배경)** 를 *Black(검은색)* (#000000)으로 설정합니다.
 
     ![색상표](./media/color-wheel-black.png)
 

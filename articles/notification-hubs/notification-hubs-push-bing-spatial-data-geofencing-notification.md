@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0abe443521b928dd087e23b5491635b02cd832e8
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: ff37a3ecb55c6ee034d3fd2558909c3b4ef1d375
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592029"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223434"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>자습서: Notification Hubs 및 Bing Spatial Data를 사용하여 위치 기반 푸시 알림 보내기
 
@@ -37,7 +37,7 @@ ms.locfileid: "82592029"
 > * 백 엔드 설정
 > * UWP(유니버설 Windows 플랫폼) 앱에서 푸시 알림 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 * [Visual Studio 2015 업데이트 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 이상([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409))
@@ -49,10 +49,10 @@ ms.locfileid: "82592029"
 1. [Bing 맵 개발자 센터](https://www.bingmapsportal.com/)에 로그인합니다.
 2. 위쪽 탐색 모음에서 **데이터 원본**을 선택하고, **데이터 원본 관리**를 선택합니다.
 
-    ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
+    ![데이터 원본으로 데이터 업로드 옵션이 빨간색으로 표시된 데이터 원본 관리 페이지의 Bing Maps Dev Center 스크린샷.](./media/notification-hubs-geofence/bing-maps-manage-data.png)
 3. 기존 데이터 원본이 없는 경우 데이터 원본 만들기에 대한 링크가 표시됩니다. **데이터 원본으로 데이터 업로드**를 선택합니다. **데이터 원본** > **데이터 업로드** 메뉴를 사용할 수도 있습니다.
 
-    ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
+    ![데이터 원본 업로드 대화 상자의 스크린샷.](./media/notification-hubs-geofence/bing-maps-create-data.png)
 4. 다음 콘텐츠가 포함된 `NotificationHubsGeofence.pipe` 파일을 하드 드라이브에 만듭니다. 이 자습서에서는 San Francisco 해안 영역의 프레임으로 하는 샘플 파이프 기반 파일을 사용합니다.
 
     ```text
@@ -63,7 +63,7 @@ ms.locfileid: "82592029"
 
     파이프 파일은 이 엔터티를 나타냅니다.
 
-    ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![부두 영역을 나타내는 빨간색 다각형이 있는 샌프란시스코 해안가의 ap 스크린샷.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. **데이터 원본 업로드** 페이지에서 다음 작업을 수행합니다.
    1. **데이터 형식**에 대해 **파이프**를 선택합니다.
    2. 이전 단계에서 만든 `NotificationHubGeofence.pipe` 파일을 찾아 선택합니다.
@@ -74,18 +74,18 @@ ms.locfileid: "82592029"
 6. 데이터 파일을 업로드하면 데이터 원본을 게시하는지 확인해야 합니다. 이전에 했던 것처럼 **데이터 원본** -> **데이터 원본 관리**를 선택합니다.
 7. 목록에서 데이터 원본을 선택하고, **동작** 열에서 **게시**를 선택합니다.
 
-    ![](./media/notification-hubs-geofence/publish-button.png)
+    ![Geocoded Data 탭이 선택되고 게시 옵션이 빨간색으로 표시된 데이터 원본 관리 페이지의 Bing Maps Dev Center 스크린샷.](./media/notification-hubs-geofence/publish-button.png)
 8. **게시된 데이터 원본** 탭으로 전환하고, 목록에 데이터 원본이 표시되는지 확인합니다.
 
-    ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
+    ![게시된 데이터 원본 탭이 선택된 데이터 원본 관리 페이지의 Bing Maps Dev Center 스크린샷.](./media/notification-hubs-geofence/bing-maps-published-data.png)
 9. **편집**을 선택합니다. 데이터에 도입한 위치가(한 눈에) 표시됩니다.
 
-    ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
+    ![샌프란시스코 해안에 대한 미국 서부 및 자홍색 점 지도를 표시하는 엔터티 데이터 편집 페이지의 스크린샷.](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
     이 시점에서 포털은 사용자가 만든 지역 구분에 대한 경계를 보여주지 않습니다. 지정된 위치가 오른쪽 주변에 있다는 것을 확인하기만 하면 됩니다.
 10. 이제 데이터 원본에 대한 모든 요구 사항을 갖추었습니다. Bing 맵 개발자 센터에서 API 호출에 대한 요청 URL의 세부 정보를 얻으려면 **데이터 원본**을 선택하고 **데이터 원본 정보**를 선택합니다.
 
-    ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
+    ![데이터 원본 정보 페이지의 Bing Maps Dev Center 스크린샷.](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
     **쿼리 URL**은 디바이스가 현재 위치의 경계 내에 있는지 여부를 확인하기 위해 쿼리를 실행할 수 있는 엔드포인트입니다. 이 검사를 수행하려면 추가된 다음 매개 변수를 사용하여 쿼리 URL에 대한 가져오기 호출을 실행합니다.
 
@@ -95,17 +95,17 @@ ms.locfileid: "82592029"
 
     Bing 맵은 디바이스가 지역 구분 내에 있는지 여부를 확인하기 위해 자동으로 계산을 수행합니다. 브라우저(또는 cURL)를 통해 요청을 실행하면 표준 JSON 응답을 받습니다.
 
-    ![](./media/notification-hubs-geofence/bing-maps-json.png)
+    ![표준 JSON 응답의 스크린샷.](./media/notification-hubs-geofence/bing-maps-json.png)
 
     지점이 실제로 지정된 경계 내에 있는 경우에만 이 응답이 발생합니다. 그렇지 않은 경우 빈 **결과** 버킷을 받습니다.
 
-    ![](./media/notification-hubs-geofence/bing-maps-nores.png)
+    ![빈 결과 버킷이 있는 JSON 응답의 스크린샷.](./media/notification-hubs-geofence/bing-maps-nores.png)
 
 ## <a name="set-up-the-uwp-application"></a>UWP 애플리케이션 설정
 
 1. Visual Studio에서 **비어 있는 앱(유니버설 Windows)** 형식의 새 프로젝트를 시작합니다.
 
-    ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
+    ![빈 앱(유니버설 Windows Visual C#) 옵션이 강조 표시된 Visual Studio 새 프로젝트 대화 상자의 스크린샷.](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
     프로젝트 생성이 완료되면 앱 자체에 대한 테스트 도구가 있어야 합니다. 이제 지역 구분 인프라에 모든 항목을 설정해 보겠습니다. 이 솔루션에 대해 Bing 서비스를 사용하기 때문에 특정 위치 프레임을 쿼리할 수 있는 공용 REST API 엔드포인트가 있습니다.
 
@@ -121,13 +121,13 @@ ms.locfileid: "82592029"
      이제 데이터 원본을 준비했으므로 UWP 애플리케이션에서 작업을 시작할 수 있습니다.
 2. 애플리케이션에 대한 위치 서비스를 사용하도록 설정합니다. **솔루션 탐색기**에서 `Package.appxmanifest` 파일을 엽니다.
 
-    ![](./media/notification-hubs-geofence/vs-package-manifest.png)
+    ![Package.appxmanifest 파일이 강조 표시된 솔루션 탐색기의 스크린샷.](./media/notification-hubs-geofence/vs-package-manifest.png)
 3. 방금 연 패키지 속성 탭에서 **기능** 탭으로 전환하고, **위치**를 선택합니다.
 
-    ![](./media/notification-hubs-geofence/vs-package-location.png)
+    ![위치 옵션이 강조 표시된 기능 탭을 표시하는 패키지 속성 대화 상자의 스크린샷.](./media/notification-hubs-geofence/vs-package-location.png)
 4. 솔루션에 `Core`라는 새 폴더를 만들고, `LocationHelper.cs`라는 새 파일을 추가합니다.
 
-    ![](./media/notification-hubs-geofence/vs-location-helper.png)
+    ![새 Core 폴더가 강조 표시된 솔루션 탐색기의 스크린샷.](./media/notification-hubs-geofence/vs-location-helper.png)
 
     `LocationHelper` 클래스에는 시스템 API를 통해 사용자 위치를 가져오는 코드가 있습니다.
 
@@ -191,10 +191,10 @@ ms.locfileid: "82592029"
     ```
 6. 애플리케이션을 실행하고 사용자의 위치에 액세스할 수 있도록 허용합니다.
 
-    ![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
+    ![사용자 위치에 액세스할 수 있는 Notification Hubs Geo Fence 대화 상자의 스크린샷.](./media/notification-hubs-geofence/notification-hubs-location-access.png)
 7. 애플리케이션이 시작되면 **출력** 창에서 좌표를 볼 수 있어야 합니다.
 
-    ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
+    ![좌표를 표시하는 출력 창의 스크린샷.](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
     이제 위치 취득이 작동합니다. 로드됨 이벤트 처리기를 더 이상 사용하지 않기 때문에 원하는 경우 삭제할 수 있습니다.
 8. 다음 단계는 변경된 위치를 파악하는 작업입니다. `LocationHelper` 클래스에서 `PositionChanged`에 대한 이벤트 처리기를 추가합니다.
@@ -221,7 +221,7 @@ ms.locfileid: "82592029"
 2. 다운로드가 완료되면 `NotifyUsers` 폴더를 연 다음, Visual Studio에서 `NotifyUsers.sln` 파일을 엽니다.
 3. `AppBackend` 프로젝트를 **시작 프로젝트** 로 설정하고 시작합니다.
 
-    ![](./media/notification-hubs-geofence/vs-startup-project.png)
+    ![시작 프로젝트로 설정 옵션이 강조 표시된 솔루션 오른쪽 클릭 메뉴의 스크린샷.](./media/notification-hubs-geofence/vs-startup-project.png)
 
     프로젝트는 이미 대상 디바이스에 푸시 알림을 전송하도록 구성되었으므로 두 가지가 필요합니다. 알림 허브에 맞는 연결 문자열을 지정하고 사용자가 지역 구분 내에 있는 경우 알림을 보내도록 경계 식별을 추가합니다.
 
@@ -351,18 +351,18 @@ ms.locfileid: "82592029"
     > `POST_URL`을 배포된 웹 애플리케이션의 위치로 설정합니다. 이제 로컬에서 실행해도 되지만 공용 버전을 배포할 경우 외부 공급자로 호스트해야 합니다.
 2. 푸시 알림을 위해 UWP 앱을 등록합니다. Visual Studio에서 **프로젝트** > **저장** > **스토어와 앱 연결**을 선택합니다.
 
-    ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
+    ![앱을 스토어에 연결하는 스토어 옵션이 강조 표시된 솔루션 오른쪽 클릭 메뉴의 스크린샷.](./media/notification-hubs-geofence/vs-associate-with-store.png)
 3. 개발자 계정에 로그인하면 기존 앱을 선택하거나 새로 만들고 해당 앱과 패키지를 연결해야 합니다.
 4. 개발자 센터로 이동하고 만든 앱을 엽니다. **서비스** > **푸시 알림** > **라이브 서비스 사이트**를 선택합니다.
 
-    ![](./media/notification-hubs-geofence/ms-live-services.png)
+    ![Live Services 사이트가 강조 표시된 푸시 알림 페이지를 표시하는 Windows Dev Center의 스크린샷.](./media/notification-hubs-geofence/ms-live-services.png)
 5. 사이트에서 **애플리케이션 암호** 및 **패키지 SID**를 적어둡니다. Azure Portal에서 알림 허브를 열고, **설정** > **Notification Services** > **WNS(Windows)** 를 선택하고 필수 필드에 정보를 입력해야 합니다.
 
-    ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
+    ![Notification Services 및 Windows(WNS) 옵션이 강조 표시되고 패키지 SID 및 보안 키 값이 입력된 설정 페이지를 보여주는 스크린샷.](./media/notification-hubs-geofence/notification-hubs-wns.png)
 6. **저장**을 선택합니다.
 7. **솔루션 탐색기**에서 **참조**를 열고 **NuGet 패키지 관리**를 선택합니다. **Microsoft Azure Service Bus 관리된 라이브러리**에 참조를 추가합니다. `WindowsAzure.Messaging.Managed`를 검색하고 프로젝트에 추가합니다.
 
-    ![](./media/notification-hubs-geofence/vs-nuget.png)
+    ![WindowsAzure.Messaging.Managed 패키지가 강조 표시된 Nuget 패키지 관리 대화 상자의 스크린샷.](./media/notification-hubs-geofence/vs-nuget.png)
 8. 테스트하기 위해 `MainPage_Loaded` 이벤트 처리기를 다시 한 번 만들고, 이 코드 조각을 추가합니다.
 
     ```csharp
@@ -387,7 +387,7 @@ ms.locfileid: "82592029"
 
 10. 실제 좌표(현재 경계 내에 없을 수 있음)를 전달하지 않고 미리 정의된 테스트 값을 사용하기 때문에 업데이트에 표시된 알림을 확인합니다.
 
-    ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
+    ![TEST 메시지를 표시하는 Windows 바탕 화면의 스크린샷.](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
 ## <a name="next-steps"></a>다음 단계
 

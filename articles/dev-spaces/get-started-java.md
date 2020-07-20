@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Java 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c71471d1a89188a065bafef2c5b6372aeff35851
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 5616e92d64854d145c30aa3fd32bf61d65ca4221
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80240532"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224318"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 Java
 
@@ -171,7 +171,7 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 
 이 섹션에서는 VS Code를 사용하여 Azure에서 실행 중인 컨테이너를 직접 디버그합니다. 또한 편집-실행-테스트를 더 빠르게 반복하는 방법도 알아봅니다.
 
-![](media/common/edit-refresh-see.png)
+![코드 편집, 컨테이너 새로 고침을 보여주는 다이어그램은 업데이트 주기를 참조하세요.](media/common/edit-refresh-see.png)
 
 > [!Note]
 > **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요.
@@ -183,13 +183,13 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 
 이렇게 하면 `.vscode` 폴더 아래에 Azure Dev Spaces에 대한 디버그 구성이 추가됩니다. 이 명령은 배포 프로젝트를 구성하는 `azds prep` 명령과 혼동하면 안됩니다.
 
-![](media/common/command-palette.png)
+![VS Code 명령 팔레트의 Azure Dev Spaces 옵션을 보여주는 스크린샷](media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>AZDS 디버그 구성 선택
 1. 디버그 보기를 열려면 VS Code 측면의 **활동 표시줄**에서 디버그 아이콘을 클릭합니다.
 1. 활성 디버그 구성으로 **Java 프로그램 시작(AZDS)** 을 선택합니다.
 
-![](media/get-started-java/debug-configuration.png)
+![Java 프로그램 시작 옵션이 빨간색으로 표시된 VS Code 디버그 기능의 스크린샷.](media/get-started-java/debug-configuration.png)
 
 > [!Note]
 > 명령 팔레트에 Azure Dev Spaces 명령이 보이지 않으면 Azure Dev Spaces용 VS Code 확장 프로그램을 설치했는지 확인합니다. VS Code에서 연 작업 영역이 `azds.yaml`을 포함하는 폴더인지 확인합니다.
@@ -202,7 +202,7 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 > [!Tip]
 > VS Code 상태 표시줄이 주황색으로 바뀌면 디버거가 연결되었음을 나타냅니다. 클릭 가능한 URL이 표시되며 이를 사용하여 애플리케이션을 열 수 있습니다.
 
-![](media/common/vscode-status-bar-url.png)
+![주황색을 켠 후 VS Code 상태 표시줄의 스크린샷.](media/common/vscode-status-bar-url.png)
 
 예를 들어 `src/main/java/com/ms/sample/webfrontend/Application.java` 원본 파일의 `greeting()` 함수 내에서 서버 측 코드 파일에 중단점을 설정합니다. 브라우저 페이지를 새로 고치면 중단점에 도달합니다.
 
@@ -220,7 +220,7 @@ public String greeting()
 
 파일을 저장하고, **디버그 작업 창**에서 **다시 시작** 단추를 클릭합니다.
 
-![](media/common/debug-action-refresh.png)
+![다시 시작 옵션이 빨간색으로 표시된 VS Code 디버그 작업 창의 스크린샷.](media/common/debug-action-refresh.png)
 
 코드 편집이 완료될 때마다 상당한 시간이 소요되는 새 컨테이너 이미지 다시 빌드 및 다시 배포 작업을 수행하는 대신 Azure Dev Spaces는 기존 컨테이너 내에서 코드를 점진적으로 다시 컴파일하여 더 빠른 편집/디버그 루프를 제공합니다.
 

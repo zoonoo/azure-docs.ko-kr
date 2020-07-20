@@ -1,33 +1,31 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 Azure Recovery Services 자격 증명 모음을 만들기 위한 빠른 시작입니다.
-description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Recovery Services 자격 증명 모음을 만드는 방법에 대해 알아봅니다.
+description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Recovery Services 자격 증명 모음을 만드는 방법에 대해 알아봅니다.
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-author: davidsmatlak
-ms.author: v-dasmat
-ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 9112841f6f07808d80fa2b8b61e612d57d0ec20e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217292"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248828"
 ---
-# <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Recovery Services 자격 증명 모음 만들기
+# <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Recovery Services 자격 증명 모음 만들기
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Recovery Services 자격 증명 모음을 설정하는 방법을 설명합니다. [Azure Site Recovery](site-recovery-overview.md) 서비스는 계획되거나 계획되지 않은 정전 중에도 비즈니스 애플리케이션을 온라인 상태로 유지되도록 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover) 및 복구를 포함하여 온-프레미스 머신 및 Azure VM(가상 머신)의 재해 복구를 관리합니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Recovery Services 자격 증명 모음을 설정하는 방법을 설명합니다. [Azure Site Recovery](site-recovery-overview.md) 서비스는 계획되거나 계획되지 않은 정전 중에도 비즈니스 애플리케이션을 온라인 상태로 유지되도록 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover) 및 복구를 포함하여 온-프레미스 머신 및 Azure VM(가상 머신)의 재해 복구를 관리합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-활성 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만든 후에 시작할 수 있습니다.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-없음
+활성 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만든 후에 시작할 수 있습니다.
 
-## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
-
-### <a name="review-the-template"></a>템플릿 검토
+## <a name="review-the-template"></a>템플릿 검토
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/)에서 나온 것입니다.
 
@@ -42,7 +40,7 @@ ms.locfileid: "84217292"
 
 추가 Azure Recovery Services 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular)을 참조하세요.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 템플릿을 배포하려면 **구독**, **리소스 그룹**및 **자격 증명 모음 이름**이 필요합니다.
 

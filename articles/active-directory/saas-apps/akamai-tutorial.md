@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9ea2c20a7720cc80b36ff88595aa6ca5c57f6b9a
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026834"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232392"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>자습서: Akamai와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -61,13 +61,13 @@ Akamai EAA는 Azure AD에서 단일 애플리케이션으로 구성됩니다. �
 
 **장점**:
 
-• IDP를 한 번만 구성하면 됩니다.
+* IDP를 한 번만 구성하면 됩니다.
 
 **단점**:
 
-• 사용자에게 제공되는 애플리케이션 포털이 최종적으로 2개입니다.
+* 사용자에게 제공되는 애플리케이션 포털이 최종적으로 2개입니다.
 
-• 공통 CA 정책 하나가 모든 애플리케이션에 적용됩니다.
+* 공통 CA 정책 하나가 모든 애플리케이션에 적용됩니다.
 
 ![통합 시나리오 1](./media/header-akamai-tutorial/scenario1.png)
 
@@ -77,13 +77,14 @@ Akamai EAA 애플리케이션은 Azure AD 포털에서 개별적으로 설정합
 
 **장점**:
 
-• 개별 CA 정책을 정의할 수 있습니다.
+* 개별 CA 정책을 정의할 수 있습니다.
 
-• 모든 앱이 O365 Waffle 및 myApps.microsoft.com 패널에 표시됩니다.
+* 모든 앱이 0365 Waffle 및 myApps.microsoft.com 패널에 표시됩니다.
+
 
 **단점**:
 
-• IDP를 여러 개 구성해야 합니다.
+* IDP를 여러 개 구성해야 합니다.
 
 ![통합 시나리오 2](./media/header-akamai-tutorial/scenario2.png)
 
@@ -450,7 +451,7 @@ Akamai 헤더 기반 인증
 
 ### <a name="kerberos-authentication"></a>Kerberos 인증
 
-아래 예제에서는 KCD를 사용하여 내부 웹 서버 [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/)를 게시하고 SSO를 설정합니다.
+아래 예제에서는 KCD를 사용하여 내부 웹 서버 <code>http://frp-app1.superdemo.live</code>를 게시하고 SSO를 설정합니다.
 
 #### <a name="general-tab"></a>일반 탭
 

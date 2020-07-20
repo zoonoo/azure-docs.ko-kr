@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 835eb66444dd9f4c4da7689196c759621cfef999
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360761"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146815"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 프로비저닝 
 
@@ -35,7 +35,7 @@ ms.locfileid: "85360761"
 
 4. 이는 고급 시나리오입니다. 이 자습서에서 설명하는 단계를 정확히 수행해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 다음은 이 자습서를 완료하는 데 필요한 필수 구성 요소입니다.
 - Azure AD Connect 동기화 버전 1.4.32.0 이상인 테스트 환경
 - 동기화 범위에 속하고 파일럿 테스트에 사용할 수 있는 OU 또는 그룹. 작은 개체 세트로 시작하는 것이 좋습니다.
@@ -165,18 +165,18 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
  2. **Azure Active Directory**를 클릭합니다.
  3. **Azure AD Connect**를 클릭합니다.
  4. **프로비저닝 관리(미리 보기)** 
- ![](media/how-to-configure/manage1.png)를 선택합니다.</br>
+ !["프로비저닝 관리(미리 보기)" 링크를 표시하는 스크린샷을 선택합니다.](media/how-to-configure/manage1.png)</br>
  5.  **새 구성**
- ![](media/tutorial-single-forest/configure1.png)을 클릭합니다.</br>
+ !["새 구성" 링크가 강조 표시된 Azure AD 프로비저닝(미리 보기) 화면의 스크린샷을 클릭합니다.](media/tutorial-single-forest/configure1.png)</br>
  6.  구성 화면에서 **알림 이메일**을 입력하고, 선택기를 **사용**으로 이동하고, **저장**을 클릭합니다.
- ![](media/tutorial-single-forest/configure2.png)</br>
+ ![알림 이메일이 채워지고 사용이 선택된 구성 화면의 스크린샷](media/tutorial-single-forest/configure2.png)</br>
  7. **구성** 아래에서 **모든 사용자**를 선택하여 구성 규칙의 범위를 변경합니다.
- ![](media/how-to-configure/scope2.png)</br>
+ !["범위 사용자" 옆에 "모든 사용자"가 강조 표시된 구성 화면의 스크린샷.](media/how-to-configure/scope2.png)</br>
  8. 오른쪽에서 방금 만든 특정 OU("OU=CPUsers, DC=contoso,DC=com")를 포함하도록 범위를 변경합니다.
- ![](media/tutorial-existing-forest/scope2.png)</br>
+ ![사용자가 만든 OU로 변경된 범위를 강조 표시하는 범위 사용자 화면의 스크린샷.](media/tutorial-existing-forest/scope2.png)</br>
  9.  **완료**, **저장**을 차례로 클릭합니다.
  10. 이제 범위가 하나의 조직 구성 단위로 설정됩니다. 
- ![](media/tutorial-existing-forest/scope3.png)</br>
+ !["범위 사용자" 옆에 "1 조직 단위"가 강조 표시된 구성 화면의 스크린샷.](media/tutorial-existing-forest/scope3.png)</br>
  
 
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>사용자가 클라우드 프로비저닝을 통해 프로비저닝되었는지 확인

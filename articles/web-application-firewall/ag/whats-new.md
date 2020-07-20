@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
-ms.openlocfilehash: 11212c931e38b1c6319c7c3554155d9d17a1080c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5033d19de2321e0dfd3b6d89d2da3306b1723bd0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745154"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146589"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Azure 웹 애플리케이션 방화벽의 새로운 기능이란?
 
@@ -27,6 +27,7 @@ Azure 웹 애플리케이션 방화벽은 지속적으로 업데이트됩니다.
 
 |기능  |Description  |추가된 날짜  |
 |---------|---------|---------|
+|사이트별 정책 GA| 사이트별 정책은 이제 일반 공급됩니다. | 2020년 7월 |
 |봇 완화 규칙 세트(미리 보기)|선택한 CRS 규칙 세트와 함께 봇 완화 규칙 세트를 사용하도록 설정할 수 있습니다. | 2019년 11월 |
 |GeoDB 통합(미리 보기)|이제 원산 국가/지역별로 트래픽을 제한하는 사용자 지정 규칙을 만들 수 있습니다. | 2019년 11월 |
 |WAF 사이트별/URI별 정책(미리 보기)|WAF-v2는 이제 경로 기반 규칙 뿐만 아니라 수신기에 정책을 적용하도록 지원합니다. [WAF 정책 만들기](create-waf-policy-ag.md)를 참조하세요. | 2019년 11월 |

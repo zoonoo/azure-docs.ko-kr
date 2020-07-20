@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Firewall 및 IP 그룹 만들기 - Resource Manager 템플릿'
-description: Resource Manager 템플릿을 사용하여 Azure Firewall 및 IP 그룹을 만드는 방법에 대해 알아봅니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Firewall 및 IP 그룹을 만드는 방법에 대해 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,30 +8,32 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 5ac1248ddcdf8c0eef68b7c32e322398fa01a6f2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680562"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260577"
 ---
-# <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>빠른 시작: Azure Firewall 및 IP 그룹 만들기 - Resource Manager 템플릿
+# <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>빠른 시작: Azure Firewall 및 IP 그룹 만들기 - ARM 템플릿
 
-이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 네트워크 규칙 및 애플리케이션 규칙에 사용되는 샘플 IP 그룹으로 Azure Firewall을 배포합니다. IP 그룹은 IP 주소, 범위 및 서브넷을 단일 개체로 정의하고 그룹화할 수 있는 최상위 수준 리소스입니다. 이는 Azure Firewall 규칙에서 IP 주소를 관리하는 데 유용합니다. IP 주소를 수동으로 입력하거나 파일에서 가져올 수 있습니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 네트워크 규칙 및 애플리케이션 규칙에 사용되는 샘플 IP 그룹으로 Azure Firewall을 배포합니다. IP 그룹은 IP 주소, 범위 및 서브넷을 단일 개체로 정의하고 그룹화할 수 있는 최상위 수준 리소스입니다. 이는 Azure Firewall 규칙에서 IP 주소를 관리하는 데 유용합니다. IP 주소를 수동으로 입력하거나 파일에서 가져올 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall-and-ip-groups"></a>Azure Firewall 및 IP 그룹 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
 이 템플릿은 Azure Firewall을 지원하는 데 필요한 리소스와 함께 Azure Firewall 및 IP 그룹을 만듭니다.
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
 
@@ -47,9 +49,9 @@ ms.locfileid: "83680562"
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
-Azure에 Resource Manager 템플릿 배포:
+Azure에 ARM 템플릿을 배포합니다.
 
 1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
@@ -76,7 +78,7 @@ Azure Portal에서 배포된 리소스, 특히 IP 그룹을 사용하는 방화�
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="네트워크 규칙.":::
 
-템플릿에서 방화벽의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Network azureFirewalls 템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls)를 참조하세요.
+템플릿에서 방화벽의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Network azureFirewalls 템플릿 참조](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

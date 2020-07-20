@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ae6ddac61ecbcef41704f71ed5188fc547a996a3
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: f98df33b3efc697e349ddeae31439dd2fb701d91
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616595"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202016"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -23,7 +23,7 @@ Azure Key Vault의 일시 삭제 기능을 사용하면 삭제된 자격 증명 
 - Key Vault의 복구 가능한 삭제 지원
 - Key Vault 개체(예: 키, 비밀 및 인증서)의 복구 가능한 삭제를 지원
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure CLI - 사용자 환경에 이 단계가 없는 경우 [Azure CLI를 사용한 Key Vault 관리](manage-with-cli2.md)를 참조하세요).
 
@@ -229,7 +229,7 @@ az keyvault purge --location westus --name ContosoVault
 
 제거 보호를 설정하면 보존 기간인 90일이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 즉, 이러한 자격 증명 모음 또는 개체는 여전히 복구할 수 있는 상태입니다. 이 기능을 사용하면 보존 기간이 지날 때까지는 자격 증명 모음이나 개체를 삭제할 수 없습니다.
 
-일시 삭제가 활성화된 경우에만 제거 보호를 사용하도록 설정할 수 있습니다. 
+일시 삭제가 활성화된 경우에만 제거 보호를 사용하도록 설정할 수 있습니다. 제거 보호를 비활성화는 것은 지원되지 않습니다.
 
 자격 증명 모음을 만들 때 일시 삭제 및 제거 보호를 모두 설정하려면 [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 명령을 사용합니다.
 

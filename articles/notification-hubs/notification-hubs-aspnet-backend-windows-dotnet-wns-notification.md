@@ -17,12 +17,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a8a939f0d0c3575adec147c1942ddbbef334cb65
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71212065"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220153"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기
 
@@ -46,7 +46,7 @@ ms.locfileid: "71212065"
 > * 클라이언트 프로젝트에 대한 코드 업데이트
 > * 애플리케이션 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서는 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서에서 완료한 프로젝트의 코드를 업데이트합니다. 따라서 이 자습서를 시작하기 전에 완료합니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "71212065"
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-10. **WindowsApp** 프로젝트의 `MainPage.xaml.cs`에서 다음 멤버를 `MainPage` 클래스에 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트으로 바꿔야 합니다. `http://mybackend.azurewebsites.net`)을 입력합니다.
+10. **WindowsApp** 프로젝트의 `MainPage.xaml.cs`에서 다음 멤버를 `MainPage` 클래스에 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트으로 바꿔야 합니다. 예들 들어 `http://mybackend.azurewebsites.net`입니다.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
@@ -331,11 +331,11 @@ ms.locfileid: "71212065"
 2. 아래 화면에 표시된 것처럼 **사용자 이름** 및 **암호**를 입력합니다. Windows Phone에서 입력하는 사용자 이름 및 암호와 달라야 합니다.
 3. **Log in and register(로그인 및 등록)** 를 클릭하고 대화 상자에 로그인되었다고 표시되는지 확인합니다. 이 코드는 **푸시 전송** 단추도 활성화합니다.
 
-    ![][14]
+    ![입력한 사용자 이름과 암호를 표시하는 Notification Hubs 애플리케이션의 스크린샷.][14]
 5. 그런 다음, **받는 사람 사용자 이름 태그** 필드에 등록한 사용자 이름을 입력합니다. 알림 메시지를 입력하고 **Send Push(푸시 전송)** 를 클릭합니다.
 6. 일치하는 사용자 이름 태그로 등록된 디바이스만 이 알림 메시지를 받습니다.
 
-    ![][15]
+    ![푸시된 메시지를 표시하는 Notification Hubs 애플리케이션의 스크린샷.][15]
 
 ## <a name="next-steps"></a>다음 단계
 

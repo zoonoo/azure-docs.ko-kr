@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 4b53c4d1a26d8e4b8d784087dcb9b9feba9c7ded
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2b6c61c5c144923ece80fddf8a1412d68f35ad52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191762"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242879"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -165,17 +165,25 @@ Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케�
 
 또한 Azure Maps는 간단한 프로그래밍 모델을 사용하는 간편한 [JavaScript 맵 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-control)을 제공합니다. 웹 및 모바일 애플리케이션을 쉽고 빠르게 개발할 수 있습니다.
 
+## <a name="power-bi-visual"></a>Power BI 시각적 개체
+
+Power BI용 Azure Maps 시각적 개체는 지도 위에 공간 데이터에 대한 다양한 데이터 시각화 세트를 제공합니다. 비즈니스 데이터의 80% 이상이 위치 컨텍스트를 가지고 있는 것으로 추정됩니다. Azure Maps 시각적 개체는 이 위치 컨텍스트가 비즈니스 데이터와 어떻게 관련되고 영향을 미치는지에 대한 인사이트를 얻을 수 있는 코드 없는 솔루션을 제공합니다.
+
+![비즈니스 데이터를 표시하는 Azure Maps 시각적 개체가 포함된 Power BI 데스크톱](media/power-bi-visual/azure-maps-visual-hero.png)
+
+자세한 내용은 [Azure Maps Power BI 시각적 개체](power-bi-visual-getting-started.md) 시작 설명서를 참조하세요.
+
 ## <a name="usage"></a>사용
 
 Azure Maps 서비스에 액세스하려면 [Azure Portal](https://portal.azure.com)로 이동하여 Azure Maps 계정을 만들어야 합니다.
 
 Azure Maps는 키 기반 인증 체계를 사용합니다. 계정에는 미리 생성된 두 개의 키가 함께 제공되며, 두 키 중 하나를 사용합니다. 이러한 위치 기능을 애플리케이션에 통합하는 작업을 시작하고, Azure Maps 서비스를 요청합니다.
 
-참고 - Azure Maps는 고객 제공 주소/위치 쿼리("쿼리")를 매핑 기능을 위해 타사 TomTom과 공유합니다. TomTom와 공유하는 경우 쿼리는 고객 또는 최종 사용자에게 연결되지 않으며 개인을 식별하는 데 사용할 수 없습니다. Microsoft는 현재 Online Services 하도급업자 목록에 TomTom을 추가하는 과정을 진행 중입니다. Moovit 및 AccuWeather와의 통합을 포함하는 모바일 및 날씨 서비스는 현재 [미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
+참고 - Azure Maps는 기능을 매핑하기 위해 고객이 제공한 주소/위치 쿼리("Queries")를 타사 TomTom과 공유합니다. TomTom과 공유하는 경우 쿼리는 고객 또는 최종 사용자에게 연결되지 않으며 개인을 식별하는 데 사용할 수 없습니다. Microsoft는 현재 Online Services 하도급업자 목록에 TomTom을 추가하는 과정을 진행 중입니다. Moovit 및 AccuWeather와의 통합을 포함하는 모바일 및 날씨 서비스는 현재 [미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Azure Maps API는 현재 다음 지역을 제외한 모든 국가 및 지역에서 제공됩니다.
+Azure Maps API는 현재 다음 지역을 제외한 모든 국가 및 지역에서 사용할 수 있습니다.
 
 * 중국
 * 대한민국

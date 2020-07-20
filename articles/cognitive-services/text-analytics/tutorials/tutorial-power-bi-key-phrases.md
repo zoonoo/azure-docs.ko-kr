@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 4bf2f12ef79f8551291316b5446121f2735d9347
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75378537"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206578"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -30,11 +30,11 @@ Microsoft Power BI Desktop은 데이터에 연결하고, 데이터를 변환 및
 > * Text Analytics 핵심 구 API를 사용하여 고객 피드백에서 가장 중요한 구를 추출합니다.
 > * 고객 피드백에서 단어 구름 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [무료로 다운로드할 수 있습니다](https://powerbi.microsoft.com/get-started/).
-- Microsoft Azure 계정. [평가판을 시작](https://azure.microsoft.com/free/)하거나 [등록](https://portal.azure.com/)하세요.
+- Microsoft Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/cognitive-services/) 또는 [로그인](https://portal.azure.com/).
 - 텍스트 분석 API를 사용하는 Cognitive Services API 계정. 이 계정이 없는 경우에는 [등록](../../cognitive-services-apis-create-account.md)하고 5,000개 트랜잭션/월의 무료 계층([가격 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) 참조)을 사용하여 이 자습서를 완료할 수 있습니다.
 - 등록하는 동안 생성된 [Text Analytics 액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
 - 고객 의견. [예제 데이터](https://aka.ms/cogsvc/ta) 또는 사용자 고유 데이터를 사용할 수 있습니다. 이 자습서에서는 예제 데이터를 사용한다고 가정합니다.
@@ -91,7 +91,7 @@ Power BI Desktop에서 **홈** 리본을 선택합니다. **외부 데이터** �
 
 Text Analytics 서비스의 [핵심 구 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)는 HTTP 요청마다 최대 천 개의 텍스트 문서를 처리할 수 있습니다. Power BI는 레코드를 한 번에 하나씩 처리하는 것을 선호하므로 이 자습서에서 API 호출에는 각각 단일 문서만 포함됩니다. 핵심 구 API는 처리할 각 문서에 대한 다음 필드가 필요합니다.
 
-| | |
+| 필드 | Description |
 | - | - |
 | `id`  | 요청 내에서 이 문서의 고유 식별자. 응답에도 이 필드가 포함됩니다. 이런 방식으로 두 개 이상의 문서를 처리하는 경우 추출된 핵심 문구를 원본 문서와 쉽게 연결할 수 있습니다. 이 자습서에서는 요청당 하나의 문서만 처리하므로 `id` 값을 각 요청에 동일하게 하드 코드할 수 있습니다.|
 | `text`  | 처리할 텍스트입니다. 이 필드의 값은 [이전 섹션](#PreparingData)에서 만든 `Merged` 열에서 가져오며, 결합된 제목 줄과 주석 텍스트를 포함합니다. 핵심 구 API에서는 이 데이터가 약 5,120자 이하여야 합니다.|

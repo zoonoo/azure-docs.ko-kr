@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 452dd99ae58858b661892e3f962fce8086d4503c
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 022e6eb517987207755d31fdb1820e35197d8dc6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85444661"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202133"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -267,7 +267,7 @@ Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 
 제거 보호를 설정하면 보존 기간이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 즉, 이러한 자격 증명 모음 또는 개체는 여전히 복구할 수 있는 상태입니다. 이 기능을 사용하면 보존 기간이 지날 때까지는 자격 증명 모음이나 개체를 삭제할 수 없습니다. 기본 보존 기간은 90일이지만 키 자격 증명 모음을 만드는 동안 보존 정책 간격을 7일에서 90일 사이의 값으로 설정할 수 있습니다. 제거 보호 보존 정책은 동일한 간격을 사용합니다. 설정되면 보존 정책 간격을 변경할 수 없습니다.
 
-일시 삭제가 활성화된 경우에만 제거 보호를 사용하도록 설정할 수 있습니다. 지금은 제거 보호를 비활성화는 것이 지원되지 않습니다. 
+일시 삭제가 활성화된 경우에만 제거 보호를 사용하도록 설정할 수 있습니다. 제거 보호를 비활성화는 것은 지원되지 않습니다. 
 
 자격 증명 모음을 만들 때 일시 삭제와 제거 보호를 모두 설정하려면 [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet을 사용합니다.
 

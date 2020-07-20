@@ -7,18 +7,22 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 78b38f5059d50d56158e31c65299e5f747c8c073
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: fd560658a20a5b58d582332a88bf031d0e56ac91
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323606"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134103"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MariaDB 서버 만들기
 
-Azure Database for MariaDB는 클라우드에서 고가용성 MariaDB 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리되는 서비스입니다. 이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Portal, PowerShell 또는 Azure CLI에서 Azure Database for MariaDB 서버를 만듭니다.
+Azure Database for MariaDB는 클라우드에서 고가용성 MariaDB 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리되는 서비스입니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Portal, PowerShell 또는 Azure CLI에서 Azure Database for MariaDB 서버를 만듭니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mariadb-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -38,11 +42,9 @@ Azure Database for MariaDB는 클라우드에서 고가용성 MariaDB 데이터�
 
 ---
 
-## <a name="create-an-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
 Azure Database for MariaDB 서버는 정의된 컴퓨팅 및 스토리지 리소스 세트를 사용하여 만듭니다. 자세한 내용은 [Azure Database for MariaDB 가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요. 서버는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 내에 만듭니다.
-
-### <a name="review-the-template"></a>템플릿 검토
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/)에서 나온 것입니다.
 
@@ -58,7 +60,7 @@ Azure Database for MariaDB 서버는 정의된 컴퓨팅 및 스토리지 리소
 
 Azure Database for MariaDB 템플릿 샘플은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb&pageNumber=1&sort=Popular)에서 확인할 수 있습니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -207,7 +209,7 @@ read -p "Press [ENTER] to continue: "
 
 ## <a name="next-steps"></a>다음 단계
 
-템플릿 만들기 프로세스를 안내하는 단계별 자습서는 다음을 참조하세요.
+ARM 템플릿을 만드는 과정을 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [ 자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [ 자습서: 첫 번째 ARM 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

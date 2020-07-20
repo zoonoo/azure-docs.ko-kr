@@ -4,30 +4,32 @@ description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템
 ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a05be04064df81373f856ea0e8ca59664078695f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969809"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252371"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 공유 쿼리 만들기
+# <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 공유 쿼리 만들기
 
 Resource Graph 쿼리를 _프라이빗 쿼리_ 또는 _공유 쿼리_로 저장할 수 있습니다. 프라이빗 쿼리는 개인 포털 프로필에 저장되며 다른 사람들에게는 보이지 않습니다. 공유 쿼리는 권한 및 역할 기반 액세스를 통해 다른 사람들과 공유할 수 있는 Resource Manager 개체입니다. 공유 쿼리를 사용하면 보편적이고 일관적인 방법으로 리소스를 검색할 수 있습니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 공유 쿼리를 만듭니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 공유 쿼리를 만들기 위한 ARM 템플릿 배포" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="create-a-shared-query"></a>공유 쿼리 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
 이 빠른 시작에서는 _OS별 VM 수 계산_이라는 공유 쿼리를 만듭니다. SDK 또는 포털에서 Resource Graph Explorer를 사용하여 이 쿼리를 시도해 보려면 [샘플 - OS 유형별로 가상 머신 개수 계산](./samples/starter.md#count-os)을 참조하세요.
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
 
@@ -35,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - [Microsoft.ResourceGraph/queries](/azure/templates/microsoft.resourcegraph/queries)
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 > [!NOTE]
 > Azure Resource Graph 서비스는 무료입니다. 자세한 내용은 [Azure Resource Graph 개요](./overview.md)를 참조하세요.
@@ -60,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 몇 가지 추가 리소스:
 
-- 더 많은 샘플 템플릿을 찾으려면, [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)을 참조하세요.
+- 더 많은 샘플 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)을 참조하세요.
 - 템플릿 참조를 보려면 [Azure 템플릿 참조](/azure/templates/microsoft.resourcegraph/allversions)를 참조하세요.
 - ARM 템플릿을 개발하는 방법을 알아보려면 [Azure Resource Manager 설명서](../../azure-resource-manager/management/overview.md)를 참조하세요.
 - 구독 수준 배포에 대해 알아보려면 [구독 수준에서 리소스 그룹 및 리소스 만들기](../../azure-resource-manager/templates/deploy-to-subscription.md)를 참조하세요.

@@ -1,19 +1,19 @@
 ---
 title: '자습서: Azure Spring Cloud의 애플리케이션 크기 조정 | Microsoft Docs'
-description: 이 자습서에서는 Azure Portal에서 Azure Spring Cloud의 애플리케이션 크기를 조정하는 방법에 대해 알아봅니다.
+description: Azure Portal에서 Azure Spring Cloud를 사용하여 애플리케이션 크기를 조정하는 방법에 대해 알아봅니다.
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: ca889e48510ec20b4823c6ec5e4e0149d5aaaa62
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792067"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141877"
 ---
-# <a name="scale-an-application-in-azure-spring-cloud"></a>Azure Spring Cloud의 애플리케이션 크기 조정
+# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>자습서: Azure Spring Cloud의 애플리케이션 크기 조정
 
 이 자습서에서는 Azure Portal에서 Azure Spring Cloud 대시보드를 사용하여 마이크로서비스 애플리케이션의 크기를 조정하는 방법을 보여줍니다.
 
@@ -23,7 +23,7 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이러한 절차를 따르려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 * 배포된 Azure Spring Cloud 서비스 인스턴스  [Azure CLI를 통한 앱 배포를 위한 빠른 시작](spring-cloud-quickstart-launch-app-cli.md)을 수행하여 시작하세요.
@@ -64,7 +64,7 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Spring Cloud 애플리케이션의 크기를 수동으로 조정하는 방법에 대해 알아보았습니다. 애플리케이션을 모니터링하는 방법을 알려면 다음의 자습서를 계속 진행합니다.
+이 자습서에서는 Azure Spring Cloud 애플리케이션의 크기를 수동으로 조정하는 방법에 대해 알아보았습니다. 경고를 설정하여 애플리케이션을 모니터링하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [애플리케이션을 모니터링하는 방법 알아보기](spring-cloud-tutorial-distributed-tracing.md)
+> [경고를 설정하는 방법 알아보기](spring-cloud-tutorial-alerts-action-groups.md)

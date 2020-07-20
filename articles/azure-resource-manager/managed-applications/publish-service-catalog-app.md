@@ -3,14 +3,15 @@ title: 서비스 카탈로그 관리형 앱 게시
 description: 조직의 구성원을 위한 Azure 관리형 애플리케이션을 만드는 방법이 나와 있습니다.
 author: tfitzmac
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609360"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249039"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>빠른 시작: 관리되는 애플리케이션 정의 만들기 및 게시
 
@@ -20,15 +21,15 @@ ms.locfileid: "82609360"
 
 * 관리되는 애플리케이션과 함께 배포할 리소스를 정의하는 템플릿을 만듭니다.
 * 관리 되는 애플리케이션을 배포할 때 포털에 대한 사용자 인터페이스 요소를 정의합니다.
-* 필요한 템플릿 파일이 포함된 .zip 패키지를 만듭니다.
+* 필요한 템플릿 파일이 포함된 _.zip_ 패키지를 만듭니다.
 * 사용자의 구독에 속한 리소스 그룹에 액세스해야 하는 사용자, 그룹 또는 애플리케이션을 결정합니다.
-* .zip 패키지를 나타내고 ID에 대한 액세스를 요청하는 관리형 애플리케이션 정의를 만듭니다.
+* _.zip_ 패키지를 나타내고 ID에 대한 액세스를 요청하는 관리형 애플리케이션 정의를 만듭니다.
 
 ## <a name="create-the-arm-template"></a>ARM 템플릿 만들기
 
-모든 관리되는 애플리케이션 정의에는 **mainTemplate.json**이라는 파일이 포함됩니다. 여기에서 표시할 Azure 리소스를 정의합니다. 템플릿은 일반 ARM(Azure Resource Manager) 템플릿과 차이가 없습니다.
+모든 관리되는 애플리케이션 정의에는 _mainTemplate.json_이라는 파일이 포함됩니다. 여기에서 표시할 Azure 리소스를 정의합니다. 템플릿은 일반 ARM 템플릿과 차이가 없습니다.
 
-이름이 **mainTemplate.json**인 파일을 만듭니다. 이름은 대/소문자를 구분합니다.
+이름이 _mainTemplate.json_인 파일을 만듭니다. 이름은 대/소문자를 구분합니다.
 
 파일에 다음 JSON을 추가합니다. 스토리지 계정을 만들기 위한 매개 변수를 정의하고 스토리지 계정의 속성을 지정합니다.
 
@@ -73,13 +74,13 @@ ms.locfileid: "82609360"
 }
 ```
 
-mainTemplate.json 파일을 저장합니다.
+_mainTemplate.json_ 파일을 저장합니다.
 
 ## <a name="define-your-create-experience"></a>만들기 환경 정의
 
-게시자는 관리형 애플리케이션을 만들기 위한 포털 환경을 정의합니다. **createUiDefinition.json** 파일은 포털 인터페이스를 생성합니다. 사용자는 드롭다운, 텍스트 상자 및 암호 상자를 포함한 [컨트롤 요소](create-uidefinition-elements.md)를 사용하여 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다.
+게시자는 관리형 애플리케이션을 만들기 위한 포털 환경을 정의합니다. _createUiDefinition.json_ 파일은 포털 인터페이스를 생성합니다. 사용자는 드롭다운, 텍스트 상자 및 암호 상자를 포함한 [컨트롤 요소](create-uidefinition-elements.md)를 사용하여 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다.
 
-이름이 **createUiDefinition.json**인 파일을 만듭니다(이 이름은 대/소문자를 구분함).
+이름이 _createUiDefinition.json_인 파일을 만듭니다(이 이름은 대/소문자를 구분함).
 
 다음 시작 JSON을 파일에 추가하고 저장합니다.
 
@@ -136,7 +137,7 @@ mainTemplate.json 파일을 저장합니다.
 
 ## <a name="package-the-files"></a>파일을 패키지로 만들기
 
-이름이 app.zip인 .zip 파일에 두 파일을 추가합니다. 두 파일이 .zip 파일의 루트 수준에 있어야 합니다. 폴더에 배치하는 경우 관리되는 애플리케이션 정의를 만들 때 필요한 파일이 없음을 나타내는 오류가 나타납니다.
+이름이 _app.zip_인 _.zip_ 파일에 두 개의 파일을 추가합니다. 두 파일은 _.zip 파일_의 루트 수준에 있어야 합니다. 폴더에 배치하는 경우 관리되는 애플리케이션 정의를 만들 때 필요한 파일이 없음을 나타내는 오류가 나타납니다.
 
 패키지를 사용할 수 있는 액세스 가능한 위치에 패키지를 업로드합니다. 스토리지 계정의 고유한 이름을 제공해야 합니다.
 
@@ -291,7 +292,7 @@ az managedapp definition create \
 * **리소스 그룹**: 관리형 애플리케이션 정의를 만든 리소스 그룹의 이름입니다.
 * **잠금 수준**: 관리되는 리소스 그룹에 배치하는 잠금 유형입니다. 고객이 이 리소스 그룹에서 바람직하지 않은 작업을 수행할 수 없게 합니다. 현재 지원되는 유일한 잠금 수준은 ReadOnly입니다. ReadOnly를 지정하는 경우 고객은 관리되는 리소스 그룹에 있는 리소스만 읽을 수 있습니다. 관리되는 리소스 그룹에 대한 액세스 권한이 부여된 게시자 ID는 잠금에서 제외됩니다.
 * **권한 부여**: 관리되는 리소스 그룹에 권한을 부여하는 데 사용되는 보안 주체 ID 및 역할 정의 ID를 설명합니다. `<principalId>:<roleDefinitionId>` 형식으로 지정됩니다. 둘 이상의 값이 필요한 경우 `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>` 형식으로 지정합니다. 값은 쉼표로 구분됩니다.
-* **패키지 파일 URI**: 필요한 파일이 포함되어 있는 .zip 패키지의 위치입니다.
+* **패키지 파일 URI**: 필요한 파일이 포함되어 있는 _.zip_ 패키지의 위치입니다.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>관리형 애플리케이션 정의에 대한 사용자 고유의 스토리지 가져오기
 
@@ -317,7 +318,7 @@ az managedapp definition create \
 1. **선택**에서 **어플라이언스 리소스 공급자** 역할을 검색하여 선택합니다.
 1. 역할 할당을 저장합니다.
 
-### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>ARM 템플릿을 사용하여 관리형 애플리케이션 정의 배포 
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>ARM 템플릿을 사용하여 관리형 애플리케이션 정의 배포
 
 다음 ARM 템플릿을 사용하여 패키지된 관리형 애플리케이션을 서비스 카탈로그에 새 관리형 애플리케이션 정의로 배포합니다. 정의 파일은 해당 스토리지 계정에 저장되고 유지 관리됩니다.
    
@@ -391,9 +392,9 @@ az managedapp definition create \
 }
 ```
 
-**storageAccountId**라는 새 속성을 applicationDefintion의 속성에 추가하고 정의를 해당 값으로 저장할 스토리지 계정 ID를 제공합니다.
+`applicationDefinitions` 속성에 `storageAccountId`라는 새 속성을 추가하고 정의를 해당 값으로 저장할 스토리지 계정 ID를 제공합니다.
 
-애플리케이션 정의 파일이 **applicationdefinitions**라는 컨테이너에 제공된 스토리지 계정에 저장되어 있는지 확인할 수 있습니다.
+애플리케이션 정의 파일이 `applicationDefinitions`라는 컨테이너에 제공된 스토리지 계정에 저장되어 있는지 확인할 수 있습니다.
 
 > [!NOTE]
 > 보안 강화를 위해 관리형 애플리케이션 정의를 만들어 [암호화를 사용하도록 설정된 Azure Storage 계정 Blob](../../storage/common/storage-service-encryption.md)에 저장할 수 있습니다. 정의 콘텐츠는 스토리지 계정의 암호화 옵션을 통해 암호화됩니다. 파일에 대한 권한이 있는 사용자만 서비스 카탈로그의 정의를 볼 수 있습니다.

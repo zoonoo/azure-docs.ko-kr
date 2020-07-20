@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 353bc49ad6a64ff00a8a3ab8594fd76e02ca7913
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85551750"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202546"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
     * 필요한 경우 [이전 자습서를 완료하여 Azure AD SSPR을 사용하도록 설정](tutorial-enable-sspr.md)합니다.
 * 현재 버전의 Azure AD Connect를 사용하여 구성된 기존 온-프레미스 AD DS 환경
     * 필요한 경우 [기본](../hybrid/how-to-connect-install-express.md) 또는 [사용자 지정](../hybrid/how-to-connect-install-custom.md) 설정을 사용하여 Azure AD Connect를 구성합니다.
-    * 비밀번호 쓰기 저장을 사용하려면 도메인 컨트롤러가 Windows Server 2008 R2 이상이어야 합니다.
+    * 비밀번호 쓰기 저장을 사용하려면 도메인 컨트롤러가 Windows Server 2012 이상이어야 합니다.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Azure AD Connect에 대한 계정 권한 구성
 

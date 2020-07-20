@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c1246c2d3a58ad29503c0767b5c4af303d1f0c54
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3814711f090a7d996271f8fa5bef9ff1394d135a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957489"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276586"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -48,7 +48,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |  Azure SQL Database         | 모든 공용 지역      |  프록시 [연결 정책](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy)에 대해 지원됨 | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics(SQL Data Warehouse)| 모든 공용 지역 |  프록시 [연결 정책](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy)에 대해 지원됨 |GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  모든 공용 지역 | |GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역      |  | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역      | 범용 및 메모리 최적화된 가격 책정 계층에 지원됨 | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Azure Database for MySQL         | 모든 공용 지역      |  | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  Azure Database for MariaDB         | 모든 공용 지역      |  | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  Azure Key Vault         | 모든 공용 지역      |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
@@ -61,7 +61,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |Azure Service Bus | 모든 공용 지역  | Azure Service Bus의 프리미엄 계층에서 지원됩니다. [계층 클릭](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Azure Relay | 모든 공용 지역      |  | 미리 보기 <br/> [자세히 알아보기](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| 모든 공용 지역       |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Azure Web Apps | 모든 공용 지역      |  | 미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|Azure Web Apps | 모든 공용 지역      | PremiumV2 Windows, Linux 및 탄력적 프리미엄 함수에서 지원됨  | 미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 |Azure Machine Learning | 미국 동부, 미국 서부 2, 미국 중남부      |  | 미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | 모든 공용 지역 |  | 미리 보기 | |
 | Azure IoT Hub | 모든 공용 지역    |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |

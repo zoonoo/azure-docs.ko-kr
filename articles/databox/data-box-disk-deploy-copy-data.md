@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff57a67d5e6d617d6d51c924161f586f90f92c3c
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214329"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231542"
 ---
 ::: zone target="docs"
 
@@ -40,7 +40,7 @@ ms.locfileid: "79214329"
 > * Data Box Disk에 데이터 복사
 > * 데이터 확인
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 - [자습서: Azure Data Box Disk 설치 및 구성](data-box-disk-deploy-set-up.md)을 완료했습니다.
@@ -111,7 +111,7 @@ ms.locfileid: "79214329"
     |/NFL                | 기록하지 않을 파일 이름을 지정합니다.        |
     |/NDL                | 기록하지 않을 디렉터리 이름을 지정합니다.        |
     |/FFT                | FAT 파일 시간을 가정합니다(2초 자릿수).        |
-    |/Log:\<로그 파일>     | 로그 파일에 상태 출력을 작성합니다(기존 로그 파일을 덮어씀).         |
+    |/Log:\<Log File>     | 로그 파일에 상태 출력을 작성합니다(기존 로그 파일을 덮어씀).         |
 
     각 디스크에서 실행 중인 여러 작업을 사용하여 병렬로 여러 디스크를 사용할 수 있습니다.
 
@@ -273,7 +273,7 @@ ms.locfileid: "79214329"
 
 데이터를 복사할 때 분할 복사 도구를 사용하지 않은 경우 데이터의 유효성을 검사해야 합니다. 데이터의 유효성을 검사하려면 다음 단계를 수행합니다.
 
-1. 드라이브의 *DataBoxDiskImport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다.
+1. 드라이브의 *DataBoxDiskImport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다. Windows 환경에서만 사용할 수 있습니다. Linux 사용자는 디스크에 복사된 원본 데이터가 [필수 구성 요소](https://docs.microsoft.com/azure/databox/data-box-disk-limits)를 충족하는지 확인해야 합니다.
     
     ![Data Box Disk 유효성 검사 도구 출력](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

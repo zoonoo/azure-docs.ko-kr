@@ -1,5 +1,5 @@
 ---
-title: Synapse Studio 사용(미리 보기)
+title: '빠른 시작: Synapse Studio 사용'
 description: 이 빠른 시작에서는 Synapse Studio를 사용하여 다양한 형식의 파일을 얼마나 쉽게 쿼리할 수 있는지 알아봅니다.
 services: synapse-analytics
 author: jovanpop-msft
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 182c6a20af51508c357079b9542b2bda695fdae4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 271fd77e519ce9d78e2fa4e4837004a77cf73522
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658532"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276059"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>빠른 시작: Synapse Studio 사용(미리 보기)
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure Synapse 작업 영역 및 연결된 스토리지 계정을 만듭니다](quickstart-create-workspace.md).
 

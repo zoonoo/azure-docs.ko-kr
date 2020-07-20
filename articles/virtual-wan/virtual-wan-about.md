@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: bae8fa97d075784bba1d2f75cc06cfa3f801c052
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027208"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143906"
 ---
 # <a name="about-azure-virtual-wan"></a>Azure Virtual WAN 정보
 
@@ -58,7 +58,7 @@ Virtual WAN 아키텍처 및 Virtual WAN으로 마이그레이션하는 방법�
 
 * **허브 가상 네트워크 연결:** 허브 가상 네트워크 연결 리소스는 허브를 가상 네트워크에 원활하게 연결하는 데 사용됩니다.
 
-* **(미리 보기) 허브-허브 연결** - 가상 WAN에서 모든 허브가 서로 연결됩니다. 따라서 로컬 허브에 연결된 분기, 사용자 또는 VNet이 연결된 허브의 풀 메시 아키텍처를 사용하여 다른 분기나 VNet과 통신할 수 있습니다. 가상 허브를 통해 전송 중인 허브 내의 VNet을 연결할 수 있을 뿐만 아니라 허브-허브 연결 프레임워크를 사용하여 허브 전체의 VNet을 연결할 수도 있습니다.
+* **허브 간 연결:** 허브는 모두 가상 WAN에서 서로 연결되어 있습니다. 따라서 로컬 허브에 연결된 분기, 사용자 또는 VNet이 연결된 허브의 풀 메시 아키텍처를 사용하여 다른 분기나 VNet과 통신할 수 있습니다. 가상 허브를 통해 전송 중인 허브 내의 VNet을 연결할 수 있을 뿐만 아니라 허브-허브 연결 프레임워크를 사용하여 허브 전체의 VNet을 연결할 수도 있습니다.
 
 * **허브 경로 테이블:**  가상 허브 경로를 만들어 가상 허브 경로 테이블에 적용할 수 있습니다. 가상 허브 경로 테이블에 여러 경로를 적용할 수 있습니다.
 

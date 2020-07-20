@@ -1,12 +1,12 @@
 ---
-title: 사용자, 그룹, 라이선스 및 역할 개요 - Azure AD | Microsoft Docs
+title: Azure Active Directory의 사용자, 그룹, 라이선스 및 역할
 description: Azure Active Directory에서 사용자와 할당된 라이선스, 관리자 역할, 그룹 멤버십 간의 관계
 keywords: ''
 author: curtand
 manager: daveba
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 11/08/2019
+ms.date: 06/16/2020
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -14,14 +14,14 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8052bb44df6d29e17304763051fa2099009b9701
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 89c96da30411705bf33b1c63f79a9beef11962a1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583010"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223825"
 ---
-# <a name="users-groups-licensing-and-roles-for-large-organizations"></a>사용자, 그룹, 라이선싱 및 대규모 조직에 대한 역할
+# <a name="what-is-enterprise-user-management"></a>엔터프라이즈 사용자 관리란?
 
 이 문서에서는 Azure AD 관리자에게 그룹, 라이선스, 배포된 엔터프라이즈 앱, 라이선스 및 관리자 역할에 의한 사용자에 대한 [ID 관리](/azure/active-directory/fundamentals/identity-fundamentals?context=azure/active-directory/users-groups-roles/context/ugr-context) 작업 간의 관계를 소개합니다. 조직이 성장함에 따라 Azure AD 그룹 및 관리자 역할을 사용하여 다음을 수행할 수 있습니다.
 

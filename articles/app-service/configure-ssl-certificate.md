@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9f9fcc0b3d8dfe19961668e77da91bc9f14ff2d1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be490c5ec11ab4bafcd68731a535483d1803a8c7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81453900"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146428"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -29,7 +29,7 @@ ms.locfileid: "81453900"
 | 프라이빗 인증서 업로드 | 타사 공급자의 프라이빗 인증서가 이미 있는 경우 해당 인증서를 업로드할 수 있습니다. [프라이빗 인증서 요구 사항](#private-certificate-requirements)을 참조하세요. |
 | 공용 인증서 업로드 | 공용 인증서는 사용자 지정 도메인을 보호하는 데 사용되지 않지만, 원격 리소스에 액세스할 때 필요한 경우 공용 인증서를 코드에 로드할 수 있습니다. |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -64,7 +64,7 @@ TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 - 와일드카드 인증서를 지원하지 않습니다.
 - 네이키드 도메인을 지원하지 않습니다.
 - 내보낼 수 없습니다.
-- DNS A 레코드를 지원하지 않습니다.
+- A 레코드를 지원하지 않습니다. 예를 들어 A 레코드에서는 자동 갱신이 작동하지 않습니다.
 
 > [!NOTE]
 > 무료 인증서는 DigiCert에서 발급됩니다. 일부 최상위 도메인의 경우 `0 issue digicert.com` 값으로 [CAA 도메인 레코드](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)를 만들어 DigiCert를 인증서 발급자로 명시적으로 허용해야 합니다.
@@ -72,7 +72,7 @@ TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 
 무료 App Service Managed Certificate를 만드는 방법은 다음과 같습니다.
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 을 선택합니다.
+<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
 앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **App Service Managed Certificate 만들기**를 선택합니다.
 
@@ -115,7 +115,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 | 설정 | Description |
 |-|-|
-| 속성 | App Service Certificate에 대한 식별 이름입니다. |
+| Name | App Service Certificate에 대한 식별 이름입니다. |
 | Naked 도메인 호스트 이름 | 여기서 루트 도메인을 지정합니다. 발급된 인증서는 루트 도메인과 `www` 하위 도메인을 *모두* 보호합니다. 발급된 인증서의 일반 이름 필드에는 루트 도메인이 포함되고, 주체 대체 이름 필드에는 `www` 도메인이 포함됩니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`).|
 | Subscription | 인증서를 포함할 구독입니다. |
 | Resource group | 인증서를 포함할 리소스 그룹입니다. 예를 들어, 새로운 리소스 그룹을 사용하거나 App Service 앱과 동일한 리소스 그룹을 선택할 수 있습니다. |
@@ -136,7 +136,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 | 설정 | Description |
 |-|-|
-| 속성 | 영숫자와 대시로 구성된 고유한 이름입니다. |
+| Name | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | Resource group | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
 | 위치 | App Service 앱과 동일한 위치를 선택합니다. |
 | 가격 책정 계층 | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |
@@ -163,7 +163,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 ### <a name="import-certificate-into-app-service"></a>App Service로 인증서 가져오기
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 을 선택합니다.
+<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
 앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **App Service Certificate 가져오기**를 선택합니다.
 
@@ -183,7 +183,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [요구 사항을 충족](#private-certificate-requirements)하는 PKCS12 인증서를 App Service으로 가져올 수 있습니다.
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 을 선택합니다.
+<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
 앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **Key Vault 인증서 가져오기**를 선택합니다.
 
@@ -253,7 +253,7 @@ IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 �
 
 이제 인증서를 App Service에 업로드할 준비가 완료되었습니다.
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 을 선택합니다.
+<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
 앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **인증서 업로드**를 선택합니다.
 
@@ -273,7 +273,7 @@ IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 �
 
 공용 인증서는 *.cer* 형식으로 지원됩니다. 
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 을 선택합니다.
+<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
 앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **공용 인증서(.cer)**  > **공개 키 인증서 업로드**를 선택합니다.
 

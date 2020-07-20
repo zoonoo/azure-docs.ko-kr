@@ -4,18 +4,18 @@ description: 사용자 지정 Windows 컨테이너를 Azure App Service로 마�
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8f2f4f707300e3ebe31f059c65492247befe324a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205625"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169955"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Windows 컨테이너를 사용하여 ASP.NET 앱을 Azure App Service로 마이그레이션(미리 보기)
 
 [Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 하지만 App Service에서 사용자 지정 Windows 컨테이너를 사용하면 앱에 필요한 OS 변경이 가능합니다. 따라서 사용자 지정 OS 및 소프트웨어 구성이 필요한 온-프레미스 앱을 쉽게 마이그레이션할 수 있습니다. 이 자습서에서는 Windows 글꼴 라이브러리에 설치된 사용자 지정 글꼴을 사용하는 ASP.NET 앱을 App Service로 마이그레이션하는 방법을 보여줍니다. 사용자 지정 구성된 Windows 이미지를 Visual Studio에서 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)로 배포한 다음, App Service에서 실행합니다.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Windows 컨테이너에서 실행 중인 웹앱을 표시합니다.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -146,7 +146,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 **기본 사항** 탭은 다음과 같아야 합니다.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
+![웹앱을 구성하는 데 사용되는 기본 탭을 표시합니다.](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
 ### <a name="configure-windows-container"></a>Windows 컨테이너 구성
 
@@ -167,7 +167,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
+![Azure 작업이 완료되었음을 표시합니다.](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
 
 1. **리소스로 이동**을 클릭합니다.
 
@@ -175,11 +175,11 @@ Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
 새 브라우저 페이지가 다음 페이지로 열립니다.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
+![웹앱의 새 브라우저 페이지를 표시합니다.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
 
 원하는 글꼴이 적용된 홈 페이지가 표시될 때까지 몇 분 정도 기다렸다가 다시 시도해보십시오.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![구성된 글꼴이 포함된 홈페이지를 표시합니다.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 **축하합니다.** ASP.NET 애플리케이션이 Windows 컨테이너의 Azure App Service로 마이그레이션되었습니다.
 

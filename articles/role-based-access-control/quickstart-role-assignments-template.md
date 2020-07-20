@@ -10,34 +10,34 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: da25f4bc585da26b9765fd36d65a8b5e0689f725
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9320a68684a25949e8a0b4e2c7d72a6267401add
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300667"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252354"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 추가
+# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 역할 할당 추가
 
-[Azure RBAC(Azure 역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 빠른 시작에서는 리소스 그룹을 만들고 리소스 그룹에서 Virtual Machine을 만들고 관리할 수 있는 액세스 권한을 사용자에게 부여합니다. 이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 액세스 권한을 부여합니다.
+[Azure RBAC(Azure 역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 빠른 시작에서는 리소스 그룹을 만들고 리소스 그룹에서 Virtual Machine을 만들고 관리할 수 있는 액세스 권한을 사용자에게 부여합니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 액세스 권한을 부여합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-rbac-builtinrole-resourcegroup%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 역할 할당을 추가하려면 다음이 필요합니다.
 
-* `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner))
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner))
+- 역할 할당을 추가하려면 보안 주체, 역할 정의 및 범위의 세 가지 요소를 지정해야 합니다. 이 빠른 시작에서 보안 주체는 사용자 또는 사용자 디렉터리에 있는 다른 사용자이며, 역할 정의는 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor)이고, 범위는 사용자가 지정하는 리소스 그룹입니다.
 
-## <a name="create-a-role-assignment"></a>역할 할당 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-역할 할당을 추가하려면 보안 주체, 역할 정의 및 범위의 세 가지 요소를 지정해야 합니다. 이 빠른 시작에서 보안 주체는 사용자 또는 사용자 디렉터리에 있는 다른 사용자이며, 역할 정의는 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor)이고, 범위는 사용자가 지정하는 리소스 그룹입니다.
-
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/)에서 나온 것입니다. 템플릿에는 3개의 매개 변수와 1개의 리소스 섹션이 있습니다. 리소스 섹션에서 역할 할당의 세 요소인 보안 주체, 역할 정의 및 범위가 포함된 것을 확인하세요. 
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/)에서 나온 것입니다. 템플릿에는 3개의 매개 변수와 1개의 리소스 섹션이 있습니다. 리소스 섹션에서 역할 할당의 세 요소인 보안 주체, 역할 정의 및 범위가 포함된 것을 확인하세요.
 
 :::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - [Microsoft.Authorization/roleAssignments](/azure/templates/Microsoft.Authorization/roleAssignments)
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

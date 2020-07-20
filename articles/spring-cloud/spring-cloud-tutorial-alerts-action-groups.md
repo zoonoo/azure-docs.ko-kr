@@ -6,14 +6,14 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d3fcbbb317ef70687c83ff21e2ab817d89051a6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77920079"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142454"
 ---
-# <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스 모니터링
+# <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스를 모니터링하는 방법
 
 Azure Spring Cloud 경고는 사용 가능한 스토리지, 요청 속도 또는 데이터 사용량과 같은 조건에 따라 모니터링 리소스를 지원합니다. 속도 또는 조건이 정의된 사양과 일치하면 경고에서 알림을 보냅니다.
 
@@ -21,13 +21,10 @@ Azure Spring Cloud 경고는 사용 가능한 스토리지, 요청 속도 또는
 1. 이메일, SMS, Runbook 또는 웹후크와 같은 경고가 트리거될 때 수행할 작업을 사용하여 작업 그룹을 설정합니다. 작업 그룹은 서로 다른 경고 간에 다시 사용할 수 있습니다.
 2. 경고 규칙을 설정합니다. 이러한 규칙은 대상 리소스, 메트릭, 조건, 시간 집계 등에 기반한 메트릭 패턴을 작업 그룹에 바인딩합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-이 자습서는 Azure Spring 요구 사항 외에도 다음과 같은 리소스에 따라 달라집니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-* 배포된 Azure Spring Cloud 인스턴스.  [빠른 시작](spring-cloud-quickstart-launch-app-cli.md)을 따라 시작하세요.
+Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure Spring Cloud 인스턴스와 함께 작동합니다.  [빠른 시작](spring-cloud-quickstart-launch-app-cli.md)을 따라 시작하세요.
 
-* 모니터링할 Azure 리소스입니다. 이 예제에서는 Spring Cloud 인스턴스를 모니터링합니다.
- 
 다음 절차에서는 Spring Cloud 인스턴스의 왼쪽 탐색 창에 있는 **경고** 옵션에서 시작하여 **작업 그룹** 및 **경고**를 모두 초기화합니다. 이 절차는 Azure Portal의 **모니터 개요** 페이지에서 시작할 수도 있습니다. 
 
 리소스 그룹에서 Spring Cloud 인스턴스로 이동합니다. 왼쪽 창에서 **경고**를 선택한 다음, **작업 관리**를 선택합니다.
@@ -109,7 +106,11 @@ Azure Spring Cloud 경고는 사용 가능한 스토리지, 요청 속도 또는
    ![포털의 새 경고 규칙에 대한 스크린샷](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [사용자 포털 메트릭 옵션](spring-cloud-concept-metrics.md#user-metrics-options)
-* [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* [작업 그룹의 SMS 경고 동작](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
-* [자습서: Azure Spring Cloud에서 분산 추적 사용](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+
+이 자습서에서는 Azure Spring Cloud 애플리케이션에 대한 경고 및 작업 그룹을 설정하는 방법에 대해 알아보았습니다. 작업 그룹에 대해 자세히 알아보려면 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+
+> [!div class="nextstepaction"]
+> [작업 그룹의 SMS 경고 동작](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)

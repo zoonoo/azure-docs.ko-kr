@@ -1,5 +1,5 @@
 ---
-title: '자습서: 디자이너를 사용하여 자동차 가격 예측'
+title: '자습서: 디자이너를 사용하여 자동차 가격 예측(미리 보기)'
 titleSuffix: Azure Machine Learning
 description: 끌어서 놓기 인터페이스를 사용하여 기계 학습 모델을 학습하고 점수를 매기고 배포하는 방법에 대해 알아봅니다. 이 자습서는 선형 회귀 분석을 사용하여 자동차 가격을 예측하는 2부로 구성된 시리즈 중 1부입니다.
 author: peterclu
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 2922b5d3aa6cee0f1222c041a0e9728936754c21
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517640"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200029"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

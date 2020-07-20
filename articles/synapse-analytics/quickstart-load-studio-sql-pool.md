@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL을 사용하여 데이터 대량 로드
+title: '빠른 시작: Synapse SQ를 사용하여 데이터 대량 로드'
 description: Synapse Studio를 사용하여 Synapse SQL에서 데이터 대량 로드
 services: synapse-analytics
 author: kevinvngo
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 959742ec3c0434213d19b0f92fe523671fd60f33
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7f840d4a75be72a4317860dcf4a6708642369a24
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964552"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274223"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Synapse SQL을 사용하여 대량 로드
 

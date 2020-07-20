@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 8a1dd07fd567f41c2b406aabccd0421b5a6983af
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fbfc6bf9c50257c2683522913503bf9b29450d94
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671190"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226396"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인해야 합니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "80671190"
 
 이제 UI의 텍스트 및 그래픽 모양이 다음과 유사하게 표시됩니다.
 
-![](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
+![봇 UI에 대한 통신을 표시하는 방법의 스크린샷.](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
@@ -263,7 +263,7 @@ ms.locfileid: "80671190"
 
 1. 나타나는 배포 대상 창에서 Android 디바이스를 선택합니다.
 
-   ![배포 대상 선택 창 스크린샷 ](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
+   ![배포 대상 선택 창 스크린샷](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
 
 애플리케이션과 작업이 시작되면 단추를 클릭하여 봇에 말하기 시작합니다. 말하는 동안 문자화된 텍스트가 표시되고 봇에서 받은 최신 작업이 수신되면 나타납니다. 봇이 음성 응답을 제공하도록 구성된 경우에는 음성 텍스트 변환이 자동으로 재생됩니다.
 

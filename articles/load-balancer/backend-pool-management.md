@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113975"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273764"
 ---
 # <a name="backend-pool-management"></a>백 엔드 풀 관리
 백 엔드 풀은 부하 분산 장치의 중요한 구성 요소입니다. 백 엔드 풀은 지정된 부하 분산 규칙에 대한 트래픽을 제공하는 리소스 그룹을 정의합니다.
@@ -22,9 +22,9 @@ ms.locfileid: "86113975"
 * NIC(네트워크 인터페이스 카드)
 * IP 주소와 VNET(Virtual Network) 리소스 ID의 조합
 
-가상 머신 및 가상 머신 확장 집합을 사용하는 경우 NIC를 통해 백 엔드 풀을 구성합니다. 이 방법은 리소스와 백 엔드 풀 간에 가장 직접적인 링크를 작성합니다. 
+기존 가상 머신 및 가상 머신 확장 집합을 사용하는 경우 NIC를 통해 백 엔드 풀을 구성합니다. 이 방법은 리소스와 백 엔드 풀 간에 가장 직접적인 링크를 작성합니다. 
 
-컨테이너 또는 Kubernetes Pod와 같은 NIC를 사용할 수 없는 시나리오에서는 IP 주소 및 VNET ID의 조합을 통해 백 엔드 풀을 구성합니다.
+나중에 가상 머신 및 가상 머신 확장 집합을 만드는 데 사용할 IP 주소 범위로 백 엔드 풀을 미리 할당하는 경우 IP 주소 및 VNET ID 조합을 통해 백 엔드 풀을 구성합니다.
 
 이 문서의 구성 섹션에서는 다음 항목에 중점을 둡니다.
 
@@ -249,7 +249,7 @@ JSON 요청 본문:
 이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/)에 따라 부하 분산 장치 및 가상 머신을 배포하고, 네트워크 인터페이스를 통해 가상 머신을 백 엔드 풀에 추가합니다.
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>IP 주소 및 가상 네트워크를 통해 백 엔드 풀 구성
-컨테이너를 사용하거나 IP가 있는 미리 채워진 백 엔드 풀을 사용하는 시나리오에서는 IP 및 가상 네트워크를 사용합니다.
+미리 채워진 백 엔드 풀을 사용하는 시나리오에서는 IP 및 가상 네트워크를 사용합니다.
 
 모든 백 엔드 풀 관리는 아래 예제에서 강조하듯이 백 엔드 풀 개체에서 직접 수행됩니다.
 

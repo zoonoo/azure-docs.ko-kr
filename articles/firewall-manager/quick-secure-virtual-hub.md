@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1917bed7727b97de27e560a0f2d8032a8ae08996
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563697"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242018"
 ---
-# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>빠른 시작: Azure Firewall Manager를 사용하여 가상 허브 보호 - Resource Manager 템플릿
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>빠른 시작: Azure Firewall Manager를 사용하여 가상 허브 보호 - ARM 템플릿
 
-이 빠른 시작에서는 Azure Firewall Manager를 통해 Resource Manager 템플릿을 사용하여 가상 허브를 보호합니다. 배포된 방화벽에는 `www.microsoft.com`에 대한 연결을 허용하는 애플리케이션 규칙이 있습니다. 방화벽을 테스트하기 위해 두 개의 Windows Server 2019 가상 머신이 배포됩니다. 단일 점프 서버를 사용하여 작업 서버에 연결합니다. 작업 서버에서 `www.microsoft.com`에만 연결할 수 있습니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Firewall Manager를 통해 가상 허브를 보호합니다. 배포된 방화벽에는 `www.microsoft.com`에 대한 연결을 허용하는 애플리케이션 규칙이 있습니다. 방화벽을 테스트하기 위해 두 개의 Windows Server 2019 가상 머신이 배포됩니다. 단일 점프 서버를 사용하여 작업 서버에 연결합니다. 작업 서버에서 `www.microsoft.com`에만 연결할 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Azure Firewall Manager에 대한 자세한 내용은 [Azure Firewall Manager란?](overview.md)을 참조하세요.
 
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-secured-virtual-hub"></a>보안 가상 허브 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
 이 템플릿은 시나리오를 지원하는 데 필요한 리소스와 함께 Azure Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/fwm-docs-qs/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/fwm-docs-qs/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
@@ -51,9 +53,9 @@ Azure Firewall Manager에 대한 자세한 내용은 [Azure Firewall Manager란?
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
-Azure에 Resource Manager 템플릿 배포:
+Azure에 ARM 템플릿을 배포합니다.
 
 1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 가상 WAN 및 가상 허브, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
@@ -86,7 +88,7 @@ Azure에 Resource Manager 템플릿 배포:
 
 이제 방화벽 규칙이 작동하는지 확인했습니다.
 
-* 다른 모든 FQDN이 아닌 허용된 FQDN 하나만 찾아볼 수 있습니다.
+- 다른 모든 FQDN이 아닌 허용된 FQDN 하나만 찾아볼 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

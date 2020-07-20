@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 09a7a28716e437bab71c7386bd332712a4d192dd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75c6f8ec8410ff90b3da4fb6a50c9ef8ba7d1618
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196365"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184622"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 
@@ -40,7 +40,7 @@ Azure Cache for Redis는 다음 계층에서 사용할 수 있습니다.
 | 계층 | Description |
 |---|---|
 Basic | 단일 노드 캐시. 이 계층은 여러 메모리 크기(250MB - 53GB)를 지원하며 개발/테스트 및 중요하지 않은 작업에 적합합니다. 기본 계층에는 SLA(서비스 수준 계약)가 없습니다. |
-| Standard | 고가용성 SLA(99.9%)를 사용하며 Azure에서 관리되는 2노드 기본/보조 구성의 복제된 캐시입니다. |
+| Standard | 고가용성 SLA(99.9%)를 사용하여 Azure에서 관리하는 2노드 기본/복제 구성의 복제된 캐시입니다. |
 | Premium | Premium 계층은 엔터프라이즈급 계층입니다. Premium 계층 캐시는 더 많은 기능을 지원하며 더 낮은 대기 시간으로 더 많은 처리가 가능합니다. Premium 계층의 캐시는 Basic 또는 Standard 계층에 비해 더 나은 성능을 제공하는 더 강력한 하드웨어에 배포됩니다. 이러한 이점은 Standard 계층에 비해 Premium에서 동일한 크기의 캐시에 대한 처리량이 많음을 의미합니다. |
 
 > [!TIP]

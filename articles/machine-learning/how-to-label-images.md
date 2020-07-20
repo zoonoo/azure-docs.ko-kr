@@ -2,20 +2,20 @@
 title: 레이블 지정 프로젝트에서 이미지에 태그 지정
 title.suffix: Azure Machine Learning
 description: Azure Machine Learning 레이블 지정 프로젝트에서 데이터 태깅 도구를 사용하는 방법을 알아봅니다.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0421e5ad164c440c1b841cae66e7dafc5deadb81
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025134"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147009"
 ---
-# <a name="tag-images-in-a-labeling-project-preview"></a>레이블 지정 프로젝트에서 이미지에 태그 지정(미리 보기)
+# <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정 
 
 프로젝트 관리자가 Azure Machine Learning에서 [레이블 지정 프로젝트를 만든](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) 후에는 레이블 지정 도구(공개 미리 보기)를 사용하여 Machine Learning 프로젝트에 사용할 데이터를 빠르게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "86025134"
 > * 레이블 지정 도구
 > * 특정 레이블 지정 작업용 도구를 사용하는 방법
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 조직 및 프로젝트에 대한 [Microsoft 계정](https://account.microsoft.com/account) 또는 Azure Active Directory 계정
 * 레이블 지정 프로젝트가 포함된 작업 영역에 대한 기여자 수준 액세스입니다.
@@ -64,7 +64,7 @@ Azure는 페이지의 모든 이미지에 태그를 지정한 후 **전송** 단
 
 현재 데이터에 대한 태그가 제출되면 Azure에서 페이지를 작업 큐의 새 이미지 세트로 새로 고칩니다.
 
-### <a name="assisted-machine-learning"></a>지원 기계 학습 
+### <a name="assisted-machine-learning-preview"></a>지원 기계 학습(미리 보기) 
 
 기계 학습 알고리즘이 트리거될 수 있습니다. 프로젝트에서 이러한 알고리즘을 사용하는 경우 다음이 표시될 수 있습니다.
 

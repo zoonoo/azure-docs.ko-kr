@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 여러 공용 IP 주소로 Azure Firewall 만들기 - Resource Manager 템플릿'
-description: Resource Manager 템플릿을 사용하여 여러 공용 IP 주소로 Azure Firewall을 만드는 방법에 대해 알아봅니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 여러 공용 IP 주소로 Azure Firewall을 만드는 방법에 대해 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: b81362f191e6317aa7ffa974a6d432b0c7514d8f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7e89188e7ebc979c403b86ee26c876e8c40aa208
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680545"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260562"
 ---
-# <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>빠른 시작: 여러 공용 IP 주소로 Azure Firewall 만들기 - Resource Manager 템플릿
+# <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>빠른 시작: 여러 공용 IP 주소로 Azure Firewall 만들기 - ARM 템플릿
 
-이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 여러 공용 IP 주소로 Azure Firewall을 배포합니다. 배포된 방화벽에는 두 개의 Windows Server 2019 가상 머신에 대한 RDP 연결을 허용하는 NAT 규칙 수집 규칙이 있습니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 여러 공용 IP 주소로 Azure Firewall을 배포합니다. 배포된 방화벽에는 두 개의 Windows Server 2019 가상 머신에 대한 RDP 연결을 허용하는 NAT 규칙 수집 규칙이 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 여러 공용 IP 주소를 사용하는 Azure 방화벽에 대한 자세한 내용은 [Azure PowerShell을 사용하여 여러 공용 IP 주소로 Azure Firewall 배포](deploy-multi-public-ip-powershell.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall"></a>Azure Firewall 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
 이 템플릿은 Azure Firewall을 지원하는 데 필요한 리소스와 함께 두 개의 공용 IP 주소로 Azure Firewall을 만듭니다.
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/fw-docs-qs)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/fw-docs-qs)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json" range="001-391" highlight="238-370":::
 
@@ -48,9 +50,9 @@ ms.locfileid: "83680545"
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
-Azure에 Resource Manager 템플릿 배포:
+Azure에 ARM 템플릿을 배포합니다.
 
 1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 

@@ -11,20 +11,20 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/24/2020
-ms.openlocfilehash: 2975b98306b7019022799d5ba69b9d7af5797a2b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: a766d61c49fe23645c232432198eb4aa0eedb98b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368042"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135642"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 
-[단일 데이터베이스](single-database-overview.md)를 만드는 것이 Azure SQL Database에서 데이터베이스를 만드는 가장 빠르고 간단한 옵션입니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 단일 데이터베이스를 만드는 방법을 보여줍니다.
+[단일 데이터베이스](single-database-overview.md)를 만드는 것이 Azure SQL Database에서 데이터베이스를 만드는 가장 빠르고 간단한 옵션입니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 단일 데이터베이스를 만드는 방법을 보여줍니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 [Azure에 배포] 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
 [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 단일 데이터베이스는 두 [구매 모델](purchasing-models.md) 중 하나를 사용하여 컴퓨팅, 메모리, IO 및 스토리지 리소스 세트가 정의됩니다. 단일 데이터베이스를 만들 때 지정된 지역의 [Azure 리소스 그룹](../../active-directory-b2c/overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [서버](logical-servers.md)도 정의합니다.
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-sql-logical-server/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-sql-database/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
 
@@ -88,4 +88,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
   - [Azure Data Studio를 사용하여 연결 및 쿼리](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Azure CLI를 사용하여 단일 데이터베이스를 만들려면 [Azure CLI 샘플](az-cli-script-samples-content-guide.md)을 참조하세요.
 - Azure PowerShell을 사용하여 단일 데이터베이스를 만들려면 [Azure PowerShell 샘플](powershell-script-content-guide.md)을 참조하세요.
-- Resource Manager 템플릿을 만드는 방법을 알아보려면 [첫 번째 템플릿 만들기](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)를 참조하세요.
+- ARM 템플릿을 만드는 방법을 알아보려면 [첫 번째 템플릿 만들기](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)를 참조하세요.

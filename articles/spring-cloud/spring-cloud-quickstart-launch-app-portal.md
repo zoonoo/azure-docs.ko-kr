@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: e4ea76a888ba51b3560139e9efc3df512c4fbadf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 118e1e49393a797a065f1e9968a83a6d4464868e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120945"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171043"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작
 
@@ -43,14 +43,6 @@ ms.locfileid: "86120945"
 3. [Maven 3.0 이상 설치](https://maven.apache.org/download.cgi)
 4. [Azure CLI 버전 2.0.67 이상 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Azure 구독에 가입](https://azure.microsoft.com/free/)
-
-## <a name="install-the-azure-cli-extension"></a>Azure CLI 확장 설치
-
-다음 명령을 사용하여 Azure CLI용 Azure Spring Cloud 확장 설치
-
-```azurecli
-az extension add --name spring-cloud
-```
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Azure Portal에서 서비스 인스턴스 프로비저닝
 
@@ -112,7 +104,7 @@ az extension add --name spring-cloud
 
 ## <a name="build-and-deploy-microservice-applications"></a>마이크로서비스 애플리케이션 빌드 및 배포
 
-1. [Azure Cloud Shell](https://shell.azure.com)을 열고 샘플 앱 리포지토리를 로컬 머신에 복제합니다.  여기서는 먼저 앱을 복제하기 전에 `source-code`라는 임시 디렉터리를 만듭니다.
+1. Azure CLI가 설치된 [Azure Cloud Shell](https://shell.azure.com) 또는 로컬 셸을 엽니다. 여기서는 먼저 샘플 앱을 복제하기 전에 `source-code`라는 임시 디렉터리를 만듭니다.
 
     ```console
     mkdir source-code
@@ -127,18 +119,20 @@ az extension add --name spring-cloud
     mvn clean package -DskipTests
     ```
 
-3. 리소스 그룹 및 서비스에 이름을 할당합니다. 아래 자리 표시자를 이 자습서의 앞부분에서 프로비저닝한 리소스 그룹 이름과 서비스 이름으로 대체해야 합니다.
+3. 다음 명령을 사용하여 Azure CLI용 Azure Spring Cloud 확장 설치
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+4. 리소스 그룹 및 서비스에 이름을 할당합니다. 아래 자리 표시자를 이 자습서의 앞부분에서 프로비저닝한 리소스 그룹 이름과 서비스 이름으로 대체해야 합니다.
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. `gateway` 애플리케이션을 만들고 JAR 파일을 배포합니다.  다음 단계에는 Spring Cloud 확장이 필요합니다. 필수 구성 요소를 사용하여 설치하지 않은 경우 다음 명령을 실행합니다.
-
-    ```azurecli
-    az extension add --name spring-cloud
-    ```
+5. `gateway` 애플리케이션을 만들고 JAR 파일을 배포합니다.
 
     Spring Cloud 확장을 사용하여 앱을 만듭니다.
 
@@ -147,7 +141,7 @@ az extension add --name spring-cloud
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-5. 동일한 패턴에 따라 `account-service` 및 `auth-service` 애플리케이션을 생성하고 해당 JAR 파일을 배포합니다.
+6. 동일한 패턴에 따라 `account-service` 및 `auth-service` 애플리케이션을 생성하고 해당 JAR 파일을 배포합니다.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -156,7 +150,7 @@ az extension add --name spring-cloud
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-6. 애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 블레이드로 이동합니다. 세 애플리케이션 각각에 대한 줄이 보입니다.
+7. 애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 블레이드로 이동합니다. 세 애플리케이션 각각에 대한 줄이 보입니다.
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)

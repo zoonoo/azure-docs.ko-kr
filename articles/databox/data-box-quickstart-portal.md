@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dd429dadcbe67f0ac91da19d6606626b39f34ef5
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313776"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201084"
 ---
-# <a name="get-started-with-azure-data-box"></a>Azure Data Box 시작 
+# <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Azure로 데이터를 가져오는 Azure Data Box 시작
 
 ::: zone target="docs"
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Box를 배포하는 방법을 설명합니다. 여기서는 Data Box를 케이블로 연결 및 구성하고 Azure에 업로드되도록 Data Box에 데이터를 복사하는 단계를 수행합니다. 디바이스의 로컬 웹 UI와 Azure Portal에서 이 빠른 시작을 수행합니다.
+이 빠른 시작에서는 가져오기 순서를 위해 Azure Portal을 사용하여 Azure Data Box를 배포하는 방법을 설명합니다. 여기서는 Data Box를 케이블로 연결 및 구성하고 Azure에 업로드되도록 Data Box에 데이터를 복사하는 단계를 수행합니다. 디바이스의 로컬 웹 UI와 Azure Portal에서 이 빠른 시작 단계를 수행합니다.
 
 자세한 단계별 배포 및 추적 지침은 [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 참조하세요.
 
@@ -28,13 +28,13 @@ ms.locfileid: "76313776"
 
 ::: zone target="chromeless"
 
-이 가이드에서는 Azure Portal을 사용하여 Azure Data Box를 배포하는 방법을 설명합니다. 단계에는 필수 구성 요소를 검토하고 디바이스에 연결하고 Azure에 업로드하도록 데이터를 디바이스에 복사하는 것이 포함됩니다.
+이 가이드에서는 Azure Portal을 사용하여 가져오기 위해 Azure Data Box를 배포하는 방법을 설명합니다. 단계에는 필수 구성 요소를 검토하고 디바이스에 연결하고 Azure에 업로드하도록 데이터를 디바이스에 복사하는 것이 포함됩니다.
 
 ::: zone-end
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에
 
@@ -58,7 +58,7 @@ ms.locfileid: "76313776"
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 수행했는지 확인합니다.
 

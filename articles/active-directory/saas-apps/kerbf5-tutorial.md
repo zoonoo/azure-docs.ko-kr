@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a24ec98e9d5978a6f896715b25bd6b08d4a0262d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75431468"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232188"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -33,7 +33,7 @@ ms.locfileid: "75431468"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -42,11 +42,11 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * F5 SSO(Single Sign-On)가 설정된 구독
 
 * 공동 솔루션을 배포하려면 다음 라이선스가 필요합니다.
-    * F5 BIG-IP® Best 번들 (또는)
+    * F5 BIG-IP&reg; Best 번들(또는)
 
-    * F5 BIG-IP APM(Access Policy Manager)™ 독립 실행형 라이선스
+    * F5 BIG-IP APM(Access Policy Manager)&trade; 독립 실행형 라이선스
 
-    * 기본 BIG-IP F5 BIG-IP® LTM(Local Traffic Manager)™에 대한 F5 BIG-IP Access Policy Manager™ (APM) 추가 기능 라이선스
+    * 기존 BIG-IP F5 BIG-IP&reg; LTM(Local Traffic Manager)&trade;에 대한 F5 BIG-IP APM(Access Policy Manager)&trade; 추가 기능 라이선스.
 
     * F5 시스템에는 위의 라이선스 외에도 다음 라이선스가 부여될 수 있습니다.
 
@@ -64,7 +64,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="access-guided-configuration"></a>단계별 구성 액세스
 
-* 단계별 구성 액세스는 F5 TMOS 버전 13.1.0.8 이상에서 지원됩니다. BIG-IP 시스템에서 13.1.0.8 버전 미만을 실행하는 경우 **고급 구성** 섹션을 참조하세요.
+* 단계별 구성 액세스'는 F5 TMOS 버전 13.1.0.8 이상에서 지원됩니다. BIG-IP 시스템에서 13.1.0.8 버전 미만을 실행하는 경우 **고급 구성** 섹션을 참조하세요.
 
 * 단계별 구성 액세스는 완전히 새롭고 간소화된 사용자 환경을 제공합니다. 이 워크플로 기반 아키텍처는 선택한 토폴로지에 맞게 조정되어 다시 도입된 직관적인 구성 단계를 제공합니다.
 
@@ -177,7 +177,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -248,7 +248,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![F5(Kerberos) 구성](./media/kerbf5-tutorial/configure07.png)  
 
-1. **Select a Pool**(풀 선택) 아래에서 **Create New**(새로 만들기)를 지정합니다(또는 이미 있는 풀 선택). 다른 값은 기본값으로 둡니다. Pool Servers(풀 서버)의 **IP Address/Node Name**(IP 주소/노드 이름) 아래에서 IP 주소를 입력합니다. **Port**(포트)를 지정합니다. **Save & Next**(저장 후 다음)를 클릭합니다.
+1. **Select a Pool**(풀 선택) 아래에서 **Create New**(새로 만들기)를 지정합니다(또는 이미 있는 풀 선택). 다른 값은 기본값으로 둡니다.    Pool Servers(풀 서버)의 **IP Address/Node Name**(IP 주소/노드 이름) 아래에서 IP 주소를 입력합니다. **Port**(포트)를 지정합니다. **Save & Next**(저장 후 다음)를 클릭합니다.
  
     ![F5(Kerberos) 구성](./media/kerbf5-tutorial/configure08.png)
 
@@ -282,23 +282,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM에서 사용자를 인증하는 데 사용할 도메인 컨트롤러 및 자격 증명을 지정합니다.
 
-1.  Main(기본) 탭에서 **Access Policy > AAA Servers > Active Directory**(액세스 정책 > AAA 서버 > Active Directory)를 차례로 클릭합니다. Active Directory 서버 목록 화면이 열립니다.
+1.    Main(기본) 탭에서 **Access Policy > AAA Servers > Active Directory**(액세스 정책 > AAA 서버 > Active Directory)를 차례로 클릭합니다. Active Directory 서버 목록 화면이 열립니다.
 
-2.  **만들기**를 클릭합니다. New Server(새 서버) 속성 화면이 열립니다.
+2.    **만들기**를 클릭합니다. New Server(새 서버) 속성 화면이 열립니다.
 
-3.  **Name**(이름) 필드에서 고유한 인증 서버 이름을 입력합니다.
+3.    **Name**(이름) 필드에서 고유한 인증 서버 이름을 입력합니다.
 
-4.  **Domain Name**(도메인 이름) 필드에서 Windows 도메인의 이름을 입력합니다.
+4.    **Domain Name**(도메인 이름) 필드에서 Windows 도메인의 이름을 입력합니다.
 
-5.  **Server Connection**(서버 연결) 설정에 대해 다음 옵션 중 하나를 선택합니다.
+5.    **Server Connection**(서버 연결) 설정에 대해 다음 옵션 중 하나를 선택합니다.
 
     * AAA 서버를 고가용성으로 설정하려면 **Use Pool**(풀 사용)을 선택합니다.
 
     * AAA 서버를 독립 실행형 기능으로 설정하려면 **Direct**(직접)를 선택합니다.
 
-6.  **Direct**를 선택한 경우 **Domain Controller**(도메인 컨트롤러) 필드에서 이름을 입력합니다.
+6.    **Direct**를 선택한 경우 **Domain Controller**(도메인 컨트롤러) 필드에서 이름을 입력합니다.
 
-7.  **Use Pool**을 선택한 경우 다음과 같이 풀을 구성합니다.
+7.    **Use Pool**을 선택한 경우 다음과 같이 풀을 구성합니다.
 
     * **Domain Controller Pool Name**(도메인 컨트롤러 풀 이름) 필드에서 이름을 입력합니다.
 
@@ -306,21 +306,21 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 
     * AAA 서버의 상태를 모니터링하기 위해 상태 모니터를 선택할 수 있는 옵션이 있습니다. 이 경우에는 **gateway_icmp** 모니터만 적합합니다. 이는 **Server Pool Monitor**(서버 풀 모니터) 목록에서 선택할 수 있습니다.
 
-8.  **Admin Name**(관리자 이름) 필드에서 Active Directory 관리자 권한이 있는 관리자에 대한 대/소문자를 구분하는 이름을 입력합니다. APM에서는 **Admin Name**(관리자 이름) 및 **Admin Password**(관리자 암호) 필드의 정보를 AD 쿼리에 사용합니다. Active Directory가 익명 쿼리에 대해 구성된 경우 Admin Name을 제공할 필요가 없습니다. 그렇지 않으면 암호 관련 기능을 지원하기 위해 Active Directory 서버에 바인딩하고, 사용자 그룹 정보를 가져오고, Active Directory 암호 정책을 가져올 수 있는 충분한 권한이 있는 계정이 APM에 필요합니다. (예를 들어 AD 쿼리 작업에서 만료 전에 사용자가 암호를 변경하라는 메시지를 표시하는 옵션(Prompt)을 선택한 경우 APM에서 암호 정책을 가져와야 합니다.) 이 구성에서 관리자 계정 정보를 제공하지 않으면 APM에서 사용자 계정을 사용하여 정보를 가져옵니다. 이는 사용자 계정에 충분한 권한이 있는 경우에 작동합니다.
+8.    **Admin Name**(관리자 이름) 필드에서 Active Directory 관리자 권한이 있는 관리자에 대한 대/소문자를 구분하는 이름을 입력합니다. APM에서는 **Admin Name**(관리자 이름) 및 **Admin Password**(관리자 암호) 필드의 정보를 AD 쿼리에 사용합니다. Active Directory가 익명 쿼리에 대해 구성된 경우 Admin Name을 제공할 필요가 없습니다. 그렇지 않으면 암호 관련 기능을 지원하기 위해 Active Directory 서버에 바인딩하고, 사용자 그룹 정보를 가져오고, Active Directory 암호 정책을 가져올 수 있는 충분한 권한이 있는 계정이 APM에 필요합니다. (예를 들어 AD 쿼리 작업에서 만료 전에 사용자가 암호를 변경하라는 메시지를 표시하는 옵션(Prompt)을 선택한 경우 APM에서 암호 정책을 가져와야 합니다.) 이 구성에서 관리자 계정 정보를 제공하지 않으면 APM에서 사용자 계정을 사용하여 정보를 가져옵니다. 이는 사용자 계정에 충분한 권한이 있는 경우에 작동합니다.
 
-9.  **Admin Password** 필드에서 Domain Name과 연결된 관리자 암호를 입력합니다.
+9.    **Admin Password** 필드에서 Domain Name과 연결된 관리자 암호를 입력합니다.
 
-10. **Verify Admin Password**(관리자 암호 확인) 필드에서 **Domain Name** 설정과 연결된 관리자 암호를 다시 입력합니다.
+10.    **Verify Admin Password**(관리자 암호 확인) 필드에서 **Domain Name** 설정과 연결된 관리자 암호를 다시 입력합니다.
 
-11. **Group Cache Lifetime**(그룹 캐시 수명) 필드에서 일 수를 입력합니다. 기본 수명은 30일입니다.
+11.    **Group Cache Lifetime**(그룹 캐시 수명) 필드에서 일 수를 입력합니다. 기본 수명은 30일입니다.
 
-12. **Password Security Object Cache Lifetime**(암호 보안 개체 캐시 수명) 필드에서 일 수를 입력합니다. 기본 수명은 30일입니다.
+12.    **Password Security Object Cache Lifetime**(암호 보안 개체 캐시 수명) 필드에서 일 수를 입력합니다. 기본 수명은 30일입니다.
 
-13. **Kerberos Preauthentication Encryption Type**(Kerberos 사전 인증 암호화 유형) 목록에서 암호화 유형을 선택합니다. 기본값은 **None**(없음)입니다. 암호화 유형을 지정하는 경우 BIG-IP 시스템에는 첫 번째 인증 서비스 요청(AS-REQ) 패킷 내의 Kerberos 사전 인증 데이터가 포함됩니다.
+13.    **Kerberos Preauthentication Encryption Type**(Kerberos 사전 인증 암호화 유형) 목록에서 암호화 유형을 선택합니다. 기본값은 **None**(없음)입니다. 암호화 유형을 지정하는 경우 BIG-IP 시스템에는 첫 번째 인증 서비스 요청(AS-REQ) 패킷 내의 Kerberos 사전 인증 데이터가 포함됩니다.
 
-14. **Timeout**(시간 제한) 필드에서 AAA 서버에 대한 시간 제한 간격(초)을 입력합니다. (이 설정은 선택 사항입니다.)
+14.    **Timeout**(시간 제한) 필드에서 AAA 서버에 대한 시간 제한 간격(초)을 입력합니다. (이 설정은 선택 사항입니다.)
 
-15. **Finished**(마침)를 클릭합니다. 새 서버가 목록에 표시됩니다. 그러면 새 Active Directory 서버가 Active Directory 서버 목록에 추가됩니다.
+15.    **Finished**(마침)를 클릭합니다. 새 서버가 목록에 표시됩니다. 그러면 새 Active Directory 서버가 Active Directory 서버 목록에 추가됩니다.
 
     ![F5(Kerberos) 구성](./media/kerbf5-tutorial/configure17.png)
 
@@ -347,7 +347,7 @@ APM(Access Policy Manager)에서 Active Directory AAA 서버를 구성하여 APM
 1. SAML SP를 설정하려면 **Access > Federation > SAML 서비스 공급자 > Local SP Services**(액세스 > 페더레이션 > SAML Service Provider > 로컬 SP 서비스)로 차례로 이동하고, **Create**(만들기)를 클릭합니다. 다음 정보를 완성하고, **OK**(확인)를 클릭합니다.
 
     * Type Name(형식 이름): KerbApp200SAML
-    * Entity ID(엔터티 ID)*: https://kerbapp200.superdemo.live
+    * Entity ID(엔터티 ID)*: https://kerb-app.com.cutestat.com
     * SP Name Settings(SP 이름 설정)
     * Scheme(체계): https
     * Host(호스트): kerbapp200.superdemo.live

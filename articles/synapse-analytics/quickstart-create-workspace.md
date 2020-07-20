@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Synapse 작업 영역 만들기
+title: '빠른 시작: Synapse 작업 영역 만들기'
 description: 이 가이드의 단계에 따라 Synapse 작업 영역을 만듭니다.
 services: synapse-analytics
 author: pimorano
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e5896d1eabaf43afcbab7513d7abb0b1de4efe51
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: a069ee40c2db99b05e9620cf83c06c49cc9e29fc
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656697"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274240"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역 만들기
 

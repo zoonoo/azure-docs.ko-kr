@@ -8,30 +8,30 @@ ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: e382d39e10e1907c9892f03a3da64945f3049fee
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: cb87b33ee3f88e17f7d9b7557040849745b2d95f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337020"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248461"
 ---
-# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 및 큐 만들기
+# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 
-이 문서에서는 해당 네임스페이스 내에 Service Bus 네임스페이스 및 큐를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 어떤 리소스를 배포할지 지정하는 방법 및 배포를 실행할 때 지정되는 매개 변수를 정의하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 문서에서는 해당 네임스페이스 내에 Service Bus 네임스페이스 및 큐를 만드는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하는 방법을 보여줍니다. 이 문서는 어떤 리소스를 배포할지 지정하는 방법 및 배포를 실행할 때 지정되는 매개 변수를 정의하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="review-the-template"></a>템플릿 검토
 
-None
-
-## <a name="create-a-service-bus-namespace-and-a-queue"></a>Service Bus 네임스페이스 및 큐 만들기
-
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/201-servicebus-create-queue/azuredeploy.json" range="1-75" highlight="31-63":::
 
@@ -41,7 +41,7 @@ None
 - [**Microsoft.ServiceBus/namespaces/queues**](/azure/templates/microsoft.servicebus/namespaces/queues)
 
 > [!NOTE]
-> 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
+> 다음과 같은 ARM 템플릿을 다운로드 및 배포에 사용할 수 있습니다.
 >
 > * [큐 및 권한 부여 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
 > * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
@@ -50,7 +50,7 @@ None
 
 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)에서 추가 템플릿을 찾을 수 있습니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 이 템플릿으로 큐가 있는 Service Bus 네임스페이스를 배포합니다.
 
@@ -58,9 +58,9 @@ None
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다. 나중에 쉽게 정리할 수 있도록 배포에 대한 새 리소스 그룹을 만듭니다.
 
-[![Azure에 배포](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
-## <a name="verify-the-deployment"></a>배포 확인
+## <a name="validate-the-deployment"></a>배포 유효성 검사
 
 1. 배포 상태를 확인하려면 맨 위에 있는 **알림**을 선택합니다. 배포가 성공할 때까지 기다립니다. 그런 다음, 알림 메시지에서 **리소스 그룹으로 이동**을 선택하여 Service Bus 네임스페이스가 포함된 리소스 그룹의 페이지로 이동합니다. 
 
@@ -70,7 +70,7 @@ None
     ![리소스 그룹 - 네임스페이스](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
 3. 목록에서 네임스페이스를 선택하여 **Service Bus 네임스페이스** 페이지를 표시합니다. 
 
-## <a name="cleanup-resources"></a>리소스 정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 1. Azure Portal에서 리소스 그룹의 **리소스 그룹** 페이지로 이동합니다.
 2. 도구 모음에서 **리소스 그룹 삭제**를 선택합니다. 
@@ -82,7 +82,7 @@ None
 
 네임스페이스/큐에 대한 권한 부여 규칙을 만드는 방법을 보여주는 다음 토픽을 참조하세요.
 
-[Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기](service-bus-resource-manager-namespace-auth-rule.md)
+[ARM 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기](service-bus-resource-manager-namespace-auth-rule.md)
 
 다음 문서를 검토하여 이러한 리소스를 관리하는 방법을 알아보세요.
 

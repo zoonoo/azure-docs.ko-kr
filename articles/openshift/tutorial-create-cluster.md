@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985691"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260685"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -87,11 +87,26 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
 
 풀 비밀을 복사하거나 다른 스크립트에서 참조하는 경우에는 풀 비밀을 유효한 JSON 문자열로 포맷해야 합니다.
 
+### <a name="prepare-a-custom-domain-for-your-cluster-optional"></a>클러스터에 대한 사용자 지정 도메인 준비(선택 사항)
+
+`az aro create` 명령을 실행할 때 `--domain foo.example.com` 매개 변수를 사용하여 클러스터의 사용자 지정 도메인을 지정할 수 있습니다.
+
+클러스터에 사용자 지정 도메인을 제공하는 경우 다음 사항에 유의하세요.
+
+* 클러스터를 만든 후 지정된 `--domain`에 대해 DNS 서버에 2개의 DNS A 레코드를 만들어야 합니다.
+    * **api** - api 서버를 가리킵니다.
+    * **\*.apps** - 수신을 가리킵니다.
+    * `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'` 명령을 실행하여 이러한 값을 검색합니다.
+
+* OpenShift 콘솔은 기본 제공 도메인 `https://console-openshift-console.apps.<random>.<location>.aroapp.io` 대신 `https://console-openshift-console.apps.foo.example.com`과 같은 URL에서 사용할 수 있습니다.
+
+* 기본적으로 OpenShift는 `*.apps.<random>.<location>.aroapp.io`에 생성되는 모든 경로에 자체 서명된 인증서를 사용합니다.  클러스터에 연결한 후 사용자 지정 DNS를 사용하도록 선택하면 OpenShift 설명서에 따라 [수신 컨트롤러의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) 및 [API 서버의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html)를 구성해야 합니다.
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>두 개의 빈 서브넷이 있는 가상 네트워크 만들기
 
 다음으로, 두 개의 빈 서브넷이 있는 가상 네트워크를 만들겠습니다.
 
-1. **다음 변수를 설정합니다.**
+1. **`az` 명령을 실행하는 셸 환경에서 다음 변수를 설정합니다.**
 
    ```console
    LOCATION=eastus                 # the location of your cluster
@@ -99,9 +114,9 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **리소스 그룹 만들기**
+1. **리소스 그룹을 만듭니다.**
 
-    Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다.
+    Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
@@ -189,10 +204,12 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
 
 ## <a name="create-the-cluster"></a>클러스터 만들기
 
-다음 명령을 실행하여 클러스터를 만듭니다. 필요에 따라 [Red Hat 풀 비밀을 전달](#get-a-red-hat-pull-secret-optional)할 수 있습니다. 그러면 클러스터에서 추가 콘텐츠와 함께 Red Hat 컨테이너 레지스트리에 액세스할 수 있습니다.
+다음 명령을 실행하여 클러스터를 만듭니다. 다음 옵션 중 하나를 사용하도록 선택하는 경우 이에 따라 명령을 수정합니다.
+* 필요에 따라 [Red Hat 풀 비밀을 전달](#get-a-red-hat-pull-secret-optional)할 수 있습니다. 그러면 클러스터에서 추가 콘텐츠와 함께 Red Hat 컨테이너 레지스트리에 액세스할 수 있습니다. 명령에 `--pull-secret @pull-secret.txt` 인수를 추가합니다.
+* 필요에 따라 [사용자 지정 도메인을 사용](#prepare-a-custom-domain-for-your-cluster-optional)할 수 있습니다. `foo.example.com`을 사용자 지정 도메인으로 대체하는 `--domain foo.example.com` 인수를 명령에 추가합니다.
 
->[!NOTE]
-> 복사/붙여넣기 명령 및 선택적 매개 변수 중 하나를 사용하는 경우 초기 해시 태그 및 후행 주석 텍스트를 삭제해야 합니다. 또한 뒤에 오는 백슬래시를 사용하여 명령의 이전 줄에서 인수를 닫습니다.
+> [!NOTE]
+> 명령에 선택적 인수를 추가하는 경우 뒤에 백슬래시를 사용하여 명령의 이전 줄에서 인수를 닫아야 합니다.
 
 ```azurecli-interactive
 az aro create \
@@ -201,17 +218,9 @@ az aro create \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet
-  # --domain foo.example.com # [OPTIONAL] custom domain
-  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
 `az aro create` 명령을 실행한 후 클러스터를 만드는 데 일반적으로 약 35분이 소요됩니다.
-
->[!IMPORTANT]
-> 사용자 지정 도메인(예: **foo.example.com**)을 지정하도록 선택하면 기본 제공 도메인 `https://console-openshift-console.apps.<random>.<location>.aroapp.io` 대신 `https://console-openshift-console.apps.foo.example.com` 같은 URL에서 OpenShift 콘솔을 사용할 수 있습니다.
->
-> 기본적으로 OpenShift는 `*.apps.<random>.<location>.aroapp.io`에 생성되는 모든 경로에 자체 서명된 인증서를 사용합니다.  클러스터에 연결한 후 사용자 지정 DNS를 사용하도록 선택하면 OpenShift 설명서에 따라 [수신 컨트롤러의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) 및 [API 서버의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html)를 구성해야 합니다.
->
 
 ## <a name="next-steps"></a>다음 단계
 

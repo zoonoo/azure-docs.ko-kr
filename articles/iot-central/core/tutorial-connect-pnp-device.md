@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6727a2c45187e0e6bb583bb65e176024067d81e2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80064414"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219993"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>자습서: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이(미리 보기) 디바이스를 만들고 및 IoT Central 애플리케이션에 연결
 
@@ -28,7 +28,7 @@ _DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이(미리 보기
 > * Windows에서 디바이스 코드를 실행하고 IoT Central 애플리케이션에 연결되는 것을 확인합니다.
 > * 디바이스가 전송하는 시뮬레이션된 원격 분석 데이터 보기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 빠른 시작을 완료하여 **사용자 지정 앱 > 사용자 지정 애플리케이션** 템플릿을 사용하여 IoT Central 애플리케이션을 만듭니다.
 
@@ -86,7 +86,9 @@ _DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이(미리 보기
 
 1. **관리** 페이지로 이동하여 **디바이스 연결**을 선택합니다.
 
-1. **키 보기**를 선택할 때 표시되는 **ID 범위** 및 **기본 키**를 기록해 둡니다. 이 자습서의 뒷부분에서 이러한 값을 사용합니다.
+1. **ID 범위**를 기록해 둡니다. 이 자습서의 뒷부분에서 이 값을 사용합니다.
+
+1. **SAS-IoT-Devices** 등록 그룹을 선택합니다. **기본 키**를 기록해 둡니다. 이 자습서의 뒷부분에서 이 값을 사용합니다.
 
     ![디바이스 연결](./media/tutorial-connect-pnp-device/device-connection.png)
 

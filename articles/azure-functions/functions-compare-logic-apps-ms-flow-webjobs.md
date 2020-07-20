@@ -4,12 +4,12 @@ description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비�
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 40293056a73fd88e9ad6b3922aebfe0ba71f07dd
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 9d7531fac9610b357adb37d28f5d5e90a7e4b108
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878139"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169870"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Azure에서 적절한 통합 및 자동화 서비스 선택
 
@@ -78,13 +78,13 @@ Azure Functions는 WebJobs SDK 기반이므로 다른 Azure 서비스와 여러 
 
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
-|[자동 크기 조정](functions-scale.md#how-the-consumption-and-premium-plans-work)이 가능한 [서버 없는 응용 프로그램 모델](https://azure.microsoft.com/solutions/serverless/)|✔||
-|[브라우저에서 개발 및 테스트](functions-create-first-azure-function.md) |✔||
-|[사용량 기준 과금 가격 책정](functions-scale.md#consumption-plan)|✔||
-|[Logic Apps와 통합](functions-twitter-email.md)|✔||
-| 트리거 이벤트 |[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/웹후크(GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[파일 시스템](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| 지원되는 언어  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
-|패키지 관리자|NPM 및 NuGet|NuGet<sup>2</sup>|
+|**[자동 크기 조정](functions-scale.md#how-the-consumption-and-premium-plans-work)이 가능한 [서버리스 애플리케이션 모델](https://azure.microsoft.com/solutions/serverless/)**|✔||
+|**[브라우저에서 개발 및 테스트](functions-create-first-azure-function.md)** |✔||
+|**[사용량 기준 과금 가격 책정](functions-scale.md#consumption-plan)**|✔||
+|**[Logic Apps와 통합](functions-twitter-email.md)**|✔||
+| **트리거 이벤트** |[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/웹후크(GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[파일 시스템](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| **지원되는 언어**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
+|**패키지 관리자**|NPM 및 NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs(WebJobs SDK 제외)는 C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python 등을 지원합니다. 위의 목록은 전체 목록이 아닙니다. WebJob은 App Service 샌드박스에서 실행 가능한 모든 프로그램 또는 스크립트를 실행할 수 있습니다.
 

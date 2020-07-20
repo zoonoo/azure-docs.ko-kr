@@ -1,5 +1,5 @@
 ---
-title: '자습서: Visual Studio Code 확장 설정'
+title: '자습서: Visual Studio Code 확장(미리 보기) 설정'
 titleSuffix: Azure Machine Learning
 description: Visual Studio Code Azure Machine Learning 확장을 설정하는 방법을 알아봅니다.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
-ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.date: 07/09/2020
+ms.openlocfilehash: 48fb2ce3672634af202500ccb256e7730933fff8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272923"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199767"
 ---
-# <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Azure Machine Learning Visual Studio Code 확장 설정
+# <a name="set-up-azure-machine-learning-visual-studio-code-extension-preview"></a>Azure Machine Learning Visual Studio Code 확장(미리 보기) 설정
 
 Azure Machine Learning Visual Studio Code 확장을 사용하여 스크립트를 설치하고 실행하는 방법에 대해 알아봅니다.
 
@@ -27,7 +27,7 @@ Azure Machine Learning Visual Studio Code 확장을 사용하여 스크립트를
 > * Visual Studio Code에서 Azure 계정에 로그인
 > * Azure Machine Learning 확장을 사용하여 샘플 스크립트 실행
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 동작합니다. 구독이 없는 경우 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)에 가입하여 사용해 보세요.
 - Visual Studio Code. 없는 경우 [설치](https://code.visualstudio.com/docs/setup/setup-overview)합니다.
@@ -69,6 +69,9 @@ Azure에서 리소스를 프로비저닝하고 워크로드를 실행하려면 A
 
 1. 명령 팔레트가 확장되면 프롬프트의 지시를 따릅니다.
 
+    > [!NOTE]
+    > 기존 Azure Machine Learning 리소스를 이미 프로비저닝한 경우 [VS Code 가이드에서 실험을 실행하는 방법](./how-to-manage-resources-vscode.md#run-experiment)을 참조하세요.
+
     1. Azure 구독을 선택합니다.
     1. 환경 목록에서 **Conda 종속성 파일**을 선택합니다.
     1. **Enter**를 눌러 Conda 종속성 파일을 찾아봅니다. 이 파일에는 스크립트를 실행하는 데 필요한 종속성이 포함되어 있습니다. 이 경우 종속성 파일은 `mnist-vscode-docs-sample` 디렉터리 내의 `env.yml` 파일입니다.
@@ -78,18 +81,18 @@ Azure에서 리소스를 프로비저닝하고 워크로드를 실행하려면 A
 
     ```json
     {
-        "workspace": "WS04131142",
-        "resourceGroup": "WS04131142-rg1",
+        "workspace": "WS06271500",
+        "resourceGroup": "WS06271500-rg2",
         "location": "South Central US",
-        "experiment": "WS04131142-exp1",
+        "experiment": "WS06271500-exp1",
         "compute": {
-            "name": "WS04131142-com1",
+            "name": "WS06271500-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS04131142-com1-rc1",
+            "filename": "WS06271500-com1-rc1",
             "environment": {
-                "name": "WS04131142-env1",
+                "name": "WS06271500-env1",
                 "conda_dependencies": [
                     "python=3.6.2",
                     "tensorflow=1.15.0",

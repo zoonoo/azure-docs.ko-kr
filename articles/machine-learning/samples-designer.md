@@ -1,5 +1,5 @@
 ---
-title: 디자이너 파이프라인 및 데이터 세트 예
+title: 디자이너용 파이프라인 및 데이터 세트 예제(미리 보기)
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 디자이너에서 샘플을 사용하여 기계 학습 파이프라인을 신속하게 시작합니다.
 services: machine-learning
@@ -10,18 +10,18 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: e40c49cdcaae6fa84a72c645f5fea4bac99ee03f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d2ed9a605b19287c2ea693187c445dc8a4b3b932
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654561"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206325"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Azure Machine Learning Designer의 파이프라인 및 데이터 세트 예
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너용 파이프라인 및 데이터 세트 예제(미리 보기)
 
 Azure Machine Learning 디자이너에서 기본 제공되는 예제를 사용하여 고유한 기계 학습 파이프라인 빌드를 신속하게 시작합니다. Azure Machine Learning 디자이너 [GitHub 리포지토리](https://github.com/Azure/MachineLearningDesigner)는 몇 가지 일반적인 기계 학습 시나리오를 이해하는 데 도움이 되는 자세한 설명서를 포함합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 * Enterprise SKU를 사용하는 Azure Machine Learning 작업 영역

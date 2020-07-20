@@ -1,5 +1,5 @@
 ---
-title: '자습서: 모델 학습 및 배포 VS 코드'
+title: '자습서: 모델 학습 및 배포 VS Code(미리 보기)'
 titleSuffix: Azure Machine Learning
 description: TensorFlow 및 Azure Machine Learning Visual Studio Code 확장을 사용하여 이미지 분류 모델을 학습시키고 배포하는 방법을 알아봅니다.
 services: machine-learning
@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
+ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 05857641df22e03362eeee1590fef62fa3a45530
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857720"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203557"
 ---
-# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Azure Machine Learning Visual Studio Code 확장을 사용하여 이미지 분류 TensorFlow 모델 학습 및 배포
+# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Azure Machine Learning Visual Studio Code 확장(미리 보기)을 사용하여 이미지 분류 TensorFlow 모델 학습 및 배포
 
 TensorFlow 및 Azure Machine Learning Visual Studio Code 확장을 사용하여 필기 숫자를 인식하기 위해 이미지 분류 모델을 학습시키고 배포하는 방법에 대해 알아봅니다.
 
@@ -33,7 +33,7 @@ TensorFlow 및 Azure Machine Learning Visual Studio Code 확장을 사용하여 
 > * 모델 등록
 > * 모델 배포
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 동작합니다. 구독이 없는 경우 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)에 가입하여 사용해 보세요.
 - 간단한 플랫폼 간 코드 편집기인 [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)를 설치합니다.
@@ -91,7 +91,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
 1. Visual Studio Code 작업 막대에서 **Azure** 아이콘을 선택합니다. 그러면 Azure Machine Learning 보기가 표시됩니다. 
 1. 구독 노드를 펼칩니다. 
 1. **TeamWorkspace** 노드를 펼칩니다. 
-1. 작업 영역 노드에서 **컴퓨팅** 노드를 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 만들기**를 선택합니다. 
+1. 작업 영역 노드에서 **컴퓨팅 클러스터** 노드를 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 만들기**를 선택합니다. 
 
     > [!div class="mx-imgBorder"]
     > ![컴퓨팅 대상 만들기](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
@@ -115,17 +115,8 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
                 "scaleSettings": {
                     "maxNodeCount": 4,
                     "minNodeCount": 0,
-                    "nodeIdleTimeBeforeScaleDown": 120
-                },
-                "userAccountCredentials": {
-                    "adminUserName": "",
-                    "adminUserPassword": "",
-                    "adminUserSshPublicKey": ""
-                },
-                "subnetName": "",
-                "vnetName": "",
-                "vnetResourceGroupName": "",
-                "remoteLoginPortPublicAccess": ""
+                    "nodeIdleTimeBeforeScaleDown": "PT120S"
+                }
             }
         }
     }
@@ -138,7 +129,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
     Azure ML: Save and Continue
     ```
 
-몇 분 후에 새 컴퓨팅 대상이 작업 영역의 *컴퓨팅* 노드에 표시됩니다.
+몇 분 후에 새 컴퓨팅 대상이 작업 영역의 *컴퓨팅 클러스터* 노드에 표시됩니다.
 
 ## <a name="create-a-run-configuration"></a>실행 구성 만들기
 
@@ -148,7 +139,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
 
 1. Visual Studio Code 작업 막대에서 **Azure** 아이콘을 선택합니다. 그러면 Azure Machine Learning 보기가 표시됩니다. 
 1. 구독 노드를 펼칩니다. 
-1. **TeamWorkspace > 컴퓨팅** 노드를 확장합니다. 
+1. **TeamWorkspace > 컴퓨팅 클러스터** 노드를 확장합니다. 
 1. 컴퓨팅 노드 아래에서 마우스 오른쪽 단추로 **TeamWkspc-com** 컴퓨팅 노드를 클릭하고 **실행 구성 만들기**를 선택합니다.
 
     > [!div class="mx-imgBorder"]
@@ -214,6 +205,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
     Azure ML: Save and Continue
     ```
 
+1. 이 샘플에서는 Azure Machine Learning에 등록된 데이터 세트를 사용하지 않습니다. 대신 *train.py*가 실행될 때 로드됩니다. 학습 실행에 대한 데이터 참조를 만들라는 메시지가 표시되면 프롬프트에 "n"을 입력하고 **Enter**를 누릅니다.
 1. **Enter** 키를 눌러 컴퓨팅에서 실행할 스크립트 파일을 찾습니다. 이 경우 모델을 학습시키는 스크립트는 `vscode-tools-for-ai/mnist-vscode-docs-sample` 디렉터리 내의 `train.py` 파일입니다.
 
     `MNIST-rc.runconfig`라는 파일이 VS Code에서 다음과 비슷한 내용으로 표시됩니다.
@@ -221,6 +213,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
     ```json
     {
         "script": "train.py",
+        "arguments": [],
         "framework": "Python",
         "communicator": "None",
         "target": "TeamWkspc-com",

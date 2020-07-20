@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212907"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142854"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽
 
@@ -24,7 +24,7 @@ Application Gateway의 WAF는 OWASP(Open Web Application Security Project)의 [C
 아래에 나열된 모든 WAF 기능은 WAF 정책 내에 있습니다. 여러 정책을 만들 수 있으며, 정책을 Application Gateway, 개별 수신기 또는 Application Gateway의 경로 기반 회람 규칙에 연결할 수 있습니다. 이러한 방식으로 필요에 따라 Application Gateway 뒤에 있는 각 사이트에 별도의 정책을 적용할 수 있습니다. WAF 정책에 대한 자세한 내용은 [WAF 정책 만들기](create-waf-policy-ag.md)를 참조하세요.
 
    > [!NOTE]
-   > 사이트별 및 URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+   > URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ![Application Gateway WAF 다이어그램](../media/ag-overview/waf1.png)
 
