@@ -3,11 +3,13 @@ title: Service Bus 배달 못 한 편지 큐 | Microsoft Docs
 description: Azure Service Bus의 배달 못한 편지 큐에 대해 설명합니다. Service Bus 큐 및 토픽 구독은 배달 못한 편지 큐라고 하는 보조 하위 큐를 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337592"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511214"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
@@ -56,7 +58,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성을 **true**로 설정하면(기본값은 **false**) 만료되는 모든 메시지가 DLQ로 이동되고, `TTLExpiredException` 이유 코드를 지정합니다.
 
-만료된 메시지는 기본 큐 또는 구독에서 끌어오는 하나 이상의 활성 수신기가 있을 때만 제거되며 DLQ로 이동합니다. 이는 의도적으로 설계된 동작입니다.
+만료 된 메시지는 기본 큐 또는 구독에서 끌어오는 활성 수신기가 하나 이상 있는 경우에만 제거 되 고 DLQ로 이동 됩니다. 또한 [지연 된 메시지](./message-deferral.md) 는 만료 된 후 삭제 되지 않고 배달 못 한 편지 큐로 이동 하지 않습니다. 이러한 동작은 의도적으로 설계 되었습니다.
 
 ## <a name="errors-while-processing-subscription-rules"></a>구독 규칙을 처리하는 동안 오류 발생
 

@@ -3,12 +3,12 @@ title: 여러 인스턴스에 걸쳐 파티션 로드 균형 조정-Azure Event 
 description: 이벤트 프로세서와 Azure Event Hubs SDK를 사용 하 여 응용 프로그램의 여러 인스턴스에 걸쳐 파티션 부하를 분산 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314979"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512319"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>응용 프로그램의 여러 인스턴스에 걸쳐 파티션 로드 균형 조정
 이벤트 처리 응용 프로그램의 크기를 조정 하기 위해 응용 프로그램의 여러 인스턴스를 실행 하 고 부하의 균형을 유지 하도록 할 수 있습니다. 이전 버전에서는 [EventProcessorHost](event-hubs-event-processor-host.md) 를 통해 프로그램의 여러 인스턴스 간에 부하를 분산 하 고 수신 시 검사점 이벤트를 분산할 수 있었습니다. 최신 버전 (5.0 이상)에서는 **EventProcessorClient** (.Net 및 Java) 또는 **EventHubConsumerClient** (Python 및 JavaScript)를 사용 하 여 동일한 작업을 수행할 수 있습니다. 개발 모델은 이벤트를 사용 하 여 더 간단 하 게 만들 수 있습니다. 이벤트 처리기를 등록 하 여 관심 있는 이벤트를 구독할 수 있습니다.
@@ -16,7 +16,7 @@ ms.locfileid: "85314979"
 이 문서에서는 여러 인스턴스를 사용 하 여 이벤트 허브에서 이벤트를 읽은 다음 이벤트 프로세서 클라이언트의 기능에 대 한 세부 정보를 제공 하는 샘플 시나리오를 설명 합니다 .이를 통해 여러 파티션에서 한 번에 이벤트를 수신 하 고 동일한 이벤트 허브 및 소비자 그룹을 사용 하는 다른 소비자와 부하를 분산할 수 있습니다.
 
 > [!NOTE]
-> Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념입니다. [경쟁하는 소비자](https://msdn.microsoft.com/library/dn568101.aspx) 패턴과 달리 분할된 소비자 패턴을 사용하면 경합 병목 상태를 제거하고 종단 간 병렬 처리를 용이하게 하여 대규모 크기 조정이 가능해집니다.
+> Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념입니다. [경쟁하는 소비자](/previous-versions/msp-n-p/dn568101(v=pandp.10)) 패턴과 달리 분할된 소비자 패턴을 사용하면 경합 병목 상태를 제거하고 종단 간 병렬 처리를 용이하게 하여 대규모 크기 조정이 가능해집니다.
 
 ## <a name="example-scenario"></a>예제 시나리오
 
@@ -75,7 +75,7 @@ ms.locfileid: "85314979"
 이벤트를 처리 된 것으로 표시 하기 위해 검사점을 수행 하면 검사점 저장소의 항목이 이벤트의 오프셋 및 시퀀스 번호를 사용 하 여 추가 되거나 업데이트 됩니다. 사용자는 검사점 업데이트 빈도를 결정 해야 합니다. 성공적으로 처리 된 각 이벤트 후 업데이트는 기본 검사점 저장소에 대 한 쓰기 작업을 트리거하는 성능 및 비용 영향을 가질 수 있습니다. 또한 모든 단일 이벤트의 검사점은 Service Bus 큐가 이벤트 허브 보다 더 나은 옵션 일 수 있는 대기 중인 메시징 패턴을 나타냅니다. Event Hubs의 기본 개념은 대규모로 "최소한 한 번" 제공받는다는 것입니다. 다운스트림 시스템 멱등원을 만들어서 쉽게 오류로부터 복구하거나 여러 번 수신되는 동일한 이벤트에서 해당 결과를 다시 시작할 수 있습니다.
 
 > [!NOTE]
-> Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지 원하는 환경에서 검사점 저장소로 Azure Blob Storage을 사용 하는 경우, 코드를 사용 하 여 저장소 서비스 API 버전을 해당 환경에서 지 원하는 특정 버전으로 변경 해야 합니다. 예를 들어 [Azure Stack 허브 버전 2002에서 Event Hubs](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)를 실행 하는 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우에는 코드를 사용 하 여 저장소 서비스 API 버전을 2017-11-09로 대상으로 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
+> Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지 원하는 환경에서 검사점 저장소로 Azure Blob Storage을 사용 하는 경우, 코드를 사용 하 여 저장소 서비스 API 버전을 해당 환경에서 지 원하는 특정 버전으로 변경 해야 합니다. 예를 들어 [Azure Stack 허브 버전 2002에서 Event Hubs](/azure-stack/user/event-hubs-overview)를 실행 하는 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우에는 코드를 사용 하 여 저장소 서비스 API 버전을 2017-11-09로 대상으로 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
 > - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)

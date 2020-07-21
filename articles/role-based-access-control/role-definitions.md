@@ -15,11 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996606"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511639"
 ---
 # <a name="understand-azure-role-definitions"></a>Azure 역할 정의 이해
 
@@ -27,7 +28,7 @@ Azure 역할의 작동 방식을 파악 하려고 하거나 고유한 [azure 사
 
 ## <a name="role-definition"></a>역할 정의
 
-*역할 정의*는 권한 컬렉션입니다. 때로는 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 또한 허용 되는 작업 또는 기본 데이터와 관련 된 작업에서 제외 된 작업을 나열할 수 있습니다.
+*역할 정의*는 권한 컬렉션입니다. 때로는 단순히 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 또한 허용 되는 작업 또는 기본 데이터와 관련 된 작업에서 제외 된 작업을 나열할 수 있습니다.
 
 다음은 Azure PowerShell를 사용 하 여 표시 될 때 역할 정의의 속성 예를 보여 줍니다.
 
@@ -89,7 +90,7 @@ assignableScopes []
 
 ### <a name="role-definition-example"></a>역할 정의 예제
 
-Azure PowerShell 및 Azure CLI에 표시 되는 [참가자](built-in-roles.md#contributor) 역할 정의는 다음과 같습니다. `Actions`에 포함된 와일드카드(`*`) 작업은 이 역할에 할당된 주체가 모든 작업을 수행할 수 있음, 즉 모든 항목을 관리할 수 있음을 나타냅니다. 여기에는 나중에 Azure에서 새 리소스 종류를 추가함에 따라 정의되는 작업이 포함됩니다. `NotActions`에 속한 작업은 `Actions`에서 제외됩니다. [기여자](built-in-roles.md#contributor) 역할의 경우 `NotActions`는 리소스에 대한 액세스를 관리하고 할당하는 이 역할의 기능을 제거합니다.
+Azure PowerShell 및 Azure CLI에 표시 되는 [참가자](built-in-roles.md#contributor) 역할 정의는 다음과 같습니다. `Actions`에 포함된 와일드카드(`*`) 작업은 이 역할에 할당된 보안 주체가 모든 작업을 수행할 수 있음을 나타냅니다. 즉, 모든 항목을 관리할 수 있습니다. 여기에는 나중에 Azure에서 새 리소스 종류를 추가할 때 정의되는 작업도 포함됩니다. `NotActions`에 포함된 작업은 `Actions`에서 제외됩니다. [참가자](built-in-roles.md#contributor) 역할의 경우는 `NotActions` 이 역할의 기능을 제거 하 여 리소스에 대 한 액세스를 관리 하 고 Azure Blueprint 할당도 관리 합니다.
 
 Azure PowerShell에 표시 되는 참가자 역할:
 
@@ -161,10 +162,10 @@ Azure CLI에 표시 되는 참가자 역할:
 
 이전에는 역할 기반 액세스 제어가 데이터 작업에 사용되지 않았습니다. 데이터 작업에 대한 권한 부여는 리소스 공급자에 따라 다양합니다. 관리 작업에 사용 되는 것과 동일한 역할 기반 액세스 제어 권한 부여 모델이 데이터 작업으로 확장 되었습니다.
 
-데이터 작업을 지원 하기 위해 새 데이터 속성이 역할 정의에 추가 되었습니다. 데이터 작업은 `DataActions` 및 `NotDataActions` 속성에서 지정됩니다. 이러한 데이터 속성을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)와 함께 현재 역할 할당을 사용하여 갑자기 데이터에 액세스하는 것을 방지할 수 있습니다. `DataActions` 및 `NotDataActions`에서 지정할 수 있는 데이터 작업은 다음과 같습니다.
+데이터 작업을 지원 하기 위해 새 데이터 속성이 역할 정의에 추가 되었습니다. 데이터 작업은 `DataActions` 및 `NotDataActions` 속성에 지정됩니다. 이러한 데이터 속성을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)를 사용한 현재 역할 할당이 갑자기 데이터에 액세스할 수 있게 되는 경우를 방지할 수 있습니다. `DataActions` 및 `NotDataActions`에서 지정할 수 있는 몇 가지 데이터 작업은 다음과 같습니다.
 
 - 컨테이너의 Blob 목록 읽기
-- 컨테이너에 Storage Blob 쓰기
+- 컨테이너에서 Storage Blob 작성
 - 큐의 메시지 삭제
 
 및 속성의 작업을 포함 하는 [저장소 Blob 데이터 판독기](built-in-roles.md#storage-blob-data-reader) 역할 정의는 다음과 `Actions` 같습니다 `DataActions` . 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
@@ -221,7 +222,7 @@ Azure CLI에 표시 되는 저장소 Blob 데이터 판독기 역할:
 }
 ```
 
-데이터 작업만 `DataActions` 및 `NotDataActions` 속성에 추가할 수 있습니다. 리소스 공급자는 `isDataAction` 속성을 `true`로 설정하여 데이터 작업을 식별합니다. `isDataAction`이 `true`인 작업 목록을 보려면 [리소스 공급자 작업](resource-provider-operations.md)을 참조하세요. 데이터 작업이 없는 역할은 역할 정의 내에 `DataActions` 및 `NotDataActions` 속성이 없어도 됩니다.
+`DataActions` 및 `NotDataActions` 속성에는 데이터 작업만 추가할 수 있습니다. 리소스 공급자는 `isDataAction` 속성을 `true`로 설정하여 데이터 작업을 식별합니다. `isDataAction`이 `true`인 작업 목록을 보려면 [리소스 공급자 작업](resource-provider-operations.md)을 참조하세요. 데이터 작업이 없는 역할은 역할 정의 내에 `DataActions` 및 `NotDataActions` 속성이 없어도 됩니다.
 
 모든 관리 작업 API 호출에 대한 권한 부여는 Azure Resource Manager에서 처리합니다. 데이터 작업 API 호출에 대한 권한 부여는 리소스 공급자 또는 Azure Resource Manager에 의해 처리됩니다.
 

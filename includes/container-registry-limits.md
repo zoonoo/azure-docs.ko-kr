@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242172"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512619"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
@@ -28,11 +28,12 @@ ms.locfileid: "85242172"
 | 지역에서 복제 | 해당 없음 | 해당 없음 | [지원됨][geo-replication] |
 | 콘텐츠 신뢰 | 해당 없음 | 해당 없음 | [지원됨][content-trust] |
 | 프라이빗 엔드포인트가 있는 프라이빗 링크 | 해당 없음 | 해당 없음 | [지원됨][plink] |
+| &bull;전용 끝점 | 해당 없음 | 해당 없음 | 10 |
 | 서비스 엔드포인트 VNet 액세스 | 해당 없음 | 해당 없음 | [미리 보기][vnet] |
 | 고객 관리형 키 | 해당 없음 | 해당 없음 | [지원됨][cmk] |
 | 리포지토리 범위 권한 | 해당 없음 | 해당 없음 | [미리 보기][token]|
 | &bull; 토큰 | 해당 없음 | 해당 없음 | 20,000 |
-| &bull; 범위 맵 | 해당 없음 | 해당 없음 | 20,000 |
+| &bull; 범위 맵 | N/A | N/A | 20,000 |
 | &bull; 범위 맵당 리포지토리 | 해당 없음 | 해당 없음 | 500 |
 
 

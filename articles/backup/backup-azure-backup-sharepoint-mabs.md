@@ -3,11 +3,12 @@ title: MABS를 사용하여 Azure에 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 40997ad2153cdec867fb36ba3475829e18519592
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234800"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514240"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>MABS를 사용하여 Azure에 SharePoint 팜 백업
 
@@ -17,7 +18,7 @@ MABS를 사용하여 SharePoint를 Azure에 백업하는 것은 SharePoint를 DP
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint가 지원하는 버전 및 관련 보호 시나리오
 
-지원되는 SharePoint 버전 및 백업에 필요한 MABS 버전 목록은 [MABS 보호 매트릭스](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)를 참조하세요.
+지원되는 SharePoint 버전 및 백업에 필요한 MABS 버전 목록은 [MABS 보호 매트릭스](./backup-mabs-protection-matrix.md)를 참조하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -99,7 +100,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 
 1. **온라인 보존 정책 지정**에서 매일, 매주, 매월 및 매년 백업에서 만들어진 복구 지점을 Azure에 보존하는 방법을 지정할 수 있습니다.
 
-1. **온라인 복제 선택**에서 데이터의 초기 전체 복제를 수행하는 방법을 지정합니다. 네트워크를 통해 복제할 수도 있고 오프라인 백업(오프라인 시딩)을 수행할 수도 있습니다. 오프라인 백업에는 Azure Import 기능이 사용됩니다. [자세히 알아보기](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. **온라인 복제 선택**에서 데이터의 초기 전체 복제를 수행하는 방법을 지정합니다. 네트워크를 통해 복제할 수도 있고 오프라인 백업(오프라인 시딩)을 수행할 수도 있습니다. 오프라인 백업에는 Azure Import 기능이 사용됩니다. [자세히 알아보기](./backup-azure-backup-import-export.md).
 
 1. **요약** 페이지에서 설정을 검토합니다. **그룹 만들기**를 클릭하면 데이터의 초기 복제가 수행됩니다. 완료되면 **상태** 페이지에서 보호 그룹 상태가 **정상**으로 표시됩니다. 그런 후에는 보호 그룹 설정에 따라 백업이 수행됩니다.
 

@@ -4,11 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027168"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514087"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -328,6 +329,6 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 ## <a name="next-steps"></a>다음 단계
 
 - 파일을 복원하는 동안 문제가 발생하는 경우 [문제 해결](#troubleshooting) 섹션을 참조하세요.
-- [PowerShell을 통해 파일 복원](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup) 방법을 알아보세요.
-- [Azure CLI를 통해 파일 복원](https://docs.microsoft.com/azure/backup/tutorial-restore-files) 방법을 알아보세요.
-- VM을 복원한 후에는 [백업 관리](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms) 방법을 알아보세요.
+- [PowerShell을 통해 파일 복원](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup) 방법을 알아보세요.
+- [Azure CLI를 통해 파일 복원](./tutorial-restore-files.md) 방법을 알아보세요.
+- VM을 복원한 후에는 [백업 관리](./backup-azure-manage-vms.md) 방법을 알아보세요.

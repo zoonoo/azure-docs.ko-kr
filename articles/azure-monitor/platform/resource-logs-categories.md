@@ -4,11 +4,12 @@ description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418593"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515396"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 범주
 
@@ -104,7 +105,7 @@ ms.locfileid: "84418593"
 |WebApplicationFirewallLogs|웹 응용 프로그램 방화벽 로그|
 
 
-## <a name="microsoftcdnprofiles"></a>Microsoft Cdn/프로필
+## <a name="microsoftcdnprofiles"></a>Microsoft.Cdn/profiles
 
 |범주|범주 표시 이름|
 |---|---|
@@ -382,7 +383,7 @@ ms.locfileid: "84418593"
 |AppPerformanceCounters|성능 카운터|
 |AppRequests|요청|
 |AppSystemEvents|시스템 이벤트|
-|AppTraces|Traces|
+|AppTraces|추적|
 
 
 ## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
@@ -711,6 +712,6 @@ ms.locfileid: "84418593"
 ## <a name="next-steps"></a>다음 단계
 
 * [리소스 로그에 대해 자세히 알아보기](../../azure-monitor/platform/platform-logs-overview.md)
-* [**Event Hubs** 에 대 한 리소스 리소스 로그 스트림](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Azure Monitor REST API를 사용 하 여 리소스 로그 진단 설정 변경](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [**Event Hubs** 에 대 한 리소스 리소스 로그 스트림](./resource-logs.md#send-to-azure-event-hubs)
+* [Azure Monitor REST API를 사용 하 여 리소스 로그 진단 설정 변경](/rest/api/monitor/diagnosticsettings)
+* [Azure Storage에서 Log Analytics를 사용하여 로그 분석](./resource-logs.md#send-to-log-analytics-workspace)

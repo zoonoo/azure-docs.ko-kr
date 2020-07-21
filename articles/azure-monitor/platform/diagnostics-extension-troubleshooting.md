@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696969"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515498"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -49,7 +50,7 @@ ms.locfileid: "84696969"
 | **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Configuration\MonAgentHost. <seq_num> .log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Azure Portal에 메트릭 데이터가 나타나지 않음
-Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 표시 하는 데 문제가 있는 경우 \* Azure 진단 저장소 계정의 WADMetrics 테이블을 확인 하 여 해당 메트릭 레코드가 있는지 확인 하 고 [리소스 공급자](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft 인 사이트를 등록 했는지 확인 합니다.
+Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 표시 하는 데 문제가 있는 경우 \* Azure 진단 저장소 계정의 WADMetrics 테이블을 확인 하 여 해당 메트릭 레코드가 있는지 확인 하 고 [리소스 공급자](../../azure-resource-manager/management/resource-providers-and-types.md) Microsoft 인 사이트를 등록 했는지 확인 합니다.
 
 여기서 테이블의 **PartitionKey**는 리소스 ID, 가상 머신 또는 가상 머신 확장 집합입니다. **RowKey**는 메트릭 이름(일명 성능 카운터 이름)입니다.
 
@@ -211,7 +212,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 | provider = "prov1" &lt; defaultevents/&gt; |WADDefault + MD5 ("prov1") |
 | provider = "prov2" &lt; defaultevents eventDestination = "dest2"/&gt; |WADdest2 |
 
-## <a name="references"></a>참조
+## <a name="references"></a>참고 자료
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>진단 확장 구성을 확인하는 방법
 확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](https://resources.azure.com)로 이동한 다음, Azure Diagnostics 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 머신 또는 클라우드 서비스로 이동하는 것입니다.
@@ -229,7 +230,7 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 
 | 종료 코드 | 설명 |
 | --- | --- |
-| 0 |성공. |
+| 0 |성공했습니다. |
 | -1 |일반 오류. |
 | -2 |rcf 파일을 로드할 수 없습니다.<p>이는 게스트 에이전트 플러그 인 시작 관리자를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
 | -3 |진단 구성 파일을 로드할 수 없습니다.<p><p>해결 방법: 구성 파일이 스키마 유효성 검사를 통과하지 못한 것이 원인입니다. 해결 방법은 스키마를 준수하는 구성 파일을 제공하는 것입니다. |
@@ -296,4 +297,3 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 - 스토리지의 데이터에 영어 카운터 이름이 있는지 여부. 카운터 이름이 영어가 아닌 경우 포털 메트릭 차트에서 해당 이름을 인식할 수 없습니다. **완화 방법**: 시스템 계정에 대한 컴퓨터의 언어를 영어로 변경합니다. 이렇게 하려면 **제어판**  >  **영역**  >  **관리**  >  **복사 설정**을 선택 합니다. 그런 다음 사용자 지정 언어가 시스템 계정에 적용되지 않도록 **시작 화면 및 시스템 계정**을 선택 취소합니다.
 
 - 성능 카운터 이름에 와일드카드(\*)를 사용하는 경우 성능 카운터가 Azure Storage 싱크에 전송될 때 포털에서 구성된 카운터와 수집된 카운터 간의 상관관계를 지정할 수 없습니다. **완화**: 와일드 카드를 사용 하 고 포털이 ()를 확장 하도록 하려면 \* 성능 카운터를 Azure Monitor 싱크로 라우팅합니다.
-

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: bf94631c821c8a7ba5e2870af0bf1ecfd268e888
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203585"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515447"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용하여 Azure Monitor에서 Log Analytics 작업 영역 만들기 및 구성
 이 문서에서는 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성하는 방법을 보여 줍니다.  
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> 사용자 지정 로그의 구성을 정의하는 **CustomLogRawJson** 매개 변수의 형식은 복잡할 수 있습니다. [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0)를 사용하여 기존 사용자 지정 로그의 구성을 가져옵니다. **Properties** 속성은 **CustomLogRawJson** 매개 변수에 필요한 구성입니다.
+> 사용자 지정 로그의 구성을 정의하는 **CustomLogRawJson** 매개 변수의 형식은 복잡할 수 있습니다. [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0)를 사용하여 기존 사용자 지정 로그의 구성을 가져옵니다. **Properties** 속성은 **CustomLogRawJson** 매개 변수에 필요한 구성입니다.
 
 위의 예에서 regexDelimiter는 줄 바꿈에 대한 “\\n”으로 정의되었습니다. 로그 구분 기호는 타임스탬프일 수도 있습니다.  지원되는 형식은 다음과 같습니다.
 
@@ -212,14 +212,13 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 | `yyyy-MM-ddTHH:mm:ss` <br> T는 리터럴 문자 T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## <a name="troubleshooting"></a>문제 해결
-지난 14일 동안 삭제되어 [일시 삭제 상태](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)인 작업 영역을 만들면 작업 영역 구성에 따라 작업의 결과가 달라질 수 있습니다.
+지난 14일 동안 삭제되어 [일시 삭제 상태](./delete-workspace.md#soft-delete-behavior)인 작업 영역을 만들면 작업 영역 구성에 따라 작업의 결과가 달라질 수 있습니다.
 1. 삭제된 작업 영역과 작업 영역 이름, 리소스 그룹, 구독 및 지역이 동일한 경우 해당 데이터, 구성 및 연결된 에이전트를 포함한 작업 영역이 복구됩니다.
 2. 작업 영역 이름은 동일하지만 다른 리소스 그룹, 구독 또는 지역을 사용할 경우 ‘작업 영역 이름 *workspace-name*이 고유하지 않음’ 오류 또는 ‘충돌’ 오류가 발생합니다. 일시 삭제를 재정의하고 작업 영역을 영구적으로 삭제하고 같은 이름으로 새 작업 영역을 만들려면 다음 단계를 수행하여 작업 영역을 먼저 복구한 후 영구 삭제를 수행합니다.
-   * [작업 영역](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace)을 복구합니다.
-   * 작업 영역을 [영구 삭제](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete)합니다.
+   * [작업 영역](./delete-workspace.md#recover-workspace)을 복구합니다.
+   * 작업 영역을 [영구 삭제](./delete-workspace.md#permanent-workspace-delete)합니다.
    * 동일한 작업 영역 이름을 사용하여 새 작업 영역을 만듭니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics PowerShell Cmdlet 검토](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 를 참조하세요.
-
+* [Log Analytics PowerShell Cmdlet 검토](/powershell/module/az.operationalinsights/) 를 참조하세요.

@@ -12,14 +12,14 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985312"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514727"
 ---
-# <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용 하는 Azure SQL 투명한 데이터 암호화
+# <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 고객 관리 키를 사용 하는 [TDE (](/sql/relational-databases/security/encryption/transparent-data-encryption) Azure SQL 투명한 데이터 암호화)를 사용 하 여 미사용 데이터 보호를 위한 Bring Your Own Key (byok) 시나리오를 사용 하 고, 조직이 키와 데이터 관리에서 의무 분리를 구현할 수 있습니다. 고객이 관리 하는 투명 한 데이터 암호화를 사용 하는 고객은 키 수명 주기 관리 (키 생성, 업로드, 회전, 삭제), 키 사용 권한 및 키에 대 한 작업 감사에 대 한 모든 권한을 담당 합니다.
@@ -62,7 +62,7 @@ DEK의 암호화를 위해 AKV에 저장 된 TDE 보호기를 사용할 수 있�
 
 - **unwrapKey** -dek를 보호 해제 (암호 해독) 할 수 있음
 
-Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로깅을 사용 하도록 설정](../../azure-monitor/insights/azure-key-vault.md)하 여 나중에 감사할 수 있습니다.
+Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로깅을 사용 하도록 설정](../../azure-monitor/insights/key-vault-insights-overview.md)하 여 나중에 감사할 수 있습니다.
 
 서버가 AKV에서 TDE 보호기를 사용 하도록 구성 된 경우 서버는 암호화를 위해 각 TDE 지원 데이터베이스의 DEK를 key vault로 보냅니다. Key vault는 암호화 된 DEK를 반환 하며,이는 사용자 데이터베이스에 저장 됩니다.
 

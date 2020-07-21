@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457266"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515532"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 데이터 플랫폼
 
@@ -49,7 +49,7 @@ Azure Monitor의 로그는 강력한 분석 엔진과 [풍부한 쿼리 언어](
 > Azure에서 Azure Monitor 로그와 로그 데이터의 원본을 구분하는 것이 중요합니다. 예를 들어 Azure의 구독 수준 이벤트는 Azure Monitor 메뉴에서 볼 수 있는 [활동 로그](platform-logs-overview.md)에 기록됩니다. 대부분의 리소스는 다른 위치로 전달할 수 있는 [리소스 로그](platform-logs-overview.md)에 작업 정보를 기록합니다. Azure Monitor 로그는 다른 모니터링 데이터와 함께 활동 로그 및 리소스 로그를 수집하여 전체 리소스 집합에 대한 심층 분석을 제공하는 로그 데이터 플랫폼입니다.
 
 
- Azure Portal에서 [Log Analytics](../log-query/portals.md)와 대화형으로 [로그 쿼리](../log-query/log-query-overview.md)를 사용하거나 다른 데이터와의 시각화를 위해 [Azure 대시보드](../learn/tutorial-app-dashboards.md)에 결과를 추가할 수 있습니다. 일정 쿼리의 결과에 따라 경고를 트리거할 [로그 경고](alerts-log.md)를 만들 수도 있습니다.
+ Azure Portal에서 [Log Analytics](../log-query/log-query-overview.md)와 대화형으로 [로그 쿼리](../log-query/log-query-overview.md)를 사용하거나 다른 데이터와의 시각화를 위해 [Azure 대시보드](../learn/tutorial-app-dashboards.md)에 결과를 추가할 수 있습니다. 일정 쿼리의 결과에 따라 경고를 트리거할 [로그 경고](alerts-log.md)를 만들 수도 있습니다.
 
 [Azure Monitor의 로그](data-platform-logs.md)에서 데이터 원본이 포함된 Azure Monitor 로그에 대해 자세히 알아보세요.
 
@@ -81,7 +81,7 @@ Azure Monitor의 분산 추적은 [Application Insights SDK](../app/distributed-
 
 
 ## <a name="stream-data-to-external-systems"></a>외부 시스템으로 데이터 스트리밍
-Azure에서 도구를 사용하여 모니터링 데이터를 분석하는 것 외에, SIEM(보안 정보 및 이벤트 관리) 제품과 같은 외부 도구로 전달하기 위한 요구 사항이 있을 수 있습니다. 이 전달은 일반적으로 [Azure Event Hubs](/azure/event-hubs/)를 통해 모니터링된 리소스에서 직접 수행됩니다. 논리 앱 등의 다른 프로세스를 사용하여 필요한 데이터를 검색할 수 있는 반면, 일부 원본은 이벤트 허브로 직접 데이터를 보내도록 구성할 수 있습니다. 자세한 내용은 [이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용](stream-monitoring-data-event-hubs.md)을 참조하세요.
+Azure에서 도구를 사용하여 모니터링 데이터를 분석하는 것 외에, SIEM(보안 정보 및 이벤트 관리) 제품과 같은 외부 도구로 전달하기 위한 요구 사항이 있을 수 있습니다. 이 전달은 일반적으로 [Azure Event Hubs](../../event-hubs/index.yml)를 통해 모니터링된 리소스에서 직접 수행됩니다. 논리 앱 등의 다른 프로세스를 사용하여 필요한 데이터를 검색할 수 있는 반면, 일부 원본은 이벤트 허브로 직접 데이터를 보내도록 구성할 수 있습니다. 자세한 내용은 [이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용](stream-monitoring-data-event-hubs.md)을 참조하세요.
 
 
 

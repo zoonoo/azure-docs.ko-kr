@@ -3,11 +3,12 @@ title: Azure Service Bus 메시지 세션 | Microsoft Docs
 description: 이 문서에서는 세션을 사용하여 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341193"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511299"
 ---
 # <a name="message-sessions"></a>메시지 세션
 Microsoft Azure Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리할 수 있습니다. 세션은 **FIFO(선입 선출)** 및 **요청-응답** 패턴으로 사용할 수 있습니다. 이 문서에서는 Service Bus를 사용할 때 세션을 사용하여 이러한 패턴을 구현하는 방법을 보여 줍니다. 
@@ -30,7 +31,7 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 
 포털에서 다음 확인란을 사용하여 플래그를 지정합니다.
 
-![][2]
+![세션 사용 옵션이 선택 되 고 빨간색으로 표시 된 큐 만들기 대화 상자의 스크린샷][2]
 
 > [!NOTE]
 > 큐 또는 구독에서 세션을 사용하는 경우 클라이언트 애플리케이션은 ***더 이상 일반 메시지를 주고받을 수 없습니다***. 모든 메시지는 세션 ID를 설정하여 세션의 일부로 보내고 세션을 수신하여 받아야 합니다.
@@ -41,7 +42,7 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 
 세션은 순차적 전달을 보존하고 보장하면서 인터리브된 메시지 스트림에 대한 동시 역멀티플렉싱을 제공합니다.
 
-![][1]
+![세션 기능에서 순차적 전달 기능을 유지 하는 방법을 보여 주는 다이어그램입니다.][1]
 
 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 수신기는 세션을 허용하는 클라이언트에서 생성됩니다. 클라이언트는 C#의 [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) 또는 [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync)를 호출합니다. 반응성 콜백 모델에서는 세션 처리기를 등록합니다.
 

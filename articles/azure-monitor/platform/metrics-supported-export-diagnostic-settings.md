@@ -5,19 +5,20 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 91fc2c4525ee622064520b0098087d54158bbe9e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f0a8fd186862cf95ebdbb2d5bd92d8ff860b3ba1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680681"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515481"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>진단 설정을 통해 내보낼 수 있는 Azure Monitor 플랫폼 메트릭
 
-Azure Monitor는 기본적으로 구성 없이 [플랫폼 메트릭](data-platform-metrics.md)을 제공합니다. 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 플랫폼 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. [metrics-supported](metrics-supported.md)에서 Azure Monitor의 통합 메트릭 파이프라인에서 현재 사용 가능한 플랫폼 메트릭의 전체 목록을 참조하세요. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요. 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다.
+Azure Monitor는 기본적으로 구성 없이 [플랫폼 메트릭](data-platform-metrics.md)을 제공합니다. 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 플랫폼 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. [metrics-supported](metrics-supported.md)에서 Azure Monitor의 통합 메트릭 파이프라인에서 현재 사용 가능한 플랫폼 메트릭의 전체 목록을 참조하세요. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](/rest/api/monitor/metricdefinitions)을 사용하세요. 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다.
 
 Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내보내는 방법은 두 가지입니다.
 1. [진단 설정](diagnostic-settings.md)를 사용하여 Log Analytics, Event Hubs 또는 Azure Storage로 보냅니다.
-2. [메트릭 REST API](https://docs.microsoft.com/rest/api/monitor/metrics/list)를 사용합니다.
+2. [메트릭 REST API](/rest/api/monitor/metrics/list)를 사용합니다.
 
 Azure Monitor 백 엔드의 복잡성 때문에 일부 메트릭은 진단 설정을 사용하여 내보낼 수 없습니다. 진단 설정을 사용하여 내보낼 수 있는 항목과 내보낼 수 없는 항목이 아래 표에 나열되어 있습니다.
 

@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a11bf408f06b5c4e621f0af1f71f23c335dc2069
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60510125"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512642"
 ---
 # <a name="default-insights-tag"></a>기본 인사이트 태그
 
@@ -100,7 +100,7 @@ ms.locfileid: "60510125"
 
 ## <a name="pagesincluding-insight"></a>PagesIncluding 인사이트
 
-PagesIncluding 인사이트는 이 이미지를 포함하는 웹 페이지 목록을 제공합니다. 실제로 `Image` 개체 목록이 며 필드에 `hostPageUrl` 는 이미지를 포함 하는 웹 페이지에 대 한 URL이 포함 되어 있습니다. 예제 사용에 대 한 자세한 [내용은 참고 항목을 참조 하세요.](./bing-insights-usage.md#pagesincluding-insight-example)
+PagesIncluding 인사이트는 이 이미지를 포함하는 웹 페이지 목록을 제공합니다. 실제로 `Image` 개체 목록이 며 필드에는 `hostPageUrl` 이미지를 포함 하는 웹 페이지에 대 한 URL이 포함 되어 있습니다. 예제 사용에 대 한 자세한 [내용은 참고 항목을 참조 하세요.](./bing-insights-usage.md#pagesincluding-insight-example)
 
 ```json
       {
@@ -278,7 +278,7 @@ Recipes 인사이트는 이미지에 표시된 음식을 만드는 조리법이 
 
 ## <a name="imagebyid-insight"></a>ImageById 인사이트
 
-ImageById 인 사이트는 다음 `Image` 에 대 한 정보를 요청 하는 이미지의 개체를 제공 합니다.
+ImageById 인 사이트는 `Image` 다음에 대 한 정보를 요청 하는 이미지의 개체를 제공 합니다.
 
 ```json
       {
@@ -425,4 +425,12 @@ DocumentLevelSuggestions 정보는 이미지의 내용에 따라 제안 된 검�
 
 Bing [insights 사용의 예](bing-insights-usage.md) 를 확인 하 여 bing에서 시각적 정보를 표시 하는 방법을 확인 합니다.
 
-첫 번째 요청을 빠르게 시작 하려면 퀵 스타트: [c #](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)을 참조 하세요.
+첫 번째 요청으로 신속하게 시작하려면 빠른 시작:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md).

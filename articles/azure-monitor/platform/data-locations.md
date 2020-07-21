@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/21/2019
-ms.openlocfilehash: 7d4459867081d920fefb9471b1a682d21040da9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb7e92a676115d784bd19714178b3bd442798e26
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666618"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515549"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Azure Monitor에서 데이터 위치 모니터링
 
@@ -23,12 +24,12 @@ Azure Monitor은 [Azure Monitor data platform](data-platform.md)에 설명 된 �
 | 위치 | Description | 액세스 방법 |
 |:---|:---|:---|:--|
 | Azure Monitor 메트릭 | 시간이 찍힌 데이터를 분석 하기 위해 최적화 된 시계열 데이터베이스입니다. | [메트릭 탐색기](metrics-getting-started.md)<br>[Azure Monitor 메트릭 API](/rest/api/monitor/metrics) |
-| Azure Monitor 로그    | Azure 데이터 탐색기를 기반으로 하는 Log Analytics 작업 영역으로, 강력한 분석 엔진과 풍부한 쿼리 언어를 제공 합니다. | [Log Analytics](../log-query/portals.md)<br>[Log Analytics API](https://dev.loganalytics.io/)<br>[Application Insights API](https://dev.applicationinsights.io/reference/get-query) |
-| 활동 로그 | 활동 로그의 데이터는 다른 데이터를 사용 하 여 분석 하기 위해 Azure Monitor 로그에 보낼 때 가장 유용 하지만 Azure Portal에서 직접 볼 수 있도록 자체적으로 수집 됩니다. | [Azure Portal](activity-log-view.md#azure-portal)<br>[Azure Monitor 이벤트 API](/rest/api/monitor/eventcategories) |
-| Azure Storage | 일부 데이터 원본은 Azure storage에 직접 기록 하 고 데이터를 로그로 이동 하는 구성이 필요 합니다. 또한 보관을 위해 Azure storage에 데이터를 보내고 외부 시스템과 통합할 수 있습니다.  | [스토리지 분석](/rest/api/storageservices/storage-analytics)<br>[서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |
+| Azure Monitor 로그    | Azure 데이터 탐색기를 기반으로 하는 Log Analytics 작업 영역으로, 강력한 분석 엔진과 풍부한 쿼리 언어를 제공 합니다. | [Log Analytics](../log-query/log-query-overview.md)<br>[Log Analytics API](https://dev.loganalytics.io/)<br>[Application Insights API](https://dev.applicationinsights.io/reference/get-query) |
+| 활동 로그 | 활동 로그의 데이터는 다른 데이터를 사용 하 여 분석 하기 위해 Azure Monitor 로그에 보낼 때 가장 유용 하지만 Azure Portal에서 직접 볼 수 있도록 자체적으로 수집 됩니다. | [Azure Portal](./activity-log.md#view-the-activity-log)<br>[Azure Monitor 이벤트 API](/rest/api/monitor/eventcategories) |
+| Azure Storage | 일부 데이터 원본은 Azure storage에 직접 기록 하 고 데이터를 로그로 이동 하는 구성이 필요 합니다. 또한 보관을 위해 Azure storage에 데이터를 보내고 외부 시스템과 통합할 수 있습니다.  | [스토리지 분석](/rest/api/storageservices/storage-analytics)<br>[서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) |
 | Event Hubs | 데이터를 다른 위치로 스트리밍하려면 Azure Event Hubs에 보냅니다. | [저장소에 캡처](../../event-hubs/event-hubs-capture-overview.md)  |
-| VM용 Azure Monitor | VM용 Azure Monitor은 Azure Portal의 모니터링 환경에서 사용 하는 사용자 지정 위치에 워크 로드 상태 데이터를 저장 합니다. | [Azure Portal](../insights/vminsights-overview.md)<br>[작업 모니터 REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)<br>[Azure 리소스 상태 REST API](https://docs.microsoft.com/rest/api/resourcehealth/)  |
-| 경고 | Azure Monitor에서 생성 된 경고입니다. | [Azure Portal](alerts-managing-alert-instances.md)<br>[경고 관리 REST API](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts) |
+| VM용 Azure Monitor | VM용 Azure Monitor은 Azure Portal의 모니터링 환경에서 사용 하는 사용자 지정 위치에 워크 로드 상태 데이터를 저장 합니다. | [Azure Portal](../insights/vminsights-overview.md)<br>[작업 모니터 REST API](/rest/api/monitor/microsoft.workloadmonitor/components)<br>[Azure 리소스 상태 REST API](/rest/api/resourcehealth/)  |
+| 경고 | Azure Monitor에서 생성 된 경고입니다. | [Azure Portal](alerts-managing-alert-instances.md)<br>[경고 관리 REST API](/rest/api/monitor/alertsmanagement/alerts) |
 
 
 

@@ -3,11 +3,12 @@ title: Azure Backup을 사용하여 Azure에 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 가상 머신에 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c9f9841ac40a39fc51c0e722415c871650bec86d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667321"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513872"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -15,7 +16,7 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 
 이 문서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 보여 줍니다.
 
-이 아티클에서는 다음 방법을 설명합니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 > [!div class="checklist"]
 >
 > * 자격 증명 모음 만들기 및 구성
@@ -24,7 +25,7 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 > * 주문형 백업 작업 실행
 
 >[!NOTE]
->RHEL용 SAP HANA 백업 미리 보기(7.4, 7.6, 7.7 또는 8.1)로 [시작](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db)하세요. 추가 쿼리는 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)에 기록합니다.
+>RHEL용 SAP HANA 백업 미리 보기(7.4, 7.6, 7.7 또는 8.1)로 [시작](./tutorial-backup-sap-hana-db.md)하세요. 추가 쿼리는 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)에 기록합니다.
 
 >[!NOTE]
 >**Azure VM의 SQL Server 일시 삭제 및 Azure VM 워크로드의 SAP HANA 일시 삭제**는 이제 미리 보기로 제공됩니다.<br>
@@ -52,17 +53,17 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 
 #### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
-프라이빗 엔드포인트를 사용하면 가상 네트워크 내의 서버에서 안전하게 Recovery Services 자격 증명 모음에 연결할 수 있습니다. 프라이빗 엔드포인트는 VNET 주소 공간의 IP를 자격 증명 모음에 사용합니다. 가상 네트워크 내의 리소스와 자격 증명 모음 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통해 이동합니다. 이렇게 하면 퍼블릭 인터넷에서 공개되지 않습니다. Azure Backup의 프라이빗 엔드포인트에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/backup/private-endpoints)를 참조하세요.
+프라이빗 엔드포인트를 사용하면 가상 네트워크 내의 서버에서 안전하게 Recovery Services 자격 증명 모음에 연결할 수 있습니다. 프라이빗 엔드포인트는 VNET 주소 공간의 IP를 자격 증명 모음에 사용합니다. 가상 네트워크 내의 리소스와 자격 증명 모음 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통해 이동합니다. 이렇게 하면 퍼블릭 인터넷에서 공개되지 않습니다. Azure Backup의 프라이빗 엔드포인트에 대한 자세한 내용은 [여기](./private-endpoints.md)를 참조하세요.
 
 #### <a name="nsg-tags"></a>NSG 태그
 
-NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에 *Azure AD* 및 *Azure Storage*에 대한 유사한 [NSG 규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)을 만들어 인증 및 데이터 전송에 대한 연결도 허용해야 합니다.  다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
+NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에 *Azure AD* 및 *Azure Storage*에 대한 유사한 [NSG 규칙](../virtual-network/security-overview.md#service-tags)을 만들어 인증 및 데이터 전송에 대한 연결도 허용해야 합니다.  다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
 
 1. **모든 서비스**에서 **네트워크 보안 그룹**으로 이동하여 네트워크 보안 그룹을 선택합니다.
 
 1. **설정** 아래에서 **아웃바운드 보안 규칙**을 선택합니다.
 
-1. **추가**를 선택합니다. [보안 규칙 설정](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그*로 설정되고 **대상 서비스 태그**가 *AzureBackup*으로 설정되어 있는지 확인합니다.
+1. **추가**를 선택합니다. [보안 규칙 설정](../virtual-network/manage-network-security-group.md#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그*로 설정되고 **대상 서비스 태그**가 *AzureBackup*으로 설정되어 있는지 확인합니다.
 
 1. **추가**를 클릭하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
 
@@ -70,7 +71,7 @@ NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 �
 
 #### <a name="azure-firewall-tags"></a>Azure Firewall 태그
 
-Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)를 사용하여 애플리케이션 규칙을 만듭니다. 이는 Azure Backup에 대한 모든 아웃바운드 액세스를 허용합니다.
+Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그](../firewall/fqdn-tags.md)를 사용하여 애플리케이션 규칙을 만듭니다. 이는 Azure Backup에 대한 모든 아웃바운드 액세스를 허용합니다.
 
 #### <a name="allow-access-to-service-ip-ranges"></a>서비스 IP 범위에 대한 액세스 허용
 
@@ -84,7 +85,7 @@ Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그]
 | -------------- | ------------------------------------------------------------ |
 | Azure Backup  | `*.backup.windowsazure.com`                             |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | [이 문서](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)에 따라 섹션 56 및 59에서 FQDN에 대한 액세스 허용 |
+| Azure AD      | [이 문서](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)에 따라 섹션 56 및 59에서 FQDN에 대한 액세스 허용 |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>HTTP 프록시 서버를 사용하여 트래픽 라우팅
 
@@ -172,7 +173,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
 7. **확인**을 클릭하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
 8. **로그 백업**을 선택하여 트랜잭션 로그 백업 정책을 추가합니다.
-    * **로그 백업**에서 **사용**을 선택합니다.  SAP HANA에서 모든 로그 백업을 관리하므로 이 기능을 사용하지 않도록 설정할 수 없습니다.
+    * **로그 백업**에서 **사용**을 선택합니다.  SAP HANA는 모든 로그 백업을 관리 하므로이를 비활성화할 수 없습니다.
     * 빈도 및 보존 컨트롤을 설정합니다.
 
     > [!NOTE]
@@ -190,7 +191,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
 1. 자격 증명 모음 메뉴에서 **백업 항목**을 클릭합니다.
 2. **백업 항목**에서 SAP HANA 데이터베이스를 실행하는 VM을 선택하고 **지금 백업**을 클릭합니다.
-3. **지금 백업**에서 수행할 백업 유형을 선택 합니다. 그런 후 **OK**를 클릭합니다. 이 백업은이 백업 항목과 연결 된 정책에 따라 보존 됩니다.
+3. **지금 백업**에서 수행할 백업 유형을 선택 합니다. 그런 다음, **확인**을 클릭합니다. 이 백업은이 백업 항목과 연결 된 정책에 따라 보존 됩니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Azure Backup이 설정된 데이터베이스에서 SAP HANA Studio 백업 실행
@@ -198,17 +199,19 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 Microsoft Azure Backup으로 백업 중인 데이터베이스의 로컬 백업(HANA Studio 사용)을 수행하려면 다음 단계를 따르세요.
 
 1. 데이터베이스에 대한 전체 또는 로그 백업이 완료될 때까지 기다립니다. SAP HANA Studio/Cockpit에서 상태를 확인합니다.
-2. 로그 백업을 사용하지 않도록 설정하고 관련 데이터베이스에 대한 백업 카탈로그를 파일 시스템에 설정합니다.
-3. 이렇게 하려면 **systemdb** > **구성** > **데이터베이스 선택** > **필터(로그)** 를 두 번 클릭합니다.
-4. **enable_auto_log_backup**을 **아니요**로 설정합니다.
-5. **log_backup_using_backint**를 **False**로 설정합니다.
-6. 데이터베이스의 주문형 전체 백업을 수행합니다.
-7. 전체 백업 및 카탈로그 백업이 완료될 때까지 기다립니다.
-8. 이전 설정을 Azure에 대한 설정으로 되돌립니다.
+1. 로그 백업을 사용하지 않도록 설정하고 관련 데이터베이스에 대한 백업 카탈로그를 파일 시스템에 설정합니다.
+1. 이렇게 하려면 **systemdb** > **구성** > **데이터베이스 선택** > **필터(로그)** 를 두 번 클릭합니다.
+1. **enable_auto_log_backup**을 **아니요**로 설정합니다.
+1. **log_backup_using_backint**를 **False**로 설정합니다.
+1. **Catalog_backup_using_backint** 을 **False**로 설정 합니다.
+1. 데이터베이스의 주문형 전체 백업을 수행합니다.
+1. 전체 백업 및 카탈로그 백업이 완료될 때까지 기다립니다.
+1. 이전 설정을 Azure에 대한 설정으로 되돌립니다.
     * **enable_auto_log_backup**을 **예**로 설정합니다.
     * **log_backup_using_backint**를 **True**로 설정합니다.
+    * **Catalog_backup_using_backint** 를 **True**로 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure VM에서 실행되는 SAP HANA 데이터베이스를 복원하는 방법](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)을 알아봅니다.
-* [Azure Backup을 사용하여 백업된 SAP HANA 데이터베이스를 관리하는 방법](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)을 알아봅니다.
+* [Azure VM에서 실행되는 SAP HANA 데이터베이스를 복원하는 방법](./sap-hana-db-restore.md)을 알아봅니다.
+* [Azure Backup을 사용하여 백업된 SAP HANA 데이터베이스를 관리하는 방법](./sap-hana-db-manage.md)을 알아봅니다.

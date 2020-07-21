@@ -10,11 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 58d795a5aee79e4149864a79a923ce34950b31d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3001e814a5f31725bfc78385d2435bbb0e971d40
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79458072"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513023"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
@@ -25,7 +26,7 @@ ms.locfileid: "79458072"
 
 ## <a name="start-cloud-shell"></a>Cloud Shell 시작
 1. Azure Portal의 위쪽 탐색에서 **Cloud Shell** 를 시작 합니다. <br>
-![](media/quickstart/shell-icon.png)
+![Azure Portal에서 Azure Cloud Shell를 시작 하는 방법을 보여 주는 스크린샷](media/quickstart/shell-icon.png)
 
 2. 구독을 선택하여 스토리지 계정 및 Microsoft Azure Files 공유를 만듭니다.
 3. &quot;스토리지 만들기&quot;를 선택합니다.
@@ -35,7 +36,7 @@ ms.locfileid: "79458072"
 
 ### <a name="select-the-bash-environment"></a>Bash 환경 선택
 셸 창 왼쪽에서 환경 드롭다운에 `Bash`가 표시되었는지 확인합니다. <br>
-![](media/quickstart/env-selector.png)
+![Azure Cloud Shell에 대 한 Bash 환경을 선택 하는 방법을 보여 주는 스크린샷](media/quickstart/env-selector.png)
 
 ### <a name="set-your-subscription"></a>구독을 설정합니다.
 1. 액세스할 수 있는 구독을 나열합니다.
@@ -43,10 +44,11 @@ ms.locfileid: "79458072"
    az account list
    ```
 
-2. 기본 구독을 설정합니다. <br>
-```azurecli-interactive
-az account set --subscription 'my-subscription-name'
-```
+2. 기본 구독을 설정합니다.
+
+   ```azurecli-interactive
+   az account set --subscription 'my-subscription-name'
+   ```
 
 > [!TIP]
 > `/home/<user>/.azure/azureProfile.json`을 사용하여 이후 세션에서 구독을 기억합니다.
@@ -72,7 +74,7 @@ az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ### <a name="ssh-into-your-linux-vm"></a>Linux VM으로 SSH
 1. Azure Portal 검색 표시줄에서 VM 이름을 검색합니다.
 2. "연결"을 클릭하여 VM 이름 및 공용 IP 주소를 가져옵니다. <br>
-   ![](media/quickstart/sshcmd-copy.png)
+   ![S H를 사용 하 여 Linux V M에 연결 하는 방법을 보여 주는 스크린샷](media/quickstart/sshcmd-copy.png)
 
 3. `ssh` cmd를 사용하여 VM에 SSH합니다.
    ```
@@ -80,7 +82,7 @@ az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
    ```
 
 SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니다. <br>
-![](media/quickstart/ubuntu-welcome.png)
+![S H 연결을 설정한 후 Ubuntu 초기화 및 시작 프롬프트를 보여 주는 스크린샷](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>정리 
 1. SSH 세션을 종료합니다.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: b17e4031edaedc6b0a63d305d20a77e5b58f91ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80247387"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511180"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure VM에서 실행 되는 SQL Server에 대 한 Azure Backup
 
@@ -26,7 +26,7 @@ Azure Backup는 다른 서비스에서 Azure Vm에서 실행 되는 SQL Server�
 
 ## <a name="network-connectivity"></a>네트워크 연결
 
-Azure Backup는 NSG 태그, 프록시 서버 또는 나열 된 IP 범위 배포를 지원 합니다. 각 방법에 대 한 자세한 내용은이 [문서](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity)를 참조 하세요.
+Azure Backup는 NSG 태그, 프록시 서버 또는 나열 된 IP 범위 배포를 지원 합니다. 각 방법에 대 한 자세한 내용은이 [문서](../../backup/backup-sql-server-database-azure-vms.md#establish-network-connectivity)를 참조 하세요.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -102,7 +102,7 @@ statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrexten
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-Recovery services 자격 증명 모음을 사용 하 여 SQL 응용 프로그램이 포함 된 Azure VM을 ' 등록 ' 해야 합니다. 등록 하는 동안 AzureBackupWindowsWorkload 로드 확장이 VM에 설치 됩니다.  [AzRecoveryServicesBackupContainerPS](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) cmdlet을 사용 하 여 VM을 등록 합니다.
+Recovery services 자격 증명 모음을 사용 하 여 SQL 응용 프로그램이 포함 된 Azure VM을 ' 등록 ' 해야 합니다. 등록 하는 동안 AzureBackupWindowsWorkload 로드 확장이 VM에 설치 됩니다.  [AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) cmdlet을 사용 하 여 VM을 등록 합니다.
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
@@ -113,5 +113,5 @@ Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagemen
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure SQL Server VM 백업 문제 해결 지침에 대 한 [자세한](https://docs.microsoft.com/azure/backup/backup-sql-server-azure-troubleshoot) 정보
-- Azure Vm (가상 컴퓨터)에서 실행 되 고 Azure Backup 서비스를 사용 하는 SQL Server 데이터베이스 백업에 대 한 [일반적인 질문](https://docs.microsoft.com/azure/backup/faq-backup-sql-server) 입니다.
+- Azure SQL Server VM 백업 문제 해결 지침에 대 한 [자세한](../../backup/backup-sql-server-azure-troubleshoot.md) 정보
+- Azure Vm (가상 컴퓨터)에서 실행 되 고 Azure Backup 서비스를 사용 하는 SQL Server 데이터베이스 백업에 대 한 [일반적인 질문](../../backup/faq-backup-sql-server.md) 입니다.

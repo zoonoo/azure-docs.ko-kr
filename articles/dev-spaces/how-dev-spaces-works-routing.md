@@ -5,11 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스와 라우팅의 작동 방식에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 126a534cec2ee4b07aa3a127fb3f47f9931f0031
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512472"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>라우팅이 Azure Dev Spaces와 작동 하는 방식
 
@@ -54,7 +55,7 @@ HTTP가 아닌 다른 모든 TCP 트래픽은 수신 컨트롤러 및 devspaces 
 
 또한 파생 된 개발 공간은 자체 응용 프로그램과 부모에서 공유 되는 응용 프로그램 간에 요청을 지능적으로 라우팅합니다. 라우팅은 파생 된 개발 공간의 응용 프로그램에 요청을 라우팅하고 부모 개발 공간에서 공유 응용 프로그램으로 대체 하는 방식으로 작동 합니다. 응용 프로그램이 부모 공간에 있지 않은 경우 라우팅은 최상위 공간의 공유 응용 프로그램으로 대체 됩니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 * 개발 공간 *기본값* 에는 응용 프로그램 *Servicea* 및 *servicea*가 있습니다.
 * Dev space *azureuser* 는 *기본값*에서 파생 됩니다.
 * *Servicea* 의 업데이트 된 버전이 *azureuser*에 배포 됩니다.
@@ -68,7 +69,7 @@ Azure Dev Spaces 라우팅을 사용 하 여 신속 하 게 반복 하 고 개�
 팀 개발을 위해 Azure Dev Spaces를 사용 하 여 라우팅을 시작 하려면 Azure Dev Spaces 빠른 시작 [에서 팀 개발][quickstart-team] 을 참조 하세요.
 
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
+[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [pr-flow]: how-to/github-actions.md
 [quickstart-team]: quickstart-team-development.md

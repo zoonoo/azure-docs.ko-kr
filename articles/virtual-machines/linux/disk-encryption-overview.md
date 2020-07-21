@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e4843ad71455f8e478ef74ee71975c1dbf2925
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601278"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510567"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
@@ -26,7 +26,7 @@ Azure Disk Encryption을 사용하여 고객 조직의 보안 및 규정 준수 
 > [!WARNING]
 > - 이전에 VM을 암호화하기 위해 Azure AD에서 Azure Disk Encryption을 사용한 적이 있다면 VM을 암호화하는 데 이 옵션을 계속 사용해야 합니다. 자세한 내용은 [Azure AD(이전 릴리스)를 포함한 Azure Disk Encryption](disk-encryption-overview-aad.md)을 참조하세요. 
 > - 특정 권장 사항으로 인해 데이터, 네트워크 또는 컴퓨팅 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생합니다. 사용자는 유효한 활성 Azure 구독을 포함하여 지원되는 지역에서 Azure에 리소스를 만들어야 합니다.
-> - 현재 2세대 VM은 Azure Disk Encryption을 지원하지 않습니다. 자세한 내용은 [Azure의 2세대용 VM 지원](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)을 참조하세요.
+> - 현재 2세대 VM은 Azure Disk Encryption을 지원하지 않습니다. 자세한 내용은 [Azure의 2세대용 VM 지원](../windows/generation-2.md)을 참조하세요.
 
 [Azure CLI를 사용하여 Linux VM 만들기 및 암호화 빠른 시작](disk-encryption-cli-quickstart.md) 또는 [Azure Powershell을 사용하여 Linux VM 만들기 및 암호화 빠른 시작](disk-encryption-powershell-quickstart.md)을 사용하여 몇 분 만에 Linux용 Azure Disk Encryption의 기본 사항을 배울 수 있습니다.
 
@@ -63,6 +63,7 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS 및 데이터 디스크 |
+| RedHat | RHEL 7.8 | 7.8 | RedHat: RHEL: 7.8: 최신 | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
@@ -95,7 +96,7 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 
 Azure Disk Encryption을 사용하려면 시스템에 dm-crypt 및 vfat 모듈이 있어야 합니다. 기본 이미지에서 vfat을 제거하거나 사용하지 않도록 설정하면 시스템에서 키 볼륨을 읽거나 후속 재부팅 시 디스크 잠금을 해제하는 데 필요한 키를 가져올 수 없습니다. 시스템에서 vfat 모듈을 제거 하거나 데이터 드라이브의 OS 탑재 지점이/폴더 확장을 적용 하는 시스템 강화 단계는 Azure Disk Encryption와 호환 되지 않습니다. 
 
-암호화를 사용하도록 설정하기 전에 암호화할 데이터 디스크를 /etc/fstab에 올바르게 나열해야 합니다. 항목을 만들 때 "nofail" 옵션을 사용하고, 영구 블록 디바이스 이름을 선택합니다. "/dev/sdX" 형식의 디바이스 이름은 재부팅하는 동안, 특히 암호화 후에 동일한 디스크에 연결되지 않을 수 있습니다. 이 동작에 대한 자세한 내용은 [Linux VM 디바이스 이름 변경 문제 해결](troubleshoot-device-names-problems.md)을 참조하세요.
+암호화를 사용하도록 설정하기 전에 암호화할 데이터 디스크를 /etc/fstab에 올바르게 나열해야 합니다. 항목을 만들 때 "nofail" 옵션을 사용하고, 영구 블록 디바이스 이름을 선택합니다. "/dev/sdX" 형식의 디바이스 이름은 재부팅하는 동안, 특히 암호화 후에 동일한 디스크에 연결되지 않을 수 있습니다. 이 동작에 대한 자세한 내용은 [Linux VM 디바이스 이름 변경 문제 해결](../troubleshooting/troubleshoot-device-names-problems.md)을 참조하세요.
 
 /etc/fstab 설정이 탑재에 대해 올바르게 구성되었는지 확인합니다. 이러한 설정을 구성하려면 mount -a 명령을 실행하거나 VM을 다시 부팅하고 다시 탑재를 트리거합니다. 이러한 작업이 완료되면 lsblk 명령의 출력을 확인하여 드라이브가 여전히 탑재되어 있는지 확인합니다. 
 
@@ -149,5 +150,3 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 - [Azure Disk Encryption 필수 구성 요소 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started)
 - [Azure Disk Encryption 필수 조건 PowerShell 스크립트](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성](disk-encryption-key-vault.md)
-
-

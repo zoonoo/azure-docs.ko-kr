@@ -7,13 +7,14 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 0b13040b39ed491ec4fee4d6922d41f086edeeb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79284916"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511945"
 ---
-# <a name="use-ip-filters"></a>IP 필터 사용
+# <a name="use-azure-iot-dps-ip-connection-filters"></a>Azure IoT DPS IP 연결 필터 사용
 
 보안은 IoT 솔루션의 중요 한 측면입니다. 경우에 따라 디바이스가 보안 구성의 일부로 연결할 수 있는 IP 주소를 명시적으로 지정해야 합니다. DPS (Azure IoT Hub 장치 프로 비전 서비스)의 *IP 필터* 기능을 사용 하면 특정 IPv4 주소에서 트래픽을 거부 하거나 허용 하는 규칙을 구성할 수 있습니다.
 
@@ -132,7 +133,7 @@ Azure CLI 또는 Azure PowerShell에서 DPS IP 필터 규칙을 업데이트 하
 
 요구 사항에 따라 템플릿의 IP 필터 규칙 특성을 업데이트 합니다.
 
-| 특성                | 설명 |
+| attribute                | 설명 |
 | ------------------------ | ----------- |
 | **FilterName**           | IP 필터 규칙의 이름을 제공 합니다. 이름은 최대 128자 길이의 대/소문자를 구분하는 고유한 영숫자 문자열이어야 합니다. ASCII 7 비트 영숫자 + {'-', ': ', '/', ' \' , '. ', ' + ', '% ', ' _ ', ' # ', ' * ', '? '만, '! ', ' (', ') ', ', ', ' = ', ' @ ', '; ', ' ' '}가 허용 됩니다. |
 | **동작**               | 허용 되는 **Accept**값은    **Reject**   IP 필터 규칙의 작업으로 허용 또는 거부입니다. |

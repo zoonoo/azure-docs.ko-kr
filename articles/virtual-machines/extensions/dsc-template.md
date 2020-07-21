@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891654"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511163"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 확장과 Azure Resource Manager 템플릿
 
-이 문서에서는 [DSC(Desired State Configuration) 확장 처리기](dsc-overview.md)를 위한 Azure Resource Manager 템플릿에 대해 설명합니다. 많은 예제에서는 **RegistrationURL**(문자열로 제공됨) 및 **RegistrationKey**([PSCredential](/dotnet/api/system.management.automation.pscredential)로 제공됨)를 사용하여 Azure Automation에 등록합니다. 이러한 값을 가져오는 방법에 대한 자세한 내용은 [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드 - 보안 등록](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration)을 참조하세요.
+이 문서에서는 [DSC(Desired State Configuration) 확장 처리기](dsc-overview.md)를 위한 Azure Resource Manager 템플릿에 대해 설명합니다. 대부분의 예제에서는 **Registrationurl** (문자열로 제공 됨) 및 registrationurl (Azure Automation로 등록 하는 [PSCredential](/dotnet/api/system.management.automation.pscredential) 으로 제공 되는 **registrationurl** )를 사용 합니다. 이러한 값을 가져오는 방법에 대한 자세한 내용은 [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드 - 보안 등록](../../automation/automation-dsc-onboarding.md#enable-machines-securely-using-registration)을 참조하세요.
 
 > [!NOTE]
 > 약간 다른 스키마 예제가 제공될 수 있습니다. 스키마 변경은 2016년 10월 릴리스에서 수행되었습니다. 자세한 내용은 [이전 형식에서 업데이트](#update-from-a-previous-format)를 참조하세요.

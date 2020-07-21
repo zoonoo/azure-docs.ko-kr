@@ -3,11 +3,12 @@ title: Azure VMware 솔루션 배포 또는 프로 비전 오류에 대 한 도�
 description: Avs (Azure VMware Solution) 사설 클라우드에서 필요한 정보를 가져와 AVS 배포 또는 프로 비전 오류에 대 한 서비스 요청을 파일 하는 방법입니다.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 3032c01d48617347c454d71498571b0e6b789e32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986893"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514580"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Azure VMware 솔루션 배포 또는 프로 비전 오류에 대 한 도움말 보기
 
@@ -29,7 +30,7 @@ ms.locfileid: "84986893"
 사전 유효성 검사 단계에서 오류가 발생 하는 경우 사설 클라우드를 배포 하기 전에 상관 관계 ID가 생성 되지 않습니다. 이 경우 다음을 포함 하 여 AVS 사설 클라우드를 만들 때 사용한 정보를 간단히 제공할 수 있습니다.
 
 - 위치
-- Resource group
+- 리소스 그룹
 - 리소스 이름
  
 ### <a name="collect-a-summary-of-errors"></a>오류 요약 수집
@@ -71,7 +72,7 @@ ms.locfileid: "84986893"
 
 ## <a name="create-your-support-request"></a>지원 요청 만들기
 
-지원 요청을 만드는 방법에 대 한 일반적인 지침은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 
+지원 요청을 만드는 방법에 대 한 일반적인 지침은 [Azure 지원 요청을 만드는 방법](../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조 하세요. 
 
 다음은 AVS 배포 또는 프로 비전 실패를 위한 SR 만들기와 관련 된 추가 지침입니다.
 

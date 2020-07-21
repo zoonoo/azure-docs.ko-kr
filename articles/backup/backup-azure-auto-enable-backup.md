@@ -3,11 +3,12 @@ title: Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 description: Azure Policy를 사용 하 여 지정 된 범위에서 만든 모든 Vm에 대 한 백업을 자동으로 활성화 하는 방법을 설명 하는 문서입니다.
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77584271"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514223"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 
@@ -17,7 +18,7 @@ ms.locfileid: "77584271"
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-* 기본 제공 정책은 현재 Azure Vm에 대해서만 지원 됩니다. 사용자는 할당 중에 지정 된 보존 정책이 VM 보존 정책 인지 확인 해야 합니다. 이 정책에서 지 원하는 모든 VM Sku를 보려면 [이](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) 문서를 참조 하세요.
+* 기본 제공 정책은 현재 Azure Vm에 대해서만 지원 됩니다. 사용자는 할당 중에 지정 된 보존 정책이 VM 보존 정책 인지 확인 해야 합니다. 이 정책에서 지 원하는 모든 VM Sku를 보려면 [이](./backup-azure-policy-supported-skus.md) 문서를 참조 하세요.
 
 * 정책은 한 번에 하나의 위치 및 구독에 할당 될 수 있습니다. 위치 및 구독의 Vm에 대 한 백업을 사용 하도록 설정 하려면 각 위치 및 구독의 조합에 대해 하나씩, 정책 할당의 여러 인스턴스를 만들어야 합니다.
 
@@ -47,7 +48,7 @@ ms.locfileid: "77584271"
 
 > [!NOTE]
 >
-> Azure Policy는 [관리](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources)를 사용 하 여 기존 vm 에서도 사용할 수 있습니다.
+> Azure Policy는 [관리](../governance/policy/how-to/remediate-resources.md)를 사용 하 여 기존 vm 에서도 사용할 수 있습니다.
 
 > [!NOTE]
 >
@@ -55,4 +56,4 @@ ms.locfileid: "77584271"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Policy에 대 한 자세한 정보](https://docs.microsoft.com/azure/governance/policy/overview)
+[Azure Policy에 대 한 자세한 정보](../governance/policy/overview.md)

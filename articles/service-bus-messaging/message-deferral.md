@@ -3,12 +3,13 @@ title: Azure Service Bus-메시지 지연
 description: 이 문서에서는 Azure Service Bus 메시지 배달을 지연 하는 방법을 설명 합니다. 메시지는 큐나 구독에 남아 있지만 따로 분리됩니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341219"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511282"
 ---
 # <a name="message-deferral"></a>메시지 지연
 
@@ -19,6 +20,9 @@ ms.locfileid: "85341219"
 간단한 참고 예제는 일치하는 구매 주문서가 매장에서 결제 처리 시스템으로 전파되기 전에 외부 결제 공급자의 결제 알림이 시스템에 표시되는 주문 처리 시퀀스입니다. 이 경우 결제 처리 시스템은 연결된 주문이 있을 때까지 결제 알림 처리를 연기할 수 있습니다. 여러 다른 원본의 메시지가 워크플로를 구동하는 랑데부 시나리오에서는 실제로 실시간 실행 순서는 올바르지만 결과를 반영하는 메시지의 순서가 맞지 않을 수 있습니다.
 
 궁극적으로, 연기 기능은 처리를 연기해야 하는 메시지를 메시지 저장소에 안전하게 보관하면서, 메시지 순서를 도착 순서에서 처리할 수 있는 순서로 다시 정렬하는 데 도움이 됩니다.
+
+> [!NOTE]
+> 지연 된 메시지는 [만료 된 후](./service-bus-dead-letter-queues.md#exceeding-timetolive)배달 못 한 편지 큐로 자동으로 이동 되지 않습니다. 이 동작은 의도적으로 설계 되었습니다.
 
 ## <a name="message-deferral-apis"></a>메시지 지연 API
 

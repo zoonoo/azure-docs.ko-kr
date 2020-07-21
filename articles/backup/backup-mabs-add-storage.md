@@ -3,11 +3,12 @@ title: Azure Backup Server에서 Modern Backup Storage 사용
 description: Azure Backup Server의 새로운 기능에 대해 알아봅니다. 이 문서에서는 Backup Server 설치를 업그레이드하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172372"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513713"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Server에 스토리지 추가
 
@@ -17,7 +18,7 @@ Azure Backup Server V2 이상은 스토리지를 50% 절약할 수 있고, 백�
 > Modern Backup Storage를 사용하려면 Windows Server 2016에서 Backup Server V2 또는 V3을, Windows Server 2019에서 V3을 실행해야 합니다.
 > Backup Server V2를 이전 버전의 Windows Server에서 실행하면 Azure Backup Server는 Modern Backup Storage를 사용할 수 없습니다. 대신에 Backup Server V1에서 보호하는 것처럼 워크로드를 보호합니다. 자세한 내용은 Backup Server 버전 [보호 매트릭스](backup-mabs-protection-matrix.md)를 참조하세요.
 >
-> 향상 된 백업 성능을 얻으려면 Windows Server 2019에서 계층화 된 저장소를 사용 하 여 MABS v3을 배포 하는 것이 좋습니다. 계층화 된 저장소를 구성 하는 단계에 대 한 자세한 내용은 DPM 문서 "[Tiered Storage으로 Mb 설정](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)"을 참조 하세요.
+> 향상 된 백업 성능을 얻으려면 Windows Server 2019에서 계층화 된 저장소를 사용 하 여 MABS v3을 배포 하는 것이 좋습니다. 계층화 된 저장소를 구성 하는 단계에 대 한 자세한 내용은 DPM 문서 "[Tiered Storage으로 Mb 설정](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)"을 참조 하세요.
 
 ## <a name="volumes-in-backup-server"></a>Backup Server의 볼륨
 
@@ -102,13 +103,13 @@ Modern Backup Storage를 사용하도록 보호 그룹을 업데이트하는 것
 
 1. 관리자 콘솔에서 **보호** 기능을 선택합니다. **보호 그룹 구성원** 목록에서 구성원을 마우스 오른쪽 단추로 클릭하고 **구성원 보호 중지**를 선택합니다.
 
-   ![구성원 보호 중지](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![구성원 보호 중지](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. **그룹에서 제거** 대화 상자에서 스토리지 풀의 사용된 디스크 공간 및 사용 가능한 공간을 검토합니다. 기본값은 디스크에서 복구 지점을 유지하고 관련 보존 정책에 따라 만료되도록 허용하는 것입니다. **확인**을 클릭합니다.
 
    사용된 디스크 공간을 사용 가능한 스토리지 풀로 즉시 반환하려면 **디스크의 복제본 삭제** 확인란을 선택하여 해당 구성원과 연결된 백업 데이터(및 복구 지점)를 삭제합니다.
 
-   ![그룹에서 제거 대화 상자](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![그룹에서 제거 대화 상자](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Modern Backup Storage를 사용하는 보호 그룹을 만듭니다. 보호되지 않는 데이터 원본을 포함합니다.
 
@@ -120,7 +121,7 @@ Backup Server에서 레거시 스토리지를 사용하려면 디스크를 추�
 
 1. 관리자 콘솔에서 **관리**  >  **디스크 저장소**  >  **추가**를 선택 합니다.
 
-    ![디스크 스토리지 추가 대화 상자](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![디스크 스토리지 추가 대화 상자](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. **디스크 스토리지 추가** 대화 상자에서 **디스크 추가**를 선택합니다.
 

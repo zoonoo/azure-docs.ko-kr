@@ -3,12 +3,12 @@ title: FAQ - Azure VM의 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 SAP HANA 데이터베이스를 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170329"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513509"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>자주 묻는 질문 – Azure VM의 SAP HANA 데이터베이스 백업
 
@@ -22,11 +22,11 @@ ms.locfileid: "86170329"
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>성공한 백업 작업에 경고가 만들어지나요?
 
-아니요. 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다. 포털 경고의 상세한 동작은 [여기](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor)에서 확인하세요. 그러나 성공한 작업에 대 한 경고를 포함 하는 경우에는 [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)를 사용할 수 있습니다.
+아니요. 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다. 포털 경고의 상세한 동작은 [여기](./backup-azure-monitoring-built-in-monitor.md)에서 확인하세요. 그러나 성공한 작업에 대 한 경고를 포함 하는 경우에는 [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md)를 사용할 수 있습니다.
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>백업 작업 메뉴에서 예약된 백업 작업을 볼 수 있나요?
 
-백업 작업 메뉴에는 임시 백업 작업만 표시됩니다. 예약된 작업을 보려면 [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)를 사용하세요.
+백업 작업 메뉴에는 임시 백업 작업만 표시됩니다. 예약된 작업을 보려면 [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md)를 사용하세요.
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>이후 데이터베이스가 백업을 위해 자동으로 추가되나요?
 
@@ -51,7 +51,7 @@ SAP HANA 인스턴스에서 데이터베이스를 삭제해도 해당 데이터�
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>SAP HANA를 SDC에서 MDC로 마이그레이션한 후에도 백업이 작동하나요?
 
-문제 해결 가이드의 [이 섹션](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid)을 참조하세요.
+문제 해결 가이드의 [이 섹션](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid)을 참조하세요.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>가상 머신이 아닌 가상 IP(부하 분산 장치)에 대해 Azure HANA 백업을 설정할 수 있나요?
 
@@ -111,7 +111,7 @@ SAP HANA 인스턴스에서 데이터베이스를 삭제해도 해당 데이터�
 
 ### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>내 데이터베이스를 복원하려는 HANA 시스템이 표시되지 않는 이유는 무엇인가요?
 
-대상 SAP HANA 인스턴스로 복원하기 위한 모든 전제 조건이 충족되었는지 확인하세요. 자세한 내용은 [전제 조건 - Azure VM에서 SAP HANA 데이터베이스 복원](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites)을 참조하세요.
+대상 SAP HANA 인스턴스로 복원하기 위한 모든 전제 조건이 충족되었는지 확인하세요. 자세한 내용은 [전제 조건 - Azure VM에서 SAP HANA 데이터베이스 복원](./sap-hana-db-restore.md#prerequisites)을 참조하세요.
 
 ### <a name="why-is-the-overwrite-db-restore-failing-for-my-database"></a>데이터베이스에 대한 덮어쓰기 DB 복원이 실패하는 이유는 무엇인가요?
 
@@ -127,4 +127,4 @@ SAP HANA 인스턴스에서 데이터베이스를 삭제해도 해당 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure VM에서 실행되는 [SAP HANA 데이터베이스를 백업](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)하는 방법을 알아봅니다.
+Azure VM에서 실행되는 [SAP HANA 데이터베이스를 백업](./backup-azure-sap-hana-database.md)하는 방법을 알아봅니다.

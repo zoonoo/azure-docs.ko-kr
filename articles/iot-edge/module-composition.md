@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6a4b90d8b6fe67de26c8e652e0dc5b62cc27023f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd2b9bc462a9d4bc11f49a7e3294e52f88a926fb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545623"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511843"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
 
@@ -38,7 +38,7 @@ Azure IoT Edge 자습서에서는 Azure IoT Edge 포털의 마법사를 통해 �
 
 모든 배포 매니페스트에는 `$edgeAgent` 및 `$edgeHub`라는 두 개의 모듈이 필요합니다. 두 모듈은 IoT Edge 디바이스와 이 디바이스에서 실행되는 모듈을 관리하는 IoT Edge 런타임의 일부입니다. 이러한 모듈에 대한 자세한 내용은 [IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
-두 개의 런타임 모듈 외에도 IoT Edge 디바이스에서 실행할 고유한 모듈을 최대 20개까지 추가할 수 있습니다.
+두 개의 런타임 모듈 외에도 IoT Edge 장치에서 실행할 모듈을 최대 30 개까지 추가할 수 있습니다.
 
 IoT Edge 런타임(edgeAgent 및 edgeHub)만 포함하는 배포 매니페스트가 유효합니다.
 

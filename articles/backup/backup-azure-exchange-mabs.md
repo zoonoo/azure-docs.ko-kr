@@ -4,12 +4,12 @@ description: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e3e89d93ab35724a09138d48863badad6a41b71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80421344"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514121"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 Exchange 서버 백업
 
@@ -23,8 +23,8 @@ ms.locfileid: "80421344"
 
 Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계를 수행합니다.
 
-1. 방화벽이 올바르게 구성되어 있는지 확인합니다. [에이전트에 대한 방화벽 예외 구성](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019)을 참조하세요.
-2. MABS 관리자 콘솔에서 **관리 > 에이전트 > 설치**를 클릭하여 Exchange 서버에 에이전트를 설치합니다. 자세한 단계는 [MABS 보호 에이전트 설치](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019)를 참조하세요.
+1. 방화벽이 올바르게 구성되어 있는지 확인합니다. [에이전트에 대한 방화벽 예외 구성](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019)을 참조하세요.
+2. MABS 관리자 콘솔에서 **관리 > 에이전트 > 설치**를 클릭하여 Exchange 서버에 에이전트를 설치합니다. 자세한 단계는 [MABS 보호 에이전트 설치](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019)를 참조하세요.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Exchange 서버에 보호 그룹 만들기
 
@@ -34,7 +34,7 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 4. 보호하려는 Exchange 서버 데이터베이스를 선택하고 **다음**을 클릭합니다.
 
    > [!NOTE]
-   > Exchange 2013을 보호하는 경우 [Exchange 2013 필수 구성 요소](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016)를 확인합니다.
+   > Exchange 2013을 보호하는 경우 [Exchange 2013 필수 구성 요소](/system-center/dpm/back-up-exchange)를 확인합니다.
    >
    >
 
@@ -68,10 +68,10 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 11. 사용 가능한 디스크 공간을 검토하고 **다음**을 클릭합니다.
 12. MABS 서버에서 초기 복제를 만들 시간을 선택 하 고 **다음**을 클릭 합니다.
 13. 일관성 확인 옵션을 선택하고 **다음**을 클릭합니다.
-14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예:
+14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예를 들면 다음과 같습니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예:
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예를 들면 다음과 같습니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

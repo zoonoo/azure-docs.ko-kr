@@ -9,11 +9,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
-ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b50922d129fb4c72db1d6077a49c4d1309d5fe55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686021"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512982"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
@@ -26,11 +27,11 @@ ms.locfileid: "84686021"
 
 1. Azure Portal의 위쪽 탐색 모음에서 **Azure Cloud Shell** 버튼을 클릭합니다.
 
-   ![](media/quickstart-powershell/shell-icon.png)
+   ![Azure Portal에서 Azure Cloud Shell를 시작 하는 방법을 보여 주는 스크린샷](media/quickstart-powershell/shell-icon.png)
 
 2. 드롭다운에서 PowerShell 환경을 선택하면 Azure 드라이브 `(Azure:)`에 들어가게 됩니다.
 
-   ![](media/quickstart-powershell/environment-ps.png)
+   ![Azure Cloud Shell에 대 한 PowerShell 환경을 선택 하는 방법을 보여 주는 스크린샷](media/quickstart-powershell/environment-ps.png)
 
 ## <a name="run-powershell-commands"></a>PowerShell 명령 실행
 

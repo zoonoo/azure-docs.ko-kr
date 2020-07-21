@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 description: 이 문서에서는 Azure Backup에 대해 이전 및 새 진단 이벤트를 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: be99b73a4dac12c9e70e4cb8a85f34b97f5c42d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 7dbc6d97cd923c75a25eadccef2c2292b10deb41
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854811"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514148"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 
@@ -29,15 +29,15 @@ Azure Backup는 다음과 같은 진단 이벤트를 제공 합니다. 각 이�
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-[레거시 이벤트](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) azurebackupreport를 사용 하는 경우 가장 이른에서 위의 이벤트를 사용 하도록 전환 하는 것이 좋습니다.
+[레거시 이벤트](#legacy-event) azurebackupreport를 사용 하는 경우 가장 이른에서 위의 이벤트를 사용 하도록 전환 하는 것이 좋습니다.
 
-자세한 내용은 [Azure Backup 진단 이벤트에 대 한 데이터 모델](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)을 참조 하세요.
+자세한 내용은 [Azure Backup 진단 이벤트에 대 한 데이터 모델](./backup-azure-reports-data-model.md)을 참조 하세요.
 
 이러한 이벤트에 대 한 데이터는 저장소 계정, Log Analytics 작업 영역 또는 이벤트 허브로 보낼 수 있습니다. 이 데이터를 Log Analytics 작업 영역으로 전송 하는 경우 **진단 설정** 화면에서 **리소스 특정** 설정/해제를 선택 합니다. 자세한 내용은 다음 섹션을 참조하세요.
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>Log Analytics에서 진단 설정 사용
 
-이제 Azure Backup를 사용 하 여 백업에 대 한 전용 Log Analytics 테이블로 자격 증명 모음 진단 데이터를 보낼 수 있습니다. 이러한 테이블을 [리소스 관련 테이블](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific)이라고 합니다.
+이제 Azure Backup를 사용 하 여 백업에 대 한 전용 Log Analytics 테이블로 자격 증명 모음 진단 데이터를 보낼 수 있습니다. 이러한 테이블을 [리소스 관련 테이블](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)이라고 합니다.
 
 자격 증명 모음 진단 데이터를 Log Analytics 전송 하려면 다음을 수행 합니다.
 
@@ -52,23 +52,23 @@ Azure Backup는 다음과 같은 진단 이벤트를 제공 합니다. 각 이�
 데이터가 Log Analytics 작업 영역으로 흐르는 후에는 각 이벤트에 대 한 전용 테이블이 작업 영역에 생성 됩니다. 이러한 테이블을 직접 쿼리할 수 있습니다. 필요한 경우 이러한 테이블 간에 조인이 나 합집합을 수행할 수도 있습니다.
 
 > [!IMPORTANT]
-> 6 개 이벤트, 즉 CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage 및 AddonAzureBackupProtectedInstance은 [백업 보고서](https://docs.microsoft.com/azure/backup/configure-reports)의 리소스 전용 모드 *에서만* 지원 됩니다. *Azure 진단 모드에서 이러한 6 개의 이벤트에 대 한 데이터를 보내려고 하면 백업 보고서에 데이터가 표시 되지 않습니다.*
+> 6 개 이벤트, 즉 CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage 및 AddonAzureBackupProtectedInstance은 [백업 보고서](./configure-reports.md)의 리소스 전용 모드 *에서만* 지원 됩니다. *Azure 진단 모드에서 이러한 6 개의 이벤트에 대 한 데이터를 보내려고 하면 백업 보고서에 데이터가 표시 되지 않습니다.*
 
 ## <a name="legacy-event"></a>레거시 이벤트
 
 일반적으로 자격 증명 모음에 대 한 모든 백업 관련 진단 데이터는 AzureBackupReport 라는 단일 이벤트에 포함 되었습니다. 여기에 설명 된 여섯 가지 이벤트는 기본적으로 AzureBackupReport에 포함 된 모든 데이터를 분해 하는 것입니다.
 
-현재 사용자가이 이벤트에 대 한 기존 사용자 지정 쿼리를가지고 있는 경우 이전 버전과의 호환성을 위해 AzureBackupReport 이벤트를 계속 지원 합니다. 예제는 사용자 지정 로그 경고 및 사용자 지정 시각화입니다. *가능한 한 빨리 [새 이벤트](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) 로 이동 하는 것이 좋습니다*. 새 이벤트:
+현재 사용자가이 이벤트에 대 한 기존 사용자 지정 쿼리를가지고 있는 경우 이전 버전과의 호환성을 위해 AzureBackupReport 이벤트를 계속 지원 합니다. 예제는 사용자 지정 로그 경고 및 사용자 지정 시각화입니다. *가능한 한 빨리 [새 이벤트](#diagnostics-events-available-for-azure-backup-users) 로 이동 하는 것이 좋습니다*. 새 이벤트:
 
 * 로그 쿼리에서 데이터를 훨씬 쉽게 사용할 수 있도록 합니다.
 * 스키마 및 스키마의 구조를 보다 효율적으로 검색할를 제공 합니다.
 * 수집 대기 시간과 쿼리 시간 모두에서 성능을 향상 시킵니다.
 
-*Azure 진단 모드의 레거시 이벤트는 결국 사용 되지 않습니다. 새 이벤트를 선택 하면 나중에 복잡 한 마이그레이션을 피하는 데 도움이 될 수 있습니다*. Log Analytics를 사용 하는 [보고 솔루션](https://docs.microsoft.com/azure/backup/configure-reports) 은 레거시 이벤트의 지원 데이터를 중지 하기도 합니다.
+*Azure 진단 모드의 레거시 이벤트는 결국 사용 되지 않습니다. 새 이벤트를 선택 하면 나중에 복잡 한 마이그레이션을 피하는 데 도움이 될 수 있습니다*. Log Analytics를 사용 하는 [보고 솔루션](./configure-reports.md) 은 레거시 이벤트의 지원 데이터를 중지 하기도 합니다.
 
 ### <a name="steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace"></a>Log Analytics 작업 영역에 대 한 새 진단 설정으로 이동 하는 단계
 
-1. 레거시 이벤트를 사용 하 여 Log Analytics 작업 영역에 데이터를 전송 하는 자격 증명 모음 및 해당 사용자가 속한 구독을 식별 합니다. 다음 작업 영역을 실행 하 여 이러한 자격 증명 모음 및 구독을 식별 합니다.
+1. 레거시 이벤트를 사용 하 여 Log Analytics 작업 영역에 데이터를 전송 하는 자격 증명 모음 및 해당 사용자가 속한 구독을 식별 합니다. 각 작업 영역에서 다음 쿼리를 실행 하 여 이러한 자격 증명 모음 및 구독을 식별 합니다.
 
     ````Kusto
     let RangeStart = startofday(ago(3d));
@@ -84,7 +84,7 @@ Azure Backup는 다음과 같은 진단 이벤트를 제공 합니다. 각 이�
         | project ResourceId, Category};
         // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
     let CombinedVaultTable = (){
-        CombinedTable | union isfuzzy = true
+        union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
         (VaultUnderResourceSpecific() )
         | distinct ResourceId, Category};
@@ -96,7 +96,11 @@ Azure Backup는 다음과 같은 진단 이벤트를 제공 합니다. 각 이�
     | project ResourceId, SubscriptionId, VaultName
     ````
 
-1. Azure Backup에서 [기본 제공 Azure Policy 정의](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) 를 사용 하 여 지정 된 범위의 모든 자격 증명 모음에 대 한 새 진단 설정을 추가 합니다. 이 정책은 진단 설정이 없거나 레거시 진단 설정만 있는 자격 증명 모음에 새 진단 설정을 추가 합니다. 이 정책은 한 번에 전체 구독 또는 리소스 그룹에 할당할 수 있습니다. 정책이 할당 된 각 구독에 대 한 소유자 액세스 권한이 있어야 합니다.
+    다음은 작업 영역 중 하나에서 실행 되는 쿼리의 스크린샷입니다.
+
+    ![작업 영역 쿼리](./media/backup-azure-diagnostics-events/workspace-query.png)
+
+2. Azure Backup에서 [기본 제공 Azure Policy 정의](./azure-policy-configure-diagnostics.md) 를 사용 하 여 지정 된 범위의 모든 자격 증명 모음에 대 한 새 진단 설정을 추가 합니다. 이 정책은 진단 설정이 없거나 레거시 진단 설정만 있는 자격 증명 모음에 새 진단 설정을 추가 합니다. 이 정책은 한 번에 전체 구독 또는 리소스 그룹에 할당할 수 있습니다. 정책이 할당 된 각 구독에 대 한 소유자 액세스 권한이 있어야 합니다.
 
 새 테이블의 데이터를 사용 하기 위해 사용자 지정 쿼리를 모두 마이그레이션할 때까지 AzureBackupReport 및 6 개의 새 이벤트에 대 한 별도 진단 설정을 선택할 수 있습니다. 다음 그림에서는 두 개의 진단 설정이 있는 자격 증명 모음의 예를 보여 줍니다. 첫 번째 설정인 **Setting1**는 AzureBackupReport 이벤트의 데이터를 Azure 진단 모드의 Log Analytics 작업 영역으로 보냅니다. **Setting2**라는 두 번째 설정은 리소스 특정 모드의 Log Analytics 작업 영역에 6 개의 새 Azure Backup 이벤트 데이터를 보냅니다.
 
@@ -126,4 +130,4 @@ Azure Backup 및 Azure Site Recovery 이벤트는 동일한 Recovery Services �
 
 ## <a name="next-steps"></a>다음 단계
 
-[진단 이벤트에 대 한 Log Analytics 데이터 모델 알아보기](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+[진단 이벤트에 대 한 Log Analytics 데이터 모델 알아보기](./backup-azure-reports-data-model.md)

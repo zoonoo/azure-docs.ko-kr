@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 72ba4acd694933db503b01611e63867af99a129f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa8599cbaab6af00d7b4122b94c9e24870881f3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555954"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511333"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Azure 센티널에 Fortinet 연결
 
@@ -36,12 +36,14 @@ Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영
 
 1. Fortinet 어플라이언스에서 CLI를 열고 다음 명령을 실행 합니다.
 
-        config log syslogd setting
-        set format cef
-        set port 514
-        set server <ip_address_of_Receiver>
-        set status enable
-        end
+    ```console
+    config log syslogd setting
+    set format cef
+    set port 514
+    set server <ip_address_of_Receiver>
+    set status enable
+    end
+    ```
 
     - 서버 **ip 주소** 를 에이전트의 ip 주소로 바꿉니다.
     - **Syslog 포트** 를 **514** 로 설정 하거나 에이전트에 설정 된 포트를 설정 합니다.

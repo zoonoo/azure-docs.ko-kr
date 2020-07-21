@@ -10,19 +10,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791200"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511724"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자 지정 역할 만들기 또는 업데이트
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
 [Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 고유한 azure 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Azure Active Directory) 디렉터리에 저장되며 구독에서 공유할 수 있습니다. 각 디렉터리에는 최대 5000 개의 사용자 지정 역할이 있을 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 
@@ -203,17 +204,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
 ### <a name="add-wildcard-permissions"></a>와일드 카드 권한 추가
 
-시작을 선택한 방법에 따라 \* 사용 권한 목록에서 와일드 카드 ()를 사용할 수 있습니다. 와일드 카드 ( \* )는 사용자가 제공 하는 문자열과 일치 하는 모든 항목에 대 한 사용 권한을 확장 합니다. 예를 들어 Azure Cost Management 및 내보내기와 관련 된 모든 권한을 추가 하려고 한다고 가정 합니다. 이러한 사용 권한을 모두 추가할 수 있습니다.
-
-```
-Microsoft.CostManagement/exports/action
-Microsoft.CostManagement/exports/read
-Microsoft.CostManagement/exports/write
-Microsoft.CostManagement/exports/delete
-Microsoft.CostManagement/exports/run/action
-```
-
-이러한 사용 권한을 모두 추가 하는 대신 와일드 카드 사용 권한만 추가할 수 있습니다. 예를 들어 다음 와일드 카드 권한은 이전의 5 개 사용 권한과 같습니다. 여기에는 추가 될 수 있는 이후의 내보내기 권한도 포함 됩니다.
+시작을 선택한 방법에 따라 `*` 사용 권한 목록에서 와일드 카드 ()를 사용할 수 있습니다. 와일드 카드 ( `*` )는 사용자가 제공 하는 동작 문자열과 일치 하는 모든 항목에 대 한 사용 권한을 확장 합니다. 예를 들어 다음 와일드 카드 문자열은 Azure Cost Management 및 내보내기와 관련 된 모든 권한을 추가 합니다. 여기에는 추가 될 수 있는 이후의 내보내기 권한도 포함 됩니다.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -223,7 +214,7 @@ Microsoft.CostManagement/exports/*
 
 ### <a name="exclude-permissions"></a>권한 제외
 
-역할에 와일드 카드 ( \* ) 권한이 있고 해당 와일드 카드 권한에서 특정 사용 권한을 제외 하거나 빼려는 경우 해당 권한을 제외할 수 있습니다. 예를 들어 다음과 같은 와일드 카드 권한이 있다고 가정해 보겠습니다.
+역할에 와일드 카드 ( `*` ) 권한이 있고 해당 와일드 카드 권한에서 특정 사용 권한을 제외 하거나 빼려는 경우 해당 권한을 제외할 수 있습니다. 예를 들어 다음과 같은 와일드 카드 권한이 있다고 가정해 보겠습니다.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -268,7 +259,7 @@ Microsoft.CostManagement/exports/delete
 
 ## <a name="step-6-json"></a>6 단계: JSON
 
-**Json** 탭에서 json으로 형식이 지정 된 사용자 지정 역할을 확인 합니다. 원하는 경우 JSON을 직접 편집할 수 있습니다. 와일드 카드 ( \* ) 권한을 추가 하려면이 탭을 사용 해야 합니다.
+**Json** 탭에서 json으로 형식이 지정 된 사용자 지정 역할을 확인 합니다. 원하는 경우 JSON을 직접 편집할 수 있습니다. 와일드 카드 ( `*` ) 권한을 추가 하려면이 탭을 사용 해야 합니다.
 
 1. JSON을 편집 하려면 **편집**을 클릭 합니다.
 

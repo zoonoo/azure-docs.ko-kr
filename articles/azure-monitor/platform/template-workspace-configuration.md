@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 240a261f8dd401f36ef763e4c1274a1c0760f2dd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81768123"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515651"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리
 
@@ -152,7 +153,7 @@ ms.locfileid: "81768123"
    >* "name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 변수를 인라인 값으로 전달하는 대신 [Resource Manager 매개 변수 파일](../../azure-resource-manager/templates/parameter-files.md)을 만드는 것이 좋습니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) 참조를 검토하세요. 
+2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 변수를 인라인 값으로 전달하는 대신 [Resource Manager 매개 변수 파일](../../azure-resource-manager/templates/parameter-files.md)을 만드는 것이 좋습니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) 참조를 검토하세요. 
 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.
 
@@ -662,7 +663,7 @@ ms.locfileid: "81768123"
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
-#### <a name="command-line"></a>명령줄
+#### <a name="command-line"></a>명령 줄
 
 ```cmd
 azure config mode arm

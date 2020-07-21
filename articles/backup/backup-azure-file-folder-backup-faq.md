@@ -1,18 +1,18 @@
 ---
-title: 파일 및 폴더 백업-일반적인 질문
+title: Microsoft Azure Recovery Services (MARS) 에이전트-FAQ
 description: Azure Backup를 사용 하 여 파일과 폴더를 백업 하는 방법에 대 한 일반적인 질문을 해결 합니다.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056177"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514070"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더 백업에 대한 일반적인 질문
+# <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>MARS (질문과 대답 Microsoft Azure Recovery Services) 에이전트
 
-이 문서에서는 [Azure Backup](backup-overview.md) 서비스에서 MARS (Microsoft Azure Recovery Services) 에이전트로 파일 및 폴더를 백업 하는 일반적인 질문에 대답 abound.
+이 문서에서는 [Azure Backup](backup-overview.md) 서비스에서 MARS (Microsoft Azure Recovery Services) 에이전트로 데이터를 백업 하는 방법에 대 한 일반적인 질문에 답변 합니다.
 
 ## <a name="configure-backups"></a>백업 구성
 
@@ -70,15 +70,15 @@ Windows 컴퓨터의 이름을 바꾸면 현재 구성 된 모든 백업이 중�
 
 * 백업 자격 증명 모음에 새 컴퓨터 이름을 등록 해야 합니다.
 * 자격 증명 모음에 새 이름을 등록 하는 경우 첫 번째 작업은 *전체* 백업입니다.
-* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아봅니다](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>백업의 최대 파일 경로 길이는 얼마 인가요?
 
-MARS 에이전트는 NTFS를 사용 하며 [WINDOWS API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths)에 의해 제한 된 filepath 길이 지정을 사용 합니다. 보호 하려는 파일이 허용 된 값 보다 길면 부모 폴더 또는 디스크 드라이브를 백업 합니다.  
+MARS 에이전트는 NTFS를 사용 하며 [WINDOWS API](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths)에 의해 제한 된 filepath 길이 지정을 사용 합니다. 보호 하려는 파일이 허용 된 값 보다 길면 부모 폴더 또는 디스크 드라이브를 백업 합니다.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>파일 경로에 허용 되는 문자는 무엇입니까?
 
-MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 되는 문자](/windows/desktop/FileIO/naming-a-file#naming-conventions) 를 허용 합니다.
+MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 되는 문자](/windows/win32/FileIO/naming-a-file#naming-conventions) 를 허용 합니다.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>"이 서버에 대해 Azure backup이 구성 되지 않았습니다." 라는 경고가 나타납니다.
 
@@ -91,7 +91,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder"></a>캐시 폴더의 최소 크기 요구 사항은 무엇인가요?
 
-캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다.
+캐시 폴더의 크기는 백업 중인 데이터의 양을 결정 합니다.
 
 * 캐시 폴더 볼륨에는 백업 데이터의 총 크기 중 5-10% 이상에 해당 하는 여유 공간이 있어야 합니다.
 * 볼륨의 사용 가능한 공간이 5% 미만이 면 볼륨 크기를 늘리거나 캐시 폴더를 공간이 충분 한 볼륨으로 이동 합니다. [이 단계](#how-do-i-change-the-cache-location-for-the-mars-agent)를 수행 합니다.
@@ -141,7 +141,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>지원 되지 않는 캐시 폴더의 특성이 있나요?
 
-다음과 같은 특성 또는 해당 조합은 캐시 폴더에 지원되지 않습니다.
+다음 특성 또는 해당 조합은 캐시 폴더에 대해 지원 되지 않습니다.
 
 * 암호화됨
 * 중복 제거
@@ -153,7 +153,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>백업에 사용 되는 대역폭의 양을 조정 하는 방법이 있나요?
 
-예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아보기](backup-windows-with-mars-agent.md#enable-network-throttling).
+예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아봅니다](backup-windows-with-mars-agent.md#enable-network-throttling).
 
 ## <a name="restore"></a>복원
 
@@ -165,17 +165,17 @@ Azure Backup 에이전트에는 복원 중에 백업 된 데이터의 암호를 
 
 | 원본 컴퓨터 <br> *(백업이 수행 된 원본 컴퓨터)* | 암호 | 사용 가능한 옵션 |
 | --- | --- | --- |
-| 사용 가능 |실패 |원래 컴퓨터 (백업이 수행 된 위치)를 사용할 수 있고 동일한 Recovery Services 자격 증명 모음에 등록 되어 있는 경우 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase)를 수행 하 여 암호를 다시 생성할 수 있습니다.  |
-| 실패 |실패 |데이터를 복구할 수 없거나 데이터를 사용할 수 없습니다. |
+| 사용 가능 |실패 |원래 컴퓨터 (백업이 수행 된 위치)를 사용할 수 있고 동일한 Recovery Services 자격 증명 모음에 등록 되어 있는 경우 다음 [단계](./backup-azure-manage-mars.md#re-generate-passphrase)를 수행 하 여 암호를 다시 생성할 수 있습니다.  |
+| 실패 |실패 |데이터 또는 데이터를 복구할 수 없습니다. |
 
 다음 조건을 확인합니다.
 
 * 동일한 원래 컴퓨터에서 에이전트를 제거 하 고 다시 등록 하는 경우
-  * 그러면 백업 *데이터를 복원할*수 있습니다.
-  * *다른 암호*를 사용할 경우에는 백업 데이터를 복원할 수 없습니다.
+  * 백업 *데이터를 복원할*수 있습니다.
+  * *다른 암호*를 사용할 경우 백업한 데이터를 복원할 수 없습니다.
 * 를 사용 하 여 *다른 컴퓨터* 에 에이전트를 설치 하는 경우
-  * 원본 컴퓨터에서 사용 되는 것 *과 동일한 암호* 를 사용 하 여 백업 된 데이터를 복원할 수 있습니다.
-  * *암호를 다르게*설정 하는 경우 백업 데이터를 복원할 수 없습니다.
+  * 원본 컴퓨터에서 사용 되는 *동일한 암호* 를 사용 하 여 백업 된 데이터를 복원할 수 있습니다.
+  * *다른 암호*를 사용할 경우 백업한 데이터를 복원할 수 없습니다.
 * 원래 컴퓨터가 손상 된 경우 (MARS 콘솔을 통해 암호를 다시 생성 하지 않도록 방지) MARS 에이전트에서 사용 하는 원래 스크래치 폴더를 복원 하거나 액세스할 수 있는 경우에는 (암호를 잊어버린 경우) 복원할 수 있습니다. 추가 지원이 필요한 경우 고객 지원에 문의 하세요.
 
 #### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>원본 컴퓨터가 손실 된 경우 (백업이 수행 된 위치) 복구 어떻게 할까요?
@@ -184,8 +184,8 @@ Azure Backup 에이전트에는 복원 중에 백업 된 데이터의 암호를 
 
 | 원본 컴퓨터 | 암호 | 사용 가능한 옵션 |
 | --- | --- | --- |
-| 실패 |사용 가능 |원래 컴퓨터를 등록할 때 제공한 것과 동일한 암호를 사용 하 여 다른 컴퓨터에 MARS 에이전트를 설치 하 고 등록할 수 있습니다. **복구 옵션**  >  **Another location** 을 선택 하 여 복원을 수행 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine)를 참조하세요.
-| 실패 |실패 |데이터를 복구할 수 없거나 데이터를 사용할 수 없습니다. |
+| 실패 |사용 가능 |원래 컴퓨터를 등록할 때 제공한 것과 동일한 암호를 사용 하 여 다른 컴퓨터에 MARS 에이전트를 설치 하 고 등록할 수 있습니다. **복구 옵션**  >  **Another location** 을 선택 하 여 복원을 수행 합니다. 자세한 내용은 [이 문서](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)를 참조하세요.
+| 실패 |실패 |데이터 또는 데이터를 복구할 수 없습니다. |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>백업 작업이 실패 하거나 오랜 시간 동안 실행 되 고 있지 않습니다. 보존 기간을 초과 했습니다. 그래도 복원할 수 있나요?
 

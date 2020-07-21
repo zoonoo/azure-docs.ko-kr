@@ -4,11 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 자격 증명 모음
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248229"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513118"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 구성 업데이트
 
@@ -24,7 +25,7 @@ ms.locfileid: "84248229"
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>REST API를 사용 하 여 일시 삭제 상태 페치
 
-기본적으로 새로 만든 Recovery Services 자격 증명 모음에 대해 일시 삭제 상태가 사용 됩니다. 자격 증명 모음에 대 한 일시 삭제 상태를 인출/업데이트 하려면 백업 자격 증명 모음 관련 [REST API 문서](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs) 를 사용 합니다.
+기본적으로 새로 만든 Recovery Services 자격 증명 모음에 대해 일시 삭제 상태가 사용 됩니다. 자격 증명 모음에 대 한 일시 삭제 상태를 인출/업데이트 하려면 백업 자격 증명 모음 관련 [REST API 문서](/rest/api/backup/backupresourcevaultconfigs) 를 사용 합니다.
 
 자격 증명 모음에 대 한 일시 삭제의 현재 상태를 인출 하려면 다음 *가져오기* 작업을 사용 합니다.
 
@@ -44,7 +45,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 |이름  |Type  |설명  |
 |---------|---------|---------|
-|200 정상     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
+|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 
 ##### <a name="example-response"></a>예제 응답
 
@@ -80,13 +81,13 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 다음 일반 정의는 요청 본문을 만드는 데 사용 됩니다.
 
-자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) 를 참조 하세요.
+자세한 내용은 [REST API 설명서](/rest/api/backup/backupresourcevaultconfigs/update#request-body) 를 참조 하세요.
 
 |이름  |필수  |형식  |설명  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  선택적 eTag       |
 |위치     |  true       |String         |   리소스 위치      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  자격 증명 모음의 속성       |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  자격 증명 모음의 속성       |
 |tags     |         | Object        |     리소스 태그    |
 
 #### <a name="example-request-body"></a>요청 본문 예제
@@ -108,7 +109,7 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 |이름  |Type  |설명  |
 |---------|---------|---------|
-|200 정상     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
+|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 
 ##### <a name="example-response"></a>예제 응답
 

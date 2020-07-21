@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: fc6ab2c9c844350e83674ed96a0e79289c7f5b43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e1f98cffd17d0a8823cc5849830667fcdad1212
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515226"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Azure SQL Edge (미리 보기)에서 Azure Stream Analytics 작업 만들기 
 
@@ -43,7 +43,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 |------------------|-------|--------|------------------|
 | Azure IoT Edge 허브 | 지원 | 지원 | 스트리밍 데이터를 읽고 Azure IoT Edge 허브에 쓰기 위한 데이터 원본입니다. 자세한 내용은 [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)를 참조 하세요.|
 | SQL Database | N | 지원 | SQL Database에 스트리밍 데이터를 쓰는 데이터 원본 연결입니다. 데이터베이스는 Azure SQL Edge의 로컬 데이터베이스 이거나 SQL Server 또는 Azure SQL Database의 원격 데이터베이스 일 수 있습니다.|
-| Azure Blob 스토리지 | N | Y | Azure 스토리지 계정의 BLOB에 데이터를 쓰는 데이터 원본입니다. |
+| Azure Blob Storage | N | Y | Azure 스토리지 계정의 BLOB에 데이터를 쓰는 데이터 원본입니다. |
 | Kafka | Y | N | Kafka 토픽에서 스트리밍 데이터를 읽는 데이터 원본입니다. 이 어댑터는 현재 Intel 또는 AMD 버전의 Azure SQL Edge 에서만 사용할 수 있습니다. Azure SQL Edge의 ARM64 버전에는 사용할 수 없습니다.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>예: Azure IoT Edge hub에 대 한 외부 스트림 입력/출력 개체 만들기
@@ -153,7 +153,7 @@ SELECT
 Timestamp as [Time],
 [Temperature] As [Temperature],
 GetRecordPropertyValue(AnomalyDetection_ChangePoint(Temperature, 80, 1200) OVER(LIMIT DURATION(minute, 20)), ''Score'') as ChangePointScore,
-GetRecordPropertyValue(AnomalyDetection_ChangePoint(Temperature, 80, 1200) OVER(LIMIT DURATION(minute, 20)), ''IsAnomaly'') as IsChangePointAnomaly,
+GetRecordPropertyValue(AnomalyDetection_ChangePoint(Temperature, 80, 1200) OVER(LIMIT DURATION(minute, 20)), ''IsAnomaly'') as IsChangePointAnomaly
 INTO TemperatureAnomalies FROM MyEdgeHubInput2;
 '
 go
@@ -205,7 +205,7 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 | 처리 중 | 스트리밍 작업이 실행 중이며 입력을 처리하고 있습니다. 이 상태는 스트리밍 작업이 정상임을 나타냅니다. |
 | 성능 저하됨 | 스트리밍 작업이 실행 중이지만 입력 처리 중에 치명적이 지 않은 오류가 발생 했습니다. 입력 작업은 계속 실행되지만 오류가 발생하는 입력은 삭제됩니다. |
 | 중지됨 | 스트리밍 작업이 중지되었습니다. |
-| 실패 | 스트리밍 작업이 실패 했습니다. 일반적으로 처리하는 동안 치명적인 오류가 발생했음을 나타냅니다. |
+| Failed | 스트리밍 작업이 실패 했습니다. 일반적으로 처리하는 동안 치명적인 오류가 발생했음을 나타냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

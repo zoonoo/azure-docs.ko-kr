@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055259"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514308"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -42,10 +42,10 @@ Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습�
 - 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다.
 - 각 Azure 구독에서 최대 500개의 자격 증명 모음을 만들 수 있습니다.
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
-- Azure [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하여 자격 증명 모음 액세스를 관리할 수 있습니다.
+- Azure [RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용하여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아봅니다](../storage/common/storage-redundancy.md).
+  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아봅니다](../storage/common/storage-redundancy.md).
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용 합니다.
 
 ## <a name="backup-agents"></a>백업 에이전트
@@ -64,8 +64,8 @@ Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 **백업 유형** | **세부 정보** | **사용 현황**
 --- | --- | ---
 **전체** | 전체 백업은 전체 데이터 원본을 포함 합니다. 차등 또는 증분 백업 보다 더 많은 네트워크 대역폭을 사용 합니다. | 초기 백업에 사용됩니다.
-**차등** |  차등 백업은 초기 전체 백업 이후 변경 된 블록을 저장 합니다. 는 더 적은 양의 네트워크와 저장소를 사용 하며 변경 되지 않은 데이터의 중복 복사본을 유지 하지 않습니다.<br/><br/> 이후 백업 간에 변경 되지 않은 데이터 블록은 전송 되 고 저장 되기 때문에 비효율적입니다. | Azure Backup에서 사용되지 않습니다.
-**증분** | 증분 백업은 이전 백업 이후에 변경 된 데이터 블록만 저장 합니다. 스토리지 및 네트워크 효율성이 높습니다. <br/><br/> 증분 백업에서는 전체 백업을 보완 하지 않아도 됩니다. | DPM/MABS에서 디스크 백업에 사용되며 Azure에 대한 모든 백업에서 사용됩니다. SQL Server 백업에는 사용 되지 않습니다.
+**큰** |  차등 백업은 초기 전체 백업 이후 변경 된 블록을 저장 합니다. 는 더 적은 양의 네트워크와 저장소를 사용 하며 변경 되지 않은 데이터의 중복 복사본을 유지 하지 않습니다.<br/><br/> 이후 백업 간에 변경 되지 않은 데이터 블록은 전송 되 고 저장 되기 때문에 비효율적입니다. | Azure Backup에서 사용되지 않습니다.
+**대비** | 증분 백업은 이전 백업 이후에 변경 된 데이터 블록만 저장 합니다. 스토리지 및 네트워크 효율성이 높습니다. <br/><br/> 증분 백업에서는 전체 백업을 보완 하지 않아도 됩니다. | DPM/MABS에서 디스크 백업에 사용되며 Azure에 대한 모든 백업에서 사용됩니다. SQL Server 백업에는 사용 되지 않습니다.
 
 ## <a name="sql-server-backup-types"></a>SQL Server 백업 유형
 
@@ -120,6 +120,17 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
 - 자격 증명 모음을 만들면 "DefaultPolicy"도 만들어지고 리소스를 백업 하는 데 사용할 수 있습니다.
 - 백업 정책의 보존 기간에 대 한 변경 내용은 새 복구 지점이 아닌 모든 이전 복구 소급 적용 됩니다.
 
+### <a name="additional-reference"></a>추가 참조 
+
+-   Azure VM 컴퓨터: 정책을 [만들고](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) [수정](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) 하는 방법 
+-   Azure VM 컴퓨터의 SQL Server 데이터베이스: 정책을 [만들고](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) [수정](./manage-monitor-sql-database-backup.md#modify-policy) 하는 방법 
+-   Azure 파일 공유: 정책을 [만들고](./backup-afs.md#discover-file-shares-and-configure-backup) [수정](./manage-afs-backup.md#modify-policy) 하는 방법 
+-   SAP HANA: 정책을 [만들고](./backup-azure-sap-hana-database.md#create-a-backup-policy) [수정](./sap-hana-db-manage.md#change-policy) 하는 방법 
+-   MARS: 정책을 [만들고](./backup-windows-with-mars-agent.md#create-a-backup-policy) [수정](./backup-azure-manage-mars.md#modify-a-backup-policy) 하는 방법 
+-   [워크 로드 유형에 따라 백업 예약에 대 한 제한이 있나요?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [보존 정책을 변경 하는 경우 기존 복구 지점은 어떻게 되나요?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+
+
 ## <a name="architecture-built-in-azure-vm-backup"></a>아키텍처: 기본 제공 Azure VM 백업
 
 1. Azure VM에 대 한 백업을 사용 하도록 설정 하면 지정한 일정에 따라 백업이 실행 됩니다.
@@ -134,7 +145,7 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
     - 마지막 백업 이후에 변경 된 데이터 블록만 복사 됩니다.
     - 데이터가 암호화되지 않습니다. Azure Backup Azure Disk Encryption를 사용 하 여 암호화 된 Azure Vm을 백업할 수 있습니다.
     - 스냅샷 데이터가 자격 증명 모음에 즉시 복사되지 않을 수 있습니다. 사용량이 많은 시간에 백업은 약간의 시간이 걸릴 수 있습니다. 일별 백업 정책에서 VM의 총 백업 시간은 24 시간 미만입니다.
-1. 자격 증명 모음에 데이터가 전송 된 후에는 복구 지점이 생성 됩니다. 기본적으로 스냅숏은 삭제 되기 2 일 동안 보존 됩니다. 이 기능을 통해 이러한 스냅숏에서 복원 작업을 수행할 수 있으므로 복원 시간이 줄어듭니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다. [Azure Backup 인스턴트 복원 기능](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability)을 참조 하세요.
+1. 자격 증명 모음에 데이터가 전송 된 후에는 복구 지점이 생성 됩니다. 기본적으로 스냅숏은 삭제 되기 2 일 동안 보존 됩니다. 이 기능을 통해 이러한 스냅숏에서 복원 작업을 수행할 수 있으므로 복원 시간이 줄어듭니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다. [Azure Backup 인스턴트 복원 기능](./backup-instant-restore-capability.md)을 참조 하세요.
 
 Azure Vm을 백업 하기 위해 인터넷 연결을 명시적으로 허용 하지 않아도 됩니다.
 

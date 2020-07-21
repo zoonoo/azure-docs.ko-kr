@@ -3,17 +3,18 @@ title: System Center Data Protection Manager 문제 해결
 description: 이 문서에서는 System Center Data Protection Manager를 사용 하는 동안 발생할 수 있는 문제에 대 한 해결 방법을 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 01/30/2019
-ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84646f34d905b570855f655465529eb19b717cab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75664757"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513815"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>System Center Data Protection Manager 문제 해결
 
 이 문서에서는 Data Protection Manager를 사용하는 동안 발생할 수 있는 문제 해결 방법을 설명합니다.
 
-System Center Data Protection Manager의 최신 릴리스 정보는 [System Center 설명서](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016)를 참조하세요. Data Protection Manager 지원에 대한 내용은 [이 지원표](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016)에서 확인할 수 있습니다.
+System Center Data Protection Manager의 최신 릴리스 정보는 [System Center 설명서](/system-center/dpm/dpm-release-notes)를 참조하세요. Data Protection Manager 지원에 대한 내용은 [이 지원표](/system-center/dpm/dpm-protection-matrix)에서 확인할 수 있습니다.
 
 ## <a name="error-replica-is-inconsistent"></a>오류: 복제본이 일치하지 않습니다.
 

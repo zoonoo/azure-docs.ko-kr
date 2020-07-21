@@ -3,17 +3,17 @@ title: Azure Private Link 서비스와 Azure Event Hubs 통합
 description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방법을 알아봅니다.
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312822"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512261"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Azure Private Link와 Azure Event Hubs 통합
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트**를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
 
-프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
+프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 개인 끝점은 가상 네트워크의 개인 IP 주소를 사용 하 여 서비스를 가상 네트워크에 효과적으로 제공 합니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
 자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
 
@@ -58,10 +58,13 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
 2. 검색 표시줄에 **event hubs**를 입력합니다.
 3. 목록에서 프라이빗 엔드포인트를 추가하려는 **네임스페이스**를 선택합니다.
 4. **설정** 아래에서 **네트워킹** 탭을 선택합니다.
-5. 페이지 위쪽에서 **프라이빗 엔드포인트 연결** 탭을 선택합니다. 
-6. 페이지 위쪽에서 **+ 프라이빗 엔드포인트** 단추를 선택합니다.
 
-    ![이미지](./media/private-link-service/private-link-service-3.png)
+    > [!NOTE]
+    > **표준** 또는 **전용** 네임 스페이스에 대 한 **네트워킹** 탭만 표시 됩니다. 
+1. 페이지 위쪽에서 **프라이빗 엔드포인트 연결** 탭을 선택합니다. 
+1. 페이지 위쪽에서 **+ 프라이빗 엔드포인트** 단추를 선택합니다.
+
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="네트워킹 페이지-개인 끝점 연결 탭-개인 끝점 추가 링크":::
 7. **기본** 페이지에서 다음 단계를 수행합니다. 
     1. 프라이빗 엔드포인트를 만들려는 **Azure 구독**을 선택합니다. 
     2. 프라이빗 엔드포인트 리소스에 대한 **리소스 그룹**을 선택합니다.

@@ -3,15 +3,15 @@ title: 샘플 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 GitHub에 있는 Azure Event Hubs에 대한 샘플 목록을 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9529b11d15460c713a0ae14f3bccfa1c2684a3ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d7a40e399482af0ad3a501918a7e3307d724c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315512"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512302"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Azure Event Hubs에 대한 샘플이 있는 Git 리포지토리 
-[GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)에 대한 Event Hubs 샘플을 찾을 수 있습니다. 이러한 샘플은 [Azure Event Hubs](/azure/event-hubs/)의 주요 기능을 보여줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
+[GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)에 대한 Event Hubs 샘플을 찾을 수 있습니다. 이러한 샘플은 [Azure Event Hubs](./index.yml)의 주요 기능을 보여줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
 
 ## <a name="net-samples"></a>.NET 샘플
 
@@ -57,6 +57,6 @@ ms.locfileid: "85315512"
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Event Hubs 개요](event-hubs-what-is-event-hubs.md)
+- [Event Hubs 개요](./event-hubs-about.md)
 - [Event Hubs 기능](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)

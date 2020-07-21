@@ -4,15 +4,16 @@ description: Azure 파일 공유를 백업할 때 지원 설정 및 제한 사�
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806874"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514557"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Azure 파일 공유 백업에 대한 지원 매트릭스
 
-[Azure Backup 서비스](https://docs.microsoft.com/azure/backup/backup-overview)를 사용하여 Azure 파일 공유를 백업할 수 있습니다. 이 문서에서는 Azure Backup을 사용하여 Azure 파일 공유를 백업할 때의 지원 설정을 요약해서 설명합니다.
+[Azure Backup 서비스](./backup-overview.md)를 사용하여 Azure 파일 공유를 백업할 수 있습니다. 이 문서에서는 Azure Backup을 사용하여 Azure 파일 공유를 백업할 때의 지원 설정을 요약해서 설명합니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
@@ -22,11 +23,11 @@ Azure 파일 공유 백업은 독일 중부 (소 버린), 독일 북동쪽 (소 
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>실수로 인 한 삭제 방지를 위해 지원 되는 지역
 
-미국 서 부 중부, 오스트레일리아 동부, 캐나다 중부
+미국 서 부 중부, 오스트레일리아 동부, 캐나다 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 일본 동부, 브라질 남부, 미국 중 북부, 오스트레일리아 동부, 미국 동부, 미국 동부 2
 
 ## <a name="supported-storage-accounts"></a>지원되는 스토리지 계정
 
-| 스토리지 계정 세부 정보 | Support(지원)                                                      |
+| 스토리지 계정 세부 정보 | 지원                                                      |
 | ------------------------ | ------------------------------------------------------------ |
 | 계정 종류            | Azure Backup은 범용 v1, 범용 v2 및 파일 스토리지 유형 스토리지 계정에 있는 Azure 파일 공유를 지원합니다. |
 | 성능              | Azure Backup은 표준 및 Premium Storage 계정 모두에서 파일 공유를 지원합니다. |

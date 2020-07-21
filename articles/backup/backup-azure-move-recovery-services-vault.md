@@ -3,12 +3,13 @@ title: 자격 증명 모음 Azure Backup Recovery Services 이동 하는 방법
 description: Azure 구독 및 리소스 그룹에서 recovery services 자격 증명 모음을 이동 하는 방법에 대 한 지침입니다.
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 9373ea41c3cd5d35c86b8b306a20b5c106105217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 40ef55fa3b86856051b840c5d88ab8fadae3b7c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368229"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514104"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
@@ -16,7 +17,7 @@ ms.locfileid: "85368229"
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트레일리아 동부에서 지원 됩니다. 오스트레일리아 동부, 캐나다 중부, 캐나다 동부, 남부 동아시아, 동아시아, 미국 중부, 미국 중 북부, 미국 동부, 미국 서 부, 미국 서 부, 미국 서 부, 미국 서 부, 인도 중부, 인도 서 부, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 북부, 유럽 서부, 남아프리카 공화국 북부 , 남아프리카 서 부, 영국 남부 및 영국 서부.
+Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트레일리아 동부에서 지원 됩니다. 오스트레일리아 남부 동부, 캐나다 중부, 캐나다 동부, 남부 동아시아, 동아시아, 미국 중부, 미국 중 북부, 미국 동부, 미국 동부 2, 미국 서 부, 미국 서 부, 인도 중부, 인도 서 부, 인도 서 부 2, 인도 서 부, 인도 남부, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 북부 유럽 , 유럽 서부, 남아프리카 북, 남아프리카 공화국 서 부, 영국 남부 및 영국 서부.
 
 ## <a name="unsupported-regions"></a>지원되지 않는 지역
 
@@ -24,7 +25,7 @@ Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트�
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Recovery Services 자격 증명 모음 이동에 대 한 필수 조건
 
-- 리소스 그룹 간 자격 증명 모음 이동 중에는 쓰기 및 삭제 작업을 방지 하기 위해 원본 및 대상 리소스 그룹이 모두 잠깁니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)를 참조하세요.
+- 리소스 그룹 간 자격 증명 모음 이동 중에는 쓰기 및 삭제 작업을 방지 하기 위해 원본 및 대상 리소스 그룹이 모두 잠깁니다. 자세한 내용은 [이 문서](../azure-resource-manager/management/move-resource-group-and-subscription.md)를 참조하세요.
 - 자격 증명 모음을 이동할 수 있는 권한은 관리자 구독에만 있습니다.
 - 구독에서 자격 증명 모음을 이동 하는 경우 대상 구독은 원본 구독과 동일한 테 넌 트에 상주해 야 하며 상태를 사용 하도록 설정 해야 합니다.
 - 대상 리소스 그룹에 쓰기 작업을 수행할 수 있는 권한이 있어야 합니다.
@@ -34,7 +35,7 @@ Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트�
 - VM을 자격 증명 모음과 함께 이동했는지 여부에 관계없이 자격 증명 모음의 유지된 백업 기록에서 항상 VM을 복원할 수 있습니다.
 - Azure Disk Encryption 키 자격 증명 모음 및 Vm이 동일한 Azure 지역 및 구독에 있어야 합니다.
 - 관리 디스크가 있는 가상 머신을 이동하려면 이 [문서](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/)를 참조하세요.
-- 클래식 모델을 통해 배포 된 리소스를 이동 하는 옵션은 구독 내에서 리소스를 이동 하는지 아니면 새 구독으로 이동 하는지에 따라 달라 집니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)를 참조하세요.
+- 클래식 모델을 통해 배포 된 리소스를 이동 하는 옵션은 구독 내에서 리소스를 이동 하는지 아니면 새 구독으로 이동 하는지에 따라 달라 집니다. 자세한 내용은 [이 문서](../azure-resource-manager/management/move-resource-group-and-subscription.md)를 참조하세요.
 - 자격 증명 모음에 대해 정의된 백업 정책은 자격 증명 모음이 구독 간에 또는 새 리소스 그룹으로 이동 후에 유지됩니다.
 - 다음 유형의 백업 항목을 포함 하는 자격 증명 모음만 이동할 수 있습니다. 아래에 나열 되지 않은 유형의 백업 항목은 모두 중지 되어야 하며 데이터는 자격 증명 모음을 이동 하기 전에 영구적으로 삭제 해야 합니다.
   - Azure Virtual Machines
@@ -45,7 +46,7 @@ Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트�
 
 > [!NOTE]
 > Azure 지역에서 Azure Backup에 대 한 Recovery Services 자격 증명 모음 이동은 지원 되지 않습니다.<br><br>
-> **Azure Site Recovery**를 사용 하 여 재해 복구를 위해 Vm (Azure IaaS, Hyper-v, VMware) 또는 물리적 컴퓨터를 구성한 경우 이동 작업이 차단 됩니다. Azure Site Recovery 자격 증명 모음을 이동 하려면 [이 문서](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) 를 검토 하 여 자격 증명 모음을 수동으로 이동 하는 방법에 대해 알아보세요.
+> **Azure Site Recovery**를 사용 하 여 재해 복구를 위해 Vm (Azure IaaS, Hyper-v, VMware) 또는 물리적 컴퓨터를 구성한 경우 이동 작업이 차단 됩니다. Azure Site Recovery 자격 증명 모음을 이동 하려면 [이 문서](../site-recovery/move-vaults-across-regions.md) 를 검토 하 여 자격 증명 모음을 수동으로 이동 하는 방법에 대해 알아보세요.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Azure Portal를 사용 하 여 Recovery Services 자격 증명 모음을 다른 리소스 그룹으로 이동
 
@@ -146,4 +147,4 @@ az resource move --destination-group <destinationResourceGroupName> --ids <Vault
 
 리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다.
 
-자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)을 참조하세요.
+자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.

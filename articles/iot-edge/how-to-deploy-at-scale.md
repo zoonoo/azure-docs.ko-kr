@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82134417"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512013"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal를 사용 하 여 규모에 IoT Edge 모듈 배포
 
@@ -61,7 +61,7 @@ IoT Edge는 시나리오를 사용자 지정 하는 데 사용할 수 있는 두
 
 ### <a name="step-2-modules"></a>2 단계: 모듈
 
-최대 20 개의 모듈을 배포에 추가할 수 있습니다. 모듈이 없는 배포를 만드는 경우 대상 장치에서 모든 현재 모듈을 제거 합니다.
+최대 30 개의 모듈을 배포에 추가할 수 있습니다. 모듈이 없는 배포를 만드는 경우 대상 장치에서 모든 현재 모듈을 제거 합니다.
 
 배포에서 IoT Edge 에이전트 및 IoT Edge 허브 모듈의 설정을 관리할 수 있습니다. **런타임 설정** 을 선택 하 여 두 개의 런타임 모듈을 구성 합니다. 계층화 된 배포에서는 런타임 모듈이 포함 되지 않으므로 구성할 수 없습니다.
 
@@ -175,7 +175,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 * 대상 조건
 * 사용자 지정 메트릭
-* 레이블
+* 레이블입니다.
 * 태그
 * Desired 속성
 
@@ -209,7 +209,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 1. 확인란을 사용하여 삭제하려는 배포를 선택합니다.
 1. **삭제**를 선택합니다.
-1. 이 작업으로 이 배포가 삭제되고 모든 디바이스에 대한 이전 상태로 되돌릴 것임을 알리는 메시지가 표시됩니다.낮은 우선 순위의 배포가 적용 됩니다.다른 배포가 대상으로 지정되지 않으면 모듈이 제거되지 않습니다. 디바이스에서 모든 모듈을 제거하려는 경우 모듈이 없는 배포를 만들어서 동일한 디바이스에 배포합니다.**예**를 선택하여 계속합니다.
+1. 이 작업으로 이 배포가 삭제되고 모든 디바이스에 대한 이전 상태로 되돌릴 것임을 알리는 메시지가 표시됩니다.낮은 우선 순위의 배포가 적용 됩니다.다른 배포가 대상으로 지정되지 않으면 모듈이 제거되지 않습니다. 디바이스에서 모든 모듈을 제거하려는 경우 모듈이 없는 배포를 만들어서 동일한 디바이스에 배포합니다.계속하려면 **예**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

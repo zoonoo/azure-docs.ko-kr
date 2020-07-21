@@ -3,11 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484970"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513628"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -17,7 +18,7 @@ ms.locfileid: "84484970"
 - 백업 및 복원을 감사합니다.
 - 여러 세분성 수준에서 주요 추세를 확인합니다.
 
-현재 Azure Backup은 [Azure Monitor 로그](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) 및 [Azure 통합 문서](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)를 사용하는 보고 솔루션을 제공합니다. 이러한 리소스를 통해 전체 백업 자산의 백업에 대한 풍부한 인사이트를 얻을 수 있습니다. 이 문서에서는 Azure Backup 보고서를 구성하고 보는 방법을 설명합니다.
+현재 Azure Backup은 [Azure Monitor 로그](../azure-monitor/log-query/get-started-portal.md) 및 [Azure 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 사용하는 보고 솔루션을 제공합니다. 이러한 리소스를 통해 전체 백업 자산의 백업에 대한 풍부한 인사이트를 얻을 수 있습니다. 이 문서에서는 Azure Backup 보고서를 구성하고 보는 방법을 설명합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -25,7 +26,7 @@ ms.locfileid: "84484970"
 - DPM 워크로드의 경우 DPM 버전 5.1.363.0 이상 및 에이전트 버전 2.0.9127.0 이상에서 Backup 보고서가 지원됩니다.
 - MABS 워크로드의 경우 MABS 버전 13.0.415.0 이상 및 에이전트 버전 2.0.9170.0 이상에서 Backup 보고서가 지원됩니다.
 - 사용자가 액세스할 수 있는 Log Analytics 작업 영역으로 데이터가 전송되는 모든 백업 항목, 자격 증명 모음, 구독 및 지역에서 Backup 보고서를 볼 수 있습니다. 자격 증명 모음 집합에 대한 보고서를 보려면 자격 증명 모음이 데이터를 보내는 Log Analytics 작업 영역에 대한 읽기 권한만 있으면 됩니다. 개별 자격 증명 모음에 대한 액세스 권한은 필요 없습니다.
-- 고객의 구독에 대한 위임된 액세스 권한이 있는 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) 사용자인 경우 Azure Lighthouse에서 이러한 보고서를 사용하여 모든 테넌트의 보고서를 볼 수 있습니다.
+- 고객의 구독에 대한 위임된 액세스 권한이 있는 [Azure Lighthouse](../lighthouse/index.yml) 사용자인 경우 Azure Lighthouse에서 이러한 보고서를 사용하여 모든 테넌트의 보고서를 볼 수 있습니다.
 - 현재는 최대 100개 Log Analytics 작업 영역(테넌트 전체)에서 Backup 보고서를 통해 데이터를 볼 수 있습니다.
 - 로그 백업 작업에 대한 데이터는 현재 보고서에 표시되지 않습니다.
 
@@ -37,22 +38,22 @@ ms.locfileid: "84484970"
 
 Backup 보고 데이터를 저장할 Log Analytics 작업 영역을 하나 이상 설정합니다. 이 Log Analytics 작업 영역을 만들 수 있는 위치 및 구독은 자격 증명 모음이 있는 위치 및 구독과는 독립적입니다.
 
-Log Analytics 작업 영역을 설정하려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)를 참조하세요.
+Log Analytics 작업 영역을 설정하려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조하세요.
 
-기본적으로 Log Analytics 작업 영역의 데이터는 30일 동안 보존됩니다. 더 긴 시간 동안 데이터를 보려면 Log Analytics 작업 영역의 보존 기간을 변경합니다. 보존 기간을 변경하려면 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage)를 참조하세요.
+기본적으로 Log Analytics 작업 영역의 데이터는 30일 동안 보존됩니다. 더 긴 시간 동안 데이터를 보려면 Log Analytics 작업 영역의 보존 기간을 변경합니다. 보존 기간을 변경하려면 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](../azure-monitor/platform/manage-cost-storage.md)를 참조하세요.
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. 자격 증명 모음의 진단 설정 구성
 
 Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소스는 예약된 작업과 사용자가 트리거한 작업에 대한 정보를 진단 데이터로 기록합니다.
 
-Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설정**을 선택하고 Recovery Services 자격 증명 모음의 진단 데이터 대상을 지정합니다. 진단 이벤트 사용에 대한 자세한 내용은 [Recovery Services 자격 증명 모음에 진단 설정 사용](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)을 참조하세요.
+Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설정**을 선택하고 Recovery Services 자격 증명 모음의 진단 데이터 대상을 지정합니다. 진단 이벤트 사용에 대한 자세한 내용은 [Recovery Services 자격 증명 모음에 진단 설정 사용](./backup-azure-diagnostic-events.md)을 참조하세요.
 
 ![진단 설정 창](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-또한 Azure Backup은 지정된 범위에서 모든 자격 증명 모음의 진단 설정 구성을 자동화하는 기본 제공 Azure Policy 정의를 제공합니다. 이 정책을 사용하는 방법은 [대규모로 자격 증명 모음 진단 설정 구성](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)을 참조하세요.
+또한 Azure Backup은 지정된 범위에서 모든 자격 증명 모음의 진단 설정 구성을 자동화하는 기본 제공 Azure Policy 정의를 제공합니다. 이 정책을 사용하는 방법은 [대규모로 자격 증명 모음 진단 설정 구성](./azure-policy-configure-diagnostics.md)을 참조하세요.
 
 > [!NOTE]
-> 진단을 구성한 후 초기 데이터 푸시가 완료될 때까지 최대 24시간이 걸릴 수 있습니다. 데이터가 Log Analytics 작업 영역으로 이동하기 시작해도 당일 데이터는 보고서에 표시되지 않으므로 보고서에 데이터가 즉시 표시되지 않을 수 있습니다. 자세한 내용은 [Backup 보고서에 사용되는 규칙](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)을 참조하세요. Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성하고 이틀이 지난 후부터 보고서를 보는 것이 좋습니다.
+> 진단을 구성한 후 초기 데이터 푸시가 완료될 때까지 최대 24시간이 걸릴 수 있습니다. 데이터가 Log Analytics 작업 영역으로 이동하기 시작해도 당일 데이터는 보고서에 표시되지 않으므로 보고서에 데이터가 즉시 표시되지 않을 수 있습니다. 자세한 내용은 [Backup 보고서에 사용되는 규칙](#conventions-used-in-backup-reports)을 참조하세요. Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성하고 이틀이 지난 후부터 보고서를 보는 것이 좋습니다.
 
 #### <a name="3-view-reports-in-the-azure-portal"></a>3. Azure Portal에서 보고서 보기
 
@@ -102,7 +103,7 @@ Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후
 
 ## <a name="cross-tenant-reports"></a>테넌트 간 보고서
 
-여러 테넌트 환경의 구독에 대한 액세스 권한을 위임받은 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/)를 사용하는 경우 기본 구독 필터를 사용할 수 있습니다. Azure Portal의 오른쪽 위 모서리에서 필터 단추를 선택하고, 데이터를 보고 싶은 모든 구독을 선택합니다. 이렇게 하면 모든 테넌트의 Log Analytics 작업 영역을 선택하여 다중 테넌트 보고서를 볼 수 있습니다.
+여러 테넌트 환경의 구독에 대한 액세스 권한을 위임받은 [Azure Lighthouse](../lighthouse/index.yml)를 사용하는 경우 기본 구독 필터를 사용할 수 있습니다. Azure Portal의 오른쪽 위 모서리에서 필터 단추를 선택하고, 데이터를 보고 싶은 모든 구독을 선택합니다. 이렇게 하면 모든 테넌트의 Log Analytics 작업 영역을 선택하여 다중 테넌트 보고서를 볼 수 있습니다.
 
 ## <a name="conventions-used-in-backup-reports"></a>Backup 보고서에 사용되는 규칙
 
@@ -130,8 +131,8 @@ Backup 보고서의 위젯은 사용자의 Log Analytics 작업 영역에서 실
 
 - Azure 스토리지 계정의 데이터를 원본으로 하는 보고용 이전 Power BI 템플릿 앱은 사용 중단 절차를 밟고 있습니다. 이제부터 보고서를 보려면 자격 증명 모음 진단 데이터를 Log Analytics로 보내는 것이 좋습니다.
 
-- 진단 데이터를 스토리지 계정 또는 LA 작업 영역으로 보내는 [V1 스키마](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) 역시 사용 중단 절차를 밟고 있습니다. 즉, V1 스키마를 기반으로 사용자 지정 쿼리 또는 자동화를 작성한 경우에는 현재 지원되는 V2 스키마를 사용하도록 쿼리를 업데이트하는 것이 좋습니다.
+- 진단 데이터를 스토리지 계정 또는 LA 작업 영역으로 보내는 [V1 스키마](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) 역시 사용 중단 절차를 밟고 있습니다. 즉, V1 스키마를 기반으로 사용자 지정 쿼리 또는 자동화를 작성한 경우에는 현재 지원되는 V2 스키마를 사용하도록 쿼리를 업데이트하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Backup을 사용하여 모니터링 및 보고하는 방법에 대한 자세한 정보](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)
+[Azure Backup을 사용하여 모니터링 및 보고하는 방법에 대한 자세한 정보](./backup-azure-monitor-alert-faq.md)

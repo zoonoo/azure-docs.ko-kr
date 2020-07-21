@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a30ea70c623c8456ae97c8ca9475e4989784edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d973cf47ed691914b22d62e1a99315c6ea9183d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995847"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511605"
 ---
 # <a name="azure-custom-roles"></a>Azure 사용자 지정 역할
 
@@ -126,6 +127,30 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 | `NotDataActions`</br>`notDataActions` | 아니요 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Notdataactions](role-definitions.md#notdataactions)를 참조 하세요. |
 | `AssignableScopes`</br>`assignableScopes` | 예 | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
 
+## <a name="wildcard-permissions"></a>와일드 카드 사용 권한
+
+`Actions`, `NotActions` , `DataActions` 및는 `NotDataActions` 사용 권한을 정의 하는 와일드 카드 ()를 지원 `*` 합니다. 와일드 카드 ( `*` )는 사용자가 제공 하는 동작 문자열과 일치 하는 모든 항목에 대 한 사용 권한을 확장 합니다. 예를 들어 Azure Cost Management 및 내보내기와 관련 된 모든 권한을 추가 하려고 한다고 가정 합니다. 이러한 모든 동작 문자열을 추가할 수 있습니다.
+
+```
+Microsoft.CostManagement/exports/action
+Microsoft.CostManagement/exports/read
+Microsoft.CostManagement/exports/write
+Microsoft.CostManagement/exports/delete
+Microsoft.CostManagement/exports/run/action
+```
+
+이러한 문자열을 모두 추가 하는 대신 와일드 카드 문자열을 추가 하기만 하면 됩니다. 예를 들어 다음 와일드 카드 문자열은 이전의 5 개 문자열과 같습니다. 여기에는 추가 될 수 있는 이후의 내보내기 권한도 포함 됩니다.
+
+```
+Microsoft.CostManagement/exports/*
+```
+
+문자열에 와일드 카드가 여러 개 있을 수도 있습니다. 예를 들어 다음 문자열은 Cost Management에 대 한 모든 쿼리 권한을 나타냅니다.
+
+```
+Microsoft.CostManagement/*/query/*
+```
+
 ## <a name="steps-to-create-a-custom-role"></a>사용자 지정 역할을 만드는 단계
 
 사용자 지정 역할을 만들려면 따라야 하는 기본 단계는 다음과 같습니다.
@@ -150,11 +175,11 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 
 기본 제공 역할과 마찬가지로, `AssignableScopes` 속성은 할당에 사용할 수 있는 역할에 대한 범위를 지정합니다. 또한 사용자 지정 역할에 대한 `AssignableScopes` 속성은 사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자도 제어합니다.
 
-| Task | 작업(Operation) | Description |
+| 작업 | 작업(Operation) | Description |
 | --- | --- | --- |
 | 사용자 지정 역할 만들기/삭제 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에서 사용할 사용자 지정 역할을 만들거나 삭제할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 가 있습니다. |
 | 사용자 지정 역할 업데이트 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에의 사용자 지정 역할을 업데이트할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 가 있습니다. |
-| 사용자 지정 역할 보기 | `Microsoft.Authorization/ roleDefinitions/read` | 범위에서 이 작업이 부여된 사용자는 해당 범위에서 할당에 사용할 수 있는 사용자 지정 역할을 볼 수 있습니다. 모든 기본 제공 역할을 통해 사용자 지정 역할을 할당할 수 있습니다. |
+| 사용자 지정 역할 보기 | `Microsoft.Authorization/ roleDefinitions/read` | 범위에서 이 작업이 부여된 사용자는 해당 범위에서 할당에 사용할 수 있는 사용자 지정 역할을 볼 수 있습니다. 모든 기본 제공 역할은 사용자 지정 역할을 할당에 사용할 수 있도록 허용합니다. |
 
 ## <a name="custom-role-limits"></a>사용자 지정 역할 제한
 

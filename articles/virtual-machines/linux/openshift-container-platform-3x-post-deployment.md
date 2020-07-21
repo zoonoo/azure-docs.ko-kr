@@ -9,11 +9,13 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-ansible
+ms.openlocfilehash: ba6fab2c2112c0e2c32e07965ededea817c37cbd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759526"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510602"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
 
@@ -84,7 +86,7 @@ Azure Portal에서 다음을 수행합니다.
 
    ![앱 등록 액세스](media/openshift-post-deployment/app-registration-access.png)
 
-8. **완료** 를 선택합니다.
+8. **완료**를 선택합니다.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Azure AD 인증을 위한 OpenShift 구성
 
@@ -158,7 +160,7 @@ OpenShift에 Log Analytics 에이전트를 추가하는 방법에는 세 가지�
 - 각 OpenShift 노드에서 Azure Monitor VM 확장을 사용 하도록 설정
 - Log Analytics 에이전트를 OpenShift 디먼 집합으로 설치 합니다.
 
-자세한 내용은 전체 [지침](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) 을 읽어 보세요.
+자세한 내용은 전체 [지침](../../azure-monitor/insights/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) 을 읽어 보세요.
 
 ## <a name="configure-metrics-and-logging"></a>메트릭 및 로깅 구성
 

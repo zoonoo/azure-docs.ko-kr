@@ -12,6 +12,7 @@
         - name: 포털
           href: quickstart-create-data-migration-service-portal.md
         - name: ARM 템플릿
+          displayName: Resource Manager
           href: create-dms-resource-manager-template.md
         - name: 하이브리드 모드(포털)
           href: quickstart-create-data-migration-service-hybrid-portal.md

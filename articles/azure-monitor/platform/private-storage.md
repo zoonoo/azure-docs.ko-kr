@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: da9ec0fc421f0cb2f2a1e6fa65d8c936cfd5a3c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184500"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515430"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Azure Monitor의 로그 수집을 위한 고객 소유 스토리지 계정
 
-Azure Monitor는 [사용자 지정 로그](data-sources-custom-logs.md) 및 일부 [Azure 로그](azure-storage-iis-table.md)와 같은 일부 데이터 형식의 수집 프로세스에서 스토리지 계정을 사용합니다. 수집 프로세스 중에 로그는 먼저 스토리지 계정으로 전송되고 나중에 Log Analytics 또는 Application Insights로 수집됩니다. 수집하는 동안 데이터를 제어하려는 경우 서비스 관리 스토리지 대신 자체 스토리지 계정을 사용할 수 있습니다. 사용자 고유의 저장소 계정을 사용 하면 수집 하는 동안 로그의 액세스, 콘텐츠, 암호화 및 보존을 제어할 수 있습니다. 이를 BYOS(Bring Your Own Storage)라고 합니다. 
+Azure Monitor는 [사용자 지정 로그](data-sources-custom-logs.md) 및 일부 [Azure 로그](./diagnostics-extension-logs.md)와 같은 일부 데이터 형식의 수집 프로세스에서 스토리지 계정을 사용합니다. 수집 프로세스 중에 로그는 먼저 스토리지 계정으로 전송되고 나중에 Log Analytics 또는 Application Insights로 수집됩니다. 수집하는 동안 데이터를 제어하려는 경우 서비스 관리 스토리지 대신 자체 스토리지 계정을 사용할 수 있습니다. 사용자 고유의 저장소 계정을 사용 하면 수집 하는 동안 로그의 액세스, 콘텐츠, 암호화 및 보존을 제어할 수 있습니다. 이를 BYOS(Bring Your Own Storage)라고 합니다. 
 
 BYOS를 필요로 하는 한 가지 시나리오는 Private Link를 통한 네트워크 격리입니다. VNet을 사용하는 경우 네트워크 격리가 종종 요구되며, 공용 인터넷에 대한 액세스가 제한됩니다. 이러한 경우 로그 수집을 위해 Azure Monitor 서비스 스토리지에 액세스하는 것이 완전히 차단되거나 잘못된 방법으로 간주됩니다. 대신 VNet 내의 고객 소유 스토리지 계정을 통해 로그를 수집하거나 쉽게 액세스할 수 있어야 합니다.
 
@@ -23,7 +23,7 @@ BYOS를 필요로 하는 한 가지 시나리오는 Private Link를 통한 네�
 
 ## <a name="data-types-supported"></a>지원되는 데이터 형식
 
-스토리지 계정에서 수집되는 데이터 형식은 다음과 같습니다. 이러한 유형의 수집에 대한 자세한 내용은 [Azure 진단 확장에서 Azure Monitor 로그로 데이터 수집](azure-storage-iis-table.md)을 참조하세요.
+스토리지 계정에서 수집되는 데이터 형식은 다음과 같습니다. 이러한 유형의 수집에 대한 자세한 내용은 [Azure 진단 확장에서 Azure Monitor 로그로 데이터 수집](./diagnostics-extension-logs.md)을 참조하세요.
 
 | Type | 테이블 정보 |
 |:-----|:------------------|
@@ -53,8 +53,8 @@ BYOS를 필요로 하는 한 가지 시나리오는 Private Link를 통한 네�
 
 ## <a name="command-line-and-rest-api"></a>명령줄 및 REST API
 
-### <a name="command-line"></a>명령줄
-연결 된 저장소 계정을 만들고 관리 하려면 [az monitor log analytics 작업 영역 연결 된 저장소](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage)를 사용 합니다. 이 명령은 작업 영역에서 저장소 계정을 연결 하 고 연결을 해제 하 고 연결 된 저장소 계정을 나열할 수 있습니다.
+### <a name="command-line"></a>명령 줄
+연결 된 저장소 계정을 만들고 관리 하려면 [az monitor log analytics 작업 영역 연결 된 저장소](/cli/azure/monitor/log-analytics/workspace/linked-storage)를 사용 합니다. 이 명령은 작업 영역에서 저장소 계정을 연결 하 고 연결을 해제 하 고 연결 된 저장소 계정을 나열할 수 있습니다.
 
 ### <a name="request-and-cli-values"></a>요청 및 CLI 값
 
@@ -132,7 +132,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
 ```
 
-#### <a name="response"></a>대응 
+#### <a name="response"></a>응답 
 
 ```json
 {

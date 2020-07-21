@@ -6,17 +6,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 02c3ee483e6a31960fd5123070a49f568ac4c690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14beeebe15193cbe2ef4684f97e4783810ad77a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78968794"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510556"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
 이 문서에서는 Azure CLI 및 Azure Portal을 사용하여 Azure에서 Linux VHD(가상 하드 디스크) 파일을 다운로드하는 방법을 알아봅니다. 
 
-아직 수행하지 않았다면 [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2)를 설치합니다.
+아직 수행하지 않았다면 [Azure CLI](/cli/azure/install-az-cli2)를 설치합니다.
 
 ## <a name="stop-the-vm"></a>VM을 중지합니다.
 
@@ -24,7 +25,7 @@ ms.locfileid: "78968794"
 
 VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계를 완료합니다.
 
-1. VM의 SSH, 계정 이름 및 공용 IP 주소를 사용하여 연결하고 프로비전 해제합니다. [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show)를 사용하여 공용 IP 주소를 찾을 수 있습니다. +user 매개 변수는 마지막 프로비전된 사용자 계정을 제거합니다. 계정 자격 증명을 VM에 굽는 경우 이 +user 매개 변수를 그대로 둡니다. 다음 예제는 마지막 프로비전된 사용자 계정을 제거합니다.
+1. VM의 SSH, 계정 이름 및 공용 IP 주소를 사용하여 연결하고 프로비전 해제합니다. [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용하여 공용 IP 주소를 찾을 수 있습니다. +user 매개 변수는 마지막 프로비전된 사용자 계정을 제거합니다. 계정 자격 증명을 VM에 굽는 경우 이 +user 매개 변수를 그대로 둡니다. 다음 예제는 마지막 프로비전된 사용자 계정을 제거합니다.
 
     ```bash
     ssh azureuser@<publicIpAddress>
@@ -32,7 +33,7 @@ VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계�
     exit 
     ```
 
-2. [az login](https://docs.microsoft.com/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다.
+2. [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다.
 3. VM을 중지 및 할당 취소합니다.
 
     ```azurecli
@@ -56,7 +57,7 @@ VHD를 기존 VM의 새 인스턴스에 대한 디스크 또는 데이터 디스
 
 ## <a name="generate-sas-url"></a>SAS URL 생성
 
-VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
+VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
 
 1.  VM에 대 한 페이지의 메뉴에서 **디스크**를 선택 합니다.
 2.  VM에 대 한 운영 체제 디스크를 선택 하 고 **디스크 내보내기**를 선택 합니다.
@@ -78,4 +79,3 @@ VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage
 
 - [Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 업로드 및 만들기](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 방법을 알아봅니다. 
 - [Azure CLI를 사용하여 Azure 디스크를 관리합니다](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
