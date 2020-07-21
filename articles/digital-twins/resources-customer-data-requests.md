@@ -8,14 +8,14 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 9822044de53f5f74df302e05e0e6c5cd06f3eb92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737158"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522349"
 ---
-# <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
+# <a name="azure-digital-twins-customer-data-request-features"></a>Azure Digital Twins 고객 데이터 요청 기능
 
 Azure Digital Twins는 비즈니스 환경의 보안 디지털 표현을 만들기 위한 개발자 플랫폼입니다. 표현은 사용자가 선택한 데이터 원본의 라이브 상태 데이터에 따라 결정 됩니다.
 

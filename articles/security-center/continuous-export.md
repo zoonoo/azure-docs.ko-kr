@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299947"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519700"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>보안 경고 및 권장 사항 내보내기
 
@@ -28,7 +29,6 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 
 
 
-
 ## <a name="availability"></a>가용성
 
 - 릴리스 상태: **일반 공급**
@@ -36,10 +36,7 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
     - 내보내기 구성이 포함 된 구독의 **판독기** 입니다.
     - 리소스 그룹 (또는 **소유자**)에 대 한 **보안 관리자 역할**
     - 또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.
-- 클라우드: 
-    - ✔ 상용 클라우드
-    - ✔ US Gov
-    - ✘ 중국 .Gov, 기타 .Gov
+- 클라우드: ✔ 상용 클라우드 ✔ US Gov ✘ 중국 .Gov, 기타 .Gov
 
 
 ## <a name="setting-up-a-continuous-export"></a>연속 내보내기 설정

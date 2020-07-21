@@ -72,6 +72,10 @@
           href: how-to-manage-routes.md
         - name: Azure Maps와 통합
           href: how-to-integrate-maps.md
+    - name: 문제 해결
+      items:
+        - name: 알려진 문제
+          href: troubleshoot-known-issues.md
 - name: 참조
   items:
     - name: Digital Twins 서비스 제한

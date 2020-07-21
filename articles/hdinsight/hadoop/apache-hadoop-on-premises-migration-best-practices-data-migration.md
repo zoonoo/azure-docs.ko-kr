@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: b48a2ef65aeb6e8de784c7443cf4be527197464a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9794dd47949dc7dea891893dbcf261808ab335fd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081811"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521380"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 데이터 마이그레이션 모범 사례
 
@@ -36,9 +36,8 @@ ms.locfileid: "86081811"
 
 다음 표에는 데이터 볼륨 및 네트워크 대역폭에 따른 대략적인 데이터 전송 기간이 정리되어 있습니다. 데이터 마이그레이션 예상 시간이 3주를 초과하는 경우 Data Box를 사용합니다.
 
-|데이터 수량|네트워크 대역폭||||
-|---|---|---|---|---|
-|| **45Mbps(T3)**|**100Mbps**|**1Gbps**|**10Gbps**|
+|데이터 수량 | 네트워크 대역폭<br>of<br>**45Mbps(T3)**|네트워크 대역폭<br>of<br>**100Mbps**|네트워크 대역폭<br>of<br>**1Gbps**|네트워크 대역폭<br>of<br>**10Gbps**|
+|---|:---:|:---:|:---:|:---:|
 |1TB|2일|1일| 2시간|14분|
 |10TB|22일|10일|1일|2시간|
 |35TB|76일|34일|3일|8시간|

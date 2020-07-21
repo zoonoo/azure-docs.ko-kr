@@ -2,14 +2,14 @@
 title: 리소스 로그 수집 & 분석
 description: Azure Container Instances의 컨테이너 그룹에서 리소스 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/13/2020
 ms.author: danlep
-ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259605"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524015"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅
 
@@ -24,7 +24,7 @@ Log Analytics 작업 영역은 Azure 리소스 뿐만 아니라 다른 클라우
 > [!NOTE]
 > 현재는 Linux 컨테이너 인스턴스에서 Log Analytics로만 이벤트 데이터를 보낼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
@@ -38,8 +38,7 @@ Azure Container Instances에 Log Analytics 작업 영역에 데이터를 전송�
 로그 분석 작업 영역 ID 및 기본 키를 가져오려면:
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
-1. **설정** 아래에서 **고급 설정** 선택
-1. **연결 된 원본**  >  **Windows 서버** (또는 **Linux 서버**)를 선택 합니다. ID와 키는 둘 다에 대해 동일 합니다.
+1. **설정**아래에서 **에이전트 관리** 를 선택 합니다.
 1. 다음을 기록해 둡니다.
    * **작업 영역 ID**
    * **기본 키**
@@ -102,7 +101,9 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 ## <a name="view-logs"></a>로그 보기
 
-컨테이너 그룹을 배포한 후 첫 번째 로그 항목이 Azure Portal에 표시되기 까지 몇 분(최대 10분)이 걸릴 수 있습니다. `ContainerInstanceLog_CL` 테이블에서 컨테이너 그룹의 로그를 보려면 다음을 수행합니다.
+컨테이너 그룹을 배포한 후 첫 번째 로그 항목이 Azure Portal에 표시되기 까지 몇 분(최대 10분)이 걸릴 수 있습니다. 
+
+`ContainerInstanceLog_CL` 테이블에서 컨테이너 그룹의 로그를 보려면 다음을 수행합니다.
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
 1. **일반**에서 **로그** 를 선택 합니다.  

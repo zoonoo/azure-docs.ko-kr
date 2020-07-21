@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 24ce0ff2fa5e0b023f2a0d6b92e657299518c044
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120503"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520156"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 계정을 마이그레이션하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "86120503"
 
 ### <a name="your-account-has-been-migrated-to-partner-center"></a>계정이 파트너 센터로 마이그레이션되었음
 
-CPP에서 파트너 센터로의 마이그레이션을 완료한 모든 계정에 대해 파트너 센터에서 계정 관리가 수행됩니다. 사용자 추가/삭제와 같은 변경 내용은 CPP와 다시 동기화됩니다.
+이제 파트너 센터에서 계정을 관리 합니다. 사용자 추가/삭제와 같은 변경 내용은 CPP와 다시 동기화됩니다.
 
 ### <a name="you-have-not-yet-migrated-your-account-to-partner-center"></a>아직 계정을 파트너 센터로 마이그레이션하지 않았음
 
@@ -45,7 +45,7 @@ CPP에서 파트너 센터로의 마이그레이션을 완료한 모든 계정�
 
 ## <a name="publishers-moving-from-cpp"></a>CPP에서 이동하는 게시자
 
-계정이 [CPP(Cloud 파트너 포털)](https://cloudpartner.azure.com)에서 마이그레이션된 경우 새 파트너 센터 계정을 만들 필요가 없습니다. 메일과 배너 알림(기존 CPP 계정에 로그인한 후)에 새 파트너 센터 계정에 대한 사용자 지정 링크가 수신되어야 합니다.
+계정이 CPP에서 마이그레이션된 경우 새 파트너 센터 계정을 만들 필요가 없습니다. 전자 메일에 새 파트너 센터 계정에 대 한 사용자 지정 링크를 수신 하 고 기존 CPP 계정에 로그인 한 후 배너 알림을 받게 됩니다.
 
 이 사용자 지정 링크를 방문하여 새 파트너 센터 계정을 사용하도록 설정했으면 파트너 센터의 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)를 방문하여 계정으로 돌아갈 수 있습니다.
 

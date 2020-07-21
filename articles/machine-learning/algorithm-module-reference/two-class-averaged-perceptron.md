@@ -1,5 +1,5 @@
 ---
-title: '의사 결정 포리스트 회귀: 모듈 참조'
+title: '2 클래스 평균 퍼셉트론: 모듈 참조'
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 2 클래스 평균 퍼셉트론 모듈을 사용 하 여 평균 퍼셉트론 알고리즘을 기반으로 기계 학습 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 53e40726a5745263ee2b3cb4ada8671bf65da963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daa0cfdedfe634acd2039cd4ec87606d30f7e76f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137674"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520581"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>2 클래스 평균 퍼셉트론 모듈
 

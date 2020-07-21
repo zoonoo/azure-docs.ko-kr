@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bb7fd69073dbc960904e8f7b44459ed85e98cdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79367587"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523522"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터
 
@@ -20,9 +21,19 @@ ms.locfileid: "79367587"
 * SQL 및 LINQ에서 Azure Cosmos DB의 지리 공간 데이터를 쿼리하려면 어떻게 해야 하나요?
 * Azure Cosmos DB에서 공간 인덱싱을 사용하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 
+## <a name="spatial-data-use-cases"></a>공간 데이터 사용 사례
+
+지리 공간 데이터에는 종종 근접 쿼리 (예: "내 현재 위치 근처의 모든 커피숍 찾기")가 포함 됩니다. 일반적인 사용 사례는 다음과 같습니다.
+
+* 지리적 위치 분석은 특정 한 마케팅 이니셔티브를 추진 합니다.
+* 소매점, 의료 등의 여러 산업을 위한 위치 기반 개인 설정.
+* 전송 최적화에 대 한 물류 향상.
+* 위험 분석 (특히 보험 및 금융 회사의 경우)
+* 경고 및 알림에 대 한 상황 인식
+
 ## <a name="introduction-to-spatial-data"></a>공간 데이터 소개
 
-공간 데이터는 공간에서 개체의 위치와 모양을 설명합니다. 대부분의 애플리케이션에서 이러한 데이터는 지구의 개체 및 지리 공간 데이터에 해당합니다. 공간 데이터를 사용하여 사람, 관심 있는 장소 또는 도시나 호수 경계의 위치를 나타낼 수 있습니다. 일반적인 사용 사례에는 종종 근접 쿼리(예: “내 현재 위치 근처의 모든 커피숍 찾기”)가 포함됩니다.
+공간 데이터는 공간에서 개체의 위치와 모양을 설명합니다. 대부분의 애플리케이션에서 이러한 데이터는 지구의 개체 및 지리 공간 데이터에 해당합니다. 공간 데이터를 사용하여 사람, 관심 있는 장소 또는 도시나 호수 경계의 위치를 나타낼 수 있습니다.
 
 Azure Cosmos DB의 SQL API는 **geometry** 데이터 형식과 **geography** 데이터 형식의 두 가지 공간 데이터 형식을 지원 합니다.
 

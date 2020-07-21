@@ -5,12 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: a82d2317314c79a82fe80c5a25afc950fb728815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: c677b0278d29c499d4369967c1c76132a1ae9d21
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76155199"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519850"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -65,8 +66,12 @@ Microsoft Azure Database for MySQL 서버 서비스에 대한 액세스가 예�
 
 * **서버의 IP가 공개로 표시 됩니다.** Azure Database for MySQL 서버에 대 한 연결은 공개적으로 액세스할 수 있는 Azure 게이트웨이를 통해 라우팅됩니다. 그러나 실제 서버 IP는 방화벽으로 보호됩니다. 자세한 내용은 [연결 아키텍처 문서](concepts-connectivity-architecture.md)를 참조하세요. 
 
+* **허용 되는 IP를 사용 하 여 Azure 리소스에서 연결할 수 없음:** 연결 하려는 서브넷에 대해 **Microsoft Sql** 서비스 끝점을 사용할 수 있는지 여부를 확인 합니다. **Microsoft .sql** 을 사용 하는 경우에는 해당 서브넷에서 [VNet 서비스 끝점 규칙만](concepts-data-access-and-security-vnet.md) 사용 합니다.
+
+   예를 들어, **Microsoft Sql server** 를 사용 하지만 해당 VNet 규칙이 없는 서브넷의 Azure VM에서 연결 하는 경우 다음과 같은 오류가 표시 될 수 있습니다.`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Portal를 사용 하 여 Azure Database for MySQL 방화벽 규칙 만들기 및 관리](./howto-manage-firewall-using-portal.md)
 * [Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리](./howto-manage-firewall-using-cli.md)
-- [Azure Database for MySQL의 VNet 서비스 끝점](./concepts-data-access-and-security-vnet.md)
+* [Azure Database for MySQL의 VNet 서비스 끝점](./concepts-data-access-and-security-vnet.md)

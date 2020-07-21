@@ -7,16 +7,20 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: rambala
-ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da90bbbce485616afdac5997576da99ac4d62c6f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74076672"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521907"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Express 경로를 사용 하 여 고가용성을 위한 디자인
 
 Express 경로는 Microsoft 리소스에 대 한 반송파 등급 개인 네트워크 연결을 제공 하는 고가용성을 위해 설계 되었습니다. 즉, Microsoft 네트워크 내에서 Express 경로 경로에 단일 실패 지점이 없습니다. 가용성을 최대화 하기 위해 Express 경로 회로의 고객 및 서비스 공급자 세그먼트도 고가용성을 위해 설계 되어야 합니다. 이 문서에서는 먼저 Express 경로를 사용 하 여 강력한 네트워크 연결을 빌드하기 위한 네트워크 아키텍처 고려 사항을 살펴보고 Express 경로 회로의 고가용성을 향상 시키는 데 도움이 되는 미세 조정 기능을 살펴보겠습니다.
 
+>[!NOTE]
+>이 문서에 설명 된 개념은 가상 WAN 또는 외부에서 Express 경로 회로를 만들 때에도 동일 하 게 적용 됩니다.
+>
 
 ## <a name="architecture-considerations"></a>아키텍처 고려 사항
 

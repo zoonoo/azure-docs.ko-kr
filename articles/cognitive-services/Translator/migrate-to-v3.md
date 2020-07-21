@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996213"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523981"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Translator V2에서 V3로 마이그레이션
 
@@ -116,10 +116,10 @@ Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합�
 
 V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍스트, generalnn)의 사용을 지원하지 않습니다.
 
-| |엔드포인트|    GDPR 프로세서 규정 준수|    Translator Hub 사용|    Custom Translator(미리 보기) 사용|
-|:-----|:-----|:-----|:-----|:-----|
-|Translator 버전 2|    api.microsofttranslator.com|    예    |예    |예|
-|Translator 버전 3|    api.cognitive.microsofttranslator.com|    예|    예|    예|
+| 버전 | 엔드포인트 | GDPR 프로세서 규정 준수 | Translator Hub 사용 | Custom Translator(미리 보기) 사용 |
+| :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
+|Translator 버전 2|    api.microsofttranslator.com|    아니요    |예    |아니요|
+|Translator 버전 3|    api.cognitive.microsofttranslator.com|    예|    아니요|    예|
 
 **Translator 버전 3**
 * 일반적으로 사용할 수 있으며 완전히 지원됩니다.

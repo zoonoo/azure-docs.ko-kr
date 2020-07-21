@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831588"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520904"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Azure Logic Apps에서 범위를 사용하여 그룹 상태에 따라 작업 실행
 
@@ -70,13 +71,13 @@ ms.locfileid: "83831588"
 
       !["Bing 지도 - 경로 가져오기" 작업 설정](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
-      이러한 매개 변수에 대한 자세한 내용은 [경로 계산](https://msdn.microsoft.com/library/ff701717.aspx)을 참조하세요.
+      이러한 매개 변수에 대한 자세한 내용은 [경로 계산](/bingmaps/rest-services/routes/calculate-a-route)을 참조하세요.
 
       | 설정 | 값 | Description |
       | ------- | ----- | ----------- |
       | **Waypoint 1** | <*start*> | 경로의 출발지를 입력합니다. | 
       | **Waypoint 2** | <*end*> | 경로의 도착지를 입력합니다. | 
-      | **Avoid** | None | 고속도로, 톨게이트 등 경로에서 피해야 하는 항목을 입력합니다. 가능한 값은 [경로 계산](https://msdn.microsoft.com/library/ff701717.aspx)을 참조하세요. | 
+      | **Avoid** | None | 고속도로, 톨게이트 등 경로에서 피해야 하는 항목을 입력합니다. 가능한 값은 [경로 계산](/bingmaps/rest-services/routes/calculate-a-route)을 참조하세요. | 
       | **Optimize** | timeWithTraffic | 거리, 현재 교통 정보와 관련된 시간 등 경로를 최적화하기 위한 매개 변수를 선택합니다. 이 예에서는 "timeWithTraffic" 값을 사용합니다. | 
       | **Distance unit** | <*원하는 단위*> | 경로를 계산하기 위한 거리 단위를 입력합니다. 이 예제에서는 다음 값을 사용합니다. "마일" | 
       | **Travel mode** | Driving | 경로에 대한 이동 모드를 입력합니다. 이 예에서는 "운전" 값을 사용합니다. | 
@@ -387,7 +388,7 @@ ms.locfileid: "83831588"
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 및 제안을 제출하거나 투표하려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

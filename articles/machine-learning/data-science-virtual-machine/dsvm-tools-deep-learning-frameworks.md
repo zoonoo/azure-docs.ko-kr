@@ -11,18 +11,19 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 25ce99d3dced3caf1ec4bcce13b062b28774642d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56c7a0d6f0400811d085f60fd71fe72b88bf9ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557477"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520564"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Azure Data Science VM에 대 한 심층 학습 및 AI 프레임 워크
 DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="caffe"></a>[Caffe](https://github.com/BVLC/caffe)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | |
 | 지원 되는 DSVM 버전      | Linux(Ubuntu)     |
@@ -31,7 +32,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | |
 | 지원 되는 DSVM 버전      | Linux(Ubuntu)     |
@@ -40,7 +41,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="chainer"></a>[Chainer](https://chainer.org/)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 5.2 |
 | 지원 되는 DSVM 버전      | Linux(Ubuntu)     |
@@ -49,7 +50,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="cuda-cudnn-nvidia-driver"></a>[CUDA, cuDNN, NVIDIA 드라이버](https://developer.nvidia.com/cuda-toolkit)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 10.0.130|
 | 지원 되는 DSVM 버전      | Windows 및 Linux   |
@@ -59,7 +60,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="horovod"></a>[Horovod](https://github.com/uber/horovod)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 0.16.1|
 | 지원 되는 DSVM 버전      | Linux(Ubuntu)   |
@@ -68,7 +69,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="keras"></a>[Keras](https://keras.io/)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 2.2.4 |
 | 지원 되는 DSVM 버전      | Windows 및 Linux   |
@@ -77,7 +78,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit(CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 2.5.1 |
 | 지원 되는 DSVM 버전      | Windows 및 Linux   |
@@ -85,7 +86,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | 실행 방법      | 터미널: 올바른 환경을 활성화 하 고 Python을 실행 합니다. <br/>Jupyter: [jupyter](provision-vm.md) 또는 [Jupyterhub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)에 연결한 다음 샘플에 대 한 CNTK 디렉터리를 엽니다. |
 
 ## <a name="mxnet"></a>[MXNet](https://mxnet.apache.org/)
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 1.3.0 |
 | 지원 되는 DSVM 버전      | Windows 및 Linux   |
@@ -94,7 +95,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="mxnet-model-server"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 1.0.1 |
 | 지원 되는 DSVM 버전      | Windows 및 Linux   |
@@ -103,7 +104,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="nvidia-system-management-interface-nvidia-smi"></a>[Nvidia (시스템 관리 인터페이스) (nvidia smi-s)](https://developer.nvidia.com/nvidia-system-management-interface)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 |  |
 | 지원 되는 DSVM 버전      | Windows 및 Linux   |
@@ -113,7 +114,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 1.2.0 (ubuntu 16.04, Windows 2016), 1.4.0 (Ubuntu 18.04, Windows 2019) |
 | 지원 되는 DSVM 버전      | Linux |
@@ -122,7 +123,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="tensorflow"></a>[Tensorflow](https://www.tensorflow.org/)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 1.13 |
 | 지원 되는 DSVM 버전      | Windows, Linux |
@@ -131,7 +132,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 1.12 |
 | 지원 되는 DSVM 버전      | Linux |
@@ -141,7 +142,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 1.0.3 |
 | 지원 되는 DSVM 버전      | Linux |

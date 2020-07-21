@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a0d3c344d19d0831dd8525ddf3311e0ce7cd682
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691761"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520820"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대한 통합 계정 만들기 및 관리
 
@@ -32,13 +33,13 @@ ms.locfileid: "84691761"
 * 통합 계정을 다른 Azure 리소스 그룹 또는 구독으로 이동합니다.
 * 통합 계정을 삭제합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 ## <a name="create-integration-account"></a>통합 계정 만들기
 
-이 작업의 경우이 섹션의 단계, [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)또는 [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create)따라 Azure Portal를 사용할 수 있습니다.
+이 작업의 경우이 섹션의 단계, [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)또는 [Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-create)따라 Azure Portal를 사용할 수 있습니다.
 
 1. Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -131,13 +132,13 @@ ms.locfileid: "84691761"
 
 #### <a name="azure-cli"></a>Azure CLI
 
-1. 아직 수행 하지 않은 경우 [Azure CLI 필수 구성 요소를 설치](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)합니다.
+1. 아직 수행 하지 않은 경우 [Azure CLI 필수 구성 요소를 설치](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)합니다.
 
-1. Azure Portal에서 Azure [**Cloud Shell**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) 환경을 엽니다.
+1. Azure Portal에서 Azure [**Cloud Shell**](../cloud-shell/overview.md?view=azure-cli-latest) 환경을 엽니다.
 
    ![Azure Cloud Shell 열기](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. 명령 프롬프트에서 [ **az resource** 명령을](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)입력 하 고 `skuName` 를 원하는 상위 계층으로 설정 합니다.
+1. 명령 프롬프트에서 [ **az resource** 명령을](/cli/azure/resource?view=azure-cli-latest#az-resource-update)입력 하 고 `skuName` 를 원하는 상위 계층으로 설정 합니다.
 
    ```azurecli
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
@@ -153,15 +154,15 @@ ms.locfileid: "84691761"
 
 ### <a name="downgrade-pricing-tier"></a>가격 책정 계층 다운 그레이드
 
-이 변경 내용을 적용 하려면 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 사용 합니다.
+이 변경 내용을 적용 하려면 [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 사용 합니다.
 
-1. 아직 수행 하지 않은 경우 [Azure CLI 필수 구성 요소를 설치](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)합니다.
+1. 아직 수행 하지 않은 경우 [Azure CLI 필수 구성 요소를 설치](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)합니다.
 
-1. Azure Portal에서 Azure [**Cloud Shell**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) 환경을 엽니다.
+1. Azure Portal에서 Azure [**Cloud Shell**](../cloud-shell/overview.md?view=azure-cli-latest) 환경을 엽니다.
 
    ![Azure Cloud Shell 열기](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. 명령 프롬프트에서 [ **az resource** 명령을](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) 입력 하 고 `skuName` 원하는 하위 계층으로 설정 합니다.
+1. 명령 프롬프트에서 [ **az resource** 명령을](/cli/azure/resource?view=azure-cli-latest#az-resource-update) 입력 하 고 `skuName` 원하는 하위 계층으로 설정 합니다.
 
    ```azurecli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
@@ -205,7 +206,7 @@ ms.locfileid: "84691761"
    },
    ```
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    !["IntegrationAccount" 개체 찾기](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
@@ -221,7 +222,7 @@ ms.locfileid: "84691761"
 
 통합 계정을 다른 Azure 리소스 그룹 또는 Azure 구독으로 이동할 수 있습니다. 리소스를 이동 하면 Azure에서 새 리소스 Id를 만들기 때문에 새 Id를 대신 사용 하 고 이동 된 리소스와 관련 된 스크립트나 도구를 업데이트 해야 합니다. 구독을 변경 하려면 기존 또는 새 리소스 그룹도 지정 해야 합니다.
 
-이 작업의 경우이 섹션의 단계 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-move)을 수행 하 여 Azure Portal를 사용할 수 있습니다.
+이 작업의 경우이 섹션의 단계 또는 [Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-move)을 수행 하 여 Azure Portal를 사용할 수 있습니다.
 
 1. Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -253,7 +254,7 @@ ms.locfileid: "84691761"
 
 ## <a name="delete-integration-account"></a>통합 계정 삭제
 
-이 작업의 경우이 섹션의 단계, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)또는 [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount)따라 Azure Portal를 사용할 수 있습니다.
+이 작업의 경우이 섹션의 단계, [Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-delete)또는 [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount)따라 Azure Portal를 사용할 수 있습니다.
 
 1. Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

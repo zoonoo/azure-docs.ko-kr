@@ -4,18 +4,20 @@ description: API를 통해 제품의 모든 작업을 검색 하거나 지정 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: c0611cb3cbc24e2b105cdef134e30a7c2fbdd445
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 90ff7c4a85fd9e48ac3aa49ace99f43eb0244603
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113465"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520292"
 ---
 # <a name="retrieve-operations"></a>작업 검색
 
 > [!NOTE]
-> Cloud 파트너 포털 API는 파트너 센터와 통합되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동합니다. 통합에는 작은 변경 사항이 도입되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 합니다.
+> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
 
 제품에 대한 모든 작업을 검색하거나 지정된 operationId의 특정 작업을 가져옵니다. 클라이언트는 쿼리 매개 변수를 사용하여 실행 중인 작업을 필터링할 수 있습니다.
 
@@ -26,7 +28,6 @@ ms.locfileid: "86113465"
   GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/operations/<operationId>?api-version=2017-10-31
 
 ```
-
 
 ## <a name="uri-parameters"></a>URI 매개 변수
 
@@ -40,13 +41,11 @@ ms.locfileid: "86113465"
 
 ## <a name="header"></a>헤더
 
-
 |  **이름**          |  **값**           |
 |  ---------------   | -------------------- |
 |  콘텐츠 형식      | `application/json`   |
 |  권한 부여     | `Bearer YOUR_TOKEN`  |
 |  |  |
-
 
 ## <a name="body-example"></a>본문 예제
 
@@ -177,7 +176,7 @@ ms.locfileid: "86113465"
 |  createdDateTime             | 작업이 만들어진 UTC 날짜/시간입니다.                                                       |
 |  lastActionDateTime          | 작업에 대한 마지막 업데이트가 수행된 UTC 날짜/시간입니다.                                       |
 |  상태                      | 작업의 상태 `not started` \| `running` \| `failed` \| `completed` 입니다. 한 번에 하나의 작업만 상태 `running`을 가질 수 있습니다. |
-|  오류                       | 실패한 작업에 대한 오류 메시지입니다.                                                               |
+|  error                       | 실패한 작업에 대한 오류 메시지입니다.                                                               |
 |  |  |
 
 ### <a name="response-step-properties"></a>응답 단계 속성

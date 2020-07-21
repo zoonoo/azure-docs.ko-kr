@@ -7,12 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84119213"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519736"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -22,14 +23,17 @@ Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된
 
 ## <a name="feature-availability-by-tier"></a>계층 별 기능 가용성
 
-거의 모든 기능은 무료를 포함 하 여 모든 계층에서 사용할 수 있지만 리소스 집약적 기능이 나 워크플로는 충분 한 용량을 제공 하지 않으면 제대로 작동 하지 않을 수 있습니다. 예를 들어 [AI 보강](cognitive-search-concept-intro.md) 에는 데이터 집합이 작은 경우를 제외 하 고 무료 서비스에서 시간이 오래 걸리는 장기 실행 기술이 있습니다.
-
 다음 표에서는 계층 관련 기능 제약 조건에 대해 설명 합니다.
 
 | 기능 | 제한 사항 |
 |---------|-------------|
 | [인덱서에](search-indexer-overview.md) | S3 HD에서는 인덱서를 사용할 수 없습니다. |
-| [고객이 관리 하는 암호화 키](search-security-manage-encryption-keys.md) | 무료 계층에서는 사용할 수 없습니다. |
+| [AI 보강](search-security-manage-encryption-keys.md) | 무료 계층에서 실행 되지만 권장 되지 않습니다. |
+| [고객 관리형 암호화 키](search-security-manage-encryption-keys.md) | 무료 계층에서는 사용할 수 없습니다. |
+| [IP 방화벽 액세스](service-configure-firewall.md) | 무료 계층에서는 사용할 수 없습니다. |
+| [Azure 개인 링크와 통합](service-create-private-endpoint.md) | 무료 계층에서는 사용할 수 없습니다. |
+
+대부분의 기능은 무료를 비롯 한 모든 계층에서 사용할 수 있지만 리소스를 많이 사용 하는 기능은 충분 한 용량을 제공 하지 않으면 제대로 작동 하지 않을 수 있습니다. 예를 들어 [AI 보강](cognitive-search-concept-intro.md) 에는 데이터 집합이 작은 경우를 제외 하 고 무료 서비스에서 시간이 오래 걸리는 장기 실행 기술이 있습니다.
 
 ## <a name="tiers-skus"></a>계층 (Sku)
 
@@ -56,10 +60,10 @@ Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된
 
 Azure Cognitive Search을 기반으로 하는 솔루션은 다음과 같은 방법으로 비용을 발생 시킬 수 있습니다.
 
-+ 최소 구성 (파티션 및 복제본 하나)에서 연중 무휴 실행 되는 서비스 자체의 고정 비용
-+ 확장 시 증분 비용 (복제본 또는 파티션 추가)
++ 최소 구성 (파티션 및 복제본 하나)에서 연중 무휴 실행 되는 서비스 자체의 비용
++ 용량 (복제본 또는 파티션) 추가
 + 대역폭 요금 (아웃 바운드 데이터 전송) 
-+ 인지 검색 (AI 보강에 대 한 Cognitive Services 연결 또는 기술 자료 저장소에 Azure storage 사용)
++ Ai 보강 (AI 처리를 정의 하거나 기술 자료 저장소에 대 한 Azure storage를 사용 하는 기술력과의 연결 Cognitive Services) 또는 개인 가상 네트워크에 검색 서비스를 배포 하는 추가 기능 서비스
 
 ### <a name="service-costs"></a>서비스 비용
 
@@ -71,7 +75,7 @@ Azure Cognitive Search을 기반으로 하는 솔루션은 다음과 같은 방�
 
 ### <a name="bandwidth-charges"></a>대역폭 요금
 
-[Azure Cognitive Search 인덱서](search-indexer-overview.md) 를 사용 하면 서비스의 위치에 따라 청구에 영향을 줄 수 있습니다. 데이터와 동일한 지역에서 Azure Cognitive Search 서비스를 만드는 경우 데이터 송신 요금을 완전히 제거할 수 있습니다. [대역폭 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)의 일부 정보는 다음과 같습니다.
+[인덱서](search-indexer-overview.md) 를 사용 하면 서비스의 위치에 따라 청구에 영향을 줄 수 있습니다. 데이터와 동일한 지역에서 Azure Cognitive Search 서비스를 만드는 경우 데이터 송신 요금을 완전히 제거할 수 있습니다. [대역폭 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)의 일부 정보는 다음과 같습니다.
 
 + Microsoft는 azure의 모든 서비스 또는 Azure Cognitive Search의 아웃 바운드 데이터에 대 한 인바운드 데이터를 청구 하지 않습니다.
 + Multiservice 솔루션에서는 모든 서비스가 동일한 지역에 있는 경우 네트워크를 통과 하는 데이터에 대 한 요금이 부과 되지 않습니다.
@@ -82,9 +86,9 @@ Azure Cognitive Search을 기반으로 하는 솔루션은 다음과 같은 방�
 
 [AI 보강](cognitive-search-concept-intro.md)의 경우 azure Cognitive Search와 동일한 지역에 종 량 제 처리를 위한 S0 가격 책정 계층에서 [청구 가능한 azure Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)하도록 계획 해야 합니다. 연결 Cognitive Services와 관련 된 고정 비용은 없습니다. 필요한 처리에 대해서만 비용을 지불 하면 됩니다.
 
-| 연산 | 청구 영향 |
+| 작업(Operation) | 청구 영향 |
 |-----------|----------------|
-| 문서 크랙, 텍스트 추출 | Free |
+| 문서 크랙, 텍스트 추출 | 무료 |
 | 문서 크랙, 이미지 추출 | 문서에서 추출 된 이미지의 수에 따라 요금이 청구 됩니다. [인덱서 구성](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)에서 **imageaction** 은 이미지 추출을 트리거하는 매개 변수입니다. **Imageaction** 이 "none" (기본값)으로 설정 된 경우 이미지 추출에 대 한 요금이 청구 되지 않습니다. 이미지 추출 율은 Azure Cognitive Search에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 설명 되어 있습니다.|
 | [기본 제공 인지 기술](cognitive-search-predefined-skills.md) | Cognitive Services를 직접 사용 하 여 작업을 수행한 것과 동일한 요금으로 청구 됩니다. |
 | 사용자 지정 기술 | 사용자 지정 기술은 사용자가 제공 하는 기능입니다. 사용자 지정 기술 사용 비용은 사용자 지정 코드가 다른 요금제 서비스를 호출 하는지 여부에 따라 전적으로 달라 집니다. |
@@ -107,7 +111,7 @@ SU는 서비스에서 사용 하는 *복제본* 및 *파티션* **(R x P = SU)**
 
 ## <a name="how-to-manage-costs"></a>비용을 관리 하는 방법
 
-다음 제안 사항은 비용을 최소한으로 유지 하는 데 도움이 될 수 있습니다.
+다음 제안 사항은 비용을 절감 하거나 비용을 더 효과적으로 관리 하는 데 도움이 될 수 있습니다.
 
 + 대역폭 요금을 최소화 하거나 제거 하기 위해 동일한 지역에 있거나 가능한 적은 수의 지역에 모든 리소스를 만듭니다.
 
@@ -140,7 +144,7 @@ Azure Cognitive Search에서 용량은 *복제본* 및 *파티션으로*구성 �
 
 비즈니스 요구 사항에 따라 일반적으로 필요한 인덱스 수가 결정 됩니다. 예를 들어 문서에 대 한 많은 리포지토리의 전역 인덱스가 필요할 수 있습니다. 또는 지역, 응용 프로그램 또는 비즈니스 틈새을 기반으로 하는 인덱스가 여러 개 필요할 수 있습니다.
 
-인덱스의 크기를 결정하려면 [하나를 빌드](search-create-index-portal.md)해야 합니다. 이 크기는 확인 기, 필터링, 정렬 등을 사용 하도록 설정 했는지 여부와 같은 인덱스 구성과 가져온 데이터를 기반으로 합니다. 크기에 대 한 구성 영향에 대 한 자세한 내용은 [기본 인덱스 만들기 ](search-what-is-an-index.md)를 참조 하세요.
+인덱스의 크기를 결정하려면 [하나를 빌드](search-what-is-an-index.md)해야 합니다. 이 크기는 확인 기, 필터링, 정렬 등을 사용 하도록 설정 했는지 여부와 같은 인덱스 구성과 가져온 데이터를 기반으로 합니다.
 
 전체 텍스트 검색의 경우 주 데이터 구조는 원본 데이터와 특성이 다른 [반전 된 인덱스](https://en.wikipedia.org/wiki/Inverted_index) 구조입니다. 반전 된 인덱스의 경우 크기와 복잡성은 내용에 따라 결정 되며,이는 사용자가 제공 하는 데이터의 양이 아닐 수도 있습니다. 중복성이 높은 큰 데이터 원본을 사용 하면 가변 콘텐츠를 포함 하는 작은 데이터 집합 보다 더 작은 인덱스가 생성 될 수 있습니다. 따라서 원래 데이터 집합의 크기에 따라 인덱스 크기를 유추할 수 있는 경우는 거의 없습니다.
 
@@ -154,7 +158,7 @@ Azure Cognitive Search에서 용량은 *복제본* 및 *파티션으로*구성 �
 
 + [무료 서비스를 만드세요](search-create-service-portal.md).
 + 작은 대표적인 데이터 집합을 준비 합니다.
-+ [포털에서 초기 인덱스를 작성](search-create-index-portal.md) 하 고 크기를 확인 합니다. 기능 및 특성은 저장소에 영향을 줍니다. 예를 들어 확인 기 (검색 형식 쿼리)를 추가 하면 저장소 요구 사항이 증가 합니다. 동일한 데이터 집합을 사용 하면 각 필드에 서로 다른 특성을 사용 하 여 여러 버전의 인덱스를 만들어 저장소 요구 사항이 어떻게 달라 지는 지 확인할 수 있습니다. 자세한 내용은 [기본 인덱스 만들기의 "저장소 영향"](search-what-is-an-index.md#index-size)을 참조 하세요.
++ [포털에서 초기 인덱스를 작성](search-get-started-portal.md) 하 고 크기를 확인 합니다. 기능 및 특성은 저장소에 영향을 줍니다. 예를 들어 확인 기 (검색 형식 쿼리)를 추가 하면 저장소 요구 사항이 증가 합니다. 동일한 데이터 집합을 사용 하면 각 필드에 서로 다른 특성을 사용 하 여 여러 버전의 인덱스를 만들어 저장소 요구 사항이 어떻게 달라 지는 지 확인할 수 있습니다. 자세한 내용은 [기본 인덱스 만들기의 "저장소 영향"](search-what-is-an-index.md#index-size)을 참조 하세요.
 
 대략적인 추정치를 사용 하는 경우 두 인덱스 (개발 및 프로덕션)에 대 한 예산에 해당 하는 금액을 두 배로 확보 하 고 그에 따라 계층을 선택할 수 있습니다.
 
@@ -170,7 +174,7 @@ Azure Cognitive Search에서 용량은 *복제본* 및 *파티션으로*구성 �
     + 대규모 인덱싱 및 쿼리가 로드 되는 것을 알고 있는 경우 시작 높음, S2 또는 심지어 S3.
     + 내부 비즈니스 응용 프로그램과 마찬가지로, 많은 양의 데이터를 인덱싱하는 경우에는 L1 또는 L2에서 저장소에 최적화 된 저장소로 시작 합니다.
 
-1. 원본 데이터가 인덱스로 변환되는 방법을 결정하려면 [초기 인덱스를 만듭니다](search-create-index-portal.md). 인덱스 크기를 추정하는 유일한 방법입니다.
+1. 원본 데이터가 인덱스로 변환되는 방법을 결정하려면 [초기 인덱스를 만듭니다](search-what-is-an-index.md). 인덱스 크기를 추정하는 유일한 방법입니다.
 
 1. 포털에서 [스토리지, 서비스 제한, 쿼리 볼륨 및 대기 시간을 모니터링](search-monitor-usage.md)합니다. 포털에는 초당 쿼리 수, 제한 된 쿼리 및 검색 대기 시간이 표시 됩니다. 이러한 모든 값은 올바른 계층을 선택 했는지 여부를 결정 하는 데 도움이 될 수 있습니다. 
 

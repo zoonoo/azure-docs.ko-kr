@@ -3,11 +3,12 @@ title: 공용 레지스트리 액세스 구성
 description: 선택한 공용 IP 주소나 주소 범위에서 Azure 컨테이너 레지스트리에 대한 액세스를 사용하기 위한 IP 규칙을 구성합니다.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702077"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523828"
 ---
 # <a name="configure-public-ip-network-rules"></a>공용 IP 네트워크 규칙 구성
 
@@ -101,10 +102,17 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ![모든 네트워크에서 공용 액세스][acr-access-all-networks]
 
+## <a name="troubleshoot"></a>문제 해결
+
+공용 네트워크 규칙이 설정 되어 있거나 레지스트리에 대 한 공용 액세스가 거부 된 경우 허용 되지 않는 공용 네트워크에서 레지스트리에 로그인 하려고 하면 실패 합니다. 프록시에 대 한 액세스 규칙이 설정 되지 않은 경우에는 HTTPS 프록시 뒤의 클라이언트 액세스도 실패 합니다. 또는와 유사한 오류 메시지가 표시 됩니다 `Error response from daemon: login attempt failed with status: 403 Forbidden` `Looks like you don't have access to registry` .
+
+네트워크 액세스 규칙에서 허용 하는 HTTPS 프록시를 사용 하지만 클라이언트 환경에서 프록시가 제대로 구성 되지 않은 경우에도 이러한 오류가 발생할 수 있습니다. Docker 클라이언트와 Docker 데몬이 프록시 동작에 대해 구성 되어 있는지 확인 합니다. 자세한 내용은 Docker 설명서의 [HTTP/HTTPS 프록시](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) 를 참조 하세요.
+
+
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 네트워크에서 프라이빗 엔드포인트를 사용하여 레지스트리에 대한 액세스를 제한하려면 [Azure 컨테이너에 대한 Azure 프라이빗 링크 구성](container-registry-private-link.md)을 참조하세요.
-* 클라이언트 방화벽 뒤에서 레지스트리 액세스 규칙을 설정해야 할 경우 [방화벽 뒤의 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙 구성](container-registry-firewall-access-rules.md)을 참조하세요.
+* 가상 네트워크에서 프라이빗 엔드포인트를 사용하여 레지스트리에 대한 액세스를 제한하려면 [Azure 컨테이너에 대한 Azure Private Link 구성](container-registry-private-link.md)을 참조하세요.
+* 클라이언트 방화벽 뒤에서 레지스트리 액세스 규칙을 설정해야 할 경우 [방화벽 뒤의 Azure Container Registry에 액세스하기 위한 규칙 구성](container-registry-firewall-access-rules.md)을 참조하세요.
 
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add

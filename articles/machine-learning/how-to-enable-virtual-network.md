@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 35938ca3b9d8f3aedd0892740a3dbfa0fb5b036a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2193584996ed9f2c4cf5e858b8855c6878159a84
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186863"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520701"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -110,6 +110,24 @@ Studio 액세스 권한을 부여 하지 못한 경우이 오류가 표시 되 `
 __Azure blob storage__의 경우 blob storage에서 데이터를 읽을 수 있도록 작업 영역 관리 Id도 [blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 로 추가 됩니다.
 
 
+### <a name="azure-machine-learning-designer-default-datastore"></a>Azure Machine Learning designer 기본 데이터 저장소
+
+디자이너는 작업 영역에 연결 된 저장소 계정을 사용 하 여 기본적으로 출력을 저장 합니다. 그러나 사용자가 액세스할 수 있는 모든 데이터 저장소에 출력을 저장 하도록 지정할 수 있습니다. 환경에서 가상 네트워크를 사용 하는 경우 이러한 컨트롤을 사용 하 여 데이터가 안전 하 게 유지 되 고 액세스 가능한 지 확인할 수 있습니다.
+
+파이프라인에 대 한 새 기본 저장소를 설정 하려면 다음을 수행 합니다.
+
+1. 파이프라인 초안에서 파이프라인 제목 근처의 **설정 기어 아이콘** 을 선택 합니다.
+1. **기본 데이터 저장소 선택**을 선택 합니다.
+1. 새 데이터 저장소를 지정 합니다.
+
+모듈 별로 기본 데이터 저장소를 재정의할 수도 있습니다. 이를 통해 각 개별 모듈의 저장소 위치를 제어할 수 있습니다.
+
+1. 출력을 지정 하려는 모듈을 선택 합니다.
+1. **출력 설정** 섹션을 확장 합니다.
+1. **기본 출력 설정 재정의**를 선택 합니다.
+1. **출력 설정 설정**을 선택 합니다.
+1. 새 datstore를 지정 합니다.
+
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 access control
 
 RBAC 및 POSIX 스타일의 Acl (액세스 제어 목록)을 모두 사용 하 여 가상 네트워크 내에서 데이터 액세스를 제어할 수 있습니다.
@@ -185,7 +203,7 @@ SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](https://doc
 
  Azure Data Lake Store Gen1 및 Azure Data Lake Store Gen2는 기본적으로 유효성 검사를 건너뛰고 추가 작업이 필요 하지 않습니다. 그러나 다음 서비스의 경우 유사한 구문을 사용 하 여 데이터 저장소 유효성 검사를 건너뛸 수 있습니다.
 
-- Azure Blob storage
+- Azure Blob Storage
 - Azure 파일 공유
 - PostgreSQL
 - Azure SQL Database
@@ -286,8 +304,8 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 - NSG 규칙을 사용하여 아웃바운드 인터넷 연결을 거부합니다.
 
 - __컴퓨팅 인스턴스__ 또는 __컴퓨팅 클러스터__의 경우 다음 항목에 대한 아웃바운드 트래픽을 제한합니다.
-   - Azure Storage, __Storage.RegionName__의 __서비스 태그__를 사용합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
-   - Azure Container Registry, __AzureContainerRegistry.RegionName__의 __서비스 태그__를 사용합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
+   - __저장소__의 __서비스 태그__ 를 사용 하 여 Azure Storage 합니다.
+   - __AzureContainerRegistry__의 __서비스 태그__ 를 사용 하 여 Azure Container Registry 합니다.
    - Azure Machine Learning, __AzureMachineLearning__의 __서비스 태그__를 사용합니다.
    - Azure Resource Manager, __AzureResourceManager__의 __서비스 태그__를 사용합니다.
    - Azure Active Directory, __AzureActiveDirectory__의 __서비스 태그__를 사용합니다.
@@ -326,11 +344,15 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 > run = exp.submit(est)
 > ```
 
-### <a name="user-defined-routes-for-forced-tunneling"></a>강제 터널링을 위한 사용자 정의 경로
+### <a name="forced-tunneling"></a>강제 터널링
 
-Machine Learning 컴퓨팅에서 강제 터널링을 사용하는 경우 컴퓨팅 리소스가 포함된 서브넷에 [UDR(사용자 정의 경로)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)을 추가합니다.
+Azure Machine Learning compute를 사용 하 여 [강제 터널링](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm) 을 사용 하는 경우 계산 리소스가 포함 된 서브넷에서 공용 인터넷과의 통신을 허용 해야 합니다. 이 통신은 작업 예약 및 Azure Storage 액세스에 사용 됩니다.
 
-* 리소스가 있는 지역에서 Azure Batch 서비스에 사용되는 각 IP 주소에 대한 UDR을 설정합니다. 이러한 UDR을 사용하면 Batch 서비스가 작업 예약을 위해 컴퓨팅 노드와 통신할 수 있습니다. 리소스가 있는 Azure Machine Learning Service의 IP 주소도 추가합니다. 컴퓨팅 인스턴스에 액세스하는 데 필요하기 때문입니다. Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용합니다.
+다음 두 가지 방법으로이 작업을 수행할 수 있습니다.
+
+* [VIRTUAL NETWORK NAT](../virtual-network/nat-overview.md)를 사용 합니다. NAT 게이트웨이는 가상 네트워크에 있는 하나 이상의 서브넷에 대해 아웃 바운드 인터넷 연결을 제공 합니다. 자세한 내용은 [NAT 게이트웨이 리소스를 사용 하 여 가상 네트워크 디자인](../virtual-network/nat-gateway-resource.md)을 참조 하세요.
+
+* 계산 리소스를 포함 하는 서브넷에 [UDRs (사용자 정의 경로)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) 를 추가 합니다. 리소스가 있는 지역에서 Azure Batch 서비스에 사용되는 각 IP 주소에 대한 UDR을 설정합니다. 이러한 UDR을 사용하면 Batch 서비스가 작업 예약을 위해 컴퓨팅 노드와 통신할 수 있습니다. 리소스가 있는 Azure Machine Learning Service의 IP 주소도 추가합니다. 컴퓨팅 인스턴스에 액세스하는 데 필요하기 때문입니다. Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용합니다.
 
     * [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드하고 파일에서 `BatchNodeManagement.<region>` 및 `AzureMachineLearning.<region>`을 검색합니다. 여기서 `<region>`은 Azure 지역입니다.
 
@@ -340,14 +362,15 @@ Machine Learning 컴퓨팅에서 강제 터널링을 사용하는 경우 컴퓨�
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+    
+    UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 __다음 홉 유형__을 __인터넷__으로 설정합니다. 다음 이미지는 Azure Portal에서 UDR의 예를 보여 줍니다.
 
-* Azure Storage로 향하는 아웃바운드 트래픽을 온-프레미스 네트워크 장치에서 차단해서는 안 됩니다. 특히, URL은 `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, `<account>.blob.core.windows.net` 형식입니다.
+    ![주소 접두사에 대한 UDR 예](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 __다음 홉 유형__을 __인터넷__으로 설정합니다. 다음 이미지는 Azure Portal에서 UDR의 예를 보여 줍니다.
+    사용자가 정의 하는 UDRs 외에도 온-프레미스 네트워크 어플라이언스를 통해 Azure Storage에 대 한 아웃 바운드 트래픽을 허용 해야 합니다. 특히이 트래픽의 Url은 `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` 및 형식 `<account>.blob.core.windows.net` 입니다. 
 
-![주소 접두사에 대한 UDR 예](./media/how-to-enable-virtual-network/user-defined-route.png)
+    자세한 내용은 [가상 네트워크에서 Azure Batch 풀 만들기](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling)를 참조하세요.
 
-자세한 내용은 [가상 네트워크에서 Azure Batch 풀 만들기](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling)를 참조하세요.
 
 ### <a name="create-a-compute-cluster-in-a-virtual-network"></a>가상 네트워크에서 컴퓨팅 클러스터 만들기
 
@@ -480,6 +503,40 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 개인 IP 주소는 AKS가 _내부 부하 분산 장치_를 사용하도록 구성하여 활성화합니다. 
 
+#### <a name="network-contributor-role"></a>네트워크 참가자 역할
+
+> [!IMPORTANT]
+> 이전에 만든 가상 네트워크를 제공 하 여 AKS 클러스터를 만들거나 연결 하는 경우 AKS 클러스터에 대 한 SP (서비스 사용자) 또는 관리 _id를 가상_ 네트워크를 포함 하는 리소스 그룹에 부여 해야 합니다. 내부 부하 분산 장치를 개인 IP로 변경 하기 전에이 작업을 수행 해야 합니다.
+>
+> 네트워크 참가자로 id를 추가 하려면 다음 단계를 사용 합니다.
+
+1. AKS에 대 한 서비스 주체 또는 관리 id ID를 찾으려면 다음 Azure CLI 명령을 사용 합니다. `<aks-cluster-name>`을 클러스터의 이름으로 바꿉니다. `<resource-group-name>`을 _AKS 클러스터를 포함_하는 리소스 그룹의 이름으로 바꿉니다.
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    이 명령이 값을 반환 하는 경우 `msi` 다음 명령을 사용 하 여 관리 되는 id의 보안 주체 ID를 식별 합니다.
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. 가상 네트워크를 포함 하는 리소스 그룹의 ID를 찾으려면 다음 명령을 사용 합니다. `<resource-group-name>`을 _가상 네트워크를 포함_하는 리소스 그룹의 이름으로 바꿉니다.
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. 서비스 주체 또는 관리 되는 id를 네트워크 참가자로 추가 하려면 다음 명령을 사용 합니다. 를 `<SP-or-managed-identity>` 서비스 주체 또는 관리 id에 대해 반환 된 id로 바꿉니다. 을 `<resource-group-id>` 가상 네트워크를 포함 하는 리소스 그룹에 대해 반환 된 ID로 바꿉니다.
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
+AKS에서 내부 부하 분산 장치를 사용하는 방법에 대한 자세한 내용은 [Azure Kubernetes Service에서 내부 부하 분산 장치 사용](/azure/aks/internal-lb)을 참조하세요.
+
+#### <a name="enable-private-ip"></a>개인 IP 사용
+
 > [!IMPORTANT]
 > Azure Kubernetes 서비스 클러스터를 만들 때는 개인 IP를 사용하도록 설정할 수 없습니다. 기존 클러스터에 대한 업데이트로 활성화해야 합니다.
 
@@ -570,38 +627,6 @@ aks_target.update(update_config)
 aks_target.wait_for_completion(show_output = True)
 ```
 
-__네트워크 참가자 역할__
-
-> [!IMPORTANT]
-> 이전에 만든 가상 네트워크를 제공 하 여 AKS 클러스터를 만들거나 연결 하는 경우 AKS 클러스터에 대 한 SP (서비스 사용자) 또는 관리 _id를 가상_ 네트워크를 포함 하는 리소스 그룹에 부여 해야 합니다. 내부 부하 분산 장치를 개인 IP로 변경 하기 전에이 작업을 수행 해야 합니다.
->
-> 네트워크 참가자로 id를 추가 하려면 다음 단계를 사용 합니다.
-
-1. AKS에 대 한 서비스 주체 또는 관리 id ID를 찾으려면 다음 Azure CLI 명령을 사용 합니다. `<aks-cluster-name>`을 클러스터의 이름으로 바꿉니다. `<resource-group-name>`을 _AKS 클러스터를 포함_하는 리소스 그룹의 이름으로 바꿉니다.
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
-    ``` 
-
-    이 명령이 값을 반환 하는 경우 `msi` 다음 명령을 사용 하 여 관리 되는 id의 보안 주체 ID를 식별 합니다.
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
-    ```
-
-1. 가상 네트워크를 포함 하는 리소스 그룹의 ID를 찾으려면 다음 명령을 사용 합니다. `<resource-group-name>`을 _가상 네트워크를 포함_하는 리소스 그룹의 이름으로 바꿉니다.
-
-    ```azurecli-interactive
-    az group show -n <resource-group-name> --query id
-    ```
-
-1. 서비스 주체 또는 관리 되는 id를 네트워크 참가자로 추가 하려면 다음 명령을 사용 합니다. 를 `<SP-or-managed-identity>` 서비스 주체 또는 관리 id에 대해 반환 된 id로 바꿉니다. 을 `<resource-group-id>` 가상 네트워크를 포함 하는 리소스 그룹에 대해 반환 된 ID로 바꿉니다.
-
-    ```azurecli-interactive
-    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
-    ```
-AKS에서 내부 부하 분산 장치를 사용하는 방법에 대한 자세한 내용은 [Azure Kubernetes Service에서 내부 부하 분산 장치 사용](/azure/aks/internal-lb)을 참조하세요.
-
 ## <a name="use-azure-container-instances-aci"></a>ACI(Azure Container Instances) 사용
 
 Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니다. Azure Machine Learning이 가상 네트워크 내에 ACI를 만들 수 있도록 설정하려면 배포에 사용되는 서브넷에 __서브넷 위임__을 활성화해야 합니다.
@@ -630,6 +655,7 @@ Azure Firewall과 함께 Azure Machine Learning을 사용하는 방법에 대한
 > ACR(Azure Container Registry)은 가상 네트워크 내에 배치할 수 있지만 다음과 같은 필수 구성 요소를 충족해야 합니다.
 >
 > * Azure Machine Learning 작업 영역이 Enterprise edition이어야 합니다. 업그레이드에 대한 자세한 내용은 [Enterprise edition으로 업그레이드](how-to-manage-workspace.md#upgrade)를 참조하세요.
+> * Azure Machine Learning 작업 영역 지역이 [privated 링크 사용 지역](https://docs.microsoft.com/azure/private-link/private-link-overview#availability)이어야 합니다. 
 > * Azure Container Registry가 프리미엄 버전이어야 합니다. 업그레이드에 대한 자세한 내용은 [SKU 변경](/azure/container-registry/container-registry-skus#changing-skus)을 참조하세요.
 > * Azure Container Registry가 스토리지 계정 및 학습 또는 유추에 사용되는 컴퓨팅 대상과 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
 > * Azure Machine Learning 작업 영역에 [Azure Machine Learning 컴퓨팅 클러스터](how-to-set-up-training-targets.md#amlcompute)가 포함되어야 합니다.

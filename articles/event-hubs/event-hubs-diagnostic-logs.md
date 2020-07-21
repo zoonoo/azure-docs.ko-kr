@@ -3,11 +3,12 @@ title: 진단 로그 설정 - Azure Event Hub | Microsoft Docs
 description: Azure에서 이벤트 허브의 활동 로그 및 진단 로그를 설정하는 방법을 배웁니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322459"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521941"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
@@ -232,7 +233,7 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Event Hubs 소개](event-hubs-what-is-event-hubs.md)
+- [Event Hubs 소개](./event-hubs-about.md)
 - [Event Hubs 샘플](sdks.md)
 - Event Hubs 시작
     - [.NET Core](get-started-dotnet-standard-send-v2.md)

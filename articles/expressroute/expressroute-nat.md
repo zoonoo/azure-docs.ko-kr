@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62effa04fd6130c35d3e2e64a401c124fe383200
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79272969"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521924"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 NAT을 설치하고 관리해야 합니다. 일부 연결 공급자는 NAT을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 그런 서비스를 제공하는지를 확인합니다. 그렇지 않은 경우 아래에 설명한 요구 사항을 준수해야 합니다. 
@@ -21,7 +22,7 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 ## <a name="nat-requirements-for-microsoft-peering"></a>Microsoft 피어링에 대한 NAT 요구 사항
 Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통해 지원하지 않는 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록에는 Exchange Online, SharePoint Online 및 비즈니스용 Skype와 같은 Office 365 서비스가 포함 되어 있습니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원할 예정입니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소에 SNAT되어야 합니다. Microsoft 클라우드 서비스에서 네트워크에 보내는 트래픽은 [비대칭 라우팅](expressroute-asymmetric-routing.md)을 방지하기 위해 인터넷 에지에서 SNAT되어야 합니다. 아래 그림은 Microsoft 피어링에 어떻게 NAT을 설치할지에 대한 개략적인 그림을 제공합니다.
 
-![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
+![Microsoft 피어 링에 대해 NAT를 설정 하는 방법에 대 한 개략적인 다이어그램입니다.](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
 ### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Microsoft에 보내는 네트워크에서 생성된 트래픽
 * 트래픽이 유효한 공용 IPv4 주소로 Microsoft 피어링 경로를 입력하고 있는지 확인해야 합니다. Microsoft는 지역별 라우팅 인터넷 레지스트리(RIR) 또는 인터넷 라우팅 레지스트리(IRR)에 대한 IPv4 NAT 주소 풀에 관해 소유자의 유효성을 검사할 수 있어야 합니다. 확인은 피어링된 AS 번호 및 NAT.에 사용된 IP 주소에 기반하여 수행됩니다. 라우팅 레지스트리에 대한 정보는 [ExpressRoute 라우팅 요구 사항](expressroute-routing.md) 을 참조합니다.
@@ -52,7 +53,7 @@ Azure 공용 피어링 경로를 사용하면 해당 공용 IP 주소에 걸쳐 
 
 공용 피어링에 대한 Microsoft Azure에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소에 SNAT되어야 합니다. 아래 그림은 위의 요구 사항을 충족하도록 어떻게 NAT을 설치할지에 대한 높은 수준의 그림을 제공합니다.
 
-![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
+![NAT가 Microsoft 네트워크에 들어가기 전에 유효한 공용 IPv4 주소에 연결할 수 있도록 설정 하는 방법에 대 한 개략적인 다이어그램입니다.](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### <a name="nat-ip-pool-and-route-advertisements"></a>NAT IP 풀 및 경로 광고
 트래픽이 유효한 공용 IPv4 주소로 Azure 공용 피어링 경로를 입력하고 있는지 확인해야 합니다. Microsoft는 지역별 라우팅 인터넷 레지스트리(RIR) 또는 인터넷 라우팅 레지스트리(IRR)에 대한 IPv4 NAT 주소 풀에 관해 소유권의 유효성을 검사할 수 있어야 합니다. 확인은 피어링된 AS 번호 및 NAT.에 사용된 IP 주소에 기반하여 수행됩니다. 라우팅 레지스트리에 대한 정보는 [ExpressRoute 라우팅 요구 사항](expressroute-routing.md) 을 참조합니다.

@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898768"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523505"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 WHERE 절
 
@@ -40,7 +41,7 @@ WHERE <filter_condition>
 
   일치 필터의 일부로 절에 파티션 키를 포함 하는 경우 `WHERE` 쿼리는 관련 파티션만 자동으로 필터링 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 쿼리는 값이 인 속성을 포함 하는 항목을 요청 합니다 `id` `AndersenFamily` . 속성이 없거나 해당 값이 일치 하지 않는 항목은 제외 `id` `AndersenFamily` 됩니다.
 
@@ -72,7 +73,7 @@ WHERE <filter_condition>
 |---------|---------|
 |산술 | +,-,*,/,% |
 |비트 단위    | \|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트) |
-|논리    | AND, OR, NOT      |
+|논리적    | AND, OR, NOT      |
 |비교 | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |String     |  \|\|(연결) |
 
@@ -104,7 +105,7 @@ WHERE <filter_condition>
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-쿼리에서 속성 참조를 사용할 수도 있습니다. 예를 들어는와 `SELECT * FROM Families f WHERE f.isRegistered` 같은 값을 갖는 속성을 포함 하는 JSON 항목을 반환 합니다 `isRegistered` `true` . ,,,,, 또는와 같은 다른 값 `false` `null` `Undefined` `<number>` `<string>` `<object>` `<array>` 은 결과에서 항목을 제외 합니다.
+쿼리에서 속성 참조를 사용할 수도 있습니다. 예를 들어는와 `SELECT * FROM Families f WHERE f.isRegistered` 같은 값을 갖는 속성을 포함 하는 JSON 항목을 반환 합니다 `isRegistered` `true` . ,,,,, 또는와 같은 다른 값 `false` `null` `Undefined` `<number>` `<string>` `<object>` `<array>` 은 결과에서 항목을 제외 합니다. 또한 형식 확인 함수를 사용 하 여 `IS_DEFINED` 지정 된 JSON 속성이 있는지 여부를 기준으로 쿼리할 수 있습니다. 예를 들어은 값이 없는 `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` 모든 JSON 항목을 반환 `isRegistered` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

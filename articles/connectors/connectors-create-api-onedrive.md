@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75378435"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524212"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 OneDrive 커넥터에서 파일 액세스 및 관리
 
@@ -39,11 +40,11 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 1. 논리 앱 디자이너에서를 입력 `onedrive` 하 여 트리거 목록을 가져옵니다.  
 
-   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+   !["Microsoft 관리 되는 Api 표시" 라는 대화 상자에 "onedrive"가 포함 된 상자가 있습니다. 다음은 4 개 트리거의 목록입니다. 그 중 첫 번째는 "OneDrive-파일이 생성 될 때"입니다. 두 번째 "OneDrive-파일이 수정 되는 경우"가 선택 되었습니다.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. **파일을 수정할 때**를 선택합니다. 연결이 이미 있는 경우 선택 표시 단추를 선택하여 폴더를 선택합니다.
 
-   ![](./media/connectors-create-api-onedrive/sample-folder.png)
+   !["파일을 수정 하는 경우" 라는 대화 상자에는 연결 된 찾아보기 단추가 있는 "폴더" 라는 상자가 있습니다.](./media/connectors-create-api-onedrive/sample-folder.png)
 
    로그인하라는 메시지가 표시되면 로그인 세부 정보를 입력하여 연결을 만듭니다. 이 아티클의 [연결 만들기](connectors-create-api-onedrive.md#create-the-connection)에는 단계가 나열됩니다.
 
@@ -51,7 +52,7 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 3. **편집** 단추를 선택하고 **빈도** 및 **간격** 값을 설정합니다. 예를 들어 15분마다 폴링을 트리거하려면 **빈도**를 **분**으로, **간격**을 **15**로 설정합니다. 
 
-   ![](./media/connectors-create-api-onedrive/trigger-properties.png)
+   !["파일을 수정 하는 경우" 라는 대화 상자에는 "폴더", "빈도", "간격", "표준 시간대" 및 "시작 시간" 이라는 레이블이 지정 된 5 개의 상자가 표시 됩니다. "빈도" 및 "표준 시간대" 필드에 대 한 드롭다운 목록이 있습니다.](./media/connectors-create-api-onedrive/trigger-properties.png)
 
 4. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위 모서리). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
 
@@ -61,23 +62,23 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 1. 더하기 기호를 선택합니다. **작업 추가**, **조건 추가** 또는 **자세히** 옵션 중 하나 등 몇 가지가 표시됩니다.
 
-   ![](./media/connectors-create-api-onedrive/add-action.png)
+   ![스크린샷에는 "+ 새 단계", "작업 추가", "조건 추가" 및 "..."와 같은 네 가지 단추가 표시 됩니다. 추가 정보 ".](./media/connectors-create-api-onedrive/add-action.png)
 
 2. **작업 추가**를 선택합니다.
 
 3. 검색 상자에를 입력 `onedrive` 하 여 사용 가능한 모든 작업 목록을 가져옵니다.
 
-   ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   !["Microsoft 관리 되는 Api 표시" 라는 대화 상자에 "onedrive"가 포함 된 상자가 있습니다. 다음은 8 개의 작업 목록입니다. 첫 번째는 "OneDrive-파일 만들기" 이며 선택 됩니다.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. 이 예제에서는 **OneDrive - 파일 만들기**를 선택합니다. 연결이 이미 존재하는 경우 **폴더 경로**를 선택하여 파일을 입력하고 **파일 이름**을 입력한 후 원하는 **파일 콘텐츠**를 선택합니다.  
 
-   ![](./media/connectors-create-api-onedrive/sample-action.png)
+   !["파일 만들기" 라는 대화 상자에는 "폴더 경로", "파일 이름" 및 "폴더 콘텐츠" 라는 레이블이 붙은 세 개의 상자가 표시 됩니다. "폴더 경로" 상자 옆에 디렉터리 찾아보기 단추가 있습니다.](./media/connectors-create-api-onedrive/sample-action.png)
 
    연결 정보를 입력 하 라는 메시지가 표시 되 면이 항목에 [설명 된 대로 연결을 만드는](#create-the-connection) 데 필요한 세부 정보를 입력 합니다.
 
    이 예제에서는 OneDrive 폴더에 새 파일을 만듭니다. 다른 트리거의 출력을 사용하여 OneDrive 파일을 만들 수 있습니다. 예를 들어 Office 365 Outlook *새 전자 메일이 도착했을 때* 트리거를 추가합니다. 그런 후 ForEach 내에서 Attachments 및 Content-Type 필드를 사용하는 OneDrive *파일 만들기* 작업을 추가하여 OneDrive에서 새 파일을 만듭니다.
 
-   ![](./media/connectors-create-api-onedrive/foreach-action.png)
+   !["For each" 라는 대화 상자에는 "첨부 파일"을 포함 하는 "이전 단계에서 출력 선택" 이라는 상자가 있습니다. "폴더 경로", "파일 이름" 및 "파일 콘텐츠" 상자를 사용 하 여 "For each" 상자의 나머지 부분을 다루는 "파일 만들기" 대화 상자가 있습니다. ](./media/connectors-create-api-onedrive/foreach-action.png)
 
 5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위 모서리). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
 

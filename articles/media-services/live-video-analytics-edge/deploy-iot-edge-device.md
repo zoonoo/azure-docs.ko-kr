@@ -3,19 +3,19 @@ title: IoT Edge 장치에 라이브 비디오 분석 배포-Azure
 description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026970"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519901"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
 
 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 * 라이브 비디오 분석의 HW/SW 제약 조건을 충족 하는 Linux 컴퓨터
 * [소유자 권한이](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 있는 Azure 구독
@@ -34,7 +34,7 @@ ms.locfileid: "86026970"
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>프리미엄 스트리밍 끝점 설정
 
-Live Video Analytics를 사용 하 여 클라우드에 비디오를 기록 하 고 나중에 재생 하려는 경우 [프리미엄 스트리밍 끝점](../latest/streaming-endpoint-concept.md#types)을 사용 하도록 미디어 서비스를 업데이트 해야 합니다.  
+라이브 비디오 분석을 사용 하 여 계속 해 서 클라우드에 비디오를 기록 하 고 나중에 [쿼리 api](playback-recordings-how-to.md#query-api) 를 사용 하려는 경우에는 [프리미엄 스트리밍 끝점](../latest/streaming-endpoint-concept.md#types)을 사용 하도록 미디어 서비스를 업데이트 하는 것이 좋습니다.  
 
 선택적 단계입니다. 이 Azure CLI 명령을 사용 하 여이 작업을 수행할 수 있습니다.
 
@@ -102,7 +102,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가** 드롭다운을 클릭 하 고 **IoT Edge 모듈** 을 선택 하 여 **IoT Edge 모듈 추가** 페이지를 표시 합니다.
 1. **모듈 설정** 탭에서 모듈의 이름을 입력 한 다음 컨테이너 이미지 URI를 지정 합니다.   
-    예:
+    예제:
     
     * **IoT Edge 모듈 이름**: lvaEdge
     * **이미지 URI**: mcr.microsoft.com/media/live-video-analytics:1.0    

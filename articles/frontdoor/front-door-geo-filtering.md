@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 98c86d839868eb0714c7106d5267d1c55e6e99d5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 48e2697cb4793f10e7694aa26e29c48a397fe3a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739314"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521601"
 ---
-# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Azure Front Door용 도메인의 지역 필터링이란?
+# <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Azure 전면 도어의 도메인에 대 한 지역 필터링
 
 기본적으로 Azure Front Door는 요청을 수행하는 사용자의 위치에 관계없이 사용자 요청에 응답합니다. 그러나 경우에 따라 국가/지역별로 웹 애플리케이션에 대한 액세스를 제한할 수 있습니다. WAF(웹 애플리케이션 방화벽) 서비스를 통해 엔드포인트의 특정 경로에 사용자 지정 액세스 규칙을 사용하는 정책을 정의하여 지정된 국가/지역에서 들어오는 트래픽을 허용하거나 차단할 수 있습니다. 
 

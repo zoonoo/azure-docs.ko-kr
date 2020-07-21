@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 6b29937e53fd58886d770ec15c803fb814a155ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 123090cad78af46e88e6493a47d04b97e448f62a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391811"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522332"
 ---
 # <a name="service-limits-in-public-preview"></a>공개 미리 보기 서비스 제한
 
@@ -29,4 +30,4 @@ ms.locfileid: "85391811"
 ## <a name="next-steps"></a>다음 단계
 
 서비스 개요에서 Azure Digital Twins의 현재 미리 보기 릴리스에 대해 자세히 알아보세요.
-* [개요: Azure 디지털 쌍 이란?](overview.md)
+* [*개요: Azure 디지털 쌍 이란?*](overview.md)

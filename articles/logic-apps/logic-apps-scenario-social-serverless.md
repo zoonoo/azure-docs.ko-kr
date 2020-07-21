@@ -8,11 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980436"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520752"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
 
@@ -21,7 +22,7 @@ Azure는 인프라에 대한 염려 없이 클라우드에서 앱을 빠르게 �
 이 솔루션의 경우 서버를 사용하지 않는 앱을 위해 [Azure Functions](https://azure.microsoft.com/services/functions/) 및 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 핵심 Azure 구성 요소를 사용합니다.
 Azure Logic Apps는 서버가 없는 구성 요소에서 오케스트레이션을 만들고 200개 이상의 서비스 및 API에 연결할 수 있도록 클라우드에서 서버를 사용하지 않는 워크플로 엔진을 제공합니다. Azure Functions는 클라우드에 서버를 사용하지 않는 계산을 제공합니다. 이 솔루션은 미리 정의된 키워드를 기반으로 고객 트윗에 플래그를 지정하도록 Azure Functions를 사용합니다.
 
-이 시나리오에서는 고객의 피드백을 찾도록 트리거하는 논리 앱을 만듭니다. 고객 피드백에 응답하는 데 도움이 되는 일부 커넥터에는 Outlook.com, Office 365, Survey Monkey, Twitter 및 [웹 형식의 HTTP 요청](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/)이 포함됩니다. 사용자가 만든 워크플로는 Twitter에서 해시태그를 모니터링합니다.
+이 시나리오에서는 고객의 피드백을 찾도록 트리거하는 논리 앱을 만듭니다. 고객 피드백에 응답하는 데 도움이 되는 일부 커넥터에는 Outlook.com, Office 365, Survey Monkey, Twitter 및 [웹 형식의 HTTP 요청](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form)이 포함됩니다. 사용자가 만든 워크플로는 Twitter에서 해시태그를 모니터링합니다.
 
 [Visual Studio에서 전체 솔루션을 빌드](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)하고 [Azure Resource Manager 템플릿을 사용하여 솔루션을 배포](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)할 수 있습니다. 이 솔루션을 만드는 방법을 보여 주는 동영상 연습은 [이 채널 9 비디오를 시청](https://aka.ms/logicappsdemo)하세요. 
 
@@ -66,7 +67,7 @@ Azure Logic Apps는 서버가 없는 구성 요소에서 오케스트레이션�
 
 ## <a name="process-data-with-azure-functions"></a>Azure Functions를 사용한 데이터 처리
 
-함수를 만들기 전에 Azure 구독에서 함수 앱을 만듭니다. 또한 논리 앱이 직접 함수를 호출하려면 함수에 예를 들어 **HttpTrigger** 템플릿을 사용하는 HTTP 트리거 바인딩이 있어야 합니다. [Azure Portal에서 첫 번째 함수 앱 및 함수를 만드는 방법](../azure-functions/functions-create-first-azure-function-azure-portal.md)에 대해 알아봅니다.
+함수를 만들기 전에 Azure 구독에서 함수 앱을 만듭니다. 또한 논리 앱이 직접 함수를 호출하려면 함수에 예를 들어 **HttpTrigger** 템플릿을 사용하는 HTTP 트리거 바인딩이 있어야 합니다. [Azure Portal에서 첫 번째 함수 앱 및 함수를 만드는 방법](../azure-functions/functions-create-first-azure-function.md)에 대해 알아봅니다.
 
 이 시나리오의 경우 Azure 함수의 요청 본문으로 트윗 텍스트를 사용합니다. 함수 코드에서 트윗 텍스트에 키워드 또는 구가 포함되는지 여부를 결정하는 논리를 정의합니다. 시나리오에 필요한 대로 함수를 간단하거나 복잡하게 유지합니다.
 함수의 끝에서 일부 데이터를 사용하여 논리 앱에 대한 응답을 반환합니다(예: `containsKeyword`와 같은 간단한 부울 값 또는 복합 개체).

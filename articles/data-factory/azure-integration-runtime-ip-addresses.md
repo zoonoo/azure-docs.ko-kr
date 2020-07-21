@@ -11,11 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: f3eed03c585ba6b48a21b36c21cb77585456fc2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c64a38295754e4754326dec126bfbc36e1bef61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660258"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523335"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Azure Integration Runtime IP 주소
 
@@ -24,7 +25,7 @@ ms.locfileid: "84660258"
 Azure Integration Runtime 사용 하는 IP 주소는 Azure Integration Runtime이 있는 지역에 따라 다릅니다. *모두* 동일한 지역에 있는 Azure integration runtime은 동일한 IP 주소 범위를 사용 합니다.
 
 > [!IMPORTANT]  
-> 데이터 흐름은 고정 IP 범위의 사용을 지원 하지 않습니다.
+> 관리 Virtual Network를 사용 하도록 설정 하는 데이터 흐름 및 Azure Integration Runtime 고정 IP 범위의 사용을 지원 하지 않습니다.
 >
 > 이러한 IP 범위는 데이터 이동, 파이프라인 및 외부 활동 실행에 사용할 수 있습니다. 이러한 IP 범위는 Azure Integration runtime에서 인바운드 액세스를 위해 데이터 저장소/n a m e 보안 그룹 (NSG)/방화벽의 허용 목록에 사용할 수 있습니다. 
 

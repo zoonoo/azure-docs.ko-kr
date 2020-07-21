@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: dfa3f00e668488574abeb08964909a8972c8913f
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 115a01fe0b1edc343ed9efd324c4be3b53251566
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772950"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519510"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 고객이 위협을 방지, 탐지 및 대응하는 데 도움이 되도록 Azure Security Center에서 구성 정보, 메타데이터, 이벤트 로그 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
@@ -69,7 +70,7 @@ VM 디스크 스냅샷은 VM 디스크와 동일한 스토리지 계정에 저�
 Azure에서 Security Center를 사용하는 경우 각 Azure 구독에 대해 데이터 수집이 활성화됩니다. 또한 Azure Security Center의 보안 정책 섹션에서 구독에 대한 데이터 수집을 설정할 수 있습니다. 데이터 수집이 설정되면 Azure Security Center에서 Log Analytics 에이전트를 지원되는 기존의 모든 Azure 가상 머신 및 새로 만든 Azure 가상 머신에 프로비저닝합니다.
 Log Analytics 에이전트는 다양한 보안 관련 구성 및 이벤트를 검사하여 [ETW(Windows용 이벤트 추적)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx)로 보냅니다. 또한 운영 체제는 컴퓨터를 실행하는 동안 이벤트 로그 이벤트를 발생시킵니다. 이러한 데이터의 예: 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 프로세스 실행, 컴퓨터 이름, IP 주소, 로그인된 사용자 및 테넌트 ID입니다. Log Analytics 에이전트는 이벤트 로그 항목 및 ETW 추적을 읽고, 분석을 위해 작업 영역에 복사합니다. 또한 Log Analytics 에이전트를 사용하면 프로세스 만들기 이벤트 및 명령줄 감사를 수행할 수 있습니다.
 
-Azure Security Center를 무료로 사용하는 경우 보안 정책의 가상 머신에서 데이터 수집을 해제할 수도 있습니다. 데이터 수집은 표준 계층의 구독에 필요합니다. VM 디스크 스냅샷 및 아티팩트 컬렉션은 데이터 수집이 사용하지 않도록 설정된 경우에도 여전히 사용하도록 설정됩니다.
+Azure Security Center를 무료로 사용하는 경우 보안 정책의 가상 머신에서 데이터 수집을 해제할 수도 있습니다. 데이터 수집은 표준 계층의 구독에 필요 합니다. VM 디스크 스냅샷 및 아티팩트 컬렉션은 데이터 수집이 사용하지 않도록 설정된 경우에도 여전히 사용하도록 설정됩니다.
 
 ## <a name="data-consumption"></a>데이터 사용량
 

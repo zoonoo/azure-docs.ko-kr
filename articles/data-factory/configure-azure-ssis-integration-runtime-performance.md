@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255537"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523318"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
 
@@ -104,11 +104,15 @@ SSIS 엔지니어링 팀의 비공식 사내 테스트에 따르면 D 시리즈�
 
 이 데이터는 단일 작업자 노드에서 단일 패키지 실행을 나타냅니다. 패키지는 Azure Blob Storage에서 이름 및 성 열이 포함 된 300만 레코드를 로드 하 고, 전체 이름 열을 생성 하 고, 전체 이름이 20 자 보다 긴 레코드를 Azure Blob Storage에 기록 합니다.
 
+Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메모리를 많이 사용 하는 패키지 하나에 대 한 테스트 결과만을 기억 하세요. 패키지의 처리량을 확인 하려면 직접 테스트를 수행 하는 것이 좋습니다.
+
 ![SSIS Integration Runtime 패키지 실행 속도](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>전체 처리량에 대한 구성
 
 실행할 패키지가 많고 전체 처리량을 가장 중요하게 생각하는 경우 다음 차트의 정보를 사용하여 시나리오에 적합한 가상 머신 유형을 선택합니다.
+
+Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메모리를 많이 사용 하는 패키지 하나에 대 한 테스트 결과만을 기억 하세요. 패키지의 처리량을 확인 하려면 직접 테스트를 수행 하는 것이 좋습니다.
 
 ![SSIS Integration Runtime 최대 전체 처리량](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 

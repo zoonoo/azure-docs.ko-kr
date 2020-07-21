@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834495"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520803"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
 
@@ -53,8 +54,8 @@ Microsoft 인증에 대해 등록된 커넥터를 지정할 수도 있습니다.
 사용자 지정 커넥터에 대한 자세한 내용은 다음을 참조하세요. 
 
 * [사용자 지정 커넥터 개요](../logic-apps/custom-connector-overview.md)
-* [웹 API에서 사용자 지정 커넥터 만들기](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Azure Logic Apps에서 사용자 지정 커넥터 등록](../logic-apps/logic-apps-custom-connector-register.md)
+* [웹 API에서 사용자 지정 커넥터 만들기](/connectors/custom-connectors/create-web-api-connector)
+* [Azure Logic Apps에서 사용자 지정 커넥터 등록](/connectors/custom-connectors/)
 
 ## <a name="helpful-tools"></a>유용한 도구
 
@@ -227,7 +228,7 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 * 사용자 지정 API에 대한 구체적인 지원은 [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com)에 문의해 주세요.
 
-* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-logic-apps.html)를 방문하세요.
 
 * Logic Apps 개선에 도움을 주려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)에서 투표하고 아이디어를 제출하세요. 
 

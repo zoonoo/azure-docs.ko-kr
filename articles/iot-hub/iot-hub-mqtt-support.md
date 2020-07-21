@@ -10,11 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c3fa56daee5d2dba98fa9fd420524a9b7e4c60ba
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2f1f059f3abfd04ae78d9a2a19cff2929e84b8a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726114"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521125"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -303,7 +304,21 @@ IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/
 
 디바이스는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 디바이스 특정 엔드포인트를 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 설정된 후에는 디바이스가 구독 시간 이후 전송된 클라우드-디바이스 메시지를 수신합니다. 디바이스가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 디바이스가 **CleanSession 0**으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 디바이스가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 디바이스-엔드포인트를 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
-IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{device_id}/messages/devicebound/` 또는 `devices/{device_id}/messages/devicebound/{property_bag}`인 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 애플리케이션 속성은 접두사가 없는 원래 속성 이름을 사용합니다.
+IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{device_id}/messages/devicebound/` 또는 `devices/{device_id}/messages/devicebound/{property_bag}`인 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 애플리케이션 속성은 접두사가 없는 원래 속성 이름을 사용합니다. 속성 모음 형식에 대 한 자세한 내용은 [장치-클라우드 메시지 보내기](#sending-device-to-cloud-messages)를 참조 하세요.
+
+클라우드-장치 메시지에서 속성 모음의 값은 다음 표에서와 같이 표시 됩니다.
+
+| 속성 값 | 표현 | 설명 |
+|----|----|----|
+| `null` | `key` | 키만 속성 모음에 표시 됩니다. |
+| 빈 문자열 | `key=` | 키 뒤에 값이 없는 등호 기호가 있습니다. |
+| null이 아닌 값이 비어 있지 않습니다. | `key=value` | 키 뒤에 등호와 값을 입력 합니다. |
+
+다음 예제에서는 세 가지 응용 프로그램 속성이 포함 된 속성 모음을 보여 줍니다. **prop1** 값은 `null` **prop2**, 빈 문자열 (""); and **prop3** 를 사용 하 여 값을 "a string"으로 바꿉니다.
+
+```mqtt
+/?prop1&prop2=&prop3=a%20string
+```
 
 디바이스 앱이 **QoS 2**의 토픽을 구독하는 경우, IoT Hub는 **SUBACK** 패킷에서 최대 QoS level 1을 부여합니다. 그런 다음 IoT Hub는 메시지를 QoS 1을 사용하는 디바이스에 전달합니다.
 
@@ -331,7 +346,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{devi
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
 | 200 | Success |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 참조 |
@@ -351,7 +366,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID**를 요청으로 사용합니다.
 
-요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 디바이스 쌍의 문서에 있는 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 다음은 그 예입니다.
+요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 디바이스 쌍의 문서에 있는 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -362,7 +377,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |

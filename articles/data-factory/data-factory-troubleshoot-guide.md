@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836161"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522859"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Azure Data Factory 문제 해결
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -122,6 +123,14 @@ ms.locfileid: "83836161"
 - **원인**: 오류 메시지는 예기치 않은 클러스터 상태 또는 특정 활동과 같은 다양한 문제를 나타냅니다. 종종 오류 메시지가 나타나지 않는 경우가 있습니다.
 
 - **권장 사항**: 해당 없음
+
+### <a name="error-code-3208"></a>오류 코드: 3208
+
+- **메시지**: `An error occurred while sending the request.`
+
+- **원인**: Databricks 서비스에 대 한 네트워크 연결이 중단 되었습니다.
+
+- **권장 사항**: 자체 호스팅 통합 런타임을 사용 하는 경우 통합 런타임 노드에서 네트워크 연결이 안정적인 지 확인 합니다. Azure integration runtime을 사용 하는 경우 다시 시도는 일반적으로 작동 합니다.
  
 ## <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
 
@@ -1047,7 +1056,7 @@ ms.locfileid: "83836161"
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 문제 해결 도움말은 다음 리소스를 참조하세요.
+문제 해결을 위한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 * [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 * [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)

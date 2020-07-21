@@ -8,11 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792884"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520718"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2016년 6월 1일
 
@@ -28,7 +29,7 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 
 ## <a name="scopes"></a>범위
 
-이 스키마는 작업을 함께 그룹화하거나 작업을 서로 중첩시킬 수 있는 범위를 포함합니다. 예를 들어 조건은 다른 조건을 포함할 수 있습니다. [범위 구문](../logic-apps/logic-apps-loops-and-scopes.md)에 대해 자세히 알아보거나 기본 범위 예제를 검토하세요.
+이 스키마는 작업을 함께 그룹화하거나 작업을 서로 중첩시킬 수 있는 범위를 포함합니다. 예를 들어 조건은 다른 조건을 포함할 수 있습니다. [범위 구문](./logic-apps-control-flow-loops.md)에 대해 자세히 알아보거나 기본 범위 예제를 검토하세요.
 
 ```json
 {
@@ -54,7 +55,7 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 
 ## <a name="conditions-and-loops-changes"></a>조건 및 루프 변경
 
-이전 버전의 스키마에서 조건과 루프는 단일 작업과 관련된 매개 변수였습니다. 이 스키마는 이 제한 사항을 해제하므로 이제는 조건과 루프가 작업 유형으로 제공됩니다. [루프 및 범위](../logic-apps/logic-apps-loops-and-scopes.md), [조건](../logic-apps/logic-apps-control-flow-conditional-statement.md)에 대해 자세히 알아보거나 조건 작업을 보여 주는 기본 예제를 검토하세요.
+이전 버전의 스키마에서 조건과 루프는 단일 작업과 관련된 매개 변수였습니다. 이 스키마는 이 제한 사항을 해제하므로 이제는 조건과 루프가 작업 유형으로 제공됩니다. [루프 및 범위](./logic-apps-control-flow-loops.md), [조건](../logic-apps/logic-apps-control-flow-conditional-statement.md)에 대해 자세히 알아보거나 조건 작업을 보여 주는 기본 예제를 검토하세요.
 
 ```json
 {
@@ -130,7 +131,7 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 
 #### <a name="foreach-loop-with-condition"></a>조건이 있는 'foreach' 루프
 
-새 스키마에서는 필터 작업을 사용해 항목당 조건이 하나인 **For each** 루프를 사용하는 패턴을 복제할 수 있습니다. 그러나 업그레이드할 때는 변경이 자동으로 수행됩니다. 즉, **For each** 앞에 나오는 조건이 필터 작업이 되어 조건과 일치하는 항목 배열만 반환하며 **For each** 작업으로 해당 배열을 전달합니다. 이에 대한 예제는 [루프 및 범위](../logic-apps/logic-apps-loops-and-scopes.md)를 참조하세요.
+새 스키마에서는 필터 작업을 사용해 항목당 조건이 하나인 **For each** 루프를 사용하는 패턴을 복제할 수 있습니다. 그러나 업그레이드할 때는 변경이 자동으로 수행됩니다. 즉, **For each** 앞에 나오는 조건이 필터 작업이 되어 조건과 일치하는 항목 배열만 반환하며 **For each** 작업으로 해당 배열을 전달합니다. 이에 대한 예제는 [루프 및 범위](./logic-apps-control-flow-loops.md)를 참조하세요.
 
 ### <a name="resource-tags"></a>리소스 태그
 

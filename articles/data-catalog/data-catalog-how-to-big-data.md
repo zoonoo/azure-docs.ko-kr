@@ -4,14 +4,14 @@ description: 방법 문서는 Azure Blob Storage, Azure Data Lake 및 Hadoop HDF
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 88dc85003fa2a3e41d8a31055ff8ba9b0fcc7492
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6f7355b4505324c562ae39b05155a2902da2790
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71300579"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523454"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Azure Data Catalog에서 빅 데이터를 카탈로그로 만드는 방법
 

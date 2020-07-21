@@ -7,11 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836280"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524168"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
 
@@ -57,30 +58,30 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 2. 논리 앱 시작 시 **요청/응답 - 요청** 트리거를 선택합니다. 
 
-    ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
+    ![대화 상자에는 모든 트리거를 검색할 수 있는 상자가 있습니다. "요청/응답-요청"에는 선택 단추가 표시 된 단일 트리거도 있습니다.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
 3. **저장**을 선택합니다. 저장하면 요청 URL이 자동으로 생성됩니다. 
 
 4. **새 단계**를 선택한 다음 **작업 추가**를 선택합니다. 사용 가능한 작업을 보려면 `oracle`을 입력합니다. 
 
-    ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
+    ![검색 상자에는 "oracle"이 포함 됩니다. 검색은 "Oracle Database" 이라는 레이블이 지정 된 하나의 적중을 생성 합니다. 탭 페이지에는 "TRIGGERS (0)"을 보여 주는 탭과 "작업 (6)"이 표시 된 탭이 있습니다. 여섯 개의 액션이 나열 됩니다. 그 중 첫 번째는 "행 미리 보기 가져오기"입니다.](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > 이 방법은 커넥터에 대해 사용 가능한 트리거 및 작업을 확인하는 가장 빠른 방법이기도 합니다. 커넥터 이름의 일부를 입력합니다(예: `oracle`). 디자이너에 모든 트리거 및 작업이 나열됩니다. 
 
 5. 작업 중 하나를 선택합니다(예: **Oracle 데이터베이스 - 행 가져오기**). **온-프레미스 데이터 게이트웨이를 통해 연결**을 선택합니다. Oracle 서버 이름, 인증 방법, 사용자 이름, 암호를 입력하고 게이트웨이를 선택합니다.
 
-    ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
+    ![대화 상자의 제목은 "Oracle Database-행 가져오기"입니다. "온-프레미스 데이터 게이트웨이를 통해 연결" 이라고 표시 된 확인란이 선택 되어 있습니다. 그 아래에는 5 개의 다른 입력란이 있습니다.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
 6. 연결되었으면 목록에서 테이블을 선택하고 테이블에 행 ID를 입력합니다. 테이블에 대한 식별자를 알아야 합니다. 모르는 경우 Oracle DB 관리자에게 연락하고 `select * from yourTableName`에서 출력을 가져옵니다. 그러면 진행하는 데 필요한 식별 가능한 정보가 제공됩니다.
 
     다음 예제에서는 인사 관리 데이터베이스에서 작업 데이터가 반환됩니다. 
 
-    ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    !["행 가져오기 (미리 보기)" 라는 대화 상자에는 "HRJOBS"를 포함 하 고 드롭다운 목록을 포함 하는 "Table name" 이라는 두 개의 텍스트 상자와 "SA_REP"가 포함 된 "행 id"가 있습니다.](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. 다음 단계에서는 다른 커넥터를 사용하여 워크플로를 작성할 수 있습니다. Oracle에서 데이터 가져오기를 테스트하려면 이메일 보내기 커넥터(예: Office 365 또는 Outlook) 중 하나를 사용하여 Oracle 데이터가 포함된 이메일을 직접 보냅니다. Oracle 테이블의 동적 토큰을 사용하여 전자 메일의 `Subject` 및 `Body`을 작성합니다.
+7. 다음 단계에서는 다른 커넥터를 사용하여 워크플로를 작성할 수 있습니다. Oracle에서 데이터 가져오기를 테스트 하려는 경우 Office 365 Outlook 등의 메일 보내기 커넥터 중 하나를 사용 하 여 Oracle 데이터가 포함 된 전자 메일을 보냅니다. Oracle 테이블의 동적 토큰을 사용하여 전자 메일의 `Subject` 및 `Body`을 작성합니다.
 
-    ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
+    ![대화 상자에는 두 가지가 있습니다. "전자 메일 보내기" 상자에는 전자 메일의 "본문", "제목" 및 "받는 사람" 주소를 지정 하는 상자가 있습니다. "동적 콘텐츠 추가" 대화 상자는 흐름의 앱 및 서비스에서 동적 콘텐츠를 검색 하는 기능을 제공 합니다.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
 8. 논리 앱을 **저장**한 후 **실행**을 선택합니다. 디자이너를 선택하고 실행 기록에서 상태를 확인합니다. 실패하면 실패한 메시지 행을 선택합니다. 디자이너가 열리고 어떤 단계에서 실패했는지와 오류 정보가 표시됩니다. 성공하면 추가된 정보와 함께 전자 메일을 받게 됩니다.
 
@@ -89,11 +90,11 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 * \#oracle 해시 태그를 모니터하고 데이터베이스에 트윗을 배치하여 다른 애플리케이션 내에서 사용하고 쿼리할 수 있도록 하려고 합니다. 논리 앱에서 `Twitter - When a new tweet is posted` 트리거를 추가하고 **#oracle** 해시 태그를 입력합니다. 그런 다음 `Oracle Database - Insert row` 작업을 추가하고 테이블을 선택합니다.
 
-    ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
+    !["새 트 윗이 게시 될 때" 대화 상자에는 "해시 태그 oracle"이 검색 텍스트로 표시 되 고 확인 빈도를 지정할 수 있습니다. 이 대화 상자에는 작업을 선택할 수 있는 "Oracle Database" 대화 상자가 표시 됩니다.](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
 * 메시지가 Service Bus 큐에 전송됩니다. 이러한 메시지를 가져와 데이터베이스에 넣으려고 합니다. 논리 앱에서 `Service Bus - when a message is received in a queue` 트리거를 추가하고 큐를 선택합니다. 그런 다음 `Oracle Database - Insert row` 작업을 추가하고 테이블을 선택합니다.
 
-    ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
+    !["메시지를 수신 하는 경우 ..." 대화 상자에서 "주문"을 "큐 이름"으로 표시 하 고 확인 빈도를 지정할 수 있습니다. 이 상자에서는 "테이블 이름"을 선택할 수 있는 "행 삽입 (미리 보기)" 대화 상자를 표시 합니다.](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
 ## <a name="common-errors"></a>일반 오류
 

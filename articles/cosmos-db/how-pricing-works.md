@@ -5,26 +5,26 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 07/14/2020
+ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955815"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523539"
 ---
-# <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 가격 책정 모델 
+# <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 가격 책정 모델
 
 Azure Cosmos DB의 가격 책정 모델은 비용 관리 및 계획을 간소화합니다. Azure Cosmos DB를 사용하면 프로비전된 처리량 및 사용하는 스토리지의 요금을 해야 합니다.
 
-* **프로 비전**된 처리량: 프로 비전 된 처리량 (예약 된 처리량이 라고도 함)은 모든 규모에서 높은 성능을 보장 합니다. 필요한 처리량(RU/초)을 지정하면 Azure Cosmos DB는 구성된 처리량을 보장하는 데 필요한 리소스를 전담 투입합니다. 지정된 시간의 최대 프로비전된 처리량을 기준으로 시간별로 요금이 청구됩니다.
+* **프로 비전**된 처리량: [프로 비전](how-to-choose-offer.md) 된 처리량 (예약 된 처리량이 라고도 함)은 모든 규모에서 높은 성능을 보장 합니다. 필요한 처리량(RU/초)을 지정하면 Azure Cosmos DB는 구성된 처리량을 보장하는 데 필요한 리소스를 전담 투입합니다. 지정된 시간의 최대 프로비전된 처리량을 기준으로 시간별로 요금이 청구됩니다. 수동으로 처리량을 프로 비전 하거나 [자동 크기 조정을](provision-throughput-autoscale.md)사용할 수 있습니다.
 
    > [!NOTE]
-   > 프로비전된 처리량 모델은 컨테이너 또는 데이터베이스에 리소스를 전담으로 투입하므로 워크로드를 실행하지 않더라도 프로비전된 처리량에 대해 비용이 부과됩니다.
+   > 프로 비전 된 처리량 모델은 리소스를 컨테이너 또는 데이터베이스에 전용 하므로 워크 로드를 실행 하지 않는 경우에도 프로 비전 된 처리량에 대 한 요금이 청구 됩니다.
 
 * **사용 된 저장소**: 지정 된 시간 동안 데이터 및 인덱스에 대해 사용 된 총 저장소 크기 (gb)에 대 한 정액 요금을 청구 합니다.
 
-초당 [요청 단위](request-units.md)(RU/초를)로 지정되는 프로비전된 처리량을 사용하여 컨테이너 또는 데이터베이스에서 데이터를 읽고 쓸 수 있습니다. [데이터베이스 또는 컨테이너에 대해 처리량을 프로비전](set-throughput.md)할 수 있습니다. 워크로드 요구 수준에 따라, 언제든지 처리량을 확장/축소할 수 있습니다. Azure Cosmos DB 가격 책정은 탄력적이며 데이터베이스 또는 컨테이너에 대해 구성하는 처리량에 비례합니다. 최소 처리량 및 스토리지 값과 크기 조정 증분은 소규모 컨테이너부터 대규모 컨테이너까지 모든 고객 부문에 전체 가격 및 탄력성 범위를 제공합니다. 각 데이터베이스 또는 컨테이너 요금은 최소 크기가 400RU/초인 100 RU/초 단위로 프로비전되는 처리량과 사용된 스토리지(GB)에 따라 시간별로 청구됩니다. 프로비전된 처리량과 달리, 스토리지 요금은 소비량을 기준으로 청구됩니다. 즉, 스토리지를 미리 예약할 필요가 없습니다. 사용한 스토리지에 대해서만 요금이 청구됩니다.
+초당 [요청 단위](request-units.md)(RU/초를)로 지정되는 프로비전된 처리량을 사용하여 컨테이너 또는 데이터베이스에서 데이터를 읽고 쓸 수 있습니다. [데이터베이스 또는 컨테이너에 대해 처리량을 프로비전](set-throughput.md)할 수 있습니다. 워크로드 요구 수준에 따라, 언제든지 처리량을 확장/축소할 수 있습니다. Azure Cosmos DB 가격 책정은 탄력적이며 데이터베이스 또는 컨테이너에 대해 구성하는 처리량에 비례합니다. 최소 처리량 및 스토리지 값과 크기 조정 증분은 소규모 컨테이너부터 대규모 컨테이너까지 모든 고객 부문에 전체 가격 및 탄력성 범위를 제공합니다. 각 데이터베이스 또는 컨테이너 요금은 최소 크기가 400RU/초인 100 RU/초 단위로 프로비전되는 처리량과 사용된 스토리지(GB)에 따라 시간별로 청구됩니다. 프로비전된 처리량과 달리, 스토리지 요금은 소비량을 기준으로 청구됩니다. 즉, 저장소를 미리 예약할 필요가 없습니다. 사용한 스토리지에 대해서만 요금이 청구됩니다.
 
 자세한 내용은 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 및 [Azure Cosmos DB 청구서 이해](understand-your-bill.md)를 참조하세요.
 
@@ -41,9 +41,11 @@ Azure Cosmos DB 계정을 미국의 비 정부 지역에 배포 하는 경우 �
 
 ## <a name="try-azure-cosmos-db-for-free"></a>무료로 Azure Cosmos DB 사용해 보기
 
-Azure Cosmos DB는 개발자를 위해 몇 가지 옵션을 무료로 제공합니다. 이러한 옵션에는 다음이 포함됩니다.
+Azure Cosmos DB는 개발자에 게 무료로 제공 되는 다양 한 옵션을 제공 합니다. 이러한 옵션에는 다음이 포함됩니다.
 
-* **Azure 무료 계정**: azure는 처음 30 일 동안 azure 크레딧을 $200 제공 하 고 12 개월 동안 무료 서비스의 제한 된 수량을 제공 하는 [무료 계층](https://azure.microsoft.com/free/) 을 제공 합니다. 자세한 내용은 [Azure 체험 계정](../cost-management-billing/manage/avoid-charges-free-account.md)을 참조하세요. Azure Cosmos DB의 Azure 체험 계정의 일부로 제공됩니다. Azure Cosmos DB와 관련해서 이 체험 계정은 1년 동안 5GB의 스토리지와 400RU의 프로비전된 처리량을 제공합니다. 
+* **Azure Cosmos DB 무료 계층**: Azure Cosmos DB 무료 계층을 사용 하면 쉽게 시작 하 고, 응용 프로그램을 개발 하 고 테스트 하거나, 소규모 프로덕션 워크 로드를 무료로 실행할 수도 있습니다. 계정에 대 한 무료 계층을 사용 하는 경우 계정 수명 동안 계정에 처음 400 r u/초 및 5gb의 저장소를 무료로 얻을 수 있습니다. Azure 구독 당 최대 1 개의 무료 계층 계정을 가질 수 있으며 계정을 만들 때 옵트인 해야 합니다. 시작 하려면 [무료 계층이 사용 하도록 설정 된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿을](manage-sql-with-resource-manager.md#free-tier)사용 합니다.
+
+* **Azure 무료 계정**: azure는 처음 30 일 동안 azure 크레딧을 $200 제공 하 고 12 개월 동안 무료 서비스의 제한 된 수량을 제공 하는 [무료 계층](https://azure.microsoft.com/free/) 을 제공 합니다. 자세한 내용은 [Azure 체험 계정](../cost-management-billing/manage/avoid-charges-free-account.md)을 참조하세요. Azure Cosmos DB의 Azure 체험 계정의 일부로 제공됩니다. 특히 Azure Cosmos DB의 경우이 무료 계정은 5gb 저장소를 제공 하 고 전체 년도에 대해 프로 비전 된 처리량을 400 r u/초까지 제공 합니다.
 
 * **무료로 Azure Cosmos DB 사용해 보기**: Azure Cosmos DB 체험 계정에 대 한 체험 Azure Cosmos DB를 사용 하 여 시간이 제한 된 환경을 제공 합니다. 빠른 시작 및 자습서를 사용하여 Azure Cosmos DB 계정을 만들고, 데이터베이스 및 컬렉션을 만들고, 애플리케이션 예제를 실행할 수 있습니다. Azure 계정에 가입하거나 신용 카드를 사용하지 않고 애플리케이션 예제를 실행할 수 있습니다. [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)(Azure Cosmos DB 평가판 사용하기)를 통해 1개월간 횟수 제한 없이 계정을 갱신하면서 Azure Cosmos DB를 체험해 볼 수 있습니다.
 

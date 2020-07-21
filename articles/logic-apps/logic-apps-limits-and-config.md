@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/25/2020
-ms.openlocfilehash: 350c542e1b183c79707c99989b2544fd8faa43ac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4235e948dba76c0b2926d9965ccd2fcb072cad62
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248478"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520786"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
-이 문서에서는 Azure Logic Apps를 사용하여 자동화된 워크플로를 만들고 실행하기 위한 제한 및 구성 세부 사항에 대해 설명합니다. Power Automate에 대한 내용은 [Power Automate의 제한 및 구성](https://docs.microsoft.com/flow/limits-and-config)을 참조하세요.
+이 문서에서는 Azure Logic Apps를 사용하여 자동화된 워크플로를 만들고 실행하기 위한 제한 및 구성 세부 사항에 대해 설명합니다. Power Automate에 대한 내용은 [Power Automate의 제한 및 구성](/flow/limits-and-config)을 참조하세요.
 
 <a name="definition-limits"></a>
 
@@ -129,7 +129,7 @@ ms.locfileid: "86248478"
 
 ## <a name="gateway-limits"></a>게이트웨이 제한
 
-Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯한 쓰기 작업을 지원합니다. 그러나 이러한 작업의 [페이로드 크기에 대한 제한](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다.
+Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯한 쓰기 작업을 지원합니다. 그러나 이러한 작업의 [페이로드 크기에 대한 제한](/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다.
 
 <a name="request-limits"></a>
 
@@ -154,7 +154,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 | 이름 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 참고 |
 |------|--------------------|---------------------------------------|-------|
 | 메시지 크기 | 100MB | 200MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. <p><p>- AS2, X12 및 EDIFACT 같은 커넥터는 자체적인 [B2B 메시지 제한](#b2b-protocol-limits)이 있습니다. <br>- ISE 커넥터는 비-ISE 커넥터 제한이 아닌 ISE 제한을 사용합니다. |
-| 청킹이 있는 메시지 크기 | 1 GB | 5GB | 이 제한은 기본적으로 청크 분할을 지원하거나 런타임 구성에서 청크 분할을 사용할 수 있는 작업에 적용됩니다. <p><p>ISE를 사용하는 경우 Logic Apps 엔진은 이 제한을 지원하지만, 커넥터 자체의 최대 청크는 엔진 제한으로 제한되어 있습니다. 예제는 [Azure Blob Storage 커넥터의 API 참조](https://docs.microsoft.com/connectors/azureblob/)를 확인하세요. 청크 분할에 대한 자세한 내용은 [청크 분할을 사용하여 큰 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. |
+| 청킹이 있는 메시지 크기 | 1 GB | 5GB | 이 제한은 기본적으로 청크 분할을 지원하거나 런타임 구성에서 청크 분할을 사용할 수 있는 작업에 적용됩니다. <p><p>ISE를 사용하는 경우 Logic Apps 엔진은 이 제한을 지원하지만, 커넥터 자체의 최대 청크는 엔진 제한으로 제한되어 있습니다. 예제는 [Azure Blob Storage 커넥터의 API 참조](/connectors/azureblob/)를 확인하세요. 청크 분할에 대한 자세한 내용은 [청크 분할을 사용하여 큰 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. |
 |||||
 
 #### <a name="character-limits"></a>문자 제한
@@ -180,7 +180,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 ### <a name="authentication-limits"></a>인증 제한
 
-다음은 요청 트리거에 대한 인바운드 호출 권한을 부여하기 위해 요청 트리거로 시작하여 Azure AD OAuth([Azure Active Directory Open Authentication](/azure/active-directory/develop/))을 사용하도록 설정하는 논리 앱의 제한입니다.
+다음은 요청 트리거에 대한 인바운드 호출 권한을 부여하기 위해 요청 트리거로 시작하여 Azure AD OAuth([Azure Active Directory Open Authentication](../active-directory/develop/index.yml))을 사용하도록 설정하는 논리 앱의 제한입니다.
 
 | 속성 | 제한 | 메모 |
 | ---- | ----- | ----- |
@@ -216,7 +216,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 각 Azure 구독에는 다음과 같은 통합 계정 제한이 적용됩니다.
 
-* Azure 지역 당 하나의 [무료 계층](../logic-apps/logic-apps-pricing.md#integration-accounts) 통합 계정. 이 계층은 Azure의 공용 지역 (예: 미국 서 부 또는 동남 아시아)에 대해서만 사용할 수 있지만, [Azure 중국 21vianet](https://docs.microsoft.com/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다.
+* Azure 지역 당 하나의 [무료 계층](../logic-apps/logic-apps-pricing.md#integration-accounts) 통합 계정. 이 계층은 Azure의 공용 지역 (예: 미국 서 부 또는 동남 아시아)에 대해서만 사용할 수 있지만, [Azure 중국 21vianet](/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다.
 
 * [개발자 및 프리미엄 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)의 모든 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에 포함된 통합 계정을 포함하여 통합 계정 총 1,000개
 
@@ -258,7 +258,7 @@ ISE의 통합 계정 제한을 초과하여 추가하는 통합 계정마다 추
 | 아티팩트 | 제한 | 참고 |
 | -------- | ----- | ----- |
 | 어셈블리 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. |
-| 맵(XSLT 파일) | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate)를 사용합니다. <p><p>**참고**: 맵이 성공적으로 처리할 수 있는 데이터 또는 레코드의 양은 Azure Logic Apps의 메시지 크기와 작업 시간 제한에 따라 달라집니다. 예를 들어 [HTTP 메시지 크기 및 시간 제한](#request-limits)을 기준으로 HTTP 작업을 사용하는 경우 작업이 HTTP 시간 제한 내에 완료된다면 맵은 HTTP 메시지 크기 제한까지 데이터를 처리할 수 있습니다. |
+| 맵(XSLT 파일) | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate)를 사용합니다. <p><p>**참고**: 맵이 성공적으로 처리할 수 있는 데이터 또는 레코드의 양은 Azure Logic Apps의 메시지 크기와 작업 시간 제한에 따라 달라집니다. 예를 들어 [HTTP 메시지 크기 및 시간 제한](#request-limits)을 기준으로 HTTP 작업을 사용하는 경우 작업이 HTTP 시간 제한 내에 완료된다면 맵은 HTTP 메시지 크기 제한까지 데이터를 처리할 수 있습니다. |
 | 스키마 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. |
 ||||
 
@@ -299,7 +299,7 @@ ISE의 통합 계정 제한을 초과하여 추가하는 통합 계정마다 추
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>방화벽 구성: IP 주소 및 서비스 태그
 
-Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 논리 앱이 있는 지역에 따라 달라집니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다. **HTTP** 및 **HTTP + OpenAPI** 요청 같은 일부 [Power Automate](https://docs.microsoft.com/power-automate/getting-started) 호출은 Azure Logic Apps 서비스를 바로 통과하여 여기에 나열된 IP 주소로 들어옵니다. Power Automate에서 사용하는 IP 주소에 대한 자세한 내용은 [Power Automate의 제한 및 구성](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)을 참조하세요.
+Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 논리 앱이 있는 지역에 따라 달라집니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다. **HTTP** 및 **HTTP + OpenAPI** 요청 같은 일부 [Power Automate](/power-automate/getting-started) 호출은 Azure Logic Apps 서비스를 바로 통과하여 여기에 나열된 IP 주소로 들어옵니다. Power Automate에서 사용하는 IP 주소에 대한 자세한 내용은 [Power Automate의 제한 및 구성](/flow/limits-and-config#ip-address-configuration)을 참조하세요.
 
 > [!TIP]
 > 보안 규칙을 만들 때 지역마다 Logic Apps IP 주소를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md)를 사용하면 복잡성을 줄일 수 있으며, 자세한 방법은 이 섹션의 뒷부분에서 설명합니다.
@@ -308,7 +308,7 @@ Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 �
 > * **LogicAppsManagement**: Logic Apps 서비스의 인바운드 IP 주소 접두사를 나타냅니다.
 > * **LogicApps**: Logic Apps 서비스의 아웃바운드 IP 주소 접두사를 나타냅니다.
 
-* [Azure 중국 21Vianet](https://docs.microsoft.com/azure/china/)의 경우 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md) 및 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)(예: Azure Storage, SQL Server, Office 365 Outlook 등)에 고정 또는 예약된 IP 주소를 사용할 수 없습니다.
+* [Azure 중국 21Vianet](/azure/china/)의 경우 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md) 및 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)(예: Azure Storage, SQL Server, Office 365 Outlook 등)에 고정 또는 예약된 IP 주소를 사용할 수 없습니다.
 
 * 논리 앱이 [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 및 기타 HTTP 요청을 통해 직접 만드는 호출을 지원하려면 논리 앱이 있는 지역에 따라 Logic Apps 서비스에서 사용하는 모든 [인바운드](#inbound) *및* [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **인바운드** 및 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
 

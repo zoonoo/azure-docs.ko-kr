@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0484bc393ac97dc88fed5858f736f01fc41b507a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367396"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521067"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 표준 Load Balancer에서 부하 분산 및 아웃 바운드 규칙 구성
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다.
 2. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting                 | 값                                              |
+    | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 **myResourceGroupSLB**를 입력합니다.|
@@ -81,7 +81,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | **myHealthProbe**를 입력합니다. |
+    | 이름 | **myHealthProbe**를 입력합니다. |
     | 프로토콜 | **HTTP**를 선택합니다. |
     | 포트 | **80**을 입력합니다.|
     | 간격 | 프로브 시도 **간격**(초)으로 **15**를 입력합니다. |
@@ -106,7 +106,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **설정** 아래에서 **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
 3. 다음 값을 사용하여 부하 분산 규칙을 구성합니다.
     
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | Name | **myHTTPRule**을 입력합니다. |
     | 프로토콜 | **TCP**를 선택합니다. |
@@ -128,12 +128,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 3. 다음 값을 사용 하 여 아웃 바운드에 대 한 프런트 엔드 IP 구성을 구성 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | Name | **LoadBalancerFrontEndOutbound**를 입력 합니다. |
     | IP 버전 | **IPv4**를 선택합니다. |
-    | IP 유형 | **IP 주소**를 선택 합니다.|
-    | 공용 IP 주소 | **새로 만들기**를 선택합니다. **공용 IP 주소 추가**에 **myPublicIPOutbound**를 입력 합니다.  **확인**을 선택합니다. |
+    | IP 유형 | **Ip 주소** 또는 **ip 접두사**를 선택 합니다.|
+    | 공용 IP 주소 | **새로 만들기**를 선택합니다. </br> **공용 IP 주소 추가**에 **myPublicIPOutbound**를 입력 합니다. </br> IP 접두사를 사용 하 **는 경우 공용 ip 접두사 추가**에서 **myPublicIPPrefixOutbound**을 입력 합니다. 공용 IP 접두사의 **접두사 크기** 를 선택 합니다. </br> **확인**을 선택합니다.  |
 
 4. **추가**를 선택합니다.
 
@@ -153,11 +153,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 3. 다음 값을 사용 하 여 아웃 바운드 규칙을 구성 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | Name | **MyOutboundRule**를 입력 합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEndOutbound**를 선택 합니다. |
-    | 유휴 제한 시간(분) | 슬라이더를 * * 15 분으로 이동 합니다.|
+    | 유휴 제한 시간(분) | 슬라이더를 **15 분**으로 이동 합니다.|
     | TCP 다시 설정 | **사용**을 선택합니다.|
     | 백 엔드 풀 | **MyBackendPoolOutbound** 선택 |
     | 포트 할당-> 포트 할당 | **아웃 바운드 포트 수 수동 선택을** 선택 합니다. |

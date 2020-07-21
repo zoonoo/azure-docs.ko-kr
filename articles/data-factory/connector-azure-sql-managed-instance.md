@@ -10,12 +10,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 907579d44575de56f95e0828c3313d0d1682b29c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: d67a050ccd590e220c51e02b827013ace7707ee2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513897"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523250"
 ---
 # <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure SQL Managed Instance 간에 데이터 복사
 
@@ -42,13 +43,13 @@ SQL Managed Instance에서 지원 되는 모든 싱크 데이터 저장소로 �
 >[!NOTE]
 > 이 커넥터는 SQL Managed Instance [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) 를 현재 지원 하지 않습니다. 이 문제를 해결 하려면 자체 호스팅 통합 런타임을 통해 [일반 odbc 커넥터](connector-odbc.md) 와 SQL Server ODBC 드라이버를 사용할 수 있습니다. Always Encrypted 섹션을 [사용 하 여](#using-always-encrypted) 자세히 알아보세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 SQL Managed Instance [공용 끝점](../azure-sql/managed-instance/public-endpoint-overview.md)에 액세스 하기 위해 관리 되는 Azure Data Factory Azure integration runtime을 사용할 수 있습니다. 공용 끝점을 사용 하도록 설정 하 고, Azure Data Factory 데이터베이스에 연결할 수 있도록 네트워크 보안 그룹에 대 한 공용 끝점 트래픽만 허용 해야 합니다. 자세한 내용은 [이 지침](../azure-sql/managed-instance/public-endpoint-configure.md)을 참조 하세요.
 
 SQL Managed Instance 개인 끝점에 액세스 하려면 데이터베이스에 액세스할 수 있는 [자체 호스팅 통합 런타임을](create-self-hosted-integration-runtime.md) 설정 합니다. 자체 호스팅 통합 런타임을 관리 되는 인스턴스와 동일한 가상 네트워크에 프로 비전 하는 경우 통합 런타임 컴퓨터가 관리 되는 인스턴스와 다른 서브넷에 있는지 확인 합니다. 자체 호스팅 통합 런타임을 관리 되는 인스턴스가 아닌 다른 가상 네트워크에 프로 비전 하는 경우 가상 네트워크 피어 링 또는 가상 네트워크에서 가상 네트워크 연결을 사용할 수 있습니다. 자세한 내용은 [애플리케이션을 SQL Managed Instance에 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -374,7 +375,7 @@ SQL Managed Instance로 데이터를 복사 하려면 복사 작업 싱크 섹�
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **Sql오 ink**로 설정 되어야 합니다. | 예 |
 | preCopyScript |이 속성은 SQL Managed Instance에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |
-| tableOption | 원본 스키마에 따라 존재하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정합니다. 싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. 허용되는 값은 `none`(기본값) 또는 `autoCreate`입니다. |예 |
+| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 [싱크 테이블을 자동으로 만들지](copy-activity-overview.md#auto-create-sink-tables) 여부를 지정 합니다. 싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. 허용되는 값은 `none`(기본값) 또는 `autoCreate`입니다. |예 |
 | sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. <br/>이 저장 프로시저는 *배치마다 호출*됩니다. 한 번만 실행 되 고 원본 데이터 (예: 삭제 또는 자르기)와 관련이 없는 작업의 경우 속성을 사용 `preCopyScript` 합니다.<br>[SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)의 예를 참조 하세요. | 아니요 |
 | storedProcedureTableTypeParameterName |저장 프로시저에 지정 된 테이블 형식의 매개 변수 이름입니다.  |아니요 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름입니다. 복사 작업에서는 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 사용할 수 있습니다. 그러면 저장 프로시저 코드가 복사 중인 데이터를 기존 데이터와 병합할 수 있습니다. |아니요 |

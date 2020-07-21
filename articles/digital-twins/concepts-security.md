@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833167"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522264"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용 하 여 Azure Digital Twins 보호
 
@@ -37,7 +37,7 @@ Azure AD를 사용 하 여 액세스는 2 단계 프로세스로 진행 됩니�
 
 Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용은 Azure RBAC 설명서의 [여러 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md) 를 참조 하세요.
 
-### <a name="authentication-with-managed-identities"></a>관리 id를 사용 하 여 인증
+### <a name="authentication-with-managed-identities"></a>관리 ID를 사용하여 인증
 
 [Azure 리소스에 대 한 관리](../active-directory/managed-identities-azure-resources/overview.md) 되는 id는 응용 프로그램 코드가 실행 되는 배포와 관련 된 보안 id를 만들 수 있도록 하는 azure 간 기능입니다. 그런 다음 해당 id를 액세스 제어 역할과 연결 하 여 응용 프로그램에 필요한 특정 Azure 리소스에 액세스 하기 위한 사용자 지정 권한을 부여할 수 있습니다.
 
@@ -58,7 +58,7 @@ Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하
 * Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [AZURE RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)참조)
 * CLI 명령을 통해 역할 추가 또는 제거
 
-이 작업을 수행 하는 방법에 대 한 자세한 단계는 [Azure Digital Twins 자습서: 종단 간 솔루션 연결](tutorial-end-to-end.md)에서 사용해 보세요.
+이 작업을 수행 하는 방법에 대 한 자세한 단계는 [Azure Digital Twins 자습서: 종단 간 *솔루션 연결*](tutorial-end-to-end.md)에서 사용해 보세요.
 
 ## <a name="permission-scopes"></a>사용 권한 범위
 
@@ -73,6 +73,6 @@ Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하
 
 ## <a name="next-steps"></a>다음 단계
 
-* [방법: 클라이언트 응용 프로그램 인증](how-to-authenticate-client.md)에서 샘플 클라이언트 응용 프로그램을 사용 하 여 이러한 단계를 수행 하는 방법을 참조 하세요.
+* [*방법: 클라이언트 응용 프로그램 인증*](how-to-authenticate-client.md)에서 샘플 클라이언트 응용 프로그램을 사용 하 여 이러한 단계를 수행 하는 방법을 참조 하세요.
 
 * [Azure 용 RBAC](../role-based-access-control/overview.md)에 대해 자세히 알아보세요.
