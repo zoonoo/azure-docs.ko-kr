@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300793"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529033"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
 
@@ -35,7 +36,7 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 
 - Recovery Services 자격 증명 모음에 보호 된 컴퓨터가 하나 이상 있습니다.
 - Site Recovery 로그를 저장할 Log Analytics 작업 영역입니다. 작업 영역을 설정 하는 [방법에 대해 알아봅니다](../azure-monitor/learn/quick-create-workspace.md) .
-- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아보기](../azure-monitor/log-query/get-started-portal.md).
+- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아봅니다](../azure-monitor/log-query/get-started-portal.md).
 
 시작 하기 전에 [일반적인 모니터링 질문](monitoring-common-questions.md) 을 검토 하는 것이 좋습니다.
 
@@ -48,7 +49,7 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 2. **진단 설정**에서 이름을 지정 하 고 **Log Analytics로 보내기**상자를 선택 합니다.
 3. Azure Monitor 로그 구독 및 Log Analytics 작업 영역을 선택 합니다.
 4. 설정/해제에서 **Azure 진단** 를 선택 합니다.
-5. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 후 **OK**를 클릭합니다.
+5. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 다음, **확인**을 클릭합니다.
 
     ![작업 영역 선택](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -67,8 +68,8 @@ Site Recovery 로그는 선택한 작업 영역에서 테이블 (**Azurediagnost
 7. 설치가 완료 되 면 Log Analytics 작업 영역으로 이동한 다음 **고급 설정**을 클릭 합니다. **데이터** 페이지로 이동 하 여 **Windows 성능 카운터**를 추가로 클릭 합니다. 
 8. **' + '** 를 클릭 하 여 샘플 간격이 300 초인 다음 두 카운터를 추가 합니다.
 
-        ASRAnalytics(*)\SourceVmChurnRate 
-        ASRAnalytics(*)\SourceVmThrpRate 
+    - ASRAnalytics (*) \SourceVmChurnRate
+    - ASRAnalytics (*) \SourceVmThrpRate
 
 변동 및 업로드 율 데이터는 작업 영역으로 공급 되기 시작 합니다.
 

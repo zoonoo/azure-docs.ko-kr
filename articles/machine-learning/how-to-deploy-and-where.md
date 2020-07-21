@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146562"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536388"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -442,7 +442,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 이 예에서는 구성에서 다음 설정을 지정 합니다.
 
 * 모델에 Python이 필요 합니다.
-* [항목 스크립트](#script)는 배포 된 서비스로 전송 되는 웹 요청을 처리 하는 데 사용 됩니다.
+* 배포 된 서비스로 전송 되는 웹 요청을 처리 하는 데 사용 되는 [항목 스크립트](#script)
 * 유추에 필요한 Python 패키지를 설명 하는 Conda 파일입니다.
 
 유추 구성과 함께 사용자 지정 Docker 이미지를 사용 하는 방법에 대 한 자세한 내용은 [사용자 지정 docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)을 참조 하세요.
@@ -537,7 +537,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="deploy-to-target"></a>대상에 배포
 
-배포에서는 유추 구성 배포 구성을 사용 하 여 모델을 배포 합니다. 배포 프로세스는 계산 대상에 관계 없이 유사 합니다. AKS 클러스터에 대 한 참조를 제공 해야 하기 때문에 AKS에 대 한 배포는 약간 다릅니다.
+배포에서는 유추 구성 배포 구성을 사용 하 여 모델을 배포 합니다. 배포 프로세스는 계산 대상에 관계 없이 유사 합니다. AKS 클러스터에 대 한 참조를 제공 해야 하기 때문에 AKS (Azure Kubernetes Service)에 대 한 배포는 약간 다릅니다.
 
 ### <a name="choose-a-compute-target"></a>계산 대상 선택
 
@@ -610,10 +610,10 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 | 웹 서비스 상태 | 설명 | 최종 상태?
 | ----- | ----- | ----- |
-| 변환은 | 서비스의 배포를 진행 중입니다. | 예 |
-| 비정상 | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 예 |
-| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 예 |
-| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
+| 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
+| 비정상 | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
+| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
+| Failed | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
 | Healthy | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>계산 인스턴스 웹 서비스 (개발/테스트)
@@ -629,7 +629,7 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 [Azure Kubernetes Service에 배포를](how-to-deploy-azure-kubernetes-service.md)참조 하세요.
 
 ### <a name="ab-testing-controlled-rollout"></a>A/B 테스트 (제어 된 롤아웃)
-자세한 내용은 [ML 모델의 제어 된 롤아웃](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) 을 참조 하세요.
+자세한 내용은 [ML 모델의 제어 된 롤아웃](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) (영문)을 참조 하세요.
 
 ## <a name="consume-web-services"></a>웹 서비스 사용
 
@@ -914,6 +914,12 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+모델 점수를 매기는 [웹 서비스로 배포 된 Azure Machine Learning 모델 사용](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)을 참조 하세요. 많은 ONNX 프로젝트에서 protobuf 파일을 사용 하 여 저장소 학습 및 유효성 검사 데이터를 조밀 서비스에서 예상 하는 데이터 형식을 파악 하기 어려울 수 있습니다. 모델 개발자는 개발자를 위한 문서를 만들어야 합니다.
+
+* 입력 형식 (JSON 또는 이진)
+* 입력 데이터 모양 및 유형 (예: shape [100100, 3]의 float 배열)
+* 도메인 정보 (예를 들어, 이미지, 색 공간, 구성 요소 순서 및 값의 정규화 여부)
+
 Pytorch를 사용 하는 경우 [Pytorch에서 ONNX로 모델을 내보내면](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) 변환 및 제한 사항에 대 한 세부 정보가 포함 됩니다. 
 
 ### <a name="scikit-learn-models"></a>Scikit-모델 배우기
@@ -939,7 +945,7 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-참고: 기본적으로 해당 메서드를 사용 하 predict_proba를 지 원하는 모델입니다. 이를 재정의 하 여 예측을 사용 하려면 아래와 같이 게시물 본문을 수정할 수 있습니다.
+참고: predict_proba을 지 원하는 모델은 기본적으로 해당 메서드를 사용 합니다. 이를 재정의 하 여 예측을 사용 하려면 아래와 같이 게시물 본문을 수정할 수 있습니다.
 ```python
 import json
 

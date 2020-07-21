@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135722"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528981"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Azure virtual machines에 대해 영역에 영역 재해 복구를 사용 하도록 설정
 
@@ -22,6 +22,7 @@ ms.locfileid: "86135722"
 >
 >- 현재 Site Recovery는 포털을 통해 영역 간 재해 복구에 대 한 복구 계획을 지원 하지 않습니다. 영역 재해 복구 영역에 대 한 복구 계획을 활용 하려면 PowerShell 또는 REST API를 사용 하세요. 
 >- 영역 간 재해 복구에 대 한 지원은 현재 동남 아시아 및 영국 남부의 두 지역으로 제한 됩니다.  
+>- Site Recovery은 고객이 영역에 영역 재해 복구를 사용 하는 경우 고객 데이터를 배포 된 지역 외부로 이동 하거나 저장 하지 않습니다. 고객이 선택 하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음은 메타 데이터를 포함 하지만 실제 고객 데이터는 포함 하지 않습니다.
 
 Site Recovery 서비스는 계획 되거나 계획 되지 않은 중단 중에 비즈니스 앱을 가동 및 실행 상태로 유지 하 여 비즈니스 연속성 및 재해 복구 전략에 기여 합니다. 지역 가동 중단이 발생 하는 경우 응용 프로그램을 계속 실행 하는 재해 복구 옵션을 권장 합니다.
 
@@ -71,7 +72,7 @@ Vm에 대 한 영역 재해 복구 영역에 영역을 배포 하기 전에 VM�
 |ARM Vm    |    지원됨    |
 |Azure Disk Encryption v1 (AAD를 사용 하는 이중 패스)     |     지원됨 |
 |Azure Disk Encryption v2 (AAD 없이 단일 패스)    |    지원됨    |
-|관리되지 않는 디스크    |    지원되지 않음    |
+|비관리 디스크    |    지원되지 않음    |
 |관리 디스크    |    지원됨    |
 |고객 관리 키    |    지원됨    |
 |근접 배치 그룹    |    지원됨    |

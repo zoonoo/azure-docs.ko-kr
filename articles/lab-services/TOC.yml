@@ -46,8 +46,6 @@
               href: class-type-sql-server.md
             - name: Python 및 Jupyter Notebooks
               href: class-type-jupyter-notebook.md
-            - name: Android Studio를 사용한 모바일 앱 개발
-              href: class-type-mobile-dev-android-studio.md
             - name: 빅 데이터 분석
               href: class-type-big-data-analytics.md
             - name: MATLAB

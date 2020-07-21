@@ -11,11 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3ab058d76186f73fa1a985d7e8af38dbd7a6f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557463"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536184"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -23,7 +24,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 ## <a name="python-windows-server-2016-edition"></a>Python (Windows Server 2016 버전)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 언어 버전 | Python 2.7 및 3.7 |
 | 지원 되는 DSVM 버전      | Windows Server 2016     |
@@ -67,13 +68,14 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 ## <a name="python-linux-edition"></a>Python (Linux 버전)
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 언어 버전 | Python 2.7 및 3.5 |
 | 지원 되는 DSVM 버전      | Linux   |
 | DSVM에 구성/설치 방법  | 두 개의 글로벌 `conda` 환경을 만듭니다. <br /> * `root`에 있는 환경은 `/anaconda/` Python 2.7입니다. <br/> * `py35`에 있는 환경은 `/anaconda/envs/py35` Python 3.5입니다.       |
 | 샘플에 대한 링크      | Python 용 샘플 Jupyter 노트북이 포함 되어 있습니다.     |
 | DSVM의 관련 도구      | PySpark, R, Julia      |
+
 ### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법    
 
 * 터미널에서 실행:
@@ -105,13 +107,14 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 ## <a name="r"></a>R
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 언어 버전 | Microsoft R Open 3(sp3) (100%와 CRAN-R 호환)<br /> Microsoft R Server 8.x Developer edition (확장성 있는 엔터프라이즈급 R 플랫폼)|
 | 지원 되는 DSVM 버전      | Linux, Windows     |
 | DSVM에 구성/설치 방법  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | 샘플에 대한 링크      | R에 대 한 샘플 Jupyter 노트북이 포함 되어 있습니다.     |
 | DSVM의 관련 도구      | SparkR, Python, Julia      |
+
 ### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법    
 
 **Windows**:
@@ -153,13 +156,14 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 ## <a name="julia"></a>Julia
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 언어 버전 | 0.6 |
 | 지원 되는 DSVM 버전      | Linux, Windows     |
 | DSVM에 구성/설치 방법  | Windows: `C:\JuliaPro-VERSION`에 설치됩니다.<br /> Linux: `/opt/JuliaPro-VERSION`에 설치됩니다.    |
 | 샘플에 대한 링크      | 줄리아 용 샘플 Jupyter 노트북이 포함 되어 있습니다.     |
 | DSVM의 관련 도구      | Python, R      |
+
 ### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법    
 
 **Windows**:

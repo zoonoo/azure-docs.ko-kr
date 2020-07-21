@@ -3,22 +3,22 @@ title: VM 이미지에 대한 공유 액세스 서명 URI - Azure Marketplace
 description: Azure Marketplace에서 VHD(가상 하드 디스크)에 대한 SAS(공유 액세스 서명) URI를 생성합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 04/09/2020
-ms.openlocfilehash: 0fbd7aa42bf65ee0e553282b9961f1a9302b7903
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 569d9ce04422230c1d6b9ebb0957f01c320c5ba0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121727"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536150"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 
 이 문서에서는 각 VHD(가상 하드 디스크)에 대해 SAS(공유 액세스 서명) URI(Uniform Resource Identifier)를 생성하는 방법을 설명합니다.
 
-게시 프로세스 중에 계획과 연결된 각 VHD에 대한 URI를 제공해야 합니다. 이러한 계획은 이전에 SKU 또는 재고 유지 단위라고 합니다. Microsoft는 인증 프로세스 중에 이러한 VHD에 액세스해야 합니다. 파트너 센터의 **계획** 탭에서 이 URI를 입력합니다.
+게시 프로세스 동안 계획 (이전의 Sku)과 연결 된 각 VHD에 대 한 URI를 제공 해야 합니다. Microsoft는 인증 프로세스 중에 이러한 VHD에 액세스해야 합니다. 파트너 센터의 **계획** 탭에서 이 URI를 입력합니다.
 
 VHD의 SAS URI를 생성할 때 다음 요구 사항을 따릅니다.
 
@@ -110,7 +110,7 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-게시하려는 SKU의 각 VHD에 대해 이러한 단계를 반복합니다.
+게시할 계획의 각 VHD에 대해 이 단계를 반복합니다.
 
 ## <a name="verify-the-sas-uri"></a>SAS URI 확인
 

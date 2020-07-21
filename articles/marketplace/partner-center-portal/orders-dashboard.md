@@ -3,14 +3,14 @@ title: 상업용 Marketplace 분석의 파트너 센터 주문 대시보드
 description: 그래픽 및 다운로드 가능한 형식으로 Marketplace 제품에 대한 분석 보고서에 액세스하는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118361"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536133"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
@@ -29,12 +29,9 @@ ms.locfileid: "86118361"
 - [지리별 주문](#orders-by-geography)
 - [제품별 주문](#orders-by-offers)
 - [사이트 단위 대 사용자 단위 주문 추세](#orders-trend-per-site-versus-per-seat)
-- [SKU별 주문](#orders-by-skus)
+- [요금제 별 주문](#orders-by-plans)
 - [주문 및 사용자 추세](#orders-and-seats-trend)
 - [주문 세부 정보 표](#order-details-table)
-
-> [!NOTE]
-> Cloud 파트너 포털(CPP)과 파트너 센터의 새로운 상업용 Marketplace 프로그램에 분석 보고서가 표시되는 방식 간에 차이가 있습니다. 한 가지 방법으로, CPP의 **Seller Insights**에는 사용 기반 제품 및 비사용 기반 제품의 데이터를 표시하는 **주문 & 사용량** 탭이 있습니다. 파트너 센터에서 **주문** 페이지에는 SaaS 제품에 대한 별도의 탭이 있습니다.
 
 ## <a name="order-dashboard-details"></a>주문 대시보드 세부 정보
 
@@ -76,16 +73,16 @@ ms.locfileid: "86118361"
 
 **사이트 단위 대 사용자 단위** 도넛형 차트는 고객이 구매한 사이트별 SaaS 및 사용자별 SaaS 주문에 대한 분석을 나타냅니다(이 차트는 취소된 주문을 포함함). 세로 막대형 차트는 고객이 구매한 사이트별 SaaS 및 사용자별 SaaS 주문에 대한 추세를 나타냅니다(취소된 주문 포함).
 
-### <a name="orders-by-skus"></a>SKU별 주문
+### <a name="orders-by-plans"></a>요금제 별 주문
 
-**SKU별 주문** 차트는 모든 제품에 대한 SKU(재고 관리 단위) 수준에서 주문의 추세(취소된 주문 포함)를 나타냅니다. 도넛형 차트는 상위 5개 SKU 주문의 분석을 나타내고 세로 막대형 차트는 상위 5개 SKU에 대한 주문의 추세를 나타냅니다.
+**계획 별 주문** 차트는 취소 된 주문을 포함 하 여 모든 제품에 대 한 계획 수준에서 주문의 추세를 나타냅니다. 도넛형 차트는 상위 5 개의 계획 주문에 대 한 분석을 나타내고 세로 막대형 차트는 상위 5 개 요금제에 대 한 주문의 추세를 나타냅니다.
 
 ### <a name="orders-and-seats-trend"></a>주문 및 사용자 추세
 
 **주문 및 사용자 추세** 차트는 가장 많은 수의 주문에 대한 상위 50개 제품을 나타냅니다. 이러한 값은 리더 보드에 표시되고 최고 주문 수 및 주문 백분율로 정렬됩니다.
 
-- **SKU별 주문**: 차트에서 상위 5개 SKU의 주문 수에 대한 분석을 보려면 제품을 선택합니다.
-- **SKU별 사용자**: 상위 5개 SKU에 대한 사용자의 월간 추세입니다. 선택하는 제품이 사용자 단위 제품이 아닌 경우 이 영역 차트에 데이터가 표시되지 않습니다.
+- **요금제 별 주문** – 차트에서 상위 5 개 요금제의 주문 수에 대 한 분석 결과를 볼 수 있는 제품을 선택 합니다.
+- **요금제 별** 사용자-상위 5 개 요금제에 대 한 사용자의 월간 추세입니다. 선택하는 제품이 사용자 단위 제품이 아닌 경우 이 영역 차트에 데이터가 표시되지 않습니다.
 
 ### <a name="canceled-orders-by-offers"></a>제품별 취소된 주문
 
@@ -129,4 +126,4 @@ ms.locfileid: "86118361"
 - 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 Marketplace 분석의 고객 대시보드](./customer-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](./downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 보려면 [상업용 Marketplace 분석의 평가 및 검토 대시보드](./ratings-reviews.md)를 참조하세요.
-- 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석에 대한 자주 묻는 질문과 용어](./faq-terminology.md)를 참조하세요.
+- 상업용 마켓플레이스 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](./faq-terminology.md)를 참조하세요.

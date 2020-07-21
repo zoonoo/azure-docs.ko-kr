@@ -3,11 +3,12 @@ title: Azure Migrate 어플라이언스 FAQ
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c3547667ed91331d3cb4d319279c9494eb7a3d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078983"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530120"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -60,7 +61,7 @@ Azure Migrate 어플라이언스는 지속적으로 성능 데이터를 측정 �
 
 Azure Migrate 어플라이언스에서 Vm에 대해 수집 하는 데이터에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- **VMWARE VM**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---vmware) 합니다. [
+- **VMWARE VM**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---vmware) 합니다.
 - **HYPER-V VM**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---hyper-v) 합니다.
 
 ## <a name="how-is-data-stored"></a>데이터가 어떻게 저장되나요?

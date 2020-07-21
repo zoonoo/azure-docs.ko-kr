@@ -1,17 +1,18 @@
 ---
-title: 참조 항목
-description: ''
+title: Azure FarmBeats에 대 한 참조
+description: FarmBeats REST API 및 FarmBeats Data hub Swagger와 같은 Azure FarmBeats 문서에 대 한 참조 링크를 살펴봅니다.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 893ebefea205088bc300b456c1afcdb82de9cd46
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c07311e63b034b1b3f9eb7dba3b047f4eb7aaf7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77121218"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536592"
 ---
-# <a name="references"></a>참조 항목
+# <a name="reference-information-for-farmbeats"></a>FarmBeats에 대 한 참조 정보
 
 [FarmBeats REST API](rest-api-in-azure-farmbeats.md).
 

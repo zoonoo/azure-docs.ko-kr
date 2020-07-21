@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 63b3def9c37f53ebf68642faf3f45cee6602bbe5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b25d6c33aa2bd50cbf96fb09f0de03354d24f2da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057299"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530374"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -29,8 +29,8 @@ Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이�
 
 Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure Media Services MSDN 포럼]에서 게시물을 제출하세요. 
 
-## <a name="known-issues"></a><a id="issues"/>알려진 문제
-### <a name="media-services-general-issues"></a><a id="general_issues"/>Media Services 관련 일반 문제
+## <a name="known-issues"></a><a name="issues"></a>알려진 문제
+### <a name="media-services-general-issues"></a><a name="general_issues"></a>Media Services 관련 일반 문제
 
 | 문제 | Description |
 | --- | --- |
@@ -43,7 +43,7 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 | Media Services .NET SDK 개체는 직렬화할 수 없으며 따라서 Azure Redis Cache에서 작동하지 않습니다. |SDK AssetCollection 개체를 직렬화하여 Azure Redis Cache에 추가하려는 경우 예외가 throw됩니다. |
 |REST API는 자산 또는 계정 수준 필터를 가져오려고 할 때 "이 버전의 REST API에서 필터에 액세스할 수 없습니다."라는 오류 메시지로 응답합니다.|필터를 가져오는 데 사용하려는 것보다 최신 API 버전으로 필터를 만들거나 수정했습니다. 이 문제는 고객이 사용하는 코드 또는 도구에서 두 API 버전을 사용하는 경우에 발생할 수 있습니다.  여기서 가장 좋은 해결 방법은 최신 또는 두 API 버전을 사용하도록 코드를 업그레이드하는 것입니다.|
 
-## <a name="rest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
+## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
 
 ## <a name="february-2020"></a>2020년 2월
@@ -159,7 +159,7 @@ Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN
 
  이제 Media Services를 사용하여 해당 서비스에 대한 원격 분석/메트릭 데이터에 액세스할 수 있습니다. 현재 버전의 Media Services를 사용하여 라이브 채널, 스트리밍 엔드포인트 및 보관 엔터티에 대한 원격 분석 데이터를 수집할 수 있습니다. 자세한 내용은 [Media Services 원격 분석](media-services-telemetry-overview.md)을 참조하세요.
 
-## <a name="july-2016-release"></a><a id="july_changes16"/>2016년 7월 릴리스
+## <a name="july-2016-release"></a><a name="july_changes16"></a>2016년 7월 릴리스
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>인코딩 작업으로 생성된 매니페스트 파일(*.ISM)에 대한 업데이트
 인코딩 작업이 Media Encoder Standard 또는 Media Encoder Premium에 제출된 경우 인코딩 작업은 출력 자산에 [스트리밍 매니페스트 파일](media-services-deliver-content-overview.md)(*.ism)을 생성합니다. 최신 서비스 릴리스와 함께 이 스트리밍 매니페스트 파일의 구문이 업데이트되었습니다.
 

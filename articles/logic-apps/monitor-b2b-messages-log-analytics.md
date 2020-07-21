@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5baa4d4d968adb25b5520ca91149970f5c5578e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76907982"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536272"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 메시지에 대한 Azure Monitor 로그 설정 및 진단 데이터 수집
 
-통합 계정에서 거래 파트너 간에 B2B 통신을 설정한 후에는 해당 파트너가 AS2, X12 및 EDIFACT와 같은 프로토콜을 사용 하 여 메시지를 교환할 수 있습니다. 이 통신이 원하는 방식으로 작동 하는지 확인 하기 위해 통합 계정에 대 한 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md) 를 설정할 수 있습니다. [Azure Monitor](../azure-monitor/overview.md) 를 사용 하면 클라우드 및 온-프레미스 환경을 모니터링 하 여 가용성과 성능을 더 쉽게 유지할 수 있습니다. Azure Monitor 로그를 사용 하 여 [Log Analytics 작업 영역](../azure-monitor/platform/resource-logs-collect-workspace.md)에서 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 런타임 데이터 및 이벤트에 대 한 데이터를 기록 하 고 저장할 수 있습니다. 메시지의 경우 로깅은 다음과 같은 정보를 수집 합니다.
+통합 계정에서 거래 파트너 간에 B2B 통신을 설정한 후에는 해당 파트너가 AS2, X12 및 EDIFACT와 같은 프로토콜을 사용 하 여 메시지를 교환할 수 있습니다. 이 통신이 원하는 방식으로 작동 하는지 확인 하기 위해 통합 계정에 대 한 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md) 를 설정할 수 있습니다. [Azure Monitor](../azure-monitor/overview.md) 를 사용 하면 클라우드 및 온-프레미스 환경을 모니터링 하 여 가용성과 성능을 더 쉽게 유지할 수 있습니다. Azure Monitor 로그를 사용 하 여 [Log Analytics 작업 영역](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)에서 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 런타임 데이터 및 이벤트에 대 한 데이터를 기록 하 고 저장할 수 있습니다. 메시지의 경우 로깅은 다음과 같은 정보를 수집 합니다.
 
 * 메시지 수 및 상태
 * 승인 상태
@@ -103,7 +104,7 @@ Azure Monitor 로그에서 논리 앱에 대 한 B2B 메시지를 추적 하려�
 
    1. 완료되면 **저장**을 선택합니다.
 
-   예를 들어: 
+   예를 들면 다음과 같습니다. 
 
    ![Azure Monitor 로그를 설정 하 여 진단 데이터 수집](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -162,7 +163,7 @@ Azure Monitor 로그에서 논리 앱에 대 한 B2B 메시지를 추적 하려�
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->
@@ -181,10 +182,10 @@ Azure Monitor 로그에서 논리 앱에 대 한 B2B 메시지를 추적 하려�
 
 | 속성 | 설명 |
 |----------|-------------|
-| **보낸 사람** | **수신 설정**에 지정된 게스트 파트너 또는 AS2 규약의 **송신 설정**에 지정된 호스트 파트너 |
+| **으로부터** | **수신 설정**에 지정된 게스트 파트너 또는 AS2 규약의 **송신 설정**에 지정된 호스트 파트너 |
 | **수신자** | **수신 설정**에 지정된 호스트 파트너 또는 AS2 규약의 **송신 설정**에 지정된 게스트 파트너 |
 | **논리 앱** | AS2 작업이 설정된 논리 앱 |
-| **Status** | AS2 메시지 상태 <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되지 않습니다. <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정 및 수신됩니다. 또는 MDN이 전송됩니다. <br>실패 = 유효하지 않은 AS2 메시지를 받았습니다. MDN이 설정되지 않습니다. <br>보류 중 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되었고 MDN을 기다립니다. |
+| **상태** | AS2 메시지 상태 <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되지 않습니다. <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정 및 수신됩니다. 또는 MDN이 전송됩니다. <br>실패 = 유효하지 않은 AS2 메시지를 받았습니다. MDN이 설정되지 않습니다. <br>보류 중 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되었고 MDN을 기다립니다. |
 | **돌아가기** | MDN 메시지 상태 <br>수락됨 = 양의 MDN을 받거나 보냈습니다. <br>보류 중 = MDN을 받거나 보낼 때까지 대기 중입니다. <br>거부됨 = 음의 MDN을 받거나 보냈습니다. <br>필요하지 않음 = 규약에 MDN이 설정되지 않습니다. |
 | **방향** | AS2 메시지 방향 |
 | **추적 ID** | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
@@ -214,10 +215,10 @@ Here are the name formats for each downloaded AS2 message folder and files.
 
 | 속성 | 설명 |
 |----------|-------------|
-| **보낸 사람** | **수신 설정**에 지정된 게스트 파트너 또는 X12 규약의 **송신 설정**에 지정된 호스트 파트너 |
+| **으로부터** | **수신 설정**에 지정된 게스트 파트너 또는 X12 규약의 **송신 설정**에 지정된 호스트 파트너 |
 | **수신자** | **수신 설정**에 지정된 호스트 파트너 또는 X12 규약의 **송신 설정**에 지정된 게스트 파트너 |
 | **논리 앱** | X12 작업이 설정된 논리 앱 |
-| **Status** | X12 메시지 상태 <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 X12 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
+| **상태** | X12 메시지 상태 <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 X12 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
 | **돌아가기** | 기능 Ack(997) 상태 <br>수락됨 = 양의 기능 Ack를 받거나 보냈습니다. <br>거부됨 = 음의 기능 Ack를 받거나 보냈습니다. <br>보류 중 = 기능 Ack를 기다렸지만 받지 못했습니다. <br>보류 중 = 기능 Ack를 생성했지만 파트너에게 보낼 수 없습니다. <br>필요하지 않음 = 기능 Ack가 설정되지 않습니다. |
 | **방향** | X12 메시지 방향 |
 | **추적 ID** | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
@@ -249,10 +250,10 @@ Here are the name formats for each downloaded X12 message folder and files.
 
 | 속성 | 설명 |
 |----------|-------------|
-| **보낸 사람** | **수신 설정**에 지정된 게스트 파트너 또는 EDIFACT 규약의 **송신 설정**에 지정된 호스트 파트너 |
+| **으로부터** | **수신 설정**에 지정된 게스트 파트너 또는 EDIFACT 규약의 **송신 설정**에 지정된 호스트 파트너 |
 | **수신자** | **수신 설정**에 지정된 호스트 파트너 또는 EDIFACT 규약의 **송신 설정**에 지정된 게스트 파트너 |
 | **논리 앱** | EDIFACT 작업이 설정된 논리 앱 |
-| **Status** | EDIFACT 메시지 상태 <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 EDIFACT 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
+| **상태** | EDIFACT 메시지 상태 <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 EDIFACT 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
 | **돌아가기** | 기능 Ack (CONTRL) 상태 <br>수락됨 = 양의 기능 Ack를 받거나 보냈습니다. <br>거부됨 = 음의 기능 Ack를 받거나 보냈습니다. <br>보류 중 = 기능 Ack를 기다렸지만 받지 못했습니다. <br>보류 중 = 기능 Ack를 생성했지만 파트너에게 보낼 수 없습니다. <br>필요하지 않음 = 기능 Ack가 설정되지 않습니다. |
 | **방향** | EDIFACT 메시지 방향 |
 | **추적 ID** | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |

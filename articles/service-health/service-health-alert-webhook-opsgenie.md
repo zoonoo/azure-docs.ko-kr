@@ -3,11 +3,12 @@ title: 웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 OpsGenie 인스턴스로 가져옵니다.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 112774cb1f9e16b08225471e8dbc1bb79b1bd37d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654140"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529100"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로 보냅니다.
 
@@ -36,7 +37,7 @@ ms.locfileid: "77654140"
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Azure Portal에서 OpsGenie를 사용하여 경고 만들기
 ### <a name="for-a-new-action-group"></a>새 작업 그룹의 경우:
-1. [Azure Portal을 사용하여 새 작업 그룹에 대한 서비스 상태 알림의 경고 만들기](../azure-monitor/platform/alerts-activity-log-service-notifications.md)에서 1단계부터 8단계까지 수행합니다.
+1. [Azure Portal을 사용하여 새 작업 그룹에 대한 서비스 상태 알림의 경고 만들기](./alerts-activity-log-service-notifications-portal.md)에서 1단계부터 8단계까지 수행합니다.
 
 1. **작업** 목록에서 다음을 정의합니다.
 
@@ -84,5 +85,5 @@ ms.locfileid: "77654140"
 ## <a name="next-steps"></a>다음 단계
 - [기존 문제 관리 시스템에 대 한 webhook 알림을 구성](service-health-alert-webhook-guide.md)하는 방법을 알아봅니다.
 - [활동 로그 경고 webhook 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토 합니다. 
-- [서비스 상태 알림](../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
+- [서비스 상태 알림](./service-notifications.md)에 대해 자세히 알아보세요.
 - [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.

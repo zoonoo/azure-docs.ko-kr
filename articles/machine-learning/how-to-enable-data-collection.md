@@ -1,31 +1,34 @@
 ---
 title: 프로덕션 모델에서 데이터 수집
 titleSuffix: Azure Machine Learning
-description: Azure Blob 저장소에서 Azure Machine Learning 입력 모델 데이터를 수집 하는 방법에 대해 알아봅니다.
+description: 배포 된 Azure Machine Learning 모델에서 데이터를 수집 하는 방법 알아보기
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: laobri
+ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 11/12/2019
+ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7e3aeba14373861d831056678576c52f6b2184f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433001"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536325"
 ---
-# <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
+# <a name="collect-data-from-models-in-production"></a>프로덕션 환경에서 모델의 데이터 수집
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure Machine Learning에서 입력 모델 데이터를 수집 하는 방법을 보여 줍니다. 또한 azure Kubernetes 서비스 (AKS) 클러스터에 입력 데이터를 배포 하 고 Azure Blob 저장소에 출력 데이터를 저장 하는 방법을 보여 줍니다.
+이 문서에서는 AKS (Azure Kubernetes Service) 클러스터에 배포 된 Azure Machine Learning 모델에서 데이터를 수집 하는 방법을 보여 줍니다. 수집 된 데이터는 Azure Blob 저장소에 저장 됩니다.
 
 수집을 사용 하도록 설정 하면 수집 하는 데이터를 통해 다음 작업을 수행할 수 있습니다.
 
-* [데이터 상태가](how-to-monitor-data-drift.md) 를 프로덕션 데이터로 모니터링 하 여 모델을 입력 합니다.
+* 수집한 프로덕션 데이터의 [데이터 상태가를 모니터링](how-to-monitor-datasets.md) 합니다.
+
+* [Power BI](#powerbi) 또는 [Azure Databricks](#databricks) 를 사용 하 여 수집 된 데이터 분석
 
 * 모델을 다시 학습 또는 최적화 하는 시기에 대 한 더 나은 결정을 내립니다.
 
@@ -54,17 +57,17 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 >[!NOTE]
 > 0.1.0 a16 이전 버전의 Python 용 Azure Machine Learning SDK 버전에서는 `designation` 인수의 이름이로 지정 됩니다 `identifier` . 이전 버전을 사용 하 여 코드를 개발한 경우 적절 하 게 업데이트 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 
-- AzureMachine Learning 작업 영역, 스크립트를 포함 하는 로컬 디렉터리 및 Python 용 Azure Machine Learning SDK가 설치 되어 있어야 합니다. 이를 설치 하는 방법에 대 한 자세한 내용은 [개발 환경을 구성](how-to-configure-environment.md)하는 방법을 참조 하세요.
+- Azure Machine Learning 작업 영역, 스크립트를 포함 하는 로컬 디렉터리 및 Python 용 Azure Machine Learning SDK가 설치 되어 있어야 합니다. 이를 설치 하는 방법에 대 한 자세한 내용은 [개발 환경을 구성](how-to-configure-environment.md)하는 방법을 참조 하세요.
 
 - AKS에 배포 하려면 학습 된 기계 학습 모델을 만들어야 합니다. 모델이 없는 경우 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조 하세요.
 
 - AKS 클러스터가 필요 합니다. 하나를 만들어 배포 하는 방법에 대 한 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-- [환경을 설정](how-to-configure-environment.md) 하 고 [Azure Machine Learning 모니터링 SDK](https://aka.ms/aml-monitoring-sdk)를 설치 합니다.
+- [환경을 설정](how-to-configure-environment.md) 하 고 [Azure Machine Learning 모니터링 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 설치 합니다.
 
 ## <a name="enable-data-collection"></a>데이터 컬렉션 활성화
 
@@ -74,7 +77,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 점수 매기기 파일을 엽니다.
 
-1. 파일 맨 위에 [다음 코드](https://aka.ms/aml-monitoring-sdk)를 추가합니다.
+1. 파일 맨 위에 다음 코드를 추가합니다.
 
    ```python 
    from azureml.monitoring import ModelDataCollector
@@ -115,41 +118,10 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 새 이미지를 만들고 machine learning 모델을 배포 하려면 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-환경 파일 및 점수 매기기 파일에 설치 된 종속성이 있는 서비스가 이미 있는 경우 다음 단계를 수행 하 여 데이터 수집을 사용 하도록 설정 합니다.
-
-1. [Azure Machine Learning](https://ml.azure.com)으로 이동합니다.
-
-1. 작업 영역을 엽니다.
-
-1. **배포**선택  >  **서비스**  >  **편집**을 선택 합니다.
-
-   ![서비스 편집](././media/how-to-enable-data-collection/EditService.PNG)
-
-1. **고급 설정**에서 **Application Insights 진단 및 데이터 수집 사용**을 선택 합니다.
-
-1. **업데이트** 를 선택 하 여 변경 내용을 적용 합니다.
 
 ## <a name="disable-data-collection"></a>데이터 수집 비활성화
 
-언제 든 지 데이터 수집을 중지할 수 있습니다. Python 코드 또는 Azure Machine Learning를 사용 하 여 데이터 수집을 사용 하지 않도록 설정 합니다.
-
-### <a name="option-1---disable-data-collection-in-azure-machine-learning"></a>옵션 1-Azure Machine Learning에서 데이터 수집 사용 안 함
-
-1. [Azure Machine Learning](https://ml.azure.com)에 로그인합니다.
-
-1. 작업 영역을 엽니다.
-
-1. **배포**선택  >  **서비스**  >  **편집**을 선택 합니다.
-
-   [![편집 옵션을 선택 합니다.](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
-
-1. **고급 설정**에서 **Application Insights 진단 및 데이터 수집 사용**을 선택 취소 합니다.
-
-1. **업데이트**를 선택하여 변경 내용을 적용합니다.
-
-[Azure Machine Learning](https://ml.azure.com)의 작업 영역에서 이러한 설정에 액세스할 수도 있습니다.
-
-### <a name="option-2---use-python-to-disable-data-collection"></a>옵션 2-Python을 사용 하 여 데이터 컬렉션 사용 안 함
+언제 든 지 데이터 수집을 중지할 수 있습니다. Python 코드를 사용 하 여 데이터 수집을 사용 하지 않도록 설정 합니다.
 
   ```python 
   ## replace <service_name> with the name of the web service
@@ -162,7 +134,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 ### <a name="quickly-access-your-blob-data"></a>Blob 데이터에 빠르게 액세스
 
-1. [Azure Machine Learning](https://ml.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. 작업 영역을 엽니다.
 
@@ -177,7 +149,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a>Power BI를 사용 하 여 모델 데이터 분석
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a>Power BI를 사용 하 여 모델 데이터 분석
 
 1. [Power BI Desktop](https://www.powerbi.com)를 다운로드 하 여 엽니다.
 
@@ -213,7 +185,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 모델 데이터에 대한 사용자 지정 보고서 빌드를 시작합니다.
 
-### <a name="analyze-model-data-using-azure-databricks"></a>Azure Databricks를 사용 하 여 모델 데이터 분석
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Azure Databricks를 사용 하 여 모델 데이터 분석
 
 1. [Azure Databricks 작업 영역](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)을 만듭니다.
 
@@ -237,3 +209,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
     [![Databricks 설정](./media/how-to-enable-data-collection/dbsetup.png)](././media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. 템플릿의 단계를 따라 데이터를 보고 분석 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+수집한 데이터에 대 한 [데이터 드리프트를 검색](how-to-monitor-datasets.md) 합니다.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ed93ba937a843618f36bac6e88b15ff77355ca75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce1c6bdfb38e37c18a18cf970d2dd08683967da3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610703"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536751"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
@@ -33,9 +33,9 @@ HDInsight 클러스터를 만들 때 몇 가지 Azure storage 서비스 중에�
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | Spark 2.1 및 2.2을 제외한 모든|
 |Azure Storage| 범용 V2 | Object | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
-|Azure Storage| 범용 V1 | Object | Blob | Standard | 해당 없음 | 모두 | 모두 |
-|Azure Storage| Blob Storage * * | Object | 블록 Blob | 표준 | 핫, 쿨, 보관 | 모두 | 모두 |
-|Azure Data Lake Storage Gen1| 해당 없음 | 계층 구조 (파일 시스템) | 해당 없음 | 해당 없음 | 해당 없음 | 3.6만 해당 | HBase를 제외한 모든 |
+|Azure Storage| 범용 V1 | Object | Blob | Standard | N/A | 모두 | 모두 |
+|Azure Storage| Blob Storage * * | Object | 블록 Blob | Standard | 핫, 쿨, 보관 | 모두 | 모두 |
+|Azure Data Lake Storage Gen1| N/A | 계층 구조 (파일 시스템) | N/A | N/A | N/A | 3.6만 해당 | HBase를 제외한 모든 |
 
 * * HDInsight 클러스터의 경우에는 보조 저장소 계정만 BlobStorage 유형이 될 수 있으며 페이지 Blob은 지원 되는 저장소 옵션이 아닙니다.
 
@@ -63,6 +63,12 @@ Azure Storage 액세스 계층에 대 한 자세한 내용은 [Azure Blob storag
 > [!NOTE]
 > Data Lake Storage Gen2 기본 저장소는 Spark 2.1 또는 2.2 클러스터에 대해 지원 되지 않습니다.
 
+## <a name="data-replication"></a>데이터 복제
+
+Azure HDInsight는 고객 데이터를 저장 하지 않습니다. 클러스터에 대 한 저장소의 기본 방법은 연결 된 저장소 계정입니다. 클러스터를 기존 저장소 계정에 연결 하거나 클러스터를 만드는 과정에서 새 저장소 계정을 만들 수 있습니다. 새 계정이 만들어지면 LRS (로컬 중복 저장소) 계정으로 생성 되 고, [보안 센터](https://azuredatacentermap.azurewebsites.net)에 지정 된 것을 포함 하 여 지역 데이터 상주 요구 사항을 충족 합니다.
+
+Hdinsight와 연결 된 저장소 계정이 LRS 또는 [보안 센터](https://azuredatacentermap.azurewebsites.net)에서 언급 한 다른 저장소 옵션 인지 확인 하 여 hdinsight가 단일 지역에 데이터를 저장 하도록 제대로 구성 되었는지 확인할 수 있습니다.
+ 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Storage 개요](./overview-azure-storage.md)

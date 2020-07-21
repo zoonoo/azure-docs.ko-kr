@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: ca6e9a66d6c4daa4706813f945850b51505adeca
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 9ee433f226b37c8ffd6ad466cca7cbd844d53524
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133449"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535980"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>상업용 Marketplace 제품의 잠재 고객
 
@@ -106,7 +106,7 @@ ms.locfileid: "86133449"
 
 ### <a name="how-can-i-find-the-test-lead"></a>테스트 잠재 고객을 찾으려면 어떻게 해야 하나요?
 
-잠재 고객 대상에서 `"MSFT_TEST"`를 검색합니다. Microsoft의 샘플 테스트 잠재 고객은 다음과 같습니다.
+잠재 고객 대상에서 `"MSFT_TEST"`를 검색합니다. 다음은 Microsoft의 샘플 테스트 책임자입니다. 테스트 리드의 형식은 리드 대상에 따라 다릅니다.
 
 ```
 {

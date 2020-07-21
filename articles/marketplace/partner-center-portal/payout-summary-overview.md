@@ -1,18 +1,18 @@
 ---
 title: 지급 요약 개요 - Azure Marketplace
 description: 지급 요약에는 제품으로 창출한 수익에 대한 세부 정보가 표시됩니다. 또한 결제되는 금액과 시기도 알려줍니다.
-ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.service: marketplace
+ms.topic: article
 author: mingshen
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 087f7df8f8e3cc5e6e01ff023a88306d5fc4102d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118480"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535963"
 ---
 # <a name="payout-summary-overview"></a>지급 요약 개요
 
@@ -42,19 +42,6 @@ Azure Marketplace에서 제품을 판매하는 경우 지급 요약에는 성공
 | 세금 프로필 | 업데이트할 수 있음 | 액세스 권한 없음 | 액세스 권한 없음 | 액세스 권한 없음 | 업데이트할 수 있음 | 액세스 권한 없음 |
 | 지급 요약 | 보기 가능 | 액세스 권한 없음 | 액세스 권한 없음 | 액세스 권한 없음 | 보기 가능 | 액세스 권한 없음  |
 | | | | | | | |
-
-## <a name="payout-report-differences"></a>지급 보고서 차이점
-
-Cloud 파트너 포털(이전)와 파트너 센터(신규)의 지급 보고서는 다릅니다.
-
-| 클라우드 파트너 포털 | 파트너 센터 |
-| --- | --- |
-| **링크**: https://cloudpartner.azure.com/ | **링크**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory 및 https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation**: 인사이트 지급에 제공되는 지급 보고 | **Navigation**: 파트너 센터에 제공되는 지급 보고 - 지급 아이콘 |
-| **범위**:<ul><li>진행 중, 수집 및 유료 컬렉션에 대한 품목별 거래가 표시됩니다.</li><li>보고 – 수집 진행 중 및 청구 진행 중인 품목을 포함하여 구매 주문이 생성된 후의 모든 품목과 아직 유료로 사용할 수 없는 품목 및 수집 상태를 표시합니다.</li></ul> | **범위**:<ul><li>적격 소득으로 간주된 이후의 품목을 표시합니다.</li><li>고객이 먼저 Microsoft에 요금을 지불하면 ISV는 지급 보고서가 시작되는 것을 볼 수 있습니다.</li><li>지급 보고서는 진행 중인 수집과 진행 중인 청구를 표시하지 않습니다.</li></ul> |
-| **거래에 대한 지급이 준비되지 않음**: 청구 진행 중 | **거래에 대한 지급이 준비되지 않음**: 다음 예상 지급액: 지급 상태가 처리 안 됨입니다. |
-| **지급 상태**: 해당 없음 | **지급 상태**:<ul><li>처리 안 됨: 지급해야 하는 수익입니다.</li><li>예정: 다음 월별 지급 시 게시자에게 전송되는 수익입니다.</li><li>송금: 결제 금액이 거래 은행으로 송금되었습니다.</li></ul> |
-| | |
 
 ## <a name="payment-schedules"></a>지불 일정
 

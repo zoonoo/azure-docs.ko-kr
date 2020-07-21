@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd54c8f7e8a3784672f5364efc6f6b51186f911d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454682"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529287"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -258,9 +258,8 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 
 #### <a name="encryption-model-and-key-management-table"></a>암호화 모델 및 키 관리 테이블
 
-|                                  |                    | **암호화 모델 및 키 관리** |                    |
+| 제품, 기능 또는 서비스 | 서비스 관리 키를 사용하는 서버 쪽   | 고객이 관리 하는 키를 사용 하는 서버 쪽 | 클라이언트 쪽에서 클라이언트 관리 키를 사용 하는 경우  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **서비스 관리 키를 사용하는 서버 쪽**     | **고객이 관리 하는 키를 사용 하는 서버 쪽**             | **클라이언트 쪽에서 클라이언트 관리 키를 사용 하는 경우**      |
 | **AI 및 기계 학습**      |                    |                    |                    |
 | Azure Cognitive Search           | 예                | 예                | -                  |
 | Azure Cognitive Services         | 예                | 예                | -                  |
@@ -268,7 +267,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure Machine Learning Studio    | 예                | 미리 보기, RSA 2048비트 | -               |
 | Content Moderator                | 예                | 예                | -                  |
 | Face                             | 예                | 예                | -                  |
-| Language Understanding           | 예                | 예                | -                  |
+| 언어 이해           | 예                | 예                | -                  |
 | Personalizer                     | 예                | 예                | -                  |
 | QnA Maker                        | 예                | 예                | -                  |
 | Speech Services                  | 예                | 예                | -                  |

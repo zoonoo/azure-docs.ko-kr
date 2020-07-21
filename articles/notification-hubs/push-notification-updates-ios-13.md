@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 697e8ba9c9f27e8d5644e3a78950ff006290efe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b3ea9f07475affca76c8a3ff71de61abcadde8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74228137"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529712"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>IOS 13의 Azure Notification Hubs 업데이트
 
@@ -57,13 +58,13 @@ request.Headers.Add("ServiceBusNotification-Format", "apple");
 request.Headers.Add("apns-push-type", "alert");
 ```
 
-이 전환 작업을 수행 하는 동안 Azure Notification Hubs에 집합이 없는 알림이 감지 되 면 `apns-push-type` 서비스는 알림 요청에서 푸시 유형을 유추 하 고 값을 자동으로 설정 합니다. 토큰 기반 인증을 사용 하 여 필요한 헤더를 설정 하도록 Azure Notification Hubs를 구성 해야 합니다. 자세한 내용은 [APNS에 대 한 토큰 기반 (HTTP/2) 인증](notification-hubs-push-notification-http2-token-authentification.md)을 참조 하세요.
+이 전환 작업을 수행 하는 동안 Azure Notification Hubs에 집합이 없는 알림이 감지 되 면 `apns-push-type` 서비스는 알림 요청에서 푸시 유형을 유추 하 고 값을 자동으로 설정 합니다. 토큰 기반 인증을 사용 하 여 필요한 헤더를 설정 하도록 Azure Notification Hubs를 구성 해야 합니다. 자세한 내용은 [APNS에 대 한 토큰 기반 (HTTP/2) 인증](./notification-hubs-push-notification-http2-token-authentication.md)을 참조 하세요.
 
 ## <a name="apns-priority"></a>APNS 우선 순위
 
 또 다른 사소한 변경은 있지만 알림을 보내는 백 엔드 응용 프로그램을 변경 해야 하는 경우, `apns-priority` 이제 헤더를 5로 설정 해야 한다는 요구 사항이 있습니다. 많은 응용 프로그램 `apns-priority` 에서 헤더를 10으로 설정 하 여 (즉시 배달 표시), 설정 하지 않고 기본 값 (도 10)을 가져옵니다.
 
-이 값을 10으로 설정 하면 백그라운드 알림에 더 이상 사용할 수 없으며 각 요청에 대 한 값을 설정 해야 합니다. 이 값이 없는 경우 Apple은 백그라운드 알림을 배달 하지 않습니다. 예를 들어:
+이 값을 10으로 설정 하면 백그라운드 알림에 더 이상 사용할 수 없으며 각 요청에 대 한 값을 설정 해야 합니다. 이 값이 없는 경우 Apple은 백그라운드 알림을 배달 하지 않습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);

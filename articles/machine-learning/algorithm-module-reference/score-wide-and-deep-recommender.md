@@ -1,5 +1,5 @@
 ---
-title: 이미지 모델 채점
+title: 전체 점수 & Deep 추천 모듈 사용
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 점수 Wide & Deep 추천 모듈을 사용 하 여 데이터 집합에 대 한 추천 예측 점수를 매기는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 1d566d270f9e4b7017171a79fddf58090e21cdec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df723824b2d80694913e32904ed81972381c5bcb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739804"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536218"
 ---
 # <a name="score-wide-and-deep-recommender"></a>와이드 및 딥 추천 점수 매기기
 

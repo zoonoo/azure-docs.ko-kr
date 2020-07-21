@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 3db3d619118be74ec1429ace70f580558c0a6c9d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: e4f1931aab056306ac5e9f9e9ef402ca26ec2d19
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134371"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528947"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Hyper-V와 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보
 
@@ -70,19 +70,19 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 
 ## <a name="support-matrix"></a>지원 매트릭스
 
-| | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
+|**범주** | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |Yes|예|아니요|예*|No
+지원되는 시나리오 |예|예|아니요|예*|아니요
 지원되는 버전 | vCenter 6.7, 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
 Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음
 
 *이 도구는 주로 Hyper-V에서 Azure로 재해 복구 시나리오용입니다. Hyper-V에서 보조 사이트로 재해 복구에 대하여, 필요한 네트워크 대역폭, 각 원본 Hyper-V 서버에 필요한 사용 가능한 스토리지 공간 및 초기 복제 일괄 처리 번호 및 일괄 처리 정의와 같은 원본 측 권장 사항을 이해하는 데에만 사용할 수 있습니다.  보고서의 Azure 권장 사항 및 비용은 무시하세요. 또한 처리량 가져오기 작업은 Hyper-V에서 보조 사이트로 재해 복구 시나리오에는 적용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 도구에는 VM 목록 가져오기, 프로파일링 및 보고서 생성이라는 Hyper-V의 세 가지 주요 단계가 있습니다. 또한 처리량만 계산하는 네 번째 옵션도 있습니다. 서로 다른 단계가 실행되어야 하는 서버에 대한 요구 사항은 다음 테이블에 있습니다.
 
-| 서버 요구 사항 | Description |
+| 서버 요구 사항 | 설명 |
 |---|---|
 |VM 목록 가져오기, 프로파일링 및 처리량 측정 |<ul><li>운영 체제: Microsoft Windows Server 2016 또는 Microsoft Windows Server 2012 R2 </li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure (*. blob.core.windows.net)에 대 한 인터넷 액세스, 포트 443<br>[이 옵션은 선택 사항입니다. 보고서를 생성 하는 동안 사용 가능한 대역폭을 수동으로 제공 하도록 선택할 수 있습니다.]</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>Azure Site Recovery Deployment Planner 도구를 실행 중인 곳의 VM이 모든 Hyper-V 서버의 TrustedHosts 목록에 반드시 추가되어야 합니다.</li><li>도구를 실행 중인 클라이언트 VM의 TrustedHosts 목록에 프로파일링할 모든 Hyper-V 서버를 추가해야 합니다. [서버를 TrustedHosts 목록에 추가하는 내용을 자세히 알아봅니다](#steps-to-add-servers-into-trustedhosts-list). </li><li> 도구는 PowerShell의 관리자 권한 또는 클라이언트의 명령줄 콘솔에서 실행되어야 합니다.</ul></ul>|
 | 보고서 생성 | Microsoft Excel 2013 이상을 포함한 모든 Windows PC 또는 Windows Server |
@@ -90,19 +90,24 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
  |
 
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>서버를 TrustedHosts 목록에 추가하는 단계
-1.  도구를 배포할 VM에 TrustedHosts 목록에서 프로파일링할 모든 호스트가 있어야 합니다. 클라이언트를 Trustedhosts 목록에 추가하려면 VM의 관리자 권한 PowerShell에서 다음 명령을 실행합니다. VM은 Windows Server 2012 R2 또는 Windows Server 2016일 수 있습니다. 
+1. 도구를 배포할 VM에 TrustedHosts 목록에서 프로파일링할 모든 호스트가 있어야 합니다. 클라이언트를 Trustedhosts 목록에 추가하려면 VM의 관리자 권한 PowerShell에서 다음 명령을 실행합니다. VM은 Windows Server 2012 R2 또는 Windows Server 2016일 수 있습니다. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
-
-1.  프로파일링해야 하는 각 Hyper-V 호스트에는 다음이 필요합니다.
+   ```powershell
+   set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+   ```
+1. 프로파일링해야 하는 각 Hyper-V 호스트에는 다음이 필요합니다.
 
     a. TrustedHosts 목록에서 도구를 실행할 VM. Hyper-V의 관리자 권한 PowerShell에서 다음 명령을 실행합니다.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+      ```powershell
+      set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+      ```
 
     b. PowerShell 원격 기능을 사용할 수 있어야 합니다.
 
-            Enable-PSRemoting -Force
+      ```powershell
+      Enable-PSRemoting -Force
+      ```
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Deployment Planner 도구 다운로드 및 추출
 

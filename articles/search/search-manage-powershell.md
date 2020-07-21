@@ -9,11 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 711071e08a52a0075512bc8b3ffe14707238cdfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a08b59464855b805173fa76d696107f8a7673d39
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77209299"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529573"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>PowerShell을 사용 하 여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -251,7 +252,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 [인덱스](search-what-is-an-index.md)를 작성 하 고 포털, REST api 또는 .net SDK를 사용 하 여 [인덱스를 쿼리](search-query-overview.md) 합니다.
 
-* [Azure Portal에서 Azure Cognitive Search 인덱스 만들기](search-create-index-portal.md)
+* [Azure Portal에서 Azure Cognitive Search 인덱스 만들기](search-get-started-portal.md)
 * [다른 서비스에서 데이터를 로드 하는 인덱서 설정](search-indexer-overview.md)
 * [Azure Portal에서 검색 탐색기를 사용 하 여 Azure Cognitive Search 인덱스 쿼리](search-explorer.md)
 * [.NET에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)

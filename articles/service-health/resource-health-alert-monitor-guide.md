@@ -3,11 +3,12 @@ title: Azure Portal을 사용 하 여 Resource Health 경고 만들기
 description: Azure 리소스를 사용할 수 없게 되 면 알리는 Azure Portal를 사용 하 여 경고를 만듭니다.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 2ba7597283ed254b8c03e8ea58c3c7b1257250ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85217944"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529219"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Azure Portal을 사용하여 리소스 상태 경고 구성
 
@@ -18,7 +19,7 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 > [!NOTE]
 > Resource Health 경고는 현재 미리 보기 상태입니다.
 
-리소스 상태 알림은 활동 로그에 저장 된 대용량 정보를 제공 하는 [Azure 활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) 에 저장 됩니다. 리소스 상태 알림에 대 한 경고를 쉽게 확인 하 고 설정할 수 있는 별도의 사용자 인터페이스가 있습니다.
+리소스 상태 알림은 활동 로그에 저장 된 대용량 정보를 제공 하는 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md) 에 저장 됩니다. 리소스 상태 알림에 대 한 경고를 쉽게 확인 하 고 설정할 수 있는 별도의 사용자 인터페이스가 있습니다.
 Azure 리소스가 Azure 구독에 리소스 상태 알림을 보낼 때 경고를 받을 수 있습니다. 다음 항목에 따라 경고를 구성할 수 있습니다.
 
 * 영향을 받는 구독
@@ -34,9 +35,9 @@ Azure 리소스가 Azure 구독에 리소스 상태 알림을 보낼 때 경고�
 * 기존 작업 그룹을 선택합니다.
 * 새 작업 그룹을 만듭니다(향후 경고에 사용할 수 있음).
 
-작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)를 참조하세요.
+작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
 
-Azure Resource Manager 템플릿을 사용 하 여 리소스 상태 알림 경고를 구성 하는 방법에 대 한 자세한 내용은 [리소스 관리자 템플릿](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)을 참조 하세요.
+Azure Resource Manager 템플릿을 사용 하 여 리소스 상태 알림 경고를 구성 하는 방법에 대 한 자세한 내용은 [리소스 관리자 템플릿](./resource-health-alert-arm-template-guide.md)을 참조 하세요.
 Azure Portal를 사용 하 여 경고 Resource Health
 
 ## <a name="resource-health-alert-using-azure-portal"></a>Azure Portal을 사용 하 여 경고 Resource Health
@@ -58,12 +59,12 @@ Azure Portal를 사용 하 여 경고 Resource Health
     1. **경고 규칙 이름**: 새 경고 규칙의 이름입니다.
     2. **설명**: 새 경고 규칙에 대한 설명입니다.
     3. **리소스 그룹에 경고 저장**: 이 새 규칙을 저장하고자 하는 리소스 그룹을 선택합니다.
-7. **작업 그룹** 아래의 드롭다운 메뉴에서 이 새 경고 규칙에 할당할 작업 그룹을 지정합니다. 또는 [새 작업 그룹을 만들어](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 새 규칙에 할당합니다. 새 그룹을 만들려면 + **새 그룹**을 선택 합니다.
+7. **작업 그룹** 아래의 드롭다운 메뉴에서 이 새 경고 규칙에 할당할 작업 그룹을 지정합니다. 또는 [새 작업 그룹을 만들어](../azure-monitor/platform/action-groups.md) 새 규칙에 할당합니다. 새 그룹을 만들려면 + **새 그룹**을 선택 합니다.
 8. 규칙을 만든 후 사용하도록 설정하려면 **규칙을 만들면 바로 사용**에 대해 **예**를 선택합니다.
 9. **경고 규칙 만들기**를 선택합니다.
 
 활동 로그에 대한 새 경고 규칙이 생성되고 창의 오른쪽 상단에 확인 메시지가 나타납니다.
-규칙을 사용/사용하지 않도록 설정, 편집 또는 삭제할 수 있습니다. [활동 로그 규칙을 관리 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#view-and-manage-in-the-azure-portal)에 대해 자세히 알아보세요.
+규칙을 사용/사용하지 않도록 설정, 편집 또는 삭제할 수 있습니다. [활동 로그 규칙을 관리 하는 방법](../azure-monitor/platform/alerts-activity-log.md#view-and-manage-in-the-azure-portal)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -74,6 +75,6 @@ Resource Health에 대해 알아봅니다.
 
 Service Health 경고 만들기:
 
-* [Service Health에 대한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+* [Service Health에 대한 경고 구성](./alerts-activity-log-service-notifications-portal.md) 
 * [Azure 활동 로그 이벤트 스키마](../azure-monitor/platform/activity-log-schema.md)
-* [Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
+* [Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성](./resource-health-alert-arm-template-guide.md)

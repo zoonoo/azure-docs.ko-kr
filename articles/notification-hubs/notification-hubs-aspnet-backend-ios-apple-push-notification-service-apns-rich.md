@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae4b984d0ce66dec2a32b3431301ed97fe2c3fd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71212197"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530137"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs 다양한 푸시
 
@@ -31,7 +31,7 @@ ms.locfileid: "71212197"
 
 이 자습서는 iOS 7 및 8과 호환됩니다.
 
-  ![][IOS1]
+  ![3 개의 스크린샷: 푸시 단추가 있는 앱 화면, 장치의 시작 화면 및 뒤로 단추가 있는 Windows 로고][IOS1]
 
 개요:
 
@@ -49,7 +49,7 @@ ms.locfileid: "71212197"
 3. 솔루션 탐색기에서 **모든 파일 표시**를 클릭하고 **프로젝트에 포함**할 폴더를 마우스 오른쪽 단추로 클릭합니다.
 4. 이미지를 선택한 상태로 속성 창에서 해당 빌드 작업을 **포함 리소스**로 변경합니다.
 
-    ![][IOS2]
+    ![솔루션 탐색기의 스크린샷 이미지 파일을 선택 하 고 속성 창에서 포함 된 리소스는 빌드 작업으로 나열 됩니다.][IOS2]
 5. `Notifications.cs`에서 다음 using 문을 추가합니다.
 
     ```csharp
@@ -146,12 +146,12 @@ ms.locfileid: "71212197"
 1. iOS 프로젝트를 열고 **대상** 섹션에서 기본 앱 대상으로 이동하여 원격 알림을 사용하도록 설정합니다.
 2. **기능**을 클릭하고 **백그라운드 모드**를 켠 후 **원격 알림** 확인란을 선택합니다.
 
-    ![][IOS3]
+    ![기능 화면을 표시 하는 iOS 프로젝트의 스크린샷 백그라운드 모드를 설정 하 고 원격 알림 확인란을 선택 합니다.][IOS3]
 3. `Main.storyboard`를 열고 [사용자에게 알림](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 자습서의 보기 컨트롤러(이 자습서에서는 홈 보기 컨트롤러라고 함)가 있는지 확인합니다.
 4. 스토리보드에 **탐색 컨트롤러**를 추가하고 Ctrl 키를 누른 상태에서 홈 보기 컨트롤러로 끌어 탐색의 **루트 보기**로 만듭니다. 특성 검사기에서 **Is Initial View Controller** 가 탐색 컨트롤러에 대해서만 선택되어 있어야 합니다.
 5. 스토리보드에 **보기 컨트롤러**를 추가하고 **이미지 보기**를 추가합니다. 이 페이지는 사용자가 자세한 내용을 보기 위해 알림을 클릭하면 표시되는 페이지입니다. 스토리보드는 다음과 같이 표시됩니다.
 
-    ![][IOS4]
+    ![스토리 보드의 스크린샷 탐색 보기, 홈 보기 및 이미지 보기의 세 가지 앱 화면이 표시 됩니다.][IOS4]
 6. 스토리보드에서 **홈 보기 컨트롤러**를 클릭하고 특성 검사기에서 **homeViewController**가 해당 **사용자 지정 클래스** 및 **스토리 보드 ID**로 포함되어 있는지 확인합니다.
 7. 이미지 보기 컨트롤러에 대해서도 **imageViewController**와 동일하게 수행합니다.
 8. 그런 다음 방금 만든 UI를 처리하기 위한 **imageViewController** 라는 새 뷰 컨트롤러 클래스를 만듭니다.

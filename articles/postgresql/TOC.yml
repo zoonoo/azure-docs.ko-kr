@@ -67,7 +67,7 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -114,7 +114,7 @@
               href: concepts-data-encryption-postgresql.md
             - name: 인프라 이중 암호화
               href: concepts-infrastructure-double-encryption.md
-            - name: 보안 기준
+            - name: Azure Security Benchmark에 대한 보안 기준
               href: security-baseline.md
         - name: 비즈니스 연속성
           items:
@@ -183,6 +183,8 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: SSL 구성
               href: concepts-hyperscale-ssl-connection-security.md
+            - name: Azure Security Benchmark에 대한 보안 기준
+              href: postgresql-hyperscale-security-baseline.md
         - name: 비즈니스 연속성
           items:
             - name: 백업 및 복원

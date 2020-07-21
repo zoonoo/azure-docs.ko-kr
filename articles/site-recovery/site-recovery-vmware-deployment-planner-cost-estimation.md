@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: b03ac554ed578633b55ffa2fde4838c691d04d59
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d7ee72b5f6441f2b3b3ea9a7eaa41a3e1b650745
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132208"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528964"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>VMware Deployment Planner에서 비용 추정치 검토 
 
@@ -150,16 +150,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|Currency|Name||Currency|Name||Currency|Name|
+|Currency|이름|Currency|이름|Currency|이름|
 |---|---|---|---|---|---|---|---|
-|ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
-|CAD|캐나다 달러($)||CHF|스위스 프랑. (chf)||DKK|덴마크 크론(kr)|
-|EUR|유로(€)||GBP|영국 파운드(£)||HKD|홍콩 달러(HK$)|
-|IDR|인도네시아 루피아(Rp)||INR|인도 루피(₹)||JPY|일본 엔(¥)|
-|KRW|한국 원(₩)||MXN|멕시코 페소(MX$)||MYR|말레이시아 링깃(RM$)|
-|NOK|노르웨이 크론(kr)||NZD|뉴질랜드 달러($)||RUB|러시아 루블(руб)|
-|SAR|사우디아라비아 리얄(SR)||SEK|스웨덴 크로나(kr)||TWD|대만 달러(NT$)|
-|TRY|터키 리라(TL)||USD| 미국 달러($)||ZAR|남아프리카공화국 랜드(R)|
+|ARS|아르헨티나 페소($)|AUD|호주 달러($)|BRL|브라질 헤알(R$)|
+|CAD|캐나다 달러($)|CHF|스위스 프랑. (chf)|DKK|덴마크 크론(kr)|
+|EUR|유로(€)|GBP|영국 파운드(£)|HKD|홍콩 달러(HK$)|
+|IDR|인도네시아 루피아(Rp)|INR|인도 루피(₹)|JPY|일본 엔(¥)|
+|KRW|한국 원(₩)|MXN|멕시코 페소(MX$)|MYR|말레이시아 링깃(RM$)|
+|NOK|노르웨이 크론(kr)|NZD|뉴질랜드 달러($)|RUB|러시아 루블(руб)|
+|SAR|사우디아라비아 리얄(SR)|SEK|스웨덴 크로나(kr)|TWD|대만 달러(NT$)|
+|TRY|터키 리라(TL)|USD| 미국 달러($)|ZAR|남아프리카공화국 랜드(R)|
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Site Recovery를 사용하여 VMware VM을 Azure로](./vmware-azure-tutorial.md) 보호하는 내용에 대해 자세히 알아보세요.

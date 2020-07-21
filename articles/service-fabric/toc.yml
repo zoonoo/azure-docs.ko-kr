@@ -143,6 +143,8 @@
           href: cluster-security-certificates.md
         - name: Service Fabric에서 인증서 관리
           href: cluster-security-certificate-management.md
+        - name: Azure Security Benchmark에 대한 보안 기준
+          href: security-baseline.md
     - name: 용어
       href: service-fabric-technical-overview.md
     - name: 애플리케이션 빌드

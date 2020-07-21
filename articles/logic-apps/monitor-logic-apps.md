@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82732005"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536254"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>실행 상태 모니터링, 트리거 기록 검토 및 Azure Logic Apps에 대한 경고 설정
 
@@ -46,13 +46,13 @@ ms.locfileid: "82732005"
 
    논리 앱 실행에 대 한 가능한 상태는 다음과 같습니다.
 
-   | 상태 | Description |
+   | 상태 | 설명 |
    |--------|-------------|
-   | **Cancelled** | 워크플로가 실행 중이지만 취소 요청을 받았습니다. |
+   | **취소** | 워크플로가 실행 중이지만 취소 요청을 받았습니다. |
    | **실패** | 하나 이상의 작업이 실패 했으며 워크플로의 이후 작업이 실패를 처리 하도록 설정 되지 않았습니다. |
    | **실행 중** | 워크플로가 현재 실행 중입니다. <p>이 상태는 제한 된 워크플로 또는 현재 요금제로 표시 될 수도 있습니다. 자세한 내용은 [가격 책정 페이지에서 작업 제한](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. [진단 로깅을](../logic-apps/monitor-logic-apps.md)설정 하는 경우 발생 하는 스로틀 이벤트에 대 한 정보를 얻을 수 있습니다. |
    | **성공함** | 모든 작업에 성공했습니다. <p>**참고**: 특정 작업에서 오류가 발생 한 경우 워크플로의 이후 작업에서 해당 오류를 처리 했습니다. |
-   | **대기** | 예를 들어 아직 실행 중인 이전 워크플로 때문에 워크플로가 시작 되지 않았거나 일시 중지 되었습니다. |
+   | **대기 중** | 예를 들어 아직 실행 중인 이전 워크플로 때문에 워크플로가 시작 되지 않았거나 일시 중지 되었습니다. |
    |||
 
 1. 특정 실행에 대 한 단계 및 기타 정보를 검토 하려면 실행 **기록**에서 해당 실행을 선택 합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "82732005"
 
    ![실행의 각 단계에 대 한 세부 정보를 검토 합니다.](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   예를 들어 [Logic Apps에 대 한 REST API](https://docs.microsoft.com/rest/api/logic)를 사용할 때 필요할 수 있는 실행의 **상관 관계 ID** 속성을 가져올 수 있습니다.
+   예를 들어 [Logic Apps에 대 한 REST API](/rest/api/logic)를 사용할 때 필요할 수 있는 실행의 **상관 관계 ID** 속성을 가져올 수 있습니다.
 
 1. 특정 단계에 대 한 자세한 내용을 보려면 다음 옵션 중 하나를 선택 합니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "82732005"
 
    트리거 시도에서 가능한 상태는 다음과 같습니다.
 
-   | 상태 | Description |
+   | 상태 | 설명 |
    |--------|-------------|
    | **실패** | 오류가 발생했습니다. 실패한 트리거에 생성된 오류 메시지를 검토하려면 해당 트리거 시도를 선택하고 **출력**을 선택합니다. 예를 들어 유효하지 않은 입력을 찾을 수 있습니다. |
    | **생략** | 트리거는 엔드포인트를 확인했지만 데이터가 없습니다. |
@@ -138,7 +138,7 @@ ms.locfileid: "82732005"
 
 ## <a name="set-up-monitoring-alerts"></a>모니터링 경고 설정
 
-논리 앱에 대 한 임계값을 초과 하거나 특정 메트릭에 기반 하 여 경고를 받으려면 [Azure Monitor에서 경고](../azure-monitor/platform/alerts-overview.md)를 설정 합니다. [Azure의 매트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md)에 대해 알아봅니다. [Azure Monitor](../log-analytics/log-analytics-overview.md)사용 하지 않고 경고를 설정 하려면 다음 단계를 수행 합니다.
+논리 앱에 대 한 임계값을 초과 하거나 특정 메트릭에 기반 하 여 경고를 받으려면 [Azure Monitor에서 경고](../azure-monitor/platform/alerts-overview.md)를 설정 합니다. [Azure의 매트릭](../azure-monitor/platform/data-platform.md)에 대해 알아봅니다. [Azure Monitor](../azure-monitor/log-query/log-query-overview.md)사용 하지 않고 경고를 설정 하려면 다음 단계를 수행 합니다.
 
 1. 논리 앱 메뉴의 **모니터링**아래에서 **경고**  >  **새 경고 규칙**을 선택 합니다.
 

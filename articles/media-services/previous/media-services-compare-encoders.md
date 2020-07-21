@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 4767f7bb5ba02c838c0e21721e55a6564a14acd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca17ffdc2a54b25bbfd855834a366ed381a54678
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69016647"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530391"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 비교  
 
@@ -34,8 +34,8 @@ ms.locfileid: "69016647"
 |---|---|---|
 |인코딩 중에 조건부 논리 적용<br/>(예를 들어, 입력이 HD인 경우 인코드 5.1 오디오)|예|예|
 |선택 자막|아니요|[예](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® Professional Loudness Correction](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> Dialogue Intelligence™ 사용|예|예|
-|디-인터레이스, 역텔레시네|Basic|브로드캐스트 품질|
+|[돌비 &reg; 전문가의 소음 수정](https://professional.dolby.com/product/broadcast/vm600/)<br/> 대화 인텔리전스 사용&trade;|예|예|
+|디-인터레이스, 역텔레시네|기본|브로드캐스트 품질|
 |검은색 테두리 감지 및 제거 <br/>(필러박스, 레터박스)|예|예|
 |썸네일 생성|[예](media-services-dotnet-generate-thumbnail-with-mes.md)|[예](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
 |비디오 클리핑/잘라내기 및 붙이기|[예](media-services-advanced-encoding-with-mes.md#trim_video)|예|
@@ -52,7 +52,7 @@ ms.locfileid: "69016647"
 ## <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
 | 입력 컨테이너/파일 형식 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
-| Adobe® Flash® F4V |예 |예 |
+| Adobe &reg; Flash &reg; F4V |예 |예 |
 | MXF/SMPTE 377M |예 |예 |
 | GXF |예 |예 |
 | MPEG-2 전송 스트림 |예 |예 |
@@ -73,7 +73,7 @@ ms.locfileid: "69016647"
 | Avid DNxHD(MXF) |예 |예 |
 | DVCPro/DVCProHD(MXF) |예 |예 |
 | JPEG2000 |예 |예 |
-| MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |예 |
+| MPEG-2 (최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs 및 D10과 같은 변형 포함 &reg; ) |최대 422 프로필 |예 |
 | MPEG-1 |예 |예 |
 | Windows Media 비디오/VC-1 |예 |예 |
 | Canopus HQ/HQX |아니요 |아니요 |
@@ -91,9 +91,9 @@ ms.locfileid: "69016647"
 | 입력 오디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AES(SMPTE 331M 및 302M, AES3-2003) |예 |예 |
-| Dolby® E |예 |예 |
-| Dolby® Digital(AC3) |예 |예 |
-| Dolby® Digital Plus(E-AC3) |예 |예 |
+| 돌비 &reg; E |예 |예 |
+| 돌비 &reg; 디지털 (e-ac3) |예 |예 |
+| 돌비 &reg; 디지털 Plus (E-e-ac3) |예 |예 |
 | AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1) |예 |예 |
 | MPEG Layer 2 |예 |예 |
 | MP3(MPEG-1 Audio Layer 3) |예 |예 |
@@ -106,7 +106,7 @@ ms.locfileid: "69016647"
 ## <a name="output-containerfile-formats"></a>출력 컨테이너/파일 형식
 | 출력 컨테이너/파일 형식 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
-| Adobe® Flash® F4V |예 |예 |
+| Adobe &reg; Flash &reg; F4V |예 |예 |
 | MXF(OP1a, XDCAM 및 AS02) |예 |예 |
 | DPP(AS11 포함) |아니요 |예 |
 | GXF |아니요 |예 |
@@ -122,7 +122,7 @@ ms.locfileid: "69016647"
 | AVC(H.264, 8비트, 최대 High Profile, 수준 5.2, 4K Ultra HD, AVC Intra) |8비트 4:2:0만 |예 |
 | HEVC(H.265; 8비트 및 10비트;)  |아니요 |예 |
 | Avid DNxHD(MXF) |아니요 |예 |
-| MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |아니요 |예 |
+| MPEG-2 (최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs 및 D10과 같은 변형 포함 &reg; ) |아니요 |예 |
 | MPEG-1 |아니요 |예 |
 | Windows Media 비디오/VC-1 |아니요 |예 |
 | JPEG 축소판 그림 만들기 |예 |예 |
@@ -133,15 +133,15 @@ ms.locfileid: "69016647"
 | 출력 오디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |예 |
-| Dolby® Digital(AC3) |아니요 |예 |
-| Dolby® Digital Plus(E-AC3) 최대 7.1 |아니요 |예 |
+| 돌비 &reg; 디지털 (e-ac3) |아니요 |예 |
+| 돌비 &reg; 디지털 Plus (e-ac3) 최대 7.1 |아니요 |예 |
 | AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1) |예 |예 |
 | MPEG Layer 2 |아니요 |예 |
 | MP3(MPEG-1 Audio Layer 3) |아니요 |예 |
 | Windows Media 오디오 |아니요 |예 |
 
 >[!NOTE]
->Dolby® Digital(AC3)로 인코딩하면 출력은 ISO MP4 파일에만 쓸 수 있습니다.
+>돌비 &reg; Digital (e-ac3)로 인코딩하는 경우에는 ISO MP4 파일에만 출력을 쓸 수 있습니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

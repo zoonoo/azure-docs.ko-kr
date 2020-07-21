@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223461"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536116"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -96,6 +96,22 @@ ms.locfileid: "86223461"
     ```bash
     automl_setup
     ```
+    
+* **KeyError: 로컬 계산 또는 Azure Databricks 클러스터에서 AutoML을 실행 하는 경우 ' 브랜드 '**
+
+    2020 년 6 월 10 일 이후에 새 환경을 만든 경우 SDK 1.7.0 또는 이전 버전을 사용 하면 py-cpuinfo 패키지의 업데이트로 인해이 오류가 발생 하 여 교육이 실패할 수 있습니다. 2020 년 6 월 10 일 이전에 만들어진 환경은 캐시 된 학습 이미지를 사용 하기 때문에 원격 계산에서 실험을 실행 하는 것 처럼 영향을 받지 않습니다. 이 문제를 해결 하려면 다음 두 단계 중 하나를 수행 합니다.
+    
+    * SDK 버전을 1.8.0 이상으로 업데이트 합니다 (다운 그레이드 py-cpuinfo to 5.0.0).
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Py-cpuinfo의 설치 된 버전을 5.0.0로 다운 그레이드 합니다.
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **오류 메시지: ‘PyYAML’을 제거할 수 없습니다.**
 
@@ -146,6 +162,12 @@ ms.locfileid: "86223461"
 > Azure Machine Learning 작업 영역을 다른 구독으로 이동하거나 소유하는 구독을 새 테넌트로 이동하는 것은 지원되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
 
 * **Azure Portal**: SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인 하는 경우 확장에서 구독 정보가 포함 된 일반 **개요** 페이지를 볼 수 없습니다. 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 확인 해야 하는 경우 [Azure Machine Learning studio](https://ml.azure.com) 로 직접 이동 하 여 작업 영역 이름을 검색 합니다.
+
+* **Azure Machine Learning studio 웹 포털에서 지원 되는 브라우저**: 운영 체제와 호환 되는 최신 브라우저를 사용 하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
+  * Microsoft Edge (새로운 Microsoft Edge, 최신 버전) Microsoft Edge 레거시 아님)
+  * Safari(최신 버전, Mac만 해당)
+  * Chrome(최신 버전)
+  * Firefox(최신 버전)
 
 ## <a name="set-up-your-environment"></a>환경 설정
 
@@ -217,9 +239,16 @@ ms.locfileid: "86223461"
 
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning 디자이너
 
-알려진 문제:
+* **긴 계산 준비 시간:**
 
-* **긴 계산 준비 시간**: 계산 대상에 처음 연결 하거나 만들 때 몇 분이 걸릴 수 있습니다. 
+계산 대상을 처음으로 연결 하거나 만드는 경우 몇 분 정도 걸릴 수 있습니다. 
+
+모델 데이터 수집기는 blob storage 계정에 데이터가 도착할 때까지 최대 10 분 정도 걸릴 수 있습니다. 아래 셀이 실행 되도록 10 분 동안 기다립니다.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## <a name="train-models"></a>모델 학습
 
@@ -278,7 +307,7 @@ ms.locfileid: "86223461"
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|오류  | 해결 방법  |
+|Error  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |

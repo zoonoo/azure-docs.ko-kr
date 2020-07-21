@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery에서 암호화 된 Azure Vm에 대해 복제를 사용 하도록 설정
+title: Azure Site Recovery에서 암호화 된 Azure Vm의 복제를 사용 하도록 설정
 description: 이 문서에서는 Site Recovery를 사용 하 여 한 Azure 지역에서 다른 Azure 지역으로 CMK (고객이 관리 하는 키)를 사용 하는 Vm의 복제를 구성 하는 방법을 설명 합니다.
 author: mayurigupta13
 manager: rochakm
@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
-ms.openlocfilehash: 92b35284fd7bbb3d4f1196ee0d9bae4ce42d7c9e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224114"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528998"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>CMK (고객이 관리 하는 키)가 설정 된 디스크를 사용 하 여 컴퓨터 복제
 
 이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Vm을 CMK (고객이 관리 하는 키)로 설정 된 관리 디스크로 복제 하는 방법을 설명 합니다.
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>필수 요소
 CMK를 사용 하는 관리 디스크가 있는 가상 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 대상 구독에 대 한 대상 지역에서 디스크 암호화 집합을 만들어야 합니다.
 
 ## <a name="enable-replication"></a>복제 사용

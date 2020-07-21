@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, tracking-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 67dfc0b2da753f005c1723ff0cf3370ce288c6de
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8c13dc43f4b7c66bd804fd9ec016f5e1a467bd8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086622"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536768"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -47,11 +47,11 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 Anaconda 설치를 사용하여 HDInsight Spark 클러스터를 만듭니다. 클러스터에는 두 개의 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 아래 표에서는 Spark, Livy 및 Jupyter에 대한 기본 Python 설정을 보여 줍니다.
 
-| |Python 2.7|Python 3.5|
+|설정 |Python 2.7|Python 3.5|
 |----|----|----|
 |경로|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|2\.7로 기본 설정|해당 없음|
-|Livy|2\.7로 기본 설정|해당 없음|
+|Spark 버전|2\.7로 기본 설정|해당 없음|
+|Livy 버전|2\.7로 기본 설정|해당 없음|
 |Jupyter|PySpark 커널|PySpark3 커널|
 
 ## <a name="safely-install-external-python-packages"></a>외부 Python 패키지를 안전하게 설치

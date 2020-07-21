@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: c8866714ca1736b3ba785b560cb5a7aea451fdf1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253340"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529304"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>Azure Service Fabric에서 ASP.NET Core Reliable Services
 
@@ -470,10 +470,10 @@ Kestrel은 외부 인터넷 연결 HTTP 끝점을 노출 하는 프런트 엔드
  
 상태 비저장 서비스는 인터넷에 노출 되는 경우 부하 분산 장치를 통해 연결할 수 있는 잘 알려진 안정적인 끝점을 사용 해야 합니다. 응용 프로그램의 사용자에 게이 URL을 제공 합니다. 다음 구성이 권장됩니다.
 
-|  |  | **참고 사항** |
-| --- | --- | --- |
+| 형식 | 권장 | 메모 |
+| ---- | -------------- | ----- |
 | 웹 서버 | Kestrel | Windows 및 Linux에서 지원 되므로 kestrel은 기본 웹 서버입니다. |
-| 포트 구성 | 정적 | 잘 알려진 정적 포트는 ServiceManifest.xml의 `Endpoints` 구성에 구성해야 합니다(예: HTTP의 경우 80, HTTPS의 경우 443). |
+| 포트 구성 | static | 잘 알려진 정적 포트는 ServiceManifest.xml의 `Endpoints` 구성에 구성해야 합니다(예: HTTP의 경우 80, HTTPS의 경우 443). |
 | ServiceFabricIntegrationOptions | 없음 | `ServiceFabricIntegrationOptions.None`서비스에서 고유 식별자에 대 한 들어오는 요청의 유효성을 검사 하지 않도록 Service Fabric 통합 미들웨어를 구성할 때 옵션을 사용 합니다. 응용 프로그램의 외부 사용자는 미들웨어에서 사용 하는 고유한 식별 정보를 알지 못합니다. |
 | 인스턴스 수 | -1 | 일반적인 사용 사례에서 인스턴스 수 설정은 *-1*로 설정 해야 합니다. 이 작업을 수행 하면 부하 분산 장치에서 트래픽을 수신 하는 모든 노드에서 인스턴스를 사용할 수 있습니다. |
 
@@ -495,8 +495,8 @@ Kestrel은 외부 인터넷 연결 HTTP 끝점을 노출 하는 프런트 엔드
 ### <a name="internal-only-stateless-aspnet-core-service"></a>내부 전용 ASP.NET Core 상태 비저장 서비스
 클러스터 내에서만 호출되는 상태 비저장 서비스는 고유한 URL과 동적으로 할당된 포트를 사용하여 여러 서비스 간의 공동 작업을 확인해야 합니다. 다음 구성이 권장됩니다.
 
-|  |  | **참고 사항** |
-| --- | --- | --- |
+| 형식 | 권장 | 메모 |
+| ---- | -------------- | ----- |
 | 웹 서버 | Kestrel | 내부 상태 비저장 서비스에 HTTP.sys를 사용할 수 있지만, Kestrel은 여러 서비스 인스턴스에서 호스트를 공유할 수 있도록 하는 최상의 서버입니다.  |
 | 포트 구성 | 동적으로 할당 | 상태 저장 서비스의 여러 복제본이 호스트 프로세스 또는 호스트 운영 체제를 공유할 수 있으므로 고유한 포트가 필요 합니다. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 동적 포트 할당으로 인해 이 설정은 앞에서 설명한 잘못된 ID 문제를 방지합니다. |
@@ -505,8 +505,8 @@ Kestrel은 외부 인터넷 연결 HTTP 끝점을 노출 하는 프런트 엔드
 ### <a name="internal-only-stateful-aspnet-core-service"></a>내부 전용 ASP.NET Core 상태 저장 서비스
 클러스터 내에서만 호출되는 상태 저장 서비스는 동적으로 할당된 포트를 사용하여 여러 서비스 간의 공동 작업을 확인해야 합니다. 다음 구성이 권장됩니다.
 
-|  |  | **참고 사항** |
-| --- | --- | --- |
+| 형식 | 권장 | 메모 |
+| ---- | -------------- | ----- |
 | 웹 서버 | Kestrel | 는 `HttpSysCommunicationListener` 복제본이 호스트 프로세스를 공유 하는 상태 저장 서비스에서 사용 하도록 설계 되지 않았습니다. |
 | 포트 구성 | 동적으로 할당 | 상태 저장 서비스의 여러 복제본이 호스트 프로세스 또는 호스트 운영 체제를 공유할 수 있으므로 고유한 포트가 필요 합니다. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 동적 포트 할당으로 인해 이 설정은 앞에서 설명한 잘못된 ID 문제를 방지합니다. |

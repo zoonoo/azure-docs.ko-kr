@@ -4,18 +4,20 @@ description: API를 제공 하 여 제품의 현재 상태를 검색 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: 897c2517c3836e1c3940db02efae0e5d94667a65
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114077"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535878"
 ---
 # <a name="retrieve-offer-status"></a>제안 상태 검색
 
 > [!NOTE]
-> Cloud 파트너 포털 API는 파트너 센터와 통합되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동합니다. 통합에는 작은 변경 사항이 도입되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 합니다.
+> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
 
 제안의 현재 상태를 검색합니다.
 
@@ -30,18 +32,16 @@ ms.locfileid: "86114077"
 |  api-version    | 최신 버전 API                        |     날짜       |
 |  |  |
 
-
 ## <a name="header"></a>헤더
 
 
-|  Name           |  값               |
+|  이름           |  값               |
 |  -------------  | -------------------  |
 |  콘텐츠 형식   |  `application/json`  |
 |  권한 부여  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 ## <a name="body-example"></a>본문 예제
-
 
 ### <a name="response"></a>응답
 
@@ -116,7 +116,6 @@ ms.locfileid: "86114077"
   }
 ```
 
-
 ### <a name="response-body-properties"></a>응답 본문 속성
 
 |  **이름**             |    **설명**                                                                             |
@@ -155,7 +154,7 @@ ms.locfileid: "86114077"
 |  실행 중                     | 제안 제출을 처리 중입니다.                     |
 |  성공                   | 제안 제출 처리를 완료했습니다.               |
 |  취소됨                    | 제안 제출이 취소되었습니다.                           |
-|  실패                      | 제안 제출에 실패했습니다.                                 |
+|  Failed                      | 제안 제출에 실패했습니다.                                 |
 |  |  |
 
 ### <a name="step-status"></a>단계 상태

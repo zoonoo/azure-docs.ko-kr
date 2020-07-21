@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232069"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536609"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
 
@@ -24,7 +24,7 @@ Azure Time Series Insights는 클라우드에서 IoT 규모 시계열 데이터�
 > [!NOTE]
 > Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 스토리지에 Cosmos DB를 사용합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 이 방법을 완료하려면 이미 원격 모니터링 솔루션이 배포되어 있어야 합니다.
 
@@ -57,7 +57,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 1. Time Series Insights 환경을 만들려면 다음 표에 있는 값을 사용합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 환경 이름 | 다음 스크린샷에서는 **contorosrmtsi**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 선택합니다. |
     | Subscription | 드롭다운에서 Azure 구독을 선택합니다. |
@@ -86,7 +86,7 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
 
 1. IoT Hub를 새 이벤트 원본으로 구성하려면 다음 표에 있는 값을 사용합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 이벤트 원본 이름 | 다음 스크린샷에서는 **contosorm-iot-hub**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 사용합니다. |
     | 원본 | **IoT Hub** |
@@ -244,7 +244,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 위의 업데이트된 마이크로서비스에 대한 `standard` 배포 환경을 구성합니다.
 
-1. 명령줄에서 `kubectl proxy`를 실행합니다. 자세한 내용은 [Kubernetes API 액세스](https://kubernetes.io/docs/reference/access-authn-authz/)를 참조하세요.
+1. 명령줄에서 `kubectl proxy`를 실행합니다. 자세한 내용은 [Kubernetes API 액세스](https://kubernetes.io/docs/reference/access-authn-authz/#using-kubectl-to-start-a-proxy-server)를 참조하세요.
 
 1. Kubernetes 관리 콘솔을 엽니다.
 

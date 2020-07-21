@@ -3,20 +3,21 @@ title: Log ML 실험 & 메트릭
 titleSuffix: Azure Machine Learning
 description: Azure ML 실험과 실행 메트릭을 모니터링하여 모델 생성 프로세스를 향상시킵니다. 학습 스크립트에 로깅을 추가하고 기록된 실행 결과를 확인합니다.  run.log, Run.start_logging 또는 ScriptRunConfig를 사용합니다.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
-ms.reviewer: sgilley
+author: likebupt
+ms.author: keli19
+ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a4f58423206a812dd94cc14d32aa52114c147d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675205"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536357"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Azure ML 실험 실행 및 메트릭 모니터링
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -107,7 +108,7 @@ Azure Machine Learning SDK를 사용하여 실험 추적을 추가하고 지속�
 
 __Python 스크립트 실행__ 모듈을 사용하여 디자이너 실험에 로깅 논리를 추가합니다. 이 워크플로를 사용하여 모든 값을 기록할 수 있지만 __모델 평가__ 모듈에서 메트릭을 기록하여 여러 실행 간에 모델 성능을 추적하는 것에 특히 유용합니다.
 
-1. __Python 스크립트 실행__ 모듈을 __모델 평가__ 모듈의 출력에 연결합니다.
+1. __Python 스크립트 실행__ 모듈을 __모델 평가__ 모듈의 출력에 연결합니다. __모델 평가__ 는 2 개 모델의 평가 결과를 출력할 수 있습니다. 다음 예에서는 부모 실행 수준에서 2 개의 출력 포트 메트릭을 기록 하는 방법을 보여 줍니다. 
 
     ![Python 스크립트 실행 모듈을 모델 평가 모듈에 연결](./media/how-to-track-experiments/designer-logging-pipeline.png)
 
@@ -115,23 +116,29 @@ __Python 스크립트 실행__ 모듈을 사용하여 디자이너 실험에 로
 
     ```python
     # dataframe1 contains the values from Evaluate Model
-    def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1=None, dataframe2=None):
         print(f'Input pandas.DataFrame #1: {dataframe1}')
-
+    
         from azureml.core import Run
-
+    
         run = Run.get_context()
-
-        # Log the mean absolute error to the current run to see the metric in the module detail pane.
-        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
-
+    
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
+        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+
+        # Log right output port result of Evaluate Model.
+        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
     
         return dataframe1,
     ```
+
+1. 파이프라인 실행이 완료 되 면 실험 페이지에서 *Mean_Absolute_Error* 를 확인할 수 있습니다.
+
+    ![Python 스크립트 실행 모듈을 모델 평가 모듈에 연결](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## <a name="manage-a-run"></a>실행 관리
 
