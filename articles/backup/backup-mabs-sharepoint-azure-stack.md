@@ -3,11 +3,12 @@ title: Azure Stack에서 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 Azure Stack에 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 8b9257c1d175c350df06f9421b31a9e7b8e2bb80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657936"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538788"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack에서 SharePoint 팜 백업
 
@@ -17,7 +18,7 @@ ms.locfileid: "84657936"
 
 MABS의 Azure Backup은 다음 시나리오들을 지원합니다.
 
-| 작업 | 버전 | SharePoint 배포 | 보호 및 복구 |
+| 워크로드 | 버전 | SharePoint 배포 | 보호 및 복구 |
 | --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Azure Stack 가상 머신으로 배포 된 SharePoint <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목  Azure 복구 지점에서 팜 및 데이터베이스 복구 |
 
@@ -31,7 +32,7 @@ SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니
 
 * MABS는 스케일 아웃 파일 서버(SOFS) 공유에 호스트되는 SharePoint SQL Server 데이터베이스의 백업을 제공하지 않습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 Azure Backup 서버 등록 등이 포함됩니다.
 
@@ -101,7 +102,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 
 1. **온라인 보존 정책 지정**에서 매일, 매주, 매월 및 매년 백업에서 만들어진 복구 지점을 Azure에 보존하는 방법을 지정할 수 있습니다.
 
-1. **온라인 복제 선택**에서 데이터의 초기 전체 복제를 수행하는 방법을 지정합니다. 네트워크를 통해 복제할 수도 있고 오프라인 백업(오프라인 시딩)을 수행할 수도 있습니다. 오프라인 백업에는 Azure Import 기능이 사용됩니다. [자세히 알아보기](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. **온라인 복제 선택**에서 데이터의 초기 전체 복제를 수행하는 방법을 지정합니다. 네트워크를 통해 복제할 수도 있고 오프라인 백업(오프라인 시딩)을 수행할 수도 있습니다. 오프라인 백업에는 Azure Import 기능이 사용됩니다. [자세히 알아보기](./backup-azure-backup-import-export.md).
 
 1. **요약** 페이지에서 설정을 검토합니다. **그룹 만들기**를 클릭하면 데이터의 초기 복제가 수행됩니다. 완료되면 **상태** 페이지에서 보호 그룹 상태가 **정상**으로 표시됩니다. 그런 후에는 보호 그룹 설정에 따라 백업이 수행됩니다.
 

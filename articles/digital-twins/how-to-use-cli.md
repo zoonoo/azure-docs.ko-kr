@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 53b20ded8e4b4a003beff1ef8489ecd9ff3451ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5272babf794529e5e9bd87a3c4a96e6df5758fb8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725303"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537465"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Azure Digital Twins CLI 사용
 
@@ -35,4 +36,4 @@ Azure Digital Twins 명령은 [Azure CLI에 대 한 Azure IoT 확장](https://gi
 ## <a name="next-steps"></a>다음 단계
 
 CLI 명령에 대 한 대안은 Api 및 Sdk를 사용 하 여 Azure Digital Twins 인스턴스를 관리 하는 방법을 참조 하세요.
-* [방법: Azure Digital Twins Api 및 Sdk 사용](how-to-use-apis-sdks.md)
+* [*방법: Azure Digital Twins Api 및 Sdk 사용*](how-to-use-apis-sdks.md)

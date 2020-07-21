@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28bbf9749375a4523237e840c217977853cd4ddd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319637"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539825"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -21,7 +21,7 @@ ms.locfileid: "85319637"
 ## <a name="brief-summary"></a>간단한 요약
 
 * 샘플링에는 적응 샘플링, 고정 률 샘플링 및 수집 샘플링의 세 가지 유형이 있습니다.
-* 적응 샘플링은 Application Insights ASP.NET 및 ASP.NET Core Sdk (소프트웨어 개발 키트)의 모든 최신 버전에서 기본적으로 사용 하도록 설정 되어 있습니다. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)에도 사용 됩니다.
+* 적응 샘플링은 Application Insights ASP.NET 및 ASP.NET Core Sdk (소프트웨어 개발 키트)의 모든 최신 버전에서 기본적으로 사용 하도록 설정 되어 있습니다. [Azure Functions](../../azure-functions/functions-overview.md)에도 사용 됩니다.
 * 고정 률 샘플링은 ASP.NET, ASP.NET Core, Java (에이전트와 SDK 모두) 및 Python 용 Application Insights Sdk의 최신 버전에서 사용할 수 있습니다.
 * 수집 샘플링은 Application Insights 서비스 끝점에서 작동 합니다. 다른 샘플링이 적용 되지 않는 경우에만 적용 됩니다. SDK에서 원격 분석을 샘플링 하는 경우 수집 샘플링이 사용 하지 않도록 설정 됩니다.
 * 웹 응용 프로그램의 경우 사용자 지정 이벤트를 기록 하 고 이벤트 집합이 함께 유지 또는 삭제 되는지 확인 해야 하는 경우 이벤트의 값이 같아야 합니다 `OperationId` .
@@ -34,8 +34,9 @@ ms.locfileid: "85319637"
 |-|-|-|-|
 | ASP.NET | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | ASP.NET Core | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 아니요 | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Azure Functions | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 아니요 | 다른 샘플링이 적용 되지 않는 경우에만 |
 | Java | 아니요 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Node.JS | 아니요 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
 | Python | 아니요 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | 나머지 | 아니요 | 아니요 | [예](#ingestion-sampling) |
 
@@ -209,7 +210,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Azure Functions에 대 한 적응 샘플링 구성
 
-[이 페이지](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) 의 지침에 따라 Azure Functions에서 실행 되는 앱에 대 한 적응 샘플링을 구성 합니다.
+[이 페이지](../../azure-functions/functions-monitoring.md#configure-sampling) 의 지침에 따라 Azure Functions에서 실행 되는 앱에 대 한 적응 샘플링을 구성 합니다.
 
 ## <a name="fixed-rate-sampling"></a>고정 률 샘플링
 
@@ -481,7 +482,7 @@ Application Insights 사용 하도록 JavaScript 기반 웹 페이지를 구성�
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>샘플링이 작동 중인지 여부를 알 수 있습니다.
 
-적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](../../azure-monitor/app/analytics.md) 를 사용합니다.
+적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](../log-query/log-query-overview.md) 를 사용합니다.
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces
@@ -504,7 +505,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 근사치의 정확도는 주로 구성된 샘플링 비율에 따라 다릅니다. 또한 아주 많은 사용자에게서 많은 양의 일반적으로 비슷한 요청을 처리하는 애플리케이션에 대해 정확도가 증가합니다. 반면에 상당한 부하가 있을 때 작동하지 않는 애플리케이션의 경우 이러한 애플리케이션이 일반적으로 할당량 내에 있으면서 제한에서 데이터 손실이 발생하지 않고 해당 원격 분석을 모두 보낼 수 있기에 샘플링은 필요하지 않습니다. 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 *ASP.NET 및 ASP.NET Core Sdk의 기본 샘플링 동작은 무엇 인가요?*
 
@@ -586,4 +587,4 @@ ASP.NET SDK의 v 2.5.0 및 v 2.2.0-beta3 ASP.NET Core SDK의 경우 샘플링 �
 ## <a name="next-steps"></a>다음 단계
 
 * [필터링](../../azure-monitor/app/api-filtering-sampling.md) 은 SDK에서 보내는 항목을 더 엄격하게 제어할 수 있습니다.
-* 개발자 네트워크 문서 [Application Insights를 사용 하 여 원격 분석 최적화](https://msdn.microsoft.com/magazine/mt808502.aspx)를 읽어 보세요.
+* 개발자 네트워크 문서 [Application Insights를 사용 하 여 원격 분석 최적화](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights)를 읽어 보세요.

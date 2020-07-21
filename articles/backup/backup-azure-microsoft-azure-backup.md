@@ -3,11 +3,12 @@ title: Azure Backup Server를 사용하여 워크로드 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 보호 및 백업하기 위한 환경을 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74706e772371c39b96b0cb02bd09ec70ad4d43f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247277"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539128"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -27,7 +28,7 @@ ms.locfileid: "84247277"
 >
 >
 
-Azure VM에 배포된 MABS는 Azure의 VM을 백업할 수 있지만 백업 작업을 사용하려면 동일한 도메인에 있어야 합니다. Azure VM을 지원하는 프로세스는 VM의 온-프레미스 백업과 동일하지만 Azure에 MABS를 배포하는 경우 몇 가지 제한 사항이 있습니다. 제한 사항에 관한 자세한 내용은 [Azure 가상 머신으로 DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)을 참조하세요.
+Azure VM에 배포된 MABS는 Azure의 VM을 백업할 수 있지만 백업 작업을 사용하려면 동일한 도메인에 있어야 합니다. Azure VM을 지원하는 프로세스는 VM의 온-프레미스 백업과 동일하지만 Azure에 MABS를 배포하는 경우 몇 가지 제한 사항이 있습니다. 제한 사항에 관한 자세한 내용은 [Azure 가상 머신으로 DPM](/system-center/dpm/install-dpm#setup-prerequisites)을 참조하세요.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager 및 클래식](../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
@@ -45,9 +46,9 @@ Azure Backup 서버를 작동하고 실행하는 첫 번째 단계는 Windows Se
 
 ### <a name="using-a-server-in-azure"></a>Azure에서 서버 사용
 
-Azure Backup Server를 실행하기 위한 서버를 선택할 때 Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 4코어 및 8GB RAM이 있는 Standard_A4_v2입니다.
+Azure Backup Server를 실행하기 위한 서버를 선택할 때 Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 4코어 및 8GB RAM이 있는 Standard_A4_v2입니다.
 
-Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [MABS용 보호 매트릭스](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)는 이와 같은 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
+Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [MABS용 보호 매트릭스](./backup-mabs-protection-matrix.md)는 이와 같은 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
 ### <a name="using-an-on-premises-server"></a>온-프레미스 서버 사용
 
@@ -58,7 +59,7 @@ Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM �
 | Windows Server 2019 |64비트 |Standard, Datacenter, Essentials |
 | Windows Server 2016 및 최신 SP |64비트 |Standard, Datacenter, Essentials  |
 
-Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거할 수 있습니다. [DPM 및 중복 제거](https://docs.microsoft.com/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
+Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거할 수 있습니다. [DPM 및 중복 제거](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
@@ -79,7 +80,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
 ### <a name="set-storage-replication"></a>스토리지 복제 설정
 
-스토리지 복제 옵션을 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+스토리지 복제 옵션을 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [지역 중복](../storage/common/storage-redundancy.md) 및 [로컬 중복](../storage/common/storage-redundancy.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 스토리지 복제 설정을 편집하려면
 
@@ -128,7 +129,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
     **백업 시작** 마법사는 **인프라 준비** 옵션으로 전환되어 작업을 Azure로 백업합니다.
 
    > [!NOTE]
-   > 파일 및 폴더만 백업하려는 경우 Azure Backup 에이전트를 사용하고 [소개: 파일 및 폴더 백업](backup-try-azure-backup-in-10-mins.md) 문서의 지침을 따르는 것이 좋습니다. 파일과 폴더 이상을 보호하려고 하거나 향후 보호 요구를 확장하려는 경우 해당 워크로드를 선택합니다.
+   > 파일 및 폴더만 백업하려는 경우 Azure Backup 에이전트를 사용하고 [소개: 파일 및 폴더 백업](./backup-windows-with-mars-agent.md) 문서의 지침을 따르는 것이 좋습니다. 파일과 폴더 이상을 보호하려고 하거나 향후 보호 요구를 확장하려는 경우 해당 워크로드를 선택합니다.
    >
    >
 
@@ -189,7 +190,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
     * 데이터베이스: DatabaseName은 ReportServer $ 여야 합니다.\<SQLInstanceName>
     * 웹 포털 URL: ' 가상 디렉터리 '는 Reports_ 이어야 합니다.\<SQLInstanceName>
 
-    SSRS 구성에 대해 [자세히 알아봅니다](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017).
+    SSRS 구성에 대해 [자세히 알아봅니다](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode).
 
     > [!NOTE]
     > MABS의 데이터베이스로 사용되는 SQL Server용 라이선스는 [Microsoft OST(온라인 서비스 사용 약관)](https://www.microsoft.com/licensing/product-licensing/products)를 통해 관리됩니다. OST에 따라 MABS와 함께 제공되는 SQL Server는 MABS의 데이터베이스로만 사용할 수 있습니다.
@@ -198,7 +199,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    스크래치 위치는 Azure에 백업에 대한 요구 사항입니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 스토리지 풀에 관한 자세한 내용은 [데이터 스토리지 준비](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)를 참조하세요.
+    스크래치 위치는 Azure에 백업에 대한 요구 사항입니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 스토리지 풀에 관한 자세한 내용은 [데이터 스토리지 준비](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)를 참조하세요.
 5. 제한된 로컬 사용자 계정에 강력한 암호를 제공하고 **다음**을 클릭합니다.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -226,7 +227,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
 ### <a name="add-backup-storage"></a>백업 스토리지 추가
 
-첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 스토리지에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [스토리지 풀 및 디스크 스토리지 구성](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage)을 참조하세요.
+첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 스토리지에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [스토리지 풀 및 디스크 스토리지 구성](./backup-mabs-add-storage.md)을 참조하세요.
 
 > [!NOTE]
 > 데이터를 Azure에 전송하려는 경우에도 백업 스토리지를 추가해야 합니다. Azure Backup 서버의 현재 아키텍처에서 Azure Backup 자격 증명 모음은 데이터의 *두 번째* 복사본을 보유하고 로컬 스토리지에서는 첫 번째(및 필수) 백업 복사본을 보유합니다.
@@ -235,7 +236,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
 ### <a name="install-and-update-the-data-protection-manager-protection-agent"></a>Data Protection Manager 보호 에이전트 설치 및 업데이트
 
-MABS에서는 System Center Data Protection Manager 보호 에이전트를 사용합니다. 보호 서버에서 보호 에이전트를 설치하는 [단계는 다음과 같습니다](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-1807).
+MABS에서는 System Center Data Protection Manager 보호 에이전트를 사용합니다. 보호 서버에서 보호 에이전트를 설치하는 [단계는 다음과 같습니다](/system-center/dpm/deploy-dpm-protection-agent).
 
 다음 섹션에서는 클라이언트 컴퓨터에 대한 보호 에이전트를 업데이트하는 방법을 설명합니다.
 
@@ -313,7 +314,7 @@ ExpressRoute Microsoft 피어링을 사용하는 경우 다음 서비스/지역�
 * Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
 * Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
 
-자세한 내용은 [ExpressRoute 라우팅 요구 사항](https://docs.microsoft.com/azure/expressroute/expressroute-routing)을 참조하세요.
+자세한 내용은 [ExpressRoute 라우팅 요구 사항](../expressroute/expressroute-routing.md)을 참조하세요.
 
 Azure Backup 서버 컴퓨터에 Azure에 대한 연결이 복원되면 수행할 수 있는 작업은 Azure 구독 상태에 따라 결정됩니다. 컴퓨터가 "연결된" 경우 허용되는 작업에 대한 세부 정보가 위의 표에 나와 있습니다.
 
@@ -361,7 +362,7 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 
 ## <a name="next-steps"></a>다음 단계
 
-[DPM을 위한 환경 준비](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019)에 관한 자세한 내용은 여기에서 확인할 수 있습니다. 또한 여기에는 Azure Backup 서버를 배포 및 사용하는 데 지원되는 구성에 대한 정보도 포함되어 있습니다. 다양한 작업을 수행하는 데 일련의 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)을 사용할 수 있습니다.
+[DPM을 위한 환경 준비](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019)에 관한 자세한 내용은 여기에서 확인할 수 있습니다. 또한 여기에는 Azure Backup 서버를 배포 및 사용하는 데 지원되는 구성에 대한 정보도 포함되어 있습니다. 일련의 [PowerShell cmdlet](/powershell/module/dataprotectionmanager/) 을 사용 하 여 다양 한 작업을 수행할 수 있습니다.
 
 Microsoft Azure Backup 서버를 사용하여 워크로드 보호를 더 깊이 이해하려면 다음 문서를 사용할 수 있습니다.
 

@@ -8,12 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 34d2ba05b00ab92066bc7fa3ccd0b7b2aa59e15c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: 70a54f52470a715df1011199d5cbd6aa5030094d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669640"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539213"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)에서 지원하는 기능 
 
@@ -35,15 +36,17 @@ Azure SQL Edge는 두 가지 버전 또는 소프트웨어 플랜으로 제공�
 
 ## <a name="operating-system"></a>운영 체제
 
-Azure SQL Edge 컨테이너는 현재 Ubuntu 16.04을 기반으로 하며, Ubuntu 16.04 (권장) 또는 Ubuntu 18.04를 실행 하는 Docker 호스트 에서만 실행할 수 있습니다. Azure SQL Edge는 다른 운영 체제 호스트에서 실행 될 수도 있습니다. 예를 들어 Docker CE 또는 Docker EE를 사용 하 여 Linux 또는 Windows의 다른 배포판에서 실행할 수 있습니다. 그러나 Microsoft는 이러한 구성을 광범위 하 게 테스트 하지 않았습니다.
+Azure SQL Edge 컨테이너는 현재 Ubuntu 16.04을 기반으로 하며, Ubuntu 16.04 LTS (권장) 또는 Ubuntu 18.04 LTS를 실행 하는 Docker 호스트 에서만 실행할 수 있습니다. 예를 들어 다른 운영 체제 호스트에서 Azure SQL Edge 컨테이너를 실행할 수 있습니다. 예를 들어 Docker CE 또는 Docker EE를 사용 하 여 Linux 또는 Windows의 다른 배포판에서 실행할 수 있지만,이 구성은 광범위 하 게 테스트 되지 않으므로 Microsoft는 권장 하지 않습니다.
 
 Azure SQL Edge는 현재 Azure IoT Edge를 통한 배포만 지원합니다. 자세한 내용은 [지원 되는 Azure IoT Edge 시스템](https://docs.microsoft.com/azure/iot-edge/support)을 참조 하세요.
 
 Windows에서 Azure SQL Edge를 실행 하는 데 권장 되는 구성은 Windows 호스트에서 Ubuntu VM을 구성한 후 Linux VM 내에서 Azure SQL Edge를 실행 하는 것입니다.
 
+Azure SQL Edge에 대해 권장 되는 지원 되는 파일 시스템은 EXT4 및 XFS입니다. 영구 볼륨을 사용 하 여 Azure SQL Edge 데이터베이스 저장소를 다시 사용 하는 경우 기본 호스트 파일 시스템을 EXT4 및 XFS로 사용 해야 합니다.
+
 ## <a name="hardware-support"></a>하드웨어 지원
 
-Azure SQL Edge에는 64 비트 프로세서가 필요 합니다 .이 프로세서는 Intel, AMD 또는 ARM에서 사용할 수 있으며, 최소 하나의 프로세서와 1 GB RAM이 호스트에 있습니다. Azure SQL Edge의 시작 메모리 공간이 500MB에 육박하지만, 에지 디바이스에서 실행되는 다른 IoT Edge 모듈을 위한 추가 메모리가 필요합니다.
+Azure SQL Edge에는 64 비트 프로세서 (x64 또는 ARM64)가 필요 하며, 하나 이상의 프로세서와 1GB RAM이 호스트에 있습니다. Azure SQL Edge의 시작 메모리 공간이 500MB에 육박하지만, 에지 디바이스에서 실행되는 다른 IoT Edge 모듈을 위한 추가 메모리가 필요합니다. Azure SQL Edge에 대 한 실제 메모리 및 CPU 요구 사항은 처리 되는 데이터의 양과 작업의 복잡성에 따라 달라 집니다. 솔루션에 대 한 하드웨어를 선택 하는 경우 솔루션에 필요한 성능 특성이 충족 되도록 광범위 한 성능 테스트를 실행 하는 것이 좋습니다.  
 
 ## <a name="azure-sql-edge-components"></a>Azure SQL Edge 구성 요소
 

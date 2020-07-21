@@ -8,11 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc872b24c78fbdf6e55673f9d1f78efc0647895
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412637"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537887"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core(SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -60,6 +61,17 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 | **Azure Cosmos DB 워크샵 및 랩** |[Cosmos DB 워크샵 홈페이지](https://aka.ms/cosmosworkshop)
 
 ## <a name="release-history"></a>릴리스 기록
+
+### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+* 스크립트 로깅 사용 API를에 추가 했습니다 `CosmosStoredProcedureRequestOptions` .
+* 기본값을 1 시간로 업데이트 하 `DirectConnectionConfig` `idleEndpointTimeout` 고 기본값 `connectTimeout` 을 5 초로 업데이트 합니다.
+#### <a name="key-bug-fixes"></a>핵심 버그 수정
+* 가를 재정의 하는 문제를 해결 `GatewayConnectionConfig` `idleConnectionTimeout` 했습니다 `DirectConnectionConfig` `idleConnectionTimeout` .
+* `responseContinuationTokenLimitInKb`의 get 및 Set api를 수정 `CosmosQueryRequestOptions` 했습니다.
+* 동일한 이름을 가진 컬렉션을 다시 만들 때 쿼리 및 변경 피드의 문제를 해결 했습니다.
+* ClassCastException을 throw 하는 상위 쿼리와 관련 된 문제가 해결 되었습니다.
+* NullPointerException을 throw 하는 order by 쿼리와 관련 된 문제를 해결 했습니다.
+* 직접 모드에서 취소 된 요청을 처리 하는 동안 발생 하는 문제를 해결 `onErrorDropped` 했습니다. 
 
 ### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
 #### <a name="new-features"></a>새로운 기능

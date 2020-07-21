@@ -2,19 +2,19 @@
 title: HCX(하이브리드 클라우드 확장) 설치
 description: AVS(Azure VMware 솔루션) 프라이빗 클라우드에 대한 VMware HCX(하이브리드 클라우드 확장) 솔루션 설정
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367549"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539162"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Azure VMware 솔루션용 HCX 설치
 
 이 문서에서는 Azure VMWare 솔루션 (AVS) 사설 클라우드에 대해 VMWare HCX (하이브리드 클라우드 확장) 솔루션을 설정 하는 절차를 안내 합니다. HCX를 사용 하면 VMware 워크 로드를 클라우드로, 다른 연결 된 사이트를 다양 한 기본 제공 HCX 지원 마이그레이션 유형을 통해 마이그레이션할 수 있습니다.
 
-HCX Advanced, 기본 설치는 최대 3 개의 외부 사이트를 지원 합니다. 4개 이상의 사이트가 필요한 경우 고객은 지원을 통해 HCX Enterprise 추가 기능을 사용하도록 설정할 수 있습니다. HCX Enterprise 설치는 GA (일반 공급) 후 고객에 게 추가 요금을 제공 하지만 [추가 기능](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)을 제공 합니다.
+HCX Advanced, 기본 설치는 최대 3 개의 vCenters을 지원 합니다. 3 개 이상이 필요한 경우 고객은 지원을 통해 HCX Enterprise 추가 기능을 사용 하도록 설정 하는 옵션을 사용할 수 있습니다. HCX Enterprise 설치는 GA (일반 공급) 후 고객에 게 추가 요금을 제공 하지만 [추가 기능](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)을 제공 합니다.
 
 
 [시작하기 전에](#before-you-begin), [소프트웨어 버전 요구 사항](#software-version-requirements) 및 [필수 구성 요소](#prerequisites)를 철저하게 검토합니다. 

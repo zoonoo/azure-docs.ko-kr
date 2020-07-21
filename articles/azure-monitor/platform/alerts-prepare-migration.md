@@ -6,11 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09db7684c84bbde038c67f9ccfb3f27f6b61bee6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539553"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>클래식 경고 규칙 마이그레이션을 위한 논리 앱 및 Runbook 준비
 
@@ -27,12 +28,12 @@ ms.locfileid: "81114418"
 
 다음 표는 클래식 및 새 경고의 프로그래밍 인터페이스에 대 한 참조입니다.
 
-|         |클래식 경고  |새 메트릭 경고 |
-|---------|---------|---------|
-|REST API     | [microsoft insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor 메트릭 경고](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
-| Azure Resource Manager 템플릿 | [클래식 경고의 경우](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[새 메트릭 경고의 경우](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+| 배포 스크립트 유형 | 클래식 경고 | 새 메트릭 경고 |
+| ---------------------- | -------------- | ----------------- |
+|REST API     | [microsoft insights/alertrules](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
+|Azure CLI     | [az monitor alert](/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor 메트릭 경고](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|PowerShell      | [참조](/powershell/module/az.monitor/add-azmetricalertrule)       |  [참조](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
+| Azure Resource Manager 템플릿 | [클래식 경고의 경우](./alerts-enable-template.md)|[새 메트릭 경고의 경우](./alerts-metric-create-templates.md)|
 
 ## <a name="notification-payload-changes"></a>알림 페이로드 변경
 
@@ -40,8 +41,8 @@ ms.locfileid: "81114418"
 
 다음 표를 사용 하 여 기본 형식에서 새 형식으로 webhook 페이로드 필드를 매핑합니다.
 
-|  |클래식 경고  |새 메트릭 경고 |
-|---------|---------|---------|
+| 알림 끝점 유형 | 클래식 경고 | 새 메트릭 경고 |
+| -------------------------- | -------------- | ----------------- |
 |경고가 활성화 또는 해결 되었습니까?    | **status**       | **데이터. 상태** |
 |경고에 대 한 컨텍스트 정보     | **context**        | **데이터. 컨텍스트**        |
 |경고가 활성화 되거나 해결 된 타임 스탬프입니다.     | **context. timestamp**       | **data. context. timestamp**        |
@@ -70,7 +71,7 @@ ms.locfileid: "81114418"
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>메트릭 경고 알림을 받도록 논리 앱 수정
 
-클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 아래 단계를 수행합니다.
+클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 다음 단계를 수행하세요.
 
 1. 새 논리 앱을 만듭니다.
 
@@ -149,11 +150,11 @@ else {
 
 ```
 
-경고가 트리거될 때 가상 머신을 중지 하는 runbook의 전체 예는 [Azure Automation 설명서](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook)를 참조 하세요.
+경고가 트리거될 때 가상 머신을 중지 하는 runbook의 전체 예는 [Azure Automation 설명서](../../automation/automation-create-alert-triggered-runbook.md)를 참조 하세요.
 
 ## <a name="partner-integration-via-webhooks"></a>웹 후크를 통한 파트너 통합
 
-[클래식 경고와 통합 되는](https://docs.microsoft.com/azure/azure-monitor/platform/partners) 대부분의 파트너는 통합을 통해 최신 메트릭 경고를 이미 지원 합니다. 이미 새 메트릭 경고와 함께 작동 하는 알려진 통합은 다음과 같습니다.
+[클래식 경고와 통합 되는](./partners.md) 대부분의 파트너는 통합을 통해 최신 메트릭 경고를 이미 지원 합니다. 이미 새 메트릭 경고와 함께 작동 하는 알려진 통합은 다음과 같습니다.
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)

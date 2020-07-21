@@ -4,11 +4,12 @@ description: 자동 크기 조정 설정 및 작동 방법을 자세히 설명�
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75364308"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539383"
 ---
 # <a name="understand-autoscale-settings"></a>자동 크기 조정 설정 이해
 자동 크기 조정 설정은 애플리케이션의 변화하는 부하를 처리할 수 있는 적절한 양의 리소스가 실행되도록 하는 데 도움이 됩니다. 부하 또는 성능을 나타내는 메트릭을 기준으로 트리거되거나 예약된 날짜 및 시간에 트리거되도록 자동 크기 조정 설정을 구성할 수 있습니다. 이 문서에서는 자동 크기 조정 설정을 자세히 분석합니다. 이 문서는 스키마 및 설정의 속성부터 설명한 후, 구성할 수 있는 다른 프로필 유형에 대해서도 설명합니다. 마지막으로, 이 문서에서는 Azure의 자동 크기 조정 기능이 지정된 시간에 실행할 프로필을 평가하는 방법을 설명합니다.
@@ -86,9 +87,9 @@ ms.locfileid: "75364308"
 
 | 섹션 | 요소 이름 | 설명 |
 | --- | --- | --- |
-| Setting | ID | 자동 크기 조정 설정의 리소스 ID입니다. 자동 크기 조정 설정은 Azure Resource Manager 리소스입니다. |
-| Setting | name | 자동 크기 조정 설정 이름입니다. |
-| Setting | 위치 | 자동 크기 조정 설정의 위치입니다. 이 위치는 크기가 조정되는 리소스의 위치와 다를 수 있습니다. |
+| 설정 | ID | 자동 크기 조정 설정의 리소스 ID입니다. 자동 크기 조정 설정은 Azure Resource Manager 리소스입니다. |
+| 설정 | name | 자동 크기 조정 설정 이름입니다. |
+| 설정 | 위치 | 자동 크기 조정 설정의 위치입니다. 이 위치는 크기가 조정되는 리소스의 위치와 다를 수 있습니다. |
 | properties | targetResourceUri | 크기가 조정되는 리소스의 리소스 ID입니다. 리소스당 하나의 자동 크기 조정 설정만 있을 수 있습니다. |
 | properties | 프로필 | 자동 크기 조정 설정은 하나 이상의 프로필로 구성됩니다. 자동 크기 조정 엔진이 실행될 때마다 1개의 프로필이 실행됩니다. |
 | profile | name | 프로필의 이름입니다. 프로필을 식별하는 데 도움이 되는 어떤 이름도 선택할 수 있습니다. |
@@ -304,5 +305,4 @@ ms.locfileid: "75364308"
 * [Azure Monitor 자동 크기 조정 공용 메트릭](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Azure Monitor 자동 크기 조정에 대한 모범 사례](../../azure-monitor/platform/autoscale-best-practices.md)
 * [크기 자동 조정 작업을 사용하여 전자 메일 및 웹후크 경고 알림 보내기](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [자동 크기 조정 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
-
+* [자동 크기 조정 REST API](/rest/api/monitor/autoscalesettings)

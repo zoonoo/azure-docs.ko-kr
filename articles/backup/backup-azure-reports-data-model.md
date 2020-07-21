@@ -3,11 +3,12 @@ title: Azure Backup 진단 이벤트에 대 한 데이터 모델
 description: 이 데이터 모델은 Log Analytics (LA)로 진단 이벤트를 보내는 리소스 특정 모드를 참조 합니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: af1e4159ff2794f8d4dd11480eb7f1789e034c06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46d40694da4eb025afc11da0f14b28691bf13bb8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484493"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538873"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Azure Backup 진단 이벤트에 대 한 데이터 모델
 
@@ -83,7 +84,7 @@ ms.locfileid: "84484493"
 | BackupItemUniqueId             | 텍스트          | 경고와 연결 된 백업 항목의 고유 식별자 |
 | BackupManagementServerUniqueId | 텍스트          | 해당 하는 경우 백업 항목을 보호 하는 백업 관리 서버를 고유 하 게 식별 하는 필드입니다. |
 | BackupManagementType           | 텍스트          | 백업 작업을 수행 하는 서버에 대 한 공급자 유형 (예: 예 iaasvm, FileFolder) |
-| CountOfAlertsConsolidated      | number        | 통합된 경고인 경우 통합된 경고 수  |
+| CountOfAlertsConsolidated      | Number        | 통합된 경고인 경우 통합된 경고 수  |
 | ProtectedContainerUniqueId     | 텍스트          | 경고와 연결 된 보호 된 서버의 고유 식별자입니다. |
 | RecommendedAction              | 텍스트          | 경고를 해결하기 위한 권장 작업                      |
 | schemaVersion                  | 텍스트          | 스키마의 현재 버전(예: **V2**)            |
@@ -161,7 +162,7 @@ ms.locfileid: "84484493"
 | DiffBackupDaysOfTheWeek         | 텍스트           | Azure VM 백업에서 SQL에 대 한 차등 백업의 요일 |
 | DiffBackupFormat                | 텍스트           | Azure VM 백업에서 SQL에 대한 차등 백업의 형식   |
 | Diffbackup보존 기간     | 10진수 | Azure VM 백업에서 SQL에 대 한 차등 백업의 보존 기간 |
-| DiffBackupTime 시간                  | 시간           | Azure VM 백업에서 SQL에 대한 차등 백업 시간     |
+| DiffBackupTime 시간                  | Time           | Azure VM 백업에서 SQL에 대한 차등 백업 시간     |
 | LogBackupFrequency              | 10진수 | SQL에 대한 로그 백업의 빈도                            |
 | Logbackup보존 기간      | 10진수 | Azure VM 백업에서 SQL에 대 한 로그 백업의 보존 기간 |
 | MonthlyRetentionDaysOfTheMonth  | 텍스트           | 매월 보존이 구성 된 월의 주입니다.  예를 들어, First, Last 등입니다. |
@@ -207,8 +208,8 @@ ms.locfileid: "84484493"
 | ProtectedContainerUniqueId     | 텍스트          | 백업 항목과 연결 된 보호 된 컨테이너의 고유 식별자 |
 | schemaVersion                  | 텍스트          | 스키마의 버전입니다. 예: **V2**                   |
 | 시스템 상태                          | 텍스트          | 백업 항목 개체의 상태입니다. 예: 활성, 삭제 됨 |
-| StorageAllocatedInMBs          | number        | 디스크 형식의 해당 저장소에 있는 해당 백업 항목에 의해 할당 된 저장소 크기 |
-| StorageConsumedInMBs           | number        | 해당 하는 저장소의 해당 백업 항목에서 사용 하는 저장소 크기 |
+| StorageAllocatedInMBs          | Number        | 디스크 형식의 해당 저장소에 있는 해당 백업 항목에 의해 할당 된 저장소 크기 |
+| StorageConsumedInMBs           | Number        | 해당 하는 저장소의 해당 백업 항목에서 사용 하는 저장소 크기 |
 | StorageName                    | 텍스트          | 저장소 엔터티의 이름입니다. 예: E:\                      |
 | StorageTotalSizeInGBs          | 텍스트          | 스토리지 엔터티에서 사용한 총 스토리지 크기(GB)     |
 | StorageType                    | 텍스트          | 스토리지 유형(예: 클라우드, 볼륨, 디스크)             |
@@ -219,5 +220,5 @@ ms.locfileid: "84484493"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics에 진단 데이터를 보내는 방법에 대해 알아봅니다.](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
-- [리소스 관련 테이블에 대 한 쿼리를 작성 하는 방법 알아보기](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)
+- [Log Analytics에 진단 데이터를 보내는 방법에 대해 알아봅니다.](./backup-azure-diagnostic-events.md)
+- [리소스 관련 테이블에 대 한 쿼리를 작성 하는 방법 알아보기](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries)

@@ -3,11 +3,12 @@ title: VM 설정에서 Azure VM 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 단일 Azure VM 또는 여러 Azure vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705448"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538890"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 
@@ -25,7 +26,7 @@ ms.locfileid: "76705448"
 
 Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 에이전트에 확장을 설치합니다. Azure Marketplace 이미지에서 VM을 만든 경우 에이전트가 실행됩니다. 경우에 따라 사용자 지정 VM을 만들거나 온-프레미스에서 컴퓨터를 마이그레이션할 수 있습니다. 이러한 경우 에이전트를 수동으로 설치해야 할 수 있습니다.
 
-- VM 에이전트를 수동으로 설치해야 하는 경우 [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) VM에 대한 지침을 따릅니다.
+- VM 에이전트를 수동으로 설치해야 하는 경우 [Windows](../virtual-machines/extensions/agent-windows.md) 또는 [Linux](../virtual-machines/extensions/agent-linux.md) VM에 대한 지침을 따릅니다.
 - 에이전트를 설치한 후 백업을 사용하도록 설정하면, Azure Backup은 에이전트에 백업 확장을 설치합니다. 사용자 개입 없이 확장을 업데이트하고 패치합니다.
 
 ## <a name="back-up-from-azure-vm-settings"></a>Azure VM 설정에서 백업

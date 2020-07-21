@@ -4,17 +4,18 @@ description: Azure에서 사용자 지정 메트릭을 기준으로 리소스 �
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e744e6a91eb6fbe23a6b45f95c39b1acfdcb61f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425122"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539587"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Azure에서 사용자 지정 메트릭을 기준으로 자동 크기 조정 시작
 이 문서에서는 Azure Portal에서 사용자 지정 메트릭을 기준으로 리소스 크기를 조정하는 방법에 대해 설명합니다.
 
 Azure Monitor 자동 크기 조정은 [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure 데이터 탐색기 클러스터](https://azure.microsoft.com/services/data-explorer/) 에만 적용 됩니다.   
-통합 서비스 환경 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+통합 서비스 환경 및 [API Management 서비스](../../api-management/api-management-key-concepts.md).
 
 ## <a name="lets-get-started"></a>시작
 이 문서에서는 Application Insights가 구성된 웹앱이 있다고 가정합니다. 아직 없으면 [ASP.NET 웹 사이트에 대한 Application Insights를 설정할 수 있습니다][1].
@@ -40,11 +41,10 @@ Azure Monitor 자동 크기 조정은 [Virtual Machine Scale Sets](https://azure
 > 참고: VMSS 또는 클라우드 서비스 역할을 시작하는 데에도 동일한 단계를 적용할 수 있습니다.
 
 <!--Reference-->
-[1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net
+[1]: ../app/asp-net.md
 [2]: https://portal.azure.com
 [3]: ./media/autoscale-custom-metric/azure-monitor-launch.png
 [4]: ./media/autoscale-custom-metric/discover-autoscale-azure-monitor.png
 [5]: ./media/autoscale-custom-metric/scale-setting-new-web-app.png
 [6]: ./media/autoscale-custom-metric/scale-by-custom-metric.png
 [7]: ./media/autoscale-custom-metric/autoscale-setting-custom-metrics-ai.png
-

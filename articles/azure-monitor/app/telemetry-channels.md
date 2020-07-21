@@ -4,11 +4,12 @@ description: .NET 및 .NET Core 용 Azure 애플리케이션 Insights Sdk에서 
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f9e93d477efeee7e1d8a0b0d8704f9c83d2a4f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691954"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539791"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights의 원격 분석 채널
 
@@ -16,7 +17,7 @@ ms.locfileid: "84691954"
 
 ## <a name="what-are-telemetry-channels"></a>원격 분석 채널 이란?
 
-원격 분석 채널은 원격 분석 항목을 버퍼링 하 고 Application Insights 서비스로 전송 하 여 쿼리 및 분석을 위해 저장 합니다. 원격 분석 채널은 인터페이스를 구현 하는 클래스입니다 [`Microsoft.ApplicationInsights.ITelemetryChannel`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) .
+원격 분석 채널은 원격 분석 항목을 버퍼링 하 고 Application Insights 서비스로 전송 하 여 쿼리 및 분석을 위해 저장 합니다. 원격 분석 채널은 인터페이스를 구현 하는 클래스입니다 [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) .
 
 원격 분석 `Send(ITelemetry item)` 채널의 메서드는 모든 원격 분석 이니셜라이저 및 원격 분석 프로세서가 호출 된 후에 호출 됩니다. 따라서 원격 분석 프로세서에 의해 삭제 된 항목은 채널에 도달 하지 않습니다. `Send()`는 일반적으로 백 엔드에 항목을 즉시 보내지 않습니다. 일반적으로 메모리에 버퍼를 버퍼링 하 고 효율적인 전송을 위해 일괄 처리로 보냅니다.
 
@@ -30,7 +31,7 @@ Application Insights .NET 및 .NET Core Sdk는 두 개의 기본 제공 채널�
 
     이 채널은 대규모 Microsoft ApplicationInsights NuGet 패키지의 일부 이며, 다른 사용자가 구성 되지 않은 경우 SDK에서 사용 하는 기본 채널입니다.
 
-* `ServerTelemetryChannel`: 재시도 정책 및 로컬 디스크에 데이터를 저장 하는 기능이 있는 고급 채널입니다. 일시적인 오류가 발생 하는 경우이 채널은 원격 분석 전송을 다시 시도 합니다. 또한이 채널은 로컬 디스크 저장소를 사용 하 여 네트워크 중단 또는 높은 원격 분석 볼륨에서 디스크에 항목을 유지 합니다. 이러한 재시도 메커니즘과 로컬 디스크 저장소로 인해이 채널은 더 안정적으로 간주 되므로 모든 프로덕션 시나리오에 권장 됩니다. 이 채널은 공식 설명서에 따라 구성 된 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대 한 기본값입니다. 이 채널은 장기 실행 프로세스를 포함 하는 서버 시나리오에 최적화 되어 있습니다. [`Flush()`](#which-channel-should-i-use)이 채널에서 구현 하는 메서드는 동기화 되지 않습니다.
+* `ServerTelemetryChannel`: 재시도 정책 및 로컬 디스크에 데이터를 저장 하는 기능이 있는 고급 채널입니다. 일시적인 오류가 발생 하는 경우이 채널은 원격 분석 전송을 다시 시도 합니다. 또한이 채널은 로컬 디스크 저장소를 사용 하 여 네트워크 중단 또는 높은 원격 분석 볼륨에서 디스크에 항목을 유지 합니다. 이러한 재시도 메커니즘과 로컬 디스크 저장소로 인해이 채널은 더 안정적으로 간주 되므로 모든 프로덕션 시나리오에 권장 됩니다. 이 채널은 공식 설명서에 따라 구성 된 [ASP.NET](./asp-net.md) 및 [ASP.NET Core](./asp-net-core.md) 응용 프로그램에 대 한 기본값입니다. 이 채널은 장기 실행 프로세스를 포함 하는 서버 시나리오에 최적화 되어 있습니다. [`Flush()`](#which-channel-should-i-use)이 채널에서 구현 하는 메서드는 동기화 되지 않습니다.
 
     이 채널은 TelemetryChannel NuGet 패키지로 제공 되며, AspNetCore NuGet 패키지를 사용 하는 경우 자동으로 획득 됩니다 (예를 들어).
 
@@ -133,7 +134,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 동기 플러시를 수행 해야 하는 경우를 사용 하는 것이 좋습니다 `InMemoryChannel` .
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Application Insights 채널은 원격 분석 배달을 보장 하나요? 그렇지 않은 경우 원격 분석이 손실 될 수 있는 시나리오는 무엇입니까?
 

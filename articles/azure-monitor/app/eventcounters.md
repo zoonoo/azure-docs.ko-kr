@@ -3,15 +3,16 @@ title: Application Insights의 이벤트 카운터 | Microsoft Docs
 description: Application Insights에서 시스템 및 사용자 지정 .NET/.NET Core EventCounters 모니터링
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 37d0e1e741548986788be78860830f36add1f5a8
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700441"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539944"
 ---
 # <a name="eventcounters-introduction"></a>EventCounters 소개
 
-`EventCounter`는 카운터 또는 통계를 게시하고 사용하는 .NET/.NET Core 메커니즘입니다. [이](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) 문서에서는 `EventCounters`의 개요와 게시 및 사용 방법에 대한 예를 제공합니다. EventCounters는 모든 OS 플랫폼(Windows, Linux 및 macOS)에서 지원됩니다. 이는 Windows 시스템에서만 지원되는 [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter)와 달리 플랫폼 간 지원에 해당하는 것으로 볼 수 있습니다.
+`EventCounter`는 카운터 또는 통계를 게시하고 사용하는 .NET/.NET Core 메커니즘입니다. [이](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) 문서에서는 `EventCounters`의 개요와 게시 및 사용 방법에 대한 예를 제공합니다. EventCounters는 모든 OS 플랫폼(Windows, Linux 및 macOS)에서 지원됩니다. 이는 Windows 시스템에서만 지원되는 [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter)와 달리 플랫폼 간 지원에 해당하는 것으로 볼 수 있습니다.
 
 사용자가 요구 사항을 충족하기 위해 사용자 지정 `EventCounters`를 게시할 수 있지만 .NET Core 3.0 런타임은 기본적으로 이러한 카운터 집합을 게시합니다. 이 문서에서는 Azure Application Insights에서 `EventCounters`(시스템 정의 또는 사용자 정의)를 수집하고 확인하는 데 필요한 단계를 안내합니다.
 
@@ -90,14 +91,14 @@ Application Insights는 새로 릴리스된 nuget 패키지 [Microsoft.Applicati
 
 ## <a name="event-counters-in-metric-explorer"></a>메트릭 탐색기의 이벤트 카운터
 
-[메트릭 탐색기](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)에서 EventCounter 메트릭을 보려면 Application Insights 리소스를 선택하고 로그 기반 메트릭을 메트릭 네임스페이스로 선택합니다. 그러면 EventCounter 메트릭이 사용자 지정 범주에 표시됩니다.
+[메트릭 탐색기](../platform/metrics-charts.md)에서 EventCounter 메트릭을 보려면 Application Insights 리소스를 선택하고 로그 기반 메트릭을 메트릭 네임스페이스로 선택합니다. 그러면 EventCounter 메트릭이 사용자 지정 범주에 표시됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![Application Insights에서 보고하는 이벤트 카운터](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Analytics의 이벤트 카운터
 
-[Analytics](../../azure-monitor/app/analytics.md)에서 **customMetrics** 테이블의 이벤트 카운터 보고서를 검색하고 표시할 수도 있습니다.
+[Analytics](../log-query/log-query-overview.md)에서 **customMetrics** 테이블의 이벤트 카운터 보고서를 검색하고 표시할 수도 있습니다.
 
 예를 들어 다음 쿼리를 실행하여 수집된 카운터 및 쿼리에 사용할 수 있는 카운터를 확인합니다.
 
@@ -143,7 +144,7 @@ EventCounter는 특별한 사용 권한이 필요하지 않으며 모든 플랫�
 
 ### <a name="i-have-enabled-application-insights-from-azure-web-app-portal-but-i-cant-see-eventcounters"></a>Azure Web App 포털에서 Application Insights를 사용하도록 설정했습니다. 하지만 EventCounters를 볼 수 없습니다.
 
- ASP.NET Core용 [Application Insights 확장](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps)은 아직 이 기능을 지원하지 않습니다. 이 기능이 지원되면 이 문서가 업데이트됩니다.
+ ASP.NET Core용 [Application Insights 확장](./azure-web-apps.md)은 아직 이 기능을 지원하지 않습니다. 이 기능이 지원되면 이 문서가 업데이트됩니다.
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
 

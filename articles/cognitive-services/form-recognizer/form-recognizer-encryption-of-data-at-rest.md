@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 782e03f572f007b8523c3ae797dd626c383a01f4
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: b897de94ad8cdb628520f9386b076f762a5cc230
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310719"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537955"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>미사용 데이터의 폼 인식기 암호화
 
@@ -24,8 +24,6 @@ Azure 양식 인식기는 클라우드로 데이터를 보관할 때 데이터�
 
 > [!IMPORTANT]
 > 고객이 관리 하는 키는 11 월 2020 일 이후 생성 된 리소스만 사용할 수 있습니다. 양식 인식기에서 CMK를 사용 하려면 새 폼 인식기 리소스를 만들어야 합니다. 리소스를 만든 후 Azure Key Vault를 사용 하 여 관리 id를 설정할 수 있습니다.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

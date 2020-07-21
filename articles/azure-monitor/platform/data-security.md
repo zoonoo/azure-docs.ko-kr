@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333352"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539349"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
-이 문서는 [Azure 보안 센터](../../security/fundamentals/trust-center.md)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
+이 문서는 [Azure 보안 센터](https://www.microsoft.com/en-us/trust-center?rtc=1)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
 
 이 문서에서는 Log Analytics에서 데이터를 수집, 처리 및 보호하는 방법에 대해 설명합니다. 에이전트를 사용하여 웹 서비스에 연결하고 System Center Operations Manager를 사용하여 운영 데이터를 수집하거나 Azure 진단에서 Log Analytics에 사용할 데이터를 검색할 수 있습니다. 
 
@@ -42,9 +42,9 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 |플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
-| Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
-| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
-| Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
+| Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
+| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
+| Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 
 ## <a name="data-segregation"></a>데이터 분리
 Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서비스 전체에 있는 각 구성 요소에 논리적으로 분리되어 보관됩니다. 모든 데이터에는 작업 영역별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다. 사용자의 데이터는 사용자가 선택한 영역의 스토리지 클러스터에 있는 전용 데이터베이스에 저장됩니다.
@@ -175,4 +175,3 @@ Log Analytics 작업 영역에 액세스하려면 이전에 설정한 Microsoft 
 * [Azure VM 빠른 시작](../../azure-monitor/learn/quick-collect-azurevm.md)에 따라 Azure VM용 Log Analytics를 사용하여 데이터를 수집하는 방법에 대해 알아봅니다.  
 
 *  사용자 환경에서 물리적 또는 가상 Windows 또는 Linux 컴퓨터로부터 데이터를 수집하려면 [Linux 컴퓨터용 빠른 시작](../../azure-monitor/learn/quick-collect-linux-computer.md) 또는 [Windows 컴퓨터용 빠른 시작](../../azure-monitor/learn/quick-collect-windows-computer.md)을 참조하세요.
-

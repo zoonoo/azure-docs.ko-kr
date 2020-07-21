@@ -3,11 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 879a7edab77bad9671bea51e0e496f3eca96ee81
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247957"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538720"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -29,11 +30,11 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 ### <a name="step-1-discovery-dbs-in-vms"></a>1 단계: Vm에서 Db 검색
 
-- VM이 검색 된 VM 목록에 나열 되어 있지 않고 다른 자격 증명 모음에 SQL backup에 등록 되어 있지 않은 경우에는 [검색 SQL Server 백업](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) 단계를 따릅니다.
+- VM이 검색 된 VM 목록에 나열 되어 있지 않고 다른 자격 증명 모음에 SQL backup에 등록 되어 있지 않은 경우에는 [검색 SQL Server 백업](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases) 단계를 따릅니다.
 
 ### <a name="step-2-configure-backup"></a>2 단계: 백업 구성
 
-- SQL VM이 데이터베이스를 보호 하는 데 사용 되는 것과 동일한 자격 증명 모음에 등록 된 경우 [백업 구성](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) 단계를 따릅니다.
+- SQL VM이 데이터베이스를 보호 하는 데 사용 되는 것과 동일한 자격 증명 모음에 등록 된 경우 [백업 구성](./backup-sql-server-database-azure-vms.md#configure-backup) 단계를 따릅니다.
 
 새 자격 증명 모음에 SQL VM을 등록 해야 하는 경우 이전 자격 증명 모음에서 등록 취소 해야 합니다.  자격 증명 모음에서 SQL VM의 등록을 취소 하려면 보호 된 모든 데이터 원본의 보호를 중지 하 고 백업 된 데이터를 삭제할 수 있습니다. 백업 된 데이터를 삭제 하는 작업은 안전 하지 않습니다.  SQL VM의 등록을 취소 하 고 모든 예방 조치를 수행한 후에는이 동일한 VM을 새 자격 증명 모음에 등록 하 고 백업 작업을 다시 시도 합니다.
 
@@ -61,13 +62,13 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 심각도 | 설명 | 가능한 원인 | 권장 조치 |
 |---|---|---|---|
-| 경고 | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
+| Warning | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-| 이 SQL 데이터베이스는 요청된 백업 유형을 지원하지 않습니다. | 요청된 백업 유형을 데이터베이스 복구 모델에서 허용하지 않을 때 발생합니다. 이 오류는 다음과 같은 상황에서 발생할 수 있습니다. <br/><ul><li>단순 복구 모델을 사용 하는 데이터베이스에서는 로그 백업을 허용 하지 않습니다.</li><li>Master 데이터베이스에 대해서는 차등 및 로그 백업이 허용 되지 않습니다.</li></ul>자세한 내용은 [SQL Server 복구 모델](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) 설명서를 참조 하세요. | 단순 복구 모델에서 데이터베이스에 대 한 로그 백업이 실패 하는 경우 다음 옵션 중 하나를 시도 합니다.<ul><li>데이터베이스가 단순 복구 모드인 경우 로그 백업을 사용하지 않도록 설정합니다.</li><li>[SQL Server 설명서](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) 를 사용 하 여 데이터베이스 복구 모델을 전체 또는 대량 로그로 변경 합니다. </li><li> 여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있고 복구 모델을 변경하지 않으려는 경우에는 오류를 무시합니다. 전체 및 차등 백업은 일정에 따라 작동합니다. 로그 백업은 예상대로 건너뜁니다.</li></ul>Master 데이터베이스이 고 차등 또는 로그 백업을 구성한 경우 다음 단계 중 하나를 사용 합니다.<ul><li>포털을 사용 하 여 master 데이터베이스의 백업 정책 일정을 전체로 변경 합니다.</li><li>여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있는 경우에는 오류를 무시합니다. 전체 백업은 일정에 따라 작동합니다. 차등 또는 로그 백업은 예상대로 발생하지 않습니다.</li></ul> |
+| 이 SQL 데이터베이스는 요청된 백업 유형을 지원하지 않습니다. | 요청된 백업 유형을 데이터베이스 복구 모델에서 허용하지 않을 때 발생합니다. 이 오류는 다음과 같은 상황에서 발생할 수 있습니다. <br/><ul><li>단순 복구 모델을 사용 하는 데이터베이스에서는 로그 백업을 허용 하지 않습니다.</li><li>Master 데이터베이스에 대해서는 차등 및 로그 백업이 허용 되지 않습니다.</li></ul>자세한 내용은 [SQL Server 복구 모델](/sql/relational-databases/backup-restore/recovery-models-sql-server) 설명서를 참조 하세요. | 단순 복구 모델에서 데이터베이스에 대 한 로그 백업이 실패 하는 경우 다음 옵션 중 하나를 시도 합니다.<ul><li>데이터베이스가 단순 복구 모드인 경우 로그 백업을 사용하지 않도록 설정합니다.</li><li>[SQL Server 설명서](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) 를 사용 하 여 데이터베이스 복구 모델을 전체 또는 대량 로그로 변경 합니다. </li><li> 여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있고 복구 모델을 변경하지 않으려는 경우에는 오류를 무시합니다. 전체 및 차등 백업은 일정에 따라 작동합니다. 로그 백업은 예상대로 건너뜁니다.</li></ul>Master 데이터베이스이 고 차등 또는 로그 백업을 구성한 경우 다음 단계 중 하나를 사용 합니다.<ul><li>포털을 사용 하 여 master 데이터베이스의 백업 정책 일정을 전체로 변경 합니다.</li><li>여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있는 경우에는 오류를 무시합니다. 전체 백업은 일정에 따라 작동합니다. 차등 또는 로그 백업은 예상대로 발생하지 않습니다.</li></ul> |
 | 충돌하는 작업이 동일한 데이터베이스에서 이미 실행 중이기 때문에 작업이 취소되었습니다. | 동시에 실행 되는 [백업 및 복원 제한 사항에 대 한 블로그 항목](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) 을 참조 하세요.| [SSMS (SQL Server Management Studio)를 사용 하 여 백업 작업을 모니터링할 수](manage-monitor-sql-database-backup.md)있습니다. 충돌 하는 작업이 실패 한 후 작업을 다시 시작 합니다.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
@@ -86,7 +87,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-| Azure Backup에서 SQL 인스턴스에 연결할 수 없습니다. | Azure Backup SQL Server 인스턴스에 연결할 수 없습니다. | Azure Portal 오류 메뉴에서 추가 세부 정보를 사용 하 여 근본 원인을 좁힐 수 있습니다. 오류를 해결하려면 [SQL 백업 문제 해결](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine)을 참조하세요.<br/><ul><li>기본 SQL 설정이 원격 연결을 허용 하지 않는 경우 설정을 변경 합니다. 설정 변경에 대 한 자세한 내용은 다음 문서를 참조 하세요.<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error?view=sql-server-ver15)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>로그인 문제가 있는 경우 다음 링크를 사용 하 여 문제를 해결 하십시오.<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup에서 SQL 인스턴스에 연결할 수 없습니다. | Azure Backup SQL Server 인스턴스에 연결할 수 없습니다. | Azure Portal 오류 메뉴에서 추가 세부 정보를 사용 하 여 근본 원인을 좁힐 수 있습니다. 오류를 해결하려면 [SQL 백업 문제 해결](/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine)을 참조하세요.<br/><ul><li>기본 SQL 설정이 원격 연결을 허용 하지 않는 경우 설정을 변경 합니다. 설정 변경에 대 한 자세한 내용은 다음 문서를 참조 하세요.<ul><li>[MSSQLSERVER_-1](/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>로그인 문제가 있는 경우 다음 링크를 사용 하 여 문제를 해결 하십시오.<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -98,7 +99,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-| 데이터 원본의 트랜잭션 로그가 꽉 차서 백업을 수행할 수 없습니다. | 데이터베이스 트랜잭션 로그 공간이 꽉 찼습니다. | 이 문제를 해결 하려면 [SQL Server 설명서](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error)를 참조 하세요. |
+| 데이터 원본의 트랜잭션 로그가 꽉 차서 백업을 수행할 수 없습니다. | 데이터베이스 트랜잭션 로그 공간이 꽉 찼습니다. | 이 문제를 해결 하려면 [SQL Server 설명서](/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error)를 참조 하세요. |
 
 ### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
@@ -110,7 +111,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-| 데이터베이스를 오프라인 상태로 만들지 못해서 복원에 실패했습니다. | 복원을 수행 하는 동안 대상 데이터베이스를 오프 라인 상태로 전환 해야 합니다. Azure Backup이 데이터를 오프 라인으로 전환할 수 없습니다. | Azure Portal 오류 메뉴에서 추가 세부 정보를 사용 하 여 근본 원인을 좁힐 수 있습니다. 자세한 내용은 [SQL Server 설명서](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)를 참조하세요. |
+| 데이터베이스를 오프라인 상태로 만들지 못해서 복원에 실패했습니다. | 복원을 수행 하는 동안 대상 데이터베이스를 오프 라인 상태로 전환 해야 합니다. Azure Backup이 데이터를 오프 라인으로 전환할 수 없습니다. | Azure Portal 오류 메뉴에서 추가 세부 정보를 사용 하 여 근본 원인을 좁힐 수 있습니다. 자세한 내용은 [SQL Server 설명서](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)를 참조하세요. |
 
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
@@ -122,7 +123,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-| 복구에 사용되는 로그 백업에 대량 로그된 변경 내용이 포함되어 있습니다. SQL 지침에 따라 임의의 시점에서 중지 하는 데 사용할 수 없습니다. | 데이터베이스가 대량 로그 복구 모드인 경우 대량 로그 트랜잭션과 다음 로그 트랜잭션 간의 데이터를 복구할 수 없습니다. | 복구를 위해 다른 지정 시간을 선택 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| 복구에 사용되는 로그 백업에 대량 로그된 변경 내용이 포함되어 있습니다. SQL 지침에 따라 임의의 시점에서 중지 하는 데 사용할 수 없습니다. | 데이터베이스가 대량 로그 복구 모드인 경우 대량 로그 트랜잭션과 다음 로그 트랜잭션 간의 데이터를 복구할 수 없습니다. | 복구를 위해 다른 지정 시간을 선택 합니다. [자세히 알아봅니다](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -164,7 +165,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다. | VM Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 아웃 바운드 연결이 필요 합니다.| -NSG를 사용 하 여 연결을 제한 하는 경우 AzureBackup 서비스 태그를 사용 하 여 Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 Azure Backup 아웃 바운드 액세스를 허용 해야 합니다. 액세스 권한을 부여 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) 를 수행 합니다.<br>-DNS가 Azure 끝점을 확인 하 고 있는지 확인 합니다.<br>-VM이 인터넷 액세스를 차단 하는 부하 분산 장치 뒤에 있는지 확인 합니다. Vm에 공용 IP를 할당 하면 검색은 작동 합니다.<br>-위의 세 대상 서비스에 대 한 호출을 차단 하는 방화벽/바이러스 백신/프록시가 없는지 확인 합니다.
+인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다. | VM Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 아웃 바운드 연결이 필요 합니다.| -NSG를 사용 하 여 연결을 제한 하는 경우 AzureBackup 서비스 태그를 사용 하 여 Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 Azure Backup 아웃 바운드 액세스를 허용 해야 합니다. 액세스 권한을 부여 하려면 다음 [단계](./backup-sql-server-database-azure-vms.md#nsg-tags) 를 수행 합니다.<br>-DNS가 Azure 끝점을 확인 하 고 있는지 확인 합니다.<br>-VM이 인터넷 액세스를 차단 하는 부하 분산 장치 뒤에 있는지 확인 합니다. Vm에 공용 IP를 할당 하면 검색은 작동 합니다.<br>-위의 세 대상 서비스에 대 한 호출을 차단 하는 방화벽/바이러스 백신/프록시가 없는지 확인 합니다.
 
 ## <a name="re-registration-failures"></a>다시 등록 오류
 
@@ -190,7 +191,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 - VM이 삭제되고 삭제된 VM과 이름이 같고 동일한 리소스 그룹에 있는 다른 VM이 생성되었습니다.
 - 가용성 그룹 노드 중 하나가 전체 백업 구성을 받지 못했습니다. 이는 가용성 그룹이 자격 증명 모음에 등록 되거나 새 노드가 추가 될 때 발생할 수 있습니다.
 
-위의 시나리오에서 VM에 대한 다시 등록 작업을 트리거하는 것이 좋습니다. PowerShell에서이 작업을 수행 하는 방법에 대 한 지침은 [여기](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) 를 참조 하세요.
+위의 시나리오에서 VM에 대한 다시 등록 작업을 트리거하는 것이 좋습니다. PowerShell에서이 작업을 수행 하는 방법에 대 한 지침은 [여기](./backup-azure-sql-automation.md#enable-backup) 를 참조 하세요.
 
 ## <a name="size-limit-for-files"></a>파일의 크기 제한
 

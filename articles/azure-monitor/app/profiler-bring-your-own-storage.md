@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361941"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539859"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Application Insights Profiler 및 스냅숏 디버거에 대 한 사용자 고유의 저장소 (BYOS)를 구성 합니다.
 
@@ -21,16 +21,16 @@ Application Insights Profiler 또는 스냅숏 디버거를 사용 하는 경우
 사용자 고유의 저장소를 사용 하 여 이러한 아티팩트는 사용자가 제어 하는 저장소 계정에 업로드 됩니다. 즉, rest 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 제어 합니다. 그러나 해당 저장소 계정과 관련 된 비용을 담당 하 게 됩니다.
 
 > [!NOTE]
-> 개인 링크를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 개인 링크에 대 한 자세한 내용은 [설명서를 참조 하십시오.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)
+> 개인 링크를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 개인 링크에 대 한 자세한 내용은 [설명서를 참조 하십시오.](../platform/private-link-security.md)
 >
-> 고객 관리 키를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 고객 관리 키에 대 한 자세한 내용은 [설명서를 참조 하세요.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)
+> 고객 관리 키를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 고객 관리 키에 대 한 자세한 내용은 [설명서를 참조 하세요.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>내 저장소 계정에 액세스 하는 방법
 1. Virtual Machines 또는 App Service에서 실행 되는 에이전트는 아티팩트 (프로필, 스냅숏 및 기호)를 계정의 blob 컨테이너에 업로드 합니다. 이 프로세스에는 저장소 계정에서 새 blob에 대 한 SAS (공유 액세스 서명) 토큰을 가져오기 위해 Application Insights Profiler 또는 스냅숏 디버거 서비스에 연결 하는 과정이 포함 됩니다.
 1. Application Insights Profiler 또는 스냅숏 디버거 서비스는 들어오는 blob를 분석 하 고 분석 결과 및 로그 파일을 blob 저장소에 다시 씁니다. 사용 가능한 계산 용량에 따라 업로드 후 언제 든 지이 프로세스가 발생할 수 있습니다.
 1. 프로파일러 추적 또는 스냅숏 디버거 분석을 볼 때이 서비스는 blob 저장소에서 분석 결과를 인출 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 * Application Insights 리소스와 동일한 위치에 저장소 계정을 만들어야 합니다. 예: Application Insights 리소스가 미국 서 부 2에 있는 경우 저장소 계정은 미국 서 부에도 있어야 합니다. 
 * Access Control (IAM) UI를 통해 저장소 계정의 AAD 응용 프로그램 "진단 서비스의 신뢰할 수 있는 저장소 액세스"에 "저장소 Blob 데이터 참가자" 역할을 부여 합니다.
 * 개인 링크를 사용 하도록 설정한 경우 Virtual Network에서 신뢰할 수 있는 Microsoft 서비스에 대 한 연결을 허용 하도록 추가 설정을 구성 합니다. 
@@ -60,7 +60,7 @@ _ ![ 그림 1.0](media/profiler-bring-your-own-storage/figure-10.png)_
 _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _그림 1.1_ 
 
-또한 개인 링크를 사용 하는 경우 Virtual Network에서 신뢰할 수 있는 Microsoft 서비스에 대 한 연결을 허용 하는 추가 구성이 하나 필요 합니다. [저장소 네트워크 보안 설명서](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)를 참조 하세요.
+또한 개인 링크를 사용 하는 경우 Virtual Network에서 신뢰할 수 있는 Microsoft 서비스에 대 한 연결을 허용 하는 추가 구성이 하나 필요 합니다. [저장소 네트워크 보안 설명서](../../storage/common/storage-network-security.md#trusted-microsoft-services)를 참조 하세요.
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>저장소 계정을 Application Insights 리소스와 연결
 코드 수준 진단 (프로파일러/디버거)에 대해 BYOS를 구성 하려면 다음 두 가지 옵션을 사용할 수 있습니다.
@@ -73,7 +73,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 
 1. Az PowerShell 4.2.0 이상을 설치 했는지 확인 합니다.
 
-    Azure PowerShell를 설치 하려면 [공식 Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
+    Azure PowerShell를 설치 하려면 [공식 Azure PowerShell 설명서](/powershell/azure/install-az-ps)를 참조 하세요.
 
 1. Application Insights PowerShell 확장을 설치 합니다.
     ```powershell
@@ -85,7 +85,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     Connect-AzAccount -Subscription "{subscription_id}"
     ```
 
-    로그인 하는 방법에 대 한 자세한 내용은 [AzAccount 설명서](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)를 참조 하세요.
+    로그인 하는 방법에 대 한 자세한 내용은 [AzAccount 설명서](/powershell/module/az.accounts/connect-azaccount)를 참조 하세요.
 
 1. Application Insights 리소스에 연결 된 이전 저장소 계정을 제거 합니다.
 
@@ -95,7 +95,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
-    예:
+    예제:
     ```powershell
     $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
@@ -110,7 +110,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     New-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id -LinkedStorageAccountResourceId $storageAccount.Id
     ```
 
-    예:
+    예제:
     ```powershell
     $storageAccount = Get-AzStorageAccount -ResourceGroupName "byos-test" -Name "byosteststoragewestus2"
     $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
@@ -121,7 +121,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 
 1. Azure CLI를 설치 했는지 확인 합니다.
 
-    Azure CLI를 설치 하려면 [공식 Azure CLI 설명서](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
+    Azure CLI를 설치 하려면 [공식 Azure CLI 설명서](/cli/azure/install-azure-cli)를 참조 하세요.
 
 1. Application Insights CLI 확장을 설치 합니다.
     ```powershell
@@ -135,7 +135,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     az monitor app-insights component linked-storage link --resource-group "{resource_group_name}" --app "{application_insights_name}" --storage-account "{storage_account_name}"
     ```
     
-    예:
+    예제:
     ```powershell
     az monitor app-insights component linked-storage link --resource-group "byos-test" --app "byos-test-westus2-ai" --storage-account "byosteststoragewestus2"
     ```
@@ -152,7 +152,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     ```
 
     > [!NOTE]
-    > Application Insights 리소스에 대 한 연결 된 저장소 계정에 대 한 업데이트를 수행 하려면 [APPLICATION INSIGHTS CLI 설명서](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage)를 참조 하세요.
+    > Application Insights 리소스에 대 한 연결 된 저장소 계정에 대 한 업데이트를 수행 하려면 [APPLICATION INSIGHTS CLI 설명서](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage)를 참조 하세요.
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 구성
 
@@ -191,7 +191,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     New-AzResourceGroupDeployment -ResourceGroupName "{your_resource_name}" -TemplateFile "{local_path_to_arm_template}"
     ```
 
-    예:
+    예제:
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "byos-test" -TemplateFile "D:\Docs\byos.template.json"
     ```

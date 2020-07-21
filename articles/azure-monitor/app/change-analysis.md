@@ -5,17 +5,18 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: c287a2315f2b2319a6873ce84ee0e4e48bec8444
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82836801"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540165"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
 라이브 사이트 문제 또는 중단이 발생 하는 경우 근본 원인을 신속 하 게 확인 하는 것이 중요 합니다. 표준 모니터링 솔루션은 문제를 경고할 수 있습니다. 실패 한 구성 요소를 나타낼 수도 있습니다. 그러나이 경고는 항상 오류의 원인을 즉시 설명 하지는 않습니다. 사이트는 5 분 전에 작동 했으며 이제는 중단 되었습니다. 최근 5 분 동안 변경 된 내용은 무엇 인가요? 이는 응용 프로그램 변경 분석을 Azure Monitor에서 답변 하도록 설계 된 질문입니다.
 
-[Azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview)의 기능을 기반으로 하는 변경 분석을 통해 azure 응용 프로그램 변경 내용에 대 한 통찰력을 제공 하 여 관찰성를 늘리고 MTTR (평균 복구 시간)를 줄일 수 있습니다.
+[Azure 리소스 그래프](../../governance/resource-graph/overview.md)의 기능을 기반으로 하는 변경 분석을 통해 azure 응용 프로그램 변경 내용에 대 한 통찰력을 제공 하 여 관찰성를 늘리고 MTTR (평균 복구 시간)를 줄일 수 있습니다.
 
 > [!IMPORTANT]
 > 변경 분석은 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 됩니다. 이 버전은 프로덕션 워크 로드에는 권장 되지 않습니다. 일부 기능은 지원 되지 않거나 제한 된 기능을 가질 수 있습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -34,7 +35,7 @@ ms.locfileid: "82836801"
 
 ### <a name="azure-resource-manager-tracked-properties-changes"></a>추적 된 속성 변경 내용 Azure Resource Manager
 
-[Azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview)를 사용 하 여 변경 분석을 통해 응용 프로그램을 호스트 하는 azure 리소스가 시간에 따라 어떻게 변경 되었는지에 대 한 기록 기록을 제공 합니다. 관리 되는 id, 플랫폼 OS 업그레이드 및 호스트 이름과 같은 추적 된 설정을 검색할 수 있습니다.
+[Azure 리소스 그래프](../../governance/resource-graph/overview.md)를 사용 하 여 변경 분석을 통해 응용 프로그램을 호스트 하는 azure 리소스가 시간에 따라 어떻게 변경 되었는지에 대 한 기록 기록을 제공 합니다. 관리 되는 id, 플랫폼 OS 업그레이드 및 호스트 이름과 같은 추적 된 설정을 검색할 수 있습니다.
 
 ### <a name="azure-resource-manager-proxied-setting-changes"></a>프록시 설정 변경 Azure Resource Manager
 
@@ -58,7 +59,7 @@ IP 구성 규칙, TLS 설정, 확장 버전 등의 설정은 Azure 리소스 그
 
 응용 프로그램 변경 분석 서비스는 위에서 언급 한 데이터 원본의 변경 데이터를 계산 하 고 집계 합니다. 사용자가 모든 리소스 변경 사항을 쉽게 탐색 하 고 문제 해결 또는 모니터링 컨텍스트와 관련 된 변경 내용을 식별할 수 있도록 분석 집합을 제공 합니다.
 "Microsoft. ChangeAnalysis" 리소스 공급자는 Azure Resource Manager 추적 속성 및 프록시 설정 변경 데이터를 사용할 수 있도록 구독에 등록 해야 합니다. 웹 앱 진단 및 문제 해결 도구를 입력 하거나 변경 분석 독립 실행형 탭을 표시할 때이 리소스 공급자가 자동으로 등록 됩니다. 구독에 대 한 성능 또는 비용 구현이 없습니다. 웹 앱에 대 한 변경 분석을 사용 하도록 설정 하는 경우 (또는 문제 진단 및 해결 도구를 사용 하는 경우) 웹 앱에 대 한 성능 영향을 최소화 하 고 청구 비용을 부과 하지 않습니다.
-웹 앱 게스트 변경의 경우 웹 앱 내에서 코드 파일을 검색 하는 데 별도의 기능이 필요 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 [문제 진단 및 해결 도구 섹션에서 변경 분석](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#application-change-analysis-in-the-diagnose-and-solve-problems-tool) 을 참조 하세요.
+웹 앱 게스트 변경의 경우 웹 앱 내에서 코드 파일을 검색 하는 데 별도의 기능이 필요 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 [문제 진단 및 해결 도구 섹션에서 변경 분석](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) 을 참조 하세요.
 
 ## <a name="visualizations-for-application-change-analysis"></a>응용 프로그램 변경 분석에 대 한 시각화
 
@@ -118,7 +119,7 @@ Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결
 
 필수 조건:
 
-- PowerShell Az Module. [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0) 의 지침을 따르세요.
+- PowerShell Az Module. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps?view=azps-2.6.0) 의 지침을 따르세요.
 
 다음 스크립트를 실행합니다.
 
@@ -158,4 +159,4 @@ foreach ($webapp in $webapp_list)
 
 - [Azure 앱 Services 앱](azure-web-apps.md)에 대 한 Application Insights를 사용 하도록 설정 합니다.
 - [AZURE VM 및 azure 가상 머신 확장 집합 IIS에서 호스팅되는 앱](azure-vm-vmss-apps.md)에 대 한 Application Insights를 사용 하도록 설정 합니다.
-- Power Change 분석에 도움이 되는 [Azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview)에 대해 자세히 알아보세요.
+- Power Change 분석에 도움이 되는 [Azure 리소스 그래프](../../governance/resource-graph/overview.md)에 대해 자세히 알아보세요.

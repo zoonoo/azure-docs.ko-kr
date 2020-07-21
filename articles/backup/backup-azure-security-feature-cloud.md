@@ -3,17 +3,18 @@ title: Azure Backup에 대 한 일시 삭제
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116410"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538839"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Azure Backup에 대 한 일시 삭제
 
 맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다.
 
-이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우에도), 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존은 고객에 게 비용을 부과 하지 않습니다.
+이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우에도), 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 추가 14 일 보존은 고객에 게 비용을 부과 하지 않습니다.
 
 다음 서비스에 대해 일시 삭제 보호를 사용할 수 있습니다.
 
@@ -28,7 +29,7 @@ ms.locfileid: "84116410"
 
 일시 삭제는 새로 만든 자격 증명 모음에 대해 기본적으로 사용 하도록 설정 되어 실수로 또는 악의적 삭제 로부터 백업 데이터를 보호 합니다.  이 기능은 사용 하지 않는 것이 좋습니다. 일시 삭제를 사용 하지 않도록 설정 해야 하는 유일한 경우는 보호 된 항목을 새 자격 증명 모음으로 이동할 계획인 경우이 고, 테스트 환경에서와 같이 삭제 하 고 다시 보호 하기 전에 14 일을 기다릴 수 없는 경우입니다. 자격 증명 모음 소유자만이 기능을 사용 하지 않도록 설정할 수 있습니다. 이 기능을 사용 하지 않도록 설정 하면 보호 된 항목을 나중에 삭제할 때마다 복원 기능 없이 즉시 제거 됩니다. 이 기능을 사용 하지 않도록 설정 하기 전에 일시 삭제 된 상태에 있는 백업 데이터는 14 일 동안 일시 삭제 상태로 유지 됩니다. 이러한 항목을 즉시 영구적으로 삭제 하려면 삭제를 취소 하 고 삭제 한 후 영구적으로 삭제 해야 합니다.
 
- 일시 삭제를 사용 하지 않도록 설정 하면 SQL server 및 SAP HANA 작업을 비롯 한 모든 유형의 작업에 대해 기능을 사용할 수 없다는 점을 기억해 야 합니다. 예를 들어 구독에 대해 [SQL Server/SAP HANA 미리 보기](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) 를 사용 하도록 설정한 후에는 동일한 자격 증명 모음에서 가상 컴퓨터에 대해 사용 하도록 설정 된 상태로 유지 하면서 SQL Server 또는 SAP HANA db에 대해서만 일시 삭제를 사용 하지 않도록 설정할 수 없습니다. 세부적인 제어를 위해 별도의 자격 증명 모음을 만들 수 있습니다.
+ 일시 삭제를 사용 하지 않도록 설정 하면 SQL server 및 SAP HANA 작업을 비롯 한 모든 유형의 작업에 대해 기능을 사용할 수 없다는 점을 기억해 야 합니다. 예를 들어 구독에 대해 [SQL Server/SAP HANA 미리 보기](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) 를 사용 하도록 설정한 후에는 동일한 자격 증명 모음에서 가상 컴퓨터에 대해 사용 하도록 설정 된 상태로 유지 하면서 SQL Server 또는 SAP HANA db에 대해서만 일시 삭제를 사용 하지 않도록 설정할 수 없습니다. 세부적인 제어를 위해 별도의 자격 증명 모음을 만들 수 있습니다.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Azure Portal를 사용 하 여 일시 삭제 사용 안 함
 
@@ -45,7 +46,7 @@ ms.locfileid: "84116410"
 > [!IMPORTANT]
 > Azure PS를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Service 버전은 min 2.2.0입니다. ```Install-Module -Name Az.RecoveryServices -Force```를 사용 하 여 최신 버전을 가져옵니다.
 
-사용 하지 않도록 설정 하려면 [AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS cmdlet을 사용 합니다.
+사용 하지 않도록 설정 하려면 [AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PS cmdlet을 사용 합니다.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -68,7 +69,7 @@ REST API를 사용 하 여 일시 삭제 기능을 사용 하지 않도록 설�
 
 ### <a name="using-azure-portal"></a>Azure Portal 사용
 
-아래 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1. [일시 삭제를 사용 하지 않도록 설정](#enabling-and-disabling-soft-delete)하는 단계를 수행 합니다.
 
@@ -86,11 +87,11 @@ REST API를 사용 하 여 일시 삭제 기능을 사용 하지 않도록 설�
 
 5. 백업 데이터 **삭제** 를 선택 하 여 백업 데이터를 영구적으로 삭제 합니다.
 
-   ![백업 데이터 삭제 선택](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![백업 데이터 삭제 선택](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. 복구 지점이 삭제 되도록 확인할 백업 항목의 이름을 입력 합니다.
 
-   ![백업 항목의 이름 입력](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![백업 항목의 이름 입력](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. 항목에 대 한 백업 데이터를 삭제 하려면 **삭제**를 선택 합니다. 알림 메시지를 통해 백업 데이터가 삭제 되었음을 알 수 있습니다.
 
@@ -139,7 +140,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 2. 그런 다음 [여기](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)에 설명 된 단계를 사용 하 여 REST API를 사용 하는 일시 삭제 기능을 비활성화 합니다.
 3. 그런 다음 [여기](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)에 설명 된 대로 REST API를 사용 하 여 백업을 삭제 합니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>모든 자격 증명 모음에서 일시 삭제 기능을 사용 하도록 설정 해야 하나요?
 

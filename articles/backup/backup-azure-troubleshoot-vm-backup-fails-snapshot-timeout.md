@@ -5,11 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55af4bddb5a963a831c1438400a7a243cca20573
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864405"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538822"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -27,7 +28,7 @@ Azure VM 에이전트가 중지 되었거나, 오래 되었거나, 일관 되지
 - Vm **상태가** **실행 중** 이 고 **에이전트 상태가** **준비**인지 확인 하는 **Azure Portal > vm > 설정 > 속성 > 창을 엽니다** . VM 에이전트가 중지 되었거나 일관 되지 않은 상태에 있는 경우 에이전트를 다시 시작 하십시오.<br>
   - Windows Vm의 경우 다음 [단계](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) 에 따라 게스트 에이전트를 다시 시작 합니다.<br>
   - Linux Vm의 경우 다음 [단계](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) 를 수행 하 여 게스트 에이전트를 다시 시작 합니다.
-- **Azure Portal > VM > 설정 > 확장을 열고** 모든 확장이 **프로 비전 성공** 상태에 있는지 확인 > 합니다. 그렇지 않은 경우 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) 에 따라 문제를 해결 합니다.
+- **Azure Portal > VM > 설정 > 확장을 열고** 모든 확장이 **프로 비전 성공** 상태에 있는지 확인 > 합니다. 그렇지 않은 경우 다음 [단계](#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) 에 따라 문제를 해결 합니다.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없습니다.
 
@@ -51,7 +52,7 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 **오류 코드**: UserErrorVmProvisioningStateFailed<br>
 **오류 메시지**: VM이 프로 비전 실패 상태에 있습니다.<br>
 
-이 오류는 확장 오류 중 하나에서 VM을 프로 비전 실패 상태로 전환 하는 경우에 발생 합니다.<br>**Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고** 모든 확장이 **프로 비전 성공** 상태 인지 확인 합니다. 자세히 알아보려면 [프로 비전 상태](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states)를 참조 하세요.
+이 오류는 확장 오류 중 하나에서 VM을 프로 비전 실패 상태로 전환 하는 경우에 발생 합니다.<br>**Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고** 모든 확장이 **프로 비전 성공** 상태 인지 확인 합니다. 자세히 알아보려면 [프로 비전 상태](../virtual-machines/windows/states-lifecycle.md#provisioning-states)를 참조 하세요.
 
 - VMSnapshot 확장이 실패 상태 이면 실패 한 확장을 마우스 오른쪽 단추로 클릭 하 고 제거 합니다. 주문형 백업을 트리거합니다. 이 작업은 확장을 다시 설치 하 고 백업 작업을 실행 합니다.  <br>
 - 다른 확장이 실패 상태 이면 백업을 방해할 수 있습니다. 이러한 확장 문제가 해결 되었는지 확인 한 후 백업 작업을 다시 시도 하십시오.
@@ -79,7 +80,7 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 **오류 코드**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **오류 메시지**: Backup에는 암호화된 VM을 백업하기 위한 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다. <br>
 
-암호화 된 Vm에서 백업 작업이 성공 하려면 키 자격 증명 모음에 액세스할 수 있는 권한이 있어야 합니다. 사용 권한은 [Azure Portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) 또는 [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)을 통해 설정할 수 있습니다.
+암호화 된 Vm에서 백업 작업이 성공 하려면 키 자격 증명 모음에 액세스할 수 있는 권한이 있어야 합니다. 사용 권한은 [Azure Portal](./backup-azure-vms-encryption.md) 또는 [PowerShell](./backup-azure-vms-automation.md#enable-protection)을 통해 설정할 수 있습니다.
 
 ## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a><a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - 가상 머신에 네트워크 연결이 없으므로 스냅샷 작업이 실패했습니다.
 
@@ -129,9 +130,9 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 2. 복구 서비스 자격 증명 모음 목록에서 백업이 구성된 자격 증명 모음을 선택합니다.
 3. 자격 증명 모음 대시보드 메뉴에서 **백업 작업**을 클릭하여 모든 백업 작업을 표시합니다.
    - 백업 작업이 진행 중이면 백업 작업이 완료될 때까지 기다리거나 취소합니다.
-     - 백업 작업을 취소 하려면 백업 작업을 마우스 오른쪽 단추로 클릭 하 고 **취소** 또는 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)사용을 클릭 합니다.
+     - 백업 작업을 취소 하려면 백업 작업을 마우스 오른쪽 단추로 클릭 하 고 **취소** 또는 [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)사용을 클릭 합니다.
    - 다른 자격 증명 모음에서 백업을 다시 구성한 경우 이전 자격 증명 모음에서 실행 중인 백업 작업이 없는지 확인 합니다. 존재 하는 경우 백업 작업을 취소 합니다.
-     - 백업 작업을 취소 하려면 백업 작업을 마우스 오른쪽 단추로 클릭 하 고 **취소** 또는 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0) 사용을 클릭 합니다.
+     - 백업 작업을 취소 하려면 백업 작업을 마우스 오른쪽 단추로 클릭 하 고 **취소** 또는 [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob) 사용을 클릭 합니다.
 4. 백업 작업을 다시 시도합니다.
 
 예약 된 백업 작업이 더 오래 걸리고 다음 백업 구성과 충돌 하는 경우 [최선의 구현 방법](backup-azure-vms-introduction.md#best-practices), [백업 성능](backup-azure-vms-introduction.md#backup-performance)및 [복원 고려 사항](backup-azure-vms-introduction.md#backup-and-restore-considerations)을 검토 합니다.
@@ -166,7 +167,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 6. 다음과 같이 주문형 백업을 실행합니다.
    - 포털에서 **지금 백업**을 선택합니다.
 
-또는 VM에서 [Microsoft .NET 4.5가 설치되어 있는지](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 확인합니다. .NET 4.5는 VM 에이전트가 서비스와 통신하는 데 필요합니다.
+또는 VM에서 [Microsoft .NET 4.5가 설치되어 있는지](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 확인합니다. .NET 4.5는 VM 에이전트가 서비스와 통신하는 데 필요합니다.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
@@ -174,7 +175,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
-1. [Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md)의 지침을 따르세요.
+1. [Linux VM 에이전트 업데이트](../virtual-machines/extensions/update-linux-agent.md)의 지침을 따르세요.
 
    > [!NOTE]
    > 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 *강력히 권장*합니다. GitHub에서 에이전트 코드를 직접 다운로드한 후 업데이트하는 것은 바람직하지 않습니다. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 설치 방법에 대한 지침을 얻으세요. 최신 에이전트를 확인하려면 GitHub 리포지토리의 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 페이지로 이동하세요.
@@ -206,7 +207,7 @@ VM 에이전트 구성 파일 옵션의 전체 목록은 다음을 참조 하세
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>응용 프로그램 제어 솔루션이 차단 IaaSBcdrExtension.exe
 
-[AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) 또는 다른 응용 프로그램 제어 솔루션을 실행 하는 경우 규칙은 게시자 또는 경로를 기반으로 하며, **IaaSBcdrExtension.exe** 실행 파일이 실행 되지 못하도록 차단할 수 있습니다.
+[AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) 또는 다른 응용 프로그램 제어 솔루션을 실행 하는 경우 규칙은 게시자 또는 경로를 기반으로 하며, **IaaSBcdrExtension.exe** 실행 파일이 실행 되지 못하도록 차단할 수 있습니다.
 
 #### <a name="solution"></a>솔루션
 

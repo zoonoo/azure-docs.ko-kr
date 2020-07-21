@@ -4,12 +4,12 @@ description: Azure Blockchain 워크 벤치 미리 보기의 스마트 계약 �
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254636"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538361"
 ---
 # <a name="smart-contract-integration-patterns"></a>스마트 계약 통합 패턴
 
@@ -134,7 +134,7 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 -   상태 변화는 다운스트림 소비자에게 이벤트로 나타납니다.
 -   다운스트림 소비자는 이벤트를 수신하고 외부 코드 실행을 트리거합니다.
 
-![외부 프로세스로의 전환 제어](./media/integration-patterns/transition-external-process.png)
+![이 다이어그램에서는 이벤트를 분산 원장으로 이동 시키는 계약 내 상태 변경을 보여 줍니다. 블록 체인 워크 벤치는 이벤트를 선택 하 고 게시 합니다.](./media/integration-patterns/transition-external-process.png)
 
 #### <a name="return-of-control-from-the-smart-contract"></a>스마트 계약에서 제어 반환
 
@@ -142,7 +142,7 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 
 ##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Azure Blockchain Workbench에서 예상되는 형식으로 직접 전달
 
-![](./media/integration-patterns/direct-delivery.png)
+![다이어그램은 Service Bus를 통해 Blockchain 워크 벤치에 의해 선택 되는 외부 시스템의 A P 메시지를 보여 줍니다. 블록 체인 워크 벤치는 에이전트를 대신해 서 분산 원장에 메시지를 트랜잭션으로 보냅니다. 상태를 변경 하는 계약에 전달 됩니다.](./media/integration-patterns/direct-delivery.png)
 
 이 모델에서는 위의 프로세스가 진행된 다음 계약에 대한 통신과 후속 상태 변경이 다음과 같이 진행됩니다.
 

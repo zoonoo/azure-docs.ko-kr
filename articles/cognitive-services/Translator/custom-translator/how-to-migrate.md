@@ -9,11 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 02e6d776dbb47ee8e30409f6b8adc5a61fc5fe52
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958925"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537989"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -129,9 +130,9 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
 이 표에서는 Microsoft Translator Hub와 및 Custom Translator 간의 기능을 비교합니다.
 
-|   | 허브 | Custom Translator |
-|:-----|:----:|:----:|
-|사용자 지정 기능 상태    | 일반 공급    | 일반 공급 |
+| 기능 | 허브 | Custom Translator |
+| ------- | :-: | :---------------: |
+| 사용자 지정 기능 상태    | 일반 공급    | 일반 공급 |
 | Text API 버전    | V2     | V3  |
 | SMT 사용자 지정    | 예    | 아니요 |
 | NMT 사용자 지정    | 아니요    | 예 |

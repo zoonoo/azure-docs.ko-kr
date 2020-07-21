@@ -3,12 +3,12 @@ title: Azure Application Insights에서 리소스, 역할 및 액세스 제어 |
 description: 조직 Insights의 소유자, 참여자 및 읽기 권한자입니다.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ee14fee66e3aa6f4e8d999f6f98debe361387515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92f40961cd824925fe6ed1b67745667121a66d2f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628240"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539978"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 
@@ -59,7 +59,7 @@ ms.locfileid: "82628240"
 
 아래 **권한 추가** 보기는 주로 Application Insights 리소스에 관련된 것으로, 리소스 그룹과 같은 상위 수준에서 액세스 제어 권한을 보는 경우 추가 Application Insights 중심이 아닌 추가 역할을 볼 수 있습니다.
 
-모든 Azure 역할 기반 액세스 제어 기본 제공 역할에 대한 정보를 보려면 [공식 참조 콘텐츠](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 사용합니다.
+모든 Azure 역할 기반 액세스 제어 기본 제공 역할에 대한 정보를 보려면 [공식 참조 콘텐츠](../../role-based-access-control/built-in-roles.md)를 사용합니다.
 
 ![액세스 제어 사용자 역할 목록의 스크린샷](./media/resources-roles-access-control/0003-user-roles.png)
 
@@ -69,23 +69,23 @@ ms.locfileid: "82628240"
 
 | 역할 | 리소스 그룹에서 할 수 있는 일 |
 | --- | --- |
-| [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |사용자 액세스를 포함하여 모든 것을 변경할 수 있습니다. |
-| [기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |모든 리소스를 포함하여 모든 것을 편집할 수 있습니다. |
-| [Application Insights 구성 요소 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Application Insights 리소스를 편집할 수 있습니다. |
-| [판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |모든 것을 볼 수 있지만 변경할 수는 없습니다. |
-| [Application Insights 스냅샷 디버거](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | 사용자에게 Application Insights 스냅샷 디버거 기능을 사용할 수 있는 권한을 부여합니다. 이 역할은 소유자 또는 기여자 역할 모두에 포함되지 않습니다. |
+| [소유자](../../role-based-access-control/built-in-roles.md#owner) |사용자 액세스를 포함하여 모든 것을 변경할 수 있습니다. |
+| [기여자](../../role-based-access-control/built-in-roles.md#contributor) |모든 리소스를 포함하여 모든 것을 편집할 수 있습니다. |
+| [Application Insights 구성 요소 기여자](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor) |Application Insights 리소스를 편집할 수 있습니다. |
+| [판독기](../../role-based-access-control/built-in-roles.md#reader) |모든 것을 볼 수 있지만 변경할 수는 없습니다. |
+| [Application Insights 스냅샷 디버거](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | 사용자에게 Application Insights 스냅샷 디버거 기능을 사용할 수 있는 권한을 부여합니다. 이 역할은 소유자 또는 기여자 역할 모두에 포함되지 않습니다. |
 | Azure Service Deploy 릴리스 관리 기여자 | Azure Service Deploy를 통해 배포하는 서비스에 대한 기여자 역할입니다. |
-| [데이터 제거자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | 개인 데이터 제거를 위한 특별 역할입니다. 자세한 내용은 [개인 데이터에 대한 지침](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data)을 참조하세요.   |
+| [데이터 제거자](../../role-based-access-control/built-in-roles.md#data-purger) | 개인 데이터 제거를 위한 특별 역할입니다. 자세한 내용은 [개인 데이터에 대한 지침](../platform/personal-data-mgmt.md)을 참조하세요.   |
 | ExpressRoute 관리자 | 기본 경로를 삭제하고 관리할 수 있습니다.|
-| [Log Analytics 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.  |
-| [Log Analytics 독자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |
+| [Log Analytics 기여자](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.  |
+| [Log Analytics 독자](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |
 | masterreader | 사용자가 모든 것을 볼 수 있지만 변경은 할 수 없도록 허용합니다. |
-| [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다.|
-| [모니터링 메트릭 게시자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Azure 리소스에 대한 게시 메트릭을 사용하도록 설정합니다. |
-| [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있습니다. |
+| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다.|
+| [모니터링 메트릭 게시자](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) | Azure 리소스에 대한 게시 메트릭을 사용하도록 설정합니다. |
+| [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있습니다. |
 | 리소스 정책 참가자(미리 보기) | 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다.  |
-| [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | 사용자가 Azure 리소스에 다른 사용자에 대한 액세스를 관리할 수 있도록 허용합니다.|
-| [웹 사이트 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다.|
+| [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) | 사용자가 Azure 리소스에 다른 사용자에 대한 액세스를 관리할 수 있도록 허용합니다.|
+| [웹 사이트 기여자](../../role-based-access-control/built-in-roles.md#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다.|
 
 '편집'에는 다음 항목을 만들고, 삭제하고, 업데이트하는 작업이 포함됩니다.
 

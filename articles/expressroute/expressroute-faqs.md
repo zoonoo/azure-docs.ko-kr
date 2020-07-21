@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8309c98e9ae45650f65fcd54676cc7655934039d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987302"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537125"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -110,7 +111,7 @@ Microsoft는 인터넷 라우팅 레지스트리에서 지정된 '보급된 공�
 
 '유효성 검사 필요' 메시지가 표시되면 라우팅 레지스트리에서 접두사의 소유자로 표시되는 엔터티가 조직에 할당한 공용 접두사를 보여 주는 문서를 수집하고, 아래와 같이 지원 티켓을 열어 수동 유효성 검사를 위해 이러한 문서를 제출합니다.
 
-![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
+!["공용 접두사에 대 한 소유권 증명"에 대 한 새 지원 요청 (지원 티켓)을 보여 주는 스크린샷](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>ExpressRoute에서 Dynamics 365가 지원되나요?
 
@@ -175,7 +176,7 @@ BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여
 
 서비스 공급자가 실제 연결을 통해 두 개의 이더넷 가상 회로를 설정할 수 있으면 하나의 실제 연결만 필요합니다. 실제 연결(예: 광섬유)은 레이어 1(L1) 디바이스에서 종료됩니다(이미지 참조). 두 개의 이더넷 가상 회로에는 서로 다른 VLAN ID로 태그가 지정되는데, 하나는 기본 회로용이고 다른 하나는 보조 회로용입니다. 해당 VLAN ID는 외부 802.1Q 이더넷 헤더에 있습니다. 내부 802.1Q 이더넷 헤더(표시되지 않음)는 특정 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)에 매핑됩니다.
 
-![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
+![고객 사이트와 Express 경로 위치의 스위치 사이에 물리적 연결을 구성 하는 L1 (레이어 1) 기본 및 보조 가상 회로를 강조 표시 하는 다이어그램입니다.](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>ExpressRoute를 사용하여 Azure에 대한 내 VLAN 중 하나를 확장할 수 있나요?
 

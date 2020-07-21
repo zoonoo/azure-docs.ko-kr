@@ -3,12 +3,12 @@ title: Azure Application Insights에서 SQL로 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하여 Application Insights 데이터를 SQL로 계속 내보냅니다.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3c8586e8a6950e827d1078ca7d9cc3792fa58ae0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4975d91cc20b81de302a1dd0cb7b3326878a96a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087234"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540097"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용 하 여 [Azure 애플리케이션 Insights][start] 에서 Azure SQL Database로 원격 분석 데이터를 이동 하는 방법을 보여 줍니다. 
@@ -82,7 +82,7 @@ ms.locfileid: "86087234"
 ![찾아보기, 서버, 사용자 서버, 설정, 방화벽, Azure에 대한 액세스 허용](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Azure SQL Database에서 테이블 만들기
-기본 관리 도구로 이전 섹션에서 만든 데이터베이스에 연결합니다. 이 연습에서는 SSMS( [SQL Server 관리 도구](https://msdn.microsoft.com/ms174173.aspx) )를 사용합니다.
+기본 관리 도구로 이전 섹션에서 만든 데이터베이스에 연결합니다. 이 연습에서는 SSMS( [SQL Server 관리 도구](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) )를 사용합니다.
 
 ![Azure SQL Database에 연결](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -255,4 +255,3 @@ FROM [dbo].[PageViewsTable]
 [metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
-

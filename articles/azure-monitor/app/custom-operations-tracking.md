@@ -4,12 +4,12 @@ description: Azure Application Insights .NET SDK를 통한 사용자 지정 작�
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82690855"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540046"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -169,7 +169,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>프로세스
+#### <a name="process"></a>Process
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -300,7 +300,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>프로세스
+#### <a name="process"></a>Process
 
 다음 예제에서 들어오는 메시지는 들어오는 HTTP 요청과 비슷한 방식으로 추적됩니다.
 
@@ -346,7 +346,7 @@ public async Task Process(MessagePayload message)
 
 ### <a name="dependency-types"></a>종속성 유형
 
-Application Insights는 종속성 형식을 사용 하 여 UI 환경을 사용자 지정 합니다. 큐의 경우 `DependencyTelemetry` [트랜잭션 진단 환경을](/azure/azure-monitor/app/transaction-diagnostics)개선 하는 다음과 같은 유형을 인식 합니다.
+Application Insights는 종속성 형식을 사용 하 여 UI 환경을 사용자 지정 합니다. 큐의 경우 `DependencyTelemetry` [트랜잭션 진단 환경을](./transaction-diagnostics.md)개선 하는 다음과 같은 유형을 인식 합니다.
 - `Azure queue`Azure Storage 큐의 경우
 - `Azure Event Hubs`Azure Event Hubs
 - `Azure Service Bus`Azure Service Bus
@@ -425,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 작업을 삭제하면 작업이 중지되므로 `StopOperation`을 호출하는 대신 수행할 수 있습니다.
 
-*경고*: 일부 경우에는 예외가 호출 되지 [않을 수](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` 있으므로 작업이 추적 되지 않을 수 있습니다.
+*경고*: 일부 경우에는 예외가 호출 되지 [않을 수](/dotnet/csharp/language-reference/keywords/try-finally) `finally` 있으므로 작업이 추적 되지 않을 수 있습니다.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>병렬 작업 처리 및 추적
 

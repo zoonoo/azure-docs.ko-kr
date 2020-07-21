@@ -3,11 +3,12 @@ title: MARS 에이전트를 사용 하 여 Windows 컴퓨터 백업
 description: MARS (Microsoft Azure Recovery Services) 에이전트를 사용 하 여 Windows 컴퓨터를 백업 합니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604848"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538635"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Azure에 Windows Server 파일 및 폴더 백업
 
@@ -103,7 +104,7 @@ Azure Backup는 DST (일광 절약 시간)를 자동으로 고려 하지 않습�
 1. 준비 위치에 백업 데이터를 씁니다.
 1. AzureOfflineBackupDiskPrep 도구를 사용 하 여 스테이징 위치에서 하나 이상의 SATA 디스크로 데이터를 복사 합니다.
 
-    이 도구는 Azure 가져오기 작업을 만듭니다. 자세한 내용은 [Azure Import/Export 서비스 정의](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)를 참조 하세요.
+    이 도구는 Azure 가져오기 작업을 만듭니다. 자세한 내용은 [Azure Import/Export 서비스 정의](../storage/common/storage-import-export-service.md)를 참조 하세요.
 1. Azure 데이터 센터에 SATA 디스크를 보냅니다.
 
     데이터 센터에서 디스크 데이터는 Azure storage 계정에 복사 됩니다. Azure Backup 저장소 계정에서 자격 증명 모음으로 데이터를 복사 하 고 증분 백업이 예약 됩니다.
@@ -114,7 +115,7 @@ Azure Backup는 DST (일광 절약 시간)를 자동으로 고려 하지 않습�
 
 네트워크 제한을 사용 하도록 설정 하 여 MARS 에이전트가 네트워크 대역폭을 사용 하는 방법을 제어할 수 있습니다. 제한은 근무 시간에 데이터를 백업 해야 하지만 백업 및 복원 작업에서 사용 하는 대역폭의 양을 제어 하려는 경우에 유용 합니다.
 
-Azure Backup의 네트워크 제한은 로컬 운영 체제의 [QoS (서비스 품질)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) 를 사용 합니다.
+Azure Backup의 네트워크 제한은 로컬 운영 체제의 [QoS (서비스 품질)](/windows-server/networking/technologies/qos/qos-policy-top) 를 사용 합니다.
 
 백업에 대 한 네트워크 제한은 Windows Server 2012 이상 및 Windows 8 이상에서 사용할 수 있습니다. 운영 체제는 최신 서비스 팩을 실행 해야 합니다.
 
@@ -124,7 +125,7 @@ Azure Backup의 네트워크 제한은 로컬 운영 체제의 [QoS (서비스 �
 1. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택 합니다.
 
     ![백업 작업에 대 한 네트워크 제한 설정](./media/backup-configure-vault/throttling-dialog.png)
-1. 근무 시간 및 근무 외 시간에 허용 되는 대역폭을 지정 합니다. 대역폭 값은 512 Kbps에서 시작 하 여 1023 MBps로 이동 합니다. 그런 다음, **확인**을 선택합니다.
+1. 근무 시간 및 근무 외 시간에 허용 되는 대역폭을 지정 합니다. 대역폭 값은 512 Kbps에서 시작 하 여 1023 MBps로 이동 합니다. 그런 다음 **확인**을 선택합니다.
 
 ## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 
@@ -149,7 +150,7 @@ Azure Backup의 네트워크 제한은 로컬 운영 체제의 [QoS (서비스 �
 
 | 백업-일정 옵션 | 데이터 보존 기간
 | -- | --
-| 일 | **기본 보존**: "일별 백업에 대 한 보존 기간 (일)"에 해당 합니다. <br/><br/> **예외**: 장기 보존 (주, 월 또는 년)에 대해 설정 된 매일 예약 된 백업이 실패 하는 경우 실패 직후 트리거되는 주문형 백업은 장기 보존에 대 한 것으로 간주 됩니다. 그렇지 않으면 다음 예약 된 백업이 장기 보존을 위해 고려 됩니다.<br/><br/> **예제 시나리오**: 목요일 오전 8:00 시에 예약 된 백업이 실패 했습니다. 이 백업은 매주, 매월 또는 매년 보존 되는 것으로 간주 됩니다. 따라서 금요일 오전 8:00에 예약 된 다음 백업 이전에 트리거된 첫 번째 주문형 백업은 매주, 매월 또는 매년 보존에 대해 자동으로 태그가 지정 됩니다. 이 백업은 목요일 8:00 AM 백업을 대체 합니다.
+| Day | **기본 보존**: "일별 백업에 대 한 보존 기간 (일)"에 해당 합니다. <br/><br/> **예외**: 장기 보존 (주, 월 또는 년)에 대해 설정 된 매일 예약 된 백업이 실패 하는 경우 실패 직후 트리거되는 주문형 백업은 장기 보존에 대 한 것으로 간주 됩니다. 그렇지 않으면 다음 예약 된 백업이 장기 보존을 위해 고려 됩니다.<br/><br/> **예제 시나리오**: 목요일 오전 8:00 시에 예약 된 백업이 실패 했습니다. 이 백업은 매주, 매월 또는 매년 보존 되는 것으로 간주 됩니다. 따라서 금요일 오전 8:00에 예약 된 다음 백업 이전에 트리거된 첫 번째 주문형 백업은 매주, 매월 또는 매년 보존에 대해 자동으로 태그가 지정 됩니다. 이 백업은 목요일 8:00 AM 백업을 대체 합니다.
 | 주 | **기본 보존**: 1 일 매주 백업 정책이 있는 데이터 원본에 대해 수행 되는 주문형 백업은 다음 날에 삭제 됩니다. 데이터 원본에 대 한 최신 백업 인 경우에도 삭제 됩니다. <br/><br/> **예외**: 장기 보존 (주, 월 또는 년)에 대해 설정 된 주별 예약 된 백업이 실패 하는 경우 실패 직후 트리거되는 주문형 백업은 장기 보존에 대 한 것으로 간주 됩니다. 그렇지 않으면 다음 예약 된 백업이 장기 보존을 위해 고려 됩니다. <br/><br/> **예제 시나리오**: 목요일 오전 8:00 시에 예약 된 백업이 실패 했습니다. 이 백업은 매월 또는 매년 보존 될 때 고려 됩니다. 따라서 목요일 오전 8:00에 예약 된 다음 백업 이전에 트리거되는 첫 번째 요청 시 백업은 매월 또는 매년 보존에 대해 자동으로 태그가 지정 됩니다. 이 백업은 목요일 8:00 AM 백업을 대체 합니다.
 
 자세한 내용은 [백업 정책 만들기](#create-a-backup-policy)를 참조 하세요.

@@ -4,12 +4,12 @@ description: Azure Application Insights 데이터를 사용하여 사용자 지�
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb580b90c0bf9acafc4e8f805c2eef7eaae06d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82161511"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540080"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -31,9 +31,9 @@ ms.locfileid: "82161511"
 
 [Application Insights 데이터를 프로그래밍 방식으로 쿼리](https://dev.applicationinsights.io/)하여 일정에 따라 사용자 지정 보고서를 생성할 수 있습니다. 다음 옵션은 빠르게 시작할 수 있게 돕습니다.
 
-* [Microsoft Flow를 사용하여 보고서 자동화](automate-with-flow.md)
+* [Microsoft Flow를 사용하여 보고서 자동화](../platform/logicapp-flow-connector.md)
 * [논리 앱을 사용하여 보고서 자동화](automate-with-logic-apps.md)
-* 모니터링 시나리오에서 "Application Insights 예약된 다이제스트" [Azure 함수](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) 템플릿을 사용합니다. 이 함수는 SendGrid를 사용하여 이메일을 배달합니다. 
+* 모니터링 시나리오에서 "Application Insights 예약된 다이제스트" [Azure 함수](../../azure-functions/functions-create-first-azure-function.md) 템플릿을 사용합니다. 이 함수는 SendGrid를 사용하여 이메일을 배달합니다. 
 
     ![Azure 함수 템플릿](./media/automate-custom-reports/azure-function-template.png)
 
@@ -72,7 +72,7 @@ availabilityResults
 
 1. Azure 함수 앱를 만듭니다. (Application Insights는 Application Insights를 사용 하 여 새 함수 앱를 모니터링 하려는 경우 _에_ 만 필요 함)
 
-   [함수 앱을 만드는](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) 방법에 대해 알아보려면 Azure Functions 설명서를 참조 하세요.
+   [함수 앱을 만드는](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 방법에 대해 알아보려면 Azure Functions 설명서를 참조 하세요.
 
 2. 새 함수 앱에서 배포를 완료하면 **리소스로 이동**을 선택합니다.
 
@@ -83,7 +83,7 @@ availabilityResults
 4. **_Application Insights 예약된 다이제스트 템플릿_** 을 선택합니다.
 
      > [!NOTE]
-     > 기본적으로 함수 앱은 런타임 버전 3.x로 생성 됩니다. Application Insights 예약 된 다이제스트 템플릿을 사용 하려면 [Azure Functions 런타임 버전](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x를 대상으로 해야 **합니다.** 구성 > 함수 런타임 설정으로 이동 하 여 런타임 버전을 변경 합니다. ![런타임 스크린샷](./media/automate-custom-reports/change-runtime-v.png)
+     > 기본적으로 함수 앱은 런타임 버전 3.x로 생성 됩니다. Application Insights 예약 된 다이제스트 템플릿을 사용 하려면 [Azure Functions 런타임 버전](../../azure-functions/set-runtime-version.md) 1.x를 대상으로 해야 **합니다.** 구성 > 함수 런타임 설정으로 이동 하 여 런타임 버전을 변경 합니다. ![런타임 스크린샷](./media/automate-custom-reports/change-runtime-v.png)
 
    ![새 함수 Application Insights 템플릿 스크린샷](./media/automate-custom-reports/function-app-04.png)
 
@@ -106,7 +106,7 @@ availabilityResults
    * SendGridAPI =SendGrid API 키
 
      > [!NOTE]
-     > SendGrid 계정이 없는 경우 새로 만들 수 있습니다. Azure Functions에 대한 SendGrid의 설명서는 [여기](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid)에 있습니다. SendGrid를 설정하고 이 문서의 끝에 제공되는 API 키를 생성하는 방법에 대한 최소한의 설명을 원하는 경우입니다. 
+     > SendGrid 계정이 없는 경우 새로 만들 수 있습니다. Azure Functions에 대한 SendGrid의 설명서는 [여기](../../azure-functions/functions-bindings-sendgrid.md)에 있습니다. SendGrid를 설정하고 이 문서의 끝에 제공되는 API 키를 생성하는 방법에 대한 최소한의 설명을 원하는 경우입니다. 
 
 8. **통합**을 선택하고 출력 아래에서 **SendGrid($return)** 를 선택합니다.
 
@@ -152,5 +152,5 @@ availabilityResults
 
 * [Analytics 쿼리](../../azure-monitor/log-query/get-started-queries.md) 만들기에 대해 자세히 알아봅니다.
 * [Application Insights 데이터를 프로그래밍 방식으로 쿼리](https://dev.applicationinsights.io/)하는 방법에 대해 자세히 알아보기
-* [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)에 대해 자세히 알아봅니다.
+* [Logic Apps](../../logic-apps/logic-apps-overview.md)에 대해 자세히 알아봅니다.
 * [Microsoft Flow](https://ms.flow.microsoft.com)에 대해 자세히 알아봅니다.

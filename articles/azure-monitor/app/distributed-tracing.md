@@ -6,11 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9eb753981821a6b53d81b1d03e65abf68e0064dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539995"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
@@ -20,9 +21,9 @@ ms.locfileid: "80892260"
 
 분산 추적이 제공 되는 위치입니다.  
 
-분산 추적은 최신 클라우드 및 마이크로 서비스 아키텍처의 호출 스택과 동일하며 단순한 성능 프로파일러가 추가되었습니다. Azure Monitor에는 분산 추적 데이터를 사용하는 두 가지 환경이 제공됩니다. 첫째는 [트랜잭션 진단](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) 보기입니다. 이것은 호출 스택에 시간 차원이 추가된 것과 동일합니다. 트랜잭션 진단 보기는 단일 트랜잭션/요청에 대한 가시성을 제공하며 요청 단위를 기준으로 안정성 문제와 성능 병목 현상의 근본 원인을 찾는 데 유용합니다.
+분산 추적은 최신 클라우드 및 마이크로 서비스 아키텍처의 호출 스택과 동일하며 단순한 성능 프로파일러가 추가되었습니다. Azure Monitor에는 분산 추적 데이터를 사용하는 두 가지 환경이 제공됩니다. 첫째는 [트랜잭션 진단](./transaction-diagnostics.md) 보기입니다. 이것은 호출 스택에 시간 차원이 추가된 것과 동일합니다. 트랜잭션 진단 보기는 단일 트랜잭션/요청에 대한 가시성을 제공하며 요청 단위를 기준으로 안정성 문제와 성능 병목 현상의 근본 원인을 찾는 데 유용합니다.
 
-Azure Monitor에는 [애플리케이션 맵](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) 보기도 제공됩니다. 여기에는 다수의 트랜잭션을 집계하여 시스템이 어떻게 상호 작용하는지에 대한 토폴로지 보기가 표시되고 평균 성능 및 오류율이 얼마인지를 보여줍니다. 
+Azure Monitor에는 [애플리케이션 맵](./app-map.md) 보기도 제공됩니다. 여기에는 다수의 트랜잭션을 집계하여 시스템이 어떻게 상호 작용하는지에 대한 토폴로지 보기가 표시되고 평균 성능 및 오류율이 얼마인지를 보여줍니다. 
 
 ## <a name="how-to-enable-distributed-tracing"></a>분산 추적을 사용하는 방법
 
@@ -32,16 +33,16 @@ Azure Monitor에는 [애플리케이션 맵](https://docs.microsoft.com/azure/ap
 
 .NET, .NET Core, Java, Node.js 및 JavaScript에 대 한 Application Insights 에이전트 및/또는 Sdk는 기본적으로 분산 추적을 지원 합니다. 각 Application Insights SDK를 설치 및 구성하는 지침이 다음과 같이 제공됩니다.
 
-* [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
-* [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* [Node.JS](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [.NET](../learn/quick-monitor-portal.md)
+* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [Java](./java-in-process-agent.md)
+* [Node.JS](../learn/nodejs-quick-start.md)
+* [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
-적절한 Application Insight SDK가 설치되고 구성되면, 많이 사용되는 프레임워크, 라이브러리 및 기술에 대한 추적 정보가 SDK 종속성 자동 수집기를 통해 자동으로 수집됩니다. 지원되는 기술의 전체 목록은 [종속성 자동 수집 설명서](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)에 제공됩니다.
+적절한 Application Insight SDK가 설치되고 구성되면, 많이 사용되는 프레임워크, 라이브러리 및 기술에 대한 추적 정보가 SDK 종속성 자동 수집기를 통해 자동으로 수집됩니다. 지원되는 기술의 전체 목록은 [종속성 자동 수집 설명서](./auto-collect-dependencies.md)에 제공됩니다.
 
- 또한 [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)의 [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 호출하여 원하는 기술을 수동으로 추적할 수 있습니다.
+ 또한 [TelemetryClient](./api-custom-events-metrics.md)의 [TrackDependency](./api-custom-events-metrics.md)를 호출하여 원하는 기술을 수동으로 추적할 수 있습니다.
 
 ## <a name="enable-via-opencensus"></a>OpenCensus를 통해 사용하도록 설정
 

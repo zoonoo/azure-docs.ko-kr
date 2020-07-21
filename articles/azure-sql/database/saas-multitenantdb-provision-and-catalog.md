@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 80c789f955b279e7771fe39c20087baa465b3293
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027654"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539196"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>분할 된 다중 테 넌 트 Azure SQL Database를 사용 하 여 SaaS 응용 프로그램에서 새 테 넌 트 프로 비전 및 카탈로그
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +30,7 @@ ms.locfileid: "84027654"
 - [자습서](#goto_1_tutorial)는 프로비전 및 카탈로그 작업을 수행하는 PowerShell 스크립트 코드를 강조합니다.
   - 자습서는 다중 테넌트 분할 데이터베이스 패턴에 맞게 Wingtip Tickets SaaS 애플리케이션을 사용합니다.
 
-<a name="goto_2_conceptual"/>
+<a name="goto_2_conceptual"></a>
 
 ## <a name="database-pattern"></a>데이터베이스 패턴
 
@@ -110,7 +111,7 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 
 그런 다음 테넌트 데이터가 초기화되고 카탈로그 분할 맵에 등록됩니다. 샘플 앱에서 여러 테넌트를 포함하는 데이터베이스는 *tenants1* 또는 *tenants2*와 같은 제네릭 이름이 지정됩니다. 단일 테넌트를 포함하는 데이터베이스에는 테넌트의 이름이 지정됩니다. 샘플에 사용 되는 특정 명명 규칙은 패턴에서 중요한 부분이 아닙니다. 카탈로그를 사용하면 데이터베이스에 아무 이름이나 할당할 수 있기 때문입니다.
 
-<a name="goto_1_tutorial"/>
+<a name="goto_1_tutorial"></a>
 
 ## <a name="tutorial-begins"></a>자습서 시작
 
@@ -122,7 +123,7 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 > * 다중 테넌트 및 단일 테넌트 데이터베이스에 테넌트 일괄 처리 프로 비전
 > * 카탈로그에 데이터베이스 및 테넌트 매핑 등록
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>사전 준비 사항
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 

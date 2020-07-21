@@ -3,16 +3,17 @@ title: Azure Application Insights에서 Docker 애플리케이션 모니터링 |
 description: Docker 성능 카운터, 이벤트 및 예외는 컨테이너식 앱에서 보낸 원격 분석과 함께 Application Insights에 표시될 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6af39db68c2020e578fe6fbd39870b2e00a16e07
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669610"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539927"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Application Insights에서 Docker 응용 프로그램 모니터링 (사용 되지 않음)
 
 > [!NOTE]
-> 이 솔루션은 더 이상 사용되지 않습니다. 컨테이너 모니터링의 현재 투자에 대한 자세한 내용을 보려면 [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)를 확인해보세요.
+> 이 솔루션은 더 이상 사용되지 않습니다. 컨테이너 모니터링의 현재 투자에 대한 자세한 내용을 보려면 [컨테이너용 Azure Monitor](../insights/container-insights-overview.md)를 확인해보세요.
 
 [Docker](https://www.docker.com/) 컨테이너의 수명 주기 이벤트 및 성능 카운터를 Application Insights에서 차트로 표시할 수 있습니다. 호스트의 컨테이너에 [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) 이미지를 설치하면 호스트는 물론 다른 이미지에 대한 성능 카운터가 표시됩니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a96db0e9a834dcddbb5f247953fa1bbf0dc39ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945395"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539706"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 이 문서에서는 Azure Monitor를 사용하여 Azure 가상 머신에서 모니터링 데이터를 수집 및 분석하면서 상태를 유지하는 방법을 설명합니다. 가상 머신은 [다른 Azure 리소스](monitor-azure-resource.md)와 같이 Azure Monitor를 사용하여 가용성과 성능을 모니터링할 수 있지만 게스트 운영 체제와 여기에서 실행되는 워크로드를 모니터링해야 하기 때문에 다른 리소스와는 다릅니다. 
@@ -29,7 +29,7 @@ ms.locfileid: "84945395"
 - 가상 머신에 대한 [진단 설정](../platform/diagnostic-settings.md)을 만들어 플랫폼 메트릭을 Storage 및 Event Hubs 등의 다른 대상으로 보낼 수 있지만 이러한 진단 설정은 Azure Portal에서 구성할 수 없습니다. 
 
 ## <a name="monitoring-data"></a>데이터 모니터링
-Azure의 가상 머신은 다음 다이어그램에 표시되는 [로그](../platform/data-platform-logs.md) 및 [메트릭](../platform/data-platform-metrics.md)을 생성합니다.
+Azure의 가상 컴퓨터는 다음 다이어그램에 표시 된 것 처럼 [로그](../platform/data-platform-logs.md) 및 [메트릭을](../platform/data-platform-metrics.md) 생성 합니다.
 
 ![개요](media/monitor-vm-azure/logs-metrics.png)
 
@@ -133,12 +133,12 @@ az monitor diagnostic-settings create \
 | 메뉴 옵션 | Description |
 |:---|:---|
 | 개요 | 가상 머신 호스트에 대한 [플랫폼 메트릭](../platform/data-platform-metrics.md)을 표시합니다. [메트릭 탐색기](../platform/metrics-getting-started.md)에서 이 데이터를 사용하려면 그래프를 클릭합니다. |
-| 활동 로그 | 현재 가상 머신에 대해 필터링된 [활동 로그](../platform/activity-log-view.md) 항목입니다. |
+| 활동 로그 | 현재 가상 머신에 대해 필터링된 [활동 로그](../platform/activity-log.md#view-the-activity-log) 항목입니다. |
 | 자세한 정보 | 선택한 현재 가상 머신에 대한 맵이 있는 [VM용 Azure Monitor](../insights/vminsights-overview.md)를 엽니다. |
 | 경고 | 현재 가상 머신에 대한 [경고](../platform/alerts-overview.md)를 봅니다.  |
 | 메트릭 | 범위가 현재 가상 머신으로 설정된 [메트릭 탐색기](../platform/metrics-getting-started.md)를 엽니다. |
 | 진단 설정 | 현재 가상 머신에 대한 [진단 확장](../platform/diagnostics-extension-overview.md)를 사용하도록 설정하고 구성합니다. |
-| Advisor 권장 사항 | [Azure Advisor](/azure/advisor/)에서 제공하는 현재 가상 머신에 대한 권장 사항입니다. |
+| Advisor 권장 사항 | [Azure Advisor](../../advisor/index.yml)에서 제공하는 현재 가상 머신에 대한 권장 사항입니다. |
 | 로그 | [범위](../log-query/scope.md)가 현재 가상 머신으로 설정된 [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics)를 엽니다. |
 | 연결 모니터 | [Network Watcher 연결 모니터](../../network-watcher/connection-monitor-preview.md)를 열어 현재 가상 머신과 다른 가상 머신 간의 연결을 모니터링합니다. |
 
@@ -226,7 +226,7 @@ Event
 
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-SCOM(System Center Operations Manager)은 가상 머신의 워크로드에 대한 세분화된 모니터링을 제공합니다. 모니터링 플랫폼과 다양한 구현 전략을 비교하려면 [클라우드 모니터링 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/)를 참조하세요.
+SCOM(System Center Operations Manager)은 가상 머신의 워크로드에 대한 세분화된 모니터링을 제공합니다. 모니터링 플랫폼과 다양한 구현 전략을 비교하려면 [클라우드 모니터링 가이드](/azure/cloud-adoption-framework/manage/monitor/)를 참조하세요.
 
 계속 사용하려는 기존 SCOM 환경이 있는 경우 Azure Monitor와 연결하여 추가 기능을 제공할 수 있습니다. Azure Monitor에서 사용하는 Log Analytics 에이전트는 SCOM에 사용되는 것과 동일하므로, 모니터링되는 가상 머신이 둘 모두로 데이터를 전송하도록 합니다. VM용 Azure Monitor에 에이전트를 추가하고 위에 지정된 대로 추가 데이터를 수집하도록 작업 영역을 구성해야 하지만 가상 머신은 수정 없이도 SCOM 환경에서 기존 관리 팩을 계속 실행할 수 있습니다.
 
@@ -242,4 +242,3 @@ SCOM(System Center Operations Manager)은 가상 머신의 워크로드에 대�
 
 * [로그 쿼리를 사용하여 Azure Monitor 로그의 데이터를 분석하는 방법을 알아봅니다.](../log-query/get-started-queries.md)
 * [Azure Monitor에서 메트릭과 로그를 사용하여 경고에 대해 알아봅니다.](../platform/alerts-overview.md)
-

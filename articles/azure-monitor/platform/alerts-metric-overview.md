@@ -1,15 +1,15 @@
 ---
 title: Azure Monitor에서 메트릭 경고가 작동하는 방식을 이해합니다.
 description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에서 메트릭 경고가 작동하는 방식에 대한 개요를 제공합니다.
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187526"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539434"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -119,6 +119,15 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 이 규칙은 지난 5분 동안의 평균 CPU 사용량이 각 인스턴스에 대해 예상된 동작을 초과하는지 모니터링합니다. 메트릭 경고 규칙을 다시 수정할 필요 없이 동일한 규칙에 따라 발생하는 인스턴스를 모니터링할 수 있습니다. 각 인스턴스에서 메트릭 계열 동작 패턴에 맞는 임계값을 가져오고, 새 데이터에 따라 지속적으로 변경되어 임계값을 더 정확하게 만듭니다. 이전과 마찬가지로 각 인스턴스는 개별적으로 모니터링되며 알림도 개별적으로 받게 됩니다.
 
 되돌아 보기 기간과 위반 수를 늘리면 필터링 경고에서 크게 벗어나는 중요한 위반에 대한 정의만 경고하도록 허용할 수 있습니다. [동적 임계값 고급 옵션에 대해 자세히 알아보세요](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
+
+> [!NOTE]
+>
+> 다음 경우에 추가 된 시계열의 첫 번째 평가가 누락 될 가능성을 줄이기 위해 *평가 빈도*보다 큰 *집계 세분성 (기간)* 을 선택 하는 것이 좋습니다.
+> - 여러 차원을 모니터링 하는 메트릭 경고 규칙-새 차원 값 조합이 추가 된 경우
+> - 여러 리소스를 모니터링 하는 메트릭 경고 규칙-범위에 새 리소스를 추가 하는 경우
+> - 연속으로 내보내지 않는 메트릭을 모니터링 하는 메트릭 경고 규칙 (스파스 메트릭) – 시간을 내보내지 않은 24 시간 보다 오래 된 메트릭을 내보내는 경우
+
+
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고를 사용한 모니터링 축소
 

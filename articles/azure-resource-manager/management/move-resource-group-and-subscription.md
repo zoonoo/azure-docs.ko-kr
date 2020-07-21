@@ -2,12 +2,13 @@
 title: 새 구독 또는 리소스 그룹으로 리소스 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 036def01ef8ae5732d372dd995ad8f425c36cad9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/15/2020
+ms.openlocfilehash: 2fe4fc956f52ab5229469e1f230aec056295f19a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057843"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539281"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -16,6 +17,8 @@ ms.locfileid: "86057843"
 이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트 또는 삭제할 수 없음을 의미 합니다. 리소스가 고정 된 것은 아닙니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 애플리케이션에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다. 잠금은 최대 4 시간 동안 지속 될 수 있지만 대부분의 시간이 훨씬 더 짧습니다.
 
 리소스를 이동할 때는 새 리소스 그룹 또는 구독으로만 이동됩니다. 리소스의 위치는 변경하지 않습니다.
+
+Azure Stack 허브를 사용 하는 경우 그룹 간에 리소스를 이동할 수 없습니다.
 
 ## <a name="checklist-before-moving-resources"></a>리소스를 이동하기 전의 검사 목록
 
@@ -230,7 +233,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 **질문: 일반적으로 몇 분 정도 걸리는 내 리소스 이동 작업은 거의 1 시간 동안 실행 되었습니다. 문제가 있나요?**
 

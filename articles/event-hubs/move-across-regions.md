@@ -3,12 +3,12 @@ title: Azure Event Hubs 네임 스페이스를 다른 지역으로 이동 | Micr
 description: 이 문서에서는 Azure Event Hubs 네임 스페이스를 현재 지역에서 다른 지역으로 이동 하는 방법을 보여 줍니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b02c34b0c28420a7e27da56b107ed3925a761b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312959"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537074"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Azure Event Hubs 네임 스페이스를 다른 지역으로 이동
 기존 Event Hubs 네임 스페이스를 한 지역에서 다른 지역으로 이동 하려는 다양 한 시나리오가 있습니다. 예를 들어 테스트를 위한 동일한 구성으로 네임 스페이스를 만들 수 있습니다. [재해 복구 계획](event-hubs-geo-dr.md#setup-and-failover-flow)의 일부로 다른 지역에 보조 네임 스페이스를 만들 수도 있습니다.
@@ -16,7 +16,7 @@ ms.locfileid: "85312959"
 > [!NOTE]
 > 이 문서에서는 기존 Event Hubs 네임 스페이스에 대 한 Azure Resource Manager 템플릿을 내보낸 다음 템플릿을 사용 하 여 다른 지역에서 동일한 구성 설정을 사용 하 여 네임 스페이스를 만드는 방법을 보여 줍니다. 그러나이 프로세스는 아직 처리 되지 않은 이벤트는 이동 하지 않습니다. 원래 네임 스페이스를 삭제 하기 전에 해당 이벤트를 처리 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 - 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
 - 미리 보기 기능의 경우 구독이 대상 지역에 대한 허용 목록에 추가되었는지 확인합니다.
@@ -54,7 +54,7 @@ ms.locfileid: "85312959"
 
 4. **만들기**를 선택합니다.
 
-5. **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
+5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
 
 6. **파일 로드**를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 파일 **에template.js** 를 로드 합니다.
 
@@ -108,5 +108,5 @@ Azure Portal를 사용 하 여 Event Hubs 네임 스페이스 (원본 또는 대
 이 자습서에서는 Azure Event Hubs 네임 스페이스를 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 
-- [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [다른 지역으로 Azure VM 이동](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [다른 지역으로 Azure VM 이동](../site-recovery/azure-to-azure-tutorial-migrate.md)

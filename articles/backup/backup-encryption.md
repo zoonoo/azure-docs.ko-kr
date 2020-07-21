@@ -1,22 +1,23 @@
 ---
-title: Azure Backup 암호화
+title: Azure Backup에서 암호화
 description: Azure Backup의 암호화 기능을 통해 백업 데이터를 보호 하 고 비즈니스의 보안 요구 사항을 충족 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: aafb9868dfb6a63ec9b6a3ae654b88b202a1a145
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: references_regions
+ms.openlocfilehash: 099e736bfb321f0f92bd3a57f9c24e88293b42bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171825"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538754"
 ---
-# <a name="encryption-in-azure-backup"></a>Azure Backup 암호화
+# <a name="encryption-in-azure-backup"></a>Azure Backup에서 암호화
 
 모든 백업 된 데이터는 Azure Storage 암호화를 사용 하 여 클라우드에 저장 될 때 자동으로 암호화 되므로 보안 및 규정 준수 약정을 충족할 수 있습니다. 미사용 데이터는 256 비트 AES 암호화를 사용 하 여 암호화 되 고, 사용 가능한 가장 강력한 블록 암호화 중 하나 이며, FIPS 140-2 규격입니다.
 
 휴지 상태의 암호화 외에도 전송 중인 모든 백업 데이터는 HTTPS를 통해 전송 됩니다. 항상 Azure 백본 네트워크에 남아 있습니다.
 
-자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조하세요. [AZURE BACKUP FAQ](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) 를 참조 하 여 암호화에 대해 발생할 수 있는 질문에 대 한 답변을 받을 수 있습니다.
+자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)를 참조하세요. [AZURE BACKUP FAQ](./backup-azure-backup-faq.md#encryption) 를 참조 하 여 암호화에 대해 발생할 수 있는 질문에 대 한 답변을 받을 수 있습니다.
 
 ## <a name="encryption-of-backup-data-using-platform-managed-keys"></a>플랫폼 관리 키를 사용 하 여 백업 데이터 암호화
 
@@ -30,7 +31,7 @@ Azure Virtual Machines를 백업할 때 이제 사용자가 소유 하 고 관�
 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 된 관리 디스크 Vm 백업
 
-또한 Azure Backup를 사용 하면 [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 위해 키를 사용 하는 Azure vm을 백업할 수 있습니다. 디스크 암호화에 사용 되는 키는 Azure Key Vault에 저장 되며 사용자가 관리 합니다. ADE는 고객 관리 키를 사용 하는 저장소 서비스 암호화 Azure Disk Encryption와 다릅니다. 즉, ADE는 BitLocker (Windows 용) 및 DM (Linux)을 활용 하 여 게스트 간 암호화를 수행 하므로 SSE는 저장소 서비스의 데이터를 암호화 하 여 Vm에 대 한 모든 OS 또는 이미지를 사용할 수 있도록 합니다. 자세한 내용은 [고객 관리 키를 사용 하 여 관리 디스크 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) 를 참조 하세요.
+또한 Azure Backup를 사용 하면 [저장소 서비스 암호화](../storage/common/storage-service-encryption.md)를 위해 키를 사용 하는 Azure vm을 백업할 수 있습니다. 디스크 암호화에 사용 되는 키는 Azure Key Vault에 저장 되며 사용자가 관리 합니다. ADE는 고객 관리 키를 사용 하는 저장소 서비스 암호화 Azure Disk Encryption와 다릅니다. 즉, ADE는 BitLocker (Windows 용) 및 DM (Linux)을 활용 하 여 게스트 간 암호화를 수행 하므로 SSE는 저장소 서비스의 데이터를 암호화 하 여 Vm에 대 한 모든 OS 또는 이미지를 사용할 수 있도록 합니다. 자세한 내용은 [고객 관리 키를 사용 하 여 관리 디스크 암호화](../virtual-machines/windows/disk-encryption.md#customer-managed-keys) 를 참조 하세요.
 
 ## <a name="infrastructure-level-encryption-for-backup-data"></a>백업 데이터에 대 한 인프라 수준 암호화
 
@@ -41,7 +42,7 @@ Azure Virtual Machines를 백업할 때 이제 사용자가 소유 하 고 관�
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>ADE를 사용 하 여 암호화 된 Vm 백업
 
-Azure Backup를 사용 하면 Azure Disk Encryption를 사용 하 여 암호화 된 OS 또는 데이터 디스크를 포함 하는 Azure 가상 컴퓨터도 백업할 수 있습니다. ADE는 Windows Vm에 BitLocker를 사용 하 고 Linux Vm의 경우 DM을 사용 하 여 게스트 간 암호화를 수행 합니다. 자세한 내용은 [Azure Backup를 사용 하 여 암호화 된 가상 컴퓨터 백업 및 복원](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)을 참조 하세요.
+Azure Backup를 사용 하면 Azure Disk Encryption를 사용 하 여 암호화 된 OS 또는 데이터 디스크를 포함 하는 Azure 가상 컴퓨터도 백업할 수 있습니다. ADE는 Windows Vm에 BitLocker를 사용 하 고 Linux Vm의 경우 DM을 사용 하 여 게스트 간 암호화를 수행 합니다. 자세한 내용은 [Azure Backup를 사용 하 여 암호화 된 가상 컴퓨터 백업 및 복원](./backup-azure-vms-encryption.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

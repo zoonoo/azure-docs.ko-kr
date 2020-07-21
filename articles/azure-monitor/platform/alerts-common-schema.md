@@ -4,11 +4,12 @@ description: 일반적인 경고 스키마 이해, 사용 해야 하는 이유 �
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710935"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539485"
 ---
 # <a name="common-alert-schema"></a>일반 경고 스키마
 
@@ -51,8 +52,8 @@ ms.locfileid: "84710935"
 > 1. 다음 경고 유형은 기본적으로 공통 스키마를 지원 합니다 (옵트인 필요 없음).
 >     * 스마트 감지 경고
 > 1. 다음 경고 유형은 현재 공통 스키마를 지원 하지 않습니다.
->     * [VM용 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) 에서 생성 된 경고
->     * [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario) 에서 생성 된 경고
+>     * [VM용 Azure Monitor](../insights/vminsights-overview.md) 에서 생성 된 경고
+>     * [Azure Cost Management](../../cost-management-billing/manage/cost-management-budget-scenario.md) 에서 생성 된 경고
 
 ### <a name="through-the-azure-portal"></a>Azure Portal
 
@@ -63,9 +64,9 @@ ms.locfileid: "84710935"
 
 ### <a name="through-the-action-groups-rest-api"></a>작업 그룹 REST API
 
-[작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 를 사용 하 여 공통 경고 스키마를 옵트인 (opt in) 할 수도 있습니다. REST API를 [만들거나 업데이트](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) 하는 동안 "useCommonAlertSchema" 플래그를 ' t r u e '로 설정 하거나 (옵트인 (opt in)) 다음 작업 중 하나에 대해 (옵트아웃) (옵트아웃) 할 수 있습니다.
+[작업 그룹 API](/rest/api/monitor/actiongroups) 를 사용 하 여 공통 경고 스키마를 옵트인 (opt in) 할 수도 있습니다. REST API를 [만들거나 업데이트](/rest/api/monitor/actiongroups/createorupdate) 하는 동안 "useCommonAlertSchema" 플래그를 ' t r u e '로 설정 하거나 (옵트인 (opt in)) 다음 작업 중 하나에 대해 (옵트아웃) (옵트아웃) 할 수 있습니다.
 
-예를 들어 REST API [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) 에 대 한 다음 요청 본문은 다음을 수행 합니다.
+예를 들어 REST API [만들기 또는 업데이트](/rest/api/monitor/actiongroups/createorupdate) 에 대 한 다음 요청 본문은 다음을 수행 합니다.
 
 * 전자 메일 작업 "John Doe의 메일"에 대해 일반적인 경고 스키마를 사용 하도록 설정 합니다.
 * 전자 메일 작업 "Jane Smith의 전자 메일"에서 일반적인 경고 스키마를 사용 하지 않도록 설정 합니다.
@@ -120,7 +121,4 @@ ms.locfileid: "84710935"
 ## <a name="next-steps"></a>다음 단계
 
 - [웹 후크/Logic Apps/Azure Functions/자동화 Runbook에 대 한 일반적인 경고 스키마 정의입니다.](https://aka.ms/commonAlertSchemaDefinitions)
-- [일반적인 경고 스키마를 활용 하 여 모든 경고를 처리 하는 논리 앱을 만드는 방법에 대해 알아봅니다.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
-
-
-
+- [일반적인 경고 스키마를 활용 하 여 모든 경고를 처리 하는 논리 앱을 만드는 방법에 대해 알아봅니다.](./alerts-common-schema-integrations.md) 

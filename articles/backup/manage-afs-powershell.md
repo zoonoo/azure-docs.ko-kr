@@ -3,11 +3,12 @@ title: PowerShell을 사용 하 여 Azure 파일 공유 백업 관리
 description: PowerShell을 사용 하 여 Azure Backup 서비스에 의해 백업 된 Azure 파일 공유를 관리 하 고 모니터링 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 6ee5fb92e4a66a9d6db66514f966c3650d3a4f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 889c9bb3ef087c700bbfc3a68959f2c5924bffda
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201955"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538596"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>PowerShell을 사용 하 여 Azure 파일 공유 백업 관리
 
@@ -18,7 +19,7 @@ ms.locfileid: "83201955"
 
 ## <a name="modify-the-protection-policy"></a>보호 정책 수정
 
-Azure 파일 공유를 백업 하는 데 사용 되는 정책을 변경 하려면 [AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0)을 사용 합니다. 관련 백업 항목 및 새 백업 정책을 지정 합니다.
+Azure 파일 공유를 백업 하는 데 사용 되는 정책을 변경 하려면 [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection)을 사용 합니다. 관련 백업 항목 및 새 백업 정책을 지정 합니다.
 
 다음 예제는 **testAzureFS** 보호 정책을 **dailyafs**에서 **monthlyafs**로 변경합니다.
 
@@ -31,7 +32,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsP
 
 ## <a name="track-backup-and-restore-jobs"></a>백업 및 복원 작업 추적
 
-주문형 백업 및 복원 작업은 [요청 시 백업을 실행할](backup-azure-afs-automation.md#trigger-an-on-demand-backup)때 표시 된 것 처럼 ID와 함께 작업을 반환 합니다. [AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) cmdlet을 사용 하 여 작업 진행률 및 세부 정보를 추적 합니다.
+주문형 백업 및 복원 작업은 [요청 시 백업을 실행할](backup-azure-afs-automation.md#trigger-an-on-demand-backup)때 표시 된 것 처럼 ID와 함께 작업을 반환 합니다. [AzRecoveryServicesBackupJobDetails](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet을 사용 하 여 작업 진행률 및 세부 정보를 추적 합니다.
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -70,7 +71,7 @@ Azure Backup에서 생성 된 기본 스냅숏이 유지 되므로 저장소에 
 
 ## <a name="stop-protection-and-retain-recovery-points"></a>보호 중지 및 복구 지점의 보존
 
-데이터를 유지 하는 동안 보호를 중지 하려면 [AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) cmdlet을 사용 합니다.
+데이터를 유지 하는 동안 보호를 중지 하려면 [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) cmdlet을 사용 합니다.
 
 다음 예에서는 *afsfileshare* 공유 파일 공유에 대 한 보호를 중지 하지만 모든 복구 지점을 유지 합니다.
 
@@ -86,11 +87,11 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-출력의 작업 ID 특성은 "보호 중지" 작업에 대해 백업 서비스에서 만든 작업의 작업 ID에 해당 합니다. 작업 상태를 추적 하려면 [AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-3.3.0) cmdlet을 사용 합니다.
+출력의 작업 ID 특성은 "보호 중지" 작업에 대해 백업 서비스에서 만든 작업의 작업 ID에 해당 합니다. 작업 상태를 추적 하려면 [AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet을 사용 합니다.
 
 ## <a name="stop-protection-without-retaining-recovery-points"></a>복구 지점이 유지 되지 않고 보호 중지
 
-복구 지점이 유지 되지 않고 보호를 중지 하려면 [AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) cmdlet을 사용 하 고 **-RemoveRecoveryPoints** 매개 변수를 추가 합니다.
+복구 지점이 유지 되지 않고 보호를 중지 하려면 [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) cmdlet을 사용 하 고 **-RemoveRecoveryPoints** 매개 변수를 추가 합니다.
 
 다음 예에서는 복구 지점을 유지 하지 않고 *afsfileshare* 공유 파일 공유에 대 한 보호를 중지 합니다.
 

@@ -3,12 +3,12 @@ title: 연결 문자열 가져오기 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 클라이언트가 Azure Event Hubs에 연결하는 데 사용할 수 있는 연결 문자열을 가져오기 위한 지침을 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 271d4dcc1f2fab08dc7f625ce36e021eda225b87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ae6c66ddbbf4b9946e7037e1a7723043bf60507
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320496"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537193"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Event Hubs 연결 문자열 가져오기
 
@@ -73,5 +73,5 @@ Event Hubs에 대한 Azure CLI 명령과 관련된 자세한 내용은 [Event Hu
 
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Event Hubs 개요](event-hubs-what-is-event-hubs.md)
+* [Event Hubs 개요](./event-hubs-about.md)
 * [이벤트 허브 만들기](event-hubs-create.md)

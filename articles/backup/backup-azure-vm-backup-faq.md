@@ -4,15 +4,16 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82800654"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538771"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
-이 문서에서는 [Azure Backup](backup-introduction-to-azure-backup.md) 서비스를 사용 하 여 Azure vm을 백업 하는 일반적인 질문에 답변 합니다.
+이 문서에서는 [Azure Backup](./backup-overview.md) 서비스를 사용 하 여 Azure vm을 백업 하는 일반적인 질문에 답변 합니다.
 
 ## <a name="backup"></a>Backup
 
@@ -82,7 +83,7 @@ WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure 
 
 Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제외할 수는 있습니다. 그러나 WA 지원 디스크의 정보가 백업되지 않으므로 백업하더라도 데이터베이스 일관성이 제공되지 않습니다. 운영 체제 디스크 백업 및 WA 미사용 디스크 백업을 원하는 경우 이 구성으로 디스크를 백업하면 됩니다.
 
-Azure Backup는 RPO가 15 분인 SAP HANA 데이터베이스에 대 한 스트리밍 백업 솔루션을 제공 합니다. SAP에서 제공 하는 Backint는 SAP HANA의 기본 Api를 활용 하는 네이티브 백업 지원을 제공 합니다. [Azure vm에서 SAP HANA 데이터베이스를 백업](https://docs.microsoft.com/azure/backup/sap-hana-db-about)하는 방법에 대해 자세히 알아보세요.
+Azure Backup는 RPO가 15 분인 SAP HANA 데이터베이스에 대 한 스트리밍 백업 솔루션을 제공 합니다. SAP에서 제공 하는 Backint는 SAP HANA의 기본 Api를 활용 하는 네이티브 백업 지원을 제공 합니다. [Azure vm에서 SAP HANA 데이터베이스를 백업](./sap-hana-db-about.md)하는 방법에 대해 자세히 알아보세요.
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>내 VM 백업 정책에 설정 된 예약 된 백업 시간부터 백업 시작 시간에 예상 되는 최대 지연 수는 얼마 인가요?
 
@@ -128,7 +129,11 @@ VM 복원은 Azure VM의 빠른 만들기 옵션이라고 생각하시면 됩니
 
 PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>삭제된 VM을 복원할 수 있나요?
+### <a name="if-the-restore-fails-to-create-the-vm-what-happens-to-the-disks-included-in-the-restore"></a>복원 시 VM을 만들지 못할 경우 복원에 포함 된 디스크는 어떻게 되나요?
+
+관리 VM 복원 시 VM을 만들 수 없는 경우에도 디스크는 계속 복원 됩니다.
+
+### <a name="can-i-restore-a-vm-thats-been-deleted"></a>삭제 된 VM을 복원할 수 있나요?
 
 예. VM을 삭제 하더라도 자격 증명 모음의 해당 백업 항목으로 이동 하 여 복구 지점에서 복원할 수 있습니다.
 
@@ -142,13 +147,13 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>암호화 된 VM에 대 한 주요 자격 증명 모음 설정을 변경 하면 어떻게 되나요?
 
-암호화 된 VM에 대 한 주요 자격 증명 모음 설정을 변경한 후에는 백업이 새로운 세부 정보 집합을 사용 하 여 계속 작동 합니다. 그러나 변경 전에 복구 지점에서 복원한 후에는 키 자격 증명 모음에서 암호를 복원 해야 VM을 만들 수 있습니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)를 참조하세요.
+암호화 된 VM에 대 한 주요 자격 증명 모음 설정을 변경한 후에는 백업이 새로운 세부 정보 집합을 사용 하 여 계속 작동 합니다. 그러나 변경 전에 복구 지점에서 복원한 후에는 키 자격 증명 모음에서 암호를 복원 해야 VM을 만들 수 있습니다. 자세한 내용은 [이 문서](./backup-azure-restore-key-secret.md)를 참조하세요.
 
-비밀/키 롤아웃과 같은 작업에는이 단계가 필요 하지 않으며 복원 후 동일한 KeyVault를 사용할 수 있습니다.
+비밀/키 롤아웃 등의 작업에는이 단계가 필요 하지 않으며 복원 후 동일한 키 자격 증명 모음을 사용할 수 있습니다.
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스할 수 있나요?
 
-예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은 관련 [문서](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)를 참조하세요.
+예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은 관련 [문서](./backup-azure-arm-restore-vms.md#post-restore-steps)를 참조하세요.
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 

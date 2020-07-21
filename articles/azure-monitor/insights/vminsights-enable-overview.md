@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072f8fd44fa45648afd15cb40cba26bb427c7b56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507078"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539621"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>VM용 Azure Monitor 개요 사용
 
@@ -30,7 +30,7 @@ VM용 Azure Monitor을 설정 하려면:
 * PowerShell을 사용 하 여 지정 된 구독 또는 리소스 그룹에서 여러 Azure Vm, Azure Arc Vm, Azure VMSS 또는 Azure Arc 컴퓨터를 사용 하도록 설정 합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
 
@@ -68,9 +68,9 @@ VM용 Azure Monitor는 다음 지역에서 Log Analytics 작업 영역을 지원
 
 Log Analytics 작업 영역이 없는 경우 리소스 중 하나를 사용 하 여 작업 영역을 만들 수 있습니다.
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
-* [Azure 리소스 관리자](../../azure-monitor/platform/template-workspace-configuration.md)
+* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 Azure Portal에서 단일 Azure VM 또는 가상 머신 확장 집합에 대 한 모니터링을 사용 하도록 설정 하는 동안 작업 영역을 만들 수도 있습니다.
 
@@ -86,7 +86,7 @@ VM용 Azure Monitor는 Arc 확장 서비스를 사용할 수 있는 지역에서
 
 다음 표에는 VM용 Azure Monitor에서 지 원하는 Windows 및 Linux 운영 체제가 나와 있습니다. 이 섹션의 뒷부분에는 주요 Linux OS 릴리스와 지원 되는 커널 버전에 대 한 전체 목록이 나와 있습니다.
 
-|OS 버전 |성능 |지도 |
+|OS 버전 |성능 |Maps |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -96,7 +96,7 @@ VM용 Azure Monitor는 Arc 확장 서비스를 사용할 수 있는 지역에서
 |Windows Server 2008 R2 | X | X|
 |Windows 10 1803 | X | X |
 |Windows 8.1 | X | X |
-|Windows 8 | X | X |
+|Windows 8 | X | X |
 |Windows 7 SP1 | X | X |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
 |Ubuntu 18.04, 16.04 | X | X |

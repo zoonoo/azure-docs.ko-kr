@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203127"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539774"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 
@@ -41,7 +41,7 @@ Log Analytics 작업 영역의 Azure Portal에서 서비스 맵에 액세스하�
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>사용 사례: IT 프로세스 종속성 인식
 
-### <a name="discovery"></a>발견(Discovery)
+### <a name="discovery"></a>검색
 
 서비스 맵은 서버, 프로세스 및 타사 서비스 간 종속성에 대한 일반적인 참조 맵을 자동으로 작성합니다. 모든 TCP 종속성을 검색 및 매핑하여 예기치 않은 연결, 사용 중인 원격 타사 시스템, Active Directory 등 기존의 어두운 영역에 대한 종속성을 식별합니다. 서비스 맵은 관리되는 시스템에서 시도하는 실패한 네트워크 연결을 검색하여 잠재적인 서버 구성 오류, 서비스 중단 및 네트워크 문제를 파악할 수 있습니다.
 
@@ -241,7 +241,7 @@ Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복�
 
 ## <a name="service-desk-integration"></a>서비스 데스크 통합
 
-IT 서비스 관리 커넥터와 서비스 맵 통합은 두 솔루션이 사용하도록 설정되고 Log Analytics 작업 영역에서 구성된 경우 자동입니다. 서비스 맵의 이러한 통합에는 "서비스 데스크" 레이블이 지정됩니다. 자세한 내용은 [IT Service Management Connector를 사용하여 ITSM 작업 항목을 중앙에서 관리](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)를 참조하세요.
+IT 서비스 관리 커넥터와 서비스 맵 통합은 두 솔루션이 사용하도록 설정되고 Log Analytics 작업 영역에서 구성된 경우 자동입니다. 서비스 맵의 이러한 통합에는 "서비스 데스크" 레이블이 지정됩니다. 자세한 내용은 [IT Service Management Connector를 사용하여 ITSM 작업 항목을 중앙에서 관리](../platform/itsmc-overview.md)를 참조하세요.
 
 **컴퓨터 서비스 데스크** 창에는 선택한 시간 범위에서 선택한 서버에 대한 모든 IT 서비스 관리 이벤트 목록이 표시됩니다. 현재 항목이 있고 컴퓨터 서비스 데스크 창에 해당 항목이 나열되면 서버에 아이콘이 표시됩니다.
 
@@ -270,7 +270,7 @@ IT 서비스 관리 커넥터와 서비스 맵 통합은 두 솔루션이 사용
 
 ![컴퓨터 성능 창](media/service-map/machine-performance.png)
 
-성능 데이터를 보려면 [적절한 Log Analytics 성능 카운터를 사용하도록 설정](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters)해야 할 수 있습니다.  사용하도록 설정할 카운터는 다음과 같습니다.
+성능 데이터를 보려면 [적절한 Log Analytics 성능 카운터를 사용하도록 설정](../platform/data-sources-performance-counters.md)해야 할 수 있습니다.  사용하도록 설정할 카운터는 다음과 같습니다.
 
 Windows:
 - Processor(*)\\% Processor Time
@@ -540,7 +540,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="rest-api"></a>REST API
 
-서비스 맵의 모든 서버, 프로세스 및 종속성 데이터는 [서비스 맵 REST API](https://docs.microsoft.com/rest/api/servicemap/)를 통해 사용할 수 있습니다.
+서비스 맵의 모든 서버, 프로세스 및 종속성 데이터는 [서비스 맵 REST API](/rest/api/servicemap/)를 통해 사용할 수 있습니다.
 
 ## <a name="diagnostic-and-usage-data"></a>진단 및 사용량 현황 데이터
 

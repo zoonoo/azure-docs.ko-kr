@@ -3,11 +3,12 @@ title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709881"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538652"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -29,7 +30,7 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 **설치** | **세부 정보**
 --- | ---
 최신 MARS 에이전트 다운로드 | 자격 증명 모음에서 최신 버전의 에이전트를 다운로드하거나 [직접 다운로드](https://aka.ms/azurebackup_agent)할 수 있습니다.
-머신에 직접 설치 | 온-프레미스 Windows server 또는 [지원 되는 운영 체제](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems)중 하나를 실행 하는 windows VM에 MARS 에이전트를 직접 설치할 수 있습니다.
+머신에 직접 설치 | 온-프레미스 Windows server 또는 [지원 되는 운영 체제](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)중 하나를 실행 하는 windows VM에 MARS 에이전트를 직접 설치할 수 있습니다.
 백업 서버에 설치 | Azure에 백업하도록 DPM 또는 MABS를 설정할 때 MARS 에이전트를 서버에 다운로드하여 설치합니다. Backup server 지원 매트릭스의 [지원 되는 운영 체제](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) 에 에이전트를 설치할 수 있습니다.
 
 > [!NOTE]
@@ -84,7 +85,7 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 - Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
 - Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
 
-자세한 내용은 [express 경로 라우팅 요구 사항](https://docs.microsoft.com/azure/expressroute/expressroute-routing)을 참조 하세요.
+자세한 내용은 [express 경로 라우팅 요구 사항](../expressroute/expressroute-routing.md)을 참조 하세요.
 
 >[!NOTE]
 >공용 피어 링은 새 회로에서 사용 되지 않습니다.
@@ -127,7 +128,7 @@ Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <b
 
 기존 약정으로 인해 운영 체제가 업그레이드 되지 않는 경우, Windows server를 Azure Vm으로 마이그레이션하고 Azure VM 백업을 활용 하 여 보호 된 상태로 유지 하는 것이 좋습니다. Windows server 마이그레이션에 대 한 자세한 내용은 [여기의 마이그레이션 페이지](https://azure.microsoft.com/migration/windows-server/) 를 참조 하세요.
 
-온-프레미스 또는 호스팅된 환경에서 운영 체제를 업그레이드 하거나 Azure로 마이그레이션할 수 없는 경우 컴퓨터에 대 한 확장 된 보안 업데이트를 활성화 하 여 계속 보호 하 고 지원 합니다. 특정 버전만 확장 보안 업데이트에 적합 합니다. 자세히 알아보려면 [FAQ 페이지](https://www.microsoft.com/cloud-platform/extended-security-updates) 를 방문 하세요.
+온-프레미스 또는 호스팅된 환경에서 운영 체제를 업그레이드 하거나 Azure로 마이그레이션할 수 없는 경우 컴퓨터에 대 한 확장 된 보안 업데이트를 활성화 하 여 계속 보호 하 고 지원 합니다. 특정 버전만 확장 보안 업데이트에 적합 합니다. 자세히 알아보려면 [FAQ 페이지](https://www.microsoft.com/windows-server/extended-security-updates) 를 방문 하세요.
 
 | **운영 체제**                                       | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
@@ -155,7 +156,7 @@ Windows 7| 1,700GB
 
 ## <a name="supported-file-types-for-backup"></a>백업에 지원되는 파일 형식
 
-**Type** | **지원**
+**형식** | **지원**
 --- | ---
 됨<sup>*</sup>| 지원됨.
 Compressed | 지원됨.

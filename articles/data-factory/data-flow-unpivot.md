@@ -3,16 +3,16 @@ title: 데이터 흐름 피벗 해제 변환 매핑
 description: 데이터 흐름 피벗 해제 변환 Azure Data Factory 매핑
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: c3e769334beb6a5739eebb8d7e8dc370533c2dc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: b7a05f33c199ab46508fa2b9bc0ef576f888ef27
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606239"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537717"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory 피벗 해제 변환
 
@@ -21,6 +21,8 @@ ms.locfileid: "81606239"
 단일 레코드의 여러 열 값을 단일 열에서 동일한 값을 가진 여러 레코드로 확장 하 여 정규화 되지 않은 데이터 집합을 보다 정규화 된 버전으로 전환 하 여 정규화 되지 않은 데이터 집합을 보다 정규화 된 버전으로 전환 하는 방법으로 ADF 매핑 데이터 흐름에서 Unpivot
 
 ![피벗 해제 변환](media/data-flow/unpivot1.png "피벗 해제 옵션 1")
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
 
 ## <a name="ungroup-by"></a>그룹 해제 기준
 

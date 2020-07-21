@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/17/2020
 ms.author: victorh
-ms.openlocfilehash: 3174576201f0068191c2918b47fbd99eaa1ec182
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b984bb581df54cba79a551dc870786ed228eaa43
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232086"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536972"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -22,15 +22,7 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Azure Firewall에서 어떤 기능이 지원되나요?
 
-* 서비스로서의 상태 저장 방화벽
-* 무제한 클라우드 확장성이 포함된 기본 제공 고가용성
-* FQDN 필터링
-* FQDN 태그
-* 네트워크 트래픽 필터링 규칙
-* 아웃바운드 SNAT 지원
-* 인바운드 DNAT 지원
-* Azure 구독 및 VNET 전반에 걸쳐 애플리케이션 및 네트워크 연결 정책을 중앙에서 만들고 적용하고 기록
-* 로깅 및 분석을 위한 Azure Monitor와 완전히 통합
+Azure Firewall 기능에 대해 알아보려면 [Azure Firewall 기능](features.md)을 참조하세요.
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure Firewall의 일반적인 배포 모델은 무엇입니까?
 

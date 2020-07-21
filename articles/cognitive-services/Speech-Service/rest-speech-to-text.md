@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: c4eb1419859d4a87e53371a266dcef52e632b6c8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: e7bbedf253d6a64609179a8710fc9accd1f03818
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636090"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537972"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -51,10 +51,10 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 | 매개 변수 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `language` | 인식되는 음성 언어를 식별합니다. [지원 되는 언어](language-support.md#speech-to-text)를 참조 하세요. | 필수 |
-| `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. 자세한 응답에는 표시 텍스트의 네 가지 표현이 포함 되어 있습니다. 기본 설정은 `simple`입니다. | 옵션 |
-| `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용 되는 값은 사용 금지를 별표 ()로 대체 하는로, 결과의 `masked` `removed` 모든 비속어를 제거 하는 또는 `raw` 결과의 비속어를 포함 하는입니다. 기본 설정은 `masked`입니다. | 옵션 |
-| `cid` | [Custom Speech 포털](how-to-custom-speech.md) 을 사용 하 여 사용자 지정 모델을 만드는 경우 **배포** 페이지에서 찾을 수 있는 **끝점 ID** 를 통해 사용자 지정 모델을 사용할 수 있습니다. 쿼리 문자열 매개 변수에 대 한 인수로 **끝점 ID** 를 사용 합니다 `cid` . | 옵션 |
+| `language` | 인식되는 음성 언어를 식별합니다. [지원 되는 언어](language-support.md#speech-to-text)를 참조 하세요. | 필요한 공간 |
+| `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. 자세한 응답에는 표시 텍스트의 네 가지 표현이 포함 되어 있습니다. 기본 설정은 `simple`입니다. | Optional |
+| `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용 되는 값은 사용 금지를 별표 ()로 대체 하는로, 결과의 `masked` `removed` 모든 비속어를 제거 하는 또는 `raw` 결과의 비속어를 포함 하는입니다. 기본 설정은 `masked`입니다. | Optional |
+| `cid` | [Custom Speech 포털](how-to-custom-speech.md) 을 사용 하 여 사용자 지정 모델을 만드는 경우 **배포** 페이지에서 찾을 수 있는 **끝점 ID** 를 통해 사용자 지정 모델을 사용할 수 있습니다. 쿼리 문자열 매개 변수에 대 한 인수로 **끝점 ID** 를 사용 합니다 `cid` . | Optional |
 
 ## <a name="request-headers"></a>요청 헤더
 
@@ -64,9 +64,9 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
-| `Pronunciation-Assessment` | 인식 결과에서 발음 점수를 표시 하는 매개 변수를 지정 합니다 .이 매개 변수는 정확도, 능숙, 완전성 등의 표시기를 사용 하 여 음성 입력의 발음 품질을 평가 합니다. 이 매개 변수는 여러 개의 자세한 매개 변수를 포함 하는 base64 인코딩 json입니다. 이 헤더를 빌드하는 방법은 [발음 평가 매개 변수](#pronunciation-assessment-parameters) 를 참조 하세요. | 옵션 |
-| `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codecs=audio/pcm; samplerate=16000` 및 `audio/ogg; codecs=opus`입니다. | 필수 |
-| `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | 옵션 |
+| `Pronunciation-Assessment` | 인식 결과에서 발음 점수를 표시 하는 매개 변수를 지정 합니다 .이 매개 변수는 정확도, 능숙, 완전성 등의 표시기를 사용 하 여 음성 입력의 발음 품질을 평가 합니다. 이 매개 변수는 여러 개의 자세한 매개 변수를 포함 하는 base64 인코딩 json입니다. 이 헤더를 빌드하는 방법은 [발음 평가 매개 변수](#pronunciation-assessment-parameters) 를 참조 하세요. | Optional |
+| `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codecs=audio/pcm; samplerate=16000` 및 `audio/ogg; codecs=opus`입니다. | 필요한 공간 |
+| `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | Optional |
 | `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. Speech Service는 초기 요청을 인식하고 추가 데이터를 대기합니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
 | `Accept` | 제공하는 경우 `application/json`이어야 합니다. 음성 서비스는 JSON에서 결과를 제공 합니다. 일부 요청 프레임 워크는 호환 되지 않는 기본값을 제공 합니다. 항상를 포함 하는 것이 좋습니다 `Accept` . | 선택 사항이지만 권장됩니다. |
 
@@ -88,12 +88,12 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 | 매개 변수 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| ReferenceText | 발음이 계산 될 텍스트입니다. | 필수 |
-| GradingSystem | 점수 보정의 시점 시스템입니다. 허용되는 값은 `FivePoint` 및 `HundredMark`입니다. 기본 설정은 `FivePoint`입니다. | 옵션 |
-| 세분성 | 평가 세분성입니다. 허용 되는 값은 전체 텍스트의 점수를 표시 하는 전체 텍스트, word 및 음소 수준에 대 한 점수를 표시 하는입니다 .이 값은 전체 텍스트 `Phoneme` `Word` `FullText` 수준 에서만 점수를 표시 합니다. 기본 설정은 `Phoneme`입니다. | 옵션 |
-| 차원 | 출력 조건을 정의 합니다. 허용 되는 값은 정확도 점수를 표시 하는 이며, `Basic` `Comprehensive` 더 많은 차원에 대 한 점수를 표시 합니다 (예: 전체 텍스트 수준에서 점수와 완전성 점수, 단어 수준의 오류 유형 능숙). [응답 매개 변수](#response-parameters) 를 확인 하 여 다른 점수 차원 및 단어 오류 유형의 정의를 확인 합니다. 기본 설정은 `Basic`입니다. | 옵션 |
-| EnableMiscue | Miscue 계산을 사용 합니다. 이 기능을 사용 하도록 설정 하면 단어를 참조 텍스트와 비교 하 여 비교에 따라 생략/삽입으로 표시 됩니다. 허용되는 값은 `False` 및 `True`입니다. 기본 설정은 `False`입니다. | 옵션 |
-| ScenarioId | 사용자 지정 된 지점 시스템을 나타내는 GUID입니다. | 옵션 |
+| ReferenceText | 발음이 계산 될 텍스트입니다. | 필요한 공간 |
+| GradingSystem | 점수 보정의 시점 시스템입니다. 허용되는 값은 `FivePoint` 및 `HundredMark`입니다. 기본 설정은 `FivePoint`입니다. | Optional |
+| 세분성 | 평가 세분성입니다. 허용 되는 값은 전체 텍스트의 점수를 표시 하는 전체 텍스트, word 및 음소 수준에 대 한 점수를 표시 하는입니다 .이 값은 전체 텍스트 `Phoneme` `Word` `FullText` 수준 에서만 점수를 표시 합니다. 기본 설정은 `Phoneme`입니다. | Optional |
+| 차원 | 출력 조건을 정의 합니다. 허용 되는 값은 정확도 점수를 표시 하는 이며, `Basic` `Comprehensive` 더 많은 차원에 대 한 점수를 표시 합니다 (예: 전체 텍스트 수준에서 점수와 완전성 점수, 단어 수준의 오류 유형 능숙). [응답 매개 변수](#response-parameters) 를 확인 하 여 다른 점수 차원 및 단어 오류 유형의 정의를 확인 합니다. 기본 설정은 `Basic`입니다. | Optional |
+| EnableMiscue | Miscue 계산을 사용 합니다. 이 기능을 사용 하도록 설정 하면 단어를 참조 텍스트와 비교 하 여 비교에 따라 생략/삽입으로 표시 됩니다. 허용되는 값은 `False` 및 `True`입니다. 기본 설정은 `False`입니다. | Optional |
+| ScenarioId | 사용자 지정 된 지점 시스템을 나타내는 GUID입니다. | Optional |
 
 다음은 발음 평가 매개 변수를 포함 하는 JSON 예제입니다.
 
@@ -143,7 +143,7 @@ Pronunciation-Assessment: eyJSZWZlcm...
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 
-| HTTP 상태 코드 | Description | 가능한 원인 |
+| HTTP 상태 코드 | 설명 | 가능한 원인 |
 |------------------|-------------|-----------------|
 | `100` | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송에 사용 됨) |
 | `200` | 정상 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
@@ -223,10 +223,10 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 | `ITN` | 전화 번호, 숫자, 축약어("doctor smith"가 "dr smith")가 포함된 인식된 텍스트의 역 텍스트 정규화된("기본형") 형태와 적용된 기타 변형입니다. |
 | `MaskedITN` | 요청된 경우 욕설 마스킹이 적용된 ITN 형태입니다. |
 | `Display` | 문장 부호 및 대문자로 표시가 추가된 인식된 텍스트의 표시 형태입니다. 이 매개 변수는 형식이 `simple`로 설정된 경우에 제공되는 `DisplayText`와 동일합니다. |
-| `AccuracyScore` | 지정 된 음성의 발음 정확도를 나타내는 점수입니다. |
-| `FluencyScore` | 지정 된 음성의 능숙을 나타내는 점수입니다. |
-| `CompletenessScore` | 전체 입력을 기준으로 하는 단어의 비율을 계산 하 여 지정 된 음성의 완전성을 나타내는 점수입니다. |
-| `PronScore` | 지정 된 음성의 발음 품질을 나타내는 전체 점수입니다. 이는 가중치를 사용 하 여에서 계산 됩니다 `AccuracyScore` `FluencyScore` `CompletenessScore` . |
+| `AccuracyScore` | 음성의 발음 정확도입니다. 정확도는 음소가 네이티브 스피커의 발음에 얼마나 근접 하 게 일치 하는지를 나타냅니다. 단어 및 전체 텍스트 수준 정확도 점수는 음소 수준 정확도 점수에서 집계 됩니다. |
+| `FluencyScore` | 지정 된 음성의 능숙입니다. 능숙는 음성이 단어 사이에서 기본 스피커의 자동 나누기 사용과 일치 하는지 여부를 나타냅니다. |
+| `CompletenessScore` | 음성의 완전성으로, 텍스트 입력을 참조 하는 단어를 발음 하는 비율을 계산 하 여 결정 됩니다. |
+| `PronScore` | 지정 된 음성의 발음 품질을 나타내는 전체 점수입니다. 이는에서 `AccuracyScore` , 가중치를 사용 하 여 집계 됩니다 `FluencyScore` `CompletenessScore` . |
 | `ErrorType` | 이 값은와 비교 하 여 단어를 생략 하거나, 삽입 하거나, 잘못 표시 하는지 여부를 나타냅니다 `ReferenceText` . 가능한 값은 `None` (이 단어에 오류가 없음을 의미 함) `Omission` , `Insertion` 및 `Mispronunciation` 입니다. |
 
 ## <a name="sample-responses"></a>샘플 응답

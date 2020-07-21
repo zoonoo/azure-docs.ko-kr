@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 569731faffd97e816567af3f6ed1cf8cdf49f240
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740453"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539332"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -66,8 +67,8 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *메모리 내 및 전송 중 데이터*: Application Insights는 예외, 요청, 종속성 호출 및 추적을 추적합니다. 프라이빗 데이터는 자주 코드 및 HTTP 호출 수준에서 수집될 수 있습니다. 이러한 데이터를 식별하려면 예외, 요청, 종속성 및 추적 테이블을 검토합니다. 이 데이터를 난독 처리할 수 있는 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)를 사용합니다.
-* *스냅샷 디버거 캡처*: Application Insights의 [스냅샷 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 기능을 사용하면 애플리케이션의 프로덕션 인스턴스에서 예외가 catch될 때마다 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외 및 스택의 모든 단계에서 로컬 변수에 대한 값으로 이끄는 전체 스택 추적을 공개합니다. 그러나 이 기능은 맞춤 지점의 선택적 삭제 또는 스냅샷 내에서 데이터에 프로그래밍 방식의 액세스를 허용하지 않습니다. 따라서 기본 스냅샷 보존 속도가 규정 준수 요구 사항을 충족하지 못하는 경우 기능을 해제하는 것이 좋습니다.
+* *메모리 내 및 전송 중 데이터*: Application Insights는 예외, 요청, 종속성 호출 및 추적을 추적합니다. 프라이빗 데이터는 자주 코드 및 HTTP 호출 수준에서 수집될 수 있습니다. 이러한 데이터를 식별하려면 예외, 요청, 종속성 및 추적 테이블을 검토합니다. 이 데이터를 난독 처리할 수 있는 경우 [원격 분석 이니셜라이저](../app/api-filtering-sampling.md)를 사용합니다.
+* *스냅샷 디버거 캡처*: Application Insights의 [스냅샷 디버거](../app/snapshot-debugger.md) 기능을 사용하면 애플리케이션의 프로덕션 인스턴스에서 예외가 catch될 때마다 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외 및 스택의 모든 단계에서 로컬 변수에 대한 값으로 이끄는 전체 스택 추적을 공개합니다. 그러나 이 기능은 맞춤 지점의 선택적 삭제 또는 스냅샷 내에서 데이터에 프로그래밍 방식의 액세스를 허용하지 않습니다. 따라서 기본 스냅샷 보존 속도가 규정 준수 요구 사항을 충족하지 못하는 경우 기능을 해제하는 것이 좋습니다.
 
 ## <a name="how-to-export-and-delete-private-data"></a>프라이빗 데이터를 내보내고 삭제하는 방법
 
@@ -100,7 +101,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 
 #### <a name="log-data"></a>로그 데이터
 
-* [게시 제거](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다. 
+* [게시 제거](/rest/api/loganalytics/workspacepurge/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다. 
 * GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 다음은 그 예입니다.
 
     ```
@@ -112,7 +113,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 
 #### <a name="application-data"></a>애플리케이션 데이터
 
-* [게시 제거](https://docs.microsoft.com/rest/api/application-insights/components/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다.
+* [게시 제거](/rest/api/application-insights/components/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다.
 * GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 다음은 그 예입니다.
 
    ```

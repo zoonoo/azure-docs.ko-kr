@@ -3,12 +3,12 @@ title: Azure Application Insights 데이터 보존 및 스토리지 | Microsoft 
 description: 보존 및 개인 정보 취급 방침
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 16483c9417c08ea60853d7e70b7121cd0af9db71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224488"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540063"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights의 데이터 수집, 보존 및 저장
 
@@ -74,7 +74,7 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 [원격 분석 프로세서 플러그 인](../../azure-monitor/app/api-filtering-sampling.md)을 작성하여 수행할 수 있습니다.
 
 ## <a name="how-long-is-the-data-kept"></a>데이터가 얼마 동안 보존되나요?
-원시 데이터 요소 (즉, 분석에서 쿼리하고 검색에서 검사할 수 있는 항목)는 최대 730 일 동안 유지 됩니다. 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일의 [보존 기간을 선택할](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) 수 있습니다. 데이터를 730 일 보다 오래 유지 해야 하는 경우 [연속 내보내기를](../../azure-monitor/app/export-telemetry.md) 사용 하 여 데이터를 수집 하는 동안 저장소 계정에 복사할 수 있습니다. 
+원시 데이터 요소 (즉, 분석에서 쿼리하고 검색에서 검사할 수 있는 항목)는 최대 730 일 동안 유지 됩니다. 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일의 [보존 기간을 선택할](./pricing.md#change-the-data-retention-period) 수 있습니다. 데이터를 730 일 보다 오래 유지 해야 하는 경우 [연속 내보내기를](../../azure-monitor/app/export-telemetry.md) 사용 하 여 데이터를 수집 하는 동안 저장소 계정에 복사할 수 있습니다. 
 
 90 일 보다 오래 유지 되는 데이터는 추가 요금이 발생 합니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)의 Application Insights 가격 책정에 대해 자세히 알아보세요.
 
@@ -122,7 +122,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 로컬 저장소를 활용 하는 원격 분석 채널은 응용 프로그램을 실행 하는 특정 계정으로 제한 되는 TEMP 또는 APPDATA 디렉터리에 임시 파일을 만듭니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
 
-이 지속형 데이터는 로컬로 암호화 되지 않습니다. 이 문제가 있는 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data)을 참조 하세요.)
+이 지속형 데이터는 로컬로 암호화 되지 않습니다. 이 문제가 있는 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)을 참조 하세요.)
 
 고객이 특정 보안 요구 사항을 사용 하 여이 디렉터리를 구성 해야 하는 경우 프레임 워크 당 구성할 수 있습니다. 애플리케이션을 실행하는 프로세스에 이 디렉터리에 대한 쓰기 액세스 권한이 있는지 확인하세요. 그러나 의도하지 않은 사용자가 원격 분석을 읽을 수 없도록 보호되었는지도 확인하세요.
 
@@ -204,16 +204,16 @@ Tls 1.3와 같이 제공 되는 새로운 더 안전한 프로토콜을 자동�
 | --- | --- | --- |
 | Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!)에 대한 공지를 참고하세요.  |
 | Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!)에 대한 공지를 참고하세요. |
-|.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 및 이전 버전에 대 한 자세한 구성 정보는 [다음 지침](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조 하세요.  |
-|상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  +  TLS 1.2을 지원 하기 위해 OS 구성[.net 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) 에 의존 합니다.
+|.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 및 이전 버전에 대 한 자세한 구성 정보는 [다음 지침](/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조 하세요.  |
+|상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS Configuration](/windows-server/security/tls/tls-registry-settings)  +  TLS 1.2을 지원 하기 위해 OS 구성[.net 구성](/dotnet/framework/network-programming/tls#support-for-tls-12) 에 의존 합니다.
 |Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 응용 프로그램별 구성에는 [공식 Node.js TLS/SSL 설명서](https://nodejs.org/api/tls.html) 를 사용 합니다. |
 |Java | 지원됨, TLS 1.2에 대한 JDK 지원이 [JDK 6 업데이트 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 및 [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html)에서 추가되었습니다. | JDK 8은 [기본적으로 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)를 사용합니다.  |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
-| Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
-| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
-| Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
+| Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
+| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
+| Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 | Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
-|Windows Vista | 지원되지 않습니다. | 해당 없음
+|Windows Vista | 지원되지 않습니다. | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
 
@@ -286,7 +286,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [ApplicationInsights.config를 편집하여 일부 데이터를 해제][config]할 수 있습니다.
 
 > [!NOTE]
-> 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../../azure-monitor/platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소 데이터를 저장 해야 하는 경우 [ip 주소 컬렉션 문서](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) 에서 사용자의 옵션을 안내 합니다.
+> 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../../azure-monitor/platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소 데이터를 저장 해야 하는 경우 [ip 주소 컬렉션 문서](./ip-collection.md) 에서 사용자의 옵션을 안내 합니다.
 
 ## <a name="credits"></a>크레딧
 이 제품에는에서 사용할 수 있는 MaxMind로 생성 된 GeoLite2 데이터가 포함 됩니다 [https://www.maxmind.com](https://www.maxmind.com) .

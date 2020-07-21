@@ -3,12 +3,12 @@ title: Azure Monitor 로그 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대한 Azure Monitor Log Analytics 데이터 모델 세부 정보에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: e776649ff22e3249e2472adbe298c869ff5c946a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 73247dac1ca829a7893192101da0981c3edcf8d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854760"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539077"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 
@@ -18,7 +18,7 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 
 > [!NOTE]
 >
-> 이 데이터 모델은 LA(Log Analytics)로 진단 이벤트를 보내는 Azure Diagnostics 모드를 참조합니다. 새 리소스 특정 모드의 데이터 모델에 대해 알아보려면 다음 문서를 참조할 수 있습니다. [Azure Backup 진단 이벤트에 대한 데이터 모델](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+> 이 데이터 모델은 LA(Log Analytics)로 진단 이벤트를 보내는 Azure Diagnostics 모드를 참조합니다. 새 리소스 특정 모드의 데이터 모델에 대해 알아보려면 다음 문서를 참조할 수 있습니다. [Azure Backup 진단 이벤트에 대한 데이터 모델](./backup-azure-reports-data-model.md)
 
 ## <a name="using-azure-backup-data-model"></a>Azure Backup 데이터 모델 사용
 
@@ -465,7 +465,7 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 
 이전 버전과의 호환성을 위해 Azure Backup 에이전트 및 Azure VM 백업에 대한 진단 데이터는 현재 V1 및 V2 스키마 모두의 Azure Diagnostics 테이블로 전송됩니다(현재는 사용 중단 경로의 V1 스키마 사용). 로그 쿼리에서 SchemaVersion_s=="V1"에 대한 레코드를 필터링하여 Log Analytics에서 V1 스키마의 레코드를 식별할 수 있습니다. 
 
-위에 설명된 [데이터 모델](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model)의 세 번째 열 '설명'을 참조하여 V1 스키마에만 속하는 열을 식별합니다.
+위에 설명된 [데이터 모델](#using-azure-backup-data-model)의 세 번째 열 '설명'을 참조하여 V1 스키마에만 속하는 열을 식별합니다.
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>V2 스키마를 사용 하도록 쿼리 수정
 V1 스키마는 사용 중단 경로에 있으므로 Azure Backup 진단 데이터의 모든 사용자 지정 쿼리에서 V2 스키마만 사용 하는 것이 좋습니다. 다음은 V1 스키마에 대 한 종속성을 제거 하도록 쿼리를 업데이트 하는 방법의 예입니다.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 978cb7ece1f8b3e16815c1dc49e4983dc393cbfc
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937589"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539723"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Application Insights에 대 한 Azure 웹 앱 확장 릴리스 정보
 
@@ -18,10 +18,10 @@ ms.locfileid: "85937589"
 
 Application Insights에 대 한 Azure 웹 앱 확장에 대해 [자세히 알아보세요](azure-web-apps.md) .
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 - 현재 확장 된 확장의 버전을 확인 하는 방법
-    - `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights` 로 이동합니다. 자세한 내용은 [확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net#troubleshooting) 를 참조 하세요.
+    - `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`로 이동합니다. 자세한 내용은 [확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드](./azure-web-apps.md?tabs=net#troubleshooting) 를 참조 하세요.
 
 - 개인 확장을 사용 하는 경우 어떻게 되나요?
     - 더 이상 지원 되지 않으므로 개인 사이트 확장을 제거 합니다.

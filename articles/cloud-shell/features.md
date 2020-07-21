@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7324bfec32368e952af8f24afabe893011454df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506568"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538176"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
@@ -49,19 +49,19 @@ Azure 드라이브는 파일 시스템 탐색과 비슷하게 Compute, 네트워
 사용하는 드라이브에 관계 없이 이러한 리소스를 관리하기 위해 친숙한 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure)을 계속 사용할 수 있습니다.
 Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 Azure 리소스에 대한 변경 내용은 Azure 드라이브에 반영됩니다.  `dir -Force`를 실행하여 리소스를 새로 고칠 수 있습니다.
 
-![](media/features-powershell/azure-drive.png)
+![초기화 되는 Azure Cloud Shell의 스크린샷 및 디렉터리 리소스의 목록입니다.](media/features-powershell/azure-drive.png)
 
 ### <a name="manage-exchange-online"></a>Exchange Online 관리
 
 Cloud Shell PowerShell에는 Exchange Online 모듈의 개인 빌드가 포함 되어 있습니다.  `Connect-EXOPSSession`을 실행 하 여 Exchange cmdlet을 가져옵니다.
 
-![](media/features-powershell/exchangeonline.png)
+![Connect-EXOPSSession 및 Get 사용자 명령을 실행 하는 Azure Cloud Shell의 스크린샷](media/features-powershell/exchangeonline.png)
 
  `Get-Command -Module tmp_*`을 실행합니다.
 > [!NOTE]
 > 모듈 이름은로 시작 해야 하며 `tmp_` , 동일한 접두사를 사용 하 여 모듈을 설치한 경우 해당 cmdlet도 표시 됩니다. 
 
-![](media/features-powershell/exchangeonlinecmdlets.png)
+![명령을 실행 하는 Azure Cloud Shell의 스크린샷 tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>오픈 소스 도구와 완벽한 통합
 
@@ -76,7 +76,7 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 |텍스트 편집기           |코드(Cloud Shell 편집기)<br> vim<br> nano<br> emacs    |
 |원본 제어         |git                    |
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
-|컨테이너             |[Docker 컴퓨터](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [름](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|컨테이너             |[Docker 컴퓨터](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |데이터베이스              |MySQL 클라이언트<br> PostgreSql 클라이언트<br> [sqlcmd 유틸리티](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [퍼핏 볼트](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp 팩](https://www.packer.io/)<br> [Office 365 CLI](https://pnp.github.io/office365-cli/)|
 

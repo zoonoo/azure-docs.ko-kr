@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 에이전트의 설치 및 등록 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: cb9e5cf48f960a70c6a699df1163089eb4e8bc31
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ddff3ca8a89d8d5674be00fdebc70b0232cdbd13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056615"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539060"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -20,12 +20,12 @@ ms.locfileid: "86056615"
 Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 하기 전에 다음 사항을 확인 하는 것이 좋습니다.
 
 - [MARS 에이전트가 최신 상태 인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)합니다.
-- [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)합니다.
+- [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)합니다.
 - MARS가 실행 중인지 확인 합니다 (서비스 콘솔). 필요한 경우 작업을 다시 시작 하 고 작업을 다시 시도 하세요.
-- [스크래치 폴더 위치에서 5% ~ 10%의 사용 가능한 볼륨 공간을 사용할 수 있는지 확인](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)하십시오.
-- [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup 방해 하는지 확인](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)합니다.
+- [스크래치 폴더 위치에서 5% ~ 10%의 사용 가능한 볼륨 공간을 사용할 수 있는지 확인](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)하십시오.
+- [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup 방해 하는지 확인](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)합니다.
 - 백업 작업이 완료 되었지만 경고가 표시 되 면 [백업 작업이 완료 되었으나 경고가](#backup-jobs-completed-with-warning) 발생 합니다.
-- 예약 된 백업이 실패 했지만 수동 백업이 작동 하는 경우에는 [예약에 따라 백업이 실행 되지 않습니다](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule).를 참조 하세요.
+- 예약 된 백업이 실패 했지만 수동 백업이 작동 하는 경우에는 [예약에 따라 백업이 실행 되지 않습니다](#backups-dont-run-according-to-schedule).를 참조 하세요.
 - OS에 최신 업데이트가 있는지 확인 합니다.
 - 지원 되지 않는 [특성이 있는 지원 되지 않는 드라이브 및 파일이 백업에서 제외 되는지 확인](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)합니다.
 - 보호 된 시스템의 시계가 올바른 표준 시간대로 구성 되어 있는지 확인 합니다.
@@ -34,7 +34,7 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
   - 에이전트가 서버에서 제거 되 고 포털에서 삭제 되었는지 확인 합니다.
   - 처음에 서버를 등록 하는 데 사용한 것과 동일한 암호를 사용 합니다.
 - 오프 라인 백업의 경우 백업을 시작 하기 전에 원본 컴퓨터와 복사 컴퓨터 모두에 3.7.0이 설치 되어 있는지 Azure PowerShell 확인 합니다.
-- 백업 에이전트가 Azure 가상 머신에서 실행 되는 경우 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine)를 참조 하세요.
+- 백업 에이전트가 Azure 가상 머신에서 실행 되는 경우 [이 문서](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine)를 참조 하세요.
 
 ## <a name="invalid-vault-credentials-provided"></a>잘못된 자격 증명 모음이 제공되었습니다.
 
@@ -42,7 +42,7 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
 | 원인 | 권장 작업 |
 | ---     | ---    |
-| **자격 증명 모음 자격 증명이 유효 하지 않음** <br/> <br/> 자격 증명 모음 파일이 손상 되었거나 만료 되었을 수 있습니다. (예를 들어 등록 하는 동안 48 시간 이상 다운로드 되었을 수 있습니다.)| Azure Portal Recovery Services 자격 증명 모음에서 새 자격 증명을 다운로드 합니다. [MARS 에이전트 다운로드](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) 섹션의 6 단계를 참조 하세요. 그런 후에 다음 단계를 적절 하 게 수행 합니다. <ul><li> MARS를 이미 설치 하 고 등록 한 경우 Microsoft Azure Backup 에이전트 MMC 콘솔을 열고 **작업** 창에서 **서버 등록** 을 선택 하 여 새 자격 증명을 사용 하 여 등록을 완료 합니다. <br/> <li> 새 설치에 실패 하는 경우 새 자격 증명을 사용 하 여 다시 설치 해 봅니다.</ul> **참고**: 여러 자격 증명 모음 파일을 다운로드 한 경우 최신 파일만 다음 48 시간 동안 유효 합니다. 새 자격 증명 모음 자격 증명 파일을 다운로드 하는 것이 좋습니다.
+| **자격 증명 모음 자격 증명이 유효 하지 않음** <br/> <br/> 자격 증명 모음 파일이 손상 되었거나 만료 되었을 수 있습니다. (예를 들어 등록 하는 동안 48 시간 이상 다운로드 되었을 수 있습니다.)| Azure Portal Recovery Services 자격 증명 모음에서 새 자격 증명을 다운로드 합니다. [MARS 에이전트 다운로드](./install-mars-agent.md#download-the-mars-agent) 섹션의 6 단계를 참조 하세요. 그런 후에 다음 단계를 적절 하 게 수행 합니다. <ul><li> MARS를 이미 설치 하 고 등록 한 경우 Microsoft Azure Backup 에이전트 MMC 콘솔을 열고 **작업** 창에서 **서버 등록** 을 선택 하 여 새 자격 증명을 사용 하 여 등록을 완료 합니다. <br/> <li> 새 설치에 실패 하는 경우 새 자격 증명을 사용 하 여 다시 설치 해 봅니다.</ul> **참고**: 여러 자격 증명 모음 파일을 다운로드 한 경우 최신 파일만 다음 48 시간 동안 유효 합니다. 새 자격 증명 모음 자격 증명 파일을 다운로드 하는 것이 좋습니다.
 | **프록시 서버/방화벽이 등록을 차단 하 고 있습니다.** <br/>또는 <br/>**인터넷 연결 없음** <br/><br/> 컴퓨터 또는 프록시 서버가 인터넷 연결을 제한 하 고 필요한 Url에 대 한 액세스를 보장 하지 않는 경우 등록에 실패 합니다.| 다음 단계를 수행하세요.<br/> <ul><li> IT 팀과 협력 하 여 시스템이 인터넷에 연결 되어 있는지 확인 합니다.<li> 프록시 서버가 없는 경우 에이전트를 등록할 때 프록시 옵션이 선택 되어 있지 않은지 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)하세요.<li> 방화벽/프록시 서버를 사용 하는 경우에는 네트워킹 팀과 협력 하 여 이러한 Url 및 IP 주소에 액세스할 수 있는지 확인 합니다.<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 해 보세요.<br></br> Azure Express 경로를 통해 연결 하는 경우에는 [Azure express 경로 지원](backup-support-matrix-mars-agent.md#azure-expressroute-support)에 설명 된 대로 설정이 구성 되어 있는지 확인 합니다.
 | **바이러스 백신 소프트웨어가 등록을 차단 하 고 있습니다.** | 서버에 바이러스 백신 소프트웨어가 설치 되어 있는 경우 다음과 같은 파일 및 폴더에 대 한 바이러스 백신 검사에 필요한 제외 규칙을 추가 합니다. <br/><ul> <li> CBengine.exe <li> CSC.exe<li> 스크래치 폴더입니다. 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> C:\Program Files\Microsoft Azure Recovery Services의 bin 폴더.
 
@@ -54,7 +54,7 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
 ### <a name="verifying-proxy-settings-for-windows"></a>Windows에 대 한 프록시 설정 확인
 
-1. [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) 페이지에서 PsExec를 다운로드 합니다.
+1. [Sysinternals](/sysinternals/downloads/psexec) 페이지에서 PsExec를 다운로드 합니다.
 1. `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`관리자 권한 명령 프롬프트에서를 실행 합니다.
 
    이 명령은 Internet Explorer를 엽니다.
@@ -83,7 +83,7 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
   ![백업 작업이 완료 되었지만 경고가 발생 했습니다.](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
 
 - 백업에서 파일을 건너뛸 수 있는 조건은 다음과 같습니다.
-  - 지원 되지 않는 파일 특성 (예: OneDrive 폴더, 압축 된 스트림, 재분석 지점의 경우) 전체 목록은 [지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#supported-file-types-for-backup)를 참조 하세요.
+  - 지원 되지 않는 파일 특성 (예: OneDrive 폴더, 압축 된 스트림, 재분석 지점의 경우) 전체 목록은 [지원 매트릭스](./backup-support-matrix-mars-agent.md#supported-file-types-for-backup)를 참조 하세요.
   - 파일 시스템 문제
   - 다른 프로세스가 방해 합니다. 예를 들어 파일에 대 한 핸들을 보유 하는 바이러스 백신 소프트웨어는 MARS 에이전트가 파일에 액세스 하지 못하도록 차단할 수 있습니다.
   - 응용 프로그램에 의해 잠긴 파일  
@@ -94,11 +94,11 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
   | 오류 코드             | 이유                                             | 권장 사항                                              |
   | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
   | 0x80070570             | 파일 또는 디렉터리가 손상 되어 읽을 수 없습니다. | 원본 볼륨에서 **chkdsk** 를 실행 합니다.                             |
-  | 0x80070002, 0x80070003 | 시스템에서 지정 된 파일을 찾을 수 없습니다.         | [스크래치 폴더가 꽉 차지 않았는지 확인 합니다.](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)  <br><br>  스크래치 공간이 구성 된 볼륨이 있는지 확인 합니다 (삭제 되지 않음).  <br><br>   [MARS 에이전트가 컴퓨터에 설치 된 바이러스 백신에서 제외 되는지 확인 합니다.](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
-  | 0x80070005             | 액세스가 거부 되었습니다.                                    | [바이러스 백신 또는 기타 타사 소프트웨어가 액세스를 차단 하는지 확인](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
+  | 0x80070002, 0x80070003 | 시스템에서 지정 된 파일을 찾을 수 없습니다.         | [스크래치 폴더가 꽉 차지 않았는지 확인 합니다.](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)  <br><br>  스크래치 공간이 구성 된 볼륨이 있는지 확인 합니다 (삭제 되지 않음).  <br><br>   [MARS 에이전트가 컴퓨터에 설치 된 바이러스 백신에서 제외 되는지 확인 합니다.](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
+  | 0x80070005             | 액세스가 거부 되었습니다.                                    | [바이러스 백신 또는 기타 타사 소프트웨어가 액세스를 차단 하는지 확인](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
   | 0x8007018b             | 클라우드 파일에 대 한 액세스가 거부 되었습니다.                | OneDrive 파일, Git 파일 또는 컴퓨터에서 오프 라인 상태일 수 있는 기타 파일 |
 
-- [기존 정책에 제외 규칙 추가](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#add-exclusion-rules-to-existing-policy) 를 사용 하 여 백업 정책에서 지원 되지 않거나 누락 되거나 삭제 된 파일을 제외 하 고 백업이 성공적으로 수행 되도록 할 수 있습니다.
+- [기존 정책에 제외 규칙 추가](./backup-azure-manage-mars.md#add-exclusion-rules-to-existing-policy) 를 사용 하 여 백업 정책에서 지원 되지 않거나 누락 되거나 삭제 된 파일을 제외 하 고 백업이 성공적으로 수행 되도록 할 수 있습니다.
 
 - 최상위 폴더에 있는 동일한 이름의 보호 된 폴더를 삭제 하 고 다시 만들지 마십시오. 이렇게 하면 중요 한 불일치가 감지 되어 오류로 인해 백업이 완료 될 수 *있으므로 변경 내용을 복제할 수 없습니다.*  폴더를 삭제 하 고 다시 만들어야 하는 경우 보호 된 최상위 폴더의 하위 폴더에서이 작업을 수행 하는 것이 좋습니다.
 
@@ -112,13 +112,13 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
 | Error  | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-|<br />정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.     | <li> 스크래치 폴더가 공간이 부족 한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>[최신 버전](https://aka.ms/azurebackup_agent) 의 MARS 에이전트로 업그레이드 합니다.<li>스크래치 폴더 또는 캐시 위치를 여유 공간이 있는 볼륨 (전체 백업 데이터 크기의 5% ~ 10%)으로 이동 합니다. 캐시 위치를 올바르게 이동 하려면 [파일 및 폴더 백업에 대 한 일반적인 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)의 단계를 참조 하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*입니다.        |
+|<br />정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.     | <li> 스크래치 폴더가 공간이 부족 한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>[최신 버전](https://aka.ms/azurebackup_agent) 의 MARS 에이전트로 업그레이드 합니다.<li>스크래치 폴더 또는 캐시 위치를 여유 공간이 있는 볼륨 (전체 백업 데이터 크기의 5% ~ 10%)으로 이동 합니다. 캐시 위치를 올바르게 이동 하려면 [파일 및 폴더 백업에 대 한 일반적인 질문](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)의 단계를 참조 하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*입니다.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>암호화 암호가 올바르게 구성되지 않았습니다.
 
 | Error  | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-| <br />34506 오류입니다. 이 컴퓨터에 저장된 암호화의 암호가 제대로 구성되어 있지 않습니다.    | <li> 스크래치 폴더가 공간이 부족 한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 여유 공간이 있는 볼륨 (전체 백업 데이터 크기의 5% ~ 10%)으로 이동 합니다. 캐시 위치를 올바르게 이동 하려면 [파일 및 폴더 백업에 대 한 일반적인 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)의 단계를 참조 하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*입니다.         |
+| <br />34506 오류입니다. 이 컴퓨터에 저장된 암호화의 암호가 제대로 구성되어 있지 않습니다.    | <li> 스크래치 폴더가 공간이 부족 한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 여유 공간이 있는 볼륨 (전체 백업 데이터 크기의 5% ~ 10%)으로 이동 합니다. 캐시 위치를 올바르게 이동 하려면 [파일 및 폴더 백업에 대 한 일반적인 질문](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)의 단계를 참조 하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로에 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*입니다.         |
 
 ## <a name="backups-dont-run-according-to-schedule"></a>백업이 일정에 따라 실행 되지 않음
 
@@ -217,7 +217,7 @@ Error | 가능한 원인 | 권장 작업
 
 캐시 폴더 (스크래치 폴더 라고도 함)가 잘못 구성 되었거나, 필수 구성 요소가 없거나, 액세스가 제한 된 경우 백업 작업이 실패할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>사전 준비 사항
 
 MARS 에이전트 작업을 성공적으로 수행 하려면 캐시 폴더에서 다음 요구 사항을 준수 해야 합니다.
 

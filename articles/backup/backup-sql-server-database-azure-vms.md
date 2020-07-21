@@ -3,12 +3,12 @@ title: Azure VM의 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure Backup을 사용하여 Azure 가상 머신의 SQL Server 데이터베이스를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cfd8233b9a696b5b4b1981eefa81aa9723f6431
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817543"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538985"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -59,17 +59,17 @@ SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하�
 
 #### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
-프라이빗 엔드포인트를 사용하면 가상 네트워크 내의 서버에서 안전하게 Recovery Services 자격 증명 모음에 연결할 수 있습니다. 프라이빗 엔드포인트는 VNET 주소 공간의 IP를 자격 증명 모음에 사용합니다. 가상 네트워크 내의 리소스와 자격 증명 모음 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통해 이동합니다. 이렇게 하면 퍼블릭 인터넷에서 공개되지 않습니다. Azure Backup의 프라이빗 엔드포인트에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/backup/private-endpoints)를 참조하세요.
+프라이빗 엔드포인트를 사용하면 가상 네트워크 내의 서버에서 안전하게 Recovery Services 자격 증명 모음에 연결할 수 있습니다. 프라이빗 엔드포인트는 VNET 주소 공간의 IP를 자격 증명 모음에 사용합니다. 가상 네트워크 내의 리소스와 자격 증명 모음 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통해 이동합니다. 이렇게 하면 퍼블릭 인터넷에서 공개되지 않습니다. Azure Backup의 프라이빗 엔드포인트에 대한 자세한 내용은 [여기](./private-endpoints.md)를 참조하세요.
 
 #### <a name="nsg-tags"></a>NSG 태그
 
-NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에 *Azure AD* 및 *Azure Storage*에 대한 유사한 [NSG 규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)을 만들어 인증 및 데이터 전송에 대한 연결도 허용해야 합니다.  다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
+NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에 *Azure AD* 및 *Azure Storage*에 대한 유사한 [NSG 규칙](../virtual-network/security-overview.md#service-tags)을 만들어 인증 및 데이터 전송에 대한 연결도 허용해야 합니다.  다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
 
 1. **모든 서비스**에서 **네트워크 보안 그룹**으로 이동하여 네트워크 보안 그룹을 선택합니다.
 
 1. **설정** 아래에서 **아웃바운드 보안 규칙**을 선택합니다.
 
-1. **추가**를 선택합니다. [보안 규칙 설정](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그*로 설정되고 **대상 서비스 태그**가 *AzureBackup*으로 설정되어 있는지 확인합니다.
+1. **추가**를 선택합니다. [보안 규칙 설정](../virtual-network/manage-network-security-group.md#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그*로 설정되고 **대상 서비스 태그**가 *AzureBackup*으로 설정되어 있는지 확인합니다.
 
 1. **추가**를 클릭하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
 
@@ -77,7 +77,7 @@ NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 �
 
 #### <a name="azure-firewall-tags"></a>Azure Firewall 태그
 
-Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)를 사용하여 애플리케이션 규칙을 만듭니다. 이는 Azure Backup에 대한 모든 아웃바운드 액세스를 허용합니다.
+Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그](../firewall/fqdn-tags.md)를 사용하여 애플리케이션 규칙을 만듭니다. 이는 Azure Backup에 대한 모든 아웃바운드 액세스를 허용합니다.
 
 #### <a name="allow-access-to-service-ip-ranges"></a>서비스 IP 범위에 대한 액세스 허용
 
@@ -91,7 +91,7 @@ Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그]
 | -------------- | ------------------------------------------------------------ |
 | Azure Backup  | `*.backup.windowsazure.com`                             |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | [이 문서](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)에 따라 섹션 56 및 59에서 FQDN에 대한 액세스 허용 |
+| Azure AD      | [이 문서](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)에 따라 섹션 56 및 59에서 FQDN에 대한 액세스 허용 |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>HTTP 프록시 서버를 사용하여 트래픽 라우팅
 
@@ -107,7 +107,7 @@ Azure VM에서 SQL Server 데이터베이스를 백업하는 경우 VM의 백업
 * 세미콜론 ';'
 * 슬래시 '/'
 
-지원되지 않는 문자에 별칭을 사용할 수는 있지만 사용하지 않는 것이 좋습니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)를 참조하세요.
+지원되지 않는 문자에 별칭을 사용할 수는 있지만 사용하지 않는 것이 좋습니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](/rest/api/storageservices/understanding-the-table-service-data-model)를 참조하세요.
 
 >[!NOTE]
 >이름에 "+" 또는 "&" 같은 특수 문자가 포함된 데이터베이스에는 **보호 구성** 작업이 지원되지 않습니다. 데이터베이스 이름을 변경하거나 이러한 데이터베이스를 성공적으로 보호할 수 있는 **자동 보호**를 사용할 수 있습니다.
@@ -161,11 +161,15 @@ VM에서 실행되는 데이터베이스를 검색하는 방법:
 
    ![백업 구성 선택](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. **백업할 항목을 선택**에는 등록된 모든 가용성 그룹 및 독립 실행형 SQL Server 인스턴스가 표시됩니다. 행 왼쪽에 있는 화살표를 선택하여 해당 인스턴스 또는 Always On 가용성 그룹에 있는 보호되지 않는 모든 데이터베이스의 목록을 확장합니다.  
+1. **리소스 추가** 를 클릭 하 여 등록 된 모든 가용성 그룹 및 독립 실행형 SQL Server 인스턴스를 확인 합니다.
 
-    ![독립 실행형 데이터베이스를 사용하는 모든 SQL Server 인스턴스 표시](./media/backup-azure-sql-database/list-of-sql-databases.png)
+    ![리소스 추가 선택](./media/backup-azure-sql-database/add-resources.png)
 
-3. 보호하려는 모든 데이터베이스, **확인**을 차례로 선택합니다.
+1. **백업할 항목 선택** 화면에서 행 왼쪽에 있는 화살표를 선택 하 여 해당 인스턴스 또는 Always On 가용성 그룹에 있는 보호 되지 않은 모든 데이터베이스의 목록을 확장 합니다.
+
+    ![백업할 항목 선택](./media/backup-azure-sql-database/select-items-to-backup.png)
+
+1. 보호하려는 모든 데이터베이스, **확인**을 차례로 선택합니다.
 
    ![데이터베이스 보호](./media/backup-azure-sql-database/select-database-to-protect.png)
 
@@ -174,28 +178,20 @@ VM에서 실행되는 데이터베이스를 검색하는 방법:
      * 50개가 넘는 데이터베이스를 보호하려면 여러 백업을 구성합니다.
      * 전체 인스턴스 또는 Always On 가용성 그룹을 [사용하도록 설정](#enable-auto-protection)하려면 **AUTOPROTECT** 드롭다운 목록에서 **켜기**를 선택한 후 **확인**을 선택합니다.
 
-    > [!NOTE]
-    > [자동 보호](#enable-auto-protection) 기능은 모든 기존 데이터베이스에 동시에 보호를 사용하도록 설정할 뿐 아니라 해당 인스턴스 또는 가용성 그룹에 추가되는 새 데이터베이스도 자동으로 보호합니다.  
+         > [!NOTE]
+         > [자동 보호](#enable-auto-protection) 기능은 모든 기존 데이터베이스에 동시에 보호를 사용하도록 설정할 뿐 아니라 해당 인스턴스 또는 가용성 그룹에 추가되는 새 데이터베이스도 자동으로 보호합니다.  
 
-4. **확인**을 선택하여 **백업 정책**을 엽니다.
+1. **백업 정책을**정의 합니다. 다음 방법 중 하나를 수행할 수 있습니다.
 
-    ![Always On 가용성 그룹에 자동 보호를 사용하도록 설정](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-5. **백업 정책**에서 정책을 선택한 후 **확인**을 선택합니다.
-
-   * 기본 정책에 HourlyLogBackup을 선택합니다.
+   * 기본 정책을 *HourlyLogBackup*로 선택 합니다.
    * 이전에 SQL용으로 만든 기존 백업 정책을 선택합니다.
    * RPO(복구 지점 목표) 및 보존 범위를 기반으로 새 정책을 정의합니다.
 
      ![백업 정책 선택](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. **백업**에서 **백업 사용**을 선택합니다.
+1. **백업 사용** 을 클릭 하 여 **보호 구성** 작업을 제출 하 고 포털의 **알림** 영역에서 구성 진행률을 추적 합니다.
 
-    ![선택한 백업 정책 사용](./media/backup-azure-sql-database/enable-backup-button.png)
-
-7. 포털의 **알림** 영역에서 구성 진행률을 추적합니다.
-
-    ![알림 영역](./media/backup-azure-sql-database/notifications-area.png)
+   ![구성 진행률 추적](./media/backup-azure-sql-database/track-configuration-progress.png)
 
 ### <a name="create-a-backup-policy"></a>백업 정책 만들기
 
@@ -210,22 +206,22 @@ VM에서 실행되는 데이터베이스를 검색하는 방법:
 백업 정책을 만들려면:
 
 1. 자격 증명 모음에서 **백업 정책** > **추가**를 선택합니다.
-2. **추가**에서 **Azure VM의 SQL Server**를 선택하여 정책 유형을 정의합니다.
+1. **추가**에서 **Azure VM의 SQL Server**를 선택하여 정책 유형을 정의합니다.
 
    ![새 백업 정책에 대한 정책 유형 선택](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. **정책 이름**에 새 정책의 이름을 입력합니다.
-4. **전체 백업 정책**에서 **백업 빈도**를 선택합니다. **매일** 또는 **매주**를 선택합니다.
+1. **정책 이름**에 새 정책의 이름을 입력합니다.
 
-   * **매일**의 경우 백업 작업이 시작될 때 시간과 표준 시간대를 선택합니다.
-   * **매주**의 경우 백업 작업이 시작되는 요일, 시간 및 표준 시간대를 선택합니다.
-   * **전체 백업** 옵션은 해제할 수 없으므로 전체 백업을 실행하세요.
-   * **전체 백업**을 선택하여 정책을 확인합니다.
-   * 매일 전체 백업에 대해서는 차등 백업을 만들 수 없습니다.
+    ![정책 이름 입력](./media/backup-azure-sql-database/policy-name.png)
+
+1. **전체 백업**에 해당 하는 **편집** 링크를 클릭 하 여 기본 설정을 수정 합니다.
+
+   * **백업 빈도**를 선택 합니다. **매일** 또는 **매주**를 선택합니다.
+   * **매일**의 경우 백업 작업이 시작될 때 시간과 표준 시간대를 선택합니다. 매일 전체 백업에 대해서는 차등 백업을 만들 수 없습니다.
 
      ![새 백업 정책 필드](./media/backup-azure-sql-database/full-backup-policy.png)  
 
-5. **보존 범위**에는 모든 옵션이 기본적으로 선택되어 있습니다. 사용하지 않으려는 보존 범위 제한을 모두 선택 취소한 후 사용할 간격을 설정합니다.
+1. **보존 범위**에는 모든 옵션이 기본적으로 선택되어 있습니다. 사용하지 않으려는 보존 범위 제한을 모두 선택 취소한 후 사용할 간격을 설정합니다.
 
     * 모든 백업 유형(전체, 차등 및 로그)의 최소 보존 기간은 7일입니다.
     * 복구 지점은 보존 범위를 기반으로 보존 태그가 지정됩니다. 예를 들어, 매일, 전체 백업을 선택하면 매일 하나의 전체 백업만 트리거됩니다.
@@ -234,28 +230,28 @@ VM에서 실행되는 데이터베이스를 검색하는 방법:
 
        ![보존 범위 간격 설정](./media/backup-azure-sql-database/retention-range-interval.png)
 
-6. **전체 백업 정책** 메뉴에서 **확인**을 클릭하여 설정을 적용합니다.
-7. 차등 백업 정책을 추가하려면 **차등 백업**을 선택합니다.
+1. **확인** 을 선택 하 여 전체 백업에 대 한 설정을 적용 합니다.
+1. **차등 백업**에 해당 하는 **편집** 링크를 클릭 하 여 기본 설정을 수정 합니다.
 
-   ![보존 범위 간격 설정](./media/backup-azure-sql-database/retention-range-interval.png)
-   ![차등 백업 정책 메뉴 열기](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
+    * **차등 백업 정책**에서 **사용**을 선택하여 빈도 및 보존 컨트롤을 엽니다.
+    * 하루에 하나의 차등 백업만 트리거할 수 있습니다. 차등 백업은 전체 백업과 동일한 날에 트리거할 수 없습니다.
+    * 차등 백업은 최대 180일 동안 보존될 수 있습니다.
+    * Master 데이터베이스에 대 한 차등 백업은 지원 되지 않습니다.
 
-8. **차등 백업 정책**에서 **사용**을 선택하여 빈도 및 보존 컨트롤을 엽니다.
+      ![차등 백업 정책](./media/backup-azure-sql-database/differential-backup-policy.png)
 
-    * 하루에 하나의 차등 백업만 트리거할 수 있습니다.
-    * 차등 백업은 최대 180일 동안 보존될 수 있습니다. 더 긴 보존 기간을 원하면 전체 백업을 사용하세요.
+1. **로그 백업**에 해당 하는 **편집** 링크를 클릭 하 여 기본 설정을 수정 합니다.
 
-9. **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
+    * **로그 백업**에서 **사용**을 선택한 다음, 빈도 및 보존 컨트롤을 설정합니다.
+    * 로그 백업은 최소 15분 간격으로 수행할 수 있으며 최대 35일 동안 보존할 수 있습니다.
+    * 데이터베이스가 [단순 복구 모델](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15)에 있는 경우 해당 데이터베이스에 대 한 로그 백업 일정이 일시 중지 되며 로그 백업이 트리거되지 않습니다.
+    * 데이터베이스의 복구 모델이 **전체** 에서 **단순**으로 변경 되는 경우 복구 모델을 변경 하 여 24 시간 이내에 로그 백업이 일시 중지 됩니다. 마찬가지로 복구 모델이 **단순**에서 변경 되는 경우 데이터베이스에 대 한 모든 로그 백업이 지원 될 수 있습니다. 복구 모델에서 변경 된 24 시간 이내에 로그 백업 일정을 사용할 수 있습니다.
 
-10. 트랜잭션 로그 백업 정책을 추가하려면 **로그 백업**을 선택합니다.
-11. **로그 백업**에서 **사용**을 선택한 다음, 빈도 및 보존 컨트롤을 설정합니다. 로그 백업은 최소 15분 간격으로 수행할 수 있으며 최대 35일 동안 보존할 수 있습니다.
-12. **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
+      ![로그 백업 정책](./media/backup-azure-sql-database/log-backup-policy.png)
 
-    ![로그 백업 정책 편집](./media/backup-azure-sql-database/log-backup-policy-editor.png)
+1. **백업 정책** 메뉴에서 **SQL 백업 압축**을 사용할지 여부를 선택합니다. 이 옵션은 기본적으로 사용하지 않도록 설정됩니다. 사용하도록 설정하면 SQL Server가 압축된 백업 스트림을 VDI로 보냅니다. Azure Backup은이 컨트롤의 값에 따라 압축/NO_COMPRESSION 절이 있는 인스턴스 수준 기본값을 재정의 합니다.
 
-13. **백업 정책** 메뉴에서 **SQL 백업 압축**을 사용할지 여부를 선택합니다. 이 옵션은 기본적으로 사용하지 않도록 설정됩니다. 사용하도록 설정하면 SQL Server가 압축된 백업 스트림을 VDI로 보냅니다.  Azure Backup은 이 컨트롤의 값에 따라 COMPRESSION/NO_COMPRESSION 절을 사용하여 인스턴스 수준 기본값을 재정의합니다.
-
-14. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다.
+1. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다.
 
 > [!NOTE]
 > 각 로그 백업은 이전의 전체 백업에 연결되어 복구 체인을 형성합니다. 이 전체 백업은 마지막 로그 백업의 보존 기간이 만료될 때까지 유지됩니다. 따라서 모든 로그가 복구될 수 있도록 전체 백업이 추가 기간 동안 보존될 수 있습니다. 사용자에게 주별 전체 백업, 일별 차등 및 2시간 로그가 있다고 가정해 보겠습니다. 모든 항목은 30일 동안 유지됩니다. 하지만 다음 전체 백업이 실행된 후(즉, 30 + 7일 후)에만 주별 전체 백업을 완전히 정리/삭제할 수 있습니다. 예를 들어 주별 전체 백업이 11월 16일에 실행되고 보존 정책에 따라이는 Dec 년 12 월까지 유지 되어야 합니다. 이 전체 백업에 대한 마지막 로그 백업은 예약된 다음 전체 백업일(11월 22일) 이전에 실행됩니다. 이 로그는 12월 22일까지 사용할 수 있으며, 11월 16일 전체 백업본은 그때까지 삭제할 수 없습니다. 따라서 11월 16일 전체 백업본은 12월 22일까지 유지됩니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 지원하는 컴퓨팅 환경
+title: Azure Data Factory 버전 1에서 지 원하는 계산 환경
 description: '데이터의 변환 또는 처리를 위해 Azure Data Factory 파이프라인(예: Azure HDInsight)에서 사용할 수 있는 컴퓨팅 환경을 알아봅니다.'
 services: data-factory
 documentationcenter: ''
@@ -11,13 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022013"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537567"
 ---
-# <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
+# <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Azure Data Factory 버전 1에서 지 원하는 계산 환경
 > [!NOTE]
 > 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [컴퓨팅 연결 서비스](../compute-linked-services.md)를 참조하세요.
 
@@ -288,13 +289,13 @@ Batch 서비스를 처음 사용하는 경우:
 }
 ```
 
-**AccountName** 속성의 경우를 추가 **합니다 \<region name\> .** 배치 계정의 이름. 예를 들어:
+**AccountName** 속성의 경우를 추가 **합니다 \<region name\> .** 배치 계정의 이름. 예를 들면 다음과 같습니다.
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-또 다른 옵션은 **batchUri** 엔드포인트를 제공하는 것입니다. 예를 들어:
+또 다른 옵션은 **batchUri** 엔드포인트를 제공하는 것입니다. 예를 들면 다음과 같습니다.
 
 ```json
 "accountName": "adfteam",

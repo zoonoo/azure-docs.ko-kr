@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170346"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539417"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -21,17 +21,17 @@ ms.locfileid: "86170346"
 
 ## <a name="customer-managed-key-cmk-overview"></a>CMK(고객 관리형 키) 개요
 
-[저장 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)는 조직의 일반적인 개인 정보 및 보안 요구 사항입니다. Azure에서 저장 데이터 암호화를 완전하게 관리할 수 있으며, 암호화 또는 암호화 키를 긴밀하게 관리하기 위한 다양한 옵션이 있습니다.
+[저장 데이터 암호화](../../security/fundamentals/encryption-atrest.md)는 조직의 일반적인 개인 정보 및 보안 요구 사항입니다. Azure에서 저장 데이터 암호화를 완전하게 관리할 수 있으며, 암호화 또는 암호화 키를 긴밀하게 관리하기 위한 다양한 옵션이 있습니다.
 
-Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. 또한 Azure Monitor은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 에 저장 되 고 시스템 할당 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 인증을 사용 하 여 저장소에서 액세스 하는 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다. 이 키 (CMK)는 [소프트웨어 또는 하드웨어 HSM으로 보호](https://docs.microsoft.com/azure/key-vault/key-vault-overview)될 수 있습니다.
+Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. 또한 Azure Monitor은 [Azure Key Vault](../../key-vault/general/overview.md) 에 저장 되 고 시스템 할당 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용 하 여 저장소에서 액세스 하는 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다. 이 키 (CMK)는 [소프트웨어 또는 하드웨어 HSM으로 보호](../../key-vault/general/overview.md)될 수 있습니다.
 
-Azure Monitor의 암호화 사용은  [Azure Storage 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)의  작동 방식과 동일합니다.
+Azure Monitor의 암호화 사용은  [Azure Storage 암호화](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption)의  작동 방식과 동일합니다.
 
 CMK를 사용하면 언제든지 데이터에 대한 액세스를 제어하고 철회할 수 있습니다. Azure Monitor 스토리지는 키 권한의 변경 내용을 항상 1시간 이내에 적용합니다. 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 CMK 구성에 관계없이 Microsoft 키로 암호화된 상태로 유지되지만 SSD 데이터에 대한 제어는  [키 해지](#cmk-kek-revocation)를 준수합니다. 2020년 하반기에는 CMK를 사용하여 SSD 데이터를 암호화하기 위해 노력하고 있습니다.
 
 CMK 기능은 전용 Log Analytics 클러스터에서 제공됩니다. 사용자의 지역에 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. CMK 구성을 시작 하기 전에 Microsoft 연락처를 사용 하 여 구독을 허용 하세요.
 
- [Log Analytics 클러스터 가격 책정 모델](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)에서는 1,000GB/일 수준에서 시작하는 용량 예약을 사용합니다.
+ [Log Analytics 클러스터 가격 책정 모델](./manage-cost-storage.md#log-analytics-dedicated-clusters)에서는 1,000GB/일 수준에서 시작하는 용량 예약을 사용합니다.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Azure Monitor에서 CMK가 작동하는 방식
 
@@ -91,7 +91,7 @@ Authorization: Bearer eyJ0eXAiO....
 
 토큰은 다음 방법 중 하나를 사용하여 가져올 수 있습니다.
 
-1. [앱 등록](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens) 메서드를 사용합니다.
+1. [앱 등록](/graph/auth/auth-concepts#access-tokens) 메서드를 사용합니다.
 2. Azure 포털에서 다음을 수행합니다.
     1. "개발자 도구"에 있는 동안 Azure Portal로 이동합니다(F12 키).
     1. "batch?api-version" 인스턴스 중 하나의 "요청 헤더" 아래에서 권한 부여 문자열을 찾습니다. "authorization: Bearer eyJ0eXAiO...."와 같습니다. 
@@ -185,15 +185,16 @@ CMK 기능은 전용 Log Analytics 클러스터에서 제공됩니다.사용자�
 
 ![일시 삭제 및 제거 보호 설정](media/customer-managed-keys/soft-purge-protection.png)
 
-다음 설정은 CLI 및 PowerShell을 통해 사용할 수 있습니다.
-- [일시 삭제](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-- [제거 보호](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)는 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제하지 않도록 방지합니다.
+이러한 설정은 CLI 및 PowerShell을 통해 업데이트할 수 있습니다.
+
+- [일시 삭제](../../key-vault/general/overview-soft-delete.md)
+- [제거 보호](../../key-vault/general/overview-soft-delete.md#purge-protection)는 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제하지 않도록 방지합니다.
 
 ### <a name="create-cluster-resource"></a>*클러스터* 리소스 만들기
 
 이 리소스는 Key Vault와 Log Analytics 작업 영역 간의 중간 ID 연결로 사용됩니다. 구독이 허용 되었다는 확인 메시지가 표시 되 면 작업 영역이 있는 지역에서 Log Analytics *클러스터* 리소스를 만듭니다.
 
-*클러스터* 리소스를 만드는 경우 *용량 예약* 수준(sku)을 지정해야 합니다. *용량 예약* 수준은 하루 1,000-2,000GB일 수 있으며, 나중에 100GB 단위로 업데이트할 수 있습니다. 하루 2,000GB보다 높은 용량 예약 수준이 필요한 경우 LAIngestionRate@microsoft.com에 문의하세요. [자세히 알아보기](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
+*클러스터* 리소스를 만드는 경우 *용량 예약* 수준(sku)을 지정해야 합니다. *용량 예약* 수준은 하루 1,000-2,000GB일 수 있으며, 나중에 100GB 단위로 업데이트할 수 있습니다. 하루 2,000GB보다 높은 용량 예약 수준이 필요한 경우 LAIngestionRate@microsoft.com에 문의하세요. [자세히 알아보기](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 *billingType* 속성은 *클러스터* 리소스와 해당 데이터에 대한 청구 특성을 결정합니다.
 - *클러스터 (기본값* )-클러스터의 용량 예약 비용은 *클러스터* 리소스의 특성을 갖습니다.
@@ -210,7 +211,7 @@ CMK 기능은 전용 Log Analytics 클러스터에서 제공됩니다.사용자�
 > 
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" 
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity daily-ingestion-gigabyte 
 ```
 
 ```rst
@@ -408,7 +409,7 @@ Content-type: application/json
 수집된 데이터는 연결 작업 후 관리형 키를 사용하여 암호화된 상태로 저장되며, 이 작업을 완료하는 데 최대 90분까지 걸릴 수 있습니다. 작업 영역 연결 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
 
 1. 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
-2. [작업 영역 – 가져오기](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) 요청을 보내고 응답을 관찰합니다. 연결된 작업 영역의 "features" 아래에 clusterResourceId가 있습니다.
+2. [작업 영역 – 가져오기](/rest/api/loganalytics/workspaces/get) 요청을 보내고 응답을 관찰합니다. 연결된 작업 영역의 "features" 아래에 clusterResourceId가 있습니다.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -468,13 +469,13 @@ Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 �
 > [!NOTE]
 > 통합 문서 및 Azure 대시보드에 사용 되는 쿼리에 대 한 CMK는 아직 지원 되지 않습니다. 이러한 쿼리는 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 됩니다.  
 
-사용자 [고유의 저장소](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (byos)를 가져와서 작업 영역에 연결 하면 서비스에서 *저장 된 검색* 및 *로그 경고* 쿼리를 저장소 계정에 업로드 합니다. 즉, Log Analytics 클러스터의 데이터를 암호화 하는 데 사용 하는 것과 동일한 키를 사용 하거나 다른 키를 사용 하 여 저장소 계정 및 [미사용 암호화 정책을](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) 제어할 수 있습니다. 그러나 해당 저장소 계정과 관련 된 비용을 담당 하 게 됩니다. 
+사용자 [고유의 저장소](./private-storage.md) (byos)를 가져와서 작업 영역에 연결 하면 서비스에서 *저장 된 검색* 및 *로그 경고* 쿼리를 저장소 계정에 업로드 합니다. 즉, Log Analytics 클러스터의 데이터를 암호화 하는 데 사용 하는 것과 동일한 키를 사용 하거나 다른 키를 사용 하 여 저장소 계정 및 [미사용 암호화 정책을](../../storage/common/encryption-customer-managed-keys.md) 제어할 수 있습니다. 그러나 해당 저장소 계정과 관련 된 비용을 담당 하 게 됩니다. 
 
 **쿼리에 CMK를 설정 하기 전 고려 사항**
 * 작업 영역 및 저장소 계정에 대 한 ' 쓰기 ' 권한이 있어야 합니다.
 * Log Analytics 작업 영역이 있는 동일한 지역에 저장소 계정을 만들어야 합니다.
 * 저장소의 *저장 검색* 은 서비스 아티팩트로 간주 되 고 형식은 변경 될 수 있습니다.
-* 기존 *저장 검색* 은 작업 영역에서 제거 됩니다. 복사 및는 구성 전에 필요한 *검색을 저장* 합니다. [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch) 을 사용 하 여 *저장 된 검색* 을 볼 수 있습니다.
+* 기존 *저장 검색* 은 작업 영역에서 제거 됩니다. 복사 및는 구성 전에 필요한 *검색을 저장* 합니다. [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch) 을 사용 하 여 *저장 된 검색* 을 볼 수 있습니다.
 * 쿼리 기록은 지원 되지 않으므로 실행 한 쿼리를 볼 수 없습니다.
 * 쿼리 저장을 위해 단일 저장소 계정을 작업 영역에 연결할 수 있지만 *저장 된 검색* 및 *로그 경고* 쿼리를 가져오면 사용할 수 있습니다.
 * 대시보드에 고정은 지원 되지 않습니다.
@@ -484,7 +485,7 @@ Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 �
 *쿼리에* 대 한 저장소 계정을 작업 영역에 연결 합니다. *저장 된 검색* 쿼리는 저장소 계정에 저장 됩니다. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
 
@@ -511,7 +512,7 @@ Content-type: application/json
 *경고* 에 대 한 저장소 계정을 작업 영역에 연결 합니다.- *로그-경고* 쿼리는 저장소 계정에 저장 됩니다. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
 
@@ -659,7 +660,7 @@ Content-type: application/json
   연결 해제 작업 후에 수집된 데이터는 Log Analytics 스토리지에 저장됩니다. 이를 완료하는 데 90분 정도 걸릴 수 있습니다. 작업 영역 연결 해제 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
 
   1. 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
-  2. [작업 영역 – 가져오기](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) 요청을 보내고 응답을 관찰합니다. 연결 해제된 작업 영역의 *features* 아래에 *clusterResourceId*가 없습니다.
+  2. [작업 영역 – 가져오기](/rest/api/loganalytics/workspaces/get) 요청을 보내고 응답을 관찰합니다. 연결 해제된 작업 영역의 *features* 아래에 *clusterResourceId*가 없습니다.
 
 - **작업 영역 연결 상태 확인**
   
@@ -694,26 +695,25 @@ Content-type: application/json
 
 ## <a name="limitationsandconstraints"></a>제한 사항 및 제약 조건
 
-\- CMK는 전용 Log Analytics 클러스터에서 지원되며, 하루 1TB 이상을 보내는 고객에게 적합합니다.
+- CMK는 전용 Log Analytics 클러스터에서 지원 되며 매일 1TB를 전송 하는 고객에 게 적합 합니다.
 
-\- 지역 및 구독당 최대 *클러스터* 리소스 수는 2개입니다.
+- 하위 지역 및 구독 당 최대 *클러스터* 리소스 수는 2입니다.
 
-\- 작업 영역에 CMK가 필요하지 않은 경우 작업 영역을 *클러스터* 리소스에 연결한 다음, 연결을 해제할 수 있습니다. 30일 기간 동안 특정 작업 영역의 작업 영역 연결 수는 2개로 제한됩니다.
+- 작업 영역에 작업 영역을 연결 *Cluster* 하 고, 작업 영역에 cmk가 필요 하지 않으면 연결을 끊을 수 있습니다.  30일 기간 동안 특정 작업 영역의 작업 영역 연결 수는 2개로 제한됩니다.
 
-\- Log Analytics 클러스터 프로비저닝이 완료되었음을 확인한 후에만  *클러스터*  리소스에 대한 작업 영역을 연결해야 합니다. 완료된 후에는 작업 영역으로 보낸 데이터를 삭제하고 복구할 수 있습니다.
+- *클러스터* 리소스에 대 한 작업 영역 연결은 Log Analytics 클러스터 프로 비전이 완료 되었음을 확인 한 후에만 수행 해야 합니다.  완료된 후에는 작업 영역으로 보낸 데이터를 삭제하고 복구할 수 있습니다.
 
-\- CMK가 구성되면     CMK 암호화가 새로 수집된 데이터에 적용됩니다. CMK가 구성되기 전에 수집된 데이터는    Microsoft 키를 사용하여 암호화된 상태로 유지됩니다. CMK가 구성되기 전후에 수집된 데이터는     원활하게 쿼리할 수 있습니다.
+- Cmk 암호화는 CMK 구성 후에 새로 수집 데이터에 적용 됩니다.  CMK가 구성되기 전에 수집된 데이터는Microsoft 키를 사용하여 암호화된 상태로 유지됩니다.  CMK가 구성되기 전후에 수집된 데이터는 원활하게 쿼리할 수 있습니다.
 
-\- Azure Key Vault는 복구 가능으로 구성해야 합니다.이러한 속성은 기본적으로 사용 하도록 설정 되어 있지 않으며 CLI 또는 PowerShell을 사용 하 여 구성 해야 합니다.
+- Azure Key Vault를 복구할 수 있는 것으로 구성 해야 합니다. 이러한 속성은 기본적으로 사용 하도록 설정 되어 있지 않으며 CLI 또는 PowerShell을 사용 하 여 구성 해야 합니다.<br>
+  - [일시 삭제](../../key-vault/general/overview-soft-delete.md)
+  - 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제 하는 것을 방지 하려면 [보호 제거](../../key-vault/general/overview-soft-delete.md#purge-protection) 를 켜야 합니다.
 
-  - [일시 삭제](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 
-         -  [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)   일시 삭제 된 후에도 비밀/자격 증명 모음을 강제로 삭제 하지 않도록 보호 하려면 제거를 켜야 합니다.
+- 다른 리소스 그룹 또는 구독에 대 한 *클러스터* 리소스 이동은 현재 지원 되지 않습니다.
 
-- *클러스터* 리소스가 다른 리소스 그룹으로 이동하거나     구독이 현재 지원되지 않습니다.
+- Azure Key Vault, *클러스터* 리소스 및 연결 된 작업 영역은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다.
 
-\- Azure Key Vault, *클러스터* 리소스 및 연결된 작업 영역은 동일한 지역 및 동일한 Azure AD(Azure Active Directory) 테넌트에 있어야 하지만 서로 다른 구독에 있을 수 있습니다.
-
-\- 다른 *클러스터* 리소스에 연결되면      *클러스터* 리소스에 대한 작업 영역 연결이 실패합니다.
+- 다른 *클러스터* 리소스와 연결 된 경우 *클러스터* 리소스에 대 한 작업 영역 연결이 실패 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -743,3 +743,41 @@ Content-type: application/json
   2. *클러스터* 또는 작업 영역에 GET 요청을 보내고 응답을 관찰 합니다. 예를 들어 연결이 끊긴 작업 영역에는 *기능*아래에 *clusterresourceid* 가 없습니다.
 
 - 고객 관리형 키와 관련된 지원 및 도움을 받으려면 Microsoft에 문의하세요.
+
+- 오류 메시지
+  
+  *클러스터* 리소스 만들기:
+  -  400--클러스터 이름이 잘못 되었습니다. 클러스터 이름에는 문자 a-z, a-z, 0-9 및 3-63의 길이를 사용할 수 있습니다.
+  -  400--요청 본문이 null 이거나 형식이 잘못 되었습니다.
+  -  400--SKU 이름이 잘못 되었습니다. SKU 이름을 capacityReservation로 설정 합니다.
+  -  400--용량이 제공 되었지만 SKU가 capacityReservation 되지 않습니다. SKU 이름을 capacityReservation로 설정 합니다.
+  -  400--SKU의 용량이 누락 되었습니다. 100 (GB) 단계에서 용량 값을 1000 이상으로 설정 합니다.
+  -  400--SKU의 용량이 범위에 없습니다. 최소 1000이 고 작업 영역의 ' 사용량 및 예상 비용 ' 아래에서 사용할 수 있는 최대 허용 용량까지 허용 되어야 합니다.
+  -  400--용량이 30 일 동안 잠겨 있습니다. 업데이트 후 30 일 후에는 용량을 줄일 수 있습니다.
+  -  400--SKU가 설정 되지 않았습니다. 100 (GB)의 단계에서 SKU 이름을 capacityReservation and Capacity value를 1000 이상으로 설정 합니다.
+  -  400--id가 null 이거나 비어 있습니다. SystemAssigned 된 유형으로 Id를 설정 합니다.
+  -  400--KeyVaultProperties은 만들 때 설정 됩니다. 클러스터를 만든 후 KeyVaultProperties를 업데이트 합니다.
+  -  400-지금은 작업을 실행할 수 없습니다. 비동기 작업이 succeeded 이외의 상태에 있습니다. 업데이트 작업을 수행 하기 전에 클러스터에서 해당 작업을 완료 해야 합니다.
+
+  *클러스터* 리소스 업데이트
+  -  400--클러스터가 삭제 중 상태입니다. 비동기 작업이 진행 중입니다. 업데이트 작업을 수행 하기 전에 클러스터에서 해당 작업을 완료 해야 합니다.
+  -  400--KeyVaultProperties가 비어 있지 않지만 형식이 잘못 되었습니다. [키 식별자 업데이트](#update-cluster-resource-with-key-identifier-details)를 참조 하세요.
+  -  400--Key Vault의 키 유효성을 검사 하지 못했습니다. 권한이 부족 하거나 키가 없는 경우에 발생할 수 있습니다. Key Vault에서 [키 및 액세스 정책을 설정](#grant-key-vault-permissions) 했는지 확인 합니다.
+  -  400--키를 복구할 수 없습니다. 일시 삭제 및 제거 보호로 Key Vault 설정 해야 합니다. [Key Vault 설명서](../../key-vault/general/overview-soft-delete.md) 를 참조 하세요.
+  -  400-지금은 작업을 실행할 수 없습니다. 비동기 작업이 완료 될 때까지 기다린 후 다시 시도 하십시오.
+  -  400--클러스터가 삭제 중 상태입니다. 비동기 작업이 완료 될 때까지 기다린 후 다시 시도 하십시오.
+
+    *클러스터* 리소스 가져오기:
+    -  404--클러스터가 없습니다. 클러스터가 삭제 되었을 수 있습니다. 해당 이름을 사용 하 여 클러스터를 만들려고 하 고 충돌 하는 경우 클러스터는 14 일 동안 일시 삭제 됩니다. 지원 서비스에 문의 하 여 복구 하거나 다른 이름을 사용 하 여 새 클러스터를 만들 수 있습니다. 
+
+  *클러스터* 리소스 삭제
+    -  409--프로 비전 상태에 있는 동안에는 클러스터를 삭제할 수 없습니다. 비동기 작업이 완료 될 때까지 기다린 후 다시 시도 하십시오.
+
+  작업 영역 연결:
+  -  404--작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 존재 하지 않거나 삭제 되었습니다.
+  -  409--작업 영역 연결 또는 연결 해제 작업을 진행 중입니다.
+  -  400--클러스터를 찾을 수 없습니다. 지정한 클러스터가 없거나 삭제 되었습니다. 해당 이름을 사용 하 여 클러스터를 만들려고 하 고 충돌 하는 경우 클러스터는 14 일 동안 일시 삭제 됩니다. 지원 서비스에 문의 하 여 복구할 수 있습니다.
+
+  작업 영역 연관 해제:
+  -  404--작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 존재 하지 않거나 삭제 되었습니다.
+  -  409--작업 영역 연결 또는 연결 해제 작업을 진행 중입니다.

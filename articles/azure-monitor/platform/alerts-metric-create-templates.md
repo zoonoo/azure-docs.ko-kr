@@ -1,5 +1,5 @@
 ---
-title: Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
+title: Azure Resource Manager 템플릿으로 최신 메트릭 경고 만들기
 description: Resource Manager 템플릿을 사용하여 메트릭 경고를 만드는 방법에 대해 알아봅니다.
 author: harelbr
 ms.author: harelbr
@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4d8ec0c76259a8567906e9ac415864e2cd37a9cd
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 043ecc07c521f9c1c79835bcd67ff1d81cacfa34
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187577"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539468"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "86187577"
 
 1. 다음 템플릿 중 하나를 경고 생성 방법을 설명하는 JSON 파일로 사용합니다.
 2. 해당 매개 변수 파일을 편집 하 고 JSON으로 사용 하 여 경고를 사용자 지정 합니다.
-3. `metricName`매개 변수의 경우 [지원 되는 메트릭 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)에서 사용 가능한 메트릭을 참조 하세요.
+3. `metricName`매개 변수의 경우 [지원 되는 메트릭 Azure Monitor](./metrics-supported.md)에서 사용 가능한 메트릭을 참조 하세요.
 4. [배포 방법](../../azure-resource-manager/templates/deploy-powershell.md)을 사용하여 템플릿을 배포합니다.
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>간단한 정적 임계값 메트릭 경고에 대한 템플릿
@@ -204,7 +204,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 }
 ```
 
-경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](/rest/api/monitor/metricalerts/createorupdate).
 
 명령줄 또는 매개 변수 파일을 통해 매개 변수의 값을 설정할 수 있습니다. 샘플 매개 변수 파일이 아래에 제공됩니다.
 
@@ -477,7 +477,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 }
 ```
 
-경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](/rest/api/monitor/metricalerts/createorupdate).
 
 명령줄 또는 매개 변수 파일을 통해 매개 변수의 값을 설정할 수 있습니다. 샘플 매개 변수 파일이 아래에 제공됩니다. 
 
@@ -1248,7 +1248,7 @@ az group deployment create \
 
 다음 템플릿을 사용하여 사용자 지정 메트릭에 대한 고급 정적 임계값 메트릭 경고 규칙을 만들 수 있습니다.
 
-Azure Monitor의 사용자 지정 메트릭에 대한 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview)을 참조하세요.
+Azure Monitor의 사용자 지정 메트릭에 대한 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](./metrics-custom-overview.md)을 참조하세요.
 
 사용자 지정 메트릭에 대한 경고 규칙을 만드는 경우 메트릭 이름과 메트릭 네임스페이스를 모두 지정해야 합니다. 또한 아직 존재하지 않는 사용자 지정 메트릭에 대한 경고 규칙을 만들 수 없으므로 사용자 지정 메트릭이 이미 보고되고 있는지 확인해야 합니다.
 
@@ -1504,7 +1504,7 @@ az group deployment create \
 
 >[!NOTE]
 >
-> [Azure Portal을 통해 사용자 지정 메트릭을 검색](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)하여 특정 사용자 지정 메트릭의 메트릭 네임스페이스를 찾을 수 있습니다.
+> [Azure Portal을 통해 사용자 지정 메트릭을 검색](./metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)하여 특정 사용자 지정 메트릭의 메트릭 네임스페이스를 찾을 수 있습니다.
 
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링 하는 메트릭 경고의 템플릿

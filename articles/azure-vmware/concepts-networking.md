@@ -3,11 +3,12 @@ title: 개념-Network 상호 연결과
 description: Azure VMware 솔루션 (AVS)에서 네트워킹 및 상호 연결과의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 35d886fe0f6a68e522d7f2cf20b450b5d9afc199
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2378ad56e2754b2d2fde7f895f6673e7d7d561c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629202"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539145"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware 솔루션 (AVS) 미리 보기 네트워킹 및 상호 연결과 개념
 
@@ -79,7 +80,6 @@ Global Reach 연결 되 면 두 개의 Express 경로 회로는 온-프레미스
 다음 단계는 [사설 클라우드 저장소 개념](concepts-storage.md)에 대해 학습 하는 것입니다.
 
 <!-- LINKS - external -->
-[enable Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
+[enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-

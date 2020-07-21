@@ -3,12 +3,12 @@ title: MABS & System Center DPM 지원 매트릭스
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 System Center DPM을 사용 하 여 온-프레미스 및 Azure VM 리소스를 백업 하는 경우 지원 Azure Backup를 요약 합니다.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476f1523eaf042576d38f5d2db283b525721389c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193278"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538669"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
@@ -16,7 +16,7 @@ ms.locfileid: "82193278"
 
 ## <a name="about-dpmmabs"></a>DPM/MABS 정보
 
-[System CENTER DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) 은 엔터프라이즈 컴퓨터와 데이터의 백업 및 복구를 구성 하 고, 용이 하 고, 관리 하는 엔터프라이즈 솔루션입니다. 이 기능은 [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing) 제품군에 속해 있습니다.
+[System CENTER DPM](/system-center/dpm/dpm-overview) 은 엔터프라이즈 컴퓨터와 데이터의 백업 및 복구를 구성 하 고, 용이 하 고, 관리 하는 엔터프라이즈 솔루션입니다. 이 기능은 [System Center](https://www.microsoft.com/system-center/pricing) 제품군에 속해 있습니다.
 
 MABS는 온-프레미스 물리적 서버, Vm 및 해당 서버에서 실행 되는 앱을 백업 하는 데 사용할 수 있는 서버 제품입니다.
 
@@ -71,7 +71,7 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 **시나리오** | **DPM/MABS**
 --- | ---
 **Azure VM의 MABS** |  Windows 2016 데이터 센터.<br/><br/> Windows 2019 데이터 센터.<br/><br/> Marketplace에서 이미지를 시작 하는 것이 좋습니다.<br/><br/> 코어 4 개와 8gb RAM이 있는 최소 Standard_A4_v2입니다.
-**Azure VM의 DPM** | System Center 2012 R2 업데이트 3 이상<br/><br/> [System Center에 필요한](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server) Windows 운영 체제<br/><br/> Marketplace에서 이미지를 시작 하는 것이 좋습니다.<br/><br/> 코어 4 개와 8gb RAM이 있는 최소 Standard_A4_v2입니다.
+**Azure VM의 DPM** | System Center 2012 R2 업데이트 3 이상<br/><br/> [System Center에 필요한](/system-center/dpm/prepare-environment-for-dpm#dpm-server) Windows 운영 체제<br/><br/> Marketplace에서 이미지를 시작 하는 것이 좋습니다.<br/><br/> 코어 4 개와 8gb RAM이 있는 최소 Standard_A4_v2입니다.
 **MABS 온-프레미스** |  MABS v3 이상: Windows Server 2016 또는 Windows Server 2019
 **DPM 온-프레미스** | 물리적 서버/Hyper-v VM: System Center 2012 SP1 이상<br/><br/> VMware VM: System Center 2012 R2 업데이트 5 이상
 
@@ -82,7 +82,7 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 
 **문제점** | **세부 정보**
 --- | ---
-**설치** | 단일 용도의 컴퓨터에 DPM/MABS를 설치 합니다.<br/><br/> DPM/MABS를 도메인 컨트롤러에 설치 하지 마세요. 응용 프로그램 서버 역할이 설치 된 컴퓨터, Microsoft Exchange Server 또는 System Center Operations Manager를 실행 하는 컴퓨터 또는 클러스터 노드에서 DPM/MABS를 설치 하지 마세요.<br/><br/> [모든 DPM 시스템 요구 사항을 검토](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server)합니다.
+**설치** | 단일 용도의 컴퓨터에 DPM/MABS를 설치 합니다.<br/><br/> DPM/MABS를 도메인 컨트롤러에 설치 하지 마세요. 응용 프로그램 서버 역할이 설치 된 컴퓨터, Microsoft Exchange Server 또는 System Center Operations Manager를 실행 하는 컴퓨터 또는 클러스터 노드에서 DPM/MABS를 설치 하지 마세요.<br/><br/> [모든 DPM 시스템 요구 사항을 검토](/system-center/dpm/prepare-environment-for-dpm#dpm-server)합니다.
 **도메인** | DPM/MABS는 도메인에 가입 되어 있어야 합니다. DPM/MABS를 먼저 설치한 후 도메인에 가입합니다. 배포가 지원되지 않으면 DPM/MABS를 새 도메인으로 이동
 **스토리지** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
 **MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아봅니다](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
@@ -121,7 +121,7 @@ DPM 서버/MABS는 다음 URL에 액세스할 수 있어야 합니다.
 
 ### <a name="azure-expressroute-support"></a>Azure Express 경로 지원
 
-공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링을 통한 백업은 지원 되지 않습니다.
+공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링에 대 한 백업은 지원 되지 않습니다.
 
 공용 피어 링 사용: 다음 도메인/주소에 대 한 액세스를 확인 합니다.
 
@@ -131,13 +131,13 @@ DPM 서버/MABS는 다음 URL에 액세스할 수 있어야 합니다.
 - `.microsoftonline.com`
 - `.windows.net`
 
-Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 하세요.
+Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 합니다.
 
 - Azure Active Directory(12076:5060)
 - Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
 - Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
 
-자세한 내용은 [express 경로 라우팅 요구 사항](https://docs.microsoft.com/azure/expressroute/expressroute-routing)을 참조 하세요.
+자세한 내용은 [express 경로 라우팅 요구 사항](../expressroute/expressroute-routing.md)을 참조 하세요.
 
 >[!NOTE]
 >공용 피어 링은 새 회로에서 사용 되지 않습니다.
@@ -150,8 +150,15 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 --- | --- | ---
 연결됨 | Active | DPM/MABS 디스크에 백업 합니다.<br/><br/> Azure에 백업 합니다.<br/><br/> 디스크에서 복원<br/><br/> Azure에서 복원.
 연결됨 | 만료됨/프로비전 해제됨 | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 구독이 만료 된 경우 디스크 또는 Azure에서 복원할 수 있습니다.<br/><br/> 구독을 해제 하는 경우 디스크 또는 Azure에서 복원할 수 없습니다. Azure 복구 지점이 삭제됩니다.
-15일 넘게 연결되지 않음 | Active | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 디스크 또는 Azure에서 복원할 수 있습니다.
+15일 넘게 연결되지 않음 | 활성 | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 디스크 또는 Azure에서 복원할 수 있습니다.
 15일 넘게 연결되지 않음 | 만료됨/프로비전 해제됨 | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 구독이 만료 된 경우 디스크 또는 Azure에서 복원할 수 있습니다.<br/><br/> 구독을 해제 하는 경우 디스크 또는 Azure에서 복원할 수 없습니다. Azure 복구 지점이 삭제됩니다.
+
+## <a name="domain-and-domain-trusts-support"></a>도메인 및 도메인 트러스트 지원
+
+|요구 사항 |세부 정보 |
+|---------|---------|
+|도메인    | DPM/MABS 서버는 Windows server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 도메인에 있어야 합니다.        |
+|도메인 신뢰   |  DPM/MABS는 개별 포리스트 간에 포리스트 수준의 양방향 신뢰를 설정 하는 동안 포리스트 간 데이터 보호를 지원 합니다.   <BR><BR>   DPM/MABS는 DPM/MABS 서버 도메인과 양방향 트러스트 관계가 있는 포리스트 내에서 도메인 간에 서버 및 워크스테이션을 보호할 수 있습니다. 작업 그룹 또는 신뢰할 수 없는 도메인의 컴퓨터를 보호 하려면 작업 [그룹 및 신뢰할 수 없는 도메인에서 작업 백업 및 복원](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019) 을 참조 하세요.  |
 
 ## <a name="dpmmabs-storage-support"></a>DPM/MABS 스토리지 지원
 
@@ -161,7 +168,7 @@ DPM/MABS에 백업 되는 데이터는 로컬 디스크 저장소에 저장 됩�
 --- | ---
 **MBS** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
 **Azure VM의 MABS 스토리지** | 데이터는 DPM/MABS VM에 연결 되 고 DPM/MABS에서 관리 되는 Azure 디스크에 저장 됩니다. DPM/MABS 저장소 풀에 사용할 수 있는 디스크 수는 VM의 크기로 제한 됩니다.<br/><br/> A2 VM: 4 개 디스크 A3 VM: 8 개 디스크 A4 VM: 각 디스크에 대해 최대 크기가 1tb 인 16 개의 디스크 이는 사용 가능한 총 백업 저장소 풀을 결정 합니다.<br/><br/> 백업할 수 있는 데이터 양은 연결된 디스크의 수와 크기에 따라 달라집니다.
-**Azure VM의 MABS 데이터 보존** | DPM/MABS Azure 디스크에 데이터를 하루 동안 보존 하 고 더 긴 보존을 위해 DPM/MABS에서 자격 증명 모음으로 백업 하는 것이 좋습니다. 이 경우 대량의 데이터를 Azure Backup으로 오프로드하여 보호할 수 있습니다.
+**Azure VM의 MABS 데이터 보존** | DPM/MABS Azure 디스크에 데이터를 하루 동안 보존 하 고 더 긴 보존을 위해 DPM/MABS에서 자격 증명 모음으로 백업 하는 것이 좋습니다. 이러한 방식으로 Azure Backup로 오프 로드 하 여 더 많은 양의 데이터를 보호할 수 있습니다.
 
 ### <a name="modern-backup-storage-mbs"></a>MBS(최신 백업 스토리지)
 
@@ -174,11 +181,11 @@ DPM 2016/MABS v2 (Windows Server 2016에서 실행) 이상에서 최신 백업 �
 
 ## <a name="supported-backups-to-mabs"></a>MABS에 대해 지원되는 백업
 
-Azure Backup Server로 보호할 수 있는 다양 한 서버 및 작업에 대 한 자세한 내용은 [Azure Backup Server Protection 매트릭스](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix#protection-support-matrix)를 참조 하세요.
+Azure Backup Server로 보호할 수 있는 다양 한 서버 및 작업에 대 한 자세한 내용은 [Azure Backup Server Protection 매트릭스](./backup-mabs-protection-matrix.md#protection-support-matrix)를 참조 하세요.
 
 ## <a name="supported-backups-to-dpm"></a>DPM에 대해 지원되는 백업
 
-Data Protection Manager를 사용 하 여 보호할 수 있는 다양 한 서버 및 작업에 대 한 자세한 내용은 [DPM이 백업할 수 있는 항목](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019)을 참조 하세요.
+Data Protection Manager를 사용 하 여 보호할 수 있는 다양 한 서버 및 작업에 대 한 자세한 내용은 [DPM이 백업할 수 있는 항목](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019)을 참조 하세요.
 
 - DPM/MABS에 의해 백업 된 클러스터형 작업은 DPM/MABS와 동일한 도메인 또는 자식/트러스트 된 도메인에 있어야 합니다.
 - 신뢰할 수 없는 도메인 또는 작업 그룹의 데이터를 백업하려면 NTLM/인증서 인증을 사용할 수 있습니다.
@@ -188,4 +195,4 @@ Data Protection Manager를 사용 하 여 보호할 수 있는 다양 한 서버
 - MABS 아키텍처에 대해 [자세히 알아봅니다](backup-architecture.md#architecture-back-up-to-dpmmabs).
 - MARS 에이전트에 대한 지원되는 기능을 [검토](backup-support-matrix-mars-agent.md)합니다.
 - MABS 서버를 [설정](backup-azure-microsoft-azure-backup.md)합니다.
-- [DPM을 설정](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180)합니다.
+- [DPM을 설정](/system-center/dpm/install-dpm)합니다.

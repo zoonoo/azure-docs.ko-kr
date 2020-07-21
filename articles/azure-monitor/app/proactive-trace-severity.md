@@ -3,17 +3,18 @@ title: 추적 심각도 비율의 저하-Azure 애플리케이션 정보
 description: 스마트 감지를 사용 하 여 추적 원격 분석에서 비정상적인 패턴에 대 한 Azure 애플리케이션 정보로 응용 프로그램 추적을 모니터링 합니다.
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 30bdd30ac9c49bb79a3c48bae8149ec761756dd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b27860adfc1652b58fe9c51d4d0b0a6c271fc0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671684"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539876"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>추적 심각도 비율의 저하(미리 보기)
 
 추적은 배후 상황에서 수행되는 작업을 설명하는 데 도움이 되기 때문에 애플리케이션에서 널리 사용됩니다. 오류가 발생하는 경우 추적은 원치 않는 상태로 전환되는 이벤트 시퀀스에 중요한 가시성을 제공합니다. 추적이 일반적으로 구조화되지 않는 동안 여기에서 구체적으로 확인할 수 있는 한 가지는 심각도 수준입니다. 애플리케이션이 안정 상태인 경우 "올바른" 추적(*정보* 및 *자세한 정보 표시*) 및 "잘못된" 추적(*경고*, *오류* 및 *위험*) 간의 비율을 안정적으로 유지합니다. "잘못된" 추적이 여러 가지 이유로 인해 정기적으로 어느 정도까지 발생할 수 있습니다(예: 일시적인 네트워크 문제). 하지만 진짜 문제가 증가하기 시작하면 일반적으로 "잘못된" 추적 및 "올바른" 추적의 상대적 비율이 증가합니다. Application Insights 스마트 검색은 자동으로 애플리케이션에 의해 기록된 추적을 분석하고, 추적 원격 분석의 심각도에 표시된 비정상적인 패턴에 대해 경고할 수 있습니다.
 
-이 기능에는 앱에 대한 추적 로깅 구성 이외의 특별한 설정이 필요하지 않습니다([.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) 또는 [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)에 추적 로그 수신기를 구성하는 방법 참조 ). 앱에서 충분한 예외 원격 분석을 생성하면 이 기능은 활성화됩니다.
+이 기능에는 앱에 대한 추적 로깅 구성 이외의 특별한 설정이 필요하지 않습니다([.NET](./asp-net-trace-logs.md) 또는 [Java](./java-trace-logs.md)에 추적 로그 수신기를 구성하는 방법 참조 ). 앱에서 충분한 예외 원격 분석을 생성하면 이 기능은 활성화됩니다.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 형식의 스마트 검색 알림은 언제 받게 되나요?
 "양호" 추적 ( *정보* 수준 또는 *자세한*정보 표시로 기록 된 추적) 및 "잘못 된" 추적 ( *경고*, *오류*또는 *치명적*수준으로 기록 된 추적) 간의 비율이 이전 7 일 동안 계산 된 기준에 비해 특정 날짜에 저하 되는 경우이 유형의 알림이 발생할 수 있습니다.
@@ -26,5 +27,3 @@ ms.locfileid: "77671684"
 1. **문제.** 이 알림은 영향을 받은 작업의 수를 보여줍니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
 2. **범위.** 이 문제가 모든 트래픽에 영향을 주나요? 아니면 일부 작업에만 영향을 주나요? 이 정보는 알림에서 얻을 수 있습니다.
 3. **진단.** 지원 정보에 연결된 관련 항목 및 보고서를 사용하면 문제를 추가로 진단할 수 있습니다.
-
-

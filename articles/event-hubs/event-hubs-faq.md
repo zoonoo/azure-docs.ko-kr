@@ -3,12 +3,12 @@ title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320586"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537183"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -261,7 +261,7 @@ Event Hubs는 두 가지 유형의 [진단 로그](event-hubs-diagnostic-logs.md
 
 ### <a name="support-and-sla"></a>지원 및 SLA
 
-Event Hubs에 대한 기술 지원은 [Azure Service Bus에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-service-bus.html)를 통해 사용할 수 있습니다. 청구 및 구독 관리 지원은 무료로 제공됩니다.
+Event Hubs에 대한 기술 지원은 [Azure Service Bus에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-service-bus.html)를 통해 사용할 수 있습니다. 청구 및 구독 관리 지원은 무료로 제공됩니다.
 
 SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/) 페이지를 참조하세요.
 
@@ -269,6 +269,6 @@ SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계�
 
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Event Hubs 개요](event-hubs-what-is-event-hubs.md)
+* [Event Hubs 개요](./event-hubs-about.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs 자동 확장](event-hubs-auto-inflate.md)

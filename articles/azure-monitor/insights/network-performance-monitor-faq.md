@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184551"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539672"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -19,11 +19,11 @@ ms.locfileid: "86184551"
 
 이 문서에서는 NPM(네트워크 성능 모니터)에 대한 FAQ(질문과 대답)를 캡처합니다.
 
-[네트워크 성능 모니터](/azure/networking/network-monitoring-overview) 는 네트워크 인프라의 다양 한 요소 간 네트워크 성능을 모니터링 하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](../../azure-monitor/insights/network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
+[네트워크 성능 모니터](../../networking/network-monitoring-overview.md) 는 네트워크 인프라의 다양 한 요소 간 네트워크 성능을 모니터링 하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](../../azure-monitor/insights/network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
 
 네트워크 성능 모니터는 트래픽 블랙홀링, 라우팅 오류와 같은 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 이 솔루션은 네트워크 링크에 임계값이 위반되면 경고를 생성하고 사용자에게 알립니다. 또한 네트워크 성능 문제를 적시에 감지하고 문제의 원인을 특정 네트워크 세그먼트 또는 디바이스로 국한시킵니다. 
 
-[네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview)에서 지원하는 다양한 기능에 대한 자세한 내용은 온라인으로 제공됩니다.
+[네트워크 성능 모니터](../../networking/network-monitoring-overview.md)에서 지원하는 다양한 기능에 대한 자세한 내용은 온라인으로 제공됩니다.
 
 ## <a name="set-up-and-configure-agents"></a>에이전트 설정 및 구성
 
@@ -149,7 +149,7 @@ NetworkMonitoring
 NPM은 원본 IP와 대상 IP 간의 기본 네트워크 홉(스위치, 라우터, 서버 등)의 IP와 호스트 이름만 식별합니다. 또한 이렇게 식별된 홉 간의 대기 시간도 식별합니다. 이러한 기본 홉을 개별적으로 모니터링하지 않습니다.
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>NPM을 사용하여 Azure와 AWS 간의 네트워크 연결을 모니터링할 수 있나요?
-예. 자세한 내용은 [NPM을 사용하여 Azure, AWS 및 온-프레미스 네트워크 모니터링](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/) 문서를 참조하세요.
+예. 자세한 내용은 [NPM을 사용하여 Azure, AWS 및 온-프레미스 네트워크 모니터링](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) 문서를 참조하세요.
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>ExpressRoute 대역폭 사용량은 들어오거나 나가는 사용량인가요?
 대역폭 사용량은 들어오고 나가는 대역폭의 합계이며, 비트/초 단위로 표시됩니다.
@@ -188,7 +188,7 @@ NPM은 [지원되는 하위 지역](../../azure-monitor/insights/network-perform
 NPM은 [지원되는 하위 지역](../../azure-monitor/insights/network-performance-monitor.md#supported-regions) 중 하나에서 호스팅되는 작업 영역에서 세계 어느 부분에 있는 네트워크 사이의 연결도 모니터링할 수 있습니다.
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM의 ExpressRoute 모니터에 대해 지원되는 하위 지역은 어느 하위 지역인가요?
-NPM은 어떤 Azure 하위 지역에 위치한 ExpressRoute 회로도 모니터링할 수 있습니다. NPM에 합류하려면 Log Analytics 작업 영역을 [지원되는 하위 지역](/azure/expressroute/how-to-npm) 중 하나에서 호스팅해야 합니다.
+NPM은 어떤 Azure 하위 지역에 위치한 ExpressRoute 회로도 모니터링할 수 있습니다. NPM에 합류하려면 Log Analytics 작업 영역을 [지원되는 하위 지역](../../expressroute/how-to-npm.md) 중 하나에서 호스팅해야 합니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
@@ -231,7 +231,7 @@ HopLatencyValues은 끝점에 대 한 소스입니다.
 * 호스트 방화벽이 필요한 포트에서 통신을 차단하지 않는지 확인하려면 네트워크 성능 모니터 -> 구성 -> 노드 보기에서 원본 및 대상 노드의 정상/비정상 상태를 봅니다. 
   비정상 상태인 경우 지침을 보고 정정 작업을 실행합니다. 노드가 정상인 경우 b 단계로 이동합니다. 알아봅니다.
 * 중간 네트워크 방화벽 또는 Azure NSG가 필요한 포트에서 통신을 차단하지 않는지 확인하려면 아래 지침을 통해 제3자 PsPing 유틸리티를 사용합니다.
-  * PsPing 유틸리티는 [여기](https://technet.microsoft.com/sysinternals/psping.aspx)에서 다운로드할 수 있습니다. 
+  * PsPing 유틸리티는 [여기](/sysinternals/downloads/psping)에서 다운로드할 수 있습니다. 
   * 원본 노드에서 다음 명령을 실행합니다.
     * psping-n 15 \<destination node IPAddress\> :P ORTNUMBER NPM는 기본적으로 8084 포트를 사용 합니다. EnableRules.ps1 스크립트를 사용하여 이 명령을 명시적으로 변경한 경우 사용하는 사용자 지정 포트 번호를 입력합니다. 이는 Azure 머신에서 온-프레미스로의 ping입니다.
 * ping이 성공적인지 확인합니다. 그렇지 않은 경우 중간 네트워크 방화벽 또는 Azure NSG가 이 포트에서 트래픽을 차단함을 나타냅니다.

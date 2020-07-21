@@ -6,21 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5984cbf8cf618a938ee85638d981f7867c6ec8b5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77655259"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539366"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
 Microsoft 끝점 Configuration Manager 환경을 Azure Monitor에 연결 하 여 장치 컬렉션 데이터를 동기화 하 고 Azure Monitor 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 합니다.
 
 >[!NOTE]
->Log Analytics 작업 영역을 사용 하 여 Configuration Manager 연결 하는 기능은 선택 사항이 며 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이 기능은 사용하기 전에 활성화해야 합니다. 자세한 내용은 [업데이트에서 선택적 기능 사용](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options)을 참조하세요.
+>Log Analytics 작업 영역을 사용 하 여 Configuration Manager 연결 하는 기능은 선택 사항이 며 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이 기능은 사용하기 전에 활성화해야 합니다. 자세한 내용은 [업데이트에서 선택적 기능 사용](/configmgr/core/servers/manage/install-in-console-updates#bkmk_options)을 참조하세요.
 
 ## <a name="configuration-overview"></a>구성 개요
 
@@ -65,7 +66,7 @@ Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 호�
 ## <a name="connect-configuration-manager-to-log-analytics-workspace"></a>Log Analytics 작업 영역에 Configuration Manager 연결
 
 >[!NOTE]
-> Log Analytics 연결을 추가 하려면 Configuration Manager 환경의 [서비스 연결 지점이](https://docs.microsoft.com/configmgr/core/servers/deploy/configure/about-the-service-connection-point) 온라인 모드용으로 구성 되어 있어야 합니다.
+> Log Analytics 연결을 추가 하려면 Configuration Manager 환경의 [서비스 연결 지점이](/configmgr/core/servers/deploy/configure/about-the-service-connection-point) 온라인 모드용으로 구성 되어 있어야 합니다.
 
 > [!NOTE]
 > 계층의 최상위 계층 사이트를 Azure Monitor에 연결 해야 합니다. 독립 실행형 기본 사이트를 Azure Monitor에 연결한 다음 사용자 환경에 중앙 관리 사이트를 추가 하는 경우 새 계층 구조 내에서 연결을 삭제 하 고 다시 만들어야 합니다.

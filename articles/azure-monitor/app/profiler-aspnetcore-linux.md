@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b91abe282c25b161db72616d7123d7a2bf5dbc9f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6ef67addba2bcc96cfb51f9f217d7d43e729bdf4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111068"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539910"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -23,7 +23,7 @@ ms.locfileid: "86111068"
 
 ![Profiler 추적](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 다음 지침은 모든 Windows, Linux 및 Mac 개발 환경에 적용됩니다.
 
 * [.NET Core SDK 2.1.2 이상](https://dotnet.microsoft.com/download/archives)을 설치합니다.
@@ -106,7 +106,7 @@ ms.locfileid: "86111068"
 
     ![Git 리포지토리 설정](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-더 많은 배포 옵션은 [이 문서](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type)를 참조하세요.
+더 많은 배포 옵션은 [이 문서](../../app-service/containers/choose-deployment-type.md)를 참조하세요.
 
 ## <a name="deploy-your-project"></a>프로젝트 배포
 

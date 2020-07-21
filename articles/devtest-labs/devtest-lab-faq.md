@@ -2,13 +2,13 @@
 title: Azure DevTest Labs FAQ | Microsoft 문서
 description: 이 문서에서는 Azure DevTest Labs에 대한 FAQ(질문과 대답)를 제공합니다.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: b687ae5c7b64239387dad7a51e124fa2f507f2b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 707b66fadab482a31ac02f10460d581997931a0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481666"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537492"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -200,7 +200,7 @@ DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한�
 예, 여러 개의 디스크를 VM에 연결할 수 있습니다.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Gen 2 이미지가 DevTest Labs에서 지원되나요?
-아니요. DevTest Labs 서비스는 [Gen 2 이미지](../virtual-machines/windows/generation-2.md)를 지원하지 않습니다. 이미지에 Gen 1과 Gen 2 버전을 모두 사용할 수 있으면 DevTest Labs는 VM을 만들 때 Gen 1 버전의 이미지만 보여줍니다. Gen 2 버전만 사용할 수 있으면 이미지가 보이지 않습니다. 
+예. DevTest Labs 서비스는 [Gen 2 이미지](../virtual-machines/windows/generation-2.md)를 지원 합니다. 그러나 이미지에 Gen 1과 Gen 2 버전을 모두 사용할 수 있는 경우 DevTest Labs는 VM을 만들 때 이미지의 Gen 1 버전만 표시 합니다. 사용 가능한 Gen 2 버전만 있는 경우 이미지가 표시 됩니다. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>테스트에 Windows OS 이미지를 사용하려면 MSDN 구독을 구매해야 하나요?
 Azure에서 개발이나 테스트를 위해 Windows 클라이언트 OS 이미지(Windows 7 이상 버전)를 사용하려면 다음 단계 중 하나를 수행하세요.
@@ -212,7 +212,7 @@ Azure에서 개발이나 테스트를 위해 Windows 클라이언트 OS 이미�
 
 
 ### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>랩에 있는 모든 VM을 삭제하는 프로세스를 어떻게 자동화하나요?
-랩 소유자는 Azure Portal의 랩에서 VM을 삭제할 수 있습니다. 또한 PowerShell 스크립트를 사용하여 랩에서 모든 VM을 삭제할 수 있습니다. 다음 예제의 **변경할 값** 설명 아래에서 매개 변수 값을 수정하세요. Azure Portal의 랩 창에서 subscriptionId, labResourceGroup 및 labName 값을 검색할 수 있습니다.
+랩 소유자는 Azure Portal의 랩에서 VM을 삭제할 수 있습니다. 또한 PowerShell 스크립트를 사용하여 랩에서 모든 VM을 삭제할 수 있습니다. 다음 예제의 **변경할 값** 설명 아래에서 매개 변수 값을 수정하세요. Azure Portal의 랩 창에서 `subscriptionId`, `labResourceGroup` 및 `labName` 값을 검색할 수 있습니다.
 
 ```powershell
 # Delete all the VMs in a lab.
@@ -340,9 +340,9 @@ Azure DevOps를 사용하는 경우 [DevTest Labs 작업 확장](https://marketp
 ## <a name="networking"></a>네트워킹
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>DevTest Labs 환경용으로 신규 가상 네트워크를 생성해야 하는 경우와 기존 가상 네트워크를 사용해야 하는 경우는 각각 언제인가요?
-VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs 환경 내에서 기존 가상 네트워크를 사용하는 방식을 고려합니다. ExpressRoute를 사용하는 경우에는 구독에서 사용하도록 할당되는 IP 주소 공간이 조각화되지 않도록 VNet/서브넷 수를 최소화해야 할 수 있습니다.
+VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs 환경 내에서 기존 가상 네트워크를 사용하는 방식을 고려합니다. Express 경로를 사용 하는 경우 구독에 사용 하도록 할당 되는 IP 주소 공간을 조각화 하지 않도록 가상 네트워크/서브넷 수를 최소화 하는 것이 좋습니다.
 
-이러한 상황에서는 VNet 피어링 패턴([허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke))도 사용해보십시오. 이 방법을 사용하면 구독 전체에서 vnet/서브넷 통신이 가능합니다. 각 DevTest Labs 환경에 자체 가상 네트워크가 있을 수도 있습니다.
+여기서 가상 네트워크 피어 링 패턴 ([허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke))을 사용 하는 것이 좋습니다. 이 방법을 사용하면 구독 전체에서 vnet/서브넷 통신이 가능합니다. 각 DevTest Labs 환경에 자체 가상 네트워크가 있을 수도 있습니다.
 
 구독당 가상 네트워크 수에는 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md)이 있습니다. 기본 수는 50이지만 100까지 높일 수 있습니다.
 

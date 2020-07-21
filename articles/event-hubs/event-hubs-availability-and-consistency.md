@@ -3,12 +3,12 @@ title: 가용성 및 일관성 - Azure Event Hubs | Microsoft Docs
 description: 파티션을 사용하여 Azure Event Hubs에서 가용성 및 일관성의 최대치를 제공하는 방법입니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 497a6e7430c4e6f8e29f903294ca94a4cb23012b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45ca5cc5790824d6c67a47a23691c6b0cae0b9f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315777"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537210"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
 
@@ -86,7 +86,7 @@ finally
 
 이 구성에서는 전송하는 특정 파티션을 사용할 수 없는 경우 오류 응답이 수신된다는 점을 염두에 두어야 합니다. 이에 비해 단일 파티션에 대한 선호도가 없는 경우 Event Hubs 서비스는 사용 가능한 다음 파티션에 이벤트를 보냅니다.
 
-가동 시간을 극대화하는 동시에 순서도 지정할 수 있는 한 가지 솔루션은 이벤트 처리 애플리케이션의 일부로 이벤트를 집계하는 것입니다. 이 작업을 수행하는 가장 쉬운 방법은 이벤트에 사용자 지정 시퀀스 번호 속성 스탬프를 지정하는 것입니다. 다음은 예를 보여 주는 코드입니다.
+가동 시간을 극대화하는 동시에 순서도 지정할 수 있는 한 가지 솔루션은 이벤트 처리 애플리케이션의 일부로 이벤트를 집계하는 것입니다. 이 작업을 수행하는 가장 쉬운 방법은 이벤트에 사용자 지정 시퀀스 번호 속성 스탬프를 지정하는 것입니다. 다음 코드에서는 예제를 보여 줍니다.
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[EventHubs (5.0.0 이상)](#tab/latest)
 
@@ -141,5 +141,5 @@ await producer.SendAsync(data);
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Event Hubs 서비스 개요](event-hubs-what-is-event-hubs.md)
+* [Event Hubs 서비스 개요](./event-hubs-about.md)
 * [이벤트 허브 만들기](event-hubs-create.md)

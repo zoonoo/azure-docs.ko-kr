@@ -3,12 +3,12 @@ title: 시스템 상태 및 완전 복구 보호
 description: Azure Backup Server를 사용 하 여 시스템 상태를 백업 하 고 BMR (완전 복구) 보호를 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192368"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538703"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Azure Backup Server를 사용 하 여 시스템 상태 백업 및 운영 체제 미 설치로 복원
 
@@ -23,7 +23,7 @@ Azure Backup Server는 시스템 상태를 백업하고 BMR(완전 복구) 보�
 
 다음 표에는 백업 및 복구할 수 있는 항목이 요약되어 있습니다. 시스템 상태 및 BMR에서 보호할 수 있는 앱 버전에 대 한 자세한 내용은 [Azure Backup Server 백업 방법](backup-mabs-protection-matrix.md)을 참조 하세요.
 
-|Backup|문제점|Azure Backup Server 백업에서 복구|시스템 상태 백업에서 복구|BMR|
+|Backup|문제|Azure Backup Server 백업에서 복구|시스템 상태 백업에서 복구|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**파일 데이터**<br /><br />정기적인 데이터 백업<br /><br />BMR/시스템 상태 백업|손실된 파일 데이터|Y|N|N|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|지원|
@@ -98,12 +98,12 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 ## <a name="before-you-begin"></a>시작하기 전에
 
 1. **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
-    * [System requirements for Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)(Azure Backup Server 시스템 요구 사항)
+    * [System requirements for Azure Backup Server](/system-center/dpm/install-dpm#setup-prerequisites)(Azure Backup Server 시스템 요구 사항)
     * [Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)
 
-1. **저장소를 설정**합니다. 백업 데이터를 디스크 및 테이프에 저장하고 Azure를 통해 클라우드에 저장할 수 있습니다. 자세한 내용은 [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage)(데이터 스토리지 준비)를 참조하세요.
+1. **저장소를 설정**합니다. 백업 데이터를 디스크 및 테이프에 저장하고 Azure를 통해 클라우드에 저장할 수 있습니다. 자세한 내용은 [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage)(데이터 스토리지 준비)를 참조하세요.
 
-1. **보호 에이전트 설치**. 백업할 컴퓨터에 보호 에이전트를 설치합니다. 자세한 내용은 [Deploy the DPM protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent)(DPM 보호 에이전트 배포)를 참조하세요.
+1. **보호 에이전트 설치**. 백업할 컴퓨터에 보호 에이전트를 설치합니다. 자세한 내용은 [Deploy the DPM protection agent](/system-center/dpm/deploy-dpm-protection-agent)(DPM 보호 에이전트 배포)를 참조하세요.
 
 ## <a name="back-up-system-state-and-bare-metal"></a>시스템 상태 백업 및 완전 복구 백업
 
@@ -115,7 +115,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 1. **그룹 구성원 선택** 페이지에서 컴퓨터를 확장하고 **BMR** 또는 **시스템 상태**를 선택합니다.
 
-    서로 다른 그룹에 있는 동일한 컴퓨터에 대한 BMR 및 시스템 상태를 둘 다 보호할 수는 없다는 것을 기억하세요. 또한 BMR을 선택하면 시스템 상태가 자동으로 사용하도록 설정됩니다. 자세한 내용은 [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)(보호 그룹 배포)를 참조하세요.
+    서로 다른 그룹에 있는 동일한 컴퓨터에 대한 BMR 및 시스템 상태를 둘 다 보호할 수는 없다는 것을 기억하세요. 또한 BMR을 선택하면 시스템 상태가 자동으로 사용하도록 설정됩니다. 자세한 내용은 [Deploy protection groups](/system-center/dpm/create-dpm-protection-groups)(보호 그룹 배포)를 참조하세요.
 
 1. **데이터 보호 방법 선택** 페이지에서 단기 백업 및 장기 백업을 처리 하는 방법을 선택 합니다.
 

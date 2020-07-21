@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 430b1c044ac5fc22dbf3a4f4df33ff9017e21d6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361958"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539740"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 리소스 모니터링
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure 리소스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터에 대해 분석하고 경고하는 방법을 설명합니다.
@@ -79,9 +79,9 @@ Azure Monitor 로그에 데이터를 수집하려면 Log Analytics 작업 영역
 ## <a name="diagnostic-settings"></a>진단 설정
 진단 설정은 특정 리소스에 대한 리소스 로그 및 메트릭을 보낼 위치를 정의합니다. 가능한 대상은 다음과 같습니다.
 
-- [Log Analytics 작업 영역](../platform/resource-logs-collect-workspace.md) - 강력한 로그 쿼리를 사용하여 Azure Monitor에서 수집한 다른 모니터링 데이터로 데이터를 분석할 수 있으며 로그 경고 및 시각화와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다. 
-- [이벤트 허브](../platform/resource-logs-stream-event-hubs.md) - 타사 SIEM 및 기타 로그 분석 솔루션과 같은 외부 시스템으로 데이터를 스트리밍합니다. 
-- [Azure 스토리지 계정](../platform/resource-logs-collect-storage.md) - 감사, 정적 분석 또는 백업에 유용합니다.
+- [Log Analytics 작업 영역](../platform/resource-logs.md#send-to-log-analytics-workspace) - 강력한 로그 쿼리를 사용하여 Azure Monitor에서 수집한 다른 모니터링 데이터로 데이터를 분석할 수 있으며 로그 경고 및 시각화와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다. 
+- [이벤트 허브](../platform/resource-logs.md#send-to-azure-event-hubs) - 타사 SIEM 및 기타 로그 분석 솔루션과 같은 외부 시스템으로 데이터를 스트리밍합니다. 
+- [Azure 스토리지 계정](../platform/resource-logs.md#send-to-azure-storage) - 감사, 정적 분석 또는 백업에 유용합니다.
 
 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../platform/diagnostic-settings.md)의 절차에 따라 Azure Portal을 통해 진단 설정을 만들고 관리할 수 있습니다. 템플릿에서 진단 설정을 정의하고, 생성되는 리소스에 대한 완전한 모니터링이 가능하도록 설정하려면 [Azure에서 Resource Manager 템플릿을 사용하여 진단 설정 만들기](../platform/diagnostic-settings-template.md)를 참조하세요.
 
@@ -114,7 +114,7 @@ Azure Monitor 로그에 데이터를 수집하려면 Log Analytics 작업 영역
 ### <a name="activity-log"></a>활동 로그 
 현재 리소스로 설정된 초기 필터를 사용하여 Azure Portal의 활동 로그에서 항목을 봅니다. 활동 로그를 Log Analytics 작업 영역에 복사하여 로그 쿼리 및 통합 문서에서 사용할 수 있도록 합니다. 
 
-- 다양한 방법을 사용하여 활동 로그를 보고 항목을 검색하는 방법에 대한 자세한 내용은 [Azure 활동 로그 이벤트 보기 및 검색](../platform/activity-log-view.md)을 참조하세요.
+- 다양한 방법을 사용하여 활동 로그를 보고 항목을 검색하는 방법에 대한 자세한 내용은 [Azure 활동 로그 이벤트 보기 및 검색](../platform/activity-log.md#view-the-activity-log)을 참조하세요.
 - 기록되는 특정 이벤트에 대해서는 해당 Azure 서비스의 설명서를 참조하세요.
 
 ![활동 로그](media/monitor-azure-resource/activity-log.png)
@@ -125,8 +125,8 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용하여 분석을 위해
 [Log Analytics](../log-query/get-started-portal.md)를 사용하면 [로그 쿼리](../log-query/log-query-overview.md)로 작업할 수 있습니다. 로그 쿼리는 완전한 기능을 갖춘 쿼리 언어를 사용하여 로그 데이터에 대한 고급 분석을 수행할 수 있는 Azure Monitor의 강력한 기능입니다. Azure 리소스에 대한 **모니터링** 메뉴의 **로그**에서 Log Analytics를 열어 리소스를 [쿼리 범위](../log-query/scope.md#query-scope)로 사용하면서 로그 쿼리로 작업할 수 있습니다. 이를 통해 해당 리소스에 대한 여러 테이블의 데이터를 분석할 수 있습니다. Azure Monitor 메뉴에서 **로그**를 사용하여 모든 리소스에 대한 로그에 액세스할 수 있습니다. 
 
 - 로그 쿼리를 작성하는 데 사용되는 쿼리 언어를 사용하는 방법에 대한 자습서는 [Azure Monitor에서 로그 쿼리 시작](../log-query/get-started-queries.md)을 참조하세요.
-- Azure Monitor 로그에서 리소스 로그를 수집하는 방법에 대한 자세한 내용과 쿼리에서 액세스하는 방법에 대한 자세한 내용은 [Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그 수집](../platform/resource-logs-collect-workspace.md)을 참조하세요.
-- Azure Monitor 로그에서 리소스 로그 데이터를 구성하는 방법에 대한 설명은 [컬렉션 모드](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode)를 참조하세요.
+- Azure Monitor 로그에서 리소스 로그를 수집하는 방법에 대한 자세한 내용과 쿼리에서 액세스하는 방법에 대한 자세한 내용은 [Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그 수집](../platform/resource-logs.md#send-to-log-analytics-workspace)을 참조하세요.
+- Azure Monitor 로그에서 리소스 로그 데이터를 구성하는 방법에 대한 설명은 [컬렉션 모드](../platform/resource-logs.md#send-to-log-analytics-workspace)를 참조하세요.
 - Azure Monitor 로그의 해당 테이블에 대한 자세한 내용은 각 Azure 서비스에 대한 설명서를 참조하세요.
 
 ![로그](media/monitor-azure-resource/logs.png)
@@ -163,4 +163,4 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용하여 분석을 위해
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다른 Azure 서비스에 해당하는 리소스 로그에 대한 자세한 내용은 [Azure 리소스 로그를 지원하는 서비스, 스키마 및 범주](../platform/diagnostic-logs-schema.md)를 참조하세요.  
+* 다른 Azure 서비스에 해당하는 리소스 로그에 대한 자세한 내용은 [Azure 리소스 로그를 지원하는 서비스, 스키마 및 범주](../platform/resource-logs-schema.md)를 참조하세요.  

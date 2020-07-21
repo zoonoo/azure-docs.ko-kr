@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7c1f0c18fc8b867e16ce539a24839637e1d14379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390791"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537518"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -46,7 +46,7 @@ Azure Digital 쌍는 **이벤트 경로** 를 사용 하 여 서비스 외부의
 
 또한 계산 리소스는 보안 및 액세스 권한을 독립적으로 설정 해야 합니다.
 
-디지털 쌍 이벤트를 처리 하도록 Azure 함수를 설정 하는 프로세스를 안내 하려면 [방법: 데이터 처리를 위한 azure 함수 설정](how-to-create-azure-function.md)을 참조 하세요.
+디지털 쌍 이벤트를 처리 하도록 Azure 함수를 설정 하는 프로세스를 안내 하려면 [*방법: 데이터 처리를 위한 azure 함수 설정*](how-to-create-azure-function.md)을 참조 하세요.
 
 ## <a name="create-an-endpoint"></a>엔드포인트 만들기
 
@@ -90,7 +90,7 @@ IoT Hub의 다양 한 이벤트 유형 및 Azure Digital Twins는 아래에 설�
 ## <a name="next-steps"></a>다음 단계
 
 이벤트 경로를 설정 하 고 관리 하는 방법을 참조 하세요.
-* [방법: 끝점과 경로 관리](how-to-manage-routes.md)
+* [*방법: 끝점과 경로 관리*](how-to-manage-routes.md)
 
 또는 Azure Functions를 사용 하 여 Azure Digital Twins 내에서 이벤트를 라우팅하는 방법을 참조 하세요.
-* [방법: 데이터 처리를 위한 Azure 함수 설정](how-to-create-azure-function.md)
+* [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)

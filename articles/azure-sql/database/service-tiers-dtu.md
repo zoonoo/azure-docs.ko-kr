@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 1922e92f9314e48ae4e3106a53cf750da5daf5e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84037954"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539179"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +42,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
 |IO 처리량(근사치) |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
 |IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
-|Columnstore 인덱싱 |해당 없음|S3 이상|지원됨|
+|Columnstore 인덱싱 |N/A|S3 이상|지원됨|
 |메모리 내 OLTP|N/A|해당 없음|지원됨|
 |||||
 
@@ -58,7 +59,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 컴퓨팅 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. Dtu 및 Edtu에 대 한 자세한 내용은 [dtu 기반 구매 모델](purchasing-models.md#dtu-based-purchasing-model)을 참조 하세요.
 
-||Basic|Standard|Premium|
+|Basic|Standard|Premium|
 | :-- | --: | --: | --: |
 | 최대 스토리지 크기 | 2GB | 1TB | 4 TB  |
 | 최대 DTU | 5 | 3000 | 4000 | 
@@ -69,7 +70,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>탄력적 풀 eDTU, 스토리지 및 풀링된 데이터베이스 제한
 
-| | **기본** | **Standard** | **Premium** |
+| **기본** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | 데이터베이스당 최대 스토리지 크기  | 2GB | 1TB | 1TB |
 | 풀당 최대 스토리지 크기 | 156GB | 4 TB | 4 TB |
@@ -107,7 +108,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 데이터베이스는 "배율"을 기준으로 크기를 조정합니다. 배율(약어: SF)은 확장 및 증가 테이블의 카디널리티를 결정합니다. 아래의 사용자 및 속도 섹션에 설명된 대로 데이터베이스 크기, 사용자 수, 최대 성능은 모두 서로에 비례하여 확장됩니다.
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 워크로드는 아래 표와 같이 9가지 트랜잭션 유형으로 구성되어 있습니다. 각 트랜잭션은 다른 트랜잭션과 크게 대비되도록 데이터베이스 엔진 및 시스템 하드웨어에서 특정 시스템 집합의 특성을 강조하도록 설계되었습니다. 이 방식에서는 다양한 구성 요소가 전반적 성능에 미치는 영향을 쉽게 평가할 수 있습니다. 예를 들어 "읽기 작업이 많은" 트랜잭션은 디스크에서 많은 읽기 작업을 만듭니다.
 
@@ -120,7 +121,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |UPDATE, 대부분 메모리 외, 읽기-쓰기 |
 | 적은 삽입 작업 |INSERT, 메모리 내, 읽기-쓰기 |
 | 많은 삽입 작업 |INSERT, 대부분 메모리 외, 읽기-쓰기 |
-| 삭제 |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
+| DELETE |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
 | 많은 CPU 사용 |SELECT, 메모리 내, 상대적으로 많은 CPU 부하, 읽기 전용 |
 
 ### <a name="workload-mix"></a>워크로드 혼합
@@ -136,7 +137,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |3 |
 | 적은 삽입 작업 |3 |
 | 많은 삽입 작업 |2 |
-| 삭제 |2 |
+| DELETE |2 |
 | 많은 CPU 사용 |10 |
 
 ### <a name="users-and-pacing"></a>사용자 및 속도
@@ -173,8 +174,8 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 서비스 클래스 | 처리량 측정 | 응답 시간 요구 사항 |
 | --- | --- | --- |
 | Premium |초당 트랜잭션 수 |0.5초에서 95 백분위수 |
-| 표준 |분당 트랜잭션 수 |1.0초에서 90 백분위수 |
-| Basic |시간당 트랜잭션 수 |2.0초에서 80 백분위수 |
+| Standard |분당 트랜잭션 수 |1.0초에서 90 백분위수 |
+| 기본 |시간당 트랜잭션 수 |2.0초에서 80 백분위수 |
 
 ## <a name="next-steps"></a>다음 단계
 

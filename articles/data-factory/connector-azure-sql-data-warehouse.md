@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2020
-ms.openlocfilehash: 4bf0acdc774bc41d0bc80c944560f41789584c03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 5810f9b08d914522f1304e238567c06e87872715
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513910"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537734"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)에서 데이터 복사 및 변환
 
@@ -376,7 +376,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 | writeBatchSize    | **일괄 처리당** SQL 테이블에 삽입할 행 수입니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행 크기에 따라 적절한 일괄 처리 크기를 동적으로 결정합니다. | 아니요.<br/>대량 삽입을 사용하는 경우 적용합니다.     |
 | writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예제: "00:30:00"(30분). | 아니요.<br/>대량 삽입을 사용하는 경우 적용합니다.        |
 | preCopyScript     | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니요                                            |
-| tableOption | 원본 스키마에 따라 존재하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정합니다. 준비된 복사본이 복사 작업에서 구성된 경우 자동 테이블 만들기가 지원되지 않습니다. 허용되는 값은 `none`(기본값) 또는 `autoCreate`입니다. |예 |
+| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 [싱크 테이블을 자동으로 만들지](copy-activity-overview.md#auto-create-sink-tables) 여부를 지정 합니다. 준비된 복사본이 복사 작업에서 구성된 경우 자동 테이블 만들기가 지원되지 않습니다. 허용되는 값은 `none`(기본값) 또는 `autoCreate`입니다. |예 |
 | disableMetricsCollection | Data Factory는 복사 성능 최적화 및 권장 사항에 대한 SQL Data Warehouse DWU와 같은 메트릭을 수집합니다. 이 동작에 관심이 있는 경우 `true`를 지정하여 해제합니다. | 아니요(기본값: `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse 싱크 예제
@@ -400,7 +400,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용하면 높은 처리량으로 대량 데이터를 Azure Synapse Analytics에 효율적으로 로드할 수 있습니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하면 처리량이 훨씬 증가합니다. 사용 사례가 있는 연습은 [Azure Synapse Analytics에 1TB 로드](v1/data-factory-load-sql-data-warehouse.md)를 참조하세요.
 
 - 원본 데이터가 **Azure Blob, Azure Data Lake Storage Gen1 또는 Azure Data Lake Storage Gen2**에 있고 **형식이 PolyBase 호환**이면 SQL Data Warehouse가 원본에서 데이터를 끌어오도록 복사 작업을 사용하여 PolyBase를 직접 호출할 수 있습니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-by-using-polybase)** 를 참조하세요.
-- 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 데이터를 PolyBase 호환 형식으로 자동으로 변환하고, 데이터를 Azure Blob 스토리지에 저장합니다. 그런 다음 PolyBase를 호출하여 데이터를 SQL Data Warehouse로 로드합니다.
+- 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 데이터를 PolyBase 호환 형식으로 자동으로 변환 하 고, Azure Blob storage에 데이터를 저장 한 다음, PolyBase를 호출 하 여 데이터를 SQL Data Warehouse으로 로드 합니다.
 
 > [!TIP]
 > [PolyBase 사용에 대한 모범 사례](#best-practices-for-using-polybase)에 대해 자세히 알아봅니다.
@@ -690,13 +690,15 @@ COPY 문을 사용하면 다음 구성이 지원됩니다.
 
 Azure Synapse Analytics에 특정한 설정은 원본 변환의 **원본 옵션** 탭에서 사용할 수 있습니다.
 
-**입력:** 원본을 테이블에 표시할지 선택하거나(```Select * from <table-name>```와 동일) 사용자 지정 SQL 쿼리를 입력합니다.
+**입력** 소스를 테이블에 표시할지 (에 해당 하는) 선택 ```Select * from <table-name>``` 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
+
+**준비 사용** Synapse DW 원본을 사용 하는 프로덕션 워크 로드에서이 옵션을 사용 하는 것이 좋습니다. 파이프라인에서 Synapase 원본을 사용 하 여 데이터 흐름 활동을 실행 하면 ADF는 스테이징 위치 저장소 계정을 입력 하 라는 메시지를 표시 하 고 준비 된 데이터 로드에이를 사용 합니다. Synapse DW에서 데이터를 로드 하는 가장 빠른 메커니즘입니다.
 
 **쿼리**: 입력 필드에서 쿼리를 선택하는 경우에는 원본에 대한 SQL 쿼리를 입력합니다. 이렇게 설정하면 데이터 세트에서 선택한 모든 테이블이 재정의됩니다. **Order By** 절은 여기서 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 테이블을 반환하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성합니다. 쿼리를 사용하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법이기도 합니다.
 
 SQL 예제: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**일괄 처리 크기**: 일괄 처리 크기를 입력하여 대량 데이터를 읽기로 청크합니다. 데이터 흐름에서 ADF는 이 설정을 사용하여 Spark 열 형식 캐싱을 설정합니다. 이 필드는 비어 있는 경우 Spark 기본값을 사용하는 옵션 필드입니다.
+**일괄 처리 크기**: 일괄 처리 크기를 입력하여 대량 데이터를 읽기로 청크합니다. 데이터 흐름에서 ADF는 이 설정을 사용하여 Spark 열 형식 캐싱을 설정합니다. 이 필드는 비어 있는 경우 Spark 기본값을 사용 하는 옵션 필드입니다.
 
 **격리 수준**: 매핑 데이터 흐름에서 SQL 원본의 기본값은 커밋되지 않은 읽기입니다. 여기에서 격리 수준을 다음 값 중 하나로 변경할 수 있습니다.
 

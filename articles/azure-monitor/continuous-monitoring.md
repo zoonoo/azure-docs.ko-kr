@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: fb216f164e02dfa4dbc4ad11774569b2e8ea970f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797593"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539689"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -37,7 +38,7 @@ ms.locfileid: "83797593"
 - 구성 없이 대부분의 Azure 리소스에서 [플랫폼 메트릭, 활동 로그 및 진단 로그](platform/data-sources.md)를 자동으로 가져옵니다.
 - [VM용 Azure Monitor](insights/vminsights-overview.md)를 사용하여 더 세부적인 VM 모니터링을 사용하도록 설정합니다.
 -  [컨테이너용 Azure Monitor](insights/container-insights-overview.md)를 사용하여 더 세부적인 AKS 클러스터 모니터링을 사용하도록 설정합니다.
-- 환경에 있는 다양한 애플리케이션 및 서비스를 위한 [모니터링 솔루션](insights/solutions-inventory.md)을 추가합니다.
+- 환경에 있는 다양한 애플리케이션 및 서비스를 위한 [모니터링 솔루션](./monitor-reference.md)을 추가합니다.
 
 
 [코드로서의 인프라](/azure/devops/learn/what-is-infrastructure-as-code)는 DevOps 팀이 원본 코드에 사용하는 것과 동일한 버전 관리를 사용하여 설명 모델에서 인프라를 관리하는 기능입니다. 이 기능을 통해 환경에 안정성과 확장성이 추가되고 애플리케이션을 관리하는 데 사용되는 유사한 프로세스를 활용할 수 있습니다.

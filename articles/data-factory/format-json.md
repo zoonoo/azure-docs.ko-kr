@@ -9,11 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7fd8fd35ee411d929843be81a1daaa512e0b3ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8429f58b9b8ce1be12fea861b805084347a0e2b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84611050"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537700"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Azure Data Factory JSON 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,8 +33,8 @@ Json **파일을 구문 분석 하거나 json 형식으로 데이터를 쓰려�
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 속성이 있습니다 `location` . **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
 | encodingName     | 테스트 파일을 읽고 쓰는 데 사용 되는 인코딩 형식입니다. <br>허용 되는 값은 다음과 같습니다. "UTF-8", "UTF-16", "UTF-16 be", "32 UTF-8", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "조합", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| 아니요       |
 | 압축 | 파일 압축을 구성 하는 속성의 그룹입니다. 작업 실행 중 압축/압축 해제를 수행 하려는 경우이 섹션을 구성 합니다. | 예 |
-| 형식 | JSON 파일을 읽고 쓰는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**또는 **lz4**입니다. 를 사용 하 여 파일을 저장할 수 있습니다. 기본값은 압축 되지 않습니다.<br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate"를 지원 하지 않습니다.<br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 기본적으로 파일은 폴더로 추출 됩니다. 즉 `<path specified in dataset>/<folder named as source zip file>/` , `preserveZipFileNameAsFolder` [복사 작업 원본](#json-as-source) 에서를 사용 하 여 zip 파일 이름을 폴더 구조로 유지할지 여부를 제어 합니다. | 아니요.  |
-| 수준 | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다**.<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적**: 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요. | 아니요       |
+| type<br/>(*아래 `compression` *) | JSON 파일을 읽고 쓰는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**또는 **lz4**입니다. 를 사용 하 여 파일을 저장할 수 있습니다. 기본값은 압축 되지 않습니다.<br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate"를 지원 하지 않습니다.<br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 기본적으로 파일은 폴더로 추출 됩니다. 즉 `<path specified in dataset>/<folder named as source zip file>/` , `preserveZipFileNameAsFolder` [복사 작업 원본](#json-as-source) 에서를 사용 하 여 zip 파일 이름을 폴더 구조로 유지할지 여부를 제어 합니다. | 아니요.  |
+| 수준<br/>(*아래 `compression` *) | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다**.<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적**: 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요. | 아니요       |
 
 다음은 Azure Blob Storage에서 JSON 데이터 집합의 예입니다.
 
@@ -64,6 +65,8 @@ Json **파일을 구문 분석 하거나 json 형식으로 데이터를 쓰려�
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
 작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 JSON 원본 및 싱크에서 지 원하는 속성의 목록을 제공 합니다.
+
+JSON 파일에서 데이터를 추출 하 고, 데이터를 싱크 데이터 저장소/형식 또는 [스키마 매핑에서](copy-activity-schema-and-type-mapping.md)그 반대로 매핑하는 방법에 대해 알아봅니다.
 
 ### <a name="json-as-source"></a>JSON을 소스로
 
@@ -201,17 +204,17 @@ JSON 파일에서 데이터를 복사 하는 경우 복사 작업은 다음과 �
 
 | 이름 | 설명 | 필요한 공간 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 와일드 카드 경로 | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | no | String[] | wildcardPaths |
-| 파티션 루트 경로 | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | no | String | 파티션 (partitionRootPath) |
-| 파일 목록 | 소스에서 처리할 파일을 나열 하는 텍스트 파일을 가리키고 있는지 여부 | no | `true` 또는 `false` | fileList |
-| 파일 이름을 저장할 열 | 원본 파일 이름 및 경로를 사용 하 여 새 열을 만듭니다. | no | String | rowUrlColumn |
-| 완료 후 | 처리 후 파일을 삭제 하거나 이동 합니다. 컨테이너 루트에서 파일 경로가 시작 됩니다. | no | 삭제: `true` 또는`false` <br> 옮기고`['<from>', '<to>']` | purgeFiles <br> moveFiles |
-| 마지막으로 수정한 사람 필터링 | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | no | 타임스탬프 | modifiedAfter <br> modifiedBefore |
-| 단일 문서 | 데이터 흐름 매핑 각 파일에서 하나의 JSON 문서를 읽습니다. | no | `true` 또는 `false` | singleDocument |
-| 따옴표 붙지 않은 열 이름 | 따옴표 **붙지 않은 열 이름을** 선택 하는 경우 데이터 흐름 매핑이 따옴표로 묶여 있지 않은 JSON 열을 읽습니다. | no | `true` 또는 `false` |  unquotedColumnNames
-| 설명 있음 | JSON 데이터에 C 또는 c + + 스타일 주석이 있으면 **주석 포함** 을 선택 합니다. | no | `true` 또는 `false` | asComments |
-| 작은따옴표 | 따옴표로 묶여 있지 않은 JSON 열을 읽습니다. | no | `true` 또는 `false` | singleQuoted |
-| 백슬래시가 이스케이프 되었습니다. | 백슬래시를 사용 하 여 JSON 데이터의 문자를 이스케이프 하는 경우 **백슬래시 이스케이프** 를 선택 합니다. | no | `true` 또는 `false` | backslashEscape |
+| 와일드 카드 경로 | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | 아니요 | String[] | wildcardPaths |
+| 파티션 루트 경로 | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | 파티션 (partitionRootPath) |
+| 파일 목록 | 소스에서 처리할 파일을 나열 하는 텍스트 파일을 가리키고 있는지 여부 | 아니요 | `true` 또는 `false` | fileList |
+| 파일 이름을 저장할 열 | 원본 파일 이름 및 경로를 사용 하 여 새 열을 만듭니다. | 아니요 | String | rowUrlColumn |
+| 완료 후 | 처리 후 파일을 삭제 하거나 이동 합니다. 컨테이너 루트에서 파일 경로가 시작 됩니다. | 아니요 | 삭제: `true` 또는`false` <br> 옮기고`['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| 마지막으로 수정한 사람 필터링 | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | 아니요 | Timestamp | modifiedAfter <br> modifiedBefore |
+| 단일 문서 | 데이터 흐름 매핑 각 파일에서 하나의 JSON 문서를 읽습니다. | 아니요 | `true` 또는 `false` | singleDocument |
+| 따옴표 붙지 않은 열 이름 | 따옴표 **붙지 않은 열 이름을** 선택 하는 경우 데이터 흐름 매핑이 따옴표로 묶여 있지 않은 JSON 열을 읽습니다. | 아니요 | `true` 또는 `false` |  unquotedColumnNames |
+| 설명 있음 | JSON 데이터에 C 또는 c + + 스타일 주석이 있으면 **주석 포함** 을 선택 합니다. | 아니요 | `true` 또는 `false` | asComments |
+| 작은따옴표 | 따옴표로 묶여 있지 않은 JSON 열을 읽습니다. | 아니요 | `true` 또는 `false` | singleQuoted |
+| 백슬래시가 이스케이프 되었습니다. | 백슬래시를 사용 하 여 JSON 데이터의 문자를 이스케이프 하는 경우 **백슬래시 이스케이프** 를 선택 합니다. | 아니요 | `true` 또는 `false` | backslashEscape |
 
 ### <a name="source-format-options"></a>원본 형식 옵션
 
@@ -296,8 +299,8 @@ JSON 필드와 값에 큰따옴표 대신 작은따옴표를 사용 하는 경�
 
 | 이름 | 설명 | 필요한 공간 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | no | `true` 또는 `false` | truncate |
-| 파일 이름 옵션 | 작성 된 데이터의 명명 형식입니다. 기본적으로 파티션 당 한 파일은 형식입니다.`part-#####-tid-<guid>` | no | 패턴: 문자열 <br> 파티션 당: String [] <br> Column: String의 데이터로 <br> 단일 파일로 출력:`['<fileName>']`  | filePattern <br> 파티션 파일 이름 <br> rowUrlColumn <br> 파티션 파일 이름 |
+| 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
+| 파일 이름 옵션 | 작성 된 데이터의 명명 형식입니다. 기본적으로 파티션 당 한 파일은 형식입니다.`part-#####-tid-<guid>` | 아니요 | 패턴: 문자열 <br> 파티션 당: String [] <br> Column: String의 데이터로 <br> 단일 파일로 출력:`['<fileName>']`  | filePattern <br> 파티션 파일 이름 <br> rowUrlColumn <br> 파티션 파일 이름 |
 
 ### <a name="creating-json-structures-in-a-derived-column"></a>파생 열에 JSON 구조 만들기
 
