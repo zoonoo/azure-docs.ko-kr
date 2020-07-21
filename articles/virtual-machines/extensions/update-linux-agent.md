@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: ab846eeb09c4f3d2db71abf58ef5d55dc74962a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b13dca7f4a33a7fb9ea55a1505c26a97160d0d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82112051"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502948"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>VM에서 Azure Linux 에이전트를 업데이트하는 방법
 
@@ -31,7 +31,7 @@ Azure Linux VM에서 [Azure Linux 에이전트](https://github.com/Azure/WALinux
 항상 Linux 배포판 리포지토리의 패키지에 대해 먼저 확인해야 합니다. 사용 가능한 패키지는 최신 버전이 아닐 수도 있지만 자동 업데이트를 사용하면 Linux 에이전트에서 항상 최신 업데이트를 가져올 수 있습니다. 패키지 관리자에서 설치 문제가 있는 경우 배포판 공급 업체에서 지원을 검색해야 합니다.
 
 > [!NOTE]
-> 자세한 내용은 [보증 Linux 배포판 In Azure를](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 참조 하세요.
+> 자세한 내용은 [보증 Linux 배포판 In Azure를](../linux/endorsed-distros.md) 참조 하세요.
 
 ## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Azure의 최소 가상 머신 에이전트 지원
 계속하기 전에 [Azure의 가상 머신 에이전트에 대한 최소 버전 지원](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)을 확인합니다.

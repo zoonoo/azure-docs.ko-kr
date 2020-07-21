@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 7d6cd4c6ce7991ae83f6f4a1dd6d8b86fe7eedbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc30275b2ee24af7bb526b3b43618c706bc027ca
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757889"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502098"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포
 
@@ -276,7 +277,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `enableAzure` | Azure Cloud Provider 사용 | true <br> false | true |
 | `aadClientId` | 서비스 주체의 응용 프로그램 ID 라고도 하는 Azure Active Directory 클라이언트 ID |  |  |
 | `domainName` | 사용할 사용자 지정 도메인 이름의 이름입니다 (해당 하는 경우). 전체 개인 클러스터를 배포 하지 않는 경우 "없음"으로 설정 합니다. |  | 없음 |
-| `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | default <br> 사용자 지정 | default |
+| `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | 기본값 <br> 사용자 지정 | 기본값 |
 | `masterClusterDns` | ' 사용자 지정 '을 선택한 경우 OpenShift 웹 콘솔에 액세스 하는 데 사용할 사용자 지정 DNS 이름입니다.`masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | ' Nipio '로 설정 되 면 `routingSubDomain` 는 nip.io를 사용 합니다.  라우팅에 사용 하려는 고유한 도메인이 있으면 ' 사용자 지정 '을 사용 합니다. | nipio <br> 사용자 지정 | nipio |
 | `routingSubDomain` | ' 사용자 지정 '을 선택한 경우 라우팅에 사용 하려는 와일드 카드 DNS 이름`routingSubDomainType` |  | apps.contoso.com |
@@ -306,7 +307,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 ### <a name="deploy-using-azure-cli"></a>Azure CLI를 사용하여 배포
 
 > [!NOTE] 
-> 다음 명령은 Azure CLI 2.0.8 이상이 필요합니다. CLI 버전은 `az --version` 명령으로 확인할 수 있습니다. CLI 버전을 업데이트하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti)를 참조하세요.
+> 다음 명령은 Azure CLI 2.0.8 이상이 필요합니다. CLI 버전은 `az --version` 명령으로 확인할 수 있습니다. CLI 버전을 업데이트하려면 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latesti)를 참조하세요.
 
 다음 예제에서는 openshiftrg라는 리소스 그룹에 OpenShift 클러스터 및 모든 관련 리소스를 배포하고 배포 이름을 myOpenShiftCluster로 지정합니다. 템플릿은 GitHub 리포지토리에서 직접 참조되며, azuredeploy.parameters.json이라는 로컬 매개 변수 파일이 사용됩니다.
 

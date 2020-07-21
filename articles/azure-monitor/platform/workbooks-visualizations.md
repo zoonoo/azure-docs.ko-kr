@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443751ee974dae3c426f36cbc262bc1a3af65bd0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658033"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504940"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor 통합 문서 시각화
 
@@ -50,7 +51,7 @@ Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각�
 1. **편집** 도구 모음 항목을 클릭 하 여 통합 문서를 편집 모드로 전환 합니다.
 2. **쿼리 추가** 링크를 사용 하 여 통합 문서에 로그 쿼리 컨트롤을 추가 합니다.
 3. **로그**, 리소스 유형 (예: Application Insights) 및 대상으로 사용할 리소스를 선택 합니다.
-4. 쿼리 편집기를 사용 하 여 분석에 대 한 [KQL](https://docs.microsoft.com/azure/kusto/query/) (예: 요청 추세)를 입력할 수 있습니다.
+4. 쿼리 편집기를 사용 하 여 분석에 대 한 [KQL](/azure/kusto/query/) (예: 요청 추세)를 입력할 수 있습니다.
 5. 시각화를 **영역**, **가로**막대형, **가로 막대형 (범주)**, **꺾은선형**, **원형**, **분산형**또는 **시간**중 하나로 설정 합니다.
 6. 필요한 경우 시간 범위, 시각화, 크기, 색상표 및 범례와 같은 다른 매개 변수를 설정 합니다.
 

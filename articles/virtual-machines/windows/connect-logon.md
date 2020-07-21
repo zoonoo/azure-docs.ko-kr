@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 562b1f80397c730b5ea72fe2cd4f3dfdaea1e3f3
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 9221a79eede36e0036d3ddaab64ee3baa07a33a6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235536"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500857"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법
 Azure Portal의 **연결** 단추를 사용하여 Windows 데스크톱에서 RDP(원격 데스크톱) 세션을 시작합니다. 먼저 가상 머신에 연결한 다음 로그온합니다.
@@ -62,5 +63,4 @@ Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C
 ```
 
 ## <a name="next-steps"></a>다음 단계
-연결하는 데 문제가 있으면 [원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 
-
+연결하는 데 문제가 있으면 [원격 데스크톱 연결 문제 해결](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json)을 참조하세요. 

@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982142"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504923"
 ---
 # <a name="programmatically-manage-workbooks"></a>프로그래밍 방식으로 통합 문서 관리
 
@@ -77,7 +78,7 @@ ms.locfileid: "82982142"
     }
     ```
 1. 개체에서 `galleries` `name` 및 `category` 키를 값으로 채웁니다. 다음 섹션에서 [매개 변수에](#parameters) 대해 자세히 알아보세요.
-2. [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), [명령줄 인터페이스](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)등을 사용 하 여이 Azure Resource Manager 템플릿을 배포 합니다.
+2. [Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), [명령줄 인터페이스](../../azure-resource-manager/templates/deploy-cli.md), [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)등을 사용 하 여이 Azure Resource Manager 템플릿을 배포 합니다.
 3. Azure Portal를 열고 Azure Resource Manager 템플릿에서 선택한 통합 문서 갤러리로 이동 합니다. 예제 템플릿에서 Azure Monitor 통합 문서 갤러리로 이동 합니다.
     1. Azure Portal를 열고로 이동 Azure Monitor
     2. `Workbooks`목차에서 열기
@@ -101,7 +102,7 @@ ms.locfileid: "82982142"
 
 ### <a name="galleries"></a>갤러리
 
-| 갤러리                                        | 리소스 유형                                      | 통합 문서 유형 |
+| 갤러리                                        | 리소스 종류                                      | 통합 문서 유형 |
 | :--------------------------------------------- |:---------------------------------------------------|:--------------|
 | Azure Monitor의 통합 문서                     | `Azure Monitor`                                    | `workbook`    |
 | Azure Monitor의 VM 정보                   | `Azure Monitor`                                    | `vm-insights` |
@@ -200,7 +201,7 @@ ms.locfileid: "82982142"
 | `serializedData` | 통합 문서에 사용할 콘텐츠나 페이로드를 포함 합니다. 통합 문서 UI의 리소스 관리자 템플릿을 사용 하 여 값을 가져옵니다. |
 
 ### <a name="workbook-types"></a>통합 문서 유형
-통합 문서 유형 새 통합 문서 인스턴스가 표시 될 통합 문서 갤러리 유형을 지정 합니다. 다음 옵션을 사용할 수 있습니다.
+통합 문서 유형 새 통합 문서 인스턴스가 표시 될 통합 문서 갤러리 유형을 지정 합니다. 표시되는 옵션은 다음과 같습니다.
 
 | 형식 | 갤러리 위치 |
 | :------------- |:-------------|

@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783542"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503033"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>로컬 임시 디스크가 없는 Azure VM 크기 
 이 문서에서는 로컬 임시 디스크가 없는 (예: 로컬 임시 책상 없음) Azure VM 크기에 대 한 FAQ (질문과 대답)를 제공 합니다. 이러한 VM 크기에 대 한 자세한 내용은 [Dv4 및 Dsv4에 대 한 사양 (범용 워크 로드)](dv4-dsv4-series.md) 또는 [Ev4 및 Esv4 시리즈 사양 (메모리 액세스에 최적화 된 작업)](ev4-esv4-series.md)을 참조 하세요.
@@ -22,7 +23,7 @@ ms.locfileid: "84783542"
 ## <a name="what-does-no-local-temp-disk-mean"></a>로컬 임시 디스크는 무엇을 의미 하나요? 
 일반적으로 작은 로컬 디스크 (예: D: 드라이브)를 포함 하는 VM 크기 (예: Standard_D2s_v3, Standard_E48_v3)가 있습니다. 이제 이러한 새 VM 크기를 사용 하 여 작은 로컬 디스크가 더 이상 존재 하지 않습니다. 그러나 표준 HDD, 프리미엄 SSD 또는 울트라 SSD 연결할 수 있습니다.
 
-## <a name="what-if-i-still-want-local-temp-disk"></a>여전히 로컬 임시 디스크를 원하는 경우 어떻게 하나요?
+## <a name="what-if-i-still-want-a-local-temp-disk"></a>여전히 로컬 임시 디스크를 원하는 경우 어떻게 하나요?
 워크 로드에 로컬 임시 디스크가 필요한 경우 새로운 [Ddv4 및 Ddsv4](ddv4-ddsv4-series.md) , [Edv4 및 Edsv4](edv4-edsv4-series.md) VM 크기를 사용할 수도 있습니다. 이러한 크기는 이전 v3 크기와 비교 하 여 50% 더 큰 임시 디스크를 제공 합니다.
 
 > [!NOTE]

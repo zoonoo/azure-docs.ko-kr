@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8f65912d0e2ab322d73315828a98cc48274850fc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e0f9bbf4e0d8edd153798b39f880f0adb8be6587
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696474"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502289"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -45,7 +45,7 @@ Azure 지역의 가용성 영역은 **장애 도메인**과 **업데이트 도�
 
 Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다. 영역에 복제된 VM을 사용하는 솔루션을 설계하여 데이터 센터 손실로부터 애플리케이션과 데이터를 보호할 수 있습니다. 하나의 영역이 손상되면 다른 영역에서 복제된 앱 및 데이터를 즉시 사용할 수 있습니다.
 
-![가용성 영역](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+![가용성 영역](./media/virtual-machines-common-manage-availability/three-zones-per-region.png)
 
 가용성 영역에서 [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) 또는 [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM을 배포하는 방법에 대해 자세히 알아봅니다.
 

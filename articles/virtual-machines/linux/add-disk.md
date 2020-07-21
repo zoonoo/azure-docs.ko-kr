@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eb18207c15007820bf93254886ab38a43bc5b48f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1791d33627f04f69d10916c8ff0a154f7d8b967b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658343"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502829"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
 이 문서에서는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다.
@@ -197,9 +198,9 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > [!NOTE]
 > 나중에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 대부분의 배포는 *nofail* 및/또는 *nobootwait* fstab 옵션을 제공합니다. 이러한 옵션을 사용하면 디스크가 부팅 시 탑재되지 않더라도 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.
 >
-> *nofail* 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 Linux에 SSH를 사용할 수 없음](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)(영문)에 설명되어 있는 동작이 발생할 수 있습니다.
+> *nofail* 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 Linux에 SSH를 사용할 수 없음](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)(영문)에 설명되어 있는 동작이 발생할 수 있습니다.
 >
-> Fstab를 수정 하 여 부팅 실패가 발생 한 경우 Azure VM 직렬 콘솔을 사용 하 여 VM에 대 한 콘솔 액세스를 사용할 수 있습니다. 자세한 내용은 [직렬 콘솔 설명서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)에서 확인할 수 있습니다.
+> Fstab를 수정 하 여 부팅 실패가 발생 한 경우 Azure VM 직렬 콘솔을 사용 하 여 VM에 대 한 콘솔 액세스를 사용할 수 있습니다. 자세한 내용은 [직렬 콘솔 설명서](../troubleshooting/serial-console-linux.md)에서 확인할 수 있습니다.
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure에서 Linux에 대한 TRIM/UNMAP 지원
 일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 스토리지에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.

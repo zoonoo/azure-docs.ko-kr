@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 854421452228a54833da4b0f05669c6d5f1c842f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460429"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501741"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 만들기
 
@@ -40,10 +40,10 @@ ms.locfileid: "81460429"
 - Azure에서 사용하기 위해 준비된 Linux 가상 컴퓨터 이 문서의 [VM 준비](#prepare-the-vm) 섹션에서는 SSH를 통해 VM에 연결하는 데 필요한 Azure Linux 에이전트(waagent) 설치에 대한 배포판 관련 정보를 찾는 방법에 대해 설명합니다.
 - 기존 [Azure 보증 Linux 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 VHD 형식으로 가상 디스크에 VHD 파일(또는 [보증되지 않는 배포에 대한 정보](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 참조) VM과 VHD를 만드는 도구는 여러 가지가 있습니다.
   - [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 또는 [KVM](https://www.linux-kvm.org/page/RunningKVM)을 설치 및 구성하고 VHD를 이미지 형식으로 사용하도록 주의합니다. 필요한 경우 `qemu-img convert`를 사용하여 [이미지를 변환](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)할 수 있습니다.
-  - 또한 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 또는 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx)에서 Hyper-V를 사용할 수 있습니다.
+  - 또한 [Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 또는 [Windows Server 2012/2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))에서 Hyper-V를 사용할 수 있습니다.
 
 > [!NOTE]
-> 새 VHDX 형식은 Azure에서 지원되지 않습니다. VM을 만들 때 VHD를 형식으로 지정합니다. 필요한 경우 [qemu-img convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 또는 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet을 사용하여 VHDX 디스크를 VHD로 변환할 수 있습니다. Azure는 동적 VHD 업로드를 지원하지 않으므로 업로드하기 전에 먼저 이러한 디스크를 정적 VHD로 변환해야 합니다. Azure에 업로딩하는 과정 중에 [GO용 Azure VHD 유틸리티](https://github.com/Microsoft/azure-vhd-utils-for-go) 와 같은 도구를 사용하여 동적 디스크를 변환할 수 있습니다.
+> 새 VHDX 형식은 Azure에서 지원되지 않습니다. VM을 만들 때 VHD를 형식으로 지정합니다. 필요한 경우 [qemu-img convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 또는 [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps) PowerShell cmdlet을 사용하여 VHDX 디스크를 VHD로 변환할 수 있습니다. Azure는 동적 VHD 업로드를 지원하지 않으므로 업로드하기 전에 먼저 이러한 디스크를 정적 VHD로 변환해야 합니다. Azure에 업로딩하는 과정 중에 [GO용 Azure VHD 유틸리티](https://github.com/Microsoft/azure-vhd-utils-for-go) 와 같은 도구를 사용하여 동적 디스크를 변환할 수 있습니다.
 > 
 > 
 

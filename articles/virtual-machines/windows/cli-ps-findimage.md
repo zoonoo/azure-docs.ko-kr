@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: e1ddc354e95185b6b2ba8bcb821fcabd5721c442
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2d37e20ada2d1128f04d2df822da996338e0e6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224250"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500874"
 ---
 # <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Marketplace에서 VM 이미지 찾기 및 사용
 
@@ -39,18 +39,18 @@ ms.locfileid: "86224250"
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftSharePoint |MicrosoftSharePointServer |sp2019 |
-| MicrosoftSQLServer |SQL2019-WS2016 |엔터프라이즈 |
-| MicrosoftRServer |RServer-WS2016 |엔터프라이즈 |
+| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
+| MicrosoftRServer |RServer-WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>이미지 이동
 
-특정 위치에서 이미지를 찾는 한 가지 방법은 [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) 및 [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) cmdlet을 순서대로 실행하는 것입니다.
+특정 위치에서 이미지를 찾는 한 가지 방법은 [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) 및 [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) cmdlet을 순서대로 실행하는 것입니다.
 
 1. 이미지 게시자를 나열합니다.
 2. 지정된 게시자에 제안을 나열합니다.
 3. 지정된 제안에 SKU를 나열합니다.
 
-그런 다음, 선택한 SKU에 대해 [Get-AzVMImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimage)를 실행하여 배포할 버전을 나열합니다.
+그런 다음, 선택한 SKU에 대해 [Get-AzVMImage](/powershell/module/az.compute/get-azvmimage)를 실행하여 배포할 버전을 나열합니다.
 
 1. 게시자를 나열합니다.
 
@@ -168,7 +168,7 @@ $skuName="2019-Datacenter"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-이제 선택한 게시자, 제품, SKU 및 버전을 URN으로(값을 :으로 구분하여) 결합할 수 있습니다. [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet으로 VM을 만들 때 `--image` 매개 변수와 함께 URN을 전달합니다. 필요에 따라 “최신”을 사용하여 URN에서 버전 번호를 바꾸면 이미지의 최신 버전을 가져올 수 있습니다.
+이제 선택한 게시자, 제품, SKU 및 버전을 URN으로(값을 :으로 구분하여) 결합할 수 있습니다. [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet으로 VM을 만들 때 `--image` 매개 변수와 함께 URN을 전달합니다. 필요에 따라 “최신”을 사용하여 URN에서 버전 번호를 바꾸면 이미지의 최신 버전을 가져올 수 있습니다.
 
 Resource Manager 템플릿을 사용하여 VM을 배포하는 경우 `imageReference` 속성에 이미지 매개 변수를 개별적으로 설정합니다. [템플릿 참조](/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
 
@@ -235,7 +235,7 @@ DataDiskImages   : []
 
 ### <a name="accept-the-terms"></a>약관에 동의
 
-사용 조건을 보려면 [Get-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/get-azmarketplaceterms) cmdlet을 사용하여 구매 계획 매개 변수를 전달합니다. 출력에는 Marketplace 이미지의 약관 대한 링크가 제공되며 이전에 약관에 동의했는지 여부가 표시됩니다. 매개 변수 값에 모두 소문자를 사용해야 합니다.
+사용 조건을 보려면 [Get-AzMarketplaceterms](/powershell/module/az.marketplaceordering/get-azmarketplaceterms) cmdlet을 사용하여 구매 계획 매개 변수를 전달합니다. 출력에는 Marketplace 이미지의 약관 대한 링크가 제공되며 이전에 약관에 동의했는지 여부가 표시됩니다. 매개 변수 값에 모두 소문자를 사용해야 합니다.
 
 ```powershell
 Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -254,7 +254,7 @@ Accepted          : False
 Signdate          : 1/25/2019 7:43:00 PM
 ```
 
-[Set-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/set-azmarketplaceterms) cmdlet을 사용하여 약관에 동의하거나 거부합니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 매개 변수 값에 모두 소문자를 사용해야 합니다. 
+[Set-AzMarketplaceterms](/powershell/module/az.marketplaceordering/set-azmarketplaceterms) cmdlet을 사용하여 약관에 동의하거나 거부합니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 매개 변수 값에 모두 소문자를 사용해야 합니다. 
 
 ```powershell
 $agreementTerms=Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -278,7 +278,7 @@ Signdate          : 2/23/2018 7:49:31 PM
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>구매 플랜 매개 변수를 사용하여 배포
 
-이미지에 대한 약관에 동의한 후에는 해당 구독에 VM을 배포할 수 있습니다. 아래 코드 조각처럼 [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) cmdlet을 사용하여 VM 개체에 대한 Marketplace 계획 정보를 설정합니다. VM용 네트워크 설정을 만들고 배포를 완료하는 데 필요한 전체 스크립트를 보려면 [PowerShell 스크립트 예제](powershell-samples.md)를 참조하세요.
+이미지에 대한 약관에 동의한 후에는 해당 구독에 VM을 배포할 수 있습니다. 아래 코드 조각처럼 [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) cmdlet을 사용하여 VM 개체에 대한 Marketplace 계획 정보를 설정합니다. VM용 네트워크 설정을 만들고 배포를 완료하는 데 필요한 전체 스크립트를 보려면 [PowerShell 스크립트 예제](powershell-samples.md)를 참조하세요.
 
 ```powershell
 ...
@@ -317,5 +317,3 @@ $vmConfig = Set-AzVMSourceImage -VM $vmConfig -PublisherName $publisherName -Off
 기본 이미지 정보를 사용하여 `New-AzVM` cmdlet으로 가상 머신을 빠르게 만들려면 [PowerShell을 사용하여 Windows 가상 머신 만들기](quick-create-powershell.md)를 참조하세요.
 
 Azure Marketplace 이미지를 사용 하 여 공유 이미지 갤러리에서 사용자 지정 이미지를 만드는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../marketplace-images.md)을 참조 하세요.
-
-

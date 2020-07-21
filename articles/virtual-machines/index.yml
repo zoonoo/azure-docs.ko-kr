@@ -11,81 +11,81 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: 04321e19787c6cfee2315be77a47025636a016dc
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: aa1492a021caa69303834ce4a144d33ca05b15e0
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77918124"
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86502846"
 highlightedContent:
   items:
   - title: Azure CLI를 사용하여 Linux 가상 머신 만들기
     itemType: quickstart
-    url: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli
+    url: ./linux/quick-create-cli.md
   - title: PowerShell을 사용하여 Windows 가상 머신 만들기
     itemType: quickstart
-    url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell
+    url: ./windows/quick-create-powershell.md
   - title: 포털에서 가상 머신 확장 집합 만들기
     itemType: quickstart
-    url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal
+    url: ../virtual-machine-scale-sets/quick-create-portal.md
   - title: 스폿 VM - 미사용 용량을 매우 저렴한 비용으로 활용할 수 있습니다.
     itemType: concept
-    url: https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms
+    url: ./linux/spot-vms.md
   - title: 전용 호스트 - 하나 이상의 가상 머신을 호스팅하는 물리적 서버입니다.
     itemType: concept
-    url: https://docs.microsoft.com/azure/virtual-machines/linux/dedicated-hosts
+    url: ./linux/dedicated-hosts.md
   - title: 근접 배치 그룹 - VM을 최대한 근접시켜 대기 시간을 단축합니다.
     itemType: how-to-guide
-    url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
+    url: ./linux/proximity-placement-groups.md
 conceptualContent:
   items:
   - title: Linux 가상 머신
     links:
-    - url: https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros
+    - url: ./linux/endorsed-distros.md
       itemType: concept
       text: 보증 배포
-    - url: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks
+    - url: ./linux/tutorial-manage-disks.md
       itemType: tutorial
       text: 디스크 만들기 및 관리
-    - url: https://docs.microsoft.com/azure/virtual-machines/linux/image-builder
+    - url: ./linux/image-builder.md
       itemType: how-to-guide
       text: Azure 이미지 작성기
-    - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/linux-index
+    - url: /azure/virtual-machines/troubleshooting/linux-index
       itemType: how-to-guide
       text: Linux 가상 머신 문제 해결
     footerLink:
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/
+      url: ./linux/index.yml
       text: 자세히 보기
   - title: Windows 가상 머신
     links:
-    - url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell
+    - url: ./windows/quick-create-powershell.md
       itemType: how-to-guide
       text: PowerShell을 사용하여 VM 만들기
-    - url: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-data-disk
+    - url: ./windows/tutorial-manage-data-disk.md
       itemType: tutorial
       text: 디스크 만들기 및 관리
-    - url: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=azure/virtual-machines/windows/context/windows-vm-context
       itemType: how-to-guide
       text: 관리되는 ID 구성
-    - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/index
+    - url: /azure/virtual-machines/troubleshooting/index
       itemType: how-to-guide
       text: Windows 가상 머신 문제 해결
     footerLink:
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/
+      url: ./windows/index.yml
       text: 자세히 보기
   - title: 가상 머신 크기 집합
     links:
-    - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-powershell
+    - url: ../virtual-machine-scale-sets/quick-create-powershell.md
       itemType: how-to-guide
       text: PowerShell을 사용하여 확장 집합 만들기
-    - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes
+    - url: ../virtual-machine-scale-sets/orchestration-modes.md
       itemType: concept
       text: 오케스트레이션 모드
-    - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot
+    - url: ../virtual-machine-scale-sets/use-spot.md
       itemType: how-to-guide
       text: 스폿 인스턴스 사용
     footerLink:
-      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
+      url: ../virtual-machine-scale-sets/index.yml
       text: 자세히 보기
 tools:
   title: 도구
@@ -93,13 +93,13 @@ tools:
   items:
   - title: Azure CLI
     imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-    url: https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest
+    url: /cli/azure/vm?view=azure-cli-latest
   - title: Azure PowerShell
     imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
-    url: https://docs.microsoft.com/powershell/module/az.compute#virtual_machines
+    url: /powershell/module/az.compute#virtual_machines
   - title: REST API
     imageSrc: https://docs.microsoft.com/azure/media/index/azure_dev-6.svg
-    url: https://docs.microsoft.com/rest/api/compute/virtualmachines
+    url: /rest/api/compute/virtualmachines
 additionalContent:
   sections:
   - title: 기타 리소스
@@ -108,7 +108,7 @@ additionalContent:
     - title: 배우기
       links:
       - text: 학습 모듈 찾아보기
-        url: https://docs.microsoft.com/learn/browse/?products=azure-virtual-machines
+        url: /learn/browse/?products=azure-virtual-machines
     - title: 템플릿 갤러리
       links:
       - text: 빠른 시작 템플릿 갤러리 찾아보기
@@ -116,4 +116,4 @@ additionalContent:
     - title: 문제 해결
       links:
       - text: 오류 문제 해결을 위한 정보
-        url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/
+        url: ./troubleshooting/index.yml

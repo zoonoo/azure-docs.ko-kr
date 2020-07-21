@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1349052488cb520f5866b5b0d238a223f2ceb68
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 274dda338fca1dae1940dd4a0fe66df617195544
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135094"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502625"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Linux Vm에서 Azure AD를 사용 하 여 Azure Disk Encryption 사용 (이전 릴리스)
 
@@ -142,7 +142,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
@@ -209,7 +209,7 @@ LVM-on-crypt 설정을 사용하는 것이 좋습니다. 다음 모든 예제에
 - VM을 구성할 데이터 디스크를 추가합니다.
 - 이러한 디스크를 포맷하고, 탑재하고, fstab 파일에 추가합니다.
 
-    1. 새로 추가된 디스크를 포맷합니다. 여기서는 Azure에서 생성한 바로 가기 링크를 사용합니다. 바로 가기 링크를 사용하면 디바이스 이름 변경과 관련된 문제를 방지할 수 있습니다. 자세한 내용은 [장치 이름 문제 해결](troubleshoot-device-names-problems.md)을 참조 하세요.
+    1. 새로 추가된 디스크를 포맷합니다. 여기서는 Azure에서 생성한 바로 가기 링크를 사용합니다. 바로 가기 링크를 사용하면 디바이스 이름 변경과 관련된 문제를 방지할 수 있습니다. 자세한 내용은 [장치 이름 문제 해결](../troubleshooting/troubleshoot-device-names-problems.md)을 참조 하세요.
     
         ```console
         mkfs -t ext4 /dev/disk/azure/scsi1/lun0
@@ -265,7 +265,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 [Az vm disk attach](add-disk.md) 를 사용 하거나 [Azure Portal을 통해](attach-disk-portal.md)새 데이터 디스크를 추가할 수 있습니다. 암호화하려면 먼저 새로 연결된 데이터 디스크를 탑재해야 합니다. 암호화가 진행 중인 동안에는 드라이브를 사용할 수 없기 때문에 데이터 드라이브의 암호화를 요청 해야 합니다. 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Azure CLI를 사용 하 여 새로 추가 된 디스크에서 암호화 사용
- VM이 "모두"로 이전에 암호화 된 경우--volume type 매개 변수는 모두 그대로 유지 되어야 합니다. All은 OS 디스크 및 데이터 디스크 모두를 포함합니다. VM이 이전에 "OS" 볼륨 유형으로 암호화 된 경우에는 OS와 새 데이터 디스크가 모두 포함 되도록--volume-type 매개 변수를 모두로 변경 해야 합니다. VM이 "Data" 볼륨 유형 으로만 암호화 된 경우에는 여기에 설명 된 대로 데이터를 유지할 수 있습니다. 새 데이터 디스크를 추가 하 고 VM에 연결 하는 것은 암호화를 준비 하는 데 충분 하지 않습니다. 암호화를 사용 하도록 설정 하기 전에 새로 연결 된 디스크도 포맷 되 고 VM 내에서 적절히 탑재 되어야 합니다. Linux에서 디스크는 [영구 블록 장치 이름을](troubleshoot-device-names-problems.md)사용 하 여/etc/fstab에 탑재 되어야 합니다. 
+ VM이 "모두"로 이전에 암호화 된 경우--volume type 매개 변수는 모두 그대로 유지 되어야 합니다. All은 OS 디스크 및 데이터 디스크 모두를 포함합니다. VM이 이전에 "OS" 볼륨 유형으로 암호화 된 경우에는 OS와 새 데이터 디스크가 모두 포함 되도록--volume-type 매개 변수를 모두로 변경 해야 합니다. VM이 "Data" 볼륨 유형 으로만 암호화 된 경우에는 여기에 설명 된 대로 데이터를 유지할 수 있습니다. 새 데이터 디스크를 추가 하 고 VM에 연결 하는 것은 암호화를 준비 하는 데 충분 하지 않습니다. 암호화를 사용 하도록 설정 하기 전에 새로 연결 된 디스크도 포맷 되 고 VM 내에서 적절히 탑재 되어야 합니다. Linux에서 디스크는 [영구 블록 장치 이름을](../troubleshooting/troubleshoot-device-names-problems.md)사용 하 여/etc/fstab에 탑재 되어야 합니다. 
 
 PowerShell 구문과 달리 CLI에서는 암호화를 사용 하도록 설정할 때 고유한 시퀀스 버전을 제공 하지 않아도 됩니다. CLI는 고유 시퀀스 버전 값을 자동으로 생성하여 사용합니다.
 

@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1567d38f8e582c062aa024b40cf0ede1d8b691f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027904"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504336"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>테넌트별 데이터베이스 SaaS 애플리케이션에서 단일 테넌트 복원
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +29,7 @@ ms.locfileid: "84027904"
 > * 병렬 데이터베이스에 데이터베이스 복원(병렬)
 > * 원래 위치에 데이터베이스를 복원하여 기존 데이터베이스 대체
 
-|||
+| 패턴 | 설명 |
 |:--|:--|
 | 병렬 데이터베이스로 복원 | 이 패턴은 테넌트가 이전 시점에서 데이터를 검사할 수 있도록 검토, 감사, 준수 등의 작업에 사용할 수 있습니다. 테넌트의 현재 데이터베이스는 온라인 상태가 유지되고 변경되지 않습니다. |
 | 원래 위치에 복원 | 이 패턴은 테넌트가 실수로 삭제되었거나 데이터가 손상된 경우에 테넌트를 이전 시점으로 복구할 때 사용합니다. 원래 데이터베이스는 오프라인 상태가 되고 복원된 데이터베이스로 대체됩니다. |

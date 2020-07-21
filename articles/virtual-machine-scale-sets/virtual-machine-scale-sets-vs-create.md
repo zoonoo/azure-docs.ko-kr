@@ -9,11 +9,12 @@ ms.subservice: visual-studio
 ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124366"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503084"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio에서 Virtual Machine Scale Set를 만드는 방법
 
@@ -21,7 +22,7 @@ ms.locfileid: "83124366"
 
 [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/)는 자동 크기 조정 및 부하 분산을 사용하여 유사한 가상 머신 컬렉션을 배포하고 관리하기 위한 Azure Compute 리소스입니다. [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates)을 사용하여 Virtual Machine Scale Sets를 프로비전하고 배포할 수 있습니다. Azure Resource Manager 템플릿은 Azure CLI, PowerShell, REST를 사용하여 배포가 가능하고 Visual Studio에서 직접 배포할 수도 있습니다. Visual Studio는 Azure 리소스 그룹 배포 프로젝트의 일부로 배포할 수 있는 예제 템플릿 세트를 제공합니다.
 
-Azure 리소스 그룹 배포는 단일 배포 작업을 통해 관련된 Azure 리소스 집합을 그룹화하여 게시하는 방법입니다. 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
+Azure 리소스 그룹 배포는 단일 배포 작업을 통해 관련된 Azure 리소스 집합을 그룹화하여 게시하는 방법입니다. 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

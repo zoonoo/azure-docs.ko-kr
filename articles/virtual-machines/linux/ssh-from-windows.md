@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 81dfac2a1623253a110833a96fddd1b41bd11b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fc411d3833fcd47477e7e0fe11c6da9e2114143
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390230"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502030"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -26,7 +26,7 @@ ms.locfileid: "85390230"
 ## <a name="windows-packages-and-ssh-clients"></a>Windows 패키지 및 SSH 클라이언트
 *SSH 클라이언트*를 사용 하 여 Azure에서 Linux vm에 연결 하 고 관리 합니다. Linux 또는 macOS를 실행하는 컴퓨터에는 일반적으로 SSH 연결을 만들고 SSH 키를 생성 및 관리하는 SSH 명령 모음이 있습니다. 
 
-Windows 컴퓨터는 항상 비교 가능한 SSH 명령을 설치하지는 않습니다. 최신 버전의 Windows 10은 SSH 키를 만들고 관리 하 고 명령 프롬프트에서 SSH 연결을 설정 하는 [OpenSSH client 명령을](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) 제공 합니다. 또한 최신 Windows 10 버전은 Bash 셸 내에 기본적으로 포함된 SSH 클라이언트와 같은 유틸리티를 실행하고 액세스하는 [Linux용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/about)을 포함합니다. 
+Windows 컴퓨터는 항상 비교 가능한 SSH 명령을 설치하지는 않습니다. 최신 버전의 Windows 10은 SSH 키를 만들고 관리 하 고 명령 프롬프트에서 SSH 연결을 설정 하는 [OpenSSH client 명령을](https://devblogs.microsoft.com/commandline/windows10v1803/) 제공 합니다. 또한 최신 Windows 10 버전은 Bash 셸 내에 기본적으로 포함된 SSH 클라이언트와 같은 유틸리티를 실행하고 액세스하는 [Linux용 Windows 하위 시스템](/windows/wsl/about)을 포함합니다. 
 
 로컬로 설치할 수 있는 다른 공용 Windows SSH 클라이언트는 다음과 같은 패키지에 포함되어 있습니다.
 
@@ -123,4 +123,4 @@ VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권�
 
 * Azure Cloud Shell에서 PowerShell을 사용하여 Linux VM에 SSH 연결을 만들고 SSH 키를 생성할 수 있습니다. [PowerShell 빠른 시작](../../cloud-shell/quickstart-powershell.md#ssh)을 참조합니다.
 
-* SSH를 사용하여 Linux VM을 연결하는 데 문제가 있으면 [Azure Linux VM에 대한 SSH 연결 문제 해결](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+* SSH를 사용하여 Linux VM을 연결하는 데 문제가 있으면 [Azure Linux VM에 대한 SSH 연결 문제 해결](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)을 참조하세요.

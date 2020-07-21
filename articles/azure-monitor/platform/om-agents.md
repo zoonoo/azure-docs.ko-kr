@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62d16bc9ca6c4238ff7c6304c5e1964c2956c898
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847395"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505298"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-[System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) 에 대 한 기존 투자를 유지 관리 하 고 Azure Monitor에서 확장 된 기능을 사용 하려면 Operations Manager를 Log Analytics 작업 영역과 통합할 수 있습니다. 이를 통해 Azure Monitor에서 로그의 기회를 활용 하 여 Operations Manager을 계속 사용할 수 있습니다.
+[System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) 에 대 한 기존 투자를 유지 관리 하 고 Azure Monitor에서 확장 된 기능을 사용 하려면 Operations Manager를 Log Analytics 작업 영역과 통합할 수 있습니다. 이를 통해 Azure Monitor에서 로그의 기회를 활용 하 여 Operations Manager을 계속 사용할 수 있습니다.
 
 * Operations Manager를 사용하여 IT 서비스의 상태 모니터링
 * 인시던트 및 문제 관리를 지원하는 ITSM 솔루션과 통합 유지 관리
@@ -33,7 +33,7 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](../../azure-monitor/platform/gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
@@ -154,7 +154,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 1. **RunAs 구성**에서 **프로필**을 선택합니다.
 1. **프로필 프록시로 시스템 센터 관리자 실행** 프로필을 엽니다.
-1. 실행 프로필 마법사에서 추가를 클릭하여 실행 계정을 사용합니다. [실행 계정](https://technet.microsoft.com/library/hh321655.aspx)을 만들거나 기존 계정을 사용할 수 있습니다. 이 계정에는 프록시 서버를 통과할 수 있는 권한이 있어야 합니다.
+1. 실행 프로필 마법사에서 추가를 클릭하여 실행 계정을 사용합니다. [실행 계정](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12))을 만들거나 기존 계정을 사용할 수 있습니다. 이 계정에는 프록시 서버를 통과할 수 있는 권한이 있어야 합니다.
 1. 관리할 계정을 설정하려면 **선택된 클래스, 그룹 또는 개체**를 선택하고 **선택...** 을 클릭한 다음 **그룹...** 을 클릭하여 **그룹 검색** 상자를 엽니다.
 1. **Microsoft System Center Advisor 모니터링 서버 그룹**을 검색한 다음 선택합니다. 그룹을 선택한 후 **확인**을 클릭하여 **그룹 검색** 상자를 닫습니다.
 1. **확인**을 클릭하여 **실행 계정 추가** 상자를 닫습니다.
@@ -173,7 +173,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 * **Microsoft.SystemCenter** -기본 Azure Monitor 관리 팩을 업데이트 합니다. 기본적으로 12시간마다 실행됩니다.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - 작업 영역에서 활성화된 솔루션 관리 팩을 업데이트합니다. 기본적으로 5분마다 실행됩니다.
 
-이러한 두 규칙을 재정의 하 여 자동 다운로드를 차단 하거나, 관리 서버가 Azure Monitor와 동기화 되는 빈도를 수정 하 여 새 관리 팩을 사용할 수 있고 다운로드 해야 하는지 여부를 확인할 수 있습니다. [규칙 또는 모니터를 재정의하는 방법](https://technet.microsoft.com/library/hh212869.aspx) 단계를 따라 초 단위 값으로 **Frequency** 매개 변수를 수정하여 동기화 일정을 변경하거나 **Enabled** 매개 변수를 수정하여 규칙을 비활성화합니다. Operations Manager 관리 그룹 클래스의 모든 개체에 대한 재정의를 대상으로 합니다.
+이러한 두 규칙을 재정의 하 여 자동 다운로드를 차단 하거나, 관리 서버가 Azure Monitor와 동기화 되는 빈도를 수정 하 여 새 관리 팩을 사용할 수 있고 다운로드 해야 하는지 여부를 확인할 수 있습니다. [규칙 또는 모니터를 재정의하는 방법](/previous-versions/system-center/system-center-2012-R2/hh212869(v=sc.12)) 단계를 따라 초 단위 값으로 **Frequency** 매개 변수를 수정하여 동기화 일정을 변경하거나 **Enabled** 매개 변수를 수정하여 규칙을 비활성화합니다. Operations Manager 관리 그룹 클래스의 모든 개체에 대한 재정의를 대상으로 합니다.
 
 프로덕션 관리 그룹에서 관리 팩 릴리스 제어를 위해 기존 변경 제어 프로세스를 계속 따르려면 규칙을 비활성화하고 업데이트가 허용될 때 특정 시간 동안 활성화하면 됩니다. 사용자 환경에 개발 또는 QA 관리 그룹이 있고 인터넷에 연결되어 있는 경우 Log Analytics 작업 영역으로 해당 관리 그룹을 구성하여 이 시나리오를 지원할 수 있습니다. 이렇게 하면 프로덕션 관리 그룹으로 릴리스하기 전에 Azure Monitor 관리 팩의 반복적인 릴리스를 검토 및 평가할 수 있습니다.
 

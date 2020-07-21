@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 80bc254aafa9c221fcaf724331928b7f30360eac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02207f8b5cf8628c3b2bbb72ab8d38ca9a4a5731
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610849"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504223"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure의 SQL 데이터 동기화은 무엇 인가요?
 
@@ -78,12 +78,12 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 ## <a name="compare-with-transactional-replication"></a>트랜잭션 복제와 비교
 
-| | 데이터 동기화 | 트랜잭션 복제 |
+| 데이터 동기화 | 트랜잭션 복제 |
 |---|---|---|
 | 장점 | - 활성-활성 지원<br/>- 온-프레미스 및 Azure SQL Database 간 양방향 | - 낮은 대기 시간<br/>- 트랜잭션 일관성<br/>- 마이그레이션 후 기존 토폴로지 다시 사용 <br/>-Azure SQL Managed Instance 지원 |
 | 단점 | - 5분 이상의 대기 시간<br/>- 트랜잭션 일관성 부족<br/>- 성능에 더 많은 영향을 미침 | -Azure SQL Database에서 게시할 수 없음 <br/>- 높은 유지 관리 비용 |
 
-## <a name="get-started"></a>시작하기 
+## <a name="get-started"></a>시작 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Azure Portal에서 데이터 동기화 설정
 
@@ -105,7 +105,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 ## <a name="consistency-and-performance"></a>일관성과 성능
 
-### <a name="eventual-consistency"></a>결과적 일관성
+### <a name="eventual-consistency"></a>최종 일관성
 
 데이터 동기화는 트리거 기반 이므로 트랜잭션 일관성은 보장 되지 않습니다. Microsoft에서는 모든 변경 내용을 적용 하 고 데이터 동기화로 인해 데이터가 손실 되지 않도록 보장 합니다.
 
@@ -148,14 +148,14 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 #### <a name="unsupported-column-types"></a>지원되지 않는 열 형식
 
-데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예를 들어:
+데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예를 들면 다음과 같습니다.
 
 - 계산된 열입니다.
 - 임시 테이블에 대한 시스템에서 생성된 열입니다.
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>서비스 및 데이터베이스 차원에 대한 제한 사항
 
-| **차원만**                                                  | **제한**              | **해결 방법**              |
+| **차원**                                                  | **제한**              | **해결 방법**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | 데이터베이스가 속할 수 있는 동기화 그룹의 최대 수입니다.       | 5                      |                             |
 | 단일 동기화 그룹에서 엔드포인트의 최대 수입니다.              | 30                     |                             |

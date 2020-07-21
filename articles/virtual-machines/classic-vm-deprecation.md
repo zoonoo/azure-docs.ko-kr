@@ -8,17 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 7488ef45d665d95a28f69b7af887b98dd5a76376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3e55d13c0b5fbf5b813f1669587836bf8b5e2d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678378"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503016"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023 년 3 월 1 일 Azure Resource Manager IaaS 리소스 마이그레이션 
 
 2014에서는 Azure Resource Manager에서 IaaS를 실행 했으며 이후 기능을 개선 했습니다. [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) 이제 전체 iaas 기능 및 기타 고급 기능을 제공 하기 때문에 2020 년 2 월 28 일에 Azure Service Manager를 통해 iaas vm의 관리를 사용 하지 않으며,이 기능은 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 
 
-현재 IaaS Vm의 약 90%가 Azure Resource Manager를 사용 하 고 있습니다. ASM (Azure Service Manager)을 통해 IaaS 리소스를 사용 하는 경우 지금 마이그레이션 계획을 시작 하 고 2023 년 3 월 1 일까 지 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/)를 활용 하 여 완료 합니다.
+현재 IaaS Vm의 약 90%가 Azure Resource Manager를 사용 하 고 있습니다. ASM (Azure Service Manager)을 통해 IaaS 리소스를 사용 하는 경우 지금 마이그레이션 계획을 시작 하 고 2023 년 3 월 1 일까 지 [Azure Resource Manager](../azure-resource-manager/management/index.yml)를 활용 하 여 완료 합니다.
 
 클래식 Vm은 [최신 수명 주기 정책](https://support.microsoft.com/help/30881/modern-lifecycle-policy) 에 따라 만료 됩니다.
 
@@ -38,10 +39,10 @@ ms.locfileid: "84678378"
 
 - 현재 Azure Resource Manager로의 마이그레이션 계획을 시작 합니다. 
 
-- 클래식 [Linux](./linux/migration-classic-resource-manager-plan.md) 및 [Windows](./windows/migration-classic-resource-manager-plan.md) vm을 Azure Resource Manager로 마이그레이션하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) .
+- 클래식 [Linux](./linux/migration-classic-resource-manager-plan.md) 및 [Windows](./windows/migration-classic-resource-manager-plan.md) vm을 Azure Resource Manager로 마이그레이션하는 방법에 [대해 자세히 알아보세요](./windows/migration-classic-resource-manager-overview.md) .
 
-- 자세한 내용은 [클래식에서 Azure Resource Manager로 마이그레이션에 대 한 질문과 대답](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq) 을 참조 하세요.
+- 자세한 내용은 [클래식에서 Azure Resource Manager로 마이그레이션에 대 한 질문과 대답](./windows/migration-classic-resource-manager-faq.md) 을 참조 하세요.
 
-- 기술 관련 질문, 문제 및 구독 허용 목록 [지원 담당자에 게 문의 하세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- 기술 관련 질문을 하 고 허용 목록에 구독을 추가 하려면 [지원 담당자에 게 문의 하세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 - FAQ 및 피드백의 일부가 아닌 다른 질문은 아래에 설명 되어 있습니다.

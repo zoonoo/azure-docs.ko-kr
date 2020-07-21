@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221642"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501964"
 ---
 공유 이미지 갤러리는 이미지에 대 한 구조와 조직을 구축 하는 데 도움이 되는 서비스입니다. Shared Image Galleries는 다음을 제공합니다.
 
@@ -83,7 +83,7 @@ Shared Image Gallery는 두 가지 운영 체제 상태를 지원합니다. 일�
 
 ## <a name="regional-support"></a>국가별 지원
 
-모든 공용 지역은 대상 지역이 될 수 있지만, 오스트레일리아 중부 및 오스트레일리아 중부 2에 복제하려면 구독이 허용 목록에 포함되어 있어야 합니다. 허용 목록 포함을 요청하려면 https://azure.microsoft.com/global-infrastructure/australia/contact/ 로 이동합니다.
+모든 공용 지역은 대상 지역이 될 수 있지만 오스트레일리아 중부 및 오스트레일리아 중부 2로 복제 하려면 구독을 허용 목록에 추가 해야 합니다. 구독이 허용 목록에 추가 되도록 요청 하려면 다음으로 이동 합니다.https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>제한 
 

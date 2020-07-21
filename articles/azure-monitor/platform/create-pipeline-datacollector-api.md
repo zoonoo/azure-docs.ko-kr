@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac2b79046718fe45ad0dad0396b6f7653efbb779
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055105"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505332"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>데이터 수집기 API를 사용하여 데이터 파이프라인 만들기
 
@@ -43,7 +43,7 @@ ms.locfileid: "80055105"
 
 Blob Storage, 논리 앱 또는 Azure Function의 자세한 설정을 이 아티클에서 간략히 설명하지 않았지만 자세한 지침은 특정 제품 페이지에서 지원됩니다.
 
-이 파이프라인을 모니터링하려면 Application Insights를 사용하여 Azure Function [세부 정보(여기)](../../azure-functions/functions-monitoring.md)를 모니터링하고, Azure Monitor를 사용하여 논리 앱 [세부 정보(여기)](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)를 모니터링합니다. 
+이 파이프라인을 모니터링하려면 Application Insights를 사용하여 Azure Function [세부 정보(여기)](../../azure-functions/functions-monitoring.md)를 모니터링하고, Azure Monitor를 사용하여 논리 앱 [세부 정보(여기)](../../logic-apps/monitor-logic-apps-log-analytics.md)를 모니터링합니다. 
 
 ## <a name="setting-up-the-pipeline"></a>파이프라인 설정
 파이프라인을 설정하려면 먼저 Blob 컨테이너를 만들고 구성했는지 확인합니다. 마찬가지로 데이터를 전송하려는 Log Analytics 작업 영역을 만들었는지 확인합니다.

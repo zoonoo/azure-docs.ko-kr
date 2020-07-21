@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8ff24d508eb35c4f2a04c7d024254fa6f1875da8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659287"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505315"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure Monitor 로그 데이터를 Power BI로 가져오기
 
@@ -20,12 +21,12 @@ ms.locfileid: "77659287"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>개요
-Azure Monitor의 [Log Analytics 작업 영역](manage-access.md) 에서 Power BI으로 데이터를 가져오려면 Azure Monitor의 [로그 쿼리](../log-query/log-query-overview.md) 를 기반으로 Power BI에서 데이터 집합을 만듭니다.  쿼리는 데이터 세트가 새로 고침될 때마다 실행됩니다.  데이터 세트의 데이터를 사용하는 Power BI 보고서를 작성할 수 있습니다.  Power BI에서 데이터 세트를 만들려면 Log Analytics에서 [파워 쿼리(M) 언어](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)로 쿼리를 내보냅니다.  그런 다음, Power BI Desktop에 쿼리를 만들고 Power BI에 데이터 세트로 게시합니다.  이 프로세스에 대한 세부 정보는 아래에 설명되어 있습니다.
+Azure Monitor의 [Log Analytics 작업 영역](manage-access.md) 에서 Power BI으로 데이터를 가져오려면 Azure Monitor의 [로그 쿼리](../log-query/log-query-overview.md) 를 기반으로 Power BI에서 데이터 집합을 만듭니다.  쿼리는 데이터 세트가 새로 고침될 때마다 실행됩니다.  데이터 세트의 데이터를 사용하는 Power BI 보고서를 작성할 수 있습니다.  Power BI에서 데이터 세트를 만들려면 Log Analytics에서 [파워 쿼리(M) 언어](/powerquery-m/power-query-m-language-specification)로 쿼리를 내보냅니다.  그런 다음, Power BI Desktop에 쿼리를 만들고 Power BI에 데이터 세트로 게시합니다.  이 프로세스에 대한 세부 정보는 아래에 설명되어 있습니다.
 
 ![Log Analytics에서 Power BI로](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>내보내기 쿼리
-먼저 Power BI 데이터 집합을 채울 데이터를 반환 하는 [로그 쿼리](../log-query/log-query-overview.md) 를 만듭니다.  그런 다음 해당 쿼리를 [파워 쿼리(M) 언어](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)로 내보내면 Power BI Desktop에서 사용할 수 있습니다.
+먼저 Power BI 데이터 집합을 채울 데이터를 반환 하는 [로그 쿼리](../log-query/log-query-overview.md) 를 만듭니다.  그런 다음 해당 쿼리를 [파워 쿼리(M) 언어](/powerquery-m/power-query-m-language-specification)로 내보내면 Power BI Desktop에서 사용할 수 있습니다.
 
 1. 데이터 집합에 대 한 데이터를 추출 하는 [Log Analytics에서 로그 쿼리를 만듭니다](../log-query/get-started-portal.md) .
 2. **내보내기**  >  **Power BI 쿼리 (M)** 를 선택 합니다.  이렇게 하면 쿼리가 **PowerBIQuery.txt**라는 텍스트 파일로 내보내집니다. 
@@ -52,7 +53,7 @@ Power BI Desktop은 Power BI에 게시할 수 있는 데이터 세트 및 보고
 ## <a name="publish-to-power-bi"></a>Power BI에 게시
 Power BI에 게시할 때 데이터 세트 및 보고서가 생성됩니다.  Power BI Desktop에서 보고서를 만드는 경우 사용자의 데이터를 사용하여 다음 항목이 게시됩니다.  그렇지 않은 경우 빈 보고서가 생성됩니다.  Power BI에서 보고서를 수정할 수도 있고 데이터 세트에 따라 새로 만들 수도 있습니다.
 
-1. 데이터를 기반으로 보고서를 만듭니다.  아직 익숙하지 않은 경우 [Power BI Desktop 설명서](https://docs.microsoft.com/power-bi/desktop-report-view)를 사용합니다.  
+1. 데이터를 기반으로 보고서를 만듭니다.  아직 익숙하지 않은 경우 [Power BI Desktop 설명서](/power-bi/desktop-report-view)를 사용합니다.  
 1. Power BI로 보낼 준비가 완료되면 **게시**를 클릭합니다.  
 1. 메시지가 표시되면 Power BI 계정에서 대상을 선택합니다.  염두에 둔 특정 대상이 없으면 **My workspace**를 사용합니다.
 

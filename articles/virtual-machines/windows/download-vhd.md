@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: e87f2436f69abed4c0d0ee415226f99b52f2e804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20236ccf1ec8e1f8d8113f0597d37c20e2788987
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085368"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500432"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Azure에서 Windows VHD 다운로드
 
@@ -22,7 +22,7 @@ ms.locfileid: "82085368"
 
 ## <a name="optional-generalize-the-vm"></a>선택 사항: VM 일반화
 
-VHD를 [이미지로](tutorial-custom-images.md) 사용 하 여 다른 vm을 만들려면 [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) 를 사용 하 여 운영 체제를 일반화 해야 합니다. 
+VHD를 [이미지로](tutorial-custom-images.md) 사용 하 여 다른 vm을 만들려면 [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) 를 사용 하 여 운영 체제를 일반화 해야 합니다. 
 
 VHD를 이미지로 사용 하 여 다른 Vm을 만들려면 VM을 일반화 합니다.
 
@@ -45,7 +45,7 @@ VHD를 이미지로 사용 하 여 다른 Vm을 만들려면 VM을 일반화 합
 
 ## <a name="generate-download-url"></a>다운로드 URL 생성
 
-VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
+VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
 
 1. VM에 대 한 페이지의 왼쪽 메뉴에서 **디스크** 를 클릭 합니다.
 1. VM에 대 한 운영 체제 디스크를 선택 합니다.
@@ -68,4 +68,3 @@ VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage
 - [Azure로 VHD 파일 업로드](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 방법을 알아봅니다. 
 - [저장소 계정의 비관리 디스크에서 관리 디스크를 만듭니다](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [PowerShell을 사용 하 여 Azure 디스크를 관리](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다.
-

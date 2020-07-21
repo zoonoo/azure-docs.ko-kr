@@ -3,16 +3,16 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124258"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503764"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
-Azure Backup를 사용 하면 [개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)을 사용 하 여 Recovery Services 자격 증명 모음에서 데이터를 안전 하 게 백업 하 고 복원할 수 있습니다. 개인 끝점은 VNet의 개인 IP 주소를 하나 이상 사용 하 여 서비스를 VNet에 효과적으로 제공 합니다.
+Azure Backup를 사용 하면 [개인 끝점](../private-link/private-endpoint-overview.md)을 사용 하 여 Recovery Services 자격 증명 모음에서 데이터를 안전 하 게 백업 하 고 복원할 수 있습니다. 개인 끝점은 VNet의 개인 IP 주소를 하나 이상 사용 하 여 서비스를 VNet에 효과적으로 제공 합니다.
 
 이 문서는 Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 개인 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 하는 데 도움이 됩니다.
 
@@ -45,7 +45,7 @@ Azure Backup를 사용 하면 [개인 끝점](https://docs.microsoft.com/azure/p
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을 만드는 방법을 알아보려면 [이 섹션](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) 을 참조 하세요. 이렇게 하면 관리 되는 id가 이미 설정 된 자격 증명 모음이 만들어집니다. [여기](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)에서 Recovery Services 자격 증명 모음에 대해 자세히 알아보세요.
+Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을 만드는 방법을 알아보려면 [이 섹션](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) 을 참조 하세요. 이렇게 하면 관리 되는 id가 이미 설정 된 자격 증명 모음이 만들어집니다. [여기](./backup-azure-recovery-services-vault-overview.md)에서 Recovery Services 자격 증명 모음에 대해 자세히 알아보세요.
 
 ## <a name="enable-managed-identity-for-your-vault"></a>자격 증명 모음에 관리 되는 Id 사용
 
@@ -111,9 +111,9 @@ Azure에서 별도의 개인 DNS 영역을 만들려는 경우에는 필수 DNS 
 
 국가 지역의 URL 명명 규칙:
 
-- [중국](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [독일](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [중국](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [독일](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 ### <a name="linking-private-dns-zones-with-your-virtual-network"></a>가상 네트워크와 개인 DNS 영역 연결
 

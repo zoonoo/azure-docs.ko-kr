@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 62880542e2cc4a93585011837b4cc962c8e79c0e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: d480b9309c9028d8f55ab50c72a86889f320810b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773780"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500118"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해
 Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](../../cost-management-billing/understand/review-individual-bill.md)로 이동합니다.
@@ -137,10 +138,9 @@ Premium Storage를 지원하는 VM은 비 Premium Storage 지원 VM과 같은 �
 
 API에는 VM에서 실행 중인 운영 체제는 다음 세 위치에 반환될 수 있습니다.
 
-1) 게스트 에이전트(모든 Linux VM 및 대부분의 Windows VM)를 포함하는 VM을 실행하면 VM 인스턴스 보기에 OS 이름과 OS 버전이 표시됩니다. 항상 정확한 편이지만 게스트 에이전트에서 제공되는 정보이기 때문에 모든 VM에서 사용할 수 있는 것은 아닙니다. [여기에 제공되는](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview) API 설명서.
-2) 플랫폼 이미지에서 배포된 VM에는 제품 또는 SKU에 대한 게시자 선택 이름에서 OS 버전을 나타낼 수 있는 이미지 세부 정보가 포함됩니다. 그러나 이 이름은 게시자가 선택한 이름이므로 해당 이름에서 OS를 검색할 수 있으리라는 보장은 없습니다. [여기에 제공되는](https://docs.microsoft.com/rest/api/compute/images/get#operatingsystemtypes) API 설명서.
-3) 각 OS 디스크에는 Windows 또는 Linux의 지정된 값이 있습니다. 이 값은 이미지에서 OS 디스크를 만들 때 이미지에서 상속됩니다. OS 디스크를 플랫폼에 직접 업로드하는 경우 OS 디스크를 만들 때 OS 값이 설정됩니다. 이 값은 항상 존재하지만 Azure 플랫폼에서 이 값이 올바르다고 보장하지 않습니다. [여기에 제공되는](https://docs.microsoft.com/rest/api/compute/virtualmachineimages/get#operatingsystemtypes) API 설명서.
+1) 게스트 에이전트(모든 Linux VM 및 대부분의 Windows VM)를 포함하는 VM을 실행하면 VM 인스턴스 보기에 OS 이름과 OS 버전이 표시됩니다. 항상 정확한 편이지만 게스트 에이전트에서 제공되는 정보이기 때문에 모든 VM에서 사용할 수 있는 것은 아닙니다. [여기에 제공되는](/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview) API 설명서.
+2) 플랫폼 이미지에서 배포된 VM에는 제품 또는 SKU에 대한 게시자 선택 이름에서 OS 버전을 나타낼 수 있는 이미지 세부 정보가 포함됩니다. 그러나 이 이름은 게시자가 선택한 이름이므로 해당 이름에서 OS를 검색할 수 있으리라는 보장은 없습니다. [여기에 제공되는](/rest/api/compute/images/get#operatingsystemtypes) API 설명서.
+3) 각 OS 디스크에는 Windows 또는 Linux의 지정된 값이 있습니다. 이 값은 이미지에서 OS 디스크를 만들 때 이미지에서 상속됩니다. OS 디스크를 플랫폼에 직접 업로드하는 경우 OS 디스크를 만들 때 OS 값이 설정됩니다. 이 값은 항상 존재하지만 Azure 플랫폼에서 이 값이 올바르다고 보장하지 않습니다. [여기에 제공되는](/rest/api/compute/virtualmachineimages/get#operatingsystemtypes) API 설명서.
 
 ## <a name="next-steps"></a>다음 단계
 사용 세부 정보에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](../../cost-management-billing/understand/review-individual-bill.md)를 참조하세요.
-

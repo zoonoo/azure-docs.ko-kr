@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: c93ba19cc70aa6b5df054dcc2e7e06885b02d661
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6ecd40d34233ba6f0b886f4b55aedf4339bf6de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367957"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505196"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복구
 
@@ -41,7 +41,7 @@ Log Analytics 작업 영역을 삭제하면 삭제가 우연인지 의도적인�
 > [!NOTE] 
 > 설치된 솔루션과 Azure Automation 계정과 같은 연결된 서비스는 삭제 시 작업 영역에서 영구적으로 제거되어 복구할 수 없습니다. 이전에 구성된 상태로 작업 영역을 가져오기 위해 복구 작업 후 다시 구성해야 합니다.
 
-[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 작업 영역을 삭제할 수 있습니다.
+[PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](/rest/api/loganalytics/workspaces/delete) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 작업 영역을 삭제할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -64,10 +64,10 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 > [!IMPORTANT]
 > 영구 작업 영역 삭제 작업은 취소할 수 없고 작업 영역 및 해당 데이터를 복구할 수 없으므로 주의해서 사용해야 합니다.
 
-작업 영역을 영구적으로 삭제 하려면 '-force ' 태그를 추가 합니다.
+작업 영역을 영구적으로 삭제 하려면 '-forceDelete ' 태그를 추가 합니다.
 
 ```powershell
-PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
 ```
 
 ## <a name="recover-workspace"></a>작업 영역 복구
@@ -112,6 +112,6 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 * 작업 영역을 만들 때 *이 작업 영역 이름은 이미 사용 중입니다* 또는 *충돌* 오류 메시지가 표시되는 원인은 다음과 같습니다.
   * 작업 영역 이름을 사용할 수 없으며 조직의 누군가 또는 다른 고객에 의해 사용되고 있습니다.
   * 최근 14일 이내에 작업 영역이 삭제되었으며 일시 삭제 기간 동안 해당 이름이 예약되어 있습니다. 일시 삭제를 재정의하고 작업 영역을 영구적으로 삭제하여 같은 이름으로 새 작업 영역을 만들려면 다음 단계를 수행하여 작업 영역을 먼저 복구한 후 영구 삭제를 수행합니다.<br>
-     1. [작업 영역](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace)을 복구합니다.
-     2. 작업 영역을 [영구 삭제](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete)합니다.
+     1. [작업 영역](#recover-workspace)을 복구합니다.
+     2. 작업 영역을 [영구 삭제](#permanent-workspace-delete)합니다.
      3. 동일한 작업 영역 이름을 사용하여 새 작업 영역을 만듭니다.

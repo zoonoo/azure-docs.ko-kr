@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75443591"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500925"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM의 Windows 다시 부팅 루프
 이 문서에서는 Microsoft Azure의 Windows VM(Virtual Machine)에서 발생할 수 있는 다시 부팅 루프에 대해 설명합니다.
@@ -49,7 +50,7 @@ ms.locfileid: "75443591"
 
 ## <a name="solution"></a>솔루션
 
-이 문제를 해결하려면 [OS 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고, [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)한 다음, 이에 따라 솔루션 옵션을 따르거나 솔루션을 하나씩 시도합니다.
+이 문제를 해결하려면 [OS 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고, [OS 디스크를 복구 VM에 연결](./troubleshoot-recovery-disks-portal-windows.md)한 다음, 이에 따라 솔루션 옵션을 따르거나 솔루션을 하나씩 시도합니다.
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
@@ -93,7 +94,7 @@ ms.locfileid: "75443591"
 
 16. [OS 디스크에서 새 VM를 만듭니다](../windows/create-vm-specialized.md).
 
-17. 문제가 해결되면 [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/)(WaAppAgent.exe)를 다시 설치해야 할 수도 있습니다.
+17. 문제가 해결되면 [RDAgent](/archive/blogs/mast/install-the-vm-agent-on-an-existing-azure-vm)(WaAppAgent.exe)를 다시 설치해야 할 수도 있습니다.
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
@@ -112,5 +113,3 @@ VM을 마지막으로 알려진 성공한 구성으로 복원하고, [마지막�
 4. 문제 해결을 위한 VM에서 디스크를 제거하고, Azure에서 해당 디스크를 해제할 때까지 약 2분 정도 기다립니다.
 
 5. [OS 디스크에서 새 VM를 만듭니다](../windows/create-vm-specialized.md).
-
-

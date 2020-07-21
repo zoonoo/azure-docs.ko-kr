@@ -4,11 +4,12 @@ description: Azure Policy를 사용 하 여 대규모로 Azure Monitor 기능을
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678701"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505213"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Azure Policy를 사용 하 여 규모에 Azure Monitor 배포
 일부 Azure Monitor 기능은 한 번 또는 여러 번 구성 되지만 모니터링 하려는 각 리소스에 대해 다른 기능을 반복 해야 합니다. 이 문서에서는 Azure Policy를 사용 하 여 모든 Azure 리소스에 대해 모니터링이 일관적이 고 정확 하 게 구성 되도록 하는 Azure Monitor을 구현 하는 방법을 설명 합니다.
@@ -30,7 +31,7 @@ Azure Policy은 다음 테이블의 개체로 구성 됩니다. 각에 대 한 �
 | 할당 | 정책 정의 또는 이니셔티브는 범위에 할당 될 때까지 적용 되지 않습니다. 예를 들어 리소스 그룹에 정책을 할당 하 여 해당 리소스에서 만든 모든 리소스에 적용 하거나 구독에 적용 하 여 해당 구독에 있는 모든 리소스에 정책을 적용 합니다.  자세한 내용은 [Azure Policy 할당 구조](../../governance/policy/concepts/assignment-structure.md)를 참조 하세요. |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Azure Monitor에 대한 기본 제공 정책 정의
-Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정의가 포함 되어 있습니다. 이러한 정책 정의를 기존 구독에 할당 하거나 기본으로 사용 하 여 고유한 사용자 지정 정의를 만들 수 있습니다. **모니터링** 범주에 있는 기본 제공 정치의 전체 목록은 [Azure Policy 기본 제공 정책 정의 Azure Monitor를](../policy-samples.md)참조 하세요.
+Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정의가 포함 되어 있습니다. 이러한 정책 정의를 기존 구독에 할당 하거나 기본으로 사용 하 여 고유한 사용자 지정 정의를 만들 수 있습니다. **모니터링** 범주에 있는 기본 제공 정치의 전체 목록은 [Azure Policy 기본 제공 정책 정의 Azure Monitor를](../samples/policy-samples.md)참조 하세요.
 
 모니터링과 관련 된 기본 제공 정책 정의를 보려면 다음을 수행 합니다.
 
@@ -59,7 +60,7 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 [AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) 스크립트는 POWERSHELL 또는 CLI를 사용 하 여 설치할 수 있는 특정 리소스 종류에 대 한 정책 파일을 만듭니다. 진단 설정에 대 한 사용자 지정 정책 정의를 만들려면 다음 절차를 따르십시오.
 
 
-1. [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 설치 되어 있는지 확인 합니다.
+1. [Azure PowerShell](/powershell/azure/install-az-ps) 설치 되어 있는지 확인 합니다.
 2. 다음 명령을 사용 하 여 스크립트를 설치 합니다.
   
     ```azurepowershell

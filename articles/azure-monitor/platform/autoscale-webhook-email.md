@@ -4,11 +4,12 @@ description: 자동 크기 조정 작업을 사용 하 여 웹 Url을 호출 하
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77120694"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505522"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 webhook 경고 알림 보내기
 이 문서에서는 Azure에서 크기 자동 조정 작업을 기준으로 특정 웹 URL을 호출하거나 전자 메일을 보낼 수 있도록 트리거를 설정하는 방법을 설명합니다.  
@@ -28,7 +29,7 @@ Cloud Services 및 서버 팜을 위한 Azure Portal (App Services)를 옵트인
 
 ## <a name="virtual-machine-scale-sets"></a>Virtual Machine 확장 집합
 Resource Manager(Virtual Machine 확장 집합)로 만든 새 Virtual Machines의 경우 REST API, Resource Manager 템플릿, PowerShell 및 CLI를 사용하여 구성할 수 있습니다. 포털 인터페이스는 아직 제공되지 않습니다.
-REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵션을 사용 하 여 [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) 에 notification 요소를 포함 합니다.
+REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵션을 사용 하 여 [autoscalesettings](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) 에 notification 요소를 포함 합니다.
 
 ```
 "notifications": [
@@ -98,7 +99,7 @@ REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵
 ```
 
 
-| 필드 | 필수? | 설명 |
+| 필드 | 필수? | Description |
 | --- | --- | --- |
 | 상태 |예 |크기 자동 조정 작업이 생성되었음을 나타내는 상태입니다. |
 | operation(작업) |예 |인스턴스가 증가하면 "규모 확장"되고 인스턴스가 감소하면 "규모 감축"됩니다. |
@@ -115,5 +116,4 @@ REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵
 | portalLink |예 |대상 리소스의 요약 페이지에 대한 Azure 포털 링크입니다. |
 | oldCapacity |예 |크기 자동 조정에서 크기 조정 작업을 수행한 현재(이전) 인스턴스 수입니다. |
 | newCapacity |예 |크기 자동 조정에서 리소스 크기를 조정한 새 인스턴스 수입니다. |
-| properties |아니요 |선택 사항입니다. <키, 값> 쌍 집합(예: Dictionary <문자열, 문자열>). 속성 필드는 선택 사항입니다. 사용자 지정 사용자 인터페이스 또는 논리 앱 기반 워크플로에서는 페이로드를 사용하여 전달할 수 있는 키와 값을 입력할 수 있습니다. Webhook URI 자체를 쿼리 매개 변수로 사용하여 발신 Webhook 호출로 사용자 지정 속성을 다시 전달할 수도 있습니다. |
-
+| properties |아니요 |(선택 사항) <키, 값> 쌍 집합(예: Dictionary <문자열, 문자열>). 속성 필드는 선택 사항입니다. 사용자 지정 사용자 인터페이스 또는 논리 앱 기반 워크플로에서는 페이로드를 사용하여 전달할 수 있는 키와 값을 입력할 수 있습니다. Webhook URI 자체를 쿼리 매개 변수로 사용하여 발신 Webhook 호출로 사용자 지정 속성을 다시 전달할 수도 있습니다. |

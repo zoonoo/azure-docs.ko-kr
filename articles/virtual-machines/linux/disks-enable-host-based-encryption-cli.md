@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 705f9f3055d40d23c9ec5e24cfccfc0c96e114a5
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e0773515809ffdc50167a3cba1f767ac8635bcee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235985"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502574"
 ---
 # <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-cli"></a>호스트 Azure CLI에서 암호화를 사용 하 여 종단 간 암호화 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "86235985"
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-### <a name="supported-regions"></a>지원되는 Azure 지역
+### <a name="supported-regions"></a>지원되는 지역
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
@@ -33,9 +33,9 @@ ms.locfileid: "86235985"
 
 VM 크기를 프로그래밍 방식으로 찾을 수도 있습니다. 프로그래밍 방식으로 검색 하는 방법에 대 한 자세한 내용은 [지원 되는 VM 크기 찾기](#finding-supported-vm-sizes) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-호스트에서 Vm 또는 가상 머신 확장 집합에 대 한 암호화를 사용할 수 있으려면 구독에서 기능을 사용 하도록 설정 해야 합니다. 구독 encryptionAtHost@microsoft 에 사용할 수 있는 기능을 얻으려면 구독 id를 사용 하 여 .com에 전자 메일을 보냅니다.
+호스트에서 Vm 또는 가상 머신 확장 집합에 대 한 암호화를 사용할 수 있으려면 구독에서 기능을 사용 하도록 설정 해야 합니다. 구독 Id를 사용 하 여에 전자 메일을 보내 encryptionAtHost@microsoft.com 구독에 대해 사용 하도록 설정 된 기능을 가져옵니다.
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Azure Key Vault 및 Diskset 만들기
 
@@ -77,7 +77,7 @@ az group deployment create -g <yourResourceGroupName> \
 
 레거시 VM 크기는 지원 되지 않습니다. 다음 중 하나를 수행 하 여 지원 되는 VM 크기의 목록을 찾을 수 있습니다.
 
-[리소스 SKU API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) 를 호출 하 고 `EncryptionAtHostSupported` 기능이 **True**로 설정 되었는지 확인 합니다.
+[리소스 SKU API](/rest/api/compute/resourceskus/list) 를 호출 하 고 `EncryptionAtHostSupported` 기능이 **True**로 설정 되었는지 확인 합니다.
 
 ```json
     {
@@ -98,7 +98,7 @@ az group deployment create -g <yourResourceGroupName> \
     }
 ```
 
-또는 [AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet을 호출 합니다.
+또는 [AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet을 호출 합니다.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

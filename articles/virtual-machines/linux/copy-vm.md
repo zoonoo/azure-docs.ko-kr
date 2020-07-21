@@ -7,19 +7,20 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 406eda6902ae451c7fdf79e1bd1215c035a66750
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8532c0da7d9977b12a4d1099e430584de1e17fe0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792227"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502744"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Azure CLI 및 Managed Disks를 사용하여 Linux VM의 복사본 만들기
 
-이 문서에서는 Azure CLI를 사용 하 여 Linux를 실행 하는 Azure VM (가상 머신)의 복사본을 만드는 방법을 보여 줍니다. 대규모 VM 이미지를 복사 하 고 만들고 저장 하 고 공유 하려면 [공유 이미지 갤러리](shared-images.md)를 참조 하세요.
+이 문서에서는 Azure CLI를 사용 하 여 Linux를 실행 하는 Azure VM (가상 머신)의 복사본을 만드는 방법을 보여 줍니다. 대규모 VM 이미지를 복사 하 고 만들고 저장 하 고 공유 하려면 [공유 이미지 갤러리](../shared-images-cli.md)를 참조 하세요.
 
 [VHD에서 VM을 업로드하고 만들](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 -   [Azure CLI](/cli/azure/install-az-cli2)를 설치 합니다.
 
@@ -125,4 +126,4 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="next-steps"></a>다음 단계
 
-[공유 이미지 갤러리](shared-images.md) 를 사용 하 여 VM 이미지를 관리 하는 방법을 알아봅니다.
+[공유 이미지 갤러리](../shared-images-cli.md) 를 사용 하 여 VM 이미지를 관리 하는 방법을 알아봅니다.

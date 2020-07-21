@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 17536f49e24da8c508da17c4c2ff5fb2f9bead62
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4e5d4af74ab54479a49963369cb99dbc19fca848
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200891"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505280"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
 
@@ -41,10 +41,10 @@ Azure Monitor의 로그에는 각 형식에 대해 다양한 속성 세트가 �
 
 |  | 설명 |
 |:---|:---|
-| **분석** | Azure Portal에서 [Log Analytics](../log-query/get-started-portal.md)를 사용하여 [로그 쿼리](../log-query/log-query-overview.md)를 작성하고 강력한 데이터 탐색기 분석 엔진을 사용하여 로그 데이터를 대화형으로 분석합니다.<br>Azure Portal의 [Application Insights 분석 콘솔](../app/analytics.md)을 사용하여 로그 쿼리를 작성하고 Application Insights의 로그 데이터를 대화형으로 분석합니다. |
+| **분석** | Azure Portal에서 [Log Analytics](../log-query/get-started-portal.md)를 사용하여 [로그 쿼리](../log-query/log-query-overview.md)를 작성하고 강력한 데이터 탐색기 분석 엔진을 사용하여 로그 데이터를 대화형으로 분석합니다.<br>Azure Portal의 [Application Insights 분석 콘솔](../log-query/log-query-overview.md)을 사용하여 로그 쿼리를 작성하고 Application Insights의 로그 데이터를 대화형으로 분석합니다. |
 | **시각화** | 테이블 또는 차트로 렌더링된 쿼리 결과를 [Azure 대시보드](../../azure-portal/azure-portal-dashboards.md)에 고정합니다.<br>[통합 문서](../platform/workbooks-overview.md)를 만들어 대화형 보고서의 여러 데이터 집합을 결합합니다. <br>쿼리의 결과를 [Power BI](powerbi.md)로 내보내 서로 다른 시각화를 사용하고 Azure 외부의 사용자와 공유합니다.<br>쿼리의 결과를 [Grafana](grafana-plugin.md)로 내보내 대시보드를 활용하고 다른 데이터 원본과 결합합니다.|
 | **경고** | 쿼리의 결과가 특정 결과와 일치할 때 알림을 보내거나 [자동화된 작업](action-groups.md)을 수행하는 [로그 경고 규칙](alerts-log.md)을 구성합니다.<br>메트릭으로 추출된 특정 로그 데이터 로그에서 [메트릭 경고 규칙](alerts-metric-logs.md)을 구성합니다. |
-| **장치** | [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics)를 사용하여 명령줄에서 로그 쿼리 결과에 액세스합니다.<br>[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights)을 사용하여 명령줄에서 로그 쿼리 결과에 액세스합니다.<br>[REST API](https://dev.loganalytics.io/)를 사용하여 사용자 지정 애플리케이션에서 로그 쿼리 결과에 액세스합니다. |
+| **장치** | [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics)를 사용하여 명령줄에서 로그 쿼리 결과에 액세스합니다.<br>[PowerShell cmdlet](/powershell/module/az.operationalinsights)을 사용하여 명령줄에서 로그 쿼리 결과에 액세스합니다.<br>[REST API](https://dev.loganalytics.io/)를 사용하여 사용자 지정 애플리케이션에서 로그 쿼리 결과에 액세스합니다. |
 | **내보내기** | 워크플로를 빌드하여 로그 데이터를 검색하고 [Logic Apps](~/articles/logic-apps/index.yml)를 사용하여 이를 외부 위치에 복사합니다. |
 
 
@@ -58,11 +58,11 @@ Application Insights의 로그 데이터는 작업 영역과 동일한 Log Analy
 ![작업 영역](media/data-platform-logs/workspaces.png)
 
 ## <a name="log-queries"></a>로그 쿼리
-Azure Monitor 로그의 데이터는 [Kusto 쿼리 언어](../log-query/get-started-queries.md)로 작성된 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 검색되므로 수집된 데이터를 빠르게 검색, 통합 및 분석할 수 있습니다. [Log Analytics](../log-query/portals.md)를 사용하여 Azure Portal에서 로그 쿼리를 기록하고 테스트합니다. 결과를 대화형으로 사용하거나 대시보드에 고정하여 다른 시각화를 통해 볼 수 있습니다.
+Azure Monitor 로그의 데이터는 [Kusto 쿼리 언어](../log-query/get-started-queries.md)로 작성된 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 검색되므로 수집된 데이터를 빠르게 검색, 통합 및 분석할 수 있습니다. [Log Analytics](../log-query/log-query-overview.md)를 사용하여 Azure Portal에서 로그 쿼리를 기록하고 테스트합니다. 결과를 대화형으로 사용하거나 대시보드에 고정하여 다른 시각화를 통해 볼 수 있습니다.
 
 ![Log Analytics](media/data-platform-logs/log-analytics.png)
 
-[Application Insights의 Log Analytics](../app/analytics.md)를 열어 Application Insights 데이터를 분석합니다.
+[Application Insights의 Log Analytics](../log-query/log-query-overview.md)를 열어 Application Insights 데이터를 분석합니다.
 
 ![Application Insights 분석](media/data-platform-logs/app-insights-analytics.png)
 
@@ -77,15 +77,15 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 | 데이터 | Description |
 |:---|:---|
 | Azure Active Directory 감사 로그 | 각 디렉터리에 대한 진단 설정을 통해 구성됩니다. [Azure Monitor 로그에 Azure AD 로그 통합](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)을 참조하세요.  |
-| 활동 로그 | 기본적으로 개별 저장되며 실시간에 가까운 경고에 사용할 수 있습니다. Log Analytics 작업 영역에 쓸 활동 로그 분석 솔루션을 설치합니다. [Log Analytics에서 Azure 활동 로그 수집 및 분석](activity-log-collect.md)을 참조하세요. |
+| 활동 로그 | 기본적으로 개별 저장되며 실시간에 가까운 경고에 사용할 수 있습니다. Log Analytics 작업 영역에 쓸 활동 로그 분석 솔루션을 설치합니다. [Log Analytics에서 Azure 활동 로그 수집 및 분석](./activity-log.md)을 참조하세요. |
 
 ### <a name="azure-resources"></a>Azure 리소스
 
 | 데이터 | Description |
 |:---|:---|
-| 리소스 진단 | Log Analytics 작업 영역에 대한 메트릭을 포함하여 진단 데이터에 쓰도록 진단 설정을 구성합니다. [Azure 리소스 로그를 Log Analytics로 스트리밍](resource-logs-collect-workspace.md)을 참조하세요. |
-| 모니터링 솔루션 | 모니터링 솔루션은 Log Analytics 작업 영역에 수집하는 데이터를 작성합니다. 솔루션 목록은 [Azure의 관리 솔루션에 대한 데이터 수집 상세 정보](../insights/solutions-inventory.md)를 참조하세요. 솔루션 설치 및 사용에 대한 자세한 내용은 [Azure Monitor의 모니터링 솔루션](../insights/solutions.md)을 참조하세요. |
-| 메트릭 | Azure Monitor 리소스에 대한 플랫폼 메트릭을 Log Analytics 작업 영역으로 전송하여 로그 데이터를 더욱 오랜 기간 동안 보존하고 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하는 다른 데이터 종류와의 복잡한 분석을 수행합니다. [Azure 리소스 로그를 Log Analytics로 스트리밍](resource-logs-collect-storage.md)을 참조하세요. |
+| 리소스 진단 | Log Analytics 작업 영역에 대한 메트릭을 포함하여 진단 데이터에 쓰도록 진단 설정을 구성합니다. [Azure 리소스 로그를 Log Analytics로 스트리밍](./resource-logs.md#send-to-log-analytics-workspace)을 참조하세요. |
+| 모니터링 솔루션 | 모니터링 솔루션은 Log Analytics 작업 영역에 수집하는 데이터를 작성합니다. 솔루션 목록은 [Azure의 관리 솔루션에 대한 데이터 수집 상세 정보](../monitor-reference.md)를 참조하세요. 솔루션 설치 및 사용에 대한 자세한 내용은 [Azure Monitor의 모니터링 솔루션](../insights/solutions.md)을 참조하세요. |
+| 메트릭 | Azure Monitor 리소스에 대한 플랫폼 메트릭을 Log Analytics 작업 영역으로 전송하여 로그 데이터를 더욱 오랜 기간 동안 보존하고 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하는 다른 데이터 종류와의 복잡한 분석을 수행합니다. [Azure 리소스 로그를 Log Analytics로 스트리밍](./resource-logs.md#send-to-azure-storage)을 참조하세요. |
 | Azure 테이블 스토리지 | 일부 Azure 리소스가 모니터링 데이터를 쓰는 Azure 스토리지에서 데이터를 수집합니다. [Log Analytics에서 이벤트에 대해 IIS와 Azure Table Storage에 Azure Blob Storage 사용](diagnostics-extension-logs.md)을 참조하세요. |
 
 ### <a name="virtual-machines"></a>Virtual Machines
@@ -93,7 +93,7 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 | 데이터 | Description |
 |:---|:---|
 |  에이전트 데이터 원본 | [Windows](agent-windows.md) 및 [Linux](../learn/quick-collect-linux-computer.md) 에이전트에서 수집한 데이터 원본에는 이벤트, 성능 데이터 및 사용자 지정 로그가 포함됩니다. 데이터 원본의 목록과 구성 세부 사항에 대한 자세한 내용은 [Azure Monitor의 에이전트 데이터 원본](data-sources.md)을 참조하세요. |
-| 모니터링 솔루션 | 모니터링 솔루션은 에이전트에서 Log Analytics 작업 영역에 수집하는 데이터를 작성합니다. 솔루션 목록은 [Azure의 관리 솔루션에 대한 데이터 수집 상세 정보](../insights/solutions-inventory.md)를 참조하세요. 솔루션 설치 및 사용에 대한 자세한 내용은 [Azure Monitor의 모니터링 솔루션](../insights/solutions.md)을 참조하세요. |
+| 모니터링 솔루션 | 모니터링 솔루션은 에이전트에서 Log Analytics 작업 영역에 수집하는 데이터를 작성합니다. 솔루션 목록은 [Azure의 관리 솔루션에 대한 데이터 수집 상세 정보](../monitor-reference.md)를 참조하세요. 솔루션 설치 및 사용에 대한 자세한 내용은 [Azure Monitor의 모니터링 솔루션](../insights/solutions.md)을 참조하세요. |
 | System Center Operations Manager | Operations Manager 관리 그룹을 Azure Monitor에 연결하여 온-프레미스 에이전트에서 로그로 이벤트 및 성능 데이터를 수집합니다. 이 구성에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](om-agents.md)을 참조하세요. |
 
 
@@ -124,8 +124,8 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 
 | 데이터 | Description |
 |:---|:---|
-| Azure Security Center | [Azure Security Center](/azure/security-center/)는 수집하는 데이터를 다른 로그 데이터를 사용하여 분석할 수 있는 Log Analytics 작업 영역에 저장합니다. 작업 영역 구성에 대한 자세한 내용은 [Azure Security Center의 데이터 컬렉션](../../security-center/security-center-enable-data-collection.md)을 참조하세요. |
-| Azure Sentinel | [Azure Sentinel](/azure/sentinel/)은 데이터 원본에서 Log Analytics 작업 영역으로 데이터를 저장합니다. [데이터 원본에 연결](/azure/sentinel/connect-data-sources)을 참조하세요.  |
+| Azure Security Center | [Azure Security Center](../../security-center/index.yml)는 수집하는 데이터를 다른 로그 데이터를 사용하여 분석할 수 있는 Log Analytics 작업 영역에 저장합니다. 작업 영역 구성에 대한 자세한 내용은 [Azure Security Center의 데이터 컬렉션](../../security-center/security-center-enable-data-collection.md)을 참조하세요. |
+| Azure Sentinel | [Azure Sentinel](../../sentinel/index.yml)은 데이터 원본에서 Log Analytics 작업 영역으로 데이터를 저장합니다. [데이터 원본에 연결](../../sentinel/connect-data-sources.md)을 참조하세요.  |
 
 
 ## <a name="next-steps"></a>다음 단계

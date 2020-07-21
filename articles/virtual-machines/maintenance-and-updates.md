@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3caf8b63cbd86338bbef653e9be9916907578627
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dcf4ad7acb3becd2ca04407bc8e5b3ac45701f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675882"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501707"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Azure에서 가상 머신 유지 관리
 
@@ -76,7 +77,7 @@ Azure Machine Learning 알고리즘이 임박한 하드웨어 오류를 예측�
 
 #### <a name="paired-regions"></a>쌍을 이루는 지역
 
-Azure 지역은 동일한 지역 주변 내에서 다른 지역과 쌍을 이루고, 함께 지역 쌍을 만듭니다. 예약된 유지 관리 단계 중에 Azure는 지역 쌍의 단일 지역에 있는 VM만 업데이트합니다. 예를 들어 미국 중북부에 있는 VM을 업데이트하는 동안 Azure는 미국 중남부의 VM을 동시에 업데이트하지 않습니다. 그러나 북유럽 등의 다른 지역은 미국 동부와 동시에 유지 관리될 수 있습니다. 지역 쌍의 작동 방식을 이해하면 지역에 VM을 더 잘 배포할 수 있습니다. 자세한 내용은 [Azure 지역 쌍](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요.
+Azure 지역은 동일한 지역 주변 내에서 다른 지역과 쌍을 이루고, 함께 지역 쌍을 만듭니다. 예약된 유지 관리 단계 중에 Azure는 지역 쌍의 단일 지역에 있는 VM만 업데이트합니다. 예를 들어 미국 중북부에 있는 VM을 업데이트하는 동안 Azure는 미국 중남부의 VM을 동시에 업데이트하지 않습니다. 그러나 북유럽 등의 다른 지역은 미국 동부와 동시에 유지 관리될 수 있습니다. 지역 쌍의 작동 방식을 이해하면 지역에 VM을 더 잘 배포할 수 있습니다. 자세한 내용은 [Azure 지역 쌍](../best-practices-availability-paired-regions.md)을 참조하세요.
 
 #### <a name="availability-sets-and-scale-sets"></a>가용성 집합 및 확장 집합
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 585d3729a886f3a01dff6dcd9afdab63669c05b5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: b5dcadd2381596509a3d2f512d0f4ebbbfbba893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225176"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502880"
 ---
 # <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Azure CLI를 사용 하 여 공유 이미지 갤러리의 VHD 또는 스냅숏에서 이미지 만들기
 
@@ -69,7 +69,7 @@ az sig list -o table
 
 이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. 이 예제에서는 스냅숏이 사용 중인 VM에서 스냅숏 또는 VHD를 사용 하 고 있으며 일반화 되지 않았다고 가정 합니다. Windows 또는 [waagent](https://github.com/Azure/WALinuxAgent) 용 Sysprep 또는 Linux 용으로 실행 한 후 VHD 또는 스냅숏이 일반화 된 OS를 사용 하는 경우 `-deprovision` `-deprovision+user` `-OsState` 를로 변경 합니다 `generalized` . 
 
-이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions)를 참조하세요.
+이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./linux/shared-image-galleries.md#image-definitions)를 참조하세요.
 
 [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
 
@@ -120,7 +120,7 @@ az sig image-version create \
 > [!NOTE]
 > 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> 이미지 버전을 만들 때를 추가 하 여 모든 이미지 버전 복제본을 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 에 저장할 수도 있습니다 `--storage-account-type standard_zrs` .
+> 이미지 버전을 만들 때를 추가 하 여 모든 이미지 버전 복제본을 [영역 중복 저장소](../storage/common/storage-redundancy.md) 에 저장할 수도 있습니다 `--storage-account-type standard_zrs` .
 >
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: c70a6049596aa38e9ae6118517fc471becbc1676
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7a0d4d0a1c36f901ea38c5c73d3aa7a2cf49e02f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134631"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502693"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure용 Ubuntu 가상 머신 준비
 
@@ -22,7 +22,7 @@ ms.locfileid: "86134631"
 * Ubuntu 18.04/Bionic: [Bionic-cloudimg-.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 
 ## <a name="prerequisites"></a>필수 구성 요소
-이 문서에서는 가상 하드 디스크에 Ubuntu Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](https://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
+이 문서에서는 가상 하드 디스크에 Ubuntu Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하십시오.
 
 **Ubuntu 설치 참고 사항**
 
@@ -176,9 +176,8 @@ ms.locfileid: "86134631"
 
 13. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다.
 
-14. Azure는 고정 크기 Vhd만 허용 합니다. VM의 OS 디스크가 고정 크기의 VHD가 아닌 경우 `Convert-VHD` PowerShell cmdlet을 사용 하 여 옵션을 지정 합니다 `-VHDType Fixed` . 다음에 대 한 문서를 확인 하세요. `Convert-VHD` [변환-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd?view=win10-ps).
+14. Azure는 고정 크기 Vhd만 허용 합니다. VM의 OS 디스크가 고정 크기의 VHD가 아닌 경우 `Convert-VHD` PowerShell cmdlet을 사용 하 여 옵션을 지정 합니다 `-VHDType Fixed` . 다음에 대 한 문서를 확인 하세요. `Convert-VHD` [변환-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
 
 
 ## <a name="next-steps"></a>다음 단계
 이제 Ubuntu Linux 가상 하드 디스크를 사용하여 Azure에서 새 가상 머신을 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](upload-vhd.md#option-1-upload-a-vhd)를 참조하세요.
-

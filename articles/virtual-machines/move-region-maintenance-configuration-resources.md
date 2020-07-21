@@ -6,23 +6,24 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: baf7201176fc3d6c70881817ff21b44c2615241a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38532fba2be1fedd275ed2e7f9dfc1bf5752499d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676894"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501656"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>유지 관리 제어 구성의 리소스를 다른 지역으로 이동
 
 유지 관리 제어 구성과 관련 된 리소스를 다른 Azure 지역으로 이동 하려면이 문서를 참조 하세요. 여러 가지 이유로 구성을 이동 하는 것이 좋습니다. 예를 들어, 새 지역을 활용 하 여 특정 지역에서 사용할 수 있는 기능 또는 서비스를 배포 하 고 내부 정책 및 거 버 넌 스 요구 사항을 충족 하거나 용량 계획에 대 한 응답으로 배포할 수 있습니다.
 
-사용자 지정 유지 관리 구성을 사용 하 여 유지 관리 제어를 통해 플랫폼 업데이트가 [Windows](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) Vm 및 Azure 전용 호스트에 적용 되는 방식을 제어할 수 있습니다. 여러 지역에서 유지 관리 제어를 이동 하기 위한 몇 가지 시나리오는 다음과 같습니다.
+사용자 지정 유지 관리 구성을 사용 하 여 유지 관리 제어를 통해 플랫폼 업데이트가 [Windows](./maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) 및 [Linux](./maintenance-control-cli.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) Vm 및 Azure 전용 호스트에 적용 되는 방식을 제어할 수 있습니다. 여러 지역에서 유지 관리 제어를 이동 하기 위한 몇 가지 시나리오는 다음과 같습니다.
 
 - 유지 관리 구성과 관련 된 리소스를 이동 하지만 구성 자체는 이동 하지 않으려면이 문서를 따릅니다.
 - 유지 관리 제어 구성을 이동 하지만 구성과 관련 된 리소스는 이동 하지 않으려면 [다음 지침](move-region-maintenance-configuration.md)을 따르세요.
 - 유지 관리 구성과 연결 된 리소스를 모두 이동 하려면 먼저 [다음 지침](move-region-maintenance-configuration.md)을 따르세요. 그런 다음이 문서의 지침을 따릅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 유지 관리 제어 구성과 연결 된 리소스 이동을 시작 하기 전에 다음을 수행 합니다.
 
@@ -48,7 +49,7 @@ ms.locfileid: "84676894"
     $adh | 전용 호스트 이름 | MyHost
     $adhParentName | 부모 리소스 이름 | HostGroup
     
-2. PowerShell [AZConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/Get-AzConfigurationAssignment?view=azps-3.5.0) 명령을 사용 하 여 유지 관리 구성을 검색 하려면:
+2. PowerShell [AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment?view=azps-3.5.0) 명령을 사용 하 여 유지 관리 구성을 검색 하려면:
 
     - Azure 전용 호스트의 경우 다음을 실행 합니다.
         ```
@@ -60,7 +61,7 @@ ms.locfileid: "84676894"
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. CLI [az maintenance 대입문](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/assignment?view=azure-cli-latest) 을 사용 하 여 유지 관리 구성을 검색 하려면:
+3. CLI [az maintenance 대입문](/cli/azure/ext/maintenance/maintenance/assignment?view=azure-cli-latest) 을 사용 하 여 유지 관리 구성을 검색 하려면:
 
     - Azure 전용 호스트의 경우:
 
@@ -77,7 +78,7 @@ ms.locfileid: "84676894"
 
 ## <a name="move"></a>이동 
 
-1. [다음 지침에 따라](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) Azure vm을 새 지역으로 이동 합니다.
+1. [다음 지침에 따라](../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) Azure vm을 새 지역으로 이동 합니다.
 2. 리소스를 이동한 후 유지 관리 구성을 이동 했는지 여부에 따라 적절 하 게 새 지역의 리소스에 유지 관리 구성을 다시 적용 합니다. [PowerShell](../virtual-machines/maintenance-control-powershell.md) 또는 [CLI](../virtual-machines/maintenance-control-cli.md)를 사용 하 여 리소스에 유지 관리 구성을 적용할 수 있습니다.
 
 

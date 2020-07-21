@@ -8,18 +8,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5afbeba4344073698e21675c3eca7e284841e99f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f6ec2f7a55e33677f46f58aa2ca826b8575b11fd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135336"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502676"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
 
 **Azure Disk Encryption의 새 릴리스는 Azure AD 응용 프로그램 매개 변수를 제공 하 여 VM 디스크 암호화를 사용 하도록 설정 하는 요구 사항을 제거 합니다. 새 릴리스부터는 암호화 사용 단계에서 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 새 릴리스를 사용 하 여 Azure AD 응용 프로그램 매개 변수 없이 모든 새 Vm을 암호화 해야 합니다. 새 릴리스를 사용 하 여 VM 디스크 암호화를 사용 하도록 설정 하는 지침을 보려면 [Azure Disk Encryption](disk-encryption-overview.md)를 참조 하세요. 이미 Azure AD 응용 프로그램 매개 변수를 사용 하 여 암호화 된 Vm은 계속 지원 되며 AAD 구문을 사용 하 여 계속 유지 되어야 합니다.**
 
-Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화 키와 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. 
+Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화 키와 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/general/overview.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. 
 
 Azure AD (이전 릴리스)에서 Azure Disk Encryption와 함께 사용할 주요 자격 증명 모음을 만들고 구성 하는 단계는 다음 세 단계로 구성 됩니다.
 
@@ -37,7 +37,7 @@ Azure AD (이전 릴리스)에서 Azure Disk Encryption와 함께 사용할 주�
 
 
 ## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기 
-Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)와 통합되어 키 자격 증명 모음 구독에서 디스크 암호화 키 및 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption에 대한 키 자격 증명 모음을 만들거나 기존 키 자격 증명 모음을 사용할 수 있습니다. 키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. Resource Manager 템플릿, Azure PowerShell 또는 Azure CLI를 사용하여 키 자격 증명 모음을 만들 수 있습니다. 
+Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)와 통합되어 키 자격 증명 모음 구독에서 디스크 암호화 키 및 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption에 대한 키 자격 증명 모음을 만들거나 기존 키 자격 증명 모음을 사용할 수 있습니다. 키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/general/overview.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. Resource Manager 템플릿, Azure PowerShell 또는 Azure CLI를 사용하여 키 자격 증명 모음을 만들 수 있습니다. 
 
 
 >[!WARNING]
@@ -124,7 +124,7 @@ Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하
 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 문서의 단계를 사용하여 Azure AD 애플리케이션을 만듭니다. 아래에 나열된 각 단계는 수행할 문서 섹션으로 바로 이동합니다. 
 
 1. [필요한 권한 확인](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
-2. [Azure Active Directory 응용 프로그램 만들기](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) 
+2. [Azure Active Directory 애플리케이션 만들기](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) 
      - 애플리케이션을 만들 때 원하는 이름과 로그온 URL을 사용할 수 있습니다.
 3. [애플리케이션 ID 및 인증 키 가져오기](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) 
      - 인증 키는 클라이언트 암호 이며 AzVMDiskEncryptionExtension의 AadClientSecret로 사용 됩니다. 
@@ -138,7 +138,7 @@ Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하
 > Azure Disk Encryption에서는 Azure AD 클라이언트 애플리케이션에 _WrapKey_ 및 _Set_ 권한과 같은 액세스 정책을 구성해야 합니다.
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a><a name="bkmk_KVAPPSH"></a> Azure PowerShell을 사용하여 Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책 설정
-Azure AD 애플리케이션에 자격 증명 모음의 키 또는 암호에 액세스할 권한이 필요합니다. [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet을 사용 하 여 응용 프로그램을 등록할 때 생성 된 클라이언트 ID를 _– ServicePrincipalName_ 매개 변수 값으로 사용 하 여 응용 프로그램에 권한을 부여 합니다. 자세한 내용은 블로그 게시물 [Azure Key Vault - 단계별](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx)을 참조하세요. 
+Azure AD 애플리케이션에 자격 증명 모음의 키 또는 암호에 액세스할 권한이 필요합니다. [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet을 사용 하 여 응용 프로그램을 등록할 때 생성 된 클라이언트 ID를 _– ServicePrincipalName_ 매개 변수 값으로 사용 하 여 응용 프로그램에 권한을 부여 합니다. 자세한 내용은 블로그 게시물 [Azure Key Vault - 단계별](/archive/blogs/kv/azure-key-vault-step-by-step)을 참조하세요. 
 
 1. PowerShell을 사용하여 AD 애플리케이션에 대한 키 자격 증명 모음 액세스 정책을 설정합니다.
 

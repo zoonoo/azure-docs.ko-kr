@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 13c83c53cdad719d6a4bed4cc1852b85d62082e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e99685b4d1476ee527b9eb7f1332f6a6beece669
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68834592"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499975"
 ---
 # <a name="ibm-workloads-on-azure"></a>Azure에서 IBM 워크 로드
 
@@ -36,7 +37,7 @@ Azure는 기존 IBM 메인프레임 환경과의 통합을 지원 하 여 적절
 
 **다음 단계**
 
-- [메인프레임 마이그레이션: myths 및 팩트](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [메인프레임 마이그레이션: myths 및 팩트](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Azure에서 IBM zD&T 개발/테스트 환경 설치](./install-ibm-z-environment.md)
 - [IBM zD&T v1에서 응용 프로그램 개발자 제어 배포 (ADCD)를 설정 합니다.](./demo.md)
-- [Azure에서 IBM DB2 pureScale](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
+- [Azure에서 IBM DB2 pureScale](../../../linux/ibm-db2-purescale-azure.md)

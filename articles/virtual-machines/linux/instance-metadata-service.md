@@ -11,21 +11,21 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: e720be86c6505c2ddebaca91eeefa08e38170cbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d31d982e7788970cbf7aad7dd64db9e6d4b9b10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558608"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502200"
 ---
-# <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
+# <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 
 Azure IMDS(Instance Metadata Service)는 가상 머신 인스턴스를 실행하는 방법에 대한 정보를 제공하며 가상 머신을 관리 및 구성하는 데 사용할 수 있습니다.
 이 정보에는 SKU, 저장소, 네트워크 구성 및 예정 된 유지 관리 이벤트가 포함 됩니다. 사용할 수 있는 데이터의 전체 목록은 [메타데이터 API](#metadata-apis)를 참조하세요.
-VM 및 가상 머신 확장 집합 인스턴스 모두에 Instance Metadata Service를 사용할 수 있습니다. [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)를 사용하여 생성/관리되는 VM을 실행하는 데에만 사용할 수 있습니다.
+VM 및 가상 머신 확장 집합 인스턴스 모두에 Instance Metadata Service를 사용할 수 있습니다. [Azure Resource Manager](/rest/api/resources/)를 사용하여 생성/관리되는 VM을 실행하는 데에만 사용할 수 있습니다.
 
 Azure의 IMDS는 잘 알려진 라우팅할 수 없는 IP 주소 ()에서 사용할 수 있는 REST 끝점으로 `169.254.169.254` , VM 내 에서만 액세스할 수 있습니다. VM과 IMDS 간의 통신은 호스트를 유지 하지 않습니다.
-HTTP 클라이언트는 IMDS를 쿼리할 때 VM 내에서 웹 프록시를 우회 하 고와 동일 하 게 처리 하는 것이 좋습니다 `169.254.169.254` [`168.63.129.16`](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) .
+HTTP 클라이언트는 IMDS를 쿼리할 때 VM 내에서 웹 프록시를 우회 하 고와 동일 하 게 처리 하는 것이 좋습니다 `169.254.169.254` [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md) .
 
 ## <a name="security"></a>보안
 
@@ -39,7 +39,7 @@ Instance Metadata Service 엔드포인트는 라우팅이 불가능한 IP 주소
 
 ### <a name="accessing-azure-instance-metadata-service"></a>Azure Instance Metadata Service 액세스
 
-Instance Metadata Service에 액세스하려면 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 또는 [Azure Portal](https://portal.azure.com)에서 VM을 만들고 아래 예제를 따릅니다.
+Instance Metadata Service에 액세스하려면 [Azure Resource Manager](/rest/api/resources/) 또는 [Azure Portal](https://portal.azure.com)에서 VM을 만들고 아래 예제를 따릅니다.
 IMDS를 쿼리하는 방법에 대한 추가 예제는 [Azure 인스턴스 메타 데이터 샘플](https://github.com/microsoft/azureimds)에서 찾을 수 있습니다.
 
 다음은 인스턴스에 대한 모든 메타데이터를 검색하는 샘플 코드입니다. 특정 데이터 소스에 액세스하려면 [메타데이터 API](#metadata-apis) 섹션을 참조하세요. 
@@ -245,14 +245,14 @@ name | VM의 이름 | 2017-04-02
 제품 | VM 이미지에 대한 제품 정보이며 Azure 이미지 갤러리에서 배포된 이미지에만 있습니다. | 2017-04-02
 osType | Linux 또는or Windows | 2017-04-02
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
-계획 | Azure Marketplace 이미지에 해당하는 VM의 이름, 제품 및 게시자를 포함하는 [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
+계획 | Azure Marketplace 이미지에 해당하는 VM의 이름, 제품 및 게시자를 포함하는 [계획](/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
 platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
 provider | VM의 공급자 | 2018-10-01
-publicKeys | VM 및 경로에 할당된 [공개 키 컬렉션](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
+publicKeys | VM 및 경로에 할당된 [공개 키 컬렉션](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
 publisher | VM 이미지 게시자 | 2017-04-02
 resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-resource-manager/management/overview.md) | 2017-08-01
-resourceId | 리소스의 [정규화된](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID | 2019-03-11
+resourceId | 리소스의 [정규화된](/rest/api/resources/resources/getbyid) ID | 2019-03-11
 sku | VM 이미지에 해당하는 SKU | 2017-04-02
 storageProfile | [스토리지 프로필](#storage-metadata) 참조 | 2019-06-01
 subscriptionId | Virtual Machine에 대한 Azure 구독 | 2017-08-01
@@ -260,7 +260,7 @@ tags | Virtual Machine에 대한 [태그](../../azure-resource-manager/managemen
 tagsList | 원활한 프로그래매틱 구문 분석을 위해 JSON 배열로 형식이 지정된 태그  | 2019-06-04
 버전 | VM 이미지의 버전 | 2017-04-02
 vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
-vmScaleSetName | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+vmScaleSetName | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름](../../virtual-machine-scale-sets/overview.md) | 2017-12-01
 vmSize | [VM 크기](sizes.md) | 2017-04-02
 영역 | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01
 
@@ -685,7 +685,7 @@ nonce는 선택적 10자리 문자열입니다. 이를 제공하지 않을 경�
 데이터 | Description
 -----|------------
 nonce | 요청에 선택적으로 제공할 수 있는 문자열입니다. Nonce를 제공 하지 않으면 현재 UTC 타임 스탬프가 사용 됩니다.
-계획 | [Azure Marketplace 이미지 계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)입니다. 계획 id (이름), 제품 이미지 또는 제품 (제품) 및 게시자 id (게시자)를 포함 합니다.
+계획 | [Azure Marketplace 이미지 계획](/rest/api/compute/virtualmachines/createorupdate#plan)입니다. 계획 id (이름), 제품 이미지 또는 제품 (제품) 및 게시자 id (게시자)를 포함 합니다.
 타임스탬프/createdOn | 서명 된 문서를 만든 시간에 대 한 UTC 타임 스탬프입니다.
 timestamp/expiresOn | 서명 된 문서가 만료 되는 시간에 대 한 UTC 타임 스탬프입니다.
 vmId |  VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
@@ -717,7 +717,7 @@ openssl x509 -inform der -in intermediate.cer -out intermediate.pem
 openssl smime -verify -in sign.pk7 -inform pem -noverify
 ```
 
-**응답**
+**Response**
 
 ```json
 Verification successful
@@ -835,7 +835,7 @@ HTTP 상태 코드 | 이유
 1. 새 버전용으로 채워진 데이터 중 일부만 표시됩니다.
    * 2016년 9월 이후에 생성된 VM의 경우 컴퓨팅 메타데이터를 표시하려면 [태그](../../azure-resource-manager/management/tag-resources.md)를 추가하세요. 이전 Vm (9 월 2016 일 이전에 만들어짐)의 경우 VM 인스턴스에 확장 또는 데이터 디스크를 추가/제거 하 여 메타 데이터를 새로 고칩니다.
 1. 오류가 발생 하는 이유는 무엇 인가요 `500 Internal Server Error` `410 Resource Gone` ?
-   * 지 수 백오프 시스템 또는 [일시적인 오류 처리](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults)에 설명 된 다른 방법에 따라 요청을 다시 시도 하세요. 문제가 지속 되 면 VM에 대 한 Azure Portal에서 지원 문제를 만듭니다.
+   * 지 수 백오프 시스템 또는 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에 설명 된 다른 방법에 따라 요청을 다시 시도 하세요. 문제가 지속 되 면 VM에 대 한 Azure Portal에서 지원 문제를 만듭니다.
 1. 가상 머신 확장 집합 인스턴스에 대해이 작업을 수행 하나요?
    * 예를 들어 확장 집합 인스턴스에는 Metadata service를 사용할 수 있습니다.
 1. Virtual Machine Scale Sets에서 태그를 업데이트 했지만 단일 인스턴스 Vm과 달리 인스턴스에 표시 되지 않나요?
@@ -872,7 +872,7 @@ HTTP 상태 코드 | 이유
             version: 2
             ```
         1. 동적 IP를 사용 하는 경우 MAC 주소를 확인 합니다. 고정 IP를 사용 하는 경우 나열 된 IP 및/또는 MAC 주소를 확인할 수 있습니다.
-        1. 인터페이스가 VM의 기본 NIC 및 기본 IP에 해당 하는지 확인 합니다. Azure Portal의 네트워크 구성 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show)를 조회 하 여 기본 NIC/IP를 찾을 수 있습니다. 공용 및 개인 Ip (및 cli를 사용 하는 경우 MAC 주소)를 확인 합니다. PowerShell CLI 예제:
+        1. 인터페이스가 VM의 기본 NIC 및 기본 IP에 해당 하는지 확인 합니다. Azure Portal의 네트워크 구성 또는 [Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show)를 조회 하 여 기본 NIC/IP를 찾을 수 있습니다. 공용 및 개인 Ip (및 cli를 사용 하는 경우 MAC 주소)를 확인 합니다. PowerShell CLI 예제:
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'
@@ -901,4 +901,3 @@ HTTP 상태 코드 | 이유
 다음에 대해 자세히 알아봅니다.
 1. [VM의 액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 1. [Scheduled Events](scheduled-events.md)
-

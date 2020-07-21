@@ -8,11 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: cynthn
-ms.openlocfilehash: 3fce527c1a9feb3dbf9add36577cfa5ba8349882
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02192850dd9103b6c1783baf42c184ee16fe299f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659337"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500687"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
 
@@ -29,7 +30,7 @@ ms.locfileid: "84659337"
 
 PowerShell을 사용하여 데이터 디스크를 *작동 중* 제거(hot remove)할 수 있지만, VM에서 해당 디스크를 분리할 때 해당 디스크가 전혀 사용되고 있지 않아야 합니다.
 
-이 예제에서는 **myResourceGroup** 리소스 그룹의 VM **myVM**에서 **myDisk**라는 디스크를 제거합니다. 먼저 [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) cmdlet을 사용하여 디스크를 제거합니다. 그런 다음, [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet으로 가상 머신의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
+이 예제에서는 **myResourceGroup** 리소스 그룹의 VM **myVM**에서 **myDisk**라는 디스크를 제거합니다. 먼저 [Remove-AzVMDataDisk](/powershell/module/az.compute/remove-azvmdatadisk) cmdlet을 사용하여 디스크를 제거합니다. 그런 다음, [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet으로 가상 머신의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzVM `

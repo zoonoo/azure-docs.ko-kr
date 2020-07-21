@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 7b671bb63934eec129e992c369ba8516c191c589
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2ef54da76750617a77c4b2e117b694cb170ff752
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223570"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502897"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Azure CLI를 사용 하 여 관리 되는 이미지에서 이미지 버전으로 마이그레이션
 공유 이미지 갤러리로 마이그레이션할 기존 관리 이미지가 있는 경우 관리 되는 이미지에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 이미지를 삭제할 수 있습니다. [PowerShell](image-version-managed-image-powershell.md)을 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리로 마이그레이션할 수도 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "86223570"
 
 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
 
-이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions)를 참조하세요.
+이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./linux/shared-image-galleries.md#image-definitions)를 참조하세요.
 
 [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
 
@@ -92,7 +92,7 @@ az sig image-version create \
 > [!NOTE]
 > 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> 이미지 버전을 만들 때를 추가 하 여 모든 이미지 버전 복제본을 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 에 저장할 수도 있습니다 `--storage-account-type standard_zrs` .
+> 이미지 버전을 만들 때를 추가 하 여 모든 이미지 버전 복제본을 [영역 중복 저장소](../storage/common/storage-redundancy.md) 에 저장할 수도 있습니다 `--storage-account-type standard_zrs` .
 >
 
 ## <a name="next-steps"></a>다음 단계

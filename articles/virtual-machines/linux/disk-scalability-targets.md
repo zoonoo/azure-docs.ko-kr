@@ -7,11 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 7298b54d94effaa5bd7e600ec2d8d1045aa263ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0345df783a3bf3398c8be6b04dbc5671855f6be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970437"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502642"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Linux 기반 VM 디스크의 확장성 및 성능 목표
 
@@ -30,6 +31,6 @@ ms.locfileid: "78970437"
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-[Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+[Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)

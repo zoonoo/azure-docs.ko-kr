@@ -6,16 +6,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a56ad3fd5999600dfc576f0a0e34ff7221267934
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970299"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502455"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Azure에서 다중 컨테이너 애플리케이션 정의 및 실행을 위해 Docker 및 Compose 시작
 [작성](https://github.com/docker/compose)을 사용 하면 간단한 텍스트 파일을 사용 하 여 여러 Docker 컨테이너로 구성 된 응용 프로그램을 정의할 수 있습니다. 그런 다음, 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 애플리케이션을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 애플리케이션을 설정할 수도 있습니다.
 
-이 문서는 2019년 2월 14일에 [Azure Cloud Shell](https://shell.azure.com/bash) 및 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 버전 2.0.58을 사용하여 마지막으로 테스트되었습니다.
+이 문서는 2019년 2월 14일에 [Azure Cloud Shell](https://shell.azure.com/bash) 및 [Azure CLI](/cli/azure/install-azure-cli) 버전 2.0.58을 사용하여 마지막으로 테스트되었습니다.
 
 ## <a name="create-docker-host-with-azure-cli"></a>Azure CLI를 사용하여 Docker 호스트 만들기
 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다.
@@ -125,4 +126,3 @@ azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/
 * 다중 컨테이너 앱 빌드 및 배포의 추가 예제는 [Compose 명령줄 참조](https://docs.docker.com/compose/reference/) 및 [사용자 가이드](https://docs.docker.com/compose/)를 확인합니다.
 * Azure 리소스 관리자 템플릿, 사용자 자신의 템플릿 또는 [커뮤니티](https://azure.microsoft.com/documentation/templates/)에서 배포된 템플릿을 사용하여, Azure VM을 Docker로 배포하고 Compose로 애플리케이션을 설정합니다. 예를 들어 [Docker를 사용한 WordPress 블로그 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) 템플릿은 Docker 및 Compose를 사용하여 Ubuntu VM에 MySQL 백 엔드와 함께 WordPress를 신속하게 배포합니다.
 * Docker Swarm 클러스터와 Docker Compose 통합을 시도합니다. 시나리오의 경우 [Swarm으로 Compose 사용](https://docs.docker.com/compose/swarm/) 을 참조하세요.
-

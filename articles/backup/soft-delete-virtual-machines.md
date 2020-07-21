@@ -1,16 +1,17 @@
 ---
-title: 가상 컴퓨터에 대 한 일시 삭제
+title: 가상 머신의 일시 삭제
 description: 가상 컴퓨터에 대 한 일시 삭제로 백업을 더 안전 하 게 만드는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: ba00b235ea70bcc2dabbd5a91a3f7003f9bbed49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: e447db2c3f862d2f577a9e7d8767946375abf4e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82765774"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503543"
 ---
-# <a name="soft-delete-for-virtual-machines"></a>가상 컴퓨터에 대 한 일시 삭제
+# <a name="soft-delete-for-virtual-machines"></a>가상 머신의 일시 삭제
 
 Vm에 대 한 일시 삭제는 의도 하지 않은 삭제 로부터 Vm의 백업을 보호 합니다. 백업이 삭제 된 후에도 14 일 동안 일시 삭제 상태로 유지 됩니다.
 
@@ -67,7 +68,7 @@ Azure Portal에 대해 위에서 설명한 것 처럼 Azure PowerShell를 사용
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 백업 항목 삭제
 
-[AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet을 사용 하 여 백업 항목을 삭제 합니다.
+[AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS cmdlet을 사용 하 여 백업 항목을 삭제 합니다.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -94,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-그런 다음 실행 취소- [AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) PS cmdlet을 사용 하 여 실행 취소 작업을 수행 합니다.
+그런 다음 실행 취소- [AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS cmdlet을 사용 하 여 실행 취소 작업을 수행 합니다.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -104,7 +105,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-백업 항목의 ' DeleteState '는 ' NotDeleted '로 돌아갑니다. 그러나 보호는 계속 중지 됩니다. [백업을 다시 시작](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) 하 여 보호를 다시 사용 하도록 설정 합니다.
+백업 항목의 ' DeleteState '는 ' NotDeleted '로 돌아갑니다. 그러나 보호는 계속 중지 됩니다. [백업을 다시 시작](./backup-azure-vms-automation.md#change-policy-for-backup-items) 하 여 보호를 다시 사용 하도록 설정 합니다.
 
 ## <a name="soft-delete-for-vms-using-rest-api"></a>REST API를 사용 하는 Vm에 대 한 일시 삭제
 

@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: ce7edf4dd5ae52f3ea604fe4b8d88d1a29de5a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6bd45324313ebc44bd4c59cd6f09e2eaab28d32
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608369"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505145"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
-Azure Log Analytics 에이전트는 모든 클라우드의 가상 머신, 온-프레미스 머신 및 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)에서 모니터링하는 가상 머신의 포괄적인 관리를 위해 개발되었습니다. Windows 에이전트와 Linux 에이전트는 모니터링 솔루션에 정의된 고유한 로그 또는 메트릭뿐만 아니라 다른 소스에서 수집한 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보냅니다. Log Analytics 에이전트는 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다.
+Azure Log Analytics 에이전트는 모든 클라우드의 가상 머신, 온-프레미스 머신 및 [System Center Operations Manager](/system-center/scom/)에서 모니터링하는 가상 머신의 포괄적인 관리를 위해 개발되었습니다. Windows 에이전트와 Linux 에이전트는 모니터링 솔루션에 정의된 고유한 로그 또는 메트릭뿐만 아니라 다른 소스에서 수집한 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보냅니다. Log Analytics 에이전트는 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다.
 
 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 다양한 배포 모델을 상세히 살펴봅니다.
 
@@ -30,7 +31,7 @@ Azure Monitor의 [Azure 진단 확장](diagnostics-extension-overview.md)을 사
 
 - Azure Diagnostics 확장은 Azure Virtual Machines에만 사용할 수 있습니다. Log Analytics 에이전트는 Azure, 다른 클라우드 환경 및 온-프레미스의 가상 머신에 사용할 수 있습니다.
 - Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](data-platform-metrics.md)(Windows만 해당) 및 Event Hubs로 데이터를 보냅니다. Log Analytics 에이전트는 데이터를 [Azure Monitor 로그](data-platform-logs.md)에 수집합니다.
-- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM용 Azure Monitor](../insights/vminsights-overview.md) 및 [Azure Security Center](/azure/security-center/) 등의 기타 서비스에 필요합니다.
+- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM용 Azure Monitor](../insights/vminsights-overview.md) 및 [Azure Security Center](../../security-center/index.yml) 등의 기타 서비스에 필요합니다.
 
 ## <a name="costs"></a>비용
 Log Analytics 에이전트에 대한 비용은 없지만 데이터 수집에 대한 요금이 발생할 수 있습니다. Log Analytics 작업 영역에서 수집된 데이터의 가격 책정에 대한 자세한 내용은 [Azure Monitor Logs로 사용량 및 비용 관리](manage-cost-storage.md)를 참조하세요.
@@ -58,7 +59,7 @@ Log Analytics 에이전트를 사용하여 데이터를 수집할 때 에이전�
 
 * Windows 에이전트에서 데이터를 수집하기 위해 System Center Operations Manager 관리 그룹에 보고하는 동안에도 [하나 이상의 작업 영역에 보고하도록 각 에이전트를 구성](agent-windows.md)할 수 있습니다. Windows 에이전트는 최대 4개의 작업 영역에 보고할 수 있습니다.
 * Linux 에이전트는 멀티호밍을 지원하지 않으며 단일 작업 영역에만 보고할 수 있습니다.
-* Windows 에이전트는 [FIPS 140 표준](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation)을 지원하지만 Linux 에이전트는 이를 지원하지 않습니다.  
+* Windows 에이전트는 [FIPS 140 표준](/windows/security/threat-protection/fips-140-validation)을 지원하지만 Linux 에이전트는 이를 지원하지 않습니다.  
 
 System Center Operations Manager 2012 R2 이상을 사용하는 경우
 
@@ -124,7 +125,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 Python2 실행 파일은 다음 명령을 사용 하 여 "python"으로 별칭을 지정 해야 합니다.
 
 ```
-alternatives --set python /usr/sbin/python2
+alternatives --set python `which python2`
 ```
 
 ### <a name="supported-distros"></a>지원되는 배포판
@@ -192,7 +193,7 @@ Linux 및 Windows용 에이전트는 TCP 포트 443을 통해 Azure Monitor 서�
 |\*.blob.core.windows.net |포트 443 |아웃바운드|예 |
 |\* .azure-automation.net |포트 443 |아웃바운드|예 |
 
-Azure Government에 필요한 방화벽 정보는 [Azure Government 관리](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)를 참조하세요. 
+Azure Government에 필요한 방화벽 정보는 [Azure Government 관리](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs)를 참조하세요. 
 
 Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook이나 관리 솔루션을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 
 

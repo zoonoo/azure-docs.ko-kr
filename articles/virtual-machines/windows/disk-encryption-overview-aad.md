@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 025d02ccdf38e72682cf67cc07a8b2edd549e599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b428c45938000a5fc97428da331a7cc7bef14f30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82081577"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500670"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD를 사용 하 여 Azure Disk Encryption (이전 릴리스)
 
@@ -27,7 +27,7 @@ ms.locfileid: "82081577"
   - Key Vault에 연결할 토큰을 얻으려면 IaaS VM에서 Azure Active Directory 엔드포인트인 \[login.microsoftonline.com\]에 연결할 수 있어야 합니다.
   - 암호화 키를 고객 Key Vault에 쓰려면 IaaS VM에서 Key Vault 엔드포인트에 연결할 수 있어야 합니다.
   - IaaS VM은 Azure 확장 리포지토리를 호스팅하는 Azure Storage 엔드포인트 및 VHD 파일을 호스팅하는 Azure Storage 계정에 연결할 수 있어야 합니다.
-  -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../../key-vault/key-vault-access-behind-firewall.md)를 참조하세요.
+  -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../../key-vault/general/access-behind-firewall.md)를 참조하세요.
   - 암호화 될 VM은 기본 프로토콜로 TLS 1.2을 사용 하도록 구성 되어야 합니다. TLS 1.0을 명시적으로 사용 하지 않도록 설정 하 고 .NET 버전이 4.6 이상으로 업데이트 되지 않은 경우 다음 레지스트리 변경 내용을 사용 하 여 ADE에서 최신 TLS 버전을 선택할 수 있습니다.
 
 ```console
@@ -41,9 +41,9 @@ ms.locfileid: "82081577"
 ```
 
 **그룹 정책:**
- - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조하세요.
+ - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조하세요.
 
--  사용자 지정 그룹 정책을 사용 하는 도메인에 가입 된 가상 컴퓨터의 BitLocker 정책에는 [bitlocker 복구 정보의 사용자 저장소 구성-256 비트 복구 키 허용 >](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)설정이 포함 되어야 합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
+-  사용자 지정 그룹 정책을 사용 하는 도메인에 가입 된 가상 컴퓨터의 BitLocker 정책에는 [bitlocker 복구 정보의 사용자 저장소 구성-256 비트 복구 키 허용 >](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)설정이 포함 되어야 합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
 
 ## <a name="encryption-key-storage-requirements"></a>암호화 키 스토리지 요구 사항  
 

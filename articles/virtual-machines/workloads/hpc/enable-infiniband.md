@@ -12,25 +12,26 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: amverma
-ms.openlocfilehash: 7f7907482da886d9da17ef1e7844b205f3e4b906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de61403b62f80bea7872d5ab3561567ae2109590
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74196777"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500071"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>SR-IOV를 사용 하 여 InfiniBand 사용
 
-Azure NC, ND 및 H 시리즈의 Vm은 모두 전용 InfiniBand 네트워크에서 지원 됩니다. 모든 RDMA 지원 크기는 Intel MPI를 사용 하 여 해당 네트워크를 활용할 수 있습니다. 일부 VM 시리즈는 SR-IOV를 통해 모든 MPI 구현 및 RDMA 동사를 확장 하 여 지원 합니다. RDMA 지원 Vm에는 [GPU 최적화](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 및 [HPC (고성능 계산)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) vm이 포함 됩니다.
+Azure NC, ND 및 H 시리즈의 Vm은 모두 전용 InfiniBand 네트워크에서 지원 됩니다. 모든 RDMA 지원 크기는 Intel MPI를 사용 하 여 해당 네트워크를 활용할 수 있습니다. 일부 VM 시리즈는 SR-IOV를 통해 모든 MPI 구현 및 RDMA 동사를 확장 하 여 지원 합니다. RDMA 지원 Vm에는 [GPU 최적화](../../sizes-gpu.md) 및 [HPC (고성능 계산)](../../sizes-hpc.md) vm이 포함 됩니다.
 
 ## <a name="choose-your-installation-path"></a>설치 경로 선택
 
 시작 하려면 가장 간단한 옵션은 InfiniBand에 대해 미리 구성 된 플랫폼 이미지를 사용 하는 것입니다 (사용 가능한 경우).
 
-- **Hpc Iaas vm** – Hpc 용 iaas vm을 시작 하려면 가장 간단한 솔루션은 InfiniBand로 이미 구성 된 [CENTOS HPC 7.6 VM OS 이미지](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557)를 사용 하는 것입니다. 이 이미지는 이미 InfiniBand를 사용 하 여 구성 되었으므로 수동으로 구성할 필요가 없습니다. 호환 되는 Windows 버전은 [WINDOWS RDMA 지원 인스턴스](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)를 참조 하세요.
+- **Hpc Iaas vm** – Hpc 용 iaas vm을 시작 하려면 가장 간단한 솔루션은 InfiniBand로 이미 구성 된 [CENTOS HPC 7.6 VM OS 이미지](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557)를 사용 하는 것입니다. 이 이미지는 이미 InfiniBand를 사용 하 여 구성 되었으므로 수동으로 구성할 필요가 없습니다. 호환 되는 Windows 버전은 [WINDOWS RDMA 지원 인스턴스](../../sizes-hpc.md#rdma-capable-instances)를 참조 하세요.
 
 - **Gpu IaaS vm** – [CENTOS HPC 7.6 VM OS 이미지](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557)를 제외 하 고 현재 gpu 최적화 vm에 대해 플랫폼 이미지가 미리 구성 되어 있지 않습니다. InfiniBand를 사용 하 여 사용자 지정 이미지를 구성 하려면 [수동으로 MELLANOX OFED 설치](#manually-install-mellanox-ofed)를 참조 하세요.
 
-사용자 지정 VM 이미지 또는 [GPU 최적화](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) vm을 사용 하는 경우 배포에 InfiniBandDriverLinux 또는 InfiniBandDriverWindows vm 확장을 추가 하 여 InfiniBand를 사용 하 여 구성 해야 합니다. [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) 및 [WINDOWS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)에서 이러한 VM 확장을 사용 하는 방법에 대해 알아봅니다.
+사용자 지정 VM 이미지 또는 [GPU 최적화](../../sizes-gpu.md) vm을 사용 하는 경우 배포에 InfiniBandDriverLinux 또는 InfiniBandDriverWindows vm 확장을 추가 하 여 InfiniBand를 사용 하 여 구성 해야 합니다. [Linux](../../sizes-hpc.md#rdma-capable-instances) 및 [WINDOWS](../../sizes-hpc.md#rdma-capable-instances)에서 이러한 VM 확장을 사용 하는 방법에 대해 알아봅니다.
 
 ## <a name="manually-install-mellanox-ofed"></a>수동으로 Mellanox OFED 설치
 
@@ -65,4 +66,4 @@ sudo systemctl restart waagent
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.
+Azure의 [HPC](/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.

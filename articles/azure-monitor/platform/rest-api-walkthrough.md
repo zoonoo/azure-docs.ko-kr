@@ -5,28 +5,28 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 602d11b20e50ec5ba56d0d9c1762292c07d0b67b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e25e85f811d1c5d854b471bf0417e75ab1686d72
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945344"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505128"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 문서에서는 [Microsoft Azure Monitor REST API 참조](https://docs.microsoft.com/rest/api/monitor/)를 사용할 수 있도록 인증을 수행하는 방법을 살펴봅니다.
+이 문서에서는 [Microsoft Azure Monitor REST API 참조](/rest/api/monitor/)를 사용할 수 있도록 인증을 수행하는 방법을 살펴봅니다.
 
 Azure Monitor API를 통해 사용 가능한 기본 메트릭 정의, 세분성 및 메트릭 값을 프로그래밍 방식으로 검색할 수 있습니다. Azure SQL Database, Azure Cosmos DB 또는 Azure Data Lake와 같은 별도의 데이터 저장소에 데이터를 저장할 수 있습니다. 여기에서 필요에 따라 추가적인 분석을 수행할 수 있습니다.
 
-다양한 메트릭 데이터 요소 작업 외에도 Monitor API를 사용하여 경고 규칙을 나열하고, 활동 로그를 확인하는 등 다양한 작업을 수행할 수 있습니다. 사용 가능한 작업의 전체 목록은 [Microsoft Azure Monitor REST API 참조](https://docs.microsoft.com/rest/api/monitor/)에서 확인하세요.
+다양한 메트릭 데이터 요소 작업 외에도 Monitor API를 사용하여 경고 규칙을 나열하고, 활동 로그를 확인하는 등 다양한 작업을 수행할 수 있습니다. 사용 가능한 작업의 전체 목록은 [Microsoft Azure Monitor REST API 참조](/rest/api/monitor/)에서 확인하세요.
 
 ## <a name="authenticating-azure-monitor-requests"></a>Azure Monitor 요청 인증
 
 첫 번째 단계는 요청을 인증하는 것입니다.
 
-Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 애플리케이션을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)를 참조하세요. [Azure Portal을 통해 서비스 주체를 만들 수도](../../active-directory/develop/howto-create-service-principal-portal.md)있습니다.
+Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 애플리케이션을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요. [Azure Portal을 통해 서비스 주체를 만들 수도](../../active-directory/develop/howto-create-service-principal-portal.md)있습니다.
 
 ```powershell
 $subscriptionId = "{azure-subscription-id}"
@@ -85,13 +85,13 @@ $authHeader = @{
 2. 메트릭 값 검색
 
 > [!NOTE]
-> Azure REST API을 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 [azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)를 참조 하세요.
+> Azure REST API을 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 [azure REST API 참조](/rest/api/azure/)를 참조 하세요.
 >
 >
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>메트릭 정의 검색(다차원 API)
 
-[Azure Monitor 메트릭 정의 REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)를 사용하여 서비스에 사용 가능한 메트릭 목록에 액세스합니다.
+[Azure Monitor 메트릭 정의 REST API](/rest/api/monitor/metricdefinitions)를 사용하여 서비스에 사용 가능한 메트릭 목록에 액세스합니다.
 
 **메서드**: GET
 
@@ -228,7 +228,7 @@ Invoke-RestMethod -Uri $request `
 
 ## <a name="retrieve-dimension-values-multi-dimensional-api"></a>차원 값 검색(다차원 API)
 
-사용 가능한 메트릭 정의를 알고 있는 경우 차원이 포함된 메트릭이 있을 수 있습니다. 메트릭을 쿼리하기 전에 차원에 있는 값의 범위를 검색하려고 합니다. 메트릭을 쿼리하는 동안 이러한 차원 값에 따라 메트릭을 필터링하거나 분할하도록 선택할 수 있습니다.  [Azure Monitor 메트릭 REST API](https://docs.microsoft.com/rest/api/monitor/metrics)를 사용하여 이 작업을 수행합니다.
+사용 가능한 메트릭 정의를 알고 있는 경우 차원이 포함된 메트릭이 있을 수 있습니다. 메트릭을 쿼리하기 전에 차원에 있는 값의 범위를 검색하려고 합니다. 메트릭을 쿼리하는 동안 이러한 차원 값에 따라 메트릭을 필터링하거나 분할하도록 선택할 수 있습니다.  [Azure Monitor 메트릭 REST API](/rest/api/monitor/metrics)를 사용하여 이 작업을 수행합니다.
 
 필터링 요청에 메트릭 이름 '값'('localizedValue' 아님)을 사용합니다. 필터를 지정하지 않은 경우 기본 메트릭이 반환됩니다. 이 API의 사용은 하나의 차원에 하나의 와일드카드 필터만을 허용합니다.
 
@@ -301,7 +301,7 @@ Invoke-RestMethod -Uri $request `
 
 ## <a name="retrieve-metric-values-multi-dimensional-api"></a>메트릭 값 검색(다차원 API)
 
-사용 가능한 메트릭 정의 및 가능한 차원 값을 알고 나면 관련 메트릭 값을 검색할 수 있습니다.  [Azure Monitor 메트릭 REST API](https://docs.microsoft.com/rest/api/monitor/metrics)를 사용하여 이 작업을 수행합니다.
+사용 가능한 메트릭 정의 및 가능한 차원 값을 알고 나면 관련 메트릭 값을 검색할 수 있습니다.  [Azure Monitor 메트릭 REST API](/rest/api/monitor/metrics)를 사용하여 이 작업을 수행합니다.
 
 필터링 요청에 메트릭 이름 '값'('localizedValue' 아님)을 사용합니다. 차원 필터가 지정되는 경우 롤업되고 집계된 메트릭을 반환합니다. 메트릭 쿼리가 여러 시계열을 반환하는 경우 'Top' 및 'OrderBy' 쿼리 매개 변수를 사용하여 시계열의 제한된 정렬 목록을 반환할 수 있습니다.
 
@@ -387,7 +387,7 @@ Invoke-RestMethod -Uri $request `
 
 ## <a name="retrieve-metric-definitions"></a>메트릭 정의 검색
 
-[Azure Monitor 메트릭 정의 REST API](https://msdn.microsoft.com/library/mt743621.aspx)를 사용하여 서비스에 사용 가능한 메트릭 목록에 액세스합니다.
+[Azure Monitor 메트릭 정의 REST API](/rest/api/monitor/metricdefinitions)를 사용하여 서비스에 사용 가능한 메트릭 목록에 액세스합니다.
 
 **메서드**: GET
 
@@ -451,7 +451,7 @@ Invoke-RestMethod -Uri $request `
 }
 ```
 
-자세한 내용은 [Azure Monitor REST API에서 리소스에 대한 메트릭 정의 나열](https://msdn.microsoft.com/library/azure/mt743621.aspx) 설명서를 참조하세요.
+자세한 내용은 [Azure Monitor REST API에서 리소스에 대한 메트릭 정의 나열](/rest/api/monitor/metricdefinitions) 설명서를 참조하세요.
 
 ## <a name="retrieve-metric-values"></a>메트릭 값 검색
 
@@ -594,7 +594,7 @@ armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 
 ## <a name="retrieve-the-resource-id"></a>리소스 ID 검색
 
-REST API를 사용하면 사용 가능한 메트릭 정의, 세분성, 관련 값을 이해하는 데 크게 도움이 됩니다. 이런 정보는 [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx)를 사용할 때 유용합니다.
+REST API를 사용하면 사용 가능한 메트릭 정의, 세분성, 관련 값을 이해하는 데 크게 도움이 됩니다. 이런 정보는 [Azure Management Library](/previous-versions/azure/reference/mt417623(v=azure.100))를 사용할 때 유용합니다.
 
 앞의 코드에서 사용하는 리소스 ID는 원하는 Azure 리소스의 전체 경로입니다. 예를 들어 Azure Web App에 대해 쿼리하려면 리소스 ID는 다음과 같습니다.
 
@@ -705,7 +705,7 @@ az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 
 ## <a name="retrieve-activity-log-data"></a>활동 로그 데이터 검색
 
-또한 Azure Monitor REST API를 사용하여 메트릭 정의 및 관련 값 외에도 Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수 있습니다. 예를 들어, [활동 로그](https://msdn.microsoft.com/library/azure/dn931934.aspx) 데이터를 쿼리할 수 있습니다. 다음 샘플 요청에서는 Azure Monitor REST API를 사용 하 여 활동 로그를 쿼리 합니다.
+또한 Azure Monitor REST API를 사용하여 메트릭 정의 및 관련 값 외에도 Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수 있습니다. 예를 들어, [활동 로그](/rest/api/monitor/activitylogs) 데이터를 쿼리할 수 있습니다. 다음 샘플 요청에서는 Azure Monitor REST API를 사용 하 여 활동 로그를 쿼리 합니다.
 
 필터를 사용하여 활동 로그를 가져옵니다.
 
@@ -735,5 +735,5 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 
 * [모니터링 개요](../../azure-monitor/overview.md)를 검토합니다.
 * [Azure Monitor에서 지원되는 메트릭](metrics-supported.md)을 확인합니다.
-* [Microsoft Azure Monitor REST API 참조](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 검토합니다.
-* [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx)를 검토합니다.
+* [Microsoft Azure Monitor REST API 참조](/rest/api/monitor/)를 검토합니다.
+* [Azure Management Library](/previous-versions/azure/reference/mt417623(v=azure.100))를 검토합니다.

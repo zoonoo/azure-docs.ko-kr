@@ -8,18 +8,18 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 2d4fc47247c9fe2ed1af0eee59500db7e894fdd0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0847f2360a3562f96454992470e3cc2000f66b11
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260129"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502727"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure 디스크 저장소의 서버 쪽 암호화
 
 SSE(서버 쪽 암호화)는 데이터를 보호하고 조직의 보안 및 규정 준수 노력에 부합하는 데 도움이 됩니다. SSE는 기본적으로 Azure 관리 디스크 (OS 및 데이터 디스크)에 저장 된 데이터를 클라우드에 유지할 때 자동으로 암호화 합니다. 
 
-Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 투명하게 암호화되며 FIPS 140-2 규격입니다. 암호화 모듈의 기본 Azure Managed Disks에 대한 자세한 정보는 [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)을 참조하세요.
+Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 투명하게 암호화되며 FIPS 140-2 규격입니다. 암호화 모듈의 기본 Azure Managed Disks에 대한 자세한 정보는 [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)을 참조하세요.
 
 서버 쪽 암호화는 관리 디스크의 성능에 영향을 주지 않으며 추가 비용이 없습니다. 
 
@@ -58,7 +58,7 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-#### <a name="supported-regions"></a>지원되는 Azure 지역
+#### <a name="supported-regions"></a>지원되는 지역
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
@@ -70,7 +70,7 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 
 공격 받는 특정 암호화 알고리즘, 구현 또는 키와 관련 된 위험을 염려 하는 높은 수준의 보안 민감한 고객은 이제 플랫폼 관리 암호화 키를 사용 하 여 인프라 계층에서 다른 암호화 알고리즘/모드를 사용 하 여 추가 암호화 계층을 선택할 수 있습니다. 이 새 계층은 디스크, 스냅숏 및 이미지에 적용할 수 있으며,이는 모두 이중 암호화를 사용 하 여 미사용에서 암호화 됩니다.
 
-### <a name="supported-regions"></a>지원되는 Azure 지역
+### <a name="supported-regions"></a>지원되는 지역
 
 [!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
 

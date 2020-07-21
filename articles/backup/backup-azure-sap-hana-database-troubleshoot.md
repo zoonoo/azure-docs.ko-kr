@@ -3,11 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용하여 SAP HANA 데이터베이스를 백업하는 경우 발생할 수 있는 일반적인 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5c1ad55a86e80808b9055fd1b34a2d72209464a2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 88d8f5e500c39f51e5bc1afbc2ec7804b9bc79db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697074"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503611"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure의 SAP HANA 데이터베이스 백업 문제 해결
 
@@ -45,14 +46,14 @@ ms.locfileid: "83697074"
 | 오류 메시지      | <span style="font-weight:normal">지정한 SAP HANA 작업이 지원되지 않습니다.</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **가능한 원인**    | SAP HANA용 Azure Backup은 SAP HANA 네이티브 클라이언트(Studio/ Cockpit/ DBA Cockpit)에서 수행되는 증분 백업 및 작업을 지원하지 않습니다. |
-| **권장 작업** | 자세한 내용은 [여기](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)를 참조하세요. |
+| **권장 작업** | 자세한 내용은 [여기](./sap-hana-backup-support-matrix.md#scenario-support)를 참조하세요. |
 
 ### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
 | 오류 메시지      | <span style="font-weight:normal">이 SAP HANA 데이터베이스는 요청된 백업 유형을 지원하지 않습니다.</span>  |
 | ------------------ | ------------------------------------------------------------ |
 | **가능한 원인**    | Azure Backup은 증분 백업 및 스냅샷을 사용한 백업을 지원하지 않습니다. |
-| **권장 작업** | 자세한 내용은 [여기](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)를 참조하세요. |
+| **권장 작업** | 자세한 내용은 [여기](./sap-hana-backup-support-matrix.md#scenario-support)를 참조하세요. |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
 
@@ -66,14 +67,14 @@ ms.locfileid: "83697074"
 | 오류 메시지      | <span style="font-weight:normal">SDC와 MDC 간 업그레이드가 검색되었습니다.</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
 | **가능한 원인**    | SAP HANA 인스턴스가 SDC에서 MDC로 업그레이드되었습니다. 업데이트 후에 백업이 실패합니다. |
-| **권장 작업** | [SDC에서 MDC로 업그레이드](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid)에 나열된 단계에 따라 문제를 해결합니다. |
+| **권장 작업** | [SDC에서 MDC로 업그레이드](#sdc-to-mdc-upgrade-with-a-change-in-sid)에 나열된 단계에 따라 문제를 해결합니다. |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
 | 오류 메시지      | <span style="font-weight:normal">잘못된 Backint 구성이 검색되었습니다.</span>                       |
 | ------------------ | ------------------------------------------------------------ |
 | **가능한 원인**    | Azure Backup의 지원 매개 변수를 잘못 지정했습니다. |
-| **권장 작업** | 다음(backint) 매개 변수가 설정되었는지 확인합니다.<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>HOST에 backint 기반 매개 변수가 있는 경우 해당 매개 변수를 제거합니다. 매개 변수가 HOST 수준에 없지만 데이터베이스 수준에서 수동으로 수정된 경우 앞에서 설명한 대로 적절한 값으로 되돌립니다. 또는 Azure Portal에서 [보호 중지 및 백업 데이터 보존](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database)을 실행한 후 **백업 다시 시작**을 선택합니다. |
+| **권장 작업** | 다음(backint) 매개 변수가 설정되었는지 확인합니다.<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>HOST에 backint 기반 매개 변수가 있는 경우 해당 매개 변수를 제거합니다. 매개 변수가 HOST 수준에 없지만 데이터베이스 수준에서 수동으로 수정된 경우 앞에서 설명한 대로 적절한 값으로 되돌립니다. 또는 Azure Portal에서 [보호 중지 및 백업 데이터 보존](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)을 실행한 후 **백업 다시 시작**을 선택합니다. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
 
@@ -203,4 +204,4 @@ SID를 변경하는 SDC에서 MDC로의 업그레이드는 다음과 같이 처�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure VM의 SAP HANA 데이터베이스 백업에 대해서는 [질문과 대답](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm)을 검토하세요.
+- Azure VM의 SAP HANA 데이터베이스 백업에 대해서는 [질문과 대답](./sap-hana-faq-backup-azure-vm.md)을 검토하세요.

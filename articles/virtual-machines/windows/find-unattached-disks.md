@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ea3a4452b87fbb1c8663a66ef29c4e9fb891a6b3
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 8d57b4499f3f1b2f22c14cc912e81b709ec4054c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300640"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500330"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>연결되지 않은 Azure 관리/비관리 디스크 찾기 및 삭제
 
@@ -86,4 +87,4 @@ foreach($storageAccount in $storageAccounts){
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [스토리지 계정 삭제](../../storage/common/storage-account-create.md#delete-a-storage-account) 및 [PowerShell을 사용하여 분리된 디스크 확인](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)을 참조하세요.
+자세한 내용은 [스토리지 계정 삭제](../../storage/common/storage-account-create.md#delete-a-storage-account) 및 [PowerShell을 사용하여 분리된 디스크 확인](/archive/blogs/ukplatforms/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell)을 참조하세요.

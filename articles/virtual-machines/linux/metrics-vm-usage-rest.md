@@ -8,21 +8,22 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1aa108d7f903ed791c534b2b88550eb8d022ef64
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944748"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502081"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>REST API를 사용하여 가상 머신 사용률 메트릭 가져오기
 
-이 예제에서는 [Azure REST API](/rest/api/azure/)를 사용하여 [Linux 가상 머신](https://docs.microsoft.com/azure/virtual-machines/linux/monitor)의 CPU 사용량을 검색하는 방법을 보여 줍니다.
+이 예제에서는 [Azure REST API](/rest/api/azure/)를 사용하여 Linux 가상 머신의 CPU 사용량을 검색하는 방법을 보여 줍니다.
 
 REST API에 대한 전체 참조 설명서 및 추가 샘플은 [Azure Monitor REST 참조](/rest/api/monitor)에서 사용할 수 있습니다. 
 
 ## <a name="build-the-request"></a>요청 빌드
 
-다음 GET 요청을 사용하여 가상 머신의 [CPU 사용률 메트릭](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines)을 수집합니다.
+다음 GET 요청을 사용하여 가상 머신의 [CPU 사용률 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)을 수집합니다.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -39,12 +40,12 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
-| 이름 | Description |
+| Name | Description |
 | :--- | :---------- |
-| subscriptionId | Azure 구독을 식별하는 구독 ID입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다. |
+| subscriptionId | Azure 구독을 식별하는 구독 ID입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다. |
 | resourceGroupName | 리소스와 연결된 Azure 리소스 그룹의 이름입니다. Azure Resource Manager API, CLI 또는 포털에서 이 값을 가져올 수 있습니다. |
 | vmname | Azure Virtual Machine의 이름입니다. |
-| metricnames | 쉼표로 구분된 유효한 [Load Balancer 메트릭](/azure/load-balancer/load-balancer-standard-diagnostics) 목록입니다. |
+| metricnames | 쉼표로 구분된 유효한 [Load Balancer 메트릭](../../load-balancer/load-balancer-standard-diagnostics.md) 목록입니다. |
 | api-version | 요청에 사용할 API 버전입니다.<br /><br /> 이 문서에서는 위 URL에 포함되어 있는 api-version `2018-01-01`을 다룹니다.  |
 | timespan | 반환된 메트릭의 시간 범위를 정의하는 `startDateTime_ISO/endDateTime_ISO` 형식의 문자열입니다. 이 선택적 매개 변수는 예제에서 하루 동안의 데이터를 반환하도록 설정되어 있습니다. |
 | &nbsp; | &nbsp; |

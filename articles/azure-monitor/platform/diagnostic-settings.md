@@ -1,5 +1,5 @@
 ---
-title: 다른 대상에 플랫폼 로그 및 메트릭을 전송 하는 진단 설정 만들기
+title: 플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 description: 진단 설정을 사용 하 여 Azure Monitor 로그, Azure storage 또는 Azure Event Hubs에 Azure Monitor 플랫폼 메트릭 및 로그를 보냅니다.
 author: bwren
 ms.author: bwren
@@ -7,14 +7,14 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: a037eddb13645036fcbe501ecba33923733b6d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a9eaeb9b77c7b4dd7e0b2347c66de3a325a66ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944375"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505179"
 ---
-# <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>다른 대상에 플랫폼 로그 및 메트릭을 전송 하는 진단 설정 만들기
+# <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. [플랫폼 메트릭은](data-platform-metrics.md) 기본적으로 수집 되며 일반적으로 Azure Monitor 메트릭 데이터베이스에 저장 됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
 
 > [!IMPORTANT]
@@ -27,6 +27,9 @@ Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로�
 
 단일 진단 설정은 각 대상 중 하나만 정의할 수 있습니다. 데이터를 2개 이상의 특정 대상 유형(예: 두 개의 다른 Log Analytics 작업 영역) 으로 보내려면 여러 개의 설정을 만듭니다. 각 리소스는 진단 설정을 5개까지 포함할 수 있습니다.
 
+다음 비디오에서는 진단 설정으로 플랫폼 로그를 라우팅하는 방법을 보여 줍니다.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
+
 > [!NOTE]
 > [플랫폼 메트릭은](metrics-supported.md) [Azure Monitor 메트릭에](data-platform-metrics.md)자동으로 전송 됩니다. 진단 설정은 특정 제한 사항이 있는 [로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 다른 모니터링 데이터를 분석 하기 위해 특정 Azure 서비스에 대 한 메트릭을 Azure Monitor 로그에 전송 하는 데 사용할 수 있습니다. 
 >  
@@ -34,10 +37,10 @@ Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로�
 > 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다. *예*: 블록 체인의 ' IOReadBytes ' 메트릭은 노드 수준별로 탐색 하 고 차트로 표시할 수 있습니다. 그러나 진단 설정을 통해 내보낸 메트릭은 모든 노드에 대 한 모든 읽기 바이트로를 나타냅니다. 또한 내부 제한으로 인해 모든 메트릭을 Azure Monitor Logs/Log Analytics으로 내보낼 수 없습니다. 자세한 내용은 내보낼 수 있는 [메트릭 목록](metrics-supported-export-diagnostic-settings.md)을 참조 하십시오. 
 >  
 >  
-> 특정 메트릭에 대 한 이러한 제한을 해결 하려면 [REST API 메트릭을](https://docs.microsoft.com/rest/api/monitor/metrics/list) 사용 하 여 수동으로 추출 하 고 [AZURE MONITOR 데이터 수집기 API](data-collector-api.md)를 사용 하 여 Azure Monitor 로그로 가져오는 것이 좋습니다.  
+> 특정 메트릭에 대 한 이러한 제한을 해결 하려면 [REST API 메트릭을](/rest/api/monitor/metrics/list) 사용 하 여 수동으로 추출 하 고 [AZURE MONITOR 데이터 수집기 API](data-collector-api.md)를 사용 하 여 Azure Monitor 로그로 가져오는 것이 좋습니다.  
 
 
-## <a name="destinations"></a>Destinations
+## <a name="destinations"></a>대상
 
 다음 표의 대상에 플랫폼 로그 및 메트릭을 보낼 수 있습니다. 대상에 데이터를 보내는 방법에 대 한 자세한 내용은 다음 표의 각 링크를 따르세요.
 
@@ -48,7 +51,7 @@ Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로�
 | [Azure storage 계정](#azure-storage) | Azure storage 계정에 로그 및 메트릭을 보관 하는 것은 감사, 정적 분석 또는 백업에 유용 합니다. Azure Monitor 로그 및 Log Analytics 작업 영역에 비해 Azure storage는 비용이 적고 로그가 무기한으로 보관 될 수 있습니다. |
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 필요한 사용 권한으로 진단 설정의 대상을 만들어야 합니다. 각 대상에 대 한 필수 조건 요구 사항은 아래 섹션을 참조 하세요.
 
 ### <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
@@ -86,7 +89,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 
       ![진단 설정](media/diagnostic-settings/menu-monitor.png)
 
-   - 활동 로그의 경우 **Azure Monitor** 메뉴에서 **활동 로그** 를 클릭 한 다음 **진단 설정**을 클릭 합니다. 활동 로그에 대 한 레거시 구성은 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [기존 설정 사용 안 함](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) 을 참조 하세요.
+   - 활동 로그의 경우 **Azure Monitor** 메뉴에서 **활동 로그** 를 클릭 한 다음 **진단 설정**을 클릭 합니다. 활동 로그에 대 한 레거시 구성은 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [기존 설정 사용 안 함](./activity-log.md#legacy-collection-methods) 을 참조 하세요.
 
         ![진단 설정](media/diagnostic-settings/menu-activity-log.png)
 
@@ -141,7 +144,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 
 ## <a name="create-using-powershell"></a>PowerShell을 사용 하 여 만들기
 
-[Azure PowerShell](powershell-quickstart-samples.md)를 사용 하 여 진단 설정을 만들려면 [AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet을 사용 합니다. 매개 변수에 대 한 설명은이 cmdlet에 대 한 설명서를 참조 하세요.
+[Azure PowerShell](../samples/powershell-samples.md)를 사용 하 여 진단 설정을 만들려면 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet을 사용 합니다. 매개 변수에 대 한 설명은이 cmdlet에 대 한 설명서를 참조 하세요.
 
 > [!IMPORTANT]
 > Azure 활동 로그에는이 방법을 사용할 수 없습니다. 대신 [리소스 관리자 템플릿을 사용 하 여 Azure Monitor에서 진단 설정 만들기](diagnostic-settings-template.md) 를 사용 하 여 리소스 관리자 템플릿을 만들고 PowerShell을 사용 하 여 배포 합니다.
@@ -154,7 +157,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## <a name="create-using-azure-cli"></a>Azure CLI를 사용 하 여 만들기
 
-[Az monitor 진단-설정 만들기](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest)를 사용 하 여 진단 설정을 만듭니다. 매개 변수에 대 한 설명은이 명령의 설명서를 참조 하세요.
+[Az monitor 진단-설정 만들기](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 [Azure CLI](/cli/azure/monitor?view=azure-cli-latest)를 사용 하 여 진단 설정을 만듭니다. 매개 변수에 대 한 설명은이 명령의 설명서를 참조 하세요.
 
 > [!IMPORTANT]
 > Azure 활동 로그에는이 방법을 사용할 수 없습니다. 대신 [리소스 관리자 템플릿을 사용 하 여 Azure Monitor에서 진단 설정 만들기](diagnostic-settings-template.md) 를 사용 하 여 리소스 관리자 템플릿을 만들고 CLI를 사용 하 여 배포 합니다.
@@ -176,7 +179,7 @@ az monitor diagnostic-settings create  \
 리소스 관리자 템플릿을 사용 하 여 진단 설정을 만들거나 업데이트 [Azure Monitor의 진단 설정에 대 한 리소스 관리자 템플릿 예제](../samples/resource-manager-diagnostic-settings.md) 를 참조 하세요.
 
 ## <a name="create-using-rest-api"></a>REST API를 사용하여 만들기
-[Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용 하 여 진단 설정을 만들거나 업데이트 하려면 [진단 설정](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) 을 참조 하세요.
+[Azure Monitor REST API](/rest/api/monitor/)를 사용 하 여 진단 설정을 만들거나 업데이트 하려면 [진단 설정](/rest/api/monitor/diagnosticsettings) 을 참조 하세요.
 
 ## <a name="create-using-azure-policy"></a>Azure Policy를 사용 하 여 만들기
 각 Azure 리소스에 대 한 진단 설정을 만들어야 하기 때문에 각 리소스가 생성 될 때마다 진단 설정을 자동으로 만드는 데 Azure Policy 사용할 수 있습니다. 자세한 내용은 [Azure Policy를 사용 하 여 규모에 Azure Monitor 배포](deploy-scale.md) 를 참조 하세요.

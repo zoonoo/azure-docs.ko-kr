@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c09d8d9fd2ef22aeaf791ae44d877a87033318cc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7baabe455128bf420a3c3e11ea83bb5357ed35c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655896"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505162"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](../../azure-monitor/platform/itsmc-overview.md)를 참조하세요.
@@ -38,7 +39,7 @@ ms.locfileid: "83655896"
 - Service Manager 웹 애플리케이션(웹앱)이 배포 및 구성되어 있습니다. 웹앱에 대한 정보는 [여기](#create-and-deploy-service-manager-web-app-service)를 참조하세요.
 - 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection).
 - 지원되는 Service Manager 버전:  2012 R2 또는 2016.
-- 사용자 역할:  [고급 운영자](https://technet.microsoft.com/library/ff461054.aspx).
+- 사용자 역할:  [고급 운영자](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### <a name="connection-procedure"></a>연결 절차
 
@@ -200,7 +201,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 > 마지막으로, 업데이트를 클릭합니다.
 > 2) **연결이 활성 상태로 유지되도록 내부 프로시저 설정(권장):** 새로 고침 토큰 수명에 따라 토큰을 새로 고칩니다. 새로 고침 토큰의 예상 만료 시간 전에 다음 작업을 수행해야 합니다(새로 고침 토큰 수명이 만료되기 며칠 전에 수행할 것을 권장):
 >
-> 1. [ITSM 커넥터 구성에 대한 수동 동기화 프로세스 완료](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 1. [ITSM 커넥터 구성에 대한 수동 동기화 프로세스 완료](./itsmc-resync-servicenow.md)
 > 2. 보안상의 이유로 이전 키를 유지하지 않는 것이 좋으므로 이전 새로 고침 토큰을 철회하세요. ServiceNow 블레이드에서 시스템 OAuth를 검색한 후 토큰 관리를 선택합니다. OAuth 이름 및 만료 날짜에 따라 목록에서 이전 토큰을 선택합니다.
 > ![SNOW 시스템 OAuth 정의](media/itsmc-connections/snow-system-oauth.png)
 > 3. 액세스 철회, 철회를 차례로 클릭합니다.
@@ -247,6 +248,10 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 ServiceNow 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
 자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+
+
+> [!NOTE]
+> ServiceNow에는 시간당 요청에 대 한 요금 제한이 있습니다. 이 제한을 구성 하려면 ServiceNow 인스턴스에서 "인바운드 REST API 전송률 제한"을 정의 하 여이를 사용 합니다.
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>ServiceNow 앱에서 통합 사용자 역할 만들기
 

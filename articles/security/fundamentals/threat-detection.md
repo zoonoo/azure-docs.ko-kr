@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653630"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503288"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
@@ -339,14 +340,13 @@ Anomaly Detection API는 시계열 데이터에서 다양한 비정상 패턴을
 
 섀도 IT를 발견하고, 위험을 평가하며, 정책을 적용하고, 활동을 조사하며, 위협을 중지할 수 있는 도구를 사용하면 조직에서 중요한 데이터에 대한 제어를 유지하면서 보다 안전하게 클라우드로 이동할 수 있습니다.
 
-| | |
-|---|---|
+| 범주 | 설명 |
+| -------- | ----------- |
 | 검색 | Cloud App Security로 섀도 IT를 발견합니다. 클라우드 환경에서 앱, 활동, 사용자, 데이터 및 파일을 검색하여 가시성을 확보합니다. 클라우드에 연결된 타사 앱을 발견합니다.|
 |조사 | 클라우드 법정 분석 도구로 클라우드 앱을 조사하여 네트워크에서 위험한 앱, 특정 사용자 및 파일을 심층 분석합니다. 클라우드에서 수집한 데이터의 패턴을 찾습니다. 클라우드를 모니터링하는 보고서를 생성합니다. |
 | 제어 | 네트워크 클라우드 트래픽을 최대한 제어할 수 있도록 정책 및 경고를 설정하여 위험을 완화합니다. Cloud App Security를 사용하여 사용자를 안전하고 승인된 클라우드 앱 대체 기능으로 마이그레이션합니다. |
 | 보호 | Cloud App Security를 사용하여 애플리케이션을 승인하거나 금지하고, 데이터 손실 방지를 강화하며, 권한 및 공유를 제어하고, 사용자 지정 보고서 및 알림을 생성합니다. |
 | 제어 | 네트워크 클라우드 트래픽을 최대한 제어할 수 있도록 정책 및 경고를 설정하여 위험을 완화합니다. Cloud App Security를 사용하여 사용자를 안전하고 승인된 클라우드 앱 대체 기능으로 마이그레이션합니다. |
-| | |
 
 
 ![Cloud App Security 다이어그램](./media/threat-detection/azure-threat-detection-fig14.png)

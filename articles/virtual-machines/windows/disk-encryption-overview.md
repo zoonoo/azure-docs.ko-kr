@@ -8,11 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5648dc1a915f2d38dc7811e6fe23ec76d0aa6f23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1934470413ef1b0c757820e6539adcd43783acd2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857272"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500653"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows Vm에 대 한 Azure Disk Encryption 
 
@@ -32,7 +33,7 @@ Azure Disk Encryption을 사용하여 고객 조직의 보안 및 규정 준수 
 
 ### <a name="supported-vms"></a>지원되는 VM
 
-Windows Vm은 [다양 한 크기로](sizes-general.md)사용할 수 있습니다. Azure Disk Encryption는 [기본, a 시리즈 vm](https://azure.microsoft.com/pricing/details/virtual-machines/series/)또는 2gb 미만의 메모리가 있는 가상 컴퓨터에서 사용할 수 없습니다.
+Windows Vm은 [다양 한 크기로](../sizes-general.md)사용할 수 있습니다. Azure Disk Encryption는 [기본, a 시리즈 vm](https://azure.microsoft.com/pricing/details/virtual-machines/series/)또는 2gb 미만의 메모리가 있는 가상 컴퓨터에서 사용할 수 없습니다.
 
 Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
 
@@ -78,7 +79,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 | --- | --- |
 | Azure Key Vault | Key Vault는 FIPS(Federal Information Processing Standard) 검증 하드웨어 보안 모듈을 기반으로 하는 암호화 키 관리 서비스입니다. 이러한 표준은 암호화 키 및 중요한 비밀을 보호하는 데 도움이 됩니다. 자세한 내용은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 설명서 및 [Azure Disk Encryption을 위한 Key Vault 만들기 및 구성](disk-encryption-key-vault.md)을 참조하세요. |
 | Azure CLI | [Azure CLI](/cli/azure/install-azure-cli)는 명령줄에서 Azure 리소스를 관리하고 관리하는 데 최적화되어 있습니다.|
-| BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) 는 windows vm에서 디스크 암호화를 사용 하도록 설정 하는 데 사용 되는 업계에서 인식 되는 windows 볼륨 암호화 기술입니다. |
+| BitLocker |[BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831713(v=ws.11)) 는 windows vm에서 디스크 암호화를 사용 하도록 설정 하는 데 사용 되는 업계에서 인식 되는 windows 볼륨 암호화 기술입니다. |
 | KEK(키 암호화 키) | 비밀을 보호하거나 래핑하는 데 사용할 수 있는 비대칭 키(RSA 2048)입니다. HSM(하드웨어 보안 모듈) 보호 키 또는 소프트웨어 보호 키를 제공할 수 있습니다. 자세한 내용은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 설명서 및 [Azure Disk Encryption을 위한 Key Vault 만들기 및 구성](disk-encryption-key-vault.md)을 참조하세요. |
 | PowerShell cmdlet | 자세한 내용은 [Azure PowerShell cmdlet](/powershell/azure/overview)을 참조하세요. |
 
@@ -91,5 +92,3 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 - [Azure Disk Encryption 필수 구성 요소 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started)
 - [Azure Disk Encryption 필수 조건 PowerShell 스크립트](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성](disk-encryption-key-vault.md)
-
-

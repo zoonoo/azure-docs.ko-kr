@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ab95223d084436d1bf39ba557ec3b01c0b534d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260664"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503390"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>대량 실행자 .NET 라이브러리를 사용 하 여 Azure Cosmos DB에서 대량 작업을 수행 합니다.
 
@@ -27,11 +27,11 @@ ms.locfileid: "85260664"
 
 현재 대량 실행자 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정 에서만 지원 됩니다. 이 문서에서는 SQL API 계정에서 bulk executor .NET 라이브러리를 사용 하는 방법을 설명 합니다. Gremlin API 계정으로 bulk executor .NET 라이브러리를 사용 하는 방법에 대 한 자세한 내용은 [Azure Cosmos DB GREMLIN API에서 대량 작업 수행](bulk-executor-graph-dotnet.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Visual Studio 2019이 아직 설치 되지 않은 경우 [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드 하 여 사용할 수 있습니다. Visual Studio를 설치 하는 동안 "Azure 개발"을 사용 하도록 설정 했는지 확인 합니다.
 
-* Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+* Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 * Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 볼 수 있습니다](https://azure.microsoft.com/try/cosmosdb/). 또는 끝점과 함께 [Azure Cosmos DB 에뮬레이터](https://docs.microsoft.com/azure/cosmos-db/local-emulator) 를 사용할 수 있습니다 `https://localhost:8081` . 기본 키는 [인증 요청](local-emulator.md#authenticating-requests)에 제공됩니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "85260664"
 
 이제 GitHub에서 샘플 .NET 응용 프로그램을 다운로드 하 여 코드 작업으로 전환 해 보겠습니다. 이 응용 프로그램은 Azure Cosmos 계정에 저장 된 데이터에 대 한 대량 작업을 수행 합니다. 응용 프로그램을 복제 하려면 명령 프롬프트를 열고 복사 하려는 디렉터리로 이동한 후 다음 명령을 실행 합니다.
 
-```
+```bash
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
@@ -203,4 +203,4 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Nuget 패키지 세부 정보 및 릴리스 정보에 대 한 자세한 내용은 [bulk EXECUTOR SDK 세부 정보](sql-api-sdk-bulk-executor-dot-net.md)를 참조 하세요.
+* NuGet 패키지 세부 정보 및 릴리스 정보에 대 한 자세한 내용은 [bulk EXECUTOR SDK 세부 정보](sql-api-sdk-bulk-executor-dot-net.md)를 참조 하세요.

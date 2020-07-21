@@ -5,29 +5,33 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277879"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502517"
 ---
-Azure 공유 디스크(미리 보기)는 여러 VM(가상 머신)에 관리 디스크를 동시에 연결할 수 있게 해주는 Azure 관리 디스크의 새로운 기능입니다. 관리 디스크를 여러 VM에 연결하면 새 클러스터된 애플리케이션을 배포하거나 기존 클러스터된 애플리케이션을 Azure로 마이그레이션할 수 있습니다.
+Azure 공유 디스크는 여러 Vm (가상 컴퓨터)에 관리 디스크를 동시에 연결할 수 있도록 하는 Azure managed disks에 대 한 새로운 기능입니다. 관리 디스크를 여러 VM에 연결하면 새 클러스터된 애플리케이션을 배포하거나 기존 클러스터된 애플리케이션을 Azure로 마이그레이션할 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
-클러스터의 VM은 SCSI PR([SCSI 영구 예약](https://www.t10.org/members/w_spc3.htm))을 사용하여 클러스터된 애플리케이션에서 선택한 예약에 따라 연결된 디스크에서 데이터를 읽거나 쓸 수 있습니다. SCSI PR은 온-프레미스 SAN(저장 영역 네트워크)에서 실행되는 애플리케이션에서 활용하는 업계 표준입니다. 관리 디스크에서 SCSI PR을 사용하도록 설정하면 이러한 애플리케이션을 있는 그대로 Azure로 마이그레이션할 수 있습니다.
+클러스터의 Vm은 scsi PR ( [Scsi 영구 예약](https://www.t10.org/members/w_spc3.htm) )을 사용 하 여 클러스터 된 응용 프로그램에서 선택한 예약에 따라 연결 된 디스크를 읽거나 쓸 수 있습니다. SCSI PR은 온-프레미스 SAN(저장 영역 네트워크)에서 실행되는 애플리케이션에서 활용하는 업계 표준입니다. 관리 디스크에서 SCSI PR을 사용하도록 설정하면 이러한 애플리케이션을 있는 그대로 Azure로 마이그레이션할 수 있습니다.
 
-공유 관리 디스크는 여러 VM에서 액세스할 수 있는 공유 블록 스토리지를 제공하며, LUN(논리 단위 번호)으로 제공됩니다. 이때 LUN은 대상(디스크)에서 개시 장치(VM)로 제공됩니다. 이러한 LUN은 VM에 대한 DAS(직접 연결 스토리지) 또는 로컬 드라이브처럼 보입니다.
+공유 관리 디스크는 여러 Vm에서 액세스할 수 있는 공유 블록 저장소를 제공 합니다. 이러한 저장소는 Lun (논리 단위 번호)으로 노출 됩니다. 이때 LUN은 대상(디스크)에서 개시 장치(VM)로 제공됩니다. 이러한 LUN은 VM에 대한 DAS(직접 연결 스토리지) 또는 로컬 드라이브처럼 보입니다.
 
-공유 관리 디스크는 SMB/NFS를 사용하여 액세스할 수 있는 완전 관리형 파일 시스템을 기본적으로 제공하지 않습니다. 클러스터 노드 통신뿐만 아니라 쓰기 잠금도 처리하는 WSFC(Windows Server 장애 조치 (Failover) 클러스터) 또는 Pacemaker와 같은 클러스터 관리자를 사용해야 합니다.
+공유 관리 디스크는 SMB/NFS를 사용하여 액세스할 수 있는 완전 관리형 파일 시스템을 기본적으로 제공하지 않습니다. 클러스터 노드 통신 및 쓰기 잠금을 처리 하는 WSFC (Windows Server 장애 조치 (Failover) 클러스터) 또는 Pacemaker와 같은 클러스터 관리자를 사용 해야 합니다.
 
 ## <a name="limitations"></a>제한 사항
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
+
+### <a name="operating-system-requirements"></a>운영 체제 요구 사항
+
+공유 디스크는 여러 운영 체제를 지원 합니다. 지원 되는 운영 체제는 [Windows](#windows) 또는 [Linux](#linux) 섹션을 참조 하십시오.
 
 ## <a name="disk-sizes"></a>디스크 크기
 
@@ -37,23 +41,25 @@ Azure 공유 디스크(미리 보기)는 여러 VM(가상 머신)에 관리 디�
 
 ### <a name="windows"></a>Windows
 
-클러스터 노드 통신을 위해 핵심 인프라를 모두 처리하는 WSFC에서 빌드되는 대부분의 Windows 기반 클러스터링은 애플리케이션이 병렬 액세스 패턴을 활용할 수 있도록 합니다. WSFC를 사용하면 Windows Server 버전에 따라 CSV 기반 옵션과 CSV 기반이 아닌 옵션을 모두 사용할 수 있습니다. 자세한 내용은 [장애 조치(failover) 클러스터 만들기](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster)를 참조하세요.
+Azure 공유 디스크는 Windows Server 2008 이상에서 지원 됩니다. 대부분의 Windows 기반 클러스터링은 클러스터 노드 통신용 핵심 인프라를 모두 처리 하 여 응용 프로그램이 병렬 액세스 패턴을 활용할 수 있도록 하는 WSFC를 기반으로 합니다. WSFC를 사용하면 Windows Server 버전에 따라 CSV 기반 옵션과 CSV 기반이 아닌 옵션을 모두 사용할 수 있습니다. 자세한 내용은 [장애 조치(failover) 클러스터 만들기](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster)를 참조하세요.
 
 WSFC에서 실행되는 인기 있는 일부 애플리케이션은 다음과 같습니다.
 
 - [Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
-- SoFS(스케일 아웃 파일 서버)
+- SoFS (스케일 아웃 파일 서버) [템플릿] (https://aka.ms/azure-shared-disk-sofs-template)
+- SAP ASCS/SCS [템플릿] (https://aka.ms/azure-shared-disk-sapacs-template)
 - 일반적으로 사용되는 파일 서버(IW 워크로드)
 - RDS UPD(원격 데스크톱 서버 사용자 프로필 디스크)
-- SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
 
-Linux 클러스터는 [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker)와 같은 클러스터 관리자를 활용할 수 있습니다. Pacemaker는 [Corosync](http://corosync.github.io/corosync/)를 기반으로 하며, 고가용성 환경에 배포된 애플리케이션에 클러스터 통신을 사용하도록 설정합니다. 몇 가지 일반적인 클러스터된 파일 시스템으로는 [ocfs2](https://oss.oracle.com/projects/ocfs2/) 및 [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2)가 있습니다. [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) 및 [sg_persist](https://linux.die.net/man/8/sg_persist) 등의 유틸리티를 사용하여 예약 및 등록을 조작할 수 있습니다.
+Azure 공유 디스크는 다음에서 지원 됩니다.
+- [SUSE SLE for SAP and SUSE SLE HA 15 SP1 이상](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [Ubuntu 18.04 이상](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
+- [RHEL 8 버전의 RHEL developer preview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
+- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
-#### <a name="ubuntu"></a>Ubuntu
-
-Azure 공유 디스크에서 Corosync 및 Pacemaker를 사용하여 Ubuntu 고가용성을 설정하는 방법에 대한 자세한 내용은 [Ubuntu Community Discourse](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)를 참조하세요.
+Linux 클러스터는 [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker)와 같은 클러스터 관리자를 활용할 수 있습니다. Pacemaker는 [Corosync](http://corosync.github.io/corosync/)를 기반으로 하며, 고가용성 환경에 배포된 애플리케이션에 클러스터 통신을 사용하도록 설정합니다. 몇 가지 일반적인 클러스터된 파일 시스템으로는 [ocfs2](https://oss.oracle.com/projects/ocfs2/) 및 [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2)가 있습니다. Scsi 영구 예약 (SCSI PR) 및/또는 STONITH SBD (Block Device) 기반 클러스터링 모델을 사용 하 여 디스크에 대 한 arbitrating 액세스를 수행할 수 있습니다. SCSI PR을 사용 하는 경우 [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) , [sg_persist](https://linux.die.net/man/8/sg_persist)등의 유틸리티를 사용 하 여 예약 및 등록을 조작할 수 있습니다.
 
 ## <a name="persistent-reservation-flow"></a>영구 예약 흐름
 
@@ -85,12 +91,13 @@ Azure 공유 디스크에서 Corosync 및 Pacemaker를 사용하여 Ubuntu 고�
 
 Ultra Disk는 총 두 개의 제한에 대한 추가 제한을 제공합니다. 따라서 Ultra Disk 예약 흐름이 이전 섹션에 설명된 대로 작동하거나 성능을 제한하고 더 세부적으로 성능을 분산할 수 있습니다.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Reservation Holder, Registered 및 Others에 대한 ReadOnly 또는 Read/Write 액세스를 보여 주는 테이블의 이미지":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="예약 소유자, 등록 및 기타에 대 한 ' 읽기 전용 ' 또는 ' 읽기/쓰기 ' 액세스를 보여 주는 테이블의 이미지입니다.":::
 
 ## <a name="performance-throttles"></a>성능 제한
 
-### <a name="premium-ssd-performance-throttles"></a>프리미엄 ssd 성능 제한
-프리미엄 ssd를 사용 하는 경우 디스크 IOPS 및 처리량은 고정 됩니다. 예를 들어 P30의 IOPS는 5000입니다. 이 값은 디스크가 2 개의 Vm 또는 5 개의 Vm에서 공유 되는지 여부를 유지 합니다. 단일 VM에서 디스크 제한에 도달 하거나 둘 이상의 Vm으로 나눌 수 있습니다. 
+### <a name="premium-ssd-performance-throttles"></a>프리미엄 SSD performance 제한
+
+프리미엄 SSD를 사용 하는 경우 디스크 IOPS 및 처리량은 고정 됩니다. 예를 들어 P30의 IOPS는 5000입니다. 이 값은 디스크가 2 개의 Vm 또는 5 개의 Vm에서 공유 되는지 여부를 유지 합니다. 단일 VM에서 디스크 제한에 도달 하거나 둘 이상의 Vm으로 나눌 수 있습니다. 
 
 ### <a name="ultra-disk-performance-throttles"></a>Ultra Disk 성능 제한
 
@@ -101,8 +108,8 @@ Ultra Disk는 수정 가능한 특성을 제공하고 수정할 수 있도록 �
 |---------|---------|
 |DiskIOPSReadWrite     |쓰기 액세스 권한이 있는 공유 디스크를 탑재하는 모든 VM에서 허용되는 총 IOPS 수         |
 |DiskMBpsReadWrite     |쓰기 액세스 권한이 있는 공유 디스크를 탑재하는 모든 VM에서 허용되는 총 처리량(MB/s)         |
-|DiskIOPSReadOnly*     |읽기 전용 공유 디스크를 탑재하는 모든 VM에서 허용되는 총 IOPS 수         |
-|DiskMBpsReadOnly*     |읽기 전용 공유 디스크를 탑재하는 모든 VM에서 허용되는 총 처리량(MB/s)         |
+|DiskIOPSReadOnly*     |공유 디스크를 탑재 하는 모든 Vm에서 허용 되는 총 IOPS 수 `ReadOnly` 입니다.         |
+|DiskMBpsReadOnly*     |공유 디스크를 탑재 하는 모든 Vm에서 허용 되는 총 처리량 (MB/s) `ReadOnly` 입니다.         |
 
 \* 공유 Ultra Disk에만 적용
 
@@ -122,18 +129,22 @@ Ultra Disk는 수정 가능한 특성을 제공하고 수정할 수 있도록 �
 
 ##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>클러스터 공유 볼륨을 사용하는 2노드 클러스터
 
-클러스터된 공유 볼륨을 사용하는 2노드 WSFC의 예는 다음과 같습니다. 이 구성을 사용하는 경우 두 VM이 디스크에 대한 동시 쓰기 액세스 권한을 가지며, 이로 인해 두 VM에서 ReadWrite 제한이 분할되고 ReadOnly 제한이 사용되지 않습니다.
+클러스터된 공유 볼륨을 사용하는 2노드 WSFC의 예는 다음과 같습니다. 이 구성을 사용 하는 경우 두 Vm은 디스크에 대 한 동시 쓰기 액세스 권한을 가지 며,이로 인해 `ReadWrite` 두 vm 간에 제한이 분할 되 고 `ReadOnly` 스로틀이 사용 되지 않습니다.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV 2노드 울트라 예제":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>클러스터 공유 볼륨을 사용하지 않는 2노드 클러스터
 
-다음은 클러스터된 공유 볼륨을 사용하지 않는 2노드 WSFC의 예입니다. 이 구성을 사용하면 디스크에 대한 쓰기 권한이 하나의 VM에만 있습니다. 이로 인해 ReadWrite 제한이 주 VM에 독점적으로 사용되며, ReadOnly 제한은 보조 데이터베이스에만 사용됩니다.
+다음은 클러스터된 공유 볼륨을 사용하지 않는 2노드 WSFC의 예입니다. 이 구성을 사용하면 디스크에 대한 쓰기 권한이 하나의 VM에만 있습니다. 이로 인해 제한이 `ReadWrite` 주 VM에 독점적으로 사용 되 고 보조 데이터베이스에만 제한이 사용 됩니다 `ReadOnly` .
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV 2노드에 CSV Ultra Disk가 없는 예제":::
 
 ##### <a name="four-node-linux-cluster"></a>4노드 Linux 클러스터
 
-단일 작성기 및 3개의 스케일 아웃 판독기를 사용하는 4노드 Linux 클러스터의 예는 다음과 같습니다. 이 구성을 사용하면 디스크에 대한 쓰기 권한이 하나의 VM에만 있습니다. 이로 인해 ReadWrite 제한이 주 VM에 독점적으로 사용되며, ReadOnly 제한이 보조 VM에 분할됩니다.
+단일 작성기 및 3개의 스케일 아웃 판독기를 사용하는 4노드 Linux 클러스터의 예는 다음과 같습니다. 이 구성을 사용하면 디스크에 대한 쓰기 권한이 하나의 VM에만 있습니다. 이렇게 하면 제한이 `ReadWrite` 주 vm에 독점적으로 사용 되며 `ReadOnly` 보조 vm에 의해 제한 됩니다.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="4노드 울트라 제한 예제":::
+
+#### <a name="ultra-pricing"></a>울트라 가격
+
+Ultra shared 디스크는 프로 비전 된 용량, 총 프로 비전 된 IOPS (diskIOPSReadWrite + diskIOPSReadOnly) 및 총 프로 비전 된 처리량 MBps (diskMBpsReadWrite + diskMBpsReadOnly)를 기준으로 가격이 책정 됩니다. 추가 VM 탑재에 대해 추가 요금이 부과 되지 않습니다. 예를 들어 다음 구성이 포함 된 ultra 공유 디스크 (diskSizeGB: 1024, DiskIOPSReadWrite: 1만, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1)는 두 개의 Vm 또는 5 개의 Vm에 탑재 되었는지 여부에 관계 없이 1024 GiB, 10100 IOPS 및 601 MBps로 청구 됩니다.

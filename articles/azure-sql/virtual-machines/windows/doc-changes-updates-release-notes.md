@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 9f41cb11960dbe9487231f14b005376261075a83
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8474b49e3e6b12a613de19df055cbf6e43fb0aa2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231508"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503792"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 설명서 변경 내용
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,12 +29,10 @@ Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배
 | 변경 | 세부 정보 |
 | --- | --- |
 | **로그를 울트라 디스크로 마이그레이션** | 고성능 및 짧은 대기 시간을 활용 하기 위해 [로그 파일을 ultra disk로 마이그레이션하](storage-migrate-to-ultradisk.md) 는 방법에 대해 알아봅니다. | 
-
-
+| **PowerShell을 사용 하 여 AG 만들기** | 이제 [PowerShell](availability-group-az-commandline-configure.md) 및 Azure CLI를 사용 하 여 가용성 그룹 만들기를 간소화할 수 있습니다. | 
 
 
 ## <a name="june-2020"></a>2020년 6월
-
 
 | 변경 | 세부 정보 |
 | --- | --- |

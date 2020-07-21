@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa2b936f97b037bdc62a01f607945ad270faa13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945048"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502336"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>Azure의 IBM DB2 pureScale
 
@@ -39,7 +40,7 @@ IBM DB2 pureScale 환경은 Linux 운영 체제에서 Azure용 데이터베이�
 > [!NOTE]
 > 이 문서에서는 DB2 마이그레이션 방법 중 하나를 설명하지만 다른 방법도 있습니다. 예를 들어, DB2 pureScale를 가상화된 온-프레미스 환경에서 실행할 수도 있습니다. IBM은 다양한 구성의 Microsoft Hyper-V에서 DB2를 지원합니다. 자세한 내용은 IBM 기술 센터에서 [DB2 pureScale 가상화 아키텍처](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/r0061462.html) 를 참조 하세요.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 Azure에서 고가용성 및 확장성을 지원하기 위해 DB2 pureScale에 대해 스케일 아웃 공유 데이터 아키텍처를 사용할 수 있습니다. 고객 마이그레이션에서 다음 예제 아키텍처가 사용되었습니다.
 
@@ -66,7 +67,7 @@ Azure에서 고가용성 및 확장성을 지원하기 위해 DB2 pureScale에 �
 
 -   DB2 pureScale 클러스터 Azure에서 필요한 컴퓨팅 리소스의 유형은 설정에 따라 달라집니다. 일반적으로 다음 두 가지 방법을 사용할 수 있습니다.
 
-    -   중소규모 인스턴스가 공유 스토리지에 액세스하는 다중 노드, HPC(고성능 컴퓨팅) 스타일 네트워크를 사용합니다. 이 HPC 유형의 구성에서 Azure 메모리 최적화 E 시리즈 또는 스토리지 최적화 L 시리즈 [가상 머신](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)은 필요한 컴퓨팅 성능을 제공합니다.
+    -   중소규모 인스턴스가 공유 스토리지에 액세스하는 다중 노드, HPC(고성능 컴퓨팅) 스타일 네트워크를 사용합니다. 이 HPC 유형의 구성에서 Azure 메모리 최적화 E 시리즈 또는 스토리지 최적화 L 시리즈 [가상 머신](../windows/sizes.md)은 필요한 컴퓨팅 성능을 제공합니다.
 
     -   데이터 엔진에 대해 더 적은 수의 대형 가상 머신 인스턴스를 사용합니다. 대규모 인스턴스의 경우 가장 큰 메모리 최적화 [M 시리즈](https://azure.microsoft.com/pricing/details/virtual-machines/series/) 가상 머신이 메모리 내 워크로드가 과도한 경우에 적합합니다. DB2를 실행하는 데 사용하는 논리 파티션(LPAR)의 크기에 따라 전용 인스턴스가 필요할 수 있습니다.
 
@@ -95,11 +96,11 @@ DB2 pureScale는 모든 클러스터 노드에서 모든 데이터에 액세스�
 
 IBM은 DB2 pureScale 클러스터의 모든 멤버에 대해 InfiniBand 네트워킹을 권장합니다. 또한 DB2 pureScale은 가능한 경우 CF에 대해 RDMA(원격 직접 메모리 액세스)를 사용합니다.
 
-설치 중에 모든 가상 머신을 포함하는 Azure [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 만듭니다. 일반적으로 리소스의 수명 및 관리하는 주체에 따라 리소스를 그룹화합니다. 이 아키텍처의 가상 머신에는 [가속 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)이 필요합니다. 이것은 SR-IOV(단일 루트 I/O 가상화)를 통해 가상 머신에 일관되게 매우 짧은 네트워크 대기 시간을 제공하는 Azure 기능입니다.
+설치 중에 모든 가상 머신을 포함하는 Azure [리소스 그룹](../../azure-resource-manager/management/overview.md)을 만듭니다. 일반적으로 리소스의 수명 및 관리하는 주체에 따라 리소스를 그룹화합니다. 이 아키텍처의 가상 머신에는 [가속 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)이 필요합니다. 이것은 SR-IOV(단일 루트 I/O 가상화)를 통해 가상 머신에 일관되게 매우 짧은 네트워크 대기 시간을 제공하는 Azure 기능입니다.
 
-모든 Azure Virtual Machine은 서브넷, 즉 주 서브넷, Gluster FS 프런트 엔드(gfsfe), Gluster FS 백 엔드(bfsbe), DB2 pureScale(db2be) 및 DB2 purescale 프런트 엔드(db2fe)가 있는 가상 네트워크에 배포됩니다. 설치 스크립트는 주 서브넷의 가상 머신에 주 [NIC](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics)도 만듭니다.
+모든 Azure Virtual Machine은 서브넷, 즉 주 서브넷, Gluster FS 프런트 엔드(gfsfe), Gluster FS 백 엔드(bfsbe), DB2 pureScale(db2be) 및 DB2 purescale 프런트 엔드(db2fe)가 있는 가상 네트워크에 배포됩니다. 설치 스크립트는 주 서브넷의 가상 머신에 주 [NIC](./multiple-nics.md)도 만듭니다.
 
-[네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)을 사용하여 가상 네트워크 내의 네트워크 트래픽을 제한하고 서브넷을 격리합니다.
+[네트워크 보안 그룹](../../virtual-network/virtual-network-vnet-plan-design-arm.md)을 사용하여 가상 네트워크 내의 네트워크 트래픽을 제한하고 서브넷을 격리합니다.
 
 Azure에서 DB2 pureScale는 스토리지에 대한 네트워크 연결로 TCP/IP를 사용해야 합니다.
 

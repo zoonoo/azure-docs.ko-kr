@@ -4,11 +4,12 @@ description: ASM(Azure 서비스 관리) 또는 RDFE 배포 모델이라고도 �
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ce7a5c876c7a8e96f945d9d4db871c84f86a4e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114223"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505434"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
 
@@ -28,9 +29,9 @@ Azure Portal 또는 다양한 [모니터링 파트너 서비스](../../azure-mon
 
 - **클래식 Azure Insights SDK** - [클래식 Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)를 사용하는 경우 [.NET](https://github.com/azure/azure-libraries-for-net#download) 또는 [Java](https://github.com/azure/azure-libraries-for-java#download)용 새 Azure Monitor SDK를 사용하도록 전환합니다. [Azure Monitor SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)를 다운로드합니다.
 
-- **클래식 자동 크기 조정** - 사용자 지정 빌드된 도구 또는 [클래식 Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)를 사용하여 [클래식 자동 크기 조정 설정 API](https://msdn.microsoft.com/library/azure/mt348562.aspx)를 호출하는 경우 [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings)를 사용하도록 전환해야 합니다.
+- **클래식 자동 크기 조정** - 사용자 지정 빌드된 도구 또는 [클래식 Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)를 사용하여 [클래식 자동 크기 조정 설정 API](/previous-versions/azure/reference/mt348562(v=azure.100))를 호출하는 경우 [Resource Manager Azure Monitor REST API](/rest/api/monitor/autoscalesettings)를 사용하도록 전환해야 합니다.
 
-- **클래식 메트릭** - 사용자 지정 빌드된 도구에서 [클래식 REST API](https://msdn.microsoft.com/library/azure/dn510374.aspx) 또는 [클래식 Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)를 통해 메트릭을 사용하는 경우 [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings)를 사용하도록 전환해야 합니다. 
+- **클래식 메트릭** - 사용자 지정 빌드된 도구에서 [클래식 REST API](/previous-versions/azure/reference/dn510374(v=azure.100)) 또는 [클래식 Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)를 통해 메트릭을 사용하는 경우 [Resource Manager Azure Monitor REST API](/rest/api/monitor/autoscalesettings)를 사용하도록 전환해야 합니다. 
 
 코드 또는 사용자 지정 도구에서 클래식 API를 호출하는지 확실하지 않은 경우 다음을 확인합니다.
 
@@ -42,11 +43,11 @@ Azure Portal 또는 다양한 [모니터링 파트너 서비스](../../azure-mon
 
 - 다음 링크 중 하나의 문서에서 참조된 호출을 사용하는 경우 이전 클래식 API를 사용하고 있습니다.
 
-  - [Windows.Azure.Management.Monitoring 클래스 라이브러리](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
+  - [Windows.Azure.Management.Monitoring 클래스 라이브러리](/previous-versions/azure/dn510414(v=azure.100))
 
-  - [(클래식) .NET 모니터링](https://docs.microsoft.com/previous-versions/azure/reference/mt348562(v%3dazure.100))
+  - [(클래식) .NET 모니터링](/previous-versions/azure/reference/mt348562(v%3dazure.100))
 
-  - [IMetricOperations 인터페이스](https://docs.microsoft.com/previous-versions/azure/reference/dn802395(v%3dazure.100))
+  - [IMetricOperations 인터페이스](/previous-versions/azure/reference/dn802395(v%3dazure.100))
 
 ## <a name="why-you-should-switch"></a>전환해야 하는 이유
 
@@ -84,7 +85,7 @@ Azure 서비스나 해당 워크로드에 대한 직접적인 영향은 없습�
 
 질문이 있으면 MonitorClassicAPIhelp@microsoft.com으로 문의하세요.  
 
-## <a name="references"></a>참조
+## <a name="references"></a>참고 자료
 
-- [Azure Monitor용 최신 REST API](https://docs.microsoft.com/rest/api/monitor/) 
+- [Azure Monitor용 최신 REST API](/rest/api/monitor/) 
 - [최신 Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)

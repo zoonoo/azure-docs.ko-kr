@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124465"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505366"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)에 원격 분석을 보낼 수 있습니다.
+Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](./data-platform.md?toc=/azure/azure-monitor/toc.json)에 원격 분석을 보낼 수 있습니다.
 
 이 문서에서는 Azure 클래식 Cloud Services에 대한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 저장소에 보내는 프로세스에 대해 설명합니다. 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 
 
@@ -26,13 +26,13 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 이 문서에서 설명하는 프로세스는 Azure Cloud Services의 성능 카운터에서만 작동합니다. 다른 사용자 지정 메트릭에서는 작동하지 않습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독의 [서비스 관리자 또는 공동 관리자](../../cost-management-billing/manage/add-change-subscription-administrator.md)여야 합니다. 
 
-- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
+- 구독이 [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md)에 등록되어야 합니다. 
 
-- [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
+- [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](../../cloud-shell/overview.md)이 설치되어 있어야 합니다.
 
 - 클라우드 서비스 [는 사용자 지정 메트릭을 지 원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다.
 
@@ -46,7 +46,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기 
 
-[포털을 사용 하 여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)의 지침을 사용 하 여 Azure Active Directory 테 넌 트에 서비스 주체를 만듭니다. 이 프로세스를 진행하는 동안 다음 사항에 유의하세요. 
+[포털을 사용 하 여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)의 지침을 사용 하 여 Azure Active Directory 테 넌 트에 서비스 주체를 만듭니다. 이 프로세스를 진행하는 동안 다음 사항에 유의하세요. 
 
 - 로그인 URL에 대해 임의 URL을 입력할 수 있습니다.  
 - 이 앱에 대한 새 클라이언트 암호를 만듭니다.  
@@ -192,4 +192,3 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 ## <a name="next-steps"></a>다음 단계
 
 - [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
-

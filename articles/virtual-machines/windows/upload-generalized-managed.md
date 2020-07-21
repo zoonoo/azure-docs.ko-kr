@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: b0947d1cc4e53763c0f31444b8f3d27ba45b19a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9d8e48e393f006c05e0a17b80e6f8cfe7e1d6ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096412"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500279"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
 
@@ -28,9 +28,9 @@ ms.locfileid: "82096412"
  
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Sysprep을 사용하여 원본 VM 일반화
 
-아직 수행하지 않은 경우 Azure에 VHD를 업로드하기 전에 VM을 Sysprep해야 합니다. Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조하세요.
+아직 수행하지 않은 경우 Azure에 VHD를 업로드하기 전에 VM을 Sysprep해야 합니다. Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조하세요.
 
-가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
+가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
 > [!IMPORTANT]
 > Azure에 VHD를 처음으로 업로드하기 전에 Sysprep을 실행하려는 경우 [VM을 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)해야 합니다. 
@@ -53,7 +53,7 @@ ms.locfileid: "82096412"
 
 
 
-VHD가 관리 디스크에 업로드되면 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)를 사용하여 관리형 디스크를 가져와야 합니다.
+VHD가 관리 디스크에 업로드되면 [Get-AzDisk](/powershell/module/az.compute/get-azdisk)를 사용하여 관리형 디스크를 가져와야 합니다.
 
 ```azurepowershell-interactive
 $disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
@@ -113,4 +113,3 @@ New-AzVm `
 ## <a name="next-steps"></a>다음 단계
 
 새 가상 머신에 로그인합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 
-

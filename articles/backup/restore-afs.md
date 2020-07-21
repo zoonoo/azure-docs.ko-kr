@@ -3,15 +3,16 @@ title: Azure 파일 공유 복원
 description: Azure Portal를 사용 하 여 Azure Backup 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 5668328637ae9b5a5dd3db02085a7f15de2a2456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82980665"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503645"
 ---
 # <a name="restore-azure-file-shares"></a>Azure 파일 공유 복원
 
-이 문서에서는 Azure Portal를 사용 하 여 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)에서 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원 하는 방법을 설명 합니다.
+이 문서에서는 Azure Portal를 사용 하 여 [Azure Backup](./backup-overview.md)에서 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원 하는 방법을 설명 합니다.
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
