@@ -1,0 +1,56 @@
+- name: Azure Education Hub 설명서
+  href: ./index.yml
+- name: 개요
+  items:
+    - name: Education Hub란?
+      href: about-education-hub.md
+- name: 빠른 시작
+  items:
+    - name: Education Hub에 액세스
+      href: access-education-hub.md
+    - name: Education Hub 시작
+      href: get-started-education-hub.md
+    - name: 과정 설정 및 클래스룸 만들기
+      href: set-up-course-classroom.md
+- name: 방법 가이드
+  items:
+    - name: 학비 보조금 관리
+      href: hub-overview-page.md
+    - name: 과제 생성 및 학점 할당
+      href: create-assignment-allocate-credit.md
+- name: 지원
+  items:
+    - name: 서비스 데스크
+      href: educator-service-desk.md
+- name: Azure Dev Tools for Teaching
+  items:
+    - name: 개요
+      items:
+        - name: Azure Dev Tools for Teaching이란?
+          href: azure-dev-tools-teaching/about-program.md
+        - name: Azure for Students
+          href: azure-dev-tools-teaching/azure-students-program.md
+        - name: Azure for Students Starter
+          href: azure-dev-tools-teaching/azure-students-starter-program.md
+    - name: 빠른 시작
+      items:
+        - name: 구독 등록 또는 갱신
+          href: azure-dev-tools-teaching/enroll-renew-subscription.md
+        - name: 액세스 설정
+          href: azure-dev-tools-teaching/set-up-access.md
+    - name: 방법 가이드
+      items:
+        - name: 학생을 관리하는 방법
+          href: azure-dev-tools-teaching/manage-students.md
+        - name: 소프트웨어를 다운로드하는 방법
+          href: azure-dev-tools-teaching/download-software.md
+    - name: 문제 해결
+      items:
+        - name: 로그인 오류
+          href: azure-dev-tools-teaching/troubleshoot-login.md
+- name: 리소스
+  items:
+    - name: FAQ
+      href: azure-dev-tools-teaching/program-faq.md
+    - name: 지원
+      href: azure-dev-tools-teaching/program-support.md

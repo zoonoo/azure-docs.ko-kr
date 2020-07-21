@@ -23,7 +23,8 @@
       href: quickstart-create-data-factory-python.md
     - name: 데이터 팩터리 만들기 - REST
       href: quickstart-create-data-factory-rest-api.md
-    - name: 데이터 팩터리 만들기 - Resource Manager 템플릿
+    - name: 데이터 팩터리 만들기 - ARM 템플릿
+      displayName: Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: 보안 - 고객 관리형 키 암호화 사용
       href: enable-customer-managed-key.md
@@ -98,6 +99,8 @@
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
             - name: 시간 분할된 파일 이름을 기준으로 새 파일
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+        - name: 관리형 VNet 및 프라이빗 엔드포인트를 사용하여 복사 파이프라인 빌드
+          href: tutorial-copy-data-portal-private.md
     - name: 데이터 변환
       items:
         - name: 데이터 흐름 매핑으로 데이터 변환
@@ -126,6 +129,8 @@
                   href: tutorial-transform-data-hive-virtual-network-portal.md
                 - name: Azure PowerShell
                   href: tutorial-transform-data-hive-virtual-network.md
+        - name: 관리형 VNet 및 프라이빗 엔드포인트를 사용하여 매핑 데이터 흐름 파이프라인 빌드
+          href: tutorial-data-flow-private.md
     - name: 제어 흐름
       items:
         - name: 사용자 인터페이스(UI)
@@ -162,6 +167,8 @@
       href: concepts-pipeline-execution-triggers.md
     - name: 통합 런타임
       href: concepts-integration-runtime.md
+    - name: 관리형 Virtual Network
+      href: managed-virtual-network-private-endpoint.md
     - name: 보안
       items:
         - name: 보안 기준
@@ -408,6 +415,8 @@
           href: connector-web-table.md
         - name: Xero
           href: connector-xero.md
+        - name: XML 형식
+          href: format-xml.md
         - name: Zoho
           href: connector-zoho.md
     - name: 데이터 이동
@@ -469,12 +478,12 @@
           href: transform-data-using-spark.md
         - name: HDInsight 스트리밍 작업
           href: transform-data-using-hadoop-streaming.md
-        - name: Machine Learning Batch 실행 작업
-          href: transform-data-using-machine-learning.md
-        - name: Machine Learning 업데이트 리소스 활동
-          href: update-machine-learning-models.md
         - name: Machine Learning 파이프라인 실행 작업
           href: transform-data-machine-learning-service.md
+        - name: Machine Learning Studio(클래식) 일괄 처리 실행 작업
+          href: transform-data-using-machine-learning.md
+        - name: Machine Learning Studio(클래식) 업데이트 리소스 작업
+          href: update-machine-learning-models.md
         - name: 저장 프로시저 작업
           href: transform-data-using-stored-procedure.md
         - name: 컴퓨팅 연결 서비스
@@ -681,7 +690,7 @@
               href: how-to-fixed-width.md
             - name: 오류 행 처리
               href: how-to-data-flow-error-rows.md
-            - name: Azure SQL DB에서 CosmosDB로
+            - name: Azure SQL DB에서 Azure Cosmos DB로
               href: how-to-sqldb-to-cosmosdb.md
         - name: 온-프레미스에서 SSIS 마이그레이션
           items:

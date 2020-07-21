@@ -323,11 +323,11 @@
               href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
-            - name: Azure Portal의 Azure VM
+            - name: Azure VM
               href: backup-azure-vms-automation.md
-            - name: Azure Portal에서 DPM
+            - name: DPM(Data Protection Manager)
               href: backup-dpm-automation.md
-            - name: Azure Portal의 Windows Server
+            - name: MARS 에이전트를 사용하여 Windows Server
               href: backup-client-automation.md
             - name: Azure VM 백업의 SQL
               href: backup-azure-sql-automation.md
@@ -422,7 +422,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-backup.html'
+      href: /answers/topics/azure-backup.html
     - name: 요금 계산기
       href: azure-backup-pricing.md
     - name: 서비스 업데이트

@@ -6,14 +6,15 @@
       href: devtest-lab-overview.md
     - name: Azure DevTest Labs 및 Lab Services
       href: lab-services-overview.md
+- name: 빠른 시작
+  items:
+    - name: 랩 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: create-lab-windows-vm-template.md
 - name: 자습서
   items:
     - name: 랩 설정
-      items:
-        - name: Azure Portal 사용
-          href: tutorial-create-custom-lab.md
-        - name: Resource Manager 템플릿 사용
-          href: create-lab-windows-vm-template.md
+      href: tutorial-create-custom-lab.md
     - name: 랩 액세스
       href: tutorial-use-custom-lab.md
 - name: 샘플
@@ -64,6 +65,10 @@
           href: devtest-lab-training-lab.md
         - name: 클레임할 수 있는 VM 사용 시나리오
           href: devtest-lab-use-claim-capabilities.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 랩 구성
@@ -122,18 +127,26 @@
           href: personal-data-delete-export.md
     - name: 랩에서 VM 사용
       items:
-        - name: VM 만들기 - Azure Portal
-          href: devtest-lab-add-vm.md
-        - name: VM 만들기 - Azure PowerShell
-          href: devtest-lab-vm-powershell.md
-        - name: VM 만들기 - Azure CLI
-          href: devtest-lab-vmcli.md
-        - name: VM 만들기 - Resource Manager 템플릿
-          href: devtest-lab-use-resource-manager-template.md
-        - name: 공유 이미지 갤러리의 이미지를 사용하여 VM 만들기
-          href: add-vm-use-shared-image.md
-        - name: 브라우저를 통해 VM에 연결
-          href: connect-virtual-machine-through-browser.md
+        - name: VM 만들기
+          items:
+            - name: Azure portal
+              href: devtest-lab-add-vm.md
+            - name: Azure PowerShell
+              href: devtest-lab-vm-powershell.md
+            - name: Azure CLI
+              href: devtest-lab-vmcli.md
+            - name: Resource Manager 템플릿
+              href: devtest-lab-use-resource-manager-template.md
+            - name: 공유 이미지 갤러리의 이미지를 사용하여 VM 만들기
+              href: add-vm-use-shared-image.md
+        - name: VM에 연결
+          items:
+            - name: Windows VM에 연결
+              href: connect-windows-virtual-machine.md
+            - name: Linux VM에 연결
+              href: connect-linux-virtual-machine.md
+            - name: 브라우저를 통해 VM에 연결
+              href: connect-virtual-machine-through-browser.md
         - name: PowerShell 또는 CLI를 사용하여 VM 시작 또는 중지
           href: use-command-line-start-stop-virtual-machines.md
         - name: VM 다시 시작
@@ -263,6 +276,12 @@
           href: troubleshoot-vm-environment-creation-failures.md
         - name: 아티팩트 오류 문제 해결
           href: devtest-lab-troubleshoot-artifact-failure.md
+    - name: 모니터
+      items:
+        - name: 활동 로그 보기
+          href: activity-logs.md
+        - name: 활동 로그 경고 만들기
+          href: create-alerts.md
 - name: 참조
   items:
     - name: CLI

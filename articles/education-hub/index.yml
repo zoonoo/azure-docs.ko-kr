@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Azure Education Hub 설명서
+summary: Education Hub를 사용하여 학생들이 클라우드에 능숙해지는 데 필요한 모든 소프트웨어, 학습 및 Azure 서비스를 빠르고 쉽게 제공합니다.
+metadata:
+  title: Azure Education Hub 설명서
+  description: Education Hub를 사용하여 학생들이 클라우드에 능숙해지는 데 필요한 모든 소프트웨어, 학습 및 Azure 서비스를 빠르고 쉽게 제공합니다.
+  ms.service: azure-education .
+  ms.subservice: education-hub
+  ms.topic: landing-page
+  author: tfosmark
+  ms.author: rymend
+  ms.date: 07/14/2020
+  ms.openlocfilehash: be96b241c3ca784043ac3203fd1cb100b05178b8
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86540410"
+landingContent:
+- title: Education Hub
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Education Hub 정보
+      url: about-education-hub.md
+  - linkListType: quickstart
+    links:
+    - text: Education Hub 사용
+      url: access-education-hub.md
+- title: Azure Dev Tools for Teaching
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Dev Tools for Teaching이란?
+      url: ./azure-dev-tools-teaching/about-program.md
+  - linkListType: tutorial
+    links:
+    - text: Azure Dev Tools for Teaching에 등록
+      url: ./azure-dev-tools-teaching/enroll-renew-subscription.md
+    - text: 액세스 설정
+      url: ./azure-dev-tools-teaching/set-up-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: 학생을 관리하는 방법
+      url: ./azure-dev-tools-teaching/manage-students.md
+    - text: 소프트웨어를 다운로드하는 방법
+      url: ./azure-dev-tools-teaching/download-software.md

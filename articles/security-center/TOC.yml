@@ -1,6 +1,7 @@
 - name: Security Center 설명서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Security Center 정보
       href: security-center-intro.md
@@ -18,8 +19,11 @@
       href: recommendations-reference.md
     - name: 보안 경고 및 의도 kill 체인
       href: alerts-reference.md
+    - name: 사용 권한
+      href: security-center-permissions.md
+    - name: 가격 책정
+      href: security-center-pricing.md
 - name: 빠른 시작
-  expanded: true
   items:
     - name: Azure 구독
       href: security-center-get-started.md
@@ -29,6 +33,12 @@
       href: quick-onboard-linux-computer.md
     - name: Azure Stack 가상 머신
       href: quick-onboard-azure-stack.md
+    - name: PowerShell을 사용하여 온보딩 자동화
+      href: security-center-powershell-onboarding.md
+    - name: 데이터 수집 구성
+      href: security-center-enable-data-collection.md
+    - name: 이메일 알림 설정
+      href: security-center-provide-security-contact-details.md
 - name: 자습서
   items:
     - name: 계획 및 운영 가이드
@@ -39,21 +49,36 @@
       href: tutorial-security-incident.md
     - name: 규정 준수 개선
       href: security-center-compliance-dashboard.md
-- name: 샘플
-  items:
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 개념
   items:
-    - name: 보안 점수
-      href: secure-score-security-controls.md
-    - name: 사용 권한
-      href: security-center-permissions.md
+    - name: '보안 점수, 권장 사항 및 정책'
+      items:
+        - name: 보안 점수
+          href: secure-score-security-controls.md
+        - name: 보안 권장 사항 개요
+          href: security-center-recommendations.md
+        - name: 보안 정책 개요
+          href: tutorial-security-policy.md
+        - name: 기본 제공 보안 정책
+          href: security-center-policy-definitions.md
+        - name: 권장 사항을 사용하여 보안 강화
+          href: security-center-using-recommendations.md
+    - name: 위협 방지 및 보안 경고
+      items:
+        - name: Security Center의 위협 방지 개요
+          href: threat-protection.md
+        - name: 보안 경고 개요
+          href: security-center-alerts-overview.md
+        - name: 경고의 참조 목록
+          href: alerts-reference.md
+        - name: 경고 스키마
+          href: alerts-schemas.md
+        - name: 보안 인시던트 개요
+          href: security-center-alerts-cloud-smart.md
     - name: 데이터 보안
       href: security-center-data-security.md
-    - name: 권장 사항을 사용하여 보안 강화
-      href: security-center-using-recommendations.md
+    - name: Just-in-time VM 액세스
+      href: just-in-time-explained.md
     - name: 테넌트 간 관리
       href: security-center-cross-tenant-management.md
     - name: 컨테이너 보안
@@ -64,32 +89,18 @@
           href: azure-container-registry-integration.md
         - name: Azure Kubernetes Service와 통합
           href: azure-kubernetes-service-integration.md
-    - name: 위협 보호 및 보안 경고
-      items:
-        - name: 위협 보호 및 Azure Security Center
-          href: threat-protection.md
-        - name: 보안 경고 개요
-          href: security-center-alerts-overview.md
-        - name: 경고의 참조 목록
-          href: alerts-reference.md
-        - name: 경고 스키마
-          href: alerts-schemas.md
-        - name: 보안 경고 관리
-          href: security-center-managing-and-responding-alerts.md
-        - name: 보안 경고에 대한 비표시 규칙
-          href: alerts-suppression-rules.md
-        - name: 보안 인시던트 관리
-          href: security-center-incident.md
-        - name: 클라우드 스마트 경고 상관 관계(인시던트)
-          href: security-center-alerts-cloud-smart.md
-        - name: 위협 보고서
-          href: security-center-threat-report.md
-        - name: 경고 유효성 검사(EICAR 테스트 파일)
-          href: security-center-alert-validation.md
 - name: 방법 가이드
   items:
     - name: 고급 보안으로 업그레이드
       href: security-center-onboarding.md
+    - name: 보안 정책 구성 및 규정 준수 표준
+      items:
+        - name: 사용자 지정 보안 정책 만들기
+          href: custom-security-policies.md
+        - name: Azure Policy REST API를 사용하여 정책 관리
+          href: configure-security-policy-azure-policy.md
+        - name: 규정 준수 대시보드에 대한 표준 선택
+          href: update-regulatory-compliance-packages.md
     - name: VM 취약성 검색
       items:
         - name: 취약성 검색 개요
@@ -98,54 +109,28 @@
           href: built-in-vulnerability-assessment.md
         - name: 외부 검사기 사용
           href: partner-vulnerability-assessment.md
-    - name: 컨테이너 모니터링
-      href: monitor-container-security.md
-    - name: Microsoft Defender ATP를 사용하여 서버 보호
-      href: security-center-wdatp.md
-    - name: SQL 머신에 고급 데이터 보안 사용
-      href: security-center-iaas-advanced-data.md
-    - name: App Service를 사용하여 애플리케이션 보호
-      href: security-center-app-services.md
-    - name: 보안 정책 사용
+    - name: 위협 방지 구성 및 경고 처리
       items:
-        - name: 보안 정책 개요
-          href: tutorial-security-policy.md
-        - name: 기본 제공 보안 정책 사용
-          href: security-center-policy-definitions.md
-        - name: 사용자 지정 보안 정책 만들기
-          href: custom-security-policies.md
-        - name: Azure Policy REST API를 사용하여 정책 관리
-          href: configure-security-policy-azure-policy.md
-    - name: 규정 준수 대시보드에 대한 표준 선택
-      href: update-regulatory-compliance-packages.md
-    - name: 정보 보호 정책 사용자 지정
-      href: security-center-info-protection-policy.md
-    - name: 보안 솔루션 관리
-      href: security-center-partner-integration.md
-    - name: PowerShell을 사용하여 온보딩 자동화
-      href: security-center-powershell-onboarding.md
-    - name: Windows Admin Center와 통합
-      href: windows-admin-center-integration.md
-    - name: 파일 무결성 모니터링을 사용하는 기준 비교
-      href: security-center-file-integrity-monitoring-baselines.md
-    - name: 경고 및 권장 사항에 대한 응답 자동화
-      href: workflow-automation.md
-    - name: 경고 및 권장 사항 내보내기
-      href: continuous-export.md
-    - name: 데이터 수집 구성
-      href: security-center-enable-data-collection.md
-    - name: Azure Key Vault에 대한 고급 위협 방지 설정
-      href: advanced-threat-protection-key-vault.md
-    - name: 이메일 알림 설정
-      href: security-center-provide-security-contact-details.md
-    - name: 가격 책정
-      href: security-center-pricing.md
-    - name: 테넌트 전체 가시성 얻기
-      href: security-center-management-groups.md
-    - name: 보안 권장 사항 구현
+        - name: 보안 경고 관리
+          href: security-center-managing-and-responding-alerts.md
+        - name: 경고 억제 규칙 만들기 및 관리
+          href: alerts-suppression-rules.md
+        - name: Azure Key Vault에 대한 고급 위협 방지 설정
+          href: advanced-threat-protection-key-vault.md
+        - name: 보안 인시던트 관리
+          href: security-center-incident.md
+        - name: 위협 인텔리전스 보고서 생성
+          href: security-center-threat-report.md
+        - name: 경고 구성 유효성 검사(EICAR 테스트 파일)
+          href: security-center-alert-validation.md
+        - name: Azure VM의 SQL에 대한 Advanced Data Security 사용
+          href: security-center-iaas-advanced-data.md
+        - name: 경고에 대한 응답 자동화
+          href: workflow-automation.md
+        - name: 경고 내보내기
+          href: continuous-export.md
+    - name: 보안 권장 사항을 사용하여 보안 향상
       items:
-        - name: 보안 권장 사항이란?
-          href: security-center-recommendations.md
         - name: 추천 수정
           href: security-center-remediate-recommendations.md
         - name: 보안 상태 강화
@@ -160,8 +145,20 @@
           href: security-center-sql-service-recommendations.md
         - name: ID 및 액세스 보호
           href: security-center-identity-access.md
-        - name: 조사 사용자 데이터 관리
-          href: security-center-investigation-user-data.md
+        - name: 권장 사항에 대한 응답 자동화
+          href: workflow-automation.md
+        - name: 권장 사항 내보내기
+          href: continuous-export.md
+    - name: 다른 도구 및 서비스와 통합
+      items:
+        - name: Windows Admin Center와 통합
+          href: windows-admin-center-integration.md
+        - name: Azure App Service 웹앱 및 API 보호
+          href: security-center-app-services.md
+        - name: Microsoft Defender ATP와 통합
+          href: security-center-wdatp.md
+        - name: 보안 솔루션 통합 및 데이터 원본
+          href: security-center-partner-integration.md
     - name: 클라우드 방어 적용
       items:
         - name: Just-In-Time 액세스 관리
@@ -170,8 +167,18 @@
           href: security-center-adaptive-application.md
         - name: 파일 무결성 모니터링
           href: security-center-file-integrity-monitoring.md
+        - name: 파일 무결성 모니터링을 사용하는 기준 비교
+          href: security-center-file-integrity-monitoring-baselines.md
         - name: 적응형 네트워크 강화
           href: security-center-adaptive-network-hardening.md
+    - name: 컨테이너 모니터링
+      href: monitor-container-security.md
+    - name: 정보 보호 정책 사용자 지정
+      href: security-center-info-protection-policy.md
+    - name: 조사 사용자 데이터 관리
+      href: security-center-investigation-user-data.md
+    - name: 테넌트 전체 가시성 얻기
+      href: security-center-management-groups.md
 - name: 참조
   items:
     - name: REST API

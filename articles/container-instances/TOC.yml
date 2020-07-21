@@ -16,6 +16,8 @@
     - name: 컨테이너 인스턴스 배포 - ARM 템플릿
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
+    - name: 컨테이너 인스턴스 배포 - Docker CLI
+      href: container-instances-quickstart-docker-cli.md
 - name: 자습서
   items:
     - name: 컨테이너 이미지 만들기 및 배포
@@ -94,8 +96,10 @@
           href: container-instances-gpu.md
         - name: 사이드카에서 SSL 엔드포인트 사용
           href: container-instances-container-group-ssl.md
-        - name: 고정 IP 주소 노출
+        - name: App Gateway를 사용하여 고정 IP 노출
           href: container-instances-application-gateway.md
+        - name: 수신 및 송신 시 Azure Firewall 사용
+          href: container-instances-egress-ip-address.md
     - name: 데이터 볼륨 탑재
       items:
         - name: Azure 파일 공유

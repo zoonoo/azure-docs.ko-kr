@@ -29,6 +29,9 @@
     - name: 첫 번째 쿼리 실행 - Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: 첫 번째 쿼리 실행 - Ruby
+      displayName: 'gem, azure-mgmt'
+      href: ./first-query-ruby.md
     - name: 첫 번째 쿼리 실행 - REST
       displayName: 'armclient, postman'
       href: ./first-query-rest-api.md

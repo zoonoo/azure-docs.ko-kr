@@ -194,7 +194,7 @@
               href: job-error-codes.md
     - name: 고가용성
       items:
-        - name: Encoding
+        - name: 주문형 비디오
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
         - name: 스트리밍

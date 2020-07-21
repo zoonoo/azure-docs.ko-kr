@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: fe377424c1a10b1356718d3c8c0d90a6a3db4d63
-  ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+  ms.openlocfilehash: 451bbf8f82623fdc20be21b4ffa1699f6c5722cf
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86134354"
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86536880"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -767,6 +767,12 @@ productDirectory:
     azureCategories:
     - hybrid
     url: https://docs.microsoft.com/azure-stack/
+  - title: Azure Stack HCI 솔루션
+    summary: 온-프레미스에서 가상 머신을 실행하고 HCI(하이퍼 컨버지드 인프라) 솔루션으로 Azure에 쉽게 연결
+    imageSrc: ./media/index/azure-stack-hci.svg
+    azureCategories:
+    - hybrid
+    url: https://docs.microsoft.com/azure-stack/hci/
   - title: Security Center
     summary: 하이브리드 클라우드 워크로드 전체에서 보안 관리 통합 및 고급 위협 방지 사용
     imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
