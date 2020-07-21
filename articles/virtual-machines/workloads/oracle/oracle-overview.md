@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: rogardle
-ms.openlocfilehash: e9a61c631e8a74bbbd58bb991848fcf60f81ff6a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6a516fc75880e3b6a5bc5b5907e8d968dce2ae31
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224437"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507865"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 애플리케이션 및 솔루션 개요
 
@@ -55,13 +55,13 @@ Azure Marketplace에 제공된 Oracle Linux 기반 Oracle Database 이미지를 
 
 * [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) 를 사용 하 여 Azure 및 물리적 서버에서 Oracle Linux vm에 대 한 재해 복구를 오케스트레이션 하 고 관리 합니다. 
 
-* Azure [VMware 솔루션](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) 또는 [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)를 사용 하 여 azure에서 Oracle RAC (실제 응용 프로그램 클러스터)를 사용 하도록 설정 합니다.
+* Azure [VMware 솔루션](../../../vmware-cloudsimple/oracle-real-application-clusters.md) 또는 [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)를 사용 하 여 azure에서 Oracle RAC (실제 응용 프로그램 클러스터)를 사용 하도록 설정 합니다.
 
 ## <a name="backup-oracle-workloads"></a>Oracle 워크로드 백업
 
-* [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)을 사용하여 Oracle VM 백업
+* [Azure Backup](../../../backup/backup-overview.md)을 사용하여 Oracle VM 백업
 
-* Oracle RMAN을 사용하여 Oracle Database를 백업하고, 선택적으로 [Azure Blob Fuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)를 사용하여 [중복성이 높은 Azure Blob Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-redundancy)을 탑재하고, 추가적인 복원력을 위해 RMAN 백업을 작성합니다.
+* Oracle RMAN을 사용하여 Oracle Database를 백업하고, 선택적으로 [Azure Blob Fuse](../../../storage/blobs/storage-how-to-mount-container-linux.md)를 사용하여 [중복성이 높은 Azure Blob Storage 계정](../../../storage/common/storage-redundancy.md)을 탑재하고, 추가적인 복원력을 위해 RMAN 백업을 작성합니다.
 
 ## <a name="integration-of-azure-with-oci"></a>OCI와 Azure 통합
 

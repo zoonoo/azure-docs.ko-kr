@@ -1,5 +1,5 @@
 ---
-title: Azure에서 SAP 다중 SID 구성 만들기 | Microsoft Docs
+title: Azure에서 SAP 고가용성 다중 SID 구성 만들기
 description: Windows 가상 머신의 고가용성 SAP NetWeaver 다중 SID 구성 가이드
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 553abc0a221950d81f3ee8591875507d0b6a2f0c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6e2055d194e1836ebc0b2e1181ca49794bc4a3b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020764"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508004"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver 다중 SID 구성 만들기
 

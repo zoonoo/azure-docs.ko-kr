@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e75329444c2ddb9401f32bccea400d90b633294
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f79ff9af1272ca908c7a5ba35fbaa1e8bb87fc50
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361526"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506713"
 ---
 # <a name="connect-with-power-bi"></a>Power BI로 연결
 
@@ -37,6 +37,9 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
 
 5. 메시지가 표시되면 로그인 자격 증명을 입력합니다. 
 
+   > [!NOTE]
+   > OTP (일회성 암호) 계정은 지원 되지 않습니다. 
+
 6. **탐색기**에서 서버를 확장한 다음 연결하려는 모델 또는 큐브 뷰를 선택한 다음 **연결**을 클릭합니다. 모델 또는 큐브 뷰를 클릭하여 해당 보기에 대한 모든 개체를 표시합니다.
 
     모델은 보고서 보기의 빈 보고서와 함께 Power BI Desktop에서 열립니다. 필드 목록에는 숨겨지지 않은 모든 모델 개체가 표시됩니다. 연결 상태는 오른쪽 아래 모서리에 표시됩니다.
@@ -46,7 +49,7 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
 1. 서버의 모델에 대한 라이브 연결을 포함하는 Power BI Desktop 파일을 만듭니다.
 2. [Power BI](https://powerbi.microsoft.com)에서 **데이터 가져오기** > **파일**을 클릭한 다음, .pbix 파일을 찾아서 선택합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 [Azure Analysis Services에 연결](analysis-services-connect.md)   
 [클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 

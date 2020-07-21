@@ -6,11 +6,12 @@ ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be2d49a824066b8926ae455978facb34c0b44310
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77667791"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505468"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure Monitor의 로그 경고 쿼리
 [Azure Monitor 로그를 기반으로 하는 경고 규칙](alerts-unified-log.md)은 일정한 간격으로 실행되므로 오버헤드와 대기 시간을 최소화할 수 있도록 규칙을 작성해야 합니다. 이 문서에서는 로그 경고용으로 효율적인 쿼리를 작성하는 방법과 관련된 권장 사항과 기존 쿼리를 변환하는 프로세스를 제공합니다. 
@@ -49,9 +50,9 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
->로그 경고의 [리소스 간 쿼리](../log-query/cross-workspace-query.md)는 새 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [scheduledQueryRules API에 대한 ARM 템플릿](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)을 사용하면 전환하지 않고 [리소스 간 쿼리](../log-query/cross-workspace-query.md) 로그 경고 규칙을 만들 수 있지만, 이 경고 규칙은 Azure Portal이 아닌 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 통해 관리할 수 있습니다.
+>로그 경고의 [리소스 간 쿼리](../log-query/cross-workspace-query.md)는 새 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [scheduledQueryRules API에 대한 ARM 템플릿](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)을 사용하면 전환하지 않고 [리소스 간 쿼리](../log-query/cross-workspace-query.md) 로그 경고 규칙을 만들 수 있지만, 이 경고 규칙은 Azure Portal이 아닌 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)를 통해 관리할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 `search` 및 `union`을 사용하는 로그 쿼리가 포함된 다음 예제에서는 경고 규칙에 사용할 수 있도록 이러한 쿼리를 수정하기 위해 수행할 수 있는 단계를 제공합니다.
 
 ### <a name="example-1"></a>예 1
@@ -216,4 +217,3 @@ on Hour
 ## <a name="next-steps"></a>다음 단계
 - Azure Monitor의 [로그 경고](alerts-log.md)에 대해 알아봅니다.
 - [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다.
-

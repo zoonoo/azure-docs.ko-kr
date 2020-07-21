@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e040f42db195760cf40f6dbdf651826b544b65a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564026"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507576"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Active Directory 사용할 vCenter id 원본 설정
 
@@ -79,7 +80,7 @@ Active Directory 도메인을 설정할 때 다음 표의 정보를 사용 합�
 * 새 Active Directory 포리스트와 도메인의 도메인 컨트롤러로 사용할 Microsoft Windows Server를 실행 하는 하나 이상의 가상 컴퓨터입니다.
 * 이름 확인을 위해 DNS 서비스를 실행 하는 하나 이상의 가상 컴퓨터.
 
-자세한 단계는 [새 Windows Server 2012 Active Directory 포리스트 설치를](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-) 참조 하세요.
+자세한 단계는 [새 Windows Server 2012 Active Directory 포리스트 설치를](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-) 참조 하세요.
 
 > [!TIP]
 > 서비스의 고가용성을 위해 여러 도메인 컨트롤러와 DNS 서버를 설정 하는 것이 좋습니다.
@@ -93,7 +94,7 @@ Active Directory 포리스트와 도메인을 설정한 후 새 Active Directory
 * Active Directory 포리스트 위치에 대 한 사이트 간 VPN 연결.
 * 기존 Active Directory 포리스트의 이름을 확인 하는 DNS 서버입니다.
 
-자세한 단계 [는 새 Windows Server 2012 Active Directory 자식 또는 트리 도메인 설치를](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-) 참조 하세요.
+자세한 단계 [는 새 Windows Server 2012 Active Directory 자식 또는 트리 도메인 설치를](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-) 참조 하세요.
 
 Active Directory 도메인을 설정한 후 새 Active Directory의 [vCenter에 id 원본을 추가할](#add-an-identity-source-on-vcenter) 수 있습니다.
 

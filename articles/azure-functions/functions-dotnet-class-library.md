@@ -3,12 +3,12 @@ title: Azure Functions C# 개발자 참조
 description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.openlocfilehash: 038c1db2d4bb4d8bd80801d36cf5feec1905bbc1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9ecc2dad8d1d520b44972022d47c312f495d5c38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254370"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506516"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -202,6 +202,28 @@ npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
 ```
 
+## <a name="readytorun"></a>ReadyToRun
+
+함수 앱을 [ReadyToRun 이진](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images)파일로 컴파일할 수 있습니다. ReadyToRun는 [소비 계획](functions-scale.md#consumption-plan)에서 실행 될 때 [콜드 시작](functions-scale.md#cold-start) 의 영향을 줄이는 데 도움이 되는 시작 성능을 향상 시킬 수 있는 사전 컴파일 형태입니다.
+
+ReadyToRun는 .NET 3.0에서 사용할 수 있으며 [Azure Functions 런타임의 버전 3.0](functions-versions.md)이 필요 합니다.
+
+프로젝트를 ReadyToRun로 컴파일하려면 및 요소를 추가 하 여 프로젝트 파일을 `<PublishReadyToRun>` 업데이트 `<RuntimeIdentifier>` 합니다. 다음은 Windows 32 비트 함수 앱에 게시 하기 위한 구성입니다.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp3.1</TargetFramework>
+  <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <PublishReadyToRun>true</PublishReadyToRun>
+  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+</PropertyGroup>
+```
+
+> [!IMPORTANT]
+> ReadyToRun는 현재 크로스 컴파일을 지원 하지 않습니다. 배포 대상과 동일한 플랫폼에서 앱을 빌드해야 합니다. 또한 함수 앱에 구성 된 "비트"에 주의 해야 합니다. 예를 들어 Azure의 함수 앱이 Windows 64 비트인 경우를 `win-x64` [런타임 식별자](/dotnet/core/rid-catalog)로 사용 하 여 windows에서 앱을 컴파일해야 합니다.
+
+명령줄에서 ReadyToRun를 사용 하 여 앱을 빌드할 수도 있습니다. 자세한 내용은의 옵션을 참조 하세요 `-p:PublishReadyToRun=true` [`dotnet publish`](/dotnet/core/tools/dotnet-publish) .
+
 ## <a name="supported-types-for-bindings"></a>바인딩에 대해 지원되는 형식
 
 각 바인딩에는 자체적인 지원 형식이 있습니다. 예를들 어, Blob 트리거 특성은 문자열 매개 변수, POCO 매개 변수, `CloudBlockBlob` 매개 변수 또는 지원되는 기타 몇 가지 형식에 적용될 수 있습니다. [Blob 바인딩에 대한 바인딩 참조 문서](functions-bindings-storage-blob-trigger.md#usage)에는 지원되는 모든 매개 변수 형식이 나와 있습니다. 자세한 내용은 [트리거 및 바인딩](functions-triggers-bindings.md) 및 [각 바인딩 형식에 대한 바인딩 참조 문서](functions-triggers-bindings.md#next-steps)를 참조하세요.
@@ -238,7 +260,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>로깅
 
-C#의 스트리밍 로그에 대한 출력을 기록하려면 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 포함합니다. 다음 예제와 같이 `log`로 이름을 지정하는 것이 좋습니다.  
+C#의 스트리밍 로그에 대한 출력을 기록하려면 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 포함합니다. 다음 예제와 같이 `log`로 이름을 지정하는 것이 좋습니다.  
 
 ```csharp
 public static class SimpleExample
@@ -257,7 +279,7 @@ Azure Functions에서 `Console.Write`를 사용하지 마세요. 자세한 내�
 
 ## <a name="async"></a>Async
 
-[비동기화](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) 함수를 만들려면 `async` 키워드를 사용하고 `Task` 개체를 반환합니다.
+[비동기화](/dotnet/csharp/programming-guide/concepts/async/) 함수를 만들려면 `async` 키워드를 사용하고 `Task` 개체를 반환합니다.
 
 ```csharp
 public static class AsyncExample
@@ -330,7 +352,7 @@ public static class EnvironmentVariablesExample
 
 앱 설정은 로컬로 개발할 때와 Azure에서 실행할 때 환경 변수에서 읽을 수 있습니다. 로컬로 개발할 때 앱 설정은 `Values`local.settings.json* 파일의 * 컬렉션에서 가져옵니다. 로컬 및 Azure의 두 환경에서 `GetEnvironmentVariable("<app setting name>")`은 명명된 앱 설정의 값을 검색합니다. 예를 들어 로컬로 실행하는 경우 *local.settings.json* 파일에 `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`이 포함된 경우 "My Site Name"이 반환됩니다.
 
-[System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) 속성은 앱 설정 값을 가져오는 대체 API지만, 다음과 같이 `GetEnvironmentVariable`을 사용하는 것이 좋습니다.
+[System.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) 속성은 앱 설정 값을 가져오는 대체 API지만, 다음과 같이 `GetEnvironmentVariable`을 사용하는 것이 좋습니다.
 
 ## <a name="binding-at-runtime"></a>런타임에 바인딩
 

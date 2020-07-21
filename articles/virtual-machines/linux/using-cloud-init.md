@@ -8,19 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: bebf4967d96177038aba64be59d43f49458b82be
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e303b713adf2925af8bc012a5b858c6f5740fccf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920182"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510075"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상머신에 대한 cloud-init 지원
 이 문서에서는 Azure에서 프로비저닝 시간에 VM(가상 머신) 또는 가상 머신 확장 집합을 구성하는 [cloud-init](https://cloudinit.readthedocs.io)에 대한 지원을 설명합니다. Azure에서 리소스가 프로비저닝된 후 처음 부팅할 때 이러한 cloud-init 구성이 실행됩니다.  
 
 VM 프로비저닝은 Azure가 호스트 이름, 사용자 이름, 암호 등의 VM Create 매개 변수 값을 전달하여 부팅 시 VM이 사용할 수 있게 하는 프로세스입니다. ‘프로비저닝 에이전트’는 이런 값을 사용하고, VM을 구성하며, 완료되면 다시 보고합니다. 
 
-Azure는 [cloud-init](https://cloudinit.readthedocs.io) 및 [WALA(Azure Linux Agent)](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 등의 두 프로비저닝 에이전트를 지원합니다.
+Azure는 [cloud-init](https://cloudinit.readthedocs.io) 및 [WALA(Azure Linux Agent)](../extensions/agent-linux.md) 등의 두 프로비저닝 에이전트를 지원합니다.
 
 ## <a name="cloud-init-overview"></a>cloud-init 개요
 [cloud-init](https://cloudinit.readthedocs.io)는 처음 부팅 시 Linux VM을 사용자 지정하는 데 널리 사용되는 방법입니다. Cloud-init를 사용하여 패키지를 설치하고 파일을 쓰거나, 사용자 및 보안을 구성할 수 있습니다. 초기 부팅 프로세스 중에 cloud-init가 호출되므로 구성을 적용하기 위한 추가 단계나 필요한 에이전트가 없습니다.  `#cloud-config` 파일 또는 다른 입력의 형식을 올바르게 지정하는 방법에 대한 자세한 내용은 [cloud-init 설명서 사이트](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)를 참조하세요.  `#cloud-config` 파일은 base64로 인코딩된 텍스트 파일입니다.
@@ -106,7 +106,7 @@ Azure에서 보증된 Linux 배포판 OS에 cloud-init를 제공하는 것은 �
 현재 Azure Stack은 cloud-init 사용이 가능한 이미지의 프로비저닝을 지원합니다.
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init와 Linux 에이전트(WALA)의 차이는 무엇입니까?
-WALA는 VM을 프로비저닝 및 구성하고 [Azure 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux)을 처리하는 데 사용되는 Azure 플랫폼 관련 에이전트입니다. 
+WALA는 VM을 프로비저닝 및 구성하고 [Azure 확장](../extensions/features-linux.md)을 처리하는 데 사용되는 Azure 플랫폼 관련 에이전트입니다. 
 
 기존 cloud-init 고객이 현재 cloud-init 스크립트를 사용하거나 새 고객이 상세한 cloud-init 구성 기능을 활용할 수 있게, Linux 에이전트 대신 cloud-init를 사용하도록 VM을 구성하는 작업을 개선하고 있습니다. Linux 시스템을 구성하기 위해 cloud-init 스크립트에 이미 투자한 경우 cloud-init 프로세스를 사용하기 위한 **추가 설정이 필요하지 않습니다**. 
 

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: dacf1329d35117c65bcc48a82ac27a767ebd2b3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203186"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506811"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
@@ -49,7 +49,7 @@ ms.locfileid: "82203186"
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Azure Portal를 사용 하 여 자체 호스팅 게이트웨이의 사용자 지정 도메인 이름 설정
 
-1. **설정**에서 **게이트웨이** 를 선택 합니다.
+1. **배포 및 인프라**에서 **게이트웨이** 를 선택 합니다.
 2. 도메인 이름을 구성 하려는 자체 호스팅 게이트웨이를 선택 합니다.
 3. **설정**에서 **호스트 이름** 을 선택 합니다.
 4. **+ 추가**를 선택합니다.

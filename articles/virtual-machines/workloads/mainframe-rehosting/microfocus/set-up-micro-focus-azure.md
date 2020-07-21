@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 7647283444ba41a5d629ba8a26fc711a699cd78d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc61d842550f82dc8b408ed5cd421af65d0e2be6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561164"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507899"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치
 
@@ -29,7 +29,7 @@ Azure에서 일반적인 작업은 개발 및 테스트 환경입니다. 이 시
 
 Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 2017 이상, Visual Studio Community (무료로 다운로드 가능) 또는 Eclipse에서 실행 되는 엔터프라이즈 개발자입니다. 이 문서에서는 Visual Studio 2017 이상과 함께 제공 되는 Windows Server 2016 가상 컴퓨터를 사용 하 여 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 필수 구성 요소를 확인 하세요.
 
@@ -42,7 +42,7 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
     > [!Note]
     > Vm에 대 한 액세스를 제어 하는 몇 가지 옵션이 있습니다.
     > -   모범 사례는 [Azure 방호](https://azure.microsoft.com/services/azure-bastion/)를 설정 하는 것입니다.
-    > -   [사이트 간 VPN (가상 사설망)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell) 터널.
+    > -   [사이트 간 VPN (가상 사설망)](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md) 터널.
     > -   Jumpbox VM입니다.
 
 ## <a name="install-enterprise-server"></a>Enterprise Server 설치
@@ -125,8 +125,8 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
 
 **다음 단계**
 
--   [BankDemo 응용 프로그램 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/demo)
+-   [BankDemo 응용 프로그램 설정](./demo.md)
 
--   [Docker 컨테이너에서 엔터프라이즈 서버 실행](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)
+-   [Docker 컨테이너에서 엔터프라이즈 서버 실행](./run-enterprise-server-container.md)
 
--   [메인프레임 애플리케이션 마이그레이션](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+-   [메인프레임 애플리케이션 마이그레이션](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

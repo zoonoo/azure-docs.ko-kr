@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: b553256d3e6a498e36e8b5c98d90c6c14b10df75
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224573"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507933"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -43,17 +43,17 @@ ms.locfileid: "86224573"
 
 다음 표에는 Oracle 데이터베이스의 온-프레미스 구현과 Azure 구현 간의 차이점이 나열되어 있습니다.
 
-> 
-> |  | **온-프레미스 구현** | **Azure 구현** |
-> | --- | --- | --- |
-> | **네트워킹** |LAN/WAN  |SDN(소프트웨어 방식 네트워킹)|
-> | **보안 그룹** |IP/포트 제한 도구 |[NSG (네트워크 보안 그룹)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **복원력** |MTBF(평균 고장 간격) |MTTR(평균 복구 시간)|
-> | **계획 된 유지 관리** |패치/업그레이드|[가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)(Azure에서 관리되는 패치/업그레이드) |
-> | **리소스** |전용  |다른 클라이언트와 공유|
-> | **지역** |데이터 센터 |[지역 쌍](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **스토리지** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **규모** |수직적 확장 |수평적 확장|
+
+|  | 온-프레미스 구현 | Azure 구현 |
+| --- | --- | --- |
+| **네트워킹** |LAN/WAN  |SDN(소프트웨어 방식 네트워킹)|
+| **보안 그룹** |IP/포트 제한 도구 |[NSG (네트워크 보안 그룹)](https://azure.microsoft.com/blog/network-security-groups) |
+| **복원력** |MTBF(평균 고장 간격) |MTTR(평균 복구 시간)|
+| **계획 된 유지 관리** |패치/업그레이드|[가용성 집합](../../windows/infrastructure-example.md)(Azure에서 관리되는 패치/업그레이드) |
+| **리소스** |전용  |다른 클라이언트와 공유|
+| **지역** |데이터 센터 |[지역 쌍](../../regions.md#region-pairs)|
+| **스토리지** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **크기 조정** |수직적 확장 |수평적 확장|
 
 
 ### <a name="requirements"></a>요구 사항
@@ -116,11 +116,11 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 #### <a name="2-choose-a-vm"></a>2. VM 선택
 
-다음 단계에서는 AWR 보고서에서 수집한 정보에 따라 요구 사항을 충족하는 비슷한 크기의 VM을 선택합니다. [메모리 최적화](../../linux/sizes-memory.md) 문서에서 사용 가능한 VM 목록을 찾을 수 있습니다.
+다음 단계에서는 AWR 보고서에서 수집한 정보에 따라 요구 사항을 충족하는 비슷한 크기의 VM을 선택합니다. [메모리 최적화](../../sizes-memory.md) 문서에서 사용 가능한 VM 목록을 찾을 수 있습니다.
 
 #### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. ACU에 따라 유사한 VM 시리즈를 사용 하 여 VM 크기를 미세 조정 합니다.
 
-VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요구 사항에 더 적합한 ACU 값에 따라 다른 VM을 선택할 수도 있습니다. 자세한 내용은 [Azure 컴퓨팅 단위](https://docs.microsoft.com/azure/virtual-machines/windows/acu)를 참조하세요.
+VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요구 사항에 더 적합한 ACU 값에 따라 다른 VM을 선택할 수도 있습니다. 자세한 내용은 [Azure 컴퓨팅 단위](../../acu.md)를 참조하세요.
 
 ![ACU 단위 페이지의 스크린샷](./media/oracle-design/acu_units.png)
 
@@ -143,8 +143,8 @@ VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요
 
 - 네트워크 대기 시간은 온-프레미스 배포에 비해 더 높습니다. 네트워크 왕복 수를 줄이면 성능이 크게 향상될 수 있습니다.
 - 왕복을 줄이려면 동일한 가상 머신에서 트랜잭션이 많은 애플리케이션 또는 "채팅 가능한(chatty)" 앱을 통합합니다.
-- 네트워크 성능을 향상 시키려면 [가속화 된 네트워킹](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 을 사용 하는 Virtual Machines를 사용 합니다.
-- 특정 Linux 배포판의 경우 [트리밍/매핑 해제 지원을](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support)사용 하도록 설정 하는 것이 좋습니다.
+- 네트워크 성능을 향상 시키려면 [가속화 된 네트워킹](../../../virtual-network/create-vm-accelerated-networking-cli.md) 을 사용 하는 Virtual Machines를 사용 합니다.
+- 특정 Linux 배포판의 경우 [트리밍/매핑 해제 지원을](../../linux/configure-lvm.md#trimunmap-support)사용 하도록 설정 하는 것이 좋습니다.
 - 별도의 가상 컴퓨터에 [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) 를 설치 합니다.
 - 기본적으로 큰 페이지는 linux에서 사용 하도록 설정 되지 않습니다. 큰 페이지를 사용 하도록 설정 하 고 Oracle DB에 설정 하는 것이 좋습니다 `use_large_pages = ONLY` . 이렇게 하면 성능을 향상 시킬 수 있습니다. 자세한 내용은 [여기](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)를 참조하세요.
 
@@ -187,7 +187,7 @@ I/O 요구 사항에 대해 명확히 알고 있으면 이러한 요구 사항�
 - 데이터 압축을 사용하여 I/O를 줄입니다(데이터 및 인덱스 모두에 해당).
 - 개별 데이터 디스크에서 다시 실행 로그, 시스템, 임시 디스크를 분리하고 TS를 실행 취소합니다.
 - 기본 OS 디스크(/dev/sda)에 애플리케이션 파일을 배치하지 않습니다. 이러한 디스크는 빠른 VM 부팅 시간에 맞게 최적화되지 않으며, 애플리케이션에 좋은 성능을 제공하지 않을 수 있습니다.
-- Premium storage에서 M 시리즈 Vm을 사용 하는 경우 redo logs 디스크에서 [쓰기 가속기](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) 를 사용 하도록 설정 합니다.
+- Premium storage에서 M 시리즈 Vm을 사용 하는 경우 redo logs 디스크에서 [쓰기 가속기](../../linux/how-to-enable-write-accelerator.md) 를 사용 하도록 설정 합니다.
 
 ### <a name="disk-cache-settings"></a>디스크 캐시 설정
 
@@ -225,7 +225,7 @@ Azure 환경을 설정하고 구성한 후의 다음 단계는 네트워크를 �
 - *사설망*(서브넷): NSG 정책에 따라 더 나은 제어를 설정할 수 있도록 애플리케이션 서비스와 데이터베이스를 별도의 서브넷에 두는 것이 좋습니다.
 
 
-## <a name="additional-reading"></a>추가 참조 항목
+## <a name="additional-reading"></a>추가 자료
 
 - [Oracle ASM 구성](configure-oracle-asm.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)

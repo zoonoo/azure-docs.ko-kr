@@ -4,26 +4,26 @@ description: Azure Functions를 사용하여 Azure SQL Database에 연결하여 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254279"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506080"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 
-이 문서에서는 Azure Functions를 사용 하 여 Azure SQL Database 또는 Azure SQL Managed Instance에 연결 하는 예약 된 작업을 만드는 방법을 보여 줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 c # 함수는 Visual Studio 2019의 미리 정의 된 타이머 트리거 템플릿을 기반으로 생성 됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. Azure SQL Managed Instance의 경우 Azure Functions에서 연결할 수 있도록 [공용 끝점을 설정](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
+이 문서에서는 Azure Functions를 사용 하 여 Azure SQL Database 또는 Azure SQL Managed Instance에 연결 하는 예약 된 작업을 만드는 방법을 보여 줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 c # 함수는 Visual Studio 2019의 미리 정의 된 타이머 트리거 템플릿을 기반으로 생성 됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. Azure SQL Managed Instance의 경우 Azure Functions에서 연결할 수 있도록 [공용 끝점을 설정](../azure-sql/managed-instance/public-endpoint-configure.md) 해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
 
 C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)를 참고해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 + [Visual Studio를 사용 하 여 첫 번째 함수 만들기](functions-create-your-first-function-visual-studio.md) 문서의 단계를 완료 하 여 버전 2.x 또는 이후 버전의 런타임을 대상으로 하는 로컬 함수 앱을 만듭니다. 또한 프로젝트를 Azure의 함수 앱에 게시했어야 합니다.
 
 + 이 문서은 AdventureWorksLT 샘플 데이터베이스의 **SalesOrderHeader** 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령을 보여줍니다. AdventureWorksLT 샘플 데이터베이스를 만들려면 [Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)문서의 단계를 완료 합니다.
 
-+ 이 빠른 시작 에서 사용하는 컴퓨터의 공용 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-get-started-portal-firewall.md)을 추가해야 합니다. 이 규칙은 로컬 컴퓨터에서 SQL Database 인스턴스에 액세스할 수 있어야 합니다.  
++ 이 빠른 시작 에서 사용하는 컴퓨터의 공용 IP 주소에 대해 [서버 수준 방화벽 규칙](../azure-sql/database/firewall-create-server-level-portal-quickstart.md)을 추가해야 합니다. 이 규칙은 로컬 컴퓨터에서 SQL Database 인스턴스에 액세스할 수 있어야 합니다.  
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 

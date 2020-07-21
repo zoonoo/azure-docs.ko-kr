@@ -5,19 +5,19 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3f16f2ef077a1fc3c82075aaf7b7685f941d0a31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6810ba76379e78d3cde4f3cd341d501be3725257
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559585"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506335"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
 
 > [!NOTE]
 > Azure Mobile Apps 바인딩은 Azure Functions 1.x에만 사용할 수 있습니다. Azure Functions 2.x 이상에서는 지원 되지 않습니다.
 
-이 문서에서는 Azure Functions에서 [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 바인딩을 사용하여 작업하는 방법을 설명합니다. Azure Functions는 Mobile Apps에 대한 입력 및 출력 바인딩을 지원합니다.
+이 문서에서는 Azure Functions에서 [Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) 바인딩을 사용하여 작업하는 방법을 설명합니다. Azure Functions는 Mobile Apps에 대한 입력 및 출력 바인딩을 지원합니다.
 
 Mobile Apps 바인딩을 사용하면 모바일 앱에서 데이터 테이블을 읽고 업데이트할 수 있습니다.
 

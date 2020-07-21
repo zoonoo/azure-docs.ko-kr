@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 6fb9f691afc8874b19ca4575408027357f07cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833539"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505774"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Log Analytics 대시보드 시각화 업그레이드
 
@@ -25,7 +25,7 @@ ms.locfileid: "85833539"
 
 Azure 대시보드는 전체 Azure 노출 영역의 상태를 시각화 하는 방법입니다. Azure estate 상태에 단일 창을 제공 하 고 일반적인 동작에 대 한 다양 한 바로 가기를 사용할 수 있도록 설계 되었습니다. 
 
-자세한 내용은 [Azure 대시보드](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) 를 참조 하세요.
+자세한 내용은 [Azure 대시보드](../../azure-portal/azure-portal-dashboards.md) 를 참조 하세요.
 
 
 ## <a name="upgrading-log-analytics-dashboard-parts"></a>Log Analytics 대시보드 파트 업그레이드
@@ -68,7 +68,7 @@ Log Analytics 고정 된 파트를 업그레이드할 수 있는 경우 대시�
 
 ### <a name="query-time-scope---30-day-limit"></a>쿼리 시간 범위-30 일 제한
 
-대시보드는 여러 쿼리의 여러 시각화를 포함할 수 있으므로 고정 된 단일 쿼리의 시간 범위는 30 일로 제한 됩니다. 단일 쿼리는 30 일 보다 작거나 같은 시간 범위 에서만 실행 될 수 있습니다. 이 제한 사항은 적절 한 대시보드 로드 시간을 보장 하기 위한 것입니다.
+대시보드는 여러 쿼리의 여러 시각화를 포함할 수 있으므로 고정된 단일 쿼리의 시간 범위는 30일로 제한됩니다. 단일 쿼리는 30 일 보다 작거나 같은 시간 범위 에서만 실행 될 수 있습니다. 이 제한 사항은 적절 한 대시보드 로드 시간을 보장 하기 위한 것입니다.
 
 ### <a name="query-data-values---25-values-and-other-grouping"></a>데이터 값 쿼리-25 개의 값과 기타 그룹화
 

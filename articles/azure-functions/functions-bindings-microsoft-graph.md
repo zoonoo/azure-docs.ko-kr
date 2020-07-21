@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290765b17cf34417176930dc9116309bdfd754c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322518"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506539"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
 
@@ -58,7 +59,7 @@ Visual Studio를 사용하는 경우 [앞서 이 아티클에서 나열된 NuGet
 
 ### <a name="configuring-authentication--authorization"></a>인증/권한 부여 구성
 
-이 문서에서 설명하는 바인딩은 반드시 ID를 사용해야 합니다. 이를 통해 Microsoft Graph가 권한을 적용하고 상호 작용을 감사할 수 있습니다. ID는 애플리케이션에 액세스하는 사용자일 수도 있고 애플리케이션 자체일 수도 있습니다. 이 ID를 구성하려면 Azure Active Directory를 사용하여 [App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 설정합니다. 그리고 함수에 필요한 리소스 권한을 요청해야 합니다.
+이 문서에서 설명하는 바인딩은 반드시 ID를 사용해야 합니다. 이를 통해 Microsoft Graph가 권한을 적용하고 상호 작용을 감사할 수 있습니다. ID는 애플리케이션에 액세스하는 사용자일 수도 있고 애플리케이션 자체일 수도 있습니다. 이 ID를 구성하려면 Azure Active Directory를 사용하여 [App Service 인증/권한 부여](../app-service/overview-authentication-authorization.md)를 설정합니다. 그리고 함수에 필요한 리소스 권한을 요청해야 합니다.
 
 > [!Note] 
 > Microsoft Graph 확장은 Azure AD 인증만 지원합니다. 사용자는 회사 또는 학교 계정으로 로그인해야 합니다.
@@ -76,7 +77,7 @@ Azure Portal을 사용하는 경우 확장을 설치할지 묻는 메시지 아�
 
 * [예제](#auth-token---example)
 * [특성](#auth-token---attributes)
-* [구성](#auth-token---configuration)
+* [Configuration](#auth-token---configuration)
 * [사용 현황](#auth-token---usage)
 
 ### <a name="auth-token---example"></a>인증 토큰 - 예제
@@ -234,7 +235,7 @@ Excek 테이블 입력 바인딩은 OneDrive에 저장된 Excel 테이블의 콘
 
 * [예제](#excel-input---example)
 * [특성](#excel-input---attributes)
-* [구성](#excel-input---configuration)
+* [Configuration](#excel-input---configuration)
 * [사용 현황](#excel-input---usage)
 
 ### <a name="excel-input---example"></a>Excel 입력 - 예제
@@ -347,7 +348,7 @@ module.exports = function (context, req) {
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
 |**Id**|**Id**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
-|**path**|**경로**|필수 - OneDrive에서 Excel 통합 문서의 경로입니다.|
+|**path**|**Path**|필수 - OneDrive에서 Excel 통합 문서의 경로입니다.|
 |**worksheetName**|**WorksheetName**|테이블이 검색되는 워크시트입니다.|
 |**tableName**|**TableName**|테이블의 이름입니다. 지정하지 않으면 워크시트의 콘텐츠가 사용됩니다.|
 
@@ -383,7 +384,7 @@ Excel 출력 바인딩은 OneDrive에 저장된 Excel 테이블의 콘텐츠를 
 
 * [예제](#excel-output---example)
 * [특성](#excel-output---attributes)
-* [구성](#excel-output---configuration)
+* [Configuration](#excel-output---configuration)
 * [사용 현황](#excel-output---usage)
 
 ### <a name="excel-output---example"></a>Excel 출력 - 예제
@@ -509,7 +510,7 @@ module.exports = function (context, req) {
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
 |**Id** |**Id** |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
-|**path**|**경로**|필수 - OneDrive에서 Excel 통합 문서의 경로입니다.|
+|**path**|**Path**|필수 - OneDrive에서 Excel 통합 문서의 경로입니다.|
 |**worksheetName**|**WorksheetName**|테이블이 검색되는 워크시트입니다.|
 |**tableName**|**TableName**|테이블의 이름입니다. 지정하지 않으면 워크시트의 콘텐츠가 사용됩니다.|
 |**updateType**|**UpdateType**|필수 - 테이블에 적용해야 하는 변경 형식입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>update</code> - OneDrive에 있는 테이블의 콘텐츠를 대체합니다.</li><li><code>append</code> - 새 행을 만들어서 OneDrive에 있는 테이블의 끝에 페이로드를 추가합니다.</li></ul>|
@@ -542,7 +543,7 @@ OneDrive 파일 입력 바인딩은 OneDrive에 저장된 파일의 콘텐츠를
 
 * [예제](#file-input---example)
 * [특성](#file-input---attributes)
-* [구성](#file-input---configuration)
+* [Configuration](#file-input---configuration)
 * [사용 현황](#file-input---usage)
 
 ### <a name="file-input---example"></a>파일 입력 - 예제
@@ -655,7 +656,7 @@ module.exports = function (context, req) {
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
 |**Id**|**Id**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
-|**path**|**경로**|필수 - OneDrive에서 파일의 경로입니다.|
+|**path**|**Path**|필수 - OneDrive에서 파일의 경로입니다.|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>파일 입력 - 사용
@@ -668,8 +669,8 @@ module.exports = function (context, req) {
 
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
-- STREAM
-- string
+- 스트림
+- 문자열
 - Microsoft.Graph.DriveItem
 
 
@@ -686,7 +687,7 @@ OneDrive 파일 출력 바인딩은 OneDrive에 저장된 파일의 콘텐츠를
 
 * [예제](#file-output---example)
 * [특성](#file-output---attributes)
-* [구성](#file-output---configuration)
+* [Configuration](#file-output---configuration)
 * [사용 현황](#file-output---usage)
 
 ### <a name="file-output---example"></a>파일 출력 - 예제
@@ -803,7 +804,7 @@ module.exports = function (context, req) {
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
 |**Id** |**Id** |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
-|**path**|**경로**|필수 - OneDrive에서 파일의 경로입니다.|
+|**path**|**Path**|필수 - OneDrive에서 파일의 경로입니다.|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>파일 출력 - 사용
@@ -816,8 +817,8 @@ module.exports = function (context, req) {
 
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
-- STREAM
-- string
+- 스트림
+- 문자열
 - Microsoft.Graph.DriveItem
 
 
@@ -833,7 +834,7 @@ Outlook 메시지 출력 바인딩은 Outlook을 통해 메일 메시지를 보�
 
 * [예제](#outlook-output---example)
 * [특성](#outlook-output---attributes)
-* [구성](#outlook-output---configuration)
+* [Configuration](#outlook-output---configuration)
 * [사용 현황](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Outlook 출력 - 예제
@@ -967,7 +968,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- string
+- 문자열
 - 사용자 지정 개체 형식(구조 모델 바인딩 사용)
 
 
@@ -982,7 +983,7 @@ module.exports = function (context, req) {
 - 기존 구독을 나열하고 필요에 따라 새로 고칠 수 있는 [Microsoft Graph 웹후크 구독 입력 바인딩](#webhook-input).
 - 웹후크 구독을 만들거나 삭제할 수 있는 [Microsoft Graph 웹후크 구독 출력 바인딩](#webhook-output).
 
-바인딩 자체는 Azure AD 권한이 필요 없지만, 대응하려는 리소스 종류와 관련된 권한을 요청해야 합니다. 각 리소스 종류에 필요한 권한 목록은 [구독 권한](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0)을 참조하세요.
+바인딩 자체는 Azure AD 권한이 필요 없지만, 대응하려는 리소스 종류와 관련된 권한을 요청해야 합니다. 각 리소스 종류에 필요한 권한 목록은 [구독 권한](/graph/api/subscription-post-subscriptions?view=graph-rest-1.0)을 참조하세요.
 
 웹후크에 대한 자세한 내용은 [Microsoft Graph에서 웹후크 작업]을 참조하세요.
 
@@ -998,7 +999,7 @@ Microsoft Graph 웹후크 트리거를 사용하면 함수가 Microsoft Graph에
 
 * [예제](#webhook-trigger---example)
 * [특성](#webhook-trigger---attributes)
-* [구성](#webhook-trigger---configuration)
+* [Configuration](#webhook-trigger---configuration)
 * [사용 현황](#webhook-trigger---usage)
 
 ### <a name="webhook-trigger---example"></a>웹후크 트리거 - 예제
@@ -1117,7 +1118,7 @@ Microsoft Graph 웹후크 입력 바인딩을 사용하면 이 함수 앱이 관
 
 * [예제](#webhook-input---example)
 * [특성](#webhook-input---attributes)
-* [구성](#webhook-input---configuration)
+* [Configuration](#webhook-input---configuration)
 * [사용 현황](#webhook-input---usage)
 
 ### <a name="webhook-input---example"></a>웹후크 입력 - 예제
@@ -1246,7 +1247,7 @@ module.exports = function (context, req) {
 |**name**| 해당 없음 |필수 - 메일 메시지의 함수 코드에 사용되는 변수 이름입니다. [코드에서 Outlook 메시지 출력 바인딩 사용](#outlook-output-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `graphWebhookSubscription`으로 설정해야 합니다.|
 |**direction**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
-|**필터가**|**필터**| `userFromRequest`로 설정하면 바인딩이 호출하는 사용자 소유의 구독만 검색합니다([HTTP 트리거]에만 유효).| 
+|**필터가**|**Filter**| `userFromRequest`로 설정하면 바인딩이 호출하는 사용자 소유의 구독만 검색합니다([HTTP 트리거]에만 유효).| 
 
 ### <a name="webhook-input---usage"></a>웹후크 입력 - 사용
 
@@ -1268,7 +1269,7 @@ module.exports = function (context, req) {
 
 * [예제](#webhook-output---example)
 * [특성](#webhook-output---attributes)
-* [구성](#webhook-output---configuration)
+* [Configuration](#webhook-output---configuration)
 * [사용 현황](#webhook-output---usage)
 
 ### <a name="webhook-output---example"></a>웹후크 출력 - 예제
@@ -1397,7 +1398,7 @@ module.exports = function (context, req) {
 ### <a name="webhook-output---usage"></a>웹후크 출력 - 사용
 
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
-- string
+- 문자열
 - Microsoft.Graph.Subscription
 
 

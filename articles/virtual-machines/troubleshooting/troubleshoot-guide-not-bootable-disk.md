@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80300980"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509038"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>부팅 오류 – 부팅 가능한 디스크가 아닙니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "80300980"
 
 ## <a name="symptoms"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 스크린 샷에서는 ' 부팅 디스크가 아닙니다. ' 라는 메시지가 표시 되는 것을 볼 수 있습니다. 부팅 가능한 플로피를 삽입 하 고 아무 키나 눌러 다시 시도 하세요.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 스크린 샷에서는 ' 부팅 디스크가 아닙니다. ' 라는 메시지가 표시 되는 것을 볼 수 있습니다. 부팅 가능한 플로피를 삽입 하 고 아무 키나 눌러 다시 시도 하세요.
 
    그림 1
 
@@ -52,7 +52,7 @@ ms.locfileid: "80300980"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1~3단계를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)의 1~3단계를 사용하여 복구 VM을 준비합니다.
 2. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="set-partition-status-to-active"></a>파티션 상태를 활성으로 설정
@@ -148,4 +148,4 @@ ms.locfileid: "80300980"
 
 ### <a name="rebuild-the-original-vm"></a>원본 VM 다시 빌드
 
-[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 조합합니다.
+[VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 조합합니다.

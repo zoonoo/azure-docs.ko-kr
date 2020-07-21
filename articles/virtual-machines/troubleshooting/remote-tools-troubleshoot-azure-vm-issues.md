@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422597"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509089"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
 
@@ -31,7 +31,7 @@ Azure VM (가상 컴퓨터)에서 문제를 해결할 때 원격 데스크톱 �
 
 ## <a name="remote-cmd"></a>원격 CMD
 
-[PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec)을 다운로드합니다. 다음 명령을 실행하여 VM에 연결합니다.
+[PsExec](/sysinternals/downloads/psexec)을 다운로드합니다. 다음 명령을 실행하여 VM에 연결합니다.
 
 ```cmd
 psexec \\<computer>-u user -s cmd
@@ -251,9 +251,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## <a name="next-steps"></a>다음 단계
 
-- Enter-PSSession cmdlet에 대 한 자세한 내용은 [enter-pssession](https://technet.microsoft.com/library/hh849707.aspx)을 참조 하세요.
-- 클래식 배포 모델을 사용 하는 Windows 용 사용자 지정 스크립트 확장에 대 한 자세한 내용은 [windows 용 사용자 지정 스크립트 확장](../extensions/custom-script-classic.md)을 참조 하세요.
+- Enter-PSSession cmdlet에 대 한 자세한 내용은 [enter-pssession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1)을 참조 하세요.
+- 클래식 배포 모델을 사용 하는 Windows 용 사용자 지정 스크립트 확장에 대 한 자세한 내용은 [windows 용 사용자 지정 스크립트 확장](../extensions/custom-script-windows.md)을 참조 하세요.
 - PsExec는 [PSTools 도구 모음](https://download.sysinternals.com/files/PSTools.zip)의 일부입니다.
-- PSTools Suite에 대 한 자세한 내용은 [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)를 참조 하세요.
-
-
+- PSTools Suite에 대 한 자세한 내용은 [PSTools](/sysinternals/downloads/pstools)를 참조 하세요.

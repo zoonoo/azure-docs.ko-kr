@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793043"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507674"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Oracle RAC 설치를 위한 CloudSimple 사설 클라우드 최적화
 
@@ -43,7 +44,7 @@ Oracle RAC 가상 컴퓨터에는 특정 기능에 사용 되는 여러 디스�
 
 다음 예에서는 아래 테이블에 정의 된 디스크를 사용 합니다.
 
-| 디스크                                      | 용도                                       | 공유 디스크 |
+| 디스크                                      | 목적                                       | 공유 디스크 |
 |-------------------------------------------|-----------------------------------------------|-------------|
 | OS                                        | 운영 체제 디스크                         | 아니요          |
 | 그리드에                                      | Oracle 그리드 소프트웨어의 설치 위치     | 아니요          |
@@ -168,7 +169,7 @@ FRA (빠른 복구 영역)는 Oracle ASM 디스크 그룹에 의해 관리 되�
 
 vSAN 정책은 VM 디스크에 저장 된 데이터에 대해 허용 되는 오류 및 디스크 스트라이프를 정의 합니다.  VM을 만드는 동안 생성 된 저장소 정책을 VM 디스크에 적용 해야 합니다.
 
-1. 사설 클라우드의 [vSphere 클라이언트에 로그인](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) 합니다.
+1. 사설 클라우드의 [vSphere 클라이언트에 로그인](./vcenter-access.md) 합니다.
 2. 상단 메뉴에서 **정책 및 프로필**을 선택 합니다.
 3. 왼쪽 메뉴에서 **Vm 저장소 정책** 을 선택 하 고 **Vm 저장소 정책 만들기**를 선택 합니다.
 4. 정책에 대 한 의미 있는 이름을 입력 하 고 **다음**을 클릭 합니다.
@@ -258,7 +259,7 @@ VM-호스트 선호도 규칙은 VM이 원하는 호스트에서 실행 되는�
 13. 만든 호스트 그룹을 선택 합니다.
 14. **확인** 을 클릭 하 여 규칙을 만듭니다.
 
-## <a name="references"></a>참조
+## <a name="references"></a>참고 자료
 
 * [VSAN 정책 정보](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-08911FD3-2462-4C1C-AE81-0D4DBC8F7990.html)
 * [Shared Vmdk에 대 한 VMware 다중 기록기 특성](https://docs.vmware.com/en/VMware-Cloud-on-AWS/solutions/VMware-Cloud-on-AWS.df6735f8b729fee463802083d46fdc75/GUID-A7642A82B3D6C5F7806DB40A3F2766D9.html)

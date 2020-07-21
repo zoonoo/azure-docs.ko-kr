@@ -10,11 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289801"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507882"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure virtual machines의 메인프레임 재호스팅
 
@@ -69,11 +70,11 @@ Azure의 에뮬레이션 환경에서는 ADCDs (응용 프로그램 개발자 �
 
 IBM DB2 pureScale 환경은 Azure에 대 한 데이터베이스 클러스터를 제공 합니다. 원래 환경과 동일 하지는 않지만 병렬 Sysplex 설정에서 실행 되는 z/OS 용 IBM d b 2로 유사한 가용성 및 규모를 제공 합니다.
 
-시작 하려면 [Azure에서 IBM DB2 pureScale](/azure/virtual-machines/linux/ibm-db2-purescale-azure)를 참조 하세요.
+시작 하려면 [Azure에서 IBM DB2 pureScale](../../linux/ibm-db2-purescale-azure.md)를 참조 하세요.
 
 ## <a name="considerations"></a>고려 사항
 
-메인프레임 워크 로드를 Azure IaaS (infrastructure as a service)로 마이그레이션하는 경우 Azure Vm을 포함 하 여 여러 유형의 주문형 확장 컴퓨팅 리소스에서 선택할 수 있습니다. Azure는 다양 한 [Linux](/azure/virtual-machines/linux/overview) 및 [Windows](/azure/virtual-machines/windows/overview) vm을 제공 합니다.
+메인프레임 워크 로드를 Azure IaaS (infrastructure as a service)로 마이그레이션하는 경우 Azure Vm을 포함 하 여 여러 유형의 주문형 확장 컴퓨팅 리소스에서 선택할 수 있습니다. Azure는 다양 한 [Linux](../../linux/overview.md) 및 [Windows](../../windows/overview.md) vm을 제공 합니다.
 
 ### <a name="compute"></a>Compute
 
@@ -85,21 +86,21 @@ Azure 계산 전원은 잘를 메인프레임 용량과 비교 합니다. 메인
 
 Azure는 약정 기반 Sla (서비스 수준 계약)를 제공 합니다. 다중 9 가용성은 기본값이 며 Sla는 로컬 또는 지역 기반 서비스 복제를 사용 하 여 최적화할 수 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
-VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조치 (failover) 클러스터링 인스턴스 및 가용성 집합과 같은 장애 조치 (failover) 지원을 제공 합니다. Azure PaaS (platform as a service) 리소스를 사용 하는 경우 플랫폼은 장애 조치 (failover)를 자동으로 처리 합니다. 예를 들어 [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) 및 [Azure Cosmos DB](/azure/cosmos-db/introduction)있습니다.
+VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조치 (failover) 클러스터링 인스턴스 및 가용성 집합과 같은 장애 조치 (failover) 지원을 제공 합니다. Azure PaaS (platform as a service) 리소스를 사용 하는 경우 플랫폼은 장애 조치 (failover)를 자동으로 처리 합니다. 예를 들어 [Azure SQL Database](../../../azure-sql/database/sql-database-paas-overview.md) 및 [Azure Cosmos DB](../../../cosmos-db/introduction.md)있습니다.
 
 ### <a name="scalability"></a>확장성
 
-일반적으로 메인프레임은 규모를 강화 하는 반면, 클라우드 환경 규모는 확장 됩니다. Azure는 요구 사항에 맞는 다양 한 [Linux](/azure/virtual-machines/linux/sizes) 및 [Windows](/azure/virtual-machines/windows/sizes) 크기를 제공 합니다. 또한 클라우드는 정확한 사용자 사양과 일치 하도록 확장 하거나 축소 합니다. 사용량 기반 청구 모델에서 요청 시 전원, 저장소 및 서비스의 [규모](/azure/architecture/best-practices/auto-scaling) 를 계산 합니다.
+일반적으로 메인프레임은 규모를 강화 하는 반면, 클라우드 환경 규모는 확장 됩니다. Azure는 요구 사항에 맞는 다양 한 [Linux](../../linux/sizes.md) 및 [Windows](../../windows/sizes.md) 크기를 제공 합니다. 또한 클라우드는 정확한 사용자 사양과 일치 하도록 확장 하거나 축소 합니다. 사용량 기반 청구 모델에서 요청 시 전원, 저장소 및 서비스의 [규모](/azure/architecture/best-practices/auto-scaling) 를 계산 합니다.
 
 ### <a name="storage"></a>스토리지
 
-클라우드에서는 유연 하 고 확장 가능한 저장소 옵션을 사용할 수 있으며 필요한 만큼만 요금을 지불 하면 됩니다. [Azure Storage](/azure/storage/common/storage-introduction)는 데이터 개체용으로 대폭 확장 가능한 개체 저장소, 클라우드용 파일 시스템 서비스, 안정적인 메시징 저장소 및 NoSQL 저장소를 제공합니다. VM의 경우에는 관리형 디스크와 비관리형 디스크에서 안전한 영구 디스크 스토리지가 제공됩니다.
+클라우드에서는 유연 하 고 확장 가능한 저장소 옵션을 사용할 수 있으며 필요한 만큼만 요금을 지불 하면 됩니다. [Azure Storage](../../../storage/common/storage-introduction.md)는 데이터 개체용으로 대폭 확장 가능한 개체 저장소, 클라우드용 파일 시스템 서비스, 안정적인 메시징 저장소 및 NoSQL 저장소를 제공합니다. VM의 경우에는 관리형 디스크와 비관리형 디스크에서 안전한 영구 디스크 스토리지가 제공됩니다.
 
 [메인프레임 저장소를 Azure로 이동](./concepts/mainframe-storage-azure.md)하는 방법을 알아봅니다.
 
-### <a name="backup-and-recovery"></a>Backup 및 복구
+### <a name="backup-and-recovery"></a>백업 및 복구
 
-자체 재해 복구 사이트를 유지 관리 하는 것은 비용이 많이 들 수 있습니다. Azure에는 로컬 또는 지역 수준에서 또는 지역 중복을 통해 [백업](/azure/backup/backup-introduction-to-azure-backup), [복구](/azure/site-recovery/site-recovery-overview)및 [중복성](/azure/storage/common/storage-redundancy) 을 위한 구현 하기 쉽고 비용 효율적인 옵션이 있습니다.
+자체 재해 복구 사이트를 유지 관리 하는 것은 비용이 많이 들 수 있습니다. Azure에는 로컬 또는 지역 수준에서 또는 지역 중복을 통해 [백업](../../../backup/backup-overview.md), [복구](../../../site-recovery/site-recovery-overview.md)및 [중복성](../../../storage/common/storage-redundancy.md) 을 위한 구현 하기 쉽고 비용 효율적인 옵션이 있습니다.
 
 ## <a name="azure-government-for-mainframe-migrations"></a>메인프레임 마이그레이션에 대 한 Azure Government
 
@@ -117,7 +118,7 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 - [메인프레임 항목에 대 한 백서](mainframe-white-papers.md)
 - [메인프레임 마이그레이션](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [문제 해결](/azure/virtual-machines/troubleshooting/)
+- [문제 해결](../../troubleshooting/index.yml)
 - [전문가가 제공 자세히 메인프레임에서 Azure로 마이그레이션](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

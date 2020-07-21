@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76cf939959d198d2c28181295a695a65ae46af9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672449"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505706"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Azure Monitor 로그에서 텍스트 데이터 구문 분석
-Azure Monitor에서 수집된 일부 데이터에는 하나의 속성에 여러 개의 정보 부분이 포함되어 있습니다. 이 데이터를 여러 속성으로 구문 분석하면 쿼리에서 더 쉽게 사용할 수 있습니다. 일반적인 예로, 여러 값이 있는 전체 로그 항목을 단일 속성으로 수집하는 [사용자 지정 로그](../../log-analytics/log-analytics-data-sources-custom-logs.md)가 있습니다. 서로 다른 값에 대해 별도의 속성을 만들면 각각을 검색하고 집계할 수 있습니다.
+Azure Monitor에서 수집된 일부 데이터에는 하나의 속성에 여러 개의 정보 부분이 포함되어 있습니다. 이 데이터를 여러 속성으로 구문 분석하면 쿼리에서 더 쉽게 사용할 수 있습니다. 일반적인 예로, 여러 값이 있는 전체 로그 항목을 단일 속성으로 수집하는 [사용자 지정 로그](../platform/data-sources-custom-logs.md)가 있습니다. 서로 다른 값에 대해 별도의 속성을 만들면 각각을 검색하고 집계할 수 있습니다.
 
 이 문서에서는 데이터가 수집될 때와 쿼리에서 검색될 때 Azure Monitor 레코드의 로그 데이터를 구문 분석하기 위한 다양한 옵션을 설명하고, 각각의 상대적인 이점을 비교합니다.
 
@@ -22,7 +23,7 @@ Azure Monitor에서 수집된 일부 데이터에는 하나의 속성에 여러 
 데이터를 수집하는 수집 시 또는 쿼리를 통해 데이터를 분석하는 쿼리 시에 데이터를 구문 분석할 수 있습니다. 각 전략에는 아래에서 설명한 대로 고유한 이점이 있습니다.
 
 ### <a name="parse-data-at-collection-time"></a>수집 시 데이터 구문 분석
-수집 시 데이터를 구문 분석하는 경우 테이블에 새 속성을 만드는 [사용자 지정 필드](../../log-analytics/log-analytics-custom-fields.md)를 구성합니다. 쿼리는 구문 분석 논리를 포함할 필요가 없으며 이러한 속성을 테이블의 다른 필드로 사용하기만 하면 됩니다.
+수집 시 데이터를 구문 분석하는 경우 테이블에 새 속성을 만드는 [사용자 지정 필드](../platform/custom-fields.md)를 구성합니다. 쿼리는 구문 분석 논리를 포함할 필요가 없으며 이러한 속성을 테이블의 다른 필드로 사용하기만 하면 됩니다.
 
 이 방법의 장점은 다음과 같습니다.
 

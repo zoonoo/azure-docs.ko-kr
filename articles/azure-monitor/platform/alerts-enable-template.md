@@ -6,11 +6,12 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114426"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505451"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
 > [!WARNING]
@@ -175,7 +176,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 }
 ```
 
-경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](/rest/api/monitor/alertrules).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>클래식 메트릭 경고가 있는 리소스에 대한 Resource Manager 템플릿
 Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경고를 만들 때 가장 유용합니다. 예를 들어 Virtual Machine을 배포할 때마다 "CPU &gt; 80%" 규칙을 설정할 수 있습니다. 이를 위해 VM 템플릿의 리소스 배열에 리소스로 경고 규칙을 추가하고 `dependsOn` 속성을 사용하여 VM 리소스 ID에 종속성을 추가합니다. Windows VM을 만들고 CPU 사용률이 80%를 넘었을 때 구독 관리자에게 알리는 경고를 추가하는 전체 예제는 다음과 같습니다.
@@ -401,4 +402,3 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
 * [경고에 대해 알아보기](alerts-overview.md)
 * [진단 설정 추가](../../azure-monitor/platform/diagnostic-settings-template.md)
 * JSON 구문 및 속성의 경우 [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) 템플릿 참조를 참조하세요.
-

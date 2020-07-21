@@ -4,22 +4,21 @@ description: AKS (Azure Kubernetes Service)에서 PodSecurityPolicy를 사용 �
 services: container-service
 ms.topic: article
 ms.date: 06/30/2020
-ms.openlocfilehash: eb2e7fca3a808a1e2c4f7d1f81b8dc1d64deeee7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dd526b7825279d886c60fbb1820222a75abab03e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077629"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507083"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
-<!--
 > [!WARNING]
-> **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
-> It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
-
-**This document and feature are set for deprecation.**
--->
+> **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 사용 중단에 대해 설정 되었으며, 2020 년 10 월 15 일 이후에** 는 [AKS에 대 한 Azure Policy를 위해](use-pod-security-on-azure-policy.md)더 이상 사용할 수 없습니다.
+>
+> Pod 보안 정책 (미리 보기)이 더 이상 사용 되지 않는 경우에는 더 이상 사용 되지 않는 기능을 사용 하 여 기존 클러스터에서이 기능을 사용 하지 않도록 설정 해야 합니다.
+>
+> AKS에 대 한 Azure Policy를 사용 하 여 시나리오 테스트를 시작 하는 것이 좋습니다 .이는 기본 제공 정책을 사용 하 여 pod를 보호 하 고 기본 제공 이니셔티브를 사용 하 여 pod 보안 정책에 매핑합니다. [Pod 보안 정책 (미리 보기)에서 Azure Policy로 마이그레이션하](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy)는 방법에 대 한 자세한 내용을 보려면 여기를 클릭 하세요.
 
 AKS 클러스터의 보안을 향상 시키기 위해 예약할 수 있는 pod을 제한할 수 있습니다. 허용 하지 않는 리소스를 요청 하는 pod는 AKS 클러스터에서 실행할 수 없습니다. Pod 보안 정책을 사용 하 여이 액세스를 정의 합니다. 이 문서에서는 pod 보안 정책을 사용 하 여 AKS에서 pod의 배포를 제한 하는 방법을 보여 줍니다.
 
@@ -48,6 +47,8 @@ az extension update --name aks-preview
 ```
 
 ### <a name="register-pod-security-policy-feature-provider"></a>Pod 보안 정책 기능 공급자 등록
+
+**이 문서와 기능은 2020 년 10 월 15 일에 사용 중단에 대해 설정 됩니다.**
 
 Pod 보안 정책을 사용 하도록 AKS 클러스터를 만들거나 업데이트 하려면 먼저 구독에서 기능 플래그를 사용 하도록 설정 합니다. *PodSecurityPolicyPreview* 기능 플래그를 등록 하려면 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 합니다.
 

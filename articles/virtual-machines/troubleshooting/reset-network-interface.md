@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a4cf8b9bbf88ae792f345d330503cb4698c430
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706599"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509226"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
 
@@ -46,7 +47,7 @@ ms.locfileid: "84706599"
 
 #### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
-1. 먼저 [최신 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 설치했는지 확인합니다.
+1. 먼저 [최신 Azure PowerShell](/powershell/azure/overview)을 설치했는지 확인합니다.
 2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다.
 
     ```powershell
@@ -89,7 +90,7 @@ ms.locfileid: "84706599"
 
 #### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
-1. [최신 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 설치 되어 있는지 확인 합니다.
+1. [최신 Azure PowerShell](/powershell/azure/overview) 설치 되어 있는지 확인 합니다.
 2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다.
 
     ```powershell

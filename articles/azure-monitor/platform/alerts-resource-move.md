@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8e917d279d8de3dbe6de540a4ea1ef8cec1b6ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830063"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505485"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>대상 리소스가 다른 Azure 지역으로 이동 될 때 경고 규칙 또는 작업 규칙을 업데이트 하는 방법
 
-이 문서에서는 지역 간에 다른 Azure 리소스를 이동할 때 기존 [경고 규칙](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) 및 [작업 규칙이](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) 영향을 받을 수 있는 이유와 이러한 문제를 식별 하 고 해결 하는 방법을 설명 합니다. 주요 리소스 이동 [설명서](https://docs.microsoft.com/azure/azure-resource-manager/management/move-region) 에서 유용한 지역 간 리소스 이동의 경우와 이동 프로세스를 디자인 하는 검사 목록에 대 한 추가 정보를 확인 하세요.
+이 문서에서는 지역 간에 다른 Azure 리소스를 이동할 때 기존 [경고 규칙](./alerts-overview.md) 및 [작업 규칙이](./alerts-action-rules.md) 영향을 받을 수 있는 이유와 이러한 문제를 식별 하 고 해결 하는 방법을 설명 합니다. 주요 리소스 이동 [설명서](../../azure-resource-manager/management/move-region.md) 에서 유용한 지역 간 리소스 이동의 경우와 이동 프로세스를 디자인 하는 검사 목록에 대 한 추가 정보를 확인 하세요.
 
 ## <a name="why-the-problem-exists"></a>문제가 존재 하는 이유
 
-경고 규칙 및 작업 규칙은 다른 Azure 리소스를 참조 합니다. 예를 들면 [Azure vm](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate), [azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-move-resources-across-regions)및 [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-move)있습니다. 이러한 규칙이 참조 하는 리소스를 이동 하는 경우 규칙은 참조 하는 리소스를 찾을 수 없기 때문에 올바르게 작동 하지 않을 수 있습니다.
+경고 규칙 및 작업 규칙은 다른 Azure 리소스를 참조 합니다. 예를 들면 [Azure vm](../../site-recovery/azure-to-azure-tutorial-migrate.md), [azure SQL](../../azure-sql/database/move-resources-across-regions.md)및 [Azure Storage](../../storage/common/storage-account-move.md)있습니다. 이러한 규칙이 참조 하는 리소스를 이동 하는 경우 규칙은 참조 하는 리소스를 찾을 수 없기 때문에 올바르게 작동 하지 않을 수 있습니다.
 
 대상 리소스를 이동한 후 규칙의 작동이 중지 될 수 있는 두 가지 주요 이유는 다음과 같습니다.
 
@@ -94,20 +94,20 @@ Azure 리소스에서 내보내는 메트릭은 지역입니다. 리소스가 �
 
 ### <a name="change-scope-of-a-rule-using-rest-api"></a>REST API를 사용 하 여 규칙의 범위 변경
 
-1. 기존 규칙 가져오기 ([메트릭 경고](https://docs.microsoft.com/rest/api/monitor/metricalerts/get), [활동 로그 경고](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/get))
-2. 범위 수정 ([활동 로그 경고](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/update))
-3. 규칙 다시 배포 ([메트릭 경고](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate), [활동 로그 경고](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/createorupdate))
+1. 기존 규칙 가져오기 ([메트릭 경고](/rest/api/monitor/metricalerts/get), [활동 로그 경고](/rest/api/monitor/activitylogalerts/get))
+2. 범위 수정 ([활동 로그 경고](/rest/api/monitor/activitylogalerts/update))
+3. 규칙 다시 배포 ([메트릭 경고](/rest/api/monitor/metricalerts/createorupdate), [활동 로그 경고](/rest/api/monitor/activitylogalerts/createorupdate))
 
 ### <a name="change-scope-of-a-rule-using-powershell"></a>PowerShell을 사용 하 여 규칙의 범위 변경
 
-1. 기존 규칙 ([메트릭 경고](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricalertrulev2), [활동 로그 경고](https://docs.microsoft.com/powershell/module/az.monitor/get-azactivitylogalert), [작업 규칙](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Get-AzActionRule))을 가져옵니다.
+1. 기존 규칙 ([메트릭 경고](/powershell/module/az.monitor/get-azmetricalertrulev2), [활동 로그 경고](/powershell/module/az.monitor/get-azactivitylogalert), [작업 규칙](/powershell/module/az.alertsmanagement/get-azactionrule))을 가져옵니다.
 2. 범위를 수정 합니다. 필요한 경우 위에 나와 있는 것 처럼 메트릭 경고의 경우와 관련 된 두 가지 규칙으로 분할 합니다.
-3. 규칙을 다시 배포 합니다 ([메트릭 경고](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2), [활동 로그 경고](https://docs.microsoft.com/powershell/module/az.monitor/enable-azactivitylogalert), [동작 규칙](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azactionrule)).
+3. 규칙을 다시 배포 합니다 ([메트릭 경고](/powershell/module/az.monitor/add-azmetricalertrulev2), [활동 로그 경고](/powershell/module/az.monitor/enable-azactivitylogalert), [동작 규칙](/powershell/module/az.alertsmanagement/set-azactionrule)).
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Azure CLI를 사용 하 여 규칙의 범위 변경
 
-1.  기존 규칙 ([메트릭 경고](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [활동 로그 경고](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list))을 가져옵니다.
-2.  규칙 범위를 직접 업데이트 ([메트릭 경고](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [활동 로그 경고](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope))
+1.  기존 규칙 ([메트릭 경고](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [활동 로그 경고](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list))을 가져옵니다.
+2.  규칙 범위를 직접 업데이트 ([메트릭 경고](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [활동 로그 경고](/cli/azure/monitor/activity-log/alert/scope))
 3.  필요한 경우 위에 나와 있는 것 처럼 메트릭 경고의 경우와 관련 된 두 가지 규칙으로 분할 합니다.
 
 ## <a name="next-steps"></a>다음 단계

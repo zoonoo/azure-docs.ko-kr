@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 1ab2861f73d66987230c9e3398227c8e80665e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56ee4b9e541aa4b374acbb59cf64da34046a06c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769611"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509072"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Azure Virtual Machines 부팅 오류 문제 해결
 
@@ -35,5 +36,5 @@ ms.locfileid: "84769611"
 ## <a name="next-steps"></a>다음 단계
 
 - [부트 진단](boot-diagnostics.md)
-- [VM 직렬 콘솔](../windows/serial-console.md)
-- [OS 디스크를 복구 VM에 연결하여 Windows VM의 문제 해결](../windows/troubleshoot-recovery-disks.md)
+- [VM 직렬 콘솔](./serial-console-windows.md)
+- [OS 디스크를 복구 VM에 연결하여 Windows VM의 문제 해결](./troubleshoot-recovery-disks-windows.md)

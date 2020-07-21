@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d66c690c3a0ba638a92150c9aa1dbb0dc2a41268
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82562069"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506165"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -89,7 +89,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>애플리케이션 설정 참조
 
-또한 설정 이름을 백분율 기호 (%)로 묶어 [함수 앱에 대해 정의 된 응용 프로그램 설정을](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) 참조할 수 있습니다.
+또한 설정 이름을 백분율 기호 (%)로 묶어 [함수 앱에 대해 정의 된 응용 프로그램 설정을](./functions-how-to-use-azure-function-app-settings.md) 참조할 수 있습니다.
 
 예를 들어의 백 엔드 URL은 *https://%ORDER_PROCESSING_HOST%/api/orders* "% ORDER_PROCESSING_HOST%"을 (를) ORDER_PROCESSING_HOST 설정 값으로 바꿉니다.
 
@@ -110,7 +110,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ## <a name="advanced-configuration"></a>고급 구성
 
-구성하는 프록시는 함수 앱 디렉터리의 루트에 있는 *proxies.json* 파일에 저장됩니다. 이 파일을 수동으로 편집하고 함수가 지원하는 [배포 방법](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) 중 하나를 사용하여 앱의 일부로 배포할 수 있습니다. 
+구성하는 프록시는 함수 앱 디렉터리의 루트에 있는 *proxies.json* 파일에 저장됩니다. 이 파일을 수동으로 편집하고 함수가 지원하는 [배포 방법](./functions-continuous-deployment.md) 중 하나를 사용하여 앱의 일부로 배포할 수 있습니다. 
 
 > [!TIP] 
 > 배포 방법 중 하나를 설정하지 않은 경우 포털에서 *proxies.json* 파일로 작업할 수도 있습니다. 함수 앱으로 이동하여 **플랫폼 기능**을 선택한 후 **App Service 편집기**를 선택합니다. 이렇게 하여 함수 앱의 전체 파일 구조를 보고 변경할 수 있습니다.
@@ -244,7 +244,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 > 이 예제에서 응답 본문은 직접 설정되므로 `backendUri` 속성이 필요하지 않습니다. 다음 예제에서는 모의 API에 Azure Functions 프록시를 어떻게 사용할 수 있는지를 보여 줍니다.
 
 [Azure Portal]: https://portal.azure.com
-[HTTP 트리거]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
+[HTTP 트리거]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [RequestOverrides 개체 정의]: #requestOverrides

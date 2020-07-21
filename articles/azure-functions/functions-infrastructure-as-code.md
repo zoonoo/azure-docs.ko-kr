@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: e56c76583f601c2e13ab4a35c1fef2996d2e3e67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170397"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506233"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -28,9 +28,9 @@ Azure Functions 배포는 일반적으로 다음 리소스로 구성 됩니다.
 
 | 리소스                                                                           | 요구 사항 | 구문 및 속성 참조                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| 함수 앱                                                                     | 필수    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
-| [Azure Storage](../storage/index.yml) 계정                                   | 필수    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 선택 사항    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |
+| 함수 앱                                                                     | 필요한 공간    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
+| [Azure Storage](../storage/index.yml) 계정                                   | 필요한 공간    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | Optional    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |
 | [호스팅 계획](./functions-scale.md)                                             | 선택 사항<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup> 호스팅 계획은 [프리미엄 계획이](./functions-premium-plan.md) 나 [App Service 계획](../app-service/overview-hosting-plans.md)에서 함수 앱을 실행 하도록 선택 하는 경우에만 필요 합니다.
@@ -309,7 +309,7 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해�
 
 ### <a name="create-a-premium-plan"></a>프리미엄 플랜 만들기
 
-프리미엄 요금제는 특수 한 유형의 "서버 팜" 리소스입니다. `EP1` `EP2` `EP3` `Name` `sku` [설명 개체](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object)의 속성 값에, 또는 중 하나를 사용 하 여 지정할 수 있습니다.
+프리미엄 요금제는 특수 한 유형의 "서버 팜" 리소스입니다. `EP1` `EP2` `EP3` `Name` `sku` [설명 개체](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object)의 속성 값에, 또는 중 하나를 사용 하 여 지정할 수 있습니다.
 
 ```json
 {
@@ -516,7 +516,7 @@ App Service 계획의 함수 앱에는 `serverFarmId` 앞에서 만든 계획의
 }
 ```
 
-[사용자 지정 컨테이너 이미지를 배포](./functions-create-function-linux-custom-image.md)하는 경우에는를 사용 하 여 지정 해야 `linuxFxVersion` 하며, [Web App for Containers](/azure/app-service/containers)처럼 이미지를 끌어올 수 있도록 하는 구성을 포함 해야 합니다. 또한 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` 앱 콘텐츠는 컨테이너 자체에 제공 되므로를로 설정 합니다.
+[사용자 지정 컨테이너 이미지를 배포](./functions-create-function-linux-custom-image.md)하는 경우에는를 사용 하 여 지정 해야 `linuxFxVersion` 하며, [Web App for Containers](../app-service/containers/index.yml)처럼 이미지를 끌어올 수 있도록 하는 구성을 포함 해야 합니다. 또한 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` 앱 콘텐츠는 컨테이너 자체에 제공 되므로를로 설정 합니다.
 
 ```json
 {

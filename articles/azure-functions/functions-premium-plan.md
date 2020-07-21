@@ -5,12 +5,13 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298517"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506199"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
 
@@ -90,7 +91,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어 수|메모리|스토리지|
+|SKU|코어|메모리|스토리지|
 |--|--|--|--|
 |EP1|1|3.5 g b|250GB|
 |E P 2|2|7GB|250GB|
@@ -129,7 +130,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |노르웨이 동부| 20 | 20 |
 |미국 중남부| 100 | 20 |
 |인도 남부 | 100 | 사용할 수 없음 |
-|동남아시아| 100 | 20 |
+|동남 아시아| 100 | 20 |
 |영국 남부| 100 | 20 |
 |영국 서부| 100 | 20 |
 |서유럽| 100 | 20 |

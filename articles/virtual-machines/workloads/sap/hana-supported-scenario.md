@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4946524768d0cff483feb4045a2cc5fba169a7a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617175"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507950"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 큰 인스턴스의 지원되는 시나리오
 이 문서에서는 HLI (HANA Large Instances)에 대해 지원 되는 시나리오 및 아키텍처 세부 정보를 설명 합니다.
@@ -63,11 +64,11 @@ HANA Large Instances는 비즈니스 요구 사항을 달성 하는 데 도움�
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 노드-노드|
+| B | 유형 I | eth2.tenant | eno3.tenant | 노드-노드|
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드-노드|
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드-노드|
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
@@ -135,11 +136,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -170,11 +171,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -194,7 +195,7 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
-- 볼륨 크기 분포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 참조 하세요.
+- 볼륨 크기 분포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](./hana-overview-architecture.md)를 참조 하세요.
 
 ## <a name="single-node-with-dr-using-storage-replication"></a>저장소 복제를 사용 하는 DR이 있는 단일 노드
  
@@ -210,11 +211,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -231,9 +232,9 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
-- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 참조 하세요.
+- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](./hana-overview-architecture.md)를 참조 하세요.
 - DR 사이트에서: DR HLI 단위에서 프로덕션 HANA 인스턴스를 설치 하는 데 볼륨 및 탑재 지점이 구성 됩니다 ("HANA 설치에 필요"로 표시 됨). 
-- DR 사이트에서: 데이터, 로그 백업 및 공유 볼륨 ("저장소 복제"로 표시 됨)은 프로덕션 사이트의 스냅숏을 통해 복제 됩니다. 이러한 볼륨은 장애 조치 (failover) 중에만 탑재 됩니다. 자세한 내용은 [재해 복구 장애 조치 (failover) 절차](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)를 참조 하세요.
+- DR 사이트에서: 데이터, 로그 백업 및 공유 볼륨 ("저장소 복제"로 표시 됨)은 프로덕션 사이트의 스냅숏을 통해 복제 됩니다. 이러한 볼륨은 장애 조치 (failover) 중에만 탑재 됩니다. 자세한 내용은 [재해 복구 장애 조치 (failover) 절차](./hana-overview-high-availability-disaster-recovery.md)를 참조 하세요.
 - *SKU 유형 I 클래스* 의 부팅 볼륨이 DR 노드에 복제 됩니다.
 
 
@@ -251,11 +252,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -280,9 +281,9 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
-- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 참조 하세요.
+- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](./hana-overview-architecture.md)를 참조 하세요.
 - DR 사이트에서: DR HLI 단위에서 프로덕션 HANA 인스턴스를 설치 하는 데 볼륨 및 탑재 지점이 구성 됩니다 ("HANA 설치에 필요"로 표시 됨). 
-- DR 사이트에서: 데이터, 로그 백업 및 공유 볼륨 ("저장소 복제"로 표시 됨)은 프로덕션 사이트의 스냅숏을 통해 복제 됩니다. 이러한 볼륨은 장애 조치 (failover) 중에만 탑재 됩니다. 자세한 내용은 [재해 복구 장애 조치 (failover) 절차](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)를 참조 하세요. 
+- DR 사이트에서: 데이터, 로그 백업 및 공유 볼륨 ("저장소 복제"로 표시 됨)은 프로덕션 사이트의 스냅숏을 통해 복제 됩니다. 이러한 볼륨은 장애 조치 (failover) 중에만 탑재 됩니다. 자세한 내용은 [재해 복구 장애 조치 (failover) 절차](./hana-overview-high-availability-disaster-recovery.md)를 참조 하세요. 
 - DR 사이트에서: qa 인스턴스 설치에 대해 QA의 데이터, 로그 백업, 로그 및 공유 볼륨 ("QA 인스턴스 설치"로 표시 됨)이 구성 되어 있습니다.
 - *SKU 유형 I 클래스* 의 부팅 볼륨이 DR 노드에 복제 됩니다.
 
@@ -306,11 +307,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
@@ -332,7 +333,7 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
-- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 참조 하세요.
+- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](./hana-overview-architecture.md)를 참조 하세요.
 - STONITH: STONITH 설치에 대해 SBD가 구성됩니다. 그러나 STONITH를 사용 하는 것은 선택 사항입니다.
 
 
@@ -352,11 +353,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
@@ -386,11 +387,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
-- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 참조 하세요.
+- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](./hana-overview-architecture.md)를 참조 하세요.
 - STONITH: STONITH 설치에 대해 SBD가 구성됩니다. 그러나 STONITH를 사용 하는 것은 선택 사항입니다.
 - DR 사이트에서: 기본 및 보조 노드 복제에 *는 두 개의 저장소 볼륨 집합이 필요* 합니다.
 - DR 사이트에서: DR HLI 단위에서 프로덕션 HANA 인스턴스를 설치 하는 데 볼륨 및 탑재 지점이 구성 됩니다 ("HANA 설치에 필요"로 표시 됨). 
-- DR 사이트에서: 데이터, 로그 백업 및 공유 볼륨 ("저장소 복제"로 표시 됨)은 프로덕션 사이트의 스냅숏을 통해 복제 됩니다. 이러한 볼륨은 장애 조치 (failover) 중에만 탑재 됩니다. 자세한 내용은 [재해 복구 장애 조치 (failover) 절차](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)를 참조 하세요. 
+- DR 사이트에서: 데이터, 로그 백업 및 공유 볼륨 ("저장소 복제"로 표시 됨)은 프로덕션 사이트의 스냅숏을 통해 복제 됩니다. 이러한 볼륨은 장애 조치 (failover) 중에만 탑재 됩니다. 자세한 내용은 [재해 복구 장애 조치 (failover) 절차](./hana-overview-high-availability-disaster-recovery.md)를 참조 하세요. 
 - DR 사이트에서: qa 인스턴스 설치에 대해 QA의 데이터, 로그 백업, 로그 및 공유 볼륨 ("QA 인스턴스 설치"로 표시 됨)이 구성 되어 있습니다.
 - *SKU 유형 I 클래스* 의 부팅 볼륨이 DR 노드에 복제 됩니다.
 
@@ -411,11 +412,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -452,11 +453,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -488,11 +489,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -527,11 +528,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -554,7 +555,7 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 -  DR 사이트에서: DR HLI 단위에서 프로덕션 HANA 인스턴스를 설치 하는 데 볼륨 및 탑재 지점이 구성 됩니다 ("HANA 설치에 필요"로 표시 됨). 
-- DR 사이트에서: 데이터, 로그 백업 및 공유 볼륨 ("저장소 복제"로 표시 됨)은 프로덕션 사이트의 스냅숏을 통해 복제 됩니다. 이러한 볼륨은 장애 조치 (failover) 중에만 탑재 됩니다. 자세한 내용은 [재해 복구 장애 조치 (failover) 절차](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)를 참조 하세요. 
+- DR 사이트에서: 데이터, 로그 백업 및 공유 볼륨 ("저장소 복제"로 표시 됨)은 프로덕션 사이트의 스냅숏을 통해 복제 됩니다. 이러한 볼륨은 장애 조치 (failover) 중에만 탑재 됩니다. 자세한 내용은 [재해 복구 장애 조치 (failover) 절차](./hana-overview-high-availability-disaster-recovery.md)를 참조 하세요. 
 - *SKU 유형 I 클래스* 의 부팅 볼륨이 DR 노드에 복제 됩니다.
 
 
@@ -572,11 +573,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -593,9 +594,9 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
-- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 참조 하세요.
+- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](./hana-overview-architecture.md)를 참조 하세요.
 - 주 노드는 HANA 시스템 복제를 사용 하 여 DR 노드와 동기화 됩니다. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
 
 
 
@@ -613,11 +614,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -643,11 +644,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
-- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)를 참조 하세요.
+- MCOS: 볼륨 크기 배포는 메모리의 데이터베이스 크기를 기준으로 합니다. 다중 SID 환경에서 지원 되는 메모리의 데이터베이스 크기에 대 한 자세한 내용은 [개요 및 아키텍처](./hana-overview-architecture.md)를 참조 하세요.
 - DR 사이트에서: DR HLI 단위에서 프로덕션 HANA 인스턴스를 설치 하는 볼륨 및 탑재 지점이 구성 됩니다 ("DR 사이트에서 PROD 인스턴스"로 표시 됨). 
 - DR 사이트에서: qa 인스턴스 설치에 대해 QA의 데이터, 로그 백업, 로그 및 공유 볼륨 ("QA 인스턴스 설치"로 표시 됨)이 구성 되어 있습니다.
 - 주 노드는 HANA 시스템 복제를 사용 하 여 DR 노드와 동기화 됩니다. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr"></a>HSR에서 고가용성 및 재해 복구 
  
@@ -663,11 +664,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -692,7 +693,7 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 - DR 사이트에서: DR HLI 단위에서 프로덕션 HANA 인스턴스를 설치 하기 위해 볼륨 및 탑재 지점이 구성 됩니다 ("PROD DR 인스턴스"로 표시 됨). 
 - 기본 사이트 노드는 HANA 시스템 복제를 사용 하 여 DR 노드와 동기화 됩니다. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>HSR를 통한 고가용성 및 재해 복구 (비용 최적화)
  
@@ -708,11 +709,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -741,7 +742,7 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 - DR 사이트에서: DR HLI 단위에서 프로덕션 HANA 인스턴스를 설치 하기 위해 볼륨 및 탑재 지점이 구성 됩니다 ("PROD DR 인스턴스"로 표시 됨). 
 - DR 사이트에서: qa 인스턴스 설치에 대해 QA의 데이터, 로그 백업, 로그 및 공유 볼륨 ("QA 인스턴스 설치"로 표시 됨)이 구성 되어 있습니다.
 - 기본 사이트 노드는 HANA 시스템 복제를 사용 하 여 DR 노드와 동기화 됩니다. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
 
 ## <a name="scale-out-with-dr-using-hsr"></a>HSR를 사용 하 여 DR으로 확장
  
@@ -759,11 +760,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -788,9 +789,9 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 - DR 사이트에서: 볼륨 및 탑재 지점은 DR HLI 단위에서 프로덕션 HANA 인스턴스를 설치 하도록 구성 됩니다. 
 - 기본 사이트 노드는 HANA 시스템 복제를 사용 하 여 DR 노드와 동기화 됩니다. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) 는 express 경로 회로를 함께 연결 하 여 지역 네트워크 간에 개인 네트워크를 만드는 데 사용 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-- HANA Large Instances에 대 한 [인프라 및 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- HANA 큰 인스턴스에 대 한 [고가용성 및 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
+- HANA Large Instances에 대 한 [인프라 및 연결](./hana-overview-infrastructure-connectivity.md)
+- HANA 큰 인스턴스에 대 한 [고가용성 및 재해 복구](./hana-overview-high-availability-disaster-recovery.md)

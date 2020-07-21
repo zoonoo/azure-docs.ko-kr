@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: b1f7708c9bd213e201ba4eb8837a191dca68ca9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9c2cee1478bc64c63b0d7ad09eec386b59678ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77167008"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509021"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux용 Azure Serial Console
 
@@ -25,7 +26,7 @@ Azure Portal의 직렬 콘솔은 Linux Vm (가상 머신) 및 가상 머신 확�
 
 직렬 콘솔은 VM 및 가상 머신 확장 집합 인스턴스에 대해 동일한 방식으로 작동합니다. 이 문서에서 달리 명시되지 않는 한 VM에 대한 모든 언급에는 가상 머신 확장 집합 인스턴스가 암시적으로 포함됩니다.
 
-Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](../windows/serial-console.md)을 참조 하세요.
+Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](./serial-console-windows.md)을 참조 하세요.
 
 > [!NOTE]
 > 직렬 콘솔은 일반적으로 글로벌 Azure 지역 및 Azure Government의 공개 미리 보기에서 사용할 수 있습니다. Azure 중국 클라우드에서는 아직 사용할 수 없습니다.
@@ -37,7 +38,7 @@ Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](../windows/se
 
 - 직렬 콘솔을 사용하는 계정에는 VM에 대한 [Virtual Machine Contributor 역할](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)과 [부트 진단](boot-diagnostics.md) 스토리지 계정이 있어야 합니다.
 
-- VM 또는 가상 머신 확장 집합 인스턴스에 암호 기반 사용자가 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다.
+- VM 또는 가상 머신 확장 집합 인스턴스에 암호 기반 사용자가 있어야 합니다. VM 액세스 확장의 [암호 재설정](../extensions/vmaccess.md#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다.
 
 - VM 또는 가상 머신 확장 집합 인스턴스에 [부팅 진단](boot-diagnostics.md) 이 사용 하도록 설정 되어 있어야 합니다.
 
@@ -49,16 +50,16 @@ Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](../windows/se
 
 
 > [!NOTE]
-> 직렬 콘솔에는 암호가 구성된 로컬 사용자가 필요합니다. SSH 공개 키로만 구성 된 Vm 또는 가상 머신 확장 집합은 직렬 콘솔에 로그인 할 수 없습니다. 암호가 구성된 로컬 사용자를 만들려면 Azure Portal에서 **암호 재설정**을 선택하여 포털에서 사용 가능한 [VM 액세스 확장](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension)을 사용하고 암호를 사용하여 로컬 사용자를 만듭니다.
+> 직렬 콘솔에는 암호가 구성된 로컬 사용자가 필요합니다. SSH 공개 키로만 구성 된 Vm 또는 가상 머신 확장 집합은 직렬 콘솔에 로그인 할 수 없습니다. 암호가 구성된 로컬 사용자를 만들려면 Azure Portal에서 **암호 재설정**을 선택하여 포털에서 사용 가능한 [VM 액세스 확장](../extensions/vmaccess.md)을 사용하고 암호를 사용하여 로컬 사용자를 만듭니다.
 > [단일 사용자 모드로 부팅하려면 GRUB를 사용](./serial-console-grub-single-user-mode.md)하여 계정에서 관리자 암호를 재설정할 수도 있습니다.
 
 ## <a name="serial-console-linux-distribution-availability"></a>직렬 콘솔 Linux 배포 가용성
-직렬 콘솔이 제대로 작동하려면 게스트 운영 체제가 콘솔 메시지를 읽고 직렬 포트에 쓰도록 구성되어야 합니다. 대부분의 [Azure Linux 배포판 보증](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 에는 기본적으로 직렬 콘솔이 구성 되어 있습니다. Azure Portal의 **지원 + 문제 해결** 섹션에서 **직렬 콘솔**을 선택하면 직렬 콘솔에 대한 액세스를 제공합니다.
+직렬 콘솔이 제대로 작동하려면 게스트 운영 체제가 콘솔 메시지를 읽고 직렬 포트에 쓰도록 구성되어야 합니다. 대부분의 [Azure Linux 배포판 보증](../linux/endorsed-distros.md) 에는 기본적으로 직렬 콘솔이 구성 되어 있습니다. Azure Portal의 **지원 + 문제 해결** 섹션에서 **직렬 콘솔**을 선택하면 직렬 콘솔에 대한 액세스를 제공합니다.
 
 > [!NOTE]
 > 직렬 콘솔에 아무 것도 표시되지 않으면 VM에서 부트 진단이 사용하도록 설정되어 있는지 확인합니다. **Enter 키** 를 누르면 직렬 콘솔에 아무것도 표시 되지 않는 문제를 해결 하는 경우가 많습니다.
 
-분포      | 직렬 콘솔 액세스
+배포      | 직렬 콘솔 액세스
 :-----------|:---------------------
 Red Hat Enterprise Linux    | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 CentOS      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
@@ -82,7 +83,7 @@ Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록
 깨진 *FSTAB* 파일 | **Enter** 키를 눌러 계속하고 텍스트 편집기를 사용하여 *FSTAB* 파일을 수정합니다. 이 작업을 수행하려면 단일 사용자 모드여야 합니다. 자세한 내용은 [fstab 문제를 해결 하는 방법](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) 의 직렬 콘솔 섹션을 참조 하 고 [직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스](serial-console-grub-single-user-mode.md)합니다.
 잘못된 방화벽 규칙 |  SSH 연결을 차단 하도록 iptables를 구성한 경우 SSH 없이 직렬 콘솔을 사용 하 여 VM과 상호 작용할 수 있습니다. 자세한 내용은 [iptables 매뉴얼 페이지](https://linux.die.net/man/8/iptables)에서 찾을 수 있습니다.<br>마찬가지로 firewalld에서 SSH 액세스를 차단 하는 경우 직렬 콘솔을 통해 VM에 액세스 하 고 firewalld를 다시 구성할 수 있습니다. 자세한 내용은 [firewalld 설명서](https://firewalld.org/documentation/)에서 찾을 수 있습니다.
 파일 시스템 손상/검사 | 직렬 콘솔을 사용 하 여 손상 된 파일 시스템 문제 해결에 대 한 자세한 내용은 [파일 시스템 오류로 인해 Azure LINUX VM](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) 의 직렬 콘솔 섹션을 시작할 수 없습니다 .를 참조 하세요.
-SSH 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. Vm의 네트워크 연결이 작동 하지 않아도 되도록 VM의 SSH 구성에 관계 없이 직렬 콘솔를 사용할 수 있습니다. 문제 해결 가이드는 [실패 하거나 오류가 발생 하거나 거부 되는 Azure LINUX VM에 대 한 SSH 연결 문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection)에서 사용할 수 있습니다. 자세한 내용은 [Azure에서 LINUX VM에 연결 하는 문제에 대 한 자세한 SSH 문제 해결 단계](./detailed-troubleshoot-ssh-connection.md) 에서 확인할 수 있습니다.
+SSH 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. Vm의 네트워크 연결이 작동 하지 않아도 되도록 VM의 SSH 구성에 관계 없이 직렬 콘솔를 사용할 수 있습니다. 문제 해결 가이드는 [실패 하거나 오류가 발생 하거나 거부 되는 Azure LINUX VM에 대 한 SSH 연결 문제 해결](./troubleshoot-ssh-connection.md)에서 사용할 수 있습니다. 자세한 내용은 [Azure에서 LINUX VM에 연결 하는 문제에 대 한 자세한 SSH 문제 해결 단계](./detailed-troubleshoot-ssh-connection.md) 에서 확인할 수 있습니다.
 부팅 로더와 상호 작용 | 직렬 콘솔 블레이드 내에서 VM을 다시 시작하여 Linux VM의 GRUB에 액세스합니다. 자세한 내용 및 배포판 관련 정보는 [직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스](serial-console-grub-single-user-mode.md)를 참조 하세요.
 
 ## <a name="disable-the-serial-console"></a>직렬 콘솔 사용 안 함
@@ -98,7 +99,7 @@ SSH 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 
 주고받는 모든 데이터는 전송 중에 암호화됩니다.
 
 ### <a name="audit-logs"></a>감사 로그
-직렬 콘솔에 대한 모든 액세스는 현재 가상 머신의 [부트 진단](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) 로그에 기록됩니다. 이러한 로그에 대한 액세스 권한은 Azure 가상 머신 관리자가 소유하며 제어합니다.
+직렬 콘솔에 대한 모든 액세스는 현재 가상 머신의 [부트 진단](./boot-diagnostics.md) 로그에 기록됩니다. 이러한 로그에 대한 액세스 권한은 Azure 가상 머신 관리자가 소유하며 제어합니다.
 
 > [!CAUTION]
 > 콘솔에 대한 액세스 암호는 기록되지 않습니다. 그러나 콘솔 내에서 실행되는 명령이 암호, 비밀, 사용자 이름 또는 기타 형태의 PII(개인 식별 정보)를 포함하거나 출력하는 경우 해당 정보는 VM 부트 진단 로그에 작성됩니다. 또한 직렬 콘솔의 스크롤 백 기능을 구현하는 일부로 모든 다른 표시되는 텍스트와 함께 작성됩니다. 이러한 로그는 순환되며 진단 스토리지 계정에 대한 읽기 권한이 있는 사용자만 액세스할 수 있습니다. 비밀 또는 PII를 포함 하는으로 명령을 입력 하는 경우 직렬 콘솔이 반드시 필요한 경우를 제외 하 고 SSH를 사용 하는 것이 좋습니다.
@@ -170,6 +171,5 @@ A. 예. 직렬 콘솔에 SSH 키가 필요하지 않기 때문에 사용자 이�
 * 직렬 콘솔을 사용하여 [GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)
 * [NMI 및 SysRq 호출](serial-console-nmi-sysrq.md)에 직렬 콘솔 사용
 * 직렬 콘솔을 사용 하 여 [다양 한 배포판에서 GRUB를 사용 하도록 설정](serial-console-grub-proactive-configuration.md) 하는 방법을 알아봅니다.
-* 직렬 콘솔은 [Windows VM](../windows/serial-console.md)에서도 지원됩니다.
+* 직렬 콘솔은 [Windows VM](./serial-console-windows.md)에서도 지원됩니다.
 * [부트 진단](boot-diagnostics.md)에 대해 자세히 알아봅니다.
-

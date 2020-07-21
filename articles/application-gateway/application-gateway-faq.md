@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982002"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506573"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -336,6 +336,58 @@ Application Gateway는 최대 100의 인증 인증서를 지원합니다.
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>.pfx 파일 암호에 특수 문자를 사용해도 되나요?
 
 아니요, .pfx 파일 암호에는 영숫자 문자만 사용할 수 있습니다.
+
+### <a name="my-ev-certificate-is-issued-by-digicert-and-my-intermediate-certificate-has-been-revoked-how-do-i-renew-my-certificate-on-application-gateway"></a>DigiCert에서 내 EV 인증서를 발급 하 고 중간 인증서가 해지 되었습니다. Application Gateway에서 인증서를 어떻게 할까요? 갱신 하 시겠습니까?
+
+CA (인증 기관) 브라우저 구성원 최근에 게시 된 보고서는 고객, Microsoft, 그리고 공개적으로 신뢰할 수 있는 Ca의 산업 표준을 준수 하지 않는 더 강력한 기술 커뮤니티에서 사용 하는 CA 공급 업체에 의해 발급 된 여러 인증서를 자세히 설명 합니다.비호환 Ca와 관련 된 보고서는 다음 위치에서 찾을 수 있습니다.  
+
+* [버그 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
+* [버그 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+
+업계의 규정 준수 요구 사항에 따라, CA 공급 업체는 비준수 Ca를 해지 하 고 고객이 인증서를 다시 발급 해야 하는 호환 Ca를 발급 하기 시작 했습니다.Microsoft는 이러한 공급 업체와 긴밀 하 게 협력 하 여 Azure 서비스에 미칠 수 있는 영향을 최소화 **하지만, "사용자의 인증서 가져오기" (BYOC) 시나리오에서 사용 되는 자체 발급 된 인증서 또는 인증서는 여전히 예기치 않게 해지 될 위험이**있습니다.
+
+응용 프로그램에서 사용 하는 인증서가 해지 되었는지 확인 하려면 참조 [DigiCert의 알림](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) 및 [인증서 해지 추적기](https://misissued.com/#revoked)를 확인 합니다. 인증서가 해지 되었거나 해지 되 면 응용 프로그램에서 사용 되는 CA 공급 업체의 새 인증서를 요청 해야 합니다. 인증서가 예기치 않게 해지 되거나 해지 된 인증서를 업데이트 하기 때문에 응용 프로그램의 가용성이 중단 되지 않도록 하려면 BYOC를 지 원하는 다양 한 Azure 서비스의 재구성 링크를 보려면 Azure 업데이트 게시물을 참조 하세요.https://azure.microsoft.com/updates/certificateauthorityrevocation/
+
+Application Gateway 특정 정보는 아래를 참조 하세요.
+
+해지 된 ICAs 중 하나에서 발급 한 인증서를 사용 하는 경우 응용 프로그램의 가용성이 중단 될 수 있으며 응용 프로그램에 따라 다음을 비롯 한 다양 한 오류 메시지를 받을 수 있습니다. 
+
+1.  잘못 된 인증서/해지 된 인증서
+2.  연결 시간이 초과 되었습니다.
+3.  HTTP 502
+
+이 문제로 인해 응용 프로그램의 중단을 방지 하거나 해지 된 CA를 다시 발급 하려면 다음 작업을 수행 해야 합니다. 
+
+1.  인증서를 다시 발급 하는 방법에 대해서는 인증서 공급자에 게 문의 하세요.
+2.  다시 발급 된 후에는 완전 한 [신뢰 체인](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (리프, 중간, 루트 인증서)으로 Azure 애플리케이션 Gateway/waf의 인증서를 업데이트 합니다. 인증서를 사용 하는 위치에 따라 수신기 또는 Application Gateway의 HTTP 설정에서 다음 단계에 따라 인증서를 업데이트 하 고 자세한 내용은 설명 된 설명서 링크를 확인 합니다.
+3.  다시 발급 된 인증서를 사용 하도록 백 엔드 응용 프로그램 서버를 업데이트 합니다. 사용 중인 백 엔드 서버에 따라 인증서 업데이트 단계가 다를 수 있습니다. 공급 업체의 설명서를 확인 하세요.
+
+수신기에서 인증서를 업데이트 하려면 다음을 수행 합니다.
+
+1.  [Azure Portal](https://portal.azure.com/)에서 Application Gateway 리소스를 엽니다.
+2.  인증서와 연결 된 수신기 설정 열기
+3.  "선택한 인증서 갱신 또는 편집"을 클릭 합니다.
+4.  암호를 사용 하 여 새 PFX 인증서를 업로드 하 고 저장을 클릭 합니다.
+5.  웹 사이트에 액세스 하 고 사이트가 예상 대로 작동 하는지 확인 합니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/application-gateway/renew-certificates)에서 설명서를 참조 하세요.
+
+Application Gateway 수신기의 Azure KeyVault에서 인증서를 참조 하는 경우 빠른 변경에 대 한 다음 단계를 수행 하는 것이 좋습니다.
+
+1.  [Azure Portal](https://portal.azure.com/)에서 Application Gateway 연결 된 Azure keyvault 설정으로 이동 합니다.
+2.  저장소에서 다시 발급 된 인증서를 추가/가져옵니다. 방법에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) 에서 설명서를 참조 하세요.
+3.  인증서를 가져온 후 Application Gateway 수신기 설정으로 이동 하 고 "Key Vault에서 인증서 선택" 아래에서 "인증서" 드롭다운을 클릭 하 고 최근에 추가 된 인증서를 선택 합니다.
+4.  Key Vault 인증서를 사용 하 여 Application Gateway의 TLS 종료에 대 한 자세한 내용을 보려면 저장을 클릭 하세요. [여기](https://docs.microsoft.com/azure/application-gateway/key-vault-certs)에서 설명서를 확인 하세요.
+
+
+HTTP 설정에서 인증서를 업데이트 하려면 다음을 수행 합니다.
+
+Application Gateway/WAF 서비스의 V1 SKU를 사용 하는 경우 백 엔드 인증 인증서로 새 인증서를 업로드 해야 합니다.
+1.  [Azure Portal](https://portal.azure.com/)에서 Application Gateway 리소스를 엽니다.
+2.  인증서와 연결 된 HTTP 설정을 엽니다.
+3.  "인증서 추가"를 클릭 하 고 다시 발급 된 인증서를 업로드 하 고 저장을 클릭 합니다.
+4.  나중에 "..."를 클릭 하 여 이전 인증서를 제거할 수 있습니다. 이전 인증서 옆의 옵션 단추를 클릭 하 고 삭제를 선택 하 고 저장을 클릭 합니다.
+자세한 내용은 [여기](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers)에서 설명서를 확인 하세요.
+
+Application Gateway/WAF 서비스의 V2 SKU를 사용 하는 경우 V2 SKU가 "신뢰할 수 있는 루트 인증서"를 사용 하므로 여기에서 작업을 수행할 필요가 없으므로 HTTP 설정에 새 인증서를 업로드할 필요가 없습니다.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>구성 - AKS용 수신 컨트롤러
 

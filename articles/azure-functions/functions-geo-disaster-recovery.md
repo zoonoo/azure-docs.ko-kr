@@ -4,11 +4,12 @@ description: 지리적 지역을 사용 하 여 중복성을 Azure Functions 하
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: 481a716bd6ced5c304da41c70fdcfc687b76661d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 446a76b823ce3592a83d0c2f898041951361b47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080223"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506284"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>지역 재해 복구 Azure Functions
 
@@ -21,7 +22,7 @@ ms.locfileid: "79080223"
 * 활성/활성. 두 지역은 모두 활성 상태 이며 이벤트를 수신 합니다 (중복 또는 rotationally). 활성/활성은 Azure Front 문과 함께 HTTPS 함수에 권장 됩니다.
 * 능동/수동. 한 지역은 활성 상태이 고 이벤트를 수신 하며 보조 복제본은 유휴 상태입니다.  장애 조치 (failover)가 필요한 경우 보조 지역은 활성화 되 고 처리를 수행 합니다.  Service Bus 및 Event Hubs와 같은 HTTP가 아닌 함수에 권장 됩니다.
 
-다중 지역 배포에 대 한 자세한 내용은 [여러 지역에서 앱을 실행](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) 하는 방법을 참조 하세요.
+다중 지역 배포에 대 한 자세한 내용은 [여러 지역에서 앱을 실행](/azure/architecture/reference-architectures/app-service-web-app/multi-region) 하는 방법을 참조 하세요.
 
 ## <a name="activeactive-for-https-functions"></a>HTTPS 함수에 대해 활성/활성
 

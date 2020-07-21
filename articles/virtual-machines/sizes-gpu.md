@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bbd81730ea822381f1d0f0e15011fb4ed0c29e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb26260d0e1f59e78c8328de298c3d4d92c19d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735917"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509318"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
 
@@ -31,11 +31,11 @@ GPU 최적화 VM 크기는 단일 또는 여러 개의 Gpu에서 사용할 수 �
 
 Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 NVIDIA 또는 AMD GPU 드라이버가 설치 되어 있어야 합니다.
 
-- Nvidia gpu에 의해 지원 되는 Vm의 경우 [NVIDIA Gpu 드라이버 확장](/azure/virtual-machines/extensions/hpccompute-gpu-windows) 은 적절 한 nvidia 드라이버를 설치 합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](/azure/virtual-machines/extensions/hpccompute-gpu-windows)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](/azure/virtual-machines/extensions/overview)을 참조하세요.
+- Nvidia gpu에 의해 지원 되는 Vm의 경우 [NVIDIA Gpu 드라이버 확장](./extensions/hpccompute-gpu-windows.md) 은 적절 한 nvidia 드라이버를 설치 합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.
 
-   또는 NVIDIA GPU 드라이버를 수동으로 설치할 수 있습니다. 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계는 Windows를 실행 하는 [n 시리즈 vm에 NVIDIA gpu 드라이버 설치](/azure/virtual-machines/windows/n-series-driver-setup) 또는 [Linux를 실행 하는 n 시리즈 VM에 Nvidia gpu 드라이버 설치](/azure/virtual-machines/linux/n-series-driver-setup) 를 참조 하세요.
+   또는 NVIDIA GPU 드라이버를 수동으로 설치할 수 있습니다. 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계는 Windows를 실행 하는 [n 시리즈 vm에 NVIDIA gpu 드라이버 설치](./windows/n-series-driver-setup.md) 또는 [Linux를 실행 하는 n 시리즈 VM에 Nvidia gpu 드라이버 설치](./linux/n-series-driver-setup.md) 를 참조 하세요.
 
-- AMD Gpu에 의해 지원 되는 Vm의 경우 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대해 Windows를 실행 하는 [N 시리즈 vm에 AMD GPU 드라이버 설치](/azure/virtual-machines/windows/n-series-amd-driver-setup) 를 참조 하세요.
+- AMD Gpu에 의해 지원 되는 Vm의 경우 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대해 Windows를 실행 하는 [N 시리즈 vm에 AMD GPU 드라이버 설치](./windows/n-series-amd-driver-setup.md) 를 참조 하세요.
 
 ## <a name="deployment-considerations"></a>배포 고려 사항
 

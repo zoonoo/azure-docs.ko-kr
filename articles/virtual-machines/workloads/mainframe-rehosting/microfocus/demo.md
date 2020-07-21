@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80411080"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508052"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 BankDemo 설정
 
@@ -185,7 +185,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
      ![지역 영역 이름 정의: BANKDEMO](media/08-demo-cics.png)
 
-7. **마침**을 클릭합니다.
+7. **Finish**를 클릭합니다.
 
 ## <a name="create-xa-resource-definitions"></a>XA 리소스 정의 만들기
 
@@ -273,7 +273,7 @@ Rumba, 3270 에뮬레이터를 사용 하 여 3270 세션을 구성 해야 합�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure의 Docker 컨테이너에서 엔터프라이즈 서버 실행](run-enterprise-server-container.md)
-- [메인프레임 마이그레이션-포털](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
-- [문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [메인프레임 마이그레이션-포털](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
+- [Virtual Machines](../../../linux/overview.md)
+- [문제 해결](../../../troubleshooting/index.yml)
 - [전문가가 제공 자세히 메인프레임에서 Azure로 마이그레이션](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

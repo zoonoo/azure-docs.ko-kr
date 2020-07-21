@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9e4c4b9c809a626c71b4a7e9235d917b442be160
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373363"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509106"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Windows 중지 오류-"심각한 프로세스를 #0x000000EF."
 
@@ -27,13 +27,13 @@ ms.locfileid: "80373363"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 메시지에 *중요 한 프로세스*를 종료 하는 오류 *#0x000000EF* 스크린 샷에 표시 되는 것을 볼 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 메시지에 *중요 한 프로세스*를 종료 하는 오류 *#0x000000EF* 스크린 샷에 표시 되는 것을 볼 수 있습니다.
 
 !["PC에 문제가 생겨 다시 시작해야 합니다. 방금 몇 가지 오류 정보를 수집하고 있습니다. 이후에 다시 시작할 수 있습니다. (# #% 완료) 자세히 알아보려면 나중에이 오류에 대해 온라인으로 검색할 수 있습니다. 0x000000EF "](media/troubleshoot-guide-critical-process-died/1.jpg)
 
 ## <a name="cause"></a>원인
 
-일반적으로 부팅 하는 동안 심각한 시스템 프로세스가 실패 하기 때문입니다. 중요 프로세스 문제에 대 한 자세한 내용은 "[버그 확인 0xEF: CRITICAL_PROCESS_DIED](https://docs.microsoft.com/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)"에서 확인할 수 있습니다.
+일반적으로 부팅 하는 동안 심각한 시스템 프로세스가 실패 하기 때문입니다. 중요 프로세스 문제에 대 한 자세한 내용은 "[버그 확인 0xEF: CRITICAL_PROCESS_DIED](/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)"에서 확인할 수 있습니다.
 
 ## <a name="solution"></a>해결 방법
 
@@ -49,7 +49,7 @@ ms.locfileid: "80373363"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령의 1~3단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령의 1~3단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)를 사용하여 복구 VM을 준비합니다.
 2. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="fix-any-os-corruption"></a>모든 OS 손상 수정
@@ -61,7 +61,7 @@ ms.locfileid: "80373363"
 
    * 여기서 < 부팅 디스크 > 드라이브는 복구 VM의 부팅 볼륨 (일반적으로 "C:")이 고 < 손상 된 디스크 드라이브 >은 손상 된 VM에서 연결 된 디스크의 드라이브 문자입니다. 기호에 포함 된 텍스트 뿐만 아니라 보다 큼/보다 작음 기호를 적절 한 문자로 바꿉니다. 예를 들어 "< 텍스트 >"
 
-3. 그런 다음 vm [복구 명령의 5 단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) 를 사용 하 여 vm을 다시 조립 하 고 부팅 하는지 확인 합니다.
+3. 그런 다음 vm [복구 명령의 5 단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) 를 사용 하 여 vm을 다시 조립 하 고 부팅 하는지 확인 합니다.
 4. VM이 여전히 부팅 되지 않으면 메모리 덤프 파일을 계속 수집 합니다.
 
 ### <a name="collect-the-memory-dump-file"></a>메모리 덤프 파일 수집
@@ -70,7 +70,7 @@ SFC를 실행 한 후에도 문제가 지속 되 면 메모리 덤프 파일을 
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>새 복구 VM에 OS 디스크를 연결 합니다.
 
-1. [Vm 복구 명령의 1-3 단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) 를 사용 하 여 새 복구 vm을 준비 합니다.
+1. [Vm 복구 명령의 1-3 단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) 를 사용 하 여 새 복구 vm을 준비 합니다.
 2. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>덤프 파일을 찾고 지원 티켓을 제출 합니다.
@@ -128,4 +128,4 @@ OS 디스크에 공간이 부족 한 경우 메모리 덤프 파일이 생성 �
 
 ### <a name="rebuild-the-original-vm"></a>원본 VM 다시 빌드
 
-[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 조합합니다.
+[VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 조합합니다.

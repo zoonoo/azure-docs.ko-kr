@@ -4,16 +4,18 @@ description: 이 문서에서는 Azure Analysis Services 데이터베이스에�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871303"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506998"
 ---
-# <a name="backup-and-restore"></a>백업 및 복원
+# <a name="analysis-services-database-backup-and-restore"></a>데이터베이스 백업 및 복원 Analysis Services
 
 Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. Backup 파일은 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 스토리지 계정과 컨테이너를 사용하거나 서버에 대한 스토리지 설정을 구성할 때 만들 수 있습니다.
 
@@ -39,7 +41,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 2.  **사용**을 클릭한 다음 **스토리지 설정**을 클릭합니다.
 
-    ![사용 하도록 설정](./media/analysis-services-backup/aas-backup-enable.png)
+    ![사용](./media/analysis-services-backup/aas-backup-enable.png)
 
 3. 스토리지 계정을 선택하거나 새로 만듭니다.
 

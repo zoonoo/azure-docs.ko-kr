@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 886e6cf237df94c056ec7c592e0b535327339871
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243799"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507066"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -131,7 +131,7 @@ az aks get-versions --location eastus --output table
 | 1.17  | 12 월-09-19  | 1 월 19 일   | 7 월 20 일  | 1.20 GA | 
 | 1.18  | 3 월-23-20  | 5 월 20   | 8 월 20  | 1.21 GA | 
 | 1.19  | 8 월-04-20  | 8 월 20   | 11월 20일  | 1.22 GA | 
-| 1.20  | * 11 월 20 일    | * Dec 21   | * 1 월 21 일  | 1.23 GA | 
+| 1.20  | * 11 월 20 일    | * Dec 20   | * 1 월 21 일  | 1.23 GA | 
 
 \*보류 중인 업스트림 릴리스 날짜 확인입니다.
 
@@ -139,7 +139,7 @@ az aks get-versions --location eastus --output table
 
 **사용자가 지원 되지 않는 부 버전으로 Kubernetes 클러스터를 업그레이드 하는 경우 어떻게 되나요?**
 
-이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 예:
+이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 예를 들면 다음과 같습니다.
 
 - 가장 오래 된 지원 되는 AKS 버전이 *1.15입니다. a* 와 *1.14* 에 있는 경우에는 지원 되지 않습니다.
 - *1.14* 에서 1.15로 업그레이드 하는 경우 *에는* 지원 정책 내에 다시 로그인 합니다.
@@ -181,4 +181,4 @@ AKS에서 지원 하지 않는 부 버전의 경우 확장 또는 축소는 계�
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
-[preview-terms]: /support/legal/preview-supplemental-terms
+[preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 3f4846947b18adb1d3f33f1d46482b5c02ee831e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309835"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509157"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>사전에 GRUB 및 sysrq에 액세스할 수 있게 하면 가동 중지 시간을 상당히 단축할 수 있습니다.
 
@@ -36,11 +37,11 @@ VM 복구를 수행하는 이유는 다양하며 다음과 같은 시나리오�
    - 잘못된 sshd 구성 파일
    - 네트워킹 구성
 
- [여기](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux#common-scenarios-for-accessing-the-serial-console)에 자세히 설명된 많은 다른 시나리오
+ [여기](./serial-console-linux.md#common-scenarios-for-accessing-the-serial-console)에 자세히 설명된 많은 다른 시나리오
 
 Azure에 배포된 VM에서 GRUB 및 직렬 콘솔에 액세스할 수 있는지 확인합니다. 
 
-직렬 콘솔을 처음 사용하는 경우 [이 링크](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux/)를 참조하세요.
+직렬 콘솔을 처음 사용하는 경우 [이 링크](./serial-console-linux.md)를 참조하세요.
 
 > [!TIP]
 > 변경하기 전에 파일 백업을 수행해야 합니다.
@@ -345,7 +346,7 @@ Esc 키를 누르지 않아도 구성된 시간 제한=15 동안 GRUB 메뉴가 
 ## <a name="suse"></a>SuSE
 
 ## <a name="sles-12-sp1"></a>SLES 12 sp1
-공식 [문서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles)에 따라 YaST 부팅 로더를 사용하거나
+공식 [문서](./serial-console-grub-single-user-mode.md#grub-access-in-suse-sles)에 따라 YaST 부팅 로더를 사용하거나
 
 다음 매개 변수를 /etc/default/grub에 추가/변경합니다.
 
@@ -429,7 +430,7 @@ GRUB에 액세스할 수 있으면 초기화 프로세스를 중단할 수 있�
 또는 단일 사용자 또는 긴급 모드에서 VM에 액세스해야 할 수 있습니다. 화살표 키를 사용하여 부팅 또는 중단하려는 커널을 선택합니다.
 커널 부팅 줄에 키워드 **single** 또는 **1**을 추가하여 원하는 모드로 전환합니다. RHEL 시스템에서는 **rd.break**를 추가할 수도 있습니다.
 
-단일 사용자 모드에 액세스하는 방법에 관한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#general-single-user-mode-access)를 참조하세요. 
+단일 사용자 모드에 액세스하는 방법에 관한 자세한 내용은 [이 문서](./serial-console-grub-single-user-mode.md#general-single-user-mode-access)를 참조하세요. 
 
 
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)

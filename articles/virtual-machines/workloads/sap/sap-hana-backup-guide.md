@@ -12,23 +12,24 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1cfe7216c1b37812c482cfacbd5d1c3f155418f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255254"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507831"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 Azure 가상 머신에서 실행되는 SAP HANA에 대한 백업 가이드에서는 Azure 관련 항목만 설명합니다. 일반적인 SAP HANA 백업 관련 항목은 SAP HANA 설명서를 확인 하세요. 사용자는 주요 데이터베이스 백업 전략, 이유 및 동기를 사용 하 여 사운드 및 유효한 백업 전략에 대해 잘 알고 있어야 하며, 백업 절차, 백업 보존 기간 및 복원 절차에 대 한 회사의 요구 사항을 알고 있어야 합니다.
 
-SAP HANA는 Azure M-Series와 같은 다양한 Azure VM 유형에서 공식적으로 지원됩니다. SAP HANA 인증 된 Azure Vm 및 HANA Large Instance 유닛의 전체 목록은 [인증 된 IaaS 플랫폼 찾기](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)를 확인 하세요. Microsoft Azure는 SAP HANA 물리적 서버에서 가상화 되지 않은를 실행 하는 여러 단위를 제공 합니다. 이 서비스를 [HANA Large Instances](hana-overview-architecture.md)라고 합니다. 이 가이드에서는 HANA Large Instances에 대 한 백업 프로세스 및 도구에 대해서는 다루지 않습니다. 하지만 Azure virtual machines로 제한 될 예정입니다. HANA Large Instances를 사용 하는 백업/복원 프로세스에 대 한 자세한 내용은 [Hli 백업 및 복원](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)문서를 참조 하세요.
+SAP HANA는 Azure M-Series와 같은 다양한 Azure VM 유형에서 공식적으로 지원됩니다. SAP HANA 인증 된 Azure Vm 및 HANA Large Instance 유닛의 전체 목록은 [인증 된 IaaS 플랫폼 찾기](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)를 확인 하세요. Microsoft Azure는 SAP HANA 물리적 서버에서 가상화 되지 않은를 실행 하는 여러 단위를 제공 합니다. 이 서비스를 [HANA Large Instances](hana-overview-architecture.md)라고 합니다. 이 가이드에서는 HANA Large Instances에 대 한 백업 프로세스 및 도구에 대해서는 다루지 않습니다. 하지만 Azure virtual machines로 제한 될 예정입니다. HANA Large Instances를 사용 하는 백업/복원 프로세스에 대 한 자세한 내용은 [Hli 백업 및 복원](./hana-backup-restore.md)문서를 참조 하세요.
 
 이 문서의 초점은 Azure virtual machines에서 SAP HANA에 대 한 세 가지 백업 가능성에 있습니다.
 
-- [Azure Backup 서비스](https://docs.microsoft.com/azure/backup/backup-overview) 를 통한 HANA 백업 
+- [Azure Backup 서비스](../../../backup/backup-overview.md) 를 통한 HANA 백업 
 - Azure Linux Virtual Machine의 파일 시스템에 HANA 백업([파일 수준의 SAP HANA Azure Backup](sap-hana-backup-file-level.md) 참조)
 - 수동으로 또는 Azure Backup 서비스를 사용 하 여 Azure storage blob 스냅숏 기능을 사용 하는 저장소 스냅숏을 기반으로 하는 HANA 백업
 
@@ -36,18 +37,18 @@ SAP HANA는 Azure M-Series와 같은 다양한 Azure VM 유형에서 공식적�
 SAP HANA는 타사 백업 도구에서 SAP HANA와 직접 통합할 수 있게 하는 백업 API를 제공합니다. Azure Backup 서비스 또는 [Commvault](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/) 와 같은 제품은이 소유 인터페이스를 사용 하 여 SAP HANA 데이터베이스를 트리거하거나 로그 백업을 다시 실행 합니다. 
 
 
-Azure에서 지원 되는 SAP 소프트웨어를 찾는 방법에 대 한 정보는 [azure 배포에 대해 지원 되는 sap 소프트웨어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure)문서에서 찾을 수 있습니다.
+Azure에서 지원 되는 SAP 소프트웨어를 찾는 방법에 대 한 정보는 [azure 배포에 대해 지원 되는 sap 소프트웨어](./sap-supported-product-on-azure.md)문서에서 찾을 수 있습니다.
 
 ## <a name="azure-backup-service"></a>Azure Backup 서비스
 
 표시 되는 첫 번째 시나리오는 Azure Backup 서비스가 SAP HANA 인터페이스를 사용 하 여 `backint` SAP HANA 데이터베이스에서를 사용 하 여 스트리밍 백업을 수행 하는 시나리오입니다. 또는 Azure Backup 서비스에 대 한 보다 일반적인 기능을 사용 하 여 응용 프로그램 일치 디스크 스냅숏을 만들고이를 Azure Backup 서비스로 전송 합니다.
 
-Azure Backup는 [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5)라는 소유 SAP HANA 인터페이스를 사용 하 여 SAP HANA에 대 한 백업 솔루션으로 인증 됩니다. 솔루션에 대 한 자세한 내용, 해당 기능 및 사용 가능한 Azure 지역에 대 한 자세한 내용은 [Azure vm의 SAP HANA 데이터베이스 백업에 대 한 지원 매트릭스](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)문서를 참조 하세요. HANA에 대 한 Azure Backup 서비스에 대 한 자세한 내용 및 원칙은 [Azure vm의 SAP HANA 데이터베이스 백업에 대 한](https://docs.microsoft.com/azure/backup/sap-hana-db-about)문서를 참조 하세요. 
+Azure Backup는 [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5)라는 소유 SAP HANA 인터페이스를 사용 하 여 SAP HANA에 대 한 백업 솔루션으로 인증 됩니다. 솔루션에 대 한 자세한 내용, 해당 기능 및 사용 가능한 Azure 지역에 대 한 자세한 내용은 [Azure vm의 SAP HANA 데이터베이스 백업에 대 한 지원 매트릭스](../../../backup/sap-hana-backup-support-matrix.md#scenario-support)문서를 참조 하세요. HANA에 대 한 Azure Backup 서비스에 대 한 자세한 내용 및 원칙은 [Azure vm의 SAP HANA 데이터베이스 백업에 대 한](../../../backup/sap-hana-db-about.md)문서를 참조 하세요. 
 
-Azure Backup 서비스를 활용 하는 두 번째 가능성은 Azure Premium Storage의 디스크 스냅숏을 사용 하 여 응용 프로그램 일치 백업을 만드는 것입니다. [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd) 및 [AZURE NETAPP FILES](https://azure.microsoft.com/services/netapp/) 같은 다른 HANA 인증 azure 저장소는 Azure Backup 서비스를 통해 이러한 종류의 스냅숏을 지원 하지 않습니다. 이러한 문서를 읽습니다.
+Azure Backup 서비스를 활용 하는 두 번째 가능성은 Azure Premium Storage의 디스크 스냅숏을 사용 하 여 응용 프로그램 일치 백업을 만드는 것입니다. [Azure Ultra disk](../../linux/disks-enable-ultra-ssd.md) 및 [AZURE NETAPP FILES](https://azure.microsoft.com/services/netapp/) 같은 다른 HANA 인증 azure 저장소는 Azure Backup 서비스를 통해 이러한 종류의 스냅숏을 지원 하지 않습니다. 이러한 문서를 읽습니다.
 
-- [Azure에서 VM 백업 인프라 계획](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
-- [Azure Linux VM의 애플리케이션 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) 
+- [Azure에서 VM 백업 인프라 계획](../../../backup/backup-azure-vms-introduction.md)
+- [Azure Linux VM의 애플리케이션 일치 백업](../../../backup/backup-azure-linux-app-consistent.md) 
 
 이 작업 시퀀스는 다음과 같습니다.
 
@@ -103,7 +104,7 @@ SAP HANA의 경우 대부분의 고객은 SAP HANA 다시 실행 로그가 포�
 
 SAP에서는 HANA 백업과 스토리지 스냅샷을 비교하여 어느 한 쪽을 선택하지 않습니다. 장단점을 나열하여 상황과 사용 가능한 스토리지 기술에 따라 사용할 대상을 결정할 수 있습니다([Backup 및 복구 전략 계획](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)(영문) 참조).
 
-Azure에서 Azure blob snapshot&#39;기능이 여러 디스크 간에 파일 시스템 일관성을 제공 하지 않는다는 사실을 알고 있어야 합니다 ( [PowerShell에서 blob 스냅숏 사용](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)참조). 
+Azure에서 Azure blob snapshot&#39;기능이 여러 디스크 간에 파일 시스템 일관성을 제공 하지 않는다는 사실을 알고 있어야 합니다 ( [PowerShell에서 blob 스냅숏 사용](/archive/blogs/cie/using-blob-snapshots-with-powershell)참조). 
 
 또한 [스냅샷 요금 청구 방법 이해](/rest/api/storageservices/understanding-how-snapshots-accrue-charges) 문서에서 설명한 대로 Blob 스냅샷을 자주 사용하는 경우 청구의 함축적 의미를 이해해야 합니다. 이는 Azure 가상 디스크를 사용하는 것만큼 명확하지 않기 때문입니다.
 

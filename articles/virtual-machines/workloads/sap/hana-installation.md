@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83117124"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507848"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -41,11 +42,11 @@ HANA 설치를 시작 하기 전에 다음의 유효성을 검사 합니다.
 
 Microsoft에서 HANA 대규모 인스턴스 단위를 받은 후 다음 설정의 유효성을 검사하고 필요에 따라 조정합니다.
 
-HANA Large Instance를 받고 인스턴스에 대 한 액세스 및 연결을 설정한 후 **첫 번째 단계** 는 인스턴스가 올바른 SKU 및 OS와 함께 표시 되는지 여부를 Azure Portal 확인 하는 것입니다. 검사를 수행 하는 데 필요한 단계에 대 한 [Azure Portal 통해 AZURE HANA Large Instances 제어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) 를 읽습니다.
+HANA Large Instance를 받고 인스턴스에 대 한 액세스 및 연결을 설정한 후 **첫 번째 단계** 는 인스턴스가 올바른 SKU 및 OS와 함께 표시 되는지 여부를 Azure Portal 확인 하는 것입니다. 검사를 수행 하는 데 필요한 단계에 대 한 [Azure Portal 통해 AZURE HANA Large Instances 제어](./hana-li-portal.md) 를 읽습니다.
 
 HANA Large Instance를 받고 인스턴스에 대 한 액세스 및 연결을 설정한 후에 **두 번째 단계** 는 os 공급자에 인스턴스의 os를 등록 하는 것입니다. 이 단계에는 Azure의 VM에 배포된 SUSE SMT 인스턴스에 SUSE Linux OS를 등록하는 작업이 포함됩니다. 
 
-HANA 대규모 인스턴스 단위는 SMT 인스턴스에 연결할 수 있습니다. 자세한 내용은 [SUSE Linux용 SMT 서버를 설정하는 방법](hana-setup-smt.md)을 참조하세요. 또는 연결해야 하는 Red Hat Subscription Manager에 Red Hat OS를 등록해야 합니다. 자세한 내용은 [Azure의 SAP HANA(대규모 인스턴스)란?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 설명을 참조하세요. 
+HANA 대규모 인스턴스 단위는 SMT 인스턴스에 연결할 수 있습니다. 자세한 내용은 [SUSE Linux용 SMT 서버를 설정하는 방법](hana-setup-smt.md)을 참조하세요. 또는 연결해야 하는 Red Hat Subscription Manager에 Red Hat OS를 등록해야 합니다. 자세한 내용은 [Azure의 SAP HANA(대규모 인스턴스)란?](./hana-overview-architecture.md?toc=/azure/virtual-machines/linux/toc.json)의 설명을 참조하세요. 
 
 이 단계는 고객이 책임을 지는 OS를 패치 하는 데 필요 합니다. SUSE의 경우, [SMT 설치](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)와 관련된 이 페이지에서 SMT 설치 및 구성에 대한 문서를 확인하세요.
 
@@ -126,10 +127,10 @@ Azure의 SAP HANA(대규모 인스턴스)에서는 Azure에서 수행되는 시�
 ## <a name="networking"></a>네트워킹
 Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대규모 인스턴스에 연결할 때 다음 문서에 설명된 권장 사항을 따랐다고 가정합니다.
 
-- [Azure의 SAP HANA (Large Instance) 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [Azure의 SAP HANA (Large Instance) 개요 및 아키텍처](./hana-overview-architecture.md)
 - [Azure에서 SAP HANA (대량 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-단일 단위의 네트워킹에 대해 알아야 할 몇 가지 세부 정보가 있습니다. 모든 HANA 대규모 인스턴스 단위에는 2개 또는 3개의 NIC 포트에 할당된 2개 또는 3개의 IP 주소가 포함되어 있습니다. HANA 확장 구성 및 HANA 시스템 복제 시나리오에는 3개의 IP 주소가 사용됩니다. 단위의 NIC에 할당된 IP 주소 중 하나가 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에 설명된 서버 IP 풀을 벗어납니다.
+단일 단위의 네트워킹에 대해 알아야 할 몇 가지 세부 정보가 있습니다. 모든 HANA 대규모 인스턴스 단위에는 2개 또는 3개의 NIC 포트에 할당된 2개 또는 3개의 IP 주소가 포함되어 있습니다. HANA 확장 구성 및 HANA 시스템 복제 시나리오에는 3개의 IP 주소가 사용됩니다. 단위의 NIC에 할당된 IP 주소 중 하나가 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](./hana-overview-architecture.md)에 설명된 서버 IP 풀을 벗어납니다.
 
 아키텍처의 이더넷 세부 정보에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
@@ -264,7 +265,3 @@ SAP HANA 2.0에서는 hdbparam 프레임워크가 사용되지 않습니다. 따
 
 
  
-
-
-
-

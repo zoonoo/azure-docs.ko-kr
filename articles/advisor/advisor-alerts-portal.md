@@ -3,18 +3,18 @@ title: Azure Portal를 사용 하 여 새 권장 사항에 대 한 Azure Advisor
 description: 새 권장 사항에 대 한 Azure Advisor 경고 만들기
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 351d1faf0cb049babe1091aaac465ff975ab47cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567579"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507219"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Azure Portal를 사용 하 여 새 권장 사항에 대 한 Azure Advisor 경고 만들기 
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure Advisor의 새 권장 사항에 대 한 경고를 설정 하는 방법을 보여 줍니다. 
 
-Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 발견할 때마다 이벤트는 [Azure 활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview)에 저장 됩니다. 권장 사항 별 경고 생성 환경을 사용 하 여 Azure Advisor에서 이러한 이벤트에 대 한 경고를 설정할 수 있습니다. 구독을 선택 하 고 필요에 따라 리소스 그룹을 선택 하 여 경고를 수신 하려는 리소스를 지정할 수 있습니다. 
+Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 발견할 때마다 이벤트는 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)에 저장 됩니다. 권장 사항 별 경고 생성 환경을 사용 하 여 Azure Advisor에서 이러한 이벤트에 대 한 경고를 설정할 수 있습니다. 구독을 선택 하 고 필요에 따라 리소스 그룹을 선택 하 여 경고를 수신 하려는 리소스를 지정할 수 있습니다. 
 
 이러한 속성을 사용 하 여 권장 구성 유형을 확인할 수도 있습니다.
 
@@ -57,7 +57,7 @@ Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 �
 
     ![Advisor 경고 작업 그룹](./media/advisor-alerts/create6.png)
 
-7. **작업 그룹** 섹션에서 **기존 항목 추가** 를 선택 하 여 이미 만든 작업 그룹을 사용 하거나 **새로 만들기** 를 선택 하 여 새 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)을 설정 합니다. 
+7. **작업 그룹** 섹션에서 **기존 항목 추가** 를 선택 하 여 이미 만든 작업 그룹을 사용 하거나 **새로 만들기** 를 선택 하 여 새 [작업 그룹](../azure-monitor/platform/action-groups.md)을 설정 합니다. 
 
     ![Advisor 경고 기존 추가](./media/advisor-alerts/create7.png)
 

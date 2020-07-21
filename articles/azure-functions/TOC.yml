@@ -17,7 +17,7 @@
       expanded: true
       items:
         - name: Visual Studio Code
-          href: /azure/azure-functions/functions-create-first-function-vs-code
+          href: ./functions-create-first-function-vs-code.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: 명령 줄
@@ -177,11 +177,11 @@
                 - name: Azure portal
                   href: functions-create-first-azure-function.md
                 - name: 명령 줄
-                  href: create-cli.md
+                  href: ./functions-create-first-azure-function-azure-cli.md
                 - name: Visual Studio
-                  href: create-visual-studio.md
+                  href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
-                  href: create-visual-studio-code.md
+                  href: ./functions-create-first-function-vs-code.md
                 - name: Gradle을 사용하는 Java
                   href: functions-create-first-java-gradle.md
                 - name: Eclipse를 사용하는 Java
@@ -195,7 +195,7 @@
                 - name: Linux Azure Service 계획
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux 사용 계획
-                  href: functions-create-first-azure-function-azure-cli-linux.md
+                  href: ./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB 트리거
@@ -211,13 +211,13 @@
             - name: Azure Cosmos DB - 포털
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: 스토리지 - Python
-              href: add-output-binding-storage-queue-python.md
+              href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
             - name: 스토리지 - 포털
               href: functions-integrate-storage-queue-output-binding.md
             - name: 스토리지 - Visual Studio Code
-              href: add-output-binding-storage-queue-vs-code.md
+              href: ./functions-add-output-binding-storage-queue-vs-code.md
             - name: 스토리지 - Visual Studio
-              href: add-output-binding-storage-queue-vs.md
+              href: ./functions-add-output-binding-storage-queue-vs.md
             - name: 스토리지 - Java
               href: functions-add-output-binding-storage-queue-java.md
         - name: 디버그 및 테스트
@@ -316,7 +316,7 @@
             - name: Azure Cosmos DB - 포털
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: 스토리지 - Python
-              href: functions-add-output-binding-storage-queue-python.md
+              href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
             - name: 스토리지 - 포털
               href: functions-integrate-storage-queue-output-binding.md
             - name: 스토리지 - Visual Studio Code
@@ -326,9 +326,9 @@
         - name: SQL Database에 연결
           href: functions-scenario-database-table-cleanup.md
         - name: 가상 네트워크에 연결
-          href: functions-create-vnet-old.md
+          href: ./functions-create-vnet.md
         - name: Open API 2.0 정의 만들기
-          href: functions-api-definition-getting-started.md
+          href: ./functions-openapi-definition.md
         - name: PowerApps 및 Microsoft Flow로 내보내기
           href: app-service-export-api-to-powerapps-and-flow.md
         - name: 관리 ID 사용
@@ -354,9 +354,9 @@
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
+          href: /java/api/overview/azure/functions/runtime?view=azure-java-stable
         - name: Python
-          href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
+          href: /python/api/azure-functions/azure.functions?view=azure-python
     - name: 앱 설정 참조
       href: functions-app-settings.md
     - name: 트리거 및 바인딩
@@ -504,7 +504,7 @@
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-functions
     - name: 아키텍처 지침
-      href: 'https://docs.microsoft.com/azure/architecture/serverless-quest/serverless-overview'
+      href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: 가격 책정
@@ -518,7 +518,7 @@
     - name: 동영상
       href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-functions.html'
+      href: /answers/topics/azure-functions.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-functions'
     - name: Twitter

@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676134"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506029"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions 신뢰할 수 있는 이벤트 처리
 
@@ -69,7 +70,7 @@ Azure Functions는 성공 또는 실패에 관계 없이 스트림의 포인터�
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly)는 응용 프로그램에 대한 C# 복원력 및 일시적인 오류 처리 라이브러리의 한 가지 예입니다.
 
-미리 컴파일된 c # 클래스 라이브러리를 사용 하는 경우 [예외 필터](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) 를 사용 하 여 처리 되지 않은 예외가 발생할 때마다 코드를 실행할 수 있습니다.
+미리 컴파일된 c # 클래스 라이브러리를 사용 하는 경우 [예외 필터](/dotnet/csharp/language-reference/keywords/try-catch) 를 사용 하 여 처리 되지 않은 예외가 발생할 때마다 코드를 실행할 수 있습니다.
 
 예외 필터를 사용 하는 방법을 보여 주는 샘플은 [AZURE WEBJOBS SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 리포지토리에서 사용할 수 있습니다.
 
@@ -130,4 +131,4 @@ Azure Logic Apps는 다른 서비스에 대 한 기본 제공 커넥터, 기능 
 
 - [Azure Functions 오류 처리](./functions-bindings-error-pages.md)
 - [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
-- [Azure Logic Apps와 통합하는 함수 만들기](./functions-twitter-email.md)
+- [Azure Logic Apps와 통합되는 함수 만들기](./functions-twitter-email.md)

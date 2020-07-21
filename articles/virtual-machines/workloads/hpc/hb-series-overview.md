@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: amverma
-ms.openlocfilehash: 62e4d3dbd7357f8c98df3307c1c8fe52cbed1c5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed5606da84d8311785752cc8319b7a3c642c1f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707769"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508035"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>HB-시리즈 가상 머신 개요
 
@@ -43,7 +43,7 @@ LinkedIn의 [AMD EPYC 아키텍처](https://bit.ly/2Epv3kC) 및 [다중 칩 아�
 
 | HW 사양                | HB-시리즈 VM                     |
 |----------------------------------|----------------------------------|
-| 코어 수                            | 60 (SMT 사용 안 함)                |
+| 코어                            | 60 (SMT 사용 안 함)                |
 | CPU                              | AMD EPYC 7551 *                   |
 | CPU 빈도 (비 AVX)          | ~ 2.55 g h z (단일 + 모든 코어)   |
 | 메모리                           | 4gb/코어 (총 240)            |
@@ -65,6 +65,6 @@ LinkedIn의 [AMD EPYC 아키텍처](https://bit.ly/2Epv3kC) 및 [다중 칩 아�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure의 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) 및 [WINDOWS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) 용 HPC VM 크기에 대해 자세히 알아보세요.
+* Azure의 [Linux](../../sizes-hpc.md) 및 [WINDOWS](../../sizes-hpc.md) 용 HPC VM 크기에 대해 자세히 알아보세요.
 
-* Azure의 [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.
+* Azure의 [HPC](/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.

@@ -9,18 +9,18 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373882"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505539"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Resource Manager 템플릿을 사용하여 VM Scale Sets에 대한 고급 자동 크기 조정 구성
 되풀이 일정 또는 특정 날짜에 성능 메트릭 임계값을 기반으로 Virtual Machine Scale Sets의 규모를 확장 및 감축할 수 있습니다. 또한 크기 조정 동작에 대한 전자 메일 및 웹후크 알림을 구성할 수 있습니다. 이 연습에서는 VM 확장 집합에서 Resource Manager 템플릿을 사용하여 이 모든 개체를 구성하는 예를 보여 줍니다.
 
 > [!NOTE]
-> 이 연습에서는 VM Scale Sets에 대한 단계를 설명하지만 [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)의 자동 크기 조정에도 동일한 정보가 적용됩니다. CPU 등의 단순한 성능 메트릭에 따른 VM 확장 집합의 간단한 규모 감축/확장 설정은 [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) 및 [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) 문서를 참조하세요.
+> 이 연습에서는 VM Scale Sets에 대한 단계를 설명하지만 [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](../../api-management/api-management-key-concepts.md)의 자동 크기 조정에도 동일한 정보가 적용됩니다. CPU 등의 단순한 성능 메트릭에 따른 VM 확장 집합의 간단한 규모 감축/확장 설정은 [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) 및 [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) 문서를 참조하세요.
 >
 >
 
@@ -195,7 +195,7 @@ ms.locfileid: "85373882"
             }
           }
     ```
-    지원되는 필드와 해당 값은 [자동 크기 조정 REST API 설명서](https://msdn.microsoft.com/library/azure/dn931928.aspx)를 참조하세요. 이제 자동 크기 조정 설정에 이전에 설명한 3개의 프로필이 포함되어 있습니다.
+    지원되는 필드와 해당 값은 [자동 크기 조정 REST API 설명서](/rest/api/monitor/autoscalesettings)를 참조하세요. 이제 자동 크기 조정 설정에 이전에 설명한 3개의 프로필이 포함되어 있습니다.
 
 7. 마지막으로 자동 크기 조정 **알림** 섹션을 확인합니다. 규모 확장 또는 축소 동작이 성공적으로 트리거된 경우 자동 크기 조정 알림을 통해 세 가지 작업을 수행할 수 있습니다.
    - 구독의 관리자와 공동 관리자에게 알림
@@ -243,9 +243,9 @@ ms.locfileid: "85373882"
 
 [Azure 자동 크기 조정에 대한 모범 사례](autoscale-best-practices.md)
 
-[PowerShell을 사용하여 자동 크기 조정 관리](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[PowerShell을 사용하여 자동 크기 조정 관리](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[CLI를 사용하여 자동 크기 조정 관리](cli-samples.md#autoscale)
+[CLI를 사용하여 자동 크기 조정 관리](../samples/cli-samples.md#autoscale)
 
 [자동 크기 조정의 Webhook 및 메일 알림 구성](autoscale-webhook-email.md)
 

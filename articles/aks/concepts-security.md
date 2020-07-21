@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244534"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507100"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -54,9 +54,9 @@ AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌�
 
 ### <a name="compute-isolation"></a>계산 격리
 
- 특정 워크 로드는 규정 준수 또는 규제 요구 사항으로 인해 다른 고객 워크 로드와 높은 수준의 격리를 요구할 수 있습니다. 이러한 워크 로드의 경우 Azure는 AKS 클러스터에서 에이전트 노드로 사용할 수 있는 [격리 된 가상 컴퓨터](../virtual-machines/linux/isolation.md)를 제공 합니다. 이러한 격리 된 가상 머신은 특정 하드웨어 유형 및 단일 고객 전용으로 격리 됩니다. 
+ 특정 워크 로드는 규정 준수 또는 규제 요구 사항으로 인해 다른 고객 워크 로드와 높은 수준의 격리를 요구할 수 있습니다. 이러한 워크 로드의 경우 Azure는 AKS 클러스터에서 에이전트 노드로 사용할 수 있는 [격리 된 가상 컴퓨터](../virtual-machines/isolation.md)를 제공 합니다. 이러한 격리 된 가상 머신은 특정 하드웨어 유형 및 단일 고객 전용으로 격리 됩니다. 
 
- AKS 클러스터에서 이러한 격리 된 가상 컴퓨터를 사용 하려면 AKS 클러스터를 만들거나 노드 풀을 추가할 때 [여기](../virtual-machines/linux/isolation.md) 에 나열 된 격리 된 가상 컴퓨터 크기 중 하나를 **노드 크기로** 선택 합니다.
+ AKS 클러스터에서 이러한 격리 된 가상 컴퓨터를 사용 하려면 AKS 클러스터를 만들거나 노드 풀을 추가할 때 [여기](../virtual-machines/isolation.md) 에 나열 된 격리 된 가상 컴퓨터 크기 중 하나를 **노드 크기로** 선택 합니다.
 
 
 ## <a name="cluster-upgrades"></a>클러스터 업그레이드
@@ -81,6 +81,8 @@ AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌�
 ### <a name="azure-network-security-groups"></a>Azure 네트워크 보안 그룹
 
 가상 네트워크에서 트래픽 흐름을 필터링하기 위해 Azure에 네트워크 보안 그룹 규칙이 사용됩니다. 이러한 규칙은 리소스에 대한 액세스가 허용되거나 거부되는 원본 및 대상 IP 범위, 포트 및 프로토콜을 정의합니다. Kubernetes API 서버에 대 한 TLS 트래픽을 허용 하는 기본 규칙이 생성 됩니다. 부하 분산 장치, 포트 매핑 또는 수신 경로가 있는 서비스를 만들면 AKS에서 트래픽이 적절하게 흐르도록 네트워크 보안 그룹이 자동으로 수정됩니다.
+
+AKS 클러스터에 대 한 고유한 서브넷을 제공 하 고 트래픽 흐름을 수정 하려는 경우 AKS에서 관리 하는 서브넷 수준 네트워크 보안 그룹을 수정 하지 마십시오. 추가 서브넷 수준 네트워크 보안 그룹을 만들어 트래픽 흐름을 수정할 수 있습니다 (예: 부하 분산 장치 액세스, 제어 평면과의 통신, [송신][aks-limit-egress-traffic]등).
 
 ### <a name="kubernetes-network-policy"></a>Kubernetes 네트워크 정책
 
@@ -123,6 +125,7 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md

@@ -3,14 +3,14 @@ title: 지속성 함수의 영구 오케스트레이션 - Azure
 description: Azure Functions의 지속성 함수 확장을 사용하여 영구 오케스트레이션을 구현하는 방법을 알아봅니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34c70f4305ebb2c45757d982ab558aea6450003f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478810"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506369"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 영구 오케스트레이션(Azure Functions)
 
@@ -22,7 +22,7 @@ ms.locfileid: "80478810"
 
 ## <a name="resetting-and-restarting"></a>다시 설정 및 다시 시작
 
-무한 루프를 사용 하는 대신 orchestrator 함수는 `ContinueAsNew` `continueAsNew` [오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)(.Net) 또는 (JavaScript) 메서드를 호출 하 여 해당 상태를 다시 설정 합니다. 이 메서드는 다음 오케스트레이터 함수 생성을 위한 새 입력이 되는 단일 JSON 직렬화 가능 매개 변수를 사용합니다.
+무한 루프를 사용 하는 대신 orchestrator 함수는 `ContinueAsNew` 오케스트레이션 트리거 바인딩의 (.net), `continueAsNew` (JavaScript) 또는 `continue_as_new` (Python) 메서드 [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger)를 호출 하 여 해당 상태를 다시 설정 합니다. 이 메서드는 다음 오케스트레이터 함수 생성을 위한 새 입력이 되는 단일 JSON 직렬화 가능 매개 변수를 사용합니다.
 
 `ContinueAsNew`가 호출되면 인스턴스에서 종료되기 전에 자체의 큐에 메시지를 넣습니다. 이 메시지는 새 입력 값으로 인스턴스를 다시 시작합니다. 동일한 인스턴스 ID를 유지하지만 오케스트레이터 함수의 기록이 효과적으로 잘립니다.
 
@@ -70,13 +70,32 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("DoCleanup")
+
+    # sleep for one hour between cleanups
+    next_cleanup = context.current_utc_datetime + timedelta(hours = 1)
+    yield context.create_timer(next_cleanup)
+
+    context.continue_as_new(None)
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 이 예제와 타이머 트리거 함수 간의 차이점은 여기서 정리 타이머 시간이 일정에 기반하지 않는다는 것입니다. 예를 들어 매시간 함수를 실행하는 CRON 일정은 1시, 2시, 3시 등에 실행되며 잠재적으로 겹침 문제가 발생할 수 있습니다. 그러나 이 예제에서 정리에 30분이 걸리면 1시, 2시 30분, 4시 등으로 예약되며 겹쳐질 가능성이 없습니다.
 
 ## <a name="starting-an-eternal-orchestration"></a>영구 오케스트레이션 시작
 
-`StartNewAsync`(.Net) 또는 `startNew` (JavaScript) 메서드를 사용 하 여 다른 오케스트레이션 함수와 마찬가지로 영구 오케스트레이션을 시작 합니다.  
+`StartNewAsync`(.Net), ( `startNew` JavaScript), `start_new` (Python) 메서드를 사용 하 여 다른 오케스트레이션 함수와 마찬가지로 영구 오케스트레이션을 시작 합니다.  
 
 > [!NOTE]
 > Singleton 영구 오케스트레이션을 실행 하 고 있는지 확인 해야 하는 경우 오케스트레이션을 시작할 때 동일한 인스턴스를 유지 관리 하는 것이 중요 `id` 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
@@ -115,6 +134,19 @@ module.exports = async function (context, req) {
     return client.createCheckStatusResponse(context.bindingData.req, instanceId);
 };
 ```
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = 'StaticId'
+
+    await client.start_new('Periodic_Cleanup_Loop', instance_id, None)
+
+    logging.info(f"Started orchestration with ID = '{instance_id}'.")
+    return client.create_check_status_response(req, instance_id)
+
+```
 
 ---
 
@@ -122,7 +154,7 @@ module.exports = async function (context, req) {
 
 오케스트레이터 함수가 결국 완료되어야 하는 경우에는 `ContinueAsNew`를 *호출하지 않고* 함수가 종료되도록 해야 합니다.
 
-오 케 스트레이 터 함수가 무한 루프에 있고 중지 되어야 하는 경우 `TerminateAsync` `terminate` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) (.Net) 또는 (JavaScript) 메서드를 사용 하 여 중지 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
+오 케 스트레이 터 함수가 무한 루프에 있고 중지 되어야 하는 경우 `TerminateAsync` 오케스트레이션 클라이언트 바인딩의 (.net), `terminate` (JavaScript) 또는 `terminate` (Python) 메서드를 사용 하 [orchestration client binding](durable-functions-bindings.md#orchestration-client) 여 중지 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

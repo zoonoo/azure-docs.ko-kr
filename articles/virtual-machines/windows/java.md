@@ -8,11 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: e6218906760baad0673b6599a278d50c6c73e1a0
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6f73abe108ca9c33a8ec6865a760400d16393e51
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84232981"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508494"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -464,5 +465,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Java용 Azure 라이브러리](https://docs.microsoft.com/java/azure/java-sdk-azure-overview) 사용에 대해 자세히 알아보세요.
-
+* [Java용 Azure 라이브러리](/java/azure/java-sdk-azure-overview) 사용에 대해 자세히 알아보세요.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f5a414f00ffa50114f090fc19f37b8a85428547
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71057981"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509004"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>netvsc.sys로 인해 Windows 10 또는 Azure의 Windows Server 2016 VM에 원격으로 연결할 수 없습니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "71057981"
 
 ### <a name="repair-the-vm-offline"></a>오프라인으로 VM 복구
 
-1. [복구 VM에 시스템 디스크 연결](../windows/troubleshoot-recovery-disks-portal.md).
+1. [복구 VM에 시스템 디스크 연결](./troubleshoot-recovery-disks-portal-windows.md).
 
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "71057981"
     reg unload HKLM\BROKENSYSTEM
     ```
 
-16. [시스템 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md).
+16. [시스템 디스크를 분리하고 VM을 다시 만듭니다](./troubleshoot-recovery-disks-portal-windows.md).
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d7c137a75c0a021aa8bca3aec23da6c4d1ada300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14df0f131aaef8a4c24e2d1eb242a9b440e7c7b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868027"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507593"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>빠른 시작-CloudSimple service로 Azure VMware 솔루션 만들기
 
@@ -86,4 +87,4 @@ CloudSimple 사설 클라우드 환경에 대 한 종 량 제 용량을 설정 �
 ## <a name="next-steps"></a>다음 단계
 
 * [사설 클라우드 만들기 및 환경 구성](quickstart-create-private-cloud.md)
-* [Cloudsimple service](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service) 에 대 한 자세한 정보
+* [Cloudsimple service](./cloudsimple-service.md) 에 대 한 자세한 정보

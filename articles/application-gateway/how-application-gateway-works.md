@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250233"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506556"
 ---
 # <a name="how-an-application-gateway-works"></a>응용 프로그램 게이트웨이의 작동 원리
 
@@ -62,7 +62,7 @@ Application gateway는 백 엔드 서버에 원래 요청을 보내면 호스트
 
 X 전달 프로토콜의 유효한 값은 HTTP 또는 HTTPS입니다. X 전달-포트는 요청이 application gateway에 도달 하는 포트를 지정 합니다. X 원본-호스트 헤더에는 요청이 도착 한 원래 호스트 헤더가 포함 됩니다. 이 헤더는 트래픽이 백 엔드로 라우팅되기 전에 들어오는 호스트 헤더가 수정 되는 Azure 웹 사이트 통합에 유용 합니다. 세션 선호도가 옵션으로 사용 하도록 설정 된 경우 게이트웨이 관리 선호도 쿠키를 추가 합니다.
 
-[HTTP 헤더 재작성](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) 을 사용 하 여 헤더를 수정 하거나 경로 재정의 설정을 사용 하 여 URI 경로를 수정 하도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 그러나이 작업을 수행 하도록 구성 되지 않은 경우 들어오는 모든 요청은 백 엔드에 프록시 됩니다.
+[HTTP 헤더 및 Url 재작성](rewrite-http-headers-url.md) 을 사용 하 여 요청 및 응답 헤더와 url을 수정 하거나 경로 재정의 설정을 사용 하 여 URI 경로를 수정 하도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 그러나이 작업을 수행 하도록 구성 되지 않은 경우 들어오는 모든 요청은 백 엔드에 프록시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 644d1094ec57e148804941297d50398e36b1b068
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 80ece5b0704869c31ab0656eed922b3f21ba9928
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996420"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505757"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure Monitor에 Windows 컴퓨터 연결
 
@@ -43,7 +44,7 @@ Windows용 Log Analytics 에이전트를 설치하려면 Log Analytics 작업 �
 5. **작업 영역 ID** 및 **기본 키**를 복사한 후 즐겨찾는 편집기에 붙여넣습니다.    
    
 ## <a name="configure-agent-to-use-tls-12"></a>TLS 1.2를 사용하도록 에이전트 구성
-Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) 프로토콜을 사용하도록 구성하려면 아래 단계에 따라 가상 머신에 에이전트를 설치하기 전이나 나중에 활성화하면 됩니다.
+Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) 프로토콜을 사용하도록 구성하려면 아래 단계에 따라 가상 머신에 에이전트를 설치하기 전이나 나중에 활성화하면 됩니다.
 
 >[!NOTE]
 >TLS 1.2를 사용하도록 Windows Server 2008 SP2x64 VM을 구성하는 경우 먼저 다음 단계를 수행하기 전에 [SHA-2 코드 서명 지원 업데이트](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update)를 설치해야 합니다. 
@@ -57,7 +58,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
     * **사용** [값 = 1]
     * **DisabledByDefault** [값 = 0]  
 
-보안 암호화를 지원하도록(기본적으로 사용하지 않도록 설정됨) .NET Framework 4.6 이상을 구성합니다. [강력한 암호화](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto)는 TLS 1.2와 같은 강화된 보안 네트워크 프로토콜을 더 사용하며 안전하지 않은 프로토콜을 차단합니다. 
+보안 암호화를 지원하도록(기본적으로 사용하지 않도록 설정됨) .NET Framework 4.6 이상을 구성합니다. [강력한 암호화](/dotnet/framework/network-programming/tls#schusestrongcrypto)는 TLS 1.2와 같은 강화된 보안 네트워크 프로토콜을 더 사용하며 안전하지 않은 프로토콜을 차단합니다. 
 
 1. 다음 레지스트리 하위 키를 찾습니다. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
 2. 이 하위 키 아래에 값 **1**을 사용하는 DWORD 값 **SchUseStrongCrypto**를 만듭니다.  
@@ -66,7 +67,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 5. 시스템을 다시 시작하여 설정을 적용합니다. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>설치 마법사를 사용하여 에이전트 설치
-다음은 컴퓨터에서 에이전트 설치 마법사를 사용하여 Azure 및 Azure Government 클라우드에 Log Analytics 에이전트를 설치하고 구성하는 단계입니다. System Center Operations Manager 관리 그룹에도 보고하도록 에이전트를 구성하는 방법을 알아보려면 [deploy the Operations Manager agent with the Agent Setup Wizard](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)(에이전트 설치 마법사를 사용하여 Operations Manager 에이전트 배포)를 참조하세요.
+다음은 컴퓨터에서 에이전트 설치 마법사를 사용하여 Azure 및 Azure Government 클라우드에 Log Analytics 에이전트를 설치하고 구성하는 단계입니다. System Center Operations Manager 관리 그룹에도 보고하도록 에이전트를 구성하는 방법을 알아보려면 [deploy the Operations Manager agent with the Agent Setup Wizard](/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)(에이전트 설치 마법사를 사용하여 Operations Manager 에이전트 배포)를 참조하세요.
 
 1. Log Analytics 작업 영역에서 이전에 이동해 온 **Windows 서버** 페이지에서 Windows 운영 체제의 프로세서 아키텍처에 따라 적절한 **Windows 에이전트 다운로드** 버전을 선택하여 다운로드합니다.   
 2. 설치를 실행하여 컴퓨터에 에이전트를 설치합니다.
@@ -119,7 +120,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure Automation에서 DSC를 사용하여 에이전트 설치
 
-다음 스크립트 예제를 사용하여 Azure Automation DSC를 사용하여 에이전트를 설치합니다.   Automation 계정이 없는 경우 자동화 DSC를 사용하기 전에 필요한 Automation 계정을 만드는 데 필요한 요구 사항과 단계를 이해하기 위해 [Azure Automation 시작](/azure/automation/)을 참조하세요.  자동화 DSC에 익숙하지 않은 경우 [자동화 DSC 시작](../../automation/automation-dsc-getting-started.md)을 참조하세요.
+다음 스크립트 예제를 사용하여 Azure Automation DSC를 사용하여 에이전트를 설치합니다.   Automation 계정이 없는 경우 자동화 DSC를 사용하기 전에 필요한 Automation 계정을 만드는 데 필요한 요구 사항과 단계를 이해하기 위해 [Azure Automation 시작](../../automation/index.yml)을 참조하세요.  자동화 DSC에 익숙하지 않은 경우 [자동화 DSC 시작](../../automation/automation-dsc-getting-started.md)을 참조하세요.
 
 다음 예제에서는 `URI` 값으로 식별되는 64비트 에이전트를 설치합니다. 또한 URI 값을 바꿔 32비트 버전을 사용할 수 있습니다. 두 버전에 대한 URL
 
@@ -132,7 +133,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 32비트 및 64비트 버전의 에이전트 패키지에는 서로 다른 제품 코드가 있으며 릴리스된 새 버전에도 고유한 값이 있습니다.  제품 코드는 애플리케이션 또는 제품의 보안 주체 ID이며 Windows Installer **ProductCode** 속성으로 표시되는 GUID입니다.  **MMAgent.ps1** 스크립트의 `ProductId` 값은 32비트 또는 64비트 에이전트 설치 관리자 패키지의 제품 코드와 일치해야 합니다.
 
-에이전트 설치 패키지에서 제품 코드를 직접 검색하려면 Windows 소프트웨어 개발 키트의 구성 요소인 [Windows Installer 개발자용 Windows SDK 구성 요소](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx)에서 Orca.exe를 사용하거나 MVP(Microsoft Valuable Professional)에서 작성된 [예제 스크립트](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)에 따라 PowerShell을 사용할 수 있습니다.  두 가지 방법에서 먼저 **MOMagent.msi** 파일을 MMASetup 설치 패키지에서 추출해야 합니다.  이는 앞서 첫 번째 단계의 [명령줄을 사용하여 에이전트 설치](#install-the-agent-using-the-command-line) 섹션에 나와 있습니다.  
+에이전트 설치 패키지에서 제품 코드를 직접 검색하려면 Windows 소프트웨어 개발 키트의 구성 요소인 [Windows Installer 개발자용 Windows SDK 구성 요소](/windows/win32/msi/platform-sdk-components-for-windows-installer-developers)에서 Orca.exe를 사용하거나 MVP(Microsoft Valuable Professional)에서 작성된 [예제 스크립트](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)에 따라 PowerShell을 사용할 수 있습니다.  두 가지 방법에서 먼저 **MOMagent.msi** 파일을 MMASetup 설치 패키지에서 추출해야 합니다.  이는 앞서 첫 번째 단계의 [명령줄을 사용하여 에이전트 설치](#install-the-agent-using-the-command-line) 섹션에 나와 있습니다.  
 
 1. [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration)에서 xPSDesiredStateConfiguration DSC 모듈을 Azure Automation으로 가져옵니다.  
 2.    *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.

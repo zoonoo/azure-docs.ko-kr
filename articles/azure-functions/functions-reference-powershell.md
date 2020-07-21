@@ -4,11 +4,12 @@ description: PowerShell을 사용 하 여 함수를 개발 하는 방법을 이�
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697275"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506131"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -18,7 +19,7 @@ PowerShell Azure 함수 (함수)는 트리거될 때 실행 되는 PowerShell �
 
 다른 종류의 함수와 마찬가지로 PowerShell 스크립트 함수는 파일에 정의 된 모든 입력 바인딩의 이름과 일치 하는 매개 변수를 사용 `function.json` 합니다. `TriggerMetadata`함수를 시작한 트리거에 대 한 추가 정보를 포함 하는 매개 변수도 전달 됩니다.
 
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [powershell에 대 한 빠른 시작 함수](functions-create-first-function-powershell.md) 를 완료 하 여 첫 번째 powershell 함수를 만들었습니다.
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [powershell에 대 한 빠른 시작 함수](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) 를 완료 하 여 첫 번째 powershell 함수를 만들었습니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -75,8 +76,8 @@ $TriggerMetadata.sys
 | 속성   | 설명                                     | 형식     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | UTC에서 함수가 트리거된 경우        | DateTime |
-| MethodName | 트리거된 함수의 이름     | string   |
-| RandGuid   | 이 함수 실행에 대 한 고유 guid입니다. | string   |
+| MethodName | 트리거된 함수의 이름     | 문자열   |
+| RandGuid   | 이 함수 실행에 대 한 고유 guid입니다. | 문자열   |
 
 모든 트리거 형식에는 서로 다른 메타 데이터 집합이 있습니다. 예를 들어의에는 `$TriggerMetadata` `QueueTrigger` ,, 등이 포함 `InsertionTime` `Id` `DequeueCount` 됩니다. 큐 트리거의 메타 데이터에 대 한 자세한 내용은 [큐 트리거의 공식 설명서](functions-bindings-storage-queue-trigger.md#message-metadata)로 이동 하세요. 작업 중인 [트리거에](functions-triggers-bindings.md) 대 한 설명서를 확인 하 여 트리거 메타 데이터 내에 있는 항목을 확인 합니다.
 
@@ -124,7 +125,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은를 호출 하기 위한 유효한 매개 변수입니다 `Push-OutputBinding` .
 
-| 이름 | 유형 | 위치 | Description |
+| Name | 유형 | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
@@ -232,7 +233,7 @@ PowerShell 함수의 로깅은 일반적인 PowerShell 로깅과 같은 방식�
 | 함수 로깅 수준 | 로깅 cmdlet |
 | ------------- | -------------- |
 | Error | **`Write-Error`** |
-| 경고 | **`Write-Warning`**  | 
+| Warning | **`Write-Warning`**  | 
 | 정보 | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | 정보 | _정보_ 수준 로깅에 씁니다. |
 | 디버그 | **`Write-Debug`** |
 | 추적 | **`Write-Progress`** <br /> **`Write-Verbose`** |
@@ -274,7 +275,7 @@ Azure Functions를 사용 하면 함수에서 로그에 쓰는 방식을 쉽게 
 모든 트리거와 바인딩은 코드에서 몇 가지 실제 데이터 형식으로 표현 됩니다.
 
 * Hashtable
-* string
+* 문자열
 * byte[]
 * int
 * double
@@ -295,12 +296,12 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 | 속성  | 설명                                                    | 형식                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body`는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | 개체 |
+| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body`는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | object |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | 사전<문자열, 문자열><sup>*</sup> |
-| **`Method`** | 요청의 HTTP 메서드입니다.                                | string                    |
+| **`Method`** | 요청의 HTTP 메서드입니다.                                | 문자열                    |
 | **`Params`**  | 요청의 라우팅 매개 변수를 포함하는 개체입니다. | 사전<문자열, 문자열><sup>*</sup> |
 | **`Query`** | 쿼리 매개 변수를 포함하는 개체입니다.                  | 사전<문자열, 문자열><sup>*</sup> |
-| **`Url`** | 요청의 URL입니다.                                        | string                    |
+| **`Url`** | 요청의 URL입니다.                                        | 문자열                    |
 
 <sup>*</sup>모든 `Dictionary<string,string>` 키는 대/소문자를 구분 하지 않습니다.
 
@@ -310,8 +311,8 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 | 속성      | 설명                                                 | 형식                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | 개체                    |
-| **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | string                    |
+| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | object                    |
+| **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | 문자열                    |
 | **`Headers`** | 응답 헤더를 포함하는 개체입니다.               | 사전 또는 해시 테이블   |
 | **`StatusCode`**  | 응답의 HTTP 상태 코드입니다.                       | 문자열 또는 int             |
 

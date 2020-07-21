@@ -1,15 +1,15 @@
 ---
-title: AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
+title: PowerShell을 사용 하 여 AKS 클러스터에서 Windows Server 컨테이너 만들기
 description: PowerShell을 사용하여 Kubernetes 클러스터를 빠르게 만들고 AKS(Azure Kubernetes Service)의 Windows Server 컨테이너에 응용 프로그램을 배포하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: 036c97d406e37e038474287daf39182ddce194a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cf195c439a1a53d8a720505edae3c9b6d379d157
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250875"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507049"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>PowerShell을 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 

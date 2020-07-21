@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 03804229221c2b1deb94f6c32a5be9defd304ff6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628285"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509127"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure에서 Windows 가상 머신 배포 문제 해결
 
@@ -78,7 +78,7 @@ Azure 하이브리드 사용 혜택을 사용하여 Windows 가상 머신을 배
 
  - [Windows Server 및 Windows 클라이언트에 대 한 Azure 하이브리드 사용 혜택](../windows/hybrid-use-benefit-licensing.md)
 
- - [Azure에서 Hybrid Use Benefit을 사용하는 방법](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
+ - [Azure에서 Hybrid Use Benefit을 사용하는 방법](/archive/blogs/azureedu/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
 ## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Visual Studio Enterprise(BizSpark)에 대한 월간 크레딧을 활성화하는 방법
 

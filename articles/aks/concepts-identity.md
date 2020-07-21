@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7739320fa23bf4469548f61486da1a5ee6110da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251725"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507161"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -73,7 +73,7 @@ AKS 클러스터의 보안은 Azure AD(Active Directory) 통합으로 강화될 
 
 Azure AD 통합 AKS 클러스터를 사용하면 네임스페이스 내에서 또는 클러스터 전체에서 Kubernetes 리소스에 대한 액세스 권한을 사용자 또는 그룹에 부여할 수 있습니다. `kubectl` 구성 컨텍스트를 가져오려면 사용자가 [az aks get-credentials][az-aks-get-credentials] 명령을 실행할 수 있습니다. 그런 다음 사용자가를 사용 하 여 AKS 클러스터와 상호 작용 하면 `kubectl` 해당 AZURE AD 자격 증명을 사용 하 여 로그인 하 라는 메시지가 표시 됩니다. 이 방법은 사용자 계정 관리 및 암호 자격 증명을 위한 단일 원본을 제공합니다. 사용자는 클러스터 관리자가 정의한 리소스에만 액세스할 수 있습니다.
 
-OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. Openid connect Connect에 대 한 자세한 내용은 [Open ID connect 설명서] [열기-id-연결]를 참조 하세요. Kubernetes 클러스터 내부에서 웹 후크 [토큰 인증][webhook-token-docs] 을 사용 하 여 인증 토큰을 확인 합니다. Webhook 토큰 인증은 AKS 클러스터의 일부로 구성 및 관리됩니다.
+OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][openid-connect]를 참조하세요. Kubernetes 클러스터 내부에서 웹 후크 [토큰 인증][webhook-token-docs] 을 사용 하 여 인증 토큰을 확인 합니다. Webhook 토큰 인증은 AKS 클러스터의 일부로 구성 및 관리됩니다.
 
 Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook 토큰 인증이 사용됩니다. Webhook 토큰 인증은 AKS 클러스터의 일부로 구성 및 관리됩니다.
 

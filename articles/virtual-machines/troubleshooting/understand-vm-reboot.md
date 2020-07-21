@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919416"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508868"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -33,7 +34,7 @@ Azure에서 실행되는 애플리케이션이 VM 재부팅 및 가동 중지 �
 
 ## <a name="resource-health-information"></a>Resource Health 정보
 
-Azure Resource Health는 개별 Azure 리소스의 상태를 노출하고 문제 해결을 위한 실행 가능한 지침을 제공하는 서비스입니다. 서버 또는 인프라 요소에 직접 액세스할 수는 없는 클라우드 환경에서는 문제 해결에 소비하는 시간을 줄이는 것이 Resource Health의 목표입니다. 특히 문제의 원인이 애플리케이션에 있는지 Azure 플랫폼 내 이벤트에 있는지 판단하는 데 소비하는 시간을 줄이는 것이 목표입니다. 자세한 내용은 [Resource Health 이해 및 사용](../../resource-health/resource-health-overview.md)을 참조하세요.
+Azure Resource Health는 개별 Azure 리소스의 상태를 노출하고 문제 해결을 위한 실행 가능한 지침을 제공하는 서비스입니다. 서버 또는 인프라 요소에 직접 액세스할 수는 없는 클라우드 환경에서는 문제 해결에 소비하는 시간을 줄이는 것이 Resource Health의 목표입니다. 특히 문제의 원인이 애플리케이션에 있는지 Azure 플랫폼 내 이벤트에 있는지 판단하는 데 소비하는 시간을 줄이는 것이 목표입니다. 자세한 내용은 [Resource Health 이해 및 사용](../../service-health/resource-health-overview.md)을 참조하세요.
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>VM을 재부팅할 수 있는 작업 및 이벤트
 
@@ -45,8 +46,8 @@ Microsoft Azure는 VM의 기반이 되는 호스트 인프라의 안정성, 성�
 
 Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Linux 가상 컴퓨터의 사용 가능성에 주는 영향에 대해 이해하려면 여기에 나열된 문서를 참조하세요. 이 문서는 Azure 계획된 유지 관리 프로세스 및 영향을 줄이기 위해 계획된 유지 관리를 예약하는 방법에 대한 배경을 제공합니다.
 
-- [Azure에서 VM에 대한 계획된 유지 관리](../windows/planned-maintenance.md)
-- [Azure VM에 계획된 유지 관리 예약 방법](../windows/classic/planned-maintenance-schedule.md)
+- [Azure에서 VM에 대한 계획된 유지 관리](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
+- [Azure VM에 계획된 유지 관리 예약 방법](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
 
 ### <a name="memory-preserving-updates"></a>메모리 유지 업데이트
 
@@ -71,7 +72,7 @@ VM의 운영 체제에서 작업을 수행하는 경우 시스템 로그에서 �
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center 및 Windows 업데이트
 
-Azure Security Center는 누락된 운영 체제 업데이트가 있는지 매일 Windows 및 Linux VM을 모니터링합니다. 보안 센터는 Windows VM에서 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. Security Center는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM이 시스템 업데이트를 누락하는 경우 Security Center는 시스템 업데이트 적용을 권장합니다. 이러한 시스템 업데이트의 애플리케이션은 Azure Portal에서 Security Center를 통해 제어됩니다. 일부 업데이트를 적용한 후 VM을 재부팅해야 할 수 있습니다. 자세한 내용은 [Azure Security Center의 시스템 업데이트 적용](../../security-center/security-center-apply-system-updates.md)을 참조하세요.
+Azure Security Center는 누락된 운영 체제 업데이트가 있는지 매일 Windows 및 Linux VM을 모니터링합니다. 보안 센터는 Windows VM에서 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. Security Center는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM이 시스템 업데이트를 누락하는 경우 Security Center는 시스템 업데이트 적용을 권장합니다. 이러한 시스템 업데이트의 애플리케이션은 Azure Portal에서 Security Center를 통해 제어됩니다. 일부 업데이트를 적용한 후 VM을 재부팅해야 할 수 있습니다. 자세한 내용은 [Azure Security Center의 시스템 업데이트 적용](../../security-center/security-center-virtual-machine-protection.md)을 참조하세요.
 
 온-프레미스 서버와 같이 이러한 머신은 사용자가 관리하도록 되어 있으므로, Azure는 Windows 업데이트에서 Windows VM으로 업데이트를 푸시하지 않습니다. 그러나 고객은 자동 Windows 업데이트 설정을 활성화 상태로 유지하는 것이 좋습니다. Windows 업데이트에서 업데이트를 자동으로 설치하면 업데이트가 적용된 후에 재부팅될 수도 있습니다. 자세한 내용은 [Windows 업데이트 FAQ](https://support.microsoft.com/help/12373/windows-update-faq)를 참조하세요.
 
@@ -114,7 +115,7 @@ Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 �
 
 **IO 제한 초과**
 
-초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 저장소는 500 IOPS로 제한 됩니다.) 이 문제를 완화 하려면 워크 로드에 따라 디스크 스트라이프를 사용 하거나 게스트 VM 내에서 저장소 공간을 구성 합니다. 자세한 내용은 [스토리지 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
+초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 저장소는 500 IOPS로 제한 됩니다.) 이 문제를 완화 하려면 워크 로드에 따라 디스크 스트라이프를 사용 하거나 게스트 VM 내에서 저장소 공간을 구성 합니다. 
 
 ### <a name="other-incidents"></a>다른 인시던트
 
