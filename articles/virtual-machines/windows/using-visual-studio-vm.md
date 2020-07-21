@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1da7dabfb562ea32697745460d92ed27089878c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105991"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525537"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)에서 사용할 수 있습니다.
@@ -23,7 +23,7 @@ ms.locfileid: "85105991"
 Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https://azure.microsoft.com/free).
 
 > [!NOTE]
-> 모든 구독에서 Windows 10 이미지를 배포할 수 있는 것은 아닙니다. 자세한 내용은 [개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)을 참조하세요.
+> 모든 구독에서 Windows 10 이미지를 배포할 수 있는 것은 아닙니다. 자세한 내용은 [개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용](./client-images.md)을 참조하세요.
 
 ## <a name="what-configurations-and-versions-are-available"></a>어떤 구성 및 버전을 사용할 수 있나요?
 최신 주요 버전인 Visual Studio 2019, Visual Studio 2017 및 Visual Studio 2015의 이미지는 Azure Marketplace에서 찾을 수 있습니다.  출시된 각 주 버전에 대해 원래 RTW("released to web") 버전과 최신 업데이트 버전이 표시됩니다.  이러한 각 버전에는 Visual Studio Enterprise 및 Visual Studio Community Edition이 제공됩니다.  이 이미지는 최신 Visual Studio 및 Windows 업데이트가 포함되도록 최소한 매월 업데이트됩니다.  이미지의 이름은 그대로 유지되지만, 각 이미지의 설명에는 설치된 제품 버전 및 이미지의 '당시' 날짜가 포함됩니다.
@@ -77,9 +77,9 @@ Azure에는 모든 범위의 가상 머신 크기가 제공됩니다. Visual Stu
    * Standard_D2S_v2
    * Standard_D3_v2
     
-최신 컴퓨터 크기에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터에 대한 크기](/azure/virtual-machines/windows/sizes)를 참조하세요.
+최신 컴퓨터 크기에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터에 대한 크기](./sizes.md)를 참조하세요.
 
-Azure를 사용하면 VM의 크기를 조정하여 처음에 선택한 내용을 다시 조정할 수 있습니다. 좀 더 적절한 크기를 사용하여 새 VM을 프로비전할 수도 있고, 기존 VM의 크기를 다른 기본 하드웨어에 맞게 조정할 수도 있습니다. 자세한 내용은 [Windows VM 크기 조정](/azure/virtual-machines/windows/resize-vm)을 참조하세요.
+Azure를 사용하면 VM의 크기를 조정하여 처음에 선택한 내용을 다시 조정할 수 있습니다. 좀 더 적절한 크기를 사용하여 새 VM을 프로비전할 수도 있고, 기존 VM의 크기를 다른 기본 하드웨어에 맞게 조정할 수도 있습니다. 자세한 내용은 [Windows VM 크기 조정](./resize-vm.md)을 참조하세요.
 
 ## <a name="after-the-vm-is-running-whats-next"></a>VM을 실행한 후 다음 단계는 무엇인가요?
 Visual Studio는 Azure의 "BYOL(사용자 라이선스 필요)" 모델을 따릅니다. 전용 하드웨어를 설치하는 것과 마찬가지로, 첫 번째 단계 중 하나는 Visual Studio 설치의 사용을 허가하는 것입니다. Visual Studio의 잠금을 해제하려면 다음 중 하나를 수행합니다.
@@ -96,7 +96,7 @@ Visual Studio는 Azure의 "BYOL(사용자 라이선스 필요)" 모델을 따릅
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(그림 1) Azure Portal의 UI를 통해 이미지를 캡처합니다.* </center>
 
-자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](/azure/virtual-machines/windows/capture-image-resource)를 참조하세요.
+자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](./capture-image-resource.md)를 참조하세요.
 
 > [!IMPORTANT]
 > VM을 준비하려면 Sysprep 사용을 잊지 마세요. 이 단계를 누락하면 Azure가 이미지에서 VM을 프로비전할 수 없습니다.

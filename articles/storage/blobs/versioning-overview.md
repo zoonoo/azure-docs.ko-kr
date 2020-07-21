@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd620e253e661f986f67a440272937026cb4ff7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433597"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528403"
 ---
 # <a name="blob-versioning-preview"></a>Blob 버전 관리(미리 보기)
 
@@ -188,12 +189,16 @@ Blob 버전에 대 한 서명 된 리소스는 `bv` 입니다. 자세한 내용�
 
 | **사용 권한** | **URI 기호** | **허용되는 작업** |
 |----------------|----------------|------------------------|
-| 삭제         | x              | Blob 버전을 삭제 합니다. |
+| DELETE         | x              | Blob 버전을 삭제 합니다. |
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 
 Blob 버전 관리는 다음 지역에서 미리 보기로 제공 됩니다.
 
+- 미국 동부 2
+- 미국 중부
+- 북유럽
+- 서유럽
 - 프랑스 중부
 - 캐나다 동부
 - 캐나다 중부
@@ -312,7 +317,7 @@ Blob 버전 관리를 사용 하는 경우 다음 사항을 고려해 야 합니
 
 ![Azure Storage 리소스](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [BLOB 버전 관리 사용](versioning-enable.md)
 - [Blob의 스냅숏 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

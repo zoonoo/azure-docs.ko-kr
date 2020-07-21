@@ -1,5 +1,5 @@
 ---
-title: 새 세션 호스트를 사용 하 여 기존 호스트 풀 확장-Azure
+title: 새 세션 호스트 스프링 2020-Azure를 사용 하 여 기존 호스트 풀 확장
 description: Windows 가상 데스크톱에서 새 세션 호스트를 사용 하 여 기존 호스트 풀을 확장 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eee6f34124f8b286deff278c6c3d1038b595357
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b23cee72af7f8262fdd552c2d4c26c608b68a1e4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259878"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527611"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>새 세션 호스트를 사용 하 여 기존 호스트 풀 확장
 

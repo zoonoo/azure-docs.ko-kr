@@ -8,11 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8d2adca661882ea11d04ebe55afe25f7f9c2ef4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 754baa66d79d169f830332f3c39660f1d71f608a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219958"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527917"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -39,10 +40,10 @@ azcopy login [flags]
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
 - [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](storage-use-azcopy-blobs.md)
-- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 일반으로 설정 된 기본 AAD 테 넌 트 ID로 대화형으로 로그인 합니다.
 
@@ -83,7 +84,7 @@ azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/
 클라이언트 암호를 사용 하 여 서비스 주체로 로그인 합니다. 환경 변수 AZCOPY_SPA_CLIENT_SECRET을 비밀 기반 서비스 주체 인증에 대 한 클라이언트 암호로 설정 합니다.
 
 ```azcopy
-azcopy login --service-principal
+azcopy login --service-principal --application-id "YOUR_APP_ID" --tenant-id "YOUR_TENANT_ID"
 ```
 
 인증서와 암호를 사용 하 여 서비스 주체로 로그인 합니다. 환경 변수 AZCOPY_SPA_CERT_PASSWORD을 인증서 기반 서비스 주체 권한 부여에 대 한 인증서의 암호로 설정 합니다.
@@ -120,6 +121,6 @@ azcopy login --service-principal --certificate-path /path/to/my/cert
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
 |--신뢰할 수 있는 microsoft 접미사 문자열   |Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

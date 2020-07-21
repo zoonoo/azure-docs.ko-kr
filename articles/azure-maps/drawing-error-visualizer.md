@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791125"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524746"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Azure Maps 그리기 오류 시각화 도우미 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "84791125"
 
 그리기 오류 시각화 도우미를 다운로드하려면 먼저 다음을 수행해야 합니다.
 
-1. [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 3. [Creator 리소스 만들기](how-to-manage-creator.md)
 

@@ -3,15 +3,16 @@ title: Azure Backup Server를 사용하여 VMware VM 복원
 description: Azure Backup Server (MABS)를 사용 하 여 VMware vCenter/ESXi 서버에서 실행 되는 VMware Vm을 복원 합니다.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d11b9259a44c32891f5fefa6f175681838927586
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77212343"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524525"
 ---
 # <a name="restore-vmware-virtual-machines"></a>VMware 가상 컴퓨터 복원
 
-이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 VMware VM 복구 지점이 복원 되는 방법을 설명 합니다. MABS를 사용 하 여 데이터를 복구 하는 방법에 대 한 개요는 [보호 된 데이터 복구](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)를 참조 하세요. MABS 관리자 콘솔에는 복구 가능한 데이터를 찾는 두 가지 방법이 있습니다. 검색 하거나 찾아볼 수 있습니다. 데이터를 복구할 때 데이터 또는 VM을 동일한 위치로 복원하거나 복원하지 않길 원할 수 있습니다. 이러한 이유로 MABS는 VMware VM 백업에 대 한 세 가지 복구 옵션을 지원 합니다.
+이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 VMware VM 복구 지점이 복원 되는 방법을 설명 합니다. MABS를 사용 하 여 데이터를 복구 하는 방법에 대 한 개요는 [보호 된 데이터 복구](./backup-azure-alternate-dpm-server.md)를 참조 하세요. MABS 관리자 콘솔에는 복구 가능한 데이터를 찾는 두 가지 방법이 있습니다. 검색 하거나 찾아볼 수 있습니다. 데이터를 복구할 때 데이터 또는 VM을 동일한 위치로 복원하거나 복원하지 않길 원할 수 있습니다. 이러한 이유로 MABS는 VMware VM 백업에 대 한 세 가지 복구 옵션을 지원 합니다.
 
 * **OLR(원래 위치 복구)** - OLR을 사용하여 보호된 VM을 원래 위치로 복원합니다. 백업이 발생 한 후 디스크를 추가 하거나 삭제 하지 않은 경우에만 VM을 원래 위치로 복원할 수 있습니다. 디스크가 추가되거나 삭제된 경우에는 대체 위치 복구를 사용해야 합니다.
 

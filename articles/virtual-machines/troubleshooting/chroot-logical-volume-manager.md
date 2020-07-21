@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0041a835c02263f23c5cdc6f839756edfb070c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74684140"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526880"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
 
@@ -28,7 +29,7 @@ ms.locfileid: "74684140"
 
 영향을 받는 VM의 스냅숏을 만듭니다. 
 
-그러면 스냅숏이 **복구** VM에 연결 됩니다. **스냅숏을**만드는 방법 [에 대 한 지침을](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) 따르세요.
+그러면 스냅숏이 **복구** VM에 연결 됩니다. **스냅숏을**만드는 방법 [에 대 한 지침을](../linux/snapshot-copy-managed-disk.md#use-azure-portal) 따르세요.
 
 ## <a name="create-a-rescue-vm"></a>복구 VM 만들기
 일반적으로 동일한 운영 체제 버전 또는 유사한 운영 체제 버전의 복구 VM을 권장 합니다. 영향을 받는 VM의 동일한 **지역** 및 **리소스 그룹** 사용
@@ -208,7 +209,7 @@ grub2-다음 부팅 커널 기본값에서 로드 되는 커널을 표시 하는
 
 
 ### <a name="example-3---enable-serial-console"></a>예제 3-직렬 콘솔 사용
-Azure 직렬 콘솔에 액세스할 수 없는 경우 Linux VM에 대 한 GRUB 구성 매개 변수를 확인 하 고 수정 합니다. [이 문서에서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration) 자세한 정보를 찾을 수 있습니다.
+Azure 직렬 콘솔에 액세스할 수 없는 경우 Linux VM에 대 한 GRUB 구성 매개 변수를 확인 하 고 수정 합니다. [이 문서에서](./serial-console-grub-proactive-configuration.md) 자세한 정보를 찾을 수 있습니다.
 
 ### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>예제 4-문제가 있는 LVM 스왑 볼륨을 사용한 커널 로드
 
@@ -273,4 +274,4 @@ VM을 실행 하는 경우 디스크 교환이 종료 되 고 디스크 교환 �
 
  [Azure 직렬 콘솔]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
 
-[단일 사용자 모드](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)
+[단일 사용자 모드](./serial-console-grub-single-user-mode.md)

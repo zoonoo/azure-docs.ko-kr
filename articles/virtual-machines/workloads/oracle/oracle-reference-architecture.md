@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: 9125d8d2177b9bc40bb280f414cdfb2797ccf8fe
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: dd5e3cf8ce9e52768c28598a819a28ad1ec4413c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221615"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525520"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 
@@ -37,13 +37,13 @@ Oracle 데이터베이스의 성능을 최대화 하는 방법에 대 한 자세
 
 Oracle은 클라우드 네이티브 도구 및 제품 외에도 [Oracle Data guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)와 같은 고가용성을 위한 솔루션과 Azure에서 설정할 수 있는 fsfo, [분할](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html)및 [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) 를 제공 하는 [데이터 보호](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html)를 제공 합니다. 이 가이드에서는 이러한 각 솔루션에 대 한 참조 아키텍처를 설명 합니다.
 
-마지막으로 클라우드의 응용 프로그램을 마이그레이션하거나 만들 때 [재시도 패턴](https://docs.microsoft.com/azure/architecture/patterns/retry) 및 [회로 차단기 패턴과](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)같은 클라우드 네이티브 패턴을 추가 하도록 응용 프로그램 코드를 조정 하는 것이 중요 합니다. [클라우드 디자인 패턴 가이드](https://docs.microsoft.com/azure/architecture/patterns/) 에 정의 된 추가 패턴은 응용 프로그램의 복원 력을 향상 시킬 수 있습니다.
+마지막으로 클라우드의 응용 프로그램을 마이그레이션하거나 만들 때 [재시도 패턴](/azure/architecture/patterns/retry) 및 [회로 차단기 패턴과](/azure/architecture/patterns/circuit-breaker)같은 클라우드 네이티브 패턴을 추가 하도록 응용 프로그램 코드를 조정 하는 것이 중요 합니다. [클라우드 디자인 패턴 가이드](/azure/architecture/patterns/) 에 정의 된 추가 패턴은 응용 프로그램의 복원 력을 향상 시킬 수 있습니다.
 
 ### <a name="oracle-rac-in-the-cloud"></a>클라우드의 Oracle RAC
 
 Oracle RAC (실제 응용 프로그램 클러스터)는 단일 데이터베이스 저장소 (공유-전체 아키텍처 패턴)에 액세스 하는 많은 인스턴스를 포함 하 여 고객이 높은 처리량을 달성할 수 있도록 하는 Oracle의 솔루션입니다. Oracle RAC는 온-프레미스의 고가용성에도 사용할 수 있지만, Oracle RAC 단독은 랙 수준 또는 데이터 센터 수준 오류를 방지 하는 것이 아니라 인스턴스 수준 오류에 대해서만 보호 하므로 클라우드의 고가용성에는 사용할 수 없습니다. 이러한 이유로 Oracle은 고가용성을 위해 데이터베이스 (단일 인스턴스 또는 RAC)와 함께 Oracle Data Guard를 사용 하는 것을 권장 합니다. 일반적으로 고객은 업무에 중요 한 응용 프로그램을 실행 하는 데 높은 SLA를 요구 합니다. Oracle RAC는 현재 Azure의 Oracle에서 인증 또는 지원 되지 않습니다. 그러나 Azure는 인스턴스 수준 오류 로부터 보호 하는 데 도움이 되는 Azure 제품 가용성 영역 및 계획 된 유지 관리 기간 등의 기능을 제공 합니다. 이 외에도 고객은 Oracle Data Guard, Oracle GoldenGate 및 Oracle 분할와 같은 기술을 사용 하 여 성능 및 복원 력을 랙 수준에서 보호 하 고 데이터 센터 수준 및 지리적 정치적 오류를 방지할 수 있습니다.
 
-Oracle Data Guard 또는 GoldenGate와 함께 여러 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview) 에서 oracle 데이터베이스를 실행 하는 경우 고객은 99.99%의 작동 시간 SLA를 얻을 수 있습니다. 가용성 영역이 아직 없는 Azure 지역에서 고객은 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 을 사용 하 고 99.95%의 작동 시간 SLA를 달성할 수 있습니다.
+Oracle Data Guard 또는 GoldenGate와 함께 여러 [가용성 영역](../../../availability-zones/az-overview.md) 에서 oracle 데이터베이스를 실행 하는 경우 고객은 99.99%의 작동 시간 SLA를 얻을 수 있습니다. 가용성 영역이 아직 없는 Azure 지역에서 고객은 [가용성 집합](../../linux/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 을 사용 하 고 99.95%의 작동 시간 SLA를 달성할 수 있습니다.
 
 >참고: 가동 시간 목표는 Microsoft에서 제공 하는 작동 시간 SLA 보다 훨씬 더 높을 수 있습니다.
 
@@ -51,7 +51,7 @@ Oracle Data Guard 또는 GoldenGate와 함께 여러 [가용성 영역](https://
 
 클라우드에서 중요 업무용 응용 프로그램을 호스트 하는 경우 고가용성 및 재해 복구를 설계 하는 것이 중요 합니다.
 
-Oracle Database Enterprise Edition의 경우 Oracle Data Guard는 재해 복구를 위한 유용한 기능입니다. [쌍을 이루는 Azure 지역](/azure/best-practices-availability-paired-regions) 에 대기 데이터베이스 인스턴스를 설정 하 고 재해 복구를 위해 Data Guard 장애 조치 (failover)를 설정할 수 있습니다. 데이터가 손실 되지 않도록 하려면 활성 데이터 가드 외에도 Oracle Data Guard Far Sync 인스턴스를 배포 하는 것이 좋습니다. 
+Oracle Database Enterprise Edition의 경우 Oracle Data Guard는 재해 복구를 위한 유용한 기능입니다. [쌍을 이루는 Azure 지역](../../../best-practices-availability-paired-regions.md) 에 대기 데이터베이스 인스턴스를 설정 하 고 재해 복구를 위해 Data Guard 장애 조치 (failover)를 설정할 수 있습니다. 데이터가 손실 되지 않도록 하려면 활성 데이터 가드 외에도 Oracle Data Guard Far Sync 인스턴스를 배포 하는 것이 좋습니다. 
 
 응용 프로그램에서 대기 시간을 허용 하는 경우 Oracle 주 데이터베이스와 다른 가용성 영역에서 Data Guard Far 동기화 인스턴스를 설정 하는 것이 좋습니다 (철저 한 테스트가 필요 함). **최대 가용성** 모드를 사용 하 여 다시 실행 파일의 동기 전송을 Far 동기화 인스턴스에 설정 합니다. 이러한 파일은 대기 데이터베이스로 비동기적으로 전송 됩니다. 
 
@@ -79,7 +79,7 @@ Oracle Database 버전 12.2 이상에서는 단일 Oracle Data Guard broker 구�
 
 ![Data Guard Broker-FSFO에서 가용성 영역을 사용 하는 Oracle Database](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
-위의 다이어그램에서 클라이언트 시스템은 웹을 통해 Oracle 백 엔드에서 사용자 지정 응용 프로그램에 액세스 합니다. 웹 프런트 엔드는 부하 분산 장치에 구성 됩니다. 웹 프런트 엔드는 해당 응용 프로그램 서버에 대 한 호출을 수행 하 여 작업을 처리 합니다. 응용 프로그램 서버는 주 Oracle 데이터베이스를 쿼리 합니다. Oracle 데이터베이스는 라이선스 비용을 절감 하 고 성능을 최대화 하기 위해 제약이 있는 [코어 vCPUs](../../../virtual-machines/windows/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../../virtual-machines/windows/sizes-memory.md) 사용 하 여 구성 되었습니다. 여러 프리미엄 또는 ultra disks (Managed Disks)는 성능과 고가용성에 사용 됩니다.
+위의 다이어그램에서 클라이언트 시스템은 웹을 통해 Oracle 백 엔드에서 사용자 지정 응용 프로그램에 액세스 합니다. 웹 프런트 엔드는 부하 분산 장치에 구성 됩니다. 웹 프런트 엔드는 해당 응용 프로그램 서버에 대 한 호출을 수행 하 여 작업을 처리 합니다. 응용 프로그램 서버는 주 Oracle 데이터베이스를 쿼리 합니다. Oracle 데이터베이스는 라이선스 비용을 절감 하 고 성능을 최대화 하기 위해 제약이 있는 [코어 vCPUs](../../../virtual-machines/windows/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../sizes-memory.md) 사용 하 여 구성 되었습니다. 여러 프리미엄 또는 ultra disks (Managed Disks)는 성능과 고가용성에 사용 됩니다.
 
 Oracle 데이터베이스는 고가용성을 위해 여러 가용성 영역에 배치 됩니다. 각 영역은 독립 된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성 됩니다. 복원 력을 보장 하기 위해 사용 가능한 모든 지역에는 최소 3 개의 개별 영역이 설정 됩니다. 지역 내에서 가용성 영역을 물리적으로 분리 하는 것은 데이터 센터 오류 로부터 데이터를 보호 합니다. 또한 중단이 발생 한 경우 두 개의 FSFO 관찰자가 데이터베이스를 시작 하 고 장애 조치 (failover) 할 때 데이터베이스를 보조 데이터베이스로 장애 조치 (failover) 하도록 설정 됩니다. 
 
@@ -113,7 +113,7 @@ Oracle Data Guard Far 동기화는 Oracle 데이터베이스에 대해 제로 �
 
 GoldenGate를 사용 하면 엔터프라이즈 전체에서 여러 유형의 여러 플랫폼 간에 트랜잭션 수준에서 데이터를 교환 및 조작할 수 있습니다. 기존 인프라의 트랜잭션 무결성 및 최소 오버 헤드로 커밋된 트랜잭션을 이동 합니다. 모듈식 아키텍처를 사용 하면 선택한 데이터 레코드, 트랜잭션 변경 내용, 다양 한 토폴로지에서 DDL (데이터 정의 언어)에 대 한 변경 내용을 추출 하 고 복제할 수 있습니다.
 
-Oracle GoldenGate를 사용 하면 양방향 복제를 제공 하 여 고가용성을 위해 데이터베이스를 구성할 수 있습니다. 이렇게 하면 **다중 마스터** 또는 **활성-활성 구성을**설정할 수 있습니다. 다음 다이어그램은 Azure의 Oracle GoldenGate 활성-활성 설치에 권장 되는 아키텍처입니다. 다음 아키텍처에서는 라이선스 비용을 절감 하 고 성능을 최대화 하기 위해 [제약이 있는 코어 vCPUs](../../../virtual-machines/windows/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../../virtual-machines/windows/sizes-memory.md) 사용 하 여 Oracle 데이터베이스를 구성 했습니다. 성능 및 가용성을 위해 여러 프리미엄 또는 ultra 디스크 (관리 디스크)가 사용 됩니다.
+Oracle GoldenGate를 사용 하면 양방향 복제를 제공 하 여 고가용성을 위해 데이터베이스를 구성할 수 있습니다. 이렇게 하면 **다중 마스터** 또는 **활성-활성 구성을**설정할 수 있습니다. 다음 다이어그램은 Azure의 Oracle GoldenGate 활성-활성 설치에 권장 되는 아키텍처입니다. 다음 아키텍처에서는 라이선스 비용을 절감 하 고 성능을 최대화 하기 위해 [제약이 있는 코어 vCPUs](../../../virtual-machines/windows/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../sizes-memory.md) 사용 하 여 Oracle 데이터베이스를 구성 했습니다. 성능 및 가용성을 위해 여러 프리미엄 또는 ultra 디스크 (관리 디스크)가 사용 됩니다.
 
 ![Data Guard Broker-FSFO에서 가용성 영역을 사용 하는 Oracle Database](./media/oracle-reference-architecture/oracledb_gg_az.png)
 
@@ -215,7 +215,7 @@ Oracle 워크 로드를 Azure에 배포 하는 경우 Microsoft는 모든 호스
 
 ## <a name="architecture-and-design-considerations"></a>아키텍처 및 디자인 고려 사항
 
-- 라이선스 비용을 절감 하 고 성능을 최대화 하려면 Oracle Database VM에 대해 [제약이 있는 코어 vCPUs](../../../virtual-machines/windows/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../../virtual-machines/windows/sizes-memory.md) 사용 하는 것이 좋습니다. 성능 및 가용성을 위해 여러 프리미엄 또는 ultra disks (관리 디스크)를 사용 합니다.
+- 라이선스 비용을 절감 하 고 성능을 최대화 하려면 Oracle Database VM에 대해 [제약이 있는 코어 vCPUs](../../../virtual-machines/windows/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../sizes-memory.md) 사용 하는 것이 좋습니다. 성능 및 가용성을 위해 여러 프리미엄 또는 ultra disks (관리 디스크)를 사용 합니다.
 - 관리 디스크를 사용 하는 경우 재부팅 시 디스크/장치 이름이 변경 될 수 있습니다. 다시 부팅 간에 탑재를 유지 하려면 이름 대신 장치 UUID를 사용 하는 것이 좋습니다. 자세한 내용은 [여기](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab)를 참조하세요.
 - 가용성 영역을 사용 하 여 지역에서 고가용성을 구현 합니다.
 - Oracle 데이터베이스에 대 한 ultra disks (사용 가능한 경우) 또는 프리미엄 디스크를 사용 하는 것이 좋습니다.

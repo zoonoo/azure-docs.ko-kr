@@ -9,11 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310566"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527458"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -84,7 +85,7 @@ $vmssConfig = New-AzVmssConfig `
     --max-price -1
 ```
 
-## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
+## <a name="resource-manager-templates"></a>Resource Manager 템플릿
 
 별색 Vm을 사용 하는 확장 집합을 만드는 프로세스는 [Linux](quick-create-template-linux.md) 또는 [Windows](quick-create-template-windows.md)용 시작 문서에 설명 된 것과 동일 합니다. 
 
@@ -114,12 +115,12 @@ $vmssConfig = New-AzVmssConfig `
 
 **Q:** 할당량은 어떻게 관리 되나요?
 
-**A:** 스폿 인스턴스와 표준 인스턴스는 별도의 할당량 풀을 갖게 됩니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조 하세요.
+**A:** 스폿 인스턴스와 표준 인스턴스는 별도의 할당량 풀을 갖게 됩니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요.
 
 
 **Q:** 추가 할당량을 요청할 수 있나요?
 
-**A:** 예, [표준 할당량 요청 프로세스](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)를 통해 지점 vm에 대 한 할당량을 늘리기 위해 요청을 제출할 수 있습니다.
+**A:** 예, [표준 할당량 요청 프로세스](../azure-portal/supportability/per-vm-quota-requests.md)를 통해 지점 vm에 대 한 할당량을 늘리기 위해 요청을 제출할 수 있습니다.
 
 
 **Q:** 기존 확장 집합을 별색 집합으로 변환할 수 있나요?
@@ -157,15 +158,15 @@ $vmssConfig = New-AzVmssConfig `
 |------------------------------|-----------------------------------|
 | 기업 계약         | 예                               |
 | 종량제 통화 요금                | 예                               |
-| CSP(클라우드 서비스 공급자) | [파트너에 게 문의](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| CSP(클라우드 서비스 공급자) | [파트너에 게 문의](/partner-center/azure-plan-get-started) |
 | 이점                     | 사용할 수 없음                     |
 | 후원                    | 예                               |
-| 평가판                   | 사용할 수 없음                     |
+| 무료 평가판                   | 사용할 수 없음                     |
 
 
 **Q:** 어디에서 질문을 게시할 수 있나요?
 
-**A:** `azure-spot` [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html)를 사용 하 여 질문을 게시 하 고 태그를 지정할 수 있습니다. 
+**A:** `azure-spot` [Q&A](/answers/topics/azure-spot.html)를 사용 하 여 질문을 게시 하 고 태그를 지정할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 154160f9a3fbd485ee6383bf3d5ff1c291520a75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 276be92ea4c03b9ebeb3e13df69ce1b10328dcaf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71088515"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526472"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Azure VM에 연결할 때 원격 데스크톱 라이선스 서버를 사용할 수 없음
 
@@ -122,7 +122,7 @@ mstsc /v:<Server>[:<Port>] /admin
        telnet <FQDN / IP License Server> 135
        ```
 
-3. 환경에 원격 데스크톱 라이선스 서버가 없는데 원하는 경우 [원격 데스크톱 라이선싱 역할 서비스를 설치](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11))할 수 있습니다. 그런 다음, [RDS 라이선싱을 구성](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383)합니다.
+3. 환경에 원격 데스크톱 라이선스 서버가 없는데 원하는 경우 [원격 데스크톱 라이선싱 역할 서비스를 설치](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731765(v=ws.11))할 수 있습니다. 그런 다음, [RDS 라이선싱을 구성](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383)합니다.
 
 4. 원격 데스크톱 라이선스 서버가 구성되었고 정상 상태이면 CAL을 사용하여 원격 데스크톱 라이선스 서버가 활성화되었는지 확인합니다.
 

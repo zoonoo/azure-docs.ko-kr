@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5b6879d11a4b47c0090f13baa0a15dcc696c8534
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022545"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525384"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -306,7 +307,7 @@ ms.locfileid: "84022545"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-이 문서에서는 Azure IaaS에서 SAP 워크로드용 Oracle Database를 배포할 때 고려해야 할 몇 가지 다른 영역에 대해 설명합니다. 이 문서를 읽기 전에 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)을 읽어보는 것이 좋습니다. [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)의 다른 가이드를 참조하는 것도 좋습니다. 
+이 문서에서는 Azure IaaS에서 SAP 워크로드용 Oracle Database를 배포할 때 고려해야 할 몇 가지 다른 영역에 대해 설명합니다. 이 문서를 읽기 전에 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)을 읽어보는 것이 좋습니다. [Azure의 SAP 워크로드 설명서](./get-started.md)의 다른 가이드를 참조하는 것도 좋습니다. 
 
 SAP Note [2039619]에서 Azure Oracle의 SAP 실행을 위해 지원되는 Oracle 버전 및 해당 OS 버전에 대한 정보를 찾을 수 있습니다.
 
@@ -347,14 +348,14 @@ SAP 설치 설명서에 따라 모든 Oracle 관련 파일을 VM의 OS 디스크
 
 작은 VM이 있는 경우 Oracle 홈, 단계, "saptrace", "saparch", "sapbackup", "sapcheck" 또는 "sapreorg"를 OS 디스크에 설치/배치하는 것이 좋습니다. Oracle DBMS 구성 요소의 이러한 부분은 I/O 및 I/O 처리량에 무리는 아닙니다. 따라서 OS 디스크는 I/O 요구 사항을 처리할 수 있습니다. OS 디스크의 기본 크기는 127GB입니다. 
 
-사용 가능한 여유 공간이 충분하지 않은 경우 2,048GB로 디스크 [크기를 조정](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk)할 수 있습니다. Oracle 데이터베이스와 다시 실행 로그 파일을 별도 데이터 디스크에 저장해야 합니다. Oracle 임시 테이블스페이스가 포함된 예외가 있습니다. Tempfiles를 D:/(비영구 드라이브)에서 만들 수 있습니다. 또한 비영구 D:\ 드라이브는 A- 시리즈 VM을 제외하고 더 효율적인 I/O 대기 시간과 처리량을 제공합니다. 
+사용 가능한 여유 공간이 충분하지 않은 경우 2,048GB로 디스크 [크기를 조정](../../windows/expand-os-disk.md)할 수 있습니다. Oracle 데이터베이스와 다시 실행 로그 파일을 별도 데이터 디스크에 저장해야 합니다. Oracle 임시 테이블스페이스가 포함된 예외가 있습니다. Tempfiles를 D:/(비영구 드라이브)에서 만들 수 있습니다. 또한 비영구 D:\ 드라이브는 A- 시리즈 VM을 제외하고 더 효율적인 I/O 대기 시간과 처리량을 제공합니다. 
 
 tempfiles를 위한 적절한 양의 공간 크기를 결정하려면 기존 시스템의 tempfiles 크기를 확인할 수 있습니다.
 
 ### <a name="storage-configuration"></a>스토리지 구성
-NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 Managed Disks(권장) 또는 VHD의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 또는 [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 기준으로 합니다. 
+NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 Managed Disks(권장) 또는 VHD의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 또는 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 기준으로 합니다. 
 
-[Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
+[Azure Managed Disks](../../windows/managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
 
 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -403,19 +404,19 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 
 #### <a name="write-accelerator"></a>Write Accelerator
-Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Premium Storage와 비교할 때 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)를 참조하세요.
+Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Premium Storage와 비교할 때 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../linux/how-to-enable-write-accelerator.md)를 참조하세요.
 
 
 ### <a name="backuprestore"></a>백업/복원
 백업/복원 기능의 경우 SAP BR*Tools for Oracle은 표준 Windows Server 운영 체제와 동일한 방식으로 지원됩니다. Oracle RMAN(Recovery Manager)에서도 디스크에 백업 및 디스크에서 복원이 지원됩니다.
 
-또한 Azure Backup을 사용하여 애플리케이션 일치 VM 백업을 실행할 수 있습니다. [Azure에서 VM 백업 인프라 계획](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) 문서에서는 Azure Backup이 애플리케이션 일치 백업을 실행하기 위해 Windows VSS 기능을 사용하는 방식을 설명합니다. SAP이 Azure에서 지원하는 Oracle DBMS 릴리스는 백업에 VSS 기능을 활용할 수 있습니다. 자세한 내용은 Oracle 설명서, [VSS를 사용한 데이터베이스 백업 및 복구에 대한 기본 개념](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701)을 참조하세요.
+또한 Azure Backup을 사용하여 애플리케이션 일치 VM 백업을 실행할 수 있습니다. [Azure에서 VM 백업 인프라 계획](../../../backup/backup-azure-vms-introduction.md) 문서에서는 Azure Backup이 애플리케이션 일치 백업을 실행하기 위해 Windows VSS 기능을 사용하는 방식을 설명합니다. SAP이 Azure에서 지원하는 Oracle DBMS 릴리스는 백업에 VSS 기능을 활용할 수 있습니다. 자세한 내용은 Oracle 설명서, [VSS를 사용한 데이터베이스 백업 및 복구에 대한 기본 개념](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701)을 참조하세요.
 
 
 ### <a name="high-availability"></a>고가용성
 높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. Data Guard에서 자동 장애 조치(failover)를 완수하려면 FSFA(Fast-Start Failover)를 사용해야 합니다. 관찰자(FSFA)가 장애 조치(failover)를 트리거합니다. FSFA를 사용하지 않는 경우 수동 장애 조치(failover) 구성만 사용할 수 있습니다.
 
-Azure의 Oracle 데이터베이스 재해 복구에 대한 자세한 내용은 [Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)를 참조하세요.
+Azure의 Oracle 데이터베이스 재해 복구에 대한 자세한 내용은 [Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구](../oracle/oracle-disaster-recovery.md)를 참조하세요.
 
 ### <a name="accelerated-networking"></a>가속된 네트워킹
 Windows의 Oracle 배포에서는 [Azure 가속 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)에 설명된 대로 가속 네트워킹을 사용하는 것이 좋습니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)도 고려하세요. 
@@ -443,7 +444,7 @@ SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용
 
 ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 기준으로 합니다.
 
-Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching)를 지원하려면 최소 UEK 버전 4가 필요합니다.
+Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](../../windows/premium-storage-performance.md#disk-caching)를 지원하려면 최소 UEK 버전 4가 필요합니다.
 
 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [Azure 프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
 
@@ -497,19 +498,19 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 
 #### <a name="write-accelerator"></a>Write Accelerator
-Azure M 시리즈 VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능에 비해 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)를 참조하세요.
+Azure M 시리즈 VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능에 비해 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../linux/how-to-enable-write-accelerator.md)를 참조하세요.
 
 
 ### <a name="backuprestore"></a>백업/복원
 백업/복원 기능의 경우 SAP BR*Tools for Oracle은 완전 복구 및 Hyper-V와 동일한 방법으로 지원됩니다. Oracle RMAN(Recovery Manager)에서도 디스크에 백업 및 디스크에서 복원이 지원됩니다.
 
-또한 Azure 백업 및 복구 서비스를 사용하여 Oracle 데이터베이스를 백업하고 복구하는 방법에 대한 자세한 내용은 [Azure Linux 가상 머신의 Oracle Database 12c 데이터베이스 백업 및 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery)를 참조하세요.
+또한 Azure 백업 및 복구 서비스를 사용하여 Oracle 데이터베이스를 백업하고 복구하는 방법에 대한 자세한 내용은 [Azure Linux 가상 머신의 Oracle Database 12c 데이터베이스 백업 및 복구](../oracle/oracle-backup-recovery.md)를 참조하세요.
 
 ### <a name="high-availability"></a>고가용성
-높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. Data Guard에서 자동 장애 조치(failover)를 완수하려면 FSFA(Fast-Start Failover)를 사용해야 합니다. 관찰자 기능(FSFA)이 장애 조치(failover)를 트리거합니다. FSFA를 사용하지 않는 경우 수동 장애 조치(failover) 구성만 사용할 수 있습니다. 자세한 내용은 [Azure Linux 가상 머신에서 Oracle Data Guard 구현](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)을 참조하세요.
+높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. Data Guard에서 자동 장애 조치(failover)를 완수하려면 FSFA(Fast-Start Failover)를 사용해야 합니다. 관찰자 기능(FSFA)이 장애 조치(failover)를 트리거합니다. FSFA를 사용하지 않는 경우 수동 장애 조치(failover) 구성만 사용할 수 있습니다. 자세한 내용은 [Azure Linux 가상 머신에서 Oracle Data Guard 구현](../oracle/configure-oracle-dataguard.md)을 참조하세요.
 
 
-Azure의 Oracle 데이터베이스에 대한 재해 복구 측면은 [Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery) 문서에 나와 있습니다.
+Azure의 Oracle 데이터베이스에 대한 재해 복구 측면은 [Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구](../oracle/oracle-disaster-recovery.md) 문서에 나와 있습니다.
 
 ### <a name="accelerated-networking"></a>가속된 네트워킹
 Oracle Linux에서 Azure 가속 네트워킹에 대한 지원은 Oracle Linux 7 업데이트 5(Oracle Linux 7.5)와 함께 제공됩니다. 최신 Oracle Linux 7.5 릴리스로 업그레이드할 수 없는 경우 Oracle UEK 커널 대신 RHCK(RedHat Compatible Kernel)를 사용하여 해결할 수 있습니다. 

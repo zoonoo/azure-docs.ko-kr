@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱에서 위임 된 액세스-Azure
+title: Windows 가상 데스크톱의 위임 된 액세스 2019-Azure
 description: 예를 포함 하 여 Windows 가상 데스크톱 배포에서 관리 기능을 위임 하는 방법
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 899e42e3b592ce1bc92d7d47578e10355b1c6de7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614435"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527560"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 위임된 액세스
+# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Windows 가상 데스크톱의 위임 된 액세스 2019
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../delegated-access-virtual-desktop.md)를 참조하세요.
@@ -24,12 +24,12 @@ Windows 가상 데스크톱에는 특정 사용자에 게 역할을 할당 하 �
 
 Windows 가상 데스크톱 위임 된 액세스는 역할 할당의 각 요소에 대해 다음 값을 지원 합니다.
 
-* 보안 주체
+* 할당할 수 있습니다.
     * 사용자
     * 서비스 주체
 * 역할 정의
     * 기본 제공 역할
-* Scope
+* 범위
     * 테 넌 트 그룹
     * 테넌트
     * 호스트 풀

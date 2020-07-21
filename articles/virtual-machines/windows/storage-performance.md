@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 3a093303efe63a051e8e2ff9824a35228e44e1aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 666f84da8f0999268b09dfd06ff5b3fe21bbef96
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652607"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525571"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2 시리즈 가상 머신에서 성능 최적화
 
@@ -95,4 +96,4 @@ Lsv2 시리즈 VM은 Zen 마이크로아키텍처를 기반으로 하는 AMD EYP
    
 ## <a name="next-steps"></a>다음 단계
 
-* Azure의 [스토리지 성능에 최적화된 모든 VM](sizes-storage.md) 사양을 참조하세요.
+* Azure의 [스토리지 성능에 최적화된 모든 VM](../sizes-storage.md) 사양을 참조하세요.

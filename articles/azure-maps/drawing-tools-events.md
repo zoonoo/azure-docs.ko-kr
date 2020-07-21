@@ -1,5 +1,5 @@
 ---
-title: 맵에 그리기 도구 모음 추가 | Microsoft Azure Maps
+title: 그리기 도구 이벤트 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 맵에 그리기 도구 모음을 추가하는 방법을 알아봅니다.
 author: rbrundritt
 ms.author: richbrun
@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: d8509af7829910bdda8bba3d63553e83626fe784
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5cbd5311c6070f59f8a5953d8b99789ab758c9c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804676"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524610"
 ---
 # <a name="drawing-tool-events"></a>그리기 도구 이벤트
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: c24a840716841d04537ac5b77bcaf26fca4b78cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7774ea5138e6d77547e386531e573457cd6d2862
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77561952"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525945"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Linux VM이 Grub 복구로 부팅 됨
 
@@ -33,8 +34,8 @@ VM (가상 컴퓨터)에서 복구 콘솔을 입력 한 것으로 확인 되었�
 
 * **알 수 없는**오류 파일 시스템을 가져오는 경우이 오류는 부팅 파티션의 파일 시스템 손상 또는 잘못 된 커널 구성으로 인해 발생할 수 있습니다.
 
-   * 파일 시스템 문제에 대 한 자세한 내용은 [Linux 복구: 파일 시스템 오류로 인해 LINUX VM에 SSH 할 수 없음 (fsck, inode)](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/)문서의 단계를 따르세요.
-   * 커널 문제에 대 한 자세한 내용은 [Linux 복구: 커널 문제와 관련 된 비 부팅 문제 수동 수정](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)또는 [linux 복구: chroot를 사용 하 여 커널 문제와 관련 된 비 부팅 문제 해결](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)문서의 단계를 따르세요.
+   * 파일 시스템 문제에 대 한 자세한 내용은 [Linux 복구: 파일 시스템 오류로 인해 LINUX VM에 SSH 할 수 없음 (fsck, inode)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes)문서의 단계를 따르세요.
+   * 커널 문제에 대 한 자세한 내용은 [Linux 복구: 커널 문제와 관련 된 비 부팅 문제 수동 수정](/archive/blogs/linuxonazure/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems)또는 [linux 복구: chroot를 사용 하 여 커널 문제와 관련 된 비 부팅 문제 해결](/archive/blogs/linuxonazure/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot)문서의 단계를 따르세요.
    
 ### <a name="error---file-not-found"></a>오류-파일을 찾을 수 없음
 
@@ -50,7 +51,7 @@ VM (가상 컴퓨터)에서 복구 콘솔을 입력 한 것으로 확인 되었�
 
 ### <a name="error---no-such-partition"></a>오류-해당 파티션 없음
 
-* **이러한 파티션이 없는**오류를 발생 하는 경우 [OS 드라이브를 확장 한 후 VM을 시작 하는 동안 "해당 파티션 없음" 오류가](https://blogs.technet.microsoft.com/shwetanayak/2017/03/12/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive/)발생 하는 경우를 참조 하세요.
+* **이러한 파티션이 없는**오류를 발생 하는 경우 [OS 드라이브를 확장 한 후 VM을 시작 하는 동안 "해당 파티션 없음" 오류가](/archive/blogs/shwetanayak/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive)발생 하는 경우를 참조 하세요.
 
 ### <a name="error---grubcfg-file-not-found"></a>오류-grub. cfg 파일을 찾을 수 없습니다.
 
@@ -68,4 +69,3 @@ VM (가상 컴퓨터)에서 복구 콘솔을 입력 한 것으로 확인 되었�
 
 * [Azure 가상 머신 에이전트 개요](../extensions/agent-windows.md)
 * [Windows용 가상 머신 확장 및 기능](../extensions/features-windows.md)
-

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 187098f557cb691e023abb282a265b11e975c544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629255"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526013"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>그룹 정책 로컬 사용자 및 그룹 정책을 적용 하는 동안 VM이 응답 하지 않음
 
@@ -26,7 +27,7 @@ ms.locfileid: "84629255"
 
 ## <a name="symptoms"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 "로컬 사용자 및 그룹 정책 적용 그룹 정책" 메시지와 함께 화면이 로드 되지 않습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 "로컬 사용자 및 그룹 정책 적용 그룹 정책" 메시지와 함께 화면이 로드 되지 않습니다.
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="그룹 정책 로컬 사용자 및 그룹 정책 적용 로드의 스크린샷(Windows Server 2012 R2).":::
 
@@ -57,7 +58,7 @@ ms.locfileid: "84629255"
 
 ### <a name="step-1-create-and-access-a-repair-vm"></a>1단계: 복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령의 1~3단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령의 1~3단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 복구 VM을 준비합니다.
 2. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
 
 ### <a name="step-2-disable-the-policy"></a>2단계: 정책 사용 안 함
@@ -139,7 +140,7 @@ ms.locfileid: "84629255"
 
 ### <a name="step-4-rebuild-the-vm"></a>4단계: VM 다시 빌드
 
-Vm [복구 명령의 5 단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) 를 사용 하 여 vm을 리 어셈블합니다.
+Vm [복구 명령의 5 단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) 를 사용 하 여 vm을 리 어셈블합니다.
 
 문제가 해결 되 면 정책을 로컬에서 사용할 수 없습니다. 영구 솔루션의 경우 Vm에서 CleanupProfiles 정책을 사용 하지 마세요. 다른 방법을 사용하여 프로필 정리를 수행합니다.
 
@@ -149,4 +150,4 @@ Vm [복구 명령의 5 단계](https://docs.microsoft.com/azure/virtual-machines
 
 ## <a name="next-steps"></a>다음 단계
 
-Windows 업데이트 적용 하는 동안 문제가 발생 하는 경우 [Windows 업데이트를 적용할 때 VM이 "C01A001D" 오류와 함께 응답](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update)하지 않음을 참조 하세요.
+Windows 업데이트 적용 하는 동안 문제가 발생 하는 경우 [Windows 업데이트를 적용할 때 VM이 "C01A001D" 오류와 함께 응답](./unresponsive-vm-apply-windows-update.md)하지 않음을 참조 하세요.

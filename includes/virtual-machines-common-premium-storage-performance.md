@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 60053f24aa4231f1100d0b00cb6cf70b851b1939
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526040"
 ---
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -138,7 +138,7 @@ VM 크기 및 각 VM의 유형에 사용할 수 있는 IOPS, 처리량 및 대�
 IO 요청은 애플리케이션에서 수행하는 입력/출력 작업의 단위입니다. IO 요청, 임의 또는 순차, 읽기 또는 쓰기, 소형 또는 대형의 특성을 식별하면 애플리케이션의 성능 요구 사항을 결정하는데 도움이 됩니다. 애플리케이션 인프라를 설계할 때 올바른 결정을 내릴 수 있도록 IO 요청의 특성을 이해하는 것은 중요합니다. 최적의 성능을 얻으려면 IO를 균등하게 배포해야 합니다.
 
 IO 크기는 더 중요한 요소 중 하나입니다. IO 크기는 애플리케이션에 의해 생성된 입력/출력 작업 요청의 크기입니다. IO 크기는 애플리케이션에서 달성할 수 있는 성능 특히 IOPS 및 대역폭에 큰 영향을 줍니다. 다음 수식은 IOPS 간의 관계, IO 크기 및 대역폭/처리량을 보여 줍니다.  
-    ![](media/premium-storage-performance/image1.png)
+    ![I/o 크기가 처리량과 같은 수식 i/o를 보여 주는 다이어그램](media/premium-storage-performance/image1.png)
 
 일부 애플리케이션은 해당 IO 크기 변경을 허용하지만 일부 애플리케이션은 그렇지 않습니다. 예를 들어 SQL Server는 자체적으로 최적의 IO 크기를 결정하고 변경할 수 있는 노브를 사용자에게 제공하지 않습니다. 반대로 Oracle은 데이터베이스의 I/O 요청 크기를 구성할 수 있는 [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815)라는 매개 변수를 제공합니다.
 
@@ -371,13 +371,13 @@ SQL Server에 [병렬 처리의 정도](https://technet.microsoft.com/library/ms
 
 *최적의 큐 깊이*  
 매우 높은 큐 크기 값 또한 단점이 있습니다. 큐 크기 값이 너무 높으면 애플리케이션은 매우 높은 IOPS를 구동하려고 합니다. 애플리케이션에 프로비전된 충분한 IOPS의 영구 디스크가 있지 않는 한 애플리케이션 대기 시간이 늘어날 수 있습니다. 다음 수식은 IOPS, 대기 시간 및 큐 깊이 간의 관계를 보여 줍니다.  
-    ![](media/premium-storage-performance/image6.png)
+    ![A O P S의 시간 대기 시간이 큐 깊이와 같은 수식을 보여 주는 다이어그램](media/premium-storage-performance/image6.png)
 
 큐 크기를 대기 시간에 영향을 주지 않고 애플리케이션에 충분한 IOPS를 제공할 수 있는 최적의 값이 아닌 높은 값을 구성해서는 안됩니다. 예를 들어 애플리케이션 대기 시간에 1밀리초가 필요한 경우 5,000개의 IOPS를 달성하기 위해 필요한 큐 크기는 QD = 5000 x 0.001 = 5입니다.
 
 *스트라이프 볼륨에 대한 큐 크기*  
 그러한 충분한 큐 크기를 유지하는 스트라이프 볼륨의 경우 모든 디스크는 개별적으로 최대 큐 크기를 가집니다. 예를 들어 2의 큐 깊이를 푸시하는 애플리케이션과 스트라이프에 4개의 디스크가 있다고 가정합니다. 두 개의 IO 요청은 2개의 디스크로 이동하고 나머지 두 디스크는 유휴 상태가 됩니다. 따라서 모든 디스크가 사용 중일 수 있도록 큐 크기를 구성합니다. 다음 수식에서는 스트라이프 볼륨의 큐 크기를 결정하는 방법을 보여 줍니다.  
-    ![](media/premium-storage-performance/image7.png)
+    ![볼륨당 Q D 디스크 시간에 대 한 열 수를 보여 주는 다이어그램](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>제한
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 5a491bf85546c982db126ef4d6260a46ca8bf88b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7f6b9ddfd5b25ea8482e0bbf5622fa16bc450662
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224454"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525605"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 백업 및 복구
 
 Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용하여 Azure 리소스를 만들고 관리할 수 있습니다. 이 문서에서는 Azure Marketplace 갤러리 이미지에서 Oracle Database 12c 데이터베이스를 배포하는 데 Azure CLI의 스크립트를 사용합니다.
 
-시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
+시작하기 전에 Azure CLI가 설치되어 있는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](/cli/azure/install-azure-cli)를 참조 하세요.
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
@@ -33,7 +33,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 *   백업 및 복구 프로세스를 수행하려면 먼저 Oracle Database 12c의 인스턴스가 설치되어 있는 Linux VM을 만들어야 합니다. VM을 만드는 데 사용하는 Marketplace 이미지는 *Oracle:Oracle-Database-Ee:12.1.0.2:latest*라고 합니다.
 
-    Oracle 데이터베이스를 만드는 방법을 알아보려면 [Oracle 데이터베이스 빠른 시작](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create)을 참조하세요.
+    Oracle 데이터베이스를 만드는 방법을 알아보려면 [Oracle 데이터베이스 빠른 시작](./oracle-database-quick-create.md)을 참조하세요.
 
 
 ### <a name="step-2-connect-to-the-vm"></a>2단계: VM에 연결
@@ -572,6 +572,3 @@ az group delete --name myResourceGroup
 [자습서: 고가용성 VM 만들기](../../linux/create-cli-complete.md)
 
 [VM 배포 Azure CLI 샘플 탐색](../../linux/cli-samples.md)
-
-
-

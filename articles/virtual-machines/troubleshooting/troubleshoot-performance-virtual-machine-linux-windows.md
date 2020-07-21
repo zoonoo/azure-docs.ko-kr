@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75772621"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526659"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Linux 또는 Windows에서 Azure 가상 머신 성능 문제 해결
 
-이 문서에서는 병목 현상 모니터링 및 관찰을 통해 VM (가상 컴퓨터) 일반 성능 문제를 설명 하 고 발생할 수 있는 문제에 대 한 가능한 수정을 제공 합니다. 모니터링 외에도 모범 사례 권장 사항을 포함 하는 보고서를 제공할 수 있는 Perfinsights 및 IO/CPU/메모리와 관련 된 주요 병목 상태를 사용할 수 있습니다. Perfinsights는 Azure의 [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) VM 모두에서 사용할 수 있습니다.
+이 문서에서는 병목 현상 모니터링 및 관찰을 통해 VM (가상 컴퓨터) 일반 성능 문제를 설명 하 고 발생할 수 있는 문제에 대 한 가능한 수정을 제공 합니다. 모니터링 외에도 모범 사례 권장 사항을 포함 하는 보고서를 제공할 수 있는 Perfinsights 및 IO/CPU/메모리와 관련 된 주요 병목 상태를 사용할 수 있습니다. Perfinsights는 Azure의 [Windows](./how-to-use-perfinsights.md) 및 [Linux](./how-to-use-perfinsights-linux.md) VM 모두에서 사용할 수 있습니다.
 
 이 문서에서는 모니터링을 사용 하 여 성능 병목 상태를 진단 하는 과정을 안내 합니다.
 
@@ -29,7 +30,7 @@ ms.locfileid: "75772621"
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Azure IAAS 가상 머신 모니터링
 
-게스트 VM을 모니터링 하려면 Azure VM 모니터링을 사용 합니다. 그러면 특정 개략적인 리소스 조건에 대해 경고를 표시 합니다. VM 진단을 사용 하도록 설정 했는지 여부를 확인 하려면 [Azure 리소스 로그 개요](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)를 참조 하세요. 다음이 표시 되는 경우 진단이 사용 하도록 설정 되어 있지 않을 가능성이 높습니다.
+게스트 VM을 모니터링 하려면 Azure VM 모니터링을 사용 합니다. 그러면 특정 개략적인 리소스 조건에 대해 경고를 표시 합니다. VM 진단을 사용 하도록 설정 했는지 여부를 확인 하려면 [Azure 리소스 로그 개요](../../azure-monitor/learn/tutorial-resource-logs.md)를 참조 하세요. 다음이 표시 되는 경우 진단이 사용 하도록 설정 되어 있지 않을 가능성이 높습니다.
 
 ![모니터링 사용 안 함](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -68,7 +69,7 @@ VM 진단을 사용 하도록 설정 하려면:
 
 이러한 옵션을 구성 하려면:
 
-1.  **메트릭**을 선택 합니다.
+1.  **메트릭**을 선택합니다.
 2.  **리소스** (저장소 계정)를 선택 합니다.
 3.  **네임 스페이스** 선택
 4.  **메트릭**을 선택 합니다.
@@ -100,7 +101,7 @@ VM 진단을 사용 하도록 설정 하려면:
 
 ### <a name="cpu-observe-trends"></a>CPU 관찰 추세
 
-성능 문제를 살펴보면 추세를 파악 하 고이에 영향을 주는지 파악 해야 합니다. 다음 섹션에서는 포털의 모니터링 그래프를 사용 하 여 추세를 보여 줍니다. 동일한 기간의 상호 참조 차이 리소스 동작에도 유용할 수 있습니다. 그래프를 사용자 지정 하려면 [Azure Monitor data platform](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform)을 클릭 합니다.
+성능 문제를 살펴보면 추세를 파악 하 고이에 영향을 주는지 파악 해야 합니다. 다음 섹션에서는 포털의 모니터링 그래프를 사용 하 여 추세를 보여 줍니다. 동일한 기간의 상호 참조 차이 리소스 동작에도 유용할 수 있습니다. 그래프를 사용자 지정 하려면 [Azure Monitor data platform](../../azure-monitor/platform/data-platform.md)을 클릭 합니다.
 
 의 급격 –의 급격은 예약 된 작업/알려진 이벤트와 관련 될 수 있습니다. 작업을 식별할 수 있는 경우 작업이 필요한 성능 수준에서 실행 되는지 확인 합니다. 성능을 허용할 수 있는 경우 리소스를 늘릴 필요가 없습니다.
 
@@ -119,7 +120,7 @@ VM 진단을 사용 하도록 설정 하려면:
 
 VM을 증가 시키고 CPU가 여전히 95%를 실행 하는 경우이 설정이 적절 한 수준으로 더 나은 성능을 제공 하는지 또는 응용 프로그램 처리량을 더 높게 제공 하는지 확인 합니다. 그렇지 않은 경우 개별 application\process.의 문제를 해결 합니다.
 
-[Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) 용 Perfinsights을 사용 하 여 CPU 사용량을 제어 하는 프로세스를 분석할 수 있습니다. 
+[Windows](./how-to-use-perfinsights.md) 또는 [Linux](./how-to-use-perfinsights-linux.md) 용 Perfinsights을 사용 하 여 CPU 사용량을 제어 하는 프로세스를 분석할 수 있습니다. 
 
 ## <a name="check-for-memory-bottleneck"></a>메모리 병목 상태 확인
 
@@ -150,13 +151,13 @@ VM을 증가 시키고 CPU가 여전히 95%를 실행 하는 경우이 설정이
 
 큰 VM으로 업그레이드 한 후에도 여전히 지속적으로 100%까지 지속적으로 증가 하는 것을 알 수 있습니다.
 
-[Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) 용 Perfinsights를 사용 하 여 메모리 소비를 구동 하는 프로세스를 분석할 수 있습니다. 
+[Windows](./how-to-use-perfinsights.md) 또는 [Linux](./how-to-use-perfinsights-linux.md) 용 Perfinsights를 사용 하 여 메모리 소비를 구동 하는 프로세스를 분석할 수 있습니다. 
 
 ## <a name="check-for-disk-bottleneck"></a>디스크 병목 상태 확인
 
 VM에 대 한 저장소 하위 시스템을 확인 하려면 VM 진단의 카운터와 저장소 계정 진단을 사용 하 여 Azure VM 수준에서 진단을 확인 하세요.
 
-VM 특정 문제 해결에서 [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux)에 대해 Perfinsights를 사용 하 여 IO를 구동 하는 프로세스를 분석할 수 있습니다. 
+VM 특정 문제 해결에서 [Windows](./how-to-use-perfinsights.md) 또는 [Linux](./how-to-use-perfinsights-linux.md)에 대해 Perfinsights를 사용 하 여 IO를 구동 하는 프로세스를 분석할 수 있습니다. 
 
 영역 중복 및 Premium Storage 계정에 대 한 카운터가 없습니다. 이러한 카운터와 관련 된 문제의 경우 지원 사례를 발생 시킵니다.
 
@@ -207,9 +208,9 @@ IOPS 제한에 도달 하 고 있는지 확인 하려면 Storage 계정 진단�
 
 Standard storage에서 새로운 디스크 제품을 사용 하는 경우 IOPS 및 처리량 한도가 다를 수 있지만 표준 저장소 계정의 누적 제한은 2만 IOPS (Premium storage는 계정 또는 디스크 수준에서 다른 한도)입니다. 다른 standard storage 디스크 제공 및 디스크당 제한 사항에 대해 자세히 알아보세요.
 
-* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets)
+* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](../windows/disk-scalability-targets.md)
 
-#### <a name="references"></a>참조
+#### <a name="references"></a>참고 자료
 
 * [프리미엄 페이지 blob storage 계정에 대 한 확장성 및 성능 목표](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
@@ -223,19 +224,19 @@ VM에 연결 된 Vhd의 처리량 한도를 확인 합니다. VM 메트릭 디�
 
 Standard storage의 새 디스크 제공에는 IOPS 및 처리량 한도가 다릅니다 (IOPS는 VHD 당 노출 되지 않음). 데이터를 확인 하 여 디스크 읽기 및 쓰기를 사용 하는 VM 수준에서 VHD의 총 용량 (MB)에 대 한 제한에 도달 했는지 확인 한 다음 VM 저장소 구성을 최적화 하 여 지난 단일 VHD 제한을 확장 합니다. 다른 standard storage 디스크 제공 및 디스크당 제한 사항에 대해 자세히 알아보세요.
 
-* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets)
+* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](../windows/disk-scalability-targets.md)
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>높은 디스크 사용률/대기 시간 재구성
 
 클라이언트 대기 시간을 줄이고 VM IO를 최적화 하 여 VHD 제한 이전 크기 조정
 
-* [Azure에서 Windows 용 IO 최적화](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/)
+* [Azure에서 Windows 용 IO 최적화](../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md?toc=/azure/virtual-machines/windows/toc.json)
 
-* [Azure에서 Linux에 대 한 IO 최적화](https://blogs.msdn.microsoft.com/igorpag/2014/10/23/azure-storage-secrets-and-linux-io-optimizations/)
+* [Azure에서 Linux에 대 한 IO 최적화](/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 
 #### <a name="reduce-throttling"></a>제한 줄이기
 
-에서 저장소 계정에 대 한 상한 제한을 초과 하는 경우 저장소 계정 간에 Vhd의 균형을 다시 조정 합니다. [Azure Storage 확장성 및 성능 목표](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/)를 참조 하세요.
+에서 저장소 계정에 대 한 상한 제한을 초과 하는 경우 저장소 계정 간에 Vhd의 균형을 다시 조정 합니다. [Azure Storage 확장성 및 성능 목표](../../storage/common/scalability-targets-standard-account.md)를 참조 하세요.
 
 ### <a name="increase-throughput-and-reduce-latency"></a>처리량 증가 및 대기 시간 단축
 
@@ -243,9 +244,9 @@ Standard storage의 새 디스크 제공에는 IOPS 및 처리량 한도가 다�
 
 다음 문서에서는 특정 시나리오에 대해 설명 합니다.
 
-* [Azure Premium Storage로 마이그레이션](https://azure.microsoft.com/documentation/articles/storage-migration-to-premium-storage/)
+* [Azure Premium Storage로 마이그레이션](../windows/migrate-to-managed-disks.md)
 
-* [SQL Server에서 Azure Premium Storage 사용](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/)
+* [SQL Server에서 Azure Premium Storage 사용](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage)
 
 ## <a name="next-steps"></a>다음 단계
 

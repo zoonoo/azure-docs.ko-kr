@@ -15,17 +15,18 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: 27e88966759eaa158ffe86efce9905b1709ddbbe
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: a45f0a882c58c7035badcc1270c66bd9c6fb252a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848725"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526914"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>PowerShell을 사용하여 구독의 모든 VM에 대한 세부 정보 수집
 
 이 스크립트는 제공된 구독에서 VM 이름, 리소스 그룹 이름, 지역, VM 크기, Virtual Network, 서브넷, 개인 IP 주소, OS 유형 및 VM의 공용 IP 주소가 포함된 csv를 만듭니다.
 
-[Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
+[Azure 구독](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
@@ -74,15 +75,13 @@ $report | Export-CSV "$home/$reportName"
 
 |명령|메모|
 |-|-|
-|[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|현재 세션에서 사용할 cmdlet의 테넌트, 구독 및 환경을 설정합니다.|
-|[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|가상 머신의 속성을 가져옵니다.|
-|[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzPublicIpAddress)|공용 IP 주소를 가져옵니다.|
-|[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzNetworkInterface)|네트워크 인터페이스를 가져옵니다.|
+|[Select-AzSubscription](/powershell/module/az.accounts/set-azcontext)|현재 세션에서 사용할 cmdlet의 테넌트, 구독 및 환경을 설정합니다.|
+|[Get-AzVM](/powershell/module/az.compute/get-azvm)|가상 머신의 속성을 가져옵니다.|
+|[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)|공용 IP 주소를 가져옵니다.|
+|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface)|네트워크 인터페이스를 가져옵니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/overview)를 참조하세요.
+Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
-추가 가상 머신 PowerShell 스크립트 샘플은 [Azure Windows VM 설명서](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples?toc=/azure/virtual-machines/windows/toc.json)에서 확인할 수 있습니다.
-
-
+추가 가상 머신 PowerShell 스크립트 샘플은 [Azure Windows VM 설명서](../windows/powershell-samples.md?toc=/azure/virtual-machines/windows/toc.json)에서 확인할 수 있습니다.

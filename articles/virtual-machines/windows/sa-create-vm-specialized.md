@@ -9,11 +9,12 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: b2466cc1d36206d0a6a382c948969ad6c28a199f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 2dc671e3aab7568da61e5dab870967d7fd2bb90f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84232819"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525741"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>스토리지 계정의 특수한 VHD에서 VM 만들기
 
@@ -63,7 +64,7 @@ Get-AzStorageAccount
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 이 리소스 그룹에 **mystorageaccount**라는 이름의 스토리지 계정을 만듭니다.
+2. [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 이 리소스 그룹에 **mystorageaccount**라는 이름의 스토리지 계정을 만듭니다.
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -71,7 +72,7 @@ Get-AzStorageAccount
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>스토리지 계정에 VHD 업로드
-[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 이미지를 업로드합니다. 이 예제에서는 `"C:\Users\Public\Documents\Virtual hard disks\"`에서 **myResourceGroup** 리소스 그룹의 **mystorageaccount**라는 스토리지 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
+[Add-AzVhd](/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 이미지를 업로드합니다. 이 예제에서는 `"C:\Users\Public\Documents\Virtual hard disks\"`에서 **myResourceGroup** 리소스 그룹의 **mystorageaccount**라는 스토리지 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -105,14 +106,14 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 ### <a name="before-you-begin"></a>시작하기 전에
 다음 사항을 확인합니다.
 
-* **원본 및 대상 스토리지 계정**에 대한 정보가 있습니다. 원본 VM의 경우 스토리지 계정 및 컨테이너 이름이 필요합니다. 일반적으로 컨테이너 이름은 **vhds**가 됩니다. 또한 대상 스토리지 계정도 있어야 합니다. 아직 없는 경우 포털(**모든 서비스** > 스토리지 계정 > 추가) 또는 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 만들 수 있습니다. 
-* [AzCopy 도구](../../storage/common/storage-use-azcopy.md)를 다운로드 및 설치했습니다. 
+* **원본 및 대상 스토리지 계정**에 대한 정보가 있습니다. 원본 VM의 경우 스토리지 계정 및 컨테이너 이름이 필요합니다. 일반적으로 컨테이너 이름은 **vhds**가 됩니다. 또한 대상 스토리지 계정도 있어야 합니다. 아직 없는 경우 포털(**모든 서비스** > 스토리지 계정 > 추가) 또는 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 만들 수 있습니다. 
+* [AzCopy 도구](../../storage/common/storage-use-azcopy-v10.md)를 다운로드 및 설치했습니다. 
 
 ### <a name="deallocate-the-vm"></a>VM 할당을 취소합니다.
 VM 할당을 취소하여 복사할 VHD를 해제합니다. 
 
 * **포털**: **가상 머신** > **myVM** > 중지를 클릭합니다.
-* **Powershell**: [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM을 중지(할당 취소)합니다.
+* **Powershell**: [Stop-AzVM](/powershell/module/az.compute/stop-azvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM을 중지(할당 취소)합니다.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -126,17 +127,17 @@ Azure Portal의 VM에 대한 **상태**가 **중지됨**에서 **중지됨(할�
 Azure 포털 또는 Azure PowerShell을 사용하여 URL을 가져옵니다.
 
 * **포털**: **모든 서비스** > **스토리지 계정** > *스토리지 계정* > **Blob**에 대한 **>** 를 클릭하면 원본 VHD 파일이 **vhds** 컨테이너에 있을 것입니다. 컨테이너의 **속성**을 클릭하고 레이블이 **URL**인 텍스트를 복사합니다. 원본 및 대상 컨테이너의 URL이 모두 필요합니다. 
-* **Powershell**: [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM에 대한 정보를 가져옵니다. 결과에서 **Vhd Uri**에 대한 **Storage 프로필** 섹션을 살펴봅니다. Uri의 첫 번째 부분은 컨테이너에 대한 URL이고 마지막 부분은 VM에 대한 OS VHD 이름입니다.
+* **Powershell**: [Get-AzVM](/powershell/module/az.compute/get-azvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM에 대한 정보를 가져옵니다. 결과에서 **Vhd Uri**에 대한 **Storage 프로필** 섹션을 살펴봅니다. Uri의 첫 번째 부분은 컨테이너에 대한 URL이고 마지막 부분은 VM에 대한 OS VHD 이름입니다.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>스토리지 액세스 키 가져오기
-원본 및 대상 스토리지 계정에 대한 액세스 키를 찾습니다. 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 방법](../../storage/common/storage-create-storage-account.md)을 참조하세요.
+원본 및 대상 스토리지 계정에 대한 액세스 키를 찾습니다. 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 방법](../../storage/common/storage-account-create.md)을 참조하세요.
 
 * **포털**: **모든 서비스** > **스토리지 계정** > *스토리지 계정* > **액세스 키**를 클릭합니다. **key1**로 레이블이 지정된 키를 복사합니다.
-* **Powershell**: [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey)를 사용하여 **myResourceGroup** 리소스 그룹에서 **mystorageaccount** 스토리지 계정에 대한 스토리지 키를 가져옵니다. **key1**로 레이블이 지정된 키를 복사합니다.
+* **Powershell**: [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey)를 사용하여 **myResourceGroup** 리소스 그룹에서 **mystorageaccount** 스토리지 계정에 대한 스토리지 키를 가져옵니다. **key1**로 레이블이 지정된 키를 복사합니다.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
@@ -308,4 +309,3 @@ $vmList.Name
 
 ## <a name="next-steps"></a>다음 단계
 새 가상 머신에 로그인합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](connect-logon.md)을 참조하세요.
-

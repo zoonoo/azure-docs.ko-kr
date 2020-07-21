@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 6db43300632ec5b2c4f6c18848442901a40561b0
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997001"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523998"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
@@ -27,7 +27,7 @@ ms.locfileid: "83997001"
 
 Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 사용되는 용어를 이해하는 신경망 번역 시스템을 빌드할 수 있습니다. 그런 후에 사용자 지정된 변환 시스템은 기존 애플리케이션, 워크플로 및 웹 사이트에 통합됩니다.
 
-### <a name="how-does-it-work"></a>어떻게 작동합니까?
+### <a name="how-does-it-work"></a>작동 원리
 
 이전에 번역 된 문서 (leaflets, 웹 페이지, 설명서 등)를 사용 하 여 표준 번역 시스템 보다 더 나은 도메인별 용어 및 스타일을 반영 하는 번역 시스템을 빌드 하세요. 사용자는 TMX, XLIFF, TXT, DOCX 및 XLSX 문서를 업로드할 수 있습니다.  
 
@@ -47,13 +47,13 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator 및 허브
 
-|   | **허브** | **Custom Translator**|
-|:-----|:----:|:----:|
+| 기능 | 허브 | Custom Translator |
+| ------- | :-: | :---------------: |
 |사용자 지정 기능 상태    | 일반 공급    | 일반 공급 |
 | Text API 버전    | V2만    | V3만 |
-| SMT 사용자 지정    | 예    | 예 |
-| NMT 사용자 지정    | 예    | 예 |
-| 새로운 통합 Speech Service 사용자 지정    | 예    | 예 |
+| SMT 사용자 지정    | 예    | 아니요 |
+| NMT 사용자 지정    | 아니요    | 예 |
+| 새로운 통합 Speech Service 사용자 지정    | 아니요    | 예 |
 | [추적 없음](https://www.aka.ms/notrace) | 예    | 예 |
 
 ## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크

@@ -4,17 +4,17 @@ description: Azure Storage은 데이터를 클라우드로 유지 하기 전에 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 06/17/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8b4236e40e8dfbe6ce67bca007be0b6737a6e0c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6244b3ab72f7fa8ea375ff67a08e8d1d241df4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945582"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527900"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 암호화
 
@@ -32,6 +32,8 @@ Azure Storage 암호화는 리소스 관리자 및 클래식 저장소 계정을
 
 암호화 Azure Storage 기본 암호화 모듈에 대 한 자세한 내용은 암호화 [API: 차세대](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)을 참조 하세요.
 
+Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 Windows Vm에 대 한 [azure managed disks의 서버 쪽 암호화](../../virtual-machines/windows/disk-encryption.md) 또는 Linux vm에 대 한 [azure Managed disks의 서버 쪽 암호화](../../virtual-machines/linux/disk-encryption.md) 를 참조 하세요.
+
 ## <a name="about-encryption-key-management"></a>암호화 키 관리 정보
 
 새 저장소 계정의 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. Microsoft에서 관리 하는 키를 사용 하 여 데이터를 암호화 하거나 자신의 키를 사용 하 여 암호화를 관리할 수 있습니다. 사용자 고유의 키를 사용 하 여 암호화를 관리 하도록 선택 하는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
@@ -41,18 +43,56 @@ Azure Storage 암호화는 리소스 관리자 및 클래식 저장소 계정을
 
 다음 표에서는 Azure Storage 암호화에 대 한 키 관리 옵션을 비교 합니다.
 
-|                                        |    Microsoft 관리형 키                             |    고객 관리형 키                                                                                                                        |    고객이 제공한 키                                                          |
-|----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|    암호화/암호 해독 작업    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    지원 되는 Azure Storage 서비스    |    모두                                                |    Blob storage, Azure Files<sup>1, 2</sup>                                                                                                               |    Blob Storage                                                                  |
-|    키 스토리지                         |    Microsoft 키 저장소    |    Azure Key Vault                                                                                                                              |    고객의 고유 키 저장소                                                                 |
-|    키 회전 책임         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
-|    키 컨트롤                          |    Microsoft                                     |    Customer                                                                                                                    |    Customer                                                                 |
+| 키 관리 매개 변수 | Microsoft 관리형 키 | 고객 관리형 키 | 고객이 제공한 키 |
+|--|--|--|--|
+| 암호화/암호 해독 작업 | Azure | Azure | Azure |
+| 지원 되는 Azure Storage 서비스 | 모두 | Blob storage, Azure Files<sup>1, 2</sup> | Blob Storage |
+| 키 스토리지 | Microsoft 키 저장소 | Azure Key Vault | 고객의 고유 키 저장소 |
+| 키 회전 책임 | Microsoft | Customer | Customer |
+| 키 컨트롤 | Microsoft | Customer | Customer |
 
 <sup>1</sup> 큐 저장소에서 고객 관리 키를 사용 하도록 지 원하는 계정을 만드는 방법에 대 한 자세한 내용은 [큐에 대 한 고객 관리 키를 지 원하는 계정 만들기](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조 하세요.<br />
 <sup>2</sup> 테이블 저장소에서 고객 관리 키를 사용 하도록 지 원하는 계정을 만드는 방법에 대 한 자세한 내용은 [테이블에 대 한 고객 관리 키를 지 원하는 계정 만들기](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)를 참조 하세요.
 
-Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 Windows Vm에 대 한 [azure managed disks의 서버 쪽 암호화](../../virtual-machines/windows/disk-encryption.md) 또는 Linux vm에 대 한 [azure Managed disks의 서버 쪽 암호화](../../virtual-machines/linux/disk-encryption.md) 를 참조 하세요.
+## <a name="encryption-scopes-for-blob-storage-preview"></a>Blob 저장소의 암호화 범위 (미리 보기)
+
+기본적으로 저장소 계정은 저장소 계정으로 범위가 지정 된 키를 사용 하 여 암호화 됩니다. Microsoft 관리 키 또는 Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 데이터를 암호화 하는 키에 대 한 액세스를 보호 하 고 제어 하도록 선택할 수 있습니다.
+
+암호화 범위를 사용 하면 필요에 따라 컨테이너 또는 개별 blob의 수준에서 암호화를 관리할 수 있습니다. 암호화 범위를 사용 하 여 동일한 저장소 계정에 있지만 다른 고객에 게 속한 데이터 간에 보안 경계를 만들 수 있습니다.
+
+Azure Storage 리소스 공급자를 사용 하 여 저장소 계정에 대 한 하나 이상의 암호화 범위를 만들 수 있습니다. 암호화 범위를 만들 때 범위가 Microsoft 관리 키로 보호 되는지 또는 Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 보호 되는지 지정 합니다. 동일한 저장소 계정에 있는 다양 한 암호화 범위는 Microsoft에서 관리 하거나 고객이 관리 하는 키 중 하나를 사용할 수 있습니다.
+
+암호화 범위를 만든 후에는 컨테이너 또는 blob를 만들도록 요청에 대 한 암호화 범위를 지정할 수 있습니다. 암호화 범위를 만드는 방법에 대 한 자세한 내용은 [암호화 범위 만들기 및 관리 (미리 보기)](../blobs/encryption-scope-manage.md)를 참조 하세요.
+
+> [!NOTE]
+> 암호화 범위는 미리 보기 중에 읽기 액세스 지역 중복 저장소 (RA-GRS) 계정에서 지원 되지 않습니다.
+
+> [!IMPORTANT]
+> 암호화 범위 미리 보기는 비프로덕션 용도로만 사용 됩니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.
+>
+> 예기치 않은 비용을 방지 하려면 현재 필요 하지 않은 모든 암호화 범위를 사용 하지 않도록 설정 해야 합니다.
+
+### <a name="create-a-container-or-blob-with-an-encryption-scope"></a>암호화 범위를 사용 하 여 컨테이너 또는 blob 만들기
+
+암호화 범위 아래에 생성 된 blob는 해당 범위에 대해 지정 된 키로 암호화 됩니다. Blob을 만들 때 개별 blob에 대 한 암호화 범위를 지정 하거나, 컨테이너를 만들 때 기본 암호화 범위를 지정할 수 있습니다. 컨테이너 수준에서 기본 암호화 범위를 지정 하는 경우 해당 컨테이너의 모든 blob은 기본 범위와 연결 된 키로 암호화 됩니다.
+
+기본 암호화 범위가 있는 컨테이너에서 blob을 만드는 경우 기본 암호화 범위를 재정의할 수 있도록 컨테이너가 구성 된 경우 기본 암호화 범위를 재정의 하는 암호화 범위를 지정할 수 있습니다. 기본 암호화 범위를 재정의 하지 않도록 하려면 컨테이너를 구성 하 여 개별 blob에 대 한 재정의를 거부 합니다.
+
+암호화 범위에 속하는 blob에 대 한 읽기 작업은 암호화 범위를 사용 하지 않는 한 투명 하 게 수행 됩니다.
+
+### <a name="disable-an-encryption-scope"></a>암호화 범위를 사용 하지 않도록 설정
+
+암호화 범위를 사용 하지 않도록 설정 하면 HTTP 오류 코드 403 (사용할 수 없음)이 발생 하 고 암호화 범위를 사용 하 여 수행 된 이후의 읽기 또는 쓰기 작업이 실패 합니다. 암호화 범위를 다시 사용 하도록 설정 하면 읽기 및 쓰기 작업이 다시 정상적으로 진행 됩니다.
+
+암호화 범위를 사용 하지 않도록 설정 하면 더 이상 요금이 청구 되지 않습니다. 불필요 한 요금을 방지 하는 데 필요 하지 않은 모든 암호화 범위를 사용 하지 않도록 설정 합니다.
+
+암호화 범위가 Azure Key Vault의 고객 관리 키로 보호 되는 경우 암호화 범위를 사용 하지 않도록 설정 하기 위해 키 자격 증명 모음에서 연결 된 키를 삭제할 수도 있습니다. Azure Key Vault의 고객 관리 키는 일시 삭제 및 제거 보호로 보호 되 고 삭제 된 키는 해당 속성에 대해 정의 된 동작의 영향을 받습니다. 자세한 내용은 Azure Key Vault 설명서에서 다음 항목 중 하나를 참조 하세요.
+
+- [PowerShell에서 일시 삭제를 사용하는 방법](../../key-vault/general/soft-delete-powershell.md)
+- [CLI에서 일시 삭제를 사용하는 방법](../../key-vault/general/soft-delete-cli.md)
+
+> [!NOTE]
+> 암호화 범위를 삭제할 수는 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

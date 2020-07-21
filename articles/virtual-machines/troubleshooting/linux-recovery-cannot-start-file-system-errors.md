@@ -14,17 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76842404"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526506"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>파일 시스템 오류로 인 한 Linux VM 시작 문제 해결
 
 Secure Shell (SSH)를 사용 하 여 Azure Linux VM (가상 머신)에 연결할 수 없습니다. [Azure Portal](https://portal.azure.com/)에서 부팅 진단 기능을 실행 하면 다음 예제와 유사한 로그 항목이 표시 됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 가능한 오류의 예는 다음과 같습니다.
 
@@ -74,7 +75,7 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
 ## <a name="resolution"></a>해결 방법
 
-이 문제를 해결 하려면 [직렬 콘솔](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) 을 사용 하 여 VM을 응급 모드로 부팅 하 고 해당 도구를 사용 하 여 파일 시스템을 복구 합니다. VM에서 직렬 콘솔을 사용 하도록 설정 하지 않았거나 작동 하지 않는 경우이 문서의 [vm 오프 라인 복구](#repair-the-vm-offline) 섹션을 참조 하세요.
+이 문제를 해결 하려면 [직렬 콘솔](./serial-console-linux.md) 을 사용 하 여 VM을 응급 모드로 부팅 하 고 해당 도구를 사용 하 여 파일 시스템을 복구 합니다. VM에서 직렬 콘솔을 사용 하도록 설정 하지 않았거나 작동 하지 않는 경우이 문서의 [vm 오프 라인 복구](#repair-the-vm-offline) 섹션을 참조 하세요.
 
 ## <a name="use-the-serial-console"></a>직렬 콘솔 사용
 
@@ -82,8 +83,8 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
    > [!Note]
    > Linux 용 직렬 콘솔을 사용 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
-   > * [직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-   > * [SysRq 및 NMI 호출에 직렬 콘솔 사용](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
+   > * [직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스](../linux/serial-console-grub-single-user-mode.md)
+   > * [SysRq 및 NMI 호출에 직렬 콘솔 사용](./serial-console-nmi-sysrq.md)
 
 2. 전원 아이콘 단추를 선택한 다음, VM 다시 시작을 선택 합니다. (직렬 콘솔이 사용 하도록 설정 되지 않았거나 연결 되지 않은 경우 단추가 표시 되지 않습니다.)
 
@@ -133,7 +134,7 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
 ## <a name="repair-the-vm-offline"></a>오프라인으로 VM 복구
 
-1. VM의 시스템 디스크를 복구 VM (모든 작동 중인 Linux VM)에 데이터 디스크로 연결 합니다. 이렇게 하려면 [CLI 명령을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) 사용 하거나 [vm 복구 명령을](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)사용 하 여 복구 vm 설정을 자동화할 수 있습니다.
+1. VM의 시스템 디스크를 복구 VM (모든 작동 중인 Linux VM)에 데이터 디스크로 연결 합니다. 이렇게 하려면 [CLI 명령을](./troubleshoot-recovery-disks-linux.md) 사용 하거나 [vm 복구 명령을](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)사용 하 여 복구 vm 설정을 자동화할 수 있습니다.
 
 2. 연결한 시스템 디스크의 드라이브 레이블을 찾습니다. 이 경우 연결 된 시스템 디스크의 레이블이/sv/sdc1 이라고 가정 합니다. VM에 대 한 적절 한 값으로 대체 합니다.
 
@@ -177,6 +178,5 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure CLI 2.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [포털을 사용하여 데이터 디스크를 Linux VM에 연결](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
-
+* [Azure CLI 2.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결](./troubleshoot-recovery-disks-linux.md)
+* [포털을 사용하여 데이터 디스크를 Linux VM에 연결](../linux/attach-disk-portal.md)

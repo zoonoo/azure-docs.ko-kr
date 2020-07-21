@@ -4,29 +4,24 @@ description: StorSimple 디바이스 관리자 서비스 Backup 카탈로그를 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f0be9609dfd00e8e5dc9919b20fc42ec91ce9eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514560"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527832"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>백업 세트에서 StorSimple 볼륨 복원
 
 ## <a name="overview"></a>개요
 
 이 자습서에서는 기존 백업 세트를 사용하여 StorSimple 8000 시리즈 디바이스에서 수행되는 복원 작업을 설명합니다. **Backup 카탈로그** 블레이드를 사용하여 로컬 또는 클라우드 백업에서 볼륨을 복원합니다. **Backup 카탈로그** 블레이드에는 수동 또는 자동화된 백업을 수행할 때 만들어지는 모든 백업 세트가 표시됩니다. 백그라운드에서 데이터를 다운로드하는 동안 백업 세트의 복원 작업에서는 즉시 볼륨을 온라인으로 전환합니다.
-
-복원을 시작하는 다른 방법은 **디바이스 &gt; [사용자 디바이스] &gt; 볼륨**으로 이동하는 것입니다. **볼륨** 블레이드에서 볼륨을 선택하고, 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 호출하고, **복원**을 선택합니다.
 
 ## <a name="before-you-restore"></a>복원하기 전에
 

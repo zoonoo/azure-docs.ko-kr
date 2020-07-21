@@ -8,19 +8,20 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204687"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527815"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>실수로 인한 Azure 파일 공유 삭제 방지
 
-이제 Azure Storage에서 파일 공유 (미리 보기)에 대 한 일시 삭제를 제공 합니다. 일시 삭제를 사용하면 애플리케이션 또는 다른 스토리지 계정 사용자에 의해 실수로 삭제된 데이터를 복구할 수 있습니다.
+이제 Azure Storage에서 파일 공유 (미리 보기)에 대 한 일시 삭제를 제공 합니다. 일시 삭제를 사용 하면 응용 프로그램 또는 다른 저장소 계정 사용자가 실수로 삭제 한 파일 공유를 복구할 수 있습니다.
 
 ## <a name="how-soft-delete-preview-works"></a>일시 삭제 (미리 보기) 작동 방법
 
-Azure 파일 공유에 대 한 일시 삭제를 사용 하도록 설정한 경우 파일 공유가 삭제 되 면 영구적으로 삭제 되는 대신 일시 삭제 된 상태로 전환 됩니다. 일시 삭제된 데이터가 영구적으로 삭제되기 전에 복구 가능한 기간을 구성할 수 있습니다.
+Azure 파일 공유에 대 한 일시 삭제를 사용 하도록 설정한 경우 파일 공유가 삭제 되 면 영구적으로 삭제 되는 대신 일시 삭제 된 상태로 전환 됩니다. 일시 삭제 된 데이터를 영구적으로 삭제 하기 전에 복구할 수 있는 시간을 구성 하 고,이 보존 기간 동안 언제 든 지 공유를 삭제 취소 합니다. 삭제 취소 된 후에는 스냅숏을 포함 한 공유 및 모든 콘텐츠가 삭제 되기 전의 상태로 복원 됩니다. 일시 삭제는 파일 공유 수준 에서만 작동 합니다. 삭제 된 개별 파일은 계속 영구적으로 삭제 됩니다.
 
 새 파일 공유 또는 기존 파일 공유에서 일시 삭제를 사용 하도록 설정할 수 있습니다. 일시 삭제도 이전 버전과 호환되므로 일시 삭제의 보호 기능을 활용하기 위해 애플리케이션을 변경할 필요가 없습니다. 
 

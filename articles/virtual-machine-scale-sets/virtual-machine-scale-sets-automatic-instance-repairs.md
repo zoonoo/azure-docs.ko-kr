@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197029"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527424"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 자동 인스턴스 복구
 
@@ -140,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-다음 예에서는 *[az vmss create](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)* 를 사용 하 여 새 크기 집합을 만드는 동안 자동 복구 정책을 사용 하도록 설정 합니다. 먼저 리소스 그룹을 만든 다음 자동 복구 정책 유예 기간이 30 분으로 설정 된 새 확장 집합을 만듭니다.
+다음 예에서는 *[az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)* 를 사용 하 여 새 크기 집합을 만드는 동안 자동 복구 정책을 사용 하도록 설정 합니다. 먼저 리소스 그룹을 만든 다음 자동 복구 정책 유예 기간이 30 분으로 설정 된 새 확장 집합을 만듭니다.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -208,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-다음은 *[az vmss update](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)* 를 사용 하 여 기존 확장 집합의 자동 인스턴스 복구 정책을 업데이트 하는 예제입니다.
+다음은 *[az vmss update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)* 를 사용 하 여 기존 확장 집합의 자동 인스턴스 복구 정책을 업데이트 하는 예제입니다.
 
 ```azurecli-interactive
 az vmss update \  
@@ -222,7 +223,7 @@ az vmss update \
 
 ### <a name="rest-api"></a>REST API 
 
-*OrchestrationServices*속성을 사용 하 여 가상 머신 확장 집합에 대 한 API 버전 2019-12-01 이상으로 [인스턴스 보기 가져오기](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview) 를 사용 하 여 자동 복구의 *servicestate* 를 확인 합니다. 
+*OrchestrationServices*속성을 사용 하 여 가상 머신 확장 집합에 대 한 API 버전 2019-12-01 이상으로 [인스턴스 보기 가져오기](/rest/api/compute/virtualmachinescalesets/getinstanceview) 를 사용 하 여 자동 복구의 *servicestate* 를 확인 합니다. 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -258,7 +259,7 @@ GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provider
 
 ### <a name="azure-cli"></a>Azure CLI 
 
-[Get instance-view](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) cmdlet을 사용 하 여 자동 인스턴스 복구를 위한 *servicestate* 를 확인 합니다. 
+[Get instance-view](/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) cmdlet을 사용 하 여 자동 인스턴스 복구를 위한 *servicestate* 를 확인 합니다. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -266,7 +267,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-자동 인스턴스 복구를 위해 *Servicestate* 를 업데이트 하려면 [설정-오케스트레이션-service-state](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) cmdlet을 사용 합니다. 크기 집합을 자동 복구 기능에 옵트인 한 후에는이 cmdlet을 사용 하 여 확장 집합에 대 한 자동 복구를 일시 중단 하거나 다시 시작할 수 있습니다. 
+자동 인스턴스 복구를 위해 *Servicestate* 를 업데이트 하려면 [설정-오케스트레이션-service-state](/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) cmdlet을 사용 합니다. 크기 집합을 자동 복구 기능에 옵트인 한 후에는이 cmdlet을 사용 하 여 확장 집합에 대 한 자동 복구를 일시 중단 하거나 다시 시작할 수 있습니다. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \
@@ -277,7 +278,7 @@ az vmss set-orchestration-service-state \
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-매개 변수 *instanceview* 와 함께 [AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) cmdlet을 사용 하 여 자동 인스턴스 복구를 위한 *servicestate* 를 확인 합니다.
+매개 변수 *instanceview* 와 함께 [AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) cmdlet을 사용 하 여 자동 인스턴스 복구를 위한 *servicestate* 를 확인 합니다.
 
 ```azurepowershell-interactive
 Get-AzVmss `

@@ -6,11 +6,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6481bfe265786ca8b79f96bbcac7fe4d58076911
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77115619"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525826"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Azure 서비스 중단이 Azure Vm에 영향을 주는 경우
 Microsoft에서는 서비스가 필요할 때 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 다만 경우에 따라 계획되지 않은 서비스 중단이 발생하여 강제적으로 제어 영향을 벗어날 때가 있습니다.
@@ -34,7 +35,7 @@ Azure에는 항상 사용 가능한 애플리케이션을 지원하는 많은 �
 
 
 > [!NOTE]
-> 이 프로세스는 사용자가 제어할 수 없으며 지역 전체 서비스 중단에 대해서만 발생합니다. 이 때문에 가장 높은 수준의 가용성을 달성하기 위해 다른 애플리케이션별 백업 전략에 의존해야 합니다. 자세한 내용은 [재해 복구를 위한 데이터 전략](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)에 대 한 섹션을 참조 하세요.
+> 이 프로세스는 사용자가 제어할 수 없으며 지역 전체 서비스 중단에 대해서만 발생합니다. 이 때문에 가장 높은 수준의 가용성을 달성하기 위해 다른 애플리케이션별 백업 전략에 의존해야 합니다. 자세한 내용은 [재해 복구를 위한 데이터 전략](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)에 대 한 섹션을 참조 하세요.
 >
 >
 
@@ -44,7 +45,7 @@ Azure에는 항상 사용 가능한 애플리케이션을 지원하는 많은 �
 
 - 재해 복구 및 고가용성 전략을 구현하는 방법에 관해 자세히 알아보려면 [Azure 애플리케이션에 대한 재해 복구 및 고가용성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)을 참조하세요.
 
-- 클라우드 플랫폼의 기능에 대한 자세한 기술적 이해를 높이려면 [Azure 복원력 기술 지침](/azure/data-lake-store/data-lake-store-disaster-recovery-guidance)을 참조하세요.
+- 클라우드 플랫폼의 기능에 대한 자세한 기술적 이해를 높이려면 [Azure 복원력 기술 지침](../data-lake-store/data-lake-store-disaster-recovery-guidance.md)을 참조하세요.
 
 
 - 지침이 명확하지 않거나 사용자를 대신해 Microsoft가 작업을 수행하도록 하고 싶은 경우 [고객 지원팀](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.

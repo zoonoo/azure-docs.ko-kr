@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79266989"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526803"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
@@ -43,7 +44,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 - 스토리지 정보
 
-- Azure 가상 머신 구성 ( [azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)를 사용 하 여 수집)
+- Azure 가상 머신 구성 ( [azure Instance Metadata Service](../windows/instance-metadata-service.md)를 사용 하 여 수집)
 
 - 실행 중인 프로세스, 디스크, 메모리 및 CPU 사용량 목록
 
@@ -60,7 +61,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>PerfInsights에서 수집 되는 정보의 종류
 
-Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, 구성 및 다양 한 로그에 대 한 정보가 수집 됩니다. 자세한 내용은 다음과 같습니다.
+Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, 구성 및 다양 한 로그에 대 한 정보가 수집 됩니다. 다음은 자세한 내용입니다.
 
 - 운영 체제
   - Linux 배포 및 버전
@@ -108,7 +109,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
   - /etc/waagent.config
   - 최근 5 일간 journalctl의 출력
 
-- [Azure 가상 머신 인스턴스 메타 데이터](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+- [Azure 가상 머신 인스턴스 메타 데이터](../windows/instance-metadata-service.md)
 
 >[!Note]
 >[ `*` ] PCI 정보는 Debian 및 SLES 배포판에서 아직 수집 되지 않습니다.

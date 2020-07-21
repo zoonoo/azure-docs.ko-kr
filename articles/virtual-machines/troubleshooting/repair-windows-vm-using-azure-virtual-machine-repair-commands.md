@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: f23df5924354fa688743d29919095413ec12ce18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7addc87f3096a75a55d0ea3b5804fd0006d5cb8c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444355"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526489"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure Virtual Machine 복구 명령을 사용하여 Windows VM 복구
 
 Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발생하는 경우 디스크 자체에서 완화를 수행해야 할 수 있습니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 Azure VM 복구 명령을 사용하여 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 다시 빌드하는 방법을 자세히 설명합니다.
 
 > [!IMPORTANT]
-> * 이 문서의 스크립트는 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 VM에만 적용됩니다.
+> * 이 문서의 스크립트는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)를 사용하는 VM에만 적용됩니다.
 > * 스크립트를 실행하려면 VM(포트 443)에서 아웃바운드 연결이 필요합니다.
 > * 한 번에 하나의 스크립트만 실행할 수 있습니다.
 > * 실행 중인 스크립트는 취소할 수 없습니다.
@@ -46,7 +46,7 @@ VM 문제를 해결하려면 다음 단계를 수행합니다.
 4. az vm repair run을 실행합니다.
 5. az vm repair restore를 실행합니다.
 
-추가 설명서 및 지침은 [az vm repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair)를 참조하세요.
+추가 설명서 및 지침은 [az vm repair](/cli/azure/ext/vm-repair/vm/repair)를 참조하세요.
 
 ## <a name="repair-process-example"></a>복구 프로세스 예
 
@@ -58,9 +58,9 @@ VM 문제를 해결하려면 다음 단계를 수행합니다.
 
    **복사**를 선택하여 코드 블록을 복사한 다음, Cloud Shell에 해당 코드를 붙여넣고 **Enter**를 선택하여 실행합니다.
 
-   CLI를 로컬에서 설치하여 사용하려면, 빠른 시작에 Azure CLI 버전 2.0.30 이상이 필요합니다. ``az --version``을 실행하여 버전을 찾습니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+   CLI를 로컬에서 설치하여 사용하려면, 빠른 시작에 Azure CLI 버전 2.0.30 이상이 필요합니다. ``az --version``을 실행하여 버전을 찾습니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
    
-   현재 Azure Portal에 로그인 하는 것과 다른 계정을 사용 하 여 Cloud Shell에 로그인 해야 하는 경우 ``az login`` [az login reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)를 사용할 수 있습니다.  계정과 연결 된 구독 간에 전환 하려면 ``az account set --subscription`` [az account set reference](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set)를 사용할 수 있습니다.
+   현재 Azure Portal에 로그인 한 것과 다른 계정을 사용 하 여 Cloud Shell에 로그인 해야 하는 경우 ``az login`` [az login reference](/cli/azure/reference-index?view=azure-cli-latest#az-login)를 사용할 수 있습니다.  계정과 연결 된 구독 간에 전환 하려면 ``az account set --subscription`` [az account set reference](/cli/azure/account?view=azure-cli-latest#az-account-set)를 사용할 수 있습니다.
 
 2. `az vm repair` 명령을 처음 사용하는 경우 vm-repair CLI 확장을 추가합니다.
 
@@ -104,6 +104,6 @@ az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGro
 
 ## <a name="next-steps"></a>다음 단계
 
-* VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection)을 참조하세요.
-* VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Azure의 가상 머신에서 애플리케이션 연결 문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection)을 참조하세요.
-* Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.
+* VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](./troubleshoot-rdp-connection.md)을 참조하세요.
+* VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Azure의 가상 머신에서 애플리케이션 연결 문제 해결](./troubleshoot-app-connection.md)을 참조하세요.
+* Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.

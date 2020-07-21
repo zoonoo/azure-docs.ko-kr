@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ab1262def78da4971ea6e5535f3ac915a38ec8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678769"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526761"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Azure Windows VM 종료가 "다시 시작 중", "종료 중" 또는 "서비스 중지"에 걸려 있습니다.
 
@@ -24,7 +25,7 @@ ms.locfileid: "84678769"
 
 ## <a name="symptoms"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 스크린샷에 "다시 시작 중", "종료 중" 또는 "서비스 중지 중" 메시지가 표시 될 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 스크린샷에 "다시 시작 중", "종료 중" 또는 "서비스 중지 중" 메시지가 표시 될 수 있습니다.
 
 ![서비스 화면 다시 시작, 종료 및 중지](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
@@ -40,9 +41,9 @@ Windows에서는 시스템 유지 관리 작업을 수행 하 고 업데이트, 
 
 2. 작업 중인 VM에서 필요한 파일을 포함 하는 디스크를 분리 하 고 손상 된 VM에 디스크를 연결 합니다. 이 디스크를 **유틸리티 디스크로**호출 하 고 있습니다.
 
-[직렬 콘솔](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) 을 사용 하 여 다음 단계를 완료 합니다.
+[직렬 콘솔](./serial-console-windows.md) 을 사용 하 여 다음 단계를 완료 합니다.
 
-1. 관리 Powershell을 열고 중지할 때 응답을 중지 하는 서비스를 확인 합니다.
+1. 관리 PowerShell을 열고 중지할 때 응답을 중지 하는 서비스를 확인 합니다.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
@@ -80,13 +81,13 @@ dism /online /cleanup-image /restorehealth
 
 **복구 VM에 OS 디스크 연결**
 
-1. 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk)을 참조하세요.
+1. 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
-2. [OS 디스크를 복구 VM에 연결](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal)합니다.
+2. [OS 디스크를 복구 VM에 연결](./troubleshoot-recovery-disks-portal-windows.md)합니다.
 
 3. 복구 VM에 원격 데스크톱을 연결합니다.
 
-4. OS 디스크가 암호화 된 경우 다음 단계로 이동 하기 전에 암호화를 해제 해야 합니다. 자세한 내용은 [부팅할 수 없는 VM에서 암호화 된 OS 디스크 암호 해독](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution)을 참조 하세요.
+4. OS 디스크가 암호화 된 경우 다음 단계로 이동 하기 전에 암호화를 해제 해야 합니다. 자세한 내용은 [부팅할 수 없는 VM에서 암호화 된 OS 디스크 암호 해독](./troubleshoot-bitlocker-boot-error.md#solution)을 참조 하세요.
 
 **덤프 파일을 찾아서 지원 티켓을 제출**
 
@@ -141,7 +142,7 @@ dism /online /cleanup-image /restorehealth
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Os 디스크를 분리 한 다음, 영향을 받는 VM에 os 디스크를 다시](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal)연결 합니다.
+5. [Os 디스크를 분리 한 다음, 영향을 받는 VM에 os 디스크를 다시](./troubleshoot-recovery-disks-portal-windows.md)연결 합니다.
 
 6. VM을 시작 하 고 직렬 콘솔에 액세스 합니다.
 

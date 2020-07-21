@@ -1,5 +1,5 @@
 ---
-title: 새 세션 호스트를 사용 하 여 기존 호스트 풀 확장-Azure
+title: 새 세션 호스트가 있는 기존 호스트 풀 확장 2019-Azure
 description: Windows 가상 데스크톱에서 새 세션 호스트를 사용 하 여 기존 호스트 풀을 확장 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260760"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527543"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>새 세션 호스트를 사용 하 여 기존 호스트 풀 확장
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>새 세션 호스트를 사용 하 여 기존 호스트 풀 확장 (2019)
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../expand-existing-host-pool.md)를 참조하세요.

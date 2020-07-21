@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207707"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526642"
 ---
-# <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
+# <a name="how-to-use-perfinsights-in-azure"></a>Azure에서 PerfInsights를 사용 하는 방법
 
 [PerfInsights](https://aka.ms/perfinsightsdownload)는 자체 진단 도구로서 진단 데이터를 수집 및 분석하고, Azure에서 Windows 가상 머신 성능 문제를 해결하는 데 도움이 되는 보고서를 제공합니다. PerfInsights는 독립 실행형 도구로서 [Azure 가상 머신에 대한 성능 진단](performance-diagnostics.md)을 사용하거나 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하여 포털에서 직접 가상 머신에서 실행될 수 있습니다.
 
@@ -65,13 +65,13 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 ### <a name="performance-analysis"></a>성능 분석
 
-이 시나리오에서는 RuleEngineConfig.json 파일에 지정된 카운터를 사용하여 [성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) 추적을 실행합니다. VM이 SQL Server를 실행하는 서버로 식별되면 성능 카운터 추적을 실행합니다. RuleEngineConfig.json 파일에 있는 카운터를 사용하여 이 작업을 수행합니다. 이 시나리오에는 성능 진단 데이터도 포함됩니다.
+이 시나리오에서는 RuleEngineConfig.json 파일에 지정된 카운터를 사용하여 [성능 카운터](/windows/win32/perfctrs/performance-counters-portal) 추적을 실행합니다. VM이 SQL Server를 실행하는 서버로 식별되면 성능 카운터 추적을 실행합니다. RuleEngineConfig.json 파일에 있는 카운터를 사용하여 이 작업을 수행합니다. 이 시나리오에는 성능 진단 데이터도 포함됩니다.
 
 ### <a name="azure-files-analysis"></a>Azure Files 분석
 
 이 시나리오에서는 네트워크 추적과 함께 특별한 성능 카운터 캡처를 실행합니다. 캡처에는 모든 SMB(Server Message Block) 클라이언트 공유 카운터가 포함됩니다. 다음은 캡처에 포함되는 몇 가지 주요 SMB 클라이언트 공유 성능 카운터입니다.
 
-| **유형**     | **SMB 클라이언트 공유 카운터** |
+| **형식**     | **SMB 클라이언트 공유 카운터** |
 |--------------|-------------------------------|
 | IOPS         | 데이터 요청 수/초             |
 |              | 읽기 요청 수/초             |
@@ -300,7 +300,7 @@ Diskspd는 Microsoft에서 제공하는 스토리지 로드 생성기 및 성능
 
 ### <a name="xperf"></a>XPerf
 
-Xperf는 Windows 성능 도구 키트에서 추적을 캡처하는 명령줄 도구입니다. 자세한 내용은 [Windows 성능 도구 키트 - Xperf(영문)](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/)를 참조하세요.
+Xperf는 Windows 성능 도구 키트에서 추적을 캡처하는 명령줄 도구입니다. 자세한 내용은 [Windows 성능 도구 키트 - Xperf(영문)](/archive/blogs/ntdebugging/windows-performance-toolkit-xperf)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -313,4 +313,3 @@ Xperf는 Windows 성능 도구 키트에서 추적을 캡처하는 명령줄 도
 메시지의 지침에 따라 파일 전송 작업 영역에 액세스합니다. 보안을 강화하기 위해 처음 사용할 때 암호를 변경해야 합니다.
 
 로그인하면 PerfInsights에서 수집한 **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** 파일을 업로드하는 대화 상자가 표시됩니다.
-

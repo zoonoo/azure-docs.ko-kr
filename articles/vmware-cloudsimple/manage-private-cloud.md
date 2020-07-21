@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 13496a18f4c99b69a5b8095caf5b74a04d1bba88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0aff8298ac2335e5216252eb2cbd5a393cc37d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869295"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524999"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>프라이빗 클라우드 리소스 및 작업 관리
 
@@ -36,13 +37,13 @@ ms.locfileid: "81869295"
 
 ## <a name="private-cloud-summary"></a>프라이빗 클라우드 요약
 
-선택한 프라이빗 클라우드의 포괄적인 요약을 확인합니다.  요약 페이지에는 프라이빗 클라우드에 배포된 DNS 서버가 포함됩니다.  온-프레미스 DNS 서버에서 프라이빗 클라우드 DNS 서버로의 DNS 전달을 설정할 수 있습니다.  DNS 전달에 대한 자세한 내용은 [온-프레미스에서 프라이빗 클라우드 vCenter의 이름 확인을 위해 DNS 구성](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/)을 참조하세요.
+선택한 프라이빗 클라우드의 포괄적인 요약을 확인합니다.  요약 페이지에는 프라이빗 클라우드에 배포된 DNS 서버가 포함됩니다.  온-프레미스 DNS 서버에서 프라이빗 클라우드 DNS 서버로의 DNS 전달을 설정할 수 있습니다.  DNS 전달에 대한 자세한 내용은 [온-프레미스에서 프라이빗 클라우드 vCenter의 이름 확인을 위해 DNS 구성](./on-premises-dns-setup.md)을 참조하세요.
 
 ![프라이빗 클라우드 요약](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>사용 가능한 작업
 
-* [vSphere 클라이언트 시작](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). 이 프라이빗 클라우드의 vCenter에 액세스합니다.
+* [vSphere 클라이언트 시작](./vcenter-access.md). 이 프라이빗 클라우드의 vCenter에 액세스합니다.
 * [노드 구매](create-nodes.md). 이 프라이빗 클라우드에 노드를 추가합니다.
 * [확장](expand-private-cloud.md). 이 프라이빗 클라우드에 노드를 추가합니다.
 * **새로 고침**. 이 페이지의 정보를 업데이트합니다.
@@ -57,10 +58,10 @@ ms.locfileid: "81869295"
 
 ### <a name="available-actions"></a>사용 가능한 작업
 
-* [VLAN/서브넷 추가](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/) 이 프라이빗 클라우드에 VLAN/서브넷을 추가합니다.
+* [VLAN/서브넷 추가](./create-vlan-subnet.md) 이 프라이빗 클라우드에 VLAN/서브넷을 추가합니다.
 
 다음 작업에 대해 VLAN/서브넷 선택
-* [방화벽 테이블 연결](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/). 이 프라이빗 클라우드에 방화벽 테이블을 연결합니다.
+* [방화벽 테이블 연결](./firewall.md). 이 프라이빗 클라우드에 방화벽 테이블을 연결합니다.
 * **편집**
 * **삭제**(사용자 정의 VLAN/서브넷만)
 

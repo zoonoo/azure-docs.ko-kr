@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362376"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524304"
 ---
 # <a name="add-parameters-to-commands"></a>명령에 매개 변수 추가
 
@@ -50,20 +50,23 @@ ms.locfileid: "85362376"
    1. 이제 매개 변수 속성을 구성 합니다. 명령의 모든 구성 속성에 대 한 설명은 [참조](./custom-commands-references.md)로 이동 합니다. 매개 변수의 나머지 속성은 다음과 같이 구성 합니다.
       
 
-       | 구성      | 제안 값     | 설명                                                      |
+       | Configuration      | 제안 값     | 설명                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
-       | 이름               | `OnOff`           | 매개 변수에 대 한 설명이 포함 된 이름입니다.                                                                           |
+       | Name               | `OnOff`           | 매개 변수에 대 한 설명이 포함 된 이름입니다.                                                                           |
        | 전역          | unchecked       | 응용 프로그램의 모든 명령에이 매개 변수의 값이 전역적으로 적용 되는지 여부를 나타내는 확인란입니다.|
-       | 필수           | checked         | 명령을 완료 하기 전에이 매개 변수의 값이 필요한 지 여부를 나타내는 확인란 |
+       | 필요한 공간           | checked         | 명령을 완료 하기 전에이 매개 변수의 값이 필요한 지 여부를 나타내는 확인란 |
        | 필수 매개 변수에 대 한 응답      |간단한 편집기 >`On or Off?`      | 이 매개 변수 값을 알 수 없는 경우 요청 하는 프롬프트입니다. |
-       | 유형               | 문자열          | 숫자, 문자열, 날짜/시간 또는 지리와 같은 매개 변수의 형식입니다.   |
-       | 구성      | 내부 카탈로그에서 미리 정의 된 입력 값 허용 | 문자열의 경우 가능한 값 집합에 대 한 입력을 제한 합니다. |
+       | 형식               | String          | 숫자, 문자열, 날짜/시간 또는 지리와 같은 매개 변수의 형식입니다.   |
+       | Configuration      | 내부 카탈로그에서 미리 정의 된 입력 값 허용 | 문자열의 경우 가능한 값 집합에 대 한 입력을 제한 합니다. |
        | 미리 정의 된 입력 값     | `on`, `off`           | 가능한 값 및 해당 별칭 집합         |
        
         
    1. 미리 정의 된 입력 값을 추가 하려면 **미리 정의 된 입력 추가** 를 선택 하 고 **새 항목** 창에서 위의 표에 제공 된 대로 **이름을** 입력 합니다. 이 경우 별칭을 사용 하지 않으므로 비워 둘 수 있습니다. 
+
     > [!div class="mx-imgBorder"]
-        > ![매개 변수 만들기](media/custom-commands/create-on-off-parameter.png)
+
+    > ![매개 변수 만들기](media/custom-commands/create-on-off-parameter.png)
+
    1. **저장** 을 선택 하 여 매개 변수의 모든 구성을 저장 합니다.
  
  ### <a name="add-subjectdevice-parameter"></a>주제 장치 매개 변수 추가 
@@ -73,12 +76,12 @@ ms.locfileid: "85362376"
 
        | 설정            | 제안 값       |
        | ------------------ | --------------------- |
-       | 이름               | `SubjectDevice`         |
+       | Name               | `SubjectDevice`         |
        | 전역          | unchecked             |
-       | 필수           | checked               |
+       | 필요한 공간           | checked               |
        | 필수 매개 변수에 대 한 응답     | 간단한 편집기 >`Which device do you want to control?`    | 
-       | 유형               | 문자열                |          |
-       | 구성      | 내부 카탈로그에서 미리 정의 된 입력 값 허용 | 
+       | 형식               | String                |          |
+       | Configuration      | 내부 카탈로그에서 미리 정의 된 입력 값 허용 | 
        | 미리 정의 된 입력 값 | `tv`, `fan`               |
        | 별칭 ( `tv` )      | `television`, `telly`     |
 
@@ -86,7 +89,7 @@ ms.locfileid: "85362376"
 
 ### <a name="modify-example-sentences"></a>예제 문장 수정
 
-매개 변수가 있는 명령의 경우 가능한 모든 조합을 포함 하는 예제 문장을 추가 하는 것이 좋습니다. 예:
+매개 변수가 있는 명령의 경우 가능한 모든 조합을 포함 하는 예제 문장을 추가 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
 * 전체 매개 변수 정보-`turn {OnOff} the {SubjectDevice}`
 * 부분 매개 변수 정보-`turn it {OnOff}`
@@ -123,7 +126,7 @@ turn something
     ```
 1. **저장**을 선택합니다.
 
-### <a name="try-it-out"></a>기능 직접 사용해 보기
+### <a name="try-it-out"></a>사용해 보기
 1. 오른쪽 창 위에 있는 **학습** 아이콘을 선택 합니다.
 
 1. 교육이 완료 되 면 **테스트**를 선택 합니다. **응용 프로그램** 창이 표시 됩니다.
@@ -144,12 +147,12 @@ turn something
 
 다음 구성을 사용 하 여 새 매개 변수 **온도** 를 추가 합니다.
 
-| 구성      | 제안 값     |
+| Configuration      | 제안 값     |
 | ------------------ | ----------------|
-| 이름               | `Temperature`           |
-| 필수           | checked         |
+| Name               | `Temperature`           |
+| 필요한 공간           | checked         |
 | 필수 매개 변수에 대 한 응답      | 간단한 편집기 >`What temperature would you like?`
-| 유형               | Number          |
+| 형식               | Number          |
 
 
 길이 발언 예제를 다음 값으로 편집 합니다.
@@ -163,12 +166,12 @@ change the temperature
 
 다음 구성에 따라 기존 완료 규칙을 편집 합니다.
 
-| 구성      | 제안 값     |
+| Configuration      | 제안 값     |
 | ------------------ | ----------------|
 | 조건         | 필수 매개 변수 > 온도           |
-| 작업           | 음성 응답 보내기 >`Ok, setting temperature to {Temperature} degrees` |
+| 동작           | 음성 응답 보내기 >`Ok, setting temperature to {Temperature} degrees` |
 
-### <a name="try-it-out"></a>기능 직접 사용해 보기
+### <a name="try-it-out"></a>사용해 보기
 
 몇 가지 상호 작용으로 변경 내용을 **학습** 하 고 **테스트** 합니다.
 
@@ -183,10 +186,10 @@ change the temperature
 
    | 설정                           | 제안 값                     | 
    | --------------------------------- | ----------------------------------------|
-   | 이름                              | `DateTime`                               |
-   | 필수                          | checked                                 |
+   | Name                              | `DateTime`                               |
+   | 필요한 공간                          | checked                                 |
    | 필수 매개 변수에 대 한 응답   | 간단한 편집기 >`For what time?`            | 
-   | 유형                              | DateTime                                |
+   | 형식                              | DateTime                                |
    | 날짜 기본값                     | 오늘 날짜를 누락 하는 경우            |
    | 시간 기본값                     | 시간이 누락 된 경우 하루 시작 사용     |
 
@@ -207,10 +210,10 @@ alarm for {DateTime}
 
    | 설정    | 제안 값                               |
    | ---------- | ------------------------------------------------------- |
-   | 작업    | 음성 응답 보내기-`Ok, alarm set for {DateTime}`  |
+   | 동작    | 음성 응답 보내기-`Ok, alarm set for {DateTime}`  |
 
 
-### <a name="try-it-out"></a>기능 직접 사용해 보기
+### <a name="try-it-out"></a>사용해 보기
 
 변경 내용을 **학습** 하 고 **테스트** 합니다.
 - 입력: 내일 정오에 경보 설정

@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 RDP 속성 사용자 지정-Azure
+title: PowerShell을 사용 하 여 RDP 속성 사용자 지정 2019-Azure
 description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱에 대 한 RDP 속성을 사용자 지정 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eeab433bbbfc9db0f1c5f5546ae80434899a91dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 844c59c6e5ea6d730c64fea5fb2dee51f602c382
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259205"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527628"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>호스트 풀의 원격 데스크톱 프로토콜 속성 사용자 지정
 
@@ -36,7 +36,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 |RDP 속성 | 데스크톱 | RemoteApp |
 |---|---| --- |
-| 다중 모니터 모드 | 사용 | 해당 없음 |
+| 다중 모니터 모드 | 사용 | N/A |
 | 드라이브 리디렉션 사용 | 드라이브, 클립보드, 프린터, COM 포트, USB 장치 및 스마트 카드| 드라이브, 클립보드 및 프린터 |
 | 원격 오디오 모드 | 로컬로 재생 | 로컬로 재생 |
 

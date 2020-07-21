@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3262841efb9109b1de24fe501ea0a7bea0dd612d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025132"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525044"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B&R을 사용 하 여 CloudSimple 사설 클라우드에서 워크 로드 Vm 백업
 
@@ -194,7 +195,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>장기적인 데이터 보존을 위해 Azure blob storage 구성
 
 1. Microsoft 비디오 [Azure Storage 시작](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)에 설명 된 대로 표준 유형 및 blob 컨테이너의 범용 저장소 계정 (GPv2)을 만듭니다.
-2. [컨테이너 참조 만들기](https://docs.microsoft.com/rest/api/storageservices/create-container) 에 설명 된 대로 Azure storage 컨테이너를 만듭니다.
+2. [컨테이너 참조 만들기](/rest/api/storageservices/create-container) 에 설명 된 대로 Azure storage 컨테이너를 만듭니다.
 2. `azcopy`Microsoft에서 Linux 용 명령줄 유틸리티를 다운로드 합니다. CentOS 7.5의 bash 셸에서 다음 명령을 사용할 수 있습니다.
 
     ```
@@ -205,7 +206,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
     sudo yum -y install icu
     ```
 
-3. 명령을 사용 `azcopy` 하 여 blob 컨테이너에 백업 파일을 복사 합니다.  자세한 명령은 [Linux에서 AzCopy를 사용 하 여 데이터 전송](../storage/common/storage-use-azcopy-linux.md) 을 참조 하세요.
+3. 명령을 사용 `azcopy` 하 여 blob 컨테이너에 백업 파일을 복사 합니다.  자세한 명령은 [Linux에서 AzCopy를 사용 하 여 데이터 전송](../storage/common/storage-use-azcopy-v10.md) 을 참조 하세요.
 
 ### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>사설 클라우드의 vCenter 콘솔: Veeam B&R 설치
 
@@ -259,7 +260,7 @@ Veeam 백업 및 복구 서버에 대 한 공용 IP 주소를 만듭니다. 자�
 
 권한을 에스컬레이션 하려면 [권한 승격](escalate-private-cloud-privileges.md#de-escalate-privileges)을 참조 하세요.
 
-## <a name="references"></a>참조
+## <a name="references"></a>참고 자료
 
 ### <a name="cloudsimple-references"></a>CloudSimple 참조
 
@@ -290,8 +291,8 @@ Veeam 백업 및 복구 서버에 대 한 공용 IP 주소를 만듭니다. 자�
 * [Azure Portal에서 Linux 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md)
 * [Azure Portal에서 Windows VM에 관리형 데이터 디스크를 연결하는 방법](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Azure Storage 시작-비디오](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
-* [컨테이너 만들기](https://docs.microsoft.com/rest/api/storageservices/create-container)
-* [Linux에서 AzCopy를 사용하여 데이터 전송](../storage/common/storage-use-azcopy-linux.md)
+* [컨테이너 만들기](/rest/api/storageservices/create-container)
+* [Linux에서 AzCopy를 사용하여 데이터 전송](../storage/common/storage-use-azcopy-v10.md)
 
 ### <a name="vmware-references"></a>VMware 참조
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837917"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527214"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>마이그레이션에 필요한 기간은 얼마인가요?
 
@@ -29,7 +29,7 @@ ms.locfileid: "83837917"
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>"NewClassicVMCreationNotAllowedForSubscription"이라는 오류가 발생하는 이유는 무엇인가요?
 
-사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. [ARM을 사용하는 Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)를 사용하는 것이 좋습니다. ARM을 사용하는 Azure VM을 사용할 수 없는 경우 고객 지원팀에 구독 허용 목록을 문의하세요.
+사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. [ARM을 사용하는 Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)를 사용하는 것이 좋습니다. ARM을 사용 하 여 Azure Vm을 사용할 수 없는 경우 지원에 문의 하 여 허용 목록에 구독을 추가 하세요.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 애플리케이션에 영향을 미치나요? 
 

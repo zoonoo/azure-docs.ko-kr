@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373350"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526542"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Windows 부팅 관리자로 인해 windows VM을 부팅할 수 없습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "80373350"
 
 VM이 사용자 프롬프트에 대 한 대기 상태를 유지 하 고 수동으로 지시 하지 않는 한 부팅 되지 않습니다.
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 경우 스크린샷에 Windows 부팅 관리자가 표시 됩니다. 메시지가 표시 되 면 *시작할 운영 체제를 선택 하거나 tab 키를 눌러 도구를 선택*합니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 경우 스크린샷에 Windows 부팅 관리자가 표시 됩니다. 메시지가 표시 되 면 *시작할 운영 체제를 선택 하거나 tab 키를 눌러 도구를 선택*합니다.
 
 그림 1
  
@@ -53,7 +53,7 @@ VM이 사용자 프롬프트에 대 한 대기 상태를 유지 하 고 수동�
 
 직렬 콘솔에 액세스할 수 있는 경우 두 가지 방법으로 부팅 시간을 단축할 수 있습니다. *Displaybootmenu* 대기 시간을 줄이거나 플래그를 모두 제거 합니다.
 
-1. 지침에 따라 [Windows 용 Azure 직렬 콘솔](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) 에 액세스 하 여 텍스트 기반 콘솔에 대 한 액세스 권한을 얻습니다.
+1. 지침에 따라 [Windows 용 Azure 직렬 콘솔](./serial-console-windows.md) 에 액세스 하 여 텍스트 기반 콘솔에 대 한 액세스 권한을 얻습니다.
 
    > [!NOTE]
    > 직렬 콘솔에 액세스할 수 없는 경우 [복구 VM 만들기 및 액세스](#create-and-access-a-repair-vm)로 건너뜁니다.
@@ -77,7 +77,7 @@ VM이 사용자 프롬프트에 대 한 대기 상태를 유지 하 고 수동�
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령의 1~3단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령의 1~3단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)를 사용하여 복구 VM을 준비합니다.
 2. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>복구 VM의 부팅 시간을 단축 하도록 구성
@@ -154,4 +154,4 @@ VM이 사용자 프롬프트에 대 한 대기 상태를 유지 하 고 수동�
 
 ### <a name="rebuild-the-original-vm"></a>원본 VM 다시 빌드
 
-[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 조합합니다.
+[VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 조합합니다.

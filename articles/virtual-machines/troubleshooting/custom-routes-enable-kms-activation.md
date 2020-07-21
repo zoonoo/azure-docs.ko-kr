@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 085647c392bb6cec51fba8b6e42cb8f03707223c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1c2050969e95b521554bba100b688add3a987a80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134581"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526744"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>강제 터널링 시나리오에서 Windows 정품 인증 실패
 
@@ -53,9 +53,9 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
  
 
 > [!NOTE] 
-> 활성화는 공용 IP 주소를 사용 하며 표준 SKU Load Balancer 구성의 영향을 받습니다. [Azure에서 아웃 바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 을 신중 하 게 검토 하 여 요구 사항에 대해 알아보세요.
+> 활성화는 공용 IP 주소를 사용 하며 표준 SKU Load Balancer 구성의 영향을 받습니다. [Azure에서 아웃 바운드 연결](../../load-balancer/load-balancer-outbound-connections.md) 을 신중 하 게 검토 하 여 요구 사항에 대해 알아보세요.
 
-1. Azure PowerShell을 연 다음, [Azure 구독에 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)합니다.
+1. Azure PowerShell을 연 다음, [Azure 구독에 로그인](/powershell/azure/authenticate-azureps)합니다.
 2. 다음 명령을 실행합니다.
 
     ```powershell
@@ -77,7 +77,7 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
 
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
-3. 정품 인증 문제가 있는 VM으로 이동합니다. [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)을 사용하여 KMS 서버에 연결할 수 있는지 테스트합니다.
+3. 정품 인증 문제가 있는 VM으로 이동합니다. [PsPing](/sysinternals/downloads/psping)을 사용하여 KMS 서버에 연결할 수 있는지 테스트합니다.
 
     ```console
     psping kms.core.windows.net:1688
@@ -89,7 +89,7 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-1. Azure PowerShell을 연 다음, [Azure 구독에 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)합니다.
+1. Azure PowerShell을 연 다음, [Azure 구독에 로그인](/powershell/azure/authenticate-azureps)합니다.
 2. 다음 명령을 실행합니다.
 
     ```powershell
@@ -107,7 +107,7 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. 정품 인증 문제가 있는 VM으로 이동합니다. [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)을 사용하여 KMS 서버에 연결할 수 있는지 테스트합니다.
+3. 정품 인증 문제가 있는 VM으로 이동합니다. [PsPing](/sysinternals/downloads/psping)을 사용하여 KMS 서버에 연결할 수 있는지 테스트합니다.
 
     ```console
     psping kms.core.windows.net:1688
@@ -117,7 +117,5 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [KMS 클라이언트 설정 키](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
-)
-- [정품 인증 방법 검토 및 선택](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11)
-)
+- [KMS 클라이언트 설정 키](/windows-server/get-started/kmsclientkeys)
+- [정품 인증 방법 검토 및 선택](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134256(v=ws.11))

@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b351a828c47058025247a3edd95f31dc6cc84295
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6c6dd18ba57d83aa235f66285e7cb2ed42c1703
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806188"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524984"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
@@ -30,7 +30,7 @@ Azure Powershell을 사용하여 [애플리케이션 게이트웨이](multiple-s
 > * 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 > * 도메인에서 CNAME 레코드 만들기
 
-![다중 사이트 라우팅 예](./media/tutorial-multiple-sites-powershell/scenario.png)
+:::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="다중 사이트 Application Gateway":::
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -125,6 +125,10 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 애플리케이션 게이트웨이가 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하려면 수신기가 필요합니다. 이 문서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. *Contoso.com* 및 *fabrikam.com* 도메인에 대해 수신기가 생성 됩니다.
 
 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *contosoRule*이라는 기본 규칙을 만듭니다.
+
+>[!NOTE]
+> Application Gateway 또는 WAF v2 SKU를 사용 하 여 수신기 당 호스트 이름을 5 개까지 구성할 수 있으며 호스트 이름에 와일드 카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드 카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener-preview) 을 참조 하세요.
+>Azure PowerShell를 사용 하 여 수신기에서 여러 호스트 이름 및 와일드 카드 문자를 사용 하려면 대신를 사용 해야 `-HostNames` `-HostName` 합니다. 호스트 이름을 사용 하면 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 지정할 수 있습니다. 예를 들어 `-HostNames "*.contoso.com,*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 3336869a5f91613849cdccb67f9d804205148608
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e84d4d147490cd3b9d136f25a3707f5a74999f3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652521"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527339"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -19,28 +20,28 @@ ms.locfileid: "83652521"
 
 2세대 VM은 1세대 VM에서 지원되지 않는 주요 기능들을 지원합니다. 이러한 기능에는 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리)이 포함됩니다. 온-프레미스에서 실행되는 2세대 VM에는 아직 Azure에서 지원되지 않는 몇 가지 기능들이 있습니다. 자세한 내용은 [특징과 기능](#features-and-capabilities) 섹션을 참조하세요.
 
-2세대 VM은 1세대 VM에서 사용되는 BIOS 기반 아키텍처 대신 새 UEFI 기반 부팅 아키텍처를 사용합니다. 1세대 VM과 비교할 때 2세대 VM은 부팅 및 설치 시간을 향상시킬 수 있습니다. 2세대 VM에 대한 개요와 1세대와 2세대 간의 일부 차이점에 대한 설명은 [Hyper-V에 1세대 또는 2세대 가상 머신을 만들어야 하나요?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
+2세대 VM은 1세대 VM에서 사용되는 BIOS 기반 아키텍처 대신 새 UEFI 기반 부팅 아키텍처를 사용합니다. 1세대 VM과 비교할 때 2세대 VM은 부팅 및 설치 시간을 향상시킬 수 있습니다. 2세대 VM에 대한 개요와 1세대와 2세대 간의 일부 차이점에 대한 설명은 [Hyper-V에 1세대 또는 2세대 가상 머신을 만들어야 하나요?](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
 
 ## <a name="generation-2-vm-sizes"></a>2세대 VM 크기
 
 1세대 VM은 Azure의 모든 VM 크기에서 지원됩니다(Mv2 시리즈 VM은 제외). 이제 Azure는 다음과 같이 선택된 VM 시리즈에 대한 2세대 지원을 제공합니다.
 
-* [B 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
+* [B 시리즈](../sizes-b-series-burstable.md)
 * [DCsv2 시리즈](../dcv2-series.md)
 * [DSv2 시리즈](../dv2-dsv2-series.md) 및 [Dsv3 시리즈](../dv3-dsv3-series.md)
 * [Esv3 시리즈](../ev3-esv3-series.md)
 * [Fsv2 시리즈](../fsv2-series.md)
-* [GS 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
+* [GS 시리즈](../sizes-previous-gen.md#gs-series)
 * [HB 시리즈](../hb-series.md)
 * [HC 시리즈](../hc-series.md)
-* [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) 및 [Lsv2 시리즈](../lsv2-series.md)
+* [Ls 시리즈](../sizes-previous-gen.md#ls-series) 및 [Lsv2 시리즈](../lsv2-series.md)
 * [M 시리즈](../m-series.md)
 * [Mv2 시리즈](../mv2-series.md)<sup>1</sup>
 * [NCv2 시리즈](../ncv2-series.md) 및 [NCv3 시리즈](../ncv3-series.md)
 * [ND 시리즈](../nd-series.md)
 * [NVv3 시리즈](../nvv3-series.md)
 
-<sup>1</sup> Mv2 시리즈는 1세대 VM 이미지를 지원하지 않으며 2세대 이미지의 하위 집합만 지원합니다. 자세한 내용은 [Mv2 시리즈 설명서](https://docs.microsoft.com/azure/virtual-machines/mv2-series)를 참조하세요.
+<sup>1</sup> Mv2 시리즈는 1세대 VM 이미지를 지원하지 않으며 2세대 이미지의 하위 집합만 지원합니다. 자세한 내용은 [Mv2 시리즈 설명서](../mv2-series.md)를 참조하세요.
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure Marketplace의 2세대 VM 이미지
 
@@ -203,4 +204,4 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Hyper-V의 2세대 가상 머신](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)에 대해 알아봅니다.
+* [Hyper-V의 2세대 가상 머신](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)에 대해 알아봅니다.

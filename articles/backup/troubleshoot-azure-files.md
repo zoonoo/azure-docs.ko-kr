@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079890"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524491"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결
 
@@ -57,6 +57,9 @@ Azure Portal에서 **자격 증명 모음**  >  **백업 인프라**  >  **저�
 >Recovery services 자격 증명 모음은 자격 증명 모음에 등록 된 모든 저장소 계정의 등록을 취소 한 후에만 삭제할 수 있습니다.
 
 ## <a name="common-backup-or-restore-errors"></a>일반적인 백업 또는 복원 오류
+
+>[!NOTE]
+>백업 또는 복원 작업을 수행할 수 있는 충분 한 권한이 있는지 확인 하려면 [이 문서](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) 를 참조 하세요.
 
 ### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound-파일 공유를 찾을 수 없어서 작업에 실패 했습니다.
 
@@ -313,7 +316,7 @@ Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅샷)을 삭
 
 오류 메시지: 연결 된 Azure 파일 공유가 영구적으로 삭제 되어 백업에 실패 했습니다.
 
-백업 된 파일 공유가 영구적으로 삭제 되었는지 확인 합니다. 그렇다면 백업 실패를 방지 하기 위해 파일 공유에 대 한 백업을 중지 합니다. 보호를 중지 하는 방법에 대해 알아보려면 [Azure 파일 공유에 대 한 보호 중지](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share) 를 참조 하세요.
+백업 된 파일 공유가 영구적으로 삭제 되었는지 확인 합니다. 그렇다면 백업 실패를 방지 하기 위해 파일 공유에 대 한 백업을 중지 합니다. 보호를 중지 하는 방법에 대해 알아보려면 [Azure 파일 공유에 대 한 보호 중지](./manage-afs-backup.md#stop-protection-on-a-file-share) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

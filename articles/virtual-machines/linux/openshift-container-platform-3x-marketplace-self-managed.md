@@ -10,15 +10,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08d32e4b7806ec53f48389b127ab34371271cf07
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759581"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527237"
 ---
 # <a name="configure-prerequisites"></a>필수 조건 구성
 
-Marketplace 제품을 사용 하 여 Azure에서 자체 관리 되는 OpenShift 컨테이너 플랫폼 3.11 클러스터를 배포 하기 전에 몇 가지 필수 구성 요소를 구성 해야 합니다.  Ssh 키 (암호 제외), Azure key vault, key vault 암호 및 서비스 주체를 만드는 방법에 대 한 자세한 내용은 [Openshift 필수 조건](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) 문서를 참조 하세요.
+Marketplace 제품을 사용 하 여 Azure에서 자체 관리 되는 OpenShift 컨테이너 플랫폼 3.11 클러스터를 배포 하기 전에 몇 가지 필수 구성 요소를 구성 해야 합니다.  Ssh 키 (암호 제외), Azure key vault, key vault 암호 및 서비스 주체를 만드는 방법에 대 한 자세한 내용은 [Openshift 필수 조건](./openshift-container-platform-3x-prerequisites.md) 문서를 참조 하세요.
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Marketplace 제품을 사용 하 여 배포
@@ -62,7 +63,7 @@ Azure Portal 왼쪽 위에서 **리소스 만들기**를 클릭 하 고 검색 �
 |-----------------------|-----------------|
 | VM 관리 사용자 이름 | 모든 VM 인스턴스에서 만들 관리자 사용자 |
 | 관리 사용자에 대 한 SSH 공개 키 | VM에 로그인 하는 데 사용 되는 SSH 공개 키-암호가 없어야 합니다. |
-| Subscription | 클러스터를 배포할 Azure 구독 |
+| 구독 | 클러스터를 배포할 Azure 구독 |
 | 리소스 그룹 | 새 리소스 그룹을 만들거나 클러스터 리소스에 대 한 기존 빈 리소스 그룹을 선택 합니다. |
 | 위치 | 클러스터를 배포할 Azure 지역 |
 

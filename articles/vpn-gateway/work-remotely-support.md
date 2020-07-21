@@ -2,16 +2,17 @@
 title: 'P2S를 사용 하 여 원격 작업: Azure VPN Gateway'
 description: 이 페이지에서는 VPN Gateway를 활용 하 여 COVID-19 전염병로 인해 원격 작업을 사용 하도록 설정 하는 방법을 설명 합니다.
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: alzam
-ms.openlocfilehash: 2d07a13c654f30e48c37d2e8d3e801166e26f4f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302706b67900bd0dd82aabfa750bba48918b134a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80886588"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525367"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Azure VPN Gateway 지점 및 사이트 간 원격 작업
 

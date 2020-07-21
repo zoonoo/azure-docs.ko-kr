@@ -7,13 +7,14 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514960"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527883"
 ---
-# <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 파일 스토리지를 사용하여 데이터 전송 
+# <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 File Storage를 사용하여 데이터 전송 
 
 AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는 파일을 복사하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에는 Azure Files를 사용 하는 예제 명령이 포함 되어 있습니다.
 
@@ -117,7 +118,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 #### <a name="use-wildcard-characters"></a>와일드 카드 문자 사용
 
-옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-pattern` . 와일드 카드 문자를 포함 하는 부분 이름을 지정 합니다. Semicolin ()를 사용 하 여 이름을 구분 `;` 합니다.
+옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-pattern` . 와일드 카드 문자를 포함 하는 부분 이름을 지정 합니다. 세미콜론 ()을 사용 하 여 이름을 구분 `;` 합니다.
 
 |    |     |
 |--------|-----------|
@@ -188,7 +189,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 #### <a name="specify-multiple-complete-file-names"></a>전체 파일 이름을 여러 개 지정
 
-옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-path` . Semicolin ()를 사용 하 여 개별 파일 이름을 구분 `;` 합니다.
+옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-path` . 세미콜론 ()을 사용 하 여 개별 파일 이름을 구분 `;` 합니다.
 
 |    |     |
 |--------|-----------|
@@ -201,7 +202,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 #### <a name="use-wildcard-characters"></a>와일드 카드 문자 사용
 
-옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-pattern` . 와일드 카드 문자를 포함 하는 부분 이름을 지정 합니다. Semicolin ()를 사용 하 여 이름을 구분 `;` 합니다.
+옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-pattern` . 와일드 카드 문자를 포함 하는 부분 이름을 지정 합니다. 세미콜론 ()을 사용 하 여 이름을 구분 `;` 합니다.
 
 |    |     |
 |--------|-----------|

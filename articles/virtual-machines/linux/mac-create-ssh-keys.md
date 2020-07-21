@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c57e370cf2f43fc5636cc6c70d2a9bdce4a1923
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: df02378e638e9883d802318eba86dbfb066cd6cb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141741"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527293"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>빠른 단계: Azure에서 Linux VM용 SSH퍼블릭-프라이빗 키 쌍 만들기 및 사용
 
@@ -95,4 +96,4 @@ VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권�
 
 * SSH 키 쌍 작업에 대한 자세한 정보는 [SSH 키 쌍을 만들고 관리하는 자세한 단계](create-ssh-keys-detailed.md)를 참조하세요.
 
-* Azure VM에 SSH를 연결하는 데 어려움이 있으면 [Azure Linux VM에 SSH 연결 문제 해결](troubleshoot-ssh-connection.md)을 참조하세요.
+* Azure VM에 SSH를 연결하는 데 어려움이 있으면 [Azure Linux VM에 SSH 연결 문제 해결](../troubleshooting/troubleshoot-ssh-connection.md)을 참조하세요.

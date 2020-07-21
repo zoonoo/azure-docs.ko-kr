@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: becbf7f89266fb0f56aaa053eb7cba9291da6896
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514105"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527866"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 암호 변경
 
@@ -36,25 +36,25 @@ Windows PowerShell 인터페이스를 사용하여 StorSimple 디바이스에 �
 
 2. 디바이스를 나열하는 테이블에서 해당 암호를 변경하려는 디바이스를 클릭합니다.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+    ![StorSimple Device Manager 서비스를 보여 주는 스크린샷 관리 아래에서 장치를 선택 합니다. 장치 목록에서 장치 하나를 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. **설정** 블레이드에서 **디바이스 설정 &gt; 보안**으로 이동합니다.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+    ![Device Manager 서비스의 설정 블레이드를 보여 주는 스크린샷 장치 설정에서 보안을 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. **보안 설정** 블레이드에서 **암호**를 클릭하여 디바이스 관리자 암호를 변경합니다.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd3.png)
+    ![보안 설정 블레이드를 보여 주는 스크린샷 암호 단추가 강조 표시 됩니다.](./media/storsimple-8000-change-passwords/changepwd3.png)
 
 5. **암호** 블레이드에서 8자에서 15자를 포함하는 관리자 암호를 입력합니다. 암호는 대문자, 소문자, 숫자 및 특수 문자 중 3가지 이상의 조합이어야 합니다.
 
 6. 암호를 확인합니다.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd4.png)
+    ![암호 블레이드를 보여 주는 스크린샷 장치 관리자 암호에서 새 암호 및 암호 확인 상자가 채워집니다.](./media/storsimple-8000-change-passwords/changepwd4.png)
 
 7. **저장**을 클릭하고 확인하라는 메시지가 표시되면 **예**를 클릭합니다.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+    ![암호 블레이드를 보여 주는 스크린샷 저장 단추가 강조 표시 됩니다.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 이제 디바이스 관리자 암호를 업데이트해야 합니다. 이 수정된 암호를 사용하여 Windows PowerShell 인터페이스에 액세스할 수 있습니다.
 
@@ -70,25 +70,25 @@ Azure Portal을 통해 StorSimple Snapshot Manager에 대한 암호를 설정하
 
 2. 디바이스를 나열하는 테이블에서 해당 StorSimple Snapshot Manager 암호를 설정하거나 변경하려는 디바이스를 클릭하여 선택합니다.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+     ![StorSimple Device Manager 서비스를 보여 주는 스크린샷 관리 아래에서 장치를 선택 합니다. 장치 목록에서 장치 하나를 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. **설정** 블레이드에서 **디바이스 설정 &gt; 보안**으로 이동합니다.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+     ![Device Manager 서비스의 설정 블레이드를 보여 주는 스크린샷 장치 설정에서 보안을 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. **보안 설정** 블레이드에서 **암호**를 클릭하여 StorSimple Snapshot Manager 암호를 설정하거나 변경합니다.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd3.png) 
+     ![보안 설정 블레이드를 보여 주는 스크린샷 암호 단추가 강조 표시 됩니다.](./media/storsimple-8000-change-passwords/changepwd3.png) 
 
 5. **암호** 블레이드에서 14자 또는 15자인 암호를 입력합니다. 암호에 대문자, 소문자, 숫자 및 특수 문자 중 3가지 이상의 조합이 포함되어 있는지 확인합니다.
 
 6. 암호를 확인합니다.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd5.png)
+     ![암호 블레이드를 보여 주는 스크린샷 Snapshot Manager 암호에서 새 암호 및 암호 확인 상자가 채워집니다.](./media/storsimple-8000-change-passwords/changepwd5.png)
 
 7. **저장**을 클릭하고 확인하라는 메시지가 표시되면 **예**를 클릭합니다.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+     ![암호 블레이드를 보여 주는 스크린샷 저장 단추가 강조 표시 됩니다.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 이제 StorSimple 스냅샷 관리자 암호가 업데이트됩니다.
 

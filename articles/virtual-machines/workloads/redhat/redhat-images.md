@@ -1,5 +1,5 @@
 ---
-title: Azure의 Red Hat Enterprise Linux 이미지 | Microsoft Docs
+title: Azure의 Red Hat Enterprise Linux 이미지 개요
 description: Microsoft Azure Red Hat Enterprise Linux 이미지에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de7ead8acd059d957673b2f063dd3d330cf473f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80239869"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525503"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 
@@ -26,7 +26,7 @@ ms.locfileid: "80239869"
 모든 버전의 RHEL에 대 한 Red Hat 지원 정책에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조 하세요. 가격 책정에 대 한 자세한 내용은 [Azure 가격 계산기](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조 하세요.
 
 >[!IMPORTANT]
-> 현재 Azure Marketplace에서 사용할 수 있는 RHEL 이미지는 BYOS (사용자 고유의 구독) 또는 종 량 제 라이선스 모델을 지원 합니다. [Azure 하이브리드 사용 혜택](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) 및 byos와 종 량 제 라이선스 간의 동적 전환은 지원 되지 않습니다. 라이선스 모드를 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
+> 현재 Azure Marketplace에서 사용할 수 있는 RHEL 이미지는 BYOS (사용자 고유의 구독) 또는 종 량 제 라이선스 모델을 지원 합니다. [Azure 하이브리드 사용 혜택](../../windows/hybrid-use-benefit-licensing.md) 및 byos와 종 량 제 라이선스 간의 동적 전환은 지원 되지 않습니다. 라이선스 모드를 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
 
 >[!NOTE]
 > Azure Marketplace의 RHEL 이미지와 관련 된 모든 문제에 대해 Microsoft에 지원 티켓을 제출 합니다.
@@ -64,14 +64,14 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> 일반적으로 최신을 결정하는 버전의 비교는 [CompareTo 메서드](https://msdn.microsoft.com/library/a5ts8tb6.aspx)의 규칙을 따릅니다.
-이 이미지 버전 비교는 문자열이 아닌 [버전](https://docs.microsoft.com/dotnet/api/system.version.-ctor?view=netframework-4.8) 개체로 값을 비교 하 여 수행 됩니다.
+> 일반적으로 최신을 결정하는 버전의 비교는 [CompareTo 메서드](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_)의 규칙을 따릅니다.
+이 이미지 버전 비교는 문자열이 아닌 [버전](/dotnet/api/system.version.-ctor?view=netframework-4.8) 개체로 값을 비교 하 여 수행 됩니다.
 
 ## <a name="rhel-6-image-types"></a>RHEL 6 이미지 형식
 
 RHEL .x 이미지의 경우 이미지 형식은 다음 표에 나와 있습니다.
 
-|게시자 | 제안 | SKU 값 | 버전 | 설명
+|게시자 | 제안 | SKU 값 | 버전 | 세부 정보
 |----------|-------|-----------|---------|--------
 |RedHat | RHEL | 부 버전 (예: 6.9) | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 6.9.2018010506) | 모든 표준 RHEL .x 이미지는이 규칙을 따릅니다.
 |RedHat | rhel-byos | rhel-raw69 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 6.9.20181023) | 이 이미지는 RHEL 6.9 BYOS 이미지입니다.
@@ -85,7 +85,7 @@ RHEL 7.x 이미지의 경우 몇 가지 다른 이미지 유형이 있습니다.
 >[!NOTE]
 > 달리 지정 되지 않은 경우 모든 이미지는 LVM으로 분할 되 고 일반 RHEL 리포지토리에 연결 됩니다. 즉, 리포지토리가 EUS (연장 업데이트 지원) 되지 않으며 SAP 용 업데이트 서비스 (E4S)가 아닙니다. 앞으로는 LVM 분할 이미지만 게시로 전환 하지만이 결정에 대 한 피드백을 공개 합니다. SAP 용 확장 업데이트 지원 및 업데이트 서비스에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조 하세요.
 
-|게시자 | 제안 | SKU 값 | 버전 | 설명
+|게시자 | 제안 | SKU 값 | 버전 | 세부 정보
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 부 버전 (예: 7.6) | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019102813) | 4 월 2019 일 전에 게시 된 이미지는 표준 RHEL 리포지토리에 연결 됩니다. 4 월 2019 일 이후에 게시 된 이미지는 Red Hat의 EUS 리포지토리에 연결 되어 특정 부 버전의 버전 잠금을 허용 합니다. 일반 리포지토리를 사용 하려는 고객은 SKU 값에 7LVM 또는 7-RAW가 포함 된 이미지를 사용 해야 합니다 (자세한 내용은 참조). RHEL 7.7 이상 이미지는 LVM 분할 된 이미지입니다. 이 범주의 다른 모든 이미지는 원시 분할 됩니다.
 |RedHat | RHEL | 7-RAW | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019102813) | 이러한 이미지는 원시 분할 됩니다 (예: 논리적 볼륨이 추가 되지 않음).
@@ -102,10 +102,10 @@ RHEL 7.x 이미지의 경우 몇 가지 다른 이미지 유형이 있습니다.
 
 RHEL 8 이미지 형식에 대 한 세부 정보는 아래와 같습니다.
 
-|게시자 | 제안 | SKU 값 | 버전 | 설명
+|게시자 | 제안 | SKU 값 | 버전 | 세부 정보
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191023) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 RHEL 8 LVM 분할 이미지입니다.
-|RedHat | RHEL | 8-gen2 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191024) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 Hyper-v 세대 2 RHEL 8 LVM 분할 이미지입니다. Azure의 2 세대 Vm에 대 한 자세한 내용은 [azure의 2 세대 vm에 대 한 지원](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)을 참조 하세요.
+|RedHat | RHEL | 8-gen2 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191024) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 Hyper-v 세대 2 RHEL 8 LVM 분할 이미지입니다. Azure의 2 세대 Vm에 대 한 자세한 내용은 [azure의 2 세대 vm에 대 한 지원](../../linux/generation-2.md)을 참조 하세요.
 
 ## <a name="rhel-longer-support-add-ons"></a>RHEL 더 이상 추가 기능을 지원 합니다.
 
@@ -147,7 +147,7 @@ RedHat:RHEL:7.6:7.6.2019102813
 RHEL 7.4      |RedHat: RHEL: 7.4:7.4.2019041718 | 4 월 2019 일에 게시 된 이미지는 기본적으로 EUS입니다.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | 6 월 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
 RHEL 7.6      |RedHat: RHEL: 7.6:7.6.2019052206 | 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
-RHEL 8.0      |해당 없음                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
+RHEL 8.0      |N/A                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
 
 ### <a name="update-services-for-sap"></a>SAP 용 업데이트 서비스
 

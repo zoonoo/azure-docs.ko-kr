@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱 세션 호스트 문제 해결-Azure
+title: Windows 가상 데스크톱 세션 호스트 수준 2019 문제 해결-Azure
 description: Windows 가상 데스크톱 세션 호스트 가상 컴퓨터를 구성할 때 발생 하는 문제를 해결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362512"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527662"
 ---
-# <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
+# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>세션 호스트 가상 컴퓨터 구성 문제 해결
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-vm-configuration.md)를 참조하세요.
