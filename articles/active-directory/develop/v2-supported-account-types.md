@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583096"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518133"
 ---
 # <a name="supported-account-types"></a>지원되는 계정 유형
 
@@ -45,7 +45,6 @@ Microsoft Azure 공용 클라우드에서, 대부분의 앱 유형은 사용자�
 - 디먼 응용 프로그램은 Azure AD 조직 에서만 사용할 수 있습니다. Microsoft 개인 계정을 조작 하기 위해 디먼 응용 프로그램을 사용 하는 것은 의미가 없습니다. 관리자 동의가 부여 되지 않습니다.
 - Windows 통합 인증 흐름은 회사 또는 학교 계정 (조직 또는 조직) 에서만 사용할 수 있습니다. Windows 통합 인증은 도메인 계정과 함께 작동 하며 도메인에 가입 되어 있거나 Azure AD에 가입 되어 있어야 합니다. 이 흐름은 개인 Microsoft 계정에는 적합 하지 않습니다.
 - 개인 Microsoft 계정에는 [리소스 소유자 암호 자격 증명 부여](./v2-oauth-ropc.md) (사용자 이름/암호)를 사용할 수 없습니다. 개인 Microsoft 계정을 사용 하려면 각 로그인 세션에서 개인 리소스에 액세스 하는 사용자가 동의 해야 합니다. 이러한 이유로이 동작은 비 대화형 흐름과 호환 되지 않습니다.
-- 장치 코드 흐름은 개인 Microsoft 계정에서 작동 하지 않습니다.
 
 ## <a name="account-types-in-national-clouds"></a>국가별 클라우드의 계정 유형
 

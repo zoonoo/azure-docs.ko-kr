@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868834"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518277"
 ---
 # <a name="protected-web-api-app-registration"></a>보호 된 웹 API: 앱 등록
 
@@ -28,15 +29,15 @@ ms.locfileid: "81868834"
 
 Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 있습니다. 이러한 토큰에 대 한 자세한 내용은 [액세스 토큰](access-tokens.md)을 참조 하세요.
 
-허용 되는 토큰 버전은 응용 프로그램을 만들 때 선택 하는 **지원 되는 계정 유형** 값에 따라 달라 집니다.
+API가 수락할 수 있는 토큰 버전은 Azure Portal에서 web API 응용 프로그램 등록을 만들 때 **지원 되는 계정 유형** 선택에 따라 달라 집니다.
 
-- **지원 되는 계정 유형** 값이 **조직 디렉터리 및 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)의 계정인**경우 수락 된 토큰 버전은 v2.0입니다.
-- 그렇지 않은 경우 허용 되는 토큰 버전은 v 1.0입니다.
+- **지원 되는 계정 유형** 값이 **조직 디렉터리 및 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)의 계정인**경우 수락 된 토큰 버전은 v 2.0 이어야 합니다.
+- 그렇지 않은 경우 허용 되는 토큰 버전은 v 1.0이 될 수 있습니다.
 
 응용 프로그램을 만든 후 다음 단계를 수행 하 여 허용 된 토큰 버전을 확인 하거나 변경할 수 있습니다.
 
 1. Azure Portal에서 앱을 선택한 다음 **매니페스트**를 선택 합니다.
-1. 매니페스트에서 **accessTokenAcceptedVersion** 속성을 찾습니다. 속성의 기본값은 2입니다.
+1. 매니페스트에서 **accessTokenAcceptedVersion** 속성을 찾습니다.
 1. 값은 웹 API에서 허용 하는 토큰 버전을 Azure Active Directory (Azure AD)로 지정 합니다.
     - 값이 2 이면 web API는 v2.0 토큰을 허용 합니다.
     - 값이 **null**이면 web API는 v1.0 토큰을 허용 합니다.
@@ -51,7 +52,7 @@ Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 �
 
 ## <a name="exposed-api"></a>노출 된 API
 
-웹 Api에만 적용 되는 다른 설정에는 노출 된 API 및 노출 된 범위가 있습니다.
+웹 Api와 관련 된 다른 설정은 노출 된 API 및 노출 된 범위 또는 앱 역할입니다.
 
 ### <a name="application-id-uri-and-scopes"></a>응용 프로그램 ID URI 및 범위
 
@@ -63,7 +64,7 @@ Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 �
 - 하나 이상의 범위
 - 하나 이상의 앱 역할
 
-기본적으로 응용 프로그램 등록 포털에서는 리소스 URI를 사용 하는 것이 좋습니다 `api://{clientId}` . 이 URI는 고유 하지만 사람이 읽을 수는 없습니다. URI를 변경 하는 경우 새 값이 고유한 지 확인 합니다.
+기본적으로 응용 프로그램 등록 포털에서는 리소스 URI를 사용 하는 것이 좋습니다 `api://{clientId}` . 이 URI는 고유 하지만 사람이 읽을 수는 없습니다. URI를 변경 하는 경우 새 값이 고유한 지 확인 합니다. 응용 프로그램 등록 포털에서 [구성 된 게시자 도메인](howto-configure-publisher-domain.md) 을 사용 하는지 확인 합니다.
 
 클라이언트 응용 프로그램에 대 한 범위는 *위임 된 권한* 으로 표시 되 고 앱 역할은 웹 API에 대 한 *응용 프로그램 권한* 으로 표시 됩니다.
 
@@ -71,6 +72,8 @@ Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 �
 
 - 사용자에 게 표시 됩니다.
 - 테 넌 트 관리자에 게 표시 되는 대로 관리자 동의를 허용할 수 있습니다.
+
+앱 역할은 사용자가 동의한 수 없습니다 (자체 대신 웹 API를 호출 하는 응용 프로그램에서 사용 됨). 테 넌 트 관리자가 앱 역할을 노출 하는 웹 API의 클라이언트 응용 프로그램에 동의 해야 합니다. 자세한 내용은 [관리자 동의](v2-admin-consent.md) (영문)를 참조 하세요.
 
 ### <a name="exposing-delegated-permissions-scopes"></a>위임 된 권한 (범위) 노출
 

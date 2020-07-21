@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9d60836af350e9af99355db9a7cc140a949d1492
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337944"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516467"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
@@ -19,7 +19,7 @@ AKS (Azure Kubernetes Service) 클러스터의 컨테이너에 대 한 Azure Mon
 
 - Kubernetes RBAC 권한 부여를 사용하도록 설정되지 않은 AKS
 - Kubernetes RBAC 권한 부여를 사용하도록 설정된 AKS
-    - 클러스터 역할 바인딩 ClusterMonitoringUser를 사용 하 여 구성 된 AKS ** [clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - 클러스터 역할 바인딩 ClusterMonitoringUser를 사용 하 여 구성 된 AKS ** [clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
 - AD (Azure Active Directory) SAML 기반 single sign-on을 사용 하는 AKS
 
 이러한 지침을 사용 하려면 Kubernetes 클러스터에 대 한 관리 권한이 필요 하 고, 사용자 인증에 AD (Azure Active Directory)를 사용 하도록 구성 하는 경우 Azure AD에 대 한 관리 액세스 권한이 필요 합니다.
@@ -108,7 +108,7 @@ Azure Portal에서 권한 부여 페이지를 신뢰할 수 있는 리디렉션 
 Kubernetes의 고급 보안 설정에 대 한 자세한 내용은 [Kubernetes 설명서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)를 참조 하세요.
 
 >[!NOTE]
->새 RBAC 지원 클러스터를 만드는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/azure-ad-integration.md) 을 참조 하 고 단계에 따라 azure AD 인증을 구성 합니다. 클라이언트 응용 프로그램을 만드는 단계에서 해당 섹션의 참고 사항에는 아래 3 단계에서 지정 된 것과 일치 하는 컨테이너에 대 한 Azure Monitor 하기 위해 만들어야 하는 두 개의 리디렉션 Url이 강조 표시 되어 있습니다.
+>새 RBAC 지원 클러스터를 만드는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/azure-ad-integration-cli.md) 을 참조 하 고 단계에 따라 azure AD 인증을 구성 합니다. 클라이언트 응용 프로그램을 만드는 단계에서 해당 섹션의 참고 사항에는 아래 3 단계에서 지정 된 것과 일치 하는 컨테이너에 대 한 Azure Monitor 하기 위해 만들어야 하는 두 개의 리디렉션 Url이 강조 표시 되어 있습니다.
 
 ### <a name="client-registration-reconfiguration"></a>클라이언트 등록 재구성
 

@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5350e728ad9c30a6e9258ce9c7615baf020473a8
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6f1eae9cc067f8aa10ad49d70dfe0393f4bed6c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995125"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518422"
 ---
 # <a name="conditional-access-block-access-by-location"></a>조건부 액세스: 위치별 액세스 차단
 
@@ -42,22 +43,20 @@ ms.locfileid: "83995125"
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자**를 선택합니다.
-   1. **완료**를 선택합니다.
-1. **클라우드 앱 또는 작업** > **포함**에서 **모든 클라우드 앱**을 선택하고 **완료**를 선택합니다.
+1. **클라우드 앱 또는 작업**아래  >  에를**포함**하 고 **모든 클라우드 앱**을 선택 합니다.
 1. **조건** > **위치**에서 다음을 수행합니다.
    1. **구성**을 **예**로 설정합니다.
-   1. **포함**에서 **선택한 위치**를 선택합니다.
+   1. **포함**아래에서 **선택한 위치** 를 선택 합니다.
    1. 조직에 대해 만든 차단된 위치를 선택합니다.
-   1. **선택** > **완료** > **완료**를 클릭합니다.
-1. **조건**  > **클라이언트 앱(미리 보기)** 에서 **구성**을 **예**로 설정하고 **완료**를 선택합니다.
-1. **액세스 제어** > **차단**에서 **선택**을 선택합니다.
+   1. **선택**을 클릭합니다.
+1. **액세스 제어** 에서 **액세스 차단**> 선택 하 고 **선택**을 선택 합니다.
 1. 설정을 확인하고 **정책 사용**을 **켜기**로 설정합니다.
-1. **만들기**를 선택하여 정책을 만들어 사용하도록 설정합니다.
+1. **만들기** 를 선택 하 여 조건부 액세스 정책을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-report-only.md)
+[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-report-only.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)

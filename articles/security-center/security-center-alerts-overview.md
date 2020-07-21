@@ -8,20 +8,20 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: b639b382e69be30c2f04471e0a253ef5d7c7b4e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125773"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519610"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
 Azure Security Center에는 다양한 리소스 유형에 대한 광범위한 경고가 있습니다. Security Center는 Azure에 배포된 리소스와, 온-프레미스 및 하이브리드 클라우드 환경에 배포된 리소스에 대해 경고를 생성합니다.
 
-보안 경고는 고급 검색으로 트리거되며 Azure Security Center의 표준 계층에서만 제공됩니다. 평가판을 사용할 수 있습니다. [보안 정책](security-center-pricing.md)의 가격 책정 계층 선택에서 업그레이드할 수 있습니다. 가격 책정에 대한 자세한 내용은 [보안 센터 페이지](https://azure.microsoft.com/pricing/details/security-center/) 를 방문하세요.
+보안 경고는 고급 검색에 의해 트리거되고 Azure Security Center 표준 계층 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. **가격 책정 & 설정** 페이지에서 업그레이드할 수 있습니다. [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 대해 자세히 알아보세요.
 
 ## <a name="responding-to-todays-threats"></a>오늘날의 위협에 대처<a name="respond-threats"> </a>
 

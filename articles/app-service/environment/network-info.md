@@ -4,15 +4,15 @@ description: Ase 네트워크 트래픽 및 ASE를 사용 하 여 네트워크 �
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/29/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80477678"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517856"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -53,7 +53,7 @@ ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 
 
 Ase가 작동 하려면 ASE가 다음 포트를 열어야 합니다.
 
-| Windows Server Update Services와 함께 | 시작 | 대상 |
+| Windows Server Update Services와 함께 | 보낸 사람 | 수행할 작업 |
 |-----|------|----|
 | 관리 | App Service 관리 주소 | ASE 서브넷: 454, 455 |
 |  ASE 내부 통신 | ASE 서브넷: 모든 포트 | ASE 서브넷: 모든 포트
@@ -153,18 +153,20 @@ NSG는 Azure Portal 또는 PowerShell을 통해 구성할 수 있습니다. 이 
 ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 하는 것입니다.
 
 **인바운드**
-* 포트 454455의 IP 서비스 태그 AppServiceManagement에서
-* 16001 포트의 부하 분산 장치에서
+* 포트 454455에 대 한 IP 서비스 태그 AppServiceManagement TCP
+* 포트 16001의 부하 분산 장치에서 TCP
 * ASE 서브넷에서 모든 포트의 ASE 서브넷으로
 
 **아웃바운드**
-* 포트 123의 모든 Ip로
-* 포트 80, 443의 모든 Ip로
-* 포트 1433에서 IP 서비스 태그 AzureSQL
-* 포트 12000의 모든 Ip로
+* 포트 123의 모든 Ip에 대 한 UDP
+* 포트 80, 443의 모든 Ip에서 TCP로
+* 포트 1433에서 IP 서비스 태그 AzureSQL TCP
+* 포트 12000의 모든 Ip에서 TCP로
 * 모든 포트에서 ASE 서브넷으로
 
-Dns에 대 한 트래픽이 NSG 규칙의 영향을 받지 않으므로 DNS 포트를 추가할 필요가 없습니다. 이러한 포트에는 앱이 성공적으로 사용 하기 위해 필요한 포트가 포함 되지 않습니다. 기본 앱 액세스 포트는 다음과 같습니다.
+이러한 포트에는 앱이 성공적으로 사용 하기 위해 필요한 포트가 포함 되지 않습니다. 예를 들어 dns에 대 한 트래픽이 NSG 규칙의 영향을 받지 않으므로 앱이 포트 53 3306에서 MySQL 서버를 호출 해야 할 수 있습니다. 포트 123의 NTP (Network Time Protocol)는 운영 체제에서 사용 하는 시간 동기화 프로토콜입니다. NTP 끝점은 App Services 특정 하지 않으며 운영 체제에 따라 다를 수 있으며 잘 정의 된 주소 목록에 포함 되지 않습니다. 시간 동기화 문제를 방지 하려면 포트 123의 모든 주소에 대 한 UDP 트래픽을 허용 해야 합니다. 아웃 바운드 TCP에서 포트 12000 트래픽은 시스템 지원 및 분석을 위한 것입니다. 끝점이 동적 이며 잘 정의 된 주소 집합에 없습니다.
+
+기본 앱 액세스 포트는 다음과 같습니다.
 
 | Windows Server Update Services와 함께 | 포트 |
 |----------|-------------|

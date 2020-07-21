@@ -4,16 +4,17 @@ description: 클래식 경고는 더 이상 사용되지 않습니다. 경고를
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d120550d17dcac7410a259e131ad81feb0afdf9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114493"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515957"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
 > [!NOTE]
-> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](../../azure-monitor/platform/alerts-overview.md)지원 합니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)됩니다. 
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](../../azure-monitor/platform/alerts-overview.md)지원 합니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](./monitoring-classic-retirement.md)됩니다. 
 >
 
 경고를 통해 데이터에 대한 조건을 구성하고 최신 모니터링 데이터가 조건에 일치하면 알림을 받을 수 있습니다.
@@ -88,7 +89,7 @@ Webhook는 다음 예시 항목을 사용하여 자동화 및 조치를 활성�
 * [Azure Portal을 통해 클래식 메트릭 경고](alerts-classic-portal.md) 구성
 * [클래식 메트릭 경고 PowerShell](alerts-classic-portal.md) 구성
 * [클래식 메트릭 경고 CLI(명령줄 인터페이스)](alerts-classic-portal.md) 구성
-* [클래식 메트릭 경고 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx) 구성
+* [클래식 메트릭 경고 Azure Monitor REST API](/rest/api/monitor/alertrules) 구성
 * [활동 로그](platform-logs-overview.md) 에 대 한 자세한 정보
 * [Azure Portal을 통해 활동 로그 경고](activity-log-alerts.md) 구성
 * [Resource Manager를 통해 활동 로그 경고](alerts-activity-log.md) 구성

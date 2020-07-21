@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a76ed65ebc1c56232d4fa42c6df20f619fe14ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229536"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517062"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>JavaScript 웹 앱에 대 한 SDK 로드 오류 문제 해결
 
@@ -63,7 +63,7 @@ NPM 패키지 솔루션을 통해 SDK를 사용 하는 경우에도 마찬가지
 
 [NPM 패키지](#use-npm-packages-to-embed-the-application-insight-sdk) 를 사용 하 여 Application Insights SDK를 포함할 수도 있습니다.
 
-일시적인 네트워크 연결 오류를 최소화 하기 위해 모든 CDN 파일에 Cache-control 헤더를 구현 했습니다. 그러면 최종 사용자의 브라우저에서 현재 버전의 SDK를 다운로드 한 후에는 다시 다운로드할 필요가 없으며 브라우저에서 이전에 가져온 복사본을 다시 사용 하 게 됩니다 ( [캐싱이 작동 하는 방법](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works)참조). 캐싱 확인이 실패 하거나 새 릴리스가 있는 경우 최종 사용자의 브라우저에서 업데이트 된 버전을 다운로드 해야 합니다. 따라서 확인 실패 시나리오에서 _"노이즈"_ 의 배경 수준이 표시 되거나 새 릴리스가 발생 하 고 일반 공급 (CDN에 배포) 될 때 임시 스파이크가 발생할 수 있습니다.
+일시적인 네트워크 연결 오류를 최소화 하기 위해 모든 CDN 파일에 Cache-control 헤더를 구현 했습니다. 그러면 최종 사용자의 브라우저에서 현재 버전의 SDK를 다운로드 한 후에는 다시 다운로드할 필요가 없으며 브라우저에서 이전에 가져온 복사본을 다시 사용 하 게 됩니다 ( [캐싱이 작동 하는 방법](../../cdn/cdn-how-caching-works.md)참조). 캐싱 확인이 실패 하거나 새 릴리스가 있는 경우 최종 사용자의 브라우저에서 업데이트 된 버전을 다운로드 해야 합니다. 따라서 확인 실패 시나리오에서 _"노이즈"_ 의 배경 수준이 표시 되거나 새 릴리스가 발생 하 고 일반 공급 (CDN에 배포) 될 때 임시 스파이크가 발생할 수 있습니다.
  
 ## <a name="application-insights-cdn-outage"></a>Application Insights CDN 중단
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: yelevin
-ms.openlocfilehash: d76f8e2d750b8ab2d82e9424f929d8b8353ac25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816445"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519016"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
 
@@ -34,7 +34,7 @@ Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. 
 | 주권 및 규정 준수 | 작업 영역은 특정 영역에 연결 됩니다. 규정 요구 사항을 충족 하기 위해 데이터를 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/) 에 유지 해야 하는 경우 별도의 작업 영역으로 분할 해야 합니다. |  |
 | 데이터 소유권 | 자회사 또는 관련 회사 등의 데이터 소유권 경계는 개별 작업 영역을 사용 하 여 더 잘 구분 됩니다. |  |
 | 여러 Azure 테 넌 트 | Azure 센티널은 자체 Azure Active Directory (Azure AD) 테 넌 트 경계 내 에서만 Microsoft 및 Azure SaaS 리소스의 데이터 수집을 지원 합니다. 따라서 각 Azure AD 테 넌 트는 별도의 작업 영역이 필요 합니다. |  |
-| 세부적인 데이터 액세스 제어 | 조직에서 조직의 내부 또는 외부에 있는 다른 그룹을 허용 하 여 Azure 센티널에서 수집 된 데이터에 액세스 해야 할 수 있습니다. 예를 들어:<br><ul><li>리소스 소유자의 리소스에 관련 된 데이터 액세스</li><li>지역 또는 자회사 Soc ' 조직의 부분과 관련 된 데이터에 대 한 액세스</li></ul> | [리소스 rbac](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) 또는 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 사용 |
+| 세부적인 데이터 액세스 제어 | 조직에서 조직의 내부 또는 외부에 있는 다른 그룹을 허용 하 여 Azure 센티널에서 수집 된 데이터에 액세스 해야 할 수 있습니다. 예를 들면 다음과 같습니다.<br><ul><li>리소스 소유자의 리소스에 관련 된 데이터 액세스</li><li>지역 또는 자회사 Soc ' 조직의 부분과 관련 된 데이터에 대 한 액세스</li></ul> | [리소스 rbac](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) 또는 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 사용 |
 | 세분화 된 보존 설정 | 지금까지 여러 작업 영역이 여러 데이터 형식에 대해 서로 다른 보존 기간을 설정 하는 유일한 방법 이었습니다. 이는 테이블 수준 보존 설정의 도입으로 인해 더 이상 필요 하지 않습니다. | [테이블 수준 보존 설정](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) 사용 또는 [데이터 삭제](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) 자동화 |
 | 분할 청구 | 별도의 구독에 작업 영역을 배치 하면 다른 당사자에 게 요금이 청구 될 수 있습니다. | 사용 보고 및 교차 요금 |
 | 레거시 아키텍처 | 여러 작업 영역을 사용 하는 것은 더 이상 적용 되지 않는 제한 사항 또는 모범 사례를 고려 하는 과거 디자인에서 기인 합니다. 또한 Azure 센티널에 맞게 수정할 수 있는 임의 디자인 선택이 될 수 있습니다.<br><br>다음은 이러한 템플릿의 예입니다.<br><ul><li>Azure Security Center 배포할 때 구독 당 기본 작업 영역 사용</li><li>비교적 새로운 솔루션에 대 한 세분화 된 액세스 제어 또는 보존 설정의 필요성</li></ul> | 작업 영역 다시 설계 |
@@ -110,6 +110,12 @@ Azure 센티널은 단일 쿼리에서 [여러 작업 영역](../azure-monitor/l
 | 대화형으로 통합 문서 편집 | 기존 통합 문서를 수정 하는 고급 사용자는 편집기에서 작업 영역 선택기를 사용 하 여 대상 작업 영역을 선택 하는 쿼리를 편집할 수 있습니다. | 이 옵션을 사용 하면 고급 사용자가 여러 작업 영역에서 작업 하도록 기존 통합 문서를 쉽게 수정할 수 있습니다. |
 |
 
+### <a name="cross-workspace-hunting"></a>작업 영역 간 구하기
+
+Azure 센티널은 사용자를 시작 하기 위해 설계 된 미리 로드 된 쿼리 샘플을 제공 하 고 테이블 및 쿼리 언어에 대해 알아봅니다. 이러한 기본 제공 검색 쿼리는 새 쿼리를 추가 하 고 기존 쿼리를 세부적으로 조정 하는 것과 같은 방식으로 Microsoft 보안 연구원 들에 의해 개발 됩니다. 진입점을 제공 하 여 새 검색을 찾고 보안 도구에서 감지 하지 못할 수 있는 침입의 징후를 식별할 수 있습니다.  
+
+작업 영역 간 구하기 기능을 사용 하면 위에 표시 된 것 처럼 union 연산자와 workspace () 식을 사용 하 여 새로운 구하기 쿼리를 만들거나 기존 요소를 적용 하 여 여러 작업 영역을 처리할 수 있습니다.
+
 ## <a name="cross-workspace-management-using-automation"></a>자동화를 사용 하 여 작업 영역 간 관리
 
 여러 Azure 센티널 작업 영역을 구성 하 고 관리 하려면 Azure 센티널 관리 API의 사용을 자동화 해야 합니다. 경고 규칙, 구하기 쿼리, 통합 문서 및 플레이 북을 비롯 한 Azure 센티널 리소스의 배포를 자동화 하는 방법에 대 한 자세한 내용은 [Azure 센티널 확장: api, 통합 및 관리 자동화](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885)를 참조 하세요.
@@ -122,8 +128,6 @@ Azure 센티널을 코드로 배포 하 고 관리 하 고 개인 GitHub 리포�
 다음 기능은 작업 영역에서 지원 되지 않습니다.
 
 - 예약 된 경고 규칙은 작업 영역 간 쿼리를 사용 하 여 작업 영역에서 실행할 수 없습니다.
-
-- 구하기 쿼리는 작업 영역 간 쿼리를 지원 하지 않습니다.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Azure Lighthouse를 사용 하 여 테 넌 트 간 작업 영역 관리
 

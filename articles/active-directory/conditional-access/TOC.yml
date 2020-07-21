@@ -47,8 +47,6 @@
       href: controls.md
     - name: 클래식 정책 마이그레이션
       href: policy-migration.md
-    - name: 기준 보호 정책
-      href: concept-baseline-protection.md
 - name: 방법 가이드
   expanded: true
   items:

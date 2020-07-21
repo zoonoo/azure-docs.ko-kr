@@ -3,15 +3,19 @@ title: Application Insights를 사용하여 SharePoint 사이트 모니터링
 description: 새 계측 키를 사용하여 새 애플리케이션 모니터링 시작
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a545a24b5a9af883200f25cc83486e3c5621bd78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221054"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516892"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Application Insights를 사용하여 SharePoint 사이트 모니터링
+
 Azure Application Insights는 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다. 여기에서는 SharePoint 사이트에 맞게 설정하는 방법을 알아봅니다.
+
+> [!NOTE]
+> 보안 문제로 인해이 문서에 설명 된 스크립트를 SharePoint 최신 UX의 웹 페이지에 직접 추가할 수 없습니다. 또는 sharepoint [Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) 를 사용 하 여 sharepoint 사이트에 Application Insights를 설치 하는 데 사용할 수 있는 사용자 지정 확장 프로그램을 빌드할 수 있습니다. 자세히 알아보려면 [AppInsights를 처음부터 설치 하 여 SPFx 확장 솔루션을 만드는 방법](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) 또는 [샘플 보기](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample)를 참조 하세요. 
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 [Azure Portal](https://portal.azure.com)에서 새 Application Insights 리소스를 만듭니다. 애플리케이션 유형으로 ASP.NET을 선택합니다.
@@ -137,5 +141,3 @@ function onRequestFail(sender, args) {
 * 다른 유형의 앱에 대한[Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 <!--Link references-->
-
-

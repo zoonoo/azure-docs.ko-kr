@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82024883"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519357"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -32,7 +33,7 @@ Azure Security Center은 선택한 정책에 따라 보안 권장 사항을 적�
 
 Security Center은 보안 정책을 사용 하기 위한 다음과 같은 옵션을 제공 합니다.
 
-* 기본 **제공 기본 정책 보기 및 편집** -Security Center를 사용 하도록 설정 하면 ' ASC default ' 라는 기본 제공 이니셔티브를 모든 Security Center 등록 된 구독 (무료 또는 표준 계층)에 자동으로 할당 합니다. 이 이니셔티브를 사용자 지정 하려면 내부에서 개별 정책을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [기본 제공 보안 정책](security-center-policy-definitions.md) 목록을 참조 하 여 기본적으로 제공 되는 옵션을 이해 합니다.
+* 기본 **제공 기본 정책 보기 및 편집** -Security Center를 사용 하도록 설정 하면 ' ASC default ' 라는 기본 제공 이니셔티브가 등록 된 모든 Security Center 구독 (무료 또는 표준 가격 책정 계층)에 자동으로 할당 됩니다. 이 이니셔티브를 사용자 지정 하려면 내부에서 개별 정책을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [기본 제공 보안 정책](security-center-policy-definitions.md) 목록을 참조 하 여 기본적으로 제공 되는 옵션을 이해 합니다.
 
 * **사용자 고유의 사용자 지정 정책 추가** -구독에 적용 되는 보안 이니셔티브를 사용자 지정 하려는 경우 Security Center 내에서 수행할 수 있습니다. 그러면 컴퓨터가 만든 정책을 따르지 않는 경우 권장 사항을 받게 됩니다. 사용자 지정 정책 빌드 및 할당에 대 한 지침은 [사용자 지정 보안 정책 사용](custom-security-policies.md)을 참조 하세요.
 
@@ -85,14 +86,18 @@ Security Center에서 보안 정책을 보려면
 
 REST API를 통해 또는 Windows PowerShell을 사용하여 Azure Policy 포털을 통해 보안 정책을 편집할 수 있습니다.
 
-Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공하는 RBAC(역할 기반 액세스 제어)를 사용합니다. 사용자가 Security Center를 열면 액세스 권한이 있는 리소스와 관련된 정보만 표시됩니다. 즉, 사용자에 게 리소스 구독에 대 한 *소유자*, *참가자*또는 *읽기 권한자* 역할이 할당 됩니다. 이러한 역할에는 두 가지 특정 Security Center 역할이 있습니다.
+Security Center는 Azure 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공 하는 RBAC (역할 기반 Access Control)를 사용 합니다. 사용자가 Security Center 열면 액세스할 수 있는 리소스와 관련 된 정보만 표시 됩니다. 즉, 사용자에 게 리소스 구독에 대 한 *소유자*, *참가자*또는 *읽기 권한자* 역할이 할당 됩니다. 또한 두 가지 특정 Security Center 역할이 있습니다.
 
-- **보안 읽기 권한자**: 권장 사항, 경고, 정책 및 상태를 포함 하는 Security Center에 대 한 보기 권한이 있지만 변경할 수 없습니다.
-- **보안 관리자**: *보안 읽기 권한자*와 동일한 보기 권한을 가지 며 보안 정책을 업데이트 하 고 권장 사항 및 경고를 해제할 수도 있습니다.
+- **보안 읽기 권한자**: 권장 사항, 경고, 정책 및 상태와 같은 Security Center 항목을 볼 수 있는 권한을 가집니다. 변경할 수 없습니다.
+- **보안 관리자**: *보안 판독기*와 동일한 보기 권한을 가집니다. 보안 정책을 업데이트 하 고 경고를 해제할 수도 있습니다.
 
 
-## <a name="disable-security-policies"></a>보안 정책 사용 안 함
-기본 보안 정책에서 사용자 환경과 관련이 없는 권장 사항을 생성 하는 경우 권장 사항을 보내는 정책 정의를 사용 하지 않도록 설정 하 여 중지할 수 있습니다.
+## <a name="disable-security-policies-and-disable-recommendations"></a>보안 정책 사용 안 함 및 권장 구성 사용 안 함
+
+보안 이니셔티브 환경에 적합 하지 않은 권장 사항을 트리거하는 경우 해당 권장 구성이 다시 표시 되지 않도록 할 수 있습니다. 권장 사항을 사용 하지 않도록 설정 하려면 권장 구성을 생성 하는 특정 정책을 사용 하지 않도록 설정 합니다.
+
+사용 하지 않도록 설정할 권장 사항은 Security Center의 규정 준수 도구를 사용 하 여 적용 한 규정 표준에 필요한 경우에도 표시 됩니다. 기본 제공 이니셔티브에서 정책을 사용 하지 않도록 설정한 경우에도 규정 표준 이니셔티브의 정책은 규정 준수에 필요한 경우 계속 해 서 권장 사항을 트리거합니다. 규제 표준 이니셔티브에서 정책을 사용 하지 않도록 설정할 수 없습니다.
+
 권장 사항에 대 한 자세한 내용은 [보안 권장 사항 관리](security-center-recommendations.md)를 참조 하세요.
 
 1. Security Center의 **정책 & 준수** 섹션에서 **보안 정책**을 선택 합니다.
@@ -124,7 +129,7 @@ Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 보안 정책에 대해 알아보았습니다. 관련 정보는 다음 문서를 참조 하세요.
+이 문서에서는 보안 정책에 대해 설명 했습니다. 관련 정보는 다음 문서를 참조 하세요.
 
 * PowerShell을 사용 하 여 정책을 설정 하는 방법에 대 한 지침은 [빠른 시작: Azure PowerShell 모듈을 사용 하 여 비호환 리소스를 식별 하는 정책 할당 만들기를](../governance/policy/assign-policy-powershell.md) 참조 하세요.
 

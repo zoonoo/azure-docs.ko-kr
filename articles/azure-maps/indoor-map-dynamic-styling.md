@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8c854a503e3c949be0165d9dda046e0169686c67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434147"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517300"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Creator 실내 지도를 위한 동적 스타일 구현
 
@@ -20,7 +21,7 @@ Azure Maps Creator [기능 상태 서비스](https://docs.microsoft.com/rest/api
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-1. [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 3. [Creator 리소스 만들기](how-to-manage-creator.md)
 4. [샘플 그리기 패키지](https://github.com/Azure-Samples/am-creator-indoor-data-examples)를 다운로드합니다.

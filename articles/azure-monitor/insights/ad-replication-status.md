@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055894"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516790"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링
 
@@ -26,7 +26,7 @@ AD 복제 상태 솔루션은 복제 오류에 대 한 Active Directory 환경�
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 준비 사항
 
 * AD 복제 상태 솔루션에는 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)가 설치 된 각 컴퓨터에 지원 되는 버전의 .NET Framework 4.6.2 이상이 설치 되어 있어야 합니다.  이 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.
 * 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.
@@ -62,7 +62,7 @@ Azure Monitor에 도메인 컨트롤러를 직접 연결하지 않으려는 경�
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-AD 복제 상태 타일에는 현재 발생한 복제 오류 수가 표시됩니다. **중요 복제 오류**는 Active Directory 포리스트에 대한 [삭제 표식 수명](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx)의 75% 이상인 오류입니다.
+AD 복제 상태 타일에는 현재 발생한 복제 오류 수가 표시됩니다. **중요 복제 오류**는 Active Directory 포리스트에 대한 [삭제 표식 수명](/previous-versions/windows/it-pro/windows-server-2003/cc784932(v=ws.10))의 75% 이상인 오류입니다.
 
 ![AD 복제 상태 타일](./media/ad-replication-status/oms-ad-replication-tile.png)
 

@@ -3,12 +3,12 @@ title: Azure Pipelines 및 Azure 애플리케이션 Insights를 사용 하 여 D
 description: Application Insights를 사용 하 여 연속 모니터링을 신속 하 게 설정 하는 지침을 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652762"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517130"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>릴리스 파이프라인에 연속 모니터링 추가
 
@@ -101,4 +101,4 @@ az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Pipelines에 대 한 자세한 내용은 [Azure Pipelines 설명서](https://docs.microsoft.com/azure/devops/pipelines)를 참조 하세요.
+Azure Pipelines에 대 한 자세한 내용은 [Azure Pipelines 설명서](/azure/devops/pipelines)를 참조 하세요.

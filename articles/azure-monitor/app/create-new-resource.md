@@ -3,11 +3,12 @@ title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb47453140c7659ca2f5e6da2e40d9d78405f8e7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200686"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517096"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -31,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    | **리소스 모드** | `Classic` 또는 `Workspace-based` | 작업 영역 기반 리소스는 현재 공개 미리 보기로 제공 되며 Application Insights 원격 분석을 일반적인 Log Analytics 작업 영역으로 보낼 수 있습니다. 자세한 내용은 [작업 영역 기반 리소스에](create-workspace-resource.md)대 한 문서를 참조 하세요.
 
 > [!NOTE]
-> 서로 다른 리소스 그룹에서 동일한 리소스 이름을 사용할 수 있지만 전역적으로 고유한 이름을 사용 하는 것이 유용할 수 있습니다. 이는 필요한 구문을 간소화 하므로 [리소스 간 쿼리를 수행할](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) 계획인 경우에 유용할 수 있습니다.
+> 서로 다른 리소스 그룹에서 동일한 리소스 이름을 사용할 수 있지만 전역적으로 고유한 이름을 사용 하는 것이 유용할 수 있습니다. 이는 필요한 구문을 간소화 하므로 [리소스 간 쿼리를 수행할](../log-query/cross-workspace-query.md#identifying-an-application) 계획인 경우에 유용할 수 있습니다.
 
 필요한 필드에 적절 한 값을 입력 한 다음 **검토 + 만들기**를 선택 합니다.
 
@@ -92,7 +93,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-이 cmdlet에 대 한 전체 PowerShell 설명서 및 계측 키를 검색 하는 방법을 알아보려면 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0)를 참조 하세요.
+이 cmdlet에 대 한 전체 PowerShell 설명서 및 계측 키를 검색 하는 방법을 알아보려면 [Azure PowerShell 설명서](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0)를 참조 하세요.
 
 ### <a name="azure-cli-preview"></a>Azure CLI (미리 보기)
 
@@ -149,12 +150,12 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-이 명령에 대 한 전체 Azure CLI 설명서 및 계측 키를 검색 하는 방법에 대 한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)를 참조 하세요.
+이 명령에 대 한 전체 Azure CLI 설명서 및 계측 키를 검색 하는 방법에 대 한 자세한 내용은 [Azure CLI 설명서](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [진단 검색](../../azure-monitor/app/diagnostic-search.md)
 * [메트릭 탐색](../../azure-monitor/platform/metrics-charts.md)
-* [분석 쿼리 작성](../../azure-monitor/app/analytics.md)
+* [분석 쿼리 작성](../log-query/log-query-overview.md)
 
 <!--Link references-->
 

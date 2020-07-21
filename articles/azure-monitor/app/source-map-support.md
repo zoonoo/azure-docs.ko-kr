@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60653a43046276592878b3af91242e7e1b4ecd71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249740"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516705"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>JavaScript 응용 프로그램에 대 한 소스 맵 지원
 
@@ -22,7 +23,7 @@ Application Insights는 사용자 고유의 저장소 계정 Blob 컨테이너�
 
 기존 저장소 계정 또는 blob 컨테이너가 이미 있는 경우이 단계를 건너뛸 수 있습니다.
 
-1. [새 스토리지 계정 만들기][create storage account]
+1. [새 저장소 계정 만들기][create storage account]
 2. 저장소 계정 내에 [blob 컨테이너를 만듭니다][create blob container] . 원본 맵에 공개적으로 액세스할 수 없도록 하려면 "공용 액세스 수준"을로 설정 해야 `Private` 합니다.
 
 > [!div class="mx-imgBorder"]
@@ -81,13 +82,13 @@ Application Insights 리소스에 연결 된 저장소 계정 또는 Blob 컨테
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 파일 복사 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Azure 파일 복사 작업](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 
 
 <!-- Remote URLs -->
-[create storage account]: https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal
-[create blob container]: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal
-[storage blob data reader]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader
+[create storage account]: ../../storage/common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal
+[create blob container]: ../../storage/blobs/storage-quickstart-blobs-portal.md
+[storage blob data reader]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-reader
 [ApplicationInsights-JS]: https://github.com/microsoft/applicationinsights-js
 [ApplicationInsights-Node.js]: https://github.com/microsoft/applicationinsights-node.js
 [azure file copy]: https://aka.ms/azurefilecopyreadme

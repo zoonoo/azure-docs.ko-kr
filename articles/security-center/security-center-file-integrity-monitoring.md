@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628284"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519340"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
@@ -45,7 +46,7 @@ Security Center의 파일 무결성 모니터링은 Windows 파일, Windows 레�
 Security Center에서는 모니터링할 엔터티를 권장하며 FIM을 쉽게 사용할 수 있습니다. 사용자 고유의 FIM 정책 또는 모니터링할 엔터티를 정의할 수도 있습니다. 이 연습에서는 방법을 보여 줍니다.
 
 > [!NOTE]
-> FIM(파일 무결성 모니터링) 기능은 Windows/Linux 컴퓨터 및 VM에서 작동하며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
+> FIM (파일 무결성 모니터링) 기능은 Windows 및 Linux 컴퓨터 및 Vm에 대해 작동 하며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
 
 FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용 하도록 설정 하면 **솔루션**형식 **변경 내용 추적** 리소스가 있습니다. 데이터 수집 빈도에 대한 자세한 내용은 Azure 변경 내용 추적의 [변경 내용 추적 데이터 수집 세부 정보](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details)를 참조하세요.
 
@@ -107,7 +108,7 @@ Security Center는 알려진 공격 패턴을 기준으로 모니터링할 권�
 또한 작업 영역에 대해 표시될 수 있는 단추는 다음과 같습니다.
 
 - ![사용 아이콘:][3] 작업 영역에 대해 FIM을 사용할 수 없음을 나타냅니다. 작업 영역을 선택하면 작업 영역 아래의 모든 컴퓨터에서 FIM을 사용하도록 설정할 수 있습니다.
-- ![업그레이드 계획 아이콘][4]: Security Center의 표준 계층에서 작업 영역 또는 구독이 실행되고 있지 않음을 나타냅니다. FIM 기능을 사용하려면 구독에서 표준을 실행해야 합니다.  작업 영역을 선택하면 표준으로 업그레이드할 수 있습니다. 표준 계층 및 업그레이드하는 방법에 대한 자세한 내용은 [보안 강화를 위한 Security Center의 표준 계층으로 업그레이드](security-center-pricing.md)를 참조하세요.
+- ![업그레이드 계획 아이콘 ][4] 은 작업 영역 또는 구독이 Security Center의 표준 계층에서 실행 되 고 있지 않음을 나타냅니다. FIM 기능을 사용하려면 구독에서 표준을 실행해야 합니다.  작업 영역을 선택하면 표준으로 업그레이드할 수 있습니다. 표준 계층 및 업그레이드 방법에 대 한 자세한 내용은 [보안 강화를 위해 Security Center의 표준 계층으로 업그레이드](security-center-pricing.md)를 참조 하세요.
 - 공백(단추 없음)은 이미 작업 영역에서 FIM을 사용할 수 있음을 나타냅니다.
 
 **파일 무결성 모니터링** 아래에서 작업 영역을 선택하여 해당 작업 영역에 대해 FIM을 사용하도록 설정하거나, 해당 작업 영역에 대한 파일 무결성 모니터링 대시보드를 보거나, 작업 영역을 표준으로 [업그레이드](security-center-pricing.md)할 수 있습니다.

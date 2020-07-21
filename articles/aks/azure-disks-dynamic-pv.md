@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Azure Kubernetes 서비스 (AKS)에서 Azure 디스크로 영구적 볼륨을 동적으로 만드는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: 0e7bc057d756215b1aa155f0e227c75c99c8737c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751348"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518014"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -31,14 +31,14 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 
 스토리지 클래스를 사용하여 영구적 볼륨에서 스토리지 단위를 동적으로 생성되는 방법을 정의합니다. Kubernetes 스토리지 클래스에 대한 자세한 내용은 [Kubernetes 스토리지 클래스][kubernetes-storage-classes]를 참조하세요.
 
-모든 AKS 클러스터에는 Azure 디스크에서 작동하도록 구성된 2개의 미리 만들어진 스토리지 클래스가 포함되어 있습니다.
+각 AKS 클러스터에는 Azure 디스크와 함께 작동 하도록 구성 된 4 개의 미리 생성 된 저장소 클래스가 포함 됩니다.
 
-* *default* 스토리지 클래스는 표준 Azure 디스크를 프로비전합니다.
-    * Standard storage는 Hdd에서 지원 되며 비용 효율적인 저장소를 제공 하 고 있습니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크 로드에 적합 합니다.
+* *기본* 저장소 클래스는 표준 SSD Azure 디스크를 프로 비전 합니다.
+    * Standard storage는 표준 Ssd에서 지원 되며 안정적인 성능을 제공 하면서도 비용 효율적인 저장소를 제공 합니다. 
 * *managed-premium* 스토리지 클래스는 프리미엄 Azure 디스크를 프로비전합니다.
     * 프리미엄 디스크는 SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. 클러스터의 AKS 노드가 Premium Storage를 사용하는 경우 *managed-premium* 클래스를 선택합니다.
     
-기본 저장소 클래스 중 하나를 사용 하는 경우 저장소 클래스를 만든 후에는 볼륨 크기를 업데이트할 수 없습니다. 저장소 클래스를 만든 후 볼륨 크기를 업데이트 하려면 `allowVolumeExpansion: true` 기본 저장소 클래스 중 하나에 줄을 추가 하거나 사용자 지정 저장소 클래스를 직접 만들 수 있습니다. 명령을 사용 하 여 기존 저장소 클래스를 편집할 수 있습니다 `kubectl edit sc` . 
+기본 저장소 클래스 중 하나를 사용 하는 경우 저장소 클래스를 만든 후에는 볼륨 크기를 업데이트할 수 없습니다. 저장소 클래스를 만든 후 볼륨 크기를 업데이트 하려면 `allowVolumeExpansion: true` 기본 저장소 클래스 중 하나에 줄을 추가 하거나 사용자 지정 저장소 클래스를 직접 만들 수 있습니다. 데이터 손실을 방지 하기 위해 PVC의 크기를 줄이는 것은 지원 되지 않습니다. 명령을 사용 하 여 기존 저장소 클래스를 편집할 수 있습니다 `kubectl edit sc` . 
 
 예를 들어 크기가 4 TiB 디스크를 사용 하려는 경우 디스크 `cachingmode: None` [캐싱이 4 TiB 이상 디스크에 대해 지원 되지](../virtual-machines/windows/premium-storage-performance.md#disk-caching)않기 때문에을 정의 하는 저장소 클래스를 만들어야 합니다.
 
@@ -151,6 +151,9 @@ Events:
   Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
 [...]
 ```
+
+## <a name="use-ultra-disks"></a>Ultra Disks 사용
+Ultra disk를 활용 하려면 [Azure Kubernetes 서비스 (AKS)에서 Ultra Disks 사용](use-ultra-disks.md)을 참조 하세요.
 
 ## <a name="back-up-a-persistent-volume"></a>영구적 볼륨 백업
 
@@ -284,3 +287,11 @@ Azure 디스크를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

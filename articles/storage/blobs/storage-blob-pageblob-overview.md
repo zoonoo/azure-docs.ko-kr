@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223298"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518710"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
@@ -33,6 +33,10 @@ Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 
 * 애플리케이션 지향 증분 스냅샷 관리: 애플리케이션은 페이지 Blob 스냅샷 및 REST API를 활용하여 데이터의 비용이 중복되지 않게 애플리케이션 검사점을 저장할 수 있습니다. Azure Storage는 전체 Blob을 복사할 필요가 없는 페이지 Blob에 대한 로컬 스냅샷을 지원합니다. 또한 이러한 공용 스냅샷 API를 사용하면 스냅샷 간 델타 액세스 및 복사가 가능합니다.
 * 온-프레미스에서 클라우드로 응용 프로그램 및 데이터 실시간 마이그레이션: 온-프레미스 데이터를 복사 하 고 REST Api를 사용 하 여 온-프레미스 VM이 계속 실행 되는 동안 Azure 페이지 blob에 직접 쓸 수 있습니다. 대상을 따라잡으면 해당 데이터를 사용하여 신속하게 Azure VM에 장애 조치(failover)할 수 있습니다. 이렇게 하면 VM을 계속 사용 하면서 데이터 마이그레이션이 백그라운드에서 수행 되 고 장애 조치 (failover)에 필요한 가동 중지 시간이 짧은 시간 (분) 이므로, 이러한 방식으로 온-프레미스에서 클라우드로 Vm 및 가상 디스크를 마이그레이션할 수 있습니다.
 * [SAS 기반](../common/storage-sas-overview.md) 공유 액세스: 동시성 제어를 지원하는 다중 판독기 및 단일 작성기와 같은 시나리오를 사용할 수 있습니다.
+
+## <a name="pricing"></a>가격 책정
+
+페이지 blob과 함께 제공 되는 두 가지 저장소 유형 모두에는 고유한 가격 책정 모델이 있습니다. 프리미엄 페이지 blob은 managed disks 가격 책정 모델을 따르고, 표준 페이지 blob은 사용 된 크기와 각 트랜잭션에 대해 요금이 청구 됩니다. 자세한 내용은 [Azure 페이지 blob 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/page-blobs/)를 참조 하세요.
 
 ## <a name="page-blob-features"></a>페이지 Blob 기능
 

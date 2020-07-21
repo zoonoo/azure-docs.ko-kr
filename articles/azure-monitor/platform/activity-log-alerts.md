@@ -4,12 +4,12 @@ description: 활동 로그에서 특정 이벤트가 발생하면 SMS, 웹후크
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137708"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516127"
 ---
 # <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고
 
@@ -25,11 +25,11 @@ ms.locfileid: "82137708"
 * Azure 구독의 리소스에서 특정 작업이 발생하는 경우. 특정 리소스 그룹 또는 리소스로 범위를 지정하기도 합니다. 예를 들어 myProductionResourceGroup에서 가상 머신이 삭제되는 경우 알림을 받도록 할 수 있습니다. 또는 새 규칙이 사용자 구독의 사용자에 할당되는 경우 알림을 받도록 할 수도 있습니다.
 * 서비스 상태 이벤트가 발생하는 경우. 서비스 상태 이벤트가 구독에서 리소스에 적용되는 인시던트 및 유지 관리 이벤트의 알림을 포함합니다.
 
-활동 로그에서 경고 규칙을 만들 수 있는 조건을 이해 하는 간단한 비유는 [Azure Portal 활동 로그](activity-log-view.md#azure-portal)를 통해 이벤트를 탐색 하거나 필터링 하는 것입니다. Azure Monitor 활동 로그에서 필요한 이벤트를 필터링 하거나 찾은 다음 **활동 로그 경고 추가** 단추를 사용 하 여 경고를 만들 수 있습니다.
+활동 로그에서 경고 규칙을 만들 수 있는 조건을 이해 하는 간단한 비유는 [Azure Portal 활동 로그](./activity-log.md#view-the-activity-log)를 통해 이벤트를 탐색 하거나 필터링 하는 것입니다. Azure Monitor 활동 로그에서 필요한 이벤트를 필터링 하거나 찾은 다음 **활동 로그 경고 추가** 단추를 사용 하 여 경고를 만들 수 있습니다.
 
 두 경우 모두 활동 로그 경고는 경고가 생성되는 구독의 이벤트만 모니터링합니다.
 
-활동 로그 이벤트에 대한 JSON 개체의 모든 최상위 속성에 따라 활동 로그 경고를 구성할 수 있습니다. 자세한 내용은 [활동 로그의 범주](activity-log-view.md#categories-in-the-activity-log)를 참조 하세요. 서비스 상태 이벤트에 대한 자세한 내용은 [서비스 알림에서 활동 로그 경고 수신](alerts-activity-log-service-notifications.md)을 참조하세요. 
+활동 로그 이벤트에 대한 JSON 개체의 모든 최상위 속성에 따라 활동 로그 경고를 구성할 수 있습니다. 자세한 내용은 [활동 로그의 범주](./activity-log.md#view-the-activity-log)를 참조 하세요. 서비스 상태 이벤트에 대한 자세한 내용은 [서비스 알림에서 활동 로그 경고 수신](../../service-health/alerts-activity-log-service-notifications-portal.md)을 참조하세요. 
 
 활동 로그 경고에는 다음과 같은 몇 가지 공통 옵션이 있습니다.
 
@@ -61,4 +61,4 @@ ms.locfileid: "82137708"
 - [경고에 대 한 개요](alerts-overview.md)를 가져옵니다.
 - [활동 로그 경고 만들기 및 수정](alerts-activity-log.md)에 관해 알아보세요.
 - [활동 로그 경고 webhook 스키마](activity-log-alerts-webhook.md)를 검토 합니다.
-- [서비스 상태 알림](service-notifications.md)에 대해 자세히 알아보세요.
+- [서비스 상태 알림](../../service-health/service-notifications.md)에 대해 자세히 알아보세요.

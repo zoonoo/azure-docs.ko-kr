@@ -3,14 +3,15 @@ title: Azure Portal에서 작업 그룹 만들기 및 관리
 description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 6/5/2020
+ms.date: 07/15/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e88d51e014244892fc3ac9e2cca242dacdfd9997
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465255"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516178"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -69,7 +70,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 ## <a name="action-specific-information"></a>작업별 정보
 
 > [!NOTE]
-> 아래의 각 항목에 대한 숫자 제한은 [모니터링에 대한 구독 서비스 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits)을 참조하세요.  
+> 아래의 각 항목에 대한 숫자 제한은 [모니터링에 대한 구독 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits)을 참조하세요.  
 
 ### <a name="automation-runbook"></a>자동화 Runbook
 Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
@@ -106,21 +107,21 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-moni
 작업 그룹에서 논리 앱 작업의 수가 제한될 수 있습니다.
 
 ### <a name="secure-webhook"></a>보안 웹후크
-작업 그룹 웹후크 작업을 사용하면 Azure Active Directory를 활용하여 작업 그룹과 보호된 웹 API(웹후크 엔드포인트) 간의 연결을 보호할 수 있습니다. 이 기능을 활용하기 위한 전체 워크플로는 아래에 설명되어 있습니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)를 참조하세요.
+작업 그룹 웹후크 작업을 사용하면 Azure Active Directory를 활용하여 작업 그룹과 보호된 웹 API(웹후크 엔드포인트) 간의 연결을 보호할 수 있습니다. 이 기능을 활용하기 위한 전체 워크플로는 아래에 설명되어 있습니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](../../active-directory/develop/v2-overview.md)를 참조하세요.
 
-1. 보호된 웹 API에 대한 Azure AD 애플리케이션을 만듭니다. https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview 을 참조하세요.
-    - 디먼 앱에서 호출하도록 보호된 API를 구성합니다.
+1. 보호된 웹 API에 대한 Azure AD 애플리케이션을 만듭니다. [보호 된 웹 API: 앱 등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration)을 참조 하세요.
+    - [디먼 앱에서 호출](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app)하도록 보호 된 API를 구성 합니다.
     
-1. Azure AD 애플리케이션을 사용하도록 작업 그룹을 설정합니다.
+2. Azure AD 애플리케이션을 사용하도록 작업 그룹을 설정합니다.
 
     > [!NOTE]
-    > 이 스크립트를 실행하려면 [Azure AD 애플리케이션 관리자 역할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles)의 멤버여야 합니다.
+    > 이 스크립트를 실행하려면 [Azure AD 애플리케이션 관리자 역할](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles)의 멤버여야 합니다.
     
     - PowerShell 스크립트의 Connect-AzureAD 호출을 수정하여 Azure AD 테넌트 ID를 사용합니다.
     - PowerShell 스크립트의 변수 $myAzureADApplicationObjectId 수정 하 여 Azure AD 응용 프로그램의 개체 ID를 사용 합니다.
     - 수정된 스크립트를 실행합니다.
     
-1. 작업 그룹 보안 웹후크 작업을 구성합니다.
+3. 작업 그룹 보안 웹후크 작업을 구성합니다.
     - 스크립트에서 $myApp.ObjectId 값을 복사하여 웹후크 작업 정의의 애플리케이션 개체 ID 필드에 입력합니다.
     
     ![보안 웹후크 작업](./media/action-groups/action-groups-secure-webhook.png)
@@ -252,4 +253,4 @@ Write-Host $myApp.AppRoles
 * [ITSM 커넥터](../../azure-monitor/platform/itsmc-overview.md)에 대해 자세히 알아보세요.
 * 경고의 [속도 제한](../../azure-monitor/platform/alerts-rate-limiting.md)에 대해 자세히 알아보세요.
 * [활동 로그 경고의 개요](../../azure-monitor/platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
-* [서비스 상태 알림이 게시될 때마다 경고를 구성](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)하는 방법을 알아보세요.
+* [서비스 상태 알림이 게시될 때마다 경고를 구성](../../service-health/alerts-activity-log-service-notifications-portal.md)하는 방법을 알아보세요.

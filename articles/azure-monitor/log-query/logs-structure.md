@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196280"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516195"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 로그의 구조
 [로그 쿼리](log-query-overview.md)를 사용하여 데이터에 대한 인사이트를 신속하게 파악할 수 있는 기능은 Azure Monitor의 강력한 기능입니다. 효율적이고 유용한 쿼리를 만들려면 원하는 데이터의 위치 및 구조와 같은 몇 가지 기본 개념을 이해해야 합니다. 이 문서에는 시작하는 데 필요한 기본 개념이 제공됩니다.
@@ -28,7 +29,7 @@ Azure Monitor 로그의 데이터는 Log Analytics 작업 영역 또는 Applicat
 ![테이블](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
-Application Insights를 제외한 Azure Monitor 로그를 통해 수집된 모든 데이터는 [Log Analytics 작업 영역](../platform/manage-access.md)에 저장됩니다. 특정 요구 사항에 따라 하나 이상의 작업 영역을 만들 수 있습니다. Azure 리소스의 활동 로그 및 리소스 로그, 가상 머신의 에이전트, 인사이트 및 모니터링 솔루션의 데이터와 같은 [데이터 소스](../platform/data-sources.md)는 온보딩의 일환으로 구성한 하나 이상의 작업 영역에 데이터를 씁니다. [Azure Security Center](/azure/security-center/) 및 [Azure Sentinel](/azure/sentinel/)과 같은 다른 서비스도 Log Analytics 작업 영역을 사용하여 데이터를 저장하기 때문에 다른 소스의 모니터링 데이터와 함께 로그 쿼리를 사용하여 데이터를 분석할 수 있습니다.
+Application Insights를 제외한 Azure Monitor 로그를 통해 수집된 모든 데이터는 [Log Analytics 작업 영역](../platform/manage-access.md)에 저장됩니다. 특정 요구 사항에 따라 하나 이상의 작업 영역을 만들 수 있습니다. Azure 리소스의 활동 로그 및 리소스 로그, 가상 머신의 에이전트, 인사이트 및 모니터링 솔루션의 데이터와 같은 [데이터 소스](../platform/data-sources.md)는 온보딩의 일환으로 구성한 하나 이상의 작업 영역에 데이터를 씁니다. [Azure Security Center](../../security-center/index.yml) 및 [Azure Sentinel](../../sentinel/index.yml)과 같은 다른 서비스도 Log Analytics 작업 영역을 사용하여 데이터를 저장하기 때문에 다른 소스의 모니터링 데이터와 함께 로그 쿼리를 사용하여 데이터를 분석할 수 있습니다.
 
 서로 다른 종류의 데이터가 작업 영역의 서로 다른 테이블에 저장되며 각 테이블에는 고유한 속성 세트가 있습니다. 표준 테이블 세트는 만들어질 때 작업 영역에 추가되고, 다양한 데이터 소스, 솔루션 및 서비스가 온보딩될 때 새로운 테이블이 추가됩니다. [데이터 수집기 API](../platform/data-collector-api.md)를 사용하여 사용자 지정 테이블을 만들 수도 있습니다.
 
@@ -44,7 +45,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-생성되는 테이블에 대한 자세한 내용은 각 데이터 소스의 설명서를 참조하세요. [에이전트 데이터 소스](../platform/agent-data-sources.md), [리소스 로그](../platform/diagnostic-logs-schema.md) 및 [모니터링 솔루션](../insights/solutions-inventory.md)에 대한 문서가 예에 포함되어 있습니다.
+생성되는 테이블에 대한 자세한 내용은 각 데이터 소스의 설명서를 참조하세요. [에이전트 데이터 소스](../platform/agent-data-sources.md), [리소스 로그](../platform/resource-logs-schema.md) 및 [모니터링 솔루션](../monitor-reference.md)에 대한 문서가 예에 포함되어 있습니다.
 
 ### <a name="workspace-permissions"></a>작업 영역 권한
 작업 영역의 데이터에 대한 액세스를 제공하는 액세스 제어 전략 및 권장 사항을 이해하려면 [Azure Monitor 로그 배포 디자인](../platform/design-logs-deployment.md)을 참조하세요. 작업 영역 자체에 대한 액세스 권한을 부여하는 것 외에 [테이블 수준 RBAC](../platform/manage-access.md#table-level-rbac)를 사용하여 개별 테이블에 대한 액세스를 제한할 수 있습니다.
@@ -87,5 +88,5 @@ Azure Monitor 로그의 각 테이블에는 자체 스키마가 있지만 모든
 | _BilledSize   |            | 청구되는 데이터의 크기(바이트)를 지정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-- [Log Analytics를 사용하여 로그 검색을 만들고 편집](../log-query/portals.md)하는 방법을 알아봅니다.
+- [Log Analytics를 사용하여 로그 검색을 만들고 편집](./log-query-overview.md)하는 방법을 알아봅니다.
 - 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](../log-query/get-started-queries.md)를 확인해 보세요.

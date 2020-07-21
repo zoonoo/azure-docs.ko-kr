@@ -3,12 +3,12 @@ title: ServiceNow를 사용 하 여 Azure 서비스 상태 경고 보내기
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 ServiceNow 인스턴스로 가져옵니다.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 96c181991fc962b08e777a55d891b881fc1bdba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260212"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519076"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>웹 후크를 사용 하 여 ServiceNow로 Azure 서비스 상태 경고 보내기
 
@@ -147,7 +147,7 @@ ms.locfileid: "86260212"
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Azure Portal에서 ServiceNow를 사용하여 경고 만들기
 ### <a name="for-a-new-action-group"></a>새 작업 그룹의 경우:
-1. [이 문서](../azure-monitor/platform/alerts-activity-log-service-notifications.md)의 1~8단계를 수행하여 새 작업 그룹으로 경고를 만듭니다.
+1. [이 문서](./alerts-activity-log-service-notifications-portal.md)의 1~8단계를 수행하여 새 작업 그룹으로 경고를 만듭니다.
 
 1. **작업** 목록에서 다음을 정의합니다.
 
@@ -155,7 +155,7 @@ ms.locfileid: "86260212"
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -172,7 +172,7 @@ ms.locfileid: "86260212"
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 
@@ -195,5 +195,5 @@ ms.locfileid: "86260212"
 ## <a name="next-steps"></a>다음 단계
 - [기존 문제 관리 시스템에 대 한 webhook 알림을 구성](service-health-alert-webhook-guide.md)하는 방법을 알아봅니다.
 - [활동 로그 경고 webhook 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토 합니다. 
-- [서비스 상태 알림](../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
+- [서비스 상태 알림](./service-notifications.md)에 대해 자세히 알아보세요.
 - [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.

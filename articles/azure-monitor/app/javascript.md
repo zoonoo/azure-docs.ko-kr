@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: f198e4aac08039eb7aed8468e6adb45b5b0d67b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b3d489477a0ee0cc201d4383b5ed960de515c7d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464575"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517113"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -103,7 +104,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 사용 가능한 구성 옵션은 
 
-| 이름 | Type | 설명
+| Name | Type | 설명
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가 된 스크립트/태그의 "src" 특성에 사용 됩니다 &lt; &gt; . 공용 CDN 위치나 개인적으로 호스트 된 항목을 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화 된 SDK의 전역 이름이 며 기본값은 appInsights입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
@@ -114,7 +115,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
 
-기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 내용은 다음과 같습니다.
+기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 특수 Azure 지역은 다음과 같습니다.
 
 - 에 대 한 정보를 포함 하 여 앱의 Catch 되지 않은 **예외**
     - 스택 추적
@@ -152,7 +153,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuration
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. 을 제외한 모든 필드는 선택 사항 `instrumentationKey` 입니다.
 
-| 이름 | 기본값 | Description |
+| Name | 기본값 | Description |
 |------|---------|-------------|
 | instrumentationKey | null | **필수**<br>Azure Portal에서 가져온 계측 키입니다. |
 | accountId | null | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. |
@@ -185,14 +186,14 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | isBeaconApiDisabled | true | False 이면 SDK에서 [신호 API](https://www.w3.org/TR/beacon) 를 사용 하 여 모든 원격 분석을 보냅니다. |
 | onunloadDisableBeacon | false | 기본값은 false입니다. 탭이 닫히면 SDK는 [신호 API](https://www.w3.org/TR/beacon) 를 사용 하 여 나머지 모든 원격 분석을 보냅니다. |
 | sdkExtension | null | Sdk 확장 이름을 설정 합니다. 영문자 문자만 사용할 수 있습니다. 확장 이름이 ' sdkVersion ' 태그에 접두사로 추가 됩니다 (예: ' ext_javascript: 2.0.0 '). 기본값은 null입니다. |
-| isBrowserLinkTrackingEnabled | false | 기본값은 false입니다. True 이면 SDK에서 모든 [브라우저 링크](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) 요청을 추적 합니다. |
+| isBrowserLinkTrackingEnabled | false | 기본값은 false입니다. True 이면 SDK에서 모든 [브라우저 링크](/aspnet/core/client-side/using-browserlink) 요청을 추적 합니다. |
 | appId | null | AppId는 서버측 요청과 함께 클라이언트 쪽에서 발생 하는 AJAX 종속성 간의 상관 관계에 사용 됩니다. 신호 API를 사용 하는 경우 자동으로 사용할 수 없지만 구성에서 수동으로 설정할 수 있습니다. 기본값은 null입니다. |
 | enableCorsCorrelation | false | True 이면 SDK는 나가는 AJAX 종속성을 서버 쪽의 해당 요청과 상관 관계를 지정 하기 위해 모든 CORS 요청에 두 개의 헤더 (' 요청 Id ' 및 ' 요청-컨텍스트 ')를 추가 합니다. 기본값은 false입니다. |
 | namePrefix | 정의되지 않음 | LocalStorage 및 쿠키 이름에 대해 이름 후 위로 사용할 선택적 값입니다.
 | enableAutoRouteTracking | false | SPA (단일 페이지 응용 프로그램)의 경로 변경 내용을 자동으로 추적 합니다. True 이면 각 경로 변경 시 Application Insights에 새 페이지 보기 전송 됩니다. 해시 경로 변경 ( `example.com/foo#bar` ) 또한 새 페이지 뷰로 기록 됩니다.
 | enableRequestHeaderTracking | false | True 이면 AJAX & 인출 요청 헤더가 추적 되 고 기본값은 false입니다.
 | enableResponseHeaderTracking | false | True 이면 AJAX & Fetch 요청의 응답 헤더가 추적 되 고 기본값은 false입니다.
-| distributedTracingMode | `DistributedTracingModes.AI` | 분산 추적 모드를 설정 합니다. AI_AND_W3C 모드 또는 W3C 모드가 설정 된 경우 W3C 추적 컨텍스트 헤더 (traceparent/tracestate)가 생성 되 고 나가는 모든 요청에 포함 됩니다. AI_AND_W3C은 레거시 Application Insights 계측 된 서비스와의 이전 버전과의 호환성을 위해 제공 됩니다. 예제는 [여기](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps)를 참조 하세요.
+| distributedTracingMode | `DistributedTracingModes.AI` | 분산 추적 모드를 설정 합니다. AI_AND_W3C 모드 또는 W3C 모드가 설정 된 경우 W3C 추적 컨텍스트 헤더 (traceparent/tracestate)가 생성 되 고 나가는 모든 요청에 포함 됩니다. AI_AND_W3C은 레거시 Application Insights 계측 된 서비스와의 이전 버전과의 호환성을 위해 제공 됩니다. 예제는 [여기](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps)를 참조 하세요.
 | enableAjaxErrorStatusText | false | 기본값은 false입니다. True 이면 실패 한 AJAX 요청에 대 한 종속성 이벤트에 응답 오류 데이터 텍스트를 포함 합니다.
 | enableAjaxPerfTracking | false | 기본값은 false입니다. 추가 브라우저 창을 조회 하 고 포함 하는 데 사용 되는 플래그입니다. 보고 된 ajax (XHR 및 fetch)의 성능 타이밍에서 메트릭을 보고 했습니다.
 | maxAjaxPerfLookupAttempts | 3 | 기본값은 3입니다. 창을 찾을 수 있는 최대 횟수입니다. 성능 타이밍 (사용할 수 있는 경우)은 모든 브라우저에서 창을 채우지 않기 때문에 필요 합니다. XHR 요청의 끝을 보고 하기 전의 성능 및 인출 요청에 대 한 성능이 완료 된 후에 추가 됩니다.
@@ -210,7 +211,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ## <a name="configuration-autotrackpagevisittime"></a>구성: autoTrackPageVisitTime
 
-를 설정 하면 `autoTrackPageVisitTime: true` 각 페이지에서 사용자가 소비한 시간이 추적 됩니다. 새 페이지 보기에서 *이전* 페이지에서 사용자가 소비한 시간은 이라는 [사용자 지정 메트릭으로](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) 전송 됩니다 `PageVisitTime` . 이 사용자 지정 메트릭은 [메트릭 탐색기](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) "로그 기반 메트릭"으로 볼 수 있습니다.
+를 설정 하면 `autoTrackPageVisitTime: true` 각 페이지에서 사용자가 소비한 시간이 추적 됩니다. 새 페이지 보기에서 *이전* 페이지에서 사용자가 소비한 시간은 이라는 [사용자 지정 메트릭으로](../platform/metrics-custom-overview.md) 전송 됩니다 `PageVisitTime` . 이 사용자 지정 메트릭은 [메트릭 탐색기](../platform/metrics-getting-started.md) "로그 기반 메트릭"으로 볼 수 있습니다.
 
 ## <a name="react-extensions"></a>확장에 대응
 
@@ -223,21 +224,21 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 **메트릭** 으로 이동 하 고 관심 있는 개별 메트릭을 추가 하 여 브라우저/클라이언트 쪽 데이터를 볼 수 있습니다.
 
-![](./media/javascript/page-view-load-time.png)
+![웹 응용 프로그램에 대 한 메트릭 데이터의 그래픽 표시를 보여 주는 Application Insights 메트릭 페이지의 스크린샷](./media/javascript/page-view-load-time.png)
 
 포털의 브라우저 경험을 통해 JavaScript SDK에서 데이터를 볼 수도 있습니다.
 
 **브라우저** 를 선택한 다음 **실패** 또는 **성능**을 선택 합니다.
 
-![](./media/javascript/browser.png)
+![웹 응용 프로그램에 대해 볼 수 있는 메트릭에 브라우저 오류 또는 브라우저 성능을 추가 하는 방법을 보여 주는 Application Insights 브라우저 페이지의 스크린샷](./media/javascript/browser.png)
 
 ### <a name="performance"></a>성능
 
-![](./media/javascript/performance-operations.png)
+![웹 응용 프로그램에 대 한 작업 메트릭의 그래픽 표시를 보여 주는 Application Insights의 성능 페이지 스크린샷](./media/javascript/performance-operations.png)
 
 ### <a name="dependencies"></a>종속성
 
-![](./media/javascript/performance-dependencies.png)
+![웹 응용 프로그램에 대 한 종속성 메트릭의 그래픽 표시를 보여 주는 Application Insights의 성능 페이지 스크린샷](./media/javascript/performance-dependencies.png)
 
 ### <a name="analytics"></a>분석
 
@@ -270,7 +271,7 @@ dataset
 
 1. Azure Portal에서 예외 원격 분석 항목을 선택 하 여 "종단 간 트랜잭션 정보"를 확인 합니다.
 2. 이 호출 스택에 해당 하는 소스 맵을 식별 합니다. 소스 맵은 스택 프레임의 소스 파일과 일치 해야 하지만 다음에는 접미사가 붙습니다.`.map`
-3. 소스 맵을 Azure Portal의 호출 스택으로 끌어 놓습니다.![](https://i.imgur.com/Efue9nU.gif)
+3. 소스 맵을 ![ Azure Portal의 호출 스택 창에서 빌드 폴더의 소스 맵 파일을 끌어서 놓는 방법을 보여 주는 애니메이션 이미지 Azure Portal의 호출 스택으로 끌어 놓습니다.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights 웹 기본
 
@@ -280,7 +281,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. 특정 원격 분석 유형 (예:, 등)을 전송 하는 Api는 `trackTrace` `trackException` 이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track` 입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/topics/applicationinsights-js-demo) 을 참조 하세요.
 

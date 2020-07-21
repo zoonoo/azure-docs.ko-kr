@@ -9,11 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513381"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518592"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -78,7 +79,7 @@ Azure Storage 애플리케이션에서 엔드투엔드 문제 해결 실습 가�
 ## <a name="introduction"></a><a name="introduction"></a>소개
 이 가이드에서는 Azure Storage 분석 등의 도구, Azure Storage 클라이언트 라이브러리의 클라이언트 쪽 로깅 그리고 기타 타사 도구를 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결하는 방법에 대해 설명합니다.
 
-![][1]
+![클라이언트 응용 프로그램과 Azure storage 서비스 간의 정보 흐름을 보여 주는 다이어그램입니다.][1]
 
 이 가이드의 기본 대상은 Azure Storage 서비스를 사용하는 온라인 서비스의 개발자 및 이러한 온라인 서비스를 관리하는 IT 전문가입니다. 이 가이드의 목표는 다음과 같습니다.
 
@@ -102,7 +103,7 @@ Windows 성능 모니터링에 대해 잘 알고 있는 경우 Storage 메트릭
 
 [Azure Portal](https://portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. 자세한 내용은 [경고 알림 받기](/azure/monitoring-and-diagnostics/monitoring-overview-alerts)를 참조하세요.
 
-[스토리지용 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md)(미리 보기)를 검토하는 것이 좋습니다. 이는 Azure Monitor의 기능으로, Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. 사용 설정이나 구성이 전혀 필요하지 않으며, 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
+[스토리지용 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md)(미리 보기)를 검토하는 것이 좋습니다. 이는 Azure Monitor의 기능으로 Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. 사용 설정이나 구성이 전혀 필요하지 않으며, 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
 
 스토리지 서비스는 최상의 노력을 통해 메트릭을 수집하지만 모든 스토리지 작업을 기록하지는 못합니다.
 
@@ -117,7 +118,7 @@ Azure 애플리케이션을 지속적으로 모니터링한 후 다음을 수행
 
 다음 그림의 차트에는 시간 메트릭의 평균을 표시함으로써 활동 급증이 숨겨지는 방식이 표시되어 있습니다. 시간 메트릭에는 요청 속도가 안정적인 것으로 표시되지만 분 메트릭에는 실제로 발생하는 요청 수의 증감이 표시됩니다.
 
-![][3]
+![시간별 메트릭에 대해 발생 하는 평균을 보여 주는 차트는 활동의 급증을 숨길 수 있습니다.][3]
 
 이 섹션의 나머지 부분에서는 모니터링해야 하는 메트릭과 그 이유에 대해 설명합니다.
 
@@ -347,7 +348,7 @@ catch (StorageException storageException)
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>메트릭에서 AverageE2ELatency는 높게 표시되고 AverageServerLatency는 낮게 표시됨
 아래에 나와 있는 [Azure Portal](https://portal.azure.com) 모니터링 도구 그림은 **AverageE2ELatency**가 **AverageServerLatency**보다 크게 높은 경우의 예를 보여 줍니다.
 
-![][4]
+![AverageE2ELatency가 AverageServerLatency 보다 크게 높은 예제를 보여 주는 Azure Portal의 그림입니다.][4]
 
 스토리지 서비스는 **AverageServerLatency**와 다르게 성공한 요청에 대해서만 **AverageE2ELatency** 메트릭을 계산하며 클라이언트가 데이터를 보내고 스토리지 서비스에서 승인을 받는 데 걸리는 시간도 포함합니다. 따라서 클라이언트 애플리케이션의 응답 속도가 느리거나 네트워크 상태로 인해 **AverageE2ELatency**와 **AverageServerLatency**가 서로 다를 수 있습니다.
 
@@ -726,7 +727,7 @@ Fiddler를 시작하면 로컬 컴퓨터에서 HTTP 및 HTTPS 트래픽 캡처�
 
 Fiddler가 캡처하는 트래픽의 양을 제한하려면 **필터** 탭에서 구성하는 필터를 사용할 수 있습니다. 아래 스크린샷에는 **contosoemaildist.table.core.windows.net** 스토리지 엔드포인트로 전송되는 트래픽만 캡처하는 필터가 나와 있습니다.
 
-![][5]
+![Contosoemaildist.table.core.windows.net 저장소 끝점으로 전송 되는 트래픽만 캡처하는 필터를 보여 주는 스크린샷][5]
 
 ### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처
 [Wireshark](https://www.wireshark.org/) 는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정보를 확인할 수 있는 네트워크 프로토콜 분석기입니다.
@@ -738,18 +739,18 @@ Fiddler가 캡처하는 트래픽의 양을 제한하려면 **필터** 탭에서
 3. **캡처 옵션**을 클릭합니다.
 4. **캡처 필터** 텍스트 상자에 필터를 추가합니다. 예를 들어 **host contosoemaildist.table.core.windows.net**은 **contosoemaildist** 스토리지 계정의 Table service 엔드포인트에서 보내거나 받는 패킷만 캡처하도록 Wireshark를 구성합니다. [캡처 필터의 전체 목록](https://wiki.wireshark.org/CaptureFilters)을 확인하세요.
 
-   ![][6]
+   ![캡처 필터 텍스트 상자에 필터를 추가 하는 방법을 보여 주는 스크린샷][6]
 5. **시작**을 클릭합니다. 그러면 로컬 컴퓨터에서 클라이언트 애플리케이션을 사용할 때 Wireshark가 테이블 서비스 엔드포인트에서 보내거나 받는 모든 패킷을 캡처합니다.
 6. 작업을 마쳤으면 주 메뉴에서 **캡처**와 **중지**를 차례로 클릭합니다.
 7. 캡처된 데이터를 Wireshark 캡처 파일에 저장하려면 주 메뉴에서 **파일**과 **저장**을 차례로 클릭합니다.
 
 WireShark의 **packetlist** 창에는 발생한 모든 오류가 강조 표시됩니다. **분석**, **전문가 정보**를 차례로 클릭하면 표시되는 **전문가 정보** 창에서 오류와 경고의 요약을 확인할 수도 있습니다.
 
-![][7]
+![오류 및 경고에 대 한 요약을 볼 수 있는 전문가 정보 창을 보여 주는 스크린샷][7]
 
 TCP 데이터를 마우스 오른쪽 단추로 클릭하고 **TCP 스트림 확인**을 선택하여 애플리케이션 계층에 표시되는 대로 TCP 데이터를 확인할 수도 있습니다. 캡처 필터를 사용하지 않고 덤프를 캡처한 경우 이와 같이 확인하면 유용합니다. 자세한 내용은 [Following TCP Streams](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(TCP 스트림 따라 이동)를 참조하세요.
 
-![][8]
+![응용 프로그램 계층에 TCP 데이터를 표시 하는 방법을 보여 주는 스크린샷][8]
 
 > [!NOTE]
 > Wireshark를 사용하는 방법에 대한 자세한 내용은 [Wireshark 사용 설명서](https://www.wireshark.org/docs/wsug_html_chunked)를 참조하세요.
@@ -782,11 +783,11 @@ Microsoft Message Analyzer **웹 프록시** 추적을 사용하여 클라이언
 
 아래 스크린샷에는 **DiagnosisTypes** 열에 **정보** 메시지가 몇 개 포함된 예제 **로컬 링크 계층** 추적이 나와 있습니다. **DiagnosisTypes** 열의 아이콘을 클릭하면 메시지 세부 정보가 표시됩니다. 이 예제에서는 서버가 클라이언트에서 승인을 받지 못했으므로 #305 메시지를 다시 전송했습니다.
 
-![][9]
+![DiagnosisTypes 열에 몇 가지 정보 메시지를 포함 하는 예제 로컬 링크 계층 추적을 보여 주는 스크린샷][9]
 
 Microsoft Message Analyzer에서 추적 세션을 만들 때는 추적의 노이즈 양을 줄이기 위해 필터를 지정할 수 있습니다. 이렇게 하려면 추적을 정의하는 **캡처/추적** 페이지에서 **Microsoft-Windows-NDIS-PacketCapture** 옆의 **구성** 링크를 클릭합니다. 아래 스크린샷에는 3개 스토리지 서비스의 IP 주소에 대한 TCP 트래픽을 필터링하는 구성이 나와 있습니다.
 
-![][10]
+![3 개 저장소 서비스의 IP 주소에 대 한 TCP 트래픽을 필터링 하는 구성을 보여 주는 스크린샷][10]
 
 Microsoft 메시지 분석기 로컬 링크 계층 추적에 대한 자세한 내용은 [Microsoft-PEF-NDIS-PacketCapture 공급자](https://technet.microsoft.com/library/jj659264.aspx)를 참조하세요.
 

@@ -5,20 +5,22 @@ description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽용�
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205785"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517776"
 ---
-# <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 송신 트래픽에 고정 공용 IP 주소 사용
+# <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)의 *기본* SKU 부하 분산 장치를 사용 하 여 송신 트래픽에 대 한 고정 공용 IP 주소 사용
 
-기본적으로 AKS(Azure Kubernetes Service) 클러스터의 송신 IP 주소는 임의로 할당됩니다. 하지만 외부 서비스 액세스용 IP 주소를 확인해야 하는 등의 경우에는 이러한 구성이 적합하지 않습니다. 대신 서비스 액세스용 허용 목록에 포함할 수 있는 고정 IP 주소를 할당해야 할 수 있습니다.
+기본적으로 AKS(Azure Kubernetes Service) 클러스터의 송신 IP 주소는 임의로 할당됩니다. 하지만 외부 서비스 액세스용 IP 주소를 확인해야 하는 등의 경우에는 이러한 구성이 적합하지 않습니다. 대신, 서비스 액세스에 대 한 허용 목록에 추가 되는 고정 IP 주소를 할당 해야 할 수 있습니다.
 
 이 문서에서는 AKS 클러스터의 송신 트래픽에 사용할 고정 공용 IP 주소를 만들어 사용하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
+
+이 문서에서는 Azure Basic Load Balancer를 사용 하 고 있다고 가정 합니다.  [Azure 표준 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)을 사용 하는 것이 좋지만 [AKS 송신 트래픽을 제어](https://docs.microsoft.com/azure/aks/limit-egress-traffic)하는 고급 기능을 사용할 수 있습니다.
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
@@ -105,7 +107,7 @@ kubectl apply -f egress-service.yaml
 기본 *Debian* Pod를 시작하여 해당 Pod에 연결합니다.
 
 ```console
-kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
+kubectl run -it --rm aks-ip --image=debian
 ```
 
 컨테이너 내에서 웹 사이트에 액세스하려면 `apt-get`을 사용하여 컨테이너에 `curl`을 설치합니다.

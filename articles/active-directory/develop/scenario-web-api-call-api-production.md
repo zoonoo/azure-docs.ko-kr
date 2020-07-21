@@ -11,11 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 078ed3e5f3a19bfa4350f9edea858b717c69e3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aea3a173fd07b66021d35142a84499ae9c66c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537154"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518201"
 ---
 # <a name="a-web-api-that-calls-web-apis-move-to-production"></a>웹 Api를 호출 하는 web API: 프로덕션으로 이동
 
@@ -29,4 +30,4 @@ ms.locfileid: "81537154"
 
 | 예제 | 플랫폼 | 설명 |
 |--------|----------|-------------|
-| [aspnetcore-webapi-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | ASP.NET Core 2.2 웹 API, 데스크톱 (WPF) | ASP.NET Core 2.2 웹 API는 v2.0 (Microsoft identity platform)를 사용 하 여 WPF 응용 프로그램에서 호출 하는 Microsoft Graph를 호출 합니다. |
+| [active directory-aspnetcore-webapi-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) chapter 1 | ASP.NET Core web API, Desktop (WPF) | ASP.NET Core web API는 v2.0 (Microsoft identity platform)를 사용 하 여 WPF 응용 프로그램에서 호출 하는 Microsoft Graph를 호출 합니다. |

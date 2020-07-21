@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: fd8c3c7eaaee6a31acbc4cf513adb3e0e0fa566b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 099094338deba63f678337b7ea13dd9ce9800084
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342003"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517691"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>DTU 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +39,7 @@ ms.locfileid: "84342003"
 | 최대 DTU | 5 |
 | 포함된 스토리지(GB) | 2 |
 | 최대 스토리지(GB) 옵션 | 2 |
-| 최대 메모리 내 OLTP 스토리지(GB) |해당 없음 |
+| 최대 메모리 내 OLTP 스토리지(GB) |N/A |
 | 최대 동시 작업자(요청) | 30 |
 | 최대 동시 세션 | 300 |
 |||
@@ -56,7 +57,7 @@ ms.locfileid: "84342003"
 | 최대 DTU | 10 | 20 | 50 | 100 |
 | 포함된 스토리지(GB) | 250 | 250 | 250 | 250 |
 | 최대 스토리지(GB) 옵션 | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| 최대 메모리 내 OLTP 스토리지(GB) | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
+| 최대 메모리 내 OLTP 스토리지(GB) | N/A | N/A | N/A | N/A |
 | 최대 동시 작업자(요청)| 60 | 90 | 120 | 200 |
 | 최대 동시 세션 |600 | 900 | 1200 | 2400 |
 ||||||
@@ -74,7 +75,7 @@ ms.locfileid: "84342003"
 | 최대 DTU | 200 | 400 | 800 | 1600 | 3000 |
 | 포함된 스토리지(GB) | 250 | 250 | 250 | 250 | 250 |
 | 최대 스토리지(GB) 옵션 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| 최대 메모리 내 OLTP 스토리지(GB) | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |해당 없음 |
+| 최대 메모리 내 OLTP 스토리지(GB) | N/A | N/A | N/A | N/A |N/A |
 | 최대 동시 작업자(요청)| 400 | 800 | 1600 | 3200 |6000 |
 | 최대 동시 세션 |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
@@ -87,7 +88,7 @@ ms.locfileid: "84342003"
 | 포함된 스토리지(GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
 | 최대 스토리지(GB) 옵션 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
 | 최대 메모리 내 OLTP 스토리지(GB) | 1 | 2 | 4 | 8 | 14 | 32 |
-| 최대 동시 작업자(요청)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| 최대 동시 작업자(요청)| 200 | 400 | 800 | 1600 | 2800 | 6400 |
 | 최대 동시 세션 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 

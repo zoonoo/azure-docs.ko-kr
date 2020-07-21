@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c0b043bdb20cad508950a11853403958340acadf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e7b6c7ddb33d42cca66698c87c82477f3e55621
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434207"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517470"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Azure Maps Indoor Maps 모듈 사용
 
@@ -20,7 +21,7 @@ Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-account-with-azure-maps).
+1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Creator 리소스를 만듭니다](how-to-manage-creator.md).
 3. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 4. [실내 맵 만들기 자습서](tutorial-creator-indoor-maps.md)를 완료하여 `tilesetId`와 `statesetId`를 확보합니다.

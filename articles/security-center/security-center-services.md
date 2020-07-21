@@ -11,70 +11,67 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2020
+ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 95b514999d7c38140bd3dd275b8ba103ee9af20e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187016"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519240"
 ---
 # <a name="feature-coverage-for-machines"></a>컴퓨터의 기능 검사
 
-아래 표에서는 가상 컴퓨터 및 서버에 사용할 수 있는 Azure Security Center 기능을 보여 줍니다.
+아래 두 탭에는 Windows 및 Linux 가상 컴퓨터 및 서버에서 사용할 수 있는 Azure Security Center 기능이 나와 있습니다.
 
 ## <a name="supported-features-for-virtual-machines-and-servers"></a>가상 컴퓨터 및 서버에 대해 지원 되는 기능<a name="vm-server-features"></a>
 
-### <a name="windows-machines"></a>[Windows 컴퓨터](#tab/features-windows)
+### <a name="windows-machines"></a>[**Windows 컴퓨터**](#tab/features-windows)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**기능**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**비 Azure 컴퓨터**|**가격**
-|[Microsoft Defender ATP 통합](security-center-wdatp.md)|✔</br>(지원 되는 버전)|✔</br>(지원 되는 버전)|✔|표준|
-|[가상 컴퓨터 동작 분석 (및 보안 경고)](threat-protection.md)|✔|✔|✔|권장 사항 (무료) </br></br> 보안 경고 (표준)|
-|[Fileless 보안 경고](alerts-reference.md#alerts-windows)|✔|✔|✔|표준|
-|[네트워크 기반 보안 경고](threat-protection.md#network-layer)|✔|✔|-|표준|
-|[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|표준|
-|[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|표준|
-|[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|표준|
-|[적응형 애플리케이션 제어](security-center-adaptive-application.md)|✔|-|✔|표준|
-|[네트워크 맵](security-center-network-recommendations.md#network-map)|✔|✔|-|표준|
-|[적응 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|표준|
-|[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|표준|
-|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|-|-|-|표준|
-|누락 된 OS 패치 평가|✔|✔|✔|Free|
-|보안 잘못 평가|✔|✔|✔|Free|
-|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Free|
-|디스크 암호화 평가|✔|✔|-|Free|
-|타사 취약성 평가|✔|-|-|Free|
-|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|Free|
+|----|:----:|:----:|:----:|:----:|
+|[Microsoft Defender ATP 통합](security-center-wdatp.md)|✔</br>(지원 되는 버전)|✔</br>(지원 되는 버전)|✔|Standard|
+|[가상 컴퓨터 동작 분석 (및 보안 경고)](threat-protection.md)|✔|✔|✔|Standard|
+|[Fileless 보안 경고](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
+|[네트워크 기반 보안 경고](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|Standard|
+|[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[적응형 애플리케이션 제어](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[네트워크 맵](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[적응 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|-|-|-|Standard|
+|누락 된 OS 패치 평가|✔|✔|✔|Azure: 무료<br><br>비 Azure: 표준|
+|보안 잘못 평가|✔|✔|✔|Azure: 무료<br><br>비 Azure: 표준|
+|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: 무료<br><br>비 Azure: 표준|
+|디스크 암호화 평가|✔|✔|-|무료|
+|타사 취약성 평가|✔|-|-|무료|
+|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|무료|
 
 
-### <a name="linux-machines"></a>[Linux 컴퓨터](#tab/features-linux)
+### <a name="linux-machines"></a>[**Linux 컴퓨터**](#tab/features-linux)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**기능**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**비 Azure 컴퓨터**|**가격**
-|[Microsoft Defender ATP 통합](security-center-wdatp.md)|-|-|-|표준|
-|[가상 컴퓨터 동작 분석 (및 보안 경고)](security-center-alerts-iaas.md)|✔</br>(지원 되는 버전)|✔</br>(지원 되는 버전)|✔|권장 사항 (무료) </br></br> 보안 경고 (표준)|
-|[Fileless 보안 경고](alerts-reference.md#alerts-windows)|-|-|-|표준|
-|[네트워크 기반 보안 경고](threat-protection.md#network-layer)|✔|✔|-|표준|
-|[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|표준|
-|[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|표준|
-|[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|표준|
-|[적응형 애플리케이션 제어](security-center-adaptive-application.md)|✔|-|✔|표준|
-|[네트워크 맵](security-center-network-recommendations.md#network-map)|✔|✔|-|표준|
-|[적응 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|표준|
-|적응형 네트워크 제어|✔|✔|-|표준|
-|[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|표준|
-|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|✔|✔|✔|표준|
-|누락 된 OS 패치 평가|✔|✔|✔|Free|
-|보안 잘못 평가|✔|✔|✔|Free|
-|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
-|디스크 암호화 평가|✔|✔|-|Free|
-|타사 취약성 평가|✔|-|-|Free|
-|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|Free|
+|----|:----:|:----:|:----:|:----:|
+|[Microsoft Defender ATP 통합](security-center-wdatp.md)|-|-|-|Standard|
+|[가상 컴퓨터 동작 분석 (및 보안 경고)](security-center-alerts-iaas.md)|✔</br>(지원 되는 버전)|✔</br>(지원 되는 버전)|✔|Standard|
+|[Fileless 보안 경고](alerts-reference.md#alerts-windows)|-|-|-|Standard|
+|[네트워크 기반 보안 경고](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|Standard|
+|[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[적응형 애플리케이션 제어](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[네트워크 맵](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[적응 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|✔|✔|✔|Standard|
+|누락 된 OS 패치 평가|✔|✔|✔|Azure: 무료<br><br>비 Azure: 표준|
+|보안 잘못 평가|✔|✔|✔|Azure: 무료<br><br>비 Azure: 표준|
+|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|무료|
+|디스크 암호화 평가|✔|✔|-|무료|
+|타사 취약성 평가|✔|-|-|무료|
+|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|무료|
 
 --- 
 

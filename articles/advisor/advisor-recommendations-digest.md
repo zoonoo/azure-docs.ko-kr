@@ -4,11 +4,12 @@ description: 활성 권장 사항에 대 한 정기 요약 받기
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
-ms.openlocfilehash: 98f1bfd42a486e005cd1e777a83f5b615a7c8304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502465"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518082"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>권장 구성에 대 한 정기 요약 구성
 
@@ -20,7 +21,7 @@ Advisor **권장 다이제스트** 는 다양 한 범주에 걸쳐 활성 권장
 **권장 사항 다이제스트** 생성 환경을 통해 요약을 구성할 수 있습니다. 구성에 대 한 다음 매개 변수를 선택할 수 있습니다.
 1. 범주: 비용, 고가용성, 성능 및 운영 등의 권장 범주가 있습니다. 보안 권장 사항에 대 한 기능을 아직 사용할 수 없습니다.
 2. 다이제스트 빈도: 요약 알림의 빈도는 주별, 격주, 매월 일 수 있습니다.
-3. 작업 그룹: 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들 수 있습니다. 작업 그룹에 대 한 자세한 내용은 [작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)를 참조 하세요.
+3. 작업 그룹: 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들 수 있습니다. 작업 그룹에 대 한 자세한 내용은 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조 하세요.
 4. 다이제스트 언어
 5. 권장 사항 다이제스트 이름: 사용자에 게 친숙 한 문자열을 사용 하 여 다이제스트를 보다 효율적으로 추적 하 고 모니터링할 수 있습니다.
 
@@ -43,7 +44,7 @@ Advisor **권장 다이제스트** 는 다양 한 범주에 걸쳐 활성 권장
 
    ![권장 사항 다이제스트 입력 조건 제공](./media/digest-2.png)
 
-* **5 단계:** **작업 그룹** 섹션에서 다이제스트의 **작업 그룹** 을 선택 합니다. 자세한 내용은 [작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 를 참조 하세요.
+* **5 단계:** **작업 그룹** 섹션에서 다이제스트의 **작업 그룹** 을 선택 합니다. 자세한 내용은 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md) 를 참조 하세요.
 
    ![권장 사항 다이제스트 입력 작업 그룹 제공](./media/digest-3.png)
 
@@ -59,4 +60,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 * [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)

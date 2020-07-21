@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 3a6f92022a4e26c84efc2d5f68c3aad8b4685d30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 662520b9e31b4fe9a0925683fd0e661ce179e5b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558800"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518150"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
 
@@ -32,7 +33,7 @@ MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 �
 
 | MSAL 라이브러리 | Description |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework 및 .NET Core 플랫폼을 지원합니다. UWP(유니버설 Windows 플랫폼), Xamarin.iOS 및 Xamarin.Android는 퍼블릭 클라이언트 애플리케이션을 빌드하는 데 사용되는 플랫폼이므로 지원되지 않습니다. ASP.NET Core 웹앱 및 웹 API, MSAL.NET은 Microsoft.Identity.Web이라는 더 높은 수준의 라이브러리에 캡슐화되어 있습니다.|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework 및 .NET Core 플랫폼을 지원합니다. UWP(유니버설 Windows 플랫폼), Xamarin.iOS 및 Xamarin.Android는 퍼블릭 클라이언트 애플리케이션을 빌드하는 데 사용되는 플랫폼이므로 지원되지 않습니다. 웹 앱 및 web Api ASP.NET Core MSAL.NET는 더 높은 수준의 라이브러리 ( [Microsoft. Identity](https://aka.ms/ms-identity-web) )에 캡슐화 되어 있습니다.|
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> Python용 MSAL | Python 웹 애플리케이션 지원. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> Java용 MSAL | Java 웹 애플리케이션 지원. |
 
@@ -48,8 +49,8 @@ public void ConfigureServices(IServiceCollection services)
 {
     // more code here
 
-    services.AddSignIn(Configuration, "AzureAd")
-            .AddWebAppCallsProtectedWebApi(Configuration,
+    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
+            .AddMicrosoftWebAppCallsdWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddInMemoryTokenCaches();
 
@@ -90,7 +91,7 @@ ASP.NET의 경우 미들웨어 OIDC 이벤트를 구독합니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Microsoft.Identity.Web은 올바른 OpenID Connect 설정을 지정하고, 코드를 받은 이벤트를 구독하고, 코드를 교환하여 코드를 단순화합니다. 인증 코드를 교환하는 데 필요한 추가 코드는 없습니다.
+Microsoft.Identity.Web은 올바른 OpenID Connect 설정을 지정하고, 코드를 받은 이벤트를 구독하고, 코드를 교환하여 코드를 단순화합니다. 인증 코드를 교환하는 데 필요한 추가 코드는 없습니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [Microsoft의 system.web 소스 코드](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140) 를 참조 하십시오.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -271,8 +272,8 @@ ASP.NET Core 자습서에서는 종속성 주입을 사용하여 애플리케이
 
 ```csharp
 // Use a distributed token cache by adding:
-    services.AddSignIn(Configuration, "AzureAd")
-            .AddWebAppCallsProtectedWebApi(Configuration,
+    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
+            .AddMicrosoftWebAppCallsWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddDistributedTokenCaches();
 
@@ -296,7 +297,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-토큰 캐시 공급자에 대한 자세한 내용은 자습서에서 [ASP.NET Core 웹앱 자습서 | 토큰 캐시](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) 단계를 참조하세요.
+토큰 캐시 공급자에 대 한 자세한 내용은 ASP.NET Core 웹 앱 자습서 뿐만 아니라 Microsoft의 [token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) 문서를 참조 하세요. [ ](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)웹 앱 자습서의 토큰 캐시 단계입니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 호스트 기반 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 7b9d930d62d0acea30af9b5e7e12e43fa8fcd5da
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d2b34d8c3090eb6ae3f1445ff1fc663d90367977
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244313"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517725"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service)의 호스트 기반 암호화 (미리 보기)
 
@@ -27,18 +27,18 @@ ms.locfileid: "86244313"
 
 - `aks-preview`CLI 확장 v 0.4.55 이상을 설치 했는지 확인 합니다.
 - `EncryptionAtHost`사용 아래에 기능 플래그가 있는지 확인 `Microsoft.Compute` 합니다.
-- `EncryptionAtHost`사용 아래에 기능 플래그가 있는지 확인 `Microsoft.ContainerService` 합니다.
+- `EnableEncryptionAtHostPreview`사용 아래에 기능 플래그가 있는지 확인 `Microsoft.ContainerService` 합니다.
 
 ### <a name="register-encryptionathost--preview-features"></a>`EncryptionAtHost`미리 보기 기능 등록
 
-호스트 기반 암호화를 사용 하는 AKS 클러스터를 만들려면 `EncryptionAtHost` 구독에서 기능 플래그를 사용 하도록 설정 해야 합니다.
+호스트 기반 암호화를 사용 하는 AKS 클러스터를 만들려면 `EnableEncryptionAtHostPreview` 구독에서 및 기능 플래그를 사용 하도록 설정 해야 합니다 `EncryptionAtHost` .
 
 `EncryptionAtHost`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
 
-az feature register --namespace "Microsoft.ContainerService"  --name "EncryptionAtHost"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
@@ -46,7 +46,7 @@ az feature register --namespace "Microsoft.ContainerService"  --name "Encryption
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EncryptionAtHost')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 준비가 되 면 `Microsoft.ContainerService` `Microsoft.Compute` [az provider register][az-provider-register] 명령을 사용 하 여 및 리소스 공급자 등록을 새로 고칩니다.
@@ -58,7 +58,7 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 > [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다. 추가 정보 다음 지원 문서를 참조 하세요.
+> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다. 자세한 내용은 다음 지원 문서를 참조 하세요.
 >
 > - [AKS 지원 정책](support-policies.md)
 > - [Azure 지원 FAQ](faq.md)

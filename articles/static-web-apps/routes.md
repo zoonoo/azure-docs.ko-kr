@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518778"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Azure Static Web Apps의 경로 미리 보기
 
@@ -295,7 +295,7 @@ MIME 형식으로 작업 하는 경우 다음 사항을 고려해 야 합니다.
 | _/unknown-folder_ | _/custom-404.html_ 파일이 제공됩니다. |
 | 확장명이 있는 파일 `.custom` | MIME 형식으로 제공 됩니다. `text/html` |
 
-- 모든 응답에는 `content-security-policy` 값이 인 헤더가 포함 됩니다 `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
+모든 응답에는 `content-security-policy` 값이 인 헤더가 포함 됩니다 `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
 
 <sup>1</sup> API 함수에 대 한 경로 규칙은 역할이 있는 [리디렉션](#redirects) 및 [보안 경로만](#securing-routes-with-roles)지원 합니다.
 

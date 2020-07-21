@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd19093034b4427d9e1b637a653a90e0568cddf
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 11d5c1bb133f0aea241fbc55f96ab5f8818e5ed6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223927"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518116"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -34,7 +34,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
   * [Azure Portal](https://portal.azure.com)입니다.
   * [Office 포털](https://portal.office.com)  
 * [도메인을 추가하고 확인합니다](../active-directory-domains-add-azure-portal.md) . 예를 들어, 사용자가 contoso.com을 사용하려는 경우 해당 도메인을 확인하고 contoso.onmicrosoft.com 기본 도메인을 사용하지 않도록 합니다.
-* Azure AD 테넌트는 기본적으로 5만 개의 개체를 허용합니다. 도메인을 확인하는 경우, 제한은 30만 개의 개체로 늘어납니다. Azure AD에서 더 많은 개체가 필요한 경우 제한을 더 증가시키려면 지원 사례를 열어야 합니다. 개체가 50만 개 이상 필요한 경우 Office 365, Azure AD Basic, Azure AD Premium 또는 Enterprise Mobility 및 Security와 같은 라이선스가 필요합니다.
+* Azure AD 테넌트는 기본적으로 5만 개의 개체를 허용합니다. 도메인을 확인하는 경우, 제한은 30만 개의 개체로 늘어납니다. Azure AD에서 더 많은 개체가 필요한 경우 제한을 더 증가시키려면 지원 사례를 열어야 합니다. 500k 개체가 필요한 경우에는 Office 365, Azure AD Premium, Enterprise Mobility 및 Security와 같은 라이선스가 필요 합니다.
 
 ### <a name="prepare-your-on-premises-data"></a>온-프레미스 데이터 준비
 * Azure AD 및 Office 365로 동기화하기 전에 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac)를 사용하여 디렉터리의 중복 및 서식 문제 등의 오류가 있는지 식별합니다.
@@ -54,9 +54,9 @@ Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있습니
 
 Active Directory 환경을 보호 하는 방법에 대 한 자세한 내용은 [Active Directory 보안 설정에 대 한 모범 사례](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)를 참조 하세요.
 
-#### <a name="installation-prerequisites"></a>설치 필수 구성 요소 
+#### <a name="installation-prerequisites"></a>설치 필수 조건 
 
-- Azure AD Connect Windows Server 2012 이상에 가입 된 도메인에 설치 해야 합니다. 이 서버는 도메인 컨트롤러에 있는 것이 좋습니다. 
+- Azure AD Connect Windows Server 2012 이상에 가입 된 도메인에 설치 해야 합니다. 
 - Azure AD Connect는 Small Business Server 또는 2019 이전 Windows Server Essentials에 설치할 수 없습니다(Windows Server Essentials 2019는 지원됨). 서버는 Windows Server Standard 이상을 사용해야 합니다.  
 - Azure AD Connect 서버에는 전체 GUI가 설치되어 있어야 합니다. Windows Server Core에 Azure AD Connect를 설치 하는 것은 지원 되지 않습니다. 
 - Azure AD Connect 마법사를 사용 하 여 ADFS 구성을 관리 하는 경우에는 Azure AD Connect 서버에서 PowerShell 기록을 사용 하도록 설정 그룹 정책 하지 않아야 합니다. Azure AD Connect 마법사를 사용하여 동기화 구성을 관리하는 경우 PowerShell 기록을 사용하도록 설정할 수 있지만, 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254670"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517844"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -25,7 +25,7 @@ Azure 애플리케이션 게이트웨이는 다양 한 시나리오에 대해 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 가상 네트워크 및 전용 서브넷
 
@@ -146,7 +146,7 @@ Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만드는 
 
 - 모든 도메인에 대 한 모든 요청을 수락 하 여 백 엔드 풀에 전달 하려는 경우 기본을 선택 합니다. [기본 수신기를 사용 하 여 응용 프로그램 게이트웨이를 만드는 방법을](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)알아봅니다.
 
-- *호스트* 헤더 또는 호스트 이름에 따라 다른 백 엔드 풀에 요청을 전달 하려면 다중 사이트 수신기를 선택 합니다. 여기서 들어오는 요청과 일치 하는 호스트 이름을 지정 해야 합니다. Application Gateway HTTP 1.1 호스트 헤더를 사용 하 여 동일한 공용 IP 주소 및 포트에서 둘 이상의 웹 사이트를 호스트 하기 때문입니다.
+- *호스트* 헤더 또는 호스트 이름에 따라 여러 백 엔드 풀에 요청을 전달 하려는 경우 다중 사이트 수신기를 선택 합니다. 여기에서 들어오는 요청과 일치 하는 호스트 이름도 지정 해야 합니다. Application Gateway HTTP 1.1 호스트 헤더를 사용 하 여 동일한 공용 IP 주소 및 포트에서 둘 이상의 웹 사이트를 호스트 하기 때문입니다. 자세히 알아보려면 [Application Gateway를 사용 하 여 여러 사이트 호스팅](multiple-site-overview.md)을 참조 하세요.
 
 #### <a name="order-of-processing-listeners"></a>처리 수신기 순서
 
@@ -279,12 +279,16 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 - [PowerShell을 사용 하 여 외부 사이트로 트래픽 리디렉션](redirect-external-site-powershell.md)
 - [CLI를 사용 하 여 외부 사이트로 트래픽 리디렉션](redirect-external-site-cli.md)
 
-#### <a name="rewrite-the-http-header-setting"></a>HTTP 헤더 설정 다시 작성
+### <a name="rewrite-http-headers-and-url"></a>HTTP 헤더 및 URL 다시 작성
 
-이 설정은 요청 및 응답 패킷이 클라이언트와 백 엔드 풀 간에 이동 하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트 합니다. 자세한 내용은 다음을 참조하세요.
+다시 쓰기 규칙을 사용 하 여 요청 및 응답 패킷이 응용 프로그램 게이트웨이를 통해 클라이언트와 백 엔드 풀 간에 이동할 때 URL 경로 및 쿼리 문자열 매개 변수 뿐만 아니라 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다.
 
- - [HTTP 헤더 재작성 개요](rewrite-http-headers.md)
+헤더 및 URL 매개 변수는 정적 값 또는 다른 헤더 및 서버 변수로 설정할 수 있습니다. 클라이언트 IP 주소 추출, 백 엔드에 대 한 중요 한 정보 제거, 보안 추가 등의 중요 한 사용 사례에 도움이 됩니다.
+자세한 내용은 다음을 참조하세요.
+
+ - [HTTP 헤더 재작성 개요](rewrite-http-headers-url.md)
  - [HTTP 헤더 재작성 구성](rewrite-http-headers-portal.md)
+ - [URL 재작성 구성](rewrite-url-portal.md)
 
 ## <a name="http-settings"></a>HTTP 설정
 
@@ -357,7 +361,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 > [!NOTE]
 > 해당 HTTP 설정이 수신기와 명시적으로 연결 되지 않은 경우 사용자 지정 프로브는 백 엔드 풀의 상태를 모니터링 하지 않습니다.
 
-### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>백 엔드 주소에서 호스트 이름 선택
+### <a name="pick-host-name-from-back-end-address"></a><a name="pick"></a>백 엔드 주소에서 호스트 이름 선택
 
 이 기능은 요청의 *호스트* 헤더를 백 엔드 풀의 호스트 이름으로 동적으로 설정 합니다. IP 주소 또는 FQDN을 사용 합니다.
 

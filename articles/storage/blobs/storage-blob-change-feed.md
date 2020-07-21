@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464897c031522b2227c682f9581f0d34c8db64b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465187"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518744"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob 스토리지의 변경 피드 지원(미리 보기)
 
@@ -70,7 +71,7 @@ Azure Portal를 사용 하 여 저장소 계정에서 변경 피드를 사용 �
 
 4. **저장** 단추를 선택 하 여 **데이터 보호** 설정을 확인 합니다.
 
-    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![데이터 보호 설정을 보여 주는 스크린샷](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

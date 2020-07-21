@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d8c7ce62f7c592c396fa1ea7a7f5e7dc7df2dc1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335423"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517589"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search services를 사용 하 여 위치 검색
 
@@ -29,7 +29,7 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) 는
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 문서의 단계를 완료 하려면 먼저 Azure Maps 계정을 만들고이 계정 구독 키로 매핑 하세요. 계정 [만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 의 지침에 따라 Azure Maps 계정 구독을 만들고 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
+이 문서의 단계를 완료 하려면 먼저 Azure Maps 계정을 만들고이 계정 구독 키로 매핑 하세요. 계정 [만들기](quick-demo-map-app.md#create-an-azure-maps-account) 의 지침에 따라 Azure Maps 계정 구독을 만들고 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
 이 문서에서는 [우체부 앱](https://www.getpostman.com/apps)을 사용하여 REST 호출을 빌드합니다. 선호하는 모든 API 개발 환경을 사용할 수 있습니다.
 
@@ -55,7 +55,7 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
 ![주소 검색](./media/how-to-search-for-address/address_search_params.png) 
 
-| Key | 값 | 
+| 키 | 값 | 
 |------------------|-------------------------| 
 | api-version | 1.0 | 
 | 구독 키 | \<your Azure Maps key\> | 
@@ -73,7 +73,7 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
 6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다. 
 
-| Key | 값 | 
+| 키 | 값 | 
 |-----|------------| 
 | typeahead | true | 
 
@@ -105,7 +105,7 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
     ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Key | 값 |
+    | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | 구독 키 | \<your Azure Maps key\> |
@@ -119,7 +119,7 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
 5. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | Key | 값 |
+    | 키 | 값 |
     |------------------|-------------------------|
     | countrySet | US |
   
@@ -131,7 +131,7 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
     ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Key | 값 |
+    | 키 | 값 |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -159,7 +159,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
   
     ![역 주소 검색 매개 변수](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Key | 값 |
+    | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | 구독 키 | \<your Azure Maps key\> |
@@ -171,7 +171,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
   
 5. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | Key | 값 |
+    | 키 | 값 |
     |-----|------------|
     | number | true |
 
@@ -179,7 +179,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
   
 6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | Key | 값 |
+    | 키 | 값 |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -187,7 +187,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
 
 7. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | Key | 값 |
+    | 키 | 값 |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -195,7 +195,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
 
 8. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | Key | 값 |
+    | 키 | 값 |
     |-----|------------|
     | roadUse | true |
 
@@ -217,7 +217,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
   
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
   
-    | Key | 값 |
+    | 키 | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | 구독 키 | \<your Azure Maps key\> |

@@ -4,12 +4,12 @@ description: Azure Portal, Azure Resource Manager 템플릿 및 Azure PowerShell
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056262"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516059"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -20,7 +20,7 @@ ms.locfileid: "86056262"
 이 경고는 Azure 리소스에 대한 것이며, Azure Resource Manager 템플릿을 사용하여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 일반적으로 Azure 구독의 리소스에서 특정 변경이 발생할 때 알림을 받기 위해 활동 로그 경고를 만듭니다. 특정 리소스 그룹 또는 리소스로 범위를 지정하는 경우가 많습니다. 예를 들어 샘플 리소스 그룹 **myProductionResourceGroup**에서 가상 머신이 삭제되는 경우 알림을 받도록 할 수 있습니다. 또는 새 규칙이 사용자 구독의 사용자에 할당되는 경우 알림을 받도록 할 수도 있습니다.
 
 > [!IMPORTANT]
-> 서비스 상태 알림에 대한 경고는 활동 로그 경고 작성을 위한 인터페이스를 통해 만들 수 없습니다. 서비스 상태 알림 생성 및 사용에 대해 자세히 알아보려면 [서비스 상태 알림에서 활동 로그 경고 수신](alerts-activity-log-service-notifications.md)을 참조하세요.
+> 서비스 상태 알림에 대한 경고는 활동 로그 경고 작성을 위한 인터페이스를 통해 만들 수 없습니다. 서비스 상태 알림 생성 및 사용에 대해 자세히 알아보려면 [서비스 상태 알림에서 활동 로그 경고 수신](../../service-health/alerts-activity-log-service-notifications-portal.md)을 참조하세요.
 
 경고 규칙을 만들 때 다음을 확인합니다.
 
@@ -28,6 +28,7 @@ ms.locfileid: "86056262"
 - 조건은 경고가 구성된 수준/상태/호출자/리소스 그룹/리소스 ID/리소스 종류/이벤트 범주여야 합니다.
 - 경고 구성 JSON에는 "anyOf" 조건 또는 중첩 조건이 없습니다. 기본적으로 "allOf" 또는 "anyOf" 조건이 추가로 포함되지 않은 하나의 "allOf" 조건만 허용됩니다.
 - 범주가 "관리"인 경우, 앞에 나온 조건 중 하나 이상을 경고에 지정해야 합니다. 활동 로그에서 이벤트가 생성될 때마다 활성화되는 경고를 만들 필요는 없습니다.
+- 활동 로그의 경고 범주에 있는 이벤트에 대 한 경고를 만들 수 없습니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -101,7 +102,7 @@ Azure Portal를 사용하여 활동 로그 경고 규칙을 만들고 수정할 
     규칙을 사용/사용하지 않도록 설정, 편집 또는 삭제할 수 있습니다. 활동 로그 규칙을 관리하는 방법을 알아봅니다.
 
 
-활동 로그에 대한 경고 규칙을 만들 수 있는 조건을 이해하는 간단한 방법은 [Azure Portal의 활동 로그](activity-log-view.md#azure-portal)를 통해 이벤트를 탐색하고 필터링하는 것입니다. **Azure Monitor - 활동 로그** 화면에서 필요한 이벤트를 필터링하거나 찾고 **활동 로그 경고 추가** 단추를 사용하여 경고를 만들 수 있습니다. 이후 앞에 있는 4~7단계를 수행합니다.
+활동 로그에 대한 경고 규칙을 만들 수 있는 조건을 이해하는 간단한 방법은 [Azure Portal의 활동 로그](./activity-log.md#view-the-activity-log)를 통해 이벤트를 탐색하고 필터링하는 것입니다. **Azure Monitor - 활동 로그** 화면에서 필요한 이벤트를 필터링하거나 찾고 **활동 로그 경고 추가** 단추를 사용하여 경고를 만들 수 있습니다. 이후 앞에 있는 4~7단계를 수행합니다.
     
  ![활동 로그에서 경고 추가](media/alerts-activity-log/add-activity-log.png)
     
@@ -243,7 +244,7 @@ Azure Resource Manager 템플릿을 사용하여 활동 로그 경고 규칙을 
 > 새로운 활동 로그 경고 규칙이 활성화되는 데에는 최대 5분이 걸릴 수 있습니다.
 
 ## <a name="rest-api"></a>REST API 
-[Azure Monitor 활동 로그 경고 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts)는 REST API입니다. Azure Resource Manager REST API와 완전히 호환됩니다. Resource Manager cmdlet 또는 Azure CLI를 사용하여 PowerShell을 통해 사용할 수 있습니다.
+[Azure Monitor 활동 로그 경고 API](/rest/api/monitor/activitylogalerts)는 REST API입니다. Azure Resource Manager REST API와 완전히 호환됩니다. Resource Manager cmdlet 또는 Azure CLI를 사용하여 PowerShell을 통해 사용할 수 있습니다.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -262,29 +263,29 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 활동 로그 경고에서는 다음과 같은 전용 PowerShell cmdlet을 사용할 수 있습니다.
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): 새 활동 로그 경고를 만들거나 기존 활동 로그 경고를 업데이트합니다.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): 하나 이상의 활동 로그 경고 리소스를 가져옵니다.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): 기존 활동 로그 경고를 사용 설정하고 태그를 설정합니다.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): 기존 활동 로그 경고를 사용하지 않도록 설정하고 태그를 설정합니다.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): 활동 로그 경고를 제거합니다.
+- [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert): 새 활동 로그 경고를 만들거나 기존 활동 로그 경고를 업데이트합니다.
+- [Get-AzActivityLogAlert](/powershell/module/az.monitor/get-azactivitylogalert): 하나 이상의 활동 로그 경고 리소스를 가져옵니다.
+- [Enable-AzActivityLogAlert](/powershell/module/az.monitor/enable-azactivitylogalert): 기존 활동 로그 경고를 사용 설정하고 태그를 설정합니다.
+- [Disable-AzActivityLogAlert](/powershell/module/az.monitor/disable-azactivitylogalert): 기존 활동 로그 경고를 사용하지 않도록 설정하고 태그를 설정합니다.
+- [Remove-AzActivityLogAlert](/powershell/module/az.monitor/remove-azactivitylogalert): 활동 로그 경고를 제거합니다.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-설정된 [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert)의 전용 Azure CLI 명령을 활동 로그 경고 규칙을 관리하는 데 사용할 수 있습니다.
+설정된 [az monitor activity-log alert](/cli/azure/monitor/activity-log/alert)의 전용 Azure CLI 명령을 활동 로그 경고 규칙을 관리하는 데 사용할 수 있습니다.
 
 새로운 활동 로그 경고 규칙을 만들려면 다음 명령을 순서대로 사용합니다.
 
-1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): 새로운 활동 로그 경고 규칙 리소스를 만듭니다.
-1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): 생성된 활동 로그 경고 규칙에 대한 범위를 추가합니다.
-1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): 활동 로그 경고 규칙에 작업 그룹을 추가합니다.
+1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): 새로운 활동 로그 경고 규칙 리소스를 만듭니다.
+1. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): 생성된 활동 로그 경고 규칙에 대한 범위를 추가합니다.
+1. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): 활동 로그 경고 규칙에 작업 그룹을 추가합니다.
 
-하나의 활동 로그 경고 규칙 리소스를 검색하려면 Azure CLI 명령 [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-)를 사용합니다. 리소스 그룹의 모든 활동 로그 경고 규칙 리소스를 보려면 [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)를 사용합니다.
-Azure CLI 명령 [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete)를 사용하여 활동 로그 경고 규칙 리소스를 제거할 수 있습니다.
+하나의 활동 로그 경고 규칙 리소스를 검색하려면 Azure CLI 명령 [az monitor activity-log alert show](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+)를 사용합니다. 리소스 그룹의 모든 활동 로그 경고 규칙 리소스를 보려면 [az monitor activity-log alert list](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)를 사용합니다.
+Azure CLI 명령 [az monitor activity-log alert delete](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete)를 사용하여 활동 로그 경고 규칙 리소스를 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [활동 로그에 대한 웹후크 스키마](../../azure-monitor/platform/activity-log-alerts-webhook.md)를 알아봅니다.
 - [활동 로그 개요](../../azure-monitor/platform/activity-log-alerts.md)를 읽습니다.
 - [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.  
-- [서비스 상태 알림](../../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
+- [서비스 상태 알림](../../service-health/service-notifications.md)에 대해 자세히 알아보세요.

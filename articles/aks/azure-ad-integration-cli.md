@@ -1,25 +1,28 @@
 ---
-title: Azure Kubernetes Service와 Azure Active Directory 통합
-description: Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터를 만들고 Azure Active Directory 사용 하는 방법을 알아봅니다.
+title: Azure Kubernetes Service (레거시)와 Azure Active Directory 통합
+description: Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터 (레거시)를 Azure Active Directory 만들고 사용 하는 방법을 알아봅니다.
 services: container-service
 author: TomGeske
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: 0bbaca733eb9c1fffbc5c6781b51429edd73fb46
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dfc3a546f4845d5eb2e4e144b66b5d97e4a68829
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252082"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518031"
 ---
-# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Kubernetes Service와 Azure Active Directory 통합
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Azure CLI (레거시)를 사용 하 여 Azure Kubernetes Service와 Azure Active Directory 통합
 
 사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용 하 여 AKS 클러스터에 로그인 할 수 있습니다. 클러스터 운영자는 사용자의 id 또는 디렉터리 그룹 멤버 자격을 기반으로 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수도 있습니다.
 
 이 문서에서는 필요한 Azure AD 구성 요소를 만든 다음 Azure AD 사용 클러스터를 배포 하 고 AKS 클러스터에서 기본 RBAC 역할을 만드는 방법을 보여 줍니다.
 
 이 문서에서 사용 되는 전체 샘플 스크립트는 [Azure CLI 샘플-AZURE AD와 AKS 통합][complete-script]을 참조 하세요.
+
+> [!Important]
+> AKS에는 서버 또는 클라이언트 응용 프로그램을 관리 하지 않아도 되는 향상 된 [AKS 관리 AZURE AD][managed-aad] 환경이 새롭게 제공 됩니다. 마이그레이션하려는 경우 [여기][managed-aad-migrate]에 있는 지침을 따르세요.
 
 ## <a name="the-following-limitations-apply"></a>다음과 같은 제한 사항이 적용됩니다.
 
@@ -280,3 +283,5 @@ Id 및 리소스 제어에 대 한 모범 사례는 [AKS의 인증 및 권한 �
 [rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[managed-aad]: managed-aad.md
+[managed-aad-migrate]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration

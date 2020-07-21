@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: c864a9cc5dd5658bcb3205ce2cbe4f6142cf45a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 70ffe0bb98e89babe2f5998ee66666dd5368f7f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255492"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518048"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -51,7 +51,7 @@ AKS는 관리 오버 헤드가 낮은 고유한 기능을 제공 하는 관리 �
 
 [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) 및 [Azure 표준 Load Balancer](./load-balancer-standard.md) 에 의해 지원 되는 AKS 클러스터를 사용 하는 것이 좋습니다 .이를 통해 [여러 노드 풀](./use-multiple-node-pools.md), [가용성 영역](../availability-zones/az-overview.md), [권한이 부여 된 IP 범위](./api-server-authorized-ip-ranges.md), [클러스터 Autoscaler](./cluster-autoscaler.md), [AKS에 대 한 Azure Policy](../governance/policy/concepts/policy-for-kubernetes.md)및 다른 새로운 기능이 출시 될 때 이러한 기능을 얻을 수 있습니다.
 
-[가상 컴퓨터 가용성 집합](../virtual-machine-scale-sets/availability.md#availability-sets) 으로 지원 되는 AKS 클러스터는 이러한 기능 중 상당수를 지원 하지 않습니다.
+[가상 컴퓨터 가용성 집합](../virtual-machines/availability.md#availability-sets) 으로 지원 되는 AKS 클러스터는 이러한 기능 중 상당수를 지원 하지 않습니다.
 
 다음 예제에서는 가상 머신 확장 집합에 의해 지원 되는 단일 노드 풀로 AKS 클러스터를 만듭니다. 표준 부하 분산 장치를 사용 합니다. 또한 클러스터의 노드 풀에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 최소 *1*개 및 최대 *3*개 노드를 설정합니다.
 
@@ -121,7 +121,7 @@ Azure Managed Disks를 사용 하는 경우 VM에 연결 되지 않은 경우에
 이러한 방법이 작동 하지 않는 경우 백업 및 복원 옵션을 사용할 수 있습니다.
 * [Azure의 Velero](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 
-#### <a name="azure-files"></a>Azure Files
+#### <a name="azure-files"></a>Azure 파일
 
 디스크와 달리 Azure Files는 여러 호스트에 동시에 탑재할 수 있습니다. AKS 클러스터에서 Azure 및 Kubernetes는 ACS 클러스터가 여전히 사용 하는 pod를 만들 수 있도록 방지 하지 않습니다. 데이터 손실 및 예기치 않은 동작을 방지 하려면 클러스터가 같은 파일에 동시에 쓰지 않도록 합니다.
 

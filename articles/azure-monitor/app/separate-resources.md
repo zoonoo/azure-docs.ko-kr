@@ -3,12 +3,12 @@ title: Application Insights 배포를 설계하는 방법 - 하나의 리소스 
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 53fe54d1e674a9d15cab5a3fac0c85f415e40260
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff301887aebf64d26d0fb391a8a16adefc8a3860
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107430"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516722"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>배포해야 하는 Application Insights 리소스의 수
 
@@ -35,7 +35,7 @@ ms.locfileid: "86107430"
 
 ### <a name="other-things-to-keep-in-mind"></a>주의해야 할 기타 사항
 
--   의미 있는 값이 [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) 특성으로 설정되도록 사용자 지정 코드를 추가해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정되지 않으면 포털 환경의 *NONE*이 작동합니다.
+-   의미 있는 값이 [Cloud_RoleName](./app-map.md?tabs=net#set-cloud-role-name) 특성으로 설정되도록 사용자 지정 코드를 추가해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정되지 않으면 포털 환경의 *NONE*이 작동합니다.
 - Service Fabric 애플리케이션 및 클래식 클라우드 서비스의 경우 SDK는 Azure 역할 환경에서 자동으로 읽고 이를 설정합니다. 다른 모든 유형의 앱의 경우 이를 명시적으로 설정해야 할 수도 있습니다.
 -   라이브 메트릭 환경은 역할 이름별로 분할하는 것을 지원하지 않습니다.
 
@@ -76,7 +76,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="create-additional-application-insights-resources"></a>추가 Application Insights 리소스 만들기
 
-Application Insights 리소스를 만들려면 [리소스 생성 가이드](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 따르세요.
+Application Insights 리소스를 만들려면 [리소스 생성 가이드](./create-new-resource.md)를 따르세요.
 
 ### <a name="getting-the-instrumentation-key"></a>계측 키 가져오기
 계측 키는 사용자가 만든 리소스를 식별합니다.

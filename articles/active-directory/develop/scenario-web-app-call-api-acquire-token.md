@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4904cd95dc81aad959c88c1dfdb09416923046e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82181735"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518184"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 웹 앱: 앱에 대 한 토큰을 가져옵니다.
 
@@ -50,6 +50,7 @@ public class HomeController : Controller
 다음은 Microsoft Graph 호출할 토큰을 가져오는의 동작에 대 한 간소화 된 코드입니다 `HomeController` .
 
 ```csharp
+[AuthorizeForScopes(Scopes = new[] { "user.read" })]
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
@@ -65,6 +66,8 @@ public async Task<IActionResult> Profile()
 
 이 시나리오에 필요한 코드를 더 잘 이해 하려면 [aspnetcore-webapp](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 자습서의 2 단계 ([2-1-웹 앱 호출 Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) 단계를 참조 하세요.
 
+`AuthorizeForScopes`컨트롤러 작업 (또는 razor 템플릿 사용 시 razor 페이지)의 맨 위에 있는 특성은 Microsoft. Identity. Web에서 제공 됩니다. 필요한 경우 사용자에 게 동의 여부를 묻는 메시지가 표시 되 고 증분 합니다.
+
 다음과 같은 기타 복잡 한 변형이 있습니다.
 
 - 여러 Api 호출
@@ -79,6 +82,36 @@ ASP.NET에 대 한 코드는 ASP.NET Core에 대해 표시 되는 코드와 비�
 - [권한 부여] 특성으로 보호 되는 컨트롤러 작업은 컨트롤러 구성원의 테 넌 트 ID 및 사용자 ID를 추출 합니다 `ClaimsPrincipal` . (ASP.NET는 `HttpContext.User` 를 사용 합니다.)
 - 여기에서 MSAL.NET 개체를 빌드합니다 `IConfidentialClientApplication` .
 - 마지막으로 `AcquireTokenSilent` 기밀 클라이언트 응용 프로그램의 메서드를 호출 합니다.
+- 상호 작용이 필요한 경우에는 웹 앱에서 사용자에 게 질문 (다시 로그인) 하 고 더 많은 클레임을 요청 해야 합니다.
+
+다음 코드 조각은 [HomeController # L157](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) 에서 추출 됩니다.-L192- [webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) ASP.NET MVC 코드 샘플:
+
+```C#
+public async Task<ActionResult> ReadMail()
+{
+    IConfidentialClientApplication app = MsalAppBuilder.BuildConfidentialClientApplication();
+    AuthenticationResult result = null;
+    var account = await app.GetAccountAsync(ClaimsPrincipal.Current.GetMsalAccountId());
+    string[] scopes = { "Mail.Read" };
+
+    try
+    {
+        // try to get token silently
+        result = await app.AcquireTokenSilent(scopes, account).ExecuteAsync().ConfigureAwait(false);
+    }
+    catch (MsalUiRequiredException)
+    {
+        ViewBag.Relogin = "true";
+        return View();
+    }
+
+    // More code here
+    return View();
+}
+```
+
+자세한 내용은 코드 샘플에서 [BuildConfidentialClientApplication ()](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Utils/MsalAppBuilder.cs) 및 [Getmsalaccountid](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Utils/ClaimPrincipalExtension.cs#L38) 에 대 한 코드를 참조 하세요.
+
 
 # <a name="java"></a>[Java](#tab/java)
 

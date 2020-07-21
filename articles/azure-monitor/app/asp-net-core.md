@@ -3,18 +3,18 @@ title: ASP.NET Core 응용 프로그램에 대 한 Azure 애플리케이션 정�
 description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7e575bf0d1fe138ae9dd4160b55be4f2c8ea5bea
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1d5ce4fe2a3ceb3235b77916aa408c681f81b0de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082202"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517232"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
-이 문서에서는 [ASP.NET Core](https://docs.microsoft.com/aspnet/core) 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 하는 방법을 설명 합니다. 이 문서의 지침을 완료 하면 Application Insights는 ASP.NET Core 응용 프로그램에서 요청, 종속성, 예외, 성능 카운터, 하트 비트 및 로그를 수집 합니다.
+이 문서에서는 [ASP.NET Core](/aspnet/core) 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 하는 방법을 설명 합니다. 이 문서의 지침을 완료 하면 Application Insights는 ASP.NET Core 응용 프로그램에서 요청, 종속성, 예외, 성능 카운터, 하트 비트 및 로그를 수집 합니다.
 
-여기서 사용 하는 예제는를 대상으로 하는 [MVC 응용 프로그램](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) 입니다 `netcoreapp3.0` . 모든 ASP.NET Core 응용 프로그램에 이러한 지침을 적용할 수 있습니다. [Worker 서비스](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services#worker-service-template)를 사용 하는 경우 [여기](./worker-service.md)에 있는 지침을 사용 합니다.
+여기서 사용 하는 예제는를 대상으로 하는 [MVC 응용 프로그램](/aspnet/core/tutorials/first-mvc-app) 입니다 `netcoreapp3.0` . 모든 ASP.NET Core 응용 프로그램에 이러한 지침을 적용할 수 있습니다. [Worker 서비스](/aspnet/core/fundamentals/host/hosted-services#worker-service-template)를 사용 하는 경우 [여기](./worker-service.md)에 있는 지침을 사용 합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -30,14 +30,14 @@ ms.locfileid: "86082202"
 > [!NOTE]
 > ASP.NET Core 3.x에는 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상이 필요 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 준비 사항
 
-- 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](https://docs.microsoft.com/aspnet/core/getting-started/)를 따르세요.
-- 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 참조 하세요.
+- 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](/aspnet/core/getting-started/)를 따르세요.
+- 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>서버 쪽 원격 분석 Application Insights 사용 (Visual Studio)
 
-1. Visual Studio에서 새 프로젝트를 엽니다.
+1. Visual Studio에서 프로젝트를 엽니다.
 
     > [!TIP]
     > 원할 경우 프로젝트에 대 한 소스 제어를 설정 하 여 Application Insights에서 수행 하는 모든 변경 내용을 추적할 수 있습니다. 소스 제어를 사용 하도록 설정 하려면 **파일**  >  **원본 제어에 추가**를 선택 합니다.
@@ -103,15 +103,15 @@ ms.locfileid: "86082202"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    * `APPINSIGHTS_INSTRUMENTATIONKEY`는 일반적으로 [Azure Web Apps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net)에서 사용 되지만이 SDK가 지원 되는 모든 위치에서 사용 될 수도 있습니다. 코드 없는 웹 앱 모니터링을 수행 하는 경우 연결 문자열을 사용 하지 않는 경우이 형식이 필요 합니다.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY`는 일반적으로 [Azure Web Apps](./azure-web-apps.md?tabs=net)에서 사용 되지만이 SDK가 지원 되는 모든 위치에서 사용 될 수도 있습니다. 코드 없는 웹 앱 모니터링을 수행 하는 경우 연결 문자열을 사용 하지 않는 경우이 형식이 필요 합니다.
 
-    계측 키를 설정 하는 대신 [연결 문자열](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net)도 사용할 수 있습니다.
+    계측 키를 설정 하는 대신 [연결 문자열](./sdk-connection-string.md?tabs=net)도 사용할 수 있습니다.
 
     > [!NOTE]
     > 코드에 지정 된 계측 키가 `APPINSIGHTS_INSTRUMENTATIONKEY` 다른 옵션을 통해 적용 되는 환경 변수를 통해 이깁니다.
@@ -122,7 +122,7 @@ ms.locfileid: "86082202"
 
 ### <a name="live-metrics"></a>라이브 메트릭
 
-[라이브 메트릭은](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) Application Insights 모니터링이 올바르게 구성 되었는지 여부를 신속 하 게 확인 하는 데 사용할 수 있습니다. 포털이 포털 및 분석에 표시 되기 시작 하는 데 몇 분 정도 걸릴 수 있지만, 라이브 메트릭은 거의 실시간으로 실행 중인 프로세스의 CPU 사용량을 표시 합니다. 요청, 종속성, 추적 등의 다른 원격 분석도 표시할 수 있습니다.
+[라이브 메트릭은](./live-stream.md) Application Insights 모니터링이 올바르게 구성 되었는지 여부를 신속 하 게 확인 하는 데 사용할 수 있습니다. 포털이 포털 및 분석에 표시 되기 시작 하는 데 몇 분 정도 걸릴 수 있지만, 라이브 메트릭은 거의 실시간으로 실행 중인 프로세스의 CPU 사용량을 표시 합니다. 요청, 종속성, 추적 등의 다른 원격 분석도 표시할 수 있습니다.
 
 ### <a name="ilogger-logs"></a>ILogger 로그
 
@@ -134,7 +134,7 @@ ms.locfileid: "86082202"
 
 ### <a name="performance-counters"></a>성능 카운터
 
-ASP.NET Core의 [성능 카운터](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) 에 대 한 지원은 제한 되어 있습니다.
+ASP.NET Core의 [성능 카운터](./web-monitor-performance.md) 에 대 한 지원은 제한 되어 있습니다.
 
 * SDK 버전 2.4.1 이상에서는 애플리케이션이 Azure Web Apps(Windows)에서 실행되는 경우 성능 카운터를 수집합니다.
 * SDK 버전 2.7.1 이상에서는 애플리케이션이 Windows에서 실행되고 `NETSTANDARD2.0` 이상을 대상으로 하는 경우 성능 카운터를 수집합니다.
@@ -147,7 +147,7 @@ ASP.NET Core의 [성능 카운터](https://azure.microsoft.com/documentation/art
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>웹 응용 프로그램에 대 한 클라이언트 쪽 원격 분석 사용
 
-위의 단계는 서버측 원격 분석 수집을 시작 하는 데 충분 합니다. 응용 프로그램에 클라이언트 쪽 구성 요소가 있는 경우 다음 단계에 따라 [사용 원격 분석](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)수집을 시작 합니다.
+위의 단계는 서버측 원격 분석 수집을 시작 하는 데 충분 합니다. 응용 프로그램에 클라이언트 쪽 구성 요소가 있는 경우 다음 단계에 따라 [사용 원격 분석](./usage-overview.md)수집을 시작 합니다.
 
 1. 에서 `_ViewImports.cshtml` 삽입을 추가 합니다.
 
@@ -172,11 +172,11 @@ ASP.NET Core의 [성능 카운터](https://azure.microsoft.com/documentation/art
 
 `.cshtml`이전에 참조 한 파일 이름은 기본 MVC 응용 프로그램 템플릿에서 가져온 것입니다. 궁극적으로 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 적절 하 게 사용 하려면 `<head>` 모니터링할 응용 프로그램의 각 페이지에 있는 섹션에 JavaScript 코드 조각이 표시 되어야 합니다. 에 JavaScript 코드 조각을 추가 하 여이 응용 프로그램 템플릿에 대 한이 목표를 달성할 수 있습니다 `_Layout.cshtml` . 
 
-프로젝트에가 포함 되지 않은 경우 `_Layout.cshtml` 에도 [클라이언트 쪽 모니터링](https://docs.microsoft.com/azure/azure-monitor/app/website-monitoring)을 추가할 수 있습니다. 이렇게 하려면 `<head>` 응용 프로그램 내 모든 페이지의을 제어 하는 동일한 파일에 JavaScript 코드 조각을 추가 합니다. 또는 여러 페이지에 코드 조각을 추가할 수 있지만이 솔루션은 유지 관리 하기 어렵고 일반적으로 권장 하지 않습니다.
+프로젝트에가 포함 되지 않은 경우 `_Layout.cshtml` 에도 [클라이언트 쪽 모니터링](./website-monitoring.md)을 추가할 수 있습니다. 이렇게 하려면 `<head>` 응용 프로그램 내 모든 페이지의을 제어 하는 동일한 파일에 JavaScript 코드 조각을 추가 합니다. 또는 여러 페이지에 코드 조각을 추가할 수 있지만이 솔루션은 유지 관리 하기 어렵고 일반적으로 권장 하지 않습니다.
 
 ## <a name="configure-the-application-insights-sdk"></a>Application Insights SDK 구성
 
-ASP.NET Core에 대 한 Application Insights SDK를 사용자 지정 하 여 기본 구성을 변경할 수 있습니다. Application Insights ASP.NET SDK의 사용자는 또는을 (를) 사용 하 여 구성을 변경 하는 방법을 익힐 수 있습니다 `ApplicationInsights.config` `TelemetryConfiguration.Active` . ASP.NET Core에 대 한 구성을 다르게 변경 합니다. ASP.NET Core SDK를 응용 프로그램에 추가 하 고 ASP.NET Core 기본 제공 [종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)을 사용 하 여 구성 합니다. `ConfigureServices()`달리 지정 하지 않는 한 클래스의 메서드에서 거의 모든 구성 변경을 수행 `Startup.cs` 합니다. 다음 섹션에서는 자세한 정보를 제공 합니다.
+ASP.NET Core에 대 한 Application Insights SDK를 사용자 지정 하 여 기본 구성을 변경할 수 있습니다. Application Insights ASP.NET SDK의 사용자는 또는을 (를) 사용 하 여 구성을 변경 하는 방법을 익힐 수 있습니다 `ApplicationInsights.config` `TelemetryConfiguration.Active` . ASP.NET Core에 대 한 구성을 다르게 변경 합니다. ASP.NET Core SDK를 응용 프로그램에 추가 하 고 ASP.NET Core 기본 제공 [종속성 주입](/aspnet/core/fundamentals/dependency-injection)을 사용 하 여 구성 합니다. `ConfigureServices()`달리 지정 하지 않는 한 클래스의 메서드에서 거의 모든 구성 변경을 수행 `Startup.cs` 합니다. 다음 섹션에서는 자세한 정보를 제공 합니다.
 
 > [!NOTE]
 > ASP.NET Core 응용 프로그램에서는를 수정 하 여 구성을 변경 하는 것이 `TelemetryConfiguration.Active` 지원 되지 않습니다.
@@ -225,7 +225,7 @@ ASP.NET Core에 대 한 Application Insights SDK는 고정 비율과 적응 샘�
 
 ### <a name="adding-telemetryinitializers"></a>TelemetryInitializers 추가
 
-추가 정보를 사용 하 여 원격 분석을 보강 하려면 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) 를 사용 합니다.
+추가 정보를 사용 하 여 원격 분석을 보강 하려면 [원격 분석 이니셜라이저](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) 를 사용 합니다.
 
 `TelemetryInitializer` `DependencyInjection` 다음 코드에 표시 된 것 처럼 컨테이너에 새를 추가 합니다. SDK는 `TelemetryInitializer` 컨테이너에 추가 된 모든를 자동으로 선택 합니다 `DependencyInjection` .
 
@@ -261,7 +261,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="adding-telemetry-processors"></a>원격 분석 프로세서 추가
 
-에서 확장 메서드를 사용 하 여 사용자 지정 원격 분석 프로세서를에 추가할 수 있습니다 `TelemetryConfiguration` `AddApplicationInsightsTelemetryProcessor` `IServiceCollection` . [고급 필터링 시나리오](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer)에서 원격 분석 프로세서를 사용 합니다. 다음 예제를 사용 합니다.
+에서 확장 메서드를 사용 하 여 사용자 지정 원격 분석 프로세서를에 추가할 수 있습니다 `TelemetryConfiguration` `AddApplicationInsightsTelemetryProcessor` `IServiceCollection` . [고급 필터링 시나리오](./api-filtering-sampling.md#itelemetryprocessor-and-itelemetryinitializer)에서 원격 분석 프로세서를 사용 합니다. 다음 예제를 사용 합니다.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -398,7 +398,7 @@ public class HomeController : Controller
     }
 ```
 
-Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 내용은 [Application Insights 사용자 지정 메트릭 API 참조](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/)를 참조 하세요. [Getmetric API](./get-metric.md)를 사용 하 여 Application Insights에 사용자 지정 메트릭을 전송 하는 데 유사한 방법을 사용할 수 있습니다.
+Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 내용은 [Application Insights 사용자 지정 메트릭 API 참조](./api-custom-events-metrics.md)를 참조 하세요. [Getmetric API](./get-metric.md)를 사용 하 여 Application Insights에 사용자 지정 메트릭을 전송 하는 데 유사한 방법을 사용할 수 있습니다.
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>일부 Visual Studio 템플릿은 IWebHostBuilder에서 UseApplicationInsights () 확장 메서드를 사용 하 여 Application Insights를 사용 하도록 설정 했습니다. 이 사용량이 여전히 유효 한가요?
 
@@ -406,7 +406,7 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
 
 ### <a name="im-deploying-my-aspnet-core-application-to-web-apps-should-i-still-enable-the-application-insights-extension-from-web-apps"></a>Web Apps에 ASP.NET Core 응용 프로그램을 배포 합니다. Web Apps에서 Application Insights 확장을 계속 사용 하도록 설정 해야 하나요?
 
-이 문서에 표시 된 것 처럼 SDK가 빌드 시간에 설치 된 경우 App Service 포털에서 [Application Insights 확장](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) 을 사용 하도록 설정할 필요가 없습니다. 확장이 설치 된 경우에도 SDK가 응용 프로그램에 이미 추가 된 것을 감지 하면 해당 확장이 다시 시작 됩니다. 확장에서 Application Insights를 사용 하도록 설정 하는 경우 SDK를 설치 하 고 업데이트할 필요가 없습니다. 그러나이 문서의 지침에 따라 Application Insights를 사용 하도록 설정 하면 다음과 같은 이유로 유연성이 향상 됩니다.
+이 문서에 표시 된 것 처럼 SDK가 빌드 시간에 설치 된 경우 App Service 포털에서 [Application Insights 확장](./azure-web-apps.md) 을 사용 하도록 설정할 필요가 없습니다. 확장이 설치 된 경우에도 SDK가 응용 프로그램에 이미 추가 된 것을 감지 하면 해당 확장이 다시 시작 됩니다. 확장에서 Application Insights를 사용 하도록 설정 하는 경우 SDK를 설치 하 고 업데이트할 필요가 없습니다. 그러나이 문서의 지침에 따라 Application Insights를 사용 하도록 설정 하면 다음과 같은 이유로 유연성이 향상 됩니다.
 
    * Application Insights 원격 분석은에서 계속 작동 합니다.
        * Windows, Linux, Mac 등의 모든 운영 체제
@@ -420,7 +420,7 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>상태 모니터 같은 도구를 사용 하 여 Application Insights 모니터링을 사용 하도록 설정할 수 있나요?
 
-아니요. [상태 모니터](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) 및 [상태 모니터 v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 는 현재 ASP.NET 4.x만 지원 합니다.
+아니요. [상태 모니터](./monitor-performance-live-website-now.md) 및 [상태 모니터 v2](./status-monitor-v2-overview.md) 는 현재 ASP.NET 4.x만 지원 합니다.
 
 ### <a name="is-application-insights-automatically-enabled-for-my-aspnet-core-20-application"></a>Application Insights ASP.NET Core 2.0 응용 프로그램에 대해 자동으로 사용 하도록 설정 되어 있습니까?
 
@@ -430,7 +430,7 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
 
 예. SDK에 대 한 기능 지원은 모든 플랫폼에서 동일 하지만 다음과 같은 경우는 예외입니다.
 
-* [성능 카운터](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters) 는 Windows 에서만 지원 되므로 SDK는 Linux에서 [이벤트 카운터](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters) 를 수집 합니다. 대부분의 메트릭은 동일 합니다.
+* [성능 카운터](./performance-counters.md) 는 Windows 에서만 지원 되므로 SDK는 Linux에서 [이벤트 카운터](./eventcounters.md) 를 수집 합니다. 대부분의 메트릭은 동일 합니다.
 * `ServerTelemetryChannel`가 기본적으로 사용 되는 경우에도 응용 프로그램이 Linux 또는 MacOS에서 실행 되는 경우, 네트워크 문제가 있는 경우 채널이 일시적으로 원격 분석을 유지 하기 위해 로컬 저장소 폴더를 자동으로 만들지 않습니다. 이러한 제한으로 인해 임시 네트워크 또는 서버 문제가 있으면 원격 분석이 손실 됩니다. 이 문제를 해결 하려면 채널에 대 한 로컬 폴더를 구성 합니다.
 
 ```csharp
@@ -460,7 +460,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 ## <a name="next-steps"></a>다음 단계
 
 * 사용자 [흐름을 탐색](../../azure-monitor/app/usage-flows.md) 하 여 사용자가 앱을 탐색 하는 방법을 파악 합니다.
-* 예외가 throw 될 때 소스 코드 및 변수의 상태를 확인 하도록 [스냅숏 컬렉션을 구성](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 합니다.
+* 예외가 throw 될 때 소스 코드 및 변수의 상태를 확인 하도록 [스냅숏 컬렉션을 구성](./snapshot-debugger.md) 합니다.
 * [API를 사용](../../azure-monitor/app/api-custom-events-metrics.md) 하 여 앱의 성능 및 사용 현황에 대 한 자세한 보기에 대 한 사용자 고유의 이벤트 및 메트릭을 보냅니다.
 * [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 사용하여 전 세계에서 사용자 앱을 지속적으로 확인합니다.
-* [ASP.NET Core 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)
+* [ASP.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection)

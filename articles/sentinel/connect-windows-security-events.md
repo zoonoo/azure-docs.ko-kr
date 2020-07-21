@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 8da05da1b4aa9966b7743bc38b09d1c4b34c8cc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6573237cbba8951bdd45c5b32c572b9af772ee5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555721"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519265"
 ---
 # <a name="connect-windows-security-events"></a>Windows 보안 이벤트 연결 
 
@@ -87,7 +87,29 @@ Azure 센티널에서 Windows 보안 이벤트를 수집 하려면:
 
 로그가 Log Analytics 표시 되기 시작할 때까지 약 20 분 정도 걸릴 수 있습니다. 
 
+### <a name="configure-the-security-events-connector-for-anomalous-rdp-login-detection"></a>비정상 RDP 로그인 검색에 대 한 보안 이벤트 커넥터 구성
 
+> [!IMPORTANT]
+> 비정상적인 RDP 로그인 검색은 현재 공개 미리 보기 상태입니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+Azure 센티널은 기계 학습 (ML)을 보안 이벤트 데이터에 적용 하 여 비정상적인 원격 데스크톱 프로토콜 (RDP) 로그인 작업을 식별할 수 있습니다. 시나리오는 다음과 같습니다.
+
+- **비정상적인 ip** -지난 30 일 동안 ip 주소가 거의 또는 전혀 관찰 되지 않았습니다.
+
+- **비정상적인 지리적 위치** -지난 30 일 동안 IP 주소, 구/군/시, 국가 및 ASN이 거의 또는 전혀 관찰 되지 않았습니다.
+
+- **새 사용자** -새 사용자가 IP 주소 및 지리적 위치에서 로그인 하거나 30 일 이전 데이터를 기반으로 하 여 표시 되지 않습니다.
+
+**구성 지침**
+
+1. **보안 이벤트** 데이터 커넥터를 통해 RDP 로그인 데이터 (이벤트 ID 4624)를 수집 해야 합니다. "없음" 외에 Azure 센티널로 스트리밍할 [이벤트 집합](#event-sets) 을 선택 했는지 확인 합니다.
+
+1. Azure 센티널 포털에서 **분석**을 클릭 한 다음 **규칙 템플릿** 탭을 클릭 합니다. **비정상 RDP 로그인 검색** 규칙을 선택 하 고 **상태** 슬라이더를 **사용**으로 이동 합니다.
+
+    > [!NOTE]
+    > 기계 학습 알고리즘은 사용자 동작의 기준 프로필을 작성 하는 데 30 일 분량의 데이터가 필요 하므로 인시던트를 검색 하기 전에 30 일의 보안 이벤트 데이터를 수집할 수 있도록 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Windows 보안 이벤트를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.

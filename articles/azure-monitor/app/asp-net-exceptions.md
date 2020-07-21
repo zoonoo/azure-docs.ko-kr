@@ -3,11 +3,12 @@ title: Azure 애플리케이션 정보를 사용 하 여 오류 및 예외 진�
 description: 요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처합니다.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d298b3b8541590387995898b0b9f067e8130c3d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892345"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517215"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
 라이브 웹앱의 예외는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
@@ -18,7 +19,7 @@ ms.locfileid: "80892345"
   * Azure VM 및 Azure 가상 머신 확장 집합 IIS에서 호스팅되는 앱: [응용 프로그램 모니터링 확장](../../azure-monitor/app/azure-vm-vmss-apps.md) 추가
   * 앱 코드에서 [Application Insights SDK](../../azure-monitor/app/asp-net.md)를 설치합니다.
   * IIS 웹 서버: [Application Insights 에이전트](../../azure-monitor/app/monitor-performance-live-website-now.md)를 실행합니다.
-  * Java 웹 앱: [java 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) 를 사용 하도록 설정
+  * Java 웹 앱: [java 에이전트](./java-in-process-agent.md) 를 사용 하도록 설정
 * 웹 페이지에 [JavaScript 조각](../../azure-monitor/app/javascript.md)을 설치하여 브라우저 예외를 catch합니다.
 * 일부 애플리케이션 프레임워크 또는 일부 설정에서는 더 많은 예외를 catch하기 위해 몇 가지 추가 단계를 수행해야 합니다.
   * [Web forms](#web-forms)
@@ -27,7 +28,7 @@ ms.locfileid: "80892345"
   * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
-  이 문서는 코드 예제 관점에서 .NET Framework 앱에 특히 중점을 두었습니다. .NET Framework에 사용 되는 일부 메서드는 .NET Core SDK에서 사용 되지 않습니다. .NET Core 앱이 있는 경우 [.NET Core SDK 설명서](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 를 참조 하세요.
+  이 문서는 코드 예제 관점에서 .NET Framework 앱에 특히 중점을 두었습니다. .NET Framework에 사용 되는 일부 메서드는 .NET Core SDK에서 사용 되지 않습니다. .NET Core 앱이 있는 경우 [.NET Core SDK 설명서](./asp-net-core.md) 를 참조 하세요.
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Visual Studio를 사용하여 예외 진단
 디버깅에 도움이 되도록 Visual Studio에서 앱 솔루션을 엽니다.
@@ -198,7 +199,7 @@ public class GoodController : ApiController
 ## <a name="mvc"></a>MVC
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 MVC 5 + 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들어:
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들면 다음과 같습니다.
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외
@@ -213,7 +214,7 @@ Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Applicati
 ### <a name="prior-versions-support"></a>이전 버전 지원
 Application Insights 웹 SDK 2.5(및 이전 버전)의 MVC 4(및 이전 버전)를 사용하는 경우 예외를 추적하기 위해 다음 예제를 참조합니다.
 
-[CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx)가 `Off`로 구성되어 있으면 [HTTP 모듈](https://msdn.microsoft.com/library/ms178468.aspx)에서 예외를 수집할 수 있습니다. 그러나 `RemoteOnly`(기본값) 또는 `On`으로 설정되어 있으면 예외가 지워지고 Application Insights에서 자동으로 수집할 수 없습니다. [System.Web.Mvc.HandleErrorAttribute 클래스](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)를 재정의하고, 재정의된 클래스를 아래와 같이 다른 MVC 버전에 적용하여 이 문제를 해결할 수 있습니다([GitHub 자료](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)).
+[CustomErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100))가 `Off`로 구성되어 있으면 [HTTP 모듈](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85))에서 예외를 수집할 수 있습니다. 그러나 `RemoteOnly`(기본값) 또는 `On`으로 설정되어 있으면 예외가 지워지고 Application Insights에서 자동으로 수집할 수 없습니다. [System.Web.Mvc.HandleErrorAttribute 클래스](/dotnet/api/system.web.mvc.handleerrorattribute?view=aspnet-mvc-5.2)를 재정의하고, 재정의된 클래스를 아래와 같이 다른 MVC 버전에 적용하여 이 문제를 해결할 수 있습니다([GitHub 자료](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)).
 
 ```csharp
     using System;
@@ -254,7 +255,7 @@ HandleError 특성을 컨트롤러의 새 특성으로 바꿉니다.
     ...
 ```
 
-[예제](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[샘플](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Global.asax.cs에서 `AiHandleErrorAttribute` 를 글로벌 필터로 등록합니다.
@@ -269,7 +270,7 @@ Global.asax.cs에서 `AiHandleErrorAttribute` 를 글로벌 필터로 등록합�
      ...
 ```
 
-[예제](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[샘플](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 FilterConfig.cs에서 AiHandleErrorAttribute를 글로벌 필터로 등록합니다.
@@ -285,12 +286,12 @@ FilterConfig.cs에서 AiHandleErrorAttribute를 글로벌 필터로 등록합니
     }
 ```
 
-[예제](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[샘플](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>Web API
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 WebAPI 2+의 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들어:
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들면 다음과 같습니다.
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외
@@ -353,7 +354,7 @@ System.Web.Http.Filters.ExceptionFilterAttribute를 재정의합니다.
     }
 ```
 
-[예제](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[샘플](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
 #### <a name="web-api-2x"></a>Web API 2.x
 IExceptionLogger를 추가로 구현합니다.
@@ -408,7 +409,7 @@ WebApiConfig에서 서비스에 추가합니다.
      }
 ```
 
-[예제](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[샘플](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 또는 다음 방법을 사용해도 됩니다.
 
@@ -478,7 +479,7 @@ Add the attribute to the service implementations:
          ...
 ```
 
-[예제](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[샘플](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>예외 성능 카운터
 서버에 [Application Insights 에이전트를 설치](../../azure-monitor/app/monitor-performance-live-website-now.md)한 경우 .NET에서 측정된 예외 속도 차트를 확인할 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
