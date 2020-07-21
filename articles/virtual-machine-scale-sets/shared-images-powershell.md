@@ -1,5 +1,5 @@
 ---
-title: 공유 VM 이미지를 사용 하 여 Azure에서 확장 집합 만들기
+title: 공유 VM 이미지를 사용 하 여 Azure PowerShell에서 확장 집합 만들기
 description: Azure PowerShell을 사용하여 Azure에서 가상 머신 확장 세트 배포에 사용할 공유 VM 이미지를 만드는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d0912958aaa897e4f8bc18aa88e0c41078d375a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55ca80296bfdfde162ca5a4df348fd80328dd184
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792788"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494924"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 세트용 공유 이미지 만들기 및 사용
 

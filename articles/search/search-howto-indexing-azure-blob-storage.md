@@ -8,14 +8,14 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3ed3ff94b764c0fcb5521ef8106b32923b203a01
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 29e123666b35e4659e68a1a925047267f8519940
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260654"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496454"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Azure Cognitive Search를 사용 하 여 Azure Blob Storage에서 문서를 인덱싱하는 방법
 
@@ -147,8 +147,8 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 * 표준 BLOB 메타데이터 속성이 다음 필드로 추출됩니다.
 
   * **metadata\_storage\_name**(Edm.String) - BLOB의 파일 이름. 예를 들어 blob /my-container/my-folder/subfolder/resume.pdf를 포함하는 경우 이 필드의 값은 `resume.pdf`입니다.
-  * **metadata\_storage\_path**(Edm.String - 스토리지 계정을 포함한 BLOB의 전체 URI. 예를 들면 `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`과 같습니다.
-  * **metadata\_storage\_content\_type**(Edm.String) - BLOB를 업로드하기 위해 사용한 코드에 지정된 콘텐츠 형식. 정의합니다(예: `application/octet-stream`).
+  * **metadata\_storage\_path**(Edm.String - 스토리지 계정을 포함한 BLOB의 전체 URI. 예를 들어 `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_content\_type**(Edm.String) - BLOB를 업로드하기 위해 사용한 코드에 지정된 콘텐츠 형식. 예들 들어 `application/octet-stream`입니다.
   * **metadata\_storage\_last\_modified**(Edm.DateTimeOffset) - BLOB에 대해 마지막으로 수정된 타임스탬프. Azure Cognitive Search는이 타임 스탬프를 사용 하 여 초기 인덱싱 후 모든 항목을 다시 인덱싱하도록 방지 하기 위해 변경 된 blob를 식별 합니다.
   * **metadata\_storage\_size** (Edm.Int64) - BLOB 크기(바이트).
   * **metadata\_storage\_content\_md5**(Edm.String) - BLOB 콘텐츠의 MD5 해시(사용 가능한 경우).
@@ -270,7 +270,7 @@ Metadata_storage_path와 같은 인코딩된 버전의 필드를 키로 사용 �
 
 * `storageMetadata` - [표준 BLOB 속성 및 사용자가 지정한 메타데이터](../storage/blobs/storage-properties-metadata.md)만 인덱싱되도록 지정합니다.
 * `allMetadata` - BLOB 콘텐츠에서 추출한 [Content-Type별 메타데이터](#ContentSpecificMetadata) 및 스토리지 메타데이터가 인덱싱되도록 지정합니다.
-* `contentAndMetadata` - Blob에서 추출한 모든 메타데이터 및 텍스트 콘텐츠가 인덱싱되도록 지정합니다. 기본값입니다.
+* `contentAndMetadata` - Blob에서 추출한 모든 메타데이터 및 텍스트 콘텐츠가 인덱싱되도록 지정합니다. 이것은 기본값입니다.
 
 예를 들어 스토리지 메타데이터만 인덱싱하려면 다음을 사용합니다.
 
@@ -322,7 +322,7 @@ Azure Cognitive Search은 인덱싱되는 blob의 크기를 제한 합니다. �
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 ```
 
-또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예:
+또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들면 다음과 같습니다.
 
 ```http
     {
@@ -342,7 +342,7 @@ BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `
 
 일시 삭제 방식을 구현 하는 방법에는 두 가지가 있습니다. 두 가지 모두 아래에 설명 되어 있습니다.
 
-### <a name="native-blob-soft-delete-preview"></a>네이티브 blob 일시 삭제 (미리 보기)
+### <a name="native-blob-soft-delete-preview"></a>네이티브 Blob 일시 삭제(미리 보기)
 
 > [!IMPORTANT]
 > 기본 blob 일시 삭제에 대 한 지원은 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2020-06-30-미리 보기](https://docs.microsoft.com/azure/search/search-api-preview) 에서이 기능을 제공 합니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.

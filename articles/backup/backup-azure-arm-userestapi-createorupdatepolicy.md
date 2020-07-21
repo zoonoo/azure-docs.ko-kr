@@ -4,11 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 백업 정책 (일�
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fa35ed5e03ad174407e4c82fb5d4bbe69ee8131
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76963855"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497814"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
 
@@ -132,7 +133,7 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 ## <a name="responses"></a>응답
 
-백업 정책 만들기/업데이트는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
+백업 정책 만들기/업데이트는 [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 다른 작업을 만들 때 202 (수락 됨) 두 개의 응답을 반환 하 고 해당 작업이 완료 되 면 200 (OK)를 반환 합니다.
 

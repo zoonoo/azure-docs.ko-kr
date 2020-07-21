@@ -1,5 +1,5 @@
 ---
-title: 통계 생성 및 업데이트
+title: Azure Synapse SQL을 사용 하 여 테이블에 대 한 통계 만들기 및 업데이트
 description: Synapse SQL 풀의 테이블에 대 한 쿼리 최적화 통계 생성 및 업데이트에 대 한 권장 사항 및 예제입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 257b1e26127186fce07e402e58f98660005a97fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800769"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495638"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 통계
 
@@ -220,7 +220,7 @@ SQL 풀에 성별이 하나만 포함 되어 있고 새 요구 사항이 여러 
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -437,7 +437,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -453,7 +453,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -556,7 +556,7 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);

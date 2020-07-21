@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: a7a8af505394b5bf860778b9872434cdacf54210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887005"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497621"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -61,11 +61,11 @@ Dynamics 버전 및 제품에 대해 지원 되는 인증 유형 및 구성의 �
 >[!TIP]
 >Dynamics 365 재무 및 작업에서 데이터를 복사 하려면 [DYNAMICS AX 커넥터](connector-dynamics-ax.md)를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure AD 서비스 주체 인증과 함께이 커넥터를 사용 하려면 Common Data Service 또는 Dynamics에서 S2S (서버 간) 인증을 설정 해야 합니다. 자세한 단계는 [이 문서](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) 를 참조 하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -81,7 +81,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | type | Type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정 해야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics online의 경우이 값은 "Online" 이어야 합니다. | 예 |
-| serviceUri | Dynamics 인스턴스의 서비스 URL입니다. 예제는 https://adfdynamics.crm.dynamics.com입니다. | 예 |
+| serviceUri | Dynamics 인스턴스의 서비스 URL입니다. 예제는 https://www.crmdynamics.com입니다. | 예 |
 | authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. 유효한 값은 "AADServicePrincipal" 및 "Office365"입니다. | 예 |
 | servicePrincipalId | Azure AD 응용 프로그램의 클라이언트 ID입니다. | 인증이 "AADServicePrincipal" 인 경우 예 |
 | servicePrincipalCredentialType | 서비스 사용자 인증에 사용할 자격 증명 형식입니다. 유효한 값은 "ServicePrincipalKey" 및 "ServicePrincipalCert"입니다. | 인증이 "AADServicePrincipal" 인 경우 예 |
@@ -102,7 +102,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",  
+            "serviceUri": "https://www.crmdynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://adfdynamics.crm.dynamics.com", 
+            "serviceUri": "https://www.crmdynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",
+            "serviceUri": "https://www.crmdynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -378,7 +378,7 @@ Dynamics에서 데이터를 복사 하는 경우 다음 표에서는 Dynamics �
 | Dynamics 데이터 형식 | Data Factory 중간 데이터 형식 | 원본으로 지원됨 | 싱크로 지원됨 |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | 부울 | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
@@ -386,7 +386,7 @@ Dynamics에서 데이터를 복사 하는 경우 다음 표에서는 Dynamics �
 | AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |
-| AttributeType.ManagedProperty | 부울 | ✓ | |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |

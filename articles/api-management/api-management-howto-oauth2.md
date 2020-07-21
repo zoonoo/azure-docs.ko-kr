@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: f4f5c5d9a77353f36119b77601b88f9dab01ccc0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7eb77b9ffae49c7d8d3e5612b685e5725829898f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243616"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499786"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -50,7 +50,7 @@ ms.locfileid: "86243616"
     > [!NOTE]
     > 이러한 필드는 현재 API Management 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용되며, 해당 값은 OAuth 2.0 서버에서 제공되지 않습니다.
 
-3. **클라이언트 등록 페이지 URL**을 입력합니다. 사용자는 이 페이지에서 계정을 만들고 관리할 수 있습니다. 사용되는 OAuth 2.0 공급자에 따라 페이지는 달라집니다. **클라이언트 등록 페이지 URL** 은 사용자가 계정의 사용자 관리를 지원하는 OAuth 2.0 공급자에 대한 계정을 만들고 구성하는 데 사용할 수 있는 페이지를 가리킵니다. 일부 조직에서는 OAuth 2.0 공급자가 지원하는 경우에도 이 기능을 구성 또는 사용하지 않습니다. OAuth 2.0 공급자에 계정의 사용자 관리가 구성되지 않은 경우 회사의 URL 또는 `https://placeholder.contoso.com` 등의 URL과 같은 자리 표시자 URL을 여기에 입력합니다.
+3. **클라이언트 등록 페이지 URL**을 입력합니다. 사용자는 이 페이지에서 계정을 만들고 관리할 수 있습니다. 사용되는 OAuth 2.0 공급자에 따라 페이지는 달라집니다. **클라이언트 등록 페이지 URL** 은 사용자 계정 (예:)의 사용자 관리를 지 원하는 OAuth 2.0 공급자에 대해 고유한 계정을 만들고 구성 하는 데 사용할 수 있는 페이지를 가리킵니다 `https://contoso.com/login` . 일부 조직에서는 OAuth 2.0 공급자가 지원하는 경우에도 이 기능을 구성 또는 사용하지 않습니다. OAuth 2.0 공급자에 계정의 사용자 관리가 구성되지 않은 경우 회사의 URL 또는 `https://placeholder.contoso.com` 등의 URL과 같은 자리 표시자 URL을 여기에 입력합니다.
 
     ![OAuth 2.0 새 서버](./media/api-management-howto-oauth2/oauth-02.png)
 
@@ -75,6 +75,11 @@ ms.locfileid: "86243616"
     **클라이언트 인증 방법**의 기본 설정은 **기본**이고 **액세스 토큰 전송 방법**의 기본 설정은 **권한 부여 헤더**입니다. 양식의 이 섹션에서 **기본 범위**와 함께 이러한 값을 구성합니다.
 
 6. **클라이언트 자격 증명** 섹션에는 **클라이언트 ID** 및 **클라이언트 암호**가 포함되어 있습니다. OAuth 2.0 서버 만들기 및 구성 프로세스 중에 이러한 값을 가져옵니다. **클라이언트 ID** 및 **클라이언트 암호**를 지정하고 나면 **인증 코드**의 **redirect_uri**가 생성됩니다. 이 URI를 사용하여 OAuth 2.0 서버 구성에서 회신 URL을 구성합니다.
+
+    새 개발자 포털에서 URI 접미사는 형식입니다.
+
+    - `/signin-oauth/code/callback/{authServerName}`인증 코드 부여 흐름
+    - `/signin-oauth/implicit/callback`암시적 허용 흐름의 경우
 
     ![OAuth 2.0 새 서버](./media/api-management-howto-oauth2/oauth-04.png)
 

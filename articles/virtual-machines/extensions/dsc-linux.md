@@ -13,18 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698515"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494788"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux 용 DSC 확장 (Microsoft. OSTCExtensions. DSCForLinux)
 
 DSC (필요한 상태 구성)는 구성을 사용 하 여 IT 및 개발 인프라를 코드로 관리 하는 데 사용할 수 있는 관리 플랫폼입니다.
 
 > [!NOTE]
-> Linux 용 DSC 확장 및 [linux 용 Azure Monitor 가상 머신 확장](/azure/virtual-machines/extensions/oms-linux) 은 현재 충돌을 제공 하며 side-by-side 구성에서 지원 되지 않습니다. 동일한 VM에서 두 솔루션을 함께 사용 하지 마세요.
+> Linux 용 DSC 확장 및 [linux 용 Azure Monitor 가상 머신 확장](./oms-linux.md) 은 현재 충돌을 제공 하며 side-by-side 구성에서 지원 되지 않습니다. 동일한 VM에서 두 솔루션을 함께 사용 하지 마세요.
 
 DSCForLinux 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 OMI 및 DSC 에이전트를 Azure 가상 머신에 설치합니다. DSC 확장은 다음 작업을 수행할 수도 있습니다.
 
@@ -37,11 +38,11 @@ DSCForLinux 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 OMI
 
  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
-DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](/azure/virtual-machines/linux/endorsed-distros)을 지원합니다.
+DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](../linux/endorsed-distros.md)을 지원합니다.
 
 | 배포 | 버전 |
 |---|---|

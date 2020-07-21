@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552814"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499004"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -38,11 +38,11 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 | [Windows 에이전트](../platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
 | [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
 | [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure storage 계정](../platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Azure storage 계정](../platform/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
-솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. 이 데이터는 Azure Monitor에 업로드된 후 솔루션 대시보드에 표시됩니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](https://technet.microsoft.com/library/dn800669.aspx#enhanc)를 통해 거의 실시간으로 수집됩니다.
+솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. 이 데이터는 Azure Monitor에 업로드된 후 솔루션 대시보드에 표시됩니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc)를 통해 거의 실시간으로 수집됩니다.
 
 ## <a name="configuration"></a>Configuration
 

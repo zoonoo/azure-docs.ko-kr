@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: d4ceb25b9b81c831ed1b285a875742ebfaa6d24f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232647"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496998"
 ---
 # <a name="weather-partner-integration"></a>날씨 파트너 통합
 
@@ -36,10 +36,10 @@ ms.locfileid: "86232647"
 
 FarmBeats Api에는 Swagger 기술 설명서가 포함 되어 있습니다. 모든 Api 및 해당 요청 또는 응답에 대 한 자세한 내용은 [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)를 참조 하세요. 
 
-FarmBeats를 설치한 경우 FarmBeats swagger at에 액세스할 수 있습니다.[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger)
+FarmBeats를 설치한 경우 FarmBeats swagger at에 액세스할 수 있습니다.`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 FarmBeats 웹 사이트 이름에 "-api"가 추가 됩니다.
-API 끝점은 다음과 같습니다.[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net)
+API 끝점은 다음과 같습니다.`https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Datahub lib
 
@@ -134,9 +134,9 @@ Docker 프로그램에는 **부트스트랩** 및 **작업**의 두 구성 요�
 
 ### <a name="details-of-the-objects"></a>개체의 세부 정보
 
-  **WeatherDataModel** |  |
+  WeatherDataModel | 설명 |
   --- | ---
-  이름  | 날씨 데이터 모델의 이름입니다. |
+  Name  | 날씨 데이터 모델의 이름입니다. |
   Description  | 모델에 대한 의미 있는 설명을 제공합니다. |
   속성  | 데이터 공급자가 정의한 추가 속성입니다. |
   weatherMeasures > 이름  | 날씨 측정의 이름입니다. 예 humidity_max |
@@ -147,8 +147,8 @@ Docker 프로그램에는 **부트스트랩** 및 **작업**의 두 구성 요�
   weatherMeasures > AggregationType  | 없음, 평균, 최대값, 최소값, StandardDeviation, 합계, 합계
   weatherMeasures > 깊이  | 센서의 깊이(센티미터)입니다. 예를 들어 지하 10cm에서 수분을 측정합니다.
   weatherMeasures > 설명  | 측정에 대한 의미 있는 설명을 제공합니다. |
-  **JobType** |  |
-  이름  | 작업 이름-예: Get_Daily_Forecast; 날씨 데이터를 얻기 위해 고객이 실행 하는 작업입니다.|
+  **JobType** | **설명** |
+  Name  | 작업 이름-예: Get_Daily_Forecast; 날씨 데이터를 얻기 위해 고객이 실행 하는 작업입니다.|
   pipelineDetails > 매개 변수 > 이름  | 매개 변수의 이름입니다. |
   pipelineDetails > 매개 변수 > 형식 | String, Int, Float, Bool, Array 중 하나입니다. |
   pipelineDetails > 매개 변수 > isRequired | 부울 필수 매개 변수 이면 true이 고, 그렇지 않으면 false입니다. 기본값은 true입니다. |
@@ -156,10 +156,10 @@ Docker 프로그램에는 **부트스트랩** 및 **작업**의 두 구성 요�
   pipelineDetails > 매개 변수 > 설명 | 매개 변수에 대한 설명 |
   속성  | 제조업체로부터의 추가 속성입니다.
   속성 > 프로그래밍 **runcommand** | docker run 명령-이 명령은 고객이 날씨 작업을 실행할 때 실행 됩니다. |
-  **WeatherDataLocation** |  |
+  **WeatherDataLocation** | **설명** |
   weatherDataModelId  | 부트스트랩 중에 생성 된 해당 WeatherDataModel의 ID|
   위치  | 위도, 경도 및 상승을 나타냅니다. |
-  이름 | 개체의 이름입니다. |
+  Name | 개체의 이름입니다. |
   설명 | 설명 |
   farmId | **선택 사항** 작업 매개 변수의 일부로 고객이 제공한 팜 ID |
   속성  | 제조업체로부터의 추가 속성입니다.

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
-ms.openlocfilehash: 8b3dba7996b098ec398c9fe94705c18190b30ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753558"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497646"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 
 
@@ -124,7 +124,11 @@ Azure-SSIS 런타임에 대한 자세한 내용은 다음 문서를 참조하세
 
 ## <a name="integration-runtime-location"></a>통합 런타임 위치
 
-Data Factory 위치는 Data Factory의 메타데이터가 저장되는 곳이며 파이프라인 트리거가 시작되는 곳입니다. 그 동안 데이터 팩터리는 컴퓨팅 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 컴퓨팅 서비스에 액세스할 수 있습니다. 이 동작은 데이터 준수, 효율성 및 네트워크 송신 비용 절감을 위해 [전역적으로 사용할 수 있는 IR](https://azure.microsoft.com/global-infrastructure/services/)을 통해 실현됩니다.
+### <a name="relationship-between-factory-location-and-ir-location"></a>팩터리 위치와 IR 위치 간의 관계
+
+고객이 데이터 팩터리 인스턴스를 만들 때 데이터 팩터리의 위치를 지정 해야 합니다. Data Factory 위치는 Data Factory의 메타데이터가 저장되는 곳이며 파이프라인 트리거가 시작되는 곳입니다. 팩터리에 대 한 메타 데이터는 고객의 선택 지역에만 저장 되 고 다른 지역에는 저장 되지 않습니다.
+
+그 동안 데이터 팩터리는 컴퓨팅 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 컴퓨팅 서비스에 액세스할 수 있습니다. 이 동작은 데이터 준수, 효율성 및 네트워크 송신 비용 절감을 위해 [전역적으로 사용할 수 있는 IR](https://azure.microsoft.com/global-infrastructure/services/)을 통해 실현됩니다.
 
 IR 위치는 해당 백 엔드 컴퓨팅의 위치, 즉 기본적으로 데이터 이동, 작업 디스패치 및 SSIS 패키지 실행이 수행되는 위치를 정의합니다. IR 위치는 자신이 속한 데이터 팩터의 위치와 다를 수 있습니다. 
 

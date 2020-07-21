@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: aa8f5fa9901055957c5c94923ebd74c3d57ce41a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481785"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494669"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows용 Log Analytics 가상 머신 확장
 
 Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링 기능을 제공 합니다. Windows용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Windows용 Log Analytics 가상 머신 확장에 대한 배포 옵션을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -98,7 +98,7 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 \*workspaceId는 Log Analytics API에서 consumerId라고 합니다.
 
 > [!NOTE]
-> 추가 속성은 [Azure Monitor에 Azure Windows 컴퓨터 연결을](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows)참조 하세요.
+> 추가 속성은 [Azure Monitor에 Azure Windows 컴퓨터 연결을](../../azure-monitor/platform/agent-windows.md)참조 하세요.
 
 ## <a name="template-deployment"></a>템플릿 배포
 

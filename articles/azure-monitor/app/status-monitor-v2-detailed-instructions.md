@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: c74d4f0b2e0b2d8ca09c9b2c1f1091594f5657dc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2faf33fdd58090a335804f084ef2d1f180a9754a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111017"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499327"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 에이전트 (이전의 이름이 지정 된 상태 모니터 v2): 자세한 지침
 
@@ -29,9 +29,7 @@ ms.locfileid: "86111017"
 PowerShell에서 컴퓨터를 변경 하려면 관리자 수준의 권한이 필요 합니다.
 ### <a name="execution-policy"></a>실행 정책
 - 설명: 기본적으로 PowerShell 스크립트를 실행 하는 것은 사용 되지 않습니다. 현재 범위에만 RemoteSigned 스크립트를 허용 하는 것이 좋습니다.
-- 참조: [실행 정책](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) 및 [set-executionpolicy](
-https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
-)정보를 참조 하세요.
+- 참조: [실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) 및 [set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)정보를 참조 하세요.
 - 명령: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` .
 - 선택적 매개 변수:
     - `-Force`. 확인 메시지를 무시 합니다.
@@ -80,7 +78,7 @@ SerializationVersion           1.1.0.1
 1. 관리자 권한으로 실행 정책을 통해 PowerShell을 관리자 권한으로 실행 합니다.
 2. NuGet 패키지 공급자를 설치 합니다.
     - 설명: PowerShell 갤러리와 같은 NuGet 기반 리포지토리와 상호 작용 하려면이 공급자가 필요 합니다.
-    - 참조: [install-packageprovider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
+    - 참조: [install-packageprovider](/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
     - 명령: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201` .
     - 선택적 매개 변수:
         - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
@@ -100,7 +98,7 @@ SerializationVersion           1.1.0.1
 
 3. PowerShell 갤러리를 신뢰할 수 있는 리포지토리로 구성 합니다.
     - 설명: 기본적으로 PowerShell 갤러리는 신뢰할 수 없는 리포지토리입니다.
-    - 참조: [set-psrepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
+    - 참조: [set-psrepository](/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - 명령: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted` .
     - 선택적 매개 변수:
         - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
@@ -146,7 +144,7 @@ SerializationVersion           1.1.0.1
 1. PowerShell 갤러리에 대 한 모든 필수 조건이 충족 되는지 확인 합니다.
 2. 관리자 권한으로 실행 정책을 통해 PowerShell을 관리자 권한으로 실행 합니다.
 3. Az. ApplicationMonitor 모듈을 설치 합니다.
-    - 참조: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
+    - 참조: [Install-Module](/powershell/module/powershellget/install-module?view=powershell-6).
     - 명령: `Install-Module -Name Az.ApplicationMonitor` .
     - 선택적 매개 변수:
         - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
@@ -160,7 +158,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>최신 nupkg 파일 수동으로 다운로드
 
-1. https://www.powershellgallery.com/packages/Az.ApplicationMonitor 로 이동합니다.
+1. https://www.powershellgallery.com/packages/Az.ApplicationMonitor로 이동합니다.
 2. **버전 기록** 테이블에서 파일의 최신 버전을 선택 합니다.
 3. **설치 옵션**아래에서 **수동 다운로드**를 선택 합니다.
 
@@ -172,7 +170,7 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 #### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Expand-Archive (v 1.0.1.0)를 사용 하 여 zip 파일로 nupkg 압축 풀기
 
 - 설명: 기본 버전의 1.0.1.0 (v)에서 nupkg 파일의 압축을 풀 수 없습니다. .Zip 확장명을 사용 하 여 파일의 이름을 바꿉니다.
-- 참조: [확장-보관](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6)합니다.
+- 참조: [확장-보관](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6)합니다.
 - 명령:
 
     ```console
@@ -186,7 +184,7 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 #### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>확장-보관을 사용 하 여 nupkg 압축 풀기 (v 1.1.0.0)
 
 - 설명: 확장을 변경 하지 않고 nupkg 파일의 압축을 푸는 데 현재 버전의 Expand-Archive를 사용 합니다.
-- 참조: [확장-보관](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) 및 [Microsoft. PowerShell](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- 참조: [확장-보관](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) 및 [Microsoft. PowerShell](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - 명령:
 
     ```console
@@ -199,7 +197,7 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 PowerShell 모듈을 PowerShell 디렉터리에 설치 합니다.
 자세한 내용은 [PowerShell 모듈 설치](/powershell/scripting/developer/module/installing-a-powershell-module)를 참조 하세요.
 
-다른 디렉터리에 모듈을 설치 하는 [경우 import-module을 사용 하](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6)여 수동으로 모듈을 가져옵니다.
+다른 디렉터리에 모듈을 설치 하는 [경우 import-module을 사용 하](/powershell/module/microsoft.powershell.core/import-module?view=powershell-6)여 수동으로 모듈을 가져옵니다.
 
 > [!IMPORTANT] 
 > Dll은 상대 경로를 통해 설치 됩니다.
@@ -218,14 +216,14 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 다운로드 하 고 설치 하는 PowerShell 명령은 PowerShell 갤러리에서 매개 변수를 지원 합니다. `-Proxy`
 설치 스크립트를 작성 하는 경우 위의 지침을 검토 합니다.
 
-Application Insights SDK는 앱의 원격 분석을 Microsoft로 전송 해야 합니다. web.config 파일에서 앱에 대 한 프록시 설정을 구성 하는 것이 좋습니다. 자세한 내용은 [APPLICATION INSIGHTS FAQ: 프록시 통과](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough)를 참조 하세요.
+Application Insights SDK는 앱의 원격 분석을 Microsoft로 전송 해야 합니다. web.config 파일에서 앱에 대 한 프록시 설정을 구성 하는 것이 좋습니다. 자세한 내용은 [APPLICATION INSIGHTS FAQ: 프록시 통과](../faq.md#proxy-passthrough)를 참조 하세요.
 
 
 ## <a name="enable-monitoring"></a>모니터링 사용
 
 명령을 사용 `Enable-ApplicationInsightsMonitoring` 하 여 모니터링을 사용 하도록 설정 합니다.
 
-이 cmdlet을 사용 하는 방법에 대 한 자세한 설명은 [API 참조](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring) 를 참조 하세요.
+이 cmdlet을 사용 하는 방법에 대 한 자세한 설명은 [API 참조](./status-monitor-v2-api-reference.md#enable-applicationinsightsmonitoring) 를 참조 하세요.
 
 
 
@@ -235,7 +233,7 @@ Application Insights SDK는 앱의 원격 분석을 Microsoft로 전송 해야 �
 
 - [메트릭을 탐색](../../azure-monitor/platform/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
 - [이벤트와 로그를 검색](../../azure-monitor/app/diagnostic-search.md) 하 여 문제를 진단 합니다.
-- 고급 쿼리를 위해 [분석을 사용](../../azure-monitor/app/analytics.md) 합니다.
+- 고급 쿼리를 위해 [분석을 사용](../log-query/log-query-overview.md) 합니다.
 - [대시보드를 만듭니다](../../azure-monitor/app/overview-dashboard.md).
 
  원격 분석 더 추가:

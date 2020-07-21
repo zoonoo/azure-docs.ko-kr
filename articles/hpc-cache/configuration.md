@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 88aea7e58aacd9a630771948c6dbc6ed5712a674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01c4d896d5ec600e0fe22e3ca7b7816141776a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505310"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497202"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>추가 Azure HPC 캐시 설정 구성
 
@@ -51,7 +51,7 @@ Root squash를 사용 하도록 설정 하면 클라이언트의 루트 사용�
 
 Root squash가 사용 하지 않도록 설정 된 경우 클라이언트 루트 사용자 (UID 0)의 요청은 백 엔드 NFS 저장소 시스템에 루트로 전달 됩니다. 이 구성은 부적절 한 파일 액세스를 허용할 수 있습니다.
 
-캐시에서 root squash를 설정 하면 ``no_root_squash`` 저장소 대상으로 사용 되는 NAS 시스템에서 필요한 설정을 보정할 수 있습니다. [NFS 저장소 대상 필수 구성 요소](hpc-cache-prereqs.md#nfs-storage-requirements)에 대해 자세히 알아보세요. 또한 Azure Blob 저장소 대상에서 사용 하는 경우 보안을 향상 시킬 수 있습니다.
+캐시에서 root squash를 설정 하면 ``no_root_squash`` 저장소 대상으로 사용 되는 NAS 시스템에서 필요한 설정을 보정할 수 있습니다. [NFS 저장소 대상 필수 구성 요소](hpc-cache-prerequisites.md#nfs-storage-requirements)에 대해 자세히 알아보세요. 또한 Azure Blob 저장소 대상에서 사용 하는 경우 보안을 향상 시킬 수 있습니다.
 
 기본 설정은 **예**입니다. 4 월 2020 이전에 만든 캐시에는 기본 설정인 **No**가 있을 수 있습니다.
 

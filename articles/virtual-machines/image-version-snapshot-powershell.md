@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d55bcf921d5bddb1612f9cfb884b339f837c7aa2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225166"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494720"
 ---
 # <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>PowerShell을 사용 하 여 공유 이미지 갤러리의 VHD 또는 스냅숏에서 이미지 만들기
 
@@ -90,9 +90,9 @@ $gallery = Get-AzGallery `
 
 이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. 이 예제에서는 스냅숏이 사용 중인 VM에서 스냅숏 또는 VHD를 사용 하 고 있으며 일반화 되지 않았다고 가정 합니다. Windows 또는 [waagent](https://github.com/Azure/WALinuxAgent) 용 Sysprep 또는 Linux 용으로 실행 한 후 VHD 또는 스냅숏이 일반화 된 OS를 사용 하는 경우 `-deprovision` `-deprovision+user` `-OsState` 를로 변경 합니다 `generalized` . 
 
-이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions)를 참조하세요.
+이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./windows/shared-image-galleries.md#image-definitions)를 참조하세요.
 
-[New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 특수 한 Windows OS를 위한 것입니다. Linux OS를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
+[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 특수 한 Windows OS를 위한 것입니다. Linux OS를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -114,7 +114,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>이미지 버전 만들기
 
-[AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 스냅숏에서 이미지 버전을 만듭니다. 
+[AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 스냅숏에서 이미지 버전을 만듭니다. 
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -148,7 +148,7 @@ $job.State
 > [!NOTE]
 > 동일한 스냅숏을 사용 하 여 다른 이미지 버전을 만들기 전에 이미지 버전이 완전히 완료 될 때까지 대기 해야 합니다. 
 >
-> 이미지 버전을 만들 때를 추가 하 여 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 에 이미지 버전을 저장할 수도 있습니다 `-StorageAccountType Standard_ZRS` .
+> 이미지 버전을 만들 때를 추가 하 여 [영역 중복 저장소](../storage/common/storage-redundancy.md) 에 이미지 버전을 저장할 수도 있습니다 `-StorageAccountType Standard_ZRS` .
 >
 
 ## <a name="delete-the-source"></a>원본 삭제

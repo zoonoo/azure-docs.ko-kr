@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 4d89c64b7ceea730dab61ffe1254d838d219b785
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971048"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498800"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -33,7 +33,7 @@ ms.locfileid: "85971048"
 > 3. 작업 영역에서 [Azure 센티널 솔루션을 사용 하도록 설정](../../sentinel/quickstart-onboard.md) 합니다.
 > 4. Azure 센티널의 **데이터 커넥터** 페이지로 이동 하 여 **Office 365** 커넥터를 사용 하도록 설정 합니다.
 >
-> ## <a name="frequently-asked-questions"></a>자주 묻는 질문
+> ## <a name="frequently-asked-questions"></a>질문과 대답
 > 
 > ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-october-31"></a>Q: 현재와 10 월 31 일까 지 Office 365 Azure Monitor 솔루션을 온보드 할 수 있나요?
 > 아니요, Azure Monitor Office 365 솔루션 등록 스크립트는 더 이상 사용할 수 없습니다. 솔루션은 10 월 31 일에 제거 됩니다.
@@ -218,7 +218,7 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
     .\office365_unsubscribe.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeTennantID <Tenant ID> 
     ```
 
-    예:
+    예제:
 
     ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
@@ -228,7 +228,7 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
 
 ## <a name="data-collection"></a>데이터 수집
 
-데이터가 처음으로 수집될 때까지 몇 시간이 걸릴 수 있습니다. 데이터 수집이 시작되면 Office 365는 레코드가 생성될 때마다 상세 데이터가 포함된 [webhook 알림](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications)을 Azure Monitor로 보냅니다. 이 레코드는 수신된 후 몇 분 안에 Azure Monitor에서 사용할 수 있습니다.
+데이터가 처음으로 수집될 때까지 몇 시간이 걸릴 수 있습니다. 데이터 수집이 시작되면 Office 365는 레코드가 생성될 때마다 상세 데이터가 포함된 [webhook 알림](/office/office-365-management-api/office-365-management-activity-api-reference#receiving-notifications)을 Azure Monitor로 보냅니다. 이 레코드는 수신된 후 몇 분 안에 Azure Monitor에서 사용할 수 있습니다.
 
 ## <a name="using-the-solution"></a>솔루션 사용
 
@@ -266,13 +266,13 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 | 형식 | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
 | OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| 연산 | 사용자 또는 관리자 활동의 이름입니다.  |
+| 작업(Operation) | 사용자 또는 관리자 활동의 이름입니다.  |
 | OrganizationId | 조직의 Office 365 테넌트 GUID입니다. 이 값은 값이 나타나는 Office 365 서비스에 관계없이 조직에서 항상 동일하게 유지됩니다. |
 | RecordType | 수행한 작업의 유형입니다. |
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>Regular<br>예약됨<br>ServicePrincipal<br>시스템 |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>Admin<br>애플리케이션<br>DcAdmin<br>주기적<br>예약됨<br>ServicePrincipal<br>시스템 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성

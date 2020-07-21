@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 819ef7e61045c0ed4205eeaf0094fec706b0b9da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691819"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498613"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor 이름 지정 및 용어 변경
 Azure 고객을 위한 모니터링 간소화를 위해 다양한 서비스가 통합되면서 Azure Monitor가 최근 상당히 변화되었습니다. 이 문서에서는 Azure Monitor 설명서의 이름 및 용어 변경 내용을 설명합니다.
@@ -58,4 +59,4 @@ OMS(Operations Management Suite)는 라이센스 부여에 사용되는 다음 A
 ## <a name="next-steps"></a>다음 단계
 
 - 여러 다른 구성 요소와 기능을 설명하는 [Azure Monitor 개요](overview.md)를 읽어 보세요.
-- [OMS 포털 상태 전환](../log-analytics/log-analytics-oms-portal-transition.md)에 관해 알아보세요.
+- [OMS 포털 상태 전환](./platform/oms-portal-transition.md)에 관해 알아보세요.

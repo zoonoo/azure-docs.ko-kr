@@ -1,31 +1,30 @@
 ---
-title: 시계열 모델-Azure Time Series Insights | Microsoft Docs
-description: Azure Time Series Insights 미리 보기의 시계열 모델에 대해 알아봅니다.
+title: 시계열 모델-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Azure Time Series Insights Gen2의 시계열 모델에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: c5a22987b1d67f9e9f8384e5376343af2f91b5e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 98951dc29b7c8504cbf1654a810ebba933fef3a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049851"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495383"
 ---
-# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 시계열 모델
+# <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 시계열 모델
 
-이 문서에서는 시계열 모델, 기능 및 Azure Time Series Insights 미리 보기 환경에서 사용자 고유의 모델 빌드 및 업데이트를 시작 하는 방법을 설명 합니다.
+이 문서에서는 시계열 모델, 기능 및 Azure Time Series Insights Gen2 환경에서 사용자 고유의 모델 빌드 및 업데이트를 시작 하는 방법을 설명 합니다.
 
 > [!TIP]
 >
 > * 라이브 시계열 모델 예제는 [Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동 합니다.
-> * 시계열 모델 UI를 탐색 하는 방법에 대 한 자세한 내용은 [Azure Time Series Insights Preview 탐색기](time-series-insights-update-explorer.md) 를 참조 하세요.
-> * Time Series Insights 웹 탐색기를 사용 하 여 [시계열 모델을 사용 하는 방법](time-series-insights-update-how-to-tsm.md) 에 대해 알아봅니다.
+> * Azure Time Series Insights Gen2 탐색기를 사용 하 여 [시계열 모델을 사용 하는 방법](time-series-insights-update-how-to-tsm.md) 에 대해 알아봅니다.
 
 ## <a name="summary"></a>요약
 
@@ -58,7 +57,7 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 ### <a name="key-capabilities"></a>주요 기능
 
-시계열 컨텍스트화를 간단하고 손쉽게 관리하기 위해 개발된 시계열 모델은 Time Series Insights 미리 보기에서 다음과 같은 기능을 지원합니다. 다음과 같은 도움을 줍니다.
+시계열 모델을 사용 하면 간단 하 고 간편 하 게 시계열 contextualization을 관리할 수 있기 때문에 Azure Time Series Insights Gen2에서 다음과 같은 기능을 사용할 수 있습니다. 다음과 같은 도움을 줍니다.
 
 * 스칼라 함수, 집계 작업 등을 활용 하 여 계산 또는 수식을 작성 하 고 관리 합니다.
 * 부모-자식 관계를 정의 하 여 탐색, 검색 및 참조를 사용 하도록 설정 합니다.
@@ -72,11 +71,11 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 * [시계열 모델 계층 구조](#time-series-model-hierarchies)
 * [시계열 모델 형식](#time-series-model-types)
 
-이러한 구성 요소를 결합 하 여 시계열 모델을 지정 하 고 Azure Time Series Insights 데이터를 구성 합니다.
+이러한 구성 요소를 결합 하 여 시계열 모델을 지정 하 고 데이터를 구성 합니다.
 
 [![시계열 모델 개요 차트](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-시계열 모델은 [Time Series Insights 미리 보기](time-series-insights-update-how-to-tsm.md) 인터페이스를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)를 통해 관리할 수 있습니다.
+시계열 모델은 [Azure Time Series Insights Gen2 탐색기](time-series-insights-update-how-to-tsm.md)를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)를 통해 관리할 수 있습니다.
 
 ## <a name="time-series-model-instances"></a>시계열 모델 인스턴스
 
@@ -88,7 +87,7 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 *인스턴스 필드* 는 계층 수준에 대 한 값 뿐만 아니라 제조업체, 연산자 등을 포함할 수 있는 설명 정보의 모음입니다.
 
-Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스턴스는 시계열 모델에서 자동으로 검색 되 고 생성 됩니다. 인스턴스는 시계열 모델 쿼리를 사용 하 여 Time Series Insights 탐색기를 통해 만들거나 업데이트할 수 있습니다.
+Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된 후 인스턴스는 시계열 모델에서 자동으로 검색 되 고 생성 됩니다. 인스턴스는 시계열 모델 쿼리를 사용 하 여 Azure Time Series Insights Gen2 탐색기를 통해 만들거나 업데이트할 수 있습니다.
 
 [Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 에서는 몇 가지 라이브 인스턴스 예제를 제공 합니다.
 
@@ -130,15 +129,15 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 ```
 
 > [!TIP]
-> Time Series Insights Instance API 및 CRUD (만들기, 읽기, 업데이트 및 삭제) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [인스턴스 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)를 참조 하세요.
+> 인스턴스 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) 문서 및 [인스턴스 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)를 참조 하세요.
 
 ## <a name="time-series-model-hierarchies"></a>시계열 모델 계층 구조
 
 시계열 모델 *계층* 은 속성 이름 및 해당 관계를 지정 하 여 인스턴스를 구성 합니다.
 
-지정 된 Time Series Insights 환경에서 여러 계층을 구성할 수 있습니다. 시계열 모델 인스턴스는 단일 계층 구조 나 여러 계층 (다 대 다 관계)에 매핑될 수 있습니다.
+지정 된 Azure Time Series Insights Gen2 환경에서 여러 계층을 구성할 수 있습니다. 시계열 모델 인스턴스는 단일 계층 구조 나 여러 계층 (다 대 다 관계)에 매핑될 수 있습니다.
 
-[Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 클라이언트 인터페이스는 표준 인스턴스 및 유형 계층 구조를 표시 합니다.
+[Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 에서는 표준 인스턴스 및 유형 계층 구조를 표시 합니다.
 
 [![시계열 모델 계층 구조 예](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
 
@@ -187,7 +186,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 * `ManufactureDate`부모 및 자식 계층을 정의 `year` `month` 합니다. 각에는 `ManufactureDate` 여러가 있을 수 있으며 `years` ,이 경우에는 여러가 있을 수 있습니다 `months` .
 
 > [!TIP]
-> Time Series Insights 인스턴스 API 및 CRUD 지원에 대해서는 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [계층 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)를 참조 하세요.
+> 계층 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [계층 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)를 참조 하세요.
 
 ### <a name="hierarchy-example"></a>계층 예
 
@@ -217,13 +216,13 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 | ID4 | "빌딩" = "1000", "floor" = "10"  |
 | ID5 | "건물", "층" 또는 "방"은 설정 되지 않았습니다. |
 
-시계열 **ID1** 및 **ID4** 는 완전히 정의 되 고 올바르게 정렬 된 *건물*, *층*및 *방* 매개 변수를 포함 하므로 [Azure Time Series Insights 탐색기](time-series-insights-update-explorer.md) 에서 계층 **H1** 의 일부로 표시 됩니다.
+시계열 **ID1** 및 **ID4** 는 완전히 정의 되 고 올바르게 정렬 된 *빌딩*, *floor*및 *대화방* 매개 변수를 포함 하므로 [Azure Time Series Insights Gen2 탐색기](time-series-insights-update-explorer.md) 에서 계층 **H1** 의 일부로 표시 됩니다.
 
 다른 항목은 지정 된 데이터 계층 구조를 준수 하지 않기 때문에 *Unparented 인스턴스로* 분류 됩니다.
 
 ## <a name="time-series-model-types"></a>시계열 모델 형식
 
-시계열 모델 *형식*은 계산을 수행하기 위한 변수 또는 수식을 정의하는 데 도움이 됩니다. 형식은 특정 Time Series Insights 인스턴스와 연결 됩니다.
+시계열 모델 *형식*은 계산을 수행하기 위한 변수 또는 수식을 정의하는 데 도움이 됩니다. 형식은 특정 인스턴스와 연결 됩니다.
 
 형식에는 하나 이상의 변수가 포함될 수 있습니다. 예를 들어 시계열 모델 인스턴스는 *평균 온도*, *최소 온도*및 *최대 온도*를 변수로 구성 된 *온도 센서*형식일 수 있습니다.
 
@@ -232,7 +231,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 [![시계열 모델 유형 예](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Time Series Insights Instance API 및 CRUD 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [형식 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)를 참조 하세요.
+> 형식 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [형식 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)를 참조 하세요.
 
 ### <a name="type-properties"></a>형식 속성
 
@@ -266,7 +265,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
         "Interpolated Speed": {
           "kind": "numeric",
           "value": {
-              "tsx": "$event.[speed].Double"
+              "tsx": "$event['Speed-Sensor'].Double"
           },
           "filter": null,
           "interpolation": {
@@ -276,7 +275,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
               }
           },
           "aggregation": {
-              "tsx": "left($value)"
+              "tsx": "right($value)"
           }
         }
       }
@@ -284,114 +283,12 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
   ]
 }
 ```
-
-### <a name="variables"></a>변수
-
-Time Series Insights 형식에는 이벤트에 대 한 수식 및 계산 규칙을 지정 하는 많은 변수가 있을 수 있습니다.
-
-각 변수는 *숫자*, *범주*및 *집계*의 세 가지 *종류*중 하나일 수 있습니다.
-
-* **숫자** 종류는 연속 값으로 작동 합니다.
-* **범주** 종류는 불연속 된 불연속 값 집합을 사용 합니다.
-* **집계** 값은 단일 종류의 여러 변수 (모든 숫자 또는 모든 범주)를 결합 합니다.
-
-다음 표에서는 각 변수 종류와 관련 된 속성을 보여 줍니다.
-
-[![시계열 모델 변수 테이블](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
-
-#### <a name="numeric-variables"></a>숫자 변수
-
-| 변수 속성 | 설명 |
-| --- | ---|
-| 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
-| 변수 값 | 계산에 사용 되는 원격 분석 값은 장치 또는 센서에서 발생 하거나 시계열 식을 사용 하 여 변환 됩니다. 숫자 종류 변수는 *Double*형식 이어야 합니다.|
-| 변수 보간 | 보간은 기존 데이터를 사용 하 여 신호를 다시 생성 하는 방법을 지정 합니다. 숫자 변수에는 *단계* 및 *선형* 보간 옵션을 사용할 수 있습니다. |
-| 변수 집계 | *Avg*, *min*, *max*, *sum*, *Count*, *First*, *Last* 및 time-가중치가 적용 되는 (*avg*, *min*, *Max*, *Sum*, *Left*) 연산자를 통한 계산을 지원 합니다. |
-
-변수는 다음 JSON 예제를 따릅니다.
-
-```JSON
-"Interpolated Speed": {
-  "kind": "numeric",
-  "value": {
-    "tsx": "$event.[speed].Double"
-  },
-  "filter": null,
-  "interpolation": {
-    "kind": "step",
-    "boundary": {
-      "span": "P1D"
-    }
-  },
-  "aggregation": {
-    "tsx": "left($value)"
-  }
-}
-```
-
-#### <a name="categorical-variables"></a>범주 변수
-
-| 변수 속성 | 설명 |
-| --- | ---|
-| 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
-| 변수 값 | 장치 또는 센서에서 들어오는 계산에 사용 되는 원격 분석 값입니다. 범주 종류 변수는 *Long* 또는 *String*이어야 합니다. |
-| 변수 보간 | 보간은 기존 데이터를 사용 하 여 신호를 다시 생성 하는 방법을 지정 합니다. *단계* 보간 옵션은 범주 변수에 사용할 수 있습니다. |
-| 변수 범주 | 범주는 장치 또는 센서에서 가져온 값 간의 매핑을 레이블으로 만듭니다. |
-| 변수 기본 범주 | 기본 범주는 "범주" 속성에서 매핑되지 않는 모든 값에 대 한 것입니다. |
-
-변수는 다음 JSON 예제를 따릅니다.
-
-```JSON
-"Status": {
-  "kind": "categorical",
-  "value": {
-     "tsx": "toLong($event.[Status].Double)"
-},
-  "interpolation": {
-    "kind": "step",
-    "boundary": {
-      "span" : "PT1M"
-    }
-  },
-  "categories": [
-    {
-      "values": [0, 1, 2],
-      "label": "Good"
-    },
-    {
-      "values": [3],
-      "label": "Bad"
-    }
-  ],
-  "defaultCategory": {
-    "label": "Not Applicable"
-  }
-}
-```
-
-#### <a name="aggregate-variables"></a>집계 변수
-
-| 변수 속성 | 설명 |
-| --- | ---|
-| 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
-| 변수 집계 | *Avg*, *Min*, *Max*, *Sum*, *Count*, *First*, *Last*를 통한 계산을 지원 합니다. |
-
-변수는 다음 JSON 예제를 따릅니다.
-
-```JSON
-"Aggregate Speed": {
-  "kind": "aggregate",
-  "filter": null,
-  "aggregation": {
-    "tsx": "avg($event.Speed.Double)"
-  }
-}
-```
-
-변수는 시계열 모델의 형식 정의에 저장 되며 [쿼리 api](concepts-query-overview.md) 를 통해 인라인으로 제공 되어 저장 된 정의를 재정의할 수 있습니다.
+시계열 모델 유형에는 이벤트에 대 한 수식 및 계산 규칙을 지정 하는 여러 변수가 있을 수 있습니다. [시계열 모델 변수를 정의 하는 방법](./concepts-variables.md) 에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데이터 쿼리에](concepts-query-overview.md) 대 한 자세한 정보
+- Api를 통해 모델을 편집 하는 방법에 대 한 자세한 내용은 [Time Series 모델](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) 참조 설명서를 참조 하세요.
 
-* 시계열 [모델](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) 참조 설명서를 읽습니다.
+- 시계열 [모델 변수](./concepts-variables.md) 를 사용 하 여 만들 수 있는 수식 및 계산 살펴보기
+
+- Azure Time Series Insights Gen2에서 [데이터를 쿼리](concepts-query-overview.md) 하는 방법에 대해 알아봅니다.

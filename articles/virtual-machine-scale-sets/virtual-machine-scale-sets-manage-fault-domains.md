@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: f1d8bad3d0d3e73a387bdc76131461e5061bafce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf55c1f7de751f03fb804eb263cf0810a48378e1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263180"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494890"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>가상 머신 확장 집합에 대해 적절한 수의 장애 도메인 선택
 가상 머신 확장 집합은 영역 없는 Azure 지역에서 기본적으로 5개의 장애 도메인으로 만들어집니다. 가상 머신 확장 집합의 영역 배포를 지 원하는 지역의 경우이 옵션을 선택 하면 각 영역에 대해 장애 도메인 개수의 기본값은 1입니다. 이 경우 FD=1은 확장 집합에 속하는 VM 인스턴스가 최선의 결과를 얻기 위해 여러 랙에 걸쳐 분산될 것임을 의미합니다.
@@ -22,10 +22,10 @@ ms.locfileid: "85263180"
 Managed Disks 장애 도메인 수에 맞게 확장 집합 장애 도메인 수를 조정하는 것이 바람직할 수도 있습니다. 이러한 조정을 통해 전체 Managed Disks 장애 도메인이 다운될 경우에도 쿼럼 손실을 방지할 수 있습니다. FD 수는 각 지역에서 사용할 수 있는 Managed Disks 장애 도메인 수보다 작거나 같게 설정할 수 있습니다. 이 [문서](../virtual-machines/windows/manage-availability.md)를 참조하여 지역별 Managed Disks 장애 도메인 수에 대해 자세히 알아보세요.
 
 ## <a name="rest-api"></a>REST API
-속성은 `properties.platformFaultDomainCount` 1, 2 또는 3으로 설정할 수 있습니다 (지정 하지 않은 경우 기본값은 3). [여기](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)에서 REST API 설명서를 참조하세요.
+속성은 `properties.platformFaultDomainCount` 1, 2 또는 3으로 설정할 수 있습니다 (지정 하지 않은 경우 기본값은 3). [여기](/rest/api/compute/virtualmachinescalesets/createorupdate)에서 REST API 설명서를 참조하세요.
 
 ## <a name="azure-cli"></a>Azure CLI
-매개 변수를 `--platform-fault-domain-count` 1, 2 또는 3으로 설정할 수 있습니다 (지정 하지 않은 경우 기본값은 3). [여기](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)에서 Azure CLI 설명서를 참조하세요.
+매개 변수를 `--platform-fault-domain-count` 1, 2 또는 3으로 설정할 수 있습니다 (지정 하지 않은 경우 기본값은 3). [여기](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)에서 Azure CLI 설명서를 참조하세요.
 
 ```azurecli-interactive
 az vmss create \

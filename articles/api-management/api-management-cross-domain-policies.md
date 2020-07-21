@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 6512edd26b59dac11f046e82940db4877728943c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243595"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499616"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -53,7 +53,7 @@ ms.locfileid: "86243595"
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |cross-domain|루트 요소입니다. 자식 요소는 [Adobe 도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)을 준수해야 합니다.|예|
 
@@ -67,6 +67,8 @@ ms.locfileid: "86243595"
 `cors` 정책은 CORS(Cross-Origin Resource Sharing) 지원을 작업 또는 API에 추가하여 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.
 
 CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 요청(즉, 웹 페이지의 JavaScript에서 다른 도메인으로 실행한 XMLHttpRequests 호출)을 허용할지 여부를 결정할 수 있습니다. 따라서 동일 원본의 요청만 허용하는 것보다 유연성이 더 뛰어나며 모든 원본 간 요청을 허용하는 것보다 보안도 더 높아집니다.
+
+개발자 포털에서 대화형 콘솔을 사용 하도록 설정 하려면 CORS 정책을 적용 해야 합니다. 자세한 내용은 [개발자 포털 설명서](./api-management-howto-developer-portal.md#cors) 를 참조 하세요.
 
 ### <a name="policy-statement"></a>정책 문
 
@@ -122,7 +124,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|기본값|
+|이름|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
 |cors|루트 요소입니다.|예|해당 없음|
 |allowed-origins|도메인 간 요청에 대해 허용되는 원본을 설명하는 `origin` 요소를 포함합니다. `allowed-origins`는 모든 원본을 허용하도록 `*`를 지정하는 단일 `origin` 요소 또는 URI를 포함하는 하나 이상의 `origin` 요소를 포함할 수 있습니다.|예|해당 없음|
@@ -135,7 +137,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필수|기본값|
+|Name|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|실행 `Access-Control-Allow-Credentials` 전 응답의 헤더는이 특성의 값으로 설정 되 고 도메인 간 요청에서 자격 증명을 제출 하는 클라이언트의 기능에 영향을 줍니다.|아니요|false|
 |preflight-result-max-age|실행 전 `Access-Control-Max-Age` 응답의 헤더는이 특성의 값으로 설정 되 고, 사전 진행 된 응답을 캐시 하는 사용자 에이전트의 기능에 영향을 줍니다.|아니요|0|
@@ -167,13 +169,13 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |jsonp|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필수|기본값|
+|Name|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|함수가 상주하는 정규화된 도메인 이름이 접두사로 지정된 도메인 간 JavaScript 함수 호출|예|해당 없음|
 

@@ -3,24 +3,25 @@ title: 컨테이너에 대해 Azure Monitor 사용 Microsoft Docs
 description: 이 문서에서는 컨테이너의 작동 방식 및 식별 된 성능 관련 문제를 이해할 수 있도록 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d85dd4f1eb89ddba96ec012acb7fb7550800ce7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5131d7b8a357075345b5165398d5fa9fc06b5ad8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800633"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499038"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor 사용
 
 이 문서에서는 Kubernetes 환경에 배포 되 고에서 호스트 되는 워크 로드의 성능을 모니터링 하는 컨테이너에 대 한 Azure Monitor를 설정 하는 데 사용할 수 있는 옵션의 개요를 제공 합니다.
 
-- [AKS(Azure Kubernetes Service)](https://docs.microsoft.com/azure/aks/)  
+- [AKS(Azure Kubernetes Service)](../../aks/index.yml)  
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 버전 3(sp3) 및 4.x  
 - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) 버전 4.x  
 - [Arc 사용 Kubernetes 클러스터](../../azure-arc/kubernetes/overview.md)
 
 에서 호스트 되는 자체 관리 되는 Kubernetes 클러스터에 배포 된 작업의 성능도 모니터링할 수 있습니다.
 - Azure, [AKS 엔진](https://github.com/Azure/aks-engine) 사용
-- AKS 엔진을 사용 하 여 [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) 또는 온-프레미스를 사용 합니다.
+- AKS 엔진을 사용 하 여 [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) 또는 온-프레미스를 사용 합니다.
 
 다음 지원 되는 방법 중 하나를 사용 하 여 새 배포 또는 Kubernetes의 기존 배포 하나 이상에 대해 컨테이너에 대해 Azure Monitor를 사용 하도록 설정할 수 있습니다.
 
@@ -31,7 +32,7 @@ ms.locfileid: "85800633"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 요구 사항을 충족 하는지 확인 합니다.
 
@@ -42,7 +43,7 @@ ms.locfileid: "85800633"
    새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 경우 작업 영역을 만들거나 온 보 딩 환경에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만들도록 할 수 있습니다. 
    
    작업 영역을 직접 만들도록 선택 하는 경우 다음을 통해 만들 수 있습니다. 
-   - [Azure 리소스 관리자](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Azure 포털](../learn/quick-create-workspace.md) 
    
@@ -62,7 +63,7 @@ ms.locfileid: "85800633"
 
 컨테이너에 대 한 Azure Monitor는 공식적으로 다음 구성을 지원 합니다.
 
-- 환경: azure Red Hat OpenShift, Kubernetes 온-프레미스 및 Azure의 AKS 엔진 및 Azure Stack 자세한 내용은 [Azure Stack에서 AKS 엔진](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)을 참조 하세요.
+- 환경: azure Red Hat OpenShift, Kubernetes 온-프레미스 및 Azure의 AKS 엔진 및 Azure Stack 자세한 내용은 [Azure Stack에서 AKS 엔진](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)을 참조 하세요.
 - Kubernetes 및 지원 정책의 버전은 [AKS (Azure Kubernetes Service)에서 지원](../../aks/supported-kubernetes-versions.md)되는 것과 동일 합니다. 
 
 ## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
@@ -116,7 +117,7 @@ ms.locfileid: "85800633"
 | 새 Kubernetes 클러스터 | [Azure CLI를 사용 하 여 AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
 | | [Terraform을 사용 하 여 AKS 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
 | | [Azure Resource Manager 템플릿을 사용 하 여 OpenShift 클러스터 만들기](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | 미리 구성 된 Azure Resource Manager 템플릿을 사용 하 여 만드는 새 OpenShift 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
-| | [Azure CLI를 사용 하 여 OpenShift 클러스터를 만듭니다.](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | Azure CLI를 사용 하 여 새 OpenShift 클러스터를 배포할 때 모니터링을 사용 하도록 설정할 수 있습니다. |
+| | [Azure CLI를 사용 하 여 OpenShift 클러스터를 만듭니다.](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | Azure CLI를 사용 하 여 새 OpenShift 클러스터를 배포할 때 모니터링을 사용 하도록 설정할 수 있습니다. |
 | 기존 Kubernetes 클러스터 | [Azure CLI를 사용 하 여 AKS 클러스터의 모니터링 사용](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Azure CLI를 사용 하 여 이미 배포 된 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
 | |[Terraform을 사용 하 여 AKS 클러스터에 대해 사용](container-insights-enable-existing-clusters.md#enable-using-terraform) | 오픈 소스 도구 Terraform을 사용 하 여 이미 배포 된 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
 | | [Azure Monitor에서 AKS 클러스터 사용](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Azure Monitor의 다중 클러스터 페이지에서 이미 배포 된 하나 이상의 AKS 클러스터에 대해 모니터링을 사용 하도록 설정할 수 있습니다. |

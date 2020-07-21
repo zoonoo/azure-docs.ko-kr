@@ -7,11 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c739c6483832c08a91f2a5318853bf48e5d41854
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414150"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496964"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트란?
 
@@ -68,7 +69,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft.ContainerRegistry/registries    | 사용된 |
-|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStore |
+|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStores |
 |**Azure Backup** | Microsoft.RecoveryServices/vaults    | 자격 증명 모음 |
 |**Azure 이벤트 허브** | Microsoft.EventHub/namespaces    | 네임스페이스 |
 |**Azure Service Bus** | Microsoft.ServiceBus/namespaces | 네임스페이스 |

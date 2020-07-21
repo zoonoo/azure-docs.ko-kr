@@ -8,13 +8,13 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/02/2020
-ms.openlocfilehash: 60f4ed9940c70ed479c3108f3637aa55f2a42811
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/11/2020
+ms.openlocfilehash: 180bb78b66bc04e7c3d2aaf68a3dd6d30cfb671c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146904"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496556"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 사용하여 Cosmos DB 데이터를 인덱싱하는 방법 
 
@@ -178,12 +178,12 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 
 | 필드   | 설명 |
 |---------|-------------|
-| **name** | 필수 요소. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
-|**type**| 필수 요소. `cosmosdb`이어야 합니다. |
+| **name** | 필수 사항입니다. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
+|**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
 |**credentials** | 필수 사항입니다. Cosmos DB 연결 문자열 이어야 합니다.<br/>SQL 컬렉션의 경우 연결 문자열은 다음과 같은 형식입니다.`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>MongoDB 컬렉션의 경우 **Apikind = MongoDB** 를 연결 문자열에 추가 합니다.<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Gremlin 그래프 및 Cassandra 테이블의 경우 [제어된 인덱서 미리 보기](https://aka.ms/azure-cognitive-search/indexer-preview)에 등록하여 미리 보기 액세스와 자격 증명 형식 지정 방법에 관한 정보를 얻습니다.<br/><br/>엔드포인트 URL에는 포트 번호를 사용하지 않습니다. 포트 번호를 포함 하는 경우 Azure Cognitive Search는 Azure Cosmos DB 데이터베이스를 인덱싱할 수 없게 됩니다.|
 | **container** | 다음과 같은 요소가 있습니다. <br/>**name**: 필수 사항입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정합니다.<br/>**query**: (선택 사항) 추상 JSON 문서를 Azure Cognitive Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.<br/>MongoDB API, Gremlin API 및 Cassandra API의 경우 쿼리는 지원되지 않습니다. |
 | **dataChangeDetectionPolicy** | 권장됩니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.|
-|**dataDeletionDetectionPolicy** | 선택 사항입니다. [삭제된 문서 인덱싱](#DataDeletionDetectionPolicy) 섹션을 참조하세요.|
+|**dataDeletionDetectionPolicy** | (선택 사항) [삭제된 문서 인덱싱](#DataDeletionDetectionPolicy) 섹션을 참조하세요.|
 
 ### <a name="using-queries-to-shape-indexed-data"></a>쿼리를 사용하여 인덱싱된 데이터 형성
 중첩된 속성 또는 배열을 평면화하고, JSON 속성을 프로젝션하고, 인덱싱할 데이터를 필터링하는 SQL 쿼리를 지정할 수 있습니다. 
@@ -269,7 +269,7 @@ SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @High
 | Bool |Edm.Boolean, Edm.String |
 | 정수와 같이 보이는 숫자 |Edm.Int32, Edm.Int64, Edm.String |
 | 부동소수점처럼 보이는 숫자 |Edm.Double, Edm.String |
-| 문자열 |Edm.String |
+| String |Edm.String |
 | 기본 형식의 배열, 예: ["a", "b", "c"] |Collection(Edm.String) |
 | 날짜처럼 보이는 문자열 |Edm.DateTimeOffset, Edm.String |
 | GeoJSON 개체, 예: { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

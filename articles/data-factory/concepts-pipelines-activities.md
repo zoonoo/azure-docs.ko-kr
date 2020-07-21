@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: c71e4120d127277e8b46f59bfef7fca403847c2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62df01a02feacb8311d14e0bae7ceccb44d47a5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253766"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497661"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 
@@ -50,7 +50,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 데이터 변환 작업 | 컴퓨팅 환경
 ---------------------------- | -------------------
 [데이터 흐름](control-flow-execute-data-flow-activity.md) | Azure Data Factory에서 관리 하는 Azure Databricks
-[Azure Function](control-flow-azure-function-activity.md) | Azure 기능
+[Azure 함수](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
@@ -69,11 +69,11 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 ## <a name="control-flow-activities"></a>제어 흐름 작업
 다음과 같은 제어 흐름 작업이 지원 됩니다.
 
-제어 작업 | 설명
+제어 작업 | Description
 ---------------- | -----------
 [변수 추가](control-flow-append-variable-activity.md) | 기존 배열 변수에 값을 추가 합니다.
 [파이프라인 실행](control-flow-execute-pipeline-activity.md) | 파이프라인 실행 작업을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
-[필터](control-flow-filter-activity.md) | 입력 배열에 필터 식 적용
+[Filter](control-flow-filter-activity.md) | 입력 배열에 필터 식 적용
 [For Each](control-flow-for-each-activity.md) | ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 활동의 루프 구현은 프로그래밍 언어의 Foreach 반복 구조와 비슷합니다.
 [메타데이터 가져오기](control-flow-get-metadata-activity.md) | GetMetadata 작업을 사용하면 Azure Data Factory에 있는 모든 데이터의 메타데이터를 검색할 수 있습니다.
 [If 조건 작업](control-flow-if-condition-activity.md) | If 조건을 사용하여 True 또는 False로 평가되는 조건을 기반으로 분기할 수 있습니다. If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이로 평가 되는 경우 작업 집합을 평가 하 `true` 고 조건이로 평가 되 면 다른 작업 집합을 평가 합니다.`false.`
@@ -81,7 +81,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [변수 설정](control-flow-set-variable-activity.md) | 기존 변수의 값을 설정 합니다.
 [Until 작업](control-flow-until-activity.md) | 프로그래밍 언어의 Do-Until 루핑 구조와 유사한 Do-Until 루프를 구현합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다.
 [유효성 검사 작업](control-flow-validation-activity.md) | 참조 데이터 집합이 존재 하거나 지정 된 조건을 충족 하거나 시간 제한에 도달 하는 경우에만 파이프라인이 실행을 계속 하도록 합니다.
-[Wait 작업](control-flow-wait-activity.md) | 파이프라인에서 대기 작업을 사용 하는 경우 파이프라인은 지정 된 시간 동안 기다린 후 후속 작업 실행을 계속 합니다.
+[대기 작업](control-flow-wait-activity.md) | 파이프라인에서 대기 작업을 사용 하는 경우 파이프라인은 지정 된 시간 동안 기다린 후 후속 작업 실행을 계속 합니다.
 [웹 작업](control-flow-web-activity.md) | 웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
 [웹후크 작업](control-flow-webhook-activity.md) | Webhook 활동을 사용 하 여 끝점을 호출 하 고 콜백 URL을 전달 합니다. 파이프라인 실행은 다음 작업을 진행 하기 전에 콜백이 호출 될 때까지 기다립니다.
 
@@ -112,7 +112,7 @@ name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작�
 description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 아니요
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | Array | 예
 매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | 아니요
-동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최대값이 없습니다. 동시성 한도에 도달 하는 경우 추가 파이프라인 실행은 이전 작업이 완료 될 때까지 큐에 대기 됩니다. | number | 아니요 
+동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최대값이 없습니다. 동시성 한도에 도달 하는 경우 추가 파이프라인 실행은 이전 작업이 완료 될 때까지 큐에 대기 됩니다. | Number | 아니요 
 주석 | 파이프라인과 연결 된 태그 목록입니다. | 배열 | 아니요
 
 ## <a name="activity-json"></a>활동 JSON
@@ -265,10 +265,10 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
     }
 }
 
-`"
+```
 
-## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
+## <a name="sample-copy-pipeline"></a>샘플 복사 파이프라인
+다음 샘플 파이프라인에는 **Copy** in the **활동** 유형의 하나의 활동이 있습니다. 이 샘플에서 [복사 작업](copy-activity-overview.md) 은 Azure Blob storage의 데이터를 Azure SQL Database의 데이터베이스로 복사 합니다.
 
 ```json
 {

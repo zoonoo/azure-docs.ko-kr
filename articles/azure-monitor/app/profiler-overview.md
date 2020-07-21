@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671650"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499395"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
 ## <a name="enable-application-insights-profiler-for-your-application"></a>애플리케이션에 대해 Application Insights Profiler 사용
@@ -29,7 +30,7 @@ Profiler를 사용하도록 설정해도 추적이 표시되지 않으면 [문�
 
 ## <a name="view-profiler-data"></a>Profiler 데이터 보기
 
-Profiler가 추적을 업로드하도록 하기 위해 애플리케이션은 요청을 적극적으로 처리해야 합니다. 실험을 수행하는 경우 [Application Insights 성능 테스트](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)를 사용하여 웹앱에 요청을 생성할 수 있습니다. Profiler를 새로 사용하도록 설정한 경우 짧은 부하 테스트를 실행할 수 있습니다. 부하 테스트를 실행하는 동안 [**Profiler 설정** 창](profiler-settings.md)에서 **지금 프로파일링** 단추를 선택합니다. Profiler는 실행되면 1시간 간격으로 2분 동안 무작위로 프로파일링을 수행합니다. 애플리케이션이 지속적인 요청 스트림을 처리하는 경우 Profiler는 매시간 추적을 업로드합니다.
+Profiler가 추적을 업로드하도록 하기 위해 애플리케이션은 요청을 적극적으로 처리해야 합니다. 실험을 수행하는 경우 [Application Insights 성능 테스트](/vsts/load-test/app-service-web-app-performance-test)를 사용하여 웹앱에 요청을 생성할 수 있습니다. Profiler를 새로 사용하도록 설정한 경우 짧은 부하 테스트를 실행할 수 있습니다. 부하 테스트를 실행하는 동안 [**Profiler 설정** 창](profiler-settings.md)에서 **지금 프로파일링** 단추를 선택합니다. Profiler는 실행되면 1시간 간격으로 2분 동안 무작위로 프로파일링을 수행합니다. 애플리케이션이 지속적인 요청 스트림을 처리하는 경우 Profiler는 매시간 추적을 업로드합니다.
 
 애플리케이션이 트래픽을 수신하고 Profiler가 추적을 업로드하면 사용자가 확인할 수 있는 추적이 생성됩니다. 이 프로세스는 최대 5~10분이 걸릴 수 있습니다. 추적을 보려면 **성능** 창에서 **작업 수행**을 선택한 후 **Profiler 추적** 단추를 선택합니다.
 

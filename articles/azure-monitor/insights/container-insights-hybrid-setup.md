@@ -3,11 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 K
 description: 이 문서에서는 Azure Stack 또는 기타 환경에서 호스트 되는 Kubernetes 클러스터를 모니터링 하도록 컨테이너에 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c7a92476fca2bc61d51ab518c22ff0c436fb78f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801464"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498902"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
 
@@ -21,7 +22,7 @@ ms.locfileid: "85801464"
 
     - Kubernetes 온-프레미스
     
-    - Azure의 AKS 엔진과 Azure Stack. 자세한 내용은 [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) 을 참조 하세요.
+    - Azure의 AKS 엔진과 Azure Stack. 자세한 내용은 [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) 을 참조 하세요.
     
     - [Openshift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) 버전 4 이상, 온-프레미스 또는 기타 클라우드 환경.
 
@@ -33,7 +34,7 @@ ms.locfileid: "85801464"
 
 - 지원 되는 액세스 제어: Kubernetes RBAC 및 비 RBAC
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -84,7 +85,7 @@ Azure PowerShell cmdlet 또는 Azure CLI를 사용 하 여 제공 된 Azure Reso
 
 - [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 이 메서드는 두 가지 JSON 템플릿을 포함합니다. 한 가지 템플릿은 모니터링을 사용하도록 구성을 지정하고, 다른 템플릿은 다음을 지정하도록 구성하는 매개 변수 값을 포함합니다.
 
@@ -201,7 +202,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     }
     ```
 
-7. 3 단계에서 복사한 값을 사용 하 여 **workspaceResourceId** 에 대 한 값을 편집 하 고 **workspaceRegion** 의 경우 Azure CLI 명령 [az monitor log-analytics 작업 영역 표시](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list)를 실행 한 후 **지역** 값을 복사 합니다.
+7. 3 단계에서 복사한 값을 사용 하 여 **workspaceResourceId** 에 대 한 값을 편집 하 고 **workspaceRegion** 의 경우 Azure CLI 명령 [az monitor log-analytics 작업 영역 표시](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list)를 실행 한 후 **지역** 값을 복사 합니다.
 
 8. 이 파일을 로컬 폴더에 containerSolutionParams.js로 저장 합니다.
 

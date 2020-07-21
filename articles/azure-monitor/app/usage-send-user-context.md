@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797692"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499242"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 
@@ -18,10 +19,10 @@ ms.locfileid: "83797692"
 
 Application Insights를 사용하면 제품 사용 현황 도구 집합을 통해 사용자를 모니터링하고 추적할 수 있습니다.
 
-- [사용자, 세션, 이벤트](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-- [깔때기](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- [보존](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) 코호트
-- [통합 문서](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [사용자, 세션, 이벤트](./usage-segmentation.md)
+- [깔때기](./usage-funnels.md)
+- [보존](./usage-retention.md) 코호트
+- [통합 문서](../platform/workbooks-overview.md)
 
 시간이 지남에 따른 사용자 동작을 추적하기 위해 Application Insights에는 각 사용자 또는 세션에 대한 ID가 필요합니다. 모든 사용자 지정 이벤트 또는 페이지 보기에 다음 ID를 포함합니다.
 
@@ -41,11 +42,11 @@ Application Insights를 사용하면 제품 사용 현황 도구 집합을 통�
 
 ID는 각 사용자를 고유하게 식별하는 데 충분히 복잡한 Guid 또는 다른 문자열이어야 합니다. 예를 들어 긴 임의의 수일 수 있습니다.
 
-ID가 사용자에 대한 개인 식별 정보를 포함하는 경우 사용자 ID로 Application Insights에 보낼 적절한 값이 아닙니다. [인증된 사용자 ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users)로 이러한 ID로 보낼 수 있지만 사용 현황 시나리오에 대한 사용자 ID 요구 사항을 만족하지 않습니다.
+ID가 사용자에 대한 개인 식별 정보를 포함하는 경우 사용자 ID로 Application Insights에 보낼 적절한 값이 아닙니다. [인증된 사용자 ID](./api-custom-events-metrics.md#authenticated-users)로 이러한 ID로 보낼 수 있지만 사용 현황 시나리오에 대한 사용자 ID 요구 사항을 만족하지 않습니다.
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET 앱: ITelemetryInitializer에 사용자 컨텍스트 설정
 
-[여기](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer)에 설명된 대로 원격 분석 이니셜라이저를 만듭니다. 요청 원격 분석을 통해 세션 ID를 전달하고 Context.User.Id 및 Context.Session.Id를 설정합니다.
+[여기](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)에 설명된 대로 원격 분석 이니셜라이저를 만듭니다. 요청 원격 분석을 통해 세션 ID를 전달하고 Context.User.Id 및 Context.Session.Id를 설정합니다.
 
 이 예제에서는 세션 후에 만료되는 식별자에 대한 사용자 ID를 설정합니다. 가능하면 세션 간에 유지되는 사용자 ID를 사용합니다.
 
@@ -127,7 +128,7 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>다음 단계
 
-- 사용 현황 환경을 활성화하려면 [사용자 지정 이벤트](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 또는 [페이지 보기](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views) 보내기를 시작합니다.
+- 사용 현황 환경을 활성화하려면 [사용자 지정 이벤트](./api-custom-events-metrics.md#trackevent) 또는 [페이지 보기](./api-custom-events-metrics.md#page-views) 보내기를 시작합니다.
 - 사용자 지정 이벤트 또는 페이지 보기를 이미 보낸 경우 사용자가 서비스를 사용하는 방법에 대해 알아보려면 사용 현황 도구를 살펴봅니다.
     - [사용 현황 개요](usage-overview.md)
     - [사용자, 세션 및 이벤트](usage-segmentation.md)

@@ -9,11 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124944"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494941"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 가상 머신 확장 집합의 크기를 자동으로 조정
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다.
@@ -122,6 +123,6 @@ VM 인스턴스의 수 및 상태를 확인하려면 확장 집합 창의 왼쪽
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법을 배웠습니다. 또한 수직으로 크기를 조정하여 VM 인스턴스의 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 머신 확장 집합을 사용하여 수직으로 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 참조하세요.
 
-VM 인스턴스 관리 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 가상 머신 확장 집합 관리](virtual-machine-scale-sets-windows-manage.md)를 참조하세요.
+VM 인스턴스 관리 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 가상 머신 확장 집합 관리](./virtual-machine-scale-sets-manage-powershell.md)를 참조하세요.
 
-자동 크기 조정 규칙이 트리거될 때 경고를 생성하는 방법에 대한 자세한 내용은 [Azure Monitor에서 자동 크기 조정 작업을 사용하여 메일 및 webhook 경고 알림 보내기](../azure-monitor/platform/autoscale-webhook-email.md)를 참조하세요. [Azure Monitor에서 감사 로그를 사용하여 이메일 및 webhook 경고 알림을 보낼](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) 수도 있습니다.
+자동 크기 조정 규칙이 트리거될 때 경고를 생성하는 방법에 대한 자세한 내용은 [Azure Monitor에서 자동 크기 조정 작업을 사용하여 메일 및 webhook 경고 알림 보내기](../azure-monitor/platform/autoscale-webhook-email.md)를 참조하세요. [Azure Monitor에서 감사 로그를 사용하여 이메일 및 webhook 경고 알림을 보낼](../azure-monitor/platform/alerts-log-webhook.md) 수도 있습니다.

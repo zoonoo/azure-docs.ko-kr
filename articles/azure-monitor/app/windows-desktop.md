@@ -3,11 +3,12 @@ title: Windows 데스크톱 앱의 사용량 및 성능 모니터링
 description: Application Insights를 사용하여 Windows 데스크톱 앱의 사용량 및 성능을 분석합니다.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718787"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499191"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>클래식 Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
@@ -72,9 +73,9 @@ using Microsoft.ApplicationInsights;
 
 기본적으로이 SDK는 원격 분석을 내보내는 시스템의 컴퓨터 이름을 수집 하 고 저장 합니다.
 
-컴퓨터 이름은 내부 요금 청구를 위해 [레거시 엔터프라이즈 (노드당) 가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) 에서 Application Insights 사용 됩니다. 기본적으로를 재정의 하는 원격 분석 이니셜라이저를 사용 하는 경우 `telemetry.Context.Cloud.RoleInstance` `ai.internal.nodeName` 컴퓨터 이름 값을 포함 하는 별도의 속성이 전송 됩니다. 이 값은 Application Insights 원격 분석과 함께 저장 되지 않지만 이전 노드 기반 청구 모델과의 호환성을 위해 수집 시 내부적으로 사용 됩니다.
+컴퓨터 이름은 내부 요금 청구를 위해 [레거시 엔터프라이즈 (노드당) 가격 책정 계층](./pricing.md#legacy-enterprise-per-node-pricing-tier) 에서 Application Insights 사용 됩니다. 기본적으로를 재정의 하는 원격 분석 이니셜라이저를 사용 하는 경우 `telemetry.Context.Cloud.RoleInstance` `ai.internal.nodeName` 컴퓨터 이름 값을 포함 하는 별도의 속성이 전송 됩니다. 이 값은 Application Insights 원격 분석과 함께 저장 되지 않지만 이전 노드 기반 청구 모델과의 호환성을 위해 수집 시 내부적으로 사용 됩니다.
 
-[레거시 엔터프라이즈 (노드당) 가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) 을 사용 하 고 컴퓨터 이름 저장소를 재정의 해야 하는 경우 원격 분석 이니셜라이저를 사용 합니다.
+[레거시 엔터프라이즈 (노드당) 가격 책정 계층](./pricing.md#legacy-enterprise-per-node-pricing-tier) 을 사용 하 고 컴퓨터 이름 저장소를 재정의 해야 하는 경우 원격 분석 이니셜라이저를 사용 합니다.
 
 **아래와 같이 사용자 지정 TelemetryInitializer을 작성 합니다.**
 
@@ -115,7 +116,7 @@ namespace CustomInitializer.Telemetry
 
 ## <a name="override-transmission-of-computer-name"></a>컴퓨터 이름 전송 재정의
 
-[레거시 엔터프라이즈 (노드당) 가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) 에 있지 않고 컴퓨터 이름이 포함 된 원격 분석이 전송 되지 않도록 하려면 원격 분석 프로세서를 사용 해야 합니다.
+[레거시 엔터프라이즈 (노드당) 가격 책정 계층](./pricing.md#legacy-enterprise-per-node-pricing-tier) 에 있지 않고 컴퓨터 이름이 포함 된 원격 분석이 전송 되지 않도록 하려면 원격 분석 프로세서를 사용 해야 합니다.
 
 ### <a name="telemetry-processor"></a>원격 분석 프로세서
 
@@ -171,11 +172,10 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> [레거시 엔터프라이즈 (노드당) 가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier)을 사용 하는 경우에도 위에서 설명한 대로 원격 분석 프로세서를 기술적으로 사용할 수 있지만 노드 가격 책정에 맞게 노드를 구분할 수 없기 때문에이로 인해 과도 한 요금이 발생할 수 있습니다.
+> [레거시 엔터프라이즈 (노드당) 가격 책정 계층](./pricing.md#legacy-enterprise-per-node-pricing-tier)을 사용 하는 경우에도 위에서 설명한 대로 원격 분석 프로세서를 기술적으로 사용할 수 있지만 노드 가격 책정에 맞게 노드를 구분할 수 없기 때문에이로 인해 과도 한 요금이 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [대시보드 만들기](../../azure-monitor/app/overview-dashboard.md)
 * [진단 검색](../../azure-monitor/app/diagnostic-search.md)
 * [메트릭 탐색](../../azure-monitor/platform/metrics-charts.md)
-* [분석 쿼리 작성](../../azure-monitor/app/analytics.md)
-
+* [분석 쿼리 작성](../log-query/log-query-overview.md)

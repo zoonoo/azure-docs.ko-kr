@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480881"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498969"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -31,7 +32,7 @@ ms.locfileid: "79480881"
 
 * [ExpressRoute 모니터링](network-performance-monitor-expressroute.md): Azure ExpressRoute를 통해 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링합니다.  
 
-[네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview)에서 지원하는 다양한 기능에 대한 자세한 내용은 온라인으로 제공됩니다.
+[네트워크 성능 모니터](../../networking/network-monitoring-overview.md)에서 지원하는 다양한 기능에 대한 자세한 내용은 온라인으로 제공됩니다.
  
 ## <a name="supported-regions"></a>지원되는 지역
 NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 세계에 모든 곳에 있는 네트워크와 애플리케이션 간의 연결을 모니터링할 수 있습니다.
@@ -60,7 +61,7 @@ NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 �
 * 중국 동부 2
 
 
-ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117)에 제공됩니다.
+ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expressroute/how-to-npm.md?utm_swu=8117)에 제공됩니다.
 
 
 ## <a name="set-up-and-configure"></a>설정 및 구성
@@ -255,9 +256,9 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ## <a name="alerts"></a>경고
 
-네트워크 성능 모니터는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)의 경고 기능을 사용합니다.
+네트워크 성능 모니터는 [Azure Monitor](../platform/alerts-overview.md)의 경고 기능을 사용합니다.
 
-즉, 모든 알림은 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)을 사용하여 관리됩니다.  
+즉, 모든 알림은 [작업 그룹](../platform/action-groups.md)을 사용하여 관리됩니다.  
 
 Log Analytics를 통해 경고를 만드는 NPM 사용자인 경우: 
 1. Azure Portal로 리디렉션하는 링크가 표시 됩니다. 이 링크를 클릭하여 포털에 액세스합니다.
@@ -268,7 +269,7 @@ Log Analytics를 통해 경고를 만드는 NPM 사용자인 경우:
 Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:  
 1. 이메일을 직접 입력할 수도 있고 작업 그룹을 통해 경고를 만들 수도 있습니다.
 2. 이메일을 직접 입력하기로 선택하면 **NPM Email ActionGroup**이라는 이름의 작업 그룹이 만들어지고 이 작업 그룹에 이메일 id가 추가됩니다.
-3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
+3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
 4. 경고가 만들어지면 경고 관리를 사용하여 경고를 관리할 수 있습니다. 
 
 경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 이 쿼리는 기본적으로 5 분 마다 트리거됩니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 요금을 부과합니다.

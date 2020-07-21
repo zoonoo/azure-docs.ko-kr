@@ -1,14 +1,14 @@
 ---
 title: 모범 사례
 description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
-ms.date: 06/22/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954152"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497780"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -146,6 +146,10 @@ Batch는 태스크를 자동으로 다시 시도할 수 있습니다. 사용자 
 ### <a name="collect-the-batch-agent-logs"></a>Batch 에이전트 로그 수집
 
 노드에서 실행되는 노드 또는 태스크의 동작과 관련된 문제가 있으면 해당 노드를 할당 취소하기 전에 Batch 에이전트 로그를 수집해야 합니다. Batch 에이전트 로그는 Batch 서비스 로그 업로드 API를 사용하여 수집할 수 있습니다. 이러한 로그는 지원 티켓의 일부로 Microsoft에 제공될 수 있으며 문제를 해결하는 데 도움이 됩니다.
+
+### <a name="manage-os-upgrades"></a>OS 업그레이드 관리
+
+사용자 구독 모드 Batch 계정에 대해 자동화 된 OS 업그레이드는 특히 작업이 장기 실행 되는 경우 작업 진행률을 방해할 수 있습니다. [Idempotent 작업을 빌드하면](#build-durable-tasks) 이러한 중단으로 인해 발생 하는 오류를 줄일 수 있습니다. 또한 [작업이 실행 될 것으로 예상 되지 않는 시간에 대해 OS 이미지 업그레이드를 예약 하는](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades)것이 좋습니다.
 
 ## <a name="isolation-security"></a>격리 보안
 

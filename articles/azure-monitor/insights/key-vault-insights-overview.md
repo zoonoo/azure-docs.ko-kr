@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945463"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498957"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Azure Monitor for Key Vault(미리 보기)를 사용하여 키 자격 증명 모음 서비스 모니터링
 Azure Monitor for Key Vault(미리 보기)는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음을 종합적으로 모니터링합니다.
@@ -24,7 +24,7 @@ Azure Monitor for Key Vault(미리 보기)는 Key Vault 요청, 성능, 실패 �
 -   특정 키 자격 증명 모음의 **드릴다운 분석**을 통해 자세히 분석합니다.
 -    **사용자 지정이 가능**하므로 표시할 메트릭을 변경하고, 제한에 맞도록 임계값을 수정 또는 설정하고, 사용자 고유의 통합 문서를 저장할 수 있습니다. 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.
 
-Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. 모든 사용자가 메트릭 기반 모니터링 데이터에 액세스할 수 있지만, 로그 기반 시각화를 포함하려면 사용자가 [Azure Key Vault 로깅을 사용하도록 설정](https://docs.microsoft.com/azure/key-vault/key-vault-logging)해야 할 수도 있습니다.
+Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. 모든 사용자가 메트릭 기반 모니터링 데이터에 액세스할 수 있지만, 로그 기반 시각화를 포함하려면 사용자가 [Azure Key Vault 로깅을 사용하도록 설정](../../key-vault/general/logging.md)해야 할 수도 있습니다.
 
 ## <a name="configuring-your-key-vaults-for-monitoring"></a>모니터링할 키 자격 증명 모음 구성
 
@@ -39,7 +39,7 @@ Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모
 
 3. 진단 설정이 저장되면 Key Vault 인사이트 아래에서 모든 로그 기반 차트와 시각화를 볼 수 있습니다. 로그 채우기가 시작될 때까지 몇 분에서 몇 시간이 걸릴 수 있습니다.
 
-4. Key Vault 서비스에 진단 로그를 사용하도록 설정하는 방법에 대한 추가 지원은 [전체 가이드](https://docs.microsoft.com/azure/key-vault/key-vault-logging)를 참조하세요.
+4. Key Vault 서비스에 진단 로그를 사용하도록 설정하는 방법에 대한 추가 지원은 [전체 가이드](../../key-vault/general/logging.md)를 참조하세요.
 
 ## <a name="view-from-azure-monitor"></a>Azure Monitor에서 보기
 
@@ -75,7 +75,7 @@ Azure Monitor에서 구독에 속한 여러 키 자격 증명 모음의 요청, 
 
 이 통합 문서에는 성공(2xx 상태 코드), 인증 오류(401/403 상태 코드), 제한(429 상태 코드) 및 기타 실패(4xx 상태 코드)가 표시됩니다.
 
-각 상태 코드가 무엇을 의미하는지 보다 정확하게 이해하려면 [Azure Key Vault 상태 및 응답 코드](https://docs.microsoft.com/azure/key-vault/authentication-requests-and-responses)에 대한 설명서를 정독하는 것이 좋습니다.
+각 상태 코드가 무엇을 의미하는지 보다 정확하게 이해하려면 [Azure Key Vault 상태 및 응답 코드](../../key-vault/general/authentication-requests-and-responses.md)에 대한 설명서를 정독하는 것이 좋습니다.
 
 ## <a name="operations--latency-workbook"></a>작업 및 대기 시간 통합 문서
 
@@ -120,7 +120,7 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 또한 사용자는 아래쪽 테이블을 동적으로 업데이트하는 위쪽 테이블의 보기를 트랜잭션 유형별로 자세히 살펴볼 수 있으며, 사용자는 팝업 컨텍스트 창에서 전체 작업 세부 정보를 볼 수 있습니다.
 
 >[!NOTE]
-> 사용자는 이 통합 문서를 보려면 진단 설정을 사용하도록 설정해야 합니다. 진단 설정을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Key Vault 로깅](https://docs.microsoft.com/azure/key-vault/general/logging)을 참조하세요.
+> 사용자는 이 통합 문서를 보려면 진단 설정을 사용하도록 설정해야 합니다. 진단 설정을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Key Vault 로깅](../../key-vault/general/logging.md)을 참조하세요.
 
 ## <a name="pin-and-export"></a>고정 및 내보내기
 
@@ -164,7 +164,7 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 
 ### <a name="resolving-performance-issues-or-failures"></a>성능 문제 또는 오류 해결
 
-Azure Monitor for Key Vault(미리 보기)를 사용하여 발견한 키 자격 증명 모음 관련 문제를 해결하려면 [Azure Key Vault 설명서](https://docs.microsoft.com/azure/key-vault/)를 참조하세요.
+Azure Monitor for Key Vault(미리 보기)를 사용하여 발견한 키 자격 증명 모음 관련 문제를 해결하려면 [Azure Key Vault 설명서](../../key-vault/index.yml)를 참조하세요.
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>200 주요 자격 증명 모음만 볼 수 있는 이유는 무엇 인가요?
 
@@ -208,4 +208,4 @@ Azure Monitor for Key Vault(미리 보기)를 사용하여 발견한 키 자격 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.
+[Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.

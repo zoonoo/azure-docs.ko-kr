@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eba250f3ca6a7af8480d24a99e6c3e8278009b82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671667"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499446"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Application Insights로 라이브 Azure Cloud Services 프로파일링
 
@@ -22,7 +23,7 @@ ms.locfileid: "77671667"
 Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니다. Profiler를 설치하고 Application Insights 리소스로 프로필을 전송하도록 Azure Diagnostics를 구성하기만 하면 됩니다.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Azure Cloud Services에 대해 Profiler 사용
-1. [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상 버전을 사용 하 고 있는지 확인 합니다. OS 제품군 4를 사용 하는 경우 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet)을 사용 하 여 .NET Framework 4.6.1 이상 버전을 설치 해야 합니다. OS 제품군 5에는 기본적으로 .NET Framework 호환 되는 버전이 포함 되어 있습니다. 
+1. [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상 버전을 사용 하 고 있는지 확인 합니다. OS 제품군 4를 사용 하는 경우 [시작 작업](../../cloud-services/cloud-services-dotnet-install-dotnet.md)을 사용 하 여 .NET Framework 4.6.1 이상 버전을 설치 해야 합니다. OS 제품군 5에는 기본적으로 .NET Framework 호환 되는 버전이 포함 되어 있습니다. 
 
 1. [Azure Cloud Services에 Application Insights SDK](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json)를 추가합니다.
 
@@ -36,11 +37,11 @@ Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니
 
 1. Azure 진단 확장을 구성 하 여 프로파일러를 사용 하도록 설정 합니다.
 
-    a. 애플리케이션 역할에 대한 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
+    a. 애플리케이션 역할에 대한 [Azure Diagnostics](../platform/diagnostics-extension-overview.md) *diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
 
       ![진단 구성 파일의 위치](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      파일을 찾을 수 없는 경우 [Azure Cloud Services 및 Virtual Machines에 대한 진단 설정](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 참조하세요.
+      파일을 찾을 수 없는 경우 [Azure Cloud Services 및 Virtual Machines에 대한 진단 설정](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 참조하세요.
 
     b. 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다.  
 

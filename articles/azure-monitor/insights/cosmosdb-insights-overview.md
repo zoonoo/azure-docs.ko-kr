@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8043dfb7fdda972d4ede6798d07355936b23bf93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945497"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498919"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Monitor 살펴보기
 
@@ -78,7 +78,7 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 | `201 Created` | 리소스를 만들기 위한 POST 작업이 정상적으로 완료되었습니다. |
 | `404 Not Found` | 더 이상 없는 리소스에 대해 작업을 수행했습니다. 리소스가 이미 삭제된 경우를 예로 들 수 있습니다. |
 
-상태 코드의 전체 목록은 [Azure Cosmos DB HTTP 상태 코드 문서](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb)를 참조하세요.
+상태 코드의 전체 목록은 [Azure Cosmos DB HTTP 상태 코드 문서](/rest/api/cosmos-db/http-status-codes-for-cosmosdb)를 참조하세요.
 
 ### <a name="capacity"></a>용량
 
@@ -98,7 +98,7 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 ## <a name="pin-export-and-expand"></a>고정, 내보내기 및 확장
 
-섹션의 오른쪽 위에 있는 압정 아이콘을 선택하여 메트릭 섹션 중 하나를 [Azure 대시보드](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)에 고정할 수 있습니다.
+섹션의 오른쪽 위에 있는 압정 아이콘을 선택하여 메트릭 섹션 중 하나를 [Azure 대시보드](../../azure-portal/azure-portal-dashboards.md)에 고정할 수 있습니다.
 
 ![메트릭 섹션 대시보드에 고정 예제](./media/cosmosdb-insights-overview/pin.png)
 
@@ -126,6 +126,6 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [메트릭 경고](../platform/alerts-metric.md) 및 [서비스 상태 알림](../../service-health/alerts-activity-log-service-notifications.md)을 구성하여 문제 발견에 도움이 되는 자동 경고를 설정합니다.
+* [메트릭 경고](../platform/alerts-metric.md) 및 [서비스 상태 알림](../../service-health/alerts-activity-log-service-notifications-portal.md)을 구성하여 문제 발견에 도움이 되는 자동 경고를 설정합니다.
 
 * [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.

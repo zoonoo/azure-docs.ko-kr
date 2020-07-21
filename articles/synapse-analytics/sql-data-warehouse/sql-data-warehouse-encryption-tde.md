@@ -11,13 +11,14 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0c6fc0cdba4607bba55383f2662257322ef23aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b530b3a049f41a54ab98cc7d1454018cfc990f75
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212244"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495672"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde"></a>투명한 데이터 암호화(TDE) 시작
+# <a name="get-started-with-transparent-data-encryption-tde-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 TDE (투명한 데이터 암호화 시작)
 
 > [!div class="op_single_selector"]
 >
@@ -34,7 +35,7 @@ TDE(투명한 데이터 암호화)를 사용하려면 관리자 또는 dbmanager
 
 TDE를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)
+1. [Azure Portal](https://portal.azure.com) 에서 데이터베이스를 엽니다.
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명 한 데이터 암호화** 옵션 ![ 포털 설정을 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
 4. 포털 설정 **설정에서 다음을 선택 합니다.** ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
@@ -45,7 +46,7 @@ TDE를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 TDE를 사용 하지 않도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)
+1. [Azure Portal](https://portal.azure.com) 에서 데이터베이스를 엽니다.
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명 한 데이터 암호화** 옵션 ![ 포털 설정을 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
 4. **끄기** 설정 ![ 포털 설정 해제를 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)

@@ -6,12 +6,12 @@ ms.author: mbullwin
 author: mrbullwinkle
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: c903855dd7a550cfeef845d9c176e7ce7806a0df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90743a213092aacfa10139c12f47bc11faf0d86d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84946940"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498715"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>통합 문서 기반 정보 문제 해결
 
@@ -72,4 +72,4 @@ ms.locfileid: "84946940"
 
 ## <a name="next-steps"></a>다음 단계
 
-통합 문서를 지원 하도록 디자인 된 시나리오, 새 보고서를 작성 하 고 기존 보고서를 사용자 지정 하는 방법 등에 대 한 자세한 내용은 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)를 검토 하세요.
+통합 문서를 지원 하도록 디자인 된 시나리오, 새 보고서를 작성 하 고 기존 보고서를 사용자 지정 하는 방법 등에 대 한 자세한 내용은 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토 하세요.

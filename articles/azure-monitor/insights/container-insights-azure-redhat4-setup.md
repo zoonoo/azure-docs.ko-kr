@@ -3,11 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트 되는 Azure Monitor을 사용 하 여 Kubernetes 클러스터에 대 한 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 49097d96ecf58d7c5bf7d1a60ff01fc7182587c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b5644c13ac560910703454c4052e223f958014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801481"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499174"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성
 
@@ -19,7 +20,7 @@ ms.locfileid: "85801481"
 
 이 문서에 설명 된 지원 되는 메서드를 사용 하 여 Azure Red Hat OpenShift. x의 기존 배포 하나 이상에 대 한 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정할 수 있습니다.
 
-기존 클러스터의 경우 [Azure CLI에서이 Bash 스크립트](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create)를 실행 합니다.
+기존 클러스터의 경우 [Azure CLI에서이 Bash 스크립트](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create)를 실행 합니다.
 
 ## <a name="supported-and-unsupported-features"></a>지원 되거나 지원 되지 않는 기능
 
@@ -28,7 +29,7 @@ ms.locfileid: "85801481"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 - Azure CLI 버전 2.0.72 이상  
 
@@ -120,7 +121,7 @@ ms.locfileid: "85801481"
     export kubeContext="<kubeContext name of your ARO v4 cluster>"  
     ```
 
-    예:
+    예제:
 
     `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
 
@@ -141,7 +142,7 @@ export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGr
 export kubeContext="<kubeContext name of your ARO v4 cluster>"
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
 
@@ -171,4 +172,4 @@ export kubeContext="<kubeContext name of your ARO v4 cluster>"
 
 - 클러스터에서 프로메테우스 메트릭을 스크랩 하 고 분석 하려면 [스크랩 프로메테우스 메트릭 구성](container-insights-prometheus-integration.md)을 검토 하세요.
 
-- 컨테이너에 대해 Azure Monitor를 사용 하 여 클러스터 모니터링을 중지 하는 방법을 알아보려면 [Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법](container-insights-optout-openshift.md)을 참조 하세요.
+- 컨테이너에 대해 Azure Monitor를 사용 하 여 클러스터 모니터링을 중지 하는 방법을 알아보려면 [Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법](./container-insights-optout-openshift-v3.md)을 참조 하세요.

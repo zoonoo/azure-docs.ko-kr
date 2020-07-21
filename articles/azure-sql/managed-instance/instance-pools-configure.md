@@ -12,11 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 1461ba4ae0bea61b3a220c22144a31eade6cdf04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9bd98d69c9a941e8da08fc7ab798c37b1a22f0bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708810"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498414"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>인스턴스 풀에 Azure SQL Managed Instance 배포
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +43,7 @@ ms.locfileid: "84708810"
 
 사용 가능한 [PowerShell 명령](https://docs.microsoft.com/powershell/module/az.sql/):
 
-|Cmdlet |Description |
+|cmdlet |Description |
 |:---|:---|
 |[New-AzSQLInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | SQL Managed Instance 풀을 만듭니다. |
 |[Get-AzSQLInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | 인스턴스 풀에 대 한 정보를 반환 합니다. |
@@ -99,7 +100,7 @@ $instancePool = New-AzSqlInstancePool `
   -Name "mi-pool-name" `
   -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
-  -VCore 80 `
+  -VCore 8 `
   -Edition "GeneralPurpose" `
   -ComputeGeneration "Gen5" `
   -Location "westeurope"
@@ -115,13 +116,13 @@ $instancePool = New-AzSqlInstancePool `
 관리되는 인스턴스를 만들려면 다음 명령을 실행합니다.
 
 ```powershell
-$instanceOne = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 2 -StorageSizeInGB 256
+$instanceOne = $instancePool | New-AzSqlInstance -Name "mi-one-name" -VCore 2 -StorageSizeInGB 256
 ```
 
 풀 내에 인스턴스를 배포하는 데 몇 분 정도 걸립니다. 첫 번째 인스턴스를 만든 후에 추가 인스턴스를 만들 수 있습니다.
 
 ```powershell
-$instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -StorageSizeInGB 512
+$instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-two-name" -VCore 4 -StorageSizeInGB 512
 ```
 
 ## <a name="create-a-database"></a>데이터베이스 만들기 

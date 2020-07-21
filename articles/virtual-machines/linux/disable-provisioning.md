@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 133de199c240cbc4ea7246a29e65347d53c50545
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045759"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494516"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Vm 및 이미지에서 Linux 에이전트를 사용 하지 않도록 설정 하거나 제거 합니다.
 
 Linux 에이전트를 제거 하기 전에 Linux 에이전트가 제거 된 후 VM에서 수행할 수 없는 작업을 이해 해야 합니다.
 
-Azure VM (가상 컴퓨터) [확장](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) 은 azure vm에 대 한 배포 후 구성 및 자동화 작업을 제공 하는 작은 응용 프로그램으로, azure 제어 평면에서 확장을 설치 하 고 관리 합니다. [Azure Linux 에이전트가](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 플랫폼 확장 명령을 처리 하 고 VM 내에서 확장의 올바른 상태를 확인 하는 작업입니다.
+Azure VM (가상 컴퓨터) [확장](../extensions/overview.md) 은 azure vm에 대 한 배포 후 구성 및 자동화 작업을 제공 하는 작은 응용 프로그램으로, azure 제어 평면에서 확장을 설치 하 고 관리 합니다. [Azure Linux 에이전트가](../extensions/agent-linux.md) 플랫폼 확장 명령을 처리 하 고 VM 내에서 확장의 올바른 상태를 확인 하는 작업입니다.
 
 Azure 플랫폼은 VM 구성, 모니터링, 보안 및 유틸리티 애플리케이션에 이르는 다양한 확장을 호스팅합니다. 첫 번째 및 타사 확장을 선택할 수 있으며 확장을 사용 하는 주요 시나리오의 예는 다음과 같습니다.
 * Azure Backup, 모니터링, 디스크 암호화, 보안, 사이트 복제 등 자사 Azure 서비스를 지원 합니다.
@@ -31,7 +31,7 @@ Azure 플랫폼은 VM 구성, 모니터링, 보안 및 유틸리티 애플리케
 
 ## <a name="disabling-extension-processing"></a>확장 처리 사용 안 함
 
-필요에 따라 확장 처리를 사용 하지 않도록 설정 하는 몇 가지 방법이 있습니다. 계속 하기 전에 VM에 배포 된 확장을 모두 제거 **해야 합니다** . 예를 들어 AZ CLI를 사용 하 여 [나열](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) 하 고 [삭제할](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete)수 있습니다.
+필요에 따라 확장 처리를 사용 하지 않도록 설정 하는 몇 가지 방법이 있습니다. 계속 하기 전에 VM에 배포 된 확장을 모두 제거 **해야 합니다** . 예를 들어 AZ CLI를 사용 하 여 [나열](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) 하 고 [삭제할](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete)수 있습니다.
 
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -155,7 +155,7 @@ Linux 에이전트가 없는 이미지에서 VM을 만드는 경우 VM 배포 �
 > 
 > 위의 작업을 수행 하지 않으면 플랫폼은 확장 구성 및 40min 후의 제한 시간을 보내려고 시도 합니다.
 
-확장이 사용 하지 않도록 설정 된 VM을 배포 하려면 [--enable-agent](https://docs.microsoft.com/cli/azure/vm#az-vm-create)와 함께 Azure CLI를 사용할 수 있습니다.
+확장이 사용 하지 않도록 설정 된 VM을 배포 하려면 [--enable-agent](/cli/azure/vm#az-vm-create)와 함께 Azure CLI를 사용할 수 있습니다.
 
 ```bash
 az vm create \

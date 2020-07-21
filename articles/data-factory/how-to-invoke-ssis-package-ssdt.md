@@ -12,11 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
-ms.openlocfilehash: 1d8261d05f59c7f40ba6b1e2d59d2b15ad56de95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3163d414e940d843489a34f319996b1b8ed6f4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424585"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497418"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>SSDT에서 Azure에서 SSIS 패키지 실행
 
@@ -26,7 +27,7 @@ ms.locfileid: "84424585"
 
 이 기능을 사용 하 여 새 Azure-SSIS IR을 만들거나 SSIS 프로젝트에 기존 항목을 연결한 다음 패키지를 실행할 수 있습니다.  프로젝트 배포 모델의 SSISDB (SSIS 카탈로그)에 배포할 패키지를 실행 하 고 패키지 배포 모델에서 파일 시스템/파일 공유/Azure Files에 배포할 패키지를 지원 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 기능을 사용 하려면 [여기](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) 에서 Visual STUDIO 용 SSIS 프로젝트 확장을 사용 하 여 최신 SSDT를 다운로드 하 여 설치 하거나 [여기](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)에서 독립 실행형 설치 관리자로 설치 하세요.
 
 ## <a name="azure-enable-ssis-projects"></a>Azure-SSIS 프로젝트 사용
@@ -81,6 +82,30 @@ Azure 사용 프로젝트를 ADF의 SSIS에 연결 하면 패키지를 Azure Fil
    ![Azure Storage 선택](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
 
 4. **연결 단추를** 클릭 하 여 연결을 완료 합니다.  SSDT의 솔루션 탐색기 패널에서 **연결 된 Azure 리소스** 노드 아래에 선택한 Azure-SSIS IR 및 Azure Storage 계정을 표시 합니다.  또한 노드를 마우스 오른쪽 단추로 클릭 하 여 메뉴를 표시 한 다음, ADF 포털/앱으로 이동 하 여이 작업을 수행 하는 **시작 메뉴 항목을 선택** 하 여 해당 노드를 마우스 오른쪽 단추로 클릭 하 여 관리할 수 있는 Azure-SSIS IR의 상태를 새로 고칩니다.
+
+## <a name="assess-ssis-projectpackages-for-executions-in-azure"></a>Azure에서 실행에 대 한 SSIS project\\oms 패키지 평가
+### <a name="assess-ssis-project-or-package"></a>SSIS 프로젝트 또는 패키지 평가
+Azure에서 패키지를 실행 하기 전에 패키지를 평가 하 여 잠재적인 마이그레이션 차단이 나 알아야 할 정보가 있는지 여부를 평가할 수 있습니다. 
+-  프로젝트 또는 단일 패키지에서 모든 패키지를 평가할 수 있습니다.
+
+   ![프로젝트 ](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project.png)
+    ![ 평가 패키지 평가](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-package.png)
+
+-  평가 보고서를 가져와 각 평가 문제를 확인할 수 있으며 각 문제에 대 한 자세한 설명 및 권장 사항이 제공 됩니다. 평가 보고서를 csv 파일로 내보낼 수도 있습니다. 
+
+   ![프로젝트 결과 평가](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project-result.png)
+
+### <a name="suppress-assessment-rule"></a>평가 규칙 표시 안 함
+패키지에 대해 일부 평가 규칙이 적용 되지 않은 경우이를 표시 하지 않도록 선택할 수 있습니다. 
+-  평가 보고서에서 **평가 규칙 억제 구성** 링크를 직접 클릭할 수 있습니다.
+
+   ![평가 규칙 비 표시 설정](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings.png)
+
+-  **Azure 사용 설정을**통해를 구성할 수도 있습니다.
+
+   ![Azure 사용 설정](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
+
+   ![Azure 사용 설정을 통한 평가 규칙 비 표시 설정](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings-via-azure-enabled-settings.png)
 
 ## <a name="execute-ssis-packages-in-azure"></a>Azure에서 SSIS 패키지 실행
 ### <a name="azure-enabled-setting"></a>Azure 사용 설정
@@ -159,6 +184,9 @@ Azure 사용 프로젝트를 사용 하 여 패키지 실행 환경을 전환 �
 6. Azure에서이 패키지를 실행 합니다. 현재 Visual Studio 구성을 전환 하 여 환경을 다시 로컬 환경으로 쉽게 전환할 수 있습니다.
 
    ![Visual Studio 구성 전환](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-switch-configurations.png)
+
+## <a name="current-limitations"></a>현재 제한 사항
+-  이 SSDT 기능은 현재 국가별 클라우드를 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 SSDT에서 Azure의 패키지를 실행 하는 것이 만족 스 러 우면 ADF 파이프라인에서 ssis 패키지 실행 작업으로 배포 하 고 실행할 수 있습니다. [adf 파이프라인에서](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)ssis 패키지를 실행 하려면 Ssis 패키지 실행을 참조 하세요.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72025946"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499922"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Azure에서 IBM zD&T 개발/테스트 환경 설치
 
@@ -56,13 +56,13 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 
 ## <a name="create-the-base-image-and-connect"></a>기본 이미지 만들기 및 연결
 
-1. Azure Portal에서 원하는 운영 체제 구성을 사용 하 여 [VM을 만듭니다](/azure/virtual-machines/linux/quick-create-portal) . 이 문서에서는 Ubuntu 16.04를 실행 하는 B4ms VM (4 개의 vCPUs와 16gb의 메모리)을 가정 합니다.
+1. Azure Portal에서 원하는 운영 체제 구성을 사용 하 여 [VM을 만듭니다](../../../linux/quick-create-portal.md) . 이 문서에서는 Ubuntu 16.04를 실행 하는 B4ms VM (4 개의 vCPUs와 16gb의 메모리)을 가정 합니다.
 
 2. VM을 만든 후 SSH의 경우 인바운드 포트 22, FTP의 경우 21, 웹 서버의 경우 9443을 엽니다.
 
 3. **연결** 단추를 통해 VM의 **개요** 블레이드에 표시 된 SSH 자격 증명을 가져옵니다. **Ssh** 탭을 선택 하 고 ssh logon 명령을 클립보드에 복사 합니다.
 
-4. 로컬 PC에서 [Bash 셸에](/azure/cloud-shell/quickstart) 로그온 하 여 명령을 붙여넣습니다. ** \<user id\> Ssh \@ 형식이 \<IP Address\> **됩니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
+4. 로컬 PC에서 [Bash 셸에](../../../../cloud-shell/quickstart.md) 로그온 하 여 명령을 붙여넣습니다. ** \<user id\> Ssh \@ 형식이 \<IP Address\> **됩니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>서버에 설치 파일을 복사 합니다.
 

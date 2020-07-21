@@ -3,11 +3,12 @@ title: Recovery Services 자격 증명 모음에 Azure VM 백업
 description: Azure Backup을 사용하여 Recovery Services 자격 증명 모음에 Azure VM을 백업하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 88e7be7e2238637f1e6d5ac84abebdca0b9e1674
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727015"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497933"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -66,10 +67,10 @@ ms.locfileid: "83727015"
 
 ### <a name="modify-storage-replication"></a>스토리지 복제 수정
 
-기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)를 사용합니다.
+기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md)를 사용합니다.
 
 * 자격 증명 모음이 기본 백업 메커니즘인 경우 GRS를 사용하는 것이 좋습니다.
-* 저렴한 옵션은 [LRS(로컬 중복 스토리지)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 사용할 수 있습니다.
+* 저렴한 옵션은 [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json)를 사용할 수 있습니다.
 
 다음과 같이 스토리지 복제 유형을 수정합니다.
 
@@ -188,7 +189,7 @@ Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을
 **VM** | **세부 정보**
 --- | ---
 **Windows** | 1. 에이전트 MSI 파일을 [다운로드하여 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)합니다.<br/><br/> 2. 컴퓨터의 관리자 권한으로 설치합니다.<br/><br/> 3. 설치를 확인합니다. VM의 *C:\WindowsAzure\Packages*에서 **WaAppAgent.exe** > **속성**을 마우스 오른쪽 단추로 클릭합니다. **세부 정보** 탭에서 **제품 버전**이 2.6.1198.718 이상이어야 합니다.<br/><br/> 에이전트를 업데이트하는 경우 백업 작업이 실행되고 있지 않은지 확인하고 [에이전트를 다시 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)합니다.
-**Linux** | 배포의 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용하여를 설치합니다. 이는 Azure Linux 에이전트를 설치 및 업그레이드하는 데 선호되는 방법입니다. 모든 [인증 배포 공급자](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다. 에이전트는 [GitHub](https://github.com/Azure/WALinuxAgent)에서 사용할 수 있지만 설치하지 않는 것이 좋습니다.<br/><br/> 에이전트를 업데이트하는 경우 백업 작업이 실행되고 있는지 확인하고 이진 파일을 업데이트합니다.
+**Linux** | 배포의 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용하여를 설치합니다. 이는 Azure Linux 에이전트를 설치 및 업그레이드하는 데 선호되는 방법입니다. 모든 [인증 배포 공급자](../virtual-machines/linux/endorsed-distros.md)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다. 에이전트는 [GitHub](https://github.com/Azure/WALinuxAgent)에서 사용할 수 있지만 설치하지 않는 것이 좋습니다.<br/><br/> 에이전트를 업데이트하는 경우 백업 작업이 실행되고 있는지 확인하고 이진 파일을 업데이트합니다.
 
 >[!NOTE]
 > **이제 Azure Backup은 Azure Virtual Machine 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다.**

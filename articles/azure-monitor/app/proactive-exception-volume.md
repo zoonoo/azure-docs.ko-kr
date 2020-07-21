@@ -3,17 +3,18 @@ title: 예외 볼륨의 비정상적인 증가-Azure 애플리케이션 정보
 description: 예외 볼륨의 특수 한 패턴에 대 한 Azure 애플리케이션 정보에서 스마트 검색을 사용 하 여 응용 프로그램 예외를 모니터링 합니다.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00b7a28a51f91c969b41d2ab85b611f6dde51396
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671769"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499429"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>예외 볼륨의 비정상적인 증가(미리 보기)
 
 Application Insights는 애플리케이션에서 throw된 예외를 자동으로 분석하고 예외 원격 분석에서 비정상적인 패턴을 경고할 수 있습니다.
 
-이 기능을 사용하려면 앱에 대한 [예외 보고를 구성](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting)하는 것 외에 특별한 설정이 필요하지 않습니다. 앱에서 충분한 예외 원격 분석을 생성하면 이 기능은 활성화됩니다.
+이 기능을 사용하려면 앱에 대한 [예외 보고를 구성](./asp-net-exceptions.md#set-up-exception-reporting)하는 것 외에 특별한 설정이 필요하지 않습니다. 앱에서 충분한 예외 원격 분석을 생성하면 이 기능은 활성화됩니다.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 형식의 스마트 검색 알림은 언제 받게 되나요?
 앱에서 하루 동안 특정 유형의 예외 수가 지난 7일 동안 계산된 기준에 비해 비정상적으로 증가하는 경우 이 유형의 알림을 받을 수 있습니다.

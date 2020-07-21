@@ -1,5 +1,5 @@
 ---
-title: 공유 VM 이미지를 사용 하 여 Azure에서 확장 집합 만들기
+title: 공유 VM 이미지를 사용 하 여 Azure CLI에서 확장 집합 만들기
 description: Azure CLI를 사용하여 Azure에서 가상 머신 확장 집합 배포에 사용할 공유 VM 이미지를 만드는 방법을 알아봅니다.
 author: axayjo
 tags: azure-resource-manager
@@ -10,11 +10,12 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 8d129ae2c6048e592bfc43f07ee609ce930aa3fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdcd11b6bd9c773e8018ee303564fff6abd098a6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558782"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494907"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 가상 머신 확장 집합용 공유 이미지 만들기 및 사용
 

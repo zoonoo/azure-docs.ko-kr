@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a1631a3dcb7383959bb62e2b57049386d0675418
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1063d4a74fa1360cfb0804266a46b97be508e97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200837"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495655"
 ---
 # <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>Azure Synapse Analytics 용 PowerShell & REST Api SQL 풀
 
@@ -78,7 +78,7 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 * [AzSqlDatabaseRestorePoint](/powershell/module/az.sql/get-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 * [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 * [Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
-* [AzSqlDatabase]/powershell/module/az.sql/restore-azsqldatabase? toc =/azure/synapse-analytics/sql-data-warehouse/toc.json&bc =/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 * [AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 * [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 * [일시 중단-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
@@ -90,4 +90,4 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 * [PowerShell을 사용 하 여 데이터 웨어하우스 만들기](create-data-warehouse-powershell.md)
 * [데이터베이스 복원](sql-data-warehouse-restore-points.md)
 
-PowerShell을 사용 하 여 자동화할 수 있는 다른 작업은 [Azure SQL Database cmdlet]/powershell/module/az.sql? toc =/azure/synapse-analytics/sql-data-warehouse/toc.json&bc =/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조 하세요. 모든 Azure SQL Database cmdlet이 Azure Synapse Analytics 데이터 웨어하우스에 대해 지원 되는 것은 아닙니다. REST로 자동화할 수 있는 작업 목록은 [Azure SQL Database에 대 한 작업](/rest/api/sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조 하세요.
+PowerShell을 사용 하 여 자동화할 수 있는 다른 작업은 [Azure SQL Database cmdlet](/powershell/module/az.sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조 하세요. 모든 Azure SQL Database cmdlet이 Azure Synapse Analytics 데이터 웨어하우스에 대해 지원 되는 것은 아닙니다. REST로 자동화할 수 있는 작업 목록은 [Azure SQL Database에 대 한 작업](/rest/api/sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조 하세요.

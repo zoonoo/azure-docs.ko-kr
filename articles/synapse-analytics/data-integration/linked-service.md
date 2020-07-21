@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics에서 연결 된 서비스 프로 비전 및 보호
+title: 연결 된 서비스 보안
 description: 관리 Vnet을 사용 하 여 연결 된 서비스를 프로 비전 하 고 보호 하는 방법을 알아봅니다.
 services: synapse-analytics
 author: acomet
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430553"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496080"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>개인 링크를 사용 하 여 연결 된 서비스 보안 
 
@@ -56,7 +56,7 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 1. 위에서 만든 개인 끝점을 선택 합니다. 저장소 계정 수준에서 개인 끝점을 승인할 수 있도록 하는 하이퍼링크가 표시 됩니다. *대신 Azure Portal Storage 계정으로 직접 이동 하 여 **개인 끝점 연결** 블레이드로 이동 합니다.*
 1. Studio에서 만든 개인 끝점을 틱 하 고 **승인**을 선택 합니다.
 1. 설명을 추가 하 고 **예** 를 클릭 합니다.
-1. [ **관리**] 탭의 [ **관리 되는 가상 네트워크** ] 섹션에서 Synapse Studio로 돌아갑니다.
+1. [ **관리** ] 탭의 [ **관리 되는 가상 네트워크** ] 섹션에서 Synapse Studio로 돌아갑니다.
 1. 개인 끝점에 대 한 승인을 반영 하는 데 1 분 정도가 소요 됩니다.
 
 ## <a name="check-the-connection-works"></a>연결 작동 확인

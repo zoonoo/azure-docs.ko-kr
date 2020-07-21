@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights |의 수집 및 평면화 규칙에 대 한 예정 된 변경 내용 Microsoft Docs
+title: Azure Time Series Insights Gen2의 수집 및 평면화 규칙의 예정 된 변경 내용 | Microsoft Docs
 description: 수집 규칙 변경
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 067244aa40256e3cc76239343790974bc3c06481
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f667ca5ad82182fcf40d5c1fbb325f2ea99a7e08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919031"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495111"
 ---
 # <a name="upcoming-changes-to-the-json-flattening-and-escaping-rules-for-new-environments"></a>새 환경에 대 한 JSON 평면화 및 이스케이프 규칙의 예정 된 변경 내용
 
-이러한 변경 내용은 *새로운* Azure Time Series Insights 종 량 제 (PAYG) 환경에만 적용 됩니다. 이러한 변경 내용은 표준 SKU 환경에는 적용 되지 않습니다.
+**이러한 변경 내용은 *새로 만든* Azure Time Series Insights Gen2 환경에만 적용 됩니다. 이러한 변경 내용은 Gen1 환경에 적용 되지 않습니다.**
 
-Azure Time Series Insights 환경에서는 특정 명명 규칙 집합에 따라 저장소 열을 동적으로 만듭니다. 이벤트가 수집 되 면 규칙 집합이 JSON 페이로드 및 속성 이름에 적용 됩니다. JSON 데이터를 평면화 하 고 저장 하는 방법에 대 한 변경 내용은 7 월 2020 일에 새로운 Azure Time Series Insights 종 량 제 환경에 적용 됩니다. 이 변경 내용은 다음과 같은 경우에 영향을 줍니다.
+Azure Time Series Insights Gen2 환경에서는 특정 명명 규칙 집합에 따라 저장소 열을 동적으로 만듭니다. 이벤트가 수집 되 면 규칙 집합이 JSON 페이로드 및 속성 이름에 적용 됩니다. JSON 데이터를 평면화 하 고 저장 하는 방법에 대 한 변경 내용은 7 월 2020 일에 새로운 Azure Time Series Insights Gen2 환경에 적용 됩니다. 이 변경 내용은 다음과 같은 경우에 영향을 줍니다.
 
 * JSON 페이로드에 중첩 된 개체가 포함 된 경우
 *  JSON 페이로드가 배열을 포함 하는 경우
@@ -45,15 +45,16 @@ Azure Time Series Insights 환경에서는 특정 명명 규칙 집합에 따라
 
  #### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>페이로드에서 중첩 된 JSON 또는 특수 문자를 포함 하 고 [시계열 모델](.\time-series-insights-update-tsm.md) 변수 식을 자동으로 작성 하는 경우
 
-*  새 수집 규칙과 일치 하도록 [유형 Batchput](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) 을 실행 하는 클라이언트 코드를 업데이트 합니다. 예를 들어의 이전 [시계열 식을](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) `"value": {"tsx": "$event.series_value.Double"}` 다음 옵션 중 하나로 업데이트 해야 합니다.
+*  새 수집 규칙과 일치 하도록 [유형 Batchput](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) 을 실행 하는 클라이언트 코드를 업데이트 합니다. 예를 들어의 이전 [시계열 식을](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) `"value": {"tsx": "$event.series_value.Double"}` 다음 옵션 중 하나로 업데이트 해야 합니다.
     * `"value": {"tsx": "$event.series.value.Double"}`
     * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 
-
 ## <a name="next-steps"></a>다음 단계
 
-- [Long 데이터 형식에 대 한 지원 추가를](./time-series-insights-long-data-type.md)참조 하세요.
+- [Gen2 저장소 및 수신 Azure Time Series Insights를](./time-series-insights-update-storage-ingress.md)읽습니다.
 
-- 읽기 [Azure Time Series Insights 미리 보기 저장소 및 수신](./time-series-insights-update-storage-ingress.md)합니다.
+- [시계열 쿼리 api](./concepts-query-overview.md)를 사용 하 여 데이터를 쿼리 하는 방법에 대해 자세히 알아보세요.
+
+- [새 시계열 식 구문](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)에 대해 자세히 알아보세요.
 

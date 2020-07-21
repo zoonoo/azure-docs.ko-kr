@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 26c8a8746fe748585f36e5282ad6e694cdcef1f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723309"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494465"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 관리형 이미지를 만드는 방법
 
@@ -24,7 +25,7 @@ Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 
 
 백업 또는 디버깅을 위해 기존 Linux VM의 복사본을 만들거나 온-프레미스 VM에서 특수한 Linux VHD를 업로드하려면 [사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기](upload-vhd.md)를 참조하세요.  
 
-**Azure VM Image Builder(퍼블릭 미리 보기)** 서비스를 사용하여 사용자 지정 이미지를 빌드할 수 있으며, 도구를 배우거나 빌드 파이프라인을 설정할 필요 없이 이미지 구성을 제공하기만 하면 Image Builder에서 이미지를 만듭니다. 자세한 내용은 [Azure VM Image Builder 시작](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)을 참조하세요.
+**Azure VM Image Builder(퍼블릭 미리 보기)** 서비스를 사용하여 사용자 지정 이미지를 빌드할 수 있으며, 도구를 배우거나 빌드 파이프라인을 설정할 필요 없이 이미지 구성을 제공하기만 하면 Image Builder에서 이미지를 만듭니다. 자세한 내용은 [Azure VM Image Builder 시작](./image-builder-overview.md)을 참조하세요.
 
 이미지를 만들려면 다음 항목이 필요합니다.
 
@@ -136,4 +137,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>다음 단계
-대규모로 이미지를 만들고 저장하 고 공유하려면 [공유 이미지 갤러리](shared-images.md)를 참조하세요.
+대규모로 이미지를 만들고 저장하 고 공유하려면 [공유 이미지 갤러리](../shared-images-cli.md)를 참조하세요.

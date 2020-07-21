@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 1754e166cd5c5a3d7309bc8c6f6459cdd0852396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69e60c3e4ac91a5d0ca9a0245dc61f090c625c60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762907"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499868"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 
@@ -28,7 +28,7 @@ Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에 자세히 설명 된 단계에서는 AKS 클러스터를 만들고 `kubectl` 클러스터와의 연결을 설정 했다고 가정 합니다. AKS 클러스터를 만들어야 하는 경우, [AKS 빠른 시작][aks-quickstart]을 참조하세요.
+이 문서에 자세히 설명 된 단계에서는 AKS 클러스터를 만들고 `kubectl` 클러스터와의 연결을 설정 했다고 가정 합니다. AKS 클러스터를 만들어야 하는 경우 [빠른 시작: Azure CLI을 사용 하 여 Azure Kubernetes Service 클러스터 배포][aks-quickstart]를 참조 하세요.
 
 또한 Azure CLI 버전 2.6.0 이상이 설치 및 구성 되어 있어야 합니다.  `az --version` 을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 

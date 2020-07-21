@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666946"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499548"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션을 사용 하 여 Hyper-v 가상 머신 용량 계획 (사용 되지 않음)
 
@@ -38,14 +39,14 @@ ms.locfileid: "77666946"
 
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | Support(지원) | 설명 |
+| 연결된 소스 | 지원 | 설명 |
 |---|---|---|
 | [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
 | [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
 | [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
-| [Azure storage 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
+| [Azure storage 계정](../platform/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 - Windows 또는 Operations Manager 에이전트는 가상 머신이 아닌 Windows Server 2012 이상의 Hyper-V 호스트에 설치해야 합니다.
 
@@ -108,7 +109,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 프로덕션 컴퓨팅 환경은 조직마다 크게 다릅니다. 또한 용량 및 성능 워크로드는 VM을 실행하는 방법 및 일반적인 고려 사항에 따라 달라질 수 있습니다. 성능을 측정하는 데 도움이 되는 특정 절차는 사용자 환경에 적용되지 않을 것입니다. 따라서 더 일반화된 규범적 지침이 도움을 주는 데 더 적합합니다. Microsoft는 성능 측정에 도움이 되는 다양한 규범적 지침 문서를 게시하고 있습니다.
 
-요약하자면, 이 솔루션은 성능 카운터를 포함하여 다양한 원본에서 용량 및 성능 데이터를 수집합니다. 솔루션의 다양한 표면에 제시된 용량 및 성능 데이터를 사용하고 해당 결과를 [Hyper-V에 대한 성능 측정](https://msdn.microsoft.com/library/cc768535.aspx)(영문) 문서의 결과와 비교합니다. 얼마 전에 이 문서를 게시했지만 메트릭, 고려 사항 및 지침은 여전히 유효합니다. 이 문서에는 다른 유용한 리소스에 대한 링크가 포함되어 있습니다.
+요약하자면, 이 솔루션은 성능 카운터를 포함하여 다양한 원본에서 용량 및 성능 데이터를 수집합니다. 솔루션의 다양한 표면에 제시된 용량 및 성능 데이터를 사용하고 해당 결과를 [Hyper-V에 대한 성능 측정](https://www.microsoft.com/en-us/download/details.aspx?id=56495)(영문) 문서의 결과와 비교합니다. 얼마 전에 이 문서를 게시했지만 메트릭, 고려 사항 및 지침은 여전히 유효합니다. 이 문서에는 다른 유용한 리소스에 대한 링크가 포함되어 있습니다.
 
 
 ## <a name="sample-log-searches"></a>샘플 로그 검색

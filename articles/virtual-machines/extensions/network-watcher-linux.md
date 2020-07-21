@@ -14,21 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
-ms.openlocfilehash: 476241ad3d4077f2da0c513e3c989218701232ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37a2724e28269d5f8b10d6ae7073aacc8272255b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81255756"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494771"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 머신 확장
 
 ## <a name="overview"></a>개요
 
-[Azure Network Watcher](/azure/network-watcher/)는 Azure 네트워크에 대한 모니터링을 허용하는 네트워크 성능 모니터링, 진단 및 분석 서비스입니다. Network Watcher 에이전트 VM(가상 머신) 확장은 요청 시 네트워크 트래픽 캡처 및 기타 고급 기능 등 Azure VM에서 Network Watcher 일부 기능을 위한 요구 사항입니다.
+[Azure Network Watcher](../../network-watcher/index.yml)는 Azure 네트워크에 대한 모니터링을 허용하는 네트워크 성능 모니터링, 진단 및 분석 서비스입니다. Network Watcher 에이전트 VM(가상 머신) 확장은 요청 시 네트워크 트래픽 캡처 및 기타 고급 기능 등 Azure VM에서 Network Watcher 일부 기능을 위한 요구 사항입니다.
 
 이 아티클에서는 Linux용 Network Watcher 에이전트 VM 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다. 에이전트 설치는 VM을 중단하거나, 다시 부팅이 필요하지 않습니다. 배포하는 가상 머신에 확장을 배포할 수 있습니다. 가상 머신이 Azure 서비스에서 배포되는 경우 가상 머신에서 확장 설치의 허용 여부를 결정하는 서비스에 대한 설명서를 확인합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -48,7 +49,7 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성�
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-일부 Network Watcher 에이전트 기능에서는 VM을 인터넷에 연결해야 합니다. 일부 Network Watcher 에이전트 기능에 나가는 연결을 설정하는 기능이 없는 경우 오작동하거나 사용할 수 없게 됩니다. 에이전트를 필요로 하는 Network Watcher 기능에 대한 자세한 내용은 [Network Watcher 설명서](/azure/network-watcher/)를 참조하세요.
+일부 Network Watcher 에이전트 기능에서는 VM을 인터넷에 연결해야 합니다. 일부 Network Watcher 에이전트 기능에 나가는 연결을 설정하는 기능이 없는 경우 오작동하거나 사용할 수 없게 됩니다. 에이전트를 필요로 하는 Network Watcher 기능에 대한 자세한 내용은 [Network Watcher 설명서](../../network-watcher/index.yml)를 참조하세요.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -78,7 +79,7 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성�
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| 형식 | NetworkWatcherAgentLinux |
+| type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>템플릿 배포
@@ -116,6 +117,6 @@ Azure Portal 및 Azure CLI를 사용하여 확장 배포 상태에 대한 데이
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
 ```
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [Network Watcher 설명서](/azure/network-watcher/)를 참조 하거나 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서 든 도움이 필요한 경우 [Network Watcher 설명서](../../network-watcher/index.yml)를 참조 하거나 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

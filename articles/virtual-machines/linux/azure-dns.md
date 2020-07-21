@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135311"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494737"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션
 Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대해 기본적으로 DNS 이름 확인을 제공합니다. Azure에서 호스트하는 가상 머신에서 자체 DNS 서비스를 구성하여 사용자 고유의 DNS 이름 확인 솔루션을 구현할 수 있습니다. 다음 시나리오는 특정 상황에 적합한 솔루션을 선택하는 데 도움이 됩니다.
@@ -43,7 +43,7 @@ Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크
 * 가상 네트워크의 가상 머신 간에 이름 확인이 제공되며 FQDN은 필요 없습니다.
 * 자동으로 생성되는 이름 대신 배포를 가장 잘 설명해주는 호스트 이름을 사용할 수 있습니다.
 
-**고려 사항**
+**고려 사항:**
 
 * Azure에서 만드는 DNS 접미사는 수정할 수 없습니다.
 * 사용자 고유의 레코드를 수동으로 등록할 수 없습니다.
@@ -121,7 +121,7 @@ resolv.conf 파일은 자동으로 생성되며 편집할 수 없습니다. 'opt
 
 Azure에서 제공하는 이름 확인을 사용하는 경우 DHCP를 사용하여 각 가상 머신에 내부 DNS 접미사가 제공됩니다. 자체 이름 확인 솔루션을 사용하는 경우 이 접미사는 다른 DNS 아키텍처에 방해가 되기 때문에 가상 머신에 제공되지 않습니다. FQDN으로 컴퓨터를 참조하거나 가상 머신에 접미사를 구성하려면 PowerShell 또는 API를 사용하여 접미사를 확인할 수 있습니다.
 
-* Azure Resource Manager에서 관리하는 가상 네트워크의 경우 [네트워크 인터페이스 카드](https://msdn.microsoft.com/library/azure/mt163668.aspx) 리소스를 통해 접미사가 제공됩니다. 또한 `azure network public-ip show <resource group> <pip name>` 명령을 실행하여 NIC의 FQDN을 포함하고 있는 공용 IP 세부 정보를 표시할 수 있습니다.
+* Azure Resource Manager에서 관리하는 가상 네트워크의 경우 [네트워크 인터페이스 카드](/rest/api/virtualnetwork/networkinterfaces) 리소스를 통해 접미사가 제공됩니다. 또한 `azure network public-ip show <resource group> <pip name>` 명령을 실행하여 NIC의 FQDN을 포함하고 있는 공용 IP 세부 정보를 표시할 수 있습니다.
 
 Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 자체 DNS 솔루션을 제공해야 합니다.  DNS 솔루션은 다음을 수행해야 합니다:
 
@@ -131,6 +131,6 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 * 외부 에이전트로 인해 나타나는 위험을 완화하기 위해 인터넷의 액세스로부터 보호되어야 합니다.
 
 > [!NOTE]
-> 최상의 성능을 얻을 수 있도록 Azure DNS 서버에서 가상 머신을 사용할 때 IPv6를 비활성화하고 각 DNS 서버 가상 머신에 [인스턴스 수준 공용 IP](../../virtual-network/virtual-networks-instance-level-public-ip.md)를 할당합니다.  
+> 최상의 성능을 얻을 수 있도록 Azure DNS 서버에서 가상 머신을 사용할 때 IPv6를 비활성화하고 각 DNS 서버 가상 머신에 [인스턴스 수준 공용 IP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip)를 할당합니다.  
 >
 >

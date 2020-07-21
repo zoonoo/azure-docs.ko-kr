@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553135"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496420"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Azure Cognitive Search의 결과를 잘라내는 보안 필터
 
@@ -32,28 +32,31 @@ ms.locfileid: "85553135"
 >[!NOTE]
 > 보안 주체 식별자를 검색하는 프로세스를 이 문서에서 다루지 않습니다. Id 서비스 공급자에게서 가져와야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 문서에서는 [azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [azure Cognitive Search 서비스](https://docs.microsoft.com/azure/search/search-create-service-portal)및 [azure Cognitive Search 인덱스가](https://docs.microsoft.com/azure/search/search-create-index-portal)있다고 가정 합니다.  
+이 문서에서는 [azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F),[azure Cognitive Search 서비스](search-create-service-portal.md)및 [인덱스가](search-what-is-an-index.md)있다고 가정 합니다.  
 
 ## <a name="create-security-field"></a>보안 필드 만들기
 
 문서에는 어떤 그룹에 액세스 권한이 있는지 지정하는 필드가 있어야 합니다. 이 정보는 발급자에 반환되는 결과 집합에서 어떤 문서가 선택되거나 거부되는지에 대한 필터 조건이 됩니다.
 보안된 파일의 인덱스가 있고 각각의 파일을 다른 사용자가 액세스할 수 있다고 가정해 보겠습니다.
+
 1. 필드 `group_ids`(어떤 이름이든 임의로 선택할 수 있습니다)를 `Collection(Edm.String)`로 추가합니다. 검색 결과가 사용자의 액세스 권한에 따라 필터링되도록 필드에 `true`에 설정된 `filterable` 특성이 있는지 확인합니다. 예를 들어, `file_name` "secured_file_b"를 사용해 문서에 대해 `group_ids` 필드를 `["group_id1, group_id2"]`에 설정할 경우, 그룹 Id가 "group_id1" 또는 "group_id2"에 속한 사용자만이 파일 읽기 권한이 있습니다.
+   
    필드의 `retrievable` 특성이 `false`로 설정되었는지 확인하여 검색 요청의 일부로 반환되지 않게 합니다.
+
 2. 또한 이 예제를 위해 `file_id`과 `file_name` 필드를 추가합니다.  
 
-```JSON
-{
-    "name": "securedfiles",  
-    "fields": [
-        {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "file_name", "type": "Edm.String"},
-        {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
-    ]
-}
-```
+    ```JSON
+    {
+        "name": "securedfiles",  
+        "fields": [
+            {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
+            {"name": "file_name", "type": "Edm.String"},
+            {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
+        ]
+    }
+    ```
 
 ## <a name="pushing-data-into-your-index-using-the-rest-api"></a>REST API를 사용하여 인덱스에 데이터 푸시
   
@@ -153,7 +156,7 @@ api-key: [admin or query key]
 
 사용자 id 및 Azure Cognitive Search 기능을 기준으로 결과를 필터링 하는 방법입니다 `search.in()` . 이 함수를 사용 하 여 요청 하는 사용자에 대 한 보안 주체 식별자를 전달 하 여 각 대상 문서와 연결 된 보안 주체 식별자에 대해 일치 시킬 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
  
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search 필터를 사용 하 여 id 기반 액세스 제어 Active Directory](search-security-trimming-for-azure-search-with-aad.md)
 + [Azure Cognitive Search의 필터](search-filters.md)

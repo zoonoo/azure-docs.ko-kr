@@ -3,20 +3,20 @@ title: 대규모로 자격 증명 모음 진단 설정 구성
 description: Azure Policy를 사용 하 여 지정 된 범위의 모든 자격 증명 모음에 대 한 Log Analytics 진단 설정 구성
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e6ba8eb98ca1d6af9fc745d9baf3840ccd1ac224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195709"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498052"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>대규모로 자격 증명 모음 진단 설정 구성
 
-Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활용 합니다. 지정 된 자격 증명 모음의 데이터를 LA로 보내려면 해당 자격 증명 모음에 대 한 [진단 설정을](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) 만들어야 합니다.
+Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활용 합니다. 지정 된 자격 증명 모음의 데이터를 LA로 보내려면 해당 자격 증명 모음에 대 한 [진단 설정을](./backup-azure-diagnostic-events.md) 만들어야 합니다.
 
 일반적으로 자격 증명 모음 마다 진단 설정을 수동으로 추가 하는 작업은 복잡할 수 있습니다. 또한 만들어진 모든 새 자격 증명 모음에 대해이 자격 증명 모음에 대 한 보고서를 보려면 진단 설정을 사용 하도록 설정 해야 합니다.
 
-(LA를 대상으로 하는) 진단 설정 만들기를 간소화 하기 위해 Azure Backup 기본 제공 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/)를 제공 합니다. 이 정책은 지정 된 구독 또는 리소스 그룹의 모든 자격 증명 모음에 LA 진단 설정을 추가 합니다. 다음 섹션에서는이 정책을 사용 하는 방법에 대 한 지침을 제공 합니다.
+(LA를 대상으로 하는) 진단 설정 만들기를 간소화 하기 위해 Azure Backup 기본 제공 [Azure Policy](../governance/policy/index.yml)를 제공 합니다. 이 정책은 지정 된 구독 또는 리소스 그룹의 모든 자격 증명 모음에 LA 진단 설정을 추가 합니다. 다음 섹션에서는이 정책을 사용 하는 방법에 대 한 지침을 제공 합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -70,7 +70,7 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 * 자격 증명 모음에 대 한 진단 설정이 없습니다.
 * 자격 증명 모음에 대 한 진단 설정이 있지만이 설정에는 LA를 대상으로 사용 하도록 설정 된 **모든** 리소스 관련 이벤트와 설정/해제에서 선택한 **리소스가** 없습니다.
 
-따라서 사용자가 AzureDiagnostics 모드에서 AzureBackupReport 이벤트를 사용 하는 자격 증명 모음을 사용 하는 경우에도 (백업 보고서에서 지원 됨), 리소스 특정 모드가 진단 설정 [생성에 권장](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event)되는 방법 이므로 수정 작업은이 자격 증명 모음에 계속 적용 됩니다.
+따라서 사용자가 AzureDiagnostics 모드에서 AzureBackupReport 이벤트를 사용 하는 자격 증명 모음을 사용 하는 경우에도 (백업 보고서에서 지원 됨), 리소스 특정 모드가 진단 설정 [생성에 권장](./backup-azure-diagnostic-events.md#legacy-event)되는 방법 이므로 수정 작업은이 자격 증명 모음에 계속 적용 됩니다.
 
 또한 사용자에 게 6 개의 리소스 특정 이벤트 중 일부만 사용 하도록 설정 된 자격 증명 모음이 있는 경우에는 6 개의 리소스 특정 이벤트를 모두 사용 하도록 설정한 경우에만 백업 보고서가 예상 대로 작동 하므로이 자격 증명 모음에 대 한 수정 작업이 적용 됩니다.
 
@@ -84,6 +84,6 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [백업 보고서를 사용 하는 방법 알아보기](https://docs.microsoft.com/azure/backup/configure-reports)
-* [Azure Policy에 대 한 자세한 정보](https://docs.microsoft.com/azure/governance/policy/)
-* [Azure Policy를 사용 하 여 제공 범위에서 모든 Vm에 대 한 백업을 자동으로 사용 하도록 설정 합니다.](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+* [백업 보고서를 사용 하는 방법 알아보기](./configure-reports.md)
+* [Azure Policy에 대 한 자세한 정보](../governance/policy/index.yml)
+* [Azure Policy를 사용 하 여 제공 범위에서 모든 Vm에 대 한 백업을 자동으로 사용 하도록 설정 합니다.](./backup-azure-auto-enable-backup.md)

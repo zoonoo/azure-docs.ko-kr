@@ -2,12 +2,13 @@
 title: 메트릭에 대 한 컨테이너에 대 한 Azure Monitor를 업데이트 하는 방법 | Microsoft Docs
 description: 이 문서에서는 집계 된 메트릭에 대 한 탐색 및 경고를 지 원하는 사용자 지정 메트릭 기능을 사용 하도록 컨테이너에 Azure Monitor을 업데이트 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 78a6612e522accce8c934885a090e66a51850c97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298264"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498987"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>메트릭을 사용할 수 있도록 컨테이너용 Azure Monitor를 업데이트하는 방법
 
@@ -21,21 +22,23 @@ ms.locfileid: "84298264"
 
 | 메트릭 네임스페이스 | 메트릭 | 설명 |
 |------------------|--------|-------------|
-| 정보. 컨테이너/노드 | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | 이러한 항목은 *노드* 메트릭이 며, *호스트* 를 차원으로 포함 하 고, 다음을 포함 합니다.<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
-| pod/ | podCount | 이러한 메트릭은 *pod* 메트릭입니다. ControllerName, Kubernetes namespace, name, phase로 다음을 포함 합니다. |
+| 정보. 컨테이너/노드 | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | *노드* 메트릭에는 *호스트가* 차원으로 포함 됩니다. 또한<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
+| Pod/ | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | *Pod* 메트릭에는 ControllerName, Kubernetes namespace, name, phase로 다음이 포함 됩니다. |
+| 정보. 컨테이너/컨테이너 | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-이러한 새 기능을 지원 하도록 클러스터를 업데이트 하는 것은 Azure Portal, Azure PowerShell 또는 Azure CLI에서 수행할 수 있습니다. Azure PowerShell 및 CLI를 사용 하 여 클러스터 당 또는 구독의 모든 클러스터에 대해이를 사용 하도록 설정할 수 있습니다. AKS의 새 배포에는이 구성 변경 및 기능이 자동으로 포함 됩니다.
+이러한 새 기능을 지원 하기 위해 새로운 컨테이너 화 된 에이전트 버전인 **microsoft/oms: ciprod02212019**가 릴리스에 포함 되어 있습니다. AKS의 새 배포에는이 구성 변경 및 기능이 자동으로 포함 됩니다. 이 기능을 지원 하도록 클러스터를 업데이트 하려면 Azure Portal, Azure PowerShell 또는 Azure CLI에서 수행할 수 있습니다. Azure PowerShell 및 CLI를 사용 합니다. 이 클러스터 당 또는 구독의 모든 클러스터에 대해이를 사용 하도록 설정할 수 있습니다.
 
 각 프로세스는 에이전트에서 수집 된 데이터를 클러스터 리소스에 게시할 수 있도록 모니터링 추가 기능에 대 한 클러스터의 서비스 주체 또는 사용자 할당 MSI에 **모니터링 메트릭 게시자** 역할을 할당 합니다. 모니터링 메트릭 게시자에는 리소스에 대해 메트릭을 푸시할 수 있는 권한만 있고, 모든 상태를 변경 하거나, 리소스를 업데이트 하거나, 데이터를 읽을 수 없습니다. 역할에 대 한 자세한 내용은 [모니터링 메트릭 게시자 역할](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-시작 하기 전에 다음을 확인 합니다.
+클러스터를 업데이트 하기 전에 다음을 확인 합니다.
 
 * 사용자 지정 메트릭은 Azure 지역의 하위 집합 에서만 사용할 수 있습니다. 지원 되는 지역 목록은 [여기](../platform/metrics-custom-overview.md#supported-regions)에 설명 되어 있습니다.
-* AKS 클러스터 리소스에 대 한 **[소유자](../../role-based-access-control/built-in-roles.md#owner)** 역할의 멤버는 노드 및 pod 사용자 지정 성능 메트릭을 수집 하도록 설정 합니다. 
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
+* AKS 클러스터 리소스에 대 한 **[소유자](../../role-based-access-control/built-in-roles.md#owner)** 역할의 멤버는 노드 및 pod 사용자 지정 성능 메트릭을 수집 하도록 설정 합니다.
+
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Azure Portal에서 클러스터 업그레이드
 

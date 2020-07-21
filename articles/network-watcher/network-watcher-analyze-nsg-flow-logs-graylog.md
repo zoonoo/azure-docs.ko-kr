@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737430"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497117"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -190,7 +190,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
    입력을 시작하면 다음 그림과 같이 **로컬 입력** 섹션 아래에 해당 입력이 표시됩니다.
 
-   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![시작한 입력을 포함 하는 로컬 입력 섹션을 보여 주는 스크린샷](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
    Graylog 메시지 입력에 대한 자세한 내용은 [설명서](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs)를 참조하세요.
 

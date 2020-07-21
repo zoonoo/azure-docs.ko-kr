@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205718"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499412"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
@@ -41,7 +41,7 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 ## <a name="profile-now"></a>지금 프로 파일링
 이 옵션을 사용 하면 요청 시 프로 파일링 세션을 시작할 수 있습니다. 이 링크를 클릭 하면이 Application Insights 인스턴스로 데이터를 보내는 모든 프로파일러 에이전트가 프로필 캡처를 시작 합니다. 5 ~ 10 분이 지나면 프로필 세션이 아래 목록에 표시 됩니다.
 
-사용자가 수동으로 프로파일러 세션을 트리거하려면 Application Insights 구성 요소에 대 한 해당 역할에 대 한 최소한의 "쓰기" 액세스 권한이 필요 합니다. 대부분의 경우이 액세스 권한은 자동으로 제공 되며 추가 작업은 필요 하지 않습니다. 문제가 발생 하는 경우 추가할 구독 범위 역할은 "Application Insights 구성 요소 참가자" 역할입니다. [Azure 모니터링을 사용 하 여 역할 액세스 제어에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+사용자가 수동으로 프로파일러 세션을 트리거하려면 Application Insights 구성 요소에 대 한 해당 역할에 대 한 최소한의 "쓰기" 액세스 권한이 필요 합니다. 대부분의 경우이 액세스 권한은 자동으로 제공 되며 추가 작업은 필요 하지 않습니다. 문제가 발생 하는 경우 추가할 구독 범위 역할은 "Application Insights 구성 요소 참가자" 역할입니다. [Azure 모니터링을 사용 하 여 역할 액세스 제어에 대해 자세히 알아봅니다](./resources-roles-access-control.md).
 
 ## <a name="trigger-settings"></a>트리거 설정
 ![트리거 설정 플라이 아웃][trigger-settings-flyout]
@@ -52,7 +52,7 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 |-|-|
 설정/해제 단추 | On:이 트리거에서 프로파일러를 시작할 수 있습니다. Off:이 트리거에서 프로파일러를 시작 하지 않습니다.
 메모리 임계값 | 이 메모리 비율을 사용 중인 경우 프로파일러가 시작 됩니다.
-기간 | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
+Duration | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
 Cooldown | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을 다시 확인 하기 전에 프로파일러가 대기 하는 시간을 설정 합니다.
 
 ## <a name="recent-profiling-sessions"></a>최근 프로 파일링 세션
@@ -63,7 +63,7 @@ Cooldown | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을
 트리거한 사람 | 트리거, 지금 프로 파일링 또는 기본 샘플링을 통해 세션이 시작 된 방법입니다. 
 앱 이름 | 프로 파일링 된 응용 프로그램의 이름입니다.
 컴퓨터 인스턴스 | 프로파일러 에이전트가 실행 되는 컴퓨터의 이름입니다.
-타임스탬프 | 프로필을 캡처한 시간입니다.
+Timestamp | 프로필을 캡처한 시간입니다.
 Tracee | 개별 요청에 연결 된 추적 수입니다.
 CPU % | 프로파일러가 실행 되는 동안 사용 된 CPU의 백분율입니다.
 Ram | 프로파일러가 실행 되는 동안 사용 된 메모리의 비율입니다.

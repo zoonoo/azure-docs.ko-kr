@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187713"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497066"
 ---
-# <a name="troubleshoot"></a>문제 해결
+# <a name="troubleshoot-azure-farmbeats"></a>Azure FarmBeats 문제 해결
 
 이 문서에서는 일반적인 Azure FarmBeats 문제에 대한 해결 방법을 제공합니다. 추가 도움말을 보려면 [지원 포럼](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats)에 문의하거나 farmbeatssupport@microsoft.com으로 메일을 보내 주시기 바랍니다.
 
@@ -58,8 +58,8 @@ ms.locfileid: "86187713"
 
 **정정 작업**
 
-1. FarmBeats Datahub 리소스 그룹으로 이동합니다.
-2. **Event Hub**(DatafeedEventHubNamespace)를 선택하고 들어오는 메시지 수를 확인합니다.
+1. FarmBeats 리소스 그룹으로 이동 합니다.
+2. **이벤트 허브** 네임 스페이스 ("센서-파트너-참조-네임 스페이스-xxxx")를 선택 하 고 "Event Hubs"을 클릭 한 다음 파트너에 할당 된 이벤트 허브에서 들어오는 메시지 수를 확인 합니다.
 3. 다음 중 하나를 수행합니다.
 
    - ‘들어오는 메시지’가 없는 경우 디바이스 파트너에게 문의하세요.  

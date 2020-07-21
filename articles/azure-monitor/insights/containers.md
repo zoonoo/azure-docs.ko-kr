@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 14fa6859a16dc173e75091983abee717bf813220
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984627"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499024"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
 
@@ -45,7 +45,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 
 다음 표에서는 Azure Monitor 있는 컨테이너 인벤토리, 성능 및 로그의 Docker 오케스트레이션 및 운영 체제 모니터링 지원에 대해 간략하게 설명 합니다.   
 
-| | ACS | Linux | Windows | 컨테이너<br>재고 | 이미지<br>재고 | 노드<br>재고 | 컨테이너<br>성능 | 컨테이너<br>이벤트 | 이벤트<br>로그 | 컨테이너<br>로그 |
+|Docker 오케스트레이션 | ACS | Linux | Windows | 컨테이너<br>재고 | 이미지<br>재고 | 노드<br>재고 | 컨테이너<br>성능 | 컨테이너<br>이벤트 | 이벤트<br>로그 | 컨테이너<br>로그 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -105,11 +105,11 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
        - [Kubernetes용 Log Analytics Linux 에이전트 구성](#configure-a-log-analytics-linux-agent-for-kubernetes)을 검토합니다.
        - [Kubernetes용 Log Analytics Windows 에이전트 구성](#configure-a-log-analytics-windows-agent-for-kubernetes)을 검토합니다.
        - Helm을 사용하여 Linux Kubernetes에 Log Analytics 에이전트 배포를 검토합니다.
-     - Azure Container Service DC/OS 클러스터가 있는 경우 [Azure Monitor를 사용 하 여 AZURE CONTAINER SERVICE dc/os 클러스터 모니터링](../../container-service/dcos-swarm/container-service-monitoring-oms.md)에서 자세한 내용을 알아보세요.
+     - Azure Container Service DC/OS 클러스터가 있는 경우 [Azure Monitor를 사용 하 여 AZURE CONTAINER SERVICE dc/os 클러스터 모니터링](/previous-versions/azure/container-service/dcos-swarm/container-service-monitoring-oms)에서 자세한 내용을 알아보세요.
      - Docker Swarm 모드 환경에 있는 경우 Docker Swarm용 Log Analytics 에이전트 구성에서 자세히 알아보세요.
      - Service Fabric 클러스터가 있는 경우 [Azure Monitor를 사용 하 여 컨테이너 모니터링](../../service-fabric/service-fabric-diagnostics-oms-containers.md)에서 자세히 알아보세요.
 
-[Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
+[Windows에서 Docker 엔진](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
 
 > [!IMPORTANT]
 > Docker는 컨테이너 호스트에 [Linux용 Log Analytics 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md)를 설치하기 **전에** 실행해야 합니다. Docker 설치에 앞서 에이전트를 이미 설치한 경우 Linux용 Log Analytics 에이전트를 다시 설치해야 합니다. Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
@@ -505,7 +505,7 @@ dockerd --register-service -H npipe:// -H 0.0.0.0:2375
 Start-Service docker
 ```
 
-Windows 컨테이너에서 사용하는 Docker 데몬 구성에 대한 자세한 내용은 [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)을 참조하세요.
+Windows 컨테이너에서 사용하는 Docker 데몬 구성에 대한 자세한 내용은 [Windows에서 Docker 엔진](/virtualization/windowscontainers/manage-docker/configure-docker-daemon)을 참조하세요.
 
 #### <a name="install-windows-agents"></a>Windows 에이전트 설치
 

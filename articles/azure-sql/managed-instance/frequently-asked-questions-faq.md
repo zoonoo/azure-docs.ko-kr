@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224420"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498460"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ (질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -66,13 +66,13 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 **VCore 비율 또는 더 많은 Cpu와 같은 특정 하드웨어 요구 사항이 있는 경우 어디에서 마이그레이션할 수 있나요?**
 [Azure Virtual Machines에서 SQL Server](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) 로 마이그레이션 또는 메모리/cpu 최적화를 [Azure SQL Database](../database/sql-database-paas-overview.md) 하는 것을 고려할 수 있습니다.
 
-## <a name="known-issues--bugs"></a>알려진 문제 & 버그
+## <a name="known-issues-and-defects"></a>알려진 문제 및 결함
 
-**알려진 문제 및 버그는 어디서 찾을 수 있나요?**
+**알려진 문제 및 결함은 어디에서 찾을 수 있나요?**
 
-버그 및 알려진 문제에 대해서는 [알려진 문제](../database/doc-changes-updates-release-notes.md#known-issues)를 참조 하세요.
+제품 오류 및 알려진 문제는 [알려진 문제](../database/doc-changes-updates-release-notes.md#known-issues)를 참조 하세요.
 
-## <a name="new-features"></a>새로운 기능
+## <a name="new-features"></a>새 기능
 
 **공개 미리 보기에서 최신 기능과 기능을 어디에서 찾을 수 있나요?**
 
@@ -127,7 +127,7 @@ Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/r
 **Azure SQL Database 단일 또는 탄력적 풀에서 SQL Managed Instance로 마이그레이션하려면 어떻게 해야 하나요?**
 
 관리 되는 인스턴스는 Azure SQL Database의 다른 배포 옵션으로 계산 및 저장소 크기에 따라 동일한 성능 수준을 제공 합니다. 단일 인스턴스에서 데이터를 통합 하거나 관리 되는 인스턴스에서 독점적 으로만 지원 되는 기능만 필요한 경우에는 BACPAC (내보내기/가져오기) 기능을 사용 하 여 데이터를 마이그레이션할 수 있습니다. 다음은 SQL Managed Instance로 SQL Database 마이그레이션을 고려 하는 다른 방법입니다. 
-- [데이터 원본 외부]() 사용
+- [데이터 원본 외부](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-129-using-data-source-external-from-azure-sql/ba-p/1443210) 사용
 - [SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182) 사용
 - [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7) 사용
 
@@ -349,21 +349,6 @@ Express 경로 회로 피어 링을 사용할 수 없는 경우 다른 옵션은
 - [SQL 감사](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)를 켜고 경고 메커니즘과 통합 합니다.
 - [광고 (advanced data security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) 도구 모음에서 [위협 감지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) 를 설정 합니다.
 
-
-## <a name="cost-saving-use-cases"></a>비용 절감 사용 사례
-
-**SQL Managed Instance를 사용 하 여 사용 사례를 찾고 비용을 절감할 수 있는 위치**
-
-SQL Managed Instance 사례 연구:
-
-- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
-- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
-
-Azure SQL Managed Instance 배포와 관련 된 이점, 비용 및 위험에 대해 더 잘 이해 하기 위해 [Microsoft Azure SQL Database Managed Instance의 경제적 영향](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance)을 Forrester 연구 합니다.
-
-
 ## <a name="dns"></a>DNS
 
 **SQL Managed Instance에 대 한 사용자 지정 DNS를 구성할 수 있나요?**
@@ -467,6 +452,19 @@ Azure Portal을 통해 백업 저장소에 대 한 비용을 모니터링할 수
 **관리 되는 인스턴스에서 백업 저장소 비용을 최적화 하려면 어떻게 해야 하나요?**
 
 백업 저장소 비용을 최적화 하려면 [SQL Managed Instance의 백업 조정에 대해 자세히](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935)보기를 참조 하세요.
+
+## <a name="cost-saving-use-cases"></a>비용 절감 사용 사례
+
+**SQL Managed Instance를 사용 하 여 사용 사례를 찾고 비용을 절감할 수 있는 위치**
+
+SQL Managed Instance 사례 연구:
+
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+
+Azure SQL Managed Instance 배포와 관련 된 이점, 비용 및 위험에 대해 더 잘 이해 하기 위해 [Microsoft Azure SQL Database Managed Instance의 경제적 영향](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance)을 Forrester 연구 합니다.
 
 ## <a name="password-policy"></a>암호 정책 
 

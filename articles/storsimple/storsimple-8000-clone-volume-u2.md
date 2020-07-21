@@ -4,22 +4,18 @@ description: 다른 복제 유형 및 사용에 대해 설명하고, StorSimple 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 12/05/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 1ddc7d9e359fbb43680ae093c4e6cd2b9fb1ab2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86a3e2ab15e83f5393315f75f37ad8b41d3489b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514980"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496148"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Azure Portal에서 StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 복제
 
@@ -51,7 +47,7 @@ StorSimple 디바이스 관리자 서비스 **Backup 카탈로그** 블레이드
 
 로컬 또는 클라우드 스냅샷을 사용하여 동일한 디바이스, 다른 디바이스 또는 클라우드 어플라이언스에 클론을 만들 수 있습니다.
 
-아래 절차는 백업 카탈로그에서 클론을 만드는 방법을 설명합니다.  복제를 시작하는 다른 방법은 **볼륨**으로 이동하여 볼륨을 선택한 후 상황에 맞는 메뉴를 호출하도록 마우스 오른쪽 단추로 클릭하고 **복제**를 선택합니다.
+아래 절차는 백업 카탈로그에서 클론을 만드는 방법을 설명합니다.  
 
 백업 카탈로그에서 볼륨의 클론을 만들려면 다음 단계를 수행합니다.
 

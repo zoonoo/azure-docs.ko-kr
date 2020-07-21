@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4e4abdd5d5a9e3cddf00cf47d7388a57d0d4d6fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5366166a31ee45c74c34b8af0e01da251bd7f7f0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807709"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499225"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -29,7 +30,7 @@ ms.locfileid: "85807709"
 메트릭 및 활동 로그 수집과 같이 자동으로 사용하도록 설정하는 Azure Monitor 기능은 무료로 제공됩니다. 로그 쿼리 및 경고와 같은 다른 기능과 관련된 비용이 있습니다. 자세한 가격 책정 정보는 [Azure Monitor 가격 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
 
 ### <a name="how-do-i-enable-azure-monitor"></a>Azure Monitor를 사용하도록 설정하려면 어떻게 해야 하나요?
-Azure Monitor는 새 Azure 구독을 만들 때 사용하도록 설정하고, [활동 로그](platform/activity-logs-overview.md) 및 플랫폼 [메트릭](platform/data-platform-metrics.md)이 자동으로 수집됩니다. [진단 설정](platform/diagnostic-settings.md)을 만들어 Azure 리소스 작업에 대한 자세한 정보를 수집하고, [모니터링 솔루션](insights/solutions.md) 및 [인사이트](insights/insights-overview.md)를 추가하여 특정 서비스에 대해 수집된 데이터에 대한 추가 분석을 제공합니다. 
+Azure Monitor는 새 Azure 구독을 만들 때 사용하도록 설정하고, [활동 로그](./platform/platform-logs-overview.md) 및 플랫폼 [메트릭](platform/data-platform-metrics.md)이 자동으로 수집됩니다. [진단 설정](platform/diagnostic-settings.md)을 만들어 Azure 리소스 작업에 대한 자세한 정보를 수집하고, [모니터링 솔루션](insights/solutions.md) 및 [인사이트](insights/insights-overview.md)를 추가하여 특정 서비스에 대해 수집된 데이터에 대한 추가 분석을 제공합니다. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>Azure Monitor에 액세스하려면 어떻게 해야 하나요?
 Azure Portal의 **모니터** 메뉴에서 모든 Azure Monitor 기능 및 데이터에 액세스합니다. 다른 Azure 서비스 메뉴의 **모니터링** 섹션에서는 특정 리소스로 필터링된 데이터를 사용하여 동일한 도구에 액세스할 수 있습니다. 또한 Azure Monitor 데이터는 CLI, PowerShell 및 REST API를 사용하는 다양한 시나리오에 액세스할 수 있습니다.
@@ -271,7 +272,7 @@ WireData
 
 웹앱에서 Application Insights를 구성하기 위해 IIS 웹 서버에서 사용할 수 있는 데스크톱 앱입니다. 원격 분석을 수집하지 않으며 앱을 구성하지 않는 경우 중지할 수 있습니다. 
 
-[자세히 알아보기](app/monitor-performance-live-website-now.md#questions).
+[자세히 알아봅니다](app/monitor-performance-live-website-now.md#questions).
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>어떤 원격 분석이 Application Insights에서 수집되나요?
 
@@ -314,7 +315,7 @@ WireData
 
 * 브라우저 원격 분석: 보낸 사람의 IP 주소를 수집합니다.
 * 서버 원격 분석: Application Insights 모듈에서 클라이언트 IP 주소를 수집합니다. `X-Forwarded-For`가 설정된 경우에는 수집되지 않습니다.
-* Application Insights에서 IP 주소 및 지리적 위치 데이터를 수집하는 방법에 대한 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)를 참조하세요.
+* Application Insights에서 IP 주소 및 지리적 위치 데이터를 수집하는 방법에 대한 자세한 내용은 이 [문서](./app/ip-collection.md)를 참조하세요.
 
 
 `ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아보기](https://apmtips.com/posts/2016-07-05-client-ip-address/).
@@ -327,7 +328,7 @@ WireData
 
 ### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>서버 또는 디바이스에서 Azure와의 연결이 끊어지면 Application Insights의 원격 분석은 어떻게 되나요?
 
-웹 SDK를 포함한 모든 SDK에는 "신뢰할 수 있는 전송" 또는 "강력한 전송"이 포함되어 있습니다. 서버 또는 디바이스에서 Azure와의 연결이 끊어지면 원격 분석이 [파일 시스템(서버 SDK) 또는 HTML5 세션 스토리지(웹 SDK)에 로컬로 저장](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage)됩니다. 수집 서비스에서 "부실"로 간주할 때까지 SDK는 이 원격 분석을 주기적으로 보내려고 다시 시도합니다(로그의 경우 48시간, 메트릭의 경우 30분). 부실 원격 분석은 삭제됩니다. 다시 시도하는 경우(예: 로컬 스토리지가 가득 찬 경우)에 따라 수행되지 않습니다.
+웹 SDK를 포함한 모든 SDK에는 "신뢰할 수 있는 전송" 또는 "강력한 전송"이 포함되어 있습니다. 서버 또는 디바이스에서 Azure와의 연결이 끊어지면 원격 분석이 [파일 시스템(서버 SDK) 또는 HTML5 세션 스토리지(웹 SDK)에 로컬로 저장](./app/data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)됩니다. 수집 서비스에서 "부실"로 간주할 때까지 SDK는 이 원격 분석을 주기적으로 보내려고 다시 시도합니다(로그의 경우 48시간, 메트릭의 경우 30분). 부실 원격 분석은 삭제됩니다. 다시 시도하는 경우(예: 로컬 스토리지가 가득 찬 경우)에 따라 수행되지 않습니다.
 
 
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>개인 데이터를 원격 분석에 보낼 수 있나요?
@@ -409,7 +410,7 @@ Azure Resource Monitor를 통해 [PowerShell 스크립트를 작성](app/powersh
 
 #### <a name="querying-the-telemetry"></a>원격 분석 쿼리
 
-[REST API](https://dev.applicationinsights.io/)를 사용하여 [분석](app/analytics.md) 쿼리를 실행합니다.
+[REST API](https://dev.applicationinsights.io/)를 사용하여 [분석](./log-query/log-query-overview.md) 쿼리를 실행합니다.
 
 ### <a name="how-can-i-set-an-alert-on-an-event"></a>이벤트에 대한 경고를 설정하려면 어떻게 해야 하나요?
 
@@ -476,7 +477,7 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 #### <a name="proxy-passthrough"></a>프록시 통과
 
 프록시 통과는 머신 수준 또는 애플리케이션 수준 프록시를 구성하여 구현할 수 있습니다.
-자세한 내용은 [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)에 대한 dotnet 문서를 참조하세요.
+자세한 내용은 [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)에 대한 dotnet 문서를 참조하세요.
  
  Web.config 예제:
  ```xml
@@ -734,7 +735,7 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 ## <a name="next-steps"></a>다음 단계
 질문에 대한 대답이 여기에 없으면 다음 포럼에서 추가 질문 및 대답을 참조할 수 있습니다.
 
-- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
-- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Log Analytics](/answers/topics/azure-monitor.html)
+- [Application Insights](/answers/topics/azure-monitor.html)
 
 Azure Monitor에 대한 일반적인 피드백은 [피드백 포럼](https://feedback.azure.com/forums/34192--general-feedback)을 방문하세요.

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 707b432a4cb3918aa2dfbe460fc3cdcd53761bf1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80398230"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497083"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -50,7 +50,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
       b. FarmBeats 배포의 일부로 만들어진 **앱 등록** 을 선택 합니다. FarmBeats datahub와 동일한 이름을 갖게 됩니다.
 
-      c. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위**를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
+      다. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위**를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
 
 3. Cloud Shell을 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 
@@ -66,7 +66,13 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
     cd  
     ```
 
-6. 다음 명령을 실행합니다. 그러면 홈 디렉터리에 스크립트가 다운로드 됩니다.
+6. 다음 명령을 실행합니다. Azure AD 요청에 사용 하기 위해 인증 된 계정을 연결 합니다.
+
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+    
+7. 다음 명령을 실행합니다. 그러면 홈 디렉터리에 스크립트가 다운로드 됩니다.
 
     ```azurepowershell-interactive 
 
@@ -74,7 +80,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
     ```
 
-7. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory**  >  **개요** 페이지에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
+8. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory**  >  **개요** 페이지에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
 
     ```azurepowershell-interactive 
 
@@ -82,7 +88,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
     ```
 
-8. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호**및 **EventHub 연결 문자열**의 값을 캡처합니다.
+9. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호**및 **EventHub 연결 문자열**의 값을 캡처합니다.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>생성 된 자격 증명을 사용 하 여 장치 데이터 통합
 

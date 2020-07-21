@@ -6,15 +6,16 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d12db3ab046d115b60b67a9c22bf4e885cd0ef02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e99ea1d5a90455a4c470346fbbe5d1095c426e81
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782571"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499463"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>OpenCensus Python으로 종속성 추적
 
-종속성은 응용 프로그램에서 호출 하는 외부 구성 요소입니다. 종속성 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 그런 다음 데이터는 원격 분석으로 Azure Monitor Application Insights 전송 됩니다 `dependencies` .
+종속성은 애플리케이션에서 호출하는 외부 구성 요소로, 종속성 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 그런 다음 데이터는 원격 분석으로 Azure Monitor Application Insights 전송 됩니다 `dependencies` .
 
 먼저 최신 [OpenCensus PYTHON SDK](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 python 응용 프로그램을 계측 합니다.
 
@@ -85,7 +86,7 @@ conn.close()
 OpenCensus 통합을 사용 하 여 나가는 Django 요청을 추적 `django` 합니다.
 
 > [!NOTE]
-> 추적 되는 나가는 Django 요청은 데이터베이스에 대 한 호출입니다. Django 응용 프로그램에 대 한 요청의 경우 [들어오는 요청](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request#tracking-django-applications)을 참조 하세요.
+> 추적 되는 나가는 Django 요청은 데이터베이스에 대 한 호출입니다. Django 응용 프로그램에 대 한 요청의 경우 [들어오는 요청](./opencensus-python-request.md#tracking-django-applications)을 참조 하세요.
 
 `opencensus-ext-django` [Pypi](https://pypi.org/project/opencensus-ext-django/) 에서 다운로드 하 여 설치 하 고 `MIDDLEWARE` Django 파일의 섹션에 다음 줄을 추가 합니다 `settings.py` .
 

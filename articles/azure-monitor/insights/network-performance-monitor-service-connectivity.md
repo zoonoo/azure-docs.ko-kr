@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690017"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498868"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -56,7 +57,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
     * **웹**을 선택하여 HTTP/S 요청에 응답하는 서비스(예: outlook.office365.com 또는 bing.com)에 대한 연결을 모니터링합니다.<br>
     * **네트워크**를 선택하여 TCP 요청에 응답하지만 HTTP/S 요청에 응답하지 않는 서비스(예: SQL Server, FTP 서버 Ehsms SSH 포트)에 대한 연결을 모니터링합니다. 
-    * 예: blob 저장소 계정에 대 한 웹 테스트를 만들려면 **웹** 을 선택 하 고 대상을 blob.core.windows.net *로 입력 합니다.* 마찬가지로 [이 링크](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints) 를 사용 하 여 다른 테이블 저장소, 큐 저장소 및 Azure Files에 대 한 테스트를 만들 수 있습니다.
+    * 예: blob 저장소 계정에 대 한 웹 테스트를 만들려면 **웹** 을 선택 하 고 대상을 blob.core.windows.net *로 입력 합니다.* 마찬가지로 [이 링크](../../storage/common/storage-account-overview.md#storage-account-endpoints) 를 사용 하 여 다른 테이블 저장소, 큐 저장소 및 Azure Files에 대 한 테스트를 만들 수 있습니다.
 4. 네트워크 대기 시간, 패킷 손실 및 토폴로지 검색과 같은 네트워크 측정을 수행하지 않으려는 경우 **네트워크 측정 수행** 확인란의 선택을 취소합니다. 이 기능을 최대한 활용하기 위해 이 옵션을 선택해 둡니다. 
 5. **대상**에서 네트워크 연결을 모니터링하려는 URL/FQDN/IP 주소를 입력합니다.
 6. **포트 번호**에서 대상 서비스의 포트 번호를 입력합니다. 

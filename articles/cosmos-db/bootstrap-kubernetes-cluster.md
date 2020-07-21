@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262636"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497763"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Azure Cosmos DB(미리 보기)에서 Azure Kubernetes를 사용하는 방법
 
@@ -25,7 +25,7 @@ Azure Cosmos DB의 etcd API를 사용하면 Azure Cosmos DB를 Azure Kubernetes�
 
 Azure Cosmos DB의 etcd API에 대한 자세한 내용은 [개요](etcd-api-introduction.md) 문서를 참조하세요. 이 문서에서는 [Azure Kubernetes 엔진](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md)(aks-engine)을 사용하여 로컬로 설치 및 구성된 etcd 대신 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)를 사용하는 Kubernetes 클러스터를 Azure에서 부트스트랩하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. 운영 체제에 해당하는 Azure CLI를 다운로드하고 설치할 수 있습니다.
 
@@ -33,7 +33,7 @@ Azure Cosmos DB의 etcd API에 대한 자세한 내용은 [개요](etcd-api-intr
 
    Azure Kubernetes 엔진(**aks-engine**)은 Azure에서 Kubernetes 클러스터용 Azure Resource Manager 템플릿을 생성합니다. aks-engine에 입력하는 항목은 오케스트레이터, 기능 및 에이전트를 포함하여 원하는 클러스터를 설명하는 클러스터 정의 파일입니다. 입력 파일의 구조는 Azure Kubernetes Service의 공용 API와 비슷합니다.
 
-1. Azure Cosmos DB의 etcd API는 현재 미리 보기로 제공됩니다. [https://aka.ms/cosmosetcdapi-signup](https://aka.ms/cosmosetcdapi-signup)에서 미리 보기 버전을 사용하도록 가입합니다. 양식을 제출하면 구독은 Azure Cosmos etcd API를 사용하기 위한 허용 목록에 추가됩니다. 
+1. Azure Cosmos DB의 etcd API는 현재 미리 보기로 제공됩니다. [https://aka.ms/cosmosetcdapi-signup](https://aka.ms/cosmosetcdapi-signup)에서 미리 보기 버전을 사용하도록 가입합니다. 양식을 제출한 후에는 구독에서 Azure Cosmos etcd API를 사용할 수 있습니다. 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 클러스터 배포
 
@@ -43,7 +43,7 @@ Azure Cosmos DB의 etcd API에 대한 자세한 내용은 [개요](etcd-api-intr
    az login 
    ```
 
-1. 둘 이상의 구독이 있는 경우 Azure Cosmos DB etcd API의 허용 목록에 추가된 구독으로 전환합니다. 다음 명령을 사용하여 필요한 구독으로 전환할 수 있습니다.
+1. 둘 이상의 구독이 있는 경우 Azure Cosmos DB etcd API에 대해 허용 된 구독으로 전환 합니다. 다음 명령을 사용하여 필요한 구독으로 전환할 수 있습니다.
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"

@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure Backup Server를 사용 하 여 VMware vCenter/ESXi 서버에서 실행 되는 VMware Vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c9868012698fcdf5a2352c289de85261b6899dc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081063"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497916"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -24,7 +24,7 @@ ms.locfileid: "86081063"
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-- 백업에 대해 지원 되는 vCenter/ESXi의 버전을 실행 하 고 있는지 확인 합니다. [여기](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)에서 지원 매트릭스를 참조 하세요.
+- 백업에 대해 지원 되는 vCenter/ESXi의 버전을 실행 하 고 있는지 확인 합니다. [여기](./backup-mabs-protection-matrix.md)에서 지원 매트릭스를 참조 하세요.
 - Azure Backup Server를 설정했는지 확인합니다. 설정하지 않은 경우 시작하기 전에 [설정](backup-azure-microsoft-azure-backup.md)합니다. 최신 업데이트를 사용하여 Azure Backup Server를 실행해야 합니다.
 - 다음 네트워크 포트가 열려있는지 확인합니다.
   - MABS와 vCenter 간의 TCP 443
@@ -41,7 +41,7 @@ ms.locfileid: "86081063"
 - Azure Backup Server에서 백업을 처리하는 방법을 파악하는 것이 중요합니다.
   - 첫 번째 단계로 Azure Backup Server는 데이터를 로컬 디스크 스토리지에 백업합니다. Azure Backup Server가 보호된 데이터에 대한 디스크 복구 지점을 저장하는 디스크 및 볼륨 세트인 스토리지 풀이 Azure Backup Server에서 사용됩니다. 스토리지 풀은 DAS(직접 연결된 스토리지), 파이버 채널 SAN, iSCSI 스토리지 디바이스 또는 SAN일 수 있습니다. VMware VM 데이터의 로컬 백업을 위한 충분 한 저장소가 있는지 확인 하는 것이 중요 합니다.
   - 그러면 Azure Backup Server는 로컬 디스크 스토리지에서 Azure로 백업합니다.
-  - [도움말 보기](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need)를 통해 필요한 스토리지 공간 크기를 파악합니다. 이 정보는 DPM을 위한 것이지만 Azure Backup Server에도 사용할 수 있습니다.
+  - [도움말 보기](/system-center/dpm/create-dpm-protection-groups#figure-out-how-much-storage-space-you-need)를 통해 필요한 스토리지 공간 크기를 파악합니다. 이 정보는 DPM을 위한 것이지만 Azure Backup Server에도 사용할 수 있습니다.
 
 ### <a name="set-up-the-certificate"></a>인증서 설정
 
@@ -281,7 +281,7 @@ Azure Backup Server에 vCenter Server를 추가합니다.
 
     ![자격 증명 지정](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. **다음**을 클릭합니다.
+6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그런 후 **Next** 를 클릭합니다.
 
     ![VMWare 서버 및 자격 증명 추가](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -309,14 +309,14 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 1. **보호 그룹 형식 선택** 페이지에서 **서버**를 선택하고 **다음**을 클릭합니다. **그룹 구성원 선택** 페이지가 나타납니다.
 
-1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. **다음**을 클릭합니다.
+1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. 그런 후 **Next** 를 클릭합니다.
 
     - 폴더를 선택하면 해당 폴더 내의 VM 또는 폴더도 백업되도록 선택됩니다. 백업하지 않으려는 폴더 또는 VM을 선택 취소할 수 있습니다.
 1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이렇게 하면 VM에 대해 중복 복구 지점이 생성 되지 않습니다.
 
     ![그룹 구성원 선택](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. **다음**을 클릭합니다.
+1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그런 후 **Next** 를 클릭합니다.
 
     ![데이터 보호 방법 선택](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -347,17 +347,17 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
     ![복제본 만들기 방법 선택](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. **다음**을 클릭합니다.
+1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그런 후 **Next** 를 클릭합니다.
       - 복제 데이터가 일관성을 잃은 경우 또는 설정된 일정에 따라 일관성 확인을 실행할 수 있습니다.
       - 자동 일관성 확인을 구성하지 않으려면 수동 검사를 실행할 수 있습니다. 이 작업을 수행하려면 보호 그룹을 마우스 오른쪽 단추로 클릭하고 > **일관성 확인 수행**을 클릭합니다.
 
-1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. **다음**을 클릭합니다.
+1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그런 후 **Next** 를 클릭합니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. **온라인 백업 예약 지정** 페이지에서 로컬 스토리지의 데이터를 Azure로 백업할 빈도를 지정합니다.
 
-    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. **다음**을 클릭합니다.
+    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그런 후 **Next** 를 클릭합니다.
     - 복구 지점이 생성되면 Azure에서 Recovery Services 자격 증명 모음으로 전송됩니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

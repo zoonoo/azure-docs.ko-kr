@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663235"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498681"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Azure Monitor의 모니터링 솔루션 대상 지정(미리 보기)
 모니터링 솔루션을 구독에 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 자동 배포됩니다.  특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다.  이 문서에서는 솔루션에 범위를 적용할 수 있는 기능인 **솔루션 대상 지정**을 사용하는 방법을 설명합니다.
@@ -58,7 +59,7 @@ Azure Monitor에서 [컴퓨터 그룹](../platform/computer-groups.md)을 만들
 다음은 솔루션 대상 지정에 사용할 수 없는 에이전트 및 솔루션에 대한 조건입니다.
 
 - 솔루션 대상 지정은 에이전트에 배포하는 솔루션에만 적용됩니다.
-- 솔루션 대상 지정은 Microsoft에서 제공하는 솔루션에만 적용됩니다.  [사용자 또는 파트너가 직접 만든](solutions-creating.md) 솔루션에는 적용되지 않습니다.
+- 솔루션 대상 지정은 Microsoft에서 제공하는 솔루션에만 적용됩니다.  [사용자 또는 파트너가 직접 만든](./solutions.md) 솔루션에는 적용되지 않습니다.
 - Azure Monitor에 직접 연결되는 에이전트만 필터링할 수 있습니다.  솔루션은 범위 구성에 포함되는지 여부에 관계없이 연결된 Operations Manager 관리 그룹의 일부인 모든 에이전트에 자동으로 배포됩니다.
 
 ### <a name="exceptions"></a>예외
