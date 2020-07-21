@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85292171"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544014"
 ---
 **구성 및 프로세스 서버 요구 사항**
 
@@ -37,7 +37,7 @@ RAM | 16GB
 운영 체제 | Windows Server 2012 R2 <br> Windows Server 2016
 운영 체제 로케일 | 영어 (en-*)
 Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V 
-그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세히 알아보기](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음 <br>- [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용 
 FIPS (연방 정보 처리 표준) | FIPS 모드 사용 안 함
 |
@@ -60,6 +60,9 @@ time.windows.com | 시스템 시간과 글로벌 시간 간의 시간 동기화�
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.live.com </li><li> https: \/ /graph.windows.net </li><li> https:\//login.windows.net </li><li> *. services.visualstudio.com (선택 사항) </li><li> https: \/ /www.live.com </li><li> https: \/ /www.microsoft.com </li></ul> | 이 추가 Url에 대 한 액세스 권한이 있어야 합니다. Azure Active Directory 하 여 액세스 제어 및 id 관리에 사용 됩니다.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | MySQL 다운로드를 완료 합니다. </br> 몇 개 지역에서 다운로드는 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 목록 확인 합니다.
 |
+
+> [!NOTE]
+> Site Recovery 자격 증명 모음에 대 한 [개인 링크 연결](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) 을 사용 하는 경우에는 구성 서버에 대 한 추가 인터넷 액세스가 필요 하지 않습니다. 이에 대 한 예외는 OVA 템플릿을 사용 하 여 CS 컴퓨터를 설정 하는 동안에는 개인 링크 액세스-및 이상에서 다음 Url에 액세스 해야 https://management.azure.com https://www.live.com https://www.microsoft.com 합니다. 이러한 Url에 대 한 액세스를 허용 하지 않으려면 통합 설치 관리자를 사용 하 여 CS를 설정 하세요.
 
 ## <a name="required-software"></a>필수 소프트웨어
 

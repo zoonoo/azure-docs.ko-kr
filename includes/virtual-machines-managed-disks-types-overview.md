@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45b611144d5a62171061febfd4efa98db69bacb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca8798af83108ca5e8bdfe5918a25423fd934d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84436189"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544858"
 ---
 Azure managed disks는 현재 4 개의 디스크 유형을 제공 합니다. 각 유형은 특정 고객 시나리오를 목표로 합니다.
 
@@ -21,10 +21,10 @@ Azure managed disks는 현재 4 개의 디스크 유형을 제공 합니다. 각
 
 다음 표에서는 사용할 항목을 결정 하는 데 도움이 되는 관리 디스크에 대 한 ultra disks, 프리미엄 SSD (반도체 드라이브), 표준 SSD 및 표준 HDD (하드 디스크 드라이브)의 비교를 제공 합니다.
 
-|   | Ultra disk   | 프리미엄 SSD   | 표준 SSD   | 표준 HDD   |
-|---------|---------|---------|---------|---------|
+| 세부 정보 | Ultra disk | 프리미엄 SSD | 표준 SSD | 표준 HDD |
+| ------ | ---------- | ----------- | ------------ | ------------ |
 |디스크 유형   |SSD   |SSD   |SSD   |HDD   |
-|시나리오   |[SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), 최상위 계층 데이터베이스 (예: SQL, Oracle) 및 기타 트랜잭션 집약적 워크 로드 등의 IO 집약적 워크 로드   |프로덕션 및 성능이 중요한 워크로드   |웹 서버, 적게 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트   |백업, 중요하지 않음, 가끔 액세스   |
+|시나리오   |[SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), 최상위 계층 데이터베이스 (예: SQL, Oracle) 및 기타 트랜잭션 집약적 워크 로드 등의 IO 집약적 워크 로드   |프로덕션 및 성능이 중요한 워크로드   |웹 서버, 조금 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트   |백업, 중요하지 않음, 가끔 액세스   |
 |최대 디스크 크기   |65536기비바이트(GiB)    |32,767GiB    |32,767GiB   |32,767GiB   |
 |최대 처리량   |2,000MB/s    |900 m b/초   |750 m b/초   |500MB/s   |
 |최대 IOPS   |160,000    |20,000   |6,000   |2,000   |

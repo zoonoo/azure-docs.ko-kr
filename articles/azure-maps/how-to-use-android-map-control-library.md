@@ -9,11 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: accd0df2913abc4d82b6f14aaafd03f0f042ca91
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 241f107f0bb2163951104067cb82d6e6a967ad3e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648210"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540131"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
@@ -23,7 +24,7 @@ Azure Maps Android SDK는 Android용 벡터 지도 라이브러리입니다. 이
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기
 
-이 문서의 절차를 완료하려면 먼저 S1 가격 책정 계층에서 [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)를 수행한 다음 계정에 대한 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 수행해야 합니다.
+이 문서의 절차를 완료하려면 먼저 S1 가격 책정 계층에서 [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)를 수행한 다음 계정에 대한 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 수행해야 합니다.
 
 Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 

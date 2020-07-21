@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830709"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540233"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Azure Functions에 대 한 SignalR Service 트리거 바인딩
 
@@ -43,7 +43,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### <a name="with-traditional-model"></a>기존 모델 사용
 
-기존 모델은 c #에서 개발한 Azure Function의 규칙을 따르는 합니다. 잘 모르는 경우 [문서](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library)에서 배울 수 있습니다.
+기존 모델은 c #에서 개발한 Azure Function의 규칙을 따르는 합니다. 잘 모르는 경우 [문서](./functions-dotnet-class-library.md)에서 배울 수 있습니다.
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -200,7 +200,7 @@ InvocationContext는 SignalR 서비스에서 보내는 메시지의 모든 콘�
 |쿼리| 클라이언트가 서비스에 연결 하는 경우 요청에 대 한 쿼리입니다.|
 |클레임| 클라이언트의 클레임입니다.|
 
-## <a name="using-parameternames"></a>`ParameterNames` 시작
+## <a name="using-parameternames"></a>`ParameterNames` 사용
 
 의 속성 `ParameterNames` 을 `SignalRTrigger` 사용 하면 호출 메시지의 인수를 함수의 매개 변수에 바인딩할 수 있습니다. 이렇게 하면의 인수에 보다 편리 하 게 액세스할 수 있습니다 `InvocationContext` .
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 8f7723ecaf6587eb61474304b0b5784413ac6f86
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414364"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544078"
 ---
 UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트를 만들려면 Visual Studio 개발 옵션을 설정하고, 대상 아키텍처를 선택하고, 오디오 캡처를 선택하고, Speech SDK를 설치해야 합니다.
 
@@ -66,7 +66,7 @@ UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트�
 이제 대상 플랫폼 아키텍처를 선택합니다. Visual Studio 도구 모음에서 **솔루션 플랫폼** 드롭다운 상자를 찾습니다. (표시되지 않는 경우 **보기** > **도구 모음** > **표준**을 선택하여 **솔루션 플랫폼**을 포함하는 도구 모음을 표시합니다.) 64비트 Windows를 실행하는 경우 드롭다운 상자에서 **x64**를 선택합니다. 64비트 Windows는 32비트 애플리케이션을 실행할 수도 있으므로 원한다면 **x86**을 선택할 수 있습니다.
 
 > [!NOTE]
-> Speech SDK는 Intel 호환 프로세서만 지원합니다. ARM 프로세서는 현재 지원되지 않습니다.
+> Speech SDK는 모든 Intel 호환 프로세서를 지원 하지만, x **64** 버전의 ARM 프로세서만 지원 합니다.
 
 ### <a name="set-up-audio-capture"></a>오디오 캡처 설정
 
@@ -80,7 +80,7 @@ UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트�
 
 1. **마이크** 기능의 상자를 선택합니다.
 
-1. 메뉴 모음에서 **파일** > **Package.appxmanifest 저장**을 선택하여 변경 내용을 저장합니다.
+1. 메뉴 모음에서 **파일**  >  **저장 appxmanifest.xml** 를 선택 하 여 변경 내용을 저장 합니다.
 
 ### <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 

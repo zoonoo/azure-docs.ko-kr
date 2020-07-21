@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 5fc106bfd97e8decd47ac7d43383907dcbbbda9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792985"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544184"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 id에 대 한 액세스 권한 할당
 
@@ -92,7 +92,16 @@ Azure Files는 NTFS 기본 및 고급 권한의 전체 집합을 지원합니다
 Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니다. 다음 예제의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 파일 공유 탑재에 대 한 자세한 내용은 [Windows에서 Azure 파일 공유 사용](../articles/storage/files/storage-how-to-use-files-windows.md)을 참조 하세요. 
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+ net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
+} 
+else 
+{
+ Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
+
 ```
 
 Azure Files에 연결 하는 데 문제가 발생 하는 경우 [Windows에서 Azure Files 탑재 오류에 대해 게시 한 문제 해결 도구](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)를 참조 하세요. 또한 포트 445이 차단 될 때 시나리오를 해결 하기 위한 [지침](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) 을 제공 합니다. 
@@ -130,5 +139,13 @@ Icacls를 사용 하 여 NTFS 권한 및 지원 되는 다양 한 권한 유형�
 다음 명령을 사용 하 여 Azure 파일 공유를 탑재 합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 인증 되었으므로 저장소 계정 키, 온-프레미스 AD DS 자격 증명 또는 Azure AD DS 자격 증명을 제공할 필요가 없습니다. Single sign-on 환경은 온-프레미스 AD DS 또는 Azure AD DS 인증에 대해 지원 됩니다. AD DS 자격 증명으로 탑재 하는 데 문제가 발생 하는 경우 [Windows에서 문제 해결 Azure Files 문제](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) 를 참조 하십시오.
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+ net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
+} 
+else 
+{
+ Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
 ```

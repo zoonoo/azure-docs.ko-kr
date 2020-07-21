@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1426d6e770cca566c4b77ca4742e2f8a0fbb5465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8116abda71ae78b05786ede03256eb9e9bb59345
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76715068"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540267"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions에 대한 Twilio 바인딩
 
@@ -240,7 +241,7 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 예제에서는 [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) 주석을 사용 하 여 SMS 메시지를 보내는 방법을 보여 줍니다. , 및에 대 한 값 `to` `from` `body` 은 프로그래밍 방식으로 재정의 하는 경우에도 특성 정의에 필요 합니다.
+다음 예제에서는 [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) 주석을 사용 하 여 SMS 메시지를 보내는 방법을 보여 줍니다. , 및에 대 한 값 `to` `from` `body` 은 프로그래밍 방식으로 재정의 하는 경우에도 특성 정의에 필요 합니다.
 
 ```java
 package com.function;
@@ -318,7 +319,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) 주석을 [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) 매개 변수에 추가 `T` 합니다. 여기서은,, `int` `String` `byte[]` 또는 pojo 형식과 같은 네이티브 Java 형식일 수 있습니다.
+[TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) 주석을 [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) 매개 변수에 추가 `T` 합니다. 여기서은,, `int` `String` `byte[]` 또는 pojo 형식과 같은 네이티브 Java 형식일 수 있습니다.
 
 ---
 

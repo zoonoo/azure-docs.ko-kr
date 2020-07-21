@@ -4,12 +4,12 @@ description: WebJobs SDK를 사용하여 WebJobs에서 실행하도록 지속성
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733416"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540301"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 Durable Functions를 실행 하는 방법
 
@@ -21,7 +21,7 @@ WebJobs SDK의 버전 2.x에서 호스트는의 구현 `IHost` 이며, 버전 2.
 
 연결 Durable Functions 샘플은 WebJobs SDK 2.x 버전에서 사용할 수 있습니다. [Durable Functions 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드 하거나 복제 하 고, *v1* 분기를 체크 아웃 하 고 *samples \\ \\ webjobss00stststststststststststststststststst*
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 이 문서에서는 사용자가 WebJobs SDK의 기본 사항, Azure Functions에 대한 C# 클래스 라이브러리 개발 및 지속성 함수에 대해 익숙한 것으로 가정합니다. 이러한 항목에 대한 소개가 필요한 경우 다음 리소스를 참조하세요.
 
@@ -31,7 +31,7 @@ WebJobs SDK의 버전 2.x에서 호스트는의 구현 `IHost` 이며, 버전 2.
 
 이 문서의 단계를 완료하려면 다음을 수행합니다.
 
-* **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/)를 설치합니다.
+* **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](/visualstudio/install/)를 설치합니다.
 
   Visual Studio가 이미 있지만 해당 워크 로드가 없는 경우 **도구**  >  **도구 및 기능 가져오기**를 선택 하 여 작업을 추가 합니다.
 

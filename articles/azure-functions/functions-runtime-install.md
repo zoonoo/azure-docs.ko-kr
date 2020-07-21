@@ -5,11 +5,12 @@ author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74226734"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540386"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Azure Functions 런타임 미리 보기 2 설치
 
@@ -24,7 +25,7 @@ Azure Functions 런타임 미리 보기 2를 설치하려는 경우 다음 단�
 1. Azure Functions 런타임 미리 보기 2의 구성 완료
 1. Azure Functions 런타임 미리 보기에서 첫 번째 함수 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 Azure Functions 런타임 미리 보기를 설치하기 전에 다음 리소스를 사용할 수 있어야 합니다.
 
@@ -70,7 +71,7 @@ Azure Functions 런타임 설치를 완료하려면 구성을 완료해야 합�
 
     ![Azure Functions 런타임 미리 보기 구성 도구][7]
 
-1. **데이터베이스** 탭을 클릭하고 [데이터베이스 마스터 키](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine) 지정을 비롯한 SQL Server 인스턴스에 대한 연결 세부 정보를 입력한 후 **적용**을 클릭합니다.  Azure Functions 런타임이 런타임을 지원할 데이터베이스를 만들려면 SQL Server 인스턴스에 연결되어야 합니다.
+1. **데이터베이스** 탭을 클릭하고 [데이터베이스 마스터 키](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine) 지정을 비롯한 SQL Server 인스턴스에 대한 연결 세부 정보를 입력한 후 **적용**을 클릭합니다.  Azure Functions 런타임이 런타임을 지원할 데이터베이스를 만들려면 SQL Server 인스턴스에 연결되어야 합니다.
 
     ![Azure Functions 런타임 미리 보기 데이터베이스 구성][8]
 
