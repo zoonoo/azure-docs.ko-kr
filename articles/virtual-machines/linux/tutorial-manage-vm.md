@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e559be82fc7c3d6b25b99319785d49e30f56287
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c233ef9cfb6ded6f3d4e96b893970d4282dfc22e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460004"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526982"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서 - Azure CLI로 Linux VM 만들기 및 관리
 
@@ -32,13 +32,13 @@ Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 
 > * VM 크기 조정
 > * VM 상태 보기 및 이해
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupVM --location eastus
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-[az vm create](https://docs.microsoft.com/cli/azure/vm) 명령을 사용하여 가상 머신을 만듭니다. 
+[az vm create](/cli/azure/vm) 명령을 사용하여 가상 머신을 만듭니다. 
 
 가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 다음 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 VM을 만듭니다. VM에서 *azureuser*라는 사용자 계정을 만들고, SSH 키가 기본 키 위치( *~/.ssh*)에 없는 경우 새로 만듭니다.
 
@@ -155,12 +155,12 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 | Type                     | 일반적인 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [범용](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
-| [컴퓨팅 최적화](sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
-| [메모리에 최적화](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
-| [Storage에 최적화](sizes-storage.md)      | Lsv2, Ls              | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
-| [고성능](sizes-hpc.md) | H        | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
+| [범용](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
+| [컴퓨팅 최적화](../sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
+| [메모리에 최적화](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [Storage에 최적화](../sizes-storage.md)      | Lsv2, Ls              | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
+| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
+| [고성능](../sizes-hpc.md) | H        | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
 
 
 ### <a name="find-available-vm-sizes"></a>사용 가능한 VM 크기 찾기

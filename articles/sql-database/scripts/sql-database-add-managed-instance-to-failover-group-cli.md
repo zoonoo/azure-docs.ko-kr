@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: e9efb4e222e74f97a4f3d88639b02a86a3a6d660
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f196db537ef0a64d14930ed6bc67696ee4614c23
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528909"
 ---
 # <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>CLI를 사용하여 Azure SQL Managed Instance를 장애 조치(failover) 그룹에 추가
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| | |
+| 명령 | 설명 |
 |---|---|
 | [az network vnet](/cli/azure/network/vnet) | 가상 네트워크 명령입니다.  |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Virtual Network 서브넷 명령입니다. |

@@ -3,12 +3,12 @@ title: PowerShell 스크립트 - 스토리지 계정에 대한 자격 증명 모
 description: Azure PowerShell 스크립트를 사용하여 스토리지 계정이 등록된 복구 서비스 자격 증명 모음을 찾는 방법에 대해 알아봅니다.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: 786420ec8cef6516f7261c71b40641693efece07
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b343b2f93ed439188c5c0238bf108064f6e132c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76775869"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513254"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>스토리지 계정이 등록된 Recovery Services Vault 찾기 위한 Powershell 스크립트
 
@@ -72,4 +72,4 @@ Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Portal에서 Azure File 공유를 백업](https://docs.microsoft.com/azure/backup/backup-afs)하는 방법 알아보기
+[Azure Portal에서 Azure File 공유를 백업](../backup-afs.md)하는 방법 알아보기

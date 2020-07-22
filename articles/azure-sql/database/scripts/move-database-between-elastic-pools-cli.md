@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 85b78ad92997344ff6ea0f30da25205790d90eef
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7da5e25624a0e3a323e60cdf91660b29f58f31d7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196772"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514750"
 ---
 # <a name="use-the-azure-cli-to-move-a-database-in-sql-database-in-a-sql-elastic-pool"></a>Azure CLI를 사용하여 SQL 탄력적 풀에서 SQL Database의 데이터베이스로 이동합니다.
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| | |
+| 명령 | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | 서버 명령입니다. |
 | [az sql elastic-pools](/cli/azure/sql/elastic-pool) | 탄력적 풀 명령입니다. |

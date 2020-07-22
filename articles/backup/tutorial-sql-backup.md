@@ -3,12 +3,12 @@ title: 자습서 - Azure에 SQL Server 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SQL Server 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: f1d76fe0dfa428688714b8383c3974ac63195681
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0f3ec8e9407c97f91a7f215a6a2734a254006d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81680742"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513335"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Azure VM에서 SQL Server 데이터베이스 백업
 
@@ -64,7 +64,7 @@ Azure Marketplace에서 SQL Server VM을 만들지 않은 경우 **UserErrorSQLN
 * 닫는 대괄호 ‘]’
 * 'F:\'로 시작하는 데이터베이스 이름
 
-Azure 테이블에 지원되지 않는 문자에 대해 앨리어싱을 사용하지만 이러한 문자는 사용하지 않는 것이 좋습니다. [자세히 알아보기](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Azure 테이블에 지원되지 않는 문자에 대해 앨리어싱을 사용하지만 이러한 문자는 사용하지 않는 것이 좋습니다. [자세히 알아보기](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

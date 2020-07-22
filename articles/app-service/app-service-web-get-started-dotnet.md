@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: b7566260786b6fcfa639f244e2eff0cc8304ed9e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d489ed9dbf9b8075951258e0841675877e11be38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205798"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506794"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>빠른 시작: Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -153,3 +153,8 @@ App Service를 설정하는 과정에서 다음 항목을 만듭니다.
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core 앱 구성](configure-language-dotnetcore.md)
+
+클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
+
+> [!div class="nextstepaction"]
+> [Cost Management를 통한 비용 분석 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

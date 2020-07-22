@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
 ms.custom: sqldbrb=2 
-ms.openlocfilehash: 5443955bd24ed269ebf35f974be8c0497e2bfb60
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: e8b9f12c57b2e4bf943e5fc9a9ebc2bbadef9ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267344"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504975"
 ---
 # <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>빠른 시작: PHP를 사용하여 Azure SQL Database의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "84267344"
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스. 다음 빠른 시작 중 하나를 사용하여 데이터베이스를 만들고 구성할 수 있습니다.
 
-  || SQL Database | SQL Managed Instance | Azure VM의 SQL Server |
+  | 작업 | SQL Database | SQL Managed Instance | Azure VM의 SQL Server |
   |:--- |:--- |:---|:---|
   | 생성| [포털](single-database-create-quickstart.md) | [포털](../managed-instance/instance-create-quickstart.md) | [포털](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

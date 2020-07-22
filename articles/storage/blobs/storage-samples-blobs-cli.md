@@ -7,18 +7,18 @@ ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: 345710e1ade459d49602c18820d47826141e6f81
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa9dcc45656256e1f666bbf1b096c5c66b123b31
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68721941"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528505"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Azure Blob Storage에 대한 Azure CLI 샘플
 
 다음 표에는 Azure Storage를 만들고 관리하는 Azure CLI를 사용하여 작성된 Bash 스크립트에 대한 링크가 제공됩니다.
 
-| | |
+| 스크립트 | Description |
 |---|---|
 |**스토리지 계정**||
 | [스토리지 계정 만들기 및 액세스 키 검색/회전](../scripts/storage-common-rotate-account-keys-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Azure Storage 계정을 만들고 해당 액세스 키 검색 및 회전합니다. |

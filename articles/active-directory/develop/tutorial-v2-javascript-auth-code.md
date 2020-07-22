@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 3e6f94c3b44cd3316a25c356dc5e33835f8c9337
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 4de555f823abe5414bf117a6709e67676571c833
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553803"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518167"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 JavaScript SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
-
-> [!IMPORTANT]
-> 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 GA(일반 공급) 전에 변경될 수 있습니다.
 
 이 자습서에서는 JavaScript v2.0용 MSAL(Microsoft 인증 라이브러리)을 사용하여 다음을 수행하는 JavaScript SPA(단일 페이지 애플리케이션)를 만드는 방법을 보여 줍니다.
 
@@ -325,7 +322,7 @@ const tokenRequest = {
 };
 ```
 
-여기서 설명한 대로 `msalConfig` 섹션의 값을 수정합니다.
+여기에 설명한 대로 `msalConfig` 섹션에서 값을 수정합니다.
 
 - `Enter_the_Application_Id_Here`: 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
 - `Enter_the_Cloud_Instance_Id_Here`: 애플리케이션이 등록된 Azure 클라우드 인스턴스입니다.

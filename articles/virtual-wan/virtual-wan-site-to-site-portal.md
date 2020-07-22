@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220612"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525177"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -51,21 +51,7 @@ ms.locfileid: "86220612"
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Virtual WAN 만들기
 
-브라우저에서 Azure Portal로 이동하고 Azure 계정으로 로그인합니다.
-
-1. Virtual WAN 페이지로 이동합니다. 포털에서 **+리소스 만들기**를 클릭합니다. 검색 상자에 **Virtual WAN**을 입력하고 Enter를 선택합니다.
-2. 결과에서 **Virtual WAN**을 선택합니다. Virtual WAN 페이지에서 **만들기**를 클릭하여 WAN 만들기 페이지를 엽니다.
-3. **WAN 만들기** 페이지의 **기본 사항** 탭에서 다음 필드를 입력합니다.
-
-   ![가상 WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
-
-   * **구독** - 사용할 Azure 구독을 선택합니다.
-   * **리소스 그룹** - 새로 만들거나 기존 항목을 사용합니다.
-   * **리소스 그룹 위치** - 드롭다운에서 리소스 위치를 선택합니다. WAN은 전역 리소스이며 특정 지역에 상주하지 않습니다. 하지만 만든 WAN 리소스를 보다 쉽게 관리하고 찾으려면 지역을 선택해야 합니다.
-   * **이름** - WAN을 호출할 이름을 입력합니다.
-   * **유형:** 기본 또는 표준. 기본 WAN을 만드는 경우 기본 허브만 만들 수 있습니다. 기본 허브는 VPN 사이트 간 연결만 가능합니다.
-4. 필드 작성을 완료한 후 **검토 + 만들기**를 선택합니다.
-5. 유효성 검사를 통과하면 **만들기**를 선택하여 Virtual WAN을 만듭니다.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="create-a-hub"></a><a name="hub"></a>허브 만들기
 

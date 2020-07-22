@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 2a2db9f7342b984a8c539a345f8e5038caf5ff85
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fcf8eb8cd110fab4f1fc85a317f1dd491d21c091
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170278"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529950"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 푸시 알림 보내기
 
@@ -65,7 +65,7 @@ ms.locfileid: "86170278"
     이제 Windows Phone의 인증되지 않은 알림을 보낼 수 있는 허브가 생성 및 구성되었습니다.
 
     > [!NOTE]
-    > 이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. Notification Hubs는 인증서를 업로드할 수 있도록 하여 [MPNS 인증 모드](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)를 지원합니다.
+    > 이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. Notification Hubs는 인증서를 업로드할 수 있도록 하여 [MPNS 인증 모드](/previous-versions/windows/apps/ff941099(v=vs.105))를 지원합니다.
 
 ## <a name="create-a-windows-phone-application"></a>Windows Phone 애플리케이션 만들기
 
@@ -117,7 +117,7 @@ ms.locfileid: "86170278"
     ```
 
    > [!NOTE]
-   > 값 `MyPushChannel`은 [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx) 컬렉션에서 기존 채널을 조회하는 데 사용되는 인덱스입니다. 항목이 없으면 해당 이름을 가진 새 항목을 만듭니다.
+   > 값 `MyPushChannel`은 [HttpNotificationChannel](/previous-versions/ff402781(v=vs.110)) 컬렉션에서 기존 채널을 조회하는 데 사용되는 인덱스입니다. 항목이 없으면 해당 이름을 가진 새 항목을 만듭니다.
 
     이전 섹션에서 적어둔 허브 이름과 `DefaultListenSharedAccessSignature`라는 연결 문자열을 삽입합니다.
     이 코드는 MPNS에서 앱의 채널 URI를 검색한 후 해당 채널 URI를 알림 허브에 등록합니다. 또한 이 코드는 애플리케이션이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
@@ -174,10 +174,10 @@ ms.locfileid: "86170278"
 [213]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 
 <!-- URLs. -->
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[MPNS authenticated mode]: https://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[MPNS authenticated mode]: /previous-versions/windows/apps/ff941099(v=vs.105)
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-[toast catalog]: https://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
-[tile catalog]: https://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
+[toast catalog]: /previous-versions/windows/apps/jj662938(v=vs.105)
+[tile catalog]: /previous-versions/windows/apps/hh202948(v=vs.105)
 [Notification Hubs - Windows Phone Silverlight 자습서]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari

@@ -17,12 +17,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: a8a939f0d0c3575adec147c1942ddbbef334cb65
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e13e7c1057d5a01867b561fc7ee7d1eed1a97ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220153"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530493"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기
 
@@ -51,7 +51,7 @@ ms.locfileid: "86220153"
 이 자습서는 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서에서 완료한 프로젝트의 코드를 업데이트합니다. 따라서 이 자습서를 시작하기 전에 완료합니다.
 
 > [!NOTE]
-> Azure App Service의 Mobile Apps를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [Mobile Apps 버전](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)을 참조하세요.
+> Azure App Service의 Mobile Apps를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [Mobile Apps 버전](/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push)을 참조하세요.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -224,7 +224,7 @@ ms.locfileid: "86220153"
     ```
 13. **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가**를 클릭한 다음, **클래스**를 클릭합니다. 클래스 이름을 `RegisterClient.cs`로 지정한 다음, **확인**을 클릭하여 클래스를 생성합니다.
 
-    이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](https://msdn.microsoft.com/library/dn743807.aspx)를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 스토리지에 저장된 인증 토큰을 사용합니다.
+    이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](/previous-versions/azure/azure-services/dn743807(v=azure.100))를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 스토리지에 저장된 인증 토큰을 사용합니다.
 14. RegisterClient.cs 파일의 맨 위에 다음 `using` 문을 추가합니다.
 
     ```csharp
@@ -357,4 +357,4 @@ ms.locfileid: "86220153"
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)

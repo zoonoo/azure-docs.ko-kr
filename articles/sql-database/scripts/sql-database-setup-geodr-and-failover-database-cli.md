@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 93afb5b52df7ac3ff638ff5fc180c3c4774880b8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 48ebf87a732380188b1c5f03954385b61bc765f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020390"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528828"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>CLI를 사용하여 Azure SQL Database의 단일 데이터베이스에 대한 활성 지역 복제 구성
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| | |
+| 명령 | 설명 |
 |---|---|
 | [az sql db replica](/cli/azure/sql/db/replica) | 데이터베이스 복제본 명령입니다. |
 

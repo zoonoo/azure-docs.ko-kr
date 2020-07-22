@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203765"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498511"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
@@ -67,21 +67,21 @@ ms.locfileid: "86203765"
 - [Azure Resource Manager 템플릿을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기](learn/quick-collect-activity-log-arm.md) - 새 문서.
 
 #### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>플랫폼 로그 콘텐츠 재구성 및 통합의 새로운 문서 및 업데이트된 문서
-- [스토리지 계정에 Azure 리소스 로그 보관](platform/resource-logs-collect-storage.md)
+- [스토리지 계정에 Azure 리소스 로그 보관](./platform/resource-logs.md#send-to-azure-storage)
 - [Azure 활동 로그 이벤트 스키마](platform/activity-log-schema.md)
 - [Azure 활동 로그](platform/activity-log.md)
 - [Azure Monitor CLI 샘플](samples/cli-samples.md)
 - [Azure Monitor PowerShell 샘플](samples/powershell-samples.md)
 - [Azure Monitoring REST API 연습](platform/rest-api-walkthrough.md)
-- [Azure 리소스 로그 지원 서비스 및 스키마](platform/diagnostic-logs-schema.md)
+- [Azure 리소스 로그 지원 서비스 및 스키마](./platform/resource-logs-schema.md)
 - [Azure 리소스 로그](platform/resource-logs.md)
-- [Azure Monitor에서 Azure 활동 로그 수집 및 분석](platform/activity-log-collect.md)
-- [Log Analytics 작업 영역에서 Azure 리소스 로그 수집](platform/resource-logs-collect-workspace.md)
+- [Azure Monitor에서 Azure 활동 로그 수집 및 분석](./platform/activity-log.md)
+- [Log Analytics 작업 영역에서 Azure 리소스 로그 수집](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](platform/diagnostic-settings.md)
-- [Azure 활동 로그 내보내기](platform/activity-log-export.md)
+- [Azure 활동 로그 내보내기](./platform/activity-log.md#legacy-collection-methods)
 - [Azure 플랫폼 로그 개요](platform/platform-logs-overview.md)
-- [이벤트 허브로 Azure 플랫폼 로그 스트림](platform/resource-logs-stream-event-hubs.md)
-- [Azure Monitor에서 Azure 활동 로그 이벤트 보기](platform/activity-log-view.md)
+- [이벤트 허브로 Azure 플랫폼 로그 스트림](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [Azure Monitor에서 Azure 활동 로그 이벤트 보기](./platform/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>가상 머신
 - [Azure Portal에서 VM용 Azure Monitor 사용](insights/vminsights-enable-single-vm.md) - Azure Arc를 포함하도록 업데이트되었습니다.
@@ -155,7 +155,7 @@ ms.locfileid: "86203765"
 
 ### <a name="insights"></a>자세한 정보
 - [Azure Cache for Redis용 Azure Monitor(미리 보기)](insights/redis-cache-insights-overview.md) - 새 문서
-- [Azure Monitor for Key Vault(미리 보기)를 사용하여 Key Vault 모니터링](insights/key-vaults-insights-overview.md) - 새 문서
+- [Azure Monitor for Key Vault(미리 보기)를 사용하여 Key Vault 모니터링](./insights/key-vault-insights-overview.md) - 새 문서
 
 ### <a name="logs"></a>로그
 - [PowerShell을 사용하여 Log Analytics 설정 & 구성](platform/powershell-workspace-configuration.md) - 문제 해결 섹션을 추가
@@ -280,7 +280,7 @@ ms.locfileid: "86203765"
 
 ### <a name="platform-logs"></a>플랫폼 로그
 
-- [Azure Monitor에서 Azure 활동 로그 수집 및 분석](platform/activity-log-collect.md) - 진단 설정을 사용하여 활동 로그를 수집하는 방법을 보다 정확하게 설명하기 위해 다시 작성 되었습니다.
+- [Azure Monitor에서 Azure 활동 로그 수집 및 분석](./platform/activity-log.md) - 진단 설정을 사용하여 활동 로그를 수집하는 방법을 보다 정확하게 설명하기 위해 다시 작성 되었습니다.
 
 ### <a name="virtual-machines"></a>가상 머신
 
@@ -326,7 +326,7 @@ VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
 
 #### <a name="azure-monitor-for-containers"></a>컨테이너용 Azure Monitor
 
-- [Azure Kubernetes Service와 Azure Active Directory 통합](../aks/azure-ad-integration.md) - RBAC 지원 클러스터를 지원하여 컨테이너에 대한 Azure Monitor를 지원하도록 클라이언트 애플리케이션을 만들기 위한 메모를 추가했습니다.
+- [Azure Kubernetes Service와 Azure Active Directory 통합](../aks/azure-ad-integration-cli.md) - RBAC 지원 클러스터를 지원하여 컨테이너에 대한 Azure Monitor를 지원하도록 클라이언트 애플리케이션을 만들기 위한 메모를 추가했습니다.
 
 #### <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
 
@@ -412,8 +412,8 @@ VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
 
 ### <a name="platform-logs"></a>플랫폼 로그
 
-- [진단 설정을 사용하여 Azure 활동 로그 수집 - Azure Monitor](platform/diagnostic-settings-legacy.md) - 변경된 속성에 대한 정보가 추가되었습니다.
-- [Azure 활동 로그 내보내기](platform/activity-log-export.md) - 변경된 UI에 맞도록 업데이트되었습니다. 
+- [진단 설정을 사용하여 Azure 활동 로그 수집 - Azure Monitor](./platform/activity-log.md) - 변경된 속성에 대한 정보가 추가되었습니다.
+- [Azure 활동 로그 내보내기](./platform/activity-log.md#legacy-collection-methods) - 변경된 UI에 맞도록 업데이트되었습니다. 
 
 ## <a name="december-2019"></a>2019년 12월
 
@@ -450,7 +450,7 @@ VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
 
 ### <a name="insights-and-solutions"></a>인사이트 및 솔루션
 
-- [컨테이너용 Azure Monitor 질문과 대답](insights/container-insights-faq.md) - 이미지 및 이름 필드에 질문이 추가되었습니다.
+- [컨테이너용 Azure Monitor 질문과 대답](./faq.md) - 이미지 및 이름 필드에 질문이 추가되었습니다.
 - [Azure Monitor의 Azure SQL 분석 솔루션](insights/azure-sql.md) - Managed Instance 지원을 기다리는 데이터베이스가 업데이트되었습니다.
 - [컨테이너용 Azure Monitor 에이전트 데이터 수집 구성](insights/container-insights-agent-config.md) - enrich_container_logs에 대한 설정이 추가되었습니다.
 - [컨테이너용 Azure Monitor를 사용하여 하이브리드 Kubernetes 클러스터 구성](insights/container-insights-hybrid-setup.md) - 문제 해결 섹션이 추가되었습니다.
@@ -474,19 +474,19 @@ VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
 
 진단 설정을 사용하여 활동 로그를 구성하는 새로운 기능을 기반으로 하는 플랫폼 로그의 콘텐츠 구조 변경의 일환으로 여러 문서가 업데이트되었습니다.
 
-- [스토리지 계정에 Azure 리소스 로그 보관](platform/resource-logs-collect-storage.md)
+- [스토리지 계정에 Azure 리소스 로그 보관](./platform/resource-logs.md#send-to-azure-storage)
 - [Azure 활동 로그 이벤트 스키마](platform/activity-log-schema.md)
 - [Azure Monitor 서비스 제한](service-limits.md)
-- [Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](platform/activity-log-collect.md)
-- [진단 설정을 사용하여 Azure 활동 로그 수집(미리 보기) - Azure Monitor](platform/diagnostic-settings-legacy.md)
+- [Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](./platform/activity-log.md)
+- [진단 설정을 사용하여 Azure 활동 로그 수집(미리 보기) - Azure Monitor](./platform/activity-log.md)
 - [Azure 테넌트 전체에서 Log Analytics 작업 영역으로 Azure 활동 로그 수집](platform/activity-log-collect-tenants.md)
-- [Log Analytics 작업 영역에서 Azure 리소스 로그 수집](platform/resource-logs-collect-workspace.md)
+- [Log Analytics 작업 영역에서 Azure 리소스 로그 수집](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Resource Manager 템플릿을 사용하여 Azure에서 진단 설정 만들기](platform/diagnostic-settings-template.md)
 - [Azure에서 로그 및 메트릭을 수집하는 진단 설정 만들기](platform/diagnostic-settings.md)
-- [Azure 활동 로그 내보내기](platform/activity-log-export.md)
+- [Azure 활동 로그 내보내기](./platform/activity-log.md#legacy-collection-methods)
 - [Azure 플랫폼 로그 개요](platform/platform-logs-overview.md)
 - [이벤트 허브로 Azure 모니터링 데이터 스트림](platform/stream-monitoring-data-event-hubs.md)
-- [이벤트 허브로 Azure 플랫폼 로그 스트림](platform/resource-logs-stream-event-hubs.md)
+- [이벤트 허브로 Azure 플랫폼 로그 스트림](./platform/resource-logs.md#send-to-azure-event-hubs)
 
 ### <a name="quickstarts-and-tutorials"></a>빠른 시작 및 자습서
 

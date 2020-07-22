@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 88ec29ef1a0c0766a6c50af218e66f5fec3b9087
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e274db2983c476c2428fdd0d25f3dff9bbc5e6ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118426"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523879"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -120,7 +120,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 선택합니다.
 
-1. 화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-dotnet/copy.png) 단추를 사용하여 USERNAME 값을 복사합니다.
+1. 화면 오른쪽에 있는 :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: 단추를 사용하여 USERNAME 값을 복사합니다.
 
    :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Azure Portal, 연결 문자열 페이지에서 액세스 키 보기 및 복사":::
 

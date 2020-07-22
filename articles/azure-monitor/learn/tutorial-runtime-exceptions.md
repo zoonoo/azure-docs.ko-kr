@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670426"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516365"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -35,7 +35,7 @@ Azure Application Insights는 애플리케이션에서 원격 분석을 수집�
     - ASP.NET 및 웹 개발
     - Azure 개발
 - [Visual Studio 스냅샷 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
-- [Visual Studio 스냅샷 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 사용
+- [Visual Studio 스냅샷 디버거](../app/snapshot-debugger.md) 사용
 - Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../../azure-monitor/app/asp-net.md)합니다. 
 - 자습서는 애플리케이션에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
 

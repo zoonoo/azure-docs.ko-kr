@@ -3,12 +3,12 @@ title: Azure Event Hubs 정의 - 빅 데이터 수집 서비스 | Microsoft Docs
 description: 초당 수백만 개의 이벤트를 수집하는 빅 데이터 스트리밍 서비스 Azure Event Hubs에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 175f7e249e02d5c85dd38cf49821b2893de159a3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: b442a7e0b10f3f882f12943c642ccdd6feef3114
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314261"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522111"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스
 Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 초당 수백만 개의 이벤트를 수신하고 처리할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다.
@@ -44,7 +44,7 @@ Event Hubs는 구성 또는 관리 오버헤드가 거의 없는 완전 관리�
 
 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 에서 데이터를 거의 실시간으로 [캡처](event-hubs-capture-overview.md)하여 장기 보존하거나 마이크로 일괄 처리할 수 있습니다. 이 동작은 실시간 분석 파생에 사용하는 것과 동일한 스트림에서 수행할 수 있습니다. 이벤트 데이터의 캡처는 빠르게 설정할 수 있습니다. 실행을 위한 관리 비용이 없고 Event Hubs  [처리량 단위](event-hubs-scalability.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs를 통해 데이터 캡처보다 데이터 처리에 집중할 수 있습니다.
 
-Azure Event Hubs를 [Azure Functions](/azure/azure-functions/)와 통합하여 서버 없는 아키텍처를 구현할 수도 있습니다.
+Azure Event Hubs를 [Azure Functions](../azure-functions/index.yml)와 통합하여 서버 없는 아키텍처를 구현할 수도 있습니다.
 
 ## <a name="scalable"></a>확장성
 
@@ -74,7 +74,7 @@ Azure Stack Hub의 Event Hubs를 사용하면 하이브리드 클라우드 시�
 
 Event Hubs 버전(Azure Stack Hub 및 Azure)은 높은 수준의 기능 패리티를 제공합니다. 이 패리티는 SDK, 샘플, PowerShell, CLI 및 포털을 통해 거의 차이가 없는 유사한 환경을 제공합니다. 
 
-Stack의 Event Hubs는 공개 미리 보기 중에는 무료입니다. 자세한 내용은 [Azure Stack Hub의 Event Hubs 개요](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)를 참조하세요.
+Stack의 Event Hubs는 공개 미리 보기 중에는 무료입니다. 자세한 내용은 [Azure Stack Hub의 Event Hubs 개요](/azure-stack/user/event-hubs-overview)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -94,5 +94,3 @@ Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Event Hubs 기능 개요](event-hubs-features.md)
 - [질문과 대답](event-hubs-faq.md)
-
-

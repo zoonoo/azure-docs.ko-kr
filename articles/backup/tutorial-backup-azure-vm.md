@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure PowerShell을 사용하여 여러 Azur
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc
-ms.openlocfilehash: 154238eae78ce44b9fc91058e58d9a11e254c0f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a0f6bd2bebb0961388d4f81663167d9e579958a2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171774"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513220"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>PowerShell을 사용하여 Azure VM 백업
 
@@ -48,7 +48,7 @@ ms.locfileid: "74171774"
 [Recovery Services 자격 증명 모음](backup-azure-recovery-services-vault-overview.md)은 Azure VM과 같은 보호된 리소스에 대한 백업 데이터를 저장하는 논리 컨테이너입니다. 백업 작업이 실행되면 Recovery Services 자격 증명 모음 내에 복구 지점이 만들어집니다. 이러한 복구 지점 중 하나를 사용하여 지정된 특정 시점으로 데이터를 복원할 수 있습니다.
 
 * 이 자습서에서는 백업하려는 VM과 동일한 리소스 그룹 및 위치에 자격 증명 모음을 만듭니다.
-* Azure Backup은 백업된 데이터에 대한 스토리지를 자동으로 처리합니다. 기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md)를 사용합니다. 지역 중복은 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업된 데이터가 복제되도록 합니다.
+* Azure Backup은 백업된 데이터에 대한 스토리지를 자동으로 처리합니다. 기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md)를 사용합니다. 지역 중복은 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업된 데이터가 복제되도록 합니다.
 
 자격 증명 모음을 만들려면 다음을 수행합니다.
 

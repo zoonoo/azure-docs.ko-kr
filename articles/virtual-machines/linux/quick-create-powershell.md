@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 397fac7609d9527165a1a0a35215a2e2bac23c6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759210"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510330"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Linux 가상 머신 만들기
 
@@ -39,11 +39,11 @@ ssh-keygen -t rsa -b 2048
 
 PuTTy 사용을 포함하여 SSH 키 쌍을 만드는 방법에 대한 자세한 내용은 [Windows에 SSH 키를 사용하는 방법](ssh-from-windows.md)을 참조하세요.
 
-Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 자동으로 만들어지는 스토리지 계정](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)의 컨테이너 이미지에 저장됩니다. 키를 검색할 때까지 스토리지 계정이나 파일 공유를 삭제하지 마세요. VM에 대한 액세스를 잃게 됩니다. 
+Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 자동으로 만들어지는 스토리지 계정](../../cloud-shell/persisting-shell-storage.md)의 컨테이너 이미지에 저장됩니다. 키를 검색할 때까지 스토리지 계정이나 파일 공유를 삭제하지 마세요. VM에 대한 액세스를 잃게 됩니다. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -111,7 +111,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-[New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface)를 사용하여 가상 NIC(네트워크 인터페이스 카드)를 만듭니다. 가상 NIC는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 VM을 연결합니다.
+[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 가상 NIC(네트워크 인터페이스 카드)를 만듭니다. 가상 NIC는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 VM을 연결합니다.
 
 ```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
@@ -160,7 +160,7 @@ Add-AzVMSshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 만들도록 이전 구성 정의를 결합합니다.
+이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 만들도록 이전 구성 정의를 결합합니다.
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -172,7 +172,7 @@ VM 배포에는 몇 분 정도 걸립니다. 배포가 완료되면 다음 섹�
 
 ## <a name="connect-to-the-vm"></a>VM에 연결
 
-공용 IP 주소를 사용하여 VM과 SSH 연결을 만듭니다. VM의 공용 IP 주소를 보려면 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) cmdlet을 사용합니다.
+공용 IP 주소를 사용하여 VM과 SSH 연결을 만듭니다. VM의 공용 IP 주소를 보려면 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet을 사용합니다.
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -207,7 +207,7 @@ sudo apt-get -y install nginx
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet을 사용하여 리소스 그룹, VM 및 모든 관련 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet을 사용하여 리소스 그룹, VM 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup"

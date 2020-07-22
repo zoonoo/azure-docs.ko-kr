@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 첫 번째 Python 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Python용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 05/27/2020
+ms.date: 07/15/2020
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 58ba931f5d222df8d863a11a25af6563192ef453
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f7ca6ce5fab687e26007949898ad72c75d036782
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609950"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511924"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>빠른 시작: Python을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -99,7 +99,7 @@ Python 라이브러리가 선택한 환경에 추가되었으므로 간단한 Re
        # Run query
        argResults = argClient.resources(argQuery)
    
-       # Show JSON results
+       # Show Python object
        print(argResults)
    
    getresources("Resources | project name, type | limit 5")

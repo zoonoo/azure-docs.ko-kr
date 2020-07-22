@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
-ms.openlocfilehash: fd2c7a33c0747aa21a8bda53ad5437c9e79a6557
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 9d0058fd90590b10a0d5745bce1875db9ad35745
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115404"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518897"
 ---
 # <a name="use-cli-to-create-an-azure-sql-managed-instance"></a>CLI를 사용하여 Azure SQL Managed Instance 만들기
 
@@ -49,7 +49,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| | |
+| 명령 | 설명 |
 |---|---|
 | [az network vnet](/cli/azure/network/vnet) | 가상 네트워크 명령입니다. |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Virtual Network 서브넷 명령입니다. |

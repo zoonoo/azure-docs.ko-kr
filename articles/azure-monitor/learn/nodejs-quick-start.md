@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 694d2ae529202223869fcbb2a084e32bccaedbf1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2e50daf3d94d30e4799bf7a645f46bb70fd6750c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77660226"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516501"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>빠른 시작: Azure Application Insights를 사용하여 Node.js 웹 애플리케이션 모니터링 시작
 
@@ -36,7 +36,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    ![Azure Application Insights 리소스 추가](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
    > [!NOTE]
-   >Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 문서를 참조하세요.
+   >Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](../app/create-new-resource.md) 문서를 참조하세요.
 
    구성 페이지가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다. 
 
@@ -60,7 +60,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    npm install applicationinsights --save
    ```
 
-3. 앱의 첫 번째 *.js* 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 앱](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)을 사용하는 경우 *index.js* 파일을 수정합니다. `<instrumentation_key>`를 애플리케이션의 계측 키로 바꿉니다. 
+3. 앱의 첫 번째 *.js* 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 앱](../../app-service/app-service-web-get-started-nodejs.md)을 사용하는 경우 *index.js* 파일을 수정합니다. `<instrumentation_key>`를 애플리케이션의 계측 키로 바꿉니다. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -131,4 +131,4 @@ Node.js 모니터링에 대한 자세한 내용은 [AppInsights Node.js 추가 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [성능 문제 찾기 및 진단](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [성능 문제 찾기 및 진단](../log-query/log-query-overview.md)

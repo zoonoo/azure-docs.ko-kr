@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 88b7dc60b865325ef7dcd9e79015fdee10b4f9a2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563704"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521652"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Azure Firewall Manager 정책 개요
 
@@ -47,8 +47,8 @@ NAT 규칙 컬렉션은 지정된 방화벽에 따라 다르므로 상속되지 
 Azure Firewall은 기존 규칙과 정책을 모두 지원합니다. 다음 표에서는 정책과 규칙을 비교합니다.
 
 
-|         |정책  |규칙  |
-|---------|---------|---------|
+| 제목 | 정책  | 규칙 |
+| ------- | ------- | ----- |
 |포함     |NAT, 네트워크, 애플리케이션 규칙, 사용자 지정 DNS 및 DNS 프록시 설정, IP 그룹 및 위협 인텔리전스 설정(허용 목록 포함)|NAT, 네트워크, 애플리케이션 규칙, 사용자 지정 DNS 및 DNS 프록시 설정, IP 그룹 및 위협 인텔리전스 설정(허용 목록 포함)|
 |보호     |가상 허브 및 Virtual Network|Virtual Network만|
 |포털 환경     |Firewall Manager를 사용한 중앙 관리|독립 실행형 방화벽 환경|

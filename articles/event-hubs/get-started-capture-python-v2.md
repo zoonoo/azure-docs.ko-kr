@@ -3,12 +3,12 @@ title: Python 앱(최신)에서 캡처한 Azure Event Hubs 데이터 읽기
 description: 이 문서에서는 이벤트 허브로 전송된 데이터를 캡처하고 Azure 스토리지 계정에서 캡처한 이벤트 데이터를 읽는 Python 코드를 작성하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 752a582e59b438f7449d6722b222969dc641880c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: eb7e8a2c1e567e474ad7d0766d9b12e5b43de3ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315295"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521873"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Python(azure-eventhub 버전 5)을 사용하여 Azure Storage에서 Event Hubs 데이터 캡처
 
@@ -35,7 +35,7 @@ ms.locfileid: "85315295"
 - 활성 Event Hubs 네임스페이스 및 이벤트 허브.
 [Event Hubs 네임스페이스를 만들고 이 네임스페이스에 이벤트 허브를 만듭니다](event-hubs-create.md). Event Hubs 네임스페이스의 이름, 이벤트 허브의 이름, 네임스페이스의 기본 액세스 키를 기록해 둡니다. 액세스 키를 얻는 방법은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)를 참조하세요. 기본 키 이름은 *RootManageSharedAccessKey*입니다. 이 빠른 시작에서는 기본 키만 필요합니다. 연결 문자열은 필요 없습니다.  
 - Azure 스토리지 계정, 스토리지 계정의 BLOB 컨테이너, 스토리지 계정에 대한 연결 문자열. 이러한 항목이 없으면 다음을 수행합니다.  
-    1. [Azure 스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
+    1. [Azure 스토리지 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [스토리지 계정에서 BLOB 컨테이너 만들기](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
     1. [스토리지 계정에 대한 연결 문자열 가져오기](../storage/common/storage-configure-connection-string.md)
 
@@ -182,4 +182,4 @@ ms.locfileid: "85315295"
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md

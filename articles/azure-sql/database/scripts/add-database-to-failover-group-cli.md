@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 09c98f626d9f32a2a6f9f3e31e0db0e4751adacb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8a8aac276617e97c26d7b05e6fe2518e5d575fab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196969"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514784"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Azure CLI를 사용하여 장애 조치(failover) 그룹에 데이터베이스 추가
 
@@ -54,7 +54,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| | |
+| 명령 | 설명 |
 |---|---|
 | [az sql db](/cli/azure/sql/db) | 데이터베이스 명령입니다. |
 | [az sql failover-group](/cli/azure/sql/failover-group) | 장애 조치(failover) 그룹 명령입니다. |

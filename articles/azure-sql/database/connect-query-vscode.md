@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: e0554711aa6db436bc0c3076ec468555c47fff39
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7a096e355e140b18bd7df010c379e31d21f90634
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267259"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515056"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>빠른 시작: Visual Studio Code를 사용하여 연결 및 쿼리를 참조하세요. 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "84267259"
 
 - Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스. 다음 빠른 시작 중 하나를 사용하여 Azure SQL Database에서 데이터베이스를 만들고 구성할 수 있습니다.
 
-  || Azure SQL Database | Azure SQL Managed Instance |
+  | 작업 | Azure SQL Database | Azure SQL Managed Instance |
   |:--- |:--- |:---|
   | 생성| [포털](single-database-create-quickstart.md) | [포털](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
