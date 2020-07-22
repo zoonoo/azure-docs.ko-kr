@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 765794076c389f199fba0d6078754c82e7280c69
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d48930d7a9aa1742c26ff85aecdd197b93ab126
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459409"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501076"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>고가용성 가상 머신 간에 트래픽 부하 분산
 
@@ -47,22 +47,22 @@ az group delete --name myResourceGroup --yes
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Azure Virtual Network 및 서브넷을 만듭니다. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | 고정 IP 주소 및 연결된 DNS 이름을 사용하여 공용 IP 주소를 만듭니다. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) | Azure NLB(Network Load Balancer)를 만듭니다. |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) | NLB 프로브를 만듭니다. NLB 프로브는 NLB 집합에서 각 VM을 모니터링하는 데 사용됩니다. 모든 VM이 액세스할 수 없게 되면 트래픽은 VM에 라우팅되지 않습니다. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | NLB 규칙을 만듭니다. 이 샘플에서는 포트 80에 대한 규칙을 만듭니다. HTTP 트래픽이 NLB에 도착하면 NLB 집합에서 VM 중 하나인 포트 80에 라우팅됩니다. |
-| [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) | NLB NAT(네트워크 주소 변환) 규칙을 만듭니다.  NAT 규칙은 VM에 있는 포트에 NLB의 포트를 매핑합니다. 이 샘플에서는 NLB 집합의 각 VM에 SSH 트래픽에 대한 NAT 규칙을 만듭니다.  |
-| [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg) | 인터넷과 가상 머신 간에 보안 경계인 NSG(네트워크 보안 그룹)을 만듭니다. |
-| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | 인바운드 트래픽을 허용하도록 NSG 규칙을 만듭니다. 이 샘플에서 SSH 트래픽에 대해 포트 22가 열립니다. |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | 가상 네트워크 카드를 만들고 가상 네트워크, 서브넷 및 NSG에 연결합니다. |
-| [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule) | 가용성 집합을 만듭니다. 가용성 집합을 사용하면 오류가 발생하는 경우 물리적 리소스 간에 가상 머신을 분산하여 애플리케이션 가동 시간을 확인합니다. 전체 집합은 영향을 받지 않습니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | 가상 머신을 만들고 네트워크 카드, 가상 네트워크, 서브넷 및 NSG에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az network vnet create](/cli/azure/network/vnet) | Azure Virtual Network 및 서브넷을 만듭니다. |
+| [az network public-ip create](/cli/azure/network/public-ip) | 고정 IP 주소 및 연결된 DNS 이름을 사용하여 공용 IP 주소를 만듭니다. |
+| [az network lb create](/cli/azure/network/lb) | Azure NLB(Network Load Balancer)를 만듭니다. |
+| [az network lb probe create](/cli/azure/network/lb/probe) | NLB 프로브를 만듭니다. NLB 프로브는 NLB 집합에서 각 VM을 모니터링하는 데 사용됩니다. 모든 VM이 액세스할 수 없게 되면 트래픽은 VM에 라우팅되지 않습니다. |
+| [az network lb rule create](/cli/azure/network/lb/rule) | NLB 규칙을 만듭니다. 이 샘플에서는 포트 80에 대한 규칙을 만듭니다. HTTP 트래픽이 NLB에 도착하면 NLB 집합에서 VM 중 하나인 포트 80에 라우팅됩니다. |
+| [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) | NLB NAT(네트워크 주소 변환) 규칙을 만듭니다.  NAT 규칙은 VM에 있는 포트에 NLB의 포트를 매핑합니다. 이 샘플에서는 NLB 집합의 각 VM에 SSH 트래픽에 대한 NAT 규칙을 만듭니다.  |
+| [az network nsg create](/cli/azure/network/nsg) | 인터넷과 가상 머신 간에 보안 경계인 NSG(네트워크 보안 그룹)을 만듭니다. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) | 인바운드 트래픽을 허용하도록 NSG 규칙을 만듭니다. 이 샘플에서 SSH 트래픽에 대해 포트 22가 열립니다. |
+| [az network nic create](/cli/azure/network/nic) | 가상 네트워크 카드를 만들고 가상 네트워크, 서브넷 및 NSG에 연결합니다. |
+| [az vm availability-set create](/cli/azure/network/lb/rule) | 가용성 집합을 만듭니다. 가용성 집합을 사용하면 오류가 발생하는 경우 물리적 리소스 간에 가상 머신을 분산하여 애플리케이션 가동 시간을 확인합니다. 전체 집합은 영향을 받지 않습니다. |
+| [az vm create](/cli/azure/vm/availability-set) | 가상 머신을 만들고 네트워크 카드, 가상 네트워크, 서브넷 및 NSG에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다.  |
+| [az group delete](/cli/azure/vm/extension) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 가상 머신 CLI 스크립트 샘플은 [Azure Windows VM 설명서](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 확인할 수 있습니다.

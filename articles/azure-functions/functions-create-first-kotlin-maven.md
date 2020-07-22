@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: e4ac4f669d38f07d9fe4edbd600cc06f135fac03
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: d8abf6cdf8506dc491f4e026c9a61ac1391f6ea4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674564"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506301"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>빠른 시작: Kotlin 및 Maven을 사용하여 첫 번째 함수 만들기
 
@@ -25,7 +25,7 @@ Kotlin을 사용하여 함수를 개발하려면 다음을 설치해야 합니�
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), 버전 8
 - [Apache Maven](https://maven.apache.org), 버전 3.0 이상
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ Maven은 프로젝트 생성을 완료하는 데 필요한 값을 요청합니�
 [INFO] Parameter: artifactId, Value: fabrikam-function
 </pre>
 
-Maven은 이름이 _artifactId_ 인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 이 프로젝트에서 생성된 즉시 실행 가능 코드는 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
+Maven은 이름이 _artifactId_ 인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 이 프로젝트에서 생성된 즉시 실행 가능 코드는 요청의 본문을 에코하는 간단한 [HTTP 트리거](./functions-bindings-http-webhook.md) 함수입니다.
 
 ```kotlin
 class Function {

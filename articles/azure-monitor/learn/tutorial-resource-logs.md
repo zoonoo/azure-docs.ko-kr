@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78269202"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505842"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>자습서: Azure 리소스에서 리소스 로그 수집 및 분석
 
@@ -86,7 +86,7 @@ KQL(Kusto 쿼리 언어)로 작성된 로그 쿼리를 사용하여 Log Analytic
    
     ![로그](media/tutorial-resource-logs/logs.png)
 
-4. 예제에 표시된 서비스는 리소스 로그를 **AzureDiagnostics** 테이블에 쓰지만, 다른 서비스는 다른 테이블에 쓸 수 있습니다. 다른 Azure 서비스에서 사용하는 테이블에 대한 자세한 내용은 [Azure 리소스 로그를 지원하는 서비스, 스키마 및 범주](../platform/diagnostic-logs-schema.md)를 참조하세요.
+4. 예제에 표시된 서비스는 리소스 로그를 **AzureDiagnostics** 테이블에 쓰지만, 다른 서비스는 다른 테이블에 쓸 수 있습니다. 다른 Azure 서비스에서 사용하는 테이블에 대한 자세한 내용은 [Azure 리소스 로그를 지원하는 서비스, 스키마 및 범주](../platform/resource-logs-schema.md)를 참조하세요.
 
     > [!NOTE]
     > 많은 서비스가 AzureDiagnostics 테이블에 리소스 로그를 씁니다. Azure Monitor 메뉴에서 Log Analytics를 시작하는 경우 `ResourceProvider` 열이 있는 `where` 문을 추가하여 특정 서비스를 지정해야 합니다. 리소스의 메뉴에서 Log Analytics를 시작하는 경우 범위가 이 리소스의 레코드로만 설정되므로 이 열이 필요 없습니다. 샘플 쿼리는 서비스의 설명서를 참조하세요.

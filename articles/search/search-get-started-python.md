@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 04/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 2f90746448460d168d5fa4751af1f407d217f8ed
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 304d0a689b30b0e900d07b4654c4f5cd6db7b9ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562133"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496726"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Cognitive Search 인덱스 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "85562133"
 > * [PowerShell(REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Postman(REST)](search-get-started-postman.md)
-> * [포털](search-create-index-portal.md)
+> * [포털](search-get-started-portal.md)
 > 
 
 Python 및 [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 Jupyter Notebook을 빌드합니다. 이 문서에서는 Notebook을 단계별로 빌드하는 방법에 대해 설명합니다. 또는 [완성된 Jupyter Python Notebook을 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-python-samples)할 수 있습니다.

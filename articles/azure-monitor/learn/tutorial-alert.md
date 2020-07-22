@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77656265"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505876"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Azure Application Insights를 사용하여 애플리케이션 상태에 대한 모니터링 및 경고
 
@@ -28,7 +28,7 @@ Azure Application Insights를 사용하여 애플리케이션을 모니터링하
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-[Application Insights 리소스](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights)를 만듭니다.
+[Application Insights 리소스](./dotnetcore-quick-start.md#enable-application-insights)를 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -56,7 +56,7 @@ Application Insights에서 가용성 테스트를 사용하여 전 세계 여러
 
     ![경고 편집](media/tutorial-alert/edit-alert-001.png)
 
-6. 3보다 크거나 같으면 실패한 위치로 설정합니다. 경고 임계값에 도달하면 누구에게 알림을 보낼 것인지 구성하는 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)을 만듭니다.
+6. 3보다 크거나 같으면 실패한 위치로 설정합니다. 경고 임계값에 도달하면 누구에게 알림을 보낼 것인지 구성하는 [작업 그룹](../platform/action-groups.md)을 만듭니다.
 
     ![경고 UI 저장](media/tutorial-alert/save-alert-001.png)
 

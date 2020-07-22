@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 0ea5c11254d8dba050fe63a4cd915240c8270dd1
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: bd4da23ed3f4b2dc92652493c77efbcbc0542066
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324575"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510126"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "84324575"
 > * 이미지 갤러리 공유
 
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.4.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -90,11 +90,11 @@ az vm get-instance-view -g MyResourceGroup -n MyVm --query id
 
 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
 
-이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions)를 참조하세요.
+이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./shared-image-galleries.md#image-definitions)를 참조하세요.
 
 [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다. 
 
-다음 예제에서는 이미지 정의의 이름이 *myImageDefinition*이며 [특수](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. 
+다음 예제에서는 이미지 정의의 이름이 *myImageDefinition*이며 [특수](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -134,7 +134,7 @@ az sig image-version create \
 > [!NOTE]
 > 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> 또한 이미지 버전을 만들 때 `--storage-account-type  premium_lrs`를 추가하여 프리미엄 스토리지에 추가하거나 `--storage-account-type  standard_zrs`를 추가하여 [영역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)를 추가하여 이미지를 저장할 수도 있습니다.
+> 또한 이미지 버전을 만들 때 `--storage-account-type  premium_lrs`를 추가하여 프리미엄 스토리지에 추가하거나 `--storage-account-type  standard_zrs`를 추가하여 [영역 중복 스토리지](../../storage/common/storage-redundancy.md)를 추가하여 이미지를 저장할 수도 있습니다.
 >
 
  
@@ -176,11 +176,11 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-RBAC를 사용하여 리소스를 공유하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 참조하세요.
+RBAC를 사용하여 리소스를 공유하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)를 참조하세요.
 
 ## <a name="azure-image-builder"></a>Azure 이미지 작성기
 
-Azure는 [Azure VM 이미지 작성기](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)인 Packer를 기반으로 하는 서비스도 제공합니다. 템플릿에서 사용자 지정을 설명하기만 하면 이미지 만들기가 처리됩니다. 
+Azure는 [Azure VM 이미지 작성기](./image-builder-overview.md)인 Packer를 기반으로 하는 서비스도 제공합니다. 템플릿에서 사용자 지정을 설명하기만 하면 이미지 만들기가 처리됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -197,4 +197,3 @@ Azure는 [Azure VM 이미지 작성기](https://docs.microsoft.com/azure/virtual
 
 > [!div class="nextstepaction"]
 > [고가용성 VM 만들기](tutorial-availability-sets.md)
-

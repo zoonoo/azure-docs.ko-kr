@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 28f093bc464a45862d3b253d628b7ae03810f81a
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: b8eec0d95144c012d3034e3f2c7c6e8adc921651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871223"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510177"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>자습서 - Azure Linux 가상 머신에 대한 롤링 배포 전략 구성
 
@@ -33,7 +33,7 @@ Azure Pipelines는 가상 머신에 배포하는 데 사용할 수 있는 완전
 
 ### <a name="configure-cicd-on-virtual-machines"></a>가상 머신에서 CI/CD 구성
 
-가상 머신을 [배포 그룹](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups)에 대상으로 추가할 수 있습니다. 그런 다음, 다중 머신 업데이트의 대상으로 지정할 수 있습니다. 머신에 배포한 후, 배포 그룹 내에서 **배포 기록**을 확인합니다. 이 보기를 사용하면 VM에서 파이프라인을 지나 커밋까지 추적할 수 있습니다.
+가상 머신을 [배포 그룹](/azure/devops/pipelines/release/deployment-groups)에 대상으로 추가할 수 있습니다. 그런 다음, 다중 머신 업데이트의 대상으로 지정할 수 있습니다. 머신에 배포한 후, 배포 그룹 내에서 **배포 기록**을 확인합니다. 이 보기를 사용하면 VM에서 파이프라인을 지나 커밋까지 추적할 수 있습니다.
 
 ### <a name="rolling-deployments"></a>롤링 배포
 
@@ -93,5 +93,5 @@ Azure를 더 쉽게 시작할 수 있습니다. Azure DevOps Projects를 사용�
  
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure DevOps Projects를 사용하여 Azure 가상 머신에 배포](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Azure 가상 머신 확장 집합에 대한 앱의 지속적인 배포 구현](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Azure DevOps Projects를 사용하여 Azure 가상 머신에 배포](../../devops-project/azure-devops-project-vms.md)
+- [Azure 가상 머신 확장 집합에 대한 앱의 지속적인 배포 구현](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

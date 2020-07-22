@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: a021675632a093d41e2565f63f8bb4e844213628
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c60d27cb75526d801880658846a6b61760f4bf7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101623"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508086"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 모니터링
 
@@ -39,13 +39,13 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-이 자습서에서 Azure 모니터링을 구성하고 업데이트 관리를 수행하려면 Azure의 Windows VM이 필요합니다. 먼저 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
+이 자습서에서 Azure 모니터링을 구성하고 업데이트 관리를 수행하려면 Azure의 Windows VM이 필요합니다. 먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)으로 VM을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myVM*이라는 VM을 만듭니다. 아직 없는 경우 *myResourceGroupMonitorMonitor* 리소스 그룹 및 지원 네트워크 리소스가 만들어집니다.
+이제 [New-AzVM](/powershell/module/az.compute/new-azvm)으로 VM을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myVM*이라는 VM을 만듭니다. 아직 없는 경우 *myResourceGroupMonitorMonitor* 리소스 그룹 및 지원 네트워크 리소스가 만들어집니다.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -61,7 +61,7 @@ New-AzVm `
 
 Windows 가상 머신을 부팅하면 부트 진단 에이전트가 문제 해결 목적에 사용할 수 있는 화면 출력을 캡처합니다. 이 기능은 기본적으로 사용하도록 설정되어 있습니다. 캡처한 스크린샷은 기본적으로 생성되는 Azure Storage 계정에 저장됩니다.
 
-[Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata) 명령으로 부트 진단 데이터를 가져올 수 있습니다. 다음 예제에서는 부트 진단이 *c:\* 드라이브의 루트에 다운로드됩니다.
+[Get-AzureRmVMBootDiagnosticsData](/powershell/module/az.compute/get-azvmbootdiagnosticsdata) 명령으로 부트 진단 데이터를 가져올 수 있습니다. 다음 예제에서는 부트 진단이 *c:\* 드라이브의 루트에 다운로드됩니다.
 
 ```powershell
 Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"

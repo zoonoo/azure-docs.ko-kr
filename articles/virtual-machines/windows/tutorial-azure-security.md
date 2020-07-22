@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c84c705da99bd6f04a6737a1c781b905cbeaad6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6afdae275b98a86eba14b920a6969c967c5a7db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100484"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508239"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Windows 가상 머신 모니터링
 
@@ -52,7 +52,7 @@ VM 보안 구성을 확인하려면 먼저 Security Center 데이터 수집을 �
 
 ## <a name="set-up-a-security-policy"></a>보안 정책 설정
 
-보안 정책은 Security Center에서 데이터를 수집하고 권장할 항목을 정의하는 데 사용됩니다. 서로 다른 보안 정책을 Azure 리소스 집합마다 개별적으로 적용할 수 있습니다. 기본적으로 Azure 리소스가 모든 정책 항목에 대해 평가되지만, 모든 Azure 리소스 또는 리소스 그룹에 대해 개별 정책 항목을 해제할 수 있습니다. Azure Security Center 보안 정책에 대한 자세한 내용은 [Azure Security Center에서 보안 정책 설정](../../security-center/security-center-policies.md)을 참조하세요. 
+보안 정책은 Security Center에서 데이터를 수집하고 권장할 항목을 정의하는 데 사용됩니다. 서로 다른 보안 정책을 Azure 리소스 집합마다 개별적으로 적용할 수 있습니다. 기본적으로 Azure 리소스가 모든 정책 항목에 대해 평가되지만, 모든 Azure 리소스 또는 리소스 그룹에 대해 개별 정책 항목을 해제할 수 있습니다. Azure Security Center 보안 정책에 대한 자세한 내용은 [Azure Security Center에서 보안 정책 설정](../../security-center/tutorial-security-policy.md)을 참조하세요. 
 
 전체 구독에 대한 보안 정책을 설정하려면:
 

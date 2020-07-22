@@ -5,18 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: bb9fc07c0c909f1fcec1644175c1dbac1e2bbb57
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 57468a4b4234809ca6293ca39ed54a3934f9a4fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560924"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506386"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
 이 자습서에서는 Linux 기본 이미지를 사용하여 사용자 지정 Docker 컨테이너로 코드를 만들어 Azure Functions에 배포합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공하지 않는 특정 종속성 또는 구성이 있는 경우 일반적으로 사용자 지정 이미지를 사용합니다.
 
-또한 [Linux에서 호스팅되는 첫 번째 함수 만들기](functions-create-first-azure-function-azure-cli-linux.md)에서 설명한 대로 기본 Azure App Service 컨테이너를 사용할 수도 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
+또한 [Linux에서 호스팅되는 첫 번째 함수 만들기](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)에서 설명한 대로 기본 Azure App Service 컨테이너를 사용할 수도 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -409,9 +409,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
-
-    기본 이미지 간의 차이점은 [App Services - 사용자 지정 Docker 이미지 자습서](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections)에서 설명하고 있습니다.
-
+    
 1. `docker build` 명령을 다시 사용하여 이미지를 다시 빌드합니다. 여기서 `<docker_id>`를 Docker ID로 바꿉니다.
 
     ```

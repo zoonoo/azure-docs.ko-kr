@@ -9,12 +9,12 @@ ms.subservice: windows
 ms.date: 11/30/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 14777b85fdc531b96c61882d5f244ca40ed28fa6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f6dd0792a764ef423f31131e80ab28a45f1fe4c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197981"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500296"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>자습서: 가상 머신 확장 집합을 만들고 Azure PowerShell을 통해 Windows에 고가용성 앱 배포
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정할 수 있습니다. CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 머신 확장 집합을 배포하고 다음에 대해 자세히 알아봅니다.
@@ -41,7 +41,7 @@ VM은 필요에 따라 확장 집합에 생성됩니다. 사용자는 확장 집
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-[New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *Windows Server 2016 Datacenter* 플랫폼 이미지를 사용하는 *myScaleSet*이라는 확장 집합을 만듭니다. 가상 네트워크, 공용 IP 주소 및 부하 분산 장치에 대한 Azure 네트워크 리소스가 자동으로 만들어집니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 사용자 고유의 관리 자격 증명을 설정할 수 있습니다.
+[New-AzVmss](/powershell/module/az.compute/new-azvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *Windows Server 2016 Datacenter* 플랫폼 이미지를 사용하는 *myScaleSet*이라는 확장 집합을 만듭니다. 가상 네트워크, 공용 IP 주소 및 부하 분산 장치에 대한 Azure 네트워크 리소스가 자동으로 만들어집니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 사용자 고유의 관리 자격 증명을 설정할 수 있습니다.
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -59,7 +59,7 @@ New-AzVmss `
 
 
 ## <a name="deploy-sample-application"></a>샘플 애플리케이션 배포
-확장 집합을 테스트하려면 기본 웹 애플리케이션을 설치합니다. Azure 사용자 지정 스크립트 확장을 사용하여 VM 인스턴스에 IIS를 설치하는 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](extensions-customscript.md)를 참조하세요.
+확장 집합을 테스트하려면 기본 웹 애플리케이션을 설치합니다. Azure 사용자 지정 스크립트 확장을 사용하여 VM 인스턴스에 IIS를 설치하는 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../extensions/custom-script-windows.md)를 참조하세요.
 
 사용자 지정 스크립트 확장을 사용하여 기본 IIS 웹 서버 설치 다음과 같이 IIS를 설치하는 사용자 지정 스크립트 확장을 적용합니다.
 
@@ -92,7 +92,7 @@ Update-AzVmss `
 
 ## <a name="allow-traffic-to-application"></a>애플리케이션에 트래픽 허용
 
-기본 웹 애플리케이션에 대한 액세스를 허용하려면 [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) 및 [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다. 자세한 내용은 [Azure 가상 머신 확장 집합에 대한 네트워킹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)을 참조하세요.
+기본 웹 애플리케이션에 대한 액세스를 허용하려면 [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) 및 [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다. 자세한 내용은 [Azure 가상 머신 확장 집합에 대한 네트워킹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)을 참조하세요.
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -141,7 +141,7 @@ Update-AzVmss `
 ```
 
 ## <a name="test-your-scale-set"></a>확장 집합 테스트
-작동 중인 확장 집합을 확인하려면 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myPublicIP*의 IP 주소를 표시합니다.
+작동 중인 확장 집합을 확인하려면 [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myPublicIP*의 IP 주소를 표시합니다.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `
@@ -160,7 +160,7 @@ Get-AzPublicIPAddress `
 확장 집합의 수명 주기 내내 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. Azure PowerShell은 이러한 작업을 수행할 수 있는 빠른 방법을 제공합니다. 다음은 몇 가지 일반적인 작업입니다.
 
 ### <a name="view-vms-in-a-scale-set"></a>확장 집합의 VM 보기
-확장 집합의 VM 인스턴스 목록을 보려면 다음과 같이 [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)을 사용합니다.
+확장 집합의 VM 인스턴스 목록을 보려면 다음과 같이 [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm)을 사용합니다.
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -177,7 +177,7 @@ MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0      
 MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-특정 VM 인스턴스에 대한 추가 정보를 보려면 `-InstanceId` 매개 변수를 [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)에 추가합니다. 다음 예제에서는 *1* VM 인스턴스에 대한 정보가 표시됩니다.
+특정 VM 인스턴스에 대한 추가 정보를 보려면 `-InstanceId` 매개 변수를 [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm)에 추가합니다. 다음 예제에서는 *1* VM 인스턴스에 대한 정보가 표시됩니다.
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -188,7 +188,7 @@ Get-AzVmssVM `
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>VM 인스턴스 증가 또는 감소
-현재 확장 집합의 인스턴스 수를 보려면 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)를 사용하여 *sku.capacity*를 쿼리합니다.
+현재 확장 집합의 인스턴스 수를 보려면 [Get-AzVmss](/powershell/module/az.compute/get-azvmss)를 사용하여 *sku.capacity*를 쿼리합니다.
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
@@ -196,7 +196,7 @@ Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
   Select -ExpandProperty Sku
 ```
 
-그런 다음, [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss)를 사용하여 확장 집합의 가상 머신 수를 수동으로 늘리거나 줄일 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *3*으로 설정합니다.
+그런 다음, [Update-AzVmss](/powershell/module/az.compute/update-azvmss)를 사용하여 확장 집합의 가상 머신 수를 수동으로 늘리거나 줄일 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *3*으로 설정합니다.
 
 ```azurepowershell-interactive
 # Get current scale set

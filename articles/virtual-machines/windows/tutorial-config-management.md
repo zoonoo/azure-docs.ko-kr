@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100416"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508321"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 변경 내용 및 업데이트 모니터링
 
@@ -37,13 +37,13 @@ Cloud Shell에서 코드 블록을 열려면 코드 블록의 오른쪽 위 모�
 
 이 자습서에서 Azure 모니터링을 구성하고 업데이트 관리를 수행하려면 Azure의 Windows VM이 필요합니다.
 
-먼저 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
+먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-다음으로, [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만듭니다. 다음 예제는 `East US` 위치에 `myVM`이라는 VM을 만듭니다. 아직 없는 경우 `myResourceGroupMonitor` 리소스 그룹과 지원 네트워크 리소스가 만들어집니다.
+다음으로, [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만듭니다. 다음 예제는 `East US` 위치에 `myVM`이라는 VM을 만듭니다. 아직 없는 경우 `myResourceGroupMonitor` 리소스 그룹과 지원 네트워크 리소스가 만들어집니다.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -76,7 +76,7 @@ VM에 업데이트 관리를 사용하려면 다음을 수행합니다.
 
 이 VM에 업데이트 관리를 사용하도록 설정되었는지 확인하기 위한 유효성 검사가 수행됩니다. 유효성 검사를 통해 Log Analytics 작업 영역 및 연결된 Automation 계정이 있는지, 그리고 솔루션이 작업 영역에 있는지 여부가 확인됩니다.
 
-[Log Analytics](../../log-analytics/log-analytics-overview.md) 작업 영역은 기능 및 서비스(예: 업데이트 관리)에서 생성된 데이터를 수집하는 데 사용됩니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
+[Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 작업 영역은 기능 및 서비스(예: 업데이트 관리)에서 생성된 데이터를 수집하는 데 사용됩니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
 
 업데이트가 필요한 VM에서 추가 작업을 수행하려면 Azure Automation을 사용하여 VM에 대해 Runbook을 실행하면 됩니다. 이러한 작업에는 업데이트 다운로드 또는 적용이 포함됩니다.
 
@@ -86,8 +86,8 @@ VM에 업데이트 관리를 사용하려면 다음을 수행합니다.
 
 다음 필수 구성 요소 중에 온보딩 과정에서 누락된 것이 있으면 자동으로 추가됩니다.
 
-* [Log Analytics](../../log-analytics/log-analytics-overview.md) 작업 영역
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 작업 영역
+* [Automation](../../automation/index.yml)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md). VM에서 사용되도록 설정됩니다.
 
 솔루션이 사용하도록 설정된 후에는 **업데이트 관리** 창이 열립니다. 사용할 위치, Log Analytics 작업 영역 및 Automation 계정을 구성하고 **사용**을 선택합니다. 이러한 옵션이 흐리게 표시되면 VM에 또 다른 자동화 솔루션을 사용하도록 설정되며, 해당 솔루션의 작업 영역과 Automation 계정을 사용해야 합니다.
@@ -108,7 +108,7 @@ VM에 업데이트 관리를 사용하려면 다음을 수행합니다.
 
 VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리** 창 맨 위에서 **업데이트 배포 예약**을 선택합니다. **새 배포 업데이트** 창에서 다음 정보를 지정합니다.
 
-| 옵션 | Description |
+| 옵션 | 설명 |
 | --- | --- |
 | **이름** |업데이트 배포를 식별하는 고유 이름을 제공합니다. |
 |**운영 체제**| **Linux** 또는 **Windows**를 선택합니다.|

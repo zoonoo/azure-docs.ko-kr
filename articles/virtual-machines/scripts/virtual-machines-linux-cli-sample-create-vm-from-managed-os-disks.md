@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 1616466619c7c7627106c09de703d02a7c40d248
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 83f0ea094c26a1ff664ef27729731b77d987e7ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75458409"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501503"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>CLI와 기존 관리 OS 디스크를 사용하여 가상 머신 만들기
 
@@ -52,10 +52,10 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk) | 디스크 이름 및 리소스 그룹 이름을 사용하여 관리 디스크 속성을 가져옵니다. Id 속성은 새 VM에 관리 디스크를 연결하는 데 사용됩니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 관리 OS 디스크를 사용하여 VM을 만듭니다. |
+| [az disk show](/cli/azure/disk) | 디스크 이름 및 리소스 그룹 이름을 사용하여 관리 디스크 속성을 가져옵니다. Id 속성은 새 VM에 관리 디스크를 연결하는 데 사용됩니다. |
+| [az vm create](/cli/azure/vm) | 관리 OS 디스크를 사용하여 VM을 만듭니다. |
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 가상 머신 CLI 스크립트 샘플은 [Azure Linux VM 설명서](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.

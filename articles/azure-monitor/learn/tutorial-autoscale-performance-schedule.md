@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: a4502a9ec7866d9b1ecb0f2aa2257e759fd417c8
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 9a069c4e63abd5307c123799d92e656294045a65
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114685"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505859"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>성능 데이터 또는 일정에 따라 Azure 리소스에 대한 자동 크기 조정 설정 만들기
 
@@ -183,5 +183,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 자동 크기 조정 설정에 대한 자세한 내용을 보려면 [자동 크기 조정 개요](../../azure-monitor/platform/autoscale-overview.md)를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [모니터링 데이터 보관](tutorial-archive-data.md)
-
+> [모니터링 데이터 보관](../platform/platform-logs-overview.md)

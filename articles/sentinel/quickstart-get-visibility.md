@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564611"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496216"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>빠른 시작: Azure Sentinel 시작
 
@@ -91,23 +91,26 @@ ms.locfileid: "85564611"
 
 다음 샘플 쿼리를 사용하여 여러 주 동안의 트래픽 추세를 비교할 수 있습니다. 쿼리를 실행하는 디바이스 공급업체와 데이터 원본을 쉽게 전환할 수 있습니다. 이 예제에서는 Windows의 SecurityEvent를 사용하며, 다른 방화벽의 AzureActivity 또는 CommonSecurityLog에서 실행되도록 전환할 수 있습니다.
 
-     |where DeviceVendor == "Palo Alto Networks":
-      // week over week query
-      SecurityEvent
-      | where TimeGenerated > ago(14d)
-      | summarize count() by bin(TimeGenerated, 1d)
-      | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
-
+```console
+ |where DeviceVendor == "Palo Alto Networks":
+  // week over week query
+  SecurityEvent
+  | where TimeGenerated > ago(14d)
+  | summarize count() by bin(TimeGenerated, 1d)
+  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+```
 
 여러 원본의 데이터를 통합하는 하나의 쿼리를 만들 수 있습니다. 방금 만든 새 사용자의 Azure Active Directory 감사 로그를 살펴본 다음, Azure 로그를 확인하여 사용자가 생성되고 24시간 이내에 역할 할당 변경을 시작했는지 알아볼 수 있습니다. 이러한 의심스러운 활동이 다음과 같이 이 대시보드에 표시됩니다.
 
-    AuditLogs
-    | where OperationName == "Add user"
-    | project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
-    | join (AzureActivity
-    | where OperationName == "Create role assignment"
-    | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
-    | project-away user1
+```console
+AuditLogs
+| where OperationName == "Add user"
+| project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
+| join (AzureActivity
+| where OperationName == "Create role assignment"
+| project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
+| project-away user1
+```
 
 데이터를 보는 사용자의 역할과 이들이 원하는 정보에 따라 다른 통합 문서를 만들 수 있습니다. 예를 들어, 네트워크 관리자를 위해 방화벽 데이터를 포함하는 통합 문서를 만들 수 있습니다. 항목을 확인하려는 빈도, 매일 검토하려는 항목이 있는지 여부 및 1시간에 1번 확인하려는 기타 항목을 기준으로 통합 문서를 만들 수도 있습니다. 예를 들어, 1시간 간격으로 Azure AD 로그인을 확인하여 오류를 검색할 수 있습니다. 
 

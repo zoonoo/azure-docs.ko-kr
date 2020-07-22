@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5c82f087505c1634dd621252935c4017687340b2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b3b57cd2a2e5d5502f3865eddcdddfac67460dc7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198235"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495035"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 
@@ -44,12 +44,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
 | Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
 |----|----|----|
-| [범용](../virtual-machines/windows/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
-| [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 576 |
-| [메모리에 최적화](../virtual-machines/windows/sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
-| [Storage에 최적화](../virtual-machines/windows/sizes-storage.md) | L 시리즈 | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N 시리즈 | 1440 |
-| [고성능](../virtual-machines/windows/sizes-hpc.md) | A 및 H 시리즈 | 2000 |
+| [범용](../virtual-machines/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
+| [컴퓨팅 최적화](../virtual-machines/sizes-compute.md) | F 시리즈 | 576 |
+| [메모리에 최적화](../virtual-machines/sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
+| [Storage에 최적화](../virtual-machines/sizes-storage.md) | L 시리즈 | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N 시리즈 | 1440 |
+| [고성능](../virtual-machines/sizes-hpc.md) | A 및 H 시리즈 | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
@@ -58,12 +58,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
 | Type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
 |----|----|----|
-| [범용](../virtual-machines/windows/sizes-general.md) | A, B 및 D 시리즈 | 64 |
-| [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 64 |
-| [메모리에 최적화](../virtual-machines/windows/sizes-memory.md) | D, E, G 및 M 시리즈 | 64 |
-| [Storage에 최적화](../virtual-machines/windows/sizes-storage.md) | L 시리즈 | 64 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N 시리즈 | 64 |
-| [고성능](../virtual-machines/windows/sizes-hpc.md) | A 및 H 시리즈 | 64 |
+| [범용](../virtual-machines/sizes-general.md) | A, B 및 D 시리즈 | 64 |
+| [컴퓨팅 최적화](../virtual-machines/sizes-compute.md) | F 시리즈 | 64 |
+| [메모리에 최적화](../virtual-machines/sizes-memory.md) | D, E, G 및 M 시리즈 | 64 |
+| [Storage에 최적화](../virtual-machines/sizes-storage.md) | L 시리즈 | 64 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N 시리즈 | 64 |
+| [고성능](../virtual-machines/sizes-hpc.md) | A 및 H 시리즈 | 64 |
 
 
 ## <a name="vm-disk-types"></a>VM 디스크 유형
@@ -135,7 +135,7 @@ Update-AzVmss `
 ## <a name="prepare-the-data-disks"></a>데이터 디스크 준비
 확장 집합 VM 인스턴스에 만들어지고 연결된 디스크는 원시 디스크입니다. 데이터 및 애플리케이션과 함께 사용하려면 먼저 디스크를 준비해야 합니다. 디스크를 준비하려면 파티션을 만들고, 파일 시스템을 만들고, 디스크를 탑재합니다.
 
-확장 집합의 여러 VM 인스턴스에 걸쳐 프로세스를 자동화하려면 Azure 사용자 지정 스크립트 확장을 사용할 수 있습니다. 이 확장은 연결된 데이터 디스크를 준비하는 것과 같이 각 VM 인스턴스에서 스크립트를 로컬로 실행할 수 있습니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/windows/extensions-customscript.md)를 참조하세요.
+확장 집합의 여러 VM 인스턴스에 걸쳐 프로세스를 자동화하려면 Azure 사용자 지정 스크립트 확장을 사용할 수 있습니다. 이 확장은 연결된 데이터 디스크를 준비하는 것과 같이 각 VM 인스턴스에서 스크립트를 로컬로 실행할 수 있습니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/extensions/custom-script-windows.md)를 참조하세요.
 
 
 다음 예제에서는 연결된 모든 원시 데이터 디스크를 준비하는 [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension)을 사용하여 각 VM 인스턴스에서 GitHub 샘플 리포지토리의 스크립트를 실행합니다.

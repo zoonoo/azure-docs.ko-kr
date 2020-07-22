@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c9bad99d0ce39fb5f179043278ca4785d726744
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d080fd3cac7a0550452908e9e0265bb2ffcb462
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>자습서: Autotask Endpoint Backup과 Azure Active Directory 통합
 
@@ -111,7 +111,7 @@ Autotask Endpoint Backup에서 Azure AD Single Sign-On을 구성하려면 다음
     b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Autotask Endpoint Backup 지원 팀](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Autotask Endpoint Backup 지원 팀](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -129,7 +129,7 @@ Autotask Endpoint Backup에서 Azure AD Single Sign-On을 구성하려면 다음
 
 ### <a name="configure-autotask-endpoint-backup-single-sign-on"></a>Autotask Endpoint Backup Single Sign-On 구성
 
-**Autotask Endpoint Backup** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Autotask Endpoint Backup 지원 팀](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Autotask Endpoint Backup** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Autotask Endpoint Backup 지원 팀](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -184,7 +184,7 @@ Autotask Endpoint Backup에서 Azure AD Single Sign-On을 구성하려면 다음
 
 ### <a name="create-autotask-endpoint-backup-test-user"></a>Autotask Endpoint Backup 테스트 사용자 만들기
 
-이 섹션에서는 Autotask Endpoint Backup에서 Britta Simon이라는 사용자를 만듭니다.  [Autotask Endpoint Backup 지원 팀](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm)과 협력하여 Autotask Endpoint Backup 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Autotask Endpoint Backup에서 Britta Simon이라는 사용자를 만듭니다.  [Autotask Endpoint Backup 지원 팀](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm)과 협력하여 Autotask Endpoint Backup 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

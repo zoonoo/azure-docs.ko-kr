@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8aa53d4b08a4a0bdaa4e1f12169811ae88edbd2f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76988331"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501877"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>자습서: Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
 
@@ -24,7 +24,7 @@ CI(지속적인 통합) 및 CD(지속적인 배포)는 모든 코드를 커밋�
 
 Azure Pipelines는 온-프레미스 또는 클라우드 모두에서 가상 머신에 배포할 수 있는 완전한 기능을 갖춘 CI/CD 자동화 도구 세트를 제공합니다.
 
-이 자습서에서는 YAML 기반 CI/CD 파이프라인을 설정하여 앱을 Azure Pipelines [환경](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops)에 배포합니다. 이 경우 Linux 가상 머신을 리소스로 사용하여 각각 앱을 실행하는 웹 서버 역할을 합니다.
+이 자습서에서는 YAML 기반 CI/CD 파이프라인을 설정하여 앱을 Azure Pipelines [환경](/azure/devops/pipelines/process/environments?view=azure-devops)에 배포합니다. 이 경우 Linux 가상 머신을 리소스로 사용하여 각각 앱을 실행하는 웹 서버 역할을 합니다.
 
 다음 방법을 알아봅니다.
 
@@ -41,11 +41,11 @@ Azure Pipelines는 온-프레미스 또는 클라우드 모두에서 가상 머�
   [무료 Azure DevOps Services 조직](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)을 얻을 수 있습니다.
 
   > [!NOTE]
-  > 자세한 내용은 [Azure DevOps Services에 연결](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts)을 참조하세요.
+  > 자세한 내용은 [Azure DevOps Services에 연결](/azure/devops/organizations/projects/connect-to-projects?view=vsts)을 참조하세요.
 
-*  배포 대상으로 Linux 가상 머신이 필요합니다.  자세한 내용은 [Azure CLI로 Linux VM 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)를 참조하세요.
+*  배포 대상으로 Linux 가상 머신이 필요합니다.  자세한 내용은 [Azure CLI로 Linux VM 만들기 및 관리](./tutorial-manage-vm.md)를 참조하세요.
 
-*  가상 컴퓨터의 인바운드 포트 80을 엽니다. 자세한 내용은 [Azure Portal을 사용하여 네트워크 보안 그룹 만들기](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)를 참조하세요.
+*  가상 컴퓨터의 인바운드 포트 80을 엽니다. 자세한 내용은 [Azure Portal을 사용하여 네트워크 보안 그룹 만들기](../../virtual-network/tutorial-filter-network-traffic.md)를 참조하세요.
 
 ## <a name="get-your-sample-app-code"></a>샘플 앱 코드 가져오기
 
@@ -91,13 +91,13 @@ https://github.com/azure-devops/fabrikam-node
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 javascript 앱 또는 Node.js 앱을 설치하려면 앱을 배포하는 Nginx 웹 서버가 포함된 Linux VM이 필요합니다.
-Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예제](/azure/virtual-machines/linux/quick-create-cli)의 단계를 사용하여 만듭니다.
+Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예제](./quick-create-cli.md)의 단계를 사용하여 만듭니다.
 
 * * * 
 
 ## <a name="create-an-azure-pipelines-environment-with-azure-virtual-machines"></a>Azure 가상 머신을 사용하여 Azure Pipelines 환경 만들기
 
-가상 머신은 [환경](https://docs.microsoft.com/azure/devops/pipelines/process/environments) 내에서 리소스로 추가하고, 다중 머신 배포의 대상으로 지정할 수 있습니다. 환경 내의 배포 기록 보기는 VM, 파이프라인, 커밋의 순서로 추적할 수 있는 기능을 제공합니다.
+가상 머신은 [환경](/azure/devops/pipelines/process/environments) 내에서 리소스로 추가하고, 다중 머신 배포의 대상으로 지정할 수 있습니다. 환경 내의 배포 기록 보기는 VM, 파이프라인, 커밋의 순서로 추적할 수 있는 기능을 제공합니다.
 
 "**파이프라인**" 섹션 내의 "**환경**" 허브에서 환경을 만들 수 있습니다.
 1.  Azure DevOps 조직에 로그인하고, 프로젝트로 이동합니다.
@@ -163,7 +163,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
     artifact: drop
 ```
 
-자세한 지침은 [Maven을 사용하여 Java 앱 빌드](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java)에 설명된 단계를 따르세요.
+자세한 지침은 [Maven을 사용하여 Java 앱 빌드](/azure/devops/pipelines/ecosystems/java)에 설명된 단계를 따르세요.
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
@@ -196,7 +196,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
       artifact: drop
 ```
 
-자세한 지침은 [gulp를 사용하여 Node.js 앱 빌드](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript)의 단계를 따르세요.
+자세한 지침은 [gulp를 사용하여 Node.js 앱 빌드](/azure/devops/pipelines/ecosystems/javascript)의 단계를 따르세요.
 
 - 파이프라인을 살펴보고 수행하는 작업을 확인합니다. 모든 기본 입력이 코드에 적합한지 확인합니다.
 
@@ -208,7 +208,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Linux VM에 배포할 CD 단계 정의
 
-1. 위의 파이프라인을 편집하고 아래 YAML 구문을 사용하여 이전에 사용한 환경과 VM 리소스를 참조하여 [배포 작업](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs)을 포함합니다.
+1. 위의 파이프라인을 편집하고 아래 YAML 구문을 사용하여 이전에 사용한 환경과 VM 리소스를 참조하여 [배포 작업](/azure/devops/pipelines/process/deployment-jobs)을 포함합니다.
 
    ```YAML
    jobs:  
@@ -221,7 +221,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
      strategy:
    ```
 2. 환경에서 각 가상 머신에 대해 정의한 **tags**를 지정하여 배포를 받는 환경에서 특정 가상 머신 세트를 선택할 수 있습니다.
-[여기](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job)에는 배포 작업에 대한 전체 YAML 스키마가 있습니다.
+[여기](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job)에는 배포 작업에 대한 전체 YAML 스키마가 있습니다.
 
 3. 배포 전략으로 `runOnce` 또는 `rolling`을 지정할 수 있습니다. 
 
@@ -295,8 +295,8 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
 ## <a name="next-steps"></a>다음 단계
-- 방금 만든 [파이프라인 사용자 지정](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline)으로 진행할 수 있습니다.
-- YAML 파이프라인에서 수행할 수 있는 다른 작업에 대한 자세한 내용은 [YAML 스키마 참조](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema)를 참조하세요.
+- 방금 만든 [파이프라인 사용자 지정](/azure/devops/pipelines/customize-pipeline)으로 진행할 수 있습니다.
+- YAML 파이프라인에서 수행할 수 있는 다른 작업에 대한 자세한 내용은 [YAML 스키마 참조](/azure/devops/pipelines/yaml-schema)를 참조하세요.
 - LAMP(Linux, Apache, MySQL 및 PHP) 스택을 배포하는 방법을 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]

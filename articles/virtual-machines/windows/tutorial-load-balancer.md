@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0ece182765be2ee3b18334569799769e251d1af4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b93c8d48313dc41928400efdddf14e88c8a7e6c2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100348"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508123"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>자습서: Azure PowerShell을 통해 Azure에서 Windows 가상 머신의 부하를 분산하여 고가용성 애플리케이션을 만드는 방법
 부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서에서는 트래픽을 분산하고 고가용성을 제공하는 Azure Load Balancer의 여러 다른 구성 요소에 대해 알아봅니다. 다음 방법을 알아봅니다.
@@ -43,7 +43,7 @@ Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용�
 Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="create-azure-load-balancer"></a>Azure Load Balancer 만들기
-이 섹션에서는 부하 분산 장치의 각 구성 요소를 만들고 구성하는 방법을 자세히 설명합니다. 부하 분산 장치를 만들려면 먼저 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myResourceGroupLoadBalancer*라는 리소스 그룹을 만듭니다.
+이 섹션에서는 부하 분산 장치의 각 구성 요소를 만들고 구성하는 방법을 자세히 설명합니다. 부하 분산 장치를 만들려면 먼저 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myResourceGroupLoadBalancer*라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -52,7 +52,7 @@ New-AzResourceGroup `
 ```
 
 ### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
-인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *myResourceGroupLoadBalancer* 리소스 그룹에 *myPublicIP*라는 공용 IP 주소를 만듭니다.
+인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *myResourceGroupLoadBalancer* 리소스 그룹에 *myPublicIP*라는 공용 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
 $publicIP = New-AzPublicIpAddress `
@@ -63,7 +63,7 @@ $publicIP = New-AzPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>부하 분산 장치 만들기
-[New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용하여 프런트 엔드 IP 풀을 만듭니다. 다음 예제에서는 *myFrontEndPool*이라는 프런트 엔드 IP 풀을 만들고 *myPublicIP* 주소를 연결합니다. 
+[New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용하여 프런트 엔드 IP 풀을 만듭니다. 다음 예제에서는 *myFrontEndPool*이라는 프런트 엔드 IP 풀을 만들고 *myPublicIP* 주소를 연결합니다. 
 
 ```azurepowershell-interactive
 $frontendIP = New-AzLoadBalancerFrontendIpConfig `
@@ -71,14 +71,14 @@ $frontendIP = New-AzLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-[New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀을 만듭니다. VM은 나머지 단계에서 이 백 엔드 풀에 연결합니다. 다음 예제는 *myBackEndPool*이라는 백 엔드 주소 풀을 만듭니다.
+[New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀을 만듭니다. VM은 나머지 단계에서 이 백 엔드 풀에 연결합니다. 다음 예제는 *myBackEndPool*이라는 백 엔드 주소 풀을 만듭니다.
 
 ```azurepowershell-interactive
 $backendPool = New-AzLoadBalancerBackendAddressPoolConfig `
   -Name "myBackEndPool"
 ```
 
-이제 [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer)를 사용하여 부하 분산 장치를 만듭니다. 다음 예제에서는 이전 단계에서 만든 프런트 엔드 및 백 엔드 IP 풀을 사용하여 *myLoadBalancer*라는 부하 분산 장치를 만듭니다.
+이제 [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)를 사용하여 부하 분산 장치를 만듭니다. 다음 예제에서는 이전 단계에서 만든 프런트 엔드 및 백 엔드 IP 풀을 사용하여 *myLoadBalancer*라는 부하 분산 장치를 만듭니다.
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -94,7 +94,7 @@ $lb = New-AzLoadBalancer `
 
 다음 예제에서는 TCP 프로브를 만듭니다. 좀 더 미세 조정된 상태 검사를 위해 사용자 지정 HTTP 프로브를 만들 수도 있습니다. 사용자 지정 HTTP 프로브를 사용할 경우 *healthcheck.aspx*와 같은 상태 확인 페이지를 만들어야 합니다. 부하 분산 상태가 호스트를 순환 상태를 유지하려면 프로브는 **HTTP 200 정상** 응답을 반환해야 합니다.
 
-TCP 상태 프로브를 만들려면 [Add-Add-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerprobeconfig)를 사용합니다. 다음 예제에서는 *TCP* 포트 *80*에서 각 VM을 모니터링하는 *myHealthProbe*라는 상태 프로브를 만듭니다.
+TCP 상태 프로브를 만들려면 [Add-Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig)를 사용합니다. 다음 예제에서는 *TCP* 포트 *80*에서 각 VM을 모니터링하는 *myHealthProbe*라는 상태 프로브를 만듭니다.
 
 ```azurepowershell-interactive
 Add-AzLoadBalancerProbeConfig `
@@ -106,7 +106,7 @@ Add-AzLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-상태 프로브를 적용하려면 [Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer)를 사용하여 부하 분산 장치를 업데이트합니다.
+상태 프로브를 적용하려면 [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)를 사용하여 부하 분산 장치를 업데이트합니다.
 
 ```azurepowershell-interactive
 Set-AzLoadBalancer -LoadBalancer $lb
@@ -115,7 +115,7 @@ Set-AzLoadBalancer -LoadBalancer $lb
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 VM만 트래픽을 수신하도록 하려면 사용할 상태 프로브도 정의합니다.
 
-[Add-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRule*이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80*에서 트래픽 부하를 분산합니다.
+[Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRule*이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80*에서 트래픽 부하를 분산합니다.
 
 ```azurepowershell-interactive
 $probe = Get-AzLoadBalancerProbeConfig -LoadBalancer $lb -Name "myHealthProbe"
@@ -131,7 +131,7 @@ Add-AzLoadBalancerRuleConfig `
   -Probe $probe
 ```
 
-[Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer)를 사용하여 부하 분산 장치를 업데이트합니다.
+[Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)를 사용하여 부하 분산 장치를 업데이트합니다.
 
 ```azurepowershell-interactive
 Set-AzLoadBalancer -LoadBalancer $lb
@@ -141,7 +141,7 @@ Set-AzLoadBalancer -LoadBalancer $lb
 일부 VM을 배포하고 부하 분산 장치를 테스트하려면 지원하는 가상 네트워크 리소스를 만듭니다. 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 관리](tutorial-virtual-network.md) 자습서를 참조하세요.
 
 ### <a name="create-network-resources"></a>네트워크 리소스 만들기
-[New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnet*을 만듭니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnet*을 만듭니다.
 
 ```azurepowershell-interactive
 # Create subnet config
@@ -158,7 +158,7 @@ $vnet = New-AzVirtualNetwork `
   -Subnet $subnetConfig
 ```
 
-[New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface)를 사용하여 가상 NIC를 만듭니다. 다음 예제에서는 3개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩) 언제든지 추가 가상 NIC 및 VM을 만든 후 부하 분산 장치에 추가할 수 있습니다.
+[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 가상 NIC를 만듭니다. 다음 예제에서는 3개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩) 언제든지 추가 가상 NIC 및 VM을 만든 후 부하 분산 장치에 추가할 수 있습니다.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
@@ -176,7 +176,7 @@ for ($i=1; $i -le 3; $i++)
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 앱의 고가용성을 향상시키려면 VM을 가용성 집합에 배치합니다.
 
-[New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
+[New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
 
 ```azurepowershell-interactive
 $availabilitySet = New-AzAvailabilitySet `
@@ -188,13 +188,13 @@ $availabilitySet = New-AzAvailabilitySet `
   -PlatformUpdateDomainCount 2
 ```
 
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 3개의 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
+이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 3개의 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
@@ -219,7 +219,7 @@ for ($i=1; $i -le 3; $i++)
 ### <a name="install-iis-with-custom-script-extension"></a>사용자 지정 스크립트 확장을 사용하여 IIS 설치
 [Windows 가상 머신을 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 Windows용 사용자 지정 스크립트 확장을 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 동일한 접근 방법을 사용하여 VM에서 IIS를 설치하고 구성할 수 있습니다.
 
-[Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 확장은 `powershell Add-WindowsFeature Web-Server`를 실행하여 IIS 웹 서버를 설치한 다음 *Default.htm* 페이지를 업데이트하여 VM의 호스트 이름을 표시합니다.
+[Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 확장은 `powershell Add-WindowsFeature Web-Server`를 실행하여 IIS 웹 서버를 설치한 다음 *Default.htm* 페이지를 업데이트하여 VM의 호스트 이름을 표시합니다.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
@@ -237,7 +237,7 @@ for ($i=1; $i -le 3; $i++)
 ```
 
 ## <a name="test-load-balancer"></a>부하 분산 장치 테스트
-[Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 앞서 만든 *myPublicIP*의 IP 주소를 가져옵니다.
+[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 앞서 만든 *myPublicIP*의 IP 주소를 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `
@@ -256,7 +256,7 @@ Get-AzPublicIPAddress `
 앱이 실행되는 동안 OS 업데이트와 같은 유지 관리 작업을 VM에서 수행해야 할 수 있습니다. 앱에 대해 증가된 트래픽을 처리하기 위해 VM을 더 추가해야 할 수 있습니다. 이 섹션에서는 부하 분산 장치에서 VM을 추가 또는 제거하는 방법을 보여 줍니다.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>부하 분산 장치에서 VM 제거
-[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface)를 사용하여 네트워크 인터페이스 카드를 가져오고 가상 NIC의 *LoadBalancerBackendAddressPools* 속성을 *$null*로 설정합니다. 마지막으로 가상 NIC를 업데이트합니다.
+[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface)를 사용하여 네트워크 인터페이스 카드를 가져오고 가상 NIC의 *LoadBalancerBackendAddressPools* 속성을 *$null*로 설정합니다. 마지막으로 가상 NIC를 업데이트합니다.
 
 ```azurepowershell-interactive
 $nic = Get-AzNetworkInterface `
@@ -269,7 +269,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
 앱이 실행되는 나머지 2개의 VM에서 부하 분산 장치가 트래픽을 분산하는 것을 확인하기 위해 웹 브라우저를 강제로 새로 고칠 수 있습니다. 이제 OS 업데이트 설치 또는 VM 다시 부팅을 수행 등의 유지 관리 작업을 VM에서 수행할 수 있습니다.
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>부하 분산 장치에 VM 추가
-VM 유지 관리를 수행한 후에 또는 용량을 확장해야 하는 경우 가상 NIC의 *LoadBalancerBackendAddressPools* 속성을 [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer)에서 *BackendAddressPool*로 설정합니다.
+VM 유지 관리를 수행한 후에 또는 용량을 확장해야 하는 경우 가상 NIC의 *LoadBalancerBackendAddressPools* 속성을 [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer)에서 *BackendAddressPool*로 설정합니다.
 
 부하 분산 장치를 가져옵니다.
 

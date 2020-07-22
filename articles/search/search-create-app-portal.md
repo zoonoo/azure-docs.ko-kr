@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c6ab5c2cae2bb966c2b040b40dbf36e56a54411b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955695"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496755"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>빠른 시작: 포털에서 데모 앱 만들기(Azure Cognitive Search)
 
@@ -31,7 +31,7 @@ Azure Portal의 **데모 앱 만들기** 마법사를 사용하여 브라우저�
 
 + [Microsoft Edge(최신 버전)](https://www.microsoft.com/edge) 또는 Google Chrome.
 
-+ 생성된 애플리케이션의 기반으로 사용할 [검색 인덱스](search-create-index-portal.md)입니다. 
++ 생성된 애플리케이션의 기반으로 사용할 [검색 인덱스](search-what-is-an-index.md)입니다. 
 
   이 빠른 시작에서는 미리 보기 이미지가 있으므로 기본 제공 부동산 샘플 데이터와 인덱스를 사용합니다(마법사에서 결과 페이지에 이미지 추가를 지원함). 이 연습에 사용되는 인덱스를 만들려면 **데이터 가져오기** 마법사를 실행하여 *realestate-us-sample* 데이터 원본을 선택합니다.
 

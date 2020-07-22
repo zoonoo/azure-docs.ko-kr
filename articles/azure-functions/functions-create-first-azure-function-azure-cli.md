@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 671404b952156ff6ad20eaf082d7af33058923a3
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100029"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506352"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>빠른 시작: Azure에서 HTTP 요청에 응답하는 함수 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "85100029"
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Maven이 선호하는 개발 도구가 아닌 경우 [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) 및 [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)를 사용하여 Java 개발자를 위한 비슷한 자습서를 확인하세요.
+> Maven이 선호하는 개발 도구가 아닌 경우 [Gradle](./functions-create-first-java-gradle.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) 및 [Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)를 사용하여 Java 개발자를 위한 비슷한 자습서를 확인하세요.
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
@@ -139,7 +139,7 @@ cd fabrikam-functions
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
-반환 개체는 [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult)(200) 또는 [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult)(400)로 응답 메시지를 반환하는 [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult)입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp)을 참조하세요.
+반환 개체는 [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult)(200) 또는 [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult)(400)로 응답 메시지를 반환하는 [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult)입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=csharp)을 참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -169,7 +169,7 @@ cd fabrikam-functions
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-HTTP 트리거의 경우 함수는 *function.json*에 정의된 `req` 변수에 요청 데이터를 받습니다. `req`는 [azure.functions.HttpRequest 클래스](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다. *function.json*에 `$return`으로 정의되는 반환 개체는 [azure.functions.HttpResponse 클래스](/python/api/azure-functions/azure.functions.httpresponse)의 인스턴스입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](/azure/azure-functions/functions-bindings-http-webhook?tabs=python)을 참조하세요.
+HTTP 트리거의 경우 함수는 *function.json*에 정의된 `req` 변수에 요청 데이터를 받습니다. `req`는 [azure.functions.HttpRequest 클래스](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다. *function.json*에 `$return`으로 정의되는 반환 개체는 [azure.functions.HttpResponse 클래스](/python/api/azure-functions/azure.functions.httpresponse)의 인스턴스입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=python)을 참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -179,7 +179,7 @@ HTTP 트리거의 경우 함수는 *function.json*에 정의된 `req` 변수에 
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-HTTP 트리거의 경우 함수는 *function.json*에 정의된 `req` 변수에 요청 데이터를 받습니다. *function.json*에 `$return`으로 정의된 반환 개체는 응답입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript)을 참조하세요.
+HTTP 트리거의 경우 함수는 *function.json*에 정의된 `req` 변수에 요청 데이터를 받습니다. *function.json*에 `$return`으로 정의된 반환 개체는 응답입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=javascript)을 참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"

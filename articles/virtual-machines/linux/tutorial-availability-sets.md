@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 300b497765dd1081fbad36292c01c56da5bb5e38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a651ccd825d4a3d7add632eae74ac22a40f1b37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76277255"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501826"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 고가용성 가상 머신 만들기 및 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "76277255"
 > * 가용성 집합에서 VM 만들기
 > * 사용 가능한 VM 크기 확인
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 

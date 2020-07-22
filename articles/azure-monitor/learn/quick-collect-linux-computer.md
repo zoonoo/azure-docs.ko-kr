@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 05dd9f6c2f1f08ec0e420bd4257d2c26e1963e5b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d99af6965e4d2e73ed302530d76126e0e6e8a3ef
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850065"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505927"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 
@@ -168,4 +168,4 @@ Azure Monitor는 장기 분석 및 보고를 위해 Linux Syslog 및 성능 카�
 데이터를 보고 분석하는 방법을 알아보려면 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics에서 데이터 보기 또는 분석](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Log Analytics에서 데이터 보기 또는 분석](../log-query/get-started-portal.md)

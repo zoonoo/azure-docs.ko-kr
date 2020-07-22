@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: de554f48297c228df9345a6e822096d05b85652f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: cb8850adaf638aca3ed69c3939916e132f66062d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196871"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504566"
 ---
 # <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Azure CLI를 사용하여 단일 데이터베이스 만들고 및 방화벽 규칙을 구성합니다.
 
@@ -48,7 +48,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| | |
+| 명령 | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server#az-sql-server-create) | 서버 명령 |
 | [az sql server firewall](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 서버 방화벽 명령입니다. |

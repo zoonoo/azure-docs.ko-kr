@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f15beeee2c5843506f0bf89b4c6d66d77826e152
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0e5cabdf9c69ead9a2d7f497aceec183cf0be900
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459893"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509667"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>VM 운영 체제 디스크 문제 해결
 
@@ -40,14 +40,14 @@ ms.locfileid: "81459893"
 
 | 명령 | 메모 |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm) | 가상 머신 목록을 반환합니다. 이 경우 가상 컴퓨터 운영 체제 디스크를 반환하는 데 쿼리 옵션이 사용됩니다. 그러면 이 값이 변수 이름 'uri'에 추가됩니다. |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm) | 가상 머신을 삭제합니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 가상 머신을 만듭니다.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | 디스크를 가상 머신에 연결합니다. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | 가상 컴퓨터의 IP 주소를 반환합니다. |
+| [az vm show](/cli/azure/vm) | 가상 머신 목록을 반환합니다. 이 경우 가상 컴퓨터 운영 체제 디스크를 반환하는 데 쿼리 옵션이 사용됩니다. 그러면 이 값이 변수 이름 'uri'에 추가됩니다. |
+| [az vm delete](/cli/azure/vm) | 가상 머신을 삭제합니다. |
+| [az vm create](/cli/azure/vm) | 가상 머신을 만듭니다.  |
+| [az vm disk attach](/cli/azure/vm/disk) | 디스크를 가상 머신에 연결합니다. |
+| [az vm list-ip-addresses](/cli/azure/vm) | 가상 컴퓨터의 IP 주소를 반환합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 가상 머신 CLI 스크립트 샘플은 [Azure Linux VM 설명서](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.

@@ -3,12 +3,12 @@ title: 자습서 - 프라이빗 클라우드에 액세스하는 방법 알아보
 description: AVS(Azure VMware 솔루션) 프라이빗 클라우드에 액세스하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 32dc5c173789996d2559eda1153b1509e10e5984
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873596"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497967"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>자습서: AVS(Azure VMware 솔루션) 프라이빗 클라우드에 액세스하는 방법 알아보기
 
@@ -43,7 +43,7 @@ ms.locfileid: "83873596"
 | **사용자 이름** | VM에 로그온하기 위한 사용자 이름을 입력합니다. |
 | **암호** | VM에 로그온하기 위한 암호를 입력합니다. |
 | **암호 확인** | VM에 로그온하기 위한 암호를 입력합니다. |
-| **퍼블릭 인바운드 포트** | **없음**을 선택합니다. [없음]이 선택되면 [JIT 액세스](../security-center/security-center-just-in-time.md#configure-jit-access-from-an-azure-vms-page-)를 사용하여 VM에 액세스하려는 경우에만 VM에 대한 액세스를 제어할 수 있습니다.  |
+| **퍼블릭 인바운드 포트** | **없음**을 선택합니다. [없음]이 선택되면 [JIT 액세스](../security-center/security-center-just-in-time.md#jit-configure)를 사용하여 VM에 액세스하려는 경우에만 VM에 대한 액세스를 제어할 수 있습니다.  |
 
 적절한 정보가 입력되었으면 **검토 + 만들기**를 클릭합니다. 유효성 검사가 통과되면 **만들기**를 선택하여 가상 머신 만들기 프로세스를 시작합니다.
 

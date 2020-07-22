@@ -4,12 +4,12 @@ description: Backup 및 Recovery Services를 사용하여 Azure에서 디스크�
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 56410b5302611d5de3d72f727e1a4c36bd49ca7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 75aa06d4c99c2b9c99015acfae98c30e75209f64
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160941"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503526"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Azure에서 디스크 복원 및 복구된 VM 만들기
 
@@ -43,7 +43,7 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
 
 디스크를 복원하려면 복구 지점을 복구 데이터에 대한 원본으로 선택합니다. 기본 정책은 매일 복구 지점을 만들고 이를 30일 동안 유지하므로 복구 시점을 특정 시점으로 선택할 수 있는 복구 지점 집합을 유지할 수 있습니다.
 
-사용 가능한 복구 지점 목록을 보려면 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list)를 사용합니다. 복구 지점 **이름**은 디스크를 복구하는 데 사용됩니다. 이 자습서에서는 사용 가능한 최근 복구 지점을 사용하겠습니다. `--query [0].name` 매개 변수는 다음과 같이 최근 복구 지점 이름을 선택합니다.
+사용 가능한 복구 지점 목록을 보려면 [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list)를 사용합니다. 복구 지점 **이름**은 디스크를 복구하는 데 사용됩니다. 이 자습서에서는 사용 가능한 최근 복구 지점을 사용하겠습니다. `--query [0].name` 매개 변수는 다음과 같이 최근 복구 지점 이름을 선택합니다.
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -65,7 +65,7 @@ az backup recoverypoint list \
 
 백업된 VM에 관리 디스크가 있고 복구 지점에서 관리 디스크를 복원하려는 경우 먼저 Azure 스토리지 계정을 제공해야 합니다. 이 스토리지 계정은 나중에 복원된 디스크에서 VM을 배포하는 데 사용할 수 있는 VM 구성 및 배포 템플릿을 저장하는 데 사용됩니다. 그런 다음, 관리 디스크를 복원할 대상 리소스 그룹을 입력합니다.
 
-1. [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 스토리지 계정을 만듭니다. 스토리지 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
+1. [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 스토리지 계정을 만듭니다. 스토리지 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az storage account create \
@@ -74,7 +74,7 @@ az backup recoverypoint list \
         --sku Standard_LRS
     ```
 
-2. [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks)를 사용하여 복구 지점에서 디스크를 복원합니다. *mystorageaccount*를 이전 명령에서 만든 스토리지 계정의 이름으로 바꿉니다. *myRecoveryPointName*을 이전 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) 명령의 출력에서 얻은 복구 지점 이름으로 바꿉니다. ***그리고 관리 디스크를 복원할 대상 리소스 그룹을 입력합니다***.
+2. [az backup restore restore-disks](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks)를 사용하여 복구 지점에서 디스크를 복원합니다. *mystorageaccount*를 이전 명령에서 만든 스토리지 계정의 이름으로 바꿉니다. *myRecoveryPointName*을 이전 [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) 명령의 출력에서 얻은 복구 지점 이름으로 바꿉니다. ***그리고 관리 디스크를 복원할 대상 리소스 그룹을 입력합니다***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -109,7 +109,7 @@ az backup recoverypoint list \
 
 추가 단계에서 복원된 디스크를 사용하여 VM을 만듭니다.
 
-1. [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 스토리지 계정을 만듭니다. 스토리지 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
+1. [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 스토리지 계정을 만듭니다. 스토리지 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az storage account create \
@@ -118,7 +118,7 @@ az backup recoverypoint list \
         --sku Standard_LRS
     ```
 
-2. [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks)를 사용하여 복구 지점에서 디스크를 복원합니다. *mystorageaccount*를 이전 명령에서 만든 스토리지 계정의 이름으로 바꿉니다. *myRecoveryPointName*을 이전 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) 명령의 출력에서 얻은 복구 지점 이름으로 바꿉니다.
+2. [az backup restore restore-disks](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks)를 사용하여 복구 지점에서 디스크를 복원합니다. *mystorageaccount*를 이전 명령에서 만든 스토리지 계정의 이름으로 바꿉니다. *myRecoveryPointName*을 이전 [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) 명령의 출력에서 얻은 복구 지점 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -145,7 +145,7 @@ az backup recoverypoint list \
 
 ## Monitor the restore job
 
-To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
+To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \
@@ -181,7 +181,7 @@ az backup job show \
     -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
 ```
 
-이 쿼리의 출력은 모든 세부 정보를 제공하지만, 우리가 원하는 것은 스토리지 계정의 내용입니다. Azure CLI의 [쿼리 기능](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)을 사용하여 관련 세부 정보를 가져올 수 있습니다.
+이 쿼리의 출력은 모든 세부 정보를 제공하지만, 우리가 원하는 것은 스토리지 계정의 내용입니다. Azure CLI의 [쿼리 기능](/cli/azure/query-azure-cli?view=azure-cli-latest)을 사용하여 관련 세부 정보를 가져올 수 있습니다.
 
 ```azurecli-interactive
 az backup job show \
@@ -226,7 +226,7 @@ https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName
 
 따라서 위 예제의 템플릿은 ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json```이고 컨테이너 이름은 ```myVM-daa1931199fd4a22ae601f46d8812276```입니다.
 
-이제 [여기](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)에 설명된 대로 이 컨테이너의 SAS 토큰과 템플릿을 가져옵니다.
+이제 [여기](../azure-resource-manager/templates/secure-template-with-sas-token.md?tabs=azure-cli#provide-sas-token-during-deployment)에 설명된 대로 이 컨테이너의 SAS 토큰과 템플릿을 가져옵니다.
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -250,7 +250,7 @@ url=$(az storage blob url \
 
 ### <a name="deploy-the-template-to-create-the-vm"></a>템플릿을 배포하여 VM 만들기
 
-이제 [여기](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli)에 설명된 대로 템플릿을 배포하여 VM을 만듭니다.
+이제 [여기](../azure-resource-manager/templates/deploy-cli.md)에 설명된 대로 템플릿을 배포하여 VM을 만듭니다.
 
 ```azurecli-interactive
 az group deployment create \
