@@ -7,18 +7,18 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1af5fb7d0a1f8844016fcb6096e3a7ad9946f9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 2ac8baf0e2aa9555efb6d6b4f39787d9a7bf9508
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384892"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499905"
 ---
-# <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 웹 응용 프로그램 등록
+# <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 웹 애플리케이션 등록
 
 [애플리케이션](application-types.md)이 Azure AD B2C(Azure Active Directory B2C)와 상호 작용하려면 먼저 사용자가 관리하는 테넌트에 등록되어야 합니다. 이 자습서에서는 Azure Portal을 사용하여 웹 애플리케이션을 등록하는 방법을 보여줍니다.
 
@@ -28,11 +28,11 @@ ms.locfileid: "85384892"
 > * 웹 애플리케이션 등록
 > * 클라이언트 비밀 만들기
 
-대신 네이티브 앱을 사용 하는 경우 (예: iOS, Android, 모바일 & 데스크톱) [네이티브 클라이언트 응용 프로그램을 등록 하는 방법을](add-native-application.md)알아보세요.
+네이티브 앱을 대신 사용하는 경우(예: iOS, Android, 모바일 및 데스크톱) [네이티브 클라이언트 애플리케이션을 등록하는 방법](add-native-application.md)을 알아보세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 고유한 [Azure AD B2C 테넌트](tutorial-create-tenant.md)를 만들지 않았다면 지금 만듭니다. 기존 Azure AD B2C 테넌트를 사용해도 됩니다.
 
@@ -47,7 +47,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 1. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
 1. **앱 등록**을 선택한 다음, **새 등록**을 선택합니다.
 1. 애플리케이션의 **이름**을 입력합니다. 예를 들어 *webapp1*과 같습니다.
-1. **지원 되는 계정 유형**에서 **조직 디렉터리 또는 모든 Id 공급자의 계정을 선택 합니다. Azure AD B2C를 사용 하 여 사용자를 인증**합니다.
+1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리 또는 ID 공급자의 계정을 선택합니다. Azure AD B2C를 사용하여 사용자를 인증합니다**.
 1. **리디렉션 URI**에서 **웹**을 선택한 다음 URL 텍스트 상자에 `https://jwt.ms`를 입력합니다.
 
     리디렉션 URI는 사용자와의 상호 작용을 완료한 후 권한 부여 서버(이 경우에는 Azure AD B2C)에서 사용자를 보내고, 성공적인 권한 부여 시 액세스 토큰 또는 권한 부여 코드를 전송하는 엔드포인트입니다. 프로덕션 애플리케이션에서는 일반적으로 `https://contoso.com/auth-response`와 같이 앱이 실행되는 공개적으로 액세스할 수 있는 엔드포인트입니다. 이 자습서와 같은 테스트 목적으로 토큰을 디코딩된 토큰 콘텐츠를 표시하는 Microsoft 소유의 웹 애플리케이션 `https://jwt.ms`로 설정할 수 있습니다(토큰의 콘텐츠가 브라우저에서 벗어나면 안 됨). 앱을 개발하는 동안 애플리케이션이 로컬에서 수신 대기하는 엔드포인트(예: `https://localhost:5000`)를 추가할 수 있습니다. 언제든지 등록된 애플리케이션에서 리디렉션 URI를 추가하고 수정할 수 있습니다.
@@ -81,7 +81,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
     회신 URL에는 다음 제한 사항이 적용됩니다.
 
     * 회신 URL은 스키마 `https`로 시작해야 합니다.
-    * 회신 URL은 대/소문자를 구분합니다. 해당 사례는 실행 중인 애플리케이션의 URL 경로에 대한 대/소문자와 일치해야 합니다. 예를 들어 애플리케이션의 경로 `.../abc/response-oidc`의 일부로 포함하는 경우 회신 URL에 `.../ABC/response-oidc`를 지정하지 마세요. 웹 브라우저는 경로를 대/소문자 구분으로 처리하므로 `.../abc/response-oidc`와 연결된 쿠키는 대/소문자가 일치하지 않는 `.../ABC/response-oidc` URL로 리디렉션되는 경우 제외될 수 있습니다.
+    * 회신 URL은 대/소문자를 구분합니다. 해당 사례는 실행 중인 애플리케이션의 URL 경로에 대한 대/소문자와 일치해야 합니다. 예를 들어 애플리케이션의 경로 `.../abc/response-oidc`의 일부로 포함하는 경우 회신 URL에 `.../ABC/response-oidc`를 지정하지 마세요. 웹 브라우저는 경로를 대/소문자 구분하여 처리하므로 `.../abc/response-oidc`와 연결된 쿠키는 대/소문자가 일치하지 않는 `.../ABC/response-oidc` URL로 리디렉션되는 경우 제외될 수 있습니다.
 
 1. **만들기**를 선택하여 애플리케이션 등록을 완료합니다.
 
@@ -94,7 +94,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
-1. **Azure AD B2C-앱 등록** 페이지에서 만든 응용 프로그램을 선택 합니다 (예: *webapp1*).
+1. **Azure AD B2C - 앱 등록** 페이지에서 만든 애플리케이션을 선택합니다(예: *webapp1*).
 1. **관리**에서 **인증서 및 암호**를 선택합니다.
 1. **새 클라이언트 비밀**을 선택합니다.
 1. **설명** 상자에 클라이언트 암호에 대한 설명을 입력합니다. 예: *clientsecret1*.
