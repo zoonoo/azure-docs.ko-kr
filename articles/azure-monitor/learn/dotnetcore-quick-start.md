@@ -7,18 +7,18 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e066ef1910373734d9a6607500e45e8a9ccc80b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82144857"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539757"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 애플리케이션 모니터링 시작
 
 Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다. 또한 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. 
 
-이 빠른 시작은 기존 ASP.NET Core 웹 애플리케이션에 Application Insights SDK를 추가하는 방법을 안내합니다. Visual Studio를 사용하지 않고 Application Insights를 구성하는 방법에 대해 알아보려면 이 [문서](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)를 체크 아웃하세요.
+이 빠른 시작은 기존 ASP.NET Core 웹 애플리케이션에 Application Insights SDK를 추가하는 방법을 안내합니다. Visual Studio를 사용하지 않고 Application Insights를 구성하는 방법에 대해 알아보려면 이 [문서](../app/asp-net-core.md)를 체크 아웃하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -45,7 +45,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 1. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다.
 
    > [!NOTE]
-   >Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 문서를 참조하세요.
+   >Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](../app/create-new-resource.md) 문서를 참조하세요.
 
     구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다.
 
@@ -112,4 +112,4 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [런타임 예외 찾기 및 진단](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [런타임 예외 찾기 및 진단](./tutorial-runtime-exceptions.md)

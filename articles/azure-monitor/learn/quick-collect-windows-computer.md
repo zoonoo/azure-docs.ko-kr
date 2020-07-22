@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 6435535ee14450c590a79ea68c8855c29df8bd9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d13a7cf87ba22dce96992c362f8b800ba79f6976
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637879"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539638"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Azure Monitor를 사용하여 하이브리드 환경에서 Windows 컴퓨터의 데이터 수집
 
@@ -165,4 +165,4 @@ Azure Monitor는 장기 분석 및 보고를 위해 Windows 이벤트 로그 및
 데이터를 보고 분석하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Log Analytics에서 데이터 보기 또는 분석](tutorial-viewdata.md)
+> [Log Analytics에서 데이터 보기 또는 분석](../log-query/get-started-portal.md)

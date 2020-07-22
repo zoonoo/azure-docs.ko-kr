@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 9356cecb22672ae15505d14b5ac73d5baeef09e0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: adf15904d4490647074d6e2b46ac7e9e871dd388
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77191363"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536405"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩이 포함된 B2B 엔터프라이즈 통합 솔루션
 
@@ -42,7 +42,7 @@ EIP를 사용하여 B2B 논리 앱 워크플로를 빌드하려면 다음 항목
 
 * 맵과 스키마를 만들려면 [Visual Studio용 Microsoft Azure Logic Apps 엔터프라이즈 통합 도구 2015 2.0](https://aka.ms/vsmapsandschemas) 및 Visual Studio 2015를 사용하면 됩니다.
 
-통합 계정을 만들고 아티팩트를 추가한 후에는 Azure Portal에서 논리 앱을 만들어 이러한 아티팩트로 B2B 워크플로를 빌드할 수 있습니다. 논리 앱을 처음 접하는 경우 [기본 논리 앱을 만들어 보세요](../logic-apps/quickstart-create-first-logic-app-workflow.md). 이러한 아티팩트를 사용하려면 먼저 통합 계정을 논리 앱에 연결해야 합니다. 그 후 논리 앱에서 통합 계정에 액세스할 수 있습니다. Visual Studio 또는 [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp)을 사용하여 논리 앱을 만들고, 관리하고, 배포할 수 있습니다.
+통합 계정을 만들고 아티팩트를 추가한 후에는 Azure Portal에서 논리 앱을 만들어 이러한 아티팩트로 B2B 워크플로를 빌드할 수 있습니다. 논리 앱을 처음 접하는 경우 [기본 논리 앱을 만들어 보세요](../logic-apps/quickstart-create-first-logic-app-workflow.md). 이러한 아티팩트를 사용하려면 먼저 통합 계정을 논리 앱에 연결해야 합니다. 그 후 논리 앱에서 통합 계정에 액세스할 수 있습니다. Visual Studio 또는 [PowerShell](/powershell/module/az.logicapp)을 사용하여 논리 앱을 만들고, 관리하고, 배포할 수 있습니다.
 
 B2B 논리 앱 빌드를 시작하기 위한 개략적인 단계는 다음과 같습니다.
 

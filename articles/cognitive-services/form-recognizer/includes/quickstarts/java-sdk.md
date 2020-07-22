@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 6ff56ca61304bdacb3512156babd637afd337c7e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 479891513eb48e4ced4c1dff2feb3215b3c8ea57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85242173"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544169"
 ---
-[참조 설명서](https://docs.microsoft.com/java/api/overview/azure/formrecognizer) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[참조 설명서](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -130,7 +130,7 @@ FormTrainingClient trainingClient = recognizerClient.getFormTrainingClient();
 * 위의 방법을 사용하여 영수증 이미지의 URL도 가져올 수 있습니다.
 
 > [!NOTE]
-> 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)의 관련 메서드를 참조하세요.
+> 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)의 관련 메서드를 참조하세요.
 
 ```java
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";

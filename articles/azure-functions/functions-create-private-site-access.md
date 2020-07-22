@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 8e37876e0e9666097c3cf16589e64929c670b14a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390281"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540284"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>자습서: Azure Functions 프라이빗 사이트 액세스 설정
 
@@ -197,7 +197,7 @@ VM이 가상 네트워크를 통해 사이트에 액세스하므로 VM의 웹 �
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [명령줄](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven(Java)](./functions-create-first-java-maven.md)
+    * [Maven(Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
 
 1. Azure Functions 프로젝트를 게시하는 경우 이 자습서의 앞부분에서 만든 함수 앱 리소스를 선택합니다.
 1. 함수가 배포되었는지 확인합니다.

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 08b3863ac9a03cda2659cf4934b781eeb9330e17
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3496dfd7813818ced8963175d73ec0f8ef6892d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563815"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536235"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>개요 - Azure Logic Apps란?
 
@@ -74,7 +74,7 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
 
 * 다음 제품 및 서비스 빌드:
 
-  * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Microsoft BizTalk Server](/biztalk/core/introducing-biztalk-server)
   * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Azure Functions](../azure-functions/functions-overview.md)
   * [Azure API Management](../api-management/api-management-key-concepts.md)
@@ -85,7 +85,7 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
 
 * [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) 및 [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) 프로토콜을 사용하여 메시지 교환
 
-* [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)으로 이러한 B2B 아티팩트 등을 한 장소에 저장 및 관리:
+* [통합 계정](./logic-apps-enterprise-integration-create-integration-account.md)으로 이러한 B2B 아티팩트 등을 한 장소에 저장 및 관리:
 
   * [파트너](../logic-apps/logic-apps-enterprise-integration-partners.md)
   * [규약](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
@@ -94,7 +94,7 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
 
 예를 들어 Microsoft BizTalk Server를 사용하는 경우 논리 앱은 [BizTalk Server 커넥터](../connectors/apis-list.md#on-premises-connectors)를 사용하여 BizTalk Server와 통신할 수 있습니다. 그런 다음, 엔터프라이즈 통합 팩에 제공되는 [통합 계정 커넥터](../connectors/apis-list.md#integration-account-connectors)를 포함하면 논리 앱에서 BizTalk와 같은 작업을 수행하거나 확장할 수 있습니다.
 
-다른 방향으로 이동하여 [Logic Apps용 Microsoft BizTalk Server 어댑터](https://www.microsoft.com/download/details.aspx?id=54287)를 사용하면 BizTalk Server를 논리 앱에 연결하고 통신할 수 있습니다. BizTalk Server에서 [BizTalk Server 어댑터를 설정하고 사용](https://docs.microsoft.com/biztalk/core/logic-app-adapter)하는 방법을 알아보세요.
+다른 방향으로 이동하여 [Logic Apps용 Microsoft BizTalk Server 어댑터](https://www.microsoft.com/download/details.aspx?id=54287)를 사용하면 BizTalk Server를 논리 앱에 연결하고 통신할 수 있습니다. BizTalk Server에서 [BizTalk Server 어댑터를 설정하고 사용](/biztalk/core/logic-app-adapter)하는 방법을 알아보세요.
 
 ### <a name="write-once-reuse-often"></a>한 번 작성, 반복해서 다시 사용
 

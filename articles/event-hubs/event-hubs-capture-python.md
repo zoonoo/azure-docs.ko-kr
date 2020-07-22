@@ -3,12 +3,12 @@ title: '빠른 시작: Python 앱에서 캡처한 데이터 읽기 - Azure Event
 description: '빠른 시작: Azure Python SDK를 사용하여 Event Hubs 캡처 기능을 보여주는 스크립트입니다.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 8e6174970a6821f7541387f91b226cdebe555625
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 364ca789f560dc8fdae099b09c77946bc4ad5005
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323055"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537227"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>빠른 시작: Event Hubs 캡처 연습: Python(azure-eventhub 버전 1)
 
@@ -190,4 +190,4 @@ Event Hubs에 대한 자세한 내용은 다음을 참조하세요.
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md

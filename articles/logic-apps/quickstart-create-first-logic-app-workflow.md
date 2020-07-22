@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2fdb83a61f7eaaefb3fab10af46315893791590c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321590"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536285"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 워크플로 만들기 - Azure Portal
 
@@ -20,10 +20,10 @@ ms.locfileid: "85321590"
 
 ![상위 수준 예제 논리 앱 워크플로](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-이 시나리오의 경우 Azure 구독 또는 Office 365 Outlook, Outlook.com 또는 Gmail과 같이 Azure Logic Apps에서 지원되는 서비스의 이메일 계정인 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)이 필요합니다. 지원되는 메일 서비스는 [여기의 커넥터 목록을 검토하세요](https://docs.microsoft.com/connectors/). 이 예제에서 논리 앱은 Office 365 Outlook 계정을 사용합니다. 다른 메일 서비스를 사용하는 경우 전체적인 일반 단계는 동일하지만 사용자 인터페이스는 약간 다를 수 있습니다.
+이 시나리오의 경우 Azure 구독 또는 Office 365 Outlook, Outlook.com 또는 Gmail과 같이 Azure Logic Apps에서 지원되는 서비스의 이메일 계정인 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)이 필요합니다. 지원되는 메일 서비스는 [여기의 커넥터 목록을 검토하세요](/connectors/). 이 예제에서 논리 앱은 Office 365 Outlook 계정을 사용합니다. 다른 메일 서비스를 사용하는 경우 전체적인 일반 단계는 동일하지만 사용자 인터페이스는 약간 다를 수 있습니다.
 
 > [!IMPORTANT]
-> Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
+> Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

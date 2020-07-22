@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc
-ms.openlocfilehash: 8021ca553a1434c891bee911e85d351c61938594
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fa190c670c5bdcae8bcb31d2b8d5d9bd011acae9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74171955"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538584"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 
-[Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 모듈은 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 사용됩니다.
+[Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) 모듈은 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 사용됩니다.
 
 [Azure Backup](backup-overview.md)은 온-프레미스 머신과 앱, Azure VM을 백업합니다. 이 문서에서는 AZ 모듈을 사용하여 Azure VM을 백업하는 방법을 보여 줍니다. 또는 [Azure CLI](quick-backup-vm-cli.md)를 사용하거나 [Azure Portal](quick-backup-vm-portal.md)에서 VM을 백업할 수 있습니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "74171955"
 
 - 리소스 그룹 및 위치에 대해 백업하려는 VM의 리소스 그룹과 위치를 지정합니다.
 - 이 [샘플 스크립트](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)를 사용하여 VM을 만든 경우 리소스 그룹은 **myResourceGroup**이고, VM은 ***myVM**이며, 리소스는 **WestEurope** 지역에 있습니다.
-- Azure Backup은 백업된 데이터에 대한 스토리지를 자동으로 처리합니다. 기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md)를 사용합니다. 지역 중복은 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업된 데이터가 복제되도록 합니다.
+- Azure Backup은 백업된 데이터에 대한 스토리지를 자동으로 처리합니다. 기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md)를 사용합니다. 지역 중복은 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업된 데이터가 복제되도록 합니다.
 
 이제 자격 증명 모음을 만듭니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "74171955"
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. 다음과 같이 [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty)를 사용하여 자격 증명 모음의 스토리지 중복 구성(LRS/GRS)을 변경합니다.
+3. 다음과 같이 [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty)를 사용하여 자격 증명 모음의 스토리지 중복 구성(LRS/GRS)을 변경합니다.
 
     ```powershell
     Get-AzRecoveryServicesVault `

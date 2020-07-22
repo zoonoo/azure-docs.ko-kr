@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 44aa7bdcaa77ba0865f17e2781e2a0521afe16df
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 89b2fc9ffe05853e34670b6f33ed665240d59457
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555424"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540199"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>자습서: Azure Functions에서 Python 및 TensorFlow를 사용하여 기계 학습 모델 적용
 
@@ -133,7 +133,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     func new --name classify --template "HTTP trigger"
     ```
 
-    이 명령은 *classify* 함수 이름과 일치하는 폴더를 만듭니다. 이 폴더에는 함수 코드를 포함하는 *\_\_init\_\_.py*와 함수의 트리거 및 해당 입/출력 바인딩을 설명하는  *function.json*의 두 파일이 있습니다. 이러한 파일의 콘텐츠에 대한 자세한 내용은 Python 빠른 시작에서 [파일 콘텐츠 검토](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents)를 참조하세요.
+    이 명령은 *classify* 함수 이름과 일치하는 폴더를 만듭니다. 이 폴더에는 함수 코드를 포함하는 *\_\_init\_\_.py*와 함수의 트리거 및 해당 입/출력 바인딩을 설명하는  *function.json*의 두 파일이 있습니다. 이러한 파일의 콘텐츠에 대한 자세한 내용은 Python 빠른 시작에서 [파일 콘텐츠 검토](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents)를 참조하세요.
 
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
