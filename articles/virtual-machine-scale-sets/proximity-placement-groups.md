@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 8e455d4d016f97a466838c07fc7af2422f72cc00
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727100"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011059"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>미리 보기: PowerShell을 사용하여 근접 배치 그룹 만들기 및 사용
 
@@ -29,7 +30,7 @@ VM을 가능한 가깝게 유지하여 가장 낮은 대기 시간을 달성하�
 
 
 ## <a name="create-a-proximity-placement-group"></a>근접 배치 그룹 만들기
-[New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet을 사용하여 근접 배치 그룹을 만듭니다. 
+[New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet을 사용하여 근접 배치 그룹을 만듭니다. 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -54,7 +55,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
 
-[New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss)를 사용하여 확장 집합을 만들 경우 `-ProximityPlacementGroup $ppg.Id`로 근접 배치 그룹 ID를 참조하여 근접 배치 그룹에 확장 집합을 만듭니다.
+[New-AzVMSS](/powershell/module/az.compute/new-azvmss)를 사용하여 확장 집합을 만들 경우 `-ProximityPlacementGroup $ppg.Id`로 근접 배치 그룹 ID를 참조하여 근접 배치 그룹에 확장 집합을 만듭니다.
 
 ```azurepowershell-interactive
 $scalesetName = "myVM"

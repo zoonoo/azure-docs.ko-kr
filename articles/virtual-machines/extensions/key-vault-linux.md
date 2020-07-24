@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010804"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -71,7 +71,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 > [!NOTE]
 > 관찰된 인증서 URL은 `https://myVaultName.vault.azure.net/secrets/myCertName` 형식이어야 합니다.
 > 
-> `/secrets` 경로가 프라이빗 키를 포함하여 전체 인증서를 반환하지만 `/certificates` 경로에서는 반환하지 않기 때문입니다. 인증서에 대한 자세한 내용은 여기에서 찾을 수 있습니다. [Key Vault 인증서](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> `/secrets` 경로가 프라이빗 키를 포함하여 전체 인증서를 반환하지만 `/certificates` 경로에서는 반환하지 않기 때문입니다. 인증서에 대한 자세한 내용은 여기에서 찾을 수 있습니다. [Key Vault 인증서](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!NOTE]
 > ' AuthenticationSettings ' 속성은 VM에 할당 된 id가 여러 개 있는 시나리오의 경우 선택 사항입니다.
@@ -204,7 +204,7 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
 다음 제한 사항/요구 사항에 주의하세요.
 - Key Vault 제한 사항:
   - 배포 시점에 있어야 합니다. 
-  - 관리 ID를 사용하여 VM/VMSS ID에 대한 Key Vault 액세스 정책을 설정해야 합니다. [관리 ID를 사용하여 Key Vault 인증 제공](../../key-vault/managed-identity.md)을 참조하세요.
+  - 관리 ID를 사용하여 VM/VMSS ID에 대한 Key Vault 액세스 정책을 설정해야 합니다. [관리 ID를 사용하여 Key Vault 인증 제공](../../key-vault/general/managed-identity.md)을 참조하세요.
 
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원

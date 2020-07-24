@@ -3,12 +3,12 @@ title: IoT Edg 용어에 대 한 라이브 비디오 분석-Azure
 description: 이 문서에서는 IoT Edge 용어에 대 한 라이브 비디오 분석의 개요를 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/30/2020
-ms.openlocfilehash: 58f3d7b54fd0bd19e6bc0a057ef053bb2c74cd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d4eff506b2a6f51b9803f827379b9ba0c2b2ff6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011501"
 ---
 # <a name="terminology"></a>용어
 
@@ -26,7 +26,7 @@ IoT Edge의 Live Video Analytics는 자산을 만들거나 기존 자산에 데�
 
 ## <a name="streaming"></a>스트리밍
 
-Netflix, YouTube 등의 서비스에서 모바일 장치에 대 한 비디오를 시청 했다면 스트리밍 비디오가 발생 했습니다. "재생" (충분 한 대역폭이 있는 경우)이 적중 된 후 재생이 시작 되 고 비디오의 타임 라인을 따라 앞뒤로 검색할 수 있습니다. 스트리밍을 사용 하는 경우 조사 중인 비디오 부분만 제공 하 고, 데이터가 서버에서 재생 클라이언트로 전송 되는 동안 뷰어가 비디오 재생을 시작할 수 있도록 하는 것이 좋습니다. Azure Media Services 컨텍스트에서 [스트리밍은](https://en.wikipedia.org/wiki/Streaming_media) 스트리밍 클라이언트 (예: Azure Media Player)에 [Azure Media Services](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) 미디어를 배달 하는 프로세스를 나타냅니다. Azure Media Services를 사용 하 여 [HLS (HTTP 라이브 스트리밍)](https://developer.apple.com/streaming/) 및 [MPEG](https://dashif.org/about/)와 같은 업계 표준의 HTTP 기반의 미디어 스트리밍 프로토콜을 사용 하 여 클라이언트에 비디오를 스트리밍할 수 있습니다. HLS는 [Jw 플레이어](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [Videojs](https://videojs.com/), [Google Shaka 플레이어](https://github.com/google/shaka-player)와 같은 Azure Media Player 및 웹 플레이어에서 지원 되거나 Android의 [Exoplayer](https://github.com/google/ExoPlayer) 및 iOS의 [AV 파운데이션](https://developer.apple.com/av-foundation/)을 사용 하 여 모바일 앱에서 기본적으로 렌더링할 수 있습니다. MPEG 대시는 Azure Media Player에서 지원 되며, [이 페이지에서 클라이언트 목록을 찾을](https://dashif.org/clients/)수 있습니다. 
+Netflix, YouTube 등의 서비스에서 모바일 장치에 대 한 비디오를 시청 했다면 스트리밍 비디오가 발생 했습니다. "재생" (충분 한 대역폭이 있는 경우)이 적중 된 후 재생이 시작 되 고 비디오의 타임 라인을 따라 앞뒤로 검색할 수 있습니다. 스트리밍을 사용 하는 경우 조사 중인 비디오 부분만 제공 하 고, 데이터가 서버에서 재생 클라이언트로 전송 되는 동안 뷰어가 비디오 재생을 시작할 수 있도록 하는 것이 좋습니다. Azure Media Services 컨텍스트에서 [스트리밍은](https://en.wikipedia.org/wiki/Streaming_media) 스트리밍 클라이언트 (예: Azure Media Player)에 [Azure Media Services](../azure-media-player/azure-media-player-overview.md) 미디어를 배달 하는 프로세스를 나타냅니다. Azure Media Services를 사용 하 여 [HLS (HTTP 라이브 스트리밍)](https://developer.apple.com/streaming/) 및 [MPEG](https://dashif.org/about/)와 같은 업계 표준의 HTTP 기반의 미디어 스트리밍 프로토콜을 사용 하 여 클라이언트에 비디오를 스트리밍할 수 있습니다. HLS는 [Jw 플레이어](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [Videojs](https://videojs.com/), [Google Shaka 플레이어](https://github.com/google/shaka-player)와 같은 Azure Media Player 및 웹 플레이어에서 지원 되거나 Android의 [Exoplayer](https://github.com/google/ExoPlayer) 및 iOS의 [AV 파운데이션](https://developer.apple.com/av-foundation/)을 사용 하 여 모바일 앱에서 기본적으로 렌더링할 수 있습니다. MPEG 대시는 Azure Media Player에서 지원 되며, [이 페이지에서 클라이언트 목록을 찾을](https://dashif.org/clients/)수 있습니다. 
 
 [미디어 그래프](#media-graph)s를 사용 하 여 Azure Media Services 자산에 비디오를 기록 하면 Media Services 스트리밍 기능을 사용 하 여 HLS 및 대시로 비디오 스트림을 제공할 수 있습니다. [비디오 재생](video-playback-concept.md) 문서에서이에 대해 자세히 알아볼 수 있습니다.
 

@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/08/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009121"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 앱 보호 정책 및 승인된 클라이언트 앱 필요
 
@@ -29,10 +30,11 @@ ms.locfileid: "85253361"
 
 조건부 액세스에서 이러한 클라이언트 앱은 앱 보호 정책을 사용하여 보호되는 것으로 알려져 있습니다. 앱 보호 정책에 대한 자세한 내용은 [앱 보호 정책 개요](/intune/apps/app-protection-policy) 문서에서 찾을 수 있습니다.
 
-적격 클라이언트 앱 목록은 [앱 보호 정책 요구 사항](concept-conditional-access-grant.md)을 참조하세요.
+> [!WARNING]
+> 모든 응용 프로그램이 승인 된 응용 프로그램으로 지원 되거나 응용 프로그램 보호 정책을 지원 하지는 않습니다. 적격 클라이언트 앱 목록은 [앱 보호 정책 요구 사항](concept-conditional-access-grant.md#require-app-protection-policy)을 참조하세요.
 
 > [!NOTE]
->    또는 절은 정책 내에서 사용되어 사용자가 **앱 보호 정책 필요** 또는 **승인된 클라이언트 앱 필요** 권한 부여 컨트롤을 지원하는 앱을 활용할 수 있도록 합니다. **앱 보호 정책 필요** 권한 부여 컨트롤을 지원하는 앱에 대한 자세한 내용은 [앱 보호 정책 요구 사항](concept-conditional-access-grant.md)을 참조하세요.
+> "선택 된 컨트롤 중 하나 필요" 권한 부여 컨트롤은 또는 절과 유사 합니다. 이는 정책 내에서 사용 되어 사용자가 **앱 보호 정책 필요** 또는 **승인 된 클라이언트 앱** 부여 컨트롤 필요를 지 원하는 앱을 활용할 수 있도록 합니다. 앱이 두 정책 모두에서 지원 되는 경우 **앱 보호 정책이 적용 되어야** 합니다. **앱 보호 정책 필요** 권한 부여 컨트롤을 지원하는 앱에 대한 자세한 내용은 [앱 보호 정책 요구 사항](concept-conditional-access-grant.md#require-app-protection-policy)을 참조하세요.
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>시나리오 1: Office 365 앱에 앱 보호 정책을 사용하는 승인된 앱 필요
 
@@ -45,7 +47,7 @@ ms.locfileid: "85253361"
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
-1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
+1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자** 또는 이 정책을 적용할 특정 **사용자 및 그룹**을 선택합니다. 
    1. **완료** 를 선택합니다.
@@ -69,7 +71,7 @@ ms.locfileid: "85253361"
 
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
-1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
+1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자** 또는 이 정책을 적용할 특정 **사용자 및 그룹**을 선택합니다. 
    1. **완료** 를 선택합니다.
@@ -97,7 +99,7 @@ Android 및 iOS용 앱 보호 정책을 만드는 단계는 [앱 보호 정책�
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
-1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
+1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자** 또는 이 정책을 적용할 특정 **사용자 및 그룹**을 선택합니다. 
    1. **완료** 를 선택합니다.
@@ -130,7 +132,7 @@ Android 및 iOS용 앱 보호 정책을 만드는 단계는 [앱 보호 정책�
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
-1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
+1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자** 또는 이 정책을 적용할 특정 **사용자 및 그룹**을 선택합니다. 
    1. **완료** 를 선택합니다.
@@ -152,7 +154,7 @@ Android 및 iOS용 앱 보호 정책을 만드는 단계는 [앱 보호 정책�
 
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
-1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
+1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자** 또는 이 정책을 적용할 특정 **사용자 및 그룹**을 선택합니다. 
    1. **완료** 를 선택합니다.

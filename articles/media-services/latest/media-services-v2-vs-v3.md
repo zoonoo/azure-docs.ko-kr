@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: fd094e35ceaa718ec1b258d74106b39744cbd16f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011637"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2와 v3 비교
 
@@ -27,7 +28,7 @@ ms.locfileid: "79087827"
 
 ## <a name="general-changes-from-v2"></a>V2의 일반 변경 내용
 
-* V3로 생성 된 자산의 경우 Media Services는 [Azure Storage 서버 쪽 저장소 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)만 지원 합니다.
+* V3로 생성 된 자산의 경우 Media Services는 [Azure Storage 서버 쪽 저장소 암호화](../../storage/common/storage-service-encryption.md)만 지원 합니다.
     * Media Services에서 제공하는 [스토리지 암호화](../previous/media-services-rest-storage-encryption.md)(AES 256)를 사용하는 v2 API로 만든 자산에 v3 API를 사용할 수 있습니다.
     * v3 API를 사용하는 레거시 AES 256 [스토리지 암호화](../previous/media-services-rest-storage-encryption.md)로는 새 자산을 만들 수 없습니다.
 * V3의 [자산](assets-concept.md)속성은 v 2와 다릅니다. [속성 매핑 방법](#map-v3-asset-properties-to-v2)을 참조 하세요.
@@ -87,11 +88,11 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 
 ### <a name="map-v3-asset-properties-to-v2"></a>V2에 v3 자산 속성 매핑
 
-다음 표에서는 v3의 [자산](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)속성이 v 2의 자산 속성에 매핑되는 방법을 보여 줍니다.
+다음 표에서는 v3의 [자산](/rest/api/media/assets/createorupdate#asset)속성이 v 2의 자산 속성에 매핑되는 방법을 보여 줍니다.
 
 |v3 속성|v2 속성|
 |---|---|
-|`id`-(고유) 전체 Azure Resource Manager 경로 ( [자산의](https://docs.microsoft.com/rest/api/media/assets/createorupdate) 예제 참조)||
+|`id`-(고유) 전체 Azure Resource Manager 경로 ( [자산의](/rest/api/media/assets/createorupdate) 예제 참조)||
 |`name`-(고유) [명명 규칙](media-services-apis-overview.md#naming-conventions) 참조 ||
 |`alternateId`|`AlternateId`|
 |`assetId`|`Id`-(고유) 값은 접두사로 시작 `nb:cid:UUID:` 합니다.|
@@ -106,11 +107,11 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 
 미사용 자산을 보호하려면 스토리지 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|설명|Media Services v2|Media Services v3|
+|암호화 옵션|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 관리 하는 키입니다.|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
-|[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨|지원됨|
-|[스토리지 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원되지 않음|지원되지 않음|
+|[미사용 데이터에 대한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원 여부|지원 여부|
+|[스토리지 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원되지 않음|지원되지 않음|
 
 <sup>1</sup> Media Services는 암호화 형식 없이 clear/의 콘텐츠 처리를 지원 하지만 그렇게 하지 않는 것이 좋습니다.
 

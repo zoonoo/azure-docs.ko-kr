@@ -3,11 +3,12 @@ title: IoT Edge Faq의 Live Video Analytics-Azure
 description: 이 항목에서는 IoT Edge Faq에서 라이브 비디오 분석에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a6c1c0f26116227454fa0968264644ea7a43178
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 705c74b1ba6d3a28911185b82a558099e87dc18d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260736"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011518"
 ---
 # <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 
@@ -17,16 +18,16 @@ ms.locfileid: "84260736"
 
 그래프 토폴로지 정의에서 사용할 수 있는 시스템 변수는 무엇 인가요?
 
-|변수   |Description|
+|변수   |설명|
 |---|---|
-|[System.DateTime](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|일반적으로 날짜와 시간으로 표현된 시간의 한 순간을 나타냅니다.|
+|[System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|일반적으로 날짜와 시간으로 표현된 시간의 한 순간을 나타냅니다.|
 |GraphTopologyName   |그래프의 청사진을 보유 하는 미디어 그래프 토폴로지를 나타냅니다.|
 |System.object 인스턴스 이름|  미디어 그래프 인스턴스를 나타내고, 매개 변수 값을 보유 하 고, 토폴로지를 참조 합니다.|
 
 ## <a name="configuration-and-deployment"></a>구성 및 배포
 
 미디어에 지 모듈을 Windows 10 장치에 배포할 수 있나요?
-    * 예. [Windows 10의 Linux 컨테이너](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers)에 대 한 문서를 참조 하세요.
+    * 예. [Windows 10의 Linux 컨테이너](/virtualization/windowscontainers/deploy-containers/linux-containers)에 대 한 문서를 참조 하세요.
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>IP 카메라 및 RTSP 설정에서 캡처
 

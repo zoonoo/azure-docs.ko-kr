@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 06/29/2020
-ms.openlocfilehash: e708d9a32d63c306a2d1ee8d06b044652f108dde
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/14/2020
+ms.openlocfilehash: eafa6c4911e934d391a380e5eb494ca8f7766959
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231882"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012062"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 전환 하는 방법에 대 한 질문과 대답
 
@@ -30,7 +30,7 @@ Cloud 파트너 포털 파트너 센터로 전환 되었습니다. 파트너 센
 | 새로운 구매 및 배포 | 변경 내용이 없습니다. 고객은 중단 없이 제품을 계속 구매 하 고 배포할 수 있습니다. |
 | 지급 | 모든 구매 및 배포는 정상적으로 계속 청구 됩니다. [상업적 marketplace에서 지불 하는](partner-center-portal/get-paid.md)방법에 대해 자세히 알아보세요. |
 | 기존 [Cloud 파트너 포털 API와 API 통합](cloud-partner-portal-api-overview.md) | 기존 Cloud 파트너 포털 Api는 계속 지원 되 고 기존 통합은 계속 작동 합니다. 자세한 내용은 [CLOUD 파트너 포털 REST Api가 지원 되나요?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| 분석 | 파트너 센터에서 분석을 확인 하 여 상업적 marketplace에서 판매를 지속적으로 모니터링 하 고, 성능을 평가 하 고, 제품을 최적화할 수 있습니다. [파트너 센터의 상업 marketplace에 대 한 액세스 분석 보고서](partner-center-portal/analytics.md)에서 자세히 알아보세요. |
+| 분석 | 파트너 센터에서 분석을 확인 하 여 상업적 marketplace에서 판매를 지속적으로 모니터링 하 고, 성능을 평가 하 고, 제품을 최적화할 수 있습니다. CPP와 파트너 센터에서 분석 보고서가 표시 되는 방식에는 차이가 있습니다. 예를 들어, CPP의 **판매자 Insights** 에는 사용 빈도 기반 제공 및 비 사용량 기반 제안의 데이터를 표시 하는 **주문 & 사용** 탭이 있습니다. 반면 파트너 센터의 **주문** 페이지에는 SaaS 제품에 대 한 별도의 탭이 있습니다. [파트너 센터의 상업 marketplace에 대 한 액세스 분석 보고서](partner-center-portal/analytics.md)에서 자세히 알아보세요. |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>파트너 센터에서 내 제품을 관리 하는 새 계정을 만들어야 하나요?
@@ -52,6 +52,19 @@ Cloud 파트너 포털에서 일반적으로 사용 되는 페이지에 대 한 
 | 지급 보고서 | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 |||
 
+## <a name="payout-report-differences"></a>지급 보고서 차이점
+
+지급 보고서는 사용 중지 된 Cloud 파트너 포털와 현재 파트너 센터 간에 차이가 있습니다.
+
+| 클라우드 파트너 포털 | 파트너 센터 |
+| --- | --- |
+| **링크**: https://cloudpartner.azure.com/ | **링크**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory 및 https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navigation**: 인사이트 지급에 제공되는 지급 보고 | **Navigation**: 파트너 센터에 제공되는 지급 보고 - 지급 아이콘 |
+| **범위**:<ul><li>진행 중, 수집 및 유료 컬렉션에 대한 품목별 거래가 표시됩니다.</li><li>보고 – 수집 진행 중 및 청구 진행 중인 품목을 포함하여 구매 주문이 생성된 후의 모든 품목과 아직 유료로 사용할 수 없는 품목 및 수집 상태를 표시합니다.</li></ul> | **범위**:<ul><li>적격 소득으로 간주된 이후의 품목을 표시합니다.</li><li>고객이 먼저 Microsoft에 요금을 지불하면 ISV는 지급 보고서가 시작되는 것을 볼 수 있습니다.</li><li>지급 보고서는 진행 중인 수집과 진행 중인 청구를 표시하지 않습니다.</li></ul> |
+| **거래에 대한 지급이 준비되지 않음**: 청구 진행 중 | **거래에 대한 지급이 준비되지 않음**: 다음 예상 지급액: 지급 상태가 처리 안 됨입니다. |
+| **지급 상태**: 해당 없음 | **지급 상태**:<ul><li>처리 안 됨: 지급해야 하는 수익입니다.</li><li>예정: 다음 월별 지급 시 게시자에게 전송되는 수익입니다.</li><li>송금: 결제 금액이 거래 은행으로 송금되었습니다.</li></ul> |
+|||
+
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>Cloud 파트너 포털에서 게시 한 혜택은 무엇 인가요?
 
 제품이 파트너 센터로 이동 되었으며, Dynamics Nav 관리 서비스 및 Cortana Intelligence 제품을 제외 하 고 파트너 센터에 로그인 한 후에 사용자가 액세스할 수 있습니다. 제품이 상업적 marketplace에 살고 있는 경우 계속 라이브 되 고 고객은 중단 없이 계속 해 서 구매 하 고 배포할 수 있습니다. 자세한 내용은 다음 질문, **파트너 센터로 이동 된 항목**을 참조 하세요.
@@ -65,7 +78,7 @@ Cloud 파트너 포털에서 이전에 지원 되는 모든 제품 유형은 Dyn
 | 제품 유형 <img src="" width=150px>| 파트너 센터로 이동 했습니까? <img src="" width=100px>| 다음 단계 |
 | --- | --- | --- |
 | SaaS | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [상업적 marketplace에서 새 SaaS 제품 만들기](partner-center-portal/create-new-saas-offer.md)를 확인 하세요. |
-| Virtual Machine | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [Azure Marketplace에서 Azure virtual machine 제품 만들기](partner-center-portal/azure-vm-create-offer.md)를 확인 하세요. |
+| 가상 컴퓨터 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [Azure Marketplace에서 Azure virtual machine 제품 만들기](partner-center-portal/azure-vm-create-offer.md)를 확인 하세요. |
 | Azure 응용 프로그램 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure 응용 프로그램 제품 만들기](partner-center-portal/create-new-azure-apps-offer.md)에서 자세히 알아보세요. |
 | Dynamics 365 Business Central | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Dynamics 365 비즈니스 센터 제품 만들기](partner-center-portal/create-new-business-central-offer.md)에서 자세히 알아보세요. |
 | 고객 Engagement & PowerApps의 Dynamics 365 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Customer Engagement에 대 한 Dynamics 365 만들기 (PowerApps 제품 &](partner-center-portal/create-new-customer-engagement-offer.md))에서 자세히 알아보세요. |

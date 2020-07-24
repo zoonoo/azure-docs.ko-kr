@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f2b3ea90cc94fa3411552c7b812fe53eb4dbbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672432"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008101"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure에서 진단 설정 만들기
 의 [진단 설정](diagnostic-settings.md) Azure Monitor azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 의해 수집 되는 [플랫폼 로그](platform-logs-overview.md) 를 보낼 위치를 지정 합니다. 이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 다른 대상에 플랫폼 로그를 수집 하는 진단 설정을 만들고 구성 하는 방법에 대 한 자세한 내용과 예제를 제공 합니다.
@@ -29,7 +30,7 @@ PowerShell 및 CLI를 비롯 한 유효한 메서드를 사용 하 여 리소스
 
 
 ## <a name="resource-logs"></a>리소스 로그
-리소스 로그의 경우 템플릿에 형식의 리소스를 추가 `<resource namespace>/providers/diagnosticSettings` 합니다. 속성 섹션은 [진단 설정-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)에 설명 된 형식을 따릅니다. `category` `logs` 수집 하려는 리소스에 대해 유효한 각 범주에 대 한 섹션의를 제공 합니다. `metrics` [리소스가 메트릭을 지 원하는](metrics-supported.md)경우 속성을 추가 하 여 리소스 메트릭을 동일한 대상으로 수집 합니다.
+리소스 로그의 경우 템플릿에 형식의 리소스를 추가 `<resource namespace>/providers/diagnosticSettings` 합니다. 속성 섹션은 [진단 설정-만들기 또는 업데이트](/rest/api/monitor/diagnosticsettings/createorupdate)에 설명 된 형식을 따릅니다. `category` `logs` 수집 하려는 리소스에 대해 유효한 각 범주에 대 한 섹션의를 제공 합니다. `metrics` [리소스가 메트릭을 지 원하는](metrics-supported.md)경우 속성을 추가 하 여 리소스 메트릭을 동일한 대상으로 수집 합니다.
 
 다음은 Log Analytics 작업 영역, 저장소 계정 및 이벤트 허브에 대 한 특정 리소스의 리소스 로그 범주를 수집 하는 템플릿입니다.
 
@@ -143,7 +144,7 @@ PowerShell 및 CLI를 비롯 한 유효한 메서드를 사용 하 여 리소스
 ```
 
 ## <a name="activity-log"></a>활동 로그
-Azure 활동 로그에 대해 유형의 리소스를 추가 `Microsoft.Insights/diagnosticSettings` 합니다. 사용 가능한 범주는 [활동 로그의 범주](activity-log-view.md#categories-in-the-activity-log)에 나열 됩니다. 다음은 Log Analytics 작업 영역, 저장소 계정 및 이벤트 허브에 대 한 모든 활동 로그 범주를 수집 하는 템플릿입니다.
+Azure 활동 로그에 대해 유형의 리소스를 추가 `Microsoft.Insights/diagnosticSettings` 합니다. 사용 가능한 범주는 [활동 로그의 범주](./activity-log.md#view-the-activity-log)에 나열 됩니다. 다음은 Log Analytics 작업 영역, 저장소 계정 및 이벤트 허브에 대 한 모든 활동 로그 범주를 수집 하는 템플릿입니다.
 
 
 ```json

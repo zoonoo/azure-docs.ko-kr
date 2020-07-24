@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 4906ea7c3ed3486a4ce089f51916fb8322761fe9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88856a16dbc197be29ddd88311063df4473a1e40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559538"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007880"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -100,12 +100,18 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
 2018년 4월 2일 이전에 Log Analytics 작업 영역 또는 Application Insights 리소스가 있었거나 2019년 2월 1일 이전에 시작된 기업계약에 연결된 구독은 레거시 가격 책정 계층을 사용하기 위한 액세스 권한을 계속 갖게 됩니다. **무료**, **독립 실행형(GB당)** 및 **노드당(OMS)** .  무료 가격 책정 계층의 작업 영역에는 [Azure Security Center](https://docs.microsoft.com/azure/security-center/)에 의해 수집된 보안 데이터 형식을 제외하면 500MB로 제한된 일일 데이터 수집이 포함되며, 데이터 보존 기간은 7일로 제한됩니다. 무료 가격 책정 계층은 평가 목적으로만 사용됩니다. 독립 실행형 또는 노드당 가격 책정 계층의 작업 영역은 사용자 구성 가능 보존 기간이 30~730일입니다.
 
-노드당 가격 책정 계층은 모니터링되는 VM(노드)당 1시간 단위로 요금이 청구됩니다. 모니터링되는 각 노드에 대한 작업 영역에는 일일 500MB의 데이터 용량이 할당되며 이에 대한 요금은 청구되지 않습니다. 이 할당은 작업 영역 수준에서 집계됩니다. 일일 총 데이터 할당량을 초과하는 데이터 수집량에 대해서는 GB당 데이터 초과분 요금이 청구됩니다. 작업 영역이 노드당 가격 책정 계층에 있는 경우, 청구서에 명시되는 해당 서비스는 Log Analytics 사용량에 대한 **Insight & Analytics**입니다. 
+독립 실행형 가격 책정 계층에 대 한 사용량은 수집 데이터 볼륨으로 청구 됩니다. 이는 **Log Analytics** 서비스에서 보고 되 고 미터는 "데이터 분석 됨"으로 이름이 지정 됩니다. 
+
+노드당 가격 책정 계층은 모니터링되는 VM(노드)당 1시간 단위로 요금이 청구됩니다. 모니터링되는 각 노드에 대한 작업 영역에는 일일 500MB의 데이터 용량이 할당되며 이에 대한 요금은 청구되지 않습니다. 이 할당은 작업 영역 수준에서 집계됩니다. 일일 총 데이터 할당량을 초과하는 데이터 수집량에 대해서는 GB당 데이터 초과분 요금이 청구됩니다. 작업 영역이 노드당 가격 책정 계층에 있는 경우, 청구서에 명시되는 해당 서비스는 Log Analytics 사용량에 대한 **Insight & Analytics**입니다. 사용량은 3 미터에 보고 됩니다.
+
+1. 노드: 노드 * 개월 단위로 모니터링 되는 노드 (Vm)의 수를 사용 합니다.
+2. 노드당 데이터 초과분: 집계 된 데이터 할당을 초과 하는 데이터 수집의 GB 수입니다.
+3. 노드당 데이터 포함: 집계 된 데이터 할당에 포함 된 수집 데이터의 양입니다. 이 미터는 작업 영역이 모든 가격 책정 계층에 있는 경우에도 사용 되어 Azure Security Center에서 적용 되는 데이터의 양을 표시 합니다.
 
 > [!TIP]
 > 작업 영역에서 **노드당** 가격 책정 계층에 액세스할 수 있으며 다만 종량제 계층에서 비용이 더 저렴한지 여부가 궁금한 경우, [아래의 쿼리를 사용](#evaluating-the-legacy-per-node-pricing-tier)하면 권장 사항을 쉽게 확인할 수 있습니다. 
 
-2016년 4월 이전에 만든 작업 영역은 데이터 보존 기간이 각각 30일 및 365일로 정해진 원래의 **표준** 및 **프리미엄** 가격 계층에 액세스할 수도 있습니다. **표준** 또는 **프리미엄** 가격 책정 계층에서는 새 작업 영역을 만들 수 없으며, 작업 영역을 이러한 계층 밖으로 옮기면 다시 이동할 수 없습니다.
+2016년 4월 이전에 만든 작업 영역은 데이터 보존 기간이 각각 30일 및 365일로 정해진 원래의 **표준** 및 **프리미엄** 가격 계층에 액세스할 수도 있습니다. **표준** 또는 **프리미엄** 가격 책정 계층에서는 새 작업 영역을 만들 수 없으며, 작업 영역을 이러한 계층 밖으로 옮기면 다시 이동할 수 없습니다. 이러한 레거시 계층에 대 한 데이터 수집 미터를 "데이터 분석" 이라고 합니다.
 
 레거시 Log Analytics 계층의 사용과 [Azure Security Center](https://docs.microsoft.com/azure/security-center/)의 사용량에 대한 요금 청구 방식 간에도 몇 가지 동작이 있습니다. 
 
@@ -132,15 +138,15 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
     ![작업 영역 데이터 보존 기간 설정 변경](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
-데이터 보존 기간을 줄이면 가장 오래된 데이터를 제거하기 전에 며칠의 유예 기간이 적용됩니다. 
-    
-`retentionInDays` 매개 변수를 사용하여 [Azure Resource Manager를 통해 보존 기간을 설정](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)할 수도 있습니다. 또한 데이터 보존 기간을 30일로 설정하면 `immediatePurgeDataOn30Days` 매개 변수를 사용하여 이전 데이터를 즉시 제거할 수 있는데, 이는 규정 준수 관련 시나리오에 도움이 될 수 있습니다. 이 기능은 Azure Resource Manager를 통해서만 노출됩니다. 
+보존이 낮아질 때 새 보존 설정 보다 오래 된 데이터를 제거 하기 전에 몇 일의 유예 기간이 있습니다. 
 
+`retentionInDays` 매개 변수를 사용하여 [Azure Resource Manager를 통해 보존 기간을 설정](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)할 수도 있습니다. 데이터 보존 기간을 30 일로 설정 하는 경우 매개 변수를 사용 하 여 오래 된 데이터의 즉시 제거를 트리거할 수 있습니다 `immediatePurgeDataOn30Days` (몇 일 유예 기간 제거). 이는 즉각적인 데이터 제거가 필수적인 경우 준수 관련 시나리오에 유용할 수 있습니다. 이 즉시 제거 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
+
+30 일 보존이 있는 작업 영역은 실제로 31 일 동안 데이터를 보존할 수 있습니다. 데이터를 30 일 동안 유지 해야 하는 경우에는 Azure Resource Manager를 사용 하 여 보존 기간을 30 일로 설정 하 고 `immediatePurgeDataOn30Days` 매개 변수를 사용 합니다.  
 
 `Usage` 및 `AzureActivity`의 두 데이터 형식은 기본적으로 최소 90일 동안 보존되며, 이 90일의 보존 기간에 대한 요금은 청구되지 않습니다. 작업 영역 보존 기간이 90일 넘게 증가하는 경우, 이러한 데이터 형식의 보존 기간도 증가하게 됩니다.  이러한 데이터 형식에 대해서도 데이터 수집 요금이 부과되지 않습니다. 
 
 작업 영역을 기반으로 한 Application Insights 리소스의 데이터 형식(`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` 및 `AppTraces`)은 기본적으로 90일 동안 보존되며 이러한 90일의 보존 기간에 대한 요금은 청구되지 않습니다. 이들 데이터 형식의 보존 기간은 데이터 형식별 보존 기간 기능을 적용하여 조정할 수 있습니다. 
-
 
 ### <a name="retention-by-data-type"></a>데이터 형식별 보존 기간
 
@@ -189,14 +195,17 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>일일 최대 데이터 볼륨 관리
 
-작업 영역에 대한 일일 한도를 구성하고 일일 수집량을 제한할 수 있지만 목표치가 일일 한도에 도달하지 않도록 주의하십시오.  그렇지 않으면 남은 기간 동안의 데이터가 손실됩니다. 이는 해당 기능이 작업 영역에서 사용할 수 있는 최신 데이터에 의존할 수도 있는 다른 Azure 서비스 및 솔루션에 영향을 줄 수 있습니다.  결과적으로 리소스의 상태 조건이 IT 서비스를 지원할 때 경고를 관찰하고 수신하는 기능이 영향을 받습니다.  작업 영역에 대한 계획되지 않은 요금을 제한하려는 경우 또는 관리되는 리소스에서 예기치 않은 데이터 볼륨의 증가를 관리하고 한도 내로 유지하는 방법으로서 일일 한도가 사용될 수 있습니다.  
+작업 영역에 대한 일일 한도를 구성하고 일일 수집량을 제한할 수 있지만 목표치가 일일 한도에 도달하지 않도록 주의하십시오.  그렇지 않으면 남은 기간 동안의 데이터가 손실됩니다. 이는 해당 기능이 작업 영역에서 사용할 수 있는 최신 데이터에 의존할 수도 있는 다른 Azure 서비스 및 솔루션에 영향을 줄 수 있습니다.  결과적으로 리소스의 상태 조건이 IT 서비스를 지원할 때 경고를 관찰하고 수신하는 기능이 영향을 받습니다.  일일 한도는 관리 되는 리소스에서 **예기치 않은** 데이터 볼륨 증가를 관리 하 고 한도 내로 유지 하거나 작업 영역에 대 한 계획 되지 않은 요금을 제한 하려는 경우에 사용 됩니다. 작업 영역에서 매일 충족 되도록 일일 한도를 설정 하는 것은 적절 하지 않습니다.
 
 각 작업 영역에는 하루 중 다른 시간에 적용 된 일일 상한이 있습니다. Reset 시간은 **일일 단면** 페이지 (아래 참조)에 표시 됩니다. 이 다시 설정 시간을 구성할 수 없습니다. 
 
-일일 한도에 도달하면 하루의 나머지 시간 동안 청구 가능한 데이터 형식의 수집이 즉시 중지됩니다. (일일 한도를 적용 하는 고유한 대기 시간은 지정 된 일일 상한 수준에서 한도를 정확 하 게 적용 하지 않음을 의미 합니다.) 선택한 Log Analytics 작업 영역에 대 한 페이지 위쪽에 경고 배너가 나타나고 **Logmanagement** 범주의 *작업* 테이블에 작업 이벤트가 전송 됩니다. *일일 한도 아래 정의된 재설정 시간이* 로 설정된 후 데이터 수집이 다시 시작합니다. 일일 데이터 한도에 도달했을 때 알려주도록 구성된 이 작업 이벤트를 기반으로 경고 규칙을 정의하는 것이 좋습니다. 
+일일 한도에 도달하면 하루의 나머지 시간 동안 청구 가능한 데이터 형식의 수집이 즉시 중지됩니다. 일일 한도를 적용 하는 기본적인 대기 시간은 지정 된 일일 상한 수준에서 한도를 정확 하 게 적용 하지 않음을 의미 합니다. 선택된 Log Analytics 작업 영역에 대한 페이지의 상단에 경고 배너가 표시되고 작업 이벤트가 **LogManagement** 범주 아래의 *작업* 테이블로 전송됩니다. *일일 한도 아래 정의된 재설정 시간이* 로 설정된 후 데이터 수집이 다시 시작합니다. 일일 데이터 한도에 도달했을 때 알려주도록 구성된 이 작업 이벤트를 기반으로 경고 규칙을 정의하는 것이 좋습니다. 
+
+> [!NOTE]
+> 작업 영역에서 많은 양의 데이터를 수신 하는 경우에는 지정 된 cap 수준 및 일부 초과 데이터를 정확 하 게 사용할 수 있으므로 일일 한도는 데이터 수집을 중지할 수 없습니다.  
 
 > [!WARNING]
-> 일일 한도는 2017 년 6 월 19 일 이전에 Azure Security Center 설치 된 작업 영역을 제외 하 고는 Azure 센티널 또는 Azure Security Center에서 데이터 수집을 중지 하지 않습니다. 
+> 2017 년 6 월 19 일 이전에 Azure Security Center 설치 된 작업 영역을 제외 하 고, 일일 한도는 Azure Sentinal 또는 Azure Security Center에서 데이터 수집을 중지 하지 않습니다. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>정의할 일일 데이터 한도 식별
 

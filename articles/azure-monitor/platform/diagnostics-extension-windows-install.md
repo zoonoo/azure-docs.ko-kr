@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 10d4c2d6650502510bd160cc452ac2289130263b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3e9a14edf9235baff2955c9f8419dc78e45755c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007982"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>WAD(Windows Azure Diagnostics) 확장 설치 및 구성
 [Azure Diagnostics 확장](diagnostics-extension-overview.md)은 게스트 운영 체제에서 모니터링 데이터를 수집하고 Azure 가상 머신 및 기타 계산 리소스의 워크로드를 수집하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 진단 확장 설치 및 구성에 대한 자세한 내용을 알아보고 데이터가 저장되는 방법과 Azure Storage 계정에 대해 설명합니다.
@@ -77,7 +77,7 @@ Azure Portal에서 개별 가상 머신에 진단 확장을 설치하고 구성�
 Azure Resource Manager 템플릿을 사용하여 진단 확장을 배포하는 방법에 대한 자세한 내용은 [Windows VM 및 Azure Resource Manager를 사용하여 모니터링 및 진단 사용](../../virtual-machines/extensions/diagnostics-template.md)을 참조하세요. 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
-Azure CLI를 사용하여 다음 예와 같이 [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set)를 사용하여 기존 가상 머신에 Azure Diagnostics 확장을 배포할 수 있습니다. 
+Azure CLI를 사용하여 다음 예와 같이 [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set)를 사용하여 기존 가상 머신에 Azure Diagnostics 확장을 배포할 수 있습니다. 
 
 ```azurecli
 az vm extension set \
@@ -133,7 +133,7 @@ az vm extension set \
 
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
-PowerShell을 사용하여 다음 예와 같이 [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension)을 사용하여 기존 가상 머신에 Azure Diagnostics 확장을 배포할 수 있습니다. 
+PowerShell을 사용하여 다음 예와 같이 [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension)을 사용하여 기존 가상 머신에 Azure Diagnostics 확장을 배포할 수 있습니다. 
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `

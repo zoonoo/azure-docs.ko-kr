@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b5640a42c0fdcb0bd958011db28c19854b16a547
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4e951b7eb2d3d5e49ab80af2604d5b44565dd25e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008543"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -640,7 +640,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: 역할 기반 액세스 제어를 사용하여 Azure API Management에 대한 액세스를 제어합니다. Azure API Management는 Azure 역할 기반 액세스 제어(RBAC)를 사용하여 API Management 서비스 및 엔터티(예: API 및 정책)에 대한 세분화된 액세스 관리를 가능하게 합니다.
+**지침**: 역할 기반 액세스 제어를 사용하여 Azure API Management에 대한 액세스를 제어합니다. Azure API Management는 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 API Management 서비스 및 엔터티 (예: Api 및 정책)에 대 한 세분화 액세스 관리를 지원 합니다.
 
 * [Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법](./api-management-role-based-access-control.md)
 

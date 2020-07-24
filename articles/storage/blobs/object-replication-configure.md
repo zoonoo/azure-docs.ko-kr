@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddf9a1309cb4f9156cec3aeb5d2ddd9d22cde485
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888108"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011451"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>블록 blob에 대한 개체 복제(미리 보기) 구성
 
@@ -52,7 +52,7 @@ Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니�
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
 
-1. 원할 경우 접두사 패턴과 일치하는 blob만 복사하도록 하나 이상의 필터를 지정합니다. 예를 들어, `b` 접두사를 지정하면 해당 문자로 시작하는 이름의 blob만 복제됩니다. 가상 디렉터리를 접두사의 일부로 지정할 수 있습니다.
+1. 원할 경우 접두사 패턴과 일치하는 blob만 복사하도록 하나 이상의 필터를 지정합니다. 예를 들어, `b` 접두사를 지정하면 해당 문자로 시작하는 이름의 blob만 복제됩니다. 가상 디렉터리를 접두사의 일부로 지정할 수 있습니다. 접두사 문자열은 와일드 카드 문자를 지원 하지 않습니다.
 
     다음 이미지는 복제 규칙의 일부로 복사할 blob을 제한하는 필터를 보여 줍니다.
 
@@ -68,7 +68,7 @@ Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니�
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용하여 복제 정책을 만들려면 먼저 Az.Storage PowerShell 모듈의 버전 [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview)를 설치합니다. 다음 단계에 따라 미리 보기 모듈을 설치합니다.
+PowerShell을 사용 하 여 복제 정책을 만들려면 먼저 Az. Storage PowerShell 모듈의 버전 [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) 이상을 설치 합니다. 다음 단계에 따라 미리 보기 모듈을 설치합니다.
 
 1. **설정**에 있는 **앱 및 기능** 설정을 사용하여 이전에 설치한 Azure PowerShell이 있으면 Windows에서 제거합니다.
 

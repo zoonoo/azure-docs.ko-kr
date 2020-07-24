@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 85beb04e39c5c47b9ee71ee96c2dff8910766ea3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009054"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -81,7 +81,6 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
-- Microsoft Intune Managed Browser
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
@@ -97,7 +96,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - 비즈니스용 Microsoft Skype
 - Microsoft StaffHub
 - Microsoft Stream
-- Microsoft 팀
+- Microsoft Teams
 - Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
@@ -123,9 +122,22 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 이 설정은 다음 클라이언트 앱에 적용됩니다.
 
 - Microsoft Cortana
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Office
 - Microsoft OneDrive
+- Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Word
+- Intune의 여러 줄
+- 9 메일-전자 메일 & 달력
+
+> [!NOTE]
+> Microsoft Kaizala, 비즈니스용 Microsoft Skype 및 Microsoft Visio는 **앱 보호 정책 부여 필요** 를 지원 하지 않습니다. 이러한 앱이 작동 해야 하는 경우 **승인 된 앱** 을 독점적으로 부여 필요를 사용 하세요. 이러한 세 응용 프로그램에서는 두 가지 권한 사이에 또는 절을 사용할 수 없습니다.
 
 **주의**
 

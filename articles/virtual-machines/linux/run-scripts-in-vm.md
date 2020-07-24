@@ -7,11 +7,12 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
-ms.openlocfilehash: 9dbfb3e76fe1c0e80dd8020b79f4edd6d32a24a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d40352d2110fa54ab699e41fa6d161d5c9ea4f4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758590"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010515"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Linux VM에서 스크립트 실행
 
@@ -32,7 +33,7 @@ ms.locfileid: "81758590"
 [명령 실행](run-command.md) 기능은 가상 머신 및 애플리케이션 관리 및 스크립트를 사용한 문제 해결을 사용하도록 설정하며, 가상 머신을 연결할 수 없는 경우에도 예를 들어 게스트 방화벽이 RDP 또는 SSH 포트를 개방하지 않는 경우에도 사용할 수 있습니다.
 
 * Azure 가상 머신에서 스크립트를 실행합니다.
-* [Azure Portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)을 사용하여 실행 가능
+* [Azure Portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 또는 [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)을 사용하여 실행 가능
 * 신속하게 스크립트 및 출력 보기를 실행하고 Azure Portal에서 필요에 따라 반복합니다.
 * 스크립트는 직접 입력하거나 기본 제공 스크립트 중 하나를 실행할 수 있습니다.
 * Windows 컴퓨터에서 PowerShell 스크립트 및 Linux 컴퓨터에서 Bash 스크립트를 실행합니다.
@@ -55,7 +56,7 @@ ms.locfileid: "81758590"
 
 ## <a name="serial-console"></a>직렬 콘솔
 
-[직렬 콘솔](serial-console.md)은 키보드를 VM에 연결하는 것과 유사하게 VM에 대 한 직접 액세스를 제공합니다.
+[직렬 콘솔](../troubleshooting/serial-console-linux.md)은 키보드를 VM에 연결하는 것과 유사하게 VM에 대 한 직접 액세스를 제공합니다.
 
 * Azure 가상 머신에서 명령을 실행합니다.
 * Azure Portal에서 가상 머신에 텍스트 기반 콘솔을 사용하여 실행할 수 있습니다.
@@ -69,4 +70,4 @@ VM 내에서 스크립트 및 명령을 실행할 수 있는 다양한 기능에
 * [사용자 지정 스크립트 확장](../extensions/custom-script-linux.md)
 * [명령 실행](run-command.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
-* [직렬 콘솔](serial-console.md)
+* [직렬 콘솔](../troubleshooting/serial-console-linux.md)

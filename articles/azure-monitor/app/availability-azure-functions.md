@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791115"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008407"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 
@@ -23,7 +23,7 @@ ms.locfileid: "82791115"
 
 - Application Insights 리소스가 있는 경우:
     - 기본적으로 Azure Functions는 Application Insights 리소스를 만들지만 이미 생성 된 리소스 중 하나를 사용 하려는 경우 생성 중에 지정 해야 합니다.
-    - 다음 선택 항목을 사용 하 여 [Azure Functions 리소스 및 타이머 트리거 함수](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (정리 전에 중지)를 만드는 방법에 대 한 지침을 따르세요.
+    - 다음 선택 항목을 사용 하 여 [Azure Functions 리소스 및 타이머 트리거 함수](../../azure-functions/functions-create-scheduled-function.md) (정리 전에 중지)를 만드는 방법에 대 한 지침을 따르세요.
         -  위쪽 근처의 **모니터링** 탭을 선택 합니다.
 
             ![ 사용자 고유의 App Insights 리소스를 사용 하 여 Azure Functions 앱 만들기](media/availability-azure-functions/create-function-app.png)
@@ -35,9 +35,9 @@ ms.locfileid: "82791115"
         - **검토 + 만들기** 선택
 - 타이머 트리거 함수에 대해 아직 Application Insights 리소스가 생성 되지 않은 경우:
     - 기본적으로 Azure Functions 응용 프로그램을 만들 때 Application Insights 리소스를 만들게 됩니다.
-    - [Azure Functions 리소스 및 타이머 트리거 함수를 만드는](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) 방법에 대 한 지침을 따르세요 (정리 전 중지).
+    - [Azure Functions 리소스 및 타이머 트리거 함수를 만드는](../../azure-functions/functions-create-scheduled-function.md) 방법에 대 한 지침을 따르세요 (정리 전 중지).
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 아래 코드를 실행. csx 파일에 복사 합니다. 이렇게 하면 기존 코드가 바뀝니다. 이렇게 하려면 Azure Functions 응용 프로그램으로 이동 하 여 왼쪽에서 타이머 트리거 함수를 선택 합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "82791115"
 >![Azure Portal에서 Azure 함수의 실행. csx](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> 끝점 주소에 대해를 사용 합니다. `EndpointAddress= https://dc.services.visualstudio.com/v2/track` 리소스가 Azure Government 또는 Azure 중국와 같은 지역에 있는 경우를 제외 하 고 [기본 끝점 재정의](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) 에 대 한이 문서를 참조 하 고 해당 지역에 적절 한 원격 분석 채널 끝점을 선택 합니다.
+> 끝점 주소에 대해를 사용 합니다. `EndpointAddress= https://dc.services.visualstudio.com/v2/track` 리소스가 Azure Government 또는 Azure 중국와 같은 지역에 있는 경우를 제외 하 고 [기본 끝점 재정의](./custom-endpoints.md#regions-that-require-endpoint-modification) 에 대 한이 문서를 참조 하 고 해당 지역에 적절 한 원격 분석 채널 끝점을 선택 합니다.
 
 ```C#
 #load "runAvailabilityTest.csx"

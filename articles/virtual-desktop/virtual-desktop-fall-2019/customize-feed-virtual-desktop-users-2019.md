@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱 사용자에 대 한 피드 사용자 지정-Azure
+title: Windows 가상 데스크톱에 대 한 피드 사용자 지정 사용자 지정 2019 사용자-Azure
 description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱 사용자에 대 한 피드를 사용자 지정 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 248156c403e7e74665ec1c856588d8a2ca76e208
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9c573fc1aa220b9301e51ef0ccb1190d9243250e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244568"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011229"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Windows Virtual Desktop 사용자용 피드를 사용자 지정
 

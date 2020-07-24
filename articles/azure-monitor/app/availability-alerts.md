@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19a0e94206691dc741020374bf5c827ba423515d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382876"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008356"
 ---
 # <a name="availability-alerts"></a>가용성 경고
 
@@ -24,7 +24,7 @@ ms.locfileid: "81382876"
 ![환경 만들기](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  [새로 통합된 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)를 사용하여 경고 규칙 심각도 및 [작업 그룹이 포함된 알림 기본 설정은 경고 환경에서 구성](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **되어야 합니다**. 다음 단계 없이도 포털 내 알림을 받게 됩니다.
+>  [새로 통합된 경고](../platform/alerts-overview.md)를 사용하여 경고 규칙 심각도 및 [작업 그룹이 포함된 알림 기본 설정은 경고 환경에서 구성](../platform/action-groups.md) **되어야 합니다**. 다음 단계 없이도 포털 내 알림을 받게 됩니다.
 
 1. 가용성 테스트를 저장한 후 세부 정보 탭에서 방금 만든 테스트 옆에 있는 줄임표를 클릭합니다. "경고 편집"을 클릭합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "81382876"
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Y 위치에서 오류를 보고하는 X에 대해 경고
 
-Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본적으로 [새로 통합된 경고 환경](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)에서 사용하도록 설정됩니다. "클래식" 옵션을 선택하거나 경고 규칙을 사용하지 않도록 선택하여 옵트아웃할 수 있습니다.
+Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본적으로 [새로 통합된 경고 환경](../platform/alerts-overview.md)에서 사용하도록 설정됩니다. "클래식" 옵션을 선택하거나 경고 규칙을 사용하지 않도록 선택하여 옵트아웃할 수 있습니다.
 
 > [!NOTE]
 > 위의 단계에 따라 경고가 트리거될 때 알림을 받으려면 작업 그룹을 구성합니다. 이 단계가 없으면 규칙이 트리거될 때 포털 내 알림만 받게 됩니다.
@@ -47,7 +47,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 ### <a name="alert-on-availability-metrics"></a>가용성 메트릭에 대한 경고
 
-[새로 통합된 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)를 통해 분할된 집계 가용성 및 테스트 지속 시간 메트릭에 대해서도 경고할 수 있습니다.
+[새로 통합된 경고](../platform/alerts-overview.md)를 통해 분할된 집계 가용성 및 테스트 지속 시간 메트릭에 대해서도 경고할 수 있습니다.
 
 1. 메트릭 환경에서 Application Insights 리소스를 선택하고, 가용성 메트릭:
 
@@ -57,7 +57,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 ### <a name="alert-on-custom-analytics-queries"></a>사용자 지정 분석 쿼리에 대한 경고
 
-[새로 통합된 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)를 통해 [사용자 지정 로그 쿼리](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log)에 대해 경고할 수 있습니다. 사용자 지정 쿼리를 통해 임의의 모든 조건에 대해 경고하여 가용성 문제에서 가장 안정적인 신호를 얻을 수 있습니다. 이는 지 수 가용성 SDK를 사용 하 여 사용자 지정 가용성 결과를 전송 하는 경우에도 적용 됩니다.
+[새로 통합된 경고](../platform/alerts-overview.md)를 통해 [사용자 지정 로그 쿼리](../platform/alerts-unified-log.md)에 대해 경고할 수 있습니다. 사용자 지정 쿼리를 통해 임의의 모든 조건에 대해 경고하여 가용성 문제에서 가장 안정적인 신호를 얻을 수 있습니다. 이는 지 수 가용성 SDK를 사용 하 여 사용자 지정 가용성 결과를 전송 하는 경우에도 적용 됩니다.
 
 > [!Tip]
 > 가용성 데이터에 대한 메트릭에는 TrackAvailability SDK를 호출하여 제출할 수 있는 사용자 지정 가용성 결과가 모두 포함됩니다. 사용자 지정 가용성 결과를 경고하려면 메트릭 지원에 대한 경고를 사용할 수 있습니다.

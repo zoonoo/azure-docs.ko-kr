@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 1d38a3cac5525de6835bbb0f9873cbd0636d44a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fe4a70d2cf59f003c785740b55634d44863dc9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869667"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009529"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure Diagnostics 확장
 
@@ -20,7 +21,7 @@ ms.locfileid: "81869667"
 
 Azure Diagnostics VM 확장을 사용하면 Windows VM에서 모니터링 데이터(예: 성능 카운터 및 이벤트 로그)를 수집할 수 있습니다. 수집하려는 데이터와 데이터를 저장할 위치(예: Azure Storage 계정 또는 Azure Event Hub)를 세분화하여 지정할 수 있습니다. 이 데이터를 사용하여 Azure Portal에서 차트를 작성하거나 메트릭 경고를 만들 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -36,7 +37,7 @@ Azure Diagnostics 확장은 대상 가상 머신이 인터넷에 연결되어 �
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 Azure Diagnostics 확장을 실행할 수 있습니다. [Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용](extensions-diagnostics-template.md)을 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 Azure Diagnostics 확장을 실행할 수 있습니다. [Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용](../extensions/diagnostics-template.md)을 참조하세요.
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
@@ -54,7 +55,7 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-`Set-AzVMDiagnosticsExtension` 명령을 사용하여 Azure Diagnostics 확장을 기존 가상 머신에 추가할 수 있습니다. [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정](ps-extensions-diagnostics.md)을 참조하세요.
+`Set-AzVMDiagnosticsExtension` 명령을 사용하여 Azure Diagnostics 확장을 기존 가상 머신에 추가할 수 있습니다. [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정](../extensions/diagnostics-windows.md)을 참조하세요.
 
  
 

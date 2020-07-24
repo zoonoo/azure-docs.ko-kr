@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 44c86dae3c7df8293404c253b94164c37d574158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c89fcf22f669c97f2b17acce57c293eabcf96de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009699"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -46,9 +46,9 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 ## <a name="solution"></a>솔루션
 
 >[!NOTE]
->사이트 간 VPN 및 강제 터널링을 사용 하는 경우 [Azure 사용자 지정 경로를 사용 하 여 강제 터널링으로 KMS 정품 인증을 사용 하도록 설정](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)을 참조 하세요. 
+>사이트 간 VPN 및 강제 터널링을 사용 하는 경우 [Azure 사용자 지정 경로를 사용 하 여 강제 터널링으로 KMS 정품 인증을 사용 하도록 설정](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md)을 참조 하세요. 
 >
->Express 경로를 사용 하 고 기본 경로를 게시 한 경우 Express 경로 [회로에 연결 된 가상 네트워크에 대 한 인터넷 연결을 차단할 수 있나요?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)를 참조 하세요.
+>Express 경로를 사용 하 고 기본 경로를 게시 한 경우 Express 경로 [회로에 연결 된 가상 네트워크에 대 한 인터넷 연결을 차단할 수 있나요?](../../expressroute/expressroute-faqs.md)를 참조 하세요.
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>1 단계 적절 한 KMS 클라이언트 설정 키 구성
 
@@ -61,7 +61,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. **slmgr.vbs /dlv**가 소매 채널을 표시하는 경우 다음 명령을 실행하여 사용된 Windows Server의 버전에 [KMS 클라이언트 설정 키](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396)를 설정하고 활성화를 다시 시도합니다. 
+2. **slmgr.vbs /dlv**가 소매 채널을 표시하는 경우 다음 명령을 실행하여 사용된 Windows Server의 버전에 [KMS 클라이언트 설정 키](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)?f=255&MSPPError=-2147217396)를 설정하고 활성화를 다시 시도합니다. 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -77,7 +77,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>2단계 VM과 Azure KMS 서비스 간의 연결 확인
 
-1. [Psping](https://docs.microsoft.com/sysinternals/downloads/psping) 도구를 다운로드 하 여 활성화 하지 않는 VM의 로컬 폴더에 압축을 풉니다. 
+1. [Psping](/sysinternals/downloads/psping) 도구를 다운로드 하 여 활성화 하지 않는 VM의 로컬 폴더에 압축을 풉니다. 
 
 2. 시작하고 Windows PowerShell에서 검색하고 Windows PowerShell을 마우스 오른쪽 단추로 클릭한 다음 관리자 권한으로 실행을 선택합니다.
 
@@ -102,7 +102,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
   
     또한 1688 포트가 있는 KMS 끝점에 대 한 아웃 바운드 네트워크 트래픽이 VM의 방화벽에서 차단 되지 않았는지 확인 합니다.
 
-5. 해당 지역에 적용 되는 대상 IP 23.102.135.246 (kms.core.windows.net) 또는 해당 지역에 적용 되는 적절 한 KMS 끝점의 IP에 해당 하는 VM의 다음 홉 형식이 **인터넷**인 [Network Watcher 다음 홉](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) 을 사용 하 여 확인 합니다.  결과가 VirtualAppliance 또는 VirtualNetworkGateway 인 경우 기본 경로가 있을 수 있습니다.  네트워크 관리자에 게 문의 하 여 올바른 작업 과정을 확인 하세요.  해당 솔루션이 조직의 정책과 일치 하는 경우 [사용자 지정 경로](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) 일 수 있습니다.
+5. 해당 지역에 적용 되는 대상 IP 23.102.135.246 (kms.core.windows.net) 또는 해당 지역에 적용 되는 적절 한 KMS 끝점의 IP에 해당 하는 VM의 다음 홉 형식이 **인터넷**인 [Network Watcher 다음 홉](../../network-watcher/network-watcher-next-hop-overview.md) 을 사용 하 여 확인 합니다.  결과가 VirtualAppliance 또는 VirtualNetworkGateway 인 경우 기본 경로가 있을 수 있습니다.  네트워크 관리자에 게 문의 하 여 올바른 작업 과정을 확인 하세요.  해당 솔루션이 조직의 정책과 일치 하는 경우 [사용자 지정 경로](./custom-routes-enable-kms-activation.md) 일 수 있습니다.
 
 6. kms.core.windows.net에 성공적으로 연결되었는지 확인한 후에 해당 관리자 권한 Windows PowerShell 프롬프트에서 다음 명령을 실행합니다. 이 명령은 여러 번 활성화되도록 시도합니다.
 
@@ -130,7 +130,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Windows 정품 인증 기간이 만료된 경우 어떻게 되나요? 
 
  
-유예 기간이 만료되고 Windows가 여전히 활성화되지 않은 경우 Windows Server 2008 R2 및 Windows 이후 버전은 정품 인증에 대한 추가 알림을 표시합니다. 바탕 화면 배경 화면을 검은색으로 유지하고 Windows 업데이트를 통해 보안 및 중요 업데이트만을 설치하고 선택 사항 업데이트를 설치하지 않습니다. [라이선스 조건](https://technet.microsoft.com/library/ff793403.aspx) 페이지의 맨 아래에 있는 알림 섹션을 참조하세요.   
+유예 기간이 만료되고 Windows가 여전히 활성화되지 않은 경우 Windows Server 2008 R2 및 Windows 이후 버전은 정품 인증에 대한 추가 알림을 표시합니다. 바탕 화면 배경 화면을 검은색으로 유지하고 Windows 업데이트를 통해 보안 및 중요 업데이트만을 설치하고 선택 사항 업데이트를 설치하지 않습니다. [라이선스 조건](/previous-versions/tn-archive/ff793403(v=technet.10)) 페이지의 맨 아래에 있는 알림 섹션을 참조하세요.   
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

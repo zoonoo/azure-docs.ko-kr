@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb7d4d8a6f1c1ee55601cdd839e330147e60bcc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011076"
 ---
 # <a name="orchestration-modes-preview"></a>오케스트레이션 모드 (미리 보기)
 
@@ -42,9 +42,9 @@ Virtual machines 크기 집합은 플랫폼에서 관리 하는 가상 컴퓨터
 
 ## <a name="orchestration-modes"></a>오케스트레이션 모드
 
-|                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+| 기능                     | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| VM 구성 모델      | 없음                                       | 필요한 공간 |
+| VM 구성 모델      | None                                       | 필수 |
 | 확장 집합에 새 VM 추가  | VM을 만들 때 vm은 확장 집합에 명시적으로 추가 됩니다. | VM 구성 모델, 인스턴스 수 및 자동 크기 조정 규칙에 따라 vm이 암시적으로 생성 되 고 확장 집합에 추가 됩니다. | |
 | VM 삭제                   | Vm을 개별적으로 삭제 해야 하므로 확장 집합에 Vm이 있는 경우에는 삭제 되지 않습니다. | Vm을 개별적으로 삭제할 수 있으며, 확장 집합을 삭제 하면 모든 VM 인스턴스가 삭제 됩니다.  |
 | Vm 연결/분리           | 지원 안 함                              | 지원되지 않음 |
@@ -58,10 +58,10 @@ Virtual machines 크기 집합은 플랫폼에서 관리 하는 가상 컴퓨터
 | 인스턴스 제어            | 전체 VM 컨트롤입니다. Vm은 Azure VM 관리 기능 (예: Azure Policy, Azure Backup 및 Azure Site Recovery)의 전체 범위를 지 원하는 정규화 된 URI를 포함 합니다. | Vm은 확장 집합의 종속 리소스입니다. 확장 집합을 통해서만 관리를 위해 인스턴스를 액세스할 수 있습니다. |
 | 인스턴스 모델              | VirtualMachines/모델 정의입니다. | Microsoft. Compute/VirtualMachineScaleSets/VirtualMachines 모델 정의. |
 | 용량                    | 빈 확장 집합을 만들 수 있습니다. 최대 200 Vm을 확장 집합에 추가할 수 있습니다. | 크기 집합은 인스턴스 수 0-1000를 사용 하 여 정의할 수 있습니다. |
-| 이동                        | 지원됨                                  | 지원 여부 |
+| 이동                        | 지원 여부                                  | 지원 여부 |
 | 단일 배치 그룹 = = false | 지원되지 않음                          | 지원됨 |
 
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [가용성 옵션 개요](availability.md)를 참조 하세요.
+자세한 내용은 [가용성 옵션 개요](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json)를 참조 하세요.

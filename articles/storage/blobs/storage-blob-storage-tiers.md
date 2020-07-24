@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919916"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011348"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층
 
@@ -118,10 +118,10 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 |                                           | **프리미엄 성능**   | **핫 계층** | **쿨 계층**       | **보관 계층**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **가용성**                          | 99.9%                     | 99.9%        | 99%                 | 오프라인           |
-| **가용성** <br> **(RA-GRS 읽기)**  | 해당 없음                       | 99.99%       | 99.9%               | 오프라인           |
+| **가용성** <br> **(RA-GRS 읽기)**  | N/A                       | 99.99%       | 99.9%               | 오프라인           |
 | **사용 요금**                         | 더 높은 저장소 비용, 낮은 액세스 및 트랜잭션 비용 | 스토리지 비용 더 높음, 액세스 및 트랜잭션 비용 더 낮음 | 스토리지 비용 더 낮음, 액세스 및 트랜잭션 비용 더 높음 | 스토리지 비용 가장 낮음, 액세스 및 트랜잭션 비용 가장 높음 |
-| **최소 개체 크기**                   | 해당 없음                       | 해당 없음          | 해당 없음                 | 해당 없음               |
-| **최소 스토리지 기간**              | 해당 없음                       | 해당 없음          | 30 일<sup>1</sup> | 180일
+| **최소 개체 크기**                   | N/A                       | N/A          | N/A                 | N/A               |
+| **최소 스토리지 기간**              | N/A                       | N/A          | 30 일<sup>1</sup> | 180일
 | **대기 시간** <br> **(첫 번째 바이트 까지의 시간)** | 1 자리 밀리초 | 밀리초 | 밀리초        | 시간<sup>2</sup> |
 
 <sup>1</sup> GPv2 계정의 쿨 계층에 있는 개체의 최소 보존 기간은 30 일입니다. Blob storage 계정에는 쿨 계층에 대 한 최소 보존 기간이 없습니다.
@@ -151,7 +151,7 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 
 1. 요구 사항에 적합 한 액세스 계층을 선택 합니다. **액세스 계층** 을 **쿨** 또는 **핫**으로 설정 합니다.
 
-1. 위쪽에서 **저장** 을 클릭합니다.
+1. 위쪽에서 **저장** 을 클릭 합니다.
 
 ![저장소 계정 계층 변경](media/storage-tiers/account-tier.png)
 
@@ -248,7 +248,7 @@ Blob 수준 계층화와 함께 핫 및 쿨 액세스 계층은 모든 지역에
 
 핫 액세스 계층의 blob에는 GPv1, GPv2 및 Blob storage 계정의 blob과 동일한 대기 시간이 있습니다. 쿨 액세스 계층의 blob에는 GPv1, GPv2 및 Blob storage 계정의 blob과 유사한 대기 시간 (밀리초)이 있습니다. 보관 액세스 계층의 blob에는 GPv1, GPv2 및 Blob storage 계정에서 몇 시간의 대기 시간이 있습니다.
 
-쿨 액세스 계층의 blob에는 핫 액세스 계층에 저장 된 blob 보다 약간 낮은 가용성 서비스 수준 (SLA)이 있습니다. 자세한 내용은 [스토리지에 대한 SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_2/)를 참조하세요.
+쿨 액세스 계층의 blob에는 핫 액세스 계층에 저장 된 blob 보다 약간 낮은 가용성 서비스 수준 (SLA)이 있습니다. 자세한 내용은 [스토리지에 대한 SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_5/)를 참조하세요.
 
 **핫, 쿨 및 보관 계층 간에 작업은 동일한가요?**
 

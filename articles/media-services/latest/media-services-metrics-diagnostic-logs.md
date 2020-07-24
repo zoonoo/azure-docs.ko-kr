@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7058160819c9b6ccc3f63511f86e930fcbfc413b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559535"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011654"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Azure Monitor를 통해 Media Services 메트릭 및 진단 로그를 모니터링 합니다.
 
@@ -42,7 +42,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 다음 계정 메트릭을 모니터링할 수 있습니다.
 
-|메트릭 이름|표시 이름|Description|
+|메트릭 이름|표시 이름|설명|
 |---|---|---|
 |AssetCount|자산 수|계정의 자산입니다.|
 |AssetQuota|자산 할당량|계정의 자산 할당량입니다.|
@@ -58,9 +58,9 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 ### <a name="streaming-endpoint"></a>스트리밍 엔드포인트
 
-다음 Media Services [스트리밍 끝점](https://docs.microsoft.com/rest/api/media/streamingendpoints) 메트릭이 지원 됩니다.
+다음 Media Services [스트리밍 끝점](/rest/api/media/streamingendpoints) 메트릭이 지원 됩니다.
 
-|메트릭 이름|표시 이름|Description|
+|메트릭 이름|표시 이름|설명|
 |---|---|---|
 |요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
 |송신|송신|스트리밍 끝점 당 분당 총 바이트 수입니다.|
@@ -92,7 +92,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 
 ### <a name="key-delivery"></a>키 배달
 
-|Name|Description|
+|Name|설명|
 |---|---|
 |키 배달 서비스 요청|키 배달 서비스 요청 정보를 표시 하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조 하세요.|
 

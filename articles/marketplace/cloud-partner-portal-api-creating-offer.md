@@ -4,19 +4,21 @@ description: 새 API를 만들거나 기존 제안을 업데이트 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: 5104d11c1eaf9641f1d631db97dcca036308cd45
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 249eb982ee701ea0a442121c02e55ad98e1f6fb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115726"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011994"
 ---
 <a name="create-or-modify-an-offer"></a>제안 만들기 또는 수정
 =========================
 
 > [!NOTE]
-> Cloud 파트너 포털 API는 파트너 센터와 통합되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동합니다. 통합에는 작은 변경 사항이 도입되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 합니다.
+> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
 
 이 호출은 게시자 네임스페이스 내에서 특정 제안을 업데이트하거나 새 제안을 만듭니다.
 
@@ -283,4 +285,4 @@ ms.locfileid: "86115726"
 <a name="uploading-artifacts"></a>아티팩트 업로드 중
 -------------------
 
-위 예제와 같이 이미지, 로고 등의 아티팩트를 웹의 액세스 가능 위치에 업로드한 후 각각을 PUT 요청에 URI로 포함하여 공유해야 합니다. 시스템에서는 이러한 파일이 Azure Marketplace 스토리지에 없음을 감지하고 스토리지에 다운로드합니다.  결과적으로, 후속 GET 요청은 이러한 파일의 Azure Marketplace 서비스 URL을 반환한다는 것을 알 수 있습니다.
+위 예제와 같이 이미지, 로고 등의 아티팩트를 웹의 액세스 가능 위치에 업로드한 후 각각을 PUT 요청에 URI로 포함하여 공유해야 합니다. 시스템은 이러한 파일이 Azure Marketplace 저장소에 존재 하지 않는 것을 감지 하 고 이러한 파일을 저장소로 다운로드 합니다.  결과적으로 이후 GET 요청에서 이러한 파일에 대 한 Azure Marketplace 서비스 URL을 반환 한다는 것을 알 수 있습니다.

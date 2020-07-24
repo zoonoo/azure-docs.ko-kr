@@ -7,13 +7,14 @@ ms.date: 01/11/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a658bfc0815a03d0f6944d1c42eacdd04397458d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1dfcad5a4fb6611543e6421e82889f239f14951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010832"
 ---
-# <a name="benchmarking-a-disk"></a>디스크 벤치마킹
+# <a name="benchmark-your-application-on-azure-disk-storage"></a>Azure 디스크 저장소에서 응용 프로그램 벤치 마크
 
 벤치마킹은 애플리케이션에서 다양한 작업을 시뮬레이션하고 각 작업에 대한 애플리케이션 성능을 측정하는 과정입니다. [고성능을 위한 디자인 문서](premium-storage-performance.md)에 설명된 단계를 사용합니다. 애플리케이션을 호스팅하는 VM에서 벤치마킹 도구를 실행하여 Premium Storage를 통해 애플리케이션이 얻을 수 있는 성능 수준을 확인할 수 있습니다. 이 문서에서는 Azure Premium Storage 디스크로 프로비저닝된 표준 DS14 VM의 벤치마킹 예제를 제공합니다.
 

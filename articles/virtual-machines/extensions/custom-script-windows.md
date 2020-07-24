@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b85aab2491f4186cf4d6ee73144bc235a40cdeac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ab8d45c12d7b2c408328e306b1a6961cbe5272a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478487"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010940"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -124,13 +124,13 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 | Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | string |
-| type | CustomScriptExtension | string |
+| publisher | Microsoft.Compute | 문자열 |
+| type | CustomScriptExtension | 문자열 |
 | typeHandlerVersion | 1.10 | int |
 | fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp(예) | 123456789 | 32비트 정수 |
-| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
-| storageAccountName(예) | examplestorageacct | string |
+| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | 문자열 |
+| storageAccountName(예) | examplestorageacct | 문자열 |
 | storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
 | managedIdentity(예) | { } 또는 { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } 또는 { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json 개체 |
 
@@ -144,7 +144,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 * `timestamp`(옵션, 32비트 정수)는 이 필드의 값을 변경하여 스크립트의 다시 실행을 트리거하는 데만 이 필드를 사용합니다.  모든 정수 값을 사용할 수 있습니다. 단, 이전 값과 달라야 합니다.
 * `storageAccountName`: (옵션, 문자열) 스토리지 계정에 대한 이름입니다. 스토리지 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
 * `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
-* `managedIdentity`: (선택 사항, json 개체) 파일을 다운로드하기 위한 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* `managedIdentity`: (선택 사항, json 개체) 파일을 다운로드하기 위한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)
   * `clientId`: (선택 사항, 문자열) 관리 ID의 클라이언트 ID
   * `objectId`: (선택 사항, 문자열) 관리 ID의 개체 ID
 
@@ -160,9 +160,9 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 > [!NOTE]
 > 이 속성은 보호 설정에서만 지정**해야 합니다**.
 
-CustomScript(버전 1.10 이상)는 “fileUris” 설정에 제공된 URL에서 파일을 다운로드하기 위한 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 지원합니다. 사용자가 SAS 토큰 또는 스토리지 계정 키와 같은 비밀을 전달하지 않아도 CustomScript가 Azure Storage 프라이빗 Blob 또는 컨테이너에 액세스할 수 있습니다.
+CustomScript(버전 1.10 이상)는 “fileUris” 설정에 제공된 URL에서 파일을 다운로드하기 위한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 지원합니다. 사용자가 SAS 토큰 또는 스토리지 계정 키와 같은 비밀을 전달하지 않아도 CustomScript가 Azure Storage 프라이빗 Blob 또는 컨테이너에 액세스할 수 있습니다.
 
-이 기능을 사용하려면 사용자는 CustomScript를 실행해야 하는 VM 또는 VMSS에 [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) 또는 [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) ID를 추가하고 [Azure Storage 컨테이너 또는 Blob에 대한 관리 ID 액세스 권한을 부여](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)해야 합니다.
+이 기능을 사용하려면 사용자는 CustomScript를 실행해야 하는 VM 또는 VMSS에 [system-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) 또는 [user-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) ID를 추가하고 [Azure Storage 컨테이너 또는 Blob에 대한 관리 ID 액세스 권한을 부여](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access)해야 합니다.
 
 대상 VM/VMSS에서 시스템 할당 ID를 사용하려면 “managedidentity” 필드를 빈 json 개체로 설정합니다. 
 
@@ -283,7 +283,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 ```
 ## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
-확장 집합에 사용자 지정 스크립트 확장을 배포하려면 [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)을 참조하세요.
+확장 집합에 사용자 지정 스크립트 확장을 배포하려면 [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)을 참조하세요.
 
 ## <a name="classic-vms"></a>클래식 VM
 
@@ -301,7 +301,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 ### <a name="powershell"></a>PowerShell
 
-[Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) cmdlet을 사용하여 기존 가상 머신에 사용자 지정 스크립트 확장을 추가할 수 있습니다.
+[Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) cmdlet을 사용하여 기존 가상 머신에 사용자 지정 스크립트 확장을 추가할 수 있습니다.
 
 ```powershell
 # define your file URI

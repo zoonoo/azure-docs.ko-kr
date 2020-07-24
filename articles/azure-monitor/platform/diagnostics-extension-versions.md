@@ -6,11 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 4dd91363cdebf18e6303238816e8269065a6a317
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42924b4ac5493fc910079ca1f89a6195ccba55e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672245"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007914"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>WAD (Windows Azure 진단 확장) 구성 스키마 버전 및 기록
 이 문서에서는 Microsoft Azure SDK의 일부로 제공 되는 [WAD (Windows 용 Azure 진단 확장)](diagnostics-extension-overview.md) 스키마 버전의 버전 기록을 제공 합니다.  
@@ -45,7 +46,7 @@ ms.locfileid: "77672245"
 
 ### <a name="diagnostics-extension-111"></a>진단 확장 1.11
 Azure Monitor 싱크에 대한 지원이 추가되었습니다. 이 싱크는 성능 카운터에만 적용됩니다. VM, VMSS 또는 클라우드 서비스에 수집된 성능 카운터를 Azure Monitor에 사용자 지정 메트릭으로 보낼 수 있습니다. Azure Monitor 싱크는 다음을 지원합니다.
-* [Azure Monitor 메트릭 API](https://docs.microsoft.com/rest/api/monitor/metrics/list)를 통해 Azure Monitor로 보낸 모든 성능 카운터 검색
+* [Azure Monitor 메트릭 API](/rest/api/monitor/metrics/list)를 통해 Azure Monitor로 보낸 모든 성능 카운터 검색
 * Azure Monitor의 새로운 [통합 경고 환경](../../azure-monitor/platform/alerts-overview.md)을 통해 Azure Monitor로 보낸 모든 성능 카운터에 대해 경고
 * 성능 카운터의 와일드카드 연산자를 메트릭에 대한 “인스턴스” 차원으로 처리. 예를 들어 “LogicalDisk(\*)/DiskWrites/sec” 카운터를 수집한 경우 “인스턴스” 차원을 기준으로 필터링 및 분할하여 각 논리 디스크(C:, D: 등)에 대해 Disk Writes/sec를 그리거나 경고할 수 있습니다.
 
@@ -189,4 +190,3 @@ Azure SDK 2.4에서 Azure SDK 2.5 이상으로 업그레이드하는 경우 다�
 * **클라우드 서비스 애플리케이션에 대한 진단은 인스턴스 수준이 아닌 역할 수준에서만 구성할 수 있습니다.**
 * **앱을 배포할 때마다 진단 구성이 업데이트됨** – 이로 인해 서버 탐색기에서 진단 구성을 변경한 후 앱을 다시 배포하는 경우 패리티 문제가 발생할 수 있습니다.
 * **Azure SDK 2.5 이상에서 크래시 덤프는 코드가 아닌 진단 구성 파일에서 구성됨** – 코드에서 크래시 덤프를 구성했다면 Azure SDK 2.6으로 마이그레이션할 때 크래시 덤프가 전송되지 않으므로 구성을 코드에서 구성 파일로 수동으로 전송해야 합니다.
-

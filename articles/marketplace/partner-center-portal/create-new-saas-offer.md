@@ -1,18 +1,18 @@
 ---
-title: Microsoft 상업용 Marketplace를 위한 새 SaaS 제품 만들기
-description: Microsoft 파트너 센터의 Microsoft 상업용 Marketplace 프로그램을 사용하여 Microsoft AppSource, Azure Marketplace 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 나열 또는 판매할 새 SaaS(Software as a Service) 제품을 만드는 방법입니다.
+title: SaaS 제품, Azure Marketplace 및 Microsoft AppSource를 만듭니다.
+description: Microsoft 파트너 센터의 Microsoft 상업적 Marketplace 프로그램을 사용 하 여 Microsoft AppSource, Azure Marketplace 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위한 SaaS (Software as a Service) 제품을 만드는 방법입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: a233f3594ace74a6bfeca90ffccfbcb233e5d890
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 2c5394dce503a6fa00e2a3e6ff73a683d3d2e76f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012096"
 ---
-# <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 새 SaaS 제품 만들기
+# <a name="create-a-saas-offer"></a>SaaS 제품 만들기
 
 상업용 Marketplace에서 SaaS(Software as a Service) 제품을 만들기 시작하려면 먼저 [파트너 센터 계정을 만든](./create-account.md) 다음 **개요** 탭이 선택된 상태에서 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 열어야 합니다.
 
@@ -96,7 +96,7 @@ SaaS는 요금 청구 서비스를 사용하여 정액 요금, 사용자당 요�
 - 이 예제에서 Microsoft는 소프트웨어 라이선스에 대해 고객에게 $100.00를 청구하고 게시자에게 $80.00를 지급합니다.
 
 > [!NOTE]
-> **Marketplace 서비스 요금 절감** – 상업적 Marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제품을 적격 하 게 하려면 Microsoft에서 제공 하는 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위를 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 영업일 (5) 이상의 영업일을 충족 해야 합니다. 낮은 Marketplace 서비스 요금은 Vm, 관리 되는 앱 또는 상업적 Marketplace를 통해 제공 되는 다른 제품에는 적용 되지 않습니다.
+> **Marketplace 서비스 요금 절감** – 상업적 Marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 영업일 (5) 이상의 영업일을 충족 해야 합니다. 또한 Azure IP 공동 판매 incentivized Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에도 적용 됩니다.
 
 ### <a name="list-through-microsoft"></a>Microsoft를 통해 나열
 
@@ -110,7 +110,7 @@ SaaS는 요금 청구 서비스를 사용하여 정액 요금, 사용자당 요�
 
 #### <a name="free-trial-listing"></a>평가판(목록)
 
-올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 평가판에 대 한 링크를 고객에 게 나열 합니다. 여기에서 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있습니다. 예들 들어 `https://contoso.com/trial/saas-app`입니다. 무료 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
+올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 평가판에 대 한 링크를 고객에 게 나열 합니다. 여기에서 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있습니다. 예: `https://contoso.com/trial/saas-app`. 무료 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
 
 > [!NOTE]
 > 평가판 링크를 통해 애플리케이션에서 수신하는 토큰은 앱에서 자동으로 계정을 만드는 Azure AD를 통해 사용자 정보를 가져오는 데만 사용할 수 있습니다. 이 토큰을 사용하는 인증에 MSA(Microsoft 계정)가 지원되지 않습니다.
@@ -331,14 +331,14 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 
 - **방문 페이지 url** (필수) – `https://contoso.com/signup` marketplace에서 제품을 획득 하 고 새로 만든 saas 구독에서 구성 프로세스를 트리거하는 최종 고객의 saas 사이트 URL (예:)을 정의 합니다.  이 URL은 특정 최종 고객의 SaaS 구매를 고유 하 게 식별 하는 marketplace 구매 id 토큰 매개 변수를 사용 하 여 호출 됩니다.  [확인](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) API를 사용 하 여 해당 SaaS 구독 세부 정보에 대해이 토큰을 교환 해야 합니다.  이러한 세부 정보 및 수집할 다른 모든 항목은 최종 고객 등록을 완료 하 고 구매를 활성화 하는 사용자의 경험을 기반으로 하는 고객 대화형 웹 페이지의 일부로 사용 해야 합니다.  이 페이지에서 사용자는 Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증을 통해 등록 해야 합니다. <br> <br> 또한 marketplace 구매 식별 토큰 매개 변수를 사용 하 여이 URL은 최종 고객이 Azure Portal 또는 M365 관리 센터에서 관리 되는 SaaS 환경을 시작할 때 호출 됩니다. 새 고객에 대해 구매한 후에 처음 토큰을 제공 하는 경우와 SaaS를 관리 하는 기존 고객을 위해 제공 된 경우 두 흐름을 모두 처리 해야 합니다. <br> <br> 여기에서 구성 하는 방문 페이지는 24/7을 실행 해야 합니다. Marketplace에서 만든 SaaS 제품의 새로운 구매 또는 제품의 활성 구독에 대 한 구성 요청에 대 한 알림이 표시 되는 유일한 방법입니다.
 
-- **Connection webhook** (필수) – Microsoft에서 사용자에 게 전송 해야 하는 모든 비동기 이벤트 (예: SaaS 구독이 취소 됨)에 대해 연결 webhook URL을 제공 해야 합니다. 이 URL을 호출 하 여 이벤트에 대해 알려줍니다. <br> <br> 제공 하는 웹 후크는 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받는 유일한 방법 이므로 24/7을 실행 해야 합니다.  웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 모든 이벤트를 수신 대기 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: `https://prod-1westus.logic.azure.com:443/work` ). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
+- **Connection webhook** (필수) – Microsoft에서 사용자에 게 전송 해야 하는 모든 비동기 이벤트 (예: SaaS 구독이 취소 됨)에 대해 연결 webhook URL을 제공 해야 합니다. 이 URL을 호출 하 여 이벤트에 대해 알려줍니다. <br> <br> 제공 하는 웹 후크는 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받는 유일한 방법 이므로 24/7을 실행 해야 합니다. 웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 모든 이벤트를 수신 대기 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: `https://prod-1westus.logic.azure.com:443/work` ). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
 
 - **AZURE ad 테 넌 트 ID** (필수) – Azure Portal 내에서는 두 서비스 간의 연결에 대 한 유효성을 검사 하 여 인증 된 통신을 수행할 수 있도록 [Azure Active Directory (ad) 앱을 만들어야](../../active-directory/develop/howto-create-service-principal-portal.md) 합니다. [테 넌 트 ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성**을 선택한 다음 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다.
 
 - **AZURE AD 앱 id** (필수) – [응용 프로그램 id](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)도 필요 합니다. 해당 값을 가져오려면 Azure Active Directory로 이동 하 여 **앱 등록**을 선택한 다음 나열 된 **응용 프로그램 ID** 번호 (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
 
 >[!Note]
->Azure AD 앱 ID는 파트너 센터 계정의 게시자 ID에 연결 됩니다.  모든 제품에서 동일한 응용 프로그램 ID를 사용 하는지 확인 합니다.
+>Azure AD 앱 ID는 파트너 센터 계정의 게시자 ID에 연결 됩니다. 모든 제품에서 동일한 응용 프로그램 ID를 사용 해야 합니다.
 
 >[!Note]
 >게시자의 파트너 센터에 두 개 이상의 다른 계정이 있는 경우 각 계정에 대해 둘 이상의 서로 다른 Azure AD 앱 Id를 사용 해야 합니다. 파트너 센터의 각 파트너 계정은이 계정을 통해 게시 되는 모든 SaaS 제품에 대해 고유한 Azure AD 앱 ID를 사용 해야 합니다.
@@ -347,7 +347,7 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 
 ## <a name="plan-overview"></a>플랜 개요
 
-이 페이지를 통해 동일한 제품 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 이러한 플랜(SKU라고도 함)은 버전, 수익화 또는 서비스 계층 측면에서 다를 수 있습니다. 마켓플레이스에서 제품을 판매하려면 플랜을 하나 이상 설정해야 합니다.
+이 페이지를 통해 동일한 제품 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 이러한 계획 (이전의 Sku)은 버전, 수익 화 또는 서비스 계층의 측면에서 다를 수 있습니다. Marketplace에서 제품을 판매 하려면 계획을 하나 이상 설정 해야 합니다.
 
 플랜이 만들어지면 플랜 이름, ID, 가격 책정 모델, 가용성(공개 또는 비공개), 현재 게시 상태 및 사용 가능한 작업이 표시됩니다.
 
@@ -380,7 +380,7 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 
 #### <a name="markets-optional"></a>시장(선택 사항)
 
-모든 플랜은 하나 이상의 시장에서 사용할 수 있어야 합니다. **시장 편집**을 선택하고 이 플랜을 제공할 시장 위치의 확인란을 선택합니다. 이 페이지에는 Microsoft가 게시자를 대신하여 판매세와 이용세를 송금하는 "세금 송금" 국가/지역을 선택하는 검색 상자 및 옵션이 포함되어 있습니다.
+모든 플랜은 하나 이상의 시장에서 사용할 수 있어야 합니다. **시장 편집**을 선택하고 이 플랜을 제공할 시장 위치의 확인란을 선택합니다. 이 페이지에는 Microsoft 송금 sales 및 사용자를 대신 하 여 세금을 사용 하는 ["세금 송금" 국가/지역을](tax-details-paid-transactions.md)선택 하는 검색 상자 및 옵션이 포함 되어 있습니다.
 
 이미 플랜 가격을 미국 달러(USD)로 설정하고 다른 시장 위치를 추가하는 경우 새 시장의 가격은 현재 환율에 따라 계산됩니다. 게시 전에 각 시장의 가격을 검토합니다. 변경 내용을 저장한 후 "가격 내보내기(.xlsx)" 링크를 사용하여 가격 책정을 확인하세요.
 

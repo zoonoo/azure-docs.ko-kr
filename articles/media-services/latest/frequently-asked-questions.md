@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70499ad354e2fafaac99fe46c1838a0be2813943
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011688"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
@@ -45,7 +46,7 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>비디오 처리에 권장하는 방법은 무엇입니까?
 
-[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 변환은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. [작업](https://docs.microsoft.com/rest/api/media/jobs) 은 입력 비디오 또는 오디오 콘텐츠에 변환을 적용 하는 Media Services에 대 한 실제 요청입니다. 변환을 만든 후에 Media Services Api 또는 게시 된 Sdk 중 하나를 사용 하 여 작업을 제출할 수 있습니다. 자세한 내용은 [Transform 및 Jobs](transforms-jobs-concept.md)를 참조하세요.
+[Transforms](/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 변환은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. [작업](/rest/api/media/jobs) 은 입력 비디오 또는 오디오 콘텐츠에 변환을 적용 하는 Media Services에 대 한 실제 요청입니다. 변환을 만든 후에 Media Services Api 또는 게시 된 Sdk 중 하나를 사용 하 여 작업을 제출할 수 있습니다. 자세한 내용은 [Transform 및 Jobs](transforms-jobs-concept.md)를 참조하세요.
 
 ### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>비디오를 업로드, 인코딩 및 게시합니다. 스트리밍 하려고 할 때 비디오가 재생 되지 않는 이유는 무엇 인가요?
 
@@ -158,9 +159,9 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 
 * Media Services v3에서 [라이브 이벤트](live-events-outputs-concept.md) 를 관리 합니다. 
 * V3 [자산](assets-concept.md)보기 (관리 안 함) 
-* [Api에 액세스 하는 방법에 대 한 정보를 가져옵니다](access-api-portal.md). 
+* [Api에 액세스 하는 방법에 대 한 정보를 가져옵니다](./access-api-howto.md). 
 
-다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](https://docs.microsoft.com/rest/api/media/), [Azure CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/), [Azure CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3에 AssetFile 개념이 있나요?
 
@@ -170,7 +171,7 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>클라이언트 쪽 스토리지 암호화는 어디에 있나요?
 
-이제 서버 쪽 저장소 암호화 (기본적으로 설정 됨)를 사용 하는 것이 좋습니다. 자세한 내용은 [미사용 데이터에 대 한 서비스 암호화 Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조 하세요.
+이제 서버 쪽 저장소 암호화 (기본적으로 설정 됨)를 사용 하는 것이 좋습니다. 자세한 내용은 [미사용 데이터에 대 한 서비스 암호화 Azure Storage](../../storage/common/storage-service-encryption.md)를 참조 하세요.
 
 ## <a name="offline-streaming"></a>오프 라인 스트리밍
 

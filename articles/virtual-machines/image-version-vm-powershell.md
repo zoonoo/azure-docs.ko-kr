@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 681bd0aff909552531d682186d5b22dce5ef33f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223519"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010770"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>미리 보기: VM에서 이미지 만들기
 
 동일한 vm을 여러 개 만드는 데 사용 하려는 기존 VM이 있는 경우 해당 VM을 사용 하 여 Azure PowerShell를 사용 하는 공유 이미지 갤러리에 이미지를 만들 수 있습니다. [Azure CLI](image-version-vm-cli.md)를 사용 하 여 VM에서 이미지를 만들 수도 있습니다.
 
-Azure PowerShell를 사용 하 여 [특수 하 고 일반화](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) 된 vm에서 이미지를 캡처할 수 있습니다. 
+Azure PowerShell를 사용 하 여 [특수 하 고 일반화](./windows/shared-image-galleries.md#generalized-and-specialized-images) 된 vm에서 이미지를 캡처할 수 있습니다. 
 
 이미지 갤러리의 이미지에는 다음 예제에서 만들 두 가지 구성 요소가 있습니다.
 - 이미지 **정의** 는 이미지 및 사용에 대 한 요구 사항에 대 한 정보를 전달 합니다. 여기에는 이미지가 Windows 또는 Linux 인지, 특수 하거나 일반화 되었는지, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함 됩니다. 이미지의 형식 정의입니다. 
@@ -54,7 +54,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="get-the-vm"></a>VM 가져오기
 
-[Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하여 리소스 그룹에서 사용할 수 있는 VM 목록을 볼 수 있습니다. VM 이름 및 해당 리소스 그룹을 확인 한 후에는를 다시 사용 하 여 `Get-AzVM` vm 개체를 가져와 나중에 사용할 수 있도록 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *Sourcevm* 이라는 VM을 가져와 *$sourceVm*변수에 할당 합니다. 
+[Get-AzVM](/powershell/module/az.compute/get-azvm)을 사용하여 리소스 그룹에서 사용할 수 있는 VM 목록을 볼 수 있습니다. VM 이름 및 해당 리소스 그룹을 확인 한 후에는를 다시 사용 하 여 `Get-AzVM` vm 개체를 가져와 나중에 사용할 수 있도록 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *Sourcevm* 이라는 VM을 가져와 *$sourceVm*변수에 할당 합니다. 
 
 ```azurepowershell-interactive
 $sourceVm = Get-AzVM `
@@ -62,7 +62,7 @@ $sourceVm = Get-AzVM `
    -ResourceGroupName myResourceGroup
 ```
 
-New-azvm를 사용 하 여 이미지를 만들기 전에 VM을 [중지](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm)하 고 할당 취소 하는 것이 좋습니다.
+New-azvm를 사용 하 여 이미지를 만들기 전에 VM을 [중지](/powershell/module/az.compute/stop-azvm)하 고 할당 취소 하는 것이 좋습니다.
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -77,9 +77,9 @@ Stop-AzVM `
 
 이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. VM을 일반화 한 경우 (Windows 용 Sysprep 사용 또는 Linux 용 waagent-프로 비전 해제)를 사용 하 여 이미지 정의를 만들어야 합니다 `-OsState generalized` . VM을 일반화 하지 않은 경우을 사용 하 여 이미지 정의를 만듭니다 `-OsState specialized` .
 
-이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions)를 참조하세요.
+이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./windows/shared-image-galleries.md#image-definitions)를 참조하세요.
 
-[New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 
+[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 
 
 이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 Windows를 실행 하는 특수 한 VM에 대 한 것입니다. Linux를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
 
@@ -99,9 +99,9 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>이미지 버전 만들기
 
-[AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 이미지 버전을 만듭니다. 
+[AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 이미지 버전을 만듭니다. 
 
-이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
+이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*입니다.
 
 이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다.
 
@@ -133,7 +133,7 @@ $job.State
 > [!NOTE]
 > 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> 또한 이미지 버전을 만들 때 `-StorageAccountType Premium_LRS`를 추가하여 프리미엄 스토리지에 추가하거나 `-StorageAccountType Standard_ZRS`를 추가하여 [영역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)를 추가하여 이미지를 저장할 수도 있습니다.
+> 또한 이미지 버전을 만들 때 `-StorageAccountType Premium_LRS`를 추가하여 프리미엄 스토리지에 추가하거나 `-StorageAccountType Standard_ZRS`를 추가하여 [영역 중복 스토리지](../storage/common/storage-redundancy.md)를 추가하여 이미지를 저장할 수도 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계

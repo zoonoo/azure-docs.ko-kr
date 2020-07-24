@@ -11,20 +11,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736971"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010872"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Windows 용 AMD GPU 드라이버 확장
 
-이 문서에서는 Windows [NVv4 시리즈](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) VM에서 AMD GPU 드라이버를 배포 하기 위한 VM 확장에 대 한 개요를 제공 합니다. 이 확장을 사용 하 여 AMD 드라이버를 설치 하는 경우 [Amd 최종 사용자 사용권 계약](https://amd.com/radeonsoftwarems)의 약관에 동의 하 고 동의 하는 것입니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
+이 문서에서는 Windows [NVv4 시리즈](../nvv4-series.md) VM에서 AMD GPU 드라이버를 배포 하기 위한 VM 확장에 대 한 개요를 제공 합니다. 이 확장을 사용 하 여 AMD 드라이버를 설치 하는 경우 [Amd 최종 사용자 사용권 계약](https://amd.com/radeonsoftwarems)의 약관에 동의 하 고 동의 하는 것입니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
-드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup)에서 확인할 수 있습니다.
+드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](../windows/n-series-amd-driver-setup.md)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -34,8 +34,8 @@ ms.locfileid: "84736971"
 |---|---|
 | Windows 10 EMS | 빌드 1903 |
 | Windows 10 | 빌드 1809 |
-| Windows Server 2016 | 코어 |
-| Windows Server 2019 | 코어 |
+| Windows Server 2016 | 핵심 |
+| Windows Server 2019 | 핵심 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -81,7 +81,7 @@ AMD GPU 드라이버의 Microsoft Azure 확장을 사용 하려면 대상 VM이 
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다.
 
-가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/resource-manager-template-child-resource.md)을 참조하세요. 
+가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/templates/child-resource-name-type.md)을 참조하세요. 
 
 다음 예제에서는 확장이 가상 머신 리소스 내에 중첩되어 있다고 가정합니다. 확장 리소스를 중첩하는 경우 JSON은 가상 머신의 `"resources": []` 개체에 배치됩니다.
 
@@ -172,4 +172,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 ## <a name="next-steps"></a>다음 단계
 확장에 대한 자세한 내용은 [Windows용 가상 머신 확장 및 기능](features-windows.md)을 참조하세요.
 
-N 시리즈 VM에 대한 자세한 내용은 [GPU 최적화 가상 머신 크기](../windows/sizes-gpu.md)를 참조하세요.
+N 시리즈 VM에 대한 자세한 내용은 [GPU 최적화 가상 머신 크기](../sizes-gpu.md)를 참조하세요.

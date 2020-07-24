@@ -4,11 +4,12 @@ description: 애플리케이션 맵을 사용하여 복잡한 애플리케이션
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f9f19ea9370b9da3e69d871e8b53ccf7f64a6a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80989530"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008509"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -156,7 +157,7 @@ ApplicationInsights.config:
 
 **Java 에이전트**
 
-[Java 에이전트 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) 의 경우 클라우드 역할 이름은 다음과 같이 설정 됩니다.
+[Java 에이전트 3.0](./java-in-process-agent.md) 의 경우 클라우드 역할 이름은 다음과 같이 설정 됩니다.
 
 ```json
 {
@@ -258,15 +259,15 @@ Application Map이 예상대로 작동하지 않는 경우 다음 단계를 수�
 
 1. 공식적으로 지원되는 SDK를 사용하고 있는지 확인합니다. 비지원/커뮤니티 SDK는 상관 관계를 지원하지 않을 수 있습니다.
 
-    지원 되는 Sdk 목록은이 [문서](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) 를 참조 하세요.
+    지원되는 SDK 목록에 대해서는 이 [문서](./platforms.md)를 참조하세요.
 
 2. 모든 구성 요소를 최신 SDK 버전으로 업그레이드합니다.
 
-3. C #을 사용 하 여 Azure Functions를 사용 하는 경우 [V2 함수로](https://docs.microsoft.com/azure/azure-functions/functions-versions)업그레이드 합니다.
+3. C #을 사용 하 여 Azure Functions를 사용 하는 경우 [V2 함수로](../../azure-functions/functions-versions.md)업그레이드 합니다.
 
 4. [클라우드 역할 이름이](#set-cloud-role-name) 올바르게 구성 되었는지 확인 합니다.
 
-5. 종속성이 누락된 경우 [자동 수집 종속성](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) 목록에 들어 있는지 확인합니다. 이 목록에 없어도 [종속성 호출 추적](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)을 사용하여 수동으로 계속 추적할 수 있습니다.
+5. 종속성이 누락된 경우 [자동 수집 종속성](./auto-collect-dependencies.md) 목록에 들어 있는지 확인합니다. 이 목록에 없어도 [종속성 호출 추적](./api-custom-events-metrics.md#trackdependency)을 사용하여 수동으로 계속 추적할 수 있습니다.
 
 ### <a name="too-many-nodes-on-the-map"></a>맵에 노드가 너무 많음
 
@@ -280,7 +281,7 @@ Application Map이 예상대로 작동하지 않는 경우 다음 단계를 수�
 
 * 종속성 유형은 종속성의 논리적 유형을 나타내야 합니다. 예를 들어 HTTP, SQL 또는 Azure Blob은 일반적으로 종속성 유형입니다. 고유 Id를 포함 해서는 안 됩니다.
 
-* 클라우드 역할 이름의 용도는 [위의 섹션](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name)에 설명 되어 있습니다.
+* 클라우드 역할 이름의 용도는 [위의 섹션](#set-cloud-role-name)에 설명 되어 있습니다.
 
 ## <a name="portal-feedback"></a>포털 사용자 의견
 

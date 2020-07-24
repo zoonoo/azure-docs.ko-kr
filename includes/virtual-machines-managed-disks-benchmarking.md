@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67673429"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010831"
 ---
 *캐시 준비 중*  
 ReadOnly 호스트 캐싱을 사용한 디스크는 디스크 제한보다 더 높은 IOPS를 제공할 수 있습니다. 호스트 캐시에서 이 최대 읽기 성능을 얻으려면 먼저 이 디스크의 캐시를 준비해야 합니다. 이렇게 하면 벤치마킹 도구에서 CacheReads 볼륨을 구동하는 읽기 IO는 직접적인 디스크가 아니라 실제 캐시에 적중합니다. 캐시는 단일 캐시가 사용된 디스크에서 추가 IOPS 결과에 도달합니다.
@@ -62,24 +62,24 @@ Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파
 
 1. 아래에 표시된 값으로 두 액세스 사양을 만듭니다.
 
-   | Name | 요청 크기 | 임의 % | 읽기 % |
+   | 이름 | 요청 크기 | 임의 % | 읽기 % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
 1. 다음 매개 변수로 캐시 디스크 초기화를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 [실행 시간] 기간을 [테스트 설정] 탭에서 2시간으s로 설정합니다.
 
-   | 시나리오 | 대상 볼륨 | Name | 기간 |
+   | 시나리오 | 대상 볼륨 | 이름 | Duration |
    | --- | --- | --- | --- |
    | 디스크 캐시 초기화 |CacheReads |RandomWrites\_1MB |2시간 |
 1. 다음 매개 변수로 캐시 디스크 준비를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 [실행 시간] 기간을 [테스트 설정] 탭에서 2시간으s로 설정합니다.
 
-   | 시나리오 | 대상 볼륨 | Name | 기간 |
+   | 시나리오 | 대상 볼륨 | 이름 | Duration |
    | --- | --- | --- | --- |
    | 캐시 디스크 준비 |CacheReads |RandomReads\_1MB |2시간 |
 
 캐시 디스크를 준비한 후 아래에 나열된 테스트 시나리오를 계속합니다. Iometer 테스트를 실행하려면 **각** 대상 볼륨에 대해 최소 세 개의 작업자 스레드를 사용합니다. 각 작업자 스레드의 경우 해당 테스트 시나리오를 실행하도록 아래 표에 표시된 것처럼 대상 볼륨을 선택하고 큐 크기를 설정하고 저장된 테스트 사양 중 하나를 선택합니다. 또한 표는 이러한 테스트를 실행할 때 IOPS 및 처리량에 대한 예상된 결과를 보여 줍니다. 모든 시나리오의 경우 8KB의 작은 IO 크기 및 128의 높은 큐 크기가 사용됩니다.
 
-| 테스트 시나리오 | 대상 볼륨 | Name | 결과 |
+| 테스트 시나리오 | 대상 볼륨 | 이름 | 결과 |
 | --- | --- | --- | --- |
 | 최대 읽기 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS |
 | 최대 쓰기 IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
@@ -153,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 쓰기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 50,000 IOPS의 해당 최대 쓰기 IOPS 제한을 제공합니다.  
-    ![VM 및 프리미엄 디스크가 제공하는 쓰기 IOPS 수](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+    ![배달 중인 쓰기 IOPS VM 및 프리미엄 디스크 수입니다.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### <a name="maximum-read-iops"></a>최대 읽기 IOPS
 
@@ -194,7 +194,7 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 읽기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 64,000 읽기 IOPS보다 많이 제공합니다. 이는 디스크와 캐시 성능의 조합입니다.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+    ![배달 중인 쓰기 IOPS VM 및 프리미엄 디스크 수의 스크린샷](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### <a name="maximum-read-and-write-iops"></a>최대 읽기 및 쓰기 IOPS
 

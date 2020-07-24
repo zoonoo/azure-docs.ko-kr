@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009767"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
 
@@ -73,7 +74,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 #### <a name="mitigation-3-pstools-commands"></a>해결 방법 3: PSTools 명령
 
-1.  문제 해결을 위한 VM에서 [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)를 다운로드합니다.
+1.  문제 해결을 위한 VM에서 [PSTools](/sysinternals/downloads/pstools)를 다운로드합니다.
 
 2.  CMD 인스턴스를 열고 해당 DIP를 통해 VM에 액세스합니다.
 

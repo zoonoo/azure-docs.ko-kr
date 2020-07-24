@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5477eea12ee41bae42365555e38aa95ca0faeb3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987105"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009495"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
@@ -81,7 +81,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 * 게이트웨이를 만드는 데 최대 45분이 소요되므로 이 연습을 진행하는 동안 Azure Cloud Shell이 주기적으로 시간 초과됩니다. 터미널의 왼쪽 위를 클릭하여 Cloud Shell을 다시 시작할 수 있습니다. 터미널을 다시 시작할 때 변수를 다시 선언해야 합니다.
 
-* 최신 버전의 Azure PowerShell 모듈을 로컬로 설치하려면 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
+* 최신 버전의 Azure PowerShell 모듈을 로컬로 설치하려면 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 
 ### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>1단계 - IP 주소 범위 계획
 
@@ -364,7 +364,7 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName $Sub5
    ```
-3. 새 리소스 그룹을 만듭니다.
+3. 새 리소스 그룹 만들기
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG5 -Location $Location5

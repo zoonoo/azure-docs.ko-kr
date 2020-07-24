@@ -3,19 +3,21 @@ title: Cloud 파트너 포털 API 참조-Microsoft 상업적 marketplace
 description: 사용할 필수 조건에 대한 설명과 Marketplace API 작업 목록입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 56594b41bd0b771d0cb9a2f49611d9b6c6d393db
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 51c8b91ccf85087f965d632dee9296076aba0d86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011961"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Cloud 파트너 포털 API 참조
 
 > [!NOTE]
-> Cloud 파트너 포털 API는 파트너 센터와 통합되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동합니다. 통합에는 작은 변경 사항이 도입되었습니다. 파트너 센터로 마이그레이션한 후에도 코드가 계속 작동 하는지 확인 하려면이 문서에 나열 된 [CPP api에 대 한 변경 내용을](#changes-to-cpp-apis-after-the-migration-to-partner-center) 검토 합니다.
+> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. 파트너 센터로 전환 하 고 나면이 문서에 나열 된 [CPP api에 대 한 변경 내용을](#changes-to-cpp-apis-after-the-migration-to-partner-center) 검토 하 여 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
 
 Cloud 파트너 포털 REST API를 사용하면 프로그래밍 방식으로 워크로드, 제안 및 게시자 프로필을 검색 및 조작할 수 있습니다. 이 API는 RBAC(역할 기반 액세스 제어)를 사용하여 처리 시에 올바른 권한을 적용합니다.
 

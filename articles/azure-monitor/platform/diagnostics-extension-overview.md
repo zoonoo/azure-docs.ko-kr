@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635960"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007999"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Azure Diagnostics 확장 개요
 Azure Diagnostics 확장은 가상 머신을 포함한 Azure 컴퓨팅 리소스에서 모니터링 데이터를 수집하는 [Azure Monitor의 에이전트](agents-overview.md)입니다. 이 문서에서는 지원하는 특정 기능과, 설치 및 구성 옵션을 포함한 Azure Diagnostics 확장의 개요를 제공합니다. 
@@ -33,7 +34,7 @@ Azure Monitor의 Log Analytics 에이전트를 사용하여 가상 머신의 게
 
 - Azure Diagnostics 확장은 Azure Virtual Machines에만 사용할 수 있습니다. Log Analytics 에이전트는 Azure, 다른 클라우드 환경 및 온-프레미스의 가상 머신에 사용할 수 있습니다.
 - Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](data-platform-metrics.md)(Windows만 해당) 및 Event Hubs에 데이터를 보냅니다. Log Analytics 에이전트는 데이터를 [Azure Monitor 로그](data-platform-logs.md)에 수집합니다.
-- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM용 Azure Monitor](../insights/vminsights-overview.md) 및 [Azure Security Center](/azure/security-center/)등의 기타 서비스에 필요합니다.
+- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM용 Azure Monitor](../insights/vminsights-overview.md) 및 [Azure Security Center](../../security-center/index.yml)등의 기타 서비스에 필요합니다.
 
 ## <a name="costs"></a>비용
 Azure Diagnostic 확장에 대한 비용은 없지만 데이터 수집에 대한 요금이 발생할 수 있습니다. 데이터를 수집하는 대상에 대한 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)를 확인하세요.
@@ -49,8 +50,8 @@ Azure Diagnostic 확장에 대한 비용은 없지만 데이터 수집에 대한
 | 성능 카운터 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값 |
 | IIS 로그             | 게스트 운영 체제에서 실행되는 IIS 웹 사이트에 대한 사용 정보 |
 | 애플리케이션 로그 전송 사용     | 애플리케이션에서 작성한 추적 메시지 |
-| .NET EventSource 로그 |.NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 클래스를 사용하여 이벤트를 작성하는 코드 |
-| [매니페스트 기반 ETW 로그](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |모든 프로세스에서 생성된 Windows용 이벤트 추적 이벤트 |
+| .NET EventSource 로그 |.NET [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) 클래스를 사용하여 이벤트를 작성하는 코드 |
+| [매니페스트 기반 ETW 로그](/windows/desktop/etw/about-event-tracing) |모든 프로세스에서 생성된 Windows용 이벤트 추적 이벤트 |
 | 크래시 덤프(로그)   | 애플리케이션 작동이 중단된 경우 프로세스 상태에 대한 정보 |
 | 파일 기반 로그    | 애플리케이션 또는 서비스에서 생성된 로그입니다. |
 | 에이전트 진단 로그 | Azure Diagnostics 자체에 대한 정보 |
@@ -116,4 +117,3 @@ Windows 및 Linux용 진단 확장을 설치 및 구성하는 방법에 대한 �
 
 * [Azure Diagnostics에서 성능 카운터 사용](../../cloud-services/diagnostics-performance-counters.md)에 대해 알아봅니다.
 * 진단을 시작하거나 Azure 스토리지 테이블에서 데이터를 찾는 데 문제가 있는 경우 [Azure Diagnostics 문제 해결](diagnostics-extension-troubleshooting.md)을 참조하세요.
-

@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457306"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008322"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Azure Cache for Redis의 모범 사례 
 이러한 모범 사례를 따르면 Azure Cache for Redis 인스턴스에 대 한 성능 및 비용 효율적 사용을 최대화할 수 있습니다.
@@ -26,7 +27,7 @@ ms.locfileid: "84457306"
 
  * **Redis는 작은 값으로 가장 적합**하므로 큰 데이터를 여러 키로 분할 하는 것이 좋습니다.  [이 Redis 토론](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)에는 신중 하 게 고려해 야 하는 몇 가지 고려 사항이 나와 있습니다.  큰 값을 사용할 때 야기될 수 있는 문제 예에 대해서는 [이 문서](cache-troubleshoot-client.md#large-request-or-response-size) 를 읽어보세요.
 
- * **동일한 지역에서 캐시 인스턴스와 응용 프로그램을 찾습니다.**  다른 지역의 캐시에 연결하면 대기 시간이 대폭 증가하고 안정성이 떨어질 수 있습니다.  Azure 외부에서 연결할 수 있지만 *특히 Redis를 캐시로 사용*하지 않는 것이 좋습니다.  Redis를 키/값 저장소로 사용 하는 경우에는 대기 시간이 중요 하지 않을 수 있습니다. 
+ * **동일한 지역에서 캐시 인스턴스와 응용 프로그램을 찾습니다.**  다른 지역의 캐시에 연결하면 대기 시간이 크게 증가하고 안정성이 떨어질 수 있습니다.  Azure 외부에서 연결할 수 있지만 *특히 Redis를 캐시로 사용*하지 않는 것이 좋습니다.  Redis를 키/값 저장소로 사용 하는 경우에는 대기 시간이 중요 하지 않을 수 있습니다. 
 
  * **연결을 다시 사용 합니다.**  새 연결을 만들면 비용이 많이 들고 대기 시간이 증가 하므로 가능한 한 많은 연결이 재사용 됩니다. 새 연결을 만들도록 선택 하는 경우 릴리스 전에 이전 연결을 닫아야 합니다 (.NET 또는 Java와 같은 관리 되는 메모리 언어 에서도).
 
@@ -82,10 +83,10 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
  
 ### <a name="redis-benchmark-examples"></a>Redis 벤치 마크 예제
 **사전 테스트 설정**: 아래 나열 된 대기 시간 및 처리량 테스트 명령에 필요한 데이터를 사용 하 여 캐시 인스턴스를 준비 합니다.
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net-t 집합-n 10-d 1024 
+> redis-h yourcache.redis.cache.windows.net-t 집합-n 10-d 1024 
 
 **대기 시간 테스트**: 1k 페이로드를 사용 하 여 GET 요청을 테스트 합니다.
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net-t GET-d 1024-P 50-c 4
+> redis-h yourcache.redis.cache.windows.net-a 해당 Accesskey-t GET-d 1024-P 50-c 4
 
 **처리량을 테스트 하려면:** 1k 페이로드를 포함 하는 파이프라인 GET 요청
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net-t GET-n 100만-d 1024-P 50-c 50
+> redis-h yourcache.redis.cache.windows.net-a 해당 Accesskey-t GET-n 100만-d 1024-P 50-c 50

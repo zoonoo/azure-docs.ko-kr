@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 6b95eeaf7dd72c85c3940e3cdc2a71c193c35ff5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008611"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Azure Automation에서 자격 증명 관리
 
@@ -44,7 +44,7 @@ Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자�
 |:--- |:--- |
 | `Get-AutomationPSCredential` |Runbook 또는 DSC 구성에 사용하는 `PSCredential` 개체를 가져옵니다. `Get-AzAutomationCredential` cmdlet은 자격 증명 정보만 검색하기 때문에 대개 이 [내부 cmdlet](modules.md#internal-cmdlets)을 대신 사용합니다. 이 정보는 일반적으로 다른 cmdlet에 전달하는 데 유용하지 않습니다. |
 | [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |사용자 이름 및 암호에 대한 프롬프트로 자격 증명을 가져옵니다. 이 cmdlet은 기본 Microsoft.PowerShell.Security 모듈의 일부입니다. [기본 모듈](modules.md#default-modules)을 참조하세요.|
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | 자격 증명을 만듭니다. 이 cmdlet은 기본 Azure 모듈의 일부입니다. [기본 모듈](modules.md#default-modules)을 참조하세요.|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0) | 자격 증명을 만듭니다. 이 cmdlet은 기본 Azure 모듈의 일부입니다. [기본 모듈](modules.md#default-modules)을 참조하세요.|
 
 코드에서 `PSCredential` 개체를 검색하려면 `Orchestrator.AssetManagement.Cmdlets` 모듈을 가져와야 합니다. 자세한 내용은 [Azure Automation에서 모듈 관리](modules.md)를 참조하세요.
 

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ff5825f3272f0dadc74147d36e8c5fd8e7838d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608692"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010957"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -67,16 +68,16 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 - Windows VM 에이전트는 .Net Framework 4.0를 사용 하 여 Windows Server 2008 (64 비트) 이상을 실행 해야 합니다. [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원을](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 참조 하세요.
 
-- VM에 IP 주소 168.63.129.16에 대 한 액세스 권한이 있는지 확인 합니다. 자세한 내용은 [IP 주소 168.63.129.16?을](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)참조 하세요.
+- VM에 IP 주소 168.63.129.16에 대 한 액세스 권한이 있는지 확인 합니다. 자세한 내용은 [IP 주소 168.63.129.16?을](../../virtual-network/what-is-ip-address-168-63-129-16.md)참조 하세요.
 
 ## <a name="detect-the-vm-agent"></a>VM 에이전트 검색
 
 ### <a name="powershell"></a>PowerShell
 
-Azure Resource Manager PowerShell 모듈을 사용하여 Azure VM에 대한 정보를 검색할 수 있습니다. Azure VM 에이전트의 프로비전 상태와 같이 VM에 대한 정보를 보려면 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용합니다.
+Azure Resource Manager PowerShell 모듈을 사용하여 Azure VM에 대한 정보를 검색할 수 있습니다. Azure VM 에이전트의 프로비전 상태와 같이 VM에 대한 정보를 보려면 [Get-AzVM](/powershell/module/az.compute/get-azvm)을 사용합니다.
 
 ```powershell
 Get-AzVM

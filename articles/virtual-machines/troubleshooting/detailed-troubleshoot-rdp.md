@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91f15e32866cca008553286f7585247909d9a4ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920147"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009869"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 원격 데스크톱 연결 문제의 자세한 문제 해결 단계
 이 문서에서는 Windows 기반 Azure 가상 머신에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.
@@ -35,7 +36,7 @@ ms.locfileid: "77920147"
 ## <a name="components-of-a-remote-desktop-connection"></a>원격 데스크톱 연결을 위한 구성 요소
 다음은 RDP 연결과 관련된 구성 요소입니다.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
+![RDP (원격 데스크톱) 연결과 관련 된 구성 요소를 보여 주는 다이어그램입니다.](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
 진행하기 전에 마지막으로 VM에 대한 원격 데스크톱 연결을 성공한 이후로 변경된 사항을 마음속으로 생각해보는 것이 도움이 될 수 있습니다. 예를 들어:
 
@@ -64,7 +65,7 @@ ms.locfileid: "77920147"
 ## <a name="source-1-remote-desktop-client-computer"></a>발생지 1: 원격 데스크톱 클라이언트 컴퓨터
 컴퓨터가 다른 온-프레미스, Windows 기반 컴퓨터에 대한 원격 데스크톱 연결을 설정할 수 있는지 확인합니다.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
+![RDP 클라이언트가 강조 표시 된 RDP (원격 데스크톱) 연결의 구성 요소 및 연결을 나타내는 다른 온-프레미스 컴퓨터를 가리키는 화살표가 표시 된 다이어그램입니다.](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
 
 연결할 수 없는 경우 컴퓨터에서 다음 설정을 확인합니다.
 
@@ -78,9 +79,9 @@ ms.locfileid: "77920147"
 ## <a name="source-2-organization-intranet-edge-device"></a>발생지 2: 조직 인트라넷 에지 디바이스
 인터넷에 직접 연결된 컴퓨터가 Azure 가상 머신에 대한 원격 데스크톱 연결을 설정할 수 있는지 확인합니다.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
+![인터넷에 연결 된 RDP 클라이언트를 사용 하는 rdp (원격 데스크톱) 연결의 구성 요소에 대 한 다이어그램으로, 연결을 나타내는 Azure 가상 머신을 가리키는 화살표가 표시 됩니다.](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-인터넷에 직접 연결된 컴퓨터가 없는 경우 리소스 그룹 또는 클라우드 서비스에서 새 Azure 가상 머신으로 만들고 테스트합니다. 자세한 내용은 [Azure에서 Windows를 실행하는 가상 머신 만들기](../virtual-machines-windows-hero-tutorial.md)를 참조하세요. 테스트가 완료되면 가상 머신과 리소스 그룹 또는 클라우드 서비스를 삭제할 수 있습니다.
+인터넷에 직접 연결된 컴퓨터가 없는 경우 리소스 그룹 또는 클라우드 서비스에서 새 Azure 가상 머신으로 만들고 테스트합니다. 자세한 내용은 [Azure에서 Windows를 실행하는 가상 머신 만들기](../windows/quick-create-portal.md)를 참조하세요. 테스트가 완료되면 가상 머신과 리소스 그룹 또는 클라우드 서비스를 삭제할 수 있습니다.
 
 인터넷에 직접 연결된 컴퓨터로 원격 데스크톱에 연결할 수 있는 경우 조직 인트라넷 에지 디바이스에서 다음을 확인합니다.
 
@@ -96,29 +97,29 @@ ms.locfileid: "77920147"
 
 클래식 배포 모델을 사용하여 만든 VM의 경우 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 Azure VM이 사용자의 Azure VM으로 원격 데스크톱 연결을 설정할 수 있는지 확인합니다.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
+![하나의 Azure VM이 강조 표시 된 RDP (원격 데스크톱) 연결의 구성 요소 다이어그램 및 동일한 클라우드 서비스 내의 다른 Azure VM을 가리키는 화살표가 연결을 나타냅니다.](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
 > 리소스 관리자에서 만든 가상 머신의 경우, [소스 4: 네트워크 보안 그룹](#source-4-network-security-groups)으로 건너뜁니다.
 
-동일한 클라우드 서비스 또는 가상 네트워크에 다른 가상 머신이 없는 경우 만듭니다. [Azure에서 Windows를 실행하는 가상 머신 만들기](../virtual-machines-windows-hero-tutorial.md)의 단계를 따릅니다. 테스트가 완료된 후에 테스트 가상 머신을 삭제합니다.
+동일한 클라우드 서비스 또는 가상 네트워크에 다른 가상 머신이 없는 경우 만듭니다. [Azure에서 Windows를 실행하는 가상 머신 만들기](../windows/quick-create-portal.md)의 단계를 따릅니다. 테스트가 완료된 후에 테스트 가상 머신을 삭제합니다.
 
 원격 데스크톱을 통해 동일한 클라우드 서비스 또는 가상 네트워크의 가상 컴퓨터에 연결할 수 있는 경우 다음 설정을 확인합니다.
 
 * 대상 VM에서 원격 데스크톱 트래픽에 대한 엔드포인트 구성: 엔드포인트의 프라이빗 TCP 포트는 VM의 원격 데스크톱 서비스가 수신 대기하는 TCP 포트와 일치해야 합니다(기본값 3389).
-* 대상 VM에서 원격 데스크톱 트래픽 엔드포인트에 대한 ACL: ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 엔드포인트에 원격 데스크톱 트래픽이 들어오지 못할 수 있습니다. ACL을 확인하고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 Access Control 목록 (ACL) 이란?](../../virtual-network/virtual-networks-acl.md) 을 참조 하세요.
+* 대상 VM에서 원격 데스크톱 트래픽 엔드포인트에 대한 ACL: ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 엔드포인트에 원격 데스크톱 트래픽이 들어오지 못할 수 있습니다. ACL을 확인하고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 Access Control 목록 (ACL) 이란?](/previous-versions/azure/virtual-network/virtual-networks-acl) 을 참조 하세요.
 
-엔드포인트가 문제의 발생지인지 확인하려면 현재 엔드포인트를 제거하고 새 엔드포인트를 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [가상 컴퓨터에 대 한 끝점을 설정 하는 방법](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조 하세요.
+엔드포인트가 문제의 발생지인지 확인하려면 현재 엔드포인트를 제거하고 새 엔드포인트를 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [가상 컴퓨터에 대 한 끝점을 설정 하는 방법](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=/azure/virtual-machines/windows/classic/toc.json)을 참조 하세요.
 
 ## <a name="source-4-network-security-groups"></a>소스 4: 네트워크 보안 그룹
 네트워크 보안 그룹은 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어하는 데 사용됩니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다.
 
-[IP 흐름 확인](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)을 사용하여 네트워크 보안 그룹의 규칙이 가상 머신 간에 트래픽을 차단하는지를 확인합니다. 효과적인 보안 그룹 규칙을 검토하여 인바운드 "허용" NSG 규칙이 있는지와 해당 규칙이 RDP 포트(기본값: 3389)에 우선적으로 사용되도록 설정되어 있는지 확인합니다. 자세한 내용은 [효과적인 보안 규칙을 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/diagnose-network-traffic-filter-problem.md)을 참조하세요.
+[IP 흐름 확인](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)을 사용하여 네트워크 보안 그룹의 규칙이 가상 머신 간에 트래픽을 차단하는지를 확인합니다. 효과적인 보안 그룹 규칙을 검토하여 인바운드 "허용" NSG 규칙이 있는지와 해당 규칙이 RDP 포트(기본값: 3389)에 우선적으로 사용되도록 설정되어 있는지 확인합니다. 자세한 내용은 [효과적인 보안 규칙을 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/diagnose-network-traffic-filter-problem.md)을 참조하세요.
 
 ## <a name="source-5-windows-based-azure-vm"></a>발생지 5: Windows 기반 Azure VM
-![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
+![클라우드 서비스 내에서 강조 표시 된 Azure VM과 RDP (원격 데스크톱) 연결의 구성 요소에 대 한 다이어그램 및 "가능한 문제 원본"이 될 수 있는 메시지입니다. 파란색 선은 네트워크 보안 그룹 규칙이 Azure VM 간에 트래픽을 차단할 수 있음을 나타냅니다.](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-[이 문서의](../windows/reset-rdp.md)지침을 따르세요. 이 문서는 가상 머신에서 원격 데스크톱 서비스를 다시 설정합니다.
+[이 문서의](./reset-rdp.md)지침을 따르세요. 이 문서는 가상 머신에서 원격 데스크톱 서비스를 다시 설정합니다.
 
 * "원격 데스크톱" Windows 방화벽 기본 규칙(TCP 포트 3389)이 활성화됩니다.
 * HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections 레지스트리 값이 0으로 설정되어 원격 데스크톱 연결이 활성화됩니다.
@@ -132,9 +133,9 @@ ms.locfileid: "77920147"
 
 클래식 배포 모델을 사용하여 만든 VM의 경우 Azure 가상 머신에 대해 원격 Azure PowerShell 세션을 사용할 수 있습니다. 먼저 가상 머신의 호스팅 클라우드 서비스에 대 인증서를 설치해야 합니다. [Azure Virtual Machines에 대한 보안 원격 PowerShell 액세스 구성](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) 으로 이동하고 **InstallWinRMCertAzureVM.ps1** 스크립트 파일을 로컬 컴퓨터에 다운로드합니다.
 
-다음으로, 아직 없는 경우 Azure PowerShell을 설치합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+다음으로, 아직 없는 경우 Azure PowerShell을 설치합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 
-다음으로, Azure PowerShell 명령 프롬프트를 열고 현재 폴더를 **InstallWinRMCertAzureVM.ps1** 스크립트 파일 위치로 변경합니다. Azure PowerShell 스크립트를 실행하려면 올바른 실행 정책을 설정해야 합니다. 현재 정책 수준을 지정하려면 **Get-ExecutionPolicy** 명령을 실행합니다. 적절한 수준을 설정하는 방법에 대한 자세한 내용은 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)를 참조하세요.
+다음으로, Azure PowerShell 명령 프롬프트를 열고 현재 폴더를 **InstallWinRMCertAzureVM.ps1** 스크립트 파일 위치로 변경합니다. Azure PowerShell 스크립트를 실행하려면 올바른 실행 정책을 설정해야 합니다. 현재 정책 수준을 지정하려면 **Get-ExecutionPolicy** 명령을 실행합니다. 적절한 수준을 설정하는 방법에 대한 자세한 내용은 [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1)를 참조하세요.
 
 Azure 구독 이름, 클라우드 서비스 이름 및 해당 가상 머신 이름(&lt; and &gt; 문자 제거)을 입력하고 이러한 명령을 실행합니다.
 
@@ -192,12 +193,11 @@ Exit-PSSession
 
 Azure VM에 대한 원격 데스크톱 엔드포인트도 TCP 포트 3398을 내부 포트로 사용하고 있는지 확인합니다. Azure VM을 다시 시작한 후 원격 데스크톱 연결을 다시 시도합니다.
 
-## <a name="additional-resources"></a>추가 자료
-[Windows 가상 머신에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](../windows/reset-rdp.md)
+## <a name="additional-resources"></a>추가 리소스
+[Windows 가상 머신에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](./reset-rdp.md)
 
-[Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)
+[Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/)
 
-[Linux 기반 Azure 가상 머신에 SSH(보안 셸) 연결 문제 해결](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Linux 기반 Azure 가상 머신에 SSH(보안 셸) 연결 문제 해결](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)
 
-[Azure 가상 머신에서 실행 중인 응용 프로그램에 대 한 액세스 문제 해결](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+[Azure 가상 머신에서 실행 중인 응용 프로그램에 대 한 액세스 문제 해결](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json)
