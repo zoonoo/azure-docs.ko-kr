@@ -2,14 +2,14 @@
 title: 지속성 함수의 오류 처리 - Azure
 description: Azure Functions의 지속성 함수 확장에서 오류를 처리하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 447b3dcf5040835f5a853beff68bde794ece51f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6650322834d491d78470e2d8dbd24e2c6750ae39
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847318"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081698"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
@@ -97,6 +97,33 @@ module.exports = df.orchestrator(function*(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    transfer_details = context.get_input()
+
+    yield context.call_activity('DebitAccount', {
+         'account': transfer_details['sourceAccount'],
+         'amount' : transfer_details['amount']
+    })
+
+    try:
+        yield context.call_activity('CreditAccount', {
+                'account': transfer_details['destinationAccount'],
+                'amount': transfer_details['amount'],
+            })
+    except:
+        yield context.call_activity('CreditAccount', {
+            'account': transfer_details['sourceAccount'],
+            'amount': transfer_details['amount']
+        })
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 
 ---
 
@@ -143,6 +170,23 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    first_retry_interval_in_milliseconds = 5000
+    max_number_of_attempts = 3
+
+    retry_options = df.RetryOptions(first_retry_interval_in_milliseconds, max_number_of_attempts)
+
+    yield context.call_activity_with_retry('FlakyFunction', retry_options)
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 이전 예제의 작업 함수 호출은 자동 재시도 정책 구성에 대 한 매개 변수를 사용 합니다. 자동 재시도 정책을 사용자 지정 하는 몇 가지 옵션이 있습니다.
@@ -156,7 +200,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="function-timeouts"></a>함수 시간 제한
 
-완료 하는 데 시간이 너무 오래 걸리는 경우 오 케 스트레이 터 함수 내에서 함수 호출을 중단 하려고 할 수 있습니다. 현재 이 작업을 제대로 수행하는 방법은 다음 예제와 같이 `Task.WhenAny`(.NET) 또는 `context.df.Task.any`(JavaScript)와 함께 `context.CreateTimer`(.NET) 또는 `context.df.createTimer`(JavaScript)를 사용하여 [지속성 타이머](durable-functions-timers.md)를 만드는 것입니다.
+완료 하는 데 시간이 너무 오래 걸리는 경우 오 케 스트레이 터 함수 내에서 함수 호출을 중단 하려고 할 수 있습니다. 현재이 작업을 수행 하는 적절 한 방법은 다음 예제와 같이 (.net), (javascript) 또는 ( [durable timer](durable-functions-timers.md) `context.CreateTimer` `context.df.createTimer` `context.create_timer` python)과 함께 ( `Task.WhenAny` .net), `context.df.Task.any` (javascript) 또는 (python `context.task_any` )를 사용 하 여 내구성이 있는 타이머를 만드는 것입니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -213,6 +257,28 @@ module.exports = df.orchestrator(function*(context) {
         return false;
     }
 });
+```
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    deadline = context.current_utc_datetime + timedelta(seconds = 30)
+    
+    activity_task = context.call_activity('FlakyFunction')
+    timeout_task = context.create_timer(deadline)
+
+    winner = yield context.task_any(activity_task, timeout_task)
+    if winner == activity_task:
+        timeout_task.cancel()
+        return True
+    else:
+        return False
+
+main = df.Orchestrator.create(orchestrator_function)
 ```
 
 ---

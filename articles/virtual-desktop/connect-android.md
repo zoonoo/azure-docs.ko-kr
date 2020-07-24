@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a7ca15a301de3c54195c0978aa31121c3624a98a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39df24380917c51f3b492bb62c98024d3d090458
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080661"
 ---
-# <a name="connect-with-the-android-client"></a>Android 클라이언트와 연결
+# <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Android 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결
 
 > 적용 대상: Android 4.1 이상, Chromebooks ChromeOS 53 이상
 

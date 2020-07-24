@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659262"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078654"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -21,7 +22,7 @@ ms.locfileid: "83659262"
 * [Microsoft Power Apps 온-프레미스 데이터 게이트웨이](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services 온-프레미스 데이터 게이트웨이](../analysis-services/analysis-services-gateway.md)
 
-이 문서에서는 Azure Logic Apps에서 온-프레미스 데이터 원본에 액세스할 수 있도록 온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정하는 방법을 보여 줍니다. 이 문서의 뒷부분에서 [데이터 게이트웨이의 작동 방식](#gateway-cloud-service)에 대해 자세히 알아볼 수도 있습니다. 게이트웨이에 대한 자세한 내용은 [온-프레미스 게이트웨이란?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)을 참조하세요. 게이트웨이를 설치하고 관리하는 작업을 자동화하려면 [DataGateway PowerShell cmdlet](https://www.powershellgallery.com/packages/DataGateway/3000.15.15)에 대한 PowerShell 갤러리를 방문하세요.
+이 문서에서는 Azure Logic Apps에서 온-프레미스 데이터 원본에 액세스할 수 있도록 온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정하는 방법을 보여 줍니다. 이 문서의 뒷부분에서 [데이터 게이트웨이의 작동 방식](#gateway-cloud-service)에 대해 자세히 알아볼 수도 있습니다. 게이트웨이에 대한 자세한 내용은 [온-프레미스 게이트웨이란?](/data-integration/gateway/service-gateway-onprem)을 참조하세요. 게이트웨이를 설치하고 관리하는 작업을 자동화하려면 [DataGateway PowerShell cmdlet](https://www.powershellgallery.com/packages/DataGateway/3000.15.15)에 대한 PowerShell 갤러리를 방문하세요.
 
 <a name="requirements"></a>
 
@@ -79,7 +80,7 @@ ms.locfileid: "83659262"
 
   * 게이트웨이에는 Power BI에만 적용되는 표준 모드와 개인 모드의 두 가지 모드가 있습니다. 동일한 컴퓨터에서 동일한 모드로 실행되는 게이트웨이가 둘 이상 있을 수 없습니다.
 
-  * Azure Logic Apps는 게이트웨이를 통한 읽기 및 쓰기 작업을 지원합니다. 그러나 이러한 작업에는 [페이로드 크기 제한](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다.
+  * Azure Logic Apps는 게이트웨이를 통한 읽기 및 쓰기 작업을 지원합니다. 그러나 이러한 작업에는 [페이로드 크기 제한](/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다.
 
 <a name="install-gateway"></a>
 
@@ -142,8 +143,8 @@ ms.locfileid: "83659262"
 
 온-프레미스 데이터 게이트웨이는 클라우드 연결을 위해 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)를 사용하며, 게이트웨이의 연결된 Azure 지역에 해당하는 아웃바운드 연결을 설정합니다. 작업 환경에서 트래픽이 프록시 또는 방화벽을 통과하여 인터넷에 액세스해야 하는 경우 이 제한으로 인해 온-프레미스 데이터 게이트웨이에서 게이트웨이 클라우드 서비스 및 Azure Service Bus에 연결하지 못할 수 있습니다. 게이트웨이에는 조정할 수 있는 몇 가지 통신 설정이 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
-* [온-프레미스 데이터 게이트웨이에 대한 통신 설정 조정](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [온-프레미스 데이터 게이트웨이에 대한 프록시 설정 구성](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [온-프레미스 데이터 게이트웨이에 대한 통신 설정 조정](/data-integration/gateway/service-gateway-communication)
+* [온-프레미스 데이터 게이트웨이에 대한 프록시 설정 구성](/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -155,7 +156,7 @@ ms.locfileid: "83659262"
 
 * 기본 게이트웨이에서는 2017년 11월 또는 이후의 게이트웨이 업데이트가 실행되고 있어야 합니다.
 
-기본 게이트웨이가 설정되면 다른 게이트웨이를 설치할 때 **기존 게이트웨이 클러스터에 추가**를 선택하고, 설치한 첫 번째 게이트웨이인 기본 게이트웨이를 선택하고, 해당 게이트웨이에 대한 복구 키를 제공합니다. 자세한 내용은 참조 [온-프레미스 데이터 게이트웨이에 대한 고가용성 클러스터](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster)를 참조하세요.
+기본 게이트웨이가 설정되면 다른 게이트웨이를 설치할 때 **기존 게이트웨이 클러스터에 추가**를 선택하고, 설치한 첫 번째 게이트웨이인 기본 게이트웨이를 선택하고, 해당 게이트웨이에 대한 복구 키를 제공합니다. 자세한 내용은 참조 [온-프레미스 데이터 게이트웨이에 대한 고가용성 클러스터](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster)를 참조하세요.
 
 <a name="update-gateway-installation"></a>
 
@@ -185,7 +186,7 @@ ms.locfileid: "83659262"
 
 ## <a name="tenant-level-administration"></a>테넌트 수준 관리
 
-Azure AD 테넌트의 모든 온-프레미스 데이터 게이트웨이에 대한 가시성을 확보하기 위해 해당 테넌트의 전역 관리자는 테넌트 관리자 권한으로 [Power Platform 관리 센터](https://powerplatform.microsoft.com)에 로그인하고 **데이터 게이트웨이** 옵션을 선택할 수 있습니다. 자세한 내용은 [온-프레미스 데이터 게이트웨이에 대한 테넌트 수준 관리](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)를 참조하세요.
+Azure AD 테넌트의 모든 온-프레미스 데이터 게이트웨이에 대한 가시성을 확보하기 위해 해당 테넌트의 전역 관리자는 테넌트 관리자 권한으로 [Power Platform 관리 센터](https://powerplatform.microsoft.com)에 로그인하고 **데이터 게이트웨이** 옵션을 선택할 수 있습니다. 자세한 내용은 [온-프레미스 데이터 게이트웨이에 대한 테넌트 수준 관리](/data-integration/gateway/service-gateway-tenant-level-admin)를 참조하세요.
 
 <a name="restart-gateway"></a>
 
@@ -196,7 +197,7 @@ Azure AD 테넌트의 모든 온-프레미스 데이터 게이트웨이에 대�
 > [!NOTE]
 > Windows 서비스 계정은 온-프레미스 데이터 원본에 연결하는 데 사용되는 계정 및 클라우드 서비스에 로그인할 때 사용하는 Azure 계정과 다릅니다.
 
-다른 Windows 서비스와 마찬가지로 게이트웨이를 다양한 방법으로 시작하고 중지할 수 있습니다. 자세한 내용은 [온-프레미스 데이터 게이트웨이 다시 시작](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart)을 참조하세요.
+다른 Windows 서비스와 마찬가지로 게이트웨이를 다양한 방법으로 시작하고 중지할 수 있습니다. 자세한 내용은 [온-프레미스 데이터 게이트웨이 다시 시작](/data-integration/gateway/service-gateway-restart)을 참조하세요.
 
 <a name="gateway-cloud-service"></a>
 
@@ -260,9 +261,9 @@ Microsoft 클라우드 서비스는 [Azure AD](../active-directory/fundamentals/
 
 ## <a name="faq-and-troubleshooting"></a>FAQ 및 문제 해결
 
-* [온-프레미스 데이터 게이트웨이 FAQ](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [온-프레미스 데이터 게이트웨이 문제 해결](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [게이트웨이 성능 모니터링 및 최적화](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [온-프레미스 데이터 게이트웨이 FAQ](/data-integration/gateway/service-gateway-onprem-faq)
+* [온-프레미스 데이터 게이트웨이 문제 해결](/data-integration/gateway/service-gateway-tshoot)
+* [게이트웨이 성능 모니터링 및 최적화](/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>다음 단계
 

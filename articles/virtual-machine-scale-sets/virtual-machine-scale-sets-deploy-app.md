@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 90cda1e8d48e6c7f9e925d6d1b9e11b5d2514e93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080525"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 세트에 애플리케이션 배포
 
@@ -112,4 +113,4 @@ az vmss create \
 
 
 ## <a name="next-steps"></a>다음 단계
-확장 집합에 애플리케이션을 빌드하고 배포할 때 [확장 집합 디자인 개요](virtual-machine-scale-sets-design-overview.md)를 검토할 수 있습니다. 확장 집합을 관리하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 확장 집합 관리](virtual-machine-scale-sets-windows-manage.md)를 참조하세요.
+확장 집합에 애플리케이션을 빌드하고 배포할 때 [확장 집합 디자인 개요](virtual-machine-scale-sets-design-overview.md)를 검토할 수 있습니다. 확장 집합을 관리하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 확장 집합 관리](./virtual-machine-scale-sets-manage-powershell.md)를 참조하세요.

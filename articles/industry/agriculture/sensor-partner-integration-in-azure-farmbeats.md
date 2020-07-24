@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078924"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
 
@@ -100,7 +101,7 @@ FarmBeats Datahub에 대한 API 호출을 수행할 때 지정해야 하는 가�
 
 **API 요청**
 
-REST API 요청을 수행하려면 HTTP(GET, POST 또는 PUT) 메서드, API 서비스에 대한 URL, 쿼리, 데이터 전송, 업데이트 또는 삭제할 리소스에 대한 URI(Uniform Resource Identifier) 및 하나 이상의 HTTP 요청 헤더를 결합합니다. API 서비스에 대한 URL은 사용자가 제공하는 API 엔드포인트입니다. 예: https://\<yourdatahub-website-name>.azurewebsites.net
+REST API 요청을 수행하려면 HTTP(GET, POST 또는 PUT) 메서드, API 서비스에 대한 URL, 쿼리, 데이터 전송, 업데이트 또는 삭제할 리소스에 대한 URI(Uniform Resource Identifier) 및 하나 이상의 HTTP 요청 헤더를 결합합니다. API 서비스에 대한 URL은 사용자가 제공하는 API 엔드포인트입니다. 샘플은 다음과 같습니다. https:// \<yourdatahub-website-name> . azurewebsites.net
 
 필요에 따라 GET 호출에 쿼리 매개 변수를 포함하여 응답에서 데이터를 필터링하고, 크기를 제한하고, 정렬할 수 있습니다.
 
@@ -130,16 +131,16 @@ FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메
 - /**SensorModel**: SensorModel은 제조업체, 센서 유형(아날로그 또는 디지털), 센서 측정값(예: 주변 온도 및 압력)과 같은 센서의 메타데이터에 해당합니다.
 - /**Sensor**: Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 
-  **DeviceModel** |  |
+  DeviceModel | 설명 |
   --- | ---
   Type(node, gateway)  | 디바이스의 유형(노드 또는 게이트웨이)입니다. |
   제조업체  | 제조업체의 이름입니다. |
   ProductCode  | 디바이스 제품 코드 또는 모델 이름 또는 번호입니다. 예: EnviroMonitor#6800. |
   포트  | 포트 이름 및 유형(디지털 또는 아날로그)입니다.  |
-  속성  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
-  Description  | 모델에 대한 의미 있는 설명을 제공합니다. |
+  이름  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
+  설명  | 모델에 대한 의미 있는 설명을 제공합니다. |
   속성  | 제조업체로부터의 추가 속성입니다. |
-  **디바이스** |  |
+  **디바이스** | **설명** |
   DeviceModelId  |연결된 디바이스 모델의 ID입니다. |
   HardwareId   |MAC 주소와 같은 디바이스의 고유 ID입니다.  |
   ReportingInterval |보고 간격(초)입니다. |
@@ -148,7 +149,7 @@ FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메
   속성  | 리소스를 식별하는 이름입니다. 디바이스 파트너는 디바이스 파트너 쪽 디바이스 이름과 일치하는 이름을 보내야 합니다. 디바이스 이름이 디바이스 파트너 쪽에서 사용자 정의되었으면 동일한 사용자 정의 이름을 FarmBeats에 전파해야 합니다.  |
   Description  | 의미 있는 설명을 제공합니다.  |
   속성  |제조업체로부터의 추가 속성입니다.  |
-  **SensorModel** |  |
+  **SensorModel** | **설명** |
   Type(analog, digital)  |아날로그 또는 디지털 센서를 언급합니다.|
   제조업체  | 제조업체의 이름입니다. |
   ProductCode  | 제품 코드 또는 모델 이름 또는 번호입니다. 예: RS-CO2-N01.  |
@@ -159,10 +160,10 @@ FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메
   SensorMeasures > AggregationType  | 없음, 평균, 최대값, 최소값 또는 표준편차 중 하나입니다.
   SensorMeasures > Depth  | 센서의 깊이(센티미터)입니다. 예를 들어 지하 10cm에서 수분을 측정합니다.
   SensorMeasures > Description  | 측정에 대한 의미 있는 설명을 제공합니다.
-  속성  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
-  Description  | 모델에 대한 의미 있는 설명을 제공합니다.
+  이름  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
+  설명  | 모델에 대한 의미 있는 설명을 제공합니다.
   속성  | 제조업체로부터의 추가 속성입니다.
-  **Sensor**  |  |
+  **Sensor**  | **설명** |
   HardwareId  | 제조업체에서 설정한 센서의 고유 ID입니다.
   SensorModelId  | 연결된 센서 모델의 ID입니다.
   위치  | 센서 위도(-90 ~ + 90), 경도(-180 ~ 180), 고도(미터)입니다.

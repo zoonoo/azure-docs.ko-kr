@@ -9,15 +9,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82892213"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081392"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>JSONPath를 사용 하 여 통합 문서에서 JSON 데이터를 변환 하는 방법
 
-통합 문서는 여러 원본의 데이터를 쿼리할 수 있습니다. [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) 또는 사용자 지정 끝점과 같은 일부 끝점은 JSON으로 결과를 반환할 수 있습니다. 쿼리 된 끝점에서 반환 된 JSON 데이터가 원하는 형식으로 구성 되지 않은 경우 JSONPath를 사용 하 여 결과를 변환할 수 있습니다.
+통합 문서는 여러 원본의 데이터를 쿼리할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 또는 사용자 지정 끝점과 같은 일부 끝점은 JSON으로 결과를 반환할 수 있습니다. 쿼리 된 끝점에서 반환 된 JSON 데이터가 원하는 형식으로 구성 되지 않은 경우 JSONPath를 사용 하 여 결과를 변환할 수 있습니다.
 
 JSONPath는 XML에 대 한 XPath와 유사한 JSON에 대 한 쿼리 언어입니다. XPath와 마찬가지로 JSONPath는 JSON 구조에서 데이터를 추출 하 고 필터링 할 수 있도록 합니다.
 
@@ -74,7 +75,7 @@ JSONPath는 XML에 대 한 XPath와 유사한 JSON에 대 한 쿼리 언어입�
    |:-----------|:-----------------|
    | 제목      | `$.title`        |
    | 작성자     | `$.author`       |
-   | Price      | `$.price`        |
+   | 가격      | `$.price`        |
 
     열 Id는 열 머리글이 됩니다. 열 JSON 경로 필드는 테이블의 루트에서 열 값 까지의 경로를 나타냅니다.
 

@@ -5,11 +5,12 @@ author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bddb6af777f36d04bae4a8b68c476789048be1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75433341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081783"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Azure Durable Functions의 재해 복구 및 지역 배포
 
@@ -82,4 +83,4 @@ Traffic Manager는 기본 함수 앱의 문제를 감지하고, 보조 지역의
 
 ## <a name="next-steps"></a>다음 단계
 
-[RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 설계](../../storage/common/storage-designing-ha-apps-with-ragrs.md)에 대해 자세히 읽어볼 수 있습니다.
+[RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 설계](../../storage/common/geo-redundant-design.md)에 대해 자세히 읽어볼 수 있습니다.

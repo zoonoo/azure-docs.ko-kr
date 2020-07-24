@@ -1,5 +1,5 @@
 ---
-title: Azure App Service 웹 앱 및 Api 보호
+title: Azure App Service 웹앱 및 API 보호
 description: 이 문서는 Azure Security Center에서 Azure App Service 웹 앱 및 Api를 보호 하기 시작 하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
@@ -10,13 +10,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616477"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080797"
 ---
-# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Azure App Service 웹 앱 및 Api 보호
+# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Azure App Service 웹앱 및 API 보호
 
 Azure App Service는 인프라를 관리할 필요 없이 웹 앱 및 Api를 빌드하고 호스팅하기 위한 완전히 관리 되는 플랫폼입니다. 엔터프라이즈 수준의 성능, 보안 및 규정 준수 요구 사항을 충족 하는 관리, 모니터링 및 operational insights를 제공 합니다. 자세한 내용은 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 참조 하세요.
 
@@ -56,7 +57,7 @@ App Service에 대한 모니터링과 권장 사항을 사용하지 않도록 �
 
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) - Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.

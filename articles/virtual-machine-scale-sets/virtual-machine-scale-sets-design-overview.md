@@ -10,15 +10,15 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d2160f2c014e1bf7c486c29a48c756936df12788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373984"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080508"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
-이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
+이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](./overview.md)를 참조하세요.
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>가상 머신 대신 확장 집합을 사용하는 경우
 일반적으로 확장 집합은 구성이 유사한 일련의 컴퓨터로 구성된 고가용성 인프라를 배포하는 데 유용합니다. 그러나 일부 기능은 확장 집합에서만 사용할 수 있고, 다른 일부 기능은 VM에서만 사용할 수 있습니다. 각 기술을 언제 사용할지에 대한 정보를 바탕으로 의사 결정을 내리려면 먼저, 일반적으로 사용되는 기능 중 확장 집합에서는 사용 가능하지만 VM에서는 사용할 수 없는 기능 몇 가지를 살펴보면 됩니다.
@@ -27,8 +27,8 @@ ms.locfileid: "85373984"
 
 - 확장 집합 구성을 지정한 후에는 *용량* 속성을 업데이트 하 여 더 많은 vm을 병렬로 배포할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 좋습니다.
 - [Azure 자동 크기 조정을 사용하여 확장 집합의 크기를 자동으로 조정](./virtual-machine-scale-sets-autoscale-overview.md)할 수 있지만 개별 VM의 경우는 불가능합니다.
-- [확장 집합 VM을 이미지로 다시 설치](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage)할 수 있지만 [개별 VM의 경우는 불가능합니다](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning)할 수 있습니다. 이 작업을 수행하는 사용자 지정 코드를 작성하지 않는 한 개별 VM을 과도하게 프로비전할 수 없습니다.
+- [확장 집합 VM을 이미지로 다시 설치](/rest/api/compute/virtualmachinescalesets/reimage)할 수 있지만 [개별 VM의 경우는 불가능합니다](/rest/api/compute/virtualmachines).
+- 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](#overprovisioning)할 수 있습니다. 이 작업을 수행하는 사용자 지정 코드를 작성하지 않는 한 개별 VM을 과도하게 프로비전할 수 없습니다.
 - 확장 집합 내 전체 VM에 대한 업그레이드 롤아웃을 수월하게 만들도록 [업그레이드 정책](./virtual-machine-scale-sets-upgrade-scale-set.md)을 지정할 수 있습니다. 개별 VM의 경우 업데이트를 직접 오케스트레이션해야 합니다.
 
 ### <a name="vm-specific-features"></a>VM 특정 기능
@@ -68,4 +68,3 @@ Marketplace 이미지에 구축되고(플랫폼 이미지라고도 함) Azure Ma
 사용자 지정 이미지에 구축된 확장 집합은 Azure Managed Disks로 구성된 경우 최대 600개의 VM 용량을 가질 수 있습니다. 확장 집합이 사용자 관리 스토리지 계정으로 구성된 경우 하나의 스토리지 계정 내에서 모든 OS 디스크 VHD를 만들어야 합니다. 그 결과 사용자 지정 이미지 및 사용자 관리 스토리지에 구축하는 확장 집합의 최대 추천 VM 수는 20개입니다. 오버프로비전을 해제할 경우 40개를 초과할 수 있습니다.
 
 이러한 한도보다 더 많은 VM이 있는 경우 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)에 나오는 것처럼 여러 확장 집합을 배포해야 합니다.
-

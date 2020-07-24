@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6d6e16b079f1423fd1ea812e384546ae5d84067
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a6f05835362dbcde36b1ab9cc3782b172b43f7c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392202"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079148"
 ---
 # <a name="dtdl-client-side-parser-library"></a>DTDL 클라이언트 쪽 파서 라이브러리
 
@@ -168,4 +169,4 @@ void PrintInterfaceContent(DTInterfaceInfo dtif, IReadOnlyDictionary<Dtmi, DTEnt
 ## <a name="next-steps"></a>다음 단계
 
 모델 작성을 완료 한 후에는 DigitalTwinsModels Api를 사용 하 여 모델을 업로드 하는 방법 (및 다른 관리 작업을 수행 하는 방법)을 참조 하세요.
-* [방법: 사용자 지정 모델 관리](how-to-manage-model.md)
+* [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)

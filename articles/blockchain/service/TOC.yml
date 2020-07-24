@@ -71,13 +71,13 @@
     - name: Azure Blockchain 개발자 키트
       href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: Blockchain REST API
-      href: 'https://docs.microsoft.com/rest/api/blockchain/'
+      href: /rest/api/blockchain/
     - name: 코드 샘플
       href: 'https://github.com/Azure-Samples/blockchain'
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-blockchain-service.html'
+      href: /answers/topics/azure-blockchain-service.html
     - name: 커뮤니티 지원
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Stack Overflow 지원

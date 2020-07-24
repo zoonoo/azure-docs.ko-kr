@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e4f33f0974462197382ea6ac5d2b68d61909f73b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965249"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079252"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
 
@@ -19,7 +19,7 @@ ms.locfileid: "85965249"
 * API:
   * Batch API 중 하나를 사용하여 코드를 작성합니다.  개발자는 클라우드나 온-프레미스 여부에 관계없이 Azure Batch 기능을 기존 애플리케이션이나 워크플로에 통합할 수 있습니다.
 * 명령줄 도구:
-  * [Azure 명령줄](/cli/azure/) 또는 [PowerShell](/powershell/azure/overview)을 사용하여 Batch 사용을 스크립트로 작성할 수 있습니다.
+  * [Azure 명령줄](/cli/azure/) 또는 [PowerShell](/powershell/azure/)을 사용하여 Batch 사용을 스크립트로 작성할 수 있습니다.
   * 특히 [Batch CLI 템플릿 지원](./batch-cli-templates.md)을 사용하면 풀을 만들고 작업을 제출하는 것이 훨씬 쉽습니다.
 * Batch Explorer UI:
   * [Batch Explorer](https://github.com/Azure/BatchLabs)는 Batch 계정의 관리 및 모니터를 지원하는 플랫폼 간 클라이언트 도구입니다.

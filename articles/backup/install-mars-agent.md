@@ -3,12 +3,12 @@ title: MARS (Microsoft Azure Recovery Services) 에이전트 설치
 description: Windows 컴퓨터를 백업 하는 MARS (Microsoft Azure Recovery Services) 에이전트를 설치 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b9842f6b07621301a0a8a32f5eb7fae5ece153bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079369"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>MARS 에이전트 Azure Backup를 설치 합니다.
 
@@ -29,7 +29,7 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 
 ![Backup 프로세스 단계](./media/backup-configure-vault/initial-backup-process.png)
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 * [AZURE BACKUP MARS 에이전트를 사용 하 여 Windows 컴퓨터를 백업](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)하는 방법에 대해 알아봅니다.
 * 보조 MABS 또는 Data Protection Manager 서버에서 MARS 에이전트를 실행 하는 [백업 아키텍처](backup-architecture.md#architecture-back-up-to-dpmmabs) 에 대해 알아봅니다.
@@ -42,10 +42,10 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 
 ## <a name="modify-storage-replication"></a>스토리지 복제 수정
 
-기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)를 사용합니다.
+기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md)를 사용합니다.
 
 * 자격 증명 모음이 기본 백업 메커니즘인 경우 GRS를 사용 하는 것이 좋습니다.
-* [LRS (로컬 중복 저장소)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 를 사용 하 여 Azure storage 비용을 줄일 수 있습니다.
+* [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) 를 사용 하 여 Azure storage 비용을 줄일 수 있습니다.
 
 저장소 복제 유형을 수정 하려면:
 
@@ -95,7 +95,7 @@ Microsoft 피어 링을 사용 하려면 다음 서비스, 지역 및 관련 커
 * Recovery Services 자격 증명 모음의 위치에 따라 Azure 지역
 * Recovery Services 자격 증명 모음의 위치에 따라 Azure Storage
 
-자세한 내용은 [express 경로 라우팅 요구 사항](https://docs.microsoft.com/azure/expressroute/expressroute-routing)을 참조 하세요.
+자세한 내용은 [express 경로 라우팅 요구 사항](../expressroute/expressroute-routing.md)을 참조 하세요.
 
 > [!NOTE]
 > 공용 피어 링은 새 회로에서 사용 되지 않습니다.

@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200097"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080440"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -111,7 +112,7 @@ Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보�
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>PowerShell을 사용하여 유지 관리 상태 확인
 
-Azure PowerShell을 사용하여 가상 머신 확장 집합의 VM이 유지 관리에 대해 예약된 시기를 볼 수 있습니다. 계획된 유지 관리 정보는 `-InstanceView` 매개 변수를 사용하는 경우 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet을 통해 사용할 수 있습니다.
+Azure PowerShell을 사용하여 가상 머신 확장 집합의 VM이 유지 관리에 대해 예약된 시기를 볼 수 있습니다. 계획된 유지 관리 정보는 `-InstanceView` 매개 변수를 사용하는 경우 [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet을 통해 사용할 수 있습니다.
  
 유지 관리가 계획된 경우에만 유지 관리 정보가 반환됩니다. VM 인스턴스에 영향을 주는 유지 관리가 예약되지 않은 경우 이 cmdlet에서 유지 관리 정보를 반환하지 않습니다. 
 
@@ -121,7 +122,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 **MaintenanceRedeployStatus**아래에 다음 속성이 반환 됩니다. 
 
-| 값 | 설명   |
+| 값 | Description   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -152,7 +153,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 각 VM 인스턴스에 대 한 **MaintenanceRedeployStatus** 아래에 다음 속성이 반환 됩니다. 
 
-| 값 | 설명   |
+| 값 | Description   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |

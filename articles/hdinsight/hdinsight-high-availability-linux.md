@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f97b4877d87acec923812fd0289d5161529dbe7a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849657"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081035"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성
 
@@ -119,7 +119,7 @@ Ambari 페이지로 이동하면 설치된 서비스가 페이지 왼쪽에 나�
 
 다음 경고는 클러스터의 가용성을 모니터링 하는 데 도움이 됩니다.
 
-| 경고 이름                               | 설명                                                                                                                                                                                  |
+| 경고 이름                               | Description                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 메트릭 모니터 상태                    | 이 경고는 모니터 상태 스크립트에 의해 결정 된 메트릭 모니터 프로세스의 상태를 나타냅니다.                                                                                   |
 | Ambari 에이전트 하트 비트                   | 이 경고는 서버에서 에이전트와의 연결이 끊어진 경우에 트리거됩니다.                                                                                                                        |
@@ -268,7 +268,7 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다.
 
 노드의 크기는 클러스터를 만드는 동안에만 선택할 수 있습니다. [HDInsight 가격 책정 페이지](https://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기의 목록을 찾을 수 있습니다.
 
-클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음 정보에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell 모듈 Az](/powershell/azureps-cmdlets-docs)및 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용 하 여 크기를 지정 하는 방법에 대 한 지침을 제공 합니다.
+클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음 정보에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell 모듈 Az](/powershell/azure/)및 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용 하 여 크기를 지정 하는 방법에 대 한 지침을 제공 합니다.
 
 * **Azure Portal**: 클러스터를 만들 때 클러스터에서 사용하는 노드의 크기를 설정할 수 있습니다.
 
@@ -284,6 +284,6 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다.
 
 * [Apache Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Azure CLI 설치 및 구성](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Azure PowerShell 모듈 Az 설치 및 구성](/powershell/azure/overview)
+* [Azure PowerShell 모듈 Az 설치 및 구성](/powershell/azure/)
 * [Apache Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
 * [Linux 기반 HDInsight 클러스터 프로비전을](hdinsight-hadoop-provision-linux-clusters.md)

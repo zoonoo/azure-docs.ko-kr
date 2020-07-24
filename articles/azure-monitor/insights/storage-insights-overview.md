@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944494"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081613"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Storage용 Azure Monitor를 사용하여 스토리지 서비스 모니터링
 
@@ -31,7 +31,7 @@ Storage용 Azure Monitor는 Azure Storage 서비스 성능, 용량 및 가용성
 
 * **사용자 지정이 가능**하므로 표시할 메트릭을 변경하고, 제한과 일치하는 임계값을 수정하거나 설정하고, 사용자 고유의 통합 문서로 저장할 수 있습니다. 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.  
 
-스토리지 계정의 스토리지 메트릭은 기본적으로 수집되므로 이 기능을 사용하기 위해 아무것도 사용하도록 설정하거나 구성할 필요가 없습니다. Azure Storage에서 사용할 수 있는 메트릭에 익숙하지 않은 경우 [Azure Storage 메트릭](../../storage/common/storage-metrics-in-azure-monitor.md)을 검토하여 Azure Storage 메트릭의 설명 및 정의를 확인합니다.
+스토리지 계정의 스토리지 메트릭은 기본적으로 수집되므로 이 기능을 사용하기 위해 아무것도 사용하도록 설정하거나 구성할 필요가 없습니다. Azure Storage에서 사용할 수 있는 메트릭에 익숙하지 않은 경우 [Azure Storage 메트릭](../../storage/common/monitor-storage.md)을 검토하여 Azure Storage 메트릭의 설명 및 정의를 확인합니다.
 
 >[!NOTE]
 >이 기능은 무료로 사용할 수 있으며 [Azure Monitor 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/monitor/) 페이지에 설명된 것처럼 Azure Monitor 필수 기능을 구성하거나 설정하는 경우에만 요금이 부과됩니다.
@@ -198,7 +198,7 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 
 1. 메트릭 그리드에서 **열 설정**을 선택합니다.
 
-2. **열 설정 편집** 창의 **열** 섹션에서 **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** 를 선택합니다. **색상표** 드롭다운 목록에서 **녹색**을 선택합니다.
+2. **열 설정 편집** 창의,/storageaccounts ** `|` /Blobservices-capacity-blobservices $ microsoft. storage/Storageaccounts/fileservices-FileCapacity $ microsoft. storage/storageaccounts/ `|` `|` `|` QueueCapacity-** tableservices $ **열** 아래에서을 (를) 선택 합니다 (예를 들면)를 선택 하 여. **색상표** 드롭다운 목록에서 **녹색**을 선택합니다.
 
 3. **저장 후 닫기**를 선택하여 변경 내용을 커밋합니다.
 
@@ -246,7 +246,7 @@ Storage용 Azure Monitor로 식별한 스토리지 관련 문제를 해결하려
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Storage용 Azure Monitor에 표시된 데이터를 분석하고 문제를 해결하려면 어떻게 하나요?
 
- Storage용 Azure Monitor에 표시된 Azure Storage 데이터를 분석하고 문제를 해결하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) 문서를 참조하세요.
+ Storage용 Azure Monitor에 표시된 Azure Storage 데이터를 분석하고 문제를 해결하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md) 문서를 참조하세요.
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>메트릭에 모든 오류 유형이 표시되지 않는 이유는 무엇인가요?
 
@@ -269,7 +269,7 @@ n개의 서로 다른 오류 유형을 확인하려면 splitByLimit를 나머지
 
 ## <a name="next-steps"></a>다음 단계
 
-* [메트릭 경고](../platform/alerts-metric.md) 및 [서비스 상태 알림](../../service-health/alerts-activity-log-service-notifications.md)을 구성하여 문제 발견에 도움이 되는 자동 경고를 설정합니다.
+* [메트릭 경고](../platform/alerts-metric.md) 및 [서비스 상태 알림](../../service-health/alerts-activity-log-service-notifications-portal.md)을 구성하여 문제 발견에 도움이 되는 자동 경고를 설정합니다.
 
 * [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.
 

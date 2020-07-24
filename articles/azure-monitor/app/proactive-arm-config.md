@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a4cb788a24252a2de7b9d669b166b25ed48be1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294913"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081596"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "80294913"
 
 스마트 검색 규칙에 대한 다음 설정을 구성할 수 있습니다.
 - 규칙이 사용 되 면이 고, 기본값은 **true**입니다.
-- 검색이 검색 될 때 구독의 [모니터링 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [모니터링 참여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 역할에 연결 된 사용자에 게 전자 메일을 보내야 하는 경우 (기본값은 **true**입니다.)
+- 검색이 검색 될 때 구독의 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [모니터링 참여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할에 연결 된 사용자에 게 전자 메일을 보내야 하는 경우 (기본값은 **true**입니다.)
 - 항목이 검색되었을 때 알림을 받아야 하는 추가 메일 수신인
     -  _미리 보기로_표시 된 스마트 검색 규칙에는 전자 메일 구성을 사용할 수 없습니다.
 

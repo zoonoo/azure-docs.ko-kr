@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078746"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Power Automate에서 흐름을 내보내고 Azure Logic Apps에 배포
 
@@ -19,11 +20,11 @@ ms.locfileid: "84324863"
 > [!NOTE]
 > 모든 전원 자동화 커넥터를 Azure Logic Apps에서 사용할 수 있는 것은 아닙니다. Azure Logic Apps에서 동일한 커넥터가 있는 전원 자동화 흐름과 마이그레이션할 수 있습니다. 예를 들어 단추 트리거, 승인 커넥터 및 알림 커넥터는 전원 자동화에만 적용 됩니다. 현재 전원 자동화의 OpenAPI 기반 흐름은 논리 앱 템플릿으로 내보내기 및 배포에 대해 지원 되지 않습니다.
 >
-> * 해당 하는 Logic Apps 없는 전원 자동화 커넥터를 찾으려면 [전원 자동화 커넥터](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
+> * 해당 하는 Logic Apps 없는 전원 자동화 커넥터를 찾으려면 [전원 자동화 커넥터](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
 >
-> * 전원 자동화가 해당 하는 Logic Apps 커넥터를 찾으려면 [커넥터 Logic Apps](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
+> * 전원 자동화가 해당 하는 Logic Apps 커넥터를 찾으려면 [커넥터 Logic Apps](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -65,7 +66,7 @@ ms.locfileid: "84324863"
 
    1. 템플릿에 대 한 입력 매개 변수 값을 선택 하거나 지정 합니다.
 
-      | 속성 | Description |
+      | 속성 | 설명 |
       |----------|-------------|
       | **구독** | 청구에 사용할 Azure 구독입니다. |
       | **리소스 그룹** | 논리 앱에 사용할 Azure 리소스 그룹입니다. 기존 그룹을 사용 하거나 새 그룹을 만들 수 있습니다. |
@@ -75,7 +76,7 @@ ms.locfileid: "84324863"
       | <*연결-이름*> | 논리 앱에서 다시 사용할 수 있는 이전에 만든 연결에 대 한 하나 또는 여러 이름 <p><p>**참고**:이 논리 앱이 첫 번째 이면 모든 연결이 새로 만들어지므로 기본 이름을 그대로 사용할 수 있습니다. 그렇지 않은 경우에는 여러 논리 앱에서 사용할 수 있는 이전에 만든 연결의 이름을 지정할 수 있습니다. |
       |||
 
-      예를 들어:
+      예를 들면 다음과 같습니다.
 
       ![템플릿에 대 한 입력 매개 변수 지정](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
@@ -155,7 +156,7 @@ ms.locfileid: "84324863"
 
    ![배포 매개 변수 편집](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 예를 들어:
+   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![출력 창](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

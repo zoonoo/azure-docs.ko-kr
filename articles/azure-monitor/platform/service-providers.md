@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49f9caaeb1b16daa49fabb217b6fc40fff17f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081477"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>서비스 공급자에 대 한 Azure Monitor 로그
 
@@ -20,7 +21,7 @@ Azure Monitor의 Log Analytics 작업 영역을 통해 MSPs (관리 서비스 �
 
 [CSP (클라우드 솔루션 공급자)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) 프로그램의 일부인 파트너 및 서비스 공급자의 경우 Azure Monitor의 Log Analytics는 azure CSP 구독에서 사용할 수 있는 azure 서비스 중 하나입니다.
 
-[Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview)의 azure 위임 된 리소스 관리 기능을 통해 고객 리소스를 관리 하는 서비스 공급자가 Azure Monitor의 Log Analytics 사용할 수도 있습니다.
+[Azure Lighthouse](../../lighthouse/overview.md)의 azure 위임 된 리소스 관리 기능을 통해 고객 리소스를 관리 하는 서비스 공급자가 Azure Monitor의 Log Analytics 사용할 수도 있습니다.
 
 ## <a name="architectures-for-service-providers"></a>서비스 공급자의 아키텍처
 
@@ -34,12 +35,12 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 서비스 공급자 관리자는 고객 테 넌 트의 Log Analytics 작업 영역에 대 한 액세스 권한을 얻을 수 있는 두 가지 방법이 있습니다.
 
-- 고객이 [B2B (Azure Active Directory 게스트 사용자)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)로 서비스 공급자의 개별 사용자를 추가할 수 있습니다. 서비스 공급자 관리자는 이러한 작업 영역에 액세스할 수 있도록 Azure Portal의 각 고객 디렉터리에 로그인 해야 합니다. 또한 고객은 각 서비스 공급자 관리자에 대 한 개별 액세스를 관리 해야 합니다.
-- 확장성과 유연성을 향상 하기 위해 서비스 공급자는 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) 의 [azure 위임 된 리소스 관리](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management) 기능을 사용 하 여 고객의 테 넌 트에 액세스할 수 있습니다. 이 방법을 사용 하는 경우 서비스 공급자 관리자는 서비스 공급자의 테 넌 트에 있는 Azure AD 사용자 그룹에 포함 되며, 각 고객에 대 한 온 보 딩 프로세스 중에는이 그룹에 액세스 권한이 부여 됩니다. 그러면 이러한 관리자는 각 고객의 테 넌 트에 개별적으로 로그인 할 필요 없이 자체의 서비스 공급자 테 넌 트 내에서 각 고객의 작업 영역에 액세스할 수 있습니다. 이러한 방식으로 고객의 Log Analytics 작업 영역 리소스에 액세스 하면 고객 측에 필요한 작업이 줄어들고 [Azure Monitor 통합 문서](https://docs.microsoft.com/azure//azure-monitor/platform/workbooks-overview)와 같은 도구를 통해 동일한 서비스 공급자에서 관리 하는 여러 고객에 게 데이터를 더 쉽게 수집 하 고 분석할 수 있습니다. 자세한 내용은 [대규모 고객 리소스 모니터링](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-at-scale)을 참조 하세요.
+- 고객이 [B2B (Azure Active Directory 게스트 사용자)](../../active-directory/b2b/what-is-b2b.md)로 서비스 공급자의 개별 사용자를 추가할 수 있습니다. 서비스 공급자 관리자는 이러한 작업 영역에 액세스할 수 있도록 Azure Portal의 각 고객 디렉터리에 로그인 해야 합니다. 또한 고객은 각 서비스 공급자 관리자에 대 한 개별 액세스를 관리 해야 합니다.
+- 확장성과 유연성을 향상 하기 위해 서비스 공급자는 [Azure Lighthouse](../../lighthouse/overview.md) 의 [azure 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md) 기능을 사용 하 여 고객의 테 넌 트에 액세스할 수 있습니다. 이 방법을 사용 하는 경우 서비스 공급자 관리자는 서비스 공급자의 테 넌 트에 있는 Azure AD 사용자 그룹에 포함 되며, 각 고객에 대 한 온 보 딩 프로세스 중에는이 그룹에 액세스 권한이 부여 됩니다. 그러면 이러한 관리자는 각 고객의 테 넌 트에 개별적으로 로그인 할 필요 없이 자체의 서비스 공급자 테 넌 트 내에서 각 고객의 작업 영역에 액세스할 수 있습니다. 이러한 방식으로 고객의 Log Analytics 작업 영역 리소스에 액세스 하면 고객 측에 필요한 작업이 줄어들고 [Azure Monitor 통합 문서](../..//azure-monitor/platform/workbooks-overview.md)와 같은 도구를 통해 동일한 서비스 공급자에서 관리 하는 여러 고객에 게 데이터를 더 쉽게 수집 하 고 분석할 수 있습니다. 자세한 내용은 [대규모 고객 리소스 모니터링](../../lighthouse/how-to/monitor-at-scale.md)을 참조 하세요.
 
 분산 아키텍처의 장점은 다음과 같습니다.
 
-* 고객은 [Azure 위임 된 리소스 관리](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)를 통해 특정 수준의 사용 권한을 확인 하거나 자체 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview)를 사용 하 여 로그에 대 한 액세스를 관리할 수 있습니다.
+* 고객은 [Azure 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 통해 특정 수준의 사용 권한을 확인 하거나 자체 [역할 기반 액세스](../../role-based-access-control/overview.md)를 사용 하 여 로그에 대 한 액세스를 관리할 수 있습니다.
 * 에이전트 기반 VM 데이터 뿐만 아니라 모든 유형의 리소스에서 로그를 수집할 수 있습니다. Azure 감사 로그 등을 예로 들 수 있습니다.
 * 각 고객은 보존 및 데이터 제한과 같은 해당 작업 영역의 설정이 서로 다를 수 있습니다.
 * 규정 및 준수를 위해 고객을 서로 격리합니다.
@@ -74,7 +75,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 중앙 위치에 로그를 구현 하는 두 가지 옵션이 있습니다.
 
-1. 중앙 작업 영역: 서비스 공급자는 해당 테넌트에서 작업 영역을 만들고 [데이터 수집 API](../../azure-monitor/platform/data-collector-api.md)와 함께 [쿼리 API](https://dev.loganalytics.io/)를 활용하는 스크립트를 사용하여 데이터를 다양한 작업 영역에서 중앙 위치로 가져올 수 있습니다. 스크립트 외에 사용 가능한 또 다른 옵션은 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)를 사용하는 것입니다.
+1. 중앙 작업 영역: 서비스 공급자는 해당 테넌트에서 작업 영역을 만들고 [데이터 수집 API](../../azure-monitor/platform/data-collector-api.md)와 함께 [쿼리 API](https://dev.loganalytics.io/)를 활용하는 스크립트를 사용하여 데이터를 다양한 작업 영역에서 중앙 위치로 가져올 수 있습니다. 스크립트 외에 사용 가능한 또 다른 옵션은 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md)를 사용하는 것입니다.
 
 2. 중앙 위치로 Power BI: Power BI 여러 작업 영역에서 Log Analytics 작업 영역과 [Power BI](../../azure-monitor/platform/powerbi.md)간의 통합을 사용 하 여 데이터를 내보낼 때 중앙 위치로 작동할 수 있습니다.
 
@@ -88,4 +89,4 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 * [Power BI](../../azure-monitor/platform/powerbi.md)를 사용하여 요약 보고서 생성
 
-* [Azure에서 위임 된 리소스 관리](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)에 고객을 등록 합니다.
+* [Azure에서 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)에 고객을 등록 합니다.

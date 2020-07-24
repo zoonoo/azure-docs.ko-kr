@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6a1c6bb39e743a96ad110a60e41cc59306e7a2ae
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 437a917e0f9b6e7a7370e828c8e3ee95218cea3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079743"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -73,7 +73,7 @@ Windows를 실행하는 노드의 경우 지원되는 버전은 다음과 같습
 >[!NOTE]
 >[Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) 독립 실행형 제품 SKU에는 DSC 구현이 포함되어 있지 않습니다. 따라서 PowerShell DSC 또는 Azure Automation 상태 구성으로 관리할 수 없습니다.
 
-Linux를 실행하는 노드의 경우 DSC Linux 확장은 [지원되는 Linux 배포판](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions)에 나열된 모든 Linux 배포판을 지원합니다.
+Linux를 실행 하는 노드의 경우 DSC Linux 확장은 [POWERSHELL dsc 설명서](/powershell/scripting/dsc/getting-started/lnxgettingstarted)에 나열 된 모든 Linux 배포를 지원 합니다.
 
 ### <a name="dsc-requirements"></a>DSC 요구 사항
 

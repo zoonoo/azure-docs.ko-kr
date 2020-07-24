@@ -1,5 +1,5 @@
 ---
-title: 기본 공용에서 표준 공용-Azure Load Balancer로 업그레이드
+title: 기본 내부에서 표준 공용-Azure Load Balancer로 업그레이드
 description: 이 문서에서는 Azure Basic 내부 Load Balancer를 표준 공용 Load Balancer로 업그레이드 하는 방법을 보여 줍니다.
 services: load-balancer
 author: irenehua
@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 6b4d2a5cf441eb702bc33fc862fec9cc28a998b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078753"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결 필요
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/skus#skus)를 참조 하세요. 표준 내부 Load Balancer는 아웃 바운드 연결을 제공 하지 않으므로 표준 공용 Load Balancer를 대신 만들 수 있는 솔루션을 제공 합니다.

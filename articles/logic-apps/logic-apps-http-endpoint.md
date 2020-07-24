@@ -6,11 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170276"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078667"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTPS 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
@@ -27,7 +28,7 @@ ms.locfileid: "84170276"
 
 논리 앱을 처음 접하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -387,7 +388,7 @@ ms.locfileid: "84170276"
 
 #### <a name="q-what-about-url-security"></a>Q: URL 보안이란 무엇입니까?
 
-**A**: AZURE는 [SAS (공유 액세스 서명)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature)를 사용 하 여 논리 앱 콜백 url을 안전 하 게 생성 합니다. 이 서명은 쿼리 매개 변수로 전달 되 고 논리 앱을 실행 하기 전에 유효성을 검사 해야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
+**A**: AZURE는 [SAS (공유 액세스 서명)](/rest/api/storageservices/delegate-access-with-shared-access-signature)를 사용 하 여 논리 앱 콜백 url을 안전 하 게 생성 합니다. 이 서명은 쿼리 매개 변수로 전달 되 고 논리 앱을 실행 하기 전에 유효성을 검사 해야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
 
 > [!IMPORTANT]
 > 프로덕션 및 고급 보안 시스템의 경우 다음과 같은 이유로 브라우저에서 직접 논리 앱을 호출 하는 것에 대해 적극 권장 합니다.

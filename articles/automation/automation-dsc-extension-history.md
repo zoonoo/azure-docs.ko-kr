@@ -1,20 +1,17 @@
 ---
 title: Azure 필요한 상태 구성 확장 버전 기록 작업
 description: 이 문서에서는 Azure에서 DSC(필요한 상태 구성) 확장에 대한 버전 기록을 사용하는 방법에 대해 설명합니다.
-ms.date: 06/21/2018
+ms.date: 07/22/2020
 keywords: dsc, powershell, azure, 확장
-author: mgoedtel
-ms.author: magoedte
 services: automation
-ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b45512faf09cfe745023d29d32f89a4432cc3b2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186421"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079760"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Azure 필요한 상태 구성 확장 버전 기록 작업
 
@@ -23,6 +20,29 @@ Azure DSC(필요한 상태 구성) VM 확장은 필요에 따라 Azure, Windows 
 이 문서에서는 Azure DSC VM 확장의 각 버전에 대한 정보, 지원하는 환경 및 새 기능 또는 변경 내용에 대한 설명 및 주의를 제공합니다.
 
 ## <a name="latest-version"></a>최신 버전
+
+### <a name="version-280"></a>버전 2.80
+
+- **릴리스 날짜:**
+  - 9 월 26 일-2019 (Azure) | 2020 년 7 월 6 일 (Azure 중국 Vianet 21) | 2020 년 7 월 20 일 (Azure Government)
+- **OS 지원:**
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012 R2
+  - Windows Server 2012
+  - Windows Server 2008 R2 SP1
+  - Windows 클라이언트 7/8.1/10
+  - Nano 서버
+- **WMF 지원:**
+  - WMF 5.1
+  - WMF 5.0 RTM
+  - WMF 4.0 업데이트
+  - WMF 4.0
+- **환경:**
+  - Azure
+  - Azure 중국 Vianet 21
+  - Azure Government
+- **설명:** 이 릴리스에는 새로운 기능이 포함 되지 않습니다.
 
 ### <a name="version-276"></a>버전 2.76
 

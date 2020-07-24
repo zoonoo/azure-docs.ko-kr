@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcd92f1f134b79d23da6848cbb04894b242fcec0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081817"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
 
@@ -19,7 +20,7 @@ ms.locfileid: "84698005"
 
 Azure Functions에서 진단 및 모니터링을 수행하려면 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용하는 것이 좋습니다. 지속성 함수에도 동일하게 적용됩니다. 함수 앱에서 Application Insights를 활용하는 방법에 대한 개요는 [Azure Functions 모니터링](../functions-monitoring.md)을 참조하세요.
 
-또한 Azure Functions 지속성 확장은 오케스트레이션의 엔드투엔드 실행을 추적할 수 있는 *추적 이벤트*를 내보냅니다. 이러한 추적 이벤트는 Azure Portal에서 [Application Insights 분석](../../azure-monitor/app/analytics.md) 도구를 사용 하 여 검색 하 고 쿼리할 수 있습니다.
+또한 Azure Functions 지속성 확장은 오케스트레이션의 엔드투엔드 실행을 추적할 수 있는 *추적 이벤트*를 내보냅니다. 이러한 추적 이벤트는 Azure Portal에서 [Application Insights 분석](../../azure-monitor/log-query/log-query-overview.md) 도구를 사용 하 여 검색 하 고 쿼리할 수 있습니다.
 
 ### <a name="tracking-data"></a>추적 데이터
 
@@ -382,7 +383,7 @@ Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 
 
 ## <a name="storage"></a>스토리지
 
-기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. 이 동작은 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)와 같은 도구를 사용 하 여 오케스트레이션의 상태를 검사할 수 있음을 의미 합니다.
+기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. 이 동작은 [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같은 도구를 사용 하 여 오케스트레이션의 상태를 검사할 수 있음을 의미 합니다.
 
 ![Azure Storage 탐색기 스크린 샷](./media/durable-functions-diagnostics/storage-explorer.png)
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 77bba9433052c00df671caf73198ff75356b1c9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079231"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -37,7 +37,7 @@ ms.locfileid: "81400164"
 
 ## <a name="get-a-list-of-voices"></a>음성 목록 가져오기
 
-`voices/list` 끝점을 사용 하면 특정 지역/끝점에 대 한 전체 음성 목록을 가져올 수 있습니다.
+`voices/list`끝점을 사용 하면 특정 지역/끝점에 대 한 전체 음성 목록을 가져올 수 있습니다.
 
 ### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
@@ -67,13 +67,13 @@ ms.locfileid: "81400164"
 
 다음 표에서는 텍스트 음성 변환 요청에 대 한 필수 및 선택적 헤더를 보여 줍니다.
 
-| 헤더 | Description | 필수/선택 |
+| 헤더 | 설명 | 필수/선택 |
 |--------|-------------|---------------------|
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
 
 ### <a name="request-body"></a>요청 본문
 
-이 끝점에 대 한 `GET` 요청에는 본문이 필요 하지 않습니다.
+이 끝점에 대 한 요청에는 본문이 필요 하지 않습니다 `GET` .
 
 ### <a name="sample-request"></a>샘플 요청
 
@@ -144,7 +144,7 @@ Authorization: Bearer [Base64 access_token]
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 
-| HTTP 상태 코드 | Description | 가능한 원인 |
+| HTTP 상태 코드 | 설명 | 가능한 원인 |
 |------------------|-------------|-----------------|
 | 200 | 확인 | 요청이 성공 했습니다. |
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
@@ -155,7 +155,7 @@ Authorization: Bearer [Base64 access_token]
 
 ## <a name="convert-text-to-speech"></a>텍스트 음성 변환
 
-끝점 `v1` 을 사용 하면 [SSML (음성 합성 마크업) 언어](speech-synthesis-markup.md)를 사용 하 여 텍스트를 음성으로 변환할 수 있습니다.
+`v1`끝점을 사용 하면 [SSML (음성 합성 마크업) 언어](speech-synthesis-markup.md)를 사용 하 여 텍스트를 음성으로 변환할 수 있습니다.
 
 ### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
@@ -167,7 +167,7 @@ Authorization: Bearer [Base64 access_token]
 
 다음 표에서는 텍스트 음성 변환 요청에 대 한 필수 및 선택적 헤더를 보여 줍니다.
 
-| 헤더 | Description | 필수/선택 |
+| 헤더 | 설명 | 필수/선택 |
 |--------|-------------|---------------------|
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
 | `Content-Type` | 제공된 텍스트의 콘텐츠 형식을 지정합니다. 허용되는 값: `application/ssml+xml`. | 필수 |
@@ -178,18 +178,18 @@ Authorization: Bearer [Base64 access_token]
 
 각 요청에서 `X-Microsoft-OutputFormat` 헤더로 전송되는 지원되는 오디오 형식 목록입니다. 각 항목에 전송률 및 인코딩 형식이 포함됩니다. 음성 서비스는 24khz, 16khz 및 8 kHz 오디오 출력을 지원 합니다.
 
-|||
-|-|-|
-| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
-| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
-| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
-| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
-| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
-| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
-| `audio-24khz-48kbitrate-mono-mp3` | |
+```output
+raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
+riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
+riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
+audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
+audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
+audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+```
 
 > [!NOTE]
-> 선택한 음성 및 출력 형식의 비트 전송률이 다른 경우 필요에 오디오가 다시 샘플링됩니다. 그러나 24 kHz 음성은 및 `audio-16khz-16kbps-mono-siren` `riff-16khz-16kbps-mono-siren` 출력 형식을 지원 하지 않습니다.
+> 선택한 음성 및 출력 형식의 비트 전송률이 다른 경우 필요에 오디오가 다시 샘플링됩니다. ogg-24khz-16 비트-opus를 [opus 코덱](https://opus-codec.org/downloads/) 으로 디코딩할 수 있습니다.
 
 ### <a name="request-body"></a>요청 본문
 
@@ -227,13 +227,13 @@ Authorization: Bearer [Base64 access_token]
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 
-| HTTP 상태 코드 | Description | 가능한 원인 |
+| HTTP 상태 코드 | 설명 | 가능한 원인 |
 |------------------|-------------|-----------------|
 | 200 | 확인 | 요청이 성공했습니다. 응답 본문이 오디오 파일입니다. |
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
 | 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
 | 413 | 요청 엔터티가 너무 큼 | SSML 입력이 1024자보다 깁니다. |
-| 415 | 지원되지 않는 미디어 유형 | 잘못 `Content-Type` 된를 제공 했을 수 있습니다. `Content-Type`로 `application/ssml+xml`설정 해야 합니다. |
+| 415 | 지원되지 않는 미디어 유형 | 잘못 된를 제공 했을 수 `Content-Type` 있습니다. `Content-Type`로 설정 해야 `application/ssml+xml` 합니다. |
 | 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
 | 502 | 잘못된 게이트웨이    | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다. |
 

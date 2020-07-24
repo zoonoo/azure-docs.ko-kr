@@ -9,11 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ed552a57e51ce9249f84bab6bb72bfe783e43edb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682484"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078109"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Azure에서 Linux Data Science Virtual Machine을 사용하는 데이터 과학
 
@@ -29,7 +30,7 @@ Linux DSVM을 사용하려면 먼저 다음과 같은 필수 구성 요소가 �
 
 * **Azure 구독**. Azure 구독을 얻으려면 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free/)를 참조하세요.
 * [**Linux Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 가상 머신을 프로비전하는 방법에 대한 자세한 내용은 [Linux Data Science Virtual Machine 프로비전](linux-dsvm-intro.md)을 참조하세요.
-* 열린 XFCE 세션을 사용하여 컴퓨터에 설치된 [**X2Go**](https://wiki.x2go.org/doku.php). 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#x2go)을 참조하세요.
+* 열린 XFCE 세션을 사용하여 컴퓨터에 설치된 [**X2Go**](https://wiki.x2go.org/doku.php). 자세한 내용은 [X2Go 클라이언트 설치 및 구성](dsvm-ubuntu-intro.md#x2go)을 참조하세요.
 * 더 부드러운 스크롤 경험을 원할 경우 DSVM의 Firefox 웹 브라우저에서 `about:config`의 `gfx.xrender.enabled` 플래그를 전환합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 `mousewheel.enable_pixel_scrolling`을 `False`로 설정하는 것이 좋습니다. [자세히 알아보기](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning 계정**. 아직 없는 경우 [Azure Machine Learning 홈페이지](https://azure.microsoft.com/free/services/machine-learning//)에서 새 계정을 등록합니다.
 
@@ -312,7 +313,7 @@ predictSpam.service(1, 1, 1)
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-DSVM에서 Anaconda 배포판에는 Jupyter Notebook, Python R 공유를 위한 플랫폼 간 환경 또는 Julia 코드 및 분석이 함께 제공됩니다. JupyterHub를 통해 Jupyter Notebook에 액세스합니다. https://\<DSVM DNS name or IP address\>:8000/에서 로컬 Linux 사용자 이름 및 암호를 사용하여 로그인합니다. JupyterHub에 대한 모든 구성 파일은 /etc/jupyterhub 디렉터리에서 찾을 수 있습니다.
+DSVM에서 Anaconda 배포판에는 Jupyter Notebook, Python R 공유를 위한 플랫폼 간 환경 또는 Julia 코드 및 분석이 함께 제공됩니다. JupyterHub를 통해 Jupyter Notebook에 액세스합니다. Https://: 8000/에서 로컬 Linux 사용자 이름 및 암호를 사용 하 여 로그인 \<DSVM DNS name or IP address\> 합니다. JupyterHub에 대한 모든 구성 파일은 /etc/jupyterhub 디렉터리에서 찾을 수 있습니다.
 
 > [!NOTE]
 > 현재 커널의 Jupyter Notebook에서 `pip` 명령을 통해 Python 패키지 관리자를 사용하려면 코드 셀에 다음 명령을 사용합니다.

@@ -10,11 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 7a0d5e29097bc9a672e142fcffb0ebe879fe2475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2068682ced09c8683ad7aae37366fcff443ae761
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757694"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080117"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2 시리즈 가상 머신에서 성능 최적화
 
@@ -109,4 +110,4 @@ Lsv2 시리즈 VM은 Zen 마이크로아키텍처를 기반으로 하는 AMD EYP
    
 ## <a name="next-steps"></a>다음 단계
 
-* Azure의 [스토리지 성능에 최적화된 모든 VM](sizes-storage.md) 사양을 참조하세요.
+* Azure의 [스토리지 성능에 최적화된 모든 VM](../sizes-storage.md) 사양을 참조하세요.

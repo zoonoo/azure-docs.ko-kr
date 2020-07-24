@@ -8,13 +8,13 @@ ms.author: ladolan
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/29/2020
-ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078614"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Azure Portal에서 논리 앱 관리
 
@@ -36,7 +36,7 @@ ms.locfileid: "82598167"
 
 1. Azure search 표시줄에서 `logic apps` 를 입력 하 고 **Logic Apps**를 선택 합니다.
 
-   !["Logic Apps" 찾기 및 선택](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
+   ![검색 창에서 검색 하 고 선택한 Logic Apps 있는 Azure Portal 메뉴의 스크린샷](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
 1. **Logic Apps** 페이지에서 관리 하려는 논리 앱을 찾아 선택 합니다.
 
@@ -58,8 +58,8 @@ ms.locfileid: "82598167"
    * **리소스 ID**
    * **리소스 그룹**
    * **위치**
-   * **Type** 
-   * **구독 이름**
+   * **형식** 
+   * **Subscription Name**
    * **구독 ID**
    * **액세스 끝점**
    * **런타임 나가는 IP 주소**
@@ -100,19 +100,19 @@ Azure Portal에서 한 번에 [하나의 논리 앱](#disable-enable-single-logi
 
    * 도구 모음에서 **사용 안 함**을 선택합니다.
 
-     ![Azure Portal에서 단일 논리 앱을 사용 하지 않도록 설정](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
+     ![사용 안 함 단추를 선택 하 여 논리 앱의 도구 모음 스크린샷](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
 
      논리 앱이 이미 사용 하지 않도록 설정 된 경우에는 **사용** 옵션만 표시 됩니다.
 
    * 도구 모음에서 **사용**을 선택 합니다.
 
-     ![Azure Portal에서 단일 논리 앱 사용](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
+     ![활성화 단추가 선택 된 것을 보여 주는 논리 앱의 도구 모음 스크린샷](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
 
      논리 앱을 이미 사용 하도록 설정한 경우에는 **사용 안 함** 옵션만 표시 됩니다. 
 
    Azure Portal는 작업의 성공 또는 실패 여부를 확인 하는 기본 Azure 도구 모음에 대 한 알림을 표시 합니다.
 
-   ![작업 상태를 확인 하는 알림](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
+   ![작업 상태를 확인 하는 알림을 보여 주는 Azure Portal의 스크린샷](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 
@@ -122,15 +122,15 @@ Azure Portal에서 한 번에 [하나의 논리 앱](#disable-enable-single-logi
 
 1. 논리 앱을 현재 사용할 수 있는지 여부를 확인 하려면 **Logic Apps** 페이지에서 해당 논리 앱의 **상태** 열을 검토 합니다. 
 
-   ![Logic Apps 상태 열](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
+   ![상태 열을 기준으로 정렬 된 논리 앱 목록을 보여 주는 Azure Portal Logic Apps 페이지의 스크린샷](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
 
    **상태** 열이 표시 되지 않는 경우 **Logic Apps** 도구 모음에서 **미리 보기 시도**를 선택 합니다.
 
-   ![미리 보기 설정](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
+   ![미리 보기 시도 단추를 선택 하 여 Azure Portal Logic Apps 페이지의 스크린샷](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
 
 1. 확인란 열에서 사용 하거나 사용 하지 않을 논리 앱을 선택 합니다. 도구 모음에서 **사용 안 함** 또는 **사용**을 선택 합니다.
 
-   ![Azure Portal에서 여러 논리 앱을 사용 하거나 사용 하지 않도록 설정](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
+   ![여러 논리 앱에 대 한 사용 및 사용 안 함 단추를 표시 하는 Azure Portal Logic Apps 페이지의 스크린샷](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
 
 1. 확인 상자가 표시 되 면 **예** 를 선택 하 여 계속 합니다.
 
@@ -158,11 +158,11 @@ Azure Portal에서 [단일 논리 앱을 삭제](#delete-single-logic-app) 하�
 
 1. 논리 앱의 메뉴에서 **개요**를 선택 합니다. 논리 앱의 도구 모음에서 **삭제**를 선택 합니다.
 
-   ![논리 앱 도구 모음에서 "삭제"를 선택 합니다.](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
+   ![선택 된 삭제 단추를 표시 하는 논리 앱의 도구 모음 스크린샷](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
 
 1. 확인 상자가 표시 되 면 논리 앱의 이름을 입력 하 고 **삭제**를 선택 합니다.
 
-   ![논리 앱 삭제 확인](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
+   ![단일 논리 앱 삭제를 확인 하는 Logic Apps 프롬프트 스크린샷](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
 
    Azure Portal는 작업의 성공 또는 실패 여부를 확인 하는 기본 Azure 도구 모음에 대 한 알림을 표시 합니다.
 
@@ -174,11 +174,11 @@ Azure Portal에서 [단일 논리 앱을 삭제](#delete-single-logic-app) 하�
 
 1. 확인란 열에서 삭제 하려는 논리 앱을 선택 합니다. 도구 모음에서 **삭제**를 선택합니다.
 
-   ![여러 논리 앱 삭제](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
+   ![삭제 하도록 선택한 목록에서 여러 논리 앱을 보여 주는 Logic Apps 페이지의 스크린샷](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
 1. 확인 상자가 표시 되 면를 입력 하 `yes` 고 **삭제**를 선택 합니다.
 
-   ![논리 앱 삭제 확인](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
+   ![여러 논리 앱의 삭제를 확인 하는 Logic Apps 프롬프트의 스크린샷](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
    Azure Portal는 작업의 성공 또는 실패 여부를 확인 하는 기본 Azure 도구 모음에 대 한 알림을 표시 합니다.
 
@@ -196,13 +196,13 @@ Azure Portal에서 [단일 논리 앱을 삭제](#delete-single-logic-app) 하�
 
 1. 논리 앱 메뉴의 **개발 도구**아래에서 **버전**을 선택 합니다.
 
-   ![논리 앱의 메뉴에서 "개발 도구" 아래에 있는 "버전"을 선택 합니다.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+   ![개발 도구에서 선택한 버전 페이지를 표시 하는 Azure Portal에서 논리 앱의 스크린샷](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
 1. 목록에서 관리할 논리 앱의 **버전** 을 선택 합니다. 검색 표시줄에 **버전** 식별자를 입력 하 여 목록을 필터링 할 수 있습니다.
 
 1. **기록 버전** 페이지에는 읽기 전용 모드에서 이전 버전의 세부 정보가 표시 됩니다. Logic Apps **디자이너** 와 **코드 보기** 모드 사이에서 선택할 수 있습니다.
 
-   ![코드 보기 및 논리 앱 디자이너 보기를 사용 하는 논리 앱에 대 한 기록 버전 페이지](./media/manage-logic-apps-with-azure-portal/history-version.png)
+   ![코드 보기 및 디자이너 뷰 옵션을 보여 주는 Logic Apps 기록 버전 페이지의 스크린샷](./media/manage-logic-apps-with-azure-portal/history-version.png)
 
 <a name="promote-previous-versions"></a>
 
@@ -212,11 +212,11 @@ Azure Portal에서 [단일 논리 앱을 삭제](#delete-single-logic-app) 하�
 
 1. **기록 버전** 페이지에서 **수준 올리기**를 선택 합니다.
 
-   ![논리 앱 버전 기록의 수준 올리기 단추](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+   ![이전 버전을 승격 하는 단추를 보여 주는 논리 앱 버전 기록의 스크린샷](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
 1. 열려 있는 **Logic Apps Designer** 페이지에서 필요에 따라 승격 하는 버전을 편집 합니다. **디자이너** 와 **코드 보기** 모드 간을 전환할 수 있습니다. **매개 변수**, **템플릿**및 **커넥터**를 업데이트할 수도 있습니다.
 
-   ![이전 버전 수준을 올리는 Logic Apps 디자이너 페이지](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+   ![이전 버전의 논리 앱을 승격 하는 단추를 보여 주는 Logic Apps 디자이너의 스크린샷](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 
 1. 업데이트를 저장 하 고 이전 버전의 수준을 올리기를 완료 하려면 **저장**을 선택 합니다. 또는 변경을 취소 하려면 **취소**를 선택 합니다. 
 

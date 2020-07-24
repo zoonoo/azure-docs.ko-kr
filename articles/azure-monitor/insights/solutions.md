@@ -6,19 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: 4edcb22ed6bd33b1174354cf0cbb9a590e35c207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2da00b44be7018bef80e466231efb75a8eb99754
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081545"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
+
 모니터링 솔루션은 Azure의 서비스를 활용 하 여 특정 응용 프로그램 또는 서비스의 작업에 대 한 추가 분석을 제공 합니다. 이 문서에서는 Azure 모니터링 솔루션에 대해 간략하게 설명하고 모니터링 솔루션을 설치 및 사용하는 방법을 자세히 알아봅니다. 사용하는 애플리케이션 및 서비스의 Azure Monitor에 모니터링 솔루션을 추가할 수 있습니다. 일반적으로 무료로 제공되지만 데이터 수집 시 사용 요금이 발생할 수 있습니다.
 
 ## <a name="use-monitoring-solutions"></a>모니터링 솔루션 사용
 
-Azure Monitor의 **개요** 페이지를 열면 작업 영역에 설치된 각 솔루션의 타일이 표시됩니다. 
+Azure Monitor의 **개요** 페이지를 열면 작업 영역에 설치된 각 솔루션의 타일이 표시됩니다.
 
 1. [Azure 포털](https://ms.portal.azure.com)로 이동합니다. **모니터**를 검색하고 선택합니다.
 1. **인사이트** 메뉴 아래에서 **자세히**를 선택합니다.
@@ -31,12 +32,13 @@ Azure Monitor의 **개요** 페이지를 열면 작업 영역에 설치된 각 �
 
 ## <a name="list-installed-monitoring-solutions"></a>설치된 모니터링 솔루션 나열
 
+### <a name="portal"></a>[포털](#tab/portal)
+
 다음 절차를 사용하여 구독에 설치된 모니터링 솔루션을 나열할 수 있습니다.
 
 1. [Azure 포털](https://ms.portal.azure.com)로 이동합니다. **솔루션**을 검색하고 선택합니다.
 1. 모든 작업 영역에 설치된 솔루션이 나열됩니다. 솔루션 이름 뒤에는 솔루션이 설치된 작업 영역의 이름이 나옵니다.
 1. 화면 맨 위에 있는 드롭다운 상자를 사용하여 구독 또는 리소스 그룹으로 필터링할 수 있습니다.
-
 
 ![모든 솔루션 나열](media/solutions/list-solutions-all.png)
 
@@ -44,7 +46,26 @@ Azure Monitor의 **개요** 페이지를 열면 작업 영역에 설치된 각 �
 
 ![솔루션 속성](media/solutions/solution-properties.png)
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[Az monitor log-analytics solution list](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-list) 명령을 사용 하 여 구독에 설치 된 모니터링 솔루션을 나열할 수 있습니다.   명령을 실행 하기 전에 `list` [모니터링 솔루션 설치](#install-a-monitoring-solution)에 있는 필수 구성 요소를 따릅니다.
+
+```azurecli
+# List all log-analytics solutions in the current subscription.
+az monitor log-analytics solution list
+
+# List all log-analytics solutions for a specific subscription
+az monitor log-analytics solution list --subscription MySubscription
+
+# List all log-analytics solutions in a resource group
+az monitor log-analytics solution list --resource-group MyResourceGroup
+```
+
+* * *
+
 ## <a name="install-a-monitoring-solution"></a>모니터링 솔루션 설치
+
+### <a name="portal"></a>[포털](#tab/portal)
 
 Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 사용할 수 있습니다. 다음 절차를 사용하여 사용 가능한 솔루션을 검색하고 설치할 수 있습니다. 솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../platform/manage-access.md)을 선택해야 합니다.
 
@@ -61,12 +82,76 @@ Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https:/
 커뮤니티 구성원은 관리 솔루션을 Azure 빠른 시작 템플릿에 제출할 수 있습니다. 이러한 솔루션을 직접 설치하거나 나중에 설치할 수 있도록 템플릿을 다운로드할 수 있습니다.
 
 1. [Log Analytics 작업 영역 및 Automation 계정](#log-analytics-workspace-and-automation-account)에 설명된 프로세스에 따라 작업 영역 및 계정에 연결합니다.
-2. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)으로 이동합니다. 
+2. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)으로 이동합니다.
 3. 관심 있는 솔루션을 검색합니다.
 4. 해당 정보를 보려면 결과에서 솔루션을 선택합니다.
 5. **Azure에 배포** 단추를 클릭합니다.
 6. 솔루션의 매개 변수 값 외에도 리소스 그룹 및 위치 같은 정보를 제공해야 합니다.
 7. **구매**를 클릭하여 솔루션을 설치합니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="prepare-your-environment"></a>환경 준비
+
+1. Azure CLI 설치
+
+   CLI 참조 명령을 실행 하기 전에 [Azure CLI을 설치](/cli/azure/install-azure-cli) 해야 합니다.  원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다.  Azure Cloud Shell는 브라우저를 통해 사용 하는 대화형 셸 환경입니다.  다음 방법 중 하나를 사용 하 여 Cloud Shell를 시작 합니다.
+
+   - 다음으로 이동 하 여 Cloud Shell을 엽니다.[https://shell.azure.com](https://shell.azure.com)
+
+   - [Azure Portal](https://portal.azure.com) 의 오른쪽 위 모퉁이에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택 합니다.
+
+1. 로그인합니다.
+
+   CLI의 로컬 설치를 사용 하는 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용 하 여 로그인 합니다.  터미널에 표시된 단계에 따라 인증 프로세스를 완료합니다.
+
+    ```azurecli
+    az login
+    ```
+
+1. `log-analytics` 확장 설치
+
+   `log-analytics`명령은 핵심 Azure CLI의 실험적 확장입니다. [Azure CLI 확장 사용](/cli/azure/azure-cli-extensions-overview?)의 확장 참조에 대해 자세히 알아보세요.
+
+   ```azurecli
+   az extension add --name log-analytics
+   ```
+
+   다음 경고가 예상 됩니다.
+
+   ```output
+   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   ```
+
+### <a name="install-a-solution-with-the-azure-cli"></a>Azure CLI를 사용 하 여 솔루션 설치
+
+솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](/azure/azure-monitor/platform/manage-access)을 선택해야 합니다.  Azure CLI를 사용 하 여 [az monitor log-analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace) 참조 명령을 사용 하 여 작업 영역을 관리 합니다.  [Log Analytics 작업 영역 및 Automation 계정](#log-analytics-workspace-and-automation-account)에 설명된 프로세스에 따라 작업 영역 및 계정에 연결합니다.
+
+[Az monitor log-analytics solution create](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) 를 사용 하 여 모니터링 솔루션을 설치 합니다.  대괄호 안의 매개 변수는 선택 사항입니다.
+
+```azurecli
+az monitor log-analytics solution create --name
+                                         --plan-product
+                                         --plan-publisher
+                                         --resource-group
+                                         --workspace
+                                         [--no-wait]
+                                         [--tags]
+```
+
+OMSGallery/컨테이너의 계획 제품에 대 한 로그 분석 솔루션을 만드는 코드 샘플은 다음과 같습니다.
+
+```azurecli
+az monitor log-analytics solution create --resource-group MyResourceGroup \
+                                         --name Containers({SolutionName}) \
+                                         --tags key=value \
+                                         --plan-publisher Microsoft  \
+                                         --plan-product "OMSGallery/Containers" \
+                                         --workspace "/subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/ \
+                                           Microsoft.OperationalInsights/workspaces/{WorkspaceName}"
+```
+
+* * *
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정
 
@@ -88,9 +173,25 @@ Azure Marketplace를 통해 솔루션을 설치하는 경우 작업 영역 및 A
 
 ## <a name="remove-a-monitoring-solution"></a>모니터링 솔루션 제거
 
-설치된 솔루션을 제거하려면 [설치된 솔루션 목록](#list-installed-monitoring-solutions)에서 해당 솔루션을 찾습니다. 솔루션 이름을 클릭하여 요약 페이지를 열고 **삭제**를 클릭합니다.
+### <a name="portal"></a>[포털](#tab/portal)
+
+포털을 사용 하 여 설치 된 솔루션을 제거 하려면 설치 된 솔루션 [목록](#list-installed-monitoring-solutions)에서 해당 솔루션을 찾습니다. 솔루션 이름을 클릭하여 요약 페이지를 열고 **삭제**를 클릭합니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI를 사용 하 여 설치 된 솔루션을 제거 하려면 [az monitor log-analytics solution delete](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-delete) 명령을 사용 합니다.
+
+```azurecli
+az monitor log-analytics solution delete --name
+                                         --resource-group
+                                         [--no-wait]
+                                         [--yes]
+```
+
+* * *
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Microsoft에서 모니터링 솔루션 목록](solutions-inventory.md)을 가져옵니다.
 * 모니터링 솔루션에서 수집한 데이터를 분석하는 [쿼리 만들기](../log-query/log-query-overview.md) 방법을 알아봅니다.
+* [Azure Monitor에 대 한 모든 Azure CLI 명령을](/cli/azure/azure-cli-reference-for-monitor)참조 하세요.

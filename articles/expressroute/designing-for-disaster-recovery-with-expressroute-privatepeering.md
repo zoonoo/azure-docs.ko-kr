@@ -7,17 +7,22 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
-ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8adfb0ef0d9aa79d1b14127453f76223f035d62a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74076697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081171"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Express 경로 개인 피어 링을 사용 하 여 재해 복구를 위한 디자인
 
 Express 경로는 Microsoft 리소스에 대 한 반송파 등급 개인 네트워크 연결을 제공 하는 고가용성을 위해 설계 되었습니다. 즉, Microsoft 네트워크 내에서 Express 경로 경로에 단일 실패 지점이 없습니다. Express 경로 회로의 가용성을 최대화 하기 위한 설계 고려 사항은 Express 경로를 [사용 하 여 고가용성을 위한 디자인][HA]을 참조 하세요.
 
 그러나 Murphy의 인기 있는 말라을 사용 하는*경우에는 문제가 발생할 수 있습니다*.이 문서에서는 단일 express 경로 회로를 사용 하 여 해결할 수 있는 오류를 벗어난 솔루션에 집중할 수 있습니다. 즉,이 문서에서는 지역 중복 Express 경로 회로를 사용 하 여 재해 복구를 위해 강력한 백 엔드 네트워크 연결을 빌드하기 위한 네트워크 아키텍처 고려 사항을 살펴보겠습니다.
+
+>[!NOTE]
+>이 문서에 설명 된 개념은 가상 WAN 또는 외부에서 Express 경로 회로를 만들 때에도 동일 하 게 적용 됩니다.
+>
 
 ## <a name="need-for-redundant-connectivity-solution"></a>중복 연결 솔루션이 필요 합니다.
 
@@ -109,7 +114,7 @@ Azure에 영향을 주는 방법 중 하나를 사용 하 여 다른 사용자�
 
 시나리오 1은 다음 다이어그램에 설명 되어 있습니다. 다이어그램에서 녹색 선은 VNet1와 온-프레미스 네트워크 간의 트래픽 흐름 경로를 표시 합니다. 파란색 선은 VNet2와 온-프레미스 네트워크 간의 트래픽 흐름 경로를 표시 합니다. 실선은 안정적인 상태에서 원하는 경로를 나타내고 파선은 안정적인 상태 트래픽 흐름을 전달 하는 해당 하는 Express 경로 회로 오류의 트래픽 경로를 표시 합니다. 
 
-[![일]][7]
+[![7]][7]
 
 Vnet에 영향을 주는 연결 가중치를 사용 하 여 온-프레미스 네트워크 바운드 트래픽에 대 한 로컬 피어 링 위치에 대 한 연결을 선호 하는 시나리오를 설계할 수 있습니다. 이 솔루션을 완료 하려면 대칭 역방향 트래픽 흐름을 확인 해야 합니다. BGP 라우터 (온-프레미스 쪽에서 Express 경로 회로가 종료 됨) 간의 iBGP 세션에서 로컬 기본 설정을 사용 하 여 Express 경로 회로를 선호 합니다. 이 솔루션은 다음 다이어그램에 설명 되어 있습니다. 
 

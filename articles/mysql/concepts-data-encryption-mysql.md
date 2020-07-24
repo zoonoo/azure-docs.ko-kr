@@ -6,11 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ca46ace5f774e288b40a969f8f7e9802e79857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080882"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>고객 관리형 키를 사용한 Azure Database for MySQL 데이터 암호화
 
@@ -51,7 +52,7 @@ MySQL 서버에서 Key Vault에 저장된 고객 관리형 키를 DEK 암호화�
 * **wrapKey**: DEK를 암호화할 수 있습니다.
 * **unwrapKey**: DEK를 암호 해독할 수 있습니다.
 
-또한 키 자격 증명 모음 관리자는 [Key Vault 감사 이벤트 로깅을 사용하도록 설정](../azure-monitor/insights/azure-key-vault.md)하여 나중에 감사할 수도 있습니다.
+또한 키 자격 증명 모음 관리자는 [Key Vault 감사 이벤트 로깅을 사용하도록 설정](../azure-monitor/insights/key-vault-insights-overview.md)하여 나중에 감사할 수도 있습니다.
 
 키 자격 증명 모음에 저장된 고객 관리형 키를 사용하도록 구성된 서버는 암호화를 위해 DEK를 키 자격 증명 모음으로 보냅니다. Key Vault는 암호화된 DEK를 반환하고, 암호화된 DEK는 사용자 데이터베이스에 저장됩니다. 마찬가지로, 서버는 암호화된 DEK를 암호 해독해야 하는 상황이 되면 암호화된 DEK를 키 자격 증명 모음으로 보냅니다. 로깅 기능이 사용되는 경우 감사자는 Azure Monitor을 사용하여 Key Vault 감사 이벤트 로그를 검토할 수 있습니다.
 

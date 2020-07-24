@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522aed07d850dfdb2782ee8263f33bd3f42eb8c2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34a02de8a6789a028c776e784ea4aa9692f53d9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079166"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -54,7 +54,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
    - GitHub: [Azure IoT Digital Twins client library for .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)의 샘플 폴더를 포함 하 여 SDK 원본을 찾을 수 있습니다. 
    - [SDK 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview)를 볼 수 있습니다.
    - 이 문서의 [.net (c #) SDK (데이터 평면)](#net-c-sdk-data-plane) 섹션을 계속 진행 하 여 자세한 정보 및 사용 예를 볼 수 있습니다.
-* AutoRest를 사용 하 여 다른 언어용 SDK를 생성할 수 있습니다. [방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기](how-to-create-custom-sdks.md)의 지침을 따릅니다.
+* AutoRest를 사용 하 여 다른 언어용 SDK를 생성할 수 있습니다. [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)의 지침을 따릅니다.
 
 [CLI](how-to-use-cli.md)를 통해 Azure Digital twins와 상호 작용 하 여 날짜 평면 api를 연습할 수도 있습니다.
 
@@ -71,11 +71,11 @@ SDK를 사용 하려면 NuGet 패키지 **DigitalTwins** 를 프로젝트에 포
 * .NET 명령줄 도구를 사용 하 여 다음을 실행할 수 있습니다.
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
     dotnet add package Azure.identity
     ```
 
-실제로 Api를 사용 하는 방법에 대 한 자세한 연습은 [자습서: 클라이언트 앱 코드](tutorial-code.md)를 참조 하세요. 
+실제로 Api를 사용 하는 방법에 대 한 자세한 연습은 [*자습서: 클라이언트 앱 코드*](tutorial-code.md)를 참조 하세요. 
 
 ### <a name="net-sdk-usage-examples"></a>.NET SDK 사용 예
 
@@ -137,7 +137,7 @@ await foreach (string twin in result)
 }
 ```
 
-자습서:이 샘플 앱 코드의 연습을 보려면 [클라이언트 앱 코딩](tutorial-code.md) 을 참조 하세요. 
+자습서:이 샘플 앱 코드의 연습을 보려면 [*클라이언트 앱 코딩*](tutorial-code.md) 을 참조 하세요. 
 
 [.Net (c #) SDK 용 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples)에서 추가 샘플을 찾을 수도 있습니다.
 
@@ -290,8 +290,8 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 
 ## <a name="next-steps"></a>다음 단계
 
-Api를 사용 하 여 Azure Digital Twins 인스턴스를 만드는 방법을 참조 하세요.
-* [방법: Azure Digital Twins 인스턴스 만들기](how-to-set-up-instance.md)
+Api를 사용 하 여 Azure Digital Twins 인스턴스 및 인증을 설정 하는 방법을 참조 하세요.
+* [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)
 
 또는이 방법에 사용 되는 것과 같은 클라이언트 앱을 만드는 단계를 안내 합니다.
-* [자습서: 클라이언트 앱 코딩](tutorial-code.md)
+* [*자습서: 클라이언트 앱 코딩*](tutorial-code.md)

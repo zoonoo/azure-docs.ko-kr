@@ -3,11 +3,12 @@ title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2efd583b319e3f3b1fa3db307ea4a3cf53710165
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648773"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079607"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -40,7 +41,7 @@ ms.locfileid: "83648773"
 
 스토리지 계정 연결은 [AzureWebJobsStorage 애플리케이션 설정](./functions-app-settings.md#azurewebjobsstorage)에서 유지 관리됩니다. 
 
-스토리지 키를 다시 생성하는 경우 스토리지 계정 연결 문자열을 업데이트해야 합니다. [여기에서 스토리지 키 관리에 관해 자세히 알아보세요.](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
+스토리지 키를 다시 생성하는 경우 스토리지 계정 연결 문자열을 업데이트해야 합니다. [여기에서 스토리지 키 관리에 관해 자세히 알아보세요.](../storage/common/storage-account-create.md)
 
 ### <a name="shared-storage-accounts"></a>공유 스토리지 계정
 
@@ -79,5 +80,3 @@ Azure Functions 호스팅 옵션에 관해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Azure Functions 비율 크기 조정 및 호스팅](functions-scale.md)
-
-

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 03ef1708f836eb016d8f2fce530b9588cc61cd35
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075708"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081069"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
 
@@ -25,7 +25,7 @@ Apache Ambari REST API를 사용하여 Azure HDInsight에서 Apache Hadoop 클�
 
 Apache Ambari는 [REST api](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)에서 지원 되는 웹 UI를 쉽게 사용할 수 있도록 하 여 Hadoop 클러스터의 관리 및 모니터링을 간소화 합니다.  Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -45,7 +45,7 @@ HTTPS를 요구하는 HDInsight에서 Ambari로 연결 클러스터 만들기 �
 
 Enterprise Security Package 클러스터의 경우 대신 `admin` 와 같이 정규화 된 사용자 이름을 사용 `username@domain.onmicrosoft.com` 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="setup-preserve-credentials"></a>설치 (자격 증명 유지)
 
@@ -253,7 +253,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     반환 값은 `/clusters/CLUSTERNAME/`과 비슷합니다. 이 값은 Data Lake Storage 계정 내의 경로입니다. 이 경로는 클러스터에 대한 HDFS 호환 파일 시스템의 루트입니다.  
 
 > [!NOTE]  
-> [Azure PowerShell](/powershell/azure/overview) 에서 제공 하는 [AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet은 클러스터에 대 한 저장소 정보를 반환 하기도 합니다.
+> [Azure PowerShell](/powershell/azure/) 에서 제공 하는 [AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet은 클러스터에 대 한 저장소 정보를 반환 하기도 합니다.
 
 ### <a name="get-all-configurations"></a>모든 구성 가져오기
 

@@ -6,11 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3493cc76dfb05cca3c89114b279b99ab49bac2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75409537"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081647"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure Functions의 네트워킹에 대 한 질문과 대답
 
@@ -54,7 +55,7 @@ App Service Environment 사용에 대 한 자세한 내용은 App Service Enviro
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>가상 네트워크에서 함수 앱을 배포 하려면 어떻게 해야 하나요?
 
-가상 네트워크 내에 있는 함수 앱을 만드는 유일한 방법은 App Service Environment에 배포 하는 것입니다. App Service Environment에서 내부 부하 분산 장치를 사용 하는 방법에 대 한 자세한 내용은 [App Service Environment를 사용 하 여 내부 부하 분산 장치 만들기 및 사용](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase)문서부터 시작 합니다.
+가상 네트워크 내에 있는 함수 앱을 만드는 유일한 방법은 App Service Environment에 배포 하는 것입니다. App Service Environment에서 내부 부하 분산 장치를 사용 하는 방법에 대 한 자세한 내용은 [App Service Environment를 사용 하 여 내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md)문서부터 시작 합니다.
 
 가상 네트워크 리소스에 대 한 단방향 액세스 또는 더 낮은 포괄적인 네트워크 격리를 필요로 하는 시나리오의 경우 [네트워킹 개요 기능](functions-networking-options.md)을 참조 하세요.
 

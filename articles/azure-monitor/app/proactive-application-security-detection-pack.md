@@ -3,17 +3,18 @@ title: Azure 애플리케이션 Insights를 사용 하는 보안 검색 팩
 description: 잠재적인 보안 문제에 대 한 Azure 애플리케이션 정보 및 스마트 검색을 사용 하 여 응용 프로그램을 모니터링 합니다.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ed304e903bb50591e61e294b6701f8268f9d8e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081630"
 ---
 # <a name="application-security-detection-pack-preview"></a>애플리케이션 보안 검색 팩(미리 보기)
 
 Application Insights는 애플리케이션에서 생성한 원격 분석을 자동으로 분석하고 잠재적인 보안 문제를 감지합니다. 이 기능을 사용하면 잠재적인 보안 문제를 식별하고 애플리케이션을 수정하거나 필요한 보안 조치를 수행하여 문제를 처리할 수 있습니다.
 
-이 기능을 사용하려면 [원격 분석을 보내도록 앱을 구성](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview)하는 것 외에 특별한 설정이 필요하지 않습니다.
+이 기능을 사용하려면 [원격 분석을 보내도록 앱을 구성](./usage-overview.md)하는 것 외에 특별한 설정이 필요하지 않습니다.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 형식의 스마트 검색 알림은 언제 받게 되나요?
 다음과 같은 세 가지 유형의 보안 문제가 검색됩니다.

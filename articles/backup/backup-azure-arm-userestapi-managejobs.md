@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure Backup 백업 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079318"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>REST API를 사용하여 백업 및 복원 작업 추적
 
@@ -33,7 +33,7 @@ Azure Backup service는 백업 트리거, 복원 작업, 백업 사용 안 함�
 }
 ```
 
-Azure VM 백업 작업은 “jobId” 필드로 식별되며 [여기](https://docs.microsoft.com/rest/api/backup/jobdetails/)에 언급된 대로 간단한 *GET* 요청을 사용하여 추적할 수 있습니다.
+Azure VM 백업 작업은 “jobId” 필드로 식별되며 [여기](/rest/api/backup/jobdetails/)에 언급된 대로 간단한 *GET* 요청을 사용하여 추적할 수 있습니다.
 
 ## <a name="tracking-the-job"></a>작업 추적
 
@@ -45,9 +45,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="response"></a>응답
 
-|이름  |Type  |설명  |
+|Name  |유형  |Description  |
 |---------|---------|---------|
-|200 정상     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | 정상        |
+|200 정상     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | 정상        |
 
 #### <a name="example-response"></a>예제 응답
 

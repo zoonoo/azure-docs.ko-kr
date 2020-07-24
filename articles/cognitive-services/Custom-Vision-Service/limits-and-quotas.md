@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 089d5dbb1eece2904f104dfecb3de8adec052dfc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079175"
 ---
 # <a name="limits-and-quotas"></a>한도 및 할당량
 
@@ -23,7 +23,7 @@ Custom Vision 서비스에는 두 가지 계층의 키가 있습니다. Azure Po
 
 프로젝트당 학습 이미지 수 및 프로젝트당 태그 수는 S0 프로젝트에서 시간이 지남에 따라 증가될 것으로 예상됩니다.
 
-||**F0**|**S0**|
+|요소|**F0**|**S0**|
 |-----|-----|-----|
 |프로젝트|2|100|
 |프로젝트당 학습 이미지 |5,000|100,000|

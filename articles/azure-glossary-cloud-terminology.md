@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079573"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -51,7 +51,7 @@ Windows, macOS 및 Linux에서 Azure 서비스를 관리하는 데 사용할 수
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Windows PC에서 명령줄을 통해 Azure 서비스를 관리하는 명령줄 인터페이스입니다. 일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다.
-[Azure PowerShell 설치 및 구성 하는 방법을](/powershell/azure/overview) 참조 하세요.
+[Azure PowerShell 설치 및 구성 하는 방법을](/powershell/azure/) 참조 하세요.
 
 ## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Azure Resource Manager 배포 모델
 Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](resource-manager-deployment-model.md) 중 하나입니다(다른 모델은 클래식 배포 모델임). 일부 Azure 서비스는 Resource Manager 배포 모델만 지원하고 일부는 클래식 배포 모델만 지원하며 일부는 둘 모두를 지원합니다. 각 Azure 서비스에 대한 설명서에는 지원되는 모델이 지정되어 있습니다.
@@ -153,7 +153,7 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 ## <a name="web-app"></a>웹앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure 시작](https://azure.microsoft.com/get-started/)
 * [클라우드 리소스 센터](https://azure.microsoft.com/resources/)  

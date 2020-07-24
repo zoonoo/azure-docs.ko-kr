@@ -7,18 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/27/2020
-ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115502"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078640"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
 
 > [!IMPORTANT]
-> 원래 AS2 커넥터는 더 이상 사용 되지 않으므로 **as2 (v2)** 커넥터를 대신 사용 해야 합니다. 이 버전은 원래 버전과 동일한 기능을 제공 하 고, Logic Apps 런타임으로 기본 사용 되며, 처리량 및 메시지 크기 측면에서 상당한 성능 향상을 제공 합니다. 또한 native v2 커넥터를 사용할 경우 통합 계정에 대 한 연결을 만들 필요가 없습니다. 대신, 필수 구성 요소에 설명 된 대로 커넥터를 사용 하려는 논리 앱에 통합 계정을 연결 해야 합니다.
+> 원래 AS2 커넥터는 사용 되지 않으므로 추적 기능이 필요 하지 않는 한 **AS2 (v2)** 커넥터를 대신 사용 합니다. 추적을 제외 하 고, v2 커넥터는 원래 버전과 동일한 기능을 제공 하 고, Logic Apps 런타임의 기본 기능을 제공 하며, 메시지 크기, 처리량 및 대기 시간에 상당한 성능 향상을 제공 합니다. 또한 v2 커넥터를 사용할 경우 통합 계정에 대 한 연결을 만들 필요가 없습니다. 대신, 필수 구성 요소에 설명 된 대로 커넥터를 사용 하려는 논리 앱에 통합 계정을 연결 해야 합니다.
 
 Azure Logic Apps에서 AS2 메시지를 작업하려면 AS2 통신을 관리하는 트리거 및 작업을 제공하는 AS2 커넥터를 사용하면 됩니다. 예를 들어 메시지를 전송할 때 보안 및 안정성을 설정 하려면 다음 작업을 사용할 수 있습니다.
 
@@ -81,14 +81,14 @@ Azure Logic Apps에서 AS2 메시지를 작업하려면 AS2 통신을 관리하�
 
 1. 이제 이러한 속성에 대 한 정보를 제공 합니다.
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------|-------------|
    | **인코딩할 메시지** | 메시지 페이로드 |
    | **AS2 원본** | AS2 규약에서 지정한 메시지 보낸 사람의 식별자입니다. |
    | **AS2 to** | AS2 규약에서 지정한 메시지 수신기의 식별자입니다. |
    |||
 
-   예:
+   예를 들면 다음과 같습니다.
 
    ![메시지 인코딩 속성](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
@@ -119,7 +119,7 @@ Azure Logic Apps에서 AS2 메시지를 작업하려면 AS2 통신을 관리하�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/as2/)를 참조 하세요. 
+커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/as2/)를 참조 하세요. 
 
 > [!NOTE]
 > 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에는 [ISE에 대한 B2B 메시지 제한](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)을 사용합니다.

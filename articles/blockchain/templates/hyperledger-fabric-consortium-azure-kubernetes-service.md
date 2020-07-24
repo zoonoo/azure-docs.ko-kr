@@ -4,12 +4,12 @@ description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트
 ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1e90eeccb015b4d5ef78b79297565ddde9cfa305
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081283"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 
@@ -28,9 +28,9 @@ AKS (Azure Kubernetes Service) 템플릿에서 HLF (Hyperledger Fabric)를 사�
 
 옵션 | 서비스 모델 | 일반적인 사용 사례
 -------|---------------|-----------------
-솔루션 템플릿 | IaaS | 솔루션 템플릿은 완전히 구성 된 blockchain 네트워크 토폴로지를 프로 비전 하는 데 사용할 수 있는 Azure Resource Manager 템플릿입니다. 템플릿은 지정 된 blockchain 네트워크 유형에 대해 Microsoft Azure 계산, 네트워킹 및 저장소 서비스를 배포 하 고 구성 합니다. 솔루션 템플릿은 서비스 수준 계약 없이 제공 됩니다. [Microsoft Q&질문 페이지를](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
-[Azure Blockchain 서비스](../service/overview.md) | PaaS | Azure Blockchain 서비스 미리 보기는 컨소시엄 Blockchain 네트워크의 대형, 관리 및 관리를 간소화 합니다. PaaS, consortium 관리 또는 계약 및 트랜잭션 개인 정보를 요구 하는 솔루션에는 Azure Blockchain 서비스를 사용 합니다.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS 및 PaaS | Azure Blockchain Workbench 미리 보기는 비즈니스 프로세스 및 데이터를 다른 조직과 공유하기 위해 블록체인 애플리케이션을 만들고 배포할 수 있도록 설계된 Azure 서비스 및 기능 컬렉션입니다. 블록 체인 솔루션 프로토타입 또는 블록 체인 응용 프로그램 개념 증명을 위해 Azure Blockchain 워크 벤치를 사용 합니다. Azure Blockchain Workbench는 서비스 수준 규약 없이 제공됩니다. [Microsoft Q&질문 페이지를](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
+솔루션 템플릿 | IaaS | 솔루션 템플릿은 완전히 구성 된 blockchain 네트워크 토폴로지를 프로 비전 하는 데 사용할 수 있는 Azure Resource Manager 템플릿입니다. 템플릿은 지정 된 blockchain 네트워크 유형에 대해 Microsoft Azure 계산, 네트워킹 및 저장소 서비스를 배포 하 고 구성 합니다. 솔루션 템플릿은 서비스 수준 계약 없이 제공 됩니다. [Microsoft Q&질문 페이지를](/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
+[Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain 서비스 미리 보기는 컨소시엄 Blockchain 네트워크의 대형, 관리 및 관리를 간소화 합니다. PaaS, consortium 관리 또는 계약 및 트랜잭션 개인 정보를 요구 하는 솔루션에는 Azure Blockchain 서비스를 사용 합니다.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS 및 PaaS | Azure Blockchain Workbench 미리 보기는 비즈니스 프로세스 및 데이터를 다른 조직과 공유하기 위해 블록체인 애플리케이션을 만들고 배포할 수 있도록 설계된 Azure 서비스 및 기능 컬렉션입니다. 블록 체인 솔루션 프로토타입 또는 블록 체인 응용 프로그램 개념 증명을 위해 Azure Blockchain 워크 벤치를 사용 합니다. Azure Blockchain Workbench는 서비스 수준 규약 없이 제공됩니다. [Microsoft Q&질문 페이지를](/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Hyperledger 패브릭 컨소시엄 아키텍처
 
@@ -113,7 +113,7 @@ HLF 네트워크 구성 요소 배포를 시작 하려면 [Azure Portal](https:/
     - **Dns 접두사**: AKS 클러스터에 대 한 dns (Domain name System) 이름 접두사입니다. 클러스터를 만든 후 컨테이너를 관리할 때 DNS를 사용 하 여 Kubernetes API에 연결 합니다.
     - **노드 크기**: Kubernetes 노드의 크기 이며, Azure에서 사용할 수 있는 VM Sku (재고 보존 유닛) 목록에서 선택할 수 있습니다. 성능을 최적화 하려면 Standard DS3 v2를 권장 합니다.
     - **노드 수**: 클러스터에 배포할 Kubernetes 노드의 수입니다. 이 노드 수를 패브릭 설정에 지정 된 HLF 노드 수 이상 이하로 유지 하는 것이 좋습니다.
-    - **서비스 사용자 클라이언트 id**: 기존 서비스 주체의 클라이언트 id를 입력 하거나 AKS 인증에 필요한 새를 만듭니다. [서비스 주체를 만드는](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal)단계를 참조 하세요.
+    - **서비스 사용자 클라이언트 id**: 기존 서비스 주체의 클라이언트 id를 입력 하거나 AKS 인증에 필요한 새를 만듭니다. [서비스 주체를 만드는](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal)단계를 참조 하세요.
     - **서비스 사용자 클라이언트 암호**: 서비스 사용자 클라이언트 ID에 제공 된 서비스 주체의 클라이언트 암호를 입력 합니다.
     - **클라이언트 암호 확인**: 서비스 사용자 클라이언트 암호에 제공 된 클라이언트 암호를 확인 합니다.
     - **컨테이너 모니터링 사용**: AKS 모니터링을 사용 하도록 선택 하 여 AKS 로그를 지정 된 Log Analytics 작업 영역에 푸시할 수 있습니다.
@@ -138,7 +138,7 @@ HLF 네트워크 구성 요소 배포를 시작 하려면 [Azure Portal](https:/
 
 Azure HLF 스크립트를 실행 하는 모든 명령은 Azure Bash 명령줄을 통해 실행할 수 있습니다. 인터페이스 (CLI). 를 통해 Azure shell 웹 버전에 로그인 할 수 있습니다.  ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) 옵션을 Azure Portal 선택 합니다. 명령 프롬프트에서 bash를 입력 하 고를 입력 하 여 bash CLI로 전환 합니다.
 
-자세한 내용은 [Azure shell](https://docs.microsoft.com/azure/cloud-shell/overview) 을 참조 하세요.
+자세한 내용은 [Azure shell](../../cloud-shell/overview.md) 을 참조 하세요.
 
 ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
@@ -285,7 +285,7 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
 ```
 
-`<anchorPeersList>`앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예제:
+`<anchorPeersList>`앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예를 들면 다음과 같습니다.
 
   - `<anchorPeersList>`Peer1 노드만 앵커 피어로 설정 하려면 "peer1"로 설정 합니다.
   - `<anchorPeersList>`Peer1 및 peer3 노드를 앵커 피어로 설정 하려면 "peer1" "peer3"로 설정 합니다.
@@ -441,6 +441,6 @@ Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.mic
 
 Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하세요.
 
-- [Microsoft Q&질문 페이지](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)입니다. 블록 체인 템플릿에 대 한 엔지니어링 지원은 배포 문제로 제한 됩니다.
+- [Microsoft Q&질문 페이지](/answers/topics/azure-blockchain-workbench.html)입니다. 블록 체인 템플릿에 대 한 엔지니어링 지원은 배포 문제로 제한 됩니다.
 - [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

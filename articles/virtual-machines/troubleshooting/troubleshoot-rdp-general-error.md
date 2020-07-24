@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985809"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079828"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM의 RDP 일반 오류 문제 해결
 
@@ -58,7 +58,7 @@ RDP 구성 요소가 다음과 같이 사용하지 않도록 설정되었습니�
 
 RDP 수신기가 잘못 구성되었습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 이 문제를 해결 하려면 직렬 제어를 사용 하거나 VM을 오프 라인으로 복구 하십시오.
 
@@ -183,7 +183,7 @@ RDP 수신기가 잘못 구성되었습니다.
 
 #### <a name="step-1-turn-on-remote-desktop"></a>1단계: 원격 데스크톱 켜기
 
-1. [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다.
+1. [OS 디스크를 복구 VM에 연결](./troubleshoot-recovery-disks-portal-windows.md)합니다.
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 3. 디스크가 디스크 관리 콘솔에서 **온라인** 으로 플래그가 지정 되었는지 확인 합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 4. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.

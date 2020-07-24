@@ -9,23 +9,24 @@ ms.subservice: autoscale
 ms.date: 04/26/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: aa004cc3ad6c02937ae3c3c8bdb1d5ebd225f434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 549f8fbc1e3acf435011f223faeb5b8240f0c55d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124808"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080423"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Linux 확장 집합 템플릿에서 게스트 메트릭을 사용한 자동 크기 조정
 
 Azure에는 Vm 및 크기 집합에서 수집 되는 두 가지 광범위 한 유형인 호스트 메트릭 및 게스트 메트릭이 있습니다. 높은 수준에서 표준 CPU, 디스크 및 네트워크 메트릭을 사용 하려는 경우 호스트 메트릭이 적합 합니다. 그러나 더 큰 메트릭을 선택 해야 하는 경우에는 게스트 메트릭을 검토 해야 합니다.
 
-호스트 메트릭은 호스트 VM에서 수집 되기 때문에 추가 설정이 필요 하지 않습니다. 반면 게스트 메트릭은 게스트 VM에 [Windows Azure 진단 확장](../virtual-machines/windows/extensions-diagnostics-template.md) 또는 [Linux Azure 진단 확장](../virtual-machines/linux/diagnostic-extension.md) 을 설치 해야 합니다. 호스트 메트릭 대신 게스트 메트릭을 사용하는 한 가지 일반적인 원인은 게스트 메트릭에서 제공되는 메트릭이 호스트 메트릭보다 더 많기 때문입니다. 이러한 예로 메모리 소비 메트릭을 들 수 있습니다. 이 메트릭은 게스트 메트릭을 통해서만 사용할 수 있습니다. 지원되는 호스트 메트릭의 목록은 [여기](../azure-monitor/platform/metrics-supported.md)에 있으며, 흔히 사용되는 게스트 메트릭의 목록은 [여기](../azure-monitor/platform/autoscale-common-metrics.md)에 있습니다. 이 문서에서는 Linux 확장 집합에 대 한 게스트 메트릭을 기반으로 자동 크기 조정 규칙을 사용 하도록 기본 실행 가능한 [확장 집합 템플릿을](virtual-machine-scale-sets-mvss-start.md) 수정 하는 방법을 보여 줍니다.
+호스트 메트릭은 호스트 VM에서 수집 되기 때문에 추가 설정이 필요 하지 않습니다. 반면 게스트 메트릭은 게스트 VM에 [Windows Azure 진단 확장](../virtual-machines/extensions/diagnostics-template.md) 또는 [Linux Azure 진단 확장](../virtual-machines/extensions/diagnostics-linux.md) 을 설치 해야 합니다. 호스트 메트릭 대신 게스트 메트릭을 사용하는 한 가지 일반적인 원인은 게스트 메트릭에서 제공되는 메트릭이 호스트 메트릭보다 더 많기 때문입니다. 이러한 예로 메모리 소비 메트릭을 들 수 있습니다. 이 메트릭은 게스트 메트릭을 통해서만 사용할 수 있습니다. 지원되는 호스트 메트릭의 목록은 [여기](../azure-monitor/platform/metrics-supported.md)에 있으며, 흔히 사용되는 게스트 메트릭의 목록은 [여기](../azure-monitor/platform/autoscale-common-metrics.md)에 있습니다. 이 문서에서는 Linux 확장 집합에 대 한 게스트 메트릭을 기반으로 자동 크기 조정 규칙을 사용 하도록 기본 실행 가능한 [확장 집합 템플릿을](virtual-machine-scale-sets-mvss-start.md) 수정 하는 방법을 보여 줍니다.
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
 
 [이전 문서](virtual-machine-scale-sets-mvss-start.md)에서 기본 확장 집합 템플릿을 만들었습니다. 이제 이전 템플릿을 사용 하 고 수정 하 여 게스트 메트릭 기반 자동 크기 조정으로 Linux 확장 집합을 배포 하는 템플릿을 만듭니다.
 
-먼저, `storageAccountName` 및 `storageAccountSasToken`의 매개 변수를 추가합니다. 진단 에이전트가 이 스토리지 계정의 [테이블](../cosmos-db/table-storage-how-to-use-dotnet.md)에 메트릭 데이터를 보관합니다. Linux 진단 에이전트 버전 3.0부터는 스토리지 액세스 키를 사용하는 것이 지원되지 않습니다. 대신 [SAS 토큰](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 사용합니다.
+먼저, `storageAccountName` 및 `storageAccountSasToken`의 매개 변수를 추가합니다. 진단 에이전트가 이 스토리지 계정의 [테이블](../cosmos-db/tutorial-develop-table-dotnet.md)에 메트릭 데이터를 보관합니다. Linux 진단 에이전트 버전 3.0부터는 스토리지 액세스 키를 사용하는 것이 지원되지 않습니다. 대신 [SAS 토큰](../storage/common/storage-sas-overview.md)을 사용합니다.
 
 ```diff
      },
@@ -41,7 +42,7 @@ Azure에는 Vm 및 크기 집합에서 수집 되는 두 가지 광범위 한 �
    },
 ```
 
-다음으로, 진단 확장을 포함하도록 `extensionProfile` 확장 집합을 수정합니다. 이 구성에서는 메트릭 수집 출처인 확장 집합의 리소스 ID뿐만 아니라 이 메트릭을 저장하는 데 사용할 스토리지 계정 및 SAS 토큰도 지정합니다. 메트릭이 집계되는 빈도(이 경우에는 1분마다)와 추적할 메트릭(이 경우에는 사용된 메모리의 비율)을 지정합니다. 이 구성 및 사용된 메모리 비율 외의 다른 메트릭에 대한 자세한 내용은 [이 설명서](../virtual-machines/linux/diagnostic-extension.md)를 참조하세요.
+다음으로, 진단 확장을 포함하도록 `extensionProfile` 확장 집합을 수정합니다. 이 구성에서는 메트릭 수집 출처인 확장 집합의 리소스 ID뿐만 아니라 이 메트릭을 저장하는 데 사용할 스토리지 계정 및 SAS 토큰도 지정합니다. 메트릭이 집계되는 빈도(이 경우에는 1분마다)와 추적할 메트릭(이 경우에는 사용된 메모리의 비율)을 지정합니다. 이 구성 및 사용된 메모리 비율 외의 다른 메트릭에 대한 자세한 내용은 [이 설명서](../virtual-machines/extensions/diagnostics-linux.md)를 참조하세요.
 
 ```diff
                  }

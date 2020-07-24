@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 7093e20473b799a3f05ddf30803721636732241e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e7fcde86c9bbf017ac3fca6025a025104b0d864
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663262"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081579"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor의 에이전트 상태 솔루션
 Azure의 에이전트 상태 솔루션은 Azure Monitor의 Log Analytics 작업 영역에 직접 보고 하는 모든 에이전트 또는 Azure Monitor에 연결 된 System Center Operations Manager 관리 그룹 (응답 하지 않고 작동 데이터를 전송)에 대해 이해 하는 데 도움이 됩니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
 
-## <a name="prerequisites"></a>사전 요구 사항
-이 솔루션을 배포하기 전에 [Windows 에이전트](../../log-analytics/log-analytics-windows-agent.md)가 Log Analytic 작업 영역 또는 작업 영역에 통합된 [Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)에 보고하도록 지원하는지 확인합니다.
+## <a name="prerequisites"></a>필수 조건
+이 솔루션을 배포하기 전에 [Windows 에이전트](../platform/agent-windows.md)가 Log Analytic 작업 영역 또는 작업 영역에 통합된 [Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)에 보고하도록 지원하는지 확인합니다.
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 이 솔루션은 작업 영역 및 직접 연결된 에이전트 또는 Operations Manager와 연결된 관리 그룹에 추가되는 다음 리소스로 구성됩니다.
@@ -29,7 +30,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 [솔루션 추가](solutions.md)에 설명된 프로세스를 사용하여 에이전트 상태 솔루션을 Log Analytics 작업 영역에 추가합니다. 추가 구성은 필요 없습니다.
 
 
@@ -47,7 +48,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 **에이전트 상태**타일을 클릭하여 **에이전트 상태** 대시보드를 엽니다.  대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 이벤트를 나열합니다. 각 열의 오른쪽 아래쪽에 있는 **모두 보기**를 선택하거나 열 제목을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| Column | 설명 |
+| 열 | 설명 |
 |--------|-------------|
 | 시간에 따른 에이전트 수 | Linux 및 Windows 에이전트에 대해 7일 동안의 에이전트 수의 추세입니다.|
 | 응답하지 않는 에이전트 개수 | 지난 24시간 동안 하트비트를 보내지 않은 에이전트의 목록입니다.|
@@ -66,7 +67,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="heartbeat-records"></a>하트비트 레코드
 **하트비트** 형식이 포함된 레코드가 만들어집니다.  이러한 레코드는 다음 표의 속성을 가집니다.  
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | `Type` | *하트비트*|
 | `Category` | 값은 *직접 에이전트*, *SCOM 에이전트* 또는 *SCOM 관리 서버*합니다.|
@@ -89,7 +90,7 @@ Operations Manager management server에 보고 하는 각 에이전트는 두 �
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 다음 테이블은 이 솔루션에 의해 수집된 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |에이전트의 총수 |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |지난 24시간 동안 응답하지 않는 에이전트 개수 |

@@ -3,15 +3,16 @@ title: Azure Event Grid에 게시하는 Durable Functions(미리 보기)
 description: Durable Functions에 대한 자동 Azure Event Grid 게시를 구성하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83124279"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081749"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid에 게시하는 Durable Functions(미리 보기)
 
-이 문서에서는 오케스트레이션 수명 주기 이벤트(예: 만들어짐, 완료됨 및 실패)를 사용자 지정 [Azure Event Grid 토픽](https://docs.microsoft.com/azure/event-grid/overview)에 게시하도록 Durable Functions를 설정하는 방법을 설명합니다.
+이 문서에서는 오케스트레이션 수명 주기 이벤트(예: 만들어짐, 완료됨 및 실패)를 사용자 지정 [Azure Event Grid 토픽](../../event-grid/overview.md)에 게시하도록 Durable Functions를 설정하는 방법을 설명합니다.
 
 이 기능이 유용한 몇 가지 시나리오는 다음과 같습니다.
 
@@ -25,7 +26,7 @@ ms.locfileid: "83124279"
 
 * Durable Functions 프로젝트에서 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)를 설치합니다.
 * [Azure Storage 에뮬레이터](../../storage/common/storage-use-emulator.md)(Windows에만 해당)를 설치하거나 기존 Azure Storage 계정을 사용합니다.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 설치하거나 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
+* [Azure CLI](/cli/azure/?view=azure-cli-latest)를 설치하거나 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
 
 ## <a name="create-a-custom-event-grid-topic"></a>사용자 지정 Event Grid 토픽 만들기
 
@@ -167,7 +168,7 @@ Azure Portal을 사용하여 Durable Functions 앱에서 게시한 이벤트를 
 
 ### <a name="add-an-event-grid-subscription"></a>Event Grid 구독 추가
 
-이제 사용자가 만든 Event Grid 토픽에 대한 Event Grid 구독을 추가할 수 있습니다. 자세한 내용은 [Azure Event Grid의 개념](https://docs.microsoft.com/azure/event-grid/concepts)을 참조하세요.
+이제 사용자가 만든 Event Grid 토픽에 대한 Event Grid 구독을 추가할 수 있습니다. 자세한 내용은 [Azure Event Grid의 개념](../../event-grid/concepts.md)을 참조하세요.
 
 1. 새 함수에서 **통합**을 선택한 다음, **Event Grid 트리거(eventGridEvent)** 를 선택합니다. 
 

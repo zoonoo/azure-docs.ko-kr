@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830029"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078720"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 리소스 추가
 
@@ -20,7 +20,7 @@ ms.locfileid: "85830029"
 > [!IMPORTANT]
 > 논리 앱과 통합 계정이 ISE에서 함께 작동하려면 둘 다 각자 위치와 동일한 ISE를 사용해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -127,7 +127,7 @@ ISE에서 사용자 지정 커넥터를 사용 하려면 ISE 내에서 직접 �
 
    ![사용자 지정 커넥터 선택 및 편집](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 
-1. [Openapi 정의](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) 또는 [SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector)에서 일반적인 방법으로 커넥터를 만들어 계속 합니다.
+1. [Openapi 정의](/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) 또는 [SOAP](/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector)에서 일반적인 방법으로 커넥터를 만들어 계속 합니다.
 
 1. ISE에서 사용자 지정 커넥터를 관리 하려면 [통합 서비스 환경 관리](../logic-apps/ise-manage-integration-service-environment.md)를 참조 하세요.
 

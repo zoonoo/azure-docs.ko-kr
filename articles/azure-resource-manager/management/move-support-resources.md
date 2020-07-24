@@ -3,12 +3,12 @@ title: 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 7b7f6f05c9cae80cffb64245a3fc8a6b0890d577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539230"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079509"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -288,19 +288,19 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
+> [!IMPORTANT]
+> 소비 SKU로 설정된 API Management 서비스는 이동할 수 없습니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | checkfeedbackrequired | 예 | 아니요 |
-> | checknameavailability | 예 | 아니요 |
-> | checkservicenameavailability | 예 | 아니요 |
-> | 작업 | 예 | 아니요 |
-> | reportfeedback | 아니요 | 아니요 |
+> | checkfeedbackrequired | 아니요 | 예 |
+> | checknameavailability | 아니요 | 예 |
+> | checkservicenameavailability | 아니요 | 예 |
+> | 작업 | 아니요 | 아니요 |
+> | reportfeedback | 아니요 | 예 |
 > | 서비스 | 예 | 예 |
 > | validateservicename | 아니요 | 아니요 |
-
-> [!IMPORTANT]
-> 소비 SKU로 설정된 API Management 서비스는 이동할 수 없습니다.
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -330,15 +330,15 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
+> [!IMPORTANT]
+> [App Service 이동 지침](./move-limitations/app-service-move-limitations.md)을 참조하세요.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | apiapps | 아니요 | 아니요 |
 > | appidentities | 아니요 | 아니요 |
-> | gateways | 아니요 | 예 |
-
-> [!IMPORTANT]
-> [App Service 이동 지침](./move-limitations/app-service-move-limitations.md)을 참조하세요.
+> | gateways | 예 | 예 |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -375,24 +375,24 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
+> [!IMPORTANT]
+> Runbook은 Automation 계정과 동일한 리소스 그룹에 있어야 합니다.
+>
+> 자세한 내용은 [Azure Automation 계정을 다른 구독으로 이동](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json)을 참조 하세요.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | automationaccounts | 예 | 예 |
 > | automationaccounts / configurations | 예 | 예 |
-> | automationaccounts / jobs | 예 | 아니요 |
-> | automationaccounts / privateendpointconnectionproxies | 예 | 아니요 |
+> | automationaccounts / jobs | 예 | 예 |
+> | automationaccounts / privateendpointconnectionproxies | 아니요 | 아니요 |
 > | automationaccounts / privateendpointconnections | 아니요 | 아니요 |
-> | automationaccounts / privatelinkresources | 아니요 | 예 |
+> | automationaccounts / privatelinkresources | 예 | 아니요 |
 > | automationaccounts / runbooks | 예 | 예 |
-> | automationaccounts / softwareupdateconfigurations | 아니요 | 예 |
+> | automationaccounts / softwareupdateconfigurations | 예 | 아니요 |
 > | automationaccounts / webhooks | 아니요 | 아니요 |
-> | 작업 | 아니요 | 예 |
-
-> [!IMPORTANT]
-> Runbook은 Automation 계정과 동일한 리소스 그룹에 있어야 합니다.
->
-> 자세한 내용은 [Azure Automation 계정을 다른 구독으로 이동](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json)을 참조 하세요.
+> | 작업 | 예 | 아니요 |
 
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
@@ -626,21 +626,21 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
+> [!IMPORTANT]
+> Azure Cache for Redis 인스턴스가 가상 네트워크를 사용하여 구성되면 이 인스턴스를 다른 구독으로 이동할 수 없습니다. [네트워킹 이동 제한](./move-limitations/networking-move-limitations.md)을 참조하세요.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | 아니요 | 예 |
+> | checknameavailability | 예 | 아니요 |
 > | 위치 | 아니요 | 아니요 |
-> | locations / operationresults | 아니요 | 아니요 |
-> | locations / operationsstatus | 예 | 아니요 |
-> | 작업 | 예 | 아니요 |
+> | locations / operationresults | 예 | 예 |
+> | locations / operationsstatus | 예 | 예 |
+> | 작업 | 예 | 예 |
 > | redis | 예 | 예 |
-> | redis/eventgridfilters | 예 | 아니요 |
-> | redis / privatelinkresources | 예 | 아니요 |
-> | redisenterprise | 아니요 | 아니요 |
-
-> [!IMPORTANT]
-> Azure Cache for Redis 인스턴스가 가상 네트워크를 사용하여 구성되면 이 인스턴스를 다른 구독으로 이동할 수 없습니다. [네트워킹 이동 제한](./move-limitations/networking-move-limitations.md)을 참조하세요.
+> | redis/eventgridfilters | 예 | 예 |
+> | redis / privatelinkresources | 아니요 | 아니요 |
+> | redisenterprise | 예 | 예 |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -700,16 +700,16 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
+> [!IMPORTANT]
+> [App Service 이동 지침](./move-limitations/app-service-move-limitations.md)을 참조하세요.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | certificateorders | 예 | 예 |
 > | certificateorders / certificates | 아니요 | 아니요 |
 > | 작업 | 아니요 | 아니요 |
-> | validatecertificateregistrationinformation | 아니요 | 아니요 |
-
-> [!IMPORTANT]
-> [App Service 이동 지침](./move-limitations/app-service-move-limitations.md)을 참조하세요.
+> | validatecertificateregistrationinformation | 아니요 | 예 |
 
 ## <a name="microsoftchangeanalysis"></a>Microsoft.ChangeAnalysis
 
@@ -720,105 +720,105 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
+> [!IMPORTANT]
+> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | capabilities | 아니요 | 예 |
+> | capabilities | 예 | 아니요 |
 > | checkdomainnameavailability | 아니요 | 아니요 |
-> | domainnames | 예 | 아니요 |
-> | domainnames / capabilities | 예 | 아니요 |
-> | domainnames / internalloadbalancers | 예 | 아니요 |
-> | domainnames / servicecertificates | 예 | 아니요 |
-> | domainnames / slots | 예 | 아니요 |
-> | domainnames / slots / roles | 예 | 아니요 |
-> | domainnames / slots / roles / metricdefinitions | 예 | 아니요 |
-> | domainnames / slots / roles / metrics | 예 | 아니요 |
-> | movesubscriptionresources | 예 | 아니요 |
-> | operatingsystemfamilies | 예 | 아니요 |
-> | operatingsystems | 예 | 아니요 |
-> | 작업 | 예 | 아니요 |
-> | operationstatuses | 예 | 아니요 |
-> | quotas | 예 | 아니요 |
-> | resourcetypes | 예 | 아니요 |
-> | validatesubscriptionmoveavailability | 예 | 아니요 |
-> | virtualmachines | 예 | 아니요 |
-> | virtualmachines / diagnosticsettings | 예 | 아니요 |
-> | virtualmachines / metricdefinitions | 예 | 아니요 |
-> | virtualmachines / metrics | 예 | 아니요 |
-
-> [!IMPORTANT]
-> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+> | domainnames | 예 | 예 |
+> | domainnames / capabilities | 예 | 예 |
+> | domainnames / internalloadbalancers | 아니요 | 예 |
+> | domainnames / servicecertificates | 예 | 예 |
+> | domainnames / slots | 예 | 예 |
+> | domainnames / slots / roles | 예 | 예 |
+> | domainnames / slots / roles / metricdefinitions | 예 | 예 |
+> | domainnames / slots / roles / metrics | 예 | 예 |
+> | movesubscriptionresources | 예 | 예 |
+> | operatingsystemfamilies | 예 | 예 |
+> | operatingsystems | 예 | 예 |
+> | 작업 | 예 | 예 |
+> | operationstatuses | 예 | 예 |
+> | quotas | 예 | 예 |
+> | resourcetypes | 예 | 예 |
+> | validatesubscriptionmoveavailability | 예 | 예 |
+> | virtualmachines | 예 | 예 |
+> | virtualmachines / diagnosticsettings | 예 | 예 |
+> | virtualmachines / metricdefinitions | 아니요 | 예 |
+> | virtualmachines / metrics | 예 | 예 |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 
+> [!IMPORTANT]
+> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | classicinfrastructureresources | 예 | 아니요 |
-
-> [!IMPORTANT]
-> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+> | classicinfrastructureresources | 아니요 | 아니요 |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
+> [!IMPORTANT]
+> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | capabilities | 예 | 아니요 |
+> | capabilities | 아니요 | 아니요 |
 > | expressroutecrossconnections | 아니요 | 아니요 |
-> | expressroutecrossconnections / peerings | 아니요 | 아니요 |
-> | gatewaysupporteddevices | 예 | 아니요 |
-> | networksecuritygroups | 예 | 아니요 |
-> | 작업 | 예 | 아니요 |
-> | quotas | 예 | 아니요 |
-> | reservedips | 예 | 아니요 |
-> | virtualnetworks | 예 | 아니요 |
-> | virtualnetworks / remotevirtualnetworkpeeringproxies | 예 | 아니요 |
-> | virtualnetworks / virtualnetworkpeerings | 예 | 아니요 |
-
-> [!IMPORTANT]
-> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+> | expressroutecrossconnections / peerings | 예 | 예 |
+> | gatewaysupporteddevices | 예 | 예 |
+> | networksecuritygroups | 예 | 예 |
+> | 작업 | 예 | 예 |
+> | quotas | 예 | 예 |
+> | reservedips | 예 | 예 |
+> | virtualnetworks | 예 | 예 |
+> | virtualnetworks / remotevirtualnetworkpeeringproxies | 예 | 예 |
+> | virtualnetworks / virtualnetworkpeerings | 예 | 예 |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
+> [!IMPORTANT]
+> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | capabilities | 예 | 아니요 |
+> | capabilities | 아니요 | 아니요 |
 > | checkstorageaccountavailability | 아니요 | 아니요 |
-> | disks | 아니요 | 아니요 |
-> | images | 예 | 아니요 |
-> | 작업 | 예 | 아니요 |
-> | osimages | 예 | 아니요 |
-> | osplatformimages | 예 | 아니요 |
-> | publicimages | 예 | 아니요 |
-> | quotas | 예 | 아니요 |
-> | storageaccounts | 예 | 아니요 |
-> | storageaccounts / blobservices | 예 | 아니요 |
-> | storageaccounts / fileservices | 예 | 아니요 |
-> | storageaccounts / metricdefinitions | 예 | 아니요 |
-> | storageaccounts / metrics | 예 | 아니요 |
-> | storageaccounts / queueservices | 예 | 아니요 |
-> | storageaccounts / services | 예 | 아니요 |
-> | storageaccounts / services / diagnosticsettings | 예 | 아니요 |
-> | storageaccounts / services / metricdefinitions | 예 | 아니요 |
-> | storageaccounts / services / metrics | 예 | 아니요 |
-> | storageaccounts / tableservices | 예 | 아니요 |
-> | storageaccounts / vmimages | 예 | 아니요 |
-> | vmimages | 예 | 아니요 |
-
-> [!IMPORTANT]
-> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+> | disks | 예 | 예 |
+> | images | 예 | 예 |
+> | 작업 | 예 | 예 |
+> | osimages | 예 | 예 |
+> | osplatformimages | 예 | 예 |
+> | publicimages | 예 | 예 |
+> | quotas | 예 | 예 |
+> | storageaccounts | 예 | 예 |
+> | storageaccounts / blobservices | 예 | 예 |
+> | storageaccounts / fileservices | 아니요 | 예 |
+> | storageaccounts / metricdefinitions | 예 | 예 |
+> | storageaccounts / metrics | 예 | 예 |
+> | storageaccounts / queueservices | 예 | 예 |
+> | storageaccounts / services | 예 | 예 |
+> | storageaccounts / services / diagnosticsettings | 예 | 예 |
+> | storageaccounts / services / metricdefinitions | 예 | 예 |
+> | storageaccounts / services / metrics | 예 | 예 |
+> | storageaccounts / tableservices | 예 | 예 |
+> | storageaccounts / vmimages | 예 | 예 |
+> | vmimages | 예 | 예 |
 
 ## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
+> [!IMPORTANT]
+> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 작업 | 예 | 아니요 |
-
-> [!IMPORTANT]
-> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조하세요. 클래식 배포 리소스는 해당 시나리오와 관련된 작업을 통해 구독 간에 이동할 수 있습니다.
+> | 작업 | 아니요 | 아니요 |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -844,53 +844,53 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
+> [!IMPORTANT]
+> [Virtual Machines 이동 지침](./move-limitations/virtual-machines-move-limitations.md)을 참조하세요.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availabilitysets | 예 | 예 |
-> | diskaccesses | 예 | 아니요 |
-> | diskencryptionsets | 예 | 아니요 |
+> | diskaccesses | 아니요 | 예 |
+> | diskencryptionsets | 아니요 | 예 |
 > | disks | 예 | 예 |
 > | galleries | 아니요 | 아니요 |
 > | galleries / images | 아니요 | 아니요 |
-> | galleries / images / versions | 예 | 예 |
-> | hostgroups | 예 | 예 |
+> | galleries / images / versions | 예 | 아니요 |
+> | hostgroups | 예 | 아니요 |
 > | hostgroups / hosts | 아니요 | 아니요 |
 > | images | 예 | 예 |
-> | 위치 | 예 | 예 |
-> | locations / artifactpublishers | 예 | 예 |
-> | locations / capsoperations | 예 | 예 |
-> | locations / diskoperations | 예 | 예 |
+> | 위치 | 예 | 아니요 |
+> | locations / artifactpublishers | 예 | 아니요 |
+> | locations / capsoperations | 예 | 아니요 |
+> | locations / diskoperations | 예 | 아니요 |
 > | locations / loganalytics | 아니요 | 아니요 |
-> | locations / operations | 예 | 예 |
-> | locations / publishers | 예 | 예 |
-> | locations / runcommands | 예 | 예 |
-> | locations / usages | 예 | 예 |
-> | locations / virtualmachines | 예 | 예 |
-> | locations / vmsizes | 예 | 예 |
-> | locations / vsmoperations | 예 | 예 |
-> | 작업 | 예 | 예 |
+> | locations / operations | 예 | 아니요 |
+> | locations / publishers | 예 | 아니요 |
+> | locations / runcommands | 예 | 아니요 |
+> | locations / usages | 예 | 아니요 |
+> | locations / virtualmachines | 예 | 아니요 |
+> | locations / vmsizes | 예 | 아니요 |
+> | locations / vsmoperations | 예 | 아니요 |
+> | 작업 | 예 | 아니요 |
 > | proximityplacementgroups | 예 | 예 |
-> | restorepointcollections | 예 | 예 |
-> | restorepointcollections / restorepoints | 예 | 예 |
-> | sharedvmextensions | 예 | 예 |
-> | sharedvmimages | 예 | 예 |
+> | restorepointcollections | 예 | 아니요 |
+> | restorepointcollections / restorepoints | 예 | 아니요 |
+> | sharedvmextensions | 예 | 아니요 |
+> | sharedvmimages | 예 | 아니요 |
 > | sharedvmimages / versions | 아니요 | 아니요 |
 > | 스냅샷 | 예 | 예 |
-> | sshpublickeys | 예 | 예 |
+> | sshpublickeys | 예 | 아니요 |
 > | virtualmachines | 예 | 예 |
 > | virtualmachines / extensions | 예 | 예 |
-> | virtualmachines / metricdefinitions | 예 | 예 |
+> | virtualmachines / metricdefinitions | 예 | 아니요 |
 > | virtualmachines / runcommands | 아니요 | 아니요 |
 > | virtualmachinescalesets | 예 | 예 |
 > | virtualmachinescalesets / extensions | 아니요 | 아니요 |
 > | virtualmachinescalesets / networkinterfaces | 아니요 | 아니요 |
-> | virtualmachinescalesets / publicipaddresses | 예 | 예 |
-> | virtualmachinescalesets / virtualmachines | 예 | 예 |
+> | virtualmachinescalesets / publicipaddresses | 예 | 아니요 |
+> | virtualmachinescalesets / virtualmachines | 예 | 아니요 |
 > | virtualmachinescalesets / virtualmachines / networkinterfaces | 아니요 | 아니요 |
-
-> [!IMPORTANT]
-> [Virtual Machines 이동 지침](./move-limitations/virtual-machines-move-limitations.md)을 참조하세요.
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -1613,25 +1613,25 @@ ms.locfileid: "86539230"
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
-> [!div class="mx-tableFixed"]
-> | 리소스 유형 | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | clusters | 예 | 예 |
-> | clusters / applications | 예 | 예 |
-> | clusters / operationresults | 예 | 예 |
-> | 위치 | 예 | 예 |
-> | locations / azureasyncoperations | 아니요 | 아니요 |
-> | locations / billingspecs | 아니요 | 아니요 |
-> | locations / capabilities | 아니요 | 예 |
-> | locations / operationresults | 아니요 | 예 |
-> | locations / usages | 아니요 | 예 |
-> | locations / validatecreaterequest | 아니요 | 예 |
-> | 작업 | 아니요 | 예 |
-
 > [!IMPORTANT]
 > 새 구독 또는 리소스 그룹에 HDInsight 클러스터를 이동할 수 있습니다. 그러나 HDInsight 클러스터에 연결된 네트워킹 리소스(예: Virtual Network, NIC 또는 부하 분산 장치)는 구독 간에 이동할 수 없습니다. 또한 클러스터에 대한 가상 머신에 연결된 NIC를 새 리소스 그룹으로 이동할 수 없습니다.
 >
 > HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스(예: 스토리지 계정)를 이동합니다. 그런 다음 자체적으로 HDInsight 클러스터를 이동합니다.
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | clusters | 예 | 예 |
+> | clusters / applications | 아니요 | 예 |
+> | clusters / operationresults | 아니요 | 아니요 |
+> | 위치 | 아니요 | 아니요 |
+> | locations / azureasyncoperations | 아니요 | 아니요 |
+> | locations / billingspecs | 예 | 아니요 |
+> | locations / capabilities | 예 | 아니요 |
+> | locations / operationresults | 예 | 아니요 |
+> | locations / usages | 예 | 아니요 |
+> | locations / validatecreaterequest | 예 | 아니요 |
+> | 작업 | 예 | 아니요 |
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
@@ -1699,63 +1699,63 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
+> [!IMPORTANT]
+> 새 구독으로 이동하는 경우 [구독 할당량](azure-subscription-service-limits.md#azure-monitor-limits)을 초과하지 않아야 합니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | actiongroups | 예 | 예 |
-> | activitylogalerts | 예 | 예 |
+> | activitylogalerts | 예 | 아니요 |
 > | alertrules | 예 | 예 |
 > | autoscalesettings | 예 | 예 |
-> | baseline | 예 | 예 |
-> | calculatebaseline | 예 | 예 |
+> | baseline | 예 | 아니요 |
+> | calculatebaseline | 예 | 아니요 |
 > | components | 예 | 예 |
-> | components / events | 예 | 예 |
-> | components / linkedstorageaccounts | 예 | 예 |
-> | 구성 요소/메타 데이터 | 예 | 예 |
-> | components / metrics | 예 | 예 |
-> | components / pricingplans | 예 | 예 |
-> | components / query | 예 | 예 |
-> | datacollectionrules | 예 | 예 |
-> | diagnosticsettings | 예 | 예 |
-> | diagnosticsettingscategories | 예 | 예 |
-> | eventcategories | 예 | 예 |
-> | eventtypes | 예 | 예 |
-> | extendeddiagnosticsettings | 예 | 예 |
-> | guestdiagnosticsettings | 예 | 예 |
-> | listmigrationdate | 예 | 예 |
-> | 위치 | 예 | 예 |
-> | locations / operationresults | 예 | 예 |
-> | logdefinitions | 예 | 예 |
-> | logprofiles | 예 | 예 |
-> | 로그 | 예 | 예 |
-> | metricalerts | 예 | 예 |
-> | metricbaselines | 예 | 예 |
-> | metricbatch | 예 | 예 |
-> | metricdefinitions | 예 | 예 |
-> | metricnamespaces | 예 | 예 |
-> | 메트릭 | 예 | 예 |
-> | migratealertrules | 예 | 예 |
-> | migratetonewpricingmodel | 예 | 예 |
-> | myworkbooks | 예 | 예 |
-> | notificationgroups | 예 | 예 |
-> | 작업 | 예 | 예 |
-> | privatelinkscopeoperationstatuses | 예 | 예 |
+> | components / events | 예 | 아니요 |
+> | components / linkedstorageaccounts | 예 | 아니요 |
+> | 구성 요소/메타 데이터 | 예 | 아니요 |
+> | components / metrics | 예 | 아니요 |
+> | components / pricingplans | 예 | 아니요 |
+> | components / query | 예 | 아니요 |
+> | datacollectionrules | 예 | 아니요 |
+> | diagnosticsettings | 예 | 아니요 |
+> | diagnosticsettingscategories | 예 | 아니요 |
+> | eventcategories | 예 | 아니요 |
+> | eventtypes | 예 | 아니요 |
+> | extendeddiagnosticsettings | 예 | 아니요 |
+> | guestdiagnosticsettings | 예 | 아니요 |
+> | listmigrationdate | 예 | 아니요 |
+> | 위치 | 예 | 아니요 |
+> | locations / operationresults | 예 | 아니요 |
+> | logdefinitions | 예 | 아니요 |
+> | logprofiles | 예 | 아니요 |
+> | 로그 | 예 | 아니요 |
+> | metricalerts | 예 | 아니요 |
+> | metricbaselines | 예 | 아니요 |
+> | metricbatch | 예 | 아니요 |
+> | metricdefinitions | 예 | 아니요 |
+> | metricnamespaces | 예 | 아니요 |
+> | 메트릭 | 예 | 아니요 |
+> | migratealertrules | 예 | 아니요 |
+> | migratetonewpricingmodel | 예 | 아니요 |
+> | myworkbooks | 예 | 아니요 |
+> | notificationgroups | 예 | 아니요 |
+> | 작업 | 예 | 아니요 |
+> | privatelinkscopeoperationstatuses | 예 | 아니요 |
 > | privatelinkscopes | 아니요 | 아니요 |
-> | privatelinkscopes / privateendpointconnectionproxies | 예 | 예 |
-> | privatelinkscopes / privateendpointconnections | 예 | 예 |
-> | privatelinkscopes / scopedresources | 예 | 예 |
+> | privatelinkscopes / privateendpointconnectionproxies | 예 | 아니요 |
+> | privatelinkscopes / privateendpointconnections | 예 | 아니요 |
+> | privatelinkscopes / scopedresources | 예 | 아니요 |
 > | rollbacktolegacypricingmodel | 아니요 | 아니요 |
 > | scheduledqueryrules | 예 | 예 |
 > | 토폴로지 | 아니요 | 아니요 |
 > | 트랜잭션 | 아니요 | 아니요 |
-> | vminsightsonboardingstatuses | 아니요 | 아니요 |
+> | vminsightsonboardingstatuses | 아니요 | 예 |
 > | webtests | 예 | 예 |
-> | 웹 테스트/gettestresultfile | 예 | 아니요 |
+> | 웹 테스트/gettestresultfile | 아니요 | 예 |
 > | workbooks | 예 | 예 |
 > | workbooktemplates | 예 | 예 |
-
-> [!IMPORTANT]
-> 새 구독으로 이동하는 경우 [구독 할당량](azure-subscription-service-limits.md#azure-monitor-limits)을 초과하지 않아야 합니다.
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
@@ -1779,25 +1779,25 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
+> [!IMPORTANT]
+> 디스크 암호화에 사용되는 Key Vault는 동일한 구독의 리소스 그룹으로 또는 구독 간에 이동할 수 없습니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | 예 | 예 |
-> | deletedvaults | 예 | 예 |
+> | checknameavailability | 예 | 아니요 |
+> | deletedvaults | 예 | 아니요 |
 > | hsmpools | 아니요 | 아니요 |
-> | 위치 | 예 | 예 |
-> | locations / deletedvaults | 예 | 예 |
-> | locations / deletevirtualnetworkorsubnets | 예 | 예 |
+> | 위치 | 예 | 아니요 |
+> | locations / deletedvaults | 예 | 아니요 |
+> | locations / deletevirtualnetworkorsubnets | 예 | 아니요 |
 > | locations / operationresults | 아니요 | 아니요 |
 > | managedhsms | 아니요 | 아니요 |
-> | 작업 | 아니요 | 아니요 |
+> | 작업 | 아니요 | 예 |
 > | vaults | 예 | 예 |
-> | vaults / accesspolicies | 예 | 아니요 |
-> | vaults / eventgridfilters | 예 | 아니요 |
-> | vaults / secrets | 예 | 아니요 |
-
-> [!IMPORTANT]
-> 디스크 암호화에 사용되는 Key Vault는 동일한 구독의 리소스 그룹으로 또는 구독 간에 이동할 수 없습니다.
+> | vaults / accesspolicies | 아니요 | 예 |
+> | vaults / eventgridfilters | 아니요 | 예 |
+> | vaults / secrets | 아니요 | 아니요 |
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
@@ -1866,7 +1866,7 @@ ms.locfileid: "86539230"
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | 예 | 예 |
 > | integrationaccounts | 예 | 예 |
-> | integrationserviceenvironments | 예 | 아니요 |
+> | integrationserviceenvironments | 예 | 예 |
 > | integrationserviceenvironments / managedapis | 예 | 예 |
 > | isolatedenvironments | 아니요 | 예 |
 > | 위치 | 아니요 | 예 |
@@ -2115,130 +2115,130 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
+> [!IMPORTANT]
+> [네트워킹 이동 지침](./move-limitations/networking-move-limitations.md)을 참조하세요.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | applicationgatewayavailablerequestheaders | 아니요 | 예 |
-> | applicationgatewayavailableresponseheaders | 아니요 | 예 |
+> | applicationgatewayavailablerequestheaders | 예 | 예 |
+> | applicationgatewayavailableresponseheaders | 예 | 예 |
 > | applicationgatewayavailableservervariables | 아니요 | 아니요 |
-> | applicationgatewayavailablessloptions | 아니요 | 예 |
-> | applicationgatewayavailablewafrulesets | 아니요 | 예 |
-> | applicationgateways | 아니요 | 예 |
-> | applicationgatewaywebapplicationfirewallpolicies | 아니요 | 예 |
+> | applicationgatewayavailablessloptions | 예 | 예 |
+> | applicationgatewayavailablewafrulesets | 예 | 예 |
+> | applicationgateways | 예 | 예 |
+> | applicationgatewaywebapplicationfirewallpolicies | 예 | 예 |
 > | applicationsecuritygroups | 예 | 예 |
-> | azurefirewallfqdntags | 아니요 | 예 |
+> | azurefirewallfqdntags | 예 | 예 |
 > | azurefirewalls | 아니요 | 아니요 |
 > | bastionhosts | 아니요 | 아니요 |
-> | bgpservicecommunities | 아니요 | 예 |
-> | checkfrontdoornameavailability | 아니요 | 예 |
-> | checktrafficmanagernameavailability | 아니요 | 예 |
+> | bgpservicecommunities | 예 | 예 |
+> | checkfrontdoornameavailability | 예 | 예 |
+> | checktrafficmanagernameavailability | 예 | 예 |
 > | connections | 예 | 예 |
 > | ddoscustompolicies | 예 | 예 |
-> | ddosprotectionplans | 아니요 | 예 |
-> | dnsoperationresults | 아니요 | 예 |
-> | dnsoperationstatuses | 아니요 | 예 |
+> | ddosprotectionplans | 예 | 예 |
+> | dnsoperationresults | 예 | 예 |
+> | dnsoperationstatuses | 예 | 예 |
 > | dnszones | 예 | 예 |
-> | dnszones / a | 아니요 | 예 |
-> | dnszones / aaaa | 아니요 | 예 |
-> | dnszones / all | 아니요 | 예 |
-> | dnszones / caa | 아니요 | 예 |
-> | dnszones / cname | 아니요 | 예 |
-> | dnszones / mx | 아니요 | 예 |
-> | dnszones / ns | 아니요 | 예 |
-> | dnszones / ptr | 아니요 | 예 |
-> | dnszones / recordsets | 아니요 | 예 |
-> | dnszones / soa | 아니요 | 예 |
+> | dnszones / a | 예 | 예 |
+> | dnszones / aaaa | 예 | 예 |
+> | dnszones / all | 예 | 예 |
+> | dnszones / caa | 예 | 예 |
+> | dnszones / cname | 예 | 예 |
+> | dnszones / mx | 예 | 예 |
+> | dnszones / ns | 예 | 예 |
+> | dnszones / ptr | 예 | 예 |
+> | dnszones / recordsets | 예 | 예 |
+> | dnszones / soa | 예 | 예 |
 > | dnszones / srv | 아니요 | 아니요 |
-> | dnszones / txt | 아니요 | 예 |
-> | expressroutecircuits | 아니요 | 예 |
-> | expressroutegateways | 아니요 | 예 |
-> | expressrouteserviceproviders | 아니요 | 예 |
+> | dnszones / txt | 예 | 예 |
+> | expressroutecircuits | 예 | 예 |
+> | expressroutegateways | 예 | 예 |
+> | expressrouteserviceproviders | 예 | 예 |
 > | firewallpolicies | 예 | 예 |
-> | frontdooroperationresults | 아니요 | 예 |
+> | frontdooroperationresults | 예 | 예 |
 > | frontdoors | 아니요 | 아니요 |
 > | frontdoors / frontendendpoints | 아니요 | 아니요 |
 > | frontdoorwebapplicationfirewallmanagedrulesets | 아니요 | 아니요 |
 > | frontdoorwebapplicationfirewallpolicies | 아니요 | 아니요 |
-> | getdnsresourcereference | 예 | 예 |
-> | internalnotify | 예 | 예 |
+> | getdnsresourcereference | 예 | 아니요 |
+> | internalnotify | 예 | 아니요 |
 > | ipallocations | 예 | 예 |
 > | ipgroups | 예 | 예 |
 > | loadbalancers | 예 - 기본 SKU<br>아니요 - 표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
 > | localnetworkgateways | 예 | 예 |
-> | 위치 | 아니요 | 예 |
-> | locations / autoapprovedprivatelinkservices | 아니요 | 예 |
-> | locations / availabledelegations | 아니요 | 예 |
-> | locations / availableprivateendpointtypes | 아니요 | 예 |
-> | locations / availableservicealiases | 아니요 | 예 |
-> | locations / baremetaltenants | 아니요 | 예 |
-> | locations / batchnotifyprivateendpointsforresourcemove | 아니요 | 예 |
-> | locations / batchvalidateprivateendpointsforresourcemove | 아니요 | 예 |
-> | locations / checkacceleratednetworkingsupport | 아니요 | 예 |
-> | locations / checkdnsnameavailability | 아니요 | 예 |
-> | locations / checkprivatelinkservicevisibility | 아니요 | 예 |
-> | locations / commitinternalazurenetworkmanagerconfiguration | 아니요 | 예 |
-> | locations / effectiveresourceownership | 아니요 | 예 |
-> | locations / nfvoperationresults | 아니요 | 예 |
-> | locations / nfvoperations | 아니요 | 예 |
-> | locations / operationresults | 아니요 | 예 |
+> | 위치 | 예 | 예 |
+> | locations / autoapprovedprivatelinkservices | 예 | 예 |
+> | locations / availabledelegations | 예 | 예 |
+> | locations / availableprivateendpointtypes | 예 | 예 |
+> | locations / availableservicealiases | 예 | 예 |
+> | locations / baremetaltenants | 예 | 예 |
+> | locations / batchnotifyprivateendpointsforresourcemove | 예 | 예 |
+> | locations / batchvalidateprivateendpointsforresourcemove | 예 | 예 |
+> | locations / checkacceleratednetworkingsupport | 예 | 예 |
+> | locations / checkdnsnameavailability | 예 | 예 |
+> | locations / checkprivatelinkservicevisibility | 예 | 예 |
+> | locations / commitinternalazurenetworkmanagerconfiguration | 예 | 예 |
+> | locations / effectiveresourceownership | 예 | 예 |
+> | locations / nfvoperationresults | 예 | 예 |
+> | locations / nfvoperations | 예 | 예 |
+> | locations / operationresults | 예 | 예 |
 > | locations / operations | 아니요 | 아니요 |
-> | locations / servicetags | 아니요 | 예 |
+> | locations / servicetags | 예 | 예 |
 > | locations / setresourceownership | 아니요 | 아니요 |
 > | locations / supportedvirtualmachinesizes | 아니요 | 아니요 |
-> | locations / usages | 아니요 | 예 |
+> | locations / usages | 예 | 예 |
 > | locations / validateresourceownership | 아니요 | 아니요 |
-> | locations / virtualnetworkavailableendpointservices | 아니요 | 아니요 |
-> | natgateways | 아니요 | 아니요 |
-> | networkexperimentprofiles | 아니요 | 아니요 |
+> | locations / virtualnetworkavailableendpointservices | 아니요 | 예 |
+> | natgateways | 아니요 | 예 |
+> | networkexperimentprofiles | 아니요 | 예 |
 > | networkintentpolicies | 예 | 예 |
 > | networkinterfaces | 예 | 예 |
-> | networkprofiles | 아니요 | 예 |
+> | networkprofiles | 예 | 예 |
 > | networksecuritygroups | 예 | 예 |
 > | networkwatchers | 예 | 예 |
-> | networkwatchers / connectionmonitors | 예 | 아니요 |
+> | networkwatchers / connectionmonitors | 예 | 예 |
 > | networkwatchers / flowlogs | 예 | 예 |
 > | networkwatchers / pingmeshes | 예 | 예 |
-> | 작업 | 아니요 | 예 |
-> | p2svpngateways | 아니요 | 예 |
-> | privatednsoperationresults | 아니요 | 예 |
-> | privatednsoperationstatuses | 아니요 | 예 |
+> | 작업 | 예 | 예 |
+> | p2svpngateways | 예 | 예 |
+> | privatednsoperationresults | 예 | 예 |
+> | privatednsoperationstatuses | 예 | 예 |
 > | privatednszones | 예 | 예 |
-> | privatednszones / a | 아니요 | 예 |
-> | privatednszones / aaaa | 아니요 | 예 |
+> | privatednszones / a | 예 | 예 |
+> | privatednszones / aaaa | 예 | 예 |
 > | privatednszones / all | 아니요 | 아니요 |
-> | privatednszones / cname | 아니요 | 예 |
-> | privatednszones / mx | 아니요 | 예 |
+> | privatednszones / cname | 예 | 예 |
+> | privatednszones / mx | 예 | 예 |
 > | privatednszones / ptr | 아니요 | 아니요 |
-> | privatednszones / soa | 아니요 | 예 |
+> | privatednszones / soa | 예 | 예 |
 > | privatednszones / srv | 아니요 | 아니요 |
 > | privatednszones / txt | 아니요 | 아니요 |
 > | privatednszones / virtualnetworklinks | 예 | 예 |
-> | privatednszonesinternal | 예 | 예 |
+> | privatednszonesinternal | 예 | 아니요 |
 > | privateendpointredirectmaps | 아니요 | 아니요 |
 > | privateendpoints | 예 | 예 |
 > | privatelinkservices | 아니요 | 아니요 |
 > | publicipaddresses | 예 - 기본 SKU<br>아니요 - 표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
 > | publicipprefixes | 예 | 예 |
-> | routefilters | 아니요 | 예 |
+> | routefilters | 예 | 예 |
 > | routetables | 예 | 예 |
 > | securitypartnerproviders | 예 | 예 |
 > | serviceendpointpolicies | 예 | 예 |
-> | trafficmanagergeographichierarchies | 아니요 | 예 |
+> | trafficmanagergeographichierarchies | 예 | 예 |
 > | trafficmanagerprofiles | 예 | 예 |
-> | trafficmanagerprofiles / heatmaps | 아니요 | 예 |
-> | trafficmanagerusermetricskeys | 아니요 | 예 |
-> | virtualhubs | 아니요 | 예 |
+> | trafficmanagerprofiles / heatmaps | 예 | 예 |
+> | trafficmanagerusermetricskeys | 예 | 예 |
+> | virtualhubs | 예 | 예 |
 > | virtualnetworkgateways | 예 | 예 |
 > | virtualnetworks | 예 | 예 |
 > | virtualnetworktaps | 아니요 | 아니요 |
 > | virtualrouters | 예 | 예 |
-> | virtualwans | 예 | 예 |
+> | virtualwans | 예 | 아니요 |
 > | vpngateways(Virtual WAN) | 아니요 | 아니요 |
 > | vpnserverconfigurations | 아니요 | 아니요 |
-> | vpnsites(Virtual WAN) | 예 | 예 |
-
-> [!IMPORTANT]
-> [네트워킹 이동 지침](./move-limitations/networking-move-limitations.md)을 참조하세요.
+> | vpnsites(Virtual WAN) | 예 | 아니요 |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
@@ -2272,28 +2272,28 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
+> [!IMPORTANT]
+> 새 구독으로 이동하는 경우 [구독 할당량](azure-subscription-service-limits.md#azure-monitor-limits)을 초과하지 않아야 합니다.
+>
+> 연결된 자동화 계정이 있는 작업 영역은 이동할 수 없습니다. 이동 작업을 시작하기 전에 자동화 계정의 연결을 해제해야 합니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | 아니요 | 아니요 |
+> | clusters | 아니요 | 예 |
 > | deletedworkspaces | 아니요 | 예 |
 > | linktargets | 아니요 | 예 |
 > | 위치 | 아니요 | 예 |
 > | locations / operationstatuses | 아니요 | 예 |
 > | 작업 | 아니요 | 예 |
-> | storageinsightconfigs | 아니요 | 예 |
+> | storageinsightconfigs | 아니요 | 아니요 |
 > | workspaces | 예 | 예 |
 > | workspaces / datasources | 아니요 | 아니요 |
-> | workspaces / linkedservices | 아니요 | 아니요 |
-> | workspaces / linkedstorageaccounts | 예 | 아니요 |
-> | workspaces / metadata | 아니요 | 아니요 |
-> | workspaces / query | 예 | 아니요 |
+> | workspaces / linkedservices | 예 | 아니요 |
+> | workspaces / linkedstorageaccounts | 아니요 | 아니요 |
+> | workspaces / metadata | 예 | 아니요 |
+> | workspaces / query | 아니요 | 아니요 |
 > | workspaces / scopedprivatelinkproxies | 아니요 | 아니요 |
-
-> [!IMPORTANT]
-> 새 구독으로 이동하는 경우 [구독 할당량](azure-subscription-service-limits.md#azure-monitor-limits)을 초과하지 않아야 합니다.
->
-> 연결된 자동화 계정이 있는 작업 영역은 이동할 수 없습니다. 이동 작업을 시작하기 전에 자동화 계정의 연결을 해제해야 합니다.
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -2406,29 +2406,29 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
+> [!IMPORTANT]
+> [Recovery Services 이동 지침](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)을 참조하세요.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | backupprotecteditems | 예 | 아니요 |
-> | 위치 | 예 | 아니요 |
-> | locations / allocatedstamp | 예 | 아니요 |
-> | locations / allocatestamp | 예 | 아니요 |
-> | locations / backupaadproperties | 예 | 아니요 |
-> | locations / backupcrossregionrestore | 예 | 아니요 |
-> | locations / backupcrrjob | 예 | 아니요 |
-> | locations / backupcrrjobs | 예 | 아니요 |
-> | locations / backupcrroperationresults | 예 | 아니요 |
-> | locations / backupcrroperationsstatus | 예 | 아니요 |
-> | locations / backupprevalidateprotection | 예 | 아니요 |
-> | locations / backupstatus | 예 | 아니요 |
+> | backupprotecteditems | 아니요 | 예 |
+> | 위치 | 아니요 | 예 |
+> | locations / allocatedstamp | 아니요 | 예 |
+> | locations / allocatestamp | 아니요 | 예 |
+> | locations / backupaadproperties | 아니요 | 예 |
+> | locations / backupcrossregionrestore | 아니요 | 예 |
+> | locations / backupcrrjob | 아니요 | 예 |
+> | locations / backupcrrjobs | 아니요 | 예 |
+> | locations / backupcrroperationresults | 아니요 | 예 |
+> | locations / backupcrroperationsstatus | 아니요 | 예 |
+> | locations / backupprevalidateprotection | 아니요 | 예 |
+> | locations / backupstatus | 아니요 | 아니요 |
 > | locations / backupvalidatefeatures | 아니요 | 아니요 |
 > | locations / checknameavailability | 아니요 | 아니요 |
-> | 작업 | 아니요 | 예 |
-> | replicationeligibilityresults | 아니요 | 예 |
+> | 작업 | 예 | 예 |
+> | replicationeligibilityresults | 예 | 예 |
 > | vaults | 예 | 예 |
-
-> [!IMPORTANT]
-> [Recovery Services 이동 지침](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)을 참조하세요.
 
 ## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
 
@@ -2532,17 +2532,17 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
+> [!IMPORTANT]
+> 다른 지역에 있는 여러 Search 리소스를 한 번의 작업으로 이동할 수 없습니다. 대신 별도 작업으로 이동합니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | 아니요 | 아니요 |
-> | checkservicenameavailability | 아니요 | 아니요 |
-> | 작업 | 예 | 아니요 |
-> | resourcehealthmetadata | 예 | 아니요 |
+> | checkservicenameavailability | 예 | 예 |
+> | 작업 | 예 | 예 |
+> | resourcehealthmetadata | 예 | 예 |
 > | searchservices | 예 | 예 |
-
-> [!IMPORTANT]
-> 다른 지역에 있는 여러 Search 리소스를 한 번의 작업으로 이동할 수 없습니다. 대신 별도 작업으로 이동합니다.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
@@ -2748,6 +2748,9 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
+> [!IMPORTANT]
+> 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure Synapse Analytics 데이터베이스에 적용 됩니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2796,7 +2799,7 @@ ms.locfileid: "86539230"
 > | locations / longtermretentionservers | 예 | 아니요 |
 > | locations / manageddatabaseazureasyncoperation | 예 | 아니요 |
 > | locations / manageddatabasecompleterestoreazureasyncoperation | 예 | 아니요 |
-> | locations / manageddatabasecompleterestoreoperationresults | 예 | 아니요 |
+> | locations / manageddatabasecompleterestoreoperationresults | 예 | 예 |
 > | locations / manageddatabaseoperationresults | 예 | 아니요 |
 > | locations / manageddatabaserestoreazureasyncoperation | 예 | 아니요 |
 > | locations / manageddatabaserestoreoperationresults | 예 | 아니요 |
@@ -2822,7 +2825,7 @@ ms.locfileid: "86539230"
 > | locations / securityalertpoliciesazureasyncoperation | 예 | 아니요 |
 > | locations / securityalertpoliciesoperationresults | 예 | 아니요 |
 > | locations / serveradministratorazureasyncoperation | 예 | 아니요 |
-> | locations / serveradministratoroperationresults | 예 | 예 |
+> | locations / serveradministratoroperationresults | 예 | 아니요 |
 > | locations / serverazureasyncoperation | 예 | 아니요 |
 > | locations / serverkeyazureasyncoperation | 예 | 아니요 |
 > | locations / serverkeyoperationresults | 예 | 아니요 |
@@ -2846,11 +2849,11 @@ ms.locfileid: "86539230"
 > | managedinstances / administrators | 예 | 아니요 |
 > | managedinstances / databases | 예 | 아니요 |
 > | managedinstances / databases / backuplongtermretentionpolicies | 예 | 아니요 |
-> | managedinstances / databases / vulnerabilityassessments | 예 | 아니요 |
+> | managedinstances / databases / vulnerabilityassessments | 예 | 예 |
 > | managedinstances / metricdefinitions | 예 | 아니요 |
 > | managedinstances / metrics | 예 | 아니요 |
-> | managedinstances / recoverabledatabases | 예 | 아니요 |
-> | managedinstances / tdecertificates | 아니요 | 아니요 |
+> | managedinstances / recoverabledatabases | 아니요 | 아니요 |
+> | managedinstances / tdecertificates | 예 | 아니요 |
 > | managedinstances / vulnerabilityassessments | 예 | 아니요 |
 > | 작업 | 예 | 아니요 |
 > | servers | 예 | 예 |
@@ -2859,8 +2862,8 @@ ms.locfileid: "86539230"
 > | servers / advisors | 예 | 아니요 |
 > | servers / aggregateddatabasemetrics | 예 | 아니요 |
 > | servers / auditingpolicies | 예 | 아니요 |
-> | servers / auditingsettings | 예 | 아니요 |
-> | servers / automatictuning | 아니요 | 아니요 |
+> | servers / auditingsettings | 아니요 | 아니요 |
+> | servers / automatictuning | 예 | 아니요 |
 > | servers / communicationlinks | 예 | 아니요 |
 > | servers / connectionpolicies | 예 | 아니요 |
 > | servers / databases | 예 | 예 |
@@ -2890,8 +2893,8 @@ ms.locfileid: "86539230"
 > | servers / databases / vulnerabilityassessmentscans | 예 | 아니요 |
 > | servers / databases / vulnerabilityassessmentsettings | 예 | 아니요 |
 > | servers / databases / workloadgroups | 예 | 아니요 |
-> | servers / databasesecuritypolicies | 예 | 아니요 |
-> | servers / disasterrecoveryconfiguration | 아니요 | 아니요 |
+> | servers / databasesecuritypolicies | 아니요 | 아니요 |
+> | servers / disasterrecoveryconfiguration | 예 | 아니요 |
 > | servers / dnsaliases | 예 | 아니요 |
 > | servers / elasticpoolestimates | 예 | 아니요 |
 > | servers / elasticpools | 예 | 예 |
@@ -2899,9 +2902,9 @@ ms.locfileid: "86539230"
 > | servers / elasticpools / metricdefinitions | 예 | 아니요 |
 > | servers / elasticpools / metrics | 예 | 아니요 |
 > | servers / encryptionprotector | 예 | 아니요 |
-> | servers / extendedauditingsettings | 예 | 아니요 |
+> | servers / extendedauditingsettings | 아니요 | 아니요 |
 > | servers / failovergroups | 아니요 | 아니요 |
-> | servers / import | 아니요 | 아니요 |
+> | servers / import | 예 | 아니요 |
 > | servers / importexportoperationresults | 예 | 아니요 |
 > | servers / jobaccounts | 예 | 예 |
 > | servers / jobagents | 예 | 예 |
@@ -2916,14 +2919,11 @@ ms.locfileid: "86539230"
 > | servers / securityalertpolicies | 예 | 아니요 |
 > | servers / serviceobjectives | 예 | 아니요 |
 > | servers / syncagents | 예 | 아니요 |
-> | servers / tdecertificates | 예 | 아니요 |
+> | servers / tdecertificates | 아니요 | 아니요 |
 > | servers / usages | 아니요 | 아니요 |
 > | servers / virtualnetworkrules | 아니요 | 아니요 |
-> | servers / vulnerabilityassessments | 아니요 | 아니요 |
+> | servers / vulnerabilityassessments | 예 | 예 |
 > | virtualclusters | 예 | 예 |
-
-> [!IMPORTANT]
-> 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure Synapse Analytics 데이터베이스에 적용 됩니다.
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
@@ -3012,17 +3012,17 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
+> [!IMPORTANT]
+> 실행 중 상태인 Stream Analytics 작업은 이동할 수 없습니다.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | 예 | 예 |
+> | clusters | 예 | 아니요 |
 > | 위치 | 아니요 | 아니요 |
 > | locations / quotas | 아니요 | 아니요 |
-> | 작업 | 아니요 | 아니요 |
+> | 작업 | 아니요 | 예 |
 > | streamingjobs | 예 | 예 |
-
-> [!IMPORTANT]
-> 실행 중 상태인 Stream Analytics 작업은 이동할 수 없습니다.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
@@ -3110,17 +3110,17 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
+> [!IMPORTANT]
+> Azure DevOps 구독을 변경하려면 [청구에 사용되는 Azure 구독 변경](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)을 참조하세요.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | account | 아니요 | 예 |
-> | account / extension | 아니요 | 예 |
+> | account | 예 | 예 |
+> | account / extension | 예 | 예 |
 > | account / project | 아니요 | 아니요 |
 > | checknameavailability | 아니요 | 아니요 |
-> | 작업 | 예 | 예 |
-
-> [!IMPORTANT]
-> Azure DevOps 구독을 변경하려면 [청구에 사용되는 Azure 구독 변경](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)을 참조하세요.
+> | 작업 | 예 | 아니요 |
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
@@ -3178,63 +3178,63 @@ ms.locfileid: "86539230"
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
+> [!IMPORTANT]
+> [App Service 이동 지침](./move-limitations/app-service-move-limitations.md)을 참조하세요.
+
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availablestacks | 아니요 | 아니요 |
 > | billingmeters | 아니요 | 아니요 |
 > | certificates | 아니요 | 예 |
-> | checknameavailability | 아니요 | 예 |
+> | checknameavailability | 예 | 예 |
 > | connectiongateways | 예 | 예 |
 > | connections | 예 | 예 |
 > | customapis | 예 | 예 |
-> | deletedsites | 아니요 | 예 |
-> | deploymentlocations | 아니요 | 예 |
-> | georegions | 아니요 | 예 |
-> | hostingenvironments | 아니요 | 예 |
-> | hostingenvironments / eventgridfilters | 아니요 | 예 |
-> | hostingenvironments / multirolepools | 아니요 | 예 |
+> | deletedsites | 예 | 예 |
+> | deploymentlocations | 예 | 예 |
+> | georegions | 예 | 예 |
+> | hostingenvironments | 예 | 예 |
+> | hostingenvironments / eventgridfilters | 예 | 예 |
+> | hostingenvironments / multirolepools | 예 | 예 |
 > | hostingenvironments / workerpools | 아니요 | 아니요 |
-> | ishostingenvironmentnameavailable | 아니요 | 예 |
-> | ishostnameavailable | 아니요 | 예 |
-> | isusernameavailable | 아니요 | 예 |
+> | ishostingenvironmentnameavailable | 예 | 예 |
+> | ishostnameavailable | 예 | 예 |
+> | isusernameavailable | 예 | 예 |
 > | kubeenvironments | 예 | 예 |
-> | listsitesassignedtohostname | 아니요 | 예 |
-> | 위치 | 아니요 | 예 |
-> | locations / apioperations | 아니요 | 예 |
-> | locations / connectiongatewayinstallations | 아니요 | 예 |
-> | locations / deletedsites | 아니요 | 예 |
-> | locations / deletevirtualnetworkorsubnets | 아니요 | 예 |
-> | locations / extractapidefinitionfromwsdl | 아니요 | 예 |
-> | locations / getnetworkpolicies | 아니요 | 예 |
-> | locations / listwsdlinterfaces | 아니요 | 예 |
-> | locations / managedapis | 아니요 | 예 |
-> | locations / operationresults | 아니요 | 예 |
-> | locations / operations | 아니요 | 예 |
-> | locations / runtimes | 아니요 | 예 |
-> | 작업 | 아니요 | 예 |
+> | listsitesassignedtohostname | 예 | 예 |
+> | 위치 | 예 | 예 |
+> | locations / apioperations | 예 | 예 |
+> | locations / connectiongatewayinstallations | 예 | 예 |
+> | locations / deletedsites | 예 | 예 |
+> | locations / deletevirtualnetworkorsubnets | 예 | 예 |
+> | locations / extractapidefinitionfromwsdl | 예 | 예 |
+> | locations / getnetworkpolicies | 예 | 예 |
+> | locations / listwsdlinterfaces | 예 | 예 |
+> | locations / managedapis | 예 | 예 |
+> | locations / operationresults | 예 | 예 |
+> | locations / operations | 예 | 예 |
+> | locations / runtimes | 예 | 예 |
+> | 작업 | 예 | 예 |
 > | publishingusers | 아니요 | 아니요 |
-> | 동영상 추천 기능 | 아니요 | 예 |
+> | 동영상 추천 기능 | 예 | 예 |
 > | resourcehealthmetadata | 아니요 | 아니요 |
-> | runtimes | 아니요 | 예 |
+> | runtimes | 예 | 예 |
 > | serverfarms | 예 | 예 |
-> | serverfarms / eventgridfilters | 아니요 | 예 |
+> | serverfarms / eventgridfilters | 예 | 예 |
 > | sites | 예 | 예 |
 > | sites / eventgridfilters | 아니요 | 아니요 |
-> | sites / hostnamebindings | 아니요 | 예 |
-> | sites / networkconfig | 아니요 | 예 |
+> | sites / hostnamebindings | 예 | 예 |
+> | sites / networkconfig | 예 | 예 |
 > | sites / premieraddons | 예 | 예 |
 > | sites / slots | 예 | 예 |
-> | sites / slots / eventgridfilters | 아니요 | 예 |
-> | sites / slots / hostnamebindings | 아니요 | 예 |
-> | sites / slots / networkconfig | 아니요 | 예 |
+> | sites / slots / eventgridfilters | 예 | 예 |
+> | sites / slots / hostnamebindings | 예 | 예 |
+> | sites / slots / networkconfig | 예 | 예 |
 > | sourcecontrols | 아니요 | 아니요 |
 > | staticsites | 아니요 | 아니요 |
-> | validate | 예 | 예 |
-> | verifyhostingenvironmentvnet | 예 | 예 |
-
-> [!IMPORTANT]
-> [App Service 이동 지침](./move-limitations/app-service-move-limitations.md)을 참조하세요.
+> | validate | 예 | 아니요 |
+> | verifyhostingenvironmentvnet | 예 | 아니요 |
 
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 

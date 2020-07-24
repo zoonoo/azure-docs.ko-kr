@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d43bc20c31475a00a0ea81e4abdeb5405162a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081800"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -58,7 +58,7 @@ Azure Portal의 함수 앱에서 Application Insights를 열려면 왼쪽 페이
 
 ![함수 앱 [개요] 페이지에서 Application Insights 열기](media/functions-monitoring/ai-link.png)
 
-Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/application-insights/)를 참조하세요. 이 섹션에서는 Application Insights에서 데이터를 보는 방법에 대한 몇 가지 예를 보여줍니다. 이미 Application Insights에 익숙한 경우 [원격 분석 데이터를 구성하고 사용자 지정하는 방법에 대한 섹션](#configure-categories-and-log-levels)으로 바로 넘어가도 됩니다.
+Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights 설명서](/azure/application-insights/)를 참조하세요. 이 섹션에서는 Application Insights에서 데이터를 보는 방법에 대한 몇 가지 예를 보여줍니다. 이미 Application Insights에 익숙한 경우 [원격 분석 데이터를 구성하고 사용자 지정하는 방법에 대한 섹션](#configure-categories-and-log-levels)으로 바로 넘어가도 됩니다.
 
 ![Application Insights 개요 탭](media/functions-monitoring/metrics-explorer.png)
 
@@ -68,12 +68,12 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 | ---- | ----------- |
 | **[실패](../azure-monitor/app/asp-net-exceptions.md)** |  함수 오류 및 서버 예외를 기반으로 차트와 경고를 만듭니다. **작업 이름**은 함수 이름입니다. 종속성에 대한 사용자 지정 원격 분석을 구현하지 않으면 종속성 오류가 표시되지 않습니다. |
 | **[성능](../azure-monitor/app/performance-counters.md)** | **클라우드 역할 인스턴스**당 리소스 사용률 및 처리량을 확인하여 성능 문제를 분석합니다. 이 데이터는 함수 때문에 기본 리소스가 정체되는 시나리오를 디버깅하는 데 유용할 수 있습니다. |
-| **[메트릭](../azure-monitor/app/metrics-explorer.md)** | 메트릭 기반의 차트 및 경고를 만듭니다. 메트릭에는 함수 호출 수, 실행 시간 및 성공률이 포함됩니다. |
+| **[메트릭](../azure-monitor/platform/metrics-charts.md)** | 메트릭 기반의 차트 및 경고를 만듭니다. 메트릭에는 함수 호출 수, 실행 시간 및 성공률이 포함됩니다. |
 | **[라이브 메트릭](../azure-monitor/app/live-stream.md)** | 거의 실시간으로 생성되는 메트릭 데이터를 봅니다. |
 
 ## <a name="query-telemetry-data"></a>원격 분석 데이터 쿼리
 
-[Application Insights Analytics](../azure-monitor/app/analytics.md)를 사용하면 데이터베이스의 모든 원격 분석 데이터를 테이블 형식으로 사용할 수 있습니다. Analytics는 데이터를 추출, 조작 및 시각화하는 쿼리 언어를 제공합니다. 
+[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md)를 사용하면 데이터베이스의 모든 원격 분석 데이터를 테이블 형식으로 사용할 수 있습니다. Analytics는 데이터를 추출, 조작 및 시각화하는 쿼리 언어를 제공합니다. 
 
 로깅된 이벤트를 살펴보거나 쿼리하려면 **로그**를 선택합니다.
 
@@ -153,7 +153,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 
 ### <a name="version-2x-and-higher"></a>2\.x 이상 버전
 
-v2.x 이상 버전의 Functions 런타임은 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)를 사용합니다. 
+v2.x 이상 버전의 Functions 런타임은 [.NET Core 로깅 필터 계층 구조](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)를 사용합니다. 
 
 ```json
 {
@@ -246,7 +246,7 @@ v2.x 이상 버전의 Functions 런타임은 [.NET Core 로깅 필터 계층 구
 
 ## <a name="configure-sampling"></a>샘플링 구성
 
-Application Insights에는 최대 부하 시 실행이 완료될 때 원격 분석 데이터를 너무 많이 생성하지 않도록 방지하는 [샘플링](../azure-monitor/app/sampling.md) 기능이 포함되어 있습니다. 들어오는 실행 비율이 지정된 임계값을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. 초당 최대 실행 수의 기본 설정은 20입니다(1.x 버전은 5). [host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights)에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
+Application Insights에는 최대 부하 시 실행이 완료될 때 원격 분석 데이터를 너무 많이 생성하지 않도록 방지하는 [샘플링](../azure-monitor/app/sampling.md) 기능이 포함되어 있습니다. 들어오는 실행 비율이 지정된 임계값을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. 초당 최대 실행 수의 기본 설정은 20입니다(1.x 버전은 5). [host.json](./functions-host-json.md#applicationinsights)에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ### <a name="version-2x-and-later"></a>2\.x 이상 버전
 
@@ -285,9 +285,9 @@ Application Insights에서 traces로 표시되는 로그를 함수 코드로 작
 
 ### <a name="ilogger"></a>ILogger
 
-함수에 `TraceWriter` 매개 변수 대신 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 사용합니다. `TraceWriter`를 사용하여 생성된 로그는 Application Insights로 이동하지만, `ILogger`를 사용하여 [구조적 로깅](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)을 수행할 수 있습니다.
+함수에 `TraceWriter` 매개 변수 대신 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 사용합니다. `TraceWriter`를 사용하여 생성된 로그는 Application Insights로 이동하지만, `ILogger`를 사용하여 [구조적 로깅](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)을 수행할 수 있습니다.
 
-`ILogger` 개체를 사용하여 로그를 생성하는 `Log<level>`[ILogger의 확장 메서드](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods)를 호출합니다. 다음 코드는 범주가 "Function.<YOUR_FUNCTION_NAME>.User"인 `Information` 로그를 작성합니다.
+`ILogger` 개체를 사용하여 로그를 생성하는 `Log<level>`[ILogger의 확장 메서드](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods)를 호출합니다. 다음 코드는 범주가 "Function.<YOUR_FUNCTION_NAME>.User"인 `Information` 로그를 작성합니다.
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -553,7 +553,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -577,7 +577,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.operationId};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -679,14 +679,11 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell](/powershell/azure/overview)을 사용하여 스트리밍 로그를 사용하도록 설정할 수 있습니다. PowerShell의 경우 다음 명령을 사용하여 Azure 계정을 추가하고, 구독을 선택하고, 로그 파일을 스트리밍합니다.
+[Azure PowerShell](/powershell/azure/)을 사용하여 스트리밍 로그를 사용하도록 설정할 수 있습니다. PowerShell의 경우 다음 코드 조각과 같이 [AzWebApp](/powershell/module/az.websites/set-azwebapp) 명령을 사용 하 여 함수 앱에 대 한 로깅을 사용 하도록 설정 합니다. 
 
-```powershell
-Add-AzAccount
-Get-AzSubscription
-Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
-```
+:::code language="powershell" source="~/powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1" range="19-20":::
+
+자세한 내용은 [전체 코드 예제](../app-service/scripts/powershell-monitor.md#sample-script)를 참조 하세요. 
 
 ## <a name="scale-controller-logs-preview"></a>컨트롤러 로그 크기 조정 (미리 보기)
 

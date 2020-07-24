@@ -3,19 +3,20 @@ title: Azure Functions 보안 설정
 description: Azure에서 실행 중인 함수 코드가 일반적인 공격으로부터 더욱 안전하게 보호하는 방법을 알아봅니다.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259425"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079692"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
 
-여러 측면에서 서버리스 함수의 안전한 개발, 배포 및 운영 계획은 웹 기반 또는 클라우드 호스팅 애플리케이션과 유사합니다. [Azure App Service](/azure/app-service/)는 함수 앱에 대한 호스팅 인프라를 제공합니다. 이 문서에서는 함수 코드를 실행하기 위한 보안 전략과 App Service가 함수를 보호하는 데 어떻게 도움이 되는지 제공합니다. 
+여러 측면에서 서버리스 함수의 안전한 개발, 배포 및 운영 계획은 웹 기반 또는 클라우드 호스팅 애플리케이션과 유사합니다. [Azure App Service](../app-service/index.yml)는 함수 앱에 대한 호스팅 인프라를 제공합니다. 이 문서에서는 함수 코드를 실행하기 위한 보안 전략과 App Service가 함수를 보호하는 데 어떻게 도움이 되는지 제공합니다. 
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-[Azure Security Benchmark](/azure/security/benchmarks/overview)를 따르는 보안 권장 사항은 [Azure Functions용 Azure 보안 기준](security-baseline.md)을 참조하세요.
+[Azure Security Benchmark](../security/benchmarks/overview.md)를 따르는 보안 권장 사항은 [Azure Functions용 Azure 보안 기준](security-baseline.md)을 참조하세요.
 
 ## <a name="secure-operation"></a>보안 작업 
 

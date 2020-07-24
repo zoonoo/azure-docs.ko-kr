@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964637"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078163"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -77,27 +77,27 @@ ISE에서 만들고 실행 하는 논리 앱의 경우 다음과 같은 기능�
 
 ## <a name="connectors"></a>커넥터
 
-Azure Logic Apps 커넥터를 사용 하면 [트리거](#triggers), [작업](#actions)또는 둘 다를 제공 하 여 논리 앱에서 클라우드 또는 온-프레미스의 앱, 서비스 및 시스템에 액세스할 수 있습니다. 커넥터는 Standard 또는 Enterprise 중 하나로 분류 됩니다. 이러한 커넥터에 대 한 개요는 [Azure Logic Apps 커넥터](../connectors/apis-list.md)를 참조 하십시오. 논리 앱에서 사용 하려는 REST Api에 대해 미리 빌드된 커넥터를 사용할 수 없는 경우 이러한 REST Api를 중심으로 하는 래퍼로 [사용자 지정 커넥터](https://docs.microsoft.com/connectors/custom-connectors)를 만들 수 있습니다. 사용자 지정 커넥터는 표준 커넥터로 청구 됩니다. 다음 섹션에서는 트리거 및 작업의 요금 청구 방법에 대 한 자세한 정보를 제공 합니다.
+Azure Logic Apps 커넥터를 사용 하면 [트리거](#triggers), [작업](#actions)또는 둘 다를 제공 하 여 논리 앱에서 클라우드 또는 온-프레미스의 앱, 서비스 및 시스템에 액세스할 수 있습니다. 커넥터는 Standard 또는 Enterprise 중 하나로 분류 됩니다. 이러한 커넥터에 대 한 개요는 [Azure Logic Apps 커넥터](../connectors/apis-list.md)를 참조 하십시오. 논리 앱에서 사용 하려는 REST Api에 대해 미리 빌드된 커넥터를 사용할 수 없는 경우 이러한 REST Api를 중심으로 하는 래퍼로 [사용자 지정 커넥터](/connectors/custom-connectors)를 만들 수 있습니다. 사용자 지정 커넥터는 표준 커넥터로 청구 됩니다. 다음 섹션에서는 트리거 및 작업의 요금 청구 방법에 대 한 자세한 정보를 제공 합니다.
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>트리거
 
-트리거는 특정 이벤트가 발생할 때 논리 앱 인스턴스를 만드는 특수 작업입니다. 트리거는 논리 앱이 계량되는 방식에 영향을 주는 다양한 방법으로 작동합니다. Azure Logic Apps에 존재 하는 다양 한 종류의 트리거는 다음과 같습니다.
+트리거는 항상 논리 앱 워크플로의 첫 번째 단계 이며 특정 조건이 충족 되거나 특정 이벤트가 발생 하는 경우 논리 앱 인스턴스를 만들고 실행 하는 특별 한 작업입니다. 트리거는 논리 앱이 계량되는 방식에 영향을 주는 다양한 방법으로 작동합니다. Azure Logic Apps에 존재 하는 다양 한 종류의 트리거는 다음과 같습니다.
 
-* **폴링 트리거**:이 트리거는 논리 앱 인스턴스를 만들고 워크플로를 시작 하기 위한 조건을 충족 하는 메시지에 대해 끝점을 지속적으로 확인 합니다. 논리 앱 인스턴스를 만들지 않은 경우에도 Logic Apps는 각 폴링 요청을 실행으로 측정합니다. 폴링 간격을 설정하려면 논리 앱 디자이너를 통해 트리거를 설정합니다.
+* **되풀이 트리거**: 모든 서비스 또는 시스템에 한정 되지 않은이 일반 트리거를 사용 하 여 논리 앱 워크플로를 시작 하 고 트리거에서 설정한 되풀이 간격에 따라 실행 되는 논리 앱 인스턴스를 만들 수 있습니다. 예를 들어 3 일 마다 또는 보다 복잡 한 일정으로 실행 되는 되풀이 트리거를 설정할 수 있습니다.
+
+* **폴링 트리거**: 이러한 더 특수 되풀이 트리거를 사용할 수 있습니다 .이는 일반적으로 특정 서비스나 시스템에 대해 관리 되는 커넥터와 관련 되어 있으며 트리거에서 설정한 되풀이 간격에 따라 논리 앱 인스턴스를 만들고 실행 하기 위한 조건을 충족 하는 이벤트 또는 메시지를 확인 하기 위해 사용할 수 있습니다. 논리 앱 인스턴스를 만들지 않은 경우에도 (예: 트리거를 건너뛰는 경우) Logic Apps 서비스에서 각 폴링 요청을 실행으로 측정 합니다. 폴링 간격을 설정하려면 논리 앱 디자이너를 통해 트리거를 설정합니다.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook 트리거**:이 트리거는 클라이언트가 특정 끝점에 요청을 보낼 때까지 대기 합니다. 웹후크 엔드포인트로 전송된 각 요청은 작업 실행으로 계산됩니다. 예를 들어, 요청 및 HTTP 웹후크 트리거는 둘 다 웹후크 트리거입니다.
-
-* **되풀이 트리거**:이 트리거는 트리거에서 설정한 되풀이 간격을 기반으로 논리 앱 인스턴스를 만듭니다. 예를 들어 3 일 마다 또는 보다 복잡 한 일정으로 실행 되는 되풀이 트리거를 설정할 수 있습니다.
+* 웹 후크 **트리거**: 폴링 트리거를 사용 하는 대신 webhook 트리거를 사용 하 여 클라이언트가 특정 끝점 URL에서 논리 앱에 요청을 보낼 때까지 기다릴 수 있습니다. 웹 후크 끝점으로 전송 되는 각 요청은 작업 실행으로 계산 됩니다. 예를 들어 요청 및 HTTP Webhook 트리거는 모두 일반 Webhook 트리거입니다. 서비스 또는 시스템용 일부 커넥터에도 webhook 트리거가 있습니다.
 
 <a name="actions"></a>
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 
-기본 작업으로 "기본 제공" 작업 (예: HTTP)을 Azure Logic Apps 합니다. 예를 들어 기본 제공 작업에는 HTTP 호출, Azure Functions 또는 API Management의 호출 및 조건, 루프, switch 문 등의 제어 흐름 단계가 포함 됩니다. 각 작업에는 고유한 작업 유형이 있습니다. 예를 들어 [커넥터](https://docs.microsoft.com/connectors) 를 호출 하는 작업에는 "ApiConnection" 형식이 있습니다. 이러한 커넥터는 표준 또는 엔터프라이즈 커넥터로 분류 되며 해당 [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)에 따라 측정 됩니다. *미리 보기* 의 엔터프라이즈 커넥터는 표준 커넥터로 요금이 청구 됩니다.
+기본 작업으로 "기본 제공" 작업 (예: HTTP)을 Azure Logic Apps 합니다. 예를 들어 기본 제공 작업에는 HTTP 호출, Azure Functions 또는 API Management의 호출 및 조건, 루프, switch 문 등의 제어 흐름 단계가 포함 됩니다. 각 작업에는 고유한 작업 유형이 있습니다. 예를 들어 [커넥터](/connectors) 를 호출 하는 작업에는 "ApiConnection" 형식이 있습니다. 이러한 커넥터는 표준 또는 엔터프라이즈 커넥터로 분류 되며 해당 [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)에 따라 측정 됩니다. *미리 보기* 의 엔터프라이즈 커넥터는 표준 커넥터로 요금이 청구 됩니다.
 
 Azure Logic Apps 성공 및 실패 한 모든 작업을 실행으로 측정 합니다. 그러나 Logic Apps는 이러한 작업을 측정 하지 않습니다.
 
@@ -122,7 +122,7 @@ Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공 합니다.
 
 무료, 기본 또는 표준 통합 계정 중에서 선택 하려면 다음과 같은 사용 사례 설명을 검토 합니다.
 
-* **무료**: 프로덕션 시나리오가 아닌 예비 시나리오를 시도해 볼 수 있습니다. 이 계층은 Azure의 공용 지역 (예: 미국 서 부 또는 동남 아시아)에 대해서만 사용할 수 있지만, [Azure 중국 21vianet](https://docs.microsoft.com/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다.
+* **무료**: 프로덕션 시나리오가 아닌 예비 시나리오를 시도해 볼 수 있습니다. 이 계층은 Azure의 공용 지역 (예: 미국 서 부 또는 동남 아시아)에 대해서만 사용할 수 있지만, [Azure 중국 21vianet](/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다.
 
 * **기본**: 더 큰 비즈니스 엔터티와 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할을 하는 메시지 처리만 하려는 경우
 

@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82980901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079556"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
@@ -20,7 +21,7 @@ ms.locfileid: "82980901"
 
 ## <a name="metrics-in-azure"></a>Azure의 메트릭
 
-[Azure Monitor의 메트릭](data-platform-metrics.md)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트 및 메트릭](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [WINDOWS Azure 진단 (WAD) 확장](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)에 대 한 Application Insights API를 사용 하 여 응용 프로그램에서 Azure로 전송 되거나 [REST API Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)됩니다.
+[Azure Monitor의 메트릭](data-platform-metrics.md)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트 및 메트릭](../app/api-custom-events-metrics.md), [WINDOWS Azure 진단 (WAD) 확장](./diagnostics-extension-overview.md)에 대 한 Application Insights API를 사용 하 여 응용 프로그램에서 Azure로 전송 되거나 [REST API Azure Monitor](./metrics-store-custom-rest-api.md)됩니다.
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>여러 메트릭 및 차트를 사용 하 여 뷰 만들기
 
@@ -175,5 +176,4 @@ Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 
 
 ## <a name="next-steps"></a>다음 단계
 
-  메트릭을 사용하여 조치 가능한 대시보드를 만드는 모범 사례에 대한 자세한 내용은 [사용자 지정 KPI 대시보드 만들기](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards)를 참고하세요.
-
+  메트릭을 사용하여 조치 가능한 대시보드를 만드는 모범 사례에 대한 자세한 내용은 [사용자 지정 KPI 대시보드 만들기](../learn/tutorial-app-dashboards.md)를 참고하세요.

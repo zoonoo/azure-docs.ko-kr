@@ -8,14 +8,14 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: dbd44c5a90a656b804ff4e3bb9984a059ec3a89a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 30edd5b8e9fbfdce9fb3061c1891ff0a68a50cc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135410"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080253"
 ---
-# <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD를 사용 하 여 Azure Disk Encryption (이전 릴리스)
+# <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Azure Active Directory (AD)로 Azure Disk Encryption (이전 릴리스)
 
 Azure Disk Encryption의 새 릴리스는 VM 디스크 암호화를 사용 하도록 설정 하기 위해 Azure Active Directory (Azure AD) 응용 프로그램 매개 변수를 제공 하는 요구 사항을 제거 합니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 새 릴리스를 사용 하 여 Azure AD 응용 프로그램 매개 변수 없이 모든 새 Vm을 암호화 해야 합니다. 새 릴리스를 사용 하 여 VM 디스크 암호화를 사용 하도록 설정 하는 방법에 대 한 지침은 [Linux vm에 대 한 Azure Disk Encryption](disk-encryption-overview.md)를 참조 하세요. Azure AD 애플리케이션 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.
 
@@ -47,9 +47,9 @@ Azure Disk Encryption의 새 릴리스는 VM 디스크 암호화를 사용 하�
   ```
 
 ### <a name="group-policy"></a>그룹 정책
- - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인에 가입 된 Vm의 경우 TPM 보호기를 적용 하는 그룹 정책을 푸시 하지 마십시오. **호환 되는 TPM 없이 Bitlocker 허용**옵션의 그룹 정책에 대 한 자세한 내용은 [bitlocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조 하세요.
+ - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인에 가입 된 Vm의 경우 TPM 보호기를 적용 하는 그룹 정책을 푸시 하지 마십시오. **호환 되는 TPM 없이 Bitlocker 허용**옵션의 그룹 정책에 대 한 자세한 내용은 [bitlocker 그룹 정책 참조](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조 하세요.
 
-- 사용자 지정 그룹 정책 있는 도메인에 가입 된 가상 컴퓨터에 대 한 BitLocker 정책은 [bitlocker 복구 정보의 사용자 저장소 구성-256 비트 복구 키 허용 >](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)설정을 포함 해야 합니다. BitLocker에 대 한 사용자 지정 그룹 정책 설정이 호환 되지 않는 경우 Azure Disk Encryption 실패 합니다. 올바른 정책 설정이 없는 컴퓨터에서 새 정책을 적용 하 고 새 정책을 강제로 업데이트 (gpupdate.exe/force) 한 다음 필요한 경우 다시 시작 합니다. 
+- 사용자 지정 그룹 정책 있는 도메인에 가입 된 가상 컴퓨터에 대 한 BitLocker 정책은 [bitlocker 복구 정보의 사용자 저장소 구성-256 비트 복구 키 허용 >](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)설정을 포함 해야 합니다. BitLocker에 대 한 사용자 지정 그룹 정책 설정이 호환 되지 않는 경우 Azure Disk Encryption 실패 합니다. 올바른 정책 설정이 없는 컴퓨터에서 새 정책을 적용 하 고 새 정책을 강제로 업데이트 (gpupdate.exe/force) 한 다음 필요한 경우 다시 시작 합니다. 
 
 ## <a name="encryption-key-storage-requirements"></a>암호화 키 스토리지 요구 사항 
 

@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cf58b62001ce5d193e3a06973215d82138ad4b59
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080474"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -64,22 +64,22 @@ VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
 
-예! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
+맞습니다! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
 
 
 ## <a name="autoscale"></a>자동 크기 조정
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Azure 자동 크기 조정에 대한 모범 사례는 무엇인가요?
 
-자동 크기 조정에 대한 모범 사례는 [가상 머신 자동 크기 조정에 대한 모범 사례](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices)를 참조하세요.
+자동 크기 조정에 대한 모범 사례는 [가상 머신 자동 크기 조정에 대한 모범 사례](../azure-monitor/platform/autoscale-best-practices.md)를 참조하세요.
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>호스트 기반 메트릭을 사용하는 자동 크기 조정에 대한 메트릭 이름은 어디에서 찾을 수 있나요?
 
-호스트 기반 메트릭을 사용하는 자동 크기 조정에 대한 메트릭 이름은 [Azure Monitor에서 지원되는 메트릭](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/)을 참조하세요.
+호스트 기반 메트릭을 사용하는 자동 크기 조정에 대한 메트릭 이름은 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/platform/metrics-supported.md)을 참조하세요.
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Azure Service Bus 토픽과 큐 길이를 기준으로 하는 자동 크기 조정의 예가 있나요?
 
-예. Azure Service Bus 토픽과 큐 길이를 기준으로 하는 자동 크기 조정의 예는 [Azure Monitor 자동 크기 조정 공용 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)을 참조하세요.
+예. Azure Service Bus 토픽과 큐 길이를 기준으로 하는 자동 크기 조정의 예는 [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md)을 참조하세요.
 
 Service Bus 큐를 모니터링하려면 다음 JSON을 수행합니다.
 
@@ -104,9 +104,9 @@ Service Bus 큐를 모니터링하려면 다음 JSON을 수행합니다.
 
 VM에 자동 크기 조정 설정을 만들면 호스트 수준 메트릭 또는 게스트 OS 기반 메트릭을 사용할 수 있습니다.
 
-지원되는 메트릭 목록에 대해서는 [Azure Monitor 자동 크기 조정 공용 메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics)을 참조하세요.
+지원되는 메트릭 목록에 대해서는 [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md)을 참조하세요.
 
-가상 머신 확장 집합의 전체 샘플을 보려면 [가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 고급 자동 크기 조정 구성](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets)을 참조하세요.
+가상 머신 확장 집합의 전체 샘플을 보려면 [가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 고급 자동 크기 조정 구성](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md)을 참조하세요.
 
 샘플에서는 호스트 수준의 CPU 메트릭 및 메시지 개수 메트릭을 사용합니다.
 
@@ -114,13 +114,13 @@ VM에 자동 크기 조정 설정을 만들면 호스트 수준 메트릭 또는
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 대해 경고 규칙을 설정하려면 어떻게 해야 하나요?
 
-PowerShell 또는 Azure CLI를 통해 가상 머신 확장 집합의 메트릭에 대해 경고를 만들 수 있습니다. 자세한 내용은 [Azure Monitor PowerShell 빠른 시작 샘플](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) 및 [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts)을 참조하세요.
+PowerShell 또는 Azure CLI를 통해 가상 머신 확장 집합의 메트릭에 대해 경고를 만들 수 있습니다. 자세한 내용은 [Azure Monitor PowerShell 빠른 시작 샘플](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) 및 [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../azure-monitor/samples/cli-samples.md#work-with-alerts)을 참조하세요.
 
 가상 머신 확장 집합의 TargetResourceId는 다음과 같습니다.
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-경고를 설정할 메트릭으로 어떤 VM 성능 카운터도 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 자동 크기 조정 공용 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) 문서의 [Resource Manager 기반 Windows VM에 대한 게스트 OS 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) 및 [Linux VM에 대한 게스트 OS 메트릭](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms)을 참조하세요.
+경고를 설정할 메트릭으로 어떤 VM 성능 카운터도 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md) 문서의 [Resource Manager 기반 Windows VM에 대한 게스트 OS 메트릭](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) 및 [Linux VM에 대한 게스트 OS 메트릭](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms)을 참조하세요.
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 어떻게 하나요?
 
@@ -159,7 +159,7 @@ VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Wi
 
 코드는 Windows와 Linux를 모두 지원합니다.
 
-자세한 내용은 [가상 머신 확장 집합 만들기 또는 업데이트](https://msdn.microsoft.com/library/mt589035.aspx)를 참조하세요.
+자세한 내용은 [가상 머신 확장 집합 만들기 또는 업데이트](/rest/api/compute/virtualmachinescalesets/createorupdate)를 참조하세요.
 
 
 ### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터에 대해 프로 비전 된 자체 서명 된 인증서를 사용 어떻게 할까요??
@@ -169,7 +169,7 @@ VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Wi
 az sf cluster create -h
 ```
 
-자체 서명 인증서는 인증 기관에서 제공하는 분산 트러스트에 사용할 수 없으며, 엔터프라이즈 프로덕션 솔루션을 호스트하기 위한 어떤 Service Fabric 클러스터에도 사용하지 말아야 합니다. 추가 Service Fabric 보안 지침에 대해서는 [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) 및 [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)를 검토하세요.
+자체 서명 인증서는 인증 기관에서 제공하는 분산 트러스트에 사용할 수 없으며, 엔터프라이즈 프로덕션 솔루션을 호스트하기 위한 어떤 Service Fabric 클러스터에도 사용하지 말아야 합니다. 추가 Service Fabric 보안 지침에 대해서는 [Azure Service Fabric 보안 모범 사례](../security/fundamentals/service-fabric-best-practices.md) 및 [Service Fabric 클러스터 보안 시나리오](../service-fabric/service-fabric-cluster-security.md)를 검토하세요.
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 Linux 가상 머신 확장 집합으로 SSH 인증에 사용하려는 SSH 키 쌍을 지정할 수 있나요?
 
@@ -197,7 +197,7 @@ az sf cluster create -h
 
 이 JSON 블록은 [이 Azure 빠른 시작 템플릿에서](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)사용 됩니다.
 
-자세한 내용은 [가상 머신 확장 집합 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration)를 참조하세요.
+자세한 내용은 [가상 머신 확장 집합 만들기 또는 업데이트](/rest/api/compute/virtualmachinescalesets/createorupdate#linuxconfiguration)를 참조하세요.
 
 ### <a name="how-do-i-remove-deprecated-certificates"></a>사용되지 않는 인증서를 제거하려면 어떻게 합니까?
 
@@ -224,10 +224,10 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
 }
 ```
 
-linuxConfiguration 요소 이름 | 필수 | Type | 설명
+linuxConfiguration 요소 이름 | 필수 | Type | Description
 --- | --- | --- | ---
 ssh | 아니요 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
-경로 | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
+path | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
 keyData | 예 | String | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
 예제는 [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)을 참조하세요.
@@ -240,7 +240,7 @@ keyData | 예 | String | base64로 인코딩된 SSH 공개 키를 지정합니�
 
 동일한 키 자격 증명 모음에서 더 많은 비밀을 추가하려면 $vmss.properties.osProfile.secrets[0].vaultCertificates 목록을 업데이트해야 합니다.
 
-필요한 입력 구조에 대한 자세한 내용은 [가상 컴퓨터 설정 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt589035.aspx)를 참조하세요.
+필요한 입력 구조에 대한 자세한 내용은 [가상 컴퓨터 설정 만들기 또는 업데이트](/rest/api/compute/virtualmachinescalesets/createorupdate)를 참조하세요.
 
 Key Vault에 있는 가상 머신 확장 집합 개체에서 암호를 찾습니다. 그런 다음 인증서 참조(비밀 저장소 이름 및 URL)를 자격 증명 모음과 관련된 목록에 추가합니다.
 
@@ -268,7 +268,7 @@ Win RM(Windows 원격 관리) 인증서 참조는 OS 프로필의 Secrets 속성
 
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Linux VM에 대한 인증서는 어디에서 추가하나요?
 
-Linux VM에 대한 인증서를 배포하는 방법을 알아보려면 [고객이 관리하는 Key Vault에서 VM에 인증서 배포](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/)를 참조하세요.
+Linux VM에 대한 인증서를 배포하는 방법을 알아보려면 [고객이 관리하는 Key Vault에서 VM에 인증서 배포](/archive/blogs/kv/deploy-certificates-to-vms-from-customer-managed-key-vault)를 참조하세요.
 
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>새 자격 증명 모음 인증서는 새 인증서 개체에 추가하려면 어떻게 하나요?
 
@@ -304,7 +304,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 .cer 공개 키를 가상 머신 확장 집합에 배포하려면 .cer 파일만 포함하는 .pfx 파일을 생성할 수 있습니다. 이렇게 하려면 `X509ContentType = Pfx`를 사용합니다. 예를 들어 C# 또는 PowerShell에서 .cer 파일을 x509Certificate2 개체로 로드하고 이 메서드를 호출합니다.
 
-자세한 내용은 [X509Certificate.Export 메서드(X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx))를 참조하세요.
+자세한 내용은 [X509Certificate.Export 메서드(X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_)를 참조하세요.
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>인증서를 base64 문자열로 전달 어떻게 할까요??
 
@@ -334,7 +334,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/TrustCenter/Compliance/PCI)를 참조 하세요.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>[Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/msi-overview)는 가상 머신 확장 집합과 함께 작동하나요?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>[Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 가상 머신 확장 집합과 함께 작동하나요?
 
 예. Azure 빠른 시작 템플릿에서 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) 및 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)에 대 한 몇 가지 예제 MSI 템플릿을 볼 수 있습니다.
 
@@ -436,7 +436,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>개인 저장소 계정에서 호스트 되는 사용자 지정 스크립트를 실행할 어떻게 할까요? 있나요?
 
-프라이빗 스토리지 계정에 호스트되는 사용자 지정 스크립트를 실행하려면 스토리지 계정 키 및 이름을 사용하여 보호 설정을 지정합니다. 자세한 내용은 [사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)을 참조 하세요.
+프라이빗 스토리지 계정에 호스트되는 사용자 지정 스크립트를 실행하려면 스토리지 계정 키 및 이름을 사용하여 보호 설정을 지정합니다. 자세한 내용은 [사용자 지정 스크립트 확장](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity)을 참조 하세요.
 
 ## <a name="passwords"></a>암호
 
@@ -448,7 +448,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
     확장 집합 모델에서(예: Azure Resource Explorer, PowerShell 또는 CLI 사용) 직접 관리 자격 증명을 업데이트합니다. 확장 집합이 업데이트되면 모든 새 VM에 새 자격 증명이 포함됩니다. 기존 VM은 이미지로 다시 설치되는 경우에만 새 자격 증명이 포함됩니다.
 
-- VM 액세스 확장을 사용하여 암호를 다시 설정합니다. [여기](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)에 설명 된 대로 암호 요구 사항을 준수 해야 합니다.
+- VM 액세스 확장을 사용하여 암호를 다시 설정합니다. [여기](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)에 설명 된 대로 암호 요구 사항을 준수 해야 합니다.
 
     다음 PowerShell 예제를 사용합니다.
 
@@ -523,7 +523,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>가속 네트워킹을 포함한 확장 집합을 사용할 수 있나요?
 
-예. 가속된 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 true로 설정합니다. 예
+예. 가속된 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 true로 설정합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "networkProfile": {
@@ -635,7 +635,7 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
 
 ### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>내 가상 머신 크기 집합을 새 이미지로 업데이트하는 방법은 무엇인가요? 패치는 어떻게 관리해야 하나요?
 
-가상 머신 확장 집합을 새 이미지로 업데이트하고 패치를 관리하려면 [가상 머신 확장 집합 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set)를 참조하세요.
+가상 머신 확장 집합을 새 이미지로 업데이트하고 패치를 관리하려면 [가상 머신 확장 집합 업그레이드](./virtual-machine-scale-sets-upgrade-scale-set.md)를 참조하세요.
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>이미지로 다시 설치 작업을 사용하여 이미지를 변경하지 않고 VM을 다시 설정할 수 있나요? (즉 VM을 새 이미지가 아닌 출하 시 설정으로 다시 설정하려고 합니다.)
 

@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 대 한 Azure Backup Server 설정
 description: Azure Backup Server를 사용 하 여 가상 컴퓨터를 백업 하도록 Azure VMware 솔루션 환경을 설정 합니다.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c56ebaff6b08f3d6586dfe025fdb2a5bfc708fa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816852"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079539"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 Azure Backup Server 설정
 
@@ -198,7 +198,7 @@ Recovery Services 자격 증명 모음은 시간에 따라 생성 된 복구 위
 
    1. 리소스 목록에서 **Recovery Services**를 입력합니다.
 
-   1. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
+   1. 입력을 시작하면 입력 내용에 따라 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
 
    ![Recovery Services 자격 증명 모음 만들기 1 단계](../backup/media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
@@ -309,7 +309,7 @@ Recovery Services 자격 증명 모음은 시간에 따라 생성 된 복구 위
    * **데이터베이스**: **DatabaseName** 은 **ReportServer $ \<SQLInstanceName> **여야 합니다.
    * **웹 포털 URL**: **가상 디렉터리** 를 **Reports_ \<SQLInstanceName> **해야 합니다.
 
-   SSRS 구성에 대해 [자세히 알아봅니다](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017).
+   SSRS 구성에 대해 [자세히 알아봅니다](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017).
 
    > [!NOTE]
    > [Microsoft Online Services 약관](https://www.microsoft.com/licensing/product-licensing/products) (OST)은 Azure Backup Server의 데이터베이스로 사용 되는 SQL Server에 대 한 라이선스를 제어 합니다. OST에 따라 Azure Backup Server와 함께 제공 되는 SQL Server는 Azure Backup Server 데이터베이스로만 사용할 수 있습니다.
@@ -319,7 +319,7 @@ Recovery Services 자격 증명 모음은 시간에 따라 생성 된 복구 위
 1. Microsoft Azure Backup Server 파일의 설치 위치를 지정 하 고 **다음**을 선택 합니다.
 
    > [!NOTE]
-   > Azure에 백업 하려면 스크래치 위치가 필요 합니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호의 경우 설치가 완료 된 후 별도의 디스크를 구성 해야 합니다. 저장소 풀에 대 한 자세한 내용은 [저장소 풀 및 디스크 저장소 구성](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12))을 참조 하세요.
+   > Azure에 백업 하려면 스크래치 위치가 필요 합니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호의 경우 설치가 완료 된 후 별도의 디스크를 구성 해야 합니다. 저장소 풀에 대 한 자세한 내용은 [저장소 풀 및 디스크 저장소 구성](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12))을 참조 하세요.
 
    ![설치 설정 Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -393,4 +393,3 @@ Azure Backup Server를 사용 하 여 Azure VMware 솔루션에서 실행 되는
 
 > [!div class="nextstepaction"]
 > [Azure VMware 솔루션 Vm의 백업 구성](backup-avs-vms-with-mabs.md)
-

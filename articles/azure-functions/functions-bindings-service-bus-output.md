@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 559198c4ecbbc86cc82ce8b286d9608170e161c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079726"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 출력 바인딩
 
@@ -292,7 +292,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
 Azure Functions 1.x에서 큐가 존재하지 않고 `accessRights`를 `manage`로 설정한 경우 런타임은 큐를 만듭니다. 함수 버전 2.x 이상에서는 큐 또는 항목이 이미 존재 해야 합니다. 존재 하지 않는 큐 또는 토픽을 지정 하면 함수가 실패 합니다. 
 
@@ -311,7 +311,7 @@ C # 함수를 사용 하는 경우:
 
 * 비동기 함수에는 매개 변수 대신 반환 값이 필요 `IAsyncCollector` `out` 합니다.
 
-* 세션 ID에 액세스 하려면 형식에 바인딩하고 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) 속성을 사용 합니다 `sessionId` .
+* 세션 ID에 액세스 하려면 형식에 바인딩하고 [`Message`](/dotnet/api/microsoft.azure.servicebus.message) 속성을 사용 합니다 `sessionId` .
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -328,7 +328,7 @@ C # 함수를 사용 하는 경우:
 
 * 비동기 함수에는 매개 변수 대신 반환 값이 필요 `IAsyncCollector` `out` 합니다.
 
-* 세션 ID에 액세스 하려면 형식에 바인딩하고 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) 속성을 사용 합니다 `sessionId` .
+* 세션 ID에 액세스 하려면 형식에 바인딩하고 [`Message`](/dotnet/api/microsoft.azure.servicebus.message) 속성을 사용 합니다 `sessionId` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -336,20 +336,20 @@ C # 함수를 사용 하는 경우:
 
 # <a name="python"></a>[Python](#tab/python)
 
-기본 제공 출력 바인딩이 아닌 [AZURE SERVICE BUS SDK](https://docs.microsoft.com/azure/service-bus-messaging) 를 사용 합니다.
+기본 제공 출력 바인딩이 아닌 [AZURE SERVICE BUS SDK](../service-bus-messaging/index.yml) 를 사용 합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-기본 제공 출력 바인딩이 아닌 [AZURE SERVICE BUS SDK](https://docs.microsoft.com/azure/service-bus-messaging) 를 사용 합니다.
+기본 제공 출력 바인딩이 아닌 [AZURE SERVICE BUS SDK](../service-bus-messaging/index.yml) 를 사용 합니다.
 
 ---
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참고 |
+| 바인딩 | 참조 |
 |---|---|
-| Service Bus | [Service Bus 오류 코드](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| Service Bus | [Service Bus 한도](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Service Bus | [Service Bus 오류 코드](../service-bus-messaging/service-bus-messaging-exceptions.md) |
+| Service Bus | [Service Bus 한도](../service-bus-messaging/service-bus-quotas.md) |
 
 <a name="host-json"></a>  
 
@@ -388,7 +388,7 @@ C # 함수를 사용 하는 경우:
 |---------|---------|---------|
 |prefetchCount|0|메시지 수신자가 동시에 요청할 수 있는 메시지 수를 가져오거나 설정 합니다.|
 |maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
-|autoComplete|true|트리거가 처리 후 자동으로 완료를 호출 해야 하는지, 아니면 함수 코드가 수동으로 complete를 호출 하는지 여부입니다.<br><br>을로 설정 하 `false` 는 것은 c # 에서만 지원 됩니다.<br><br>로 설정 `true` 된 경우 함수 실행이 성공적으로 완료 되 면 트리거가 자동으로 메시지를 완료 하 고, 그렇지 않으면 메시지를 무시 합니다.<br><br>로 설정 하면 `false` [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) 메서드를 호출 하 여 메시지를 완료 하거나 중단 하거나 배달 못한 편지를 배달 해야 합니다. 예외를 throw 하 고 메서드를 호출 하지 않은 경우에 `MessageReceiver` 는 잠금이 유지 됩니다. 잠금이 만료 되 면 메시지는 증가 된로 다시 큐에 대기 되며 `DeliveryCount` 잠금이 자동으로 갱신 됩니다.<br><br>비 C # 함수에서 함수의 예외는 백그라운드에서 런타임 호출을 발생 합니다 `abandonAsync` . 예외가 발생 하지 않으면 `completeAsync` 가 백그라운드에서 호출 됩니다. |
+|autoComplete|true|트리거가 처리 후 자동으로 완료를 호출 해야 하는지, 아니면 함수 코드가 수동으로 complete를 호출 하는지 여부입니다.<br><br>을로 설정 하 `false` 는 것은 c # 에서만 지원 됩니다.<br><br>로 설정 `true` 된 경우 함수 실행이 성공적으로 완료 되 면 트리거가 자동으로 메시지를 완료 하 고, 그렇지 않으면 메시지를 무시 합니다.<br><br>로 설정 하면 `false` [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) 메서드를 호출 하 여 메시지를 완료 하거나 중단 하거나 배달 못한 편지를 배달 해야 합니다. 예외를 throw 하 고 메서드를 호출 하지 않은 경우에 `MessageReceiver` 는 잠금이 유지 됩니다. 잠금이 만료 되 면 메시지는 증가 된로 다시 큐에 대기 되며 `DeliveryCount` 잠금이 자동으로 갱신 됩니다.<br><br>비 C # 함수에서 함수의 예외는 백그라운드에서 런타임 호출을 발생 합니다 `abandonAsync` . 예외가 발생 하지 않으면 `completeAsync` 가 백그라운드에서 호출 됩니다. |
 |maxConcurrentCalls|16|메시지 펌프가 확장 인스턴스당 시작 해야 하는 콜백에 대 한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다.|
 |maxConcurrentSessions|2000|크기 조정 된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
 

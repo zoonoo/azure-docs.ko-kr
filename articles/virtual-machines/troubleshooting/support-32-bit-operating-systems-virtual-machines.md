@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 91e5ca10e97e8fc1646367ac6d575d6813f3a291
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856951"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079862"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Azure 가상 머신에서 32비트 운영 체제 지원
 
@@ -34,8 +34,8 @@ Azure virtual machines에서 지원 되는 운영 체제에 대 한 자세한 �
 ## <a name="references"></a>참조
 
 * [Azure에서 Windows Server 2008/r 2의 무료 확장 된 보안 업데이트에 대 한 자세한 정보](https://www.microsoft.com/cloud-platform/windows-server-2008)
-* [Azure의 Windows Server 2008 SP2 32 비트 전문 이미지 지원에 대 한 자세한 정보](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
-* [Azure Site Recovery를 사용 하 여 Windows Server 2008 이미지를 Azure로 마이그레이션하기 위한 지원에 대 한 자세한 정보](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
+* [Azure의 Windows Server 2008 SP2 32 비트 전문 이미지 지원에 대 한 자세한 정보](/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
+* [Azure Site Recovery를 사용 하 여 Windows Server 2008 이미지를 Azure로 마이그레이션하기 위한 지원에 대 한 자세한 정보](../../site-recovery/migrate-tutorial-windows-server-2008.md)
 * [Azure 확장 지원 운영 체제에 대 한 자세한 정보](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
 * [Microsoft Azure에서 Windows Server 2003 실행에 대해 자세히 알아보세요.](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
 

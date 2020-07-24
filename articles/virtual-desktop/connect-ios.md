@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6fa3a120788bf6b196409491584e068609b65e60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af6063c93997d1faf6453cfe7e184bd4cc2427da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209057"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080644"
 ---
-# <a name="connect-with-the-ios-client"></a>iOS 클라이언트와 연결
+# <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>IOS 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결
 
 > 적용 대상: iOS 13.0 이상. IPhone, iPad 및 iPod touch와 호환 됩니다.
 

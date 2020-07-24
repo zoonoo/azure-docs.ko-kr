@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80863b56334b0d2d76cdf505dcd15c5cc4c14c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081103"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>공용 클라우드와 Azure 연결
 
@@ -33,7 +34,7 @@ Express 경로를 통해 연결 하는 방법에는 세 가지가 있습니다.
  
 3 공급자를 통해 연결 하는 경우 Microsoft는 BGP를 통해 고객 VNET 경로를 서비스 공급자에 게 알립니다. 공급자에는 두 가지 구현이 있을 수 있습니다.
 
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
+![3 공급자를 보여 주는 다이어그램입니다.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
 모든 클라우드 공급자의 트래픽이 고객 라우터를 통해 전달 되는 경우 공급자는 별도의 VRF에 각 클라우드 공급자를 연결할 수 있습니다. 고객이 서비스 공급자를 사용 하 여 BGP를 실행 하는 경우 이러한 경로는 기본적으로 다른 클라우드 공급자에 게 다시 보급 됩니다. 
 
@@ -44,7 +45,7 @@ Express 경로를 통해 연결 하는 방법에는 세 가지가 있습니다.
 ### <a name="layer2-provider-and-direct-connection"></a>Layer2 공급자 및 직접 연결
 
 두 모델의 실제 연결은 다르지만 3 BGP는 MSEE와 customer 라우터 사이에서 직접 설정 됩니다. Express 경로 직접 고객이 MSEE에 직접 연결 합니다. Layer2의 경우 서비스 공급자는 VLAN을 고객 프레미스에서 클라우드로 확장 합니다. 고객은 layer2 네트워크를 기반으로 BGP를 실행 하 여 Dc를 클라우드에 연결 합니다.
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
+![Layer2 공급자 및 직접 연결을 보여 주는 다이어그램입니다.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
 두 경우 모두, 고객은 각 공용 클라우드에 대 한 지점 및 지점 간 연결을 갖습니다. 고객은 각 공용 클라우드에 대 한 별도의 BGP 연결을 설정 합니다. 클라우드 공급자 하나에서 받은 경로는 기본적으로 다른 클라우드 공급자에 게 알려집니다. 각 클라우드 공급자는 서로 다른 접두사 제한을 사용 하므로 경로를 보급 하는 동안 고객은 이러한 제한을 처리 해야 합니다. 고객은 다른 공용 클라우드에서 경로를 보급 하는 동안 Microsoft에서 일반적인 BGP 노브를 사용할 수 있습니다.
 
 ## <a name="direct-connection-with-expressroute"></a>Express 경로를 사용 하 여 직접 연결

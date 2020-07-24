@@ -3,11 +3,12 @@ title: Logic Apps를 사용 하 여 Azure 애플리케이션 Insights 프로세�
 description: 논리 앱에 Application Insights 커넥터를 추가하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a199023ef37fbda27be59fdf70f6ca5d8481bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79473169"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079624"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Logic Apps를 사용하여 Application Insights 프로세스 자동화
 
@@ -18,7 +19,7 @@ ms.locfileid: "79473169"
 
 이 통합 덕분에 코드를 전혀 작성하지 않고도 수많은 프로세스를 자동화할 수 있습니다. Application Insights 커넥터로 논리 앱을 만들어 Application Insights 프로세스를 신속하게 자동화할 수 있습니다. 
 
-작업을 더 추가할 수도 있습니다. Azure App Service의 Logic Apps를 사용하면 수백 개의 작업을 수행할 수 있습니다. 예를 들어 논리 앱을 사용하여 메일 알림을 자동으로 보내거나 Azure DevOps에서 버그를 만들 수 있습니다. 여러 사용 가능한 [템플릿](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) 중 하나를 사용하여 더 신속하게 논리 앱을 만들 수도 있습니다. 
+작업을 더 추가할 수도 있습니다. Azure App Service의 Logic Apps를 사용하면 수백 개의 작업을 수행할 수 있습니다. 예를 들어 논리 앱을 사용하여 메일 알림을 자동으로 보내거나 Azure DevOps에서 버그를 만들 수 있습니다. 여러 사용 가능한 [템플릿](../../logic-apps/logic-apps-create-logic-apps-from-templates.md) 중 하나를 사용하여 더 신속하게 논리 앱을 만들 수도 있습니다. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Application Insights에 대한 논리 앱 만들기
 
@@ -98,7 +99,7 @@ ms.locfileid: "79473169"
 
    b. 이메일의 제목을 입력합니다.
 
-   다. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
+   c. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
     
    d. **새 매개 변수 추가** 드롭다운을 클릭 하 고 첨부 파일 및 HTML을 선택 합니다.
 
@@ -112,7 +113,7 @@ ms.locfileid: "79473169"
 
     b. **첨부 파일 콘텐츠**를 선택합니다.
     
-    다. **HTML임** 상자에서 **예**를 선택합니다.
+    c. **HTML임** 상자에서 **예**를 선택합니다.
 
       ![Office 365 메일 구성 화면](./media/automate-with-logic-apps/12emailattachment.png)
 
@@ -130,13 +131,8 @@ ms.locfileid: "79473169"
 ## <a name="next-steps"></a>다음 단계
 
 - [Analytics 쿼리](../../azure-monitor/log-query/get-started-queries.md) 만들기에 대해 자세히 알아봅니다.
-- [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)에 대해 자세히 알아봅니다.
+- [Logic Apps](../../logic-apps/logic-apps-overview.md)에 대해 자세히 알아봅니다.
 
 
 
 <!--Link references-->
-
-
-
-
-

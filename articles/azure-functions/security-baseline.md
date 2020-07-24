@@ -7,32 +7,32 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 040eeda3edc8aa1165915a157cb7e1bdd1594740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8e6797d1dbbe4260f7a5b701ada887f68a88a7c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079675"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azure Functions에 대 한 Azure 보안 기준
 
 Azure Functions에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [보안 제어: 네트워크 보안](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)을 참조하세요.*
+*자세한 내용은 [보안 제어: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Virtual Network에서 네트워크 보안 그룹 또는 Azure Firewall을 사용하여 리소스 보호
 
 **지침**: Azure virtual network와 Azure Functions apps 통합 프리미엄 계획에서 실행 되는 함수 앱은 "VNet 통합" 기능을 포함 하는 Azure App Service의 웹 앱과 동일한 호스팅 기능을 제공 합니다.  Azure virtual network를 사용 하면 Azure Functions와 같은 많은 Azure 리소스를 인터넷에서 라우팅할 수 없는 네트워크에 저장할 수 있습니다.
 
-- [Azure Virtual Network와 기능을 통합 하는 방법](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet)
+- [Azure Virtual Network와 기능을 통합 하는 방법](./functions-create-vnet.md)
 
-- [Azure Functions 및 Azure App Service에 대 한 Vnet 통합 이해](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+- [Azure Functions 및 Azure App Service에 대 한 Vnet 통합 이해](../app-service/web-sites-integrate-with-vnet.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -44,11 +44,11 @@ Azure Functions에 대 한 Azure 보안 기준에는 배포의 보안 상태를 
 
 Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 경우 NSGS 흐름 로그를 사용 하도록 설정 하 고 로그를 트래픽 감사에 대 한 Azure Storage 계정으로 보냅니다. 또한 NSG 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
 
-- [Azure Security Center에서 제공 하는 네트워크 보안 이해](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
-- [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [트래픽 분석을 사용하도록 설정하고 사용하는 방법](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [트래픽 분석을 사용하도록 설정하고 사용하는 방법](../network-watcher/traffic-analytics.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -65,9 +65,9 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 들어오는 트래픽의 추가 검사를 위해 네트워킹 구성의 일부로 WAF (웹 응용 프로그램 방화벽)를 배포 하는 것이 좋습니다. WAF에 대해 진단 설정을 사용 하도록 설정 하 고 로그를 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역에 수집 합니다. 
 
-- [프로덕션 환경에서 Azure 함수 끝점을 보호 하는 방법](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [프로덕션 환경에서 Azure 함수 끝점을 보호 하는 방법](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [Azure WAF를 배포 하는 방법](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+- [Azure WAF를 배포 하는 방법](../web-application-firewall/ag/create-waf-policy-ag.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -78,25 +78,25 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 **지침**: DDoS 공격 으로부터 보호 하기 위해 함수 앱과 연결 된 가상 네트워크에서 DDoS Protection Standard를 사용 하도록 설정 합니다. Azure Security Center에 통합된 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 공용 IP 주소와의 통신을 거부합니다.
 또한 들어오는 모든 요청을 인증 하 고 악성 트래픽을 필터링 하기 위해 Azure 웹 응용 프로그램 방화벽과 같은 프런트 엔드 게이트웨이를 구성 합니다. Azure 웹 응용 프로그램 방화벽은 인바운드 웹 트래픽을 검사 하 여 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 DDoS 공격을 차단 하 여 Azure 함수 앱의 보안을 유지할 수 있습니다. WAF를 도입 하려면 개인 끝점 (미리 보기)을 App Service Environment 또는 사용 해야 합니다. 프로덕션 워크 로드와 함께 사용 하기 전에 개인 끝점이 더 이상 (미리 보기)에 있지 않은지 확인 합니다.
 
-- [Azure Functions 네트워킹 옵션](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
 
-- [App Service Environment 소개](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [App Service Environment 소개](../app-service/environment/intro.md)
 
-- [App Service Environment에 대한 네트워킹 고려 사항](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [App Service Environment에 대한 네트워킹 고려 사항](../app-service/environment/network-info.md)
 
-- [DDoS 보호를 구성 하는 방법](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
 
-- [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Azure Security Center 통합 위협 인텔리전스 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
 
-- [적응 네트워크 강화 Azure Security Center 이해](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
-- [Azure Security Center Just-in-time 네트워크 Access Control 이해](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Azure Security Center Just-in-time 네트워크 Access Control 이해](../security-center/security-center-just-in-time.md)
 
-- [Azure Functions에 대 한 전용 끝점 사용](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Azure Functions에 대 한 전용 끝점 사용](../app-service/networking/private-endpoint.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -106,11 +106,11 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 **지침**: Azure Functions 구현에 Nsgs (네트워크 보안 그룹)를 사용 하는 경우 네트워크 보안 그룹 흐름 로그를 사용 하도록 설정 하 고 트래픽 감사를 위해 저장소 계정에 로그를 보냅니다. 또한 Log Analytics 작업 영역에 흐름 로그를 보내고 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 인사이트를 제공할 수도 있습니다. 트래픽 분석의 장점으로 네트워크 활동의 시각화 핫 스폿 식별, 보안 위협 식별, 트래픽 흐름 패턴 이해, 네트워크 구성 오류 파악 등의 기능이 있습니다.
 
-- [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [트래픽 분석을 사용하도록 설정하고 사용하는 방법](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [트래픽 분석을 사용하도록 설정하고 사용하는 방법](../network-watcher/traffic-analytics.md)
 
-- [Network Watcher를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Network Watcher를 사용하도록 설정하는 방법](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -122,19 +122,19 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 또는 IDS/IPS 기능을 포함 하는 Azure Marketplace에서 사용할 수 있는 Azure 용 Barracuda WAF와 같은 여러 marketplace 옵션이 있습니다.
 
-- [Azure Functions 네트워킹 옵션](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
 
-- [App Service Environment 소개](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [App Service Environment 소개](../app-service/environment/intro.md)
 
-- [App Service Environment에 대한 네트워킹 고려 사항](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [App Service Environment에 대한 네트워킹 고려 사항](../app-service/environment/network-info.md)
 
-- [Azure 웹 응용 프로그램 방화벽 이해](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+- [Azure 웹 응용 프로그램 방화벽 이해](../web-application-firewall/index.yml)
 
-- [Azure Functions에 대 한 전용 끝점 사용](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Azure Functions에 대 한 전용 끝점 사용](../app-service/networking/private-endpoint.md)
 
-- [Barracuda WAF 클라우드 서비스 이해](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Barracuda WAF 클라우드 서비스 이해](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -144,19 +144,19 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 **지침**: 종단 간 TLS 암호화를 사용 하 여 Azure 웹 응용 프로그램 방화벽과 같은 네트워크에 대 한 프런트 엔드 게이트웨이를 구성 합니다. WAF를 도입 하려면 개인 끝점 (미리 보기)을 App Service Environment 또는 사용 해야 합니다. 프로덕션 워크 로드와 함께 사용 하기 전에 개인 끝점이 더 이상 (미리 보기)에 있지 않은지 확인 합니다.
 
-- [Azure Functions 네트워킹 옵션](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
 
-- [App Service Environment 소개](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [App Service Environment 소개](../app-service/environment/intro.md)
 
-- [App Service Environment에 대한 네트워킹 고려 사항](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [App Service Environment에 대한 네트워킹 고려 사항](../app-service/environment/network-info.md)
 
-- [Azure 웹 응용 프로그램 방화벽 이해](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+- [Azure 웹 응용 프로그램 방화벽 이해](../web-application-firewall/index.yml)
 
-- [포털에서 Application Gateway를 사용 하 여 종단 간 TLS를 구성 하는 방법](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal)
+- [포털에서 Application Gateway를 사용 하 여 종단 간 TLS를 구성 하는 방법](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Azure Functions에 대 한 전용 끝점 사용](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Azure Functions에 대 한 전용 끝점 사용](../app-service/networking/private-endpoint.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -166,7 +166,7 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 **지침**: Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: AzureAppService)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
 
-- [서비스 태그를 사용 하는 방법에 대 한 자세한 내용](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [서비스 태그를 사용 하는 방법에 대 한 자세한 내용](../virtual-network/service-tags-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -181,9 +181,9 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 또한 Azure Blueprints에서 주요 환경 아티팩트(예: Azure Resource Manager 템플릿, RBAC(역할 기반 액세스 제어) 및 정책)를 단일 청사진 정의로 패키지하여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어와 관리를 세부적으로 조정할 수 있습니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -197,7 +197,7 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소스에 대한 작업을 조회하거나 수행할 수 있습니다.
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -207,9 +207,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Functions 배포와 관련 된 네트워크 설정 및 리소스에 대 한 변경 내용을 검색 합니다. 중요 한 네트워크 설정 또는 리소스에 대 한 변경이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다. 
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -217,7 +217,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [보안 제어: 로깅 및 모니터링](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring)을 참조하세요.*
+*자세한 내용은 [보안 제어: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
@@ -237,13 +237,13 @@ Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅�
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
-- [Azure 애플리케이션 Insights를 사용 하 여 Azure Functions를 설정 하는 방법](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [Azure 애플리케이션 Insights를 사용 하 여 Azure Functions를 설정 하는 방법](./functions-monitoring.md)
 
-- [Azure Functions에 대 한 진단 설정 (사용자 생성 로그)을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Azure Functions에 대 한 진단 설정 (사용자 생성 로그)을 사용 하도록 설정 하는 방법](./functions-monitor-log-analytics.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -255,9 +255,9 @@ Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅�
 
 Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅을 사용 하는 경우 진단 설정 "FunctionAppLogs"을 사용 하도록 설정 하 고 로그를 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 보냅니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
-- [Azure Functions에 대 한 진단 설정 (사용자 생성 로그)을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Azure Functions에 대 한 진단 설정 (사용자 생성 로그)을 사용 하도록 설정 하는 방법](./functions-monitor-log-analytics.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -275,7 +275,7 @@ Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅�
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure Functions 앱과 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -291,13 +291,13 @@ Azure 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅�
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
-- [Azure Functions에 대 한 진단 설정을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Azure Functions에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./functions-monitor-log-analytics.md)
 
-- [Azure 애플리케이션 Insights를 사용 하 여 Azure Functions를 설정 하 고 원격 분석 데이터를 보는 방법](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [Azure 애플리케이션 Insights를 사용 하 여 Azure Functions를 설정 하 고 원격 분석 데이터를 보는 방법](./functions-monitoring.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -311,15 +311,15 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
-- [Azure Functions에 대 한 진단 설정을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Azure Functions에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./functions-monitor-log-analytics.md)
 
-- [Azure Functions에 대해 Application Insights를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#enable-application-insights-integration)
+- [Azure Functions에 대해 Application Insights를 사용 하도록 설정 하는 방법](./functions-monitoring.md#enable-application-insights-integration)
 
-- [Azure 내에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Azure 내에서 경고를 만드는 방법](../azure-monitor/learn/tutorial-response.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -351,15 +351,15 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [보안 제어: ID 및 액세스 제어](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 제어: ID 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
 **지침**: AD (Azure Active Directory)에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다. 
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -373,11 +373,11 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 함수 앱에 사용할 수 있는 여러 배포 방법이 있으며, 그 중 일부는 생성 된 자격 증명 집합을 활용할 수 있습니다. 응용 프로그램에 사용 되는 배포 방법을 검토 합니다.
 
-- [HTTP 끝점 보안](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [HTTP 끝점 보안](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [권한 부여 키를 획득 하 고 다시 생성 하는 방법](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#obtaining-keys)
+- [권한 부여 키를 획득 하 고 다시 생성 하는 방법](./functions-bindings-http-webhook-trigger.md?tabs=csharp#obtaining-keys)
 
-- [Azure Functions의 배포 기술](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies)
+- [Azure Functions의 배포 기술](./functions-deployment-technologies.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -389,9 +389,9 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 또한 전용 관리 계정을 추적 하는 데 도움이 되도록 다음과 같은 Azure Security Center 또는 기본 제공 Azure 정책의 권장 사항을 사용할 수 있습니다. 구독에 할당 된 소유자가 둘 이상 있어야 합니다. 소유자 권한이 있는 계정을 구독에서 제거 해야 합니다. 소유자 권한이 있는 외부 계정은 구독에서 제거 해야 합니다.
 
-- [Azure Security Center를 사용하여 ID 및 액세스를 모니터링하는 방법(미리 보기)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Azure Security Center를 사용하여 ID 및 액세스를 모니터링하는 방법(미리 보기)](../security-center/security-center-identity-access.md)
 
-- [Azure Policy를 사용하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 사용하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -401,9 +401,9 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 **지침**: 가능한 경우 함수 앱에 대 한 데이터 액세스를 위해 개별 독립 실행형 자격 증명을 구성 하는 대신 Azure Active Directory SSO를 사용 합니다. Azure Security Center Id 및 액세스 관리 권장 사항을 사용 합니다. App Service 인증/권한 부여 기능을 사용 하 여 Azure Functions 앱에 대 한 Single Sign-On를 구현 합니다.
 
-- [Azure Functions의 인증 및 권한 부여 이해](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Azure Functions의 인증 및 권한 부여 이해](../app-service/overview-authentication-authorization.md#identity-providers)
 
-- [Azure AD를 사용 하 여 SSO 이해](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Azure AD를 사용 하 여 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -413,9 +413,9 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 **지침**: Azure AD(Active Directory) MFA(Multi-Factor Authentication)를 사용하도록 설정하고, Azure Security Center ID 및 액세스 관리 추천 사항을 따릅니다.
 
-- [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -425,9 +425,9 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 **지침**: Azure 리소스에 로그인하여 구성하도록 구성된 MFA(Multi-Factor Authentication)를 통해 PAW(Privileged Access Workstation)를 사용합니다.
 
-- [Privileged Access Workstation에 대한 자세한 정보](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -439,9 +439,9 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 또한 Azure AD 위험 탐지를 사용하여 위험한 사용자 동작에 대한 경고 및 보고서를 봅니다.
 
-- [PIM(Privileged Identity Management)을 배포하는 방법](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure AD 위험 탐지 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -451,7 +451,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 **지침**: 조건부 액세스 명명된 위치를 사용하여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹화에서만 Azure Portal에 액세스할 수 있도록 허용합니다.
 
-- [Azure에서 명명된 위치를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Azure에서 명명된 위치를 구성하는 방법](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -461,9 +461,9 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 **지침**: Azure Functions 앱에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [Azure AD 로그인을 사용 하도록 Azure Functions 앱을 구성 하는 방법](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Azure AD 로그인을 사용 하도록 Azure Functions 앱을 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
-- [AAD 인스턴스를 만들고 구성하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [AAD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -473,9 +473,9 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 **지침**: AD (Azure Active Directory)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다. 
 
-- [Azure AD 보고 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
-- [Azure ID 액세스 검토를 사용하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -489,11 +489,11 @@ Azure AD 로그인 활동, 감사 및 위험 이벤트 로그 원본에 액세�
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 내에서 원하는 로그 경고를 구성할 수 있습니다.
 
-- [Azure AD 로그인을 사용 하도록 Azure Functions 앱을 구성 하는 방법](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Azure AD 로그인을 사용 하도록 Azure Functions 앱을 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -503,11 +503,11 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure Functions 앱에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. 제어 평면 (Azure Portal)의 계정 로그인 동작 편차에 대해 AD (Azure Active Directory) Id 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -517,7 +517,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 현재 사용할 수 없음 고객 Lockbox은 현재 Azure Functions에 대해 지원 되지 않습니다.
 
-- [Customer Lockbox 지원 서비스 목록](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Customer Lockbox 지원 서비스 목록](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -525,13 +525,13 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 제어: 데이터 보호](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -543,19 +543,19 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 또한 개인 끝점을 사용 하 여 네트워크 격리를 수행할 수 있습니다. Azure 개인 끝점은 Azure 개인 링크로 구동 되는 서비스 (예: Azure Functions app HTTPs 끝점)에 안전 하 게 연결 되는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 프라이빗 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 전용 끝점은 프리미엄 계획에서 실행 되는 함수 앱에 대 한 (미리 보기)입니다. 프로덕션 워크 로드와 함께 사용 하기 전에 개인 끝점이 더 이상 (미리 보기)에 있지 않은지 확인 합니다.
 
-- [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure Functions 네트워킹 옵션](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
 
-- [개인 끝점 이해](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- [개인 끝점 이해](../private-link/private-endpoint-overview.md)
 
-- [Azure Functions에 대 한 전용 끝점 사용](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Azure Functions에 대 한 전용 끝점 사용](../app-service/networking/private-endpoint.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -567,7 +567,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고객 데이터의 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-- [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -587,7 +587,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요한 것으로 간주하고, 고객 데이터 손실 및 노출을 방지하기 위해 모든 노력을 다하고 있습니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
-- [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -597,7 +597,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: AD (AZURE ACTIVE DIRECTORY) RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 함수 제어 평면 (Azure Portal)에 대 한 액세스를 제어 합니다. 
 
-- [Azure에서 RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -609,7 +609,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고객 데이터의 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-- [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -619,9 +619,9 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 **지침**: 함수 앱을 만들 때 Blob, 큐 및 테이블 저장소를 지 원하는 범용 Azure Storage 계정을 만들거나 연결 해야 합니다. 이는 Functions가 트리거 관리 및 함수 실행 기록 등의 작업에 Azure Storage를 사용하기 때문입니다. Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대 한 추가 제어를 위해 blob 및 파일 데이터의 암호화를 위해 고객이 관리 하는 키를 제공할 수 있습니다. 이러한 키는 함수 앱이 저장소 계정에 액세스할 수 있도록 Azure Key Vault에 있어야 합니다.
 
-- [Azure Functions에 대 한 저장소 고려 사항 이해](https://docs.microsoft.com/azure/azure-functions/storage-considerations)
+- [Azure Functions에 대 한 저장소 고려 사항 이해](./storage-considerations.md)
 
-- [휴지 상태의 데이터에 대 한 Azure storage 암호화 이해](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [휴지 상태의 데이터에 대 한 Azure storage 암호화 이해](../storage/common/storage-service-encryption.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -631,7 +631,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 **지침**: azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 Azure 함수 앱 뿐만 아니라 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -639,7 +639,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [보안 제어: 취약성 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
@@ -647,9 +647,9 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 또한 Azure 함수 앱을 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 따릅니다.
 
-- [CI/CD 파이프라인에 지속적인 보안 유효성 검사를 추가 하는 방법](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
+- [CI/CD 파이프라인에 지속적인 보안 유효성 검사를 추가 하는 방법](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/security-center-vulnerability-assessment-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -683,7 +683,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 **지침**: Microsoft는 Azure Functions을 지 원하는 기본 시스템에서 취약성 관리를 수행 하지만 Azure Security Center 내에서 권장 사항의 심각도와 보안 점수를 사용 하 여 사용자 환경 내에서 위험을 측정할 수 있습니다. 보안 점수는 완화 된 Security Center 권장 사항의 수를 기준으로 합니다. 권장 사항에 우선 순위를 지정 하려면 각각의 심각도를 고려 합니다.
 
-- [보안 권장 사항 참조 가이드](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [보안 권장 사항 참조 가이드](../security-center/recommendations-reference.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -691,7 +691,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Azure 자산 검색 사용
 
@@ -699,11 +699,11 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 클래식 Azure 리소스는 Resource Graph를 통해 검색할 수 있지만 앞으로 Azure Resource Manager 리소스를 만들어 사용하는 것이 좋습니다.
 
-- [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Azure RBAC 이해](../role-based-access-control/overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -713,7 +713,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -725,11 +725,11 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 또한 Azure policy를 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다. 허용 되지 않는 리소스 유형 리소스 유형
 
-- [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -749,9 +749,9 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색합니다.  환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다. 
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -785,9 +785,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Azure Policy을 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다. 허용 되지 않는 리소스 유형 리소스 유형
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -805,7 +805,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: "Microsoft Azure 관리" 앱에 대한 "액세스 차단"을 구성하여 사용자가 Azure Resource Manager와 상호 작용하는 기능을 제한하도록 Azure 조건부 액세스를 구성합니다.
 
-- [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -825,19 +825,19 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 높은 위험 수준의 Azure 함수 앱을 자체 Virtual Network (VNet)에 배포 합니다. Azure Functions의 경계 보안은 Vnet를 통해 달성 됩니다. App Service Environment (ASE)에서 실행 되는 함수는 Vnet와 통합 될 수 있습니다. 사용 사례에 가장 적합 한 아키텍처를 선택 합니다.
 
-- [Azure Functions 네트워킹 옵션](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
 
-- [App Service Environment에 대한 네트워킹 고려 사항](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [App Service Environment에 대한 네트워킹 고려 사항](../app-service/environment/network-info.md)
 
-- [외부 ASE를 만드는 방법](https://docs.microsoft.com/azure/app-service/environment/create-external-ase)
+- [외부 ASE를 만드는 방법](../app-service/environment/create-external-ase.md)
 
 내부 ASE를 만드는 방법:
 
-- [https://docs.microsoft.com/azure/app-service/environment/create-ilb-as](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [https://docs.microsoft.com/azure/app-service/environment/create-ilb-as](../virtual-network/quick-create-portal.md)
 
-- [보안 구성을 사용 하 여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [보안 구성을 사용 하 여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -845,7 +845,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [보안 제어: 보안 구성](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration)을 참조하세요.*
+*자세한 내용은 [보안 제어: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -854,9 +854,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 - 함수 앱에 대해 원격 디버깅을 해제해야 합니다.
 - 함수 앱에 HTTPS를 통해서만 액세스 가능
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -874,9 +874,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: azure 정책 [거부] 및 [배포 되지 않은 경우 배포]를 사용 하 여 azure 리소스에서 보안 설정을 적용 합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy 효과 이해](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -886,7 +886,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 해당 사항 없음 온-프레미스 함수를 배포할 수 있지만이 지침은 IaaS 계산 리소스를 위한 것입니다. 온-프레미스 함수를 배포할 때 사용자 환경의 보안을 구성할 책임이 있습니다.
 
-- [온-프레미스 함수 이해](https://docs.microsoft.com/azure/azure-functions/functions-runtime-install)
+- [온-프레미스 함수 이해](./functions-runtime-install.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -896,13 +896,13 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 소스 제어에서 ARM 템플릿 및 사용자 지정 Azure 정책 정의를 안전 하 게 저장 하 고 관리 합니다.
 
-- [코드로 서의 인프라 란?](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
+- [IaC(Infrastructure as Code) 정의](/azure/devops/learn/what-is-infrastructure-as-code)
 
-- [코드 워크플로로 정책 디자인](https://docs.microsoft.com/azure/governance/policy/concepts/policy-as-code)
+- [코드 워크플로로 정책 디자인](../governance/policy/concepts/policy-as-code.md)
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -920,7 +920,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 기본 제공 Azure Policy Azure Policy 정의 및 "Microsoft 웹" 네임 스페이스의 별칭을 사용 하 여 시스템 구성을 경고, 감사 및 적용 하기 위한 사용자 지정 정책을 만들 수 있습니다. 또한 정책 예외를 관리하는 프로세스와 파이프라인을 개발합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -938,7 +938,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 기본 제공 Azure Policy Azure Policy 정의 및 "Microsoft 웹" 네임 스페이스의 별칭을 사용 하 여 시스템 구성을 경고, 감사 및 적용 하기 위한 사용자 지정 정책을 만들 수 있습니다. Azure 정책을 사용 하 여 azure 리소스에 대 한 구성을 자동으로 적용 하려면 [감사], [거부] 및 [없는 경우 배포]를 사용 합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -956,13 +956,13 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 관리 되는 id를 Azure Key Vault와 함께 사용 하 여 클라우드 응용 프로그램에 대 한 비밀 관리를 간소화 하 고 보호 합니다. 관리 Id를 사용 하면 함수 앱이 코드에서 자격 증명 없이 Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다.
 
-- [Key Vault를 만드는 방법](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
-- [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](../app-service/overview-managed-identity.md)
 
-- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](../key-vault/general/managed-identity.md)
 
-- [App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)
+- [App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.](../app-service/app-service-key-vault-references.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -972,7 +972,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 관리 되는 id를 사용 하 여 azure AD에서 자동으로 관리 되는 Id를 azure 함수 앱에 제공 합니다. 관리 ID를 사용하면 코드에 자격 증명 없이 Key Vault를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다.
 
-- [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](../app-service/overview-managed-identity.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -990,7 +990,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [보안 제어: 맬웨어 방어](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
+*자세한 내용은 [보안 제어: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조하세요.*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙 관리 맬웨어 방지 소프트웨어 사용
 
@@ -1023,7 +1023,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [보안 제어: 데이터 복구](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
 
@@ -1031,13 +1031,13 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure storage 기능을 활용 하 여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장 합니다. 또한 Azure DevOps 팀은 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하는 절차를 따릅니다.
 
-- [Azure에서 앱 백업](https://docs.microsoft.com/azure/app-service/manage-backup)
+- [Azure에서 앱 백업](../app-service/manage-backup.md)
 
-- [Azure DevOps의 데이터 가용성 이해](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
+- [Azure DevOps의 데이터 가용성 이해](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1049,15 +1049,15 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure storage 기능을 활용 하 여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장 합니다. 또한 Azure DevOps 팀은 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하는 절차를 따릅니다.
 
-- [Azure에서 앱 백업](https://docs.microsoft.com/azure/app-service/manage-backup)
+- [Azure에서 앱 백업](../app-service/manage-backup.md)
 
-- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Azure DevOps의 데이터 가용성 이해](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
+- [Azure DevOps의 데이터 가용성 이해](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1067,11 +1067,11 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: 백업 및 복원 기능에서 정기적으로 복원을 수행할 수 있는지 확인 합니다. 다른 오프 라인 위치를 사용 하 여 코드를 백업 하는 경우 정기적으로 전체 복원을 수행할 수 있는지 확인 합니다. 백업 된 고객 관리 키의 복원을 테스트 합니다.
 
-- [백업에서 Azure의 앱 복원](https://docs.microsoft.com/azure/app-service/web-sites-restore)
+- [백업에서 Azure의 앱 복원](../app-service/web-sites-restore.md)
 
-- [스냅샷에서 Azure의 앱 복원](https://docs.microsoft.com/azure/app-service/app-service-web-restore-snapshots)
+- [스냅샷에서 Azure의 앱 복원](../app-service/app-service-web-restore-snapshots.md)
 
-- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1083,9 +1083,9 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 고객 관리 키를 사용 하는 경우 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 하기 위해 Key Vault에서 일시 삭제를 사용 하도록 설정 해야 합니다.
 
-- [Azure Storage 미사용 데이터 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Azure Storage 미사용 데이터 암호화](../storage/common/storage-service-encryption.md)
 
-- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1093,13 +1093,13 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [보안 제어: 인시던트 대응](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)을 참조하세요.*
+*자세한 내용은 [보안 제어: 인시던트 대응](../security/benchmarks/security-control-incident-response.md)을 참조하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
 **지침**: 조직에 대한 인시던트 대응 지침을 작성합니다. 검색에서 사후 검토에 이르는 인시던트 처리/관리 단계뿐만 아니라 담당자의 모든 역할을 정의하는 인시던트 대응 계획이 있는지 확인합니다.
 
-- [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](../security-center/security-center-planning-and-operations-guide.md)
 
 - [자체 보안 인시던트 대응 프로세스를 구축하는 방법에 대한 지침](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1135,7 +1135,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 고객 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다.  문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-- [Azure Security Center 보안 연락처를 설정하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1145,9 +1145,9 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: 연속 내보내기 기능을 사용하여 Azure Security Center 경고 및 추천 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다.
 
-- [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md)
 
-- [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1157,7 +1157,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: Azure Security Center의 Workflow Automation 기능을 사용 하 여 Logic Apps으로 보안 경고 및 권장 사항에 대 한 응답을 자동으로 트리거합니다.
 
-- [워크플로 자동화 및 Logic Apps를 구성하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [워크플로 자동화 및 Logic Apps를 구성하는 방법](../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1165,7 +1165,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조하세요.*
+*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
@@ -1181,5 +1181,5 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](https://docs.microsoft.com/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

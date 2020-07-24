@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536254"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078187"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>실행 상태 모니터링, 트리거 기록 검토 및 Azure Logic Apps에 대한 경고 설정
 
@@ -86,7 +86,7 @@ ms.locfileid: "86536254"
      이제 해당 단계에 대 한 입력 및 출력과 같은 정보를 볼 수 있습니다. 예를 들면 다음과 같습니다.
 
    > [!NOTE]
-   > 모든 런타임 세부 정보 및 이벤트는 Logic Apps 서비스 내에서 암호화됩니다. 사용자가 해당 데이터를 보기 위해 요청하는 경우에만 해독됩니다. [AZURE RBAC (역할 기반 Access Control)](../role-based-access-control/overview.md)를 사용 하 여 [실행 기록에서 입력 및 출력을 숨기 거](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) 나이 정보에 대 한 사용자 액세스를 제어할 수 있습니다.
+   > 모든 런타임 세부 정보 및 이벤트는 Logic Apps 서비스 내에서 암호화됩니다. 사용자가 해당 데이터를 보기 위해 요청하는 경우에만 해독됩니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용 하 여 [실행 기록에서 입력 및 출력을 숨기 거](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) 나이 정보에 대 한 사용자 액세스를 제어할 수 있습니다.
 
 <a name="review-trigger-history"></a>
 

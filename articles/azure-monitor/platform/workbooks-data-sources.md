@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081426"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 통합 문서 데이터 원본
 
@@ -61,7 +61,7 @@ Azure 리소스는 통합 문서를 통해 액세스할 수 있는 [메트릭을
 
 ## <a name="azure-data-explorer"></a>Azure Data Explorer
 
-이제 통합 문서에서 강력한 [Kusto](https://docs.microsoft.com/azure/kusto/query/index) 쿼리 언어를 사용 하 여 [Azure 데이터 탐색기](https://docs.microsoft.com/azure/data-explorer/) 클러스터에서 쿼리를 지원 합니다.   
+이제 통합 문서에서 강력한 [Kusto](/azure/kusto/query/index) 쿼리 언어를 사용 하 여 [Azure 데이터 탐색기](/azure/data-explorer/) 클러스터에서 쿼리를 지원 합니다.   
 
 ![Kusto 쿼리 창의 스크린샷](./media/workbooks-overview/data-explorer.png)
 
@@ -90,7 +90,7 @@ JSON 공급자를 사용 하면 정적 JSON 콘텐츠에서 쿼리 결과를 만
 > [!NOTE]
 > Azure 경고 정보를 쿼리 하는 제안 된 방법은 테이블을 쿼리하여 [Azure 리소스 그래프](#azure-resource-graph) 데이터 원본을 사용 하는 것입니다 `AlertsManagementResources` .
 >
-> 예제는 [Azure 리소스 그래프 테이블 참조](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)또는 [경고 템플릿](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) 을 참조 하세요.
+> 예제는 [Azure 리소스 그래프 테이블 참조](../../governance/resource-graph/reference/supported-tables-resources.md)또는 [경고 템플릿](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) 을 참조 하세요.
 >
 > 만든이가 ARG를 사용 하도록 전환 하는 동안 경고 데이터 원본은 일정 시간 동안 계속 사용할 수 있습니다. 템플릿에서이 데이터 원본을 사용 하지 않는 것이 좋습니다. 
 
@@ -113,5 +113,5 @@ JSON 공급자를 사용 하면 정적 JSON 콘텐츠에서 쿼리 결과를 만
 
 * 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
 * 통합 문서 리소스에 대 한 액세스를 [제어](workbooks-access-control.md) 하 고 공유 합니다.
-* [Log Analytics 쿼리 최적화 팁](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* [Log Analytics 쿼리 최적화 팁](../log-query/query-optimization.md)
 * 
